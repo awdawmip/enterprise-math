@@ -56,14 +56,17 @@
     "original_exact_read_request": "onhour11-20261111-1608-exact-cont",
     "original_exact_read_status": "SUCCEEDED",
     "new_exact_read_request": "onhour11-20261111-1701-cont",
-    "new_exact_read_status_as_read": "QUEUED",
+    "new_exact_read_status_as_read": "SUCCEEDED",
     "recovery_error": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
     "researcher_historical_id": "EM-ENTERPRISE-CF1028",
     "researcher_session_historical_id": "MCP-7af27f545c01441eaf19206f89c6832b",
     "active_private_session_capability_verified": false,
     "winning_claim_id": null,
     "open_run_id": null,
-    "source_native_checkpoint_this_turn": false
+    "source_native_checkpoint_this_turn": false,
+    "new_exact_read_source_sha": "6e3e515c75ad467b96057b7cfddddc1c2cd59bdf",
+    "new_exact_read_execution_authorized": false,
+    "new_exact_read_acknowledgment": "Exact Source read succeeded; no winning Research lane CLAIM, own private session capability or native checkpoint acquired"
   },
   "immutable_native_frontier": {
     "original_benchmark": "H0/B0 same-original-class divided-power [X]U mod139129 for p=373",
@@ -82,7 +85,7 @@
     "native_benchmark_executed": false
   },
   "next_exact_action": [
-    "Reconcile onhour11-20261111-1701-cont by the same request ID; consume exact Source continuation and only then determine legal current own claim/open/dispatch.",
+    "Consume SUCCEEDED receipt onhour11-20261111-1701-cont; at the next turn read current recovery/Source and obtain lawful own session/claim/open only if authorized, never borrow maintenance lane or predecessor.",
     "Once own lawful Researcher execution ability and current Source CAS permit, perform native original H0/B0 benchmark; do not substitute this scalar certificate.",
     "On portable mathematical branch, seek an independent identity between S0-p*C0 and (-A+Q_p*J+chi_6 D_m/9), or an exact frozen-scope counterexample."
   ],
