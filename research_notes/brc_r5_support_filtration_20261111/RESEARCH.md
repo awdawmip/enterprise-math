@@ -1,99 +1,151 @@
-# R5: exact support filtration, source-3 five-mask census and connectivity threshold
+# R5: exact source-3 support filtration and optimal branch-support bridge
 
-Date: 2026-11-11 (Asia/Shanghai). Author-side result: Researcher-ID `EM-DIRECT-2CB28A / TASK_RESEARCH`; Research-Activity-ID `RA-8A53F787F030D7F32FF5EAA5`.
-Source session registration: `a34388855bee7ed2873033f15b679aa69874caea`; no formal R5 CLAIM, Result or independent review.
-Scientific lineage is unchanged from R5 PR #2063: global `a01383f825ef9d43b4b754254303298c64041568`, Enterprise Math `86149263e38c22292c9def1e0f69092efa1be77e`.
-Foundational witness: R5 PR #2017. Prerequisite four-mask exact theorem: PR #2063, commit `9001105df972b214e8a52571aa4b175fc34cfcca`. The original `VERIFY_FOUR_MASKS.py` from that commit is reproduced verbatim here as `r5_prior_four.py`; its original blob SHA is `c316620c817b1abff6658b7f2d673f146141b28b`.
+Date: 2026-11-11 (Asia/Shanghai). Researcher-ID: EM-DIRECT-2CB28A / TASK_RESEARCH. Research-Activity-ID: RA-8A53F787F030D7F32FF5EAA5.
 
-## Definitions and exact domain
+Source registration: enterprise-math main at a34388855bee7ed2873033f15b679aa69874caea. Formal R5 CLAIM, Source Result and independent review: pending. The R5 frozen scientific inputs remain unchanged from PR #2063: global a01383f825ef9d43b4b754254303298c64041568; Enterprise Math 86149263e38c22292c9def1e0f69092efa1be77e. Earlier witness: R5 PR #2017. Immediate proof dependency: R5 PR #2063, commit 9001105df972b214e8a52571aa4b175fc34cfcca. Its original exact verifier was copied verbatim as r5_prior_four.py (identical Git blob c316620c817b1abff6658b7f2d673f146141b28b).
 
-Work in the **one frozen auxiliary seven-ratio P/Q–BRC Blackwell observer fiber**, with integer ratios
-[
+## The fixed mathematical object
+
+This theorem concerns the one frozen **auxiliary seven-ratio P/Q–BRC Blackwell observation fiber**. The integer ratio vector is
+
+\[
 R=(2,10,15,20,25,30,38).
-]
-There are 30 labeled arcs: 28 dynamic arcs ((i,j)), (i=0,ldots,6), (jin{1,2,3,5}), and two fixed positive singleton arcs ((0,0),(6,6)). Let (E^0) be the positive exact rational witness from R5 PR #2017, reproduced by `r5_prior_four.py`. Define
-[
-F={Einmathbb R_{geq0}^{30}: CE=CE^0},
-]
-where (C) records seven target marginal masses, seven source marginal masses, and seven source first moments. Its rank is 15; the two singleton arcs are fixed. Equivalently dynamic masses (xinmathbb R_{ge0}^{28}) satisfy (Ax=b) with (Ainmathbb Z^{15	imes28}), (mathrm{rank}A=13). All marginal and first-moment right-hand sides are frozen at (E^0).
+\]
 
-For (Ksubseteq{0,ldots,6}), define the face
-[
-F_K={Ein F:E_{i,3}=0quad(i
-otin K)}.
-]
-Let (S_m={Ein F:|{i:E_{i,3}>0}|leq m}). Here support means **positive labeled branch mass**, retaining full source-target provenance. (F_K) is the zero-set face of a nonnegative linear functional. A mask is called *strictly realized* when a point of (F_K) is positive on every arc allowed by (K).
+Thirty labeled nonnegative transmission arcs consist of 28 dynamic arcs \((i,j)\), with \(i=0,\ldots,6\) and \(j\in\{1,2,3,5\}\), and the two fixed strictly positive singleton arcs \((0,0)\) and \((6,6)\). Let \(E^0\) be the exact positive rational reference transfer whose full 30 entries are embedded in r5_prior_four.py. Let \(C\) be the 21-row observation operator recording seven target marginals, seven source marginals and seven source first moments.
 
-## Theorem: exact filtration of source-3 branch support
+\[
+F=\{E\in\mathbb{R}^{30}_{\ge0}:CE=CE^0\}, \qquad \operatorname{rank} C=15,\quad \dim F=15.
+\]
 
-For the above fixed rational fiber, all realized (m)-target support masks, their exposed-face dimensions, and the number of connected components of the **support-at-most-(m) locus** are:
+After fixing the two singleton masses, the 28 dynamic variables satisfy \(Ax=b\), with \(A\in\mathbb{Z}^{15\times28}\) and \(\operatorname{rank} A=13\). The exact right-hand side comes from the same \(E^0\) throughout.
 
-| m | Number of strictly realized masks of size m | Dimension of each corresponding face | Number of components of S_m |
-|---|---:|---:|---:|
-| 1,2,3 | 0 | — | empty |
+For any target mask \(K\subseteq\{0,\ldots,6\}\), define the exposed face
+
+\[
+F_K=\{E\in F:E_{i,3}=0\text{ for all }i\notin K\}.
+\]
+
+A mask is *strictly realizable* if some \(E\in F_K\) has every arc allowed by \(K\) strictly positive. Let
+
+\[
+S_m=\{E\in F:|\{i:E_{i,3}>0\}|\le m\}.
+\]
+
+The property counted is positive **source-3 labeled target support**, not total nonzero transmission support. All other labeled arcs and their joint provenance remain part of the model.
+
+## Main theorem — complete support filtration for this fixed fiber
+
+For \(m=1,\ldots,7\), the exact strict mask census, corresponding exposed-face dimension and number of connected components of \(S_m\) are:
+
+| Source-3 support size m | Strict masks of size m | Affine dimension of each strict face | Components of S_m |
+| --- | ---: | ---: | ---: |
+| 1, 2 or 3 | 0 | none | empty |
 | 4 | 3 | 12 | 3 |
 | 5 | 9 | 13 | 3 |
 | 6 | 6 | 14 | 1 |
 | 7 | 1 | 15 | 1 |
 
-The three four-target masks are exactly ({1,3,4,6}), ({2,3,4,5}), ({2,3,4,6}), as certified by PR #2063. **All nine** strictly realizable five-target masks, sorted, are
+The three realizable four-masks, exactly those from PR #2063, are
 
-[
-egin{aligned}
-&01346,;02345,;02346,;02356,;12345,\
-&12346,;12356,;13456,;23456.
-end{aligned}
-]
+\[
+J_A=\{1,3,4,6\}, \quad J_B=\{2,3,4,5\}, \quad J_C=\{2,3,4,6\}.
+\]
 
-The other twelve five-target masks are exactly
-[
-01234,;01235,;01236,;01245,;01246,;01256,;01345,;01356,;01456,;02456,;03456,;12456.
-]
-Each has an explicit exact rational Farkas separator (yinmathbb Q^{15}), satisfying (y^	op a_kge0) for every column allowed by the mask but (y^	op b<0). All vectors are specified in `VERIFY_SUPPORT_FILTRATION.py` and checked against *every* allowed column.
+All **nine** strictly realizable five-masks are:
 
-Exactly six six-target masks are strictly realizable: all size-six subsets **containing target 3**. The remaining mask (012456) has a rational Farkas certificate inherited from the excluded five-mask (12456). The extra target-0 column has strictly positive dual pairing (18/35), so adding it does not invalidate the separation.
+| Mask | Contains a feasible four-mask? |
+| --- | --- |
+| 01346 | yes |
+| 02345 | yes |
+| 02346 | yes |
+| 02356 | **no** |
+| 12345 | yes |
+| 12346 | yes |
+| 12356 | **no** |
+| 13456 | yes |
+| 23456 | yes |
 
-For (S_5), the nine five-face components have sizes **7,1,1** in the five-face incidence graph. The two singleton components are exactly (F_{02356}) and (F_{12356}), both 13-dimensional. Every member of the other seven five-faces contains an existing feasible four-target subface. No (S_5)-continuous path connects either exceptional five-face to the other seven or to the other exceptional face.
+The twelve excluded five-masks, each with an exact rational Farkas certificate, are:
 
-For (S_6), all six 14-dimensional six-faces are connected through nonempty intersections equal to feasible five-faces. Their union contains every point of (S_6), and (S_6) is connected.
+01234, 01235, 01236, 01245, 01246, 01256, 01345, 01356, 01456, 02456, 03456, 12456.
 
-**Optimal support peak between four-support components.** Any continuous path in (F) from one of the three disjoint four-face components to another has a point with at least five positive source-3 branches. This bound is attained **for each pair**: the path via the four-support witnesses on (A={1,3,4,6}), (C={2,3,4,6}), and (B={2,3,4,5}), interpolating (A	o C	o B), has at most five positive branches throughout. In particular, a direct (A	o B) convex interpolation would use six, while the two-segment route reduces the peak to five.
+Of the seven six-masks, precisely the six containing target 3 are strictly realizable. The seventh, 012456, is excluded by a rational Farkas certificate.
 
-## Exact proof and certificate strategy
+**Connectivity.** The nine five-faces split into exactly three connected components of \(S_5\): one union of seven faces and two isolated **13-dimensional** faces \(F_{02356}\), \(F_{12356}\). These two faces each have no four-support subface. The six six-faces form a connected 14-dimensional face complex, and \(S_6\) is connected.
 
-1. **Carry forward the complete lower layer.** Run the byte-identical prerequisite file `r5_prior_four.py`. Its standard-library `Fraction` checker proves no 1-,2-,3-support masks are feasible; exactly the three four-support masks above admit strictly positive rational full transfers with 27 positive arcs; four locally feasible alternatives have exact dual exclusions. The rank of the full dynamic constraints is 13.
+**Sharp minimax bridge.** For any two different components of the four-support locus \(S_4\), the minimum possible maximum number of positive source-3 arcs along a continuous path in \(F\) is **exactly five**. To attain it, interpolate along the rational full-transmission witnesses \(J_A\to J_C\to J_B\). Both \(J_A\cup J_C\) and \(J_C\cup J_B\) have five targets. A direct \(J_A\to J_B\) segment has six-target support, so inserting \(J_C\) genuinely lowers the peak.
 
-2. **Nine strictly positive five-support primal certificates.** Seven feasible five-masks contain at least one of the three four-masks. For each such four-mask the prerequisite provides a full-rank set of 13 pivot columns and an exact rational interior point of its 12-dimensional face. Add the unique fifth source-3 target with a sufficiently small positive rational mass and correct the same 13 pivot columns by exact Gauss–Jordan elimination. The original pivot masses remain strictly positive by continuity, and the checker finds an explicit dyadic rational step by finite search and verifies all 15 original dynamic equations exactly. For the two exceptional masks, which contain no feasible four-mask, the checker supplies entirely new rational points with nonpivot mass (t=1/1000) and pivot sets:
-[
-egin{array}{c|l}
-02356 & (1,16,17,19,0,8,25,27,20,4,11,14,2)\
-12356 & (16,1,17,0,19,8,27,25,4,20,15,11,2).
-end{array}
-]
-The column indices use the 28 dynamic arcs ordered by source (1,2,3,5), then target (0,dots,6). Exact solving yields all 26 permitted dynamic arc masses positive. The restricted observer rank remains 13 (equivalently the original 21×28 full observer rank 15 after adding fixed singleton arcs), so all nine five-faces have dimension (26-13=13).
+## Proof with exact finite certificates
 
-3. **Twelve exact dual exclusions.** The checker contains 12 explicit 15-component rational vectors `DUALS`. It enumerates all 21 five-masks, proves nonnegativity of each dual against every allowed dynamic arc, and confirms strict negative pairing with the **frozen** right-hand side. Consequently precisely nine are feasible, with no floating-point feasibility inference.
+### 1. The inherited four-mask classification
 
-4. **Six-support completeness.** For each size-six mask containing 3, select a previously verified feasible five-mask within it, add the sixth source-3 edge using that five-face's full-rank 13-pivot basis, and check all 27 permitted dynamic coordinates positive. Thus each of these 14-dimensional exposed faces exists. The sole other six-mask (012456) is excluded by the five-mask (12456)'s exact vector; the newly enabled source-3 target-0 column pairs to (18/35>0). All seven size-six masks are thereby classified.
+The exact predecessor checker, reproduced as r5_prior_four.py, verifies that no one-, two-, or three-support mask satisfies the source-3 mass/capacity/first-moment constraints. Of the 35 four-masks, exactly seven satisfy the local moment test; the original full-fiber checker constructs strictly positive rational transfers for \(J_A,J_B,J_C\) and exact Farkas separators for the remaining four candidates. Each successful four-face has 25 positive dynamic arcs plus two fixed singletons, i.e. 27 positive original arcs, and rank 13 in the dynamic constraints, hence dimension 25−13=12.
 
-5. **Component count by exact face intersections.** Nonnegative support constraints give (F_Kcap F_L=F_{Kcap L}). In the five-face incidence graph, two distinct size-five faces meet only if their intersection is a valid ≤4 support mask; for the three four-masks this gives one component of seven faces, and the remaining exceptional faces have no such lower mask, hence are isolated. Each five-face is compact convex and nonempty. A connected component of the finite union of such compact faces is exactly a graph component because distinct graph components are disjoint compact subsets with positive separation. In the six-face graph, any two size-six masks intersect on a size-five mask; those intersections are nonempty exactly when the corresponding five-mask is feasible. The exact graph has one connected component, and every five-face is included in a six-face, so (S_6) is connected.
+### 2. Exact primal certificates for all nine five-masks
 
-6. **Minimax support bridge.** The earlier theorem establishes the lower bound (5) because (S_4) has three disconnected components. The explicit positive rational four-face witnesses of (A,C,B) establish the upper bound: convex interpolation preserves (CE=CE^0), and both unions (Acup C), (Ccup B) have size five. This proves the sharp minimax value.
+Seven five-masks contain a successful four-mask. Fix its strictly positive rational witness and 13-column pivot basis of full rank. Add the unique fifth source-3 target with small positive rational mass \(t\) and adjust the same 13 pivot-column masses so that all 15 rational equalities \(Ax=b\) are preserved. Because the unperturbed pivot masses are strictly positive, a small enough positive \(t\) preserves strict positivity. VERIFY_SUPPORT_FILTRATION.py takes the rational sequence \(t=1/10000,1/20000,\ldots\), solves the overdetermined system by exact Fraction Gauss–Jordan elimination, and checks positivity and every original equality.
 
-All claims concern the fixed auxiliary P/Q–BRC observation fiber. The full 30-branch representation and the unobserved source-target correlation directions are retained; in particular the (S_5) component structure is not inferred from marginal-only reductions. The result supplies a branch-support transition certificate; it makes no statement about native six-axis rotation dynamics or physical time evolution.
+The remaining two five-masks, 02356 and 12356, do not contain any feasible four-mask. They are nevertheless **strictly realizable**, shown by the following explicit construction. Use all 26 allowed dynamic columns, place \(1/1000\) on each of 13 nonpivot columns, and solve \(Ax=b\) on these respective 13 pivot columns (indices follow dynamic source order 1,2,3,5 and target order 0,…,6):
 
-## Verification and provenance
+| Mask | Thirteen pivot-column indices |
+| --- | --- |
+| 02356 | (1,16,17,19,0,8,25,27,20,4,11,14,2) |
+| 12356 | (16,1,17,0,19,8,27,25,4,20,15,11,2) |
 
-Run under Python 3 standard library:
-```
-python3 VERIFY_SUPPORT_FILTRATION.py
-```
-in the same folder as the reproduced preceding verifier `r5_prior_four.py`. The expected final marker is
-`PASS_EXACT_R5_SUPPORT_FILTRATION_4_TO_7_AND_NINE_FIVE_MASKS`.
-The program checks the four-mask inherited proof, each rational primal, exact (Ax=b), strict positivity and ranks, 12 dual inequalities, the excluded six-mask, face incidence and support-peak construction. The research derivation and corresponding checker logic were executed locally with exact `Fraction` arithmetic. The prior remote verifier is byte-identical to the earlier checked version; the new remote script was content-readback verified at publication. The new remote script's execution in its remote file form is a reproducibility task and is not separately claimed as completed.
+The exact program verifies all 26 allowed coordinates are strictly positive and every one of the 15 equalities holds as rational equality. In all nine cases the 15×26 restricted system has rank 13, so the nonempty exposed face has dimension 26−13=13.
 
-Status: author-side theorem and exact finite verification, formal Source scientific Result and independent review pending. No shared R5 task owner was claimed.
+### 3. Exact Farkas separators for all twelve excluded five-masks
 
-## Next concrete research questions
+VERIFY_SUPPORT_FILTRATION.py contains the **complete explicit 15-component rational vectors** for the twelve masks listed above. For each excluded mask \(K\), it checks separately:
 
-Compute the minimum (K_{2,3})-six-edge circuit word length of an actual **five-support** bridge direction between the faces (A,C,B), using the 15-dimensional repair coordinates from PR #2021; check whether a one- or two-atom step can realize the optimum peak with nonnegative intermediate transfers. Separately classify adjacency inside the 11-dimensional smallest common face of the 49 four-residual extreme edges from PR #2059 and determine which non-sharp extreme edges connect its nine tree components. For the exceptional 13-dimensional faces (F_{02356}) and (F_{12356}), compute explicit first admissible 14D incidences and their exact circuit decomposition.
+\[
+\forall k\in\operatorname{allowed}(K),\quad y_K^{\mathsf T}a_k\ge0;
+\qquad y_K^{\mathsf T}b<0.
+\]
+
+If there were a nonnegative solution \(x\) supported on allowed columns, then \(y_K^{\mathsf T}Ax\ge0\) but \(y_K^{\mathsf T}b<0\), a contradiction. These twelve infeasibility results and the nine explicit positive transfers cover all \(\binom75=21\) size-five masks.
+
+### 4. Exact classification of the six-masks
+
+For each size-six mask containing target 3, choose one of the nine strictly feasible five-masks that it contains. The previous step supplies a strictly positive rational transfer and a 13-column full-rank pivot basis. Enable the sixth source-3 target with sufficiently small positive rational mass and correct the pivot coordinates, exactly as above. This yields 27 strictly positive dynamic masses and a 14-dimensional exposed face (27−13=14).
+
+The only remaining six-mask is 012456 (which omits target 3). Apply the Farkas vector of the excluded five-mask 12456. The extra allowed target 0 has dual column pairing
+
+\[
+\frac45-\frac5{14}+\frac2{28}=\frac{18}{35}>0.
+\]
+
+Hence the same vector still pairs nonnegatively with all allowed columns but negatively with \(b\). Thus 012456 is infeasible, completing all \(\binom76=7\) cases.
+
+### 5. Connectivity of the support filtration
+
+For any masks \(K,L\),
+
+\[
+F_K\cap F_L=F_{K\cap L}.
+\]
+
+Each nonempty \(F_K\) is compact and convex. The union of all realized faces at support threshold \(m\) is exactly \(S_m\): every transfer of smaller support belongs to at least one realized \(m\)-face.
+
+Two distinct size-five faces intersect only if their (at most four-target) intersection mask is feasible, so the known exact three four-masks determine the complete five-face intersection graph. It has three components with cardinalities **7,1,1**. Because disjoint finite unions of compact faces are separated, the graph components equal the connected components of \(S_5\).
+
+Two distinct size-six faces intersect on a five-target mask. Exact five-mask feasibility determines the six-face intersection graph, which is connected. Every realized five-face lies inside one of the six six-faces. This proves \(S_6\) is connected. \(S_7=F\) is convex.
+
+For the minimax claim, lower bound five follows from the three distinct connected components of \(S_4\); upper bound five follows from convex interpolation between the verified rational four-mask witnesses along \(J_A\to J_C\to J_B\), since the two unions have cardinality five. Both endpoints and every intermediate point satisfy the original full 30-arc observation equations.
+
+## Verification and research status
+
+All scientific equalities, positivity inequalities, rank tests, Farkas certificates and finite mask enumerations use exact rational arithmetic. The new local derivation/checker logic was actually run with Python Fraction (the local predecessor helper used an equivalent SymPy exact linear solve). Its actual output is preserved in EXACT_OUTPUT.txt. The GitHub-hosted new verifier includes the verbatim original prior checker and uses **Python standard library Fraction only**; its immutable bytes have been read back, but independent execution of those exact remote bytes is left for replication. Reproduction command from this folder:
+
+    python3 VERIFY_SUPPORT_FILTRATION.py
+
+Expected final line: PASS_EXACT_R5_SUPPORT_FILTRATION_4_TO_7_AND_NINE_FIVE_MASKS.
+
+This is a model-internal exact mathematical result about the auxiliary Blackwell transmission observation fiber; no native X6 physical dynamics is inferred. GitHub persistence is author-side evidence and is not a formal scientific Result, independent review or Foundation admission.
+
+## Next executable research units
+
+1. Construct the exact signed six-edge K_{2,3} residual-atom decomposition and minimum circuit word-length for an explicit optimal five-support path \(J_A\to J_C\to J_B\). Preserve every labeled source-target mass and nonnegativity at all interpolation stages.
+2. Determine which non-four-residual adjacent extreme edges connect the nine tree components inside the previously established 11-dimensional common face of 49 sharp edges.
+3. Classify first feasible 14-dimensional incidences and residual directions from the two exceptional five-faces 02356 and 12356; independently re-execute the hosted exact verifier as part of review.
