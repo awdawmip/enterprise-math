@@ -1,0 +1,73 @@
+{
+  "schema": "PREFIX700_R6_STRICT_ALL_REAL_Q_OPTIMIZER_ORDER_V1",
+  "date": "2026-11-11",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "observer": "two independently Poissonized signed first-stop streams; N=189",
+  "surviving_cells": 9529,
+  "witness": "(0,1/8)",
+  "corner_exact_sign_checks": [
+    {
+      "corner": "zero_zero",
+      "strict_sign_check": "PASS",
+      "decimal_1e6_ticks": {
+        "delta_mu": [
+          48811611,
+          48811612
+        ],
+        "delta_W": [
+          557257209,
+          557257210
+        ],
+        "q2_margin_over_q": [
+          1065702807,
+          1065702808
+        ]
+      }
+    },
+    {
+      "corner": "zero_half",
+      "strict_sign_check": "PASS",
+      "decimal_1e6_ticks": {
+        "delta_mu": [
+          -111509701,
+          -111509700
+        ],
+        "delta_W": [
+          386820427,
+          386820428
+        ],
+        "q2_margin_over_q": [
+          885150554,
+          885150555
+        ]
+      }
+    },
+    {
+      "corner": "half_half",
+      "strict_sign_check": "PASS",
+      "decimal_1e6_ticks": {
+        "delta_mu": [
+          -119288768,
+          -119288767
+        ],
+        "delta_W": [
+          439711044,
+          439711045
+        ],
+        "q2_margin_over_q": [
+          998710855,
+          998710856
+        ]
+      }
+    }
+  ],
+  "endpoint": "q=2",
+  "extension": "all real q>=2",
+  "strict_optimal_pair_order": "For 2<=q1<q2, every global optimizer pair has strictly increasing mu and W.",
+  "analytic_dependencies": [
+    "PREFIX625 Theorem A",
+    "PREFIX625 Theorem B"
+  ],
+  "verification": "ALL_CHECKS_PASS PREFIX700-R6",
+  "admission": "AUTHOR_RECOMPUTED; UNREVIEWED; NOT_ADMITTED"
+}
