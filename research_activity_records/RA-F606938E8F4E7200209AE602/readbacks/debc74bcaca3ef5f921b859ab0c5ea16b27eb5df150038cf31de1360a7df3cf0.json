@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_exact_frontier_crossover_20261112_r83/refined_verification.json",
+    "ref": "feb0c59dcc7fb7cca33a06c9c2c09642d88b764a",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r83-refinement-observation-refined_verification-json-feb0c59dcc7f",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_R83_REFINED_NO_SINGLE_GLOBAL_CONVEX_CERTIFICATE_V1\",\n  \"date\": \"2026-11-12\",\n  \"status\": \"LOCAL_EXECUTION_PASSED\",\n  \"derivation\": \"q=g+2; residues {0} union {3,...,q-1}; source times q for r=0 and q+r otherwise; epsilon=1/(1000q^2); target [theta,2theta)\",\n  \"claim\": \"Each group R71-excluded on all real theta in I; single global convex phase envelope includes target at anchor\",\n  \"cases\": [\n    {\n      \"g\": 32,\n      \"scenario\": \"EARLY_WINNER\",\n      \"heap_median_ns\": 29228,\n      \"avl_median_ns\": 29739\n    },\n    {\n      \"g\": 32,\n      \"scenario\": \"ALL_EXCLUDED\",\n      \"heap_median_ns\": 527746,\n      \"avl_median_ns\": 614525\n    },\n    {\n      \"g\": 128,\n      \"scenario\": \"EARLY_WINNER\",\n      \"heap_median_ns\": 36068,\n      \"avl_median_ns\": 30920\n    },\n    {\n      \"g\": 128,\n      \"scenario\": \"ALL_EXCLUDED\",\n      \"heap_median_ns\": 2135627,\n      \"avl_median_ns\": 2481485\n    },\n    {\n      \"g\": 512,\n      \"scenario\": \"EARLY_WINNER\",\n      \"heap_median_ns\": 68781,\n      \"avl_median_ns\": 32893\n    },\n    {\n      \"g\": 512,\n      \"scenario\": \"ALL_EXCLUDED\",\n      \"heap_median_ns\": 8567108,\n      \"avl_median_ns\": 10570885\n    }\n  ],\n  \"repetitions\": \"16 for 32 and 128 groups, 8 for 512\",\n  \"scopes\": [\n    \"winner-frontier isolated; group certificate work identical\",\n    \"not a full R82 three-index benchmark\",\n    \"no information-theoretic impossibility of stronger global certificates\"\n  ]\n}\n",
+      "display_title": "refined_verification.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/feb0c59dcc7fb7cca33a06c9c2c09642d88b764a/research_notes/brc_s23_av_exact_frontier_crossover_20261112_r83/refined_verification.json",
+      "encoding": "utf-8",
+      "sha": "e42c27350b25780835fdd1849b0e38a2d136b109"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
