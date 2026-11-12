@@ -267,6 +267,30 @@ def _checked_source(source: Any, activity_id: str, root: Path,
         if source != base:
             raise ActivityError("unverified source fields drift")
         return "VERIFY_EM_PUBLICATION"
+    if "verification_receipt" not in source and "verification_receipt_sha256" not in source:
+        # Older records stored a connector-verification summary but not the
+        # full observation sidecar. Preserve it as historical reporting, never
+        # reinterpret it as a current verified observation or invent a receipt.
+        if set(source) != {"repository", "commit", "path", "sha256", "publication_state", "verification"}:
+            raise ActivityError("invalid legacy source summary")
+        verification = source.get("verification")
+        required = {"kind", "tool_name", "git_blob_sha1", "immutable_url", "server_signature_authenticated"}
+        optional = {"observation_id", "call_id", "network_request_by_this_tool"}
+        if (source.get("publication_state") != "EM_SOURCE_OBSERVED"
+                or not isinstance(verification, dict) or not required <= verification.keys()
+                or verification.keys() - required - optional
+                or (verification["kind"], verification["tool_name"]) not in {
+                    ("OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED", "github_fetch_file"),
+                    ("OBSERVED_MCP_GITHUB_API_STRUCTURE_AND_BYTES_VERIFIED", "em_mcp_github_contents")}
+                or verification["server_signature_authenticated"] is not False
+                or verification.get("network_request_by_this_tool", False) is not False
+                or verification["immutable_url"] != f"https://github.com/{base['repository']}/blob/{base['commit']}/{base['path']}"):
+            raise ActivityError("invalid legacy source summary")
+        _hex(verification["git_blob_sha1"], 40, "legacy git blob")
+        for name in ("observation_id", "call_id"):
+            if verification.get(name) is not None:
+                _text(verification[name], name)
+        return "LEGACY_EM_SOURCE_REPORTED"
     receipt = _relative(source.get("verification_receipt"))
     receipt_sha = _hex(source.get("verification_receipt_sha256"), 64, "receipt sha256")
     expected = f"{STORE}/{activity_id}/readbacks/{receipt_sha}.json"
@@ -299,13 +323,26 @@ def _events(record: Mapping[str, Any], root: Path) -> dict[str, dict[str, Any]]:
             raise ActivityError("checkpoint sources must be lists")
         states = [_checked_source(x, record["activity_id"], root, readbacks) for x in row["em_sources"]]
         status = "SYNC_DEBT" if not states else ("EM_REPRESENTED" if all(s == "EM_SOURCE_OBSERVED" for s in states) else "VERIFY_EM_PUBLICATION")
-        if row.get("state") != status:
+        legacy_report = (row.get("state") == "EM_REPRESENTED"
+                         and "LEGACY_EM_SOURCE_REPORTED" in states
+                         and all(state in {"LEGACY_EM_SOURCE_REPORTED", "EM_SOURCE_OBSERVED"} for state in states))
+        if row.get("state") != status and not legacy_report:
             raise ActivityError("checkpoint state must be derived from actual source evidence")
         repair = row.get("repairs_event_id")
         if repair is not None and (repair not in events or status != "EM_REPRESENTED"):
             raise ActivityError("repair must reference an earlier event and provide verified EM source")
         events[event_id] = row
     return events
+
+
+def _legacy_events(events: Mapping[str, Mapping[str, Any]]) -> set[str]:
+    """Locate historical summaries, without upgrading their observation status."""
+    return {event_id for event_id, event in events.items()
+            if event.get("state") == "EM_REPRESENTED" and any(
+                source.get("publication_state") == "EM_SOURCE_OBSERVED"
+                and "verification_receipt" not in source
+                and "verification_receipt_sha256" not in source
+                for source in event.get("em_sources", []) if isinstance(source, dict))}
 
 
 def checkpoint(activity_id: str, *, event_id: str, expected_sha256: str,
@@ -394,11 +431,17 @@ def guard(*, activity_id: str | None = None, boundary: str = "startup",
         raise ActivityError("activity belongs to a different or unknown original session")
     events = _events(record, root)
     repaired = {x["repairs_event_id"] for x in events.values() if x["repairs_event_id"] is not None}
-    debts = [x for x in events.values() if x["state"] != "EM_REPRESENTED" and x["event_id"] not in repaired]
+    legacy = _legacy_events(events)
+    debts = [x for x in events.values()
+             if (x["state"] != "EM_REPRESENTED" or x["event_id"] in legacy)
+             and x["event_id"] not in repaired]
     result.update(mode=record["mode"], record_path=f"{STORE}/{activity_id}.json",
                   record_sha256=digest(record_data),
                   source_links=[f"https://github.com/{s['repository']}/blob/{s['commit']}/{s['path']}" for e in events.values() for s in e["em_sources"]],
-                  sync_debt_events=[x["event_id"] for x in debts], required_action="CONTINUE_ACTIVITY")
+                  sync_debt_events=[x["event_id"] for x in debts],
+                  historical_summary_events=sorted(legacy),
+                  legacy_observation_debt_events=sorted(legacy - repaired),
+                  required_action="CONTINUE_ACTIVITY")
     if registration_source is None:
         result["required_action"] = "PUBLISH_ACTIVITY_RECORD_WITH_CAS_AND_VERIFY_IMMUTABLE_EM_READBACK"
         return result
@@ -416,7 +459,9 @@ def guard(*, activity_id: str | None = None, boundary: str = "startup",
     if record["session_state"] == "UNKNOWN":
         result["activity_allowed"] = False
         result["required_action"] = "RETROSPECTIVE_TRACKING_ONLY_REGISTER_CURRENT_LIVE_SESSION_TO_RESEARCH"
-    if debts:
+    if legacy - repaired:
+        result["required_action"] = "REOBSERVE_LEGACY_EM_SOURCES_AND_APPEND_CURRENT_REPAIR"
+    elif debts:
         result["required_action"] = "PERSIST_EM_CHECKPOINT" if any(x["state"] == "SYNC_DEBT" for x in debts) else "VERIFY_EM_PUBLICATION"
     elif boundary != "startup" and new_semantic_progress and event_id not in events:
         result["required_action"] = "RECORD_SEMANTIC_CHECKPOINT"
@@ -453,12 +498,14 @@ def overview(root: Path = ROOT, *, limit: int = 20, after: str | None = None) ->
             # the old debt and expose the recorded successor for the strict gate.
             repairs = [{"event_id": x["event_id"], "repairs_event_id": x["repairs_event_id"]}
                        for x in events.values() if x["repairs_event_id"] is not None]
-            debts = [x for x in events.values() if x["state"] != "EM_REPRESENTED"]
+            legacy = _legacy_events(events)
+            debts = [x for x in events.values() if x["state"] != "EM_REPRESENTED" or x["event_id"] in legacy]
             rows.append({"activity_id": path.stem, "mode": record["mode"],
                          "session_state": record["session_state"], "researcher_id": record["researcher_id"],
                          "registration_origin": record["registration_origin"],
                          "required_action": "VERIFY_RECORDED_DEBT_REPAIR" if repairs else (("PERSIST_EM_CHECKPOINT" if any(x["state"] == "SYNC_DEBT" for x in debts) else "VERIFY_EM_PUBLICATION") if debts else "INSPECT_RECORDED_FRONTIER"),
                          "sync_debt_events": [x["event_id"] for x in debts],
+                         "historical_summary_events": sorted(legacy),
                          "recorded_repair_events": repairs,
                          "source_links": [f"https://github.com/{s['repository']}/blob/{s['commit']}/{s['path']}" for e in events.values() for s in e["em_sources"]],
                          "record_path": f"{STORE}/{path.stem}.json"})

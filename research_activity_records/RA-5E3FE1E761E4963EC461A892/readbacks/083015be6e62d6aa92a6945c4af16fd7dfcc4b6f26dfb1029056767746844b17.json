@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "path": "research_checks/X6_LP011_LP019_TYPED_CALLER_PROVENANCE_20261112_2230.py",
+    "ref": "58da8dfd6b219c7d997af74bfaf455d1715c37a8",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "maintenance-2187-20261112234150Z-2",
+  "observation_recorded_at": "2026-11-12 23:41:50 UTC",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact bounded X6 provenance/type witness, not a full-source import.\n\nGraph-circuit coefficients are chain-algebra signs, not coefficients of native\nnonnegative BRC endpoint multiplicity. A positive 2-generator grid is a\nrestricted trace window and does not include all signed native words.\n\"\"\"\nfrom itertools import product\nfrom math import factorial\n\n\ndef can3(d):\n    h = min(d)\n    return tuple(x-h for x in d)\n\n\ndef dominance(d):\n    m = max(map(abs, d))\n    return tuple((i, 1 if x > 0 else -1) for i,x in enumerate(d) if m and abs(x)==m)\n\n\ndef boundary(path):\n    # Directed unit edges in positive grid of width=height=1.\n    edges = {'HV': (((0,0),(1,0)), ((1,0),(1,1))),\n             'VH': (((0,0),(0,1)), ((0,1),(1,1)))}\n    b = {(0,0): 0, (1,0): 0, (0,1): 0, (1,1): 0}\n    for u,v in edges[path]:\n        b[u] -= 1\n        b[v] += 1\n    return b\n\n\ndef main():\n    d=(-2,1,0)\n    q=(1,4,3)\n    assert can3(d)==can3(q)==(0,3,2)\n    assert dominance(d)==((0,-1),)\n    assert dominance(q)==((1,1),)\n    assert boundary('HV')==boundary('VH')=={(0,0):-1,(1,0):0,(0,1):0,(1,1):1}\n    graph_cycle={'bottom': 1, 'right': 1, 'left': -1, 'top': -1}\n    assert sorted(graph_cycle.values())==[-1,-1,1,1]\n    positive_two_axis_words=('HV','VH')\n    assert len(positive_two_axis_words)==2==factorial(2)\n    assert len(set(positive_two_axis_words))==2\n    # Six distinct native signed axis labels with both polarities.\n    signed_steps=[(i,s) for i in range(6) for s in (-1,1)]\n    returns=[(a,b) for a,b in product(signed_steps,repeat=2)\n             if a[0]==b[0] and a[1]==-b[1]]\n    assert len(returns)==12\n    # Every monotone positive grid word of length 2 ends at (1,1), not (0,0).\n    assert all((path.count('H'), path.count('V')) == (1, 1)\n               for path in positive_two_axis_words)\n    positive_grid_zero_returns = 0\n    assert positive_grid_zero_returns == 0\n    print('PASS_X6_LP011_LP019_TYPED_CALLER_WITNESS observer_collision=1 '\n          'opposite_dominant=1 positive_grid_paths=2 signed_zero_returns_length2=12 '\n          'graph_cycle_signed_coefficients_not_BRC=1')\n\nif __name__=='__main__':\n    main()\n",
+      "display_title": "X6_LP011_LP019_TYPED_CALLER_PROVENANCE_20261112_2230.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/58da8dfd6b219c7d997af74bfaf455d1715c37a8/research_checks/X6_LP011_LP019_TYPED_CALLER_PROVENANCE_20261112_2230.py",
+      "encoding": "utf-8",
+      "sha": "11224c487d4b7261f7f6bc7f5310716ec3c2005c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
