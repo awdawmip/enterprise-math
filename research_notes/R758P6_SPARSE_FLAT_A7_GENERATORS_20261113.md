@@ -55,6 +55,12 @@ Each block can be realized by `W_ij` or its reversed signed path, each a rooted 
 
 **Finite proof.** A breadth-first search starts with identity at distance zero and repeatedly appends all six generator/inverse permutations, inserting each new element once at its first (therefore shortest) depth. It produces the histogram above, exhausts all 2520 even permutations, and no new element arises thereafter. No floating-point computation is used. The companion program independently checks the 15 W_ij loops, their inverses, the generated subgroup sizes 3/60/2520 for the chosen prefixes, and all 2520 states.
 
+## Theorem C — sparse bases are covariant as a family, not as one fixed subset
+
+The permutation group S6 acts transitively on the 15 unordered axis pairs `{i,j}`. Therefore, the **only** nonempty collection of canonical `W_ij` blocks invariant as a set under every native axis relabeling is the complete fifteen-block family. The three-block matching `{W_12,W_34,W_56}` is a choice of basis (a coordinate gauge), not an S6-fixed subset. Every perfect matching of six native axes gives another three-generator A7 basis by conjugating the chosen matching. There are exactly `(6-1)!!=15` such matchings, all related by S6, and every one has the same symmetric generator word-metric diameter nine.
+
+This is the precise cost distinction: **three blocks for any selected full-rank generating basis; fifteen canonical blocks if the fixed available-generator library must itself be invariant under all S6 relabelings**. All 15 matching bases were independently checked by exhaustive exact BFS (15 × 2520 reachable elements, each with the histogram in Theorem B).
+
 ## Scientific value and the remaining native obligation
 
 R758P5B established that 15 canonical W_ij generators cover A7. This theorem compresses the generating library to **3 canonical flat-area blocks**, determines the exact maximum block depth (**9**), and gives a finite **72-step** uniform construction for the full auxiliary-frame observation fiber. It is a concrete branch/source-preserving BRC realization and compression result, not an identification of the frame with P000 force balance.
