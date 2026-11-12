@@ -1,0 +1,60 @@
+{
+  "schema": "EM_R754_EXACT_FINITE_FRAME_COCYCLE_EVIDENCE_V1",
+  "status": "AUTHOR_CHECKED_COMBINATORIAL_WITH_LOCAL_PYTHON_EXACT_RUN",
+  "date": "2026-11-12",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_scientific_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor_commit": "c6c83517adcd2f99811b73c7e71c8d4260f4ba4e",
+  "checker": "R754_X6_CYCLIC_FRAME_COCYCLE_EXACT_PASS",
+  "domain": "unmarked oriented 3-cycles on distinct signed native axes; S6 acts by renaming 6 axis labels",
+  "states": 320,
+  "rooted_states": 960,
+  "homogeneous_states": 80,
+  "mixed_states": 240,
+  "axis_permutations": 720,
+  "action_and_root_phase_checks": 230400,
+  "cocycle_generator_checks": 1152000,
+  "stabilizer_histogram_all": {
+    "0": 1920,
+    "1": 480,
+    "2": 480
+  },
+  "stabilizer_histogram_homogeneous": {
+    "0": 480,
+    "1": 480,
+    "2": 480
+  },
+  "stabilizer_histogram_mixed": {
+    "0": 1440
+  },
+  "witness": {
+    "oriented_ports": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "axis_permutation": [
+      1,
+      2,
+      0,
+      3,
+      4,
+      5
+    ],
+    "unrooted_cycle_fixed": true,
+    "root_phase": 1
+  },
+  "arithmetic_semantics": "Python stdlib exact finite tuples, permutations, positive integer branch incidences, modular C3 phase; no floating point or physical propagator",
+  "observer_scope": "V29 count incidence plus optional rooted frame query",
+  "unresolved": "Native TRIADIC_CLOSURE_E admissible event and V39 based-loop transport correspondence",
+  "independent_driver_review": false
+}
