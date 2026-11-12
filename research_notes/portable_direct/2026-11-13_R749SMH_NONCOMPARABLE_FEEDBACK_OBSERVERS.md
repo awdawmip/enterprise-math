@@ -56,7 +56,7 @@ Both are strictly positive with minimum atom \(1/16\), and have identical \((Y,T
 
 \[
 \mathbb{E}_{\pi_\pm}[B]
-=\pm\frac{\alpha_B}{8}.
+=\pm\frac{\alpha_B}{16}.
 \]
 
 Moreover the joint B,C law under \(\pi_\pm\) has difference proportional to \(b\alpha_B(2-c\alpha_C)\); since \(|\alpha_C|\le1\), the exact total variation is
@@ -64,12 +64,23 @@ Moreover the joint B,C law under \(\pi_\pm\) has difference proportional to \(b\
 \[
 \operatorname{TV}(N^{\mathrm{fb}}\pi_+,N^{\mathrm{fb}}\pi_-)=0,\qquad
 \operatorname{TV}(N^{\mathrm{post}}\pi_+,N^{\mathrm{post}}\pi_-)
-=\frac{|\alpha_B|}{8}>0.
+=\frac{|\alpha_B|}{16}>0.
 \]
 
 Therefore postprocessing cannot be obtained by source-independent garbling of feedback either.
 
-**Derivation of the second TV law.** The joint law after marginalizing the public fair A can be written \(P_\pm(b,c)=\frac14[1+bc\,\mathbb E_{\pi_\pm}(B_0C_0)]\) after including the marginal terms. More directly, one can calculate the posterior sign contrast by a Walsh expansion: \(E_{\pi_\pm}[X(Y-T)]=\pm1\), the internal B conditional mean is \(\alpha_B[(Y+T)/4+X(Y-T)/8]\), so its prior mean is \(\pm\alpha_B/8\). The mixed BC Walsh moment is \(\mp\alpha_B\alpha_C/8\) times an additional factor depending on the conditional scaling; the exact rational verifier below evaluates all eight observed word masses and their \(L^1\) difference without any approximate arithmetic. In the range \(|\alpha_C|\le1\), its TV evaluates to the formula above.
+**Derivation of the second TV law.** Under the two priors, \(\mathbb E_{\pi_\pm}[X(Y-T)]=\pm1/2\). Marginalizing the internal A-selector, the postprocessed B, BC Walsh moments are
+\[
+\mathbb E_{\pi_\pm}[B]=\pm\alpha_B/16,\qquad
+\mathbb E_{\pi_\pm}[BC]=\mp\alpha_B\alpha_C/32.
+\]
+The public A is independent fair and \(\mathbb E[C]=0\). Thus the B,C laws are
+\[
+P_\pm(b,c)=\tfrac14\left[1\pm b\alpha_B/16
+\mp bc\alpha_B\alpha_C/32\right].
+\]
+Their entrywise differences are \(\alpha_B b(1-c\alpha_C/2)/32\). Because \(1-c\alpha_C/2\) is positive for \(|\alpha_C|\le1\), summing the absolute differences and dividing by two gives \(\operatorname{TV}=|\alpha_B|/16\). This establishes the exact all-real-\(\varepsilon_C\) claim without numerical approximation.
+
 
 ## 3. Consequence for provenance compression
 
