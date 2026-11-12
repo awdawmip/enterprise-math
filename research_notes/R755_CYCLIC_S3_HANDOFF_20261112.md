@@ -1,0 +1,6 @@
+# R755 native continuation
+Task RS-X6-TRIADIC-CLOSURE-DYNAMICS; publication TP2-8B7E13C5904A2D6F1142. Scientific pin a72226e2430ffa4786321ac86e7f0c599d5f0389. Prior author R754 PR #2184, source of the S6-equivariant three-forward-rotation BRC scheduler.
+
+New exact conditional theorem: for fixed S3 increments a,b,c, abc=bca=cab iff (a,b,c commute pairwise) OR abc=identity. Exactly 66 of 216 assignments satisfy the three-support final-frame quotient; 48 satisfy all six orderings; 18 noncommuting identity-product triples admit only the cyclic quotient. The 18 reverse order triplets produce nontrivial 3-cycle residuals in multiplicity 1:2. Full source, independent checker and JSON evidence are in this R755 four-file branch.
+
+Open native interface: find a legal V39 based-loop packet family and lawful triadic Cell/Link/Port event under frozen P000/X6; verify packet composition and whether frame increment labels are constant across serial order before applying the theorem. Keep R754's prefix V29 contrast and ordered provenance until an operation-safe observer certificate is established. These author-side materials are not a formal native Result or independent Driver acceptance. A historical Researcher/Run is not current task authority.
