@@ -1,0 +1,79 @@
+{
+  "schema": "R5_QUERY_WEIGHTED_CHECKPOINT_EXPERIMENT_V1",
+  "date": "2026-11-13",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "fixture": {
+    "native_coordinate_count": 28,
+    "operations": 15,
+    "certificates": 1065,
+    "prefix_nodes": 2880,
+    "distinct_rational_walls": 953,
+    "rank_boundaries": 954
+  },
+  "verification": {
+    "small_domain_exhaustive_k_values": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "signed_correction_checks": 123392,
+    "additional_heldout_queries": 10000,
+    "methods_exact_agreement": true
+  },
+  "weighted_mean_event_edits": {
+    "uniform": {
+      "K15": {
+        "optimal": 17.6195,
+        "minimax": 18.01887,
+        "uniform": 18.97694
+      },
+      "K30": {
+        "optimal": 8.77254,
+        "minimax": 9.24948,
+        "uniform": 9.13836
+      }
+    },
+    "three_hotspots": {
+      "K15": {
+        "optimal": 5.5927,
+        "minimax": 21.77475,
+        "uniform": 12.63543
+      },
+      "K30": {
+        "optimal": 2.87252,
+        "minimax": 8.49248,
+        "uniform": 9.3015
+      }
+    }
+  },
+  "budget_30_three_hotspots": {
+    "optimized_checkpoints": 30,
+    "minimax_checkpoints": 29,
+    "optimal_worst_case_event_edits": 37,
+    "minimax_worst_case_event_edits": 18,
+    "optimized_total_weighted_edits": 61851,
+    "minimax_total_weighted_edits": 182860
+  },
+  "heldout": {
+    "query_count": 10000,
+    "uniform_random_nodes": true,
+    "synthetic_hotspot_ranks": true,
+    "median_ms_7_rounds": {
+      "optimized": 8.329,
+      "minimax": 11.638
+    },
+    "sample_mean_event_edits": {
+      "optimized": 2.8633,
+      "minimax": 8.6197
+    },
+    "checksum_both": 14049,
+    "bitmap_object_bytes": {
+      "optimized": 4832,
+      "minimax": 4592
+    }
+  },
+  "measurement_scope": "Local same-process CPython query-only; includes checkpoint bisection and event inspections; excludes fixture generation, wall construction, initialization, parameter-to-boundary transform, output serialization, full RSS",
+  "original_executed_files": "Local current-run artifacts VERIFY_R5_QUERY_WEIGHTED_MEDIAN.py and EXACT_OUTPUT.json; this JSON is a truthful extract.",
+  "status": "LOCALLY_EXECUTED_EXACT_CHECKS_PASS; REMOTE_COMPACT_SCRIPT_NOT_INDEPENDENTLY_EXECUTED"
+}
