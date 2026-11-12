@@ -98,8 +98,14 @@ class Coord6:
         return Coord6.from_integer_lift(-x for x in self.values)
 
     def norm_squared(self) -> int:
-        """P000 typed six-axis component quadratic readout on this candidate."""
+        """Quadratic of the min-zero section, not a depth-free signed native norm."""
         return sum(x*x for x in self.values)
+
+    def signed_native_lift(self, common_depth: int) -> tuple[int, ...]:
+        """Recover a signed native Z6 displacement using explicit common depth."""
+        if type(common_depth) is not int:
+            raise ValueError("signed native common depth must be an exact integer")
+        return tuple(x + common_depth for x in self.values)
 
     def observe(self, slice_axes: Sequence[int]) -> tuple[int,int,int]:
         S=_slice(slice_axes)
@@ -189,7 +195,7 @@ def group_equal_opposite(x: Coord6, y: Coord6) -> bool:
 
 
 def brc_endpoint_multiplicity(length: int, endpoint: Coord6) -> int:
-    """Exact equal-weight N-BRC multiplicity for positive six-axis words."""
+    """Positive-word N-BRC to a min-zero *relative* endpoint, not a native return."""
     if type(length) is not int or length<0 or not isinstance(endpoint,Coord6):
         raise ValueError("nonnegative integer length and Coord6 required")
     total=sum(endpoint.values)
@@ -232,6 +238,7 @@ def brc_endpoint_weight(
 
 
 def positive_return_count(length: int) -> int:
+    """Positive-word return to the derived min-zero quotient, not native Cell zero."""
     return brc_endpoint_multiplicity(length,ORIGIN_COORD)
 
 
