@@ -468,10 +468,10 @@
     {
       "em_sources": [
         {
-          "repository": "awdawmip/enterprise-math",
           "commit": "525a1cb9f53e44704270f059ce11e87c0138440b",
           "path": "research_notes/X6_LP026_CURRENT_SOURCE_CONSUMER_IMPORT_CERTIFICATE_20261112_1600.md",
           "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
           "sha256": "e5dda47246f7df5ff2e30410a379abfde7f4e5fb383eb938673aaff65450d2ff",
           "verification": {
             "call_id": null,
@@ -488,6 +488,52 @@
         }
       ],
       "event_id": "onhour-20261112-1600-x6-lp026-current-consumer-import-executed",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    },
+    {
+      "em_sources": [
+        {
+          "commit": "d25009d87b8f6d5b34d24f60d9e18727e90a5c24",
+          "path": "research_checks/X6_LP026_CYCLIC_DEPTH_BRC_FIBERS_20261112_ONHOUR.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "3071c88aa552ccb8b5af0ba831c198b845130c1b99430747a331500bb2b2b709",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "4aa0e4fe8dedb8468f0e3da03273b4b9ecfd8b35",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/d25009d87b8f6d5b34d24f60d9e18727e90a5c24/research_checks/X6_LP026_CYCLIC_DEPTH_BRC_FIBERS_20261112_ONHOUR.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "onhour-20261112-1700-cyclic-cover-checker-full-read",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-629C868A22A736334628BEFA/readbacks/e2ddaf4c51fd978b2c775732007108a70022bd1ef34c52ccbe6db0a899a7f0d6.json",
+          "verification_receipt_sha256": "e2ddaf4c51fd978b2c775732007108a70022bd1ef34c52ccbe6db0a899a7f0d6"
+        },
+        {
+          "commit": "033a3bb5b62cda782e26930c30d8efeac1130ac0",
+          "path": "research_notes/X6_LP026_FINITE_CYCLIC_COVER_SIGNED_BRC_PUSHFORWARD_20261112_ONHOUR.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "04ff536f1cb6e7a45353f273fff87d42426871b9ae91dfc555321937dacaaddc",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "f285c269f52db0c83849d240e649c1b7e6bb13a6",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/033a3bb5b62cda782e26930c30d8efeac1130ac0/research_notes/X6_LP026_FINITE_CYCLIC_COVER_SIGNED_BRC_PUSHFORWARD_20261112_ONHOUR.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "onhour-20261112-1700-cyclic-cover-proof-full-read",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-629C868A22A736334628BEFA/readbacks/ea8d88f6019736823c700bf1e5ee47e2b28037273fb7acca786d63b2d0cdf9ec.json",
+          "verification_receipt_sha256": "ea8d88f6019736823c700bf1e5ee47e2b28037273fb7acca786d63b2d0cdf9ec"
+        }
+      ],
+      "event_id": "onhour-20261112-1700-x6-lp026-cyclic-depth-cover-brc-pushforward",
       "kb_sources": [],
       "repairs_event_id": null,
       "state": "EM_REPRESENTED"
