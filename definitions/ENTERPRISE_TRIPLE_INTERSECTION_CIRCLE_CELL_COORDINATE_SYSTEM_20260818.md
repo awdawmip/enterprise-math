@@ -7,11 +7,13 @@ Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
 
 This draft is retained only as historical provenance.
 
-It is superseded by:
+Its intermediate historical successor was:
 
 `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
 
-Canonical superseding changes include:
+Current native authority: `definitions/00_CURRENT_NATIVE_FOUNDATION.md`, `definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`, `definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`.
+
+The intermediate 2026-08-20 carrier-era successor **historically** asserted the following (it, too, has since been superseded as native ontology):
 
 - native origin remains the real triple-intersection point `O_E=0`;
 - every circle remains a native cell;
@@ -28,4 +30,4 @@ Canonical superseding changes include:
   `L_E^2=a^2+b^2+c^2-ab-bc-ca`,
   not the direct orthogonal square sum.
 
-Do not use this 2026-08-18 draft as current foundation except for historical comparison.
+Do not use this 2026-08-18 draft as current foundation except for historical comparison. Under current P000 signed-X6, coordinate zero is a chosen native Cell anchor; min-zero coordinates and triple-circle intersections survive only as scoped observer/carrier-incidence data, not complete native Cell identity.
