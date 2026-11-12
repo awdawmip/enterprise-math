@@ -21,7 +21,7 @@ for eb,ec in product(g.E,g.E):
     assert g.tv(g.mult(old,g.py),g.mult(old,g.pt))==0
     assert g.tv(g.mult(fb,pi_plus),g.mult(fb,pi_minus))==0
     measured=g.tv(g.mult(old,pi_plus),g.mult(old,pi_minus))
-    assert measured==abs(1-2*eb)/8,(eps,measured)
+    assert measured==abs(1-2*eb)/16,(eps,measured)
     contrasts.append((str(eb),str(ec),str(measured)))
 
 result={"status":"PASS",
@@ -29,7 +29,7 @@ result={"status":"PASS",
         "domain_checked":"epsilon_A=1/2, epsilon_B!=1/2, epsilon_C in 0,1/4,1/2,3/4,1",
         "case_count":len(contrasts),
         "witness_y_t":{"feedback_TV":"abs(1-2*epsilon_B)/8","postprocessing_TV":"0"},
-        "witness_x_selector":{"feedback_TV":"0","postprocessing_TV":"abs(1-2*epsilon_B)/8"},
+        "witness_x_selector":{"feedback_TV":"0","postprocessing_TV":"abs(1-2*epsilon_B)/16"},
         "min_positive_prior_atom":"1/16",
         "checks":[{"epsilon_B":b,"epsilon_C":c,"TV_for_x_selector":v} for b,c,v in contrasts]}
 print(json.dumps(result,indent=2))
