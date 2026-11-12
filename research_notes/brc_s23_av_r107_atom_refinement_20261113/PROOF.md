@@ -1,83 +1,81 @@
-# R107 — Exact historical atom refinement, shared-addition leases, and an explicit-output lower bound
+# R107 — Persistent rational atom refinement, equality leases, and an exact explicit-output lower bound
 
-Date: 2026-11-13 (Asia/Shanghai). Parent R106 immutable scientific frontier: `4f76a79dd7878573dd618728a6986d6d8d396865`. Frozen scientific input pin: `43ec6098b1330ae86d0a7863be336c5d97f6ef34`.
+Date: 2026-11-13 (Asia/Shanghai). Continuation of R106 author-side frontier at immutable commit \`4f76a79dd7878573dd618728a6986d6d8d396865\`. Scientific input pin: \`43ec6098b1330ae86d0a7863be336c5d97f6ef34\`.
 
-## Model
+## Domain
 
-This is the finite rational directed-circle auxiliary source model of R104–R106, not a claim about unbridged native X6 dynamics. Each source has complete integer identity (u=(t,branch)), descending lexicographic rank. Fix (sigma=(j,x,a,b)), (j,a,binmathbb Z), (xinmathbb Q), (kge1), and rational (I=[L,U]), (L<U). At real (	heta), (M_u(	heta)) means that ({x+(t-j)	heta}) is in the directed half-open circular arc from ({a	heta}) to ({b	heta}); coinciding endpoints mean the empty arc. (operatorname{Top}_k(F,	heta)) is the descending ordered list of up to (k) eligible identities.
+This is the finite rational directed-circle source *auxiliary model* of R104–R106; it does not assert a bridge to native X6 dynamics. Complete source identities \(u=(t,branch)\) have integer coordinates and descending lexicographic rank. Fix \(\sigma=(j,x,a,b)\), with \(j,a,b\in\mathbb Z\), \(x\in\mathbb Q\), \(k\ge1\), and a rational closed interval \(I=[L,U]\) with \(L<U\). At \(\theta\in\mathbb R\), eligibility \(M_u(\theta)\) holds when \(\{x+(t-j)\theta\}\) lies in the directed half-open circular arc from \(\{a\theta\}\) to \(\{b\theta\}\); coinciding endpoints mean an empty arc. \(\operatorname{Top}_k(F,\theta)\) is the ordered descending list of up to \(k\) eligible complete identities.
 
-For finite source set (V), let (K(V)) be (L,U) together with all integer-crossing points in (I) of the six rational affine forms (a	heta), (b	heta), ((t-j)	heta+x), ((t-j-a)	heta+x), ((t-j-b)	heta+x), ((a-b)	heta), for each ((t,branch)in V). Each open gap between adjacent points has constant membership for every identity in (V); singleton cutpoints are checked separately. Rational midpoints provide exact witnesses for gaps.
+For a finite source set \(V\), let \(K(V)\) contain \(L,U\) and all rational integer-crossing points in \(I\) of the six affine forms
 
-## R107.1 — Hereditary refinement theorem
+\[
+a\theta,\ b\theta,\ (t-j)\theta+x,\ (t-j-a)\theta+x,\
+(t-j-b)\theta+x,\ (a-b)\theta
+\]
 
-Given finite old (F,G), set (V=Fcup G), (C=Fcap G), (Delta=F	riangle G). Suppose an exact old certificate uses a sorted cut list (Tsupseteq K(V)), with for each (uinDelta) and old atom (J) either OUT or the complete guard incidence fiber
+for each \((t,branch)\in V\). Zero-slope forms contribute no isolated crossing. Every membership predicate is constant on each open gap between adjacent cutpoints; each cutpoint is its own singleton atom, and each gap has an exact rational midpoint representative.
 
-[
-S_{m old}(u,J)={vin C:v>u, M_v(	heta)}.
-]
+## R107.1 — Hereditary refinement under finite source edits
 
-For arbitrary finite edited versions (F',G'), put (V'=F'cup G'), (C'=F'cap G'), (Delta'=F'	riangle G'), and
+Let old versions be \(F,G\), with \(V=F\cup G\), \(C=F\cap G\), \(\Delta=F\triangle G\). Suppose the old certificate has an exact cut list \(T\supseteq K(V)\), and stores for every old discrepancy \(u\in\Delta\), and old atom \(J\), either OUT or the **complete** higher-common-source guard fiber
 
-[
-T'=Tcup K(V'setminus V).
-]
+\[
+S_{\rm old}(u,J)=\{v\in C:v>u,\ M_v(\theta)\}.
+\]
 
-Then (T') is a valid exact atom cut list for (V'). If (r=|T'setminus T|), the total number of singleton-and-gap atoms increases by exactly (2r).
+Consider *arbitrary* new finite versions \(F',G'\), and put \(V'=F'\cup G'\), \(C'=F'\cap G'\), \(\Delta'=F'\triangle G'\). Then
 
-Every new atom (J') lies in a unique old atom (P(J')). For a retained discrepancy (uinDeltacapDelta'), old OUT remains OUT; otherwise the exact new incidence fiber is
+\[
+T'=T\cup K(V'\setminus V)
+\]
 
-[
-S_{m new}(u,J')=
-  (S_{m old}(u,P(J'))cap C')
-  cup
-  {vin C'setminus C:v>u, M_v(	heta_{J'})}.
-]
+is a valid exact cut list for the new union. If \(r=|T'\setminus T|\), the number of singleton-and-gap atoms increases by exactly \(2r\). Each new atom \(J'\) belongs to a unique old atom \(P(J')\).
 
-For (uinDelta'setminusDelta), evaluate eligibility and higher eligible common identities in (C') directly at the rational atom representative (	heta_{J'}). Then
+For a retained discrepancy \(u\in\Delta\cap\Delta'\), old OUT remains OUT on \(J'\). Otherwise, with \(\theta_{J'}\) the exact representative,
 
-[
-orall	hetain I,quad
-operatorname{Top}_k(F',	heta)=operatorname{Top}_k(G',	heta)
-]
+\[
+S_{\rm new}(u,J')=
+ \big(S_{\rm old}(u,P(J'))\cap C'\big)
+ \cup
+ \{v\in C'\setminus C:v>u,\ M_v(\theta_{J'})\}.
+\]
 
-if and only if **every active discrepancy fiber on every new atom has size at least (k)**. A smaller fiber supplies an exact rational mismatch witness.
+For any newly discrepant \(u\in\Delta'\setminus\Delta\), calculate eligibility and all higher eligible common identities in \(C'\) directly on \(J'\). The new Top-k functions are equal on every \(\theta\in I\) **if and only if** every active discrepancy entry has at least \(k\) guards. Otherwise, an active entry with fewer than \(k\) guards supplies a rational difference witness \(\theta_{J'}\).
 
-**Proof.** Sources in (V'cap V) were covered by (T); sources in (V'setminus V) contribute all new critical points through the union. Every membership is therefore constant on each new open gap. The source identity of a retained discrepancy is unchanged, so its OUT/IN predicate is inherited from its containing old atom. The higher common identities surviving from (C) are exactly the old guard fiber intersected with (C'); all additional common identities belong to (C'setminus C) and are tested separately. The newly discrepant rows are evaluated from (C'). The R104 pointwise rank-shield equivalence proves the asserted iff, and the atom representative proves the witness. Inserting an interior cutpoint splits one old gap into open gap, point, open gap, increasing the count by two. QED.
+**Proof.** Every retained source in \(V'\cap V\) already had all its phase boundaries in \(T\); every newly present source in \(V'\setminus V\) contributes all its boundaries through \(K\). Each new gap therefore has constant eligibility. For a retained discrepancy, its own membership is unchanged by set edits, so the old OUT/IN status persists in the containing old atom. Old common guards retained in the new common set are exactly \(S_{\rm old}\cap C'\); the other possible guards are precisely the higher eligible sources newly entering the common set \(C'\setminus C\). Newly discrepant rows are evaluated directly. Apply the pointwise R104 rank-shield equivalence on each atom, including singleton boundaries. Each new interior cut replaces one open gap with two open gaps and one point, increasing the atom count by two. QED.
 
-**Representation scope.** The supplied implementation holds immutable historical versions and reuses unchanged guard-fiber objects. It copies the new row arrays, with up to (O(|Delta'|,|T'|)) row entries. It does not claim a logarithmic-time balanced-DAG update; complete rational bit-operation and historical-memory costs remain part of the next performance comparison.
+**Representation scope.** The attached reference implementation retains immutable old versions and reuses unchanged full guard-fiber objects, but allocates new row tuples. Up to \(O(|\Delta'|\,|T'|)\) certificate entries may be copied; it does not claim a logarithmic-time persistent balanced-DAG update. Exact rational bit operations and memory allocation remain relevant costs.
 
 ## R107.2 — Zero-refinement equality lease
 
-For finite (F,G,H), every (	heta), and (kge1),
+For any finite \(F,G,H\), any real \(\theta\) and \(k\ge1\),
 
-[
-operatorname{Top}_k(F,	heta)=operatorname{Top}_k(G,	heta)
-Longrightarrow
-operatorname{Top}_k(Fcup H,	heta)=operatorname{Top}_k(Gcup H,	heta).
-]
+\[
+\operatorname{Top}_k(F,\theta)=\operatorname{Top}_k(G,\theta)
+\ \Longrightarrow\
+\operatorname{Top}_k(F\cup H,\theta)=\operatorname{Top}_k(G\cup H,\theta).
+\]
 
-Consequently, a complete interval equality certificate remains sound after arbitrary **common additions** to both versions, without calculating any new phase cutpoint or guard fiber. (H) may contain an identity previously discrepant in one version.
+Hence a previously complete interval *equality* certificate remains sound after adding any same finite set \(H\) to both versions, without constructing new phase cuts or guard fibers. The added \(H\) can include an identity previously discrepant in exactly one version.
 
-**Proof.** For any finite (S,H), (operatorname{Top}_k(Scup H,	heta)=operatorname{Top}_k(operatorname{Top}_k(S,	heta)cup H,	heta)): each eligible (S)-identity discarded from (operatorname{Top}_k(S)) is dominated by (k) eligible (S)-identities, which remain available after adding (H). Equal initial lists thus produce equal updated lists. Apply independently to every real (	hetain I). QED.
+**Proof.** For any \(S,H\), \(\operatorname{Top}_k(S\cup H,\theta)=\operatorname{Top}_k(\operatorname{Top}_k(S,\theta)\cup H,\theta)\). Every eligible source excluded from \(\operatorname{Top}_k(S,\theta)\) was already dominated by at least \(k\) eligible identities of \(S\), none of which disappears after adding \(H\). Thus equal original Top-k lists induce equal lists after any shared addition. This argument holds at each real \(\theta\), proving the interval assertion. QED.
 
-An immutable *equality lease* may refer to the old full certificate and the new versions. Such a lease certifies equality but is not a refreshed exact guard incidence table. Before a later edit uses depleted guard counts to claim inequality, materialize or validate the newly relevant identities and phase cuts. A formerly unequal pair can become equal under common addition, so equality preservation is an implication rather than a two-way characterization.
+An immutable equality lease may retain a reference to the old certified equality and the newly added identities. Such a lease establishes equality, **not** a fully updated guard-incidence table. Before using a later common deletion to assert inequality, compute or validate any guards and cutpoints that were added lazily. An unequal pair may become equal after a common addition; the implication is not reversible.
 
-## R107.3 — Exponential binary-input gap for explicit atoms
+## R107.3 — Lower bound on explicit atom enumeration
 
-Set (sigma=(0,1/4,0,1)), (I=[1/4,3/4]), (k=1). Begin with empty (F=G). For any integer (Tge4), insert (u_T=(T,0)) into (F) alone. Its eligibility has (Omega(T)) distinct transition points within (I), although (T) is encoded in (Theta(log T)) bits.
+Fix \(\sigma=(0,1/4,0,1)\), \(I=[1/4,3/4]\), \(k=1\), initially \(F=G=\varnothing\). For integer \(T\ge4\), add the sole source \(u_T=(T,0)\) to \(F\). Its Top-1 discrepancy function changes eligibility at \(\Omega(T)\) points of \(I\), although the binary representation of \(T\) has \(\Theta(\log T)\) bits.
 
-**Proof.** Each integer (n) for which (	heta_n=(n-1/4)/Tin(1/4,3/4)) gives source phase ({1/4+T	heta_n}=0), while the arc is ([0,	heta_n)); hence the source is IN. For (arepsilon=1/(64T)), immediately to the left its phase equals (63/64>	heta_n-arepsilon) (OUT); immediately to the right it equals (1/64<	heta_n+arepsilon) (IN). There are (Omega(T)) such distinct transitions. Any explicitly enumerated constant-Top-1 atom representation must resolve them. A direct point membership query can instead evaluate the symbolic phase without enumerating every transition. QED.
+**Proof.** For each integer \(n\) such that \(\theta_n=(n-1/4)/T\in(1/4,3/4)\), the source phase is \(\{1/4+T\theta_n\}=0\), and the circular arc is \([0,\theta_n)\); the source is IN. With \(\varepsilon=1/(64T)\), the source phase just to the left is \(63/64>\theta_n-\varepsilon\), so it is OUT, whereas just to the right it is \(1/64<\theta_n+\varepsilon\), so it is IN. The interval contains \(\Omega(T)\) such distinct transition points. An explicit constant-output atom representation must distinguish these transitions; a symbolic membership query at a chosen rational parameter need not enumerate them. QED.
 
-This identifies a concrete regime favoring equality leases or demand-driven symbolic queries over eager global atom expansion.
+## Executable exact verification
 
-## Exact validation
+The independent Python program \`check_r107.py\` uses standard-library \`fractions.Fraction\` for every mathematical comparison. In 34 seeded root histories it makes 374 branched edits: 10 positive equality leases and 364 full refinement updates. It checks all stored active guard fibers against direct current-source scans and compares exact Top-k lists at 28,952 rational atom representatives. It checks half-open singleton boundary \(\theta=3/4\), history persistence, and the explicit transition family \(T=N+1\) for \(N=7,31,127,255\).
 
-The independently executable Python `check_r107.py` uses `fractions.Fraction` exclusively for the mathematics. It constructs 34 seeded initial histories and performs 374 historical branching edits: 10 positive equality leases and 364 exact refinement updates. It checks complete source memberships and guard fibers against direct scans at 28,952 rational atom representatives, verifies boundary singleton (	heta=3/4), immutable branches, and lower-bound tests at (T=N+1) for (N=7,31,127,255).
+Recorded output: \`R107_PASS 374 10 364 28952 4\`. Detailed exact counters are in \`verification_r107.json\`. The finite program validates the implementation in these cases; the theorems above have independent symbolic proofs. The encoded \`check_r107.py.gz.b64\` decodes via \`base64\` and \`gzip\` to the full script.
 
-Terminal output: `R107_PASS 374 10 364 28952 4`. Full counters in `verification_r107.json`. These tests check the implementation on finite instances; the universal claims are proved above.
+## Frontier and status
 
-## Frontier
+R107 is independently authored auxiliary-model research continuing the R106 source frontier. Frozen scientific input remains \`43ec6098b1330ae86d0a7863be336c5d97f6ef34\`. Source task authority, Researcher Activity checkpoint, CLAIM and independent review require separately verified receipts.
 
-Independent author-side R107 result. Formal Source task/owner, Researcher Activity, shared CLAIM, Result and independent review require their separate actual receipts. Scientific input remains the exact frozen pin above.
-
-R108: build persistent balanced interval-DAG nodes with demand-driven splits and retain equality leases; measure exact phase generation, rational bit lengths, cache updates, old-version memory and witness restoration against R103 net overlay and complete materialization. Compare the (Omega(T)) adversarial family under sparse and dense point-query workloads.
+R108: construct a balanced persistent interval certificate DAG with demand-driven atom splits and equality leases. Compare sparse/dense point queries and edits in the \(\Omega(T)\) family; measure exact rational bit operations, updates, historical memory, witness recovery, and crossover versus R103 net overlay and full function materialization.
