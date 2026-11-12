@@ -1,0 +1,53 @@
+{
+  "status": "PASS_R5_SIGNED_EVENT_CORRECTION",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "fixture_seconds": 1.4185,
+  "nodes": 2880,
+  "certificates": 1065,
+  "walls": 953,
+  "radius": 2,
+  "checkpoints": 213,
+  "all_boundary_prefix_checks_each_method": 2747520,
+  "fraction_wavelet_checks": 57600,
+  "index_object_bytes": {
+    "checkpoint_masks": 33108,
+    "checkpoint_coords": 522,
+    "event_order_array": 2210,
+    "event_cumulative_list": 34544
+  },
+  "workloads": {
+    "root": {
+      "n": 256,
+      "checksum": 145887,
+      "median_ms": {
+        "bitmap": 0.219,
+        "signed": 0.195
+      }
+    },
+    "broad": {
+      "n": 512,
+      "checksum": 34401,
+      "median_ms": {
+        "bitmap": 0.478,
+        "signed": 0.392
+      }
+    },
+    "random": {
+      "n": 2048,
+      "checksum": 2910,
+      "median_ms": {
+        "bitmap": 2.123,
+        "signed": 1.359
+      }
+    },
+    "hotmix": {
+      "n": 2048,
+      "checksum": 141400,
+      "median_ms": {
+        "bitmap": 1.844,
+        "signed": 1.599
+      }
+    }
+  },
+  "timing_scope": "CPython same-process, 11 median rounds, parameter wall ranks precomputed; excludes rebuild, index construction and serialization"
+}
