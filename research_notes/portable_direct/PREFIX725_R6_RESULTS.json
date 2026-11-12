@@ -1,0 +1,48 @@
+{
+  "schema": "PREFIX725_R6_EDGE_BERNSTEIN_SWITCH_V1",
+  "date": "2026-11-12",
+  "prior": "PREFIX-724-R6",
+  "frozen_gamma_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scientific_model": "independent polynomial moment toy; not frozen Gamma computation",
+  "mu": "1+p+z",
+  "W": "3/4+(p+z)/4-4*p*z",
+  "J": "4*(z-p)",
+  "K": "4",
+  "candidate_patch": "[1/5,3/10]^2",
+  "parameter_t": "[0,1/2]",
+  "witnesses": [
+    [
+      "0",
+      "1/2"
+    ],
+    [
+      "0",
+      "2/5"
+    ]
+  ],
+  "checks": [
+    {
+      "t": "0",
+      "edge_bernstein_upper": "69/100",
+      "best_external_witness": "7/8",
+      "strict_gap": "37/200"
+    },
+    {
+      "t": "1/4",
+      "edge_bernstein_upper": "17/50",
+      "best_external_witness": "1/2",
+      "strict_gap": "4/25"
+    },
+    {
+      "t": "1/2",
+      "edge_bernstein_upper": "-1/100",
+      "best_external_witness": "3/20",
+      "strict_gap": "4/25"
+    }
+  ],
+  "verified_continuous_t_gap": "4/25",
+  "witness_continuous_q_advantage": "for every real q>=2, max_e V_q(e)-max_patch V_q >= 4*q^2/25",
+  "gamma_method_conditional": "If the frozen Gamma patch certifies mu_p>0, mu_z>0 and K>0, mean-fiber boundary reduction and exact 1D-edge Bernstein plus witness-switch nodes apply.",
+  "frozen_189_row_edge_degree_cap": "mu,M2 <=188; W<=376; four degree-376 edge arrays have 1508 coefficients, while degree-376 tensor has 142129",
+  "status": "EXACT_FRACTION_TOY_CHECKED / GAMMA_METHOD_CONDITIONAL / UNREVIEWED / NOT_ADMITTED"
+}
