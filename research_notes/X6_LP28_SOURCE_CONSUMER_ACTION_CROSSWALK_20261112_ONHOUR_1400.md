@@ -259,3 +259,17 @@ The next bounded **live source** audit located two new downstream theorem-facing
 **Additional frozen-source provenance pass (2026-11-13).** Inspected 11 complete named immutable `fd2bcff10ca6e147348b6c1236027fc0d2877df3` bodies: R059D Stage O/P/R/S/T/U/W driver notes, `DIAGONAL_GAUGE_DERIVED_DISPLACEMENT_THEOREM_PACKAGE_20260826.md`, `TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_CIRCUIT_CALCULUS_RESULT_20260822.md` and the two R059D 2026-08-16 triaxial corrections. Their occurrences of BRC/support-loss or `M=max(A,B,C)` were typed to their declared quotient/selector contexts; this finite pass **did not** verify the ledger's purported historic **LP011 native argmax misuse** or **LP019 positive-BRC signed-cancellation misuse**. Both remain `UNRESOLVED_PROVENANCE`; no unlocated historical claim is assigned to a correct reader. The remaining 28-LP dependencies and actual Driver `REQUEST_REVISION` are outstanding.
 
 No frozen task source, P000, previously accepted Result, prior LP028 or original regression certificates was mutated.
+
+
+## On-hour 2026-11-13 LP019/LP026: V9 and V13 further real current downstream repairs
+
+After resolving V11/V14, follow-on actual current-source inspection found **two additional still-live typed consumers** of the old `m=1` native model:
+
+| LP | Current consumer and original current-main blob | Exact native/relative separation | Verified corrective action |
+|---|---|---|---|
+| LP019/LP026 | `research_notes/X6_BRC_C6_GRADE_AND_EXACT_MULTINOMIAL_KERNEL_V9_20260905.md`, old blob `7eea4b5f9146090d16dfa6463087039666b50b3f`, §§4–5 | Positive-only `Return_6=720` is relative zero-return to `D=(1,...,1)`, native `G(D)=6`; current signed native zero-return `N_6(0)=19,920`. Positive-only native zero return is zero for all positive lengths | `RETYPE` exact C6 grade/BRC multinomial as relative observer; preserve weighted and all-N formulas. New commit `c11b2412e1a0c33a11d074d9dbec8aff8a8ad801`, blob `cf43b56fd06a770cb7932b80e17409f7477ea062` |
+| LP003/LP022/LP026 | `research_notes/X6_CONNECTED_CELL_COVER_CLASSIFICATION_V13_20260905.md`, old blob `cd58a053c29c5b1f60edeb1d39e7afa706e95787`, §§8–9 | Finite `m` quotient maps native `0` and `mD` to same endpoint though native squared norms are `0` and `6m²`; this does not preserve full native G. Current P000 native corresponds to `m=0` | Preserve exact classification as hypothetical/observer family, retype `m=1` historical candidate and `m=0` currently native; correct norm-preservation scope. New commit `c9673248eac1fc80f2d9aca5e3ede31508243d1b`, blob `e8b8ce750736e06cdad47a878d46e9cffb34fa3d` |
+
+Exact independent primitive-word DP `N=6` produced 46,656 positive paths, 720 relative zero returns, 0 positive-native zero returns, 2,985,984 signed paths and 19,920 signed-native zero returns, with correct typed counting. Full proof, source diff/readback provenance and precise future action at `research_notes/X6_LP019_LP026_V9_V13_BRC_RETURN_CONSUMER_REPAIR_20261113_0300.md` commit `c2583291c70ce9efa838b010680d7afb87e206d6` blob `27bcf1d0c3e484bd59eca927f627e9ddf0cb8d2f`.
+
+These are observed **current semantic corrections**, separate from the still unlocated *original historical LP011 native argmax misuse and LP019 signed-cancellation error*. The latter remain `UNRESOLVED_PROVENANCE`; full 28-LP dependency closure and Driver review are not complete.
