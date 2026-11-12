@@ -72,3 +72,59 @@ Companion program `PREFIX724_R6_ISOMEAN_DOMINANCE.py` verifies the precise ratio
 ## 5. Next scientific test
 
 Apply Theorem B to selected *surviving* PREFIX-718 fine-grid rectangles. Obtain direct rational Bernstein bounds on `K` and strictly positive moment derivatives from the frozen Gamma kernel, construct actual mean-level boundary comparisons (or algebraic interval roots) and certify any **new** excluded region only after checking disjointness with existing comparison witnesses. A certified counterexample to `K>0` in a larger candidate would delimit this method's domain rather than alter its proved local scope.
+
+## 6. Strengthened mean–contrast coordinate certificate
+
+**Theorem C (exact residual-coordinate identity).** Define the two auxiliary observer coordinates
+
+\[
+u=\mu(p,z),\qquad v=z-p.
+\]
+
+Because `mu_p+mu_z>0`, the Jacobian determinant of `(p,z)->(u,v)` is `mu_p+mu_z`; thus these coordinates are locally invertible and `u`-fibers can be parameterized strictly by `v`. Their exact inverse differential is
+
+\[
+\left.\frac{\partial p}{\partial v}\right|_u=-\frac{\mu_z}{\mu_p+\mu_z},
+\qquad
+\left.\frac{\partial z}{\partial v}\right|_u=\frac{\mu_p}{\mu_p+\mu_z}.
+\]
+
+For every `q>0`, the Gamma objective obeys
+
+\[
+\boxed{
+\left.\frac{\partial V_q}{\partial v}\right|_u
+=q^2\frac{vK(p,z)}{\mu_p+\mu_z}.
+}
+\]
+
+Consequently, if two points of `S` lie on the same mean-fiber, with `v0>=0` and `v1>v0`, then
+
+\[
+\boxed{
+V_q(u,v_1)-V_q(u,v_0)
+>q^2\frac{\kappa}{4M}(v_1^2-v_0^2).
+}
+\]
+
+The same inequality holds when `v1<v0<=0`, with `v1^2>v0^2`. Here
+
+\[
+\frac{\kappa}{4M}=\frac{3550952}{231328125},
+\quad\text{and for all }q\ge2,\quad
+q^2\frac{\kappa}{4M}\ge\frac{14203808}{231328125}.
+\]
+
+**Proof.** Solve the linear system `mu_p*p_v+mu_z*z_v=0` and `z_v-p_v=1` to get the two inverse derivatives. Hence `(M2)_v=J/(mu_p+mu_z)=vK/(mu_p+mu_z)`, while `mu_v=0`. The displayed objective identity follows. Since `0<mu_p+mu_z<=2M` and `K>kappa`, integrating `v` between the two points yields the strict quadratic separation gain. On each connected fiber `v` is a valid coordinate, so the whole connecting arc stays in `S`. QED.
+
+At `v=0`, the fixed-mean *transverse* curvature satisfies
+
+\[
+\boxed{
+\left.\frac{\partial^2 V_q}{\partial v^2}\right|_{u,v=0}
+=q^2\frac{K}{\mu_p+\mu_z}
+>q^2\frac{\kappa}{2M}>0.
+}
+\]
+
+Thus the diagonal is a strict local *minimum on each mean fiber*, even when it is not a critical point of the full two-variable objective. The coordinate `v` is an auxiliary retained contrast/residual readout, not a native X6 spatial axis. The formula also supplies a convenient quantitative test: any larger certified patch with positive `K` automatically has strictly increasing `V_q` with the magnitude of this contrast at fixed mean.
