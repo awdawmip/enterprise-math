@@ -1,0 +1,135 @@
+{
+  "status": "PASS_R5_EVENT_RANK_ADAPTIVE_REAL_FIXTURE",
+  "scientific_input_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "nodes": 2880,
+  "terminals": 1065,
+  "distinct_walls": 953,
+  "terminal_event_rank_bits": 10650,
+  "terminal_event_rank_bytes_16bit": 2130,
+  "rank_width_min_bits": 10,
+  "all_node_code_references": 7444,
+  "all_node_raw_code_bytes": 14888,
+  "all_node_array_tracemalloc_peak_bytes": 268528,
+  "all_node_array_build_seconds": 0.058684,
+  "prefix_sample_checks": 57600,
+  "root_wall_checks": 953,
+  "workloads": {
+    "root": {
+      "requests": 256,
+      "unique_nodes": 1,
+      "checksum": 132423,
+      "modes": {
+        "coded_direct": {
+          "seconds": 0.008559
+        },
+        "lazy_cold": {
+          "seconds": 0.000957,
+          "materialized_nodes": 1,
+          "materialized_codes": 1065,
+          "raw_cache_code_bytes": 2130
+        },
+        "lazy_warm": {
+          "seconds": 0.000787,
+          "materialized_nodes": 1,
+          "materialized_codes": 1065,
+          "raw_cache_code_bytes": 2130
+        },
+        "full_ancestor_warm": {
+          "seconds": 0.000723
+        },
+        "wavelet_warm": {
+          "seconds": 0.002656
+        }
+      },
+      "cold_table_plus_coded_direct_seconds": 0.014656
+    },
+    "broad": {
+      "requests": 512,
+      "unique_nodes": 21,
+      "checksum": 35975,
+      "modes": {
+        "coded_direct": {
+          "seconds": 0.003738
+        },
+        "lazy_cold": {
+          "seconds": 0.002433,
+          "materialized_nodes": 21,
+          "materialized_codes": 2674,
+          "raw_cache_code_bytes": 5348
+        },
+        "lazy_warm": {
+          "seconds": 0.001739,
+          "materialized_nodes": 21,
+          "materialized_codes": 2674,
+          "raw_cache_code_bytes": 5348
+        },
+        "full_ancestor_warm": {
+          "seconds": 0.001108
+        },
+        "wavelet_warm": {
+          "seconds": 0.005967
+        }
+      },
+      "cold_table_plus_coded_direct_seconds": 0.009629
+    },
+    "random": {
+      "requests": 2048,
+      "unique_nodes": 1464,
+      "checksum": 1879,
+      "modes": {
+        "coded_direct": {
+          "seconds": 0.007126
+        },
+        "lazy_cold": {
+          "seconds": 0.007259,
+          "materialized_nodes": 3,
+          "materialized_codes": 109,
+          "raw_cache_code_bytes": 218
+        },
+        "lazy_warm": {
+          "seconds": 0.007301,
+          "materialized_nodes": 19,
+          "materialized_codes": 1260,
+          "raw_cache_code_bytes": 2520
+        },
+        "full_ancestor_warm": {
+          "seconds": 0.000911
+        },
+        "wavelet_warm": {
+          "seconds": 0.023514
+        }
+      },
+      "cold_table_plus_coded_direct_seconds": 0.013484
+    },
+    "hotmix": {
+      "requests": 2048,
+      "unique_nodes": 508,
+      "checksum": 135364,
+      "modes": {
+        "coded_direct": {
+          "seconds": 0.015744
+        },
+        "lazy_cold": {
+          "seconds": 0.007239,
+          "materialized_nodes": 18,
+          "materialized_codes": 2386,
+          "raw_cache_code_bytes": 4772
+        },
+        "lazy_warm": {
+          "seconds": 0.006587,
+          "materialized_nodes": 23,
+          "materialized_codes": 2676,
+          "raw_cache_code_bytes": 5352
+        },
+        "full_ancestor_warm": {
+          "seconds": 0.0034
+        },
+        "wavelet_warm": {
+          "seconds": 0.023064
+        }
+      },
+      "cold_table_plus_coded_direct_seconds": 0.025366
+    }
+  },
+  "benchmark_scope": "CPython stdlib, 3 medians for warmed queries, single cold run, no CPU pinning; original fixture rebuilt and re-verified but excluded from timed lookup; cold_table includes table+codes+lookup, not corpus construction or 2520-byte seed decoding"
+}
