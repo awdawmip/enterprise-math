@@ -46,6 +46,38 @@ Moreover, if both the initial and transformed min-zero readouts `r=q(z)`, `r'=q(
 
 For uniform signs, Theorem 1 gives the sharper zero-extra-depth outcome. Therefore **the exact depth requirement for a fixed signed permutation is zero integer coordinates if its signs are uniform, and one retained integer depth if its signs are mixed**, with the indicated all-integer, all-fiber guarantee. This statement concerns the spatial relative observer only; BRC branch identity, path history, time, force and triadic relations have their own independent retention requirements.
 
+## 3a. Exact finite-path-horizon repair: sharp side-channel capacity
+
+The unbounded-depth necessity in Theorem 2 concerns all of `Z^6`. There is also an exact **positive finite-horizon result** when a full, unrestricted signed primitive word of length `M` is known. Here "unrestricted" explicitly permits immediate reversal; this theorem does not apply unchanged to a no-backtracking BRC subpopulation.
+
+For fixed `r=can6(z)`, put `f_r(h)=sum_i |r_i+h|`. A signed primitive word of exact length `M` with endpoint `z=r+hD` exists **if and only if**
+
+`f_r(h) <= M` and `M-f_r(h)` is even.
+
+Necessity follows from unit-step `L1` distance and step parity; sufficiency follows by taking any shortest signed-axis path and adding exactly `(M-f_r(h))/2` cancelling adjacent step pairs. Since there are **six** coordinates,
+
+`f_r(h) ≡ sum_i (r_i+h) ≡ sum_i r_i (mod 2)`
+
+for *every* integer `h`. Thus the parity gate is independent of depth. If `M-sum_i r_i` is odd, no such length-`M` word exists at all. Otherwise the admissible depths are precisely
+
+`I_{r,M}={h in Z: f_r(h)<=M}`,
+
+a finite contiguous integer interval (possibly empty), because `f_r` is convex, integer-valued and tends to infinity at both ends.
+
+For sorted observer coordinates `r_(1)<=...<=r_(6)`, the exact minimum over depth is
+
+`f_min(r)=r_(4)+r_(5)+r_(6)-r_(1)-r_(2)-r_(3)`,
+
+attained by every integer `h` in `[-r_(4),-r_(3)]`. Hence the interval is nonempty exactly when the parity gate holds and `M>=f_min(r)`.
+
+**Theorem 3 (sharp fixed-horizon information capacity).** Suppose `I_{r,M}` is nonempty, with `L=|I_{r,M}|`, and `g` is a fixed mixed-sign signed permutation. Knowing the pair `(r,M)` and an auxiliary side channel, one can predict `can6(gz)` for *every* unrestricted length-`M` word precisely if the side channel can distinguish all `L` admissible depths. The optimal number of additional labels is therefore `L`, and a fixed-length binary coding requires exactly `ceil(log2 L)` bits (zero bits if `L=1`). 
+
+**Proof.** Every admissible `h` occurs as an endpoint of such a word, by the preceding parity/shortest-path construction. For mixed-sign `g`, Theorem 2 shows that their transformed relative observations are pairwise distinct, yielding the `L)-label lower bound. The interval endpoints can be computed exactly from `r,M`; encoding the position of `h` in the interval gives the matching upper bound. QED.
+
+Example: `r=(0,0,0,0,0,0)`. With even `M`, `f_r(h)=6|h|`, and the exact number of admissible depths is `L=2 floor(M/6)+1`; with odd `M` there are none. At `M=6`, the depths are `-1,0,1` (three labels, two bits); at `M=12`, they are `-2,-1,0,1,2` (five labels, three bits). A fixed time/step horizon can thus compress the required common-depth residual to a finite sharp code, while no uniformly finite code suffices over unbounded horizons.
+
+Supplementary exact checks: for all `3367` min-zero vectors in `{0,1,2,3}^6` and all `M=0,...,21` (74074 cases), the sorted-coordinate minimum, parity gate and contiguous feasible-depth interval agreed with direct integer evaluation. The algebraic argument, not this check, proves Theorem 3.
+
 ## 4. Concrete C6 witness and two possible uses
 
 The candidate `R_123` sends `e_1->e_2, e_2->e_3, e_3->-e_1` and fixes the other three axes. Its sign vector is `(-1,+1,+1,+1,+1,+1)`, so it does not descend. For native states `z_0=(0,0,0,0,0,0)` and `z_1=D`, both have the same initial relative observer `q(z_0)=q(z_1)=0`, but
