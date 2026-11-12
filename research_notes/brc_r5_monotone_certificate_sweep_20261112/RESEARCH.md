@@ -61,6 +61,28 @@ including one root increment per word. Exactly 1,065 terminal flags are set once
 
 Sorting the 1,065 rational thresholds takes conventional O(T log T) exact rational comparisons; constructing the trie from the words takes O(6,379) labeled traversals. Given the sorted event list and trie, applying all changes costs O(7,444) counter increments plus 1,065 flags; optional merger with the full 2,905 collision-parameter grid costs O(2,905+1,065) event comparisons. This avoids rescanning 32,768 operation masks **per event**. All rational comparisons retain numerator/denominator bit-cost semantics rather than being labeled constant-time machine arithmetic.
 
+## New exact finite result: 953 distinct selected-certificate activation walls
+
+An independent two-port integer-subset enumeration using the immutable 15-label weights
+
+W=(336,184,18,169,64,84,299,126,52,16,-420,-483,-144,-221,-80),
+
+K=(-432,0,0,0,0,-108,0,0,0,0,540,0,0,0,0)
+
+reconstructs the 1,144 admissible fixed n values, 1,065 selected eligible (q,n) pair keys, and their 2,935 candidate masks. Equality of their thresholds is equivalent to equality of reduced fractions q/n, since tau_(q,n)=(1-36q/n)/23. Exact enumeration of all 32,768 labeled masks then gives precisely
+
+\[
+\boxed{953\text{ distinct selected-certificate activation parameters}},
+\]
+
+with multiplicity distribution **869 single**, **56 double**, **28 triple**. The doubles separate into 39 collisions of q=3/12, 14 of q=3/15, and 3 of q=12/15. The 28 triple events have q=3 denominator n in the exact set
+
+{3,5,6,7,9,10,13,15,17,18,19,22,23,26,29,30,36,39,42,46,50,52,60,66,72,82,88,98}.
+
+Checks: 869+56+28=953 and 869+2(56)+3(28)=1065. This is a **strict subfamily** of the earlier 2,905 all-spectrum collision parameters. An activation wall is counted only when an actual eligible dual-zero pair has a certified word; the 953 does not replace or amend the complete 2,905-event first-zero rank classification.
+
+The independent standard-library script VERIFY_EXACT_ACTIVATION_EVENTS.py was executed locally using Python integer arithmetic. Its exact output is preserved in EXACT_ACTIVATION_OUTPUT.txt. The complementary full word-prefix sweep script is published for further reproduction against the predecessor's entire pinned fixture; the independent two-port calculation itself only certifies the finite port-weight event census, not all 28-coordinate path inequalities.
+
 ## Theorem 3: precise packed-bit tradeoffs for three interfaces
 
 We distinguish (a) bulk sequential decoding, (b) indexed retrieval by a **pre-agreed sorted pair ordinal**, and (c) in-memory prefix-count queries. The same external pair-key to ordinal mapping is excluded from both compared formats; no free arbitrary (q,n) dictionary lookup is claimed.
