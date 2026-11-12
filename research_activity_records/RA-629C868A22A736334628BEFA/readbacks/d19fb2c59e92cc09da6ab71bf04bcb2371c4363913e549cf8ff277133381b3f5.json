@@ -1,0 +1,20 @@
+{
+  "arguments": {
+    "path": "research_checks/X6_LP028_NATIVE_NORM_PROBE_CAPACITY_20261112_ONHOUR.py",
+    "ref": "8b0f6309bde84f4bbaea4feb7b9b7edfed8927af",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "call_id": null,
+  "observation_id": "onhour-20261112-1027-lp028-checker-immutable-github",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact R063/LP028 future-operation probes in an embedded signed X6 axis pair.\n\nBoth omitted X6 directions and the ambient time channel are outside this\nrestricted static calculation. All arithmetic is integer-exact.\n\"\"\"\nfrom math import comb, isqrt\n\n\ndef positive_roots(r):\n    roots = set()\n    for a in range(r + 1):\n        square = r * r - a * a\n        b = isqrt(square)\n        if b * b == square:\n            roots.add((a, b))\n    return roots\n\n\ndef signed_endpoints(r):\n    endpoints = set()\n    for x in range(-r, r + 1):\n        square = r * r - x * x\n        y = isqrt(square)\n        if y * y == square:\n            endpoints.update(((x, y), (x, -y)))\n    return endpoints\n\n\ndef after_x(x, y):\n    return (x + 1) ** 2 + y * y\n\n\ndef after_y(x, y):\n    return x * x + (y + 1) ** 2\n\n\ndef check_radius(r):\n    positive = positive_roots(r)\n    signed = signed_endpoints(r)\n    assert {(abs(x), abs(y)) for x, y in signed} == positive\n    interior = len(positive) - 2  # axis roots (0,r),(r,0)\n    q0 = len(positive)\n    q1 = len({after_x(x, y) for x, y in signed})\n    q2 = len({(after_x(x, y), after_y(x, y)) for x, y in signed})\n    assert (q0, q1, q2) == (interior + 2, 2 * interior + 3, 4 * interior + 4)\n    assert len(signed) == q2\n    for x, y in signed:\n        v1, v2 = after_x(x, y), after_y(x, y)\n        assert (v1 - r * r - 1) % 2 == 0\n        assert (v2 - r * r - 1) % 2 == 0\n        assert ((v1 - r * r - 1) // 2, (v2 - r * r - 1) // 2) == (x, y)\n    mass = sum(comb(abs(x) + abs(y), abs(x)) for x, y in signed)\n    assert mass == sum((2 if a else 1) * (2 if b else 1) * comb(a + b, a)\n                       for a, b in positive)\n    return q0, q1, q2, mass\n\n\ndef main():\n    for r in range(1, 257):\n        check_radius(r)\n    assert check_radius(50) == (6, 11, 20, 442782153097022856828)\n    assert (after_x(14, 48), after_x(-14, 48)) == (2529, 2473)\n    assert (after_y(14, 48), after_y(14, -48)) == (2597, 2405)\n    print({\"status\": \"PASS\", \"exact_radii\": 256,\n           \"r50_capacity_trace\": 6, \"r50_capacity_one_probe\": 11,\n           \"r50_capacity_two_probes\": 20,\n           \"r50_signed_shortest_brc_mass\": 442782153097022856828,\n           \"r50_probe_values\": [2529, 2473, 2597, 2405]})\n\n\nif __name__ == \"__main__\":\n    main()\n",
+      "display_title": "X6_LP028_NATIVE_NORM_PROBE_CAPACITY_20261112_ONHOUR.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/8b0f6309bde84f4bbaea4feb7b9b7edfed8927af/research_checks/X6_LP028_NATIVE_NORM_PROBE_CAPACITY_20261112_ONHOUR.py",
+      "encoding": "utf-8",
+      "sha": "8b2ae2ca320a336d5fe92a1b55152dfd0576508d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
