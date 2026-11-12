@@ -10,6 +10,53 @@ Leading verdict:
 
 `NATIVE_GEOMETRY_OF_NUMBERS_TOOLKIT_DISCOVERED`
 
+## 2026-11-12 current P000/X6 typed-consumer clarification
+
+This is a **current-reader annotation**, not a revision of the 2026-08-22
+result's source assumptions, proof, reviewer decision, or frozen R063 operator.
+In §1, the phrases “current plane”, the min-zero positive-sector triple,
+and “no native negative axes” identify the **historical 2026-08-22 ontology**.
+The presently applicable P000 V5 spatial substrate is the chosen-Cell
+`AFFINE_TORSOR(Z^6)` with six signed primitive axes; min-zero triples belong
+to typed restricted/observer representations, not complete native Cell identity.
+See `p000_reality_foundation.json` and
+`definitions/00_CURRENT_NATIVE_FOUNDATION.md`.
+
+The unchanged source program
+`experiments/tool_discovery_native_geometry_of_numbers_minima_calculus_20260822.py`
+uses `sector_ball(R)={(a,b,0):a,b>=0,a²+b²<=R²}` and
+`residue((a,b,0),m)=(a mod m,b mod m)`. Its Section 10
+`PathSqrt_E(r²)` is likewise **one ordered positive two-generator
+component-trace chart**, so the `r=50` count of six component-root
+representatives and `110695538274255714208` ordered path words
+remains correct for that chart. The six-representative compression
+applies exactly to predicates that factor through the root label
+`(a,b)`, as already stipulated in §10.
+
+A minimal path-sensitive counter-witness at `r=5`: the root
+`(a,b)=(3,4)` has `binom(7,3)=35` distinct ordered words.
+`AAABBBB` and `BAAABBB` have the same component trace but
+different first-step labels. Thus a first-step-sensitive consumer
+cannot replace the 35 words by one arbitrary representative, whereas
+a trace-invariant consumer can preserve the count as fiber metadata.
+This identifies the precise information-losing operation rather
+than invalidating the finite-fiber theorem.
+
+For embedding the root operator in signed-X6, supply the actual
+starting Cell, selected pair of native axes and both signs, preserving
+trace/branch identity when consumed downstream. The independently
+source-import-tested signed selected-pair chart union at `r=50`
+has 60 signed selected-pair charts, 252 **unique** two-support
+endpoints and deduplicated shortest-path BRC mass
+`6641732296455342852372`; these numbers have a different type
+from the one-chart trace count and do not enumerate all six-support
+X6 endpoints. See
+`research_notes/X6_LP028_SIGNED_CHART_NATIVE_BRC_CONSUMER_DEDUP_20261112_2300.md`.
+The original finite-fiber calculus and its typed general theorem remain
+unchanged.
+
+---
+
 ## 0. Result in one sentence
 
 A reusable geometry-of-numbers core survives without Euclidean volume: replace continuum volume/determinant by **finite semantic fiber capacity**, replace lattice-free by **fiber-injective**, and replace linear successive independence by the exact rank of a **fiberwise collision forest**. The resulting calculus gives sharp existence thresholds, packing/covering equalities, successive collision minima, explicit witnesses, and exact compression certificates.
