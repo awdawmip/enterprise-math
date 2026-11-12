@@ -1,0 +1,124 @@
+{
+  "status": "PASS_R5_SAMPLED_BITMAP_ORIGINAL_FIXTURE",
+  "science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "nodes": 2880,
+  "terminals": 1065,
+  "distinct_rational_walls": 953,
+  "exact_prefix_checks": 57600,
+  "root_wall_tie_checks": 953,
+  "max_wall_tie_multiplicity": 3,
+  "terminal_order_bytes": 2130,
+  "wall_offset_bytes": 1908,
+  "stride_index": [
+    {
+      "stride": 1,
+      "sampled_masks": 954,
+      "python_sample_masks_object_bytes": 148968,
+      "max_residual_events": 0
+    },
+    {
+      "stride": 2,
+      "sampled_masks": 477,
+      "python_sample_masks_object_bytes": 74760,
+      "max_residual_events": 3
+    },
+    {
+      "stride": 4,
+      "sampled_masks": 239,
+      "python_sample_masks_object_bytes": 37516,
+      "max_residual_events": 5
+    },
+    {
+      "stride": 8,
+      "sampled_masks": 120,
+      "python_sample_masks_object_bytes": 18776,
+      "max_residual_events": 10
+    },
+    {
+      "stride": 16,
+      "sampled_masks": 60,
+      "python_sample_masks_object_bytes": 9380,
+      "max_residual_events": 21
+    },
+    {
+      "stride": 32,
+      "sampled_masks": 30,
+      "python_sample_masks_object_bytes": 4664,
+      "max_residual_events": 40
+    },
+    {
+      "stride": 64,
+      "sampled_masks": 15,
+      "python_sample_masks_object_bytes": 2336,
+      "max_residual_events": 78
+    }
+  ],
+  "load_measurements": {
+    "root": {
+      "requests": 256,
+      "unique_nodes": 1,
+      "checksum": 132423,
+      "median_ms": {
+        "hybrid8": 1.391,
+        "scan": 11.033,
+        "bitmap_1": 1.192,
+        "bitmap_2": 0.905,
+        "bitmap_4": 0.954,
+        "bitmap_8": 1.162,
+        "bitmap_16": 1.088,
+        "bitmap_32": 1.325,
+        "bitmap_64": 1.535
+      }
+    },
+    "broad": {
+      "requests": 512,
+      "unique_nodes": 21,
+      "checksum": 35975,
+      "median_ms": {
+        "hybrid8": 2.824,
+        "scan": 4.288,
+        "bitmap_1": 1.776,
+        "bitmap_2": 1.859,
+        "bitmap_4": 1.765,
+        "bitmap_8": 1.871,
+        "bitmap_16": 2.072,
+        "bitmap_32": 2.432,
+        "bitmap_64": 3.078
+      }
+    },
+    "random": {
+      "requests": 2048,
+      "unique_nodes": 1464,
+      "checksum": 1879,
+      "median_ms": {
+        "hybrid8": 7.542,
+        "scan": 7.239,
+        "bitmap_1": 6.752,
+        "bitmap_2": 7.048,
+        "bitmap_4": 7.352,
+        "bitmap_8": 8.312,
+        "bitmap_16": 8.936,
+        "bitmap_32": 10.518,
+        "bitmap_64": 13.967
+      }
+    },
+    "hotmix": {
+      "requests": 2048,
+      "unique_nodes": 508,
+      "checksum": 135364,
+      "median_ms": {
+        "hybrid8": 10.266,
+        "scan": 18.824,
+        "bitmap_1": 7.173,
+        "bitmap_2": 7.29,
+        "bitmap_4": 7.663,
+        "bitmap_8": 7.873,
+        "bitmap_16": 8.191,
+        "bitmap_32": 10.575,
+        "bitmap_64": 13.107
+      }
+    }
+  },
+  "scope": "Exact rational wall search and query included; frozen original corpus and seed decode excluded from timed queries; CPython five repetitions median; index mask bytes are object sizes, excluding shared terminal_order, offsets, rational walls and other fixture heap.",
+  "evidence_kind": "Local author-side execution of VERIFY_R5_SAMPLED_BITMAP.py; remotely committed portable from pinned ancestry has not been executed as an independent checkout."
+}
