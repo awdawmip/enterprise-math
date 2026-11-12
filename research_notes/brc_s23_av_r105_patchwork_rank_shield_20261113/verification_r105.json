@@ -1,0 +1,53 @@
+{
+  "schema": "R105_PATCHWORK_SHIELD_CERTIFICATE_V1",
+  "scientific_input_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "historical_frontier": "R104:869af6d9115bec00913af228cef7b9793b771cf3",
+  "random_seed": 10520261113,
+  "random_version_pairs": 220,
+  "equal": 52,
+  "unequal": 168,
+  "exact_rational_witnesses": 168,
+  "exact_atom_representatives": 10330,
+  "certificate_transfer_identity_checks": 52,
+  "guard_retaining_one_common_deletion_transfers": 109,
+  "patchwork": {
+    "interval": [
+      "2/5",
+      "4/5"
+    ],
+    "k": 1,
+    "u": [
+      0,
+      0
+    ],
+    "common": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "left_guard": [
+      2,
+      0
+    ],
+    "left_interval": "[2/5,3/4)",
+    "right_guard": [
+      1,
+      0
+    ],
+    "right_interval": "[3/4,4/5]",
+    "no_uniform_guard": true
+  },
+  "slack_example": {
+    "k": 2,
+    "guard_count": 4,
+    "certified_common_deletion_budget": 2,
+    "counterexample_at_three_deletions": "1/2"
+  },
+  "arithmetic": "exact Fraction and finite complete affine phase cuts",
+  "execution": "All assertions passed"
+}
