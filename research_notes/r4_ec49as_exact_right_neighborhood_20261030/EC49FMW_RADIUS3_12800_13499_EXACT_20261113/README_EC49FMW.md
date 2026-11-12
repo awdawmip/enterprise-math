@@ -19,6 +19,10 @@ roots available: 102 configurations have 3, 598 have 4
 
 Across the already completed contiguous restricted-family indices **0..13499**, the earlier minimum 102 persists. The separately known unrestricted seven-key 84-prefix legal construction remains the upper bound `C_min(7) <= 84` for the mother problem.
 
+## Exact within-sample root-count stratification
+
+The original 700 native output rows permit a further exact finite comparison. Among the **102 three-root** configurations, the minimum is **114**, uniquely at index **12875**, and the arithmetic mean cost is **132.63725490196078**. Among the **598 four-root** configurations, the minimum is **122**, uniquely at index **12879**, and the mean is **150.40635451505017**. This is a precisely scoped empirical split of the stipulated 700 configurations and supplies a useful search-priority signal without treating root count alone as a global optimality theorem.
+
 ## Exactness proof for the fixed finite catalogue
 
 For each possible first signed-X6 microstep, form the trie of all eligible original words. Its DP state for each label subset is the minimum number of nonempty native prefix nodes needed to realize that exact subset. Combine children by bitwise label-mask union and addition, activate an included nonroot trie node once, and allow terminal labels. Structural induction on trie height proves the exact subtree values. Superset closure gives minimum cost to cover a required label set.
