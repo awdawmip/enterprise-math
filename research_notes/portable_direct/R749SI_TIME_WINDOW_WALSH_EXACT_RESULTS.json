@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "scenarios": [
+    {
+      "case": "nonforced",
+      "p": "0",
+      "walsh_subsets": 4096,
+      "window_start_ranks": [
+        8,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "case": "nonforced",
+      "p": "1/2",
+      "walsh_subsets": 4096,
+      "window_start_ranks": [
+        8,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "case": "forced",
+      "p": "0",
+      "walsh_subsets": 4096,
+      "window_start_ranks": [
+        8,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "case": "forced",
+      "p": "1/2",
+      "walsh_subsets": 4096,
+      "window_start_ranks": [
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "case": "forced",
+      "p": "1",
+      "walsh_subsets": 4096,
+      "window_start_ranks": [
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "case": "mixed",
+      "p": "0",
+      "walsh_subsets": 4096,
+      "window_start_ranks": [
+        8,
+        4,
+        2,
+        2
+      ]
+    },
+    {
+      "case": "mixed",
+      "p": "1/2",
+      "walsh_subsets": 4096,
+      "window_start_ranks": [
+        8,
+        8,
+        4,
+        2
+      ]
+    }
+  ],
+  "three_time_degree_le2_equal": true,
+  "three_time_triple": {
+    "mu_even": "1",
+    "mu_odd": "-1"
+  },
+  "scope": "fixed positive-probability unsigned observation words; exact rational and all Walsh subsets on test paths",
+  "execution_provenance": "Python 3 fractions.Fraction local checker executed 2026-11-13 Asia/Shanghai; results are reported from that local exact run; separately published source is substantively equivalent but has not independently run on GitHub CI."
+}
