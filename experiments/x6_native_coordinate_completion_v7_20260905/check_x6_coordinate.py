@@ -16,6 +16,7 @@ HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 sys.path.insert(0,str(HERE))
 sys.path.insert(0,str(ROOT/"experiments"/"six_axis_foundation_v2_20260905"))
+sys.path.insert(0,str(ROOT/"experiments"/"x6_signed_native_spatial_v16_20260905"))
 
 from x6_coordinate import (
     ALL_SLICES, AXES, Coord6, ORIGIN_COORD, axis_step, brc_endpoint_multiplicity,
@@ -23,6 +24,7 @@ from x6_coordinate import (
     k4_slice_type, local_step, positive_return_count, slice_holonomy,
 )
 import six_axis as old_v2
+from signed_brc import endpoint_multiplicity as signed_endpoint_multiplicity, spatial_norm_squared
 
 
 def main():
@@ -34,9 +36,11 @@ def main():
         charts=old_v2.local_charts(raw)
         assert charts==old_v2.local_charts(state.values)
         assert old_v2.reconstruct(dict(enumerate(charts)))==state.values
-        checks+=3
+        assert state.signed_native_lift(min(raw))==raw
+        assert spatial_norm_squared(state.signed_native_lift(min(raw)))==sum(x*x for x in raw)
+        checks+=5
 
-    # Translation, immediate reversal, global commutativity and all-six loop.
+    # Derived-quotient diagonal return versus the genuine signed native displacement.
     probes=(
         ORIGIN_COORD,
         Coord6((3,1,7,0,5,2)),
@@ -60,8 +64,11 @@ def main():
         loop=state
         for i in AXES:
             loop=loop.step(i)
-        assert loop==state
-        checks+=1
+        assert loop==state  # only a min-zero relative return
+        assert loop.signed_native_lift(1)==tuple(x+1 for x in state.values)
+        assert loop.signed_native_lift(1)!=state.signed_native_lift(0)
+        assert spatial_norm_squared((1,)*6)==6
+        checks+=4
 
     # All 20 slice observations: visible equivariance, omitted invisibility,
     # lossless visible+hidden chart, and triangle hidden holonomy.
@@ -94,6 +101,9 @@ def main():
         assert reverse.norm_squared()==5  # derived min-zero section
         native_reverse=tuple(-1 if j==i else 0 for j in AXES)
         assert sum(x*x for x in native_reverse)==1  # signed native step
+        assert reverse.signed_native_lift(-1)==native_reverse
+        assert spatial_norm_squared(reverse.signed_native_lift(-1))==1
+        checks+=2
         for S in ALL_SLICES:
             if i in S:
                 local=reverse.observe(S)
@@ -153,7 +163,9 @@ def main():
     assert positive_return_count(3)==0
     assert positive_return_count(6)==720
     assert positive_return_count(12)==7484400
-    checks+=5
+    assert signed_endpoint_multiplicity(6,(0,)*6)==19920
+    assert signed_endpoint_multiplicity(6,(1,)*6)==720
+    checks+=7
 
     print("PASS_X6_NATIVE_COORDINATE_COMPLETION_V7")
     print("checks=",checks)
@@ -164,7 +176,8 @@ def main():
     print("axis_permutation_skeleton=S6 (720 elements)")
     print("fcc_preserving_subgroup=S4 (24 elements); slice types 4+4+12")
     print("derived_section_reverse_axis_norm_squared=5; native_signed_reverse_axis_norm_squared=1; local_projection_reverse_norm_squared=2")
-    print("return_6=720; return_12=7484400")
+    print("return_6=720; return_12=7484400")  # historical derived readout
+    print("return_type=positive_min_zero_relative; signed_native_return_6=19920")
 
 
 if __name__=="__main__":
