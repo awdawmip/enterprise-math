@@ -1,0 +1,31 @@
+# EC49FMG — complete exact radius-two optimum for seven full BRC cache keys
+
+Date: 2026-11-12. Status: independently checkable author-side finite mathematics; not a formally claimed or independently admitted Enterprise Math Result.
+
+## Exact theorem
+
+Keep the frozen science `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`: original nine-state BRC DFA with signed native X6 microsteps, 178,850 legal operation words, 94 distinct **complete** raw cache keys, and 24 exact (window, terminal DFA signature) observation demands. The cost C(K) is the minimum number of distinct **nonempty ordered signed-native-X6 microstep prefixes** needed to cover the 24 demands by legal words whose complete raw keys belong to the seven-element keyset K.
+
+Let K* = {(2,1,1),(3,0,1),(3,1,1),(4,2,1),(5,3,1),(5,4,1),(6,4,1)}. Enumerate exact two-key replacements K = (K* \ R) union A with |R|=|A|=2, R subset K*, A subset U\K*, |U|=94, with the original sorted-combinations order inherited from EC49FKZ/FMD/FME/FMF. This is precisely 21*3741=78,561 distinct candidate K.
+
+**Theorem (complete Hamming-radius-two boundary):** Exactly 6,315 candidate sets cover all 24 demands and 72,246 cannot. Every cover-capable K obeys C(K)>=84. Exactly **one** radius-two set, listed as global zero-based feasible index 5883, has C(K)=84. This set is {(2,1,1),(3,0,1),(3,1,1),(4,2,1),(5,3,1),(6,3,1),(7,3,1)}. Thus min over all exact two-replacements is 84. Combining the previous complete one-replacement minimum 84 and existing baseline 84 shows that K* is a **non-strict exact local optimum across all sets differing in at most two complete cache keys**. The global seven-key question remains open for more distant sets.
+
+## Reproducible finite reasoning
+
+1. For every legal frozen BRC word w, compute its exact raw complete cache key k(w), 24-bit demand label, and native X6 ordered signed prefix sequence. These are the inputs to the existing EC49FKZ canonical double-swap enumeration and EC49FMF/EC49FMC integer-only exact trie solver. For a proposed K, OR together the exact support masks of k in K; if this does not equal all 24 bits, K is infeasible.
+2. For a supported K, group all eligible words by their first signed native microstep. Construct each group's full trie of **signed native-X6 prefix bytes**; do not merge distinct order, sign or provenance. At a node, exact subset DP chooses terminal observation masks realizable there and descendant masks, adds the node cost 1 if the selected mask is nonempty, and minimizes total cost for each exact union of satisfied demand labels.
+3. After upward DP, replace exact-mask cost F(M) by min of F(Q) over Q supersets M, so it gives the minimum cost to cover at least M. The root is artificial and free. Disjoint first-microstep root tries cannot share any nonempty native prefix. Assign every one of the 24 observation demands to a root capable of it, minimizing the sum of root subset-cover costs. A feasible union gives such an assignment; conversely each assignment's choices combine into a feasible union. This establishes exactness of the integer DP for every K.
+4. The same sorted feasible index order is used in the stored 6,315-entry `EXACT_VECTOR_EC49FMG.json` (compressed uint8 vector, exact SHA256 `7a94b5b408a73e4be11405c238273e0313b829c0d0ddd4793028609b1851f248`). Index sets 0..399, 400..737, 738..969 and 970..1419 reuse the exact results from EC49FKZ/FMD/FME/FMF respectively; all 4,895 remaining cases 1420..6314 were **actually recomputed** in this continuation using the pinned compiled C++17 integer-trie solver. Indices and boundaries were checked contiguous with no duplicate/gap; both largest new ranges completed with exit code zero. The exact complete vector minimum is 84, attained only at index 5883. For a machine check, decode zlib+base64, check SHA256 and 6,315 bytes, then assert `min(costs)==84 and [i for i,x in enumerate(costs) if x==84]==[5883]`.
+5. The new `WITNESS84_EC49FMG.json` reconstructs 24 legal operation words. Its keys are among the seven stated above, its DFA signature and six signed displacement coordinates match every required label, all 24 demands are covered, and the union of distinct nonempty native prefixes has exactly 84 elements (two nonempty roots of 42 each). A separate integer-only Python trie-DP implementation was executed for 1420, 1452, 1460, 1468, 1758, 2163, 2199, 2473, 2484, 2594, 2607, 2999, 4515, 5755, 5883, 6314, and matched the C++ result in every selected case. Independently reconstructed 86-, 90-, 84-prefix witnesses in 4515/5755/5883.
+
+## Additional results and source lineage
+
+Among all exact two-replacements, near minima are index 2473=86, 4515=86, 5755=90 and the unique equal minimum 5883=84. No radius-two cost <=83 was found because the **complete** explicitly declared finite family was solved exactly. This extends the earlier strict single-swap and first-1,420-double-swap milestones without changing their definitions or results.
+
+Pinned source is the same scientific generator under `research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FJD_RELEASE_B11_COMPLETE_20261111/EC49FGW_RADIUS5_SCREEN.py`, exact prior code `EC49FMF_RADIUS2_970_1419_EXACT_20261112/SCAN_CACHED_EC49FMF.cpp`, the earlier 6,315-case support evidence `EC49FKZ_DOUBLE_KEY_COVER_20261112_R4`, and the EC49FKZ/FMD/FME/FMF cost vectors. New original batch raw logs, input descriptor, full 6,315-byte uncompressed vector, code and independent Python output are in the accompanying EC49FMG evidence archive; the GitHub JSONs contain the full cost vector and the complete 84-prefix constructive witness.
+
+## Next discriminating research unit
+
+Enumerate and exactly optimize the **38,169** coverage-capable exact three-replacement seven-key configurations (the four-replacement feasible family has 62,620 and five-replacement 1,137, previously exact minimum 114). Reuse the complete radius<=2 proof and exact root-trie DP; seek a witness with <=83 native prefixes, or derive a finite 84 lower bound for all remaining feasible three-/four-replacement sets. The parent global minimum is still C_min(7)<=84, not certified equal. Keep P000 and 3D-slice/native-X6 typed semantics unchanged.
+
+Researcher-side GitHub publication is an artifact, not a Source Task CLAIM/open or formal Result; independent Driver proof review and Source admission remain pending.
