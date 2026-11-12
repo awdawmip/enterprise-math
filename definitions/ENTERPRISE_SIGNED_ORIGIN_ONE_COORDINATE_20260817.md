@@ -2,7 +2,8 @@
 
 Status: `SUPERSEDED / HISTORICAL_PROVENANCE`
 Original date: `2026-08-17`
-Superseded by: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
+Historical intermediate successor: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
+Current P000/X6 native reference: `definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`
 
 ## 历史内容
 
@@ -14,9 +15,9 @@ Superseded by: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CE
 
 该 ontology 已被 2026-08-20 foundational correction 明确 supersede。
 
-## 当前基础
+## 历史中间阶段与现行 X6 基础
 
-当前原生平面使用：
+2026-08-20 中间阶段曾使用：
 
 `O_E = 0`。
 
@@ -30,7 +31,7 @@ Superseded by: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CE
 
 `A_E={(a,b,c) in N_0^3 : min(a,b,c)=0}`。
 
-因此不得把本文件的 `±1` origin、负原生坐标或 no-zero 规则带入当前 theorem premises。
+上述三正轴正射线和三圆交点原点均属已退役的 2026-08-20 中间原生解释。现行 P000 V5 使用六轴 signed Cell 锚点和 `AFFINE_TORSOR(Z^6)`，原生负向单位步合法；不得将本文件特有的 `±1` origin/no-zero 等价关系，或中间版本的三正轴 min-zero 身份，带入当前 theorem premises。
 
 ## 可保留用途
 
@@ -41,6 +42,6 @@ Superseded by: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CE
 - 研究“为什么该 ontology 被替换”的负结果材料；
 - 对旧脚本/任务书的兼容追踪。
 
-若旧结果依赖本文件的 signed-origin ontology，它默认是 `HISTORICAL / REQUIRES_RETYPING_OR_REDERIVATION`，除非已有较新的独立证明表明结论在当前三正轴 foundation 下仍成立。
+若旧结果依赖本文件的 signed-origin ontology，它默认是 `HISTORICAL / REQUIRES_RETYPING_OR_REDERIVATION`，除非已有独立证明将对应结论正确嵌入现行 signed-X6、载体或观察者层。
 
 原始完整文本保留在 Git 历史中。
