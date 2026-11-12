@@ -107,3 +107,46 @@ share the same modulo-one cover key and are both realized by three signed primit
 **Finite checks and implementation boundary.** Fresh exact-integer enumeration of complete signed endpoint supports at \(N_{\rm crit}-1\), plus constructive collision searches at \(N_{\rm crit}\), passed for 14 parameter pairs \(2\le n\le6,\ 1\le m\le3,\ N_{\rm crit}\le10\). The observed first thresholds were \(n=2:(1,2,3)\), \(n=3:(3,3,9)\), \(n=4:(2,4,6)\), \(n=5:(5,5)\), and \(n=6:(3,6,9)\), listed by increasing \(m\) among checked cases. These are finite consistency tests; the proof above supplies the general result. Current source inspection confirms \`CoverState.step\` in \`experiments/x6_native_coordinate_completion_v7_20260905/x6_cover.py\` uses a representative integer lift and depth reduction, and \`signed_brc.endpoint_multiplicity\` supplies the signed full-endpoint counts. This turn did **not** execute a faithful current-source import test.
 
 **Route:** For an endpoint-specific observer or subsequent mixed-sign phase after a known signed-word horizon \(H\), modulus \(m>\!H/3\) (equivalently \(m\ge\lfloor H/3\rfloor+1\)) suffices to reconstruct the native endpoint at that horizon. If \(H\ge3m\), no unconditional same-cover endpoint reconstruction is possible on the full free-word endpoint set. For nonfree, phase-restricted or triadic admissible words, recompute the actual reachable fiber before applying this universal threshold; all original authorships and native Result/Task review boundaries remain unchanged.
+
+
+## 7. Signed-grade checksum and exact CRT depth amplification
+
+**Theorem (exact effective-depth modulus).** In the same signed native lattice \(\mathbb Z^n\), for positive integers \(m,b\), augment the finite-depth observation by the *signed net-step grade*
+\[
+T(z)=\sum_{i=1}^{n}z_i,\qquad
+K_{m,b}(z)=\bigl(r(z),[h(z)]_m,[T(z)]_b\bigr).
+\]
+The grade is an integer-valued **composite signed path observable**, not an additional native spatial axis; a native step \(\pm e_i\) changes it by \(\pm1\). Define
+\[
+\boxed{L=\operatorname{lcm}\left(m,\frac b{\gcd(b,n)}\right)
+       =\frac{mb}{\gcd(b,nm)}.}
+\]
+Then for all \(z,z'\in\mathbb Z^n\),
+\[
+\boxed{K_{m,b}(z)=K_{m,b}(z')\iff z'-z\in L\mathbb ZD.}
+\]
+Thus the augmented observer is exactly the ordinary finite-depth quotient \(\pi_L\) under an alternative, incrementally maintainable encoding; it preserves the ordered signed-word **count** by the same LP026 fiber pushforward after replacing \(m\) with \(L\). If a key is realized and \(h_0\) is any compatible depth solution, its exact length-\(N\) BRC count is
+\[
+C_{N,K}=\sum_{t\equiv h_0\ (\mathrm{mod}\ L)} B_N(r+tD),
+\]
+with finite support as in §2.
+
+**Proof.** Equality of min-zero representatives forces \(z'=z+tD\) for an integer \(t\); then \(h'=h+t\) and \(T'=T+nt\). The two residues agree precisely when \(m\mid t\) and \(b\mid nt\), i.e. \(m\mid t\) and \(b/\gcd(b,n)\mid t\), equivalent to \(L\mid t\). Conversely every shift by \(LD\) preserves all three recorded values. The same argument proves the exact BRC fiber formula, since endpoint fibers are disjoint signed-word sets. The transition on \((r,[h]_m,[T]_b)\) is well defined: use any representative integer \(h\), apply the native \(\pm e_i\) step to \(r+hD\), recanonicalize \(r,h\), and update \([T]_b\mapsto[T\pm1]_b\). Shifting the chosen lift by \(kmD\) leaves its \(\pi_m\) step unchanged; the checksum update depends only on the signed letter. QED.
+
+**Sharp collision horizon.** The §6 fixed-length theorem applies to this augmented key with \(m\) replaced by \(L\):
+\[
+N_{\rm crit}(n;m,b)=
+\begin{cases}
+nL/2,&nL\text{ even},\\
+nL,&nL\text{ odd}.
+\end{cases}
+\]
+In X6 the sharp threshold is \(3L\); all native endpoints at a known exact signed-word length \(N<3L\) are recoverable, while every \(N\ge3L\) admits a collision. The same \(3L\) bound is the sharp *maximum-length horizon* \(H\) for the union of layers \(E_0\cup\cdots\cup E_H\): if \(H<3L\), distinct endpoints cannot share the key because a shift by \(kLD\ne0\) has \(\ell^1\)-distance at least \(6L\), so their maximum individual norm must be at least \(3L\). At \(H=3L\), the §6 pair already collides. The cross-length assertion is specific here to even-dimensional X6; odd-dimensional fixed-length parity gives a different threshold.
+
+**Exact examples.** For X6, \(m=1,b=5\) gives \(L=5\) and first alias at 15 signed steps; \(m=2,b=5\) gives \(L=10\) and first alias at 30 steps. By contrast \(m=2,b=6\) gives \(L=2\), so the residue \([T]_6\) adds no depth discrimination and the first alias stays at 6 steps. For \(m=2,b=5\), the explicit first-alias endpoints \((-10,-10,-10,0,0,0)\) and \((0,0,0,10,10,10)\) have equal \(K_{2,5}\), each reached in 30 signed native steps. This shows a concrete CRT-guided checksum choice: values of \(b\) coprime to \(6m\) attain \(L=mb\), while shared factors may make some checksum states redundant for depth.
+
+**Unbounded rotation scope.** Any mixed-sign signed-permutation phase still fails to descend on the *unbounded* \(K_{m,b}\) quotient, because shifts by \(LD\) remain identified and their transformed min-zero observations separate. For an anchored bounded signed-word horizon below \(3L\), reconstruct the unique endpoint first, then apply the phase; this is a finite-horizon exact observer protocol. It retains no claim about reconstructing ordered branch provenance or about a registered physical Heartbeat rotation rule.
+
+**Exact checks.** A fresh integer-only test compared full signed endpoint-layer cardinalities with augmented-key cardinalities for all \(n=2,3,4\), \(m=1,\ldots,4\), \(b=1,\ldots,8\), \(N=0,\ldots,6\) (672 complete layers); every layer was injective exactly when \(N<N_{\rm crit}(n;m,b)\). Another 50,000 deterministic pseudo-random cases (seed 20261112, \(2\le n\le8\), \(1\le m\le15\), \(1\le b\le29\)) checked direct fiber equivalence and step update against chosen integer lifts, all passing. Those tests implement the above equations independently, **not** imports of current repository consumers. Original LP026 Author's separate 59,267-case DP/source-independent regression remains distinct; the current-source import branch in that checker is still an integration obligation.
+
+**Consequence for the existing X6 research:** a native signed-step checksum modulo \(b\) can carry exactly quantified additional finite-depth information at one residue per event, using the same mathematical pushforward and avoiding full-depth storage within a specified horizon. This is a new Driver-context bridge lemma built from LP026's attributed BRC kernel and §§1–6; no independent Native Result, new CLAIM, physical law promotion, or Task/Objective closure is asserted.
