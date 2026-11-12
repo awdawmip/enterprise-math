@@ -6,7 +6,7 @@ events as historical reports. It does not invent a past response or treat the
 summary as a currently verified observation. Partial or malformed receipt fields
 still fail validation; normal observations still require exact stored bytes.
 
-The strict guard reports unresolved legacy events as
+The explicit `audit` operation reports unresolved legacy events as
 `REOBSERVE_LEGACY_EM_SOURCES_AND_APPEND_CURRENT_REPAIR`. Re-read each exact
 immutable repository/commit/path, check blob SHA1 and SHA256, and append a new
 checkpoint using the existing `repairs_event_id` operation and actual complete
@@ -22,12 +22,14 @@ new evidence; their time is not backdated. They do not rerun any mathematical
 program or validate a theorem, Task, CLAIM, Result or Driver decision.
 
 Publish the record and all its new sidecars together through Source CAS. Read
-the immutable published record back, then run its strict guard with that real
-registration observation and the original session. A source file's persistence,
+the immutable published record back, then run the explicit observation audit with that real
+registration observation and the original session. The ordinary `guard` remains
+the already-reviewed lightweight bookkeeping/session association check; it does
+not demand connector envelopes or replay historical evidence. A source file's persistence,
 an Activity guard result and formal execution authority remain separate facts.
 
 The metadata overview exposes historical-summary events and recorded repairs;
-only the strict guard revalidates observations and resolves repair debt. Runtime
+only the explicit audit revalidates observations and resolves repair debt. Runtime
 code packages must preserve their existing reviewed modules when picking up this
 helper; updating this one helper does not authorize a whole-main executable swap.
 

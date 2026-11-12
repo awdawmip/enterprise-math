@@ -376,11 +376,16 @@ def checkpoint(activity_id: str, *, event_id: str, expected_sha256: str,
         record = _validate_record(json.loads(data))
         if record["activity_id"] != activity_id:
             raise ActivityError("activity path/identity mismatch; no checkpoint write")
-        events = _events(record, root)
-        if event_id in events:
-            if events[event_id] != row:
+        # Append new bookkeeping without replaying every historical source
+        # receipt. Preserve history; validate this event at its write boundary.
+        existing = [item for item in record["checkpoints"]
+                    if isinstance(item, dict) and item.get("event_id") == event_id]
+        if existing:
+            if any(item != row for item in existing):
                 raise ActivityError("event_id conflict; historical checkpoint cannot be overwritten")
             return record
+        events = {item["event_id"] for item in record["checkpoints"]
+                  if isinstance(item, dict) and isinstance(item.get("event_id"), str)}
         if digest(data) != expected_sha256:
             raise ActivityError("expected_sha256 mismatch; refresh current activity bytes")
         if repairs_event_id is not None and (repairs_event_id not in events or status != "EM_REPRESENTED"):
@@ -407,7 +412,7 @@ def checkpoint(activity_id: str, *, event_id: str, expected_sha256: str,
         lock.unlink()
 
 
-def guard(*, activity_id: str | None = None, boundary: str = "startup",
+def audit_observations(*, activity_id: str | None = None, boundary: str = "startup",
           event_id: str | None = None, session_id: str | None = None,
           registration_source: Mapping[str, Any] | None = None,
           new_semantic_progress: bool = True,
@@ -469,6 +474,47 @@ def guard(*, activity_id: str | None = None, boundary: str = "startup",
         result["persistence_allowed"] = True
     return result
 
+def guard(*, activity_id: str | None = None, boundary: str = "startup",
+          event_id: str | None = None, session_id: str | None = None,
+          registration_source: Mapping[str, Any] | None = None,
+          new_semantic_progress: bool = True,
+          root: Path = ROOT) -> dict[str, Any]:
+    """Check current bookkeeping/session association, not tool-wrapper evidence.
+
+    The caller supplies the current repository view. Source transport verifies
+    that view at its boundary; internal calls need not replay connector URLs,
+    call IDs, readback envelopes or all prior checkpoint proofs. A bookkeeping
+    record never grants a claim, review or mathematical acceptance.
+    """
+    if boundary not in ("startup", "checkpoint", "pre-final"):
+        raise ActivityError("unknown activity boundary")
+    result = {"activity_id": activity_id, "boundary": boundary,
+              "authority": dict(NO_AUTHORITY), "activity_allowed": False,
+              "persistence_allowed": False,
+              "registration_visibility": "CURRENT_REPOSITORY_VIEW",
+              "required_action": "REGISTER_RESEARCH_ACTIVITY"}
+    if activity_id is None or not record_path(activity_id, root).is_file():
+        return result
+    record, _ = _read_record(activity_id, root)
+    if record["session_state"] == "KNOWN" and (not isinstance(session_id, str) or not session_id.strip()):
+        result["required_action"] = "BIND_CURRENT_RESEARCH_ACTIVITY_SESSION"
+        return result
+    if session_id is not None and session_id != record["session_id"]:
+        raise ActivityError("activity belongs to a different or unknown original session")
+    # These are recorded progress notes, not a second admission decision. The
+    # checkpoint writer and explicit evidence audit retain their own checks.
+    checkpoints = [row for row in record["checkpoints"] if isinstance(row, dict)]
+    debts = [row.get("event_id") for row in checkpoints
+             if row.get("state") != "EM_REPRESENTED" and row.get("event_id")]
+    known = record["session_state"] == "KNOWN"
+    result.update(mode=record["mode"], record_path=f"{STORE}/{activity_id}.json",
+                  activity_allowed=known, persistence_allowed=True,
+                  sync_debt_events=debts, checkpoint_status_is_acceptance=False,
+                  verification_scope="CURRENT_BOOKKEEPING_NOT_SOURCE_OBSERVATION_AUDIT",
+                  historical_summary_events=sorted(_legacy_events({row["event_id"]: row for row in checkpoints if isinstance(row.get("event_id"), str)})),
+                  required_action="CONTINUE_ACTIVITY" if known else "RETROSPECTIVE_TRACKING_ONLY")
+    return result
+
 
 def overview(root: Path = ROOT, *, limit: int = 20, after: str | None = None) -> dict[str, Any]:
     if type(limit) is not int or not 1 <= limit <= 20:
@@ -482,7 +528,7 @@ def overview(root: Path = ROOT, *, limit: int = 20, after: str | None = None) ->
             record = read(path.stem, root)
             # The dispatch hot path reports stored bookkeeping only. It must
             # not replay every activity's full research-source observation.
-            # The dedicated guard remains the strict source audit boundary.
+            # Full source auditing is an explicit operation, separate from bookkeeping.
             events = {}
             for event in record["checkpoints"]:
                 if not isinstance(event, dict) or event.get("state") not in ("SYNC_DEBT", "VERIFY_EM_PUBLICATION", "EM_REPRESENTED"):
@@ -514,7 +560,7 @@ def overview(root: Path = ROOT, *, limit: int = 20, after: str | None = None) ->
     return {"scope": "OWNER_BOOKKEEPING_ONLY_NOT_CLAIM_QUEUE", "items": rows,
             "has_more": len(paths) > limit, "limit": limit,
             "next_cursor": paths[limit - 1].stem if len(paths) > limit else None,
-            "verification_scope": "RECORDED_METADATA_ONLY_SOURCE_BYTES_REVALIDATED_BY_ACTIVITY_GUARD",
+            "verification_scope": "RECORDED_METADATA_ONLY_SOURCE_BYTES_REVALIDATED_BY_EXPLICIT_AUDIT",
             "visibility": "THIS_CHECKOUT_ONLY_NOT_A_REMOTE_BRANCH_DISCOVERY",
             "entrypoint": "python tools/research_activity.py list --limit 20"}
 
@@ -545,6 +591,15 @@ def main(argv: list[str] | None = None) -> int:
                       help="exact current activity publication pin with full observed connector readback")
     gate.add_argument("--no-new-semantic-progress", action="store_true",
                       help="no new research checkpoint, e.g. user stops before research; never clears existing debt")
+    audit = sub.add_parser("audit")
+    audit.add_argument("--activity-id")
+    audit.add_argument("--boundary", choices=("startup", "checkpoint", "pre-final"), default="startup")
+    audit.add_argument("--event-id")
+    audit.add_argument("--session-id")
+    audit.add_argument("--registration-json", type=Path,
+                      help="exact current activity publication pin with full observed connector readback")
+    audit.add_argument("--no-new-semantic-progress", action="store_true",
+                      help="no new research checkpoint, e.g. user stops before research; never clears existing debt")
     listing = sub.add_parser("list")
     listing.add_argument("--limit", type=int, default=20)
     listing.add_argument("--after")
@@ -560,8 +615,9 @@ def main(argv: list[str] | None = None) -> int:
         value = checkpoint(args.activity_id, root=args.root, event_id=args.event_id,
                            expected_sha256=args.expected_sha256, em_sources=payload.get("em_sources"),
                            kb_sources=payload.get("kb_sources"), repairs_event_id=args.repairs_event_id)
-    elif args.command == "guard":
-        value = guard(activity_id=args.activity_id, root=args.root, boundary=args.boundary,
+    elif args.command in ("guard", "audit"):
+        selected = guard if args.command == "guard" else audit_observations
+        value = selected(activity_id=args.activity_id, root=args.root, boundary=args.boundary,
                       event_id=args.event_id, session_id=args.session_id,
                       registration_source=json.loads(args.registration_json.read_bytes()) if args.registration_json else None,
                       new_semantic_progress=not args.no_new_semantic_progress)
@@ -574,7 +630,7 @@ def main(argv: list[str] | None = None) -> int:
                  "required_action": "PUBLISH_ACTIVITY_RECORD_WITH_CAS_AND_VERIFY_IMMUTABLE_EM_READBACK",
                  "canonical_owner_visibility": "NOT_ESTABLISHED_BY_LOCAL_WRITE"}
     print(encoded(value).decode("utf-8"), end="")
-    return 2 if args.command == "guard" and not value["persistence_allowed"] else 0
+    return 2 if args.command in ("guard", "audit") and not value["persistence_allowed"] else 0
 
 
 if __name__ == "__main__":
