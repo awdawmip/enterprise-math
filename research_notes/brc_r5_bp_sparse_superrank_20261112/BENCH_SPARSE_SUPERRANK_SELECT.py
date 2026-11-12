@@ -48,7 +48,9 @@ for G in (1,2,4,8,16,32,90):
     durations=[]
     for _ in range(5):
         t=perf_counter_ns()
-        checksum=sum(select(i) for i in range(N))
+        checksum=0
+        for i in range(N):
+            checksum+=select(i)
         durations.append((perf_counter_ns()-t)/N)
     assert checksum==sum(opens)
     bits=2*N+J*7+len(anchors)*12+suffix
