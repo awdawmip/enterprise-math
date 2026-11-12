@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "A public bit is fed back into the second named-port selector; B,C post-noise",
+  "rational_noise_values": [
+    "0",
+    "1/4",
+    "1/2",
+    "3/4",
+    "1"
+  ],
+  "matrix_cases": 125,
+  "exact_rank_and_determinant_checks": 125,
+  "rank_counts": {
+    "1": 1,
+    "2": 8,
+    "3": 4,
+    "4": 48,
+    "8": 64
+  },
+  "positional_marginal_checks": 40,
+  "all_real_parameter_rank_theorem": "See companion R749SMG proof",
+  "determinant_abs": "prod_i(abs(1-2*epsilon_i)**4)/4096",
+  "contrast": {
+    "postprocessed_rank": 2,
+    "feedback_rank": 3,
+    "postprocessed_TV": "0",
+    "feedback_TV": "abs(1-2*epsilon_B)/8",
+    "positive_priors": "(1+y/2)/8 versus (1+t/2)/8"
+  },
+  "contrast_checks": [
+    {
+      "epsilon_B": "0",
+      "feedback_TV": "1/8"
+    },
+    {
+      "epsilon_B": "1/4",
+      "feedback_TV": "1/16"
+    },
+    {
+      "epsilon_B": "3/4",
+      "feedback_TV": "1/16"
+    },
+    {
+      "epsilon_B": "1",
+      "feedback_TV": "1/8"
+    }
+  ]
+}
