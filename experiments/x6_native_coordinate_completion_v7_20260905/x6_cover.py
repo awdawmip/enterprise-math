@@ -1,11 +1,13 @@
 """Exact connected Cell-cover models over the X6 coordinate completion.
 
 The parameter ``modulus`` is the diagonal closure order m:
-- m=1: coordinate-complete Cell identity;
-- m>1: cyclic common-depth fibre C_m;
-- m=0: unbounded integer common-depth fibre.
+- m=1: coordinate-complete *relative quotient observer*, NOT native Cell identity;
+- m>1: cyclic common-depth quotient fibre C_m;
+- m=0: exact integer common-depth fibre, recovering the current P000 V5
+  signed-native Cell displacement in a chosen Cell-anchored coordinate frame.
 
-Research tool only.  It classifies a model family; it does not choose P000 m.
+Finite-m covers remain legitimate derived models, not P000 native Cells.
+The value m=0 is a depth encoding, not an extra native spatial axis.
 """
 from __future__ import annotations
 
@@ -72,6 +74,16 @@ class CoverState:
     @property
     def coordinate_observation(self) -> Coord6:
         return self.coordinate
+
+    def signed_native_displacement(self) -> tuple[int, ...]:
+        """Exact signed native Cell coordinates only for the m=0 cover.
+
+        Finite-modulus covers forget an integer common-depth component;
+        picking one representative there would not identify a native Cell.
+        """
+        if self.modulus != 0:
+            raise ValueError("finite-depth quotient cover is not a native Cell")
+        return self.coordinate.signed_native_lift(self.depth)
 
 
 def diagonal_loop(state: CoverState, repeats: int=1) -> CoverState:
