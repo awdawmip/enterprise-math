@@ -78,5 +78,5 @@ for N in (7,31,127,509):
   assert ranked(F,sig,outside,1)!=((N,0),)
  stats["large_N_boundaries"][str(N)]={"old_period_denominator":N,"new_period_denominator":1,"disjoint_old_winner_components":N,"min_winner_identity_transitions":2*N-1}
 print("R101_PASS",stats["cases"],stats["exact_point_assertions"],stats["sharpness_checks"],stats["large_N_boundaries"]["509"]["disjoint_old_winner_components"])
-os.makedirs("/mnt/data/em_r101",exist_ok=True)
-with open("/mnt/data/em_r101/verification_r101.json","w") as f:json.dump(stats,f,sort_keys=True,indent=2)
+with open(os.path.join(os.path.dirname(__file__),"verification_r101.json"),"w") as f:
+ json.dump(stats,f,sort_keys=True,indent=2)
