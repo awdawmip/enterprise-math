@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Exact EC49FML 2000..2999 vector/optional raw solver rows verifier."""
-import base64,collections,hashlib,json,pathlib,sys
+"""Exact EC49FML 2000..2999 vector and optional raw solver-row verifier."""
+import base64,collections,hashlib,json,pathlib,sys,zlib
 v=json.loads(pathlib.Path(sys.argv[1]).read_text())
 assert v['scientific_pin']=='fc0f038e7bfd12c886b4d37f900bfb770c0f61ab'
 assert v['case_catalog_sha256']=='cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e'
 assert (v['case_start'],v['case_end_inclusive'],v['count'])==(2000,2999,1000)
-x=list(base64.b64decode(v['values_u8_base64'],validate=True))
+x=list(zlib.decompress(base64.b64decode(v['values_u8_zlib_base64'],validate=True)))
 assert len(x)==1000
 assert hashlib.sha256(bytes(x)).hexdigest()==v['value_bytes_sha256']=='15e593dde7bb47ff74a96a3d29692830f58f8bb960d37fefd008e24197a9b9bf'
 assert min(x)==v['min_cost']==110 and max(x)==v['max_cost']==138
