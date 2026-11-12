@@ -1,0 +1,46 @@
+{
+  "schema": "EM_R749_X6_C1_BLOCK_LAW_EXACT_V1",
+  "result": "PASS",
+  "signed_ports": 12,
+  "visible_states": 60,
+  "directed_source_edges": 960,
+  "exact_horizons": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "checks": {
+    "1": {
+      "resampled_legal_blocks": 60,
+      "retained_legal_blocks": 60,
+      "resampled_acceptance": "1/1",
+      "total_variation": "0/1",
+      "equal_prior_bayes_error": "1/2"
+    },
+    "2": {
+      "resampled_legal_blocks": 960,
+      "retained_legal_blocks": 960,
+      "resampled_acceptance": "1/1",
+      "total_variation": "0/1",
+      "equal_prior_bayes_error": "1/2"
+    },
+    "3": {
+      "resampled_legal_blocks": 15360,
+      "retained_legal_blocks": 960,
+      "resampled_acceptance": "1/16",
+      "total_variation": "15/16",
+      "equal_prior_bayes_error": "1/32"
+    },
+    "4": {
+      "resampled_legal_blocks": 245760,
+      "retained_legal_blocks": 960,
+      "resampled_acceptance": "1/256",
+      "total_variation": "255/256",
+      "equal_prior_bayes_error": "1/512"
+    }
+  },
+  "all_horizon_proof": "n>=2: C1 blocks 960; resampled blocks 60*16^(n-1); TV=1-16^(-(n-2))",
+  "fixed_current_four_bit_predictive_bound": 16,
+  "scope": "candidate finite C1; no native V29/V39 execution"
+}
