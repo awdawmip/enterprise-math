@@ -104,7 +104,7 @@ center_mu,center_m2=pair(c,c)
 center_W=center_m2-center_mu**2
 def dig(x): return sha256(str(x).encode("utf-8")).hexdigest()
 assert dig(center_mu.numerator)=="b15f79c4b0fc17598c7b19404f7eecdb083334496f81c4e27aaf17de164f2837"
-assert dig(center_W.numerator)=="e4bd76b871f468d154f971a21fad5bee103be950554fe83d7ea03c"
+assert dig(center_W.numerator)=="e4bd76b871f468d154f971a4cc69371fa21fad5bee103be950554fe83d7ea03c"
 assert dig(e_mu.numerator)=="797121e567e6422d342b2647cd17ff01187d5000b08bde8a954730d071bed46e"
 assert dig(e_W.numerator)=="814be93bb068b6a6e688e8ea5a466939a06e617b67ab585c177176f57afd57ae"
 
