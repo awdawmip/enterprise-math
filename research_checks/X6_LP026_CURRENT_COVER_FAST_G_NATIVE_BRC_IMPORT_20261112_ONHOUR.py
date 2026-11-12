@@ -80,7 +80,6 @@ def main(max_n=6):
     old_section_distinctions=0
     for n in range(max_n+1):
         assert sum(native.values())==12**n
-
         for z,v in native.items():
             assert endpoint_multiplicity(n,z)==v,(n,z,v)
             native_brc_checks+=1
