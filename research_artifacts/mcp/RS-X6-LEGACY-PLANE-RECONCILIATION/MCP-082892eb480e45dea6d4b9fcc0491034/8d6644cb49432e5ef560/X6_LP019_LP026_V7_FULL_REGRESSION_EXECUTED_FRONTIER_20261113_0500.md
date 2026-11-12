@@ -1,0 +1,6 @@
+# X6 LP019/LP026 exact-source V7 full original regression
+Task RS-X6-LEGACY-PLANE-RECONCILIATION; own Researcher EM-X6-FB6990; RUN-1e81bbcb1938961eb41db249.
+On 2026-11-13 patched original check_x6_coordinate.py executed with original GitHub modules; all five exact byte Git blob/SHA256 matches. Python 3.13.5 exit 0: PASS_X6_NATIVE_COORDINATE_COMPLETION_V7; checks=58989; raw V2 lifts=4096; signed_native_return_6=19920 vs positive_min_zero_relative return_6=720. Actual stdout SHA256 67ba1446566130aee0d7ae0fe412cb631708ea0b49fb40616744acab4ce90553.
+Complete certificate: https://github.com/awdawmip/enterprise-math/blob/9b7566f0ccd921a50bf299f0c26da3742748d124/research_notes/X6_LP019_LP026_V7_CURRENT_SOURCE_FULL_REGRESSION_EXECUTED_20261113_0500.md
+28-LP matrix: https://github.com/awdawmip/enterprise-math/blob/b6909241c516c57d430ac1e7223a31f0d62ec135/research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md
+Remaining: trace actual current native-misuse consumers; LP011/LP019 historical original bad-caller provenance; Driver REQUEST_REVISION. Do not repeat old 50771 prepatch checks, new 58989 patched checks, LP028/LP019/LP026 certificates. Author-executed, not independently reviewed.
