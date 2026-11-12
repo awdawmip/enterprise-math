@@ -1,0 +1,23 @@
+{
+  "schema": "PREFIX724_R6_MEAN_FIBER_DOMINANCE_V1",
+  "date": "2026-11-12",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "parent": "PREFIX-675",
+  "predecessor": "PREFIX-723-R6",
+  "domain": "auxiliary Gamma 2-parameter square D=[0,1/2]^2; mean-fiber paths inside certified S_r",
+  "center": "11/96",
+  "radius": "1/13300000000",
+  "inherited_K_strict_lower": "170445696/78125",
+  "inherited_mu_partial_upper": "35532",
+  "exact_gain_coefficient_kappa_over_M": "14203808/231328125",
+  "exact_gain_coefficient_q_ge_2": "56815232/231328125",
+  "old_square_K_over_M": "500000/8883",
+  "proof": "Along mu=c, dp/dz=-mu_z/mu_p; dM2/dz=J/mu_p=(z-p)K/mu_p. Thus M2 and every V_q strictly increase outward, with gain > q^2*(kappa/M)*(d0*h+h^2/2).",
+  "checked_polynomial_example": "mu=p+z; M2=(z-p)^2+12mu; J=4(z-p)",
+  "exact_rational_example_pairs": 210,
+  "exact_rational_q_values_per_pair": 4,
+  "reused_dependency": "PREFIX-721/722 author-level 189-row kernel K and derivative inequalities; no independent gamma-kernel rerun",
+  "scope_limit": "The theorem on S_r is conditional on inherited K>kappa and mu_j>0; no additional 384x384 cells certified",
+  "status": "AUTHOR_PROVED_RELATIVE_TO_INHERITED_CERTIFICATE / EXACT_FRACTION_TOY_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "next": "Build certified mean-level boundary dominance on larger surviving rectangles using frozen Gamma kernel and exact Bernstein positivity for K and mu_j."
+}
