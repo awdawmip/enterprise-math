@@ -1,0 +1,31 @@
+{
+  "schema": "EM_R753_EXACT_FINITE_BRC_CHECK_V1",
+  "status": "AUTHOR_FINITE_CHECK_WITH_PROOF_NOT_NATIVE_ADMISSION",
+  "date": "2026-11-12",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "researcher_id": "EM-X6-0E46B2",
+  "activity_id": "RA-98CE0270814B2431AD745438",
+  "source_frozen": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "12 declared signed local Ports; 320 unmarked oriented three-axis cycles; formal 3-PASS V29 count-ledger batches",
+  "brc_carrier": "three separately sourced directed positive branch occurrences per cyclic state, pushed to exact N0^(P x P) incidence histogram",
+  "observer": "Delta M, Delta Omega, Delta u, S6 covariance and global-sign twins",
+  "reference_proof": "R753_X6_EQUIVARIANT_TRIADIC_PASS_NO_GO_20261112.md",
+  "checker": "R753_X6_TRIADIC_PASS_COVARIANCE_CHECK.py",
+  "runs": [
+    {
+      "method": "Python stdlib exact finite enumeration",
+      "domain": "20 axis triples x 8 signings x 2 orientations",
+      "distinct_states": 320,
+      "permutations": 720,
+      "covariance_checks": 230400,
+      "distinct_batch_histograms": 320,
+      "global_sign_twin_pairs": 160,
+      "passes_per_batch": 3,
+      "zero_delta_u_cases": 320,
+      "result": "PASS"
+    }
+  ],
+  "single_edge_no_go": "C3 isotropy fixes (+++) cyclic state yet acts transitively on its three directed edges; explicit transposition 0<->1 breaks min-axis selector",
+  "constraints": "V29 PASS event grammar only; no native TRIADIC_CLOSURE_E permission or V39 coupled transition was executed or proved",
+  "independent_review": "NOT_PERFORMED"
+}
