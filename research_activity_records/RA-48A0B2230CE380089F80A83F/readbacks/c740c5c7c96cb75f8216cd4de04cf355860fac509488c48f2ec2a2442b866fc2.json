@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R749SMA_PARAMETER_STRATA_EXACT_CHECK.py",
+    "ref": "436ce1325ade1b46d5a14afb17786c2ebfa2804f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "research2-20261113-r749sma-code-remote-readback",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Exact rational robustness check for R749SMA; imports the independently validated R749SM kernel.\"\"\"\nfrom fractions import Fraction as Q\nfrom itertools import product\nfrom contextlib import redirect_stdout\nimport io\nimport json\n\nwith redirect_stdout(io.StringIO()):\n    import R749SM_PREDICTIVE_HANKEL_EXACT_CHECK as base\n\nparameters = [Q(0), Q(1,8), Q(1,2), Q(7,8), Q(15,16), Q(63,64)]\nZ = list(product((-1,1), repeat=2))\nwords = list(product((-1,1), repeat=2))\nprobability_matrices = []\nchecked_signed_conditional_paths = 0\nfor p in parameters:\n    q=(1+15*p)/16\n    r=(1-p)/16\n    a=q+r\n    assert a==(1+7*p)/8\n    assert a>0 and 2*r==(1-p)/8>0\n    base.THETA = (q-r)/a\n    assert base.THETA==8*p/(1+7*p)\n    for z0,z1 in Z:\n        initial={tuple(sorted({0:z0,1:z1,2:s2}.items())):Q(1,2) for s2 in (-1,1)}\n        d1=base.propagate(base.A0,base.B0,initial,base.C0)\n        d2=base.propagate(base.B0,base.C0,d1,base.C1)\n        assert len(d2)==8 and set(d2.values())=={Q(1,8)}\n        for x,y in words:\n            next_support=base.next_options[x]\n            d3=base.propagate(*base.S,d2,next_support)\n            d4=base.propagate(base.S[1],next_support,d3,base.second_options[x][y])\n            assert len(d3)==len(d4)==8 and set(d3.values())==set(d4.values())=={Q(1,8)}\n            checked_signed_conditional_paths+=1\n    M=[[Q(2+x*z0*z1,4)*Q(2+y*z0,4) for z0,z1 in Z] for x,y in words]\n    assert base.rank(M)==4 and base.determinant(M)==Q(1,16)\n    assert base.rank([[Q(2+x*z0*z1,4) for z0,z1 in Z] for x in (-1,1)])==2\n    probability_matrices.append(M)\nassert all(M==probability_matrices[0] for M in probability_matrices)\nassert 2*Q(1-1,16)==0  # at p=1 the required nonforced support has zero probability\nprint(json.dumps({\n  'status':'PASS',\n  'parameter_values':[str(p) for p in parameters],\n  'positive_nonforced_observation_probability':True,\n  'exact_conditional_path_checks':checked_signed_conditional_paths,\n  'uniform_eight_lift_across_four_private_histories':True,\n  'public_two_step_law_independent_of_p':True,\n  'two_step_public_rank':4,\n  'two_step_public_determinant':'1/16',\n  'affine_coordinates_H0_H1_H2':[0,1,3],\n  'conditional_support_only_parameter_Fisher_information':'0',\n  'endpoint_p_equals_one':'nonforced_prelude_zero_probability',\n  'native_event_permission':False,\n},sort_keys=True))\n",
+      "display_title": "R749SMA_PARAMETER_STRATA_EXACT_CHECK.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/436ce1325ade1b46d5a14afb17786c2ebfa2804f/research_notes/portable_direct/R749SMA_PARAMETER_STRATA_EXACT_CHECK.py",
+      "encoding": "utf-8",
+      "sha": "3fc00b772d72b4afc5eefefea5f5f6fee7c1c515"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
