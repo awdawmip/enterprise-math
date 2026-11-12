@@ -43,6 +43,12 @@ The previously published unchanged `EC49FKY_ONE_KEY_SWAP_84_LOCAL_OPTIMUM_202611
 
 An independently structured Python trie/subset-DP from EC49FKY cross-checked new cases **2473→86**, **4515→86**, **5541→204**, **5883→84**, including the unique minimum. The checker itself reconstructs full native signed prefixes from words.
 
+## New explicit seven-cache-key witness at the unique double swap
+
+Beyond proving a 6,315-case lower bound, the distinct index-5883 seven-key set has an explicit **24-word valid BRC construction** in `EC49FLA_84_NEW_WITNESS.json`. An independently implemented exact checker, `CHECK_EC49FLA_84_WITNESS.py`, tests all 24 labels against the original nine-state DFA, exact word-length and generator multiplicities, literal signed-X6 microsteps and final coordinate displacement `(+2,0,0,0,0,0)`. It verifies the set of seven **actually used** full keys equals the seven allowed keys and the union of all nonempty literal signed prefixes has size **84**. The construction's native paths have two distinct first signed-microstep roots `05` and `06`, contributing **42+42** prefixes respectively. An independent generator-membership audit of each of the 24 words also passed locally.
+
+Thus the unique newly found 84 case supplies both an actual upper-bound witness and the complete radius-two exact-search lower bound. The new object is distinct from the starting 84-prefix key set, providing another seed for subsequent multi-key exploration.
+
 ## Full finite certificate and re-execution
 
 The adjacent `EC49FLA_COST_VECTOR_6315.xz.b64` stores **all 6,315 exact minima**, one unsigned byte per feasible index in the deterministic original EC49FKZ order, compressed with LZMA/XZ and base64-encoded (1,300 compressed bytes). Decode with Python standard libraries `base64.b64decode` and `lzma.decompress`; demand that the raw vector length is 6,315.
