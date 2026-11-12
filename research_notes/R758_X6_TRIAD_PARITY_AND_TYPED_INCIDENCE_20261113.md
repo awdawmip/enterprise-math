@@ -1,6 +1,6 @@
-# R758 — Odd-path parity obstruction and typed Cell/Port incidence for X6 triads
+# R758P — Odd-path parity obstruction and typed Cell/Port incidence for X6 triads
 
-**Status:** exact theorem and 320-state finite witness; author-side research, pending native event admission and independent Driver review.
+**Status:** separately numbered parity supplement to contemporaneous R758 (PR #2197, V39 commutator study); exact theorem and 320-state finite witness; author-side research, pending native event admission and independent Driver review.
 **Task lineage:** RS-X6-TRIADIC-CLOSURE-DYNAMICS / TP2-8B7E13C5904A2D6F1142; previous R753–R757 author contributions.
 **Previous researcher provenance:** EM-X6-D25F40 / RA-CAA90D5BD12F505657A65DC6. Original Run RUN-c99655fb22237769554480ab was observed fenced by a later CLAIM at this run's read; no new active execution is asserted.
 **Frozen science:** awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389 P000 V5, P000_DISCRETE_DIRECTION_TRIADIC_BALANCE, ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR. Scientific pins unchanged.
@@ -14,13 +14,13 @@ The new question is whether a three-force balance can legitimately be represente
 
 ## 2. Exact all-odd-length obstruction
 
-**Theorem R758-A.** Let \(X\) be a torsor over \(\mathbb Z^6\). For any odd integer \(m\ge1\), and any \(m\) native primitive coordinate steps \(d_k\in\{\pm e_1,\ldots,\pm e_6\}\), \(\sum_{k=1}^m d_k\ne 0\). Consequently no odd-length native primitive-coordinate walk returns to its starting Cell, in particular no three-step walk.
+**Theorem R758P-A.** Let \(X\) be a torsor over \(\mathbb Z^6\). For any odd integer \(m\ge1\), and any \(m\) native primitive coordinate steps \(d_k\in\{\pm e_1,\ldots,\pm e_6\}\), \(\sum_{k=1}^m d_k\ne 0\). Consequently no odd-length native primitive-coordinate walk returns to its starting Cell, in particular no three-step walk.
 
 **Proof.** The integer homomorphism \(\pi:\mathbb Z^6\to\mathbb Z/2\mathbb Z\), \(\pi(z)=\sum_{i=1}^6 z_i\bmod2\), maps every signed basis direction to 1. Hence \(\pi(\sum d_k)=m\bmod2=1\), while \(\pi(0)=0\). Since torsor endpoint displacement is the sum of step labels independent of the chosen anchor, the endpoint differs. QED.
 
 **Sharpening for P000 equal-quantum signed triples.** If the three force-direction marks \(p,q,r\) use pairwise distinct native axes, a length-three coordinate walk using those marks has \(\ell_1\) displacement 3 and \(L_E^2=3\) in the frozen X6 component readout. There are exactly \(\binom63 2^3 3!=960\) ordered paths of this type, none closed. In all \(12^3=1728\) three-step words, 396 have \(\ell_1=1\) and 1332 have \(\ell_1=3\); none have zero displacement.
 
-**Theorem R758-B (sharp composite repair).** A closed primitive-coordinate walk whose step support contains at least three specified distinct native axes needs at least six steps. At length six it uses precisely one positive and one negative unit step on each of the three axes. Across all choices of three axes there are \(\binom63\,6!=14{,}400\) ordered closed words meeting this exact three-axis condition.
+**Theorem R758P-B (sharp composite repair).** A closed primitive-coordinate walk whose step support contains at least three specified distinct native axes needs at least six steps. At length six it uses precisely one positive and one negative unit step on each of the three axes. Across all choices of three axes there are \(\binom63\,6!=14{,}400\) ordered closed words meeting this exact three-axis condition.
 
 **Proof.** Zero net displacement forces the positive and negative counts of each used axis to agree. If three axes each appear, each contributes at least two occurrences; six steps are necessary and sufficient. For length six the six signed symbols are distinct, so there are \(6!\) orders per chosen triple. QED.
 
@@ -41,7 +41,7 @@ This contains three completed local port passages but **zero native Cell spatial
 \]
 The batch is independent of the cyclic starting point, and for every \(g\in S_6\) it obeys \(B_c(g[p,q,r])=gB_c([p,q,r])g^{-1}\), where \(g\) relabels *axis components*, leaving the signs typed. There are \(\binom63 2^3 2=320\) distinct oriented signed port-cycle observations. These facts reuse the R753 cycle representation, now separating its incidence semantics from spatial closure.
 
-**Conditional no-bridge proposition R758-C.** Any proposed representation that (i) maps each three-force primitive closed event to exactly three primitive X6 *coordinate steps*, and (ii) identifies primitive force closure with native Cell endpoint return, fails for every such event by Theorem R758-A. A type-preserving bridge must instead let triadic closure be a local relation, or supply additional composite steps, or replace the endpoint observer by an explicitly declared different observer. This is a precise obstruction to this *two-assumption representation*, not to triadic dynamics.
+**Conditional no-bridge proposition R758P-C.** Any proposed representation that (i) maps each three-force primitive closed event to exactly three primitive X6 *coordinate steps*, and (ii) identifies primitive force closure with native Cell endpoint return, fails for every such event by Theorem R758P-A. A type-preserving bridge must instead let triadic closure be a local relation, or supply additional composite steps, or replace the endpoint observer by an explicitly declared different observer. This is a precise obstruction to this *two-assumption representation*, not to triadic dynamics.
 
 The co-located candidate offers a concrete next interface:
 \[
