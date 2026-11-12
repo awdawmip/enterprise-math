@@ -17,7 +17,7 @@ def binary_basis(z):
 def det(matrix):
     a=[[Q(v) for v in row] for row in matrix]
     n=len(a)
-    assert all(len(row)==n)
+    assert all(len(row)==n for row in a)
     out=Q(1)
     for i in range(n):
         k=next((j for j in range(i,n) if a[j][i]),None)
