@@ -305,46 +305,73 @@
       "state": "EM_REPRESENTED"
     },
     {
-      "event_id": "onhour-20261112-1256-x6-pathsqrt-chart-glue-trace-capacity",
-      "state": "EM_REPRESENTED",
-      "repairs_event_id": null,
-      "kb_sources": [],
       "em_sources": [
         {
-          "repository": "awdawmip/enterprise-math",
           "commit": "9b9813c31763b280e2589400acdf600884faedc8",
           "path": "research_checks/X6_LP028_PATHSQRT_CHART_GLUE_TRACE_CAPACITY_20261112_ONHOUR.py",
-          "sha256": "be7fa4ebf703165fe292e95b92715ba7675c0e882b61e0c4431de1cb75f15e75",
           "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "be7fa4ebf703165fe292e95b92715ba7675c0e882b61e0c4431de1cb75f15e75",
           "verification": {
-            "tool_name": "github_fetch_file",
-            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "call_id": null,
             "git_blob_sha1": "7b44e0e509b2eb9d02a2433977484c31a3ee9792",
             "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9b9813c31763b280e2589400acdf600884faedc8/research_checks/X6_LP028_PATHSQRT_CHART_GLUE_TRACE_CAPACITY_20261112_ONHOUR.py",
-            "observation_id": "onhour-20261112-1256-chartglue-checker-readback",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
             "network_request_by_this_tool": false,
+            "observation_id": "onhour-20261112-1256-chartglue-checker-readback",
             "server_signature_authenticated": false,
-            "call_id": null
+            "tool_name": "github_fetch_file"
           }
         },
         {
-          "repository": "awdawmip/enterprise-math",
           "commit": "07da6f5a63bf985142d0708ae2fbf609e011f004",
           "path": "research_notes/X6_LP028_PATHSQRT_CHART_GLUE_TRACE_CAPACITY_20261112_ONHOUR.md",
-          "sha256": "d53c26255e7ebf065c08cdad4de963ba0c18f454023e4682e95e3bf113178d05",
           "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "d53c26255e7ebf065c08cdad4de963ba0c18f454023e4682e95e3bf113178d05",
           "verification": {
-            "tool_name": "github_fetch_file",
-            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "call_id": null,
             "git_blob_sha1": "ac0234fcf3fe04e6b234e63e5700519e3df12454",
             "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/07da6f5a63bf985142d0708ae2fbf609e011f004/research_notes/X6_LP028_PATHSQRT_CHART_GLUE_TRACE_CAPACITY_20261112_ONHOUR.md",
-            "observation_id": "onhour-20261112-1256-chartglue-proof-readback",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
             "network_request_by_this_tool": false,
+            "observation_id": "onhour-20261112-1256-chartglue-proof-readback",
             "server_signature_authenticated": false,
-            "call_id": null
+            "tool_name": "github_fetch_file"
           }
         }
-      ]
+      ],
+      "event_id": "onhour-20261112-1256-x6-pathsqrt-chart-glue-trace-capacity",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    },
+    {
+      "em_sources": [
+        {
+          "commit": "0b971e5e7ee85f3249582d40455716442f35cdd9",
+          "path": "research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "76f08590f85611da151a077d5c59d3a878ad48680232f1a4f3c774ae32d68fae",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "86da7edff1fcdfb764ddc2d478f96e9f2645ced5",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/0b971e5e7ee85f3249582d40455716442f35cdd9/research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "onhour-20261112-1400-x6-lp28-crosswalk-immutable-read",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-629C868A22A736334628BEFA/readbacks/025320bea0fb5f2f5297649d76fc9256bf290d3aba64f7849648d4a968b681bd.json",
+          "verification_receipt_sha256": "025320bea0fb5f2f5297649d76fc9256bf290d3aba64f7849648d4a968b681bd"
+        }
+      ],
+      "event_id": "onhour-20261112-1400-x6-lp28-source-consumer-action",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
     }
   ],
   "mode": "TASK_RESEARCH",
