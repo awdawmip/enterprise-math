@@ -91,7 +91,7 @@ for threshold, grouped in groupby(events, key=lambda x: x[0]):
     assert counts == rebuilt
     assert counts[0] == flag_mutations
 
-assert groups <= 1065 and max_tie <= 3
+assert groups == 953 and max_tie == 3
 assert flag_mutations == 1065
 assert counter_increments == 6379+1065 == 7444
 assert counts[0] == 1065
