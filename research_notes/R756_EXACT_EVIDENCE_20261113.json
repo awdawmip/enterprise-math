@@ -1,0 +1,43 @@
+{
+  "schema": "R756_S3_CONJUGACY_BRC_EXACT_V1",
+  "group_size": 6,
+  "checked_triples": 216,
+  "conjugacy_class_sizes": {
+    "identity": 1,
+    "transpositions": 3,
+    "three_cycles": 2
+  },
+  "forward_output_multiplicity_patterns": {
+    "3": 66,
+    "2+1": 126,
+    "1+1+1": 24
+  },
+  "by_class_size": {
+    "1": {
+      "3": 36
+    },
+    "2": {
+      "3": 18,
+      "2+1": 54
+    },
+    "3": {
+      "3": 12,
+      "1+1+1": 24,
+      "2+1": 72
+    }
+  },
+  "necessary_fixed_length_repair_bits": {
+    "constant": 0,
+    "two_distinct": 1,
+    "three_distinct": 2
+  },
+  "independent_uniform_schedule_collision_probability": "2/3",
+  "kernel_eigenvalues": {
+    "1": 3,
+    "1/3": 3
+  },
+  "exact_kernel_power_checks": "n=1..6, all 36 entries each",
+  "exact_arithmetic": "fractions.Fraction; no numerical tolerance",
+  "formal_native_v39_event_admission": "NOT_TESTED",
+  "proof_scope": "finite groups general; S3 complete enumeration; conditional V39 bridge"
+}
