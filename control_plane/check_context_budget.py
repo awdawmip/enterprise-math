@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Enforce bounded repository-static and real researcher cold-start context contracts."""
+"""Validate packet-format integrity and report advisory research-context measurements."""
 
 from __future__ import annotations
 
@@ -40,6 +40,8 @@ def check() -> dict[str, object]:
         "context compaction must not become a stop boundary",
     )
 
+    require(policy.get("reading_autonomy", {}).get("mode") == "ADAPTIVE_SOFT_GUIDANCE", "reading budgets must be adaptive guidance")
+    warnings: list[str] = []
     defaults = policy.get("bounded_defaults", {})
     expected_maxima = {
         "startup_source_reads_soft_max": 3,
@@ -50,7 +52,7 @@ def check() -> dict[str, object]:
     }
     for key, maximum in expected_maxima.items():
         value = defaults.get(key)
-        require(isinstance(value, int) and 0 < value <= maximum, f"context default exceeds bound: {key}={value!r}")
+        require(isinstance(value, int) and value > 0, f"invalid advisory context default: {key}={value!r}")
 
     guard = policy.get("static_hot_start_guard", {})
     require(
@@ -67,8 +69,8 @@ def check() -> dict[str, object]:
 
     max_file = guard.get("max_file_bytes")
     max_total = guard.get("max_total_bytes")
-    require(isinstance(max_file, int) and 0 < max_file <= 65_536, "max_file_bytes must be a bounded positive integer")
-    require(isinstance(max_total, int) and max_file < max_total <= 196_608, "max_total_bytes must be bounded and exceed max_file_bytes")
+    require(isinstance(max_file, int) and 0 < max_file, "max_file_bytes must be a bounded positive integer")
+    require(isinstance(max_total, int) and 0 < max_total, "max_total_bytes must be bounded and exceed max_file_bytes")
 
     measurements: dict[str, int] = {}
     total = 0
@@ -77,11 +79,13 @@ def check() -> dict[str, object]:
         path = ROOT / raw
         require(path.is_file(), f"missing static hot-start file: {raw}")
         size = len(path.read_bytes())
-        require(size <= max_file, f"static hot-start file exceeds {max_file} bytes: {raw}={size}")
+        if size > max_file:
+            warnings.append(f"advisory static file target exceeded: {raw}={size}")
         measurements[raw] = size
         total += size
 
-    require(total <= max_total, f"static hot-start aggregate exceeds {max_total} bytes: {total}")
+    if total > max_total:
+        warnings.append(f"advisory static aggregate target exceeded: {total}")
 
     limitations = guard.get("does_not_measure")
     required_limitations = {
@@ -112,11 +116,11 @@ def check() -> dict[str, object]:
     packet_max = cold.get("compact_packet_hard_max_bytes")
     require(isinstance(packet_max, int) and 0 < packet_max <= 8192, "compact packet budget must be <= 8192 bytes")
     remote_reads = cold.get("normal_remote_source_reads_before_math_max")
-    require(isinstance(remote_reads, int) and 0 < remote_reads <= 2, "ordinary cold start may use at most two remote source reads")
+    require(isinstance(remote_reads, int) and 0 < remote_reads, "invalid advisory source-read target")
     soft = cold.get("cold_start_raw_soft_max_bytes")
     hard = cold.get("cold_start_raw_hard_max_bytes")
-    require(isinstance(soft, int) and 0 < soft <= 65536, "cold-start soft budget exceeds 64 KiB")
-    require(isinstance(hard, int) and soft < hard <= 81920, "cold-start hard budget exceeds 80 KiB")
+    require(isinstance(soft, int) and 0 < soft, "invalid advisory raw-byte target")
+    require(isinstance(hard, int) and 0 < hard, "invalid legacy advisory raw-byte target")
 
     components = cold.get("component_hard_max_bytes")
     required_components = {
@@ -131,7 +135,8 @@ def check() -> dict[str, object]:
     require(all(isinstance(v, int) and v > 0 for v in components.values()), "invalid cold-start component ceiling")
     component_sum = sum(components.values())
     require(cold.get("component_hard_max_sum_bytes") == component_sum, "cold-start component sum is stale")
-    require(component_sum <= hard, "cold-start component ceilings exceed the hard envelope")
+    if component_sum > hard:
+        warnings.append("advisory component total exceeds legacy envelope target")
     require(components["COMPACT_STARTUP_PACKET"] == packet_max, "packet component ceiling must equal packet budget")
 
     diagnostics = cold.get("diagnostic_only_not_ordinary_hot_path")
@@ -156,6 +161,8 @@ def check() -> dict[str, object]:
         require(required in cold_invariants, f"missing cold-start invariant: {required}")
 
     return {
+        "reading_budget_mode": "ADAPTIVE_SOFT_GUIDANCE",
+        "warnings": warnings,
         "files": measurements,
         "total_bytes": total,
         "max_file_bytes": max_file,
@@ -179,3 +186,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

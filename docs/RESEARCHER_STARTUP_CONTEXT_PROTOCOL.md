@@ -72,7 +72,7 @@ The startup packet may include one `first_dependency_ref` without directory disc
 3. an exact unsatisfied dependency path;
 4. an exact source-ref path.
 
-If none is exact, the value is null. A null dependency does **not** authorize directory enumeration. After understanding the task, use bounded targeted search (`topn <= 20`) and then exact-file reads.
+If none is exact, the value is null. A null dependency does **not** authorize directory enumeration. After understanding the task, use bounded targeted search (initial target `topn = 20`, expandable as needed) and then exact-file reads.
 
 String and unsatisfied dictionary dependencies are supported. Unqualified existing paths refer to the packet's source snapshot. A declared `path@ref` or same-repository GitHub blob URL is retained unchanged as a read hint, not proof that its referenced revision was verified locally. Read the exact declared source before use; never substitute current-main bytes for a pinned revision. Task-local source firewalls and frozen scope still control access.
 
@@ -218,30 +218,17 @@ rebuild the legacy control plane, or label every 404 as harmless.
 
 ## Budgets
 
-Canonical component ceilings are in `research_context_budget.json`.
+`research_context_budget.json` supplies adaptive soft guidance, not cognitive limits.
+The model chooses additional targeted reading from task needs and available context,
+without requesting exceptions or stopping at two reads, 64/80 KiB, or component targets.
+Legacy `max`/`hard` reading fields remain advisory compatibility names. Static size
+excess is reported, not rejected. Avoid wasteful bulk context; actual provider limits,
+authorized source scope and blind-discovery firewalls remain binding.
 
-- compact startup packet hard max: `8192` bytes;
-- ordinary remote source reads before substantive mathematics: `<= 2`;
-- aggregate raw cold-start soft target: `<= 65536` bytes;
-- aggregate raw cold-start hard envelope: `<= 81920` bytes.
-
-The global TASK bootstrap already specifies the ordinary compact read window
-as **after the packet**, and this protocol specifies its end as **before
-substantive mathematics**. Preserve that applicable TASK start/end window.
-The general `bounded_defaults.startup_source_reads_soft_max=3` and compact
-`researcher_cold_start_envelope.normal_remote_source_reads_before_math_max=2`
-have distinct scopes. The current packet propagates a configured limit; the
-static checker does not count actual events. Cross-entry applicability, which
-in-window source objects count, segmented-read units and exceptions are not
-fully specified by those numbers. In particular, do not silently exclude an
-in-window foundation/rule read merely by calling it overhead. Preserve raw
-events and report any unresolved comparison scope instead of claiming a new
-unified counting contract. This clarification leaves existing numeric limits
-unchanged and adds no research-start approval step.
-
-The hard component ceilings sum below the aggregate hard envelope. This is a raw-byte guard, not a claim about provider tokenization. Product/runtime token measurement remains a separate platform concern.
-
-The packet additionally reports `taskbook_bytes`, `external_taskbook_bytes` (zero for an inline projection), and `packet_plus_external_taskbook_bytes`. This is partial payload accounting, explicitly `PACKET_AND_EXTERNAL_TASKBOOK_ONLY_NOT_END_TO_END`: dependencies, tool schemas, registration/readback, diagnostics, and host-injected context are not measured. An 8 KiB packet PASS is not an end-to-end startup PASS. For large external taskbooks use bounded exact-section reads while preserving the complete actual task body, all required content and frozen scope; do not delete semantics to fit a budget.
+The 8192-byte compact packet cap is a serialization format constraint only. Oversized
+taskbooks are fetched externally without truncating semantics. Packet plus external
+taskbook measurements are partial, not end-to-end token/context measurements.
+The suggested startup route is an information route, not prescribed thinking steps.
 
 ## Bridge persistence and concurrency
 
@@ -263,3 +250,4 @@ is a hosted check surface; its actual enabled/required status is a separate
 deployment fact. Do not add or dispatch hosted checks merely for this local
 validation. Any existing binding transport or required-check dependency retains
 its scope until a verified replacement exists.
+

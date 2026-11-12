@@ -360,7 +360,9 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
         "reason": route.get("reason"),
         "task": None,
         "read_plan": {
-            "remote_source_reads_before_substantive_math_max": budget.get(
+            "reading_budget_mode": "ADAPTIVE_SOFT_GUIDANCE",
+            "additional_reads_require_approval": False,
+            "remote_source_reads_before_substantive_math_soft_target": budget.get(
                 "normal_remote_source_reads_before_math_max"
             ),
             "first_dependency_ref": None,
@@ -503,3 +505,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

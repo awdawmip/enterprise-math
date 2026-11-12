@@ -1,6 +1,8 @@
 # Enterprise Math Tool Invocation Protocol
 
-Status: `ACTIVE / UNIVERSAL REUSE-BEFORE-INVENTION PROTOCOL / V2`
+[中文版本](ENTERPRISE_TOOL_INVOCATION_PROTOCOL.zh-CN.md)
+
+Status: `ACTIVE / AUTONOMOUS METHOD SELECTION PROTOCOL / V2`
 Date: `2026-08-28`
 Machine policy: `tool_invocation_policy.json`
 Tool registry: `enterprise_toolbox_registry.json`
@@ -11,31 +13,13 @@ Executable discovery router: `tools/enterprise_toolbox.py`
 
 Enterprise Math has many reusable mathematical mechanisms under route names, theorem names and source-module names. A researcher who does not know that history can accidentally rederive an existing quotient compiler, precision calculus, collision spectrum, certificate system or holonomy diagnostic and call it new machinery.
 
-The default flow is:
-
-`QUESTION/TASK`
-
-`-> IDENTIFY INFORMATION STRUCTURE`
-
-`-> TOOL COVERAGE LOOKUP`
-
-`-> REUSE RESOLUTION`
-
-`-> APPLY / EXECUTE / COMPOSE / EXTEND / CONFIRM GAP`
-
-`-> RESEARCH` (lookup may also run alongside derivation or after preserving results)
-
-`-> METHOD HARVEST AT ACCEPTED RETURN`.
-
-Freeze:
-
-`NEW_MECHANISM_BY_DEFAULT = FORBIDDEN`.
-
-`METHOD_NOVELTY_OR_SHARED_TOOL_ACCEPTANCE_REQUIRES_CONFIRMED_CAPABILITY_GAP`.
-
-`TOOL_COVERAGE_LOOKUP != TOOL_USE`.
-
-This is reuse discipline, not a theorem premise and not a Foundation change.
+Reuse is a useful default, not a prerequisite or a prescribed research sequence.
+The model chooses, reorders or replaces methods around the objective and evidence.
+Existing implementations may be replaced for insight, performance, simplicity or
+independent verification without a capability gap or an exception request.
+Novelty and shared-tool claims still require relevant, truthful prior-work comparison;
+exploration, preserving results and routine continuation do not wait for it.
+User assumptions, blind-discovery firewalls and semantic boundaries remain binding. Assistant-proposed taskbook methods are options, not prescribed thinking steps; explicit user experiment conditions remain binding.
 
 ## 2. Understand first, lookup second
 
@@ -53,7 +37,7 @@ The router searches:
 2. harvested methods/domain facades;
 3. AST/docstring/public-API metadata from current `src/enterprise_math/*.py`.
 
-The third layer discovers executable source but does not execute it.
+These are available evidence sources, not a mandatory reading order. The source layer discovers executable source but does not execute it.
 
 ## 3. Coverage verdict is only the first decision
 
@@ -63,6 +47,7 @@ Coverage resolves to:
 - `COMPOSE_EXISTING_TOOLS`;
 - `EXTEND_EXISTING_TOOL`;
 - `CAPABILITY_GAP_CONFIRMED`;
+- `ALTERNATIVE_APPROACH_CHOSEN` — choose a useful alternative, including identical input/output, without claiming novelty from that choice;
 - `NOT_APPLICABLE`.
 
 A positive match is **not** proof that the tool was actually reused.
@@ -75,6 +60,7 @@ Before novelty claims or shared-tool acceptance, relevant matches resolve to one
 - `EXTEND_EXISTING_TOOL` — the existing owner is correct but a genuinely missing capability must be added;
 - `REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE` — an adequate executable exists but cannot be executed in the current environment; do not claim it ran and do not relabel environment unavailability as a mathematical capability gap;
 - `CAPABILITY_GAP_CONFIRMED` — exact required input/output capability is absent;
+- `ALTERNATIVE_APPROACH_CHOSEN` — choose a useful alternative, including identical input/output, without claiming novelty from that choice;
 - `NOT_APPLICABLE`.
 
 Minimum record:
@@ -89,7 +75,7 @@ Minimum record:
 
 For a **mathematical calculus/theorem interface**, exact application of its declared law, hypotheses and hard boundary can be `REUSE_APPLIED`; code execution is not required merely to say the method was reused.
 
-For a claim that depends on a **software computation/certificate**, finding the source module is not enough. If the environment can execute the existing implementation, run it and record `REUSE_EXECUTED` rather than silently rewriting a duplicate.
+For a claim that depends on a **software computation/certificate**, finding the source module is not enough. Prefer reuse when it serves the objective; an alternative implementation is also permitted without a capability gap. Record which implementation actually ran and distinguish independent validation from novelty.
 
 If the current chat/runtime cannot execute the repository implementation, record `REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE`. The researcher may still use the exact mathematical interface as reasoning input when appropriate, but must not claim executable validation occurred.
 
@@ -126,19 +112,13 @@ For FREE research:
 
 `QUESTION_FIRST -> TOOL_SECOND`.
 
-Immediately **after** the candidate/no-go packet is frozen, normal coverage + reuse-resolution becomes mandatory before method novelty or new-tool claims.
+After the candidate/no-go packet is frozen, relevant coverage comparison is required when making method novelty or shared-tool claims, not immediately before any further research.
 
 An ordinary TASK may not self-declare blindness merely to skip reuse.
 
-## 7. Driver gate
+## 7. Driver decisions
 
-For every meaningful return:
-
-`EVIDENCE AUDIT -> METHOD HARVEST -> TOOL COVERAGE -> REUSE RESOLUTION -> VERDICT + ROUTE`.
-
-Before opening a new tool/method task, Driver must show why existing matches were applied, composed, rejected on exact semantic grounds, or genuinely insufficient.
-
-A task whose only novelty is rediscovering existing machinery under another name should be redirected/closed rather than promoted as a new family.
+Choose the research and review sequence autonomously. For material novelty or shared-tool decisions, use relevant prior-work evidence and classify the actual contribution. Do not require a capability gap, force reuse, or prescribe an evidence/harvest/lookup sequence. Same-interface alternatives may be valuable; naming alone is not mathematical novelty.
 
 ## 8. Steward gate
 
@@ -150,7 +130,7 @@ Do not move theorem ownership into the toolbox. The toolbox routes to the exact 
 
 ## 9. Post-return method harvest
 
-Every Driver-accepted or Steward-accepted return receives one classification:
+When a return changes shared reusable machinery or its routing, classify the contribution using the relevant category:
 
 - `GLOBAL_TOOL_FAMILY`;
 - `GLOBAL_SUBTOOL`;
@@ -176,12 +156,9 @@ Examples:
 
 `TOOL_USE != PREMISE_PROMOTION`.
 
-## 11. Closed-loop invariant
+## 11. Autonomous research, truthful reuse
 
-`CURRENT RESEARCH -> HARVEST REUSABLE METHODS -> TOOLBOX`
-
-and
-
-`NEW RESEARCH -> TOOLBOX LOOKUP -> REUSE RESOLUTION -> APPLY/EXECUTE/COMPOSE/EXTEND OR EXPLICIT GAP`.
-
-A method discovered once should become harder, not easier, to rediscover wastefully under another name.
+Research may reuse, compose, extend or replace methods. Preserve useful results and
+relevant prior-work links without mandatory repeated lookup or a fixed thinking chain.
+Tool acceptance, implementation improvement and mathematical novelty are distinct;
+none is inferred merely from a new name or a claimed capability gap.

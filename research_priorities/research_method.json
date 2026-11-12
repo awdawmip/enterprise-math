@@ -2,27 +2,35 @@
   "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_V1",
   "record_kind": "RESEARCH_METHOD_PREFERENCE",
   "status": "ACTIVE",
-  "version": 1,
-  "effective_date": "2026-11-01",
+  "version": 2,
+  "effective_date": "2026-11-12",
   "scope": "TASK_RESEARCH_REVIEW_AND_PORTFOLIO_DECISIONS",
-  "apply_when": ["TASK_RESEARCH", "RESEARCH_DRIVER", "FROZEN_FREE_PHASE_B"],
+  "apply_when": [
+    "TASK_RESEARCH",
+    "RESEARCH_DRIVER",
+    "FROZEN_FREE_PHASE_B"
+  ],
   "purpose": "Advance the selected mother objective through useful constructions, discriminating questions, and varied admissible research routes.",
   "rules": [
     {
       "id": "EM-RM01",
-      "action": "Use the existing task or research note to connect the mother objective, the selected local question, the current construction and the remaining objective. On a local return, identify the next unresolved part of the mother objective or its actual closure criterion."
+      "action": "Optional approach, when useful: Use the existing task or research note to connect the mother objective, the selected local question, the current construction and the remaining objective. On a local return, identify the next unresolved part of the mother objective or its actual closure criterion.",
+      "normative_strength": "OPTIONAL_METHOD_GUIDANCE"
     },
     {
       "id": "EM-RM02",
-      "action": "Choose an executable next scientific action with a discriminating outcome: a specified construction, lemma, exact example, certificate, or counterexample test. State the input and the information that each outcome would add; continue from the highest valid frontier."
+      "action": "Optional approach, when useful: Choose an executable next scientific action with a discriminating outcome: a specified construction, lemma, exact example, certificate, or counterexample test. State the input and the information that each outcome would add; continue from the highest valid frontier.",
+      "normative_strength": "OPTIONAL_METHOD_GUIDANCE"
     },
     {
       "id": "EM-RM03",
-      "action": "When a local route reaches an obstruction, inspect the particular representation, retained observation, allowed operation, or intermediate objective responsible for it. Develop a concrete admissible change when one has research value, and test that change against the existing obstruction. Record the precise remaining question when no useful change is available."
+      "action": "Optional approach, when useful: When a local route reaches an obstruction, inspect the particular representation, retained observation, allowed operation, or intermediate objective responsible for it. Develop a concrete admissible change when one has research value, and test that change against the existing obstruction. Record the precise remaining question when no useful change is available.",
+      "normative_strength": "OPTIONAL_METHOD_GUIDANCE"
     },
     {
       "id": "EM-RM04",
-      "action": "At route-selection or continuation decisions, compare materially different admissible approaches by expected information gain and executable work. Reuse existing results where helpful and give alternative routes a reasoned opportunity. Use current portfolio authority and existing records to continue, pause, combine, or close local work."
+      "action": "Choose approaches autonomously for the actual objective; comparison of alternatives is useful when it changes the decision, not a required step on each continuation. Preserve existing task ownership and truthful progress.",
+      "normative_strength": "OPTIONAL_METHOD_GUIDANCE"
     },
     {
       "id": "EM-RM05",
@@ -41,7 +49,10 @@
   "authorized_account_rule_routes": {
     "access": "ONLY_FOR_USERS_ALREADY_AUTHORIZED_TO_READ_THE_PRIVATE_ACCOUNT_REPOSITORY",
     "repository": "awdawmip/chatgpt-global-knowledge",
-    "entrypoints": ["00_BOOTSTRAP.md", "OPERATING_MANUAL.md"],
+    "entrypoints": [
+      "00_BOOTSTRAP.md",
+      "OPERATING_MANUAL.md"
+    ],
     "judgment_and_expression": "knowledge/preferences/OUTPUT_TEMPORAL_SEMANTICS_POLICY.json#conclusion_contract",
     "mathematical_evidence": "knowledge/preferences/MATH_RESEARCH_POLICY.json",
     "body_ownership": "General judgment/expression rules and mathematical proof standards remain in their existing account records; this file supplies only Enterprise Math method choices."
@@ -63,5 +74,12 @@
     "grants_role_or_claim": false,
     "changes_p000_or_frozen_scientific_inputs": false,
     "deployment_asserted": false
+  },
+  "application_contract": {
+    "thinking_sequence": "MODEL_CHOSEN_NOT_PRESCRIBED",
+    "binding_scope": "User-defined objective, assumptions, source/firewall boundaries and evidence-based acceptance remain binding. Examples below are optional methods, not a checklist or required order.",
+    "may_skip_reorder_replace_methods": true,
+    "may_continue_useful_authorized_untried_work_without_user_continue": true,
+    "ordinary_answers": "Stop when the requested answer or artifact is complete; no mandatory duration or endless research expansion."
   }
 }

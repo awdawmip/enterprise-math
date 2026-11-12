@@ -38,11 +38,12 @@
       "CONNECTED_TOOL_OUTPUTS",
       "GLOBAL_KNOWLEDGE_EXTERNAL_REPOSITORY_INPUTS",
       "PRODUCT_RUNTIME_TOKENIZATION"
-    ]
+    ],
+    "enforcement": "REPORT_ONLY"
   },
   "researcher_cold_start_envelope": {
     "schema": "ENTERPRISE_MATH_RESEARCHER_COLD_START_ENVELOPE_V1",
-    "purpose": "Bound the real new-researcher startup path rather than only repository-static policy files.",
+    "purpose": "Provide adaptive startup reading targets, with a separate compact-packet serialization cap.",
     "compact_packet_schema": "ENTERPRISE_MATH_RESEARCHER_STARTUP_PACKET_V1",
     "compact_packet_builder": "control_plane/researcher_startup_packet.py",
     "compact_packet_store": "control_plane/chatgpt_startup_packets/<request_id>.json",
@@ -78,7 +79,7 @@
     ],
     "fallbacks": {
       "TASK_PROJECTION_TOO_LARGE": "OMIT_INLINE_PROJECTION_AND_FETCH_EXACT_TASKBOOK_ONLY",
-      "FIRST_DEPENDENCY_UNKNOWN": "AFTER_TASK_UNDERSTANDING_USE_BOUNDED_TARGETED_SEARCH_TOPN_LE_20",
+      "FIRST_DEPENDENCY_UNKNOWN": "TASK_UNDERSTANDING_THEN_TARGETED_SEARCH_ADAPTIVE_SOFT_TARGET",
       "COMPACT_PACKET_MISSING_FOR_CURRENT_REQUEST": "PENDING_TRANSPORT_INSPECT_EXACT_REQUEST_NO_DUPLICATE; FRESH_REQUEST_ONLY_IF_COMPLETED_MISSING_MISMATCHED_OR_LEGACY",
       "DIAGNOSTIC_DETAIL_REQUIRED": "LOAD_EXACT_IMMUTABLE_RECEIPT_FOR_SAME_REQUEST_ID_ONLY"
     },
@@ -90,7 +91,8 @@
       "CURRENT_CONTROL_AUTHORITY_FULL_READ_FOR_ORDINARY_START=FORBIDDEN",
       "TASK_PROJECTION_MUST_BE_BYTE_PINNED_TO_EXACT_TASKBOOK_BLOB",
       "UNKNOWN_DEPENDENCY_NEVER_AUTHORIZES_DIRECTORY_ENUMERATION"
-    ]
+    ],
+    "reading_budget_mode": "ADAPTIVE_SOFT_GUIDANCE"
   },
   "high_fanout_paths": [
     "tests/",
@@ -159,5 +161,12 @@
     "tool_output_truncated": "ABORT_BULK_EXPANSION_NARROW_QUERY_AND_CONTINUE",
     "context_compaction": "RESTORE_DURABLE_TASK_STATE_NARROW_READS_AND_CONTINUE",
     "known_exact_file_larger_than_soft_range": "READ_ONLY_TRIGGERED_RANGES_AND_EXPAND_INCREMENTALLY"
+  },
+  "reading_autonomy": {
+    "mode": "ADAPTIVE_SOFT_GUIDANCE",
+    "decision_owner": "MODEL_USING_TASK_NEEDS_AND_AVAILABLE_CONTEXT",
+    "approval_required_to_exceed_guidance": false,
+    "legacy_max_field_semantics": "All read-count, search/page-size, raw-byte, component-byte and static-router max/hard fields are advisory compatibility names, not research eligibility or stopping gates. Only compact_packet_hard_max_bytes limits serialized packet format; oversized task material is read externally without truncation. Actual provider/transport limits and source firewalls remain binding.",
+    "research_sequence": "No prescribed thinking sequence; choose, reorder or replace research actions around the objective, actual evidence and acceptance criteria. Avoid wasteful bulk reads but expand targeted reading autonomously when useful."
   }
 }

@@ -20,10 +20,9 @@ class ResearcherStartupContextEnvelopeTests(unittest.TestCase):
             packet, ensure_ascii=False, sort_keys=True, separators=(",", ":")
         ).encode("utf-8")
         self.assertLessEqual(len(encoded), cold["compact_packet_hard_max_bytes"])
-        self.assertLessEqual(
-            packet["read_plan"]["remote_source_reads_before_substantive_math_max"],
-            2,
-        )
+        self.assertEqual(packet["read_plan"]["reading_budget_mode"], "ADAPTIVE_SOFT_GUIDANCE")
+        self.assertFalse(packet["read_plan"]["additional_reads_require_approval"])
+        self.assertNotIn("remote_source_reads_before_substantive_math_max", packet["read_plan"])
 
         # Large diagnostic surfaces must never leak into the ordinary startup packet.
         packet_text = encoded.decode("utf-8")
@@ -46,17 +45,13 @@ class ResearcherStartupContextEnvelopeTests(unittest.TestCase):
                 },
             )
 
-    def test_component_ceiling_sum_fits_hard_envelope(self):
+    def test_reading_targets_are_advisory(self):
         policy = json.loads((ROOT / "research_context_budget.json").read_text(encoding="utf-8"))
-        cold = policy["researcher_cold_start_envelope"]
-        components = cold["component_hard_max_bytes"]
-        self.assertEqual(sum(components.values()), cold["component_hard_max_sum_bytes"])
-        self.assertLessEqual(
-            cold["component_hard_max_sum_bytes"], cold["cold_start_raw_hard_max_bytes"]
-        )
-        self.assertLessEqual(cold["cold_start_raw_soft_max_bytes"], 65536)
-        self.assertLessEqual(cold["cold_start_raw_hard_max_bytes"], 81920)
+        self.assertEqual(policy["reading_autonomy"]["mode"], "ADAPTIVE_SOFT_GUIDANCE")
+        self.assertFalse(policy["reading_autonomy"]["approval_required_to_exceed_guidance"])
+        self.assertEqual(policy["static_hot_start_guard"]["enforcement"], "REPORT_ONLY")
 
 
 if __name__ == "__main__":
     unittest.main()
+

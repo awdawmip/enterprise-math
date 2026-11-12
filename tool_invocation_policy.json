@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_TOOL_INVOCATION_POLICY_V2",
   "status": "ACTIVE",
-  "effective": "2026-08-28T23:23:00+08:00",
+  "effective": "2026-11-12",
   "registry": "enterprise_toolbox_registry.json",
   "method_inventory": "research_method_inventory.json",
   "executable_router": "tools/enterprise_toolbox.py",
@@ -11,19 +11,21 @@
     "EXISTING_TOOL_COVERAGE_CHECK_BEFORE_NOVELTY_CLAIM_OR_SHARED_ACCEPTANCE",
     "COVERAGE_LOOKUP_IS_NOT_TOOL_REUSE",
     "NOVELTY_CLAIM_OR_SHARED_ACCEPTANCE_REQUIRES_RELEVANT_MATCH_RESOLUTION",
-    "EXISTING_TOOL_COVERAGE -> REUSE_OR_COMPOSE_UNLESS_EXACT_SCOPE_GAP_IS_RECORDED",
-    "METHOD_NOVELTY_OR_SHARED_TOOL_ACCEPTANCE_REQUIRES_CONFIRMED_CAPABILITY_GAP",
     "TOOL_USE_PRESERVES_SEMANTIC_TYPING_AND_HARD_BOUNDARIES",
     "EXPLICIT_DISCOVERY_FIREWALL_CONTROLS_TOOL_VISIBILITY_UNTIL_ITS_FREEZE_POINT",
     "CONTROL_PLANE_MAINTENANCE_DOES_NOT_TRIGGER_MATHEMATICAL_TOOLBOX_BY_DEFAULT",
-    "TOOL_ACCEPTANCE_DOES_NOT_MUTATE_FOUNDATION"
+    "TOOL_ACCEPTANCE_DOES_NOT_MUTATE_FOUNDATION",
+    "REUSE_IS_DEFAULT_NOT_MANDATORY",
+    "ALTERNATIVE_IMPLEMENTATION_DOES_NOT_REQUIRE_CAPABILITY_GAP",
+    "RESEARCH_METHOD_AND_STEP_ORDER_ARE_MODEL_CHOSEN"
   ],
   "coverage_verdicts": [
     "REUSE_EXISTING_TOOL",
     "COMPOSE_EXISTING_TOOLS",
     "EXTEND_EXISTING_TOOL",
     "CAPABILITY_GAP_CONFIRMED",
-    "NOT_APPLICABLE"
+    "NOT_APPLICABLE",
+    "ALTERNATIVE_APPROACH_CHOSEN"
   ],
   "reuse_resolution": {
     "coverage_hit_is_tool_use": false,
@@ -35,17 +37,19 @@
       "EXTEND_EXISTING_TOOL",
       "REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE",
       "CAPABILITY_GAP_CONFIRMED",
-      "NOT_APPLICABLE"
+      "NOT_APPLICABLE",
+      "ALTERNATIVE_APPROACH_CHOSEN"
     ],
     "rules": [
       "A registry match alone does not prove actual reuse; no lookup or resolution record is needed merely to start unshared derivation or preserve materials.",
       "For a mathematical calculus or theorem interface, applying its exact declared input/output law and hard boundary to the current task counts as REUSE_APPLIED even when no software execution is required.",
-      "When a matching executable source method is required for the claimed computation/certificate and the current environment can execute it, use the existing implementation rather than silently reimplementing it and record REUSE_EXECUTED.",
-      "When executable reuse is materially required but unavailable in the current environment, record REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE; do not claim that the executable tool was run and do not treat unavailability as a capability gap in the mathematics/tool family.",
+      "Prefer adequate existing implementations when useful. The model may instead implement or choose an alternative for mathematical insight, performance, verification, simplicity or other task-relevant value, without a capability gap or prior approval. Report what actually ran; an alternative does not imply novelty.",
+      "If existing execution is unavailable, state that fact only when relevant to the claim; an alternative may proceed. Do not claim an unexecuted tool ran or relabel environment unavailability as a mathematical gap.",
       "COMPOSE_APPLIED requires identifying the concrete existing tools/methods being composed and preserving each hard boundary.",
       "EXTEND_EXISTING_TOOL requires a capability absent from the existing interface while preserving ownership of the existing family.",
       "CAPABILITY_GAP_CONFIRMED requires an exact missing input/output capability, not merely a naming/package/domain difference.",
-      "Before claiming a new general-purpose mechanism or accepting it as shared machinery, resolve relevant matches; exploration and preservation may proceed first."
+      "Before claiming a new general-purpose mechanism or accepting it as shared machinery, resolve relevant matches; exploration and preservation may proceed first.",
+      "ALTERNATIVE_APPROACH_CHOSEN may have identical semantic input/output capability; assess improvement and novelty by actual evidence, not forced reuse. A short rationale in an existing result is sufficient when comparison is material; no startup form is required."
     ],
     "minimum_record": [
       "coverage_verdict",
@@ -60,20 +64,20 @@
     "TASK_RESEARCH": {
       "mandatory": true,
       "when": "after understanding the exact task; lookup may run alongside derivation or after preserving results, and is required before claiming method novelty or accepting shared reusable machinery",
-      "action": "query the current toolbox registry, method inventory and executable-source search surface; resolve every relevant match through reuse_resolution; apply or execute the narrowest adequate existing tool when available, or record the exact missing capability"
+      "action": "Use targeted relevant coverage evidence before a novelty claim or shared-tool acceptance; independently choose reuse, composition, extension or an alternative. Do not require all lookup surfaces when already adequate."
     },
     "TASK_RESEARCH_DISCOVERY_FIREWALL": {
       "mandatory_before_declared_freeze": false,
       "tool_catalog_visibility_before_declared_freeze": "HIDDEN_IF_TASKBOOK_EXPLICITLY_REQUIRES_BLIND_FORWARD_OR_OTHER_DISCOVERY_ISOLATION",
       "mandatory_after_declared_freeze": true,
       "action_before_freeze": "obey the exact task-local source whitelist/information firewall; do not expose current tool names or catalogs merely to enforce reuse",
-      "action_after_freeze": "run the same toolbox/method dedup lookup and reuse-resolution gate before claiming method novelty or opening a tool continuation; preserve the frozen result even when it collides with an existing tool",
+      "action_after_freeze": "Preserve the frozen result. Before a method novelty claim or shared-tool acceptance, resolve relevant comparisons; choose methods autonomously thereafter.",
       "scope_rule": "this exception exists only when the controlling taskbook explicitly declares a discovery firewall and freeze point; ordinary TASK_RESEARCH cannot self-declare blindness to skip reuse"
     },
     "RESEARCH_DRIVER": {
       "mandatory": true,
-      "when": "during intake/routing of a research return and before opening any task whose novelty is a new method/tool/mechanism",
-      "action": "deduplicate against existing tool families, subtools, domain facades and executable methods; require an explicit reuse-resolution state and route to reuse/composition/extension unless a capability gap is explicit"
+      "when": "when a return claims method novelty or changes shared reusable machinery, not every research return",
+      "action": "At a material novelty/shared-tool decision, distinguish existing mechanisms from actual contributions using relevant coverage evidence; permit useful alternatives without a capability gap. Do not prescribe a thinking sequence."
     },
     "FOUNDATION_STEWARD": {
       "mandatory": true,
@@ -88,7 +92,7 @@
     },
     "FREE_AXIOM_DISCOVERY_PHASE_B": {
       "mandatory": true,
-      "when": "immediately after the candidate/no-go packet is frozen and before claiming method novelty, uniqueness or a new reusable mechanism",
+      "when": "after candidate freeze and when claiming method novelty, uniqueness or accepting shared reusable machinery; not an immediate prerequisite for continuing research",
       "action": "open the toolbox/method surfaces for falsification, deduplication, reuse and integration, then resolve every relevant match through reuse_resolution"
     },
     "CONTROL_PLANE_MAINTENANCE": {
@@ -118,17 +122,15 @@
     }
   ],
   "new_mechanism_gate": {
-    "required_questions": [
-      "Which current tool families were checked?",
-      "Which concrete callable methods or recent harvested methods were checked?",
-      "What reuse-resolution state was assigned to each relevant match?",
-      "How was the existing tool applied/executed, or why was execution unavailable?",
-      "Why is reuse or composition insufficient at the required semantic strength?",
-      "Is the residue an extension of an existing tool or a genuinely new family?",
-      "What exact input/output capability is missing?"
+    "applies_to": "Evidence for novelty claims and shared-tool classification, not exploration, alternative implementations, result preservation or routine continuation",
+    "required_outcome": "Accurately identify the actual contribution and relevant prior mechanism. Novelty may concern structure, proof, cost or implementation; identical input/output alone neither proves nor refutes it.",
+    "suggested_questions": [
+      "What changed in mechanism, proof, cost or implementation?",
+      "What relevant prior mechanism is actually known?",
+      "Which evidence supports the claimed difference?"
     ],
-    "rule": "If the gap is only naming, packaging, a special case, a different application domain, or inability to execute an otherwise adequate existing implementation in the current chat environment, do not create a new tool family. Register an alias/specialization/domain facade, reuse the mathematical interface, or record execution unavailability as appropriate.",
-    "applies_to": "novelty claims and shared-tool acceptance, not private exploration or preservation"
+    "question_order": "MODEL_CHOSEN_OPTIONAL_NOT_CHECKLIST",
+    "rule": "Naming or packaging alone is not mathematical novelty. A useful alternative may be retained and shared with truthful classification; no capability-gap prerequisite or forced reuse."
   },
   "post_return_harvest": {
     "required_for": [
@@ -147,13 +149,14 @@
       "DUPLICATE_ALIAS",
       "NO_TOOL_PAYLOAD"
     ],
-    "required_action": "update the registry/inventory when reuse value or routing changes; otherwise persist the no-tool classification in the Driver/Steward review",
+    "required_action": "Update registry/inventory when reuse value or routing changes; otherwise no new classification record or checklist is required merely to return research.",
     "preservation_requires_classification": false
   },
   "anti_duplication": {
     "same_mechanism_different_historical_name": "ALIAS_OR_SUBTOOL",
     "same_mechanism_different_problem_domain": "DOMAIN_FACADE_OR_SPECIALIZATION",
     "strict_superset_with_new_capability": "EXTEND_EXISTING_TOOL",
-    "incompatible_semantic_type_or_new_input_output_contract": "CAPABILITY_GAP_MAY_BE_CONFIRMED"
+    "incompatible_semantic_type_or_new_input_output_contract": "CAPABILITY_GAP_MAY_BE_CONFIRMED",
+    "alternative_same_input_output": "ALLOWED_WITH_TRUTHFUL_CONTRIBUTION_CLASSIFICATION_NO_GAP_REQUIRED"
   }
 }
