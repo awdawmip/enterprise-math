@@ -1,0 +1,30 @@
+{
+  "method": "exact signed permutation BFS, integer lattice membership, exhaustive Z4^6 residue check",
+  "frozen_science_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "uncompensated": {
+    "group_order": 23040,
+    "relative_observer_descenders": 720,
+    "universal_orbit_lattice": "Z*ones+2*Z^6",
+    "maximal_equivariant_depth_erasing_quotient": "(Z/2)^5",
+    "quotient_order": 32,
+    "action_kernel_order": 64
+  },
+  "compensated": {
+    "group_order": 11520,
+    "relative_observer_descenders": 720,
+    "universal_orbit_lattice": "Z*ones+2*D6; D6=even-coordinate-sum lattice",
+    "maximal_equivariant_depth_erasing_quotient": "Z/4 x (Z/2)^4",
+    "quotient_order": 64,
+    "action_kernel_order": 1
+  },
+  "mod4_complete_residue_cases": 4096,
+  "compensated_orbit_lattice_mod4_size": 64,
+  "exact_relative_observer_witness": {
+    "uncompensated_image_of_ones": [-1,1,1,1,1,1],
+    "uncompensated_relative_image": [0,2,2,2,2,2],
+    "compensated_image_of_ones": [-1,1,1,-1,1,1],
+    "compensated_relative_image": [0,2,2,0,2,2],
+    "image_of_zero_relative": [0,0,0,0,0,0]
+  },
+  "pass": true
+}
