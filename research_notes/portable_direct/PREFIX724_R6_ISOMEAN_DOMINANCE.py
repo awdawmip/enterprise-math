@@ -21,6 +21,7 @@ assert kappa == F(170_445_696, 78_125) > 2000
 assert coefficient == F(14_203_808, 231_328_125)
 assert 4 * coefficient == F(56_815_232, 231_328_125)
 assert old_coefficient == F(500_000, 8_883)
+assert coefficient/4 == F(3_550_952, 231_328_125)
 assert r > old_radius and x0 - r > 0 and x0 + r < F(1, 2)
 
 # Exact, independent polynomial sanity model: m=p+z,
@@ -47,6 +48,9 @@ for i in range(0, 21):
         old_mu, new_mu = mu(p,z), mu(p-h,z+h)
         assert old_mu == new_mu
         gain = m2(p-h,z+h)-m2(p,z)
+        v0, v1 = z-p, (z+h)-(p-h)
+        assert gain == v1*v1-v0*v0
+        assert gain > F(3,4)*(v1*v1-v0*v0)
         assert gain == 4*d*h+4*h*h
         assert gain > 4*(d*h+h*h/2)
         for q in (F(1,3),F(2),F(13,5),F(17)):
@@ -67,6 +71,8 @@ result = {
     "exact_gain_coefficient_kappa_over_M": str(coefficient),
     "exact_gain_coefficient_q_ge_2": str(4*coefficient),
     "old_square_K_over_M": str(old_coefficient),
+    "mean_contrast_quadratic_gain_coefficient": str(coefficient/4),
+    "mean_contrast_identity": "At fixed u=mu and v=z-p, dV_q/dv=q^2*v*K/(mu_p+mu_z); for |v1|>|v0| on one side, gain > q^2*kappa/(4*M)*(v1^2-v0^2).",
     "proof": "Along mu=c, dp/dz=-mu_z/mu_p; dM2/dz=J/mu_p=(z-p)K/mu_p. Thus M2 and every V_q strictly increase outward, with gain > q^2*(kappa/M)*(d0*h+h^2/2).",
     "checked_polynomial_example": "mu=p+z; M2=(z-p)^2+12mu; J=4(z-p)",
     "exact_rational_example_pairs": checks,
