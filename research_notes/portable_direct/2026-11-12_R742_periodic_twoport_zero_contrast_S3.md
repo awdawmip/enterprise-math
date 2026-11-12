@@ -52,7 +52,7 @@ The exact terminal quotient (M,u,Omega,stock,current-root) discards all six name
 
 ## Theorem 4 — Why unpumped finite stock scales with horizon
 
-For a specific sequence of raw F/R moves, write S_j=#R-#F in the first j moves, S_0=0. The exact necessary and sufficient initial stocks for nonnegative execution are b0 >= max_j(-S_j,0), b1 >= max_j(S_j,0). For all 3^k possible unpumped k-generator words from the common initial stock, max S_j = k+1 (select RRF at the final generator), and min S_j = -1 (select FRR at the first). Hence the universal initial stock inequalities are b0>=1, b1>=k+1 and total stock>=k+2. The periodic root F construction removes this linear initial stock scaling without changing the original three generator holonomies.
+For a specific sequence of raw F/R moves, write S_j=#R-#F in the first j moves, S_0=0. The exact necessary and sufficient initial stocks for nonnegative execution are b0 >= max_j(-S_j,0), b1 >= max_j(S_j,0). For every integer k>=1, across all 3^k possible unpumped k-generator words with a common initial stock, max S_j = k+1 (select RRF at the final generator), and min S_j = -1 (select FRR at the first). At k=0 both extremes equal zero. Hence the universal initial stock inequalities are b0>=1, b1>=k+1 and total stock>=k+2. The periodic root F construction removes this linear initial stock scaling without changing the original three generator holonomies.
 
 ## Verification and unresolved native interface
 
