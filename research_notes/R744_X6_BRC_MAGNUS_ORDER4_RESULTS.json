@@ -1,0 +1,45 @@
+{
+  "verification": "R744_X6_BRC_MAGNUS_ORDER4_EXACT_PASS",
+  "date": "2026-11-12",
+  "parent_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_scientific_source": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": "R743 PR #2148 @ 2b4a22960e7efab0153ccca0c3f7d569d2d424b6",
+  "algorithm": "exact noncommutative integer Magnus truncation at degree 4; free-associative words",
+  "branches_per_r": {
+    "1": 1,
+    "2": 2,
+    "3": 6,
+    "4": 24
+  },
+  "low_degree_leq3_signature_classes_per_r": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 1
+  },
+  "degree_leq4_signature_classes_per_r": {
+    "1": 1,
+    "2": 2,
+    "3": 6,
+    "4": 24
+  },
+  "signed_edge_current_classes_per_r": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 1
+  },
+  "ordered_pair_coefficient_checks_per_r": {
+    "1": 0,
+    "2": 4,
+    "3": 36,
+    "4": 288
+  },
+  "total_ordered_pair_coefficient_checks": 328,
+  "S6_adjacent_generator_relabel_tests": 120,
+  "formal_theorem": "all r! paths c_sigma L c_sigma^-1 have equal degree<=3; coefficient [X_iX_jX_aX_b] = 1 iff i precedes j; degree<=4 uniquely determines connector order",
+  "verification_scope": "finite exhaustive r in {1,2,3,4}, exact integer no floating point",
+  "scientific_scope": "symbolic coordinate-path branch provenance observer, not native TRIADIC_CLOSURE_E update",
+  "formal_shared_claim": false,
+  "independent_review": false
+}
