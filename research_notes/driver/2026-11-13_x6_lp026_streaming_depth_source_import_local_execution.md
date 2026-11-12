@@ -43,3 +43,19 @@ The script's complete stdout additionally printed the three source Git-blob pins
 ## Routing
 
 Link this evidence to the existing X6/LP026 owning scientific frontier and its already published §10 result through the correct current Task/Result intake, with independent review as required. Original F7 Native Review is an unrelated ongoing Driver authorization/adapter dependency. Do not create a duplicate task/CLAIM merely to move this verification report.
+
+## Additional nontrivial-capacity stress runs (same pinned module imports)
+
+After the 42-case script pass, imported its unchanged `check(modulus,horizon)` function from the byte-exact checker into a short local invocation, without editing the four source files. The following calls returned normally with assertions satisfied:
+
+| Modulus | Horizon | Sharp capacity `1+floor(H/(3m))` | `CoverState.step` checks | Signed-BRC checks | Fibre groups |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 7 | 3 | 124,368 | 1,375 | 12,755 |
+| 1 | 8 | 3 | 286,416 | 1,375 | 23,477 |
+| 1 | 9 | 4 | 605,340 | 1,375 | 40,489 |
+| 2 | 7 | 2 | 124,368 | 1,375 | 18,892 |
+| 2 | 8 | 2 | 286,416 | 1,375 | 36,586 |
+| 2 | 9 | 2 | 605,340 | 1,375 | 65,630 |
+| 2 | 12 | 3 | 3,920,280 | 1,375 | 273,882 |
+
+The `m=1,H=9` case exercises the **four-state** bounded-horizon register; `m=2,H=12` exercises a three-state register over longer paths. These are additional finite regression results, not a changed theorem. A subsequent `m=3,H=9` call was not reached before the surrounding batch process timed out; no outcome is claimed for that call. Individual previously printed completed cases retain their observed pass status.
