@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+using namespace std;
+constexpr int INF=1000000000;
+struct Node {map<unsigned char,int> next;int labels=0;};
+struct Word {int lab,root; string path;};
+struct RootData{vector<int> labs, dp;int nn;};
+struct Sig {int root;uint64_t lo,hi;bool operator<(Sig const& b) const{return tie(root,lo,hi)<tie(b.root,b.lo,b.hi);}};
+vector<vector<Word>> words;
+map<Sig,RootData> cache;
+vector<Node> trie;
+vector<int> local;
+int cache_hits=0,cache_misses=0;
+void addpath(string const& s,int label){int u=0;for(int j=2;j+1<(int)s.size();j+=2){int c=stoi(s.substr(j,2),nullptr,16);auto it=trie[u].next.find(c);if(it==trie[u].next.end()){int v=trie.size();trie[u].next[c]=v;trie.push_back({});u=v;}else u=it->second;}
+ auto it=lower_bound(local.begin(),local.end(),label);if(it==local.end()||*it!=label)throw runtime_error("label missing");trie[u].labels|=(1<<int(it-local.begin()));}
+unordered_map<int,int> visit(int u){unordered_map<int,int> dp;dp[0]=0;if(trie[u].labels)dp[trie[u].labels]=0;
+ for(auto const&[ch,v]:trie[u].next){auto d=visit(v);unordered_map<int,int> nxt;nxt.reserve(dp.size()*min<size_t>(d.size(),8)+1);
+  for(auto [a,ca]:dp)for(auto [b,cb]:d){int m=a|b,c=ca+cb;auto it=nxt.find(m);if(it==nxt.end()||c<it->second)nxt[m]=c;}dp.swap(nxt);
+ }
+ for(auto &[m,c]:dp)if(m)c++;return dp;
+}
+RootData make_root(int rt,vector<int> const& selected){set<int> labs;
+ for(int k:selected)for(auto const& w:words[k])if(w.root==rt)labs.insert(w.lab);
+ local.assign(labs.begin(),labs.end());trie.clear();trie.emplace_back();
+ for(int k:selected)for(auto const& w:words[k])if(w.root==rt)addpath(w.path,w.lab);
+ auto d=visit(0);int n=local.size();if(n>20)throw runtime_error("root dimension >20");vector<int> f(1<<n,INF);
+ for(auto [m,c]:d)f[m]=c;
+ for(int j=0;j<n;j++)for(int m=0;m<(1<<n);m++)if(!(m>>j&1))f[m]=min(f[m],f[m|(1<<j)]);
+ return {local,f,(int)trie.size()};
+}
+int main(int argc,char**argv){ios::sync_with_stdio(false);cin.tie(nullptr);
+ int nk,nw,ncases;cin>>nk>>nw>>ncases;words.resize(nk);int cnt=0;
+ for(int k=0;k<nk;k++){int n;cin>>n;words[k].reserve(n);for(int i=0;i<n;i++){int lab;string p;cin>>lab>>p;int rt=stoi(p.substr(0,2),nullptr,16);words[k].push_back({lab,rt,p});cnt++;}}
+ if(cnt!=nw||nk!=94||ncases!=6315)throw runtime_error("master counts invalid");
+ int from=0,to=ncases;if(argc>1)from=stoi(argv[1]);if(argc>2)to=stoi(argv[2]);
+ for(int id=0;id<ncases;id++){vector<int> keys(7);for(int &k:keys)cin>>k;if(id<from||id>=to)continue;
+  map<int,vector<int>> subsets;
+  for(int k:keys){set<int> roots;for(auto const&w:words[k])roots.insert(w.root);for(int rt:roots)subsets[rt].push_back(k);}
+  vector<int> rootid;vector<RootData const*> data;
+  for(auto const& [rt,ks]:subsets){uint64_t lo=0,hi=0;for(int k:ks){if(k<64)lo|=uint64_t(1)<<k;else hi|=uint64_t(1)<<(k-64);}Sig sig{rt,lo,hi};auto it=cache.find(sig);
+   if(it==cache.end()){auto ins=cache.emplace(sig,make_root(rt,ks));it=ins.first;cache_misses++;}else cache_hits++;
+   rootid.push_back(rt);data.push_back(&it->second);
+  }
+  vector<vector<pair<int,int>>> positions(24);
+  for(int i=0;i<(int)data.size();i++){for(int j=0;j<(int)data[i]->labs.size();j++){positions[data[i]->labs[j]].push_back({i,j});}}
+  int best=INF,ways=0;vector<int> acc(data.size());vector<int> bestacc;
+  function<void(int)> dfs=[&](int lab){if(lab==24){int v=0;for(int k=0;k<(int)data.size();k++)v+=data[k]->dp[acc[k]];if(v<best){best=v;ways=1;bestacc=acc;}else if(v==best)ways++;return;}
+   if(positions[lab].empty())throw runtime_error("infeasible case");
+   for(auto [ri,li]:positions[lab]){acc[ri]|=1<<li;dfs(lab+1);acc[ri]&=~(1<<li);}
+  };dfs(0);
+  cout<<id<<' '<<best<<' '<<ways<<' '<<rootid.size()<<' ';
+  for(int k=0;k<(int)data.size();k++)cout<<rootid[k]<<':'<<data[k]->dp.back()<<':'<<data[k]->nn<<':'<<data[k]->labs.size()<<':'<<bestacc[k]<<',';
+  cout<<'\n';
+  if((id-from+1)%100==0)cerr<<"PROGRESS "<<id+1<<" / "<<to<<" cache "<<cache_hits<<":"<<cache_misses<<"\n";
+ }
+ cerr<<"FINISHED cache="<<cache.size()<<" hits="<<cache_hits<<" misses="<<cache_misses<<"\n";
+}
