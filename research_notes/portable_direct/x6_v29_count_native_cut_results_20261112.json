@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "count_ledger_law_source": "X6_NETWORK_EVENT_LEDGER_AND_CONTRAST_TRANSDUCER_V29_20260906",
+  "pass_witness": {
+    "cells": 6,
+    "event_kind": "PASS",
+    "serializations": 720,
+    "cut_state_counts": [
+      1,
+      6,
+      15,
+      20,
+      15,
+      6,
+      1
+    ],
+    "distinct_endpoints": 1,
+    "network_scalar_Q": 0,
+    "peak_cut_bits": 5
+  },
+  "transfer_witness": {
+    "cells": 4,
+    "allowed_connections": [
+      [
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        2,
+        0,
+        3,
+        1
+      ]
+    ],
+    "event_kind": "TRANSFER",
+    "serializations": 2,
+    "cut_state_counts": [
+      1,
+      2,
+      1
+    ],
+    "distinct_endpoints": 1,
+    "network_scalar_Q": 0
+  },
+  "proven": "EXACT_V29_LEDGER_LEVEL_AND_COUNT_ONLY_FUTURE",
+  "not_proven": [
+    "TRIADIC_CLOSURE_E",
+    "V1R_INTERNAL_FRAME_COUPLING",
+    "PHYSICAL_TIME_DURATION"
+  ]
+}
