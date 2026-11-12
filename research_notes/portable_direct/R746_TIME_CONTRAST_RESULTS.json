@@ -1,0 +1,103 @@
+{
+  "schema": "R746_TIME_RESOLVED_BRC_PASS_OBSERVER_V1",
+  "result": "PASS",
+  "integer_semantics": "exact",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "reference": "R744@9f266f4d182abf7c6c0bdb3c3fed621987b9be80",
+  "max_history_length": 8,
+  "cases": {
+    "A": {
+      "arc_count": 7,
+      "source_injective_codebooks": 32,
+      "valid_branch_blind_codebooks": 4,
+      "all_valid_codebooks_have_distinct_two_time_signatures": true,
+      "read_times": [
+        1,
+        3
+      ],
+      "each_single_time_max_distinct": 2,
+      "min_fixed_samples_per_block": 2,
+      "max_adaptive_samples_per_block": 2,
+      "uniform_expected_adaptive_samples_per_block": "5/3",
+      "histories_checked": 39364,
+      "includes_R744_reference_codebook": true,
+      "one_valid_codebook": {
+        "arc_labels": {
+          "012>014": "F",
+          "012>023": "R",
+          "013>012": "F",
+          "014>013": "R",
+          "023>013": "R",
+          "023>123": "F",
+          "123>012": "R"
+        },
+        "generator_words": {
+          "I": "FRRF",
+          "P": "RFRF",
+          "Q": "RFFR"
+        },
+        "signatures": {
+          "I": [
+            1,
+            -1
+          ],
+          "P": [
+            -1,
+            -1
+          ],
+          "Q": [
+            -1,
+            1
+          ]
+        }
+      }
+    },
+    "B": {
+      "arc_count": 7,
+      "source_injective_codebooks": 32,
+      "valid_branch_blind_codebooks": 4,
+      "all_valid_codebooks_have_distinct_two_time_signatures": true,
+      "read_times": [
+        1,
+        3
+      ],
+      "each_single_time_max_distinct": 2,
+      "min_fixed_samples_per_block": 2,
+      "max_adaptive_samples_per_block": 2,
+      "uniform_expected_adaptive_samples_per_block": "5/3",
+      "histories_checked": 39364,
+      "includes_R744_reference_codebook": true,
+      "one_valid_codebook": {
+        "arc_labels": {
+          "012>023": "F",
+          "012>123": "R",
+          "013>012": "F",
+          "023>013": "R",
+          "123>013": "R",
+          "123>124": "F",
+          "124>012": "R"
+        },
+        "generator_words": {
+          "I": "RFFR",
+          "P": "FRRF",
+          "Q": "RFRF"
+        },
+        "signatures": {
+          "I": [
+            -1,
+            1
+          ],
+          "P": [
+            1,
+            -1
+          ],
+          "Q": [
+            -1,
+            -1
+          ]
+        }
+      }
+    }
+  },
+  "total_histories_checked": 78728
+}
