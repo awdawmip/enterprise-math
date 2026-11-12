@@ -1,4 +1,6 @@
-# R758 portable research handoff / author-side evidence
+# R758P parity supplement — portable research handoff / author-side evidence
+
+Distinct from contemporaneous R758 V39 commutator PR #2197; this is a Cell-spatial-path parity and typed-incidence study.
 
 Task: RS-X6-TRIADIC-CLOSURE-DYNAMICS; publication TP2-8B7E13C5904A2D6F1142.
 Frozen science: awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389.
