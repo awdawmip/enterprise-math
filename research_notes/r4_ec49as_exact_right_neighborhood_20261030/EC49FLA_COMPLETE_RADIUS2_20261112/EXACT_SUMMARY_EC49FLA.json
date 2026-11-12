@@ -1,0 +1,264 @@
+{
+  "schema": "EC49FLA_ALL_6315_EXACT_RADIUS2_SUMMARY_V1",
+  "date": "2026-11-12",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "scientific_domain": "nine-state BRC; 24 labels; seven full cache keys; ordered signed native X6 microstep prefixes",
+  "catalog_words": 178850,
+  "raw_keys": 94,
+  "seven_key_original_84_prefix": true,
+  "total_distinct_two_key_swaps": 78561,
+  "coverable_swaps": 6315,
+  "not_coverable_swaps": 72246,
+  "coverable_minimum": 84,
+  "coverable_maximum": 204,
+  "count_below_84": 0,
+  "count_at_84": 1,
+  "minimum_global_feasible_index": 5883,
+  "two_86_indices": [
+    2473,
+    4515
+  ],
+  "unique_minimum_removed": [
+    [
+      5,
+      4,
+      1
+    ],
+    [
+      6,
+      4,
+      1
+    ]
+  ],
+  "unique_minimum_added": [
+    [
+      6,
+      3,
+      1
+    ],
+    [
+      7,
+      3,
+      1
+    ]
+  ],
+  "unique_minimum_final_keys": [
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      3,
+      0,
+      1
+    ],
+    [
+      3,
+      1,
+      1
+    ],
+    [
+      4,
+      2,
+      1
+    ],
+    [
+      5,
+      3,
+      1
+    ],
+    [
+      6,
+      3,
+      1
+    ],
+    [
+      7,
+      3,
+      1
+    ]
+  ],
+  "explicit_84_witness": "EC49FLA_84_NEW_WITNESS.json",
+  "explicit_witness_24_labels": true,
+  "explicit_witness_prefix_roots": [
+    {
+      "root_hex": "05",
+      "prefix_count": 42,
+      "labels": 12
+    },
+    {
+      "root_hex": "06",
+      "prefix_count": 42,
+      "labels": 12
+    }
+  ],
+  "per_dropped_pair_coverable": [
+    {
+      "removed": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          5,
+          3,
+          1
+        ]
+      ],
+      "count": 1,
+      "min": 102,
+      "max": 102
+    },
+    {
+      "removed": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ]
+      ],
+      "count": 1,
+      "min": 100,
+      "max": 100
+    },
+    {
+      "removed": [
+        [
+          4,
+          2,
+          1
+        ],
+        [
+          5,
+          3,
+          1
+        ]
+      ],
+      "count": 255,
+      "min": 102,
+      "max": 146
+    },
+    {
+      "removed": [
+        [
+          4,
+          2,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ]
+      ],
+      "count": 259,
+      "min": 102,
+      "max": 156
+    },
+    {
+      "removed": [
+        [
+          4,
+          2,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      "count": 45,
+      "min": 104,
+      "max": 184
+    },
+    {
+      "removed": [
+        [
+          5,
+          3,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ]
+      ],
+      "count": 3741,
+      "min": 86,
+      "max": 112
+    },
+    {
+      "removed": [
+        [
+          5,
+          3,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      "count": 1185,
+      "min": 86,
+      "max": 190
+    },
+    {
+      "removed": [
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      "count": 828,
+      "min": 84,
+      "max": 204
+    }
+  ],
+  "zero_coverable_dropped_pairs": 13,
+  "original_witness_0_1_radius_exact_verified_in": "EC49FKY_ONE_KEY_SWAP_84_LOCAL_OPTIMUM_20261112",
+  "cost_vector_encoding": "one uint8 cost per lexicographically indexed coverable set, xz then base64",
+  "cost_vector_raw_sha256": "7a94b5b408a73e4be11405c238273e0313b829c0d0ddd4793028609b1851f248",
+  "cost_vector_xz_sha256": "f5a83e6fb6877f57e33aded9c4c864dcfc66450f184eb15488b063825bc59868",
+  "cost_vector_xz_bytes": 1300,
+  "complete_6315_line_log_sha256": "06782c2c56ad3e3b7ae2e5aa9ad2e39fc8f5e4cb163f0917d39fbbe0a77e2c94",
+  "source_reuse": "EC49FKZ previous indices 0..399; newly run 400..6314 using unchanged EC49FKY signed native prefix solver",
+  "independent_python_cases": [
+    {
+      "index": 2473,
+      "cost": 86
+    },
+    {
+      "index": 4515,
+      "cost": 86
+    },
+    {
+      "index": 5541,
+      "cost": 204
+    },
+    {
+      "index": 5883,
+      "cost": 84
+    }
+  ],
+  "verified_claim": "For all seven-key sets K with |K symmetric_difference K0| <= 4, C(K)>=84, and equality is attained.",
+  "formal_status": "AUTHOR_EXACT_FINITE_RESULT_DRAFT_UNREVIEWED",
+  "native_session": "SESSION_ISSUANCE_QUOTA",
+  "formal_claim": "NOT_ESTABLISHED"
+}
