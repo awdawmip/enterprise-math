@@ -1,0 +1,52 @@
+{
+  "status": "PASS_R5_COMPACT_EVENT_COUNT_DIRECTORY",
+  "executed_surface": "local Python 3.13.5 original frozen fixture; separate committed portable script not independently executed",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "original_fixture_script_sha256": "22e76e78c040b4ba2574cbc586e89478bc96b77edbbfd8001a5bd99f7e7dc34b",
+  "local_full_output_sha256": "f88ad03814b2361ea787ab335293a2f8bed8d39a2a9906fca2a88b7ee5e59b17",
+  "nodes": 2880,
+  "terminals": 1065,
+  "walls": 953,
+  "fixture_rebuild_seconds": 1.443,
+  "exact_rank_node_checks": 2747520,
+  "exact_fraction_wavelet_checks": 57600,
+  "minimax": {
+    "budget": 239,
+    "optimal_radius": 2,
+    "actual_centers": 213
+  },
+  "counted_python_object_bytes": {
+    "weighted_old_masks": 33108,
+    "weighted_old_directory": 15608,
+    "weighted_total": 48716,
+    "weighted_compact_masks": 33108,
+    "weighted_compact_uint16_directory": 522,
+    "weighted_compact_total": 33630,
+    "uniform_B4_masks_only": 37516,
+    "compact_directory_raw_uint16_payload": 426,
+    "shared_order_uint16_payload": 2130
+  },
+  "query_median_ms_7_local_runs": {
+    "root_256": {
+      "uniform_nearest": 0.968,
+      "weighted_old_lists": 0.938,
+      "weighted_compact_uint16": 1
+    },
+    "broad_512": {
+      "uniform_nearest": 1.869,
+      "weighted_old_lists": 1.923,
+      "weighted_compact_uint16": 1.912
+    },
+    "random_2048": {
+      "uniform_nearest": 7.494,
+      "weighted_old_lists": 7.389,
+      "weighted_compact_uint16": 7.486
+    },
+    "hotmix_2048": {
+      "uniform_nearest": 7.582,
+      "weighted_old_lists": 7.546,
+      "weighted_compact_uint16": 7.712
+    }
+  },
+  "limitations": "The JSON is a faithful condensed transcribed summary of the separately executed local original-fixture output, whose SHA256 identifies the local full byte record. The GitHub portable verifier was committed, but its own remote execution is pending. Memory excludes shared data, index-build transient costs, full RSS and output serialization; timings exclude initialization."
+}
