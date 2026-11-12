@@ -60,14 +60,14 @@ Across the 32,768 labeled masks, precisely **13,371** mask/capacity pairs have a
 
 For a mask `S`, let `P_S` denote its full 28-dimensional integral sum. Write `B_{e,k}=X[k]+x*e*H[k]` for `e in {L,U}`.
 
-For each mask define a capped integer demand `c(S)` as the least nonnegative integer `n <= 1348` satisfying
+For each mask define a capped integer demand `c(S)`: the maximum of zero and the ceilings of all coordinatewise lower bounds on **positive** integers `n` needed to satisfy
 
 ```
 B_{e,k} + (x/n) P_S[k] >= 0
 for all e in {L,U}, k=0,...,27.
 ```
 
-Set `c(S)=1349` if no such n exists. Explicitly, over every negative `P_S[k]`, take the ceiling of `-x*P_S[k]/B_{e,k}`; a zero base and negative change require the sentinel 1349. Positive coordinate changes pose no constraint. Set `c(empty)=0`.
+Set `c(S)=1349` if no positive integer `n<=1348` satisfies the conditions. The value `c(S)=0` is a harmless no-negative-coordinate sentinel: for every positive `n`, the inequalities hold if and only if `n>=c(S)`. Explicitly, over every negative `P_S[k]`, take the ceiling of `-x*P_S[k]/B_{e,k}`; a zero base and negative change require the sentinel 1349. Positive coordinate changes pose no constraint. Set `c(empty)=0`.
 
 For each mask define the minimum bottleneck demand among **all** labeled operation permutations:
 
