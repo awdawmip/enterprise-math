@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
 """Exact regression for common-depth Cell covers."""
 from itertools import product
+from pathlib import Path
+import sys
 
 from x6_coordinate import Coord6, ORIGIN_COORD
 from x6_cover import CoverState, depth_carry, diagonal_loop, first_positive_diagonal_return
+
+# P000 V5 signed-native reference: a CoverState with modulus=0 must
+# reconstruct the exact same six-axis Cell after every primitive step.
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "experiments" / "x6_signed_native_spatial_v16_20260905"))
+from x6_signed import Spatial6
 
 
 def main():
@@ -57,18 +65,47 @@ def main():
             assert diagonal_loop(origin,first)==origin
             checks+=1
 
-    # m=1 is exactly coordinate-complete: depth never changes Cell identity.
+    # m=1 is coordinate-complete only in the quotient-cover model,
+    # not in the current P000 signed-native Cell identity (m=0).
     for a in coords:
         for d in range(-20,21):
             assert CoverState(a,d,1)==CoverState(a,0,1)
             checks+=1
 
+    # New exact cross-module native regression, including negative depths.
+    # This tests the real existing CoverState.step against Spatial6.step.
+    native_states=0
+    native_steps=0
+    for z in product(range(-2,3), repeat=6):
+        h=min(z)
+        relative=Coord6.from_integer_lift(z)
+        cover=CoverState(relative,h,0)
+        signed=Spatial6(z)
+        assert cover.coordinate.signed_native_lift(cover.depth)==signed.coords
+        native_states+=1
+        checks+=1
+        for axis in range(6):
+            for direction in (-1,+1):
+                next_cover=cover.step(axis,direction)
+                next_signed=signed.step(axis,direction)
+                assert next_cover.coordinate.signed_native_lift(next_cover.depth)==next_signed.coords
+                assert sum(x*x for x in next_cover.coordinate.signed_native_lift(next_cover.depth))==next_signed.norm_squared_from_origin()
+                native_steps+=1
+                checks+=2
+
+    # Explicit observer collision: m=1 identifies raw 0 with raw diagonal 1;
+    # m=0 keeps both genuinely different native Cells.
+    assert CoverState(ORIGIN_COORD,0,1)==CoverState(ORIGIN_COORD,1,1)
+    assert CoverState(ORIGIN_COORD,0,0)!=CoverState(ORIGIN_COORD,1,0)
+    checks+=2
+
     print("PASS_X6_CELL_COVER_CLASSIFICATION_V13_V14")
     print("checks=",checks)
     print("tested_moduli=0..8")
-    print("m=1=>coordinate_complete")
+    print("m=1=>quotient_cover_coordinate_complete_only; current_P000_signed_native_m=0")
     print("m>1=>cyclic_common_depth_fibre")
-    print("m=0=>integer_common_depth_fibre")
+    print("m=0=>integer_common_depth_fibre; P000_native_signed_step_crossfile=PASS")
+    print("native_m0_states=", native_states, "; native_m0_steps=", native_steps)
 
 
 if __name__=="__main__":
