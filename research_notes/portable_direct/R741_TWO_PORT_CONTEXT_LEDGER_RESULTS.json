@@ -1,0 +1,627 @@
+{
+  "result": "PASS",
+  "parent_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "task_publication": "TP2-8B7E13C5904A2D6F1142",
+  "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "v29_auxiliary": "30fb16d39465708fd1b54c70a58d06ad20f310f8",
+  "checked_generator_lengths": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "carriers": {
+    "A": {
+      "mask": 211733226574,
+      "selected_arc_count": 15,
+      "generator_arc_count": 7,
+      "max_outdegree_full": 3,
+      "max_outdegree_generators": 2,
+      "inventory": [
+        "012",
+        "013",
+        "014",
+        "023",
+        "123"
+      ],
+      "generator_codewords": {
+        "I": "FRR",
+        "P": "RFR",
+        "Q": "RRF"
+      },
+      "arc_codebook": [
+        {
+          "arc": "012>014",
+          "pass": "F"
+        },
+        {
+          "arc": "012>023",
+          "pass": "R"
+        },
+        {
+          "arc": "013>012",
+          "pass": "R"
+        },
+        {
+          "arc": "014>013",
+          "pass": "R"
+        },
+        {
+          "arc": "023>013",
+          "pass": "F"
+        },
+        {
+          "arc": "023>123",
+          "pass": "R"
+        },
+        {
+          "arc": "123>012",
+          "pass": "F"
+        }
+      ],
+      "named_relations": {
+        "I": "012",
+        "P": "021",
+        "Q": "102",
+        "PQ": "201",
+        "QP": "120",
+        "PQP": "210"
+      },
+      "census_k0_to_k8": [
+        {
+          "k": 0,
+          "histories": 1,
+          "M": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "named_counts": {
+            "012": 1
+          }
+        },
+        {
+          "k": 1,
+          "histories": 3,
+          "M": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 1,
+            "012": 1,
+            "021": 1
+          }
+        },
+        {
+          "k": 2,
+          "histories": 9,
+          "M": [
+            [
+              0,
+              2
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 2,
+            "120": 1,
+            "201": 1,
+            "012": 3,
+            "021": 2
+          }
+        },
+        {
+          "k": 3,
+          "histories": 27,
+          "M": [
+            [
+              0,
+              3
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 6,
+            "120": 3,
+            "201": 3,
+            "210": 2,
+            "012": 7,
+            "021": 6
+          }
+        },
+        {
+          "k": 4,
+          "histories": 81,
+          "M": [
+            [
+              0,
+              4
+            ],
+            [
+              8,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 16,
+            "120": 11,
+            "201": 11,
+            "210": 8,
+            "012": 19,
+            "021": 16
+          }
+        },
+        {
+          "k": 5,
+          "histories": 243,
+          "M": [
+            [
+              0,
+              5
+            ],
+            [
+              10,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 46,
+            "120": 35,
+            "201": 35,
+            "210": 30,
+            "012": 51,
+            "021": 46
+          }
+        },
+        {
+          "k": 6,
+          "histories": 729,
+          "M": [
+            [
+              0,
+              6
+            ],
+            [
+              12,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 132,
+            "120": 111,
+            "201": 111,
+            "210": 100,
+            "012": 143,
+            "021": 132
+          }
+        },
+        {
+          "k": 7,
+          "histories": 2187,
+          "M": [
+            [
+              0,
+              7
+            ],
+            [
+              14,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 386,
+            "120": 343,
+            "201": 343,
+            "210": 322,
+            "012": 407,
+            "021": 386
+          }
+        },
+        {
+          "k": 8,
+          "histories": 6561,
+          "M": [
+            [
+              0,
+              8
+            ],
+            [
+              16,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 1136,
+            "120": 1051,
+            "201": 1051,
+            "210": 1008,
+            "012": 1179,
+            "021": 1136
+          }
+        }
+      ],
+      "axis_permutations_checked": 720
+    },
+    "B": {
+      "mask": 5363347296468,
+      "selected_arc_count": 15,
+      "generator_arc_count": 7,
+      "max_outdegree_full": 3,
+      "max_outdegree_generators": 2,
+      "inventory": [
+        "012",
+        "013",
+        "023",
+        "123",
+        "124"
+      ],
+      "generator_codewords": {
+        "I": "RRF",
+        "P": "FRR",
+        "Q": "RFR"
+      },
+      "arc_codebook": [
+        {
+          "arc": "012>023",
+          "pass": "F"
+        },
+        {
+          "arc": "012>123",
+          "pass": "R"
+        },
+        {
+          "arc": "013>012",
+          "pass": "R"
+        },
+        {
+          "arc": "023>013",
+          "pass": "R"
+        },
+        {
+          "arc": "123>013",
+          "pass": "F"
+        },
+        {
+          "arc": "123>124",
+          "pass": "R"
+        },
+        {
+          "arc": "124>012",
+          "pass": "F"
+        }
+      ],
+      "named_relations": {
+        "I": "012",
+        "P": "021",
+        "Q": "210",
+        "PQ": "120",
+        "QP": "201",
+        "PQP": "102"
+      },
+      "census_k0_to_k8": [
+        {
+          "k": 0,
+          "histories": 1,
+          "M": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "named_counts": {
+            "012": 1
+          }
+        },
+        {
+          "k": 1,
+          "histories": 3,
+          "M": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "named_counts": {
+            "210": 1,
+            "012": 1,
+            "021": 1
+          }
+        },
+        {
+          "k": 2,
+          "histories": 9,
+          "M": [
+            [
+              0,
+              2
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "named_counts": {
+            "120": 1,
+            "201": 1,
+            "210": 2,
+            "012": 3,
+            "021": 2
+          }
+        },
+        {
+          "k": 3,
+          "histories": 27,
+          "M": [
+            [
+              0,
+              3
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 2,
+            "120": 3,
+            "201": 3,
+            "210": 6,
+            "012": 7,
+            "021": 6
+          }
+        },
+        {
+          "k": 4,
+          "histories": 81,
+          "M": [
+            [
+              0,
+              4
+            ],
+            [
+              8,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 8,
+            "120": 11,
+            "201": 11,
+            "210": 16,
+            "012": 19,
+            "021": 16
+          }
+        },
+        {
+          "k": 5,
+          "histories": 243,
+          "M": [
+            [
+              0,
+              5
+            ],
+            [
+              10,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 30,
+            "120": 35,
+            "201": 35,
+            "210": 46,
+            "012": 51,
+            "021": 46
+          }
+        },
+        {
+          "k": 6,
+          "histories": 729,
+          "M": [
+            [
+              0,
+              6
+            ],
+            [
+              12,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 100,
+            "120": 111,
+            "201": 111,
+            "210": 132,
+            "012": 143,
+            "021": 132
+          }
+        },
+        {
+          "k": 7,
+          "histories": 2187,
+          "M": [
+            [
+              0,
+              7
+            ],
+            [
+              14,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 322,
+            "120": 343,
+            "201": 343,
+            "210": 386,
+            "012": 407,
+            "021": 386
+          }
+        },
+        {
+          "k": 8,
+          "histories": 6561,
+          "M": [
+            [
+              0,
+              8
+            ],
+            [
+              16,
+              0
+            ]
+          ],
+          "named_counts": {
+            "102": 1008,
+            "120": 1051,
+            "201": 1051,
+            "210": 1136,
+            "012": 1179,
+            "021": 1136
+          }
+        }
+      ],
+      "axis_permutations_checked": 720
+    }
+  },
+  "TV_exact_checked_k1_to_k20": [
+    {
+      "k": 1,
+      "numerator": 9,
+      "denominator": 18
+    },
+    {
+      "k": 2,
+      "numerator": 15,
+      "denominator": 54
+    },
+    {
+      "k": 3,
+      "numerator": 33,
+      "denominator": 162
+    },
+    {
+      "k": 4,
+      "numerator": 63,
+      "denominator": 486
+    },
+    {
+      "k": 5,
+      "numerator": 129,
+      "denominator": 1458
+    },
+    {
+      "k": 6,
+      "numerator": 255,
+      "denominator": 4374
+    },
+    {
+      "k": 7,
+      "numerator": 513,
+      "denominator": 13122
+    },
+    {
+      "k": 8,
+      "numerator": 1023,
+      "denominator": 39366
+    },
+    {
+      "k": 9,
+      "numerator": 2049,
+      "denominator": 118098
+    },
+    {
+      "k": 10,
+      "numerator": 4095,
+      "denominator": 354294
+    },
+    {
+      "k": 11,
+      "numerator": 8193,
+      "denominator": 1062882
+    },
+    {
+      "k": 12,
+      "numerator": 16383,
+      "denominator": 3188646
+    },
+    {
+      "k": 13,
+      "numerator": 32769,
+      "denominator": 9565938
+    },
+    {
+      "k": 14,
+      "numerator": 65535,
+      "denominator": 28697814
+    },
+    {
+      "k": 15,
+      "numerator": 131073,
+      "denominator": 86093442
+    },
+    {
+      "k": 16,
+      "numerator": 262143,
+      "denominator": 258280326
+    },
+    {
+      "k": 17,
+      "numerator": 524289,
+      "denominator": 774840978
+    },
+    {
+      "k": 18,
+      "numerator": 1048575,
+      "denominator": 2324522934
+    },
+    {
+      "k": 19,
+      "numerator": 2097153,
+      "denominator": 6973568802
+    },
+    {
+      "k": 20,
+      "numerator": 4194303,
+      "denominator": 20920706406
+    }
+  ],
+  "six_way_onset_generator_count": 3,
+  "six_way_onset_PASS_event_count": 9,
+  "evidence_context": {
+    "local_python_exact_enumeration": "PASS, all 3^k words k=0..8, k1..20 TV and 720 S6 codebook transports per carrier",
+    "formal_argument": "S3 group-algebra Fourier inversion and graph local branching injection in companion proof",
+    "numerical_semantics": "exact Python/JS integers for finite checks; k<=20 within exact JS safe integer range for displayed totals"
+  }
+}
