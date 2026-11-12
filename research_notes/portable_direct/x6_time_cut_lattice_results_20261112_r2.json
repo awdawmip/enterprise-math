@@ -1,0 +1,133 @@
+{
+  "status": "PASS",
+  "domain": "disjoint V1R product; cut-state injectivity when all lengths <=11; C12 alias checked separately",
+  "cases": [
+    {
+      "lengths": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "serializations": 720,
+      "cut_state_counts": [
+        1,
+        6,
+        15,
+        20,
+        15,
+        6,
+        1
+      ],
+      "parity_only_cut_counts": [
+        1,
+        6,
+        15,
+        20,
+        15,
+        6,
+        1
+      ],
+      "distinct_endpoints": 1,
+      "peak_labels": 20,
+      "peak_bits": 5,
+      "all_cut_states": 64
+    },
+    {
+      "lengths": [
+        2,
+        3,
+        4
+      ],
+      "serializations": 1260,
+      "cut_state_counts": [
+        1,
+        3,
+        6,
+        9,
+        11,
+        11,
+        9,
+        6,
+        3,
+        1
+      ],
+      "parity_only_cut_counts": [
+        1,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        1
+      ],
+      "distinct_endpoints": 1,
+      "peak_labels": 11,
+      "peak_bits": 4,
+      "all_cut_states": 60
+    },
+    {
+      "lengths": [
+        3,
+        3,
+        3
+      ],
+      "serializations": 1680,
+      "cut_state_counts": [
+        1,
+        3,
+        6,
+        10,
+        12,
+        12,
+        10,
+        6,
+        3,
+        1
+      ],
+      "parity_only_cut_counts": [
+        1,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        1
+      ],
+      "distinct_endpoints": 1,
+      "peak_labels": 12,
+      "peak_bits": 4,
+      "all_cut_states": 64
+    }
+  ],
+  "period_alias": {
+    "lengths": [
+      12,
+      12
+    ],
+    "cut_event_count": 12,
+    "distinguished_ideals": 13,
+    "distinct_V1R_phase_vectors": 12,
+    "collapsed_ideal_pair": [
+      [
+        0,
+        12
+      ],
+      [
+        12,
+        0
+      ]
+    ],
+    "exact_per_component_event_count_recoverable_from_phase_and_k": false
+  },
+  "native_inter_cell_permission_proven": false,
+  "calibrated_duration_proven": false
+}
