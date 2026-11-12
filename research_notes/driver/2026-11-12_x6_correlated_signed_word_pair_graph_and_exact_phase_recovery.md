@@ -83,3 +83,33 @@ Even when the parameter tuple is recovered, the complete BRC word and internal b
 For an existing X6 Time/Rotation Researcher with lawful owner CLAIM, the smallest next test is to supply a concrete proposed `model_law_id` with (a) exact per-microstep signed-axis admissibility, (b) triadic-force/field and boundary state updates, (c) registered phase/frame action, (d) the carried branch/correlation state and (e) the exact observer sequence. Compile its finite part to `E_i(s,t)` and run the pair graph; if the physical state is not finite, use a sound declared abstraction and classify the remaining proof obligation. Compare its verdict with the unrestricted gap envelope to quantify exactly which hypothetical aliases disappear by enforcing coherent provenance.
 
 This note is an authored auxiliary model theorem, not independent mathematical review of the preceding Driver-authored notes. No Native Result accepted, no CLAIM/Task completion, no objective closure and no Foundation/P000 promotion are asserted.
+## 6. Sharp maximal-permissiveness refinement for the two-stage X6 sign language
+
+The alternating-bit language in section 3 is **sufficient but not maximally permissive**. At the exact same two-stage, one-microstep-per-stage, axis-1-only candidate, we can classify every admissible subset of the four signed words and quantify the smallest restriction required to preserve recovery.
+
+Let a word be its two sign choices \((s_1,s_2)\in\{+1,-1\}^2\), and let \(L\) be any fixed, depth-independent subset of these four words. Comparing two histories with the same initial relative chart and equal readouts gives from stage 1 (coordinates 2 through 6, then coordinate 1)
+\[
+d_1=d_0,\qquad s_1-s'_1=2d_0.
+\]
+Stage 2 similarly gives
+\[
+d_2=d_1,\qquad s_2-s'_2=2d_1.
+\]
+Therefore a *nontrivial* alias is possible exactly when
+\[
+s_1-s'_1=s_2-s'_2\in\{-2,+2\},
+\]
+that is, precisely the two different words \((+,+)\) and \((-,-)\). Conversely, these two words really do collide: choose their initial depths to differ by \(+1\); both stage gaps then equal \(+1\). With sufficiently large shared baseline both histories may be kept in the nonnegative Cell orthant, if desired.
+
+**Sharp language theorem.** For every fixed initial relative chart, the map \((h,w)\mapsto(y_1,y_2)\) is injective over \(h\in\mathbb Z,w\in L\) if and only if \(L\) does **not** contain both \((+,+)\) and \((-,-)\). This is an exact classification of all \(2^4=16\) possible two-stage languages; it has no independent physical-law claim.
+
+Consequently the largest recoverable language retains **three of the four** words (75%, rather than the 50% retained by strict alternation). The two maximum-cardinality choices are
+\[
+L_+=\{(+,+),(+,-),(-,+)\},\quad
+L_-=\{(+,-),(-,+),(-,-)\}.
+\]
+Each still permits both signs independently *as stage-wise marginals* at both stages. For example \(L_+\) can be implemented by carrying the first sign: after \(s_1=-1\), require \(s_2=+1\); after \(s_1=+1\), allow either sign. A two-state one-bit memory is sufficient. Under a stage-indexed, **one-state**, position/depth-independent word automaton, preserving both signs as each stage's marginal necessarily permits the full Cartesian product of four words and hence the alias. Thus two distinguishable boundary states are also necessary in this explicit automaton class.
+
+An exact integer audit enumerated all four sign words and all 16 candidate sublanguages. Over initial depths \(-5,\ldots,5\), the only colliding distinct-word pair was \((-,-)\) versus \((+,+)\) (with their corresponding depths offset by one); the only three-word injective languages preserving both stage marginals were \(L_+\) and \(L_-\). The unrestricted integer argument above, not this finite test, establishes the universal theorem.
+
+**Scientific contribution and boundary:** This strengthens the prior one-bit existence example into a sharp maximum-admissible-language and minimal-state classification. It does not assert that a physical Heartbeat/triadic law enforces either language. An X6 Researcher can test the actual registered law's accepted words against the single forbidden-pair criterion before invoking a larger pair-state graph. The original note's sections 1–5, their attribution, and the separation from Native Result/review remain unchanged.
