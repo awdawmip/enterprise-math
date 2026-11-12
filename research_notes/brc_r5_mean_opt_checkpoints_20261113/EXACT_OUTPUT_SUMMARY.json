@@ -1,0 +1,71 @@
+{
+  "science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": {
+    "coordinates": 28,
+    "operations": 15,
+    "trie_nodes": 2880,
+    "certificates": 1065,
+    "rational_walls": 953,
+    "complete_wall_boundaries": 954,
+    "seed_bytes": 2520
+  },
+  "objective": "Uniform complete-wall boundary queries; exact integer total signed event-membership corrections",
+  "verified": {
+    "tiny_exhaustive_exact": 128,
+    "signed_correction_exact_prefix_comparisons": 1066824
+  },
+  "K15": {
+    "minimax_radius": 36,
+    "greedy_J": 17190,
+    "same_radius_optimal_J": 16813,
+    "unconstrained_J": 16809,
+    "unconstrained_worst_radius": 37
+  },
+  "K57": {
+    "minimax_radius": 9,
+    "greedy_J": 4486,
+    "same_radius_optimal_J": 4384,
+    "unconstrained_J": 4349,
+    "unconstrained_worst_radius": 11
+  },
+  "K213": {
+    "minimax_radius": 2,
+    "greedy_J": 1104,
+    "same_radius_optimal_J": 1070,
+    "unconstrained_J": 1069,
+    "unconstrained_worst_radius": 3
+  },
+  "seed_only_benchmark": {
+    "protocol": "Nine fresh CPython 3.13.5 processes per checkpoint mode, 8192 deterministic rational wall-boundary requests, result JSON serialization, setup starts with packed BP 2520-byte seed and 15 exact integer port coefficients; no 28-coordinate corpus rebuild; setup tracing enabled, query timing after tracing disabled",
+    "greedy": {
+      "median_setup_ms": 116.097992,
+      "median_query_ms": 30.746829,
+      "median_json_ms": 0.356499,
+      "median_combined_ms": 146.19008,
+      "median_peak_python_setup_bytes": 1227522,
+      "median_maxrss_kb": 99596
+    },
+    "same_radius_optimal": {
+      "median_setup_ms": 111.036411,
+      "median_query_ms": 29.827685,
+      "median_json_ms": 0.366924,
+      "median_combined_ms": 141.747256,
+      "median_peak_python_setup_bytes": 1220802,
+      "median_maxrss_kb": 99596
+    },
+    "mean_optimal": {
+      "median_setup_ms": 110.897845,
+      "median_query_ms": 30.210504,
+      "median_json_ms": 0.359233,
+      "median_combined_ms": 141.640658,
+      "median_peak_python_setup_bytes": 1220678,
+      "median_maxrss_kb": 99604
+    },
+    "all_modes": {
+      "query_count": 8192,
+      "output_checksum": 48432,
+      "output_sha256": "c66f0e06184987e0fbbf1b1c89b3b329a9b87e20e2c0c525b947d9723d5a317c"
+    },
+    "measurement_caveats": "Same hardware, noisy timings; maxrss includes Python process overhead; no confidence interval beyond 9 process replicates. Experiment uses complete-wall query distribution, not arbitrary real workload."
+  }
+}
