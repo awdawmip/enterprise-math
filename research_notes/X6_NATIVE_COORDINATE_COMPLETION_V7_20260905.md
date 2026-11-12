@@ -1,8 +1,11 @@
 # X6 原生六轴坐标完成候选：全局 min-zero section、slice 投影与隐藏三轴
 
-Status: `DERIVED_RESEARCH_CANDIDATE / EXACT_COORDINATE_COMPLETION / NOT_YET_P000_NATIVE_CELL_PROMOTION`
+Status: `DERIVED_RELATIVE_COORDINATE_COMPLETION_EXACT / HISTORICAL_MIN_ZERO_NATIVE_CANDIDATE_SUPERSEDED_BY_P000_V5`
 Date: `2026-09-05`
 Research lane: `X6 native Cell/address construction`
+Current interpretation revision: `2026-11-13`, comparing current-main historical relative candidate against immutable signed P000 V5 at `59538f585d037d09ef687b28715c4bc1a3f9fe03`.
+
+**Current typed use.** Sections 1–11 establish the exact mathematics of the *relative observer* `G6_D=Z^6/Z(1,...,1)` and its min-zero section, including 20 slice observations, hidden relative coordinates, grade, directed gauge and positive-only BRC. The earlier proposal to promote min-zero classes to native Cell identity was **not** the adopted P000 V5 model. The current native Cell is an affine torsor of full signed `Z^6` with `±e_i` primitive directions and actual norm `G(z)=sum_i z_i²`, retaining common depth. Hence the old derived "+all six returns" and derived reverse-axis gauge have **observer** meaning; raw `D=(1,...,1)` is a nonzero native displacement of squared norm 6. Preserve the original derivations and historical conditional research status; apply this current distinction when using §§10–12.
 
 ## 0. Why this route
 
@@ -219,7 +222,7 @@ is injective.
 
 Proof: if `[z]` maps to zero in every three-axis quotient, then for any pair i,j choose a third k. In the slice `{i,j,k}`, zero means `z_i=z_j=z_k`; hence every pair of global coordinates is equal. Thus z is diagonal and `[z]=0`.
 
-Hence the full six-axis coordinate state has **no additional fibre invisible to every possible 3-axis coordinate observation**.
+Hence the **relative six-axis coordinate observer** has no additional relative-coordinate fibre invisible to every possible 3-axis coordinate observation. The current native signed `Z^6` Cell state retains the global diagonal integer depth, which is invisible to those min-zero observations.
 
 A smaller connected family of slices also suffices; the previously built four FCC/K4 star charts admit an exact integer gluing/reconstruction algorithm through their canonical min-zero sections.
 
@@ -229,7 +232,7 @@ The derived six-axis atlas V2 proved that compatible local K4 min-zero charts re
 
 `n0 + h*(1,...,1)`, `h>=0`.
 
-If the primitive full address rule is chosen as `A6_E^cand` with global minimum zero, only `h=0` is an admissible primitive address. Thus the common-depth ambiguity is not a hidden spatial dimension; it is absent from the primitive min-zero section exactly as in the established 3-axis address type.
+Under the **historical min-zero native candidate**, choosing `A6_E^cand` would have admitted only `h=0` as primitive address. That was a quotient-model proposal, not current P000 native Cell identity. In current signed X6, integer depth `h` remains a genuine **composite native spatial displacement coordinate**, not a seventh axis; the min-zero residual is still a correct lower-information observer.
 
 This uses the V2 gluing theorem rather than replacing it.
 
@@ -272,9 +275,9 @@ Thus the six-axis construction explains rather than erases the older 3-axis reve
 - all-slice injective reconstruction;
 - six-axis directed sum-of-squares gauge on already-typed displacement components.
 
-### Native Cell promotion still requires
+### Historical native Cell promotion question; current P000 V5 has chosen a different model
 
-A single semantic bridge remains:
+At the time of this 2026-09-05 historical candidate, the proposed semantic bridge was:
 
 `NATIVE_CELL_COORDINATE_COMPLETENESS`:
 
@@ -282,4 +285,4 @@ A single semantic bridge remains:
 
 Path history, BRC multiplicity, line identity and signed/readout holonomy remain separate richer observer layers even if endpoint Cell identity is coordinate-complete.
 
-This bridge is strongly aligned with the current P000 statement `CELL_SPATIAL_STATE := (E_1,...,E_6)` but is recorded explicitly rather than silently inferred.
+This was a conditional hypothesis about the min-zero candidate. The later frozen native Cell definition instead sets `X6_NATIVE_SPATIAL=AFFINE_TORSOR(Z^6)`, keeps integer common depth, and treats `G6_D` as the relative-coordinate observer. It is now a **settled historical alternative**, not an open prerequisite for current native research; the derived quotient algebra above remains exact in its specified domain.
