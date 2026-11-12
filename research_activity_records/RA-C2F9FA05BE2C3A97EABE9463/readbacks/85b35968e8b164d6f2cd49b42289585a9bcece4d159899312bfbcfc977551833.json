@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R749SMI_FULL_INTERIOR_BLACKWELL_EXACT_CHECK.py",
+    "ref": "3f056f26e5f4c16ab9307b374cfd2c8384908307",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "call_id": null,
+  "observation_id": "research2-r749smi-20261113-observation-1",
+  "result": {
+    "structuredContent": {
+      "content": "from fractions import Fraction as Q\nfrom itertools import product\nimport json\nS=list(product((1,-1),repeat=3))\nG=[Q(-1),Q(-1,2),Q(0),Q(1,2),Q(1)]\ndef F(z,o,a,b,c):\n x,y,t=z;u,v,w=o\n return (2+a*u*x)*(2+b*v*(y if u==1 else t))*(2+c*w*y*t)/Q(64)\ndef P(z,o,a,b,c):\n x,y,t=z;u,v,w=o\n return (2+c*w*y*t)*sum((2+i*x)*(1+a*u*i)*(2+b*v*(y if i==1 else t)) for i in (1,-1))/Q(128)\ndef prior(z,k):\n x,y,t=z\n return (1+[Q(y,2),Q(t,2),Q(x*(y-t),4),-Q(x*(y-t),4)][k])/8\ndef mix(K,k,a,b,c):\n return [sum(prior(z,k)*K(z,o,a,b,c) for z in S) for o in S]\ndef TV(x,y):return sum(abs(v-w) for v,w in zip(x,y))/2\ndef run():\n for k in range(4):\n  p=[prior(z,k) for z in S]\n  assert sum(p)==1 and min(p)>=Q(1,16)\n n=0\n for a,b,c in product(G,repeat=3):\n  for K in (F,P):\n   for z in S:\n    v=[K(z,o,a,b,c) for o in S]\n    assert min(v)>=0 and sum(v)==1\n  vals=(TV(mix(F,0,a,b,c),mix(F,1,a,b,c)),TV(mix(P,0,a,b,c),mix(P,1,a,b,c)),TV(mix(F,2,a,b,c),mix(F,3,a,b,c)),TV(mix(P,2,a,b,c),mix(P,3,a,b,c)))\n  assert vals==(abs(b)/8,abs(a*b)/8,abs(a*b)/16,abs(b)/16)\n  n+=1\n return {\"status\":\"PASS\",\"parameter_triples\":n,\"state_columns_per_kernel\":n*8,\"arithmetic\":\"Fraction\",\"claim\":\"exact four TV identities and stochastic kernels\"}\nif __name__==\"__main__\":print(json.dumps(run(),indent=2))\n",
+      "display_title": "R749SMI_FULL_INTERIOR_BLACKWELL_EXACT_CHECK.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3f056f26e5f4c16ab9307b374cfd2c8384908307/research_notes/portable_direct/R749SMI_FULL_INTERIOR_BLACKWELL_EXACT_CHECK.py",
+      "encoding": "utf-8",
+      "sha": "7710d4ef0312dafd318b0a0f60f636e395896386"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
