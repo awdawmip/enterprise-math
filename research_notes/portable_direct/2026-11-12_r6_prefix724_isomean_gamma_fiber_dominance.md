@@ -1,0 +1,74 @@
+# PREFIX-724-R6 — Exact mean-preserving Gamma-fiber dominance and boundary reduction
+
+Date: 2026-11-12 (Asia/Shanghai). Mother question: PREFIX-675. Immediate scientific predecessor: PREFIX-723-R6. Immutable scientific input: `awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d`.
+Status: AUTHOR_PROVED_RELATIVE_TO_INHERITED_CERTIFICATE / EXACT_FRACTION_TOY_CHECKED / UNREVIEWED / NOT_ADMITTED.
+
+## 1. Scope and inherited evidence
+
+This theorem concerns the *auxiliary two-parameter* BRC stopping-count observer with two independent conditional Gamma completion clocks. It is not a theorem about native X6 or a complete three-dimensional slice.
+
+On `D=[0,1/2]^2` define `Y(p,z)=max(T_p,T_z)`, `mu=E[Y]`, `M2=E[Y^2]`, `W=M2-mu^2`, `f_t=W-t*mu`, and `V_q=q^2*f_(1/q)`. The frozen 189-level integer-kernel moment polynomials are symmetric and differentiable.
+
+The author-checked PREFIX-721/722 Gamma certificates, reused here without a new kernel run, state on the closed square `S=[a,b]^2`, where
+
+- `x0=11/96`, `r=1/13300000000`, `a=x0-r`, `b=x0+r`;
+- `mu_p>0` and `mu_z>0`, with `mu_p,mu_z<=M=35532`;
+- `J=mu_p*(M2)_z-mu_z*(M2)_p=(z-p)*K`;
+- `K(p,z)>kappa=170445696/78125>2000`.
+
+The strict lower bound is the rational result `40800000-(542610983324712960)*r` and is stronger than the rounded >2000 inequality. All following Gamma-model consequences inherit the author-level, not independently reviewed, status of these input certificates.
+
+## 2. A q-independent level-set identity
+
+**Theorem A (mean-fiber strict ordering).** Let `(p0,z0)` be in the interior of `S` with `p0<=z0`. Along any nonconstant segment of the exact mean-level curve `mu(p(z),z)=mu(p0,z0)` that starts at `(p0,z0)`, proceeds to increasing `z`, and stays in `S`, write `h=z1-z0>0` and `d0=z0-p0>=0`. Then for **every real q>0**:
+
+\[
+V_q(p(z_1),z_1)-V_q(p_0,z_0)
+>q^2\frac{\kappa}{M}\left(d_0 h+\frac{h^2}{2}\right)>0.
+\]
+
+The exact model-specific coefficient is
+
+\[
+\frac{\kappa}{M}=\frac{14203808}{231328125}.
+\]
+
+For every `q>=2`, the right-hand side is strictly larger than
+
+\[
+\frac{56815232}{231328125}\left(d_0h+\frac{h^2}{2}\right).
+\]
+
+For `p0>=z0`, the symmetric statement holds when `p` increases and `z` decreases, using `h=p1-p0`, `d0=p0-z0` and the same constants. The diagonal case `p0=z0` is included and has positive gain of order `h^2`.
+
+**Proof.** The implicit function theorem applies because `mu_p>0`. On the curve,
+
+\[
+p'(z)=-\frac{\mu_z}{\mu_p}<0,\qquad
+\frac{d}{dz}M_2(p(z),z)
+=(M_2)_z-\frac{\mu_z}{\mu_p}(M_2)_p
+=\frac{J}{\mu_p}
+=\frac{(z-p(z))K}{\mu_p}.
+\]
+
+The mean is exactly constant, hence `f_(1/q)` changes by precisely the change in `M2`, with no remaining dependence on `1/q`. Furthermore, `z-p(z)>=d0+(z-z0)`, `K>kappa` and `mu_p<=M`. Integration gives the strict lower bound; multiplication by `q^2>0` yields the claim. If `p0=z0`, `z-p(z)>0` for every `z>z0` and the same argument applies. The `p>=z` case follows by swapping coordinates. QED.
+
+**Exact differential version.** Along the flow `(dp/ds,dz/ds)=(-mu_z,mu_p)`, one has `d(mu)/ds=0`, `d(M2)/ds=J=(z-p)K`, and `d(z-p)/ds=mu_p+mu_z>0`. This is an intrinsic mean-preserving ascent mechanism, independent of the sampling parameter `q`.
+
+## 3. Fiberwise boundary reduction
+
+**Theorem B (Pareto boundary for the local observer).** Fix any real `c` for which the fiber `F_c={(p,z) in S:mu(p,z)=c}` is nonempty. It is a connected graph `p=p(z)` over a closed interval. Along the graph, `p(z)` is strictly decreasing; `M2` strictly decreases while `p>z`, and strictly increases while `p<z`. If the graph crosses the diagonal in its relative interior, that crossing is its unique strict minimum of `M2`. Every point of `F_c` in the interior of `S` is strictly dominated in `M2` by at least one endpoint of `F_c` lying on the boundary `partial S`, while having *exactly the same mean*.
+
+Consequently, for every `q>0`, the restriction `V_q|_S` attains its maximum on `partial S`. More precisely, any interior candidate has a boundary competitor that improves all `V_q` simultaneously, without changing `mu`.
+
+**Proof.** For fixed `z`, `mu(p,z)` is strictly increasing in `p`; hence `F_c` is a graph where present. Since `mu(a,z)` and `mu(b,z)` are increasing in `z`, the admissible `z` values satisfying `mu(a,z)<=c<=mu(b,z)` form an interval. The resulting graph is compact and its endpoints lie on `partial S`. Differentiation gives `dM2/dz= (z-p)K/mu_p`, whose sign is exactly that of `z-p`; the graph's strict decrease of `p` ensures at most one diagonal crossing. Thus any interior point admits a strictly better endpoint in `M2` and equal `mu`. Since `V_q=q^2(M2-mu^2)-qmu`, this endpoint is uniformly better for every `q>0`. QED.
+
+## 4. Relation to PREFIX-723 and exact verification
+
+PREFIX-723 produced a one-coordinate, `q`-dependent outward step with certified gain proportional to diagonal separation squared. PREFIX-724 instead uses the exact `mu`-level curve: the improvement is *independent of `q` after multiplication by `q^2`*, includes points on the diagonal, and reduces the optimization of each local mean fiber to its boundary. It uses the same parent moment certificates; it neither re-certifies the 189-level kernel nor adds any cell to the inherited `139018/147456` Gamma comparison-grid exclusion.
+
+Companion program `PREFIX724_R6_ISOMEAN_DOMINANCE.py` verifies the precise rational constants and executes 210 exact rational nontrivial mean-fiber comparisons, at four rational `q` values each, on an independently specified polynomial example `mu=p+z`, `M2=(z-p)^2+12mu` with `J=4(z-p)`. The output is `ALL_CHECKS_PASS PREFIX724-R6`. The example checks the algebraic mechanism, not the frozen 189-row Gamma coefficients.
+
+## 5. Next scientific test
+
+Apply Theorem B to selected *surviving* PREFIX-718 fine-grid rectangles. Obtain direct rational Bernstein bounds on `K` and strictly positive moment derivatives from the frozen Gamma kernel, construct actual mean-level boundary comparisons (or algebraic interval roots) and certify any **new** excluded region only after checking disjointness with existing comparison witnesses. A certified counterexample to `K>0` in a larger candidate would delimit this method's domain rather than alter its proved local scope.
