@@ -113,3 +113,36 @@ Each still permits both signs independently *as stage-wise marginals* at both st
 An exact integer audit enumerated all four sign words and all 16 candidate sublanguages. Over initial depths \(-5,\ldots,5\), the only colliding distinct-word pair was \((-,-)\) versus \((+,+)\) (with their corresponding depths offset by one); the only three-word injective languages preserving both stage marginals were \(L_+\) and \(L_-\). The unrestricted integer argument above, not this finite test, establishes the universal theorem.
 
 **Scientific contribution and boundary:** This strengthens the prior one-bit existence example into a sharp maximum-admissible-language and minimal-state classification. It does not assert that a physical Heartbeat/triadic law enforces either language. An X6 Researcher can test the actual registered law's accepted words against the single forbidden-pair criterion before invoking a larger pair-state graph. The original note's sections 1–5, their attribution, and the separation from Native Result/review remain unchanged.
+
+## 7. Sharp m-stage sign-language recovery, block memory and rolling-window memory
+
+**Scope.** This extends the two-stage example of §6, rather than asserting a physical Heartbeat law. For any integer (m\ge 1), let the registered stage map be the *same* signed coordinate permutation (R\in B_6) with (R e_1=e_2, R e_2=e_3, R e_3=-e_1), the remaining axes fixed, so (R D=D-2e_1). At each of the (m) consecutive observed stages, use one unknown signed-native step (s_i e_1), (s_i\in\{-1,+1\}). The observer knows (r=q(z_0)), all stage maps, and **every** stage relative readout (y_i=q(z_i)), where (z_i=R z_{i-1}+s_i e_1) and (z_0=r+hD), (h\in\mathbb Z). A registered admissible block language is (L\subseteq\{-,+\}^m), independent of (h).
+
+**Exact all-length alias theorem.** For two histories yielding all the same observed (y_1,\ldots,y_m), write (z_i-z'_i=d_iD) (including (d_0=h-h')). Subtracting their stage updates gives
+
+\[
+d_iD=d_{i-1}(D-2e_1)+(s_i-s'_i)e_1.
+\]
+
+The five coordinates other than 1 force (d_i=d_{i-1}=d_0), while coordinate 1 forces (s_i-s'_i=2d_0), **for every** (i\). If (d_0=0), the signs are identical. If (d_0\ne0), since (s_i,s'_i\in\{-1,+1\}), necessarily (d_0=\pm1), and one complete word is (+^m) while the other is (-^m). Conversely, those two words with initial depths differing by 1 satisfy the same recurrence at every stage, so all registered relative observations agree. Thus
+
+\[
+(h,w)\longmapsto(y_1,\ldots,y_m)\quad\text{is injective on }\mathbb Z\times L
+\quad\Longleftrightarrow\quad\{+^m,-^m\}\nsubseteq L.
+\]
+
+The maximum possible admissible language is therefore (2^m-1) words: omitting *either* one of the two constant-sign words suffices. This is sharp for every (m\ge1); for (m\ge2), all signs remain available in **each separate stage marginal**. The fraction (1-2^{-m}) retained by a fixed-length block increases with (m). This recovery is of the initial integer depth and entire signed word (hence net signed displacement at every stage); the stronger native BRC ordered-branch semantics, non-backtracking, nonnegative final codec and physical state update remain separately typed.
+
+**Two different memory contracts.** For a stage-indexed length-(m\) **terminal block** with (m\ge2), the language (L=\{-,+\}^m\setminus\{-^m\}\) is realized by a two-state finite automaton recording whether a (+\) has appeared. At the block boundary, accept exactly when it has. A one-state, depth-independent stage-indexed transition automaton with both signs in each stage marginal accepts the full Cartesian product, including both forbidden words, so one bit is minimal in that class.
+
+If instead **every rolling window of length (m\)** in an indefinitely continuing stream must be recoverable while retaining the all-plus path, the shift-invariant sufficient safety rule is *never emit (m\) consecutive minus signs*. Its deterministic on-line monitor has precisely (m\) non-failing states, storing the current run length (0,\ldots,m-1) of trailing minus signs (plus a rejecting sink if a complete-language recognizer is wanted). Distinct trailing-run states are distinguishable by a future minus suffix, so (m\) non-failing states are minimal for this exact rolling-window language. This is a different requirement from the one-bit terminal block; it uses \(\lceil\log_2 m\rceil\) bits of persistent memory for its non-failing state, not one bit for general (m\).
+
+For exact finite-window inventory let (A_N^{(m)}\) count length-(N\) sign streams without (m\) consecutive minuses. It satisfies (A_N^{(m)}=2^N\) for (0\le N<m\), (A_m^{(m)}=2^m-1\), and
+
+\[
+A_N^{(m)}=\sum_{j=1}^{m} A_{N-j}^{(m)}\qquad(N>m),
+\]
+
+by partitioning by the last plus and its preceding trailing minus run. This provides an exact throughput/cost account for repeated safe windows, distinct from the single-block cardinality.
+
+**Independent exact check.** For each (m=2,3,4,5,6,7), enumerated all (2^m\) signed words, depths (-2,\ldots,2), and the registered relative readouts starting from (r=(0,2,4,1,3,2)) under the displayed (R). In each enumeration the **only** different-word collision pair was ((+^m,-^m)), matching the unrestricted integer proof. This is a candidate spatial observer theorem and an executable finite-language filter for a future Source-registered Heartbeat/triadic transition law; it is not an independent Native Result, a physical-law registration or a closed X6 Task.
