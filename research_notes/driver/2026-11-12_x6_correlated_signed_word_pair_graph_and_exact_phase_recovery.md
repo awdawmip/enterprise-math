@@ -99,7 +99,7 @@ Therefore a *nontrivial* alias is possible exactly when
 \[
 s_1-s'_1=s_2-s'_2\in\{-2,+2\},
 \]
-that is, precisely the two different words \((+,+)\) and \((-,-)\). Conversely, these two words really do collide: choose their initial depths to differ by \(+1\); both stage gaps then equal \(+1\). With sufficiently large shared baseline both histories may be kept in the nonnegative Cell orthant, if desired.
+that is, precisely the two different words \((+,+)\) and \((-,-)\). Conversely, these two words really do collide: choose their initial depths to differ by \(+1\); both stage gaps then equal \(+1\). These collision witnesses are statements about the signed raw Cell chart \(\mathbb Z^6\). Coordinatewise nonnegativity through every intermediate signed rotation is **not** asserted; registered nonnegative final-address serialization is a distinct interface contract.
 
 **Sharp language theorem.** For every fixed initial relative chart, the map \((h,w)\mapsto(y_1,y_2)\) is injective over \(h\in\mathbb Z,w\in L\) if and only if \(L\) does **not** contain both \((+,+)\) and \((-,-)\). This is an exact classification of all \(2^4=16\) possible two-stage languages; it has no independent physical-law claim.
 
