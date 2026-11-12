@@ -37,7 +37,7 @@ Measured local CPython (median of five same-process runs, GC disabled within tim
 
 The bit-plane representation performs well on broad/hot queries, while the random case contains many tiny subtrees where fixed ten-bit work dominates. Hybrid cutoff 8 is competitive here without materializing per-node sorted rank vectors. The measurements are a comparison of these concrete Python implementations and distributions, not a universal latency theorem.
 
-A new portable stacked-branch verifier `VERIFY_R5_BITSLICED_FROM_PINNED.py` retains the same frozen evidence chain and checks the theorem against the parent pinned implementation. Its remote bytes are published for independent execution; the *executed local* full-fixture verification and the published portable script are distinct evidence surfaces. The full local evidence summary is `EXACT_OUTPUT.json`.
+A new portable stacked-branch verifier `VERIFY_R5_BITSLICED_FROM_PINNED.py` imports the validated offline Fenwick ancestry directly and checks the theorem against the parent pinned implementation. A focused upstream-adjacent correction on **this stacked branch** also replaces four broken `prev.pinned.count` references inside `VERIFY_R5_EVENT_RANK_ADAPTIVE_FROM_PINNED.py` with `prev.prev.pinned.count`: its `prev` is the offline Fenwick module, whose `prev` is the batch module exporting `pinned`. This changes only test-oracle attribute resolution, not the scientific model, wall values or result logic. Its remote bytes are published for independent execution; the *executed local* full-fixture verification and the published portable script are distinct evidence surfaces. The full local evidence summary is `EXACT_OUTPUT.json`.
 
 ## Durable scientific frontier
 
