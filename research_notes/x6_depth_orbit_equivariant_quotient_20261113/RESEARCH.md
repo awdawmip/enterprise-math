@@ -54,3 +54,14 @@ The companion Python 3 standard-library verifier exhausts 23040 and 11520 signed
 Classify the G_even orbits and stabilizers on the nonzero 64-state quotient and find whether any such orbit yields a useful exact C12/C24 observer with declared paths and time. Independently test the concrete candidate generators against the native triadic closure and carrier incidence contracts. For narrower operation families, compute the orbit lattice of only those authorized operations rather than requiring full G_even invariance.
 
 **Control**: This is research preservation on a Draft PR branch, not a claimed formal Result. A previously dispatched X6 Task request and a new native session registration were QUEUED when this note was authored; ownership must be checked against the completed original receipts before prepare/CLAIM/open.
+
+
+## Theorem 4: complete 64-state orbit classification
+
+The faithful G_even action on Q_even has exactly **five orbits**, of sizes **1, 1, 12, 20 and 30**. The two fixed points are the classes of 0 and 2e_1 (the latter equals every 2e_i in Q_even). All other 62 states lie in three nonzero-parity orbits.
+
+Proof. Reduction modulo 2 induces the G_even-equivariant map Q_even → V=F2^6/<u>, with 32 target classes and fibers of size two. The A6-action on V classifies its vectors by the number k of ones up to complement, k=0,1,2,3. The respective counts are 1,6,15,10. The two elements over k=0 are 0 and z=[2e_1]; every signed permutation fixes both because [±2e_j]=z in Q_even. For any nonconstant parity vector b, select i and j with b_i≠b_j. The allowed even sign flip D_{ij} changes [x] by [−2x_i e_i−2x_j e_j]=(b_i+b_j)z=z, interchanging the two points above b. Since A6 acts transitively on k-element subsets of {1,...,6} for k=1,2,3 (and complement does not change the class), the three nonzero classes yield one orbit each, of sizes 2·6=12, 2·10=20 and 2·15=30. QED.
+
+A separate exhaustive modular quotient test in EXPERIMENT_Q64_ORBITS.py enumerates all 4^6=4096 residues, constructs the 64 quotient classes, and applies all 60 compensated candidate generators. It confirms these five orbit sizes and, for one chosen order-six U generator, cycle decomposition **1^8 · 2^4 · 3^8 · 6^4** (8 fixed classes, four 2-cycles, eight 3-cycles, four 6-cycles). The cycle result is a precise finite test for that chosen generator; an extension to all constrained native dynamics remains a separate question.
+
+The exact 12-state orbit is a natural next compact signed-direction/phase research candidate. Its relation to the project's actual BRC C12 carrier semantics is to be established by a typed observer and future-operation bridge, while preserving full path provenance.
