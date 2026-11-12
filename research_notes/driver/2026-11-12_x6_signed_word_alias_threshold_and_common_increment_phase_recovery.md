@@ -145,3 +145,57 @@ This result refines the previous positive-only X6 threshold by replacing a repre
 Next independently executable scientific test: read an exact current Source-pinned Heartbeat/triadic update candidate, identify whether its admissible path language is positive-only, signed, no-backtracking, or state-constrained, and whether its phase readouts share a provably transported increment. Evaluate the relevant difference-set condition and preserve full ordered BRC path histories where future operations require them. Route the new theorem to a legally claimed X6 Researcher activity if/when such activity is current; do not replace the Researcher or backdate a Result.
 
 Source lineage: P000 V5 signed native directions; definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json; definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md; definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json; previous X6 signed rotation/time and positive-only alias results. Existing authors and prior proofs retain independent provenance.
+
+## 7. Bounded signed drift: a sharp error budget beyond the shared-increment idealization
+
+Theorem C assumed that both registered phase reconstructions share exactly the same unknown net displacement. It has a sharp extension when the second phase contains a separately unobserved **signed native drift word of known length \(L\)**, with unconstrained shared baseline \(b\):
+\[
+Y_s=q(g_s r+h\varepsilon_s+b),\quad
+Y_t=q(g_t r+h\varepsilon_t+b+u),\qquad u\in\mathcal W_L.
+\]
+The same initial \(r,h\) is used. The registered \(g_s,g_t\), \(r\) and exact drift length \(L\) are known; \(b,u\) are unknown. This is an observer/correlation interface, not an imposed global Heartbeat evolution law.
+
+Let \(a=\varepsilon_t-\varepsilon_s\in\{-2,0,2\}^n\). Write \(p\) for the number of \(+2\) entries, \(m_-\) for the number of \(-2\) entries, and \(q_0=n-p-m_-\) for the number of zeros. Define
+\[
+C(a)=\min\{p+m_-,\ 2p+q_0,\ 2m_-+q_0\}.
+\]
+
+**Theorem D (sharp bounded-drift depth observability).** For unrestricted \(h\in\mathbb Z\) and unrestricted baseline \(b\in\mathbb Z^n\), two different depths can produce the same *pair* \((Y_s,Y_t)\) with an unknown drift of exactly \(L\) signed steps if and only if
+\[
+\boxed{L\ge C(a).}
+\]
+More precisely, given two depths with difference \(d\ne0\), such a collision exists exactly when
+\[
+\boxed{L\ge |d|\,C(a).}
+\]
+For a restricted depth set \(H\), use its smallest nonzero pairwise gap \(\delta\): depth is recoverable exactly when \(L<\delta C(a)\), with a singleton \(H\) trivially depth-known. At \(L=0\), this specializes to the phase-registration condition in Theorem C: \(C(a)>0\) iff \(a\notin\mathbb ZD\).
+
+**Proof.** Equal first relative readouts require
+\[
+d\varepsilon_s+(b-b')=c_sD.
+\]
+Equal second readouts then require
+\[
+d a+(u-u')=(c_t-c_s)D.
+\]
+Because the baseline \(b\) is unrestricted, any feasible difference for \(u,u'\) can be completed to the first equality by choosing \(b,b'\) appropriately. Thus two-depth ambiguity is precisely the existence of an integer \(c\) such that
+\[
+v=cD-da\in \mathcal W_L-\mathcal W_L.
+\]
+By the proved two-word difference lemma, this is equivalent to \(\|v\|_1\le2L\) and even norm. As the coordinates of \(da\) are \(+2d,-2d,0\), the minimum over integer \(c\) is attained at one of \(c=+2d,0,-2d\). The corresponding three norms are respectively
+\[
+2|d|(2m_-+q_0),\quad 2|d|(p+m_-),\quad 2|d|(2p+q_0).
+\]
+All three norms are even. Their minimum is \(2|d|C(a)\), and the two-word lemma gives the if-and-only-if threshold. For fixed \(H\), all nonzero pairwise gaps have magnitude at least \(\delta\), and that minimum gap exists within \(H\). QED.
+
+**X6 registered phase-pair atlas for \(R^1,\ldots,R^5\).** The first possibly ambiguous drift lengths \(C(R^tD-R^sD)\) are:
+
+| phase pair \((s,t)\) | 1,2 | 1,3 | 1,4 | 1,5 | 2,3 | 2,4 | 2,5 | 3,4 | 3,5 | 4,5 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| critical \(L\) | 1 | 2 | 3 | 2 | 1 | 2 | 3 | 1 | 2 | 1 |
+
+For the earlier phase-1/phase-3 pair, \(a=R^3D-R^1D=(0,-2,-2,0,0,0)\), so \(C(a)=2\). **Every unknown signed drift of length 0 or 1 permits unique recovery of hidden depth, even if the common baseline displacement \(b\) is arbitrarily unknown.** At length 2 a collision exists: choose \(r=0\), \(h=1\), \(b=0\), \(u=e_2+e_3\); and \(h'=0\), \(b'=\varepsilon_1=(-1,1,1,1,1,1)\), \(u'=-e_2-e_3\). Both raw phase-1 outputs are \(\varepsilon_1\), and both raw phase-3 outputs are \(\varepsilon_3+e_2+e_3=\varepsilon_1-e_2-e_3\); thus both readout pairs coincide exactly.
+
+Integer supplementary checks: for each of the ten distinct mixed-sign phase pairs in the table, direct finite minimization over \(c=-2,-1,0,1,2\) confirmed the analytic \(2C(a)\) distance. At the phase-1/phase-3 pair, exhaustive exact enumeration of all \(\mathcal W_L^2\) displacement-drift pairs at \(L=0,1,2\) found no cross-depth collision at \(L\le1\) and an exact one at \(L=2\).
+
+The theorem supplies a measurable *correlation interface*: from an actual registered Heartbeat transition, extract the allowable signed relative drift set, not merely an unrestricted length bound; then test the same diagonal-coset difference condition using that precise set. Restricting the drift language may preserve recoverability beyond the universal upper-envelope threshold, with ordered path provenance and primitive triadic-force admissibility still carried separately.
