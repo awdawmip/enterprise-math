@@ -1,0 +1,260 @@
+{
+  "schema": "PREFIX739_R6_GAMMA_OUTER_LEFT_V1",
+  "date": "2026-11-13 Asia/Shanghai",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "parent": "PREFIX-675",
+  "predecessor": "PREFIX-738",
+  "observer": "189-row BRC stopped-count; two independent conditional Gamma clocks Y=max(T_p,T_z)",
+  "witness": [
+    "0",
+    "73/500"
+  ],
+  "q_domain": "all real q>=2",
+  "grid_denominator": 384,
+  "upper_region": [
+    {
+      "j": 96,
+      "i_from": 40,
+      "i_to_exclusive": 58
+    },
+    {
+      "j": 97,
+      "i_from": 40,
+      "i_to_exclusive": 58
+    },
+    {
+      "j": 98,
+      "i_from": 40,
+      "i_to_exclusive": 58
+    },
+    {
+      "j": 99,
+      "i_from": 40,
+      "i_to_exclusive": 58
+    },
+    {
+      "j": 100,
+      "i_from": 40,
+      "i_to_exclusive": 58
+    },
+    {
+      "j": 101,
+      "i_from": 40,
+      "i_to_exclusive": 58
+    },
+    {
+      "j": 102,
+      "i_from": 40,
+      "i_to_exclusive": 58
+    },
+    {
+      "j": 103,
+      "i_from": 40,
+      "i_to_exclusive": 55
+    },
+    {
+      "j": 104,
+      "i_from": 40,
+      "i_to_exclusive": 52
+    },
+    {
+      "j": 105,
+      "i_from": 40,
+      "i_to_exclusive": 46
+    }
+  ],
+  "upper_count": 159,
+  "with_transposes": 318,
+  "subdivision_per_axis": 2,
+  "uniform_strict_gap": "V_q(e)-V_q(p,z)>91*q^2",
+  "min_exact_floor_times_1000000": 91559557,
+  "row_min_new_max_old_floor_times_1000000": [
+    {
+      "j": 96,
+      "cell_count": 18,
+      "min_new_gap_floor": 91559557,
+      "max_old_gap_floor": -20011808
+    },
+    {
+      "j": 97,
+      "cell_count": 18,
+      "min_new_gap_floor": 96255680,
+      "max_old_gap_floor": -16968178
+    },
+    {
+      "j": 98,
+      "cell_count": 18,
+      "min_new_gap_floor": 100935263,
+      "max_old_gap_floor": -13806781
+    },
+    {
+      "j": 99,
+      "cell_count": 18,
+      "min_new_gap_floor": 105590543,
+      "max_old_gap_floor": -10535419
+    },
+    {
+      "j": 100,
+      "cell_count": 18,
+      "min_new_gap_floor": 110215106,
+      "max_old_gap_floor": -7161288
+    },
+    {
+      "j": 101,
+      "cell_count": 18,
+      "min_new_gap_floor": 114803847,
+      "max_old_gap_floor": -3690919
+    },
+    {
+      "j": 102,
+      "cell_count": 18,
+      "min_new_gap_floor": 119352903,
+      "max_old_gap_floor": -130131
+    },
+    {
+      "j": 103,
+      "cell_count": 15,
+      "min_new_gap_floor": 123859584,
+      "max_old_gap_floor": -807413
+    },
+    {
+      "j": 104,
+      "cell_count": 12,
+      "min_new_gap_floor": 128322290,
+      "max_old_gap_floor": -93009
+    },
+    {
+      "j": 105,
+      "cell_count": 6,
+      "min_new_gap_floor": 132740416,
+      "max_old_gap_floor": -274507
+    }
+  ],
+  "old_witness": "(0,3/20); unrefined PREFIX712 envelope is strictly negative on all 159 upper cells",
+  "historical_exclusion_intersections": {
+    "PREFIX713_coupled": 0,
+    "PREFIX713_multicompetitor": 2,
+    "PREFIX716": 46,
+    "PREFIX718": 0
+  },
+  "historical_intersection_upper_coordinates": {
+    "PREFIX713_multicompetitor": [
+      [
+        49,
+        101
+      ]
+    ],
+    "PREFIX716": [
+      [
+        46,
+        99
+      ],
+      [
+        46,
+        100
+      ],
+      [
+        47,
+        100
+      ],
+      [
+        46,
+        101
+      ],
+      [
+        47,
+        101
+      ],
+      [
+        48,
+        101
+      ],
+      [
+        46,
+        102
+      ],
+      [
+        47,
+        102
+      ],
+      [
+        48,
+        102
+      ],
+      [
+        49,
+        102
+      ],
+      [
+        50,
+        102
+      ],
+      [
+        46,
+        103
+      ],
+      [
+        47,
+        103
+      ],
+      [
+        48,
+        103
+      ],
+      [
+        49,
+        103
+      ],
+      [
+        50,
+        103
+      ],
+      [
+        51,
+        103
+      ],
+      [
+        46,
+        104
+      ],
+      [
+        47,
+        104
+      ],
+      [
+        48,
+        104
+      ],
+      [
+        49,
+        104
+      ],
+      [
+        50,
+        104
+      ],
+      [
+        51,
+        104
+      ]
+    ]
+  },
+  "overlap_distinct_count": 48,
+  "genuinely_new_count": 270,
+  "previous_union": 141204,
+  "new_union": 141474,
+  "grid_total": 147456,
+  "new_union_fraction": "23579/24576",
+  "new_union_percent": "95.943196614583333333...",
+  "still_uncertified": 5982,
+  "evidence": "189-row exact integer frozen kernel, 9529 nonzero rows; 159 exact Fraction 2x2 cell checks in bounded batches; original historical JSON read and exact set intersections in separately executed JS; combined published Python script not yet fully rerun end-to-end",
+  "original_historical_blob_sha1": {
+    "PREFIX713_R6_RESULTS.json": "0a12cab85b186cda25df45591e50d7904836f7fa",
+    "PREFIX713_R6_MULTICOMPETITOR_RESULTS.json": "4945aa30875a70ae047f7d9bef37aed48e1bfb7a",
+    "PREFIX716_R6_RESULTS.json": "ea2e3df0da8c4713c531339ce735907ee607dac5",
+    "PREFIX718_R6_RESULTS.json": "af6a51b91e5bd1e3e5a884ad618e0c962c030674"
+  },
+  "shared_claim_result_review": "NOT_PERFORMED",
+  "native_session_registration": "QUEUED when research initially executed; actual receipt to be rechecked",
+  "grade": "AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
