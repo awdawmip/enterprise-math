@@ -196,3 +196,51 @@ Changing **any one** stage step axis away from its sole exceptional-sign coordin
 **Independent finite check.** As a consistency check separate from the universal proof, a deterministic exact-integer enumeration with pseudorandom seed 234 tested \(n=3,4,5,6\), phase counts \(m=1,2,3,4\), and 200 mixed-sign signed-permutation/axis configurations per \((n,m)\): 3,200 configurations in total. For each it enumerated all \(2^m\) sign words and initial depths \(-2,-1,0,1,2\) from a fixed randomly generated registered min-zero chart, compared the full tuple of normalized phase observations, and found **zero mismatches** with the theorem's predicted collisions and depth offsets. This is a sample check only; (8.1)–(8.2) prove the unrestricted-integer classification.
 
 **Scientific impact and remaining boundary.** The all-\(R\) words \((+^m,-^m)\) of §7 are the special case \(t_i=+1\) at every stage. This generalization handles moving exceptional axes, alternating phase parity, and majority-negative frames without erasing the exact sequence of observations. It also identifies an admissible **zero-memory** route for fully varied signed step alphabets when even one registered stage is nonaligned. A real BRC/Heartbeat trajectory must still specify its physical \(\text{model\_law\_id}\), signed-step admissibility, branch/force correlation, position guards, and future observer equivalence; this theorem is an exact candidate-model filter and not a Native Result, independent review, Task closure, or new physical-law registration.
+
+
+## 9. Full signed-native alphabet: the sole forbidden pair among (2n)^m path words
+
+**Scope and relation to §8.** Section 8 fixed one chosen step axis in each phase and varied only its sign. Here each observed stage admits **any** of the \(2n\) signed unit steps \(A_n=\{\pm e_a:1\le a\le n\}\), with the actual step axis *and* sign unknown to the observer. For \(n\ge3\), known mixed-sign signed permutations \(g_1,\ldots,g_m\), known starting relative chart \(r=q(z_0)\), and all phase readouts, set
+\[
+ z_0=r+hD,\qquad z_i=g_i z_{i-1}+b_i,\quad b_i\in A_n,\qquad
+ y_i=q(z_i),\quad q(z)=z-\min_jz_jD .
+\]
+The legal full-word language is \(A_n^m\), independent of \(h\). This is an exact one-primitive-step-per-observed-phase *candidate spatial observer model*, not an installed Heartbeat physical law.
+
+**Full-alphabet collision theorem.** Write \(\varepsilon_i=g_iD\), and call phase \(i\) **singleton-signed** when exactly one sign in \(\varepsilon_i\) differs from the other \(n-1\). If one phase is not singleton-signed, the map
+\[
+(h,b_1,\ldots,b_m)\mapsto(y_1,\ldots,y_m)
+\]
+is injective for the entire full signed alphabet and all \(h\in\mathbb Z\).
+
+If all phases are singleton-signed, let \(a_i\) be the exceptional axis and \(t_i\in\{\pm1\}\) the majority sign. Set \(p_i=\prod_{j=1}^i t_j\). Define two *full signed-axis words*
+\[
+ W^+=(p_1e_{a_1},\ldots,p_me_{a_m}),\qquad
+ W^-=(-p_1e_{a_1},\ldots,-p_me_{a_m}).
+\]
+The **sole pair of distinct full words that can yield the same complete registered readouts** is \(\{W^+,W^-\}\), with the initial depths differing by one in the corresponding orientation. Every other word in \(A_n^m\), including all words that use any nonexceptional axis, is uniquely recoverable together with the initial depth. Thus for unrestricted integral depth a depth-independent admissible sublanguage \(L\subseteq A_n^m\) has an injective observation map iff \(L\) omits at least one of \(W^+,W^-\). The sharp maximum is
+\[
+ \boxed{|L|_{\max}=(2n)^m-1}.
+\]
+For native X6, this is \(\boxed{12^m-1}\) words rather than the \(2^m-1\) count for a prechosen axis. One distinguishing binary branch label on the colliding pair can alternatively preserve the full \(12^m\)-word language without confusing parameter recovery with complete future BRC equivalence. If initial depth belongs to a restricted \(H\subseteq\mathbb Z\), the forbidden-pair collision exists iff \(H\) contains two adjacent integers.
+
+**Proof.** Compare two histories with identical all-phase readouts. Their signed raw states differ at each phase by \(d_iD\), so for each stage
+\[
+ b_i-b'_i=d_iD-d_{i-1}\varepsilon_i. \tag{9.1}
+\]
+The left side has \(\ell^1\)-norm at most \(2\), since both steps are signed unit vectors. If \(\varepsilon_i\) has \(k_i\) negative coordinates, then the right-side norm is
+\[
+ C_{n,k_i}(d,e)=(n-k_i)|e-d|+k_i|e+d|,
+ \qquad d=d_{i-1},\quad e=d_i.
+\]
+For \(0<k_i<n\), its minimum over \(e\in\mathbb Z\), at a fixed integer \(d\), equals \(2\min(k_i,n-k_i)|d|\). Hence \(d\ne0\) forces \(\min(k_i,n-k_i)=1\) and \(|d|=1\). For \(n\ge3\), a singleton sign class has a *strict majority* of size \(n-1\), so equality at norm \(2\) uniquely forces \(e=t_i d\) and
+\[
+ b_i-b'_i=2t_i d\,e_{a_i}.
+\]
+The only signed-unit steps with that difference are \(b_i=t_id\,e_{a_i}\), \(b'_i=-t_id\,e_{a_i}\). Conversely if \(d=0\), (9.1) reads \(b_i-b'_i=eD\); because \(n\ge3\) and \(\|b_i-b'_i\|_1\le2\), it forces \(e=0\) and \(b_i=b'_i\). Thus a nonzero gap cannot appear or disappear at a stage, and a non-singleton phase rules out all nontrivial aliases throughout the entire serial trace.
+
+If every phase is singleton-signed, the recurrence forces \(d_i=t_i d_{i-1}=p_i d_0\). The only nonzero starting gap is \(d_0=\pm1\), and its two histories must follow \(W^+\) and \(W^-\) respectively. Conversely, with starting depths \(h-h'=1\) and those two words, (9.1) holds at every phase, proving actual equality of all min-zero readouts by induction. No additional word pairs can collide. Removing one word eliminates the unique collision, and retaining both produces it. QED.
+
+**Finite exact check.** A separate Python integer enumeration sampled \(187\) independently configured mixed-sign signed-permutation sequences with random coordinate permutations and starting min-zero charts, across \(n=3,4,6\) and \(m=1,2,3\) (with an additional \(n=4,m=3\) case). It exhausted all \(5(2n)^m\) histories for each configuration, taking \(h\in\{-2,-1,0,1,2\}\), for a total of \(184{,}780\) exact history readouts. Every observed collision was exactly the predicted pair, and each all-singleton configuration had the predicted four adjacent-depth collisions; every other configuration had none. The universal classification follows from (9.1), not from the finite check.
+
+**Scientific use.** This gives a sharp native 12-direction alphabet budget for each registered one-step X6 observer phase: all but *one whole exceptional path word* can be retained while still recovering the initial hidden depth and each signed displacement. Whether a physically admitted triadic/Heartbeat law produces this whole alphabet, and whether collapsing full BRC ordered branch/force/path provenance is safe for future operations, remain separate Source-pinned physical-law and observer-descent questions. This section extends the existing Driver-authored candidate mathematics; it is neither an independently reviewed Native Result nor a Task/Objective closure.
