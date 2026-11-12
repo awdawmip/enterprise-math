@@ -1,7 +1,11 @@
 # X6：V2 common-depth carry 与 full Cell cover fibre 的统一
 
-Status: `DERIVED / EXACT CROSS-BRANCH SYNTHESIS / BRC-FIRST`
+Status: `DERIVED_EXACT_COVER_CLASSIFICATION / HISTORICAL_NATIVE_SELECTION_SUPERSEDED_BY_P000_V5`
 Date: `2026-09-05`
+Current type reconciliation: `2026-11-13` (P000 V5 signed native X6 pin `59538f585d037d09ef687b28715c4bc1a3f9fe03`).
+
+**Current selection within this exact cover family:** the native Cell torsor is `Z^6` and retains integer common depth `h` (`m=0` below). The `m=1` quotient `Z^6/Z1` remains a valid **relative observer**, not current native Cell identity. Every finite `m>1` is a mathematical quotient/cover alternative, not an additional currently admitted native spatial type. This retyping preserves the normal form, the carry cocycle and BRC pushforward calculations for all `m`.
+
 Depends on:
 - six-axis derived foundation V2 `normalize_counts`, `CountAtlas`, `depth_carry`;
 - X6 coordinate completion V7;
@@ -66,7 +70,7 @@ In these normal coordinates,
 
 where the second component is interpreted in `Z/mZ` for finite m and in Z for m=0.
 
-Thus the **same common-depth carry** discovered and toolized in the derived six-axis BRC/count atlas is exactly the central-extension cocycle of every possible coordinate-faithful connected full Cell cover.
+Thus the **same common-depth carry** discovered and toolized in the derived six-axis BRC/count atlas supplies the exact algebraic composition cocycle for this `m`-indexed cover family (as native only at the currently selected `m=0`, otherwise as a hypothetical or observer construction).
 
 No new hidden-state mechanism is needed.
 
@@ -74,34 +78,35 @@ Associativity of the Cell-cover multiplication is exactly the existing carry 2-c
 
 ## 4. Meaning of the three principal cases
 
-### m=1 — coordinate-complete Cell identity
+### m=1 — historical relative-quotient Cell candidate; current observer
 
-The depth fibre is trivial. `c(a,b)` is pure canonicalization carry and is not Cell identity.
+The depth fibre is trivial *in this quotient*. The historical proposal identified Cell endpoints with the min-zero six-coordinate torsor; **current P000 V5 instead treats this as the lower-information relative-coordinate observer**. `c(a,b)` remains exact section carry; the raw common depth is still part of current native Cell displacement.
 
-`X6 endpoint = min-zero six-coordinate torsor`.
+### finite m>1 — mathematical periodic-depth quotient models
 
-### finite m>1 — periodic depth memory
-
-Only common depth modulo m belongs to full Cell identity. Coordinate observations see r but forget the residue.
+Only common depth modulo `m` belongs to **these hypothetical quotient model endpoints**. Their coordinate observations see `r` but forget the residue.
 
 A complete six-axis diagonal cycle advances the fibre by 1; m cycles return.
 
-### m=0 — unbounded depth memory
+### m=0 — current P000 V5 native signed-X6 depth
 
-The entire integer diagonal depth belongs to full Cell identity. No nonzero number of complete diagonal cycles returns the same full Cell.
+The entire integer diagonal depth belongs to actual signed native Cell identity. No nonzero number of complete diagonal cycles returns the same full Cell. `z=r+h*1` is a lossless chart of `Z^6`; `G(z)=sum_i z_i^2` must be evaluated on the restored full signed vector.
 
 ## 5. BRC observer hierarchy
 
 This synthesis clarifies the correct BRC information rule:
 
 - general six-count / path observer: retain exact depth h and branch provenance;
-- coordinate endpoint observer: retain only r=can6(n);
-- m-cover Cell endpoint observer: retain `(r,h mod m)`;
-- primitive coordinate-complete Cell observer: m=1, so h is not identity but Path/BRC may still retain it as history/count data.
+- relative coordinate endpoint observer: retain only `r=can6(n)`;
+- finite-m quotient endpoint observer: retain `(r,h mod m)`;
+- current native signed-X6 Cell endpoint (`m=0`): retain exact `(r,h)`, equivalently the raw full displacement `z`;
+- historical m=1 Cell candidate: depth was not endpoint identity *within that hypothetical quotient*, although Path/BRC could still retain it as history/count data.
 
 Hence
 
-`DEPTH_NOT_CELL_IDENTITY != DEPTH_INFORMATION_MAY_BE_DELETED_FROM_ALL_OBSERVERS`.
+`DEPTH_NOT_QUOTIENT_ENDPOINT_IDENTITY != DEPTH_INFORMATION_MAY_BE_DELETED_FROM_ALL_OBSERVERS`.
+
+In the **current native Cell model**, depth *is* part of spatial endpoint identity.
 
 Even at m=1 the general BRC/path layer may need exact h for future concatenation, length/moment or provenance observers.
 
@@ -117,13 +122,13 @@ The existing FCC S4 subgroup inherits this automatically. Therefore no rotation 
 
 ## 7. Research consequence
 
-The X6 native Cell question has now converged to the semantic status of one **already existing, exact, composable** coordinate:
+At the historical 2026-09-05 research frontier, the native Cell model selection within this cover family was reduced to one **already existing, exact, composable** coordinate:
 
 `COMMON_DEPTH`.
 
 No other coordinate/fibre freedom remains in the connected commuting coordinate-faithful model class.
 
-The exact Foundation question is:
+The historical Foundation selection question was:
 
 `DOES COMMON_DEPTH BELONG TO FULL CELL IDENTITY?`
 
@@ -131,4 +136,4 @@ The exact Foundation question is:
 - periodically mod m -> finite m>1;
 - yes as integer -> m=0.
 
-The established three-axis primitive address rule treats its analogous common diagonal offset as outside primitive point/Cell address, which is strong structural evidence for m=1 in the full lift, but the full six-axis choice should be frozen explicitly rather than smuggled in as a theorem.
+This was an open selection criterion at the time, not an unresolved choice after P000 V5. The current frozen signed-X6 Foundation selects `m=0`, preserving the integer depth in native identity, while the old min-zero addresses remain valid observer objects.
