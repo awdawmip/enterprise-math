@@ -1,0 +1,105 @@
+{
+  "R757_fixed_source_fibers": {
+    "ABC": [
+      0,
+      1,
+      2
+    ],
+    "ACB": [
+      2,
+      0,
+      1
+    ],
+    "BAC": [
+      1,
+      2,
+      0
+    ],
+    "BCA": [
+      0,
+      1,
+      2
+    ],
+    "CAB": [
+      0,
+      1,
+      2
+    ],
+    "CBA": [
+      1,
+      2,
+      0
+    ]
+  },
+  "S3_pair_count": 36,
+  "S3_schedules_per_pair": 6,
+  "arithmetic": "permutation tuples and exact fractions, no floating point",
+  "huffman_optimal_mean_bit_length": {
+    "denominator": 4,
+    "numerator": 5
+  },
+  "model": "V39 completed based loop macros A,B,C=B^-1;A^-1; uniform pair/schedule only for optional ensemble",
+  "noncomm_reverse_fiber_patterns": {
+    "1,2": 18
+  },
+  "normal_subgroups": [
+    {
+      "elements": [
+        "0,1,2"
+      ],
+      "size": 1
+    },
+    {
+      "elements": [
+        "0,1,2",
+        "1,2,0",
+        "2,0,1"
+      ],
+      "size": 3
+    },
+    {
+      "elements": [
+        "0,1,2",
+        "0,2,1",
+        "1,0,2",
+        "1,2,0",
+        "2,0,1",
+        "2,1,0"
+      ],
+      "size": 6
+    }
+  ],
+  "pair_classes": {
+    "commuting": 18,
+    "noncommuting": 18
+  },
+  "schema": "R758_V39_ABELIANIZATION_EXACT_V1",
+  "source": "R757 @ ed0b15b4ba948a21150969478d8a6941db76b11f",
+  "task_science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "theorems": {
+    "S3_noncommuting_reverse_multiplicity_2_1": true,
+    "S3_proper_group_quotients_cannot_detect_nontrivial_3cycle": true,
+    "all_endpoint_in_derived_group": true,
+    "all_homomorphisms_to_abelian_groups_annihilate_endpoint": true
+  },
+  "uniform_pair_schedule_endpoint_counts": {
+    "0,1,2": 162,
+    "1,2,0": 27,
+    "2,0,1": 27
+  },
+  "uniform_pair_schedule_probabilities": {
+    "0,1,2": {
+      "den": 216,
+      "num": 162
+    },
+    "1,2,0": {
+      "den": 216,
+      "num": 27
+    },
+    "2,0,1": {
+      "den": 216,
+      "num": 27
+    }
+  },
+  "validation": "PASS"
+}
