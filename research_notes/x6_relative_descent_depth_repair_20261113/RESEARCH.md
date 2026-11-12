@@ -55,3 +55,19 @@ An independently implemented Python standard-library verifier enumerated signed 
 3. Check the explicit TRIADIC_CLOSURE_E and restricted C12/C24 carrier relations under candidate group actions when the necessary native laws are available.
 
 The current proof is a project Draft PR scientific artifact. No CLAIM, formal Result, Review or Foundation admission follows merely from its publication.
+
+## Theorem 4 — exact equivariance of shortest signed native BRC path fibers
+
+For full signed cells `x,y in Z^6`, let `P_min(x,y)` consist of all ordered signed primitive-axis paths of length `n=Σ_i |y_i-x_i|` from x to y, with every intermediate Cell and every labeled signed step retained. For any signed-permutation map g, transform each vertex and each step of a path using g.
+
+**Statement.** The vertexwise map `P_min(x,y) -> P_min(gx,gy)` is an exact bijection, preserves ordered step identity, total step length, path multiplicity, and commutes with boundary-marked path concatenation. Consequently the full shortest-path counts obey
+
+```
+   |P_min(x,y)| = n! / Π_i |y_i-x_i|! = |P_min(gx,gy)|.
+```
+
+**Proof.** A signed permutation maps each signed basis vector bijectively onto another signed basis vector. Hence it maps each native unit step to precisely one native unit step, preserving the order of steps, vertices and the endpoint displacement. The signed-permutation inverse yields the inverse path map. Since it permutes the absolute coordinate values of y−x, it preserves `n` and the displayed multinomial. It acts vertexwise on a boundary-marked concatenation, so it commutes with concatenation without identifying its two component fibers. QED.
+
+For **weighted** path-formal BRC, if the edge weight is `w(x,s,t,aux)`, define its transported weight by `(g⋅w)(gx,gs,t,g⋅aux)=w(x,s,t,aux)`. Then the weighted path sum is equivariant under simultaneous transport of the weight field, frame, branch/source labels and any declared auxiliary variables. For a *fixed* weight field, the same weighted invariance requires the actual condition `w(gx,gs,t,g⋅aux)=w(x,s,t,aux)` on every admissible edge. A mere signed-coordinate norm isometry supplies no such assertion about arbitrary assigned weights. Time stamps can be retained unchanged by the path map, preserving chronological order, while a separate native C12/C24 physical phase law remains to be established.
+
+On paths considered only through the entire **time-ordered relative observer trace**, this equivariant full-state action descends through initial common-depth fibers exactly for `g in H`, by Theorem 1 at the starting vertex and at every transformed vertex. For `g outside H`, retaining the one integer common-depth repair is sufficient for the spatial vertex trace and step provenance; any richer physical or BRC packet state remains separately typed. Thus the two group-theoretic classifications give a precise operation-safe split for the exact signed shortest-path carrier, not simply for its final endpoint.
