@@ -303,6 +303,48 @@
       "kb_sources": [],
       "repairs_event_id": null,
       "state": "EM_REPRESENTED"
+    },
+    {
+      "event_id": "onhour-20261112-1256-x6-pathsqrt-chart-glue-trace-capacity",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "kb_sources": [],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "9b9813c31763b280e2589400acdf600884faedc8",
+          "path": "research_checks/X6_LP028_PATHSQRT_CHART_GLUE_TRACE_CAPACITY_20261112_ONHOUR.py",
+          "sha256": "be7fa4ebf703165fe292e95b92715ba7675c0e882b61e0c4431de1cb75f15e75",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "tool_name": "github_fetch_file",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "git_blob_sha1": "7b44e0e509b2eb9d02a2433977484c31a3ee9792",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9b9813c31763b280e2589400acdf600884faedc8/research_checks/X6_LP028_PATHSQRT_CHART_GLUE_TRACE_CAPACITY_20261112_ONHOUR.py",
+            "observation_id": "onhour-20261112-1256-chartglue-checker-readback",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false,
+            "call_id": null
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "07da6f5a63bf985142d0708ae2fbf609e011f004",
+          "path": "research_notes/X6_LP028_PATHSQRT_CHART_GLUE_TRACE_CAPACITY_20261112_ONHOUR.md",
+          "sha256": "d53c26255e7ebf065c08cdad4de963ba0c18f454023e4682e95e3bf113178d05",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "tool_name": "github_fetch_file",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "git_blob_sha1": "ac0234fcf3fe04e6b234e63e5700519e3df12454",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/07da6f5a63bf985142d0708ae2fbf609e011f004/research_notes/X6_LP028_PATHSQRT_CHART_GLUE_TRACE_CAPACITY_20261112_ONHOUR.md",
+            "observation_id": "onhour-20261112-1256-chartglue-proof-readback",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false,
+            "call_id": null
+          }
+        }
+      ]
     }
   ],
   "mode": "TASK_RESEARCH",
