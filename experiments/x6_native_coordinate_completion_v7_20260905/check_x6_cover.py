@@ -81,15 +81,15 @@ def main():
         relative=Coord6.from_integer_lift(z)
         cover=CoverState(relative,h,0)
         signed=Spatial6(z)
-        assert cover.coordinate.signed_native_lift(cover.depth)==signed.coords
+        assert cover.signed_native_displacement()==signed.coords
         native_states+=1
         checks+=1
         for axis in range(6):
             for direction in (-1,+1):
                 next_cover=cover.step(axis,direction)
                 next_signed=signed.step(axis,direction)
-                assert next_cover.coordinate.signed_native_lift(next_cover.depth)==next_signed.coords
-                assert sum(x*x for x in next_cover.coordinate.signed_native_lift(next_cover.depth))==next_signed.norm_squared_from_origin()
+                assert next_cover.signed_native_displacement()==next_signed.coords
+                assert sum(x*x for x in next_cover.signed_native_displacement())==next_signed.norm_squared_from_origin()
                 native_steps+=1
                 checks+=2
 
@@ -97,6 +97,14 @@ def main():
     # m=0 keeps both genuinely different native Cells.
     assert CoverState(ORIGIN_COORD,0,1)==CoverState(ORIGIN_COORD,1,1)
     assert CoverState(ORIGIN_COORD,0,0)!=CoverState(ORIGIN_COORD,1,0)
+    for m in (1,2,3,7):
+        try:
+            CoverState(ORIGIN_COORD,0,m).signed_native_displacement()
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("finite-m quotient was miscast as native Cell")
+        checks+=1
     checks+=2
 
     print("PASS_X6_CELL_COVER_CLASSIFICATION_V13_V14")
