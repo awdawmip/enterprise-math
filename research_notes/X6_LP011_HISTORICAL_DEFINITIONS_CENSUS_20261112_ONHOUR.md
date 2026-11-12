@@ -36,6 +36,44 @@ The preserved original `claim_ledger.json` at the historical custody path `resea
 
 The current correction path is to reference verified source and exact consumer call rather than automatically marking mathematical definitions broken from their historical words. The old approved signed X6 baseline and `P000` are unchanged. No formula receives unrestricted full-X6 status from this audit.
 
+## 2a. Second same-turn historical research-note source probe: 24 exact X6/R059D/SIX_AXIS files
+
+The historical `research_notes/` Git tree `f772ad3e1927f7c5e8dd4093b5f67a4a31f80200` has **230 direct blobs (231 total direct tree entries)**, not 231 blob files. This run also fetched and inspected **all 24 files** with `X6_`, `R059D_` or `SIX_AXIS_` filename prefixes, each at `fd2bcff10ca6e147348b6c1236027fc0d2877df3`; zero read errors. Exact filename/blob inventory below. The same textual LP011 spatial-dominance selector search returned **no original signed native argmax source** within this declared 24-file subset either. These are 24 inspected source files, not a complete claim that all 230 research-note bodies were audited.
+
+This second probe yields two **positive** LP026 classification anchors that need no re-computation:
+
+1. `research_notes/X6_BRC_C6_GRADE_AND_EXACT_MULTINOMIAL_KERNEL_V9_20260905.md`, blob `7eea4b5f9146090d16dfa6463087039666b50b3f`, §§1–2 and 8: `rho([z])=sum_i z_i mod 6` and `chi_2([z])=(-1)^(sum_i z_i)` are well-defined for **the derived** `G6_D=Z^6/Z(1,1,1,1,1,1)`, because changing lift adds `6k`. They constitute a graded observer/holonomy parity character; §8 explicitly excludes treating a historical `C2` cover as the full Cell identity. **Disposition:** `PRESERVE_OBSERVER` for LP026 parity readout, preserving its actual six-axis domain, not a new native geometry theorem.
+2. `research_notes/SIX_AXIS_DERIVED_FOUNDATION_CLOSURE_V2_20260905.md`, blob `65f2f6494dc25161f5be640c32c39d66e2c93736`, lines 18 and 27: the *historical conditional* `S4`-invariant quadratic family `Q_c(n)=sum n_e²+2c(n_AB n_CD+n_AC n_BD+n_AD n_BC)` exhibited an unfixed cross-slice coefficient `c` under that paper's older hypothesis set. The frozen 2026-09-05 **P000 V5** directly fixes the current six-axis component norm to `sum n_e²` and zero native cross terms; `c=0` is current declared **P000 assumption**, not an inference from old same-slice tests. **Disposition:** `PRESERVE_HISTORICAL_CONDITIONAL` + `CURRENT_P000_FIXED`; do not report old `c` ambiguity as a current unresolved P000 gap, or claim the prior derivation proved `c=0`.
+
+These anchors tighten the LP026 formula audit while preserving provenance, authority order and scope. Their respective inherited exact proofs are consumed, not presented as newly independently proven. Remaining historical `research_notes/` blobs outside these 24 have not been completely scanned this turn.
+
+| Additional historical research note | Git blob SHA1 |
+| --- | --- |
+| `R059D_SIX_DIMENSION_12_DIRECTION_SIGN_CLOSURE_20260816.md` | `228fc17aea9a6ca71e0af287a7d32e7a644278b6` |
+| `R059D_STAGE_O_DRIVER_FREEZE_20260816.md` | `93b351998eea42ed27cd4b5b4a043b145a2be7dc` |
+| `R059D_STAGE_P_DRIVER_FREEZE_20260816.md` | `5ab2c5eeff33844e5cf7c9314b537b2f80f030ba` |
+| `R059D_STAGE_R_DRIVER_FREEZE_20260816.md` | `e23a5d3581fcf4d425f98d170892ec021ef44aaf` |
+| `R059D_STAGE_S_DRIVER_FREEZE_20260816.md` | `45fe6dd055a48fff1eda27ef4fb2dd18bb050d0c` |
+| `R059D_STAGE_T_DRIVER_FREEZE_20260816.md` | `196354e9759f9201918da500f9fa53a9b793a848` |
+| `R059D_STAGE_U_DRIVER_FREEZE_20260816.md` | `5367658e8d5c3235913bd243b5ebfb19516b381e` |
+| `R059D_STAGE_W_DRIVER_REVIEW_HOMOGENEITY_TRIVIALIZATION_20260816.md` | `7eda5a46c7601eb8079ec770feb8fd64cab2d0f2` |
+| `R059D_TRIAXIAL_INTEGER_CELL_ROOT_COLLAPSE_CORRECTION_20260816.md` | `538c0dd82d158154fd096d469388891642339071` |
+| `R059D_TRIAXIAL_RAW_VECTOR_TO_CELL_ADDRESS_CORRECTION_20260816.md` | `2a11a72c040571a8c43c0daed7a1c0dcb5a89180` |
+| `SIX_AXIS_DERIVED_FOUNDATION_CLOSURE_V2_20260905.md` | `65f2f6494dc25161f5be640c32c39d66e2c93736` |
+| `SIX_AXIS_ORTHOGONALITY_SUPERSESSION_20260905.md` | `872d89327beeb1909b8ce355f3912ad41111252c` |
+| `X6_20_SLICE_INVERSE_LIMIT_RECONSTRUCTION_V10_20260905.md` | `35e98cee4268cff11284c44020baec9e68139f8b` |
+| `X6_ALL_SLICE_RETURN_COLLAPSE_NOGO_V15_20260905.md` | `9efcf2ac43bd6bfd5b5f0765a04167fde6476984` |
+| `X6_BRC_C6_GRADE_AND_EXACT_MULTINOMIAL_KERNEL_V9_20260905.md` | `7eea4b5f9146090d16dfa6463087039666b50b3f` |
+| `X6_COMMON_DEPTH_COCYCLE_CELL_COVER_BRIDGE_V14_20260905.md` | `f25c918cd319c8a664cbc8d96a46b169fdf75d1e` |
+| `X6_CONNECTED_CELL_COVER_CLASSIFICATION_V13_20260905.md` | `cd58a053c29c5b1f60edeb1d39e7afa706e95787` |
+| `X6_COORDINATE_COMPLETENESS_UNIQUENESS_GATE_V11_20260905.md` | `3c80bdfb74d9482d460e43e46667f18471affc96` |
+| `X6_DIRECTED_GAUGE_AND_PROJECTION_CONTRACTION_V12_20260905.md` | `7f15fdf12839f08fde90729dc5abf2cd59f0d5b5` |
+| `X6_JOINT_OBSERVER_PRESERVATION_AUDIT_V18_20260905.md` | `505a31ed49fae20916dd0ad0daaa25054b00dacc` |
+| `X6_NATIVE_COORDINATE_COMPLETION_V7_20260905.md` | `acfbd53a3d58750f29b166a9e5517fcf4fa3e6f3` |
+| `X6_NATIVE_S6_ROTATION_AND_20_SLICE_ATLAS_V8_20260905.md` | `724be8f4f434c96b2e7c6df1869b9406045a0d11` |
+| `X6_P000_V4_SIGNED_AXIS_REFOUNDATION_V16_20260905.md` | `4843b3af25221978ed2f66c2a062e4efd9a68ebd` |
+| `X6_SIGNED_PATH_BRC_AND_PRIMITIVE_LINE_V17_20260905.md` | `aa005cd62c45d7f4105632257db9186b115c5b29` |
+
 ## 3. Indexed inventory / reproducibility
 
 Immutable tree `163f9b284ec10370b14b4a456cad94e016ac3b57` at `fd2bcff10ca6e147348b6c1236027fc0d2877df3` (all 72 entries; paths relative to `definitions/`):
