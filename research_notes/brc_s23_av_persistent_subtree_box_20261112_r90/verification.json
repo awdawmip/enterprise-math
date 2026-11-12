@@ -1,0 +1,59 @@
+{
+  "schema": "EM_R90_PERSISTENT_SUBTREE_CERTIFICATE_V1",
+  "frozen_science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "seed": 9020261112,
+  "dynamic_edits": 192,
+  "historical_queries": 192,
+  "signature_queries": 120,
+  "fast_oracles": 455,
+  "baseline_oracles": 227,
+  "comparable_dynamic_fast_oracles": 212,
+  "comparable_dynamic_baseline_oracles": 227,
+  "fast_cache_hits": 5,
+  "baseline_cache_hits": 6,
+  "subtree_skips": 16,
+  "skipped_identities": 20,
+  "history_nodes_reachable": 513,
+  "reference_atoms": 6015,
+  "nodes_allocated_total": 3684,
+  "family": [
+    {
+      "out_times": 16,
+      "fast_oracles": 4,
+      "baseline_oracles": 17,
+      "fast_cover_tries": 6,
+      "fast_skipped_identities": 13,
+      "cold_query_median_ns": 418756,
+      "baseline_cold_query_median_ns": 1013912,
+      "query_repeats": 9,
+      "allocated_build_nodes": 95,
+      "height": 5
+    },
+    {
+      "out_times": 64,
+      "fast_oracles": 6,
+      "baseline_oracles": 65,
+      "fast_cover_tries": 10,
+      "fast_skipped_identities": 59,
+      "cold_query_median_ns": 1076592,
+      "baseline_cold_query_median_ns": 4693597,
+      "query_repeats": 9,
+      "allocated_build_nodes": 509,
+      "height": 7
+    },
+    {
+      "out_times": 256,
+      "fast_oracles": 8,
+      "baseline_oracles": 257,
+      "fast_cover_tries": 14,
+      "fast_skipped_identities": 249,
+      "cold_query_median_ns": 2851300,
+      "baseline_cold_query_median_ns": 17323489,
+      "query_repeats": 9,
+      "allocated_build_nodes": 2555,
+      "height": 9
+    }
+  ],
+  "checks": "ALL_ASSERTIONS_PASS",
+  "scope": "Exact Fraction all-real rational closed intervals; fixed residue modulus 16; 9-repetition cold-query timing medians, single Python process; deterministic reference partitions."
+}
