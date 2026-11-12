@@ -1,0 +1,9 @@
+# R753 exact continuation — triadic PASS covariance repair
+Task: RS-X6-TRIADIC-CLOSURE-DYNAMICS
+Researcher lineage: EM-X6-0E46B2 / RA-98CE0270814B2431AD745438; original native Run RUN-14a5d6f361d4bb24a99a717a. Treat original claim/lease and resume as current only upon native successful receipt, not from this document.
+Frozen science remains a72226e2430ffa4786321ac86e7f0c599d5f0389.
+Completed author-side mathematical unit: R753 proves no S6-covariant single cyclic-edge PASS selector; the R752B minimum-axis marking fails. Replacing that marking by the 3-edge unmarked positive BRC batch gives the unique minimal full-cycle 3-PASS incidence at total multiplicity 3, equivariant under S6. All 320 candidate states yield distinct signed-count ledgers, Delta u=0, and 230400 exact covariance checks pass.
+DO NOT REPEAT: R751 160 double fibers; R752 cubic sign recovery; R752B sign-labeled single PASS counterexample; R753 3-PASS covariance repair. These are author-side candidates, not independently accepted force-closure laws.
+CURRENT UNFINISHED: identify an actually authorized TRIADIC_CLOSURE_E Cell/Link/Port incident in immutable frozen Source and an event scheduler that composes real V29 PASS and V39 h, if one exists. No native admissibility/rotation theorem was established in R753.
+NEXT DISCRIMINATOR: provide one legal force triad and its real same-event frame update; test whether 3 PASSs form one admissible atomic event, are merely sequential count events, or cannot occur. Preserve origin and exact typed operation. If no permission rule exists, isolate a smallest explicit new rule as a candidate, not a claim that old rules secretly authorized it.
+PERSISTENCE: this note and its proof/checker/JSON share one GitHub immutable commit; Activity checkpoint, execution checkpoint and formal Source Result are distinct, requiring separate actual receipts. No automatic takeover of any active owner.
