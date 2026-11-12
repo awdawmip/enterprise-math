@@ -1,0 +1,100 @@
+{
+  "status": "PASS_R5_WEIGHTED_MINIMAX_CHECKPOINTS_FROZEN",
+  "executed_surface": "local original-fixture Python stdlib script",
+  "not_executed": "portable GitHub script pending clean checkout",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "nodes": 2880,
+  "terminals": 1065,
+  "walls": 953,
+  "max_wall_multiplicity": 3,
+  "original_prefix_parameter_checks": 57600,
+  "root_wall_equalities": 953,
+  "full_wall_rank_node_checks_K239": 2747520,
+  "minimax": [
+    {
+      "B": 1,
+      "K": 954,
+      "centers": 954,
+      "baseline": 0,
+      "nearest_uniform": 0,
+      "optimum": 0
+    },
+    {
+      "B": 2,
+      "K": 477,
+      "centers": 351,
+      "baseline": 3,
+      "nearest_uniform": 2,
+      "optimum": 1
+    },
+    {
+      "B": 4,
+      "K": 239,
+      "centers": 213,
+      "baseline": 5,
+      "nearest_uniform": 3,
+      "optimum": 2
+    },
+    {
+      "B": 8,
+      "K": 120,
+      "centers": 120,
+      "baseline": 10,
+      "nearest_uniform": 6,
+      "optimum": 4
+    },
+    {
+      "B": 16,
+      "K": 60,
+      "centers": 57,
+      "baseline": 21,
+      "nearest_uniform": 10,
+      "optimum": 9
+    },
+    {
+      "B": 32,
+      "K": 30,
+      "centers": 29,
+      "baseline": 40,
+      "nearest_uniform": 25,
+      "optimum": 18
+    },
+    {
+      "B": 64,
+      "K": 15,
+      "centers": 15,
+      "baseline": 78,
+      "nearest_uniform": 57,
+      "optimum": 36
+    }
+  ],
+  "memory_python_bytes_K239": {
+    "uniform_masks": 37516,
+    "optimized_masks": 33108,
+    "optimized_directory": 15624,
+    "shared_not_counted": true
+  },
+  "query_median_ms_local": {
+    "root_256": {
+      "uniform_B4": 0.938,
+      "weighted_B4": 0.999
+    },
+    "broad_512": {
+      "uniform_B4": 1.746,
+      "weighted_B4": 1.791
+    },
+    "random_2048": {
+      "uniform_B4": 7.329,
+      "weighted_B4": 7.527,
+      "uniform_B64": 12.106,
+      "weighted_B64": 11.479
+    },
+    "hotmix_2048": {
+      "uniform_B4": 8.836,
+      "weighted_B4": 9.348,
+      "uniform_B64": 13.924,
+      "weighted_B64": 12.839
+    }
+  },
+  "scope": "one CPython session, exact rank/fraction oracle, 5 medians, query-only; seed/init/RSS/output serialization excluded"
+}
