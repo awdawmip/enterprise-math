@@ -1,0 +1,69 @@
+{
+  "schema": "R758P3_EXACT_FULL_AREA_FRAME_V1",
+  "validation": "PASS",
+  "test_type": "Complete finite enumeration and independent algebraic proof",
+  "model": "X6 three-axis six signed native steps; explicitly candidate S3 axis involution assignment",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "source_parent": "R758P2 PR #2201 @7ab2bdd2c104f80cbf494c2be492001a50e749b0",
+  "checks": {
+    "total_signed_words": 720,
+    "distinct_signed_areas": 27,
+    "area_nnz_fibers": [
+      {
+        "nonzero": 0,
+        "signed_vectors": 1,
+        "words_per_vector": 240,
+        "frames_per_vector": {
+          "e": 240
+        },
+        "total": 240
+      },
+      {
+        "nonzero": 1,
+        "signed_vectors": 6,
+        "words_per_vector": 48,
+        "frames_per_vector": {
+          "r": 24,
+          "r2": 24
+        },
+        "total": 288
+      },
+      {
+        "nonzero": 2,
+        "signed_vectors": 12,
+        "words_per_vector": 12,
+        "frames_per_vector": {
+          "r": 6,
+          "r2": 6
+        },
+        "total": 144
+      },
+      {
+        "nonzero": 3,
+        "signed_vectors": 8,
+        "words_per_vector": 6,
+        "frames_per_vector": {
+          "e": 6
+        },
+        "total": 48
+      }
+    ],
+    "holonomy": {
+      "e": 288,
+      "r": 216,
+      "r2": 216
+    },
+    "all_area_vectors_observed": 27,
+    "parity_repair_mismatches": 0,
+    "compositional_frame_word_mismatches": 0,
+    "all_axis_words_length_le_6": 1093,
+    "concatenation_splits_tested": 7108,
+    "rooted_repair_words": 432,
+    "uniform_conditional_frame_entropy_bits": "3/5"
+  },
+  "mathematical_claim": "H=e iff zero or three nonzero projected areas; otherwise one root parity bit reconstructs one of two 3-cycle orientations; (parity,q) is an exact compositional six-state frame register.",
+  "validation_details": "Core exhaustive checks run in local Python for all 720 signed words, 27 area fibers, beta-reconstruction, all 1093 axis words length <=6 and all 7108 possible splits; companion stdlib verifier written to branch for independent replay.",
+  "native_event_semantics": "CANDIDATE_ONLY; authorized TRIADIC_CLOSURE_E and native V39 link-to-frame coupling not established",
+  "formal_source_result": "NOT_PUBLISHED",
+  "independent_driver_review": "NOT_PERFORMED"
+}
