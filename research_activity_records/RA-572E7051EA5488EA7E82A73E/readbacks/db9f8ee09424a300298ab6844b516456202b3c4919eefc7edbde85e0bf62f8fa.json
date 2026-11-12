@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/PREFIX725_R6_RESULTS.json",
+    "ref": "578e29ee7d76641f945215fc909c93b5a1752517",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r6-20261112-prefix725-2-immutable-fetch",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"PREFIX725_R6_EDGE_BERNSTEIN_SWITCH_V1\",\n  \"date\": \"2026-11-12\",\n  \"prior\": \"PREFIX-724-R6\",\n  \"frozen_gamma_science_pin\": \"f42f2906d77f24085c123f3ccfe9667d41caa96d\",\n  \"scientific_model\": \"independent polynomial moment toy; not frozen Gamma computation\",\n  \"mu\": \"1+p+z\",\n  \"W\": \"3/4+(p+z)/4-4*p*z\",\n  \"J\": \"4*(z-p)\",\n  \"K\": \"4\",\n  \"candidate_patch\": \"[1/5,3/10]^2\",\n  \"parameter_t\": \"[0,1/2]\",\n  \"witnesses\": [\n    [\n      \"0\",\n      \"1/2\"\n    ],\n    [\n      \"0\",\n      \"2/5\"\n    ]\n  ],\n  \"checks\": [\n    {\n      \"t\": \"0\",\n      \"edge_bernstein_upper\": \"69/100\",\n      \"best_external_witness\": \"7/8\",\n      \"strict_gap\": \"37/200\"\n    },\n    {\n      \"t\": \"1/4\",\n      \"edge_bernstein_upper\": \"17/50\",\n      \"best_external_witness\": \"1/2\",\n      \"strict_gap\": \"4/25\"\n    },\n    {\n      \"t\": \"1/2\",\n      \"edge_bernstein_upper\": \"-1/100\",\n      \"best_external_witness\": \"3/20\",\n      \"strict_gap\": \"4/25\"\n    }\n  ],\n  \"verified_continuous_t_gap\": \"4/25\",\n  \"witness_continuous_q_advantage\": \"for every real q>=2, max_e V_q(e)-max_patch V_q >= 4*q^2/25\",\n  \"gamma_method_conditional\": \"If the frozen Gamma patch certifies mu_p>0, mu_z>0 and K>0, mean-fiber boundary reduction and exact 1D-edge Bernstein plus witness-switch nodes apply.\",\n  \"frozen_189_row_edge_degree_cap\": \"mu,M2 <=188; W<=376; four degree-376 edge arrays have 1508 coefficients, while degree-376 tensor has 142129\",\n  \"status\": \"EXACT_FRACTION_TOY_CHECKED / GAMMA_METHOD_CONDITIONAL / UNREVIEWED / NOT_ADMITTED\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/578e29ee7d76641f945215fc909c93b5a1752517/research_notes/portable_direct/PREFIX725_R6_RESULTS.json",
+      "encoding": "utf-8",
+      "sha": "d71ed3f410eab9c55f83a7cb4afaeb6a26cd1a12"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
