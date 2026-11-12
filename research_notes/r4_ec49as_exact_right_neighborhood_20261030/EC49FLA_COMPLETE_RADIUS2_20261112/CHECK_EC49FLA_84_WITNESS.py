@@ -47,11 +47,9 @@ def verify():
         f=h+1-y-2*kz
         g=h+1-x
         assert min(a,b,f,g)>=0
-        assert w.count("a")==a and w.count("d")==kz
+        assert w.count("a")==a and w.count("e")==kz
         assert w.count("f")==f and w.count("g")==g
-        assert w.count("c")+w.count("d")-kz == w.count("c")
-        assert w.count("c")+w.count("e")==b
-        assert w.count("e")>=0 and w.count("c")>=0
+        assert w.count("c")+w.count("d")==b
         path=()
         for axis in signed:
             path=path+(axis,)
