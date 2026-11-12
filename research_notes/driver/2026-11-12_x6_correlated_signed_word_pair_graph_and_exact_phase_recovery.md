@@ -146,3 +146,53 @@ A_N^{(m)}=\sum_{j=1}^{m} A_{N-j}^{(m)}\qquad(N>m),
 by partitioning by the last plus and its preceding trailing minus run. This provides an exact throughput/cost account for repeated safe windows, distinct from the single-block cardinality.
 
 **Independent exact check.** For each (m=2,3,4,5,6,7), enumerated all (2^m\) signed words, depths (-2,\ldots,2), and the registered relative readouts starting from (r=(0,2,4,1,3,2)) under the displayed (R). In each enumeration the **only** different-word collision pair was ((+^m,-^m)), matching the unrestricted integer proof. This is a candidate spatial observer theorem and an executable finite-language filter for a future Source-registered Heartbeat/triadic transition law; it is not an independent Native Result, a physical-law registration or a closed X6 Task.
+## 8. Mixed-sign arbitrary phase and moving exceptional-axis theorem
+
+**Question and precise scope.** Sections 6–7 kept the same signed permutation \(R\) and the same step axis at every phase. Here fix any dimension \(n\geq3\), an arbitrary registered sequence of signed permutations \(g_1,\ldots,g_m\), and one signed native step \(s_i e_{a_i}\) at each observed phase, with \(s_i\in\{-1,+1\}\) and a registered but potentially moving axis \(a_i\). Require each direction vector \(\varepsilon_i=g_iD\) to be **mixed-sign** (at least one positive and one negative entry). Use the same signed raw state and full sequence of relative readouts as before:
+
+\[
+ z_0=r+hD,\qquad z_i=g_i z_{i-1}+s_i e_{a_i},
+ \qquad y_i=q(z_i),\quad q(z)=z-\min_jz_j\,D.
+\]
+
+Here \(r=q(z_0)\) is known, \(h\in\mathbb Z\) is unknown, and all \(y_1,\ldots,y_m\) are registered. The legal sign language \(L\subseteq\{-1,+1\}^m\) does not depend on the hidden depth. No nonnegative intermediate-coordinate restriction or physical Heartbeat law is silently added.
+
+Call phase \(i\) **singleton-aligned** if \(\varepsilon_i\) has one exceptional sign at coordinate \(a_i\), with the other \(n-1\) signs all equal to \(t_i\in\{-1,+1\}\) and \((\varepsilon_i)_{a_i}=-t_i\). This includes both one negative sign and \(n-1\) negative signs; \(t_i\) denotes the *majority* sign.
+
+**Sharp moving-axis theorem.**
+
+1. If **any** phase is not singleton-aligned, then \((h,s_1,\ldots,s_m)\mapsto (y_1,\ldots,y_m)\) is injective on the **entire** \( \mathbb Z\times\{-1,+1\}^m\). No sign-memory restriction is required.
+2. If **every** phase is singleton-aligned, define \(p_0=1\) and \(p_i=\prod_{\ell=1}^{i}t_\ell\). Define the two phase-twisted words
+   \[
+   w^+=(p_1,\ldots,p_m),\qquad w^-=(-p_1,\ldots,-p_m).
+   \]
+   The **only** distinct-parameter collision is \(w^+\) against \(w^-\), with initial depths differing by exactly one in the corresponding orientation. The map restricted to \(\mathbb Z\times L\) is therefore injective if and only if \(L\) excludes at least one of those two words. Its maximum allowed language size is \(2^m-1\), and this bound is attained.
+3. More generally, if the admissible initial depth set is \(H\subseteq\mathbb Z\), the sole potential collision in case (2) survives precisely when **both** twisted words are legal and \(H\) contains two consecutive integers. An explicit absolute-depth or position-dependent dynamical constraint may remove the witness; it must be checked separately.
+
+**Proof.** Compare two legal histories with the same \(r\) and all the same \(y_i\). Since \(q(z)=q(z')\) exactly when \(z-z'=dD\) for an integer \(d\), introduce integer gaps \(d_i\), with \(d_0=h-h'\). The exact recurrence is
+\[
+ d_iD=d_{i-1}\varepsilon_i+(s_i-s_i')e_{a_i}. \tag{8.1}
+\]
+On every coordinate \(j\ne a_i\), this requires \(d_i=d_{i-1}(\varepsilon_i)_j\). If those \(n-1\) signs disagree, \(d_{i-1}=d_i=0\). If they agree and the phase is mixed, their common sign is \(t_i\), the exceptional coordinate has \(-t_i\), and (8.1) becomes
+\[
+ d_i=t_i d_{i-1},\qquad s_i-s_i'=2t_i d_{i-1}. \tag{8.2}
+\]
+If any \(d_{i-1}=0\) or \(d_i=0\), the nonexceptional coordinates and (8.1) force the other gap and sign difference to vanish. This propagates in both directions through every mixed-sign phase. Thus a nonsingleton-aligned stage forces all gaps and all sign differences to vanish, proving (1).
+
+If every stage is singleton-aligned, (8.2) gives \(d_i=p_i d_0\). A nonzero gap demands \(2t_id_{i-1}=s_i-s_i'\in\{-2,0,2\}\), so \(d_0\in\{-1,+1\}\), and necessarily \(s_i=p_i d_0,\ s_i'=-p_i d_0\) for **each** stage. These are exactly the two twisted words. Conversely, they satisfy (8.1) with \(d_0=1\) (or the reversed ordering with \(-1\)), so the entire registered observation sequence coincides for every \(r\). Restricting the start depths to \(H\) gives the consecutive-integer criterion. QED.
+
+**Concrete X6 mixed-majority collision.** For \(n=6\), take three diagonal signed-permutation phases with
+\[
+\varepsilon_1=(-1,+1,+1,+1,+1,+1),\ a_1=1;\quad
+\varepsilon_2=(-1,-1,+1,-1,-1,-1),\ a_2=3;\quad
+\varepsilon_3=(+1,-1,+1,+1,+1,+1),\ a_3=2.
+\]
+The majority signs are \((+1,-1,+1)\), so the exceptional-axis steps have the two and only two colliding sign words \((+,-,-)\) and \((-,+,+)\). For \(r=(0,3,2,1,4,2)\), initial depths \(h=1\) and \(h'=0\) respectively, the three min-zero readouts **in both histories** are
+\[
+(0,4,3,2,5,3),\quad(5,1,7,3,0,2),\quad(5,8,7,3,0,2).
+\]
+Changing **any one** stage step axis away from its sole exceptional-sign coordinate instead makes the full sign language injective, by part (1).
+
+**Independent finite check.** As a consistency check separate from the universal proof, a deterministic exact-integer enumeration with pseudorandom seed 234 tested \(n=3,4,5,6\), phase counts \(m=1,2,3,4\), and 200 mixed-sign signed-permutation/axis configurations per \((n,m)\): 3,200 configurations in total. For each it enumerated all \(2^m\) sign words and initial depths \(-2,-1,0,1,2\) from a fixed randomly generated registered min-zero chart, compared the full tuple of normalized phase observations, and found **zero mismatches** with the theorem's predicted collisions and depth offsets. This is a sample check only; (8.1)–(8.2) prove the unrestricted-integer classification.
+
+**Scientific impact and remaining boundary.** The all-\(R\) words \((+^m,-^m)\) of §7 are the special case \(t_i=+1\) at every stage. This generalization handles moving exceptional axes, alternating phase parity, and majority-negative frames without erasing the exact sequence of observations. It also identifies an admissible **zero-memory** route for fully varied signed step alphabets when even one registered stage is nonaligned. A real BRC/Heartbeat trajectory must still specify its physical \(\text{model\_law\_id}\), signed-step admissibility, branch/force correlation, position guards, and future observer equivalence; this theorem is an exact candidate-model filter and not a Native Result, independent review, Task closure, or new physical-law registration.
