@@ -7,7 +7,35 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "event_id": "research1-r109-20261113-persistent-exact-certificate-01",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "e9653ff7f30f209af9291888685da2194c4094b3",
+          "path": "research_notes/brc_s23_av_r109_persistent_rank_certificate_20261113/verification_r109.json",
+          "sha256": "7e43502916f2e41d15693864a1690f0afd8acb83f84970cc053e4dba07137440",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "research1-r109-20261113-gh-exact-verification-01",
+            "call_id": null,
+            "git_blob_sha1": "f833b50b4fd6346131623f6fed9b74de6a820bef",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/e9653ff7f30f209af9291888685da2194c4094b3/research_notes/brc_s23_av_r109_persistent_rank_certificate_20261113/verification_r109.json",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-E124B2BE4717C99948D2DB86/readbacks/ea24217f7d525c3ab8f516bde46ca5c1a2fe772a4a8a2bcec821bc74f2a5352f.json",
+          "verification_receipt_sha256": "ea24217f7d525c3ab8f516bde46ca5c1a2fe772a4a8a2bcec821bc74f2a5352f"
+        }
+      ],
+      "kb_sources": [],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-12T20:15:53.045307+00:00",
   "registration_key": "session:MCP-9a415cff53044b5bac05b93585f4fb13:TASK_RESEARCH",
