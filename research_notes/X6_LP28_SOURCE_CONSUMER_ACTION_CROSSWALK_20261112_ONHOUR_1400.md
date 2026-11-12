@@ -87,3 +87,31 @@ Current retyped consumer anchors, fetched on Source main: `C61=definitions/ENTER
 - Exact control boundary observed: Research conversation `chatgpt-research-onhour-enterprise-math-20260923`, old source session `MCP-de3e5bafb24f43f4a5e6285e7601676a` (historical authenticated receipt only); latest verified task route from original [continuation #6827](https://github.com/awdawmip/kimi-query-bridge/issues/6827) is `HANDOFF_READY / NEEDS_DISPATCH / PREPARE_TYPED_CONTINUATION...`, with no present winning X6 CLAIM/open. Support [#2141](https://github.com/awdawmip/enterprise-math/issues/2141) is OPEN; artifact allowlist failure `ARTIFACT_NOT_IN_CONTINUATION_PACKET` retains its original request #6845. This note is **scientific/source evidence**, not a Native semantic checkpoint or independent review.
 
 No frozen inputs, accepted R063 artifacts, existing task registry, owner or schedule are modified.
+
+
+## Research lane update: actual R063 / geometry-of-numbers consumer contract (2026-11-12)
+
+Own Researcher `EM-X6-FB6990`, SID `MCP-082892eb480e45dea6d4b9fcc0491034`, Task `RS-X6-LEGACY-PLANE-RECONCILIATION`; previous matrix preserved above. This is a **new, source-attested consumer closure increment**, not blanket all-repository coverage or independent mathematical admission.
+
+### LP028 actual executable consumer
+
+The original/current `experiments/tool_discovery_native_geometry_of_numbers_minima_calculus_20260822.py` is **unchanged**, Git blob `643b2bac659a445891dcb5588b647972977104e0` at both frozen historical `fd2bcff10ca6e147348b6c1236027fc0d2877df3` and current main. Its `sector_ball(R)` (lines 76–82) selects tuples `(a,b,0)` with `a,b>=0`. The `residue(point,m)` reader (lines 84–88) explicitly asserts `c==0`. Its `groots_square(r)` and `path_fiber_size(root)` (lines 116–137) enumerate only the **ordered nonnegative fixed two-generator sector** and count `binom(a+b,a)`. `check_roots` (lines 139–171) checks `r=1..128`; at `r=50` the exact six roots and mass `110695538274255714208` match the old fixed-positive R063 PathSqrt proof. **KEEP executable finite-fiber theorem and exact positive-chart experiment; type the input as fixed selected positive chart rather than full signed-X6.**
+
+The still-unmodified original/current research return `research_notes/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_MINIMA_CALCULUS_RESULT_20260822.md`, blob `e3b1488a9bfdc44795f5d0e78c67e8c128bd30dc` at both versions, lines 23–27, calls three glued positive charts the *current native plane* and claims no native negative axes. Those words describe its pre-September-5 source ontology; the present P000 V5 signed Cell geometry supersedes that **native interpretation**. The same return's Section 10, lines 340–392, explicitly restricts its six R063 component roots to one fixed `PathSqrt_E` trace family. **RETYPE the historical headline as positive-sector/relative representation; retain Section 10's exact chart-local mathematical result.** No rewriting of the frozen 2026-08-22 return or accepted R063 definition is warranted.
+
+The frozen/current `definitions/ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` is unchanged blob `61f23f2bcf965aa21d093ae3e35c0d6cb70610b7`. Its Section 6 lines 89–105 uses the **legacy** `Sigma_O^(ij)` start-incidence; the current signed-X6 native starts at actual Cell. Section 8's six fixed-chart roots remain exact root-combinatorics; their compositional embedding requires explicit selected axes/sign labels and Cell-start adapter before promoting them to signed native paths. **KEEP historical algebra, require typed adapter only for a demonstrated current signed caller.**
+
+### Minimal independently executed distinguishing witness
+
+Direct exact integer enumeration (declared scope (d\in\{3,6\}, r=1)) returned:
+`d=3: signed native squared-norm-1 endpoints=6, fixed positive two-generator endpoints=2`;
+`d=6: signed native squared-norm-1 endpoints=12, fixed positive two-generator endpoints=2`.
+For `r=50`, ordered fixed-positive chart roots are exactly `(0,50),(14,48),(30,40),(40,30),(48,14),(50,0)`, mass `110695538274255714208`. The previously completed **all-axis-pair signed 2500** result (252 unique signed pair-support endpoints and mass `6641732296455342852372`) is reused, not rerun. This precisely exhibits why fixed-positive `C_trace(50)=6` cannot be the cardinality of all signed-X6 pair-supported trace/endpoints.
+
+### LP011 / LP019 additional actual caller classification
+
+The frozen/current `experiments/tool_discovery_native_oriented_matroid_circuit_calculus_check.py` (blob `bce4453d740ac3c0c401843b732dc78c74056883`) lines 43–52 and 352–427 is a finite positive two-generator graph and **generic Boolean-BRC** incidence demonstration; its chain-sign coefficients describe graph cycles, not signed native positive BRC cancellation. The unchanged `scripts/diagonal_quotient_normalization_check.py` (blob `46bb9613007c726df71de38737d2c0199343f8b0`) is explicitly typed as quotient algebra. Both are **KEEP**, with no evidence of an erroneous current native consumer. The detailed new scoped proof/consumer audit and executed discriminating witness are at:
+`research_notes/X6_LP011_LP019_SOURCE_CALLER_BOUNDED_AUDIT_20261112_2230.md` (Git commit `8fbab4aa5adf91a73574a40c5ac14f2a4b90cfa1`)
+and `research_checks/X6_LP011_LP019_TYPED_CALLER_PROVENANCE_20261112_2230.py` (Git commit `58da8dfd6b219c7d997af74bfaf455d1715c37a8`).
+
+**Coverage delta:** LP028 now has named actual executable function-level consumers and a distinct original-current result-prose typing issue, plus named LP011/LP019 correctly typed consumers. Historical bad native LP011/LP019 callers remain `UNRESOLVED_PROVENANCE` within this finite inspection; the remaining 28-LP dependency manifest and Driver `REQUEST_REVISION` are still open. Next inspect exact active callers that invoke these functions with genuine signed-X6 inputs, and only patch the source of demonstrated misuse.
