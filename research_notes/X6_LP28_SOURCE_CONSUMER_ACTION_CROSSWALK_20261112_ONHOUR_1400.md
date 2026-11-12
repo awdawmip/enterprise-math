@@ -139,3 +139,46 @@ A follow-up exact source inspection identified **three real current-main histori
 | LP001, LP003, LP024 | `definitions/ENTERPRISE_TRIPLE_INTERSECTION_CIRCLE_CELL_COORDINATE_SYSTEM_20260818.md` old blob `f80a9c2ebf84d0cb4feeb787493102d57d104a0c` | Historical `Canonical superseding changes` pointed only to a now-obsolete positive-axis native model | Explicitly identify intermediary historical successor, add current P000/X6 signed native routes, preserve historical list but forbid treating min-zero/triple intersection as native Cell; verified commit `9c873d1d2a225272a551acc3d9fc7258fbde6997`, new blob `744a6d670b442447e1e9c99653fbc55c64f17579` |
 
 This is a **3-file scoped current-router closure** and not proof of total current-source dependency closure. Other old-native attribution gaps (LP011/LP019, old 9/213) remain `UNRESOLVED_PROVENANCE`. The distinct LP028 selected signed-chart collision and source-import certificate is recorded in the immediately preceding subsection. Current native execution-frontier checkpoint after this repair: `RUN-0881a7a2c2f958314cc0b5f5`, generation 2 revision 5 (not Source PROGRESS/Result). Next exact action: inspect current theorem-facing documents that consume the now-corrected historical route and identify any remaining obsolete present-tense downstream link or actual native adapter misuse.
+
+## LP028 current theorem-facing GON report repair (2026-11-12 23:59)
+
+**Actual current-main downstream type leak, now corrected.** The reusable
+`research_notes/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_MINIMA_CALCULUS_RESULT_20260822.md`
+original lines 21–27 presented glued positive min-zero charts and
+`NO_NATIVE_NEGATIVE_AXES` as the *current* plane foundation, while
+its Section 10 consumes one fixed positive ordered `PathSqrt_E` trace.
+This was an observable present-reading semantic defect, not merely a
+hypothetical future misuse. The original source is independently
+typed by `experiments/tool_discovery_native_geometry_of_numbers_minima_calculus_20260822.py`
+lines 77–88 (`sector_ball` and `residue`) and 136–161
+(`groots_square`, `path_fiber_size`).
+
+**Repository action completed:** insert a dated current-reader clarification
+ahead of the existing theorem in that current-main report; preserve its
+historical August results and the frozen R063 operator verbatim.
+GitHub immutable edit/readback: commit
+`5a19fb0fb75770530bbccc3f1f4b167abc685051`,
+path `research_notes/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_MINIMA_CALCULUS_RESULT_20260822.md`,
+new blob `d37c196cb72d0e6a13ed7e75426dba43efa583d3`,
+old blob `e3b1488a9bfdc44795f5d0e78c67e8c128bd30dc`.
+Disposition: `RETYPE_CURRENT_ROUTING; PRESERVE_PATH_BRC`.
+
+**New explicit discriminating witness (exact small integer):**
+For radius `r=5`, `(a,b)=(3,4)` is a legitimate chart root
+with `binom(7,3)=35` ordered paths.
+`AAABBBB` and `BAAABBB` share the same trace `(3,4)`
+but have different first generators. Thus compression by trace is
+exact for trace-invariant predicates and not an order-sensitive
+path selector without retained path data. This tightens the
+consumer's information-loss boundary, preserving the exact fiber
+capacity and R063 root count. Existing r=50 fixed-chart mass
+`110695538274255714208` and LP028 signed-X6 two-support union
+`6641732296455342852372` remain separately typed.
+
+**Remaining acceptance frontier:** this repairs one located active
+theorem-facing report; it does not close all 28 LP dependents or
+identify the purported historical incorrect native LP011/LP019
+call sites. Continue finite provenance search and classifying
+remaining current theorem-facing consumers with actual line-level
+evidence. Driver `REQUEST_REVISION` remains open until validated.
+
