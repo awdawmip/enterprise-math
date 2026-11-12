@@ -13,3 +13,11 @@ PASS_R5_DUAL_ZERO_RIGHT_PERSISTENCE_ALL_2935
 ```
 
 Additional local exact source check: at r_c=0, q=12,n=432 has 3 candidate masks; q=3,n=108 has 2; q=15,n=540 has none. The attached GitHub verifier contains the prior complete collision census plus the interval extension; its exact published bytes have not yet been executed in a clean environment.
+
+
+Additional local exact verification of the minimum dual-zero pair cover:
+
+MINIMAL_DUAL_ZERO_PAIR_COVER 1065 REMOVED_REDUNDANT_MASK_CHOICES 1870
+MINIMAL_TOTAL_WORD_OPERATIONS 6379 MAX_SINGLE_WORD_LENGTH 10
+WORD_LENGTH_DISTRIBUTION {2: 4, 3: 32, 4: 116, 5: 244, 6: 289, 7: 227, 8: 114, 9: 34, 10: 5}
+PASS_R5_MINIMAL_PAIR_COVER

@@ -88,3 +88,18 @@ This result concerns the frozen external auxiliary transport model with its full
 ## Next unit
 
 Exploit the one-sided persistence to compute **minimal-size persistent certificate covers**: determine, separately for each `q`, whether the 2,935 masks can be represented by a smaller number of word templates with explicit threshold/activation intervals, preserving ordered provenance and full 28-coordinate legality. A concrete next calculation is to group words by identical labeled prefix sequences and compare their threshold multisets, then derive exact irredundant coverage for the active `(q,n)` events.
+
+
+## Further theorem — exact minimum dual-zero collision-pair cover
+
+Demand a collection of ordered words such that **every one of the 1,065 labeled pairs (q,n) admitting a dual-zero certificate** has at least one word whose final state vanishes at both k0 and k1 at that pair's collision point. Each word is tied to its full labeled mask S; it does not change mask between events.
+
+**The minimum number of distinct masks/words is exactly 1,065.** A mask's integral vector P_S uniquely fixes n=-P_{S,k0} and q=-P_{S,k1}/36 whenever a dual-zero collision occurs. The same mask therefore cannot witness two distinct labeled (q,n) pairs, even if their parameter walls coincide. Each of the 1,065 pairs requires a separate mask. Selecting any one previously verified legal candidate per pair proves that 1,065 suffice.
+
+Selecting the smallest-cardinality mask for each pair also minimizes the **total number of labeled operations across all 1,065 independently stored words**, since each word uses precisely |S| operations and no word covers two pair labels. Exact enumeration of the 2,935 eligible masks yields the minimum **6,379 total operations**, with maximal individual length **10**. The minimal word-length histogram (length: number of collision pairs) is
+
+\`2:4, 3:32, 4:116, 5:244, 6:289, 7:227, 8:114, 9:34, 10:5\` (total 1,065).
+
+This replaces the 2,935-mask collection by a minimal **1,065-entry cover**, omitting 1,870 redundant choices while retaining one exact simultaneous-zero witness at every eligible pair event. Every chosen word inherits the maximal right-persistence interval proved above. This is a minimal cover of *dual-zero collision-pair evidence*, not a lower bound for the generic first-zero spectrum, whose three uniform moving witnesses remain an existing interface.
+
+**Next scientific question:** construct a compressed prefix-sharing representation for these 1,065 words, measure stored bit/operation cost against the 6,379-symbol flat representation, and prove that sharing preserves each labeled operation and its exact 28-coordinate legality certificate.

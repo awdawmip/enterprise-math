@@ -208,3 +208,28 @@ assert sum(right_stats[q][3] for q in qset)==1649
 print("RIGHT_PERSISTENCE_EXACT_INTERVAL [r_(q,n),1/23], positive_eps_right_endpoint_excluded")
 print("ALL_2935_RIGHT_INTERVALS_MAXIMAL_BY_k0_SIGN")
 print("PASS_R5_DUAL_ZERO_RIGHT_PERSISTENCE_ALL_2935")
+
+
+# --- Minimal dual-zero pair-cover theorem ---
+# A mask has one integer weight pair (P[k0],P[k1]), hence can cover exactly
+# one labeled simultaneous-zero collision pair (q,n). Therefore at least
+# 1,065 masks are necessary; one shortest mask per event attains the bound.
+chosen=[]
+operations=0
+minimal_lengths=Counter()
+for q in qset:
+    for n,masks in candidate[q].items():
+        mask=min(masks,key=lambda m:(m.bit_count(),m))
+        chosen.append((q,n,mask))
+        minimal_lengths[mask.bit_count()]+=1
+        operations+=mask.bit_count()
+assert len(chosen)==1065
+assert len({mask for _,_,mask in chosen})==1065
+assert operations==6379
+assert max(minimal_lengths)==10
+print("MINIMAL_DUAL_ZERO_PAIR_COVER",len(chosen),
+      "REMOVED_REDUNDANT_MASK_CHOICES",2935-len(chosen))
+print("MINIMAL_TOTAL_WORD_OPERATIONS",operations,
+      "MAX_SINGLE_WORD_LENGTH",max(minimal_lengths))
+print("WORD_LENGTH_DISTRIBUTION",dict(sorted(minimal_lengths.items())))
+print("PASS_R5_MINIMAL_PAIR_COVER")
