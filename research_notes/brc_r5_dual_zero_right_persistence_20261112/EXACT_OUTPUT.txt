@@ -1,0 +1,15 @@
+# R5 right-persistence exact local result — 2026-11-12 Asia/Shanghai
+
+Source: locally executed Python standard-library Fraction verifier, equivalent frozen 28-coordinate data and 15 labeled operations, 2,935 collision-mask reconstruction.
+
+```text
+Q 15 EVENTS 229 MASKS 504 CROSSINGS_LE_0 229 CROSSINGS_GT_0 0 MASKS_ACTIVE_AT_r0 504
+Q 12 EVENTS 298 MASKS 749 CROSSINGS_LE_0 276 CROSSINGS_GT_0 22 MASKS_ACTIVE_AT_r0 721
+Q 3 EVENTS 538 MASKS 1682 CROSSINGS_LE_0 100 CROSSINGS_GT_0 438 MASKS_ACTIVE_AT_r0 424
+NEW_RESULT: MAXIMAL_MOVING_TIME_LEGAL_INTERVAL_PER_CERTIFICATE = [r_(q,n), 1/23]
+NEW_RESULT: POSITIVE_MOVING_TIME_INTERVAL = [r_(q,n), 1/23)
+ALL_CANDIDATES_RECHECKED 2935 ALL_COLLISION_EVENTS 1065
+PASS_R5_DUAL_ZERO_RIGHT_PERSISTENCE_ALL_2935
+```
+
+Additional local exact source check: at r_c=0, q=12,n=432 has 3 candidate masks; q=3,n=108 has 2; q=15,n=540 has none. The attached GitHub verifier contains the prior complete collision census plus the interval extension; its exact published bytes have not yet been executed in a clean environment.
