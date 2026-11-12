@@ -17,8 +17,8 @@ COORD = ROOT / 'experiments' / 'x6_native_coordinate_completion_v7_20260905'
 SIGNED = ROOT / 'experiments' / 'x6_signed_native_spatial_v16_20260905'
 CHECKS = ROOT / 'research_checks'
 PINS = {
-    COORD / 'x6_coordinate.py': 'ef66285d8ae81569cbbd3195b3e38daae37944ef',
-    COORD / 'x6_cover.py': '3f7d9e62a4dd66e7888a69ff87276b283c891aac',
+    COORD / 'x6_coordinate.py': 'dd6dd7e74b83be09bb7545ee92357eda445c6ca3',
+    COORD / 'x6_cover.py': '171baf1cee7f1aceaf38c73d0c0659a25fd8d7bd',
     SIGNED / 'signed_brc.py': '300a96e3dc24bf6fff73743037a0347a8bc83176',
     CHECKS / 'X6_LP026_CYCLIC_G_FAST_INTERVAL_RECOVERY_20261112_ONHOUR.py':
        '496764aa8ebdb19bb03b7d40b82128a82be0ed84',
