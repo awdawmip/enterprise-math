@@ -1,7 +1,10 @@
 # X6 六轴 directed gauge：任意点位移、三角不等式与 slice contraction
 
-Status: `DERIVED / EXACT ON SIX-COORDINATE COMPLETION / NATIVE IF COORDINATE-COMPLETENESS GATE PROMOTED`
+Status: `RE-TYPED / EXACT RELATIVE-QUOTIENT DIRECTED GAUGE / NATIVE DEFINITENESS CLAIM SUPERSEDED`
 Date: `2026-09-05`
+Revision: `2026-11-13` (LP026 actual current-consumer correction against frozen P000 V5)
+
+**Current native-versus-observer scope.** The construction `can6: Z^6 -> Z^6/Z(1,1,1,1,1,1)` is a lower-information observer. Its directed gauge is definite on this *relative quotient*, not on native signed Cell identity. The native Cell torsor has complete signed raw displacement `q-p in Z^6`; its component-square norm is `G(q-p)=sum_i(q_i-p_i)^2`. A common-depth shift is genuine native displacement even when invisible to the directed gauge.
 
 ## 1. Directed displacement
 
@@ -113,20 +116,23 @@ Thus a lower-dimensional slice cannot have larger coordinate-gauge magnitude tha
 
 Equality holds precisely when the omitted components contribute zero and no positive common local offset is removed (equivalently, in the canonical full representative the displacement is already supported in the visible slice with visible minimum zero).
 
-## 7. Arbitrary-point directed distance on a coordinate-complete Cell torsor
+## 7. Exact scope of the directed gauge on quotient and native Cells (2026-11-13 correction)
 
-If `CELL_IDENTITY_BY_FULL_SIX_AXIS_CENTER_ADDRESS` is promoted, define on the affine Cell torsor
+For native Cells `P,Q` with chosen-Cell raw signed coordinates `p,q in Z^6`, define
 
-`d6(P,Q)=ell6(D6(P->Q))`.
+`d_rel(P,Q) = ||can6(q-p)||_2`.
 
-Then:
+This is a directed **pseudometric on native Cells**: it is nonnegative, satisfies the directed triangle inequality, and obeys
 
-- `d6(P,Q)>=0`;
-- `d6(P,Q)=0 iff P=Q`;
-- `d6(P,R)<=d6(P,Q)+d6(Q,R)`;
-- symmetry is not required and generally fails.
+`d_rel(P,Q)=0 <=> q-p in Z*(1,1,1,1,1,1)`.
 
-So the full coordinate-complete geometry naturally carries a directed metric/gauge, with the existing bidirectional-spectrum observer available when an unoriented endpoint pair is desired.
+Consequently it is definite only after passing to the relative quotient `G6_D=Z^6/Z*(1,1,1,1,1,1)`, where it is a well-defined asymmetric directed metric. This quotient statement is the mathematically valid form of the historical §7 construction. Coordinate completeness of the native torsor **does not** make the relative observer injective.
+
+**Exact signed-X6 counterexample:** `p=(0,0,0,0,0,0)` and `q=(1,1,1,1,1,1)` are distinct native Cells. The raw displacement has `G(q-p)=6` and precisely `6!=720` shortest signed native-axis paths, but `can6(q-p)=0` and `d_rel(P,Q)=0`. More generally `q-p=t*(1,1,1,1,1,1)` has native squared norm `6t^2`, whereas the relative directed gauge remains zero for every integer `t`. No native endpoint, BRC multiplicity, path order or provenance may be reconstructed solely from this observer without the scope-specific repair data.
+
+For `d=e_i` and its signed reversal `-d`, the **native** component-square norm is `G(d)=G(-d)=1`, while the **relative observer** gives squared directed pair `(1,5)`. Likewise, §5's `{1,2}` is the selected three-axis *observer* spectrum, not native signed reversal asymmetry.
+
+**Current consumer contract:** for native displacement/Cell equality/length consume the raw signed `q-p` with `G=sum_i(q_i-p_i)^2`; for relative quotient composition, one-way directed observation and its asymmetry consume `[q-p] in G6_D` or `can6(q-p)`, declaring lost common depth and future-operation limitations. For BRC and path-dependent work retain signed primitive steps and ordered witness/provenance until any observer quotient is justified. The earlier conditional assertion `d6(P,Q)=0 iff P=Q` on the *native* Cell torsor is superseded by the displayed exact kernel formula; the historical candidate claim remains attributable to the 2026-09-05 version.
 
 ## 8. Boundary
 
