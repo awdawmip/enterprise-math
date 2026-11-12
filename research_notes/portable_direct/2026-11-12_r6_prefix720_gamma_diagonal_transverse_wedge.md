@@ -75,7 +75,7 @@ The finite exact integer certificate below gives
 
 **Quantitative radius proof (no numerical interpolation).** Each survivor polynomial is a Bernstein polynomial
 \(s_n(p)=\sum_{k=0}^n \binom nk g_{n,k}p^k(1-p)^{n-k}\)
-with \(g_{n,k}\in\{0,1\}\), and \(n\le188\). The finite-difference derivative identity gives
+with \(g_{n,k}=v_{n,k}/\binom nk\in[0,1]\), and \(n\le188\). The coefficients \(v_{n,k}\) count original accepted prefixes and need not equal either zero or the full binomial coefficient. The finite-difference derivative identity gives
 \[
  |s_n^{(r)}(p)|\le2^r\,n(n-1)\cdots(n-r+1)\le 376^r
 \]
