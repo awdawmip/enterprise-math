@@ -57,13 +57,13 @@ model=Adaptive()
 checks=0
 for r in prev.prev.samples:
     for v in range(N):
-        truth=prev.pinned.count(v,r)
+        truth=prev.prev.pinned.count(v,r)
         assert count_direct(v,r)==truth
         assert model.count(v,r)==truth
         checks+=1
 assert checks==57600
 for tau in walls:
-    assert count_direct(0,tau)==prev.pinned.count(0,tau)
+    assert count_direct(0,tau)==prev.prev.pinned.count(0,tau)
 
 rng=Random(20261113)
 pool=list(prev.prev.samples)+walls
@@ -96,7 +96,7 @@ def run_timed(fn,repeats=3):
 report={}
 for kind,k in (("root",256),("broad",512),("random",2048),("hotmix",2048)):
     requests=workload(kind,k)
-    correct=[prev.pinned.count(v,r) for v,r in requests]
+    correct=[prev.prev.pinned.count(v,r) for v,r in requests]
     assert correct==[count_direct(v,r) for v,r in requests]
     cache=Adaptive()
     t0=perf_counter()
@@ -119,7 +119,7 @@ assert sum(map(len,all_rows))==7444
 for r in prev.prev.samples:
     rank=bisect_right(walls,r)-1
     for v in range(N):
-        assert bisect_right(all_rows[v],rank)==prev.pinned.count(v,r)
+        assert bisect_right(all_rows[v],rank)==prev.prev.pinned.count(v,r)
 
 print(json.dumps({"status":"PASS_R5_EVENT_RANK_ADAPTIVE_BRANCH",
     "scientific_input_pin":"435e77af0d180eac32bd1f9c4c464bc4010b7551",
