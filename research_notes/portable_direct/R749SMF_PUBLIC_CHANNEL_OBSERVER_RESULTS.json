@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "scope": "R749SMD three-bit adaptive history controller; independent BSC on public outputs",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "base_full_det": "1/4096",
+  "marginal_ranks": {
+    "none": 1,
+    "A": 2,
+    "B": 2,
+    "AB": 4,
+    "C": 2,
+    "AC": 4,
+    "BC": 4,
+    "ABC": 8
+  },
+  "exact_BSC_triples_checked": 125,
+  "active_bit_rank_counts": {
+    "0": 1,
+    "1": 12,
+    "2": 48,
+    "3": 64
+  },
+  "exact_determinant_checks": 125,
+  "exact_TV_witness_checks": 125,
+  "minimal_affine_coordinates_by_informative_bit_count": {
+    "0": 0,
+    "1": 1,
+    "2": 3,
+    "3": 7
+  },
+  "witness_prior": "mu_±(x,y,t)=(1 ± yt/2)/8",
+  "witness_TV": "abs(1-2*epsilon_C)/4"
+}
