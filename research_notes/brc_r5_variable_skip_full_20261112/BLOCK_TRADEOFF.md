@@ -34,3 +34,21 @@ All seven strides passed \`for i in 0..2879: decoded_size_B(i)==source_size(i)\`
 **Decision supported by these measurements:** the \`B=16\` variant uses 270 more bytes than the current 5,393-byte \`B=64\` compact index, while its author-side local sequential-size lookup median was lower (3.444ms vs 9.461ms for 2,880 reads). For this specific task a runtime benchmark with equal decoded and packed lookup representations should determine which point to deploy. The \`B=32\` variant is another nearby candidate, using just 90 more bytes than \`B=64\`.
 
 Next: benchmark fair full indexed prefix counts and peak memory at B=16/32/64 on the immutable selected corpus and the same parameter/prefix workload, with build cost and random-access distribution included. A current proof or result admission review has not been requested through a live formal R5 CLAIM in this branch.
+
+
+## Reproducibility implementation and second measurement
+
+\`VERIFY_R5_STRIDE_BENCH.py\` in this branch imports the sibling full original-corpus verifier, constructs the same variable-coded size sequence, checks all 2,880 node sizes for every stride, then records seven within-process repetitions of both sequential and fixed-seed shuffled subtree-size lookups. This is a runnable benchmark source, not an additional theorem premise. The local author-side reproduction with the independently reconstructed original frozen source-equivalent module returned:
+
+| B | Bytes | Median sequential (ms) | Median shuffled (ms) |
+|---:|---:|---:|---:|
+| 8 | 6,023 | 1.730 | 1.730 |
+| 16 | 5,663 | 2.526 | 2.482 |
+| 32 | 5,483 | 4.036 | 4.106 |
+| 64 | 5,393 | 7.104 | 7.108 |
+| 128 | 5,349 | 13.248 | 13.447 |
+| 256 | 5,327 | 25.506 | 25.551 |
+| 512 | 5,315 | 50.644 | 50.439 |
+
+All strides passed \`PASS_R5_ALL_STRIDE_EXACT_DECODE_2880_NODES\`. This second session differs in absolute timing from the first table, as expected for interpreter/machine load; the size formula and direction of the time-space tradeoff agree. Timings are strictly Python-memory lookup microbenchmarks, not published full-query throughput.
+
