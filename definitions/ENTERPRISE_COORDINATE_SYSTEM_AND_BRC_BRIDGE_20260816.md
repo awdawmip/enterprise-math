@@ -16,11 +16,17 @@ Driver reconciliation: `2026-08-21`
 
 其中第 2、3 项已经被新的 foundational correction 推翻，不再是当前原生基础。
 
-当前必须改读：
+现行原生入口（2026-09-05 X6 统一之后，以现行 P000 为准）：
+
+- `definitions/00_CURRENT_NATIVE_FOUNDATION.md`
+- `definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`
+- `definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`
+
+以下为 2026-08-20 中间阶段的历史后继文档，仅作载体、观察者和术语沿革：
 
 `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
 
-以及当前 downstream definitions：
+另可按各自现行类型使用已修订的 downstream definitions：
 
 - `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`
 - `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`
@@ -39,7 +45,7 @@ Driver reconciliation: `2026-08-21`
 - origin circle / diameter-one circle ontology；
 - 用旧 signed chart 作为当前 native coordinate system。
 
-当前 foundation 冻结：
+**下列仅为 2026-08-20 中间阶段曾采用、但已被 2026-09-05 有符号 X6 Cell 基础取代的历史声明；不代表现行 P000：**
 
 `O_E = 0`；
 
@@ -61,7 +67,7 @@ Driver reconciliation: `2026-08-21`
 - BRC 可作为垂直/经典坐标语义与进取坐标语义之间的 typed collapse/readout bridge；
 - BRC bridge 不预设双射，必须声明 source/target semantics、collapse relation、fiber/collision、inverse/readout status 与 precision layer。
 
-这些保留内容必须在当前三正轴 foundation 上重新类型化使用。
+这些保留内容必须在现行六轴有符号 X6 Cell 基础下分别类型化为载体、观察者或 BRC 路径关系；不能将正轴或 min-zero 地址恢复成完整原生 Cell 身份。
 
 ## Provenance
 
