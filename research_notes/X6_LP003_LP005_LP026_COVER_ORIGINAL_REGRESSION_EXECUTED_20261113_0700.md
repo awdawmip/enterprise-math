@@ -32,7 +32,7 @@ m=0=>integer_common_depth_fibre; P000_native_signed_step_crossfile=PASS
 native_m0_states= 15625 ; native_m0_steps= 187500
 ```
 
-The checked assertion count is reproducible from the checker loops: 125000 triple-composition associativity cases; 400 coordinate/depth assertions; 58 diagonal-loop assertions (including first returns); 205 `m=1` quotient identity checks; 15625 native initial-state comparisons; 375000 actual `CoverState.step` versus `Spatial6.step` comparisons and native squared-norm comparisons; 4 rejection checks for finite-modulus native lifting; 2 explicit diagonal-collision assertions. Sum: **516299**.
+The checked assertion count is reproducible from the checker loops: 125000 triple-composition associativity cases; 400 coordinate/depth assertions; 63 diagonal-loop assertions (including first returns); 205 `m=1` quotient identity checks; 15625 native initial-state comparisons; 375000 actual `CoverState.step` versus `Spatial6.step` comparisons and native squared-norm comparisons; 4 rejection checks for finite-modulus native lifting; 2 explicit diagonal-collision assertions. Sum: **516299**.
 
 **Mathematical interpretation.** For a signed displacement `z` with `h=min(z)`, let `r=z-h(1,...,1)`; `CoverState(Coord6(r), h, 0)` retains exactly `z` and its signed six-axis primitive transitions on the complete finite domain `[-2,2]^6` (15,625 states and 187,500 transitions). The same code's finite-modulus covers deliberately do not claim native Cell identity. The checker also tests the existing associative cover composition and diagonal returns for the listed finite moduli, not their untested universal generality.
 
