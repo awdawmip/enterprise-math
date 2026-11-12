@@ -1,0 +1,72 @@
+{
+  "schema": "PREFIX738_R6_GAMMA_LEFT_BAND_612_V1",
+  "date": "2026-11-13 Asia/Shanghai",
+  "researcher_id": "EM-DIRECT-371506",
+  "research_activity_id": "RA-3A89DCF7FDB0716C38B20462",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_kernel": "PREFIX731_R6_MONOTONE_MOMENT_TILE.py",
+  "kernel_sha256_regression_fix_commit": "32f7fde1a3e85ab1c71571fe9c54ab5c25141d55",
+  "observer": "189-row BRC stopped-count; two independent unit-rate Gamma clocks Y=max(T_p,T_z)",
+  "witness": [
+    "0",
+    "73/500"
+  ],
+  "q_domain": "all real q >= 2",
+  "upper_cell_indices": {
+    "i_min_inclusive": 40,
+    "i_max_exclusive": 58,
+    "j_min_inclusive": 79,
+    "j_max_exclusive": 96
+  },
+  "grid_denominator": 384,
+  "strict_improvement": "V_q(0,73/500)-V_q(p,z)>20*q^2",
+  "subdivision_factor_per_axis": 2,
+  "upper_cells": 306,
+  "reflected_cells": 612,
+  "minimum_floor_times_1000000": 23100177,
+  "minimum_cell": [
+    40,
+    79
+  ],
+  "minimum_floor_by_j": {
+    "79": 23100177,
+    "80": 25666322,
+    "81": 28522867,
+    "82": 31648103,
+    "83": 35019735,
+    "84": 38615165,
+    "85": 42411756,
+    "86": 46387080,
+    "87": 50519140,
+    "88": 54786572,
+    "89": 59168811,
+    "90": 63646250,
+    "91": 68200362,
+    "92": 72813804,
+    "93": 77470499,
+    "94": 82155704,
+    "95": 86856046
+  },
+  "old_prefix712_old_witness_coarse_positive": 0,
+  "historical_intersections": {
+    "PREFIX713_coupled": 0,
+    "PREFIX713_multi": 0,
+    "PREFIX716": 0,
+    "PREFIX718": 0,
+    "PREFIX733_A": 0,
+    "PREFIX733_B": 0,
+    "PREFIX735": 0,
+    "PREFIX736": 0,
+    "PREFIX737": 0
+  },
+  "previous_author_union": 140592,
+  "new_author_union": 141204,
+  "grid_total": 147456,
+  "certified_fraction": "11767/12288",
+  "certified_percent": "95.76009114583334",
+  "not_yet_certified": 6252,
+  "verification_scope": "local reconstructed same frozen kernel: all 9529 counts and four moment SHA256 digests matched; 306 exact Fraction 2x2 subdivided envelopes (9 batches); four original historical GitHub JSON coordinate sets checked separately",
+  "composite_script_status": "PUBLISHED_NOT_RERUN_END_TO_END_WITH_ORIGINAL_HISTORY_JSON",
+  "review_status": "AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "next": "Run published composite with original 731 plus source JSON; seek larger j>=96 or new witness, and obtain independent review."
+}
