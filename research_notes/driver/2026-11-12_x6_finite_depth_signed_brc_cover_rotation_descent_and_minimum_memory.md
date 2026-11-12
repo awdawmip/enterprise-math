@@ -214,3 +214,69 @@ Because \(\sum_i(z_{j+1})_i-\sum_i(z_j)_i=nm\), the compatible indices are restr
 **Executed exact finite check.** A fresh, source-independent exact-integer dynamic program enumerated all signed primitive endpoints \(E_N\) and their unions \(B_N\) for every \(n=1,\ldots,5\), \(m=1,\ldots,6\), and \(N=0,\ldots,8\): **270** complete parameter triples. For every triple it counted the largest min-zero/residue fiber in the exact layer and bounded-length ball independently, and both agreed with the two predicted formulas; zero mismatches. This does not replace the outstanding faithful-import check against current \`CoverState.step\` / signed-BRC consumers. The original LP026 author's attribution and existing Native Result state are preserved.
 
 **Use.** On the registered free signed-native endpoint model, the correct side-memory allocation depends on whether the exact step count is part of the observation. In an odd-dimensional or odd-modulus slice, forgetting that parity can double the effective depth-spacing cost; retaining it gives the sharp smaller exact-layer capacity. No new physical Heartbeat update rule, independently accepted Native Result, or ordered-path provenance follows from an endpoint-only encoding theorem.
+
+
+## 10. Optimal streaming reconstruction at the exact information-theoretic side-state bound
+
+**Theorem (constructive sharp online code for all n, both timing regimes).**
+Retain the definitions of §9: signed unit steps from the zero anchor in \(\mathbb Z^n\), \(n,m\ge1\), common-depth cover \(\pi_m(z)=(r,a)\), \(r=z-hD\), \(h=\min_i z_i\), \(a=h\bmod m\in\{0,\dots,m-1\}\).
+Let \(H\ge0\) be a *known predeclared maximum path length*, and write
+\[
+q=(h-a)/m\in\mathbb Z.
+\]
+The information-theoretic worst-fiber bit bounds of §9 can always be **attained by an online, one-step-updatable, constant-size side register**. The update uses only the current cover representative, the native signed letter, the side register and (only in the exact-clock case) the already observed step number; no unbounded hidden lift is required.
+
+**A. Unknown path length (only horizon H observed).**
+Put
+\[
+K_{\mathrm{ball}}=1+\lfloor 2H/(nm)\rfloor.
+\]
+Store \(t=q\bmod K_{\mathrm{ball}}\). This is equivalent to carrying the larger common-depth residue modulo \(mK_{\mathrm{ball}}\), but as exactly \(K_{\mathrm{ball}}\) additional states beyond the existing \(\pi_m\) observation. It determines the native endpoint uniquely for every \(\|z\|_1\le H\), without knowing which length produced it. The extra fixed-width storage cost is exactly \(\lceil\log_2 K_{\mathrm{ball}}\rceil\) bits and is worst-case optimal, by §9.
+
+**B. Exact running clock N observable at each step, with \(0\le N\le H\).**
+Define
+\[
+m_*=\begin{cases}m& nm\text{ even},\\2m& nm\text{ odd},\end{cases}
+\qquad
+K_{\mathrm{clock}}=1+\lfloor 2H/(nm_*)\rfloor.
+\]
+If \(nm\) is even, keep \(t=q\bmod K_{\mathrm{clock}}\). If \(nm\) is odd, the exact-step parity identity
+\[
+N\equiv\sum_i z_i=\sum_i r_i+na+nmq\pmod2
+\]
+makes the parity \(p=(N-\sum_i r_i-na)\bmod2\) of \(q\) observable directly from \((N,r,a)\). Store only
+\[
+\boxed{t=\frac{q-p}{2}\bmod K_{\mathrm{clock}}.}
+\]
+This requires **exactly \(K_{\mathrm{clock}}\) additional states**, not \(2K_{\mathrm{clock}}\); the otherwise-needed quotient parity is supplied by the public clock. At each exact length \(N\le H\), the side register plus \((N,r,a)\) uniquely recovers the native endpoint. The worst-case bit cost \(\lceil\log_2 K_{\mathrm{clock}}\rceil\) is sharp by §9, including odd \(n,m\).
+
+**Explicit streaming transition, with correct negative carries.**
+For current \((r,a,t)\), a letter \(\delta e_i\) with \(\delta\in\{-1,+1\}\) and (in B) current clock \(N\), set
+\[
+v=r+\delta e_i,\quad c=\min_j v_j,\quad r'=v-cD,\quad
+a'=(a+c)\bmod m,\quad \lambda=(a+c-a')/m.
+\]
+Thus \(h'=h+c\) and \(q'=q+\lambda\). In A, or in B when \(nm\) is even:
+\[
+\boxed{t'=(t+\lambda)\bmod K.}
+\]
+In B when \(nm\) is odd, calculate
+\[
+p'=(N+1-\sum_i r'_i-na')\bmod 2
+\]
+and update
+\[
+\boxed{t'=\left(t+\frac{p+\lambda-p'}2\right)\bmod K_{\mathrm{clock}}.}
+\]
+The numerator is always even, since \(p'\equiv p+\lambda\pmod2\) for every reachable signed path. These formulas handle signed steps with \(c=-1\), including negative \(h\), using Euclidean (nonnegative) remainder and mathematical floor division. At \(K=1\), the side register is the sole zero state.
+
+**Proof of injectivity and optimality.**
+Case A: equal \((r,a,t)\) forces the difference between compatible native endpoints to be a multiple of \(mK_{\mathrm{ball}}D\). Two distinct such endpoints in \(B_H\) would have \(\ell^1\) separation at least \(nmK_{\mathrm{ball}}>2H\), contradicting the triangle inequality.
+Case B with \(nm\) even: equal \((N,r,a,t)\) forces the same depth spacing \(mK_{\mathrm{clock}}\), and \(nmK_{\mathrm{clock}}>2H\) rules out distinct endpoints of any length \(N\le H\).
+Case B with \(nm\) odd: the public parity \(p\) is fixed at a given \((N,r,a)\), so equal stored \(t\) forces the depth difference to be divisible by \(2mK_{\mathrm{clock}}\). Distinct equal-code endpoints would have \(\ell^1\) distance at least \(2nmK_{\mathrm{clock}}>2H\), again impossible. The update equations follow from the cover carry \(c\), with the parity recurrence derived directly from signed-step grading. Conversely, §9 constructs full fibers of respective sizes \(K_{\mathrm{ball}}\) and \(K_{\mathrm{clock}}\) on the allowed endpoint ball or at one exact layer \(N\le H\); no code with fewer fixed states can distinguish all their members. Hence both streaming constructions attain the information-theoretic minimum.
+
+**Examples.** At \(n=3,m=1,H=2\), the unknown-length observer needs \(K_{\mathrm{ball}}=2\) states, but the clock-aware observer needs \(K_{\mathrm{clock}}=1\), *zero* added bits; omitting the running clock would invalidate that reduction. At \(n=3,m=1,H=6\), the respective capacities are 5 and 3. In X6 (\(n=6\)) the two regimes coincide: for \(m=1,H=30\), \(K=11\) states / 4 extra bits, online updated with a single carry. Unlike the signed-grade checksum of §7, this register always achieves the exact fiber bound without number-theoretic losses from \(\gcd(b,nm)\). It remains a bound for **endpoint recovery**, not recovery of ordered BRC word identities, triadic histories or an unregistered physical rotation.
+
+**Fresh exact testing (2026-11-12, independent arithmetic implementation).** An independently implemented signed-endpoint dynamic program enumerated all exact signed endpoint layers \(N=0,\dots,H\), tracking the above encoded state under every \(\pm e_i\), for all \(n=1,\dots,5\), \(m=1,\dots,5\), \(H=0,\dots,7\), under both regimes: 400 configurations and **252,000 exact endpoint-layer state comparisons**. At every layer, the incremental state matched independently recomputed \((r,a,t)\); no same-code/different-endpoint collision occurred in the declared regime, including all odd-\(nm\) carry/parity transitions. The test did not import the existing repository \`CoverState.step\` source, so a faithful source-import integration regression remains a separate obligation.
+
+**Scope, provenance, and continuation.** This section is a new Driver-context constructive theorem refining §9's optimal static bound, using the attributed existing X6/LP026 mathematical primitives. It asserts no change to LP026 authorship, original Result/CLAIM, native independent review, P000 ontology, Heartbeat law or Task/parent completion. The next legitimate integration test should compare the displayed recurrence with current \`CoverState.step\` and signed-BRC projection under the owning task/claim before accepting a deployed consumer.
