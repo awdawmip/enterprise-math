@@ -1,0 +1,58 @@
+{
+  "schema": "ENTERPRISE_MATH_R100_EXACT_VERIFICATION_V1",
+  "result": "PASS",
+  "seed": 10020261112,
+  "cases": 220,
+  "counts": {
+    "add": 21378,
+    "delete": 21378,
+    "cached_add": 21378,
+    "cached_delete": 21378,
+    "period": 21378,
+    "comparisons": 220,
+    "changed": 146,
+    "unchanged": 74,
+    "range_witness": 132,
+    "duplicate_time": 42
+  },
+  "examples": [
+    {
+      "source": "((-8, 1), (2, 1), (2, 3), (5, 3), (6, 3))",
+      "add": "(0, 3)",
+      "signature": "(2, Fraction(-1, 4), 0, 0)",
+      "g_old": 1,
+      "g_new": 1,
+      "different": false,
+      "query_witness": "None"
+    },
+    {
+      "source": "((-6, 2), (-2, 3), (2, 1), (3, 2))",
+      "add": "(1, 2)",
+      "signature": "(-3, Fraction(-1, 3), 1, 5)",
+      "g_old": 1,
+      "g_new": 1,
+      "different": true,
+      "query_witness": "-11/9"
+    },
+    {
+      "source": "()",
+      "add": "(7, 0)",
+      "signature": "(3, Fraction(6, 7), 1, -3)",
+      "g_old": 1,
+      "g_new": 1,
+      "different": true,
+      "query_witness": "22/21"
+    },
+    {
+      "source": "((0, 0), (8, 1))",
+      "add": "(-2, 2)",
+      "signature": "(1, Fraction(-3, 5), 2, -6)",
+      "g_old": 1,
+      "g_new": 1,
+      "different": true,
+      "query_witness": "12/25"
+    }
+  ],
+  "elapsed_seconds": 15.243,
+  "runtime": "python3 standard library Fraction; all arithmetic exact; no numerical tolerances"
+}
