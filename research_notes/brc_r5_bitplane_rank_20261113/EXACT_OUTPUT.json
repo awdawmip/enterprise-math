@@ -1,0 +1,70 @@
+{
+  "status": "PASS_R5_BITSLICED_RANK_REAL_FIXTURE",
+  "scientific_input_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "nodes": 2880,
+  "terminals": 1065,
+  "distinct_walls": 953,
+  "bitplanes": 10,
+  "logical_bitplane_payload_bits": 10650,
+  "logical_bitplane_payload_bytes_ceil": 1332,
+  "python_bitplane_int_bytes": 1680,
+  "python_code_array_bytes": 2284,
+  "bitplane_build_seconds_from_codes": 0.004418,
+  "bitplane_build_peak_tracemalloc_bytes": 3368,
+  "walls_codes_bitplanes_build_seconds_from_pairs": 0.012153,
+  "exact_full_prefix_checks": 57600,
+  "exact_wall_tie_checks": 953,
+  "universal_small_exhaustive_checks": 99780,
+  "independent_benchmark_query_checks": 4864,
+  "workloads": {
+    "root": {
+      "requests": 256,
+      "unique_prefixes": 1,
+      "checksum": 132423,
+      "median_query_seconds_5runs": {
+        "direct": 0.008181,
+        "bitsliced": 0.001361,
+        "hybrid_8": 0.001346,
+        "hybrid_16": 0.001486,
+        "hybrid_32": 0.001473
+      }
+    },
+    "broad": {
+      "requests": 512,
+      "unique_prefixes": 21,
+      "checksum": 35975,
+      "median_query_seconds_5runs": {
+        "direct": 0.004234,
+        "bitsliced": 0.002762,
+        "hybrid_8": 0.002679,
+        "hybrid_16": 0.002818,
+        "hybrid_32": 0.002707
+      }
+    },
+    "random": {
+      "requests": 2048,
+      "unique_prefixes": 1464,
+      "checksum": 1879,
+      "median_query_seconds_5runs": {
+        "direct": 0.007379,
+        "bitsliced": 0.016799,
+        "hybrid_8": 0.007266,
+        "hybrid_16": 0.011824,
+        "hybrid_32": 0.007687
+      }
+    },
+    "hotmix": {
+      "requests": 2048,
+      "unique_prefixes": 508,
+      "checksum": 135364,
+      "median_query_seconds_5runs": {
+        "direct": 0.019363,
+        "bitsliced": 0.013805,
+        "hybrid_8": 0.012278,
+        "hybrid_16": 0.013418,
+        "hybrid_32": 0.013796
+      }
+    }
+  },
+  "cost_scope": "Complete frozen source subset/certificate reconstruction excluded; cold_build starts with decoded (q,n), computes rational walls, code vector and all bitplanes; query timings start with completed index and parameters, use CPU local CPython medians of 5 with GC disabled. Bit-plane heap is sum(sys.getsizeof(int)) only, not whole RSS or wall-table overhead."
+}
