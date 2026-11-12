@@ -183,3 +183,34 @@ The theorem refines the first-alias threshold of §6: \(B_{\min}=0\) precisely w
 **Independent exact test.** Enumerated the full \(\ell^1\) balls of signed-axis endpoints for \(n=2,4,6\), moduli \(m=1,\ldots,4\), and horizons \(H=0,\ldots,7\). Across all 96 combinations the maximum observed fiber cardinality matched \(1+\lfloor2H/(nm)\rfloor\), using exact Python integers and complete endpoint support. This result is a mathematically proved endpoint memory theorem with finite verification; neither current-source CoverState imports nor a physical signed rotation model is claimed by this test.
 
 **Relevance:** For BRC/LP026 compressed computation, it gives a sharp information budget for reconstructing native signed endpoints from cyclic-depth projected states at a declared maximum path length. The branch/history population remains distinct; the same depth-repair bits alone do not recover ordered BRC branches or triadic interaction state.
+
+
+## 9. Exact fixed-length fiber capacity in every dimension, and the odd-dimensional horizon extension
+
+**Theorem (sharp depth-fiber capacities, all integer dimensions).** Let \(n\ge1\), \(m\ge1\), \(D=(1,\ldots,1)\), and \(\pi_m(z)=(z-\min(z)D,[\min(z)]_m)\). The native alphabet is the full set of signed unit steps \(\{\pm e_i\}_{i=1}^n\), with a fixed initial anchor \(0\). Write \(E_N\) for endpoints reachable in **exactly** \(N\ge0\) steps and \(B_H=\bigcup_{N=0}^{H}E_N\) for endpoints reachable within \(H\) steps. Set
+\[
+m_*=\begin{cases}m,&nm\ \text{even},\\2m,&nm\ \text{odd}.\end{cases}
+\]
+Then the largest fiber cardinalities are exactly
+\[
+\boxed{\max_k|E_N\cap\pi_m^{-1}(k)|=1+\left\lfloor{2N\over nm_*}\right\rfloor,}
+\qquad
+\boxed{\max_k|B_H\cap\pi_m^{-1}(k)|=1+\left\lfloor{2H\over nm}\right\rfloor.}
+\]
+The minimum worst-case number of *fixed-length binary side-memory bits*, conditional on knowing the cover key and the exact length \(N\), is the ceiling of base-two logarithm of the first displayed capacity. When the length is unknown but bounded by \(H\), replace it by the second capacity. The second formula extends §8's even-dimensional statement to **odd \(n\)**. The first formula is new even in X6: it sharpens the information budget when exact time/length is observed.
+
+**Proof: fibers, parity and upper bounds.** Every cover fiber lies on one progression \(z_j=r+(h_0+jm)D\). Exact length \(N\) requires
+\[
+\|z_j\|_1\le N,\qquad \sum_i(z_j)_i\equiv N\pmod2.
+\]
+Because \(\sum_i(z_{j+1})_i-\sum_i(z_j)_i=nm\), the compatible indices are restricted to one parity class of \(j\) if \(nm\) is odd, and otherwise have no additional congruence restriction. Thus any two members of the same exact-length fiber differ by a multiple of \(m_*D\). For \(K+1\) distinct compatible endpoints the extreme separation has \(\ell^1\)-distance at least \(nKm_*\). The triangle inequality bounds that by \(2N\), proving the first upper bound. Without the exact-length parity condition, the same argument with \(m\) and \(2H\) proves the second bound.
+
+**Proof: exact-length attainment.** Put \(K=\lfloor2N/(nm_*)\rfloor\). If \(K=0\), any realized key has capacity one. Otherwise \(A=Km_*\) and \(C=nA/2\) are integers because \(nm_*\) is even, with \(C\le N\) and \(C\ge1\). Choose an integer \(S\in[0,nA]\) of the same parity as \(N\) such that both \(S\le N\) and \(nA-S\le N\). Take \(S=C\) when \(C\equiv N\pmod2\); otherwise take \(S=C-1\), which is valid because \(C\ge1\) and the parity mismatch implies \(N\ge C+1\). Distribute \(S\) among integers \(t_i\in[0,A]\) with \(\sum_i t_i=S\), possible since the coordinate ranges have combined capacity \(nA\). Define \(z_j=(-t_i+jm_*)_{i=1}^n\) for \(j=0,\ldots,K\). These endpoints all have the same \(\pi_m\) key. The function \(j\mapsto\sum_i|jm_*-t_i|\) is convex, hence no larger on this interval than the greater endpoint value \(\max(S,nA-S)\le N\). Finally, every \(\sum_i(z_j)_i=njm_*-S\equiv N\pmod2\), since \(nm_*\) is even. Each \(z_j\) is therefore reachable by exactly \(N\) signed native steps, including cancellation pairs if necessary, and the first capacity is attained.
+
+**Proof: unknown-length horizon attainment.** Put \(K=\lfloor2H/(nm)\rfloor\), \(A=Km\), and let \(S=\lfloor nA/2\rfloor\). Choose \(t_i\in[0,A]\) totaling \(S\) and define \(z_j=(-t_i+jm)_{i=1}^n\), \(j=0,\ldots,K\). The endpoint norms are \(S\) and \(nA-S=\lceil nA/2\rceil\le H\); convexity bounds all intermediate \(\ell^1\) norms by \(H\). All \(K+1\) endpoints have the same cover key and belong to \(B_H\). This attains the second capacity for any \(n\), including odd \(n\). QED.
+
+**Parity-resolved examples and connection to previous results.** For \(n=3,m=1\), \(m_*=2\): at exact length \(N=2\) every cover fiber has one endpoint, whereas at \(N=3\) the pair \((-1,-1,-1)\), \((1,1,1)\) creates a two-endpoint fiber. If the length is unknown and only \(H=2\) is given, \((-1,0,0)\), \((0,1,1)\) already share one cover key (despite coming from different length parities). This explains the odd-\(nm\) parity jump in §6 without applying it incorrectly to mixed-length horizons. In X6, \(nm\) is always even, so both formulas reduce to \(1+\lfloor H/(3m)\rfloor\) after substituting the respective exact or maximum length. The theorem applies equally to the signed-grade augmented key of §7 after replacing \(m\) with its effective modulus \(L\).
+
+**Executed exact finite check.** A fresh, source-independent exact-integer dynamic program enumerated all signed primitive endpoints \(E_N\) and their unions \(B_N\) for every \(n=1,\ldots,5\), \(m=1,\ldots,6\), and \(N=0,\ldots,8\): **270** complete parameter triples. For every triple it counted the largest min-zero/residue fiber in the exact layer and bounded-length ball independently, and both agreed with the two predicted formulas; zero mismatches. This does not replace the outstanding faithful-import check against current \`CoverState.step\` / signed-BRC consumers. The original LP026 author's attribution and existing Native Result state are preserved.
+
+**Use.** On the registered free signed-native endpoint model, the correct side-memory allocation depends on whether the exact step count is part of the observation. In an odd-dimensional or odd-modulus slice, forgetting that parity can double the effective depth-spacing cost; retaining it gives the sharp smaller exact-layer capacity. No new physical Heartbeat update rule, independently accepted Native Result, or ordered-path provenance follows from an endpoint-only encoding theorem.
