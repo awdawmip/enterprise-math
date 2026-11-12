@@ -1,0 +1,80 @@
+{
+  "schema": "R755_X6_CYCLIC_S3_FRAME_KERNEL_V1",
+  "status": "PASS",
+  "candidate_bridge_only": true,
+  "S3_label_triples": 216,
+  "cyclic_frame_independent": 66,
+  "all_order_frame_independent": 48,
+  "cyclic_only_noncommuting": 18,
+  "cyclic_by_product_order": {
+    "1": 36,
+    "2": 12,
+    "3": 18
+  },
+  "full_by_product_order": {
+    "1": 18,
+    "2": 12,
+    "3": 18
+  },
+  "reverse_multiplicities": {
+    "1,2": 18
+  },
+  "X6_signed_oriented_triads": 320,
+  "X6_candidate_label_instances": 69120,
+  "X6_cyclic_independent_instances": 21120,
+  "X6_all_order_independent_instances": 15360,
+  "X6_cyclic_only_instances": 5760,
+  "witness": {
+    "a": [
+      0,
+      2,
+      1
+    ],
+    "b": [
+      1,
+      0,
+      2
+    ],
+    "c": [
+      1,
+      2,
+      0
+    ],
+    "forward": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "reverse": [
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        2,
+        0,
+        1
+      ]
+    ]
+  },
+  "native_V39_packet_admitted": false,
+  "verification": "Independent JS enumeration plus submitted Python checker and symbolic proof"
+}
