@@ -1,0 +1,59 @@
+# R749SK — Minimal affine Walsh carrier for signed-adaptive posterior ratios
+
+Date: 2026-11-12 (Asia/Shanghai). Independent direct research (not a CLAIM on RS-X6-TRIADIC-CLOSURE-DYNAMICS). Research registration request `research2-20261112T2352-r749sk-session`, service-issued provisional SID `MCP-7678fcf59470414da827f3bbff1c62f1` (QUEUED at scientific-work start); do not substitute unverified Researcher-ID. Frozen scientific input: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`. Precursors: R749SF @066958c8da10e4d67395f3c9b6942a8d9d26daa7; R749SG/SH @419a4abfed20150b84d8df1650d5578f5af2370a; R749SI/SJ (PR #2183) @a1b658b031824e1e784949dd77f8c921c45536cc. Scope: the exact 8-lift signed-Port conditional model, with nonnegative rational sign-sensitive observation gates; no native triadic PASS asserted.
+
+## Theorem A (exact minimum linear-affine source-coordinate theorem)
+
+On the initial eight-lift simplex, write the seven independent nonconstant Walsh moments as `m=(m_W)_{W≠∅}∈R^7`. Its open interior is an affine-open set in `R^7`. Consider a finite collection of posterior parity queries of the exact R749SJ form
+`f_i(m)=(a_i0+a_i·m)/(b_i0+b_i·m)`,
+defined on a nonempty open set O where all denominators are strictly positive. The coefficient vectors `a_i,b_i∈R^7` are known from the frozen-support word, BRC-style nonnegative branch kernel and signed emission gate, as in R749SJ.
+
+A query is *constant* on O exactly when its full affine coefficient vectors `(a_i0,a_i)` and `(b_i0,b_i)` are proportional. Discard these queries. Form the matrix M by stacking the nonconstant queries' seven-coordinate rows `a_i,b_i`; coefficients may be rational. Then the minimum number of **affine-linear functions of the initial Walsh moments** sufficient to recover *all these posterior query values for every m∈O* is precisely
+
+`d_aff = rank_R(M)`.
+
+A sufficient carrier is any row basis of M evaluated on m, plus its fixed affine constants. No smaller affine-linear statistic `L(m)∈R^d` with d<d_aff can determine all the ratios on O. This theorem concerns exact affine expectation-coordinate compression, not arbitrary nonlinear encodings, event acceptance, or a bit-count bound.
+
+**Proof.** Sufficiency is immediate from row span: knowing a row basis determines each N_i,D_i, hence their ratio. For necessity, assume all f_i factor through affine L on O, and let v be any tangent vector in ker L. Since O is open, both m and m+tv lie in O for sufficiently small t. The ratio is constant along this line, so differentiation and clearing the positive denominator yield
+
+`(a_i·v)(b_i0+b_i·m) − (b_i·v)(a_i0+a_i·m)=0`
+
+for all m in an open subset. As f_i is nonconstant, its numerator and denominator are linearly independent *affine functions*. Their coefficients in that identity must therefore both vanish: `a_i·v=b_i·v=0`. Thus `ker L⊆ker M`, so `rank L≥rank M` by rank-nullity. Equality is achieved by a row basis. For constant ratios the derivative vanishes identically and the associated rows give no constraints. The statement includes denominator-constant and numerator-constant nontrivial ratios.
+
+**Practical consequence.** R749SJ's union of nonzero *individual* Walsh mask coefficients is a valid sufficient coordinate set, but it is not always minimal: correlated linear combinations can reduce the exact source state. Algebraic cancellation of proportional numerator/denominator removes constant queries before rank computation.
+
+## Theorem B (sharp two-coordinate signed-Port posterior and a p=0 rank transition)
+
+Fix any one of the 120 legal directed unsigned supports `A={i,j}, B={j,k}`, with three distinct named axes, and condition on the **forced unsigned C1 next support** `C=A△B={i,k}`. Let the new sign of i be `Y_i`, and the copied sign of j be `Y_j=X_j`. The signed transfer is an independent binary symmetric channel on i with correlation `θ=8p/(1+7p)`, `p∈[0,1]`, as proved in R749SF.
+
+Add an explicit valid signed-state-dependent emission gate at the new frame:
+`ell(Y_i,Y_j)=(2+Y_i+Y_j)/4∈{0,1/2,1}`.
+Condition on observing this gate's success (its likelihood is positive for every strictly positive initial eight-sign distribution). Ask for the posterior parity query `E[Y_iY_j | gate success, forced support]`. Let
+`m_i=E[X_i]`, `m_j=E[X_j]`, `m_ij=E[X_iX_j]` under an arbitrary initial eight-lift prior. Then the exact posterior is
+
+`F_p(mu)=(2θ m_ij+θ m_i+m_j)/(2+θ m_i+m_j)`.
+
+It depends on the two affine Walsh combinations
+`S=θ m_i+m_j` and `U=θ m_ij`, through `F=(S+2U)/(2+S)`.
+
+For **every p>0**, these two coordinates are *necessary and sufficient* among affine-linear initial-Walsh statistic carriers for this entire-prior posterior query family. For **p=0**, `θ=0` and `F_0=m_j/(2+m_j)`; exactly **one** affine source coordinate is necessary and sufficient. This is a sharp model-internal dimension change (2 for p∈(0,1], 1 at p=0), not an asymptotic approximation.
+
+**Proof.** Forced transfer gives `E[Y_i]=θm_i`, `E[Y_j]=m_j`, `E[Y_iY_j]=θm_ij`. Expand the gate-weighted numerator:
+`4 E[ell Y_iY_j]=2 E[Y_iY_j]+E[Y_i]+E[Y_j]`;
+the denominator:
+`4 E[ell]=2+E[Y_i]+E[Y_j]`.
+Substitute to obtain the formula. For θ>0, the two nonconstant Walsh coefficient rows are `(θ,1,2θ)` and `(θ,1,0)` on masks `i,j,ij`, whose rank is 2. At θ=0 both rows become `(0,1,0)`, rank 1. In both cases numerator and denominator are nonproportional as affine functions because the denominator has constant 2 whereas numerator has constant 0. Apply Theorem A. All other four nonconstant Walsh masks have zero coefficients and are irrelevant to this query.
+
+**Concrete strict-compression witness at p=1/2.** Here θ=8/9. Two distinct strictly positive eight-lift priors, with signed weights `mu(x)=2^{-3}(1+a X_i+b X_j)`, choose (a,b)=(1/5,0) and (0,8/45). Then both have `S=8/45,U=0`, hence identical posterior parity; the first has `m_i=1/5,m_j=0`, the second `m_i=0,m_j=8/45`. Thus three individually nonzero Walsh masks are replaced by exactly two sufficient *linear combinations* in a genuine conditioned signed-Port model.
+
+## Source typing and future use
+
+The eight hidden signs are the signed-Port source representation, not signed positive BRC mass. Branch likelihoods are nonnegative rational under rational p; the gate is a separately specified *changed observation* in the R749SJ setting. A pure unsigned-support observer has no such gate and retains R749SF's initial-source blindness. The result provides a concrete minimal-statistic decision rule for observer-dependent residual compression; V29/V39 native Cell/Link/Port three-force permission is a separately typed condition.
+
+## Verification
+
+Executable standard-library `Fraction` checker `R749SK_RATIO_RANK_EXACT_CHECK.py`: enumerate all 120 directed unsigned supports, p∈{0,1/2,1}, six full-support eight-lift rational priors (uniform, nonuniform, tilted and correlated) and both forced signed successors of each initial signed lift. Compare 2,160 exact direct weighted numerator/denominator pairs with the Walsh formula, check exact rank 1 at p=0 and rank 2 at p>0, and verify two distinct priors with equal compressed coordinates at p=1/2. The theorem's unrestricted p/prior claim follows from algebra above; finite testing verifies concrete implementation and boundary cases. All arithmetic exact rationals. PASS result is recorded in companion JSON.
+
+## Further scientific question
+
+For **a family of posterior signed-source queries conditioned on several adaptive emissions**, compute the rank of all nonconstant numerator/denominator Walsh coefficient rows, characterize when support-word changes cause row-space rank drops, and identify a smallest online sufficient affine-filter carrier if the query family is known in advance. A physically instantiated V29/V39 permissioned closure can then be checked separately against this model's signed gate and provenance assumptions.
