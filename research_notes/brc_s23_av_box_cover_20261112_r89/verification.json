@@ -1,0 +1,49 @@
+{
+  "schema": "EM_R89_BOX_COVER_VERIFICATION_V1",
+  "seed": 8920261112,
+  "model": "auxiliary exact rational circular-source",
+  "frozen_science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "anchor": [
+    1,
+    16
+  ],
+  "big_interval": [
+    [
+      113,
+      2000
+    ],
+    [
+      137,
+      2000
+    ]
+  ],
+  "counterexample_to_single_envelope": "times [-14,18], residue 2 mod 16, target labels 4 and 8; full envelope rejected; left and right separately certified",
+  "history_versions": 181,
+  "random_version_query_comparisons": 500,
+  "box_groups_hit": 28,
+  "times_skipped": 29,
+  "matched_mixed_query_calls_fast": 385,
+  "matched_mixed_query_calls_baseline": 414,
+  "matched_mixed_query_atoms_fast": 1155,
+  "matched_mixed_query_atoms_baseline": 1242,
+  "dedicated_dynamic_versions": 181,
+  "dedicated_query_comparisons": 360,
+  "dedicated_fast_oracle_calls": 360,
+  "dedicated_baseline_oracle_calls": 720,
+  "dedicated_fast_oracle_atoms": 1080,
+  "dedicated_baseline_oracle_atoms": 2160,
+  "dedicated_group_skips": 360,
+  "dedicated_reference_atoms": 1080,
+  "accelerated_oracle_calls_all_500": 754,
+  "independent_reference_atoms": 8794,
+  "verified_changes": 180,
+  "box_cover_atoms_tested": 168,
+  "cover_checks": {
+    "cover_atoms": 10,
+    "strict_two_axis_union": 1,
+    "unions_without_single_coverage": 1,
+    "endpoint_covered": 1
+  },
+  "status": "ALL_ASSERTIONS_PASS",
+  "scope": "exact all-real rational closed intervals; conservative closed boxes; canonical original-label nonwrapping subinterval certificates; historical identities retained; finite tests only"
+}
