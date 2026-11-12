@@ -91,7 +91,9 @@ def main():
     # Reversal projection recovers the old 3-axis (0,1,1)-type reverse decode.
     for i in AXES:
         reverse=axis_step(i,-1)
-        assert reverse.norm_squared()==5
+        assert reverse.norm_squared()==5  # derived min-zero section
+        native_reverse=tuple(-1 if j==i else 0 for j in AXES)
+        assert sum(x*x for x in native_reverse)==1  # signed native step
         for S in ALL_SLICES:
             if i in S:
                 local=reverse.observe(S)
@@ -161,7 +163,7 @@ def main():
     print("chart_roundtrips=",chart_roundtrips)
     print("axis_permutation_skeleton=S6 (720 elements)")
     print("fcc_preserving_subgroup=S4 (24 elements); slice types 4+4+12")
-    print("full_reverse_axis_norm_squared=5; local_projection_reverse_norm_squared=2")
+    print("derived_section_reverse_axis_norm_squared=5; native_signed_reverse_axis_norm_squared=1; local_projection_reverse_norm_squared=2")
     print("return_6=720; return_12=7484400")
 
 
