@@ -1,0 +1,52 @@
+# R110 — One-sided source edits with dynamic discrepancy buckets and exact phase cuts
+
+Research date: 2026-11-13 Asia/Shanghai. Status: author-side proof and exact finite validation, independent review pending. Model: auxiliary rational directed-circle S23; continuation of R109 (`e9653ff7f30f209af9291888685da2194c4094b3`). Frozen scientific input `43ec6098b1330ae86d0a7863be336c5d97f6ef34` unchanged. No native Heartbeat X6 embedding is claimed.
+
+## Definitions
+
+Fix `sigma=(j,x,a,c)` with integer `j,a,c` and rational `x`, a rational closed interval `I=[L,U]`, and `k>=1`. Sources `(t,b) in Z²` are ranked by descending lexicographic identity. Let `M_t(theta)` mean that the fractional part of `x+(t-j)theta` belongs to the positively directed half-open circle arc from `{a theta}` to `{c theta}`. Equal endpoints define the empty arc. For finite versions `F,G`, let `C=F∩G`, `Delta=F△G`. At each discrepancy time `t`, let `d_t=max{b:(t,b) in Delta}`, `r_t=#{(t,b) in C:b>d_t}`, and `H_t(theta)=sum_{(s,b) in C,s>t} 1[M_s(theta)]`. The rank-shield margin is `B_t(theta)=H_t(theta)+r_t-k` when `M_t` holds, or `+∞` otherwise.
+
+From R108, ordered Top-k outputs of F,G agree at a given theta iff all their discrepancy-time margins are nonnegative.
+
+## R110.1 — Exact single-sided edit transport law
+
+Toggle exactly one identity `u=(s,b)` in **one** of F,G. Let primes denote the resulting versions, and put `epsilon=1[u in C']-1[u in C]` (one of -1,0,+1). For every time `t != s` that has discrepancy identities both before and after the toggle:
+
+`B'_t(theta)=B_t(theta)+epsilon*1[s>t]*1[M_s(theta)]` whenever `M_t(theta)` holds; both margins are `+∞` when it does not.
+
+All discrepancy times besides s are unchanged. The s-row is computed from its new C',Delta', or removed if s has ceased to be discrepant.
+
+**Proof.** At every t distinct from s, the discrepancy identities, their maximal branch d_t, and same-time common identities are unchanged. Thus r'_t=r_t. The only possible change in C is identity u, which contributes epsilon to H_t precisely if s>t and M_s holds. Membership M_t itself does not change. At s, the maximal discrepant branch can change, so recomputing the row directly using its definition is exact. Applying R108 yields the new full equivalence criterion. QED.
+
+**Zero-common-change corollary.** If epsilon=0 (e.g., an identity entering one version from neither, or a sole discrepant identity exiting), then every surviving row t != s is literally the same function on R. Only the s-row can change.
+
+## R110.2 — Monotone exact phase refinement
+
+For each source time t, let K_t be all integer crossings in I of the six affine forms:
+`a theta, c theta, (a-c)theta, (t-j)theta+x, (t-j-a)theta+x, (t-j-c)theta+x`.
+Include L and U. Given a finite old cut set containing these crossings for all old source times, partition I into each cut singleton and each gap open interval. Choose its exact rational midpoint as gap representative. All old M_t and B_t are constant on every open gap.
+
+An edit at time s refines the old cuts by the union `Cuts'=Cuts ∪ K_s`; every new atom belongs to a unique old atom. Lift that parent's old margin to the child, apply the R110.1 increment on the child's representative, and freshly build the s-row. This produces exactly the recomputed-from-scratch certificate at every new atom, hence on the entire real interval I.
+
+**Proof.** The six listed affine integer crossings contain every fractional-part wrap and equality that can change a circular-membership comparison. A continuous open gap without crossings has fixed predicate truth values. Singleton crossings capture half-open endpoint semantics. Old rows therefore restrict to their child atoms without change; R110.1 holds pointwise and so transports correctly. Exhausting these atoms establishes the all-real interval conclusion. QED.
+
+Obsolete cuts from deleted source times may be kept without affecting correctness. If r previously absent *interior* cut values are introduced, an explicit point/gap array grows by exactly 2r atoms. An implicit algorithm need not materialize them, but an explicit array must account for that output size.
+
+## R110.3 — Persistent certificate and rational witness
+
+Represent a version by immutable `(F,G,Cuts,Rows)`, where each discrepancy time indexes an immutable tuple of integer-or-infinity margins. Build each edit as a new root. If there is no refinement, unaffected rows (t>s or epsilon=0) can be structurally shared; for refinement, rows are copied by the old-atom parent map. The s-row is rebuilt, and lower-time rows receive the signed membership update. Prior roots remain readable and independently forkable.
+
+The new versions agree in Top-k throughout I iff every finite stored margin is >=0. If some margin is negative at an atom, its exact rational point or midpoint is a correct disagreement witness (R108 and R110.2).
+
+The executable uses immutable row tuples, not R109's segment-tree optimization. Thus it demonstrates correctness and sharing rather than an unconditional runtime speedup. Dynamic cuts can require explicit atom work; a symbolic interval index is the next engineering step.
+
+## Executable and finite verification
+
+- `check_r110.py.gz.b64`: deterministic gzip/base64 archive of Python 3 standard-library executable. Decode with `base64 -d | gzip -d`. Uncompressed SHA-256: `8476a7ea5e9e3e2b27d849d67d1b5b198d969f9212d81961644289ef51464eef`.
+- `verification_r110.json`: exact execution counters for seeds 110, 111, 112.
+- The program independently recomputes the entire rank-margin oracle for each new and retained parent version, checks all rational cut singletons and gap representatives, validates inequality witnesses against directly sorted eligible full source identities, and checks additional rational point queries. Included cases exercise one-sided insertions/deletions, changes to C/Delta and d_s, new times/phase cuts, branches, historical forks, and signed affine slopes.
+- Execution: `R110_PASS 180 239169 543 186` (180 one-sided edits; 239,169 atom-row checks; 543 additional cut values; 186 negative-witness cases). All assertions succeeded using exact Python Fraction arithmetic. This is finite software evidence supplementing the proofs above.
+
+## R111 frontier
+
+Implement a persistent symbolic cut-order index with child-parent lazy refinement and reversible coalescence. Compare old-cut accumulation against garbage-collected current-only representations; charge exact rational bit complexity, historical memory, edit and witness costs, and compare with R103 net-change overlay and R109 fixed-partition segment tree. This auxiliary model does not turn phase theta into native time or X6 coordinates without a typed observer/embedding proof.
