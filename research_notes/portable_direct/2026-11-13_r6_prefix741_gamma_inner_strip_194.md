@@ -29,7 +29,7 @@ V_q(e)-V_q(p,z) > q^2 > 0.
 | 50 | [25,30) | 5 | 3439333 |
 | 51 | [26,30) | 4 | 2260654 |
 
-Thus 97 upper triangular cells and 97 pairwise distinct transposed cells, **194 complete continuous grid cells**, are excluded from the global maximizer set of the auxiliary Gamma objective. The uniform gap can be strengthened to `> (1234142/1000000) q²` because each exact lower bound is at least that rational number.
+Thus 97 upper triangular cells and 97 pairwise distinct transposed cells, **194 complete continuous grid cells**, are excluded from the global maximizer set of the auxiliary Gamma objective. The exact lower-bound floors also yield the non-strict numerical comparison `V_q(e)-V_q(p,z) >= (1234142/1000000) q²`. The strict bound `> q²` follows directly from the 97 exact rational cell tests.
 
 ## Exact mathematical proof
 
