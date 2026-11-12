@@ -91,7 +91,33 @@ All calculations use integer vectors, min-zero subtraction, binomial composition
 
 All 34,920 subcritical enumerated pairs were unique within the corresponding (k,M) observation fiber. Constructed and checked the exact threshold collisions listed above for every k; additional direct search over M=0,...,9 and h=-4,...,4 found first collisions exactly at 5,8,3,8,5. These computations supplement the general proof rather than replace it.
 
-## 4. Relation to formal X6/Heartbeat research and next test
+## 4. New joint-phase recovery theorem: two ambiguous readouts can be jointly exact
+
+Consider a finite nonempty collection S of registered **phase probes** with known signed permutations g_t, mixed-sign epsilon_t=g_tD and k_t negative entries. At each probe, independently choose an unknown positive-only occurrence vector b_t with known length M_t, and observe
+
+    Y_t=q(g_t r+h epsilon_t+b_t).
+
+The same hidden initial depth h is used in all probes, but the post-phase positive words are independent unknown choices. Define
+
+    d_t = n/gcd(n,2k_t),
+    C_t(d) = 2k_t(n-k_t)|d|/n whenever d is a multiple of d_t,
+    d_joint = lcm_{t in S} d_t.
+
+**Joint theorem.** The full map (h,(b_t)) -> (Y_t) is injective exactly when there is no nonzero integer d divisible by d_joint such that M_t >= C_t(d) for **every** sampled t. Equivalently, for unrestricted h in Z the full map is injective iff **at least one t** satisfies
+
+    M_t < 2k_t(n-k_t)d_joint/n.
+
+When noninjective, sharp simultaneous collisions exist at depth gap d_joint and can be extended to larger word lengths by common-step padding independently in each probe. For a fixed finite H, replace the possible d values by nonzero members of H-H.
+
+Proof: Equality of joint readouts requires equality for each t with the same depth difference d. The single-probe theorem gives exactly d in d_t Z and M_t >= C_t(d). Intersection of these integer divisibility conditions is d in d_joint Z. Each C_t is positive and linear in |d|; consequently the earliest possible collision uses |d|=d_joint. When every bound is satisfied, construct the positive and negative parts of the required difference separately at each probe. Conversely, any violated length bound or divisibility condition excludes all joint collisions. For fixed h, each observed Y_t and length M_t uniquely determines b_t by the previous fixed-depth argument. QED.
+
+**Exact two-phase X6 witness.** Probe R^1 (k=1) after M_1=5 positive steps, and R^3 (k=3) after M_3=3 positive steps. Each probe is individually noninjective (their thresholds are 5 and 3), but d_joint=lcm(3,1)=3. The phase-3 probe requires M_3>=9 to alias a gap of three, so the pair is jointly injective for (M_1,M_3)=(5,3), for every initial r. It first admits a simultaneous ambiguity at (5,9), using the sharp single-probe phase-1 vector pair above at depth gap 3 and the phase-3 pair (3,3,3,0,0,0) versus (0,0,0,3,3,3).
+
+Supplementary exact check at (5,3), r=0: for each h in {-4,-3,...,4} enumerated 252 possible phase-1 and 56 possible phase-3 occurrence vectors, i.e. 127,008 joint input records. For individual probes, pairwise readout sets overlap for depth differences 3 and 1 respectively. For all 36 pairs of distinct depths in the tested range, the **joint** readout sets have empty intersection, as the universal criterion predicts.
+
+The independent-probe hypothesis is deliberately typed. A physically continuous Heartbeat path may correlate successive b_t values; its realizable histories form a subset of these product families, so joint injectivity proved here also holds for that subset whenever the registered per-probe displacement representation applies. Conversely, the constructed independent-probe collisions should be tested for path coherence before being asserted as a physical multi-time ambiguity.
+
+## 5. Relation to formal X6/Heartbeat research and next test
 
 The previous time theorem proved phase observation detects hidden common depth if the registered affine shift b is known modulo Delta. This theorem identifies the precise first loss of that recovery when **only post-phase positive-word length** is registered, and produces explicit finite-state ambiguity witnesses. The resulting readout determines the unsigned positive-axis *occurrence vector* below the threshold, but ordered words remain separate native Path-formal/BRC records. A positive word of M steps is still composite whenever more than one axis is used.
 
