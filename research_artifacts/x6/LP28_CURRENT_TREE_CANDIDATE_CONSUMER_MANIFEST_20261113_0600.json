@@ -1,0 +1,3337 @@
+{
+  "schema": "X6_LP28_CURRENT_CANDIDATE_CONSUMER_INVENTORY_V1",
+  "report_kind": "REPO_TREE_PATH_DISCOVERY_NOT_SEMANTIC_AUDIT",
+  "timestamp_day": "2026-11-13",
+  "parent_task": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "nonblind": true,
+  "author_reported": true,
+  "unreviewed": true,
+  "not_admitted": true,
+  "root_source": {
+    "repo": "awdawmip/enterprise-math",
+    "tree_sha1": "af4b8fb3c331252ea7aead254c64b396bb6364fd",
+    "git_ref": "main",
+    "recursive": true,
+    "tree_truncated": false
+  },
+  "frozen_science": {
+    "task_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "old_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "discovery_rule": {
+    "enumerate": "all Git blobs in four declared source subtrees at pinned Git tree",
+    "path_regex": "(x6|r061|r062|path.*sqrt|brc.*bridge|coordinate|three.*axis|fcc)",
+    "case_insensitive": true,
+    "contents_scanned": false,
+    "regex_is_not_semantic_coverage": true
+  },
+  "base_blob_count": 12699,
+  "candidate_count": 820,
+  "groups": {
+    "definitions/": {
+      "total": 83,
+      "candidate": 15
+    },
+    "research_notes/": {
+      "total": 11766,
+      "candidate": 659
+    },
+    "experiments/": {
+      "total": 672,
+      "candidate": 111
+    },
+    "research_checks/": {
+      "total": 178,
+      "candidate": 35
+    }
+  },
+  "candidate_entries": [
+    {
+      "path": "definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
+      "blob_sha1": "97ab1403ab04b4fa80034625fb1b2e3ed115e59b"
+    },
+    {
+      "path": "definitions/ENTERPRISE_COORDINATE_ORIGIN_ONE_NO_ZERO_20260817.md",
+      "blob_sha1": "6bceccaafc8058163ca60d707a96f8a4802b1310"
+    },
+    {
+      "path": "definitions/ENTERPRISE_COORDINATE_SYSTEM_AND_BRC_BRIDGE_20260816.md",
+      "blob_sha1": "a1deeb2e125bc5c1d6fa5ca2f249440c4ec67431"
+    },
+    {
+      "path": "definitions/enterprise_coordinate_system_and_brc_bridge.json",
+      "blob_sha1": "b6f258955e9a8342a41dcdc650ebfc32ec5c6fa8"
+    },
+    {
+      "path": "definitions/ENTERPRISE_SIGNED_ORIGIN_ONE_COORDINATE_20260817.md",
+      "blob_sha1": "e9bcb96c8ff955a13269bbbe55ff183ef940fd78"
+    },
+    {
+      "path": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
+      "blob_sha1": "b573b267a13eba31280703290d63279d367631eb"
+    },
+    {
+      "path": "definitions/ENTERPRISE_TRIPLE_INTERSECTION_CIRCLE_CELL_COORDINATE_SYSTEM_20260818.md",
+      "blob_sha1": "744a6d670b442447e1e9c99653fbc55c64f17579"
+    },
+    {
+      "path": "definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.json",
+      "blob_sha1": "b4bc3733bf6d69b6fd35d3e74bfedca60905c51b"
+    },
+    {
+      "path": "definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
+      "blob_sha1": "905e9962fa38c657f38ce39fcfe13a5d4a4c467a"
+    },
+    {
+      "path": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+      "blob_sha1": "e266c103cae02550c8bbaa794958f3423b41d151"
+    },
+    {
+      "path": "definitions/ENTERPRISE_X6_SIGNED_NATIVE_SPATIAL_CELL_TORSOR_CANDIDATE_20260905.md",
+      "blob_sha1": "98818f87ff6a88d18e09bbe882e38c7eecb5b14a"
+    },
+    {
+      "path": "definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.en.md",
+      "blob_sha1": "2103acdce2a41df16edc0162948944c069fb13a3"
+    },
+    {
+      "path": "definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json",
+      "blob_sha1": "94a02d067be2b039ca4c0f7ffedb5ebde8430e08"
+    },
+    {
+      "path": "definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.md",
+      "blob_sha1": "ea4cb6eda83ce56fee37830bc04675ee7ea0ee4d"
+    },
+    {
+      "path": "definitions/P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md",
+      "blob_sha1": "8d73366ba7bd22b32c62c001b5cbe89d3fb63edb"
+    },
+    {
+      "path": "experiments/brc_multiplier_factor_bridge.py",
+      "blob_sha1": "f238ba87fe2f1670a64f77d0e4d196737b922f68"
+    },
+    {
+      "path": "experiments/viete_fcc_root_atlas_c24_20260906/check_viete_fcc_root_atlas_c24.py",
+      "blob_sha1": "e9bfdc2f81df5fde52414723008b0bf8ddb31ce1"
+    },
+    {
+      "path": "experiments/viete_x6_all20_triadic_root_c24_20260906/check_viete_x6_all20_triadic_root_c24.py",
+      "blob_sha1": "aa84515187c4319a6f8a65e65d12d6edbaae67fb"
+    },
+    {
+      "path": "experiments/viete_x6_fixed_radius_c12_20260905/check_viete_x6_fixed_radius_c12.py",
+      "blob_sha1": "a9be9405c199ccfc6c90abebec416ab40745cd5f"
+    },
+    {
+      "path": "experiments/viete_x6_outer_law_selection_20260906/check_viete_x6_outer_law_selection.py",
+      "blob_sha1": "2afe9637de17735707aaa5298b7a6d241f9fe696"
+    },
+    {
+      "path": "experiments/viete_x6_prostate_memory_obstruction_20260905/check_prostate_memory_obstruction.py",
+      "blob_sha1": "ea3273e1b1b05b9ea16efadc6351630fedfb22dd"
+    },
+    {
+      "path": "experiments/x6_20_slice_holonomy_v2_20260906/check_slice_frame_holonomy.py",
+      "blob_sha1": "44006c1f9f26907006820e7bbc17f24dd5a8cc04"
+    },
+    {
+      "path": "experiments/x6_active_triad_holonomy_v17_20260906/check_active_triad_holonomy.py",
+      "blob_sha1": "3d0d8d59b012ed0c58f2cb732be6c62f3140fc9c"
+    },
+    {
+      "path": "experiments/x6_branch_selector_context_v3_20260906/check_branch_selector_context.py",
+      "blob_sha1": "bb8fd71bafa5b8c53c5170d2347baa0f2c06f5fb"
+    },
+    {
+      "path": "experiments/x6_cell_internal_state_v1_20260906/check_triadic_port_frame.py",
+      "blob_sha1": "77df2699e0b911668945dc6f586674c6e825df4e"
+    },
+    {
+      "path": "experiments/x6_centered_three_axis_slice_v19_20260905/check_centered_slice_crossfile.py",
+      "blob_sha1": "25f520df1e29bdd466fe76c6c00e3789c5606e27"
+    },
+    {
+      "path": "experiments/x6_centered_three_axis_slice_v19_20260905/check_centered_slice_rebase.py",
+      "blob_sha1": "406b1eea574ac3235c490dc362ce76d4b072458e"
+    },
+    {
+      "path": "experiments/x6_channel_frame_gauge_v2_20260906/check_channel_frame_gauge.py",
+      "blob_sha1": "3110c7017462ed65dbdf887a488dab8b65749450"
+    },
+    {
+      "path": "experiments/x6_chart_a6_unification_v3_20260906/check_chart_a6_unification.py",
+      "blob_sha1": "480a4522705851ac22678ba670d55293014608f5"
+    },
+    {
+      "path": "experiments/x6_chart_holonomy_ori6_bridge_v16_20260906/check_chart_holonomy_ori6_bridge.py",
+      "blob_sha1": "547a5a6008ba5989b55c067e49ae30e42b11ba4e"
+    },
+    {
+      "path": "experiments/x6_coherent_arithmetic_20260909/results.json",
+      "blob_sha1": "35d2b2a0a6dc5124378fac0b9cc6b1124dd5dea7"
+    },
+    {
+      "path": "experiments/x6_coherent_arithmetic_20260909/verify.py",
+      "blob_sha1": "f4f46d080719adc2e59bc31c0d24d16c01dcd2a2"
+    },
+    {
+      "path": "experiments/x6_cyclotomic_compatibility_20260910/results.json",
+      "blob_sha1": "af0516778393b86858227637811e30964469a1fd"
+    },
+    {
+      "path": "experiments/x6_cyclotomic_compatibility_20260910/verify.py",
+      "blob_sha1": "0d4ea1d29281236c80ae8502de7d75a5d76c39e9"
+    },
+    {
+      "path": "experiments/x6_double_triad_v11_20260906/check_double_triad_vs_global.py",
+      "blob_sha1": "14c6fd2c92a682f5b9f3a66ed551b32f679b43c8"
+    },
+    {
+      "path": "experiments/x6_dynamic_law_holonomy_v24_20260906/check_channel_circulation_bridge.py",
+      "blob_sha1": "5618dae00632f9f796d3f5a6a692c248ea699131"
+    },
+    {
+      "path": "experiments/x6_dynamic_law_holonomy_v24_20260906/check_dynamic_law_holonomy.py",
+      "blob_sha1": "b323a4e56b2ed2fe6a70b3a87060c99c90d5fe14"
+    },
+    {
+      "path": "experiments/x6_dynamic_law_holonomy_v24_20260906/check_passage_continuity_network.py",
+      "blob_sha1": "e78d3e9d550fed182239ebc55b34f6af4fc02951"
+    },
+    {
+      "path": "experiments/x6_fcc_20slice_carrier_rank_20260906/check_x6_fcc_20slice_carrier_rank.py",
+      "blob_sha1": "f0a7534257ebc53e32bad726e5321613605642d5"
+    },
+    {
+      "path": "experiments/x6_four_field_active_triad_code_v23_20260906/check_four_field_active_triad_code.py",
+      "blob_sha1": "d4365de1ee3d7310769c1e53a268c0130ff17ac8"
+    },
+    {
+      "path": "experiments/x6_frame_channel_coupling_v4_20260906/check_frame_channel_coupling.py",
+      "blob_sha1": "433b7c3d93280cfbdb0e21e9042f60eced0c9a3c"
+    },
+    {
+      "path": "experiments/x6_frozen_density_20260910/results.json",
+      "blob_sha1": "fa411b38b77a5899c2816948a725e6b2359c178d"
+    },
+    {
+      "path": "experiments/x6_frozen_density_20260910/verify.py",
+      "blob_sha1": "3d00faa747cf34cfedcc3166331a5ae63add4b8b"
+    },
+    {
+      "path": "experiments/x6_global_c12_v10_20260906/check_global_c12_c24.py",
+      "blob_sha1": "f6f58568516baf73ef58e12b8aaee0781c25c76d"
+    },
+    {
+      "path": "experiments/x6_index2_closure_20260909/results.json",
+      "blob_sha1": "b2ccf516ff8e5d3ed515e38d15d0b59ebf210f82"
+    },
+    {
+      "path": "experiments/x6_index2_closure_20260909/verify.py",
+      "blob_sha1": "482f8f35558bf4702986b379197e99d6a9826df1"
+    },
+    {
+      "path": "experiments/x6_index2_closure_v2_20260909/manifest.json",
+      "blob_sha1": "f6cc35da5d5279a9112771f2e74ba3caa7d96615"
+    },
+    {
+      "path": "experiments/x6_index2_closure_v2_20260909/results.json",
+      "blob_sha1": "ab73940d5ff01857a0c67fcea0bfebcee6d9c03c"
+    },
+    {
+      "path": "experiments/x6_index2_closure_v2_20260909/verify.py",
+      "blob_sha1": "98a2020f165e9e25bb5ebdd236c7a534271ac629"
+    },
+    {
+      "path": "experiments/x6_integral_isometry_v7_20260906/check_integral_isometry_ori6.py",
+      "blob_sha1": "77be98e3dce15aac48bc64db6a6fc4e6bbb48f2a"
+    },
+    {
+      "path": "experiments/x6_intermediate_flags_20260910/results.json",
+      "blob_sha1": "1b7ba9d856333a5975c51ebc1bd09386bd89f4ac"
+    },
+    {
+      "path": "experiments/x6_intermediate_flags_20260910/verify.py",
+      "blob_sha1": "c41fdd1a468d8d7ee52c96c3a739dd59c78892ec"
+    },
+    {
+      "path": "experiments/x6_k4_overlap_connection_20260906/check_x6_k4_overlap_connection.py",
+      "blob_sha1": "6cab308675fe3674f4e4f923be5f044e2dd63ea3"
+    },
+    {
+      "path": "experiments/x6_logloss_windows_20260911/results.json",
+      "blob_sha1": "af1d81420ed2cac7d69d312aeb1e7d9952e5aefc"
+    },
+    {
+      "path": "experiments/x6_logloss_windows_20260911/verify.py",
+      "blob_sha1": "b8c3e03f414fa91390972fdbec515348d9fefd09"
+    },
+    {
+      "path": "experiments/x6_native_coordinate_completion_v7_20260905/check_x6_coordinate.py",
+      "blob_sha1": "88f102979cd27909960eced1de2c4c5a7b78709d"
+    },
+    {
+      "path": "experiments/x6_native_coordinate_completion_v7_20260905/check_x6_cover.py",
+      "blob_sha1": "65778c6ccb44eb9bb15c0123ac51423dd10c8686"
+    },
+    {
+      "path": "experiments/x6_native_coordinate_completion_v7_20260905/x6_coordinate.py",
+      "blob_sha1": "dd6dd7e74b83be09bb7545ee92357eda445c6ca3"
+    },
+    {
+      "path": "experiments/x6_native_coordinate_completion_v7_20260905/x6_cover.py",
+      "blob_sha1": "171baf1cee7f1aceaf38c73d0c0659a25fd8d7bd"
+    },
+    {
+      "path": "experiments/x6_native_event_time_v1_20260906/check_event_time_markov.py",
+      "blob_sha1": "df0df29327fe8c969ad9e4c758d5c7372ecd65cd"
+    },
+    {
+      "path": "experiments/x6_native_event_trace_v2_20260906/check_event_trace_partial_order.py",
+      "blob_sha1": "252c9dcdefe0040afbeef8676384366973a287cb"
+    },
+    {
+      "path": "experiments/x6_native_growth_20260909/results.json",
+      "blob_sha1": "ecb61c8843fb214ecab4cb1da36d6b23b4c7952b"
+    },
+    {
+      "path": "experiments/x6_native_growth_20260909/verify.py",
+      "blob_sha1": "01db1ef95bc120491e36653c45c88f6728e602f5"
+    },
+    {
+      "path": "experiments/x6_native_repair_transport_20260909/results.json",
+      "blob_sha1": "14de44b3d93b120132ecb367e6fba59fcad83f63"
+    },
+    {
+      "path": "experiments/x6_native_repair_transport_20260909/verify.py",
+      "blob_sha1": "d614aada84c281ec722c2dc8165d7484b0a17a38"
+    },
+    {
+      "path": "experiments/x6_native_time_duration_v3_20260906/check_critical_path.py",
+      "blob_sha1": "a182653bfe129f2657ff821299a6f505e75c0382"
+    },
+    {
+      "path": "experiments/x6_network_event_ledger_v29_20260906/check_event_order_holonomy.py",
+      "blob_sha1": "4d3dd55915d165082ac5b856e3a8353a9ba23f21"
+    },
+    {
+      "path": "experiments/x6_network_event_ledger_v29_20260906/check_network_circuit_holonomy.py",
+      "blob_sha1": "cdefd6cafda91dd6b682c8eb9993e14803a05cd3"
+    },
+    {
+      "path": "experiments/x6_network_event_ledger_v29_20260906/check_network_event_ledger.py",
+      "blob_sha1": "2a67e8d4c79912147e0bd1c036065152792e6877"
+    },
+    {
+      "path": "experiments/x6_network_event_ledger_v29_20260906/check_reciprocal_directed_network.py",
+      "blob_sha1": "bb69160ef76d59333d25eb1b610e51e6a5be20e6"
+    },
+    {
+      "path": "experiments/x6_network_event_ledger_v29_20260906/check_relation_time_seed.py",
+      "blob_sha1": "bd55e6b118f52858694d2127cafe2daf06ca1935"
+    },
+    {
+      "path": "experiments/x6_network_event_ledger_v29_20260906/check_transfer_skew_chirality.py",
+      "blob_sha1": "96af9da59001474bb9cf512fd8a7ea0275fa6ef8"
+    },
+    {
+      "path": "experiments/x6_nonabelian_multicircuit_v37_20260906/check_holonomy_dependency.py",
+      "blob_sha1": "892d5c4da8dfeafc49f5a61e4eb0c822a02ad6f5"
+    },
+    {
+      "path": "experiments/x6_nonabelian_multicircuit_v37_20260906/check_nonabelian_multicircuit.py",
+      "blob_sha1": "328c328d76e5766261f590afa710671b0a81f0cb"
+    },
+    {
+      "path": "experiments/x6_nonfcc_carrier_v1_20260906/check_nonfcc_carrier.py",
+      "blob_sha1": "67d3776b32bfc4d239dbba8c283148f9d35bd05d"
+    },
+    {
+      "path": "experiments/x6_nonfcc_carrier_v4_20260906/check_nonfcc_carrier_classification.py",
+      "blob_sha1": "ac1b648575b3430fdf37768b281ad853ab631fab"
+    },
+    {
+      "path": "experiments/x6_nonfcc_carrier_v5_20260906/check_fcc_basis_decoder.py",
+      "blob_sha1": "c9344efa90c1335424d13cdd71886a2079bbe0fb"
+    },
+    {
+      "path": "experiments/x6_nonfcc_observer_switch_v42_20260906/check_nonfcc_observer_switch.py",
+      "blob_sha1": "2a8c8c804c6d4b0a4e0919f62235e58ccb583e4e"
+    },
+    {
+      "path": "experiments/x6_ori6_control_ledger_v15_20260906/check_ori6_control_ledger.py",
+      "blob_sha1": "210d860e4e94837131ebc4929dc97bb5a097791a"
+    },
+    {
+      "path": "experiments/x6_ori6_event_charge_v8_20260906/check_ori6_event_charge.py",
+      "blob_sha1": "6a4557707268b4840fc2e585c84d6f9ee3d58fd8"
+    },
+    {
+      "path": "experiments/x6_ori6_pair_context_v9_20260906/check_ori6_pair_context.py",
+      "blob_sha1": "440efd5e05f862e3a7ee35726d243c05875e1672"
+    },
+    {
+      "path": "experiments/x6_ori6_triadic_phase_reversal_v13_20260906/check_ori6_triadic_phase_reversal.py",
+      "blob_sha1": "4bbc522136f2d49e45d8326a382d2309eef02968"
+    },
+    {
+      "path": "experiments/x6_phase_chirality_d12_v14_20260906/check_phase_chirality_d12.py",
+      "blob_sha1": "be12bb72e694ec330e372d40dab4b1b9dd58dc26"
+    },
+    {
+      "path": "experiments/x6_pure_triadic_field_coupling_v20_20260906/check_pure_triadic_field_coupling.py",
+      "blob_sha1": "f0c70961a3f5f5fc7a9d134ac7503f9c2e849951"
+    },
+    {
+      "path": "experiments/x6_radix_bridge_20260909/results.json",
+      "blob_sha1": "6f66116bc411803a0dd0f53fde5abe2cbccab7d7"
+    },
+    {
+      "path": "experiments/x6_radix_bridge_20260909/verify.py",
+      "blob_sha1": "3d4eafd8d6124b9ff711889a44423becd3da223b"
+    },
+    {
+      "path": "experiments/x6_radix_shape_bridge_20260909/results.json",
+      "blob_sha1": "4e49dfaa40c8c4be607ad93f1de150dad8c91359"
+    },
+    {
+      "path": "experiments/x6_radix_shape_bridge_20260909/verify.py",
+      "blob_sha1": "b5c0ab609996602abde904887bc6ca53b3843bf9"
+    },
+    {
+      "path": "experiments/x6_rotation_coset_parity_v4_20260906/check_coset_chirality_separation.py",
+      "blob_sha1": "66f02ab3a694e6661782c641dbf7c95ccd1efedf"
+    },
+    {
+      "path": "experiments/x6_rotation_law_selection_v3_20260906/check_equivariant_branch_laws.py",
+      "blob_sha1": "62d03a89c19518c3d80ebee3589952d1755d4ff8"
+    },
+    {
+      "path": "experiments/x6_rotation_path_dagger_jet_20260909/check_rotation_path_dagger_jet.py",
+      "blob_sha1": "51a567303d2d6da37c82dda418b82c5d90a1e4a9"
+    },
+    {
+      "path": "experiments/x6_rotation_path_groupoid_v2_20260906/check_rotation_path_groupoid.py",
+      "blob_sha1": "cafc32fe407a935d5ba8d3847f3880c6ef644329"
+    },
+    {
+      "path": "experiments/x6_rotation_path_tensor_jet_20260906/check_x6_rotation_path_tensor_jet.py",
+      "blob_sha1": "4f193358c94ee4252507e40cc19d1cc61a185bd4"
+    },
+    {
+      "path": "experiments/x6_rotation_path_tensor_jet_two_cycle_20260906/check_two_cycle_tensor_jet.py",
+      "blob_sha1": "6176d85fa2f14b4906bbedfb8fdbba0b337e220d"
+    },
+    {
+      "path": "experiments/x6_rotation_static_underdetermination_v5_20260906/check_static_underdetermination.py",
+      "blob_sha1": "6d0e20c0fb3e677f85fde4f0011da20742371bd5"
+    },
+    {
+      "path": "experiments/x6_seed_geometry_20260910/results.json",
+      "blob_sha1": "903ce0d4b8c1071719b53b6ea96569bd6736a4a1"
+    },
+    {
+      "path": "experiments/x6_seed_geometry_20260910/verify.py",
+      "blob_sha1": "e155621d04f0e354f06d48e5075bc5d43d4d0f71"
+    },
+    {
+      "path": "experiments/x6_sharp_majorant_20260911/results.json",
+      "blob_sha1": "86712f21fd96283e5c5966fe7e0e590b5b42fefa"
+    },
+    {
+      "path": "experiments/x6_sharp_majorant_20260911/verify.py",
+      "blob_sha1": "e4a7ba963d7b79ebd8bb0a68be4aa474871da70b"
+    },
+    {
+      "path": "experiments/x6_signed_cycle_atlas_v12_20260906/check_signed_cycle_atlas.py",
+      "blob_sha1": "9c5bfac5c2d317d38221aca732c8250944051f15"
+    },
+    {
+      "path": "experiments/x6_signed_internal_q_correction_v5_20260906/check_signed_internal_q_correction.py",
+      "blob_sha1": "0104cf5cedd40831a94eec746394f977402ac36f"
+    },
+    {
+      "path": "experiments/x6_signed_native_spatial_v16_20260905/check_signed_brc.py",
+      "blob_sha1": "eadc2640e190165020a60a707ac5a14c497036a0"
+    },
+    {
+      "path": "experiments/x6_signed_native_spatial_v16_20260905/check_x6_signed.py",
+      "blob_sha1": "275f327b603a9b07f8f6c0948347e75028d3a38a"
+    },
+    {
+      "path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+      "blob_sha1": "300a96e3dc24bf6fff73743037a0347a8bc83176"
+    },
+    {
+      "path": "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py",
+      "blob_sha1": "ac32f6d82a91db99297e587cf63b0df95cece514"
+    },
+    {
+      "path": "experiments/x6_single_triadic_field_nogo_v21_20260906/check_single_triadic_field_nogo.py",
+      "blob_sha1": "aff5f31c7022de8728a86de4fa0dce20dbfa405e"
+    },
+    {
+      "path": "experiments/x6_successor_coupling_20260909/results.json",
+      "blob_sha1": "9ffe6756122d937449795e6e5723947981703023"
+    },
+    {
+      "path": "experiments/x6_successor_coupling_20260909/verify.py",
+      "blob_sha1": "f4446c87a5fb95b4ee5b045cb42bd27a32ee84e2"
+    },
+    {
+      "path": "experiments/x6_three_field_relational_frame_v22_20260906/check_three_field_relational_frame.py",
+      "blob_sha1": "f8c652a416ba099d525fcfa62e1c70207494f610"
+    },
+    {
+      "path": "experiments/x6_triadic_atomic_scatter_v1_20260906/check_triadic_atomic_scatter.py",
+      "blob_sha1": "d5f6dfcfd0dedbe46feae3bc1b227185af417c2f"
+    },
+    {
+      "path": "experiments/x6_triadic_channel_field_v3_20260906/check_triadic_channel_field.py",
+      "blob_sha1": "acbf1378d43b4c33051c98dfc7d52e71de078edb"
+    },
+    {
+      "path": "experiments/x6_triadic_decomposition_brc_v2_20260906/check_triadic_decomposition_brc.py",
+      "blob_sha1": "5d0f2cb88a0d4e437b5025e9050e3044f7831cd4"
+    },
+    {
+      "path": "experiments/x6_triadic_inner_c12_v2_20260906/check_inner_c12_clock.py",
+      "blob_sha1": "9bfd15029a5400ec248d7ab95e0e8b9f1b55c936"
+    },
+    {
+      "path": "experiments/x6_triadic_interaction_defect_v18_20260906/check_triadic_interaction_defect.py",
+      "blob_sha1": "dac16eeaf4174fe00e408ff8dc1b73c80c886b7b"
+    },
+    {
+      "path": "experiments/x6_triadic_orientation_charge_v6_20260906/check_orientation_charge.py",
+      "blob_sha1": "872756290b345e32f59ceb9138c1325199070469"
+    },
+    {
+      "path": "experiments/x6_triadic_quantum_lift_v2_20260906/check_quantum_lift.py",
+      "blob_sha1": "d86f32d40623cedc0bd5e91fc6057aa2d21a0b22"
+    },
+    {
+      "path": "experiments/x6_triadic_rational_pair_factorization_v19_20260906/check_triadic_rational_pair_factorization.py",
+      "blob_sha1": "e64e81fc8216e2697539bf5788d95fb844c06deb"
+    },
+    {
+      "path": "experiments/x6_triadic_rotation_v1_20260906/check_triadic_rotation.py",
+      "blob_sha1": "c446d0327f9bf643d5796348ba46cafe96d2915d"
+    },
+    {
+      "path": "experiments/x6_tunable_geometry_20260911/results.json",
+      "blob_sha1": "f8d521c8b911a6fa7e397f1bff3f2b29ef03fcf1"
+    },
+    {
+      "path": "experiments/x6_tunable_geometry_20260911/verify.py",
+      "blob_sha1": "d6fee33c93ce33158c7c955d6ac58cfc3261ef40"
+    },
+    {
+      "path": "experiments/x6_upper_bundle_integration_v2_20260906/check_upper_bundle_integration.py",
+      "blob_sha1": "184ff9a3b6674f445e004d306d02e1c2153d0e5b"
+    },
+    {
+      "path": "experiments/x6_upper_integration_v1_20260906/check_upper_typed_event.py",
+      "blob_sha1": "e03aae3daf1a0ca6db91ea8158f3522e6afcd593"
+    },
+    {
+      "path": "experiments/x6_variable_conditioning_20260911/results.json",
+      "blob_sha1": "474f6fbd6f5eea0376be5b72200852dcc6208bf6"
+    },
+    {
+      "path": "experiments/x6_variable_conditioning_20260911/verify.py",
+      "blob_sha1": "7cfffc2883c774c6086134fc844390e5f848806a"
+    },
+    {
+      "path": "experiments/x6_witness_overlap_20260911/results.json",
+      "blob_sha1": "9304bb51af82ec93ed07410b879694d7b129aaea"
+    },
+    {
+      "path": "experiments/x6_witness_overlap_20260911/verify.py",
+      "blob_sha1": "d8245adbd708a1a6eee641215c5128712d7c42fc"
+    },
+    {
+      "path": "research_checks/20261112_x6_star_triad_group_brc_convolution.py",
+      "blob_sha1": "50cccf09b5dd83cc592ba36db5bc9e14941ce0ce"
+    },
+    {
+      "path": "research_checks/BRC_COPRIME_FIBER_BRIDGE_CLASSIFICATION_CHECK_20260829.py",
+      "blob_sha1": "81c41c4a4227b65528099f60aaa838b110e3456c"
+    },
+    {
+      "path": "research_checks/BRC_FACTOR_BLIND_BRIDGE_ENDPOINT_RECOVERY_CHECK_20260829.py",
+      "blob_sha1": "cd2c56e034a2435d17d1173d21251d1224e39ee7"
+    },
+    {
+      "path": "research_checks/P000_L1_NATIVE_FCC_CARRIER_BRIDGE_CHECK_20260829.py",
+      "blob_sha1": "de645d6de3b85165fe8943aa6566e050ec47c623"
+    },
+    {
+      "path": "research_checks/P000_NATIVE_FCC_BRIDGE_COHOMOLOGY_PRIOR_ART_AUDIT_V5_CHECK_20260829.py",
+      "blob_sha1": "e2223b067528104de9f158776294a53d617f4ca3"
+    },
+    {
+      "path": "research_checks/P000_THREE_AXIS_A2_HEXAGONAL_CUBIC_THETA_BRIDGE_REVISION_V2_CHECK_20260830.py",
+      "blob_sha1": "9974b1da9a88fc48040ca176fa486e3b8ef24559"
+    },
+    {
+      "path": "research_checks/RS-P000-THREE-AXIS-COMMON-MODE-FORGETFUL-SEMANTICS/check_common_mode_forgetful_semantics.py",
+      "blob_sha1": "f9723c04e5544d891c444501af5f2d08a1311e3c"
+    },
+    {
+      "path": "research_checks/X6_LP011_LP019_TYPED_CALLER_PROVENANCE_20261112_2230.py",
+      "blob_sha1": "11224c487d4b7261f7f6bc7f5310716ec3c2005c"
+    },
+    {
+      "path": "research_checks/X6_LP011_SIGNED_DOMINANT_FIBRE_CHAMBER_20261112.py",
+      "blob_sha1": "1ee09fddc9456f5bf1cfc2641fe4a5dcfb7f4bc5"
+    },
+    {
+      "path": "research_checks/X6_LP011_SIGNED_MEDIAN_BIT_LENGTH_RECOVERY_20261112.py",
+      "blob_sha1": "6cf4cc629e05f0c20465bfd691ffd488239d433a"
+    },
+    {
+      "path": "research_checks/X6_LP011_TYPED_DOMINANT_CONSUMER_20261112.py",
+      "blob_sha1": "cf2c11d47a4abf5a462c4c96540a125f0f942a8d"
+    },
+    {
+      "path": "research_checks/X6_LP019_FCC_SIGNED_BRC_PUSHFORWARD_20261113_ONHOUR.py",
+      "blob_sha1": "a82b8cfb6039531aec2266e283a5277ab20f7c4c"
+    },
+    {
+      "path": "research_checks/X6_LP019_SIGNED_THICKNESS_AND_BRC_FIBERS_20261112_ONHOUR.py",
+      "blob_sha1": "24664a814c83b471febaabb4a1c0b0ae0c59d571"
+    },
+    {
+      "path": "research_checks/X6_LP026_CURRENT_COVER_FAST_G_NATIVE_BRC_IMPORT_20261112_ONHOUR.py",
+      "blob_sha1": "4c0ffed845a94eb81f9d7c04eae1c54ea3d08e39"
+    },
+    {
+      "path": "research_checks/X6_LP026_CURRENT_SOURCE_CONSUMER_IMPORT_20261112_1600.py",
+      "blob_sha1": "769a7b6801436bc3b14a8f810f9caae4edd9ba2a"
+    },
+    {
+      "path": "research_checks/X6_LP026_CYCLIC_COVER_FINITE_HORIZON_SHARP_20261112_ONHOUR.py",
+      "blob_sha1": "c2b28585f8ea41b43d0b311ab0d87eda38393786"
+    },
+    {
+      "path": "research_checks/X6_LP026_CYCLIC_DEPTH_BRC_FIBERS_20261112_ONHOUR.py",
+      "blob_sha1": "4aa0e4fe8dedb8468f0e3da03273b4b9ecfd8b35"
+    },
+    {
+      "path": "research_checks/X6_LP026_CYCLIC_G_FAST_INTERVAL_RECOVERY_20261112_ONHOUR.py",
+      "blob_sha1": "496764aa8ebdb19bb03b7d40b82128a82be0ed84"
+    },
+    {
+      "path": "research_checks/X6_LP026_CYCLIC_G_RECOVERY_TYPED_ADAPTER_20261112_ONHOUR.py",
+      "blob_sha1": "76ba970283e4f1f65f47f17cf76e40752c612d9a"
+    },
+    {
+      "path": "research_checks/X6_LP026_CYCLIC_NATIVE_G_RANGE_CERTIFICATE_20261112_2100.py",
+      "blob_sha1": "7e0255431adc6d8aa339c76271ecb38b8d57df2f"
+    },
+    {
+      "path": "research_checks/X6_LP026_QUADRATIC_DEPTH_RECOVERY_20261112_ONHOUR.py",
+      "blob_sha1": "f555d0c9213186987b82ecbd42b96cd095bb661f"
+    },
+    {
+      "path": "research_checks/X6_LP026_SHARP_STREAMING_DEPTH_SIDE_REGISTER_SOURCE_IMPORT_20261112_DRIVER.py",
+      "blob_sha1": "5f4c279813087e774e471bc9d96cb7b156a38630"
+    },
+    {
+      "path": "research_checks/X6_LP026_SIGNED_LAURENT_QUOTIENT_CONSUMER_CHECK_20261112_ONHOUR.py",
+      "blob_sha1": "e2bc083f1832b8eae2d8887095912da0e0e8984f"
+    },
+    {
+      "path": "research_checks/X6_LP026_SIGNED_RELATIVE_C6_PARITY_BRC_20261112_ONHOUR.py",
+      "blob_sha1": "08d0cd5c2720410d9a938c49df830d90573b408f"
+    },
+    {
+      "path": "research_checks/X6_LP026_V12_NATIVE_GAUGE_COUNTEREXAMPLE_20261113_0057.py",
+      "blob_sha1": "a88c421cd56b44ad2b1ac781fef38c8ada1bcfbf"
+    },
+    {
+      "path": "research_checks/X6_LP028_NATIVE_NORM_PROBE_BRC_MINIMALITY_20261112_ONHOUR.py",
+      "blob_sha1": "365f1c59271be86b28a0d57b7480ccc806d8c8db"
+    },
+    {
+      "path": "research_checks/X6_LP028_NATIVE_NORM_PROBE_CAPACITY_20261112_ONHOUR.py",
+      "blob_sha1": "8b2ae2ca320a336d5fe92a1b55152dfd0576508d"
+    },
+    {
+      "path": "research_checks/X6_LP028_PATHSQRT_CHART_GLUE_TRACE_CAPACITY_20261112_ONHOUR.py",
+      "blob_sha1": "7b44e0e509b2eb9d02a2433977484c31a3ee9792"
+    },
+    {
+      "path": "research_checks/X6_LP028_R063_ALL_PAIR_GLUE_20261112_ONHOUR.py",
+      "blob_sha1": "41939eff764b26ffd849c482c983aaec9fe9f56d"
+    },
+    {
+      "path": "research_checks/X6_LP028_R2500_FULL_NATIVE_SHELL_20261112_ONHOUR.py",
+      "blob_sha1": "4cedddae1cafca1004d19b849bb626712c0caa82"
+    },
+    {
+      "path": "research_checks/X6_LP028_SIGNED_PATHSQRT_TYPED_CURRENT_CONSUMER_CHECK_20261112_2300.py",
+      "blob_sha1": "db46dde5a962b93b65775bf2b4d8f52d5e3f83b9"
+    },
+    {
+      "path": "research_checks/X6_R061_RELATIVE_BIDIRECTIONAL_METRIC_DESCENT_20261112_ONHOUR.py",
+      "blob_sha1": "97569cddbb5ebf8f443d7e076bf68ca90e88189e"
+    },
+    {
+      "path": "research_checks/X6_R063_N2500_SIGNED_SHELL_20261112.py",
+      "blob_sha1": "f276a458c6acd00151128be0d5791c19f03b0616"
+    },
+    {
+      "path": "research_checks/X6_R063_SIGNED_TWO_AXIS_LIFT_20261112_ONHOUR.py",
+      "blob_sha1": "1549cb1aee1bd8daed8557a1cab5213b833d9bc5"
+    },
+    {
+      "path": "research_checks/X6_R063_TYPED_TRACE_FIBERS_AND_CONSUMER_20261112_ONHOUR.py",
+      "blob_sha1": "ab870c738e23bf652efef0a5d1a25bc62faa189f"
+    },
+    {
+      "path": "research_notes/2026-11-07_native_x6_three_triple_observer_minimal_connected_cover_AUTHOR_UNREVIEWED.md",
+      "blob_sha1": "dd7f59545beffdbef05a8a6e26e518972be02bce"
+    },
+    {
+      "path": "research_notes/20260906T120500+0800-x6-relation-birthday-fast-multipoint-progress.md",
+      "blob_sha1": "d46c288b53e59710fdf788e110fa6f911345816d"
+    },
+    {
+      "path": "research_notes/20260906T122500+0800-x6-layer-frobenius-multiresolution-progress.md",
+      "blob_sha1": "b5154af019d4f7d437341562e4b22b0b2d327304"
+    },
+    {
+      "path": "research_notes/brc_alias_counting_bridge_20261028/EXACT_REPORT.json",
+      "blob_sha1": "d78c8ba318f7eac35cffd909d8afbea05d896529"
+    },
+    {
+      "path": "research_notes/brc_alias_counting_bridge_20261028/PROOF.md",
+      "blob_sha1": "6d860d054f6a2ac268872eeea4ad00c1865876d3"
+    },
+    {
+      "path": "research_notes/brc_alias_counting_bridge_20261028/SOURCES.json",
+      "blob_sha1": "8cf591ff8c1e64eaa7e7697cd7503a8fd21451ca"
+    },
+    {
+      "path": "research_notes/brc_alias_counting_bridge_20261028/VERIFY.py",
+      "blob_sha1": "d9029ff47031580cc59cfd1e4502012d189a250f"
+    },
+    {
+      "path": "research_notes/BRC_ENERGY_SCALED_CROSS_COORDINATE_20260907.md",
+      "blob_sha1": "97971a2e97679e1caf5d938399db031fa481b5ae"
+    },
+    {
+      "path": "research_notes/brc_heartbeat_energy_bridge_20260920_6EF011/PUBLICATION_EVIDENCE.json",
+      "blob_sha1": "f85ff78f4d34b084baf956048c98ee70286ded14"
+    },
+    {
+      "path": "research_notes/BRC_MULTIPLIER_FACTOR_BRIDGE_20260906.md",
+      "blob_sha1": "84227b44695339ebb5a710baaea9ac3bbe81aa91"
+    },
+    {
+      "path": "research_notes/BRC_MULTIPLIER_RSA_SCALE_HART_BRIDGE_20260906.md",
+      "blob_sha1": "b68f731838aed19fae9b20a366d9bec0ed79f586"
+    },
+    {
+      "path": "research_notes/brc_n4_bu_2d_capacity_bridge_20261029_r1/NEXT_TASK.md",
+      "blob_sha1": "e0970ab0af8266f178775c02394aa7dbe344168a"
+    },
+    {
+      "path": "research_notes/brc_n4_bu_2d_capacity_bridge_20261029_r1/PROOF.md",
+      "blob_sha1": "85e2aa7a9d0f798d6f3a8ca16ead82c1cb30c82e"
+    },
+    {
+      "path": "research_notes/brc_n4_bu_2d_capacity_bridge_20261029_r1/RESULT.json",
+      "blob_sha1": "d79d5fef880739fcf7e07a1cbf4600cb0a8a7d51"
+    },
+    {
+      "path": "research_notes/brc_n4_bu_2d_capacity_bridge_20261029_r1/VERIFY_2D_EVIDENCE.txt",
+      "blob_sha1": "b5948d6ca513e9c2bf9519347816dc7893fb25c1"
+    },
+    {
+      "path": "research_notes/brc_n4_bu_2d_capacity_bridge_20261029_r1/VERIFY_2D.py",
+      "blob_sha1": "dd0b3c8526c4b2033927f3afa1e1d4983e081ccd"
+    },
+    {
+      "path": "research_notes/BRC_NATIVE_X6_SEMANTIC_ALIGNMENT_20261002_9D72AC.md",
+      "blob_sha1": "c5183c952cae2d8e532fa6fc61f7e499d9f28c92"
+    },
+    {
+      "path": "research_notes/BRC_PURE_ALGEBRA_COLLAPSE_CREDIT_COORDINATE_TRANSFER_ANCHOR_20260816.md",
+      "blob_sha1": "e5821dcaa6d8a46e7ff166a8f2823b147adcc69e"
+    },
+    {
+      "path": "research_notes/brc_x6_heartbeat_20260919_AD0416/CHECKPOINT.json",
+      "blob_sha1": "d8412cfcc1d9c2b8079f9c0f3bebe1c2ec2fd1d4"
+    },
+    {
+      "path": "research_notes/brc_x6_heartbeat_20260919_AD0416/RESEARCH_NOTE.md",
+      "blob_sha1": "d7aa9517ae35d8478425f9919885e5b505183fc2"
+    },
+    {
+      "path": "research_notes/brc_x6_heartbeat_20260919_AD0416/RESULTS.json",
+      "blob_sha1": "e79b315d3337e2f35bd69321e57176fd26bd1dd9"
+    },
+    {
+      "path": "research_notes/brc_x6_heartbeat_20260919_AD0416/verify_heartbeat.py",
+      "blob_sha1": "9cb477e0369e8f0aa446065e652b259fe214a0de"
+    },
+    {
+      "path": "research_notes/brc_x6_velocity_20260919_AD0416/brc_x6_velocity.py",
+      "blob_sha1": "b169b3666d56d6214e0bd3543a936b258cd8a3b8"
+    },
+    {
+      "path": "research_notes/brc_x6_velocity_20260919_AD0416/CHECKPOINT.json",
+      "blob_sha1": "77501e404bcf6455c1e4582f12c8088f18b0483f"
+    },
+    {
+      "path": "research_notes/brc_x6_velocity_20260919_AD0416/README.md",
+      "blob_sha1": "d0b1720673c54e196e1145e913505a5c8497b442"
+    },
+    {
+      "path": "research_notes/brc_x6_velocity_20260919_AD0416/RESEARCH_NOTE.md",
+      "blob_sha1": "926adbd7218921d5a85070767ca40a59167025f8"
+    },
+    {
+      "path": "research_notes/brc_x6_velocity_20260919_AD0416/RESULTS.compact.json",
+      "blob_sha1": "19aa2aa7d99f3828ac8d5efbdfb4117536509ff3"
+    },
+    {
+      "path": "research_notes/brc_x6_velocity_20260919_AD0416/verify_velocity.py",
+      "blob_sha1": "2a5aeaced531e6cc2d9aa0ca961996772ddb5aaf"
+    },
+    {
+      "path": "research_notes/certificates/x6_p11_sparse_gram_exact_certificate_20260908.py",
+      "blob_sha1": "550dced516f6549b94ab02ea5da929f64bb02ff2"
+    },
+    {
+      "path": "research_notes/certificates/x6_p13_sparse_gram_exact_certificate_20260908.py",
+      "blob_sha1": "aa92c7ea7636f2c77524630fb20527843b62b81d"
+    },
+    {
+      "path": "research_notes/certificates/x6_p17_sparse_gram_exact_certificate_20260908.py",
+      "blob_sha1": "3c39d3ebc1fca089fa77795f25e3096f92a3c5fb"
+    },
+    {
+      "path": "research_notes/certificates/x6_p19_sparse_gram_exact_certificate_20260908.cpp",
+      "blob_sha1": "a30f8bd475522c664cfcd02227842cc1f1a53f42"
+    },
+    {
+      "path": "research_notes/certificates/x6_p41_shape_recurrence_exact_certificate_20260908.cpp",
+      "blob_sha1": "76cd778d0a3c9f5f2560a47542fb11a5e7f68642"
+    },
+    {
+      "path": "research_notes/certificates/x6_p7_sparse_gram_exact_certificate_20260908.py",
+      "blob_sha1": "c7e5fbfacf7a23b7a73e4c9f23a4315c5ca62c7b"
+    },
+    {
+      "path": "research_notes/chatgpt_direct/20261004_72C4F4_BRC_THREE_ROUTE/brc_x6_extension.py",
+      "blob_sha1": "1b0e3747af2ea82a7f0f3b2e34f358dcefe70356"
+    },
+    {
+      "path": "research_notes/chatgpt_direct/20261004_D32A39_X6_EULER_BRC.md",
+      "blob_sha1": "934be7550b6197dff2ee2ef88c74ea5b65d9311e"
+    },
+    {
+      "path": "research_notes/chatgpt_direct/20261004_D32A39_X6_EULER_BRC/brc_x6_extension.py",
+      "blob_sha1": "1b0e3747af2ea82a7f0f3b2e34f358dcefe70356"
+    },
+    {
+      "path": "research_notes/chatgpt_direct/20261004_D32A39_X6_EULER_BRC/check_certificate.py",
+      "blob_sha1": "fdaf0f102501609505b741696c3da779d99a2407"
+    },
+    {
+      "path": "research_notes/chatgpt_direct/20261004_D32A39_X6_EULER_BRC/evidence/certificate.json",
+      "blob_sha1": "4c824424b3dc9491e7cbb4e6f966fcf150dcd954"
+    },
+    {
+      "path": "research_notes/chatgpt_direct/20261004_D32A39_X6_EULER_BRC/evidence/execution.log",
+      "blob_sha1": "463cb99f94dad285de6d1ca8013c3eb0bcb5c1ac"
+    },
+    {
+      "path": "research_notes/chatgpt_direct/20261004_D32A39_X6_EULER_BRC/NOTE.md",
+      "blob_sha1": "934be7550b6197dff2ee2ef88c74ea5b65d9311e"
+    },
+    {
+      "path": "research_notes/chatgpt_direct/20261004_D32A39_X6_EULER_BRC/source/brc_weighted.py",
+      "blob_sha1": "3f205696709e847909958a153f8fe10d3f6b70f0"
+    },
+    {
+      "path": "research_notes/directed_recovery/20260927_C6438C/brc_hbw_free_trace/LINEAR_X6_ORDER_SCOPE.md",
+      "blob_sha1": "98bb5fcce64f91812bbbfbb4863fc0512f6c45d1"
+    },
+    {
+      "path": "research_notes/directed_recovery/20260927_C6438C/brc_hbw_free_trace/LINEAR_X6_SCOPE_REVIEW.md",
+      "blob_sha1": "5b8d432898a23678df82835c5b0767338509d7a0"
+    },
+    {
+      "path": "research_notes/directed_recovery/20260927_C6438C/brc_native_tool_discovery/AGGREGATE_HBW_SECTION_BRIDGE.md",
+      "blob_sha1": "a3fcfc7a423cbed6cafe98db75e936dc5df788a0"
+    },
+    {
+      "path": "research_notes/directed_recovery/20260927_C6438C/brc_native_tool_discovery/ARBITRARY_HORIZON_T1_BRIDGE.md",
+      "blob_sha1": "9e1ba5b01e0fc04774d48dbc7548c38af7b54335"
+    },
+    {
+      "path": "research_notes/directed_recovery/20260927_C6438C/brc_native_tool_discovery/HBW_BRIDGE_AUDIT.md",
+      "blob_sha1": "c0bdf1635b5c26ef07f0ac5818cd4bc906c2aabf"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_coherent_serial_phase_depth_alias_sharp_observation_box.md",
+      "blob_sha1": "3f7825a4e6e78b19c9b7a4cbfb3c3c552922c8f4"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_correlated_signed_word_pair_graph_and_exact_phase_recovery.md",
+      "blob_sha1": "77cb5d59152fbea5daef0f2e693382dc06166b6d"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_cyclic_phase_transfer_sharp_four_start_tomography.md",
+      "blob_sha1": "69a2ebeb54f4ee352644e1b4416a3aaba6648cfa"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_diagonal_quotient_minimal_native_lift_energy.md",
+      "blob_sha1": "92e8547e856a273cc33621b7dbea8644c5ce768e"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_finite_depth_signed_brc_cover_rotation_descent_and_minimum_memory.md",
+      "blob_sha1": "1974a0079dc15d1ac101de63be343c20002700c9"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_lp011_observer_axis_minimal_side_channel.md",
+      "blob_sha1": "8eb065792d646594d16132626e14e9439fa30878"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_phase_weighted_brc_c6_loop_identifiability.md",
+      "blob_sha1": "eb515a4de5153fa1d4467128dd7a828f46cb282d"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_serial_signed_word_two_phase_injectivity_and_gap_graph.md",
+      "blob_sha1": "381b5604ed32ae05422637a370969b74441942a5"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_signed_brc_boundary_transfer_nonbacktracking.md",
+      "blob_sha1": "1642cb9c1328e8df2997f710a0d4c4f33145583e"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_signed_rotation_relative_observer_depth_descent.md",
+      "blob_sha1": "1ba88f18854d3fe046b911a8ca6d2425a703ed19"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_signed_triad_c6_group_and_brc_path_fiber_action.md",
+      "blob_sha1": "cd2226a4a589a06c4a9a2fb74662de316093ed6c"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_signed_triadic_c6_frame_generators_global_group.md",
+      "blob_sha1": "7392232fe66daa67101d0fe0873c1395050bc978"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_signed_word_alias_threshold_and_common_increment_phase_recovery.md",
+      "blob_sha1": "2de1866d846ee13b801339293b9bac8c99dbdbcf"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_time_ordered_signed_rotation_depth_observability.md",
+      "blob_sha1": "63754fb8a06c2e060c9da5513e4ba19844bb1551"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_unregistered_positive_microsteps_sharp_depth_alias_threshold.md",
+      "blob_sha1": "56a896fd2f24741dd6d9a43b90f56b488e631c6c"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_weighted_brc_c6_loop_and_star_atlas_invariants.md",
+      "blob_sha1": "c5580c6ea3c8fbafd2d66e354ec903819d8c25d9"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_weighted_brc_full_period_transfer_matrix_nonidentifiability.md",
+      "blob_sha1": "ffa02e6ea275c0331ac672308f2f718c11e9be12"
+    },
+    {
+      "path": "research_notes/driver/2026-11-12_x6_weighted_brc_periodic_phase_gauge_rigidity.md",
+      "blob_sha1": "614a07864f186a49c4d33296e581bbfa9657af02"
+    },
+    {
+      "path": "research_notes/driver/2026-11-13_x6_lp026_streaming_depth_source_import_local_execution.md",
+      "blob_sha1": "7c417468793cf7c0c0740bc588282ab7aa155ca3"
+    },
+    {
+      "path": "research_notes/EULER_FCC_CHIRALITY_CUBE_ORIENTATION_COVER_20260904.md",
+      "blob_sha1": "93e50a965e29815719776ca792f25098b06f3a4e"
+    },
+    {
+      "path": "research_notes/EULER_FCC_CHIRALITY_FACE_HOLONOMY_CLASSIFICATION_20260904.md",
+      "blob_sha1": "f35806460927bbbf25bca1cbff57c354069914ce"
+    },
+    {
+      "path": "research_notes/EULER_FCC_CHIRALITY_THEOREM_LEDGER_20260904.json",
+      "blob_sha1": "9a8c3ac9e11bfc638f8d0c9d25e2bb2ef1c65c0f"
+    },
+    {
+      "path": "research_notes/free_native_discovery/20261017_EM_FREE_185026_X6_POSITIVE_NEIGHBOR_FIBERS_WHOLE.json",
+      "blob_sha1": "b0526239c068a905138e03c40dff6a89d611fd50"
+    },
+    {
+      "path": "research_notes/FREE_RESEARCH_POST1161_FCC_VISIBLE_COUNTER_LIFT_NO_GO_20260904.md",
+      "blob_sha1": "efc27a63e730a404acc4ed9eb40ea856e6eea2cd"
+    },
+    {
+      "path": "research_notes/FREE_X6_MARGINAL_32_20261008_SOURCE_OBSERVATIONS.json",
+      "blob_sha1": "061dc42cd8b7d3a76368aa892527308156d58333"
+    },
+    {
+      "path": "research_notes/FREE_X6_MARGINAL_32_20261008.json",
+      "blob_sha1": "4989d8ccc8278adaff8f542093e1a410152269b8"
+    },
+    {
+      "path": "research_notes/HEARTBEAT_SIXAXIS_PRIME_LOCATOR_20260929_AX6C_RESULT.json",
+      "blob_sha1": "5b76b03a84a0863b4709d50d5abc2b3fbfd45630"
+    },
+    {
+      "path": "research_notes/HEARTBEAT_SIXAXIS_PRIME_LOCATOR_20260929_AX6C.md",
+      "blob_sha1": "a6c76efc2db5b6b2570a9d6ad2de2a2a368b50cd"
+    },
+    {
+      "path": "research_notes/ns-native-coordinate-coherence-20260909-d5c00d.md",
+      "blob_sha1": "37f4b5f1fd43824998342e4f7d417476d2653afe"
+    },
+    {
+      "path": "research_notes/ns-native-coordinate-coherence-d5c00d.checkpoint.json",
+      "blob_sha1": "9376a454725543e7fd377813ccf5b57be55f692d"
+    },
+    {
+      "path": "research_notes/owner_goal_20261015/control/OWNER_REVIEWED_MATH_THREE_AXIS_DELTA_20261016T043445Z.json",
+      "blob_sha1": "c6e58f136eca1f17d1fba7f4db94f28b15f8b180"
+    },
+    {
+      "path": "research_notes/owner_goal_20261015/FREE_X6_QUADRATIC_PROBES_REVIEWED_BUNDLE.json",
+      "blob_sha1": "7458f24ab909b82461b5481c8419a2ad5e589bc5"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/gbrc_typed_section_application/GBRC_FINITE_EDGE_TO_T7_SECTION_BRIDGE_AND_F2_DEFECT_APPLICATION_PAPER.md",
+      "blob_sha1": "31038a2bb614b3307ed0f9ea5f95a2b831dbb23a"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/native_x6_background_bounded_range_move_feasibility_cf1677/CF1677_FIXED_MASS_COMMON_BACKGROUND_BOUNDED_RANGE_OBSTRUCTION_WORKING.md",
+      "blob_sha1": "63709155e5f5692754e49764aa4b1d549adbef98"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/native_x6_boxed_polynomial_readout_field_bridge_7cda51/BOXED_ALL_MASS_POLYNOMIAL_READOUT_COEFFICIENT_FIELD_BRIDGE_WORKING_AND_CONTEXT.md",
+      "blob_sha1": "e14466f7c836477c7194076150f8549a45126ba3"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/native_x6_boxed_seven_observer_fiber_connectivity_bff6dc/BOXED_SEVEN_OBSERVER_ALL_MASS_CONNECTING_PALETTE_AND_SHARP_MOVE_MASS_WORKING.md",
+      "blob_sha1": "0ede6637cf9488256efc322355093a9fb4f51667"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/native_x6_seventh_diagonal_observer_cf1677/SEVENTH_DIAGONAL_OBSERVER_BOUNDED_STRUCTURAL_FEASIBILITY_WORKING.md",
+      "blob_sha1": "b3a80c6c0f0858ba05d7006606b8874ef4555c1d"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/native_x6_seventh_diagonal_sharp_mass_cf1677/SHARP_SEVENTH_DIAGONAL_OBSERVER_MASS_63_AUTHOR_WORKING.md",
+      "blob_sha1": "c0b5bdee7382a781fc7c4156b29558bcb91ba1d7"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/native_x6_seventh_observer_mass63_equality_bff6dc/MASS63_SEVEN_OBSERVER_EQUALITY_RIGIDITY_AND_UNIT_MOVE_OBSTRUCTION_WORKING.md",
+      "blob_sha1": "5d8e5809a3541a98db13891506808e176f2ccd72"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/fair_frontier_route_2_20261016/GEO6_PRIMITIVE_COORDINATE_GRAPH_FORCING_TYPED_APPLICATION.md",
+      "blob_sha1": "0185ad50aadd6d0b5f3a37689824e82f0891a0fd"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/geo6_typed_application_f73673/GEO6_PRIMITIVE_COORDINATE_APPLICATION_INDEPENDENT_WHOLE_PROOF_REVIEW.md",
+      "blob_sha1": "9b465698af717c21c44958b92f56c22b6269dbe8"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/geo6_typed_application_f73673/GEO6_ROUTING_ONLY_PURE_COORDINATE_APPLICATION_DELTA.json",
+      "blob_sha1": "a94e0912739ccdd590d07fea31f3054214eca0f2"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/native_x6_boxed_connectivity_nonauthor_7cda51/BOXED_SEVEN_OBSERVER_CONNECTIVITY_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.json",
+      "blob_sha1": "3ad1ffb42e059e07b7878d7cd57477fed70c2489"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/native_x6_critical_mass_palette_nonauthor_cf1677/CRITICAL_MASS_TRANSLATION_PALETTE_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.json",
+      "blob_sha1": "c3cf66693ae3e7735b1bc5eb8a8f2cf4decdec25"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/native_x6_mass63_equality_nonauthor_7cda51/CRITICAL_MASS63_MINIMAL_POLYNOMIAL_MOMENT_READOUT_WORKING_AND_CONTEXT.md",
+      "blob_sha1": "6515a743c77d472506e3bb381e77efd90b097630"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/native_x6_mass63_equality_nonauthor_7cda51/LOCAL_SUCCESSOR_CRITICAL_MASS_TRANSLATION_MOVE_PALETTE_CONSUMER_INTAKE.json",
+      "blob_sha1": "c039009252e68d7d212894329a67007133c5cdbc"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/native_x6_mass63_equality_nonauthor_7cda51/SEVEN_OBSERVER_MASS63_EQUALITY_AND_UNIT_MOVE_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.json",
+      "blob_sha1": "28fe3eea36d2c4e0ad8f11e98b75d2b8babb3cbb"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/native_x6_mass63_minimal_polynomial_moment_nonauthor_4a56e9/CRITICAL_MASS63_MINIMAL_POLYNOMIAL_MOMENT_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "7a2bf301a2c0e9c9e3e96b006769302e6559c344"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/native_x6_seventh_observer_nonauthor_bff6dc/SEVENTH_DIAGONAL_OBSERVER_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "c2da80edcea7c5eb9aaeb2457becd23333db63d6"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/native_x6_seventh_sharp_mass_nonauthor_bff6dc/SHARP_SEVENTH_DIAGONAL_OBSERVER_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "d0024e2d61bb2d2e18705207e1b7112501c84110"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/native6d_cf1677_nonauthor_4a56e9/NATIVE_X6_REVISIT_HISTORY_CAPACITY_INDEPENDENT_WHOLE_PAPER_REVIEW.md",
+      "blob_sha1": "6e07a8a8354273f5192c0b08e9420f9664ad93b0"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/x6_marginal32_snapshot_cf1677/X6_MARGINAL32_INDEPENDENT_SNAPSHOT_PAPER_AUDIT.md",
+      "blob_sha1": "d9452a2f743d01f326539c268a8cf2fdb5d3abdd"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/reviews/x6_marginal32_snapshot_cf1677/X6_MARGINAL32_SNAPSHOT_AUDIT_CONTEXT_AND_ACTUAL_INPUTS.json",
+      "blob_sha1": "35b37ac99e66c2ce7ffd26fe7faeb3d5aa392dcd"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/native_x6_adjacency_automorphism_cf1677/NATIVE_X6_FULL_CELL_ADJACENCY_AUTOMORPHISMS_ARE_SIGNED_AFFINE_DERIVED_NOTE_V1.md",
+      "blob_sha1": "45a01f07e9a7b7ebc599029c3e4f62b26b38c9be"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/native_x6_boxed_readout_resolution_bff6dc/BOXED_SQRT2_READOUT_FIXED_MASS_SEPARATION_SCALE_AUTHOR_V1.md",
+      "blob_sha1": "5d321d5b6c6d9a89778fa4d5ce622db4ca29e2a3"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/native_x6_finite_alphabet_consumer_cf1677/FINITE_ALPHABET_LABEL_COST_WITH_EXACT_O_AND_M_AUTHOR_COMPOSE_V1.md",
+      "blob_sha1": "0e50fc634bd7ba52d1ff960cf1e48a39105358a3"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/native_x6_global_move_mass_unbounded_cf1677/UNBOUNDED_FULL_JOINT_FIBERS_HAVE_NO_UNIFORM_FINITE_MOVE_MASS_AUTHOR_COMPOSE_V1.md",
+      "blob_sha1": "8604fbafbe849d0539bba7253c655bc96b0405c6"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/native_x6_long_axis_bff6dc/LONG_AXIS_BOX_AUTHOR_REFORMULATED_V2_20261017.md",
+      "blob_sha1": "7d048f7ad5c1d39f3429a02389a397b3e47326b6"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/native_x6_mass_capped_library_cf1677/UNBOUNDED_MASS63_LIBRARY_FIRST_FAILURE64_AUTHOR_V1.md",
+      "blob_sha1": "f56d627a8c8d9d2ba8b16e1846e2e4ad7a4bf135"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/native_x6_two_axis_simple_cycle_connectivity_bff6dc/TWO_AXIS_ALL_MASS_SIMPLE_CYCLE_CONNECTIVITY_BY_INTEGER_ROUNDING_AUTHOR_V1.md",
+      "blob_sha1": "04ce50522e7043c4c963203a1a91725e731a840f"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/native_x6_two_axis_simple_cycle_connectivity_bff6dc/TWO_AXIS_LITERAL_PALETTE_MINIMALITY_AND_SHARP_MASS_COMPOSE_APPENDIX_V1.md",
+      "blob_sha1": "3b8ec4a2c158323145770b42a5efb2ac9e7659ed"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/native_x6_two_axis_site_conformal_lift_7cda51/TWO_AXIS_SIMPLE_CYCLE_CONFORMAL_LIFT_FAILURE_AND_THREE_STATE_FIBER_WORKING_AND_CONTEXT.md",
+      "blob_sha1": "59fdf33c3f9b97c911ba9a66d13ba33657e98006"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/native_x6_two_long_axes_bff6dc/TWO_LONG_AXES_MASS64_EXTENSION_OBSTRUCTION_AUTHOR_V1.md",
+      "blob_sha1": "899134e1235770a27b9aa3d96773255706824735"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/reviews/native_full_cell_adjacency_nonauthor_185026/NATIVE_X6_FULL_CELL_ADJACENCY_SIGNED_AFFINE_NONBLIND_COMPLETE_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "348d8d7b997cd288fa3ff4ed353aaa20e9f088eb"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/reviews/native_seven_readout_three_scope_4a56e9/LONG_AXIS_BOX_INTERVAL_CONNECTIVITY_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "0d4d62499e495fd173d53553417c2d7fab8cb85e"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/reviews/native_translation_phase_min64_nonauthor_bff6dc/NATIVE_X6_FINITE_TRANSLATION_PHASE_MIN64_NONBLIND_COMPLETE_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "576de501c6ea3770ad2dd62e441879de74cc9fdc"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/reviews/native_x6_boxed_resolution_nonauthor_cf1677/BOXED_SQRT2_READOUT_FIXED_MASS_SEPARATION_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "4b324425552c959e1c3485e8e261a550b1a6dfa1"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/reviews/native_x6_finite_alphabet_nonauthor_bff6dc/FINITE_ALPHABET_EXACT_SIDE_INFORMATION_NONBLIND_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "c5db4a573f91b2fff95caad830e394ba0af202aa"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/reviews/native_x6_fixed_mass_bounded_range_reissued_4a56e9/FIXED_MASS_COMMON_BACKGROUND_BOUNDED_RANGE_REISSUED_WARM_V2_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "57b544c2ac2124fa0cdf03ae3aa0539208abb1ce"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/reviews/native_x6_global_move_mass_nonauthor_bff6dc/GLOBAL_FULL_JOINT_FIBER_MOVE_MASS_NONBLIND_COMPLETE_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "9dec3171a512a690c0edbf78e7de77314418ddde"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/reviews/native_x6_literal_palette_sharp_nonauthor_cf1677/LITERAL_TWO_AXIS_PALETTE_MINIMALITY_AND_SHARP96_NONBLIND_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "e47e7e28602833cbfd3e606a27de0effc69081c1"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/reviews/native_x6_sensor_fibers_nonauthor_cf1677/NATIVE_X6_SIX_POSITIVE_NEIGHBOR_FIBERS_NONBLIND_COMPLETE_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "ef7802a72ddd5f0d7b172b8989084c0499d8e2d7"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/reviews/native_x6_two_axis_simple_cycle_nonauthor_cf1677/TWO_AXIS_ALL_MASS_SIMPLE_CYCLE_NONBLIND_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "f262c0fa08b22ea03640770cc432c7f9ebd01a69"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/reviews/native_x6_two_axis_site_conformal_lift_nonauthor_4a56e9/TWO_AXIS_SITE_CONFORMAL_LIFT_AND_THREE_STATE_FIBER_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+      "blob_sha1": "d70e1e30633ed89221eba054e61aa2c13ccbe443"
+    },
+    {
+      "path": "research_notes/owner_goal_20261017/reviews/native_x6_two_long_axes_nonauthor_7cda51/TWO_LONG_AXES_MASS93_TWO_STATE_FIBER_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.json",
+      "blob_sha1": "e1fdfdd3ffb52959c6c7602a04340ced038f22bb"
+    },
+    {
+      "path": "research_notes/OWNER_X6_CURRENT_PUBLICATION_ISOLATION_20260907.md",
+      "blob_sha1": "48d93ee6d0566fc2b30b5af2ff168c0d60467789"
+    },
+    {
+      "path": "research_notes/OWNER_X6_STABILITY_20260907.md",
+      "blob_sha1": "f7790471407dccabf062775faf438bb365121779"
+    },
+    {
+      "path": "research_notes/P000_FCC_S4_Z2_PRIOR_ART_SYNTHESIS_20260829.md",
+      "blob_sha1": "808ea54b4a85b30441c44c851e070a6c594660ea"
+    },
+    {
+      "path": "research_notes/P000_P11_COORDINATEFREE_SCHUR_GHOST_OBSTRUCTION_20260923.md",
+      "blob_sha1": "a0da65d4d446f5de976a63c37587be2d4824a24a"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-02_prefix436_signed_x6_c4_holonomy_and_q_lucas.md",
+      "blob_sha1": "795edf35a86b6b083021a89c2ae9789f3ece7736"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-02_prefix438_x6_typed_brc_port_moment_fiber.md",
+      "blob_sha1": "7863b1a0d6d5e67a9f8fc956893a2d3ced12dbd9"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-03_prefix447_native_x6_quadratic_port_rank.md",
+      "blob_sha1": "aa06a8be255b1c3c52e9350d68e51487c9087f19"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-03_prefix448_sharp_x6_quadratic_full_rank_duration.md",
+      "blob_sha1": "5a466c03d510996cfb671c92b2201ff0b697f136"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-03_prefix449_sharp_native_x6_cubic_rank_duration.md",
+      "blob_sha1": "fc64762e6130a5ba8f871c5cfa7b50a5481179f2"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-03_prefix450_all_degree_native_x6_brc_rank_threshold.md",
+      "blob_sha1": "c7b3d52a95dc7957302ab2aafa1c2994bb70c811"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-03_prefix457_sextic_x6_boundary_exact_rank.md",
+      "blob_sha1": "7bf7d8b060178eea302e46ea2d5be99ada0413c9"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-03_prefix458_septic_x6_boundary_exact_rank.md",
+      "blob_sha1": "ddbfb3ea4c674ceb041648be04b4aedbc730fd6b"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-03_prefix462_native_x6_toric_occupation_fiber.md",
+      "blob_sha1": "cc2d23e01559be91f9823b3648adb9ee96902664"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-03_prefix464_finite_horizon_bit_codec_and_streaming_x6.md",
+      "blob_sha1": "7a13e0418d934defa19d8e3f9c1834390c27e5f9"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-04_prefix472_codebook_free_rank_unrank_x6.md",
+      "blob_sha1": "626f0ca1d731291babc94a5ffd1069601f17a7dc"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-06_prefix530_49_coordinate_rank_one_linear_lift.md",
+      "blob_sha1": "58cf5e5cb9c6bd2144a550661191622ad43cd353"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix600_r6_phase_matching_sparse_inverse_smith.md",
+      "blob_sha1": "65d1e5494fd757e8aa3fe8e3315e4994414d2745"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix600_r6_sparse_phase_inverse_seven_reward_codec.md",
+      "blob_sha1": "48d276c3a5df766a0305aa3031bdae4257c12abf"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix601_r6_general_two_occurrence_three_star_inverse.md",
+      "blob_sha1": "20c67daa27d9fa55585dde4cab5238cd329dd940"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix601_r6_native_phase_weighted_discriminant.md",
+      "blob_sha1": "d527375779f0da2db510e46c1483c36b9f5fbb93"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix602_r6_minimal_native_phase_repair.md",
+      "blob_sha1": "b3f00402a1b72f935c3bae8b9acc857e5c3038b1"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix603_r6_binary_native_branch_restores_singular_phase.md",
+      "blob_sha1": "6e820a1681a06b6b14de196dde56656f8b8314f5"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix604_r6_seven_rewards_cannot_repair_phase_loss.md",
+      "blob_sha1": "32f42be505006b36fc5d9c665ef80a00cd868eba"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix605_r6_all_binary_native_slot_partitions_sharp_repair.md",
+      "blob_sha1": "85cb76f66dc423e095e089c9fc212e36f54fd88b"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix606_r6_native_binary_tag_exact_tv_efficiency.md",
+      "blob_sha1": "61196b30013679506dc80be2a8635317f97df667"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix607_r6_finite_sample_internal_slot_conditioning.md",
+      "blob_sha1": "47478a2db27f1036de18f9480a3054214117996e"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix608_r6_binary_slot_fisher_information.md",
+      "blob_sha1": "661b6afce6d29144adf73440bcb47423a18561fd"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix609_r6_joint_multicritical_fisher_diagonal.md",
+      "blob_sha1": "0ec93a4f0208f3ab1b8eaef49692e5969d54d3ec"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-08_prefix610_r6_exact_signed_coin_likelihood.md",
+      "blob_sha1": "3ccd99b530daf5e73cbd7fe458b57f77fa2f9eb1"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix611_r6_multicritical_coverage_blackwell_order.md",
+      "blob_sha1": "f7b8dd3f5d3e7f71e60d2913bb4212e6fa2c6c72"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix612_r6_exact_simultaneous_confidence_count_only_stopping.md",
+      "blob_sha1": "cb8533b34d8b12eeb5770d9618cb39238cecda72"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix613_r6_anytime_native_signed_label_confidence.md",
+      "blob_sha1": "c6f6be14e3dbeab4afe88ff0384ab19f2c334348"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix614_r6_exact_coverage_waiting_time_moments.md",
+      "blob_sha1": "64765542c297006a57eb622b0917b65fa1dc398f"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix615_r6_neutral_thinning_adaptive_stopping_law.md",
+      "blob_sha1": "7b451d4ba6c76161f7372973df87659cfbca58e2"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix616_r6_sign_complete_coupon_cost.md",
+      "blob_sha1": "cbd485e927c5d0e4f5658c195594b180324c5ee8"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix617_r6_anytime_confidence_diameter_rare_sign.md",
+      "blob_sha1": "13ca2b153f238b1cd68515a9ab96ac457599dd07"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix618_r6_balanced_anytime_exact_sampling_cost.md",
+      "blob_sha1": "798684fe1cc75bc6973ab5712144367616d3af77"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix619_r6_rational_asymmetric_confidence_cost_polynomial.md",
+      "blob_sha1": "b4a2129763a97337b897fb8cd2c4825e3aee8fcb"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix620_r6_global_worst_balanced_parameter_theorem.md",
+      "blob_sha1": "f81009bf404aef1340ace0428f110a12a71bc8c0"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix621_r6_sharp_stochastic_tail_quantiles_and_root_fix.md",
+      "blob_sha1": "9042349ef73379c3114aa62effae1cc491947adf"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix622_r6_variance_counterexample_brc_stopping.md",
+      "blob_sha1": "5c7c6e7533516b196f1d1a53638baec89abc0958"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix623_r6_boundary_variance_stationary_bracket.md",
+      "blob_sha1": "6fa509202cfab93f42318f30da50026b27d285cc"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix624_r6_strict_edge_variance_maximizer_order.md",
+      "blob_sha1": "aec99dd73b9bc2e2d7548a473397887e531aa1d6"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix625_r6_bivariate_global_variance_optimizer_order.md",
+      "blob_sha1": "8e6fd34ef3d4fc8ee868c8c0aab2fc6497a539d5"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix626_r6_uniform_inward_variance_gradient.md",
+      "blob_sha1": "47d52749c56a6dd418b1f30a5869b4a8ccec5caa"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix627_r6_explicit_uniform_inward_variance_strip.md",
+      "blob_sha1": "fe6bfe4558af61f8dde6aa4da578ebbfae10688d"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix628_r6_taylor_majorant_edge_strip_1024x.md",
+      "blob_sha1": "de3e95aa3a8ce97ad5f09b12f272be92b18229e1"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix629_r6_signed_bernstein_variance_exclusion.md",
+      "blob_sha1": "4689990244a6af36d3e67b2e893f8eecd5999310"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix630_r6_offstrip_variance_gradient_patch.md",
+      "blob_sha1": "e92c5cd2f89d04aff2407c6daf473a5fa3624a4f"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix631_r6_uniform_gradient_reversal_valley.md",
+      "blob_sha1": "172c2c849c9d56cb0995c6dd6e9284ab8cdd141c"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix632_r6_strict_valley_minimizer_order.md",
+      "blob_sha1": "b3c85c58c58a20ebcd051bf12d30fc7cad2cb3d4"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix633_r6_uniform_valley_separation.md",
+      "blob_sha1": "fdd21fdb12e34cb120f7315de149942a0b5e293f"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix634_r6_strong_concavity_and_sharper_valley_gap.md",
+      "blob_sha1": "5209e1f36aec37e174a7b0816181b9d69c4dc365"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix635_r6_central_slice_unique_valleys.md",
+      "blob_sha1": "c8bdf9468037f8e49d0f517a858a2fca37df7262"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix636_r6_transverse_unique_valley_stability.md",
+      "blob_sha1": "f5cad6376707d1c2cdbf0cc0c558bd35a86393eb"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix637_r6_quantitative_optimal_value_curvature.md",
+      "blob_sha1": "a4b599e899df7e4b2c900da550fbd42ca5d4f652"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix638_r6_exposed_mean_variance_arc.md",
+      "blob_sha1": "bed6db690eae36f2f6dadd8daf607b6c8e207ae2"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix639_r6_full_central_valley_convexity.md",
+      "blob_sha1": "554bb69beb2085371fbab2a9a9426359a63731c6"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix640_r6_full_valley_transverse_strip.md",
+      "blob_sha1": "1625edd42d0335731c88fadbef619cb3a6d3f207"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix641_r6_degree_refined_transverse_valley.md",
+      "blob_sha1": "534a4e7ea24c4608224685f85b23b6135b6501a5"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix642_r6_poisson_cap_sevenfold_valley_strip.md",
+      "blob_sha1": "bc26344a2dc79cdff0bbce7506af27610d1d5f0e"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-09_prefix643_r6_binomial_score_146fold_valley_strip.md",
+      "blob_sha1": "ad316572f71ccbcf853ff3af4f898b4e6982c722"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_h40_brc_x6_d8_all_5217_fiber_connectivity_author_portable.md",
+      "blob_sha1": "6d24a242f7e3807e98fae4c4aec9639e5631dc74"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_h40_brc_x6_d8_eight_absent_5217_support_12_singletons_author_portable.md",
+      "blob_sha1": "cbfff02d788f4a3a03f1d1f84a1f6b4999c8a3b0"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_h40_brc_x6_d8_five_absent_388744_fibers_quadratic_author_portable.md",
+      "blob_sha1": "99f35d90ecb5d3c1d2c755f9be1f1defe12a3099"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_h40_brc_x6_d8_five_max22_quadratic_fibers_300465_author_portable.md",
+      "blob_sha1": "301a1e471e10f61c69afca60c2be7b4b105b9729"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_h40_brc_x6_d8_six_absent_799650_fibers_quadratic_author_portable.md",
+      "blob_sha1": "2093eadbcec0a45b1bee9b253e651ff648778e1e"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix644_r6_krawtchouk_score_wider_valley_strip.md",
+      "blob_sha1": "ac312f392b44ab347eb65c32233e578b828d5d78"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix645_r6_all_order_cumulant_transfer_and_negative_skew.md",
+      "blob_sha1": "6a7ef73f3af02320f8ac2f9b73522a2bd9f14652"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix646_r6_negative_skew_rectangle.md",
+      "blob_sha1": "5fe5af2a954be6e0398e343490edd6f8a66b6a60"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix647_r6_fourfold_negative_skew_rectangle.md",
+      "blob_sha1": "5b1aabc349bacf7f6946e399fdf87d7bdf53b151"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix648_r6_positive_fourth_cumulant_rectangle.md",
+      "blob_sha1": "5748f3dea163737e34a337e0f2a21648feacf60b"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix649_r6_standardized_cumulant_slot_flow.md",
+      "blob_sha1": "ce3df43911c4ebd5b6d7b4ab77c5d08398802490"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix650_r6_two_slot_shape_extrapolation.md",
+      "blob_sha1": "c6c5f2f1fc1b33be1f3c7be0f5b193e6ebe8ebcc"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix651_r6_three_slot_shape_extrapolation.md",
+      "blob_sha1": "c8ea660601666c1c84ccfdc0b904834d361bbff5"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix652_r6_nonzero_three_slot_error_witness.md",
+      "blob_sha1": "046415827485963b0a78a12a5deafc729030f2f6"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix653_r6_variance_boundary_and_four_slot.md",
+      "blob_sha1": "5f5729a95ba664d828575fb8489d1ac22c178de4"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix654_r6_single_variance_edge_strip.md",
+      "blob_sha1": "dfa27c5cfd862e286528cf89e915da927a3c2a00"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix655_r6_unique_variance_corner_certificate.md",
+      "blob_sha1": "2ff328065a34c3562cbc27f63d1ddd8649d822d9"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix656_r6_symmetric_corner_stability.md",
+      "blob_sha1": "ebaf1c9bc7dde99ed58530b336d359cf757be6c8"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix657_r6_certified_left_extension_of_variance_corners.md",
+      "blob_sha1": "10afc4c745601b20179af538060dbf762e72fd01"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix657_r6_external_competitor_rectangle.md",
+      "blob_sha1": "4e567e10c0b2526ba955d4e8c94dccb0a5ac7566"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix658_r6_full_domain_octant_competitor_orbit.md",
+      "blob_sha1": "314a061b0baeca42edf316c1fc3dcd69e6d890f8"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix659_r6_exact_boundary_competitor_and_slot_transition.md",
+      "blob_sha1": "a7da4a0565c32ac4a37ea02fbbc60ac7d95ea44d"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix660_r6_moving_edge_maximum.md",
+      "blob_sha1": "892b2ec2cab13acbd17b606ea4667f0bb9a47f9a"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix661_r6_uniform_edge_strip_stability.md",
+      "blob_sha1": "5ae175f548f9c1ca89a7dca28186ecf6dccb90d6"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix662_r6_low_count_512x_strip.md",
+      "blob_sha1": "e5a5646fb52c2508ef773a068330c0d3dd331535"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix663_r6_sixteenfold_boundary_strip.md",
+      "blob_sha1": "5a60bbf394ce29d40cd4bf31a93def2edbb20235"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix664_r6_k1_bernstein_local_mean_strip.md",
+      "blob_sha1": "bc89f3555e7a65650933ab61684363006cd20e4f"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix665_r6_signed_curvature_eightfold_strip.md",
+      "blob_sha1": "04d8f6d85724a09072743611cd3c2171154a8962"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix666_r6_taylor_bernstein_16x_strip.md",
+      "blob_sha1": "c3c60b0a39fd8cc1939fb9f79282ce72fcf9c07e"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix667_r6_signed_bernstein_double_strip.md",
+      "blob_sha1": "1fcec6585dcfd18d338d9ea2de49c9199f6e239b"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix668_r6_coupled_block_quadruple_strip.md",
+      "blob_sha1": "e762270fe20c5174b93ecf6c53beafaf5cd9df68"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix669_r6_edge_slot_strong_convexity.md",
+      "blob_sha1": "285db945d2891f058e323c843c577d3b56f0c10c"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix670_r6_slot_resolved_normal_stability.md",
+      "blob_sha1": "301fb15f3b7ad45f34c7a633c3bea3f784121cd0"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix671_r6_fixed_witness_uniform_pruning.md",
+      "blob_sha1": "dccbda6d4327124374b8feb68d4706bdca9ea8ed"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix671_r6_nonconcave_fixed_z_variance_witness.md",
+      "blob_sha1": "78313384232b5f78f7e1b2c3ba260f316c8042de"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix672_r6_slot_coupled_fixed_witness_pruning.md",
+      "blob_sha1": "2638e9c1908af6d95126a8766434fcca74b6f82c"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix673_r6_dyadic_fixed_witness_slot_exclusion.md",
+      "blob_sha1": "f12eb4bd42143a5835e44989d29bc8214fa97d45"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix674_r6_uniform_slot_adaptive_dyadic_witness.md",
+      "blob_sha1": "668b616deac3e89371ad9d51d7c615ec06ced4a6"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix675_r6_complete_global_edge_maxima.md",
+      "blob_sha1": "c02bb1b7121a9a774b75899382da8ea5fb8be9d0"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_prefix676_r6_stochastic_order_and_diagonal_slot_transition.md",
+      "blob_sha1": "ecd132203e7127e86ce8996503a7f296b6398ed1"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-10_r6_prefix676_followup_simple_crossover_235445.md",
+      "blob_sha1": "e78262a3f4972e67e1353b03faddca55c18c446a"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix677_local_taylor_crossover_band.md",
+      "blob_sha1": "54488c286342fddc37863bd23f4d7aa40b571c4f"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix678_optimized_slot_crossover_band.md",
+      "blob_sha1": "f496abcded2eca7cd4ebe863513c38614c606e87"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix679_transverse_crossover_conditioning.md",
+      "blob_sha1": "e85aeca959cad86bf13a02464b3812acab1984f1"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix680_third_order_large_crossover_band.md",
+      "blob_sha1": "23a084242113a79297a98a2792cc83e573853983"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix681_variance_difference_zero_pole.md",
+      "blob_sha1": "eb741a0202ff76b2d1b912111c201511ac977675"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix682_simple_variance_pole_large_slot_branch.md",
+      "blob_sha1": "e22c8ba765cd62c313af6d5c205861923bbd1097"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix683_strictly_concave_large_slot_crossover_branch.md",
+      "blob_sha1": "0fd89b2fdc3131f476fbe331d6c54f2daa34c331"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix684_exact_local_entry_threshold_and_concavity.md",
+      "blob_sha1": "1f214db22349083c504bd64fe90954347629743d"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix685_exact_local_entry_threshold.md",
+      "blob_sha1": "9f277d6f34f39ff847dfc73db13953ac801aa4c6"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix686_first_integer_crossover_location.md",
+      "blob_sha1": "4360a129da4e2ba243294e8725c68cdb700f10df"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix687_uniform_integer_branch_envelope_and_second_order_asymptotic.md",
+      "blob_sha1": "fac75d3d29a6b1a264f7606039669cd877ca9f4c"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix688_low_slot_exact_local_crossover.md",
+      "blob_sha1": "29bbe382b917fc3ae525b23c65c73edfae017ce8"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix689_continuous_q_crossover_collars.md",
+      "blob_sha1": "a71e52b53df1a840a97ad4066fbfebfa39a18ad0"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix690_affine_sign_bridge.md",
+      "blob_sha1": "36cd4055c425421798b028f07725c47e5427e0be"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix691_q18_taylor_stability.md",
+      "blob_sha1": "73f3cedfcd13d85951aa2b570ab16ed6aa60d2f8"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix692_nested_sign_ordered_extremal_roots.md",
+      "blob_sha1": "c76f9760f32bd1cf81d8a81c7359afd7b8fdb0fc"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix693_global_bridge_uniqueness.md",
+      "blob_sha1": "662d20ee06e8d064e037bd000df6f7a77cdc36f1"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix694_strict_convexity_inverse_concavity.md",
+      "blob_sha1": "9075528f6262e1846b7bcf2de76fa3c15c98a191"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix695_exact_jet_reconciliation_and_safeguarded_newton.md",
+      "blob_sha1": "48a49b6bff76bfd8225711e4083eb17b0d4f9633"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix696_symmetric_extended_bridge_q12_to_q45.md",
+      "blob_sha1": "7a67ceddb6342ac6f4a2ebaaf3d6156def2f4394"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix697_exact_bridge_endpoint_q_range.md",
+      "blob_sha1": "a51358967dd94092dfe9bd10e54359c7807435ce"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix698_symmetric_exact_bridge_q10_to_q446.md",
+      "blob_sha1": "11e262e8486b525af3cb8e316b9e6d80d6d9b8af"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-11_r6_prefix699_complete_crossover_ray_q_ge_10.md",
+      "blob_sha1": "d92c056937e9c472c4a5b3bc6952845901aab5fe"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-12_x6_time_cut_lattice_and_C12_winding_residual_r2.md",
+      "blob_sha1": "82e1a9a58e938c2ce2455b3114a2b2226e89a5c2"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-12_x6_time_one_causal_crosslink_cut_polynomial_r2.md",
+      "blob_sha1": "b30951885d32a004d9e744b182f72796c8847df6"
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-12_x6_time_v29_native_ledger_cut_witness_r2.md",
+      "blob_sha1": "c90df14f5a944becda61aaedbb10df85f23c2335"
+    },
+    {
+      "path": "research_notes/portable_direct/20261024_hourly_d25_frozen_Rp_two_state_causal_brc_bridge.md",
+      "blob_sha1": "37c091290aa970aa7737e850bf28551e828d7ae1"
+    },
+    {
+      "path": "research_notes/portable_direct/20261101_hourly_d25_teich_frobenius_coordinate_defect.md",
+      "blob_sha1": "162c4b2a8233f3f5d961e460b290246494bb17ce"
+    },
+    {
+      "path": "research_notes/portable_direct/20261108_hourly40_x6_k31_k33_author_portable_summary.md",
+      "blob_sha1": "27e04bf69f8200dbf10620fd3fcf09357c6c9f14"
+    },
+    {
+      "path": "research_notes/portable_direct/20261108_hourly40_x6_k34_k35_author_portable_summary.md",
+      "blob_sha1": "6124cf56cbefc7d31045ebb685d5bba59da9e601"
+    },
+    {
+      "path": "research_notes/portable_direct/20261108_hourly40_x6_k36_k58_nonnesting_exact_interval_author_portable_summary.md",
+      "blob_sha1": "6316fe98a00171f5ea3699aed8c098bbc1441251"
+    },
+    {
+      "path": "research_notes/portable_direct/20261111_onhour_d25_e3_formal_pjet_coordinate_gauge.md",
+      "blob_sha1": "f42f2ecdc01e4b87920abc0cac4c17ab53f2ad3a"
+    },
+    {
+      "path": "research_notes/portable_direct/20261112_onhour_x6_star_triad_signed_group_and_brc_convolution.md",
+      "blob_sha1": "49d76a1d7240fd7ca696636f591a57d90fec1ff7"
+    },
+    {
+      "path": "research_notes/portable_direct/20261112_onhour_x6_triads_c6_group_brc_fibers.md",
+      "blob_sha1": "5ad8af2e36a91b8425068425e032618384e646f9"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_e3_formal_pjet_coordinate_gauge_20261111.py",
+      "blob_sha1": "fa2ba4a3fe54127dde8a8326d7f0c3ae204ae3d3"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_frobenius_coordinate_defect_20261101.py",
+      "blob_sha1": "4aa74b34e57b0d2f2cacca4a67d955e2e0061df3"
+    },
+    {
+      "path": "research_notes/portable_direct/prefix447_x6_quadratic_port_certificate.py",
+      "blob_sha1": "76bc4a12fa43759dac1f2979d53302aadb053ed4"
+    },
+    {
+      "path": "research_notes/portable_direct/prefix450_arbitrary_degree_x6_certificate.py",
+      "blob_sha1": "6d2f0e5ca992725294dea0d600dfda35cd44cdf7"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX600_R6_compact_native_certificate.py",
+      "blob_sha1": "91ffe717c3db9c8c6219c488bbc6c3bc7ae0b06e"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX600_R6_phase_pair_sparse_inverse_certificate.py",
+      "blob_sha1": "e2f890200ed4ec142df44acdccc083f67ba91c6c"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX600_R6_RESULTS.json",
+      "blob_sha1": "89f31f07c999f24e184cd03ac379fa36782c1c3f"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX600_R6_SPARSE_INVERSE_RESULTS.json",
+      "blob_sha1": "876e13841b0c9b4b209731c431db09e10fa247dc"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX601_R6_general_three_star_phase_certificate.py",
+      "blob_sha1": "368ab251cd357e4d2e8434cc8064937b6a18a345"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX601_R6_RESULTS.json",
+      "blob_sha1": "9e2ed3731fb56620de1b853ba7a5904d0d7ed529"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX601_R6_WEIGHTED_RESULTS.json",
+      "blob_sha1": "be453bd5359167b3b32298159515a53a195cefb0"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX601_R6_weighted_short_certificate.py",
+      "blob_sha1": "2a9fcad9d49c17c9ff4c8ef026e04f175199509b"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX602_R6_native_phase_repair_certificate.py",
+      "blob_sha1": "db66fb462d7c21a4fcb9e2f67abc58b7d4708a60"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX602_R6_REPAIR_RESULTS.json",
+      "blob_sha1": "76f87a449b71131d8668fba8e8a74834fc673d1d"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX603_R6_internal_branch_observer_certificate.py",
+      "blob_sha1": "ad830e11c9bf93b81b3b13c5f1e431ad372098e8"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX603_R6_RESULTS.json",
+      "blob_sha1": "ab785527d86f4077319ee50aa09ba3289c1f4c40"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX604_R6_full_reward_phase_nonrepair_certificate.py",
+      "blob_sha1": "1acd40bbba30345ce686e5bc89444227f9886e10"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX604_R6_RESULTS.json",
+      "blob_sha1": "2271936a48ce7c9e2d612e87794d16d24ff7b3c9"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX605_R6_binary_tag_certificate.py",
+      "blob_sha1": "cc787b71a03034163c8b3371e90a8de74a3c1ca3"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX605_R6_COMPLETE_LAURENT_ENDPOINT_TABLE.json",
+      "blob_sha1": "6928a8a5249cd58e46caefceff9f9d2a50f22fb4"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX605_R6_RUN_SUMMARY.json",
+      "blob_sha1": "db6291ed9ddb76724212c62723532ca4e0069f08"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX606_R6_exact_total_variation_tag_certificate.py",
+      "blob_sha1": "d9f7de8fdc87426ffb2c9af842cb45ab9a4b2883"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX606_R6_RUN_SUMMARY.json",
+      "blob_sha1": "3f4ad9e163b1eeab2e494ba9938fc678b59caf22"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX607_R6_reproducible_certificate.py",
+      "blob_sha1": "cc274d214b1051f6829fe5c977d40da7579737c4"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX607_R6_RESULTS.json",
+      "blob_sha1": "fb81fe40f566952a3a74eb77c0252975211c1fd3"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX608_R6_exact_fisher_information_certificate.py",
+      "blob_sha1": "45b20151975fa8a9aa89994e7fc83cdcb0c7f6d1"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX608_R6_RESULTS.json",
+      "blob_sha1": "880adfa37a1a8c1f7afb4f31533ec8a9c3d6f02d"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX609_R6_multi_fiber_fisher_certificate.py",
+      "blob_sha1": "ed4cb5a48b0cdf9e319ba2199e5e6c752d33152d"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX609_R6_RESULTS.json",
+      "blob_sha1": "9a8888fbe8c65302351654702034a8203e31e956"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX610_R6_exact_finite_sample_sign_certificate.py",
+      "blob_sha1": "37d7a9bb5141d70494c944d0781b05ad311a9da5"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX610_R6_RESULTS.json",
+      "blob_sha1": "daea0a29343b4975820ff1c5d1d921cf53dcdada"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX611_R6_coverage_blackwell_certificate.py",
+      "blob_sha1": "a7ed458b9987ef4229108a3befe846e8db4852bd"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX611_R6_RESULTS.json",
+      "blob_sha1": "eee6aa9bc23302b2c2d8a0bab20389c55fa38005"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX612_R6_exact_joint_confidence_certificate.py",
+      "blob_sha1": "6bf9b6892b432e161b6d9849e51069b76ae8f616"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX612_R6_RESULTS.json",
+      "blob_sha1": "f319a27ceef03f6a0cf85932f582d69ebb66293e"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX613_R6_anytime_BRC_signed_coin_certificate.py",
+      "blob_sha1": "e327e7d8e7f57494410060d848a4f36a35f75b4f"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX613_R6_RESULTS.json",
+      "blob_sha1": "478497a476c6daab7830dacd50d1b96b6b3d81fb"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX614_R6_exact_waiting_cost_certificate.py",
+      "blob_sha1": "9ea8cd242022f237f728ecca327a8b7e878bf4b1"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX614_R6_RESULTS.json",
+      "blob_sha1": "44d132b3d098edf8a4a7104b8b1478452ce4b433"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX615_R6_geometric_time_change_certificate.py",
+      "blob_sha1": "ab346560f25e9de7b5678de0e182ba4b87e75ca3"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX615_R6_RESULTS.json",
+      "blob_sha1": "2e31628f0dddb79265743308f88058ac9fb8fbb3"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX616_R6_RESULTS.json",
+      "blob_sha1": "4f0029caf25c11253ae3273a9007b7e33926ce68"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX616_R6_sign_complete_coupon_certificate.py",
+      "blob_sha1": "524787a6b996753dca5e47a82b9c4f99977fe883"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX617_R6_anytime_diameter_stopping_certificate.py",
+      "blob_sha1": "cc9c4bc73bde3930b4a9d1157d1d0b7ee7a6bb3e"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX617_R6_RESULTS.json",
+      "blob_sha1": "ca0795a194e3cf557c1ccd64105354f3cabfd712"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX618_R6_exact_balanced_stop_certificate.py",
+      "blob_sha1": "78b0c14468601e99d34707c6b62e0e403be9a6a2"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX618_R6_RESULTS.json",
+      "blob_sha1": "75f05fc6e257c3c4fa421a4e437d3f57777ab69c"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX619_R6_rational_parameter_cost_certificate.py",
+      "blob_sha1": "2d49f87733f482c80087c9a8947bbae56e1fafcb"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX619_R6_RESULTS.json",
+      "blob_sha1": "256787dafbdccfe9fb4bc7cd7b80ea23a4b33333"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX620_R6_global_worst_parameter_certificate.py",
+      "blob_sha1": "d1cb6626359c6a6779377305e219d995aa8400e1"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX620_R6_RESULTS.json",
+      "blob_sha1": "1d9f67e5767dbb72a2101d1e8247a5f94cba57e6"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX621_R6_RESULTS.json",
+      "blob_sha1": "aabe8af50a4da6e186e1897718a31704d0391f34"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX621_R6_stochastic_tail_certificate.py",
+      "blob_sha1": "8741afad575cd5e13f6483f40ab1f907cc3ce423"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX622_R6_RESULTS.json",
+      "blob_sha1": "8fee925eb8bb958405d00402f7bb0f9ef7a8fd42"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX622_R6_variance_counterexample_certificate.py",
+      "blob_sha1": "d42b944143d6d0710ac5826c28f1fceb5e3a53e5"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX623_R6_boundary_variance_stationarity_certificate.py",
+      "blob_sha1": "78cc56b85e6c87b2f446aadaf07bc10f30316fc7"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX623_R6_RESULTS.json",
+      "blob_sha1": "aaeb44ee0ba974a4b1dd52d4094b710ed7367b6f"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX624_R6_RESULTS.json",
+      "blob_sha1": "82e94bbe03d443f72db8bef87853f16d0a856db5"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX624_R6_strict_variance_maximizer_order_certificate.py",
+      "blob_sha1": "a5496a8cf7a7379732590d10c6d2d7ffe5f9cc77"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX625_R6_bivariate_global_optimizer_certificate.py",
+      "blob_sha1": "1c34d4a25527157f38e7922a28d02253dd91db77"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX625_R6_RESULTS.json",
+      "blob_sha1": "0cf7e6bd61fc1aa35161738103797e324f7c4ec0"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX626_R6_boundary_normal_variance_certificate.py",
+      "blob_sha1": "7dbdd55cb1a4bd6962e487b3319df04f4458af55"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX626_R6_RESULTS.json",
+      "blob_sha1": "e750c80cdbc2f1b8047a9cccbb078a9be77eed3c"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX627_R6_RESULTS.json",
+      "blob_sha1": "a3b3ba53dee94ea55f16dc413259048bcff4da32"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX627_R6_uniform_inward_strip_certificate.py",
+      "blob_sha1": "65802e3b291629a9ea512a298b93de0579e64094"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX628_R6_power_series_edge_strip_certificate.py",
+      "blob_sha1": "49379a24f527cc529cc7893a3e3e4c43dc31b6c8"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX628_R6_RESULTS.json",
+      "blob_sha1": "3265904f825af5941e110098e7c8041078ffcfe7"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX629_R6_bernstein_signed_interval_certificate.py",
+      "blob_sha1": "026811f8643420d79013852d3066210e9f0ae77a"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX629_R6_RESULTS.json",
+      "blob_sha1": "2f06602990a00c5aa6d16011e2acb733418ebf00"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX630_R6_disconnected_variance_patch_certificate.py",
+      "blob_sha1": "078e7b71b81bd868a5ecefb54ad00eaa88dba4c0"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX630_R6_RESULT_DIGEST.json",
+      "blob_sha1": "ad5888d7305139d3422cbc376ff314ec23511744"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX631_R6_RESULTS.json",
+      "blob_sha1": "f5c765d8cca94ffbbb177732240292b5b5a0f58d"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX631_R6_uniform_gradient_reversal_certificate.py",
+      "blob_sha1": "17b2aee4cc9d1a6a1f9bfd2e841aee537b4f0fb4"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX632_R6_minimizer_order_certificate.py",
+      "blob_sha1": "016bc548cac230edcdd50ce507288e9cb809d78f"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX632_R6_RESULTS.json",
+      "blob_sha1": "a9d889f1d280b6c8d1fbbc4ab8074acfd4028e4d"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX633_R6_RESULTS.json",
+      "blob_sha1": "91390690570cdcc92ea048370ebaa5fc4f35c479"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX633_R6_uniform_valley_gap_certificate.py",
+      "blob_sha1": "6b5fdeda06472f5a592825f005c9a32183db99d9"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX634_R6_RESULT_DIGEST.json",
+      "blob_sha1": "b076e65f850070fecf618ec8e3f20d11c11b1cf0"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX634_R6_uniform_q_valley_strong_concavity_certificate.py",
+      "blob_sha1": "fa3bf703595042a8363116f7fc82c9a356ead7cd"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX635_R6_RESULTS.json",
+      "blob_sha1": "0d2b3ddfba58b0e102fbd5fd62c3f074348a64b4"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX635_R6_STRICT_LOCAL_VALLEY_CERTIFICATE.py",
+      "blob_sha1": "8d1e3de6e35be0155265e831fb47250a8a753301"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX636_R6_RESULTS.json",
+      "blob_sha1": "a5bd27f792e1d8df7db85ec48a346b00afe95785"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX636_R6_transverse_stability_certificate.py",
+      "blob_sha1": "9c588b8783ddff5c0fe09b98f7ad17454e6805d9"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX637_R6_OPTIMAL_VALUE_CURVATURE_CERTIFICATE.py",
+      "blob_sha1": "3239e593f51f4a5107242a5e630f5a61a20d41e4"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX637_R6_RESULTS.json",
+      "blob_sha1": "08b42a70b77f5d82a7b55b0dc9c4d5c896fa7f90"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX638_R6_MEAN_VARIANCE_FRONTIER_CERTIFICATE.py",
+      "blob_sha1": "4160dc61625b7ee9a0eda13de3a37d1e52350eca"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX638_R6_RESULTS.json",
+      "blob_sha1": "3943d432706590e2ef9b00b0c9e3bb2418297e77"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX639_R6_FULL_SLICE_BERNSTEIN_CERTIFICATE.py",
+      "blob_sha1": "e1fe2350989214d17f50973d1aea9eb1322eb0c4"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX639_R6_RESULTS.json",
+      "blob_sha1": "643e31c8967f967e0d21abf3f8e35a0ff2ecf377"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX640_R6_FULL_INTERVAL_TRANSVERSE_CERTIFICATE.py",
+      "blob_sha1": "e74e9761bd5c746064cef0459f90133ec075c59a"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX640_R6_RESULTS.json",
+      "blob_sha1": "63fb3aa507a4b04c28226ddaa8c7a518da5948e4"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX641_R6_DEGREE_REFINED_MIXED_DERIVATIVE_CERTIFICATE.py",
+      "blob_sha1": "30bb554f358f0226575c1024dceb168dce9204d4"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX641_R6_RESULTS.json",
+      "blob_sha1": "5332e755ab8a9972276a6917bcb07be54bf798db"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX642_R6_POISSON_CAP_TRANSVERSE_CERTIFICATE.py",
+      "blob_sha1": "fa212eb93a146b77ec614011ec127015ebd1883b"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX642_R6_RESULTS.json",
+      "blob_sha1": "98a09c729e46b248454aeae443f206ceba36341a"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX643_R6_BINOMIAL_SCORE_LOCAL_DERIVATIVE_CERTIFICATE.py",
+      "blob_sha1": "3f8d96d29b031083da57c785b01b9eb40841b159"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX643_R6_RESULTS.json",
+      "blob_sha1": "486b96ad1576773009d1d19c17434c0b407fb48f"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX644_R6_KRAWTCHOUK_SCORE_CERTIFICATE.py",
+      "blob_sha1": "4578a70aeb9e1487c0839ae2bcfa33eb0d92f583"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX644_R6_RESULTS.json",
+      "blob_sha1": "f62934c7e5f906448ab8335be9f37aeae1b7e73d"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX645_R6_CUMULANT_TRANSFER_CERTIFICATE.py",
+      "blob_sha1": "7a65a4a9a5c5205774ee0657e0c7cbc45b185ba3"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX645_R6_RESULTS.json",
+      "blob_sha1": "7e4d04a60208a97a863feacc32da839a870d2479"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX646_R6_CUMULANT_SIGN_STABILITY_CERTIFICATE.py",
+      "blob_sha1": "66fd263f7fb2f8f0421455148744f22eecfd5c88"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX646_R6_RESULTS.json",
+      "blob_sha1": "52bd4d54a447c03555af6b0d3a2acc3b355a15c2"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX647_R6_LOCAL_MOMENT_ENVELOPE_CERTIFICATE.py",
+      "blob_sha1": "e753fc136f00bbcf0088feafadc12bfc658b3815"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX647_R6_RESULTS.json",
+      "blob_sha1": "bfc4e22ffffd8ed4426af1c1156aa55d1f5bd8ba"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX648_R6_POSITIVE_FOURTH_CERTIFICATE.py",
+      "blob_sha1": "d26cc456113233919f304b6d37d39c46268b39b5"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX648_R6_RESULTS.json",
+      "blob_sha1": "e084e16a3171b18e3f550402b91ddaa91d09684e"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX649_R6_RESULTS.json",
+      "blob_sha1": "419a5977f7e28e5e6adefc45ede97ca7876bf191"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX649_R6_SHAPE_FLOW_CERTIFICATE.py",
+      "blob_sha1": "4a9b9a38c532af5483138dc9a80c15d9ef66536a"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX650_R6_RESULTS.json",
+      "blob_sha1": "a14339bb073dd3fc35f43444c178dc9a89b1678e"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX650_R6_TWO_SLOT_CURVATURE_CERTIFICATE.py",
+      "blob_sha1": "071b3c3028905210b83ca3d80ba873ef7b054417"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX651_R6_RESULTS.json",
+      "blob_sha1": "33ec5e4bd4ddcbfc4bc5fad46e4d43fcd88d2d6e"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX651_R6_THREE_SLOT_EXTRAPOLATION_CERTIFICATE.py",
+      "blob_sha1": "d9a638d62fab2c675c6548fca87a9bf1f7b4b9f5"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX652_R6_RESULTS.json",
+      "blob_sha1": "c01510989b82e40054a35ba93230f7055d253d55"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX652_R6_THREE_SLOT_INTERVAL_WITNESS.py",
+      "blob_sha1": "6d9b527c885ed8339545fdcfd6a661d117664839"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX653_R6_BOUNDARY_AND_FOUR_SLOT_CERTIFICATE.py",
+      "blob_sha1": "06261752ec899c9677f958fefcd39344eda6e960"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX653_R6_RESULTS.json",
+      "blob_sha1": "3fcb58006d2614a4e019729b1f5de2fcb38d3820"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX654_R6_EDGE_SIGN_CERTIFICATE.py",
+      "blob_sha1": "682e2399460a2b619fceca1d0596db21a90d8597"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX654_R6_RESULTS.json",
+      "blob_sha1": "137fbd5733a11c5fd6d5019cfccadb124dc80f2c"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX655_R6_RESULTS.json",
+      "blob_sha1": "a5314808ea30ae5ee3feaebdb533b8aeff195d13"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX655_R6_UNIQUE_CORNER_CERTIFICATE.py",
+      "blob_sha1": "eb7c030584b7d291105794972dcd8e35c02d6e59"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX656_R6_RESULTS.json",
+      "blob_sha1": "982f1dc5e2a1e99e1ca5f2feb70ca43688bf78ba"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX656_R6_SYMMETRIC_STABILITY_CERTIFICATE.py",
+      "blob_sha1": "9b755de59aabec9cfc85d78bf2a68aae2918263d"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX657_R6_COMPARATIVE_VARIANCE_WITNESS_CERTIFICATE.py",
+      "blob_sha1": "521aad25b5f9c92c0f354ed0386fbd31f50743a9"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX657_R6_LEFT_EXTENSION_CERTIFICATE.py",
+      "blob_sha1": "e6c0f46a9498815a68108620e12798089d93736a"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX657_R6_RESULTS.json",
+      "blob_sha1": "63076b2d97ca4874ff9bc55ae6e80aa1b89deaba"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX658_R6_OCTANT_ENLARGED_COMPETITOR_CERTIFICATE.py",
+      "blob_sha1": "45b0fcace2cf67e9e2b7347c0de1dafdaf79fd06"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX658_R6_RESULTS.json",
+      "blob_sha1": "2ee58071dd21eff35dc4fb5eda394664a12ea411"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX659_R6_EDGE_SLOT_CERTIFICATE.py",
+      "blob_sha1": "f59456fa9d95dcedfe0a47d5bad0a8a331085be1"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX659_R6_RESULTS.json",
+      "blob_sha1": "30d86905e8f53da909baa7ca21ca58ddb6cc476b"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX660_R6_EDGE_CONCAVITY_CERTIFICATE.py",
+      "blob_sha1": "c0534fbd2a2e92fab13def6e727420a270d30792"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX660_R6_RESULTS.json",
+      "blob_sha1": "1bfd650fb251b9d5beeb478f4e4da715751ccb8a"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX661_R6_RESULTS.json",
+      "blob_sha1": "9c8b8848a812d46477c50199b1ed2e03a7f84c7d"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX661_R6_STRIP_CERTIFICATE.py",
+      "blob_sha1": "a59a6bcaa72f03d2a560ece88cb99a63e4eba063"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX662_R6_BOUNDARY_STRIP_512X_CERTIFICATE.py",
+      "blob_sha1": "066bef4cba49402591ca921e7a34feb94adf9944"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX662_R6_RESULTS.json",
+      "blob_sha1": "4bb88272e805edc47990cf0377356f3ba037140f"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX663_R6_RESULTS.json",
+      "blob_sha1": "026854eaacdc786691483b528913c22bd454dd88"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX663_R6_SIXTEENFOLD_STRIP_CERTIFICATE.py",
+      "blob_sha1": "e1e81bedd56b106005f3f3c5f756dce6c6456b2c"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX664_R6_K1_BERNSTEIN_LOCAL_MOMENT_CERTIFICATE.py",
+      "blob_sha1": "0f2717426cbe0f2e558e61528cbcaa4dae7aa188"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX664_R6_RESULTS.json",
+      "blob_sha1": "0d7a50d7da45669d8354b055b96dfa8e4445c29b"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX665_R6_RESULTS.json",
+      "blob_sha1": "7254cd82064fcf6ae6383b89ceef00fa9d364bf0"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX665_R6_SIGNED_CURVATURE_CERTIFICATE.py",
+      "blob_sha1": "019ba810ea8ed60301f0304521fbc01117ba9aba"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX666_R6_JET_STRIP_CERTIFICATE.py",
+      "blob_sha1": "d5eec52bab4f7bb68f75f524af0c3ef34388564f"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX666_R6_RESULTS.json",
+      "blob_sha1": "e4d89c25af57822b45cf2445090a6a755dc8f880"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX667_R6_RESULTS.json",
+      "blob_sha1": "a2c661de6d4c17bafa7bdcddf3c3c3523a8459c3"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX667_R6_SIGNED_BERNSTEIN_DOUBLE_CERTIFICATE.py",
+      "blob_sha1": "2e8165772a57b55588500340a93b2a4eeed4e90a"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX668_R6_COUPLED_BLOCK_CERTIFICATE.py",
+      "blob_sha1": "cb079ca311e56fa05d89360391f75763192b4ed3"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX668_R6_RESULTS.json",
+      "blob_sha1": "874b1afd8a189940d0a0c2c3bbd35dbc3f5819f7"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX669_R6_EDGE_SLOT_ENVELOPE_CERTIFICATE.py",
+      "blob_sha1": "dea0f3a554852c467b986b17391ca3b4f0db2452"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX669_R6_RESULTS.json",
+      "blob_sha1": "96e500bb18160feda8176d3d3289839ccbf3f28d"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX670_R6_RESULTS.json",
+      "blob_sha1": "dc5a3e9c0484b411f387d586abd37454b09e64ba"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX670_R6_SLOT_RESOLVED_NORMAL_STABILITY_CERTIFICATE.py",
+      "blob_sha1": "4c843d82be919fc7cda28f72bda4067179db157e"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX671_R6_FIXED_WITNESS_RESULTS.json",
+      "blob_sha1": "9cd003b5c58204524866783dd93261fee1fd4148"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX671_R6_NONCONCAVE_VARIANCE_WITNESS.py",
+      "blob_sha1": "9c2d2b31c1447ffd3af19b98130373cd2891b4d8"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX671_R6_RESULTS.json",
+      "blob_sha1": "93ada1877bd761077eb8a6a6cde304b99e4848f5"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX671_R6_UNIFORM_FIXED_WITNESS_CERTIFICATE.py",
+      "blob_sha1": "65fe3cea4f0b8334becf75ce18b1f4da3e088260"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX672_R6_BERNSTEIN_MONOTONE_CORNER_EXCLUSION.py",
+      "blob_sha1": "f2c155f26f3125bb1174fd15373d08caacf6ac30"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX672_R6_RESULTS.json",
+      "blob_sha1": "47705f0f4b370352b77e3c5a3e5f2fd16edc7b92"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX672_R6_SLOT_COUPLED_PRUNING_CERTIFICATE.py",
+      "blob_sha1": "aed27c4bb84f4ecf7156a74ec291d4eee0245a99"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX673_R6_DYADIC_WITNESS_CERTIFICATE.py",
+      "blob_sha1": "8c57b3e08d4411cfb1f0b2a535c59a309deab190"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX673_R6_RESULTS.json",
+      "blob_sha1": "895f41f32411870738cc17f084d504d487a92ee3"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX674_R6_RESULTS.json",
+      "blob_sha1": "14c36053e6bef1fb5b4567ea759c3345b55776d6"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX674_R6_UNIFORM_ADAPTIVE_WITNESS_CERTIFICATE.py",
+      "blob_sha1": "f668dc7d023f564e0e59ab8897b503ffad5786bf"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX675_R6_COMPACT_CERTIFICATE.py",
+      "blob_sha1": "a08ebfec8ad4b2f81b2232bef859889eb95da524"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX675_R6_RESULTS.json",
+      "blob_sha1": "3371c3f7e05155cf16afb14f4d2bc1e00fd911a6"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX676_R6_RESULTS.json",
+      "blob_sha1": "4a7851e9b2c74062ec2fa17bdc5813f7b68927c7"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX676_R6_STOCHASTIC_ORDER_AND_DIAGONAL_CROSSING.py",
+      "blob_sha1": "1108891af90b994c7058485736cb1fd01f3c1000"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX677_R6_LOCAL_TAYLOR_RADIUS_CERTIFICATE.py",
+      "blob_sha1": "a88559ecab21181841620b4bbc9e1aebd393aafd"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX677_R6_RESULTS.json",
+      "blob_sha1": "465e3e768434063b24a5e11e5310c0ba314b790f"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX678_R6_RESULTS.json",
+      "blob_sha1": "a6f48d1b6e4d637927157b039f0b9920a01a418a"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX678_R6_SLOT_BAND_OPT_CERTIFICATE.py",
+      "blob_sha1": "a07a599d3f6d5bcdc5703cbd0ac545ae82bfb815"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX679_R6_RESULTS.json",
+      "blob_sha1": "0ec9ae605d51cf6d7eb2cd0573e59a747a21ae69"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX679_R6_TRANSVERSE_CROSSING_CERTIFICATE.py",
+      "blob_sha1": "da22e68eb047dfa473c136a9b93f7852956bd003"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX680_R6_EXACT_THIRD_ORDER_CROSSOVER_CERTIFICATE.py",
+      "blob_sha1": "a99cbc8518778dbbbe896ea0ce9d1874b565989a"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX680_R6_RESULTS.json",
+      "blob_sha1": "d8618dd0c2181f082f6f21e550379f472615b557"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX681_R6_RESULTS.json",
+      "blob_sha1": "2959748cbb0628cb7aea1bf169bc71e7e67ebad0"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX681_R6_VARIANCE_ZERO_CERTIFICATE.py",
+      "blob_sha1": "c2b594e706996e0f926669304876fc2434c725de"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX682_R6_RESULTS.json",
+      "blob_sha1": "990d8adb3791e855ad0ece74c4d59d250b6b18a2"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX682_R6_SIMPLE_POLE_AND_LARGE_Q_CERTIFICATE.py",
+      "blob_sha1": "3ebe5dbc87e3c092add7dcce3a8d19bd33915163"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX683_R6_CONCAVITY_CERTIFICATE.py",
+      "blob_sha1": "c540b5d3e3c3a1a27cc7d2d8b2999824b0d9e273"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX683_R6_RESULTS.json",
+      "blob_sha1": "f0d40d7f7f8ecf07331497999287737a7ddfdec5"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX684_R6_LOCAL_ENTRY_THRESHOLD_CERTIFICATE.py",
+      "blob_sha1": "8baa79fe86f29bfff77effba73d21f8386881f43"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX684_R6_RESULTS.json",
+      "blob_sha1": "3e222d9b427189623a9b2b9ff76fc781086216db"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX685_R6_EXACT_ENTRY_THRESHOLD.py",
+      "blob_sha1": "ed98029a855e60ed24be936c35e2abdb1996bfcd"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX685_R6_RESULTS.json",
+      "blob_sha1": "8b257c824a306c4a88abfabaab10e6d7536bd296"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX686_R6_FIRST_INTEGER_CROSSING_CERTIFICATE.py",
+      "blob_sha1": "4ce51a431cf5129b6b446a4db3b053d41d385440"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX686_R6_RESULTS.json",
+      "blob_sha1": "f1b6c997b9328fd192c966b755578cb1fbef5bd8"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX687_R6_RATIONAL_BRANCH_ENVELOPE.py",
+      "blob_sha1": "c7d67a4c6dcc8eda1ef040ee67f71f4ca3bb6545"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX687_R6_RESULTS.json",
+      "blob_sha1": "c9ea1027f4d2fe1e2f7bb0dc0da1027eda16ec93"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX688_R6_CROSSING_BRACKETS.py",
+      "blob_sha1": "09e9453ad270f9197cf0bd80521bea99b3b9f3d5"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX688_R6_RESULTS.json",
+      "blob_sha1": "e7710447e549f2df799acfc38e3c25c44f8e05f7"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX689_R6_PARAMETER_COLLAR_CERTIFICATE.py",
+      "blob_sha1": "3594c9aed1c5231b58cb1882bad14a826f159799"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX689_R6_RESULTS.json",
+      "blob_sha1": "aee8582e40806d38fae2c2b75056cdb1f2d9ce25"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX690_R6_AFFINE_BRIDGE_CERTIFICATE.py",
+      "blob_sha1": "c7ff533bdbf16f9a930b546fbc583904442f8d45"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX690_R6_RESULTS.json",
+      "blob_sha1": "70f56b921e4b8e1afe45b02ab2b0c75022ec6dcd"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX691_R6_RESULTS.json",
+      "blob_sha1": "8e45de32245a005ab3987c4ba1cdb1d541881a7f"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX691_R6_TAYLOR_Q18_CERTIFICATE.py",
+      "blob_sha1": "74842260436f28e5d80d7fde5941c9f39d76afcc"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX692_R6_ORDERED_EXTREMAL_FRONTIERS.py",
+      "blob_sha1": "caffd7c7de69335b925011bb2b4c4f91172fc4b2"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX692_R6_RESULTS.json",
+      "blob_sha1": "cef9712a1752a94d0b1177cd823b9eb204c2f4ba"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX693_R6_FULL_BRIDGE_UNIQUENESS.py",
+      "blob_sha1": "d289e1beb2ab989ea5889760c0b4e06b9e542c61"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX693_R6_RESULTS.json",
+      "blob_sha1": "3789f231cc0e26a828387093ca64662f4d27aa6c"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX694_R6_CURVATURE_CERTIFICATE.py",
+      "blob_sha1": "f8ba98adb17a270b81d0c525e3a7839aef2af4dc"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX694_R6_RESULTS.json",
+      "blob_sha1": "1b4230e99fab4a61e7f48ed4ec8a46a30acb810e"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX695_R6_FAST_INTEGER_KERNEL_AND_NEWTON_CERTIFICATE.py",
+      "blob_sha1": "d63b256ed84e1aa1050a1f3ee24e15e462d05e15"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX695_R6_RESULTS.json",
+      "blob_sha1": "cf0397122cfc4ecff8fe0e366bb61034768df8ef"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX696_R6_RESULTS.json",
+      "blob_sha1": "d863ceebfa512704348aee62afde27e94f159aa6"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX696_R6_SYMMETRIC_BRIDGE_CERTIFICATE.py",
+      "blob_sha1": "e1e633d6bc6c8f4ed3335eaf9f74ed861d71d0e0"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX697_R6_EXACT_ENDPOINTS.py",
+      "blob_sha1": "81bf42ce93ff3dc9c4c5047ba8907fb1f7555157"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX697_R6_RESULTS.json",
+      "blob_sha1": "b60823050bed167b24c6a7406e8748c19280d84b"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX698_R6_EXACT_SYMMETRIC_BRIDGE.py",
+      "blob_sha1": "261eb8c6e0b36730b0dd18ffc87df9c445a349b5"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX698_R6_RESULTS.json",
+      "blob_sha1": "fd97dc5c60df692eb1b876b85ad83496d78f4c4f"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX699_R6_GLUED_BRANCH.py",
+      "blob_sha1": "531e285cbe9e377fb9ce07e3cb54280bdf5b5c6b"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX699_R6_RESULTS.json",
+      "blob_sha1": "5520c222dd3d5a8725a29bea750ce57d47d0c812"
+    },
+    {
+      "path": "research_notes/portable_direct/R6_PREFIX676_LOCAL_SIMPLE_CROSSOVER_235445_RESULTS.json",
+      "blob_sha1": "f075442ff7b26013c1bf7e1cc265af878f488d7c"
+    },
+    {
+      "path": "research_notes/portable_direct/R6_PREFIX676_LOCAL_SIMPLE_CROSSOVER_235445.py",
+      "blob_sha1": "e2488321438cdc8a26f8402f6df185ba4c26f091"
+    },
+    {
+      "path": "research_notes/portable_direct/x6_single_crosslink_cut_results_20261112.json",
+      "blob_sha1": "e76d2e36d7b4ef0e7f29323d3705f695cd7f0191"
+    },
+    {
+      "path": "research_notes/portable_direct/x6_single_crosslink_cut_verify_20261112.py",
+      "blob_sha1": "740fdb5e00d52d412eae71a71692f8d66006b049"
+    },
+    {
+      "path": "research_notes/portable_direct/x6_time_cut_lattice_results_20261112_r2.json",
+      "blob_sha1": "2e8a36f5353d60c37fcbcb6eac86d442986f0d18"
+    },
+    {
+      "path": "research_notes/portable_direct/x6_time_cut_lattice_verify_20261112_r2.py",
+      "blob_sha1": "8da3f7ec3ed2c5e7bdf65662985159c914e27ad7"
+    },
+    {
+      "path": "research_notes/portable_direct/x6_v29_count_native_cut_results_20261112.json",
+      "blob_sha1": "14fe70b90fb8f00a0560884a771c9b298b6527b5"
+    },
+    {
+      "path": "research_notes/portable_direct/x6_v29_count_native_cut_witness_20261112.py",
+      "blob_sha1": "8c43130c39e33c003e9a2062c55c990079f81e67"
+    },
+    {
+      "path": "research_notes/RECIPROCAL_FCC_SHELL_GEOMETRY_20260919_AD0416.md",
+      "blob_sha1": "61191f0656d75560df56e64e8b3aacd0ff581ee1"
+    },
+    {
+      "path": "research_notes/RECIPROCAL_NATIVE_X6_SHELLS_20260919_AD0416.md",
+      "blob_sha1": "7e1cd14d4ced002e7b34e00c3913f85235d91fd8"
+    },
+    {
+      "path": "research_notes/research6_prefix267_signed_path_20261026/PREFIX267_SIGNED_X6_PATH_FORMAL.md",
+      "blob_sha1": "41bc54d760f83dc34a49b63001cdd7386c9dac41"
+    },
+    {
+      "path": "research_notes/research6_prefix268_relative_x6_20261026/PREFIX268_RELATIVE_X6_NBRC_FULL.md",
+      "blob_sha1": "b9df41defe06d1e407ea3f1b5ff75efc2d24966f"
+    },
+    {
+      "path": "research_notes/research6_prefix268_relative_x6_20261026/VALIDATION_STDOUT_PREFIX268.md",
+      "blob_sha1": "277d4cbd66f833296d35865d148ce8add3e51f52"
+    },
+    {
+      "path": "research_notes/research6_prefix268_relative_x6_20261026/verify_prefix268_algebra.py",
+      "blob_sha1": "4e81282a00e741f5a81c0c46eacfed6461689bc3"
+    },
+    {
+      "path": "research_notes/research6_prefix268_relative_x6_20261026/verify_prefix268.py",
+      "blob_sha1": "1e31ff40cc7863276560ed571c212c3434f50312"
+    },
+    {
+      "path": "research_notes/RH_X6_BLOCK_RESOLVENT_ERROR_LOCALIZATION_20260908.md",
+      "blob_sha1": "c524f07719b4964fa89e09456130bc1e1bf7d07e"
+    },
+    {
+      "path": "research_notes/RH_X6_BRC_TRANSPORT_FRONTIER_20260906.md",
+      "blob_sha1": "aa31732a125424ee1780da5567464ce1ca14bfd1"
+    },
+    {
+      "path": "research_notes/RH_X6_ORDERED_PRIME_BLOCK_CHAIN_SHUFFLE_20260908.md",
+      "blob_sha1": "d469f03fbb1dbe436aa6cc34ce95bf4fac2a6775"
+    },
+    {
+      "path": "research_notes/VIETE_X6_ALL20_TRIADIC_ROOT_C24_BRIDGE_20260906.md",
+      "blob_sha1": "f81b289143a9335541bd0007fe503bd4ae56b39e"
+    },
+    {
+      "path": "research_notes/VIETE_X6_EQUIVARIANT_OUTER_ROOT_LAW_SELECTION_20260906.md",
+      "blob_sha1": "2aba0a90814ba9590dd0699ec32cf7181cc2e6a2"
+    },
+    {
+      "path": "research_notes/VIETE_X6_FIXED_RADIUS_MICROTRACE_C12_20260905.md",
+      "blob_sha1": "e8185ae28bef4d55c50622848b225c0b5e3125aa"
+    },
+    {
+      "path": "research_notes/VIETE_X6_K4_ROOT_HOLONOMY_C24_ATLAS_20260906.md",
+      "blob_sha1": "a536691758840cd717bde83e38ea4770802c9fdc"
+    },
+    {
+      "path": "research_notes/VIETE_X6_PROSTATE_PERIODICITY_MEMORY_NO_GO_20260905.md",
+      "blob_sha1": "5cf2000b9b845f7cf4721ffd9f9c266fcdf231ad"
+    },
+    {
+      "path": "research_notes/VIETE_X6_ROTATION_STATE_MACHINE_HANDOFF_20260909.md",
+      "blob_sha1": "75469fc21734e5f1abb43cac7c17192f0567c392"
+    },
+    {
+      "path": "research_notes/X6_20_SLICE_FRAME_CONNECTION_HOLONOMY_V2_20260906.md",
+      "blob_sha1": "fec459b0cc10933975cced7943e3c7da57d881ab"
+    },
+    {
+      "path": "research_notes/X6_20_SLICE_INVERSE_LIMIT_RECONSTRUCTION_V10_20260905.md",
+      "blob_sha1": "35e98cee4268cff11284c44020baec9e68139f8b"
+    },
+    {
+      "path": "research_notes/X6_ACTIVE_LOOP_TO_DIRECTED_RING_REALIZATION_V36_20260906.md",
+      "blob_sha1": "b104e09cdb7479d0d981492ddfb20b713cc817d9"
+    },
+    {
+      "path": "research_notes/X6_ACTIVE_TRIAD_HOLONOMY_CONTROL_V17_20260906.md",
+      "blob_sha1": "42b810a8f82c504833027da17884cc4fb2943e5b"
+    },
+    {
+      "path": "research_notes/x6_all_index_flags_and_minimum_future_information_20260910.md",
+      "blob_sha1": "3977cbe226cebf26e739b5b26927c88158847ba1"
+    },
+    {
+      "path": "research_notes/X6_ALL_SLICE_RETURN_COLLAPSE_NOGO_V15_20260905.md",
+      "blob_sha1": "9efcf2ac43bd6bfd5b5f0765a04167fde6476984"
+    },
+    {
+      "path": "research_notes/X6_ATOMIC_TRIADIC_PASSAGE_DRIVES_ODD_HOLONOMY_V27_20260906.md",
+      "blob_sha1": "c5a02e6727dfc1f70ae4594c3ee807d1760c0be9"
+    },
+    {
+      "path": "research_notes/X6_AXIS_CHANNEL_FRAME_GAUGE_AND_FLAT_TRANSPORT_V2_20260906.md",
+      "blob_sha1": "32de85244c11763fcf5e59e4263f0abccd9baf82"
+    },
+    {
+      "path": "research_notes/X6_BRANCH_SELECTOR_CONTEXT_NOGO_V3_20260906.md",
+      "blob_sha1": "bb3f57589933958a805499c5e25e7a36eb70d318"
+    },
+    {
+      "path": "research_notes/X6_BRC_C6_GRADE_AND_EXACT_MULTINOMIAL_KERNEL_V9_20260905.md",
+      "blob_sha1": "cf43b56fd06a770cb7932b80e17409f7477ea062"
+    },
+    {
+      "path": "research_notes/X6_CELL_TRIADIC_PORT_FRAME_INTERNAL_STATE_V1_20260906.md",
+      "blob_sha1": "8eada27c26ba6683e771fe00c89ab67abf6b0032"
+    },
+    {
+      "path": "research_notes/X6_CHANNEL_NONRECIPROCITY_CIRCULATION_BRIDGE_V26_20260906.md",
+      "blob_sha1": "a8252050cc03f6930bb86251094d899c04743b60"
+    },
+    {
+      "path": "research_notes/X6_CHART_HOLONOMY_ORI6_CONTROL_BRIDGE_V16_20260906.md",
+      "blob_sha1": "4eefa86405a6c1030e4054ba9f57eb2aa71ad58e"
+    },
+    {
+      "path": "research_notes/X6_CLOSED_DISK_CARRIER_SOURCE_AND_NEW_PROOF_20261014_FBF223.json",
+      "blob_sha1": "a1ae4aa84648bf8bbf679927e3a8e6e712bcdd0c"
+    },
+    {
+      "path": "research_notes/x6_coherent_index_arithmetic_and_successor_obstructions_20260909.md",
+      "blob_sha1": "d33bdd303bcbf1649c94761a550a2cd68a383a66"
+    },
+    {
+      "path": "research_notes/x6_coherent_index_checkpoint_20260909.json",
+      "blob_sha1": "6650b97a408ee3984037ba3be8b2f8a81c82e71b"
+    },
+    {
+      "path": "research_notes/X6_COMMON_DEPTH_COCYCLE_CELL_COVER_BRIDGE_V14_20260905.md",
+      "blob_sha1": "337c96f13ad0b224e3999a31aaef4155909de0b9"
+    },
+    {
+      "path": "research_notes/X6_CONNECTED_CELL_COVER_CLASSIFICATION_V13_20260905.md",
+      "blob_sha1": "e8b8ce750736e06cdad47a878d46e9cffb34fa3d"
+    },
+    {
+      "path": "research_notes/X6_COORDINATE_COMPLETENESS_UNIQUENESS_GATE_V11_20260905.md",
+      "blob_sha1": "9d3f797371b4cff9319f823aed899b0b8bc8e7b9"
+    },
+    {
+      "path": "research_notes/x6_count_metric_split_rotating_index_closure_20260908.md",
+      "blob_sha1": "ca22aac308f114622ac90dcabe5c30da25a3e6d7"
+    },
+    {
+      "path": "research_notes/x6_cube_radix_rigidity_and_conjugate_repair_20260909.md",
+      "blob_sha1": "f419021a262747cfe7d15ee55af3f77b57ff093e"
+    },
+    {
+      "path": "research_notes/X6_CURRENT_NONAUTHOR_REVIEW_AND_PAIRED_SOURCE_EVIDENCE_20261014_FBF223.json",
+      "blob_sha1": "baa275963e953efb16e4891da89359a1ea0d286e"
+    },
+    {
+      "path": "research_notes/X6_CYCLE_CURRENT_S3_OPERATION_SAFE_PORT_V39_20260906.md",
+      "blob_sha1": "8151d0b6a4b65225b93d858bbc8a5d7037bf9cef"
+    },
+    {
+      "path": "research_notes/x6_cyclotomic_compatibility_checkpoint_20260910.json",
+      "blob_sha1": "ab1068014bcab8c7995625cda66f475752241665"
+    },
+    {
+      "path": "research_notes/x6_cyclotomic_shape_control_and_index_gate_20260910.md",
+      "blob_sha1": "fdab10f9925d715d2329d94e2869d7771befa1a4"
+    },
+    {
+      "path": "research_notes/X6_DIRECTED_GAUGE_AND_PROJECTION_CONTRACTION_V12_20260905.md",
+      "blob_sha1": "b36b926b4ea337d842fbf7b33cf5aab2480d0da7"
+    },
+    {
+      "path": "research_notes/X6_DIRECTED_THREE_CELL_RING_HOLONOMY_V32_20260906.md",
+      "blob_sha1": "afa3cd2e7beed5b12a9873da93fd6c9c7e014a77"
+    },
+    {
+      "path": "research_notes/X6_DOUBLE_TRIAD_C6_VS_GLOBAL_C12_V11_20260906.md",
+      "blob_sha1": "8e5a52ef59e7b0f0c458de6f62a8d815e80cbbce"
+    },
+    {
+      "path": "research_notes/X6_EQUIVARIANT_ROTATION_BRANCH_LAWS_V3_20260906.md",
+      "blob_sha1": "52a1f0ab4acd9edb92d9844bb57d546248b6afe1"
+    },
+    {
+      "path": "research_notes/X6_EVENT_ORDER_RELATIVE_HOLONOMY_OBSTRUCTION_V30_20260906.md",
+      "blob_sha1": "3707518fa40644fd3bb45a8733923305b3b992ed"
+    },
+    {
+      "path": "research_notes/X6_FCC_20SLICE_CARRIER_RANK_CLASSIFICATION_20260906.md",
+      "blob_sha1": "e7d4bd0082a33e662a68203789be318a05beef58"
+    },
+    {
+      "path": "research_notes/X6_FOUR_FIELD_ACTIVE_TRIAD_CODE_V23_20260906.md",
+      "blob_sha1": "67b94250e67d59c9581e17705d7c7214f939c35b"
+    },
+    {
+      "path": "research_notes/X6_FOUR_FIELD_LOCAL_SUCCESSOR_AND_STATIC_POTENTIAL_NOGO_V24_20260906.md",
+      "blob_sha1": "706b2043898cc0b3c3a7e9f6a96c4dfd4be9968c"
+    },
+    {
+      "path": "research_notes/X6_FRAME_CHANNEL_DIAGONAL_COUPLING_V4_20260906.md",
+      "blob_sha1": "615becbe0be9c7e8e5fc611a668279ef3e33a2df"
+    },
+    {
+      "path": "research_notes/x6_frozen_density_checkpoint_20260910.json",
+      "blob_sha1": "c7cc5c291829068128a67824bae7e4620daf0510"
+    },
+    {
+      "path": "research_notes/x6_frozen_seed_density_one_extension_20260910.md",
+      "blob_sha1": "9d6fb9f8ca46e32156fe69d4d4baed2cee755450"
+    },
+    {
+      "path": "research_notes/X6_FULL_INTEGRAL_ISOMETRY_AND_ORI6_GATE_V7_20260906.md",
+      "blob_sha1": "66974b8468f36e537f26850c6f7a3294e3a0fc89"
+    },
+    {
+      "path": "research_notes/X6_GLOBAL_SIGNED_DIRECTION_C12_AND_C24_LIFT_V10_20260906.md",
+      "blob_sha1": "c3cfa7cc91c20fc9637b6636470cad56d2bd68fc"
+    },
+    {
+      "path": "research_notes/x6_gram_common_depth_shape_quotient_determinant_curves_20260908.md",
+      "blob_sha1": "579bbfaa8409087bf1f545946a9a9f93a53fadc3"
+    },
+    {
+      "path": "research_notes/X6_HOLONOMY_COMMUTATION_DEPENDENCY_TRACE_V40_20260906.md",
+      "blob_sha1": "bb89695f28be786d9545352880ee58fe596cd4ff"
+    },
+    {
+      "path": "research_notes/x6_index_p_branch_smith_quadric_split_20260908.md",
+      "blob_sha1": "117d4956aab2b598467eef7a7910e83abf0628eb"
+    },
+    {
+      "path": "research_notes/x6_index2_closure_classification_and_prime_periods_20260909.md",
+      "blob_sha1": "4dc0ab092dbdd683491c6f9f940dbe2a58576fc7"
+    },
+    {
+      "path": "research_notes/x6_index2_complete_closure_and_bounded_doubling_20260909.md",
+      "blob_sha1": "5bb84eb7741f9b963ecc8ae63a4b444d596083bd"
+    },
+    {
+      "path": "research_notes/x6_intermediate_flags_checkpoint_20260910.json",
+      "blob_sha1": "a3e65e2ed6faec029fb67e2e316b8180966732e7"
+    },
+    {
+      "path": "research_notes/X6_JOINT_OBSERVER_PRESERVATION_AUDIT_V18_20260905.md",
+      "blob_sha1": "505a31ed49fae20916dd0ad0daaa25054b00dacc"
+    },
+    {
+      "path": "research_notes/X6_K4_OVERLAP_PORT_CONNECTION_CLASSIFICATION_20260906.md",
+      "blob_sha1": "ef1034a726e02f141a6e7489efcda27bb6f2e9f1"
+    },
+    {
+      "path": "research_notes/x6_logloss_windows_checkpoint_20260911.json",
+      "blob_sha1": "1a4c4c91085aa8ff727c969fb50afc6a290e50b7"
+    },
+    {
+      "path": "research_notes/X6_LP003_LP005_LP026_NATIVE_M0_COVER_ACTIVE_CONSUMER_20261113_0600.md",
+      "blob_sha1": "d0e9d047b8fde29d3858bc3965a803781976d78e"
+    },
+    {
+      "path": "research_notes/X6_LP003_LP026_V11_V14_NATIVE_DEPTH_SELECTION_CONSUMER_REPAIR_20261113_0300.md",
+      "blob_sha1": "233b466ad77aa7d49a22d2aa3cbfe8d2e98bc24a"
+    },
+    {
+      "path": "research_notes/X6_LP011_BOUNDED_UNLOCATED_EVIDENCE_20261015_FBF223.json",
+      "blob_sha1": "3f0e1292c71c539cf1da5c7d1eb1ed2c8ed33d29"
+    },
+    {
+      "path": "research_notes/X6_LP011_HISTORICAL_DEFINITIONS_CENSUS_20261112_ONHOUR.md",
+      "blob_sha1": "dcd5d9021ac552a9c5880a3d7c9ec1f985ef3e46"
+    },
+    {
+      "path": "research_notes/X6_LP011_LP019_SOURCE_CALLER_BOUNDED_AUDIT_20261112_2230.md",
+      "blob_sha1": "7c299f033654960339f2a5f9f38235d2ae5b49c7"
+    },
+    {
+      "path": "research_notes/X6_LP011_SIGNED_DOMINANCE_FIBRE_CHAMBER_20261112_ONHOUR.md",
+      "blob_sha1": "a1197f8e10d8bc0a5357cf488a1ddd9b769ba794"
+    },
+    {
+      "path": "research_notes/X6_LP011_SIGNED_MEDIAN_BIT_LENGTH_RECOVERY_20261112_ONHOUR.md",
+      "blob_sha1": "d941db4d1bba3d12fa110a34461be5b865c50be4"
+    },
+    {
+      "path": "research_notes/X6_LP011_TYPED_DOMINANT_CONSUMER_20261112_ONHOUR.md",
+      "blob_sha1": "291da7c042128f6fffee8c94479372833bb356cb"
+    },
+    {
+      "path": "research_notes/X6_LP019_FCC_SIGNED_BRC_PUSHFORWARD_CONSUMER_20261113_ONHOUR.md",
+      "blob_sha1": "3da2ce6301b725046998b8298c5f31c56fa5a4c9"
+    },
+    {
+      "path": "research_notes/X6_LP019_LP026_V7_CURRENT_SOURCE_FULL_REGRESSION_EXECUTED_20261113_0500.md",
+      "blob_sha1": "b8f580700e45f1ba85b5a3d9265b0a9149ac54f3"
+    },
+    {
+      "path": "research_notes/X6_LP019_LP026_V7_EXPLICIT_DEPTH_LIFT_AND_RETURN_TYPE_REPAIR_20261113_0400.md",
+      "blob_sha1": "394a3418b3c87ea8b73b34ea6431cbf8a29995af"
+    },
+    {
+      "path": "research_notes/X6_LP019_LP026_V9_V13_BRC_RETURN_CONSUMER_REPAIR_20261113_0300.md",
+      "blob_sha1": "27bcf1d0c3e484bd59eca927f627e9ddf0cb8d2f"
+    },
+    {
+      "path": "research_notes/X6_LP019_SIGNED_THICKNESS_NATIVE_BRC_CONSUMER_CROSSWALK_20261112_ONHOUR.md",
+      "blob_sha1": "e5b349d5a5c019daf2c8c3fd426b4f1eabb6120e"
+    },
+    {
+      "path": "research_notes/X6_LP026_CURRENT_SOURCE_CONSUMER_IMPORT_CERTIFICATE_20261112_1600.md",
+      "blob_sha1": "4b58513ff34aaa1eaf5dc459b5390751a8ace87e"
+    },
+    {
+      "path": "research_notes/X6_LP026_CURRENT_SOURCE_CYCLIC_FAST_G_BRC_IMPORT_CERTIFICATE_20261112_ONHOUR.md",
+      "blob_sha1": "12ecdb30ffc4e10ab35cbb27606a8f13f67ff86c"
+    },
+    {
+      "path": "research_notes/X6_LP026_CYCLIC_COVER_SHARP_OBSERVER_THRESHOLDS_20261112_ONHOUR.md",
+      "blob_sha1": "94167b6bcff52f8c322b6465050f7ccd631c5cca"
+    },
+    {
+      "path": "research_notes/X6_LP026_CYCLIC_G_INTERVAL_FAST_CONSUMER_20261112_ONHOUR.md",
+      "blob_sha1": "315d16623485eeef5c517f16eb9f9df438fdf7b3"
+    },
+    {
+      "path": "research_notes/X6_LP026_CYCLIC_NATIVE_G_RANGE_CONSUMER_20261112_2100.md",
+      "blob_sha1": "90be81aeb54dca38439d0afabb2aebd72e8380c5"
+    },
+    {
+      "path": "research_notes/X6_LP026_FINITE_CYCLIC_COVER_SIGNED_BRC_PUSHFORWARD_20261112_ONHOUR.md",
+      "blob_sha1": "f285c269f52db0c83849d240e649c1b7e6bb13a6"
+    },
+    {
+      "path": "research_notes/X6_LP026_ORIGINAL_COORDINATE_V7_REGRESSION_EXECUTED_20261112_2200.md",
+      "blob_sha1": "4a5fa1e634357d92247c1bad4238fe15191f74d0"
+    },
+    {
+      "path": "research_notes/X6_LP026_QUADRATIC_DEPTH_RESONANCE_20261112_ONHOUR.md",
+      "blob_sha1": "c2fe754746ad509c63d4f7dcff42757ebe9ad7b2"
+    },
+    {
+      "path": "research_notes/X6_LP026_SIGNED_LAURENT_BRC_AND_CONSUMER_20261112_ONHOUR.md",
+      "blob_sha1": "5eb5318ac81fbdcf7beec65c302cf81f35f0128e"
+    },
+    {
+      "path": "research_notes/X6_LP026_SIGNED_RELATIVE_C6_PARITY_AND_BRC_MEDIAN_LIFT_20261112_ONHOUR.md",
+      "blob_sha1": "6b5fd94ab2d9e9f83479cc71386ffecec79e7f10"
+    },
+    {
+      "path": "research_notes/X6_LP026_V12_NATIVE_DIRECTED_GAUGE_KERNEL_REPAIR_20261113_0057.md",
+      "blob_sha1": "966b4d8428ccc82c0c702642e690e7b498e21a4b"
+    },
+    {
+      "path": "research_notes/X6_LP028_FULL_X6_PROBE_BRC_MINIMALITY_20261112_ONHOUR.md",
+      "blob_sha1": "26b230146a7c451991de330f24ec8cf658167278"
+    },
+    {
+      "path": "research_notes/X6_LP028_PATHSQRT_CHART_GLUE_TRACE_CAPACITY_20261112_ONHOUR.md",
+      "blob_sha1": "ac0234fcf3fe04e6b234e63e5700519e3df12454"
+    },
+    {
+      "path": "research_notes/X6_LP028_R063_ALL_PAIR_GLUE_AND_STAGE_LINEAGE_20261112_ONHOUR.md",
+      "blob_sha1": "971b2b826fc1fbf7d0b0ff4bbe53b5e5fe7ddb0b"
+    },
+    {
+      "path": "research_notes/X6_LP028_R063_FUTURE_OPERATION_PROBE_CROSSWALK_20261112_ONHOUR.md",
+      "blob_sha1": "f18a7fcc3238e0d430e1fbd791f1bca20e9e6890"
+    },
+    {
+      "path": "research_notes/X6_LP028_R2500_FULL_NATIVE_SHELL_AND_R063_CALLER_20261112_ONHOUR.md",
+      "blob_sha1": "1c32bfc1432c3420ea0570da09d7f83a2513fc70"
+    },
+    {
+      "path": "research_notes/X6_LP028_SIGNED_CHART_NATIVE_BRC_CONSUMER_DEDUP_20261112_2300.md",
+      "blob_sha1": "e4f7b90b09c99911b175df3c150974a3ee6c17f0"
+    },
+    {
+      "path": "research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
+      "blob_sha1": "08e6fa66c73be5a42eec17adfb4206ca7bd06d88"
+    },
+    {
+      "path": "research_notes/x6_minimal_two_defect_frame_triadic_closure_20260908.md",
+      "blob_sha1": "57530a1e058083bd1a83adc751f106ea949b3f6c"
+    },
+    {
+      "path": "research_notes/X6_NATIVE_COORDINATE_COMPLETION_V7_20260905.md",
+      "blob_sha1": "ecd0130f1ee36b314f651c6b9ef6d1ed320fe090"
+    },
+    {
+      "path": "research_notes/X6_NATIVE_EVENT_TIME_AND_MARKOV_MEMORY_V1_20260906.md",
+      "blob_sha1": "a973c86cbebb1b2d5407f4c97f2b1b4b585e6e41"
+    },
+    {
+      "path": "research_notes/X6_NATIVE_EVENT_TRACE_PARTIAL_ORDER_V2_20260906.md",
+      "blob_sha1": "b1ae16743eeacb46c435f9f6d19d22c33c27ff49"
+    },
+    {
+      "path": "research_notes/x6_native_growth_checkpoint_20260909.json",
+      "blob_sha1": "45d022a5f3cad57dbab7b7b47f3d56a21948cc3a"
+    },
+    {
+      "path": "research_notes/x6_native_growth_phase_lift_and_residue_uniformity_20260909.md",
+      "blob_sha1": "2ddb7a1243201ab4d010946eb283bfb78aa0749d"
+    },
+    {
+      "path": "research_notes/x6_native_repair_transport_and_visibility_obstruction_20260909.md",
+      "blob_sha1": "f6f4e46052bcb74b82ef843b64b08db0d3e857ba"
+    },
+    {
+      "path": "research_notes/x6_native_repair_transport_checkpoint_20260909.json",
+      "blob_sha1": "0b95548c4e03ded8eecd35959ff9f9dbdd04586b"
+    },
+    {
+      "path": "research_notes/X6_NATIVE_S6_ROTATION_AND_20_SLICE_ATLAS_V8_20260905.md",
+      "blob_sha1": "724be8f4f434c96b2e7c6df1869b9406045a0d11"
+    },
+    {
+      "path": "research_notes/X6_NATIVE_TIME_DURATION_CRITICAL_PATH_V3_20260906.md",
+      "blob_sha1": "15e79f428f09e2383a87ebb5623b73963dcf01ff"
+    },
+    {
+      "path": "research_notes/X6_NETWORK_EVENT_LEDGER_AND_CONTRAST_TRANSDUCER_V29_20260906.md",
+      "blob_sha1": "6849ebd3fc776fb7da3b46627376490aba3dad99"
+    },
+    {
+      "path": "research_notes/X6_NETWORK_TRANSFER_CYCLE_SPACE_V35_20260906.md",
+      "blob_sha1": "32909981c33d1739f3028fef8a5c02170913b460"
+    },
+    {
+      "path": "research_notes/X6_NONABELIAN_HOLONOMY_OVER_ABELIAN_CYCLE_CURRENT_V37_20260906.md",
+      "blob_sha1": "daef41596f5eddf5f96862bc9614968459101358"
+    },
+    {
+      "path": "research_notes/X6_NONFCC_FCC_LATTICE_BASIS_DECODER_V5_20260906.md",
+      "blob_sha1": "d0ad5962af3807ae628fa777621a9a7c56a9c4c7"
+    },
+    {
+      "path": "research_notes/X6_NONFCC_FLAT_FCC_ATLAS_VS_CURVED_A6_FRAME_V43_20260906.md",
+      "blob_sha1": "fe6bdbdd509fb9b020876faf3e0216c23d246632"
+    },
+    {
+      "path": "research_notes/X6_NONFCC_NORMALIZED_STAR_HIDDEN_C3_REPAIR_V42_20260906.md",
+      "blob_sha1": "1d2e0c1293b2c1eca889ccf9820adc16471672ae"
+    },
+    {
+      "path": "research_notes/X6_NONFCC_STAR_FACE_PATH_CARRIER_NORMALIZATION_V4_20260906.md",
+      "blob_sha1": "a1545b2262c8f40dd3992a1ec80b0b5c2b11838f"
+    },
+    {
+      "path": "research_notes/X6_NONFCC_THREE_AXIS_CARRIER_CLASSIFICATION_V1_20260906.md",
+      "blob_sha1": "00688d7dbea630a073a6365d004fa2b15ddb2fb0"
+    },
+    {
+      "path": "research_notes/X6_ODD_PAIR_C3_RESIDUAL_MEMORY_V41_20260906.md",
+      "blob_sha1": "d80fd26736aa4ca58783f109237fd9801181c92e"
+    },
+    {
+      "path": "research_notes/X6_ORI6_CONTROL_LEDGER_V15_20260906.md",
+      "blob_sha1": "a5affd61a921eedb0cfb2dfec9071ce24037d4d8"
+    },
+    {
+      "path": "research_notes/X6_ORI6_EVENT_CHARGE_AND_OBSERVER_BOUND_V8_20260906.md",
+      "blob_sha1": "73ebcbe25f638b4f856c2dc113c2cd98ff70d234"
+    },
+    {
+      "path": "research_notes/X6_ORI6_PAIR_CONTEXT_SELECTOR_V9_20260906.md",
+      "blob_sha1": "574ba7a686c38ad2913a34fdb834341c0d384b52"
+    },
+    {
+      "path": "research_notes/X6_ORI6_TRIADIC_PHASE_REVERSAL_V13_20260906.md",
+      "blob_sha1": "c4487c76c7fb93542636678a50947792d2ecaa3a"
+    },
+    {
+      "path": "research_notes/X6_ORIENTATION_PRESERVING_CHART_A6_UNIFICATION_V3_20260906.md",
+      "blob_sha1": "3875b35b9096ab608fae13af47e371b8ca87082f"
+    },
+    {
+      "path": "research_notes/X6_P000_V4_SIGNED_AXIS_REFOUNDATION_V16_20260905.md",
+      "blob_sha1": "4843b3af25221978ed2f66c2a062e4efd9a68ebd"
+    },
+    {
+      "path": "research_notes/x6_p11_exact_minimum_full_rank_phase_pairing_20260908.md",
+      "blob_sha1": "2b9425b9eb3f82c6d13195fc3d4723cb978ee34f"
+    },
+    {
+      "path": "research_notes/x6_p13_exact_minimum_saturated_ternary_self_gluing_20260908.md",
+      "blob_sha1": "3d306225d6f953b7d606afdc14a27e4ee442add2"
+    },
+    {
+      "path": "research_notes/x6_p17_exact_minimum_new_diagonal_layer_20260908.md",
+      "blob_sha1": "7353eb9df01c289254e374854b92de276fdd7c7b"
+    },
+    {
+      "path": "research_notes/x6_p19_exact_minimum_same_phase_false_optimum_20260908.md",
+      "blob_sha1": "b80a14582957812dec25376e59914cd850430530"
+    },
+    {
+      "path": "research_notes/x6_p3_exact_minimum_a2_common_depth_20260908.md",
+      "blob_sha1": "b78394aafd29b12cd8775a49398441960e2c19b0"
+    },
+    {
+      "path": "research_notes/x6_p41_exact_minimum_shape_recurrence_20260908.md",
+      "blob_sha1": "a3ea8ae884f48ff90c6bea21c9566a333a22aca5"
+    },
+    {
+      "path": "research_notes/x6_p5_exact_minimum_golden_discriminant_gluing_20260908.md",
+      "blob_sha1": "8a3d0756559d8cdf5a3e7d5c5e448b66f11c6eed"
+    },
+    {
+      "path": "research_notes/x6_p7_exact_minimum_discriminant_obstruction_20260908.md",
+      "blob_sha1": "a25b9d8f8021ae4d8d5e16e0407d562cf0119913"
+    },
+    {
+      "path": "research_notes/X6_PASSAGE_CONTINUITY_AND_NETWORK_BIAS_V28_20260906.md",
+      "blob_sha1": "8d4e93bcec148eba1624df8fb8bd0b022655c2bd"
+    },
+    {
+      "path": "research_notes/X6_PHASE_CHIRALITY_D12_DYNAMICS_V14_20260906.md",
+      "blob_sha1": "c0efb16a012423ff795003849e7ec9667c3b947b"
+    },
+    {
+      "path": "research_notes/x6_prime_discriminant_pairing_gluing_principle_20260908.md",
+      "blob_sha1": "3f256783060f8a508b31ee7cac71962bd045c481"
+    },
+    {
+      "path": "research_notes/x6_prime_similarity_closure_gaussian_eisenstein_characters_20260908.md",
+      "blob_sha1": "49ce1585644823e3c4bfcec2983c9857646797a3"
+    },
+    {
+      "path": "research_notes/X6_PROSPECTIVE_28_ROW_SUPPLEMENT_AND_STATIC_EVIDENCE_20261015_FBF223.json",
+      "blob_sha1": "4983aefa73625ba70c7a36e15750c8b536fe7e4b"
+    },
+    {
+      "path": "research_notes/X6_PURE_TRIADIC_FIELD_COUPLING_V20_20260906.md",
+      "blob_sha1": "057fd80774200581886022c2e2cbbc9753e5380b"
+    },
+    {
+      "path": "research_notes/X6_R063_N2500_SIGNED_SHELL_CONSUMER_AUDIT_20261112_ONHOUR.md",
+      "blob_sha1": "67ecd27fd72a2774abe7f7de8818b8caf3d7489e"
+    },
+    {
+      "path": "research_notes/X6_R063_PATHSQRT_SIGNED_TRACE_FIBER_CONSUMER_CROSSWALK_20261112_ONHOUR.md",
+      "blob_sha1": "c0b3af67c24e897558741bed2b755d739d809741"
+    },
+    {
+      "path": "research_notes/X6_R063_SIGNED_TWO_AXIS_LIFT_AND_LP011_CALLER_AUDIT_20261112_ONHOUR.md",
+      "blob_sha1": "478e617296355b1b86c825bdac78a5fab1aa935f"
+    },
+    {
+      "path": "research_notes/x6_radix_bridge_checkpoint_20260909.json",
+      "blob_sha1": "8cdb03f4f7cae34a89aa28848cf880ac75b0c748"
+    },
+    {
+      "path": "research_notes/x6_radix_shape_checkpoint_20260909.json",
+      "blob_sha1": "b0aa58bf93e41dde512553a0beef23fdd5f50390"
+    },
+    {
+      "path": "research_notes/x6_radix_shape_rigidity_and_boundary_sections_20260909.md",
+      "blob_sha1": "24e705eba9c0c03e02a3dfb456f6079a41ae9b15"
+    },
+    {
+      "path": "research_notes/X6_RANK2_EDGE_CIRCULATION_ODD_HOLONOMY_V25_20260906.md",
+      "blob_sha1": "2971214155b1de8e1b63b305ef43aa100b98d46d"
+    },
+    {
+      "path": "research_notes/X6_RECIPROCAL_SYNCHRONOUS_NETWORK_PERIOD2_NOGO_V31_20260906.md",
+      "blob_sha1": "08d0009029ff02cd6d17c029e2aa34a83ebc1a04"
+    },
+    {
+      "path": "research_notes/X6_RELATION_TIME_SEEDS_TRANSFER_CHIRALITY_V34_20260906.md",
+      "blob_sha1": "0ef3cd5fd23dea1caa0217fb80bbe2d2b4160c4b"
+    },
+    {
+      "path": "research_notes/X6_ROTATION_PATH_DAGGER_AND_BRANCH_JET_V3_20260909.md",
+      "blob_sha1": "9372c0ed1477ee9aae04eac6bb80147492e1196d"
+    },
+    {
+      "path": "research_notes/X6_ROTATION_PATH_DAGGER_CATEGORY_AND_THIRD_JET_20260906.md",
+      "blob_sha1": "fcea72eaed1d1a4d67ccd18bd9299a357d01a838"
+    },
+    {
+      "path": "research_notes/X6_ROTATION_PATH_GROUPOID_V2_20260906.md",
+      "blob_sha1": "5e3e47de185f283769b1c3157a182477361db5ae"
+    },
+    {
+      "path": "research_notes/X6_ROTATION_STATIC_UNDERDETERMINATION_V5_20260906.md",
+      "blob_sha1": "4d3207b3db6b85418abe57242b9f6c17e13c952c"
+    },
+    {
+      "path": "research_notes/x6_seed_geometry_and_mixed_prime_tradeoff_20260910.md",
+      "blob_sha1": "d3adbc67f31aa215a6109f2d837339a5de2b8f22"
+    },
+    {
+      "path": "research_notes/x6_seed_geometry_checkpoint_20260910.json",
+      "blob_sha1": "2ba2d81132582a5e3668bf1bfba165ef63f0e9ea"
+    },
+    {
+      "path": "research_notes/x6_sharp_majorant_and_window_frontier_20260911.md",
+      "blob_sha1": "850e8e4f8c730be4d1aa472c9498400ad093f4ca"
+    },
+    {
+      "path": "research_notes/x6_sharp_majorant_window_checkpoint_20260911.json",
+      "blob_sha1": "0070e86679891e3a1800f0475bba53d596398909"
+    },
+    {
+      "path": "research_notes/x6_sharper_logloss_and_multiplicative_windows_20260911.md",
+      "blob_sha1": "a028c6cd1f422302af0ebdb960f07caebfff6a49"
+    },
+    {
+      "path": "research_notes/X6_SIGNED_CYCLE_PHASE_ATLAS_V12_20260906.md",
+      "blob_sha1": "06dbf12f5e7abc47e3e36d825897e14c75f5d3dd"
+    },
+    {
+      "path": "research_notes/X6_SIGNED_INTERNAL_Q_GAUGE_CORRECTION_V5_20260906.md",
+      "blob_sha1": "b794e6b4a037826feaf15f50eb8ba35b126ec78a"
+    },
+    {
+      "path": "research_notes/X6_SIGNED_PATH_BRC_AND_PRIMITIVE_LINE_V17_20260905.md",
+      "blob_sha1": "aa005cd62c45d7f4105632257db9186b115c5b29"
+    },
+    {
+      "path": "research_notes/X6_SIGNED_TRIADIC_DECOMPOSITION_BRC_V2_20260906.md",
+      "blob_sha1": "e7f63e5c356cf9d595ab50bde51b0229a3780400"
+    },
+    {
+      "path": "research_notes/X6_SINGLE_TRIADIC_FIELD_DYNAMICS_NOGO_V21_20260906.md",
+      "blob_sha1": "f6a9220a4c8e8198c512c6c9e0c255d2ed331bb8"
+    },
+    {
+      "path": "research_notes/x6_successor_coupling_checkpoint_20260909.json",
+      "blob_sha1": "98edccc0a37837e93109fe78db45c2d405722511"
+    },
+    {
+      "path": "research_notes/x6_successor_coupling_memory_and_crt_obstruction_20260909.md",
+      "blob_sha1": "c393e271d0ecb796e122fe0c59ce5ea94388255f"
+    },
+    {
+      "path": "research_notes/X6_THREE_FIELD_RELATIONAL_FRAME_V22_20260906.md",
+      "blob_sha1": "e420fe1b71b6e45842678921472bdbbf711aadf3"
+    },
+    {
+      "path": "research_notes/X6_TRANSFER_SKEW_CHIRALITY_MEMORY_V33_20260906.md",
+      "blob_sha1": "cf97fd0038075958ed4bf50e098e440341c8501b"
+    },
+    {
+      "path": "research_notes/X6_TRIADIC_ATOMIC_SCATTER_AND_BRC_CORRELATION_V1_20260906.md",
+      "blob_sha1": "51175f8eb0369aa711b7b1c847f4cd65e4b19d4e"
+    },
+    {
+      "path": "research_notes/X6_TRIADIC_CHANNEL_FIELD_V3_20260906.md",
+      "blob_sha1": "dd02df3b03ef3813755654a2338696cbe6c79853"
+    },
+    {
+      "path": "research_notes/X6_TRIADIC_FORCE_QUANTUM_MULTIPLICITY_LIFT_V2_20260906.md",
+      "blob_sha1": "90cd7ade5354cc133f7430e9e2960295902bc550"
+    },
+    {
+      "path": "research_notes/X6_TRIADIC_GLOBAL_ORIENTATION_CHARGE_V6_20260906.md",
+      "blob_sha1": "7e90b7c025399a47cd8d60909c2f4004fc8284e1"
+    },
+    {
+      "path": "research_notes/X6_TRIADIC_INNER_C12_RELATION_CLOCK_V2_20260906.md",
+      "blob_sha1": "e36897d0124c3987ad03ddcc6e400f2e13c6c1a7"
+    },
+    {
+      "path": "research_notes/X6_TRIADIC_INTERACTION_DEFECT_V18_20260906.md",
+      "blob_sha1": "e7eee2715ed69f1ffcb631a1b7fcf59f9592030e"
+    },
+    {
+      "path": "research_notes/X6_TRIADIC_RATIONAL_PAIR_FACTORIZATION_V19_20260906.md",
+      "blob_sha1": "bb899bb299b11433bd52e7186ceeed647b684e30"
+    },
+    {
+      "path": "research_notes/X6_TRIADIC_ROTATION_GENERATORS_V1_20260906.md",
+      "blob_sha1": "568d966cfab7d444cd5a658f55036d59c4f77e50"
+    },
+    {
+      "path": "research_notes/X6_TRIADIC_ROTATION_INDEX2_AND_CHIRALITY_SEPARATION_V4_20260906.md",
+      "blob_sha1": "16591d39b730754da23f77c391b5d89bd24cefcf"
+    },
+    {
+      "path": "research_notes/X6_TRIADIC_TIME_FRONTIER_V3_20260906.md",
+      "blob_sha1": "4413237ce988b174d6a103802e8d15b90159c803"
+    },
+    {
+      "path": "research_notes/x6_tunable_geometry_and_second_moment_barrier_20260911.md",
+      "blob_sha1": "aa6005f0e53d9d9d86331adcec64f783ae646259"
+    },
+    {
+      "path": "research_notes/x6_tunable_geometry_checkpoint_20260911.json",
+      "blob_sha1": "05c282a3466792ee273bcad885ec2f116470b823"
+    },
+    {
+      "path": "research_notes/X6_UPPER_RELATIONAL_BUNDLE_INTEGRATION_V2_20260906.md",
+      "blob_sha1": "dff20f3640b073c5b948a78f13521f22d5ab1d37"
+    },
+    {
+      "path": "research_notes/X6_UPPER_STRUCTURE_V1_V43_HANDOFF_20260909.md",
+      "blob_sha1": "a71175777dba5eaf5fd61b0564915909cb6eb9e1"
+    },
+    {
+      "path": "research_notes/X6_UPPER_TYPED_EVENT_INTEGRATION_V1_20260906.md",
+      "blob_sha1": "68cca2db6e2ec88cec154c4d15109ffb4ca8bc24"
+    },
+    {
+      "path": "research_notes/x6_variable_conditioning_and_critical_frontier_20260911.md",
+      "blob_sha1": "cc059e4296a8f917c79c23ab98c040732ac7230d"
+    },
+    {
+      "path": "research_notes/x6_witness_overlap_and_divisor_window_20260911.md",
+      "blob_sha1": "1a77211195eb5c8d0ae369d2e0b0581e84df3a97"
+    },
+    {
+      "path": "research_notes/x6_witness_overlap_checkpoint_20260911.json",
+      "blob_sha1": "707945b54a74b2ff4eaa88061d19bb41525e16c0"
+    },
+    {
+      "path": "research_notes/X6_ZERO_CURRENT_NONABELIAN_COMMUTATOR_MEMORY_V38_20260906.md",
+      "blob_sha1": "b627dd6265744669c438417bb19e896814a94be1"
+    }
+  ],
+  "caveats": [
+    "A Git tree enumerates paths and immutable blob hashes only; it does not prove import, execution, use, correctness or complete semantic inspection.",
+    "This heuristic is only a finite high-recall candidate route and can miss generically named consumers; not the 28-LP exhaustive closure or driver acceptance.",
+    "The existing scoped frozen-corpus exact ledger remains the scientific basis; no historical pin was rewritten.",
+    "Next: consume source bodies of likely active consumers, record exact lines, import direction and typed action, then mark individually checked."
+  ]
+}
