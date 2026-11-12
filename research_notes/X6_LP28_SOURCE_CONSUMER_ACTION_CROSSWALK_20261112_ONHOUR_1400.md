@@ -182,3 +182,36 @@ call sites. Continue finite provenance search and classifying
 remaining current theorem-facing consumers with actual line-level
 evidence. Driver `REQUEST_REVISION` remains open until validated.
 
+## Six additional current-main historical-definition routers corrected (2026-11-12)
+
+A **bounded source-level dependency sweep** read the six named historical
+definition files on current main. Each had a correctly historical status but
+still pointed its `current native` prose to the intermediate 2026-08-20
+three-positive-ray, triple-intersection/min-zero foundation instead of P000 V5.
+The affected current-reader routing, rather than the old provenance, was
+surgically corrected via individual GitHub source-blob CAS and immutable
+commit readback. No frozen P000/R063 theorem was edited.
+
+| LP clusters / source | Verified current GitHub correction (commit; new Git blob) | Preserved / corrected type |
+|---|---|---|
+| LP001, LP003, LP024: `definitions/ENTERPRISE_COORDINATE_ORIGIN_ONE_NO_ZERO_20260817.md` | `0d1e16ca4cf65791bccdbfd82fdc6018cb189d4e`; `6bceccaafc8058163ca60d707a96f8a4802b1310` | Preserve origin-one/no-zero failure history; label triple-boundary and 3-positive-ray as intermediate; route native zero to chosen Cell in signed X6 |
+| LP001, LP002, LP024: `definitions/ENTERPRISE_POINT_ORIGIN_AND_DISPLACEMENT_ZERO_20260817.md` | `e5a702432598509eb8ff5586bfcf3f7d0241bfa8`; `2c1cae69707c154eb265befd32b26fa182b92306` | Replace erroneous current-positive native router and `I0-only` native-signed dismissal; preserve old zero/point origin rationale |
+| LP001, LP002, LP024: `definitions/ENTERPRISE_SIGNED_ORIGIN_ONE_COORDINATE_20260817.md` | `d92e1b91040aab2023e54553a817290996259efc`; `e9bcb96c8ff955a13269bbbe55ff183ef940fd78` | Historical ±1 origin equivalence remains retired; current signed primitive directions explicitly valid with chosen native Cell, while ±1-origin is not |
+| LP001, LP005, LP024: `definitions/ENTERPRISE_VOID_ORIGIN_EXISTENCE_GEODESIC_20260817.md` | `e5ba5932c299b6483ae2e7be8380e3e51d9ce9fd`; `f91343f6b5c679a0ee6e00bb1d1028119035358b` | `VOID_E` retains optional process/jump-count type; native length and Cell anchor route to P000 signed-X6, old three-ray line gauge becomes observer |
+| LP021, LP024, LP028: `definitions/ENTERPRISE_SQUARE_AND_ROOT_ORIGIN_ONE_20260817.md` | `8906276eab1f093ed9cdbd9d82c2297dcb8e984d`; `679a1a25fbc148af9d4486bc0cf630872bc5a60b` | Preserve original scalar-squared counterexample; restrict fixed-positive component root to declared chart; X6 is no native plane |
+| LP021, LP024, LP028: `definitions/ENTERPRISE_SQUARE_AND_ROOT_SIGNED_ORIGIN_ONE_20260817.md` | `97b49240f5e7486cfe9a2abec4c0e73f488f045e`; `684379942274e4834502666767910871151776fb` | Distinguish rejected signed-origin-one ontology from *valid* signed primitive X6 steps; `PathSqrt_E` remains one fixed positive two-axis source pending typed signed chart embedding |
+
+**Validated mathematical distinction:** A native signed reverse axis has
+`G(-e_i)=1`, while its min-zero relative representative has five
+entries equal to one and a **derived** squared sum of five. The old
+three-positive-only native reading cannot supply the current signed native
+inverse or complete Cell identity. Previously executed X6 regression
+certificates cover this difference; the current unit repairs the **live
+readers** that could still misinterpret those correct computations.
+
+**Independent inspection scope:** six specific `definitions/` files from
+the current-main listing, plus the earlier GON theorem-facing result.
+This does not certify every file in the repository. LP011/LP019's exact
+historical misattributed native callers remain `UNRESOLVED_PROVENANCE`,
+and further active downstream imports require case-specific evidence.
+
