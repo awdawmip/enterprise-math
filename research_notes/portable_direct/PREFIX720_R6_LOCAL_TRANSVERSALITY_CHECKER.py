@@ -122,8 +122,8 @@ def run():
     assert j_num>0
     assert theta_num<0
     den=L*L*Z
-    assert j_num>10_000_000*den*den
-    assert -theta_num>100*P*P*den
+    assert j_num>=10_000_000*den*den
+    assert -theta_num>=100*P*P*den
     # General Bernstein-derivative bounds on the 189 survivor rows:
     # |partial^r mu|<=N*376^r and |partial^r M2|<=N*(N+1)*376^r.
     # Hence |J_zp|,|J_zz|<=8*N*N*(N+1)*376^4.
@@ -138,8 +138,8 @@ def run():
       'model':'189-level frozen survivor plus independent Gamma maximum',
       'x':'11/96','diagonal_J_z_sign':'+',
       'diagonal_theta_prime_sign':'-',
-      'J_z_strict_lower':'10000000',
-      'Theta_prime_strict_upper':'-100',
+      'J_z_certified_at_least':'10000000',
+      'Theta_prime_certified_at_most':'-100',
       'explicit_square_radius':'1/1000000000000',
       'K_explicit_lower_in_square':'7000000',
       'exact_J_numerator_sha256':j_sha,
