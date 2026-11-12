@@ -5,6 +5,7 @@ Run on stacked branch research/r5-bitplane-rank-20261113-0140.
 The imported predecessor reconstructs and checks the frozen 28-coordinate corpus.
 """
 from __future__ import annotations
+from array import array
 from bisect import bisect_right
 from fractions import Fraction as F
 from pathlib import Path
@@ -12,14 +13,18 @@ from random import Random
 from time import perf_counter
 import json, statistics, sys
 
-base=Path(__file__).resolve().parents[1]/"brc_r5_event_rank_adaptive_20261113"
+base=Path(__file__).resolve().parents[1]/"brc_r5_offline_fenwick_20261112"
 sys.path.insert(0,str(base))
-import VERIFY_R5_EVENT_RANK_ADAPTIVE_FROM_PINNED as prev
+import VERIFY_R5_OFFLINE_FENWICK_FROM_PINNED as prev
 
 N,M=prev.N,prev.M
 walls=prev.walls
-codes=prev.codes
-lohi=prev.prev.lohi
+wall_rank={w:i for i,w in enumerate(walls)}
+codes=array("H",[0]*M)
+for tau,node in prev.events:
+    codes[prev.terminal_rank[node]]=wall_rank[tau]
+assert all(codes[i]==wall_rank[(1-F(36*q,n))/23] for i,(q,n) in enumerate(prev.pairs))
+lohi=prev.lohi
 W=len(walls)
 width=(W-1).bit_length()
 assert (N,M,W,width)==(2880,1065,953,10)
@@ -58,15 +63,15 @@ def count_hybrid(v,r,cutoff=8):
 
 # Exact original corpus: 2880 nodes * 20 fractional probes + all wall ties.
 checks=0
-for r in prev.prev.prev.samples:
+for r in prev.prev.samples:
     for v in range(N):
-        exact=prev.prev.prev.pinned.count(v,r)
+        exact=prev.prev.pinned.count(v,r)
         assert count_plane(v,r)==exact
         assert count_hybrid(v,r)==exact
         checks+=1
 assert checks==57600
 for tau in walls:
-    assert count_plane(0,tau)==prev.prev.prev.pinned.count(0,tau)
+    assert count_plane(0,tau)==prev.prev.pinned.count(0,tau)
 
 # Independent finite exhaustive bit-comparator logic over 3^n arrays, n<=6.
 small_checks=0
@@ -89,7 +94,7 @@ for n in range(1,7):
 assert small_checks==99780
 
 rng=Random(20261113)
-pool=list(prev.prev.prev.samples)+list(walls)+[F(-rng.randrange(0,100),50) for _ in range(100)]
+pool=list(prev.prev.samples)+list(walls)+[F(-rng.randrange(0,100),50) for _ in range(100)]
 pool += [(walls[i]+walls[i+1])/2 for i in range(0,W-1,11)]
 large=[i for i,(a,b) in enumerate(lohi) if b-a>=32]
 
@@ -116,7 +121,7 @@ def bench(fn,req):
 loads={}
 for kind,k in (("root",256),("broad",512),("random",2048),("hotmix",2048)):
     req=workload(kind,k)
-    exact=[prev.prev.prev.pinned.count(v,r) for v,r in req]
+    exact=[prev.prev.pinned.count(v,r) for v,r in req]
     times={}
     for name,func in (("direct",count_direct),("bitsliced",count_plane),("hybrid_8",count_hybrid)):
         assert [func(v,r) for v,r in req]==exact
