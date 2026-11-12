@@ -1,0 +1,83 @@
+{
+  "schema": "R106_PERSISTENT_GUARD_INCIDENCE_DAG_V1",
+  "scientific_input_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "r105_commit": "e8c8b17f09b95a8abc603a1226fba8890756063a",
+  "random_seed": 10620261113,
+  "random_equality_histories": 327,
+  "atomic_direct_comparisons": 9201,
+  "preserved_equivalence": 306,
+  "exposed_differences": 21,
+  "exact_rational_witnesses": 21,
+  "persistent_node_copies": 1636,
+  "affected_guard_atom_incidences": 268,
+  "zero_incidence_deletions": 296,
+  "branch_extensions": 327,
+  "weighted_exhaustive_cases": 400,
+  "patchwork_branching": {
+    "initial_equal": true,
+    "delete_guard_1_witness": {
+      "u": [
+        0,
+        0
+      ],
+      "theta": "3/4",
+      "F_top": [
+        [
+          0,
+          0
+        ]
+      ],
+      "G_top": [],
+      "atom_kind": "point"
+    },
+    "delete_guard_2_witness": {
+      "u": [
+        0,
+        0
+      ],
+      "theta": "2/5",
+      "F_top": [
+        [
+          0,
+          0
+        ]
+      ],
+      "G_top": [],
+      "atom_kind": "point"
+    },
+    "branch_copy_nodes": [
+      8,
+      6
+    ],
+    "affected_incidences": [
+      3,
+      2
+    ]
+  },
+  "weighted_four_guard_example": {
+    "k": 2,
+    "weights": {
+      "(0, 10)": "2",
+      "(0, 11)": "3",
+      "(0, 12)": "5",
+      "(0, 13)": "7"
+    },
+    "minimum_failure_cost": "10",
+    "optimal_deletion_set": [
+      [
+        0,
+        10
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        0,
+        12
+      ]
+    ]
+  },
+  "arithmetic": "exact Fraction; full phase cut singleton points and open gaps",
+  "execution": "all assertions passed; exhaustive weighted subset comparisons"
+}
