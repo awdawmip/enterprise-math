@@ -7,7 +7,37 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "9291e012cc0fc19032fffb8a697526e51b61268f",
+          "path": "research_notes/brc_s23_av_variable_tariff_mixed_history_20261112_r96/check_r96.py.gz.b64",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "15a300f8cdfed09676d90929ee189096f0730295e17742485f1a934498c2689c",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "45c8c02a6e64dc6030b0e68307eed43c23119d5e",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9291e012cc0fc19032fffb8a697526e51b61268f/research_notes/brc_s23_av_variable_tariff_mixed_history_20261112_r96/check_r96.py.gz.b64",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "R96-github-fetch-20261112-1500-script",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-050C43190213E557F082C36D/readbacks/1db983f99a66882f7cd7aa50e243df8a524d539a83146a5d2a947856830c1455.json",
+          "verification_receipt_sha256": "1db983f99a66882f7cd7aa50e243df8a524d539a83146a5d2a947856830c1455"
+        }
+      ],
+      "event_id": "r96-variable-tariff-20261112-1500",
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/fdf052cd91a3ae69836a3ae13d8c286532748134/journal/enterprise-math/2026-11-12/20261112T150000%2B0800-em-r96-variable-tariff-20261112.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-12T07:05:35.955015+00:00",
   "registration_key": "session:MCP-9f4ab10bc01e441b8c155ceb60bfe5bc:TASK_RESEARCH",
