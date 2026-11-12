@@ -1,0 +1,44 @@
+{
+  "schema": "PREFIX719_R6_GAMMA_DIAGONAL_STATIONARY_V1",
+  "date": "2026-11-12",
+  "frozen_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "original 189-level stopping-survivor plus independent Gamma maximum",
+  "diagonal_stationary_maximum_open_interval": [
+    "43/384",
+    "91/768"
+  ],
+  "scope": "every real q>=2, restriction p->V_q(p,p); existence not uniqueness nor global square optimality",
+  "Theta_left_exact_enclosure": [
+    "566/1000",
+    "567/1000"
+  ],
+  "Theta_right_exact_enclosure": [
+    "-109/1000",
+    "-108/1000"
+  ],
+  "exact_nonzero_survivor_coefficients": 9529,
+  "ordered_offdiagonal_pairs_exact_tested": 120,
+  "offdiagonal_result": "r_p<r_z at all predeclared i<j, hence J=mu_p*M2_z-mu_z*M2_p>0 at sampled pairs only",
+  "sample_indices": [
+    1,
+    20,
+    50,
+    75,
+    100,
+    125,
+    150,
+    175,
+    200,
+    225,
+    250,
+    275,
+    300,
+    325,
+    350,
+    380
+  ],
+  "sample_pairs_sha256": "68cf0829568e37426fd98c61e5c1e7d0b64a446e35c48ca36355e15f8ea74c62",
+  "status": "AUTHOR_EXACT_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "checker": "ALL_CHECKS_PASS PREFIX719-R6",
+  "remaining": "Prove uniqueness or counterexample; off-diagonal J sign across continuous square; full 2D optimum"
+}
