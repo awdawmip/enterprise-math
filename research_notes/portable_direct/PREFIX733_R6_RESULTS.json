@@ -1,0 +1,70 @@
+{
+  "schema": "PREFIX733_R6_HALF_TILE_400_ALL_Q_CERTIFICATE_V1",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "observer": "189-row BRC stopped-count, independent unit-rate Gamma maximum",
+  "parameter_region": "[50/384,70/384]^2",
+  "q_domain": "all real q >= 2",
+  "witness": [
+    "0",
+    "73/500"
+  ],
+  "fine_grid_denominator": 384,
+  "subtile_denominator": 768,
+  "ordered_whole_grid_cells": 400,
+  "symmetry_reduced_cells": 210,
+  "exact_rational_endpoint_comparisons": 1680,
+  "minimum_gap_integer_floor": 76,
+  "minimum_gap_approx_display": 76.65157655659459,
+  "worst_cell_representative": [
+    50,
+    69
+  ],
+  "uniform_strict_gap": "V_q(witness)-V_q(p,z)>76*q^2",
+  "old_PREFIX712_overlap": 0,
+  "later_certificate_overlap": {
+    "PREFIX713_coupled": 0,
+    "PREFIX713_multi": 0,
+    "PREFIX716": 0,
+    "PREFIX718": 0
+  },
+  "prior_732_certified": 139140,
+  "deduplicated_new_cells": 400,
+  "all_q_certified": 139540,
+  "total_cells": 147456,
+  "exact_fraction": "34885/36864",
+  "percentage": 94.63161892361111,
+  "unexcluded_cells": 7916,
+  "author_verification": {
+    "kernel": "189 original survivor rows / 9529 nonzero integer count positions; prior numerator hash matched",
+    "batches": [
+      {
+        "i_range": "[50,54)",
+        "pairs": 74,
+        "minimum_floor": 76,
+        "old_overlap": 0
+      },
+      {
+        "i_range": "[54,59)",
+        "pairs": 70,
+        "minimum_floor": 98,
+        "old_overlap": 0
+      },
+      {
+        "i_range": "[59,64)",
+        "pairs": 45,
+        "minimum_floor": 122,
+        "old_overlap": 0
+      },
+      {
+        "i_range": "[64,70)",
+        "pairs": 21,
+        "minimum_floor": 136,
+        "old_overlap": 0
+      }
+    ],
+    "arithmetic": "Python int and fractions.Fraction exact; float only for display",
+    "full_repo_composite_reproducer": "PUBLISHED_NOT_RERUN_END_TO_END",
+    "status": "AUTHOR_EXACT_INTEGER_FRACTION_CHECKED"
+  },
+  "grade": "AUTHOR_EXACT_INTEGER_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
