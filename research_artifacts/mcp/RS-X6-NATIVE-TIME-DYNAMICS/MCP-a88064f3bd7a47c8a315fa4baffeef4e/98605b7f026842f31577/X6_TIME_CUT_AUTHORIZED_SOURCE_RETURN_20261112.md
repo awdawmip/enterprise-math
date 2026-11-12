@@ -1,0 +1,14 @@
+# X6 Native Time — verified author-side conditional cut observers
+Researcher EM-DIRECT-403AAA; original SID MCP-a88064f3bd7a47c8a315fa4baffeef4e; RA-3CCFD886BD2BFF49E8A49CB9; task RS-X6-NATIVE-TIME-DYNAMICS, publication TP2-91D4A7C2F63805BE21A3; winning CLAIM MCP-30cb959f00a9d5d3b498e79d; frozen science a72226e2430ffa4786321ac86e7f0c599d5f0389.
+
+(1) Disjoint, resource-certified-independent V1R C12 local chains with ell_i<=11: k-event cut ideals and full local decorated state count exactly [x^k] product_i(1+x+...+x^{ell_i}). Six one-event chains have cut histogram 1,6,15,20,15,6,1; exactly 720 labeled linearizations, a single final endpoint and five required selector bits at k=3. A global serial kth-cut readout must retain the chosen ideal; it is not endpoint-trace safe.
+(2) For m local C12 chains of length12, at global k=12 the m allocations of all 12 events to one component yield m different local history allocations but equal full phase tuples plus equal global count; at least ceil(log2 m) bits are required for the original winding allocation. Two-Cell witness: 13 ideals, 12 phase tuples, collision (0,12) versus (12,0).
+(3) One *hypothetical* causal crosslink A_r<B_s for two chains lengths a,b<=11 has exact cut polynomial (sum_i=0^a x^i)(sum_j=0^b x^j) -(sum_i=0^(r-1) x^i)(sum_j=s^b x^j), total ideals (a+1)(b+1)-r(b-s+1), and exact accepted linearization count sum_j=r^min(a,r+s-1) binom(r+s-1,j) binom(a+b-r-s+1,a-j). The 100 cases a,b=1..4 and all r,s were checked by complete exact enumeration; a=b=3,r=s=2 yields 12 ideals, histogram 1,2,2,2,2,2,1 and 10 linearizations.
+
+Full immutable GitHub source proof/check/output files were saved on main and all six individually read back:
+* Note1: @f115d6abf67f4dd41fe8a4d89367a0b1d1caa55f research_notes/portable_direct/2026-11-12_x6_time_cut_lattice_and_C12_winding_residual_r2.md
+* Code1/output1 at same commit: x6_time_cut_lattice_verify_20261112_r2.py and x6_time_cut_lattice_results_20261112_r2.json
+* Note2: @c8a44eeb585f83be41a161f1492caae07f8066f6 research_notes/portable_direct/2026-11-12_x6_time_one_causal_crosslink_cut_polynomial_r2.md
+* Code2/output2 at same commit: x6_single_crosslink_cut_verify_20261112.py and x6_single_crosslink_cut_results_20261112.json
+
+Scope: exact theorems of the defined **conditional finite event-poset model** using declared one-Cell V1R states, NOT a proved native multi-Cell Cell/Link/Port/force permission or actual physical duration calibration. CLOSURE mode is not treated as opposite TRIADIC_CLOSURE_E truth. No independent mathematical acceptance. Next uncompleted: identify an actually admitted cross-Cell two-event resource/Link incidence and future-operation observation guard; test its causal ideal polynomial and source/provenance preservation, then calibrate duration if available.
