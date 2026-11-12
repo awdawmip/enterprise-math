@@ -65,3 +65,21 @@ Proof. Reduction modulo 2 induces the G_even-equivariant map Q_even → V=F2^6/<
 A separate exhaustive modular quotient test in EXPERIMENT_Q64_ORBITS.py enumerates all 4^6=4096 residues, constructs the 64 quotient classes, and applies all 60 compensated candidate generators. It confirms these five orbit sizes and, for one chosen order-six U generator, cycle decomposition **1^8 · 2^4 · 3^8 · 6^4** (8 fixed classes, four 2-cycles, eight 3-cycles, four 6-cycles). The cycle result is a precise finite test for that chosen generator; an extension to all constrained native dynamics remains a separate question.
 
 The exact 12-state orbit is a natural next compact signed-direction/phase research candidate. Its relation to the project's actual BRC C12 carrier semantics is to be established by a typed observer and future-operation bridge, while preserving full path provenance.
+
+
+## Theorem 5: exact minimal-memory C(6m) lift of a selected C6 cycle
+
+A full enumeration of the 11,520 elements of G_even gives possible element orders only **1, 2, 3, 4, 5, 6, 8, 10**. Consequently no *single signed-permutation element* of this exact candidate group can produce a 12-cycle or 24-cycle on any quotient. This follows algebraically because the underlying permutation lies in A6, whose possible cycle types are 1^6, 2^2·1^2, 3·1^3, 3^2, 4·2 and 5·1; on a signed cycle of length d the lifted order is either d or 2d, yielding only the listed orders after taking least common multiples. The code exhaustively verifies the distribution for G_even:
+order 1:1, 2:391, 3:800, 4:2520, 5:2304, 6:1760, 8:1440, 10:2304.
+
+Nevertheless, the selected compensated generator g=U_123;4 has an exact six-state orbit O={x_0,...,x_5} on Q_even (the concrete states are in PHASE_COVER_OUTPUT.json). For **every positive integer m**, introduce a separate residual fiber Z/mZ and define the skew-product update on O×Z/mZ:
+
+Phi_m(x_j,r) = (x_{j+1 mod 6}, r + 1_{j=5} mod m).
+
+**Theorem.** Phi_m is one cycle of exact length **6m** on the 6m states of O×Z/mZ. Moreover, among all deterministic lifts of the same fixed six-cycle on O that have an exact 6m-cycle, a fiber with at least m states is necessary. Thus the construction uses the minimum possible number of discrete residual states per base Cell-observer state.
+
+**Proof.** Every six steps traverse the chosen orbit once, crossing j=5 exactly once, so Phi_m^6(x_j,r)=(x_j,r+1 mod m). Returning to the initial base position requires a multiple 6k of steps; returning simultaneously to the initial fiber requires k≡0 mod m. Thus the first full return occurs after 6m steps. For any other lift with a 6m-cycle projecting to a six-cycle, each of the six base points appears exactly m times in the 6m distinct extended states, so each base fiber has at least m states. QED.
+
+For m=2, a **single residual bit** yields an exact 12-step cycle; for m=4, **two residual bits** yield an exact 24-step cycle. The extension creates temporal/order-dependent residual structure on a specifically selected candidate orbit, not a new seventh spatial coordinate and not a frozen heartbeat period. A discrete event trace may be written (x_t,r_t;t) with separately typed time t; physical calibration and native C12/C24 carrier compatibility remain to be established. This provides an explicit constructive alternative to identifying C12/C24 with the order of one signed spatial rotation.
+
+Exact tests for m=1,2,3,4,5,7 verify periods 6,12,18,24,30,42 and minimal full-state return, with no changed scientific input. Program: VERIFY_X6_PHASE_COVER.py; evidence: PHASE_COVER_OUTPUT.json. Next: incorporate actual primitive path/branch information into the carry event and determine which typed C12/C24 observers factor through the resulting lifted state.
