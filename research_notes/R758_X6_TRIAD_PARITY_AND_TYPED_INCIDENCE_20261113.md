@@ -1,0 +1,62 @@
+# R758 — Odd-path parity obstruction and typed Cell/Port incidence for X6 triads
+
+**Status:** exact theorem and 320-state finite witness; author-side research, pending native event admission and independent Driver review.
+**Task lineage:** RS-X6-TRIADIC-CLOSURE-DYNAMICS / TP2-8B7E13C5904A2D6F1142; previous R753–R757 author contributions.
+**Previous researcher provenance:** EM-X6-D25F40 / RA-CAA90D5BD12F505657A65DC6. Original Run RUN-c99655fb22237769554480ab was observed fenced by a later CLAIM at this run's read; no new active execution is asserted.
+**Frozen science:** awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389 P000 V5, P000_DISCRETE_DIRECTION_TRIADIC_BALANCE, ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR. Scientific pins unchanged.
+**Comparison, not refreeze:** V29 PASS/TRANSFER and V39 based-loop port at awdawmip/enterprise-math@deb8bbbf9d844c0ceb777631e576763a634eed99; R757@ed0b15b4ba948a21150969478d8a6941db76b11f.
+
+## 1. The problem is a mismatch of two closure types
+
+The X6 Cell carrier is an affine torsor over \(\mathbb Z^6\); every primitive **spatial coordinate step** is one of \(\pm e_i\). P000 defines \(\mathrm{TRIADIC\_CLOSURE\_E}\) as a **three-force relation** at an atomic event and explicitly does not define it by Euclidean vector cancellation or by spatial endpoint return. The V29 event \(\mathrm{PASS}(c;p\to q)\) is an internal port-count occurrence; it does not itself translate a Cell. The V39 \((j,h)\) port summarizes completed based-loop *relation* histories. These are three different types.
+
+The new question is whether a three-force balance can legitimately be represented as a **three-primitive-coordinate-step path returning to its starting native Cell**, and which well-typed repair remains available.
+
+## 2. Exact all-odd-length obstruction
+
+**Theorem R758-A.** Let \(X\) be a torsor over \(\mathbb Z^6\). For any odd integer \(m\ge1\), and any \(m\) native primitive coordinate steps \(d_k\in\{\pm e_1,\ldots,\pm e_6\}\), \(\sum_{k=1}^m d_k\ne 0\). Consequently no odd-length native primitive-coordinate walk returns to its starting Cell, in particular no three-step walk.
+
+**Proof.** The integer homomorphism \(\pi:\mathbb Z^6\to\mathbb Z/2\mathbb Z\), \(\pi(z)=\sum_{i=1}^6 z_i\bmod2\), maps every signed basis direction to 1. Hence \(\pi(\sum d_k)=m\bmod2=1\), while \(\pi(0)=0\). Since torsor endpoint displacement is the sum of step labels independent of the chosen anchor, the endpoint differs. QED.
+
+**Sharpening for P000 equal-quantum signed triples.** If the three force-direction marks \(p,q,r\) use pairwise distinct native axes, a length-three coordinate walk using those marks has \(\ell_1\) displacement 3 and \(L_E^2=3\) in the frozen X6 component readout. There are exactly \(\binom63 2^3 3!=960\) ordered paths of this type, none closed. In all \(12^3=1728\) three-step words, 396 have \(\ell_1=1\) and 1332 have \(\ell_1=3\); none have zero displacement.
+
+**Theorem R758-B (sharp composite repair).** A closed primitive-coordinate walk whose step support contains at least three specified distinct native axes needs at least six steps. At length six it uses precisely one positive and one negative unit step on each of the three axes. Across all choices of three axes there are \(\binom63\,6!=14{,}400\) ordered closed words meeting this exact three-axis condition.
+
+**Proof.** Zero net displacement forces the positive and negative counts of each used axis to agree. If three axes each appear, each contributes at least two occurrences; six steps are necessary and sufficient. For length six the six signed symbols are distinct, so there are \(6!\) orders per chosen triple. QED.
+
+These 6-step words are genuine **composite native spatial paths**. Their 14,400 orderings carry BRC provenance; none is automatically an indivisible three-force atom. All closed 6-step words (including one- and two-axis support) number 19,920. Direct integer dynamic-programming checks give return counts at lengths 1–6: 0,12,0,396,0,19920.
+
+## 3. Positive, explicitly typed co-located three-force incidence candidate
+
+Fix one Cell \(c\). Choose three force tokens \(f_p,f_q,f_r\), each an *independent nonzero force mark* attached to \(c\), with distinct signed-axis port marks \(p,q,r\), and record an orientation class \([p,q,r]\) modulo cyclic shifts. This is a **proposed incidence carrier**, not an already Source-admitted primitive \(\mathrm{TRIADIC\_CLOSURE\_E}\).
+
+A candidate V29 count observation (which requires a separately declared force-to-PASS bridge) is the additive three-edge batch
+\[
+ B_c([p,q,r])=E_{p q}+E_{q r}+E_{r p}.
+\]
+This contains three completed local port passages but **zero native Cell spatial translation**. Every port occurs once as ingress and once as egress; thus
+\[
+\Delta u_c=0,\quad \Delta Q=0,\quad
+\Delta\Omega_c=B_c-B_c^\top.
+\]
+The batch is independent of the cyclic starting point, and for every \(g\in S_6\) it obeys \(B_c(g[p,q,r])=gB_c([p,q,r])g^{-1}\), where \(g\) relabels *axis components*, leaving the signs typed. There are \(\binom63 2^3 2=320\) distinct oriented signed port-cycle observations. These facts reuse the R753 cycle representation, now separating its incidence semantics from spatial closure.
+
+**Conditional no-bridge proposition R758-C.** Any proposed representation that (i) maps each three-force primitive closed event to exactly three primitive X6 *coordinate steps*, and (ii) identifies primitive force closure with native Cell endpoint return, fails for every such event by Theorem R758-A. A type-preserving bridge must instead let triadic closure be a local relation, or supply additional composite steps, or replace the endpoint observer by an explicitly declared different observer. This is a precise obstruction to this *two-assumption representation*, not to triadic dynamics.
+
+The co-located candidate offers a concrete next interface:
+\[
+\mathrm{force\_incidence}(c;f_p,f_q,f_r,\mathrm{orientation})
+\;\xrightarrow[\text{proposed}]{\mathrm{admission\ and\ scheduler}}\;
+\mathrm{PASS\_batch}(c;p\to q,q\to r,r\to p)
+\;\xrightarrow[\text{additional coupling if admitted}]{}
+\mathrm{V39\ based\ loop\ port}.
+\]
+This has not yet supplied an atomic three-force force-balance admission rule, a rule linking Cell/Link inventory and PASS batch eligibility, or a V39 frame update. R757's bow-tie A,B,C macro loops remain a separately valid V39 construction; their relation-state return is not a closed 3-step spatial Cell walk. For the declared V39 future language, the full \(h\) cannot be reconstructed from a count histogram in R757's explicit noncommuting pair.
+
+## 4. Finite exact evidence and next discriminating test
+
+The accompanying Python standard-library checker exhausts 1,728 three-step words, exact X6 return counts up to length six, the 14,400 minimal six-step three-axis closed words, 320 signed oriented local-port cycles, 230,400 \(S_6\) cycle covariance checks and zero local port balance. Exact output is preserved in R758_X6_TRIAD_PARITY_EVIDENCE_20261113.json. General odd-length no-go and six-step minimum have proofs above; their scopes do not depend on a finite window.
+
+**Next target:** inspect current native Cell/Link/Port force-inventory and V20/V29 event admission contracts; supply one explicit source-valid three-force incidence + scheduler that executes the co-located count candidate (or produce an exact failing hypothesis). Then specify the first V39 based-loop frame readout under a declared coupling and test one nontrivial R757 reverse schedule. Preserve raw signed ports, event order and actual Cell displacement as separate BRC carriers until an operation-safe quotient is proved.
+
+P000, frozen science, task publication, previous Result/Review, and original authorship are unchanged. This is a proof-and-witness contribution, not a formal Source Result.
