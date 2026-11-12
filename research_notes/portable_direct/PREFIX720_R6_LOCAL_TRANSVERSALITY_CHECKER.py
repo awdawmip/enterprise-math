@@ -121,6 +121,14 @@ def run():
     theta_sha=hashlib.sha256(str(theta_num).encode()).hexdigest()
     assert j_num>0
     assert theta_num<0
+    den=L*L*Z
+    assert j_num>10_000_000*den*den
+    assert -theta_num>100*P*P*den
+    # General Bernstein-derivative bounds on the 189 survivor rows:
+    # |partial^r mu|<=N*376^r and |partial^r M2|<=N*(N+1)*376^r.
+    # Hence |J_zp|,|J_zz|<=8*N*N*(N+1)*376^4.
+    B=16*N*N*(N+1)*376**4
+    assert B<3_000_000*10**12
     assert j_sha=='f9eab864317b8b68e16940ed539733265725445e8108de8c7075d4d18adc95d2'
     assert theta_sha=='c3cb0b08933d50689c97613e80cc6b53820dc8820e1c7f084cb6ec64e6d0e0b1'
     result={
@@ -130,6 +138,10 @@ def run():
       'model':'189-level frozen survivor plus independent Gamma maximum',
       'x':'11/96','diagonal_J_z_sign':'+',
       'diagonal_theta_prime_sign':'-',
+      'J_z_strict_lower':'10000000',
+      'Theta_prime_strict_upper':'-100',
+      'explicit_square_radius':'1/1000000000000',
+      'K_explicit_lower_in_square':'7000000',
       'exact_J_numerator_sha256':j_sha,
       'exact_theta_numerator_sha256':theta_sha,
       'J_numerator_digits':len(str(j_num)),
