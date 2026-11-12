@@ -150,3 +150,36 @@ In X6 the sharp threshold is \(3L\); all native endpoints at a known exact signe
 **Exact checks.** A fresh integer-only test compared full signed endpoint-layer cardinalities with augmented-key cardinalities for all \(n=2,3,4\), \(m=1,\ldots,4\), \(b=1,\ldots,8\), \(N=0,\ldots,6\) (672 complete layers); every layer was injective exactly when \(N<N_{\rm crit}(n;m,b)\). Another 50,000 deterministic pseudo-random cases (seed 20261112, \(2\le n\le8\), \(1\le m\le15\), \(1\le b\le29\)) checked direct fiber equivalence and step update against chosen integer lifts, all passing. Those tests implement the above equations independently, **not** imports of current repository consumers. Original LP026 Author's separate 59,267-case DP/source-independent regression remains distinct; the current-source import branch in that checker is still an integration obligation.
 
 **Consequence for the existing X6 research:** a native signed-step checksum modulo \(b\) can carry exactly quantified additional finite-depth information at one residue per event, using the same mathematical pushforward and avoiding full-depth storage within a specified horizon. This is a new Driver-context bridge lemma built from LP026's attributed BRC kernel and §§1–6; no independent Native Result, new CLAIM, physical law promotion, or Task/Objective closure is asserted.
+
+
+## 8. Optimal worst-case endpoint side-memory over an unknown-length horizon
+
+**Theorem (even-dimensional exact fiber capacity and information cost).** Fix an **even** native dimension \(n\ge2\), a cyclic depth modulus \(m\ge1\), an anchored zero starting Cell, and the full signed native alphabet \(\{\pm e_i\}\). Let \(B_H=\{z\in\mathbb Z^n:\|z\|_1\le H\}\), the set of all endpoints reachable in **at most** \(H\) signed primitive steps, without requiring the length to be known. Then
+\[
+\boxed{
+\max_{k\in\pi_m(B_H)}|\pi_m^{-1}(k)\cap B_H|
+=1+\left\lfloor\frac{2H}{nm}\right\rfloor.
+}
+\]
+Consequently the sharp minimum **worst-case fixed-bit side memory**, in addition to the already observed cover key, that permits exact endpoint reconstruction anywhere in \(B_H\) is
+\[
+\boxed{
+B_{\min}(n,m,H)=\left\lceil\log_2\left(1+
+\left\lfloor\frac{2H}{nm}\right\rfloor\right)\right\rceil.
+}
+\]
+For X6 this is \(B_{\min}(6,m,H)=\lceil\log_2(1+\lfloor H/(3m)\rfloor)\rceil\). It is a conditional encoding bound **per known cover key** and known external horizon \(H\); side-memory is an index of the compatible depth fiber, not a new spatial coordinate.
+
+**Proof (upper bound).** All points in one cover fiber have the form \(r+(h_0+jm)D\). If the smallest and largest compatible depth differ by \(km\), the corresponding endpoints have \(\ell^1\)-distance \(nkm\). Both belong to \(B_H\), so by the triangle inequality \(nkm\le2H\). Since admissible depth indices are integers and the fiber has no more points than the full progression between its extremes, its cardinality is at most \(1+\lfloor2H/(nm)\rfloor\).
+
+**Proof (sharp construction).** Set \(K=\lfloor2H/(nm)\rfloor\). Take the first \(n/2\) coordinates of \(z_0\) equal to \(-Km\), and the remaining \(n/2\) coordinates zero. For \(j=0,\ldots,K\), define \(z_j=z_0+jmD\). These \(K+1\) distinct native endpoints share exactly the same \(\pi_m\) key, while
+\[
+\|z_j\|_1=\tfrac n2(K-j)m+\tfrac n2jm=\tfrac{nKm}{2}\le H.
+\]
+Thus the upper bound is achieved. Any per-fiber code that uniquely distinguishes this fiber needs at least \(\lceil\log_2(K+1)\rceil\) bits; sorting the finitely many compatible integer depths and encoding their zero-based index attains this bound for every key. QED.
+
+The theorem refines the first-alias threshold of §6: \(B_{\min}=0\) precisely when \(H<nm/2\) for even \(n\), and it grows in **logarithmic bits** with horizon when the cover modulus is held fixed. Examples: at \(n=6,m=1,H=5\) the maximum compatible depths are 2 (one bit); at \(H=30\) there are exactly 11 in the worst fiber (four bits); at \(n=6,m=2,H=30\) the maximum is 6 (three bits). A signed-grade checksum (§7) gives a simple *streaming modular alternative* and can match or exceed the needed discrimination depending on \(b\); the optimal per-fiber index need not itself support a one-residue-per-native-step update without additional bookkeeping.
+
+**Independent exact test.** Enumerated the full \(\ell^1\) balls of signed-axis endpoints for \(n=2,4,6\), moduli \(m=1,\ldots,4\), and horizons \(H=0,\ldots,7\). Across all 96 combinations the maximum observed fiber cardinality matched \(1+\lfloor2H/(nm)\rfloor\), using exact Python integers and complete endpoint support. This result is a mathematically proved endpoint memory theorem with finite verification; neither current-source CoverState imports nor a physical signed rotation model is claimed by this test.
+
+**Relevance:** For BRC/LP026 compressed computation, it gives a sharp information budget for reconstructing native signed endpoints from cyclic-depth projected states at a declared maximum path length. The branch/history population remains distinct; the same depth-repair bits alone do not recover ordered BRC branches or triadic interaction state.
