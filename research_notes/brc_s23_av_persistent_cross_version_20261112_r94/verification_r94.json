@@ -1,0 +1,103 @@
+{
+  "schema": "EM_R94_PERSISTENT_INDEX_INTEGRATION_V1",
+  "science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "language": "Python standard library, Fraction exact",
+  "verification": "ALL_ASSERTIONS_PASSED",
+  "history": {
+    "n": 32,
+    "certified_boxes_total": 128,
+    "updates": 50,
+    "versions": 51,
+    "exact_version_checks": 17,
+    "cross_version_checks": 12,
+    "change_witnesses": 0,
+    "stable_delta_transfer_checks": 25,
+    "construction_total_ms": 10.767,
+    "r92_single_rebuild_ms_median": 0.5279,
+    "cold_query_ms_median": {
+      "heap": 1.7143,
+      "r91_scan": 2.539,
+      "r92_rebuild": 0.7783,
+      "r94_persistent": 0.7096
+    },
+    "resources": {
+      "source_nodes_retained": 149,
+      "certificate_nodes_retained": 291,
+      "source_nodes_allocated": 348,
+      "certificate_nodes_allocated": 1234,
+      "certificate_index_node_visits": 12936,
+      "active_certificates_last": 107,
+      "source_identities_last": 36,
+      "source_roots_graph_bytes": 41240,
+      "certificate_roots_graph_bytes": 65536
+    }
+  },
+  "matched_profiles": [
+    {
+      "n_excluded_times": 9,
+      "source_edits_total": 22,
+      "version_queries": 22,
+      "source_edit_total_ms": {
+        "r82_ns": 0.448,
+        "r90_ns": 0.267,
+        "r86_ns": 2.086
+      },
+      "query_total_ms": {
+        "r86_ns": 0.08,
+        "r94_ns": 4.824,
+        "heap_ns": 9.928
+      },
+      "r86": {
+        "time_profiles": 10,
+        "allocated_nodes": 83,
+        "merged_atoms": 183,
+        "version_checks": 0,
+        "direct_atoms": 0
+      },
+      "source_final": 18,
+      "r86_latest_profile_retained_graph_bytes": 19668,
+      "r90_latest_source_retained_graph_bytes": 18984,
+      "scope": "R86 full global profile fixed I and SIG"
+    },
+    {
+      "n_excluded_times": 17,
+      "source_edits_total": 30,
+      "version_queries": 30,
+      "source_edit_total_ms": {
+        "r82_ns": 1.056,
+        "r90_ns": 0.663,
+        "r86_ns": 4.619
+      },
+      "query_total_ms": {
+        "r86_ns": 0.179,
+        "r94_ns": 10.348,
+        "heap_ns": 24.861
+      },
+      "r86": {
+        "time_profiles": 18,
+        "allocated_nodes": 147,
+        "merged_atoms": 339,
+        "version_checks": 0,
+        "direct_atoms": 0
+      },
+      "source_final": 30,
+      "r86_latest_profile_retained_graph_bytes": 32960,
+      "r90_latest_source_retained_graph_bytes": 30344,
+      "scope": "R86 full global profile fixed I and SIG"
+    }
+  ],
+  "adversarial_witnesses": {
+    "updates": 75,
+    "exact_full_interval_reference_matches": 75,
+    "changes_witnesses": 75,
+    "endpoint_checks": "covered by R90 exact rational atom reference"
+  },
+  "provenance": [
+    "R82 R86 R90 R91 R92 R93 unchanged original code from frozen source packages"
+  ],
+  "artifacts": {
+    "checker_compressed_base64_sha256": "166e5197454ca8d538fe8a3ad7d3dfbfd30b86e0ff7470e172d63f7754275b87",
+    "remote_code_format": "gzip-base64 of exact checker",
+    "note": "raw Python dependencies included in separately provided reproducibility archive"
+  }
+}
