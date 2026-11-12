@@ -1,7 +1,11 @@
 # X6 full Cell cover classification：唯一剩余自由度是六轴全对角环的闭合阶 `m`
 
-Status: `DERIVED / EXACT CLASSIFICATION / STRONGEST CURRENT X6 FRONTIER`
+Status: `DERIVED_EXACT_COVER_CLASSIFICATION / HISTORICAL_NATIVE_CHOICE_SUPERSEDED_BY_P000_V5`
 Date: `2026-09-05`
+Current type reconciliation: `2026-11-13`, relative to frozen P000 V5 signed native Cell foundation at `59538f585d037d09ef687b28715c4bc1a3f9fe03`.
+
+**Current native model selection.** This note classifies a mathematically valid hypothetical family `Z^6/(mZ·1)`. The current P000 V5 **chooses `m=0`**, the signed full Cell torsor `Z^6`. The historical `m=1` is the derived relative-coordinate observer, not present native Cell identity. Finite `m>1` and `m=1` remain exact quotient alternatives for typed observer/cover research; their positive-return formulas hold for those alternative models and must not be read as current native return counts. In particular all finite `m` erase genuine native displacement `m·(1,1,1,1,1,1)`, whose squared native component norm is `6m²`.
+
 Depends on: V7–V12 coordinate completion.
 
 ## 1. Why a cover classification is needed
@@ -59,7 +63,7 @@ Its fibre is
 
 Hence no arbitrary finite/infinite hidden group survives this model-class audit: the only possible full Cell identity fibre is the cyclic memory of how many complete six-axis diagonal loops have occurred.
 
-## 4. Meaning of m
+## 4. Meaning of m in the classified hypothetical family
 
 Let
 
@@ -74,7 +78,7 @@ In the full cover `G6^(m)`:
 - general finite m: exactly m full diagonal loops return;
 - `m=0`: D has infinite order and no positive number of complete diagonal loops returns the full Cell.
 
-Thus `m` is the exact **full Cell diagonal-closure order**.
+Thus `m` is the exact **diagonal-closure order within the stated mathematical quotient model**. Under current P000 V5, the native Cell has `m=0` and no nontrivial pure positive full-diagonal return.
 
 Do not interpret it as an additional spatial dimension. It is a possible fibre over the six-axis coordinate center identity.
 
@@ -92,7 +96,7 @@ not the superseded `Z^2 x Z/2` model.
 
 All six positive axis translations remain distinct.
 
-## 6. BRC can distinguish m exactly
+## 6. BRC distinguishes the quotient models (current native case is m=0)
 
 Under equal positive six-axis branching, a coordinate return at length `6r` requires each axis to occur exactly r times.
 
@@ -116,7 +120,7 @@ Examples:
 - `m=3`: first at length 18, multiplicity `18!/(3!)^6`;
 - `m=0`: no nontrivial balanced positive coordinate word ever returns the same full Cell.
 
-Hence m is experimentally/computationally observable at the full Cell endpoint/BRC layer even though every selected 3-axis coordinate observer forgets it.
+Thus the classified models have distinct formal endpoint/BRC predictions despite identical selected relative-coordinate observations. In current native X6 only `m=0` supplies native Cell identity; each finite-`m` first-return value is a quotient-model prediction, not a current native return.
 
 ## 7. Relation to 3-axis local loops
 
@@ -132,15 +136,11 @@ This is exactly why the previous attempt to derive full returns by combining loc
 
 ## 8. S6 symmetry does not fix m
 
-The diagonal subgroup and every `mDelta` are invariant under all six-axis permutations. Thus all models `G6^(m)` preserve the exact S6 axis-permutation skeleton, P000 pairwise orthogonality and the six-axis component norm observer.
+The diagonal subgroup and every `mDelta` are invariant under all six-axis permutations. Thus every `G6^(m)` preserves the exact S6 axis-permutation symmetry of its coordinate/quotient structure. **The current native component norm `G(z)=sum_i z_i²` does not descend to any finite-`m` quotient**: the distinct native inputs `0` and `mD` map to the same quotient point but have squared norms `0` and `6m²`. The earlier classification's norm-preservation assertion therefore applies only to the separately typed quotient/derived readout, not the full native norm. S6 symmetry alone cannot distinguish these quotient classes, but current P000 native-identity and native-norm requirements select the full-depth `m=0` case.
 
-So rotation symmetry cannot choose m.
+## 9. Historical Foundation selection proposal and current settled choice
 
-## 9. The one true Foundation decision
-
-The coordinate-complete native Cell model is exactly
-
-`m=1`.
+The **historical coordinate-quotient Cell candidate** was `m=1`. The current signed-X6 native Cell Foundation instead selects **`m=0`**, full integer common-depth identity, while retaining `m=1` as an observer.
 
 Equivalently any one of the following freezes the same choice:
 
@@ -150,12 +150,6 @@ Equivalently any one of the following freezes the same choice:
 
 `FULL_CELL_COORDINATE_MAP_HAS_TRIVIAL_FIBRE`.
 
-If this is selected, then
+Within the historical conditional model, choosing the listed gate would have identified Cell endpoints with the relative quotient `G6_D` and min-zero addresses `A6_D`. In current P000 V5 the native object is instead `X6_NATIVE_SPATIAL=AFFINE_TORSOR(Z^6)` with integer depth retained. The `m`-family remains a valid mathematical witness that *relative slice observations alone* do not recover native depth, not an unresolved native Foundation selection.
 
-`X6_native = affine torsor over G6_D`
-
-with primitive min-zero address `A6_D`.
-
-If it is not selected, no further mathematics based only on current coordinate/symmetry/slice information can decide m, because the complete countermodel family above satisfies all those observers.
-
-This is now a genuine logical boundary rather than an unfinished algebra calculation.
+For every finite `m>=1`, the quotient equivalence `0~mD` contradicts complete native Cell identity and the ability to evaluate full native `G` from quotient data. Retain quotient computations under their explicit endpoint observer.
