@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""PREFIX-739-R6. Exact frozen BRC-Gamma outer-left 270 new complete-cell exclusions.
+"""PREFIX-740-R6. Exact frozen BRC-Gamma transverse region; 52 new complete-cell exclusions.
 Standard library Python 3; execute in research_notes/portable_direct with the four
 original PREFIX713/716/718 historical JSON sources. Author-level certificate only.
 Scientific pin: f42f2906d77f24085c123f3ccfe9667d41caa96d.
