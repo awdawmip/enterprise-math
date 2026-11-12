@@ -1,0 +1,34 @@
+{
+  "schema": "R92_EXACT_CHECK_V1",
+  "source": "R90/R91 code in R91 bundle",
+  "proof_scope": "finite source identities, rational query closed intervals, all real theta",
+  "property": {
+    "valid_OUT_boxes_built": 265,
+    "cover_equivalence_cases": 390,
+    "exact_polarity_cases": 300
+  },
+  "shifted_witness": {
+    "queries": 32,
+    "R91_oracle_calls": 32,
+    "R92_oracle_calls": 1,
+    "R92_cross_interval_witness_reuse": 31
+  },
+  "cover_benchmark": {
+    "certified_boxes": 1001,
+    "queries": 35,
+    "baseline_total_ms": 41.5006,
+    "indexed_total_ms": 1.6019,
+    "baseline_box_candidates_examined_upper": 35035,
+    "index_nodes_checked": 735,
+    "index_candidates_returned": 140
+  },
+  "history": {
+    "versions_checked": 140,
+    "changes_witnesses_checked": 80,
+    "historical_roots_retained": 141,
+    "R91_interval_cache_positive": 58,
+    "R92_cross_interval_witness_reuse": 76,
+    "R92_absence_subinterval_reuse": 187
+  },
+  "status": "ALL_ASSERTIONS_PASSED"
+}
