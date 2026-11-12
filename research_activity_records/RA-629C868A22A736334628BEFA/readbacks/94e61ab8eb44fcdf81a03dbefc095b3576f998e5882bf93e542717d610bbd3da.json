@@ -1,0 +1,20 @@
+{
+  "arguments": {
+    "path": "research_checks/X6_LP028_NATIVE_NORM_PROBE_BRC_MINIMALITY_20261112_ONHOUR.py",
+    "ref": "e00c22c3177c270ec9329413f6788a490ae3a9fe",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "call_id": null,
+  "observation_id": "onhour-20261112-1041-lp028-fullx6-checker-read",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact signed-X6 unit-norm probe completeness for endpoint vs shortest BRC.\n\nCoordinates are signed native chart displacements on one fixed X6 Cell torsor.\nA single common radius is known; native path words are unweighted coordinate\nshortest paths, with positive integer multinomial multiplicities.\n\"\"\"\nfrom collections import defaultdict\nfrom functools import lru_cache\nfrom math import factorial, isqrt\nfrom itertools import combinations\n\n\n@lru_cache(None)\ndef sphere(dim, r2):\n    if dim == 0:\n        return ((),) if r2 == 0 else ()\n    out = []\n    for x in range(-isqrt(r2), isqrt(r2) + 1):\n        for tail in sphere(dim - 1, r2 - x*x):\n            out.append((x,)+tail)\n    return tuple(out)\n\n\ndef brc(d):\n    n = sum(map(abs, d))\n    denom = 1\n    for x in d:\n        denom *= factorial(abs(x))\n    return n, factorial(n) // denom\n\n\ndef probe(d, i, r2):\n    v = list(d)\n    v[i] += 1\n    return sum(x*x for x in v)\n\n\ndef check(n, r):\n    points = sphere(n, r*r)\n    assert points\n    allaxes = tuple(range(n))\n    for d in points:\n        p = tuple(probe(d, i, r*r) for i in allaxes)\n        assert all(p[i] == r*r + 1 + 2*d[i] for i in allaxes)\n        assert tuple((q-r*r-1)//2 for q in p) == d\n    for omitted in allaxes:\n        keep = tuple(i for i in allaxes if i != omitted)\n        groups = defaultdict(set)\n        for d in points:\n            groups[tuple(probe(d, i, r*r) for i in keep)].add(brc(d))\n        assert all(len(values) == 1 for values in groups.values())\n        # +r and -r on the unprobed axis are always observationally paired.\n        d = tuple(r if j == omitted else 0 for j in allaxes)\n        dn = tuple(-x for x in d)\n        assert tuple(probe(d,i,r*r) for i in keep) == tuple(probe(dn,i,r*r) for i in keep)\n    if r == 5:\n        for a,b in combinations(allaxes, 2):\n            keep = tuple(i for i in allaxes if i not in (a,b))\n            da = tuple(5 if i == a else 0 for i in allaxes)\n            db = tuple(3 if i == a else (4 if i == b else 0) for i in allaxes)\n            assert tuple(probe(da,i,25) for i in keep) == tuple(probe(db,i,25) for i in keep)\n            assert brc(da) == (5, 1)\n            assert brc(db) == (7, 35)\n    return len(points)\n\n\ndef main():\n    observations = {}\n    for n in (3,6):\n        observations[n] = {r: check(n, r) for r in range(1,7)}\n    assert brc((0,0,0,0,5,0)) == (5,1)\n    assert brc((0,0,0,0,3,4)) == (7,35)\n    print({\"status\":\"PASS\", \"dimensions\": [3,6], \"radii\": [1,2,3,4,5,6],\n           \"exhaustive_points\":observations,\n           \"full_endpoint_probes\": 6, \"universal_shortest_brc_probes\": 5,\n           \"two_unprobed_r5_brc_witness\":[1,35]})\n\n\nif __name__ == \"__main__\":\n    main()\n",
+      "display_title": "X6_LP028_NATIVE_NORM_PROBE_BRC_MINIMALITY_20261112_ONHOUR.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/e00c22c3177c270ec9329413f6788a490ae3a9fe/research_checks/X6_LP028_NATIVE_NORM_PROBE_BRC_MINIMALITY_20261112_ONHOUR.py",
+      "encoding": "utf-8",
+      "sha": "365f1c59271be86b28a0d57b7480ccc806d8c8db"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
