@@ -1,0 +1,182 @@
+{
+  "schema": "R747B_SYMMETRIC_ADAPTIVE_C1_AUDIT_V1",
+  "status": "PASS",
+  "scope": "R747 candidate signed three-port frames and S6 axis relabeling only; not native X6 event authorization",
+  "all_frame_count": 960,
+  "oriented_wire_count": 320,
+  "legal_replacements_per_frame": 18,
+  "representatives": [
+    {
+      "signs": "---",
+      "frame_stabilizer": 6,
+      "wire_stabilizer": 18,
+      "frame_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "wire_edge_orbits": [
+        9,
+        9
+      ],
+      "minimal_equivariant_wire_policy_support": 9
+    },
+    {
+      "signs": "--+",
+      "frame_stabilizer": 6,
+      "wire_stabilizer": 6,
+      "frame_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "wire_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "minimal_equivariant_wire_policy_support": 3
+    },
+    {
+      "signs": "-+-",
+      "frame_stabilizer": 6,
+      "wire_stabilizer": 6,
+      "frame_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "wire_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "minimal_equivariant_wire_policy_support": 3
+    },
+    {
+      "signs": "-++",
+      "frame_stabilizer": 6,
+      "wire_stabilizer": 6,
+      "frame_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "wire_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "minimal_equivariant_wire_policy_support": 3
+    },
+    {
+      "signs": "+--",
+      "frame_stabilizer": 6,
+      "wire_stabilizer": 6,
+      "frame_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "wire_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "minimal_equivariant_wire_policy_support": 3
+    },
+    {
+      "signs": "+-+",
+      "frame_stabilizer": 6,
+      "wire_stabilizer": 6,
+      "frame_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "wire_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "minimal_equivariant_wire_policy_support": 3
+    },
+    {
+      "signs": "++-",
+      "frame_stabilizer": 6,
+      "wire_stabilizer": 6,
+      "frame_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "wire_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "minimal_equivariant_wire_policy_support": 3
+    },
+    {
+      "signs": "+++",
+      "frame_stabilizer": 6,
+      "wire_stabilizer": 18,
+      "frame_edge_orbits": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "wire_edge_orbits": [
+        9,
+        9
+      ],
+      "minimal_equivariant_wire_policy_support": 9
+    }
+  ],
+  "representative_S6_update_checks": 103680,
+  "representative_S6_policy_checks": 5760,
+  "cyclic_update_checks": 17280,
+  "result": "deterministic S6-equivariant strict one-port selector impossible; optimal equivariant quotient-safe stochastic supports: 9 all-equal signs, 3 mixed signs; pathwise W-descent at every finite horizon"
+}
