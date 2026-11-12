@@ -61,6 +61,16 @@ def bfs(generators):
                 queue.append(gh)
     return distance
 
+def perfect_matchings(items):
+    if not items:
+        yield ()
+        return
+    a = items[0]
+    for b in items[1:]:
+        others = tuple(x for x in items[1:] if x != b)
+        for rest in perfect_matchings(others):
+            yield ((a, b),) + rest
+
 def verify():
     pairs = ((1, 2), (3, 4), (5, 6))
     G = []
@@ -83,6 +93,12 @@ def verify():
     assert len(distances) == 2520 and all(is_even(g) for g in distances)
     assert max(distances.values()) == 9
     assert sum(histogram.values()) == 2520
+    matchings = list(perfect_matchings(tuple(range(1, 7))))
+    assert len(matchings) == 15
+    for m in matchings:
+        metric = bfs([frame(W(i,j)) for i,j in m])
+        assert len(metric) == 2520
+        assert Counter(metric.values()) == Counter(histogram)
     result = {
         'schema': 'R758P6_SPARSE_FLAT_A7_EXACT_V1',
         'frozen_science': 'a72226e2430ffa4786321ac86e7f0c599d5f0389',
@@ -94,6 +110,8 @@ def verify():
         'generated_subgroup': 'A7',
         'subgroup_order': len(distances),
         'minimal_canonical_Wij_generator_count': 3,
+        'perfect_matching_generator_bases_verified': len(matchings),
+        'full_S6_invariant_nonempty_Wij_library_size': 15,
         'symmetric_word_metric_diameter': max(distances.values()),
         'histogram': {str(k): v for k,v in histogram.items()},
         'max_primitive_steps_for_any_frame': 8*max(distances.values()),
