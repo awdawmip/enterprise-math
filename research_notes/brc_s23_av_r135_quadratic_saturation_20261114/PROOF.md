@@ -1,0 +1,101 @@
+# R135 — Quadratic uniform saturation by exact intercept-midpoint alignment
+
+Date: 2026-11-14 (Asia/Shanghai). Continuation of R134, pinned S23 auxiliary science at 43ec6098b1330ae86d0a7863be336c5d97f6ef34. Predecessor: R134 at cf0054d39919605bc026175c9438ff7f6495f600.
+
+## Statement
+
+For all integers m>=1 and K>=1 define S_i^(K)(theta)=1[{(K+i)theta}<{theta}], i=0,...,m-1, with 0<theta<1. Let V(K,m) be the set of its length-m words. Let F_m=1+sum_{q=1}^m (m+1-q)phi(q), the classical finite Sturmian-language count (Mignosi 1991, as cited in R134).
+
+**Theorem R135.1 (quadratic saturation).** Let B_1=1 and B_m=m(m-1) for m>=2. For every m>=1 and every integer K>=B_m+1, V(K,m) is the complete binary finite Sturmian language of length m, so |V(K,m)|=F_m.
+
+**Theorem R135.2 (explicit rational lifting).** Given any adjacent Farey fractions a/b<c/d of order m and any intercept gap in the lower-mechanical-word coding on that open slope interval, one can compute an exact rational theta in (a/b,c/d) that realizes that gap's word under the tied phase rho={(K-1)theta}, whenever K-1>=bd. The constructed rational has a denominator no larger than 2(K-1)+2m. All attainable words and one rational witness each can be generated in O(m^4) exact rational operations with polynomial bit complexity in m and log(K+1) in the saturation range.
+
+**Theorem R135.3 (order-sharp universal threshold).** Let K_first(m) be the smallest K with |V(K,m)|=F_m, and K_eventual(m) the least K such that this equality holds for every larger integer K. Both are Theta(m^2) as m tends to infinity. In particular, the saturation property need not be monotone in K below K_eventual.
+
+These improve R134's 4m^3+2 uniform sufficient coefficient bound to m(m-1)+1 for m>=2, and to K>=2 for m=1; the coefficient order is now asymptotically optimal. The model is an external auxiliary S23 rotation observer, not an X6-native Cell/Link/Port event claim.
+
+## Proof of the constructive quadratic theorem
+
+For 0<theta<1, the floor identity
+
+S_i^(K)(theta)=floor((K+i)theta)-floor((K+i-1)theta)
+
+is exact even at rational phase coincidences. With L=K-1 and rho={L theta}, the word equals
+
+w_i(alpha,rho)=floor(rho+(i+1)alpha)-floor(rho+i alpha)
+
+at alpha=theta.
+
+Fix adjacent Farey fractions a/b<c/d of order m. Their determinant is bc-ad=1 and the slope interval has width 1/(bd). No rational of denominator <=m lies strictly inside it. For 0<=j<=m, the intercept cut {-j alpha} is continuous and affine in alpha throughout the interval. Define the cut j=0 as the constant zero; for j>=1, write
+
+B_j(alpha)=ceil(j alpha)-j alpha,
+
+where the integer ceil(j alpha) remains fixed on the interval. Add a constant upper endpoint B_end(alpha)=1. Distinct cuts never collide in the open interval, because a collision would make (j-k)alpha integral for some 1<=|j-k|<=m. Hence their increasing order and the length-m mechanical word on each open intercept gap are constant over the Farey slope interval.
+
+Select one consecutive gap with lower boundary G_l(alpha)=p-j alpha and upper boundary G_u(alpha)=q-k alpha. Here p,q are fixed integers and j,k are integers in [0,m], with the synthetic upper endpoint represented by (q,k)=(1,0). Only the zero boundary and synthetic endpoint have j=0, and they are not consecutive for m>=1. Therefore j+k>=1. Its center is
+
+g(alpha)=[G_l(alpha)+G_u(alpha)]/2=C-T alpha,
+C=(p+q)/2, T=(j+k)/2>=1/2.
+
+For each alpha in the slope interval this center satisfies 0<g(alpha)<1 and lies strictly inside the chosen intercept gap. Want rho={L alpha}=g(alpha). This is equivalent to
+
+(L+T)alpha-C=N
+
+for some integer N. The affine left-hand side maps the open Farey interval onto an open real interval of length
+
+(L+T)/(bd)>1
+
+provided L>=bd. Every open real interval of length greater than one contains an integer. Choose explicitly
+
+N=floor((L+T)a/b-C)+1,
+theta=(N+C)/(L+T).
+
+Then a/b<theta<c/d and (L+T)theta-C=N, so L theta=N+g(theta). As g(theta) is strictly between zero and one, {L theta}=g(theta), placing the tied observer exactly inside the desired intercept gap. Consequently S^(K)(theta) is its target mechanical word.
+
+Because 2C=p+q and 2T=j+k, the witness simplifies to
+
+theta=(2N+p+q)/(2L+j+k).
+
+It is in (0,1), so its numerator and reduced denominator are positive, and the denominator is at most 2L+2m. This establishes the bit-size bound.
+
+For adjacent Farey denominators b,d<=m, if m>=2 they cannot both equal m: their determinant would be divisible by m. Thus bd<=m(m-1). For m=1, bd=1. Taking L>=B_m suffices for every Farey interval and every intercept gap. The union of these mechanical gap words is exactly the length-m finite Sturmian language (the same classical slope/intercept characterization used in R134). The reverse inclusion holds for every K by the mechanical-word floor identity. This proves R135.1 and R135.2.
+
+To enumerate, list O(m^2) Farey neighboring pairs, sort each of the m+1 intercept cuts, and apply the formula once per gap. There are O(m^3) candidate certificates. Each m-bit word requires O(m) exact floor operations; Farey generation, sorting, hashing and rational arithmetic preserve polynomial bit complexity. Total straightforward cost is O(m^4) rational operations plus sorting overhead. Input K is never enumerated.
+
+## Proof of the optimal order
+
+All floor terms in the tied family are floor(n theta) for n=K-1,...,K+m-1. In the open interval (0,1), a floor(n theta) changes only at p/n with 1<=p<n. Counting these cuts with multiplicity gives at most
+
+C_m(K) <= sum_{n=K-1}^{K+m-1} max(n-1,0).
+
+Every word is constant in each open interval between distinct cuts, and singleton cuts are separately evaluated. Therefore
+
+|V(K,m)| <= 1+2C_m(K).
+
+For K>=2, C_m(K) <= (m+1)(K-2)+m(m+1)/2. A saturated K must consequently satisfy
+
+K >= 2 + (F_m-1)/(2(m+1)) - m/2.
+
+The classical Mignosi count has F_m=Theta(m^3), more precisely F_m=m^3/pi^2+O(m^2 log(m+1)) from standard totient summatory estimates. Thus every saturated K is Omega(m^2). Together with R135.1, which saturates for all K>=m(m-1)+1, both the first and eventual saturation thresholds are Theta(m^2).
+
+## Nonmonotone exact finite witness
+
+At m=7, F_7=54. An exhaustive exact rational parameter-atom enumeration finds |V(11,7)|=54 but |V(15,7)|=52. The two absent words at K=15 are 0111110 and 1000001; all 54 occur again at K=16. The finite absence certificate consists of all p/n with n=K-1,...,K+6 in (0,1), each singleton cut, and one rational midpoint in every intervening open interval. This is exhaustive because every defining floor is constant on each open atom. The companion independent modular-arithmetic checker reproduces these values and preserves the exact rational witnesses. This is a finite exact computation, not a claim of monotonicity in m.
+
+## Verification
+
+Companion check_r135.py, using Python Fraction and an independent direct fractional-part comparison, checks:
+- every Farey-gap midpoint alignment and direct S23 word for m=1,...,30 at K=max(1,m(m-1))+1;
+- the same complete family at K=10^80+max(1,m(m-1))+1;
+- the exact classical F_m word total for each m;
+- all parameter singleton and open atoms for m=7 and K=10,...,19, including the nonmonotone witness.
+
+Recorded result: R135_QUADRATIC_MIDPOINT_LIFT_PASS; 143140 constructed certificates, 2326 independently checked one-parameter atoms. These tests support the implementation; the uniform theorem follows from the proof above. Research note uses the same frozen scientific pin as R134.
+
+## Scientific continuation
+
+Improve the constant in the uniform coefficient bound, characterize K_first(m) and K_eventual(m) exactly or asymptotically, and seek a coefficient-bit-efficient decision route for general signed (A,d,E,x) S23 families. The exact midpoint construction avoids enumerating Omega(K) chronological events while preserving individual existence witnesses.
+
+## Provenance
+
+R134: research_notes/brc_s23_av_r134_sturmian_saturation_20261114/PROOF.md at cf0054d39919605bc026175c9438ff7f6495f600. Classical factor count: Filippo Mignosi, On the Number of Factors of Sturmian Words, Theoretical Computer Science 82 (1991) 71-84, DOI 10.1016/0304-3975(91)90172-X.
