@@ -7,7 +7,33 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "event_id": "r762i-timed-and-copresence-20261113",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "6094bb12123ac24494f6ca15b0cce0e68b3a408b",
+          "path": "research_notes/R762I_EVIDENCE.json",
+          "sha256": "755560471642e966c859addbcf75f806f34d07c47c0b2f6ad80e4bd185ff58b2",
+          "publication_state": "VERIFY_EM_PUBLICATION"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "6094bb12123ac24494f6ca15b0cce0e68b3a408b",
+          "path": "research_notes/R762I_COPRESENCE_EVIDENCE.json",
+          "sha256": "f074e2860d3a21603490906591b89c3ef25b045d8da127d5a29d263998904fe3",
+          "publication_state": "VERIFY_EM_PUBLICATION"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@39b1e45ea42064dd690656bb11bffff172202a36:journal/enterprise-math/2026-11-13/20261113T192334+0800-r762i-timed-port-code-pr2292.md",
+        "awdawmip/chatgpt-global-knowledge@7c1b5ae1bd8d41cbfad672aa3731bd59b153abbb:journal/enterprise-math/2026-11-13/20261113T192334+0800-r762i-copresence-addendum-pr2292.md"
+      ],
+      "state": "VERIFY_EM_PUBLICATION",
+      "repairs_event_id": null
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-13T11:40:35.859286+00:00",
   "registration_key": "session:MCP-202b31a5418a45e6b5a38b714f9497db:TASK_RESEARCH",
