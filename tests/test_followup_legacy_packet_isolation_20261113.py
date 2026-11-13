@@ -65,6 +65,43 @@ class LegacyFollowupPacketIsolationTests(unittest.TestCase):
             indexed["DR-CE3F008C48F9EBBFF9FA"]["packet_id"],
         )
 
+    def test_pretyped_accepted_review_binds_its_exact_existing_task(self):
+        # Original 2026-08-30 accepted GEO6 review has a canonical immutable
+        # schema but predates the explicit review_authority_kind field.
+        root = Path(__file__).resolve().parents[1]
+        review_path = (
+            root / "research_result_reviews" / "RR-547A186EBDE5EE6CD8A3"
+            / "DR-CE3F008C48F9EBBFF9FA.json"
+        )
+        pub_path = (
+            root / "research_task_records"
+            / "RS-GEO6-SECONDWAVE-PACKING-KAKEYA-PRIOR-ART-SYNTHESIS"
+            / "TP2-B531F3BB4A597B7D3EAF.json"
+        )
+        review = json.loads(review_path.read_text(encoding="utf-8"))
+        publication = json.loads(pub_path.read_text(encoding="utf-8"))
+        self.assertEqual(followup.result_impl.REVIEW_SCHEMA, review["record_schema"])
+        self.assertNotIn("review_authority_kind", review)
+        self.assertEqual("ACCEPTED", review["disposition"])
+        row = {"task_id": publication["task_id"],
+               "publication_id": publication["publication_id"],
+               "task_role": "INTEGRATION_OR_TOOL_HARVEST"}
+        pins = followup._existing_published_task_pins(
+            review, [row], {}, publication["parent_objective_id"], root,
+            bound_at="2026-11-13T10:20:00+00:00",
+        )
+        self.assertEqual(publication["publication_id"], pins[0]["publication_id"])
+        self.assertEqual(publication["task_id"], pins[0]["task_id"])
+        bad = dict(review, review_authority_kind="REVIEW_SYNTHESIS")
+        with self.assertRaisesRegex(
+            followup.DriverFollowupError,
+            "existing published Task requires one operational",
+        ):
+            followup._existing_published_task_pins(
+                bad, [row], {}, publication["parent_objective_id"], root,
+                bound_at="2026-11-13T10:20:00+00:00",
+            )
+
     def test_malformed_current_schema_still_fails_packet_id_validation(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
