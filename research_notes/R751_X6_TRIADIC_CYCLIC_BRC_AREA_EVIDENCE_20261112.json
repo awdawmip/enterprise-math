@@ -1,0 +1,46 @@
+{
+  "schema": "EM_R751_X6_TRIADIC_BRC_AREA_CERTIFICATE_V1",
+  "date": "2026-11-12",
+  "claim_status": "AUTHOR_PROVED_EXACT_FINITE_MODEL;DRIVER_UNREVIEWED",
+  "researcher_id": "EM-X6-0E46B2",
+  "activity_id": "RA-98CE0270814B2431AD745438",
+  "parent_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "task_publication": "TP2-8B7E13C5904A2D6F1142",
+  "scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "theorem": "S([p,q,r])=2(p∧q+q∧r+r∧p); oriented signed source class modulo simultaneous global sign has one unique signature",
+  "finite_domain": {
+    "native_axes": 6,
+    "axis_subsets": 20,
+    "sign_assignments": 8,
+    "orientations": 2,
+    "source_states": 320,
+    "cyclic_marked_branches_per_source": 3,
+    "six_step_closed_branch_checks": 960,
+    "distinct_exterior_area_signatures": 160,
+    "signature_fiber_distribution": {
+      "2": 160
+    },
+    "orientation_decoder_checks": 320,
+    "axis_permutations": 720,
+    "covariance_checks": 230400
+  },
+  "assurances": {
+    "literal_signed_brc_path_words": true,
+    "coordinate_return_for_each_branch": true,
+    "minimum_closed_word_length_with_three_axis_support": 6,
+    "no_adjacent_inverse_steps": true,
+    "unique_two_element_fiber_global_sign_pair": true,
+    "native_physical_event_admitted": false,
+    "native_V29_PASS_run": false,
+    "native_V39_update_run": false,
+    "independent_driver_review": false
+  },
+  "verification": {
+    "method": "Exact Python standard-library integer exhaustive enumeration; separate independent implementation checked full finite domain; no floating point",
+    "result": "R751_X6_TRIADIC_BRC_AREA_EXACT_PASS",
+    "claim_scope": "Finite candidate signed Path-formal BRC observer and exterior-algebra readout on X6 only",
+    "program": "research_notes/R751_X6_TRIADIC_BRC_AREA_CHECK_20261112.py",
+    "proof": "research_notes/R751_X6_TRIADIC_CYCLIC_BRC_AREA_THEOREM_20261112.md"
+  },
+  "next": "Obtain legally typed frozen-native TRIADIC_CLOSURE_E/V29/V39 event and check whether global sign source ambiguity survives a specified native update"
+}

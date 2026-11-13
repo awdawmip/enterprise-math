@@ -1,0 +1,15 @@
+# R751 triadic X6 signed BRC area: evidence, authority and next native discrimination
+
+**Scope.** Immutable task RS-X6-TRIADIC-CLOSURE-DYNAMICS / publication TP2-8B7E13C5904A2D6F1142; frozen scientific input commit a72226e2430ffa4786321ac86e7f0c599d5f0389. R751 is a new author-side finite theorem at the precise signed Path-formal BRC observer level, not a proof that all candidate Port cycles are legal native events.
+
+**Identity.** New own Researcher-ID EM-X6-0E46B2; actual MCP-issued SID MCP-bc30ed2ca285473a9d6881fa8c25bbdb; RA-98CE0270814B2431AD745438 (registered and native source-readback verified). This is host-managed private capability; no key stored in material. An existing predecessor CLAIM was not borrowed. Formal task continuation preparation is separate and only a later winning CLAIM/open proves takeover.
+
+**What not to redo.** R740–R750 author-side X6 signed cycle/port work; especially R744 fourth-order source order, R745 orientation witness, R749/R750 C1 signed vs unsigned observation and KL laws; parallel R749SB hidden posterior/Fisher information. They do not establish V29/V39 native acceptance.
+
+**Completed proof.** From an unmarked directed candidate triadic Port cycle with signed axes p,q,r, retain the three six-letter coordinate-return Path-formal branches. Their signed exterior-area sum is 2(p∧q+q∧r+r∧p). The second-order signature is cyclic-start independent, reverses sign on orientation reversal, is S6-covariant and has exactly 160 two-element fibers on the 320 syntactic oriented signed triads. The sole ambiguity is global simultaneous sign reversal. A six-step Cell-return witness is shortest with all three axes, but is NOT the primitive three-force closure itself.
+
+**Evidence.** See the theorem .md, exact Python checker .py and machine-readable JSON certificate in the same R751 research_notes family. Exhaustive finite counts: 320 source candidates; 960 six-step branches; 160 signatures of size exactly two; 230,400 S6 covariance relations. Verified independently with Python exact integer enumeration. Status AUTHOR_PROVED / FINITE_EXACT_CHECK / DRIVER_UNREVIEWED. Do not assert formal Result or canonical Foundation.
+
+**One next discriminating scientific unit.** From the pinned-native Cell/Link/Port and V29 PASS/V39 definitions, select an *actually allowed* three-force event and one subsequent native update. For an equal-area pair (p,q,r) and (-p,-q,-r), either prove that the update descends through the 2-form observation S for the declared future operations, or exhibit a legal event/update separating the two and thereby certify a needed sign-provenance bit. Preserve branch identity and provenance until this operation-specific quotient safety is proved. Neither an invented native event nor a classical numerical propagator is acceptable substitute.
+
+**Preservation.** The GitHub author branch/PR is durable but not canonical main. The activity RA is a separate record. Full research output is nonsensitive. GitHub write was available; no Google Drive workaround was necessary. Keep pending owner/claim, Source Result and independent review statuses distinct.
