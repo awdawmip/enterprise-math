@@ -9,3 +9,5 @@ Task: \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\` publication \`TP2-8B7E13C5904A2D6F1142\
 **Unfinished mother objective:** Define and validate native \`TRIADIC_CLOSURE_E\` Cell/Link/Port force incidence, event-after-update predicate and exact V29 PASS/TRANSFER plus V39 transport; separately attach selected signed Cell-loop witness to a legal equal-quantum force event and distinguish candidate coordinate edge current from actual V39 current.
 
 **Control boundary:** Consult current native continuation, true owner/CLAIM and authority before any canonical execution freeze. Branch/PR source preservation is not formal Result, independent review, canonical Working Truth or P000 modification.
+
+**Same-return strengthening:** Each first-visit permutation occurs 4 times. The two cyclic port orientations each admit 12 paths; `(j_X6, first-visit chirality)` has 7 values of fiber sizes `(3,2,2,2,1,1,1)` per orientation and decreases worst-case ordered-path repair from 3 to 2 bits. With orientation constrained to the path, 3,840 compatible candidates remain over all signed triads. This does not attest the native force event.
