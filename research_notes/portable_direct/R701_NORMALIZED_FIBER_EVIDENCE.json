@@ -1,0 +1,43 @@
+{
+  "schema": "R701_EXACT_FIBER_COUNT_V1",
+  "scope": "static R699 four-group E* histogram",
+  "domain": "integer 0<=v<=(24,18,6,12), sum>0",
+  "total_histograms": 43224,
+  "two_original_normalized_probes": {
+    "unique_rational_outputs": 36688,
+    "max_fiber": 30,
+    "unique_maximum_key": {
+      "U_over_s": "3/1",
+      "V_over_s": "1/1"
+    },
+    "auxiliary_bits_minimum": 5,
+    "maximum_fiber_count_by_e": {
+      "1": 2,
+      "2": 4,
+      "3": 3,
+      "4": 4,
+      "5": 3,
+      "6": 4,
+      "7": 3,
+      "8": 4,
+      "9": 2,
+      "10": 1
+    }
+  },
+  "single_normalized_fusion": {
+    "unique_rational_outputs": 29153,
+    "max_fiber": 44,
+    "maximum_keys_W_over_s": [
+      "59/1",
+      "62/1"
+    ],
+    "auxiliary_bits_minimum": 6,
+    "independent_witness_equations": [
+      "37e-54t+33c-12z=0",
+      "34e-57t+30c-15z=0"
+    ],
+    "natural_auxiliary": "s in [1,60], 6 bits; R700 decoder"
+  },
+  "verification": "R701_NORMALIZED_FIBER_EXACT_PASS 36688 29153 30 44",
+  "limitation": "No native BRC kernel or V29/V39 event execution, independent review pending"
+}
