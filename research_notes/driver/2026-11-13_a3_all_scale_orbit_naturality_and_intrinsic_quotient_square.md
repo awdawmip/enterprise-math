@@ -1,109 +1,124 @@
 # A3 all-scale orbit naturality and intrinsic quotient-square classification
 
-**Date:** 2026-11-13. **Status:** new self-contained Driver mathematical audit at A3 restricted-carrier strength; not a Native Review or replacement for the original frozen Result.
+**Date:** 2026-11-13. **Status:** mathematical Driver audit / exact all-radius proof; no Native Review or frozen-Result replacement.
 
-**Original attribution:** Task `RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION`; publication `TP2-D2D715EB36415B0CA0C5`; Result `RR-9FF7F84F01C577774649`; researcher `EM-A3SCR-7A41D2`. The original return and its exact radial defect formula remain the source of the problem and classification. This proof upgrades its finite quotient-path census to an all-radius theorem and separates two notions of quotient naturality. It builds on the Driver's earlier [single-probe quotient descent theorem](2026-11-13_a3_single_binary_probe_centralizer_theorem.md), from the same shared review context; it is **not** a second independent review.
+**Provenance.** Original task RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION, publication TP2-D2D715EB36415B0CA0C5, frozen Result RR-9FF7F84F01C577774649, researcher EM-A3SCR-7A41D2. The original author's shellwise radial-defect formula and finite classification are preserved. This note proves the quotient-path classification at *all* radii and distinguishes it from the more restrictive intrinsic quotient-square condition. The [single fixed binary probe theorem](2026-11-13_a3_single_binary_probe_centralizer_theorem.md) comes from the same Driver context; the present note is **not** an independent second reviewer.
 
-## 1. Typed model and two questions
+## 1. Exact carrier and distinct questions
 
-Use the A3 restricted carrier
-[
- B_n={xinmathbb Z^4: sum_{i=1}^4 x_i=0,quad|x|_inftyle n},quad S_r=B_rsetminus B_{r-1}.
-]
-Let (ho_g=operatorname{sgn}(g)P_g) for (gin S_4), let (h=(12)), and let (H={e,h}) act globally through (ho_h) on the finite carrier. Put (X_n=A^{B_n}), where **(|A|ge2)**, with the pushforward convention (T_*f=fcirc T^{-1}). The projection (pi_n:X_n	o X_n/H) forgets only this declared residual-(H) orientation.
+Work within the restricted A3 carrier
 
-For (1le dle n), (D_{n,d}(g)) acts by (ho_g) on shells (rge n-d+1), and by identity below. The restriction (J_n:X_{n+1}	o X_n) is (H)-equivariant. Fix (g_-) for the lower depth-(d) action and (g_+) for the upper depth-(d) action; set (q=n-d+1).
+\[
+B_n=\{x\in\mathbb Z^4:\ \sum_{i=1}^4x_i=0,\ \|x\|_\infty\le n\},
+\qquad S_r=B_r\setminus B_{r-1}.
+\]
 
-We distinguish:
+The signed \(S_4\) action is \(\rho_g=\operatorname{sgn}(g)P_g\). Put \(h=(12)\), \(H=\{e,h\}\), and \(X_n=A^{B_n}\) for any alphabet with **\(|A|\ge2\)**. Carrier permutations act by pushforward \(T_*f=f\circ T^{-1}\). Let \(\pi_n:X_n\to X_n/H\) be the orbit projection. The depth-\(d\) radial action \(D_{n,d}(g)\) is \(\rho_g\) on shells \(r\ge n-d+1\) and identity below. Restriction \(J_n:X_{n+1}\to X_n\) is \(H\)-equivariant.
 
-**(O) Output-orbit equality:** for *every* upper state (fin X_{n+1}),
-[
-pi_n(J_n D_{n+1,d}(g_+)_*f)
-=pi_n(D_{n,d}(g_-)_*J_n f).
-]
-Both sides are defined as paths followed by a **final** quotient. This comparison does not presuppose that either intermediate (D) descends to a quotient.
+Fix \(n\ge d\ge1\), lower aligner \(g_-\), upper aligner \(g_+\), and \(q=n-d+1\). Two different assertions are relevant:
 
-**(Q) Intrinsic quotient-square:** both (D_{n+1,d}(g_+)) and (D_{n,d}(g_-)) induce their own well-defined operators on (X_{n+1}/H) and (X_n/H), and these induced maps commute with the induced restriction. This is a strictly typed square of quotient operators.
+**(O) Output-orbit equality, after both complete paths:**
 
-## 2. General orbit-rigidity lemma
+\[
+\pi_n(J_nD_{n+1,d}(g_+)_*f)
+=\pi_n(D_{n,d}(g_-)_*J_nf)
+\quad\text{for every }f\in X_{n+1}.
+\]
 
-**Lemma.** Let (Y) be finite and let (h:Y	o Y) be an involution. Let (Kinoperatorname{Sym}(Y)). With at least two label values, the condition
-[
- orall fin A^Y,quad K_*fin{f,h_*f}
-]
-is equivalent to (Kin{mathrm{id},h}).
+Here the upper and lower radial actions need not individually induce quotient-space operators; only the output comparison is made after restricting and projecting.
 
-**Proof.** Choose two distinct labels. For the indicator state of a singleton (x), the condition forces (Kxin{x,hx}). Injectivity of (K) implies that on each two-element (h)-orbit, (K) is either identity or its transposition; each fixed point is fixed. If two distinct two-element orbits received different choices, the two-site indicator state with one marked point in each orbit would be sent to neither itself nor its global (h)-image. Hence the choices agree across all two-element orbits. Therefore (K=mathrm{id}) or (K=h) on all of (Y). The cases with zero or one two-element orbit are immediate. The converse is tautological. QED.
+**(Q) Intrinsic quotient-state commuting square:** each of \(D_{n+1,d}(g_+)\) and \(D_{n,d}(g_-)\) must itself descend to the corresponding \(X_m/H\), and the resulting two quotient operators must commute with restriction on the quotients.
 
-In particular, equality of **every** two-path output orbit forces their carrier difference to be one single global residual element. Arbitrary shellwise or orbitwise uses of (h) cannot replace the same global (h).
+## 2. Orbit-rigidity lemma for a global involution
 
-## 3. A3 shell faithfulness
+**Lemma.** Let \(Y\) be a finite carrier, \(h:Y\to Y\) an involution, and \(K\in\operatorname{Sym}(Y)\). For \(|A|\ge2\),
 
-On every (S_r), (rge1), the signed (S_4) action (ho) is faithful. Indeed, the three roots (r(e_i-e_4)), (i=1,2,3), lie in (S_r) and span the sum-zero standard three-space. If (ho_g) fixed (S_r) pointwise, it would act trivially there. For even (g), this requires (P_g=I), so (g=e). For odd (g), it would require (P_g=-I) on the standard space, which is impossible: its trace would be (-3), whereas the standard permutation trace is (#mathrm{Fix}(g)-1ge-1). Thus (g=e). Also (ho_h) is nontrivial on every (S_r), since it sends (r(e_3-e_4)) to its negative.
+\[
+(\forall f\in A^Y)\quad K_*f\in\{f,h_*f\}
+\quad\Longleftrightarrow\quad
+K\in\{\operatorname{id},h\}.
+\]
 
-Both (ho_g) and (ho_h) preserve each shell and fix the origin.
+**Proof.** Mark one site \(x\) by a second label, leaving all other sites at the first label. The orbit condition forces \(Kx\in\{x,hx\}\). On each two-element \(h\)-orbit, bijectivity forces \(K\) to act either as identity or as the exchange of the pair; \(h\)-fixed sites remain fixed. If two distinct two-element orbits had different choices, a state marking one site in each orbit would be sent to neither itself nor its image under the **single global** \(h\). Thus all exchanged-or-not decisions agree. For zero or one two-element orbit the same conclusion is immediate. Hence \(K=\operatorname{id}\) or \(K=h\) everywhere. The converse is immediate. QED.
 
-## 4. Universal classification of (O)
+This lemma is an exact certification of the **declared full labeling observer and global-\(H\) orbit**. It does not authorize dropping signed, phase, branch, or path information from a richer observer.
 
-Let (U) and (L) be the two carrier permutations of (B_n) induced respectively by upper-then-restrict and restrict-then-lower. The original A3 shell calculation gives their difference (K=LU^{-1}):
-[
+## 3. Faithfulness on every positive shell
+
+For each \(r\ge1\), the sites \(r(e_i-e_4)\), \(i=1,2,3\), belong to \(S_r\) and span the three-dimensional sum-zero representation. The signed permutation action is faithful there: for an even \(g\), \(\rho_g=I\) forces \(g=e\); for an odd \(g\), \(\rho_g=I\) would require \(P_g=-I\) on that space, contradicting
+
+\[
+\operatorname{tr}(P_g|_{\sum x_i=0})
+=\#\operatorname{Fix}(g)-1\ge-1>-3.
+\]
+
+Moreover, \(\rho_h\) is nonidentity on each \(S_r\), because \(\rho_h(r(e_3-e_4))=-r(e_3-e_4)\). Every \(\rho_g\) preserves the shell decomposition and fixes the zero site.
+
+## 4. Universal output-orbit classification (O)
+
+Let \(U\) denote the upper-then-restrict carrier permutation on \(B_n\) and \(L\) the restrict-then-lower one. The original A3 calculation gives \(K=LU^{-1}\), with the exact shell profile
+
+\[
 K|_{S_r}=
-egin{cases}
-ho_e,&r<q,\
-ho_{g_-},&r=q,\
-ho_{g_-g_+^{-1}},&q<rle n.
-end{cases}
-]
-Because restriction (J_n) is surjective on label states, (O) is equivalent to (orall uin X_n, K_*uin H_*u). By the lemma, (K=ho_e) or (K=ho_h) **globally** on (B_n).
+\begin{cases}
+\rho_e,&r<q,\\
+\rho_{g_-},&r=q,\\
+\rho_{g_-g_+^{-1}},&q<r\le n.
+\end{cases}
+\]
 
-- If (qge2), the inner shell (S_1) has (K=ho_e), while (ho_h) acts nontrivially there. Thus (K=ho_e) globally. Shell (S_q) forces (g_-=e); when (dge2), overlap shell (S_{q+1}) additionally forces (g_+=e).
-- If (q=1), the shell (S_1) forces (g_-in H). If (nge2), the overlap shell (S_2) must carry the **same** global (H) element, forcing (g_+=e). If (n=1), the upper aligner never acts on retained sites and is unrestricted.
+Since \(J_n\) is surjective on all labelings of \(B_n\), (O) is equivalent to \((\forall u\in X_n)\ K_*u\in H_*u\). The lemma makes this equivalent to **one global** \(K=\rho_e\) or \(K=\rho_h\).
 
-Hence for every integer (nge dge1), without a finite-radius cutoff:
+If \(q\ge2\), the fixed inner shell \(S_1\) rules out global \(\rho_h\). Hence \(K=\rho_e\); faithfulness of \(S_q\) gives \(g_-=e\), and any overlap shell \(S_{q+1}\) (present when \(d\ge2\)) then gives \(g_+=e\).
 
-| Geometric regime | Exact output-orbit equality (O) |
+If \(q=1\), the first shell requires \(g_-\in H\). If \(n\ge2\), the second shell must implement that *same* \(H\) element, forcing \(g_+=e\). At \(n=d=1\), the upper aligner acts only on sites dropped by restriction, so it is unrestricted.
+
+The **complete all-radius theorem** is therefore:
+
+| Regime | Necessary and sufficient conditions for (O) |
 |---|---|
-| (qge2, d=1) | (g_-=e), arbitrary (g_+in S_4) |
-| (qge2, dge2) | (g_-=e, g_+=e) |
-| (q=1, nge2) | (g_-in H, g_+=e) |
-| (n=d=1) | (g_-in H), arbitrary (g_+in S_4) |
+| \(q\ge2,\ d=1\) | \(g_-=e;\ g_+\in S_4\) arbitrary |
+| \(q\ge2,\ d\ge2\) | \(g_-=g_+=e\) |
+| \(q=1,\ n\ge2\) | \(g_-\in H;\ g_+=e\) |
+| \(n=d=1\) | \(g_-\in H;\ g_+\in S_4\) arbitrary |
 
-This upgrades the original exact finite census for (O) to a universal statement in the explicitly defined A3 carrier model. It does not use the invalid frame-only (Hg_-g_+^{-1}H) criterion.
+This proves the frozen researcher's formerly finite-tested output-orbit criterion for every \(n\ge d\ge1\) in the declared A3 model, without using the insufficient frame-only double coset \(Hg_-g_+^{-1}H\).
 
-## 5. Universal classification of (Q)
+## 5. Intrinsic quotient-square classification (Q)
 
-The earlier single-binary-probe theorem gives, for every nonempty active shell and (|A|ge2),
-[
-D_{m,d}(g)	ext{ descends to }X_m/H
- Longleftrightarrow 
-gin C_{S_4}(h)={e,(12),(34),(12)(34)}.
-]
-Therefore (Q) holds exactly when (O) holds **and both aligners belong to this centralizer**. The complete classification is:
+The previous exact single-probe descent theorem establishes, for every nonempty active shell,
 
-| Geometric regime | Exact intrinsic quotient square (Q) |
+\[
+D_{m,d}(g)\text{ descends to }X_m/H
+\quad\Longleftrightarrow\quad
+g\in C_{S_4}(h)
+=\{e,(12),(34),(12)(34)\}.
+\]
+
+Thus (Q) holds precisely when (O) holds **and** both aligners lie in that centralizer. Explicitly:
+
+| Regime | Necessary and sufficient conditions for (Q) |
 |---|---|
-| (qge2, d=1) | (g_-=e, g_+in C_{S_4}(h)) |
-| (qge2, dge2) | (g_-=e, g_+=e) |
-| (q=1, nge2) | (g_-in H, g_+=e) |
-| (n=d=1) | (g_-in H, g_+in C_{S_4}(h)) |
+| \(q\ge2,\ d=1\) | \(g_-=e;\ g_+\in C_{S_4}(h)\) |
+| \(q\ge2,\ d\ge2\) | \(g_-=g_+=e\) |
+| \(q=1,\ n\ge2\) | \(g_-\in H;\ g_+=e\) |
+| \(n=d=1\) | \(g_-\in H;\ g_+\in C_{S_4}(h)\) |
 
-**Sharp boundary witness:** (n=d=1, g_-=e, g_+=(23)) satisfies (O) because (g_+) acts only on the dropped outer shell. But (g_+
-otin C_{S_4}(h)), so the upper operator has no quotient descent, and no intrinsic quotient-square (Q) exists. This distinguishes a valid comparison after restriction from an invalid claim about operators on quotient spaces.
+**Sharp distinction.** At \(n=d=1\), choose \(g_-=e,\ g_+=(23)\). Condition (O) holds because the upper nonidentity shell is discarded. But \(g_+\) does not commute with \(h\), so it has no induced operator on the upper quotient \(X_2/H\); (Q) fails. Any claim about an intrinsic quotient diagram must state and check its map-existence condition.
 
-The all-scale classification and the normalizer criterion concern this restricted A3 observer. In the project's native HEARTBEAT_WORLD X6 model, any stronger spatial/observer interpretation requires an explicit embedding/readout and preservation of the declared future-operation horizon; none is inferred here.
+## 6. Exact finite regression
 
-## 6. Independent finite regression and exact counting
+An additional locally run integer permutation enumeration independently computed \(K\) on every site of every shell, for all \(24^2=576\) choices of \((g_-,g_+)\) in each regime \(1\le d\le n\le4\), then checked the full-carrier equality \(K=\rho_e\) or \(K=\rho_h\). It used signed coordinate permutations, no floating point arithmetic, and compared every outcome to the formula in §4. The counts of valid (O) pairs, each out of 576, were:
 
-An independent local Python exact-integer permutation check enumerated **all 24×24 aligner pairs** for every (1le dle nle4), evaluating the actual carrier (K) over every site of each shell and testing whether (K) was globally (e) or (h). No floating point arithmetic was used. Results:
-
-| ((n,d)) | ((1,1)) | ((2,1)) | ((2,2)) | ((3,1)) | ((3,2)) | ((3,3)) | ((4,1)) | ((4,2)) | ((4,3)) | ((4,4)) |
+| \((n,d)\) | (1,1) | (2,1) | (2,2) | (3,1) | (3,2) | (3,3) | (4,1) | (4,2) | (4,3) | (4,4) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Number satisfying (O) out of 576 | 48 | 24 | 2 | 24 | 1 | 2 | 24 | 1 | 1 | 2 |
+| (O) | 48 | 24 | 2 | 24 | 1 | 2 | 24 | 1 | 1 | 2 |
+| (Q) | 8 | 4 | 2 | 4 | 1 | 2 | 4 | 1 | 1 | 2 |
 
-All **5,760** pair/regime checks agreed with the analytic classification. For the ten regimes, the corresponding (Q) counts are (8,4,2,4,1,2,4,1,1,2), by intersecting the verified (O) pairs with the four-element centralizer for both aligners. This finite regression catches implementation or sign errors; §§2–5, not the finite count, prove the arbitrary-radius theorem.
+All **5,760** pair/regime checks agreed. For (Q), the counts result from the additional exact centralizer test on both aligners. The finite check is a regression; the all-radius claim is proved in §§2–5.
 
-## 7. Review and portfolio implications
+## 7. Scientific and operational scope
 
-The original A3 frozen Result remains attributed to its original researcher and is kept byte-for-byte. The present proof strengthens the exact quotient output-orbit classification, clarifies a prior domain-of-definition ambiguity, and supplies the intrinsic quotient-square alternative. A future native review should adjudicate the originally frozen Result **with its precise original claims**, the already documented alphabet and faithfulness hypotheses, the original hard-target criteria, and this supplemental proof as provenance-disclosed context. It should not label the new theorem a second independent review pass.
+The exact theorem uses the restricted A3 \(B_n\) shell carrier, the *global* residual involution, and full binary-capable state labelings. It is not an assertion that a four-coordinate shell is an independent native spatial world. The Enterprise Math native basis is HEARTBEAT_WORLD X6; any transfer requires an explicit X6 embedding/readout and the associated observer-and-future-operation certificate.
 
-**State at publication:** mathematical Driver audit/check complete. Native Result review/acceptance, Task DONE and mother Objective closure are separate pending decisions. The original review-flow attempts returning `DRIVER_FLOW_CURRENT_RESULT_REQUIRED` are preserved; no new review or follow-up packet is asserted by this note.
+The original researcher, frozen Result bytes and exact radial-defect theorem remain intact. This note adds a rigorous universal proof of the original finite quotient criterion and a typed quotient-operator correction. It is eligible as additional mathematical material for the real Driver review, with shared-context provenance disclosed; it is **not** an immutable Native Review, Result acceptance, Task DONE, or mother Objective closure. Existing terminal failed flow requests remain terminal and are not replayed.
