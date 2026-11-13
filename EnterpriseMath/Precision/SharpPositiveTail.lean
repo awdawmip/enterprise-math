@@ -3,6 +3,8 @@ import EnterpriseMath.Precision.N58RatioBound
 open Filter
 open scoped Topology
 
+noncomputable section
+
 namespace EnterpriseMath.PrecisionPi.SharpPositiveTail
 
 /-- Consecutive-term ratio for parameters (1/2, s, 1-s) and weight A+B*n. -/
@@ -21,7 +23,9 @@ theorem step_lt_argument {s x A B : ℝ} (hs : 0 < s) (hs' : s < 1)
     (hx : 0 < x) (hA : 0 < A) (hB : 0 ≤ B) {n : ℕ} (hn : 1 ≤ n) :
     step s x A B n < x := by
   let y : ℝ := n
-  have hy1 : 1 ≤ y := by exact_mod_cast hn
+  have hy1 : 1 ≤ y := by
+    change (1 : ℝ) ≤ (n : ℝ)
+    exact_mod_cast hn
   have hy : 0 < y := by linarith
   have hden : 0 < A + B * y := by positivity
   have hspos : 0 < 1 - s := sub_pos.mpr hs'
@@ -70,7 +74,6 @@ private theorem shifted_ratio_tendsto (a b : ℝ) (hb : 0 ≤ b) :
   filter_upwards [eventually_ge_atTop (1 : ℕ)] with n hn
   have hn' : (0 : ℝ) < n := by exact_mod_cast (show 0 < n by omega)
   have hb' : 0 < (n : ℝ) + b := by linarith
-  dsimp
   field_simp [hn'.ne', hb'.ne']
   <;> ring
 
@@ -79,23 +82,29 @@ theorem step_tendsto (s x : ℝ) {A B : ℝ} (hA : 0 < A) (hB : 0 ≤ B) :
   have hl : Tendsto (fun n : ℕ => (A+B*((n:ℝ)+1))/(A+B*n)) atTop (𝓝 1) := by
     rcases eq_or_lt_of_le hB with hz | hp
     · subst B
-      simpa [hA.ne'] using (tendsto_const_nhds :
-        Tendsto (fun _ : ℕ => (1 : ℝ)) atTop (𝓝 1))
+      simp [hA.ne']
     · have hab : 0 < A / B := div_pos hA hp
       apply (shifted_ratio_tendsto (A/B+1) (A/B) hab.le).congr'
       apply Eventually.of_forall
       intro n
       have h1 : 0 < (n : ℝ) + A / B := by positivity
       have h2 : 0 < A + B * (n : ℝ) := by positivity
-      dsimp
-      field_simp [hp.ne', h1.ne', h2.ne']
-      <;> ring
+      have hden : A+B*(n:ℝ) = B*((n:ℝ)+A/B) := by
+        field_simp [hp.ne']
+        <;> ring
+      have hnum : A+B*((n:ℝ)+1) = B*((n:ℝ)+(A/B+1)) := by
+        field_simp [hp.ne']
+        <;> ring
+      apply (div_eq_div_iff h1.ne' h2.ne').2
+      rw [hden, hnum]
+      ring
   have hc : Tendsto (fun _ : ℕ => x) atTop (𝓝 x) := tendsto_const_nhds
   have hh := (((hc.mul
     (shifted_ratio_tendsto (1/2) 1 (by norm_num))).mul
     (shifted_ratio_tendsto s 1 (by norm_num))).mul
     (shifted_ratio_tendsto (1-s) 1 (by norm_num))).mul hl
-  simpa only [step, mul_one] using hh
+  unfold step
+  simpa only [mul_one] using hh
 
 /-- The argument is the least real upper bound on the ratios in omitted tails. -/
 theorem least_tail_ratio {s x A B : ℝ} (hs : 0 < s) (hs' : s < 1)
@@ -111,7 +120,10 @@ theorem first_ratio (s x A B : ℝ) :
     step s x A B 0 = x * (s * (1-s) * (A+B) / (2*A)) := by
   dsimp [step]
   simp only [Nat.cast_zero, zero_add, mul_zero, mul_one, add_zero, div_one]
-  ring
+  by_cases hA : A = 0
+  · simp [hA]
+  · field_simp [hA]
+    <;> ring
 
 theorem least_full_ratio {s x A B : ℝ} (hs : 0 < s) (hs' : s < 1)
     (hx : 0 < x) (hA : 0 < A) (hB : 0 ≤ B) :
@@ -132,7 +144,6 @@ theorem n58_step (n : ℕ) :
     (ramanujanStepRatio n : ℝ) = step (1/4) (1 / 99^4) 1103 26390 n := by
   unfold ramanujanStepRatio quarticStepRatio linearStepRatio step
   push_cast
-  dsimp only
   have h1 : 0 < (n : ℝ) + 1 := by positivity
   have h2 : 0 < 1103 + 26390 * (n : ℝ) := by positivity
   field_simp [h1.ne', h2.ne']
@@ -163,7 +174,7 @@ theorem infinite_tail_lt {s x A B : ℝ} (hs : 0 < s) (hs' : s < 1)
     | zero => simp
     | succ j ih =>
       calc
-        term (M+1+(j+1)) ≤ x * term (M+1+j) := (hstep _ (by omega)).le
+        term (M+1+(j+1)) ≤ x * term (M+1+j) := (hstep (M+1+j) (by omega)).le
         _ ≤ x * (x^j * term (M+1)) := mul_le_mul_of_nonneg_left ih hx.le
         _ = x^(j+1) * term (M+1) := by ring
   have hsum := (summable_geometric_of_lt_one hx.le hx').mul_right (term (M+1))
@@ -172,4 +183,107 @@ theorem infinite_tail_lt {s x A B : ℝ} (hs : 0 < s) (hs' : s < 1)
     (by simpa only [pow_one] using hstep (M+1) (by omega)) hsum
   rwa [tsum_mul_right, tsum_geometric_of_lt_one hx.le hx', inv_mul_eq_div] at hlt
 
+/-- The normalized infinite remainder converges to the optimal geometric multiplier. -/
+theorem normalized_tail_tendsto {s x A B : ℝ} (hs : 0 < s) (hs' : s < 1)
+    (hx : 0 < x) (hx' : x < 1) (hA : 0 < A) (hB : 0 ≤ B)
+    (term : ℕ → ℝ) (hterm : ∀ n, 0 < term n)
+    (hrec : ∀ n, term (n+1) = step s x A B n * term n) :
+    Tendsto (fun M : ℕ => (∑' j : ℕ, term (M+1+j)) / term (M+1))
+      atTop (𝓝 ((1-x)⁻¹)) := by
+  let f (M j : ℕ) := term (M+1+j) / term (M+1)
+  have hzero (M : ℕ) : f M 0 = 1 := by simp [f, (hterm (M+1)).ne']
+  have hsucc (M j : ℕ) : f M (j+1) = step s x A B (M+1+j) * f M j := by
+    dsimp [f]
+    rw [show M+1+(j+1) = (M+1+j)+1 by omega, hrec]
+    ring
+  have hdom (M j : ℕ) : f M j ≤ x^j := by
+    induction j with
+    | zero => simp [hzero]
+    | succ j ih =>
+      rw [hsucc, pow_succ']
+      have hf : 0 ≤ f M j := (div_pos (hterm _) (hterm _)).le
+      exact mul_le_mul ((step_lt_argument hs hs' hx hA hB (by omega : 1 ≤ M+1+j)).le)
+        ih hf hx.le
+  have hpoint (j : ℕ) : Tendsto (fun M : ℕ => f M j) atTop (𝓝 (x^j)) := by
+    induction j with
+    | zero => simp only [hzero, pow_zero]; exact tendsto_const_nhds
+    | succ j ih =>
+      have hshift : Tendsto (fun M : ℕ => step s x A B (M+1+j)) atTop (𝓝 x) := by
+        simpa only [Nat.add_assoc] using
+          (tendsto_add_atTop_iff_nat (1+j)).2 (step_tendsto s x hA hB)
+      simpa only [hsucc, pow_succ'] using hshift.mul ih
+  have hbound : ∀ᶠ M : ℕ in atTop, ∀ j : ℕ, ‖f M j‖ ≤ x^j := by
+    apply Eventually.of_forall
+    intro M j
+    have hf : 0 ≤ f M j := (div_pos (hterm _) (hterm _)).le
+    simpa only [Real.norm_eq_abs, abs_of_nonneg hf] using hdom M j
+  have hlim := tendsto_tsum_of_dominated_convergence (summable_geometric_of_lt_one hx.le hx')
+    hpoint hbound
+  simpa only [f, tsum_div_const, tsum_geometric_of_lt_one hx.le hx'] using hlim
+
+theorem least_tail_multiplier {s x A B : ℝ} (hs : 0 < s) (hs' : s < 1)
+    (hx : 0 < x) (hx' : x < 1) (hA : 0 < A) (hB : 0 ≤ B)
+    (term : ℕ → ℝ) (hterm : ∀ n, 0 < term n)
+    (hrec : ∀ n, term (n+1) = step s x A B n * term n) :
+    IsLeast {c : ℝ | ∀ M : ℕ, (∑' j : ℕ, term (M+1+j)) / term (M+1) ≤ c}
+      ((1-x)⁻¹) := by
+  constructor
+  · intro M
+    apply (div_le_iff₀ (hterm _)).2
+    rw [inv_mul_eq_div]
+    exact (infinite_tail_lt hs hs' hx hx' hA hB term hterm hrec M).le
+  · intro c hc
+    exact le_of_tendsto (normalized_tail_tendsto hs hs' hx hx' hA hB term hterm hrec)
+      (Eventually.of_forall hc)
+
+/-- The N=58 sequence generated by the original rational step ratio, before the constant prefactor. -/
+noncomputable def term58 : ℕ → ℝ
+  | 0 => 1103
+  | n+1 => (ramanujanStepRatio n : ℝ) * term58 n
+
+theorem term58_pos (n : ℕ) : 0 < term58 n := by
+  induction n with
+  | zero => norm_num [term58]
+  | succ n ih =>
+    rw [term58, n58_step]
+    exact mul_pos (step_pos (by norm_num) (by norm_num) (by norm_num) (by norm_num)
+      (by norm_num) n) ih
+
+theorem n58_least_tail_multiplier :
+    IsLeast {c : ℝ | ∀ M : ℕ, (∑' j : ℕ, term58 (M+1+j)) / term58 (M+1) ≤ c}
+      (96059601 / 96059600) := by
+  have hrec (n : ℕ) :
+      term58 (n+1) = step (1/4) (1/99^4) 1103 26390 n * term58 n := by
+    rw [term58, n58_step]
+  have hh := least_tail_multiplier (s := 1/4) (x := 1/99^4) (A := 1103) (B := 26390)
+    (by norm_num) (by norm_num) (by norm_num) (by norm_num) (by norm_num) (by norm_num)
+    term58 term58_pos hrec
+  convert hh using 1 <;> norm_num
+
+/-- The ordinary factorial summands, before the common prefactor. -/
+noncomputable def factorialTerm58 (n : ℕ) : ℝ :=
+  ((4*n).factorial : ℝ) / (n.factorial : ℝ)^4 * (1103 + 26390*(n:ℝ)) / (396:ℝ)^(4*n)
+
+theorem factorialTerm58_succ (n : ℕ) :
+    factorialTerm58 (n+1) = (ramanujanStepRatio n : ℝ) * factorialTerm58 n := by
+  unfold factorialTerm58 ramanujanStepRatio quarticStepRatio linearStepRatio
+  have hi : 4*(n+1) = (4*n)+4 := by omega
+  rw [hi, pow_add]
+  rw [show (4*n)+4 = (((4*n+1)+1)+1)+1 by omega]
+  push_cast
+  simp only [Nat.factorial_succ, Nat.cast_mul, Nat.cast_add, Nat.cast_one, Nat.cast_ofNat]
+  have hf : (0:ℝ) < (n.factorial : ℝ) := by exact_mod_cast Nat.factorial_pos n
+  have hn : 0 < (n:ℝ)+1 := by positivity
+  have hlin : 0 < 1103+26390*(n:ℝ) := by positivity
+  have hpow : (396:ℝ)^(4*n) ≠ 0 := by positivity
+  field_simp [hf.ne', hn.ne', hlin.ne', hpow]
+  <;> ring
+
+theorem term58_eq_factorialTerm58 (n : ℕ) : term58 n = factorialTerm58 n := by
+  induction n with
+  | zero => norm_num [term58, factorialTerm58]
+  | succ n ih => rw [term58, factorialTerm58_succ, ih]
+
 end EnterpriseMath.PrecisionPi.SharpPositiveTail
+
+end
