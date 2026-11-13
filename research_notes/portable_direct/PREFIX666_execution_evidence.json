@@ -1,0 +1,75 @@
+{
+  "schema": "EM_PREFIX666_R2_EXACT_BRC_SIGNED_CURVATURE_EXECUTION_V1",
+  "date": "2026-11-10",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "antecedent": "PREFIX-665, immutable author-science commit 0e9e5d15f50ca52e7f1b2cbf7bc0e3ee1caada30",
+  "theory_scope": {
+    "p": [
+      "0",
+      "1/128"
+    ],
+    "z": [
+      "607/4096",
+      "609/4096"
+    ],
+    "q": [
+      "12",
+      "24"
+    ],
+    "native_model": "unchanged 189-layer positive-weight BRC first-stop observer",
+    "status": "AUTHOR_PROVED_EXACT_FRACTION_VERIFIED_UNREVIEWED_NOT_ADMITTED"
+  },
+  "theorem": {
+    "mu_lower": ">86",
+    "mu_pp": ">225",
+    "H_pp": "<15400",
+    "W_pp": "<-8000",
+    "V_q_pp": "<-8000*q^2",
+    "unique_maximum": "(0,z_star(q)) in stated rectangle; not global [0,1]^2",
+    "area_gain_over_PREFIX665": 32
+  },
+  "evidence": [
+    {
+      "path": "research_notes/portable_direct/PREFIX666_experiment.py",
+      "sha256": "567d25d85c673dc193983a3285cc5aedf48bc80e4470c2db0df57f572a594de4",
+      "git_blob": "8375e0562cebbb21529ad21dda9a8d8d1f212a99"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX666_certificate.py",
+      "sha256": "d7bf654a01bacddf3726b0b580b8ada5030e8bbe25678e71763af30d75cfb31d",
+      "git_blob": "bd51b722da393f941be8e36a4a5387b9bbfcc0c5"
+    },
+    {
+      "path": "research_notes/portable_direct/PREFIX666_independent_sample_checks.py",
+      "sha256": "83dff50d51ac68bc9efda98ec7d78a7f7a967c5ccf26815b46ed8feeef1241f4",
+      "git_blob": "42143d5e20c00e586c229bd3d5150cac29cd0262"
+    }
+  ],
+  "actual_executions": [
+    {
+      "command": "python PREFIX666_certificate.py",
+      "result": "SUCCESS 190",
+      "output": "PREFIX666_results.json",
+      "output_sha256": "21523acb9239f8de198f9940d28285b660725621d0df268b48be4f2710c0d013",
+      "output_bytes": 40576
+    },
+    {
+      "command": "python PREFIX666_independent_sample_checks.py",
+      "result": "ALL_SAMPLE_CHECKS_PASS 9",
+      "output": "PREFIX666_sample_crosscheck.json",
+      "output_sha256": "759b52ea4556e4883298cb536f2a4778da3c5253679b3472409f461848e513d2",
+      "output_bytes": 105555
+    }
+  ],
+  "center_enclosures_approx_for_readability_only": {
+    "mu_lower": 86.01814791198336,
+    "mu_pp_lower": 226.44437883276208,
+    "H_pp_upper": 15366.328776594644,
+    "W_pp_upper": -8223.99459135816
+  },
+  "exact_output_note": "Exact rational numerators, denominators and entire sample records are deterministically reproduced by the published Python code; the immutable local handoff tarball holds these two execution-generated JSON files. Decimal values above are never the proof comparisons.",
+  "service_identity": "MCP session registration attempt EMR2-20261110-1519-session: BACKEND_IDENTITY_CHECK_UNAVAILABLE, operation_sent=false; no native Researcher/RA issued or asserted.",
+  "task_owner": "RS-X6-NATIVE-ROTATION-DYNAMICS observed HANDOFF_READY / NEEDS_DISPATCH, owner taskbook/unassigned; no formal CLAIM/Result/Review.",
+  "outstanding": "Source publication is author-side GitHub branch/PR only. Native task Source-Activity checkpoint and formal Result pending, plus independent mathematical review.",
+  "next_question": "Find exact two-dimensional BRC Bernstein/subdivision certificate controlling complement [1/128,1] x [0,1], or tighten signed cancellation for a larger local p strip; independently retain X6 rotation dynamics hard target."
+}
