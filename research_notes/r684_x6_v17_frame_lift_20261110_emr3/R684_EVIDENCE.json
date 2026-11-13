@@ -1,0 +1,122 @@
+{
+  "schema": "R684_V17_TYPED_FRAME_BRC_LIFT_CERTIFICATE_V1",
+  "date": "2026-11-10",
+  "source_role": "AUTHOR_SIDE_EXACT_FINITE",
+  "predecessor": "R683@1ca5b1c159efff92e6a72edc5822852d6d28453f",
+  "frame_source": "R674@7e85d3b0fe3543e28c91894c174090102babb6db",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "arithmetic": "Python exact integers plus Fraction; full enumeration of R683 rational branch kernel",
+  "theorems": {
+    "frame_bijection": "Every S->T with |S∩T|=2 induces a bijection Perm(S)->Perm(T), reversed by T->S",
+    "frame_fibre_cardinality": 6,
+    "minimal_fixed_bits_for_complete_frame": 3,
+    "nontrivial_holonomy": "012 -> 013 -> 023 -> 012 maps frame 012 to 021",
+    "projection": "K_tilde projects strongly to original K on (u,M,S) because choices and weights ignore frame"
+  },
+  "witness": {
+    "initial_bias": [
+      -2,
+      -4,
+      -3,
+      10
+    ],
+    "initial_triad": "024",
+    "initial_frame": "024",
+    "time12": {
+      "events": "BABABABABABA",
+      "triad": "123",
+      "frame": "321"
+    },
+    "time13": [
+      {
+        "bias": [
+          4,
+          -3,
+          -10,
+          10
+        ],
+        "counts": [
+          6,
+          7,
+          0
+        ],
+        "triad": "125",
+        "frame": "521",
+        "weight": "1/2"
+      },
+      {
+        "bias": [
+          4,
+          -3,
+          -10,
+          10
+        ],
+        "counts": [
+          6,
+          7,
+          0
+        ],
+        "triad": "234",
+        "frame": "324",
+        "weight": "1/2"
+      }
+    ],
+    "time19": {
+      "bias": [
+        5,
+        1,
+        -15,
+        10
+      ],
+      "counts": [
+        7,
+        12,
+        0
+      ],
+      "triad": "035",
+      "frame": "035",
+      "weight": "1"
+    }
+  },
+  "coverage": {
+    "baselines": 6,
+    "triads": 20,
+    "initial_conditions": 120,
+    "time_steps_inclusive": "0..64",
+    "directed_triad_neighbor_pairs": 180,
+    "elementary_frame_mappings_checked": 1080,
+    "extra_distinct_frames_with_same_u_M_S_at_any_observed_time": 0,
+    "observation_times": [
+      0,
+      13,
+      14,
+      18,
+      19,
+      32,
+      64
+    ],
+    "total_frame_lift_support": [
+      120,
+      122,
+      123,
+      123,
+      121,
+      121,
+      121
+    ],
+    "projected_field_support": [
+      120,
+      122,
+      123,
+      123,
+      121,
+      121,
+      121
+    ],
+    "all_weight_conservation_exact": true,
+    "all_nonnegative_ledger_and_bias_conservation_exact": true
+  },
+  "reproducibility": "python3 R684_VERIFY.py; expect R684_V17_FRAME_LIFT_BRC_EXACT_PASS and generated R684_EVIDENCE.json",
+  "limitations": "Finite scan: 120 canonical initial frames x times 0..64. Analytic A/B allow arbitrary initial frames and future length. V39 j and native Cell/Link/port coupling remain unimplemented.",
+  "classification": "AUTHOR_SIDE_PROOF_PLUS_FINITE_EXACT_CHECK; NOT_DRIVER_REVIEWED"
+}
