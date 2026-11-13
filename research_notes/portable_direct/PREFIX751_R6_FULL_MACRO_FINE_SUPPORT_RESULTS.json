@@ -1,0 +1,71 @@
+{
+  "schema": "PREFIX751_R6_FULL_MACRO_FINE_SUPPORT_V1",
+  "date": "2026-11-13",
+  "source_repository": "awdawmip/enterprise-math",
+  "source_ref": "434be208819cc8674faa0c69eee3e800819f8e8d",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "researcher_id": "EM-DIRECT-A94071",
+  "research_activity_id": "RA-74B4CD4EAA062E1E07F179AD",
+  "original_domain": "[0,1/2]^2",
+  "original_fine_lattice_denominator": 768,
+  "original_fine_cells_total": 147456,
+  "later_macro_lattice_denominator": 384,
+  "independent_later_macro_family_upper_counts": {
+    "A733": 784,
+    "B733": 400,
+    "P735": 72,
+    "P736": 240,
+    "P737": 54,
+    "P738": 306,
+    "P739": 159,
+    "P740": 96,
+    "P741": 97,
+    "P742": 18,
+    "P743": 15,
+    "P744": 8,
+    "P745": 70,
+    "P746_749": 197
+  },
+  "inherited_subfamily_elisions": [
+    "PREFIX729/730 inside A733",
+    "PREFIX731/732 inside A733",
+    "PREFIX733 400-cell tile is B733"
+  ],
+  "cross_family_collisions": [
+    {
+      "family_a": "A733",
+      "family_b": "B733",
+      "macro_cells": 64
+    },
+    {
+      "family_a": "A733",
+      "family_b": "P746_749",
+      "macro_cells": 2,
+      "upper_pair": [
+        30,
+        52
+      ],
+      "original_fine_children": 8
+    }
+  ],
+  "normalized_later_distinct_macro_cells": 3782,
+  "normalized_later_distinct_original_fine_cells": 15128,
+  "exact_historical_explicit_fine_intersections": {
+    "PREFIX713_coupled": 0,
+    "PREFIX713_multicompetitor": 14,
+    "PREFIX716": 244,
+    "PREFIX718": 84,
+    "total": 342
+  },
+  "old_PREFIX712_known_fine_sibling_overlap": 54,
+  "old_PREFIX712_known_fine_intersection_A733_sibling": 8,
+  "inherited_original_712_count": 137168,
+  "inherited_extra_713_718_count": 1850,
+  "inherited_prior_718_total": 139018,
+  "prior_718_original_fine_unexcluded": 8438,
+  "necessary_lower_bound_original_712_fine_overlap": 6348,
+  "equation": "15128 - (14+244+84) - (147456-139018) = 6348",
+  "corrected_full_historical_union": "UNRESOLVED_EXACT_PREFIX712_MEMBERSHIP",
+  "evidence": "EXACT_INTEGER_SET_COMPUTATION_EXECUTED_USING_GITHUB_CONNECTOR_RETURNED_INPUTS; PACKAGED_PYTHON_NOT_INDEPENDENTLY_RUN; AUTHOR_GAMMA_PROOFS_UNREVIEWED_NOT_ADMITTED",
+  "scope": "support_and_overlap_only_not_new_global_exclusion_fraction"
+}
