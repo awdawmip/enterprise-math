@@ -55,6 +55,8 @@ For N=pq, the two factors are p and q in some order, as in the original frozen R
 
 An independent exact-integer enumeration was run for all 7^4=2,401 integer 2-by-2 matrices with entries in [-3,3], the original eight affine N-coefficient templates, and all 28 products of two distinct primes in (3,5,7,11,13,17,19,23). Its 537,824 semiprime/template checks agree with the original certificate. It found the same rank distribution [1,288,2112] for ranks [0,1,2], the same 72,960 one-sided support cases, and zero mismatches in the gcd criterion. Independent direct enumeration of c in [-100,100] gives 170 nontrivial idempotent cases and zero mismatches in complementary gcd endpoints.
 
+A second independent exact-integer regression covered every modulus 2<=N<=90, all 625 integer 2-by-2 matrices with entries in [-2,2], and each distinct prime divisor of every N. Across 95,000 prime-channel rank comparisons, the determinantal-support equivalence had zero mismatches; 15,640 matrix/modulus cases had both dropping and non-dropping prime channels, each yielding a proper gcd factor. For idempotents, testing all admissible denominators 1<=d<=6 and numerators -30<=a<=30 found 568 nontrivial idempotents and zero complementary-product/coprimality mismatches. All operations were exact integer divisibility, gcd and modular inverse; this is an additional bounded regression of the general-modulus statements.
+
 This finite regression checks a bounded exact arithmetic family. Theorems A and B are established by the preceding proofs, not inferred from this enumeration. The original researcher's checker and certificate remain immutable, with their actual source authorship preserved.
 
 ## 5. Review and authority status
