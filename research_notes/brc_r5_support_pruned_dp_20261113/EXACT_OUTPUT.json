@@ -1,0 +1,91 @@
+{
+  "status": "PASS_AUTHOR_SIDE_SUPPORT_PRUNED_ORIGINAL_FROZEN_R5",
+  "science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "K": 213,
+  "R": 2,
+  "boundaries": 954,
+  "events": 1065,
+  "edges": 4383,
+  "optimal_cost": 1070,
+  "optimal_class_size": "1338767625695954932334592000",
+  "rank": "417027933051277583800994379",
+  "complete_pruned_support_cells": 83813,
+  "full_dense_cells": 203202,
+  "crosschecked_all_dense_dp_cells": 203202,
+  "small_exhaustive": {
+    "finite_instances": 2184,
+    "optimal_rank_pairs_checked": 2561
+  },
+  "measurements": {
+    "dense_full": {
+      "decoded_centers_sha256": "b6d9f351d2ed5c41e8b6061de6517519037fdb3918dd7656f420e584e8bda4a1",
+      "directory_sha256": "a947d07d7d494e00e14013eb929b3ffdc9224938ec15289209e68316c50a14b1",
+      "dp_peak_tracemalloc_bytes": 8304508,
+      "max_cells_held": 204156,
+      "max_rows_held": 214,
+      "mode": "dense_full",
+      "peak_rss_kib": 106508,
+      "seconds": {
+        "directory": 0.00052,
+        "dp_and_unrank": 0.299504,
+        "fixture": 0.061584,
+        "graph": 0.004025,
+        "total": 0.365633
+      },
+      "support_total_cells": 203202
+    },
+    "dense_block": {
+      "decoded_centers_sha256": "b6d9f351d2ed5c41e8b6061de6517519037fdb3918dd7656f420e584e8bda4a1",
+      "directory_sha256": "a947d07d7d494e00e14013eb929b3ffdc9224938ec15289209e68316c50a14b1",
+      "dp_peak_tracemalloc_bytes": 1545604,
+      "max_cells_held": 28620,
+      "max_rows_held": 30,
+      "mode": "dense_block",
+      "peak_rss_kib": 99208,
+      "seconds": {
+        "directory": 0.010619,
+        "dp_and_unrank": 0.487066,
+        "fixture": 0.068392,
+        "graph": 0.003343,
+        "total": 0.56942
+      },
+      "support_total_cells": 203202
+    },
+    "pruned_full": {
+      "decoded_centers_sha256": "b6d9f351d2ed5c41e8b6061de6517519037fdb3918dd7656f420e584e8bda4a1",
+      "directory_sha256": "a947d07d7d494e00e14013eb929b3ffdc9224938ec15289209e68316c50a14b1",
+      "dp_peak_tracemalloc_bytes": 6346056,
+      "max_cells_held": 84554,
+      "max_rows_held": 214,
+      "mode": "pruned_full",
+      "peak_rss_kib": 104220,
+      "seconds": {
+        "directory": 0.000508,
+        "dp_and_unrank": 0.209592,
+        "fixture": 0.061916,
+        "graph": 0.004228,
+        "total": 0.276245
+      },
+      "support_total_cells": 83813
+    },
+    "pruned_block": {
+      "decoded_centers_sha256": "b6d9f351d2ed5c41e8b6061de6517519037fdb3918dd7656f420e584e8bda4a1",
+      "directory_sha256": "a947d07d7d494e00e14013eb929b3ffdc9224938ec15289209e68316c50a14b1",
+      "dp_peak_tracemalloc_bytes": 1329456,
+      "max_cells_held": 15160,
+      "max_rows_held": 30,
+      "mode": "pruned_block",
+      "peak_rss_kib": 98960,
+      "seconds": {
+        "directory": 0.00932,
+        "dp_and_unrank": 0.300157,
+        "fixture": 0.059732,
+        "graph": 0.002681,
+        "total": 0.371891
+      },
+      "support_total_cells": 83813
+    }
+  },
+  "timing_note": "One fresh process per implementation; trace memory separately; timings illustrative not statistical",
+  "original_bitmap_and_full_prefix_query": "NOT_EXECUTED"
+}
