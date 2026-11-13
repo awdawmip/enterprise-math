@@ -7,7 +7,37 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "d37331b81113274a2028435c55cf6192db696710",
+          "path": "research_notes/portable_direct/PREFIX746_R6_ADAPTIVE_8X8_30_RESULTS.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "2e3eb2446b6f8c7232c8c3ccbdf09e987afbd4b451be5ad73681749a987cc245",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "32d88f70c3cdb8348f8dab61d1c701feedf33ac6",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/d37331b81113274a2028435c55cf6192db696710/research_notes/portable_direct/PREFIX746_R6_ADAPTIVE_8X8_30_RESULTS.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r6-prefix746-20261113-result-connector-readback-1",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-2D0B93587B06028CFF775009/readbacks/6a3041af7183fd32502c8b5e3ef0d42341268f130f645b0cc8f98eebaff2b900.json",
+          "verification_receipt_sha256": "6a3041af7183fd32502c8b5e3ef0d42341268f130f645b0cc8f98eebaff2b900"
+        }
+      ],
+      "event_id": "r6-prefix746-20261113-gamma-30-source-v1",
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/e4765b7e901d18e74b8983bce011c6ed7d241c11/journal/enterprise-math/2026-11-13/20261113-r6-prefix746-gamma-adaptive8-30.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-13T02:54:48.536839+00:00",
   "registration_key": "session:MCP-9d123cd120b042989b798483f2efaccc:TASK_RESEARCH",
