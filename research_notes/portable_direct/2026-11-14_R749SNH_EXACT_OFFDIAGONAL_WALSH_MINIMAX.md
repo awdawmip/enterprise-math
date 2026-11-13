@@ -77,6 +77,15 @@ At $t=1/2,s=1/3$ the feasible $(h,u,v,w,z)$ form a **bounded, full-dimensional**
 
 The reproducible `R749SNH_OFFDIAGONAL_POINT_EXACT_CHECK.py` enumerates all $\binom{16}{5}=4368$ subsets: 3008 nonsingular bases, 216 feasible bases and **44 distinct vertices**. At all 44, both candidate TV inequalities hold in Python `Fraction` arithmetic; equality occurs at 16 free-radius vertices and 8 calibrated-radius vertices. For a fixed decoder, TV is convex in the source law; its maximum over a compact polytope is attained at a vertex. Thus the vertex test proves the universal upper bound for the entire real source fiber. The explicit event bounds complete both minimax equalities.
 
+
+## Immediate symmetry corollary
+
+The same two minimax radii hold throughout the eight-point parameter orbit
+\[
+(t,s)\in\{(\epsilon/2,\delta/3),(\epsilon/3,\delta/2):\epsilon,\delta\in\{-1,1\}\}.
+\]
+Independent sign changes of the two retained characters \(\chi_3,\chi_{12}\) arise by translating \(G\); they preserve the zero moments of the other eight retained characters and act isometrically in TV. The linear change of Walsh-coordinate basis that exchanges \((A,P,AP)\) and \((D,Q,DQ)\) and fixes \(AD\) permutes the five excluded characters \(\{1,2,4,8,15\}\), hence preserves the ten-character retained set. It exchanges \(t\) with \(s\) and induces another TV isometry of the full fiber and both decoder classes. Thus \(\rho=19/48,\rho^{\mathrm{cal}}=2/5\) at all eight points, using transported exact decoders and witnesses.
+
 ## Scope, provenance, continuation
 
 This is a strictly auxiliary finite Walsh-source observation model. No native signed-Port, X6 three-dimensional slice or V29/V39 event correspondence has been proved; the frozen P000 and existing source firewall remain unchanged. A scientific file/PR is not itself a Task CLAIM, Result, independent review, Working Truth or Foundation promotion.
