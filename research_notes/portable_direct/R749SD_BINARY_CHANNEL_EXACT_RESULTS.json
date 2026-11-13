@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "model": "R749SA_FINITE_OBSERVER_KERNEL_ONLY",
+  "parameter_grid": [
+    "0",
+    "1/4",
+    "1/2",
+    "3/4",
+    "1"
+  ],
+  "joint_multinomial_horizons": "m=0..8",
+  "binary_testing_horizons": "m=1..6",
+  "p0": "0",
+  "p1": "1/2",
+  "rows": [
+    {
+      "m": 1,
+      "tv_signed": "15/32",
+      "tv_unsigned": "7/16",
+      "bayes_error_signed": "17/64",
+      "bayes_error_unsigned": "9/32"
+    },
+    {
+      "m": 2,
+      "tv_signed": "675/1024",
+      "tv_unsigned": "147/256",
+      "bayes_error_signed": "349/2048",
+      "bayes_error_unsigned": "109/512"
+    },
+    {
+      "m": 3,
+      "tv_signed": "23625/32768",
+      "tv_unsigned": "2401/4096",
+      "bayes_error_signed": "9143/65536",
+      "bayes_error_unsigned": "1695/8192"
+    },
+    {
+      "m": 4,
+      "tv_signed": "759375/1048576",
+      "tv_unsigned": "45619/65536",
+      "bayes_error_signed": "289201/2097152",
+      "bayes_error_unsigned": "19917/131072"
+    },
+    {
+      "m": 5,
+      "tv_signed": "6834375/8388608",
+      "tv_unsigned": "199283/262144",
+      "bayes_error_signed": "1554233/16777216",
+      "bayes_error_unsigned": "62861/524288"
+    },
+    {
+      "m": 6,
+      "tv_signed": "931753125/1073741824",
+      "tv_unsigned": "12958197/16777216",
+      "bayes_error_signed": "141988699/2147483648",
+      "bayes_error_unsigned": "3819019/33554432"
+    }
+  ],
+  "native_event_permission": false
+}
