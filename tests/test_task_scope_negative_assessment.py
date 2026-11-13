@@ -315,7 +315,7 @@ class NegativeTaskAssessmentTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'cannot retype'):
                     self.build()
 
-    def test_parent_scope_new_tasks_missing_gates_and_closed_parent_stay_rejected(self):
+    def test_parent_and_publication_limits_remain_with_optional_gate_annotations(self):
         self.review(self.assessment())
         for change, message in (({'terminal_scope': 'PARENT'}, 'terminal_scope TASK'),
                                 ({'task_publications': [{'task_id':'OTHER','publication_id':'TP2-OTHER','task_role':'OTHER'}]}, 'cannot publish new tasks')):
@@ -324,12 +324,14 @@ class NegativeTaskAssessmentTests(unittest.TestCase):
                     self.build(**change)
         gates = copy.deepcopy(self.gates)
         gates[0]['decision'] = 'REQUIRED'
-        with self.assertRaisesRegex(ValueError, 'REQUIRED'):
-            self.build(gate_decisions=gates)
+        packet = self.build(gate_decisions=gates)
+        self.assertEqual(packet['gate_decisions'][0]['decision'], 'REQUIRED')
+        self.assertFalse(packet['parent_completion_granted'])
         gates = copy.deepcopy(self.gates)
         next(g for g in gates if g['gate'] == 'EXTERNAL_PRIOR_ART_DUPLICATION')['decision'] = 'NOT_REQUIRED'
-        with self.assertRaisesRegex(ValueError, 'EXTERNAL_PRIOR_ART'):
-            self.build(gate_decisions=gates)
+        packet = self.build(gate_decisions=gates)
+        self.assertEqual(next(g for g in packet['gate_decisions'] if g['gate'] == 'EXTERNAL_PRIOR_ART_DUPLICATION')['decision'], 'NOT_REQUIRED')
+        self.assertFalse(packet['parent_completion_granted'])
         with mock.patch.object(followup, '_objective_head', return_value={'objective_id':'OBJ-PARENT','objective_status':'CLOSED'}):
             with self.assertRaisesRegex(ValueError, 'parent'):
                 self.build()
