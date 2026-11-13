@@ -1,0 +1,106 @@
+{
+  "schema": "PREFIX626B_NATIVE_X6_SHARP_FULL_TAGGED_GATE_MEMORY_EVIDENCE_V1",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "Full source/action-labelled native n-step path operator, all original predecessor ports, n known, nonnegative gates, supplementary continuous real scalar gate-history observations.",
+  "native_model": {
+    "phases": 48,
+    "ports": 96,
+    "labelled_actions_per_step": 576
+  },
+  "proved_exact": {
+    "incoming_unit_weight_cycle": [
+      9,
+      28,
+      80,
+      52,
+      9
+    ],
+    "outgoing_unit_weight_cycle": [
+      29,
+      80,
+      52,
+      8,
+      29
+    ],
+    "unique_gate_step": [
+      9,
+      29
+    ],
+    "every_gate_j_has_one_tagged_path_coordinate_equal_to_gj": true,
+    "all_gate_parameters_recoverable_from_full_tagged_operator": true,
+    "baseline": "S_n=(g1,gn, four mod-4 interior factors P_r for nonempty residue classes)",
+    "active_classes": "min(4,n-2)",
+    "minimal_extra_continuous_real_scalar_coordinates": "n-2-min(4,n-2) = max(0,n-6)",
+    "explicit_upper": "store all but one interior gate in each active class, divide class product by retained factors, solve missing gate=3*(quotient-1)",
+    "lower": "product fibers locally diffeomorphic to open dimension n-2-min(4,n-2), full tagged path coordinate reads each gate; continuous injective encoding needs >= fiber dimension"
+  },
+  "locally_executed_checker": {
+    "source_path": "research_notes/portable_direct/PREFIX626B_native_gate_full_tagged_memory_checker.py",
+    "executed_source_git_blob_sha1": "b504f1db4b0c328fbf7c576cf536f26d4829b192",
+    "arithmetic": "Exact original typed BRC actions + Python Fraction",
+    "tested_lengths": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      13,
+      17,
+      32,
+      64
+    ],
+    "number_of_tested_lengths": 13,
+    "number_of_individual_tagged_gate_path_coordinates_checked": 180,
+    "exact_reconstruction_tests": 13,
+    "all_assertions": "PASS",
+    "illustrative_extra_counts": {
+      "n=2": 0,
+      "n=6": 0,
+      "n=7": 1,
+      "n=10": 4,
+      "n=17": 11,
+      "n=64": 58
+    }
+  },
+  "counterexample": {
+    "n": 10,
+    "gate_histories": [
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "identical_baseline": true,
+    "single_tagged_path_mass": [
+      1,
+      2
+    ]
+  },
+  "review": "AUTHOR_SIDE_UNREVIEWED",
+  "status": "ALL_ASSERTIONS_PASS",
+  "next": "Calculate minimal additional memory for specified sparse subsets of labelled path queries, with actual bit-complexity costs and restricted four-point reachable inputs."
+}
