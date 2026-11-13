@@ -204,11 +204,15 @@ $3(1103+26390)/(32\cdot1103)=82479/35296>1$.
 \end{proof}
 
 \paragraph{Proof provenance.}
-The earlier Lean arithmetic checkpoint \cite{Checkpoint} includes the
-$P=99$ Pell identities and a finite geometric-tail estimate with the
-coarser ratio $25/99^4$. The optimal constants in Theorem~\ref{thm:sharp},
-their application to the omitted tails, and the limit in \eqref{eq:tail}
-are proved here on paper.
+The earlier Lean checkpoint \cite{Checkpoint} covers the $P=99$ Pell identities
+and a finite tail estimate. The \href{https://github.com/awdawmip/enterprise-math/blob/798b86a30418df4ae24bd678e01df3ed0a62b0d9/EnterpriseMath/Precision/SharpPositiveTail.lean}{sharp-tail module}
+formalizes the ratio law in \eqref{eq:ratio}, both sharp ratio bounds, the
+strict upper estimate for the infinite remainder, and its normalized limit
+and least multiplier. For $N=58$ it identifies the recurrence with the
+factorial summands in \eqref{eq:ram}. The
+\href{https://github.com/awdawmip/enterprise-math/actions/runs/43376958085}{strict Lean build}
+uses revision \texttt{798b86a30418}. Ramanujan's evaluation of the full
+series and of the class invariant are classical inputs.
 
 \paragraph{Acknowledgment.}
 OpenAI's ChatGPT assisted with drafting, calculations and source checking.

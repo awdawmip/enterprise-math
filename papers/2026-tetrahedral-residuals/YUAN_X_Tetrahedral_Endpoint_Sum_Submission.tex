@@ -47,7 +47,7 @@ be the endpoint-sum, or signless incidence, map. We give a constructive descript
 \[
   E_0/\delta(V_0)\simeq A_2(\Z)\oplus \Z/2\Z.
 \]
-After inverting $2$, the torsion vanishes and only the two-dimensional $A_2$ residual remains. We then compute the tetrahedral $S_4$ action on the normal coordinates. Modulo $2$ it gives a three-dimensional module with an invariant constant line but no $S_4$-equivariant retraction onto that line. Equivalently, the short exact sequence formed by the constant line and the two-dimensional quotient is non-split. Finally, evaluation on the four points of $\F_2^2$ identifies this module with $\Aff(\F_2^2,\F_2)$: the six nonconstant affine functions encode the six edges, and addition of the nonzero constant exchanges opposite edges. The finite classification and the non-splitting argument have also been checked in Lean 4.
+After inverting $2$, the torsion vanishes and only the two-dimensional $A_2$ residual remains. We then compute the tetrahedral $S_4$ action on the normal coordinates. Modulo $2$ it gives a three-dimensional module with an invariant constant line but no $S_4$-equivariant retraction onto that line. Equivalently, the short exact sequence formed by the constant line and the two-dimensional quotient is non-split. Finally, evaluation on the four points of $\F_2^2$ identifies this module with $\Aff(\F_2^2,\F_2)$: the six nonconstant affine functions encode the six edges, and addition of the nonzero constant exchanges opposite edges. The integral classification, the non-splitting obstruction, and the equivariant affine-function model have been checked in Lean 4.
 \end{abstract}
 
 \maketitle
@@ -380,12 +380,11 @@ The checked layers include:
 \item the adjacent-transposition action on mod-$2$ normal coordinates, the Coxeter relations, and the non-splitting obstruction.
 \end{itemize}
 
-The affine-function equivalence is proved above. Its coordinate-free formulation lies outside the certified Lean modules listed here. The strict accepted checkpoints are recorded in the public source branch cited below. The workflow rejects \texttt{sorry}, \texttt{admit}, and custom axioms from the paper modules and compiles the admitted layers with warnings fatal.
+The \href{https://github.com/awdawmip/enterprise-math/blob/06d221facd0d0323dc1b08e13422b500a0eaa8cd/EnterpriseMath/PrecisionPi/PaperIIAffineFunctions.lean}{affine-function module} constructs the linear equivalence by evaluation and checks inverse precomposition for every vertex permutation. It recovers the three generator formulas in \cref{eq:generators}, the bijection with unordered vertex pairs, and the exchange of opposite edges on adding the torsion class.
 
 \section*{Data, code, and artificial-intelligence disclosure}
 
-The Lean sources are contained in the public repository \emph{Enterprise Math} on the branch
-\texttt{formalization/precision-pi-paper-ii-kernel-v1}; the strict accepted theorem checkpoint and module paths are listed in the public publication package.
+The \href{https://github.com/awdawmip/enterprise-math/actions/runs/33657478048}{residual and symmetry build} used revision \texttt{95a9cd418f6a}. The \href{https://github.com/awdawmip/enterprise-math/actions/runs/43376204148/job/131723174697}{affine-function build} checked the extended stack at \texttt{06d221facd0d}, with warnings fatal and a check for proof placeholders and custom axioms.
 
 OpenAI's ChatGPT assisted with translation, language editing, organization of the exposition, literature discovery, and parts of the Lean proof-development workflow. It is not an author. The named author assumes full responsibility for the mathematical content, citations, and submission.
 

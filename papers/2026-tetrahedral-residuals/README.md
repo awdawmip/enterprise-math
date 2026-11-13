@@ -11,6 +11,13 @@ The two manuscripts have independent hypotheses. The [September 3 combined manus
 
 ## Verification
 
-The original [residual and symmetry build](https://github.com/awdawmip/enterprise-math/actions/runs/33657478048) used revision `95a9cd418f6abdb4916f5cf8182437af61dba9db`. The [arithmetic and finite-tail build](https://github.com/awdawmip/enterprise-math/actions/runs/33659295408) used revision `ca2b30c7ef45b470d0d5cb6955def48610cd9dd7`. The coordinate-free affine equivalence and the sharp ratio and tail multiplier have proofs in the manuscripts. The evaluation of the complete series as an inverse period uses Ramanujan's classical identity.
+| Scope | Checked source and successful Lean build |
+|---|---|
+| Integral residual classification, tetrahedral symmetry and mod-two non-splitting | [Original stack at `95a9cd418f6a`](https://github.com/awdawmip/enterprise-math/actions/runs/33657478048). |
+| Linear equivalence with affine functions, arbitrary vertex relabelling, six edge supports and complements | [Affine module at `06d221facd0d`](https://github.com/awdawmip/enterprise-math/blob/06d221facd0d0323dc1b08e13422b500a0eaa8cd/EnterpriseMath/PrecisionPi/PaperIIAffineFunctions.lean) · [strict build](https://github.com/awdawmip/enterprise-math/actions/runs/43376204148/job/131723174697). |
+| Paired Pell identities, arithmetic at 99 and original finite geometric bound | [Original arithmetic stack at `ca2b30c7ef45`](https://github.com/awdawmip/enterprise-math/actions/runs/33659295408). |
+| Positive sequences with the stated hypergeometric ratio law, sharp ratios, strict infinite upper tail bound, normalized remainder limit and least multiplier, with identification of the actual factorial summands at N=58 | [Sharp-tail module at `798b86a30418`](https://github.com/awdawmip/enterprise-math/blob/798b86a30418df4ae24bd678e01df3ed0a62b0d9/EnterpriseMath/Precision/SharpPositiveTail.lean) · [strict build](https://github.com/awdawmip/enterprise-math/actions/runs/43376958085). |
+
+Ramanujan's modular evaluation of the complete series and the CM evaluation of the class invariant enter the arithmetic manuscript as classical inputs. The subsequent [unit-signature research note](https://github.com/awdawmip/enterprise-math/blob/efdf00267767145c0c186294576de1a05f7137ef/research_notes/tetrahedral_pell_signatures_20261113/NOTE.md) gives a separate arithmetic realization of the tetrahedral mod-two residual on the four real embeddings of the biquadratic Pell field.
 
 Both manuscripts compile separately with pdfLaTeX. Each source contains its own bibliography and author disclosure.
