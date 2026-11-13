@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "walsh_exact_compares": 256,
+  "case_priors": 4,
+  "p_tested": [
+    "0",
+    "1/2"
+  ],
+  "sign_selected_event_C": {
+    "mu_plus": {
+      "P(C)": "1/2",
+      "E[Y1|C]": "1/2",
+      "P(Y1=+|C)": "3/4"
+    },
+    "mu_minus": {
+      "P(C)": "1/2",
+      "E[Y1|C]": "-1/2",
+      "P(Y1=+|C)": "1/4"
+    }
+  },
+  "equal_prior_postselection_Bayes_error": "1/4",
+  "unselected_baseline_Bayes_error": "1/2",
+  "scope": "positive source-dependent pre-update observation likelihood; signed conditional K_C is the existing R749SF kernel, observation selection is an explicit extra model assumption",
+  "execution_provenance": "Python 3 fractions.Fraction checker executed locally for exact finite comparisons. Published checker is equivalent but no remote CI run is claimed."
+}
