@@ -7,7 +7,35 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "event_id": "r760-20261113-0932-source-evidence",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "0b5523c050b2e6e0c20c328c505bac68666753e5",
+          "path": "research_notes/R760_EVIDENCE.json",
+          "sha256": "71b15c4c2183df0c74e696c6211245ba7874ea7deff1a56b51ef8f2be4d27b62",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "emr3-r760-evidence-readback-20261113-1",
+            "call_id": null,
+            "git_blob_sha1": "ba84f6f3b9529046797e8cd9fb0b7cb59ec5b298",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/0b5523c050b2e6e0c20c328c505bac68666753e5/research_notes/R760_EVIDENCE.json",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-E70F782E397098529FB91A18/readbacks/4f34a9a49d9cacef571ef12e0f3366381d70fdc9aa64ef660a68134a21a87085.json",
+          "verification_receipt_sha256": "4f34a9a49d9cacef571ef12e0f3366381d70fdc9aa64ef660a68134a21a87085"
+        }
+      ],
+      "kb_sources": [],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-13T01:26:48.541581+00:00",
   "registration_key": "session:MCP-a324803e5753427da1eb18b167f38eb0:TASK_RESEARCH",
