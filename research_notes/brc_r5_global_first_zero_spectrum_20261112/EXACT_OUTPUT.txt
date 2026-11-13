@@ -1,0 +1,30 @@
+R5 GLOBAL TWO-COORDINATE FIRST-ZERO SPECTRUM
+Recorded: 2026-11-12 (Asia/Shanghai)
+Evidence type: local Python Fraction + integer enumeration on an equivalent independent transcription of the frozen 28-mass/15-operation fixture. The published verifier reuses the exact parent GitHub file; a clean-checkout run of its remote bytes remains pending.
+
+FROZEN_PARENT 0c15f0d5e70748eca288dd01767561b8c55c57ad
+ORIGINAL_FIXTURE 435e77af0d180eac32bd1f9c4c464bc4010b7551
+MASKS 32768 COORDINATES 28
+STRICT_POSITIVE_MARGIN_OTHER_24 71458139439/72283608110000000
+TWO_ENDPOINT_ONLY_COORDINATES [(0, 2), (6, 1)]
+INTERIOR_BOTTLENECK_COORDINATES [(0, 3), (1, 3)]
+FIXED_FIRST_ZERO_VALUES 1144 N_MIN_MAX 3 1348
+FIXED_WITNESS_MASK_CHECKSUM 9387630
+FIXED_WITNESS_SAMPLES [(3, 1050), (420, 1024), (910, 30724), (1348, 31744)]
+MOVING_SLOPE_FAMILIES_Q (15, 12, 3)
+MOVING_WITNESS_MASKS {15: 1023, 12: 991, 3: 1022}
+MOVING_FIXED_COLLISION_PAIRS 3432
+DISTINCT_COLLISION_PARAMETERS 2905
+COLLISION_MULTIPLICITIES {1: 2603, 2: 77, 3: 225}
+ZERO_R_TRIPLE_RESONANCE [(15, 540), (12, 432), (3, 108)]
+PASS_R5_GLOBAL_TWO_COORDINATE_FIRST_ZERO_AND_COLLISION_ATLAS
+
+Detailed exact checks executed locally:
+- All 28 uniform support-coordinate margins were computed as exact rational numbers.
+- All 32,768 labeled subset integer vectors were generated; distinct negative target0-source3 subset sums were calculated.
+- All 1,144 fixed thresholds received masks satisfying all 56 endpoint inequalities; checksum matches the prior independently published result.
+- Three moving witness masks were checked in their two critical coordinates.
+- Every fixed/moving rational collision pair was constructed and counted with canonical Fraction keys.
+- The model's scope and observation are inherited unchanged from the frozen R5 fixture.
+
+Next: sweep the 2,905 collision parameters and count the multiplicities and ordering of first-zero phases without 32,768-mask reevaluation at every parameter.
