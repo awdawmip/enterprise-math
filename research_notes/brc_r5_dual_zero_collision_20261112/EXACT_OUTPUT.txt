@@ -1,0 +1,19 @@
+# Exact author-side independent local prototype using the same frozen 28-component fixture, 2026-11-12 Asia/Shanghai.
+# 32768 complete mask vectors, 28 mass coordinates, rational DP at every eligible (q,n).
+# The standalone published verifier prints the equivalent Q/MIN_STEPS and final PASS lines.
+
+COLLISION 15 540 masks_both_zero 0 endpoint_feasible 0 ordered 0
+COLLISION 12 432 masks_both_zero 3 endpoint_feasible 3 ordered 3
+SHARED_ORDERED_WITNESS 27137 [15, 14, 10, 1, 12]
+COLLISION 3 108 masks_both_zero 2 endpoint_feasible 2 ordered 2
+SHARED_ORDERED_WITNESS 18478 [15, 6, 4, 3, 2, 12]
+ALGEBRAIC_SHARED_EVENTS {15: 229, 12: 298, 3: 538}
+ALGEBRAIC_SHARED_MASKS {15: 504, 12: 749, 3: 1682}
+GLOBAL 15 algebraic_events endpoint_events ordered_events endpoint_masks ordered_masks cache_states (229, 229, 229, 504, 504, 8238)
+MIN_STEPS_DISTRIBUTION 15 {3: 1, 4: 6, 5: 23, 6: 53, 7: 69, 8: 50, 9: 22, 10: 5} MAX_MASK_LENGTH 12
+GLOBAL 12 algebraic_events endpoint_events ordered_events endpoint_masks ordered_masks cache_states (298, 298, 298, 749, 749, 9883)
+MIN_STEPS_DISTRIBUTION 12 {2: 1, 3: 9, 4: 35, 5: 72, 6: 87, 7: 63, 8: 26, 9: 5} MAX_MASK_LENGTH 11
+GLOBAL 3 algebraic_events endpoint_events ordered_events endpoint_masks ordered_masks cache_states (538, 538, 538, 1682, 1682, 20420)
+MIN_STEPS_DISTRIBUTION 3 {2: 3, 3: 22, 4: 75, 5: 149, 6: 149, 7: 95, 8: 38, 9: 7} MAX_MASK_LENGTH 12
+COLLISION_PAIRS 3432 DUAL_ZERO_PAIR_EVENTS 1065 DUAL_ZERO_IMPOSSIBLE_EVENTS 2367
+PASS_R5_EXACT_DUAL_ZERO_COLLISION_CENSUS
