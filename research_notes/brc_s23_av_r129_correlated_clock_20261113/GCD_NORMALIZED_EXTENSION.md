@@ -1,0 +1,35 @@
+# R129.4 — Primitive-gcd clock compression for every signed S23 coefficient triple
+
+Date: 2026-11-13. Exact extension of R129's critical-fiber proof. Frozen scientific input `43ec6098b1330ae86d0a7863be336c5d97f6ef34`.
+
+## Statement and exact normalization
+
+For rational `x,l,h`, `l<h`, integer `m>=1`, and arbitrary signed integers `A,d,E`, set
+
+`M_i(theta)=1[{x+(A+i*d)*theta}<{E*theta}]`, `0<=i<m`, `theta in (l,h)`.
+
+Let `g=gcd(|A|,|d|,|E|)`. If `g=0`, the threshold is zero, so every bit is zero. If `g>0`, put `a=A/g, q=d/g, e=E/g` (integers) and `beta={g*theta}`. Then, exactly,
+
+`M_i(theta)=1[{x+(a+i*q)*beta}<{e*beta}]=V_i(beta)`.
+
+Let `C_g` be the union of interior crossings `e beta in Z` when `e!=0`; `x+(a+i*q)beta in Z` when `a+i*q!=0`; and `x+(a+i*q-e)beta in Z` when `a+i*q-e!=0`, for all `0<=i<m`. Put `K_g=|C_g|` and
+
+`B_g=max(|e|-1,0)+sum_{i=0}^{m-1} (|a+i*q|+|a+i*q-e|)`.
+
+**Theorem.** `K_g<=B_g`. A full half-open beta period attains at most `2K_g+2<=2B_g+2` distinct joint Boolean words. For any rational open theta interval, an exact enumeration with no more than `2K_g+6` rational beta probes returns all attainable words together with strict rational theta witnesses. Multiplication of all three original coefficients `(A,d,E)` by a common positive integer leaves the normalized triple and this candidate count unchanged. For fixed primitive `(a,q,e)` as m grows, `B_g=O(m^2)` if `q!=0`, and `B_g=O(m)` if `q=0`.
+
+This includes the signed/zero-coefficient and earlier proportional-clock family `A=s*d,E=r*d`, but also handles coefficients not divisible by d. It is an exact observer-level quotient preserving original signed parameters and witness provenance.
+
+## Proof
+
+Write `g theta=k+beta` with integer k and `0<=beta<1`. Because a,q,e are integers, their products with k vanish modulo one; the two fractional parts become `{x+(a+i q)beta}` and `{e beta}`. For a fixed bit, its strict comparison can change only at an integer discontinuity of either fraction or equality of the fractions, which is equivalent to `x+(a+i q-e)beta in Z`. The set `C_g` contains exactly those possible isolated changes. An affine term with zero coefficient causes no isolated crossing, even when it is constantly integral. A nonzero integer slope t produces at most `|t|` interior integer crossings; `e beta` produces `max(|e|-1,0)`. The union bound gives `K_g<=B_g`. Evaluating beta=0, all critical points, and one midpoint of every open gap gives all signatures, with no more than `2K_g+2` probes.
+
+To restrict to `theta in(l,h)`, add `{g l}` and `{g h}` to the beta cuts. A tested beta is achievable exactly when some integer k satisfies `g l-beta<k<g h-beta`. The first possible k is `floor(g l-beta)+1`; check it is strictly smaller than the upper bound. If so `theta=(k+beta)/g` is an exact rational witness. Between inserted cuts both feasibility and each comparison are constant, so midpoints plus all eligible singleton points cover the entire open interval. At most two additional cuts give `2K_g+6` probes. QED.
+
+## Cost, exact checks, and next frontier
+
+The event count is invariant under common-factor scaling, not under arbitrary growth of primitive coefficients. Large primitive magnitudes can make direct enumeration pseudo-polynomial in the input bit size. The algorithm uses `O(B_g log B_g)` exact rational comparisons for sorting and `O(m B_g)` rational operations for signature evaluation; full bit costs include exact input and witness encodings. It complements R126's fixed-3D ILP and R127's short-relation two-integer algorithms.
+
+The exact standard-library Fraction implementation `check_r129_gcd.py` returned `R129_GCD_NORMALIZED_PASS`: 200 ordinary signed coefficient cases, 24 additional huge common-scale cases, 100 equivalence checks against the original R129 rank-one algorithm, and the independent full theta-domain crossing oracle. A controlled 12-bit-word instance with primitive `(a,q,e)=(2,3,5)`, `x=1/3`, and common multipliers 1, `10^20`, `10^80`, `10^160` gave the same 332 interior critical beta roots, bound 394, and 220 distinct words in a one-period-wide rational interval at every scale.
+
+Next: characterize large primitive triples with far fewer distinct signature transitions than crossings, develop an output-sensitive generator, and compare end-to-end bit cost with fixed-dimension integer programming on shared verified big-integer inputs. Original P000, native X6 permissions, formal CLAIM and independent mathematical review remain separate.
