@@ -47,8 +47,8 @@ def task(name, priority="P0", kind="RESEARCH", state="READY", dispatch_state="NE
 
 class PriorityScopeTests(unittest.TestCase):
     def setUp(self):
-        selector_ns = dict(datetime=datetime, timezone=timezone)
-        load_functions(ROOT / "tools/research_runtime_reducer.py", {"parse_time", "select_state"}, selector_ns)
+        selector_ns = dict(datetime=datetime, timezone=timezone, copy=copy)
+        load_functions(ROOT / "tools/research_runtime_reducer.py", {"parse_time", "research_work_category", "select_state"}, selector_ns)
         self.states = []
         self.lanes = {}
         self.runtime = SimpleNamespace(

@@ -272,7 +272,7 @@ class LegacyHandoffScopeTests(unittest.TestCase):
                   "priority_order": ["P0", "P1", "P2", "P3"],
                   "leverage_order": ["HIGH", "MEDIUM", "LOW"]}}
         self.assertEqual(rr.select_state([fresh], policy)["task_id"], "RS-FRESH")
-        self.assertEqual(rr.select_state([old, fresh], policy)["task_id"], old["task_id"])
+        self.assertEqual(rr.select_state([old, fresh], policy)["task_id"], "RS-FRESH")
 
     def test_input_records_not_mutated(self):
         t = task(); e = reconciliation(); before = copy.deepcopy((t, e))
