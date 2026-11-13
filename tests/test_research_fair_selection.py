@@ -278,7 +278,7 @@ class FairSelectionTests(unittest.TestCase):
         selected = rr.select_state([ghost, live, newcomer], POLICY)
         self.assertEqual(selected["fair_selection"]["priority_credit"]["P3"], "0")
 
-    def test_known_freeze_clips_expiry_and_preserves_claim_count(self):
+    def test_freeze_closes_history_only_for_terminal_task(self):
         source = {**task("closed", "P3"), "registration_source": "IMMUTABLE_TASK_RECORD"}
         frozen = BASE + timedelta(seconds=20)
         events = [event("closed", "CLAIM", 1, "old", lease_minutes=1)]
@@ -288,7 +288,9 @@ class FairSelectionTests(unittest.TestCase):
             closed = self.canonical(source, lifecycle, events)
             avail = [e for e in closed["scheduling_trace"] if e["event"] == "AVAILABLE" and fair._clock(e["at"]) >= frozen]
             self.assertTrue(avail)
-            self.assertFalse(any(e["eligible"] for e in avail))
+            self.assertEqual(status != "TERMINAL", any(e["eligible"] for e in avail))
+            if status != "TERMINAL":
+                self.assertTrue(all(fair._clock(e["at"]) >= BASE + timedelta(seconds=60) for e in avail if e["eligible"]))
             self.assertEqual(len([e for e in closed["scheduling_trace"] if e["event"] == "CLAIM"]), 1)
 
     def test_completed_direction_cannot_lend_ghost_credit_to_new_child(self):
@@ -337,16 +339,14 @@ class FairSelectionTests(unittest.TestCase):
         self.assertGreater(counts["P3"], 0)
         self.assertGreater(counts["P0"], counts["P3"])
 
-    def test_review_reopens_at_its_real_clock_without_preempting_live_lease(self):
+    def test_review_timing_does_not_pause_waiting_or_preempt_live_lease(self):
         source = {**task("reopen", "P1"), "registration_source": "IMMUTABLE_TASK_RECORD"}
         lifecycle = dict(state="RETURN_TO_EXECUTION", result=dict(result_id="RR", frozen_at=(BASE+timedelta(seconds=20)).isoformat()),
                          review=dict(disposition="REQUEST_REVISION", reviewed_at=(BASE+timedelta(seconds=100)).isoformat()))
         opened = self.canonical(source, lifecycle)
-        for e in opened["scheduling_trace"]:
-            if e["event"] == "AVAILABLE" and 20 <= (fair._clock(e["at"])-BASE).total_seconds() < 100:
-                self.assertFalse(e["eligible"])
-        at_review = [e for e in opened["scheduling_trace"] if e["event"] == "AVAILABLE" and e["at"] == lifecycle["review"]["reviewed_at"]]
-        self.assertTrue(any(e["eligible"] for e in at_review))
+        self.assertEqual("NEEDS_DISPATCH", opened["dispatch_state"])
+        self.assertTrue(any(e["eligible"] and fair._clock(e["at"]) < BASE + timedelta(seconds=100)
+                            for e in opened["scheduling_trace"] if e["event"] == "AVAILABLE"))
         leased = self.canonical(source, lifecycle, [event("reopen", "CLAIM", 1, "owner")], BASE+timedelta(seconds=120))
         self.assertEqual(leased["claim_id"], "owner")
         self.assertEqual(leased["dispatch_state"], "LEASED")

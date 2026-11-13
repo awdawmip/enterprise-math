@@ -327,7 +327,7 @@ class HistoricalIntakeTests(unittest.TestCase):
         packet = continuation.continuation_packet(self.target["task_id"], root=self.root, events=[],
             now=datetime.now(timezone.utc), source_commit=SOURCE, reader_driver_id=self.driver, reader_session_id=self.session)
         self.assertEqual("AWAITING_DRIVER_REVIEW", packet["result_state"]["state"])
-        self.assertEqual("RESEARCH_DRIVER", packet["route"]["required_role"])
+        self.assertEqual("RESEARCHER", packet["route"]["required_role"])
         paths = {row["path"] for row in packet["source_artifacts"]}
         self.assertTrue(any(path.startswith(h.INTAKE_ROOT + "/") for path in paths))
         self.assertIn(self.target["execution_pin"]["path"], paths)

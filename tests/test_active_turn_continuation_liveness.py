@@ -248,12 +248,12 @@ class ActiveTurnContinuationLivenessTests(unittest.TestCase):
         self.assertEqual("active_turn_liveness.json", authority["control_liveness"]["contract"])
         self.assertFalse(authority["control_liveness"]["external_supervisor_has_mathematical_or_claim_authority"])
 
-    def test_driver_terminal_stage_requires_same_turn_routing_evaluation(self):
+    def test_driver_keeps_parent_scope_without_mandatory_routing_ceremony(self):
         text = read("docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md")
         self.assertIn("DRIVER_VERDICT != PARENT_OBJECTIVE_COMPLETE", text)
-        self.assertIn("STAGE_TERMINAL_VERDICT -> SAME_TURN_SUCCESSOR_GATE_EVALUATION", text)
-        self.assertIn("Local route closure", text if "Local route closure" in text else "Local route closure is not parent-goal closure")
-        self.assertIn("execute the next routed action in the same turn", text)
+        self.assertNotIn("STAGE_TERMINAL_VERDICT -> SAME_TURN_SUCCESSOR_GATE_EVALUATION", text)
+        self.assertIn("Ordinary progress/blocker reports do not assert that the parent is complete", text)
+        self.assertIn("Choose the useful depth and sequence for the actual question", text)
 
     def test_remote_and_publication_subflows_resume_parent_task(self):
         remote = read("docs/GITHUB_INTERACTION_BUDGET.md")

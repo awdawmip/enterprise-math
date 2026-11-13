@@ -141,7 +141,7 @@ def run_case(case):
         before = {path: path.read_bytes() for path in root.rglob("*") if path.is_file()}
         raw_before = impl.audit(root)
         assert any("DR-UNRELATED-OLD" in error for error in raw_before)
-        assert any("no automatic follow-up" in error for error in raw_before)
+        assert not any("no automatic follow-up" in error for error in raw_before)
 
         frozen = {}
         build_packet = impl.build_packet

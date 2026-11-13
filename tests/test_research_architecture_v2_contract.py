@@ -101,7 +101,7 @@ def test_driver_contract_forbids_automatic_successor_stage_and_raw_working_truth
     assert "## 9. Working Truth activation" in text
     assert "MERE_TASK_PUBLICATION != WORKING_TRUTH_ACTIVATION" in text
     assert "NO_IMPLICIT_DEFAULT_NEXT_ROUTE" in text
-    assert "alternative_route_or_free_exploration_considered" in text
+    assert "Ordinary research, saving, correction and continuation do not require publishing a successor" in text
     assert "origin_kind=FREE_AXIOM_CANDIDATE" in text
     assert "may not reset lineage" in text
 
