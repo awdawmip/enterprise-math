@@ -1,0 +1,80 @@
+{
+  "schema": "D25_LUCAS_CARRY_AUTHOR_CHECK_V1",
+  "status": "AUTHOR_EXACT_CHECKED_UNREVIEWED_NOT_NATIVE",
+  "primes": [
+    {
+      "p": 5,
+      "n_tested": 25,
+      "nonzero": 4,
+      "full_p2_expected": 4
+    },
+    {
+      "p": 7,
+      "n_tested": 49,
+      "nonzero": 9,
+      "full_p2_expected": 9
+    },
+    {
+      "p": 11,
+      "n_tested": 121,
+      "nonzero": 16,
+      "full_p2_expected": 16
+    },
+    {
+      "p": 13,
+      "n_tested": 169,
+      "nonzero": 25,
+      "full_p2_expected": 25
+    },
+    {
+      "p": 19,
+      "n_tested": 361,
+      "nonzero": 49,
+      "full_p2_expected": 49
+    },
+    {
+      "p": 31,
+      "n_tested": 500,
+      "nonzero": 121,
+      "full_p2_expected": null
+    },
+    {
+      "p": 37,
+      "n_tested": 500,
+      "nonzero": 169,
+      "full_p2_expected": null
+    },
+    {
+      "p": 43,
+      "n_tested": 500,
+      "nonzero": 180,
+      "full_p2_expected": null
+    }
+  ],
+  "negative_control": {
+    "5": {
+      "c_p_mod_p2": 12,
+      "c_1_mod_p2": 7,
+      "difference": 5
+    },
+    "7": {
+      "c_p_mod_p2": 37,
+      "c_1_mod_p2": 30,
+      "difference": 7
+    },
+    "13": {
+      "c_p_mod_p2": 164,
+      "c_1_mod_p2": 47,
+      "difference": 117
+    },
+    "19": {
+      "c_p_mod_p2": 94,
+      "c_1_mod_p2": 341,
+      "difference": 114
+    }
+  },
+  "total_direct_binomial_checks": 2225,
+  "verdict": "PASS",
+  "coverage": "first five primes full range n<p^2, remaining three primes n<500",
+  "note": "Companion GitHub program is a logically equivalent concise checker; original full locally executed evidence separately pinned by SHA256 in proof."
+}
