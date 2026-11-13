@@ -1,0 +1,83 @@
+{
+  "schema": "PREFIX749_R6_GAMMA_6_CELLS_V1",
+  "date": "2026-11-13",
+  "mother_objective": "PREFIX-675",
+  "predecessor": "PREFIX-748",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "witness": [
+    "0",
+    "73/500"
+  ],
+  "grid_denominator": 384,
+  "model": "189-layer stopped survivor BRC integer recurrence; Y=max(two independent unit-rate Gamma clocks)",
+  "domain": "all real q>=2; all continuous (p,z) in each listed closed parameter cell",
+  "statement": "V_q(e)-V_q(p,z)>3*q^2>0",
+  "proof_method": "monotone exact mu and M2; 8x8 rational interval envelope; affine reciprocal-q endpoint minimization",
+  "dependency": "research_notes/portable_direct/PREFIX741_R6_INNER_STRIP_194.py",
+  "dependency_git_blob_sha1": "d986f644ba513240ea8395e0b221af7946e0efd6",
+  "original_cells": [
+    {
+      "i": 10,
+      "j": 50,
+      "G2_floor_micro": -78645845,
+      "G4_floor_micro": -20639281,
+      "G8_floor_micro": 8455657
+    },
+    {
+      "i": 10,
+      "j": 51,
+      "G2_floor_micro": -84950051,
+      "G4_floor_micro": -25907227,
+      "G8_floor_micro": 3704401
+    },
+    {
+      "i": 11,
+      "j": 52,
+      "G2_floor_micro": -86683906,
+      "G4_floor_micro": -26603110,
+      "G8_floor_micro": 3524919
+    }
+  ],
+  "new_closed_cells": [
+    [
+      10,
+      50
+    ],
+    [
+      10,
+      51
+    ],
+    [
+      11,
+      52
+    ],
+    [
+      50,
+      10
+    ],
+    [
+      51,
+      10
+    ],
+    [
+      52,
+      11
+    ]
+  ],
+  "count": 6,
+  "minimum_microfloor": 3524919,
+  "minimum_cell": [
+    11,
+    52
+  ],
+  "checked_overlap": "Compared original PREFIX713, PREFIX716, PREFIX718 and PREFIX745..748 result data, and earlier area descriptions; no listed coordinate matches; comprehensive historical union audit remains open.",
+  "prior_author_union": 141980,
+  "conditional_new_author_union": 141986,
+  "total": 147456,
+  "conditional_union_fraction": "70993/73728",
+  "conditional_union_percent": 96.29041883680556,
+  "conditional_remaining": 5470,
+  "local_validation": "Local exact Python standard-library implementation of the connector-read PREFIX741 kernel; 189-row survivor integer recurrence, 9529 nonzero entries, Gamma witness SHA256 checks; three independent single-cell runs PASS and exact integer microfloors matched; composite published file with GitHub-original dependency not yet replayed.",
+  "runtime_status": "Native session_start r6-20261113-141842-t11-start-v1 queued at last observed receipt; no authenticated research ID or shared CLAIM asserted.",
+  "status": "AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
