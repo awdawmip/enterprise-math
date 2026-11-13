@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r132_generic_phase_lift_20261114/check_r132.py",
+    "ref": "29f5e5ef7ef868037a814fb7d29806be3de4e54b",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r131-r132-20261114-5-5dee00c97aa1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R132: constructive exact rational phase-lift witness checker.\"\"\"\nfrom fractions import Fraction as F\nfrom random import Random\n\n\ndef frac(z): return z-(z.numerator//z.denominator)\ndef dist(z):\n    r=frac(z)\n    return min(r,1-r)\ndef rot_word(alpha,y,m):\n    return tuple(int(frac(y+i*alpha)<alpha) for i in range(m))\ndef original_word(alpha,B,m):\n    return tuple(int(frac((B+i)*alpha)<alpha) for i in range(m))\ndef nearest(z):\n    return (z+F(1,2)).numerator//(z+F(1,2)).denominator\n\n\ndef lift(alpha,y,m):\n    alpha,y=F(alpha),F(y)\n    assert F(0)<alpha<F(1) and F(0)<=y<F(1) and m>=1\n    eta=min(dist(y+i*alpha) for i in range(m))\n    eta=min(eta,*(dist(y+(i-1)*alpha) for i in range(m)))\n    if not eta: raise ValueError('boundary word; use separate exact analysis')\n    M=max(1,m-1)\n    limit=max(F(M,2)/eta,F(1,2)/min(alpha,1-alpha))\n    B=limit.numerator//limit.denominator+1\n    k=nearest(B*alpha-y)\n    lifted=(F(k)+y)/B\n    assert F(0)<lifted<F(1) and abs(lifted-alpha)<=F(1,2*B)\n    assert frac(B*lifted)==y\n    assert original_word(lifted,B,m)==rot_word(alpha,y,m)\n    return B,lifted,eta\n\n\ndef tests():\n    rng=Random(13220261114)\n    checks=0;maxB=0;examples=[]\n    for _ in range(400):\n        m=rng.randrange(1,9)\n        a=F(rng.randrange(1,40),rng.randrange(40,81))\n        y=F(rng.randrange(1,79),rng.randrange(80,160))\n        if not F(0)<a<F(1) or not F(0)<=y<F(1):continue\n        try:B,w,eta=lift(a,y,m)\n        except ValueError:continue\n        for shift in (0,1,11,200):\n            BB=B+shift; k=nearest(BB*a-y); ww=(F(k)+y)/BB\n            assert F(0)<ww<F(1) and original_word(ww,BB,m)==rot_word(a,y,m)\n            checks+=1\n        maxB=max(maxB,B)\n        if len(examples)<3:\n            examples.append((str(a),str(y),m,str(eta),B,str(w),rot_word(a,y,m)))\n    B=10**100\n    for a,y,m in ((F(2,7),F(3,11),7),(F(5,13),F(2,17),8)):\n        _,_,eta=lift(a,y,m)\n        k=nearest(B*a-y);w=(F(k)+y)/B\n        assert original_word(w,B,m)==rot_word(a,y,m)\n        checks+=1\n    print('R132_GENERIC_PHASE_LIFT_PASS',\n        {'checked':checks,'max_base_B':maxB,'huge_B_digits':len(str(B)),'examples':examples})\n\n\nif __name__=='__main__':tests()\n",
+      "display_title": "check_r132.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/29f5e5ef7ef868037a814fb7d29806be3de4e54b/research_notes/brc_s23_av_r132_generic_phase_lift_20261114/check_r132.py",
+      "encoding": "utf-8",
+      "sha": "5dee00c97aa13d64618f3989a95e78b408ff1af0"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
