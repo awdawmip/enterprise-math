@@ -1,0 +1,92 @@
+{
+  "schema": "R685_LONG_HORIZON_HIDDEN_FRAME_FIBRE_V1",
+  "date": "2026-11-10",
+  "status": "AUTHOR_SIDE_EXACT_INTEGER_RATIONAL_EVIDENCE",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "predecessor": "R684@ddd775c737dc2f1e11b2992356981d59ff74becd",
+  "model": "R684 exact V23/V27/V29 repeat-PASS autonomous kernel plus bijective V17 ordered-frame transport",
+  "finite_coverage": {
+    "biases": 6,
+    "initial_triads": 20,
+    "sorted_frame_starts": 120,
+    "steps": "0..256",
+    "initial_conditions_with_frame_collision": 1,
+    "earliest_collision_step": 227,
+    "other_starts_without_collisions_through_256": 119
+  },
+  "witness": {
+    "initial_u": [
+      -2,
+      -4,
+      -3,
+      10
+    ],
+    "initial_S": "035",
+    "initial_F": "035",
+    "M0": [
+      0,
+      0,
+      0
+    ],
+    "first_branch_at_step": 212,
+    "at_227": {
+      "common_field": {
+        "u": [
+          4,
+          4,
+          -17,
+          10
+        ],
+        "M01_M12_M20": [
+          75,
+          83,
+          69
+        ],
+        "S": "025"
+      },
+      "full_frame_mass": {
+        "250": "1/4",
+        "025": "1/2"
+      },
+      "field_mass": "3/4",
+      "conditional_frame_mass": {
+        "250": "1/3",
+        "025": "2/3"
+      },
+      "remaining_state": {
+        "u": [
+          3,
+          3,
+          -15,
+          10
+        ],
+        "M01_M12_M20": [
+          75,
+          82,
+          70
+        ],
+        "S": "034",
+        "F": "304",
+        "mass": "1/4"
+      }
+    }
+  },
+  "verification": {
+    "arithmetic": "Python 3 standard-library integers plus fractions.Fraction",
+    "checks": [
+      "total mass exactly 1",
+      "nonnegative PASS counts",
+      "sum PASS counts equals t",
+      "bias field from PASS counts",
+      "conservation of sum(u)",
+      "all 120 starts checked"
+    ],
+    "reproduce": "python3 R685_VERIFY.py -> R685_HIDDEN_FRAME_FIBRE_T227_EXACT_PASS"
+  },
+  "conclusions": {
+    "fiber_witness": "At identical t,u,M,S two different complete V17 frames with strictly positive rational weights",
+    "future": "Common future triad path preserves unequal frames by composition of bijections",
+    "field_only": "Projection to (u,M,S) remains strongly lumpable for the field-only Markov observer"
+  },
+  "scope": "The first-collision minimality applies to the stated 120 sorted-frame starts and t<=256. Not a universal initial-state lower bound. Native X6 Cell/Link and V39 j coupling remain the next research unit."
+}
