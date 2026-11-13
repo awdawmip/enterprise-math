@@ -1,0 +1,55 @@
+# R133 — Uniform polynomial threshold for generic rotation-word lifting
+
+Date: 2026-11-14 (Asia/Shanghai). Author-side exact S23 auxiliary theorem. Frozen scientific input `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Direct predecessor: R132, `research_notes/brc_s23_av_r132_generic_phase_lift_20261114/PROOF.md`, on the same research branch.
+
+## Theorem (uniform over all generic words, not individual witnesses)
+
+Fix any integer `m>=1`. For `alpha in (0,1)` and `y in (0,1)`, define the length-m two-parameter word
+
+`W_i(alpha,y) = 1[{y+i*alpha}<alpha], i=0,...,m-1`.
+
+Call a word **generic** when it has a witness `(alpha,y)` strictly away from all the hyperplanes
+`y+i*alpha in Z` and `y+(i-1)*alpha in Z` for `0<=i<m`. This is equivalently the set of words realized on open cells of the induced finite rational line arrangement in the open unit square.
+
+Then, for **every integer `B >= 2*m^4`**, every generic word is attained by the single-parameter S23 family
+
+`S_i^(B)(theta) = 1[{(B+i)*theta} < {theta}], 0<theta<1.`
+
+In particular `gcd(B,1,1)=1`, so this is an explicit **polynomial uniform** realization guarantee in a high-primitive-coefficient family. The witness `theta` is rational and can be constructed from three polygon vertices using only exact arithmetic.
+
+## Proof
+
+Consider the finite arrangement of lines `y+j*alpha=k` with integer `j=-1,0,...,m-1` and every integer k whose line intersects the closed unit square. Include the square boundary `alpha=0,1` and `y=0,1`. On each open two-dimensional arrangement cell, the strict word W is constant, because all its possible fractional-part discontinuity and equality loci belong to this arrangement.
+
+Each nonempty cell is the interior of a bounded convex rational polygon. Every vertex is the intersection of either two integer-affine lines of slopes j with `|j-j'|<=m`, or a line and a side of the unit square. Consequently both coordinates of a vertex are rational with a common positive denominator at most m: for nonparallel oblique lines the determinant is `|j-j'|<=m`; at a vertical boundary alpha=0 or1 the intersection y is integral, while horizontal boundaries are themselves lines of slope 0.
+
+Choose any three noncollinear vertices `v1,v2,v3` of a cell closure and their barycenter `(alpha_0,y_0)=(v1+v2+v3)/3`. This point is strictly inside the polygon, hence `0<alpha_0,y_0<1` and lies on none of the arrangement lines. If the three vertex denominators are `q1,q2,q3<=m`, both barycenter coordinates have a common denominator dividing `D=3*q1*q2*q3<=3*m^3`. The value of each integer-affine expression `y_0+j*alpha_0-k` is a nonzero rational with denominator dividing D and therefore absolute value at least `1/D>=1/(3*m^3)`. Thus
+
+`eta=min_{0<=i<m}(dist(y_0+i*alpha_0,Z),dist(y_0+(i-1)*alpha_0,Z)) >= 1/(3*m^3)`,
+
+and likewise `min(alpha_0,1-alpha_0)>=1/(3*m^3)`.
+
+R132's exact phase-lifting lemma applies for any integer B satisfying
+`B>max(M/(2*eta),1/(2*min(alpha_0,1-alpha_0)))`,
+where `M=max(1,m-1)<=m`. Since `B>=2*m^4` makes `M/(2B)<=1/(4*m^3)<eta` and `1/(2B)<=1/(4*m^4)<min(alpha_0,1-alpha_0)`, the lemma's strict conditions hold simultaneously for **every cell**.
+
+Explicitly let k be a nearest integer to `B*alpha_0-y_0` and put `theta=(k+y_0)/B`. R132 proves `0<theta<1`, `{B*theta}=y_0`, and `S^(B)(theta)=W(alpha_0,y_0)`. Each generic word occurs in at least one such cell, completing the proof. QED.
+
+## Verification (exact finite exhaustive arrangement cells for m<=6)
+
+`check_r133.py` enumerates all rational line intersections in alpha, then takes an exact alpha midpoint in each slab and y midpoints between line intersections. The sign vector of all lines identifies each open cell. It clips the unit square by the exact corresponding halfplanes, finds three noncollinear vertices, forms their barycenter, verifies the denominator/margin lower bounds, constructs theta for `B=2*m^4`, and checks the full m-bit word directly using rational fractional parts. For m=1,...,6 results were:
+
+| m | B=2m^4 | distinct open cells | generic words | maximal centroid-coordinate denominator | smallest observed eta |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 2 | 2 | 2 | 3 | 1/3 |
+| 2 | 32 | 4 | 4 | 6 | 1/6 |
+| 3 | 162 | 8 | 8 | 18 | 1/9 |
+| 4 | 512 | 12 | 12 | 36 | 1/12 |
+| 5 | 1250 | 23 | 23 | 90 | 1/15 |
+| 6 | 2592 | 30 | 30 | 90 | 1/18 |
+
+Each run returned `R133_UNIFORM_GRID_PASS`. These are finite exact implementation checks; the theorem covers every integer m>=1 by the rational polygon proof.
+
+## Scope and next
+
+This is a uniform sufficient bound, not a minimal threshold or a full classification of singleton-only words. It is established within the auxiliary S23 phase observer and does not alter P000 or native X6 event authority. Next: sharpen the `2m^4` bound by exploiting denominator and chamber geometry, and classify exact boundary-only word patterns to determine whether a uniform all-word stabilization result holds.
