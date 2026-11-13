@@ -1,0 +1,42 @@
+{
+  "schema": "EM_R124_FRACTION_VERIFICATION_SUMMARY_V1",
+  "date": "2026-11-13",
+  "seed": 12420261113,
+  "status": "R124_GENERAL_ARC_LATTICE_PASS",
+  "exact_arithmetic": "Python 3 fractions.Fraction",
+  "counts": {
+    "cases": 201,
+    "patterns": 1082,
+    "witnesses": 1082,
+    "max_num_bits": 10,
+    "equal_arc_cases": 28,
+    "negative_d": 80,
+    "zero_d": 22,
+    "m4": 63,
+    "huge_signed_positive_certificates": 4
+  },
+  "reproduction": "base64 -d check_r124.py.gz.b64 | gzip -d > check_r124.py && python3 check_r124.py",
+  "full_raw_json_sha256": "7f3cc08d0b04c3e6e672e72174aebd786fc0607bcf249dca33b98ed917fef643",
+  "source_py_sha256": "f81bfcaf893cf33160e9670a2f80601e107b0ffab412a1c1f86068f781d48e1c",
+  "coverage": "201 exact small cases versus independent full phase-cut enumerator; all attained signatures and direct rational witnesses checked; 4 additional huge-signed positive floor certificates only",
+  "limits": "Not a generic Lenstra 4D solver; not native Cell/Link/Port permission; no independent Review/CLAIM; full raw 99KB JSON available in accompanying local downloadable evidence archive, not this GitHub summary.",
+  "regression": {
+    "x": "3/2",
+    "N": -1,
+    "d": 3,
+    "j": 0,
+    "a": 1,
+    "c": 3,
+    "J": [
+      "-1",
+      "4/3"
+    ],
+    "m": 3,
+    "signature": "110",
+    "witnesses": [
+      "-1/4",
+      "3/4"
+    ]
+  },
+  "research_source_commit": "a3f8695909cd3341809b77efbfda16bb59527f6e"
+}
