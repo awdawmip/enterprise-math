@@ -85,3 +85,38 @@ evidence/contribution examination and current Source writer preflight, must
 be created and read back through its genuine same-session review authority.
 Task/Objective closure is a distinct later decision; the existing four selector
 residues remain open at their stated level.
+
+## 2026-11-13 native review-flow reconciliation addendum
+
+After the independent finite audit, the original read-only native review-flow
+request `rd11-20261113-0800-geo6-firstwave-review-flow-v1` reached
+`SUCCEEDED` and exposed existing immutable historical authority omitted
+from the earlier task-state projection:
+
+- Exactly one native review already exists: `DR-CE3F008C48F9EBBFF9FA`,
+  Git blob `535267736a07ec98c53b040414c5e87fa72d0525`, disposition
+  **ACCEPTED**, originally authored by `EM-DVR-G6K2P9` on 2026-08-30.
+  It explicitly accepts only the zero-mathematical-drift first-wave
+  classification and routes to the second-wave Packing/Kakeya exact-set task.
+- The associated historical follow-up
+  `DFU-E7CBFD0E9958AF25E942` is **not** an accepted ready follow-up:
+  native `followup_state.state=FOLLOWUP_PACKET_INVALID`,
+  `ready=false`. The stated precise error is
+  `Driver follow-up packet must consume the exact result next_control_plane_recommendation`.
+  The packet says `Do not open native selector mathematics yet. Resolve the remaining
+  second-wave Packing/Kakeya parallel-Result exact set, then synthesize
+  objective-level selector residue across all accepted GEO6 lanes.` The
+  exact current RR field instead says `Driver review the generation-3
+  writer-conformant zero-math-drift envelope. Preserve the 19 claim
+  classifications, exact 3/10/3/3 totals, NO_MATERIAL_MATCH !=
+  NOVELTY_CERTIFICATE, and exactly four selector residues. Do not
+  open selector mathematics or a stronger successor from this
+  maintenance execution.`
+
+Therefore the native review is already formally **ACCEPTED** at Result scope;
+no second first review should be submitted. The open control unit is
+**follow-up content binding/reconciliation**, while the as-of native task
+projection still reports `FROZEN_RETURN / AWAITING_REVIEW`.
+A repaired follow-up requires its genuine current-DA writer route, exact
+source recommendation binding, and typed destination/publication checks.
+The historical review and author attribution must remain immutable.
