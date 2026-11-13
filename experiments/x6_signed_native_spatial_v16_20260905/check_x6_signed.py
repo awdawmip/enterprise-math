@@ -22,6 +22,16 @@ def main():
         Spatial6((11,0,-4,9,2,8)),
     )
 
+    # Primitive native directions are exactly signed integers; bool is not a direction.
+    for invalid_direction in (True, False, 0, 2, -2):
+        try:
+            ORIGIN.step(0, invalid_direction)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError(f"invalid native direction accepted: {invalid_direction!r}")
+        checks += 1
+
     # Signed primitive axis adjacency, reversibility and P000 full norm symmetry.
     for state in probes:
         nbr=set()
