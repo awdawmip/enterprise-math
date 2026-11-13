@@ -1,0 +1,89 @@
+# R762V — First-return stratification and two-source BRC fibers of shortest three-axis X6 loops
+
+Date: 2026-11-14 (Asia/Shanghai).
+Status: **AUTHOR-SIDE EXACT MATHEMATICS / FINITE EXHAUSTIVE VERIFICATION / NOT_REVIEWED / NOT_ADMITTED**.
+Parent task: \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\`; publication \`TP2-8B7E13C5904A2D6F1142\`.
+Researcher: \`EM-X6-F253B2\`; Activity: \`RA-28B178D65597152EEB3BFF6B\`.
+Frozen scientific input: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`.
+Previous scientific frontiers: R762H PR #2288 (the 24 port-covering loops), R762R PR #2333 (six ordered three-spoke paths), R762T PR #2342 (V29 count repair), R762U PR #2347 (conditional token scheduling). This note gives a *larger shortest balanced-path census* and an exact new two-source observer calculation; it does not re-prove the R762H 24-path theorem.
+
+## The typed question
+
+Let \`c\` be any chosen native X6 Cell in the affine \`Z^6\` torsor. Select exactly three distinct axes \`i,j,k\`. We study length-six **coordinate** paths starting and ending at \`c\`, with one \`+e_a\` and one \`-e_a\` step on each of those three axes and no other steps. Their six signed letters are distinct. This is the entire shortest balanced support-three *path* family \`L_3\`, without assuming that the path visits all three prescribed signed neighboring port Cells.
+
+These paths form a useful necessary spatial carrier candidate for a triad that actively traverses and reverses all three axes. Three independent force quanta attached to the same Cell need not be three successive spatial steps: the P000 native force-closure predicate \`TRIADIC_CLOSURE_E\` remains a distinct typed relation. In particular, a three-step walk on three distinct axes never returns to the same X6 Cell, since its component displacement has three nonzero entries.
+
+A **proper return** is a zero spatial-prefix displacement at an intermediate step \`1<=t<6\`. A **backtrack** is a consecutive inverse pair \`(+e_a,-e_a)\` or \`(-e_a,+e_a)\`. A **first-return loop** has no proper return. These properties retain the ordered signed step source and are invariant under permutation of the three coordinate labels (and under sign reflection used solely as a counting bijection).
+
+## Theorem V1 — an exact equal-size three-way partition
+
+For any fixed three-axis support there are exactly \`6!=720\` such paths, partitioned as follows:
+
+| Class | Number |
+|---|---:|
+| Proper return (necessarily has a backtrack) | 240 |
+| First return but has a backtrack | 240 |
+| First return and no backtrack | 240 |
+
+**Proof.** The total number of distinct signed-letter permutations is 720. A proper return must occur at step 2 or 4, because each axis appears exactly twice and any zero prefix has even length. Let \`E_2\` and \`E_4\` denote these return events. At step 2 one opposite pair must be first, giving \`|E_2|=6*4!=144\`. At step 4 the first four letters consist of two complete opposite pairs, so \`|E_4|=binom(3,2)*4!*2!=144\`. For their intersection, choose the first opposite pair's axis (3) and orientation (2), the second pair's axis (2) and orientation (2), and the last pair's orientation (2); thus \`|E_2∩E_4|=48\`. Inclusion-exclusion gives exactly \`144+144-48=240\` early-return paths.
+
+For no consecutive opposite-letter pair, inclusion-exclusion across three possible inverse-pair adjacencies gives
+
+\[
+\sum_{r=0}^3(-1)^r\binom3r 2^r(6-r)!
+=720-720+288-48=240.
+\]
+
+Every proper return forces an adjacent inverse pair: a return at step 2 closes the first pair immediately; a return at step 4 (in the absence of a step-2 return) leaves exactly the third axis's opposite pair for the final two adjacent letters. Therefore all 240 nonbacktracking paths are first-return paths. The other \`480-240=240\` first-return paths have backtracks. QED.
+
+There are \`binom63=20\` distinct three-axis supports in X6, hence 14,400 paths and 9,600 first-return paths across all supports. These are coordinate walks, not 14,400 physically admitted force events.
+
+## Theorem V2 — signed first-appearance fibers and a two-source observer
+
+For each of the three selected axes, record the sign of its **first** step. This eight-valued signed orientation is a path property; it is not an admission rule. Independently flipping the two signed letters on any selected axis is a bijection preserving proper-return and backtrack flags. Consequently each of the eight signed-orientation classes contains exactly 90 paths, with exactly 30 in each V1 class.
+
+Now fix selected axes 1,2,3 and define the order-preserving *two-source BRC observer*
+
+\[
+\pi_{12}(w)=\text{the four-letter word left after deleting the two axis-3 steps}.
+\]
+
+Every possible four-letter word on \`+1,-1,+2,-2\` has exactly \`binom62 * 2!=30\` preimages, keeping all six source-letter identities distinct. Nevertheless its **first-return fibers** vary sharply:
+
+| Observed word type | Number of observed words | First-return lifts | Proper-return lifts |
+|---|---:|---:|---:|
+| First two observed steps are inverses | 8 | 8 | 22 |
+| First two observed steps are on different axes | 16 | 26 | 4 |
+
+**Proof.** The four visible letters have \`4!=24\` orders: choose the first visible letter in four ways; its inverse second gives \`4*2!=8\` words, and a different axis second gives 16.
+
+If the first two visible steps have different axes, an early native return in the six-step lift is possible only when the two hidden inverse steps are the first two letters (2 orders) or the last two letters (2 orders). The other 26 lifts first return at step 6.
+
+If the first two visible steps form an inverse pair, a return at native step 2 occurs either when those visible steps occur first (choose hidden positions among the remaining four and their order, \`binom42*2!=12\`), or when the hidden inverse pair occurs first (2 orders): 14 lifts. A first return at native step 4, with none at step 2, is possible by interleaving the first visible pair and the two hidden steps among the first four slots: \`4!/2!=12\` linear extensions, of which 4 already returned at step 2, leaving 8 new early-return lifts. The alternative with all four visible letters before the hidden pair has already returned at step 2. Thus the remaining \`30-14-8=8\` lifts first return at step 6. QED.
+
+For example, \`(+1,+2,+3,-1,-2,-3)\` is first-return and \`(+3,-3,+1,+2,-1,-2)\` has an early return. Both project to \`(+1,+2,-1,-2)\`. The two-source ordered observer therefore cannot infer native first-return status, even though it retains the complete order of both visible source pairs. The same source-projection fiber has two distinct future-relevant path classes.
+
+## Theorem V3 — the R762H three-port incidence subfamily and minimal BRC repair
+
+Fix the signed first-appearance orientation \`(+,+,+)\` and impose the extra **port-incidence** condition that the path visits each of the three neighboring Cells \`c+e_1,c+e_2,c+e_3\`. R762H proved that precisely 24 of the 90 paths satisfy this condition: six three-spoke, twelve square-plus-spoke, and six hexagonal witnesses. Here is their *new* exact two-source projection fiber census:
+
+| \`pi_12(w)\` | Total witnesses | First-return (hexagonal) witnesses |
+|---|---:|---:|
+| \`(+1,-1,+2,-2)\` | 8 | 1 |
+| \`(+2,-2,+1,-1)\` | 8 | 1 |
+| \`(+1,+2,-1,-2)\` | 4 | 2 |
+| \`(+2,+1,-2,-1)\` | 4 | 2 |
+
+These are the only projected words in the 24-witness family. They are obtained by filtering all 720 distinct signed words for the three named neighbor visits and then taking the order-preserving deletion. The supplied exact checker enumerates the full declared 720-element domain and proves the stated finite counts. The 24-word enumeration itself is already independently derived by R762H.
+
+The observer fibers have maximum size 8, so exact recovery of the ordered 24-path witness from the fixed signed ports plus \`pi_12\` requires **at least three conditional binary repair bits**, and three suffice by enumerating each at-most-eight-element fiber. By contrast, the joint observer \`(\pi_{12},j_{X6})\`, where \`j_{X6}\` is the *rooted, oriented-edge integer current*, has 18 different signatures with multiplicities 14 singletons, two doubletons and two tripletons. Its maximum fiber size is 3, so **two repair bits** suffice and are necessary for full path recovery from that joint observation.
+
+The two-source projection is therefore a precise observer-loss mechanism even within a verified P000-native **coordinate** port-incidence carrier. It retains two source orders but forgets third-source placement and orientation. The two repair bounds concern full ordered-path recovery, not force-stability or code error correction.
+
+## Verification, provenance and the next native experiment
+
+The Python 3 standard-library script \`research_notes/R762V_SIX_STEP_TRIAXIS_BRC_VERIFY.py\` exhaustively visits 720 distinct words, all 8 first-appearance orientation classes, all 24 four-letter projections and the fixed-port-coverage subset, with integer-only assertions and rooted edge-current calculations. The JSON output is \`research_notes/R762V_EVIDENCE.json\`. Independently, V1 and V2 have the constructive/inclusion-exclusion proofs above; V3 is a complete, finite exhaustive claim with the enumerator provided. Relabelling and reflecting coordinate signs provides the finite-case isomorphism for any of the 160 signed port configurations, **not** an assertion that independent sign flips are admitted physical rotations.
+
+This local result sharpens the native-interface question: a genuine \`TRIADIC_CLOSURE_E\` update must specify whether it accepts port-covering excursions with intermediate returns, only six hexagonal first-return witnesses, or another state-dependent subset. That exact selection changes the allowed BRC observation fibers and the V29/V39 temporal questions. Read and apply the actual native event predicate, PASS/TRANSFER ledger, V17 frame connection and V39 based-loop transport before identifying any of these coordinate-path counts with physical event counts or holonomy.
+
+P000, the ACTIVE worldview and the task frozen science pin remain unchanged. No native CLAIM, formal Result, independent review or theorem promotion follows from the GitHub draft research note.
