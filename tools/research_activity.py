@@ -267,6 +267,30 @@ def _checked_source(source: Any, activity_id: str, root: Path,
         if source != base:
             raise ActivityError("unverified source fields drift")
         return "VERIFY_EM_PUBLICATION"
+    if "verification_receipt" not in source and "verification_receipt_sha256" not in source:
+        # Older records stored a connector-verification summary but not the
+        # full observation sidecar. Preserve it as historical reporting, never
+        # reinterpret it as a current verified observation or invent a receipt.
+        if set(source) != {"repository", "commit", "path", "sha256", "publication_state", "verification"}:
+            raise ActivityError("invalid legacy source summary")
+        verification = source.get("verification")
+        required = {"kind", "tool_name", "git_blob_sha1", "immutable_url", "server_signature_authenticated"}
+        optional = {"observation_id", "call_id", "network_request_by_this_tool"}
+        if (source.get("publication_state") != "EM_SOURCE_OBSERVED"
+                or not isinstance(verification, dict) or not required <= verification.keys()
+                or verification.keys() - required - optional
+                or (verification["kind"], verification["tool_name"]) not in {
+                    ("OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED", "github_fetch_file"),
+                    ("OBSERVED_MCP_GITHUB_API_STRUCTURE_AND_BYTES_VERIFIED", "em_mcp_github_contents")}
+                or verification["server_signature_authenticated"] is not False
+                or verification.get("network_request_by_this_tool", False) is not False
+                or verification["immutable_url"] != f"https://github.com/{base['repository']}/blob/{base['commit']}/{base['path']}"):
+            raise ActivityError("invalid legacy source summary")
+        _hex(verification["git_blob_sha1"], 40, "legacy git blob")
+        for name in ("observation_id", "call_id"):
+            if verification.get(name) is not None:
+                _text(verification[name], name)
+        return "LEGACY_EM_SOURCE_REPORTED"
     receipt = _relative(source.get("verification_receipt"))
     receipt_sha = _hex(source.get("verification_receipt_sha256"), 64, "receipt sha256")
     expected = f"{STORE}/{activity_id}/readbacks/{receipt_sha}.json"
@@ -299,13 +323,26 @@ def _events(record: Mapping[str, Any], root: Path) -> dict[str, dict[str, Any]]:
             raise ActivityError("checkpoint sources must be lists")
         states = [_checked_source(x, record["activity_id"], root, readbacks) for x in row["em_sources"]]
         status = "SYNC_DEBT" if not states else ("EM_REPRESENTED" if all(s == "EM_SOURCE_OBSERVED" for s in states) else "VERIFY_EM_PUBLICATION")
-        if row.get("state") != status:
+        legacy_report = (row.get("state") == "EM_REPRESENTED"
+                         and "LEGACY_EM_SOURCE_REPORTED" in states
+                         and all(state in {"LEGACY_EM_SOURCE_REPORTED", "EM_SOURCE_OBSERVED"} for state in states))
+        if row.get("state") != status and not legacy_report:
             raise ActivityError("checkpoint state must be derived from actual source evidence")
         repair = row.get("repairs_event_id")
         if repair is not None and (repair not in events or status != "EM_REPRESENTED"):
             raise ActivityError("repair must reference an earlier event and provide verified EM source")
         events[event_id] = row
     return events
+
+
+def _legacy_events(events: Mapping[str, Mapping[str, Any]]) -> set[str]:
+    """Locate historical summaries, without upgrading their observation status."""
+    return {event_id for event_id, event in events.items()
+            if event.get("state") == "EM_REPRESENTED" and any(
+                source.get("publication_state") == "EM_SOURCE_OBSERVED"
+                and "verification_receipt" not in source
+                and "verification_receipt_sha256" not in source
+                for source in event.get("em_sources", []) if isinstance(source, dict))}
 
 
 def checkpoint(activity_id: str, *, event_id: str, expected_sha256: str,
@@ -339,11 +376,16 @@ def checkpoint(activity_id: str, *, event_id: str, expected_sha256: str,
         record = _validate_record(json.loads(data))
         if record["activity_id"] != activity_id:
             raise ActivityError("activity path/identity mismatch; no checkpoint write")
-        events = _events(record, root)
-        if event_id in events:
-            if events[event_id] != row:
+        # Append new bookkeeping without replaying every historical source
+        # receipt. Preserve history; validate this event at its write boundary.
+        existing = [item for item in record["checkpoints"]
+                    if isinstance(item, dict) and item.get("event_id") == event_id]
+        if existing:
+            if any(item != row for item in existing):
                 raise ActivityError("event_id conflict; historical checkpoint cannot be overwritten")
             return record
+        events = {item["event_id"] for item in record["checkpoints"]
+                  if isinstance(item, dict) and isinstance(item.get("event_id"), str)}
         if digest(data) != expected_sha256:
             raise ActivityError("expected_sha256 mismatch; refresh current activity bytes")
         if repairs_event_id is not None and (repairs_event_id not in events or status != "EM_REPRESENTED"):
@@ -370,7 +412,7 @@ def checkpoint(activity_id: str, *, event_id: str, expected_sha256: str,
         lock.unlink()
 
 
-def guard(*, activity_id: str | None = None, boundary: str = "startup",
+def audit_observations(*, activity_id: str | None = None, boundary: str = "startup",
           event_id: str | None = None, session_id: str | None = None,
           registration_source: Mapping[str, Any] | None = None,
           new_semantic_progress: bool = True,
@@ -394,11 +436,17 @@ def guard(*, activity_id: str | None = None, boundary: str = "startup",
         raise ActivityError("activity belongs to a different or unknown original session")
     events = _events(record, root)
     repaired = {x["repairs_event_id"] for x in events.values() if x["repairs_event_id"] is not None}
-    debts = [x for x in events.values() if x["state"] != "EM_REPRESENTED" and x["event_id"] not in repaired]
+    legacy = _legacy_events(events)
+    debts = [x for x in events.values()
+             if (x["state"] != "EM_REPRESENTED" or x["event_id"] in legacy)
+             and x["event_id"] not in repaired]
     result.update(mode=record["mode"], record_path=f"{STORE}/{activity_id}.json",
                   record_sha256=digest(record_data),
                   source_links=[f"https://github.com/{s['repository']}/blob/{s['commit']}/{s['path']}" for e in events.values() for s in e["em_sources"]],
-                  sync_debt_events=[x["event_id"] for x in debts], required_action="CONTINUE_ACTIVITY")
+                  sync_debt_events=[x["event_id"] for x in debts],
+                  historical_summary_events=sorted(legacy),
+                  legacy_observation_debt_events=sorted(legacy - repaired),
+                  required_action="CONTINUE_ACTIVITY")
     if registration_source is None:
         result["required_action"] = "PUBLISH_ACTIVITY_RECORD_WITH_CAS_AND_VERIFY_IMMUTABLE_EM_READBACK"
         return result
@@ -416,12 +464,55 @@ def guard(*, activity_id: str | None = None, boundary: str = "startup",
     if record["session_state"] == "UNKNOWN":
         result["activity_allowed"] = False
         result["required_action"] = "RETROSPECTIVE_TRACKING_ONLY_REGISTER_CURRENT_LIVE_SESSION_TO_RESEARCH"
-    if debts:
+    if legacy - repaired:
+        result["required_action"] = "REOBSERVE_LEGACY_EM_SOURCES_AND_APPEND_CURRENT_REPAIR"
+    elif debts:
         result["required_action"] = "PERSIST_EM_CHECKPOINT" if any(x["state"] == "SYNC_DEBT" for x in debts) else "VERIFY_EM_PUBLICATION"
     elif boundary != "startup" and new_semantic_progress and event_id not in events:
         result["required_action"] = "RECORD_SEMANTIC_CHECKPOINT"
     else:
         result["persistence_allowed"] = True
+    return result
+
+def guard(*, activity_id: str | None = None, boundary: str = "startup",
+          event_id: str | None = None, session_id: str | None = None,
+          registration_source: Mapping[str, Any] | None = None,
+          new_semantic_progress: bool = True,
+          root: Path = ROOT) -> dict[str, Any]:
+    """Check current bookkeeping/session association, not tool-wrapper evidence.
+
+    The caller supplies the current repository view. Source transport verifies
+    that view at its boundary; internal calls need not replay connector URLs,
+    call IDs, readback envelopes or all prior checkpoint proofs. A bookkeeping
+    record never grants a claim, review or mathematical acceptance.
+    """
+    if boundary not in ("startup", "checkpoint", "pre-final"):
+        raise ActivityError("unknown activity boundary")
+    result = {"activity_id": activity_id, "boundary": boundary,
+              "authority": dict(NO_AUTHORITY), "activity_allowed": False,
+              "persistence_allowed": False,
+              "registration_visibility": "CURRENT_REPOSITORY_VIEW",
+              "required_action": "REGISTER_RESEARCH_ACTIVITY"}
+    if activity_id is None or not record_path(activity_id, root).is_file():
+        return result
+    record, _ = _read_record(activity_id, root)
+    if record["session_state"] == "KNOWN" and (not isinstance(session_id, str) or not session_id.strip()):
+        result["required_action"] = "BIND_CURRENT_RESEARCH_ACTIVITY_SESSION"
+        return result
+    if session_id is not None and session_id != record["session_id"]:
+        raise ActivityError("activity belongs to a different or unknown original session")
+    # These are recorded progress notes, not a second admission decision. The
+    # checkpoint writer and explicit evidence audit retain their own checks.
+    checkpoints = [row for row in record["checkpoints"] if isinstance(row, dict)]
+    debts = [row.get("event_id") for row in checkpoints
+             if row.get("state") != "EM_REPRESENTED" and row.get("event_id")]
+    known = record["session_state"] == "KNOWN"
+    result.update(mode=record["mode"], record_path=f"{STORE}/{activity_id}.json",
+                  activity_allowed=known, persistence_allowed=True,
+                  sync_debt_events=debts, checkpoint_status_is_acceptance=False,
+                  verification_scope="CURRENT_BOOKKEEPING_NOT_SOURCE_OBSERVATION_AUDIT",
+                  historical_summary_events=sorted(_legacy_events({row["event_id"]: row for row in checkpoints if isinstance(row.get("event_id"), str)})),
+                  required_action="CONTINUE_ACTIVITY" if known else "RETROSPECTIVE_TRACKING_ONLY")
     return result
 
 
@@ -437,7 +528,7 @@ def overview(root: Path = ROOT, *, limit: int = 20, after: str | None = None) ->
             record = read(path.stem, root)
             # The dispatch hot path reports stored bookkeeping only. It must
             # not replay every activity's full research-source observation.
-            # The dedicated guard remains the strict source audit boundary.
+            # Full source auditing is an explicit operation, separate from bookkeeping.
             events = {}
             for event in record["checkpoints"]:
                 if not isinstance(event, dict) or event.get("state") not in ("SYNC_DEBT", "VERIFY_EM_PUBLICATION", "EM_REPRESENTED"):
@@ -453,12 +544,14 @@ def overview(root: Path = ROOT, *, limit: int = 20, after: str | None = None) ->
             # the old debt and expose the recorded successor for the strict gate.
             repairs = [{"event_id": x["event_id"], "repairs_event_id": x["repairs_event_id"]}
                        for x in events.values() if x["repairs_event_id"] is not None]
-            debts = [x for x in events.values() if x["state"] != "EM_REPRESENTED"]
+            legacy = _legacy_events(events)
+            debts = [x for x in events.values() if x["state"] != "EM_REPRESENTED" or x["event_id"] in legacy]
             rows.append({"activity_id": path.stem, "mode": record["mode"],
                          "session_state": record["session_state"], "researcher_id": record["researcher_id"],
                          "registration_origin": record["registration_origin"],
                          "required_action": "VERIFY_RECORDED_DEBT_REPAIR" if repairs else (("PERSIST_EM_CHECKPOINT" if any(x["state"] == "SYNC_DEBT" for x in debts) else "VERIFY_EM_PUBLICATION") if debts else "INSPECT_RECORDED_FRONTIER"),
                          "sync_debt_events": [x["event_id"] for x in debts],
+                         "historical_summary_events": sorted(legacy),
                          "recorded_repair_events": repairs,
                          "source_links": [f"https://github.com/{s['repository']}/blob/{s['commit']}/{s['path']}" for e in events.values() for s in e["em_sources"]],
                          "record_path": f"{STORE}/{path.stem}.json"})
@@ -467,7 +560,7 @@ def overview(root: Path = ROOT, *, limit: int = 20, after: str | None = None) ->
     return {"scope": "OWNER_BOOKKEEPING_ONLY_NOT_CLAIM_QUEUE", "items": rows,
             "has_more": len(paths) > limit, "limit": limit,
             "next_cursor": paths[limit - 1].stem if len(paths) > limit else None,
-            "verification_scope": "RECORDED_METADATA_ONLY_SOURCE_BYTES_REVALIDATED_BY_ACTIVITY_GUARD",
+            "verification_scope": "RECORDED_METADATA_ONLY_SOURCE_BYTES_REVALIDATED_BY_EXPLICIT_AUDIT",
             "visibility": "THIS_CHECKOUT_ONLY_NOT_A_REMOTE_BRANCH_DISCOVERY",
             "entrypoint": "python tools/research_activity.py list --limit 20"}
 
@@ -498,6 +591,15 @@ def main(argv: list[str] | None = None) -> int:
                       help="exact current activity publication pin with full observed connector readback")
     gate.add_argument("--no-new-semantic-progress", action="store_true",
                       help="no new research checkpoint, e.g. user stops before research; never clears existing debt")
+    audit = sub.add_parser("audit")
+    audit.add_argument("--activity-id")
+    audit.add_argument("--boundary", choices=("startup", "checkpoint", "pre-final"), default="startup")
+    audit.add_argument("--event-id")
+    audit.add_argument("--session-id")
+    audit.add_argument("--registration-json", type=Path,
+                      help="exact current activity publication pin with full observed connector readback")
+    audit.add_argument("--no-new-semantic-progress", action="store_true",
+                      help="no new research checkpoint, e.g. user stops before research; never clears existing debt")
     listing = sub.add_parser("list")
     listing.add_argument("--limit", type=int, default=20)
     listing.add_argument("--after")
@@ -513,8 +615,9 @@ def main(argv: list[str] | None = None) -> int:
         value = checkpoint(args.activity_id, root=args.root, event_id=args.event_id,
                            expected_sha256=args.expected_sha256, em_sources=payload.get("em_sources"),
                            kb_sources=payload.get("kb_sources"), repairs_event_id=args.repairs_event_id)
-    elif args.command == "guard":
-        value = guard(activity_id=args.activity_id, root=args.root, boundary=args.boundary,
+    elif args.command in ("guard", "audit"):
+        selected = guard if args.command == "guard" else audit_observations
+        value = selected(activity_id=args.activity_id, root=args.root, boundary=args.boundary,
                       event_id=args.event_id, session_id=args.session_id,
                       registration_source=json.loads(args.registration_json.read_bytes()) if args.registration_json else None,
                       new_semantic_progress=not args.no_new_semantic_progress)
@@ -527,7 +630,7 @@ def main(argv: list[str] | None = None) -> int:
                  "required_action": "PUBLISH_ACTIVITY_RECORD_WITH_CAS_AND_VERIFY_IMMUTABLE_EM_READBACK",
                  "canonical_owner_visibility": "NOT_ESTABLISHED_BY_LOCAL_WRITE"}
     print(encoded(value).decode("utf-8"), end="")
-    return 2 if args.command == "guard" and not value["persistence_allowed"] else 0
+    return 2 if args.command in ("guard", "audit") and not value["persistence_allowed"] else 0
 
 
 if __name__ == "__main__":
