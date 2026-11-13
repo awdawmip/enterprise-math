@@ -1009,7 +1009,11 @@ def _existing_published_task_pins(
     This is distinct from exact-set synthesis integration. The existing Task's
     lineage, publisher, current owner and completion state are never rewritten.
     """
-    if (review.get("review_authority_kind") != "IMMUTABLE_REVIEW"
+    # Original immutable review records predating the typed authority-kind field
+    # carry the same canonical REVIEW_SCHEMA but have no review_authority_kind.
+    # Retain their exact evidence while never accepting a synthesis in this route.
+    if (review.get("record_schema") != result_impl.REVIEW_SCHEMA
+            or review.get("review_authority_kind") not in {None, "IMMUTABLE_REVIEW"}
             or review.get("disposition") != "ACCEPTED"
             or review.get("destination_class") != "FOLLOWUP_TASK"):
         raise DriverFollowupError("existing published Task requires one operational ACCEPTED/FOLLOWUP_TASK review")
