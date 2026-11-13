@@ -277,20 +277,6 @@ def _bind_guard(root: Path = ROOT) -> None:
             raise DriverFollowupError(
                 "operational review authority has no single-valued destination_class"
             )
-        if review.get("disposition") == "REQUEST_REPLICATION":
-            shadow = dict(review)
-            if gates["INDEPENDENT_REPLICATION"]["decision"] == EXISTING_ASSET_DECISION:
-                shadow["disposition"] = "RETURN_TO_OWNER"
-            original_forced(shadow, result, gates)
-            if gates["INDEPENDENT_REPLICATION"]["decision"] not in {
-                "REQUIRED",
-                EXISTING_ASSET_DECISION,
-            }:
-                raise DriverFollowupError(
-                    "REQUEST_REPLICATION requires a new or already-materialized "
-                    "INDEPENDENT_REPLICATION control asset"
-                )
-            return
         original_forced(review, result, gates)
 
     _impl._gate_map = _guarded_gate_map
@@ -341,12 +327,20 @@ def state_for_review(review_id: str, root: Path = ROOT) -> dict[str, Any]:
         return {
             "review_id": review_id,
             "review_authority_kind": authority.get("review_authority_kind"),
-            "required": True,
+            "required": False,
+            "blocks_research": False,
             "ready": False,
             "state": "REVIEW_AUTHORITY_DESTINATION_UNRESOLVED",
             "packet": None,
         }
     value = _impl.state_for_review(review_id, root)
+    # Review evidence and follow-up advice are separate. Preserve the actual
+    # packet validation outcome without making advice a research permission.
+    value.setdefault("legacy_policy_required", value.get("required", False))
+    value["required"] = False
+    value["blocks_research"] = False
+    value["followup_policy"] = "OPTIONAL_RESEARCH_PLANNING"
+    value["formalization_policy"] = "DEFERRED_NOT_DEFAULT"
     if authority is not None:
         value["review_authority_kind"] = authority.get("review_authority_kind")
         value["source_review_ids"] = authority.get("source_review_ids")

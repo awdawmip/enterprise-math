@@ -57,7 +57,7 @@ def _validate_packet_candidate(
     from control_plane import research_driver_followup_fault_isolation as isolation
 
     if packet.get("decision") in {impl.TASK_SCOPE_DECISION, impl.EXISTING_ASSET_DECISION,
-                                  impl.RESULT_CONTINUATION_DECISION}:
+                                  impl.RESULT_CONTINUATION_DECISION, impl.EXISTING_TASK_DECISION}:
         impl.validate_packet(packet, root, current_publication_required=True)
     else:
         impl.validate_packet(packet, root)
@@ -67,6 +67,35 @@ def _validate_packet_candidate(
         if row.get("review_id") == packet["review_id"]
         or row.get("packet_id") == packet["packet_id"]
     ]
+    previous_pin = packet.get("supersedes_followup_packet")
+    if previous_pin is not None:
+        expected = {packet["packet_id"]}
+        pin = previous_pin
+        while pin is not None:
+            previous_id = pin["packet_id"]
+            if previous_id in expected:
+                raise DriverFollowupTransactionError("cyclic follow-up correction candidate")
+            expected.add(previous_id)
+            if pin != impl._followup_record_pin(packet["review_id"], previous_id, root):
+                raise DriverFollowupTransactionError("superseded follow-up source bytes changed")
+            pin = impl._load(root / pin["record_path"]).get("supersedes_followup_packet")
+        if not persisted:
+            expected.remove(packet["packet_id"])
+        if (len(related) != len(expected)
+                or {row.get("packet_id") for row in related} != expected
+                or any(row.get("review_id") != packet["review_id"] for row in related)):
+            raise DriverFollowupTransactionError("follow-up correction must preserve exactly its explicit source chain")
+        current = impl.packet_map(root).get(packet["review_id"])
+        expected_head = packet["packet_id"] if persisted else previous_pin["packet_id"]
+        if current is None or current.get("packet_id") != expected_head:
+            raise DriverFollowupTransactionError("follow-up correction current packet changed")
+        if not persisted:
+            return
+        if current.get("_path") != path.relative_to(root).as_posix():
+            raise DriverFollowupTransactionError("materialized follow-up correction path differs")
+        if not path.is_file() or path.read_bytes() != _packet_bytes(packet):
+            raise DriverFollowupTransactionError("materialized follow-up correction differs from frozen candidate bytes")
+        return
     if not persisted:
         if related:
             raise DriverFollowupTransactionError("follow-up candidate has an existing review/packet identity")
@@ -218,15 +247,21 @@ def materialize(
             raise DriverFollowupTransactionError("materialization authority/review/Result changed before write")
 
     existing_rows = spec.get("existing_task_publications", [])
-    if decision != impl.EXISTING_ASSET_DECISION and (existing_rows or spec.get("current_destination_continuation") is not None):
+    existing_decisions = {impl.EXISTING_ASSET_DECISION, impl.EXISTING_TASK_DECISION}
+    if decision not in existing_decisions and (existing_rows or spec.get("current_destination_continuation") is not None):
         raise DriverFollowupTransactionError("existing publications require the existing-asset decision")
-    if decision == impl.EXISTING_ASSET_DECISION and binding is None:
+    if decision in existing_decisions and binding is None:
         raise DriverFollowupTransactionError("existing asset binding requires an authenticated current publisher")
-    if decision == impl.EXISTING_ASSET_DECISION and (
+    if decision in existing_decisions and (
             spec.get("terminal_scope") is not None or spec.get("portfolio_continuation") is not None):
         raise DriverFollowupTransactionError("existing asset binding is not Task or parent closure")
+    previous_id = spec.get("supersedes_followup_packet_id")
+    if previous_id is not None and decision != impl.EXISTING_TASK_DECISION:
+        raise DriverFollowupTransactionError("follow-up correction requires the existing-published-task decision")
+    if decision == impl.EXISTING_TASK_DECISION and spec.get("current_destination_continuation") is not None:
+        raise DriverFollowupTransactionError("single-review existing Task binding cannot replace its exact destination")
     if decision in {"PARENT_OBJECTIVE_CLOSURE", impl.TASK_SCOPE_DECISION, impl.EXISTING_ASSET_DECISION,
-                    impl.RESULT_CONTINUATION_DECISION}:
+                    impl.RESULT_CONTINUATION_DECISION, impl.EXISTING_TASK_DECISION}:
         if task_specs:
             raise DriverFollowupTransactionError(
                 "zero-task follow-up spec cannot include tasks"
@@ -237,13 +272,11 @@ def materialize(
                 raise DriverFollowupTransactionError(
                     "parent Objective must already be canonically CLOSED before no-task exception"
                 )
-        if any(row["decision"] == "REQUIRED" for row in normalized_gates.values()):
-            raise DriverFollowupTransactionError(
-                "zero-task follow-up cannot leave REQUIRED gates"
-            )
         extra = {}
         if decision == impl.EXISTING_ASSET_DECISION:
             extra["current_destination_continuation"] = spec.get("current_destination_continuation")
+        if decision == impl.EXISTING_TASK_DECISION:
+            extra["supersedes_followup_packet_id"] = previous_id
         if decision == impl.TASK_SCOPE_DECISION:
             extra = {"terminal_scope": spec.get("terminal_scope"),
                      "portfolio_continuation": spec.get("portfolio_continuation")}
@@ -255,7 +288,7 @@ def materialize(
             review_id=review_id,
             decision=decision,
             gate_decisions=[normalized_gates[name] for name in impl.GATES],
-            task_publications=existing_rows if decision == impl.EXISTING_ASSET_DECISION else [],
+            task_publications=existing_rows if decision in existing_decisions else [],
             driver_id=str(review["driver_id"]),
             created_at=timestamp,
             root=root,
@@ -346,7 +379,7 @@ def materialize(
                 {
                     "task_id": record["task_id"],
                     "publication_id": record["publication_id"],
-                    "task_role": task_spec["task_role"],
+                    "task_role": task_spec.get("task_role", "RESEARCH"),
                 }
             )
 
