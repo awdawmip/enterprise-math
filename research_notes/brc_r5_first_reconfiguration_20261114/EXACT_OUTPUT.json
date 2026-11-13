@@ -1,0 +1,129 @@
+{
+  "status": "PASS_EXACT",
+  "science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "event_boundaries": 954,
+  "thresholds": 953,
+  "events": 1065,
+  "separator_gaps": 28,
+  "blocks": 29,
+  "global_kmin": 213,
+  "global_J_kmin": 1070,
+  "global_J_kmin_plus_1": 1064,
+  "unique_gain_6_block_zero_based": 22,
+  "block22_relative_coordinates": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    17,
+    18,
+    19,
+    20,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    34,
+    35,
+    36,
+    37,
+    39,
+    40,
+    41,
+    42
+  ],
+  "block22_k9": {
+    "cost": 42,
+    "optimum_count": 12
+  },
+  "block22_k10": {
+    "cost": 36,
+    "optimum_count": 640
+  },
+  "optimum_pair_count_checked": 7680,
+  "removed_center_count_histogram": {
+    "3": 120,
+    "4": 776,
+    "5": 2016,
+    "6": 2624,
+    "7": 1704,
+    "8": 440
+  },
+  "minimum_removed_centers": 3,
+  "minimum_symmetric_difference": 7,
+  "witness_k9_relative": [
+    1,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40
+  ],
+  "witness_k10_relative": [
+    1,
+    5,
+    10,
+    13,
+    18,
+    23,
+    26,
+    30,
+    35,
+    40
+  ],
+  "low_gain_3_counterexample": {
+    "coordinates": [
+      0,
+      2,
+      3,
+      4,
+      6
+    ],
+    "k2_cost": 5,
+    "k2_optima": [
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        6
+      ]
+    ],
+    "k3_cost": 2,
+    "k3_optima": [
+      [
+        0,
+        3,
+        6
+      ]
+    ],
+    "nested": false
+  },
+  "verification": "Fraction thresholds; independent block min-plus count; exhaustive enumeration of optimal paths; direct exact cost feasibility for all 652 paths and 7680 optimal pairs; 5-point full-subset counterexample"
+}
