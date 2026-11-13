@@ -1,0 +1,81 @@
+{
+  "schema": "R680_PASS_SUBSET_V27_SENSORS_EXACT_V1",
+  "role": "AUTHOR_SIDE",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "source": "fab76ba01a87745b098ab57a0219d958707bdbb9",
+  "prefix_words": 16,
+  "minimal_future_classes": 8,
+  "biases": [
+    [
+      -4,
+      -3,
+      -2,
+      10
+    ],
+    [
+      -3,
+      -2,
+      -4,
+      10
+    ],
+    [
+      -2,
+      -4,
+      -3,
+      10
+    ],
+    [
+      2,
+      4,
+      3,
+      -10
+    ],
+    [
+      3,
+      2,
+      4,
+      -10
+    ],
+    [
+      4,
+      3,
+      2,
+      -10
+    ]
+  ],
+  "single_bias_min_probe": 3,
+  "single_bias_size3_counts": [
+    7,
+    7,
+    7,
+    36,
+    36,
+    36
+  ],
+  "common_min_probe": 7,
+  "common_size7_count": 86,
+  "common_probe_witness": [
+    "013",
+    "014",
+    "023",
+    "024",
+    "134",
+    "145",
+    "235"
+  ],
+  "BRC_mass": "factorial(subset size)",
+  "optional_S3_extension": {
+    "AB": [
+      1,
+      2,
+      0
+    ],
+    "BA": [
+      2,
+      0,
+      1
+    ]
+  },
+  "validation": "exact complete finite search with R680_VERIFY.py",
+  "independent_review": false
+}
