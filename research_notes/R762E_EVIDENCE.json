@@ -1,0 +1,45 @@
+{
+  "capacity_cases": {
+    "1": {
+      "distinct_counter_vectors": 8,
+      "joint_states_by_total_events": [1, 3, 6, 6],
+      "max_joint_fiber_over_port": 1,
+      "max_shortest_port_events": 3,
+      "min_fixed_bits_for_port_and_legality_future": 4,
+      "reachable_joint_states": 16,
+      "reachable_port_permutations": 16,
+      "shortest_port_histogram": [1, 3, 6, 6]
+    },
+    "2": {
+      "distinct_counter_vectors": 27,
+      "joint_states_by_total_events": [1, 3, 9, 24, 53, 84, 71],
+      "max_joint_fiber_over_port": 3,
+      "max_shortest_port_events": 6,
+      "min_fixed_bits_for_port_and_legality_future": 8,
+      "reachable_joint_states": 245,
+      "reachable_port_permutations": 196,
+      "shortest_port_histogram": [1, 3, 9, 24, 51, 69, 39]
+    },
+    "3": {
+      "distinct_counter_vectors": 64,
+      "joint_states_by_total_events": [1, 3, 9, 27, 71, 178, 392, 658, 731, 338],
+      "max_joint_fiber_over_port": 11,
+      "max_shortest_port_events": 7,
+      "min_fixed_bits_for_port_and_legality_future": 12,
+      "reachable_joint_states": 2408,
+      "reachable_port_permutations": 360,
+      "shortest_port_histogram": [1, 3, 9, 24, 63, 129, 107, 24]
+    }
+  },
+  "capacity_two_unreachable_witness": {
+    "consumption": [3, 1, 0],
+    "port_image": [0, 1, 3, 4, 2, 5],
+    "word_generator_indices": [0, 0, 1, 0]
+  },
+  "parent_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "proof_method": "complete tuple-permutation BFS, exact-depth propagation, independent count-vector DP; exact integers",
+  "schema": "R762E_BOUNDED_TRIADIC_CAPACITY_EXACT_V1",
+  "scope": "fixed candidate 012/034/135 three-cycle alphabet and uniform per-type budget",
+  "sharp_minimum_uniform_budget_to_reach_A6": 3,
+  "supports": [[0, 1, 2], [0, 3, 4], [1, 3, 5]]
+}
