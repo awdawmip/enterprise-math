@@ -7,7 +7,37 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "5cb0e433b7f25d48a583b8f17e012483292d760e",
+          "path": "research_notes/brc_r5_exact_interval_support_20261113/EXACT_OUTPUT.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "f53f4e578abeec7308f1051e314a8ee1e70c9093309ef4e32bc1a52b9833237c",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "50ce0b87e94975ad11bdb8e6f6258d8a570d01ba",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/5cb0e433b7f25d48a583b8f17e012483292d760e/research_notes/brc_r5_exact_interval_support_20261113/EXACT_OUTPUT.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-r5-pr2287-20261113-01",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-45D8282165575534C373868E/readbacks/237cbb4b4511781a33c3b6ea6135dd34f3607f9504680402840f4306271ee95c.json",
+          "verification_receipt_sha256": "237cbb4b4511781a33c3b6ea6135dd34f3607f9504680402840f4306271ee95c"
+        }
+      ],
+      "event_id": "20261113T183300+0800-R5-INTERVAL-PR2287-001",
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/fb2ceadcdaa93fa5421051b0779f3e7276148e58/journal/enterprise-math/2026-11-13/20261113T182330%2B0800-r5-exact-interval-support-2287.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-13T10:29:42.928111+00:00",
   "registration_key": "session:MCP-8089136a5593404eb385316a9a8e2a0a:TASK_RESEARCH",
