@@ -1,0 +1,3 @@
+# R44 — precision-adaptive rolling certificates
+
+Frozen science `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Start with a coarse `sqrt(2)-1` rational enclosure at `J=10^9,m=16`; refine via integer-square-root nested intervals until R42/R43 owner inequalities certify consecutive incoming labels, recording precision, denominator bit growth and number of exact arithmetic operations. Compare with independent equal-precision Euclidean Floor Sum and matched finite brute-force windows. Then determine whether rolling labelled sources can update S23 affine-risk endpoints at consecutive J positions without full Farey recompilation, preserving historic labels and observer mapping. Owner/claim and independent-review gates remain separate.
