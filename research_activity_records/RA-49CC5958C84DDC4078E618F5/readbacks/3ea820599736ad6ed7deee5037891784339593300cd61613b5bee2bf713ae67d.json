@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/divisor_extrema/20261113_c70_fixed_stock_arithmetic/C70_RESEARCH_NOTE.md",
+    "ref": "3a68299ec71e72a9bd874b76da14f97f4d1e7c5a",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "c70-fixed-stock-arithmetic-20261113-934aba-0",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# C70　两个可见块的逐词反演与八块的唯一可辨比例\n\n2026 年 11 月 13 日。C62 提出的最小化问题已在 [C63](https://github.com/awdawmip/enterprise-math/blob/de41b8cd9e6b0ea52345d5f669af924f9379318a/research_notes/divisor_extrema/20261111_c63_pointwise_minimum_and_fixed_inversion.md) 得到全尺度证明：每个 $k\\ge2$ 唯一最优安排为 $(523)^{k-1}23$；$k\\ge3$ 时其余安排的总变差均超过它的两倍。C70 接续 [C69 固定库存的反问题](https://github.com/awdawmip/enterprise-math/blob/723f77136e818ddbc3666e3c81ac84bfd790bfef/research_notes/divisor_extrema/20261113_c69_fixed_stock_identification/C69_RESEARCH_NOTE.md)。\n\n## 从读数恢复间隙\n\n库存已知，含 $r$ 个可见块 $23$、$c$ 个 5 和一个 7。将 $c-2$ 个 5 自由分配到 $r+1$ 个间隙，尾部固定保留 $557,575,755$ 三种完整续接。共有 $N_r(c)=\\binom{c+r-2}{r}$ 种安排。从制备状态 $\\pi(u)=(7,u,1-u)/8$ 开始，$P_j(u)$ 表示共同安排连同尾 $j$ 的联合概率。$H(x,y)$ 是三条同尾概率比 $P_j(y)/P_j(x)$ 的最大值除以最小值。观测 $g=H(0,1),h=H(0,1/2)$ 与观测三个 $z_j=P_j(1)/P_j(0)$ 的无序极端对等价：$z_-=(h-1)/(g-h),\\ z_+=g z_-$。记 $S_r(c)$ 为在全部同库存竞争者中有唯一读数的安排数。\n\n**两块的逐词定理。** 存在 $c_0$，对所有 $c\\ge c_0$，$S_2(c)=\\binom c2$。C69 允许 $O(c\\log c)$ 条词有歧义。本轮把所有可能的例外压缩至有限多个初始库存；旧的独立有限证书已经覆盖 $2\\le c\\le2249$，尚缺能与它衔接的阈值。两条假设并列的安排共有六个间隙。在七个相邻对数幂区间中选一个均未占用的区间，保留两侧全部短隙的精确参数，从同一对有理读数重构两条词共有的 2 进中心。若首隙同类型，则中心间距或固定中心宽度曲线上真实端点的严格单调性给出同一首落点。最难的混合情形中，令 $w_1,w_2$ 为两词最后一块后的 5 库存；相同中心宽度要求 $(w_1/w_2)^{12}\\to4/3$，相同真实宽度却要求 $w_1/w_2\\to1$。这排除了最后一种无界碰撞序列。[完整证明](two/EVENTUAL_INJECTIVITY.md) · [有理与原三态核对照](two/eventual_two.json)\n\n**八块的全库比例。** $\\liminf_{c\\to\\infty}S_8(c)/\\binom{c+6}{8}\\ge125/204$，原下界为 $1/9$。九个间隙中，如果最短的是首隙、第二隙或末隙，三类合计提供 $1/3$ 的体积。最短在第二隙时，方向和两个准确中心能解出第一块的系数，继而剥去首块。末隙最短时，以两中心之差消去共同导数后，可用一段短的连乘比严格恢复整数末库存。其余还有 38 种有序位置组合在次短隙大于最短隙两倍时可以辨认。九隙的这种长度关系概率为 $9/17$，与名次排列独立，合计下界为 $1/3+(38/72)(9/17)$。其中计入的歧义例外是零渐近比例。该数给出极限下界。[八块证明](deep/EIGHTH_DEPTH.md) · [秩、有限误差与方向证书](deep/eighth_rank.json)\n\n首两隙的识别还可递推到所有固定深度。取 $b_8=1,b_9=1/3,b_n=(b_{n-1}+b_{n-2})/n$，则 $r\\ge7$ 时比例的极限下界至少为 $b_{r+1}$。九块至少 $2/15$，十块至少 $7/165$。这些显式保证满足 $\\log b_n=-\\tfrac12 n\\log n+O(n)$。[名次计数与外部竞争者](deep/ALL_DEPTH.md)\n\n## 一个读数与有限精度\n\n| 已知信息 | 证明和有限覆盖 |\n|---|---|\n| 一块，一个准确 $H(0,1)$ | 每个充分大的库存逐词唯一；另外已逐库验证 $2\\le c\\le8192$ |\n| 一块，任意一个不带尾标的准确 $z_j$ | 同样逐词最终唯一，亦覆盖上述有限范围。共检查 33,550,336 条安排、100,651,008 个尾列 |\n| 两块或三块，任意一个不带尾标的准确 $z_j$ | 在全库中能唯一识别的安排比例趋于 1，允许不同安排使用不同尾标 |\n| 一块，舍入步长 $2^{-B}$，要求唯一识别比例趋于 1 | 对 $H$ 的充要条件为 $B-\\tfrac74\\log_2 c\\to+\\infty$；对任意不带尾标的 $z_j$ 为 $B-\\log_2c\\to+\\infty$ |\n| 两块，舍入两个 $H$，要求每条词都可识别 | 充分大库存中至少需要 $15\\log_2 c-O(1)$ 位，$O(c)$ 位足够。统一使用相同网格步长，网格原点可任意偏移 |\n\n单块有限穷举使用域内分离证明有理数互异，另与小库存原三态联合概率交叉对照。单块的充分大定理也未给与 8192 衔接的门槛。[单块证明与全检](one/LAST_BLOCK.md) · [匿名列反演](one/ANONYMOUS.md) · [两种单块读数的精度](one/ONE_PRECISION.md) · [全部读数对的最坏精度](two/HEIGHT_PRECISION.md)\n\n## 深度也增长的稀疏库存\n\n让 $r$ 也增长，令 $p=(c-2)/(r+c-2)$。C69 已证所有深度在 $c\\le35$ 时均可分。将此事实与反向读取的最短歧义后缀结合，得到 $p\\to0$ 时整个库存中歧义词比例为 $O(p^{34})$。例如有 900 个可见块、102 个 5（其中 100 个用于分配）时，全部同库安排的歧义比例严格小于 $1.977\\times10^{-18}$。这是有限库存的有理上界，尚未发现需要计入的真实碰撞。对一般固定比例 $p\\to x\\in(0,52/103)$，还证明了歧义比例有实解析极限。若任何地方确有碰撞，其在 $x=0$ 的首个非零幂次正好等于最小碰撞库存的 5 数减二。[证明、有限上界](order/SPARSE_STOCKS.md) · [精确数值](order/sparse_stocks.json)\n\n这些定理及计算记录为研究推导和内核对照。最直接的未决问题是双块是否对**每个**整数 $c\\ge2$ 均逐词可辨；八块可辨比例能否趋于 1 也仍开放。[复算方法](README.md)\n",
+      "display_title": "C70_RESEARCH_NOTE.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3a68299ec71e72a9bd874b76da14f97f4d1e7c5a/research_notes/divisor_extrema/20261113_c70_fixed_stock_arithmetic/C70_RESEARCH_NOTE.md",
+      "encoding": "utf-8",
+      "sha": "bee7825d6d75362e5cd616cd5523fa29e51bd01c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
