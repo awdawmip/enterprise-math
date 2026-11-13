@@ -1,0 +1,36 @@
+{
+  "schema": "EM_X6_C6_NBRC_BRANCH_FIBER_CENSUS_V1",
+  "date": "2026-11-13",
+  "scientific_input_source": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "proof_dependency": "research_notes/VIETE_X6_FIXED_RADIUS_MICROTRACE_C12_20260905.md",
+  "researcher_id": "EM-DIRECT-3BBAC3",
+  "activity_id": "RA-2591AD545920200CEECEF5D6",
+  "arithmetics": "exact integer native 6-axis signed steps, previously proven typed N-BRC shortest two-branch path identity; no classical pi/trigonometric calculations",
+  "test_scope": "full enumeration of 2^6 branch choices on one oriented arbitrary-three-axis C6 shell",
+  "result": {
+    "PASS": true,
+    "ambient_X6_axes": 6,
+    "local_triads": [
+      0,
+      1,
+      2
+    ],
+    "macro_phases": 6,
+    "native_microsteps": 12,
+    "branch_words": 64,
+    "distinct_closed_native_paths": 64,
+    "cyclically_nonbacktracking": 18,
+    "cyclically_backtracking": 46,
+    "nonbacktracking_by_inner_count": {
+      "0": 1,
+      "1": 6,
+      "2": 9,
+      "3": 2
+    },
+    "all_outer_distinct_native_cells": 12
+  },
+  "run_provenance": "Local equivalent CPython exact enumerator executed successfully; GitHub portable checker separately saved and source-read back.",
+  "limitations": "fixed local triad and exact shortest macro-to-two-step branch fibers; no global native physical rotation law, formal task CLAIM, Result, Review or native temporal calibration",
+  "formal_prepare_error": "ARTIFACT_HASH_MISMATCH",
+  "formal_prepare_original_id": "em-r5-20261113-1754-x6-typed-prepare-01"
+}
