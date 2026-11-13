@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "model": "R749SA 1:1:14 exact transition classes",
+  "finite_sample_method": "fractions.Fraction exact integer rational summation",
+  "sample_rows": [
+    {
+      "m": 1,
+      "signed_error_exact": "17/64",
+      "unsigned_error_exact": "9/32",
+      "observer_penalty_exact": "1/64",
+      "lower_bound_exact": "1/64"
+    },
+    {
+      "m": 2,
+      "signed_error_exact": "349/2048",
+      "unsigned_error_exact": "109/512",
+      "observer_penalty_exact": "87/2048",
+      "lower_bound_exact": "3/2048"
+    },
+    {
+      "m": 4,
+      "signed_error_exact": "289201/2097152",
+      "unsigned_error_exact": "19917/131072",
+      "observer_penalty_exact": "29471/2097152",
+      "lower_bound_exact": "15/2097152"
+    },
+    {
+      "m": 8,
+      "signed_error_exact": "119291393401/2199023255552",
+      "unsigned_error_exact": "621141973/8589934592",
+      "observer_penalty_exact": "39720951687/2199023255552",
+      "lower_bound_exact": "255/2199023255552"
+    },
+    {
+      "m": 16,
+      "signed_error_exact": "24778017003404809471801/2417851639229258349412352",
+      "unsigned_error_exact": "906193775827207877/36893488147419103232",
+      "observer_penalty_exact": "34610298289207085955271/2417851639229258349412352",
+      "lower_bound_exact": "65535/2417851639229258349412352"
+    },
+    {
+      "m": 32,
+      "signed_error_exact": "1370294093611600071926902992126163119067308601/2923003274661805836407369665432566039311865085952",
+      "unsigned_error_exact": "1698510293549611776292070458961835429/680564733841876926926749214863536422912",
+      "observer_penalty_exact": "5924752069103342260744007773242630160621821383/2923003274661805836407369665432566039311865085952",
+      "lower_bound_exact": "4294967295/2923003274661805836407369665432566039311865085952"
+    },
+    {
+      "m": 64,
+      "signed_error_exact": "5747367702652535617004171698915486165326069105237092424380706196666428339488869550221702201/4271974071841820164790043412339104229205409044713305539894083215644439451561281100045924173873152",
+      "unsigned_error_exact": "7753486174431270733385531336980716569793901764854640434437800992353456549/231584178474632390847141970017375815706539969331281128078915168015826259279872",
+      "observer_penalty_exact": "137279207436126450574635107745296521844985787110074725500328806471537498322450713264307030983/4271974071841820164790043412339104229205409044713305539894083215644439451561281100045924173873152",
+      "lower_bound_exact": "18446744073709551615/4271974071841820164790043412339104229205409044713305539894083215644439451561281100045924173873152"
+    }
+  ],
+  "strict_gap_cases_tested": 48,
+  "fisher_checks": 4,
+  "chernoff_readout_method": "decimal.Decimal natural logarithm, precision 65; noncertified numerical readout",
+  "case": "p0=0,p1=1/2",
+  "signed_threshold": "0.244650542118226030",
+  "unsigned_threshold": "0.315464876785728719",
+  "signed_chernoff_exponent": "0.170682985118309964",
+  "unsigned_chernoff_exponent": "0.123994067370048728",
+  "asymptotic_sample_inflation": "1.376541545402511205",
+  "native_event_permission": false
+}
