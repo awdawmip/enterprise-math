@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FNW_ROOTWISE_DOMINANCE_20261114/VERIFY_EC49FNW_CENSUS.py",
+    "ref": "5ad7e745176174ef2736bfdb94273a914e715800",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL_GITHUB_FETCH_EC49FNW_20261114_3_81431d0b29e58249dbebd7e97eb3120f1e4d9521",
+  "result": {
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"EC49FNW exact census checker; source DP numerical computation is in C++ extension.\n\nUsage:\npython VERIFY_EC49FNW_CENSUS.py EC49FNW_ALL_84_EDGE_DELTAS.txt \\\n  FIRST_NEUTRAL_EDGES_EC49FNS.txt [FNW_RESULTS.txt]\n\"\"\"\nimport sys\n\ndef read_pairs(path):\n    result = []\n    with open(path, encoding=\"utf-8\") as stream:\n        for line in stream:\n            line=line.split(\"#\", 1)[0].strip()\n            if line:\n                a,b=map(int,line.split())\n                result.append((a,b))\n    return result\n\ndef verify(table, edges, output=None):\n    records=[]\n    with open(table, encoding=\"utf-8\") as stream:\n        for line in stream:\n            line=line.split(\"#\",1)[0].strip()\n            if line:\n                a,b,ab,ba=map(int,line.split())\n                assert ab>=0 and ba>=0\n                records.append((a,b,ab,ba))\n    expected=read_pairs(edges)\n    assert len(expected)==len(records)==84\n    assert [rec[:2] for rec in records]==expected\n    both=sum(ab==0 and ba==0 for _,_,ab,ba in records)\n    one=sum((ab==0) != (ba==0) for _,_,ab,ba in records)\n    neither=84-both-one\n    directed=2*both+one\n    assert (both,one,neither,directed)==(30,43,11,103)\n\n    if output:\n        env={}\n        old={}\n        with open(output,encoding=\"utf-8\") as stream:\n            for line in stream:\n                s=line.split()\n                if not s: continue\n                if s[0]==\"ENVELOPE\":\n                    a,b,dom,margin,delta=map(int,s[1:6])\n                    roots=list(map(int,s[6:10]))\n                    cuts,fail,extra=map(int,s[10:13])\n                    assert delta==sum(roots) and (delta==0)==bool(dom)\n                    assert margin>0 and cuts>=0 and fail>=0 and extra>=0\n                    assert (a,b) not in env\n                    env[a,b]=(delta,cuts,fail,extra)\n                elif s[0]==\"TRANSFER\":\n                    a,b=map(int,s[1:3])\n                    assert s[-1]==\"1\"\n                    old[a,b]=s\n        assert len(env)==len(old)==168\n        for a,b,ab,ba in records:\n            assert env[a,b][0]==ab and env[b,a][0]==ba\n        assert sum(env[a,b][1] for a,b in env if env[a,b][0]==0)==10429\n        assert sum(env[a,b][2] for a,b in env if env[a,b][0]==0)==0\n        assert sum(env[a,b][3] for a,b in env if env[a,b][0]==0)==0\n    print(f\"EXACT_CENSUS_OK edges={len(records)} both={both} one={one} \"\n          f\"neither={neither} dominance_directions={directed} \"\n          f\"full_output_checked={bool(output)}\")\n\nif __name__==\"__main__\":\n    if len(sys.argv) not in (3,4):\n        raise SystemExit(__doc__)\n    verify(*sys.argv[1:])\n",
+      "display_title": "VERIFY_EC49FNW_CENSUS.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/5ad7e745176174ef2736bfdb94273a914e715800/research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FNW_ROOTWISE_DOMINANCE_20261114/VERIFY_EC49FNW_CENSUS.py",
+      "encoding": "utf-8",
+      "sha": "81431d0b29e58249dbebd7e97eb3120f1e4d9521"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
