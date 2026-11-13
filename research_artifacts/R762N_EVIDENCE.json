@@ -1,0 +1,46 @@
+{
+  "schema": "R762N_SPARSE_WEIGHTED_BRC_PAIR_OBSERVER_V1",
+  "parent_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "publication_id": "TP2-8B7E13C5904A2D6F1142",
+  "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": "R762M PR #2305 @ a3379bb566cb196d7c50859c57a239cc98815060",
+  "model": "S6-invariant Boolean candidate-incidence laws on three independently labeled signed X6 source ports; not native TRIADIC_CLOSURE_E admissibility",
+  "cube_vertices": 8,
+  "binary_cube_pair_edges": 12,
+  "boolean_laws": 256,
+  "selected_edge_subsets_exhausted": 4096,
+  "distinct_unweighted_signatures_all_edges": 255,
+  "component_signature_formula": "prod(2**component_size-1)",
+  "connected_subsets_by_number_of_edges": {
+    "7": 384,
+    "8": 408,
+    "9": 212,
+    "10": 66,
+    "11": 12,
+    "12": 1
+  },
+  "minimum_unweighted_pair_channels_to_retain_full_signature": 7,
+  "seven_edge_spanning_tree_count": 384,
+  "seven_edge_pair_channels_plus_absolute_sign_bit_signatures": 256,
+  "weighted_observer": "W(t)=4*(1*a(t,hidden=0)+2*a(t,hidden=1))",
+  "weighted_hidden_sign_branch_masses": [
+    1,
+    2
+  ],
+  "weighted_pair_channel_count": 4,
+  "possible_weighted_channel_counts": [
+    0,
+    4,
+    8,
+    12
+  ],
+  "weighted_signature_count": 256,
+  "nearest_decode_exact_for_absolute_additive_error_strictly_below": 2,
+  "sign_flip_candidate_transition": "T_v(s)=s XOR v; parity-law repeatability iff parity(v)=0",
+  "candidate_update_combinations": 128,
+  "initially_admitted_events": 64,
+  "admitted_repeats_with_even_flip_mask": 32,
+  "disallowed_repeats_with_odd_flip_mask": 32,
+  "validation": "Python stdlib exact integer exhaustive checker, all assertions passed",
+  "native_unresolved": "Construct actual P000 TRIADIC_CLOSURE_E Cell/Link/Port transition with V29 and V39; test repeated legality and information-preserving observers"
+}
