@@ -1,0 +1,98 @@
+{
+  "schema": "PREFIX613_R2_SPARSE_NONUNIFORM_NATIVE_PROBE_V1",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "carrier": "original X6-STAR 48-phase linear-sum observer; 96 ports and 576 tagged actions retained upstream",
+  "axis_weights": [
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+  ],
+  "gate_observer": 3,
+  "scale_calibration_observer": 4,
+  "exact_4_support_groups": [
+    [
+      4
+    ],
+    [
+      11,
+      26,
+      35
+    ],
+    [
+      32,
+      40,
+      44
+    ],
+    [
+      14,
+      23,
+      47
+    ]
+  ],
+  "support_path_mod4_certificate": [
+    [
+      4
+    ],
+    [
+      11,
+      26,
+      35
+    ],
+    [
+      32,
+      40,
+      44
+    ],
+    [
+      14,
+      23,
+      47
+    ],
+    [
+      4,
+      8,
+      20
+    ],
+    [
+      11,
+      26,
+      35
+    ],
+    [
+      32,
+      40,
+      44
+    ],
+    [
+      14,
+      23,
+      47
+    ],
+    [
+      4,
+      8,
+      20
+    ]
+  ],
+  "sparse_probe_nonzero_indices": [
+    4,
+    11,
+    14,
+    32
+  ],
+  "probe_lambda_calibration": "phase4 first contrast = lambda*(d11+d26+d35)",
+  "gate_formula": "g_t=(Y_t-2*(w_[t-1,16]+w_[t-1,20]))/w_[t-1,4]-3",
+  "global_support_condition": "supp(d) intersects each G0,G1,G2,G3 (nonnegative d); full gate word n>=4",
+  "support_lower_bound": 4,
+  "positive_scales_checked": 3,
+  "unknown_base_sources_checked": 3,
+  "gate_words_checked": 2,
+  "decoded_gates": 243,
+  "full48_state_coordinate_equalities": 11664,
+  "all_phase_lower_bound_equalities": 1536,
+  "4_step_excitation_equalities": 19,
+  "result": "ALL_EXECUTED_ASSERTIONS_PASSED; AUTHOR_SIDE_EXACT_PROOF; INDEPENDENT_REVIEW_PENDING"
+}
