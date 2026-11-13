@@ -640,7 +640,8 @@ def _overlay_result_state(
         value["result_continuation"] = copy.deepcopy(result_state.get("result_continuation"))
         value["result_continuations"] = copy.deepcopy(result_state.get("result_continuations", {}))
         # Never erase a later live owner due to an older pending Result.
-        if not value.get("claim_id") and value.get("dispatch_state") != "BLOCKED":
+        if not value.get("claim_id") and not (value.get("dispatch_state") == "BLOCKED"
+                and research_runtime_reducer.complete_hard_block(value.get("hard_block"))):
             value.update(state="HANDOFF_READY",dispatch_state="NEEDS_DISPATCH",terminal=False)
         value["next_action"] = "Continue the scientific frontier; review and follow-up are recorded separately and do not block research."
         return value
