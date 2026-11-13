@@ -1,0 +1,43 @@
+{
+  "domain": {
+    "axis_labels": 6,
+    "source_triads": 20,
+    "pair_labels": 15,
+    "states": 1048576,
+    "pair_masks": 32768
+  },
+  "theorem": "Q_direct(G)=|{t in T(G): each pair e in t has graph triangle codegree >=2}| for each feasible G",
+  "feasible_shadows": 6115,
+  "K6": {
+    "fiber": 477965,
+    "auxiliary_bits": 19,
+    "direct_membership_queries": 20
+  },
+  "K6_minus_edge": {
+    "fiber": 21450,
+    "auxiliary_bits": 15,
+    "direct_membership_queries": 16,
+    "labelled_cases": 15
+  },
+  "second_max_fiber_exact": 21450,
+  "Q_histogram": {
+    "0": 2713,
+    "1": 480,
+    "2": 180,
+    "4": 1515,
+    "7": 780,
+    "8": 60,
+    "10": 266,
+    "12": 45,
+    "13": 60,
+    "16": 15,
+    "20": 1
+  },
+  "direct_query_minus_aux_bit_gap": {
+    "0": 3373,
+    "1": 2137,
+    "2": 585,
+    "3": 20
+  },
+  "verification": "2^20 exhaustive enumeration, 2^15 graph classification, independent inclusion-exclusion K6 and K6-e, optional/forced deletion witnesses"
+}
