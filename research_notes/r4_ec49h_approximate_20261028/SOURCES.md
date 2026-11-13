@@ -1,0 +1,15 @@
+# EC49H — source, scope and authority ledger
+
+Research and direct rational computation date: 2026-10-28. Role: **TASK_RESEARCH author-side portable**, not a native service-issued Researcher/CLAIM. Parent scientific input: EC49G Draft PR #1635 (https://github.com/awdawmip/enterprise-math/pull/1635), commit c066b607682b89fd0bdb956b4d26e06cef2b0840, PROOF.md and NEXT_TASK.md. No previous EC49F/EC49G proof was overwritten or formally admitted.
+
+**Global Knowledge pinned current main:** a67d41923b67e06e01b85ed65935a14835e0b87e. Read both 00_BOOTSTRAP.md (blob 930974512083aeb9eed285881f3582054ae120fa) and OPERATING_MANUAL.md (blob f92084f91b2a88f8d3bc0f5f57dee5751ac775ed), project bootstrap, P000 projection (blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc), and ACTIVE 我眼中的世界.md (blob 99238c3466eb0805748bae01fd1a20868a5a351e). Also read code/mathematics research/handoff/output policies, BRC priority, research activity registration and progress-journal protocol. No P000 or ACTIVE worldview mutation.
+
+**Enterprise Math source main at research read:** 62dde0f7f44a19deb06d4ccac4bd2e3249a59c10. Read AGENTS.md, native p000_reality_foundation.json, definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json, docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md, docs/PORTABLE_RESEARCH_PROTOCOL.md. These supply project constraints; auxiliary finite positive-mass P/Q observation is not the native six-axis X6 dynamics.
+
+**Local computational evidence:** Python standard-library Fraction verifier executed with assertions PASS; 10 coarse pure strategies, 100 visible pure pairs, 250 exact rational mixtures. stdout captured as EXACT_REPORT.json, with analytically justified treatment of all real behavioral strategies for the finite support maximum. Formal proof is PROOF.md; executable program is VERIFY.py.
+
+**External comparators checked 2026-10-28:** Bian & Abate (2017), FoSSaCS, https://research.google/pubs/bisimulation-and-trace-equivalence-in-an-approximate-probabilistic-context/ ; Torgersen, Comparison of Statistical Experiments, Cambridge UP (1991; online chapter 2013), https://www.cambridge.org/core/books/comparison-of-statistical-experiments/405F64D2A2FB3A4E6A1893C1C8A4A60B . Established approximate bisimulation and decision-risk frameworks are context only; no novelty priority claimed.
+
+**Actual service authority:** em_status returned research_authority_granted=false; control subsystem CODE_REVIEW_REQUIRED, active jobs at limit 5/5; one read-only em_control_tasks owner inventory attempt returned CONTROL_QUOTA. Thus the exact currently winning canonical owner/CLAIM remained **unverified**. We did not submit a native session_start, prepare, CLAIM, Result, review or any rejected operation through a substituted transport. GitHub user awdawmip has admin permission for enterprise-math; publishing an author-side Draft PR is evidence storage, not native Source authority.
+
+No credentials, session keys or sensitive raw documents are in these materials. Verified native physics and signed BRC transfer are unresolved.
