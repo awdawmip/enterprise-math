@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r130_sparse_event_log_20261113/benchmark_r130.py",
+    "ref": "7040bd2b6f134ea105f75370f0e35f1294818b64",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-r130-benchmark-20261114-benchmark_r130-py-7040bd2b6f13",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Wall-clock benchmark: dense exact signatures, sparse exact trace, and expansion.\nSingle Python runtime, non-performance-guarantee; no external dependencies.\n\"\"\"\nfrom fractions import Fraction as F\nfrom time import perf_counter_ns\nfrom statistics import median\nfrom pathlib import Path\nimport json\nfrom check_r130 import integer_roots,word,sparse_sweep\n\ndef dense(x,A,d,E,m,l,h):\n    cuts=set(integer_roots(F(0),E,l,h))\n    for i in range(m):\n        s=A+i*d\n        cuts.update(integer_roots(x,s,l,h))\n        cuts.update(integer_roots(x,s-E,l,h))\n    cuts=sorted(cuts)\n    seq=[]\n    seq.append(word(x,A,d,E,m,(l+cuts[0])/2 if cuts else (l+h)/2))\n    for j,p in enumerate(cuts):\n        seq.append(word(x,A,d,E,m,p))\n        seq.append(word(x,A,d,E,m,(p+(cuts[j+1] if j+1<len(cuts) else h))/2))\n    return seq\n\ndef expand(log):\n    state=log['initial_word'][:]\n    out=[tuple(state)]\n    for e in log['events']:\n        c=state[:]\n        for i,v in e['cut_delta']:\n            c[i]=v\n        out.append(tuple(c))\n        for i,v in e['right_delta']:\n            state[i]=v\n        out.append(tuple(state))\n    return out\n\ndef measured(fn,repeat=3):\n    results=[];ret=None\n    for j in range(repeat):\n        t0=perf_counter_ns();ret=fn();t1=perf_counter_ns()\n        results.append((t1-t0)/1e6)\n    return median(results),ret\n\ndef main():\n    rows=[]\n    for m in (16,32,64):\n        args=(F(0),0,1,1,m,F(0),F(1))\n        dms,ds=measured(lambda:dense(*args))\n        sms,sp=measured(lambda:sparse_sweep(*args))\n        ems,ex=measured(lambda:expand(sp))\n        assert ds==ex\n        rows.append({'m':m,'cuts':sp['cuts'],'signatures':len(ds),\n                     'dense_median_ms':round(dms,3),'sparse_median_ms':round(sms,3),\n                     'expand_median_ms':round(ems,3),\n                     'dense_indicator_evaluations':m*len(ds),\n                     'sparse_indicator_evaluations':sp['evaluations']})\n    result={'status':'R130_BENCHMARK_MATCH','method':'CPython Fraction perf_counter_ns, median of 3 independent builds, no warmup',\n            'environment':'local container, no CPU frequency pinning','rows':rows,\n            'warning':'wall times are machine- and representation-dependent; exact correctness checked separately'}\n    print(json.dumps(result,indent=2,sort_keys=True))\n    Path(__file__).with_name('benchmark_r130.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\\n')\nif __name__=='__main__':main()\n",
+      "display_title": "benchmark_r130.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/7040bd2b6f134ea105f75370f0e35f1294818b64/research_notes/brc_s23_av_r130_sparse_event_log_20261113/benchmark_r130.py",
+      "encoding": "utf-8",
+      "sha": "cd1bde87c9958cb46f01d9e9a611590f1ae7748e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
