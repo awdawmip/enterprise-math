@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r137_divisor_collision_quasiperiod_20261114/verification_r137c.json",
+    "ref": "ab486d53fad5fdeb15b6c8647b6778b8b1e1b093",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r137c-r1-20261114-3-ab486d53fad5",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_R137C_COEFFICIENT_PERIOD_V1\",\n  \"date\": \"2026-11-14\",\n  \"frozen_science\": \"43ec6098b1330ae86d0a7863be336c5d97f6ef34\",\n  \"status\": \"AUTHOR_SIDE_NOT_REVIEWED\",\n  \"marker\": \"R137C_COEFFICIENT_PERIOD_INCLUSION_PASS\",\n  \"tests\": {\n    \"exact_pairs\": 184,\n    \"m_min\": 1,\n    \"m_max\": 8,\n    \"K_min\": 2,\n    \"K_max\": 24,\n    \"comparator\": \"R137B exact Farey gap constructive enumerator, integer fractions\",\n    \"checked\": [\n      \"V(K,m) subset V(K+P_m,m)\",\n      \"cardinality V(K+P_m,m) equals classical F_m\",\n      \"exact R137B certificate generation\"\n    ],\n    \"P_definition\": \"lcm(1,..,m)\"\n  },\n  \"theorem\": \"For every K>=2 and m>=1, V(K,m) subset V(K+P_m,m), and V(K+P_m,m) saturates. For any Farey adjacent b,d, all fixed intercept gaps become feasible for each K'>=K+bd.\",\n  \"source\": \"COEFFICIENT_PERIOD_INCLUSION.md\",\n  \"unresolved\": \"Minimal shifts preserving inclusion, exact per-word disappearance/return and sharp eventual threshold\"\n}\n",
+      "display_title": "verification_r137c.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/ab486d53fad5fdeb15b6c8647b6778b8b1e1b093/research_notes/brc_s23_av_r137_divisor_collision_quasiperiod_20261114/verification_r137c.json",
+      "encoding": "utf-8",
+      "sha": "2dcbed471f854c81b303e02b6ff7ca50fe6b546b"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
