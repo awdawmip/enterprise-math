@@ -1,0 +1,28 @@
+Independent local exact-rational reproduction (not verbatim output of VERIFY_FACET.py).
+Date: 2026-11-10 Asia/Shanghai. Local command: python /mnt/data/r5_boundary_stratum_check.py
+Input: PR #1936 exact 7-likelihood-ratio P/Q–BRC physical model, same pins as prior frozen R5 inputs.
+Python 3 + SymPy; rational arithmetic, 1140 exact triple nullspace calculations.
+Q_boundary [0, -119214248749721/59327129160000000, 68138017/511500000, 32645724420841769/326299210380000000, -18436007835286181/65259842076000000]
+14edge_B [(0, 0), (0, 1), (2, 1), (0, 2), (2, 2), (4, 2), (0, 3), (3, 3), (4, 3), (5, 3), (4, 5), (5, 5), (6, 5), (6, 6)]
+near_slack_zeros [4, 15, 19, 23]
+13-edge-candidates 1140 modular suspects 0 exact containing 0
+matches []
+rank8? 8
+boundary slope [0, 0, 0, 1/80, -1, 0, 0, 13/4]
+facet physical radius (63/75872500, 25)
+facet 14edge positive radius (50915668197609/1262603261375726875, 12)
+facet triple ranks {3: 1055, 2: 84, 1: 1} covered 0
+facet per-witness 13-exclusion radius 49948501046391/841518836618948125 support ((2, 1), (3, 1), (4, 1))
+epsilon=1e-7 (separation physical weights) True True True
+Note: local reproducer is a separately written compact script; published VERIFY_FACET.py extends immutable PR #1936's source and is intended for direct independent rerun. Published checker not asserted to have produced this stdout.
+
+
+Supplemental independent local calculation, same model and exact arithmetic:
+FOUR_SUPPORT_RANKS {4: 3669, 3: 1143, 2: 33} THROUGH_BOUNDARY_RANK4 1031 LOW_RANK_THROUGH 0
+THROUGH_H 1031 NONPARALLEL 0 ZERO_SLOPE 0 NONTHROUGH 3814
+NEAR_FACE_OFF_H_EXCLUSION_RADIUS 49948501046391/3920403670319950000 WITNESS ((2, 1), (3, 1), (4, 1), (3, 2))
+EXPLICIT_EPS_1e-7_OFF_H? True
+8D_PHYSICAL_LAWFUL_NEAR_FACE_RADIUS (63/75872500, 25) PERMZERO [4, 15, 23] FACEZERO [19]
+8D_14_REMAINING_POSITIVE_RADIUS (50915668197609/1202833246639750000, 12)
+8D_LOCAL_CUBE_EPS_1e-7? True True True
+These lines were produced by the extended locally executed /mnt/data/r5_boundary_stratum_check.py, not directly by the GitHub VERIFY_FACET.py.
