@@ -7,7 +7,38 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "709799b2d915e365aaa8b53704cfc503dc28b847",
+          "path": "research_notes/brc_r5_pinned_wall_cover_rank_20261113/RESEARCH.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "dcc14fe5c73e1757eb19eab223cb1a04caaca2af6ecc412a20b481c15a63e8d2",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "34915880eb20f8d630a72a46be5f798f826872b6",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/709799b2d915e365aaa8b53704cfc503dc28b847/research_notes/brc_r5_pinned_wall_cover_rank_20261113/RESEARCH.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r5-20261113-1507-github-source-full-01",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-50DA878871AF3F0BBB23D144/readbacks/f50ea684a612bf2bca0dc7445cb4748234df124b9582c3d4dc913fe1dcf6ccdb.json",
+          "verification_receipt_sha256": "f50ea684a612bf2bca0dc7445cb4748234df124b9582c3d4dc913fe1dcf6ccdb"
+        }
+      ],
+      "event_id": "em-r5-20261113-1507-original-frozen-cover-and-blockwise",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@0dfea1e3d6a4105d3d81040a0dff4f1934e304a5:journal/enterprise-math/2026-11-13/20261113T145600+0800-r5-pinned-real-cover-rank.md",
+        "awdawmip/chatgpt-global-knowledge@15e30c6d7d08fc570660dbc0ad9532f8c81e9966:journal/enterprise-math/2026-11-13/20261113T150502+0800-r5-blockwise-low-memory.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-13T06:57:25.941935+00:00",
   "registration_key": "session:MCP-17d3e6d0a4054be9a7a1f7a61a4f6ab0:TASK_RESEARCH",
