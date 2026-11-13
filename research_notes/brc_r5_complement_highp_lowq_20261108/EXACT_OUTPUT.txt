@@ -1,0 +1,13 @@
+Date: 2026-11-08
+Model: frozen 7-node P/Q-BRC FULL_HIST observer, exact Fraction transport.
+
+ACTUAL LOCAL CHECKER RUN (Python 3, self-contained local equivalent verifier):
+EXACT_32_F_FACE_CORNERS_PASS EDGES 288 MIN_POSITIVE 77/1216000
+EXACT_INTERIOR_REGRESSION_PASS 101
+THEOREM_ALL_REAL_FIVE_PARAMETER_COMPLEMENTARY_F_FACE_PRISM
+
+All 32 rational basic solutions were independently constructed from the displayed sparse supports plus active physical constraints and tested against the full node mass/likelihood-ratio/stopping-time/physical-capacity identities; all 101 rational interior checks passed. Earlier exploratory floating LP was used only to select sparsity patterns.
+
+The published VERIFY_EXACT.py uses the same 32 sparse support/active-constraint records, the inherited original exact Fraction mass/time/transport checker, and an exact Gaussian solver, but GitHub has not executed this file. The output shown here is local execution evidence, not a remotely executed GitHub Action. Universal-real conclusion follows the nonnegative multi-affine algebraic proof in RESEARCH.md.
+
+Explicit 13-edge independent sample for (t,p,q,theta,kappa)=(1/50,1,0,0,1) was also recovered by exact rational solution and checked locally.
