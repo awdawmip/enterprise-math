@@ -1,0 +1,258 @@
+{
+  "schema": "R731B_V29_FOUR_PORT_CODE_CERT_V1",
+  "port_count": 4,
+  "off_diagonal_PASS_alphabet_size": 12,
+  "arc_count": 15,
+  "one_PASS_injective_code_possible": false,
+  "minimum_fixed_PASS_word_length": 2,
+  "systems": {
+    "A": {
+      "arc_mask": "211733226574",
+      "arcs": 15,
+      "codebook": [
+        {
+          "arc": "012>014",
+          "PASS_pair_indices": [
+            0,
+            0
+          ]
+        },
+        {
+          "arc": "012>023",
+          "PASS_pair_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "arc": "012>024",
+          "PASS_pair_indices": [
+            0,
+            2
+          ]
+        },
+        {
+          "arc": "013>012",
+          "PASS_pair_indices": [
+            0,
+            3
+          ]
+        },
+        {
+          "arc": "013>123",
+          "PASS_pair_indices": [
+            0,
+            4
+          ]
+        },
+        {
+          "arc": "014>013",
+          "PASS_pair_indices": [
+            0,
+            5
+          ]
+        },
+        {
+          "arc": "014>034",
+          "PASS_pair_indices": [
+            0,
+            6
+          ]
+        },
+        {
+          "arc": "023>013",
+          "PASS_pair_indices": [
+            0,
+            7
+          ]
+        },
+        {
+          "arc": "023>123",
+          "PASS_pair_indices": [
+            0,
+            8
+          ]
+        },
+        {
+          "arc": "024>023",
+          "PASS_pair_indices": [
+            0,
+            9
+          ]
+        },
+        {
+          "arc": "024>034",
+          "PASS_pair_indices": [
+            0,
+            10
+          ]
+        },
+        {
+          "arc": "034>013",
+          "PASS_pair_indices": [
+            0,
+            11
+          ]
+        },
+        {
+          "arc": "034>023",
+          "PASS_pair_indices": [
+            1,
+            0
+          ]
+        },
+        {
+          "arc": "123>012",
+          "PASS_pair_indices": [
+            1,
+            1
+          ]
+        },
+        {
+          "arc": "123>013",
+          "PASS_pair_indices": [
+            1,
+            2
+          ]
+        }
+      ],
+      "cyclic_loop": [
+        "012",
+        "023",
+        "123",
+        "012"
+      ],
+      "one_loop_holonomy": "102",
+      "holonomy_order": 2,
+      "rooted_CNB_prefixes_tested_to_7_steps": 419,
+      "abstract_relation_return_arc_steps": 6,
+      "actual_V29_PASS_events_at_relation_return": 12,
+      "native_ledger_grade_increment": 12
+    },
+    "B": {
+      "arc_mask": "5363347296468",
+      "arcs": 15,
+      "codebook": [
+        {
+          "arc": "012>023",
+          "PASS_pair_indices": [
+            0,
+            0
+          ]
+        },
+        {
+          "arc": "012>123",
+          "PASS_pair_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "arc": "013>012",
+          "PASS_pair_indices": [
+            0,
+            2
+          ]
+        },
+        {
+          "arc": "013>014",
+          "PASS_pair_indices": [
+            0,
+            3
+          ]
+        },
+        {
+          "arc": "014>012",
+          "PASS_pair_indices": [
+            0,
+            4
+          ]
+        },
+        {
+          "arc": "014>124",
+          "PASS_pair_indices": [
+            0,
+            5
+          ]
+        },
+        {
+          "arc": "023>013",
+          "PASS_pair_indices": [
+            0,
+            6
+          ]
+        },
+        {
+          "arc": "023>034",
+          "PASS_pair_indices": [
+            0,
+            7
+          ]
+        },
+        {
+          "arc": "023>123",
+          "PASS_pair_indices": [
+            0,
+            8
+          ]
+        },
+        {
+          "arc": "034>013",
+          "PASS_pair_indices": [
+            0,
+            9
+          ]
+        },
+        {
+          "arc": "034>014",
+          "PASS_pair_indices": [
+            0,
+            10
+          ]
+        },
+        {
+          "arc": "123>013",
+          "PASS_pair_indices": [
+            0,
+            11
+          ]
+        },
+        {
+          "arc": "123>023",
+          "PASS_pair_indices": [
+            1,
+            0
+          ]
+        },
+        {
+          "arc": "123>124",
+          "PASS_pair_indices": [
+            1,
+            1
+          ]
+        },
+        {
+          "arc": "124>012",
+          "PASS_pair_indices": [
+            1,
+            2
+          ]
+        }
+      ],
+      "cyclic_loop": [
+        "012",
+        "023",
+        "123",
+        "013",
+        "012"
+      ],
+      "one_loop_holonomy": "201",
+      "holonomy_order": 3,
+      "rooted_CNB_prefixes_tested_to_7_steps": 382,
+      "abstract_relation_return_arc_steps": 12,
+      "actual_V29_PASS_events_at_relation_return": 24,
+      "native_ledger_grade_increment": 24
+    }
+  },
+  "status": "PASS"
+}
