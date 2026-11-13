@@ -1,0 +1,65 @@
+{
+  "schema": "R762P_EXACT_VERIFICATION_V1",
+  "messages": 256,
+  "alphabet_size": 4,
+  "source_channels": 4,
+  "unrestricted_single_substitution_tests": {
+    "detect5": 3840,
+    "correct7": 5376
+  },
+  "code5": {
+    "length": 5,
+    "minimum_distance": 2,
+    "single_error_detection": true
+  },
+  "code7": {
+    "length": 7,
+    "minimum_distance": 3,
+    "single_error_correction": true,
+    "parity_check_columns": [
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "bounds": {
+    "detect_min_length": 5,
+    "correct_min_length": 7,
+    "length6_ball_size": 19,
+    "length6_required_volume": 4864,
+    "length6_capacity": 4096
+  },
+  "status": "all exact assertions passed"
+}
