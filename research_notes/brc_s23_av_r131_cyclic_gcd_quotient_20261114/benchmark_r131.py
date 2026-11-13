@@ -36,7 +36,7 @@ def run():
         'dense':'R129-style complete event cut construction and independent full-word evaluation; set dedup',
         'quotient':'R131 cyclic sparse event construction plus integer-lift filtering; set dedup',
         'runs':output}
-    with open('/mnt/data/em_r131/benchmark_r131.json','w') as fh: json.dump(record,fh,indent=2)
+    with open('benchmark_r131.json','w') as fh: json.dump(record,fh,indent=2)
     print(json.dumps(record,indent=2))
 
 if __name__=='__main__': run()
