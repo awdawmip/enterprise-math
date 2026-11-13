@@ -1,0 +1,915 @@
+{
+  "schema": "PREFIX629_PHASE_ONLY_NATIVE_SUFFIX_MEMORY_V1",
+  "source": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "domain": "n>=L+4>=5; lambda>0, all g>=0; given ONLY full 48 native phase terminal vector, not ports; all original labelled L-suffix source paths; continuous real online registers",
+  "theorem": "m=L for n=L+4, m=L+1 for n>=L+5",
+  "source_phases": 48,
+  "source_ports": 96,
+  "actions": 576,
+  "exact_fraction_trial_count": 40,
+  "nonzero_suffix_path_coordinate_comparisons": 9921,
+  "phase_equal_suffix_distinct_witnesses": [
+    {
+      "n": 6,
+      "L": 1,
+      "base_gates": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "alt_gates": [
+        "1",
+        "9/13",
+        "1",
+        "1",
+        "1",
+        "4/3"
+      ],
+      "phase_equal": true,
+      "endpoint_port_equal": false,
+      "suffix_differing_path_count": 24,
+      "examples": [
+        {
+          "path": [
+            8,
+            6
+          ],
+          "mass_a": "24",
+          "mass_b": "288/13"
+        },
+        {
+          "path": [
+            8,
+            7
+          ],
+          "mass_a": "24",
+          "mass_b": "288/13"
+        },
+        {
+          "path": [
+            8,
+            28
+          ],
+          "mass_a": "24",
+          "mass_b": "288/13"
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "L": 1,
+      "base_gates": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "alt_gates": [
+        "5/9",
+        "1",
+        "1",
+        "1",
+        "3/2"
+      ],
+      "phase_equal": true,
+      "endpoint_port_equal": false,
+      "suffix_differing_path_count": 24,
+      "examples": [
+        {
+          "path": [
+            8,
+            6
+          ],
+          "mass_a": "24",
+          "mass_b": "64/3"
+        },
+        {
+          "path": [
+            8,
+            7
+          ],
+          "mass_a": "24",
+          "mass_b": "64/3"
+        },
+        {
+          "path": [
+            8,
+            28
+          ],
+          "mass_a": "24",
+          "mass_b": "64/3"
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "L": 3,
+      "base_gates": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "alt_gates": [
+        "9/13",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "4/3",
+        "1"
+      ],
+      "phase_equal": true,
+      "endpoint_port_equal": true,
+      "suffix_differing_path_count": 96,
+      "examples": [
+        {
+          "path": [
+            52,
+            8,
+            28,
+            34
+          ],
+          "mass_a": "192",
+          "mass_b": "2304/13"
+        },
+        {
+          "path": [
+            52,
+            8,
+            28,
+            35
+          ],
+          "mass_a": "192",
+          "mass_b": "2304/13"
+        },
+        {
+          "path": [
+            52,
+            8,
+            28,
+            80
+          ],
+          "mass_a": "192",
+          "mass_b": "2304/13"
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "L": 3,
+      "base_gates": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "alt_gates": [
+        "1",
+        "9/13",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "4/3"
+      ],
+      "phase_equal": true,
+      "endpoint_port_equal": false,
+      "suffix_differing_path_count": 96,
+      "examples": [
+        {
+          "path": [
+            80,
+            52,
+            8,
+            6
+          ],
+          "mass_a": "96",
+          "mass_b": "1152/13"
+        },
+        {
+          "path": [
+            80,
+            52,
+            8,
+            7
+          ],
+          "mass_a": "96",
+          "mass_b": "1152/13"
+        },
+        {
+          "path": [
+            80,
+            52,
+            8,
+            28
+          ],
+          "mass_a": "96",
+          "mass_b": "1152/13"
+        }
+      ]
+    }
+  ],
+  "trials": [
+    {
+      "n": 5,
+      "L": 1,
+      "t": 4,
+      "lambda": "3/2",
+      "required_saved_scalars": 1,
+      "paths": 72,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "0",
+        "5/3",
+        "1/4",
+        "6"
+      ]
+    },
+    {
+      "n": 5,
+      "L": 1,
+      "t": 4,
+      "lambda": "5/3",
+      "required_saved_scalars": 1,
+      "paths": 72,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "1",
+        "2",
+        "4",
+        "0"
+      ]
+    },
+    {
+      "n": 5,
+      "L": 1,
+      "t": 4,
+      "lambda": "7/4",
+      "required_saved_scalars": 1,
+      "paths": 72,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "3/2",
+        "2",
+        "7/2",
+        "1"
+      ]
+    },
+    {
+      "n": 5,
+      "L": 1,
+      "t": 4,
+      "lambda": "9/5",
+      "required_saved_scalars": 1,
+      "paths": 72,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "0",
+        "5/2",
+        "1/3",
+        "3/2"
+      ]
+    },
+    {
+      "n": 6,
+      "L": 1,
+      "t": 5,
+      "lambda": "3/2",
+      "required_saved_scalars": 2,
+      "paths": 72,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "0",
+        "5/3",
+        "1/4",
+        "6",
+        "1"
+      ]
+    },
+    {
+      "n": 6,
+      "L": 1,
+      "t": 5,
+      "lambda": "5/3",
+      "required_saved_scalars": 2,
+      "paths": 72,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "1",
+        "2",
+        "4",
+        "0",
+        "5/3"
+      ]
+    },
+    {
+      "n": 6,
+      "L": 1,
+      "t": 5,
+      "lambda": "7/4",
+      "required_saved_scalars": 2,
+      "paths": 72,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "3/2",
+        "2",
+        "7/2",
+        "1",
+        "2"
+      ]
+    },
+    {
+      "n": 6,
+      "L": 1,
+      "t": 5,
+      "lambda": "9/5",
+      "required_saved_scalars": 2,
+      "paths": 72,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "0",
+        "5/2",
+        "1/3",
+        "3/2",
+        "2"
+      ]
+    },
+    {
+      "n": 7,
+      "L": 1,
+      "t": 6,
+      "lambda": "3/2",
+      "required_saved_scalars": 2,
+      "paths": 72,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "1",
+        "5/3",
+        "1/4",
+        "6",
+        "0",
+        "7/3"
+      ]
+    },
+    {
+      "n": 7,
+      "L": 1,
+      "t": 6,
+      "lambda": "5/3",
+      "required_saved_scalars": 2,
+      "paths": 72,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "29/9",
+        "2",
+        "4",
+        "0",
+        "0",
+        "1/4"
+      ]
+    },
+    {
+      "n": 7,
+      "L": 1,
+      "t": 6,
+      "lambda": "7/4",
+      "required_saved_scalars": 2,
+      "paths": 69,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "9/2",
+        "2",
+        "7/2",
+        "1",
+        "0",
+        "4"
+      ]
+    },
+    {
+      "n": 7,
+      "L": 1,
+      "t": 6,
+      "lambda": "9/5",
+      "required_saved_scalars": 2,
+      "paths": 72,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "2",
+        "5/2",
+        "1/3",
+        "3/2",
+        "0",
+        "7/2"
+      ]
+    },
+    {
+      "n": 7,
+      "L": 2,
+      "t": 5,
+      "lambda": "3/2",
+      "required_saved_scalars": 3,
+      "paths": 144,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "0",
+        "5/3",
+        "1/4",
+        "6",
+        "1"
+      ]
+    },
+    {
+      "n": 7,
+      "L": 2,
+      "t": 5,
+      "lambda": "5/3",
+      "required_saved_scalars": 3,
+      "paths": 144,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "1",
+        "2",
+        "4",
+        "0",
+        "5/3"
+      ]
+    },
+    {
+      "n": 7,
+      "L": 2,
+      "t": 5,
+      "lambda": "7/4",
+      "required_saved_scalars": 3,
+      "paths": 138,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "3/2",
+        "2",
+        "7/2",
+        "1",
+        "2"
+      ]
+    },
+    {
+      "n": 7,
+      "L": 2,
+      "t": 5,
+      "lambda": "9/5",
+      "required_saved_scalars": 3,
+      "paths": 144,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "0",
+        "5/2",
+        "1/3",
+        "3/2",
+        "2"
+      ]
+    },
+    {
+      "n": 8,
+      "L": 2,
+      "t": 6,
+      "lambda": "3/2",
+      "required_saved_scalars": 3,
+      "paths": 144,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "1",
+        "5/3",
+        "1/4",
+        "6",
+        "0",
+        "7/3"
+      ]
+    },
+    {
+      "n": 8,
+      "L": 2,
+      "t": 6,
+      "lambda": "5/3",
+      "required_saved_scalars": 3,
+      "paths": 144,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "29/9",
+        "2",
+        "4",
+        "0",
+        "0",
+        "1/4"
+      ]
+    },
+    {
+      "n": 8,
+      "L": 2,
+      "t": 6,
+      "lambda": "7/4",
+      "required_saved_scalars": 3,
+      "paths": 138,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "9/2",
+        "2",
+        "7/2",
+        "1",
+        "0",
+        "4"
+      ]
+    },
+    {
+      "n": 8,
+      "L": 2,
+      "t": 6,
+      "lambda": "9/5",
+      "required_saved_scalars": 3,
+      "paths": 144,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "2",
+        "5/2",
+        "1/3",
+        "3/2",
+        "0",
+        "7/2"
+      ]
+    },
+    {
+      "n": 8,
+      "L": 3,
+      "t": 5,
+      "lambda": "3/2",
+      "required_saved_scalars": 4,
+      "paths": 288,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "0",
+        "5/3",
+        "1/4",
+        "6",
+        "1"
+      ]
+    },
+    {
+      "n": 8,
+      "L": 3,
+      "t": 5,
+      "lambda": "5/3",
+      "required_saved_scalars": 4,
+      "paths": 288,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "1",
+        "2",
+        "4",
+        "0",
+        "5/3"
+      ]
+    },
+    {
+      "n": 8,
+      "L": 3,
+      "t": 5,
+      "lambda": "7/4",
+      "required_saved_scalars": 4,
+      "paths": 276,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "3/2",
+        "2",
+        "7/2",
+        "1",
+        "2"
+      ]
+    },
+    {
+      "n": 8,
+      "L": 3,
+      "t": 5,
+      "lambda": "9/5",
+      "required_saved_scalars": 4,
+      "paths": 288,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "0",
+        "5/2",
+        "1/3",
+        "3/2",
+        "2"
+      ]
+    },
+    {
+      "n": 9,
+      "L": 3,
+      "t": 6,
+      "lambda": "3/2",
+      "required_saved_scalars": 4,
+      "paths": 288,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "1",
+        "5/3",
+        "1/4",
+        "6",
+        "0",
+        "7/3"
+      ]
+    },
+    {
+      "n": 9,
+      "L": 3,
+      "t": 6,
+      "lambda": "5/3",
+      "required_saved_scalars": 4,
+      "paths": 288,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "29/9",
+        "2",
+        "4",
+        "0",
+        "0",
+        "1/4"
+      ]
+    },
+    {
+      "n": 9,
+      "L": 3,
+      "t": 6,
+      "lambda": "7/4",
+      "required_saved_scalars": 4,
+      "paths": 276,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "9/2",
+        "2",
+        "7/2",
+        "1",
+        "0",
+        "4"
+      ]
+    },
+    {
+      "n": 9,
+      "L": 3,
+      "t": 6,
+      "lambda": "9/5",
+      "required_saved_scalars": 4,
+      "paths": 288,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "2",
+        "5/2",
+        "1/3",
+        "3/2",
+        "0",
+        "7/2"
+      ]
+    },
+    {
+      "n": 10,
+      "L": 3,
+      "t": 7,
+      "lambda": "3/2",
+      "required_saved_scalars": 4,
+      "paths": 276,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "1",
+        "143/27",
+        "1/4",
+        "6",
+        "0",
+        "0",
+        "3/4"
+      ]
+    },
+    {
+      "n": 10,
+      "L": 3,
+      "t": 7,
+      "lambda": "5/3",
+      "required_saved_scalars": 4,
+      "paths": 288,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "29/9",
+        "29/12",
+        "4",
+        "0",
+        "0",
+        "0",
+        "6"
+      ]
+    },
+    {
+      "n": 10,
+      "L": 3,
+      "t": 7,
+      "lambda": "7/4",
+      "required_saved_scalars": 4,
+      "paths": 288,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "9/2",
+        "26/3",
+        "7/2",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "n": 10,
+      "L": 3,
+      "t": 7,
+      "lambda": "9/5",
+      "required_saved_scalars": 4,
+      "paths": 276,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "2",
+        "107/12",
+        "1/3",
+        "3/2",
+        "0",
+        "0",
+        "1"
+      ]
+    },
+    {
+      "n": 11,
+      "L": 4,
+      "t": 7,
+      "lambda": "3/2",
+      "required_saved_scalars": 5,
+      "paths": 552,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "1",
+        "143/27",
+        "1/4",
+        "6",
+        "0",
+        "0",
+        "3/4"
+      ]
+    },
+    {
+      "n": 11,
+      "L": 4,
+      "t": 7,
+      "lambda": "5/3",
+      "required_saved_scalars": 5,
+      "paths": 576,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "29/9",
+        "29/12",
+        "4",
+        "0",
+        "0",
+        "0",
+        "6"
+      ]
+    },
+    {
+      "n": 11,
+      "L": 4,
+      "t": 7,
+      "lambda": "7/4",
+      "required_saved_scalars": 5,
+      "paths": 576,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "9/2",
+        "26/3",
+        "7/2",
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "n": 11,
+      "L": 4,
+      "t": 7,
+      "lambda": "9/5",
+      "required_saved_scalars": 5,
+      "paths": 552,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "2",
+        "107/12",
+        "1/3",
+        "3/2",
+        "0",
+        "0",
+        "1"
+      ]
+    },
+    {
+      "n": 12,
+      "L": 4,
+      "t": 8,
+      "lambda": "3/2",
+      "required_saved_scalars": 5,
+      "paths": 552,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "1",
+        "143/27",
+        "17/16",
+        "6",
+        "0",
+        "0",
+        "0",
+        "8"
+      ]
+    },
+    {
+      "n": 12,
+      "L": 4,
+      "t": 8,
+      "lambda": "5/3",
+      "required_saved_scalars": 5,
+      "paths": 576,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "29/9",
+        "29/12",
+        "18",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    },
+    {
+      "n": 12,
+      "L": 4,
+      "t": 8,
+      "lambda": "7/4",
+      "required_saved_scalars": 5,
+      "paths": 576,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "9/2",
+        "26/3",
+        "7/2",
+        "1",
+        "0",
+        "0",
+        "0",
+        "5/3"
+      ]
+    },
+    {
+      "n": 12,
+      "L": 4,
+      "t": 8,
+      "lambda": "9/5",
+      "required_saved_scalars": 5,
+      "paths": 552,
+      "all_equal": true,
+      "synthetic_prefix": [
+        "2",
+        "107/12",
+        "13/9",
+        "3/2",
+        "0",
+        "0",
+        "0",
+        "2"
+      ]
+    }
+  ],
+  "result": "ALL_ASSERTIONS_PASS",
+  "review": "AUTHOR_SIDE_UNREVIEWED"
+}
