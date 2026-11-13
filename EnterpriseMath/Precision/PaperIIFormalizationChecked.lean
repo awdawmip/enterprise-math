@@ -10,6 +10,7 @@ import EnterpriseMath.Precision.GeneralMajorizationArithmetic
 import EnterpriseMath.Precision.GeneratingLift
 import EnterpriseMath.Precision.GeometricTailBound
 import EnterpriseMath.Precision.N58RatioBound
+import EnterpriseMath.Precision.SharpPositiveTail
 import EnterpriseMath.Precision.PositiveSeriesAcceleration
 import EnterpriseMath.Precision.TetrahedralMajorization
 import EnterpriseMath.Precision.TetrahedralRationalSplittingChecked
