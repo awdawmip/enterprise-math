@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r134_sturmian_saturation_20261114/check_r134_hybrid.py",
+    "ref": "cf0054d39919605bc026175c9438ff7f6495f600",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r134-hybrid-20261114-check_r134_hybrid-py-cf0054d39919",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Uniform polynomial-time exact S23 vocabulary and rational witnesses for any K,m.\"\"\"\nfrom fractions import Fraction as Q\nfrom math import gcd\nimport json\n\ndef S(K,m,t):\n    return ''.join(str(((K+i)*t).__floor__()-((K+i-1)*t).__floor__()) for i in range(m))\n\ndef phi(q): return sum(gcd(r,q)==1 for r in range(1,q+1))\ndef F(m): return 1+sum((m+1-q)*phi(q) for q in range(1,m+1))\ndef farey(m): return sorted({Q(p,q) for q in range(1,m+1) for p in range(q+1)})\n\ndef hybrid(K,m):\n    assert K>=1 and m>=1\n    out={}\n    if K>=4*m**3+2:\n        ff=farey(m)\n        for a,b in zip(ff,ff[1:]):\n            alpha=(a+b)/2\n            cuts=sorted({Q(0),Q(1)}|{(-j*alpha)%1 for j in range(m+1)})\n            for u,v in zip(cuts,cuts[1:]):\n                rho=(u+v)/2\n                N=((K-1)*alpha-rho+Q(1,2)).__floor__()\n                t=(N+rho)/(K-1)\n                assert 0<t<1\n                out.setdefault(S(K,m,t),t)\n        assert len(out)==F(m)\n    else:\n        cuts={Q(0),Q(1)}\n        for n in range(K-1,K+m):\n            if n>0:cuts.update(Q(p,n) for p in range(1,n))\n        v=sorted(cuts)\n        for t in v[1:-1]: out.setdefault(S(K,m,t),t)\n        for a,b in zip(v,v[1:]):\n            t=(a+b)/2\n            out.setdefault(S(K,m,t),t)\n    return out\n\ndef exact_reference(K,m):\n    cuts={Q(0),Q(1)}\n    for n in range(K-1,K+m):\n        if n>0:cuts.update(Q(p,n) for p in range(1,n))\n    v=sorted(cuts)\n    return {S(K,m,t) for t in v[1:-1]}|{S(K,m,(a+b)/2) for a,b in zip(v,v[1:])}\n\ndef run():\n    tests=0; sampled=0; rows=[]\n    for m in range(1,9):\n        for K in range(1,75):\n            got=hybrid(K,m)\n            assert set(got)==exact_reference(K,m)\n            assert all(S(K,m,t)==w for w,t in got.items())\n            tests+=1; sampled+=len(got)\n        Kbig=10**90+7\n        got=hybrid(Kbig,m)\n        assert len(got)==F(m)\n        assert all(S(Kbig,m,t)==w for w,t in got.items())\n        rows.append(dict(m=m,K75_count=len(hybrid(75,m)),Kbig_count=len(got),full_F=F(m)))\n    return dict(result='R134_HYBRID_BIT_POLY_PASS',bruteforce_matches=tests,\n                rational_witness_crosschecks=sampled,\n                huge_coefficient_cases=8, rows=rows,\n                arithmetic='exact Fraction', all_K_theorem=True)\n\nif __name__=='__main__': print(json.dumps(run(),indent=2))\n",
+      "display_title": "check_r134_hybrid.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/cf0054d39919605bc026175c9438ff7f6495f600/research_notes/brc_s23_av_r134_sturmian_saturation_20261114/check_r134_hybrid.py",
+      "encoding": "utf-8",
+      "sha": "22fb8f919af3c7278589fd08fc317ad6a815397c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
