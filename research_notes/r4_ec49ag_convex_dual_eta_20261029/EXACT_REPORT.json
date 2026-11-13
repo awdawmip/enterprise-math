@@ -1,0 +1,83 @@
+{
+  "schema": "EC49AG_CONVEX_LAGRANGE_CERTIFICATE_V1",
+  "date": "2026-10-29",
+  "model": "positive 18-leaf P/Q BRC causal fresh-coin observer",
+  "support": "alpha-(177/172)*beta",
+  "lambda": "1/20",
+  "C1": "43/48",
+  "C2": "7/8",
+  "certified_eta": "0<=eta<=123/430",
+  "formula": "249/2752+(499/8256)*[eta-13/998]_+ +(3/43)*[eta-1/4]_+",
+  "X_observation_hinge_roots": [
+    "13/998",
+    "1/4"
+  ],
+  "unique_vertices": 168,
+  "indexed_vertices_per_knot": 288,
+  "certified_knot_count": 4,
+  "certificate_tsv_rows": 1440,
+  "checks": [
+    {
+      "eta": "0",
+      "certified_knot": true,
+      "X_support": "249/2752",
+      "X_dual": "249/2752",
+      "b0_dual_max": "1801/20640",
+      "b1_16_dual_max": "249/2752",
+      "b0_equal_max_count": 72,
+      "b1_16_equal_max_count": 24,
+      "dual_excess_over_X": "0",
+      "legal_b0_endpoint_max": null
+    },
+    {
+      "eta": "13/998",
+      "certified_knot": true,
+      "X_support": "249/2752",
+      "X_dual": "249/2752",
+      "b0_dual_max": "1801/20640",
+      "b1_16_dual_max": "249/2752",
+      "b0_equal_max_count": 72,
+      "b1_16_equal_max_count": 24,
+      "dual_excess_over_X": "0",
+      "legal_b0_endpoint_max": null
+    },
+    {
+      "eta": "1/4",
+      "certified_knot": true,
+      "X_support": "3461/33024",
+      "X_dual": "3461/33024",
+      "b0_dual_max": "401/3840",
+      "b1_16_dual_max": "3461/33024",
+      "b0_equal_max_count": 24,
+      "b1_16_equal_max_count": 16,
+      "dual_excess_over_X": "0",
+      "legal_b0_endpoint_max": "168127/1618176"
+    },
+    {
+      "eta": "123/430",
+      "certified_knot": true,
+      "X_support": "113/1032",
+      "X_dual": "113/1032",
+      "b0_dual_max": "113/1032",
+      "b1_16_dual_max": "113/1032",
+      "b0_equal_max_count": 24,
+      "b1_16_equal_max_count": 16,
+      "dual_excess_over_X": "0",
+      "legal_b0_endpoint_max": null
+    },
+    {
+      "eta": "3/10",
+      "certified_knot": false,
+      "X_support": "919/8256",
+      "X_dual": "919/8256",
+      "b0_dual_max": "107/960",
+      "b1_16_dual_max": "919/8256",
+      "b0_equal_max_count": 24,
+      "b1_16_equal_max_count": 16,
+      "dual_excess_over_X": "1/6880",
+      "legal_b0_endpoint_max": "13699/123840"
+    }
+  ],
+  "diagnostic": "At eta=3/10, excess 1/6880 is dual relaxation only; b0 legal endpoint max is 1/1440 below X.",
+  "status": "AUTHOR_EXACT_BIGINT_CHECK_PASS / ANALYTIC_CONVEXITY_PROOF / UNREVIEWED / NOT_ADMITTED"
+}
