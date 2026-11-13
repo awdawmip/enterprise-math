@@ -16,11 +16,11 @@ These equalities include nonzero and deterministic boundary data t=±1. At t=0 t
 
 ## 2. Symmetry determines an optimal decoder
 
-For a one-coordinate moment line of U, translations by every g∈ker(a) act on the fiber: chi_a(g)=1 preserves its specified t, while all other specified zero moments remain zero under translation. The worst-case TV loss as a function of q is convex and invariant under this 8-element group; averaging q over that group cannot increase risk. Since the fixed total masses on the two chi_a sign-classes are (1±t)/2, the unique translation-invariant decoder is
+For a one-coordinate moment line of U, translations by every g∈ker(a) act on the fiber: chi_a(g)=1 preserves its specified t, while all other specified zero moments remain zero under translation. The worst-case TV loss as a function of q is convex and invariant under this 8-element group; averaging q over that group cannot increase risk. A translation-invariant decoder is uniform within each of the two chi_a sign-classes, but **symmetry alone leaves its two class masses free**. We choose the explicit candidate with the same class masses as the source fiber:
 
 `q_{a,t}(x)=[1+t chi_a(x)]/16.`
 
-Consequently rho_U(m) equals the maximum over the fiber of `TV(mu,q_{a,t})`. Thus checking this explicit q is sufficient for the full minimax upper bound.
+The complete finite certificate in Section 4 proves that its worst-case error meets the disjoint-support lower bound in Section 3. **Together**, these establish that this particular q is minimax-optimal; there is no unjustified uniqueness assumption or inference that symmetry alone fixes the decoder masses.
 
 ## 3. Matching lower bounds from disjoint compatible laws
 
