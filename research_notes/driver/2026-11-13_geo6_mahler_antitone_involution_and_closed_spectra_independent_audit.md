@@ -79,3 +79,29 @@ objective closure require their own current Source decisions.
 This note constitutes supplementary independent exact mathematical and
 source-pin checking; not a new Claim, formal Driver Review or theorem
 promotion.
+
+## 2026-11-13 exact existing Native Review reconciliation
+
+Original `rd11-20261113-0818-geo6-mahler-review-flow-v1` completed
+`SUCCEEDED`, exposing the existing immutable accepted historical review
+`DR-6A6587387463AE326117` (original Driver `EM-DVR-G6K2P9`,
+`reviewed_at=2026-08-30T13:50:00Z`,
+`disposition=ACCEPTED`, destination
+`RS-GEO6-SECONDWAVE-PACKING-KAKEYA-PRIOR-ART-SYNTHESIS/TP2-B531F3BB4A597B7D3EAF`).
+This genuine DR predates this supplementary audit. No new formal review
+is required to establish its historical acceptance.
+
+The corresponding `DFU-80FF80D580C7C2C48D29` presently has
+`FOLLOWUP_PACKET_INVALID / ready=false` with the exact validator result:
+`Driver follow-up packet must consume the exact result next_control_plane_recommendation`.
+The DFU records a generic second-wave recommendation, whereas the frozen
+RR recommendation begins `Driver-review the source-backed classification
+and accept only the cleaned provenance boundary`.
+
+The open unit is therefore typed follow-up binding/reconciliation, not a
+second first review, an unsaved mathematical result, or a missing author.
+The present task projection still displays `FROZEN_RETURN / AWAITING_REVIEW`
+despite the historical accepted DR. A bounded backend recovery issue,
+[em-research-mcp #71](https://github.com/awdawmip/em-research-mcp/issues/71),
+records both this and the parallel first-wave case. The immutable original
+RR, DR, author credit and second-wave Task must be preserved.
