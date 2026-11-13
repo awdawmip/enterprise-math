@@ -43,6 +43,15 @@
   "union_fraction": "70993/73728",
   "kernel_git_blob": "d986f644ba513240ea8395e0b221af7946e0efd6",
   "grade": "AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED",
-  "verification": "original source imported kernel exact arithmetic local calculations; combined checker replay pending",
-  "next": "exact composite replay; independent historical union audit; adaptive 16x16 / alternative bound near (10,52)"
+  "verification": "Exact original source bytes + published checker composite replay PASS on 2026-11-13; mathematical independent review pending",
+  "next": "exact composite replay; independent historical union audit; adaptive 16x16 / alternative bound near (10,52)",
+  "composite_replay": {
+    "status": "PASS",
+    "source_blob_sha1": "d986f644ba513240ea8395e0b221af7946e0efd6",
+    "checker_blob_sha1": "b6fd7e3d949db5aca75aa855f723ccfc77a271ca",
+    "output": [
+      "PASS 11 52 (-86683906, -26603110, 3524919) old -206906474",
+      "ALL_CHECKS_PASS PREFIX750-R6 1+1=2"
+    ]
+  }
 }
