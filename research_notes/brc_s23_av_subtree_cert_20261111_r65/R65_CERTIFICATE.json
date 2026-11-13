@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "arithmetic": "Python Fraction: exact integer/rational operations; coverage finite; proofs in PROOF.md",
+  "source_origin": {
+    "frozen_science": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+    "predecessor_commit": "d470e0a791e82a259dc547eaceb76be074309b49",
+    "researcher_id": "EM-DIRECT-72EF83",
+    "research_activity_id": "RA-4325194BAEF376B1577CAD1C",
+    "executed_local_verifier": "check_r65.py in R65_RESEARCH_BUNDLE.zip"
+  },
+  "counts": {
+    "explicit_exact_witnesses": 2,
+    "detected_winner_change_witnesses": 1,
+    "finite_models": 1152,
+    "certified_exclusions": 458,
+    "independent_checked_events": 21335,
+    "inconclusive": 694,
+    "random_models": 700,
+    "random_certified": 165,
+    "random_direct_events": 7410,
+    "tree_models": 360,
+    "tree_certificates": 328,
+    "tree_nodes_visited": 883,
+    "tree_subtrees_pruned": 341,
+    "tree_direct_query_checks": 4264,
+    "stratification_direct_checks": 234,
+    "frozen_S23_exact_samples": 61
+  },
+  "examples": {
+    "r64_fourth_source": {
+      "theta_0": "1/30",
+      "theta_1": "1003/30000",
+      "certified_subinterval_upper": "100003/3000000",
+      "source_390_excluded": true,
+      "source_6042_full_interval_certified": false
+    },
+    "safe_order_swap": {
+      "theta_0": "1/30",
+      "theta_1": "1003/30000",
+      "j": 500,
+      "x": "13/15",
+      "m": 13,
+      "z": 12,
+      "times": [
+        1,
+        390
+      ],
+      "phases_theta0": [
+        "1/30",
+        "0"
+      ],
+      "phases_theta1": [
+        "1003/30000",
+        "39/1000"
+      ],
+      "subtree_excluded": true,
+      "latest_with_time15": 15
+    },
+    "r64_collision_partition": {
+      "root_count": 25,
+      "open_cells": 26,
+      "at_endpoints": [
+        6042,
+        15
+      ]
+    },
+    "frozen_s23_local": {
+      "m": 2,
+      "q": "1000000000000000000000000",
+      "latest_age_label1": 1,
+      "older_source_membership_may_change": true
+    }
+  }
+}
