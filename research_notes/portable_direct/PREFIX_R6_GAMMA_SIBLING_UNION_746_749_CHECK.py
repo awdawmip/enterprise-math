@@ -92,7 +92,7 @@ SOURCES = [
 ]
 
 def git_blob_oid(raw):
-    return hashlib.sha1(b"blob " + str(len(raw)).encode("ascii") + b"\\0" + raw).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(raw)).encode("ascii") + b"\0" + raw).hexdigest()
 
 def pairs_from_source(tag, name, field, expected_sha, expected_count):
     raw = (ROOT / name).read_bytes()
