@@ -1,0 +1,204 @@
+{
+  "schema": "R6_PREFIX750B_EXACT_PREFIX712_FINE_CHILD_COLLISION_V1",
+  "date": "2026-11-13",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_repo": "awdawmip/enterprise-math",
+  "sibling_coordinate_list": {
+    "file": "PREFIX_R6_GAMMA_SIBLING_UNION_746_749_RESULTS.json",
+    "git_blob_sha1": "e31d32eb5abf9aa675cc957cf34d54e21bffd8cd",
+    "original_upper_pairs": 197
+  },
+  "analytic_kernel": {
+    "file": "PREFIX741_R6_INNER_STRIP_194.py",
+    "git_blob_sha1": "d986f644ba513240ea8395e0b221af7946e0efd6",
+    "stopping_rows": 189,
+    "nonzero_positions": 9529,
+    "moment_regression_sha256": [
+      "797121e567e6422d342b2647cd17ff01187d5000b08bde8a954730d071bed46e",
+      "814be93bb068b6a6e688e8ea5a466939a06e617b67ab585c177176f57afd57ae"
+    ]
+  },
+  "lattices": {
+    "D": "[0,1/2]^2",
+    "old_coarse_side": "1/384",
+    "old_fine_side": "1/768",
+    "sibling_macro_side": "1/384"
+  },
+  "result": {
+    "sibling_original_upper_macro_pairs": 197,
+    "sibling_original_fine_children": 1576,
+    "old_711_coarse_positives_within_macro_candidates": 0,
+    "old_712_fine_accepted_upper_children": 27,
+    "old_712_fine_accepted_mirrored_children": 54,
+    "sibling_nonoverlapping_original_fine_children_after_PREFIX712": 1522,
+    "max_old_coarse_G1_microfloor": -102756816,
+    "explicit_positive_fine_upper_children_microfloor": [
+      [
+        40,
+        94,
+        2253597
+      ],
+      [
+        41,
+        94,
+        5318721
+      ],
+      [
+        41,
+        95,
+        452325
+      ],
+      [
+        43,
+        96,
+        1926330
+      ],
+      [
+        46,
+        98,
+        2345829
+      ],
+      [
+        47,
+        98,
+        5537828
+      ],
+      [
+        47,
+        99,
+        1221214
+      ],
+      [
+        48,
+        100,
+        247976
+      ],
+      [
+        49,
+        100,
+        3480312
+      ],
+      [
+        51,
+        102,
+        2014029
+      ],
+      [
+        53,
+        104,
+        1117278
+      ],
+      [
+        54,
+        104,
+        4430149
+      ],
+      [
+        54,
+        105,
+        875174
+      ],
+      [
+        55,
+        104,
+        7752598
+      ],
+      [
+        55,
+        105,
+        4202284
+      ],
+      [
+        56,
+        104,
+        11081648
+      ],
+      [
+        56,
+        105,
+        7538956
+      ],
+      [
+        57,
+        104,
+        14414255
+      ],
+      [
+        57,
+        105,
+        10882228
+      ],
+      [
+        58,
+        104,
+        17747314
+      ],
+      [
+        58,
+        105,
+        14229070
+      ],
+      [
+        59,
+        104,
+        21077662
+      ],
+      [
+        59,
+        105,
+        17576393
+      ],
+      [
+        60,
+        104,
+        24402087
+      ],
+      [
+        60,
+        105,
+        20921050
+      ],
+      [
+        61,
+        104,
+        27717332
+      ],
+      [
+        61,
+        105,
+        24259841
+      ]
+    ],
+    "example_macro": [
+      20,
+      47
+    ],
+    "example_macro_G1_microfloor": -113719823,
+    "example_four_children": [
+      [
+        40,
+        94,
+        2253597
+      ],
+      [
+        40,
+        95,
+        -2616132
+      ],
+      [
+        41,
+        94,
+        5318721
+      ],
+      [
+        41,
+        95,
+        452325
+      ]
+    ],
+    "verification": "Actual local Python standard-library Fraction reconstruction (source-equivalent) in 8 sequential bounded batches 25+25+25+25+25+25+25+22, 197/197 macro cells and 788 original upper fine children; each strict sign assessed as Fraction; 189-layer and two moment hashes verified. Packaged checker full end-to-end not separately run.",
+    "scientific_status": "AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED",
+    "scope": "Exact original PREFIX712 baseline intersection for sibling 11-file geometric source family, not full PREFIX713+ union.",
+    "next": "Normalize and intersect 713/714/716/718 fine-cell families; all later /384 supports; then compute corrected complete /768 certified mask."
+  }
+}
