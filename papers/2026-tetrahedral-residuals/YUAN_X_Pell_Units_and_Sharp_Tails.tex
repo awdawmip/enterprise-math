@@ -1,0 +1,244 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1.05in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Pell units and sharp positive tails in Ramanujan's N=58 series},
+  pdfauthor={YUAN X},pdfsubject={Pell units and sharp truncation bounds for a positive hypergeometric series}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\poch}[2]{(#1)_{#2}}
+\newcommand{\ddoi}[1]{\href{https://doi.org/#1}{doi:\,#1}}
+\title[Pell units and sharp positive tails]{Pell units and sharp positive tails in Ramanujan's \texorpdfstring{$N=58$}{N=58} series}
+\author{YUAN X}
+\address{Enterprise Math}
+\date{November 13, 2026}
+\subjclass[2020]{Primary 33C20, Secondary 11D09, 11Y60}
+\keywords{Ramanujan series, hypergeometric series, Pell equation, truncation error}
+\begin{document}
+\begin{abstract}
+For a positive hypergeometric series with upper parameters
+$1/2,s,1-s$ and a positive linear weight, we determine the least constant
+that bounds every consecutive-term ratio in every omitted tail. For series
+argument $0<x<1$ it is $x$, starting at the second term. We also give the
+optimal multiplier of the first omitted term and the precise exception
+that can occur at the first ratio. In Ramanujan's $N=58$ series the tail
+constant is $99^{-4}$. Ramanujan's class invariant supplies a quadratic
+unit with half-trace $99^2$, so the sharp constant is the inverse square of
+this half-trace. Two Pell equations express its arithmetic in
+$\mathbb Q(\sqrt{2})$ and $\mathbb Q(\sqrt{58})$.
+\end{abstract}
+\maketitle
+
+\section{The constant in a positive tail}
+
+Ramanujan's formula \cite[\S14, (44)]{Ramanujan} reads
+\begin{equation}\label{eq:ram}
+ \frac1\pi=C\sum_{n=0}^{\infty}a_n,\qquad
+ C=\frac{2\sqrt2}{99^2},\qquad
+ a_n=\frac{(4n)!}{(n!)^4}\frac{1103+26390n}{396^{4n}} .
+\end{equation}
+After the first $M+1$ terms have been summed, one may bound the error by
+comparing the terms beginning at $a_{M+1}$ with a geometric series. How
+small can its common ratio be for all $M\geq0$? The first ratio $a_1/a_0$
+exceeds the limiting ratio and lies outside every omitted tail.
+
+Han and Chen \cite{HanChen} give a remainder expansion and upper and lower
+bounds for \eqref{eq:ram}. Milla and Chen \cite{MillaChen} treat asymptotic
+expansions for the hypergeometric family to which it belongs. For the
+positive-slope series they treat, their leading coefficient already implies
+the limit of the remainder divided by the first omitted term. We give a
+direct inequality valid at every truncation and isolate the exceptional
+initial ratio. This yields sharp constants for both the consecutive-term
+ratios and the normalized remainder. We identify the first constant
+arithmetically using Ramanujan's $g_{58}$. The value of the complete
+series in \eqref{eq:ram} is taken from the classical identity, for which
+Zhao \cite{Zhao} gives a modular proof.
+
+For $0<s<1$, $0<x<1$, $A>0$ and $B\geq0$, put
+\begin{equation}\label{eq:general}
+ u_n=\frac{\poch{1/2}{n}\poch{s}{n}\poch{1-s}{n}}{(n!)^3}
+       (A+Bn)x^n,\qquad
+ R_M=\sum_{n=M+1}^{\infty}u_n .
+\end{equation}
+Here $\poch{t}{n}=t(t+1)\cdots(t+n-1)$ and $\poch{t}{0}=1$.
+
+\begin{theorem}\label{thm:sharp}
+For every $n\geq1$ one has $0<u_{n+1}/u_n<x$, with
+\begin{equation}\label{eq:sup}
+ \sup_{n\geq1}\frac{u_{n+1}}{u_n}=x,\qquad
+ \sup_{n\geq0}\frac{u_{n+1}}{u_n}
+ = x\max\!\left\{1,\frac{s(1-s)(A+B)}{2A}\right\}.
+\end{equation}
+For every $M\geq0$, the normalized remainder satisfies
+\begin{equation}\label{eq:tail}
+ 1<\frac{R_M}{u_{M+1}}<\frac1{1-x},\qquad
+ \lim_{M\to\infty}\frac{R_M}{u_{M+1}}=\frac1{1-x}.
+\end{equation}
+In particular $1/(1-x)$ is the least upper bound valid for all $M$.
+\end{theorem}
+
+\begin{proof}
+The quotient of consecutive terms equals
+\begin{equation}\label{eq:ratio}
+ \frac{u_{n+1}}{x u_n}=
+ \frac{(n+1/2)(n+s)(n+1-s)}{(n+1)^3}
+ \frac{A+B(n+1)}{A+Bn}.
+\end{equation}
+For $n\geq1$ the last fraction is less than $(n+1)/n$, since
+cross multiplication leaves the positive difference $A$.
+The factors $n+s$ and $n+1-s$ have average $n+1/2$, hence their
+product is at most $(n+1/2)^2$. Finally
+\[
+ n(n+1)^2-(n+1/2)^3=\frac{4n^2+2n-1}{8}>0
+ \qquad(n\geq1).
+\]
+These inequalities give $u_{n+1}/u_n<x$. In \eqref{eq:ratio} both factors
+tend to $1$, including the case $B=0$. Thus the supremum for $n\geq1$
+equals $x$. Substitution of $n=0$ gives the second formula in \eqref{eq:sup}.
+
+Write $m=M+1\geq1$. For $j\geq1$ each product of $j$ consecutive ratios
+gives $0<u_{m+j}/u_m<x^j$. Summing proves both inequalities in
+\eqref{eq:tail} and absolute convergence. For each fixed $j$ this product
+tends to $x^j$ as $m\to\infty$. The summable majorant $(x^j)_{j\geq0}$
+allows the limit to pass through the sum, giving $\sum_{j\geq0}x^j$.
+\end{proof}
+
+\section{The class invariant and the paired Pell equations}
+
+For a nonzero real $u$, let $H(u)=(u+u^{-1})/2$ and
+$D(u)=(u-u^{-1})/2$. Their squares differ by $1$. In particular the
+condition $H(u)=P^2$ gives
+\begin{equation}\label{eq:factor}
+ D(u)^2=(P^2-1)(P^2+1).
+\end{equation}
+The following construction produces such a half-trace directly from a
+negative Pell solution when a second square condition holds.
+
+\begin{proposition}\label{prop:unit}
+Let $d>1$ be a nonsquare integer, and let $b,c$ be positive integers with
+$b^2-dc^2=-1$. Set $v=b+c\sqrt d$ and $u=v^2$. Then
+\[
+ H(u)=2b^2+1=2dc^2-1,\qquad D(u)=2bc\sqrt d .
+\]
+In particular, $H(u)$ is an integer square $P^2$ exactly when
+$2b^2+1$ is a square. The positive square root then satisfies
+\begin{equation}\label{eq:paired}
+ P^2-2b^2=1,\qquad P^2-2dc^2=-1 .
+\end{equation}
+Conversely, subtracting the two equations in \eqref{eq:paired}
+recovers $b^2-dc^2=-1$.
+\end{proposition}
+
+\begin{proof}
+The conjugate $b-c\sqrt d$ equals $-v^{-1}$.
+The conjugate of $u$ is therefore $u^{-1}$. Expanding the two squares
+shows that $H(u)=b^2+dc^2$ and $D(u)=2bc\sqrt d$.
+The norm equation gives the two expressions for $H(u)$ and the identities
+follow. Subtracting the second equation of \eqref{eq:paired} from the
+first gives $2dc^2-2b^2=2$.
+\end{proof}
+
+Ramanujan records $g_{58}^2=(5+\sqrt{29})/2$
+in \cite[\S\S5--6]{Ramanujan}. Write $w=g_{58}^2$. Since $w^2=5w+1$,
+\[
+ w^3=26w+5=70+13\sqrt{29},\qquad
+ u=w^6=9801+1820\sqrt{29}.
+\]
+The norm of $w$ equals $-1$. Applying Proposition~\ref{prop:unit}
+to $v=w^3$ gives $b=70$, $c=13$, $d=29$ and
+\begin{align}
+ 99^2-2\cdot70^2&=1, &99^2-58\cdot13^2&=-1,\label{eq:Pell99}\\
+ H(g_{58}^{12})&=99^2, & 9801^2-29\cdot1820^2&=1.\notag
+\end{align}
+In particular $99+13\sqrt{58}$ has norm $-1$. The same integers give
+the following checks on the coefficients of \eqref{eq:ram}:
+\[
+ 396=4\cdot99,\qquad
+ 26390=29\cdot70\cdot13,\qquad
+ 4\cdot1103=26390-2\cdot99(99+13-1).
+\]
+These are evaluations at the given class invariant. The identification
+of the resulting series with $1/\pi$ enters through \eqref{eq:ram}.
+
+\section{A truncation interval for the Ramanujan series}
+
+Grouping the factors of $(4n)!$ by residue class modulo $4$ gives
+\[
+ \frac{(4n)!}{256^n(n!)^4}=
+ \frac{\poch{1/4}{n}\poch{1/2}{n}\poch{3/4}{n}}{(n!)^3}.
+\]
+Thus $a_n$ in \eqref{eq:ram} is exactly $u_n$ in \eqref{eq:general}
+with $(s,A,B)=(1/4,1103,26390)$ and
+\begin{equation}\label{eq:bridge}
+ x=99^{-4}=H(g_{58}^{12})^{-2}=\frac1{96059601}.
+\end{equation}
+Set $S_M=C\sum_{n=0}^{M}a_n$. All quantities below can be computed
+from $S_M$ and $a_{M+1}$.
+
+\begin{corollary}
+For all $M\geq0$,
+\begin{equation}\label{eq:interval}
+ \frac{1}{S_M+Ca_{M+1}/(1-x)}
+   <\pi<
+ \frac{1}{S_M+Ca_{M+1}} .
+\end{equation}
+The sequence $1/S_M$ decreases strictly to $\pi$, and the error satisfies
+\[
+ 0<\frac{1/S_M}{\pi}-1<\frac{C a_{M+1}}{(1-x)S_M}.
+\]
+The sharp ratio bound is $x$ for $n\geq1$ and
+$(82479/35296)x$ for $n\geq0$.
+The optimal uniform multiplier of $C a_{M+1}$ in an upper bound for
+$1/\pi-S_M$ is $96059601/96059600$.
+\end{corollary}
+
+\begin{proof}
+Equations \eqref{eq:ram} and \eqref{eq:tail} put $1/\pi$ strictly between
+$S_M+Ca_{M+1}$ and $S_M+Ca_{M+1}/(1-x)$. Taking reciprocals gives
+\eqref{eq:interval}. Positivity gives strict convergence from above for
+$1/S_M$. Its relative error is $(1/\pi-S_M)/S_M$. Theorem~\ref{thm:sharp}
+gives the least multiplier and both supremum values, since
+$3(1103+26390)/(32\cdot1103)=82479/35296>1$.
+\end{proof}
+
+\paragraph{Proof provenance.}
+The earlier Lean arithmetic checkpoint \cite{Checkpoint} includes the
+$P=99$ Pell identities and a finite geometric-tail estimate with the
+coarser ratio $25/99^4$. The optimal constants in Theorem~\ref{thm:sharp},
+their application to the omitted tails, and the limit in \eqref{eq:tail}
+are proved here on paper.
+
+\paragraph{Acknowledgment.}
+OpenAI's ChatGPT assisted with drafting, calculations and source checking.
+
+\begin{thebibliography}{9}
+\bibitem{HanChen}
+X.-F. Han and C.-P. Chen,
+Asymptotic results of the remainder in a Ramanujan series for $1/\pi$,
+\emph{Expositiones Math.} \textbf{40} (2022), 931--946.
+\ddoi{10.1016/j.exmath.2022.09.003}.
+
+\bibitem{MillaChen}
+L. Milla and C.-P. Chen,
+Asymptotic expansions of truncated hypergeometric series for $1/\pi$,
+\emph{J. Math. Anal. Appl.} \textbf{541} (2025), article 128672.
+\ddoi{10.1016/j.jmaa.2024.128672}.
+
+\bibitem{Ramanujan}
+S. Ramanujan, Modular equations and approximations to $\pi$,
+\emph{Quart. J. Pure Appl. Math.} \textbf{45} (1914), 350--372.
+\href{https://ramanujan.sirinudi.org/Volumes/published/ram06.pdf}{Digitized article}.
+
+\bibitem{Checkpoint}
+YUAN X, Enterprise Math, Lean 4 arithmetic and tail checkpoint (2026),
+revision \texttt{ca2b30c7ef45}.
+\href{https://github.com/awdawmip/enterprise-math/tree/ca2b30c7ef45b470d0d5cb6955def48610cd9dd7/EnterpriseMath/PrecisionPi}{Source modules}.
+
+\bibitem{Zhao}
+Y. Zhao, A modular proof of two of Ramanujan's formulae for $1/\pi$,
+\emph{J. Aust. Math. Soc.} \textbf{109} (2020), 131--144.
+\ddoi{10.1017/S1446788718000599}.
+\end{thebibliography}
+\end{document}
