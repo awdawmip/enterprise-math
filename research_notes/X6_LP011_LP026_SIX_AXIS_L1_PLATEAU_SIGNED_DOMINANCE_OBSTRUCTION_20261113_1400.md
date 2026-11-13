@@ -62,3 +62,17 @@ The algebraic proof is for all `r in N^6` and `M>=1`. Finite regression verifies
 **Next exact action:** identify real active consumers (particularly a six-axis native dominant selector or quotient-to-native BRC decoder) that might infer signed dominance from `rho,T` or selected-median bits; compare actual code against the `M=3` collision. If incorrect, patch that precise consumer and run its original source regression. If correct, record a line-specific KEEP and continue the declared source corpus.
 
 **Execution custody:** known original researcher `EM-X6-FB6990`, original SID `MCP-082892eb480e45dea6d4b9fcc0491034`, original winning CLAIM `MCP-bdd4acf9d96a8f1f0dfab4e9`, original RUN `RUN-756de85b94c23b46b181f7b8`; latest historical resume `onhour-20261113-1259-own-x6-resume-v1` SUCCEEDED at generation 2/revision 1. Fresh canonical continuation read `onhour-20261113-1408-x6-current-continuation` was QUEUED at writing; do not treat historical RUN pointer as fresh execution authorization. No native semantic PROGRESS for this new proof is asserted. All pending operations must be reconciled by their original IDs.
+
+## Immediate five-source typed consumer check (2026-11-13 14:00)
+
+A separate precise current-main source review consumed the theorem before deciding whether a real current caller needs a patch. The following full source bodies were read; each filename is an exact file, not a directory-wide coverage claim:
+
+| Actual current source | Observed Git blob SHA-1 | Relevant typed operation and disposition |
+|---|---|---|
+| `research_checks/X6_LP011_SIGNED_MEDIAN_BIT_LENGTH_RECOVERY_20261112.py` | `6cf4cc629e05f0c20465bfd691ffd488239d433a` | Lines 1–5 and 26–50 explicitly restrict recovery to a **three-component selected slice**; KEEP; the six-axis collision above is outside this function's contract. |
+| `research_checks/X6_LP011_SIGNED_DOMINANT_FIBRE_CHAMBER_20261112.py` | `1ee09fddc9456f5bf1cfc2641fe4a5dcfb7f4bc5` | Lines 22–38 construct the signed dominant axis using `(a,h)` with `len(a)==3`; KEEP depth-bearing selected chart. |
+| `research_checks/X6_LP011_TYPED_DOMINANT_CONSUMER_20261112.py` | `cf2c11d47a4abf5a462c4c96540a125f0f942a8d` | Lines 31–58 embed an actual three-component signed vector in a chosen 6-axis subset, retaining `h` from `minzero`; KEEP. This is not arbitrary six-dimensional `rho,T` reconstruction. |
+| `research_checks/X6_LP026_QUADRATIC_DEPTH_RECOVERY_20261112_ONHOUR.py` | `f555d0c9213186987b82ecbd42b96cd095bb661f` | Lines 16–32 solve the full `G` depth equation with up to two branches, preserving both when ambiguous; KEEP exact `G`-based reader. The new collision shows why a branch choice may still matter. |
+| `research_checks/X6_LP026_CYCLIC_NATIVE_G_RANGE_CERTIFICATE_20261112_2100.py` | `7e0255431adc6d8aa339c76271ecb38b8d57df2f` | Lines 13–84 retain exact depth interval/modulus and native-`G` extremal readings; KEEP; no unrestricted `rho,T` singleton lift is asserted. |
+
+All five are **source-semantics inspections, not fresh executions of their original checkers**. No proved erroneous live caller was located in this five-file boundary; no source patch is authorized merely by the existence of the new counterexample. Other consumers in the declared parent scope remain to be checked.
