@@ -1,0 +1,143 @@
+{
+  "original_T3_two_B_ports": {
+    "V29": {
+      "A_Rin": [
+        0,
+        0,
+        0,
+        10
+      ],
+      "A_Rout": [
+        2,
+        4,
+        3,
+        0
+      ],
+      "A_u": [
+        -2,
+        -4,
+        -3,
+        10
+      ],
+      "B_u": [
+        -10,
+        9
+      ],
+      "M_A": [
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "components": 2,
+    "edges": 22,
+    "final": {
+      "A:3": 10,
+      "B:1": 9
+    },
+    "initial": {
+      "A:0": 2,
+      "A:1": 4,
+      "A:2": 3,
+      "B:0": 10
+    },
+    "min_seeds": 19,
+    "passes": 3,
+    "transfers": 19
+  },
+  "reconnected_single_B_port": {
+    "V29": {
+      "A_Rin": [
+        0,
+        0,
+        0,
+        10
+      ],
+      "A_Rout": [
+        2,
+        4,
+        3,
+        0
+      ],
+      "A_u": [
+        -2,
+        -4,
+        -3,
+        10
+      ],
+      "B_u": [
+        -1,
+        0
+      ],
+      "M_A": [
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "components": 1,
+    "edges": 22,
+    "final": {
+      "A:3": 10
+    },
+    "initial": {
+      "A:0": 2,
+      "A:1": 4,
+      "A:2": 3,
+      "B:0": 1
+    },
+    "min_seeds": 10,
+    "passes": 3,
+    "transfers": 19
+  },
+  "schema": "R762U_EXACT_CAUSAL_SEED_VERIFY_V1",
+  "scope": "conditional V29+single-token firing semantics; NOT native force admission",
+  "simple_directed_graphs_checked": {
+    "2": 3,
+    "3": 63,
+    "4": 4095
+  },
+  "three_vertex_multigraphs_checked": 728
+}

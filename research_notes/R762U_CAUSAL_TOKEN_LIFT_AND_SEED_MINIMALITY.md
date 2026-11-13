@@ -1,0 +1,67 @@
+# R762U — Causal-token realization of V29: exact seed theorem and V27 network witness
+
+**2026-11-14 Asia/Shanghai; author-side mathematical result; exact finite verification; NOT_REVIEWED / NOT_ADMITTED.** Parent task \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\`, publication \`TP2-8B7E13C5904A2D6F1142\`. Frozen scientific input: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\` (unchanged).
+
+## Question and explicit additional assumption
+
+R762T constructs a 22-occurrence V29 nonnegative PASS/TRANSFER count witness for V27's contrast signature and proves network charge conservation at every occurrence. V29 count increments alone place **no availability requirement** on the outgoing port. This note introduces a *conditional causal-token lift*: for each typed port vertex \`x:a\` hold a nonnegative integer token inventory \`n(x:a)\`. A V29 \`PASS(x;a->b)\` is a directed edge \`x:a -> x:b\`; a \`TRANSFER(x:a -> y:b)\` is \`x:a -> y:b\`. Firing one prescribed occurrence requires a token at its edge tail and moves exactly one token to its head, consuming each prescribed event occurrence exactly once. Preserve individual event identities, multiple edges, all V29 ledger increments and their order. This is an **additional finite-state model**, not a claimed physical \`TRIADIC_CLOSURE_E\` admission law; token motion is not identified with native three-force balance.
+
+## Theorem U1 — sharp minimum initial inventory on a directed multigraph
+
+For a finite directed event multigraph \`D=(W,F)\`, let \`C\` range over the weakly connected components of the nonempty edge support (ignore isolated vertices), with \`d^+(v)\` and \`d^-(v)\` denoting outgoing and incoming edge multiplicities. Set
+
+\[
+P(C)=\sum_{v\in C}\max(0,d^+(v)-d^-(v)).
+\]
+
+The minimum total initial token inventory enabling **all occurrences exactly once** in some valid order is
+
+\[
+\boxed{K_{\min}(D)=\sum_C\max\{1,P(C)\}.}
+\]
+
+This formula holds for arbitrary finite multiplicities, loops and repeated edges.
+
+**Lower bound.** A token's executed edges form a directed trail; the whole execution partitions event occurrences into edge-disjoint token trails. At every vertex, \`starts(v)-ends(v)=d^+(v)-d^-(v)\`, so at least \`P(C)\` trails must start in \`C\`; since the component is nonempty at least one token must start there. Tokens cannot cross weakly disconnected components.
+
+**Construction.** If \`P(C)=0\`, every active vertex is balanced; a weakly connected finite balanced directed multigraph has an Euler circuit, executable from one token. If \`P(C)>0\`, list positive-imbalance vertices repeated \`d^+-d^-\` times and negative-imbalance vertices repeated \`d^--d^+\` times. Pair these lists, adding \`P(C)\` *dummy* directed edges from deficits to surpluses. The augmented multigraph is balanced and weakly connected, hence has an Euler circuit. Cut its cyclic edge sequence immediately after each dummy edge and discard dummy edges. The remaining original event occurrences form exactly \`P(C)\` valid directed trails. Place one initial token at the beginning of each trail and execute each trail in order. This meets the lower bound. QED.
+
+**Corollary.** A nonempty event multiset cannot execute from identically zero token inventory in this conditional semantics, although V29 can assign it nonnegative counts and conserved scalar charge. The causal-seed condition is independent of the original count-conservation theorem.
+
+## Theorem U2 — the exact original R762T witness needs 19 tokens under this lift
+
+In R762T's two-Cell four-passage-port witness, take three local PASS edges \`A:0->A:1, A:1->A:2, A:2->A:0\`; ten \`B:0->A:3\` TRANSFER occurrences; and \`2,4,3\` outgoing TRANSFER occurrences from \`A:0,A:1,A:2\` respectively to \`B:1\`.
+
+V29's A ledger has
+\[
+M_A=\begin{pmatrix}0&1&0&0\\0&0&1&0\\1&0&0&0\\0&0&0&0\end{pmatrix},
+\quad R_{\rm in}=(0,0,0,10),\quad R_{\rm out}=(2,4,3,0),
+\]
+\[
+u_A=(-2,-4,-3,10),\qquad \Omega_A=M_A-M_A^T.
+\]
+The event graph has two weak components. Ten edges \`B:0->A:3\` contribute \`P=10\`. The directed A triangle with nine exits to \`B:1\` contributes \`P=9\`. Consequently
+\[
+\boxed{K_{\min}(\text{original 22 events})=10+9=19.}
+\]
+Initial tokens \`n(B:0)=10, n(A:0)=2, n(A:1)=4, n(A:2)=3\` suffice, and final tokens are ten at \`A:3\` and nine at \`B:1\`. An Euler trail decomposition supplies an order with no negative prefix. The original V29 A ledger and global scalar charge \`Q=0\` at **each** primitive event are unchanged.
+
+## Theorem U3 — a topological repair cuts the seed cost to 10 while preserving A-side counts
+
+In a **different declared network skeleton**, make the companion's receiving port the *same* B port as the companion's outgoing port, replacing all \`A:i->B:1\` with \`A:i->B:0\`. Every A-side occurrence, A ledger, \`(u_A,\Omega_A)\` and 22-occurrence count remain identical. The event graph is now weakly connected. The only positive vertex imbalances are \`2,4,3,1\` at \`A:0,A:1,A:2,B:0\` respectively, and there are ten excess incoming occurrences at \`A:3\`. U1 gives the sharp result
+\[
+\boxed{K_{\min}(\text{shared B port})=2+4+3+1=10.}
+\]
+Place initially two, four, three tokens at \`A:0,A:1,A:2\`, and one at \`B:0\`. Fire the A triangle, then the nine A-to-B TRANSFERs, then all ten B-to-\`A:3\` TRANSFERs. All prefixes are enabled, and the final ten tokens lie at \`A:3\`. The B-port ledger, typed link connectivity and provenance **do change**, so equality of the A-side \`(u,\Omega)\` is an A-observer equivalence, not a global BRC-safe quotient.
+
+The 19 and 10 values are sharp **for the respective specified multigraphs**. Their difference of nine tokens is a precise topology-induced resource difference even with exactly the same A-side score and V29 operation count. This is separate from R762T's 22-event minimum and does not claim global minimum over arbitrary physical networks.
+
+## Relevance, reproducibility and next scientific frontier
+
+P000 imposes six pairwise \`PERP_E\` native axes, native signed-axis primitive steps, and stable nonzero *triadic* force closure. This conditional token scheduler neither creates a primitive force triad nor supplies native \`TRIADIC_CLOSURE_E\` legality, V17 active-frame connection or V39 holonomy. In particular, a token path is not automatically a three-force event. V39's based-loop port \`(j,h)\` requires a real transfer cycle and real V17 \`S3\` frame transport; neither is silently inferred from this ledger witness.
+
+The useful next test is to inspect a concrete native Cell/Link/Port triad-admission predicate and determine whether it imposes an inventory precondition or bundled PASS atomicity. If admitted, check a fully source-typed update including event dependency, repeated legality, V29 counts and V39 \`(j,h)\`; if not, use this exact inventory lower bound to identify what additional injection/connection or altered model assumption is necessary. This keeps the original task's native physical closure question open.
+
+**Verification.** \`R762U_CAUSAL_SEED_VERIFY.py\` implements the dummy-edge Euler-trail construction and exact nonnegative-inventory replay for both networks, exhausts the 3, 63 and 4,095 nonempty simple loop-free directed graphs on labeled 2, 3 and 4 vertices, and the 728 nonempty three-vertex directed multigraphs with each off-diagonal multiplicity in \`{0,1,2}\`. All assertions passed; see JSON evidence. U1 is proved for arbitrary finite graphs by the argument above; the finite computations validate the checker on the enumerated domains. No trigonometric, phase, \`pi\`, numeric BRC propagation or approximate calculation is used.
+
+**Source provenance.** Frozen P000 V5 and \`definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md\` at \`a72226e2430ffa4786321ac86e7f0c599d5f0389\`; R762T paper at \`3b868bf7e79a4fc412ea48e8745a99e16a1fdc53\`; V27, V29, V39 retrieved at project main on 2026-11-14. Normative context follows \`docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context\`, project portable-research protocol and GLOBAL_KNOWLEDGE_V1. Protected P000 and ACTIVE worldview unchanged.
