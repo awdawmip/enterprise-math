@@ -38,7 +38,7 @@ The attached `VERIFY_R5_SUPPORT_BANDS_COMPACT.py` is the **executed** portable p
 |---|---:|---:|---:|---:|
 | Retained full-table row cells | 203202 | 83813 | 203202 logical | 83813 logical |
 | Max simultaneously held band cells | 204156 | 84554 | 28620 | 15160 |
-| One run: DP build + 12-byte rank unrank, seconds | 0.267 | 0.207 | 0.505 | 0.303 |
+| One run: DP build + 12-byte rank unrank, seconds | 0.300 | 0.210 | 0.487 | 0.300 |
 | Peak traced Python allocations for this DP phase | 8304508 B | 6346056 B | 1545604 B | 1329456 B |
 
 The timing row above is indicative only; no interleaved repeated-process statistical conclusion is made. The five-stage pipeline rebuilt original exact rational walls, radius graph, the historical 12-byte rank decode and the 954-byte direct lookup. The four variants produced identical decoded-center and directory SHA-256. Cold-run process RSS was noisy and mostly dominated by interpreter/fixture overhead; this is not an application RSS savings claim.
