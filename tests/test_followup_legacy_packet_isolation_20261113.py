@@ -1,0 +1,71 @@
+"""Regression: historical V1_3 follow-ups do not poison current packet validation."""
+
+from __future__ import annotations
+
+import json
+import tempfile
+import unittest
+from pathlib import Path
+
+import research_driver_followup as followup
+
+
+class LegacyFollowupPacketIsolationTests(unittest.TestCase):
+    @staticmethod
+    def write_packet(root: Path, review_id: str, packet_id: str, value: dict) -> None:
+        path = root / "research_driver_followups" / review_id / (packet_id + ".json")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(value, sort_keys=True), encoding="utf-8")
+
+    def test_legacy_followup_id_is_preserved_but_excluded_from_current_packet_index(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            self.write_packet(
+                root, "DR-LEGACY", "DFU-LEGACY",
+                {
+                    "schema": "ENTERPRISE_MATH_RESEARCH_DRIVER_FOLLOWUP_V1_3",
+                    "followup_id": "DFU-LEGACY",
+                    "review_id": "DR-LEGACY",
+                    "decision": "TASK_SET_PUBLISHED",
+                },
+            )
+            self.write_packet(
+                root, "DR-CURRENT", "DFU-CURRENT",
+                {
+                    "schema": followup.SCHEMA,
+                    "policy": followup.POLICY,
+                    "packet_id": "DFU-CURRENT",
+                    "review_id": "DR-CURRENT",
+                    "decision": "TASK_SET_PUBLISHED",
+                },
+            )
+            indexed = followup.packet_map(root)
+            self.assertEqual({"DR-CURRENT"}, set(indexed))
+            self.assertEqual("DFU-CURRENT", indexed["DR-CURRENT"]["packet_id"])
+            self.assertTrue(
+                (root / "research_driver_followups" / "DR-LEGACY" / "DFU-LEGACY.json").is_file()
+            )
+
+    def test_malformed_current_schema_still_fails_packet_id_validation(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            self.write_packet(
+                root, "DR-BAD", "DFU-BAD",
+                {"schema": followup.SCHEMA, "review_id": "DR-BAD"},
+            )
+            with self.assertRaisesRegex(followup.DriverFollowupError, "packet_id is invalid"):
+                followup.packet_map(root)
+
+    def test_unknown_schema_is_not_silently_ignored(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            self.write_packet(
+                root, "DR-UNKNOWN", "DFU-UNKNOWN",
+                {"schema": "UNKNOWN_FOLLOWUP_SCHEMA_V99", "review_id": "DR-UNKNOWN"},
+            )
+            with self.assertRaisesRegex(followup.DriverFollowupError, "unsupported follow-up schema"):
+                followup.packet_map(root)
+
+
+if __name__ == "__main__":
+    unittest.main()
