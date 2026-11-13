@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "control_plane/check_review_evidence_fault_isolated.py",
+    "ref": "a383ca1b4d2dd1521eccd1e8e1eb42e7af13d5de",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-f52de59801bc-followup-observation-8",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Audit multiple Driver-review exact-set authority on the operational review view.\n\nEarlier canonical integrity/authority layers may prove immutable review records\nnonoperational.  This wrapper composes those exact, byte-pinned decisions before\nrunning the strict review-evidence reducer.  The reducer itself remains unchanged:\nall surviving operational reviews must still satisfy its schema and every\nintake/pass/synthesis must cover the exact current review set.\n\"\"\"\nfrom __future__ import annotations\n\nimport sys\nfrom pathlib import Path\n\nROOT = Path(__file__).resolve().parents[1]\nif str(ROOT) not in sys.path:\n    sys.path.insert(0, str(ROOT))\n\nfrom control_plane import research_control_bootstrap  # noqa: E402\nfrom control_plane import research_result_review_binding_fault_isolation as binding_isolation  # noqa: E402\nfrom control_plane import research_result_review_audit_fault_isolation as structural_isolation  # noqa: E402\nfrom control_plane import research_driver_review_authority_fault_isolation as authority_isolation  # noqa: E402\nimport research_driver_authority as driver_authority  # noqa: E402\n\n\ndef audit() -> list[str]:\n    errors: list[str] = []\n    try:\n        research_control_bootstrap.install(ROOT)\n\n        # Each installer validates its pinned records before its already-installed guard.\n        binding_isolation.install(ROOT)\n        structural_isolation.install(ROOT)\n\n        driver_authority.contract(ROOT)\n        driver_authority.valid_records(ROOT)\n        authority_errors = authority_isolation.quarantine_authority_errors(\n            driver_authority.review_authority_errors,\n            legacy_review_ids=driver_authority.legacy_review_ids(ROOT),\n            root=ROOT,\n        )\n        if authority_errors:\n            return authority_errors\n        authority_isolation.install(ROOT)\n\n        import research_review_evidence\n\n        errors.extend(research_review_evidence.audit(ROOT))\n    except Exception as exc:\n        errors.append(str(exc))\n    return errors\n\n\ndef main() -> int:\n    errors = audit()\n    if errors:\n        for error in errors:\n            print(\"ERROR:\", error)\n        return 1\n    print(\n        \"PASS: multiple Driver-review exact-set authority is valid on the canonical \"\n        \"operational review view after prior exact nonoperational review isolation.\"\n    )\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+      "display_title": "check_review_evidence_fault_isolated.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a383ca1b4d2dd1521eccd1e8e1eb42e7af13d5de/control_plane/check_review_evidence_fault_isolated.py",
+      "encoding": "utf-8",
+      "sha": "e31e2b14ffefc55f5ae6add1026e632a27ea7cae"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

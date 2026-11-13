@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/tetrahedral_pell_signatures_20261113/check_pell_unit_signatures.py",
+    "ref": "efdf00267767145c0c186294576de1a05f7137ef",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-f52de59801bc-followup-observation-2",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Exact checks in Q(sqrt(2),sqrt(29)), in basis 1,a,b,ab.\"\"\"\n\nfrom fractions import Fraction\nfrom itertools import combinations, product\n\n\ndef multiply(left, right):\n    coefficients = [Fraction(0)] * 4\n    for i, value_left in enumerate(left):\n        for j, value_right in enumerate(right):\n            repeated = i & j\n            factor = (2 if repeated & 1 else 1) * (29 if repeated & 2 else 1)\n            coefficients[i ^ j] += factor * value_left * value_right\n    return tuple(coefficients)\n\n\ndef conjugate(value, automorphism):\n    \"\"\"Bit zero reverses sqrt(2), bit one reverses sqrt(29).\"\"\"\n    return tuple(\n        coefficient * (-1) ** (index & automorphism).bit_count()\n        for index, coefficient in enumerate(value)\n    )\n\n\ndef rational_sign(value):\n    return (value > 0) - (value < 0)\n\n\ndef quadratic_sign(constant, radical, radicand):\n    \"\"\"Sign of constant + radical * sqrt(radicand), at the positive root.\"\"\"\n    if radical == 0:\n        return rational_sign(constant)\n    if constant == 0 or rational_sign(constant) == rational_sign(radical):\n        return rational_sign(radical)\n    return rational_sign(constant) * rational_sign(constant**2 - radicand * radical**2)\n\n\ndef sign(value):\n    \"\"\"For x + sqrt(2)y, compare x*x and 2*y*y if x and y have opposite signs.\"\"\"\n    a, c, b, d = value  # x=a+b*sqrt(29), y=c+d*sqrt(29)\n    sign_x = quadratic_sign(a, b, 29)\n    sign_y = quadratic_sign(c, d, 29)\n    if not sign_x:\n        return sign_y\n    if not sign_y or sign_x == sign_y:\n        return sign_x\n    difference = a*a + 29*b*b - 2*(c*c + 29*d*d)\n    radical = 2*a*b - 4*c*d\n    return sign_x * quadratic_sign(difference, radical, 29)\n\n\ndef negative_embeddings(unit):\n    return frozenset(g for g in range(4) if sign(conjugate(unit, g)) < 0)\n\n\ndef check():\n    one = (1, 0, 0, 0)\n    eta = (0, Fraction(13, 2), -1, Fraction(1, 2))\n    assert negative_embeddings(eta) == {1}\n    norms = [multiply(eta, conjugate(eta, g)) for g in (1, 2, 3)]\n    assert norms == [(-70, 0, -13, 0), (41, 29, 0, 0), (-99, 0, 0, 13)]\n    assert multiply(norms[0], conjugate(norms[0], 2)) == (-1, 0, 0, 0)\n    assert multiply(norms[2], (99, 0, 0, 13)) == one\n    assert multiply(norms[1], (1, 1, 0, 0)) == (99, 70, 0, 0)\n\n    embeddings = frozenset(range(4))\n    star = [negative_embeddings(norm) for norm in norms]\n    assert star == [{0, 1}, {1, 3}, {1, 2}]\n    assert set(star) | {embeddings - edge for edge in star} == {\n        frozenset(pair) for pair in combinations(embeddings, 2)\n    }\n\n    units = [(1, 1, 0, 0), (Fraction(5, 2), 0, Fraction(1, 2), 0), (-1, 0, 0, 0), eta]\n    signatures = set()\n    for exponents in product(range(2), repeat=4):\n        value = one\n        for exponent, unit in zip(exponents, units):\n            if exponent:\n                value = multiply(value, unit)\n        signatures.add(negative_embeddings(value))\n    assert len(signatures) == 16\n    assert sum(len(s) % 2 == 0 for s in signatures) == 8\n    print(\"Verified the relative norms, all six edges, eight even signatures and sixteen unit signatures.\")\n\n\nif __name__ == \"__main__\":\n    check()\n",
+      "display_title": "check_pell_unit_signatures.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/efdf00267767145c0c186294576de1a05f7137ef/research_notes/tetrahedral_pell_signatures_20261113/check_pell_unit_signatures.py",
+      "encoding": "utf-8",
+      "sha": "16203282aba2dbcce03e28734397701667d90ff0"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/three_port_common_loss_witness_20261113/verify.py",
+    "ref": "0d25105db13a236e5b6d617b8b83cb33d5b414b9",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-f52de59801bc-followup-observation-10",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Exact checks on the vacuum/single-excitation three-qubit model. Run with python -B.\"\"\"\nfrom fractions import Fraction as F\n\n\ndef zeros(n):\n    return [[F(0) for _ in range(n)] for _ in range(n)]\n\n\ndef identity(n):\n    return [[F(i == j) for j in range(n)] for i in range(n)]\n\n\ndef transpose(a):\n    return list(map(list, zip(*a)))\n\n\ndef multiply(a, b):\n    cols = transpose(b)\n    return [[sum(x * y for x, y in zip(row, col)) for col in cols] for row in a]\n\n\ndef retained(t):\n    a = identity(8)\n    for i in (4, 2, 1):\n        for j in (4, 2, 1):\n            a[i][j] += (t - 1) / 3\n    return a\n\n\ndef apply(rho, t):\n    a = retained(t)\n    out = multiply(multiply(a, rho), transpose(a))\n    # A1=v<chi|*sqrt(1-t^2); contract its exact Gram factor.\n    out[0][0] += (1 - t*t) / 3 * sum(rho[i][j] for i in (4, 2, 1) for j in (4, 2, 1))\n    return out\n\n\ndef inspect(rho, z):\n    assert sum(rho[i][i] for i in range(8)) == 1\n    sigma = [[sum(rho[2*i+k][2*j+k] for k in (0, 1)) for j in range(4)] for i in range(4)]\n    pt = [[sigma[2*(i//2)+j%2][2*(j//2)+i%2] for j in range(4)] for i in range(4)]\n    vector = [1, 0, 0, 2]\n    value = sum(vector[i]*pt[i][j]*vector[j] for i in range(4) for j in range(4)) / 5\n    assert value == -2*(1-z)*(2+z) / 45\n    assert (value < 0) == (z < 1)\n    return value\n\n\ndef main():\n    # Symbolic witness identity: 45 times the expectation is a polynomial\n    # of degree at most two. Check it at three points by exact channel computation.\n    initial = zeros(8)\n    initial[4][4] = F(1)\n    for t in (F(0), F(1, 2), F(1)):\n        inspect(apply(initial, t), t)\n    assert inspect(apply(initial, F(1, 2)), F(1, 2)) == -F(1, 18)\n    assert inspect(apply(initial, F(0)), F(0)) == -F(4, 45)\n    assert apply(initial, F(1)) == initial\n\n    parameters = [F(a, b) for b in range(1, 9) for a in range(b+1)]\n    parameters = sorted(set(parameters))\n    for t in parameters:\n        a = retained(t)\n        gram = multiply(transpose(a), a)\n        for i in (4, 2, 1):\n            for j in (4, 2, 1):\n                gram[i][j] += (1-t*t)/3\n        assert gram == identity(8)\n        rho = initial\n        for n in range(1, 6):\n            rho = apply(rho, t)\n            assert rho == apply(initial, t**n)\n            inspect(rho, t**n)\n    print(f\"PASS: exact degree-two witness identity; {len(parameters)} Kraus completeness checks; \"\n          f\"{5*len(parameters)} repeated-channel, partial-trace and witness checks.\")\n\n\nif __name__ == \"__main__\":\n    main()\n",
+      "display_title": "verify.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/0d25105db13a236e5b6d617b8b83cb33d5b414b9/research_notes/three_port_common_loss_witness_20261113/verify.py",
+      "encoding": "utf-8",
+      "sha": "80565324dc7e57a40b94328835d78d492b5b7166"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
