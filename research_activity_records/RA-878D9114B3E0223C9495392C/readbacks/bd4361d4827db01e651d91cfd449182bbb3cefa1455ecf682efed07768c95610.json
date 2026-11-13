@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r121_ap_twointeger_20261113/check_r121_count.py",
+    "ref": "0cf1633a6b01e5aba2179559c58195a2eebbcc53",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "20261113-r1-r121-lit-check_r121_count-py-readback",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R121-LIT: exact rational-geometry count cross-check against Sturmian totients.\"\"\"\nimport json\nfrom math import gcd\nfrom pathlib import Path\nfrom check_r121 import patterns\n\n\ndef phi(n):\n    return sum(gcd(k, n) == 1 for k in range(1, n+1))\n\n\ndef known_count(m):\n    return 1 + sum((m-r)*phi(r) for r in range(1, m))\n\n\ndef run():\n    observed = {}\n    for m in range(2, 14):\n        value = len(patterns(m))\n        assert value == known_count(m), (m, value, known_count(m))\n        observed[str(m)] = value\n    return {\"status\": \"R121_STURMIAN_COUNT_CROSSCHECK_PASS\", \"m_range\": [2,13], \"exact_cases\": len(observed), \"pattern_counts\": observed, \"enumeration_method\": \"fractional rational line arrangement\", \"formula_source\": \"OEIS A005598 / Mignosi 1991 / Berstel-Pocchiola 1993\"}\n\n\nif __name__ == \"__main__\":\n    result=run()\n    print(result['status'], result['exact_cases'], result['pattern_counts'])\n    with Path(__file__).with_name('verification_r121_count.json').open('w') as f:\n        json.dump(result, f, sort_keys=True, indent=2)\n",
+      "display_title": "check_r121_count.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/0cf1633a6b01e5aba2179559c58195a2eebbcc53/research_notes/brc_s23_av_r121_ap_twointeger_20261113/check_r121_count.py",
+      "encoding": "utf-8",
+      "sha": "af7f420eded4428012de788fb24dc82b01ea60da"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
