@@ -1,0 +1,91 @@
+{
+  "schema": "EM_R762T_V27_V29_RECONCILIATION_EXACT_V1",
+  "arithmetic": "exact nonnegative integer V29 PASS/TRANSFER",
+  "model_scope": "4 local V29 ports; fixed directed 3-cycle M and target u; abstract two-Cell network with explicitly permitted directed connectors",
+  "target_u": [
+    -2,
+    -4,
+    -3,
+    10
+  ],
+  "passage_M": [
+    [
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "v27_reported_I": [
+    0,
+    0,
+    0,
+    10
+  ],
+  "v27_reported_O": [
+    2,
+    4,
+    3,
+    0
+  ],
+  "v27_reported_I_and_O_are_valid_as_boundary_Rin_Rout": true,
+  "literal_I_O_compatible_with_M": false,
+  "repaired_Rin": [
+    0,
+    0,
+    0,
+    10
+  ],
+  "repaired_Rout": [
+    2,
+    4,
+    3,
+    0
+  ],
+  "reconstructed_I": [
+    1,
+    1,
+    1,
+    10
+  ],
+  "reconstructed_O": [
+    3,
+    5,
+    4,
+    0
+  ],
+  "network_cell_A_contrast": [
+    -2,
+    -4,
+    -3,
+    10
+  ],
+  "network_cell_B_scalar_contrast": -1,
+  "network_total_charge": 0,
+  "primitive_PASS_count": 3,
+  "matched_TRANSFER_count": 19,
+  "center_boundary_L1_minimum": 19,
+  "local_cycle_orientations_tested": 8,
+  "coordinate_minimality_target_values_tested": 21,
+  "common_mode_shifts_checked": 81,
+  "checks": "PASS",
+  "not_tested": "physical TRIADIC_CLOSURE_E admission, actual V17 frame connection, V27 20-triad scoring implementation"
+}
