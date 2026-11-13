@@ -1,0 +1,65 @@
+{
+  "unit": "R749SNG",
+  "status": "PASS",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "domain": "4/9 <= p <= 1",
+  "free": {
+    "4/9..1/2": "(3+2*p)/10",
+    "1/2..1": "4*(1-p)/5"
+  },
+  "calibrated": {
+    "4/9..7/15": "2/5",
+    "7/15..1/2": "3*(1+p)/11",
+    "1/2..1": "9*(1-p)/11"
+  },
+  "certificates": [
+    {
+      "interval": [
+        "4/9",
+        "7/15"
+      ],
+      "counts": {
+        "distinct_vertices": 82,
+        "feasible_bases": 464,
+        "nonsingular_bases": 10848,
+        "six_facet_subsets": 18564,
+        "vertices_at_lower": 41,
+        "vertices_at_upper": 41
+      },
+      "free_tight_vertices": 58,
+      "cal_tight_vertices": 38
+    },
+    {
+      "interval": [
+        "7/15",
+        "1/2"
+      ],
+      "counts": {
+        "distinct_vertices": 58,
+        "feasible_bases": 832,
+        "nonsingular_bases": 10848,
+        "six_facet_subsets": 18564,
+        "vertices_at_lower": 41,
+        "vertices_at_upper": 17
+      },
+      "free_tight_vertices": 34,
+      "cal_tight_vertices": 34
+    },
+    {
+      "interval": [
+        "1/2",
+        "1"
+      ],
+      "counts": {
+        "distinct_vertices": 18,
+        "feasible_bases": 1644,
+        "nonsingular_bases": 10848,
+        "six_facet_subsets": 18564,
+        "vertices_at_lower": 17,
+        "vertices_at_upper": 1
+      },
+      "free_tight_vertices": 6,
+      "cal_tight_vertices": 6
+    }
+  ]
+}
