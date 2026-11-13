@@ -151,6 +151,11 @@ def iter_packets(root: Path = ROOT) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     for path in sorted(directory.glob("*/*.json")):
         value = _load(path)
+        schema = value.get("schema")
+        # V1_3 stores a legacy followup_id, not a current packet_id.
+        # Keep its immutable file as historical evidence, outside this index.
+        if schema == "ENTERPRISE_MATH_RESEARCH_DRIVER_FOLLOWUP_V1_3":
+            continue
         value["_path"] = path.relative_to(root).as_posix()
         out.append(value)
     return out
@@ -1002,7 +1007,11 @@ def _existing_published_task_pins(
     This is distinct from exact-set synthesis integration. The existing Task's
     lineage, publisher, current owner and completion state are never rewritten.
     """
-    if (review.get("review_authority_kind") != "IMMUTABLE_REVIEW"
+    # Original immutable review records predating the typed authority-kind field
+    # carry the same canonical REVIEW_SCHEMA but have no review_authority_kind.
+    # Retain their exact evidence while never accepting a synthesis in this route.
+    if (review.get("record_schema") != result_impl.REVIEW_SCHEMA
+            or review.get("review_authority_kind") not in {None, "IMMUTABLE_REVIEW"}
             or review.get("disposition") != "ACCEPTED"
             or review.get("destination_class") != "FOLLOWUP_TASK"):
         raise DriverFollowupError("existing published Task requires one operational ACCEPTED/FOLLOWUP_TASK review")
