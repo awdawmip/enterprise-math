@@ -1,0 +1,11 @@
+# R762G portable continuation
+
+Date 2026-11-13. Researcher `EM-X6-AA2A86`; Activity `RA-092CB340A76B713605DA9BF8`. Parent `RS-X6-TRIADIC-CLOSURE-DYNAMICS`, publication `TP2-8B7E13C5904A2D6F1142`; frozen science `a72226e2430ffa4786321ac86e7f0c599d5f0389`.
+
+**Completed author-side theorem (NOT_REVIEWED):** In the repeatable directed three-triad candidate, after *every* adversarial k-letter prefix there remains complete 360-state reconfiguration iff residual budget after every length-k count vector dominates one of the 13 R762F initial-full frontier vectors. Exact Pareto minimum counts for k=0,1,2,3 are 13,8,7,5; for **all k>=4** the sole minimum is **(k+1,k+1,k+1)**. Minimum total budgets 9,10,12,14, and 3(k+1) thereafter. Exact finite verification compares erosion to independent DP for 729 budgets for each k=0..4; 102 immediate predecessor witnesses. Full manuscript `research_notes/R762G_ADVERSARIAL_PREFIX_RESERVE_20261113.md`, reproducible Python `research_notes/R762G_VERIFY.py`, actual JSON `research_notes/R762G_EVIDENCE.json`.
+
+**Avoid duplicate:** R762F/#2275 establishes only initial full coverage. R763/#2270 establishes exact word-length saturation with unlimited repeats. This R762G proves adversarial-prefix *future* reconfigurability and general k>=4 closed form. Preserve R762F's proof and source pins.
+
+**Remaining scientific question:** Determine one genuinely admitted, oriented, equal-q triadic native event's Cell/Link/Port preconditions, next-state update, and second-application legality. Distinguish V29 cumulative PASS/TRANSFER ledger and V39 based-loop `(j,h)`. If event admissibility depends on state, compare authentic reachability/robustness to this conditional budget model rather than imposing repeatability.
+
+**Control:** Native source continuation query `emr3-20261113-1715-rs-x6-triadic-read1` was QUEUED during this work. Do not claim current owner/CLAIM from historical snapshots; continue original request. This authored Draft research is not formal Source Result, independent Driver review, or P000 change. Activity record exists but new R762G checkpoint publication must be separately verified.
