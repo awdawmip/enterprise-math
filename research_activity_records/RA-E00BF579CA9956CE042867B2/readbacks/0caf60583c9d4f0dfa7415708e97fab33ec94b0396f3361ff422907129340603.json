@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r131_periodic_index_primitive_split_20261114/verification_r131.json",
+    "ref": "599ae5a96d2a64e86f1766336ed19f2ebaadd4ed",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r131-research1-20261114-verification_r131-json-599ae5a96d2a",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"status\": \"R131_PERIODIC_PRIMITIVE_SPLIT_PASS\",\n  \"seed\": 13120261114,\n  \"random_instances\": 140,\n  \"edge_instances\": 6,\n  \"instances\": 146,\n  \"full_word_query_bits_checked\": 225642,\n  \"total_normalized_cuts\": 12493,\n  \"period_boundary_probes\": 1160,\n  \"large_gcd_scaling\": [\n    {\n      \"g_digits\": 1,\n      \"cut_count\": 307,\n      \"deltas\": 1800,\n      \"incidences\": 900,\n      \"build_ms\": 13.536,\n      \"125_full_word_queries_ms\": 34.843,\n      \"raw_interval_lower_bound_cuts\": \"0\"\n    },\n    {\n      \"g_digits\": 4,\n      \"cut_count\": 307,\n      \"deltas\": 1800,\n      \"incidences\": 900,\n      \"build_ms\": 13.019,\n      \"125_full_word_queries_ms\": 34.772,\n      \"raw_interval_lower_bound_cuts\": \"999\"\n    },\n    {\n      \"g_digits\": 13,\n      \"cut_count\": 307,\n      \"deltas\": 1800,\n      \"incidences\": 900,\n      \"build_ms\": 12.988,\n      \"125_full_word_queries_ms\": 35.955,\n      \"raw_interval_lower_bound_cuts\": \"999999999999\"\n    },\n    {\n      \"g_digits\": 91,\n      \"cut_count\": 307,\n      \"deltas\": 1800,\n      \"incidences\": 900,\n      \"build_ms\": 13.161,\n      \"125_full_word_queries_ms\": 36.852,\n      \"raw_interval_lower_bound_cuts\": \"999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999\"\n    }\n  ],\n  \"primitive_jump_checks\": [\n    {\n      \"K\": 11,\n      \"gcd\": 1,\n      \"total_possible_word_types\": 8,\n      \"verified_true_jump_points\": 10\n    },\n    {\n      \"K\": 101,\n      \"gcd\": 1,\n      \"total_possible_word_types\": 8,\n      \"verified_true_jump_points\": 100\n    },\n    {\n      \"K\": 1001,\n      \"gcd\": 1,\n      \"total_possible_word_types\": 8,\n      \"verified_true_jump_points\": 1000\n    }\n  ],\n  \"arithmetic\": \"fractions.Fraction exact; timing perf_counter CPython, uncontrolled environment\",\n  \"note\": \"raw_interval_lower_bound_cuts serialized as decimal string to preserve very large integers\"\n}\n",
+      "display_title": "verification_r131.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/599ae5a96d2a64e86f1766336ed19f2ebaadd4ed/research_notes/brc_s23_av_r131_periodic_index_primitive_split_20261114/verification_r131.json",
+      "encoding": "utf-8",
+      "sha": "f1dd39d716fa9a339e8662366a651aa54d683ed2"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
