@@ -1,0 +1,284 @@
+{
+  "schema": "R741_X6_LOOP_ORDER_BRC_EXACT_V1",
+  "status": "AUTHOR_SIDE_EXACT_FINITE_RESULT",
+  "date": "2026-11-12",
+  "frozen_science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "base": "R740 PR #2142 commit ad5d6df690b9f646f98e3c462b3aad931a440551",
+  "carrier": "Rooted native X6 signed coordinate paths with distinct ordered BRC branch identity",
+  "four_axis": {
+    "all_branches": 40320,
+    "all_current_classes": 14449,
+    "all_fibers": {
+      "1": 13056,
+      "2": 384,
+      "14": 960,
+      "160": 48,
+      "5376": 1
+    },
+    "NB_branches": 13824,
+    "NB_current_classes": 13440,
+    "NB_fibers": {
+      "1": 13056,
+      "2": 384
+    },
+    "NB_support_fibers": [
+      {
+        "nonzero_edges": 4,
+        "fiber_size": 2,
+        "current_classes": 192
+      },
+      {
+        "nonzero_edges": 6,
+        "fiber_size": 1,
+        "current_classes": 1536
+      },
+      {
+        "nonzero_edges": 8,
+        "fiber_size": 1,
+        "current_classes": 11520
+      },
+      {
+        "nonzero_edges": 8,
+        "fiber_size": 2,
+        "current_classes": 192
+      }
+    ],
+    "jQ_classes": 13440,
+    "jQepsilon_classes": 13632,
+    "jFirstStep_classes": 13824,
+    "worst_residual_bits": 1,
+    "uniform_expected_residual_bits": "1/18",
+    "complete_enumeration": "8! signed-token permutations + independent 2520*16 source encoding"
+  },
+  "six_axis": {
+    "source_branches": 6,
+    "words": [
+      "ABC",
+      "ACB",
+      "BAC",
+      "BCA",
+      "CAB",
+      "CBA"
+    ],
+    "all_nonbacktracking": true,
+    "signed_axis_tokens_each_once": true,
+    "common_coordinate_flow": [
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "axis": 0,
+        "signed_flow": 1
+      },
+      {
+        "lower_vertex": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "axis": 0,
+        "signed_flow": -1
+      },
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "axis": 1,
+        "signed_flow": -1
+      },
+      {
+        "lower_vertex": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "axis": 1,
+        "signed_flow": 1
+      },
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "axis": 2,
+        "signed_flow": 1
+      },
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "axis": 2,
+        "signed_flow": -1
+      },
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "axis": 3,
+        "signed_flow": -1
+      },
+      {
+        "lower_vertex": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "axis": 3,
+        "signed_flow": 1
+      },
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "axis": 4,
+        "signed_flow": 1
+      },
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "axis": 4,
+        "signed_flow": -1
+      },
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "axis": 5,
+        "signed_flow": -1
+      },
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "axis": 5,
+        "signed_flow": 1
+      }
+    ],
+    "common_Q": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "common_epsilon": 1,
+    "square_generator_transports_S3": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        0
+      ]
+    ],
+    "word_h_S3": {
+      "ABC": [
+        0,
+        2,
+        1
+      ],
+      "ACB": [
+        2,
+        1,
+        0
+      ],
+      "BAC": [
+        1,
+        0,
+        2
+      ],
+      "BCA": [
+        2,
+        1,
+        0
+      ],
+      "CAB": [
+        1,
+        0,
+        2
+      ],
+      "CBA": [
+        0,
+        2,
+        1
+      ]
+    },
+    "h_classes": 3,
+    "h_fiber_histogram": {
+      "2": 3
+    },
+    "j_only_worst_extra_bits": 3,
+    "j_h_worst_extra_bits": 1,
+    "model_status": "TYPED_FINITE_GRAPH_S3_REPRESENTATION_NOT_NATIVE_FORCE_EVENT_ADMISSION"
+  },
+  "exact_checks": {
+    "S6_generator_covariance_checks": 201600,
+    "NB_inclusion_exclusion_total": 13824,
+    "finite_scope": true
+  },
+  "research_gap": "Extract genuine legal TRIADIC_CLOSURE_E and V29 PASS/V17 S3 flow update from frozen source and test typed native graph map",
+  "validation": "R741_X6_LOOP_ORDER_BRC_EXACT_PASS"
+}
