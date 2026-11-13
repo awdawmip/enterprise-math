@@ -1,0 +1,11 @@
+# EC49P — Action-order coding versus memory and arbitrary rational-target realization
+
+Status: AUTHOR PROPOSAL ONLY (non-executable; no canonical V2 Task publication, CLAIM or Owner allocation). Parent EC49O result at this PR; EC49N predecessor PR #1650.
+
+Validated EC49O frontier to preserve: on W,X,Y=Z/3 with Q=1/27 and P=(2+s_w(x,y))/54, with s=1_{y=x+w}-1_{y=x+w+1} and fixed sequential BUY X (cost1), optional BUY Y (cost2), unrestricted initial/pre-Y/post-Y accept/reject and source-independent real fresh behavioral control, full support(alpha-beta)=1/6, 0-bit=1/18, 1-bit=1/9. Three memory states (2 bits) retain the *entire* original four-region; the sharp one-bit support gap is 1/18. Proof is analytic, deterministic finite checks in VERIFY.py. Only auxiliary positive probability BRC.
+
+Primary next independent discriminating unit: let the observer choose X first or Y first, with costs respectively 1,2; after that it may choose the other sensor adaptively, accept or reject. Both purchase orders are legitimate and remembered as actions, but no further cost-free action tag is introduced. Determine exactly whether 0/1/2 external memory bits preserve the raw four-region or only its convex hull, for the *same* 27-atom P/Q model. Provide an explicit real-policy controller compilation or a sharp rational linear separator using source-coupled occupancy; account for optional early accept and sensor order as an information channel. No transfer of the fixed-order 1/18 gap without proof.
+
+Secondary: examine whether an attainable rational original four-observable target in the action-dependent finite-memory class with fully flexible early and post-sensor acceptance can require an irrational *fresh behavioral* parameter when the observer remembers its own actions. Distinguish from shared-seed mixed strategies, perfect-recall policies and EC49L fixed terminal-rule counterexample.
+
+Evidence: complete action/observation information partition and update rules, exact P/Q atom tables, source-independent policies, precise all-real quantifiers, Fraction or symbolic checker, four-coordinate witness, proof and counterexample, source/prior art, assumptions and open native typed BRC/X6 transfer. Do not mutate P000/ACTIVE. Owner and formal Task gates remain separately authoritative.
