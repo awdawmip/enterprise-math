@@ -40,7 +40,16 @@ The signatures of \(-1,1+a,(5+b)/2\) span the constants and the two independent 
 
 On these signatures the Galois action is the translation subgroup \(G\) of the full vertex-relabeling group \(S_4\). The constant line still has no \(G\)-invariant additive retraction: for nonzero translation \(g\), choose a linear part with \(\ell(g)=1\). Translation takes an affine lift \(f\) to \(f+1\), contradicting invariance of a retraction which takes the constant 1 to 1. Full \(S_4\) relabels the representation; the four field automorphisms are exactly \(G\). These statements concern the mod-two residual and real signatures. The construction takes the paired-Pell field as input; selecting a distinguished field or recovering the Ramanujan series from an unlabelled graph is a different question.
 
-Dummit and Kisilevsky's [Theorem 1](https://arxiv.org/abs/1904.04411) already gives signature rank four in this field, since 2 and 29 satisfy its hypotheses and \(99+13\sqrt{58}\) has quadratic norm \(-1\). The comparison here gives the relative norms and vertex star parities explicitly for the units in the two manuscripts.
+Dummit and Kisilevsky give the signature matrix for quadratic-subfield units in (14). Their discussion of Kubota's Hilfsatz 3 leading to (15), and their relative-norm formulas in (16), describe how a square root of a product of suitable quadratic units produces signed subfield units. Their Theorem 1 gives signature rank four here: \(2\) and \(29\) satisfy its prime hypotheses, and \(99+13\sqrt{58}\) has quadratic norm \(-1\), so the fundamental unit of \(\mathbb Q(\sqrt{58})\) also has norm \(-1\). [Dummit and Kisilevsky, §4, (14)–(16) and Theorem 1](https://arxiv.org/pdf/1904.04411#page=6).
+
+For the explicit unit above write \(n_g=\eta g(\eta)\) for \(g=i,j,ij\). Multiplying the three relative norms gives
+\[
+n_i n_j n_{ij}
+=\eta^2\!\prod_{g\in G}g(\eta)
+=\eta^2N_{K/\mathbb Q}(\eta)
+=-\eta^2.
+\]
+Thus \(\eta^2=-n_i n_j n_{ij}\) realizes the product-square mechanism with the signed Pell units in the table. The vertex star-parity map identifies the negative loci of precisely these three norms with the three edges at \(i\).
 
 ## Reproduction
 
