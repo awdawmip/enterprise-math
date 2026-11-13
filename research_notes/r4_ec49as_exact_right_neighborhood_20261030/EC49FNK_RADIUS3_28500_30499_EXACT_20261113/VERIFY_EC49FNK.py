@@ -24,7 +24,7 @@ assert min(v)==cert["minimum"]==86
 assert [28500+i for i,x in enumerate(v) if x==86]==cert["minimum_indices"]==[30266,30393,30396]
 assert max(v)==cert["maximum"]==222
 assert [28500+i for i,x in enumerate(v) if x==222]==cert["maximum_indices"]==[29146]
-sha = hashlib.sha256(("\\n".join(map(str,v))+"\\n").encode()).hexdigest()
+sha = hashlib.sha256(("\n".join(map(str,v))+"\n").encode()).hexdigest()
 assert sha == cert["hashes"]["newline_cost_vector_sha256"], (sha,cert["hashes"])
 OPS = "acdefg"
 STATE = ((1,2,3,1,4,5),(1,6,7,1,1,1),(2,2,8,2,2,2),
