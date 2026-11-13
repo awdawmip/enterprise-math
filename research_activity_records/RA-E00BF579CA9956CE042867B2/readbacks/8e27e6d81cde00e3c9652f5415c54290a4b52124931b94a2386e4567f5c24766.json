@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r134_sturmian_saturation_20261114/check_r134_lift.py",
+    "ref": "db1c25fa749744c868d4039200cf44894dab53f9",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r134-constructive-20261114-check_r134_lift-py-db1c25fa7497",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Construct all R134 rational certificates with exact Fraction arithmetic.\"\"\"\nfrom fractions import Fraction as Q\nfrom math import gcd\nimport json\n\ndef farey(m):\n    return sorted({Q(p,q) for q in range(1,m+1) for p in range(q+1)})\n\ndef W(a,r,m):\n    return ''.join(str((r+(i+1)*a).__floor__()-(r+i*a).__floor__()) for i in range(m))\n\ndef S(K,t,m):\n    return ''.join(str(((K+i)*t).__floor__()-((K+i-1)*t).__floor__()) for i in range(m))\n\ndef lift(a,r,K):\n    L=K-1\n    N=(L*a-r+Q(1,2)).__floor__()\n    return (N+r)/L\n\ndef F(m):\n    def phi(n):return sum(gcd(i,n)==1 for i in range(1,n+1))\n    return 1+sum((m+1-q)*phi(q) for q in range(1,m+1))\n\ndef run():\n    rows=[];checks=0;bits=0\n    for m in range(1,13):\n        ff=farey(m); K0=4*m**3+2; ks=(K0,10**80+K0)\n        observed={K0:set(),ks[1]:set()};cells=0\n        for p,q in zip(ff,ff[1:]):\n            a=(p+q)/2\n            assert a.denominator<=2*m*m\n            cuts=sorted({Q(0),Q(1)}|{(-j*a)%1 for j in range(m+1)})\n            for lo,hi in zip(cuts,cuts[1:]):\n                r=(lo+hi)/2\n                w=W(a,r,m)\n                margin=min(min((r+j*a)%1,1-(r+j*a)%1) for j in range(m+1))\n                assert margin>=Q(1,4*m*m)\n                cells+=1\n                for K in ks:\n                    t=lift(a,r,K)\n                    assert 0<t<1\n                    assert abs(t-a)<=Q(1,2*(K-1))<Q(1,8*m**3)\n                    assert S(K,t,m)==w\n                    observed[K].add(w)\n                    bits=max(bits,t.numerator.bit_length(),t.denominator.bit_length())\n                    checks+=1\n        assert len(observed[K0])==len(observed[ks[1]])==F(m)\n        rows.append({'m':m,'Farey_chambers':len(ff)-1,'certificates':cells,\n                     'words':F(m),'K_threshold':K0})\n    return {'result':'R134_CONSTRUCTIVE_ALL_WORDS_LIFT_PASS','m_range':'1..12',\n            'certificate_checks':checks,'max_certificate_bits':bits,\n            'K_bound':'4*m^3+2','rows':rows}\n\nif __name__=='__main__':print(json.dumps(run(),indent=2))\n",
+      "display_title": "check_r134_lift.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/db1c25fa749744c868d4039200cf44894dab53f9/research_notes/brc_s23_av_r134_sturmian_saturation_20261114/check_r134_lift.py",
+      "encoding": "utf-8",
+      "sha": "4a1440b0b01e7250ceeac56692ed0c3700091270"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
