@@ -1,0 +1,25 @@
+# Reproduction of published exact bytes (2026-11-11)
+
+Starting evidence: Draft PR #2085, immutable commit `7d0ccaaa7df27f0ec23f06cadf6ef071c0345a83`.
+
+Two published lossless gzip/base64 texts were fetched from that exact commit via the authorized GitHub connector. Both fetched Git Blob SHA values matched their computed local Git Blobs:
+- `VERIFY_R5_COMPENSATOR_PORT_RIGIDITY.py.gz.b64`: `682d0220ec631c9143f8f3713f1b89e070d68813`.
+- `R5_PORT_TEMPLATE_25_FARKAS.json.gz.b64`: `a1a7dbc79742582766f1abb4f504daa3445fa0ea`.
+
+After decompressing the same local text bytes, the source contained 5,481 bytes and SHA-256 `4c23463427a86cc0f157673e7d45d796bf1f4528c48f1c0a67ffb086aa4bec91`; the certificate JSON contained 8,901 bytes and SHA-256 `9f73274f4a2a851b1bf5fa445e5b3a91aaf7b12f7083fe7574a59c2d9724ddac`.
+
+**Executed command:** `python /mnt/data/r5_reproduced_from_published.py /mnt/data/R5_PORT_TEMPLATE_25_FARKAS.json.gz.b64`, using standard-library Python with `Fraction`.
+
+Actual execution output (verbatim):
+
+```text
+CONSTRUCTIVE_PATH (1, 2, 5) EXACT_STAGES_PASS
+CONSTRUCTIVE_PATH (2, 1, 5) EXACT_STAGES_PASS
+FULL_PORT_ASSIGNMENT_SPACE 27
+EXACT_INFEASIBILITY_CERTIFICATES 25
+EXACT_POSITIVE_ASSIGNMENTS (1, 2, 5) (2, 1, 5)
+MAX_FARKAS_GAP -102015427/44253536810
+PASS_R5_EXACT_THREE_ATOM_COMPENSATOR_PORT_RIGIDITY_25_CERTIFICATES
+```
+
+This is an additional execution of the verified published artifact bytes, still by the current author-side context. It does not claim an independent scientific review, formal project Result, or unscoped theorem.
