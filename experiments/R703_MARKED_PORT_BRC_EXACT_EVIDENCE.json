@@ -1,0 +1,46 @@
+{
+  "schema": "ENTERPRISE_MATH_R703_AUTHOR_EXACT_EVIDENCE_V1",
+  "status": "EXACT_FINITE_CHECK_AUTHOR_SIDE",
+  "task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "publication": "TP2-8B7E13C5904A2D6F1142",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "precursor": "R702:f1163f26b4eff01fd20a31303381ec903667b1c3",
+  "group_caps": [
+    24,
+    18,
+    6,
+    12
+  ],
+  "weights": [
+    96,
+    5,
+    92,
+    47
+  ],
+  "alpha": "1/2",
+  "beta": "1/118",
+  "moment_collision": {
+    "s": 1,
+    "W": 96,
+    "mask_A": "only q active",
+    "mask_B": "only a distinct e-class label active",
+    "next_e_down_prob_A": "1/2",
+    "next_e_down_prob_B": "1/118"
+  },
+  "original_observer_histograms": 43225,
+  "repaired_observer_states": 82992,
+  "min_fixed_bits": 17,
+  "two_step_return": "15/59",
+  "expect_formula": "(1-(1-2alpha)^n)/2+(59/2)*(1-(1-2beta)^n)",
+  "checks": [
+    "82992 orbit-state ranks and inverse",
+    "82992 distinct (s,W,b) observations",
+    "82992 normalized exact reduced transition rows",
+    "one-step equal-moment collision",
+    "sparse Fraction-valued dynamic programming n=0..8 and analytic expected counts",
+    "P(return at step 2)=15/59"
+  ],
+  "marker": "R703_MARKED_BRC_LUMPABILITY_EXACT_PASS",
+  "scope": "Candidate positive-rational 60-source toggle model, not genuine TRIADIC_CLOSURE_E or V29/V39 native event",
+  "independent_driver_review": "PENDING"
+}
