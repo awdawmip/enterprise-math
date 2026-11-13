@@ -1,0 +1,53 @@
+{
+  "schema": "PREFIX595_R2_ALL_NONNEGATIVE_GATE_POSITIVE_49_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_basis": "Frozen STARS/P/N/TARGET, PREFIX589_R2_dual_carrier_certificate.py, blob cf64036c1c7cb95eb6ec0bdc9151082432cb0291",
+  "native_ports": 96,
+  "phases": 48,
+  "labelled_actions": 576,
+  "gate_target_phase": 4,
+  "encoder_rows": 49,
+  "decoder_rows": 96,
+  "factorization": "A_k=B_k*C, M_k=C*B_k for all 7 native labels",
+  "domain": "all x1..x6>=0 and z>=0, arbitrary finite nonstationary sequences",
+  "rank_generic": "49 if all axes nonzero and z!=1; PREFIX593 rank proof",
+  "rank_unit_gate": "48 if all axes nonzero and z=1",
+  "original_nnz_by_label": [
+    93,
+    96,
+    96,
+    96,
+    96,
+    96,
+    3
+  ],
+  "decoder_nnz_by_label": [
+    51,
+    48,
+    48,
+    48,
+    48,
+    48,
+    3
+  ],
+  "update_nnz_by_label": [
+    51,
+    48,
+    48,
+    48,
+    48,
+    48,
+    3
+  ],
+  "coeff_A_eq_BC_checked": 64512,
+  "coeff_CA_eq_MC_checked": 32928,
+  "full_port_and_state_exact_step_checks": 1188,
+  "tested_singleton_original_endpoints": 96,
+  "gate_values_tested": [
+    0,
+    1,
+    2,
+    5
+  ],
+  "status": "ALL_ASSERTIONS_PASS_AUTHOR_SIDE_UNREVIEWED"
+}
