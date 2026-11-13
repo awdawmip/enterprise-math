@@ -1,0 +1,13 @@
+--- check_r123.py
++++ check_r123_corrected.py
+@@ -186,8 +186,8 @@
+             cons.append((1-t,1,i,x-qi,False))
+             cons.append((t,-1,-i,1+qi-x,True))
+     vmin=min(d*l,d*h);vmax=max(d*l,d*h)
+-    kmn=frac_floor(vmin);kmx=frac_ceil(vmax)-1
+-    nlow=frac_floor(min(x+N*l,x+N*h));nhigh=frac_ceil(max(x+N*l,x+N*h))-1
++    kmn=frac_floor(vmin);kmx=frac_floor(vmax)
++    nlow=frac_floor(min(x+N*l,x+N*h));nhigh=frac_floor(max(x+N*l,x+N*h))
+     two=project_theta(cons)
+     two.extend([(-1,0,-nlow,False),(1,0,nhigh,False)])
+     return cons,two,kmn,kmx
