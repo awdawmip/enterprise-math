@@ -1,0 +1,36 @@
+{
+  "n_axes": 6,
+  "known_axis_tags": [
+    0,
+    1
+  ],
+  "triple_membership_bits": 20,
+  "two_star_variable_bits": 16,
+  "frozen_exterior_bits": 4,
+  "pair_ledger_coordinates": 15,
+  "enumerated_states": 65536,
+  "distinct_pair_ledgers": 64800,
+  "fiber_histogram": {
+    "1": 64096,
+    "2": 672,
+    "3": 32
+  },
+  "colliding_unordered_state_pairs": 768,
+  "distinct_collision_supports": 3,
+  "minimal_collision_distance": 8,
+  "optimal_worst_case_extra_fixed_membership_queries": 2,
+  "optimal_worst_case_extra_adaptive_membership_queries": 2,
+  "number_of_optimal_fixed_two_query_sets": 48,
+  "sample_fixed_queries": [
+    "023",
+    "024"
+  ],
+  "decoder_cases": 196608,
+  "arithmetic": "exact Python integers; full enumeration of 2^16 Boolean two-star states",
+  "native_status": "candidate source observer; native X6 event admissibility unverified",
+  "local_execution_stdout_suffix": "R719_BRC_TWO_AXIS_LOCAL_LEDGER_EXACT_PASS",
+  "verification_scope": "All 65536 Boolean states for known two-axis set {0,1}, all their exact 15-row ledgers, every distinct collision support, all 120 fixed two-query sets; 196608 endpoint decoder checks with three fixed exterior baselines.",
+  "source_script": "research_notes/portable_direct/R719_BRC_DOUBLE_AXIS_LEDGER_VERIFY.py",
+  "source_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389"
+}
