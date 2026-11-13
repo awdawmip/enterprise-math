@@ -1,0 +1,69 @@
+{
+  "schema": "ENTERPRISE_MATH_R344_INTERIOR_TP2_UNBOUNDED_CORANK_V1",
+  "status": "EXACT_FINITE_COEFFICIENT_CERTIFICATE_PASS",
+  "date": "2026-10-28",
+  "model": "signed 12-term K/J ordered hexagonal BRC auxiliary combinatorics",
+  "global_snapshot": "385fedf431899722ff6bf9c795c2418eaa18d14c",
+  "em_project_base": "c318256f3f536a65ec691fbba8c59a995d413dd4",
+  "dependency": "R330 rational extraction D_{r+u,u}=5^uH_r(u) and deg H_r<=r",
+  "input": {
+    "r_min": 0,
+    "r_max": 256,
+    "number_of_rational_newton_coefficients": 33153,
+    "sha256": "81c190fa50e22dc8479cb337a374706ae300a877fc9c74aa7a9033c49d96cf09"
+  },
+  "certificate": {
+    "r_min": 1,
+    "r_max": 255,
+    "k_min": 1,
+    "integer_forward_differences_strictly_positive": 65535,
+    "digest_canonical_lines": "r,i,delta_Q_decimal\\n in ascending r and i",
+    "sha256": "6b3f762cada37f8b00a51541a2568d93633911d6839fe0fee9bcf2ebf85aa795",
+    "top_coefficient": "Delta^(2r) Q_r(0) = 30^(2r) * Catalan(r)",
+    "catalan_assertions_pass": 255,
+    "samples": {
+      "1": {
+        "Q0": "2620",
+        "last_difference": "900"
+      },
+      "2": {
+        "Q0": "4790800",
+        "last_difference": "1620000"
+      },
+      "3": {
+        "Q0": "7457000000",
+        "last_difference": "3645000000"
+      },
+      "4": {
+        "Q0": "10478580000000",
+        "last_difference": "9185400000000"
+      },
+      "5": {
+        "Q0": "13924994720000000",
+        "last_difference": "24800580000000000"
+      }
+    }
+  },
+  "outcomes": [
+    "M_{q,k}>0 for k>=1 and 1<=q-k<=255",
+    "All legal interior 2x2 minors for 1<=k<l<=q<p and p-k<=256 are positive"
+  ],
+  "execution": {
+    "full_regeneration": "python R344_VERIFY.py --rebuild --out R344_EVIDENCE.json",
+    "result": "PASS",
+    "source_B_s_range": "0..768",
+    "input_based": "python R344_VERIFY.py --input R331_INTERPOLATION_EVIDENCE_256.json --out R344_EVIDENCE.json",
+    "full_output_identical": "true, byte-for-byte",
+    "independent_small_rebuild": "r=0..13, 105 Newton coefficients identical",
+    "full_local_machine_evidence_sha256": "d3ebedf419347807fb1b182633deb111685557c1af295a39989f2e0ceffd0041"
+  },
+  "status_policy": {
+    "author_side": true,
+    "driver_review": false,
+    "native_claim": false,
+    "native_result": false,
+    "admitted": false,
+    "P000_modified": false
+  },
+  "next": "Analyze r=256+ shifted Q positive Newton coefficients or sign obstruction; validate R330 lemma independently."
+}
