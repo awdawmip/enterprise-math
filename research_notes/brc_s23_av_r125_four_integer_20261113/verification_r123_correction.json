@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-13",
+  "status": "R123_CONSTANT_FLOOR_BOUND_COUNTEREXAMPLE_FIXED",
+  "parameters": {
+    "x": "0",
+    "N": 0,
+    "d": 1,
+    "l": "0",
+    "h": "1",
+    "a": 0,
+    "j": 0,
+    "c": 1,
+    "m": 2
+  },
+  "actual_signature": "10",
+  "direct_witness": "1/2",
+  "old_signature_10": {
+    "count": "0",
+    "theta": null,
+    "chunks": 2
+  },
+  "corrected_signature_10": {
+    "count": "1",
+    "theta": "1/2",
+    "chunks": 2
+  },
+  "full_corrected_regression": "R123_FLOOR_SUM_LATTICE_PASS",
+  "change": "use inclusive floor(max endpoint) upper bound for n and k; explicit constraints eliminate overincluded endpoint floor candidates"
+}
