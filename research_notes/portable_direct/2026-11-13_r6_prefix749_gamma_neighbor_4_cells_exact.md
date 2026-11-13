@@ -35,7 +35,7 @@ All moments are evaluated with integer Gamma survival sums and `fractions.Fracti
 
 The minimum floor of the two G_8 values is `3,704,401>3,000,000`. Thus the *unrounded* exact rational G_8 in each original cell is strictly greater than 3. Transposition completes all four cells. The negative coarser and older values are inconclusive lower bounds, not counterexamples.
 
-For provenance, the original kernel's `mu(e).numerator` SHA256 is `797121e567e6422d342b2647cd17ff01187d5000b08bde8a954730d071bed46e`, and `W(e).numerator` SHA256 is `814be93bb068b6a6e688e8ea5a466939a06e617b67ab585c177176f57afd57ae`. An independent equivalent standard-library Python implementation rebuilt all 190 rows and checked the nonzero count, Bernstein symmetry/center inequalities, moment hashes and all table entries. Each original cell's 2/4/8 calculation was repeated in its own process. This is **author exact recalculation**; an independent clean reviewer and the complete published-checker replay remain separate.
+For provenance, the original kernel's `mu(e).numerator` SHA256 is `797121e567e6422d342b2647cd17ff01187d5000b08bde8a954730d071bed46e`, and `W(e).numerator` SHA256 is `814be93bb068b6a6e688e8ea5a466939a06e617b67ab585c177176f57afd57ae`. An independent equivalent standard-library Python implementation rebuilt all 190 rows and checked the nonzero count, Bernstein symmetry/center inequalities, moment hashes and all table entries. Each original cell's 2/4/8 calculation was repeated in its own process. This is **author exact recalculation**; an independent clean reviewer remains separate; the exact published-checker plus exact original dependency replay has now been completed, as recorded below.
 
 ## Historical-coordinate comparison and cumulative scope
 
@@ -49,6 +49,23 @@ This is an exact auxiliary Gamma objective exclusion, not a change to P000, a pr
 
 ## Reproducibility, artifacts and next question
 
-Companion checker: `PREFIX749_R6_GAMMA_NEIGHBORS_4.py`; data: `PREFIX749_R6_GAMMA_NEIGHBORS_4_RESULTS.json`. Run checker next to source `PREFIX741_R6_INNER_STRIP_194.py`, whose previously read Git blob SHA1 is `d986f644ba513240ea8395e0b221af7946e0efd6`. The checker computes the 2/4/8 exact bounds and old point's 1x1 bounds afresh; it explicitly checks the complete expected floors.
+Companion checker: `PREFIX749_R6_GAMMA_NEIGHBORS_4.py`; data: `PREFIX749_R6_GAMMA_NEIGHBORS_4_RESULTS.json`. Run checker next to source `PREFIX741_R6_INNER_STRIP_194.py`, whose previously read Git blob SHA1 is `d986f644ba513240ea8395e0b221af7946e0efd6`. The checker computes the 2/4/8 exact bounds and old point's 1x1 bounds afresh; it explicitly checks the complete expected floors. The exact published checker and original dependency were both replayed on 2026-11-13, as recorded below.
 
 Next evaluate neighboring (11,52), (10,52), and farther boundary cells with exact adaptive subdivisions, and independently audit the full historical certificate union at a single coordinate scale. The isolated (11,52) 8x8 local test did not finish during this run; it contributes no claimed certification. For formal shared research, obtain a fresh exact Task/CLAIM binding separately; this independent note preserves science without appropriating another live owner.
+
+## Post-publication exact-byte composite replay (2026-11-13)
+
+Reconstructed both exact original GitHub bytes in one local Python standard-library environment and verified their Git blob SHA1 values before execution:
+
+- `PREFIX741_R6_INNER_STRIP_194.py`: `d986f644ba513240ea8395e0b221af7946e0efd6` (original imported dependency).
+- `PREFIX749_R6_GAMMA_NEIGHBORS_4.py`: `76bb0162a679275631a18cc0098cd3affdf4e568` (new checker committed on main).
+
+Invoked `python PREFIX749_R6_GAMMA_NEIGHBORS_4.py` in the same directory; its parent process spawned one child Python process for each original cell, and all exact arithmetic assertions succeeded:
+
+```text
+PASS 10 50 (-78645845, -20639281, 8455657) old -194688514
+PASS 10 51 (-84950051, -25907227, 3704401) old -203076218
+ALL_CHECKS_PASS PREFIX749-R6 2+2=4
+```
+
+This completes the previously open **published-source exact dependency composite replay** item. Independent mathematical review and comprehensive historical certificate-union audit remain open; neither activity checkpoint nor a passing local checker grants formal acceptance.
