@@ -1,0 +1,98 @@
+{
+  "schema": "EM_R44_EXACT_EXECUTION_SUMMARY_V1",
+  "date": "2026-11-10",
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "method": "R44_NESTED_DYADIC_PRECISION_AND_SPARSE_RANK",
+  "input_theta": "sqrt(2)-1",
+  "histories": 16,
+  "oracle": "independent Euclidean Floor Sum on separately constructed 40-decimal enclosure plus finite brute force for N<=160",
+  "source_program_sha256": "6f79075c82dfbbdf829e003dc2c73d02cd07756e9712d8895356517ca73870cc",
+  "full_certificate_sha256": "77899d1eef2acd5e9b575192f953f7f3702c3311899db71b683ffb202b759206",
+  "runlog_sha256": "fe2b89e0d6ef39a6badb97faa214071d5ffd2a74ad98cd4e7e956a2b24085503",
+  "total": {
+    "vectors": 1414,
+    "owner_values": 22624,
+    "window_shifts": 1408,
+    "sparse_rank_tests": 5632,
+    "precision_refinements": 20,
+    "repairs": 171,
+    "phase_seeds": 26,
+    "modular_additions": 1402
+  },
+  "cases": [
+    {
+      "name": "J100",
+      "J": 100,
+      "N": 120,
+      "K": 512,
+      "initial_bits": 14,
+      "final_bits": 19,
+      "refinements": 5,
+      "repairs": 0,
+      "vectors": 513,
+      "final_vector_sha256": "73f741bab66bd1b5139a921a7ec8b183f1142ba05293a9a028e837bfaf8bde56"
+    },
+    {
+      "name": "J1000",
+      "J": 1000,
+      "N": 500,
+      "K": 512,
+      "initial_bits": 22,
+      "final_bits": 22,
+      "refinements": 0,
+      "repairs": 0,
+      "vectors": 513,
+      "final_vector_sha256": "99457542194f5a9e7b34a3c9e68c292ba175db274109c9b485ce1c7debdc09a5"
+    },
+    {
+      "name": "J1e6",
+      "J": 1000000,
+      "N": 10000,
+      "K": 64,
+      "initial_bits": 27,
+      "final_bits": 30,
+      "refinements": 3,
+      "repairs": 0,
+      "vectors": 65,
+      "final_vector_sha256": "e8d10f613ad397cb7af6d8c6deaeac2c3ce7f750c52bb761e9544fa5d1f8120e"
+    },
+    {
+      "name": "J1e9",
+      "J": 1000000000,
+      "N": 100000000,
+      "K": 32,
+      "initial_bits": 36,
+      "final_bits": 41,
+      "refinements": 5,
+      "repairs": 0,
+      "vectors": 33,
+      "final_vector_sha256": "5118e9a31d3a76253b702f3f7023026a1c2668531565d631005481a26dd8a9fc"
+    },
+    {
+      "name": "short_N5",
+      "J": 100,
+      "N": 5,
+      "K": 160,
+      "initial_bits": 13,
+      "final_bits": 17,
+      "refinements": 4,
+      "repairs": 155,
+      "vectors": 161,
+      "final_vector_sha256": "e30c26cb3bfec3ff889a34ae884dd93cba46b5dde40abf12381453976dd7810d"
+    },
+    {
+      "name": "negative",
+      "J": -30,
+      "N": 24,
+      "K": 128,
+      "initial_bits": 11,
+      "final_bits": 14,
+      "refinements": 3,
+      "repairs": 16,
+      "vectors": 129,
+      "final_vector_sha256": "f81ba82d9dcc0983355e6e56ee73bf664b3e024f8f311433adce84ac28fc843d"
+    }
+  ],
+  "review_status": "author exact verification, independent review pending",
+  "scope": "auxiliary labelled irrational-circle observer, not full S23 affine risk compiler"
+}
