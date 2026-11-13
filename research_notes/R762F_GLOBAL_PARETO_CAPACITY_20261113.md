@@ -1,0 +1,67 @@
+# R762F — Global Pareto frontier of nonuniform three-triad resource budgets
+
+Date: 2026-11-13 (Asia/Shanghai). Research classification: author-side exact finite combinatorics with complete computational certificate; NOT_REVIEWED. Native Cell/Link/Port event admissibility: NOT_ESTABLISHED.
+
+**Parent:** RS-X6-TRIADIC-CLOSURE-DYNAMICS; publication TP2-8B7E13C5904A2D6F1142. **Frozen scientific input:** `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389` (P000 and ACTIVE unchanged). Direct predecessor R762E Draft PR #2274 @ `676f09876b69890f7fa2938f53ff00da27e89198` (uniform per-generator budget K); R762D Draft PR #2265 supplies oriented generators. R763 Draft PR #2270 studies the distinct unlimited-repeat exact-length question.
+
+## 1. Exact problem
+
+At one selected X6 Cell let six persistent, distinct provenance-labelled ports have placement `p` in `A_6`, represented by a six-entry permutation image tuple. The three candidate generators are oriented three-cycles `g0=(0 1 2)`, `g1=(0 3 4)`, `g2=(1 3 5)`. An event `i` updates `p -> p ∘ gi` and increases its own event-use count `ci` by one. Start at `(e,(0,0,0))`.
+
+For a finite resource vector `b=(b0,b1,b2)∈N_0^3`, let `R(b)` denote all final port permutations obtained by finite event words using generator `i` at most `bi` times. Counts are retained for future legal-action queries; this paper's reachability observer reports port placements only. The independent per-type cap is a candidate scheduler, not a P000/V29 law.
+
+The question is to classify all `b` with `R(b)=A_6`, including arbitrarily large caps, and determine the exact **componentwise Pareto-minimal** full-coverage budgets.
+
+## 2. Main theorem (global, not just a tested cap box)
+
+For the declared fixed three-generator, forward-only candidate system, the set of Pareto-minimal resource budgets satisfying `R(b)=A_6` is **exactly** the following 13 vectors:
+
+| `b0` | `b1` | `b2` |
+|---:|---:|---:|
+| 1 | 4 | 6 |
+| 1 | 5 | 5 |
+| 1 | 7 | 4 |
+| 2 | 3 | 4 |
+| 3 | 2 | 4 |
+| 3 | 3 | 3 |
+| 4 | 1 | 5 |
+| 4 | 2 | 3 |
+| 4 | 3 | 2 |
+| 4 | 7 | 1 |
+| 5 | 1 | 4 |
+| 5 | 5 | 1 |
+| 6 | 4 | 1 |
+
+In particular, **any** nonnegative integer budget vector covers all 360 placements if and only if it componentwise dominates at least one of these 13 vectors. The smallest uniform budget remains `(3,3,3)` (R762E). Nonuniform capacities give asymmetric choices: e.g. `(1,4,6)`, `(2,3,4)` and `(4,3,2)` all cover 360 states, while decreasing any positive coordinate of a listed budget leaves at least one placement unreachable.
+
+A stronger finite-state certificate holds: there are exactly **1,861** nondominated endpoint/cost labels over all 360 permutations, no endpoint has more than **12** labels, and every nondominated count triple has each component at most **8**. This **global bound** is derived from exhaustive one-step closure, not assumed from a finite-length sample.
+
+## 3. Algebraic proof and finite certificate
+
+Let `P(w)∈A_6` be the port placement of event word `w`, and `C(w)∈N_0^3` its generator-use vector. Right-multiplication gives `P(wi)=P(w)gi` and `C(wi)=C(w)+ei`. Both are exact. For a fixed endpoint `p`, define `D(p)` as the set of componentwise minimal vectors in `{C(w):P(w)=p}`.
+
+**Dominance lemma.** If two histories have the same port placement with `C(u)≤C(v)`, then for every appended event word `z`, their resulting placements agree and `C(uz)≤C(vz)`. Consequently, a dominated partial word cannot be needed for any budget-constrained endpoint reachability query.
+
+**Finite closure certificate.** Start with label `(e,0)`. For each stored label `(p,c)` and generator `i`, offer `(p gi,c+ei)`; reject it if already dominated at the new endpoint, otherwise insert and delete labels it dominates. The attached exact checker reaches a finite fixed point `L` with 360 endpoints, 1,861 labels, at most 12 per endpoint. For **all 5,583** labelled one-step extensions it independently verifies that there is a label at the exact next endpoint with cost componentwise at most the extension cost. Thus by induction on arbitrary word length, every event history is dominated by a stored label with the same endpoint. Every stored label comes from an actual word, and labels at a common endpoint form an antichain; hence `L(p)=D(p)` for each endpoint. This certifies the global frontier over arbitrary lengths.
+
+An independent exact-count dynamic program over all `9^3=729` count triples `c∈[0,8]^3` uses
+```text
+Q(0,0,0)={e}
+Q(c)=union_i:c_i>0 {p gi : p in Q(c-e_i)}
+R(b)=union_{0<=c<=b} Q(c).
+```
+Induction on `|c|` proves exhaustive coverage of the box. It agrees for **all 729 budgets** with the endpoint-label predicate `R(b)={p: some d∈D(p),d≤b}`; precisely **377** budgets in the box reach 360 states.
+
+For arbitrary `b∈N_0^3`, the closure certificate and the bound `D(p)⊆[0,8]^3` show `R(b)=R(min(b,8))` (minimum coordinatewise). This extends the finite-box computation to the entire unbounded budget domain. Enumerating the downward boundary of the 377 full-coverage cases yields the 13 vectors above. Each listed vector has 360 reachable endpoints, while every immediate predecessor `b-ei` (when `bi>0`) misses a particular endpoint. The attached JSON records a concrete lexicographically chosen missing permutation for every immediate predecessor, and its checker verifies those witnesses. Monotonicity establishes both completeness and minimality. QED.
+
+## 4. Representation and BRC information scope
+
+The `(p,c)` retained state and original ordered, source-labelled event history are distinct carriers. The reachability projection `(p,c)->p` is used only for the declared endpoint reachability question, and the proof explicitly retains the vector `c` before computing any future event legality. R762E proves that the full future-legality observer distinguishes all reachable `(p,c)` states. The 13-vector classification neither deletes branch/source multiplicities nor identifies any generator with a certified native `TRIADIC_CLOSURE_E` event.
+
+For the native program, an observed legal repeat budget or event inventory may be compared directly against this Pareto frontier **after** admissibility has been typed from actual Cell/Link/Port states. The next discriminating test is to check authentic first/second repeated use and ordered compositions of supports `012/034/135`, keeping V29 PASS/TRANSFER count updates and V39 based-loop frame transport separately typed.
+
+## 5. Reproduction / evidence
+
+Run `python3 research_notes/R762F_VERIFY.py` with Python 3 standard library. It uses exact six-integer permutation tuples, an unrestricted Pareto label fixed point with one-step closure assertions, and an independently computed exact-count DP. The full actual output is `research_notes/R762F_EVIDENCE.json`, including all 13 local-minimality witness sets, no sampling or floating point. `research_notes/R762F_HANDOFF.md` records the exact next frontier.
+
+This is an author-side mathematical/computational result for an explicitly constructed candidate port scheduler. Formal Source Result and independent Driver review have not been performed in this artifact.
