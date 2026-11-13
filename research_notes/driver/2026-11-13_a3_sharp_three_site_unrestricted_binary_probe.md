@@ -1,6 +1,6 @@
 # A3: sharp three-site binary probe using free signed-\(S_4\) carrier points
 
-**Date:** 2026-11-13. **Scope:** exact A3 shell model, same Driver mathematical context as the five-site rooted-probe audit. **Attribution:** original frozen Result \`RR-9FF7F84F01C577774649\`, task \`RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION\`, researcher \`EM-A3SCR-7A41D2\`; this is a Driver supplement, not an independent review or Native Result disposition.
+**Date:** 2026-11-13. **Scope:** exact A3 shell model, same Driver mathematical context as the five-site rooted-probe audit. **Attribution:** original frozen Result `RR-9FF7F84F01C577774649`, task `RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION`, researcher `EM-A3SCR-7A41D2`; this is a Driver supplement, not an independent review or Native Result disposition.
 
 ## Theorem
 
@@ -54,6 +54,6 @@ When \(n=d=1\), zero marks cannot distinguish \(g_-\notin H\); the single mark \
 
 ## Verification and status
 
-The exact checker \`research_checks/A3_SHARP_THREE_SITE_ORBIT_PROBE_20261113.py\` exhaustively tested every \(g_-,g_+\in S_4\) and all \(1\le d\le n\le8\): **20,736 exact alignment cases, zero disagreements**, maximum three marked sites. It also tests the stabilizers for the specific points. The all-scale theorem rests on the argument above; finite checks are regression evidence.
+The exact checker `research_checks/A3_SHARP_THREE_SITE_ORBIT_PROBE_20261113.py` exhaustively tested every \(g_-,g_+\in S_4\) and all \(1\le d\le n\le8\): **20,736 exact alignment cases, zero disagreements**, maximum three marked sites. It also tests the stabilizers for the specific points. The all-scale theorem rests on the argument above; finite checks are regression evidence.
 
-This strengthens [the previous rooted five-site theorem](2026-11-13_a3_sharp_five_site_orbit_probe.md) without invalidating its explicitly restricted optimality claim. The result concerns the output-orbit equation; intrinsic quotient operators have the separate centralizer prerequisite. It does not promote the original frozen Result to Native \`ACCEPTED\`, take the original researcher's CLAIM, or close the mother objective.
+This strengthens [the previous rooted five-site theorem](2026-11-13_a3_sharp_five_site_orbit_probe.md) without invalidating its explicitly restricted optimality claim. The result concerns the output-orbit equation; intrinsic quotient operators have the separate centralizer prerequisite. It does not promote the original frozen Result to Native `ACCEPTED`, take the original researcher's CLAIM, or close the mother objective.
