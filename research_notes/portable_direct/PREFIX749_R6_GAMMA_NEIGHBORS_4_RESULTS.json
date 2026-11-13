@@ -61,7 +61,20 @@
   "mu_numerator_sha256": "797121e567e6422d342b2647cd17ff01187d5000b08bde8a954730d071bed46e",
   "variance_numerator_sha256": "814be93bb068b6a6e688e8ea5a466939a06e617b67ab585c177176f57afd57ae",
   "coordinate_scope": "Compared PREFIX742..748 and exact 768-grid converted children against PREFIX713 multi / PREFIX716 / PREFIX718; baseline inherited",
-  "validation": "Local independent-equivalent Fraction kernel rebuild, 9,529 positions, Bernstein properties, frozen witness hashes, 2/4/8 exact floors in per-cell runs; combined published script exact-byte dependency replay pending",
+  "validation": "Local independent-equivalent Fraction kernel rebuild, 9,529 positions, Bernstein properties, frozen witness hashes, 2/4/8 exact floors in per-cell runs; published checker plus exact GitHub imported dependency then passed byte-for-byte composite replay in two child Python processes on 2026-11-13",
   "grade": "AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED",
-  "next": "Independent cumulative union audit; (11,52) and (10,52) adaptive exact bound trials"
+  "next": "Independent cumulative union audit; (11,52) and (10,52) adaptive exact bound trials",
+  "composite_replay": {
+    "status": "PASS",
+    "date": "2026-11-13",
+    "source_dependency": "PREFIX741_R6_INNER_STRIP_194.py",
+    "source_dependency_git_blob_sha1": "d986f644ba513240ea8395e0b221af7946e0efd6",
+    "published_checker_git_blob_sha1": "76bb0162a679275631a18cc0098cd3affdf4e568",
+    "command": "python PREFIX749_R6_GAMMA_NEIGHBORS_4.py",
+    "output": [
+      "PASS 10 50 (-78645845, -20639281, 8455657) old -194688514",
+      "PASS 10 51 (-84950051, -25907227, 3704401) old -203076218",
+      "ALL_CHECKS_PASS PREFIX749-R6 2+2=4"
+    ]
+  }
 }
