@@ -1,0 +1,39 @@
+{
+  "A6_orbit_records": [
+    {
+      "depth_counts": [1, 6, 22, 67, 146, 105, 12, 1],
+      "diameter": 7,
+      "orbit_size": 180,
+      "pair_intersections": [1, 1, 2],
+      "representative": [[0, 1, 2], [0, 1, 3], [0, 4, 5]],
+      "triple_intersection": 1
+    },
+    {
+      "depth_counts": [1, 6, 18, 41, 84, 124, 71, 15],
+      "diameter": 7,
+      "orbit_size": 180,
+      "pair_intersections": [0, 1, 2],
+      "representative": [[0, 1, 2], [0, 1, 3], [2, 4, 5]],
+      "triple_intersection": 0
+    },
+    {
+      "depth_counts": [1, 6, 24, 96, 187, 46],
+      "diameter": 5,
+      "orbit_size": 120,
+      "pair_intersections": [1, 1, 1],
+      "representative": [[0, 1, 2], [0, 3, 4], [1, 3, 5]],
+      "triple_intersection": 0
+    }
+  ],
+  "full_A6_support_triples": 480,
+  "group_order_frequencies": {"12": 60, "60": 600, "360": 480},
+  "least_fixed_width_bits_for_final_six-label_port_state": 9,
+  "minimal_number_of_supports_to_generate_A6": 3,
+  "model": "six labelled positive-axis ports; one oriented 3-cycle and its inverse for each selected support",
+  "optimal_diameter_over_three_supports": 5,
+  "optimal_support_triples": 120,
+  "schema": "R761S_EXACT_SPARSE_TRIADIC_PORT_ENUMERATION_V1",
+  "support_count": 20,
+  "support_triples_tested": 1140,
+  "validation": "exhaustive integer-only BFS over all 1,140 unordered support triples; S6 orbit enumeration; all members crosschecked"
+}
