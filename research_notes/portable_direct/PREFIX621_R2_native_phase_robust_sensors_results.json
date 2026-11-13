@@ -1,0 +1,131 @@
+{
+  "schema": "PREFIX621_R2_NATIVE_BRC_ROBUST_TERMINAL_SENSORS_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "48 original native phase sums; 4-point probe; unknown a,b,lambda; known t; fixed phase-coordinate sensors; t>=4 minimality",
+  "active_possible_phase_rows": [
+    2,
+    3,
+    4,
+    5,
+    14,
+    15,
+    16,
+    17,
+    26,
+    27,
+    28,
+    29,
+    38,
+    39,
+    40,
+    41
+  ],
+  "W_groups": [
+    [
+      3,
+      14,
+      15
+    ],
+    [
+      17,
+      40,
+      41
+    ],
+    [
+      26,
+      27,
+      39
+    ],
+    [
+      4,
+      5,
+      29
+    ]
+  ],
+  "minimum_0_erasure_from_PREFIX620": 6,
+  "minimum_1_erasure": 8,
+  "one_erasure_fixed_rows": [
+    3,
+    4,
+    5,
+    14,
+    17,
+    26,
+    27,
+    40
+  ],
+  "minimum_2_erasures_and_1_adversarial_corruption": 14,
+  "two_erasure_fixed_rows": [
+    2,
+    3,
+    4,
+    5,
+    14,
+    15,
+    17,
+    26,
+    27,
+    29,
+    38,
+    39,
+    40,
+    41
+  ],
+  "three_erasure_possible": false,
+  "exact_rank_checks_1_erasure": 32,
+  "exact_rank_checks_2_erasure": 364,
+  "lower_bound_obstructions_12_or_13_rows": [
+    {
+      "extra_pure_C": null,
+      "residue": 0,
+      "erased": [
+        26,
+        40
+      ],
+      "remaining_rank": 4
+    },
+    {
+      "extra_pure_C": 2,
+      "residue": 0,
+      "erased": [
+        26,
+        40
+      ],
+      "remaining_rank": 4
+    },
+    {
+      "extra_pure_C": 28,
+      "residue": 0,
+      "erased": [
+        26,
+        40
+      ],
+      "remaining_rank": 4
+    },
+    {
+      "extra_pure_C": 38,
+      "residue": 1,
+      "erased": [
+        14,
+        40
+      ],
+      "remaining_rank": 4
+    },
+    {
+      "extra_pure_C": 16,
+      "residue": 2,
+      "erased": [
+        14,
+        4
+      ],
+      "remaining_rank": 4
+    }
+  ],
+  "native_exact_gate_cases": 24,
+  "native_full48_coordinate_comparisons": 1152,
+  "erased_sensor_reconstructions": 2376,
+  "single_corrupted_sensor_decodes": 56,
+  "native_intertwiner_integer_coordinate_checks": 768,
+  "proof": "W-group counting plus active-pair C-repair; Fraction exact rank for all erasures",
+  "status": "PASS_AUTHOR_SIDE_EXACT; INDEPENDENT_REVIEW_PENDING"
+}
