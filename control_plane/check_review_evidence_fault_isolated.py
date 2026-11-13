@@ -28,10 +28,8 @@ def audit() -> list[str]:
     try:
         research_control_bootstrap.install(ROOT)
 
-        binding_isolation.validated_quarantines(ROOT)
+        # Each installer validates its pinned records before its already-installed guard.
         binding_isolation.install(ROOT)
-
-        structural_isolation.validated_rows(ROOT)
         structural_isolation.install(ROOT)
 
         driver_authority.contract(ROOT)
