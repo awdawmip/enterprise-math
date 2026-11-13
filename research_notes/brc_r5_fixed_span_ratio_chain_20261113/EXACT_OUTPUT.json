@@ -1,0 +1,26 @@
+{
+  "status": "PASS_R5_FIXED_SPAN_RATIO_CHAIN",
+  "run_date": "2026-11-13",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "predecessor_pr": 2239,
+  "predecessor_35B_sha256": "9a1baae24527efdcb30a208330500e3e6e460c738facc4d39ad26451d03328fa",
+  "source_56B_sha256": "bf4f377e8a3b9823d589d0f5c5b0b5973f374a09aa986d5b729bc695c5de0326",
+  "class_n": 212,
+  "class_span": 951,
+  "histogram_classes": 55,
+  "full_class_cardinality": "43238460278605276751226501913190848199841244337559724275404587140697800213579145152",
+  "full_class_bits": 275,
+  "frozen_35B_word_decodes_to_prior_centers": true,
+  "exhaustive_ternary_words_up_to_8": 9841,
+  "strict_invalid_boundaries_rejected": 2,
+  "timing_method": "Local CPython; 17 rounds, each 150 decodes, median of round microseconds",
+  "timings_local_us": {
+    "slow_histogram_35B_decode": 137.328,
+    "ratio_chain_35B_decode": 94.381
+  },
+  "savings_fraction": 0.3127,
+  "scope": "Exact 35B source center word + exhaustive small ternary words; original frozen rational E/certificate counts not rebuilt",
+  "formal_claim": false,
+  "independent_review": false,
+  "published_portable_checker_executed": false
+}
