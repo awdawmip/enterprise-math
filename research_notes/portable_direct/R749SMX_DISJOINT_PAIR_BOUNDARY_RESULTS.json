@@ -1,0 +1,113 @@
+{
+  "schema": "R749SMX_DISJOINT_COMPLEMENT_BOUNDARY_EXACT_V1",
+  "status": "PASS",
+  "domain": "G=F2^4, C=(1,2,4,8,15), B=G*\\C; retained m_3=t,m_12=s, other B moments zero",
+  "general_fiber_parameters": [
+    "h",
+    "u",
+    "v",
+    "w",
+    "z"
+  ],
+  "general_fiber_positivity": "for all A,B in {+-1}: 1+tA+sB+hAB >= |u+vA|+|w+zB|",
+  "boundary_formula": "rho_B(eps,s)=(1-|s|)/2 for eps in {+-1}, s in [-1,1]; symmetric for rho_B(t,eps)",
+  "positivity_grid_rational_profiles": 78125,
+  "boundary_probability_and_moment_profiles": 90,
+  "finite_future_observer_profiles": 150,
+  "future_observer_exact_minimax": "(1-|s|)/2 * sum_y |sum_{x:chi_3(x)=eps} K(y|x)chi_1(x)/8|",
+  "boundary_center_radius_examples": [
+    {
+      "t": "-1",
+      "s": "-1",
+      "radius": "0"
+    },
+    {
+      "t": "-1",
+      "s": "-3/4",
+      "radius": "1/8"
+    },
+    {
+      "t": "-1",
+      "s": "-1/2",
+      "radius": "1/4"
+    },
+    {
+      "t": "-1",
+      "s": "-1/3",
+      "radius": "1/3"
+    },
+    {
+      "t": "-1",
+      "s": "0",
+      "radius": "1/2"
+    },
+    {
+      "t": "-1",
+      "s": "1/3",
+      "radius": "1/3"
+    },
+    {
+      "t": "-1",
+      "s": "1/2",
+      "radius": "1/4"
+    },
+    {
+      "t": "-1",
+      "s": "3/4",
+      "radius": "1/8"
+    },
+    {
+      "t": "-1",
+      "s": "1",
+      "radius": "0"
+    },
+    {
+      "t": "1",
+      "s": "-1",
+      "radius": "0"
+    },
+    {
+      "t": "1",
+      "s": "-3/4",
+      "radius": "1/8"
+    },
+    {
+      "t": "1",
+      "s": "-1/2",
+      "radius": "1/4"
+    },
+    {
+      "t": "1",
+      "s": "-1/3",
+      "radius": "1/3"
+    },
+    {
+      "t": "1",
+      "s": "0",
+      "radius": "1/2"
+    },
+    {
+      "t": "1",
+      "s": "1/3",
+      "radius": "1/3"
+    },
+    {
+      "t": "1",
+      "s": "1/2",
+      "radius": "1/4"
+    },
+    {
+      "t": "1",
+      "s": "3/4",
+      "radius": "1/8"
+    },
+    {
+      "t": "1",
+      "s": "1",
+      "radius": "0"
+    }
+  ],
+  "arithmetic": "exact integer and Fraction; analytic proof establishes continuum",
+  "scientific_input_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "Auxiliary signed-source model; native V29/V39 correspondence and independent review pending"
+}
