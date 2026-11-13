@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/PREFIX754_R6_GAMMA_SHARP_BANDS_RESULTS.json",
+    "ref": "605a43286dfe2bf694d51429f6ebd03f21554ff7",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "prefix754-r6-github-readback-20261113",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"PREFIX754_R6_GAMMA_FORWARD_ERROR_AND_SHARPENED_BANDS_V1\",\n  \"date\": \"2026-11-13\",\n  \"researcher_id\": \"EM-DIRECT-D847AA\",\n  \"research_activity_id\": \"RA-16E805B70E0067F57A2645F1\",\n  \"scientific_pin\": \"f42f2906d77f24085c123f3ccfe9667d41caa96d\",\n  \"scope\": \"189-layer BRC survivor law / external two-independent Gamma(max) auxiliary observer; D=[0,1/2]^2; q>=2\",\n  \"comparator\": [\n    \"0\",\n    \"3/20\"\n  ],\n  \"finite_grid\": [\n    384,\n    384\n  ],\n  \"binary64_error_assumptions\": \"IEEE-754 binary64, round-to-nearest normal operations and checked relative input rounding, positive BLAS gamma_189 dot error, plus conservative 10^9*2^-1022 allowance for subnormal or FTZ tiny-term errors; no overflow\",\n  \"uniform_forward_absolute_G_error\": \"<1/100000\",\n  \"exact_rational_certificate_computed_g_abs_error_approx\": \"1.7340907130248891e-6\",\n  \"exact_rational_certificate_ran\": true,\n  \"independent_full_grid_ran\": true,\n  \"nonzero_survivor_positions\": 9529,\n  \"old_comparator_positive_cells\": 137168,\n  \"global_min_abs_grid_G_float\": 0.01856290810792416,\n  \"inner_band\": {\n    \"offset_condition\": \"|u-v|<=51\",\n    \"physical_region\": \"|p-z|<=17/256\",\n    \"cells\": 36900,\n    \"min_float_replay\": 0.766486830626036,\n    \"uniform_gap_lower_rational\": \"383/500\",\n    \"claim\": \"V_q(e)-V_q(p,z) > (383/500) q^2 for all real q>=2\"\n  },\n  \"outer_band\": {\n    \"offset_condition\": \"|u-v|>=171\",\n    \"physical_region\": \"|p-z|>=57/256\",\n    \"cells\": 45582,\n    \"min_float_replay\": 2.990905434524393,\n    \"uniform_gap_lower_rational\": \"299/100\",\n    \"claim\": \"V_q(e)-V_q(p,z) > (299/100) q^2 for all real q>=2\"\n  },\n  \"previous_band_margin_rationals\": [\n    \"3/4\",\n    \"29/10\"\n  ],\n  \"new_grid_coverage\": 0,\n  \"existing_disjoint_band_cells\": 82482,\n  \"historical_union_fine_conditional\": 140662,\n  \"historical_unexcluded_fine_conditional\": 6794,\n  \"proof_level\": \"AUTHOR_EXACT_RATIONAL_FORWARD_ERROR_BOUND_PLUS_STANDALONE_FULL_NUMPY_GRID_REPLAY; UNREVIEWED; NOT_ADMITTED\",\n  \"published_scripts\": [\n    \"research_notes/portable_direct/PREFIX754_R6_GAMMA_FLOAT_ERROR_BOUND.py\",\n    \"research_notes/portable_direct/PREFIX754_R6_INDEPENDENT_GRID_REPLAY.py\"\n  ],\n  \"limits\": \"Error bound is conditional on the declared arithmetic/input checks; it certifies floating-point evaluation of the fixed endpoint G, not all Gamma analytic assumptions or native X6 mapping. Historical union not reaudited.\",\n  \"next\": \"Independently examine analytical Gamma moment identity and 752 dependency assumptions; compute exact new comparator on an actually uncovered fine-cell orbit.\",\n  \"forward_error_underflow_allowance\": \"1000000000/2^1022\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/605a43286dfe2bf694d51429f6ebd03f21554ff7/research_notes/portable_direct/PREFIX754_R6_GAMMA_SHARP_BANDS_RESULTS.json",
+      "encoding": "utf-8",
+      "sha": "3391bf72baae4b4192c9d12cf6cecc6a8b5c8804"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
