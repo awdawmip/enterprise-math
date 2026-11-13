@@ -78,6 +78,14 @@ Precisely 28 vertices attain equality and zero violate the upper bound. The exac
 
 Together with the unrestricted lower witness this proves the stated exact equality of both minimax radii throughout N. On T use the separate existing R749SNO exact theorem and q0 certificate; the centers coincide on the shared EF edge, giving the quadrilateral corollary without assuming that arbitrary unions of minimax fibers convexify.
 
+## Adjacent exact obstruction for *this affine decoder*, not for zero calibration
+
+The affine formula eta(t,s)=(3t+5s-3)/2 cannot be extrapolated without a new certificate. At the exterior point (t,s)=(7/10,1/10) it gives eta=-1/5. The explicit feasible source with free coefficients (h,u,v,w,z)=(0,9/10,7/10,1/10,1/10) has
+
+TV(mu,q_eta)=37/80 > (3+t-s)/8 = 9/20,
+
+an exact excess 1/80. The companion script verifies this in rational arithmetic. This is a counterexample to the *specific extrapolated affine center*, not to the minimax theorem: the earlier R749SNP result has already proved rho=rho_cal=9/20 at that same point with a different center. Thus the obstruction identifies a genuine center-selection boundary but does not assert a positive calibration gap.
+
 ## Reproduction, provenance, limits, next question
 
 Run: python research_notes/portable_direct/R749SNR_WALSH_GLOBAL_AFFINE_BRIDGE_EXACT_CHECK.py
