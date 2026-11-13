@@ -1,0 +1,47 @@
+{
+  "schema": "ENTERPRISE_MATH_R749SMN_EXACT_CHECK_V1",
+  "status": "PASS",
+  "date": "2026-11-13",
+  "frozen_scientific_input": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "abstract adaptive publicly-observed depth-two signed Walsh source observer",
+  "arithmetic": "integer likelihood numerator x16; modular rank prime 1000000007; 4x4 likelihood minors <=24*16^4 < prime; Walsh minors <=6*8^3 < prime",
+  "parameter_domains": {
+    "source_ranks": [
+      1,
+      2,
+      3
+    ],
+    "masks": "all ordered a,b,c in F2^r including zero",
+    "root_bias_numerators_over_2": [
+      -2,
+      -1,
+      0,
+      1,
+      2
+    ],
+    "child_bias_numerators_over_2": [
+      -2,
+      0,
+      1,
+      2
+    ]
+  },
+  "number_exact_cases": 46720,
+  "per_rank_cases": {
+    "1": 640,
+    "2": 5120,
+    "3": 40960
+  },
+  "max_likelihood_rank": 4,
+  "comparisons": [
+    "direct leaf-rank",
+    "Walsh coefficient-rank",
+    "closed-form-rank"
+  ],
+  "witness_ranks": {
+    "root_1_children_2_2": 4,
+    "root_1_children_1_2": 3,
+    "erased_root_children_2_2": 2
+  },
+  "scope": "Finite exact-grid validation; general real-bias claims established separately by algebraic proof."
+}
