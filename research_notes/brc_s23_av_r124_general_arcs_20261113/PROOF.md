@@ -1,0 +1,55 @@
+# R124 — Complete signed S23 directed-arc generator and exact AP lifting
+
+Date: 2026-11-13. Independent author-side continuation of R123 at immutable scientific frontier `c5e7cb5aaa31be2d12f261c9efd6db9e5563fc9c`. Frozen S23 scientific input: `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Scope: S23 auxiliary Boolean observer, not native X6 Cell/Link/Port permissions. P000 unchanged.
+
+## R124.1 (complete exact moving-arc segmentation)
+
+Let `a,c,j,t,N,d` be arbitrary signed integers, `x` rational and `theta` real in a rational bounded interval `I`. Write
+
+`Y_t(theta)=x+(t-j)theta`, `alpha(theta)={a theta}`, `gamma(theta)={c theta}`, where braces mean fractional part in `[0,1)`. Define `M_t(theta)=1` iff `{Y_t(theta)}` lies in the positively directed half-open circular arc `[alpha,gamma)_dir`; coincident endpoints mean the empty arc, including when `a!=c` but `(a-c)theta` is an integer.
+
+Partition `I` at each integer crossing of `a theta`, `c theta` and `(a-c)theta`, retaining crossing points as singleton atoms and the intervening gaps as open atoms. On every open atom `J` the floors `p=floor(a theta)`, `q=floor(c theta)` and order of `alpha=a theta-p`, `gamma=c theta-q` are fixed. Consequently, for each `b in {0,1}`, the set `E_b(theta)={y in [0,1): 1[y in [alpha,gamma)_dir]=b}` is the union of at most **two** half-open real intervals `[L(theta),U(theta))`, with rational-affine endpoints chosen from `0,1,alpha,gamma`.
+
+Precisely, for bit 1: if `alpha=gamma` the set is empty; if `alpha<gamma` it is `[alpha,gamma)`; if `alpha>gamma` it is `[alpha,1) union [0,gamma)`. For bit 0: if endpoints coincide the set is `[0,1)`; otherwise it is the exact complementary directed arc `[gamma,alpha)_dir` and is decomposed by the same rule after swapping endpoints. Discard zero-width segments such as `[0,0)`. At singleton atoms, evaluate the original fractional predicate instead of using neighboring floors.
+
+**Proof.** Fractional parts of each affine phase change their integer floor only at the listed crossings. Their order can change only when `(a-c)theta` is integral. Therefore the displayed cases are fixed throughout each open atom, and every endpoint is rational-affine there. Half-open interval membership matches the circle's positively directed inclusion/exclusion at both endpoints, including `alpha=0` or `gamma=0`. Singleton evaluation handles all equality and wrap changes. These are all cases.
+
+Let `Delta=length(I)`. The total number of induced crossing points is `O(1+Delta (|a|+|c|+|a-c|))`; its count depends on the endpoint coefficients, not the new time magnitudes `N` or `d`. The bound counts **explicit base atoms**, separate from the older historical atom partition and from new-time phase crossings.
+
+## R124.2 (signed arbitrary-coefficient AP transfer)
+
+Let `m>=2`, `d!=0`, `t_i=N+i d` for `0<=i<m`, and fix an old-history open atom on which all old eligibility bits are constant. Refine only as in R124.1; for a prescribed bit vector `b=(b_i)`, choose one of at most two real segments `[L_i(theta),U_i(theta))` for each bit. Set
+
+`Y_0=x+(N-j)theta=n+alpha_0`, `d theta=k+beta`, with `n,k` integers, `0<=alpha_0,beta<1`. Then
+`floor(Y_i)=n+i k+q_i`, where `q_i=floor(alpha_0+i beta)` belongs to the exact finite Sturmian vocabulary `P_m` of R121.
+
+The vector `b` is attained by some **single** `theta` in the old atom if and only if there are a word `q in P_m`, one valid segment choice for every `b_i`, integers `n,k`, and a real `theta` in the refined atom such that, simultaneously,
+
+`Y_i(theta)-U_i(theta) < n+i k+q_i <= Y_i(theta)-L_i(theta)` for all `i`.
+
+Both directions are exact. In the forward direction take the actual floors and the segment containing each fractional phase. Conversely the displayed constraints force `Y_i-(n+i k+q_i)` into one of the chosen intervals **inside [0,1)**, so `n+i k+q_i=floor(Y_i)` and all original bits hold. They also rule out spurious words in a numerical superset of `P_m`. All bits use one `theta`, preserving joint rather than merely marginal attainability. A rational witness exists whenever a rational-affine system is feasible: finite linear inequalities with rational coefficients have a rational point, treating strict boundaries explicitly.
+
+By the continuous-variable elimination and bounded two-integer polygon floor-sum lemma of R123, each segment/word system is decidable in polynomial binary-input bit complexity for fixed `m`, with a recovered rational witness. Using the R121-LIT exact count, a **single prescribed m-bit pattern** requires at most `2^m |P_m|` two-integer systems **per refined open atom**, where
+
+`|P_m|=1+sum_{r=1}^{m-1}(m-r)phi(r)=Theta(m^3)`
+
+(the vocabulary cardinality is established earlier and credited to the finite Sturmian-word literature, not newly proved here). Enumerating all patterns costs at most `4^m |P_m|` systems per open atom. Preprocessing to obtain old atoms, the base endpoint cuts, finite vocabulary and all reported signature witnesses, together with later ranked-tree work and bit-precision, is charged separately. For fixed m, the reduction does not enumerate `N`- or `d`-dependent phase critical points. For non-arithmetic-progression new times no two-integer dimension claim is made here.
+
+### Boundary-sensitive examples
+
+1. `a=c`: the directed interval is empty for every parameter. Every positive-time observation bit is zero, regardless of `N,d`.
+2. `a!=c` but `(a-c)theta in Z`: the endpoints coincide at that singleton; its bit is zero. Adjacent open atoms may use different nonempty arc orientations.
+3. `alpha>gamma` with `gamma=0`: `[alpha,1)` is the only nonempty component of bit 1. The formal `[0,0)` contributes no solutions.
+4. `theta` at a phase crossing must be assessed by the actual half-open inequalities, not by a neighboring open-gap sample.
+
+## Reproduction and evidence
+
+`check_r124.py.gz.b64` is the gzip/base64 encoding of the exact Python 3 `Fraction` verifier (decode with `base64 -d | gzip -d`); `verification_r124.json` is its deterministic output. Seed `1242026`. The verifier checks 7,056 point/bit segment equivalences, 14,112 exact AP floor identities and segment witnesses, including 1,944 coincident-endpoint observations; then performs 80 seeded signed-coefficient instances comparing a bounded, explicit `n,k` and overcomplete `q` oracle against *independently generated full six-affine critical atoms*. The comparison examines 298 open base atoms, recovers 1,060 rational witnesses and records 23,561 bounded integer-tuple attempts. Two huge signed (`N,d`) pairs get 32 direct forward witnesses only (no exhaustive large-range search).
+
+The finite implementation result is `R124_EXACT_GENERAL_ARC_PASS`. The all-coefficient theorem is the above algebraic reduction plus cited R121/R123 lemmas; independent review remains open. Source code's iterative finite oracle is **a verification oracle for bounded cases**, not an implementation of R123's polynomial-time floor-sum solver.
+
+## Next exact question
+
+R125: develop a fully executable R123 projected-polygon floor-sum kernel for the general R124 segment systems, compare end-to-end bit cost and witness recovery to the bounded `n,k` oracle, and test adversarial signed coefficients, coincident fractional endpoints, and large `|N|,|d|`. In parallel inspect any proof-risk at strict-facet intersection and degenerate integer polygons before claiming production correctness.
+
+Research record is author-side; original frozen science and P000 remain unchanged. A GitHub file commit is evidence of saved output, not a formal Task CLAIM, authenticated Result or independent mathematical acceptance.
