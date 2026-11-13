@@ -662,6 +662,16 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
     pins.extend(pin for pin in persisted_checkpoint["source_artifacts"] if pin["path"] not in existing_paths)
     progress = state.get("last_progress_ref")
     progress_readback = None
+    # A repository revision identifies provenance, not a file. Keep that
+    # declaration visible without treating it as a failed artifact read or as
+    # verified scientific work. Real file pins retain all byte checks below.
+    revision_reference = (re.fullmatch(re.escape(REPOSITORY) + r"@([0-9a-f]{40})", progress)
+                          if isinstance(progress, str) else None)
+    progress_reference = ({"kind": "REPOSITORY_REVISION_REFERENCE", "repository": REPOSITORY,
+                           "source_commit": revision_reference[1], "original_reference": progress,
+                           "verification": "DECLARED_REVISION_ONLY_NOT_FILE_READBACK",
+                           "historical_work_verified": False, "mathematical_acceptance_granted": False}
+                          if revision_reference and not restricted else None)
     continuation_seed = None
     # A registered task can use its publication ID as its initial progress
     # marker. Resolve only that exact unchanged marker to the current record;
@@ -684,7 +694,7 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
     fixed = _fixed_source_candidate(progress, "AUTHENTICATED_RUNTIME_LAST_PROGRESS_REF")
     if fixed and (not restricted or (fixed["source_commit"], fixed["path"]) in allowed):
         external.append(fixed)
-    elif isinstance(progress_path, str) and progress_path and not progress_path.startswith(("http:", "https:")):
+    elif not revision_reference and isinstance(progress_path, str) and progress_path and not progress_path.startswith(("http:", "https:")):
         # Legacy publications often seed last_progress_ref with a repository
         # path. Verify its current immutable bytes; do not invent a historical
         # commit or treat the input as work produced by a later CLAIM.
@@ -760,6 +770,7 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
             "legacy_result_intake": intake,
             "persisted_checkpoint": persisted_checkpoint,
             "progress_reference_readback": progress_readback,
+            "progress_reference": progress_reference,
             "continuation_seed": continuation_seed,
             "source_access_policy": {"blind_firewall_active": firewall is not None, "restricted": restricted,
                                      "verified_driver_review_view": driver_view, "withheld_declared_input_count": withheld_count},
