@@ -1,0 +1,46 @@
+# Frozen R5: exact optimal-center edit distance for all 741 radius-two budget transitions
+
+Date: 2026-11-14. Scientific input: `435e77af0d180eac32bd1f9c4c464bc4010b7551`. Depends on the unchanged exact event reconstruction and local optimal-path product in Draft PR #2329, at commit `7e87d3f82befc73fd6bbe3b6226e25a5ffb8b17b`. Scope: 954 strictly increasing **integer event-boundary coordinates**, radius two, center candidates drawn from the boundary coordinates, nearest-center total correction cost. It is a derived finite combinatorial model, not a claim about a native 28-coordinate benchmark.
+
+## Exact result
+
+Let `Opt_K` denote all feasible radius-two center subsets of size `K` minimizing total correction `J_2(K)`, and define
+[
+\rho_K=\min_{S\in\operatorname{Opt}_K,\ T\in\operatorname{Opt}_{K+1}} |S\setminus T|.
+]
+Then on the pinned R5 instance:
+[
+\boxed{\rho_K=
+\begin{cases}
+3,&K=213,\\
+2,&214\le K\le221,\\
+1,&222\le K\le291,\\
+0,&292\le K\le953.
+\end{cases}}
+]
+Consequently the minimum symmetric-difference size `2ρ_K+1` equals respectively **7, 5, 3, 1**. All 741 adjacent feasible budgets are now classified by *exact minimum reconfiguration distance*, strengthening the preceding yes/no nesting classification.
+
+The 741 marginal savings occur with multiplicities `{6:1,5:8,4:70,3:23,2:36,1:603}`. For budget transitions this gives 1 requiring 7 changed positions, 8 requiring 5, 70 requiring 3, and 662 requiring only one addition.
+
+## Single-edit reduction at a tied gain level
+
+The 29 blocks are separated by consecutive event-coordinate gaps `>2`, and the exact local cost curves have non-increasing marginal gains (recalculated, not assumed universally). A globally optimal allocation at a rank within a tied gain level `g` uses all local increments of gain `>g`, excludes those of gain `<g`, and distributes the `g`-tied increments arbitrarily within each block's tie capacity.
+
+**Lemma.** Suppose `g>3` and two global optima for consecutive budgets have exactly one old center deletion. Their center choices and budgets can differ only in one block, where the budget goes up by exactly one.
+
+**Proof.** For any radius-two feasible integer-coordinate center set, adding a center without deleting existing centers reduces total distance by at most three (the previously proven sharp single-addition bound). In a block whose optimal budget rises by `h>0` within the same tied gain group, the exact local cost reduction is `gh>3h`; therefore its new optimum cannot contain its old optimum, and that block has at least one old deletion. A block whose budget decreases also has at least one deletion. At most one block can change its budget if the *global* deletion count is one. If no block budget changes, the global budget could not rise by one. Hence precisely one block increases by one, all remaining block budgets are unchanged, and the unique deletion belongs to the increasing block. Any block whose budget stays fixed but whose center set differs would consume a deletion without explaining the global increment. QED.
+
+## Finite certificates and exact attainment
+
+- **Gain 6, one transition (213→214):** the unique candidate block is index 22 (zero-based), whose exact two-language optimal-path product gives minimum old deletions `3`. The prior independently enumerated global allocation is unique.
+- **Gain 5, eight transitions (214→222):** check all eight local gain-five adjacent-budget pairs. Every exact optimal-language product with deletion budget `1` is infeasible. By the lemma, the global minimum is at least two deletions. Block index `19` has two consecutive gain-five increments; their exact products both admit a two-deletion witness. Other blocks contain six gain-five increments, so at every global tie rank `r=0,...,7` choose index-19 increment `u=min(r,1)` and distribute `r-u` among the other six. This realizes the global bound `ρ=2` for every rank.
+- **Gain 4, seventy transitions (222→292):** the sharp single-addition bound gives `ρ≥1`. Block index `28` has 54 consecutive gain-four increments, and every one has an exact one-deletion optimal-language witness. Other blocks contain 16 gain-four increments. For global tie rank `r=0,...,69`, take `u=min(r,53)` increments in block 28 and distribute `r-u≤16` among the other blocks. Its next increment witnesses `ρ≤1`, proving `ρ=1`.
+- **Gains 3 and 2:** the 59 explicitly reconstructed and checked global nested optimal pairs in `CLASSIFY_R5_NESTING.py` at the frozen parent commit establish `ρ=0`. The remaining 603 unit-gain transitions have the previously proved general nesting theorem and hence `ρ=0`.
+
+The optimal-language product represents all *locally optimal* center paths and searches synchronized center matches plus old/new-only moves under an exact deletion bound. It validates each returned witness against the original local coordinates and nearest-center sum, and an exhaustive finite crosscheck of the product algorithm was preserved in PR #2329. The new verification explicitly re-evaluates all eight gain-five local exclusions, both gain-five attainments, all 54 gain-four attainments and the gain-six optimum.
+
+The attached `EXACT_EDIT_FRONTIER.csv` gives all 741 consecutive budgets, their exact costs, gains, minimal deletions, symmetric differences and the evidence class. `VERIFY_R5_COMPLETE_EDIT_FRONTIER.py` is runnable next to the source-pinned companion `VERIFY_R5_ALLOCATION_EDIT.py`; its original scientific data and block algorithm are not duplicated here. This is an author-side exact result, with formal Result and independent review not yet recorded.
+
+## Remaining research
+
+Compute explicit minimum-edit center-set witnesses across all 741 transitions in a compact recoverable representation; study edit-distance stability under individual event-gap changes, and run the original 2,520-byte seed / 28-coordinate / 8,192-query end-to-end workload with complete input-construction and memory accounting. Formal Task-ID and live CLAIM remain subject to the exact canonical task publication/owner mechanism.
