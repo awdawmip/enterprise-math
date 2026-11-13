@@ -1,0 +1,69 @@
+name: precision-pi-kernel-v1
+
+on:
+  push:
+    branches:
+      - formalization/precision-pi-paper-ii-kernel-v1
+    paths:
+      - 'EnterpriseMath/PrecisionPi/PaperIIKernelV1.lean'
+      - 'EnterpriseMath/PrecisionPi/PaperIIResidualClassificationV1.lean'
+      - 'EnterpriseMath/PrecisionPi/PaperIIContinuumSplitV1.lean'
+      - 'EnterpriseMath/PrecisionPi/PaperIIK4RotationV1.lean'
+      - 'EnterpriseMath/PrecisionPi/PaperIIResidualCocycleV1.lean'
+      - '.github/workflows/precision-pi-kernel-v1.yml'
+      - 'lakefile.toml'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up Lean
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Reject placeholders and custom axioms
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            EnterpriseMath/PrecisionPi/PaperIIKernelV1.lean
+            EnterpriseMath/PrecisionPi/PaperIIResidualClassificationV1.lean
+            EnterpriseMath/PrecisionPi/PaperIIContinuumSplitV1.lean
+            EnterpriseMath/PrecisionPi/PaperIIK4RotationV1.lean
+            EnterpriseMath/PrecisionPi/PaperIIResidualCocycleV1.lean
+          )
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)|^[[:space:]]*axiom[[:space:]]' "${files[@]}"; then
+            echo 'Forbidden proof placeholder or custom axiom found.' >&2
+            exit 1
+          fi
+      - name: Build minimal paper-II kernel with warnings fatal
+        run: lake build --wfail -KCI EnterpriseMath.PrecisionPi.PaperIIKernelV1
+      - name: Build exact integral residual classification with warnings fatal
+        run: lake build --wfail -KCI EnterpriseMath.PrecisionPi.PaperIIResidualClassificationV1
+      - name: Build real continuum split and torsion-loss layer with warnings fatal
+        run: lake build --wfail -KCI EnterpriseMath.PrecisionPi.PaperIIContinuumSplitV1
+      - name: Build K4 rotation-equivariant carrier layer with warnings fatal
+        run: lake build --wfail -KCI EnterpriseMath.PrecisionPi.PaperIIK4RotationV1
+      - name: Build residual cocycle and nonsplitting layer with warnings fatal
+        run: lake build --wfail -KCI EnterpriseMath.PrecisionPi.PaperIIResidualCocycleV1
