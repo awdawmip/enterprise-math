@@ -1,0 +1,942 @@
+{
+  "schema": "PREFIX_R6_GAMMA_SIBLING_UNION_746_749_V1",
+  "observed_date": "2026-11-13",
+  "source_repo": "awdawmip/enterprise-math",
+  "read_ref": "4de5b0a37946f6463b4543270a0676d764c15b3a",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "mother_objective": "PREFIX-675",
+  "domain": "384x384 closed parameter cells, Gamma auxiliary model, all real q>=2, fixed e=(0,73/500)",
+  "method": "Exact pair-set union of published author-side certificate cell indices and their disjoint coordinate transposes",
+  "assumption": "Prior 141942-cell PREFIX745 author ledger inherited, not independently fully audited",
+  "base_author_ledger": 141942,
+  "sources": [
+    {
+      "source": "PREFIX746/114",
+      "file": "PREFIX746_R6_GAMMA_114_RESULTS.json",
+      "field": "checked_upper_cells",
+      "git_blob_sha1": "bf569554bacee9216659a275462bc44f6257783f",
+      "original_cells": 57,
+      "reflected_raw": 114,
+      "overlap_reflected": 0,
+      "increment_reflected": 114,
+      "cumulative_reflected": 114
+    },
+    {
+      "source": "PREFIX746/30",
+      "file": "PREFIX746_R6_ADAPTIVE_8X8_30_RESULTS.json",
+      "field": "cells",
+      "git_blob_sha1": "32d88f70c3cdb8348f8dab61d1c701feedf33ac6",
+      "original_cells": 15,
+      "reflected_raw": 30,
+      "overlap_reflected": 14,
+      "increment_reflected": 16,
+      "cumulative_reflected": 130
+    },
+    {
+      "source": "PREFIX747/68",
+      "file": "PREFIX747_R6_GAMMA_68_RESULTS.json",
+      "field": "cells",
+      "git_blob_sha1": "123c71171647209d71f4242cd43d6f357171c9ee",
+      "original_cells": 34,
+      "reflected_raw": 68,
+      "overlap_reflected": 12,
+      "increment_reflected": 56,
+      "cumulative_reflected": 186
+    },
+    {
+      "source": "PREFIX747/4",
+      "file": "PREFIX747_R6_GAMMA_4_CELLS_RESULTS.json",
+      "field": "checked_original_cells",
+      "git_blob_sha1": "80f6374c28e912dbd13e8688fecec7d4464ca54d",
+      "original_cells": 2,
+      "reflected_raw": 4,
+      "overlap_reflected": 4,
+      "increment_reflected": 0,
+      "cumulative_reflected": 186
+    },
+    {
+      "source": "PREFIX747/46",
+      "file": "PREFIX747_R6_GAMMA_NEW_46_RESULTS.json",
+      "field": "checked_original_cells",
+      "git_blob_sha1": "3834a27a7586a34283eb3cb6e2a86e089e0e255d",
+      "original_cells": 23,
+      "reflected_raw": 46,
+      "overlap_reflected": 28,
+      "increment_reflected": 18,
+      "cumulative_reflected": 204
+    },
+    {
+      "source": "PREFIX748/180",
+      "file": "PREFIX748_R6_DYADIC_INTERVAL_180_RESULTS.json",
+      "field": "cells",
+      "git_blob_sha1": "89d3b3932353620cc67ea47028981068f76565be",
+      "original_cells": 90,
+      "reflected_raw": 180,
+      "overlap_reflected": 0,
+      "increment_reflected": 180,
+      "cumulative_reflected": 384
+    },
+    {
+      "source": "PREFIX748/4",
+      "file": "PREFIX748_R6_GAMMA_NEIGHBOR_4_RESULTS.json",
+      "field": "checked_original_cells",
+      "git_blob_sha1": "1575b5118efe787b83d9a58b9fc5f2443c07e7cc",
+      "original_cells": 2,
+      "reflected_raw": 4,
+      "overlap_reflected": 4,
+      "increment_reflected": 0,
+      "cumulative_reflected": 384
+    },
+    {
+      "source": "PREFIX749/28",
+      "file": "PREFIX749_R6_GAMMA_FRONTIER_28_RESULTS.json",
+      "field": "checked_original_cells",
+      "git_blob_sha1": "513e6b763262cb7c80890e7c4a628f01d8d21ed9",
+      "original_cells": 14,
+      "reflected_raw": 28,
+      "overlap_reflected": 24,
+      "increment_reflected": 4,
+      "cumulative_reflected": 388
+    },
+    {
+      "source": "PREFIX749/4",
+      "file": "PREFIX749_R6_GAMMA_NEIGHBORS_4_RESULTS.json",
+      "field": "checks",
+      "git_blob_sha1": "80020afaed0ccc7c36432d349522e110d1176d24",
+      "original_cells": 2,
+      "reflected_raw": 4,
+      "overlap_reflected": 4,
+      "increment_reflected": 0,
+      "cumulative_reflected": 388
+    },
+    {
+      "source": "PREFIX749/6",
+      "file": "PREFIX749_R6_GAMMA_6_CELLS_RESULTS.json",
+      "field": "original_cells",
+      "git_blob_sha1": "752d513a8cd0f73ebc7c659488f46058b4e14eab",
+      "original_cells": 3,
+      "reflected_raw": 6,
+      "overlap_reflected": 6,
+      "increment_reflected": 0,
+      "cumulative_reflected": 388
+    },
+    {
+      "source": "PREFIX749/16x16/6",
+      "file": "PREFIX749_R6_ADAPTIVE16_6_RESULTS.json",
+      "field": "original_cells",
+      "git_blob_sha1": "b2af84bee227b3034240a90c0ed78fd1fd9c4f04",
+      "original_cells": 3,
+      "reflected_raw": 6,
+      "overlap_reflected": 0,
+      "increment_reflected": 6,
+      "cumulative_reflected": 394
+    }
+  ],
+  "sibling_original_unique": 197,
+  "sibling_reflected_unique": 394,
+  "conditional_author_union": 142336,
+  "grid_total": 147456,
+  "conditional_remaining": 5120,
+  "conditional_percent": 96.52777778,
+  "new_vs_existing_prefix748_sibling_reconciliation": 10,
+  "incremental_over_prefix748_prior_reconciliation_by_source": {
+    "PREFIX749/28": 4,
+    "PREFIX749/4": 0,
+    "PREFIX749/6": 0,
+    "PREFIX749/16x16/6": 6
+  },
+  "historical_full_independent_union_audit": "PENDING",
+  "mathematical_author_certificates": "AUTHOR_SIDE; NOT_INDEPENDENTLY_RECALCULATED_HERE",
+  "claim_review": "NO_NEW_SHARED_CLAIM_OR_RESULT_OR_REVIEW",
+  "all_unique_upper_pairs": [
+    [
+      7,
+      45
+    ],
+    [
+      7,
+      46
+    ],
+    [
+      8,
+      46
+    ],
+    [
+      15,
+      46
+    ],
+    [
+      16,
+      46
+    ],
+    [
+      7,
+      47
+    ],
+    [
+      8,
+      47
+    ],
+    [
+      9,
+      47
+    ],
+    [
+      10,
+      47
+    ],
+    [
+      15,
+      47
+    ],
+    [
+      16,
+      47
+    ],
+    [
+      17,
+      47
+    ],
+    [
+      18,
+      47
+    ],
+    [
+      20,
+      47
+    ],
+    [
+      7,
+      48
+    ],
+    [
+      8,
+      48
+    ],
+    [
+      9,
+      48
+    ],
+    [
+      10,
+      48
+    ],
+    [
+      11,
+      48
+    ],
+    [
+      20,
+      48
+    ],
+    [
+      21,
+      48
+    ],
+    [
+      8,
+      49
+    ],
+    [
+      9,
+      49
+    ],
+    [
+      10,
+      49
+    ],
+    [
+      11,
+      49
+    ],
+    [
+      12,
+      49
+    ],
+    [
+      13,
+      49
+    ],
+    [
+      18,
+      49
+    ],
+    [
+      19,
+      49
+    ],
+    [
+      20,
+      49
+    ],
+    [
+      21,
+      49
+    ],
+    [
+      22,
+      49
+    ],
+    [
+      23,
+      49
+    ],
+    [
+      8,
+      50
+    ],
+    [
+      9,
+      50
+    ],
+    [
+      10,
+      50
+    ],
+    [
+      11,
+      50
+    ],
+    [
+      12,
+      50
+    ],
+    [
+      13,
+      50
+    ],
+    [
+      14,
+      50
+    ],
+    [
+      15,
+      50
+    ],
+    [
+      16,
+      50
+    ],
+    [
+      17,
+      50
+    ],
+    [
+      18,
+      50
+    ],
+    [
+      19,
+      50
+    ],
+    [
+      20,
+      50
+    ],
+    [
+      21,
+      50
+    ],
+    [
+      22,
+      50
+    ],
+    [
+      23,
+      50
+    ],
+    [
+      24,
+      50
+    ],
+    [
+      10,
+      51
+    ],
+    [
+      11,
+      51
+    ],
+    [
+      12,
+      51
+    ],
+    [
+      13,
+      51
+    ],
+    [
+      14,
+      51
+    ],
+    [
+      15,
+      51
+    ],
+    [
+      16,
+      51
+    ],
+    [
+      17,
+      51
+    ],
+    [
+      18,
+      51
+    ],
+    [
+      19,
+      51
+    ],
+    [
+      20,
+      51
+    ],
+    [
+      21,
+      51
+    ],
+    [
+      22,
+      51
+    ],
+    [
+      23,
+      51
+    ],
+    [
+      24,
+      51
+    ],
+    [
+      25,
+      51
+    ],
+    [
+      11,
+      52
+    ],
+    [
+      12,
+      52
+    ],
+    [
+      13,
+      52
+    ],
+    [
+      14,
+      52
+    ],
+    [
+      15,
+      52
+    ],
+    [
+      16,
+      52
+    ],
+    [
+      17,
+      52
+    ],
+    [
+      18,
+      52
+    ],
+    [
+      19,
+      52
+    ],
+    [
+      20,
+      52
+    ],
+    [
+      21,
+      52
+    ],
+    [
+      22,
+      52
+    ],
+    [
+      23,
+      52
+    ],
+    [
+      24,
+      52
+    ],
+    [
+      25,
+      52
+    ],
+    [
+      26,
+      52
+    ],
+    [
+      27,
+      52
+    ],
+    [
+      28,
+      52
+    ],
+    [
+      29,
+      52
+    ],
+    [
+      30,
+      52
+    ],
+    [
+      11,
+      53
+    ],
+    [
+      12,
+      53
+    ],
+    [
+      13,
+      53
+    ],
+    [
+      14,
+      53
+    ],
+    [
+      15,
+      53
+    ],
+    [
+      16,
+      53
+    ],
+    [
+      17,
+      53
+    ],
+    [
+      18,
+      53
+    ],
+    [
+      19,
+      53
+    ],
+    [
+      20,
+      53
+    ],
+    [
+      12,
+      54
+    ],
+    [
+      13,
+      54
+    ],
+    [
+      14,
+      54
+    ],
+    [
+      15,
+      54
+    ],
+    [
+      16,
+      54
+    ],
+    [
+      17,
+      54
+    ],
+    [
+      18,
+      54
+    ],
+    [
+      19,
+      54
+    ],
+    [
+      20,
+      54
+    ],
+    [
+      13,
+      55
+    ],
+    [
+      14,
+      55
+    ],
+    [
+      15,
+      55
+    ],
+    [
+      16,
+      55
+    ],
+    [
+      17,
+      55
+    ],
+    [
+      18,
+      55
+    ],
+    [
+      19,
+      55
+    ],
+    [
+      12,
+      56
+    ],
+    [
+      13,
+      56
+    ],
+    [
+      14,
+      56
+    ],
+    [
+      15,
+      56
+    ],
+    [
+      16,
+      56
+    ],
+    [
+      17,
+      56
+    ],
+    [
+      18,
+      56
+    ],
+    [
+      19,
+      56
+    ],
+    [
+      13,
+      57
+    ],
+    [
+      14,
+      57
+    ],
+    [
+      15,
+      57
+    ],
+    [
+      16,
+      57
+    ],
+    [
+      17,
+      57
+    ],
+    [
+      18,
+      57
+    ],
+    [
+      19,
+      57
+    ],
+    [
+      14,
+      58
+    ],
+    [
+      15,
+      58
+    ],
+    [
+      16,
+      58
+    ],
+    [
+      17,
+      58
+    ],
+    [
+      18,
+      58
+    ],
+    [
+      19,
+      58
+    ],
+    [
+      14,
+      59
+    ],
+    [
+      15,
+      59
+    ],
+    [
+      16,
+      59
+    ],
+    [
+      17,
+      59
+    ],
+    [
+      18,
+      59
+    ],
+    [
+      19,
+      59
+    ],
+    [
+      20,
+      59
+    ],
+    [
+      21,
+      59
+    ],
+    [
+      15,
+      60
+    ],
+    [
+      16,
+      60
+    ],
+    [
+      17,
+      60
+    ],
+    [
+      18,
+      60
+    ],
+    [
+      19,
+      60
+    ],
+    [
+      20,
+      60
+    ],
+    [
+      21,
+      60
+    ],
+    [
+      22,
+      60
+    ],
+    [
+      15,
+      61
+    ],
+    [
+      16,
+      61
+    ],
+    [
+      17,
+      61
+    ],
+    [
+      18,
+      61
+    ],
+    [
+      19,
+      61
+    ],
+    [
+      20,
+      61
+    ],
+    [
+      21,
+      61
+    ],
+    [
+      22,
+      61
+    ],
+    [
+      15,
+      62
+    ],
+    [
+      16,
+      62
+    ],
+    [
+      17,
+      62
+    ],
+    [
+      18,
+      62
+    ],
+    [
+      19,
+      62
+    ],
+    [
+      20,
+      62
+    ],
+    [
+      21,
+      62
+    ],
+    [
+      22,
+      62
+    ],
+    [
+      15,
+      63
+    ],
+    [
+      16,
+      63
+    ],
+    [
+      17,
+      63
+    ],
+    [
+      18,
+      63
+    ],
+    [
+      19,
+      63
+    ],
+    [
+      20,
+      63
+    ],
+    [
+      21,
+      63
+    ],
+    [
+      22,
+      63
+    ],
+    [
+      15,
+      64
+    ],
+    [
+      16,
+      64
+    ],
+    [
+      17,
+      64
+    ],
+    [
+      18,
+      64
+    ],
+    [
+      19,
+      64
+    ],
+    [
+      20,
+      64
+    ],
+    [
+      21,
+      64
+    ],
+    [
+      22,
+      64
+    ],
+    [
+      15,
+      65
+    ],
+    [
+      16,
+      65
+    ],
+    [
+      17,
+      65
+    ],
+    [
+      18,
+      65
+    ],
+    [
+      19,
+      65
+    ],
+    [
+      20,
+      65
+    ],
+    [
+      21,
+      65
+    ],
+    [
+      22,
+      65
+    ],
+    [
+      15,
+      66
+    ],
+    [
+      16,
+      66
+    ],
+    [
+      17,
+      66
+    ],
+    [
+      18,
+      66
+    ],
+    [
+      19,
+      66
+    ],
+    [
+      20,
+      66
+    ],
+    [
+      21,
+      66
+    ],
+    [
+      22,
+      66
+    ]
+  ],
+  "coordinate_set_provenance": "11 exact GitHub JSON source blobs; strictly integer set operations; per-certificate analytic bounds inherited rather than rerun"
+}
