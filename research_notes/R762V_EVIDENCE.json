@@ -1,0 +1,85 @@
+{
+  "all_first_return_loops_over_all_supports": 9600,
+  "all_signed_axis_support_choices": 20,
+  "all_signed_orientations": 160,
+  "all_six_step_loops_over_all_three_axis_supports": 14400,
+  "all_two_source_word_fibers": {
+    "first_return_given_projected_first_two_distinct": 26,
+    "first_return_given_projected_first_two_inverse": 8,
+    "projected_first_two_distinct_words": 16,
+    "projected_first_two_inverse_words": 8,
+    "total_per_four_letter_word": 30
+  },
+  "first_occurrence_orientation_classes": 8,
+  "port_covering_fixed_orientation": {
+    "conditional_repair_bits_for_full_ordered_path_from_two_source_word": 3,
+    "conditional_repair_bits_from_joint_two_source_word_and_rooted_current": 2,
+    "early_return": 18,
+    "first_return": 6,
+    "joint_projected_word_and_rooted_edge_current_fiber_histogram": {
+      "1": 14,
+      "2": 2,
+      "3": 2
+    },
+    "projected_two_source_fibers": [
+      {
+        "first_return": 1,
+        "total": 8,
+        "word": [
+          1,
+          -1,
+          2,
+          -2
+        ]
+      },
+      {
+        "first_return": 2,
+        "total": 4,
+        "word": [
+          1,
+          2,
+          -1,
+          -2
+        ]
+      },
+      {
+        "first_return": 1,
+        "total": 8,
+        "word": [
+          2,
+          -2,
+          1,
+          -1
+        ]
+      },
+      {
+        "first_return": 2,
+        "total": 4,
+        "word": [
+          2,
+          1,
+          -2,
+          -1
+        ]
+      }
+    ],
+    "total": 24
+  },
+  "schema": "R762V_EXACT_SIX_STEP_TRIAXIS_BRC_CENSUS_V1",
+  "scientific_scope": "signed native X6 coordinate paths only; candidate triad incidence, not force closure",
+  "six_letter_words_per_three_axis_support": 720,
+  "sources": [
+    "Frozen P000 a72226e2430ffa4786321ac86e7f0c599d5f0389",
+    "R762H PR #2288 (24 port-covering shortest witnesses)",
+    "R762R PR #2333 (6 spoke excursions, 3-cycle candidate update)",
+    "R762U PR #2347 (conditional token scheduling)"
+  ],
+  "three_class_partition": {
+    "early_with_backtrack": 240,
+    "first_return_nonbacktracking": 240,
+    "first_return_with_backtrack": 240
+  },
+  "verification": "Exact exhaustive enumeration of 720 distinct six-step signed words; 8 orientations, 24 projected words; S6 support reindexing is a bijection",
+  "words_per_class_per_orientation": 30,
+  "words_per_orientation": 90
+}
