@@ -1,0 +1,78 @@
+{
+  "schema": "PREFIX601_R2_NATIVE_PARITY_24_EXACT_V1",
+  "date": "2026-11-08",
+  "scientific_input": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "researcher_id": "EM-DIRECT-4A37D4",
+  "activity_id": "RA-420E5CA18B6618002BCE5A9F",
+  "method": "full native STAR enumeration, exact integer determinants, sympy rational polynomials, 96-port typed integer propagation",
+  "model": {
+    "native_ports": 96,
+    "labeled_actions": 576,
+    "phase_states": 48,
+    "parity_blocks": [
+      24,
+      24
+    ],
+    "gate_target": 4,
+    "dets_native_adjacency_blocks": [
+      729,
+      729
+    ],
+    "q_nonzero": 144,
+    "B_nonzero": 72,
+    "C_nonzero": 72,
+    "BC_nonzero": 216,
+    "CB_nonzero": 216,
+    "det_B": "2^23 * 3^6 * (z+3) * prod_a(x_a^4)",
+    "det_C": "2^23 * 3^6 * prod_a(x_a^4)"
+  },
+  "specific_exact_minimal_degrees": [
+    {
+      "w": 1,
+      "z": 1,
+      "degree_24": 5,
+      "degree_Q48": 10
+    },
+    {
+      "w": 1,
+      "z": 2,
+      "degree_24": 9,
+      "degree_Q48": 18
+    },
+    {
+      "w": 2,
+      "z": 1,
+      "degree_24": 11,
+      "degree_Q48": 22
+    },
+    {
+      "w": 2,
+      "z": 2,
+      "degree_24": 14,
+      "degree_Q48": 28
+    },
+    {
+      "w": 3,
+      "z": 0,
+      "degree_24": 14,
+      "degree_Q48": 28
+    },
+    {
+      "w": 3,
+      "z": 2,
+      "degree_24": 14,
+      "degree_Q48": 28
+    }
+  ],
+  "certificate_checks": {
+    "exact_matrix_annihilation": true,
+    "irreducible_factor_deletion_witness_for_each_factor": true,
+    "full_96port_nonstationary_cases": 90,
+    "nonstationary_10step_parity_factorization_cases": 4,
+    "zero_axis_and_gate_boundary_included": true
+  },
+  "execution_stdout": "PASS 1 1 degree half 5 full 10\nPASS 1 2 degree half 9 full 18\nPASS 2 1 degree half 11 full 22\nPASS 2 2 degree half 14 full 28\nPASS 3 0 degree half 14 full 28\nPASS 3 2 degree half 14 full 28\n96_PORT_TESTS 90 NONSTATIONARY_PAIR_TESTS 4\nALL_ASSERTIONS_PASS",
+  "status": "AUTHOR_SIDE_EXACT_PROOF_COMPUTATION_UNREVIEWED",
+  "native_claim": false,
+  "next": "Probe exact Jordan/minimal polynomial order at PREFIX600 positive spectral collision curves; measure batch end-to-end 96-port costs of 24+24 vs 48."
+}
