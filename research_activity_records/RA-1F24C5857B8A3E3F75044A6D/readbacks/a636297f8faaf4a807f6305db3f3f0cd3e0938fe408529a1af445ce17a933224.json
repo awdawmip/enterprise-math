@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r124_general_arc_20261113/verification_r124_summary.json",
+    "ref": "9357b4bf473ca21a92b9a0bee09a59eaa2616c28",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r124-general-arc-20261113-2-9357b4bf473c",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_R124_FRACTION_VERIFICATION_SUMMARY_V1\",\n  \"date\": \"2026-11-13\",\n  \"seed\": 12420261113,\n  \"status\": \"R124_GENERAL_ARC_LATTICE_PASS\",\n  \"exact_arithmetic\": \"Python 3 fractions.Fraction\",\n  \"counts\": {\n    \"cases\": 201,\n    \"patterns\": 1082,\n    \"witnesses\": 1082,\n    \"max_num_bits\": 10,\n    \"equal_arc_cases\": 28,\n    \"negative_d\": 80,\n    \"zero_d\": 22,\n    \"m4\": 63,\n    \"huge_signed_positive_certificates\": 4\n  },\n  \"reproduction\": \"base64 -d check_r124.py.gz.b64 | gzip -d > check_r124.py && python3 check_r124.py\",\n  \"full_raw_json_sha256\": \"7f3cc08d0b04c3e6e672e72174aebd786fc0607bcf249dca33b98ed917fef643\",\n  \"source_py_sha256\": \"f81bfcaf893cf33160e9670a2f80601e107b0ffab412a1c1f86068f781d48e1c\",\n  \"coverage\": \"201 exact small cases versus independent full phase-cut enumerator; all attained signatures and direct rational witnesses checked; 4 additional huge-signed positive floor certificates only\",\n  \"limits\": \"Not a generic Lenstra 4D solver; not native Cell/Link/Port permission; no independent Review/CLAIM; full raw 99KB JSON available in accompanying local downloadable evidence archive, not this GitHub summary.\",\n  \"regression\": {\n    \"x\": \"3/2\",\n    \"N\": -1,\n    \"d\": 3,\n    \"j\": 0,\n    \"a\": 1,\n    \"c\": 3,\n    \"J\": [\n      \"-1\",\n      \"4/3\"\n    ],\n    \"m\": 3,\n    \"signature\": \"110\",\n    \"witnesses\": [\n      \"-1/4\",\n      \"3/4\"\n    ]\n  },\n  \"research_source_commit\": \"a3f8695909cd3341809b77efbfda16bb59527f6e\"\n}\n",
+      "display_title": "verification_r124_summary.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9357b4bf473ca21a92b9a0bee09a59eaa2616c28/research_notes/brc_s23_av_r124_general_arc_20261113/verification_r124_summary.json",
+      "encoding": "utf-8",
+      "sha": "b2ec036731ff3a5f8b6e56a8bf45dc73792d506d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
