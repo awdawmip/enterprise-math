@@ -20,7 +20,7 @@ def main(path):
     assert len(costs) == d["vector_count"] == 500
     assert d["index_range_inclusive"] == [27000, 27499]
     assert all(type(c) is int and c > 0 for c in costs)
-    encoded = json.dumps(costs, separators=(",", ":")).encode()
+    encoded = ("\n".join(map(str, costs)) + "\n").encode()
     assert hashlib.sha256(encoded).hexdigest() == d["cost_vector_decimal_sha256"]
     assert min(costs) == d["min_cost"] == 98
     assert [i + 27000 for i,c in enumerate(costs) if c == 98] == d["min_indices"]
