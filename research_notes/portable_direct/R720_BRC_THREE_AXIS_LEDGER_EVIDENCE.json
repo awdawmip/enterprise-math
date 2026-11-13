@@ -1,0 +1,56 @@
+{
+  "schema": "R720_TRI_AXIS_LOCAL_SOURCE_RECOVERY_EXACT_V1",
+  "parent_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_source_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "researcher_id": "EM-X6-562B89",
+  "activity_id": "RA-0876B79D7B866702F881CB83",
+  "model": "three known event-axis tags, Boolean triple membership, 345 source fixed",
+  "tags": [
+    0,
+    1,
+    2
+  ],
+  "fixed_outside_triple": "345",
+  "interior_source_bits": 19,
+  "ledger_edges": 15,
+  "states": 524288,
+  "distinct_pair_ledgers": 507384,
+  "fiber_size_histogram": {
+    "1": 492428,
+    "2": 13308,
+    "3": 1392,
+    "4": 216,
+    "5": 36,
+    "6": 4
+  },
+  "max_fiber_size": 6,
+  "max_fiber_count": 4,
+  "collision_pairs": 19200,
+  "distinct_difference_supports": 15,
+  "difference_support_histogram": {
+    "8": 9,
+    "12": 6
+  },
+  "minimal_fixed_queries": 4,
+  "number_optimal_fixed_query_sets": 1296,
+  "example_fixed_queries": [
+    "013",
+    "014",
+    "023",
+    "024"
+  ],
+  "determinant_remaining_matrix": 96,
+  "linear_rank": 15,
+  "linear_nullity": 4,
+  "adaptive_depth_histogram": {
+    "0": 492428,
+    "1": 13308,
+    "2": 1608,
+    "3": 40
+  },
+  "minimal_adaptive_queries": 3,
+  "minimal_arbitrary_encoding_bits": 3,
+  "finite_method": "complete enumeration of 2^19 interior Boolean source patterns with exact packed base-5 ledger, collision-support set cover and dynamic decision trees",
+  "validation_status": "R720_BRC_THREE_AXIS_LEDGER_EXACT_PASS",
+  "reviewed_status": "AUTHOR_SIDE_ONLY_NOT_INDEPENDENTLY_REVIEWED"
+}
