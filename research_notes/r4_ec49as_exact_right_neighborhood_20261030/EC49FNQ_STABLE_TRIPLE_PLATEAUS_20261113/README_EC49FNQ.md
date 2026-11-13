@@ -12,6 +12,7 @@ An edge `i--j` is a replacement of exactly one whole cache key (`|K_i\K_j|=|K_j\
 
 1. The full one-key exchange graph contains **27,942** undirected edges, of which **11,574** are triple-stable. Its triple-stable spanning subgraph has **244** connected components: **155** isolated vertices and **845** nonisolated vertices. The largest stable component contains **87** vertices, all with `v=(138,1,1)`. The three largest components have sizes **87**, **85** and **67**.
 2. The **maximum shortest-path length inside any triple-stable connected component is exactly 4**. Thus any two configurations in the *same* stable component can be joined by at most four successive native-cache-key substitutions that each preserve all three observables. This is a finite graph property, not a general perturbation theorem.
+   A separate tight lower-bound witness for diameter **4** is the 4-edge path `32963 → 32276 → 32290 → 32691 → 32719`, whose tuple stays `(152,1,1)`. Its endpoints already differ in exactly three cache keys, yet within this *1000-vertex induced graph* **no stable 3-step path exists** (exhaustive BFS). The intermediate key `56` is inserted and later removed, illustrating a necessary detour for this selected graph; it does not assert the same detour is necessary in the full 38,169-configuration family.
 3. There exist **three-key-disjoint exchange endpoints** connected by an *optimal-length* triple-stable path of three edges. Precisely:
    
    | Index | Seven complete cache keys | `(C,m,g)` |
