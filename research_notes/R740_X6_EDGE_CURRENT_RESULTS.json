@@ -1,0 +1,164 @@
+{
+  "schema": "R740_X6_ORIENTED_EDGE_FLOW_BRC_EXACT_V1",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "one 3-axis native X6 slice, length six, each signed axis once; reembedded in all 20 triples",
+  "BRC_branch_count": 720,
+  "current_distinct": 265,
+  "current_fiber_sizes": {
+    "1": 240,
+    "10": 24,
+    "240": 1
+  },
+  "support_type_histories": {
+    "four-edge-offset": 48,
+    "four-edge-rooted": 240,
+    "six-edge": 192,
+    "zero": 240
+  },
+  "NB": 240,
+  "NB_flow_classes": 240,
+  "NB_support_type_histories": {
+    "four-edge-offset": 48,
+    "six-edge": 192
+  },
+  "NB_QJ_classes": 192,
+  "NB_QJe_classes": 240,
+  "axis_triples": 20,
+  "S6_generator_covariance_checks": 72000,
+  "area_projection_all_paths": true,
+  "divergence_zero_all_paths": true,
+  "witness": {
+    "path_a": "0+ 1+ 2+ 0- 2- 1-",
+    "path_b": "0+ 2+ 1+ 0- 1- 2-",
+    "shared_Q": [
+      1,
+      1,
+      1
+    ],
+    "shared_J": [
+      1,
+      1,
+      0
+    ],
+    "opposite_orientation": [
+      1,
+      -1
+    ],
+    "edge_current_a": [
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0
+        ],
+        "axis": 0,
+        "signed_flow": 1
+      },
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0
+        ],
+        "axis": 1,
+        "signed_flow": -1
+      },
+      {
+        "lower_vertex": [
+          0,
+          1,
+          0
+        ],
+        "axis": 2,
+        "signed_flow": -1
+      },
+      {
+        "lower_vertex": [
+          0,
+          1,
+          1
+        ],
+        "axis": 0,
+        "signed_flow": -1
+      },
+      {
+        "lower_vertex": [
+          1,
+          0,
+          0
+        ],
+        "axis": 1,
+        "signed_flow": 1
+      },
+      {
+        "lower_vertex": [
+          1,
+          1,
+          0
+        ],
+        "axis": 2,
+        "signed_flow": 1
+      }
+    ],
+    "edge_current_b": [
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0
+        ],
+        "axis": 0,
+        "signed_flow": 1
+      },
+      {
+        "lower_vertex": [
+          0,
+          0,
+          0
+        ],
+        "axis": 2,
+        "signed_flow": -1
+      },
+      {
+        "lower_vertex": [
+          0,
+          0,
+          1
+        ],
+        "axis": 1,
+        "signed_flow": -1
+      },
+      {
+        "lower_vertex": [
+          0,
+          1,
+          1
+        ],
+        "axis": 0,
+        "signed_flow": -1
+      },
+      {
+        "lower_vertex": [
+          1,
+          0,
+          0
+        ],
+        "axis": 2,
+        "signed_flow": 1
+      },
+      {
+        "lower_vertex": [
+          1,
+          0,
+          1
+        ],
+        "axis": 1,
+        "signed_flow": 1
+      }
+    ]
+  },
+  "V39_native_current_correspondence": "NOT_ESTABLISHED",
+  "native_task_claim": "NOT_OBTAINED_SESSION_ISSUANCE_QUOTA",
+  "formal_result": "NOT_FROZEN",
+  "validation": "R740_X6_EDGE_CURRENT_BRC_EXACT_PASS"
+}
