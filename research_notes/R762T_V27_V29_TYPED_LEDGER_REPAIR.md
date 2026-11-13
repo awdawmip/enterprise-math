@@ -56,3 +56,17 @@ The accompanying standard-library Python checker performs an exact 19-TRANSFER/3
 Next: determine actual P000-native triadic Cell/Link/Port legality of the corrected boundary coupling, then derive the genuine V17 frame connection and V39 pair (j,h), preserving individual source identity and real event order. A valid V29 count grammar alone does not specify TRIADIC_CLOSURE_E physical admission or V39 h.
 
 **Sources:** P000 V5 frozen a72226e2430ffa4786321ac86e7f0c599d5f0389; V27/V29/V39 research_notes at current Source main 06cc34a52d0cce82fc700a40410e1ad829f78561; preceding R762S PR #2337 commit eae85017c5effa339e0ee6406d5917a0aa5855f2. No P000 or ACTIVE worldview changes.
+
+## T5 — Exact global minimum for a prescribed V29 contrast signature
+
+The preceding repair is an instance of a general **sharp primitive-event complexity theorem**. Fix any finite d-port Cell A and any antisymmetric integer matrix Ω (Ω^T=-Ω), together with an integer desired local contrast u. Begin with zero counts, permit internal completed PASS and matched boundary TRANSFER to a companion Cell B, do not allow self-TRANSFERS, and permit sufficient directed A↔B connectors for each of A's ports. The minimum number of primitive events incident on or internal to A needed to realize **exactly** (Ω,u) is
+
+    N_min(Ω,u)= sum_{0<=i<j<d}|Ω_ij| + sum_i |u_i-(Ω1)_i|.
+
+The first term counts PASS events; the second counts matched TRANSFER events. Both minima can be attained simultaneously, with no negative counts. All Cell network scalar charge remains zero if the companion receives the opposite boundary increments.
+
+**Proof.** For every unordered pair i<j, nonnegative M_ij,M_ji with M_ij-M_ji=Ω_ij require at least |Ω_ij| PASS increments; diagonal M_ii contributes nothing to Ω. Equality is attained by M_ij=max(Ω_ij,0), M_ji=max(-Ω_ij,0), M_ii=0. With that Ω, the boundary contrast is w=u-Ω1; T1 independently forces and attains the lower bound sum_i|w_i| matched TRANSFER occurrences. Put all these transactions between A and B using declared connectors, and the two parts construct the specified signature with total charge zero. Each primitive event supplies exactly one corresponding count increment. QED.
+
+For V27's Ω the PASS lower bound is 3 and Ω1=0; for u=(-2,-4,-3,10) the boundary lower bound is 19. Therefore **22 primitive V29 occurrences** are necessary and sufficient to realize the precise V27 pair (Ω,u) within this declared two-Cell network grammar, even if the nonnegative passage matrix M is not fixed in advance. Extra symmetric PASS pairs or extra common-mode boundary counts do not reduce the bound. This is a typed ledger operation count, not a physical force-event duration or native TRIADIC_CLOSURE_E action count.
+
+An additional exact construction checker covers 729 (Ω,u) cases: every skew Ω on three active labels with each independent entry in {-1,0,1}, and each target u component in {-1,0,1}, embedded into four ports. The universal formula is proved above and does not depend on this finite range.
