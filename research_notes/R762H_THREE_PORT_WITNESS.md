@@ -45,3 +45,16 @@ Source foundation: \`definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_2026090
 Select one P000-legal equal-quantum signed triad with an **independently verified** true \`TRIADIC_CLOSURE_E\` predicate. Specify whether one of the 24 coordinate witness loops constitutes a valid native triadic *force* event, and check the first and repeated events against actual Cell/Link/Port incidence, V29 PASS/TRANSFER event increments and V39 based-loop current/transport. Then test whether the 13 j-fibers and their BRC repair coordinates remain observer-safe under those true updates. The current mathematical construction alone does not supply that event-selection law.
 
 No P000/ACTIVE worldview modification, scientific-pin rebase, CLAIM takeover, official Result freeze or Driver acceptance is asserted.
+
+
+## 6. Strengthening — first-visit chirality and sharper source-order repair
+
+Let \`o(γ)\` be the permutation of the three named signed ports in the order of **first occurrence** along a shortest covering trace. Its cyclic orientation is the parity \`χ(γ)∈{+1,-1}\` relative to a declared reference ordering. Cyclic relabeling preserves parity, while an odd renaming changes the parity covariantly: no global preferred chirality is imposed.
+
+**Exact theorem.** Each of the six first-visit permutations occurs in exactly **four** of the 24 shortest paths; the two cyclic orientations therefore have **12 paths each**. If the candidate force-event orientation must equal this path chirality, there are \`160·24=3840\` compatible orientation/witness pairs, rather than \`160·2·24=7680\` freely paired objects.
+
+For either fixed orientation, the joint readout \`(j_X6,χ)\` has **seven** values with fibers of sizes \`(3,2,2,2,1,1,1)\`. Consequently, given fixed signed ports and this joint readout, complete ordered-path recovery requires precisely \`ceil(log2 3)=2\` worst-fiber fixed-width repair bits, improving the current-only 3-bit bound.
+
+**Proof.** The action of S3 on the three selected port labels permutes the 24 path set and is transitive on the six possible first-visit orders; each occurs \`24/6=4\` times. Zero current consists of six star loops with all six orders (three of each parity). Each size-two square-current fiber differs only by whether the separate spoke appears before or after the square; these two first-visit orders differ by a three-cycle and have the same parity. The six hex currents are singleton. The parity involution interchanges the positive and negative halves of the square/hex fibers. Thus for either parity: one zero-current fiber of size three, three square fibers of size two and three hex singleton fibers. The updated verifier checks this complete census for all 160 signed port configurations.
+
+This supplies an explicit native *coordinate path-order* representation for R761's two candidate cyclic port orientations. Matching this coordinate chirality to a true force event remains dependent on an actual TRIADIC_CLOSURE_E incidence/update rule.
