@@ -1,0 +1,50 @@
+{
+  "calibrated_center_eta": "1-t-3*s",
+  "exact_joint_vertex_certificate": {
+    "all_active_bases": 50388,
+    "distinct_vertices": 132,
+    "feasible_bases": 648,
+    "max_excess": "0",
+    "nonsingular_bases": 27600,
+    "tight_vertices": 52,
+    "violating_vertices": 0
+  },
+  "lower_event": [
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    14,
+    15
+  ],
+  "lower_source": "(h,u,v,w,z)=(0,s-1,-t,-s,-s)",
+  "minimax_identity": "rho(t,s)=rho_cal(t,s)=(3+t-s)/8",
+  "model": "16-state auxiliary Walsh source observer; no native X6/V29/V39 event identification",
+  "next_question": "Determine sharp outer transition at t=3/5 below s=2/15; distinguish larger minimax radius from positive calibration penalty",
+  "review": "NOT_REVIEWED",
+  "source_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "status": "PASS",
+  "triangle_area": "1/1200",
+  "triangle_halfspaces": [
+    "t >= 3/5",
+    "t+2*s <= 9/10",
+    "t+3*s >= 1"
+  ],
+  "triangle_vertices": [
+    [
+      "7/10",
+      "1/10"
+    ],
+    [
+      "3/5",
+      "3/20"
+    ],
+    [
+      "3/5",
+      "2/15"
+    ]
+  ],
+  "unit": "R749SNU"
+}
