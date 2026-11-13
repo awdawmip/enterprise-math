@@ -1,0 +1,243 @@
+{
+  "schema": "ENTERPRISE_MATH_R717_EXACT_BRC_HOLONOMY_CERTIFICATE_V1",
+  "verdict": "R717_EXACT_X6_LIFT_S3_SPECTRAL_AND_PHASE_FIBER_PASS",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "carrier": "Unit-positive path-formal Johnson J(6,3) closed triad traces; V17 named-slot replacement transport",
+  "matrix_certificate": {
+    "lifted_states": 120,
+    "degree": 9,
+    "polynomial_ascending_coefficients": [
+      0,
+      972,
+      216,
+      -711,
+      120,
+      58,
+      -16,
+      1
+    ],
+    "checked_integer_matrix_entries": 14400
+  },
+  "histogram_formula": {
+    "domain": "integers m>=1",
+    "denominator": 120,
+    "identity": "9^m+10*6^m+15*3^m+18*2^m+9*(-1)^m+47*(-3)^m",
+    "each_transposition": "9^m-5*3^m+9*(-1)^m-5*(-3)^m",
+    "each_threecycle": "9^m-5*6^m+15*3^m-9*2^m+9*(-1)^m-(-3)^m"
+  },
+  "holonomy_coverage": {
+    "m1": [],
+    "m2": [
+      "012"
+    ],
+    "m3": [
+      "012",
+      "021",
+      "102",
+      "210"
+    ],
+    "all_m_ge_4": [
+      "012",
+      "021",
+      "102",
+      "120",
+      "201",
+      "210"
+    ]
+  },
+  "witnesses": {
+    "4": {
+      "102": [
+        "012",
+        "023",
+        "024",
+        "124",
+        "012"
+      ],
+      "120": [
+        "012",
+        "013",
+        "123",
+        "023",
+        "012"
+      ],
+      "201": [
+        "012",
+        "013",
+        "023",
+        "123",
+        "012"
+      ],
+      "210": [
+        "012",
+        "013",
+        "014",
+        "124",
+        "012"
+      ],
+      "012": [
+        "012",
+        "013",
+        "012",
+        "013",
+        "012"
+      ],
+      "021": [
+        "012",
+        "013",
+        "014",
+        "024",
+        "012"
+      ]
+    },
+    "5": {
+      "102": [
+        "012",
+        "013",
+        "012",
+        "023",
+        "123",
+        "012"
+      ],
+      "120": [
+        "012",
+        "013",
+        "014",
+        "124",
+        "024",
+        "012"
+      ],
+      "201": [
+        "012",
+        "013",
+        "014",
+        "024",
+        "124",
+        "012"
+      ],
+      "210": [
+        "012",
+        "013",
+        "012",
+        "013",
+        "123",
+        "012"
+      ],
+      "012": [
+        "012",
+        "013",
+        "012",
+        "013",
+        "014",
+        "012"
+      ],
+      "021": [
+        "012",
+        "013",
+        "012",
+        "013",
+        "023",
+        "012"
+      ]
+    }
+  },
+  "checked_ranges": {
+    "histograms": "m=0..60",
+    "stocked_candidate_ring": "all six h for each m=4..33",
+    "finite_matrix": "120x120 entries"
+  },
+  "common_ring": {
+    "stock_per_species_per_cell": 1,
+    "all_edges_fire_each_macrostep": true,
+    "typed_in_out_per_cell_per_species_after_m_steps": "m",
+    "even_microphase_pairs": "(12,34)^(m/2)",
+    "odd_microphase_pairs": "(12,34)^a,15,(23,45)^b; a=floor((m-1)/4), b=(m-1)/2-a",
+    "observer_equivalence": "identical typed port counts, inventory, signed microcurrent per edge and phase; root triad fixed, full triad field/path hidden",
+    "h_recovery_fixed_length_bits": 3
+  },
+  "conditional_return_distribution": {
+    "uniform_limit": true,
+    "tv": "(5/3)*(2/3)^m+O((1/3)^m)",
+    "sharp_exponential_rate": "2/3"
+  },
+  "sample_histograms": [
+    {
+      "m": 2,
+      "identity": "9",
+      "each_transposition": "0",
+      "each_threecycle": "0",
+      "total_closed": "9"
+    },
+    {
+      "m": 3,
+      "identity": "18",
+      "each_transposition": "6",
+      "each_threecycle": "0",
+      "total_closed": "36"
+    },
+    {
+      "m": 4,
+      "identity": "207",
+      "each_transposition": "48",
+      "each_threecycle": "9",
+      "total_closed": "369"
+    },
+    {
+      "m": 5,
+      "identity": "1080",
+      "each_transposition": "492",
+      "each_threecycle": "198",
+      "total_closed": "2952"
+    },
+    {
+      "m": 6,
+      "identity": "8703",
+      "each_transposition": "4368",
+      "each_threecycle": "2565",
+      "total_closed": "26937"
+    },
+    {
+      "m": 7,
+      "identity": "62622",
+      "each_transposition": "39858",
+      "each_threecycle": "28476",
+      "total_closed": "239148"
+    },
+    {
+      "m": 9,
+      "identity": "4063140",
+      "each_transposition": "3228504",
+      "each_threecycle": "2811186",
+      "total_closed": "19371024"
+    },
+    {
+      "m": 12,
+      "identity": "2535253191",
+      "each_transposition": "2353535184",
+      "each_threecycle": "2262941901",
+      "total_closed": "14121742545"
+    },
+    {
+      "m": 20,
+      "identity": "101618560497142215",
+      "each_transposition": "101313878534909040",
+      "each_threecycle": "101161539297184653",
+      "total_closed": "607883274696238641"
+    },
+    {
+      "m": 30,
+      "identity": "353278075120218134311588767",
+      "each_transposition": "353259652293451205024779056",
+      "each_threecycle": "353250440880170685947421525",
+      "total_closed": "2119557913760913121280768985"
+    },
+    {
+      "m": 60,
+      "identity": "14975085836693066585167270058592369796278157259696980935",
+      "each_transposition": "14975085832620260086776498575714112141494279936624223120",
+      "each_threecycle": "14975085830583856837581112855470562451710443032235060813",
+      "total_closed": "89850514995721560520658991496675831124181883134039771921"
+    }
+  ],
+  "review": "UNREVIEWED; native Link/Port temporal correspondence pending; formal CLAIM not issued by this author"
+}
