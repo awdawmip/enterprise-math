@@ -1,0 +1,148 @@
+{
+  "schema": "R681_V17_FRAME_OBSERVER_RESIDUAL_V1",
+  "status": "AUTHOR_SIDE_EXACT_FINITE_CERTIFICATE",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "predecessor": "R680@151d820a1c776fe4b1401ab0a23b1d0867c13883",
+  "six_baseline_u": [
+    [
+      -4,
+      -3,
+      -2,
+      10
+    ],
+    [
+      -3,
+      -2,
+      -4,
+      10
+    ],
+    [
+      -2,
+      -4,
+      -3,
+      10
+    ],
+    [
+      2,
+      4,
+      3,
+      -10
+    ],
+    [
+      3,
+      2,
+      4,
+      -10
+    ],
+    [
+      4,
+      3,
+      2,
+      -10
+    ]
+  ],
+  "primitive_PASS": [
+    "A:0>1",
+    "B:1>2",
+    "C:2>0"
+  ],
+  "score": {
+    "K": 7,
+    "w": [
+      -1,
+      1,
+      -2,
+      -1
+    ]
+  },
+  "contexts": 120,
+  "legal_event_words_per_context": 16,
+  "raw_histories": 1920,
+  "summed_minimal_ledger_unordered_triad_states": 1141,
+  "summed_minimal_ledger_ordered_frame_states": 1143,
+  "context_histogram_unordered": {
+    "8": 59,
+    "9": 14,
+    "10": 10,
+    "11": 10,
+    "12": 21,
+    "13": 3,
+    "14": 3
+  },
+  "context_histogram_ordered": {
+    "8": 59,
+    "9": 14,
+    "10": 10,
+    "11": 10,
+    "12": 21,
+    "13": 2,
+    "14": 3,
+    "15": 1
+  },
+  "terminal_context_histogram_unordered": {
+    "1": 59,
+    "2": 29,
+    "3": 27,
+    "4": 5
+  },
+  "terminal_context_histogram_ordered": {
+    "1": 59,
+    "2": 29,
+    "3": 26,
+    "4": 5,
+    "5": 1
+  },
+  "contexts_with_same_M_S_but_different_F": 1,
+  "same_M_S_different_F_word_pairs": 3,
+  "witness": {
+    "initial_u": [
+      3,
+      2,
+      4,
+      -10
+    ],
+    "initial_S": "145",
+    "terminal_by_PASS_order": {
+      "ABC": {
+        "triad": "124",
+        "frame": "124"
+      },
+      "ACB": {
+        "triad": "015",
+        "frame": "105"
+      },
+      "BAC": {
+        "triad": "345",
+        "frame": "345"
+      },
+      "BCA": {
+        "triad": "015",
+        "frame": "015"
+      },
+      "CAB": {
+        "triad": "345",
+        "frame": "543"
+      },
+      "CBA": {
+        "triad": "345",
+        "frame": "543"
+      }
+    },
+    "triad_positive_mass": {
+      "124": 1,
+      "345": 3,
+      "015": 2
+    },
+    "frame_positive_mass": {
+      "105": 1,
+      "124": 1,
+      "345": 1,
+      "543": 2,
+      "015": 1
+    },
+    "common_next_triad": "012",
+    "ACB_next_frame": "102",
+    "BCA_next_frame": "012"
+  },
+  "limitations": "Finite fixed R680 scores, six R679 biases, at most one A/B/C PASS each; no autonomous X6 scheduler, V39 j or independent Driver acceptance."
+}

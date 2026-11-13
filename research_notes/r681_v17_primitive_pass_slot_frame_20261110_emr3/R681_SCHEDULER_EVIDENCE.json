@@ -1,0 +1,91 @@
+{
+  "schema": "R681_BOUNDED_TYPED_PASS_SCHEDULER_EXACT_V1",
+  "status": "AUTHOR_SIDE_CONSTRUCTIVE_FINITE_POLICY",
+  "model": "R680 six baseline biases, 20 V23 starts, three one-shot PASS labels A/B/C",
+  "eligibility": "M_ab=0 for corresponding permitted PASS edge under this explicitly bounded model",
+  "score": "G_e=2*(u_source-u_target)+(w_source-w_target), w=(-1,1,-2,-1)",
+  "complete_nonterminal_prefixes_checked": 60,
+  "integer_K_comparison": [
+    {
+      "K": 1,
+      "ties_for_best": 0,
+      "strict_pair_order_violations": 8
+    },
+    {
+      "K": 2,
+      "ties_for_best": 0,
+      "strict_pair_order_violations": 0
+    },
+    {
+      "K": 3,
+      "ties_for_best": 0,
+      "strict_pair_order_violations": 0
+    },
+    {
+      "K": 4,
+      "ties_for_best": 0,
+      "strict_pair_order_violations": 0
+    },
+    {
+      "K": 5,
+      "ties_for_best": 0,
+      "strict_pair_order_violations": 0
+    },
+    {
+      "K": 6,
+      "ties_for_best": 0,
+      "strict_pair_order_violations": 0
+    },
+    {
+      "K": 7,
+      "ties_for_best": 0,
+      "strict_pair_order_violations": 0
+    }
+  ],
+  "minimum_K_for_all_strict_primary_pairwise_order": 2,
+  "generated_event_orders": {
+    "-4,-3,-2,10": "CBA",
+    "-3,-2,-4,10": "BCA",
+    "-2,-4,-3,10": "ABC",
+    "2,4,3,-10": "BCA",
+    "3,2,4,-10": "CAB",
+    "4,3,2,-10": "BAC"
+  },
+  "terminal_frame_counts_by_bias": {
+    "-4,-3,-2,10": {
+      "ordered_frame_not_sorted": 8,
+      "active_triad_changed": 20,
+      "trials": 20
+    },
+    "-3,-2,-4,10": {
+      "ordered_frame_not_sorted": 13,
+      "active_triad_changed": 20,
+      "trials": 20
+    },
+    "-2,-4,-3,10": {
+      "ordered_frame_not_sorted": 11,
+      "active_triad_changed": 20,
+      "trials": 20
+    },
+    "2,4,3,-10": {
+      "ordered_frame_not_sorted": 9,
+      "active_triad_changed": 20,
+      "trials": 20
+    },
+    "3,2,4,-10": {
+      "ordered_frame_not_sorted": 14,
+      "active_triad_changed": 20,
+      "trials": 20
+    },
+    "4,3,2,-10": {
+      "ordered_frame_not_sorted": 9,
+      "active_triad_changed": 20,
+      "trials": 20
+    }
+  },
+  "tested_complete_trajectories": 120,
+  "terminal_ordered_frames_not_sorted": 64,
+  "terminal_unordered_triads_changed": 120,
+  "typed_covariance": "Transport port labels and u,w simultaneously; then G_{Pe}(Pu,Pw)=G_e(u,w); unique maximizers transform equivariantly.",
+  "scope": "Auxiliary one-shot resource and four-port rule; full X6 autonomous clock, V39 j and independent Driver review remain open."
+}
