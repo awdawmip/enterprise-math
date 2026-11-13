@@ -32,6 +32,17 @@ def main():
             raise AssertionError(f"invalid native direction accepted: {invalid_direction!r}")
         checks += 1
 
+    # Python bool aliases 0/1 under set equality but is not an exact axis index.
+    for invalid_permutation in ((False,1,2,3,4,5), (0,True,2,3,4,5)):
+        for state in probes:
+            try:
+                state.rotate(invalid_permutation)
+            except ValueError:
+                pass
+            else:
+                raise AssertionError(f"invalid S6 permutation accepted: {invalid_permutation!r}")
+            checks+=1
+
     # Signed primitive axis adjacency, reversibility and P000 full norm symmetry.
     for state in probes:
         nbr=set()
