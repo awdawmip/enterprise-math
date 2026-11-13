@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r131_periodic_index_primitive_split_20261114/check_r131_all_words.py",
+    "ref": "f7da9180df6c4cfc7f7adc9b58cc8b002d9a50a6",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r131-witness-20261114-check_r131_all_words-py",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R131.3: exact eight-word rational certificate tests for primitive K>=3.\"\"\"\nfrom fractions import Fraction as F\nfrom check_r131 import word\n\ndef witnesses(K):\n    assert K >= 3\n    return {\n        '000': F(1, 2*K),\n        '001': F(1, K+2),\n        '010': F(1, K+1),\n        '011': F(1) - F(2, 2*K-1),\n        '100': F(1, K),\n        '101': F(1) - F(1, K),\n        '110': F(1) - F(1, K+1),\n        '111': F(1) - F(1, K+2),\n    }\n\ndef main():\n    checked = 0\n    for K in range(3, 1024):\n        for expected, theta in witnesses(K).items():\n            assert F(0) < theta < F(1)\n            found = ''.join(map(str, word(F(0), K, 1, 1, 3, theta)))\n            assert found == expected, (K, expected, theta, found)\n            checked += 1\n    print(f'R131_ALL_EIGHT_WITNESSES_PASS K=3..1023; cases={checked}')\nif __name__ == '__main__': main()\n",
+      "display_title": "check_r131_all_words.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/f7da9180df6c4cfc7f7adc9b58cc8b002d9a50a6/research_notes/brc_s23_av_r131_periodic_index_primitive_split_20261114/check_r131_all_words.py",
+      "encoding": "utf-8",
+      "sha": "115663bd5f4865d160c20afb05d2419cf7652480"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
