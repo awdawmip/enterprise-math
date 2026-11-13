@@ -164,9 +164,9 @@ class RegisteredEventControlCompositionTests(unittest.TestCase):
                   self.event(task, "HANDOFF", 8402, published + timedelta(minutes=1),
                              claim_id="cross-owner", next_action="unscoped return")]
         state = self.reduce(task, events, published + timedelta(hours=3))
-        self.assertEqual("BLOCKED", state["dispatch_state"])
-        self.assertEqual("REGISTERED_HANDOFF_SCOPE_REQUIRED", state["hard_block"]["code"])
-        self.assertEqual("cross-owner", state["hard_block"]["claim_id"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertEqual("REGISTERED_HANDOFF_SCOPE_REQUIRED", state["handoff_scope_observation"]["code"])
+        self.assertEqual("cross-owner", state["handoff_scope_observation"]["claim_id"])
 
     def test_typed_handoff_done_and_reopen_cannot_restore_exact_held_generation(self):
         task = self.definition()
@@ -281,7 +281,7 @@ class RegisteredEventControlCompositionTests(unittest.TestCase):
                                        claim_id="cross-owner", next_action="malformed scope",
                                        **{field: malformed})
                     public = self.reduce(task, [owner, event], start + timedelta(hours=3))
-                    self.assertEqual("BLOCKED", public["dispatch_state"])
+                    self.assertEqual("NEEDS_DISPATCH", public["dispatch_state"])
                     self.assertEqual("REGISTERED_HANDOFF_SCOPE_REQUIRED", public["hard_block"]["code"])
                     pure = reducer.reduce_task(task, [owner, event], default_lease_minutes=120,
                                                now=start + timedelta(minutes=2))
