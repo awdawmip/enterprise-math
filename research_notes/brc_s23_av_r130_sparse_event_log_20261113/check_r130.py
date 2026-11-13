@@ -7,6 +7,7 @@ Proof obligations and complexity scope in PROOF.md.
 from fractions import Fraction as F
 from collections import defaultdict
 from random import Random
+from pathlib import Path
 import json
 
 def frac(z):
@@ -116,7 +117,7 @@ def main():
             'summary':{k:sum(x[k] for x in instances) for k in ['cuts','positions_checked','sparse_evaluations','dense_evaluations','delta_count','incidences']},
             'large_100_digit':large,'scaling':scalable}
     print(json.dumps(report,indent=2,sort_keys=True))
-    with open('/mnt/data/em_r130/verification_r130.json','w') as f:
+    with Path(__file__).with_name('verification_r130.json').open('w') as f:
         json.dump(report,f,indent=2,sort_keys=True)
 
 if __name__=='__main__':main()
