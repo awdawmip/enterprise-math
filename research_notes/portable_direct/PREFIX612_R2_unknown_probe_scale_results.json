@@ -1,0 +1,48 @@
+{
+  "schema": "PREFIX612_R2_UNKNOWN_CONTROLLED_INCREMENT_SCALE_V1",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "original_phases": 48,
+  "native_ports": 96,
+  "tagged_actions": 576,
+  "fixed_axis_weights": [
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+  ],
+  "sensors_zero_based": [
+    3,
+    4
+  ],
+  "first_gate_calibration": "delta_phase4=3*lambda",
+  "first_gate_phase3": "delta_phase3=lambda*(b+7)",
+  "full_trace_phase3_counterexample": [
+    "8",
+    "27",
+    "48",
+    "108"
+  ],
+  "two_world_increment_scales": [
+    "1",
+    "101/100"
+  ],
+  "two_world_first_phase4": [
+    "3",
+    "303/100"
+  ],
+  "source_vectors_checked": 3,
+  "positive_scales_checked": 3,
+  "gate_sequences_checked": 1,
+  "sensor4_calibrations": 9,
+  "decoded_gate_parameters": 72,
+  "native_state_coordinate_checks": 3456,
+  "result": "ALL_EXECUTED_ASSERTIONS_PASSED; AUTHOR_SIDE_EXACT_DERIVATION; DRIVER_REVIEW_PENDING",
+  "general_probe_scale_sensor_support": [
+    11,
+    26,
+    35
+  ],
+  "known_nonuniform_probe_scale_condition": "d[11]+d[26]+d[35]!=0"
+}
