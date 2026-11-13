@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Exact Fraction arithmetic certificate for the Gamma(max) binary64 forward-error bound.
 Scope: frozen 189-layer survivor recurrence; standard correctly-rounded binary64
-normal arithmetic, verified relative input rounding, dot-product gamma_189.
+normal arithmetic, verified relative input rounding, dot-product gamma_189,
+and an allowance for subnormal/flush-to-zero terms.
 This script proves the global forward bound; it is not a replacement for a grid scan.
 """
 from fractions import Fraction as Q
@@ -38,6 +39,11 @@ e_pen=e_mu+u*(max_mu+e_mu)
 e_g=(e_w+e_m2+e_sq+e_pen
      +gam(3)*(2*max_m2+e_w+e_m2
              +(max_mu+e_mu)**2*(1+u)+max_mu+e_mu))
+
+# The tiny-term underflow propagated through two positive 189-term
+# matmuls and the final scalar expressions is bounded conservatively
+# by 10**9 * 2**-1022; this also covers FTZ of a subnormal result.
+e_g += Q(10**9, 1<<1022)
 
 assert e_mu<Q(1,10**8)
 assert e_m2<Q(1,10**6)
