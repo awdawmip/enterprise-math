@@ -1,0 +1,77 @@
+{
+  "schema": "PREFIX753_R6_TWO_SIDED_GAMMA_WITNESS_BANDS_V1",
+  "date": "2026-11-13",
+  "parent": "PREFIX-675",
+  "predecessors": [
+    "PREFIX-752-R6",
+    "PREFIX-751-R6",
+    "PREFIX-712-R6"
+  ],
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "researcher_id": "EM-DIRECT-AF1024",
+  "research_activity_id": "RA-48AA52AC279B6CA46156238F",
+  "observer": "two-independent-Gamma-clock auxiliary Y=max(T_p,T_z), not native X6 slice",
+  "D": "[0,1/2]^2",
+  "fine_grid_denominator": 768,
+  "fine_grid_shape": [
+    384,
+    384
+  ],
+  "baseline_comparator": [
+    "0",
+    "3/20"
+  ],
+  "old_prefix712_positive_all_q_ge_2": 137168,
+  "inner_band": {
+    "offset_rule": "abs(u-v)<=51",
+    "cell_count": 36900,
+    "min_numeric_G": 0.7664868306305976,
+    "min_cell": [
+      55,
+      106
+    ],
+    "independent_exact_microfloor": 766486,
+    "rigorous_margin_from_published_error_bound": "G>3/4",
+    "physical_covered": "abs(p-z)<=17/256"
+  },
+  "outer_band": {
+    "offset_rule": "abs(u-v)>=171",
+    "cell_count": 45582,
+    "min_numeric_G": 2.990905434524393,
+    "min_cell": [
+      0,
+      171
+    ],
+    "independent_exact_microfloor": 2990905,
+    "rigorous_margin_from_published_error_bound": "G>29/10",
+    "physical_covered": "abs(p-z)>=57/256"
+  },
+  "bands_disjoint_cell_count": 82482,
+  "possible_global_optimizer_coordinate_gap": "17/256 < abs(p-z) < 57/256",
+  "sharpness_for_original_fixed_witness_test": [
+    {
+      "fine": [
+        49,
+        101
+      ],
+      "offset": 52,
+      "exact_microfloor": -576380
+    },
+    {
+      "fine": [
+        0,
+        170
+      ],
+      "offset": 170,
+      "exact_microfloor": -681635
+    }
+  ],
+  "diagonal_certified_old": 384,
+  "prefix752_assumed_remaining_fine": 6794,
+  "prefix752_conditional_remaining_unordered_swap_orbits": 3397,
+  "verification": "Independent Python NumPy full-grid recurrence recomputed 9529 survivor entries and all 147456 old G signs, matched PREFIX-752 baseline 137168; four boundary/extremal test cells independently checked using exact Python Fraction; source-equivalent local programs executed; GitHub packaged dependent checker not yet separately end-to-end run.",
+  "error_model": "Uses PREFIX-752 published IEEE binary64 uniform |delta G|<1/100 and independently computed band margins >0.76 and >2.98; exact strict bounds >3/4 and >29/10.",
+  "grade": "AUTHOR_RECOMPUTED_PLUS_EXACT_SPOTS / UNREVIEWED / NOT_ADMITTED",
+  "limits": "Two-coordinate auxiliary Gamma optimizer only. Failed G at offset 52/170 is a failure of this sufficient certificate, not proof that a global maximizer occurs there. 6794 and 3397 rely on PREFIX-752 full union support, not on the strip computation alone.",
+  "next": "Use symmetry and 17/256<abs(p-z)<57/256 to prioritize remaining PREFIX-752 unexcluded fine cells; independently replay its assembled checker and review the Gamma analytic premises."
+}
