@@ -1,0 +1,88 @@
+{
+  "marker": "R730_EXACT_SUPPORT_AND_HIDDEN_ORDER_PASS",
+  "scope": "all six-axis nonnegative occupation vectors of total 3m, m=1..4, for each k=2..5, 34,832 exact cases; all 1<=r<=m for m=1..8",
+  "results": {
+    "1": {
+      "feasible_slices": 68,
+      "k_slices": 224,
+      "max_positive_coeff": 1,
+      "max_s": 1,
+      "no_feasible_slices": 156,
+      "only_new_cases": 4,
+      "s_support_hist": {
+        "0:0": 64,
+        "1:1": 4
+      },
+      "vectors": 56
+    },
+    "2": {
+      "feasible_slices": 448,
+      "k_slices": 1848,
+      "max_positive_coeff": 6,
+      "max_s": 2,
+      "no_feasible_slices": 1400,
+      "only_new_cases": 52,
+      "s_support_hist": {
+        "0:0": 380,
+        "0:1": 16,
+        "1:1": 48,
+        "2:2": 4
+      },
+      "vectors": 462
+    },
+    "3": {
+      "feasible_slices": 1792,
+      "k_slices": 8008,
+      "max_positive_coeff": 96,
+      "max_s": 3,
+      "no_feasible_slices": 6216,
+      "only_new_cases": 280,
+      "s_support_hist": {
+        "0:0": 1344,
+        "0:1": 168,
+        "1:1": 212,
+        "1:2": 16,
+        "2:2": 48,
+        "3:3": 4
+      },
+      "vectors": 2002
+    },
+    "4": {
+      "feasible_slices": 5336,
+      "k_slices": 24752,
+      "max_positive_coeff": 2448,
+      "max_s": 4,
+      "no_feasible_slices": 19416,
+      "only_new_cases": 984,
+      "s_support_hist": {
+        "0:0": 3544,
+        "0:1": 768,
+        "0:2": 40,
+        "1:1": 576,
+        "1:2": 128,
+        "2:2": 212,
+        "2:3": 16,
+        "3:3": 48,
+        "4:4": 4
+      },
+      "vectors": 6188
+    },
+    "family": {
+      "count_m8": 1625702400,
+      "m_checked": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "r_all_between_1_and_m": true
+    }
+  },
+  "crosscheck": "source-ID pivot recursion vs edge-transfer coefficient sum; exact support positivity from independent conflict-block bound; Python integer arithmetic only",
+  "input_model": "R728 candidate H=20 triples except 012,013,014,015; add one T=01k, k in 2,3,4,5",
+  "native_attribution": "candidate combinatorics only; actual TRIADIC_CLOSURE_E/V29/V39 untested"
+}
