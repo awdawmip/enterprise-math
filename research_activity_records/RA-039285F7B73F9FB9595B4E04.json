@@ -7,7 +7,37 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "085f508b66a781b1968906a41030123712cceea6",
+          "path": "research_notes/brc_r5_radius_cover_path_codec_20261113/EXACT_OUTPUT.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "29d6784310ca77b6054766e79de95bb4424944d92759307899fcb2fcf170cb4c",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "7f24c8193a92d7361cb8f2e42d33ac0c1b32506b",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/085f508b66a781b1968906a41030123712cceea6/research_notes/brc_r5_radius_cover_path_codec_20261113/EXACT_OUTPUT.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r5-20261113-1340-full-source-connector-readback-01",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-039285F7B73F9FB9595B4E04/readbacks/0a4c8db349a2b6fc639ab2efb3ccc9e39795d1160202308973fe46a1ebf09dc9.json",
+          "verification_receipt_sha256": "0a4c8db349a2b6fc639ab2efb3ccc9e39795d1160202308973fe46a1ebf09dc9"
+        }
+      ],
+      "event_id": "r5-radius-cover-path-20261113-1340-01",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@794e5f458a0bec427f2dffdd47e4176622e071dd:journal/enterprise-math/2026-11-13/20261113T135100+0800-r5-radius-cover-path-codec-11.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-13T05:47:32.250186+00:00",
   "registration_key": "session:MCP-8a6cd2557790441ea7438a367ef30fbd:TASK_RESEARCH",
