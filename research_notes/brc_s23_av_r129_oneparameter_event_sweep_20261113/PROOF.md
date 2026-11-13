@@ -1,0 +1,51 @@
+# R129 — Exact one-parameter event sweep and sharp quadratic signature complexity
+
+2026-11-13, author-side S23 mathematical result. Frozen scientific input: `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Prior frontier: R128 at `bcc4588af664b3c7b7d1c18cfcbfd15b089ac8c8`. This model is a typed auxiliary observer, not a native X6 event permission or a formal Task CLAIM.
+
+## Theorems
+
+Let `m>=2`, `I=(l,h)` with finite real `l<h`, `x` any real number, and `A,d,E` arbitrary integers. Write `{u}=u-floor(u)`. The signed S23 rotation observer is
+
+`S_i(theta) = 1[{x+(A+i*d)*theta} < {E*theta}]`, for `0<=i<m`.
+
+The original directed arc (R126) is recovered by `A=N-j-a` and `E=c-a`, with original time `t_i=N+i*d`. Equality of endpoints means the empty directed half-open arc, so the transformed indicator is zero there.
+
+For an affine function `f(theta)=b+s*theta`, let `Z_I(f)` contain its isolated parameter solutions to `f(theta) in Z`, and define it to be empty when `s=0` (even if `f` is identically integral). Define
+
+`C = Z_I(E*theta) UNION (UNION_i Z_I(x+(A+i*d)*theta)) UNION (UNION_i Z_I(x+(A+i*d-E)*theta))`.
+
+**R129.1 (complete event oracle):** `S(theta)` is constant on each connected component of `I\C`. The signatures attained over `I` are exactly the evaluations at every singleton cut `theta in C` and one midpoint from each open component. Hence the number of distinct signatures is at most `2*|C|+1`. For rational `x,l,h`, every cut and witness is rational; exact `Fraction` arithmetic suffices.
+
+**R129.2 (coefficient-sensitive bound):** With `L=h-l` and `g_L(s)=ceil(|s|*L)` for nonzero integer `s`, `g_L(0)=0`,
+
+`|C| <= T_m = g_L(E)+sum_{i=0}^{m-1}(g_L(A+i*d)+g_L(A+i*d-E))`.
+
+Thus `|signatures| <= 1+2*T_m`. In `(0,1)`, this reads
+
+`|signatures| <= 1+2*(|E|+sum_i (|A+i*d|+|A+i*d-E|))`.
+
+For fixed integers `A,d,E` and fixed finite interval `I`, the signature count is `O(m^2)`. An explicit coarser bound, valid for any `L>0`, is `T_m <= L*(|E|+m*(2|A|+|E|)+|d|*m*(m-1))+(2*m+1)`. If `E=0` the word is identically all-zero; if `d=0` all coordinates coincide, yielding at most two words. R128's coefficient-independent `O(m^4)` bound remains an alternative when coefficients are enormous.
+
+**R129.3 (sharpness, exact Farey formula):** The fixed coefficient family `x=A=0,d=E=1,I=(0,1)` is realized by `a=j=N=0,c=d=1` in the original signed S23 arc. It has
+
+`S_0(theta)=1`, and `S_i(theta)=floor(i*theta)-floor((i-1)*theta)` for `1<=i<m`.
+
+The number of distinct words is **exactly** `1+sum_{q=2}^{m-1} phi(q)`. In particular it is `Theta(m^2)`, so the fixed-coefficient quadratic exponent in R129.2 is optimal. The Farey/characteristic mechanical-word connection is classical; the S23 embedding and coefficient-sensitive exact algorithm are the application claimed here, not priority over classical word combinatorics.
+
+## Proof
+
+For each i set `u_i(theta)=x+(A+i*d)*theta`, `v(theta)=E*theta`. The fractional parts are continuous between their integer crossings. On a region without integer crossings their strict order can change only when they are equal, which is equivalent to `u_i(theta)-v(theta) in Z`. These are precisely the three classes included in C. If a relevant affine function is identically integral, it cannot introduce isolated changes: if `u_i-v` is identically integral, then that bit is identically zero. Thus all bits are constant on the components of `I\C`. There are `|C|+1` nonempty components and `|C|` singleton cuts. The algorithm evaluates all of them. For nonzero slope s, the image of I is an open interval of length `|s|L`, containing at most `ceil(|s|L)` integers. Summing counts yields T_m, and triangle inequality gives the quadratic bound. This proves R129.1–2.
+
+For R129.3, `0<theta<1` implies the floor increment `floor(i theta)-floor((i-1)theta)` equals 1 exactly when the phase addition wraps strictly below theta. Every prefix sum `sum_{i=1}^k S_i=floor(k theta)`. The cuts of these prefix sums in (0,1) are exactly reduced fractions p/q with `2<=q<=m-1`; there are `sum_{q=2}^{m-1}phi(q)` distinct cuts. Adjacent Farey cells differ on at least one prefix sum; any two separated cells differ by monotonicity of some floor function. At a cut each floor takes the value of the right-hand cell, so singleton cuts add no new word. Hence `1+sum phi` exactly. The classical summatory-totient estimate gives `3*m^2/pi^2+O(m log m)`. QED.
+
+## Boundary-only signatures
+
+Exact computation finds the counterexample to midpoint-only enumeration: `x=1/7,a=-5,j=8,c=5,N=3,d=5,m=6,I=(-2,-3/2)`; at `theta=-66/35` the signature is `000001`, while the left and right adjacent open cells give `000000` and `100001`. The singleton signature does not occur on any open cell in this interval. Therefore retaining individual cut evaluations is essential.
+
+## Reproducibility and research scope
+
+Run `python check_r129.py` in Python 3. It implements exact rational event construction, tests the original directed half-open arc independently of the rotated formula, checks every singleton/cell, and enumerates the sharp Farey family for m=2..32. Fixed seed 12920261113: 320 signed instances, 116742 direct-arc checks/probes, 55971 cut points, 12630 realized signatures across the instances, 228 boundary-only signatures, and exact Farey agreement through m=32 (308 words, 307 cuts). The finite checks support the implementation; universal assertions follow from the proofs above.
+
+Materializing all C and evaluating m bits at each cell/cut costs `O(m|C|)` Fraction comparisons plus exact cut construction and sorting, excluding bit complexity. With fixed coefficients this is `O(m^3)` arithmetic evaluations. Writing the `Theta(m^2)` distinct length-m words in the sharp family alone requires `Omega(m^3)` output bits. Large coefficients can make C large; coefficient-independent R126/R128 fixed-dimensional integer feasibility remains a separate route.
+
+Next: coefficient/gcd-aware period quotient with exact singleton preservation, and bit-cost/large-coefficient benchmark versus R127 2D and R126 3D solvers. No P000 modification, native Cell/Link claim, independent review, or formal task CLAIM is asserted.
