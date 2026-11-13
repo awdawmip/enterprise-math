@@ -1,0 +1,200 @@
+{
+  "schema": "EC49AJ_SHARP_COST_KINKS_V1",
+  "date": "2026-10-29",
+  "provenance": "Exact summary of executed local Python Fraction author checker; repository VERIFY.py is a streamlined equivalent reproducible implementation",
+  "model": "18+18 strictly positive leaves; eta=3/10; k=177/172; first expected cost 43/48; second cost 7/8-epsilon; causal erased-history and fresh independent coins",
+  "claimed_domain": "all real lawful behavior strategies for epsilon in [0,3/32], via analytic convexity plus exact finite certificate",
+  "source_normalized": {
+    "P": "1",
+    "Q": "1",
+    "positive_leaves": 36,
+    "marginal_P_equals_Q_on_w_u": true
+  },
+  "lambda": "49/860",
+  "sign_roots": [
+    "3/128",
+    "179/2592"
+  ],
+  "endpoint_certificates": [
+    {
+      "epsilon": "0",
+      "C2": "7/8",
+      "Y_support": "919/8256",
+      "dual_min": "343/6880",
+      "dual_max": "919/8256",
+      "indexed_vertices": 288,
+      "distinct_vertices": 168,
+      "equality_indexed": 40
+    },
+    {
+      "epsilon": "3/128",
+      "C2": "109/128",
+      "Y_support": "36319/330240",
+      "dual_min": "5341/110080",
+      "dual_max": "36319/330240",
+      "indexed_vertices": 288,
+      "distinct_vertices": 168,
+      "equality_indexed": 40
+    },
+    {
+      "epsilon": "179/2592",
+      "C2": "2089/2592",
+      "Y_support": "50899/445824",
+      "dual_min": "102361/2229120",
+      "dual_max": "50899/445824",
+      "indexed_vertices": 288,
+      "distinct_vertices": 168,
+      "equality_indexed": 24
+    },
+    {
+      "epsilon": "3/32",
+      "C2": "25/32",
+      "Y_support": "675/5504",
+      "dual_min": "245/5504",
+      "dual_max": "675/5504",
+      "indexed_vertices": 288,
+      "distinct_vertices": 144,
+      "equality_indexed": 24
+    }
+  ],
+  "pieces": [
+    {
+      "epsilon_start": "0",
+      "epsilon_end": "3/128",
+      "H_intercept": "919/8256",
+      "H_slope": "-49/860",
+      "alpha_intercept": "79/192",
+      "alpha_slope": "-2/5",
+      "beta_intercept": "7/24",
+      "beta_slope": "-1/3",
+      "positive_atoms": [
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "epsilon_start": "3/128",
+      "epsilon_end": "179/2592",
+      "H_intercept": "4451/41280",
+      "H_slope": "79/860",
+      "alpha_intercept": "463/960",
+      "alpha_slope": "-4/5",
+      "beta_intercept": "131/360",
+      "beta_slope": "-13/15",
+      "positive_atoms": [
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "epsilon_start": "179/2592",
+      "epsilon_end": "3/32",
+      "H_intercept": "249/2752",
+      "H_slope": "59/172",
+      "alpha_intercept": "25/64",
+      "alpha_slope": "0",
+      "beta_intercept": "7/24",
+      "beta_slope": "-1/3",
+      "positive_atoms": [
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    }
+  ],
+  "indexed_endpoint_checks": 1152,
+  "distinct_endpoint_checks": 648,
+  "first_stage_Y_at_epsilon_3_over_32_A0_mass": "0",
+  "method": "Full local Fraction checker executed in this run, with endpoint exact comparisons and all atom sign roots; crosschecked by independent JS BigInt arithmetic",
+  "result": "PASS_EXACT_FRACTION_AUTHOR",
+  "independent_mathematical_review": "NOT_PERFORMED",
+  "native_BRC_transfer": "NOT_CLAIMED"
+}
