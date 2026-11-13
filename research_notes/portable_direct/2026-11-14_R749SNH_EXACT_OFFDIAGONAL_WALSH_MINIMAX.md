@@ -46,21 +46,21 @@ $$
 
 ## Universal lower-bound witnesses
 
-Coefficients are listed in order ($(h,u,v,w,z)$), defining **actual compatible** source laws by the formula above. For the free problem take
+Coefficients are listed in order $(h,u,v,w,z)$, defining **actual compatible** source laws by the formula above. For the free problem take
 $$
 W_f=(0,-2/3,-1/2,-1/3,-1/3),\quad
 E_f=\{3,5,7,9,11,13,14,15\}.
 $$
-For every invariant decoder (q_{\tau,\sigma,\eta}), (q(E_f)=1/2), while (\mu_{W_f}(E_f)=43/48). Thus (\operatorname{TV}(q,\mu_{W_f})\ge19/48) for every invariant decoder, hence for the original unrestricted minimax problem by symmetry averaging.
+For every invariant decoder $q_{\tau,\sigma,\eta}$, $q(E_f)=1/2$, while $\mu_{W_f}(E_f)=43/48$. Thus $\operatorname{TV}(q,\mu_{W_f})\ge19/48$ for every invariant decoder, hence for the original unrestricted minimax problem by symmetry averaging.
 
 For calibrated decoders take
 $$
 W_1=(-1/6,-2/3,-2/3,-1/6,-1/6),\quad E_1=\{3,7,11,13,14,15\},
 $$
-$
+$$
 W_2=(5/6,-1/6,-1/6,0,0),\quad E_2=\{0,3,5,6,9,10,12,15\}.
 $$
-For every calibrated symmetric decoder (q_{1/2,1/3,\eta}), the event inequalities are
+For every calibrated symmetric decoder $q_{1/2,1/3,\eta}$, the event inequalities are
 $$
 L_1=\mu_{W_1}(E_1)-q(E_1)=19/48+\eta/8,\qquad
 L_2=\mu_{W_2}(E_2)-q(E_2)=5/12-\eta/2.
@@ -69,18 +69,18 @@ Their nonnegative convex combination eliminates the sole free decoder coordinate
 $$
 \frac45L_1+\frac15L_2=\frac25.
 $$
-Since TV dominates every event difference, the calibrated minimax radius is at least (2/5). Witness normalization and positivity are checked exactly in the accompanying code.
+Since TV dominates every event difference, the calibrated minimax radius is at least $2/5$. Witness normalization and positivity are checked exactly in the accompanying code.
 
 ## Complete exact upper-bound certificate
 
-At $t=1/2,s=1/3$ the feasible ($(h,u,v,w,z)$) form a **bounded, full-dimensional** rational five-polytope: the law with (h=u=v=w=z=0) has strictly positive masses (minimum (1/96)). Sixteen atom inequalities describe it exactly. A vertex must contain five independent tight atom inequalities; every five-facet subset is checked by exact integer Bareiss elimination after rescaling (H=6h,U=6u,V=6v,W=6w,Z=6z).
+At $t=1/2,s=1/3$ the feasible $(h,u,v,w,z)$ form a **bounded, full-dimensional** rational five-polytope: the law with $h=u=v=w=z=0$ has strictly positive masses (minimum $1/96$). Sixteen atom inequalities describe it exactly. A vertex must contain five independent tight atom inequalities; every five-facet subset is checked by exact integer Bareiss elimination after rescaling $H=6h,U=6u,V=6v,W=6w,Z=6z$.
 
-The reproducible `R749SNH_OFFDIAGONAL_POINT_EXACT_CHECK.py` enumerates all (\binom{16}{5}=4368) subsets: 3008 nonsingular bases, 216 feasible bases and **44 distinct vertices**. At all 44, both candidate TV inequalities hold in Python `Fraction` arithmetic; equality occurs at 16 free-radius vertices and 8 calibrated-radius vertices. For a fixed decoder, TV is convex in the source law; its maximum over a compact polytope is attained at a vertex. Thus the vertex test proves the universal upper bound for the entire real source fiber. The explicit event bounds complete both minimax equalities.
+The reproducible `R749SNH_OFFDIAGONAL_POINT_EXACT_CHECK.py` enumerates all $\binom{16}{5}=4368$ subsets: 3008 nonsingular bases, 216 feasible bases and **44 distinct vertices**. At all 44, both candidate TV inequalities hold in Python `Fraction` arithmetic; equality occurs at 16 free-radius vertices and 8 calibrated-radius vertices. For a fixed decoder, TV is convex in the source law; its maximum over a compact polytope is attained at a vertex. Thus the vertex test proves the universal upper bound for the entire real source fiber. The explicit event bounds complete both minimax equalities.
 
 ## Scope, provenance, continuation
 
 This is a strictly auxiliary finite Walsh-source observation model. No native signed-Port, X6 three-dimensional slice or V29/V39 event correspondence has been proved; the frozen P000 and existing source firewall remain unchanged. A scientific file/PR is not itself a Task CLAIM, Result, independent review, Working Truth or Foundation promotion.
 
-The mathematical frontier now includes the first fully certified strictly non-diagonal point ( $(t,s)$=(1/2,1/3) ). The next high-value question is to determine an exact off-diagonal **region** containing this point and its calibrated/free transition curves; use a six- or seven-dimensional rational joint-polytope certificate plus parameterized event duals, checking existing small-square and diagonal formulas at intersections. A separate native-observer mapping remains an independent question.
+The mathematical frontier now includes the first fully certified strictly non-diagonal point $(t,s)=(1/2,1/3)$. The next high-value question is to determine an exact off-diagonal **region** containing this point and its calibrated/free transition curves; use a six- or seven-dimensional rational joint-polytope certificate plus parameterized event duals, checking existing small-square and diagonal formulas at intersections. A separate native-observer mapping remains an independent question.
 
 **Reproduction:** Python 3 standard library, run `python research_notes/portable_direct/R749SNH_OFFDIAGONAL_POINT_EXACT_CHECK.py` and compare its stdout JSON with `R749SNH_OFFDIAGONAL_POINT_RESULTS.json`. The certificate uses integer/Fraction arithmetic throughout and no floating-point optimization.
