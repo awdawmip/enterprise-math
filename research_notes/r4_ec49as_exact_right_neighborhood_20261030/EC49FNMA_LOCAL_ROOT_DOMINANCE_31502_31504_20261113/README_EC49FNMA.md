@@ -51,3 +51,12 @@ This theorem concerns only the three fixed radius-three key sets; it does not es
 ## Next discriminating problem
 
 From the signed trie modifications caused by one complete-key replacement, derive a structural *small* sufficient certificate of rootwise weak dominance, then seek exact examples where optimum improves although rootwise dominance fails. The separate global-family consolidation question is to stitch saved intervals into one master 38,169-value proof certificate, rather than recount previously executed cases.
+
+
+## Additional structural theorem: the six-key skeleton
+
+Let K0=[0,4,5,11,34,61], the common six complete keys. Exact recomputation from the frozen 178,850-word input proves f[K0,r](S)=f[31502,r](S)=f[31504,r](S) for **every** root r in {05,06,07} and every eligible label subset S, a total of 8,448 root/subset identities. Thus key64 is wholly redundant for these three roots; key66 likewise does not change their cost functions, though it introduces root03. Key65, in contrast, improves 1,850 root/subset values over the skeleton and never worsens any.
+
+The redundancy is not merely a trivial literal-word-prefix containment. In the frozen source, key64 contributes 280 new 06-root legal words, and key66 contributes 9,540 new 05/06/07-root legal words. Of these 9,820 words, **none** has a same-label path from the six shared keys that is literally a prefix of the added path. The result is about the exact optimum of whole native prefix tries, not a claim of per-word path replacement.
+
+The companion checker recomputes the six-key skeleton's three complete integer tables and tests all 9,820 wordwise containment cases. This strengthens the local three-case analysis without changing its frozen input or extending it to the unrestricted mother problem.
