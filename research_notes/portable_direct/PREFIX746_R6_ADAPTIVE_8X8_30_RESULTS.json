@@ -1,0 +1,134 @@
+{
+  "schema": "PREFIX746_R6_GAMMA_ADAPTIVE8_CERT_V1",
+  "date": "2026-11-13",
+  "researcher_id": "EM-DIRECT-5E5F0E",
+  "activity_id": "RA-2D0B93587B06028CFF775009",
+  "mother_objective": "PREFIX-675",
+  "predecessor": "PREFIX-745",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "witness": [
+    "0",
+    "73/500"
+  ],
+  "old_witness": [
+    "0",
+    "3/20"
+  ],
+  "model": "189-row frozen BRC stopped-survivor; maximum of two independent unit-rate Gamma clocks",
+  "exact_statement": "For all real q>=2, every (p,z) in the 15 listed closed 384 cells and their transposes satisfies Vq(e)-Vq(p,z)>11q^2.",
+  "method": "8x8 rational subdivision, monotone mean and second-moment rectangle bounds, exact Fraction, endpoint t=0,1/2",
+  "columns": [
+    "i",
+    "j",
+    "floor(10^6 G8)",
+    "floor(10^6 G1_original712)"
+  ],
+  "cells": [
+    [
+      9,
+      47,
+      22680239,
+      -168971108
+    ],
+    [
+      10,
+      47,
+      27002790,
+      -164850312
+    ],
+    [
+      10,
+      48,
+      20105480,
+      -175568312
+    ],
+    [
+      11,
+      48,
+      24535826,
+      -171331230
+    ],
+    [
+      11,
+      49,
+      18217896,
+      -181385295
+    ],
+    [
+      12,
+      49,
+      22747775,
+      -177040130
+    ],
+    [
+      13,
+      49,
+      27509360,
+      -172487371
+    ],
+    [
+      12,
+      50,
+      16999301,
+      -186435764
+    ],
+    [
+      13,
+      50,
+      21620243,
+      -181990942
+    ],
+    [
+      14,
+      50,
+      26470862,
+      -177340583
+    ],
+    [
+      13,
+      51,
+      16428868,
+      -190736413
+    ],
+    [
+      14,
+      51,
+      21132267,
+      -186200483
+    ],
+    [
+      15,
+      51,
+      26063219,
+      -181461078
+    ],
+    [
+      13,
+      52,
+      11934432,
+      -198718120
+    ],
+    [
+      14,
+      52,
+      16483549,
+      -194306447
+    ]
+  ],
+  "original_count": 15,
+  "distinct_transposed_count": 30,
+  "min_microfloor": 11934432,
+  "min_cell": [
+    13,
+    52
+  ],
+  "old_max_microfloor": -164850312,
+  "prior_author_union": 141942,
+  "new_author_union": 141972,
+  "total": 147456,
+  "remaining": 5484,
+  "conditional_union": "Presumes documented historical author-level union through PREFIX745 and disjointness; independent full historical audit outstanding",
+  "verification": "Local exact Fraction batches with pinned integer recurrence, 9,529 nonzero coefficients, two witness-moment hash checks; combined published script not yet end-to-end run",
+  "grade": "AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "next": "Composite checker replay; full historical union audit; adjacent cells and new witness tests"
+}
