@@ -124,6 +124,5 @@ def run():
         f.write('\n')
     print(json.dumps(result,indent=2))
 
-
 if __name__=='__main__':
     run()
