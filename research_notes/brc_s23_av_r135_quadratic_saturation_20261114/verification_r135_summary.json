@@ -1,0 +1,285 @@
+{
+  "status": "R135_QUADRATIC_MIDPOINT_LIFT_PASS",
+  "date": "2026-11-14",
+  "frozen_scientific_input": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "runtime": "Python Fraction exact",
+  "source": "check_r135.py",
+  "verified_m_range": [
+    1,
+    30
+  ],
+  "checked_K_for_each_m": "max(1,m*(m-1))+1 and 10^80+max(1,m*(m-1))+1",
+  "lift_certificates_verified": 143140,
+  "full_parameter_atoms_verified": 2326,
+  "nonmonotone_m7": [
+    {
+      "K": 10,
+      "count": 50,
+      "cut_count": 79,
+      "missing": [
+        "0001001",
+        "0111110",
+        "1000001",
+        "1110110"
+      ]
+    },
+    {
+      "K": 11,
+      "count": 54,
+      "cut_count": 89,
+      "missing": []
+    },
+    {
+      "K": 12,
+      "count": 54,
+      "cut_count": 97,
+      "missing": []
+    },
+    {
+      "K": 13,
+      "count": 54,
+      "cut_count": 105,
+      "missing": []
+    },
+    {
+      "K": 14,
+      "count": 54,
+      "cut_count": 113,
+      "missing": []
+    },
+    {
+      "K": 15,
+      "count": 52,
+      "cut_count": 113,
+      "missing": [
+        "0111110",
+        "1000001"
+      ]
+    },
+    {
+      "K": 16,
+      "count": 54,
+      "cut_count": 127,
+      "missing": []
+    },
+    {
+      "K": 17,
+      "count": 54,
+      "cut_count": 141,
+      "missing": []
+    },
+    {
+      "K": 18,
+      "count": 54,
+      "cut_count": 145,
+      "missing": []
+    },
+    {
+      "K": 19,
+      "count": 54,
+      "cut_count": 149,
+      "missing": []
+    }
+  ],
+  "sample_max_denominator_at_bound": {
+    "m1": 3,
+    "m5": 49,
+    "m7": 97,
+    "m10": 199,
+    "m15": 449,
+    "m25": 1249,
+    "m30": 1799
+  },
+  "sample_min_excess_at_bound": {
+    "m1": "1/2",
+    "m5": "3/40",
+    "m7": "1/28",
+    "m10": "1/60",
+    "m15": "1/140",
+    "m25": "1/400",
+    "m30": "1/580"
+  },
+  "max_large_K_denominator_bit_length_observed": 267,
+  "counts_by_m": [
+    {
+      "m": 1,
+      "sufficient_K": 2,
+      "F_m": 2,
+      "certificate_count_per_K": 2
+    },
+    {
+      "m": 2,
+      "sufficient_K": 3,
+      "F_m": 4,
+      "certificate_count_per_K": 6
+    },
+    {
+      "m": 3,
+      "sufficient_K": 7,
+      "F_m": 8,
+      "certificate_count_per_K": 16
+    },
+    {
+      "m": 4,
+      "sufficient_K": 13,
+      "F_m": 14,
+      "certificate_count_per_K": 30
+    },
+    {
+      "m": 5,
+      "sufficient_K": 21,
+      "F_m": 24,
+      "certificate_count_per_K": 60
+    },
+    {
+      "m": 6,
+      "sufficient_K": 31,
+      "F_m": 36,
+      "certificate_count_per_K": 84
+    },
+    {
+      "m": 7,
+      "sufficient_K": 43,
+      "F_m": 54,
+      "certificate_count_per_K": 144
+    },
+    {
+      "m": 8,
+      "sufficient_K": 57,
+      "F_m": 76,
+      "certificate_count_per_K": 198
+    },
+    {
+      "m": 9,
+      "sufficient_K": 73,
+      "F_m": 104,
+      "certificate_count_per_K": 280
+    },
+    {
+      "m": 10,
+      "sufficient_K": 91,
+      "F_m": 136,
+      "certificate_count_per_K": 352
+    },
+    {
+      "m": 11,
+      "sufficient_K": 111,
+      "F_m": 178,
+      "certificate_count_per_K": 504
+    },
+    {
+      "m": 12,
+      "sufficient_K": 133,
+      "F_m": 224,
+      "certificate_count_per_K": 598
+    },
+    {
+      "m": 13,
+      "sufficient_K": 157,
+      "F_m": 282,
+      "certificate_count_per_K": 812
+    },
+    {
+      "m": 14,
+      "sufficient_K": 183,
+      "F_m": 346,
+      "certificate_count_per_K": 960
+    },
+    {
+      "m": 15,
+      "sufficient_K": 211,
+      "F_m": 418,
+      "certificate_count_per_K": 1152
+    },
+    {
+      "m": 16,
+      "sufficient_K": 241,
+      "F_m": 498,
+      "certificate_count_per_K": 1360
+    },
+    {
+      "m": 17,
+      "sufficient_K": 273,
+      "F_m": 594,
+      "certificate_count_per_K": 1728
+    },
+    {
+      "m": 18,
+      "sufficient_K": 307,
+      "F_m": 696,
+      "certificate_count_per_K": 1938
+    },
+    {
+      "m": 19,
+      "sufficient_K": 343,
+      "F_m": 816,
+      "certificate_count_per_K": 2400
+    },
+    {
+      "m": 20,
+      "sufficient_K": 381,
+      "F_m": 944,
+      "certificate_count_per_K": 2688
+    },
+    {
+      "m": 21,
+      "sufficient_K": 421,
+      "F_m": 1084,
+      "certificate_count_per_K": 3080
+    },
+    {
+      "m": 22,
+      "sufficient_K": 463,
+      "F_m": 1234,
+      "certificate_count_per_K": 3450
+    },
+    {
+      "m": 23,
+      "sufficient_K": 507,
+      "F_m": 1406,
+      "certificate_count_per_K": 4128
+    },
+    {
+      "m": 24,
+      "sufficient_K": 553,
+      "F_m": 1586,
+      "certificate_count_per_K": 4500
+    },
+    {
+      "m": 25,
+      "sufficient_K": 601,
+      "F_m": 1786,
+      "certificate_count_per_K": 5200
+    },
+    {
+      "m": 26,
+      "sufficient_K": 651,
+      "F_m": 1998,
+      "certificate_count_per_K": 5724
+    },
+    {
+      "m": 27,
+      "sufficient_K": 703,
+      "F_m": 2228,
+      "certificate_count_per_K": 6440
+    },
+    {
+      "m": 28,
+      "sufficient_K": 757,
+      "F_m": 2470,
+      "certificate_count_per_K": 7018
+    },
+    {
+      "m": 29,
+      "sufficient_K": 813,
+      "F_m": 2740,
+      "certificate_count_per_K": 8100
+    },
+    {
+      "m": 30,
+      "sufficient_K": 871,
+      "F_m": 3018,
+      "certificate_count_per_K": 8618
+    }
+  ]
+}
