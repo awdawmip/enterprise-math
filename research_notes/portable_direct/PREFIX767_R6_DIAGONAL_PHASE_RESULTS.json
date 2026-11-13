@@ -1,0 +1,54 @@
+{
+  "schema": "PREFIX767_R6_EXACT_DIAGONAL_GAMMA_PHASE_V1",
+  "date": "2026-11-14",
+  "scientific_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "external independent two-Gamma-clock stopped-BRC auxiliary",
+  "derivation": "finite K,L moment matrices; exact diagonal derivative identity and integer interval enclosure",
+  "survivor_layers": 189,
+  "nonzero_survivor_positions": 9529,
+  "zero_survivors_at_layer": 189,
+  "square": [
+    "3296/65536",
+    "3297/65536"
+  ],
+  "square_delta_mu_approx": "-6.7814805019063645e-7",
+  "square_delta_variance_approx": "-2.3779156555107471e-5",
+  "square_ratio_approx": "0.028518591423503561",
+  "square_exact_sign": [
+    "delta_mean<0",
+    "delta_variance<0"
+  ],
+  "critical_ratio_upper_strict": "285186/10000000",
+  "diagonal_stationary_bracket": [
+    "251/5000",
+    "63/1250"
+  ],
+  "endpoint_derivative_signs": [
+    "Q'(251/5000)<0",
+    "Q'(63/1250)>0"
+  ],
+  "interval_proof": {
+    "domain": "[251/5000,252/5000]",
+    "bounds": [
+      "A<3156",
+      "B>242137",
+      "v>225",
+      "m<50",
+      "all interval derivative lower bounds >=0"
+    ],
+    "denominator_lower_strict": "D>27787>0",
+    "logic": "Q' continuous by rational polynomial with D>0 throughout interval, so one stationary point exists"
+  },
+  "checker": "research_notes/portable_direct/PREFIX767_R6_DIAGONAL_PHASE_CERTIFY.py",
+  "checker_git_blob_sha1": "9b6e5f9b76b297e3f3b4f3189f3420357645678d",
+  "checker_sha256": "23f00a25e5ed6b646a7156c64df51ca58793a031723ce41c7592733202990eea",
+  "observed_run": "ALL_CHECKS_PASS PREFIX767",
+  "author_validation": "Python 3 standard library integer/Fraction exact; independent float derivative finite difference agrees but is not proof",
+  "limitations": [
+    "author-level unreviewed",
+    "diagonal stationary point uniqueness unknown",
+    "global q_c optimum unknown",
+    "no native X6 transfer or new 1/768 area exclusion"
+  ],
+  "next_question": "exact interval isolation/uniqueness of diagonal stationary candidate or genuine comparator box enclosure"
+}
