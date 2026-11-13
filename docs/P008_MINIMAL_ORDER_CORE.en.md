@@ -9,8 +9,10 @@ For the current v0.1 root / quotient / collapse pattern, Enterprise Math does no
 Let `A` and `B` be partially ordered state spaces and let
 
 \[
-l:A\to B.
+l:A\to B
 \]
+
+be order-preserving.
 
 For each \(b\in B\), define the principal sublevel
 
@@ -18,11 +20,15 @@ For each \(b\in B\), define the principal sublevel
 L_b=\{a\in A:l(a)\le b\}.
 \]
 
-A right adjoint \(u:B\to A\) exists exactly when every \(L_b\) has a greatest element; that greatest element is \(u(b)\). Equivalently,
+A right adjoint \(u:B\to A\) exists exactly when every \(L_b\) has a greatest element. In that case \(u(b)=\max L_b\) and
 
 \[
 l(a)\le b\iff a\le u(b).
 \]
+
+Indeed, if \(u\) is a right adjoint, then \(L_b=\{a:a\le u(b)\}\). Conversely, set \(u(b)=\max L_b\). Membership in \(L_b\) implies \(a\le u(b)\), and \(a\le u(b)\) implies \(l(a)\le l(u(b))\le b\) by monotonicity.
+
+For example, let \(A=B=\{0<1\}\) and set \(l(0)=1,\ l(1)=0\). Both \(L_0=\{1\}\) and \(L_1=\{0,1\}\) have greatest element \(1\). The candidate \(u(0)=1\) gives \(0\le u(0)\) while \(l(0)>0\), so the adjunction fails.
 
 Thus the `max` definition used by integer roots and integer quotients is precisely right-adjoint structure, not an approximation device.
 
