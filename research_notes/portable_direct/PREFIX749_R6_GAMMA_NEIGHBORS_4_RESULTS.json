@@ -1,0 +1,67 @@
+{
+  "schema": "PREFIX749_R6_GAMMA_NEIGHBOR_4_V1",
+  "date": "2026-11-13",
+  "parent": "PREFIX-675",
+  "predecessor": "PREFIX-748",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "grid_denominator": 384,
+  "competitor": [
+    "0",
+    "73/500"
+  ],
+  "old_competitor": [
+    "0",
+    "3/20"
+  ],
+  "domain": "all real q>=2, all continuous points in four complete closed cells",
+  "bound": "V_q(e)-V_q(p,z)>3q^2",
+  "checks": [
+    {
+      "i": 10,
+      "j": 50,
+      "G2_floor_micro": -78645845,
+      "G4_floor_micro": -20639281,
+      "G8_floor_micro": 8455657,
+      "old_G1_floor_micro": -194688514
+    },
+    {
+      "i": 10,
+      "j": 51,
+      "G2_floor_micro": -84950051,
+      "G4_floor_micro": -25907227,
+      "G8_floor_micro": 3704401,
+      "old_G1_floor_micro": -203076218
+    }
+  ],
+  "new_cells": [
+    [
+      10,
+      50
+    ],
+    [
+      10,
+      51
+    ],
+    [
+      50,
+      10
+    ],
+    [
+      51,
+      10
+    ]
+  ],
+  "new_count": 4,
+  "prior_author_union": 141980,
+  "new_author_union": 141984,
+  "total": 147456,
+  "remaining": 5472,
+  "new_author_union_fraction": "493/512",
+  "original_kernel_git_blob_sha1": "d986f644ba513240ea8395e0b221af7946e0efd6",
+  "mu_numerator_sha256": "797121e567e6422d342b2647cd17ff01187d5000b08bde8a954730d071bed46e",
+  "variance_numerator_sha256": "814be93bb068b6a6e688e8ea5a466939a06e617b67ab585c177176f57afd57ae",
+  "coordinate_scope": "Compared PREFIX742..748 and exact 768-grid converted children against PREFIX713 multi / PREFIX716 / PREFIX718; baseline inherited",
+  "validation": "Local independent-equivalent Fraction kernel rebuild, 9,529 positions, Bernstein properties, frozen witness hashes, 2/4/8 exact floors in per-cell runs; combined published script exact-byte dependency replay pending",
+  "grade": "AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "next": "Independent cumulative union audit; (11,52) and (10,52) adaptive exact bound trials"
+}
