@@ -1,0 +1,239 @@
+{
+  "schema": "R744_BRANCH_BLIND_STOCK_ONLY_VERIFY_V1",
+  "result": "PASS",
+  "integer_semantics": "exact",
+  "cases": {
+    "A": {
+      "arcs": [
+        "012>014",
+        "012>023",
+        "013>012",
+        "014>013",
+        "023>013",
+        "023>123",
+        "123>012"
+      ],
+      "injective_codebooks": 32,
+      "stock_blind_codebooks": 4,
+      "verified_history_count": 39364,
+      "codebooks": [
+        {
+          "arc_labels": {
+            "012>014": "F",
+            "012>023": "R",
+            "013>012": "F",
+            "014>013": "R",
+            "023>013": "R",
+            "023>123": "F",
+            "123>012": "R"
+          },
+          "generator_pass_words": {
+            "I": "FRRF",
+            "P": "RFRF",
+            "Q": "RFFR"
+          },
+          "first_hop_vertex_helper": {
+            "014": "R",
+            "023": "F"
+          },
+          "histories_0_to_8": 9841
+        },
+        {
+          "arc_labels": {
+            "012>014": "F",
+            "012>023": "R",
+            "013>012": "R",
+            "014>013": "F",
+            "023>013": "F",
+            "023>123": "R",
+            "123>012": "F"
+          },
+          "generator_pass_words": {
+            "I": "FRFR",
+            "P": "RFFR",
+            "Q": "RFRF"
+          },
+          "first_hop_vertex_helper": {
+            "014": "R",
+            "023": "F"
+          },
+          "histories_0_to_8": 9841
+        },
+        {
+          "arc_labels": {
+            "012>014": "R",
+            "012>023": "F",
+            "013>012": "F",
+            "014>013": "R",
+            "023>013": "R",
+            "023>123": "F",
+            "123>012": "R"
+          },
+          "generator_pass_words": {
+            "I": "RFRF",
+            "P": "FRRF",
+            "Q": "FRFR"
+          },
+          "first_hop_vertex_helper": {
+            "014": "F",
+            "023": "R"
+          },
+          "histories_0_to_8": 9841
+        },
+        {
+          "arc_labels": {
+            "012>014": "R",
+            "012>023": "F",
+            "013>012": "R",
+            "014>013": "F",
+            "023>013": "F",
+            "023>123": "R",
+            "123>012": "F"
+          },
+          "generator_pass_words": {
+            "I": "RFFR",
+            "P": "FRFR",
+            "Q": "FRRF"
+          },
+          "first_hop_vertex_helper": {
+            "014": "F",
+            "023": "R"
+          },
+          "histories_0_to_8": 9841
+        }
+      ],
+      "twelve_PASS_six_relation_witnesses": {
+        "III": "012",
+        "IIP": "021",
+        "IIQ": "102",
+        "IPQ": "201",
+        "IQP": "120",
+        "PQP": "210"
+      },
+      "common_ledger_for_three_generators": {
+        "M01": 6,
+        "M10": 6,
+        "b0": 1,
+        "b1": 1,
+        "Gamma": 12
+      }
+    },
+    "B": {
+      "arcs": [
+        "012>023",
+        "012>123",
+        "013>012",
+        "023>013",
+        "123>013",
+        "123>124",
+        "124>012"
+      ],
+      "injective_codebooks": 32,
+      "stock_blind_codebooks": 4,
+      "verified_history_count": 39364,
+      "codebooks": [
+        {
+          "arc_labels": {
+            "012>023": "F",
+            "012>123": "R",
+            "013>012": "F",
+            "023>013": "R",
+            "123>013": "R",
+            "123>124": "F",
+            "124>012": "R"
+          },
+          "generator_pass_words": {
+            "I": "RFFR",
+            "P": "FRRF",
+            "Q": "RFRF"
+          },
+          "first_hop_vertex_helper": {
+            "123": "F",
+            "023": "R"
+          },
+          "histories_0_to_8": 9841
+        },
+        {
+          "arc_labels": {
+            "012>023": "F",
+            "012>123": "R",
+            "013>012": "R",
+            "023>013": "F",
+            "123>013": "F",
+            "123>124": "R",
+            "124>012": "F"
+          },
+          "generator_pass_words": {
+            "I": "RFRF",
+            "P": "FRFR",
+            "Q": "RFFR"
+          },
+          "first_hop_vertex_helper": {
+            "123": "F",
+            "023": "R"
+          },
+          "histories_0_to_8": 9841
+        },
+        {
+          "arc_labels": {
+            "012>023": "R",
+            "012>123": "F",
+            "013>012": "F",
+            "023>013": "R",
+            "123>013": "R",
+            "123>124": "F",
+            "124>012": "R"
+          },
+          "generator_pass_words": {
+            "I": "FRFR",
+            "P": "RFRF",
+            "Q": "FRRF"
+          },
+          "first_hop_vertex_helper": {
+            "123": "R",
+            "023": "F"
+          },
+          "histories_0_to_8": 9841
+        },
+        {
+          "arc_labels": {
+            "012>023": "R",
+            "012>123": "F",
+            "013>012": "R",
+            "023>013": "F",
+            "123>013": "F",
+            "123>124": "R",
+            "124>012": "F"
+          },
+          "generator_pass_words": {
+            "I": "FRRF",
+            "P": "RFFR",
+            "Q": "FRFR"
+          },
+          "first_hop_vertex_helper": {
+            "123": "R",
+            "023": "F"
+          },
+          "histories_0_to_8": 9841
+        }
+      ],
+      "twelve_PASS_six_relation_witnesses": {
+        "III": "012",
+        "IIP": "021",
+        "IIQ": "210",
+        "IPQ": "120",
+        "IQP": "201",
+        "PQP": "102"
+      },
+      "common_ledger_for_three_generators": {
+        "M01": 6,
+        "M10": 6,
+        "b0": 1,
+        "b1": 1,
+        "Gamma": 12
+      }
+    }
+  },
+  "total_codebooks": 8,
+  "total_histories_checked": 78728
+}
