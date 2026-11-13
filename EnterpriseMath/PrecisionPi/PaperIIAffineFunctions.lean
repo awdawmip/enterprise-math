@@ -119,7 +119,6 @@ theorem support_relabel (σ : Equiv.Perm SliceChart) (c : ResidualF2) :
     support (relabel σ c) = (support c).map σ.toEmbedding := by
   ext v
   simp only [support, Finset.mem_filter, Finset.mem_univ, true_and, equivariant, pullback]
-  change (evaluate c (pointOf (σ.symm (chartOf (pointOf v)))) = 1) ↔ _
   rw [show chartOf (pointOf v) = v from vertexEquiv.left_inv v]
   constructor
   · intro hv
