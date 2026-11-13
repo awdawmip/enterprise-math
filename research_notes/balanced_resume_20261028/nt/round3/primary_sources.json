@@ -1,0 +1,76 @@
+{
+  "schema": "BOUNDED_PRIMARY_SOURCE_INTAKE_V1",
+  "researcher_id": "EM-NT-EFC4A8",
+  "date": "2026-10-28",
+  "timezone": "Asia/Shanghai",
+  "primary_sources": [
+    {
+      "id": "ZRALEK_2009_AUTHOR_V5",
+      "author": "Bartosz Źrałek",
+      "title": "A deterministic version of Pollard’s p−1 algorithm",
+      "version": "arXiv:0707.4102v5, 12 May 2009",
+      "url": "https://arxiv.org/pdf/0707.4102v5",
+      "metadata_url": "https://arxiv.org/abs/0707.4102v5",
+      "associated_publication": "Mathematics of Computation 79 (2010), 513–533",
+      "doi": "10.1090/S0025-5718-09-02262-5",
+      "actual_reading": "Web PDF text: opening/source context on preprint pages 1–4, Section 4 pages 5–6 algorithm PH, Theorem 4.2, Corollary 4.3 and surrounding proof; downstream text through Corollary 4.6 was returned but no audit of its smoothness application is claimed. Not a full 21-page audit.",
+      "critical_locations": [
+        "Section 2, p.2: n odd throughout; p.3 prime-power CRT coordinates",
+        "Section 4, p.5: PH(n,a,b,s,v,w), preceding digit/gcd proof and Theorem 4.2",
+        "Section 4, p.6: Corollary 4.3 for arbitrary supplied B and factored element orders"
+      ],
+      "tool": "mcp__codex_apps__search_service_web_run",
+      "observed_reference": "turn580352view0",
+      "local_receipt": "local_receipts/zralek2009_section4.json",
+      "local_receipt_sha256": "430edea7d9e1aee2f657a629a34aef66c75263eedd28016ade3ecfb96b50d507",
+      "receipt_hash_is_not_pdf_hash": true,
+      "no_pdf_byte_equivalence_claim": true,
+      "screenshot_boundary": "Screenshot call returned text markers only, so no visual page-inspection claim."
+    },
+    {
+      "id": "ZRALEK_2010_PUBLISHER_ATTEMPT",
+      "url": "https://www.ams.org/journals/mcom/2010-79-269/S0025-5718-09-02262-5/S0025-5718-09-02262-5.pdf",
+      "result": "HTTP_403_FORBIDDEN",
+      "mathematical_text_read_from_this_url": false,
+      "local_receipt": "local_receipts/zralek2010_publisher_error.json",
+      "local_receipt_sha256": "549606003069c32806e7f7a8bd9bd70bdeca61fb3e0a75c96b8f78627c628a27"
+    },
+    {
+      "id": "ZRALEK_2014_AUTHOR_EXPOSITION",
+      "author": "Bartosz Źrałek",
+      "title": "A generalization of the Pohlig–Hellman algorithm and its application to factoring",
+      "publication": "Studia Bezpieczeństwa Narodowego 6(2) (2014), 177–183",
+      "doi": "10.37055/sbn/135229",
+      "url": "https://sbn.wat.edu.pl/pdf-135229-63545?filename=A-GENERALIZATION-OF-THE-P.pdf",
+      "actual_reading": "Author exposition in Polish. Section 3, pp.179–180, binary derivation and Theorem 1; publisher metadata and reference 13 lead to 2010 paper. It is not represented as the original discovery paper.",
+      "local_receipt": "local_receipts/zralek2014.json",
+      "local_receipt_sha256": "9c3e6fae9f1811549ad587f89ec848c3b88eb44df6d49694ad05850be5affe89"
+    }
+  ],
+  "internal_sources": [
+    {
+      "member": "RSA_DYADIC_MEMBERSHIP_DERIVATION.md",
+      "bytes": 8515,
+      "sha256": "02523e710e3875eafa3e57551bc46111a1937839c345ff5af03fd2450af8d220",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "capsule_path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/a1fe1386f89e55f14bec/RSA_TOOLS_COMPLETE_ORIGINALS_CAPSULE.json",
+      "local_exact_member": "../source_rsa_0.md",
+      "earlier_authorship_preserved": "EM-RSACOL-C76042 antecedent return; existing dyadic helper identity UNKNOWN as recorded; no reassignment"
+    },
+    {
+      "path": "research_notes/balanced_resume_20261028/nt/rsa_prior_art_boundary.md",
+      "commit": "59fd52bb8c3a3cbd7a135918579eafd311b39fec",
+      "sha256": "2c2fa594cc89b24d4c449ceafd0376594c394f23b0345cd709d8d7536ca62f78",
+      "role": "Prior partial comparison; left full composite antecedent open"
+    }
+  ],
+  "related_separate_contribution": {
+    "researcher_id": "EM-REVIEW-58D6A2",
+    "path": "research_notes/balanced_resume_20261028/review/round3/MILLER_1976_INTERFACE_INTAKE.md",
+    "sha256": "29a50f3a418ee491c790f074c41a4722cc9fab64649189a0c4ba4dfd616538a3",
+    "role": "Parallel primary intake contribution, not an independent vote on this packet; report not incorporated into this proof"
+  },
+  "local_receipts_only": true,
+  "local_receipts_publication": "Full returned extracts retained locally for traceability; omitted from publication manifest. This metadata does not assert them to be repository-persisted."
+}
