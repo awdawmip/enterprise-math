@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/PREFIX747_R6_GAMMA_4_CELLS_RESULTS.json",
+    "ref": "f12c8b79a973ef8d5b0245aa9efea05f85b9774e",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r6-prefix747-20261113-source-readback",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"PREFIX747_R6_GAMMA_4_CELLS_V1\",\n  \"date\": \"2026-11-13\",\n  \"researcher_id\": \"EM-DIRECT-6649FC\",\n  \"activity_id\": \"RA-E1A8598C3ED2BB594F68B2AE\",\n  \"frozen_science_pin\": \"f42f2906d77f24085c123f3ccfe9667d41caa96d\",\n  \"model\": \"189-row frozen BRC stopped-survivor kernel; Y=max(two independent unit-rate Gamma clocks)\",\n  \"grid_denominator\": 384,\n  \"witness\": [\n    \"0\",\n    \"73/500\"\n  ],\n  \"domain\": \"all real q>=2; full closed listed cells and coordinate transposes\",\n  \"strict_gap\": \"V_q(e)-V_q(p,z)>11*q^2\",\n  \"checked_original_cells\": [\n    {\n      \"i\": 11,\n      \"j\": 50,\n      \"G2_floor_micro\": -74544460,\n      \"G4_floor_micro\": -16501384,\n      \"G8_floor_micro\": 12610669\n    },\n    {\n      \"i\": 12,\n      \"j\": 51,\n      \"G2_floor_micro\": -76791948,\n      \"G4_floor_micro\": -17685531,\n      \"G8_floor_micro\": 11955704\n    }\n  ],\n  \"new_cells\": [\n    [\n      11,\n      50\n    ],\n    [\n      12,\n      51\n    ],\n    [\n      50,\n      11\n    ],\n    [\n      51,\n      12\n    ]\n  ],\n  \"new_count\": 4,\n  \"prior_author_union\": 141972,\n  \"new_author_union\": 141976,\n  \"total\": 147456,\n  \"remaining\": 5480,\n  \"verification\": \"Each original cell checked separately in a fresh local Python process using exact Fraction and frozen moment-hash regression; dependent combined checker not yet successfully re-run.\",\n  \"grade\": \"AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED\",\n  \"historical_scope\": \"non-overlap checked against fetched PREFIX742-746 JSON sets and earlier coverage notes; full independent union audit pending\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/f12c8b79a973ef8d5b0245aa9efea05f85b9774e/research_notes/portable_direct/PREFIX747_R6_GAMMA_4_CELLS_RESULTS.json",
+      "encoding": "utf-8",
+      "sha": "80f6374c28e912dbd13e8688fecec7d4464ca54d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
