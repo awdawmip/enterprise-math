@@ -1,0 +1,51 @@
+--- VERIFY_EC49FNU_FRONTIER.cpp	2026-11-13 18:39:56.596838930 +0000
++++ VERIFY_EC49FNU_DIRECT.cpp	2026-11-13 18:50:00.132579038 +0000
+@@ -144,7 +144,7 @@
+  }
+  return out;
+ }
+-struct Outcome {int source, target, changed=0,unsafe=0;long long explored_nodes=0,explored_leaves=0;int low_count=0;bool domain_equal=true;};
++struct Outcome {int source, target, changed=0,unsafe=0,direct_unsafe=0;long long explored_nodes=0,explored_leaves=0;int low_count=0;bool domain_equal=true;};
+ Outcome test(int source,int target,const Base& bs,const Delta& dif,const map<uint64_t,int>& expected){
+  Outcome out;out.source=source;out.target=target;out.changed=dif.changed;out.domain_equal=dif.equal;
+  if(!dif.equal)return out;
+@@ -166,6 +166,17 @@
+    int lab=bs.order[pos];
+    for(auto [r,j]:bs.opts[lab]){acc[r]|=1<<j;explore(pos+1,enc|uint64_t(r)<<(2*lab),acc);acc[r]&=~(1<<j);}
+  };
++ // Transfer the source frontier using the exact target rooted partial cost.
++ // The complete target leaf map is tested independently in `expected`.
++ for(const auto&state:bs.blocked){
++  int direct=0;for(int r=0;r<4;r++)direct+=dif.B[r]->dp[state.acc[r]];
++  if(direct<=bs.cutoff)out.direct_unsafe++;
++ }
++ if(out.direct_unsafe==0){
++   if(found!=expected)throw runtime_error("direct-source-frontier target map mismatch");
++   out.low_count=found.size();
++   return out;
++ }
+  for(const auto&state:bs.blocked){
+   if(lb(state.acc)>bs.cutoff)continue;
+   out.unsafe++;
+@@ -194,17 +205,17 @@
+  map<int,Result> actual;for(int id:ids){auto[c,m,n]=costs.at(id);actual[id]=check(id,cases[id],c,m,n);}
+  map<int,Base> base_cache;
+  for(int id:sources){auto[c,m,n]=costs.at(id);base_cache[id]=base(id,cases[id],n);if(base_cache[id].leaves.size()!=actual[id].low.size())throw runtime_error("baseline frontier incomplete");}
+- long long unsafe_total=0,extra_nodes=0,extra_leaves=0,target_cutoff_nodes=0,target_cutoff_leaves=0;int success_without=0,changed_without=0,mismatch=0;
++ long long unsafe_total=0,direct_unsafe_total=0,extra_nodes=0,extra_leaves=0,target_cutoff_nodes=0,target_cutoff_leaves=0;int success_without=0,changed_without=0,mismatch=0;
+  for(auto[a,b]:edges){auto d=delta(a,b,cases);auto outcome=test(a,b,base_cache.at(a),d,actual.at(b).low);
+    if(!outcome.domain_equal){mismatch++;cout<<"DOMAIN_MISMATCH "<<a<<' '<<b<<"\n";continue;}
+    target_cutoff_nodes+=actual.at(b).visit_nodes;target_cutoff_leaves+=actual.at(b).leaves;
+    if(outcome.unsafe==0){success_without++;if(outcome.changed)changed_without++;}
+-   unsafe_total+=outcome.unsafe;extra_nodes+=outcome.explored_nodes;extra_leaves+=outcome.explored_leaves;
+-   cout<<"EDGE "<<a<<' '<<b<<' '<<outcome.changed<<' '<<outcome.unsafe<<' '<<outcome.explored_nodes<<' '<<outcome.explored_leaves<<' '<<outcome.low_count<<' '<<base_cache[a].blocked.size()<<' '<<base_cache[a].leaves.size()<<"\n";
++   unsafe_total+=outcome.unsafe;direct_unsafe_total+=outcome.direct_unsafe;extra_nodes+=outcome.explored_nodes;extra_leaves+=outcome.explored_leaves;
++   cout<<"EDGE "<<a<<' '<<b<<' '<<outcome.changed<<' '<<outcome.unsafe<<' '<<outcome.explored_nodes<<' '<<outcome.explored_leaves<<' '<<outcome.low_count<<' '<<outcome.direct_unsafe<<' '<<base_cache[a].blocked.size()<<' '<<base_cache[a].leaves.size()<<"\n";
+  }
+  cerr<<"EC49FNU_FRONTIER_DONE sources="<<sources.size()<<" edges="<<edges.size()<<" domain_mismatch="<<mismatch
+      <<" zero_extension="<<success_without<<" changed_zero_extension="<<changed_without
+-     <<" unsafe_frontiers="<<unsafe_total<<" extra_nodes="<<extra_nodes<<" extra_leaves="<<extra_leaves
++     <<" unsafe_frontiers="<<unsafe_total<<" direct_unsafe="<<direct_unsafe_total<<" extra_nodes="<<extra_nodes<<" extra_leaves="<<extra_leaves
+      <<" target_cutoff_nodes="<<target_cutoff_nodes<<" target_cutoff_leaves="<<target_cutoff_leaves<<" root_cache="<<cache.size()<<"\n";
+  for(auto[id,b]:base_cache)cerr<<"BASE "<<id<<" pruned="<<b.blocked.size()<<" low_leaves="<<b.leaves.size()<<" nodes="<<b.nodes<<"\n";
+ }
