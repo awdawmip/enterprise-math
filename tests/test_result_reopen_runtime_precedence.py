@@ -271,7 +271,7 @@ class ResultReopenRuntimePrecedenceTests(unittest.TestCase):
         )
         self.assertEqual("HANDOFF_READY", state["state"])
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
-        self.assertEqual("Resume task under Driver disposition", state["next_action"])
+        self.assertEqual("Continue the scientific frontier; review and follow-up are recorded separately and do not block research.", state["next_action"])
         self.assertTrue(any("current live claim_id" in item["reason"] for item in state["ignored_events"]))
 
 
