@@ -1,0 +1,28 @@
+Execution evidence (2026-11-09, exact Python Fraction calculation).
+Local source: /mnt/data/brc_r5_polytope_vertices.py (self-contained verifier of the same fixed P and V)
+Remote reproduction: VERIFY.py in this directory.
+All computations below use exact rational Gaussian elimination; no floating point.
+
+FULL17_NONSINGULAR_FOURSETS 324 SEVEN_NONSINGULAR_FOURSETS 28
+PASS_EXACT_7_FACETS_12_VERTICES 12
+PASS_ALL_VERTICES_EXACT_13_EDGES
+PASS_COMBINATORIAL_TRIANGLE_TIMES_SQUARE_FVECTOR 12 24 19 7
+PASS_ATLAS_ESCAPE_RANGE 225713944957/3385915560000 8555233477/73606860000
+V01 q=0,0,0,0 support=13 gap=225713944957/3385915560000 zero=((2, 1), (3, 1), (3, 2), (2, 3))
+V02 q=0,0,0,8294919533/294427440000 support=13 gap=24315732341/294427440000 zero=((0, 3), (2, 1), (3, 1), (3, 2))
+V03 q=0,0,170189123/29442744000,0 support=13 gap=9582028043/141079815000 zero=((4, 2), (2, 1), (3, 1), (2, 3))
+V04 q=0,0,138467996069/3385915560000,762155429/15675535000 support=13 gap=9690692221/94053210000 zero=((4, 2), (0, 3), (2, 1), (3, 1))
+V05 q=0,3997/540000,0,0 support=13 gap=17081617403/225727704000 zero=((4, 1), (2, 1), (3, 2), (2, 3))
+V06 q=0,3997/540000,0,9384573679/294427440000 support=13 gap=27584694779/294427440000 zero=((4, 1), (0, 3), (2, 1), (3, 2))
+V07 q=0,3997/540000,170189123/29442744000,0 support=13 gap=35391167/460042875 zero=((4, 1), (4, 2), (2, 1), (2, 3))
+V08 q=0,3997/540000,6636239129/147213720000,222511289/4089270000 support=13 gap=8555233477/73606860000 zero=((4, 1), (4, 2), (0, 3), (2, 1))
+V09 q=3997/390000,0,0,0 support=13 gap=225713944957/3385915560000 zero=((4, 1), (3, 1), (3, 2), (2, 3))
+V10 q=3997/390000,0,0,8294919533/294427440000 support=13 gap=24315732341/294427440000 zero=((4, 1), (0, 3), (3, 1), (3, 2))
+V11 q=3997/390000,0,646866587/49071240000,0 support=13 gap=5117759647/73606860000 zero=((4, 1), (4, 2), (3, 1), (2, 3))
+V12 q=3997/390000,0,309035731/5888548800,222511289/4089270000 support=13 gap=222511289/2044635000 zero=((4, 1), (4, 2), (0, 3), (3, 1))
+PASS_NONFACET_EDGE_STRICT_POSITIVITY [((0, 0), '33553/432000'), ((0, 1), '3997/624000'), ((0, 2), '13091471/5888548800'), ((2, 2), '2434758081/7088068000'), ((3, 3), '318755011/3680343000'), ((4, 3), '8294919533/294427440000'), ((4, 5), '172449787/1363090000'), ((5, 5), '219439/545236000'), ((6, 5), '172449787/2180944000'), ((6, 6), '38053/432000')]
+
+Verification scope: exhaustive active-constraint search for the fixed 17-edge polytope;
+reproduction of all 12 vertices, strict positivity of the other ten edge weights,
+face incidences, and linear cost extrema. Previous PR #1859 verifies the
+transport equations and physical premises.
