@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "date": "2026-10-30",
+  "type": "AUTHOR_EXACT_INTEGER_CHECK",
+  "model": "auxiliary finite branch system; not native X6",
+  "conditional_independence_enumeration": {
+    "configurations": 729,
+    "classifications": {
+      "False/False/False": 558,
+      "True/False/False": 90,
+      "True/True/True": 81
+    },
+    "two_copy_safe": 81
+  },
+  "correlated_private_path_counterexample": {
+    "states": [
+      "a",
+      "b",
+      "c"
+    ],
+    "observer": {
+      "a": 0,
+      "b": 0,
+      "c": 1
+    },
+    "branch_weights": [
+      1,
+      1
+    ],
+    "private_paths_per_shared_label_per_pair": 8,
+    "all_pairs_mixed_kernel": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "different_single_private_b0": {
+      "a": [
+        2,
+        6
+      ],
+      "b": [
+        6,
+        2
+      ]
+    },
+    "example_joint_rows": {
+      "aa_b0": [
+        0,
+        2,
+        2,
+        4
+      ],
+      "aa_b1": [
+        4,
+        2,
+        2,
+        0
+      ],
+      "ab_b0": [
+        2,
+        0,
+        4,
+        2
+      ],
+      "ab_b1": [
+        2,
+        4,
+        0,
+        2
+      ]
+    },
+    "pair_marginal_and_lumpability_assertions": 18
+  },
+  "scope": "Finite enumeration only; mathematical generality supplied by separate Gram proof"
+}

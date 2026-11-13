@@ -1,0 +1,86 @@
+{
+  "schema": "D25_WEIGHTED_BRC_QUOTIENT_JOINT_COUNTEREXAMPLE_AUTHOR_CHECK_V1",
+  "model": "FINITE_AUXILIARY_RING_NOT_NATIVE_X6",
+  "parameters": {
+    "p": 3,
+    "L": 2,
+    "e": 1,
+    "r": 2,
+    "strides": {
+      "Ux": 1,
+      "Uy": 0
+    },
+    "f": "XY(Y-1)"
+  },
+  "full_labeled_one_stream_states": 729,
+  "nonzero_weighted_sources": 729,
+  "total_integer_input_mass": 2916,
+  "local_generator_commutation_checks": 2187,
+  "all_operation_words_up_to_length_4": 121,
+  "full_source_generator_applications_in_weighted_checks": 310554,
+  "joint_couplings": {
+    "diagonal_pairs": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ],
+    "cross_pairs": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ],
+    "a_source": [
+      0,
+      0,
+      0
+    ],
+    "b_source": [
+      0,
+      1,
+      0
+    ],
+    "readout_word": [
+      "Uy",
+      "Uy",
+      "T"
+    ],
+    "q1_after_word": {
+      "a": 0,
+      "b": 6
+    },
+    "both_legs_marginals_equal": true,
+    "equality_event_count_diagonal": 2,
+    "equality_event_count_cross": 0
+  },
+  "additional_operation_obstruction": {
+    "V": "q1 increments by 1 if y mod 3 == 1",
+    "sources_same_old_quotient": {
+      "a": [
+        0,
+        0,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        1
+      ]
+    },
+    "V_readouts": [
+      0,
+      1
+    ]
+  },
+  "status": "PASS",
+  "evidence_role": "AUTHOR_EXACT_CHECK_NOT_INDEPENDENT_NOT_NATIVE"
+}
