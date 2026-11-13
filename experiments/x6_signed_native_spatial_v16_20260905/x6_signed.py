@@ -44,7 +44,7 @@ class Spatial6:
     def __post_init__(self):
         object.__setattr__(self,"coords",_z6(self.coords))
     def step(self,axis:int,direction:int=1)->"Spatial6":
-        if type(axis) is not int or axis not in AXES or direction not in (-1,1):
+        if type(axis) is not int or axis not in AXES or type(direction) is not int or direction not in (-1,1):
             raise ValueError("invalid signed native-axis step")
         z=list(self.coords); z[axis]+=direction
         return Spatial6(tuple(z))
