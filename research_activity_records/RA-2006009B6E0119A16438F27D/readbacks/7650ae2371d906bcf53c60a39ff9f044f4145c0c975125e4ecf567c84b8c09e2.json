@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R749SNI_LEFT_EXTENSION_EXACT_CHECK.py",
+    "ref": "7d67d1946521808935784c91bc115bb961388ec9",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r749sni-20261114-observation-2",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R749SNI: exact left slab [1/2,3/5] extension of R749SNH.\nDepends on adjacent R749SNH_OFFDIAGONAL_HALF_SWEEP_EXACT_CHECK.py.\n\"\"\"\nfrom fractions import Fraction as Q\nfrom itertools import product\nimport json\nfrom R749SNH_OFFDIAGONAL_HALF_SWEEP_EXACT_CHECK import AD, SIGNS, vertices, src\n\n\ndef tv(source, s):\n    _, h, up, un, wp, wn = source\n    tau, sigma, eta = 2 - 2 * s, 2 * s - Q(4,5), Q(1,5)\n    acc = Q(0)\n    for a,d in AD:\n        base = 1 + Q(a,2) + s*d + h*a*d\n        dec = 1 + tau*a + sigma*d + eta*a*d\n        assert dec >= 0\n        for p,q in SIGNS:\n            b = base + p*(up if a==1 else un) + q*(wp if d==1 else wn)\n            assert b >= 0\n            acc += abs(b - dec)/32\n    return acc\n\n\ndef verify_lower():\n    ea = (0,4,5,8,10)\n    eb = (0,1,2,3,12,13,14,15)\n    for s in (Q(1,2), Q(11,20), Q(7,12), Q(3,5)):\n        alpha=src(Q(1,2),s,s-Q(1,2),2*(1-s),0,1,0)\n        beta=src(Q(1,2),s,Q(3,2)-s,0,0,0,0)\n        assert min(alpha+beta)>=0 and sum(alpha)==sum(beta)==1\n        for tau,sigma,eta in ((Q(1),Q(1,5),Q(1,5)),(Q(4,5),Q(2,5),Q(1,5)),(Q(0),Q(0),Q(0))):\n            dec=[(1+tau*a+sigma*d+eta*a*d)/16 for a,d in AD for _ in SIGNS]\n            la=sum(alpha[i]-dec[i] for i in ea)\n            lb=sum(beta[i]-dec[i] for i in eb)\n            assert la == (11-8*s-tau-sigma+3*eta)/16\n            assert lb == (3-2*s-2*eta)/4\n            assert (4*la+lb)/5 == (13-10*s)/20+(1-tau-sigma+eta)/20\n\n\ndef main():\n    lo,hi=Q(1,2),Q(3,5)\n    V,info=vertices(lo,hi)\n    gap=[tv(v,v[0])-(13-10*v[0])/20 for v in V]\n    assert all(x<=0 for x in gap)\n    verify_lower()\n    data={'name':'R749SNI_LEFT_HALF_SWEEP_EXTENSION','interval':['1/2','3/5'],\n        'theorem':'rho(1/2,s)=(13-10s)/20 for every real s in [1/2,3/5]',\n        'method':'two signed-source event lower cuts + decoder positivity; joint six-dimensional vertex upper certificate',\n        'six_facet_combinations':info['six_facet_combinations'],\n        'nonsingular_bases':info['nonsingular_bases'],\n        'feasible_bases':info['feasible_bases'],\n        'distinct_vertices':len(V),\n        'endpoint_counts':info['endpoint_counts'],\n        'equality_vertices':sum(x==0 for x in gap),\n        'violations':sum(x>0 for x in gap),\n        'max_gap':str(max(gap)),\n        'status':'PASS'}\n    print(json.dumps(data,indent=2))\nif __name__=='__main__':main()\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/7d67d1946521808935784c91bc115bb961388ec9/research_notes/portable_direct/R749SNI_LEFT_EXTENSION_EXACT_CHECK.py",
+      "encoding": "utf-8",
+      "sha": "e20091f4638db5ee06758aef70315fa7d115f706"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
