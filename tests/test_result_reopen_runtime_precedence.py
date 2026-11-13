@@ -145,7 +145,7 @@ class ResultReopenRuntimePrecedenceTests(unittest.TestCase):
             ]
         )
         self.assertEqual("FROZEN_RETURN", state["state"])
-        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertEqual("RR-R2", state["result_id"])
         self.assertNotIn("driver_disposition", state)
 
@@ -243,7 +243,7 @@ class ResultReopenRuntimePrecedenceTests(unittest.TestCase):
             now="2026-09-01T00:10:30+00:00",
         )
         self.assertEqual("FROZEN_RETURN", state["state"])
-        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertEqual("RR-R2-SAME-SECOND", state["result_id"])
 
     def test_ignored_post_review_wrong_claim_event_does_not_create_runtime_precedence(self):

@@ -121,21 +121,21 @@ class PublishedFrozenReturnStageTests(unittest.TestCase):
         self.assertEqual("FROZEN_RETURN", definition["base_state"])
         state = self.reduce(definition)
         self.assertEqual("FROZEN_RETURN", state["state"])
-        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertIsNone(state["claim_id"])
         self.assertIsNone(dispatch.research_result_records.task_result_state(TASK_ID, self.root))
         selected = reducer.select_state([state], reducer.load_policy(self.root))
-        self.assertIsNone(selected)
+        self.assertEqual(TASK_ID, selected["task_id"])
         route = router.route_from_candidates([], observations={}, now=NOW, fresh_task=selected, fresh_lane=None)
-        self.assertEqual(runtime.NO_DISPATCH, route["action"])
-        self.assertFalse(route["new_claim_required"])
+        self.assertEqual(runtime.CLAIM_NEW_OWNER, route["action"])
+        self.assertTrue(route["new_claim_required"])
 
-    def test_frozen_initial_stage_rejects_otherwise_valid_current_claim(self):
+    def test_frozen_initial_stage_accepts_valid_current_claim(self):
         _, definition = self.publish("FROZEN_RETURN")
         state = self.reduce(definition, [self.comment(definition)])
-        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
-        self.assertIsNone(state["claim_id"])
-        self.assertTrue(any(item["reason"] == "task is not dispatchable" for item in state["ignored_events"]))
+        self.assertEqual("LEASED", state["dispatch_state"])
+        self.assertEqual("temporary-fixture-claim", state["claim_id"])
+        self.assertEqual([], state["ignored_events"])
 
     def test_ordinary_handoff_keeps_fresh_and_typed_continuation_routes(self):
         # The preserved template carries an unresolved legacy handoff marker.
@@ -159,12 +159,12 @@ class PublishedFrozenReturnStageTests(unittest.TestCase):
         self.assertEqual("NEEDS_DISPATCH", resumed["dispatch_state"])
         self.assertEqual([], resumed["ignored_events"])
 
-    def test_legacy_untyped_initial_handoff_still_requires_scope_reconciliation(self):
+    def test_legacy_untyped_initial_handoff_retains_observation_without_blocking(self):
         _, definition = self.publish("HANDOFF_READY")
         state = self.reduce(definition)
-        self.assertEqual("BLOCKED", state["state"])
-        self.assertEqual("LEGACY_HANDOFF_SCOPE_UNRESOLVED", state["hard_block"]["code"])
-        self.assertIsNone(reducer.select_state([state], reducer.load_policy(self.root)))
+        self.assertEqual("HANDOFF_READY", state["state"])
+        self.assertEqual("LEGACY_HANDOFF_SCOPE_UNRESOLVED", state["handoff_scope_observation"]["code"])
+        self.assertEqual(TASK_ID, reducer.select_state([state], reducer.load_policy(self.root))["task_id"])
 
     def test_ready_claim_and_existing_owner_session_recovery_are_preserved(self):
         _, definition = self.publish("READY")
@@ -191,7 +191,7 @@ class PublishedFrozenReturnStageTests(unittest.TestCase):
     def test_review_stage_is_generic_and_does_not_infer_from_prose(self):
         _, waiting = self.publish("FROZEN_RETURN", task_id="RS-ANOTHER-REVIEW-FIXTURE", next_action="Inspect the preserved artifact")
         _, ready = self.publish("READY", task_id="RS-ANOTHER-READY-FIXTURE", next_action="Driver review PR #955")
-        self.assertEqual("AWAITING_REVIEW", self.reduce(waiting)["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", self.reduce(waiting)["dispatch_state"])
         self.assertEqual("NEEDS_DISPATCH", self.reduce(ready)["dispatch_state"])
 
 

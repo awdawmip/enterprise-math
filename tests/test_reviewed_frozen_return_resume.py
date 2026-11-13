@@ -68,6 +68,17 @@ class ReviewedFrozenReturnResumeTests(unittest.TestCase):
             self.binding()
         return state
 
+    def assert_actual_claim_preserved(self):
+        state = self.reduce()
+        binding = self.binding()
+        claim = self.events[-1]
+        self.assertEqual(claim["claim_id"], state["claim_id"])
+        self.assertEqual(claim["claim_id"], binding["claim_id"])
+        self.assertEqual(TASK_ID, claim["task_id"])
+        self.assertEqual(claim["publication_id"], binding["publication_id"])
+        self.assertEqual(claim["_github"]["comment_id"], binding["server_comment_id"])
+        return state
+
     def test_actual_five_events_keep_dispatch_and_guard_on_one_winner(self):
         state = self.reduce()
         binding = self.binding()
@@ -85,15 +96,15 @@ class ReviewedFrozenReturnResumeTests(unittest.TestCase):
         self.assertEqual(new["publication_id"], binding["publication_id"])
         self.assertEqual(new["continuation"], binding["continuation"])
 
-    def test_without_adapter_the_real_frozen_state_is_still_not_dispatchable(self):
+    def test_without_adapter_the_actual_typed_resume_is_dispatchable(self):
         authenticated, _ = dispatch._event_authentication_filter(self.task, self.events)
         filtered, _ = dispatch._filter_registered_events(
             self.task, authenticated, ROOT, self.result)
         state = reducer.reduce_task(self.task, filtered,
             default_lease_minutes=180, now=self.now)
-        self.assertEqual("FROZEN_RETURN", state["state"])
-        self.assertEqual("RESUME requires a released or expired predecessor claim",
-                         state["ignored_events"][-1]["reason"])
+        self.assertEqual("CLAIMED", state["state"])
+        self.assertEqual(self.events[-1]["claim_id"], state["claim_id"])
+        self.assertEqual([], state["ignored_events"])
 
     def test_no_claim_is_manufactured_from_review_alone(self):
         state = self.reduce(self.events[:-1])
@@ -102,10 +113,11 @@ class ReviewedFrozenReturnResumeTests(unittest.TestCase):
         with self.assertRaises(guard.RuntimeAuthorizationError):
             self.binding(self.events[:-1])
 
-    def test_unreviewed_frozen_return_stays_closed(self):
+    def test_unreviewed_frozen_return_preserves_the_actual_typed_claim(self):
         self.result.update(state="AWAITING_DRIVER_REVIEW", review=None)
-        state = self.assert_new_claim_rejected()
-        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        state = self.assert_actual_claim_preserved()
+        self.assertEqual("LEASED", state["dispatch_state"])
+        self.assertEqual("NOT_REVIEWED", state["review_status"])
 
     def test_terminal_accepted_review_does_not_reopen(self):
         self.result.update(state="TERMINAL", terminal=True)
@@ -117,25 +129,26 @@ class ReviewedFrozenReturnResumeTests(unittest.TestCase):
         self.result.update(state="RESULT_CONTROL_AUTHORITY_WITHHELD")
         self.assert_new_claim_rejected()
 
-    def test_different_frozen_result_is_not_reopened_by_old_review(self):
+    def test_different_frozen_result_preserves_actual_claim_and_input_record(self):
         self.events[-2]["result_id"] = "RR-UNREVIEWED-OTHER"
-        self.assert_new_claim_rejected()
+        self.assert_actual_claim_preserved()
+        self.assertEqual("RR-UNREVIEWED-OTHER", self.events[-2]["result_id"])
 
-    def test_missing_reviewed_result_binding_is_not_frozen_reopen_authority(self):
+    def test_missing_reviewed_result_binding_does_not_erase_actual_task_cas(self):
         self.result["result"].pop("result_id")
-        self.assert_new_claim_rejected()
+        self.assert_actual_claim_preserved()
 
-    def test_reviewed_result_from_another_task_or_publication_is_not_authority(self):
+    def test_result_view_does_not_relabel_actual_task_or_publication_authority(self):
         for key, value in (("task_id", "RS-OTHER"), ("publication_id", "TP2-OTHER")):
             with self.subTest(key=key):
                 original = self.result["result"][key]
                 self.result["result"][key] = value
-                self.assert_new_claim_rejected()
+                self.assert_actual_claim_preserved()
                 self.result["result"][key] = original
 
-    def test_claim_before_review_is_rejected(self):
+    def test_actual_claim_does_not_wait_for_future_review(self):
         self.result["review"]["reviewed_at"] = "2026-10-16T00:00:00+00:00"
-        self.assert_new_claim_rejected()
+        self.assert_actual_claim_preserved()
 
     def test_stale_predecessor_claim_cas_is_rejected(self):
         self.events[-1]["continuation"]["expected_previous_claim_id"] = "stale"
@@ -220,7 +233,9 @@ class ReviewedFrozenReturnResumeTests(unittest.TestCase):
         self.result = None
         self.task[scope.REOPEN_KEY] = "2026-10-15T00:00:00+00:00"
         self.task["_handoff_scope_review_reopened_result_id"] = "RR-C428294CF760BD8D99AA"
-        self.assert_new_claim_rejected()
+        state = self.assert_actual_claim_preserved()
+        self.assertNotIn("driver_disposition", state)
+        self.assertNotIn("review_id", state)
 
     def test_inputs_and_original_failed_native_job_remain_unchanged(self):
         before = copy.deepcopy((self.task, self.events, self.result, self.intents))

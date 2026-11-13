@@ -46,24 +46,24 @@ class ResultHandoffDispatchGuardTests(unittest.TestCase):
             now=rr.parse_time("2026-09-01T00:11:00+00:00"),
         )
 
-    def test_result_bearing_handoff_waits_for_review(self):
+    def test_result_bearing_handoff_records_frozen_return_without_blocking(self):
         state = self.reduce({"result_id": "RR-TEST-123"})
         self.assertEqual("FROZEN_RETURN", state["state"])
-        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertEqual("RR-TEST-123", state["result_id"])
         self.assertIsNone(state["claim_id"])
 
-    def test_result_bearing_handoff_is_not_a_fresh_candidate(self):
+    def test_result_bearing_handoff_remains_a_candidate(self):
         state = self.reduce({"result_id": "RR-TEST-123"})
         state.update({"kind": "RESEARCH", "priority": "P0", "leverage": "HIGH"})
-        self.assertIsNone(rr.select_state([state], rr.load_policy(), kind="RESEARCH"))
+        self.assertEqual("RS-T1", rr.select_state([state], rr.load_policy(), kind="RESEARCH")["task_id"])
 
-    def test_explicit_driver_review_terminal_scope_waits_without_result_id(self):
+    def test_explicit_review_scope_records_return_without_blocking(self):
         state = self.reduce(
             {"terminal_scope": "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW"}
         )
         self.assertEqual("FROZEN_RETURN", state["state"])
-        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertNotIn("result_id", state)
         self.assertEqual(
             "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW",
@@ -71,19 +71,19 @@ class ResultHandoffDispatchGuardTests(unittest.TestCase):
         )
         self.assertIsNone(state["claim_id"])
 
-    def test_explicit_driver_review_terminal_scope_is_not_a_fresh_candidate(self):
+    def test_explicit_review_scope_remains_a_candidate(self):
         state = self.reduce(
             {"terminal_scope": "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW"}
         )
         state.update({"kind": "RESEARCH", "priority": "P0", "leverage": "HIGH"})
-        self.assertIsNone(rr.select_state([state], rr.load_policy(), kind="RESEARCH"))
+        self.assertEqual("RS-T1", rr.select_state([state], rr.load_policy(), kind="RESEARCH")["task_id"])
 
-    def test_legacy_terminal_candidate_waits_for_driver_review(self):
+    def test_legacy_terminal_candidate_retains_annotation_without_blocking(self):
         state = self.reduce(
             {"terminal_candidate": "SUCCESS_REVIEW_COMPLETE_AWAITING_DRIVER_DECISION"}
         )
         self.assertEqual("FROZEN_RETURN", state["state"])
-        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertEqual(
             "SUCCESS_REVIEW_COMPLETE_AWAITING_DRIVER_DECISION",
             state["terminal_candidate"],
