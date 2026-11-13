@@ -1,0 +1,11 @@
+# R763 Portable research continuation
+
+Parent: RS-X6-TRIADIC-CLOSURE-DYNAMICS / TP2-8B7E13C5904A2D6F1142. Frozen science `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389` unchanged. Researcher for this turn: EM-X6-54019F, Activity RA-11D664F5BA05507CBE67B359, own native Session MCP-5aa09dcc95e74b218d4a13d72f355bf1. Task owner/CLAIM must be obtained from the current native continuation at the time of any privileged operation. Do not borrow the predecessor's CLAIM.
+
+Completed new exact candidate result: Under three distinct oriented size-three support generators, with unconditional repeatability on six labelled positive X6 ports, all 3,840 A6-generating alphabets are exact-length endpoint-saturated from lengths 8,9,10,12 or 13. Distribution 8:720, 9:720, 10:960, 12:720, 13:720. Exact count/diameter cross-tab in R763 paper and JSON evidence. For all alphabets, every length >=13 can reach every one of 360 labels. Analytical proof establishes identity loops length3 and10, independent N<=28; exact finite checker sharpens to N<=13 and minimum N=8. Optimal supports 012/034/135 forward: |S_7|=348, |S_8|=360, diameter7. Conditional V29 interpretation requires a legal single-count per candidate and no state guards; the full typed ledger still cannot be compressed to a total count.
+
+Do not repeat R761/R761S/R762D's already proven conditional permutation facts; no native Cell/Link/Port force admission, V29 count or V39 holonomy has yet been derived by this result. No new P000 or ACTIVE-worldview claim, no automatic formal Source Result/Driver review. Reuse this exact package at its immutable GitHub commit once published.
+
+Files: R763_EXACT_LENGTH_SATURATION_20261113.md (proof), R763_VERIFY.py (exhaustive code), R763_EVIDENCE.json (captured script output), R763_HANDOFF.md (this file). Checker command: `python3 research_notes/R763_VERIFY.py`, output JSON must match recorded evidence.
+
+Next: inspect frozen native `TRIADIC_CLOSURE_E` incidence and compare the first two same-chirality applications, with V29 PASS/TRANSFER and V39 readouts. If admissibility is state-dependent, model the actual legal transition system and test length-conditioned endpoint fibers there. Preserve source labels, orientation, event order and time as separate typed data.
