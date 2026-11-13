@@ -1,0 +1,123 @@
+{
+  "directed_A6_diameter_frequencies": {
+    "10": 720,
+    "7": 720,
+    "8": 240,
+    "9": 2160
+  },
+  "example_orientation_bit_0_forward_1_reverse": {
+    "(0, 0, 0)": {
+      "depth_histogram": [
+        1,
+        3,
+        9,
+        24,
+        63,
+        135,
+        115,
+        10
+      ],
+      "diameter": 7,
+      "order": 360
+    },
+    "(0, 1, 0)": {
+      "depth_histogram": [
+        1,
+        3,
+        9,
+        24,
+        61,
+        124,
+        117,
+        19,
+        2
+      ],
+      "diameter": 8,
+      "order": 360
+    }
+  },
+  "full_A6_by_incidence_and_diameter": [
+    {
+      "diameter": 9,
+      "directed_alphabets": 720,
+      "pair_intersections": [
+        0,
+        1,
+        2
+      ],
+      "triple_intersection": 0
+    },
+    {
+      "diameter": 10,
+      "directed_alphabets": 720,
+      "pair_intersections": [
+        0,
+        1,
+        2
+      ],
+      "triple_intersection": 0
+    },
+    {
+      "diameter": 7,
+      "directed_alphabets": 720,
+      "pair_intersections": [
+        1,
+        1,
+        1
+      ],
+      "triple_intersection": 0
+    },
+    {
+      "diameter": 8,
+      "directed_alphabets": 240,
+      "pair_intersections": [
+        1,
+        1,
+        1
+      ],
+      "triple_intersection": 0
+    },
+    {
+      "diameter": 9,
+      "directed_alphabets": 1440,
+      "pair_intersections": [
+        1,
+        1,
+        2
+      ],
+      "triple_intersection": 1
+    }
+  ],
+  "full_A6_directed_alphabets": 3840,
+  "group_size_frequencies": {
+    "12": 480,
+    "360": 3840,
+    "60": 4800
+  },
+  "minimal_directed_event_types_for_A6": 3,
+  "optimal_three_supports": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      3,
+      4
+    ],
+    [
+      1,
+      3,
+      5
+    ]
+  ],
+  "orientation_alphabets_enumerated": 9120,
+  "ports": 6,
+  "schema": "R762D_SINGLE_CHIRALITY_TRIAD_MONOID_EXACT_V1",
+  "scope": "candidate six-port labelled permutation monoid, not native physical triad admission",
+  "sharp_optimal_directed_event_diameter": 7,
+  "support_types": 20,
+  "three_support_sets": 1140,
+  "validation": "complete exact integer tuple-permutation BFS for all 1,140 sets times 8 chirality choices; each finite generated monoid fully explored"
+}
