@@ -2,7 +2,7 @@
 """Exact two-event signed-triad readout counts (derived event-word model).
 
 Each event has one +/- signed unit direction on exactly three distinct X6 axes.
-The endpoint is the formal sum of the two signed incidence vectors. This
+The endpoint is the formal sum of the two signed incidence vectors.  This
 checker makes no assertion that the triad is a physical native translation.
 """
 from collections import Counter
