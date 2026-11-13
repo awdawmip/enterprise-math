@@ -3,7 +3,9 @@
 Status: `PARTIALLY_SUPERSEDED / RETAINED_DOWNSTREAM_PRINCIPLES`
 Original date: `2026-08-17`
 Reconciled: `2026-08-21`
-Current foundation: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
+Historical intermediate foundation: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
+Current native foundation: `p000_reality_foundation.json` V5; `definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`
+Current reader correction: `2026-11-13`
 
 ## 为什么本文件不再是整体 canonical theory
 
@@ -23,17 +25,9 @@ Current foundation: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRC
 - `CIRCLE_E(1)={O_E}`；
 - origin circle 的 all-unit radius/diameter/perimeter/area ontology；
 - 依赖旧 signed-axis/chamber ontology 的原生坐标结论；
-- 任何与当前三正轴 sector atlas 冲突的 cross-chamber 解释。
+- 依赖当时三正轴 sector atlas 作为完整原生空间的 cross-chamber 解释。
 
-当前 foundation 使用：
-
-`O_E=0`；
-
-`ENTERPRISE_NATIVE_AXES=THREE_POSITIVE_RAYS`；
-
-`ENTERPRISE_RIGHT_ANGLE=120_DEGREES`；
-
-`A_E={(a,b,c) in N_0^3:min(a,b,c)=0}`。
+2026-08-20 中间阶段使用三正向射线与 min-zero 表示；现行 P000 V5 使用 **signed 六轴 X6 Cell 仿射扭子**、选定 Cell 锚点与六轴正反单位步。`A_E` 只能作为相对/载体观察截面，`O_E` 三重边界交点只能作为载体关联；角度 `120_DEGREES` 仍按 P000 项目定义保留。
 
 ## 当前继续保留的下游原则
 
@@ -45,7 +39,7 @@ Current foundation: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRC
 
 `COMPOSE_STRUCTURAL_COMPONENTS_FIRST -> MEASURE_REBUILT_LENGTH_SECOND`。
 
-当前更具体的 line/length 规则以 2026-08-20/21 current definitions 为准。
+现行原生长度须按声明的 X6 signed 分量平方和及相应原生结构确定；2026-08-20/21 的 line/trace 可在明确的正向 chart、路径或观察者作用域内保留。
 
 ### 2. 离散旋转状态是单 cell 状态
 
@@ -65,7 +59,7 @@ Current foundation: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRC
 
 `MIN_JUMP_COUNT != NATIVE_LINE_LENGTH` in general。
 
-当前 R061 已给出更精确的 native component trace、multipath fiber 与 directed native line gauge，因此 reverse/minimum-jump constructions 只能作为声明后的 realization/readout 使用，不能倒过来定义当前 native line length。
+历史 R061 给出了正向分量 trace 与 multipath fiber；其 directed min-zero gauge 属于相对观察者，不是现行 signed-X6 原生度量。因此 reverse/minimum-jump constructions 只能作为声明后的 realization/readout 使用，不能倒过来定义当前原生长度。
 
 ## 暂不保留为当前结论的部分
 
@@ -77,15 +71,19 @@ Current foundation: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRC
 
 ## 当前路由
 
-当前平面与长度：
+当前原生 X6 与长度：
+
+`p000_reality_foundation.json` V5；`definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`（原生 Cell/坐标）；`definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`（受限三轴）
+
+历史正向扇区/载体：
 
 `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
 
-当前 line/multipath：
+历史 chart-local line/multipath：
 
 `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`
 
-任意点 directed gauge：
+相对观察者 directed gauge：
 
 `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`
 
