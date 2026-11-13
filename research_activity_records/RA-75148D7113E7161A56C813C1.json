@@ -7,7 +7,37 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "befa98585e057304e08c3cb4d3c3c5a1888685aa",
+          "path": "research_notes/R761S_VERIFY.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "1859f40eafaf4cfe8ce965cb446e1c1fb81f78b1418945e542386a1686155c90",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "1e6b9c0ba8e29c31f62337316116f25c54a366e9",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/befa98585e057304e08c3cb4d3c3c5a1888685aa/research_notes/R761S_VERIFY.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r761s-emr3-gh-immutable-checker-20261113-1336",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-75148D7113E7161A56C813C1/readbacks/6944ed1f2e9f56d27893ab891cd9b25c45ca722bfbb928c3952f8e69558ec18c.json",
+          "verification_receipt_sha256": "6944ed1f2e9f56d27893ab891cd9b25c45ca722bfbb928c3952f8e69558ec18c"
+        }
+      ],
+      "event_id": "R761S-EMR3-20261113-1336-SPARSE-A6",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@6b4105d3472609128db4743e69636444ea5b4ad6:journal/enterprise-math/2026-11-13/20261113T133200+0800-r761s-sparse-a6-research3.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-13T05:28:48.988275+00:00",
   "registration_key": "session:MCP-8257177038674756b27eeeab2035c16c:TASK_RESEARCH",
