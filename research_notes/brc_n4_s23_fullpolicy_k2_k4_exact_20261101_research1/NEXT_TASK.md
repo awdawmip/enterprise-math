@@ -1,0 +1,7 @@
+# Next units, not yet closed (2026-11-01)
+
+The **fully policy-informed** common stochastic encoder storage minima are now exactly R1=2/3, R2=R3=1/2, R4=1/5, R5=1/40, Rk=0 for k>=6 (model and quantifiers in PROOF.md). New cases closed here: k2,3,4. Their author-side proof and exact checker should be independently reviewed before any Source Result admission.
+
+Next mathematical discriminant: the full lawful **behavioral** S23 family with exactly m=10 preassigned policy labels and k=4 or k=6 common encoder states. Minimax order: inf_E inf_{D1,...,D10} sup_{H in BehS23} min_{label<=10} max_{six prepared i} TV((MF(H))_i,(MED_label)_i). Labels may depend on full policy specification, not the true source, realized random bits or observed outcome. Existing bounds for this finite-label problem remain [1/2,2/3]; full policy-information thresholds above do not close it. Find a rational decoder-bank certificate valid over the entire 11-parameter policy space or a genuinely all-real adversarial lower certificate; do not infer random-policy covering from deterministic vertex covering.
+
+Independent replication: verify the k2 pointwise dominance construction and the dimension-two/three left-nullspace intersection with *all real* nonnegative encoder rows; audit S23 legality of source indicators. Reimplement the proof without sharing this author's mathematical judgments. Preserve P000 X6 / independent time / native 3D-slice transfer and S2 grammar mapping as separate obligations.
