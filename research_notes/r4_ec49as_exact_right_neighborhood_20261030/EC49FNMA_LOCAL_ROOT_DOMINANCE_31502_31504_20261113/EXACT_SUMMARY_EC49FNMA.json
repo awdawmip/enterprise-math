@@ -1,0 +1,150 @@
+{
+  "schema": "EC49FNMA_LOCAL_ROOT_COMPARISON_CERTIFICATE_V1",
+  "date": "2026-11-13",
+  "scientific_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_input_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "source_version": "original 9-state BRC / 178850 lawful native ordered signed words / 94 keys / 24 demand labels / 38169 radius-three seven-key configurations",
+  "cases": [
+    {
+      "index": 31502,
+      "keys": [
+        0,
+        4,
+        5,
+        11,
+        34,
+        61,
+        64
+      ],
+      "min": 108,
+      "assignment_count": 256,
+      "minimizing_assignments": 1,
+      "root07_strict_gap": 8,
+      "root07_sharp_masks": [
+        21,
+        85,
+        170,
+        191,
+        255
+      ],
+      "eligible_roots": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "index": 31503,
+      "keys": [
+        0,
+        4,
+        5,
+        11,
+        34,
+        61,
+        65
+      ],
+      "min": 106,
+      "assignment_count": 256,
+      "minimizing_assignments": 1,
+      "root07_strict_gap": 8,
+      "root07_sharp_masks": [
+        85,
+        138,
+        170,
+        223,
+        255
+      ],
+      "eligible_roots": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "index": 31504,
+      "keys": [
+        0,
+        4,
+        5,
+        11,
+        34,
+        61,
+        66
+      ],
+      "min": 108,
+      "assignment_count": 1296,
+      "minimizing_assignments": 1,
+      "root07_strict_gap": 8,
+      "root07_sharp_masks": [
+        21,
+        85,
+        170,
+        191,
+        255
+      ],
+      "eligible_roots": [
+        3,
+        5,
+        6,
+        7
+      ],
+      "root03_eligible_demand_indices": [
+        15,
+        17,
+        19,
+        21
+      ],
+      "root03_used_assignment_count": 1040,
+      "min_cost_root03_used": 127,
+      "min_cost_root03_unused": 108,
+      "root03_used_minimizer_count": 2
+    }
+  ],
+  "pointwise_domination_31503_over_31502": {
+    "masks_considered": 8448,
+    "strictly_better": 1850,
+    "equal": 6598,
+    "worse": 0,
+    "root_05_new_minus_old": {
+      "0": 3210,
+      "-3": 32,
+      "-2": 274,
+      "-1": 580
+    },
+    "root_06_new_minus_old": {
+      "0": 3216,
+      "-3": 32,
+      "-2": 273,
+      "-1": 575
+    },
+    "root_07_new_minus_old": {
+      "0": 172,
+      "-3": 4,
+      "-2": 31,
+      "-1": 49
+    },
+    "assignment_cost_delta_histogram": {
+      "0": 64,
+      "-4": 4,
+      "-3": 24,
+      "-2": 63,
+      "-1": 101
+    }
+  },
+  "pointwise_identity_31504_equals_31502": {
+    "roots": [
+      5,
+      6,
+      7
+    ],
+    "masks_considered": 8448,
+    "differences": 0
+  },
+  "verification": {
+    "native_cpp_three_cases": "FINISHED",
+    "independent_python_three_cases": "108/106/108 matched",
+    "independent_master_reconstruction": "CHECK_EC49FNMA.py passed",
+    "mathematical_admission": "NOT_REVIEWED"
+  }
+}
