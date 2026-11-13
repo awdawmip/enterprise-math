@@ -1,0 +1,117 @@
+{
+  "schema": "P000_Q31_ROTATION_EXTENSION_CLAUSE_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-ROTATION-LAW-EXTENSION-CLAUSE-NONCANONICITY",
+  "publication_id": "TP2-D11B52BAD18C699C9856",
+  "claim_id": "chatgpt-p000q31-rotation-extension-20260904-2211",
+  "researcher_id": "EM-P000Q31-FB48A2",
+  "frozen_parent_result": "RR-EAA5E06ACC18BB1E21BE",
+  "comparison_scope": {
+    "carrier": "{0,1}^6",
+    "token_monoid": "T=<r | r^7=r>",
+    "witness_universe": "independent coordinate permutations on blocks {1,2,3} and {4,5,6}",
+    "witness_universe_group": "S3 x S3",
+    "law_count": 36,
+    "native_status": "FINITE_CANDIDATE_BLIND_COMPARISON_UNIVERSE_ONLY_NOT_P000_AXIOM"
+  },
+  "law_census": {
+    "order_histogram": {
+      "1": 1,
+      "2": 15,
+      "3": 8,
+      "6": 12
+    },
+    "fixed_state_histogram": {
+      "order1_fixed64": 1,
+      "order2_fixed16": 9,
+      "order2_fixed32": 6,
+      "order3_fixed4": 4,
+      "order3_fixed16": 4,
+      "order6_fixed8": 12
+    }
+  },
+  "declared_clause_language": {
+    "name": "L_wedge_divisor_exponent",
+    "atoms": {
+      "EXP_1": "forall h in Im(rho), h^1=id",
+      "EXP_2": "forall h in Im(rho), h^2=id",
+      "EXP_3": "forall h in Im(rho), h^3=id",
+      "EXP_6": "forall h in Im(rho), h^6=id"
+    },
+    "atom_generation_rule": "all divisors of frozen Q29 token period 6",
+    "composition": "finite positive conjunction",
+    "semantic_equivalence": "same truth set on the structurally defined 36-law witness universe",
+    "formula_count": 16,
+    "semantic_class_count": 4,
+    "semantic_classes": [
+      {
+        "canonical_representative": "TRUE/EXP_6",
+        "truth_count": 36,
+        "syntactic_representatives": [[], [6]]
+      },
+      {
+        "canonical_representative": "EXP_1",
+        "truth_count": 1,
+        "syntactic_representatives": [[1], [1, 2], [1, 3], [2, 3], [1, 2, 3], [1, 6], [1, 2, 6], [1, 3, 6], [2, 3, 6], [1, 2, 3, 6]]
+      },
+      {
+        "canonical_representative": "EXP_2",
+        "truth_count": 16,
+        "syntactic_representatives": [[2], [2, 6]]
+      },
+      {
+        "canonical_representative": "EXP_3",
+        "truth_count": 9,
+        "syntactic_representatives": [[3], [3, 6]]
+      }
+    ],
+    "candidate_blindness_guard": [
+      "no E2/E3/U/F name occurs in atom syntax",
+      "no target action table or target group is an atom",
+      "exponents are generated symmetrically from divisors of the already-frozen token period",
+      "atoms are invariant under typed state conjugacy"
+    ]
+  },
+  "decisive_witnesses": {
+    "E2_reference": {
+      "permutation_source_index": [1, 0, 2, 4, 3, 5],
+      "order": 2,
+      "fixed_states": 16,
+      "EXP_2": true,
+      "EXP_3": false
+    },
+    "E3_reference": {
+      "permutation_source_index": [1, 2, 0, 4, 5, 3],
+      "order": 3,
+      "fixed_states": 4,
+      "EXP_2": false,
+      "EXP_3": true
+    },
+    "E6_neither_guard": {
+      "permutation_source_index": [1, 0, 2, 4, 5, 3],
+      "order": 6,
+      "fixed_states": 8,
+      "EXP_2": false,
+      "EXP_3": false
+    }
+  },
+  "minimality_and_incomparability": {
+    "minimal_discriminator_semantic_classes": ["EXP_2", "EXP_3"],
+    "deletion_minimal_representatives": [["EXP_2"], ["EXP_3"]],
+    "empty_clause_restores_parent_pair": true,
+    "EXP_2_implies_EXP_3": false,
+    "EXP_3_implies_EXP_2": false,
+    "EXP_2_EXP_3_intersection_count": 1,
+    "neither_count": 12,
+    "nontrivial_EXP_2_count": 15,
+    "nontrivial_EXP_3_count": 8,
+    "nontrivial_selected_families_disjoint": true,
+    "typed_conjugacy_invariance_checks": 5184
+  },
+  "terminal": {
+    "verdict": "NEGATIVE_BOUNDARY",
+    "hard_target_disposition": "P000_ROTATION_LAW_EXTENSION_CLAUSE_MINIMALITY_OR_NONCANONICITY_CLASSIFIED",
+    "terminal_state": "NO_CANONICAL_MINIMAL_ROTATION_EXTENSION_CLAUSE_ON_DECLARED_LANGUAGE",
+    "strength_boundary": "declared finite divisor-exponent positive-conjunctive language on the frozen Q29 comparison scaffold only",
+    "promotion_granted": false
+  }
+}
