@@ -180,31 +180,25 @@ It does not apply to FREE Phase A, raw candidates, Phase-B audit, mere V2 task p
 
 Once legitimately activated, execute with maximal audit rigor until explicit supersession or a hard falsifier.
 
-## 10. Stage / successor gate
+## 10. Stage and successor planning
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
 
-A new `CONTINUATION` task requires `parent_task_id`, exact new information gap, why parent does not close it, discriminating outcomes, kill condition, `alternative_route_or_free_exploration_considered`, and justification for the new task/stage.
+When choosing to publish a new `CONTINUATION` Task, preserve the actual parent and publication metadata required by the native Task contract. Ordinary research, saving, correction and continuation do not require publishing a successor or completing a planning checklist.
 
 Stage 2+ is continuation semantics; renaming may not reset lineage.
 
-`STAGE_TERMINAL_VERDICT -> SAME_TURN_SUCCESSOR_GATE_EVALUATION`.
+Consider subsequent directions when mathematically useful; no fixed gate evaluation, template, quantity, review count or same-turn ceremony is required.
 
 Choose one of: continue same task; publish/select a justified successor; return to another owner/route; close local route and move elsewhere; return to FREE; or conclude the parent only if its real completion criterion is met.
 
-## 11. Standard Driver loop
+## 11. Driver research and observation
 
-For each meaningful return:
+Choose the useful depth and sequence for the actual question. Intake, checking evidence, reviewing affected dependencies, reusing methods, drawing a verdict, planning and saving are available activities, not a mandatory ordered loop. The Driver may investigate mathematics, connect later results to older questions, correct errors and update affected entries without first opening an FQ or manufacturing a successor. No review count or formalization tool is a default prerequisite; reproducible human proofs or recalculation may supply the proposition's needed evidence.
 
-1. **Intake** — role/mode, immutable task/object, origin/lineage, parent objective and decision required.
-2. **Evidence audit** — the persistent line reviewer audits new evidence and affected dependencies against its prior ledger; use an independent reviewer for obligations the Driver authored and other required independent checks. The Owner does not repeat ordinary line review.
-3. **Task-authority audit** — ensure any newly executable post-cutover task has exact immutable V2 publication authority.
-4. **Method harvest / tool dedup** — include reuse resolution, not coverage lookup alone.
-5. **Verdict** — separate mathematical status from workflow/tool status.
-6. **Route** — continue/close/reprioritize/replicate/Foundation/toolkit/promotion.
-7. **Persist** — the line Driver integrates its authorized source changes and maintains a compact durable line dossier; update only changed semantic surfaces. If materializing an immutable review record, obey the write-boundary transaction in §11.1 before the remote mutation.
-8. **Resume parent** — if open, execute the next routed action in the same turn.
-9. **User completion** — final only when the parent is terminal or no executable action remains under active-turn rules.
+Retain actual roles, sources, author contributions and live owners. Disclose unreviewed work; obtain independence when claiming an independent review or making a privileged acceptance decision. A formal shared Task still needs real publication authority. If materializing an immutable review, use the write-boundary transaction in §11.1. The Owner need not repeat ordinary line review.
+
+Ordinary progress/blocker reports do not assert that the parent is complete. Formal completion still needs its actual mathematical and scoped authority evidence; an open parent does not forbid an honest report.
 
 Progress updates are not synchronization barriers.
 

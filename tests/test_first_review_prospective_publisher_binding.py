@@ -476,7 +476,7 @@ class FirstReviewProspectivePublisherBindingTests(unittest.TestCase):
             created_at=STAMP, root=harness.root,
         )
 
-    def test_second_review_remains_deferred_without_materialization(self):
+    def test_second_review_without_spec_saves_without_materialization(self):
         harness = ReviewWriterHarness(existing=True, supplied_spec=False)
         self.assertEqual(0, harness.run())
         self.assertEqual(["commit"], harness.events)
@@ -484,14 +484,18 @@ class FirstReviewProspectivePublisherBindingTests(unittest.TestCase):
         harness.preflight.assert_not_called()
         harness.review_state.assert_called_once_with(harness.result["result_id"], harness.root)
         payload = json.loads(harness.output.getvalue())
-        self.assertEqual("DEFERRED_UNTIL_EXACT_REVIEW_SYNTHESIS", payload["followup"]["state"])
+        self.assertEqual("OPTIONAL_FOLLOWUP_NOT_MATERIALIZED", payload["followup"]["state"])
         self.assertEqual("AWAITING_REVIEW_INTAKE", payload["followup"]["review_state"])
 
-    def test_second_review_with_followup_spec_still_rejects_before_write(self):
+    def test_second_review_with_spec_saves_without_forced_materialization(self):
         harness = ReviewWriterHarness(existing=True)
-        with self.assertRaisesRegex(FixtureResultError, "second-or-later review"):
-            harness.run()
-        self.assert_no_write_or_materialization(harness)
+        self.assertEqual(0, harness.run())
+        self.assertEqual(["commit"], harness.events)
+        harness.materialize.assert_not_called()
+        harness.preflight.assert_not_called()
+        payload = json.loads(harness.output.getvalue())
+        self.assertEqual("OPTIONAL_FOLLOWUP_NOT_MATERIALIZED", payload["followup"]["state"])
+        self.assertEqual("AWAITING_REVIEW_INTAKE", payload["followup"]["review_state"])
 
 
 if __name__ == "__main__":
