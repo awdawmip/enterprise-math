@@ -1,0 +1,26 @@
+{
+  "schema": "PREFIX755_R6_BERNSTEIN_MONOTONICITY_EXACT_V1",
+  "research_scope": "external two-Gamma clock auxiliary; 189-layer frozen BRC survivor count",
+  "scientific_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_algorithm": "PREFIX754_R6_INDEPENDENT_GRID_REPLAY.py frozen width/recursion",
+  "arithmetic": "exact Python unbounded integers; rational comparisons by integer cross-products",
+  "max_survival_layer": 189,
+  "positive_survivor_positions_layers_0_to_188": 9529,
+  "survivor_positions_layer_189": 0,
+  "symmetry_integer_checks": 17955,
+  "normalized_Bernstein_monotonicity_crossproduct_checks": 8836,
+  "strict_crossproduct_checks": 4511,
+  "equal_crossproduct_checks": 4325,
+  "layers_with_some_strict_crossproduct": 164,
+  "strict_layer_min": 25,
+  "strict_layer_max": 188,
+  "algebraic_transfer": [
+    "b_nk symmetric and nondecreasing for k<=floor(n/2)",
+    "b_nk = b_n0 + sum_{j=1}^{floor(n/2)} (b_nj-b_n,j-1) 1{j<=k<=n-j}",
+    "P_p(j<=Bin(n,p)<=n-j) nondecreasing for 0<=p<=1/2",
+    "S_n(p) nondecreasing on [0,1/2] for every 0<=n<=188",
+    "Gamma(N,1) mixture survival and independent max stochastically nondecreasing",
+    "mu(p,z) and raw M2(p,z) coordinatewise nondecreasing"
+  ],
+  "mathematical_acceptance": "AUTHOR_EXACT_INTEGER_FINITE_CERTIFICATE_UNREVIEWED_NOT_ADMITTED"
+}
