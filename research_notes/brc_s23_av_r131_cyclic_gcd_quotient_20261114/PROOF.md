@@ -63,6 +63,8 @@ The midpoint is rational, lies strictly in both open constraints and therefore i
 
 **Endpoint corollary.** If `h-l>1/g`, every phase in [0,1) is represented by I; if `h-l=1/g`, exactly the single phase `{g*l}` is absent. The strict endpoint condition is therefore fully represented, including the case where the missing phase carries a cut-only word.
 
+**Sharp endpoint example.** For `m=1, x=A=d=0, E=1, g=1`, the circular word is zero at eta=0 and one at every `0<eta<1`. The open interval `I=(0,1)` attains only the one-word, whereas `I=(-1/2,1/2)` attains both. Thus the cyclic origin is a genuine singleton-only state and must be filtered with the strict integer-lift criterion rather than unconditionally included for an interval of exactly one period.
+
 ## R131.4: exact event replication across aligned complete periods
 
 Suppose `g>0` and `E!=0`. Let `q` be the number of **distinct** normalized interior event roots in (0,1), and let `r in Z, n>=1`. The direct R129 event set in the open aligned interval
