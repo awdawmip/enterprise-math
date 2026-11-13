@@ -36,3 +36,15 @@ Complete independent-process 28-coordinate prefix-index construction, query batc
 ## Next unit
 
 Inject Gray event generation into existing original-seed (2520-byte) full prefix-query reproduction, verify byte-identical answers and compare actual fresh-process setup/peak RSS, 8192-query batches and output serialization. Establish whether event-corpus reconstruction lies on that path's critical cost before extrapolating its local speedup.
+
+
+## Path-selection result from the already saved complete-query implementation
+
+The independently preserved predecessor Draft PR #2220 contains a different construction path: its REPRO_SEED_BENCH.py decodes the 2,520-byte BP/label/terminal seed into the 2,880-node prefix trie, obtaining exactly 1,065 original terminal (q,n) pairs and their 953 rational walls directly. This route does **not** enumerate all 32,767 nonempty 15-atom masks, so adding the Gray enumerator as an extra stage would duplicate work and would not imply an end-to-end speedup. The previous nine-process seed-only measurement reported approximately 111 ms median setup, 29.8 ms for 8,192 queries, 0.36 ms JSON serialization and about 1.22 MB traced setup allocation for the mean-optimal scheme. These previous figures have different tracing/baseline conditions and are not directly comparable to the warm Gray microbenchmark.
+
+There are thus two distinct admissible upstream data paths:
+
+1. **Raw 15-atom source / missing prepacked seed:** Gray-code enumeration can replace per-mask resummation or a full cached subset DP while preserving the deduplicated rational event corpus.
+2. **Already packed 2,520-byte prefix seed:** Decode each terminal pair once, reuse it to build both the threshold wall index and per-prefix ranges. Prefer that direct 1,065-pair extraction unless a measured, nonduplicating replacement has an advantage.
+
+The next discriminating experiment is a common-source, independently timed end-to-end comparison with exact answer hashes, not simply inserting Gray work into the existing packed-seed path. This is a computational-model/accounting boundary, not a change to the frozen mathematics.
