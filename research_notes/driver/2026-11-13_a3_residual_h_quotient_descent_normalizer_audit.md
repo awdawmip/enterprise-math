@@ -53,3 +53,21 @@ Thus `P(hT)` is neither `PT` nor `h(PT)`: quotient descent fails on explicit equ
 - **Review disposition remains open:** original researcher and Result are unchanged. A formal Native Review must consider this distinction along with the separately verified `|A|>=2` and shell-faithfulness hypotheses. No Task or parent Objective closure follows from this note.
 
 No `sorry`, `admit`, new axiom, or unverified universal numerical extrapolation is used.
+
+
+## 5. Exact criterion for a genuine adjacent-scale quotient square
+
+The restriction $\rho_{n+1,n}$ is $H$-equivariant and hence always defines an arrow on quotient states. A **genuine square whose upper and lower partial moves are each defined on quotient states** requires both $g_+\in C_{S_4}(h)$ and $g_-\in C_{S_4}(h)$, in addition to the frozen universal comparison of the two output orbits.
+
+Combining this exact descent requirement with the separately proved carrier-shell/global-$H$ witness classification gives the following complete criterion for $\lvert A\rvert\ge2$, $1\le d\le n$, $q=n-d+1$:
+
+| Adjacent-scale regime | Genuine square on $X_{n+1}/H$ and $X_n/H$ commutes iff |
+| --- | --- |
+| $n=1,d=1$ | $g_-\in H$ **and** $g_+\in C_{S_4}(h)$ |
+| $q\ge2,d=1$ | $g_-=e$ **and** $g_+\in C_{S_4}(h)$ |
+| $q\ge2,d\ge2$ | $g_-=g_+=e$ |
+| $q=1,n\ge2$ | $g_-\in H$ **and** $g_+=e$ |
+
+*Proof.* The orbit-comparison iff cases are obtained by inspecting the three shell regions of $K=L U^{-1}$ and requiring one common global $H$ witness (the previous independent audit supplies the binary-label quantifier bridge). The upper partial move at scale $n+1$ has a nonempty active shell even when its action is discarded by restriction, so Section 2 requires $g_+\in C_{S_4}(h)$; the lower similarly requires $g_-\in C_{S_4}(h)$. Intersect these conditions with the four universal orbit-comparison regimes. In the last two cases, identities and $H$ elements already centralize $h$; only the $d=1$ regimes acquire a new upper-aligner condition. QED.
+
+In particular, at $n=2,d=1,g_-=e,g_+=(23)$, the two *raw* composite paths from $X_3$ to $X_2$ agree exactly after restriction, but the upper $D_{3,1}((23))$ is not a map on $X_3/H$. Thus equality of output orbits after restriction is strictly weaker than the existence of a quotient-state naturality square. This refinement affects only claims of genuine quotient morphisms, not the frozen carrier or output-orbit formulas.
