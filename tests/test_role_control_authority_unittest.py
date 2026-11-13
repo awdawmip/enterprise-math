@@ -85,8 +85,8 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
         ):
             self.assertIn(state, reuse["states"])
         protocol = self.read("docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md")
-        self.assertIn("TOOL_COVERAGE_LOOKUP != TOOL_USE", protocol)
-        self.assertIn("The third layer discovers executable source but does not execute it", protocol)
+        self.assertIn("A positive match is **not** proof that the tool was actually reused", protocol)
+        self.assertIn("The source layer discovers executable source but does not execute it", protocol)
 
     def test_control_plane_maintenance_does_not_inherit_mathematical_toolbox_gate(self):
         policy = self.load("tool_invocation_policy.json")
