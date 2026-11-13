@@ -1,0 +1,24 @@
+{
+  "schema": "EM_R137C_COEFFICIENT_PERIOD_V1",
+  "date": "2026-11-14",
+  "frozen_science": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "status": "AUTHOR_SIDE_NOT_REVIEWED",
+  "marker": "R137C_COEFFICIENT_PERIOD_INCLUSION_PASS",
+  "tests": {
+    "exact_pairs": 184,
+    "m_min": 1,
+    "m_max": 8,
+    "K_min": 2,
+    "K_max": 24,
+    "comparator": "R137B exact Farey gap constructive enumerator, integer fractions",
+    "checked": [
+      "V(K,m) subset V(K+P_m,m)",
+      "cardinality V(K+P_m,m) equals classical F_m",
+      "exact R137B certificate generation"
+    ],
+    "P_definition": "lcm(1,..,m)"
+  },
+  "theorem": "For every K>=2 and m>=1, V(K,m) subset V(K+P_m,m), and V(K+P_m,m) saturates. For any Farey adjacent b,d, all fixed intercept gaps become feasible for each K'>=K+bd.",
+  "source": "COEFFICIENT_PERIOD_INCLUSION.md",
+  "unresolved": "Minimal shifts preserving inclusion, exact per-word disappearance/return and sharp eventual threshold"
+}
