@@ -7,7 +7,37 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "c3989b2846f81cdda694efa1bf1b043150a8169a",
+          "path": "research_notes/brc_r5_all_budget_r2_20261113/EXACT_FRONTIER.csv",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "c43a469ab49a0c52204867ddf0ff24a14ef0cf92187b0f6fbfda1489a74516d3",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "fdb26ecc2954c75d0a32fc068462eabbcccdf63b",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/c3989b2846f81cdda694efa1bf1b043150a8169a/research_notes/brc_r5_all_budget_r2_20261113/EXACT_FRONTIER.csv",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r5-20261113-2200-original-742-rows-full-csv-connector-readback",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-B1BAA6BB51A820BCC758B3A1/readbacks/5034dd0498d4b2380417b02507853f39c2d1d2304bd13beae8ae3604d9594761.json",
+          "verification_receipt_sha256": "5034dd0498d4b2380417b02507853f39c2d1d2304bd13beae8ae3604d9594761"
+        }
+      ],
+      "event_id": "R5-20261113-EXACT-742-BUDGET-CURVE-01",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@0bf784ff549e4b18cdb66ffa672195581ef89429:journal/enterprise-math/2026-11-13/20261113T215920+0800-r5-exact-742-budget-radius2-frontier.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-13T13:49:08.377133+00:00",
   "registration_key": "session:MCP-d2bddeef834747f78759198af1fc4d58:TASK_RESEARCH",
