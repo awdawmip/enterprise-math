@@ -7,7 +7,37 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "42ed55f5de954995d9fe5c80c5eb5648c99500e3",
+          "path": "research_notes/brc_s23_av_r120_pair_lattice_20261113/check_r120.py.gz.b64",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "3e4f247f5a69154791f715bc818ba6f959a20c0f6d494440854b84bb5f10e5db",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "db95a5c6fcf05e43f286f133977a8d29f76a854a",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/42ed55f5de954995d9fe5c80c5eb5648c99500e3/research_notes/brc_s23_av_r120_pair_lattice_20261113/check_r120.py.gz.b64",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r1-20261113-1400-r120-code-remote-readback",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-878D9114B3E0223C9495392C/readbacks/f4838e93b87f6d8b9ad098518ed83907168b4d706666da172f8fafd34f386b9d.json",
+          "verification_receipt_sha256": "f4838e93b87f6d8b9ad098518ed83907168b4d706666da172f8fafd34f386b9d"
+        }
+      ],
+      "event_id": "20261113T140700+0800-r1-r120-2d-lattice",
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/988ed106c6b8a8130e4a1a0140ce8040eea93d23/journal/enterprise-math/2026-11-13/20261113T140700%2B0800-r1-r120-lattice-pair.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-13T06:07:04.652288+00:00",
   "registration_key": "session:MCP-b3fc568427494bc3b49a5e3468ce30a8:TASK_RESEARCH",
