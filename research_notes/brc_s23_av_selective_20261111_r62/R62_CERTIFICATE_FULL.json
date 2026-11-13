@@ -1,0 +1,81 @@
+{
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "claim": "R62-x-aware-newest-source-certificate",
+  "witness": {
+    "theta1": "209763603655389372836229/800000000000000000000000",
+    "theta2": "1048818018276946864181147/4000000000000000000000000",
+    "vectors": [
+      [
+        null,
+        1
+      ],
+      [
+        1000000000000000000000000,
+        1
+      ]
+    ],
+    "label_one_certificate": {
+      "label": 1,
+      "age": 1,
+      "inspected": 1,
+      "boundary_checks": 2,
+      "unexamined_older": 1
+    },
+    "high_age_is_undetermined": true
+  },
+  "random": {
+    "cases": 500,
+    "queries": 2509,
+    "certified": 2509,
+    "independent_queries": 12545,
+    "older_sources_skipped": 15253
+  },
+  "near_crossing": {
+    "queries": 3885,
+    "certified": 1414,
+    "rejected": 2471,
+    "divergent_endpoint_queries": 2031,
+    "independent_oracles": 7070
+  },
+  "anchor": {
+    "cases": 120,
+    "phase_identity_checks": 3736,
+    "max_absolute_offset_digits": 71,
+    "cyclic_order_matches": 120
+  },
+  "frozen": {
+    "m": 128,
+    "H": 225,
+    "total_labels": 128,
+    "certified_labels": 128,
+    "certified_label_endpoint_oracles": 256,
+    "source_bound_checks": 21336,
+    "older_sources_skipped": 18132,
+    "phase_order_difference_count": 704,
+    "phase_order_min_margin": 1538749354821431426740,
+    "sparse_labels": [
+      {
+        "label": 0,
+        "age": 61,
+        "inspected": 61,
+        "boundary_checks": 122,
+        "unexamined_older": 164
+      },
+      {
+        "label": 31,
+        "age": 30,
+        "inspected": 30,
+        "boundary_checks": 60,
+        "unexamined_older": 195
+      },
+      {
+        "label": 127,
+        "age": 98,
+        "inspected": 98,
+        "boundary_checks": 196,
+        "unexamined_older": 127
+      }
+    ]
+  },
+  "math_semantics": "Exact rational endpoints and 3 interior samples; witness exact; finite tests do not prove general theorem."
+}
