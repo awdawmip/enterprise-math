@@ -1,0 +1,79 @@
+{
+  "schema": "R743_EARLY_COMPENSATION_V1",
+  "status": "PASS",
+  "root_stock": [
+    1,
+    1
+  ],
+  "local_port_capacity": 2,
+  "events_per_generator": 4,
+  "exhaustive_generators_up_to": 8,
+  "carriers": {
+    "A": {
+      "codebook": {
+        "012>014": "F",
+        "012>023": "R",
+        "013>012": "F",
+        "014>013": "R",
+        "023>013": "F",
+        "023>123": "R",
+        "123>012": "F"
+      },
+      "early_helper_generator": "Q",
+      "generator_arc_codes": {
+        "I": "FRF",
+        "P": "RFF",
+        "Q": "RRF"
+      },
+      "generator_event_words": {
+        "I": "FRFR",
+        "P": "RFFR",
+        "Q": "RFRF"
+      },
+      "history_count_each_carrier": 9841,
+      "root_only_injective_codebooks_checked": 32,
+      "root_only_stock2_feasible_codebooks": 0,
+      "six_relation_witness": {
+        "III": "012",
+        "IIP": "021",
+        "IIQ": "102",
+        "IPQ": "201",
+        "IQP": "120",
+        "PQP": "210"
+      }
+    },
+    "B": {
+      "codebook": {
+        "012>023": "F",
+        "012>123": "R",
+        "013>012": "F",
+        "023>013": "R",
+        "123>013": "F",
+        "123>124": "R",
+        "124>012": "F"
+      },
+      "early_helper_generator": "I",
+      "generator_arc_codes": {
+        "I": "RRF",
+        "P": "FRF",
+        "Q": "RFF"
+      },
+      "generator_event_words": {
+        "I": "RFRF",
+        "P": "FRFR",
+        "Q": "RFFR"
+      },
+      "history_count_each_carrier": 9841,
+      "root_only_injective_codebooks_checked": 32,
+      "root_only_stock2_feasible_codebooks": 0,
+      "six_relation_witness": {
+        "III": "012",
+        "IIP": "021",
+        "IIQ": "210",
+        "IPQ": "120",
+        "IQP": "201",
+        "PQP": "102"
+      }
+    }
+  }
+}
