@@ -1,0 +1,73 @@
+{
+  "schema": "EM_R63_EXACT_RATIONAL_AUXILIARY_CHECKS",
+  "date": "2026-11-11",
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "full_local_checker": {
+    "file": "check_r63.py",
+    "tested_locally": true,
+    "model_cases": 360,
+    "dynamic_updates": 14400,
+    "fresh_exact_source_age_queries": 64616,
+    "historical_version_queries": 8045,
+    "unchanged_index_reanchored_queries": 8557,
+    "duplicate_phase_group_tests": 360,
+    "frozen_endpoints": [
+      {
+        "p": "262204504569236716045286",
+        "q": "1000000000000000000000000",
+        "m": 128,
+        "H": 225,
+        "source_nodes": 225,
+        "nonempty_labels": 128,
+        "first_12_ages": [
+          61,
+          60,
+          59,
+          58,
+          57,
+          56,
+          55,
+          54,
+          53,
+          52,
+          51,
+          50
+        ]
+      },
+      {
+        "p": "262204504569236716045287",
+        "q": "1000000000000000000000000",
+        "m": 128,
+        "H": 225,
+        "source_nodes": 225,
+        "nonempty_labels": 128,
+        "first_12_ages": [
+          61,
+          60,
+          59,
+          58,
+          57,
+          56,
+          55,
+          54,
+          53,
+          52,
+          51,
+          50
+        ]
+      }
+    ],
+    "assertions": "PASS"
+  },
+  "compact_checker": {
+    "file": "check_r63_min.py",
+    "tested_locally": true,
+    "dynamic_updates": 3000,
+    "exact_current_queries": 15198,
+    "historical_version_queries": 3848,
+    "frozen_endpoint_labels": 768,
+    "assertions": "PASS"
+  },
+  "evidence_semantics": "Independent direct modular phase assignment versus persistent Treap query. Tests are finite, exact rational, reproducible standard-library Python. Mathematical proof is in PROOF.md.",
+  "open": "No uniform irrational interval tree-order certification and no independent review."
+}
