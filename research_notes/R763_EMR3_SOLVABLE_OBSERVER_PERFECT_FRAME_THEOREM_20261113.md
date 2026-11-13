@@ -75,3 +75,13 @@ R760 established an alternating residual for every fixed finite Magnus signature
 R761 and R762 separately investigate candidate signed triadic-Port incidence, A6 orientation and overlap commutators; those are not a validated native TRIADIC_CLOSURE_E/V39 map. The next discriminating question is whether the **actual P000-admitted primitive triadic event** and its V29/V39 transport generate a perfect residual group or only a solvable quotient. Such an interface requires a typed, source-preserving Cell/Link/Port incidence and update construction. Until then the theorem is exact in the auxiliary path model. P000, the six native axes, 120-degree PERP_E, frozen science and branch provenance remain unchanged.
 
 This author-side research paper makes no claim of live task CLAIM, formal Source Result, independent Driver review or Foundation promotion.
+
+## Corollary: all solvable group observers lose the whole R761 A6 candidate event frame
+
+R761 (Draft PR #2231, immutable author source `a6ea968b09e1005ab5b5725bfd307151ee18662f`) defines 320 oriented signed three-Port candidate events carrying all 40 three-cycle S6 increments; these increments generate A6 of order 360. Let E be that 320-element source-typed event alphabet, W=F(E) the free group on event symbols, and rho:W->A6 the homomorphism assigning each event its declared three-cycle. (The inverse-oriented event realizes the inverse increment; formal inverses remain available in W.) For **every group homomorphism theta:W->Q to a solvable group Q**, and **every u in W**,
+
+    { rho(v) : theta(v)=theta(u) } = A6.
+
+Indeed rho(W)=A6 by R761; A6 is perfect by the R763 proof. If Q has derived length r, then W^(r)<=ker theta while rho(W^(r))=A6 for every r>=0. Thus rho(ker theta)=A6 and every fiber has all 360 candidate rooted-frame outputs. A frame-only repair therefore requires exactly 360 symbols, or 9 fixed bits, within that full signed-Port candidate event-language observer regime. This corollary does **not** say every R761 physical event is natively admitted; its alphabet, available event concatenations, group observer and stated frame target are explicitly candidate model assumptions. It also does not imply BRC branches or signs can be discarded for other observations.
+
+This corollary makes a discriminating connection to the mother Task: **if** an actual P000-legal triadic event scheduler admits a provenance-preserving image onto these A6 candidate increments and retains all required compositions, then no solvable group-homomorphic event-history observer suffices for the complete oriented frame. Verifying such a scheduler is the remaining independent native admissibility obligation.
