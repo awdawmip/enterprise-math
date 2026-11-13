@@ -1,0 +1,38 @@
+{
+  "schema": "R749SMT_EXACT_EQUAL_TWO_CHARACTER_FIBERS_V1",
+  "status": "PASS",
+  "method": "exhaustive rational basic-feasible-source/active-set parameter interval enumeration; convexity of TV on affine pieces",
+  "C": {
+    "bases_enumerated": 8008,
+    "nonsingular": 4048,
+    "feasible_intervals": 5056,
+    "endpoints": 6768,
+    "max_excess": "0",
+    "distinct_endpoints": [
+      "-1",
+      "-1/2",
+      "-1/4",
+      "0",
+      "1/4",
+      "1/2",
+      "1"
+    ]
+  },
+  "B_adjacent_pair": {
+    "bases_enumerated": 4368,
+    "nonsingular": 3008,
+    "feasible_intervals": 1080,
+    "endpoints": 1504,
+    "max_excess": "0",
+    "distinct_endpoints": [
+      "-1/2",
+      "-1/3",
+      "-1/4",
+      "0",
+      "1/4",
+      "1/3",
+      "1/2"
+    ]
+  },
+  "boundary": "C exact upper certificate for all real -1<=t<=1; B adjacent-pair exact upper certificate for all real -1/2<=t<=1/2; lower bounds proved in manuscript; no native V29/V39 event claimed"
+}
