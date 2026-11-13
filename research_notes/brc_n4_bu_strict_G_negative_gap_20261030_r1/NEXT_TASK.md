@@ -1,0 +1,7 @@
+# NEXT TASK — sharpen the G<0 minimax bracket
+
+Inherited external N=4 BU sixteen-leaf P/Q full-observer model: O=(T,Decision,Z_BU), (a,b)=(961/1000,151/1000), causal reduction source 1a4898a57e952245eeacb38be7adf109faa49f49, previous moving-root proof 7ca502f03fcd70e065444889c967112c6548ed4c (PR #1729). Current exact conditional theorem establishes E+1/1500000 ≤ d2,d23 ≤ H with E=16491/1276000 and H=26123/2020800; see this directory's PROOF.md and independently executed VERIFY.py. Do not repeat the proved gap or legal H witness.
+
+**Exact next question:** Is minimax H, or is a third lawful value strictly less than H? Candidate falsifier: rational 0≤A,B,u≤1, 0≤U≤A, 0≤V≤B, with full 16-leaf P/Q observable reconstruction and max(TV_P,TV_Q)<26123/2020800. At fixed u, output is affine in (A,B,U,V), so a rational LP/Farkas certificate may be derived; proving all-real u∈[0,1] is a separate obligation. Candidate positive proof: lawful event mixture on full BU-observer sigma-algebra with e≥H for all legal real u. Independently rederive L0/L3 event coefficients and causal S2-to-S23 reduction (including unreachable histories), before any mathematical admission.
+
+The source is author-side, UNREVIEWED/NOT_ADMITTED; own native researcher session, current owner and authorized CLAIM/Result must be checked by genuine source permissions. Current Site research_authority_granted=false and active-owner query CONTROL_QUOTA. P000 X6/three-dimensional slice and future-operation fidelity remain separate.
