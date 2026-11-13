@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r137_divisor_collision_quasiperiod_20261114/check_r137.py",
+    "ref": "3fe6f5ca6013f2febf9513ee99bf10368a258c64",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r137-r1-20261114-2-3fe6f5ca6013",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R137 exact collision, affine quasiperiod and independent event checks.\"\"\"\nfrom fractions import Fraction\nfrom math import lcm\n\ndef totients(limit):\n    phi = list(range(limit + 1))\n    for p in range(2, limit + 1):\n        if phi[p] == p:\n            for n in range(p, limit + 1, p):\n                phi[n] -= phi[n] // p\n    return phi\n\ndef j_divisor(K, m, phi):\n    L, N = K - 1, K - 1 + m\n    return sum(phi[q] for q in range(2, N + 1)\n               if N // q - (max(L, 1) - 1) // q >= 1)\n\ndef j_collision(K, m, phi):\n    assert K >= 2 and m >= 1\n    L = K - 1\n    raw = (m + 1) * (K - 2) + m * (m + 1) // 2\n    duplicate = sum(\n        phi[q] * ((L + m) // q - (L - 1) // q - 1)\n        for q in range(2, m + 1)\n    )\n    return raw - duplicate\n\ndef j_fraction_union(K, m):\n    L = K - 1\n    return len({\n        Fraction(p, n)\n        for n in range(max(1, L), L + m + 1)\n        for p in range(1, n)\n    })\n\ndef classical_count(m, phi):\n    return 1 + sum((m + 1 - q) * phi[q] for q in range(1, m + 1))\n\ndef run():\n    phi = totients(1200)\n    pairs = 0\n    for m in range(1, 31):\n        for K in range(2, 81):\n            assert j_divisor(K, m, phi) == j_collision(K, m, phi)\n            pairs += 1\n    assert pairs == 2370\n    # Independent exact rational fractions, including K=1.\n    direct = 0\n    for m in range(1, 13):\n        for K in range(1, 35):\n            assert j_divisor(K, m, phi) == j_fraction_union(K, m)\n            direct += 1\n    assert direct == 408\n    periods = 0\n    for m in range(1, 9):\n        P = lcm(*range(1, m + 1))\n        for K in range(2, 30):\n            assert j_collision(K + P, m, phi) - j_collision(K, m, phi) == (m + 1) * P\n            periods += 1\n    assert periods == 224\n    for m in range(1, 7):\n        P = lcm(*range(1, m + 1))\n        down = [K for K in range(2, 2 + P)\n                if j_collision(K + 1, m, phi) < j_collision(K, m, phi)]\n        if m <= 5:\n            assert not down, (m, down)\n        else:\n            assert down == [24, 54], down\n    assert (j_collision(24, 6, phi), j_collision(25, 6, phi)) == (169, 167)\n    expected_first = {1:2,2:2,3:3,4:4,5:7,6:9,7:11,8:16,9:22,\n        10:25,11:29,12:41,13:46,14:51,15:67,16:73,17:79,18:99,\n        19:106,20:113}\n    necessary = {}\n    for m in range(1, 21):\n        count = classical_count(m, phi)\n        k = next(K for K in range(2, m * m + m + 3)\n                 if j_collision(K, m, phi) + 1 >= count)\n        assert k <= expected_first[m]\n        necessary[m] = k\n    assert necessary[10] == 12 and necessary[20] == 42\n    print(\"R137_COLLISION_QUASIPERIOD_PASS\")\n    print({\"divisor_pairs\": pairs, \"exact_fraction_pairs\": direct,\n           \"quasiperiod_pairs\": periods,\n           \"example\": [j_collision(24, 6, phi), j_collision(25, 6, phi)],\n           \"necessary_thresholds\": necessary})\nif __name__ == \"__main__\":\n    run()\n",
+      "display_title": "check_r137.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3fe6f5ca6013f2febf9513ee99bf10368a258c64/research_notes/brc_s23_av_r137_divisor_collision_quasiperiod_20261114/check_r137.py",
+      "encoding": "utf-8",
+      "sha": "c9e5a5d04f794dd625c22d056c44f039a6e8bc8c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
