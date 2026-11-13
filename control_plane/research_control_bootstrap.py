@@ -257,6 +257,15 @@ def install(root: Path = ROOT) -> None:
     research_handoff_scope_runtime.install(root)
     research_parent_objective_dispatch_gate.install(root)
 
+    # This module installs control gates on the public compatibility wrapper.
+    # effective_states() is re-exported from research_dispatch_core and resolves
+    # these two helpers in its own module namespace. Keep that native reducer
+    # routed through the fully installed quarantine and Objective gates.
+    from tools import research_dispatch_core
+
+    research_dispatch_core.merged_definitions = research_dispatch.merged_definitions
+    research_dispatch_core.reduce_definition = research_dispatch.reduce_definition
+
 
 if __name__ == "__main__":
     install()
