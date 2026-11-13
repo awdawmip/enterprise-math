@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r128_farey_circular_blocks_20261113/check_r128_lit.py",
+    "ref": "bcc4588af664b3c7b7d1c18cfcbfd15b089ac8c8",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r128-20261113-check_r128_lit-py-bcc4588af664",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Independent exact transcription check of Frid–Jamet 2014 Theorem 1.\"\"\"\nfrom fractions import Fraction as Q\nfrom math import gcd\nfrom check_r128 import all_patterns\n\n\ndef phi(n):\n    return sum(gcd(k,n)==1 for k in range(1,n+1))\n\n\ndef published_count(m):\n    \"\"\"Frid–Jamet Theorem 1, f(n+1) with n=m-1>=3.\"\"\"\n    n=m-1\n    def tot(t):\n        return sum(phi(p) for p in range(1,t+1))\n    if n%2:\n        k=(n-1)//2\n        f1=2*sum(tot(i+1) for i in range(k,2*k+1))\n    else:\n        k=n//2\n        f1=2*sum(tot(i+1) for i in range(k,2*k))+tot(k)\n    def f2(l):\n        g=n-l+1+n%(l+1)\n        h=min(l+1,n-l)\n        return (Q((n//(l+1))*g,2)-h)*(phi(l+1)-1)+h*(Q(phi(l+1),2)-1)\n    result=(n*n+3*n+4\n        + Q(sum(phi(p)*(n*n-p*p+n+p) for p in range(3,n+1)),2)\n        - f1 - 2*sum(f2(l) for l in range(2,n)))\n    assert result.denominator==1\n    return int(result)\n\n\ndef main():\n    for m in range(4,14):\n        assert published_count(m)==len(all_patterns(m)),m\n    paper={6:64,7:112,10:504,15:2804,20:9442,30:51306,\n           50:423814,75:2222984,100:7155096}\n    for m,expected in paper.items():\n        assert published_count(m)==expected,(m,published_count(m),expected)\n    print(\"R128_FRID_JAMET_FORMULA_CROSSCHECK_PASS\",10,len(paper))\n\n\nif __name__==\"__main__\":\n    main()\n",
+      "display_title": "check_r128_lit.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/bcc4588af664b3c7b7d1c18cfcbfd15b089ac8c8/research_notes/brc_s23_av_r128_farey_circular_blocks_20261113/check_r128_lit.py",
+      "encoding": "utf-8",
+      "sha": "8a66b71728cf6d5cdc3f33f79d69e6c4154c2b93"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
