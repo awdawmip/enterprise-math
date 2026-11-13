@@ -1,0 +1,263 @@
+{
+  "schema": "EC49FNJ_RADIUS3_EXACT_COMPACT_V1",
+  "date": "2026-11-13",
+  "status": "AUTHOR_SIDE_FINITE_EXACT_COMPUTATION",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor": "https://github.com/awdawmip/enterprise-math/pull/2266",
+  "family_size": 38169,
+  "start": 27500,
+  "end_exclusive": 28500,
+  "count": 1000,
+  "cost_codec": "Python zlib.decompress(base64.b85decode(costs_zlib_b85)), then json.loads",
+  "costs_zlib_b85": "c-rlhT?&985QHz(gSwd8S)%)2qfj$J{8=+d*oTj-W@Ol1-6h~sMXe60uc!9!@O;k^>!qpd6Lg2C<VTm=X2D2<1&r5wkK8Ky%pPP<&JQj#2$w(fNmTk6|5r;>-@m}-2VX~MC($dKe+c(Ht7zQ<RX-Zaocx4vW})NU!^?Z4gPCeOQ%+l3L8sS81{sE77=~d+a-1_c2{",
+  "cost_decimal_sha256": "ec4e1a64bd3ca29b185efb7627949790a9b4fbb55002b59030539d2925456f2f",
+  "complete_native_output_sha256": "41d64f1eb67ef6bf5edae2ec994fbf0a12fd1247ee3efb8e36cc2c817adfd192",
+  "frozen_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "frozen_cases_json_sha256": "d18c8f3177083c5b39ef6c8ca068589042617a2a797b53f98818a427040e4f33",
+  "exact_cpp_solver_sha256": "6ea17ff267f599c69967b420ebf1a8abe151e587e57b25f599f8ecdfb9f2ecac",
+  "optimizer_finished": true,
+  "min_cost": 115,
+  "min_ids": [
+    27511,
+    27523
+  ],
+  "max_cost": 138,
+  "max_count": 712,
+  "root_assignment_optima_counts": {
+    "1": 951,
+    "2": 47,
+    "3": 2
+  },
+  "legal_word_catalogue_count": 178850,
+  "labels_by_root": {
+    "05": [
+      [
+        2,
+        16
+      ],
+      [
+        3,
+        16
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        16
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        7,
+        2
+      ],
+      [
+        7,
+        4
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        9,
+        16
+      ]
+    ],
+    "06": [
+      [
+        2,
+        32
+      ],
+      [
+        3,
+        32
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        32
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        8,
+        1
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        9,
+        32
+      ]
+    ]
+  },
+  "base_witness_case_27511": {
+    "keys": [
+      0,
+      4,
+      5,
+      11,
+      26,
+      43,
+      46
+    ],
+    "cost": 115,
+    "root_costs": {
+      "05": 52,
+      "06": 63,
+      "07": 0
+    },
+    "ordered_lawful_words_05": [
+      "fe",
+      "feg",
+      "fegd",
+      "fegc",
+      "fegfg",
+      "fefffd",
+      "fefffc",
+      "fefffdg",
+      "fefffcg",
+      "fegfgggd",
+      "fegfgggc",
+      "fegfgggfg"
+    ],
+    "ordered_lawful_words_06": [
+      "ge",
+      "gef",
+      "dfeg",
+      "gecf",
+      "geffg",
+      "dfefff",
+      "geccgc",
+      "dfefffg",
+      "geccgfg",
+      "geffgggd",
+      "geffgggc",
+      "geffgggfg"
+    ]
+  },
+  "second_witness_case_27523": {
+    "keys": [
+      0,
+      4,
+      5,
+      11,
+      26,
+      43,
+      58
+    ],
+    "cost": 115,
+    "root_costs": {
+      "05": 52,
+      "06": 63,
+      "07": 0
+    },
+    "reuse_base_words_except": {
+      "05": {
+        "7,2": "fefffdf",
+        "7,4": "fefffcf"
+      },
+      "06": {
+        "7,1": "dfeffff"
+      }
+    }
+  },
+  "shadow_transfer": {
+    "root07_label_indices": [
+      5,
+      7,
+      11,
+      13,
+      15,
+      17,
+      19,
+      21
+    ],
+    "envelope_definition": "a_k=min_{|T|=k}f_07(T); b_k=max_{|T|=k}sum_{r=05,06}(f_r(L_r)-f_r(L_r\\T)); G(T)=f_07(T)-savings(T)>=a_k-b_k",
+    "base_cost": 115,
+    "min_nonempty_exchange_cost_gap": 2,
+    "unique_minimum_nonempty_exchange_mask": 60,
+    "unique_minimum_nonempty_transfer_label_indices": [
+      11,
+      13,
+      15,
+      17
+    ],
+    "case_27511": {
+      "envelopes_by_cardinality_k1_to_k8": [
+        4,
+        2,
+        2,
+        2,
+        3,
+        4,
+        9,
+        13
+      ],
+      "root_table_sha256": "9c5abaf40293f22362d31611ca20852af1baa239588c2e3f49d358d1fef655bd"
+    },
+    "case_27523": {
+      "envelopes_by_cardinality_k1_to_k8": [
+        5,
+        2,
+        2,
+        2,
+        3,
+        4,
+        9,
+        13
+      ],
+      "root_table_sha256": "7783680b17957d041a63c0232b972ecf13d6e1ca99b310efe32eb399fcfe534e"
+    },
+    "equal_full_exchange_gap_masks": 122,
+    "total_masks": 256,
+    "proof": "For any k and T with |T|=k, exact root-07 cost >= a_k while 05+06 saving <= b_k. Each computed integer envelope >=2; one mask=60 realizes exactly2. Thus empty transfer is the unique optimal root-allocation and both configurations have exact root gap2."
+  },
+  "crosscheck_independent_python": {
+    "27500": 138,
+    "27511": 115,
+    "27523": 115,
+    "28499": 138
+  },
+  "verification": "Frozen source and local evidence archive contain the original generator, full two root-function arrays, raw optimizer lines and independent Python exact solver; compact verifier checks this encoded vector and both lawful prefix witnesses. Exact root-table regeneration from frozen source is required for independent envelope arithmetic reproduction."
+}
