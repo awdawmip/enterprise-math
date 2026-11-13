@@ -11,61 +11,61 @@ Original (K=213) checkpoint centers are decoded from the byte-exact 56B payload 
 ## Exact independent reconstruction of the original event wall array
 
 For a nonempty atom mask (m\subseteq\{0,\ldots,14\}), define integer weights
-[
+\[
 n(m)=-\sum_{j\in m} W_j,\quad k(m)=-\sum_{j\in m}K_j,\quad
 W=(336,184,18,169,64,84,299,126,52,16,-420,-483,-144,-221,-80),
-]
-[
+\]
+\[
 K=(-432,0,0,0,0,-108,0,0,0,0,540,0,0,0,0).
-]
+\]
 Enumerate all (2^{15}-1) nonempty masks. Keep those with (n(m)\geq 3), (36\mid k(m)), and (q=k(m)/36\in\{3,12,15\}); deduplicate *pairs* ((q,n)) rather than masks. The `n>=3` condition is part of the frozen source fixture: it is **essential**. Omitting it adds five spurious pairs at n=1,2 and changes the radius calculation. The resulting pair counts are exactly `q=3:538, q=12:298, q=15:229`, hence 1,065 distinct original certificate activation events.
 
 For each pair define the exact rational threshold
-[
+\[
 \tau_{q,n}=\frac{1-36q/n}{23}.
-]
+\]
 Sort all distinct rational thresholds and define
-[
+\[
 E(0)=0,\qquad E(b)=\sum_{i=0}^{b-1}\#\{(q,n):\tau_{q,n}=\tau_i\}
 \quad(1\le b\le953).
-]
-This preserves tied-wall multiplicity. Actual event-group histogram: 869 singletons, 56 doubletons and 28 triples; 953 distinct walls, 954 boundaries, (E(953)=1065). Independently, exactly 605 events satisfy (	au\le0), agreeing with the prior frozen root query at (r=0). The SHA-256 of the 953 one-byte event-group multiplicities, in increasing rational-wall order, is `c19d116b617a5197b76a00440b31f067fac0db3e743d38ae3208a533182c30f9`.
+\]
+This preserves tied-wall multiplicity. Actual event-group histogram: 869 singletons, 56 doubletons and 28 triples; 953 distinct walls, 954 boundaries, (E(953)=1065). Independently, exactly 605 events satisfy (\tau\le0), agreeing with the prior frozen root query at (r=0). The SHA-256 of the 953 one-byte event-group multiplicities, in increasing rational-wall order, is `c19d116b617a5197b76a00440b31f067fac0db3e743d38ae3208a533182c30f9`.
 
 ## Exact finite covering theorem and original-class computation
 
 Let the 213 checkpoint indices be (S=(s_0<\dots<s_{212})) decoded from the immutable 56B fixture. Their first and last are 1 and 952, with index-gap histogram (3:16,4:77,5:119). For (R=2) and the actual rebuilt (E),
-[
+\[
 \max_b\min_{s\in S}|E(b)-E(s)|=2,\qquad
 \sum_{b=0}^{953}\min_{s\in S}|E(b)-E(s)|=1070.
-]
+\]
 This reproduces both key guarantees of the previous optimally placed checkpoints, with true, not synthetic, event multiplicities.
 
 Use the exact graph of #2253. Define
-[
+\[
 u(p)=\max\{b:E(b)\le E(p)+2\},\quad
 v(q)=\min\{b:E(b)\ge E(q)-2\}.
-]
+\]
 There is a directed edge (p\to q) for (p<q) iff (v(q)\le u(p)+1); strict increase implies (q-p\le5). A start is admissible iff (E(p)-E(0)\le2), and a finish iff (E(953)-E(p)\le2). This concrete graph has **4,383 edges**, starts `[0,1,2]` and finishes `[951,952,953]`. The program verifies every constructed edge with a second, direct scan of the intermediate boundaries.
 
 Let (F(1,p)=\mathbf1_{p\text{ admissible finish}}), (F(t,p)=\sum_{p\to q}F(t-1,q)), and
-[
+\[
 T(E,2,213)=\sum_{p\text{ admissible start}}F(213,p).
-]
+\]
 Every legal 213-center set corresponds to exactly one directed path of 213 vertices, so the recurrence enumerates **all** admissible sets exactly once, not merely those sharing the original gap histogram. For the original R5 pinned data:
-[
+\[
 \boxed{T(E,2,213)=959842890872466279854034583824629760000.}
-]
+\]
 Its minimum fixed-width rank index size for this **declared complete class**, assuming (E, K, R) known to the decoder, is
-[
+\[
 \boxed{\lceil \log_2 T\rceil=130\ \mathrm{bits},\qquad
 \left\lceil\frac{130}{8}\right\rceil=17\ \mathrm{bytes}.}
-]
+\]
 This is an optimal capacity claim *within that class*, not a universal lower bound on encoding this particular already-known list, a full prefix data structure, or original certificate input.
 
 Lexicographic rank (0-based) of the original 213 centers is
-[
+\[
 \boxed{291259906744233319113441752826891487978}.
-]
+\]
 The exact **17-byte big-endian** payload is `00db1e9e1b0580a2258635b9569ae84aea`. Its SHA-256 is `0f7e07e9ca919c50095777a9b9106f87b78d9dd617c4f80be1321ae9e4c42d65`. Inverse ranking restores all 213 original center indices exactly.
 
 ## Verification and total-cost interpretation
