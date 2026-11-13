@@ -1,0 +1,20 @@
+{
+  "schema": "R749SNB_SMALL_DIAGONAL_EXACT_POLYTOPE_CERTIFICATE_V1",
+  "status": "PASS",
+  "frozen_science_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "domain": "G=F2^4, real 0<=r<=1/5, m_3=m_12=r, eight other B moments zero",
+  "variables": ["r", "h", "u", "v", "w", "z"],
+  "facets": 18,
+  "six_facet_subsets": 18564,
+  "nonsingular_bases": 10848,
+  "feasible_bases": 672,
+  "distinct_vertices": 79,
+  "vertex_r_values": {"0": 26, "1/5": 53},
+  "exact_maximum_TV_at_r_endpoints": {"0": "1/2", "1/5": "2/5"},
+  "tight_vertex_counts": {"0": 10, "1/5": 45},
+  "theorem": "rho_B(epsilon*r,eta*r)=rho_cal_B(epsilon*r,eta*r)=(1-r)/2 for 0<=r<=1/5 and both signs",
+  "upper_decoder": "q_r(A,D,P,Q)=(1+r(A+D+AD))/16, sign-translated for other quadrants",
+  "lower_pair_TV": "1-r",
+  "arithmetic": "Python standard-library fractions.Fraction, exhaustive rank-six active facet bases",
+  "not_claimed": "native V29/V39 mapping; independent scientific review; Foundation promotion"
+}
