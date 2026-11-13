@@ -23,3 +23,7 @@ At current frozen P000, admissible primitive TRIADIC_CLOSURE_E Cell/Link/Port in
 ## Operational status
 
 Author-side GitHub scientific files must be separately distinguished from live task CLAIM, formal Source Result, Activity semantic checkpoint, Driver review and canonical Foundation admission. The current native continuation/owner receipt decides shared execution authority; do not replay or preempt any live owner. The Activity record should bind these immutable GitHub blobs using exact connector readbacks and current Source CAS. Never represent a Draft PR as merged or an incomplete activity receipt as completed.
+
+## R761 candidate A6 synthesis (same research turn, proven corollary)
+
+The R761 declared signed three-Port alphabet of 320 event variants realizes all 40 S6 three-cycles, generating A6=360. Applying the new R763 perfect-image argument directly to the free *candidate event word* group shows that every homomorphism into a solvable group has all 360 candidate frames in every fiber, requiring 9 fixed repair bits for frame-only recovery. This is a strict finite-model corollary, pinned to R761 Draft PR #2231@a6ea968b09e1005ab5b5725bfd307151ee18662f and R763's full proof. The exact native P000 event scheduler and admissible transport remain open. Read the full R763 paper section “Corollary” rather than repeating previous A6 BFS.
