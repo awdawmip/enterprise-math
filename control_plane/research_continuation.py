@@ -509,6 +509,29 @@ def _fixed_source_candidate(ref: Any, provenance: str) -> dict[str, Any] | None:
             "verification": "PENDING_IMMUTABLE_READBACK", "provenance": provenance}
 
 
+def related_research_hints(task_id: str, *, root: Path, source_commit: str,
+                           restricted: bool) -> dict[str, Any]:
+    base = {"required": False, "mathematical_acceptance_granted": False,
+            "claim_or_dispatch_authority": False,
+            "meaning": "OPTIONAL_SOURCE_RELATION_HINTS_NOT_PROOF_OR_REQUIRED_RESEARCH_STEPS"}
+    if restricted:
+        return {**base, "state": "WITHHELD_BY_SCIENTIFIC_SOURCE_FIREWALL"}
+    try:
+        relative = "foundation_backflow.json"
+        pin = artifact_pin(root, relative, source_commit)
+        value = json.loads((root / relative).read_text(encoding="utf-8"))
+        rows = value.get("related_research", [])
+        if not isinstance(rows, list):
+            return {**base, "state": "INDEX_UNAVAILABLE"}
+        matches = [copy.deepcopy(row) for row in rows
+                   if isinstance(row, dict) and task_id in (row.get("task_ids") or [])]
+        return {**base, "state": "AVAILABLE", "index": pin, "relations": matches,
+                "empty_means_no_research": False,
+                "use": "Follow or extend relevant sources only when mathematically useful; no mandatory retrospective."}
+    except (OSError, ValueError, ContinuationError, TypeError, KeyError):
+        return {**base, "state": "INDEX_UNAVAILABLE", "continue_research": True}
+
+
 def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]],
                         now: datetime, source_commit: str, reader_driver_id: str | None = None,
                         reader_session_id: str | None = None) -> dict[str, Any]:
@@ -727,6 +750,7 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                      "activity_barrier_is_not_independent_session_liveness_proof": True}
     return {"schema": "ENTERPRISE_MATH_CONTINUATION_PACKET_V1", "source_commit": source_commit,
             "current_normative_context": current_normative_context(),
+            "related_research_context": related_research_hints(task_id, root=root, source_commit=source_commit, restricted=restricted),
             "observed_at": now.isoformat(), "task_id": task_id, "publication_id": record["publication_id"],
             "task": copy.deepcopy(record), "runtime": state, "route": _route(state, result_available=result_available),
             "source_artifacts": pins, "artifact_errors": artifact_errors,

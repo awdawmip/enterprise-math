@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_FOUNDATION_BACKFLOW_V1",
   "status": "ACTIVE",
-  "effective": "2026-09-02",
+  "effective": "2026-11-13",
   "research_architecture": "research_architecture.json",
   "runtime_state_machine": "research_runtime_state_machine.json",
   "axiom_candidate_state_machine": "research_axiom_candidate_state_machine.json",
@@ -42,10 +42,10 @@
       "AUDITED_REPLACEMENT_CANDIDATE",
       "EXACT_NEGATIVE_OBSTRUCTION"
     ],
-    "requires_phase_b_audit_complete": true,
-    "requires_driver_or_steward_classification": true,
+    "requires_phase_b_audit_complete": false,
+    "requires_driver_or_steward_classification": false,
     "working_truth_not_required_for_intake": true,
-    "rule": "Free discovery may be journaled as provenance, but Foundation backflow begins only after the candidate lifecycle has produced an audited mature object."
+    "rule": "Permitted published candidates may be explored and linked without FQ, classification or completed audit. Candidate status is not proof or canonical promotion; preserve actual source exposure and Phase-A blind firewalls."
   },
   "feedback_packet_fields": [
     "candidate_object_or_tool",
@@ -96,12 +96,13 @@
     "registered_foundation_task_allowed": true,
     "new_foundation_task_requires_immutable_registration": true,
     "one_fq_one_permanent_branch_required": false,
-    "existing_owner_task_may_carry_fq_only_if_explicitly_declared": true,
+    "existing_owner_task_may_carry_fq_only_if_explicitly_declared": false,
     "research_task_question_field": "foundation_questions",
     "live_claim_scope_must_not_be_reinterpreted": true,
     "scope_drift_forbidden": true,
     "answered_research_link_is_not_live_dispatch": true,
-    "answered_research_link_requires_terminal_v2_publication": true
+    "answered_research_link_requires_terminal_v2_publication": true,
+    "exploration_requires_scheduler_link": false
   },
   "question_scheduler_links": [],
   "answered_question_scheduler_links": [],
@@ -210,6 +211,69 @@
   "nonblocking": {
     "backflow_ack_is_required_for_research_progress": false,
     "candidate_audit_or_backflow_is_hard_block": false,
-    "only_complete_hard_block_can_stop_route": true
-  }
+    "only_complete_hard_block_can_stop_route": true,
+    "fq_or_packet_required_for_exploration": false,
+    "classification_or_fixed_phases_required": false,
+    "review_or_lean_required_to_continue": false
+  },
+  "research_policy": {
+    "workflow_required": false,
+    "phase_labels": "OPTIONAL_DESCRIPTIVE_METADATA_NOT_AN_ADMISSION_SEQUENCE",
+    "packet_fields": "OPTIONAL_HELPFUL_CONTEXT_NOT_A_REQUIRED_TEMPLATE",
+    "handoff_required": false,
+    "research_methods_and_depth": "RESEARCHER_JUDGMENT",
+    "retrospective_every_turn": false,
+    "fixed_count_or_score": false,
+    "formalization_default": "DEFERRED",
+    "empty_links_mean_no_results": false,
+    "github_is_source_of_record": true,
+    "actual_owner_claims_and_scientific_evidence_preserved": true
+  },
+  "related_research": [
+    {
+      "task_ids": [
+        "RS-HODGE-H0N-NONSPLIT-WEIL-EXCEPTIONAL-CH3-SEED-OBJECT",
+        "RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3"
+      ],
+      "relation": "EXISTING_REVIEW_SUCCESSOR",
+      "status": "SOURCE_ROUTE_NOT_A_NEW_THEOREM",
+      "note": "Original H0N accepted bounded negative result routes to existing H0O; preserve both generations, exact scope and the open mother question. Do not infer missing mathematical review from a pending follow-up projection.",
+      "source_refs": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "0bb7070a59949265eddaa0c0fc067a1947b84e8f",
+          "path": "research_notes/driver/2026-11-13_historical_review_followup_cross_lane_reconciliation.md"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_result_reviews/RR-65EB865C14B89B964BB9/DR-3989A98DCE909ADD3833.json"
+        }
+      ]
+    },
+    {
+      "task_ids": [
+        "RS-GEO6-FIRSTWAVE-ACCEPTED-PRIOR-ART-SYNTHESIS",
+        "RS-GEO6-MAHLER-PRIOR-ART-SYNTHESIS",
+        "RS-GEO6-SECONDWAVE-PACKING-KAKEYA-PRIOR-ART-SYNTHESIS"
+      ],
+      "relation": "EXISTING_REVIEW_SUCCESSOR",
+      "status": "SOURCE_ROUTE_NOT_A_NEW_THEOREM",
+      "note": "Existing accepted reviews and already published Second-wave work are related sources for reuse/correction; preserve their authors and current owner. This relation does not claim a new mathematical implication or require another Task.",
+      "source_refs": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "0bb7070a59949265eddaa0c0fc067a1947b84e8f",
+          "path": "research_notes/driver/2026-11-13_historical_review_followup_cross_lane_reconciliation.md"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_result_reviews/RR-547A186EBDE5EE6CD8A3/DR-CE3F008C48F9EBBFF9FA.json"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_result_reviews/RR-EC0502A82AD5DC3995F4/DR-6A6587387463AE326117.json"
+        }
+      ]
+    }
+  ]
 }

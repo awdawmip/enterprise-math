@@ -400,12 +400,10 @@ def _claim_result_gate_reason(
     result_state: dict[str, Any] | None,
     root: Path,
 ) -> str | None:
-    """Reject only CLAIMs inside the current frozen-result lifecycle interval.
+    """Retain terminal Task and server-provenance checks, not review waiting.
 
-    Historical CLAIMs before the newest result freeze remain canonical. A normal
-    nonterminal Driver review reopens admission at its authoritative reviewed_at.
-    Terminal review never reopens the task. The server-created comment timestamp,
-    never body-declared `at`, is the claim clock.
+    Pending review/follow-up does not prohibit continued mathematics. Exact
+    intent, actual owner and predecessor CAS are independently enforced.
     """
     frozen_at = _result_freeze_time(result_state, root)
     if frozen_at is None or result_state is None:
@@ -566,12 +564,10 @@ def _block_unreviewed_registered_done(
     *,
     resolved_lease_minutes: int | None = None,
 ) -> dict[str, Any]:
-    """Fail closed when an authenticated DONE lacks terminal result authority.
+    """Record an unaccepted completion report without blocking later research.
 
-    The rejected DONE is not promoted to completion.  It only prevents the same
-    task from falling back to fresh dispatch while its attempted terminal closure
-    is unresolved.  A trusted Result/Driver lifecycle overlay, an active lease,
-    or an active cohort remains authoritative and is never replaced by this guard.
+    The rejected DONE still grants no terminal authority. A current Result,
+    live owner, actual hard block or active cohort remains authoritative.
     """
     if result_state is not None or state.get("dispatch_state") != "NEEDS_DISPATCH":
         return state

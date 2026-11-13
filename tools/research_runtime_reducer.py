@@ -376,7 +376,7 @@ def _project_unresolved_handoff(
         "missing_object": "an explicit continuation versus frozen-return scope for this exact frontier",
         "owner": "control-plane/handoff-scope-reconciliation",
         "necessity": "An untyped old handoff must not silently redispatch completed research.",
-        "unblock_condition": "Append an authorized exact-frontier RECONCILE_HANDOFF_SCOPE event with verified immutable source evidence, or consume the ordinary Result/review lifecycle.",
+        "resolution_options": "Use actual preserved frontier in typed continuation; a separate scope-reconciliation event is optional and grants no mathematical acceptance.",
     }
     state["next_action"] = (
         "Preserve the exact legacy frontier in typed continuation; "
