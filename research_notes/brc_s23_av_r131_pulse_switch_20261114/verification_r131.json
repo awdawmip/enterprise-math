@@ -1,0 +1,76 @@
+{
+  "schema": "EM_R131_PULSE_CHECK_V1",
+  "exact_exhaustive": {
+    "checked_B_min": 2,
+    "checked_B_max": 160,
+    "B_cases": 159,
+    "atom_representatives": 50721,
+    "total_distinct_cuts": 25281,
+    "patterns_checked_per_B": "all 0/1 for m=1,2,5,17; exactly m-bit mixed for m>=2"
+  },
+  "random_rationals_checked": 5000,
+  "aligned_scaled": {
+    "cases": 144,
+    "exact_parameter_checks": 12912,
+    "r_range": "2..17",
+    "e_values": [
+      1,
+      2,
+      7
+    ],
+    "K_values": [
+      1,
+      2,
+      5
+    ]
+  },
+  "huge_integer": {
+    "B_decimal_digits": 151,
+    "B": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000037",
+    "zero_witness": {
+      "numerator": "1",
+      "denominator": "2000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000074"
+    },
+    "one_witness": {
+      "numerator": "2000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000073",
+      "denominator": "2000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000146000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002664"
+    }
+  },
+  "benchmark": [
+    {
+      "B": 64,
+      "explicit_positions": 251,
+      "trace_median_ms": 1.169925,
+      "certificate_median_ms": 0.007541,
+      "trace_bits": 251,
+      "witness_decimal_digits_max": 4
+    },
+    {
+      "B": 256,
+      "explicit_positions": 1019,
+      "trace_median_ms": 5.558915,
+      "certificate_median_ms": 0.010145,
+      "trace_bits": 1019,
+      "witness_decimal_digits_max": 6
+    },
+    {
+      "B": 1024,
+      "explicit_positions": 4091,
+      "trace_median_ms": 25.37627,
+      "certificate_median_ms": 0.015714,
+      "trace_bits": 4091,
+      "witness_decimal_digits_max": 7
+    },
+    {
+      "B": 4096,
+      "explicit_positions": 16379,
+      "trace_median_ms": 100.042392,
+      "certificate_median_ms": 0.019689,
+      "trace_bits": 16379,
+      "witness_decimal_digits_max": 8
+    }
+  ],
+  "result": "R131_PULSE_SWITCH_PASS",
+  "arithmetic": "Fraction exact",
+  "runtime": "CPython standard library; in-process wall clock medians of three; not calibrated"
+}
