@@ -1,0 +1,67 @@
+# R5: exact two-sided viability and optimal-support slicing
+
+Date: 2026-11-13. Status: author-side mathematical proof and exact finite verification. Researcher: `EM-DIRECT-3BBAC3 / TASK_RESEARCH`; Activity `RA-2591AD545920200CEECEF5D6`. This is an auxiliary certificate-checkpoint algorithm result, not native geometry or formal Result/Review.
+
+## Immutable scientific input and inherited results
+
+Frozen science: `awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551`. Source predecessor: Draft PR #2279, immutable head `ca6fcc41a2d727ec357e425aee6396f15d5c933c`, especially `research_notes/brc_r5_support_pruned_dp_20261113/VERIFY_R5_SUPPORT_BANDS_COMPACT.py`. Original: 15 labeled atoms, exact rational activation thresholds, 954 strictly increasing integer cumulative event boundaries, 1,065 events, 213 selected centers, maximum event radius 2. Existing exact optimal total cost 1070, tie count 1338767625695954932334592000 and original 12-byte combination-rank center code are not changed.
+
+## Theorem 1: exact two-sided fixed-length viability
+
+Let `x_0 < x_1 < ... < x_W` be strictly increasing integer event counts, let `R >= 0`, `K >= 1`, and form the directed acyclic radius-coverage graph `G=(V,E)` from the original R5 adjacent-center criterion. `p -> q` (with `p<q`) holds precisely when the radius-`R` neighborhoods of those two centers cover all query boundaries between them. Let `A` be allowed first centers, covering `x_0`; let `Z` be allowed last centers, covering `x_W`.
+
+Define forward exact-length reachability `F_1=A`, `F_{j+1}=N^+(F_j)`, and backward exact-length reachability `S_1=Z`, `S_{t+1}=N^-(S_t)`. A state `p` occupying the `j=K-t+1`th center of some full length-`K` legal covering path exists **if and only if**
+
+```text
+p in H_t := F_(K-t+1) intersection S_t .
+```
+
+Proof: a full legal path supplies its first `j` centers and remaining `t` centers, so `p` belongs to both sets. Conversely, the prefix and suffix witnessing membership share exactly `p`; concatenating the prefix with the suffix after `p` gives a path of precisely `j+t-1=K` centers. The graph is acyclic with increasing vertex indices, hence the concatenated path has distinct ordered centers. Both end conditions hold. Thus intersection is exact, not a heuristic band.
+
+For any additive edge cost, optional initial `head(p)` and terminal `tail(p)`, restricting *each DP layer* to `H_t` preserves the minimum complete-path cost, the exact number of ties, and the lexicographic ranking/unranking of all complete optimum paths. Indeed no complete legal path contains a state outside its corresponding `H_t`, while every complete legal path is still present; its weights and order are unchanged. This includes `K=1` and the empty feasible-path case (answer no legal cover).
+
+The forward and backward reachable sets can be evaluated in `O(K(|V|+|E|))` elementary graph operations. This is **preprocessing**; reporting just the reduced DP cells as total algorithm runtime would be incorrect. An exact min-plus/tie-count DP over `H_t` uses `sum_t |H_t|` retained entries plus the costs of constructing the viability layers. For integer-increasing event counts, each vertex has at most `2R+1` outgoing candidates, so the subsequent restricted DP work is `O((2R+1) sum_t |H_t|)`. This bound is for the R5 radius graph, not arbitrary DAGs.
+
+## Theorem 2: optimal-only support
+
+Write `alpha_j(p)` for the least complete prefix cost through the `j`th selected center `p` (including the initial head cost) and `beta_t(p)` for the least suffix cost from that center with `t` selected centers remaining (including the terminal tail cost). On `H_t`, let `J_*` be the full-path optimal cost. A state lies on **at least one globally optimal full legal path** if and only if
+
+```text
+p in O_t := {p in H_t: alpha_(K-t+1)(p) + beta_t(p) == J_*}.
+```
+
+Proof: any optimal complete path through `p` has cost at least `alpha+beta`, while concatenating cost-minimizing prefix and suffix through `p` yields an allowed full path with exactly that cost (as above). Thus `alpha+beta >= J_*`, with equality precisely for states carried by an optimal complete path. Keeping only `O_t` retains all optimal paths and therefore their tie multiplicities and ranks. Computing `O_t` depends on both forward and backward exact costs; it is not a substitute for first determining `J_*`.
+
+## Exact pinned R5 census
+
+Rebuilt the original 15-atom `Fraction` activation histogram and the 56-byte predecessor center encoding. Exact observations:
+
+| Object | Count |
+|---|---:|
+| Query boundaries / cumulative events | 954 / 1065 |
+| Directed legal radius-2 edges | 4383 |
+| Dense 213-by-954 DP row cells | 203202 |
+| Backward nonempty suffix row cells `sum_t |S_t|` | 83813 |
+| Forward prefix row cells `sum_j |F_j|` | 74967 |
+| **Exact full-path viable states `sum_t |H_t|`** | **734** |
+| **Exact global-optimum viable states `sum_t |O_t|`** | **620** |
+
+Against predecessor suffix support, the fixed-length two-sided filter removes `83079/83813 = 99.12424086955485%` of DP entries; relative to the dense table it retains only `734/203202` of entries. This is a *logical DP-state count*, not a demonstrated 99% memory, wall-clock or application-performance improvement. Forward/backward graph generation, rational activation reconstruction and all original certificate/bitmap query work remain to be accounted for.
+
+The new restricted DP returned exactly:
+
+```text
+J_min = 1070
+number_of_global_optima = 1338767625695954932334592000
+rank_of_original_213_center_list = 417027933051277583800994379
+```
+
+All 213 layers of `H_t` and `O_t` are nonempty in this fixture. Both were observed to have contiguous index sets here; **no general interval theorem is asserted**.
+
+The attached standard-library verifier rebuilds the original rational fixture and checks these values, including a direct exhaustive crosscheck on **8016** small `(increment vector, R, K)` cases with increments 1,2,3 and length 1 through 5. It compares legal complete-path membership layer-by-layer with direct `K`-subset enumeration, then compares exact optimal cost and optimal-path count. No floating point approximation is used.
+
+## Scope, inheritance, and next actionable question
+
+This theorem concerns exactly the finite weighted radius-cover DAG and the existing frozen R5 certificate sampling problem. It does not change P000, BRC native arithmetic, source freeze, earlier proof admission, or any formal task owner.
+
+The main next discriminating experiment is the **end-to-end original pinned bitmap/prefix-query pipeline**, including threshold decoding and building `F_t`, `S_t`, `H_t`: compare full cold-process RSS and wall time against the predecessor dense/pruned and blockwise schemes, with the same 12-byte optimal-center rank. A useful follow-on is streaming reconstruction of `H_t` without keeping all `F_t` and `S_t` in RAM, followed by validation of all 2,747,520 original prefix comparisons. Record total preprocessing/recovery cost rather than projecting DP row reductions onto overall speed.
