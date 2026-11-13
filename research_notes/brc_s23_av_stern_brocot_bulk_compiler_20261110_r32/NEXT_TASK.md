@@ -1,0 +1,3 @@
+# R32 successor research unit
+Frozen science: 43ec6098b1330ae86d0a7863be336c5d97f6ef34.
+Generalize the R32 Stern-Brocot-to-block compiler to variable m and arbitrary irrational theta specified by a strict certified rational enclosure. Accelerate mediant chains using continued-fraction quotient jumps. Replace 261 small-prefix updates by exact rank/select or floor-sum. Give a fully output-sensitive bit-complexity theorem including enclosure construction, source-template computation, output and independent verification. Test a second input family. Reuse actual current Owner/CLAIM authority; preserve auxiliary-vs-native-X6 scope.
