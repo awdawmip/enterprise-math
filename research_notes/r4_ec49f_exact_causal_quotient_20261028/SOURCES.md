@@ -1,0 +1,21 @@
+# EC49F source and novelty boundaries (verified 2026-10-28)
+
+## Project frozen sources
+
+- Global knowledge `GLOBAL_KNOWLEDGE_V1` canonical `awdawmip/chatgpt-global-knowledge` `main@c4a44293d89f7f12bfbdb89d261ec77abf8f2595`, read `00_BOOTSTRAP.md`, `OPERATING_MANUAL.md`, `projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md`, `projects/enterprise-math/00_EM_TASK_RESEARCHER_BOOTSTRAP.md`, `projects/enterprise-math/P000_STARTUP.json` and triggered math, code, BRC, research-activity policies. P000 projection blob matched canonical original (`770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc`). ACTIVE worldview file `我眼中的世界.md` read but unchanged.
+- Enterprise Math source read `awdawmip/enterprise-math` `main@f75dae1d65ef842089950d0a440c61cab20e42e2`: `AGENTS.md`, `p000_reality_foundation.json`, `definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md`, `docs/RESEARCH_RUNTIME_STATE_MACHINE.md`, `docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md`, `control_plane/current_control_authority.json`. No P000 or ACTIVE-worldview writes.
+- EC49E immutable source: `awdawmip/enterprise-math@4cc5c0407d499562b7f3039a51454c53dc438c82:research_notes/r4_ec49e_marginal_lr_two_stage_20261028/PROOF.md` and `NEXT_TASK.md`; its published mathematical status is author-side unreviewed. Used its literal 8-leaf integer masses and exact c=1/8 support formula; did not silently promote to official Result.
+
+## External scholarly comparators (original publisher/proceedings pages)
+
+1. Littman, Sutton, Singh, “Predictive Representations of State,” NeurIPS 2001, publisher: https://proceedings.neurips.cc/paper/2001/hash/1e4d36177d71bbb3558e43af9577d70e-Abstract.html . Prior art for multi-step *action-conditional* predictive states, not a new EC49F invention.
+2. Castro, Panangaden, Precup, “Equivalence Relations in Fully and Partially Observable Markov Decision Processes,” IJCAI 2009, https://ijcai.org/proceedings/2009/276 . Distinguishes bisimulation and action-conditioned trace equivalence; matches the general state-equivalence setting.
+3. Givan, Dean, Greig, “Equivalence notions and model minimization in Markov decision processes,” *Artificial Intelligence* 147 (2003) 163–223, DOI https://doi.org/10.1016/S0004-3702(02)00376-4 . Earlier exact MDP equivalence/minimization theory.
+4. Bork, Katoen, Quatmann, Stein, “Multi-Cost-Bounded Reachability Analysis of POMDPs,” UAI/PMLR 2025, https://proceedings.mlr.press/v286/bork25a.html . Recent related source for simultaneous reachability and multi-cost objectives; it does **not** prove our four-vector quotient.
+5. Belly, Fijalkow, Gimbert, Horn, Pérez, Vandenhove, “Revelations: A Decidable Class of POMDPs with Omega-Regular Objectives,” AAAI 2025 (published 2025-04-11), https://ojs.aaai.org/index.php/AAAI/article/view/34845 . Exact algorithms for specified revealing POMDP subclasses; different objectives and assumptions.
+
+**Prior-art statement.** Probabilistic bisimulation, predictive state representations, rational occupancy measures and MDP state aggregation are established research. EC49F contributes a carefully typed finite two-source **application/constructive certificate** for the project’s raw four-observation BRC interface, the explicit 14→6 full-history compression, and an exact kernel audit of the independently preserved EC49E obstruction. Do not infer general novelty priority, universal minimal memory, native X6 correspondence or empirical physics from these results.
+
+## Actual control authority during this author-side study
+
+Connected GitHub returned authenticated login `awdawmip`, and project repository push permission was true. Enterprise Math gateway v0.6.11 read-only status returned `research_authority_granted=false`; a current bounded owner/task query returned `CONTROL_QUOTA`. The prior EC49E study records `STATIC_READONLY_SCOPE_DENIED` for the own session request; that write was not retried by another tool or identity. No current CLAIM, native Research-Activity, review or Result was inferred. GitHub storage on an author-side research branch is an independent evidence handoff, not a canonical research publication or mathematical admission. The protected global/worldview material is unchanged.
