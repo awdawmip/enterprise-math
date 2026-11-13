@@ -1,0 +1,101 @@
+{
+  "centers": {
+    "calibrated": {
+      "eta": "-1/12",
+      "sigma": "1/4",
+      "tau": "1/2"
+    },
+    "free": {
+      "eta": "-1/16",
+      "sigma": "5/16",
+      "tau": "3/8"
+    }
+  },
+  "counts": {
+    "distinct_vertices": 42,
+    "feasible_bases": 256,
+    "five_facet_subsets": 4368,
+    "nonsingular": 3008
+  },
+  "full_vertices_enumeration": "C(16,5)=4368 exact 5-facet checks; compact full-dimensional bounded 5-polytope",
+  "lower_bound": {
+    "calibrated": {
+      "combined_event_difference": "5/12",
+      "events": [
+        [
+          0,
+          3,
+          5,
+          6,
+          9,
+          10,
+          12,
+          15
+        ],
+        [
+          1,
+          2,
+          3,
+          7,
+          11,
+          13,
+          14,
+          15
+        ]
+      ],
+      "weights": [
+        "1/3",
+        "2/3"
+      ],
+      "witnesses": [
+        [
+          "3/4",
+          "-1/4",
+          "-1/4",
+          "0",
+          "0"
+        ],
+        [
+          "-1/4",
+          "-3/4",
+          "-3/4",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    "free": {
+      "event": [
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        14,
+        15
+      ],
+      "event_difference": "13/32",
+      "witness": [
+        "0",
+        "-3/4",
+        "-1/2",
+        "-1/4",
+        "-1/4"
+      ]
+    }
+  },
+  "radii": {
+    "calibrated": "5/12",
+    "free": "13/32",
+    "strict_calibration_penalty": "1/96"
+  },
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "auxiliary Walsh observer fiber at (m3,m12)=(1/2,1/4), eight other retained moments zero",
+  "status": "PASS",
+  "unit": "R749SNI",
+  "upper_bound_tight_vertices": {
+    "calibrated": 6,
+    "free": 14
+  }
+}
