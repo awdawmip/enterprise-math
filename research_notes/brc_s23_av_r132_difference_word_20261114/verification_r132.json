@@ -1,0 +1,69 @@
+{
+  "schema": "EM_R132_DIFFERENCE_WORD_CHECK_V1",
+  "exact_exhaustive": {
+    "B_range": "2..18",
+    "m_range": "1..8",
+    "instances": 136,
+    "independent_exact_atoms": 14600,
+    "all_binary_patterns_tested": 8670,
+    "attainable_patterns": 3236
+  },
+  "random": {
+    "count": 5000,
+    "with_exact_witness": 790
+  },
+  "huge": {
+    "B_digits": 151,
+    "m": 64,
+    "valid_witnesses": {
+      "all_zero": {
+        "numerator_digits": 1,
+        "denominator_digits": 151
+      },
+      "all_one": {
+        "numerator_digits": 300,
+        "denominator_digits": 301
+      },
+      "onehot_0": {
+        "numerator_digits": 151,
+        "denominator_digits": 301
+      },
+      "onehot_last": {
+        "numerator_digits": 151,
+        "denominator_digits": 301
+      }
+    }
+  },
+  "timing": [
+    {
+      "B": 64,
+      "m": 12,
+      "decision_median_ms": 0.105506,
+      "all_trace_enum_median_ms": 58.296449,
+      "candidate_count": 224
+    },
+    {
+      "B": 256,
+      "m": 12,
+      "decision_median_ms": 0.113288,
+      "all_trace_enum_median_ms": 240.421373,
+      "candidate_count": 224
+    },
+    {
+      "B": 1024,
+      "m": 12,
+      "decision_median_ms": 0.129762,
+      "all_trace_enum_median_ms": 958.604351,
+      "candidate_count": 224
+    },
+    {
+      "B": 4096,
+      "m": 12,
+      "decision_median_ms": 0.164223,
+      "all_trace_enum_median_ms": 3728.850889,
+      "candidate_count": 224
+    }
+  ],
+  "result": "R132_ONEINTEGER_FEASIBILITY_PASS",
+  "arithmetic": "all comparisons exact Fraction; in-process benchmark medians of 3"
+}
