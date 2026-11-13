@@ -1,0 +1,90 @@
+{
+  "schema": "PREFIX760_R6_EXACT_GAMMA_VARIANCE_RESULT_SUMMARY_V1",
+  "date": "2026-11-14",
+  "scientific_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model_scope": "external independent two-Gamma-clock auxiliary",
+  "validation": "EXECUTED_PYTHON_3_13_STDLIB_FRACTION_EXACT",
+  "rows": 189,
+  "nonzero_survivor_positions": 9529,
+  "final_survivors": 0,
+  "program": "PREFIX760_R6_EXACT_GAMMA_VARIANCE_CHECK.py",
+  "full_generated_result_filename": "PREFIX760_R6_EXACT_GAMMA_VARIANCE_RESULTS.json",
+  "full_generated_result_bytes": 24743,
+  "full_generated_result_sha256": "1a480a9a05c4773f82091037fa8f6b695855ffbb885b21e804d56fdc181d4e76",
+  "full_generated_rational_certificate_policy": "Program writes complete Fraction numerators and denominators for all six comparison points; this summary stores sign-check bounds and decimal displays, not a copy of the large generated file.",
+  "bounds": [
+    {
+      "z": "0",
+      "delta_mu": "111.0623599516273",
+      "delta_variance": "367.8660242514655",
+      "delta_V_2": "1249.339377102608",
+      "exact_test": "367<delta_variance<369;111<delta_mu<112;delta_V_2>1249"
+    },
+    {
+      "z": "1/16",
+      "delta_mu": "92.94258574534901",
+      "delta_variance": "111.3805825098591",
+      "delta_V_2": "259.6371585487385",
+      "exact_test": "delta_V_2>259"
+    },
+    {
+      "z": "5/64",
+      "delta_mu": "86.19294690125373",
+      "delta_variance": "14.59916238300244",
+      "delta_V_2": "-113.9892442704977",
+      "exact_test": "delta_variance>14;delta_V_2<-113"
+    },
+    {
+      "z": "3/32",
+      "delta_mu": "78.75350837964463",
+      "delta_variance": "-78.52602559848511",
+      "delta_V_2": "-471.6111191532297",
+      "exact_test": "delta_variance<-78"
+    },
+    {
+      "z": "1/4",
+      "delta_mu": "10.8816823293262",
+      "delta_variance": "-159.3866864592493",
+      "delta_V_2": "-659.3101104956497",
+      "exact_test": "delta_variance<-159;delta_mu>10;delta_V_2<-659"
+    },
+    {
+      "z": "1/2",
+      "delta_mu": "0.1218662990391445",
+      "delta_variance": "-3.58921263688407",
+      "delta_V_2": "-14.60058314561457",
+      "exact_test": "delta_variance<-3;delta_V_2<-14"
+    }
+  ],
+  "moment_bound_refinements": [
+    {
+      "z": "0",
+      "B1": "0.5561375863296085",
+      "B2": "31.72603380562007",
+      "B1_factor_vs_PREFIX759": "1",
+      "B2_factor_vs_PREFIX759": "1"
+    },
+    {
+      "z": "1/4",
+      "B1": "0.0004979985734309839",
+      "B2": "0.02903864894103324",
+      "B1_factor_vs_PREFIX759": "1.189910416062475",
+      "B2_factor_vs_PREFIX759": "1.216267323249"
+    },
+    {
+      "z": "1/2",
+      "B1": "3.358751883148741e-8",
+      "B2": "1.919169613808823e-6",
+      "B1_factor_vs_PREFIX759": "1.013247570729659",
+      "B2_factor_vs_PREFIX759": "1.0148864919196"
+    }
+  ],
+  "run_exit_status": "ALL_CHECKS_PASS PREFIX760 exact finite moment, variance, q2 root-bracketing and full-second-clock bounds",
+  "limitations": [
+    "unreviewed author-level",
+    "not formal result",
+    "not native X6",
+    "unique root not established",
+    "no added area exclusion"
+  ]
+}
