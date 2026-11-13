@@ -1,0 +1,10 @@
+Execution date: 2026-11-08
+Local checker: Python stdlib fractions.Fraction, /mnt/data/VERIFY_AFFINE_CORNER.py; compatible local seven-node mass/time equations from /mnt/data/VERIFY.py.
+Input: exact endpoint source/target t=0 and t=1/50, eleven exact rational edge entries encoded in VERIFY_AFFINE_CORNER.py. 101 additional exact rational regressions.
+Observed stdout:
+PASS_EXACT_ENDPOINTS_AFFINE_11_EDGES_T_0_TO_1_50
+PASS_EXACT_101_AFFINE_REGRESSIONS
+PROVED_ALL_REAL_T_0_TO_1_50_P0_Q1_THETA1_KAPPA3_4_EXACT_SEEDLESS
+
+Mathematical evidence: both exact endpoints, affine source/target/kernels, convex preservation of identities/inequalities; 101 checks are implementation regression only.
+Remote uploaded verifier and note are content persistence, not a claim of execution on the GitHub server.
