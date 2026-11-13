@@ -1,0 +1,86 @@
+{
+  "status": "PASS_EXACT_R5_RADIUS_BUDGET_PRIMAL_DUAL",
+  "frozen_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "boundaries": 954,
+  "events": 1065,
+  "histogram": {
+    "single": 869,
+    "double": 56,
+    "triple": 28
+  },
+  "budget_radius_thresholds": [
+    {
+      "budget": 213,
+      "minimal_radius": 2,
+      "minimum_centers_at_previous_radius": 351,
+      "minimum_centers_at_radius": 213
+    },
+    {
+      "budget": 57,
+      "minimal_radius": 9,
+      "minimum_centers_at_previous_radius": 63,
+      "minimum_centers_at_radius": 57
+    },
+    {
+      "budget": 15,
+      "minimal_radius": 36,
+      "minimum_centers_at_previous_radius": 16,
+      "minimum_centers_at_radius": 15
+    }
+  ],
+  "kmin_by_radius": {
+    "0": 954,
+    "1": 351,
+    "2": 213,
+    "3": 150,
+    "4": 120,
+    "5": 98,
+    "6": 82,
+    "7": 72,
+    "8": 63,
+    "9": 57,
+    "10": 51,
+    "11": 46,
+    "12": 43,
+    "13": 40,
+    "35": 16,
+    "36": 15
+  },
+  "greedy_radius2_mean_cost": 1104,
+  "legacy_radius2_mean_cost": 1070,
+  "legacy_center_count": 213,
+  "greedy_radius2_first_12": [
+    2,
+    6,
+    11,
+    16,
+    21,
+    26,
+    31,
+    35,
+    39,
+    42,
+    46,
+    49
+  ],
+  "greedy_radius2_last_12": [
+    900,
+    905,
+    910,
+    915,
+    920,
+    925,
+    930,
+    935,
+    940,
+    945,
+    950,
+    953
+  ],
+  "exhaustive_small": {
+    "cases": 6558,
+    "dual_witness_points": 22182,
+    "subset_search_spaces_upper_bound": 665286
+  },
+  "proof_certificate": "for every r, greedy centers cover all x and witnesses pairwise cannot share any radius-r center; matching cardinalities prove Kmin exactly"
+}
