@@ -1,0 +1,9 @@
+# R5 portable continuation — escape the strict-stop overlap obstruction
+
+Mother question: find a legal, strictly stop/continue-only, two-law, 4-observer model whose full-history and seedless likelihood-ratio behavioral strategy images have equal full-rank four-dimensional convex hulls but unequal actual real images; or prove a narrowly typed obstruction. Preserve the P000-bound mathematical context, strictly positive P/Q transition kernels, true path termination, two exact LR collisions, source-labelled branch masses and the no-persistent-random-seed LR restriction.
+
+Frozen inputs: GLOBAL_KNOWLEDGE_V1 main@104a8e9dabd6198aeb9994305ea4fd4f4eea0d12; Enterprise Math main@7a590c60e49a420b88518fec60818ac3b70a4b7d. Predecessor nonterminal route-memory model: PR #1663 @66e9d11b112b048dbf9d067fa2a6d765b110ad72. Consume this directory's proof, actual Python verifier and exact stdout; do not repeat the overlap wedge.
+
+Next executable question: in the fixed natural strict-stop diamond, leave d_0/b<=1/2, d_1/b<=1 and vary legal early stop error values d_0,d_1 (or separate P/Q terminal-error kernels). Derive both FULL and LR signed Bellman support envelopes for the entire parameter domain. Find a rational full-rank hull-equality example with exact nonnegative convex weights for all FULL deterministic observations, or a parameter-uniform exact signed Farkas separator. Only if full 4D hull equality is certified, test real-image nonmembership by exact semialgebraic or constructive arguments. Analyze whether every positive-mass overlap obstruction can be neutralized without nonterminal routing.
+
+Acceptance: one substantive proof with complete assumptions or verified exact rational certificate, precise role/owner/pin provenance, source and verification scope, executable code and next question. This is author-side material; Native CLAIM/Result/independent Driver admission require separate real authorization.

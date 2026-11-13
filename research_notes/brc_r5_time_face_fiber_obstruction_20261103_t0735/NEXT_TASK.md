@@ -1,0 +1,11 @@
+# R5 next — other admissible nonuniform time-order branch
+
+Date: 2026-11-03 Asia/Shanghai. Scientific inputs frozen: Global a01383f825ef9d43b4b754254303298c64041568, Enterprise Math 86149263e38c22292c9def1e0f69092efa1be77e. Current normative rules read separately; P000 and ACTIVE worldview remain unchanged.
+
+**Verified predecessor.** Adjacent RESEARCH.md proves for all real 0<a0<aI<=aC<1, a=(aC,aI,a0,a0), any admissible common ratio b_s=rho(1+a_s)-1, and all independently varying p_s,q_s in (0,1), that the true four-observer FULL and LR convex hulls have a separating signed normal with exact support gap 5*delta/128 whenever 0<delta<g. Thus the preceding time-projection equality admits a hidden answer-fiber obstruction. Fraction execution and exact coverage are in adjacent VERIFY.py / EXACT_OUTPUT.txt; the seven parameter tests crosscheck the all-real analytic proof.
+
+**Next independently executable scientific unit.** Treat the OTHER time-projection-equality order branch: a=(aC,a0,aBJ,a0) with 0<a0<aBJ<=aC<1, and b_s=rho(1+a_s)-1 strictly in (0,1). Determine whether ANY independent p_s,q_s in (0,1) gives equal true four-observer hulls, or give an exact all-answer-probability separation. Use the pure-time exposed LR vertex {C,BJ}; test x- and i-linked hidden upstream answer fibers, both positive and negative small tilts in eP,eQ. An observer-fiber mismatch alone must be turned into a valid full 4D support separation.
+
+Tools: preserve positive source mass Q_s=w_s alpha_s z_s and S_s=(2/3)Q_s t_s, use the existing all-signed FULL Bellman formula and only 16 LR binary corners; if the candidate survives, certify every one of 2048 raw FULL deterministic observation points by rational LR convex combinations, or give an exact Farkas separator. If complete four-observer hull equality is achieved, separately test actual real-behaviour image membership.
+
+Source status: AUTHOR_PROVED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY. This research is author-side: no owner/CLAIM/Result/independent Driver authority was confirmed; the bounded native owner query was throttled and the Site is statically read-only. Preserve the mother target and independent review requirements.

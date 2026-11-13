@@ -1,0 +1,5 @@
+# Author-side source and authority record
+
+Date: 2026-11-04 Asia/Shanghai. Project: Enterprise Math / R5. GitHub authenticated login: awdawmip (admin/push repository access, independently queried). Source branch: research/brc-r5-robust-interval-20261029-0440, PR #1663. Frozen scientific pins: Global a01383f825ef9d43b4b754254303298c64041568, Enterprise Math 86149263e38c22292c9def1e0f69092efa1be77e. Parent proof: immutable 4d31cd27e140665bdf2fa5da7dd293252e826024.
+
+Native service status observed: research_authority_granted=false, client sites-em-6abdec598ad48191aebece9a8232f041-ro; canonical active task query returned CONTROL_QUOTA (5 active native control jobs/5 allowed). Current native owner and researcher session are unconfirmed. This file is author-side provenance, NOT an issued RA, authenticated session, CLAIM, Result, or Driver review. No credential is present. Status: AUTHOR_PROVED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY.

@@ -1,0 +1,7 @@
+# R5 successor — compensated crossing-merger intermediate-error experiment
+
+Preserve the three genuine STOP/CONTINUE decisions at times 2,3,4 and mandatory terminal time 5. Freeze the exact eight strictly positive P/Q weights and both crossing LR partitions from this run's RESEARCH.md: time 2 ratios 7/8 and 9/8, time 3 ratios 3/4 and 5/4, time 4 ratios 1/2 and 3/2. The present theorem is a no-go for unequal final slopes; do not repeat that test.
+
+Enforce final error STOP-minus-CONTINUE slopes c_xuv=kappa_v, constant inside each final ratio class, as required by terminal-collision rigidity. Introduce strictly legal history-dependent middle-stage error and later continuation baseline (a common P/Q Bernoulli-error experiment). Search for full four-dimensional convex hull equality, with all 16384 FULL deterministic observations either certified by up-to-five-point rational LR convex decompositions or separated by an exact Farkas witness. Only when hull equality is fully certified, tackle actual real behavioral-image separation with a semialgebraic infeasibility certificate or a constructive seedless LR implementation. Never use persistent random seeds or nonterminal route actions.
+
+Return the model/parameter source, complete exact proof/certificate and runnable checking code, verified source pins, honest owner/registration status, and one smallest next obstruction. This is author-research scope, not a new formal Source Task/CLAIM.

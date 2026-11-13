@@ -1,0 +1,16 @@
+CASE other_fixed rho 1 tau 3/8 margin 1/192 delta 1/1000 gap 3/16000 Linf_lower 9/508048
+FULL_W 13/16 9/64 163/48 151/48
+LR_V 5/8 15/64 163/48 151/48
+CASE other_mixed rho 1 tau 3/8 margin 1/192 delta 1/768 gap 1/4096 Linf_lower 3/130064
+CASE other_edge rho 1 tau 3/8 margin 1/192 delta 1/768 gap 1/4096 Linf_lower 3/130064
+CASE other_rho_low rho 4/5 tau 7/16 margin 1/384 delta 1/1536 gap 1/8192 Linf_lower 1/72368
+CASE other_rho_high rho 6/5 tau 21/80 margin 11/1920 delta 11/7680 gap 11/40960 Linf_lower 1/48304
+CASE other_tie rho 1 tau 3/8 margin 1/192 delta 1/768 gap 1/4096 Linf_lower 3/130064
+CASE other_spread rho 1 tau 13/32 margin 11/768 delta 11/3072 gap 11/16384 Linf_lower 33/525488
+CASE ridge_fixed rho 1 tau 1/2 margin 1/96 delta 1/1000 gap 13/64000 Linf_lower 13/704064
+FULL_W 5/6 13/96 157/48 595/192
+LR_V 121/192 25/96 157/48 595/192
+CASE ridge_rho_low rho 4/5 tau 9/16 margin 1/128 delta 1/512 gap 13/32768 Linf_lower 39/901312
+CASE ridge_rho_high rho 6/5 tau 29/80 margin 19/1920 delta 19/7680 gap 247/491520 Linf_lower 247/6589632
+PASS_EXACT_R5_16_PARAMETER_CLASSIFICATION
+EXACT_ASSERTIONS 20735 FULL_CORNERS 20480 LR_CORNERS 160 CASES 10

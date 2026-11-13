@@ -1,0 +1,11 @@
+# R5 next: minimal ancestor-sensitive observable lift
+
+Mother question remains OPEN: find a positive rational finite two-law source-sensitive reconvergent model with identical full vs seedless-LR four-observer CONVEX HULLS but unequal ACTUAL real-policy images, or prove a stronger scoped no-go.
+
+Proved in this unreviewed author note: exact joint flow E=(U,L,gamma V L) is convex iff rank(V)=1. Its quotient F=(U,gamma V L) is the exact compact polytope m=Vb, 0<=b_j<=U at every rank. The real seedless-LR tail-only terminal error image with source-sensitive kernel H=KVb and fresh signature declaration mass a_s in [0,H_s] is also a compact polytope. The midpoint rank-two defect -49/2880000 was already known and is only reused; the new scientific result is the all-rank safe quotient plus rank classification.
+
+Next exact mathematical action: add a single ancestor statistic C=c_L L+c_R R to (U,m) or the terminal signature histogram, with V columns v=(11/1200,23/3600), w=(1/40,1/100). Characterize exactly which rational c preserve convexity of the REAL policy image; find a legal rational pair with a nonrealizable midpoint if it is nonconvex, or give a constructive linearization if it stays convex. Test the physically relevant predecessor time coefficients (3/40,11/40) and the independent time contrast isolating L.
+
+Then map the surviving obstruction (if any) into the exact four-observer model. First check equality of ALL SIGNED convex supports by the prior finite deterministic rational LP / Farkas criterion, not by finite direction sampling. Only after full hull equality is proved attempt full real-policy nonmembership with exact semialgebraic elimination.
+
+Do not confuse source-histogram or ancestor-flow nonconvexity with four-observer nonconvexity. Coin pushing changes earlier stops, full P/Q errors and time expectations. Preserve source/path BRC positive masses, P000 and ACTIVE worldview. Inputs: global knowledge main@7b33f8066e9993e7c941959a9d738ed405248eb8; Enterprise Math main@d41c13c55100140ac6ca6bab920abd6ea93174c3. Formal native owner not resolved: CONTROL_QUOTA / STATIC_READONLY_SCOPE_DENIED; this result is author-side, UNREVIEWED and NOT_ADMITTED.

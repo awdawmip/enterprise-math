@@ -1,0 +1,25 @@
+BASELINE_FULL (Fraction(1, 4), Fraction(1, 4), Fraction(7, 4), Fraction(27, 16)) J -10
+BASELINE_FULL_MAX -10 LR_MAX -12
+LR 0000 margin 2 adverse_Q_occupancy 1/16
+LR 0001 margin 2 adverse_Q_occupancy 1/16
+LR 0010 margin 2 adverse_Q_occupancy 1/16
+LR 0011 margin 2 adverse_Q_occupancy 1/16
+LR 0100 margin 2 adverse_Q_occupancy 1/16
+LR 0101 margin 2 adverse_Q_occupancy 1/16
+LR 0110 margin 2 adverse_Q_occupancy 1/16
+LR 0111 margin 2 adverse_Q_occupancy 1/16
+LR 1000 margin 101/16 adverse_Q_occupancy 1/16
+LR 1001 margin 101/16 adverse_Q_occupancy 1/16
+LR 1010 margin 151/32 adverse_Q_occupancy 5/32
+LR 1011 margin 2 adverse_Q_occupancy 0
+LR 1100 margin 65/4 adverse_Q_occupancy 1/8
+LR 1101 margin 231/16 adverse_Q_occupancy 1/16
+LR 1110 margin 469/32 adverse_Q_occupancy 7/32
+LR 1111 margin 81/8 adverse_Q_occupancy 0
+PIECEWISE_SWITCH 29/41
+ROBUST_MARGIN_0_TO_SWITCH 2 - 41*epsilon/16
+ROBUST_MARGIN_SWITCH_TO_ONE (151 - 205*epsilon)/32
+FIXED_WITNESS_ZERO_THRESHOLD 151/205
+EPS_1_OVER_16 471/256 LINF_HULL_GAP_AT_LEAST 471/13568
+CHECKED_FULL_POLICIES 1024 LR_POLICIES 16 BOX_VERTICES_PER_SAMPLE 256 BOX_SAMPLES 5
+PASS_EXACT_R5_COUPLED_MERGER_FIXED_WITNESS_THRESHOLD
