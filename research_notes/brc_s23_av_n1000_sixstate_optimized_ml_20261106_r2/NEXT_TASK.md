@@ -1,0 +1,3 @@
+# Next task
+
+Exact full-ML lower certificate for fixed six rational q is now 0.808199574601456413... . Do not redo this same fixed state family. Explore hypothesis count m in {5,7,8}, rational optimization with exact final integer verification, and a possible n-dependent analytical bound. Distinguish testing the six-point classification lower from solving minimax reconstruction upper. For R_beh(k,10), k=4,6, verify frozen ten-label source-selection, encoder/decoder and observer maps before transfer. Independent reviewer should inspect pairwise winner monotonicity, type partition, multinomial recurrence and TV inequality.

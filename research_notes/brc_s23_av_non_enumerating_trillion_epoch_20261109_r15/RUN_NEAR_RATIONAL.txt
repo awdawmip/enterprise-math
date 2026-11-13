@@ -1,0 +1,21 @@
+Exact near-rational Farey-epoch certification, executed 2026-11-09.
+
+Command:
+python VERIFY_NEAR_RATIONAL.py
+
+Output:
+COMPLETE_EPOCH_ENUMERATION_CERTIFIED 1000 437
+COMPLETE_EPOCH_ENUMERATION_CERTIFIED 20000 9937
+COMPLETE_EPOCH_ENUMERATION_CERTIFIED 100000 49937
+SYMBOLIC_EPOCH_COUNT_CERTIFIED 100000000000 49999999937
+PASS_NEAR_RATIONAL_LINEAR_FAREY_EPOCH_FAMILY
+
+Input: theta = 1/2 + sqrt(2)/10^12, m=128.
+Exact enclosure: K=isqrt(2*10^60), 1/2+K/10^42 < theta < 1/2+(K+1)/10^42.
+Finite full epoch enumeration: N=1000, 20000, 100000. N=10^11 certified by the symbolic exact Farey-epoch theorem and representative order-H neighbour tests. The verifier does NOT enumerate 49,999,999,937 epochs.
+
+Local source SHA256: faaba2cb2c251bbdf5f893a86bce9596ea34eca7a1819f628f1d1eb490ddb0ba
+Local source Git blob: a91379c00827030f62edea179441a1f2cbb8337a
+Local log SHA256: 318fb8b349567b3af96ccaa68f15c7d4ea887757266c07b20e7d47bc8961c6b2
+
+The theorem bounds epoch count; it does not assert all epochs cause risk-value changes. Independent mathematical review pending.

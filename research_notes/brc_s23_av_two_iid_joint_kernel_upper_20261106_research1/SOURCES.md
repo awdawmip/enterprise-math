@@ -1,0 +1,5 @@
+# Sources, execution and scope (2026-11-06)
+
+Frozen source: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34:research_notes/brc_n4_s23_asymmetric_hull_gap_sqrt43_20261101_research1/PROOF.md (blob 766a1cd3f0be000c6d14a96c7c16d7ad5e02647c). Predecessor bound: awdawmip/enterprise-math@54670d366c139a6ab5310e12c1e1838f52ea7a20:research_notes/brc_s23_av_two_iid_deficiency_bounds_20261106_research1/PROOF.md (blob f27e80d9a203e569bb245bbc218d41423e23305a, PR #1777).
+
+Normative inputs read: global bootstrap/manual, math/output/code/EM activity and BRC preference, ACTIVE worldview, P000, Enterprise Math continuation and portable research, current research method, observer-preservation and Heartbeat World. Frozen scientific source remains distinct. Same lawful shared b and six original source identities are preserved. Reproduce using Python3 standard-library Fraction: python3 VERIFY.py. Exact 45 checks were executed in the author's local environment. The complete continuum conclusion follows from the analytic symmetric barycentric proof. The source is not an independent review or formal RESULT/CLAIM.

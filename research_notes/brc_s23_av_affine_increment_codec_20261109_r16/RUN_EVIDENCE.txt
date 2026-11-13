@@ -1,0 +1,28 @@
+# Actual local execution, 2026-11-09
+Source: exact r15 VERIFY_FAST_1T.py algorithm at ae35ded416213bf15886a7b28a40e271c103ada0.
+Frozen science: 43ec6098b1330ae86d0a7863be336c5d97f6ef34.
+Executed exact Python Fraction/integer arithmetic.
+
+Upstream complete 2M: PASS_CERTIFIED_NONENUMERATING_EPOCH_SWEEP 2000000 29 6577 3426 f9dd46e0e9e70b8871717b9d24a7f3361c4228f8894bef00d50458086cebb548
+Upstream complete 1T: PASS_CERTIFIED_NONENUMERATING_EPOCH_SWEEP 1000000000000 78 19072 9698 82a0ffdc13e5743cec32eec6985b3e31ae9cf30b8233de7aa04e1755f141245d
+
+PASS_EXACT_AFFINE_INCREMENT_CODEC BLOCKS_R15_2M.tsv
+source_sha256 f9dd46e0e9e70b8871717b9d24a7f3361c4228f8894bef00d50458086cebb548 source_bytes 94239
+n_range 128 2000128 constant_blocks 3426 affine_runs 102
+runs_zero 50 runs_positive 52 distinct_increments 13
+exact_query_checks 13535 last_affine (-21156991, 80688896)
+output_sha256 26707bc77d7b7267495df34045f1c5111a2d21cb7c8222e83e65775897b013e1 output_bytes 3677 elapsed_sec 0.039
+compression_rows 33.588 compression_bytes 25.629
+
+PASS_EXACT_AFFINE_INCREMENT_CODEC BLOCKS_R15_1T.tsv
+source_sha256 82a0ffdc13e5743cec32eec6985b3e31ae9cf30b8233de7aa04e1755f141245d source_bytes 389512
+n_range 128 1000000000128 constant_blocks 9698 affine_runs 298
+runs_zero 148 runs_positive 150 distinct_increments 23
+exact_query_checks 20142 last_affine (-4017401528447, 15321634290944)
+output_sha256 2573a84999d53dfd1cce772c45a41abaff251da735171efe904c860f2b2294f6 output_bytes 15356 elapsed_sec 0.21
+compression_rows 32.544 compression_bytes 25.365
+
+Reproduction:
+python research_notes/brc_s23_av_non_enumerating_trillion_epoch_20261109_r15/VERIFY_FAST_1T.py 1000000000000 BLOCKS_R15_1T.tsv
+python VERIFY_AFFINE_RUNS.py BLOCKS_R15_1T.tsv AFFINE_RUNS_1T.tsv
+The full 298-row table is regenerated deterministically by these two versioned scripts.

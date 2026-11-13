@@ -1,0 +1,7 @@
+# Source and verification scope
+
+- Immutable frozen scientific input: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`, `research_notes/brc_n4_s23_11d_multiaffine_cell_certificate_20261101_research1/PROOF.md`: pure AV third M row, 11-control S23 stop-time law, fixed encoder/decoder semantics.
+- Direct predecessor (author-side): `PR #1777@4a642243c38c828c3591d740cabf522614bf343b`, `research_notes/brc_s23_av_mother_single_stop_factorization_20261107_research1/{PROOF.md,NEXT_TASK.md}`: exact AV stop-time observer, earlier third-difference bound.
+- Current rules 2026-11-07: `awdawmip/chatgpt-global-knowledge` canonical `main@482c05776f07a41d3784a166c7d885a16d39640b`; `00_BOOTSTRAP.md`, `OPERATING_MANUAL.md`, global math/temporal/code policies, P000 and ACTIVE worldview, project bootstrap and BRC priorities. EM main `6309917cc5c65574663dcaffe48d0df52d897593`: `docs/RESEARCH_CONTINUATION_PROTOCOL.md`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `research_priorities/research_method.json`, joint-observer contract.
+- Independent local execution: Python stdlib Fraction `VERIFY.py`; exact assertions and actual `RUN_EVIDENCE.txt`. The limiting n→∞ statement rests on the written weak-law proof, not a finite sweep.
+- GitHub identity from connector: awdawmip; native EM gateway returned `BACKEND_IDENTITY_OR_VERSION_MISMATCH` with `operation_sent=false`; no official CLAIM, RA or review is asserted.
