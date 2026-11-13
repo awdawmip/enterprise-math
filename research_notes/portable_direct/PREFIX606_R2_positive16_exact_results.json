@@ -1,0 +1,344 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX606_POSITIVE_16_TAIL_EXACT_V1",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "Original 48-phase native-derived BRC Q(z), axis weights (1,1,1,1,0,0); nonnegative phase input; arbitrary variable z>=0; full 48-phase output at horizons >=2",
+  "model": {
+    "native_phases": 48,
+    "native_ports": 96,
+    "tagged_actions": 576,
+    "gate_target_phase": 4
+  },
+  "positive_realization": {
+    "dimension": 16,
+    "E_nonzero": 48,
+    "T0_nonzero": 16,
+    "H_nonzero": 1,
+    "R00_nonzero": 48,
+    "Ra_nonzero": 3,
+    "Rb_nonzero": 1,
+    "M_nonzero": 144,
+    "M_rank": 16,
+    "E_rank": 16,
+    "rectangles": [
+      [
+        [
+          4,
+          5,
+          29
+        ],
+        [
+          32,
+          40,
+          44
+        ]
+      ],
+      [
+        [
+          7,
+          30,
+          31
+        ],
+        [
+          10,
+          18,
+          22
+        ]
+      ],
+      [
+        [
+          25,
+          36,
+          37
+        ],
+        [
+          0,
+          9,
+          33
+        ]
+      ],
+      [
+        [
+          27,
+          38,
+          39
+        ],
+        [
+          2,
+          11,
+          35
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          13
+        ],
+        [
+          21,
+          36,
+          45
+        ]
+      ],
+      [
+        [
+          24,
+          25,
+          37
+        ],
+        [
+          12,
+          21,
+          45
+        ]
+      ],
+      [
+        [
+          2,
+          3,
+          15
+        ],
+        [
+          23,
+          38,
+          47
+        ]
+      ],
+      [
+        [
+          1,
+          12,
+          13
+        ],
+        [
+          9,
+          24,
+          33
+        ]
+      ],
+      [
+        [
+          17,
+          40,
+          41
+        ],
+        [
+          4,
+          8,
+          20
+        ]
+      ],
+      [
+        [
+          26,
+          27,
+          39
+        ],
+        [
+          14,
+          23,
+          47
+        ]
+      ],
+      [
+        [
+          5,
+          28,
+          29
+        ],
+        [
+          8,
+          16,
+          20
+        ]
+      ],
+      [
+        [
+          16,
+          17,
+          41
+        ],
+        [
+          28,
+          32,
+          44
+        ]
+      ],
+      [
+        [
+          6,
+          7,
+          31
+        ],
+        [
+          34,
+          42,
+          46
+        ]
+      ],
+      [
+        [
+          18,
+          19,
+          43
+        ],
+        [
+          30,
+          34,
+          46
+        ]
+      ],
+      [
+        [
+          19,
+          42,
+          43
+        ],
+        [
+          6,
+          10,
+          22
+        ]
+      ],
+      [
+        [
+          3,
+          14,
+          15
+        ],
+        [
+          11,
+          26,
+          35
+        ]
+      ]
+    ],
+    "pivot_rows": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      16,
+      17,
+      18,
+      19,
+      24,
+      25,
+      26,
+      27
+    ],
+    "T0_entries": [
+      [
+        0,
+        9,
+        1
+      ],
+      [
+        1,
+        4,
+        2
+      ],
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        3,
+        10,
+        2
+      ],
+      [
+        4,
+        13,
+        2
+      ],
+      [
+        5,
+        14,
+        2
+      ],
+      [
+        6,
+        11,
+        2
+      ],
+      [
+        7,
+        12,
+        2
+      ],
+      [
+        8,
+        15,
+        2
+      ],
+      [
+        9,
+        8,
+        2
+      ],
+      [
+        10,
+        6,
+        2
+      ],
+      [
+        11,
+        3,
+        2
+      ],
+      [
+        12,
+        5,
+        2
+      ],
+      [
+        13,
+        2,
+        2
+      ],
+      [
+        14,
+        7,
+        2
+      ],
+      [
+        15,
+        0,
+        3
+      ]
+    ],
+    "H_entries": [
+      [
+        15,
+        0,
+        1
+      ]
+    ],
+    "all_integer_and_nonnegative": true
+  },
+  "verified_exact": {
+    "two_step_factorization_coefficients": 3,
+    "transition_intertwining_coefficients": 2,
+    "phase_basis_output_comparisons": 1440,
+    "gate_words": 8,
+    "word_lengths": [
+      2,
+      2,
+      2,
+      2,
+      4,
+      5,
+      8,
+      13
+    ],
+    "arithmetic": "SymPy exact integer/rational"
+  },
+  "minimality": "rank Q(1)^2=16 implies every linear 48-output realization after two steps has dimension>=16",
+  "research_status": "AUTHOR_SIDE_EXACT_PROOF_AND_EXECUTED_CHECKS; INDEPENDENT_REVIEW_PENDING"
+}

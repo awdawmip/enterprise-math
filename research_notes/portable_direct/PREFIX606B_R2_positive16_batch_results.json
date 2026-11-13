@@ -1,0 +1,120 @@
+{
+  "schema": "PREFIX606B_R2_POSITIVE16_BATCH_EXACT_BENCH_V1",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "native_phase_model": "Q native-derived, 48 phases, fixed axes (1,1,1,1,0,0), variable gate >=0",
+  "host": "Python integer / SymPy matrices only for precomputation, pure-Python integer timing; five run median",
+  "comparison": "complete 48-phase endpoint output for every 48-phase input; randomized deterministic nonnegative inputs and gate words",
+  "data": [
+    {
+      "depth": 16,
+      "batch_size": 1,
+      "bit_length": 28,
+      "timings_ms_5run_median": {
+        "native48": 0.1926,
+        "positive16_step": 0.0423,
+        "positive16_batch_reused_transfer": 0.0206,
+        "positive16_batch_including_transfer": 0.0334
+      },
+      "all_equal": true
+    },
+    {
+      "depth": 16,
+      "batch_size": 20,
+      "bit_length": 28,
+      "timings_ms_5run_median": {
+        "native48": 5.2544,
+        "positive16_step": 0.8323,
+        "positive16_batch_reused_transfer": 0.4391,
+        "positive16_batch_including_transfer": 0.4695
+      },
+      "all_equal": true
+    },
+    {
+      "depth": 16,
+      "batch_size": 100,
+      "bit_length": 29,
+      "timings_ms_5run_median": {
+        "native48": 20.501,
+        "positive16_step": 4.7426,
+        "positive16_batch_reused_transfer": 2.5073,
+        "positive16_batch_including_transfer": 2.6499
+      },
+      "all_equal": true
+    },
+    {
+      "depth": 64,
+      "batch_size": 1,
+      "bit_length": 86,
+      "timings_ms_5run_median": {
+        "native48": 0.8229,
+        "positive16_step": 0.1336,
+        "positive16_batch_reused_transfer": 0.0448,
+        "positive16_batch_including_transfer": 0.0421
+      },
+      "all_equal": true
+    },
+    {
+      "depth": 64,
+      "batch_size": 20,
+      "bit_length": 86,
+      "timings_ms_5run_median": {
+        "native48": 18.0892,
+        "positive16_step": 2.6175,
+        "positive16_batch_reused_transfer": 0.5963,
+        "positive16_batch_including_transfer": 0.8092
+      },
+      "all_equal": true
+    },
+    {
+      "depth": 64,
+      "batch_size": 100,
+      "bit_length": 87,
+      "timings_ms_5run_median": {
+        "native48": 92.0044,
+        "positive16_step": 13.2599,
+        "positive16_batch_reused_transfer": 2.3263,
+        "positive16_batch_including_transfer": 2.5482
+      },
+      "all_equal": true
+    },
+    {
+      "depth": 256,
+      "batch_size": 1,
+      "bit_length": 325,
+      "timings_ms_5run_median": {
+        "native48": 3.7295,
+        "positive16_step": 0.5302,
+        "positive16_batch_reused_transfer": 0.0242,
+        "positive16_batch_including_transfer": 0.0593
+      },
+      "all_equal": true
+    },
+    {
+      "depth": 256,
+      "batch_size": 20,
+      "bit_length": 326,
+      "timings_ms_5run_median": {
+        "native48": 78.1251,
+        "positive16_step": 11.1341,
+        "positive16_batch_reused_transfer": 0.4795,
+        "positive16_batch_including_transfer": 0.5289
+      },
+      "all_equal": true
+    },
+    {
+      "depth": 256,
+      "batch_size": 100,
+      "bit_length": 326,
+      "timings_ms_5run_median": {
+        "native48": 395.1776,
+        "positive16_step": 53.334,
+        "positive16_batch_reused_transfer": 2.4719,
+        "positive16_batch_including_transfer": 2.4581
+      },
+      "all_equal": true
+    }
+  ],
+  "cost_scope": "times exclude native STAR reconstruction and precomputation of six fixed factor matrices; two batch timings respectively exclude and include one shared gate-word transfer construction. Both include two-step input encoding and all 48 phase output coordinates per query.",
+  "transfer_reuse": "O(n) four residue-class gate products and O(16) monomial transfer weights for each shared gate sequence",
+  "status": "EXECUTED_EXACT_INTEGER_EXPERIMENT; independent performance review pending"
+}
