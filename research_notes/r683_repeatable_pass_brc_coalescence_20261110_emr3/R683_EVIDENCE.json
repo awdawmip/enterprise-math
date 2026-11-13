@@ -1,0 +1,149 @@
+{
+  "schema": "R683_REPEAT_PASS_BRC_EXACT_CERTIFICATE_V1",
+  "created": "2026-11-10",
+  "predecessor": "R681@3b3414dc143583f06e71b8595f67235bf038305a",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "model": "R681 V23 matched triads and 7Phi+w, with all three PASS events perpetually enabled; choose lexicographic max (Q_e,w[a]-w[b]); split uniform exact rational weight across tied highest-scoring triads",
+  "verification": "Run python3 R683_VERIFY.py: expected R683_REPEAT_PASS_BRC_EXACT_PASS",
+  "type": "AUTHOR_SIDE_EXACT_FINITE_EVIDENCE",
+  "general_proof": "Unique event by pairwise distinct d_A=-2,d_B=3,d_C=-1; BRC kernel well-defined on nonempty finite maximizer set, integer ledger nonnegative and each step conserves sum_i u_i.",
+  "witness": {
+    "initial_bias": [
+      -2,
+      -4,
+      -3,
+      10
+    ],
+    "initial_triad": [
+      0,
+      2,
+      4
+    ],
+    "first_12_events": "BABABABABABA",
+    "t12": {
+      "u": [
+        4,
+        -4,
+        -9,
+        10
+      ],
+      "triad": [
+        1,
+        2,
+        3
+      ],
+      "pass_counts_M01_M12_M20": [
+        6,
+        6,
+        0
+      ]
+    },
+    "t13": {
+      "event": "B",
+      "Q": {
+        "A": 91,
+        "B": 98,
+        "C": 84
+      },
+      "d": {
+        "A": -2,
+        "B": 3,
+        "C": -1
+      },
+      "best_triads": [
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "best_score": 98,
+      "u": [
+        4,
+        -3,
+        -10,
+        10
+      ],
+      "pass_counts": [
+        6,
+        7,
+        0
+      ],
+      "brc_branch_masses": [
+        "1/2",
+        "1/2"
+      ]
+    },
+    "all_9_scores_after_B": {
+      "124": -138,
+      "125": 98,
+      "134": -52,
+      "135": -69,
+      "234": 98,
+      "235": -121,
+      "012": -52,
+      "013": 29,
+      "023": -69
+    },
+    "t19_recoalescence": {
+      "u": [
+        5,
+        1,
+        -15,
+        10
+      ],
+      "pass_counts": [
+        7,
+        12,
+        0
+      ],
+      "triad": [
+        0,
+        3,
+        5
+      ],
+      "weight": "1"
+    }
+  },
+  "exact_enumeration": {
+    "initial_biases": 6,
+    "initial_triads": 20,
+    "initial_conditions": 120,
+    "horizon_steps": 64,
+    "time_points": [
+      0,
+      13,
+      14,
+      18,
+      19,
+      32,
+      64
+    ],
+    "total_support_states": [
+      120,
+      122,
+      123,
+      123,
+      121,
+      121,
+      121
+    ],
+    "initial_conditions_with_multiple_states": [
+      0,
+      2,
+      3,
+      3,
+      1,
+      1,
+      1
+    ],
+    "arithmetics": "Integer exact scoring and Fraction exact masses; all 120-by-64 propagations verified mass=1, nonnegative M and conserved sum(u)"
+  },
+  "unbounded_result": "Since after exactly t repeated PASS events sum(M_ij)=t and all three PASS remain enabled, the observer including full cumulative M has infinitely many reachable current observations across arbitrary t.",
+  "scope": "Auxiliary repeat-enabled internal-field PASS grammar, not full native X6 link/port automaton, V17 frame or V39 circulation; independent Driver review and original Source CLAIM remain separate."
+}
