@@ -781,6 +781,11 @@ def install(root: Path = ROOT) -> None:
             return [by_id[key] for key in sorted(by_id)]
 
         research_dispatch.merged_definitions = merged_definitions
+        # effective_states() is re-exported from research_dispatch_core and resolves
+        # merged_definitions in that module's globals. Mirror the final isolated
+        # selector so native inventory includes the BLOCKED derived task rows.
+        from tools import research_dispatch_core
+        research_dispatch_core.merged_definitions = merged_definitions
         research_dispatch._followup_authority_isolation_installed = True
 
     if not rows and derived:
