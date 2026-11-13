@@ -1,6 +1,6 @@
 # Enterprise Math Tool Invocation Protocol
 
-[中文版本](ENTERPRISE_TOOL_INVOCATION_PROTOCOL.zh-CN.md)
+[Chinese version](ENTERPRISE_TOOL_INVOCATION_PROTOCOL.zh-CN.md)
 
 Status: `ACTIVE / AUTONOMOUS METHOD SELECTION PROTOCOL / V2`
 Date: `2026-08-28`
@@ -114,7 +114,7 @@ For FREE research:
 
 After the candidate/no-go packet is frozen, relevant coverage comparison is required when making method novelty or shared-tool claims, not immediately before any further research.
 
-An ordinary TASK may not self-declare blindness merely to skip reuse.
+An ordinary TASK may not invent a blind firewall to waive provenance or truthful comparison.
 
 ## 7. Driver decisions
 

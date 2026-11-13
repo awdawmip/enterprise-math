@@ -4,6 +4,12 @@
 
 Status: ACTIVE. This document governs execution orchestration; it adds no task admission, mathematical conclusion, or role authority. Research evidence is the primary deliverable. Status descriptions, support requests, and polling are not research progress by themselves.
 
+## Lightweight consumption in each run
+
+Follow the already-read GK project entry to the current task route. Reuse this lane's registered identity, unresolved original requests and useful scientific frontier. At a natural new-unit boundary, consume an executable selection, read its exact Task, and complete own prepare or predecessor-aware typed continuation, a real winning CLAIM, then open. Selection and registration are not acquisition; continuing useful science does not force a topic change. Sites follows its existing native tools and receipt `worker_transition.native` when advertised. GitHub Chat may use `worker_pull` even when Sites is available. Preserve the original subject and private capability; do not adopt another lane across transports. Without a new-tool advertisement, use the existing exact route rather than re-registering or scanning everything.
+
+Save existing results to GitHub, then let the original author update the same Activity under the existing rules: `tools/research_activity.py checkpoint` or connector JSON with the same schema and non-force CAS. This Source bookkeeping uses existing GitHub write permission and requires no MCP session key. There is currently no `activity_checkpoint` service operation; its absence or a missing old session key does not block this Source path. Preserve the original RA, SID and Researcher-ID; reference the existing scientific commit, path, SHA256 and actual complete readback rather than uploading the scientific body again. Activity bookkeeping is not a CLAIM, execution authorization or a formal semantic checkpoint; author-branch preservation alone does not establish an Activity update. If no published Task matches the current research, report the missing binding and preserve that frontier, without claiming another direction's recommendation. Apply this at actual work boundaries, with no new required file or full scan each turn.
+
 ## Responsibilities
 
 Keep the existing schedules for the three Researcher jobs, one Driver job, and one control-maintenance job. Role counts do not replace executable paths:
