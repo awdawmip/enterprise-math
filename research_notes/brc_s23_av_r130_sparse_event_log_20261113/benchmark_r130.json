@@ -1,0 +1,38 @@
+{
+  "environment": "local container, no CPU frequency pinning",
+  "method": "CPython Fraction perf_counter_ns, median of 3 independent builds, no warmup",
+  "rows": [
+    {
+      "cuts": 71,
+      "dense_indicator_evaluations": 2288,
+      "dense_median_ms": 12.02,
+      "expand_median_ms": 0.024,
+      "m": 16,
+      "signatures": 143,
+      "sparse_indicator_evaluations": 408,
+      "sparse_median_ms": 2.705
+    },
+    {
+      "cuts": 307,
+      "dense_indicator_evaluations": 19680,
+      "dense_median_ms": 88.791,
+      "expand_median_ms": 0.151,
+      "m": 32,
+      "signatures": 615,
+      "sparse_indicator_evaluations": 1832,
+      "sparse_median_ms": 11.747
+    },
+    {
+      "cuts": 1227,
+      "dense_indicator_evaluations": 157120,
+      "dense_median_ms": 707.716,
+      "expand_median_ms": 1.541,
+      "m": 64,
+      "signatures": 2455,
+      "sparse_indicator_evaluations": 7752,
+      "sparse_median_ms": 55.08
+    }
+  ],
+  "status": "R130_BENCHMARK_MATCH",
+  "warning": "wall times are machine- and representation-dependent; exact correctness checked separately"
+}
