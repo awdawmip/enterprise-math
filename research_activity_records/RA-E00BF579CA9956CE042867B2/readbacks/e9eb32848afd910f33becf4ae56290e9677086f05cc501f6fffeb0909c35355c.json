@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r130_sparse_event_log_20261113/benchmark_r130.json",
+    "ref": "7040bd2b6f134ea105f75370f0e35f1294818b64",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-r130-benchmark-20261114-benchmark_r130-json-7040bd2b6f13",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"environment\": \"local container, no CPU frequency pinning\",\n  \"method\": \"CPython Fraction perf_counter_ns, median of 3 independent builds, no warmup\",\n  \"rows\": [\n    {\n      \"cuts\": 71,\n      \"dense_indicator_evaluations\": 2288,\n      \"dense_median_ms\": 12.02,\n      \"expand_median_ms\": 0.024,\n      \"m\": 16,\n      \"signatures\": 143,\n      \"sparse_indicator_evaluations\": 408,\n      \"sparse_median_ms\": 2.705\n    },\n    {\n      \"cuts\": 307,\n      \"dense_indicator_evaluations\": 19680,\n      \"dense_median_ms\": 88.791,\n      \"expand_median_ms\": 0.151,\n      \"m\": 32,\n      \"signatures\": 615,\n      \"sparse_indicator_evaluations\": 1832,\n      \"sparse_median_ms\": 11.747\n    },\n    {\n      \"cuts\": 1227,\n      \"dense_indicator_evaluations\": 157120,\n      \"dense_median_ms\": 707.716,\n      \"expand_median_ms\": 1.541,\n      \"m\": 64,\n      \"signatures\": 2455,\n      \"sparse_indicator_evaluations\": 7752,\n      \"sparse_median_ms\": 55.08\n    }\n  ],\n  \"status\": \"R130_BENCHMARK_MATCH\",\n  \"warning\": \"wall times are machine- and representation-dependent; exact correctness checked separately\"\n}\n",
+      "display_title": "benchmark_r130.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/7040bd2b6f134ea105f75370f0e35f1294818b64/research_notes/brc_s23_av_r130_sparse_event_log_20261113/benchmark_r130.json",
+      "encoding": "utf-8",
+      "sha": "306e611433e13703b24733ba2449df5d165feb39"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
