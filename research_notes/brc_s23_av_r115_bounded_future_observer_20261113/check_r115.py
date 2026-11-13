@@ -153,6 +153,6 @@ result={'status':'R115_PASS','frozen_pin':'43ec6098b1330ae86d0a7863be336c5d97f6e
 'small_initial_pairs_exhausted':scoped_states_checked, 'direct_topk_oracle_checks':oracle_checks, 'small_parameter_signature_count':len(set(small_sigs)),
 'one_edit_indistinguishable_nonidentical_signature_pairs':len(sig_pairs),
 'example':{'theta':str(ATOMS[sig_pairs[0][0]]),'phi':str(ATOMS[sig_pairs[0][1]]),'theta_signature':SIGS[sig_pairs[0][0]],'phi_signature':SIGS[sig_pairs[0][1]]} if sig_pairs else None}
-with open('/mnt/data/em_r115/verification_r115.json','w') as out:json.dump(result,out,indent=2,ensure_ascii=False,default=str)
+with open('verification_r115.json','w') as out:json.dump(result,out,indent=2,ensure_ascii=False,default=str)
 print(json.dumps({k:v for k,v in result.items() if k not in ['cases','input']},ensure_ascii=False,default=str,indent=2))
 for label,v in CHECKS.items():print(label,v['counts'],v['witness_horizon_upper'])
