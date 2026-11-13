@@ -1,0 +1,9 @@
+Command executed locally (Python 3 standard library):
+  python /mnt/data/em_r5/VERIFY.py
+
+Actual stdout:
+PASS_32_EXACT_RATIONAL_CORNER_BLACKWELL_CERTIFICATES 284
+PASS_ALL_REAL_MULTIAFFINE_CONVEXITY_AND_INTERIOR_EXACT_TEST
+R5_NEW_THEOREM_FULL_FIVE_PARAMETER_LOW_RATIO_MIXED_PRISM
+
+Interpretation: 32 exact rational corner systems independently reconstructed and checked with Fraction; 284 total strictly positive 7x7 transport entries across the corners. A separate five-parameter rational interior test passed. All-real extension is an algebraic multi-affine interpolation proof described in RESEARCH.md, not a consequence of finite sampling. The identical verifier logic and masks are stored in VERIFY.py. This is local execution evidence; remote source publication/readback is a distinct operation.
