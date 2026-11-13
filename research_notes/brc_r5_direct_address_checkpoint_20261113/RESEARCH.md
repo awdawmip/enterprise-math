@@ -1,0 +1,49 @@
+# R5: exact direct-address checkpoint directory and compact event-count storage
+
+Date: 2026-11-13. Status: author-side proved finite auxiliary algorithm, locally executed; no formal TASK Result/independent review.
+Frozen scientific pin: `435e77af0d180eac32bd1f9c4c464bc4010b7551`, unchanged 28 rational coordinates, 15 labeled operations, 2,520-byte BP certificate seed, 2,880 trie nodes, 1,065 terminal certificates, 953 distinct exact rational activation walls, 954 complete-wall boundaries. The construction remains a BRC-certificate *query-index auxiliary model*, not native heartbeat dynamics or physical-time inference. Continues [R5 mean-optimal checkpoints](../brc_r5_mean_opt_checkpoints_20261113/RESEARCH.md) and its unchanged exact `K=213, R=2, J=1070` center set.
+
+## 1. Constant-time center selection lemma
+
+Let the strictly increasing cumulative activation-event positions be `x_b=E(b)` for integer complete-wall boundary `b=0,...,W`; here `x_0=0`, `x_W=1065`, `W=953`. For any strictly increasing permitted checkpoint positions `s_0<...<s_{K-1}`, let `y_j=x_{s_j}` and choose the nearest checkpoint in event-count distance, breaking ties toward the smaller index:
+
+`d(b)=argmin_{0<=j<K} (|x_b-y_j|, j)`.
+
+**Lemma (monotone Voronoi directory).** The map `d(b)` is nondecreasing and equals
+
+`d(b)=# {j=0,...,K-2 : b>h_j}`, where
+`h_j=max{b : x_b<=floor((y_j+y_{j+1})/2)}`.
+
+Proof: on a line, the left member of two consecutive centers is at least as close exactly when `2x<=y_j+y_{j+1}`. Because the integer sequence `x_b` is strictly increasing, each pair switches exactly once; their midpoint thresholds are ordered by `j`. The comparison against the two neighboring centers therefore determines the global nearest center. Counting passed thresholds gives the expression. This proves monotonicity and tie semantics. A two-pointer sweep over `b` and `j` creates the directory in `O(W+K)` operations. Alternatively, each `d(b)` may be constructed with a binary search in `O(W log K)`. A query with an already determined boundary `b` reads one array element in `O(1)` time; converting a rational query parameter `r` to `b=upper_bound(walls,r)` still costs `O(log W)`.
+
+For `K<=256`, a byte stores each `d(b)` exactly. The R5 domain uses `K=213`, so the complete directory's **payload is exactly 954 bytes**. Its SHA-256 in this deterministic corpus is `a947d07d7d494e00e14013eb929b3ffdc9224938ec15289209e68316c50a14b1`.
+
+## 2. Preservation of exact certificate counts
+
+For each checkpoint `s_j`, retain the previous exact active-terminal bitmap `B_j`. Let `pi(t)` be the terminal position of sorted activation event `t`, including separate multiplicities at a tied rational wall. For a prefix node `v` with terminal DFS interval `[L_v,H_v)`, define its checkpoint count by intersecting the bitmap with that interval. If `x_b >= y_j`, add for each `t in [y_j,x_b)` the indicator `L_v<=pi(t)<H_v`; if `x_b<y_j`, subtract the same indicator for `t in [x_b,y_j)`. The symmetric difference of the two active-terminal sets is precisely this interval of events, hence this signed correction is an exact identity. Boundary equality is handled through `upper_bound`; all certificates at the same rational wall activate together.
+
+Because center selection is unchanged from the predecessor's optimum, `max_b |x_b-y_{d(b)}|=2`, with exact uniform total `sum_b |x_b-y_{d(b)}|=1070`; the new directory changes **only** the center-selection work, not this theorem or the checkpoint count. Even for a prefix with zero terminals, the formula returns zero.
+
+## 3. Compact representation
+
+The existing Python `list[int]` of 213 checkpoint event counts occupied 7,876 bytes in the local process. The new immutable 954-byte `bytes` directory occupied 987 Python-object bytes, and `array('H')` of 213 event counts occupied 506 Python-object bytes. Combined, the directory plus 16-bit counts occupies **1,493** vs **7,876** Python-object bytes for the original checkpoint-count list, a saving of 6,383 bytes (81.04%) for these selected objects. Since all event counts are 0..1065, `uint16` is exact. Independently, the shared `E` list cost 34,544 Python-object bytes while a `uint16` array cost 1,988 (saving 32,556). These are selected resident Python objects, not whole-process RSS or a new claim about serialized seed size. The original 2,520-byte persistent BP seed remains unchanged; the 954-byte directory is a derived runtime index, optionally eligible for a separately versioned cache.
+
+## 4. Actual executed evidence
+
+A locally executed CPython 3.13 program rebuilt the frozen rational certificate corpus from the original operation inputs and reconstructed the 2,520-byte seed. The exact mean-optimal `K=213, R=2, J=1070` centers were recomputed by the prior finite constrained dynamic program (553.631 ms locally). The directory was built in 0.224 ms using binary selection over the 954 boundaries. All **2,747,520** complete-wall boundary × trie-node counts matched an independent direct rank oracle. An additional **57,600** rational oracle checks from the source fixture passed. The 954-byte directory SHA-256 matched the value above. The local program is `VERIFY_R5_DIRECT_DIRECTORY.py`, with evidence in `EXACT_OUTPUT.json`; an independently translated portable verifier is provided here for execution against the stacked R5 source.
+
+With 15 interleaved, randomized-order warm query timing repetitions per workload, each query including rational-to-wall lookup, the selected local results (median ms) were:
+
+| Query load | Binary center search | Direct bytes + Python list | Direct bytes + compact uint16 | 
+|---|---:|---:|---:|
+| Random 8,192 | 29.637 | 27.845 | 27.817 |
+| Hotmix 8,192 | 30.315 | 28.304 | 28.582 |
+| Root 1,024 | 3.972 | 3.741 | 3.845 |
+
+A separately executed portable-style local verifier (fed by a local fixture API shim) reproduced the exact directory hash and 2,747,520 checks; its independent 15-repeat timings varied but favored direct lookup: random 32.068→29.632 ms, hotmix 32.888→31.042 ms. These are local query-path observations, not guaranteed throughput on other hosts. The actual committed portable source bytes are a separate replication target.
+
+**End-to-end accounting:** The lookup table build cost is small, but the current `K=213` exact mean-optimal center *construction* cost about 554 ms and the full original rational corpus reconstruction about 1.5 seconds in this measured local process. These are currently larger than the query improvements for small request batches. An optional fixed-seed `uint16` checkpoint sidecar could amortize the center DP, at extra persistent storage; that path must be separately benchmarked and verified. No lower-bound or universal speedup claim is made.
+
+## 5. Next distinct scientific unit
+
+Given the unchanged frozen BP seed, compare (a) runtime DP construction, (b) an optional 213×2-byte center sidecar plus 954-byte lookup sidecar with exact payload validation, and (c) lazily constructed checkpoint sets at equal total bytes. Measure cold-process seed decoding, the sidecar validation/setup, peak RSS, query counts needed to amortize each option, exact output recovery, and checksum stability across independent processes. The formal R5 task publication/CLAIM remains unconfirmed; this artifact is independent unshared research evidence and does not assert native Result/Review.

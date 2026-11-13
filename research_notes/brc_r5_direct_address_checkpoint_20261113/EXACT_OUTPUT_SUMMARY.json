@@ -1,0 +1,78 @@
+{
+  "schema": "R5_DIRECT_DIRECTORY_EXECUTION_SUMMARY_V1",
+  "date": "2026-11-13",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "scientific_input": {
+    "coordinates": 28,
+    "operations": 15,
+    "packed_seed_bytes": 2520,
+    "terminals": 1065,
+    "prefix_nodes": 2880,
+    "distinct_rational_walls": 953,
+    "complete_wall_boundaries": 954
+  },
+  "construction": {
+    "checkpoints": 213,
+    "radius": 2,
+    "exact_mean_corrections": 1070,
+    "lookup_payload_bytes": 954,
+    "sha256": "a947d07d7d494e00e14013eb929b3ffdc9224938ec15289209e68316c50a14b1",
+    "local_mean_center_dp_ms": 553.631,
+    "local_directory_build_ms": 0.224
+  },
+  "checks": {
+    "full_exact_wall_prefix_node_comparisons": 2747520,
+    "rational_sample_prefix_comparisons": 57600,
+    "all_passed": true
+  },
+  "selected_python_object_bytes": {
+    "checkpoint_event_count_list": 7876,
+    "byte_directory_and_uint16_checkpoint_counts": 1493,
+    "cumulative_event_count_list": 34544,
+    "cumulative_event_count_uint16": 1988
+  },
+  "local_interleaved_15repetition": {
+    "scope": "Warm CPython 3.13 process, parameter-to-wall rank included, query-only, interleaved method order",
+    "random8192": {
+      "binary_ms": 29.637,
+      "direct_list_ms": 27.845,
+      "direct_compact_ms": 27.817
+    },
+    "hotmix8192": {
+      "binary_ms": 30.315,
+      "direct_list_ms": 28.304,
+      "direct_compact_ms": 28.582
+    },
+    "root1024": {
+      "binary_ms": 3.972,
+      "direct_list_ms": 3.741,
+      "direct_compact_ms": 3.845
+    }
+  },
+  "portable_source_local_api_shim_run": {
+    "scope": "The portable GitHub-style script was independently executed against the same local frozen fixture through a compatibility shim; the remote committed exact bytes are not yet independently run",
+    "counts_checked": 2747520,
+    "sha256": "a947d07d7d494e00e14013eb929b3ffdc9224938ec15289209e68316c50a14b1",
+    "random8192": {
+      "binary_ms": 32.068,
+      "direct_ms": 29.632,
+      "compact_ms": 30.316
+    },
+    "hotmix8192": {
+      "binary_ms": 32.888,
+      "direct_ms": 31.042,
+      "compact_ms": 31.704
+    },
+    "root1024": {
+      "binary_ms": 4.137,
+      "direct_ms": 3.972,
+      "compact_ms": 3.987
+    }
+  },
+  "limitations": [
+    "The local execution uses the previously validated frozen rational fixture; the currently committed portable source was not itself executed from remote bytes.",
+    "Local timings include wall lookup but exclude seed/corpus decoding, mean-center DP reconstruction, process startup and output serialization.",
+    "Source preservation as author-side research note does not constitute native CLAIM, formal Result or independent review."
+  ],
+  "next": "Compare a separate 1380-byte uint16 centers + byte-directory sidecar (without changing original 2520-byte BP seed) versus runtime DP, including cold-process cost, RSS and exact count recovery."
+}
