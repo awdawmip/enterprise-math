@@ -1,0 +1,61 @@
+{
+  "bounds": {
+    "delta": "1/16",
+    "global_tradeoff": "alpha >= 3*delta + (2673/3232)*max(0,delta-17/288)",
+    "pure_threshold": "17/288",
+    "t_max_over_min": "101/99",
+    "tau_limit": "891/3232",
+    "universal_alpha_lower": "19689/103424",
+    "witness_alpha_upper": "9/46",
+    "witness_beta": "49/368"
+  },
+  "checks": {
+    "acceptance_pair": true,
+    "all_assertions_passed": true,
+    "costs": true,
+    "exact_positive_source_leaves_per_source": 18,
+    "normalization": true,
+    "threshold_identity": true
+  },
+  "open": "Exact global alpha_min at delta=1/16 remains unresolved.",
+  "proof_scope": "Universal all-real bound by analytical near-pure cylinder lemma; computation only checks the explicit exact witness and constant identities.",
+  "schema": "EC49AA_POST_THRESHOLD_QUANTITATIVE_BOUND_V1",
+  "source_laws": {
+    "P": "1/6 when w=z, 1/12 otherwise; times t_w(u)",
+    "Q": "1/9 for every w,z; times t_w(u)",
+    "leaves_per_source": 18,
+    "t_w(u)": "1/2 + (2u-1)*(1-w)/200"
+  },
+  "status": "AUTHOR_PROVED / EXACT_FRACTION_CHECK_PASS / PORTABLE_DRAFT / UNREVIEWED / NOT_ADMITTED",
+  "witness": {
+    "alpha": "9/46",
+    "beta": "49/368",
+    "delta": "1/16",
+    "prefix_x": [
+      [
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "9/16",
+        "1/16",
+        "0"
+      ]
+    ],
+    "s": "always buy S",
+    "stage_cost_P_Q": {
+      "C1": "43/48",
+      "C2": "7/8"
+    },
+    "terminal_rule": "accept (A0,z0) or (B0,z2) with probability 1, (A1,z1) with probability 2/23, else 0"
+  }
+}
