@@ -1,0 +1,72 @@
+{
+  "schema": "PREFIX607_R2_FOUR_NATIVE_PHASE_SENSOR_EXACT_V1",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_phase_probe": "48 phase-sum coordinates all 1; nonnegative source implementable by one unit per native port-pair",
+  "common_first_two_gates": [
+    0,
+    1
+  ],
+  "native_phase_sensor_indices_zero_based": [
+    3,
+    4,
+    17,
+    26
+  ],
+  "gate_sensitive_initial_coordinates": [
+    "9/2",
+    "4",
+    "3/2",
+    "3/4"
+  ],
+  "native_to_gate_sensitive_sensor_formula": {
+    "u0": "(y3-12*2^t)/2",
+    "u1": "(y17-12*2^t)/4",
+    "u2": "y26/8",
+    "u3": "y4/8"
+  },
+  "EW_sensor_matrix": [
+    [
+      2,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      8
+    ],
+    [
+      0,
+      4,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      8,
+      0
+    ]
+  ],
+  "word_lengths": [
+    15,
+    15,
+    15
+  ],
+  "full_48_phase_probe_state_checks": 45,
+  "prefix_product_checks": 45,
+  "min_scalar_sensor_readings_per_word": 15,
+  "min_scalar_checkpoints": [
+    4,
+    8,
+    12,
+    15
+  ],
+  "recovered_complete_gate_words": 3,
+  "theorem": "one fixed nonnegative native-derived phase source + four raw phase sensors at any prefix recover all four products; one per-new-gate reading in gaps <=4 exactly reconstructs n gates",
+  "minimality": "n real scalar readings for n independent real gates, optimal among differentiable exact encoding/decoding schemes",
+  "status": "AUTHOR_SIDE_EXACT_PROOF_AND_EXECUTED_CHECKS; INDEPENDENT_REVIEW_PENDING",
+  "boundary": "phase observer only; not raw tagged source history; initial two gates fixed at 0 and 1"
+}

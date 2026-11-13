@@ -1,0 +1,75 @@
+{
+  "schema": "PREFIX606_R2_GATE_PREFIX_SAMPLING_EXACT_V1",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "native_phase_count": 48,
+  "native_port_count": 96,
+  "native_tagged_actions": 576,
+  "fixed_axis_weights": [
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+  ],
+  "scope": "complete 48-phase linear prefix operators after common two-step native transient; nonnegative real gates",
+  "theorem": "injective iff all checkpoint gaps <=4; minimal samples ceil(n/4)",
+  "rank_formula": "sum min(4,gap); interior fiber dimension sum max(0,gap-4)",
+  "exact_schedules_tested": 511,
+  "schedules_by_n": {
+    "1": 1,
+    "2": 2,
+    "3": 4,
+    "4": 8,
+    "5": 16,
+    "6": 32,
+    "7": 64,
+    "8": 128,
+    "9": 256
+  },
+  "max_unidentified_dimensions_tested": 5,
+  "n8_recovery_samples": [
+    4,
+    8
+  ],
+  "n8_recovered_gate_word": [
+    "0",
+    "2",
+    "1",
+    "5",
+    "3",
+    "4",
+    "7",
+    "6"
+  ],
+  "ambiguous_words": {
+    "baseline": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "alternative": [
+      "0",
+      "1",
+      "1",
+      "1",
+      "7/3",
+      "1",
+      "1",
+      "1"
+    ],
+    "identical_samples": [
+      5,
+      8
+    ],
+    "different_sample": 1
+  },
+  "full_native_48_phase_basis_equalities": 96,
+  "status": "AUTHOR_SIDE_EXACT_DERIVATION_AND_EXECUTED_CHECKS; INDEPENDENT_REVIEW_PENDING",
+  "boundary": "not raw tagged paths, a single readout vector, noisy observations or physical time"
+}
