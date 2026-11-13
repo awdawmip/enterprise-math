@@ -1,0 +1,36 @@
+{
+  "center": "q(x)=[1+(7/10)A+sD+eta(s)AD]/16",
+  "center_repair_at_midpoint": {
+    "eta": "-3/40",
+    "exact_lower_bound": "71/160",
+    "old_center_specific_witness_tv": "37/80",
+    "radius": "71/160",
+    "s": "3/20"
+  },
+  "eta_left": "-3/2*(s-1/10) for s in [1/10,3/20]",
+  "eta_right": "3/2*(s-1/5) for s in [3/20,1/5]",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "left_certificate": {
+    "active_bases": 18564,
+    "feasible_bases": 516,
+    "max_excess": "0",
+    "nonsingular_bases": 9536,
+    "tight_vertices": 32,
+    "unique_vertices": 80,
+    "violating_vertices": 0
+  },
+  "right_certificate": {
+    "active_bases": 18564,
+    "feasible_bases": 536,
+    "max_excess": "0",
+    "nonsingular_bases": 9536,
+    "tight_vertices": 22,
+    "unique_vertices": 74,
+    "violating_vertices": 0
+  },
+  "scope": "author exact certificate, all real s in [1/10,1/5] at t=7/10; independent review pending",
+  "status": "PASS",
+  "theorem": "rho(7/10,s)=rho_cal(7/10,s)=37/80-s/8",
+  "unit": "R749SNP",
+  "witness": "W=(h,u,v,w,z)=(0,s-1,-7/10,-s,-s); event E={3,5,7,9,11,13,14,15}"
+}
