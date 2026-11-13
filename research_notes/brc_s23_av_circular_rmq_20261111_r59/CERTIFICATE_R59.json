@@ -1,0 +1,59 @@
+{
+  "science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "result": "PASS_R59_AUTHOR_EXACT_FINITE",
+  "algorithm": "circular RMQ + R54 Farey source order",
+  "small": {
+    "cases": 1440,
+    "queries": 8640,
+    "m": [
+      1,
+      12
+    ],
+    "H": [
+      1,
+      15
+    ],
+    "direct_and_R58_grouped_match": true
+  },
+  "frozen": {
+    "rational_numerators": [
+      "262204504569236716045286",
+      "262204504569236716045287"
+    ],
+    "denominator": "1000000000000000000000000",
+    "m": 128,
+    "H": 225,
+    "K": 352,
+    "queries_per_endpoint": 17,
+    "youngest_outputs_per_endpoint": 2176,
+    "arc_subqueries_per_endpoint": 2193,
+    "rmq_tree_reads_per_endpoint": 3014,
+    "R58_age_visits_per_endpoint": 3825,
+    "all_matches": true,
+    "first_last_equal": true
+  },
+  "large": {
+    "m": 5,
+    "H": 100003,
+    "K": 100007,
+    "queries": 12,
+    "outputs": 60,
+    "arc_subqueries": 72,
+    "rmq_tree_reads": 854,
+    "R58_age_visits": 1200036,
+    "independent_direct_match": true
+  },
+  "matched_timing_ms": {
+    "S23": {
+      "R58_median": 1.583,
+      "R59_median": 1.979,
+      "runs": 30
+    },
+    "large": {
+      "R58_median": 159.155,
+      "R59_median": 44.081,
+      "runs": 8
+    }
+  },
+  "status": "AUTHOR_DERIVED_AUTHOR_EXECUTED_UNREVIEWED_NOT_ADMITTED"
+}

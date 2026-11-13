@@ -1,0 +1,5 @@
+# R60 — Dynamic residual age-phase index
+
+Retain frozen scientific source `43ec6098b1330ae86d0a7863be336c5d97f6ef34` and the current canonical task/owner boundary. R59 proves that an ordered circular phase table with static RMQ produces exact m youngest-only outputs per phase in O(m log(H+1)) word operations after preprocessing. Its large H/small m exact test is faster than R58 for that regime; S23 favors R58.
+
+Implement and prove a dynamic phase-keyed index supporting arbitrary individual source insertion/deletion, age replacement, and chronological rolling windows without losing label/provenance. Show update and min-arc query bounds, bit precision, and when rebuilding is cheaper. Verify on exact rationals and compare to R49 cached 2-state and R56 split-block direct methods. Connect to frozen S23/AV risk compiler only after same-pinned state equivalence; no native X6 dynamics assertion.
