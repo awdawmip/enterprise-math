@@ -4,7 +4,7 @@ Date: 2026-11-13. Scientific inputs remain frozen to `fc0f038e7bfd12c886b4d37f90
 
 ## Exact finite computation
 
-The original cached C++ prefix-trie and label-subset integer optimizer was compiled with `g++ -std=c++17 -O3 -DNDEBUG`. Its original frozen integer input has SHA-256 `cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e`. A complete contiguous prefix of **500 outputs, IDs 18000–18499**, was retained from an interrupted larger run. Their raw output SHA-256 is `INVALID_PLACEHOLDER`. Exactly 500 line IDs were checked for continuity; only completed outputs are counted.
+The original cached C++ prefix-trie and label-subset integer optimizer was compiled with `g++ -std=c++17 -O3 -DNDEBUG`. Its original frozen integer input has SHA-256 `cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e`. A complete contiguous prefix of **500 outputs, IDs 18000–18499**, was retained from an interrupted larger run. Their raw output SHA-256 is `dd1462c570a11452e4040a74afb1f28c5c66d0556109b72e9e0e9848dfb3f5f7`. Exactly 500 line IDs were checked for continuity; only completed outputs are counted.
 
 The minimum is **98**, attained precisely at IDs **18111, 18123 and 18383**; maximum **204**, attained precisely at ID **18196**; there are **81** distinct attained costs. The globally contiguous computed portion of this 38169-case search therefore extends to **18500/38169 (48.47%)**. The best observed cost among these 18500 cases remains **96**, first attained at 17965; the separate unrestricted seven-key problem continues to have its prior 84-prefix constructive upper bound.
 
