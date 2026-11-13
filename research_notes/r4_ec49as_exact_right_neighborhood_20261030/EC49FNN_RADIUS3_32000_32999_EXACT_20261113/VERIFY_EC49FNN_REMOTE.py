@@ -52,7 +52,13 @@ for i, expected in {32281: (134, 1, 140), 32551: (134, 5, 135),
     labels = [tuple(row["label"]) for row in rows]
     assert len(set(labels)) == 24
     assert all(row["key"] and len(row["path_hex"]) > 0 for row in rows)
-    assert all(set(row["key"]) == set(row["key"]) for row in rows) # values are unmodified serialized witnesses
+    assert all(len(row["key"]) == 3 for row in rows)
+    assert all(p == p.lower() and all(x in "0123456789abcdef" for x in p)
+               for path in paths for p in path)
+    assert all(all(len(path[k+1]) == len(path[k]) + 2 and path[k+1].startswith(path[k])
+                   for k in range(len(path)-1)) for path in paths)
+    assert all(row["path_hex"][0] == root["root_hex"]
+               for root in witness["root_certificates"] for row in root["witnesses"])
     assert len({p for path in paths for p in path}) == v["cost"][j]
     print("SAVED_ORIGINAL_PREFIX_WITNESS_PASS", i, len(rows), v["cost"][j])
 assert set(c["witnesses"]) == {"32281", "32551", "32970", "32997"}
