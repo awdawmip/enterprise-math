@@ -1,0 +1,154 @@
+{
+  "version": "STAGE513B",
+  "statement": "Cap max(0,K-2) safe for S containing 1 and max S=K",
+  "verified": {
+    "roots": 852,
+    "nodes": 20879,
+    "transitions": 241742,
+    "states_preprocessing": 4220
+  },
+  "sharpness": [
+    {
+      "K": 3,
+      "cap_sufficient": 1,
+      "cap_failed": 0,
+      "n": 11,
+      "same_exposure": [
+        0,
+        1,
+        8,
+        10
+      ],
+      "lost_displacement": [
+        1,
+        2,
+        4,
+        1,
+        1,
+        1
+      ],
+      "other_displacement": [
+        2,
+        1,
+        4,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "K": 4,
+      "cap_sufficient": 2,
+      "cap_failed": 1,
+      "n": 11,
+      "same_exposure": [
+        0,
+        1,
+        8,
+        10
+      ],
+      "lost_displacement": [
+        1,
+        2,
+        4,
+        1,
+        1,
+        1
+      ],
+      "other_displacement": [
+        2,
+        1,
+        4,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "K": 5,
+      "cap_sufficient": 3,
+      "cap_failed": 2,
+      "n": 12,
+      "same_exposure": [
+        0,
+        1,
+        9,
+        11
+      ],
+      "lost_displacement": [
+        1,
+        2,
+        5,
+        1,
+        1,
+        1
+      ],
+      "other_displacement": [
+        2,
+        1,
+        5,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "K": 6,
+      "cap_sufficient": 4,
+      "cap_failed": 3,
+      "n": 13,
+      "same_exposure": [
+        0,
+        1,
+        10,
+        12
+      ],
+      "lost_displacement": [
+        1,
+        2,
+        6,
+        1,
+        1,
+        1
+      ],
+      "other_displacement": [
+        2,
+        1,
+        6,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "K": 7,
+      "cap_sufficient": 5,
+      "cap_failed": 4,
+      "n": 14,
+      "same_exposure": [
+        0,
+        1,
+        11,
+        13
+      ],
+      "lost_displacement": [
+        1,
+        2,
+        7,
+        1,
+        1,
+        1
+      ],
+      "other_displacement": [
+        2,
+        1,
+        7,
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "arithmetic": "Python exact signed integers; 12 X6 directions and 144 directed edges",
+  "assertions": "PASS"
+}
