@@ -1,0 +1,56 @@
+{
+  "date_utc": "2026-11-03",
+  "executor": "JavaScript V8 exact BigInt execution (not claimed Node CLI)",
+  "source_file": "VERIFY.js",
+  "proof_scope": "full h∈[0,1/42], beta_E∈[0,1], N≥0 by analytic argument",
+  "computation_scope": "h=1/42; betaE=0,1/4,1/2; ternary n<=8; original four-outcome all source allocations n<=5",
+  "verdict": "PASS_BRC_S23_FINITE_SAMPLE_BINARY_ERASURE_20261103",
+  "model": "S23 four-outcome stopping mixtures; two-state witness h=1/42",
+  "arithmetic": "BigInt exact integers",
+  "max_samples_ternary": 8,
+  "max_samples_full_four_outcome": 5,
+  "ternary_checks": 27,
+  "full_label_allocation_checks": 63,
+  "total_checks": 90,
+  "cases": [
+    {
+      "beta_E": "0",
+      "erasure_probability": "0/21",
+      "informative_probability": "21/21",
+      "exact_Bayes_errors": {
+        "n1": "10/21",
+        "n2": "10/21",
+        "n3": "4300/9261",
+        "n4": "4300/9261",
+        "n6": "620000/1361367",
+        "n8": "806950000/1801088541"
+      }
+    },
+    {
+      "beta_E": "1/4",
+      "erasure_probability": "147/336",
+      "informative_probability": "189/336",
+      "exact_Bayes_errors": {
+        "n1": "109/224",
+        "n2": "1723/3584",
+        "n3": "1337689/2809856",
+        "n4": "21227863/44957696",
+        "n6": "262617328363/563949338624",
+        "n8": "3255736931352823/7074180503699456"
+      }
+    },
+    {
+      "beta_E": "1/2",
+      "erasure_probability": "63/84",
+      "informative_probability": "21/84",
+      "exact_Bayes_errors": {
+        "n1": "83/168",
+        "n2": "47/96",
+        "n3": "576167/1185408",
+        "n4": "2290781/4741632",
+        "n6": "5334982963/11152318464",
+        "n8": "112018769569661/236072277245952"
+      }
+    }
+  ]
+}

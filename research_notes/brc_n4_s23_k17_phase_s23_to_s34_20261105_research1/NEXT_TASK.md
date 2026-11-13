@@ -1,0 +1,3 @@
+# Next scoped scientific unit
+At K=17, continue exact integer-feasibility/Chernoff phase classification on [3/4,4/5]. Start from the proven unique boundary design (12T,2B). Enumerate all k/m thresholds and hulls at each rational cell, find the true global competitors, prove transitions with rational convex-secant certificates, and independently review the five current phase-crossing proofs and the exact code/path equivalence.
+Preserve science pin 43ec6098b1330ae86d0a7863be336c5d97f6ef34 and typed T/B observer distinction. The ten-label S23 minimax mother question remains separate, bracket [1/2,2/3]. Review/Result authority is governed by actual native task/owner/claim records.

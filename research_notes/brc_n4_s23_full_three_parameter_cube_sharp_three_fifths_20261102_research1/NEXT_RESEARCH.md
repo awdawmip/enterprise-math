@@ -1,0 +1,7 @@
+# Continuation frontier — after sharp full three-parameter cube
+
+Verified author frontier: on `S18 ∪ J([0,1]) ∪ F([0,1]^3)` with `F(s,t,u)=(s,t,u,0,0;1,0,0,0,0,0)`, the exact three-free-decoder minimax error is `3/5`; the specific new decoder bank has edge `E(u)=F(3/5,3/10,u)` maximum `1/2`. Frozen scientific source `43ec6098b1330ae86d0a7863be336c5d97f6ef34`; reuse the code in `VERIFY.js` and the full 1000-cell labeling in `RUN_EVIDENCE.json`.
+
+Next discriminating unit: allow one additional genuine causal/stop parameter to vary, e.g. set `z=(s,t,u,v,0;1,0,0,0,0,0)`, preserving the exact original six sources, and test the present ten-kernel bank at rational interior points in the fourth parameter. If an exact adverse point exceeds `3/5`, retain its exact six observed distributions, decoder risk vector, and one-event lower certificates; then locally redesign kernels and seek common-decoder multi-affine cell coverings. If the bank covers a bounded four-parameter region, publish its finite cell/analytic certificate. Preserve the seven fixed kernels, the scientific pin and original model, and report author evidence separately from native CLAIM, Result and independent review.
+
+Research source: Enterprise Math PR #1765 and this directory; publication to PR branch is author source storage only. Native Owner read in this run returned `CONTROL_QUOTA` and Site gateway `research_authority_granted=false`, so no formal owner, CLAIM, Result, review or admission is claimed.

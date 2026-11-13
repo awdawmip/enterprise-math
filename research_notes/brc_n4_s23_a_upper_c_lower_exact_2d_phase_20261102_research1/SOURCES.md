@@ -1,0 +1,11 @@
+# Source pins, verification scope and status
+
+**Frozen scientific baseline:** awdawmip/enterprise-math commit 43ec6098b1330ae86d0a7863be336c5d97f6ef34, research_notes/brc_n4_s23_asymmetric_hull_gap_sqrt43_20261101_research1/PROOF.md. Original 6 source labels, positive 6x6 mixing, common causal b_U, exact TV model retained. **Immediate inherited proof:** cb8a37eb0ca3f478a5e4da21b197c0501f5db660, research_notes/brc_n4_s23_c_lower_endpoint_exact_phase_20261102_research1/PROOF.md and NEXT_TASK.md.
+
+**Current normative remote reads (separate from frozen science):** GLOBAL_KNOWLEDGE_V1 canonical main@1ea86263e66f7d98af6151da4bcdfd2bbbd15e50; immutable 00_BOOTSTRAP.md, OPERATING_MANUAL.md and routed mathematical, code, output, project, ACTIVE-worldview rules. Enterprise Math main@ff2cb418398f05b1b4a865febda17c0fc2aa52d1; docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context, docs/PORTABLE_RESEARCH_PROTOCOL.md, AGENTS.md, p000_reality_foundation.json, definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json, definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json, research_priorities/research_method.json, current authority/activity protocol. Protected P000/worldview bytes untouched.
+
+**BRC resolution:** REUSE_APPLIED for original exact F, 20M mixing, six labeled preparations, causal sharing; REUSE_EXECUTED in verifier against original four-stop law and six full rows. Reduced 3-atom observer was certified TV-exact only under the explicit equal-tail freezes and present static observer. Future operations/native P000 X6 require separate fidelity proof.
+
+**Actual computation:** Python stdlib Fraction in Q(sqrt(43-16h+16h²)) for 294 rational boxes, 8 vertices, 6 mixed source rows and 2 joint centers: 28,224 exact rational/algebraic TV checks. No floating-point inference. For the real continuum the load-bearing proof is in PROOF.md.
+
+**Authenticated identity/role:** GitHub login awdawmip, project repo admin/push. Enterprise Math service 0.6.11 said research_authority_granted=false; live Owner query returned CONTROL_QUOTA; Site gateway static readonly (no active execution role). Therefore no native Owner/CLAIM/Result/independent review or mathematical admission. A GitHub research draft is author provenance, not an accepted theorem. No secrets included.

@@ -1,0 +1,9 @@
+# Sources and frozen scientific context
+
+- Exact scientific input pin: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34` (preserved; no source revision). The task's frozen six-row S23 branch/mixer arrays are copied unchanged from the preceding verified executable.
+- Immediate author-side frontier: `awdawmip/enterprise-math@690454aad6735fab2cbfb4063fc36dce2f12b1f8`, `research_notes/brc_n4_s23_unequal_overwrite_sharp_moduli_20261103_research1/{PROOF.md,VERIFY.py,NEXT_TASK.md}`; PR #1765 (Open Draft; prior work unreviewed/not admitted).
+- Present applicable project entry: `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `p000_reality_foundation.json`, `definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json`, `definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json`, `research_priorities/research_method.json` on current main.
+- Account current canonical snapshot (for this research run): `awdawmip/chatgpt-global-knowledge@6bd2f0a42eb97908d3e97e646143b1be81aa6e23`; rules through `00_BOOTSTRAP.md` and `OPERATING_MANUAL.md`, current math/code/conclusion contracts.
+- Mathematical method: elementary maximal coupling of Bernoulli variables, product coupling, total-variation contraction under deterministic maps and convexity under common-weight mixing. These steps are explicitly proved in `PROOF.md`; no literature priority/novelty assertion.
+- Verification: Python standard-library `Fraction`, seeded rational pair tests, exact witness formulas. See `VERIFY.py` and `RUN_EVIDENCE.json`. Finite execution is not used as a universal real-domain proof.
+- Model interpretation: finite ordered-branch stochastic observation/carrier, six provenance labels preserved; no new native X6 space/time dynamics or physical calibration asserted.

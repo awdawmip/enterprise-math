@@ -1,0 +1,5 @@
+# Continuation after sharp S18 + entire real J-edge = 4/7
+
+The original 18 witnesses plus J(t) for every real t∈[0,1] have exact minimax 4/7 for seven fixed and three arbitrary real common kernels. One explicit rational bank solves this continuous-edge target. All binary and ternary 11-coordinate policies also pass for that bank. The one-coordinate eighth grid yields 288 failures; exact next witness `H=(1/4,1,0,0,0;1,0,0,0,0,0)`, with bank error 5/8.
+
+**Next discriminating scientific unit:** add H to S18∪J([0,1]) and reoptimize the three free real kernels. Decide whether the sharp 4/7 value remains achievable via explicit rational kernels plus source-aware real-interval TV/convexity certificate, or derive a strictly larger lower bound with an exact event hypergraph and exhaustive free-label coloring. Then expand to other fractional-coordinate faces and full eleven-real-parameter coverage. Preserve all six M20 source labels, common b_U, frozen input `43ec6098b1330ae86d0a7863be336c5d97f6ef34`, and separate author evidence from native review.

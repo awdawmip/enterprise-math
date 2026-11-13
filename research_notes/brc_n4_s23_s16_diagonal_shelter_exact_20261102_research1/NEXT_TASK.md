@@ -1,0 +1,9 @@
+# Next scientific unit: break the diagonal shelter without changing frozen science
+
+**Completed:** For S16=S8+T1+...+T8, releasing exactly one frozen D_h while retaining the other seven and optimizing three arbitrary real stochastic decoders yields exactly the same radius as the earlier nine-point S8+T_h: 1/2 except h=5, where 11/21. The reason is an exact diagonal protection matrix L_Dj(Ti)=1/2 on i=j and 1 off the diagonal, so the other seven off-policies are already served by retained fixed decoders.
+
+**Priority A (discriminating new witness):** Fix h=5 and the actual seven retained D_i. Search for a *new legal 11-coordinate policy U* such that its retained-decoder minimum risk is strictly greater than 11/21 and it is not already covered at 11/21 by any of the predecessor's explicit three free kernels. Produce one exact rational/0-1 U, its six prepared rows, and a certified active risk event. If found, recompute the sharp S9+U lower/upper radius with a finite covering hypergraph certificate and an explicit feasible triple-kernel bank. If no candidate found within a finite search, report the exact searched domain, not a universal absence.
+
+**Priority B (mother goal):** Relax the seven retained kernels or optimize more than three kernels against the full original eleven-real-parameter S23 domain. Seek a certified ten-label upper <2/3 or a bank-independent lower >1/2, with source-aware TV-halfspace and continuous-cell proofs. An exact finite witness is a building block, not a substitute for eleven-dimensional coverage.
+
+Preserve BRC six-source row labels, original positive M20 mixture, shared b_U, the frozen scientific pin 43ec6098b1330ae86d0a7863be336c5d97f6ef34, project P000 native X6/time and source/review authority. When executing A, begin with the known original three kernels KERNELS[5] and a bounded ternary-policy scan (3^11=177147) for a concrete counterexample to that particular bank, then optimize against the resulting witness.

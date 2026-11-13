@@ -1,0 +1,5 @@
+# Next discriminating unit
+
+The fixed-seven/free-three BRC S23 population `S18 ∪ J([0,1]) ∪ {H(1/4),H(1/5)}` has newly established exact optimum **3/5** with rational upper construction and 10-witness/84-source-event/59049-coloring lower certificate. Source: this folder's PROOF.md, VERIFY.js and RUN_EVIDENCE.json. This settles the previous H(1/5) optimization question; the upper bound reuses the bank from prior commit `3f1643710eec93c297b4ccf1c3275dd986d19b10`.
+
+Open unit: solve `S18 ∪ J([0,1]) ∪ H([0,1])` exactly, preserving six-source provenance, common decoders, shared b_U and scientific frozen pin `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. First calculate how the bank covers continuous H(s): its six preparation distributions are affine in s, so derive exact coverage intervals from stochastic-kernel total variations; the union of bank coverage intervals can be checked using exact rational breakpoints. If an uncovered rational H(s0) exists, reoptimize all three kernels or derive a finite source-event/LP dual lower certificate. Compare value to full mother target [1/2,2/3] only with the exact decoder-freeing scope retained.

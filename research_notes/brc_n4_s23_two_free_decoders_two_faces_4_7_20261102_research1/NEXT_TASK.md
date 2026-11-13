@@ -1,0 +1,9 @@
+# Next portable research problem: improve 4/7 or sharpen two-face lower bound
+
+Mother objective: full lawful eleven-control BRC N4/S23 ten-label minimax for k=4,6, with existing global interval [1/2,2/3], exact six-source provenance and shared b_U.
+
+Completed on frozen input 43ec6098b1330ae86d0a7863be336c5d97f6ef34: hold first eight decoder rows and common deterministic encoder fixed, free rows 9 and 10. Four lawful policies {W,H,J,P} give exact optimum 13/27; add T=O(0,0) to get exact optimum 1/2. A separate rational two-free-decoder bank attains 4/7 for W,H,J and BOTH entire real two-parameter lawful faces O([0,1]^2), N([0,1]^2). Four full-TV sublevel rectangles per face cover each square. Therefore the exact two-free/full-face optimum is bracketed [1/2,4/7], improving the 11/18 exact predecessor with nine fixed. Complete proof, exact checker, actual stdout and pin ledger are in this directory.
+
+**Discriminating next unit:** with same first eight rows and original six-source mixture, search for a rational joint decoder9/10 bank at some r<4/7. Check H/J/W and both real faces by intersection of all 16 signed TV inequalities for each of six prepared rows, and certify every open cell/boundary of the induced closed rectangle cover. Alternatively give an exact rational adversarial witness/dual forcing radius >1/2. Report precise bank, interval certificates or failed counterexample; do not extrapolate finite grids.
+
+For a global 11D upper improvement, separately construct a complete multiaffine certificate over all 11 lawful controls and respect source correlations, information sets and future-operation bridge. Maintain P000 six-axis native Cell, independent time, proof-review independence and native Owner/CLAIM/Result requirements. This is author-only, UNREVIEWED and NOT_ADMITTED.

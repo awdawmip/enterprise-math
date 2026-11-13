@@ -1,0 +1,8 @@
+# Scientific sources and verification scope
+
+- Canonical Enterprise Math task/input provenance frozen at `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`; do not substitute the current behavioral-rule revision for that scientific pin.
+- Immediate theorem: `awdawmip/enterprise-math@9851e0d146a50a5f9b788467635c24c38d6e79d7`, `research_notes/brc_n4_s23_endpoint_normalized_20261104_research1/PROOF.md` and `VERIFY.py`: endpoint-normalized twelfth-order cubic proxy enclosure.
+- Exact earlier finite-contrast local root: `awdawmip/enterprise-math@6897b5e082ba6d707f1cb1683032b9a3b3233882`, `research_notes/brc_n4_s23_chernoff_finite_h_local_unique_crossing_20261104_research1/PROOF.md`; bracket `(0.10243902443,0.10243902445)`.
+- Earlier exact all-contrast endpoint orientation: `awdawmip/enterprise-math@213f911c782a4126406b2fa2e2f90373d8ccde9f`, `research_notes/brc_n4_s23_chernoff_all_contrasts_endpoint_existence_20261104_research1/PROOF.md`.
+- Normative context read separately from current canonical main: `awdawmip/chatgpt-global-knowledge` bootstrap/operating manual, mathematical research policy, output temporal semantics, research activity routing; Enterprise Math `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `p000_reality_foundation.json`, `definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json`, joint observer preservation and research method.
+- New work is an author-side analytic proof with an executed exact rational certificate. Neither existing project task Result/Review state nor formal acceptance is changed by this PR write. Site gateway configured as static read-only, separate authenticated researcher session/CLAIM unavailable from this connector at this read.
