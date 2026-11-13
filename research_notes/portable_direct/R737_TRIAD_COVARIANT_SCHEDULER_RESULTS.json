@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "model": "conditional P000-X6 S6-equivariant BRC triad channel",
+  "carriers": {
+    "A": {
+      "all_words_tested_length_0_to_8": 9841,
+      "S6_rotations_tested": 720,
+      "word_lengths_for_S6_check": 4,
+      "equivariance_cases": 58320,
+      "seam_pairs_checked": 9,
+      "same_ledger_distinct_holonomy": {
+        "PPQQ": {
+          "counts": [
+            0,
+            2,
+            2
+          ],
+          "k": 0,
+          "holonomy": "012"
+        },
+        "PQPQ": {
+          "counts": [
+            0,
+            2,
+            2
+          ],
+          "k": 2,
+          "holonomy": "120"
+        },
+        "QPQP": {
+          "counts": [
+            0,
+            2,
+            2
+          ],
+          "k": 1,
+          "holonomy": "201"
+        }
+      },
+      "three_state_residue_modulus": 3,
+      "conditional_native_triad_assumed": "one canonical equal-quantum TRIADIC_CLOSURE_E at chosen Cell",
+      "native_V29_PASS_event_realization": "not checked; proposed coupling remains open"
+    },
+    "B": {
+      "all_words_tested_length_0_to_8": 9841,
+      "S6_rotations_tested": 720,
+      "word_lengths_for_S6_check": 4,
+      "equivariance_cases": 58320,
+      "seam_pairs_checked": 9,
+      "same_ledger_distinct_holonomy": {
+        "PPQQ": {
+          "counts": [
+            0,
+            2,
+            2
+          ],
+          "k": 0,
+          "holonomy": "012"
+        },
+        "PQPQ": {
+          "counts": [
+            0,
+            2,
+            2
+          ],
+          "k": 2,
+          "holonomy": "201"
+        },
+        "QPQP": {
+          "counts": [
+            0,
+            2,
+            2
+          ],
+          "k": 1,
+          "holonomy": "120"
+        }
+      },
+      "three_state_residue_modulus": 3,
+      "conditional_native_triad_assumed": "one canonical equal-quantum TRIADIC_CLOSURE_E at chosen Cell",
+      "native_V29_PASS_event_realization": "not checked; proposed coupling remains open"
+    },
+    "six_quantum_two_triad_decomposition": {
+      "axis_labels": 6,
+      "unordered_partitions": 10,
+      "S6_orbit_size": 10,
+      "stabilizer_order": 72,
+      "canonical_selection_without_extra_mark": false,
+      "minimal_fixed_width_branch_bits": 4,
+      "status": "structural decompositions conditional on six simultaneous canonical triads; global six-force stability not asserted"
+    }
+  }
+}
