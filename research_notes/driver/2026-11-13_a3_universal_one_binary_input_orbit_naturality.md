@@ -2,7 +2,7 @@
 
 **2026-11-13 · Driver mathematical audit · scope: restricted A3 signed-\(S_4\) carrier.**
 
-**Provenance.** Original task \`RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION\`, publication \`TP2-D2D715EB36415B0CA0C5\`, original researcher \`EM-A3SCR-7A41D2\`, frozen Result \`RR-9FF7F84F01C577774649\`. This is a new criterion derived in the existing Driver context from the [all-radius orbit theorem](2026-11-13_a3_all_scale_orbit_naturality_and_intrinsic_quotient_square.md) and [single descent probe](2026-11-13_a3_single_binary_probe_centralizer_theorem.md); it is not a second independent review, a change to the frozen Result, or Native Review admission.
+**Provenance.** Original task `RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION`, publication `TP2-D2D715EB36415B0CA0C5`, original researcher `EM-A3SCR-7A41D2`, frozen Result `RR-9FF7F84F01C577774649`. This is a new criterion derived in the existing Driver context from the [all-radius orbit theorem](2026-11-13_a3_all_scale_orbit_naturality_and_intrinsic_quotient_square.md) and [single descent probe](2026-11-13_a3_single_binary_probe_centralizer_theorem.md); it is not a second independent review, a change to the frozen Result, or Native Review admission.
 
 ## Theorem: a fixed, aligner-independent binary input suffices
 
