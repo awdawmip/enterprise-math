@@ -1,0 +1,31 @@
+{
+  "schema": "EM_R137B_FAREY_INTEGER_CRITERION_V1",
+  "date": "2026-11-14",
+  "status": "AUTHOR_SIDE_NOT_REVIEWED",
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "method": "Exact rational Farey interval/cut integer-criterion with independent chronological Fraction event enumeration",
+  "marker": "R137B_FAREY_INTEGER_CRITERION_PASS",
+  "tests": {
+    "chronological_exact_pairs": 380,
+    "m": [
+      1,
+      10
+    ],
+    "K": [
+      2,
+      39
+    ],
+    "K1_special_cases": 10,
+    "large_K": "10^80+137",
+    "large_K_m_range": [
+      1,
+      20
+    ],
+    "large_K_m20_patterns": 944,
+    "max_witness_denominator_bits": 533,
+    "original_strict_fraction_comparison_for_witnesses": true
+  },
+  "theorem": "For each Farey gap lower p-j*a and upper q-k*a, a tied witness exists iff some integer N belongs to ((L+k)*r-q,(L+j)*s-p). Exact midpoint construction; full word enumeration O(m^4) arithmetic for all integer K>=1.",
+  "scope": "Finite exact tests do not establish universal theorem, which is supported separately by mathematical proof",
+  "remaining": "Derive direct saturation threshold constant/return intervals from integer-gap criterion."
+}
