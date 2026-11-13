@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r137_divisor_collision_quasiperiod_20261114/verification_r137.json",
+    "ref": "3fe6f5ca6013f2febf9513ee99bf10368a258c64",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r137-r1-20261114-3-3fe6f5ca6013",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_R137_EXACT_VERIFICATION_V1\",\n  \"date_local\": \"2026-11-14\",\n  \"scientific_input_pin\": \"43ec6098b1330ae86d0a7863be336c5d97f6ef34\",\n  \"predecessor_commit\": \"73438a02082bf7ee60ccd656f66ac87d753d5a11\",\n  \"runner\": \"Python 3, stdlib fractions.Fraction/math.lcm, exact integer arithmetic\",\n  \"command\": \"python check_r137.py\",\n  \"output_marker\": \"R137_COLLISION_QUASIPERIOD_PASS\",\n  \"checks\": {\n    \"divisor_collision_pairs\": {\n      \"count\": 2370,\n      \"m\": [\n        1,\n        30\n      ],\n      \"K\": [\n        2,\n        80\n      ]\n    },\n    \"independent_exact_fraction_event_pairs\": {\n      \"count\": 408,\n      \"m\": [\n        1,\n        12\n      ],\n      \"K\": [\n        1,\n        34\n      ]\n    },\n    \"period_identity_pairs\": {\n      \"count\": 224,\n      \"m\": [\n        1,\n        8\n      ],\n      \"K\": [\n        2,\n        29\n      ]\n    },\n    \"full_residue_classes\": {\n      \"m\": [\n        1,\n        6\n      ],\n      \"nondecreasing_for_m_le_5\": true,\n      \"negative_classes_m6\": [\n        24,\n        54\n      ],\n      \"period_m6\": 60\n    },\n    \"explicit_drop\": {\n      \"m\": 6,\n      \"K1\": 24,\n      \"J1\": 169,\n      \"K2\": 25,\n      \"J2\": 167\n    },\n    \"necessary_saturation_thresholds_1_to_20\": [\n      2,\n      2,\n      3,\n      4,\n      5,\n      6,\n      7,\n      9,\n      11,\n      12,\n      14,\n      16,\n      19,\n      22,\n      24,\n      28,\n      31,\n      35,\n      40,\n      42\n    ]\n  },\n  \"scope\": \"Finite exact tests of independent rational event construction and algebraic identities; universal theorems supported by PROOF.md\",\n  \"review_status\": \"NOT_REVIEWED\",\n  \"remaining\": \"Direct word recurrence classification and sharper first/eventual saturation thresholds\"\n}\n",
+      "display_title": "verification_r137.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3fe6f5ca6013f2febf9513ee99bf10368a258c64/research_notes/brc_s23_av_r137_divisor_collision_quasiperiod_20261114/verification_r137.json",
+      "encoding": "utf-8",
+      "sha": "ccc67a96fe9bc3477dffb27199d11729189068ac"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
