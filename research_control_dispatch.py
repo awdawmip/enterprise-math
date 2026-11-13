@@ -372,6 +372,10 @@ def route_from_candidates(
             result["fair_selection"] = {**selected["fair_selection"],
                                         "skipped_missing_publication": len(skipped_publication)}
             result["target"] = {k: v for k, v in result["target"].items() if k != "scheduling_trace"}
+            for name in ("research_work_category", "existing_work_read_first"):
+                result["target"][name] = selected[name]
+            if selected["existing_work_read_first"]:
+                result["reason"] = "Existing saved work: reuse its actual frontier and decide review or genuine continuation; do not restart frozen research."
             return result
 
     if recoverable:
@@ -386,7 +390,9 @@ def route_from_candidates(
             "target_key": _state_target_key(fresh_task),
             "owner_claim_preserved": False,
             "new_claim_required": True,
-            "reason": "fresh canonical task selector returned a dispatchable target",
+            "reason": ("Existing saved work: reuse its actual frontier and decide review or genuine continuation; do not restart frozen research."
+                       if fresh_task.get("existing_work_read_first") else
+                       "fresh canonical task selector returned a dispatchable target"),
         }
 
     if fresh_lane is not None:

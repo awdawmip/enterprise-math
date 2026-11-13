@@ -6,7 +6,7 @@
 
 ## 每轮的轻量消费路径
 
-沿已读的 GK 项目入口进入当前任务路由；复用本 lane 的已登记身份、未落定原请求和有用科学前沿。进入新单元自然边界时，消费当前可执行选择并读取所选 Task，再完成自身 prepare／有前任的 typed continuation → 真实获胜 CLAIM → open。选择和登记都不等于领取；继续已有科学方向不必强制改题。Sites 沿既有原生工具和回执的 `worker_transition.native`（实际宣告时）；GitHub Chat 可用 `worker_pull`，并非只有无 Sites 时才可使用。保留原 subject 和私密能力，不跨传输采用别的 lane 身份；没有新工具宣告时沿已有精确路由，不重签或全扫。
+沿已读的 GK 项目入口进入当前任务路由；复用本 lane 的已登记身份、未落定原请求和有用科学前沿。进入新单元自然边界时，消费当前可执行选择并读取所选 Task，再完成自身 prepare／有前任的 typed continuation → 真实获胜 CLAIM → open。选择和登记都不等于领取；继续已有科学方向不必强制改题。默认新选题优先开放前沿和明确的修订/接续；已保存待判断的 Result、旧交接前沿会标为已有工作，不把它们当作从头科研。没有其他候选时仍可选择这类前沿，由研究者复用已读材料、自主判断审阅或真正的增量研究，不要求先完成审核。Sites 沿既有原生工具和回执的 `worker_transition.native`（实际宣告时）；GitHub Chat 可用 `worker_pull`，并非只有无 Sites 时才可使用。保留原 subject 和私密能力，不跨传输采用别的 lane 身份；没有新工具宣告时沿已有精确路由，不重签或全扫。
 
 已有成果先保存 GitHub，并由原作者按既有 activity 规则更新原 Activity：`tools/research_activity.py checkpoint` 或同 schema 的 connector JSON／非强制 CAS 均可。此 Source 记账使用已有 GitHub 写权限，不要求 MCP session key；当前无 `activity_checkpoint` 服务操作，缺它或缺旧 session key 不阻止这条 Source 路径。保留原 RA／SID／Researcher-ID，引用已有科研文件的 commit、path、SHA256 和真实完整读回，不重复上传科研正文。它是活动记账，不是 CLAIM、执行授权或正式 semantic checkpoint；不能把仅有作者分支保存称为 activity 已回写。没有匹配当前研究的已发布 Task 时，明确报告缺的绑定，保留原研究，不把另一方向的推荐冒称已领取。以上按真实工作边界执行，不新增必读文件或每轮完整状态扫描。
 
@@ -59,8 +59,8 @@ Sites 用户先读 `em_sites_connection_status` 和 `em_status`。若当前 owne
 | 文件已上传、未发布 | 使用已完成末片的 request_id；核对文件与目标，再发布已有证据。 |
 | 已发布 checkpoint | 消费确切 Source 字节、已完成/不重做单元和下一动作；未知回执先 reconcile。 |
 | 已合法释放或租约过期 | 新授权 session 从规范 continuation 准备并赢得新 CLAIM，再 open；保留原任务和最高有效前沿。 |
-| FROZEN/待审阅 | 交当前合法 Driver，不能重新领取已冻结数学单元。 |
-| 已关闭或被 fence | 本地旧回执不是写权限；使用新身份和当前 canonical continuation，不复用旧 run。 |
+| FROZEN/待审阅 | 复用已有结果，按数学需要审阅或接续真实未完前沿；不重复已完成单元，也不以待审为继续研究的门槛。 |
+| 已关闭或被 fence | 本地旧回执不是写权限；按当前 canonical continuation 处理原 run。被 fence 本身不要求新身份；复用仍有效的本人 session，只有会话确已关闭才走已有新登记路径。 |
 | 校验在 admission 前明确拒绝、未产生 native effect | 读取返回的 operation_contract，修正字段后一次新请求；保留原失败记录。 |
 
 普通 Chat 与标准 MCP 的开放能力以当前 `status` 为准。普通接口未提供某项能力时，不编造参数。已规范释放/租约过期的 RESUME 是无需联系旧研究员的自动接续路径。提前接管 live claim 仍需 Source 接受的真实失活证据与 predecessor CAS；仅凭 600 秒没有服务请求或 UI spinner 不能证明旧对话停止。
