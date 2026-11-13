@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FNW_ROOTWISE_DOMINANCE_20261114/ROOT_DOMINANCE_EXTENSION.cpp.txt",
+    "ref": "5ad7e745176174ef2736bfdb94273a914e715800",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL_GITHUB_FETCH_EC49FNW_20261114_2_dcf8acd77be193811cf7f17ed8b5193ab366e7f1",
+  "result": {
+    "structuredContent": {
+      "content": "// EC49FNW native BRC exact root-subset dominance extension\n// Base: EC49FNU original C++17 source from PR #2330.\n// This file is an insertion (not an independent complete translation unit).\n// Insert functions immediately before the original main(); insert the indicated\n// block immediately after \"auto t=transfer(...)\" in the 168-orientation loop.\n// The complete compilable modified file and raw 168-row stdout are preserved\n// in EC49FNW_ROOTWISE_DOMINANCE_EVIDENCE_20261114.tar.xz.\n\nint root_delta(const RootData &a, const RootData &b) {\n  vector<int> from, to;\n  for (int j = 0; j < (int)a.labels.size(); ++j) {\n    auto it = lower_bound(b.labels.begin(), b.labels.end(), a.labels[j]);\n    if (it != b.labels.end() && *it == a.labels[j]) {\n      from.push_back(j);\n      to.push_back(int(it-b.labels.begin()));\n    }\n  }\n  const int q = from.size();\n  int res = 0;\n  for (int mask = 0; mask < (1<<q); ++mask) {\n    int x=0, y=0;\n    for (int j=0; j<q; ++j) if (mask>>j&1) {\n      x |= 1<<from[j];\n      y |= 1<<to[j];\n    }\n    if (a.dp[x] >= INF || b.dp[y] >= INF)\n      throw runtime_error(\"root delta invalid common subset\");\n    res = max(res, a.dp[x]-b.dp[y]);\n  }\n  return res;\n}\n\nbool source_cut_target_lawful(const Context &t, const NodeCert &n) {\n  for (int r=0; r<4; ++r)\n    for (int l=0; l<24; ++l) if (n.labels[r]>>l&1) {\n      const auto &v=t.d[r]->labels;\n      if (!binary_search(v.begin(), v.end(), l)) return false;\n    }\n  return true;\n}\n\n/* INSIDE the original directed transfer loop, immediately after:\n      auto t=transfer(contexts.at(src),certs.at(src),contexts.at(dst),cutoff[src]);\n   add the following exact instrumented calculation:\n\nint delta[4]={},delta_sum=0;\nfor (int r=0;r<4;++r) {\n  delta[r]=root_delta(*contexts.at(src).d[r],*contexts.at(dst).d[r]);\n  delta_sum+=delta[r];\n}\nint min_source_margin=INF, legal_cuts=0;\nfor (const auto &node:certs.at(src).cut)\n  if (source_cut_target_lawful(contexts.at(dst),node)) {\n    ++legal_cuts;\n    min_source_margin=min(min_source_margin,node.lb-cutoff[src]);\n  }\nbool globally_safe=min_source_margin>delta_sum;\ncout<<\"ENVELOPE \"<<src<<' '<<dst<<' '<<globally_safe<<' '\n    <<min_source_margin<<' '<<delta_sum;\nfor(int r=0;r<4;r++)cout<<' '<<delta[r];\ncout<<' '<<legal_cuts<<' '<<t.cut_fail<<' '<<t.extra_pairs<<\"\\n\";\n\n*/\n",
+      "display_title": "ROOT_DOMINANCE_EXTENSION.cpp.txt",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/5ad7e745176174ef2736bfdb94273a914e715800/research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FNW_ROOTWISE_DOMINANCE_20261114/ROOT_DOMINANCE_EXTENSION.cpp.txt",
+      "encoding": "utf-8",
+      "sha": "dcf8acd77be193811cf7f17ed8b5193ab366e7f1"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
