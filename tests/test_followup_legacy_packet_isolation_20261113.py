@@ -112,15 +112,19 @@ class LegacyFollowupPacketIsolationTests(unittest.TestCase):
             with self.assertRaisesRegex(followup.DriverFollowupError, "packet_id is invalid"):
                 followup.packet_map(root)
 
-    def test_unknown_schema_is_not_silently_ignored(self):
+    def test_unknown_schema_is_retained_raw_but_rejected_as_current_candidate(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             self.write_packet(
                 root, "DR-UNKNOWN", "DFU-UNKNOWN",
-                {"schema": "UNKNOWN_FOLLOWUP_SCHEMA_V99", "review_id": "DR-UNKNOWN"},
+                {"schema": "UNKNOWN_FOLLOWUP_SCHEMA_V99", "review_id": "DR-UNKNOWN",
+                 "packet_id": "DFU-UNKNOWN", "policy": followup.POLICY},
             )
-            with self.assertRaisesRegex(followup.DriverFollowupError, "unsupported follow-up schema"):
-                followup.packet_map(root)
+            raw = followup.iter_packets(root)
+            self.assertEqual(1, len(raw))
+            self.assertEqual("UNKNOWN_FOLLOWUP_SCHEMA_V99", raw[0]["schema"])
+            with self.assertRaisesRegex(followup.DriverFollowupError, "wrong follow-up packet schema"):
+                followup.validate_packet(raw[0], root)
 
 
 if __name__ == "__main__":
