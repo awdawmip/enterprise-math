@@ -1,0 +1,127 @@
+{
+  "schema": "ENTERPRISE_MATH_R728_PORT_CONFLICT_FINITE_EVIDENCE_V1",
+  "date": "2026-11-12",
+  "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "X6 six source-family labels with distinct source IDs; candidate port conflict pair {0,1}",
+  "observer": "exact nonnegative labeled BRC partition count",
+  "allowed_future_operation": "hypothetical H->full port exclusion removal",
+  "branches": {
+    "unrestricted_axis_triples": 20,
+    "restricted_axis_triples": 16
+  },
+  "conflict_blocks": [
+    [
+      0,
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ],
+    [
+      4
+    ],
+    [
+      5
+    ]
+  ],
+  "full_coverage": {
+    "m": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "occupation_vectors": [
+      56,
+      462,
+      2002,
+      6188
+    ],
+    "total_vectors": 8708,
+    "unrestricted_feasible": [
+      20,
+      141,
+      580,
+      1751
+    ],
+    "restricted_feasible": [
+      16,
+      99,
+      378,
+      1088
+    ],
+    "max_unrestricted_multiplicity": [
+      1,
+      10,
+      124,
+      4960
+    ],
+    "max_restricted_multiplicity": [
+      1,
+      6,
+      96,
+      2448
+    ],
+    "different_counts": [
+      4,
+      55,
+      306,
+      1086
+    ],
+    "unrestricted_feasible_now_blocked": [
+      4,
+      42,
+      202,
+      663
+    ]
+  },
+  "collision": {
+    "a": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "a_prime": [
+      2,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "shared_block_totals": [
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "shared_restricted_count": 6,
+    "future_full_counts": [
+      10,
+      6
+    ]
+  },
+  "feasibility_counterexample": {
+    "occupation": [
+      2,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "full_count": 6,
+    "restricted_count": 0
+  },
+  "permutation_transport_checked": 720,
+  "verification": "source-ID pivot recursion versus independent integer coefficient recurrence, full finite 8708 inputs",
+  "marker": "R728_PORT_CONFLICT_EXACT_PASS",
+  "physical_event": "NOT_EXECUTED; candidate incidence only"
+}
