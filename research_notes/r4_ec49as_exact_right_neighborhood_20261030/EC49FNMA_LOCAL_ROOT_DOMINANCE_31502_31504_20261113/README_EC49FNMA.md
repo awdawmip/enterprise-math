@@ -60,3 +60,14 @@ Let K0=[0,4,5,11,34,61], the common six complete keys. Exact recomputation from 
 The redundancy is not merely a trivial literal-word-prefix containment. In the frozen source, key64 contributes 280 new 06-root legal words, and key66 contributes 9,540 new 05/06/07-root legal words. Of these 9,820 words, **none** has a same-label path from the six shared keys that is literally a prefix of the added path. The result is about the exact optimum of whole native prefix tries, not a claim of per-word path replacement.
 
 The companion checker recomputes the six-key skeleton's three complete integer tables and tests all 9,820 wordwise containment cases. This strengthens the local three-case analysis without changing its frozen input or extending it to the unrestricted mother problem.
+
+
+## General replacement-dominance lemma (deductive result)
+
+For any fixed native BRC catalogue, let f[K,r](S) be the minimum original-prefix cost of covering demand S by source-lawful words using keys in K and first root r. If K is a subset of L, the feasible word selections for K are a subset of those for L; therefore f[L,r](S) <= f[K,r](S), for every S feasible in K. No submodularity or Euclidean endpoint assumption is required.
+
+Consequently, if a base key set K0 and old key a satisfy f[K0 union {a},r](S)=f[K0,r](S) on the required common root/subset domains, **every** replacement of a by any other key b weakly dominates the old root cost profile on those domains:
+
+f[K0 union {b},r](S) <= f[K0 union {a},r](S).
+
+In the concrete frozen experiment K0=[0,4,5,11,34,61], a=64 and b=65. The computational duty is the exact *old-key redundancy* identity; the replacement inequality then follows as a mathematical consequence of nested feasible sets. The 1,850 strict cases and exact 106 vs 108 global improvement are further computational conclusions, not consequences of monotonicity alone. This gives a reusable reduction for any finite native prefix-trie key-replacement problem with preserved eligible demand domains.
