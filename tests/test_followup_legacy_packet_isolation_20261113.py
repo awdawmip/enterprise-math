@@ -46,6 +46,25 @@ class LegacyFollowupPacketIsolationTests(unittest.TestCase):
                 (root / "research_driver_followups" / "DR-LEGACY" / "DFU-LEGACY.json").is_file()
             )
 
+    def test_checked_in_legacy_baseline_does_not_poison_current_packet_map(self):
+        root = Path(__file__).resolve().parents[1]
+        legacy = (
+            root / "research_driver_followups"
+            / "DR-2C7E91A4B5D8063F1248"
+            / "DFU-6F1A4C8E2D9057B3A216.json"
+        )
+        self.assertTrue(legacy.is_file())
+        record = json.loads(legacy.read_text(encoding="utf-8"))
+        self.assertEqual("ENTERPRISE_MATH_RESEARCH_DRIVER_FOLLOWUP_V1_3", record["schema"])
+        self.assertEqual("DFU-6F1A4C8E2D9057B3A216", record["followup_id"])
+        self.assertNotIn("packet_id", record)
+        indexed = followup.packet_map(root)
+        self.assertNotIn("DR-2C7E91A4B5D8063F1248", indexed)
+        self.assertEqual(
+            "DFU-E7CBFD0E9958AF25E942",
+            indexed["DR-CE3F008C48F9EBBFF9FA"]["packet_id"],
+        )
+
     def test_malformed_current_schema_still_fails_packet_id_validation(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
