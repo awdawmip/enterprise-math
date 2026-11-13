@@ -5,6 +5,7 @@ import EnterpriseMath.Arithmetic.RootMultiplicativity
 import EnterpriseMath.Arithmetic.CollapseCommutation
 import EnterpriseMath.Dynamics.HistoryMerge
 import EnterpriseMath.Order.WellFoundedStabilization
+import EnterpriseMath.Order.RightAdjointSublevel
 import EnterpriseMath.Order.ReductiveCompositionStabilization
 import EnterpriseMath.Precision.Carry
 import EnterpriseMath.Precision.CompositionSafeCollapse
