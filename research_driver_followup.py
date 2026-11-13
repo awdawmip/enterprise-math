@@ -151,6 +151,13 @@ def iter_packets(root: Path = ROOT) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     for path in sorted(directory.glob("*/*.json")):
         value = _load(path)
+        schema = value.get("schema")
+        # V1_3 stores a legacy followup_id, not a current packet_id.
+        # Keep its immutable file as historical evidence, outside this index.
+        if schema == "ENTERPRISE_MATH_RESEARCH_DRIVER_FOLLOWUP_V1_3":
+            continue
+        if schema != SCHEMA:
+            raise DriverFollowupError(f"{path}: unsupported follow-up schema: {schema!r}")
         value["_path"] = path.relative_to(root).as_posix()
         out.append(value)
     return out
