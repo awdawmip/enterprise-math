@@ -63,6 +63,20 @@ The midpoint is rational, lies strictly in both open constraints and therefore i
 
 **Endpoint corollary.** If `h-l>1/g`, every phase in [0,1) is represented by I; if `h-l=1/g`, exactly the single phase `{g*l}` is absent. The strict endpoint condition is therefore fully represented, including the case where the missing phase carries a cut-only word.
 
+## R131.4: exact event replication across aligned complete periods
+
+Suppose `g>0` and `E!=0`. Let `q` be the number of **distinct** normalized interior event roots in (0,1), and let `r in Z, n>=1`. The direct R129 event set in the open aligned interval
+
+`I=(r/g,(r+n)/g)`
+
+has **exactly**
+
+`|C_I| = n*q + n - 1 = n*(q+1)-1`
+
+distinct cuts. Indeed, each normalized interior event `c` has precisely n distinct lifts `theta=(r+j+c)/g` for `j=0,...,n-1`. The other direct roots occur only at phase `eta=0` and hence at the `n-1` internal period seams `theta=(r+j)/g, j=1,...,n-1`. Every such seam is included because `E*theta=e*(r+j)` is integral and `E!=0`, i.e. it is an isolated integer crossing of `E*theta`. The two classes are disjoint and exhaustive by the normalized affine root construction. QED.
+
+For the scaling family below, `g=K`, `q=44`, `r=0`, `n=K`, so the *exact* dense event count is `45K-1`; the final benchmark verifies the values 44,89,179,359,719,1439,2879,5759 for `K=1,...,128` on the declared doubling grid. For `K=10^80`, this is an exact mathematical count of the direct-cut enumeration obligations, without executing that enormous enumeration. The quotient still uses 44 interior cuts and its single explicitly retained phase-zero state.
+
 ## Efficiency domain and limitation
 
 For `(A,d,E)=(3K,K,2K)` and `x=1/7,m=7,I=(0,1)`, the direct R129 root *upper bound* is `72K`, whereas the circular quotient bound is `72` and the actual distinct interior cuts are `44`, for all positive integers K. On the tested family `K=1,2,9,256,10^10,10^80`, the quotient retained 36 realized words and performed 168 exact single-bit evaluations, including the origin state. This is an algebraically proved input-family scaling gain in event count; measured runtime is not asserted. With gcd=1 but very large coprime coefficients, this construction may still have a huge normalized event count, so R126/R127 coefficient-independent feasibility remains a useful alternative.
