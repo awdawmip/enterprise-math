@@ -58,7 +58,8 @@ class Spatial6:
         return canonical(self.coords[i] for i in S)
     def rotate(self,p:Sequence[int])->"Spatial6":
         p=tuple(p)
-        if len(p)!=6 or set(p)!=set(AXES): raise ValueError("S6 permutation required")
+        if len(p)!=6 or any(type(i) is not int for i in p) or set(p)!=set(AXES):
+            raise ValueError("S6 permutation of exact native axis indices required")
         out=[0]*6
         for old,new in enumerate(p): out[new]=self.coords[old]
         return Spatial6(tuple(out))
