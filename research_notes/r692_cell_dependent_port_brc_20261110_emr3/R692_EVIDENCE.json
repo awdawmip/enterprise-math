@@ -1,0 +1,97 @@
+{
+  "schema": "R692_CELL_DEPENDENT_PORT_GATE_BRC_V1",
+  "date": "2026-11-10",
+  "frozen_science_pin": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "frozen_scientific_source": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "E_star_source": "028d5612f9562bc22ac7593f03426fc32b1a9259",
+  "r691_source": "f3a8c25bcb792fac5176ce45ac6ff18785181d13",
+  "observer": "positive labeled BRC square sources and exact S3 holonomy",
+  "scope": "static cell-dependent binary directed gates; all six E* phase starts; all 60 four-primitive-step return squares; 140 single-port deletions for a=b=0",
+  "validation_marker": "R692_DYNAMIC_PORT_GATE_BRC_EXACT_PASS",
+  "counts": {
+    "square_sources_per_phase": 60,
+    "phase_starts": 6,
+    "gate_checks_per_source": 4,
+    "unique_relevant_ports": 140,
+    "unique_sites": 73,
+    "maximum_L1_radius": 2,
+    "total_gate_occurrences": 240,
+    "impact_histogram": {
+      "1": 120,
+      "2": 4,
+      "4": 4,
+      "6": 4,
+      "8": 4,
+      "10": 4
+    }
+  },
+  "full_a0_counts": {
+    "120": 6,
+    "201": 12,
+    "012": 24,
+    "021": 18
+  },
+  "remote_corner_deleted_q": [
+    0,
+    1,
+    1,
+    1
+  ],
+  "remote_corner_port": {
+    "site": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "axis": 0,
+    "sign": -1
+  },
+  "after_corner_deletion": {
+    "120": 6,
+    "201": 11,
+    "012": 24,
+    "021": 18
+  },
+  "two_remote_edit_U01": {
+    "deleted_ports": [
+      {
+        "site": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "axis": 0,
+        "sign": -1
+      },
+      {
+        "site": [
+          1,
+          -1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "axis": 0,
+        "sign": -1
+      }
+    ],
+    "before": {
+      "201": 2,
+      "021": 2
+    },
+    "after": {
+      "021": 2
+    },
+    "before_group": "S3",
+    "after_group": "C2",
+    "minimal_remote_edits": 2
+  },
+  "future_scope": "independent returning macros under fixed port field; labeled admission signature 60 bits and full-frame six-count group kernel; dynamic updates await real native bridge"
+}

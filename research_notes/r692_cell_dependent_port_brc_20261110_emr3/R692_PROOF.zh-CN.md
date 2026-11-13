@@ -1,0 +1,26 @@
+# R692 | Cell-dependent X6 directed port gates: sharp local BRC certificate
+Date: 2026-11-10. Researcher-side exact proof + finite BRC enumeration; pending independent review.
+Parent: RS-X6-TRIADIC-CLOSURE-DYNAMICS; frozen R462 pin 18783e01e3646c72b7aab3b16d3f565e83e6446f; scientific Source a72226e2430ffa4786321ac86e7f0c599d5f0389; E* R687 028d5612f9562bc22ac7593f03426fc32b1a9259; R691 f3a8c25bcb792fac5176ce45ac6ff18785181d13.
+
+## Model
+Under locked P000 X6, an anchored raw signed Cell chart is Z^6, six native axes and separately typed event order. E* is a *research candidate*, with a=sum of even-index coordinates mod 3, b=sum of odd-index coordinates mod 2 and triads (a,b)=(0,0):012,(1,0):013,(2,0):014,(0,1):023,(1,1):123,(2,1):013. V17 replaces the unique departing label in its frame slot with the arriving label on each primitive signed-axis unit move. The source alphabet has 60 labeled return squares q=(i,j,s,t), 0<=i<j<6, s,t=+/-1, with moves (i,s),(j,t),(i,-s),(j,-t). Their holonomies h_z(q) lie in S3.
+A static spatial binary candidate port field D(x,i,s) is checked at the actual Cell before every step; it remains fixed between repeated macro events. The square q is allowed iff
+A_D(z;q)=D(z,i,s)D(z+s*ei,j,t)D(z+s*ei+t*ej,i,-s)D(z+t*ej,j,-t)=1.
+The product is Boolean conjunction. Retain each allowed q as a labeled positive BRC source of integer multiplicity one. If N>0 normalize to 1/N per allowed source; if N=0 define HALT. This is a model-internal port extension, not yet the actual native X6 Link/Port occupancy policy.
+
+## Theorem A: 140 ports and radius two (sharp)
+Across all 60 squares, the necessary binary port variables (Cell,axis,sign) are exactly 140 at 73 Cells: the origin, 12 one-step neighbors and 60 mixed corners at L1 distance two. First-step origin variables: 10 (i<=4, two signs). Second-step neighbor variables: 60 distinct. Third-step mixed-corner variables: 60 distinct. Fourth-step neighbor-return variables: 10 (j>=1, two signs). These four types are disjoint, and total occurrences are 240=4*60. Frequency census: 120 variables occur in one path; 4 variables each occur in 2,4,6,8,10 paths. Hence equality of these local 140 bits implies equality of all source admissions.
+The L1 radius two is necessary: compare full D=1 with the field differing only at (z+e0+e1,axis0,minus), switched to 0. Every port at L1<=1 agrees, but q=(0,1,+,+) is now forbidden, at its third step, and has h(q)=201 when a=b=0. Therefore the source admission vector and full group kernel differ.
+
+## Theorem B: exact future-sufficient quotients
+Write A=(A(q)) for the 60-bit source-admission vector. For the observer of the allowed labeled sources and all future finite words of such return macros with *fixed* D, two fields are observationally equivalent iff A agrees: necessity by one-source admission query, sufficiency by induction on macro-word length (every word returns to z).
+For a narrower observer of the S3 frame value after k macros with uniform positive source selection, the complete one-step normalized group kernel is mu(g)=c_g/N where c_g is the number of enabled source words whose holonomy is g. The full future law is mu convolved with itself k times. Thus the six-bin integer count vector plus N/HALT is a sufficient summary. Exact counts or positive BRC source labels must be retained when future port/ledger queries require them. Both quotients specify their observers rather than declaring a universal state elimination.
+
+## Counterexample C: one remote-port edit defeats R691 static summary
+At a=b=0, full six-axis field has 60 positive sources with counts id=24, tau(021)=18, c(120)=6, c^2(201)=12. Deleting only the remote corner port (z+e0+e1,axis0,minus) forbids exactly q=(0,1,+,+) and changes the count vector to 24,18,6,11 (N=59). The origin directed mask, the phase a and the R691 origin-derived (s,m,L)=(6,9,6) are identical. A remote second-step edit at (z+e0,axis1,plus) yields the same deleted source, making step two the earliest possible difference with identical origin gates. Radius two remains necessary to cover all such sources.
+
+## Counterexample D: two remote edits change reachable group
+With only bidirectional origin axes U={0,1}, a=0, the four signed macros comprise two tau and two c^2 holonomies, generating S3. Delete remote ports (z+e0+e1,axis0,minus) and (z+e0-e1,axis0,minus); exactly the two c^2 words disappear. The two remaining tau words generate C2. The two c^2 words share their first origin gate but share no off-origin directed gate; hence two is the minimum number of remote single-gate deletions for this exact elimination while preserving all origin gates.
+
+## Exact execution and scope
+R692_VERIFY.py enumerates 6 phases x 60 sources, all four primitive gates, the 140 distinct one-port deletions at a=b=0, precise BRC counts and both witnesses using integer arithmetic and Fraction. Expected marker R692_DYNAMIC_PORT_GATE_BRC_EXACT_PASS; R692_EVIDENCE.json supplies counts and scope. Input science remains R462 frozen. Next: substitute actually frozen X6 Link/Port/occupancy permissions for the candidate D and connect V29 PASS/TRANSFER and V39 source flow j in a typed multi-event state. Parent P000 triadic force closure and rotation covariance remain open. No native CLAIM, Result, Driver approval or Foundation promotion is asserted here.
