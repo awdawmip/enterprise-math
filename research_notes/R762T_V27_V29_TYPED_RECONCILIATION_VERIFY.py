@@ -113,12 +113,12 @@ def main():
             omg[i][j]=q
             omg[j][i]=-q
         for uv in itertools.product((-1,0,1),repeat=3):
-            target=list(uv)+(0,)
+            target=list(uv)+[0]
             cm=[[max(omg[i][j],0) for j in range(N)] for i in range(N)]
             assert all(cm[i][j]-cm[j][i]==omg[i][j]
                        for i in range(N) for j in range(N))
             rr,ss,wg=min_boundary(cm,target)
-            assert tuple(calc_u(cm,rr,ss))==target
+            assert calc_u(cm,rr,ss)==target
             passes=sum(abs(omg[i][j]) for i in range(N) for j in range(i+1,N))
             transfers=sum(abs(v) for v in wg)
             assert sum(map(sum,cm))+sum(rr)+sum(ss)==passes+transfers
