@@ -1,0 +1,21 @@
+{
+  "result": "R750_X6_C1_OBSERVER_TOWER_EXACT_PASS",
+  "domain": "X6 finite C1 signed-Port to unsigned-axis-pair observer",
+  "signed_states": 60,
+  "unsigned_states": 15,
+  "signed_degree": 16,
+  "unsigned_degree": 8,
+  "signed_directed_edges": 960,
+  "unsigned_directed_edges": 120,
+  "verified_n": [1, 2, 3, 4],
+  "rows": [
+    {"n":1,"signed_resampled":60,"unsigned_resampled":15,"signed_fixed":60,"unsigned_fixed":15,"signed_lifts":4,"fixed_lifts":4,"tv_signed":"0","tv_unsigned":"0"},
+    {"n":2,"signed_resampled":960,"unsigned_resampled":120,"signed_fixed":960,"unsigned_fixed":120,"signed_lifts":8,"fixed_lifts":8,"tv_signed":"0","tv_unsigned":"0"},
+    {"n":3,"signed_resampled":15360,"unsigned_resampled":960,"signed_fixed":960,"unsigned_fixed":120,"signed_lifts":16,"fixed_lifts":8,"tv_signed":"15/16","tv_unsigned":"7/8"},
+    {"n":4,"signed_resampled":245760,"unsigned_resampled":7680,"signed_fixed":960,"unsigned_fixed":120,"signed_lifts":32,"fixed_lifts":8,"tv_signed":"255/256","tv_unsigned":"63/64"}
+  ],
+  "exact_general_theorem": "For every integer d>=3, D2_signed - D2_unsigned = n-2 bits for n>=2.",
+  "native_v29_v39_executed": false,
+  "formal_result": false,
+  "independent_review": false
+}

@@ -1,0 +1,51 @@
+# R750 — Two-level signed/unsigned C1 BRC observer tower (exact theorem)
+
+Date: 2026-11-12 Asia/Shanghai. Parent: RS-X6-TRIADIC-CLOSURE-DYNAMICS / TP2-8B7E13C5904A2D6F1142. Frozen scientific input remains a72226e2430ffa4786321ac86e7f0c599d5f0389. Research status: author-proved exact finite candidate-model result, finite X6 verification; native V29/V39 correspondence and formal Result/Driver review unperformed.
+
+## Defined model
+
+Let d≥3 native axes, P_d={(i,s):0≤i<d,s∈{−1,+1}}. A signed visible state v is an unordered pair of signed Ports on distinct axes. Its unsigned observer q(v) is the unordered pair of the two axis labels, with the sign information omitted but all d native axes preserved.
+
+A signed legal transition v→w retains precisely one *identical signed Port* and introduces a Port on a third, distinct axis. The unsigned legal transition retains one axis and introduces a third. A fixed-source triad uses x_(t+1)=x_(t−1) △ x_t (symmetric difference). Every directed legal edge determines a period-three cycle. In the signed and unsigned versions, μ_n samples an initial legal directed edge uniformly and then follows this recurrence. ν_n samples an initial state uniformly and draws each later legal successor uniformly, independently conditional on its current state. For n≥2, μ_n,ν_n are distributions on complete n-blocks; superscripts s,u refer to signed or axis-only observation. All laws here are finite C1 combinatorial observer laws, not native physical probabilities.
+
+## Theorem 1: counts and fiber factorization
+
+For every integer d≥3, signed visible state count is 2d(d−1), signed out-degree is 4(d−2), and directed-edge count is 8d(d−1)(d−2). The unsigned counts are d(d−1)/2 states, 2(d−2) successors, d(d−1)(d−2) directed edges. The legal ν_n supports have sizes 2d(d−1)[4(d−2)]^(n−1) and [d(d−1)/2][2(d−2)]^(n−1). The μ_n supports have constant sizes 8d(d−1)(d−2) and d(d−1)(d−2).
+
+Every legal unsigned n-block has exactly 2^(n+1) legal signed resampled lifts. Every unsigned fixed-source n-block has exactly 8 signed fixed-source lifts, for every n≥2.
+
+**Proof.** The signed initial state chooses two different axes and two signs; holding one of its two Ports, the other is replaced by one of d−2 axes and one of two signs, yielding 4(d−2) successors. Without signs, this leaves 2(d−2) successors. Choose two signs on the initial unsigned axis pair (four choices), then a sign for each newly entering axis at every subsequent step (n−1 choices of a binary sign); in the resampled path an axis returning after it was dropped has a fresh sign and no extra equality constraint. Thus every legal unsigned n-block has 2^2·2^(n−1)=2^(n+1) lifts. In the retained process, the first two unsigned pairs have union of exactly three axes, hence exactly 2^3 signed initial Port assignments; all subsequent signs are fixed by the recurrence. Period-three for any legal first edge follows from x△(x△y)=y, so the retained-support sizes equal the corresponding directed-edge counts. QED.
+
+## Theorem 2: exact information separation at every horizon
+
+For all d≥3,n≥2, write TV for total variation and D₂ for relative entropy in bits. Then
+
+TV(μ_n^s,ν_n^s) = 1 − [4(d−2)]^(−(n−2)),
+TV(μ_n^u,ν_n^u) = 1 − [2(d−2)]^(−(n−2)).
+
+D₂(μ_n^s || ν_n^s) = (n−2)log₂[4(d−2)],
+D₂(μ_n^u || ν_n^u) = (n−2)log₂[2(d−2)].
+
+In particular, D₂(signed) − D₂(unsigned) = n−2 bits, exactly. For **each** unsigned retained-source n-history, the conditional signed-lift laws have relative entropy n−2 bits; the KL chain rule gives the global decomposition. The observer loses precisely one additional bit of source-memory distinguishability per post-initial observation, in this declared KL sense.
+
+**Proof.** Both μ and ν are uniform on their respective finite path supports; a retained path is legal as a resampled path. For nested uniform supports of sizes A⊂B, TV=1−|A|/|B| and D₂=log₂(|B|/|A|). Apply the exact counts above. Conditional on one retained unsigned block, μ is uniform on its 8 retained signed lifts, while ν is uniform on all 2^(n+1) signed lifts. Thus conditional D₂=log₂(2^(n+1)/8)=n−2, and averaging over μ_n^u gives the chain identity. QED.
+
+## Theorem 3: sharp predictive-state cardinality
+
+For current unsigned state v there are 2(d−2) possible predecessors. All give pairwise distinct next states through w↦w△v. Thus an exact retained-source predictor needs at least 2(d−2) distinct predecessor classes beyond current v, achieved by retaining the previous unsigned observation. The signed analog needs 4(d−2) classes. Their minimal additional predictive information log₂(cardinality) differs by exactly one bit; fixed-length binary storage requires the ceiling of that logarithm.
+
+**Proof.** Symmetric difference with fixed v is bijective, and all predecessor edges occur with positive probability. Combining distinct predecessors would merge distinct deterministic next observations, violating predictive sufficiency. The ordered adjacent pair attains the bound. QED.
+
+## X6 corollary and exact certificate
+
+At d=6: signed 60 states, 16 successors, 960 directed edges; axis-only 15 states, 8 successors, 120 directed edges. Signed divergence equals 4(n−2) bits; unsigned divergence equals 3(n−2) bits. At n=3 the total variations are 15/16 versus 7/8; at n=4 they are 255/256 versus 63/64.
+
+The attached standard-library verifier enumerates 60 signed states, all 960 signed edges, period-three recurrence, legal signed paths and unsigned image/fiber counts for n=1,2,3,4, including 245760 length-four signed legal paths. JSON certificate: R750_X6_C1_OBSERVER_TOWER_EXACT_PASS. The general proof is combinatorial and does not rely on extrapolating these finite checks.
+
+This is a finite **typed C1 BRC Port/source observer factor**: sign provenance stays a separate carrier and no positive branch mass is equated with a signed physical amplitude. Its axis-pair observer does not assert a native 2D plane, and two visible Ports do not constitute a primitive two-force equilibrium. No π, classical trigonometric approximation, ordinary numerical physical propagator, or V29/V39 execution was used.
+
+## Reuse, owner boundary, next exact scientific question
+
+Reused R749 at awdawmip/enterprise-math@cfd7c309d11e504f5b8f5c3e540898af199b0430:research_notes/R749_X6_C1_BLOCK_LAW_THEOREM_20261112.md; the source was fetched again for this research. Current global/source normative routes were separately read. The formal mother task's live owner retains its CLAIM; this author-side note does not assert adoption or Result.
+
+Next: obtain a legal event from the pinned native TRIADIC_CLOSURE_E Cell/Link/Port definitions, and a second event sharing one Port. Compute actual V29 PASS/V39 signed transport for two legal histories with the same unsigned Port-axis readout but different signed histories; test the commutative square of native update and q. If they disagree, exhibit the smallest obstruction and typed residual; if they agree, state the precise native operation class for which q is safe. Do not infer an endogenous physical residual from a C1 observer count alone.
