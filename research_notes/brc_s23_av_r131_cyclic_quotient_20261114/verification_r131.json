@@ -1,0 +1,62 @@
+{
+  "schema": "R131_EXACT_VERIFICATION_V1",
+  "date_local": "2026-11-14",
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "execution": "Local CPython 3 + fractions.Fraction, deterministic seed 13120261114",
+  "command": "python r131_periodic_index.py (published copy: python check_r131.py)",
+  "result": "R131_CYCLIC_QUOTIENT_PASS",
+  "small_random_cases": 250,
+  "small_vocabulary_matches": 250,
+  "exact_interior_queries": 2500,
+  "exact_cut_queries": 2155,
+  "huge_scale_g": "10^100",
+  "huge_scale_queries": 150,
+  "huge_scale_primitive_cuts": 35,
+  "huge_scale_raw_v_roots_formula": "6*10^100-1",
+  "period_endpoint_witness": {
+    "m": 1,
+    "a": 0,
+    "b": -2,
+    "e": -1,
+    "x": "0",
+    "r": "0",
+    "lost_signature": "(0,)"
+  },
+  "independent_raw_vocab_scan": true,
+  "bench_command": "python benchmark_r131.py",
+  "benchmark_median_three_runs": [
+    {
+      "g": 1,
+      "raw_cuts": 45,
+      "normalized_cuts": 22,
+      "raw_vocabulary_ms": 2.748,
+      "cyclic_build_ms": 1.386,
+      "words": 16
+    },
+    {
+      "g": 10,
+      "raw_cuts": 459,
+      "normalized_cuts": 22,
+      "raw_vocabulary_ms": 30.486,
+      "cyclic_build_ms": 1.549,
+      "words": 16
+    },
+    {
+      "g": 30,
+      "raw_cuts": 1379,
+      "normalized_cuts": 22,
+      "raw_vocabulary_ms": 82.926,
+      "cyclic_build_ms": 1.325,
+      "words": 16
+    },
+    {
+      "g": 100,
+      "raw_cuts": 4599,
+      "normalized_cuts": 22,
+      "raw_vocabulary_ms": 319.229,
+      "cyclic_build_ms": 1.278,
+      "words": 16
+    }
+  ],
+  "scope": "Exact randomized finite program comparisons plus algebraic proof in PROOF.md. Benchmarks are environment-dependent. Native X6 transfer and formal review not evaluated."
+}
