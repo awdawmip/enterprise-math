@@ -1,0 +1,92 @@
+{
+  "schema": "ENTERPRISE_MATH_R36_AUTHOR_CERT_SUMMARY_V1",
+  "date": "2026-11-10",
+  "frozen_science_commit": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "claim_status": "AUTHOR_DERIVATION_EXACT_FINITE_TESTS",
+  "review_status": "PENDING",
+  "histogram_rule": "F(n)=m-h+rank_T(n-i)",
+  "cases": [
+    {
+      "name": "S23_AV",
+      "m": 128,
+      "end": 389,
+      "stages": 3,
+      "extinction_queries": 19,
+      "source_owner_locates": 259,
+      "full_risk_count_queries": 2304,
+      "direct_checks": 261,
+      "independent_owner_count_checks": 33536,
+      "affine_final": [
+        -7551,
+        28800
+      ]
+    },
+    {
+      "name": "sqrt2_minus1",
+      "m": 16,
+      "end": 96,
+      "stages": 5,
+      "extinction_queries": 23,
+      "direct_checks": 80,
+      "independent_owner_count_checks": 1296,
+      "affine_final": [
+        106,
+        -254
+      ]
+    },
+    {
+      "name": "sqrt3_minus1",
+      "m": 32,
+      "end": 180,
+      "stages": 5,
+      "extinction_queries": 34,
+      "direct_checks": 148,
+      "independent_owner_count_checks": 4768,
+      "affine_final": [
+        929,
+        -1268
+      ]
+    },
+    {
+      "name": "one_third_plus_sqrt2_per_1e7",
+      "m": 21,
+      "end": 126,
+      "stages": 36,
+      "extinction_queries": 71,
+      "direct_checks": 105,
+      "independent_owner_count_checks": 2226,
+      "affine_final": [
+        -105,
+        315
+      ]
+    },
+    {
+      "name": "sqrt2_minus1_long",
+      "m": 16,
+      "end": 320,
+      "stages": 8,
+      "extinction_queries": 50,
+      "direct_checks": 304,
+      "independent_owner_count_checks": 4880,
+      "affine_final": [
+        -463,
+        1120
+      ],
+      "dense_rank_select_exercised": true
+    }
+  ],
+  "trillion_horizon": {
+    "end": 1000000000128,
+    "stages": 78,
+    "jump_decisions": 28,
+    "tail_blocks": 148,
+    "affine_runs": 298,
+    "terminal_affine": [
+      -4017401528447,
+      15321634290944
+    ],
+    "sha256": "2573a84999d53dfd1cce772c45a41abaff251da735171efe904c860f2b2294f6"
+  },
+  "extended_certificate": "R36_RESEARCH_BUNDLE.zip in source conversation",
+  "credentials_included": false
+}
