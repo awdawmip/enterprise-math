@@ -85,7 +85,7 @@ def main(limit):
         row={"m":m,"finite_sturmian_language_size":target,"K_first":first,"K_eventual":last_bad+1,"R135_uniform_bound":B,"prebound_failure_count":sum(c!=target for c in counts),"failure_K_after_first":[k for k in range(first,B+1) if counts[k-1]!=target],"max_distinct_jump_cuts_at_B":cuts[-1],"complement_checks":complement_checked}
         rows.append(row)
         print('M',m,'F',target,'first',first,'eventual',last_bad+1,'oldbound',B,'elapsed',round(perf_counter()-t,1),flush=True)
-    result={"status":"R136_EXACT_THRESHOLD_SWEEP_PASS","scope":{"m_inclusive":[1,limit],"K_for_each_m_inclusive":[1,max(1,m*(m-1))+1]},"method":"Exact Fraction sorting; aggregated floor jumps; independently recomputed floor words at selected rational events","rows":rows,"duration_seconds":round(perf_counter()-t,2)}
+    result={"status":"R136_EXACT_THRESHOLD_SWEEP_PASS","scope":{"m_inclusive":[1,limit],"K_for_each_m":"1..R135_uniform_bound(m), as reported in each row"},"method":"Exact Fraction sorting; aggregated floor jumps; independently recomputed floor words at selected rational events","rows":rows,"duration_seconds":round(perf_counter()-t,2)}
     with Path(__file__).with_name('verification_r136.json').open('w') as f:json.dump(result,f,indent=2)
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--limit',type=int,default=15)
