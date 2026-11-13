@@ -1,0 +1,9 @@
+# R747 handoff — signed pair observer as a second-order BRC automaton
+
+Mother Task: \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\`. Publication: \`TP2-8B7E13C5904A2D6F1142\`. Frozen science: \`a72226e2430ffa4786321ac86e7f0c599d5f0389\`. Source: R745/R746 C1 candidate; see R746 files in this same Draft PR. This is an author-side successor, not a new formal Source Result or independent review.
+
+Completed and locally verified: exact 60-vertex pair graph with 960 one-step source lifts, deterministic symmetric-difference edge-pair update with period 3, 320 genuine vs 1920 star cycles (modulo rotation), \`tr(A^3)=6720\` with 5760 spurious projected closed walks, four-bit optimal conditional history repair, and \`7/256\` resampled three-return rate vs 1 for a fixed retained triad. Checked by exact Python enumeration plus analytical counting, including 691200 S6 covariance checks. File: \`R747_X6_SIGNED_PAIR_BRC_AUTOMATON_THEOREM_20261112.md\`; verifier: \`R747_X6_SIGNED_PAIR_BRC_AUTOMATON_VERIFY.py\`; machine counts: \`R747_X6_SIGNED_PAIR_BRC_AUTOMATON_EVIDENCE.json\`.
+
+Scope: finite proposed C1 Port state dynamics on signed native X6 axes. This is not yet a verified physical dynamics or native V29/V39 PASS law. The raw current task remains HANDOFF_READY/NEEDS_DISPATCH and is not made claimed by this author-side PR.
+
+Next concrete unit: at the **frozen source pin** read the exact V29 PASS and V17/V39 Cell/Link/Port/holonomy law; choose one licensed equal-quantum triad event; compute before/after Port pair and native flow. Test commutation with the deterministic two-observation C1 update. On failure extract the smallest provenance/flow defect rather than assuming a global obstruction. Keep full six-axis coordinates distinct from any three-axis readout, and keep a same-signed-Port intersection rule. Native Researcher/Activity, CLAIM/open, Source Result and Driver review require their own authenticated receipts.
