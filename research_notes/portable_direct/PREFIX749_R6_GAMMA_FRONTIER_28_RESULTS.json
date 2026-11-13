@@ -1,0 +1,274 @@
+{
+  "schema": "PREFIX749_R6_FRONTIER_28_V1",
+  "date": "2026-11-13",
+  "mother_objective": "PREFIX-675",
+  "predecessor": "PREFIX-748",
+  "researcher_id": "EM-DIRECT-25162E",
+  "activity_id": "RA-43F3FFA920B6BACBAD5770B6",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_kernel": "research_notes/portable_direct/PREFIX741_R6_INNER_STRIP_194.py",
+  "grid_denominator": 384,
+  "witness": [
+    "0",
+    "73/500"
+  ],
+  "old_witness": [
+    "0",
+    "3/20"
+  ],
+  "domain": "All real q>=2, all continuous points in these 14 closed cells and coordinate transposes",
+  "strict_gap": "V_q(e)-V_q(p,z)>q^2/30",
+  "method": "8x8 rational moment-monotone interval certificate using exact Fraction; endpoints in t=1/q",
+  "columns": [
+    "i",
+    "j",
+    "floor(1e6*G2)",
+    "floor(1e6*G4)",
+    "floor(1e6*G8)",
+    "floor(1e6*old_G1)"
+  ],
+  "checked_original_cells": [
+    [
+      7,
+      47,
+      -67306677,
+      -12668452,
+      14749094,
+      -176559258
+    ],
+    [
+      7,
+      48,
+      -75490081,
+      -19738993,
+      8233883,
+      -186976616
+    ],
+    [
+      8,
+      48,
+      -71824562,
+      -16036330,
+      11954081,
+      -183393977
+    ],
+    [
+      8,
+      49,
+      -79372852,
+      -22496035,
+      6037447,
+      -193128641
+    ],
+    [
+      8,
+      50,
+      -86167146,
+      -28221013,
+      845704,
+      -202072414
+    ],
+    [
+      9,
+      49,
+      -75599055,
+      -18687609,
+      9862147,
+      -189432721
+    ],
+    [
+      9,
+      50,
+      -82520043,
+      -24545578,
+      4534353,
+      -198489866
+    ],
+    [
+      10,
+      50,
+      -78645845,
+      -20639281,
+      8455657,
+      -194688514
+    ],
+    [
+      10,
+      51,
+      -84950051,
+      -25907227,
+      3704401,
+      -203076218
+    ],
+    [
+      11,
+      52,
+      -86683906,
+      -26603110,
+      3524919,
+      -206906474
+    ],
+    [
+      11,
+      53,
+      -91649342,
+      -30582793,
+      36384,
+      -213856733
+    ],
+    [
+      12,
+      53,
+      -87744789,
+      -26657420,
+      3971215,
+      -210001739
+    ],
+    [
+      12,
+      54,
+      -92131325,
+      -30088112,
+      1016623,
+      -216314021
+    ],
+    [
+      13,
+      53,
+      -83619058,
+      -22507063,
+      8132839,
+      -205933937
+    ]
+  ],
+  "new_cells": [
+    [
+      7,
+      47
+    ],
+    [
+      7,
+      48
+    ],
+    [
+      8,
+      48
+    ],
+    [
+      8,
+      49
+    ],
+    [
+      8,
+      50
+    ],
+    [
+      9,
+      49
+    ],
+    [
+      9,
+      50
+    ],
+    [
+      10,
+      50
+    ],
+    [
+      10,
+      51
+    ],
+    [
+      11,
+      52
+    ],
+    [
+      11,
+      53
+    ],
+    [
+      12,
+      53
+    ],
+    [
+      12,
+      54
+    ],
+    [
+      13,
+      53
+    ],
+    [
+      47,
+      7
+    ],
+    [
+      48,
+      7
+    ],
+    [
+      48,
+      8
+    ],
+    [
+      49,
+      8
+    ],
+    [
+      50,
+      8
+    ],
+    [
+      49,
+      9
+    ],
+    [
+      50,
+      9
+    ],
+    [
+      50,
+      10
+    ],
+    [
+      51,
+      10
+    ],
+    [
+      52,
+      11
+    ],
+    [
+      53,
+      11
+    ],
+    [
+      53,
+      12
+    ],
+    [
+      54,
+      12
+    ],
+    [
+      53,
+      13
+    ]
+  ],
+  "new_count": 28,
+  "min_G8_microfloor": 36384,
+  "min_cell": [
+    11,
+    53
+  ],
+  "prior_conditional_author_union": 141980,
+  "new_conditional_author_union": 142008,
+  "total_cells": 147456,
+  "remaining": 5448,
+  "conditional_fraction": "5917/6144",
+  "overlap_audit": "No intersections with connector-read explicit sets in PREFIX713 (coupled parents/multicompetitor), PREFIX716, PREFIX718, PREFIX742-748; old PREFIX712 G1<0 for every new original cell; earlier PREFIX729-741 regional coverage checked against documented spatial ranges, full independent historical union audit pending.",
+  "validation": "Exact local independent recurrence with 9529 survivor coefficients and two witness SHA256 regressions, each of 14 original cells tested in local separate invocation across G2,G4,G8 and old G1; published original-dependency composite all-at-once replay pending",
+  "grade": "AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "next": "Independent composite replay on exact committed dependency; complete historical union audit; investigate (9,51),(10,52),(11,54) using 16x16 refinement, no claim from negative 8x8 lower bounds",
+  "shared_claim": false
+}
