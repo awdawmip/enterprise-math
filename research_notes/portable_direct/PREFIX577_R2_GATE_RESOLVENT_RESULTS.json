@@ -1,0 +1,58 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "date": "2026-11-08",
+  "research_label": "PREFIX-577-R2-GC",
+  "status_boundary": "AUTHOR_PROVED / EXACT_INTEGER_AND_RATIONAL_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "observer": "q1=q2=q3=q4=q5=q6=1; retain native gate; ordered action count",
+  "native_ports": 96,
+  "labeled_actions_per_port": 6,
+  "original_native_gate_edges": [[7,9],[29,9],[31,9]],
+  "gate_retaining_partition_growth": [1,4,13,21,33,37],
+  "quotient_class_count": 37,
+  "bipartition_target_source": [17,20],
+  "marked_source_classes": [4,15,17],
+  "marked_target_class": 5,
+  "two_step_target_block_shape": [17,17],
+  "Q_w_ascending": [248832,-34560,-4992,-416,-20,1],
+  "N_w_ascending": [-62208,1728,48,20],
+  "Q_factorization": "(w-36)(w-4)(w+12)(w^2+8w+144)",
+  "N_factorization": "4(w-12)(5w^2+72w+1296)",
+  "rational_resolvent": "R(lambda)=N(36*lambda^2)/Q(36*lambda^2)",
+  "rank_one_implicit_polynomial": "Q(36*lambda(z)^2)=(z-1)*N(36*lambda(z)^2)",
+  "Q_D_zero_integer_matrix_entries_checked": 289,
+  "Markov_m0_through_m4": [0,20,448,19008,604160],
+  "gcd_N_Q_degree": 0,
+  "reduced_denominator_degree_in_squared_spectral_parameter": 5,
+  "reduced_denominator_degree_in_lambda": 10,
+  "Laurent_a_r0_r1_r2": ["1/192","-19/2304","79/27648","5801/331776"],
+  "asymptotic_cumulant_rates": {
+    "k1": "1/192",
+    "k2": "1127/221184",
+    "k3": "206963/42467328",
+    "k4": "434651857/97844723712",
+    "k5": "203828245435/56358560858112",
+    "k6": "9969866857747/4809263859892224",
+    "k7": "-5831243834665333/8310407949893763072",
+    "k8": "-102557264405132243707/19147179916555230117888"
+  },
+  "independent_integer_dp": {
+    "method": "forward gate-marked quotient path DP of binomial(K,k), k=0..8; Stirling moments and cumulant recursion",
+    "tested_depths": [0,1,2,5,10,20,40,80,128],
+    "depth_128_labeled_paths": "96*6^128",
+    "display_decimal_samples": [
+      {"d":20,"k5_div_d":"0.00363458","k6_div_d":"0.00211749","k8_div_d":"-0.00509531"},
+      {"d":40,"k5_div_d":"0.00362561","k6_div_d":"0.00209529","k8_div_d":"-0.00522562"},
+      {"d":80,"k5_div_d":"0.00362112","k6_div_d":"0.00208417","k8_div_d":"-0.00529094"},
+      {"d":128,"k5_div_d":"0.00361944","k6_div_d":"0.00208000","k8_div_d":"-0.00531543"}
+    ]
+  },
+  "independent_local_exact_test": {
+    "result": "ALL_CHECKS_PASS",
+    "executed": true,
+    "environment": "Python 3 with standard-library Fraction and exact native kernel/quotient interface shims transcribed from the GitHub-read PREFIX565/566 definitions",
+    "direct_repository_original_module_import_executed": false,
+    "all_order_equation_checked_through": 8
+  },
+  "reproducibility": "Run PREFIX577_R2_gate_resolvent_certificate.py from research_notes/portable_direct with existing PREFIX565/566 modules; it prints full exact 17x17 matrix, integer checks, full rational finite-depth samples and all-order coefficients."
+}
