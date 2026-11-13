@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r131_cyclic_quotient_20261114/verification_r131.json",
+    "ref": "29f5e5ef7ef868037a814fb7d29806be3de4e54b",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r131-r132-20261114-3-ca3e39c22978",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"R131_EXACT_VERIFICATION_V1\",\n  \"date_local\": \"2026-11-14\",\n  \"scientific_pin\": \"43ec6098b1330ae86d0a7863be336c5d97f6ef34\",\n  \"execution\": \"Local CPython 3 + fractions.Fraction, deterministic seed 13120261114\",\n  \"command\": \"python r131_periodic_index.py (published copy: python check_r131.py)\",\n  \"result\": \"R131_CYCLIC_QUOTIENT_PASS\",\n  \"small_random_cases\": 250,\n  \"small_vocabulary_matches\": 250,\n  \"exact_interior_queries\": 2500,\n  \"exact_cut_queries\": 2155,\n  \"huge_scale_g\": \"10^100\",\n  \"huge_scale_queries\": 150,\n  \"huge_scale_primitive_cuts\": 35,\n  \"huge_scale_raw_v_roots_formula\": \"6*10^100-1\",\n  \"period_endpoint_witness\": {\n    \"m\": 1,\n    \"a\": 0,\n    \"b\": -2,\n    \"e\": -1,\n    \"x\": \"0\",\n    \"r\": \"0\",\n    \"lost_signature\": \"(0,)\"\n  },\n  \"independent_raw_vocab_scan\": true,\n  \"bench_command\": \"python benchmark_r131.py\",\n  \"benchmark_median_three_runs\": [\n    {\n      \"g\": 1,\n      \"raw_cuts\": 45,\n      \"normalized_cuts\": 22,\n      \"raw_vocabulary_ms\": 2.748,\n      \"cyclic_build_ms\": 1.386,\n      \"words\": 16\n    },\n    {\n      \"g\": 10,\n      \"raw_cuts\": 459,\n      \"normalized_cuts\": 22,\n      \"raw_vocabulary_ms\": 30.486,\n      \"cyclic_build_ms\": 1.549,\n      \"words\": 16\n    },\n    {\n      \"g\": 30,\n      \"raw_cuts\": 1379,\n      \"normalized_cuts\": 22,\n      \"raw_vocabulary_ms\": 82.926,\n      \"cyclic_build_ms\": 1.325,\n      \"words\": 16\n    },\n    {\n      \"g\": 100,\n      \"raw_cuts\": 4599,\n      \"normalized_cuts\": 22,\n      \"raw_vocabulary_ms\": 319.229,\n      \"cyclic_build_ms\": 1.278,\n      \"words\": 16\n    }\n  ],\n  \"scope\": \"Exact randomized finite program comparisons plus algebraic proof in PROOF.md. Benchmarks are environment-dependent. Native X6 transfer and formal review not evaluated.\"\n}\n",
+      "display_title": "verification_r131.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/29f5e5ef7ef868037a814fb7d29806be3de4e54b/research_notes/brc_s23_av_r131_cyclic_quotient_20261114/verification_r131.json",
+      "encoding": "utf-8",
+      "sha": "ca3e39c229780a3c98f7a7c839d4f8caed6bfe8a"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
