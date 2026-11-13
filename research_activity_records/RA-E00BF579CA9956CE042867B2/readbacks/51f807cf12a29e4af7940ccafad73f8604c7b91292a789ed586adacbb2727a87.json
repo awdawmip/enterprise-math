@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r134_sturmian_saturation_20261114/CONSTRUCTIVE_LIFT.md",
+    "ref": "db1c25fa749744c868d4039200cf44894dab53f9",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r134-constructive-20261114-CONSTRUCTIVE_LIFT-md-db1c25fa7497",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# R134.5 — Explicit polynomial-output rational certificate generator\n\nDate: 2026-11-14. Same frozen input as R134 proof; this supplements the uniform saturation theorem with a **fully constructive** enumerator.\n\n## Certificate rule\n\nFor any m>=1 and integer K>=4m^3+2, enumerate every adjacent Farey pair a/b<c/d of order m. Put alpha_0=(a/b+c/d)/2. Enumerate in increasing order all distinct intercept cuts {-j alpha_0} mod 1 for 0<=j<=m, together with 0 and 1. For every adjacent pair u<v, take rho_0=(u+v)/2 and form the ordinary mechanical word\n\nw_i=floor(rho_0+(i+1)alpha_0)-floor(rho_0+i alpha_0).\n\nLet L=K-1 and choose the integer\n\nN=floor(L alpha_0-rho_0+1/2),\n\nand the rational phase\n\ntheta=(N+rho_0)/L.\n\nThen |theta-alpha_0|<=1/(2L)<1/(8m^3). By R134's Farey-gap margin argument, every floor at rho_0+j theta equals the corresponding one at rho_0+j alpha_0; also {(K-1)theta}=rho_0, so the original S23 observer at theta has exactly the word w. Because the Farey sectors exhaust all finite Sturmian words, deduplicating the generated words returns the complete attainable vocabulary and one rational phase for each word.\n\nThis is a constructive all-word classification for the full tied one-parameter family in the proven uniform K range, **including equality/singleton patterns** without separately traversing its O(Km) chronological events. It strengthens R132's individual generic lift and improves R133's 2m^4 generic bound to 4m^3+2 for the complete language.\n\n## Size and cost\n\nThe number of Farey intervals is O(m^2), and each has at most m+1 intercept gaps, so the enumerator processes O(m^3) certificates. A straightforward implementation evaluates m floor increments for each, sorts cut points and deduplicates length-m words in at most O(m^4) exact rational arithmetic operations (with polynomial logarithmic factors). The input coefficient K enters only through integer arithmetic on O(log K+log m)-bit numbers; in particular no enumeration over K is used.\n\nThe alpha_0 denominator divides D=2bd<=2m^2. The chosen rho_0 is the midpoint of two multiples of 1/D, so its reduced denominator divides 2D<=4m^2. Consequently theta=(N+rho_0)/(K-1) has denominator at most 4m^2(K-1); its binary length is O(log K+log m).\n\nThis is an output-generating complexity result for this special S23 subfamily. For arbitrary A,d,E the R126/R127 and event methods retain their separate domains.\n\n## Independent exact verification\n\ncheck_r134_lift.py tests all constructed Farey/intercept certificates for every m=1..12 at K=4m^3+2 and at K=10^80+4m^3+2. All 4,548 certificate comparisons and distinct-word totals equal the Mignosi formula. The largest numerator/denominator bit-length measured was 275. Result: R134_CONSTRUCTIVE_ALL_WORDS_LIFT_PASS. The uniform theorem is proved in PROOF.md; tests directly validate the construction and bounded-size numerical representation.\n\nNext: quantify the minimal saturation threshold K_min(m) and explore an exact membership/witness decision procedure below that threshold without O(Km) cuts.\n",
+      "display_title": "CONSTRUCTIVE_LIFT.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/db1c25fa749744c868d4039200cf44894dab53f9/research_notes/brc_s23_av_r134_sturmian_saturation_20261114/CONSTRUCTIVE_LIFT.md",
+      "encoding": "utf-8",
+      "sha": "12ba3c1f9abfa9c214aaa9ef90387a6e8d3797dc"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
