@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/PREFIX764_R6_PHASE_CERTIFICATE_CHECK.py",
+    "ref": "6172757db9325318c67b97f0876420332546f91f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r6-prefix764-20261114-source-2",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"PREFIX-764 exact finite support-kernel and rectangle phase verification.\n\nRequires the unchanged PREFIX760_R6_EXACT_GAMMA_VARIANCE_RESULTS.json\nin the same directory; all comparisons are exact Python Fraction operations.\n\"\"\"\nfrom pathlib import Path\nfrom fractions import Fraction as Q\nfrom math import comb\nimport json\nimport hashlib\n\nsrc = Path(__file__).with_name('PREFIX760_R6_EXACT_GAMMA_VARIANCE_RESULTS.json')\nraw = src.read_bytes()\nassert len(raw) == 24743\nassert hashlib.sha256(raw).hexdigest() == '1a480a9a05c4773f82091037fa8f6b695855ffbb885b21e804d56fdc181d4e76'\ndata = json.loads(raw)\nassert data['scientific_input_commit'] == 'f42f2906d77f24085c123f3ccfe9667d41caa96d'\n\nminimum, locations = Q(1), []\nfor i in range(25, 189):\n    for j in range(25, 189):\n        val = Q(comb(i+j, i), 2**(i+j+1))\n        if val < minimum:\n            minimum, locations = val, [(i, j)]\n        elif val == minimum:\n            locations.append((i, j))\nassert minimum == Q(comb(213,25), 2**214)\nassert locations == [(25,188), (188,25)]\n\nold_lb = 1 / (Q(2**190) + 377)\nnew_lb = 1 / (Q(2) / minimum + 377)\nassert new_lb > old_lb\n\ndef deltas(z):\n    row = data['variance_comparisons'][z]\n    var = Q(int(row['exact_delta_variance_numerator']), int(row['exact_delta_variance_denominator']))\n    v2 = Q(int(row['exact_delta_Vq2_numerator']), int(row['exact_delta_Vq2_denominator']))\n    return var, 2*var-v2/2\n\nv0, m0 = deltas('0')\nv1, m1 = deltas('1/4')\nvariance_rect, mean_rect = v1-v0, m1-m0\nassert variance_rect < 0 and mean_rect < 0\nq_rect = mean_rect / variance_rect\nassert Q(190005, 1000000) < q_rect < Q(190006, 1000000)\nq_witness = Q(190006, 1000000)\nassert q_witness*q_witness*variance_rect-q_witness*mean_rect < 0\n\nsummary = {\n    'schema': 'PREFIX764_R6_PHASE_CERTIFICATE_CHECK_V1',\n    'source_pin': data['scientific_input_commit'],\n    'source_json_sha256': hashlib.sha256(raw).hexdigest(),\n    'support_interval': [25,188],\n    'pairs_exactly_checked': 164*164,\n    'minimum_K_numerator': str(minimum.numerator),\n    'minimum_K_denominator': str(minimum.denominator),\n    'minimum_locations': [[i,j] for i,j in locations],\n    'new_q_lower_bound_decimal': format(float(new_lb), '.17g'),\n    'lower_bound_improvement_ratio_decimal': format(float(new_lb/old_lb), '.17g'),\n    'rectangle_q_switch_decimal': format(float(q_rect), '.17g'),\n    'q_switch_strict_upper_bound': '190006/1000000',\n    'result': 'ALL_CHECKS_PASS PREFIX764',\n    'limits': ['algebraicity and polynomial sign oracle proved analytically',\n               'no exact q_c optimization or new 1/768 exclusion area',\n               'author-level unreviewed auxiliary model']\n}\nprint(json.dumps(summary, indent=2))\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/6172757db9325318c67b97f0876420332546f91f/research_notes/portable_direct/PREFIX764_R6_PHASE_CERTIFICATE_CHECK.py",
+      "encoding": "utf-8",
+      "sha": "0d42105dd8f6ad866cc00d2fa17aa92847d742d0"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
