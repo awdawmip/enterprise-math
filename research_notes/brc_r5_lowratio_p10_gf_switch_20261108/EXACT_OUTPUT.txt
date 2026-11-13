@@ -1,0 +1,16 @@
+R5 local exact arithmetic verification
+Date: 2026-11-08 Asia/Shanghai
+Execution: local Python 3 stdlib fractions.Fraction; exact rational checker built around 29 entries of the 3 G0,G34,F23 rational matrices recorded in CERTIFICATES.json.
+Source execution: local standalone CHECK code at research time. The repository VERIFY.py is a portable independent encoding of the same exact constraints and certificates; remote source publication/readback is not a remote code execution.
+
+ANCHOR_PASS G0 face G edges 9
+ANCHOR_PASS G34 face G edges 10
+ANCHOR_PASS F23 face F edges 10
+BASELINE_GRID_PASS 6
+SCALED_GRID_PASS 84
+LOW_ETA_G_GRID_PASS 144
+PASS_R5_G_F_SWITCH_FULL_THETA_EXACT_ALL_REAL_BY_INTERPOLATION
+
+Coverage: three exact rational anchor matrices; row-Q mass, column-Q mass, likelihood-weighted column-P mass, two times, seedless/flow inequalities; terminal declaration sample; 6 baseline, 84 scaled/full-theta, and 144 variable-eta rational parameter checks.
+Logical scope: all-real theorems follow from algebraic convex interpolation and exact anchor identities. Regression grids only validate the construction.
+Status: AUTHOR_PROVED / EXACT_FRACTION_EXECUTED / UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY.

@@ -1,0 +1,15 @@
+R5 complete low-ratio maximal-u G/F two-wedge theorem
+Date: 2026-11-08 Asia/Shanghai
+Executed locally: Python 3, fractions.Fraction (stdlib), exact matrix arithmetic.
+Verifier: a local checker implementing the same G/F wedge and source equations as the published VERIFY_FULL.py.
+Input certificates: 3 exact rational matrices in CERTIFICATES.json; 29 nonzero transport entries.
+Scientific frozen pins unchanged.
+
+ANCHORS_PASS 3
+TWO_WEDGE_EXACT_GRID_PASS 450
+PASS_R5_P10_LOW_ETA_FULL_THETA_ALL_REAL_G_F_COVERAGE
+
+The 450 exact checks include eta={0,1/1000,1/160,1/80,1/40}; theta including both eta-dependent face boundaries and their midpoint; g/s/h boundary and interior cases.
+The theorem over all real eta,theta,s,g,h is proved by the explicit two-wedge convex interpolation, not inferred from the finite checks.
+Published GitHub source was separately read back; this output refers to the executed local implementation, not remote execution.
+Status: AUTHOR_PROVED / EXACT_FRACTION_EXECUTED / INDEPENDENT_REVIEW_PENDING / PORTABLE_ONLY.
