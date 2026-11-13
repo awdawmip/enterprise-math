@@ -1,14 +1,14 @@
 # R762K — Signed X6 triadic lift: exact two-port fibers and equivariant chirality obstruction
 
-**Date:** 2026-11-13 (Asia/Shanghai). **Status:** AUTHOR_SIDE_EXACT_PROOF_WITH_FINITE_CHECK / NOT_REVIEWED. **Parent:** \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\`; publication \`TP2-8B7E13C5904A2D6F1142\`. **Frozen scientific input:** \`a72226e2430ffa4786321ac86e7f0c599d5f0389\`. Builds on R761 and R762H–R762J. The statements concern **candidate signed-port incidence and positive unit-weight N-BRC branch counting**, not a canonically admitted physical force operation. P000's six native axes, 120° \`PERP_E\`, triadic arity and three-dimensional-slice semantics remain unchanged.
+**Date:** 2026-11-13 (Asia/Shanghai). **Status:** AUTHOR_SIDE_EXACT_PROOF_WITH_FINITE_CHECK / NOT_REVIEWED. **Parent:** `RS-X6-TRIADIC-CLOSURE-DYNAMICS`; publication `TP2-8B7E13C5904A2D6F1142`. **Frozen scientific input:** `a72226e2430ffa4786321ac86e7f0c599d5f0389`. Builds on R761 and R762H–R762J. The statements concern **candidate signed-port incidence and positive unit-weight N-BRC branch counting**, not a canonically admitted physical force operation. P000's six native axes, 120° `PERP_E`, triadic arity and three-dimensional-slice semantics remain unchanged.
 
 ## Typed objects and observer
 
-At a selected native X6 Cell \`c\`, use the actual signed primitive port alphabet
+At a selected native X6 Cell `c`, use the actual signed primitive port alphabet
 \[
 P=\{(i,\varepsilon):i\in\{0,\ldots,5\},\varepsilon\in\{-1,+1\}\},\qquad |P|=12.
 \]
-The port \`(i,ε)\` denotes the native link \`c→c+εe_i\`. A three-arm incidence at a Cell is **not** automatically a three-step spatial Cell loop.
+The port `(i,ε)` denotes the native link `c→c+εe_i`. A three-arm incidence at a Cell is **not** automatically a three-step spatial Cell loop.
 
 Define \(\mathcal T\) as the unordered three-subsets of \(P\) whose three absolute axis indices are pairwise distinct. Each \(T\) has two cyclic orientations \(\operatorname{Or}(T)\) (rotation-equivalent, reflection-distinct). Write \(\widehat{\mathcal T}=\{(T,\chi):\chi\in\operatorname{Or}(T)\}\). For each oriented triad, also choose a hidden arm \(h\in T\); set
 \[
@@ -19,7 +19,7 @@ The observer
 \Pi:\mathcal I\longrightarrow\mathcal V,\quad
 (T,\chi,h)\longmapsto T\setminus\{h\}
 \]
-returns an **unordered signed two-port set** with distinct native axes. Its domain contains explicitly three candidate arms, an orientation and a designated hidden branch. We count all three-distinct-axis signed configurations as *candidate* equal-quantum triads; whether each is admitted by native \`TRIADIC_CLOSURE_E\` is **open**. The observer does not retain source tags, timing or paths unless an additional observation is declared.
+returns an **unordered signed two-port set** with distinct native axes. Its domain contains explicitly three candidate arms, an orientation and a designated hidden branch. We count all three-distinct-axis signed configurations as *candidate* equal-quantum triads; whether each is admitted by native `TRIADIC_CLOSURE_E` is **open**. The observer does not retain source tags, timing or paths unless an additional observation is declared.
 
 Use only the founded \(S_6\) axis-permutation rotation skeleton, acting by \(g(i,\varepsilon)=(g(i),\varepsilon)\). This does not assert that \(S_6\) is the full native rotation group.
 
@@ -77,6 +77,6 @@ Theorems A–D are conditional on the *full candidate incidence population*. If 
 
 Companion Python standard-library verifier exhaustively checks 160 triads, 320 oriented triads, 60 two-port observers, 960 incidences, all 720 \(S_6\) permutations and 691,200 signed incidence-covariance checks. It checks the sign-repetition orientation-reverser for every triad and the third-axis stabilizer obstruction for every visible pair; JSON contains exact orbit/stabilizer census and all assertions pass. The paper's general constructive proofs are independent of the finite code, and the code claims no V29/V39 physical execution.
 
-**Source:** immutable task publication \`TP2-8B7E13C5904A2D6F1142\`, pinned taskbook blob \`218bf9ce05fd2dd79f477ac269fc3590f83f482e\`; P000 V5, \`definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md\`, \`definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md\` at \`a72226e2430ffa4786321ac86e7f0c599d5f0389\`. Current normative rules are separate from these frozen scientific pins.
+**Source:** immutable task publication `TP2-8B7E13C5904A2D6F1142`, pinned taskbook blob `218bf9ce05fd2dd79f477ac269fc3590f83f482e`; P000 V5, `definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md`, `definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` at `a72226e2430ffa4786321ac86e7f0c599d5f0389`. Current normative rules are separate from these frozen scientific pins.
 
-**Next discriminating question:** Define a source-typed native Cell/Link/Port \`TRIADIC_CLOSURE_E\` admission predicate and post-event state transition on one signed triad. Test whether admissibility is preserved under the exact same-sign transposition used in Theorem B, and whether a repeated event remains admissible; if asymmetry appears, identify the necessary source/phase/field datum. For admitted events alone derive V29 PASS/TRANSFER and V39 transport, preserving source history. No formal Task CLAIM/Result/Driver acceptance is asserted by this author-side proof.
+**Next discriminating question:** Define a source-typed native Cell/Link/Port `TRIADIC_CLOSURE_E` admission predicate and post-event state transition on one signed triad. Test whether admissibility is preserved under the exact same-sign transposition used in Theorem B, and whether a repeated event remains admissible; if asymmetry appears, identify the necessary source/phase/field datum. For admitted events alone derive V29 PASS/TRANSFER and V39 transport, preserving source history. No formal Task CLAIM/Result/Driver acceptance is asserted by this author-side proof.
