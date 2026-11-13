@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/divisor_extrema/20261113_c69_fixed_stock_identification/critical/CRITICAL_WINDOW.md",
+    "ref": "723f77136e818ddbc3666e3c81ac84bfd790bfef",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "c69-fixed-stock-identification-20261113-60be1ca4-4",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 两次原三尾读数的临界精度\n\n固定两对可见因子、已知库存 $c$，所有 $\\binom c2$ 条安排等权。两次读数 $g=H(0,1)$、$h=H(0,1/2)$ 各自在步长 $2^{-B_c}$ 的等距网格上舍入。两套网格的原点可独立选择，亦可随库存改变。令 $U_c$ 为其二维舍入格仅含自身一条词的安排比例，记\n$$\\lambda_c=2^{B_c}/c^{7/4}.$$\n\n**定理。** $U_c\\to1$ 当且仅当 $\\lambda_c\\to\\infty$，即 $B_c-(7/4)\\log_2 c\\to+\\infty$。附加二进制小数位可以任意缓慢地增长。沿任何满足 $\\lambda_c\\le L<\\infty$ 的无穷子列，存在与 $L$ 和网格原点无关的绝对常数 $b>0$ 使\n$$\\liminf(1-U_c)\\ge b/(1+L^2).$$\n\n用[实数极限证明](../depthtwo/DENSITY_ONE.md)的 $s=v/c,u=w/c,X,W,L_0=\\Gamma(4)/\\Gamma(13/4)$。在远离变号线的内部紧片上，\n$$R_c=c^{3/4}(g-1,h-1)\\longrightarrow R=(81L_0/32)(W/X,W/(1+X))$$\n在 $C^1$ 中成立。在 $W>0,X>0$ 的片上，这个坐标变换可逆。非恒等逆支的非仿射性因此保留。取内部正则紧片覆盖面积除去任意指定的 $\\epsilon$ 部分，随后令 $c$ 增长。\n\n**充分性。** 同格两词满足 $\\|R_c(x)-R_c(y)\\|_\\infty\\le1/(c\\lambda_c)$。在两个正则紧片上，局部解 $T_c=(R_c|_V)^{-1}R_c|_U$ 对该误差的放大有统一界。故 $T_c(x)$ 离一个 $1/c$ 格点至多 $O_K(1/(c\\lambda_c))$。相同局部反函数内，当 $\\lambda_c\\to\\infty$ 时只允许同一点。不同逆支间，如在沿某一坐标的连续 $M$ 个源格点中至少有两个命中，则有 $1\\le k<M$ 使\n$$\\operatorname{dist}(k\\partial_i T_j(x),\\mathbb Z)\\le o_{K,M}(1)+O_K(1/\\lambda_c).$$\n这里只需一个非常数解析的 $\\partial_iT_j$ 及 $T_c\\to T$ 于 $C^1$。对每个固定 $M$，共振水平集为零测。避开其任意小邻域，令 $c\\to\\infty$，再令 $M\\to\\infty$，不同逆支间同格的词数便是 $o_K(c^2)$。紧片内已经互异的舍入格，每条外部词至多占据其中一格。最后令 $\\epsilon\\downarrow0$，即得充分性。\n\n**必要性。** 在 $1-\\epsilon<A=4s^{15/4}<1+\\epsilon$、$2<D=4(u/s)^{9/4}<3$ 的内区，换元雅可比有统一的正下界。每个固定的充分小 $\\epsilon>0$ 和充分大 $c$，区域至少含 $b_1\\epsilon c^2$ 条词。宽度 $W$ 含因子 $|1-A|$，其余因子和 $1/X$ 有统一上界。准确差分公式跨过 $A=1$ 仍给出 $\\|R_c\\|_\\infty\\le b_2\\epsilon+o(1)$。若 $\\lambda_c\\le L$，这些词最多落进 $O((1+L\\epsilon c)^2)$ 个格。取 $\\epsilon=b_3/(1+L^2)$，$b_3>0$ 足够小，使格数主项小于词数一半。至少一半该区词不能由舍入值唯一读出，便得所列下界。若 $\\lambda_c$ 不趋于无穷，必有这样的有界子列。\n\n当 $\\lambda_c$ 趋于足够大的有限常数时，也有严格正的可识别比例下界。在 $A<1,\\ 11/10<D<4$ 内取非空紧矩形，稍加放大后仍在其内。极限目标的全域原像唯一且在内区，局部逆有统一 Lipschitz 常数。舍入同格的竞争者最终须在该逆分支内：归一读数的两分量严格为正，二者之比给出 $X/(1+X)$，从而排除 $X\\to0$ 或 $W\\to0$ 的边界逃逸。此时充分大的 $\\lambda_c$ 使允许的逆像距离严格小于格点间距 $1/c$。对于小固定 $\\lambda$ 及显式区域中的局部临界积分，分别见[典型精度](../depthtwo/BULK_PRECISION.md)和[临界格面积](../depthtwo/CRITICAL_PATCH.md)。\n",
+      "display_title": "CRITICAL_WINDOW.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/723f77136e818ddbc3666e3c81ac84bfd790bfef/research_notes/divisor_extrema/20261113_c69_fixed_stock_identification/critical/CRITICAL_WINDOW.md",
+      "encoding": "utf-8",
+      "sha": "08f1837060914b1be222831067ad5888df2317c1"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
