@@ -88,7 +88,7 @@ class Coord6:
     def step(self, axis: int, direction: int = 1) -> "Coord6":
         if type(axis) is not int or axis not in AXES:
             raise ValueError("invalid native axis")
-        if direction not in (-1,1):
+        if type(direction) is not int or direction not in (-1,1):
             raise ValueError("direction must be +1 or -1")
         delta=[0]*AXIS_COUNT
         delta[axis]=direction
@@ -141,7 +141,7 @@ def local_step(address: Iterable[int], local_axis_position: int, direction: int=
     address=tuple(address)
     if len(address)!=3 or any(type(x) is not int or x<0 for x in address) or min(address)!=0:
         raise ValueError("local address must be a nonnegative min-zero triple")
-    if type(local_axis_position) is not int or not 0<=local_axis_position<3 or direction not in (-1,1):
+    if type(local_axis_position) is not int or not 0<=local_axis_position<3 or type(direction) is not int or direction not in (-1,1):
         raise ValueError("invalid local step")
     z=list(address)
     z[local_axis_position]+=direction
