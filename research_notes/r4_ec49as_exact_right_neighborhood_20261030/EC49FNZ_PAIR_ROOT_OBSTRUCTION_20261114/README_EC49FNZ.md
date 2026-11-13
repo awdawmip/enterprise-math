@@ -52,6 +52,19 @@ At witness `159607123711641`, `L=150`. Both singleton minima are `153` (incremen
 
 Thus the strict two-label effect here is **not caused by forcing both demands onto one root**. Distinct roots already require two simultaneous positive marginal costs. The exact 3×3 lawful-root matrices, including all alternatives, appear in the companion verification log.
 
+## Sharp native counterexample to unconditional additivity
+
+The disjoint-minimizer criterion needs its **same-root** premise. Exact witness `159571690231449` has baseline `L=153` and demands 17,21 with singleton minima at distinct roots: `17→03` costs 161 (increment 8) and `21→06` costs 157 (increment 4). The naive independent-root sum predicts `L+8+4=165`, but placing **both demands at root 03** costs **164**, one less. Native 3×3 target root-choice totals (rows 17→03/06/07, columns 21→03/06/07) are
+
+```text
+           21→03  21→06  21→07
+17→03        164     165     173
+17→06        169     165     174
+17→07        172     169     168
+```
+
+All eleven exact future-label pairs in the nine cut patterns were checked. Ten attain the sum of the two singleton marginal minima; **one** (this witness) is strictly cheaper by 1. This is a concrete native-BRC counterexample to omitting the common-root joint-DP test, not a general submodularity theorem. It does not negate the two irreducible `(19,21)` certificates above, whose common-root alternatives are all more expensive.
+
 ## Reproduction and evidence limits
 
 Run the companion Python verifier with exactly these two frozen files:
