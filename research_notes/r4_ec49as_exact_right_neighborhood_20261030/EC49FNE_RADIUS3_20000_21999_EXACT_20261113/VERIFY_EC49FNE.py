@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Verify EC49FNE's exact cost vector and six legal native BRC witnesses.
+"""Verify EC49FNE's exact cost vector and two legal native BRC witnesses.
 
 Run beside the frozen original catalogue source EC49FGW_RADIUS5_SCREEN.py,
-cases.json, and master_and_radius3_cases.txt from the original EC49FNB
+cases.json, and master_and_radius3_cases.txt from the this EC49FNE
 full-evidence archive. This verifies recorded values and 24-word upper
-bounds; re-run scan_cached_radius3.cpp for all 1000 optimality lower bounds.
+bounds; re-run scan_cached_radius3.cpp for all 2000 optimality lower bounds.
 """
 import base64, collections, hashlib, json, lzma, zlib
 from pathlib import Path
