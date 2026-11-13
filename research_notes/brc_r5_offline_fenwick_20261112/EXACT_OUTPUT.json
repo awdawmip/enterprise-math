@@ -1,0 +1,54 @@
+{
+  "status": "PASS_R5_OFFLINE_FENWICK_ANCESTOR_THRESHOLD_REAL_FIXTURE",
+  "frozen_science_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "terminals": 1065,
+  "prefix_nodes": 2880,
+  "activation_walls": 953,
+  "bp_seed_bytes": 2520,
+  "ancestor_threshold_references_exact": 7444,
+  "offline_full_case_checks": 57600,
+  "offline_full_case_seconds": 0.791098,
+  "root_activation_wall_checks": 953,
+  "ancestor_index_build_seconds": 0.110526,
+  "ancestor_index_tracemalloc_peak_bytes": 291200,
+  "mixed_arbitrary_order_checks": 384,
+  "workloads": {
+    "root": {
+      "queries": 256,
+      "mean_terminal_window": 1065,
+      "max_terminal_window": 1065,
+      "timings_median_seconds": {
+        "wavelet": 0.002881,
+        "direct": 0.594459,
+        "ancestor": 0.000817,
+        "offline": 0.002028
+      },
+      "checksum": 133582
+    },
+    "broad": {
+      "queries": 512,
+      "mean_terminal_window": 137.957,
+      "max_terminal_window": 1065,
+      "timings_median_seconds": {
+        "wavelet": 0.006462,
+        "direct": 0.156173,
+        "ancestor": 0.001051,
+        "offline": 0.00309
+      },
+      "checksum": 32685
+    },
+    "any": {
+      "queries": 2048,
+      "mean_terminal_window": 3.4854,
+      "max_terminal_window": 1065,
+      "timings_median_seconds": {
+        "wavelet": 0.028139,
+        "direct": 0.019762,
+        "ancestor": 0.001554,
+        "offline": 0.010123
+      },
+      "checksum": 4225
+    }
+  },
+  "benchmark_env": "CPython stdlib, fixed RNG seed, 3 medians, each workload excludes corpus/seed/index and event-sort initializations; offline includes per-request sorting, same-process no CPU pinning"
+}

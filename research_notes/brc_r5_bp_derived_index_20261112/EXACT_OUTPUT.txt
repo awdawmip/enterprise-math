@@ -1,0 +1,18 @@
+Executed locally on 2026-11-12 (Python standard library, exact integers/rationals):
+
+$ python VERIFY_BP_TERMINAL_REGEN_SYNTHETIC.py
+SYNTHETIC_3_PORT_PAIRS 198 TRIE_NODES 235
+SYNTHETIC_PREFIX_ACTIVATION_CHECKS 12690
+PASS_BP_TERMINAL_REGEN_SYNTHETIC
+
+$ python VERIFY_R5_DERIVED_BP_DIRECTORIES.py [separate local general-tree verifier]
+EXHAUSTIVE_ORDERED_ROOTED_TREES 2056
+NODE_NAVIGATION_CHECKS 122742
+R5_NAV_BITS_DERIVED 774 CORE_BITS 34747 PACKED_BYTES 4344
+REBUILT_MINIMA 90 REBUILT_ANCHORS 12
+PASS_R5_DERIVED_BP_DIRECTORIES_SYNTHETIC
+
+$ python -m py_compile VERIFY_R5_REBUILD_FROM_BP_LABELS.py
+PASS (syntax only)
+
+Original R5 full integrated program has not yet been executed from the published remote bytes. Its expected completion marker is PASS_R5_REBUILD_FROM_BP_LABELS_REAL_1065.
