@@ -1,0 +1,44 @@
+# A single-gap bridge theorem for the frozen R5 radius-two sampling frontier
+
+Date: 2026-11-14. Status: author-side exact theorem plus finite exhaustive crosscheck; no independent review or formal Result. This is an **external integer-event sampling model**, not a statement about native six-axis space or the 28-coordinate prefix-query benchmark.
+
+## Sources and frozen scope
+
+Scientific input remains `awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551`. The derived 954 strictly increasing integer event boundaries, radius `R=2`, 29 blocks and all-budget marginal gains are reused from `research_notes/brc_r5_allocation_edit_convolution_20261114/COMPLETE_EDIT_DISTANCE_FRONTIER.md` and `EXACT_EDIT_FRONTIER.csv` at immutable commit `48d57e95ff64cb3f69361dd85d26e9dda0d9445e` (Draft PR #2335). This note proves a new generic perturbation theorem; it does not repin science or grant a task CLAIM.
+
+## Theorem: unit closing of one separating gap
+
+Let `X=(x_0,...,x_{N-1})` be strictly increasing integers, let `R>=1` be an integer radius, let `0<=c<N-1`, and suppose `x_{c+1}-x_c=R+1`. Let `Y` be obtained by keeping indices `i<=c` fixed and replacing every `x_i` for `i>c` by `x_i-1`. Both coordinate sets remain strictly increasing. Candidate centers are drawn from the respective event-coordinate indices. A center-index set `S` is feasible if every coordinate is within distance `R` of some selected center; define `J_X(S)` as the sum of nearest-center distances and `J_X(K)` as the minimal such cost for `|S|=K`. Define the analogous quantities for `Y`.
+
+1. **Preservation of old feasible solutions.** Any center-index set feasible on `X` is feasible on `Y`, and `J_Y(S)=J_X(S)` exactly.
+2. **One-center repair of new bridge solutions.** If `S` is feasible on `Y` but infeasible on `X`, exactly one of the two cut endpoints relies on the center at the opposite endpoint to attain its radius-`R` coverage. Inserting that uncovered endpoint as a new center produces an `X`-feasible set `S+` of size `|S|+1` satisfying `J_X(S+) <= J_Y(S)-R`.
+3. **Consequences.** With `m_X` and `m_Y` the minimum feasible center counts, `m_X-1 <= m_Y <= m_X`. For every `m_X<=K<N`,
+
+   `min{J_X(K), J_X(K+1)+R} <= J_Y(K) <= J_X(K)`.
+
+   In particular, if `J_X(K)-J_X(K+1)<=R`, then **`J_Y(K)=J_X(K)`**. Also `J_Y(N)=J_X(N)=0`.
+
+### Proof
+
+All distances within either side of the cut are unchanged, because the entire right suffix translates uniformly. Before closing the gap, every cross-cut distance is at least `R+1`. Afterwards, every cross-cut distance is still at least `R`, with equality **only** for the endpoint pair `(c,c+1)`; all other cross-cut pairs have distance at least `R+1` by strict integrality.
+
+For an old feasible `S`, each point has an on-side center within `R`, since the old gap prevents cross-cut coverage. The only newly possible cross-cut distance is exactly `R`, and cannot strictly improve that point's existing on-side nearest distance. Feasibility and total cost are therefore preserved.
+
+For a newly feasible but formerly infeasible `S`, all points other than `c,c+1` have on-side radius coverage, and the sole possible cross-covering pair is `c,c+1`. Both endpoints cannot be cross-covered while lacking on-side centers: cross-coverage of `c` requires `c+1` itself selected, and vice versa; a selected endpoint is already covered on its own side. Thus exactly one endpoint is deficient under the original cut. Add that endpoint as a center to the original configuration. Its new cost at the deficient endpoint is 0, compared with exactly `R` in `Y`; all other points retain an on-side covering center and their nearest distances weakly decrease. This proves the repair inequality. Taking the minimum over the two disjoint classes of newly feasible solutions proves the displayed bounds. The center-count bound follows by applying the repair to a minimum `Y` solution; the reverse inequality follows from old feasibility preservation. QED.
+
+## Frozen R5 consequence: 17,920 exact stability assertions without perturbation DP
+
+The immutable R5 frontier has 28 separating gaps of size 3 and 741 budget transitions; its derived marginal gains are `6×1, 5×8, 4×70, 3×23, 2×36, 1×603`. Consequently, the marginal gain is at most `R=2` for every `K=315,...,953`, and the full-center case `K=954` is trivially stable. **For each of the 28 possible individual gap closings `3→2`, every budget `K=315,...,954` has exactly the same optimal total cost as the frozen original instance.** This is `28×640=17,920` (cut, budget) stability assertions. Only budgets `213,...,314`, and potentially newly feasible `K=212`, require perturbed optimization to decide possible changes. This reduction is based on the previously saved exact R5 frontier, not a new execution of all 28 perturbed instances.
+
+## Finite independent crosscheck and sharp scope
+
+`VERIFY_GAP_BRIDGE.py` exhaustively checks every strictly increasing `X=(0,x_1,...,x_{N-1})`, `2<=N<=7`, `1<=x_i<=10`, every cut whose gap is `R+1`, `R∈{1,2,3}`, and every feasible original center budget. All computations use exact integer distances and enumeration of all center subsets. Results: 1,779 cut-input cases; 5,901 valid-budget checks; 5,827 unchanged and 74 strictly improved after closure; 44 cases have marginal gain `>R` but still retain their old optimum (so the small-gain condition is sufficient, not necessary).
+
+- Strict improvement example: `R=2`, `X=(0,1,2,4,7)`, closing the final `4→7` gap, `K=2`: `J_X(2)=5`, `J_Y(2)=4`, with old marginal gain 3.
+- High gain with no improvement example: `R=2`, `X=(0,2,3,4,7)`, same final-gap closure, `K=2`: `J_X(2)=J_Y(2)=5`, despite old marginal gain 3.
+
+Tests corroborate the theorem on the specified finite domain; the universal theorem follows from the proof above, not from the tests.
+
+## Next exact work
+
+Implement a cut-local bridge DP joining the two affected blocks and leaving the other 27 independent blocks intact. Determine the affected budgets `K<=314` and new-feasibility cases for each of the 28 cuts, and calculate the change in minimum-optimal edit distance `rho_K` (which is not implied by cost stability). Retain the 2,520-byte certificate seed / 28-coordinate / 8,192-query full-chain benchmark as a separate performance objective with full input and recovery accounting.

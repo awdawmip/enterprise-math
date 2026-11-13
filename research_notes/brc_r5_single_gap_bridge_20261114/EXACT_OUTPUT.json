@@ -1,0 +1,41 @@
+{
+  "status": "PASS_EXHAUSTIVE_FINITE",
+  "test_domain": "R in {1,2,3}, N in [2,7], x0=0 and other x in {1,...,10}, all adjacent gaps R+1 tested",
+  "cases": 1779,
+  "budget_checks": 5901,
+  "unchanged_budget_values": 5827,
+  "strict_improvements": 74,
+  "large_gain_stable_checks": 44,
+  "witnesses": {
+    "strict_improvement": {
+      "radius": 2,
+      "x": [
+        0,
+        1,
+        2,
+        4,
+        7
+      ],
+      "cut": 3,
+      "k": 2,
+      "old": 5,
+      "new": 4,
+      "old_gain": 3
+    },
+    "gain_exceeds_radius_but_stable": {
+      "radius": 2,
+      "x": [
+        0,
+        2,
+        3,
+        4,
+        7
+      ],
+      "cut": 3,
+      "k": 2,
+      "old": 5,
+      "new": 5,
+      "gain": 3
+    }
+  }
+}
