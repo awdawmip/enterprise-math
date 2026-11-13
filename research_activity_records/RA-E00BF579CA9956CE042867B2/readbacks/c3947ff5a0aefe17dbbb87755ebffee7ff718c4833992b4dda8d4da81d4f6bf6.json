@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r134_sturmian_saturation_20261114/check_r134.py",
+    "ref": "28632dc1a8c467a51c2a63118a8962249fc18d5d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r134-research1-20261114-check_r134-py-28632dc1a8c4",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact R134 finite arithmetic checks; standard-library Fraction only.\"\"\"\nfrom fractions import Fraction as Q\nfrom math import gcd\nimport json\n\ndef word(K,m,t):\n    return ''.join(str(((K+i)*t).__floor__()-((K+i-1)*t).__floor__()) for i in range(m))\n\ndef direct(K,m,t):\n    def frac(z): return z-z.__floor__()\n    return ''.join('1' if frac((K+i)*t)<t else '0' for i in range(m))\n\ndef farey(m):\n    return sorted({Q(p,q) for q in range(1,m+1) for p in range(q+1)})\n\ndef classical(m):\n    out=set()\n    ff=farey(m)\n    for a,b in zip(ff,ff[1:]):\n        alpha=(a+b)/2\n        cuts=sorted({Q(0),Q(1)}|{(-j*alpha)%1 for j in range(m+1)})\n        for u,v in zip(cuts,cuts[1:]):\n            rho=(u+v)/2\n            out.add(''.join(str((rho+(i+1)*alpha).__floor__()-(rho+i*alpha).__floor__()) for i in range(m)))\n    return out\n\ndef phase(K,m):\n    cuts={Q(0),Q(1)}\n    for n in range(K-1,K+m):\n        if n>0:cuts.update(Q(p,n) for p in range(1,n))\n    cc=sorted(cuts)\n    return {word(K,m,t) for t in cc[1:-1]}|{word(K,m,(a+b)/2) for a,b in zip(cc,cc[1:])}\n\ndef phi(n):\n    return sum(gcd(j,n)==1 for j in range(1,n+1))\n\ndef F(m):\n    return 1+sum((m+1-q)*phi(q) for q in range(1,m+1))\n\ndef balanced(w):\n    for ell in range(1,len(w)+1):\n        x=[w[i:i+ell].count('1') for i in range(len(w)-ell+1)]\n        if max(x)-min(x)>1:return False\n    return True\n\ndef run():\n    counts=[]; arith=0; large=0; total=0\n    for m in range(2,10):\n        full=classical(m)\n        assert len(full)==F(m)\n        assert all(balanced(w) for w in full)\n        total+=len(full)\n        sizes=[]; first=None\n        for K in range(1,41 if m<=7 else 26):\n            actual=phase(K,m)\n            assert actual<=full\n            if len(actual)==len(full) and first is None:first=K\n            sizes.append(len(actual))\n            for t in (Q(1,K+m+1),Q(1,2*K+m+3),Q(K,K+m+2),Q(1,3),Q(2,3)):\n                if 0<t<1:\n                    assert word(K,m,t)==direct(K,m,t)\n                    arith+=1\n        assert phase(60,m)==full\n        counts.append({'m':m,'Mignosi_F':len(full),'first_full_in_range':first,\n                       'K1':sizes[0],'K2':sizes[1],'K10':sizes[9],\n                       'K25':sizes[24],'K60':len(phase(60,m))})\n    for K in (1,2,3,11,101,10**30+37):\n        for m in (2,3,5,9,17):\n            for t in (Q(1,K+m+1),Q(K+m,K+m+1),Q(1,2),Q(1,3),Q(17,101)):\n                assert word(K,m,t)==direct(K,m,t)\n                assert balanced(word(K,m,t))\n                large+=1\n    return {'result':'R134_STURMIAN_SATURATION_EXACT_PASS',\n            'm_values':list(range(2,10)),'total_2d_distinct_words_scanned':total,\n            'fixedK_exact_formula_matches':arith,'large_K_boundary_matches':large,\n            'counts':counts,'sufficient_uniform_threshold':'K>=4*m^3+2',\n            'arithmetic':'fractions.Fraction exact floor'}\nif __name__=='__main__':print(json.dumps(run(),indent=2))\n",
+      "display_title": "check_r134.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/28632dc1a8c467a51c2a63118a8962249fc18d5d/research_notes/brc_s23_av_r134_sturmian_saturation_20261114/check_r134.py",
+      "encoding": "utf-8",
+      "sha": "5f0cb8f48a966ab717a456f7d98c9a30eed53b50"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
