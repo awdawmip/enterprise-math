@@ -1,0 +1,31 @@
+{
+  "status": "PASS_R5_RADIUS_BOUNDED_DP_AND_CHECKED_SIDECAR",
+  "date": "2026-11-13",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": {
+    "coordinates": 28,
+    "operations": 15,
+    "nodes": 2880,
+    "certificates": 1065,
+    "walls": 953,
+    "boundaries": 954,
+    "seed_bytes": 2520
+  },
+  "radius": 2,
+  "checkpoint_budget": 213,
+  "optimal_uniform_correction_sum": 1070,
+  "exact_centers": 213,
+  "bounded_dp_edges_per_layer": 4214,
+  "max_group_size": 5,
+  "serialized_sidecar_bytes": 1382,
+  "sidecar_sha256": "94341ccf1aa09eb0eb42c045201b36dc9589008209fe77f446d8a4b93cee68b6",
+  "cold_model_fixture_ms": 1961.613,
+  "bounded_dp_first_ms": 49.606,
+  "bounded_dp_9x_median_ms": 43.418,
+  "validated_sidecar_9x_median_ms": 0.316,
+  "relative_speedup_dp_to_sidecar": 137.52,
+  "full_exhaustive_checks": 2747520,
+  "full_exhaustive_ms": 2667.85,
+  "negative_test": "single-byte directory mutation rejected",
+  "scope": "Exact full boundary/prefix finite count. Local CPython proof run, repository-portable script independently prepared but not executed from remote bytes."
+}
