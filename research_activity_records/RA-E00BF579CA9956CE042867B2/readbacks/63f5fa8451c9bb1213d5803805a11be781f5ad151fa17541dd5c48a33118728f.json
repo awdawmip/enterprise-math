@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r131_periodic_index_primitive_split_20261114/check_r131_linear_family.py",
+    "ref": "735fce0fc6fc481a703faf79caf65ba9af10b7cb",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r131-linear-20261114-check_r131_linear_family-py",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R131.4 exact variable-length one-hot / one-zero certificates.\"\"\"\nfrom fractions import Fraction as F\nfrom check_r131 import word\n\ndef witness_map(m,K):\n    assert m >= 3 and K >= m\n    phases = {'0'*m: F(1,2*K), '1'*m: F(1)-F(1,K+m-1)}\n    for r in range(m):\n        phases['0'*r+'1'+'0'*(m-r-1)] = F(1,K+r)\n    for z in range(1,m):\n        phases['1'*z+'0'+'1'*(m-z-1)] = F(1)-F(1,K+z-1)\n    phases['0'+'1'*(m-1)] = F(1)-F(2,2*K-1)\n    assert len(phases) == 2*m+2\n    return phases\n\ndef main():\n    cases=0\n    for m in range(3,35):\n        for K in (m,m+1,2*m,10*m,10**80+m):\n            for expected, t in witness_map(m,K).items():\n                assert F(0) < t < F(1)\n                found=''.join(map(str,word(F(0),K,1,1,m,t)))\n                assert found==expected,(m,K,expected,found,t)\n                cases+=1\n    print('R131_LINEAR_CERTIFICATE_FAMILY_PASS cases='+str(cases))\nif __name__=='__main__': main()\n",
+      "display_title": "check_r131_linear_family.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/735fce0fc6fc481a703faf79caf65ba9af10b7cb/research_notes/brc_s23_av_r131_periodic_index_primitive_split_20261114/check_r131_linear_family.py",
+      "encoding": "utf-8",
+      "sha": "7d3311a085705d3c239d09cf942b59b960d7752a"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
