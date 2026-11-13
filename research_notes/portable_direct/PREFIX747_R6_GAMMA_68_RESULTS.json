@@ -1,0 +1,218 @@
+{
+  "schema": "PREFIX747_R6_GAMMA_ADAPTIVE8_CERT_V1",
+  "date": "2026-11-13",
+  "mother_objective": "PREFIX-675",
+  "predecessor": "PREFIX-746",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_kernel": "research_notes/portable_direct/PREFIX741_R6_INNER_STRIP_194.py",
+  "witness": [
+    "0",
+    "73/500"
+  ],
+  "old_witness": [
+    "0",
+    "3/20"
+  ],
+  "grid": "384x384",
+  "model": "Frozen 189-row stopped-survivor integer kernel; max of independent unit-rate Gamma clocks",
+  "statement": "For all real q>=2 and every (p,z) in each listed closed 384x384 cell or its transpose, V_q(e)-V_q(p,z)>q^2/30>0.",
+  "method": "8x8 exact rational subdivision with monotone mean and second moment corner lower bounds; t=1/q endpoints 0 and 1/2; Python Fraction",
+  "columns": [
+    "i",
+    "j",
+    "floor(10^6 G8)"
+  ],
+  "cells": [
+    [
+      9,
+      48,
+      15911206
+    ],
+    [
+      10,
+      49,
+      13922282
+    ],
+    [
+      10,
+      50,
+      8455657
+    ],
+    [
+      11,
+      50,
+      12610669
+    ],
+    [
+      10,
+      51,
+      3704401
+    ],
+    [
+      11,
+      51,
+      7714155
+    ],
+    [
+      12,
+      51,
+      11955704
+    ],
+    [
+      11,
+      52,
+      3524919
+    ],
+    [
+      12,
+      52,
+      7614806
+    ],
+    [
+      15,
+      52,
+      21260726
+    ],
+    [
+      16,
+      52,
+      26263252
+    ],
+    [
+      17,
+      52,
+      31487037
+    ],
+    [
+      18,
+      52,
+      36926528
+    ],
+    [
+      19,
+      52,
+      42574625
+    ],
+    [
+      20,
+      52,
+      48422620
+    ],
+    [
+      21,
+      52,
+      54460143
+    ],
+    [
+      11,
+      53,
+      36384
+    ],
+    [
+      12,
+      53,
+      3971215
+    ],
+    [
+      13,
+      53,
+      8132839
+    ],
+    [
+      15,
+      53,
+      17138481
+    ],
+    [
+      16,
+      53,
+      21980739
+    ],
+    [
+      17,
+      53,
+      27046066
+    ],
+    [
+      18,
+      53,
+      32330365
+    ],
+    [
+      19,
+      53,
+      37828087
+    ],
+    [
+      20,
+      53,
+      43532154
+    ],
+    [
+      12,
+      54,
+      1016623
+    ],
+    [
+      13,
+      54,
+      5016999
+    ],
+    [
+      14,
+      54,
+      9241943
+    ],
+    [
+      15,
+      54,
+      13692179
+    ],
+    [
+      16,
+      54,
+      18367373
+    ],
+    [
+      17,
+      54,
+      23266037
+    ],
+    [
+      18,
+      54,
+      28385420
+    ],
+    [
+      19,
+      54,
+      33721422
+    ],
+    [
+      20,
+      54,
+      39268500
+    ]
+  ],
+  "upper_cells": 34,
+  "with_distinct_transposes": 68,
+  "min_microfloor": 36384,
+  "min_cell": [
+    11,
+    53
+  ],
+  "uniform_bound": "1/30",
+  "old_witness_G1_all_negative": true,
+  "old_G1_microfloor_min": -216314021,
+  "old_G1_microfloor_max": -158035673,
+  "historical_overlap_scope": "PREFIX-712 original e=(0,3/20) lower bound tested and negative for all new cells. PREFIX-741/742/743/744/745/746 exact listed ranges checked for disjointness; PREFIX-713/716/718 reported far index >=79 by predecessor; full independent historical union audit still pending.",
+  "prior_author_union": 141972,
+  "new_author_union": 142040,
+  "total": 147456,
+  "remaining": 5416,
+  "percentage": 96.32703993055556,
+  "verification": "34 individual G8 exact-Fraction lower bound checks in local standard-library runs; one known PREFIX746 case (10,47) microfloor=27002790 reproduced; all 34 old witness G1 negative; published combined script full run pending.",
+  "status": "AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "activity_note": "Native researcher registration r6-20261113-1153-prefix747-session-v1 was QUEUED when manuscript drafted; no current winning CLAIM asserted.",
+  "next": "End-to-end published checker full replay; independent historical union audit; test adjacent cells near (11,53), possibly refine to 16x16 or switch witness."
+}
