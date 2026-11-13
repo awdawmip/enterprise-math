@@ -1,0 +1,35 @@
+{
+  "schema": "R761_TRIADIC_SIGNED_PORT_BRC_ROTATION_EXACT_V1",
+  "candidate": "LOCAL_UNIT_EQUAL_QUANTUM_TRIADIC_EVENT_WITH_V29_PASS_BATCH_AND_S6_ROTATION_SKELETON",
+  "population": "one chosen Cell anchor, six native signed axes, q=1, no arbitrary extra branch label choices",
+  "typed_source": "three distinct nonzero signed force ports; cyclic branch identity and signed port labels retained",
+  "verified": {
+    "events": 320,
+    "support_sets": 20,
+    "signed_port_sets": 160,
+    "orientations_per_signed_set": 2,
+    "distinct_rotation_increments": 40,
+    "reachable_frame_group": "A6",
+    "reachable_frames": 360,
+    "minimum_event_count_distribution": {
+      "0": 1,
+      "1": 40,
+      "2": 229,
+      "3": 90
+    },
+    "exact_max_minimum_event_count": 3,
+    "depth_three_cycle_type": "(4,2)",
+    "odd_reachable_frames": 0,
+    "visible_signed_two_port_pairs": 60,
+    "full_triads_per_visible_pair": 16,
+    "distinct_frame_values_per_pair": 8,
+    "full_events_per_frame_per_pair": 2,
+    "covariance_pairs_checked": 230400,
+    "V29_PASS_occurrences_per_event": 3,
+    "V29_scalar_and_portwise_contrast_after_atomic_batch": 0,
+    "fixed_support_reachable_frame_group": "C3"
+  },
+  "observer_and_horizon": "full signed event vs two-visible-port source/support; frame-only futures are exact permutation composition at this anchor",
+  "boundary": "candidate scheduler/bridge; V39 based-loop admissibility and native force event authorisation not established",
+  "result": "PASS"
+}
