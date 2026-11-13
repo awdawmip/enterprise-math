@@ -101,3 +101,21 @@ print('PASS root weak dominance 8448 masks, 1850 strictly improved')
 print('PASS 256/256 transfers gap=8 for 31502 and 31503')
 print('PASS root03 usage 1040 assignments, min=127, 31504 global min=108')
 
+
+# Six-key skeleton: both 64 and 66 are functionally inactive on shared roots.
+shared=(0,4,5,11,34,61)
+G=collections.defaultdict(list)
+for k in shared:
+ for lab,path in words[k]:G[path[0]].append((lab,path))
+skeleton={r:root_table(G[r]) for r in sorted(G)}
+assert set(skeleton)=={5,6,7}
+assert all(skeleton[r]==D[31502][r]==D[31504][r] for r in skeleton)
+# The certificate is genuinely trie-level: added words are not trivially
+# dominated by same-label paths that are literal prefixes in the old catalogue.
+old_words={(lab,path) for k in shared for lab,path in words[k]}
+for extra,expected in ((64,280),(66,9540)):
+  candidates=[(lab,path) for lab,path in words[extra] if path[0] in (5,6,7)]
+  assert len(candidates)==expected
+  assert all(not any((lab,path[:n]) in old_words for n in range(1,len(path)+1)) for lab,path in candidates)
+print('PASS six-key skeleton equals 31502 and 31504 on 8448 shared-root masks')
+print('PASS no trivial same-label literal-prefix domination for 280 key64 and 9540 key66 words')
