@@ -28,14 +28,14 @@ def as_triple(values: Iterable[int]) -> Triple:
     triple = tuple(values)
     if len(triple) != 3:
         raise ValueError("expected exactly three coordinates")
-    if not all(isinstance(value, int) for value in triple):
+    if not all(type(value) is int for value in triple):
         raise TypeError("diagonal quotient coordinates must be integers")
     return triple  # type: ignore[return-value]
 
 
 def diagonal_shift(values: Iterable[int], k: int) -> Triple:
     """Apply the common translation ``k(1,1,1)``."""
-    if not isinstance(k, int):
+    if type(k) is not int:
         raise TypeError("diagonal shift must be an integer")
     a, b, c = as_triple(values)
     return (a + k, b + k, c + k)
