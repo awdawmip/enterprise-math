@@ -1,0 +1,5 @@
+# Next unit: ten-decoder lawful composition and exact stochastic kernel
+
+Frozen pin: enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34. Reuse exact S23 event coordinates p=a, q=(1-a)(1-b), r=3b/4, w=(1-a)c, and full-source metric D=max(|Δp|,|Δq|,|Δr|,|Δw|,|Δp+Δq|,|Δp+Δw|). Original (p,q,r) has sharp full-source reconstruction radius 3/32; triple (p,r,w) exactly reconstructs all six laws.
+Locate the exact lawful ten-label encoder/decoder and R_beh(k,10) policy/objective in the original mother source, pin its file/version. For two rational hypotheses e.g. (1/2,1/8,1/2) and (1/2,1/8,7/8), test legal joint access to tagged AV:stop3 and the other event kernels. For the hypothesized experiment direction, solve rational feasibility P0*K=Q0, P1*K=Q1, K>=0 and K*1=1 with a single hypothesis-independent Markov kernel. Return a rational K or exact dual separation with the selected pair and correct Blackwell/TV/Bayes-risk direction. Compare only after checking target risk definitions.
+The previous unrestricted R_beh(k,10), k=4,6 bracket [1/2,2/3] is unchanged by this source-level observer theorem. Formal CLAIM/owner and independent review remain separate.
