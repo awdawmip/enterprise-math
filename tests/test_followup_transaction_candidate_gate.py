@@ -116,9 +116,12 @@ def run_case(case):
 
         result, review = source("CANDIDATE-SOURCE")
         source("UNRELATED-PENDING")
-        # An unregistered historical packet error remains raw diagnostic history.
+        # An unrelated malformed current-schema packet remains raw diagnostic
+        # history, while historical V1_3 is separately excluded from the
+        # operational packet index by its exact recognized schema.
         historical_path = "research_driver_followups/DR-UNRELATED-OLD/DFU-UNRELATED-OLD.json"
-        write(historical_path, {"packet_id": "DFU-UNRELATED-OLD", "review_id": "DR-UNRELATED-OLD"})
+        write(historical_path, {"schema": impl.SCHEMA,
+                                "packet_id": "DFU-UNRELATED-OLD", "review_id": "DR-UNRELATED-OLD"})
         closure = case in {"closure", "objective_reopen"}
         objective_path = write("research_objective_heads/OBJ-FOLLOWUP-FIXTURE.json",
                                {"objective_id": parent, "objective_status": "CLOSED" if closure else "ACTIVE"})
