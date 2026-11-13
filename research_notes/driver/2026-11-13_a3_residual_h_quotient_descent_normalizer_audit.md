@@ -17,10 +17,10 @@ One may always compare `pi L_*:X -> X/H` with `pi U_*:X -> X/H`, as in the froze
 For `1<=d<=n`, let `D_{n,d}(g)` act as `R_g=sgn(g)P_g` on shells `S_r` with `r>=n-d+1` and as identity on lower shells. The `S_4` action on **every** `S_r`, `r>=1`, is faithful: the scaled root vectors `r(e_i-e_j)` in `S_r` span the A3 hyperplane, on which the signed permutation representation is faithful.
 
 Consequently
-[
-D_{n,d}(g)	ext{ induces an operator on }A^{B_n}/H
-quadLongleftrightarrowquad g(12)g^{-1}=(12).
-]
+\[
+D_{n,d}(g)\text{ induces an operator on }A^{B_n}/H
+\quad\Longleftrightarrow\quad g(12)g^{-1}=(12).
+\]
 Indeed, conjugating the global `R_h` by `D_{n,d}(g)` gives `R_{ghg^{-1}}` on active shells and `R_h` on inactive shells. At least one active nonzero shell exists, and its faithfulness makes equality to global `R_h` equivalent to `ghg^{-1}=h`. The centralizer in `S_4` is `C_{S_4}((12))={e,(12),(34),(12)(34)}`.
 
 In particular, the frozen counterexample aligner `g=(23)` does **not** define a map on the global residual-`H` state quotient at scales where its radial partial action is used. The comparison of the two output orbits for each *specified input state* remains meaningful, as does the frozen exact carrier defect `K=L U^{-1}`; it must not be silently upgraded to a commuting square of intrinsically defined quotient-state morphisms.
@@ -28,22 +28,22 @@ In particular, the frozen counterexample aligner `g=(23)` does **not** define a 
 ## 3. A fully explicit binary-label witness
 
 Take `n=2,d=1,g=(23)`, with `P=D_{2,1}(g)` (so `P` acts on `S_2` and fixes `S_1`). Let
-[
-x=(1,0,-1,0)in S_1,qquad y=(2,-2,0,0)in S_2,qquad T={x,y}.
-]
+\[
+x=(1,0,-1,0)\in S_1,\qquad y=(2,-2,0,0)\in S_2,\qquad T=\{x,y\}.
+\]
 For the sign-twisted action,
-[
-h x=(0,-1,1,0),quad h y=y,quad g y=(-2,0,2,0),quad h(gy)=(0,2,-2,0).
-]
+\[
+h x=(0,-1,1,0),\quad h y=y,\quad g y=(-2,0,2,0),\quad h(gy)=(0,2,-2,0).
+\]
 The two input binary indicator states for `T` and `hT` represent the **same** element of `X/H`. But
-[
-PT={(1,0,-1,0),(-2,0,2,0)},quad
-P(hT)={(0,-1,1,0),(-2,0,2,0)},
-]
+\[
+PT=\{(1,0,-1,0),(-2,0,2,0)\},\quad
+P(hT)=\{(0,-1,1,0),(-2,0,2,0)\},
+\]
 while
-[
-h(PT)={(0,-1,1,0),(0,2,-2,0)}.
-]
+\[
+h(PT)=\{(0,-1,1,0),(0,2,-2,0)\}.
+\]
 Thus `P(hT)` is neither `PT` nor `h(PT)`: quotient descent fails on explicit equivalent inputs. These coordinates have been independently checked by exact integer permutation arithmetic.
 
 ## 4. Impact on the pending A3 review
