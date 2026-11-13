@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/PREFIX766_R6_SQUARE_PHASE_VERIFY.py",
+    "ref": "857a1791504a8c84948ea4227e78eef1b4423535",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "prefix766-r6-source-observation-2",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Exact author certificate for PREFIX-766 in the frozen BRC/Gamma auxiliary model.\"\"\"\nfrom collections import defaultdict\nfrom fractions import Fraction\nfrom functools import lru_cache\nfrom math import comb\n\nN,W=189,1<<18\n@lru_cache(None)\ndef inside(n,k,x):return 40*(n+1)*comb(n,k)*x**k*(W-x)**(n-k)>W**n\n\n@lru_cache(None)\ndef wide(n,k):\n if k>n//2:return wide(n,n-k)\n m=k*W//n\n assert inside(n,k,m)\n if k==0:lo=hi=0\n else:\n  a,b=0,m\n  while b-a>1:\n   t=(a+b)//2\n   if inside(n,k,t):b=t\n   else:a=t\n  lo,hi=a,b\n a,b=m,W\n while b-a>1:\n  t=(a+b)//2\n  if inside(n,k,t):a=t\n  else:b=t\n if 4*(a-hi)>W:return True\n if 4*(b-lo)<W:return False\n raise ArithmeticError((n,k))\n\nrows=[{0:1}]\nfor n in range(1,N+1):\n c=defaultdict(int)\n for k,v in rows[-1].items():c[k]+=v;c[k+1]+=v\n rows.append({k:v for k,v in c.items() if wide(n,k)})\nassert not rows[N] and sum(map(len,rows[:N]))==9529\n\ndef scaled_survivors(x):\n powers=[1]; rev=[1]\n for _ in range(N):powers.append(powers[-1]*x);rev.append(rev[-1]*(1024-x))\n nums=[sum(v*powers[k]*rev[n-k] for k,v in row.items()) for n,row in enumerate(rows[:N])]\n assert all(nums[n]==1024**n for n in range(25))\n assert nums[25]==1024**25-x**25-(1024-x)**25\n return [v<<(10*(188-i)) for i,v in enumerate(nums)]\n\na,b=scaled_survivors(51),scaled_survivors(52)\nd=[x-y for x,y in zip(b,a)]\nE=1<<4137; scale=1<<2257\nCaa=Cab=Cbb=Cdd=Ldd=0\nfor i in range(N):\n for j in range(i,N):\n  w=comb(i+j,i)<<(376-i-j)\n  factor=1 if i==j else 2\n  Caa+=factor*w*a[i]*a[j]\n  Cab+=w*(a[i]*b[j] if i==j else a[i]*b[j]+a[j]*b[i])\n  Cbb+=factor*w*b[i]*b[j]\n  Cdd+=factor*w*d[i]*d[j]\n  Ldd+=factor*w*(i+j+1)*d[i]*d[j]\nmaa=2*sum(a)*scale-Caa\nmab=(sum(a)+sum(b))*scale-Cab\nmbb=2*sum(b)*scale-Cbb\ndmu=-Cdd\ndvar=-Ldd*E-(mbb*mbb-2*mab*mab+maa*maa)\nassert dmu==mbb-2*mab+maa\nassert dmu<0 and dvar<0\n# Exact rational ratio q_R=(dmu/E)/(dvar/E^2).\nnum,den=-dmu*E,-dvar\nassert 28519*den<1000000*num<28520*den\nq=Fraction(num,den)\nassert Fraction(28520,1000000)**2 * Fraction(dvar,E*E)-Fraction(28520,1000000)*Fraction(dmu,E)<0\nprint('ALL_CHECKS_PASS PREFIX766')\nprint('q_R',format(float(q),'.17g'))\nprint('Delta_mu',format(float(Fraction(dmu,E)),'.17g'))\nprint('Delta_variance',format(float(Fraction(dvar,E*E)),'.17g'))\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/857a1791504a8c84948ea4227e78eef1b4423535/research_notes/portable_direct/PREFIX766_R6_SQUARE_PHASE_VERIFY.py",
+      "encoding": "utf-8",
+      "sha": "bcbaefc1ca50a63962e3faeab4efa9b9452ce18e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
