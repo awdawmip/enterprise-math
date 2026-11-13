@@ -1,0 +1,146 @@
+{
+  "schema": "ENTERPRISE_MATH_R737_X6_CLOSING_DEPTH_EXACT_V1",
+  "date": "2026-11-12",
+  "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "X6 three selected axes; exactly once each +i,-i; 720 all ordered and 240 nonbacktracking words",
+  "total_words": 720,
+  "nb_words": 240,
+  "observer_statistics": {
+    "QJ": {
+      "classes": 192,
+      "max": 2,
+      "sizes": {
+        "1": 144,
+        "2": 48
+      }
+    },
+    "QJ_K0": {
+      "classes": 224,
+      "max": 2,
+      "sizes": {
+        "1": 208,
+        "2": 16
+      }
+    },
+    "QJ_K01": {
+      "classes": 240,
+      "max": 1,
+      "sizes": {
+        "1": 240
+      }
+    },
+    "QJK": {
+      "classes": 240,
+      "max": 1,
+      "sizes": {
+        "1": 240
+      }
+    },
+    "JK": {
+      "classes": 228,
+      "max": 2,
+      "sizes": {
+        "1": 216,
+        "2": 12
+      }
+    },
+    "T3_NB": {
+      "classes": 240,
+      "max": 1,
+      "sizes": {
+        "1": 240
+      }
+    },
+    "T3_ALL": {
+      "classes": 379,
+      "max": 48,
+      "sizes": {
+        "1": 240,
+        "2": 96,
+        "4": 24,
+        "8": 18,
+        "48": 1
+      }
+    }
+  },
+  "covariance_checks": 3600,
+  "witness": {
+    "word_a": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        1,
+        -1
+      ]
+    ],
+    "word_b": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        2,
+        -1
+      ]
+    ],
+    "Q": [
+      1,
+      1,
+      1
+    ],
+    "J": [
+      1,
+      1,
+      0
+    ],
+    "K_a": [
+      2,
+      0,
+      1
+    ],
+    "K_b": [
+      2,
+      1,
+      0
+    ]
+  },
+  "strict_third_order_tensor_components": 27,
+  "cubic_alternating_all_720_zero": true,
+  "K_tensor_identity": "K_i = sum_{j neq i} T_{i,i,j} = sum_{j neq i} x_j(at the second occurrence of i)",
+  "check": "R737_X6_CLOSING_DEPTH_CUBIC_EXACT_PASS",
+  "native_event_verified": false
+}
