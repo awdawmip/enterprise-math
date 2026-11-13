@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "EnterpriseMath/Order/RightAdjointSublevel.lean",
+    "ref": "0170b8c93c4e07db4f3bac022809374eb814bece",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-f52de59801bc-general-adjoint-observation-1",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "import Mathlib.Order.GaloisConnection.Basic\nimport Mathlib.Order.Bounds.Basic\n\nnamespace EnterpriseMath.Order\n\nvariable {α β : Type*} [PartialOrder α] [PartialOrder β]\n\n/-- A monotone map admits a right adjoint exactly when each of its principal\nsublevel sets has a greatest element. -/\ntheorem exists_rightAdjoint_iff_sublevel_hasGreatest (l : α → β) (hl : Monotone l) :\n    (∃ u : β → α, GaloisConnection l u) ↔\n      ∀ b : β, ∃ m : α, IsGreatest {a : α | l a ≤ b} m := by\n  constructor\n  · rintro ⟨u, h⟩ b\n    refine ⟨u b, (h (u b) b).2 le_rfl, ?_⟩\n    intro a ha\n    exact (h a b).1 ha\n  · intro h\n    let u (b : β) : α := Classical.choose (h b)\n    have hu (b : β) : IsGreatest {a : α | l a ≤ b} (u b) :=\n      Classical.choose_spec (h b)\n    refine ⟨u, ?_⟩\n    intro a b\n    exact ⟨fun ha => (hu b).2 ha, fun ha => (hl ha).trans (hu b).1⟩\n\nend EnterpriseMath.Order\n",
+      "display_title": "RightAdjointSublevel.lean",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/0170b8c93c4e07db4f3bac022809374eb814bece/EnterpriseMath/Order/RightAdjointSublevel.lean",
+      "encoding": "utf-8",
+      "sha": "c78aa8cb57f557a42117b95be9abc9ef8e61829c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
