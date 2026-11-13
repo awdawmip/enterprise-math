@@ -1,0 +1,42 @@
+{
+  "arithmetic": "Fraction",
+  "cases": {
+    "1": {
+      "ranks_observed": [
+        0,
+        1
+      ],
+      "sequences_checked": 15
+    },
+    "2": {
+      "ranks_observed": [
+        0,
+        1,
+        2
+      ],
+      "sequences_checked": 85
+    },
+    "3": {
+      "ranks_observed": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sequences_checked": 585
+    },
+    "4": {
+      "sequences_checked": 11,
+      "tested_rank_deficiency": true
+    },
+    "5": {
+      "sequences_checked": 11,
+      "tested_rank_deficiency": true
+    }
+  },
+  "exact_formula": "rank=2^rank_GF2(v_i)",
+  "native_event_permission": false,
+  "point_equivalence": "equal all declared signed-Walsh characters",
+  "quotient_fiber_size": "2^(d-r)",
+  "status": "PASS"
+}

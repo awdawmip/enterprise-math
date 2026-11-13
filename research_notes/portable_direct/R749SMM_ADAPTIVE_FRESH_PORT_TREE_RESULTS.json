@@ -1,0 +1,35 @@
+{
+  "schema": "ENTERPRISE_MATH_R749SMM_EXACT_CHECK_V1",
+  "status": "PASS",
+  "date": "2026-11-13",
+  "theorem": "For independent node-specific Walsh masks, rank(K)=1+#nonzero node-biases",
+  "frozen_scientific_input": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "arithmetic": "Python standard library Fraction, exhaustive sources for depth 1,2,3; exact rational row rank",
+  "exhaustive_zero_nonzero_patterns": 138,
+  "additional_signed_deterministic_profiles": 30,
+  "total_profiles": 168,
+  "rank_distributions": {
+    "1": {
+      "1": 1,
+      "2": 1
+    },
+    "2": {
+      "1": 1,
+      "2": 3,
+      "3": 3,
+      "4": 1
+    },
+    "3": {
+      "1": 1,
+      "2": 7,
+      "3": 21,
+      "4": 35,
+      "5": 35,
+      "6": 21,
+      "7": 7,
+      "8": 1
+    }
+  },
+  "dependent_masks_counterexample_rank": 2,
+  "scope": "Author-side finite model regression; arbitrary finite-depth proof is algebraic and separate from grid"
+}

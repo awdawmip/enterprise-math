@@ -1,0 +1,198 @@
+{
+  "status": "PASS",
+  "model": "R749SF conditional six-axis unsigned support kernel plus finite private sign-history controller",
+  "nonforced_six_support_cycle_verified": true,
+  "legal_unsigned_directed_edges": 120,
+  "full_stale_source_washout_steps": 3,
+  "d_checked": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "exact_arithmetic": "fractions.Fraction",
+  "cases": [
+    {
+      "d": 1,
+      "rank_by_horizon": [
+        1,
+        2
+      ],
+      "classes_by_horizon": [
+        1,
+        2
+      ],
+      "affine_coordinates_by_horizon": [
+        0,
+        1
+      ],
+      "abs_determinant": "1/2",
+      "fisher_diag_by_walsh_degree": {
+        "1": "1/4"
+      },
+      "fisher_degree_multiplicities": {
+        "1": 1
+      },
+      "one_word_MAP_success": "3/4",
+      "walsh_column_checks": 4,
+      "interior_pair_one_word_TV": "1/4",
+      "min_repetitions_for_Bayes_error_strictly_below_quarter": ">4"
+    },
+    {
+      "d": 2,
+      "rank_by_horizon": [
+        1,
+        2,
+        4
+      ],
+      "classes_by_horizon": [
+        1,
+        2,
+        4
+      ],
+      "affine_coordinates_by_horizon": [
+        0,
+        1,
+        3
+      ],
+      "abs_determinant": "1/16",
+      "fisher_diag_by_walsh_degree": {
+        "1": "1/4",
+        "2": "1/16"
+      },
+      "fisher_degree_multiplicities": {
+        "1": 2,
+        "2": 1
+      },
+      "one_word_MAP_success": "9/16",
+      "walsh_column_checks": 16,
+      "interior_pair_one_word_TV": "1/8",
+      "min_repetitions_for_Bayes_error_strictly_below_quarter": ">16"
+    },
+    {
+      "d": 3,
+      "rank_by_horizon": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "classes_by_horizon": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "affine_coordinates_by_horizon": [
+        0,
+        1,
+        3,
+        7
+      ],
+      "abs_determinant": "1/4096",
+      "fisher_diag_by_walsh_degree": {
+        "1": "1/4",
+        "2": "1/16",
+        "3": "1/64"
+      },
+      "fisher_degree_multiplicities": {
+        "1": 3,
+        "2": 3,
+        "3": 1
+      },
+      "one_word_MAP_success": "27/64",
+      "walsh_column_checks": 64,
+      "interior_pair_one_word_TV": "1/16",
+      "min_repetitions_for_Bayes_error_strictly_below_quarter": ">64"
+    },
+    {
+      "d": 4,
+      "rank_by_horizon": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "classes_by_horizon": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "affine_coordinates_by_horizon": [
+        0,
+        1,
+        3,
+        7,
+        15
+      ],
+      "abs_determinant": "1/4294967296",
+      "fisher_diag_by_walsh_degree": {
+        "1": "1/4",
+        "2": "1/16",
+        "3": "1/64",
+        "4": "1/256"
+      },
+      "fisher_degree_multiplicities": {
+        "1": 4,
+        "2": 6,
+        "3": 4,
+        "4": 1
+      },
+      "one_word_MAP_success": "81/256",
+      "walsh_column_checks": 256,
+      "interior_pair_one_word_TV": "1/32",
+      "min_repetitions_for_Bayes_error_strictly_below_quarter": ">256"
+    },
+    {
+      "d": 5,
+      "rank_by_horizon": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32
+      ],
+      "classes_by_horizon": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32
+      ],
+      "affine_coordinates_by_horizon": [
+        0,
+        1,
+        3,
+        7,
+        15,
+        31
+      ],
+      "abs_determinant": "1/1208925819614629174706176",
+      "fisher_diag_by_walsh_degree": {
+        "1": "1/4",
+        "2": "1/16",
+        "3": "1/64",
+        "4": "1/256",
+        "5": "1/1024"
+      },
+      "fisher_degree_multiplicities": {
+        "1": 5,
+        "2": 10,
+        "3": 10,
+        "4": 5,
+        "5": 1
+      },
+      "one_word_MAP_success": "243/1024",
+      "walsh_column_checks": 1024,
+      "interior_pair_one_word_TV": "1/64",
+      "min_repetitions_for_Bayes_error_strictly_below_quarter": ">1024"
+    }
+  ],
+  "native_event_permission": false
+}

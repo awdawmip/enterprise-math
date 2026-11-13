@@ -1,0 +1,17 @@
+{
+  "schema": "ENTERPRISE_MATH_R749SMN_REPEAT_MASK_RANK_EXACT_V1",
+  "status": "PASS",
+  "scientific_input": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": "R749SMM@d6d80b056e4bc4f579610c4dd8d0e0adf4d57427",
+  "arithmetic": "Python fractions.Fraction, exact row elimination",
+  "depth_two": "exhaustive all 8^3 mask triples in GF(2)^3 and 4^3 bias triples",
+  "depth_two_profiles": 32768,
+  "depth_two_rank_histogram": {
+    "1": 1793,
+    "2": 10185,
+    "3": 13986,
+    "4": 6804
+  },
+  "depth_three_dependent_mask_profiles": 250,
+  "scope": "Finite regression checks; general contrast-span proof independent of finite enumeration"
+}

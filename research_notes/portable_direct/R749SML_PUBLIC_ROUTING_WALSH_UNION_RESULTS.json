@@ -1,0 +1,80 @@
+{
+  "schema": "ENTERPRISE_MATH_R749SML_CHECK_V1",
+  "status": "PASS",
+  "model": "public source-independent routing over signed-provenance Walsh parities",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "method": "exact Fraction likelihood matrix and Gauss-Jordan rational rank; predicted union of GF(2) Walsh subspaces",
+  "validated_cases": 248,
+  "grid_cases": 243,
+  "hidden_route_rank": 2,
+  "public_route_rank": 3,
+  "expanded_joint_query_rank": 4,
+  "strict_positive_prior_joint_query_tv": "1/8",
+  "featured": [
+    {
+      "case": "R749SMG-rank-three-public-routing",
+      "rank": 3,
+      "minimum_affine_coordinates": 2,
+      "walsh_masks": [
+        0,
+        1,
+        2
+      ],
+      "rows": 4,
+      "source_states": 8
+    },
+    {
+      "case": "overlapping-two-bit-branches",
+      "rank": 6,
+      "minimum_affine_coordinates": 5,
+      "walsh_masks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "rows": 8,
+      "source_states": 8
+    },
+    {
+      "case": "one-erased-branch-parity",
+      "rank": 5,
+      "minimum_affine_coordinates": 4,
+      "walsh_masks": [
+        0,
+        1,
+        2,
+        4,
+        6
+      ],
+      "rows": 8,
+      "source_states": 8
+    },
+    {
+      "case": "three-public-routes",
+      "rank": 4,
+      "minimum_affine_coordinates": 3,
+      "walsh_masks": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "rows": 6,
+      "source_states": 8
+    },
+    {
+      "case": "all-branch-signals-erased",
+      "rank": 1,
+      "minimum_affine_coordinates": 0,
+      "walsh_masks": [
+        0
+      ],
+      "rows": 4,
+      "source_states": 8
+    }
+  ],
+  "limits": "finite grid regression; arbitrary finite-family result relies on algebraic proof"
+}
