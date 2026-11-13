@@ -1,0 +1,89 @@
+{
+  "status": "PASS_GH151_PARITY_RIGIDITY_EXACT",
+  "run_date": "2026-10-30",
+  "exact_run_local": "python3 verify_gh151_parity_rigidity.py",
+  "verified_checks": {
+    "centered_coefficients": 936,
+    "primes": 8,
+    "method": "direct factorial/binomial expansion versus ODE/recurrence/closed finite-binomial relation",
+    "cases": [
+      {
+        "p": 11,
+        "m": 1,
+        "degree": 2,
+        "checked_centered_coefficients": 3,
+        "g0_mod_p": 5,
+        "centered_odd_coefficients_zero": 1
+      },
+      {
+        "p": 19,
+        "m": 2,
+        "degree": 4,
+        "checked_centered_coefficients": 5,
+        "g0_mod_p": 17,
+        "centered_odd_coefficients_zero": 2
+      },
+      {
+        "p": 43,
+        "m": 5,
+        "degree": 10,
+        "checked_centered_coefficients": 11,
+        "g0_mod_p": 10,
+        "centered_odd_coefficients_zero": 5
+      },
+      {
+        "p": 59,
+        "m": 7,
+        "degree": 14,
+        "checked_centered_coefficients": 15,
+        "g0_mod_p": 53,
+        "centered_odd_coefficients_zero": 7
+      },
+      {
+        "p": 67,
+        "m": 8,
+        "degree": 16,
+        "checked_centered_coefficients": 17,
+        "g0_mod_p": 14,
+        "centered_odd_coefficients_zero": 8
+      },
+      {
+        "p": 83,
+        "m": 10,
+        "degree": 20,
+        "checked_centered_coefficients": 21,
+        "g0_mod_p": 65,
+        "centered_odd_coefficients_zero": 10
+      },
+      {
+        "p": 107,
+        "m": 13,
+        "degree": 26,
+        "checked_centered_coefficients": 27,
+        "g0_mod_p": 101,
+        "centered_odd_coefficients_zero": 13
+      },
+      {
+        "p": 3347,
+        "m": 418,
+        "degree": 836,
+        "checked_centered_coefficients": 837,
+        "g0_mod_p": 3233,
+        "centered_odd_coefficients_zero": 418
+      }
+    ]
+  },
+  "p3347": {
+    "single_prime_field_point_count_a_p": -114,
+    "W0": 860,
+    "G": 783,
+    "Gprime": 2824,
+    "J": 588,
+    "Jprime": 997,
+    "S1_rho_coefficient": 362
+  },
+  "scope": "Finite exact checks; universal reflection and binomial identities are established by symbolic polynomial arguments in PROOF.md.",
+  "independence": "Author-context use of published GH-151 source; not an independent native Driver review.",
+  "admission": "UNREVIEWED / NOT_ADMITTED / NOT_NATIVE / REGISTER_PENDING",
+  "evidence_source": "Local executed full checker and JSON readback 2026-10-30; checked code uploaded here changes only first docstring path to PROOF.md."
+}
