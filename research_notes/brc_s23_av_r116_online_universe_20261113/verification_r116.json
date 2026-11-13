@@ -1,0 +1,109 @@
+{
+  "status": "R116_PASS",
+  "seed": 1162026,
+  "random_trials": 360,
+  "refined_atom_checks": 17732,
+  "all_k_direct_comparisons": 815672,
+  "finite_capacity_witness_checks": 34382,
+  "common_addition_checks": 17732,
+  "abstract_signature_growth_sum": 741,
+  "connected_run_growth_sum": 631,
+  "inherited_rank_root_references": 5656,
+  "new_time_eligible_signature_rows": 2492,
+  "max_abstract_split_per_trial": 6,
+  "max_representative_integer_bits": 10,
+  "alternating_counterexample": {
+    "old_abstract_signatures": 1,
+    "new_abstract_signatures": 2,
+    "old_connected_runs": 1,
+    "new_connected_runs": 11,
+    "half_open_components": 5
+  },
+  "samples": [
+    {
+      "trial": 0,
+      "new_time": -6,
+      "new_source": [
+        -6,
+        1
+      ],
+      "old_distinct_signatures": 10,
+      "new_distinct_signatures": 13,
+      "old_connected_runs": 14,
+      "new_connected_runs": 18,
+      "old_capacity": 0,
+      "new_capacity": 0,
+      "new_refined_atoms": 51
+    },
+    {
+      "trial": 1,
+      "new_time": -5,
+      "new_source": [
+        -5,
+        1
+      ],
+      "old_distinct_signatures": 10,
+      "new_distinct_signatures": 14,
+      "old_connected_runs": 16,
+      "new_connected_runs": 19,
+      "old_capacity": 0,
+      "new_capacity": 0,
+      "new_refined_atoms": 47
+    },
+    {
+      "trial": 2,
+      "new_time": -5,
+      "new_source": [
+        -5,
+        1
+      ],
+      "old_distinct_signatures": 10,
+      "new_distinct_signatures": 10,
+      "old_connected_runs": 15,
+      "new_connected_runs": 15,
+      "old_capacity": 0,
+      "new_capacity": 0,
+      "new_refined_atoms": 47
+    },
+    {
+      "trial": 120,
+      "new_time": 4,
+      "new_source": [
+        4,
+        2
+      ],
+      "old_distinct_signatures": 11,
+      "new_distinct_signatures": 13,
+      "old_connected_runs": 15,
+      "new_connected_runs": 16,
+      "old_capacity": 0,
+      "new_capacity": 0,
+      "new_refined_atoms": 49
+    },
+    {
+      "trial": 359,
+      "new_time": 6,
+      "new_source": [
+        6,
+        0
+      ],
+      "old_distinct_signatures": 9,
+      "new_distinct_signatures": 9,
+      "old_connected_runs": 10,
+      "new_connected_runs": 10,
+      "old_capacity": 0,
+      "new_capacity": 0,
+      "new_refined_atoms": 37
+    }
+  ],
+  "directed_cases": {
+    "identical_histories_to_capacity_3": true,
+    "capacity_3_to_0": true,
+    "lower_rank_new_difference_capacity_2_to_2": true,
+    "half_open_witness": "2/5",
+    "half_open_nonwitness": "3/5"
+  },
+  "domain": "Finite strictly ranked source identities (t,b); rational half-open eligibility unions on closed [0,1]",
+  "arithmetic": "Python Fraction exact; no floating-point predicates",
+  "method": "Enumerate all singleton cut atoms and all open-gap rational representatives; randomized history pairs and both new-time addition types; direct Top-k for k=1..23"
+}
