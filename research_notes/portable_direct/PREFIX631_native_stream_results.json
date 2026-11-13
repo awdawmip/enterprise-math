@@ -1,0 +1,404 @@
+{
+  "schema": "PREFIX631_NATIVE_STREAM_OUTPUT_CERTIFICATE_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_checker": "PREFIX629_phase_only_suffix_checker.py@04822a439b5ed8f6761ba69c7131053d8e7d9fc6",
+  "original_phase_count": 48,
+  "original_port_count": 96,
+  "original_action_count": 576,
+  "graph": {
+    "nonzero_edges_at_gate_1": 384,
+    "live_ports": 64,
+    "dead_ports": 32,
+    "recurrent_ports": 32,
+    "other_live_ports": 32,
+    "recurrent_closed_under_live_edges": true,
+    "recurrent_live_targets_per_source": 2,
+    "recurrent_dead_targets_per_source": 4
+  },
+  "four_step_native_certificate": {
+    "r2_nonzero": [
+      [
+        6,
+        2
+      ],
+      [
+        7,
+        2
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        28,
+        2
+      ],
+      [
+        29,
+        2
+      ],
+      [
+        30,
+        2
+      ],
+      [
+        31,
+        2
+      ],
+      [
+        32,
+        2
+      ],
+      [
+        33,
+        2
+      ],
+      [
+        34,
+        6
+      ],
+      [
+        35,
+        6
+      ],
+      [
+        52,
+        2
+      ],
+      [
+        53,
+        2
+      ],
+      [
+        54,
+        4
+      ],
+      [
+        55,
+        4
+      ],
+      [
+        58,
+        2
+      ],
+      [
+        59,
+        2
+      ],
+      [
+        76,
+        2
+      ],
+      [
+        77,
+        2
+      ],
+      [
+        78,
+        4
+      ],
+      [
+        79,
+        4
+      ],
+      [
+        80,
+        4
+      ],
+      [
+        81,
+        4
+      ],
+      [
+        82,
+        6
+      ],
+      [
+        83,
+        6
+      ]
+    ],
+    "r6_equals_16_r2": true
+  },
+  "four_base_residue_cases": [
+    {
+      "t": 4,
+      "recurrent_source_ports": [
+        4,
+        5,
+        8,
+        9,
+        28,
+        29,
+        52,
+        53,
+        56,
+        57,
+        80,
+        81
+      ],
+      "low_mass": "8",
+      "low_count": 10,
+      "high_mass": "16",
+      "high_count": 2,
+      "total_phase_state_nonzero": 28
+    },
+    {
+      "t": 5,
+      "recurrent_source_ports": [
+        8,
+        9,
+        28,
+        29,
+        52,
+        53,
+        56,
+        57,
+        76,
+        77,
+        80,
+        81
+      ],
+      "low_mass": "16",
+      "low_count": 10,
+      "high_mass": "32",
+      "high_count": 2,
+      "total_phase_state_nonzero": 28
+    },
+    {
+      "t": 6,
+      "recurrent_source_ports": [
+        8,
+        9,
+        28,
+        29,
+        32,
+        33,
+        52,
+        53,
+        76,
+        77,
+        80,
+        81
+      ],
+      "low_mass": "32",
+      "low_count": 10,
+      "high_mass": "64",
+      "high_count": 2,
+      "total_phase_state_nonzero": 28
+    },
+    {
+      "t": 7,
+      "recurrent_source_ports": [
+        4,
+        5,
+        8,
+        9,
+        28,
+        29,
+        32,
+        33,
+        52,
+        53,
+        80,
+        81
+      ],
+      "low_mass": "64",
+      "low_count": 10,
+      "high_mass": "128",
+      "high_count": 2,
+      "total_phase_state_nonzero": 28
+    }
+  ],
+  "exact_theorem": {
+    "input": "four-point probe, lambda=1, all gates=1, t=n-L>=4, L>=1",
+    "nonzero_labelled_full_suffix_paths": "72*2^(L-1)",
+    "source_mass_histogram": {
+      "2^(t-1)": "60*2^(L-1)",
+      "2^t": "12*2^(L-1)"
+    },
+    "binary_mass_digits_total": "(72*t+12)*2^(L-1)",
+    "arbitrary_nonnegative_gate_upper_bound": "nonzero path count <=72*2^(L-1) for t>=4"
+  },
+  "finite_checks": {
+    "path_count_pairs": 192,
+    "streamed_path_histogram_checks": 32,
+    "four_step_equality_checked": true,
+    "full_path_examples": [
+      [
+        4,
+        1,
+        72
+      ],
+      [
+        4,
+        2,
+        144
+      ],
+      [
+        4,
+        3,
+        288
+      ],
+      [
+        4,
+        4,
+        576
+      ],
+      [
+        4,
+        5,
+        1152
+      ],
+      [
+        4,
+        6,
+        2304
+      ],
+      [
+        4,
+        7,
+        4608
+      ],
+      [
+        4,
+        8,
+        9216
+      ],
+      [
+        5,
+        1,
+        72
+      ],
+      [
+        5,
+        2,
+        144
+      ],
+      [
+        5,
+        3,
+        288
+      ],
+      [
+        5,
+        4,
+        576
+      ],
+      [
+        5,
+        5,
+        1152
+      ],
+      [
+        5,
+        6,
+        2304
+      ],
+      [
+        5,
+        7,
+        4608
+      ],
+      [
+        5,
+        8,
+        9216
+      ],
+      [
+        8,
+        1,
+        72
+      ],
+      [
+        8,
+        2,
+        144
+      ],
+      [
+        8,
+        3,
+        288
+      ],
+      [
+        8,
+        4,
+        576
+      ],
+      [
+        8,
+        5,
+        1152
+      ],
+      [
+        8,
+        6,
+        2304
+      ],
+      [
+        8,
+        7,
+        4608
+      ],
+      [
+        8,
+        8,
+        9216
+      ],
+      [
+        11,
+        1,
+        72
+      ],
+      [
+        11,
+        2,
+        144
+      ],
+      [
+        11,
+        3,
+        288
+      ],
+      [
+        11,
+        4,
+        576
+      ],
+      [
+        11,
+        5,
+        1152
+      ],
+      [
+        11,
+        6,
+        2304
+      ],
+      [
+        11,
+        7,
+        4608
+      ],
+      [
+        11,
+        8,
+        9216
+      ]
+    ]
+  },
+  "status": "ALL_ASSERTIONS_PASS",
+  "review_status": "AUTHOR_SIDE_UNREVIEWED"
+}
