@@ -1,0 +1,268 @@
+{
+  "status": "STAGE435B_MULTIDEFECT_EXACT_TRANSFER_PASS",
+  "arithmetic": "integer (BigInt) and equality of finite native labels",
+  "native_append_directions": 12,
+  "cases": [
+    {
+      "m": 9,
+      "n": 3,
+      "p": 1,
+      "r": 2,
+      "k": 2,
+      "window": [
+        3,
+        5
+      ],
+      "full_fiber": 15,
+      "class_count": 5,
+      "class_masses": [
+        {
+          "B_positions": "(none)",
+          "mass": 4
+        },
+        {
+          "B_positions": "3",
+          "mass": 3
+        },
+        {
+          "B_positions": "3,5",
+          "mass": 1
+        },
+        {
+          "B_positions": "4",
+          "mass": 4
+        },
+        {
+          "B_positions": "5",
+          "mass": 3
+        }
+      ],
+      "future_operation_words": 614,
+      "minimum_fixed_class_bits": 3
+    },
+    {
+      "m": 10,
+      "n": 5,
+      "p": 1,
+      "r": 1,
+      "k": 2,
+      "window": [
+        5,
+        6
+      ],
+      "full_fiber": 21,
+      "class_count": 3,
+      "class_masses": [
+        {
+          "B_positions": "(none)",
+          "mass": 11
+        },
+        {
+          "B_positions": "5",
+          "mass": 5
+        },
+        {
+          "B_positions": "6",
+          "mass": 5
+        }
+      ],
+      "future_operation_words": 38,
+      "minimum_fixed_class_bits": 2
+    },
+    {
+      "m": 12,
+      "n": 6,
+      "p": 1,
+      "r": 2,
+      "k": 2,
+      "window": [
+        6,
+        8
+      ],
+      "full_fiber": 36,
+      "class_count": 5,
+      "class_masses": [
+        {
+          "B_positions": "(none)",
+          "mass": 16
+        },
+        {
+          "B_positions": "6",
+          "mass": 6
+        },
+        {
+          "B_positions": "6,8",
+          "mass": 1
+        },
+        {
+          "B_positions": "7",
+          "mass": 7
+        },
+        {
+          "B_positions": "8",
+          "mass": 6
+        }
+      ],
+      "future_operation_words": 614,
+      "minimum_fixed_class_bits": 3
+    },
+    {
+      "m": 13,
+      "n": 6,
+      "p": 2,
+      "r": 2,
+      "k": 2,
+      "window": [
+        5,
+        8
+      ],
+      "full_fiber": 45,
+      "class_count": 8,
+      "class_masses": [
+        {
+          "B_positions": "(none)",
+          "mass": 16
+        },
+        {
+          "B_positions": "5",
+          "mass": 6
+        },
+        {
+          "B_positions": "5,7",
+          "mass": 1
+        },
+        {
+          "B_positions": "5,8",
+          "mass": 1
+        },
+        {
+          "B_positions": "6",
+          "mass": 7
+        },
+        {
+          "B_positions": "6,8",
+          "mass": 1
+        },
+        {
+          "B_positions": "7",
+          "mass": 7
+        },
+        {
+          "B_positions": "8",
+          "mass": 6
+        }
+      ],
+      "future_operation_words": 1515,
+      "minimum_fixed_class_bits": 3
+    },
+    {
+      "m": 15,
+      "n": 7,
+      "p": 2,
+      "r": 3,
+      "k": 2,
+      "window": [
+        6,
+        10
+      ],
+      "full_fiber": 66,
+      "class_count": 12,
+      "class_masses": [
+        {
+          "B_positions": "(none)",
+          "mass": 22
+        },
+        {
+          "B_positions": "6",
+          "mass": 7
+        },
+        {
+          "B_positions": "6,8",
+          "mass": 1
+        },
+        {
+          "B_positions": "6,9",
+          "mass": 1
+        },
+        {
+          "B_positions": "6,10",
+          "mass": 1
+        },
+        {
+          "B_positions": "7",
+          "mass": 8
+        },
+        {
+          "B_positions": "7,9",
+          "mass": 1
+        },
+        {
+          "B_positions": "7,10",
+          "mass": 1
+        },
+        {
+          "B_positions": "8",
+          "mass": 8
+        },
+        {
+          "B_positions": "8,10",
+          "mass": 1
+        },
+        {
+          "B_positions": "9",
+          "mass": 8
+        },
+        {
+          "B_positions": "10",
+          "mass": 7
+        }
+      ],
+      "future_operation_words": 27435,
+      "minimum_fixed_class_bits": 4
+    }
+  ],
+  "totals": {
+    "original_histories": 183,
+    "legal_operation_words_per_case_total": 30216,
+    "transfer_matrix_masses_checked": 33,
+    "stepwise_reader_checks": 8532909,
+    "distinguishing_pairs_checked": 117,
+    "class_pairs_checked": 117
+  },
+  "witnesses": {
+    "POP_then_APPEND_B": {
+      "operations": [
+        [
+          "POP"
+        ],
+        [
+          "POP"
+        ],
+        [
+          "APPEND",
+          "-E1"
+        ]
+      ],
+      "match_counts": [
+        1,
+        0
+      ]
+    },
+    "APPEND_C_then_APPEND_B": {
+      "operations": [
+        [
+          "APPEND",
+          "+E2"
+        ],
+        [
+          "APPEND",
+          "-E1"
+        ]
+      ],
+      "match_counts": [
+        0,
+        1
+      ]
+    }
+  }
+}

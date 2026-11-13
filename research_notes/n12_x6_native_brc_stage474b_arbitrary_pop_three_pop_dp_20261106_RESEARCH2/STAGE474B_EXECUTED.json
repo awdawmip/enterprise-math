@@ -1,0 +1,83 @@
+{
+  "stage": "474-B",
+  "date": "2026-11-06",
+  "model": "signed-X6; ternary original; all 12 signed future append directions",
+  "result_status": "AUTHOR_SIDE_PROOF_EXACT_INTEGER_EXECUTED_UNREVIEWED",
+  "local_executed_source_sha256": "33e1506b67ca322ecf23f83b563b6f48954d3371d1a16ce818a25e0b800ff048",
+  "local_complete_json_sha256": "71c54a92af35e17c7139325f3ac837f68b9a1ab486b16c6f7b6e7952118becbe",
+  "github_generated_script_byte_identical_to_local_executed": false,
+  "github_generated_script_executed_in_this_run": false,
+  "strict_witnesses": [
+    {
+      "tag": "P_(m-3)",
+      "same_phi_and_R473": true,
+      "action": "POP_P x3",
+      "final_P_last": [
+        "C",
+        "B"
+      ]
+    },
+    {
+      "tag": "Q_(m-2)",
+      "same_phi_and_R473": true,
+      "action": "POP_P x3; APPEND_P(B)",
+      "K": [
+        5,
+        4
+      ]
+    },
+    {
+      "tag": "Q_(m+3)",
+      "same_phi_and_R473": true,
+      "action": "APPEND_P(A,A,B)",
+      "K": [
+        10,
+        9
+      ]
+    }
+  ],
+  "local_exact_small": {
+    "configs": 10,
+    "fibers": 465,
+    "classes": 3568
+  },
+  "local_bounded_future": [
+    {
+      "relation": "same",
+      "states": 33085,
+      "depth_limit": 4,
+      "APPEND_directions": 12,
+      "difference": false
+    },
+    {
+      "relation": "different",
+      "states": 2,
+      "first_difference_depth": 1,
+      "APPEND_directions": 12
+    }
+  ],
+  "local_large": {
+    "m": 35,
+    "n": 56,
+    "K": 18,
+    "raw_population": 11154643500,
+    "results": [
+      {
+        "t": 8,
+        "support": 4618757880,
+        "dp_suffix_states": 8221
+      },
+      {
+        "t": 32,
+        "support": 675840,
+        "dp_suffix_states": 4083
+      },
+      {
+        "t": 33,
+        "support": 394240,
+        "dp_suffix_states": 3756
+      }
+    ]
+  },
+  "proof_status": "self-contained author derivation; pending independent review"
+}

@@ -1,0 +1,714 @@
+{
+  "marker": "STAGE424B_FULL_X6_EULER_J_K_TRANSFER_PASS",
+  "frozen_science": {
+    "global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+    "em": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "p000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488"
+  },
+  "arithmetic": "exact integer typed-edge DP / BigInt, indistinguishable same-type edges have unit weight",
+  "independent_oracles": "explicit full-word enumeration of F_n with exact J, endpoint and K; separate cross-axis three-symbol Euler-loop test",
+  "cross_axis_example": {
+    "alphabet": "A=+E1,B=-E1,C=+E2 embedded into 12 signed X6 directions",
+    "targetK": 3,
+    "paired_word_count": "2",
+    "dp_states": 17
+  },
+  "n_range": [
+    11,
+    100
+  ],
+  "total_explicit_original_pairs": 304080,
+  "total_dp_states": 297990,
+  "total_dp_transitions": 368056,
+  "snapshots": [
+    {
+      "n": 11,
+      "history_pairs": "56",
+      "classes": 24,
+      "states": 285,
+      "transitions": 308
+    },
+    {
+      "n": 12,
+      "history_pairs": "72",
+      "classes": 24,
+      "states": 353,
+      "transitions": 392
+    },
+    {
+      "n": 16,
+      "history_pairs": "156",
+      "classes": 24,
+      "states": 625,
+      "transitions": 732
+    },
+    {
+      "n": 20,
+      "history_pairs": "272",
+      "classes": 24,
+      "states": 897,
+      "transitions": 1072
+    },
+    {
+      "n": 30,
+      "history_pairs": "702",
+      "classes": 24,
+      "states": 1577,
+      "transitions": 1922
+    },
+    {
+      "n": 50,
+      "history_pairs": "2162",
+      "classes": 24,
+      "states": 2937,
+      "transitions": 3622
+    },
+    {
+      "n": 75,
+      "history_pairs": "5112",
+      "classes": 24,
+      "states": 4637,
+      "transitions": 5747
+    },
+    {
+      "n": 100,
+      "history_pairs": "9312",
+      "classes": 24,
+      "states": 6337,
+      "transitions": 7872
+    }
+  ],
+  "all_n": [
+    {
+      "n": 11,
+      "history_pairs": "56",
+      "classes": 24,
+      "states": 285,
+      "transitions": 308
+    },
+    {
+      "n": 12,
+      "history_pairs": "72",
+      "classes": 24,
+      "states": 353,
+      "transitions": 392
+    },
+    {
+      "n": 13,
+      "history_pairs": "90",
+      "classes": 24,
+      "states": 421,
+      "transitions": 477
+    },
+    {
+      "n": 14,
+      "history_pairs": "110",
+      "classes": 24,
+      "states": 489,
+      "transitions": 562
+    },
+    {
+      "n": 15,
+      "history_pairs": "132",
+      "classes": 24,
+      "states": 557,
+      "transitions": 647
+    },
+    {
+      "n": 16,
+      "history_pairs": "156",
+      "classes": 24,
+      "states": 625,
+      "transitions": 732
+    },
+    {
+      "n": 17,
+      "history_pairs": "182",
+      "classes": 24,
+      "states": 693,
+      "transitions": 817
+    },
+    {
+      "n": 18,
+      "history_pairs": "210",
+      "classes": 24,
+      "states": 761,
+      "transitions": 902
+    },
+    {
+      "n": 19,
+      "history_pairs": "240",
+      "classes": 24,
+      "states": 829,
+      "transitions": 987
+    },
+    {
+      "n": 20,
+      "history_pairs": "272",
+      "classes": 24,
+      "states": 897,
+      "transitions": 1072
+    },
+    {
+      "n": 21,
+      "history_pairs": "306",
+      "classes": 24,
+      "states": 965,
+      "transitions": 1157
+    },
+    {
+      "n": 22,
+      "history_pairs": "342",
+      "classes": 24,
+      "states": 1033,
+      "transitions": 1242
+    },
+    {
+      "n": 23,
+      "history_pairs": "380",
+      "classes": 24,
+      "states": 1101,
+      "transitions": 1327
+    },
+    {
+      "n": 24,
+      "history_pairs": "420",
+      "classes": 24,
+      "states": 1169,
+      "transitions": 1412
+    },
+    {
+      "n": 25,
+      "history_pairs": "462",
+      "classes": 24,
+      "states": 1237,
+      "transitions": 1497
+    },
+    {
+      "n": 26,
+      "history_pairs": "506",
+      "classes": 24,
+      "states": 1305,
+      "transitions": 1582
+    },
+    {
+      "n": 27,
+      "history_pairs": "552",
+      "classes": 24,
+      "states": 1373,
+      "transitions": 1667
+    },
+    {
+      "n": 28,
+      "history_pairs": "600",
+      "classes": 24,
+      "states": 1441,
+      "transitions": 1752
+    },
+    {
+      "n": 29,
+      "history_pairs": "650",
+      "classes": 24,
+      "states": 1509,
+      "transitions": 1837
+    },
+    {
+      "n": 30,
+      "history_pairs": "702",
+      "classes": 24,
+      "states": 1577,
+      "transitions": 1922
+    },
+    {
+      "n": 31,
+      "history_pairs": "756",
+      "classes": 24,
+      "states": 1645,
+      "transitions": 2007
+    },
+    {
+      "n": 32,
+      "history_pairs": "812",
+      "classes": 24,
+      "states": 1713,
+      "transitions": 2092
+    },
+    {
+      "n": 33,
+      "history_pairs": "870",
+      "classes": 24,
+      "states": 1781,
+      "transitions": 2177
+    },
+    {
+      "n": 34,
+      "history_pairs": "930",
+      "classes": 24,
+      "states": 1849,
+      "transitions": 2262
+    },
+    {
+      "n": 35,
+      "history_pairs": "992",
+      "classes": 24,
+      "states": 1917,
+      "transitions": 2347
+    },
+    {
+      "n": 36,
+      "history_pairs": "1056",
+      "classes": 24,
+      "states": 1985,
+      "transitions": 2432
+    },
+    {
+      "n": 37,
+      "history_pairs": "1122",
+      "classes": 24,
+      "states": 2053,
+      "transitions": 2517
+    },
+    {
+      "n": 38,
+      "history_pairs": "1190",
+      "classes": 24,
+      "states": 2121,
+      "transitions": 2602
+    },
+    {
+      "n": 39,
+      "history_pairs": "1260",
+      "classes": 24,
+      "states": 2189,
+      "transitions": 2687
+    },
+    {
+      "n": 40,
+      "history_pairs": "1332",
+      "classes": 24,
+      "states": 2257,
+      "transitions": 2772
+    },
+    {
+      "n": 41,
+      "history_pairs": "1406",
+      "classes": 24,
+      "states": 2325,
+      "transitions": 2857
+    },
+    {
+      "n": 42,
+      "history_pairs": "1482",
+      "classes": 24,
+      "states": 2393,
+      "transitions": 2942
+    },
+    {
+      "n": 43,
+      "history_pairs": "1560",
+      "classes": 24,
+      "states": 2461,
+      "transitions": 3027
+    },
+    {
+      "n": 44,
+      "history_pairs": "1640",
+      "classes": 24,
+      "states": 2529,
+      "transitions": 3112
+    },
+    {
+      "n": 45,
+      "history_pairs": "1722",
+      "classes": 24,
+      "states": 2597,
+      "transitions": 3197
+    },
+    {
+      "n": 46,
+      "history_pairs": "1806",
+      "classes": 24,
+      "states": 2665,
+      "transitions": 3282
+    },
+    {
+      "n": 47,
+      "history_pairs": "1892",
+      "classes": 24,
+      "states": 2733,
+      "transitions": 3367
+    },
+    {
+      "n": 48,
+      "history_pairs": "1980",
+      "classes": 24,
+      "states": 2801,
+      "transitions": 3452
+    },
+    {
+      "n": 49,
+      "history_pairs": "2070",
+      "classes": 24,
+      "states": 2869,
+      "transitions": 3537
+    },
+    {
+      "n": 50,
+      "history_pairs": "2162",
+      "classes": 24,
+      "states": 2937,
+      "transitions": 3622
+    },
+    {
+      "n": 51,
+      "history_pairs": "2256",
+      "classes": 24,
+      "states": 3005,
+      "transitions": 3707
+    },
+    {
+      "n": 52,
+      "history_pairs": "2352",
+      "classes": 24,
+      "states": 3073,
+      "transitions": 3792
+    },
+    {
+      "n": 53,
+      "history_pairs": "2450",
+      "classes": 24,
+      "states": 3141,
+      "transitions": 3877
+    },
+    {
+      "n": 54,
+      "history_pairs": "2550",
+      "classes": 24,
+      "states": 3209,
+      "transitions": 3962
+    },
+    {
+      "n": 55,
+      "history_pairs": "2652",
+      "classes": 24,
+      "states": 3277,
+      "transitions": 4047
+    },
+    {
+      "n": 56,
+      "history_pairs": "2756",
+      "classes": 24,
+      "states": 3345,
+      "transitions": 4132
+    },
+    {
+      "n": 57,
+      "history_pairs": "2862",
+      "classes": 24,
+      "states": 3413,
+      "transitions": 4217
+    },
+    {
+      "n": 58,
+      "history_pairs": "2970",
+      "classes": 24,
+      "states": 3481,
+      "transitions": 4302
+    },
+    {
+      "n": 59,
+      "history_pairs": "3080",
+      "classes": 24,
+      "states": 3549,
+      "transitions": 4387
+    },
+    {
+      "n": 60,
+      "history_pairs": "3192",
+      "classes": 24,
+      "states": 3617,
+      "transitions": 4472
+    },
+    {
+      "n": 61,
+      "history_pairs": "3306",
+      "classes": 24,
+      "states": 3685,
+      "transitions": 4557
+    },
+    {
+      "n": 62,
+      "history_pairs": "3422",
+      "classes": 24,
+      "states": 3753,
+      "transitions": 4642
+    },
+    {
+      "n": 63,
+      "history_pairs": "3540",
+      "classes": 24,
+      "states": 3821,
+      "transitions": 4727
+    },
+    {
+      "n": 64,
+      "history_pairs": "3660",
+      "classes": 24,
+      "states": 3889,
+      "transitions": 4812
+    },
+    {
+      "n": 65,
+      "history_pairs": "3782",
+      "classes": 24,
+      "states": 3957,
+      "transitions": 4897
+    },
+    {
+      "n": 66,
+      "history_pairs": "3906",
+      "classes": 24,
+      "states": 4025,
+      "transitions": 4982
+    },
+    {
+      "n": 67,
+      "history_pairs": "4032",
+      "classes": 24,
+      "states": 4093,
+      "transitions": 5067
+    },
+    {
+      "n": 68,
+      "history_pairs": "4160",
+      "classes": 24,
+      "states": 4161,
+      "transitions": 5152
+    },
+    {
+      "n": 69,
+      "history_pairs": "4290",
+      "classes": 24,
+      "states": 4229,
+      "transitions": 5237
+    },
+    {
+      "n": 70,
+      "history_pairs": "4422",
+      "classes": 24,
+      "states": 4297,
+      "transitions": 5322
+    },
+    {
+      "n": 71,
+      "history_pairs": "4556",
+      "classes": 24,
+      "states": 4365,
+      "transitions": 5407
+    },
+    {
+      "n": 72,
+      "history_pairs": "4692",
+      "classes": 24,
+      "states": 4433,
+      "transitions": 5492
+    },
+    {
+      "n": 73,
+      "history_pairs": "4830",
+      "classes": 24,
+      "states": 4501,
+      "transitions": 5577
+    },
+    {
+      "n": 74,
+      "history_pairs": "4970",
+      "classes": 24,
+      "states": 4569,
+      "transitions": 5662
+    },
+    {
+      "n": 75,
+      "history_pairs": "5112",
+      "classes": 24,
+      "states": 4637,
+      "transitions": 5747
+    },
+    {
+      "n": 76,
+      "history_pairs": "5256",
+      "classes": 24,
+      "states": 4705,
+      "transitions": 5832
+    },
+    {
+      "n": 77,
+      "history_pairs": "5402",
+      "classes": 24,
+      "states": 4773,
+      "transitions": 5917
+    },
+    {
+      "n": 78,
+      "history_pairs": "5550",
+      "classes": 24,
+      "states": 4841,
+      "transitions": 6002
+    },
+    {
+      "n": 79,
+      "history_pairs": "5700",
+      "classes": 24,
+      "states": 4909,
+      "transitions": 6087
+    },
+    {
+      "n": 80,
+      "history_pairs": "5852",
+      "classes": 24,
+      "states": 4977,
+      "transitions": 6172
+    },
+    {
+      "n": 81,
+      "history_pairs": "6006",
+      "classes": 24,
+      "states": 5045,
+      "transitions": 6257
+    },
+    {
+      "n": 82,
+      "history_pairs": "6162",
+      "classes": 24,
+      "states": 5113,
+      "transitions": 6342
+    },
+    {
+      "n": 83,
+      "history_pairs": "6320",
+      "classes": 24,
+      "states": 5181,
+      "transitions": 6427
+    },
+    {
+      "n": 84,
+      "history_pairs": "6480",
+      "classes": 24,
+      "states": 5249,
+      "transitions": 6512
+    },
+    {
+      "n": 85,
+      "history_pairs": "6642",
+      "classes": 24,
+      "states": 5317,
+      "transitions": 6597
+    },
+    {
+      "n": 86,
+      "history_pairs": "6806",
+      "classes": 24,
+      "states": 5385,
+      "transitions": 6682
+    },
+    {
+      "n": 87,
+      "history_pairs": "6972",
+      "classes": 24,
+      "states": 5453,
+      "transitions": 6767
+    },
+    {
+      "n": 88,
+      "history_pairs": "7140",
+      "classes": 24,
+      "states": 5521,
+      "transitions": 6852
+    },
+    {
+      "n": 89,
+      "history_pairs": "7310",
+      "classes": 24,
+      "states": 5589,
+      "transitions": 6937
+    },
+    {
+      "n": 90,
+      "history_pairs": "7482",
+      "classes": 24,
+      "states": 5657,
+      "transitions": 7022
+    },
+    {
+      "n": 91,
+      "history_pairs": "7656",
+      "classes": 24,
+      "states": 5725,
+      "transitions": 7107
+    },
+    {
+      "n": 92,
+      "history_pairs": "7832",
+      "classes": 24,
+      "states": 5793,
+      "transitions": 7192
+    },
+    {
+      "n": 93,
+      "history_pairs": "8010",
+      "classes": 24,
+      "states": 5861,
+      "transitions": 7277
+    },
+    {
+      "n": 94,
+      "history_pairs": "8190",
+      "classes": 24,
+      "states": 5929,
+      "transitions": 7362
+    },
+    {
+      "n": 95,
+      "history_pairs": "8372",
+      "classes": 24,
+      "states": 5997,
+      "transitions": 7447
+    },
+    {
+      "n": 96,
+      "history_pairs": "8556",
+      "classes": 24,
+      "states": 6065,
+      "transitions": 7532
+    },
+    {
+      "n": 97,
+      "history_pairs": "8742",
+      "classes": 24,
+      "states": 6133,
+      "transitions": 7617
+    },
+    {
+      "n": 98,
+      "history_pairs": "8930",
+      "classes": 24,
+      "states": 6201,
+      "transitions": 7702
+    },
+    {
+      "n": 99,
+      "history_pairs": "9120",
+      "classes": 24,
+      "states": 6269,
+      "transitions": 7787
+    },
+    {
+      "n": 100,
+      "history_pairs": "9312",
+      "classes": 24,
+      "states": 6337,
+      "transitions": 7872
+    }
+  ],
+  "evidence_status": "AUTHOR_EXECUTED_FINITE_EXACT; 24_CLASS_MINIMALITY_REUSES_UNREVIEWED_STAGE422"
+}

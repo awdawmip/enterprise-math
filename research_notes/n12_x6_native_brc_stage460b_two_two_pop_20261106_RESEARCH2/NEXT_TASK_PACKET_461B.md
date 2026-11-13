@@ -1,0 +1,11 @@
+# Stage461-B — Two-source two-POP plus signed APPEND exact grouped support/rank
+
+Date: 2026-11-06. Parent: Stage460-B exact no-APPEND theorem. Status: OPEN_AUTHOR_SIDE_NEXT_UNIT; FORMAL_OWNER_UNCONFIRMED.
+
+Scientific pins unchanged: global bf84bd7c61a2444b59b1da96be57df0e9ae47e53, Enterprise Math 2af3fc484eb11060b69e0afc1b562bcaf5ad1419, P000 frozen blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488; behavioral rules follow current normative context, not these historical pins.
+
+Mother objective: minimal BRC future-sufficient repair, exact source-distinct population and polynomial class ranking under increasingly expressive native X6 operations. Stage460-B already settles pP=pQ=2, rP=rQ=0, with at most six key bits, an exact 3x3 POP observer grid, full-future exhaustive small checks, and a positive integer grouped DP. Reuse its proof and code without repeating its fixed-budget scan.
+
+Immediate experiment: permit P one future APPEND (any of all twelve native signed directions), Q zero, with P and Q each up to two POPs, including legal operation interleavings. Determine which Q positions become actively probeable and which pre-POP P original positions become re-exposed by APPEND-after-POP. Independently enumerate complete labeled future observation trees for small m,n, especially n=m+1, POP-to-empty, and hidden Q gaps. Test the candidate extended key against actual future trees and identify the first conflicting fiber if any. Then permit one Q APPEND and repeat. Preserve original 12x12 adjacency and source identity throughout.
+
+Construction target: extend Stage460's product automaton to a budget-indexed visible-key interval / hidden-interval factorization with constant-size boundary letters and exact BRC mass. Compute supported-key counts by cached subtree DP without listing original histories or supported keys, and implement rank/unrank. Report precise costs for building visible coordinates, support transitions, integer bit length and output decoding; compare against Stage459/460 baselines. Output proof or minimal falsifier, reproducible source, exact execution evidence, and versioned checked publication. Formal task CLAIM/Result remains governed by live native authorization and independent review.

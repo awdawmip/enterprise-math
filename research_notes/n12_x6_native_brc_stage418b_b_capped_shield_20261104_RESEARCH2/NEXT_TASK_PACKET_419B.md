@@ -1,0 +1,7 @@
+# Stage419-B — next native-X6 future-quotient unit
+
+Parent Stage418-B, immutable proof on Research2 Draft PR #1736. Current author-side result: 16≤q_(2POP,2CANCEL)(F_n)≤26 for every n≥11. Signature class 1 (s=n-4, either i) is now a proved full-future equivalence class of 2(n-7) histories, collapsing four safe raw keys to one. Class 0 was already proved at Stage417. P000, ACTIVE worldview and frozen task science unchanged: global@bf84bd7c61a2444b59b1da96be57df0e9ae47e53, EM@2af3fc484eb11060b69e0afc1b562bcaf5ad1419, P000 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488; normative policy must be current-read separately.
+
+Analyze signature 2 (s=n-3,i=r) and signature 3 (s=n-3,i=s), each comprising three Stage416 (P-last6,Q-last7) raw keys. Preserve complete signed native-X6 endpoints, source-specific directed J, absolute K, enabledness, remaining two Q-POP and two paired inverse CANCEL budgets and all twelve-direction APP. Find concrete distinguishing traces or prove full-horizon safe merging with a budget-aware simulation. Both groups have Q ending B A^3, so the terminal cap mechanism must account for potentially exposed B before the last CANCEL. Count the minimal classes with the existing Stage412 Euler/K exact recurrence after their equivalence is established.
+
+Publish source, executable checker, actual output and next unresolved unit with immutable remote readback. Draft evidence stays author-side until present native research authority/claim and independent review actually accept it.

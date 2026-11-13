@@ -1,0 +1,66 @@
+{
+  "alphabet_size_native": 12,
+  "brc": {
+    "N4_2E1": 64,
+    "N8_P": 68768,
+    "N8_Q": 385056
+  },
+  "c0": {
+    "K": 3,
+    "after_bits": 0,
+    "before_bits": 1,
+    "dp_cache": {
+      "currsize": 7,
+      "hits": 0,
+      "maxsize": null,
+      "misses": 7
+    },
+    "fiber_size": 2,
+    "future_trace_nodes_checked": 10559,
+    "m": 4,
+    "minimal_states": 1,
+    "paired_suffix_2_states": 2
+  },
+  "c2": {
+    "K": 1,
+    "candidate_pair_words": [
+      [
+        "TTTAABAB",
+        "AABABABA"
+      ],
+      [
+        "TTTAABAB",
+        "ABAABABA"
+      ],
+      [
+        "TTTAABAB",
+        "ABABAABA"
+      ],
+      [
+        "TTTABAAB",
+        "ABABAABA"
+      ],
+      [
+        "TTTABAAB",
+        "ABABABAA"
+      ]
+    ],
+    "distinguishing_trace": [
+      "POP_Q",
+      "CANCEL",
+      "CANCEL"
+    ],
+    "dp_cache": {
+      "currsize": 105,
+      "hits": 0,
+      "maxsize": null,
+      "misses": 105
+    },
+    "exact_minimal_states": 5,
+    "fiber_size": 5,
+    "m": 8,
+    "suffix_6_states": 5
+  },
+  "result": "STAGE404B_EULER_ASYNC_MINIMAL_PASS",
+  "verification": "integer-only DP, independent direct Euler enumeration of both fibers, exact BRC recursion; theorem proofs in PROOF_STAGE404B.md"
+}

@@ -1,0 +1,14 @@
+STAGE360B_CENTRAL_R0_POSITIVE_SIGN_CHAMBER_PARETO_EXACT_PASS
+domain x in [229/1000,233/1000], y in [13/25,27/50], r0(x,y)>0
+r1_min 630489/1250000000 r2_min 2567511/1250000000 r3_max -4533399/312500000
+audit_x_signs (-1, 1, 1, 1) (-1, -1, 1, 1)
+db_dx -3*x*x/4 minus_derivative_strict_lower 157323/4000000
+dc_dx -3*(1-x)*(63-61*x)/256 minus_derivative_strict_lower 27993087/64000000
+global_y_lipschitz 3/4 3/4
+rational_witness N>max(1000,24/(5*r0)); xprime=(floor(N*x)+1)/N; delta=xprime-x; M>100/delta; yprime=floor(M*y)/M
+strict_gains b_gain>3*delta/100, c_gain>39*delta/100
+entire_chamber_b_upper 23151511/4000000000 budget_cap 299/50000
+example_p (Fraction(231, 1000), Fraction(53, 100)) example_q (Fraction(29, 125), Fraction(53, 100))
+example_b_gain 160777/4000000000 example_c_gain 112689397/256000000000
+example_r0 4149859/1250000000 1189041/625000000
+status PORTABLE_AUTHOR_THEOREM / EXACT_FRACTION_EXECUTED / UNREVIEWED / NOT_ADMITTED

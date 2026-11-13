@@ -1,0 +1,159 @@
+{
+  "marker": "STAGE419B_SIGNATURE_2_3_MERGE_PASS",
+  "setup": "P_i=A^(i-1) B A^(n-i), Q_rs=A^(r-1) B A^(s-r-1) B A^(n-s), s=n-3, groups i=r and i=s",
+  "native_dimensions": 6,
+  "directions": 12,
+  "operations": "APP arbitrary signed directions, Q-only POP up to 2, inverse-pair two-source CANCEL up to 2",
+  "observable": "full lengths; six signed endpoint entries per source; each complete directed J; absolute aligned K; attempted enabledness",
+  "n11_representatives": {
+    "class2": [
+      {
+        "r": 4,
+        "s": 8,
+        "i": 4,
+        "P_suffix": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "Q_suffix": [
+          1,
+          1,
+          1,
+          -1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "r": 5,
+        "s": 8,
+        "i": 5,
+        "P_suffix": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "Q_suffix": [
+          -1,
+          1,
+          1,
+          -1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "r": 6,
+        "s": 8,
+        "i": 6,
+        "P_suffix": [
+          -1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "Q_suffix": [
+          1,
+          -1,
+          1,
+          -1,
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "class3": [
+      {
+        "r": 4,
+        "s": 8,
+        "i": 8,
+        "P_suffix": [
+          1,
+          1,
+          -1,
+          1,
+          1,
+          1
+        ],
+        "Q_suffix": [
+          1,
+          1,
+          1,
+          -1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "r": 5,
+        "s": 8,
+        "i": 8,
+        "P_suffix": [
+          1,
+          1,
+          -1,
+          1,
+          1,
+          1
+        ],
+        "Q_suffix": [
+          -1,
+          1,
+          1,
+          -1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "r": 6,
+        "s": 8,
+        "i": 8,
+        "P_suffix": [
+          1,
+          1,
+          -1,
+          1,
+          1,
+          1
+        ],
+        "Q_suffix": [
+          1,
+          -1,
+          1,
+          -1,
+          1,
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "n11_exact_trace_count": 961524,
+  "comparisons": 961524,
+  "other_exact_coverage": "Each n=11..40; both groups exactly n-6 histories and three safe suffix keys; same full initial observation",
+  "new_minimal_state_bound_candidate": [
+    16,
+    22
+  ],
+  "evidence_strength": "Bounded exhaustive computational check; all-horizon conclusion requires separate symbolic proof",
+  "scientific_pins": {
+    "global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+    "em": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "p000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488"
+  }
+}

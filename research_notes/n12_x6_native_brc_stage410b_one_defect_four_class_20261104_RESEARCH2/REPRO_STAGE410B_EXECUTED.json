@@ -1,0 +1,165 @@
+{
+  "status": "STAGE410B_ONE_DEFECT_FOUR_CLASS_PASS",
+  "initial_observation": [
+    6,
+    6,
+    4,
+    2,
+    {
+      "AA": 3,
+      "AB": 1,
+      "BA": 1,
+      "BB": 0
+    },
+    {
+      "AA": 1,
+      "AB": 2,
+      "BA": 2,
+      "BB": 0
+    },
+    5
+  ],
+  "full_fiber": [
+    [
+      "AAAABA",
+      "AABABA"
+    ],
+    [
+      "AAAABA",
+      "ABAABA"
+    ],
+    [
+      "AAABAA",
+      "ABABAA"
+    ],
+    [
+      "AABAAA",
+      "AABABA"
+    ],
+    [
+      "ABAAAA",
+      "ABAABA"
+    ],
+    [
+      "ABAAAA",
+      "ABABAA"
+    ]
+  ],
+  "equivalence_classes": [
+    [
+      [
+        "ABAAAA",
+        "ABABAA"
+      ],
+      [
+        "AAABAA",
+        "ABABAA"
+      ]
+    ],
+    [
+      [
+        "ABAAAA",
+        "ABAABA"
+      ],
+      [
+        "AABAAA",
+        "AABABA"
+      ]
+    ],
+    [
+      [
+        "AAAABA",
+        "ABAABA"
+      ]
+    ],
+    [
+      [
+        "AAAABA",
+        "AABABA"
+      ]
+    ]
+  ],
+  "multiplicities": [
+    2,
+    2,
+    1,
+    1
+  ],
+  "exact_minimum_states": 4,
+  "raw_suffix_keys": 6,
+  "original_prefix_certificate_cases": 12,
+  "distinguishers": [
+    {
+      "classes": [
+        0,
+        1
+      ],
+      "trace": "POP_Q observed J,K,endpoints"
+    },
+    {
+      "classes": [
+        0,
+        2
+      ],
+      "trace": "CANCEL enabledness"
+    },
+    {
+      "classes": [
+        0,
+        3
+      ],
+      "trace": "CANCEL enabledness"
+    },
+    {
+      "classes": [
+        1,
+        2
+      ],
+      "trace": "CANCEL enabledness"
+    },
+    {
+      "classes": [
+        1,
+        3
+      ],
+      "trace": "CANCEL enabledness"
+    },
+    {
+      "classes": [
+        2,
+        3
+      ],
+      "trace": "POP_Q; CANCEL observed J,K,endpoints"
+    }
+  ],
+  "residual_Euler_K": {
+    "total": "6",
+    "suffix_keys": {
+      "AAA|AABA": "1",
+      "AAA|ABAA": "1",
+      "AAA|BABA": "1",
+      "ABA|AABA": "1",
+      "ABA|BABA": "1",
+      "BAA|ABAA": "1"
+    },
+    "states_per_depth": [
+      1,
+      4,
+      6,
+      12,
+      12,
+      12
+    ]
+  },
+  "full_X6_native_BRC": {
+    "P_4E1": {
+      "N": "156",
+      "W": "2976"
+    },
+    "Q_2E1": {
+      "N": "4665",
+      "W": "32760"
+    }
+  },
+  "theorem_scope": "All 12 signed native APP pairs; <=1 POP_Q; <=1 synchronous inverse-pair CANCEL; all finite action traces (bisimulation proof)"
+}

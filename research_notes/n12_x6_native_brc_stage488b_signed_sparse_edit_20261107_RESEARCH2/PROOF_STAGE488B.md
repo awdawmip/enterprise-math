@@ -1,0 +1,35 @@
+# Stage488-B — Native signed X6 sparse-edge Euler–BRC and interior-edit witness
+
+Date: 2026-11-07 (Asia/Shanghai). Research2 author-side proof and exact integer experiment; independent Driver review pending. Parent: Stage487-B PR #1736 at `595a96815f443f77fb60727ca4bfa8f4522beff9`. Frozen science remains GLOBAL `bf84bd7c61a2444b59b1da96be57df0e9ae47e53`, EM `2af3fc484eb11060b69e0afc1b562bcaf5ad1419`, P000 blob `bcc2590d3168a28f72e8b9f0f9b1f76faadcd488`. Current behavioral rules were read separately.
+
+## Exact scope
+
+Native Heartbeat X6 direction alphabet is D={A,...,L} with A..F=+E1..+E6, G..L=-E1..-E6 (six spatial components, not twelve axes). Study P=T and Q=T W A H A, where |T|=2k+2, |W|=k, |H|=u. The initial complete observer is (length(P), length(Q), Delta(P), Delta(Q), E(P), E(Q), K); Delta has six signed integer components, E has all 144 directed signed-edge counts and K=2k+2 is the original positional match count. Actual source letters belong to a declared subset Sigma of D containing A. All 12 directions remain available for future APPEND in the original POP/APPEND problem.
+
+The previously proposed Stage486-B future key is R_h=(suffix_L(T),W,suffix_r(H)), with L=max(k+1,h-k-u-1), r=min(h,u), 0<=h<=|Q|-1. Stage488-B establishes unconditional equivalence of two exact algorithms **for the partition induced by this key**. Identification of this partition with all-future equivalence in the original operation language continues to depend on the separately unreviewed Stage486-B theorem.
+
+## Theorem 488.1 — Lossless active-edge restriction
+
+Fix an initial observer fiber. Let ThetaP=E(P), ThetaQ=E(Q), S={edge e:ThetaQ[e]>0} and s=|S|. For this structural word family ThetaP<=ThetaQ componentwise. Restrict each residual-edge vector in the Stage487-B Euler–BRC automaton to its coordinates in S, and treat all absent-edge attempted transitions as rejected. This sparse automaton has exactly the same accepted labeled key paths, Euler completion weights, raw word population and zero-based lexicographic rank/unrank as the dense d²-vector automaton.
+
+**Proof.** All initial nonzero edges occur in S. Every legal path transition only subtracts a nonnegative edge, so coordinates outside S remain identically zero, and an attempted edge outside S fails in both representations. The restriction map is therefore a bijection between reachable dense residual states and sparse residual states (with other control fields unchanged). By induction on remaining total edge count, the Euler recursion N(x,y,0)=[x=y], N(x,y,e)=sum_{z:e[x,z]>0}N(z,y,e-[x,z]) has equal values on corresponding states. The labeled automata and positive terminal tests coincide; multiplying completion factors retains every original-word multiplicity. Backward acceptance counts coincide, hence rank/unrank coincide. QED.
+
+The outer input keeps all 144 observed edge fields and both six-component displacements; sparse vectors are only an internal computational representation. When the source subset Sigma is known and the initial observation is consistent, first direction is reconstructible from Delta(P)-sum_e ThetaP[e]*v(target(e)) because the 12 primitive signed unit directions are distinct. Thus the sparse algorithm does not silently discard the initial observer.
+
+For source alphabet size d and active count s, converting a supplied dense source matrix takes O(d²) and generating the full native 144-entry observer takes O(n+144) with a word source. A residual tuple occupies O(s) integer fields rather than d²; one copy-on-decrement operation costs O(s) rather than O(d²). With deterministic direct edge-slot mapping, a conservative transition-work bound is O((L+k+r)*d*s*(n+1)^s) on the same abstract state-bound assumptions as Stage487, plus Euler memoization and input costs; integer bit costs are separate. These bounds are parameterized by s and do not assert uniform speedup for arbitrary dense edge support.
+
+## Theorem 488.2 — A typed interior-edit witness
+
+Take k=u=2, T=ABGABA, W=GH, and H1=AB, H2=BA. Let Q_i=T W A H_i A, with source directions A=+E1, B=+E2, G=-E1, H=-E2. Both histories have identical complete initial observer (including 144 edges, six-component displacement and K) and identical Stage486 key at h=0. Now enlarge the operation language by Q_SET(10,I): replace **the existing** one-based tenth Q direction (the first H symbol) with I=-E3, without changing length; then observe the original full signed displacement and directed-edge counts. The resulting observers differ. Their edge-count difference E(edited Q1)-E(edited Q2) is AA:-1, BA:+1, IA:-1, IB:+1 (all other 140 edges zero). This is a strict counterexample to retaining the h=0 POP/APPEND key in that enlarged language. It does not alter the prior theorem's operation scope.
+
+For a single Q_SET(j,z) with 1<j<=|Q|-1 and j>|P|, the local triple (Q[j-1],Q[j],Q[j+1]) (one-based indexing) is a **sufficient** extra annotation to determine the resulting complete initial observer for every z, since the edge-count increment is -[prev,old]-[old,next]+[prev,z]+[z,next], displacement increment is v(z)-v(old), length is unchanged and K is unaffected when j>|P|. Minimality for this edit language, or for an edit interleaved with POP/APPEND, remains open.
+
+## Executed finite evidence
+
+Standard-library Python exact integer experiment REPRO_STAGE488B.py produced STAGE488B_EXECUTED.json. For 4, 5 and 6 distinct native signed source directions (each includes at least two negative directions), k=u=2 and h=0,1,2,8,11, exhaustive independent T/tail oracle agrees with dense and sparse counts, raw population and complete small-key ranks. For the 4-direction growing-budget case k=6,u=5 and h=0,5,11,20,26, dense/sparse class counts are 1177,4323,4323,6288,13755; raw population is 13755 for every h. There are 20 configuration pairs. All assertions passed. Sparse active edge widths were respectively 8/16, 9/25, 10/36, and 10/16 (active/dense). The full original 144 entries are retained for the input observations.
+
+A seven-repeat monitored Python experiment on the growing-budget instance found at h=26 median 0.013735 s dense vs 0.014364 s sparse; median tracemalloc peaks 447736 vs 414912 bytes. This is an exact-output/representation result; measured wall-clock differences are small and not a uniform performance improvement. The complete input words, signed displacement, timing, peak allocations, DP state counts and raw/oracle results are preserved in the executed JSON. The separate benchmark log records all seven individual runs per setting.
+
+## Next discriminating question
+
+Stage489-B: determine the smallest edit-aware observer needed for a specified bounded interior edit together with POP/APPEND interleavings; test whether the current repair key plus reachable local neighborhoods suffices or produce a strict pair. In parallel test true sparse active-edge efficiency at d=12 with s growing and compare trie/vector and integer bit costs, retaining the 144-input preprocessing cost. Native formal claim and Driver review require their own authenticated activity and owner authority.

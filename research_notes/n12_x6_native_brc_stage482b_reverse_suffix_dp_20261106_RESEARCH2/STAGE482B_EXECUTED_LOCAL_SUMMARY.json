@@ -1,0 +1,79 @@
+{
+  "stage": "482-B",
+  "date": "2026-11-06",
+  "status": "LOCAL_ALL_ASSERTIONS_PASSED",
+  "scientific_pins": {
+    "global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+    "em": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "p000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488"
+  },
+  "local_executed_file": "stage482b.py (2026-11-06 attachment; complete independent executable)",
+  "local_command": "python stage482b.py > stage482b_executed.json",
+  "small_exhaustive": {
+    "fiber_r_cases": 2324,
+    "checked_class_occurrences": 7827,
+    "checked_history_occurrences": 8928,
+    "suffix_rank_cases": 7827
+  },
+  "focus": {
+    "k": 3,
+    "u": 8,
+    "theta": [
+      11,
+      2,
+      1,
+      1,
+      0,
+      2,
+      2,
+      1,
+      0
+    ],
+    "full_key_rank_cases": 1557,
+    "scenarios": [
+      {
+        "h": 4,
+        "classes": 192,
+        "population": 375,
+        "edge_types": 8,
+        "terminal_states": 70,
+        "transitions": 210
+      },
+      {
+        "h": 5,
+        "classes": 272,
+        "population": 375,
+        "edge_types": 8,
+        "terminal_states": 72,
+        "transitions": 314
+      },
+      {
+        "h": 6,
+        "classes": 343,
+        "population": 375,
+        "edge_types": 8,
+        "terminal_states": 60,
+        "transitions": 412
+      },
+      {
+        "h": 7,
+        "classes": 375,
+        "population": 375,
+        "edge_types": 8,
+        "terminal_states": 41,
+        "transitions": 486
+      },
+      {
+        "h": 8,
+        "classes": 375,
+        "population": 375,
+        "edge_types": 8,
+        "terminal_states": 19,
+        "transitions": 522
+      }
+    ]
+  },
+  "remote_repro_note": "REPRO_STAGE482B.py composes existing Stage481 Euler source plus reverse suffix DP and tests; independent remote-file execution has not been performed. Exact full local program and output are separately downloadable in source chat.",
+  "scoped_proof": "Finite fixed 3-direction original path model; full future equivalence semantics inherits Stage481. This stage proves exact classification-key count independently.",
+  "formal_result": "no formal CLAIM; no independent Driver review as of local execution"
+}

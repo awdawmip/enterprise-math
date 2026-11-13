@@ -1,0 +1,9 @@
+# Stage486-B — Q POP across variable-prefix boundary
+
+Scientific parent: Stage485-B in Research2 Draft PR #1736. Freeze global science `bf84bd7c61a2444b59b1da96be57df0e9ae47e53`, EM science `2af3fc484eb11060b69e0afc1b562bcaf5ad1419`, P000 blob `bcc2590d3168a28f72e8b9f0f9b1f76faadcd488`. Current behavior follows live canonical norm reads.
+
+Mother question: minimal observer-faithful BRC representation of ordered native X6 primitive directions under declared future POP/APPEND. Stage485-B establishes arbitrary finite Q APPEND budget for fixed T at every h; for variable T with 0<=h<=u, exact key is (suffix_(k+1)(T), W, suffix_h(H)), with Euler–BRC exact positive populations.
+
+Next independent scientific unit: for variable T, extend h to u+1..u+k+3, where Q POP crosses the fixed A separator, W and eventually original T. Start k=1,u=2, T,W,H over ABG and all 12 native future APPEND directions, including two Q APPENDs. Find the first failing pair for the Stage485 key, determine the exact minimal additional common-prefix suffix, and prove a crossing-budget key or give an exact strict witness. Derive the repaired Euler counting formula. Test original source populations, Boolean support and rank/unrank with integer arithmetic. Examine bit cost and active edge sparsity.
+
+Keep full P000 native typing (six signed axes, 12 directions, time separate), immutable scientific pins, genuinely current Owner/CLAIM and independent Driver review conditions. Publish substantive proof, code, actual evidence and precise next question on the existing PR; native Result only with valid current authenticated claim.

@@ -1,0 +1,7 @@
+# Stage464-B — scalable POP boundaries and multi-direction probes
+
+Parent: Stage463-B author-side proof, exact integer transfer and finite checks, 2026-11-06. Preserve scientific pins global bf84bd7c61a2444b59b1da96be57df0e9ae47e53, Enterprise Math 2af3fc484eb11060b69e0afc1b562bcaf5ad1419, P000 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Current rules are read from current canonical main.
+
+Actual frontier: with original A/B isolated defects, original A endpoints, (pP,pQ)=(2,2) and arbitrary APPEND budgets (r,s), R463 exactly captures P tail and Q probe window; |signature boundary bits|<=7 supports positive integer polynomial class counting, per-class population and prefix rank/unrank. Reproducer STAGE463B_REPRO.py, evidence STAGE463B_EXECUTED.json; qF=1232 for (m,n,kP,kQ,d,r)=(64,80,15,17,1,16), mass 5061384194832966. No formal Source Result or review.
+
+Next independent unit: let pP=pQ=3, retaining original A/B isolated-defect family. Derive exact future observer key including both POP tails and Q probe window, identify minimal junction signature, test whether uniform hidden-completion multiplicity still holds, and implement polynomial positive integer transfer if it does. Then test ternary original signed directions: equality probe bits at a single position are insufficient to identify a non-A symbol without multi-direction append traces; derive action-complete probe state. Preserve all 12 signed X6 future directions, full directed adjacency, native provenance and actual owner/claim scopes.
