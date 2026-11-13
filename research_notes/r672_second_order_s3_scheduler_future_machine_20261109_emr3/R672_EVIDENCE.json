@@ -1,0 +1,45 @@
+{
+  "schema": "R672_SECOND_ORDER_S3_MINIMAL_FUTURE_MACHINE_V1",
+  "model": "V17 three 012-return blocks A,B,C with distinct S3 transpositions; auxiliary scheduler forbids either of two preceding block labels",
+  "group_action": "right multiplication of full S3 slot permutations",
+  "reachable_raw_states": 40,
+  "scheduler_control_states": 10,
+  "minimal_future_states": 40,
+  "max_shortest_witness_length": 7,
+  "states_by_control_suffix": {
+    "": 1,
+    "A": 1,
+    "AB": 6,
+    "AC": 6,
+    "B": 1,
+    "BA": 6,
+    "BC": 6,
+    "C": 1,
+    "CA": 6,
+    "CB": 6
+  },
+  "AB_six_group_witnesses": {
+    "(0, 1, 2)": "CABCAB",
+    "(0, 2, 1)": "CAB",
+    "(1, 0, 2)": "ABCAB",
+    "(1, 2, 0)": "AB",
+    "(2, 0, 1)": "BCAB",
+    "(2, 1, 0)": "BCABCAB"
+  },
+  "two_step_language_separates_all_ten_control_states": true,
+  "counterexample": {
+    "word1": "AB",
+    "word2": "ACBA",
+    "same_h": [
+      1,
+      2,
+      0
+    ],
+    "same_next_allowed": "C",
+    "future_suffix": "CA",
+    "legal_after_word1": true,
+    "legal_after_word2": false
+  },
+  "independent_moore_minimization_matches_proof": true,
+  "pass": true
+}
