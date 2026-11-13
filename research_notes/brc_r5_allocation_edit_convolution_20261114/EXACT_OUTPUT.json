@@ -1,0 +1,137 @@
+{
+  "schema": "R5_BLOCKWISE_OPTIMAL_ALLOCATION_EDIT_V1",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "date": "2026-11-14",
+  "input": {
+    "integer_atoms": 15,
+    "distinct_activation_thresholds": 953,
+    "event_boundaries": 954,
+    "activation_events": 1065,
+    "blocks": 29,
+    "block_separation_radius": 2
+  },
+  "budget_frontier": [
+    {
+      "K": 213,
+      "J": 1070,
+      "optimal_allocations": 1
+    },
+    {
+      "K": 214,
+      "J": 1064,
+      "optimal_allocations": 1
+    },
+    {
+      "K": 215,
+      "J": 1059,
+      "optimal_allocations": 7
+    },
+    {
+      "K": 216,
+      "J": 1054,
+      "optimal_allocations": 22
+    },
+    {
+      "K": 217,
+      "J": 1049,
+      "optimal_allocations": 41
+    }
+  ],
+  "minimum_edit": [
+    {
+      "from": 213,
+      "to": 214,
+      "allocation_pairs_checked": 1,
+      "min_removed": 3,
+      "min_symmetric_difference": 7
+    },
+    {
+      "from": 214,
+      "to": 215,
+      "allocation_pairs_checked": 7,
+      "min_removed": 2,
+      "min_symmetric_difference": 5
+    },
+    {
+      "from": 215,
+      "to": 216,
+      "allocation_pairs_checked": 154,
+      "min_removed": 2,
+      "min_symmetric_difference": 5,
+      "local_witness": {
+        "block_index_zero_based": 23,
+        "old": [
+          1,
+          7,
+          12,
+          17,
+          22,
+          27
+        ],
+        "new": [
+          1,
+          7,
+          12,
+          17,
+          20,
+          23,
+          28
+        ],
+        "removed": [
+          22,
+          27
+        ],
+        "added": [
+          20,
+          23,
+          28
+        ]
+      }
+    },
+    {
+      "from": 216,
+      "to": 217,
+      "allocation_pairs_checked": 902,
+      "min_removed": 2,
+      "min_symmetric_difference": 5,
+      "local_witness": {
+        "block_index_zero_based": 19,
+        "old": [
+          2,
+          8,
+          13,
+          18,
+          23
+        ],
+        "new": [
+          2,
+          8,
+          13,
+          16,
+          21,
+          24
+        ],
+        "removed": [
+          18,
+          23
+        ],
+        "added": [
+          16,
+          21,
+          24
+        ]
+      }
+    }
+  ],
+  "finite_crosscheck": {
+    "status": "PASS_EXACT",
+    "input_sets": 218,
+    "ordered_distinct_budget_pairs": 2162,
+    "feasible_subsets": 3370,
+    "domain": "X={0} U Y, Y subset of {1,...,8}, 2<=|X|<=6"
+  },
+  "arithmetic": "Python integer + fractions.Fraction, exact",
+  "formal_task_claim": false,
+  "independent_review": false,
+  "complete_native_prefix_benchmark": false
+}
