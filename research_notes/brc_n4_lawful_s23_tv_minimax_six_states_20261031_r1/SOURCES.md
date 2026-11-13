@@ -1,0 +1,9 @@
+# Sources and authority
+
+Account global read: GLOBAL_KNOWLEDGE_V1 main@428c27742773a02959ae49ca87317426630f2c84 (verified this run); both bootstrap and manual, Enterprise Math project/TASK route, P000 projection, ACTIVE worldview and routed math/code/BRC policy. Project read: enterprise-math main@673a838d7baa33e7427e98aa5b06381a2ada81d4, AGENTS, P000 original V5 Git blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488, native X6 and time, positive BRC substrate, joint-observer constraint, portable research protocol and current control authority. The global projection references older V4 P000 blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc: distinct version, not silently equated.
+
+Predecessor: PR #1757 @17752605d50aac40529ea22a7f29ae3caec1d787, research_notes/brc_n4_x6_markov_preparation_obstruction_20261030_r1/PROOF.md. Original S2/S23 grammar: @6d9bc93c9d110418d22daf344ed83d883a4a1a23, research_notes/brc_n4_bu_unrestricted_transfer_20261030_research1/OBSERVER_AU_REFINEMENT_NO_GO.md. Legal T4 K read: @0552b8b067068e779b8722e1689ceaa29a33d086, research_notes/brc_n4_t4_s2_joint_interaction_20261030_emr1/PROOF.md.
+
+Mathematical background: standard Hahn-TV event, stochastic-kernel data processing and Blackwell-style statistical sufficiency. Predecessor cites Khan/Yu/Zhang, Economics Letters 247 (2025), 112146, DOI 10.1016/j.econlet.2024.112146. No new general Blackwell theorem or native physical claim is made.
+
+Real GitHub actor awdawmip, push=true. Native Site v0.6.11 reported research_authority_granted=false and current quota 5/5; owner/task inventory returned CONTROL_QUOTA. Current native owner unknown; no CLAIM/Result or independent Driver acceptance. This is author-side durable PR evidence.

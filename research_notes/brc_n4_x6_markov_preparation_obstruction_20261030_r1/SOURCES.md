@@ -1,0 +1,11 @@
+# Pinned source, 2026-10-30
+
+GLOBAL_KNOWLEDGE_V1 verified canonical read: awdawmip/chatgpt-global-knowledge main@09ef26f363ddb1cace05b3c91605ea4b21ea2934. Read 00_BOOTSTRAP.md, OPERATING_MANUAL.md, projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md, current ACTIVE 我眼中的世界.md, and triggered researcher, mathematics, code, output and BRC constraints. Original project P000 was read, not rewritten.
+
+Enterprise Math canonical control read: awdawmip/enterprise-math main@00d5d6d954eb542ef8d3d9cb9924304757c6318b. P000 V5 at p000_reality_foundation.json blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488; native time contract definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json blob 94a02d067be2b039ca4c0f7ffedb5ebde8430e08; joint preservation contract definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json blob 3923890d77a02d84b772f789e6912dd14f220d14; docs/PORTABLE_RESEARCH_PROTOCOL.md blob 55da076ecb8b2e1ab05e0e098033ed19e3c224da; docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md blob 0aa7841c21ddc275011a98833820fd91beb3c169.
+
+Scientific predecessor: PR #1757 commit d06c287a4f2cb6edbd05688260ac8f3b497ceb38, research_notes/brc_n4_x6_path_bridge_endpoint_no_go_20261030_emr1/PROOF.md and NEXT_TASK.md. Prior work is author-side, UNREVIEWED / NOT_ADMITTED.
+
+Authenticated GitHub login: awdawmip. This genuine automation conversation uses its own local author identity and has not inherited prior native session credentials. Native em_status v0.6.11 returned research_authority_granted=false, executor_binding_configured=false, control active_jobs=5/5. Attempted em_control_tasks owner/status read returned CONTROL_QUOTA. Native Owner/CLAIM/Result/Driver review not verified; activity registration pending. Portable proof storage is not scientific admission.
+
+Methods: typed positive-weight BRC branch/cylinder arithmetic, exact BigInt and Fraction checks; no native physical BRC propagation, pi/trigonometric or classical matrix-exponential replacement. Separate native-to-finite probability correspondence remains to be established.

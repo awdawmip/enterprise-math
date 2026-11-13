@@ -1,0 +1,46 @@
+{
+  "status": "PASS_BRC_N4_S23_FULL_DETERMINISTIC_M10_LIFT_AND_RANDOMIZED_WARNING_20261031",
+  "complete_deterministic_policies": 2048,
+  "distinct_heavy_signatures": 64,
+  "restricted_signature_count": 64,
+  "label_boxes": 10,
+  "deterministic_minimax_numerator_over_80": 40,
+  "mixture_stops": [
+    [
+      3,
+      4,
+      3,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "mixture_weights": [
+    "2/3",
+    "1/3"
+  ],
+  "mixture_minimax_numerator_over_240": 160,
+  "mixture_label_max_numerators_over_240": [
+    240,
+    240,
+    240,
+    240,
+    240,
+    240,
+    168,
+    160,
+    160,
+    160
+  ],
+  "theorem": "R^S23_deterministic_{k,m}(T)=1/2 for k>=4 and 10<=m<=63; randomized full-game not established"
+}
+
+Executed as V8 JavaScript evaluation of exactly the VERIFY.js source body before Git publication. Integer arithmetic throughout; 2048 deterministic policies x 10 label choices x 6 input rows, plus explicit first-stage Bernoulli policy.
