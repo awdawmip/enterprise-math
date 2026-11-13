@@ -1,0 +1,88 @@
+{
+  "schema": "EM_R137_EXACT_VERIFICATION_V1",
+  "date_local": "2026-11-14",
+  "scientific_input_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "predecessor_commit": "73438a02082bf7ee60ccd656f66ac87d753d5a11",
+  "runner": "Python 3, stdlib fractions.Fraction/math.lcm, exact integer arithmetic",
+  "command": "python check_r137.py",
+  "output_marker": "R137_COLLISION_QUASIPERIOD_PASS",
+  "checks": {
+    "divisor_collision_pairs": {
+      "count": 2370,
+      "m": [
+        1,
+        30
+      ],
+      "K": [
+        2,
+        80
+      ]
+    },
+    "independent_exact_fraction_event_pairs": {
+      "count": 408,
+      "m": [
+        1,
+        12
+      ],
+      "K": [
+        1,
+        34
+      ]
+    },
+    "period_identity_pairs": {
+      "count": 224,
+      "m": [
+        1,
+        8
+      ],
+      "K": [
+        2,
+        29
+      ]
+    },
+    "full_residue_classes": {
+      "m": [
+        1,
+        6
+      ],
+      "nondecreasing_for_m_le_5": true,
+      "negative_classes_m6": [
+        24,
+        54
+      ],
+      "period_m6": 60
+    },
+    "explicit_drop": {
+      "m": 6,
+      "K1": 24,
+      "J1": 169,
+      "K2": 25,
+      "J2": 167
+    },
+    "necessary_saturation_thresholds_1_to_20": [
+      2,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      11,
+      12,
+      14,
+      16,
+      19,
+      22,
+      24,
+      28,
+      31,
+      35,
+      40,
+      42
+    ]
+  },
+  "scope": "Finite exact tests of independent rational event construction and algebraic identities; universal theorems supported by PROOF.md",
+  "review_status": "NOT_REVIEWED",
+  "remaining": "Direct word recurrence classification and sharper first/eventual saturation thresholds"
+}
