@@ -16,7 +16,21 @@
     "arithmetic_tail_checkpoint": "ca2b30c7ef45b470d0d5cb6955def48610cd9dd7",
     "arithmetic_tail_run": 33659295408,
     "strict_command": "lake build --wfail -KCI EnterpriseMath",
-    "canonicality_note": "Lean-checked proof evidence is currently PR/branch-backed. This ledger extracts theorem statements and evidence; it does not by itself promote those source branches to Foundation or claim they are already merged into main."
+    "canonicality_note": "Lean-checked proof evidence is currently PR/branch-backed. This ledger extracts theorem statements and evidence; it does not by itself promote those source branches to Foundation or claim they are already merged into main.",
+    "affine_function_followup": {
+      "pr": 2254,
+      "checkpoint": "06d221facd0d0323dc1b08e13422b500a0eaa8cd",
+      "module": "EnterpriseMath/PrecisionPi/PaperIIAffineFunctions.lean",
+      "run": 43376204148,
+      "job": 131723174697
+    },
+    "sharp_positive_tail_followup": {
+      "pr": 2256,
+      "checkpoint": "798b86a30418df4ae24bd678e01df3ed0a62b0d9",
+      "module": "EnterpriseMath/Precision/SharpPositiveTail.lean",
+      "run": 43376958085,
+      "job": 131725570515
+    }
   },
   "theorems": [
     {
@@ -66,10 +80,10 @@
     },
     {
       "id": "EMTR-T07-AFFINE-F2-EDGE-MODEL",
-      "status": "PROVED_IN_MANUSCRIPT_LEAN_PACKAGING_PENDING",
+      "status": "PROVED_LEAN_CHECKED",
       "hypotheses": "reduce residual normal coordinates (p,q,e) modulo 2",
       "statement": "The eight residual states identify with Aff(F2^2,F2) by f_(p,q,e)(x,y)=e+px+qy. The six nonconstant affine functions have two-point supports and correspond bijectively to the six K4 edges; addition of the nonzero constant complements support and exchanges opposite edges.",
-      "boundary": "The manuscript proof is finite and explicit; a coordinate-free Lean equivalence is the next formal packaging target."
+      "boundary": "The linear equivalence, pullback under every permutation of the four labels, bijection between nonconstant supports and the six slice pairs, and the torsion/complement correspondence are Lean-checked in affine_function_followup."
     },
     {
       "id": "EMTR-T08-SQUARE-HALF-TRACE-DOUBLE-SHELL",
@@ -113,6 +127,14 @@
       "hypotheses": "k>=2, m>=1, and 0<=s<=k-1 in the parameter range of the k to k+2m balance comparison",
       "statement": "The nontrivial middle-prefix majorization numerator m*(k*(m+1+2s)-2s*(s+1)) is strictly positive; equivalently the corresponding rational middle-prefix difference is positive.",
       "boundary": "This ledger records the finite arithmetic core. Any Gamma-convexity or asymptotic pi^m completion theorem must cite its separate analytic proof status."
+    },
+    {
+      "id": "EMTR-T14-SHARP-POSITIVE-HYPERGEOMETRIC-TAIL",
+      "status": "PROVED_LEAN_CHECKED",
+      "hypotheses": "0<s<1, A>0, B>=0, and x>0 for the ratio theorem. The infinite-tail statement assumes 0<x<1 and positive terms satisfying the step recurrence in SharpPositiveTail.",
+      "statement": "For n>=1 the least uniform consecutive-term ratio bound is x. For all n>=0 it is max(x,r_0), with r_0=x*s*(1-s)*(A+B)/(2*A). For every M>=0 the infinite tail divided by the first omitted term is strictly less than 1/(1-x), with limit and least uniform upper bound 1/(1-x).",
+      "n58": "For the factorial summands at s=1/4, x=1/99^4, A=1103, B=26390, the first ratio is (82479/35296)/99^4 and the least tail multiplier is 96059601/96059600. The Lean module proves term58_eq_factorialTerm58.",
+      "boundary": "The N=58 modular evaluation of the full series is an external analytic input (EMTR-N02). See sharp_positive_tail_followup; EMTR-T12 retains the earlier finite bound."
     }
   ],
   "negative_boundaries": [
@@ -128,8 +150,9 @@
     },
     {
       "id": "EMTR-N03-AFFINE-F2-LEAN-PACKAGING",
-      "status": "FORMALIZATION_OPEN",
-      "statement": "The affine-function model EMTR-T07 is proved in the manuscript but its coordinate-free Lean equivalence is not yet part of the accepted formal stack."
+      "status": "CLOSED_ON_FORMALIZATION_BRANCH",
+      "statement": "EMTR-T07 is now packaged in the strict Lean checkpoint recorded under affine_function_followup. This records the branch result and leaves Foundation status unchanged."
     }
-  ]
+  ],
+  "last_reviewed": "2026-11-13"
 }
