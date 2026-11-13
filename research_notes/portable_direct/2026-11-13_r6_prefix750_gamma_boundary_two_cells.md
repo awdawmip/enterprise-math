@@ -31,6 +31,17 @@ Relative to the inherited PREFIX749 **author-level** certified union, the two di
 
 ## Verification, evidence and next science
 
-The local exact source pair includes original `PREFIX741_R6_INNER_STRIP_194.py` Git blob `d986f644ba513240ea8395e0b221af7946e0efd6`; its frozen moment hashes `797121e567e6422d342b2647cd17ff01187d5000b08bde8a954730d071bed46e` and `814be93bb068b6a6e688e8ea5a466939a06e617b67ab585c177176f57afd57ae` were checked under PREFIX749, unchanged in this continuation. Isolated exact computation checked G2, G4, G8 and the old comparator G1 in one Python process. Companion source `PREFIX750_R6_GAMMA_2_CELLS.py` and `PREFIX750_R6_GAMMA_2_CELLS_RESULTS.json` reproduce the precise calculations. Exact published-checker replay and independent review remain tasks unless separately recorded.
+The local exact source pair includes original `PREFIX741_R6_INNER_STRIP_194.py` Git blob `d986f644ba513240ea8395e0b221af7946e0efd6`; its frozen moment hashes `797121e567e6422d342b2647cd17ff01187d5000b08bde8a954730d071bed46e` and `814be93bb068b6a6e688e8ea5a466939a06e617b67ab585c177176f57afd57ae` were checked under PREFIX749, unchanged in this continuation. Isolated exact computation checked G2, G4, G8 and the old comparator G1 in one Python process. Companion source `PREFIX750_R6_GAMMA_2_CELLS.py` and `PREFIX750_R6_GAMMA_2_CELLS_RESULTS.json` reproduce the precise calculations. The exact published checker was subsequently replayed with the original byte-identical dependency, as documented in the addendum below. Independent review remains open.
 
 Neighbor (10,52) yielded G8 lower-bound millionth floor `-336068` (inconclusive); investigate stronger 16x16 or more efficient bound there and around (9,51). Preserve frozen P000/science, and audit historical union on one normalized lattice.
+
+## Exact published-source composite replay — completed 2026-11-13
+
+Both complete Python files were reconstructed from GitHub and verified with `git hash-object`, obtaining original imported module `d986f644ba513240ea8395e0b221af7946e0efd6` and the new exact checker `b6fd7e3d949db5aca75aa855f723ccfc77a271ca`. In one local process invoked as `python PREFIX750_R6_GAMMA_2_CELLS.py`, the precise imported kernel ran 2x2, 4x4, 8x8 and old-comparator checks and returned:
+
+```text
+PASS 11 52 (-86683906, -26603110, 3524919) old -206906474
+ALL_CHECKS_PASS PREFIX750-R6 1+1=2
+```
+
+Thus the published checker and pinned dependency passed their exact-byte end-to-end run. The negative G8 lower bound of neighboring (10,52) remains inconclusive; comprehensive independent union audit and independent mathematical review remain distinct open tasks.
