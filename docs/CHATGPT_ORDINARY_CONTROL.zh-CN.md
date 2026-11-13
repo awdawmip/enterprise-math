@@ -70,15 +70,15 @@ QUEUED/RUNNING/POSTING/RECONCILE 时继续读原请求；OUTCOME_UNKNOWN 时发 
 
 `task_id` 可省略；若有旧贡献身份，必须填入 `prior_contribution_ids`，示例空数组只表示确实没有既往贡献。Driver 用 `role=RESEARCH_DRIVER`、`research_mode=RESEARCH_DRIVER`。角色/模式不允许混搭；一个 conversation 同时只有一个未关闭服务会话。服务生成 session、Researcher/Driver ID、CLAIM、ER、publication/taskbook pin、generation 和授权；**对话只传前一步 request_id，不抄 pin、不手拼身份，不传 session_key。** 私有 session key 保存在服务器，不写 GitHub。
 
-已有本 lane 的合法 session 先复用；当前有用研究先继续。新单元经 `dispatch → 理解所选 Task → prepare／typed continuation → claim → open`，每步消费原成功回执。GitHub Chat 可调用实际已宣告的 `worker_pull`：先恢复原工作或取得建议，模型决定采用后按返回的 selection／packet 请求继续，直至真实 `RUN_READY`。Sites 使用既有原生接口，按实际宣告的 `worker_transition.native` 续下一步；无需迁移为 Chat 身份。注册或 prepare 成功不等于 CLAIM，选题不等于领取；不为此另加启动全扫描。已有 GitHub 成果在需要正式 Result 时可用 `freeze_github`，无需再复制正文。
+已有本 lane 的合法 session 先复用；当前有用研究先继续。新单元经 `dispatch → 理解所选 Task → prepare／typed continuation → claim（成功回执含 run 即已打开；旧回执仍可 open）`，每步消费原成功回执。GitHub Chat 可调用实际已宣告的 `worker_pull`：先恢复原工作或取得建议，模型决定采用后按返回的 selection／packet 请求继续，直至真实 `RUN_READY`。Sites 使用既有原生接口，按实际宣告的 `worker_transition.native` 续下一步；无需迁移为 Chat 身份。注册或 prepare 成功不等于 CLAIM，选题不等于领取；不为此另加启动全扫描。已有 GitHub 成果在需要正式 Result 时可用 `freeze_github`，无需再复制正文。
 
 | operation | payload 必填 | 行为/注意 |
 |---|---|---|
 | `prepare` | `dispatch_request_id` | 指向成功 dispatch；仅按其合法 route 准备。可选 `execution_branch` 只能是 `main`，`allowed_outputs` 只能为空，通常省略 |
 | `prepare_exact` | `task_request_id` | 指向成功 task/continuation；适合已明确 Task，仍执行原生可执行性与所有权检查 |
-| `claim` | `prepare_request_id` | 指向成功 prepare/prepare_exact/continuation_prepare；核对真实获胜 CLAIM |
-| `open` | `claim_request_id` | 指向成功 claim；取得当前执行授权，**该 open 请求 ID 用作后面的 `run_request_id`** |
-| `resume` | `run_request_id` | 同会话恢复已有 open/resume；成功后用新 resume 请求 ID，旧 generation 失效 |
+| `claim` | `prepare_request_id` | 指向成功 prepare/prepare_exact/continuation_prepare；核对真实获胜 CLAIM；回执含 run 时本请求 ID 可作 run_request_id |
+| `open` | `claim_request_id` | 兼容旧 claim-only 回执；已有 run 不必再调 open。该请求 ID 可用作 run_request_id |
+| `resume` | `run_request_id` | 同会话恢复已有 claim/open/resume run；只对仍活跃的规范 owner 续租，成功后使用新 generation |
 | `artifact_upload` | `upload_id`, `filename`, `part_index`, `content` | `final=false` 默认；末片必须 true。只暂存文本，不执行上传程序 |
 | `publish_checkpoint` | `run_request_id`, `upload_request_ids`, `completed_units`, `current_unfinished_unit`, `next_action`, `do_not_repeat` | `release=false` 默认；成功发布后 PROGRESS；`release=true` 则在发布后交 CONTINUATION 并释放。**准备 freeze 时保持 false** |
 | `freeze` | `run_request_id`, `publication_request_id`, `return_filename`, `metadata` | publication_request_id 指向本 run 的成功 publish_checkpoint；return_filename 是其中自己的文件名 |
@@ -106,7 +106,7 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 
 先用 `continuation` 和允许的 `artifact` 核对已完成/未完/损坏/未知单元；不重做有效成果。`continuation_prepare` 当前只支持**已有规范释放、无 live claim、runtime.dispatch_state=NEEDS_DISPATCH** 的前任；不支持通过客户端自报失活抢占。
 
-必填 `packet_request_id`（成功 continuation）、`reason`。如果包已有 `persisted_checkpoint.state=SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED`，只传这两项，服务保存原 frontier，不接受覆盖。旧格式前沿还需 `artifact_request_ids`（已实际完整 hash 核验的 artifact 请求 ID 数组）及 `frontier_notes`（恰好 `completed_units`、`current_unfinished_unit`、`next_action`、`do_not_repeat`）；至少一个证据必须属于包内认证的 last progress，贡献来源由服务继承。准备成功后仍走 claim/open。受限来源/专用 lane 或 frozen/活跃状态按返回路由处理，不能强制 reopen。
+必填 `packet_request_id`（成功 continuation）、`reason`。如果包已有 `persisted_checkpoint.state=SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED`，只传这两项，服务保存原 frontier，不接受覆盖。旧格式前沿还需 `artifact_request_ids`（已实际完整 hash 核验的 artifact 请求 ID 数组）及 `frontier_notes`（恰好 `completed_units`、`current_unfinished_unit`、`next_action`、`do_not_repeat`）；至少一个证据必须属于包内认证的 last progress，贡献来源由服务继承。准备成功后仍走 claim/open。受限来源、专用 lane 和活跃 owner 仍按实际授权处理；frozen Result 等待审核本身不阻止继续研究。
 
 ## 5. Driver 正式审查
 
@@ -116,7 +116,7 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 |---|---|---|
 | `driver_activate` | `reason` | `previous_authority` 默认 null；Chat 接口不支持借此替换现存 Driver，非 null 拒绝 |
 | `driver_publish` | `upload_request_ids` | 自己会话的报告及 followup spec 最后完整上传请求 ID |
-| `review` | `publication_request_id`, `result_request_id`, `review_filename`, `metadata` | `followup_spec_filename` 可选，但首次规范 review 需要已发布的原生 followup spec；不能用空占位代替 |
+| `review` | `publication_request_id`, `result_request_id`, `review_filename`, `metadata` | `followup_spec_filename` 始终可选；不填表示未物化后续计划，不能伪称已审核或已完成 |
 
 `result_request_id` 必须指向 Driver **本 conversation 成功的 `artifact` 请求**，其路径为实际 `research_result_records/<Task-ID>/<Result-ID>.json` 且完整底层字节 hash 已核验；不是 worker 的 freeze 请求。大 Result 分页读完必要内容后再审查。桥服务从这个实际 artifact 自动派生 `result_id`、`expected_result_sha256`；对话不计算 SHA，也不手抄这两个字段。
 
@@ -170,7 +170,7 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 
 ## 0.6.4：审阅综合、后继任务和完整动作摘要
 
-`review_flow_state`、`review_reference`、`review_synthesize`、`followup_materialize` 通过原私有 GitHub 控制入口调用既有原生程序。四项均使用本 Driver 会话成功读取 Result 的 `result_request_id`；新 Driver 使用自己的真实 session/ACTIVE DA，保留旧审阅者与综合作者，作为当前发布者单独留痕。已有多份 DR 时，依次消费精确审阅集合、两次 reference pass 和 synthesis，随后物化显式后继任务，不补第三份 DR。完整字段和状态见 [Driver 操作表](DRIVER_FLOW_OPERATIONS.md)。服务不自动选择数学判断、空任务集或父目标关闭。
+`review_flow_state`、`review_reference`、`review_synthesize`、`followup_materialize` 通过原私有 GitHub 控制入口调用既有原生程序。四项均使用本 Driver 会话成功读取 Result 的 `result_request_id`；新 Driver 使用自己的真实 session/ACTIVE DA，保留旧审阅者与综合作者，作为当前发布者单独留痕。已有多份 DR 时，保留精确审阅集合，按需要做任意轮数及顺序的 crosscheck；需要单一操作判断时显式 synthesis，后续计划可选，不为补流程制造新 DR 或 Task。完整字段和状态见 [Driver 操作表](DRIVER_FLOW_OPERATIONS.md)。服务不自动选择数学判断、空任务集或父目标关闭。
 
 调度或 receipt 回执同时给出 `action_summary_complete=true`、`paging_required_for_selected_action=false` 时，可以依据其中完整保留的 Task/publication、owner/claim/前任、筛选、guard 和所需来源执行下一动作，无需分页读完无关活动历史。此规则优先于旧的通用 receipt_truncated 分页表述。未知动作或过大摘要仍明确标为不完整；实际 Task、Result、review、artifact 证据仍按需要读取完整相关页。
 
@@ -203,3 +203,5 @@ P11 的裸 publication 初始标记属于另一种情况：只有 Source 返回 
 
 
 已有实际研究成果时，及时保存 Source 并更新自己的既有 activity checkpoint；参照已读 activity 规则和 `tools/research_activity.py` 的 checkpoint／connector JSON CAS 合同记录真实来源。activity 记账、共享任务 CLAIM、Source semantic checkpoint 和 Result 分别回读，不能用作者分支保存代替其它实际未做的状态变更。
+
+保存、研究接续和后续方向不强制六项 gate；遗漏项如实标为 NOT_REVIEWED。形式化证明暂缓，Lean 不是普通推进或验收的默认要求；验证采用命题所需的可复查人工证明或复算。明确的只读资源等待在同一请求下以 5–300 秒退避自动续接，取消及拒绝不重放，未知写入先按原 ID 对账。

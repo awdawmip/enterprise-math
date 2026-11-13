@@ -421,32 +421,11 @@ def _claim_result_gate_reason(
     if claim_at < frozen_at:
         return None
 
-    state = result_state.get("state")
-    if state == "RETURN_TO_EXECUTION":
-        review = result_state.get("review")
-        reviewed_at = review.get("reviewed_at") if isinstance(review, dict) else None
-        if isinstance(reviewed_at, str) and reviewed_at.strip():
-            try:
-                reopened_at = _lifecycle_time(reviewed_at, "reviewed_at")
-            except DispatchError as exc:
-                return str(exc)
-            if claim_at >= reopened_at:
-                return None
-            return (
-                "registered CLAIM falls inside the frozen-result interval before the authoritative "
-                "nonterminal Driver review reopened execution"
-            )
-        if result_state.get("parallel_state") == "PARALLEL_SYNTHESIS_NONTERMINAL":
-            # Parallel task-global ownership is separately isolated by the cohort
-            # reducer; its synthesis compatibility view has no reviewed_at field.
-            return None
-        return "registered CLAIM cannot reopen frozen execution without an authoritative Driver review time"
-
-    if state == "TERMINAL":
+    if result_state.get("state") == "TERMINAL":
         return "registered CLAIM was created after the current result freeze and the task is terminal"
-    if state == "AWAITING_DRIVER_REVIEW":
-        return "registered CLAIM was created after the current result freeze while Driver review is pending"
-    return "registered CLAIM was created after the current result freeze without an explicit reopen state"
+    # Review describes evidence; it does not suspend mathematics. The original
+    # owner CAS, identity and execution-intent checks still apply below.
+    return None
 
 
 V2_TASK_PUBLICATION_CUTOVER = datetime(2026, 8, 28, tzinfo=timezone.utc)
@@ -627,19 +606,15 @@ def _block_unreviewed_registered_done(
                 # audit evidence, not a permanent redispatch barrier.
                 continue
         value = copy.deepcopy(state)
-        value["state"] = "BLOCKED"
-        value["dispatch_state"] = "BLOCKED"
-        value["hard_block"] = {
+        value["unaccepted_completion_report"] = {
             "code": "REGISTERED_DONE_REQUIRES_TERMINAL_DRIVER_REVIEW",
             "publication_id": task.get("publication_id"),
             "claim_id": event.get("claim_id"),
             "progress_ref": event.get("progress_ref"),
             "server_comment_id": meta.get("comment_id") if isinstance(meta, dict) else None,
         }
-        value["next_action"] = (
-            "Materialize/freeze the Result and obtain terminal Driver review, or append an "
-            "authorized correction event; do not redispatch this task."
-        )
+        value["task_completion_granted"] = False
+        value["next_action"] = "Continue from the recorded frontier; the unaccepted completion report grants no formal review or closure."
         return value
     return state
 
@@ -659,34 +634,19 @@ def _overlay_result_state(
     review = result_state.get("review")
     value["result_id"] = result.get("result_id")
     value["result_record_path"] = result.get("_record_path")
-    if result_state["state"] == "AWAITING_DRIVER_REVIEW":
-        value["state"] = "FROZEN_RETURN"
-        value["dispatch_state"] = "AWAITING_REVIEW"
-        value["next_action"] = "Driver review required before terminal closure or researcher redispatch"
-        return value
-    if result_state["state"] == "ACCEPTED_RESULT_TASK_INCOMPLETE":
-        value.update(state="FROZEN_RETURN", dispatch_state="AWAITING_TASK_CONTROL_CONTINUATION",
-                     terminal=False, claim_id=None, actor=None, researcher_id=None,
-                     identity_source=None, lease_until=None,
-                     driver_disposition=review.get("disposition") if review else None,
-                     review_id=review.get("review_id") if review else None,
-                     task_completion_granted=False)
-        continuation = result_state.get("result_continuation")
-        value["result_continuation"] = copy.deepcopy(continuation)
+    value["review_status"] = ("NOT_REVIEWED" if review is None else str(review.get("disposition") or "RECORDED"))
+    value["review_required_for_research_continuation"] = False
+    value["driver_disposition"] = review.get("disposition") if review else None
+    value["review_id"] = review.get("review_id") if review else None
+    if result_state["state"] in {"AWAITING_DRIVER_REVIEW", "ACCEPTED_RESULT_TASK_INCOMPLETE", "RETURN_TO_EXECUTION"}:
+        value["research_continuation_allowed"] = True
+        value["task_completion_granted"] = False
+        value["result_continuation"] = copy.deepcopy(result_state.get("result_continuation"))
         value["result_continuations"] = copy.deepcopy(result_state.get("result_continuations", {}))
-        value["next_action"] = (continuation["next_action"] if isinstance(continuation, dict)
-                                else "Driver must resolve the recorded accepted-result process obligations")
-        return value
-    if result_state["state"] == "RETURN_TO_EXECUTION":
-        value["state"] = "HANDOFF_READY"
-        value["dispatch_state"] = "NEEDS_DISPATCH"
-        value["claim_id"] = None
-        value["actor"] = None
-        value["researcher_id"] = None
-        value["identity_source"] = None
-        value["lease_until"] = None
-        value["driver_disposition"] = review.get("disposition") if review else None
-        value["next_action"] = "Resume task under Driver disposition"
+        # Never erase a later live owner due to an older pending Result.
+        if not value.get("claim_id") and value.get("dispatch_state") != "BLOCKED":
+            value.update(state="HANDOFF_READY",dispatch_state="NEEDS_DISPATCH",terminal=False)
+        value["next_action"] = "Continue the scientific frontier; review and follow-up are recorded separately and do not block research."
         return value
     if result_state["state"] == "TERMINAL":
         value["state"] = "DONE"
@@ -818,7 +778,8 @@ def reduce_definition(
         resolved_lease_minutes=lease,
     )
     from tools.research_fair_selection import canonical_availability
-    if result_state is not None and not state.get("historical_review_available"):
+    if (result_state is not None and result_state.get("state") == "TERMINAL"
+            and not state.get("historical_review_available")):
         closed_at = _result_freeze_time(result_state, root)
         withheld_at = result_state.get("withheld_frozen_at")
         if closed_at is None and isinstance(withheld_at, str) and withheld_at.strip():
@@ -855,8 +816,6 @@ def _dispatch_result_read_snapshot(root: Path = ROOT):
     """
     base_results = research_result_records.iter_results
     base_reviews = research_result_records.iter_reviews
-    cached_results = tuple(base_results(root))
-    cached_reviews = tuple(base_reviews(root))
     target_root = root.resolve()
 
     def iter_results(local_root: Path = research_result_records.ROOT):
@@ -869,13 +828,18 @@ def _dispatch_result_read_snapshot(root: Path = ROOT):
             return base_reviews(local_root)
         return list(cached_reviews)
 
-    research_result_records.iter_results = iter_results
-    research_result_records.iter_reviews = iter_reviews
-    try:
-        yield
-    finally:
-        research_result_records.iter_results = base_results
-        research_result_records.iter_reviews = base_reviews
+    # ER cache is context-local; the enclosing authority guard still checks
+    # its complete bytes/file set. No module-global execution reader changes.
+    with research_execution_records.read_snapshot(root):
+        cached_results = tuple(base_results(root))
+        cached_reviews = tuple(base_reviews(root))
+        research_result_records.iter_results = iter_results
+        research_result_records.iter_reviews = iter_reviews
+        try:
+            yield
+        finally:
+            research_result_records.iter_results = base_results
+            research_result_records.iter_reviews = base_reviews
 
 
 def effective_states(

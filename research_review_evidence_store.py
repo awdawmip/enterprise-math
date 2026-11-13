@@ -177,11 +177,18 @@ def state(result_id: str, root: Path = ROOT) -> dict[str, Any]:
     review_ids = [str(item["review_id"]) for item in reviews]
     if not reviews:
         return {"result_id": rid, "review_state": "NO_REVIEW", "review_ids": [], "terminal": False}
-    if len(reviews) == 1:
+    if len(reviews) == 1 and not any(row.get("result_id")==rid and row.get("review_set_sha256")==review_set_hash(review_ids) for row in syntheses(root).values()):
         disposition = reviews[0].get("disposition")
+        optional_intake=_current_intake(rid,review_ids,root)
+        optional_passes=reference_passes(root).get(optional_intake["intake_id"],[]) if optional_intake else []
+
         return {
             "result_id": rid,
             "review_state": "SINGLE_REVIEW_FLOW",
+            "intake_id": optional_intake["intake_id"] if optional_intake else None,
+            "reference_pass_count":len(optional_passes),
+            "reference_review_status":"RECORDED" if optional_passes else "NOT_PERFORMED",
+            "research_continuation_allowed":True,
             "review_ids": review_ids,
             "review": reviews[0],
             "operational_disposition": disposition,
@@ -200,11 +207,9 @@ def state(result_id: str, root: Path = ROOT) -> dict[str, Any]:
         return {**base, "review_state": "AWAITING_REVIEW_INTAKE", "intake_id": None}
     iid = str(intake["intake_id"])
     rows = reference_passes(root).get(iid, [])
-    by_number = {row.get("pass_number"): row for row in rows}
-    if 1 not in by_number:
-        return {**base, "review_state": "AWAITING_REVIEW_REFERENCE_PASS_1", "intake_id": iid}
-    if 2 not in by_number:
-        return {**base, "review_state": "AWAITING_REVIEW_REFERENCE_PASS_2", "intake_id": iid}
+    base.update(reference_pass_count=len(rows),
+                reference_review_status="RECORDED" if rows else "NOT_PERFORMED",
+                research_continuation_allowed=True)
     matches = [
         item for item in syntheses(root).values()
         if item.get("intake_id") == iid and item.get("review_set_sha256") == digest
@@ -231,8 +236,8 @@ def create_intake(result_id: str, opened_by: str, root: Path = ROOT) -> dict[str
     if rid not in result_map(root):
         raise ReviewEvidenceError("unknown result_id")
     reviews = reviews_for_result(rid, root)
-    if len(reviews) < 2:
-        raise ReviewEvidenceError("review intake requires at least two immutable reviews")
+    if not reviews:
+        raise ReviewEvidenceError("review intake requires actual immutable review evidence")
     review_ids = [str(item["review_id"]) for item in reviews]
     digest = review_set_hash(review_ids)
     iid = intake_id(rid, digest)
@@ -264,17 +269,13 @@ def create_reference_pass(
     intake = intakes(root).get(iid)
     if intake is None:
         raise ReviewEvidenceError("unknown intake_id")
-    if pass_number not in PASS_KINDS:
-        raise ReviewEvidenceError("pass_number must be 1 or 2")
+    if type(pass_number) is not int or pass_number < 1:
+        raise ReviewEvidenceError("pass_number must be a positive integer label")
     if independence_status not in INDEPENDENCE:
         raise ReviewEvidenceError("invalid independence_status")
     if not isinstance(finding, str) or not finding.strip():
         raise ReviewEvidenceError("finding is required")
     existing = reference_passes(root).get(iid, [])
-    if any(row.get("pass_number") == pass_number for row in existing):
-        raise ReviewEvidenceError(f"reference pass {pass_number} already exists")
-    if pass_number == 2 and not any(row.get("pass_number") == 1 for row in existing):
-        raise ReviewEvidenceError("reference pass 1 must precede pass 2")
     reviewer = _id(reviewer_id, "reviewer_id")
     pid = pass_id(iid, pass_number, reviewer, finding.strip())
     value = {
@@ -285,7 +286,7 @@ def create_reference_pass(
         "review_ids": list(intake["review_ids"]),
         "review_set_sha256": intake["review_set_sha256"],
         "pass_number": pass_number,
-        "pass_kind": PASS_KINDS[pass_number],
+        "pass_kind": PASS_KINDS.get(pass_number, "REVIEW_CROSSCHECK"),
         "reviewer_id": reviewer,
         "finding": finding.strip(),
         "independence_status": independence_status,
@@ -324,8 +325,6 @@ def create_synthesis(
             "operational_destination_ref_or_none requires operational_destination_class"
         )
     passes = reference_passes(root).get(iid, [])
-    if {row.get("pass_number") for row in passes} != {1, 2}:
-        raise ReviewEvidenceError("both reference passes are required before synthesis")
     for row in passes:
         if row.get("review_set_sha256") != intake.get("review_set_sha256"):
             raise ReviewEvidenceError("reference pass evidence set drift")
@@ -341,6 +340,8 @@ def create_synthesis(
         "operational_disposition": operational_disposition,
         "synthesized_by": author,
         "rationale": rationale.strip(),
+        "reference_pass_ids": sorted(str(row["pass_id"]) for row in passes),
+        "reference_review_status": "RECORDED" if passes else "NOT_PERFORMED",
         "all_reviews_retained": True,
         "latest_review_wins": False,
         "terminal": operational_disposition in TERMINAL_DISPOSITIONS,
@@ -371,7 +372,7 @@ def audit(root: Path = ROOT) -> list[str]:
             if rid not in results:
                 raise ReviewEvidenceError("intake references unknown result")
             review_ids = intake.get("review_ids")
-            if not isinstance(review_ids, list) or len(review_ids) < 2 or len(set(review_ids)) != len(review_ids):
+            if not isinstance(review_ids, list) or len(review_ids) < 1 or len(set(review_ids)) != len(review_ids):
                 raise ReviewEvidenceError("intake review_ids invalid")
             current_ids = [str(item["review_id"]) for item in reviews_for_result(rid, root)]
             if any(review_id not in current_ids for review_id in review_ids):
@@ -387,15 +388,15 @@ def audit(root: Path = ROOT) -> list[str]:
         if intake is None:
             errors.append(f"reference passes for unknown intake {iid}")
             continue
-        numbers = [row.get("pass_number") for row in rows]
-        if len(numbers) != len(set(numbers)):
-            errors.append(f"{iid}: duplicate reference pass number")
+        identifiers = [row.get("pass_id") for row in rows]
+        if len(identifiers) != len(set(identifiers)):
+            errors.append(f"{iid}: duplicate reference pass identity")
         for row in rows:
             try:
                 number = row.get("pass_number")
-                if row.get("schema") != PASS_SCHEMA or number not in PASS_KINDS:
+                if row.get("schema") != PASS_SCHEMA or type(number) is not int or number < 1:
                     raise ReviewEvidenceError("invalid reference pass")
-                if row.get("pass_kind") != PASS_KINDS[number]:
+                if row.get("pass_kind") != PASS_KINDS.get(number, "REVIEW_CROSSCHECK"):
                     raise ReviewEvidenceError("reference pass kind mismatch")
                 if row.get("review_set_sha256") != intake.get("review_set_sha256"):
                     raise ReviewEvidenceError("reference pass evidence set drift")
@@ -410,8 +411,6 @@ def audit(root: Path = ROOT) -> list[str]:
             if intake is None:
                 raise ReviewEvidenceError("synthesis references unknown intake")
             rows = passes.get(iid, [])
-            if {row.get("pass_number") for row in rows} != {1, 2}:
-                raise ReviewEvidenceError("synthesis lacks both reference passes")
             if synthesis.get("review_set_sha256") != intake.get("review_set_sha256"):
                 raise ReviewEvidenceError("synthesis evidence set drift")
             if synthesis.get("operational_disposition") not in ALL_DISPOSITIONS:

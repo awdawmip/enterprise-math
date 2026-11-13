@@ -1,8 +1,8 @@
 {
   "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_CONTRACT_V1",
-  "status": "ACTIVE_CANONICAL_CANDIDATE_V1_5",
-  "effective": "2026-09-10",
-  "user_direction": "EVERY_NEW_OPERATIONAL_DRIVER_REVIEW_AUTHORITY_REQUIRES_ONE_TYPED_FOLLOWUP_PACKET_TASKSET_PARENT_CLOSURE_OR_SATISFIED_TASK_PORTFOLIO_CONTINUATION",
+  "status": "ACTIVE_CANONICAL_OPTIONAL_PLANNING_V1_6",
+  "effective": "2026-11-13",
+  "user_direction": "SAVE_CONTINUE_AND_PLAN_WITHOUT_MANDATORY_SIX_GATES; REVIEW_COUNT_AND_ORDER_AS_NEEDED; FORMALIZATION_DEFERRED",
   "canonical_guard": "research_driver_followup_guard.py",
   "storage_materialization_primitive": "research_driver_followup.py",
   "review_authority": "research_review_evidence.py",
@@ -12,54 +12,121 @@
   "packet_store": "research_driver_followups/<review-authority-id>/<packet-id>.json",
   "task_publication_authority": "research_task_records/<task-id>/<publication-id>.json",
   "source_review_store": "research_result_reviews/<result-id>/<review-id>.json",
-  "purpose": "Prevent Driver-review stalls without reintroducing latest-review-wins. Follow-up consumes the single operational review authority produced by the exact-set review reducer. One immutable review is authority directly; two or more immutable reviews first require exact-set intake, two reference passes and review synthesis. Only that synthesis may drive follow-up. Any operational authority created after the exact d1514b1 cutover cannot terminalize ordinary or parallel runtime authority until a valid follow-up taskset is immutably published, the current parent Objective is already canonically CLOSED, or a satisfied successful Task is accepted at TASK scope with an explicit return to the existing canonical portfolio queue. The latter grants no parent completion or final authority. Existing concurrent control assets may satisfy a gate only by explicit pinned evidence so the rule never creates duplicate work merely to satisfy itself.",
-  "decisions": ["TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE", "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION", "EXISTING_CONTROL_ASSET_BOUND", "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION"],
+  "purpose": "Preserve actual reviews, authors and exact evidence while making follow-up planning optional. Neither absent follow-up packets nor unperformed crosschecks suspend research. Formal Task/parent closure and actual publication still retain their own authority checks.",
+  "decisions": [
+    "TASK_SET_PUBLISHED",
+    "PARENT_OBJECTIVE_CLOSURE",
+    "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION",
+    "EXISTING_CONTROL_ASSET_BOUND",
+    "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION",
+    "EXISTING_PUBLISHED_TASK_BOUND"
+  ],
   "accepted_result_incomplete_task": {
     "decision": "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION",
-    "spec_fields": ["decision", "gate_decisions", "tasks", "result_continuation"],
+    "spec_fields": [
+      "decision",
+      "gate_decisions",
+      "tasks",
+      "result_continuation"
+    ],
     "review_disposition": "ACCEPTED",
     "review_destination_class": "NONE",
     "raw_and_operational_terminal_verdict": "NO_GO",
-    "allowed_raw_and_operational_method_harvest": ["RESULT_ONLY", "CANDIDATE_NOT_TOOL"],
+    "allowed_raw_and_operational_method_harvest": [
+      "RESULT_ONLY",
+      "CANDIDATE_NOT_TOOL"
+    ],
     "current_source_task_publication_required_at_write": true,
     "current_authenticated_driver_publisher_required": true,
     "publisher_may_be_authorized_successor": true,
     "scientific_scope_author_is_not_replaced_by_publisher": true,
-    "result_continuation_fields": ["source_result_id", "parent_objective_id", "original_terminal_verdict", "accepted_result_scope", "scope_evidence", "original_process_status", "unresolved_obligations", "action", "dispatcher", "next_action", "remaining_parent_scope", "evidence_refs", "task_completion_granted", "parent_completion_granted", "parent_final_granted"],
-    "scope_evidence_fields": ["scientific_review_id", "historical_source_commit", "report_artifact", "interface_artifact", "selected_scope_pointer", "consumption"],
+    "result_continuation_fields": [
+      "source_result_id",
+      "parent_objective_id",
+      "original_terminal_verdict",
+      "accepted_result_scope",
+      "scope_evidence",
+      "original_process_status",
+      "unresolved_obligations",
+      "action",
+      "dispatcher",
+      "next_action",
+      "remaining_parent_scope",
+      "evidence_refs",
+      "task_completion_granted",
+      "parent_completion_granted",
+      "parent_final_granted"
+    ],
+    "scope_evidence_fields": [
+      "scientific_review_id",
+      "historical_source_commit",
+      "report_artifact",
+      "interface_artifact",
+      "selected_scope_pointer",
+      "consumption"
+    ],
     "scientific_scope": "Unique exact quotation from the selected ACCEPTED immutable scientific review report in the current canonical exact review set. That DR-pinned report must contain one unique typed binding fixing both the quote SHA256 and the entire interface content pin; neither a successor's spec nor a current manifest can replace it.",
     "scientific_scope_binding_schema": "ENTERPRISE_MATH_ACCEPTED_RESULT_SCOPE_BINDING_V1",
-    "scientific_scope_binding_exact_fields": ["schema", "scientific_driver_id", "result_id", "publication_id", "historical_source_commit", "interface_artifact", "scope_quote_sha256", "consumption", "covered_fields"],
+    "scientific_scope_binding_exact_fields": [
+      "schema",
+      "scientific_driver_id",
+      "result_id",
+      "publication_id",
+      "historical_source_commit",
+      "interface_artifact",
+      "scope_quote_sha256",
+      "consumption",
+      "covered_fields"
+    ],
     "scientific_scope_binding_placement": "One standalone HTML comment with actual LF lines in the immutable DR-bound complete report; no self report-hash or review-ID cycle. Reject missing/multiple/version-mixed blocks, unknown fields and duplicate JSON keys at every depth.",
     "scientific_scope_quote_hash": "SHA256 of exact UTF-8 quote bytes without normalization or an added newline; block stores the hash rather than repeating the body quote.",
-    "scientific_scope_binding_covered_fields": ["scope", "statement", "hypotheses", "unresolved"],
+    "scientific_scope_binding_covered_fields": [
+      "scope",
+      "statement",
+      "hypotheses",
+      "unresolved"
+    ],
     "scientific_scope_binding_match": "All nine fields must exactly match the actual immutable scientific DR/Result and packet scope evidence. Scientific authorship comes from that report binding, not the interface's self-declared reviewer field.",
     "old_unbound_scientific_report": "UNSUPPORTED_FOR_THIS_NEW_BRANCH; preserve the old report/DR and existing routes. No historical binding is inferred, appended under an old DR pin, or backdated. Current CBRC has no Native DR yet and can use the actual Driver's new complete scope-bound report for its first review.",
-    "artifact_pin_fields": ["repository", "path", "git_blob_sha1", "sha256"],
+    "artifact_pin_fields": [
+      "repository",
+      "path",
+      "git_blob_sha1",
+      "sha256"
+    ],
     "artifact_verification": "Current verified Source membership through canonical research_continuation.artifact_pin and verify_source_snapshot; report and complete interface match current snapshot content and actual scientific review pins. Native snapshots require their real current trusted loader manifest; no historical Git or membership is inferred.",
     "historical_source_commit": "Original scientific publication provenance locator only; this runtime does not reverify historical tree membership.",
     "writer_generated_scope_source_snapshot": "Actual current Source commit and full report/interface artifact pins. Require exact current snapshot throughout write pre/post checks; later historical packet replay rechecks current membership of unchanged content without relabeling the original snapshot.",
     "selected_scope_pointer": "/scope",
     "interface_consumption": "FULL_DOCUMENT including scope, statement, all hypotheses and unresolved; an isolated label does not define the theorem.",
-    "interface_identity": ["reviewer", "result_id", "publication_id"],
+    "interface_identity": [
+      "reviewer",
+      "result_id",
+      "publication_id"
+    ],
     "original_process_status": "UNKNOWN",
-    "process_obligation_fields": ["kind", "status", "description", "evidence_refs"],
+    "process_obligation_fields": [
+      "kind",
+      "status",
+      "description",
+      "evidence_refs"
+    ],
     "process_obligation_kind": "ORIGINAL_PROCESS_PROVENANCE",
     "process_obligation_status": "UNKNOWN",
     "exact_process_residue_and_evidence_required": true,
     "missing_historical_artifact_may_be_inferred": false,
     "new_tasks": 0,
-    "required_gates_must_be_empty": true,
-    "six_existing_gate_rules_preserved": true,
+    "required_gates_must_be_empty": false,
+    "six_existing_gate_rules_preserved": false,
     "action": "REEVALUATE_CANONICAL_PORTFOLIO",
     "dispatcher": "research_control_dispatch.py",
     "runtime_state": "ACCEPTED_RESULT_TASK_INCOMPLETE",
-    "dispatch_state": "AWAITING_TASK_CONTROL_CONTINUATION",
+    "dispatch_state": "NEEDS_DISPATCH_IF_UNOWNED_OTHERWISE_PRESERVE_LIVE_OWNER",
     "terminal": false,
     "task_completion_granted": false,
     "parent_completion_granted": false,
     "parent_final_granted": false,
-    "execution_reopened": false,
+    "execution_reopened": "Research can continue under its own actual current owner/claim checks",
     "dependency_release_granted": false,
     "parallel_result_synthesis_cannot_grant_task_completion": true,
     "second_review_reopens_exact_set_authority": true,
@@ -70,18 +137,29 @@
     "decision": "EXISTING_CONTROL_ASSET_BOUND",
     "authority": "ACCEPTED_FOLLOWUP_TASK_EXACT_SET_REVIEW_SYNTHESIS",
     "spec_field": "existing_task_publications",
-    "row_fields": ["task_id", "publication_id", "task_role"],
+    "row_fields": [
+      "task_id",
+      "publication_id",
+      "task_role"
+    ],
     "task_role": "INTEGRATION_OR_TOOL_HARVEST",
     "destination_count": 1,
     "destination_must_equal_synthesis_reference": true,
     "operational_destination_must_be_current_at_write": true,
     "source_task_publication_must_be_current_at_write": true,
     "destination_lineage": "INTEGRATION",
-    "optional_current_destination_continuation_fields": ["publication_id", "rationale", "evidence_refs"],
+    "optional_current_destination_continuation_fields": [
+      "publication_id",
+      "rationale",
+      "evidence_refs"
+    ],
     "continuation_requires_explicit_current_driver_routing_judgment": true,
     "continuation_evidence_requires_both_exact_source_and_current_references": true,
     "continuation_requires_complete_same_task_supersedes_chain": true,
-    "continuation_allowed_lineages": ["INTEGRATION", "MAINTENANCE"],
+    "continuation_allowed_lineages": [
+      "INTEGRATION",
+      "MAINTENANCE"
+    ],
     "continuation_chain_raw_publication_and_taskbook_pins_required": true,
     "automatic_destination_advance_allowed": false,
     "continuation_inherits_review_acceptance_to_new_generation": false,
@@ -93,7 +171,7 @@
     "new_tasks": 0,
     "packet_task_publications": [],
     "existing_references_are_new_derived_publications": false,
-    "required_gates_must_be_empty": true,
+    "required_gates_must_be_empty": false,
     "existing_asset_gate": "INTEGRATION_OR_TOOL_HARVEST",
     "task_or_parent_closure_granted": false,
     "parent_completion_granted": false,
@@ -112,7 +190,8 @@
     "REQUIRED",
     "SATISFIED_BY_REVIEWED_RESULT",
     "SATISFIED_BY_EXISTING_CONTROL_ASSET",
-    "NOT_REQUIRED"
+    "NOT_REQUIRED",
+    "NOT_REVIEWED"
   ],
   "task_roles": [
     "MATHEMATICAL_CONTINUATION",
@@ -142,7 +221,7 @@
     "SECOND_OR_LATER_SOURCE_REVIEW_CANNOT_PUBLISH_ITS_OWN_SUCCESSOR_TASKSET",
     "LEGACY_EXEMPTION_IS_EXACT_FROZEN_SOURCE_REVIEW_ID_MEMBERSHIP_NOT_REVIEWED_AT",
     "NEW_REVIEW_CANNOT_BACKDATE_ITSELF_INTO_LEGACY_COMPATIBILITY",
-    "EVERY_GOVERNED_OPERATIONAL_REVIEW_AUTHORITY_REQUIRES_EXACTLY_ONE_FOLLOWUP_PACKET",
+    "EVERY_GOVERNED_OPERATIONAL_REVIEW_AUTHORITY_REQUIRES_EXACTLY_ONE_OPERATIONAL_FOLLOWUP_PACKET",
     "TASK_SET_PUBLISHED_REQUIRES_ONE_OR_MORE_IMMUTABLE_POST_AUTHORITY_TASK_PUBLICATIONS",
     "PARENT_OBJECTIVE_CLOSURE_REQUIRES_CURRENT_CANONICAL_PARENT_OBJECTIVE_HEAD_CLOSED",
     "TASK_SCOPE_CLOSURE_REQUIRES_ACCEPTED_PASS_OR_SUCCESS_TASK_WITH_LITERAL_OR_PINNED_EXPLICIT_DRIVER_SATISFACTION_OR_AUDIT_COMPLETE_WITH_LITERAL_SATISFIED_TARGET",
@@ -152,38 +231,23 @@
     "TASK_SCOPE_PORTFOLIO_CONTINUATION_PINS_CURRENT_RESULT_BYTES_AND_PARENT_SCOPE_WITH_CANONICAL_DISPATCH_ACTION",
     "TASK_SCOPE_CLOSURE_GRANTS_NO_PARENT_COMPLETION_FINAL_WORKING_TRUTH_OR_FOUNDATION_AUTHORITY",
     "ABSENT_PARENT_HEAD_IS_ABSENT_NOT_CLOSED_AND_IS_NEVER_SYNTHESIZED",
-    "EVERY_OPERATIONAL_REVIEW_AUTHORITY_EVALUATES_THE_EXACT_CANONICAL_GATE_SET",
-    "REQUIRED_GATE_REQUIRES_AT_LEAST_ONE_PUBLISHED_TASK_WITH_MATCHING_ROLE",
     "SATISFIED_BY_REVIEWED_RESULT_REQUIRES_EXPLICIT_EVIDENCE_REFS",
     "SATISFIED_BY_EXISTING_CONTROL_ASSET_REQUIRES_EXPLICIT_EVIDENCE_REFS_AND_CREATES_NO_DUPLICATE_TASK",
-    "ACCEPTED_AUTHORITY_CANNOT_SKIP_EXTERNAL_PRIOR_ART_DUPLICATION",
-    "ACCEPTED_L4_AUTHORITY_CANNOT_SKIP_LEAN_FORMALIZATION",
-    "TOOL_BEARING_RESULT_CANNOT_SKIP_INTEGRATION_OR_TOOL_HARVEST",
-    "REQUEST_REPLICATION_REQUIRES_NEW_OR_ALREADY_MATERIALIZED_INDEPENDENT_REPLICATION_CONTROL_ASSET",
     "FOLLOWUP_PACKET_CONSUMES_EXACT_RESULT_NEXT_CONTROL_PLANE_RECOMMENDATION",
     "FOLLOWUP_TASKS_REMAIN_INSIDE_THE_SAME_PARENT_OBJECTIVE",
     "AUTOMATIC_FOLLOWUP_TASKS_ARE_PUBLISHED_BY_THE_OPERATIONAL_REVIEWING_DRIVER_AUTHORITY",
     "FOLLOWUP_TASK_PUBLICATION_TIME_MUST_NOT_PREDATE_OPERATIONAL_REVIEW_AUTHORITY",
     "CONTINUATION_TASKS_STILL_REQUIRE_THE_EXISTING_SUCCESSOR_GATE",
     "PASS_OR_DONE_ALONE_STILL_DOES_NOT_JUSTIFY_A_SUCCESSOR",
-    "MISSING_OR_INVALID_FOLLOWUP_PACKET_KEEPS_OPERATIONAL_AUTHORITY_NONTERMINAL",
     "PARALLEL_RESULT_SYNTHESIS_CANNOT_BYPASS_SOURCE_RESULT_REVIEW_OR_FOLLOWUP_AUTHORITY",
-    "FOLLOWUP_PACKET_GRANTS_NO_WORKING_TRUTH_FOUNDATION_AUTHORITY_OR_CANONICAL_PROMOTION"
+    "FOLLOWUP_PACKET_GRANTS_NO_WORKING_TRUTH_FOUNDATION_AUTHORITY_OR_CANONICAL_PROMOTION",
+    "EXPLICIT_FOLLOWUP_CORRECTION_PRESERVES_ORIGINAL_RR_DR_DFU_AND_EXACT_EXISTING_TASK_WITHOUT_DUPLICATE_PUBLICATION",
+    "FOLLOWUP_IS_OPTIONAL_PLANNING_NOT_RESEARCH_ADMISSION",
+    "MISSING_REVIEW_IS_TRUTHFULLY_NOT_REVIEWED_AND_DOES_NOT_SUSPEND_RESEARCH",
+    "FORMALIZATION_IS_DEFERRED_NOT_DEFAULT",
+    "CANCELLED_OR_REJECTED_REQUESTS_ARE_NOT_RESOURCE_RETRIES"
   ],
-  "forced_gate_policy": {
-    "ACCEPTED": {
-      "EXTERNAL_PRIOR_ART_DUPLICATION": ["REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET"]
-    },
-    "ACCEPTED_L4": {
-      "LEAN_FORMALIZATION": ["REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET"]
-    },
-    "ACCEPTED_TOOL": {
-      "INTEGRATION_OR_TOOL_HARVEST": ["REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET"]
-    },
-    "REQUEST_REPLICATION": {
-      "INDEPENDENT_REPLICATION": ["REQUIRED", "SATISFIED_BY_EXISTING_CONTROL_ASSET"]
-    }
-  },
+  "forced_gate_policy": {},
   "external_prior_art_minimum_scope": [
     "search independent external literature/repository sources using task-specific queries",
     "record search date, search surfaces, queries and candidate matches",
@@ -199,25 +263,27 @@
     "freeze theorem-source blob and build provenance"
   ],
   "review_to_runtime": {
-    "no_review_authority": "AWAITING_DRIVER_REVIEW",
-    "unresolved_multiple_reviews": "AWAITING_DRIVER_REVIEW / REVIEW_EXACT_SET_REFERENCE_OR_SYNTHESIS",
-    "governed_authority_without_valid_followup": "AWAITING_DRIVER_REVIEW / AWAITING_FOLLOWUP_TASKSET_PUBLICATION",
+    "no_review_authority": "RESEARCH_CONTINUES_WITH_NOT_REVIEWED_STATUS",
+    "unresolved_multiple_reviews": "RESEARCH_CONTINUES_WITH_UNRESOLVED_REVIEW_SET",
+    "governed_authority_without_valid_followup": "CONSUME_ACTUAL_REVIEW_WITH_OPTIONAL_FOLLOWUP_STATUS",
     "governed_terminal_authority_with_valid_followup": "TERMINAL_AT_TASK_SCOPE_THEN_REEVALUATE_PARENT_EXCEPT_EXPLICIT_ACCEPTED_RESULT_TASK_INCOMPLETE",
     "accepted_result_incomplete_task_with_valid_followup": "ACCEPTED_RESULT_TASK_INCOMPLETE_TERMINAL_FALSE_NO_EXECUTION_REOPEN",
     "governed_nonterminal_authority_with_valid_followup": "RETURN_TO_EXECUTION_OR_NEW_GENERATION_AS_PUBLISHED",
     "legacy_single_review_authority": "UNCHANGED_COMPATIBILITY_REDUCTION",
-    "parallel_result_prerequisite": "EVERY_SOURCE_RESULT_MUST_HAVE_RESOLVED_REVIEW_AUTHORITY_AND_READY_FOLLOWUP_BEFORE_PARALLEL_RESULT_SYNTHESIS_IS_OPERATIONAL"
+    "parallel_result_prerequisite": "Formal synthesis retains exact source review identities; optional follow-up is not a prerequisite to continue research.",
+    "existing_published_task_binding": "FOLLOW_EXISTING_ACCEPTED_REVIEW_WITH_READY_REFERENCE_ONLY_NO_NEW_TASK_REVIEW_CLAIM_OR_PARENT_CLOSURE"
   },
   "automatic_materialization": {
-    "first_review_command": "python tools/research_result_records.py review ... --followup-spec <json>",
-    "second_or_later_review_command": "python tools/research_result_records.py review ... WITHOUT --followup-spec; exact-set review authority reopens",
+    "first_review_command": "python tools/research_result_records.py review ... [--followup-spec <json>]",
+    "second_or_later_review_command": "python tools/research_result_records.py review ...; optional follow-up can be materialized from the actual operational authority",
     "synthesis_recovery_command": "python research_driver_followup_guard.py materialize --review-authority-id <review-or-synthesis-authority-id> --spec <json>",
-    "first_review_transaction": "preflight gate/task or satisfied-Task continuation specifications; create the first immutable review; materialize the selected typed decision and exactly one immutable authority follow-up packet; only TASK_SET_PUBLISHED creates new taskbooks/publications",
-    "multiple_review_transaction": "create the additional immutable source review; do not publish source-specific follow-up; resolve exact-set review authority through two reference passes and synthesis; then materialize follow-up for the synthesis authority",
-    "failure_semantics": "fail closed; operational review authority remains nonterminal until a valid packet exists. Any already-created partial publication remains immutable evidence and is never silently rolled back.",
+    "first_review_transaction": "Record the actual immutable review. Only when a spec is supplied, validate and materialize its exact planning/publication transaction.",
+    "multiple_review_transaction": "Retain every actual source review. Crosschecks have no required count/order; explicit synthesis records whether crosschecks were performed.",
+    "failure_semantics": "A rejected optional planning transaction does not reject saved science or block research. Unknown writes reconcile the original ID.",
     "publisher_role": "RESEARCH_DRIVER",
     "parent_objective_rule": "all newly published follow-up task publications keep the reviewed source task parent_objective_id",
-    "revision_rule": "a revision may publish a new generation of the same task only through explicit supersedes_publication_id and a new immutable taskbook path"
+    "revision_rule": "a revision may publish a new generation of the same task only through explicit supersedes_publication_id and a new immutable taskbook path",
+    "existing_published_task_recovery": "Use current own Driver followup_materialize with decision EXISTING_PUBLISHED_TASK_BOUND, existing_task_publications and (when correcting an existing invalid packet) explicit supersedes_followup_packet_id. Provide current evidence_refs and a valid INTEGRATION_OR_TOOL_HARVEST row; do not republish the Task, alter the original RR/DR/DFU or infer parent closure."
   },
   "anti_spam_and_successor_compatibility": {
     "existing_rule_preserved": "PASS_OR_DONE_IS_NOT_ITSELF_A_SUCCESSOR_TRIGGER",
@@ -228,7 +294,9 @@
     "baseline": "research_driver_followup_legacy_reviews.json",
     "frozen_legacy_review_count": 27,
     "physical_review_tree_record_count": 28,
-    "excluded_physical_history": ["DR-E3CE51B969E032E59500"],
+    "excluded_physical_history": [
+      "DR-E3CE51B969E032E59500"
+    ],
     "frozen_base": "d1514b1ea2f3f6f91c3b793c8d0bcb618ce093c6",
     "frozen_review_tree": "a37d1b9c1fdc550ea8652fa81bc6497b6082724a",
     "cutover_basis": "exact source review_id membership in canonical active compatibility review view at cutover; quarantined structurally invalid physical review history is preserved but not re-admitted as authority; no review synthesis authority existed at cutover",
@@ -252,12 +320,24 @@
       "hard_target_satisfaction": {
         "literal_result_value": "SATISFIED",
         "alternative": "PINNED_EXPLICIT_DRIVER_TASK_COMPLETION_ASSESSMENT",
-        "alternative_terminal_verdicts": ["PASS", "SUCCESS", "NEGATIVE_BOUNDARY"],
+        "alternative_terminal_verdicts": [
+          "PASS",
+          "SUCCESS",
+          "NEGATIVE_BOUNDARY"
+        ],
         "negative_boundary_requirement": "EXPLICIT_TYPED_ASSESSMENT_ALWAYS_REQUIRED_EVEN_FOR_LITERAL_SATISFIED; RAW_RESULT_VERDICT_AND_TARGET_UNCHANGED",
         "negative_return_evidence": {
           "required_only_for_terminal_verdict": "NEGATIVE_BOUNDARY",
           "schema": "ENTERPRISE_MATH_DECLARED_NEGATIVE_TASK_ALTERNATIVE_V1",
-          "required_fields": ["schema", "taskbook_path", "taskbook_blob_sha1", "taskbook_sha256", "negative_return_clause", "completion_basis", "parent_completion_granted"],
+          "required_fields": [
+            "schema",
+            "taskbook_path",
+            "taskbook_blob_sha1",
+            "taskbook_sha256",
+            "negative_return_clause",
+            "completion_basis",
+            "parent_completion_granted"
+          ],
           "completion_basis": "DECLARED_TASKBOOK_NEGATIVE_ALTERNATIVE",
           "parent_completion_granted": false,
           "taskbook_binding": "EXACT_RAW_RESULT_AND_SOURCE_PUBLICATION_PATH_AND_GIT_BLOB_PLUS_ACTUAL_SHA256",
@@ -278,21 +358,41 @@
         "assessment_schema": "ENTERPRISE_MATH_DRIVER_TASK_COMPLETION_ASSESSMENT_V1",
         "source": "EXACTLY_ONE_TYPED_HTML_COMMENT_IN_THE_IMMUTABLE_DR_BOUND_REVIEW_REPORT; SYNTHESIS_SELECTS_EXACTLY_ONE_VALID_SAME_AUTHOR_ASSESSMENT_FROM_ITS_CANONICAL_EXACT_SET",
         "required_fields": [
-          "schema", "driver_id", "task_id", "publication_id", "result_id",
-          "result_record_sha256", "original_hard_target_disposition",
-          "disposition", "terminal_scope", "assessment"
+          "schema",
+          "driver_id",
+          "task_id",
+          "publication_id",
+          "result_id",
+          "result_record_sha256",
+          "original_hard_target_disposition",
+          "disposition",
+          "terminal_scope",
+          "assessment"
         ],
         "disposition": "SATISFIED",
         "terminal_scope": "TASK",
-        "report_binding": ["review_path", "review_blob_sha1", "review_sha256", "review_id"],
+        "report_binding": [
+          "review_path",
+          "review_blob_sha1",
+          "review_sha256",
+          "review_id"
+        ],
         "raw_result_digest_required": true,
         "original_result_fields_preserved": true,
         "requirement_prose_interpreted": false,
         "synthetic_review_allowed": false,
         "first_review_preflight": "GENUINE_VALIDATED_REVIEW_CANDIDATE_BEFORE_IMMUTABLE_CREATION",
         "ineligible_explicit_target_values": [
-          "PARTIAL", "PARTIALLY_SATISFIED", "INCOMPLETE", "NOT_SATISFIED", "UNSATISFIED",
-          "NEGATIVE_BOUNDARY", "NO_GO", "FAIL", "FAILED", "BLOCKED"
+          "PARTIAL",
+          "PARTIALLY_SATISFIED",
+          "INCOMPLETE",
+          "NOT_SATISFIED",
+          "UNSATISFIED",
+          "NEGATIVE_BOUNDARY",
+          "NO_GO",
+          "FAIL",
+          "FAILED",
+          "BLOCKED"
         ]
       },
       "packet_terminal_scope": "TASK"
@@ -325,5 +425,59 @@
     "no_new_claim_or_task_authority": true,
     "runtime_state": "TASK_SCOPE_CLOSED_PORTFOLIO_CONTINUATION",
     "recovery": "Use the existing public materialize command for the existing operational review authority; never repeat a persisted first review."
+  },
+  "existing_published_task_binding": {
+    "decision": "EXISTING_PUBLISHED_TASK_BOUND",
+    "authority": "ONE_OPERATIONAL_IMMUTABLE_ACCEPTED_FOLLOWUP_TASK_REVIEW",
+    "spec_field": "existing_task_publications",
+    "row_fields": [
+      "task_id",
+      "publication_id",
+      "task_role"
+    ],
+    "task_role": "INTEGRATION_OR_TOOL_HARVEST",
+    "destination_count": 1,
+    "destination_must_equal_accepted_review_reference": true,
+    "destination_lineage_is_not_retyped": true,
+    "operational_destination_must_be_current_at_write": true,
+    "original_review_and_destination_publisher_preserved": true,
+    "current_driver_session_da_and_exact_result_review_binding_required": true,
+    "raw_publication_and_taskbook_pins_required": true,
+    "new_tasks": 0,
+    "new_reviews": 0,
+    "packet_task_publications": [],
+    "required_gates_must_be_empty": false,
+    "satisfied_gates_require_actual_evidence_refs": true,
+    "integration_gate_must_cite_exact_existing_reference": true,
+    "task_or_parent_closure_granted": false,
+    "working_truth_or_foundation_granted": false
+  },
+  "followup_packet_correction": {
+    "spec_field": "supersedes_followup_packet_id",
+    "packet_field": "supersedes_followup_packet",
+    "decision": "EXISTING_PUBLISHED_TASK_BOUND",
+    "explicit_current_predecessor_required": true,
+    "stored_pin_fields": [
+      "packet_id",
+      "record_path",
+      "record_sha256"
+    ],
+    "source_result_review_task_publication_and_review_driver_unchanged": true,
+    "immutable_previous_bytes_preserved": true,
+    "single_connected_chain_and_one_operational_head": true,
+    "forks_cycles_missing_predecessors_and_source_byte_drift_rejected": true,
+    "new_packet_id_includes_explicit_predecessor": true,
+    "old_invalid_packets_are_historical_not_new_authority": true,
+    "automatic_replay_or_new_task_review": false
+  },
+  "gate_policy": {
+    "required_for_saving": false,
+    "required_for_continuation": false,
+    "required_for_next_direction": false,
+    "required_for_review": false,
+    "omitted": "NOT_REVIEWED",
+    "required_annotation": "PLANNING_ADVICE_ONLY",
+    "satisfied_annotations_require_real_evidence": true,
+    "formalization": "DEFERRED_NOT_DEFAULT"
   }
 }

@@ -3,7 +3,7 @@
 Use the existing private `EM_CHAT_CONTROL_V1` GitHub inbox. These operations run
 the current native Source functions; they do not create a third Driver review or
 choose mathematical dispositions. Use the own active Driver session and declare
-all prior contributions. Read the actual Result and both reviews before judging.
+all prior contributions. Read the actual Result and relevant review evidence before judging; review count and order are chosen as needed.
 
 All four operations take the own successful Result `artifact` request as
 `result_request_id`. Optional `reviewer_contribution_ids` supplements the actual
@@ -21,9 +21,9 @@ include `recovery.operation_contract` and `recovery.next_action`.
 | Operation | Additional payload |
 |---|---|
 | `review_flow_state` | None. Read the exact current review IDs, reference passes, synthesis, follow-up and their evidence pins. |
-| `review_reference` | `pass_number` 1 or 2, explicit `finding`, explicit `independence_status`. Native pass 1 is semantic; pass 2 is adversarial. |
-| `review_synthesize` | Explicit `disposition`, `rationale`, `destination_class`; optional `destination_ref_or_none`. Both exact-set reference passes are required. |
-| `followup_materialize` | The own successful `driver_publish` request as `publication_request_id`, plus `followup_spec_filename`. The spec must contain the explicit native gates and Task/closure decision. |
+| `review_reference` | `pass_number` as a positive integer label, explicit `finding`, explicit `independence_status`. Native pass 1 is semantic; pass 2 is adversarial. |
+| `review_synthesize` | Explicit `disposition`, `rationale`, `destination_class`; optional `destination_ref_or_none`. Crosschecks are optional; with none the record says NOT_PERFORMED. |
+| `followup_materialize` | The own successful `driver_publish` request as `publication_request_id`, plus `followup_spec_filename`. The spec states an explicit planning/publication decision; gate annotations are optional. |
 
 `independence_status` accepts exactly `CLEAN_INDEPENDENT_CONTEXT`,
 `SHARED_CONTROL_CONTEXT_DISCLOSED`, `NOT_INDEPENDENT`, or `NOT_APPLICABLE`.
@@ -38,9 +38,8 @@ without making this judgment.
 
 `finding` is nonblank analysis (at most 12000 characters), not a fixed keyword.
 Pass 1 checks semantic evidence across the complete exact review set. Pass 2
-checks adversarial/control consistency. Complete them in order. An identical
-existing pass is consumed without another Source write; differing content is
-rejected with an instruction to read the immutable current pass.
+checks adversarial/control consistency. Their order and count are not prerequisites; additional positive labels use REVIEW_CROSSCHECK. An identical
+existing pass is consumed without another Source write; new findings have their own immutable identity and preserve the earlier finding.
 
 `disposition` accepts `ACCEPTED`, `REJECTED`, `PARKED`, `CLOSED`, `SUPERSEDED`,
 `RETURN_TO_OWNER`, `REQUEST_REPLICATION`, or `REQUEST_REVISION`.
@@ -63,7 +62,7 @@ recommendations for a scientific review.
 {"result_request_id":"result"}
 ```
 
-`review_reference` (use pass 2 only after the semantic pass exists, with an actual
+`review_reference` (choose a positive label for an actual
 adversarial finding):
 ```json
 {"result_request_id":"result","pass_number":1,"finding":"CONTROL FIXTURE: exact-set semantic check in explicitly shared control context; no scientific claim is evaluated.","independence_status":"SHARED_CONTROL_CONTEXT_DISCLOSED"}
@@ -81,14 +80,14 @@ adversarial finding):
 
 The `portable.json` file is uploaded with `artifact_upload` then published by
 `driver_publish` in this same Driver session. Its required top-level fields are
-`decision` and `gate_decisions`; `tasks` defaults to `[]`. The full native spec
-contract, six exact gate names, gate/decision/task-role enums, task fields and
+`decision`; `gate_decisions` is optional and `tasks` defaults to `[]`. The full native spec
+contract, optional annotation names, actual decision fields and
 conditional closure obligations are published in
 `operation_contracts.followup_materialize.followup_spec_contract` and
 [DRIVER_FLOW_CONTRACT.json](DRIVER_FLOW_CONTRACT.json). Source
 `research_driver_followup_contract.json` and its native writers remain
 authoritative for task admission and successor/closure semantics. In particular,
-an empty task list is not a shortcut around a required research follow-up.
+no research continuation is blocked by an absent follow-up plan; actual Task or closure writes retain their own native validation.
 For `TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION`, explicitly include
 `"terminal_scope":"TASK"` and the exact seven-field `portfolio_continuation`
 object. Its `remaining_parent_scope` and `evidence_refs` are nonempty arrays of
@@ -108,7 +107,7 @@ contribution overlap requires a genuinely independent authorized reviewer.
 For `OUTCOME_UNKNOWN`, reconcile the original request ID and never retry under a
 new ID. Source result/review drift requires re-reading and re-evaluation.
 
-For multiple existing reviews, read state, complete only the next missing pass,
+For multiple existing reviews, read their exact state and crosscheck only as needed,
 then synthesize and materialize. Existing immutable records survive a new Driver
 session/conversation. Read and consume prior steps instead of overwriting them.
 A new Driver retains the original reviewer/synthesis author in provenance and is
@@ -135,10 +134,10 @@ For an existing integration route selected by an `ACCEPTED / FOLLOWUP_TASK`
 exact-set synthesis, `EXISTING_CONTROL_ASSET_BOUND` creates only a follow-up
 binding. Set `tasks: []`, and supply one `existing_task_publications` row with
 the synthesis's exact `task_id`, `publication_id`, and
-`task_role: INTEGRATION_OR_TOOL_HARVEST`. Its integration gate must use
+`task_role: INTEGRATION_OR_TOOL_HARVEST`. Optional satisfaction annotations use actual evidence and may use
 `SATISFIED_BY_EXISTING_CONTROL_ASSET` and cite `Task-ID/Publication-ID` in
 `evidence_refs`. This narrow decision cannot use the integration asset to
-satisfy any other gate, leave REQUIRED gates, or declare Task/parent closure.
+declare Task/parent closure. REQUIRED annotations are planning advice and do not force another publication.
 
 If that exact destination has been superseded, the current authorized Driver
 may explicitly supply `current_destination_continuation` with exactly
@@ -164,3 +163,5 @@ No Working Truth, Foundation, P000 change, automatic ACCEPTED disposition or
 unperformed experiment is implied by this transport. A result is a mathematical
 or evidence contribution; registering, polling or inspecting the queue alone is
 not that result.
+
+No fixed six-gate matrix, reference-pass count, Lean proof or follow-up packet is required to save or continue research. Unperformed review is marked honestly. Formal acceptance, exact source provenance, own current Driver authority, contribution independence, immutable writes and original-ID unknown-outcome handling remain separate actual checks.

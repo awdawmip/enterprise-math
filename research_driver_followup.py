@@ -49,14 +49,15 @@ CUTOVER_REVIEWED_AT = "2026-08-27T09:19:00+00:00"
 
 TASK_SCOPE_DECISION = "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION"
 EXISTING_ASSET_DECISION = "EXISTING_CONTROL_ASSET_BOUND"
+EXISTING_TASK_DECISION = "EXISTING_PUBLISHED_TASK_BOUND"
 RESULT_CONTINUATION_DECISION = "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION"
 RESULT_CONTINUATION_STATE = "ACCEPTED_RESULT_TASK_INCOMPLETE"
 RESULT_SCOPE_BINDING_SCHEMA = "ENTERPRISE_MATH_ACCEPTED_RESULT_SCOPE_BINDING_V1"
 TASK_COMPLETION_ASSESSMENT_SCHEMA = "ENTERPRISE_MATH_DRIVER_TASK_COMPLETION_ASSESSMENT_V1"
 NEGATIVE_TASK_ALTERNATIVE_SCHEMA = "ENTERPRISE_MATH_DECLARED_NEGATIVE_TASK_ALTERNATIVE_V1"
 DECISIONS = {"TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE", TASK_SCOPE_DECISION, EXISTING_ASSET_DECISION,
-             RESULT_CONTINUATION_DECISION}
-GATE_DECISIONS = {"REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET", "NOT_REQUIRED"}
+             RESULT_CONTINUATION_DECISION, EXISTING_TASK_DECISION}
+GATE_DECISIONS = {"REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET", "NOT_REQUIRED", "NOT_REVIEWED"}
 GATES = (
     "MATHEMATICAL_CONTINUATION",
     "LEAN_FORMALIZATION",
@@ -127,12 +128,17 @@ def _safe(value: Any, label: str) -> str:
     return value.strip()
 
 
-def packet_id(review_id: str, decision: str, task_publication_ids: list[str]) -> str:
+def packet_id(
+    review_id: str, decision: str, task_publication_ids: list[str], *,
+    supersedes_packet_id: str | None = None,
+) -> str:
     payload = {
         "review_id": review_id,
         "decision": decision,
         "task_publication_ids": sorted(task_publication_ids),
     }
+    if supersedes_packet_id is not None:
+        payload["supersedes_packet_id"] = supersedes_packet_id
     return "DFU-" + hashlib.sha256(
         json.dumps(payload, separators=(",", ":"), sort_keys=True).encode("utf-8")
     ).hexdigest()[:20].upper()
@@ -150,15 +156,74 @@ def iter_packets(root: Path = ROOT) -> list[dict[str, Any]]:
     return out
 
 
+def _followup_record_pin(
+    review_id: str, previous_id: str, root: Path,
+) -> dict[str, str]:
+    review_id = _safe(review_id, "review_id")
+    previous_id = _safe(previous_id, "superseded follow-up packet_id")
+    relative = f"research_driver_followups/{review_id}/{previous_id}.json"
+    path = (root / relative).resolve()
+    if not path.is_relative_to((root / "research_driver_followups").resolve()) or not path.is_file():
+        raise DriverFollowupError("superseded follow-up source record is unavailable")
+    data = path.read_bytes()
+    previous = json.loads(data)
+    if (not isinstance(previous, dict) or previous.get("review_id") != review_id
+            or previous.get("packet_id") != previous_id
+            or previous.get("schema") != SCHEMA or previous.get("policy") != POLICY):
+        raise DriverFollowupError("superseded follow-up source identity mismatch")
+    return {"packet_id": previous_id, "record_path": relative,
+            "record_sha256": "sha256:" + hashlib.sha256(data).hexdigest()}
+
+
 def packet_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
-    out: dict[str, dict[str, Any]] = {}
+    grouped: dict[str, dict[str, dict[str, Any]]] = {}
     for item in iter_packets(root):
         rid = item.get("review_id")
         if not isinstance(rid, str) or not rid:
             raise DriverFollowupError(f"{item.get('_path', '<packet>')}: missing review_id")
-        if rid in out:
-            raise DriverFollowupError(f"multiple follow-up packets for review {rid}")
-        out[rid] = item
+        pid = _safe(item.get("packet_id"), "packet_id")
+        group = grouped.setdefault(rid, {})
+        if pid in group:
+            raise DriverFollowupError(f"duplicate follow-up packet identity: {pid}")
+        group[pid] = item
+    out: dict[str, dict[str, Any]] = {}
+    for rid, group in grouped.items():
+        replaced: dict[str, str] = {}
+        for pid, item in group.items():
+            pin = item.get("supersedes_followup_packet")
+            if pin is None:
+                continue
+            if item.get("decision") != EXISTING_TASK_DECISION or not isinstance(pin, dict):
+                raise DriverFollowupError("follow-up correction requires the existing-published-task decision")
+            previous_id = _safe(pin.get("packet_id"), "superseded follow-up packet_id")
+            if previous_id == pid or previous_id not in group:
+                raise DriverFollowupError("follow-up correction has a missing or self predecessor")
+            if pin != _followup_record_pin(rid, previous_id, root):
+                raise DriverFollowupError("superseded follow-up record path/digest drift")
+            if previous_id in replaced:
+                raise DriverFollowupError(f"multiple follow-up corrections for packet {previous_id}")
+            previous = group[previous_id]
+            for field in ("review_id", "result_id", "task_id", "source_publication_id", "driver_id"):
+                if item.get(field) != previous.get(field):
+                    raise DriverFollowupError(f"follow-up correction changes its source {field}")
+            if _parse_time(item.get("created_at"), "created_at") < _parse_time(previous.get("created_at"), "previous created_at"):
+                raise DriverFollowupError("follow-up correction predates its source packet")
+            replaced[previous_id] = pid
+        heads = set(group) - set(replaced)
+        if len(heads) != 1:
+            raise DriverFollowupError(f"multiple or cyclic follow-up packets for review {rid}")
+        head = next(iter(heads))
+        seen: set[str] = set()
+        cursor = head
+        while cursor not in seen:
+            seen.add(cursor)
+            pin = group[cursor].get("supersedes_followup_packet")
+            if pin is None:
+                break
+            cursor = pin["packet_id"]
+        if len(seen) != len(group):
+            raise DriverFollowupError(f"disconnected follow-up correction chain for review {rid}")
+        out[rid] = group[head]
     return out
 
 
@@ -214,7 +279,8 @@ def _objective_head(parent_objective_id: str, root: Path) -> dict[str, Any] | No
 
 
 def _result_continuation_spec(spec: dict[str, Any]) -> None:
-    if set(spec) != {"decision", "gate_decisions", "tasks", "result_continuation"}:
+    if (not {"decision", "tasks", "result_continuation"} <= set(spec)
+            or set(spec)-{"decision", "gate_decisions", "tasks", "result_continuation"}):
         raise DriverFollowupError("accepted-result continuation requires exact spec fields")
 
 
@@ -230,8 +296,8 @@ def _result_acceptance_continuation(
         raise DriverFollowupError("accepted-result continuation requires unchanged raw NO_GO")
     if result.get("method_harvest") not in {"RESULT_ONLY", "CANDIDATE_NOT_TOOL"}:
         raise DriverFollowupError("accepted-result continuation cannot grant tool-bearing harvest")
-    if tasks or any(row["decision"] == "REQUIRED" for row in gates.values()):
-        raise DriverFollowupError("accepted-result continuation cannot publish tasks or leave REQUIRED gates")
+    if tasks:
+        raise DriverFollowupError("accepted-result continuation cannot publish tasks")
     if current_publication_required:
         current = research_task_records.current_records(root).get(str(result.get("task_id")))
         if current is None or current.get("publication_id") != result.get("publication_id"):
@@ -471,8 +537,6 @@ def _task_scope_continuation(
             raise DriverFollowupError("TASK-scope closure requires the current operational Task publication")
     if tasks:
         raise DriverFollowupError("TASK-scope portfolio continuation cannot publish new tasks")
-    if any(row["decision"] == "REQUIRED" for row in gates.values()):
-        raise DriverFollowupError("TASK-scope closure cannot leave REQUIRED follow-up gates")
     fields = {
         "source_result_id", "parent_objective_id", "action", "dispatcher",
         "next_action", "remaining_parent_scope", "evidence_refs",
@@ -736,25 +800,32 @@ def _parent_status_at_materialization(parent: str, root: Path) -> str:
 
 
 def _gate_map(value: Any) -> dict[str, dict[str, Any]]:
-    if not isinstance(value, list) or len(value) != len(GATES):
-        raise DriverFollowupError(
-            f"gate_decisions must contain exactly {len(GATES)} canonical gate rows"
-        )
-    out: dict[str, dict[str, Any]] = {}
+    # Optional research planning annotations, not six admission prerequisites.
+    # Missing assessments remain explicitly unreviewed, never satisfied.
+    if value is None:
+        value = []
+    if not isinstance(value, list):
+        raise DriverFollowupError("gate_decisions must be a list when supplied")
+    out: dict[str, dict[str, Any]] = {
+        gate: {"gate": gate, "decision": "NOT_REVIEWED", "reason": "Not reviewed.", "evidence_refs": []}
+        for gate in GATES
+    }
+    seen: set[str] = set()
     for row in value:
         if not isinstance(row, dict):
             raise DriverFollowupError("gate_decisions rows must be objects")
         gate = row.get("gate")
         if gate not in GATES:
             raise DriverFollowupError(f"unknown follow-up gate: {gate}")
-        if gate in out:
+        if gate in seen:
             raise DriverFollowupError(f"duplicate follow-up gate: {gate}")
+        seen.add(gate)
         decision = row.get("decision")
         if decision not in GATE_DECISIONS:
             raise DriverFollowupError(f"{gate}: invalid gate decision")
-        reason = row.get("reason")
-        if not isinstance(reason, str) or not reason.strip():
-            raise DriverFollowupError(f"{gate}: nonempty reason is required")
+        reason = row.get("reason", "Not reviewed." if decision == "NOT_REVIEWED" else "No rationale recorded.")
+        if not isinstance(reason, str):
+            raise DriverFollowupError(f"{gate}: reason must be a string")
         evidence = row.get("evidence_refs", [])
         if (
             not isinstance(evidence, list)
@@ -772,55 +843,19 @@ def _gate_map(value: Any) -> dict[str, dict[str, Any]]:
             "reason": reason.strip(),
             "evidence_refs": evidence,
         }
-    if set(out) != set(GATES):
-        raise DriverFollowupError("gate_decisions do not cover the exact canonical gate set")
     return out
 
 
 def _forced_gate_rules(
     review: dict[str, Any], result: dict[str, Any], gates: dict[str, dict[str, Any]]
 ) -> None:
-    disposition = review.get("disposition")
-    destination = review.get("destination_class")
+    """Compatibility hook: planning annotations grant no authority or truth.
 
-    if disposition == "ACCEPTED":
-        if gates["EXTERNAL_PRIOR_ART_DUPLICATION"]["decision"] == "NOT_REQUIRED":
-            raise DriverFollowupError(
-                "ACCEPTED review requires EXTERNAL_PRIOR_ART_DUPLICATION to be "
-                "REQUIRED or SATISFIED_BY_REVIEWED_RESULT"
-            )
-
-    if disposition == "ACCEPTED" and destination == "L4":
-        if gates["LEAN_FORMALIZATION"]["decision"] == "NOT_REQUIRED":
-            raise DriverFollowupError(
-                "ACCEPTED L4 review requires LEAN_FORMALIZATION to be REQUIRED "
-                "or SATISFIED_BY_REVIEWED_RESULT"
-            )
-
-    if disposition == "ACCEPTED" and destination == "FOUNDATION":
-        if gates["EXTERNAL_PRIOR_ART_DUPLICATION"]["decision"] == "NOT_REQUIRED":
-            raise DriverFollowupError(
-                "Foundation-directed acceptance cannot skip external prior-art/duplication review"
-            )
-
-    if disposition == "ACCEPTED" and destination == "TOOL":
-        if gates["INTEGRATION_OR_TOOL_HARVEST"]["decision"] == "NOT_REQUIRED":
-            raise DriverFollowupError(
-                "TOOL destination requires integration/tool-harvest gate"
-            )
-
-    if disposition == "REQUEST_REPLICATION":
-        if gates["INDEPENDENT_REPLICATION"]["decision"] not in {"REQUIRED", "SATISFIED_BY_EXISTING_CONTROL_ASSET"}:
-            raise DriverFollowupError(
-                "REQUEST_REPLICATION disposition requires an INDEPENDENT_REPLICATION task"
-            )
-
-    method = result.get("method_harvest")
-    if method in {"GLOBAL_TOOL_FAMILY", "GLOBAL_SUBTOOL", "DOMAIN_FACADE", "DOMAIN_OPERATOR"}:
-        if gates["INTEGRATION_OR_TOOL_HARVEST"]["decision"] == "NOT_REQUIRED":
-            raise DriverFollowupError(
-                "tool-bearing result cannot skip INTEGRATION_OR_TOOL_HARVEST gate"
-            )
+    Research, storage and continuation do not require a fixed checklist. Lean
+    is deferred by user direction; a real proof or recomputation is assessed
+    for the particular proposition, independently of these optional labels.
+    """
+    return None
 
 
 def _task_rows(value: Any) -> list[dict[str, Any]]:
@@ -835,9 +870,9 @@ def _task_rows(value: Any) -> list[dict[str, Any]]:
         if pid in seen:
             raise DriverFollowupError(f"duplicate task publication in follow-up packet: {pid}")
         seen.add(pid)
-        role = row.get("task_role")
-        if role not in TASK_ROLES:
-            raise DriverFollowupError(f"{pid}: invalid task_role")
+        role = row.get("task_role", "REFERENCE")
+        if not isinstance(role, str) or not role.strip():
+            raise DriverFollowupError(f"{pid}: task_role must be nonblank descriptive text")
         task_id = _safe(row.get("task_id"), "task_id")
         out.append({"task_id": task_id, "publication_id": pid, "task_role": role})
     return out
@@ -884,16 +919,6 @@ def _existing_asset_pins(
     reference = f"{row['task_id']}/{row['publication_id']}"
     if review.get("destination_ref_or_none") != reference:
         raise DriverFollowupError("existing asset differs from the exact synthesis destination")
-    if any(gate["decision"] == "REQUIRED" for gate in gates.values()):
-        raise DriverFollowupError("existing asset binding cannot leave REQUIRED follow-up gates")
-    integration = gates["INTEGRATION_OR_TOOL_HARVEST"]
-    if (integration["decision"] != "SATISFIED_BY_EXISTING_CONTROL_ASSET"
-            or reference not in integration["evidence_refs"]):
-        raise DriverFollowupError("existing integration gate must pin the exact destination reference")
-    for gate in gates.values():
-        if (gate["decision"] == "SATISFIED_BY_EXISTING_CONTROL_ASSET"
-                and gate["gate"] != "INTEGRATION_OR_TOOL_HARVEST"):
-            raise DriverFollowupError("an integration asset cannot satisfy another follow-up gate")
     publications = publication_map(root)
     original = publications.get(row["publication_id"])
     if original is None or original.get("task_lineage") != "INTEGRATION":
@@ -965,6 +990,59 @@ def _existing_asset_pins(
         if not isinstance(pid, str) or not pid:
             raise DriverFollowupError("current destination is not a successor of the exact synthesis destination")
     return list(reversed(pins))
+
+
+def _existing_published_task_pins(
+    review: dict[str, Any], rows: list[dict[str, Any]],
+    gates: dict[str, dict[str, Any]], parent: str, root: Path, *,
+    bound_at: str, current_publication_required: bool = False,
+) -> list[dict[str, str]]:
+    """Reference the single-review destination without publishing another Task.
+
+    This is distinct from exact-set synthesis integration. The existing Task's
+    lineage, publisher, current owner and completion state are never rewritten.
+    """
+    if (review.get("review_authority_kind") != "IMMUTABLE_REVIEW"
+            or review.get("disposition") != "ACCEPTED"
+            or review.get("destination_class") != "FOLLOWUP_TASK"):
+        raise DriverFollowupError("existing published Task requires one operational ACCEPTED/FOLLOWUP_TASK review")
+    if len(rows) != 1:
+        raise DriverFollowupError("existing published Task requires one exact destination reference")
+    row = rows[0]
+    reference = f"{row['task_id']}/{row['publication_id']}"
+    if review.get("destination_ref_or_none") != reference:
+        raise DriverFollowupError("existing Task differs from the exact accepted review destination")
+    publication = publication_map(root).get(row["publication_id"])
+    if (publication is None or publication.get("task_id") != row["task_id"]
+            or publication.get("parent_objective_id") != parent
+            or publication.get("publisher_role") != "RESEARCH_DRIVER"):
+        raise DriverFollowupError("existing destination must be the exact Driver-published Task in the reviewed parent")
+    if current_publication_required:
+        current = research_task_records.current_records(root).get(row["task_id"])
+        if current is None or current.get("publication_id") != row["publication_id"]:
+            raise DriverFollowupError("existing destination is not the operational Task publication")
+    if _parse_time(publication.get("published_at"), "published_at") > _parse_time(bound_at, "bound_at"):
+        raise DriverFollowupError("existing Task publication postdates its binding")
+    relative = research_task_records.record_path(root, row["task_id"], row["publication_id"]).relative_to(root).as_posix()
+    path = root / relative
+    if not path.is_file():
+        raise DriverFollowupError("existing Task raw publication is unavailable")
+    raw = _load(path)
+    for field in ("task_id", "publication_id", "parent_objective_id", "publisher_role", "publisher_id",
+                  "published_at", "task_lineage", "taskbook_path", "taskbook_blob_sha1"):
+        if raw.get(field) != publication.get(field):
+            raise DriverFollowupError("existing Task raw publication differs from its validated view")
+    taskbook_relative = publication.get("taskbook_path")
+    taskbook = (root / str(taskbook_relative)).resolve()
+    if not taskbook.is_relative_to((root / "research_tasks").resolve()) or not taskbook.is_file():
+        raise DriverFollowupError("existing Task taskbook is unavailable")
+    blob = research_task_records.taskbook_blob(taskbook)
+    if blob != publication.get("taskbook_blob_sha1"):
+        raise DriverFollowupError("existing Task taskbook blob drift")
+    return [{"task_id": row["task_id"], "publication_id": row["publication_id"],
+             "record_path": relative,
+             "record_sha256": "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest(),
+             "taskbook_path": taskbook_relative, "taskbook_blob_sha1": blob}]
 
 
 def _source_review_record_pin(
@@ -1079,6 +1157,7 @@ def build_packet(
     current_destination_continuation: dict[str, Any] | None = None,
     prospective_result_authority_binding: dict[str, Any] | None = None,
     result_continuation: dict[str, Any] | None = None,
+    supersedes_followup_packet_id: str | None = None,
 ) -> dict[str, Any]:
     reviews = review_map(root)
     results = result_map(root)
@@ -1104,10 +1183,20 @@ def build_packet(
         raise DriverFollowupError("reviewed result lacks next_control_plane_recommendation")
 
     pids = [row["publication_id"] for row in rows]
+    previous_pin = None
+    if supersedes_followup_packet_id is not None:
+        if decision != EXISTING_TASK_DECISION:
+            raise DriverFollowupError("follow-up correction requires the existing-published-task decision")
+        previous_id = _safe(supersedes_followup_packet_id, "superseded follow-up packet_id")
+        previous = packet_map(root).get(review_id)
+        if previous is None or previous.get("packet_id") != previous_id:
+            raise DriverFollowupError("follow-up correction must explicitly name the current packet")
+        previous_pin = _followup_record_pin(review_id, previous_id, root)
+    identity_kwargs = {"supersedes_packet_id": previous_pin["packet_id"]} if previous_pin else {}
     value = {
         "schema": SCHEMA,
         "policy": POLICY,
-        "packet_id": packet_id(review_id, decision, pids),
+        "packet_id": packet_id(review_id, decision, pids, **identity_kwargs),
         "review_id": review_id,
         "result_id": result["result_id"],
         "task_id": result["task_id"],
@@ -1130,6 +1219,8 @@ def build_packet(
     )
     if publisher is not None:
         value["materialization_publisher"] = publisher
+    if previous_pin is not None:
+        value["supersedes_followup_packet"] = previous_pin
     if result_continuation is not None and decision != RESULT_CONTINUATION_DECISION:
         raise DriverFollowupError("result_continuation requires the accepted-result decision")
     if decision == RESULT_CONTINUATION_DECISION:
@@ -1165,6 +1256,19 @@ def build_packet(
         )
         if current_destination_continuation is not None:
             value["current_destination_continuation"] = current_destination_continuation
+    if decision == EXISTING_TASK_DECISION:
+        if publisher is None:
+            raise DriverFollowupError("existing published Task binding requires an authenticated current publisher")
+        if (terminal_scope is not None or portfolio_continuation is not None
+                or current_destination_continuation is not None):
+            raise DriverFollowupError("existing published Task binding is not Task/parent closure or destination succession")
+        value.update(
+            task_publications=[], existing_task_publications=rows,
+            existing_task_pins=_existing_published_task_pins(
+                review, rows, gates, parent, root, bound_at=created_at,
+                current_publication_required=True),
+            task_completion_granted=False, parent_completion_granted=False, parent_final_granted=False,
+        )
     if decision == TASK_SCOPE_DECISION:
         continuation = _task_scope_continuation(
             review, result, terminal_scope=terminal_scope,
@@ -1252,7 +1356,7 @@ def validate_packet(
         raise DriverFollowupError("invalid follow-up decision")
     if decision != RESULT_CONTINUATION_DECISION and packet.get("result_continuation") is not None:
         raise DriverFollowupError("result_continuation requires the accepted-result decision")
-    if decision == EXISTING_ASSET_DECISION:
+    if decision in {EXISTING_ASSET_DECISION, EXISTING_TASK_DECISION}:
         if rows:
             raise DriverFollowupError("existing asset binding cannot publish new tasks")
         rows = _task_rows(packet.get("existing_task_publications"))
@@ -1263,6 +1367,19 @@ def validate_packet(
     reviewed = _parse_time(review.get("reviewed_at"), "reviewed_at")
     if created < reviewed:
         raise DriverFollowupError("follow-up packet predates its Driver review")
+    previous_pin = packet.get("supersedes_followup_packet")
+    if previous_pin is not None:
+        if decision != EXISTING_TASK_DECISION or not isinstance(previous_pin, dict):
+            raise DriverFollowupError("follow-up correction requires the existing-published-task decision")
+        previous_id = _safe(previous_pin.get("packet_id"), "superseded follow-up packet_id")
+        if previous_pin != _followup_record_pin(review_id, previous_id, root):
+            raise DriverFollowupError("superseded follow-up source path/digest drift")
+        previous = _load(root / previous_pin["record_path"])
+        for field in ("review_id", "result_id", "task_id", "source_publication_id", "driver_id"):
+            if previous.get(field) != packet.get(field):
+                raise DriverFollowupError(f"follow-up correction changes its source {field}")
+        if created < _parse_time(previous.get("created_at"), "previous created_at"):
+            raise DriverFollowupError("follow-up correction predates its source packet")
 
     required_roles = {
         GATE_TO_ROLE[gate]
@@ -1274,11 +1391,6 @@ def validate_packet(
     if decision == "TASK_SET_PUBLISHED":
         if not rows:
             raise DriverFollowupError("TASK_SET_PUBLISHED requires at least one task publication")
-        missing = sorted(required_roles - actual_roles)
-        if missing:
-            raise DriverFollowupError(
-                f"required follow-up gates have no matching published task role: {missing}"
-            )
     elif decision == RESULT_CONTINUATION_DECISION:
         if publisher is None:
             raise DriverFollowupError("accepted-result continuation requires an authenticated current publisher")
@@ -1300,6 +1412,20 @@ def validate_packet(
         for flag in ("task_completion_granted", "parent_completion_granted", "parent_final_granted"):
             if packet.get(flag) is not False:
                 raise DriverFollowupError("accepted-result continuation grants no Task or parent completion/final")
+    elif decision == EXISTING_TASK_DECISION:
+        if publisher is None:
+            raise DriverFollowupError("existing published Task binding requires an authenticated current publisher")
+        if (packet.get("terminal_scope") is not None or packet.get("portfolio_continuation") is not None
+                or packet.get("current_destination_continuation") is not None):
+            raise DriverFollowupError("existing published Task binding is not Task/parent closure or destination succession")
+        pins = _existing_published_task_pins(
+            review, rows, gates, parent, root, bound_at=packet.get("created_at"),
+            current_publication_required=current_publication_required)
+        if packet.get("existing_task_pins") != pins:
+            raise DriverFollowupError("existing Task publication/taskbook pin drift")
+        for flag in ("task_completion_granted", "parent_completion_granted", "parent_final_granted"):
+            if packet.get(flag) is not False:
+                raise DriverFollowupError("existing Task binding grants no Task or parent completion/final")
     elif decision == EXISTING_ASSET_DECISION:
         if publisher is None:
             raise DriverFollowupError("existing asset binding requires an authenticated current publisher")
@@ -1338,10 +1464,6 @@ def validate_packet(
     else:
         if rows:
             raise DriverFollowupError("PARENT_OBJECTIVE_CLOSURE cannot carry task publications")
-        if required_roles:
-            raise DriverFollowupError(
-                "PARENT_OBJECTIVE_CLOSURE cannot leave REQUIRED follow-up gates"
-            )
         head = _objective_head(parent, root)
         if head is None or head.get("objective_status") != "CLOSED":
             raise DriverFollowupError(
@@ -1366,7 +1488,7 @@ def validate_packet(
             raise DriverFollowupError(
                 f"{row['publication_id']}: automatic review follow-up must be Driver-published"
             )
-        if (decision != EXISTING_ASSET_DECISION and
+        if (decision not in {EXISTING_ASSET_DECISION, EXISTING_TASK_DECISION} and
                 str(publication.get("publisher_id", "")).strip().upper() != str(publishing_driver).strip().upper()):
             raise DriverFollowupError(
                 f"{row['publication_id']}: " + (
@@ -1375,9 +1497,9 @@ def validate_packet(
                 )
             )
         published = _parse_time(publication.get("published_at"), "published_at")
-        if decision == EXISTING_ASSET_DECISION and published > created:
+        if decision in {EXISTING_ASSET_DECISION, EXISTING_TASK_DECISION} and published > created:
             raise DriverFollowupError("existing asset publication postdates its binding")
-        if decision != EXISTING_ASSET_DECISION and published < reviewed:
+        if decision not in {EXISTING_ASSET_DECISION, EXISTING_TASK_DECISION} and published < reviewed:
             raise DriverFollowupError(
                 f"{row['publication_id']}: follow-up task was published before the review"
             )
@@ -1391,7 +1513,8 @@ def validate_packet(
                 f"{row['publication_id']}: follow-up taskbook blob drift"
             )
 
-    expected_id = packet_id(review_id, str(decision), [row["publication_id"] for row in rows])
+    identity_kwargs = {"supersedes_packet_id": previous_pin["packet_id"]} if previous_pin else {}
+    expected_id = packet_id(review_id, str(decision), [row["publication_id"] for row in rows], **identity_kwargs)
     if packet.get("packet_id") != expected_id:
         raise DriverFollowupError("follow-up packet_id mismatch")
     if packet.get("working_truth_granted") is not False:
@@ -1417,10 +1540,6 @@ def audit(root: Path = ROOT) -> list[str]:
             errors.append(f"{rid}: cannot evaluate follow-up cutover: {exc}")
             continue
         packet = packets.get(rid)
-        if required and packet is None:
-            errors.append(
-                f"{rid}: post-cutover Driver review has no automatic follow-up taskset/closure packet"
-            )
         if not required and packet is not None:
             errors.append(
                 f"{rid}: legacy pre-cutover review must not be retroactively governed by a packet"
@@ -1438,7 +1557,7 @@ def audit(root: Path = ROOT) -> list[str]:
     return errors
 
 
-def state_for_review(review_id: str, root: Path = ROOT) -> dict[str, Any]:
+def _stored_followup_state(review_id: str, root: Path = ROOT) -> dict[str, Any]:
     review = review_map(root).get(review_id)
     if review is None:
         return {
@@ -1496,10 +1615,24 @@ def state_for_review(review_id: str, root: Path = ROOT) -> dict[str, Any]:
             "PARENT_OBJECTIVE_CLOSURE": "PARENT_OBJECTIVE_CLOSED",
             TASK_SCOPE_DECISION: "TASK_SCOPE_CLOSED_PORTFOLIO_CONTINUATION",
             EXISTING_ASSET_DECISION: "EXISTING_CONTROL_ASSET_READY",
+            EXISTING_TASK_DECISION: "EXISTING_PUBLISHED_TASK_READY",
             RESULT_CONTINUATION_DECISION: RESULT_CONTINUATION_STATE,
         }[packet["decision"]],
         "packet": packet,
     }
+
+
+def state_for_review(review_id: str, root: Path = ROOT) -> dict[str, Any]:
+    """Expose truthful advice status independently of research permission."""
+    try:
+        value = _stored_followup_state(review_id, root)
+    except DriverFollowupError as exc:
+        value = {"review_id": review_id, "ready": False,
+                 "state": "FOLLOWUP_METADATA_INVALID", "error": str(exc), "packet": None}
+    return {**value, "legacy_policy_required": value.get("required", False),
+            "required": False, "blocks_research": False,
+            "followup_policy": "OPTIONAL_RESEARCH_PLANNING",
+            "formalization_policy": "DEFERRED_NOT_DEFAULT"}
 
 
 def _taskbook_text(spec: dict[str, Any], parent: str) -> str:
@@ -1519,9 +1652,9 @@ def _taskbook_text(spec: dict[str, Any], parent: str) -> str:
     for field in required:
         if not isinstance(spec.get(field), str) or not str(spec[field]).strip():
             raise DriverFollowupError(f"task spec {field} is required")
-    role = spec["task_role"]
-    if role not in TASK_ROLES:
-        raise DriverFollowupError(f"task spec has invalid task_role: {role}")
+    role = spec.get("task_role", "RESEARCH")
+    if not isinstance(role, str) or not role.strip():
+        raise DriverFollowupError("task spec task_role must be nonblank descriptive text")
     lineage = str(spec.get("task_lineage") or "CONTINUATION").upper()
     if lineage not in {"NEW_DIRECTION", "CONTINUATION", "REPLAY", "INTEGRATION", "MAINTENANCE"}:
         raise DriverFollowupError("task spec has invalid task_lineage")
@@ -1620,7 +1753,8 @@ def materialize(
     publisher_session_id: str | None = None,
 ) -> dict[str, Any]:
     if ("prospective_result_authority_binding" in spec
-            or spec.get("decision") in {TASK_SCOPE_DECISION, EXISTING_ASSET_DECISION, RESULT_CONTINUATION_DECISION}
+            or spec.get("decision") in {TASK_SCOPE_DECISION, EXISTING_ASSET_DECISION, RESULT_CONTINUATION_DECISION,
+                                        EXISTING_TASK_DECISION}
             or publishing_driver_id is not None or publisher_session_id is not None):
         # The public and storage entry points share the same candidate-first,
         # exact-byte transaction for this new decision.
@@ -1659,8 +1793,6 @@ def materialize(
             raise DriverFollowupError(
                 "parent Objective must already be canonically CLOSED before no-task exception"
             )
-        if any(row["decision"] == "REQUIRED" for row in normalized_gates.values()):
-            raise DriverFollowupError("parent closure cannot leave REQUIRED gates")
         packet = build_packet(
             review_id=review_id,
             decision=decision,
@@ -1729,7 +1861,7 @@ def materialize(
             {
                 "task_id": record["task_id"],
                 "publication_id": record["publication_id"],
-                "task_role": task_spec["task_role"],
+                "task_role": task_spec.get("task_role", "RESEARCH"),
             }
         )
 

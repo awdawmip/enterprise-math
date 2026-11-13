@@ -295,7 +295,7 @@ def continuation_cas_reason(state: Mapping[str, Any], event: Mapping[str, Any]) 
         return "continuation requires exact successor session binding"
     if _same_executor(event.get("researcher_id"), value.get("previous_researcher_id")):
         if (value.get("mode") != "RESUME" or state.get("claim_id")
-                or state.get("state") not in {"READY", "HANDOFF_READY"}
+                or state.get("state") not in {"READY", "HANDOFF_READY", "FROZEN_RETURN"}
                 or not _text(state.get("session_id"))
                 or value.get("previous_session_id") != state["session_id"]
                 or value["session_id"] != state["session_id"]):
@@ -312,7 +312,7 @@ def continuation_cas_reason(state: Mapping[str, Any], event: Mapping[str, Any]) 
         if state.get("session_id") is not None and value["recovery_evidence"].get("previous_session_id") != state["session_id"]:
             return "recovery evidence does not name the exact predecessor session"
     elif value.get("mode") == "RESUME":
-        if state.get("claim_id") or state.get("state") not in {"READY", "HANDOFF_READY"}:
+        if state.get("claim_id") or state.get("state") not in {"READY", "HANDOFF_READY", "FROZEN_RETURN"}:
             return "RESUME requires a released or expired predecessor claim"
     else:
         return "unknown continuation mode"

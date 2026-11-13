@@ -37,7 +37,7 @@
       "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
       "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
     ],
-    "source_contract_ref": "5c37cb9ba03dec2e0ad4854addde51fb81811b31",
+    "semantic_domains": "CURRENT_NATIVE_WRITER",
     "native_validation_required": true,
     "workflow_prerequisites": "Own complete verified Result artifact and active session-bound Driver authority."
   },
@@ -73,11 +73,7 @@
         },
         "pass_number": {
           "type": "integer",
-          "enum": [
-            1,
-            2
-          ],
-          "description": "1: SEMANTIC_EVIDENCE_CROSSCHECK; 2: ADVERSARIAL_CONTROL_CROSSCHECK. Complete in order."
+          "description": "Positive integer label for an optional actual crosscheck; count and order are chosen for the proposition. Historical labels 1/2 retain their meanings."
         },
         "finding": {
           "type": "string",
@@ -89,12 +85,6 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 80,
-          "enum": [
-            "CLEAN_INDEPENDENT_CONTEXT",
-            "SHARED_CONTROL_CONTEXT_DISCLOSED",
-            "NOT_INDEPENDENT",
-            "NOT_APPLICABLE"
-          ],
           "description": "Explicit truthful context classification; no default. Put prose explanation in finding."
         }
       }
@@ -108,9 +98,9 @@
       "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
       "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
     ],
-    "source_contract_ref": "5c37cb9ba03dec2e0ad4854addde51fb81811b31",
+    "semantic_domains": "CURRENT_NATIVE_WRITER",
     "native_validation_required": true,
-    "workflow_prerequisites": "At least two exact-set reviews; pass 1 precedes pass 2. Read existing passes before mutation.",
+    "workflow_prerequisites": "Actual immutable review evidence; optional crosschecks may be recorded in any order and number.",
     "independence_meanings": {
       "CLEAN_INDEPENDENT_CONTEXT": "Assert only if the actual context is clean and independent.",
       "SHARED_CONTROL_CONTEXT_DISCLOSED": "Shared control context is disclosed; explain its extent in finding.",
@@ -151,37 +141,18 @@
         "disposition": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 80,
-          "enum": [
-            "ACCEPTED",
-            "REJECTED",
-            "PARKED",
-            "CLOSED",
-            "SUPERSEDED",
-            "RETURN_TO_OWNER",
-            "REQUEST_REPLICATION",
-            "REQUEST_REVISION"
-          ]
+          "maxLength": 80
         },
         "rationale": {
           "type": "string",
           "minLength": 1,
           "maxLength": 12000,
-          "description": "Explicit judgment after both exact-set reference passes; no automatic ACCEPTED choice."
+          "description": "Explicit judgment over the actual exact review set; no required number/order of crosschecks and no automatic ACCEPTED choice."
         },
         "destination_class": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 80,
-          "enum": [
-            "NONE",
-            "FOUNDATION",
-            "TOOL",
-            "L4",
-            "REPLICATION",
-            "FOLLOWUP_TASK",
-            "ARCHIVE"
-          ]
+          "maxLength": 80
         },
         "destination_ref_or_none": {
           "type": "string",
@@ -199,9 +170,9 @@
       "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
       "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
     ],
-    "source_contract_ref": "5c37cb9ba03dec2e0ad4854addde51fb81811b31",
+    "semantic_domains": "CURRENT_NATIVE_WRITER",
     "native_validation_required": true,
-    "workflow_prerequisites": "Both current exact-set reference passes. Retain every source review; no latest-timestamp selection."
+    "workflow_prerequisites": "Actual current exact review set and explicit rationale. Zero reference passes is NOT_PERFORMED; retain every source review."
   },
   "followup_materialize": {
     "schema": "EM_DRIVER_FLOW_CONTRACT_V1",
@@ -236,7 +207,7 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 128,
-          "description": "Own successful driver_publish request from this same active session."
+          "description": "Own successful persisted driver_publish request; its original session may differ."
         },
         "followup_spec_filename": {
           "type": "string",
@@ -255,24 +226,24 @@
       "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
       "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
     ],
-    "source_contract_ref": "5c37cb9ba03dec2e0ad4854addde51fb81811b31",
+    "semantic_domains": "CURRENT_NATIVE_WRITER",
     "native_validation_required": true,
-    "workflow_prerequisites": "Current operational authority (one review or exact-set synthesis), own same-session driver_publish, explicit native spec and task/closure admission.",
+    "workflow_prerequisites": "Current operational authority (one review or exact-set synthesis), own persisted driver_publish (may originate in an earlier session), explicit native spec and Task publication, existing-Task reference, or closure admission as selected.",
     "followup_spec_contract": {
       "required": [
-        "decision",
-        "gate_decisions"
+        "decision"
       ],
       "decision_enum": [
         "TASK_SET_PUBLISHED",
         "PARENT_OBJECTIVE_CLOSURE",
         "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION",
         "EXISTING_CONTROL_ASSET_BOUND",
-        "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION"
+        "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION",
+        "EXISTING_PUBLISHED_TASK_BOUND"
       ],
       "tasks_default": [],
       "gate_decisions": {
-        "exact_gate_set": [
+        "optional_gate_names": [
           "MATHEMATICAL_CONTINUATION",
           "LEAN_FORMALIZATION",
           "EXTERNAL_PRIOR_ART_DUPLICATION",
@@ -280,16 +251,18 @@
           "INTEGRATION_OR_TOOL_HARVEST",
           "ADVERSARIAL_AUDIT"
         ],
+        "default": [],
+        "omitted_status": "NOT_REVIEWED",
         "decision_enum": [
           "REQUIRED",
           "SATISFIED_BY_REVIEWED_RESULT",
           "SATISFIED_BY_EXISTING_CONTROL_ASSET",
-          "NOT_REQUIRED"
+          "NOT_REQUIRED",
+          "NOT_REVIEWED"
         ],
         "required_row_fields": [
           "gate",
-          "decision",
-          "reason"
+          "decision"
         ],
         "field_types": {
           "gate": "string",
@@ -299,16 +272,16 @@
         },
         "evidence_refs": "Nonempty evidence refs required for either SATISFIED_BY_* decision.",
         "rules": [
-          "Exactly one row per gate.",
-          "REQUIRED needs a matching published task role.",
-          "ACCEPTED cannot skip external prior art; ACCEPTED L4 cannot skip Lean; tool-bearing results cannot skip tool harvest."
+          "No fixed checklist is required to save, review or continue research.",
+          "Omitted gates are NOT_REVIEWED, never silently SATISFIED.",
+          "REQUIRED is optional planning advice and does not force another Task.",
+          "Lean/formalization is deferred, not an ordinary research or acceptance prerequisite."
         ]
       },
       "tasks": {
         "required_fields": [
           "task_id",
           "title",
-          "task_role",
           "frontier",
           "next_action",
           "research_value",
@@ -318,17 +291,7 @@
           "research_value_to_preserve",
           "success_kill_and_return_criteria"
         ],
-        "task_role_enum": [
-          "MATHEMATICAL_CONTINUATION",
-          "LEAN_FORMALIZATION",
-          "EXTERNAL_PRIOR_ART_DUPLICATION",
-          "INDEPENDENT_REPLICATION",
-          "INTEGRATION_OR_TOOL_HARVEST",
-          "ADVERSARIAL_AUDIT",
-          "REVISION",
-          "PARALLEL_REFERENCE_OR_SYNTHESIS",
-          "OTHER"
-        ],
+        "task_role": "Optional nonblank descriptive purpose, default RESEARCH; not an execution role grant.",
         "task_lineage_enum": [
           "NEW_DIRECTION",
           "CONTINUATION",
@@ -353,19 +316,26 @@
         "native_task_admission": "Task schema, successor gate, objective binding and publication preflight remain mandatory."
       },
       "decision_conditions": {
-        "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION": "Accepted scientific result with an incomplete Task. Requires ACCEPTED/NONE, unchanged raw/view NO_GO and RESULT_ONLY or CANDIDATE_NOT_TOOL, current Task publication and current own publishing session/DA. Pins selected immutable scientific report and complete interface content in the current verified Source snapshot; historical Source commit is a provenance locator, not runtime-reverified tree membership. Preserves process UNKNOWN with exact obligations, no tasks or REQUIRED gates; grants no Task/parent completion, claim, execution or dependency release. A current authorized successor publisher may consume the original scientific scope without replacing its author.",
+        "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION": "Accepted scientific result with an incomplete Task. Requires ACCEPTED/NONE, unchanged raw/view NO_GO and RESULT_ONLY or CANDIDATE_NOT_TOOL, current Task publication and current own publishing session/DA. Pins selected immutable scientific report and complete interface content in the current verified Source snapshot; historical Source commit is a provenance locator, not runtime-reverified tree membership. Preserves process UNKNOWN with exact obligations, no new tasks; grants no Task/parent completion, claim, execution or dependency release. A current authorized successor publisher may consume the original scientific scope without replacing its author.",
         "TASK_SET_PUBLISHED": "One or more substantive tasks; preserve Result successor restrictions and parent Objective.",
-        "PARENT_OBJECTIVE_CLOSURE": "No tasks or REQUIRED gates; parent Objective must already be canonically CLOSED.",
-        "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": "No tasks or REQUIRED gates; accepted PASS/SUCCESS Task with SATISFIED hard target or the native pinned explicit Driver satisfaction assessment, or accepted AUDIT_COMPLETE with literal SATISFIED hard target only. An assessment cannot retype an AUDIT_COMPLETE target. Requires terminal_scope=TASK and portfolio_continuation; preserves raw Result bytes and grants no parent completion.",
-        "EXISTING_CONTROL_ASSET_BOUND": "No new tasks or REQUIRED gates. Bind exactly the existing integration publication named by an ACCEPTED/FOLLOWUP_TASK exact-set synthesis. Require the current source Task publication, own active Driver session/DA, and current operational destination; any later destination generation requires explicit current_destination_continuation. Preserve historical authors and grant no Task or parent closure."
+        "PARENT_OBJECTIVE_CLOSURE": "No new tasks; parent Objective must already be canonically CLOSED.",
+        "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": "No new tasks; accepted PASS/SUCCESS Task with SATISFIED hard target or the native pinned explicit Driver satisfaction assessment. Requires terminal_scope=TASK and portfolio_continuation; grants no parent completion.",
+        "EXISTING_CONTROL_ASSET_BOUND": "No new tasks. Bind exactly the existing integration publication named by an ACCEPTED/FOLLOWUP_TASK exact-set synthesis. Require the current source Task publication, own active Driver session/DA, and current operational destination; any later destination generation requires explicit current_destination_continuation. Preserve historical authors and grant no Task or parent closure.",
+        "EXISTING_PUBLISHED_TASK_BOUND": "No new tasks or reviews. Bind the exact already-published Driver Task named by one operational ACCEPTED/FOLLOWUP_TASK immutable review, with own current Driver session/DA. Preserve its lineage, publisher, owner and completion state. Use explicit supersedes_followup_packet_id to correct an existing packet while retaining its original bytes. Supplies current source evidence; grants no new CLAIM, Task/parent completion or theorem acceptance."
       },
       "conditional_required_fields": {
-        "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION": ["tasks", "result_continuation"],
+        "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION": [
+          "tasks",
+          "result_continuation"
+        ],
         "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": [
           "terminal_scope",
           "portfolio_continuation"
         ],
         "EXISTING_CONTROL_ASSET_BOUND": [
+          "existing_task_publications"
+        ],
+        "EXISTING_PUBLISHED_TASK_BOUND": [
           "existing_task_publications"
         ]
       },
@@ -384,12 +354,12 @@
             "task_id": {
               "type": "string",
               "minLength": 1,
-              "description": "Exact synthesis destination Task ID."
+              "description": "Exact accepted review or synthesis destination Task ID."
             },
             "publication_id": {
               "type": "string",
               "minLength": 1,
-              "description": "Exact original synthesis destination publication ID; never replace it with a later generation."
+              "description": "Exact original accepted destination publication ID; never implicitly replace it with a later generation."
             },
             "task_role": {
               "type": "string",
@@ -398,11 +368,23 @@
           }
         },
         "rules": [
-          "Only valid for EXISTING_CONTROL_ASSET_BOUND; tasks must be empty.",
-          "The original destination must be a Driver-published INTEGRATION Task in the same parent Objective.",
-          "INTEGRATION_OR_TOOL_HARVEST must use SATISFIED_BY_EXISTING_CONTROL_ASSET and cite task_id/publication_id.",
-          "Other gates cannot use this integration asset as satisfaction evidence; no gate may remain REQUIRED.",
+          "Only valid for EXISTING_CONTROL_ASSET_BOUND or EXISTING_PUBLISHED_TASK_BOUND; tasks must be empty.",
+          "EXISTING_CONTROL_ASSET_BOUND retains the exact-set synthesis and original INTEGRATION lineage requirements. EXISTING_PUBLISHED_TASK_BOUND consumes one accepted immutable review and retains the already-published Task lineage without retyping it.",
+          "Both paths require the exact Driver-published destination in the same parent Objective and current own Driver session/DA.",
+          "Optional satisfied annotations cite actual evidence; no gate annotation is prerequisite to bind this actual existing Task.",
+          "A planning annotation neither grants acceptance nor forces a duplicate Task.",
           "The native writer pins raw publication bytes and taskbook blobs and preserves the original publisher; existing references are not newly published tasks."
+        ]
+      },
+      "supersedes_followup_packet_id": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128,
+        "description": "Optional only for EXISTING_PUBLISHED_TASK_BOUND: explicitly name the existing current packet being corrected. Never edit or delete its immutable file.",
+        "rules": [
+          "The native writer pins previous record bytes and requires one connected source-preserving correction chain with one current head.",
+          "Supply real evidence_refs for satisfied gates and a valid typed existing Task role; the old invalid packet is preserved as history, not accepted through a waiver.",
+          "Use the original request ID for receipt/reconciliation after an unknown write result; this field never authorizes automatic replay."
         ]
       },
       "current_destination_continuation": {
@@ -498,7 +480,7 @@
           "Pin one selected accepted immutable scientific review ID from the current canonical exact review set. Its DR-pinned complete report must contain one exact ENTERPRISE_MATH_ACCEPTED_RESULT_SCOPE_BINDING_V1 declaration binding the full interface content pin and exact unique scope quotation SHA256; current control publisher may be an authorized successor.",
           "Report and complete interface content pins match real current Source manifest membership and current bytes; writer records its actual Source snapshot separately, while historical commit is provenance only. Interface consumes scope, statement, every hypothesis and unresolved boundaries together.",
           "Preserve original process UNKNOWN and exact evidence-backed unresolved obligations. No automatic Task completion or execution reopen follows future evidence.",
-          "All six existing gates, author contributions, current DA/session, exact Result/review authority, atomic materialization and Source CAS remain mandatory.",
+          "Author contributions, current DA/session, exact Result/review authority, atomic materialization and Source CAS remain mandatory.",
           "Repository support requires separate deployed native-adapter validation and advertisement before clients send this decision."
         ]
       },

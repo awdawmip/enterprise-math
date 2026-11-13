@@ -90,14 +90,14 @@ Check status and reuse an existing session in this conversation. For a genuinely
 
 Optional `task_id` binds a known task. Declare actual prior contribution IDs; an empty example is not permission to omit existing contributions. Driver uses role/mode RESEARCH_DRIVER; role and mode cannot be mixed. Only one unclosed service session per conversation. Real session IDs/keys, role IDs, claims, ERs, publication/taskbook pins and generation are server-derived. Keys remain private on the server. Chats pass their successful prerequisite request IDs, never session_key, manual pins or fabricated identities.
 
-Normal chain: dispatch → session_start → prepare → claim → open → artifact_upload → publish_checkpoint → freeze. Wait for each prerequisite SUCCEEDED and inspect its exact scope; session/prepare is not a winning claim.
+Normal chain: dispatch → session_start → prepare → claim (returned run is already open; legacy claim-only receipts use open) → artifact_upload → publish_checkpoint → freeze. Wait for each prerequisite SUCCEEDED and inspect its exact scope; session/prepare is not a winning claim.
 
 | Operation | Required payload | Notes |
 |---|---|---|
 | `prepare` | `dispatch_request_id` | Successful dispatch; optional execution_branch must be main and allowed_outputs must be empty |
 | `prepare_exact` | `task_request_id` | Successful task/continuation; native eligibility still enforced |
 | `claim` | `prepare_request_id` | Successful prepare/prepare_exact/continuation_prepare |
-| `open` | `claim_request_id` | Its successful request ID becomes `run_request_id` |
+| `open` | `claim_request_id` | Legacy claim-only compatibility; a combined claim receipt with run already supplies run_request_id |
 | `resume` | `run_request_id` | Successful same-session resume yields a new request ID/generation; stop using the old one |
 | `artifact_upload` | `upload_id`, `filename`, `part_index`, `content` | `final=false` default; final part must use true |
 | `publish_checkpoint` | `run_request_id`, `upload_request_ids`, `completed_units`, `current_unfinished_unit`, `next_action`, `do_not_repeat` | `release=false` default; true publishes CONTINUATION and releases. Keep false before freeze |
@@ -112,7 +112,7 @@ Checkpoint `completed_units` and `do_not_repeat` are string arrays; `current_unf
 
 ## Existing-frontier continuation
 
-Read exact continuation/artifacts, classify completed/unfinished/conflicted/unknown units and preserve verified work. `continuation_prepare` currently supports a canonically released predecessor with **no live claim and NEEDS_DISPATCH**, not client-declared stale takeover. Required: `packet_request_id`, `reason`. If persisted checkpoint state is SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED, pass only those fields and preserve the native frontier. Otherwise provide `artifact_request_ids` and `frontier_notes` containing exactly the four checkpoint fields above; actual fully hashed artifacts must include authenticated last-progress evidence. Server inherits contributors. Then claim/open. Frozen, active, restricted-source or specialized-lane states require their canonical route, never forced reopening.
+Read exact continuation/artifacts, classify completed/unfinished/conflicted/unknown units and preserve verified work. `continuation_prepare` currently supports a canonically released predecessor with **no live claim and NEEDS_DISPATCH**, not client-declared stale takeover. Required: `packet_request_id`, `reason`. If persisted checkpoint state is SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED, pass only those fields and preserve the native frontier. Otherwise provide `artifact_request_ids` and `frontier_notes` containing exactly the four checkpoint fields above; actual fully hashed artifacts must include authenticated last-progress evidence. Server inherits contributors. Then claim/open. A frozen Result awaiting review alone does not block research. Active owners, source restrictions and specialized lanes retain their actual authority checks.
 
 ## Independent Driver
 
@@ -122,7 +122,7 @@ Use a genuine independent Driver session/conversation and declare all contributi
 |---|---|---|
 | `driver_activate` | `reason` | previous_authority defaults null; non-null replacement is not supported through this Chat operation |
 | `driver_publish` | `upload_request_ids` | Own complete report/spec uploads |
-| `review` | `publication_request_id`, `result_request_id`, `review_filename`, `metadata` | `followup_spec_filename`; first native review needs its previously published native followup spec |
+| `review` | `publication_request_id`, `result_request_id`, `review_filename`, `metadata` | `followup_spec_filename`; always optional; omission records that no follow-up plan was materialized |
 
 `result_request_id` is the Driver's own successful **artifact request**, not a worker freeze request. It must read actual `research_result_records/<Task-ID>/<Result-ID>.json` with complete underlying byte hash verified. Read all necessary pages/evidence before judging. Server derives `result_id` and `expected_result_sha256`; do not supply or calculate them manually. Review metadata requires `disposition`, `destination_class`, `reviewer_contribution_ids`, optionally `destination_ref_or_none`. No automatic ACCEPTED or successor is chosen. Native gates retain current ACTIVE DA/session, contributor independence, current Result bytes and HEAD CAS. Report publication is not formal review; consume verified review/followup before claiming progress.
 
@@ -173,7 +173,7 @@ Closed Researchers and those that never claimed/opened work still report actual 
 
 ## 0.6.4: review synthesis, follow-ups and complete action summaries
 
-Use `review_flow_state`, `review_reference`, `review_synthesize` and `followup_materialize` through the same private GitHub inbox; exact fields are in [Driver operations](DRIVER_FLOW_OPERATIONS.md). Each uses the current Driver's successful Result artifact request. A successor uses its own active session/DA, preserving historical authors while recording the current publication actor separately. Existing multiple reviews require their exact-set reference passes and synthesis, then an explicit follow-up spec; do not add a third review. The service does not choose mathematical dispositions or parent closure.
+Use `review_flow_state`, `review_reference`, `review_synthesize` and `followup_materialize` through the same private GitHub inbox; exact fields are in [Driver operations](DRIVER_FLOW_OPERATIONS.md). Each uses the current Driver's successful Result artifact request. A successor uses its own active session/DA, preserving historical authors while recording the current publication actor separately. Preserve the exact review set. Crosscheck count and order are chosen as needed; an explicit synthesis supplies a single operational judgment when needed. Follow-up is optional, never a reason to manufacture another review or Task. The service does not choose mathematical dispositions or parent closure.
 
 When `action_summary_complete=true` and `paging_required_for_selected_action=false`, the selected action's task/publication, targets, ownership, predecessor CAS, guards, filters and source constraints are complete. Continue that action without paging unrelated activity history even when receipt_truncated is true. Unknown or oversized action shapes remain explicitly incomplete. Actual task, Result, review and artifact evidence must still be read as needed across pages.
 
@@ -203,3 +203,5 @@ When Source requires a new successor Researcher but unresolved staging prevents 
 5. The new session reads current exact continuation. If `SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED` checkpoint exists (as for D24), `continuation_prepare` contains only that successful packet's `packet_request_id` and truthful `reason`; do not override its frontier with `artifact_request_ids/frontier_notes`. Only successful preparation permits the lane's canonical CLAIM/open sequence. Consume completed units without repeating them.
 
 The P11 bare-publication initial marker is a different case. Only after Source returns a `CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS` seed, read its exact `input_artifacts`, pass this conversation's successful artifact request IDs, and keep `frontier_notes.completed_units=[]`. Accepted parent results belong in provenance/`do_not_repeat`; the publication marker and unpublished drafts are not completed predecessor research. Re-reading the parent Result cannot repair a missing seed.
+
+Saving, continuation and future directions require no six-gate checklist. Omitted annotations are NOT_REVIEWED. Formalization is deferred; Lean is not a default progress or acceptance prerequisite. Use the proposition’s reproducible human proof or recalculation. Resume renews only a canonically still-live own claim, never a local checkpoint timestamp. Definite transient read-only waits resume their original ID with 5–300s backoff; cancellations and refusals are terminal, and unknown writes reconcile their original ID.
