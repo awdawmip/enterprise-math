@@ -1,0 +1,211 @@
+{
+  "schema": "EC49FNR_FINITE_GEODESIC_DEFECT_CERTIFICATE_V1",
+  "date": "2026-11-14",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "decoded_vector_sha256": "4d6540181b8c25a324aa701f551602ed53156be46b70170f1c104230c6443e9b",
+  "sample_start": 32000,
+  "sample_end_inclusive": 32999,
+  "full_one_key_edges": 27942,
+  "stable_edges": 11574,
+  "same_signature_pairs": 18609,
+  "connected_geodesic_pairs": 16550,
+  "connected_detour_pairs": 8,
+  "disconnected_pairs": 2051,
+  "counts": [
+    {
+      "r": 1,
+      "d": 1,
+      "n": 11574
+    },
+    {
+      "r": 2,
+      "d": 2,
+      "n": 4814
+    },
+    {
+      "r": 2,
+      "d": 3,
+      "n": 4
+    },
+    {
+      "r": 2,
+      "d": null,
+      "n": 140
+    },
+    {
+      "r": 3,
+      "d": 3,
+      "n": 162
+    },
+    {
+      "r": 3,
+      "d": 4,
+      "n": 4
+    },
+    {
+      "r": 3,
+      "d": null,
+      "n": 1911
+    }
+  ],
+  "eight_sharp_detours": [
+    {
+      "endpoints": [
+        32275,
+        32703
+      ],
+      "signature": [
+        144,
+        1,
+        1
+      ],
+      "johnson_distance": 2,
+      "stable_distance": 3,
+      "verified_route": [
+        32275,
+        32288,
+        32689,
+        32703
+      ]
+    },
+    {
+      "endpoints": [
+        32276,
+        32719
+      ],
+      "signature": [
+        152,
+        1,
+        1
+      ],
+      "johnson_distance": 2,
+      "stable_distance": 3,
+      "verified_route": [
+        32276,
+        32290,
+        32691,
+        32719
+      ]
+    },
+    {
+      "endpoints": [
+        32315,
+        32353
+      ],
+      "signature": [
+        154,
+        1,
+        1
+      ],
+      "johnson_distance": 2,
+      "stable_distance": 3,
+      "verified_route": [
+        32315,
+        32264,
+        32272,
+        32353
+      ]
+    },
+    {
+      "endpoints": [
+        32318,
+        32353
+      ],
+      "signature": [
+        154,
+        1,
+        1
+      ],
+      "johnson_distance": 2,
+      "stable_distance": 3,
+      "verified_route": [
+        32318,
+        32264,
+        32272,
+        32353
+      ]
+    },
+    {
+      "endpoints": [
+        32703,
+        32951
+      ],
+      "signature": [
+        144,
+        1,
+        1
+      ],
+      "johnson_distance": 3,
+      "stable_distance": 4,
+      "verified_route": [
+        32703,
+        32689,
+        32288,
+        32275,
+        32951
+      ]
+    },
+    {
+      "endpoints": [
+        32703,
+        32953
+      ],
+      "signature": [
+        144,
+        1,
+        1
+      ],
+      "johnson_distance": 3,
+      "stable_distance": 4,
+      "verified_route": [
+        32703,
+        32689,
+        32288,
+        32275,
+        32953
+      ]
+    },
+    {
+      "endpoints": [
+        32719,
+        32961
+      ],
+      "signature": [
+        152,
+        1,
+        1
+      ],
+      "johnson_distance": 3,
+      "stable_distance": 4,
+      "verified_route": [
+        32719,
+        32691,
+        32290,
+        32276,
+        32961
+      ]
+    },
+    {
+      "endpoints": [
+        32719,
+        32963
+      ],
+      "signature": [
+        152,
+        1,
+        1
+      ],
+      "johnson_distance": 3,
+      "stable_distance": 4,
+      "verified_route": [
+        32719,
+        32691,
+        32290,
+        32276,
+        32963
+      ]
+    }
+  ],
+  "status": "NOT_REVIEWED",
+  "proof": "VERIFY_EC49FNR.py exhausts BFS and all monotone r-step swap orders for each same-signature pair"
+}
