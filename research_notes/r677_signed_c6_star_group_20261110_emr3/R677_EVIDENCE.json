@@ -1,0 +1,215 @@
+{
+  "schema": "EM_R677_EXACT_FINITE_EVIDENCE_V1",
+  "status": "PASS",
+  "verified": "R677_THREE_STAR_SIGNED_C6_BRC_EXACT_PASS",
+  "star_triples_zero_based": [
+    [
+      0,
+      2,
+      5
+    ],
+    [
+      0,
+      3,
+      4
+    ],
+    [
+      1,
+      2,
+      4
+    ],
+    [
+      1,
+      3,
+      5
+    ]
+  ],
+  "star_subset_census": [
+    {
+      "star_subset": [
+        0
+      ],
+      "generators": 1,
+      "axes_touched": 3,
+      "underlying_permutations": 3,
+      "signed_group_order": 6,
+      "triple_orbit": 1
+    },
+    {
+      "star_subset": [
+        1
+      ],
+      "generators": 1,
+      "axes_touched": 3,
+      "underlying_permutations": 3,
+      "signed_group_order": 6,
+      "triple_orbit": 1
+    },
+    {
+      "star_subset": [
+        2
+      ],
+      "generators": 1,
+      "axes_touched": 3,
+      "underlying_permutations": 3,
+      "signed_group_order": 6,
+      "triple_orbit": 1
+    },
+    {
+      "star_subset": [
+        3
+      ],
+      "generators": 1,
+      "axes_touched": 3,
+      "underlying_permutations": 3,
+      "signed_group_order": 6,
+      "triple_orbit": 1
+    },
+    {
+      "star_subset": [
+        0,
+        1
+      ],
+      "generators": 2,
+      "axes_touched": 5,
+      "underlying_permutations": 60,
+      "signed_group_order": 1920,
+      "triple_orbit": 10
+    },
+    {
+      "star_subset": [
+        0,
+        2
+      ],
+      "generators": 2,
+      "axes_touched": 5,
+      "underlying_permutations": 60,
+      "signed_group_order": 1920,
+      "triple_orbit": 10
+    },
+    {
+      "star_subset": [
+        0,
+        3
+      ],
+      "generators": 2,
+      "axes_touched": 5,
+      "underlying_permutations": 60,
+      "signed_group_order": 1920,
+      "triple_orbit": 10
+    },
+    {
+      "star_subset": [
+        1,
+        2
+      ],
+      "generators": 2,
+      "axes_touched": 5,
+      "underlying_permutations": 60,
+      "signed_group_order": 1920,
+      "triple_orbit": 10
+    },
+    {
+      "star_subset": [
+        1,
+        3
+      ],
+      "generators": 2,
+      "axes_touched": 5,
+      "underlying_permutations": 60,
+      "signed_group_order": 1920,
+      "triple_orbit": 10
+    },
+    {
+      "star_subset": [
+        2,
+        3
+      ],
+      "generators": 2,
+      "axes_touched": 5,
+      "underlying_permutations": 60,
+      "signed_group_order": 1920,
+      "triple_orbit": 10
+    },
+    {
+      "star_subset": [
+        0,
+        1,
+        2
+      ],
+      "generators": 3,
+      "axes_touched": 6,
+      "underlying_permutations": 360,
+      "signed_group_order": 23040,
+      "triple_orbit": 20
+    },
+    {
+      "star_subset": [
+        0,
+        1,
+        3
+      ],
+      "generators": 3,
+      "axes_touched": 6,
+      "underlying_permutations": 360,
+      "signed_group_order": 23040,
+      "triple_orbit": 20
+    },
+    {
+      "star_subset": [
+        0,
+        2,
+        3
+      ],
+      "generators": 3,
+      "axes_touched": 6,
+      "underlying_permutations": 360,
+      "signed_group_order": 23040,
+      "triple_orbit": 20
+    },
+    {
+      "star_subset": [
+        1,
+        2,
+        3
+      ],
+      "generators": 3,
+      "axes_touched": 6,
+      "underlying_permutations": 360,
+      "signed_group_order": 23040,
+      "triple_orbit": 20
+    },
+    {
+      "star_subset": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "generators": 4,
+      "axes_touched": 6,
+      "underlying_permutations": 360,
+      "signed_group_order": 23040,
+      "triple_orbit": 20
+    }
+  ],
+  "four_star_order": 23040,
+  "three_star_order": 23040,
+  "two_star_order": 1920,
+  "one_star_order": 6,
+  "full_signed_even_axis_group_order": 23040,
+  "odd_axis_swap_extension_order": 46080,
+  "full_20_triads_generators_all_in_three_star_group": true,
+  "typed_brc_signed_vectors_checked": 2187,
+  "example_z": [
+    1,
+    -2,
+    1,
+    0,
+    0,
+    0
+  ],
+  "example_shortest_brc_multiplicity": 12,
+  "source_kernel": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py @ frozen a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "computation": "Python stdlib exact permutation+integer BFS, Source typed signed_brc"
+}
