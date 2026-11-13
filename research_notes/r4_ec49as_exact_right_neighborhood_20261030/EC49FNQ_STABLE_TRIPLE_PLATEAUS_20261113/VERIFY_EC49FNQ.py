@@ -87,6 +87,26 @@ assert all(j in adj[i] for i,j in zip(t,t[1:]))
 assert len(K[t[0]]-K[t[-1]]) == len(K[t[-1]]-K[t[0]]) == 3
 assert len(path)-1 == 3
 
+# Explicit diameter-four path: the stable exchange route must transiently insert key 56.
+detour = [32963,32276,32290,32691,32719]
+dt = [i-32000 for i in detour]
+assert all(V[i] == (152,1,1) for i in dt)
+assert all(j in adj[i] for i,j in zip(dt,dt[1:]))
+assert len(K[dt[0]]-K[dt[-1]]) == 3
+def shortest_stable(start, target):
+    dist={start:0}
+    q=deque([start])
+    while q:
+        u=q.popleft()
+        if u == target:
+            return dist[u]
+        for w in adj[u]:
+            if w not in dist:
+                dist[w]=dist[u]+1
+                q.append(w)
+    return None
+assert shortest_stable(dt[0],dt[-1]) == 4
+
 # All-pairs exact shortest distances, over each component (including isolates).
 diameter=0
 for c in components:
