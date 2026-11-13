@@ -1,0 +1,9 @@
+# EC49AD source pin and actual authority
+
+GLOBAL_KNOWLEDGE_V1 canonical main at 794ff5e0b22cbde51bcb738b73703d4139d32329: entry 00_BOOTSTRAP.md, OPERATING_MANUAL.md, TASK_RESEARCH role route, P000_STARTUP.json, original P000_REALITY_FOUNDATION.json (Git blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc, matched to projection), ACTIVE 我眼中的世界.md, math/code/BRC/research/handoff rules. No protected edits.
+
+Enterprise Math main 5dfc179643b8f704b364cb7ec0e5fbf8fa555772: AGENTS.md, p000_reality_foundation.json, control_plane/current_control_authority.json, docs/PORTABLE_RESEARCH_PROTOCOL.md, docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md. Exact predecessor EC49AC PR #1686, immutable 1b22692744f9d790200fa8b257f2d04fa6e42c5a, PROOF.md + VERIFY.py. Our theorem reuses the positive-mass BRC atom law, complete exact lower envelope and delta cap; adds full vertical feasibility and convexity for fixed costs.
+
+2026 bibliographic/abstract comparison (NOT independent proof of this theorem): Anderson & Montufar, ICML 2026 PMLR 306:2677-2715, https://proceedings.mlr.press/v306/anderson26a.html (infinite-horizon memoryless POMDP value feasibility); Main & Randour, LICS 2026 published 2026-07-09, https://doi.org/10.4230/LIPIcs.LICS.2026.68 (persistent strategy mixtures are outside this model's allowed erased-history fresh-coin policy).
+
+Native Enterprise Math v0.6.11 reported research_authority_granted=false and control Source CODE_REVIEW_REQUIRED. A read of current active owner/task inventory returned CONTROL_QUOTA (5/5). No native own CLAIM, formal Result, independent Driver review, mathematical admission, native signed BRC or X6 transfer. Authenticated GitHub author can publish durable portable PR only.
