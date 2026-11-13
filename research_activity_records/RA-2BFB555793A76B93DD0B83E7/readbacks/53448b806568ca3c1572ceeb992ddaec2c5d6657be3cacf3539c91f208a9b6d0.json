@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/PREFIX762_R6_MIXED_VARIANCE_CURVATURE_CHECK.py",
+    "ref": "fa1b5e7b3fb97a3e4885a61fab8d3eb8bb090f99",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r6-prefix762-checker-read-20261114",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"PREFIX-762 exact-rational mixed-variance curvature witness from PREFIX-760.\"\"\"\nfrom fractions import Fraction as Q\nfrom pathlib import Path\nimport argparse, hashlib, json\n\nSOURCE_SHA256 = \"1a480a9a05c4773f82091037fa8f6b695855ffbb885b21e804d56fdc181d4e76\"\nPIN = \"f42f2906d77f24085c123f3ccfe9667d41caa96d\"\n\ndef exact_pair(record):\n    v = Q(int(record[\"exact_delta_variance_numerator\"]),\n          int(record[\"exact_delta_variance_denominator\"]))\n    w = Q(int(record[\"exact_delta_Vq2_numerator\"]),\n          int(record[\"exact_delta_Vq2_denominator\"]))\n    return v, w\n\ndef main():\n    p = argparse.ArgumentParser()\n    p.add_argument(\"--source\", type=Path, default=Path(__file__).with_name(\"PREFIX760_R6_EXACT_GAMMA_VARIANCE_RESULTS.json\"))\n    args = p.parse_args()\n    raw = args.source.read_bytes()\n    assert len(raw) == 24743\n    assert hashlib.sha256(raw).hexdigest() == SOURCE_SHA256\n    source = json.loads(raw)\n    assert source[\"scientific_input_commit\"] == PIN\n    a = {}\n    for z in (\"0\", \"1/4\", \"1/2\"):\n        var, v2 = exact_pair(source[\"variance_comparisons\"][z])\n        mean = 2*var - v2/2\n        a[z] = (var, mean)\n    assert a[\"0\"][0] > 367\n    assert a[\"1/4\"][0] < -159\n    assert -4 < a[\"1/2\"][0] < -3\n    assert 111 < a[\"0\"][1] < 112\n    assert a[\"0\"][1] > a[\"1/4\"][1] > a[\"1/2\"][1] > 0\n    b1v = a[\"1/4\"][0] - a[\"0\"][0]\n    b2v = a[\"1/2\"][0] - a[\"1/4\"][0]\n    b1m = a[\"1/4\"][1] - a[\"0\"][1]\n    b2m = a[\"1/2\"][1] - a[\"1/4\"][1]\n    assert b1v < -526 and b2v > 155\n    assert -112 < b1m < 0 and b2m < 0\n    assert 4*b1v-2*b1m < 0 and 4*b2v-2*b2m > 0\n    for title,v,m in [(\"R_minus\",b1v,b1m),(\"R_plus\",b2v,b2m)]:\n        print(title,\"mixed_Var\", format(float(v),\".15g\"),\n              \"mixed_mu\",format(float(m),\".15g\"),\n              \"mixed_V2\",format(float(4*v-2*m),\".15g\"))\n    print(\"ALL_CHECKS_PASS PREFIX762\")\n\nif __name__==\"__main__\":\n    main()\n",
+      "display_title": "PREFIX762_R6_MIXED_VARIANCE_CURVATURE_CHECK.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/fa1b5e7b3fb97a3e4885a61fab8d3eb8bb090f99/research_notes/portable_direct/PREFIX762_R6_MIXED_VARIANCE_CURVATURE_CHECK.py",
+      "encoding": "utf-8",
+      "sha": "1fc6db5e4106e020866529caf2b91e7ed379512f"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
