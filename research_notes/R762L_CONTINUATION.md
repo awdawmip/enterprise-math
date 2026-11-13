@@ -1,0 +1,13 @@
+# R762L — portable scientific continuation
+
+**Task:** \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\` / publication \`TP2-8B7E13C5904A2D6F1142\`. **Frozen scientific pin:** \`a72226e2430ffa4786321ac86e7f0c599d5f0389\`. **Researcher:** \`EM-X6-3E0B39\` (current Source identity record checked); **Activity:** \`RA-63FEEEB1F28BB7ACDBF0D989\`. Authorship does not convey CLAIM.
+
+Completed new unit: all \`S6\`-invariant boolean admission laws depending exclusively on signed distinct-axis triad support plus optional cyclic direction are exactly the 16 four-bit sign-count predicates. A visible two-port pair with r negative ports sees \`8*a[r]\` positive-hidden and \`8*a[r+1]\` negative-hidden oriented candidate incidences. Three unrefined counts distinguish only 15 of 16 laws: the even/odd negative-parity laws both yield \`(8,8,8)\` and admit disjoint triads. One hidden-sign bit distinguishes the exceptional double fiber. Full proof in \`R762L_S6_SIGNED_TRIAD_ADMISSIBILITY.md\`, executable exhaustive checker \`R762L_S6_SIGNED_TRIAD_VERIFY.py\`, 16-case exact evidence in \`R762L_S6_SIGNED_TRIAD_EVIDENCE.json\`. Do not redo R762K or this R762L exact combinatorics.
+
+Scientific boundaries: candidate port-incidence model only; \`TRIADIC_CLOSURE_E\` real physical admission, event-repeat legality, V29/V39 updates, timed source fields and actual full native rotation remain unresolved. S6 skeleton and P000 120-degree relation remain unchanged. The checker uses exact integer/symbolic combinatorics, not continuous trigonometric force addition.
+
+Current native control snapshot 2026-11-13T13:30:39Z, Source \`960283bd37ddd998b4d831bce9eebe0a86932a8f\`: parent Task \`HANDOFF_READY/NEEDS_DISPATCH\`, last CLAIM \`MCP-0a2359ae674181be88d26285\` expired, \`NO_LIVE_CLAIM\`; corresponding continuation read request \`emr3-20261113-2125-x6-cont\` SUCCEEDED. This author had no active CLAIM; an independent Draft PR is not a native Result. Before new typed continuation/CLAIM, refresh canonical owner and verify predecessor/frontier under the current native contract. No new Run or Claim is asserted.
+
+**Next actual scientific question:** At one native Cell, specify fully typed signed-force and source/phase input and a closure/update predicate. Test \`S6\` covariance, whether repeat admission changes state, hidden-sign dependence and V29 PASS/TRANSFER / V39 frame output. Recompute admitted two-port fibers, comparing the 16-law conditional classification to an actual licensed event law.
+
+**Proof standard:** exact finite enumeration of all 160 signed supports, 720 skeleton permutations, 60 visible pairs and all 16 laws; run \`python R762L_S6_SIGNED_TRIAD_VERIFY.py\` to regenerate the entire census. Independent Driver review and formal Source Result are pending.
