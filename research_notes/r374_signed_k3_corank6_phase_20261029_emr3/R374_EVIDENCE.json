@@ -1,0 +1,95 @@
+{
+  "schema": "EM_R374_BRC_SIGNED_K3_CORANK6_GLOBAL_PF2_V1",
+  "status": "R374_EXACT_PASS",
+  "domain": "theta>-1",
+  "conclusion": "corank6 finite coefficient sequence PF2 iff -1<theta<=sigma6",
+  "sigma6_definition": "unique c0 zero on (901/1000,902/1000)",
+  "c0_descending": [
+    "-65536000000000000",
+    "664829952000000000",
+    "-6329544704000000000",
+    "25625926656000000000",
+    "-40156077952000000000",
+    "19614743512000000000"
+  ],
+  "c0_at_1": "-645658536000000000",
+  "groups": [
+    {
+      "group": "c1..c12",
+      "polynomials": 12,
+      "strict_positive_bernstein_coefficients": 144,
+      "interval": [
+        "-1",
+        "211/200"
+      ]
+    },
+    {
+      "group": "T1..T11",
+      "polynomials": 11,
+      "strict_positive_bernstein_coefficients": 252,
+      "interval": [
+        "-1",
+        "211/200"
+      ]
+    },
+    {
+      "group": "c0_before",
+      "polynomials": 1,
+      "strict_positive_bernstein_coefficients": 6,
+      "interval": [
+        "-1",
+        "901/1000"
+      ]
+    },
+    {
+      "group": "minus_c0_derivative",
+      "polynomials": 1,
+      "strict_positive_bernstein_coefficients": 5,
+      "interval": [
+        "901/1000",
+        "451/500"
+      ]
+    },
+    {
+      "group": "minus_c0_mid",
+      "polynomials": 1,
+      "strict_positive_bernstein_coefficients": 6,
+      "interval": [
+        "451/500",
+        "2"
+      ]
+    },
+    {
+      "group": "minus_c7_middle",
+      "polynomials": 1,
+      "strict_positive_bernstein_coefficients": 13,
+      "interval": [
+        "2",
+        "12/5"
+      ]
+    },
+    {
+      "group": "minus_c5_middle",
+      "polynomials": 1,
+      "strict_positive_bernstein_coefficients": 13,
+      "interval": [
+        "12/5",
+        "253/100"
+      ]
+    }
+  ],
+  "total_certified_positive_Bernstein_coefficients": 439,
+  "tail_positive_power_coefficients_at_253_over_100": [
+    "7773038293831680",
+    "2393023496822784000",
+    "7495338783539200000",
+    "3796359413760000000",
+    "164200448000000000",
+    "65536000000000000"
+  ],
+  "all_c_integer_polynomial_rows_sha256": "1a585c595b05a9ebe4718f9b2a63412b10051f43c259019576f63054fbcdae51",
+  "independent_13_polynomial_crosscheck": "PASS",
+  "all_index_R363_assumed": false,
+  "native_X6_transfer_claimed": false,
+  "mathematical_admission_claimed": false
+}

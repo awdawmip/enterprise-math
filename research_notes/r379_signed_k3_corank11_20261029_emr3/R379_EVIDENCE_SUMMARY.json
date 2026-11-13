@@ -1,0 +1,27 @@
+{
+  "schema": "R379_SIGNED_K3_CORANK11_GLOBAL_PF2_V1",
+  "r": 11,
+  "status": "R379_EXACT_PASS",
+  "theta_domain": ">-1",
+  "statement": "PF2 iff theta<=eta11 for 23 finite raw-D coefficients",
+  "eta11_root": "T11 unique root (1843323/1000000,1843324/1000000)",
+  "eta11_approx": "1.8433235041719365",
+  "coefficient_sha256": "6b710854cad0b921ff82e8ac47ad66f7649ec9db9833b0dfe178d31c143b2e1e",
+  "certificate_sha256": "171a70128cfdc84c306c5fa8c20d001a64091fde0093188bf6db2927e1ee5f5e",
+  "interval_objects": 50,
+  "closed_segments": 53,
+  "bernstein_checks": 56,
+  "positive_rational_coefficients": 1465,
+  "max_bisection_depth": 3,
+  "independent_r369_rational_crosschecks": 69,
+  "theta_15_8": {
+    "zeros": "c12..c22",
+    "negative": "c10,c11",
+    "degree": 11
+  },
+  "source_R346_blob": "1579ceb717ab1945227eca4f7a1878bf4ffa73e1",
+  "source_R369_blob": "789e9fb7f5ad785ce9ccef1ec5580dab347b1202",
+  "scope": "finite BRC signed auxiliary kernel only; not X6, all-index Q, theorem admission",
+  "regenerate": "python R379_compute.py && python R379_verify.py",
+  "author_status": "UNREVIEWED / NOT_ADMITTED"
+}

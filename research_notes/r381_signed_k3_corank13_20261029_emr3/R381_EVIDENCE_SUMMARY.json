@@ -1,0 +1,77 @@
+{
+  "schema": "EM_R381_SIGNED_K3_CORANK13_SUMMARY_V1",
+  "date": "2026-10-29",
+  "model": "R346 original signed twelve-term BRC K/J; only K3[t2]=-8(1+theta)",
+  "r": 13,
+  "finite_entries": 27,
+  "theta_domain": "theta>-1",
+  "theorem": "finite 27-term raw-D corank-13 Newton PF2 iff -1<theta<=eta13",
+  "eta13": "unique root of T13 in (1850889/1000000,1850890/1000000)",
+  "eta13_display": "1.8508899056188908",
+  "status": "R381_EXACT_PASS",
+  "joint_coefficients_sha256": "2213784d8a4e2b0b5f1f84990f0c100f889d1d60133993a0a243b098b00db5c9",
+  "certificate_sha256": "b8f755f940eedba64712de5c59a390bf46fd74bb45986f026bf2bfcd19eee10d",
+  "interval_objects": 60,
+  "certified_segments": 63,
+  "bernstein_checks": 66,
+  "positive_rational_bernstein_coefficients": 2041,
+  "max_subdivision_depth": 3,
+  "r369_exact_point_equalities": 81,
+  "negative_cover": [
+    [
+      "T13",
+      "1850890/1000000",
+      "1861/1000"
+    ],
+    [
+      "c13",
+      "1861/1000",
+      "1973/1000"
+    ],
+    [
+      "T11",
+      "1973/1000",
+      "2005/1000"
+    ],
+    [
+      "c12",
+      "2005/1000",
+      "203/100"
+    ],
+    [
+      "c5",
+      "203/100",
+      "9/4"
+    ],
+    [
+      "c2",
+      "9/4",
+      "23/10"
+    ],
+    [
+      "c1",
+      "23/10",
+      "4"
+    ],
+    [
+      "c1",
+      "4",
+      "infinity"
+    ]
+  ],
+  "theta_15_over_8": {
+    "zero_indices": "14..26",
+    "negative_indices": [
+      12,
+      13
+    ]
+  },
+  "top_coefficient_identity": "c26=742900*(30-16theta)^26",
+  "regeneration": [
+    "R381_compute.py -> R381_COEFFICIENTS.json",
+    "R381_verify.py -> R381_EVIDENCE.json"
+  ],
+  "scope": "Finite signed-BRC auxiliary observations only, no infinite Q, global D TP2 or X6 native dynamics",
+  "author_status": "UNREVIEWED / NOT_ADMITTED",
+  "next": "r14 29 terms and independent R348/R363 review"
+}

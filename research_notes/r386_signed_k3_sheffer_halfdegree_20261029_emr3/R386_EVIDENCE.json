@@ -1,0 +1,255 @@
+{
+  "schema": "R386_SIGNED_BRC_SHEFFER_FINITE_AUDIT_V1",
+  "source": "R384_verify.py original signed R346 K/J -> B -> D branch model; theta>-1",
+  "source_model": "Auxiliary signed combinatorial BRC model; not native X6",
+  "method": "Exact rational series multiplication and finite Newton differences, no floating point",
+  "parameter_values": [
+    "-1/2",
+    "0",
+    "1/2",
+    "1",
+    "15/8"
+  ],
+  "r_range": [
+    0,
+    16
+  ],
+  "u_range": [
+    0,
+    5
+  ],
+  "independent_nontrivial_sheffer_coeff_checks": 340,
+  "degeneracy_exact_assertions": 64,
+  "observations": [
+    {
+      "theta": "-1/2",
+      "a_jet_0_3": [
+        "1",
+        "6",
+        "32",
+        "192"
+      ],
+      "b_jet_0_3": [
+        "1",
+        "38/5",
+        "264/5",
+        "2224/5"
+      ],
+      "nontrivial_sheffer_u_range": [
+        2,
+        5
+      ],
+      "nontrivial_sheffer_r_range": [
+        0,
+        16
+      ]
+    },
+    {
+      "theta": "0",
+      "a_jet_0_3": [
+        "1",
+        "6",
+        "32",
+        "160"
+      ],
+      "b_jet_0_3": [
+        "1",
+        "6",
+        "216/5",
+        "1808/5"
+      ],
+      "nontrivial_sheffer_u_range": [
+        2,
+        5
+      ],
+      "nontrivial_sheffer_r_range": [
+        0,
+        16
+      ]
+    },
+    {
+      "theta": "1/2",
+      "a_jet_0_3": [
+        "1",
+        "6",
+        "32",
+        "128"
+      ],
+      "b_jet_0_3": [
+        "1",
+        "22/5",
+        "168/5",
+        "1392/5"
+      ],
+      "nontrivial_sheffer_u_range": [
+        2,
+        5
+      ],
+      "nontrivial_sheffer_r_range": [
+        0,
+        16
+      ]
+    },
+    {
+      "theta": "1",
+      "a_jet_0_3": [
+        "1",
+        "6",
+        "32",
+        "96"
+      ],
+      "b_jet_0_3": [
+        "1",
+        "14/5",
+        "24",
+        "976/5"
+      ],
+      "nontrivial_sheffer_u_range": [
+        2,
+        5
+      ],
+      "nontrivial_sheffer_r_range": [
+        0,
+        16
+      ]
+    },
+    {
+      "theta": "15/8",
+      "a_jet_0_3": [
+        "1",
+        "6",
+        "32",
+        "40"
+      ],
+      "b_jet_0_3": [
+        "1",
+        "0",
+        "36/5",
+        "248/5"
+      ],
+      "nontrivial_sheffer_u_range": [
+        2,
+        5
+      ],
+      "nontrivial_sheffer_r_range": [
+        0,
+        16
+      ],
+      "degenerate_observations": [
+        {
+          "r": 1,
+          "degree_H": 0,
+          "degree_Q": 1,
+          "c_r": "-180",
+          "expected": "-180"
+        },
+        {
+          "r": 2,
+          "degree_H": 1,
+          "degree_Q": 2,
+          "c_r": "64800",
+          "expected": "64800"
+        },
+        {
+          "r": 3,
+          "degree_H": 1,
+          "degree_Q": 3,
+          "c_r": "-17496000",
+          "expected": "-17496000"
+        },
+        {
+          "r": 4,
+          "degree_H": 2,
+          "degree_Q": 4,
+          "c_r": "6298560000",
+          "expected": "6298560000"
+        },
+        {
+          "r": 5,
+          "degree_H": 2,
+          "degree_Q": 5,
+          "c_r": "-1889568000000",
+          "expected": "-1889568000000"
+        },
+        {
+          "r": 6,
+          "degree_H": 3,
+          "degree_Q": 6,
+          "c_r": "680244480000000",
+          "expected": "680244480000000"
+        },
+        {
+          "r": 7,
+          "degree_H": 3,
+          "degree_Q": 7,
+          "c_r": "-214277011200000000",
+          "expected": "-214277011200000000"
+        },
+        {
+          "r": 8,
+          "degree_H": 4,
+          "degree_Q": 8,
+          "c_r": "77139724032000000000",
+          "expected": "77139724032000000000"
+        },
+        {
+          "r": 9,
+          "degree_H": 4,
+          "degree_Q": 9,
+          "c_r": "-24993270586368000000000",
+          "expected": "-24993270586368000000000"
+        },
+        {
+          "r": 10,
+          "degree_H": 5,
+          "degree_Q": 10,
+          "c_r": "8997577411092480000000000",
+          "expected": "8997577411092480000000000"
+        },
+        {
+          "r": 11,
+          "degree_H": 5,
+          "degree_Q": 11,
+          "c_r": "-2969200545660518400000000000",
+          "expected": "-2969200545660518400000000000"
+        },
+        {
+          "r": 12,
+          "degree_H": 6,
+          "degree_Q": 12,
+          "c_r": "1068912196437786624000000000000",
+          "expected": "1068912196437786624000000000000"
+        },
+        {
+          "r": 13,
+          "degree_H": 6,
+          "degree_Q": 13,
+          "c_r": "-357322077094917242880000000000000",
+          "expected": "-357322077094917242880000000000000"
+        },
+        {
+          "r": 14,
+          "degree_H": 7,
+          "degree_Q": 14,
+          "c_r": "128635947754170207436800000000000000",
+          "expected": "128635947754170207436800000000000000"
+        },
+        {
+          "r": 15,
+          "degree_H": 7,
+          "degree_Q": 15,
+          "c_r": "-43414632367032445009920000000000000000",
+          "expected": "-43414632367032445009920000000000000000"
+        },
+        {
+          "r": 16,
+          "degree_H": 8,
+          "degree_Q": 16,
+          "c_r": "15629267652131680203571200000000000000000",
+          "expected": "15629267652131680203571200000000000000000"
+        }
+      ]
+    }
+  ],
+  "scope": "Finite implementation verification only; global theorem from residue proof"
+}

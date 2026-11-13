@@ -1,0 +1,68 @@
+{
+  "schema": "EM_R376_CORANK8_STURM_EVIDENCE_SUMMARY_V1",
+  "date": "2026-10-29",
+  "status": "LOCAL_EXACT_PASS",
+  "closed_domain": "theta > -1",
+  "r": 8,
+  "model": "signed original R346 K/J with K3[t^2]=-8(1+theta)",
+  "finite_coefficients": 17,
+  "ordinary_Turan_defects": 15,
+  "eta8_isolating_interval": [
+    "183/100",
+    "1831/1000"
+  ],
+  "eta8_approx": "1.83097648780669697534236195",
+  "sturm_root_counts_on_minus1_to_1831_over_1000": {
+    "coefficients_c0_through_c16": "all zero",
+    "T1_through_T15_except_T9": "all zero",
+    "T9": 1
+  },
+  "T9_signs": {
+    "183/100": "+",
+    "1831/1000": "-",
+    "37/20": "-"
+  },
+  "negative_witness_cover": [
+    {
+      "interval": "(eta8,37/20]",
+      "witness": "T9<0",
+      "roots_on_minus1_to_37_over_20": 1
+    },
+    {
+      "interval": "[37/20,2]",
+      "witness": "T3<0",
+      "roots": 0
+    },
+    {
+      "interval": "[2,5/2]",
+      "witness": "c3<0",
+      "roots": 0
+    },
+    {
+      "interval": "[5/2,+infinity)",
+      "witness": "c0<0",
+      "roots": 0
+    }
+  ],
+  "zero_coefficients_at_theta_15_over_8": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "negative_T3_at_theta_15_over_8": true,
+  "highest_coefficient_identity": "1430*(30-16*theta)^16",
+  "independent_route_parameters": [
+    "-1/2",
+    "0",
+    "1"
+  ],
+  "independent_exact_equalities": 51,
+  "C_T_combined_sha256": "1641424c4da68106c12a5b49c8d81faac5742a4d8c7f8eb8bc13a5532ed7a54a",
+  "machine_certificate": "Run R376_CHECK.py to regenerate full 17 coefficient polynomials and 15 Turan polynomials, count every Sturm root, certify the 4 cover intervals and write the complete R376_EVIDENCE.json.",
+  "scope": "finite raw-D auxiliary BRC; author-side unreviewed; not admitted; no native X6"
+}

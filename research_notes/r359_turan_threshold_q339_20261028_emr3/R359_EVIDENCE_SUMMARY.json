@@ -1,0 +1,48 @@
+{
+  "schema": "R359_BRC_Q339_ULC_TOP_V1",
+  "date": "2026-10-28",
+  "classification": "AUTHOR_SIDE_EXACT_CONDITIONAL_UNREVIEWED_NOT_ADMITTED",
+  "global_snapshot": "bc1dde73f2421befe5e79e143c5f2e101770dada",
+  "em_control_read": "1ffb9154225151dd24b0264b58c027a81d68b008",
+  "sources": {
+    "r346_kernel": "research_notes/r346_unbounded_interior_tp2_corank301_20261028_emr3/R346_verify.py",
+    "r348": "5347e506bd145028d7338e9f7993dcd2a2fed97c",
+    "r353": "a178d684609ef5c908d21c75fcc852e65b24ba5f",
+    "r354": "b1fcc9f5e9b4b40964d0232bc08952df63963ec4",
+    "r358": "14ec352a8ca969b55bd4eb84122bf8dbe77157a6"
+  },
+  "raw_B_range": [
+    0,
+    1022
+  ],
+  "t_degree_range": [
+    0,
+    681
+  ],
+  "H_r_range": [
+    337,
+    340
+  ],
+  "q338_regression_sha256": "a1bfe1e15b52143446f3e9b098278a992815f0e89a80ae14c6b474588723967d",
+  "q339_sha256": "1463acfa336c2e8bf11b09dba027fb2fe8f45edd0a733d0fddcee1b92d001e2d",
+  "newton_positive": 679,
+  "newton_nonpositive": 0,
+  "turan_positive": 677,
+  "turan_nonpositive": 0,
+  "ulc_violations": 621,
+  "ulc_total_checks": 677,
+  "peak_j": 363,
+  "raw_D_minor_exact_checks": 8,
+  "top_Catalan_exact": true,
+  "top_two_ratios_exact": true,
+  "ulc_top_transition": "r1..4 fail, all r>=5 pass, conditional on R348/R353/R354",
+  "r1_top_ULC_defect": "-770400",
+  "unknowns": [
+    "R348 full-index independent proof audit",
+    "All-r Newton coefficient positivity",
+    "All-index interior Turan beyond top",
+    "native X6 correspondence",
+    "native owner/CLAIM/Result/Driver acceptance"
+  ],
+  "arithmetic": "Python integers/Fraction + SymPy exact rationals"
+}

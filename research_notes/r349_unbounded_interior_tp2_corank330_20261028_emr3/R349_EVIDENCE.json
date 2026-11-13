@@ -1,0 +1,157 @@
+{
+  "schema": "R349_EXACT_BRC_NEWTON_TP2_CORANK330_V1",
+  "date": "2026-10-28",
+  "model": "full signed 12-term ordered-hex BRC auxiliary recurrence",
+  "scope": "author-side combinatorial model, no native X6 dynamics",
+  "source_unchanged": "R346_verify.py from commit 37516cc5bb8d72098ce25f2d64881ec5da4279cd",
+  "smax": 995,
+  "truncation_degrees": [
+    0,
+    663
+  ],
+  "H_range": [
+    319,
+    331
+  ],
+  "Q_range": [
+    320,
+    330
+  ],
+  "regression_r320_sha256": "ef944e5a2608a1566e8b508699dbf11b0428fd85e230a428d4cbb11071aa98e6",
+  "new_r_range": [
+    321,
+    330
+  ],
+  "new_coeff_count": 6520,
+  "new_nonpositive_count": 0,
+  "new_coeff_sha256": "88b663d75bef5c3ca8af055cd7ec1ee22799e46d55fe6e3e8a995605a89c22f5",
+  "highest_catalan_checks": 11,
+  "raw_D_minor_checks": 40,
+  "extra_node_zero_checks": 13,
+  "rows": [
+    {
+      "r": 320,
+      "coeff_count": 641,
+      "sha256": "ef944e5a2608a1566e8b508699dbf11b0428fd85e230a428d4cbb11071aa98e6",
+      "min_index": 0,
+      "min_digits": 1117,
+      "first_digits": 1117,
+      "last_digits": 1135,
+      "all_positive": true,
+      "highest_catalan_pass": true
+    },
+    {
+      "r": 321,
+      "coeff_count": 643,
+      "sha256": "3888fb1cc4cb2c82e0a238afeb22815060c0d0f0af5e796e3453c47ec29d732e",
+      "min_index": 0,
+      "min_digits": 1121,
+      "first_digits": 1121,
+      "last_digits": 1138,
+      "all_positive": true,
+      "highest_catalan_pass": true
+    },
+    {
+      "r": 322,
+      "coeff_count": 645,
+      "sha256": "9cfb5bb9bc7af8ef886fd26229ada8d3e42390c1dcc2cc2057f86c5e74caaa39",
+      "min_index": 0,
+      "min_digits": 1124,
+      "first_digits": 1124,
+      "last_digits": 1142,
+      "all_positive": true,
+      "highest_catalan_pass": true
+    },
+    {
+      "r": 323,
+      "coeff_count": 647,
+      "sha256": "bc1f882fb1f18d0b9422af424987295ba50057adbff0af4029c20188327be5b1",
+      "min_index": 0,
+      "min_digits": 1128,
+      "first_digits": 1128,
+      "last_digits": 1145,
+      "all_positive": true,
+      "highest_catalan_pass": true
+    },
+    {
+      "r": 324,
+      "coeff_count": 649,
+      "sha256": "b1b13173bdccb42903282d921fc3ac9846861c87d7c506123f2a7f692cd1a260",
+      "min_index": 0,
+      "min_digits": 1131,
+      "first_digits": 1131,
+      "last_digits": 1149,
+      "all_positive": true,
+      "highest_catalan_pass": true
+    },
+    {
+      "r": 325,
+      "coeff_count": 651,
+      "sha256": "b130a428387bc51c70cf8f9df049ab1d3ec8a04d292ec9b5b43efe5c4677ddf9",
+      "min_index": 0,
+      "min_digits": 1135,
+      "first_digits": 1135,
+      "last_digits": 1152,
+      "all_positive": true,
+      "highest_catalan_pass": true
+    },
+    {
+      "r": 326,
+      "coeff_count": 653,
+      "sha256": "bab68d48bed9bb8e4b25c7719224cf0cd990484a1abe581c8b394e0a0a121ed8",
+      "min_index": 0,
+      "min_digits": 1138,
+      "first_digits": 1138,
+      "last_digits": 1156,
+      "all_positive": true,
+      "highest_catalan_pass": true
+    },
+    {
+      "r": 327,
+      "coeff_count": 655,
+      "sha256": "f6481369fbad29e78bbb49191ea9f51b152ba6c8365a293371fb498365daa70d",
+      "min_index": 0,
+      "min_digits": 1142,
+      "first_digits": 1142,
+      "last_digits": 1159,
+      "all_positive": true,
+      "highest_catalan_pass": true
+    },
+    {
+      "r": 328,
+      "coeff_count": 657,
+      "sha256": "674ad50ef7237326934c03e35038172523fe7b2d973135cf54acfc9be4913483",
+      "min_index": 0,
+      "min_digits": 1145,
+      "first_digits": 1145,
+      "last_digits": 1163,
+      "all_positive": true,
+      "highest_catalan_pass": true
+    },
+    {
+      "r": 329,
+      "coeff_count": 659,
+      "sha256": "15d8a58247c4f2af637cd9b65ee3e34886f12ad880a86847553c8fab5c237082",
+      "min_index": 0,
+      "min_digits": 1149,
+      "first_digits": 1149,
+      "last_digits": 1166,
+      "all_positive": true,
+      "highest_catalan_pass": true
+    },
+    {
+      "r": 330,
+      "coeff_count": 661,
+      "sha256": "7c319fc417fce95229b11341427f7de5271da80627c885a7252ee58a362c3d56",
+      "min_index": 0,
+      "min_digits": 1152,
+      "first_digits": 1152,
+      "last_digits": 1170,
+      "all_positive": true,
+      "highest_catalan_pass": true
+    }
+  ],
+  "arithmetic": "exact Python integers/Fraction, no floating-point sign comparisons",
+  "theorem_strength": "finite exact certificate + universal Newton polynomial theorem via previously published R348 author-side extraction proof; requires independent mathematical review",
+  "elapsed_seconds": 14.29
+}

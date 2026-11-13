@@ -1,0 +1,49 @@
+{
+  "schema": "EM_R361_Q341_EXACT_GITHUB_V1",
+  "date": "2026-10-28",
+  "author_status": "AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED",
+  "source": "original signed twelve-term BRC K/J auxiliary recurrence; R346_verify.py",
+  "global_snapshot": "14a6e2df8b8b7d274f00c8f3e526133761dc7d4c",
+  "project_main_snapshot": "81d8e984179224e4d6d8dfd795d401fc875cdf33",
+  "B_n_range": [
+    0,
+    1028
+  ],
+  "t_degree_max": 685,
+  "H_r_range": [
+    339,
+    342
+  ],
+  "regression_q340": {
+    "coefficient_count": 681,
+    "sha256": "6b4bd495ab7910a1d95e5c28e2c542da082cd1aa7130566172f8a1e4079698d1",
+    "strict_turan": 679,
+    "ULC_fail": 623
+  },
+  "q341": {
+    "coefficient_count": 683,
+    "positive_count": 683,
+    "zero_count": 0,
+    "negative_count": 0,
+    "sha256": "8d266933eaa17e62317fe4709a85be633f4a09726d90757ef05facd9e672d346",
+    "strict_turan_count": 681,
+    "strict_turan_failed": 0,
+    "ULC_fail_count": 624,
+    "ULC_positive_count": 57,
+    "ULC_equal_count": 0,
+    "first_ULC_failure": 1,
+    "peak_index": 365,
+    "min_index": 0,
+    "highest_Catalan_exact": true,
+    "top_two_ratios_exact": true
+  },
+  "raw_D_minors_exact": 8,
+  "arith": "Python arbitrary precision int/Fraction; no floating sign checks",
+  "original_run_seconds": 13.54,
+  "second_reproducer": "R361_reproduce.py; PASS for q340 and q341",
+  "R348_A1_A5": "UNREVIEWED_DEPENDENCY",
+  "unbounded_k": "AUTHOR_SIDE_CONDITIONAL",
+  "X6_dynamics_correspondence": "NOT_PROVED",
+  "full_integer_text_sha256": "8d266933eaa17e62317fe4709a85be633f4a09726d90757ef05facd9e672d346",
+  "original_complete_certificate": "EnterpriseMath_R361_BRC_Q341_Exact_Research.zip (research attachment; deterministic reproduction from linked script)"
+}

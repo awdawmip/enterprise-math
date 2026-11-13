@@ -1,0 +1,45 @@
+{
+  "schema": "R377_SIGNED_K3_CORANK9_AUTHOR_EVIDENCE_SUMMARY_V1",
+  "date": "2026-10-29",
+  "status": "R377_EXACT_PASS",
+  "r": 9,
+  "coefficient_polynomials": 19,
+  "turan_polynomials": 17,
+  "exact_root_bracket": [
+    "1831256/1000000",
+    "1831257/1000000"
+  ],
+  "root_decimal_approx": "1.8312566737156712",
+  "c_T_sha256": "aeddee2458ba0352f5f3c23cd4bb0a80ca631d7bb72dbdad5122f421279806f7",
+  "reproducible_script": "R377_REPRODUCE.py",
+  "expected_output": "R377_EXACT_PASS",
+  "exact_bernstein_interval_checks": 76,
+  "strict_bernstein_plus_tail_rational_coefficients": 1846,
+  "independently_crosschecked_exact_values": 57,
+  "exclusions": [
+    {
+      "witness": "T9<0",
+      "interval": "(eta9,37/20]"
+    },
+    {
+      "witness": "c9<0",
+      "interval": "[37/20,203/100]"
+    },
+    {
+      "witness": "c5<0",
+      "interval": "[203/100,5/2]"
+    },
+    {
+      "witness": "c0<0",
+      "interval": "[5/2,infinity)"
+    }
+  ],
+  "top_identity": "c18=4862*(30-16*theta)^18",
+  "scope": "finite signed BRC raw-D observations; author-side; no native X6 bridge or R363 infinite extraction acceptance",
+  "sources": [
+    "R346_verify.py signed original",
+    "R369_check.py three point independent route",
+    "R376_CHECK.py exact predecessor"
+  ],
+  "output_generated_by_reproduction": "R377_EVIDENCE.json includes all full polynomials and exact rational checks"
+}

@@ -1,0 +1,81 @@
+{
+  "schema": "EM_R371_SIGNED_K3_CORANK3_CERTIFICATE_SUMMARY_V1",
+  "date": "2026-10-29",
+  "parent_commit": "0d171d07b76e4a1147adecacf519313133b06358",
+  "global_pin": "d2d6fc3f8643da399ba72c0c2f0b39e4c55daa3e",
+  "input": "R346 signed original 12 K/J; R369_check.compute_rows(theta,4); K3[t2]=-8*(1+theta), theta>-1",
+  "exact_direct_rawD_equalities": 7,
+  "coeff_degrees": [
+    4,
+    5,
+    6,
+    6,
+    6,
+    6,
+    6
+  ],
+  "coefficient_at_theta_zero": [
+    "7457000000",
+    "30646744000",
+    "66809768000",
+    "82544184000",
+    "58781160000",
+    "22599000000",
+    "3645000000"
+  ],
+  "sturm_zero_root_on_minus1_to_1_232": {
+    "coefficients": 7,
+    "turan_j2_through_j5": 4,
+    "ulc_first": 1
+  },
+  "sigma3": {
+    "polynomial": "c1^2-c0*c2",
+    "root_count_bracket": 1,
+    "bracket": [
+      "1231/1000",
+      "1232/1000"
+    ],
+    "count_on_minus1_to_1461_1000": 1
+  },
+  "rho1": {
+    "polynomial": "c1",
+    "root_count_bracket": 1,
+    "bracket": [
+      "1460/1000",
+      "1461/1000"
+    ],
+    "count_on_minus1_to_1461_1000": 1
+  },
+  "negative_coefficient_cover": [
+    [
+      "c1",
+      "rho1",
+      "11/5"
+    ],
+    [
+      "c3",
+      "11/5",
+      "221/100"
+    ],
+    [
+      "c4",
+      "221/100",
+      "37/10"
+    ],
+    [
+      "c2",
+      "37/10",
+      "5"
+    ],
+    [
+      "c1",
+      "5",
+      "infinity"
+    ]
+  ],
+  "conclusion": "PF2 iff -1<theta<=sigma3; PFinfty never; joint r1-r3 PF2 iff -1<theta<=tau1 (R370)",
+  "arithmetics": "exact symbolic integers/rationals; Sturm root counts; no floating sign tests",
+  "local_full_evidence_sha256": "473957756269c2e7166e9cac752f93719bedf39902b7c90fa5c7af54a3f0ebbc",
+  "status": "AUTHOR_SIDE_EXACT / UNREVIEWED / NOT_ADMITTED / NO_NATIVE_X6_TRANSFER",
+  "next": "r4 9 coefficients first PF2 threshold; audit R363 extraction at theta=15/8"
+}
