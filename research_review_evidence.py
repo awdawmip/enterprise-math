@@ -25,8 +25,8 @@ EM_ID_RE = re.compile(r"^EM-[A-Z0-9]+-(?:[0-9]{2}|[A-Z0-9]{4,8})$")
 
 
 def _review_ids(value: Any, label: str) -> list[str]:
-    if not isinstance(value, list) or len(value) < 2:
-        raise ReviewEvidenceError(f"{label} must contain at least two review ids")
+    if not isinstance(value, list) or len(value) < 1:
+        raise ReviewEvidenceError(f"{label} must contain at least one review id")
     out: list[str] = []
     for raw in value:
         out.append(_id(raw, label))
@@ -86,9 +86,9 @@ def _validate_pass(row: dict[str, Any], intake: dict[str, Any]) -> int:
     if row.get("result_id") != intake.get("result_id"):
         raise ReviewEvidenceError("review reference pass result_id mismatch")
     number = row.get("pass_number")
-    if type(number) is not int or number not in PASS_KINDS:
-        raise ReviewEvidenceError("review reference pass number must be 1 or 2")
-    if row.get("pass_kind") != PASS_KINDS[number]:
+    if type(number) is not int or number < 1:
+        raise ReviewEvidenceError("review reference pass number must be a positive integer label")
+    if row.get("pass_kind") != PASS_KINDS.get(number, "REVIEW_CROSSCHECK"):
         raise ReviewEvidenceError("review reference pass kind mismatch")
     review_ids = _review_ids(row.get("review_ids"), "review_ids")
     if sorted(review_ids) != sorted(_review_ids(intake.get("review_ids"), "review_ids")):
@@ -110,19 +110,25 @@ def _validate_pass(row: dict[str, Any], intake: dict[str, Any]) -> int:
     return number
 
 
-def _validated_pass_map(intake: dict[str, Any], root: Path) -> dict[int, dict[str, Any]]:
+def _validated_pass_map(intake: dict[str, Any], root: Path) -> dict[str, dict[str, Any]]:
     rows = _store.reference_passes(root).get(str(intake["intake_id"]), [])
-    out: dict[int, dict[str, Any]] = {}
+    out: dict[str, dict[str, Any]] = {}
+    contents = set()
     for row in rows:
-        number = _validate_pass(row, intake)
-        if number in out:
-            raise ReviewEvidenceError(f"duplicate review reference pass {number}")
-        out[number] = row
+        _validate_pass(row, intake)
+        identity=(row["pass_number"],row["reviewer_id"],row["finding"],row["independence_status"])
+        if identity in contents:
+            raise ReviewEvidenceError("duplicate review reference pass contents")
+        contents.add(identity)
+        identifier = str(row["pass_id"])
+        if identifier in out:
+            raise ReviewEvidenceError(f"duplicate review reference pass identity {identifier}")
+        out[identifier] = row
     return out
 
 
 def _validate_synthesis(
-    row: dict[str, Any], intake: dict[str, Any], passes: dict[int, dict[str, Any]]
+    row: dict[str, Any], intake: dict[str, Any], passes: dict[str, dict[str, Any]]
 ) -> str:
     if row.get("schema") != SYNTH_SCHEMA:
         raise ReviewEvidenceError("wrong review synthesis schema")
@@ -135,8 +141,15 @@ def _validate_synthesis(
         raise ReviewEvidenceError("review synthesis does not cover exact intake reviews")
     if row.get("review_set_sha256") != intake.get("review_set_sha256"):
         raise ReviewEvidenceError("review synthesis evidence hash drift")
-    if set(passes) != {1, 2}:
-        raise ReviewEvidenceError("review synthesis requires both exact-set reference passes")
+    observed = row.get("reference_pass_ids")
+    if observed is not None:
+        if (not isinstance(observed, list)
+                or any(not isinstance(pid, str) or pid not in passes for pid in observed)
+                or len(observed) != len(set(observed))):
+            raise ReviewEvidenceError("review synthesis references unavailable or duplicate review passes")
+        expected_status = "RECORDED" if observed else "NOT_PERFORMED"
+        if row.get("reference_review_status") != expected_status:
+            raise ReviewEvidenceError("review synthesis reference-review status is not truthful")
     disposition = row.get("operational_disposition")
     if disposition not in ALL_DISPOSITIONS:
         raise ReviewEvidenceError("invalid synthesized operational disposition")
@@ -180,12 +193,19 @@ def state(result_id: str, root: Path = ROOT) -> dict[str, Any]:
         _validate_review(review, rid)
     ids = [str(item["review_id"]) for item in reviews]
     if not reviews:
-        return {"result_id": rid, "review_state": "NO_REVIEW", "review_ids": [], "terminal": False}
-    if len(reviews) == 1:
+        return {"result_id": rid, "review_state": "NO_REVIEW", "review_ids": [], "terminal": False,
+                "reference_review_status": "NOT_PERFORMED", "research_continuation_allowed": True}
+    if len(reviews) == 1 and not any(row.get("result_id")==rid and row.get("review_set_sha256")==review_set_hash(ids) for row in _store.syntheses(root).values()):
         disposition = reviews[0]["disposition"]
+        optional_intake=_store._current_intake(rid,ids,root)
+        optional_passes=_validated_pass_map(optional_intake,root) if optional_intake else {}
+
         return {
             "result_id": rid,
             "review_state": "SINGLE_REVIEW_FLOW",
+            "reference_review_status": "RECORDED" if optional_passes else "NOT_PERFORMED", "research_continuation_allowed": True,
+            "intake_id": optional_intake["intake_id"] if optional_intake else None,
+            "reference_pass_count":len(optional_passes),
             "review_ids": ids,
             "review": reviews[0],
             "operational_disposition": disposition,
@@ -204,6 +224,7 @@ def state(result_id: str, root: Path = ROOT) -> dict[str, Any]:
         "result_id": rid,
         "review_ids": ids,
         "review_set_sha256": digest,
+        "reference_review_status": "NOT_PERFORMED", "research_continuation_allowed": True,
         "terminal": False,
     }
     if not exact:
@@ -213,10 +234,9 @@ def state(result_id: str, root: Path = ROOT) -> dict[str, Any]:
     intake = exact[0]
     iid = str(intake["intake_id"])
     passes = _validated_pass_map(intake, root)
-    if 1 not in passes:
-        return {**base, "review_state": "AWAITING_REVIEW_REFERENCE_PASS_1", "intake_id": iid}
-    if 2 not in passes:
-        return {**base, "review_state": "AWAITING_REVIEW_REFERENCE_PASS_2", "intake_id": iid}
+    base.update(reference_pass_count=len(passes),
+                reference_review_status="RECORDED" if passes else "NOT_PERFORMED",
+                research_continuation_allowed=True)
 
     matches: list[dict[str, Any]] = []
     for synthesis in _store.syntheses(root).values():

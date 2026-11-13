@@ -97,9 +97,9 @@ class RegisteredHandoffScopeGuardTests(unittest.TestCase):
             ],
             "2026-09-07T02:40:00+00:00",
         )
-        self.assertEqual("BLOCKED", state["state"])
-        self.assertEqual("BLOCKED", state["dispatch_state"])
-        self.assertEqual("REGISTERED_HANDOFF_SCOPE_REQUIRED", state["hard_block"]["code"])
+        self.assertEqual("HANDOFF_READY", state["state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertEqual("REGISTERED_HANDOFF_SCOPE_REQUIRED", state["handoff_scope_observation"]["code"])
 
     def test_post_cutover_unscoped_handoff_preserves_live_owner_before_expiry(self):
         state = self.reduce(
@@ -152,7 +152,7 @@ class RegisteredHandoffScopeGuardTests(unittest.TestCase):
             "2026-09-07T02:25:00+00:00",
         )
         self.assertEqual("FROZEN_RETURN", state["state"])
-        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
 
     def test_pre_cutover_plain_handoff_preserves_unresolved_scope(self):
         state = self.reduce(
@@ -170,13 +170,13 @@ class RegisteredHandoffScopeGuardTests(unittest.TestCase):
         )
         # The current reconciliation contract covers recorded untyped handoffs;
         # its forward CLAIM clock preserves old owners, not fresh redispatch.
-        self.assertEqual("BLOCKED", state["state"])
-        self.assertEqual("BLOCKED", state["dispatch_state"])
-        self.assertEqual("LEGACY_HANDOFF_SCOPE_UNRESOLVED", state["hard_block"]["code"])
-        self.assertEqual(2, state["hard_block"]["source_handoff"]["server_comment_id"])
+        self.assertEqual("HANDOFF_READY", state["state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertEqual("LEGACY_HANDOFF_SCOPE_UNRESOLVED", state["handoff_scope_observation"]["code"])
+        self.assertEqual(2, state["handoff_scope_observation"]["source_handoff"]["server_comment_id"])
         self.assertEqual(
             "2026-09-07T02:19:00+00:00",
-            state["hard_block"]["source_handoff"]["progress_at"],
+            state["handoff_scope_observation"]["source_handoff"]["progress_at"],
         )
         self.assertIsNone(state["claim_id"])
         self.assertEqual([], state["ignored_events"])
@@ -204,7 +204,7 @@ class RegisteredHandoffScopeGuardTests(unittest.TestCase):
             "2026-09-07T02:25:00+00:00",
         )
         self.assertEqual("FROZEN_RETURN", state["state"])
-        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertEqual("RR-CORRECTED", state["result_id"])
 
     def test_wrong_claim_ambiguous_handoff_cannot_block_fresh_task(self):
@@ -256,8 +256,8 @@ class RegisteredHandoffScopeGuardTests(unittest.TestCase):
             ],
             "2026-09-07T02:40:00+00:00",
         )
-        self.assertEqual("BLOCKED", state["dispatch_state"])
-        self.assertEqual("REGISTERED_HANDOFF_SCOPE_REQUIRED", state["hard_block"]["code"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertEqual("REGISTERED_HANDOFF_SCOPE_REQUIRED", state["handoff_scope_observation"]["code"])
 
     def test_continuation_scope_cannot_contradict_result_return(self):
         state = self.reduce(
@@ -275,8 +275,8 @@ class RegisteredHandoffScopeGuardTests(unittest.TestCase):
             ],
             "2026-09-07T02:40:00+00:00",
         )
-        self.assertEqual("BLOCKED", state["dispatch_state"])
-        self.assertEqual("REGISTERED_HANDOFF_SCOPE_REQUIRED", state["hard_block"]["code"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertEqual("REGISTERED_HANDOFF_SCOPE_REQUIRED", state["handoff_scope_observation"]["code"])
 
     def test_wrong_claim_invalid_done_does_not_gain_blocking_authority(self):
         state = self.reduce(
@@ -309,10 +309,10 @@ class RegisteredHandoffScopeGuardTests(unittest.TestCase):
             ],
             "2026-09-07T02:40:00+00:00",
         )
-        self.assertEqual("BLOCKED", state["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertEqual(
             "REGISTERED_DONE_REQUIRES_TERMINAL_DRIVER_REVIEW",
-            state["hard_block"]["code"],
+            state["unaccepted_completion_report"]["code"],
         )
 
 

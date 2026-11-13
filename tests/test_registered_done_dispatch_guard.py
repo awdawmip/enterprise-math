@@ -36,18 +36,19 @@ class RegisteredDoneDispatchGuardTests(unittest.TestCase):
             "dispatch_state": "NEEDS_DISPATCH",
         }
 
-    def test_unreviewed_done_blocks_fresh_redispatch_without_promoting_completion(self):
+    def test_unreviewed_done_remains_unaccepted_without_blocking_research(self):
         state = rd._block_unreviewed_registered_done(
             self.task, self.fresh_state(), [self.done], self.rejected, None
         )
-        self.assertEqual("BLOCKED", state["state"])
-        self.assertEqual("BLOCKED", state["dispatch_state"])
+        self.assertEqual("HANDOFF_READY", state["state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertEqual(
             "REGISTERED_DONE_REQUIRES_TERMINAL_DRIVER_REVIEW",
-            state["hard_block"]["code"],
+            state["unaccepted_completion_report"]["code"],
         )
-        self.assertEqual(123, state["hard_block"]["server_comment_id"])
-        self.assertIsNone(rr.select_state([state], rr.load_policy(), kind="RESEARCH"))
+        self.assertEqual(123, state["unaccepted_completion_report"]["server_comment_id"])
+        self.assertEqual(state["task_id"], rr.select_state([state], rr.load_policy(), kind="RESEARCH")["task_id"])
+        self.assertFalse(state["task_completion_granted"])
 
     def test_existing_result_lifecycle_remains_authoritative(self):
         original = self.fresh_state()

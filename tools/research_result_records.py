@@ -224,7 +224,7 @@ def _apply_followup_gate(
             "driver_followup": followup.get("packet"),
         }
     scope = {}
-    packet = followup.get("packet")
+    packet = followup.get("packet") if followup.get("ready") is True else None
     if isinstance(packet, dict) and packet.get("decision") == _followup_impl.RESULT_CONTINUATION_DECISION:
         return {
             **reduced,
@@ -646,17 +646,8 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
     ]
     spec: dict[str, Any] | None = None
     spec_path: Path | None = None
-    if not existing:
-        if not args.followup_spec:
-            raise ResultRecordError(
-                "the first immutable review becomes operational immediately and requires --followup-spec"
-            )
+    if args.followup_spec:
         spec, spec_path = _load_followup_spec(args.followup_spec)
-    elif args.followup_spec:
-        raise ResultRecordError(
-            "a second-or-later review reopens exact-set review authority; "
-            "materialize follow-up only after review synthesis"
-        )
 
     publisher_args = {}
     if spec is not None and ("prospective_result_authority_binding" in spec
@@ -718,7 +709,7 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
     except _candidate_validation.ImmutableCandidateValidationError as exc:
         raise ResultRecordError(f"review candidate preflight failed: {exc}") from exc
 
-    if spec is not None:
+    if spec is not None and not existing:
         # The explicit completion route reads the real report and Result pins.
         # Validate the genuine candidate before any immutable DR is persisted;
         # a placeholder review cannot stand in for those bindings.
@@ -738,8 +729,7 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
         raise ResultRecordError(f"review transaction failed with no committed candidate: {exc}") from exc
 
     followup: dict[str, Any]
-    if not existing:
-        assert spec is not None
+    if not existing and spec is not None:
         followup = _driver_followup.materialize(
             review_id=record["review_id"],
             spec=spec,
@@ -752,7 +742,9 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
     else:
         state = _review_evidence.state(args.result_id, ROOT)
         followup = {
-            "state": "DEFERRED_UNTIL_EXACT_REVIEW_SYNTHESIS",
+            "state": "OPTIONAL_FOLLOWUP_NOT_MATERIALIZED",
+            "required": False,
+            "blocks_research": False,
             "review_state": state.get("review_state"),
             "review_ids": state.get("review_ids"),
         }

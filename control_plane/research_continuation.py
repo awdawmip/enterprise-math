@@ -295,7 +295,7 @@ def continuation_cas_reason(state: Mapping[str, Any], event: Mapping[str, Any]) 
         return "continuation requires exact successor session binding"
     if _same_executor(event.get("researcher_id"), value.get("previous_researcher_id")):
         if (value.get("mode") != "RESUME" or state.get("claim_id")
-                or state.get("state") not in {"READY", "HANDOFF_READY"}
+                or state.get("state") not in {"READY", "HANDOFF_READY", "FROZEN_RETURN"}
                 or not _text(state.get("session_id"))
                 or value.get("previous_session_id") != state["session_id"]
                 or value["session_id"] != state["session_id"]):
@@ -312,7 +312,7 @@ def continuation_cas_reason(state: Mapping[str, Any], event: Mapping[str, Any]) 
         if state.get("session_id") is not None and value["recovery_evidence"].get("previous_session_id") != state["session_id"]:
             return "recovery evidence does not name the exact predecessor session"
     elif value.get("mode") == "RESUME":
-        if state.get("claim_id") or state.get("state") not in {"READY", "HANDOFF_READY"}:
+        if state.get("claim_id") or state.get("state") not in {"READY", "HANDOFF_READY", "FROZEN_RETURN"}:
             return "RESUME requires a released or expired predecessor claim"
     else:
         return "unknown continuation mode"
@@ -509,6 +509,29 @@ def _fixed_source_candidate(ref: Any, provenance: str) -> dict[str, Any] | None:
             "verification": "PENDING_IMMUTABLE_READBACK", "provenance": provenance}
 
 
+def related_research_hints(task_id: str, *, root: Path, source_commit: str,
+                           restricted: bool) -> dict[str, Any]:
+    base = {"required": False, "mathematical_acceptance_granted": False,
+            "claim_or_dispatch_authority": False,
+            "meaning": "OPTIONAL_SOURCE_RELATION_HINTS_NOT_PROOF_OR_REQUIRED_RESEARCH_STEPS"}
+    if restricted:
+        return {**base, "state": "WITHHELD_BY_SCIENTIFIC_SOURCE_FIREWALL"}
+    try:
+        relative = "foundation_backflow.json"
+        pin = artifact_pin(root, relative, source_commit)
+        value = json.loads((root / relative).read_text(encoding="utf-8"))
+        rows = value.get("related_research", [])
+        if not isinstance(rows, list):
+            return {**base, "state": "INDEX_UNAVAILABLE"}
+        matches = [copy.deepcopy(row) for row in rows
+                   if isinstance(row, dict) and task_id in (row.get("task_ids") or [])]
+        return {**base, "state": "AVAILABLE", "index": pin, "relations": matches,
+                "empty_means_no_research": False,
+                "use": "Follow or extend relevant sources only when mathematically useful; no mandatory retrospective."}
+    except (OSError, ValueError, ContinuationError, TypeError, KeyError):
+        return {**base, "state": "INDEX_UNAVAILABLE", "continue_research": True}
+
+
 def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]],
                         now: datetime, source_commit: str, reader_driver_id: str | None = None,
                         reader_session_id: str | None = None) -> dict[str, Any]:
@@ -703,7 +726,8 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
     external = list({(pin["source_commit"], pin["path"]): pin for pin in external}.values())
     if restricted:
         state = copy.deepcopy(state)
-        for field in ("continuation_frontier", "continuation", "last_progress_ref", "source_refs"):
+        for field in ("continuation_frontier", "continuation", "last_progress_ref", "source_refs",
+                      "handoff_scope_observation", "unaccepted_completion_report"):
             state.pop(field, None)
         state["next_action"] = "Follow the exact task source firewall before inspecting predecessor evidence."
         unresolved_refs = []
@@ -727,6 +751,7 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                      "activity_barrier_is_not_independent_session_liveness_proof": True}
     return {"schema": "ENTERPRISE_MATH_CONTINUATION_PACKET_V1", "source_commit": source_commit,
             "current_normative_context": current_normative_context(),
+            "related_research_context": related_research_hints(task_id, root=root, source_commit=source_commit, restricted=restricted),
             "observed_at": now.isoformat(), "task_id": task_id, "publication_id": record["publication_id"],
             "task": copy.deepcopy(record), "runtime": state, "route": _route(state, result_available=result_available),
             "source_artifacts": pins, "artifact_errors": artifact_errors,
@@ -792,6 +817,18 @@ def prepare_takeover(task_id: str, *, root: Path, events: list[dict[str, Any]],
     executor_role = "RESEARCH_DRIVER" if definition.get("kind") == "GOVERNANCE" else "RESEARCHER"
     role_binding = authorize_executor_role(task_id, executor_id=new_researcher_id, session_id=new_session_id,
                                            executor_role=executor_role, now=now, root=root)
+    # Authenticated canonical history already knows these authors. Inherit
+    # them on the service instead of asking the model to retype identity data.
+    # Preserve all caller-supplied science, pins and attribution; never infer
+    # a proof, new owner, clean context or contribution-free successor.
+    frontier = copy.deepcopy(dict(frontier))
+    supplied = frontier.get("contributor_ids", [])
+    _require(isinstance(supplied, list) and all(_text(value) for value in supplied),
+             "frontier contributor_ids must be a list of actual source identities")
+    prior_frontier = state.get("continuation_frontier") or {}
+    inherited = [previous_id] if _text(previous_id) else []
+    inherited.extend(value for value in prior_frontier.get("contributor_ids", []) if _text(value))
+    frontier["contributor_ids"] = sorted(set(supplied + inherited))
     validate_frontier(frontier, root=root, source_commit=verify_source_snapshot(root, source_commit), evidence_roots=evidence_roots)
     predecessor_intent = research_execution_records.intent_for_claim(task_id, expected_previous_claim_id, root)
     theorem_owner = predecessor_intent.get("theorem_owner") if isinstance(predecessor_intent, dict) else None

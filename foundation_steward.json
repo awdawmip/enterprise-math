@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_FOUNDATION_STEWARD_V2",
   "status": "ACTIVE",
-  "effective": "2026-08-26",
+  "effective": "2026-11-13",
   "role": "FOUNDATION_STEWARD",
   "identity_state_machine": "research_identity_state_machine.json",
   "identity_helper": "tools/research_identity.py",
@@ -14,7 +14,7 @@
   "task_record_store": "research_task_records/<task-id>/<publication-id>.json",
   "execution_record_store": "research_execution_records/<task-id>/<execution-record-id>.json",
   "axiom_candidate_state_machine": "research_axiom_candidate_state_machine.json",
-  "mission": "Maintain and verify shared mathematical language, notation, formulas, theorem interfaces/status, and reusable tools; actively extract verified cross-route tools and structural logic back into foundation maintenance without becoming the primary investigator of newly exposed research problems or raw free-research candidates.",
+  "mission": "Maintain shared definitions and evidence, and autonomously investigate, revisit, synthesize, reuse and correct mathematics when useful. Methods and depth belong to the researcher; no role-based requirement to stop and hand off an open question.",
   "protocol": {
     "en": "docs/FOUNDATION_STEWARD_PROTOCOL.en.md",
     "zh": "docs/FOUNDATION_STEWARD_PROTOCOL.zh-CN.md"
@@ -37,7 +37,7 @@
       "AUDITED_REPLACEMENT_CANDIDATE",
       "EXACT_NEGATIVE_OBSTRUCTION"
     ],
-    "steward_role_after_intake": "VERIFY_CLASSIFY_AND_ROUTE_NOT_DEFAULT_PRIMARY_INVESTIGATION",
+    "steward_role_after_intake": "AUTONOMOUS_INVESTIGATION_OR_OPTIONAL_COLLABORATION; preserve actual source exposure and clean-context boundaries",
     "working_truth_required_before_verification": false,
     "canonicalization_requires_existing_gates": true
   },
@@ -61,8 +61,8 @@
       "CANONICALIZED"
     ],
     "active_questions": [],
-    "research_handoff_required": true,
-    "steward_primary_investigator": false,
+    "research_handoff_required": false,
+    "steward_primary_investigator": true,
     "new_research_task_publication": "IMMUTABLE_TASK_RECORD_BEFORE_CLAIM",
     "task_existence_lookup": "CANONICAL_REGISTERED_PLUS_FROZEN_LEGACY_DISPATCH_VIEW"
   },
@@ -190,7 +190,10 @@
       "APPLICATION_LOCAL_OR_NOT_READY"
     ],
     "closed_loop_router": "foundation_backflow.json",
-    "does_not_create_global_barrier": true
+    "does_not_create_global_barrier": true,
+    "workflow_required": false,
+    "packet_fields_are_optional": true,
+    "can_investigate_open_mathematics": true
   },
   "verification_sources": [
     "docs/FOUNDATIONS.*",
@@ -203,7 +206,7 @@
     "Canonical task/dispatch/result records",
     "Research Dispatch Board Issue #240",
     "src/enterprise_math/ and tests/",
-    "EnterpriseMath.lean and relevant imported Lean modules",
+    "Optional existing formalization when relevant; Lean is deferred and not required",
     "source commit/PR provenance",
     "prior-art/lineage records when relevant"
   ],
@@ -223,16 +226,19 @@
     "role_identity_traceability": true
   },
   "research_return_requires": [
-    "proof_counterexample_or_exact_tool_evidence",
-    "weakest_scope_hypotheses",
-    "source_branch_commit_pr",
-    "relation_to_existing_theorem_families",
-    "prior_art_boundary_when_relevant",
-    "canonical_change_recommendation",
-    "immutable result record and Driver disposition when terminal"
+    "actual scientific content and useful source provenance; include definitions, hypotheses and limits as relevant, without a fixed template or count"
   ],
   "common_research_surface": "research_common_surface.json",
   "scheduling_protocol": "docs/RESEARCH_SCHEDULING_PROTOCOL.en.md",
   "canonical_dispatch_tool": "tools/research_dispatch.py",
-  "legacy_scheduler_config": "research_runtime_policy_v2.json"
+  "legacy_scheduler_config": "research_runtime_policy_v2.json",
+  "autonomy": {
+    "role_does_not_prohibit_mathematical_investigation": true,
+    "fq_required": false,
+    "fixed_steps_or_review_count": false,
+    "fixed_template_or_completion_receipt": false,
+    "formalization_default": "DEFERRED",
+    "claim_and_native_write_roles": "UNCHANGED_ACTUAL_AUTHENTICATION_AND_OWNER_CAS",
+    "candidate_relation_is_proof": false
+  }
 }

@@ -3,11 +3,15 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import os
 import re
 import sys
+from contextlib import contextmanager
+from contextvars import ContextVar
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -81,7 +85,58 @@ def execution_record_id(
     return "ER-" + hashlib.sha256(raw).hexdigest()[:20].upper()
 
 
+@dataclass
+class _ExecutionReadView:
+    root: Path
+    authority_scope: object
+    rows: list[dict[str, Any]] | None = None
+    active: bool = True
+
+
+_READ_VIEW: ContextVar[_ExecutionReadView | None] = ContextVar(
+    "execution_record_read_view", default=None,
+)
+
+
+@contextmanager
+def read_snapshot(root: Path = ROOT):
+    """Reuse parsing only inside the existing guarded authority read scope."""
+    from control_plane import research_result_authority_fault_isolation as authority
+
+    target = root.resolve()
+    scope = authority._ACTIVE.get()
+    if scope is None or scope[0] != target:
+        yield
+        return
+    previous = _READ_VIEW.get()
+    if previous is not None and previous.root == target and previous.authority_scope is scope:
+        # An inherited context may outlive its parent's read scope. A closed
+        # view stays uncached rather than resurrecting that completed scope.
+        yield
+        return
+    view = _ExecutionReadView(target, scope)
+    token = _READ_VIEW.set(view)
+    try:
+        yield
+    finally:
+        view.active = False
+        view.rows = None
+        _READ_VIEW.reset(token)
+
+
 def iter_records(root: Path = ROOT) -> list[dict[str, Any]]:
+    view = _READ_VIEW.get()
+    if view is not None and view.active and root.resolve() == view.root:
+        from control_plane import research_result_authority_fault_isolation as authority
+
+        if authority._ACTIVE.get() is view.authority_scope:
+            if view.rows is None:
+                view.rows = _read_records(root)
+            return copy.deepcopy(view.rows)
+    return _read_records(root)
+
+
+def _read_records(root: Path) -> list[dict[str, Any]]:
     directory = root / "research_execution_records"
     if not directory.exists():
         return []

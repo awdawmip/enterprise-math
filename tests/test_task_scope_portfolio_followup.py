@@ -297,7 +297,24 @@ def run_case(case):
                     changed_args = copy.copy(args)
                     for key, value in arg_changes.items():
                         setattr(changed_args, key, value)
+                    optional_planning = label in {'missing_followup','required_gate','missing_gate'}
+                    before_optional = {p:p.read_bytes() for p in root.rglob('*') if p.is_file()} if optional_planning else {}
                     with mock.patch.object(records._write_tx, 'commit', wraps=records._write_tx.commit) as commit:
+                        if optional_planning:
+                            records.command_review_with_authority(changed_args)
+                            commit.assert_called()
+                            reviews = list(root.joinpath('research_result_reviews', result['result_id']).glob('*.json'))
+                            assert len(reviews)==1, label
+                            actual_review=json.loads(reviews[0].read_bytes())
+                            assert actual_review['disposition']=='ACCEPTED', label
+                            assert target_path.read_bytes()==before_optional[target_path], label
+                            # These are synthetic temporary fixtures, never
+                            # canonical records. Keep every old negative case
+                            # isolated while exercising the newly valid input.
+                            for path in list(root.rglob('*')):
+                                if path.is_file() and path not in before_optional:path.unlink()
+                            assert all(path.read_bytes()==data for path,data in before_optional.items()), label
+                            continue
                         try:
                             records.command_review_with_authority(changed_args)
                         except ValueError as exc:

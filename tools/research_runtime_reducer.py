@@ -230,6 +230,7 @@ def state_from_task(task: dict[str, Any]) -> dict[str, Any]:
         "kind": task.get("kind"),
         "priority": task.get("priority"),
         "parent_task_id": task.get("parent_task_id"),
+        "tags": copy.deepcopy(task.get("tags", [])),
         "scheduling_trace": [],
         "state": task["base_state"],
         "claim_id": None,
@@ -367,8 +368,7 @@ def _project_unresolved_handoff(
 ) -> None:
     if obligation is None or state["state"] != "HANDOFF_READY" or state.get("claim_id"):
         return
-    state["state"] = "BLOCKED"
-    state["hard_block"] = {
+    state["handoff_scope_observation"] = {
         "code": "LEGACY_HANDOFF_SCOPE_UNRESOLVED",
         "publication_id": task.get("publication_id"),
         "taskbook_blob_sha1": task.get("taskbook_blob_sha1"),
@@ -376,11 +376,11 @@ def _project_unresolved_handoff(
         "missing_object": "an explicit continuation versus frozen-return scope for this exact frontier",
         "owner": "control-plane/handoff-scope-reconciliation",
         "necessity": "An untyped old handoff must not silently redispatch completed research.",
-        "unblock_condition": "Append an authorized exact-frontier RECONCILE_HANDOFF_SCOPE event with verified immutable source evidence, or consume the ordinary Result/review lifecycle.",
+        "resolution_options": "Use actual preserved frontier in typed continuation; a separate scope-reconciliation event is optional and grants no mathematical acceptance.",
     }
     state["next_action"] = (
-        "Reconcile the exact legacy handoff scope without a new research CLAIM; "
-        "do not infer completion or review acceptance from prose."
+        "Preserve the exact legacy frontier in typed continuation; "
+        "no separate scope-reconciliation ceremony or review acceptance is inferred."
     )
 
 
@@ -461,7 +461,7 @@ def reduce_task(
             continue
 
         if kind == "CLAIM":
-            if scope_obligation is not None and at >= LEGACY_HANDOFF_SCOPE_CUTOVER:
+            if scope_obligation is not None and at >= LEGACY_HANDOFF_SCOPE_CUTOVER and event.get("continuation") is None:
                 ignore(state, index, "CLAIM requires reconciliation of the unresolved legacy handoff scope")
                 continue
             continuation = event.get("continuation")
@@ -471,7 +471,7 @@ def reduce_task(
                 if reason is not None:
                     ignore(state, index, reason)
                     continue
-            elif state["state"] not in {"READY", "HANDOFF_READY"} or live_claim:
+            elif state["state"] not in {"READY", "HANDOFF_READY", "FROZEN_RETURN"} or live_claim:
                 ignore(state, index, "task is not dispatchable")
                 continue
             if not isinstance(claim_id, str) or not claim_id:
@@ -494,6 +494,7 @@ def reduce_task(
             state["state"] = "CLAIMED"
             if continuation is not None:
                 state.setdefault("fenced_claim_ids", []).append(continuation["expected_previous_claim_id"])
+                scope_obligation = None
                 state["continuation_frontier"] = copy.deepcopy(continuation["frontier"])
                 state["continuation"] = copy.deepcopy(continuation)
                 state["session_id"] = continuation["session_id"]
@@ -683,7 +684,9 @@ def reduce_task(
     elif state["state"] == "BLOCKED" and complete_hard_block(state.get("hard_block")):
         state["dispatch_state"] = "BLOCKED"
     elif state["state"] == "FROZEN_RETURN":
-        state["dispatch_state"] = "AWAITING_REVIEW"
+        state["dispatch_state"] = "NEEDS_DISPATCH"
+        state["review_status"] = "NOT_REVIEWED"
+        state["review_required_for_research_continuation"] = False
     elif state.get("claim_id"):
         state["dispatch_state"] = "LEASED"
     elif state["state"] in {"READY", "HANDOFF_READY"}:
@@ -748,6 +751,7 @@ def select_state(
         value for value in (states if candidates is None else candidates)
         if value.get("dispatch_state") == "NEEDS_DISPATCH"
         and (kind == "ANY" or value.get("kind") == kind)
+        and not set(value.get("tags") or []).intersection(policy.get("deferred_new_unit_roles", []))
     ]
     if not candidates:
         return None

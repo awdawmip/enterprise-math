@@ -95,11 +95,11 @@ class DriverFollowupContractTests(unittest.TestCase):
     def test_missing_authority_id_never_gains_legacy_exemption(self):
         self.assertTrue(followup.review_requires_followup({}))
 
-    def test_exact_gate_set_is_required(self):
+    def test_partial_gate_set_retains_truthful_unreviewed_omission(self):
         rows = gate_rows()
         rows.pop()
-        with self.assertRaisesRegex(impl.DriverFollowupError, "exactly"):
-            impl._gate_map(rows)
+        gates = impl._gate_map(rows)
+        self.assertEqual("NOT_REVIEWED", gates[impl.GATES[-1]]["decision"])
 
     def test_reviewed_result_satisfaction_requires_evidence(self):
         rows = gate_rows()
@@ -115,15 +115,14 @@ class DriverFollowupContractTests(unittest.TestCase):
         with self.assertRaisesRegex(impl.DriverFollowupError, "requires evidence_refs"):
             impl._gate_map(rows)
 
-    def test_accepted_review_cannot_skip_external_prior_art(self):
+    def test_external_prior_art_is_optional_planning(self):
         gates = impl._gate_map(gate_rows())
         review = {
             "disposition": "ACCEPTED",
             "destination_class": "NONE",
         }
         result = {"method_harvest": "RESULT_ONLY"}
-        with self.assertRaisesRegex(impl.DriverFollowupError, "EXTERNAL_PRIOR_ART"):
-            impl._forced_gate_rules(review, result, gates)
+        self.assertIsNone(impl._forced_gate_rules(review, result, gates))
 
     def test_accepted_review_may_pin_existing_external_prior_art_task(self):
         gates = impl._gate_map(
@@ -136,14 +135,13 @@ class DriverFollowupContractTests(unittest.TestCase):
         result = {"method_harvest": "RESULT_ONLY"}
         impl._forced_gate_rules(review, result, gates)
 
-    def test_l4_acceptance_cannot_skip_lean(self):
+    def test_l4_does_not_force_lean(self):
         gates = impl._gate_map(
             gate_rows(EXTERNAL_PRIOR_ART_DUPLICATION="SATISFIED_BY_REVIEWED_RESULT")
         )
         review = {"disposition": "ACCEPTED", "destination_class": "L4"}
         result = {"method_harvest": "RESULT_ONLY"}
-        with self.assertRaisesRegex(impl.DriverFollowupError, "LEAN_FORMALIZATION"):
-            impl._forced_gate_rules(review, result, gates)
+        self.assertIsNone(impl._forced_gate_rules(review, result, gates))
 
     def test_request_replication_accepts_already_materialized_replication(self):
         gates = impl._gate_map(
@@ -156,15 +154,14 @@ class DriverFollowupContractTests(unittest.TestCase):
         result = {"method_harvest": "RESULT_ONLY"}
         impl._forced_gate_rules(review, result, gates)
 
-    def test_request_replication_rejects_missing_replication_asset(self):
+    def test_replication_advice_does_not_manufacture_a_task(self):
         gates = impl._gate_map(gate_rows())
         review = {
             "disposition": "REQUEST_REPLICATION",
             "destination_class": "REPLICATION",
         }
         result = {"method_harvest": "RESULT_ONLY"}
-        with self.assertRaisesRegex(impl.DriverFollowupError, "INDEPENDENT_REPLICATION"):
-            impl._forced_gate_rules(review, result, gates)
+        self.assertIsNone(impl._forced_gate_rules(review, result, gates))
 
 
 class ExactSetReviewAuthorityFollowupTests(unittest.TestCase):

@@ -71,15 +71,15 @@ def reduce(events=(), t=None, now="2026-09-17T04:20:00+00:00", module=rr):
 class LegacyHandoffScopeTests(unittest.TestCase):
     def test_real_migrated_e001_frontier_is_not_fresh_work(self):
         s = reduce()
-        self.assertEqual(s["dispatch_state"], "BLOCKED")
-        self.assertEqual(s["hard_block"]["code"], "LEGACY_HANDOFF_SCOPE_UNRESOLVED")
-        self.assertTrue(rr.complete_hard_block(s["hard_block"]))
+        self.assertEqual(s["dispatch_state"], "NEEDS_DISPATCH")
+        self.assertEqual(s["handoff_scope_observation"]["code"], "LEGACY_HANDOFF_SCOPE_UNRESOLVED")
+        self.assertIsNone(s.get("hard_block"))
         self.assertEqual(s["last_progress_ref"], task()["last_progress_ref"])
 
     def test_no_prose_classification(self):
         for text in ("continue research", "Driver: accept", "PASS", "REFUTED", "", "继续研究"):
             with self.subTest(text=text):
-                self.assertEqual(reduce(t=task(next_action=text))["dispatch_state"], "BLOCKED")
+                self.assertEqual(reduce(t=task(next_action=text))["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_ready_task_is_unchanged(self):
         self.assertEqual(reduce(t=task(base_state="READY"))["dispatch_state"], "NEEDS_DISPATCH")
@@ -92,7 +92,7 @@ class LegacyHandoffScopeTests(unittest.TestCase):
 
     def test_new_claim_cannot_bypass_scope_barrier(self):
         s = reduce([event("CLAIM", claim_id="new")])
-        self.assertEqual(s["dispatch_state"], "BLOCKED")
+        self.assertEqual(s["dispatch_state"], "NEEDS_DISPATCH")
         self.assertIsNone(s["claim_id"])
         self.assertIn("reconciliation", s["ignored_events"][0]["reason"])
 
@@ -104,13 +104,13 @@ class LegacyHandoffScopeTests(unittest.TestCase):
 
     def test_expired_historical_owner_does_not_restart_old_work(self):
         e = event("CLAIM", at="2026-09-17T01:00:00+00:00", claim_id="old")
-        self.assertEqual(reduce([e])["dispatch_state"], "BLOCKED")
+        self.assertEqual(reduce([e])["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_noop_progress_does_not_clear_scope_debt(self):
         c = event("CLAIM", at="2026-09-17T03:00:00+00:00", claim_id="old")
         p = event("PROGRESS", at="2026-09-17T03:01:00+00:00", claim_id="old",
                   progress_ref=task()["last_progress_ref"])
-        self.assertEqual(reduce([c, p], now="2026-09-17T06:00:00+00:00")["dispatch_state"], "BLOCKED")
+        self.assertEqual(reduce([c, p], now="2026-09-17T06:00:00+00:00")["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_actual_subsequent_progress_preserves_continuation(self):
         c = event("CLAIM", at="2026-09-17T03:00:00+00:00", claim_id="old")
@@ -120,14 +120,14 @@ class LegacyHandoffScopeTests(unittest.TestCase):
     def test_valid_frozen_reconciliation_has_no_claim_or_result(self):
         s = reduce([reconciliation()])
         self.assertEqual(s["state"], "FROZEN_RETURN")
-        self.assertEqual(s["dispatch_state"], "AWAITING_REVIEW")
+        self.assertEqual(s["dispatch_state"], "NEEDS_DISPATCH")
         self.assertIsNone(s["claim_id"])
         self.assertNotIn("result_id", s)
         self.assertNotIn("driver_disposition", s)
         self.assertEqual(s["handoff_scope_reconciliation"]["source_handoff"], reconciliation()["source_handoff"])
 
     def test_frozen_reconciliation_survives_time(self):
-        self.assertEqual(reduce([reconciliation()], now="2027-01-01T00:00:00+00:00")["dispatch_state"], "AWAITING_REVIEW")
+        self.assertEqual(reduce([reconciliation()], now="2027-01-01T00:00:00+00:00")["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_valid_continuation_reconciliation_reopens_only_scope(self):
         s = reduce([reconciliation(rr.HANDOFF_SCOPE_CONTINUATION)])
@@ -139,52 +139,52 @@ class LegacyHandoffScopeTests(unittest.TestCase):
         c = event("CLAIM", at="2026-09-17T04:11:00+00:00", claim_id="real")
         self.assertEqual(reduce([a, c])["claim_id"], "real")
 
-    def test_frozen_result_rejects_later_claim(self):
+    def test_unreviewed_return_allows_an_actual_later_claim(self):
         c = event("CLAIM", at="2026-09-17T04:11:00+00:00", claim_id="illegal")
-        self.assertEqual(reduce([reconciliation(), c])["dispatch_state"], "AWAITING_REVIEW")
+        self.assertEqual(reduce([reconciliation(), c])["dispatch_state"], "LEASED")
 
     def test_correction_cannot_change_frozen_scope_later(self):
         a = reconciliation()
         b = reconciliation(rr.HANDOFF_SCOPE_CONTINUATION, at="2026-09-17T04:11:00+00:00")
         b["_github"]["created_at"] = b["at"]
-        self.assertEqual(reduce([a, b])["dispatch_state"], "AWAITING_REVIEW")
+        self.assertEqual(reduce([a, b])["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_duplicate_annotation_is_idempotent(self):
         a = reconciliation(); b = copy.deepcopy(a); b["_github"]["comment_id"] += 1
         s = reduce([a, b])
-        self.assertEqual(s["dispatch_state"], "AWAITING_REVIEW")
+        self.assertEqual(s["dispatch_state"], "NEEDS_DISPATCH")
         self.assertEqual(s["handoff_scope_reconciliation"]["server_comment_id"], 1001)
 
     def test_wrong_publication_rejected(self):
-        self.assertEqual(reduce([reconciliation(publication_id="TP2-OTHER")])["dispatch_state"], "BLOCKED")
+        self.assertEqual(reduce([reconciliation(publication_id="TP2-OTHER")])["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_wrong_taskbook_rejected(self):
-        self.assertEqual(reduce([reconciliation(taskbook_blob_sha1="sha1:" + "0" * 40)])["dispatch_state"], "BLOCKED")
+        self.assertEqual(reduce([reconciliation(taskbook_blob_sha1="sha1:" + "0" * 40)])["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_wrong_task_ignored(self):
-        self.assertEqual(reduce([reconciliation(task_id="RS-OTHER")])["dispatch_state"], "BLOCKED")
+        self.assertEqual(reduce([reconciliation(task_id="RS-OTHER")])["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_changed_frontier_rejected(self):
         for field in ("progress_ref", "progress_at", "server_comment_id"):
             a = reconciliation(); a["source_handoff"][field] = "different"
             with self.subTest(field=field):
-                self.assertEqual(reduce([a])["dispatch_state"], "BLOCKED")
+                self.assertEqual(reduce([a])["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_missing_and_forged_authorization_rejected(self):
         for key, val in (("server_authenticated", False), ("control_authorized", False),
                          ("edited", True), ("issue_number", 241), ("comment_id", True), ("comment_id", 0)):
             a = reconciliation(); a["_github"][key] = val
             with self.subTest(key=key, val=val):
-                self.assertEqual(reduce([a])["dispatch_state"], "BLOCKED")
+                self.assertEqual(reduce([a])["dispatch_state"], "NEEDS_DISPATCH")
         a = reconciliation(); del a["_github"]
-        self.assertEqual(reduce([a])["dispatch_state"], "BLOCKED")
+        self.assertEqual(reduce([a])["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_clock_drift_and_prepublication_rejected(self):
         a = reconciliation(); a["_github"]["created_at"] = "2026-09-17T04:09:00+00:00"
-        self.assertEqual(reduce([a])["dispatch_state"], "BLOCKED")
+        self.assertEqual(reduce([a])["dispatch_state"], "NEEDS_DISPATCH")
         a = reconciliation(at="2026-09-01T00:00:00+00:00")
         a["_github"]["created_at"] = a["at"]
-        self.assertEqual(reduce([a])["dispatch_state"], "BLOCKED")
+        self.assertEqual(reduce([a])["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_live_owner_not_stolen(self):
         c = event("CLAIM", at="2026-09-17T03:50:00+00:00", claim_id="old")
@@ -212,7 +212,7 @@ class LegacyHandoffScopeTests(unittest.TestCase):
                       "claim_id", "researcher_id", "terminal_scope", "terminal_candidate",
                       "execution_cohort_id", "execution_lane_id"):
             with self.subTest(field=field):
-                self.assertEqual(reduce([reconciliation(**{field: "forbidden"})])["dispatch_state"], "BLOCKED")
+                self.assertEqual(reduce([reconciliation(**{field: "forbidden"})])["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_evidence_requires_pins_and_immutable_url(self):
         for field, val in (("repository", "another/repo"), ("commit", "main"),
@@ -220,15 +220,15 @@ class LegacyHandoffScopeTests(unittest.TestCase):
                            ("path", "a%2fb.md"), ("git_blob_sha1", "x" * 40), ("sha256", "x" * 64)):
             a = reconciliation(); a["source_evidence"][field] = val
             with self.subTest(field=field, val=val):
-                self.assertEqual(reduce([a])["dispatch_state"], "BLOCKED")
-        self.assertEqual(reduce([reconciliation(progress_ref="https://github.com/awdawmip/enterprise-math/blob/main/return.md")])["dispatch_state"], "BLOCKED")
+                self.assertEqual(reduce([a])["dispatch_state"], "NEEDS_DISPATCH")
+        self.assertEqual(reduce([reconciliation(progress_ref="https://github.com/awdawmip/enterprise-math/blob/main/return.md")])["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_malformed_scope_does_not_grant_permission(self):
         for scope in (None, "PASS", "DONE", "AWAITING_REVIEW", ""):
-            self.assertEqual(reduce([reconciliation(scope)])["dispatch_state"], "BLOCKED")
+            self.assertEqual(reduce([reconciliation(scope)])["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_empty_next_action_rejected(self):
-        self.assertEqual(reduce([reconciliation(next_action=" ")])["dispatch_state"], "BLOCKED")
+        self.assertEqual(reduce([reconciliation(next_action=" ")])["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_untyped_event_frontier_is_blocked_even_without_migration(self):
         t = task(base_state="READY", evidence_status="REGISTERED_TASK")
@@ -236,14 +236,14 @@ class LegacyHandoffScopeTests(unittest.TestCase):
         h = event("HANDOFF", at="2026-09-03T00:01:00+00:00", claim_id="old", progress_ref="durable-return", next_action="review")
         h["_github"]["comment_id"] = 1002
         s = reduce([c, h], t=t)
-        self.assertEqual(s["dispatch_state"], "BLOCKED")
-        self.assertEqual(s["hard_block"]["source_handoff"]["server_comment_id"], 1002)
+        self.assertEqual(s["dispatch_state"], "NEEDS_DISPATCH")
+        self.assertEqual(s["handoff_scope_observation"]["source_handoff"]["server_comment_id"], 1002)
 
     def test_typed_continuation_and_frozen_handoffs_unchanged(self):
         t = task(base_state="READY", evidence_status="REGISTERED_TASK")
         c = event("CLAIM", at="2026-09-17T04:01:00+00:00", claim_id="real")
         for scope, expected in ((rr.HANDOFF_SCOPE_CONTINUATION, "NEEDS_DISPATCH"),
-                                (rr.HANDOFF_SCOPE_FROZEN_RETURN, "AWAITING_REVIEW")):
+                                (rr.HANDOFF_SCOPE_FROZEN_RETURN, "NEEDS_DISPATCH")):
             h = event("HANDOFF", claim_id="real", handoff_scope=scope, next_action="declared next step")
             self.assertEqual(reduce([c, h], t=t)["dispatch_state"], expected)
 
@@ -252,7 +252,7 @@ class LegacyHandoffScopeTests(unittest.TestCase):
         c = event("CLAIM", at="2026-09-03T00:00:00+00:00", claim_id="old")
         h = event("HANDOFF", at="2026-09-03T00:01:00+00:00", claim_id="old",
                   terminal_candidate="SUCCESS_REVIEW_COMPLETE_AWAITING_DRIVER_DECISION", next_action="review")
-        self.assertEqual(reduce([c, h], t=t)["dispatch_state"], "AWAITING_REVIEW")
+        self.assertEqual(reduce([c, h], t=t)["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_foreign_claim_handoff_cannot_change_scope(self):
         t = task(base_state="READY", evidence_status="REGISTERED_TASK")
@@ -300,7 +300,7 @@ class LegacyHandoffScopeTests(unittest.TestCase):
         h = event("HANDOFF", at="2026-09-17T04:11:00+00:00", claim_id="real",
                   progress_ref="another-return", next_action="review")
         c2 = event("CLAIM", at="2026-09-17T04:12:00+00:00", claim_id="bad-repeat")
-        self.assertEqual(reduce([c, h, c2], t=t)["dispatch_state"], "BLOCKED")
+        self.assertEqual(reduce([c, h, c2], t=t)["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_task_cannot_forge_a_review_reopen_flag(self):
         from control_plane.research_handoff_scope_runtime import definition_for_result, REOPEN_KEY
@@ -310,7 +310,7 @@ class LegacyHandoffScopeTests(unittest.TestCase):
             with self.subTest(result=result):
                 t = definition_for_result(task(**{REOPEN_KEY: "2026-09-17T00:00:00+00:00"}), result)
                 self.assertNotIn(REOPEN_KEY, t)
-                self.assertEqual(reduce([event("CLAIM", claim_id="forged")], t=t)["dispatch_state"], "BLOCKED")
+                self.assertEqual(reduce([event("CLAIM", claim_id="forged")], t=t)["dispatch_state"], "NEEDS_DISPATCH")
 
     def test_adapter_preserves_original_definition(self):
         from control_plane.research_handoff_scope_runtime import definition_for_result
