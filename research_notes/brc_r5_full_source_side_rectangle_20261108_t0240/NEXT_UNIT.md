@@ -1,0 +1,11 @@
+# R5 continuation — beyond the complete negative-residual source rectangle
+
+Date: 2026-11-08 Asia/Shanghai. Frozen scientific pins remain global a01383f825ef9d43b4b754254303298c64041568, EM 86149263e38c22292c9def1e0f69092efa1be77e. Read the adjacent RESEARCH.md, VERIFY.py, EXACT_OUTPUT.txt.
+
+Author-proved and exact-Fraction-verified frontier: the entire physical source rectangle x(u,w)=(1,1,1/2,u,9/80,w,0), 0<=u<=53/160, 0<=w<=33/160, R=-9/20, is pointwise four-observer liftable to seedless LR under every seven-node randomized terminal declaration. Four sparse rational calibrated Blackwell matrices and four seedless targets share the affine face g=a, z=a/10, v-z=9b/40; bilinear interpolation gives the all-real theorem. Additionally every segment (1-h)x+h*y, 0<=h<=1, is lifted by the same y. This is stronger than the predecessor's fixed-target capacity rectangle; the difficult source corner is solved. Author-side evidence is durable, independent review pending; no new native claim.
+
+Next falsifiable unit: choose a legal negative-residual FULL_HIST flow **outside** the fixed g=a=1,b=1/2,v=9/80,z=0 source rectangle, e.g. vary b or v (or take v-z<9b/40), and test whether the image under (e_P,e_Q,T_P,T_Q) is Blackwell dominated by a seedless target for every declaration. First systematically derive the maximal convex/affine seedless faces g=a,z=a/10,v-z=9b/40 and g=a,z=0,v-z=0, and solve exact 7x7 calibrated transport via LP; seek four corner matrices that admit nonnegative interpolation, or a scoped rational dual obstruction. Reuse the frozen seven-key mass/times formulas and the four explicit certificates; do not duplicate the already closed x(u,w) study.
+
+Global mother problem: full four-observer pointwise equality of FULL_HIST and seedless LR (as sets, not merely convex hulls) versus a proven nonconvex separating witness. Full history/provenance is retained; Blackwell validity here is scoped to all terminal declarations at the four stated observers.
+
+Actual control status for this run: authenticated GitHub login awdawmip, repo admin; native status/task list returned BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE with operation_sent=false, Site connection report research_authority_granted=false. Current Owner/CLAIM unconfirmed. This evidence is author-side PORTABLE_ONLY, not Result/Review admission.
