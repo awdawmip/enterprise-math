@@ -26,8 +26,6 @@ NEW_DR = 'DR-6FAD20D6377588C9CBB2'
 RESULT_PATH = f'research_result_records/{TASK}/{RID}.json'
 OLD_PATH = f'research_result_reviews/{RID}/{OLD_DR}.json'
 NEW_PATH = f'research_result_reviews/{RID}/{NEW_DR}.json'
-FIRST_ERROR = 'the first immutable review becomes operational immediately and requires --followup-spec'
-SECOND_ERROR = 'a second-or-later review reopens exact-set review authority'
 
 BASE_DOUBLE = '''
 import json
@@ -95,6 +93,7 @@ ALL_DISPOSITIONS = TERMINAL_DISPOSITIONS | {'RETURN_TO_OWNER','REQUEST_REPLICATI
 def intakes(root=ROOT): return {}
 def reference_passes(root=ROOT): return {}
 def syntheses(root=ROOT): return {}
+def _current_intake(result_id, review_ids, root=ROOT): return None
 def _id(value,label): return value
 def review_set_hash(ids): return 'fixture-exact-set-' + '-'.join(sorted(ids))
 '''
@@ -201,10 +200,11 @@ class CanonicalReviewCliTests(unittest.TestCase):
         self.assertTrue(observation['writer_function_uses_public_globals'])
         self.assertTrue(observation['shared_result_error_class'])
 
-    def test_first_review_still_requires_followup_spec(self):
+    def test_first_review_without_spec_reaches_the_canonical_writer(self):
         value = self.run_cli(spec=False)
-        self.assertIn(FIRST_ERROR, value['stdout'])
-        self.assertEqual([], value['observations'])
+        self.assertIn('FIXTURE_STOP_BEFORE_REVIEW_CONSTRUCTION', value['stdout'])
+        self.assertEqual([], value['observations'][0]['writer_review_ids'])
+        self.assertFalse(value['observations'][0]['spec_loaded'])
 
     def test_script_and_import_share_the_empty_filtered_review_set(self):
         for imported in [False, True]:
@@ -231,12 +231,13 @@ class CanonicalReviewCliTests(unittest.TestCase):
                 self.assertEqual('SINGLE_REVIEW_FLOW', observation['reader_state'])
                 self.assertFalse(observation['spec_loaded'])
 
-    def test_later_review_still_rejects_inline_followup(self):
+    def test_later_review_with_optional_spec_reaches_the_canonical_writer(self):
         for imported in [False, True]:
             with self.subTest(imported=imported):
                 value = self.run_cli(active_new=True, spec=True, imported=imported)
-                self.assertIn(SECOND_ERROR, value['stdout'])
-                self.assertEqual([], value['observations'])
+                self.assertIn('FIXTURE_STOP_BEFORE_REVIEW_CONSTRUCTION', value['stdout'])
+                self.assertEqual([NEW_DR], value['observations'][0]['writer_review_ids'])
+                self.assertTrue(value['observations'][0]['spec_loaded'])
 
     def test_non_review_preserves_legacy_delegation(self):
         value = self.run_cli(non_review=True)

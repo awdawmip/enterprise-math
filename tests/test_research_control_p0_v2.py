@@ -285,7 +285,7 @@ class UnifiedDispatchTests(unittest.TestCase):
         self.assertEqual("EM-QPHJA-ABC123", state["researcher_id"])
         self.assertTrue(any("review" in item["reason"] for item in state["ignored_events"]))
 
-    def test_unreviewed_frozen_result_is_not_researcher_dispatchable(self):
+    def test_unreviewed_result_allows_research_without_acceptance(self):
         pending = {
             "state": "AWAITING_DRIVER_REVIEW",
             "terminal": False,
@@ -299,7 +299,9 @@ class UnifiedDispatchTests(unittest.TestCase):
                 now=runtime_reducer.parse_time("2026-08-25T22:02:00+08:00"),
                 root=ROOT,
             )
-        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertEqual("NOT_REVIEWED", state["review_status"])
+        self.assertFalse(state["task_completion_granted"])
 
 
 class ImmutablePublicationTests(unittest.TestCase):

@@ -156,7 +156,7 @@ class NamedSuccessCompatibilityTests(unittest.TestCase):
             followup._task_scope_continuation(review, self.item, **args)
         self.assertEqual(continuation, followup._task_scope_continuation(review, self.normalize(), **args))
 
-    def test_normalization_cannot_replace_review_scope_or_followup_gates(self):
+    def test_normalization_keeps_review_scope_with_optional_gate_annotations(self):
         normalized = self.normalize()
         review, continuation, gates = self.completed_scope_inputs()
         args = dict(terminal_scope="TASK", continuation=continuation, tasks=[], gates=gates, root=self.root)
@@ -166,8 +166,8 @@ class NamedSuccessCompatibilityTests(unittest.TestCase):
             followup._task_scope_continuation(review, normalized, **{**args, "terminal_scope": "PARENT"})
         required = copy.deepcopy(gates)
         next(iter(required.values()))["decision"] = "REQUIRED"
-        with self.assertRaisesRegex(followup.DriverFollowupError, "REQUIRED"):
-            followup._task_scope_continuation(review, normalized, **{**args, "gates": required})
+        allowed = followup._task_scope_continuation(review, normalized, **{**args, "gates": required})
+        self.assertEqual(continuation, allowed)
         with self.assertRaisesRegex(followup.DriverFollowupError, "cannot publish new tasks"):
             followup._task_scope_continuation(review, normalized, **{**args, "tasks": [{}]})
 
