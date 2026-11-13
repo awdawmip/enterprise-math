@@ -1,0 +1,72 @@
+{
+  "schema": "R6_GAMMA_LATTICE_UNIT_AUDIT_V1",
+  "date": "2026-11-13",
+  "model": "189-layer frozen BRC / independent Gamma auxiliary",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_resolution": {
+    "old_712_fine": "1/768 on D=[0,1/2]^2",
+    "new_741_to_750": "1/384 on contained cell rectangles",
+    "identity": "R_ij=union_{a,b in {0,1}} F_(2i+a,2j+b)"
+  },
+  "source_blobs": [
+    {
+      "file": "PREFIX_R6_GAMMA_SIBLING_UNION_746_749_RESULTS.json",
+      "git_blob_sha1": "e31d32eb5abf9aa675cc957cf34d54e21bffd8cd",
+      "coord_field": "all_unique_upper_pairs"
+    },
+    {
+      "file": "PREFIX741_R6_INNER_STRIP_194_RESULTS.json",
+      "git_blob_sha1": "50a6c18a5e4e559cf31a03efe006ce910f3ab0af",
+      "coord_field": "per_upper_cell_microfloors"
+    },
+    {
+      "file": "PREFIX742_R6_GAMMA_LEFT_EXTENSION_36_RESULTS.json",
+      "git_blob_sha1": "69e092da2df3230accd5d8ac74bfcb09d7b0c5d5",
+      "coord_field": "checked_upper_cells"
+    },
+    {
+      "file": "PREFIX743_R6_GAMMA_LEFT_EXTENSION_30_RESULTS.json",
+      "git_blob_sha1": "cf10432a44d0b4a1e6055046ced9195cf350f3e3",
+      "coord_field": "checked_upper_cells"
+    },
+    {
+      "file": "PREFIX744_R6_ADAPTIVE_4X4_16_RESULTS.json",
+      "git_blob_sha1": "4e66372770df09c8d4c3fb169c6431fc788f6a85",
+      "coord_field": "checked_upper_cells"
+    },
+    {
+      "file": "PREFIX745_R6_GAMMA_140_RESULTS.json",
+      "git_blob_sha1": "6dcc11aa307119d0eb1aa4eab3b2763d884f3cba",
+      "coord_field": "checked_upper_cells"
+    },
+    {
+      "file": "PREFIX750_R6_GAMMA_2_CELLS_RESULTS.json",
+      "git_blob_sha1": "50e44785b0d1040c5c392def79ad2237a7197bba",
+      "coord_field": "new_cells"
+    }
+  ],
+  "calculations": {
+    "sibling_upper_pairs": 197,
+    "sibling_macro_cells": 394,
+    "sibling_original_768_fine_cells": 1576,
+    "sibling_macro_inside_D": true,
+    "prefix741_745_upper_pairs": 208,
+    "prefix741_745_duplicate_upper_pairs": 0,
+    "sibling_overlap_with_prefix741_745_upper_pairs": [],
+    "sibling_overlap_with_prefix741_745_fine_cells": 0,
+    "prefix745_upper_pairs": 70,
+    "prefix745_fine_cells": 560,
+    "sibling_and_prefix745_fine_cells": 2136,
+    "prefix750_upper_pairs": 1,
+    "prefix750_fine_cells": 8,
+    "prefix750_overlap_sibling_original_fine": 8,
+    "prefix750_new_original_fine_after_sibling": 0,
+    "sibling_relative_D_area_exact": "197/18432",
+    "sibling_relative_D_area_percent": 1.068793402777778,
+    "mistaken_mixed_ledger": 142336,
+    "mistaken_mixed_remainder": 5120,
+    "historical_total_status": "UNRESOLVED: 712 fine cells use /768; later source cells use /384"
+  },
+  "evidence_class": "EXACT_INTEGER_SET_GEOMETRY; AUTHOR_GAMMA_ANALYTIC_CERTIFICATES_NOT_RECHECKED; FULL_HISTORIC_UNION_UNRESOLVED",
+  "next": "Reconstruct entire historical fine-grid certification mask in original /768 indexing, translate every /384 region into four fine children, subtract exact overlapping fine cells and only then produce total coverage/remaining fraction."
+}
