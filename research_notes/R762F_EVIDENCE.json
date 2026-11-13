@@ -1,0 +1,838 @@
+{
+  "schema": "R762F_GLOBAL_PARETO_BUDGET_CERTIFICATE_V1",
+  "model": "six labelled ports; g012, g034, g135 single forward 3-cycles; independent per-generator finite upper budgets",
+  "parent_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_source_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "exhaustive_algorithm": "unbounded nondominated-label fixed point, every one-step extension certified dominated; independent exact count-vector DP over [0,8]^3",
+  "group_size": 360,
+  "nondominated_endpoint_labels": 1861,
+  "max_labels_per_permutation": 12,
+  "max_component_of_all_labels": [
+    8,
+    8,
+    8
+  ],
+  "label_processing_steps": 1861,
+  "checked_one_step_extensions": 5583,
+  "independent_budget_box": [
+    9,
+    9,
+    9
+  ],
+  "independent_budget_cases": 729,
+  "full_coverage_cases_in_box": 377,
+  "global_pareto_minima": [
+    [
+      1,
+      4,
+      6
+    ],
+    [
+      1,
+      5,
+      5
+    ],
+    [
+      1,
+      7,
+      4
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      3,
+      2,
+      4
+    ],
+    [
+      3,
+      3,
+      3
+    ],
+    [
+      4,
+      1,
+      5
+    ],
+    [
+      4,
+      2,
+      3
+    ],
+    [
+      4,
+      3,
+      2
+    ],
+    [
+      4,
+      7,
+      1
+    ],
+    [
+      5,
+      1,
+      4
+    ],
+    [
+      5,
+      5,
+      1
+    ],
+    [
+      6,
+      4,
+      1
+    ]
+  ],
+  "global_pareto_minima_count": 13,
+  "minimality_witnesses": [
+    {
+      "budget": [
+        1,
+        4,
+        6
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            0,
+            4,
+            6
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            3,
+            2,
+            5,
+            4
+          ],
+          "missing_port_count": 300
+        },
+        "1": {
+          "smaller_budget": [
+            1,
+            3,
+            6
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            4,
+            5,
+            2,
+            3
+          ],
+          "missing_port_count": 22
+        },
+        "2": {
+          "smaller_budget": [
+            1,
+            4,
+            5
+          ],
+          "missing_port_image": [
+            0,
+            4,
+            1,
+            3,
+            2,
+            5
+          ],
+          "missing_port_count": 4
+        }
+      }
+    },
+    {
+      "budget": [
+        1,
+        5,
+        5
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            0,
+            5,
+            5
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            3,
+            2,
+            5,
+            4
+          ],
+          "missing_port_count": 300
+        },
+        "1": {
+          "smaller_budget": [
+            1,
+            4,
+            5
+          ],
+          "missing_port_image": [
+            0,
+            4,
+            1,
+            3,
+            2,
+            5
+          ],
+          "missing_port_count": 4
+        },
+        "2": {
+          "smaller_budget": [
+            1,
+            5,
+            4
+          ],
+          "missing_port_image": [
+            0,
+            4,
+            1,
+            3,
+            2,
+            5
+          ],
+          "missing_port_count": 4
+        }
+      }
+    },
+    {
+      "budget": [
+        1,
+        7,
+        4
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            0,
+            7,
+            4
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            3,
+            2,
+            5,
+            4
+          ],
+          "missing_port_count": 300
+        },
+        "1": {
+          "smaller_budget": [
+            1,
+            6,
+            4
+          ],
+          "missing_port_image": [
+            3,
+            0,
+            1,
+            4,
+            2,
+            5
+          ],
+          "missing_port_count": 1
+        },
+        "2": {
+          "smaller_budget": [
+            1,
+            7,
+            3
+          ],
+          "missing_port_image": [
+            0,
+            3,
+            1,
+            2,
+            4,
+            5
+          ],
+          "missing_port_count": 48
+        }
+      }
+    },
+    {
+      "budget": [
+        2,
+        3,
+        4
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            1,
+            3,
+            4
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            4,
+            5,
+            2,
+            3
+          ],
+          "missing_port_count": 68
+        },
+        "1": {
+          "smaller_budget": [
+            2,
+            2,
+            4
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            3
+          ],
+          "missing_port_count": 25
+        },
+        "2": {
+          "smaller_budget": [
+            2,
+            3,
+            3
+          ],
+          "missing_port_image": [
+            0,
+            5,
+            2,
+            4,
+            3,
+            1
+          ],
+          "missing_port_count": 13
+        }
+      }
+    },
+    {
+      "budget": [
+        3,
+        2,
+        4
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            2,
+            2,
+            4
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            3
+          ],
+          "missing_port_count": 25
+        },
+        "1": {
+          "smaller_budget": [
+            3,
+            1,
+            4
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            4,
+            5,
+            2,
+            3
+          ],
+          "missing_port_count": 51
+        },
+        "2": {
+          "smaller_budget": [
+            3,
+            2,
+            3
+          ],
+          "missing_port_image": [
+            0,
+            2,
+            1,
+            5,
+            4,
+            3
+          ],
+          "missing_port_count": 14
+        }
+      }
+    },
+    {
+      "budget": [
+        3,
+        3,
+        3
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            2,
+            3,
+            3
+          ],
+          "missing_port_image": [
+            0,
+            5,
+            2,
+            4,
+            3,
+            1
+          ],
+          "missing_port_count": 13
+        },
+        "1": {
+          "smaller_budget": [
+            3,
+            2,
+            3
+          ],
+          "missing_port_image": [
+            0,
+            2,
+            1,
+            5,
+            4,
+            3
+          ],
+          "missing_port_count": 14
+        },
+        "2": {
+          "smaller_budget": [
+            3,
+            3,
+            2
+          ],
+          "missing_port_image": [
+            0,
+            2,
+            1,
+            4,
+            3,
+            5
+          ],
+          "missing_port_count": 13
+        }
+      }
+    },
+    {
+      "budget": [
+        4,
+        1,
+        5
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            3,
+            1,
+            5
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            4,
+            5,
+            2,
+            3
+          ],
+          "missing_port_count": 27
+        },
+        "1": {
+          "smaller_budget": [
+            4,
+            0,
+            5
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            3
+          ],
+          "missing_port_count": 300
+        },
+        "2": {
+          "smaller_budget": [
+            4,
+            1,
+            4
+          ],
+          "missing_port_image": [
+            0,
+            2,
+            4,
+            1,
+            5,
+            3
+          ],
+          "missing_port_count": 6
+        }
+      }
+    },
+    {
+      "budget": [
+        4,
+        2,
+        3
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            3,
+            2,
+            3
+          ],
+          "missing_port_image": [
+            0,
+            2,
+            1,
+            5,
+            4,
+            3
+          ],
+          "missing_port_count": 14
+        },
+        "1": {
+          "smaller_budget": [
+            4,
+            1,
+            3
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            3,
+            2,
+            5,
+            4
+          ],
+          "missing_port_count": 51
+        },
+        "2": {
+          "smaller_budget": [
+            4,
+            2,
+            2
+          ],
+          "missing_port_image": [
+            0,
+            2,
+            1,
+            3,
+            5,
+            4
+          ],
+          "missing_port_count": 25
+        }
+      }
+    },
+    {
+      "budget": [
+        4,
+        3,
+        2
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            3,
+            3,
+            2
+          ],
+          "missing_port_image": [
+            0,
+            2,
+            1,
+            4,
+            3,
+            5
+          ],
+          "missing_port_count": 13
+        },
+        "1": {
+          "smaller_budget": [
+            4,
+            2,
+            2
+          ],
+          "missing_port_image": [
+            0,
+            2,
+            1,
+            3,
+            5,
+            4
+          ],
+          "missing_port_count": 25
+        },
+        "2": {
+          "smaller_budget": [
+            4,
+            3,
+            1
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            3,
+            2,
+            5,
+            4
+          ],
+          "missing_port_count": 68
+        }
+      }
+    },
+    {
+      "budget": [
+        4,
+        7,
+        1
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            3,
+            7,
+            1
+          ],
+          "missing_port_image": [
+            0,
+            2,
+            1,
+            4,
+            3,
+            5
+          ],
+          "missing_port_count": 48
+        },
+        "1": {
+          "smaller_budget": [
+            4,
+            6,
+            1
+          ],
+          "missing_port_image": [
+            3,
+            5,
+            2,
+            1,
+            0,
+            4
+          ],
+          "missing_port_count": 1
+        },
+        "2": {
+          "smaller_budget": [
+            4,
+            7,
+            0
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            3
+          ],
+          "missing_port_count": 300
+        }
+      }
+    },
+    {
+      "budget": [
+        5,
+        1,
+        4
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            4,
+            1,
+            4
+          ],
+          "missing_port_image": [
+            0,
+            2,
+            4,
+            1,
+            5,
+            3
+          ],
+          "missing_port_count": 6
+        },
+        "1": {
+          "smaller_budget": [
+            5,
+            0,
+            4
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            3
+          ],
+          "missing_port_count": 300
+        },
+        "2": {
+          "smaller_budget": [
+            5,
+            1,
+            3
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            3,
+            2,
+            5,
+            4
+          ],
+          "missing_port_count": 27
+        }
+      }
+    },
+    {
+      "budget": [
+        5,
+        5,
+        1
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            4,
+            5,
+            1
+          ],
+          "missing_port_image": [
+            0,
+            5,
+            2,
+            1,
+            4,
+            3
+          ],
+          "missing_port_count": 4
+        },
+        "1": {
+          "smaller_budget": [
+            5,
+            4,
+            1
+          ],
+          "missing_port_image": [
+            0,
+            5,
+            2,
+            1,
+            4,
+            3
+          ],
+          "missing_port_count": 4
+        },
+        "2": {
+          "smaller_budget": [
+            5,
+            5,
+            0
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            3
+          ],
+          "missing_port_count": 300
+        }
+      }
+    },
+    {
+      "budget": [
+        6,
+        4,
+        1
+      ],
+      "predecessor_witnesses": {
+        "0": {
+          "smaller_budget": [
+            5,
+            4,
+            1
+          ],
+          "missing_port_image": [
+            0,
+            5,
+            2,
+            1,
+            4,
+            3
+          ],
+          "missing_port_count": 4
+        },
+        "1": {
+          "smaller_budget": [
+            6,
+            3,
+            1
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            3,
+            2,
+            5,
+            4
+          ],
+          "missing_port_count": 22
+        },
+        "2": {
+          "smaller_budget": [
+            6,
+            4,
+            0
+          ],
+          "missing_port_image": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            3
+          ],
+          "missing_port_count": 300
+        }
+      }
+    }
+  ],
+  "uniform_K2_port_count": 196,
+  "uniform_K3_port_count": 360,
+  "scientific_scope": "exact candidate finite group combinatorics; no native TRIADIC_CLOSURE_E scheduler or V29/V39 event realization inferred"
+}
