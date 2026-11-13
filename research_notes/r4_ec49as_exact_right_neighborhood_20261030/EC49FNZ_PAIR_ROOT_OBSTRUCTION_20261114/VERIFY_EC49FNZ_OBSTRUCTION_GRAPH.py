@@ -54,6 +54,15 @@ for (enc,masks),p in rows.items():
  if irreducible:
   for i,j,v in irreducible:
    print('IRREDUCIBLE_MATRIX',enc,'labels',i,j,'rows',opts[i],'cols',opts[j],'values',[[with_assign(masks,(i,j),(ri,rj)) for rj in opts[j]] for ri in opts[i]],'single_roots',[(i,[(r,with_assign(masks,(i,),(r,))) for r in opts[i]]),(j,[(r,with_assign(masks,(j,),(r,))) for r in opts[j]])])
+pair_deltas=[h-(row['singles'][i]+row['singles'][j]-row['base']) for row in patterns for (i,j),h in row['pairs'].items()]
+assert sorted(pair_deltas)==[-1]+[0]*10
+special=next(row for row in patterns if row['enc']=='159571690231449')
+assert special['base']==153 and special['singles'][17]==161 and special['singles'][21]==157 and special['pairs'][(17,21)]==164
+M=[[with_assign(special['masks'],(17,21),(r,s)) for s in opts[21]] for r in opts[17]]
+assert opts[17]==[3,6,7] and opts[21]==[3,6,7]
+assert M==[[164,165,173],[169,165,174],[172,169,168]]
+print('ROOT_SHARING_COUNTEREXAMPLE',special['enc'],'labels',(17,21),'baseline',153,'single_minima',(161,157),'distinct_min_cost',165,'same_root_03',164,'matrix',M)
+print('PAIR_ADDITIVITY_CENSUS equal=10 subadditive_by_one=1 superadditive=0')
 assert sum(x['h1']<=155 for x in patterns)==2
 print('SUMMARY pair_total',sum(x['p'] for x in patterns),'forcing_total',sum(x['forcing'] for x in patterns),'irreducible_total',sum(x['strict_irreducible'] for x in patterns))
 print('TOP_PAIR_UNION',sorted(set(q for x in patterns for q in x['top_pairs'])))
