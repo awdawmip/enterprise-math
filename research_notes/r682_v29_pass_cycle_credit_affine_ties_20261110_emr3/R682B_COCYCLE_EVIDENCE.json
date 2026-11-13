@@ -1,0 +1,23 @@
+{
+  "schema": "R682_B_CYCLE_CREDIT_COCYCLE_EXACT_V1",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "model": "m=(a,b,c)>=0 is three directed internal PASS counts",
+  "delta": "(a-c,b-a,c-b,0)",
+  "normalized_residual": "rho(x,y,z,0)=(t,t+y,t-x), t=-min(0,y,-x)",
+  "credit": "j*(m)=min(a,b,c)",
+  "composition": "j*(m+n)=j*(m)+j*(n)+kappa(Delta(m),Delta(n))",
+  "cocycle": "kappa(d,e)+kappa(d+e,f)=kappa(e,f)+kappa(d,e+f)",
+  "cocycle_kappa": "min_i(rho_i(d)+rho_i(e))",
+  "pairs_checked": 4096,
+  "triples_checked": 262144,
+  "defect_distribution": {
+    "0": 2416,
+    "1": 1206,
+    "2": 420,
+    "3": 54
+  },
+  "unbounded_counterexample": "m=(r,0,0), n=(0,r,r), j*(m)=j*(n)=0,j*(m+n)=r, r any positive integer",
+  "status": "AUTHOR_SIDE_EXACT_MODEL_PROOF_AND_FINITE_CROSSCHECK",
+  "verification_marker": "R682B_CYCLE_CREDIT_COCYCLE_EXACT_PASS",
+  "open_next": "Compare with source V39 j and actual multi-Cell admissibility; do not identify absent typed map."
+}

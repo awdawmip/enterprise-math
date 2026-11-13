@@ -1,0 +1,131 @@
+{
+  "schema": "R682_CYCLE_CREDIT_AFFINE_TIE_EXACT_V1",
+  "status": "AUTHOR_SIDE_EXACT_COMBINATORIAL_CERTIFICATE",
+  "date": "2026-11-10 Asia/Shanghai",
+  "task_id": "RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW",
+  "publication": "TP2-47D65B35A7D48082EFBB",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "predecessor": "R681-A+B@7100596fe14a71b5d5543f712dbca9e3d83d0fb8",
+  "researcher_id": "EM-X6-232670",
+  "activity_id": "RA-34B3C7192BDBB1C7C91BCE41",
+  "scope": "R679 six biases; 8 subsets of 3 PASS edges; 20 V23 current triads; 9 candidate successors; all nonnegative cycle integers k",
+  "model": {
+    "pass": [
+      "A:0>1",
+      "B:1>2",
+      "C:2>0"
+    ],
+    "fixed_biases": [
+      [
+        -4,
+        -3,
+        -2,
+        10
+      ],
+      [
+        -3,
+        -2,
+        -4,
+        10
+      ],
+      [
+        -2,
+        -4,
+        -3,
+        10
+      ],
+      [
+        2,
+        4,
+        3,
+        -10
+      ],
+      [
+        3,
+        2,
+        4,
+        -10
+      ],
+      [
+        4,
+        3,
+        2,
+        -10
+      ]
+    ],
+    "V27_multiplier": 7,
+    "auxiliary_covector": [
+      -1,
+      1,
+      -2,
+      -1
+    ],
+    "ledger": "m=k*(1,1,1)+indicator(J)",
+    "cycle_credit": "j*=min(m)",
+    "inversion": "m=(t,t+y,t-x), t=j*-min(0,y,-x), Δu=(x,y,-x-y,0)"
+  },
+  "finite_certificate": {
+    "inverse_tests": 729,
+    "affine_contexts": 960,
+    "pairwise_candidate_tests": 34560,
+    "nonnegative_distinct_slope_integer_roots": "all 0..18 and no roots beyond 18",
+    "identical_affine_pairs": 16,
+    "identical_affine_pairs_ever_highest": 0,
+    "highest_score_tie_counts": {
+      "10": 2,
+      "11": 8,
+      "12": 14,
+      "13": 14,
+      "14": 8,
+      "15": 2
+    },
+    "highest_score_ties_total": 48,
+    "strict_highest_for_all_contexts": "k=0..9 or k>=16",
+    "direct_score_crosscheck": "all 960 contexts k=0..50",
+    "bounded_paths": 120,
+    "first_tie_on_paths": {
+      "10": 10,
+      "11": 10,
+      "none_through_18": 100
+    },
+    "bounded_event_orders": [
+      "CBA",
+      "BCA",
+      "ABC",
+      "BCA",
+      "CAB",
+      "BAC"
+    ]
+  },
+  "explicit_witness": {
+    "u0": [
+      -2,
+      -4,
+      -3,
+      10
+    ],
+    "J": [
+      "A"
+    ],
+    "S": [
+      2,
+      4,
+      5
+    ],
+    "T1": [
+      0,
+      2,
+      4
+    ],
+    "T1_affine_score": "7*k-1",
+    "T2": [
+      1,
+      4,
+      5
+    ],
+    "T2_affine_score": "69",
+    "highest_tie_at_cycle_k": 10
+  },
+  "test_marker": "R682_CYCLE_CREDIT_AFFINE_TIE_EXACT_PASS",
+  "limitations": "Auxiliary repeated cycle capacity, model-internal exact arithmetic; not established as source V39 j or native BRC physics; no formal CLAIM or independent Driver mathematical acceptance."
+}
