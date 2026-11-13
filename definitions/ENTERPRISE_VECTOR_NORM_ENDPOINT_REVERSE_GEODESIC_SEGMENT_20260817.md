@@ -6,14 +6,16 @@ Reconciled: `2026-08-21`
 
 本文件原先依赖 signed-origin-one 与 initial-circle ontology，并把“代数向量模先选端点、再反向取全部最短路径”作为线段重基。
 
-其中依赖旧 origin/chamber 的 native geometry 已被当前三正轴 foundation supersede。
+其中依赖旧 origin/chamber 的 native geometry 在 2026-08-20 三正轴阶段已被修订；该中间阶段又被 P000 V5 的 signed 六轴 Cell 原生空间所取代。
 
-当前 authoritative route：
+当前分类型路由（2026-11-13）：
 
-1. `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md` — 当前平面/坐标/长度基础；
-2. `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md` — `NATIVE_COMPONENT_TRACE` 线身份与 exact multipath fiber；
-3. `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md` — 任意点 directed native line gauge；
-4. `definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md` — 无向端点对的 canonical bidirectional trace pair / length spectrum。
+1. `p000_reality_foundation.json` V5 与 `definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` — 原生 signed 六轴 Cell 身份、位移与分量平方范数；
+2. `definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md` — 选定 signed 三轴受限子空间；
+3. `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md` — **历史**固定正向扇区/载体，不是原生平面；
+4. `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md` — 历史固定 chart 的正向分量 trace 与 exact multipath fiber；
+5. `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md` — 相对/min-zero directed gauge，不是原生 signed 度量；
+6. `definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md` — 需在其声明的相对/载体双向 trace 与读出范围内解释。
 
 继续保留的弱原则只有：
 
