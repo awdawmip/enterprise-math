@@ -1,0 +1,23 @@
+Actual local execution (2026-11-10), exact Python integer arithmetic.
+
+Command: python VERIFY_R33.py
+Stages 78 one-step comparisons 88 certified quotient decisions 28
+Startup groups 6 later groups 22 positive groups 74
+Referenced complete R32 table: all 78 stage records identical to R32 fixture
+Certified jump records SHA256 d19f4cd66355d0214cf5b969ce9a908094e7998974930ea3abdcc9960f432afa
+PASS_R33_STRICT_RATIONAL_INTERVAL_QUOTIENT_JUMPS
+
+Command: python VERIFY_R33_GENERAL.py
+sqrt2-minus-one: m=8 n=10000 stages=17 one_step=20 jump_decisions=12 PASS
+large-partial-quotient: m=8 n=20000 stages=19992 one_step=19998 jump_decisions=2 PASS
+PASS_R33_GENERIC_HIGH_PARTIAL_QUOTIENT_REGRESSION
+
+Command: python VERIFY_R33_PORTABLE.py (source published in this branch)
+S23/AV stages 78 jump_decisions 28 one_step_comparisons 88
+S23/AV positive phases 74 blocks 148
+sqrt2-minus-one stages 17 jump_decisions 12 one_step_comparisons 20
+large-partial-quotient stages 19992 jump_decisions 2 one_step_comparisons 19998
+PASS_R33_PORTABLE_EXACT_QUOTIENT_PREFIX_AND_148_BLOCKS
+
+Scientific input pin: 43ec6098b1330ae86d0a7863be336c5d97f6ef34
+Remote portable checker should be independently executed by reviewers. Records above are local execution, not CI or formal acceptance.
