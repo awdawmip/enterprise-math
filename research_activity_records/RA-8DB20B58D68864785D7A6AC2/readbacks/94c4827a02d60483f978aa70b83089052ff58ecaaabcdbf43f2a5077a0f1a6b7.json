@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r127_affine_clock_twointeger_20261113/PERIODIC_FIBER.md",
+    "ref": "72f6de415d45fbd9a0a3bfde7aae36ccc99d0b93",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-r127-20261113-PERIODIC_FIBER-md-72f6de415d",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# R127.4 — GCD-period exact observer quotient and strict endpoint obstruction\n\nFor the R126/R127 S23 auxiliary joint Boolean observer\n`M_i(theta)=1[{x+(A+i*d)*theta} < {E*theta}]`\nwith fixed rational `x`, signed integer `A,d,E` and `m>=1`, put `g=gcd(A,d,E)` (nonnegative convention).\n\n**Theorem.** If `g>0`, every bit and the complete joint signature are exactly periodic under `theta -> theta + k/g` for each integer `k`. Consequently for **every rational open interval** `J=(l,h)` of width `h-l>1/g`, the full set of attainable joint bit patterns on J equals the set attainable on a single complete period `[0,1/g)`, with the half-open representative fiber evaluated exactly.\n\n**Proof.** Since g divides A, d and E, changing theta by k/g changes each real argument `x+(A+i*d)theta` and `E theta` by an integer. Their fractional parts and comparison are unchanged. If an open interval has length strictly greater than the period P=1/g, it contains a representative of every residue class modulo P: lattice translates of a fixed residue are P apart, and any open interval wider than P includes one. Thus each signature on the complete period also occurs inside J. The reverse inclusion is immediate by periodic reduction. QED.\n\nThis theorem is a **phase-parameter computational quotient**, not a claim that native physical time has period P or that source/provenance can be thrown away. Original coefficients and the chosen theta witness remain recoverable.\n\n**Endpoint sharpness.** The strict width condition matters when querying all signature patterns. For `A=0,d=1,E=1,x=0,m=1`, `M_0(theta)=1[0<{theta}]`. Its true period is P=1. On the open interval J=(0,1), only the bit `1` occurs; on a complete period `[0,1)`, both bits `0` (at the singleton theta=0) and `1` occur. Thus replacing an open interval of width **equal to** P with a complete circle can introduce a spurious attainable bit. The single excluded residue fiber must remain typed, rather than silently closed.\n\nIf `g=0`, all coefficients A=d=E vanish, so all bits are identically zero and no nontrivial period calculation is needed. For `m=1`, d is irrelevant and `1/g` is a certified period, not necessarily the least one.\n\n**Exact verification.** The companion standalone Fraction test uses seed `127042026`: 1,000 signed randomized rational checks of `M(theta)=M(theta+k/g)` with large signed integer k, plus the exact open-versus-half-open singleton example. It returned `R127_GCD_PERIOD_PASS 1000`.\n\n**Use.** For wide parameter intervals, replace a potentially huge rational search region by a single exact period only after checking `h-l>1/g`; at equality retain endpoint fibers or work directly on the precise open interval. Combine with R127's short Bézout clock relation for dimension/branch reduction.\n",
+      "display_title": "PERIODIC_FIBER.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/72f6de415d45fbd9a0a3bfde7aae36ccc99d0b93/research_notes/brc_s23_av_r127_affine_clock_twointeger_20261113/PERIODIC_FIBER.md",
+      "encoding": "utf-8",
+      "sha": "b330ca8206b7284c209ede08bbd17777ca9256a1"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
