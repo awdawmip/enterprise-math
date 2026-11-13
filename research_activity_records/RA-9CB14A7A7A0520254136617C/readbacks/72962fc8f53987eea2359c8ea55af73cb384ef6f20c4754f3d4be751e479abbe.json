@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r137_divisor_collision_quasiperiod_20261114/check_r137b.py",
+    "ref": "3883b1368ce5fbec4568e3fe747e74c19cd55fd8",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r137b-r1-20261114-2-3883b1368ce5",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R137B exact Farey-gap integer algorithm and independent Fraction tests.\"\"\"\nfrom fractions import Fraction\n\ndef word(theta, K, m):\n    L = K - 1\n    return tuple(int((L+i+1)*theta) - int((L+i)*theta) for i in range(m))\n\ndef strict_word(theta, K, m):\n    return tuple(int(((K+i)*theta) % 1 < theta % 1) for i in range(m))\n\ndef farey_witnesses(K, m):\n    assert K >= 1 and m >= 1\n    fr = sorted({Fraction(a,b) for b in range(1,m+1) for a in range(b+1)})\n    L = K - 1\n    patterns = {}\n    if K == 1:\n        for r,s in zip(fr,fr[1:]):\n            theta = (r+s)/2\n            patterns.setdefault(word(theta,K,m),theta)\n        return patterns\n    for r,s in zip(fr,fr[1:]):\n        alpha0 = (r+s)/2\n        cuts = [(Fraction(0),0,0),(Fraction(1),1,0)]\n        for j in range(1,m+1):\n            x = j*alpha0\n            p = x.numerator//x.denominator + 1\n            cuts.append((p-j*alpha0,p,j))\n        cuts.sort()\n        for (_,p,j),(_,q,k) in zip(cuts,cuts[1:]):\n            lower = (L+k)*r-q\n            upper = (L+j)*s-p\n            N = lower.numerator//lower.denominator + 1\n            if N >= upper:\n                continue\n            ell = max(r, Fraction(N+p,L+j))\n            h = min(s, Fraction(N+q,L+k))\n            assert ell < h\n            theta = (ell+h)/2\n            assert p-j*theta < (L*theta)-N < q-k*theta\n            w = word(theta,K,m)\n            assert w == strict_word(theta,K,m)\n            patterns.setdefault(w,theta)\n    return patterns\n\ndef chronological_words(K,m):\n    L = K-1\n    cuts = sorted({Fraction(a,n) for n in range(max(L,1),L+m+1)\n                   for a in range(1,n)})\n    values = [Fraction(0)] + cuts + [Fraction(1)]\n    return {word((r+s)/2,K,m) for r,s in zip(values,values[1:])}\n\ndef phi(q):\n    from math import gcd\n    return sum(gcd(a,q)==1 for a in range(1,q+1))\n\ndef run():\n    tests = 0\n    for m in range(1,11):\n        for K in range(2,40):\n            assert set(farey_witnesses(K,m)) == chronological_words(K,m), (K,m)\n            tests += 1\n    assert tests == 380\n    for m in range(1,11):\n        assert set(farey_witnesses(1,m)) == chronological_words(1,m)\n    big = 10**80+137\n    max_bits = 0\n    for m in range(1,21):\n        certs = farey_witnesses(big,m)\n        F = 1+sum((m+1-q)*phi(q) for q in range(1,m+1))\n        assert len(certs)==F,(m,len(certs),F)\n        max_bits = max(max_bits,max(t.denominator.bit_length() for t in certs.values()))\n    assert max_bits==533,max_bits\n    print(\"R137B_FAREY_INTEGER_CRITERION_PASS\")\n    print({\"chronological_exact_pairs\":tests, \"K1_special_cases\":10,\n           \"large_K_cases\":20, \"large_K_m20_patterns\":944, \"max_witness_denominator_bits\":max_bits})\nif __name__ == \"__main__\":\n    run()\n",
+      "display_title": "check_r137b.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3883b1368ce5fbec4568e3fe747e74c19cd55fd8/research_notes/brc_s23_av_r137_divisor_collision_quasiperiod_20261114/check_r137b.py",
+      "encoding": "utf-8",
+      "sha": "f92244437d8f722b00de4e7acab300b443af0ae6"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
