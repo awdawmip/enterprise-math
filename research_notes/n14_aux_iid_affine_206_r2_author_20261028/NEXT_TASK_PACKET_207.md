@@ -1,0 +1,13 @@
+# Stage207: next exact primal unit (author-side portable handoff)
+
+**State:** DUAL_CANDIDATE_ONLY / UNREVIEWED / NOT_ADMITTED. Reuse Stage206 proof/certificate and do not rerun its author-verified work absent contrary evidence.
+
+**Mother question.** In the external N=14 ternary IID sequential decision model P=(3,1,20)/24, Q=(2,2,20)/24, stop no later than 14 and announce P or Q using arbitrary real randomization and full ordered histories. Minimize max(E_P tau,E_Q tau) under eP,eQ<=alpha. Keep the external-model type; do not imply native P000-X6 transfer.
+
+**Completed parent.** Stage206: K206=25155568056/213144883, H206=1091477712445072832515830191/11676187772066443309350912; exact alpha206=413520058350802705/1168651117953810432, V206=2181785245548332573/219122084616339456. All real 0<=delta<=666077759375/855945643032576 from alpha205 are proven by a Bellman lower bound and an equal-error policy with 0<z(0)<z(1)<1, strict P-time dominance, zero mixed term. Reference verifier matched rational suffix DP and unmerged integer DFS on 313384 nodes.
+
+**New dual-only candidate.** K207=1262124458472/11368289293, H207=6891276038721445301535256357/77845101512617870328070144. Tie state Y=(4,0,1), declare Q / continue; terminal Z=(14,0,0), declare P / declare Q. 680 Bellman states, 1238 positive gaps, minimum 169734458831/14733302923728. Exact first-switch contact H207=H206+2alpha206(K207-K206) verified.
+
+**Next precise question.** Calculate all four deterministic tie-corner observation vectors (eP,eQ,tP,tQ) by both rational suffix DP and integer-weight full ordered-history DFS; explicitly prove or refute ancestor overlap and calculate the mixed bilinear coefficient. Solve eP=eQ, characterize legal real randomization domain and monotonic error interval, verify P-time dominance and exact parent contact, and establish a full-real optimal segment or exhibit a specific rational obstruction. Then compute the next dual first-switch solely to establish fixed-support strictness. Preserve exact proof, execution source, certificate, logs, verification coverage and the next discriminating question.
+
+**Sources / next action.** Same Draft PR #1571, this Stage206 folder. Global scientific snapshot a935c2321a618259b517ed476e73b3b0d81fca60; EM main 9b67d426c1eaed49ed517342e0b4a226ca572b6d; parent author commit 256c6fefc55254d58dd3f7cca5b30456b4313785. Any formal TASK/CLAIM/open requires fresh native Source owner and exact authority. At present em_control_tasks reported CONTROL_QUOTA and em_status advertised no research authority; do not borrow prior sessions or claim mathematical admission.

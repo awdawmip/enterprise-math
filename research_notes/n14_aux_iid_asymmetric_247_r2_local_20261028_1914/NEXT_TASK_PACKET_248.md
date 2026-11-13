@@ -1,0 +1,9 @@
+# Stage248 — exact asymmetric strict-gap or feasibility certificate
+
+Input model: external IID P=(3,1,20)/24, Q=(2,2,20)/24; finite horizon N=12, with separate caps a=3/10, b=19/40. Parent Stage246 exact symmetric right-side theorem is at immutable commit e38ba8ca0dfe5defa82652effcb55ee8253a0e89. Stage247 author theorem/proof and executable source are co-located here in PR #1571. Stage247 proves an exact *TV-bound sharpness iff* characterization for all N and real caps; it does NOT determine V_N outside that locus.
+
+Frozen critical result: at N=12 this cap pair has TV sharpness obstruction 132311957/10883911680>0, while N14 admits a 32-leaf exact witness attaining (eP,eQ,tP,tQ)=(3/10,19/40,27/5,27/5). All constraints and the full ordered-history policy class retain their original semantics.
+
+Next independent scientific question: Is the N12 cap pair feasible at all? If feasible, compute a precise rational lower/upper bound or exact V12(a,b) by finite-horizon Bellman/LP with four observers (eP,eQ,tP,tQ), output a verifiable rational primal policy and dual separating certificate. If infeasible, provide an exact impossibility certificate for error constraints, not merely failure of TV-bound equality. Preserve source-labeled P/Q branch masses and ordered histories through any observer-preserving Markovization; do not use float-only LP findings as the theorem.
+
+Author state: PORTABLE_AUTHOR_EXACT / UNREVIEWED / NOT_ADMITTED. GLOBAL_KNOWLEDGE_V1 snapshot for Stage247 main@39a41424091c5ec8512e5c6ebf9c43c7fef0682d and EM main@737cd7689de9692617a5e2c04ef0e81a19504ed4; no native claimant/owner was established (CONTROL_QUOTA). Fresh continuation must independently verify current Source owner, identity and authority before native CLAIM/Result; the author artifact remains independently usable.

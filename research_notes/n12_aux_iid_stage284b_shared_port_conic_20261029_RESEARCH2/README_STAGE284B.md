@@ -1,0 +1,11 @@
+# Stage284-B — shared BRC port compatibility across positive non-IID routes
+
+Portable **author-side exact proof**; `UNREVIEWED / NOT_ADMITTED`; no service-issued execution identity, active CLAIM or independently admitted Source Result. Existing Enterprise Math Draft PR #1571.
+
+Frozen scientific reads: GLOBAL_KNOWLEDGE_V1 `main@4b3659222a1886c4643af5bdc6a867c745d65043`; Enterprise Math `main@8168b9667b766ce95c681e67628de6af10fdec3b` (P000, ACTIVE Heartbeat X6 worldview, joint-observer preservation, portable research protocol). Predecessor Stage283-B commit `39c9c9c313743e0befca7e380b8864ac5f620e2b`.
+
+**Exact finite-model result.** Two positive-rational source-tagged non-IID route fibers each reach one globally tied twice-visited Bernoulli port y. The bounded route terminal observer has true shared-port maximum `1/2` (loss `1/2`), but separate *independent route conic moment hulls* give false upper bound `5/8` (relaxed loss `3/8`), exact positive gap **1/8**. A finite family of positive fixed-reach routes has an **exact simultaneous convex hull** with one common moment pair `m1=E[Y]`, `m2=E[Y²]`: `0<=m1<=1, m1²<=m2<=m1`, `z_j=w_j*m1`, `v_j=w_j*m2` for all routes. Proof includes a constructive two-point ex ante **global** coin mixture; does not imply that any interior point is realized by one deterministic shared y, or preservation of arbitrary future path observers.
+
+**Included files:** `PROOF_STAGE284B_SHARED_PORT_COMPATIBILITY.md` (proof, model, continuum optimization, exact convexification, scope); `REPRO_STAGE284B.py` (standard-library `Fraction` complete ordered-history DFS); `REPRO_STAGE284B_EXECUTED_STDOUT.txt` (actual stdout), `NEXT_TASK_PACKET_285B.md` (one next exact question). Actual program replay checked 17 coin settings × two sources = 34 source-policy cases, each with all 12 ordered terminal paths and positive source-prefix probabilities; local re-run output matches saved stdout bytewise. Marker `STAGE284B_SHARED_PORT_CONIC_COMPATIBILITY_EXACT_PASS`. Universal statements are algebraic, not finite-grid extrapolation.
+
+Native P000 X6 correspondence remains unproved; author material is not an accepted theorem or a physical-world claim. Next Stage285-B: source-dependent upstream occupancy before a shared repeated port, testing whether moment cross-route coupling remains exact. Stage278-A Bellman new-face remains open.

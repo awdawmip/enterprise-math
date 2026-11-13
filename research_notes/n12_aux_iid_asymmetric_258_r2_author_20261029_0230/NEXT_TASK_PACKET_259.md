@@ -1,0 +1,11 @@
+# Stage259 — next all-real Bellman face beyond Stage258 translated edge
+
+Source parent: Stage258 complete exact five-vertex N=12 external ternary IID contact face (AUTHOR_EXACT / UNREVIEWED / NOT_ADMITTED). All source files and original Python Fraction witness live in this same PR #1571 Stage258 directory. Do not change P000/ACTIVE X6/Heartbeat or represent an external 2D error-cap polygon as an original native 2D plane.
+
+**Frozen problem:** `P=(1/8,1/24,5/6)`, `Q=(1/12,1/12,5/6)`, horizon `N=12`, full ordered-history stop/classification policies, arbitrary real randomization, error caps `eP<=a`, `eQ<=b`, objective `V12(a,b)=min max(tP,tQ)`. Four observers `(eP,eQ,tP,tQ)` are required; keep source-labelled positive P/Q masses and exact path probabilities.
+
+Stage258 current support: `lambdaP=644972544/8007455`, `lambdaQ=418575732/8007455`, `thetaQ=1`, `H=30134718329/576536760`; contact polygon has five vertices C2,C3,C12,Q12,Q2, exact area `245333081919015625/202170937101722320896`. It shares a full side with Stage257 along `Q2--Q12` at `2a+b=22960038649/23219011584`. The next opposite full side `C3--C12` is on line `2a+b=11379926137/11609505792`, with Stage258 inside on its >= side.
+
+**Discriminating first exact point:** caps `a=6257204592203/43535646720000`, `b=942101660479/1360488960000`, whose `2a+b` is **3/10000 below** that new line. Establish feasibility by a rational P/Q-labelled history policy (or rigorous rational obstruction); if feasible determine the exact global `V12`, a matched Bellman dual, full four-observer primal strategy, and whether one-sided time weighting remains adequate. Seek the complete next all-real support/contact polygon including shared edge, with necessity, not merely one numerical sample.
+
+**Evidence required:** exhaustively check 455 count states / 1,274 actions under the recovered exact dual; list tie/gap structure; identify full equality policies and all four observers; independent full ordered-history positive P/Q DFS (terminal mass exactly 1 in each source); rational convex mixtures/error-cap saturation/time complementarity; exact convex area/adjacency and all-real proof when claimed. Record frozen inputs, certificate, actual stdout and next task. Native Source CLAIM/Result/Driver are separate authorized operations, not inferred from GitHub publication.

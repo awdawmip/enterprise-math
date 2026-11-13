@@ -1,0 +1,7 @@
+# Stage208 execution / verification scope
+
+Locally executed original script verify_stage208.py: STAGE208_AUTHOR_EXACT_FULL_REAL_PASS 277216. Bellman 680 states, 1238 strict positive gaps, min 3757/340200; four ordered DFS corner visits 72214, 72214, 66394, 66394. Exact Fraction suffix DP and independent full ordered-history integer-mass DFS agree. Separate no-Bellman algebra audit audit_stage208.py: STAGE208_CERTIFICATE_ALGEBRA_CROSSCHECK_PASS. Exact next Bellman switch scan scan_stage209.py: STAGE209_DUAL_SCAN_PASS, **dual candidate only**.
+
+Complete actually executed original scripts, certificates, outputs, proof and SHA256 manifest live in the attached EM_STAGE208_AUTHOR_EXACT_PORTABLE_20261028.tar.xz (sha256 264e6650a9298a65a77f69f1935a28b9b2e5bab690795e9d221392005abf364b). GitHub REPRO_STAGE208.py is an independently runnable equivalent reference, not the original executed script and not remote execution evidence.
+
+P000 global original blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc; global current read main@75eb1260e8d5d61a1f075ab675984d3f94d4ea55; Enterprise Math main@55abd52563ee8b722ecbdd770547eda9fe64d678. em_status 0.6.11 research_authority_granted=false; em_control_tasks CONTROL_QUOTA. No formal native task, independent Driver review, or native X6 transfer, no credentials or share changes.

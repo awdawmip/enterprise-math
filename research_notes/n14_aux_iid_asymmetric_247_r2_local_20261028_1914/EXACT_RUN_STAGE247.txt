@@ -1,0 +1,10 @@
+STAGE247_ASYMMETRIC_EXACT_PASS
+model P= (Fraction(1, 8), Fraction(1, 24), Fraction(5, 6)) Q= (Fraction(1, 12), Fraction(1, 12), Fraction(5, 6)) tv= 1/24
+criterion: a+b<1; a+b>=(3+(5/6)^N)/4; 2a+b>=1; 2a+3b>=2
+witness N= 14 a= 3/10 b= 19/40 s= 9/10 activation= 352638738432/361303242355 no_signal_guess_Q= 3/4
+observed eP,eQ,tP,tQ= (Fraction(3, 10), Fraction(19, 40), Fraction(27, 5), Fraction(27, 5)) ordered_leaves= 32
+N= 9 max_signal= 8124571/10077696 cap_sum_threshold= 32186213/40310784
+N= 12 max_signal= 1932641711/2176782336 cap_sum_threshold= 6774487633/8707129344
+N= 14 max_signal= 72260648471/78364164096 cap_sum_threshold= 241196007913/313456656384
+obstruction_N12_exact= 132311957/10883911680
+N14_feasibility_margin_exact= 8664503923/391820820480
