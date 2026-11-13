@@ -1,0 +1,55 @@
+{
+  "schema": "PREFIX754_R6_GAMMA_FORWARD_ERROR_AND_SHARPENED_BANDS_V1",
+  "date": "2026-11-13",
+  "researcher_id": "EM-DIRECT-D847AA",
+  "research_activity_id": "RA-16E805B70E0067F57A2645F1",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "189-layer BRC survivor law / external two-independent Gamma(max) auxiliary observer; D=[0,1/2]^2; q>=2",
+  "comparator": [
+    "0",
+    "3/20"
+  ],
+  "finite_grid": [
+    384,
+    384
+  ],
+  "binary64_error_assumptions": "IEEE-754 binary64, correctly-rounded normal operations including elementary products, checked relative input rounding, positive BLAS dot error gamma_189; no nonzero underflow in checked input array",
+  "uniform_forward_absolute_G_error": "<1/100000",
+  "exact_rational_certificate_computed_g_abs_error_approx": "1.7340907130248891e-6",
+  "exact_rational_certificate_ran": true,
+  "independent_full_grid_ran": true,
+  "nonzero_survivor_positions": 9529,
+  "old_comparator_positive_cells": 137168,
+  "global_min_abs_grid_G_float": 0.01856290810792416,
+  "inner_band": {
+    "offset_condition": "|u-v|<=51",
+    "physical_region": "|p-z|<=17/256",
+    "cells": 36900,
+    "min_float_replay": 0.766486830626036,
+    "uniform_gap_lower_rational": "383/500",
+    "claim": "V_q(e)-V_q(p,z) > (383/500) q^2 for all real q>=2"
+  },
+  "outer_band": {
+    "offset_condition": "|u-v|>=171",
+    "physical_region": "|p-z|>=57/256",
+    "cells": 45582,
+    "min_float_replay": 2.990905434524393,
+    "uniform_gap_lower_rational": "299/100",
+    "claim": "V_q(e)-V_q(p,z) > (299/100) q^2 for all real q>=2"
+  },
+  "previous_band_margin_rationals": [
+    "3/4",
+    "29/10"
+  ],
+  "new_grid_coverage": 0,
+  "existing_disjoint_band_cells": 82482,
+  "historical_union_fine_conditional": 140662,
+  "historical_unexcluded_fine_conditional": 6794,
+  "proof_level": "AUTHOR_EXACT_RATIONAL_FORWARD_ERROR_BOUND_PLUS_STANDALONE_FULL_NUMPY_GRID_REPLAY; UNREVIEWED; NOT_ADMITTED",
+  "published_scripts": [
+    "research_notes/portable_direct/PREFIX754_R6_GAMMA_FLOAT_ERROR_BOUND.py",
+    "research_notes/portable_direct/PREFIX754_R6_INDEPENDENT_GRID_REPLAY.py"
+  ],
+  "limits": "Error bound is conditional on the declared arithmetic/input checks; it certifies floating-point evaluation of the fixed endpoint G, not all Gamma analytic assumptions or native X6 mapping. Historical union not reaudited.",
+  "next": "Independently examine analytical Gamma moment identity and 752 dependency assumptions; compute exact new comparator on an actually uncovered fine-cell orbit."
+}
