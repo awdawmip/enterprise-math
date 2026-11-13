@@ -113,8 +113,13 @@ def _validate_pass(row: dict[str, Any], intake: dict[str, Any]) -> int:
 def _validated_pass_map(intake: dict[str, Any], root: Path) -> dict[str, dict[str, Any]]:
     rows = _store.reference_passes(root).get(str(intake["intake_id"]), [])
     out: dict[str, dict[str, Any]] = {}
+    contents = set()
     for row in rows:
         _validate_pass(row, intake)
+        identity=(row["pass_number"],row["reviewer_id"],row["finding"],row["independence_status"])
+        if identity in contents:
+            raise ReviewEvidenceError("duplicate review reference pass contents")
+        contents.add(identity)
         identifier = str(row["pass_id"])
         if identifier in out:
             raise ReviewEvidenceError(f"duplicate review reference pass identity {identifier}")

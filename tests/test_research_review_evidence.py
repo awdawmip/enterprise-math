@@ -189,7 +189,7 @@ class ReviewEvidenceTests(unittest.TestCase):
             duplicate,
         )
         with self.assertRaisesRegex(
-            review_evidence.ReviewEvidenceError, "duplicate review reference pass 1"
+            review_evidence.ReviewEvidenceError, "duplicate review reference pass contents"
         ):
             review_evidence.state(self.result_id, self.root)
 

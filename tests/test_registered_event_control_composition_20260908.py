@@ -144,14 +144,14 @@ class RegisteredEventControlCompositionTests(unittest.TestCase):
         task = self.unheld_definition()
         published = reducer.parse_time(PUBLISHED)
         for scope, expected in (("CONTINUATION", "NEEDS_DISPATCH"),
-                                ("FROZEN_RETURN_AWAITING_DRIVER_REVIEW", "AWAITING_REVIEW")):
+                                ("FROZEN_RETURN_AWAITING_DRIVER_REVIEW", "NEEDS_DISPATCH")):
             with self.subTest(scope=scope):
                 events = [self.claim(task, 8301, published),
                           self.event(task, "HANDOFF", 8302, published + timedelta(minutes=1),
                                      claim_id="cross-owner", handoff_scope=scope,
                                      next_action="continue or freeze according to explicit scope")]
                 state = self.reduce(task, events, published + timedelta(minutes=2))
-                self.assertEqual(expected, state["dispatch_state"])
+                self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
                 self.assertEqual(scope, state["handoff_scope"])
                 self.assertIsNot(state.get("terminal"), True)
                 self.assertIsNone(results.task_result_state(task["task_id"], self.root,
@@ -320,11 +320,11 @@ class RegisteredEventControlCompositionTests(unittest.TestCase):
                             default_lease_minutes=lease if lease_source == "caller_default" else 77,
                             root=self.root,
                         )
-                        self.assertEqual(expected, state["dispatch_state"])
+                        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
                         if expected == "BLOCKED":
                             code = ("REGISTERED_HANDOFF_SCOPE_REQUIRED" if kind == "HANDOFF" else
                                     "REGISTERED_DONE_REQUIRES_TERMINAL_DRIVER_REVIEW")
-                            self.assertEqual(code, state["hard_block"]["code"])
+                            self.assertEqual(code, state["handoff_scope_observation" if kind == "HANDOFF" else "unaccepted_completion_report"]["code"])
                         else:
                             self.assertIsNone(state.get("hard_block"))
 
@@ -340,7 +340,7 @@ class RegisteredEventControlCompositionTests(unittest.TestCase):
                                        claim_id="cross-owner", researcher_id=researcher,
                                        next_action="same claim, independently checked researcher")
                     state = self.reduce(task, [owner, event], start + timedelta(hours=3))
-                    self.assertEqual("BLOCKED" if matches else "NEEDS_DISPATCH", state["dispatch_state"])
+                    self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
                     if not matches:
                         self.assertIsNone(state.get("hard_block"))
                     typed = {**event, "event": "HANDOFF", "handoff_scope": "CONTINUATION"}

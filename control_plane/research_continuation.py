@@ -726,7 +726,8 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
     external = list({(pin["source_commit"], pin["path"]): pin for pin in external}.values())
     if restricted:
         state = copy.deepcopy(state)
-        for field in ("continuation_frontier", "continuation", "last_progress_ref", "source_refs"):
+        for field in ("continuation_frontier", "continuation", "last_progress_ref", "source_refs",
+                      "handoff_scope_observation", "unaccepted_completion_report"):
             state.pop(field, None)
         state["next_action"] = "Follow the exact task source firewall before inspecting predecessor evidence."
         unresolved_refs = []

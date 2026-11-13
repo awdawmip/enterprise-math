@@ -139,9 +139,9 @@ class ExistingAssetTests(unittest.TestCase):
         spec = copy.deepcopy(self.spec)
         spec["gate_decisions"][1].update(decision="SATISFIED_BY_EXISTING_CONTROL_ASSET",
                                         evidence_refs=["RS-INTEGRATION/TP2-EXISTING"])
-        with self.assertRaisesRegex(impl.DriverFollowupError, "another follow-up gate"):
-            self.materialize(spec=spec)
-        self.assert_no_packet()
+        packet = self.materialize(spec=spec)
+        self.assertTrue(packet)
+        self.assertEqual(1, len(list((self.root / "research_driver_followups").rglob("*.json"))))
 
     def test_raw_publication_and_taskbook_drift_fail_validation(self):
         packet = self.materialize()

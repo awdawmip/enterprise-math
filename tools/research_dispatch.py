@@ -476,19 +476,21 @@ def _block_ambiguous_registered_handoff(
             continue
         meta = event.get(_core.GITHUB_META_KEY)
         value = copy.deepcopy(state)
-        value["state"] = "BLOCKED"
-        value["dispatch_state"] = "BLOCKED"
-        value["hard_block"] = {
+        value["handoff_scope_observation"] = {
             "code": "REGISTERED_HANDOFF_SCOPE_REQUIRED",
             "publication_id": task.get("publication_id"),
             "claim_id": event.get("claim_id"),
             "server_comment_id": meta.get("comment_id") if isinstance(meta, dict) else None,
             "reason": reason,
+            "progress_ref": event.get("progress_ref"),
+            "next_action": event.get("next_action"),
         }
+        if event.get("progress_ref"):
+            value["last_progress_ref"]=event["progress_ref"]
+            value["last_progress_at"]=event["at"]
         value["next_action"] = (
-            "Append a structurally scoped HANDOFF correction while the original owner "
-            "lease is valid, or append an authorized lifecycle correction; do not "
-            "redispatch this ambiguous handoff."
+            "Preserve the actual frontier and predecessor in typed continuation; "
+            "an optional historical scope correction is not a research admission step."
         )
         return value
     return state
