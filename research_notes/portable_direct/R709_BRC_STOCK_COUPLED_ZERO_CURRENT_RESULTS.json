@@ -1,0 +1,158 @@
+{
+  "arithmetic": "exact positive unit BRC branch enumeration and integer counters; no floating computation",
+  "cases": [
+    {
+      "cells": 12,
+      "each_port_Rin_Rout_after_period": 12,
+      "flat_necklaces": 4,
+      "holonomy_histogram": {
+        "120": 4,
+        "201": 4,
+        "012": 16
+      },
+      "k": 1,
+      "l": 1,
+      "matched_transfer_events_per_word": 288,
+      "minimal_all_edge_firing_stock_by_type": [
+        12,
+        12
+      ],
+      "necklaces": 6,
+      "net_edge_current": 0,
+      "nonflat_necklaces": 2,
+      "per_undirected_edge_plus_and_minus_counts": [
+        12,
+        12
+      ],
+      "single_species_token_deletion_blocks_full_firing": true,
+      "words": 24
+    },
+    {
+      "cells": 18,
+      "each_port_Rin_Rout_after_period": 18,
+      "flat_necklaces": 18,
+      "holonomy_histogram": {
+        "120": 36,
+        "201": 36,
+        "012": 108
+      },
+      "k": 1,
+      "l": 2,
+      "matched_transfer_events_per_word": 648,
+      "minimal_all_edge_firing_stock_by_type": [
+        18,
+        18
+      ],
+      "necklaces": 30,
+      "net_edge_current": 0,
+      "nonflat_necklaces": 12,
+      "per_undirected_edge_plus_and_minus_counts": [
+        18,
+        18
+      ],
+      "single_species_token_deletion_blocks_full_firing": true,
+      "words": 180
+    },
+    {
+      "cells": 18,
+      "each_port_Rin_Rout_after_period": 18,
+      "flat_necklaces": 18,
+      "holonomy_histogram": {
+        "120": 36,
+        "201": 36,
+        "012": 108
+      },
+      "k": 2,
+      "l": 1,
+      "matched_transfer_events_per_word": 648,
+      "minimal_all_edge_firing_stock_by_type": [
+        18,
+        18
+      ],
+      "necklaces": 30,
+      "net_edge_current": 0,
+      "nonflat_necklaces": 12,
+      "per_undirected_edge_plus_and_minus_counts": [
+        18,
+        18
+      ],
+      "single_species_token_deletion_blocks_full_firing": true,
+      "words": 180
+    },
+    {
+      "cells": 24,
+      "each_port_Rin_Rout_after_period": 24,
+      "flat_necklaces": 164,
+      "holonomy_histogram": {
+        "120": 612,
+        "201": 612,
+        "012": 1296
+      },
+      "k": 2,
+      "l": 2,
+      "matched_transfer_events_per_word": 1152,
+      "minimal_all_edge_firing_stock_by_type": [
+        24,
+        24
+      ],
+      "necklaces": 318,
+      "net_edge_current": 0,
+      "nonflat_necklaces": 154,
+      "per_undirected_edge_plus_and_minus_counts": [
+        24,
+        24
+      ],
+      "single_species_token_deletion_blocks_full_firing": true,
+      "words": 2520
+    }
+  ],
+  "interface_boundary": "Stock-gated scheduling is a fully specified candidate extension; baseline V29 declares only additive PASS/TRANSFER, not autonomous token stock or synchronization.",
+  "model": "Explicit two-typed-token conservative stock-extended V29; V20/V36 gated synchronous ring; native six-axis triad fields; pointed V17/V39 S3 transport",
+  "root_rotation": {
+    "h1": [
+      1,
+      2,
+      0
+    ],
+    "h2": [
+      2,
+      0,
+      1
+    ],
+    "word_1": "AbaB",
+    "word_2": "baBA"
+  },
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "three_witnesses": {
+    "H0": {
+      "cells": 12,
+      "holonomy": [
+        0,
+        1,
+        2
+      ],
+      "word": "AaBb"
+    },
+    "H1": {
+      "cells": 12,
+      "holonomy": [
+        1,
+        2,
+        0
+      ],
+      "word": "ABab"
+    },
+    "H2": {
+      "cells": 12,
+      "holonomy": [
+        2,
+        0,
+        1
+      ],
+      "word": "BAba"
+    }
+  },
+  "total_oriented_branches": 2904,
+  "total_validated_layer_steps": 67248,
+  "verdict": "R709B_STOCK_COUPLED_ZERO_CURRENT_BRC_PASS"
+}
