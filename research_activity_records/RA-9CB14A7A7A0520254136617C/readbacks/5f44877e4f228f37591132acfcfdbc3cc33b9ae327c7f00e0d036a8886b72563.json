@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r137_divisor_collision_quasiperiod_20261114/check_r137c.py",
+    "ref": "ab486d53fad5fdeb15b6c8647b6778b8b1e1b093",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r137c-r1-20261114-2-ab486d53fad5",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R137C — exact coefficient-period word inclusion certificate.\"\"\"\nfrom math import gcd, lcm\nfrom check_r137b import farey_witnesses\n\ndef phi(q):\n    return sum(gcd(i,q)==1 for i in range(1,q+1))\n\ndef run():\n    n = 0\n    for m in range(1,9):\n        P = lcm(*range(1,m+1))\n        F = 1 + sum((m+1-q)*phi(q) for q in range(1,m+1))\n        for K in range(2,25):\n            before = set(farey_witnesses(K,m))\n            after = set(farey_witnesses(K+P,m))\n            assert before <= after,(m,K,before-after)\n            assert len(after) == F,(m,K,len(after),F)\n            n += 1\n    assert n==184\n    print(\"R137C_COEFFICIENT_PERIOD_INCLUSION_PASS\")\n    print({\"exact_pairs\":n,\"m_range\":[1,8],\"K_range\":[2,24]})\n\nif __name__==\"__main__\":\n    run()\n",
+      "display_title": "check_r137c.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/ab486d53fad5fdeb15b6c8647b6778b8b1e1b093/research_notes/brc_s23_av_r137_divisor_collision_quasiperiod_20261114/check_r137c.py",
+      "encoding": "utf-8",
+      "sha": "4b8ccb1d7b564bc48f5fed8f8d9d51e77c7db367"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
