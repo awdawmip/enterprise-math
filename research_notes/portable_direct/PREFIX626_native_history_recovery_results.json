@@ -1,0 +1,702 @@
+{
+  "schema": "PREFIX626_NATIVE_X6_SHARP_TAGGED_GATE_HISTORY_RECOVERY_V1",
+  "date": "2026-11-09",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "probe_phases": [
+    4,
+    11,
+    14,
+    32
+  ],
+  "original_phases": 48,
+  "original_ports": 96,
+  "original_one_step_actions": 576,
+  "domain": "n>=5; lambda>0; every nonnegative real gate vector; full terminal 96 ports; specified labelled path-coordinate queries",
+  "claim": "exactly n-5 supplementary labelled path-coordinate readings reconstruct all n gates and lambda; continuous dimension lower bound n-5",
+  "special_gate_arc": [
+    9,
+    29
+  ],
+  "four_fixed_prefix_paths": {
+    "0": [
+      9
+    ],
+    "1": [
+      22,
+      9
+    ],
+    "2": [
+      64,
+      52,
+      9
+    ],
+    "3": [
+      28,
+      80,
+      52,
+      9
+    ]
+  },
+  "fixed_cycle_pre": [
+    9,
+    28,
+    80,
+    52,
+    9
+  ],
+  "fixed_cycle_post": [
+    29,
+    80,
+    52,
+    8,
+    29
+  ],
+  "path_mass_identity": "J_n[W_(n,k)] = lambda*g_k for 1<=k<=n",
+  "reference_gate_free_path_mass": "lambda for every n>=1",
+  "endpoint_parameter_summary": "lambda, four mod4 products of (g_k+3), final g_n",
+  "endpoint_dimension_bound": 6,
+  "minimal_extra_path_coordinates_for_n_ge_5": "n-5",
+  "path_witness_tests_n_1_to_64": 2080,
+  "zero_gate_witness_tests_n_1_to_64": 2080,
+  "endpoint_recovery_tests": 27,
+  "tested_horizons": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    12,
+    16,
+    24,
+    32
+  ],
+  "exact_trials": [
+    {
+      "n": 5,
+      "supplementary_path_coordinates": 0,
+      "lambda": "3/2",
+      "last_gate": "2",
+      "actual_path_masses": {},
+      "mod4_products": {
+        "0": "11",
+        "1": "75/2",
+        "2": "14/3",
+        "3": "13/4"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 5,
+      "supplementary_path_coordinates": 0,
+      "lambda": "5/3",
+      "last_gate": "7/3",
+      "actual_path_masses": {},
+      "mod4_products": {
+        "0": "3",
+        "1": "160/9",
+        "2": "5",
+        "3": "7"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 5,
+      "supplementary_path_coordinates": 0,
+      "lambda": "7/4",
+      "last_gate": "5/2",
+      "actual_path_masses": {},
+      "mod4_products": {
+        "0": "4",
+        "1": "22",
+        "2": "3",
+        "3": "13/2"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 6,
+      "supplementary_path_coordinates": 1,
+      "lambda": "3/2",
+      "last_gate": "0",
+      "actual_path_masses": {
+        "5": "3"
+      },
+      "mod4_products": {
+        "0": "11",
+        "1": "75/2",
+        "2": "14",
+        "3": "13/4"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 6,
+      "supplementary_path_coordinates": 1,
+      "lambda": "5/3",
+      "last_gate": "3/4",
+      "actual_path_masses": {
+        "5": "35/9"
+      },
+      "mod4_products": {
+        "0": "3",
+        "1": "160/9",
+        "2": "75/4",
+        "3": "7"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 6,
+      "supplementary_path_coordinates": 1,
+      "lambda": "7/4",
+      "last_gate": "6",
+      "actual_path_masses": {
+        "5": "35/8"
+      },
+      "mod4_products": {
+        "0": "4",
+        "1": "22",
+        "2": "27",
+        "3": "13/2"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 7,
+      "supplementary_path_coordinates": 2,
+      "lambda": "3/2",
+      "last_gate": "7/4",
+      "actual_path_masses": {
+        "5": "3",
+        "6": "0"
+      },
+      "mod4_products": {
+        "0": "11",
+        "1": "75/2",
+        "2": "14",
+        "3": "247/16"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 7,
+      "supplementary_path_coordinates": 2,
+      "lambda": "5/3",
+      "last_gate": "10",
+      "actual_path_masses": {
+        "5": "35/9",
+        "6": "5/4"
+      },
+      "mod4_products": {
+        "0": "3",
+        "1": "160/9",
+        "2": "75/4",
+        "3": "91"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 7,
+      "supplementary_path_coordinates": 2,
+      "lambda": "7/4",
+      "last_gate": "1",
+      "actual_path_masses": {
+        "5": "35/8",
+        "6": "21/2"
+      },
+      "mod4_products": {
+        "0": "4",
+        "1": "22",
+        "2": "27",
+        "3": "26"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 8,
+      "supplementary_path_coordinates": 3,
+      "lambda": "3/2",
+      "last_gate": "3",
+      "actual_path_masses": {
+        "5": "3",
+        "6": "0",
+        "7": "21/8"
+      },
+      "mod4_products": {
+        "0": "66",
+        "1": "75/2",
+        "2": "14",
+        "3": "247/16"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 8,
+      "supplementary_path_coordinates": 3,
+      "lambda": "5/3",
+      "last_gate": "3",
+      "actual_path_masses": {
+        "5": "35/9",
+        "6": "5/4",
+        "7": "50/3"
+      },
+      "mod4_products": {
+        "0": "18",
+        "1": "160/9",
+        "2": "75/4",
+        "3": "91"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 8,
+      "supplementary_path_coordinates": 3,
+      "lambda": "7/4",
+      "last_gate": "3",
+      "actual_path_masses": {
+        "5": "35/8",
+        "6": "21/2",
+        "7": "7/4"
+      },
+      "mod4_products": {
+        "0": "24",
+        "1": "22",
+        "2": "27",
+        "3": "26"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 9,
+      "supplementary_path_coordinates": 4,
+      "lambda": "3/2",
+      "last_gate": "5",
+      "actual_path_masses": {
+        "5": "3",
+        "6": "0",
+        "7": "21/8",
+        "8": "9/2"
+      },
+      "mod4_products": {
+        "0": "66",
+        "1": "300",
+        "2": "14",
+        "3": "247/16"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 9,
+      "supplementary_path_coordinates": 4,
+      "lambda": "5/3",
+      "last_gate": "2/3",
+      "actual_path_masses": {
+        "5": "35/9",
+        "6": "5/4",
+        "7": "50/3",
+        "8": "5"
+      },
+      "mod4_products": {
+        "0": "18",
+        "1": "1760/27",
+        "2": "75/4",
+        "3": "91"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 9,
+      "supplementary_path_coordinates": 4,
+      "lambda": "7/4",
+      "last_gate": "5/4",
+      "actual_path_masses": {
+        "5": "35/8",
+        "6": "21/2",
+        "7": "7/4",
+        "8": "21/4"
+      },
+      "mod4_products": {
+        "0": "24",
+        "1": "187/2",
+        "2": "27",
+        "3": "26"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 12,
+      "supplementary_path_coordinates": 7,
+      "lambda": "3/2",
+      "last_gate": "9",
+      "actual_path_masses": {
+        "5": "3",
+        "6": "0",
+        "7": "21/8",
+        "8": "9/2",
+        "9": "15/2",
+        "10": "3",
+        "11": "3/4"
+      },
+      "mod4_products": {
+        "0": "792",
+        "1": "300",
+        "2": "70",
+        "3": "1729/32"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 12,
+      "supplementary_path_coordinates": 7,
+      "lambda": "5/3",
+      "last_gate": "1/2",
+      "actual_path_masses": {
+        "5": "35/9",
+        "6": "5/4",
+        "7": "50/3",
+        "8": "5",
+        "9": "10/9",
+        "10": "15/4",
+        "11": "25/3"
+      },
+      "mod4_products": {
+        "0": "63",
+        "1": "1760/27",
+        "2": "1575/16",
+        "3": "728"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 12,
+      "supplementary_path_coordinates": 7,
+      "lambda": "7/4",
+      "last_gate": "4/3",
+      "actual_path_masses": {
+        "5": "35/8",
+        "6": "21/2",
+        "7": "7/4",
+        "8": "21/4",
+        "9": "35/16",
+        "10": "7/4",
+        "11": "7"
+      },
+      "mod4_products": {
+        "0": "104",
+        "1": "187/2",
+        "2": "108",
+        "3": "182"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 16,
+      "supplementary_path_coordinates": 11,
+      "lambda": "3/2",
+      "last_gate": "4",
+      "actual_path_masses": {
+        "5": "3",
+        "6": "0",
+        "7": "21/8",
+        "8": "9/2",
+        "9": "15/2",
+        "10": "3",
+        "11": "3/4",
+        "12": "27/2",
+        "13": "15/4",
+        "14": "1/2",
+        "15": "3"
+      },
+      "mod4_products": {
+        "0": "5544",
+        "1": "1650",
+        "2": "700/3",
+        "3": "8645/32"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 16,
+      "supplementary_path_coordinates": 11,
+      "lambda": "5/3",
+      "last_gate": "7/2",
+      "actual_path_masses": {
+        "5": "35/9",
+        "6": "5/4",
+        "7": "50/3",
+        "8": "5",
+        "9": "10/9",
+        "10": "15/4",
+        "11": "25/3",
+        "12": "5/6",
+        "13": "40/9",
+        "14": "5/3",
+        "15": "0"
+      },
+      "mod4_products": {
+        "0": "819/2",
+        "1": "29920/81",
+        "2": "1575/4",
+        "3": "2184"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 16,
+      "supplementary_path_coordinates": 11,
+      "lambda": "7/4",
+      "last_gate": "10/3",
+      "actual_path_masses": {
+        "5": "35/8",
+        "6": "21/2",
+        "7": "7/4",
+        "8": "21/4",
+        "9": "35/16",
+        "10": "7/4",
+        "11": "7",
+        "12": "7/3",
+        "13": "0",
+        "14": "49/4",
+        "15": "21/8"
+      },
+      "mod4_products": {
+        "0": "1976/3",
+        "1": "561/2",
+        "2": "1080",
+        "3": "819"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 24,
+      "supplementary_path_coordinates": 19,
+      "lambda": "3/2",
+      "last_gate": "5",
+      "actual_path_masses": {
+        "5": "3",
+        "6": "0",
+        "7": "21/8",
+        "8": "9/2",
+        "9": "15/2",
+        "10": "3",
+        "11": "3/4",
+        "12": "27/2",
+        "13": "15/4",
+        "14": "1/2",
+        "15": "3",
+        "16": "6",
+        "17": "0",
+        "18": "7/2",
+        "19": "9/8",
+        "20": "15",
+        "21": "9/2",
+        "22": "1",
+        "23": "27/8"
+      },
+      "mod4_products": {
+        "0": "576576",
+        "1": "29700",
+        "2": "123200/27",
+        "3": "2723175/512"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 24,
+      "supplementary_path_coordinates": 19,
+      "lambda": "5/3",
+      "last_gate": "4",
+      "actual_path_masses": {
+        "5": "35/9",
+        "6": "5/4",
+        "7": "50/3",
+        "8": "5",
+        "9": "10/9",
+        "10": "15/4",
+        "11": "25/3",
+        "12": "5/6",
+        "13": "40/9",
+        "14": "5/3",
+        "15": "0",
+        "16": "35/6",
+        "17": "5/3",
+        "18": "25/6",
+        "19": "10",
+        "20": "5/3",
+        "21": "5",
+        "22": "25/12",
+        "23": "5/3"
+      },
+      "mod4_products": {
+        "0": "11466",
+        "1": "239360/27",
+        "2": "294525/32",
+        "3": "78624"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 24,
+      "supplementary_path_coordinates": 19,
+      "lambda": "7/4",
+      "last_gate": "0",
+      "actual_path_masses": {
+        "5": "35/8",
+        "6": "21/2",
+        "7": "7/4",
+        "8": "21/4",
+        "9": "35/16",
+        "10": "7/4",
+        "11": "7",
+        "12": "7/3",
+        "13": "0",
+        "14": "49/4",
+        "15": "21/8",
+        "16": "35/6",
+        "17": "21/8",
+        "18": "7/2",
+        "19": "63/8",
+        "20": "35/12",
+        "21": "7/16",
+        "22": "14",
+        "23": "7/2"
+      },
+      "mod4_products": {
+        "0": "27664/3",
+        "1": "65637/16",
+        "2": "59400",
+        "3": "61425/2"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 32,
+      "supplementary_path_coordinates": 27,
+      "lambda": "3/2",
+      "last_gate": "6",
+      "actual_path_masses": {
+        "5": "3",
+        "6": "0",
+        "7": "21/8",
+        "8": "9/2",
+        "9": "15/2",
+        "10": "3",
+        "11": "3/4",
+        "12": "27/2",
+        "13": "15/4",
+        "14": "1/2",
+        "15": "3",
+        "16": "6",
+        "17": "0",
+        "18": "7/2",
+        "19": "9/8",
+        "20": "15",
+        "21": "9/2",
+        "22": "1",
+        "23": "27/8",
+        "24": "15/2",
+        "25": "3/4",
+        "26": "4",
+        "27": "3/2",
+        "28": "0",
+        "29": "21/4",
+        "30": "3/2",
+        "31": "15/4"
+      },
+      "mod4_products": {
+        "0": "15567552",
+        "1": "675675",
+        "2": "8377600/81",
+        "3": "29954925/256"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 32,
+      "supplementary_path_coordinates": 27,
+      "lambda": "5/3",
+      "last_gate": "9/2",
+      "actual_path_masses": {
+        "5": "35/9",
+        "6": "5/4",
+        "7": "50/3",
+        "8": "5",
+        "9": "10/9",
+        "10": "15/4",
+        "11": "25/3",
+        "12": "5/6",
+        "13": "40/9",
+        "14": "5/3",
+        "15": "0",
+        "16": "35/6",
+        "17": "5/3",
+        "18": "25/6",
+        "19": "10",
+        "20": "5/3",
+        "21": "5",
+        "22": "25/12",
+        "23": "5/3",
+        "24": "20/3",
+        "25": "20/9",
+        "26": "0",
+        "27": "35/3",
+        "28": "5/2",
+        "29": "50/9",
+        "30": "5/2",
+        "31": "10/3"
+      },
+      "mod4_products": {
+        "0": "773955/2",
+        "1": "59121920/243",
+        "2": "7952175/64",
+        "3": "3931200"
+      },
+      "reconstruction_exact": true
+    },
+    {
+      "n": 32,
+      "supplementary_path_coordinates": 27,
+      "lambda": "7/4",
+      "last_gate": "1/3",
+      "actual_path_masses": {
+        "5": "35/8",
+        "6": "21/2",
+        "7": "7/4",
+        "8": "21/4",
+        "9": "35/16",
+        "10": "7/4",
+        "11": "7",
+        "12": "7/3",
+        "13": "0",
+        "14": "49/4",
+        "15": "21/8",
+        "16": "35/6",
+        "17": "21/8",
+        "18": "7/2",
+        "19": "63/8",
+        "20": "35/12",
+        "21": "7/16",
+        "22": "14",
+        "23": "7/2",
+        "24": "0",
+        "25": "49/16",
+        "26": "21/4",
+        "27": "35/4",
+        "28": "7/2",
+        "29": "7/8",
+        "30": "63/4",
+        "31": "35/8"
+      },
+      "mod4_products": {
+        "0": "1383200/9",
+        "1": "8729721/128",
+        "2": "4276800",
+        "3": "1351350"
+      },
+      "reconstruction_exact": true
+    }
+  ],
+  "arithmetic": "native source-labelled BRC actions with Python Fraction; no classical propagation",
+  "review": "AUTHOR_SIDE_UNREVIEWED",
+  "status": "ALL_ASSERTIONS_PASS"
+}

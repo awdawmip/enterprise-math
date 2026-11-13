@@ -1,0 +1,106 @@
+{
+  "schema": "PREFIX626_NATIVE_X6_SHARP_TAGGED_GATE_HISTORY_RECOVERY_SUMMARY_V1",
+  "date": "2026-11-09",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "method": "original typed 48 STAR phases / 96 ports / 576 labelled actions, exact Fraction",
+  "theorem_scope": "all finite n>=5, fixed four-point native probe, unknown lambda>0 and nonnegative gates, complete endpoint 96 ports and separately sampled original source/action-labelled length-n path coordinates",
+  "min_extra_path_coordinates": "n-5",
+  "construct": "For k=5..n-1 sample W(n,k) with exact mass lambda*g_k; decode lambda, four gate-class products and final gate from endpoint, then solve g1..g4",
+  "exact_negative_certificate": "invariance of domain: open parameter dimension n+1; endpoint factors via 6 scalars; m further continuous tagged path scalars imply m>=n-5",
+  "positive_path_certificates": {
+    "prefix": {
+      "0": [
+        9
+      ],
+      "1": [
+        22,
+        9
+      ],
+      "2": [
+        64,
+        52,
+        9
+      ],
+      "3": [
+        28,
+        80,
+        52,
+        9
+      ]
+    },
+    "precycle": [
+      9,
+      28,
+      80,
+      52,
+      9
+    ],
+    "gated_edge": [
+      9,
+      29
+    ],
+    "postcycle": [
+      29,
+      80,
+      52,
+      8,
+      29
+    ],
+    "gate_free_start": [
+      28,
+      80,
+      52,
+      8,
+      29
+    ]
+  },
+  "exact_executed": {
+    "tagged_witnesses": 2080,
+    "zero_gate_witnesses": 2080,
+    "endpoint_recovery_trials": 27,
+    "horizons": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      12,
+      16,
+      24,
+      32
+    ],
+    "arithmetic": "Fraction",
+    "assertions": "ALL_ASSERTIONS_PASS"
+  },
+  "representative_cases": [
+    {
+      "n": 5,
+      "lambda": "3/2",
+      "extra_reads": 0,
+      "last_gate": "2",
+      "four_residue_products": {
+        "0": "11",
+        "1": "75/2",
+        "2": "14/3",
+        "3": "13/4"
+      },
+      "recovered_all": true
+    },
+    {
+      "n": 6,
+      "lambda": "3/2",
+      "extra_reads": 1,
+      "tagged_mass_for_gate_5": "3",
+      "last_gate": "0",
+      "four_residue_products": {
+        "0": "11",
+        "1": "75/2",
+        "2": "14",
+        "3": "13/4"
+      },
+      "recovered_all": true
+    }
+  ],
+  "full_per_trial_evidence": "The sibling exact checker generates PREFIX626_native_history_recovery_results.json with all 27 per-trial exact fractions and masses; summary is a curated index, not the complete result dump.",
+  "review": "AUTHOR_SIDE_UNREVIEWED"
+}
