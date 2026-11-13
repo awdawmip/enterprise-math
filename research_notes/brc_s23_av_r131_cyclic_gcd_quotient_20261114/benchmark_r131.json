@@ -1,0 +1,89 @@
+{
+  "status": "R131_BENCHMARK_EXACT_WORDSET_MATCH",
+  "platform": "CPython stdlib Fraction; monotonic wall-clock; environment not thermally controlled",
+  "input": "x=1/7, A=3K, d=K, E=2K, m=7, I=(0,1)",
+  "dense": "R129-style complete event cut construction and independent full-word evaluation; set dedup",
+  "quotient": "R131 cyclic sparse event construction plus integer-lift filtering; set dedup",
+  "runs": [
+    {
+      "scale": 1,
+      "dense_cuts": 44,
+      "quotient_cuts": 44,
+      "distinct_words": 36,
+      "dense_median_ms": 2.70222,
+      "quotient_median_ms": 1.750617,
+      "ratio": 1.5436,
+      "samples_each": 3
+    },
+    {
+      "scale": 2,
+      "dense_cuts": 89,
+      "quotient_cuts": 44,
+      "distinct_words": 36,
+      "dense_median_ms": 5.258137,
+      "quotient_median_ms": 1.736067,
+      "ratio": 3.0288,
+      "samples_each": 3
+    },
+    {
+      "scale": 4,
+      "dense_cuts": 179,
+      "quotient_cuts": 44,
+      "distinct_words": 36,
+      "dense_median_ms": 10.45397,
+      "quotient_median_ms": 1.800341,
+      "ratio": 5.8067,
+      "samples_each": 3
+    },
+    {
+      "scale": 8,
+      "dense_cuts": 359,
+      "quotient_cuts": 44,
+      "distinct_words": 36,
+      "dense_median_ms": 18.416383,
+      "quotient_median_ms": 1.819073,
+      "ratio": 10.124,
+      "samples_each": 3
+    },
+    {
+      "scale": 16,
+      "dense_cuts": 719,
+      "quotient_cuts": 44,
+      "distinct_words": 36,
+      "dense_median_ms": 42.941315,
+      "quotient_median_ms": 2.097291,
+      "ratio": 20.4747,
+      "samples_each": 3
+    },
+    {
+      "scale": 32,
+      "dense_cuts": 1439,
+      "quotient_cuts": 44,
+      "distinct_words": 36,
+      "dense_median_ms": 83.18564,
+      "quotient_median_ms": 1.989019,
+      "ratio": 41.8224,
+      "samples_each": 3
+    },
+    {
+      "scale": 64,
+      "dense_cuts": 2879,
+      "quotient_cuts": 44,
+      "distinct_words": 36,
+      "dense_median_ms": 160.131423,
+      "quotient_median_ms": 1.714516,
+      "ratio": 93.3975,
+      "samples_each": 3
+    },
+    {
+      "scale": 128,
+      "dense_cuts": 5759,
+      "quotient_cuts": 44,
+      "distinct_words": 36,
+      "dense_median_ms": 393.606739,
+      "quotient_median_ms": 2.194814,
+      "ratio": 179.3349,
+      "samples_each": 3
+    }
+  ]
+}
