@@ -95,3 +95,23 @@ Reproduce with Python standard library only:
 Compare complete stdout JSON with research_notes/portable_direct/R749SNK_CALIBRATION_RAY_RESULTS.json. The script checks exact vertex completeness for both joint polytopes, event character-sum cancellations, source nonnegativity at endpoints, exact witness mass identities, and matching radius at the transition.
 
 Together with R749SNJ, this establishes asymmetric behavior along two coordinate sections through (t,s)=(1/2,3/10): the earlier t=1/2 interval has positive calibration gap except at s=3/10; this new s=3/10 section has zero gap throughout t in [1/2,1]. Next: find the exact two-parameter zero-gap region and its boundary; investigate t<1/2 at s=3/10; separately search for a typed provenance-preserving native future-observer mapping. The exact theorem is an author-side mathematical certificate, not an independent review or a claim of native model correspondence.
+
+
+## Exact sign-and-swap orbit (corollary)
+
+The fixed set B consists exactly of all two-bit and three-bit masks on four bits. Hence B is invariant under all permutations of the four bit positions. Exchanging the first two bit positions with the last two sends masks 3 and 12 into each other; relabeling the sixteen states preserves TV and the fiber constraints with t,s exchanged. Moreover state translation by bit mask 1 changes the sign of chi_3 but not chi_12, while translation by bit mask 4 changes the sign of chi_12 but not chi_3. Translation preserves the zero values of all other retained moments.
+
+Therefore both minimax values satisfy, on the complete nonempty domain,
+
+    rho(t,s)=rho(|t|,|s|)=rho(s,t),
+    rho_cal(t,s)=rho_cal(|t|,|s|)=rho_cal(s,t).
+
+The theorem above consequently supplies the same exact piecewise zero-gap formula (with t replaced by |t|) on all signed horizontal segments
+
+    |s|=3/10, 1/2<=|t|<=1,
+
+and the swapped formula (with t replaced by |s|) on all signed vertical segments
+
+    |t|=3/10, 1/2<=|s|<=1.
+
+This is a group-isomorphism corollary of the original source model, not a new numerical extrapolation.
