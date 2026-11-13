@@ -1,0 +1,32 @@
+{
+  "schema": "R721_BRC_TRIANGLE_LATTICE_V1",
+  "pair_edge_patterns_tested": 32768,
+  "Boolean_source_states_tested": 1048576,
+  "integer_lattice_compatible_simple_ledgers": 316,
+  "integer_lattice_compatible_by_edges": {
+    "0": 1,
+    "3": 20,
+    "6": 160,
+    "9": 120,
+    "12": 15
+  },
+  "nonnegative_triangle_representable_simple_ledgers": 256,
+  "positive_ledger_by_edges": {
+    "0": 1,
+    "3": 20,
+    "6": 100,
+    "9": 120,
+    "12": 15
+  },
+  "nonnegative_representation_multiplicity": {
+    "1": 241,
+    "2": 15
+  },
+  "false_positives_for_positive_cone": 60,
+  "false_positive_exact_family": "ALL_60_UNDIRECTED_HAMILTONIAN_CYCLES_K6",
+  "S6_signed_witness_permutations_checked": 720,
+  "lattice_index_n6": 96,
+  "lattice_quotient_n6": "Z/6 x (Z/2)^4",
+  "logical_scope": "full integer lattice iff parity+total-mod3 for all n>=5; positive/Boolean necessity only",
+  "status": "EXACT_PASS"
+}
