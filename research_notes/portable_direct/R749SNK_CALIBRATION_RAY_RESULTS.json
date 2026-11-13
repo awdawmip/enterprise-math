@@ -1,0 +1,29 @@
+{
+  "formulae": {
+    "free_equals_calibrated_left": "27/80+t/8 on [1/2,7/10]",
+    "free_equals_calibrated_right": "3/5-t/4 on [7/10,1]"
+  },
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "method": "integer Bareiss 6-variable enumeration over every joint-polytope vertex; Fraction total variation",
+  "scope": "t in [1/2,1], s=3/10; auxiliary G=F_2^4 Walsh fiber; all real t",
+  "segment_certificates": {
+    "left": {
+      "distinct_vertices": 60,
+      "facet_subsets": 18564,
+      "feasible_bases": 844,
+      "nonsingular": 9536,
+      "tight_vertices": 20
+    },
+    "right": {
+      "distinct_vertices": 16,
+      "facet_subsets": 18564,
+      "feasible_bases": 1108,
+      "nonsingular": 9536,
+      "tight_vertices": 6
+    }
+  },
+  "status": "PASS",
+  "transition": "t=7/10 with value 17/40",
+  "unit": "R749SNK",
+  "witness_checks": "feasible affine families and balanced-event dual lower bounds at endpoints"
+}
