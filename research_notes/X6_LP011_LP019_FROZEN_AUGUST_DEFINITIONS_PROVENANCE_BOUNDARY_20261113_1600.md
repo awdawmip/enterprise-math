@@ -10,7 +10,7 @@ Connected GitHub fetched the frozen `definitions/` directory at `fd2bcff10ca6e14
 
 `主导 | dominant | tie | 并列 | 相消 | 抵消 | cancel | amplitude | signed.*BRC | BRC.*signed | 符号.*路径 | 路径.*符号 | 正向.*路径.*负 | positive.*negative`.
 
-The executed bounded scan found candidate matching lines in **8 of 24** files. These indicator hits were only retrieval leads, **not** semantic proof of an erroneous call. In particular, broad matches involving “quotient” appeared because `cancel` and related textual contexts are not a complete typed semantic recognizer. Negative results here are limited to these strings, these 24 files, and this frozen commit; no claim is made about all experiments, scripts, tests or later consumer invocations.
+The executed bounded scan found candidate matching lines in **7 of 24** files. These indicator hits were only retrieval leads, **not** semantic proof of an erroneous call. In particular, broad matches involving “quotient” appeared because `cancel` and related textual contexts are not a complete typed semantic recognizer. Negative results here are limited to these strings, these 24 files, and this frozen commit; no claim is made about all experiments, scripts, tests or later consumer invocations.
 
 ### Independent source distinctions with exact locations
 
