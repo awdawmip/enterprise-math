@@ -1,0 +1,12 @@
+WITNESS interior_15 mu1 1/10000000 capacity25 63/34100000 radius 1/10000000
+WITNESS mu_facet_14 mu1 0 capacity25 63/34100000 radius 0
+WITNESS capacity_facet_15 mu1 1/10000000 capacity25 0 radius 236473/180730000000
+WITNESS joint_14 mu1 0 capacity25 0 radius 273/225912500
+PASS exact original 5 physical equalities, 26 slack gradients; independent two facet normals
+PREDECESSOR conditional physical thresholds (273/225912500, 25, 4/13, 159/104) (17073/93775000, 2, 0, 11/2)
+TWO_FACET_CERTIFICATE_RADIUS_STRICT 49948501046391/3920403670319950000
+TWO_FACET_EXPLICIT_CUBE_RADIUS 1/100000
+CUBE_GAIN_OVER_PRIOR_ONE_FACET 18073/2184
+CERTIFICATE_SCOPE min(next_phys, positive14, sep13, sep14, forced-star) = 49948501046391/3920403670319950000
+PASS all four facet/interior rational witnesses and all 26 physical slacks
+NOTE: 4,845+1,140 prior support exclusions are inherited exactly from immutable PR #1939; not rerun.
