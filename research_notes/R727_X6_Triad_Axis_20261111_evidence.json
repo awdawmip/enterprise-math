@@ -1,0 +1,78 @@
+{
+  "schema": "EM_R727_TRIAD_AXIS_FEASIBILITY_V1",
+  "status": "EXACT_FINITE_MODEL_VERIFIED_LOCALLY",
+  "validated_on": "2026-11-11",
+  "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "AXIS_DISTINCT_EQUAL_QUANTUM_CANDIDATE_ONLY",
+  "math_scope": "six positive-axis families, distinct source identities, all six-family occupation vectors for m=1..3",
+  "execution": "Python standard library integer-only, independent source-ID recursion versus coefficient recursion and greedy",
+  "exact_exhaustion": [
+    {
+      "m": 1,
+      "all_count_vectors_sum_3m": 56,
+      "axis_compatible": 20,
+      "total_labeled_decompositions_over_vectors": 20,
+      "largest_labeled_count": 1,
+      "argmax": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "m": 2,
+      "all_count_vectors_sum_3m": 462,
+      "axis_compatible": 141,
+      "total_labeled_decompositions_over_vectors": 630,
+      "largest_labeled_count": 10,
+      "argmax": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "m": 3,
+      "all_count_vectors_sum_3m": 2002,
+      "axis_compatible": 580,
+      "total_labeled_decompositions_over_vectors": 30560,
+      "largest_labeled_count": 124,
+      "argmax": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ]
+    }
+  ],
+  "examples": {
+    "111111": {
+      "m": 2,
+      "labeled_count": 10
+    },
+    "211110": {
+      "m": 2,
+      "labeled_count": 6
+    },
+    "222000": {
+      "m": 2,
+      "labeled_count": 4
+    },
+    "311100": {
+      "m": 2,
+      "labeled_count": 0
+    }
+  },
+  "finite_check_result": "R727_X6_TRIAD_AXIS_PARTITION_EXACT_PASS",
+  "general_proofs": "Theorems 1–4 in proof.md; finite check not their universal proof",
+  "native_status": "actual TRIADIC_CLOSURE_E and native V29/V39 event compatibility not established; hypothesis/candidate only",
+  "source": "frozen P000_V5 and X6 definition at pinned scientific commit, plus live normative context"
+}
