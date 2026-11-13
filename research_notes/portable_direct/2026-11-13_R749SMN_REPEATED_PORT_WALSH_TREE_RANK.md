@@ -1,0 +1,61 @@
+# R749SMN — Exact adaptive-tree prediction rank with reused and dependent named source Ports
+
+Date: 2026-11-13 (Asia/Shanghai). Direct continuation of R749SMM at awdawmip/enterprise-math@d6d80b056e4bc4f579610c4dd8d0e0adf4d57427. Scientific inputs stay frozen at awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389. Author-side mathematical proof and exact rational regression, pending independent review.
+
+## Scope and definitions
+
+Historical signed-source state x ranges over (F_2)^d; these history bits are not additional Enterprise native spatial axes. A finite full binary public observation tree has at every internal node n a named, possibly repeated or zero Walsh mask a_n and real bias lambda_n in [-1,1]. Conditional public output y in {-1,+1} has probability (1+y lambda_n chi_(a_n)(x))/2, chi_a(x)=(-1)^(a dot x). The complete observed root-to-leaf path has likelihood matrix K_(leaf,x).
+
+## Theorem 1: exact dependent-Port rank certificate
+
+Let H_root=1, and recursively define Walsh polynomials for each internal node:
+
+    D_n = lambda_n chi_(a_n) H_n
+    H_(n,-) = (H_n - D_n)/2
+    H_(n,+) = (H_n + D_n)/2.
+
+Characters satisfy chi_a chi_b=chi_(a XOR b). Let [D_n]_u be the coefficient of character chi_u, and e_0 the coefficient row for the constant function 1. For every finite-depth tree, arbitrary masks and all biases including 0 and +/-1,
+
+    rank_R(K) = rank_R( matrix with rows e_0 and [D_n]_u for every internal n )
+    c_min = rank_R(K) - 1.
+
+For exact evaluation the columns can be restricted to the subgroup V=span_F2{a_n}, with 2^r columns for r=dim_F2 V. The result is the sharp number of independent affine source expectation coordinates required to recover the full specified future-path distribution for every source prior.
+
+**Proof.** The sum of leaf-likelihood rows is 1. At internal node n, the sum of all rows of its plus subtree minus the sum in its minus subtree is precisely D_n(x), because each downstream conditional distribution is normalized. Hence 1 and all D_n are in the leaf-row span. Conversely, H_root=1 and the recursion H_(n,±)=(H_n±D_n)/2 puts every descendant and every leaf probability in span{1,D_n}. Thus the spans coincide. Walsh characters form an independent basis for real functions on (F_2)^d, so the row rank is that of the displayed coefficient matrix; the recursion only generates XOR combinations inside V. The source-prior simplex has full relative interior, and normalization supplies the constant affine coordinate, giving sharp minimum rank-1. QED.
+
+**Algorithm.** Represent a Walsh polynomial as a sparse dictionary mask -> exact rational coefficient. Start with H_root={0:1}. At each internal node, shift every mask in H_n by XOR with a_n, scale by lambda_n to form D_n, save its coefficient vector, and generate H_(n,-),H_(n,+) from the identities. Exact Gaussian elimination on e_0 and all D_n yields the rank. Keep the node, route and named-Port identities alongside any compressed coefficient representation. All zero, repeated and dependent masks are handled directly.
+
+## Theorem 2: complete closed depth-two classification
+
+Let a be the root mask (bias alpha), b the minus child mask (bias beta), and c the plus child mask (bias gamma), with masks possibly zero.
+
+If a != 0 and alpha != 0, then for all real alpha,beta,gamma in [-1,1],
+
+    rank(K) = 2 + [beta!=0 and b not in {0,a}] + [gamma!=0 and c not in {0,a}].
+
+If a=0 or alpha=0, the root observation is source independent. Let R_minus, R_plus indicate positive probability of arriving at the respective branch, independent of x. When a=0, R_minus=(alpha!=1), R_plus=(alpha!=-1); when alpha=0 and a!=0 both are true. Then
+
+    rank(K) = 1 + | {b : R_minus and beta!=0 and b!=0}
+                    union {c : R_plus and gamma!=0 and c!=0} |.
+
+The braces denote distinct masks.
+
+**Proof.** For a!=0, alpha!=0, the root contrast supplies chi_a independently of 1. Modulo span{1,chi_a}, a child with mask t adds information precisely if its bias is nonzero and t is outside {0,a}; the contrast uses characters chi_t and chi_(a XOR t). The nontrivial two-character blocks of the two children are disjoint, except if c=b or c=a XOR b. When c=b, the two coefficient vectors in the shared block have determinant proportional to 2 alpha, nonzero. When c=a XOR b, they have determinant proportional to 1+alpha^2, strictly positive over real biases. Therefore each active nontrivial child adds exactly one dimension. For source-independent root output, each reachable child contrast is a nonzero scalar multiple of chi_b or chi_c, giving one dimension per distinct nonzero mask. QED.
+
+## Why distinct-mask sets do not determine the rank
+
+In (F_2)^2 fix a=1 and alpha=beta=gamma=1/2:
+
+- b=c=1: rank 2, so c_min=1.
+- b=1,c=2: unique mask set {1,2}, rank 3, so c_min=2.
+- b=c=2: the **same unique mask set {1,2}**, but rank 4, so c_min=3.
+
+Therefore source-mask deduplication or F2 span rank alone is not a prediction-rank certificate. The actual path-to-Port incidence and source-dependent feedback order matter. With alpha=0, b=c=2 gives rank 2, while b=2,c=3 gives rank 3: a publicly randomized route is a distinct observation experiment.
+
+## Independent exact finite checks
+
+The companion Python Fraction checker builds leaf probabilities directly and separately builds the recursive node contrasts. It checks direct row rank = contrast rank = Theorem 2 rank for **all** 8^3 triples of three-bit masks and 4^3 bias triples in {-1,0,1/2,1}: 32,768 complete profiles. Rank histogram for ranks 1/2/3/4 is respectively 1,793 / 10,185 / 13,986 / 6,804. Another 250 depth-three repeated/dependent-mask profiles compare the full leaf-row and recursive contrast ranks. Every source column normalization was checked. All computations returned PASS with exact rational arithmetic. The arbitrary finite-depth theorem is algebraic and not inferred from the grid.
+
+## Continuation and transfer
+
+This is a theorem about a precisely defined abstract conditional public observer and its historical source/Port memory. It is compatible with P000's six native signed spatial axes and three-dimensional slices without interpreting the F2 source bits as native axes. The V29/V39 native transition and BRC provenance bridge remain separate: obtain actual permitted events, their named Port/branch transition laws and permissible future operations before applying this certificate to native dynamics. Next tractable unit: a sparse exact elimination certificate for larger dependent-mask trees, or an approximate-information-loss bound for selected low-bias nodes under repeated queries.
