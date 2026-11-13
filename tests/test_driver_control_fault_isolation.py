@@ -98,5 +98,32 @@ class DriverControlFaultIsolationTests(unittest.TestCase):
         )
 
 
+    def test_core_native_dispatch_resolves_isolated_definitions(self) -> None:
+        """The native effective_states function resolves core module globals."""
+        research_control_bootstrap.install()
+        from tools import research_dispatch, research_dispatch_core, research_task_records
+
+        self.assertIs(
+            research_dispatch_core.merged_definitions,
+            research_dispatch.merged_definitions,
+        )
+        core_definitions = {
+            row["task_id"]: row
+            for row in research_dispatch_core.merged_definitions()
+        }
+        current = research_task_records.current_records().get(DERIVED_TASK_ID)
+        native = core_definitions[DERIVED_TASK_ID]
+        if current is None:
+            self.assertEqual(native["base_state"], "BLOCKED")
+            self.assertIsNone(native["publication_id"])
+            self.assertEqual(
+                native["hard_block"]["code"],
+                "NONOPERATIONAL_SOURCE_REVIEW_FOLLOWUP",
+            )
+        else:
+            # The original quarantine must not swallow an independent successor.
+            self.assertEqual(native["publication_id"], current["publication_id"])
+
+
 if __name__ == "__main__":
     unittest.main()
