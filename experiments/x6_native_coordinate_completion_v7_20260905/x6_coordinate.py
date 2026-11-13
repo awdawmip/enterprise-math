@@ -113,8 +113,8 @@ class Coord6:
 
     def rotate(self, permutation: Sequence[int]) -> "Coord6":
         p=tuple(permutation)
-        if len(p)!=AXIS_COUNT or set(p)!=set(AXES):
-            raise ValueError("expected a permutation of six axes")
+        if len(p)!=AXIS_COUNT or any(type(i) is not int for i in p) or set(p)!=set(AXES):
+            raise ValueError("expected a permutation of six exact integer axes")
         out=[0]*AXIS_COUNT
         for old,new in enumerate(p):
             out[new]=self.values[old]
