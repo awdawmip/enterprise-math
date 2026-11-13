@@ -1,0 +1,76 @@
+# R749SMQ — Arbitrary retained Walsh families: exact subspace sandwich and dimension-four circuit smoothing
+
+Date: 2026-11-13 (Asia/Shanghai). Researcher: EM-DIRECT-DC2A0A. Research Activity: RA-752599AEC6795285E29FDD8A.
+Source line: R749SMP in PR #2233, commit 2fa10ac841c8732c7e6dbe054d048eaa66a858f8. Frozen scientific pin: awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389, unchanged.
+Scope: abstract finite signed-source/Walsh experiments. The character-space dimension is not a native P000 X6 space dimension. No native V29/V39 event license or independent review is claimed.
+
+## 1. Arbitrary (possibly non-subspace) retained characters
+
+Let G=F_2^d, d>=1, with chi_a(x)=(-1)^(a dot x). Let U be any subset of G\{0}; retain m_0(mu)=1 and m_a(mu)=sum_x mu(x)chi_a(x) for a in U. The prediction target K=I reveals the entire source label. The decoder D can be any function of the retained moments with output in Delta(G), with minimax total variation risk:
+
+R_U(I) = inf_D sup_(mu in Delta(G)) TV(D(m_U(mu)),mu).
+
+Let U_0=U union {0}, and use the bitwise pairing to identify G and its character dual. Define:
+r(U)=max{dim W: W<=G is a linear subspace, W subseteq U_0};
+h(U)=min{dim H: H<=G is a linear subspace, H^perp intersect U is empty}.
+
+**Theorem 1 (universal subspace sandwich).** For all d>=1 and U as above:
+
+0<=r(U)<=h(U)<=d, and
+
+**1-2^(h(U)-d) <= R_U(I) <= 1-2^(r(U)-d).**
+
+If r(U)=h(U)=s, this is the exact **nonlinear** minimax value R_U(I)=1-2^(s-d).
+
+Proof (upper). Choose a retained complete r-dimensional character subspace W. Fourier inversion on G/W^perp determines the probability mass p_c of each coset c of W^perp. There are M=2^(d-r) labels per coset. Output q_x=p_c/M for x in c. Since mu_x<=p_c, q_x>=mu_x/M, and TV(q,mu)=1-sum_x min(q_x,mu_x)<=1-1/M. This holds for every mu, and q uses only retained moments.
+
+Proof (lower). Choose H of dimension h such that H^perp misses U. The N=2^(d-h) disjoint uniform coset laws nu_c on c+H all have the same retained moments m_a=0, since each restricted character chi_a|H is nontrivial. A decoder produces the same q on all these laws; some coset receives q(c)<=1/N. Thus TV(q,nu_c)>=1-q(c)>=1-1/N. Finally any W admitted in r(U) obeys W intersect H^perp={0}, so the restriction W -> H^* is injective, giving dim W<=dim H. QED.
+
+This includes U=empty: R=1-2^(-d). If U consists of all nonzero elements of a linear space W, it recovers the earlier quotient formula of R749SMP.
+
+## 2. Odd-balanced families
+
+**Corollary 2.** If U is nonempty and there is h!=0 with a dot h=1 for every a in U, then r(U)=h(U)=1 and **R_U(I)=1-2^(1-d)**. Equivalently there is **no odd-cardinality XOR-zero dependency among the elements of U**.
+
+Proof. The vector h supplies a one-dimensional H with H^perp avoiding U. Any nonzero a in U supplies a retained one-dimensional W; hence r=h=1. The alternative characterization is the linear-system solvability criterion for Ah=1 over F_2: every left-null vector z must have z dot 1=0, excluding exactly odd-size XOR-zero dependencies. QED.
+
+Example: U={e_1,...,e_d}, d>=2. Even though all individual source marginals are retained, the full-label identity observer has exact minimax loss 1-2^(1-d), including **3/4 for three bits**. The lost joint relationship is materially relevant to the stated target.
+
+## 3. A complete small-d classification
+
+**Theorem 3.** Every U subset of F_2^d\{0} for 1<=d<=3 obeys r(U)=h(U). Thus Theorem 1 computes R_U(I) exactly in these dimensions.
+
+Proof. The r=0 and r=d cases are immediate. If r=1, U contains no three-element XOR-zero circuit (that would complete a two-dimensional retained subspace). A minimal odd dependence in F_2^d with d<=3 has at most four elements, and hence would necessarily have three. Thus no odd dependency exists, Ah=1 is solvable and h(U)=1. When d=3 and r=2, some nonzero c is omitted from U; put H=c^perp, a two-dimensional subspace with H^perp={0,c} disjoint from U, giving h=2. QED.
+
+**Finite-exhaustive d=4 classification.** Enumerating all 2^15=32,768 retained families U and all 67 subspaces with exact GF(2) arithmetic yields:
+- 32,432 families with r=h, whose exact minimax risk follows from Theorem 1.
+- 168 five-element binary circuits C with rank(C)=4, XOR(C)=0 and any four independent; each has (r,h)=(1,2).
+- 168 ten-element complements G^*\C; each has (r,h)=(2,3).
+
+The companion exact checker enumerates all families and all five-circuits and asserts that the exceptional set equals the union of these 168 circuits and their 168 complements. This classification is a fully bounded finite result; it does not claim the gaps have known exact nonlinear minimax values.
+
+The canonical five-circuit is C={1,2,4,8,15}; its complement is {3,5,6,7,9,10,11,12,13,14} in four-bit source-mask notation. Any rank-four five-circuit is obtained from C by a GL(4,2) change of basis.
+
+## 4. Positive convolution decoders improve both exceptional bounds
+
+**General convolution lemma.** If a probability kernel rho on G has Fourier support in U_0, then D_rho(mu)=mu*rho is a positive stochastic decoder depending only on the retained moments: hat(D_rho)(a)=hat(mu)(a)hat(rho)(a). Furthermore D_rho(mu)_x >= rho(0) mu_x for every x, whence **R_U(I)<=1-rho(0)**.
+
+**Theorem 4a (five-circuit).** For C={1,2,4,8,15}, let s(x)=sum_(a in C) chi_a(x) and rho_C(x)=[1+s(x)/3]/16. The five characters have product +1 and span the full dual. Their negative-sign count is 0 at the origin, 2 at ten points, and 4 at five points. Hence rho_C is nonnegative with exact masses 1/6 at 0, 1/12 at ten points, and zero at five points. Its Fourier support is confined to {0} union C, giving the strict improvement:
+
+**3/4 <= R_C(I) <= 5/6** (formerly upper bound 7/8).
+
+The diagonal mass 1/6 is optimal **among positive convolution kernels with Fourier support in {0} union C**. Write 16rho=1+sum_i c_i chi_(a_i) and S=sum_i c_i. Evaluating rho>=0 at each of the five points x_j where exactly four C-signs are negative yields 1+2c_j-S>=0. Summing gives 5-3S>=0, so rho(0)=(1+S)/16<=1/6. The explicit rho_C attains the inequality. This optimality concerns diagonal mass, not the unconstrained nonlinear risk.
+
+**Theorem 4b (complement family).** Let x_1,...,x_5 be those five points where exactly four C-signs are negative. Define rho_barC(0)=3/8, rho_barC(x_j)=1/8, and zero elsewhere. For each a_i in C the signed expectation under rho_barC is 3/8+(1/8)(1-4)=0, so its nonconstant Fourier support lies entirely in G^*\C. Thus:
+
+**1/2 <= R_(G^*\C)(I) <= 5/8** (formerly upper bound 3/4).
+
+Moreover rho(0)<=3/8 for **any** positive convolution kernel whose Fourier coefficients vanish at all five C characters: each C sign has probability 1/2 of being negative, so the expected negative-sign count is 5/2. All nonorigin source states have at most four negatives; hence 5/2<=4(1-rho(0)), giving rho(0)<=3/8. Equality holds for rho_barC.
+
+All statements transfer to any of the 168 rank-four five-circuits and corresponding complements under a source GL(4,2) relabeling.
+
+## 5. Verification and frontier
+
+Companions: R749SMQ_ARBITRARY_WALSH_FAMILY_EXACT_CHECK.py and R749SMQ_ARBITRARY_WALSH_FAMILY_RESULTS.json. The standard-library checker uses exact integer bit operations and fractions.Fraction, covers every U for d=1..4, every subspace, all 168 five-circuits and their complements, both kernel mass normalizations, 30 zero-Fourier conditions, and 32 stochastic convolution columns. Local execution returned PASS. The dimension-free inequalities have direct human proofs above; the d=4 exception count has finite exhaustive validation.
+
+**Open**: determine exact nonlinear minimax risks of the 168+168 exceptional d=4 families within [3/4,5/6] and [1/2,5/8]. For example, optimize the Chebyshev center of the affine moment fibers for C={1,2,4,8,15}, not merely the diagonal overlap of covariant convolution. Separately, bind any abstract sourced observation to a genuine licensed V29/V39 native Cell/Link/Port event with full provenance before applying this to the Heartbeat World.
