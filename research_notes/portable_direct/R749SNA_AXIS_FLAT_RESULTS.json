@@ -1,0 +1,30 @@
+{
+  "schema": "R749SNA_AXIS_FLAT_WALSH_MINIMAX_CERTIFICATE_V1",
+  "status": "PASS",
+  "frozen_science_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "domain": "G=F2^4; all real t in [-1,1], s=0; other B moments zero",
+  "nonnegativity_facets": 16,
+  "joint_polytope_dimension": 6,
+  "six_facet_subsets": 8008,
+  "nonsingular_subsets": 3520,
+  "feasible_subsets": 1920,
+  "unique_vertices": 18,
+  "vertex_t_counts": {
+    "0": 6,
+    "1": 2,
+    "-1": 2,
+    "-1/2": 4,
+    "1/2": 4
+  },
+  "tv_histogram": {
+    "1/2": 10,
+    "3/8": 8
+  },
+  "sharp_uniform_upper": "1/2",
+  "disjoint_lower": "1/2",
+  "unrestricted_minimax_axis": "rho_B(t,0)=1/2 for all real t in [-1,1]",
+  "calibrated_minimax_axis": "rho_cal(t,0)=1/2 for all real t in [-1,1]",
+  "symmetric_axis": "rho_B(0,s)=rho_cal(0,s)=1/2 for all real s in [-1,1]",
+  "arithmetic": "standard library fractions.Fraction exact elimination and full finite vertex enumeration",
+  "native_status": "abstract Walsh observer only; V29/V39 mapping not asserted"
+}
