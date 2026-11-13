@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r131_cyclic_quotient_20261114/benchmark_r131.py",
+    "ref": "29f5e5ef7ef868037a814fb7d29806be3de4e54b",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r131-r132-20261114-2-c78350ae1f6f",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\nfrom fractions import Fraction as F\nfrom statistics import median\nfrom time import perf_counter\nfrom check_r131 import CyclicIndex,brute_vocabulary,cuts\n\ndef repeat(fn):\n    t=[]; r=None\n    for _ in range(3):\n        s=perf_counter();r=fn();t.append((perf_counter()-s)*1000)\n    return round(median(t),3),r\n\nfor g in (1,10,30,100):\n    x=F(1,5); m=5; A,d,E=2*g,g,3*g\n    p,idx=repeat(lambda:CyclicIndex(x,A,d,E,m))\n    b,v=repeat(lambda:brute_vocabulary(x,A,d,E,m,F(0),F(2)))\n    c=len(cuts(x,A,d,E,m,F(0),F(2)))\n    assert idx.vocabulary(F(0),F(2))==v\n    print(f'g={g} raw_cuts={c} primitive_cuts={len(idx.cuts)} raw_vocabulary_ms={b} cyclic_build_ms={p} vocabulary_size={len(v)}')\n",
+      "display_title": "benchmark_r131.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/29f5e5ef7ef868037a814fb7d29806be3de4e54b/research_notes/brc_s23_av_r131_cyclic_quotient_20261114/benchmark_r131.py",
+      "encoding": "utf-8",
+      "sha": "c78350ae1f6fe9a901d3c38fb7d8a845a317daed"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
