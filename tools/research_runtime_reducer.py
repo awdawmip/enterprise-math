@@ -735,6 +735,19 @@ def load_policy(root: pathlib.Path = ROOT) -> dict[str, Any]:
     return policy
 
 
+def research_work_category(value: dict[str, Any]) -> str:
+    """Classify selection intent without deciding mathematics or write authority."""
+    if value.get("kind") != "RESEARCH":
+        return "EXPLICIT_NONRESEARCH_WORK"
+    if value.get("claim_id"):
+        return "OWNED_RESEARCH_CONTINUATION"
+    if value.get("result_id") and value.get("review_status") == "NOT_REVIEWED":
+        return "EXISTING_RESULT_DECISION"
+    if value.get("handoff_scope_observation"):
+        return "PRIOR_WORK_SCOPE_DECISION"
+    return "OPEN_RESEARCH_FRONTIER"
+
+
 def select_state(
     states: Iterable[dict[str, Any]],
     policy: dict[str, Any],
@@ -755,10 +768,29 @@ def select_state(
     ]
     if not candidates:
         return None
+    existing_work = {"EXISTING_RESULT_DECISION", "PRIOR_WORK_SCOPE_DECISION"}
+    primary = [value for value in candidates if research_work_category(value) not in existing_work]
+    existing_count = len(candidates) - len(primary)
+    pool = primary or candidates
+
+    def annotated(value: dict[str, Any]) -> dict[str, Any]:
+        out = copy.deepcopy(value)
+        category = research_work_category(value)
+        out["research_work_category"] = category
+        out["existing_work_read_first"] = category in existing_work
+        out["fair_selection"] = {
+            **out.get("fair_selection", {}),
+            "candidate_pool_policy": "PREFER_OPEN_FRONTIERS_OVER_SAVED_WORK_V1",
+            "primary_candidates": len(primary),
+            "existing_work_candidates": existing_count,
+            "selection_pool": "OPEN_OR_EXPLICIT_WORK" if primary else "EXISTING_WORK_DECISION",
+        }
+        return out
+
     if selection.get("priority_weights"):
         from tools.research_fair_selection import select
-        return select([s for s in states if kind == "ANY" or s.get("kind") == kind],
-                      candidates, selection["priority_weights"], rotation=selection.get("random_rotation"))
+        return annotated(select([s for s in states if kind == "ANY" or s.get("kind") == kind],
+                                pool, selection["priority_weights"], rotation=selection.get("random_rotation")))
 
     def key(value: dict[str, Any]) -> tuple[Any, ...]:
         try:
@@ -773,4 +805,4 @@ def select_state(
             value.get("task_id", ""),
         )
 
-    return min(candidates, key=key)
+    return annotated(min(pool, key=key))
