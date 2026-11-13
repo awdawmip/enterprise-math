@@ -1,0 +1,130 @@
+{
+  "verdict": "R711_COMPLETE_CYCLE_TYPED_PHASE_OPTIMUM_PASS",
+  "model": "frozen-gated positive typed counterflow ring, at-most-one incident event per Cell per phase",
+  "science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "n_range": [
+    3,
+    12
+  ],
+  "all_fired_subsets_checked": 8184,
+  "all_elementary_events_simulated": 90104,
+  "cases": {
+    "3": {
+      "empty": 1,
+      "matching": 3,
+      "proper_paths": 3,
+      "full_even": 0,
+      "full_odd": 0,
+      "full_triangle": 1
+    },
+    "4": {
+      "empty": 1,
+      "matching": 6,
+      "proper_paths": 8,
+      "full_even": 1,
+      "full_odd": 0,
+      "full_triangle": 0
+    },
+    "5": {
+      "empty": 1,
+      "matching": 10,
+      "proper_paths": 20,
+      "full_even": 0,
+      "full_odd": 1,
+      "full_triangle": 0
+    },
+    "6": {
+      "empty": 1,
+      "matching": 17,
+      "proper_paths": 45,
+      "full_even": 1,
+      "full_odd": 0,
+      "full_triangle": 0
+    },
+    "7": {
+      "empty": 1,
+      "matching": 28,
+      "proper_paths": 98,
+      "full_even": 0,
+      "full_odd": 1,
+      "full_triangle": 0
+    },
+    "8": {
+      "empty": 1,
+      "matching": 46,
+      "proper_paths": 208,
+      "full_even": 1,
+      "full_odd": 0,
+      "full_triangle": 0
+    },
+    "9": {
+      "empty": 1,
+      "matching": 75,
+      "proper_paths": 435,
+      "full_even": 0,
+      "full_odd": 1,
+      "full_triangle": 0
+    },
+    "10": {
+      "empty": 1,
+      "matching": 122,
+      "proper_paths": 900,
+      "full_even": 1,
+      "full_odd": 0,
+      "full_triangle": 0
+    },
+    "11": {
+      "empty": 1,
+      "matching": 198,
+      "proper_paths": 1848,
+      "full_even": 0,
+      "full_odd": 1,
+      "full_triangle": 0
+    },
+    "12": {
+      "empty": 1,
+      "matching": 321,
+      "proper_paths": 3773,
+      "full_even": 1,
+      "full_odd": 0,
+      "full_triangle": 0
+    }
+  },
+  "full_cycle_optimal_phases": {
+    "3": 6,
+    "4": 4,
+    "5": 5,
+    "6": 4,
+    "7": 5,
+    "8": 4,
+    "9": 5,
+    "10": 4,
+    "11": 5,
+    "12": 4
+  },
+  "full_odd_5_edge_color_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "theorem": "empty=0; matching=2; proper with adjacent fired edges=4; all even=4; all odd >=5=5; all triangle=6",
+  "proof_lower_bounds": "single edge two events; internal vertex degree four; odd-cycle matching-size bound; triangle all events pairwise incident",
+  "verification": "exact integer enumeration, gate-realizing stocks, collision-free schedules, inventory conservation, old-state macro equivalence"
+}
