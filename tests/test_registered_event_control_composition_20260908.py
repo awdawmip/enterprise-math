@@ -282,7 +282,8 @@ class RegisteredEventControlCompositionTests(unittest.TestCase):
                                        **{field: malformed})
                     public = self.reduce(task, [owner, event], start + timedelta(hours=3))
                     self.assertEqual("NEEDS_DISPATCH", public["dispatch_state"])
-                    self.assertEqual("REGISTERED_HANDOFF_SCOPE_REQUIRED", public["hard_block"]["code"])
+                    self.assertIsNone(public.get("hard_block"))
+                    self.assertEqual("REGISTERED_HANDOFF_SCOPE_REQUIRED", public["handoff_scope_observation"]["code"])
                     pure = reducer.reduce_task(task, [owner, event], default_lease_minutes=120,
                                                now=start + timedelta(minutes=2))
                     self.assertEqual("LEASED", pure["dispatch_state"])

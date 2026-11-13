@@ -106,10 +106,12 @@ class ControlPlaneAdversarialSimulation(unittest.TestCase):
             ),
         ]
         state = self.reduce(task(), events, "2026-09-01T00:20:00+00:00")
-        self.assertEqual("BLOCKED", state["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertIsNone(state.get("hard_block"))
+        self.assertFalse(state["task_completion_granted"])
         self.assertEqual(
             "REGISTERED_DONE_REQUIRES_TERMINAL_DRIVER_REVIEW",
-            state["hard_block"]["code"],
+            state["unaccepted_completion_report"]["code"],
         )
 
     def test_invalid_done_does_not_resurrect_after_later_valid_progress_and_expiry(self):
@@ -179,10 +181,13 @@ class ControlPlaneAdversarialSimulation(unittest.TestCase):
             ),
         ]
         state = self.reduce(task(), events, "2026-09-01T00:20:00+00:00")
-        self.assertEqual("BLOCKED", state["dispatch_state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertIsNone(state.get("hard_block"))
+        self.assertFalse(state["task_completion_granted"])
+        self.assertEqual("c1", state["last_claim_id"])
         self.assertEqual(
             "REGISTERED_DONE_REQUIRES_TERMINAL_DRIVER_REVIEW",
-            state["hard_block"]["code"],
+            state["unaccepted_completion_report"]["code"],
         )
 
     def test_mismatched_publication_supercede_cannot_close_current_generation(self):
