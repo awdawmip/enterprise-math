@@ -61,3 +61,11 @@ The exact PREFIX-713, PREFIX-716 and PREFIX-718 result JSON data and later PREFI
 Native session request `r6-20261113-141842-t11-start-v1`, Site-generated SID `MCP-6442e9430a9c422aaf09c7a1df5af13a`, was QUEUED at the observed receipt. A service-issued Researcher-ID/Activity-ID, a current shared CLAIM, and review authority are **not claimed** here. This independent exact Gamma construction was preserved in project-native material; no other active owner or shared task state was altered.
 
 Next: replay the published checker against the **exact GitHub byte-identical** PREFIX-741 module; audit the full history of prior cell certificates with precise grid-unit translation; then investigate nearby `(10,52)`, `(11,53)`, `(12,53)` with exact stronger envelopes or alternative comparison points. If the actual native session becomes registered, bind this existing saved evidence to its genuine Activity under the current Source contract rather than inventing identity.
+
+## Post-publication exact-byte dependency replay
+
+The previously pending exact-source check was completed in three isolated local invocations. A byte-for-byte reconstruction of the remote `PREFIX741_R6_INNER_STRIP_194.py` was checked with `git hash-object`: `d986f644ba513240ea8395e0b221af7946e0efd6`, identical to the connector-read Git blob. The published `PREFIX749_R6_GAMMA_6_CELLS.py` has Git blob `a3997865676dd5c85462ba37ec373c19ceb24cb2` locally and remotely.
+
+Using those exact bytes, the three separate checker commands `python PREFIX749_R6_GAMMA_6_CELLS.py 10,50`, `... 10,51` and `... 11,52` each returned **PASS** with all predicted 2×2, 4×4 and 8×8 microfloors. This discharges the exact-source, exact-checker individual-cell replay obligation.
+
+A further default no-argument invocation (which launches all three child checks) printed the first PASS before its execution environment timed out; therefore that single aggregate invocation has not independently completed, although every constituent command has been checked successfully against the exact GitHub bytes. Independent full-history union audit and mathematical review remain outstanding.
