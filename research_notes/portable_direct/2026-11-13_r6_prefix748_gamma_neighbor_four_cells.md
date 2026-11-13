@@ -59,3 +59,15 @@ Relative to PREFIX-747's documented **author-level** certified union, the four a
 ## Next scientific unit
 
 Replay the published compact checker verbatim with the exact GitHub `PREFIX741` module and audit the full historical certificate union; investigate adjacent `(10,50)`, `(10,51)` or `(11,52)` by bounded exact subdivisions or adaptive bounds. One separate `(10,50)` test was interrupted before finishing; it supplies no numerical certification. Preserve this provenance, frozen scientific pin and the separate claim/review authority boundaries.
+
+## Post-publication exact-byte replay (2026-11-13)
+
+The previously open combined-checker replay is now **completed**. The original imported source `PREFIX741_R6_INNER_STRIP_194.py` was reconstructed in the local execution environment from the connector-read complete GitHub file; `git hash-object` produced `d986f644ba513240ea8395e0b221af7946e0efd6`, exactly its remote blob SHA. The original newly published `PREFIX748_R6_GAMMA_NEIGHBOR_4.py` was likewise reconstructed from the committed bytes; its local Git blob SHA `2e774968867de9303213069263ff03921630f35d` exactly matches the remote readback. Running this exact source pair from one invocation, which spawned a fresh child Python process per original cell, printed:
+
+```text
+PASS 11 51 (-80983623, -21911219, 7714155)
+PASS 12 52 (-82633603, -22525720, 7614806)
+ALL_CHECKS_PASS PREFIX748-R6 2+2=4
+```
+
+This discharges the **published exact checker + exact dependency end-to-end local replay** item. The complete independent historical-union audit and independent mathematical review remain open. The native service subsequently confirmed new Researcher-ID `EM-DIRECT-F404D1` and Research-Activity-ID `RA-66797C0C6A89C77B46972ADF`; the artifact-source activity checkpoint was preserved at `research_activity_records/RA-66797C0C6A89C77B46972ADF.json` under `EM_REPRESENTED`. No shared CLAIM or Result/Review authority was acquired.
