@@ -353,9 +353,12 @@ class FairSelectionTests(unittest.TestCase):
         self.assertFalse(any(e["eligible"] for e in leased["scheduling_trace"]
                             if e["event"] == "AVAILABLE" and fair._clock(e["at"]) >= BASE+timedelta(seconds=100)))
         same_clock = self.canonical(source, lifecycle, [event("reopen", "CLAIM", 100, "new-owner")], BASE+timedelta(seconds=120))
-        self.assertTrue(any(e["eligible"] for e in same_clock["scheduling_trace"]
-                            if e["event"] == "AVAILABLE" and e.get("comment_id") == 0
-                            and e["at"] == lifecycle["review"]["reviewed_at"]))
+        self.assertEqual("new-owner", same_clock["claim_id"])
+        self.assertEqual("LEASED", same_clock["dispatch_state"])
+        self.assertFalse(any(e["eligible"] for e in same_clock["scheduling_trace"]
+                             if e["event"] == "AVAILABLE"
+                             and fair._clock(e["at"]) >= BASE+timedelta(seconds=100)))
+        self.assertEqual(len([e for e in same_clock["scheduling_trace"] if e["event"] == "CLAIM"]), 1)
 
 
 if __name__ == "__main__":
