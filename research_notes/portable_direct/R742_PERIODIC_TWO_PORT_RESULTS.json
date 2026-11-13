@@ -1,0 +1,133 @@
+{
+  "schema": "R742_PERIODIC_TWO_PORT_EXACT_CHECK_V1",
+  "status": "PASS",
+  "model": "conditional stock-moving refinement of V29 PASS with an identity-guarded return PASS at each 012-root",
+  "max_k_exhaustive": 8,
+  "histories_each_carrier": 9841,
+  "carriers": {
+    "A": {
+      "samples": [
+        {
+          "k": 0,
+          "histories": 1,
+          "distinct_final_relations": 1
+        },
+        {
+          "k": 1,
+          "histories": 3,
+          "distinct_final_relations": 3
+        },
+        {
+          "k": 2,
+          "histories": 9,
+          "distinct_final_relations": 5
+        },
+        {
+          "k": 3,
+          "histories": 27,
+          "distinct_final_relations": 6
+        },
+        {
+          "k": 4,
+          "histories": 81,
+          "distinct_final_relations": 6
+        },
+        {
+          "k": 5,
+          "histories": 243,
+          "distinct_final_relations": 6
+        },
+        {
+          "k": 6,
+          "histories": 729,
+          "distinct_final_relations": 6
+        },
+        {
+          "k": 7,
+          "histories": 2187,
+          "distinct_final_relations": 6
+        },
+        {
+          "k": 8,
+          "histories": 6561,
+          "distinct_final_relations": 6
+        }
+      ],
+      "witness": {
+        "III": "012",
+        "IIP": "021",
+        "IIQ": "102",
+        "IPQ": "201",
+        "IQP": "120",
+        "PQP": "210"
+      },
+      "all_checks": "PASS"
+    },
+    "B": {
+      "samples": [
+        {
+          "k": 0,
+          "histories": 1,
+          "distinct_final_relations": 1
+        },
+        {
+          "k": 1,
+          "histories": 3,
+          "distinct_final_relations": 3
+        },
+        {
+          "k": 2,
+          "histories": 9,
+          "distinct_final_relations": 5
+        },
+        {
+          "k": 3,
+          "histories": 27,
+          "distinct_final_relations": 6
+        },
+        {
+          "k": 4,
+          "histories": 81,
+          "distinct_final_relations": 6
+        },
+        {
+          "k": 5,
+          "histories": 243,
+          "distinct_final_relations": 6
+        },
+        {
+          "k": 6,
+          "histories": 729,
+          "distinct_final_relations": 6
+        },
+        {
+          "k": 7,
+          "histories": 2187,
+          "distinct_final_relations": 6
+        },
+        {
+          "k": 8,
+          "histories": 6561,
+          "distinct_final_relations": 6
+        }
+      ],
+      "witness": {
+        "III": "012",
+        "IIP": "021",
+        "IIQ": "210",
+        "IPQ": "120",
+        "IQP": "201",
+        "PQP": "102"
+      },
+      "all_checks": "PASS"
+    }
+  },
+  "witness_words": [
+    "III",
+    "IIP",
+    "IIQ",
+    "IPQ",
+    "IQP",
+    "PQP"
+  ]
+}
