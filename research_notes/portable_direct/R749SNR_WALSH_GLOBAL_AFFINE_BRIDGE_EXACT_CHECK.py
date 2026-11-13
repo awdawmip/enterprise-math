@@ -89,7 +89,20 @@ def exact_certificate():
 
 def main():
     c=exact_certificate()
+    # Scoped obstruction: the affine center is NOT optimal everywhere outside N.
+    t,s=F(7,10),F(1,10)
+    q=law(t,s,eta(t,s),0,0,0,0)
+    mu=law(t,s,0,F(9,10),F(7,10),F(1,10),F(1,10))
+    assert min(q)>=0 and min(mu)>=0 and sum(q)==sum(mu)==1
+    nearby_tv=sum((abs(a-b) for a,b in zip(mu,q)),F(0))/2
+    assert nearby_tv==F(37,80) and radius(t,s)==F(9,20)
     return {'unit':'R749SNR','status':'PASS','frozen_scientific_pin':PIN,
+      'affine_center_extrapolation_counterexample':{
+        'parameter':['7/10','1/10'], 'eta':'-1/5',
+        'source_free_moments':['0','9/10','7/10','1/10','1/10'],
+        'candidate_tv':str(nearby_tv),'target_radius':str(radius(t,s)),
+        'excess':str(nearby_tv-radius(t,s)),
+        'scope':'refutes only the extrapolated affine center outside N, not minimax equality'},
       'scope':'16-state auxiliary Walsh source observer, all real points in bridge triangle; NOT_REVIEWED',
       'vertices':[[str(v) for v in p] for p in TRI],
       'halfspaces':['30t+40s>=27','3t+5s<=3','t+2s>=1'],
