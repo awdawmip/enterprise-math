@@ -1,0 +1,33 @@
+{
+  "schema": "EM_FREE_F6D046_R25B_R26B_TWO_PRIME_MONODROMY_AUDIT_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "date": "2026-09-04",
+  "axiom_gate": {
+    "opened": false,
+    "verdict": "DERIVED_NOT_AXIOM"
+  },
+  "proof_gates": {
+    "p17_quartic_transitive": "PASS",
+    "p17_resolvent_quadratic_irreducible": "PASS",
+    "three_module_exclusions": "PASS",
+    "p17_angle_rank_4": "PASS",
+    "p17_torus_rank_5": "PASS",
+    "all_ell_two_prime_cover": "PASS"
+  },
+  "correction": {
+    "preserved": "R25/R26 theorem conclusions",
+    "removed": "necessity of Larsen-Pink rank independence",
+    "replacement": "explicit p=17 maximal torus for ell=29"
+  },
+  "boundaries": [
+    "The exact choice C4 versus D4 is not needed and is not asserted.",
+    "Analytic Sato-Tate equidistribution is not asserted.",
+    "No new axiom, Foundation mutation, or P000 change."
+  ],
+  "classification": [
+    "DERIVED_PROOF_STRENGTHENING",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

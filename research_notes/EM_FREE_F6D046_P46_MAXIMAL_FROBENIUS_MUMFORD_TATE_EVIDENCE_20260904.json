@@ -1,0 +1,111 @@
+{
+  "schema": "EM_FREE_F6D046_P46_MAXIMAL_FROBENIUS_MUMFORD_TATE_EVIDENCE_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "date": "2026-09-04",
+  "research_units": [
+    "EM-FREE-F6D046-R25-P46-MAXIMAL-FROBENIUS-TORUS",
+    "EM-FREE-F6D046-R26-P46-MUMFORD-TATE-GU31",
+    "EM-FREE-F6D046-R27-P46-HODGE-TATE-DIVISOR-GENERATION"
+  ],
+  "dependencies": {
+    "R18": "P46 has a Z[i]-action with Hodge signature (3,1)",
+    "R22": "P46 is geometrically simple",
+    "R23": "End^0_Qbar(P46)=Q(i), End_Qbar(P46)=Z[i], and all 126 possible pairwise root-ratio torsion orders at p=29 are excluded",
+    "external": [
+      "Deligne: Hodge cycles on abelian varieties are absolute Hodge",
+      "Faltings: semisimplicity and the endomorphism centralizer theorem",
+      "Larsen-Pink: l-independence of algebraic monodromy rank"
+    ]
+  },
+  "p29_gaussian_factor": {
+    "g_coefficients_high_pairs": [[1,0],[2,6],[-20,-8],[162,-86],[609,580]],
+    "constant_term": [609,580],
+    "constant_norm": 707281,
+    "p_fourth_power": 707281,
+    "reciprocal_pairing": "bar(g)(X)=X^4*g(29/X)/(609+580i)"
+  },
+  "S4_certificate": {
+    "quartic_irreducible_witness": "(101,i-10), Rabin degree 4",
+    "cubic_resolvent_coefficients_high_pairs": [[1,0],[20,8],[-1596,-1520],[-15600,-34080]],
+    "resolvent_irreducible_witness": "(17,i-4), Rabin degree 3",
+    "discriminant": [-26583701760,30788326400],
+    "discriminant_nonsquare_witness": {
+      "prime_ideal": "(13,i-5)",
+      "residue": 8,
+      "legendre_symbol": -1
+    },
+    "conclusion": "Gal(g29/Q(i))=S4"
+  },
+  "angle_rank": {
+    "normalized_angles": "delta_j=beta_j^2/29",
+    "torsion_relation_lattice": "R={n in Z^4: product(delta_j^n_j) is a root of unity}",
+    "S4_module_decomposition": "Q^4=Q*(1,1,1,1) direct_sum V_std",
+    "standard_module_obstruction": "would force a pairwise beta_j/beta_k root-of-unity quotient, excluded by R23",
+    "trivial_module_obstruction": "product(delta_j)=((609+580i)/841)^2, and Q(i) has only roots of unity +/-1,+/-i",
+    "relation_lattice": 0,
+    "angle_rank": 4,
+    "frobenius_eigenvalue_group_rank": 5,
+    "frobenius_torus_dimension": 5
+  },
+  "lefschetz_group": {
+    "field": "Q(i)",
+    "hermitian_signature": [3,1],
+    "group": "GU_K(V,h)",
+    "split_form": "GL4 x Gm",
+    "absolute_rank": 5
+  },
+  "subgroup_lemma": {
+    "statement": "A connected reductive H subset GL4 over an algebraically closed characteristic-zero field, of rank 4 and with scalar commutant, equals GL4.",
+    "proof_key": "Schur gives center rank <=1; derived rank >=3; the only faithful irreducible four-dimensional semisimple type of rank >=3 is A3; rank 4 adds the scalar center."
+  },
+  "monodromy_and_mumford_tate": {
+    "at_ell_5": "G_5^0=GU_K(V,h)_Q5",
+    "for_ell_not_29": "the same p=29 maximal Frobenius torus gives G_ell^0=GU_K(V,h)_Qell",
+    "at_ell_29": "Larsen-Pink rank independence gives rank 5; Faltings commutant plus the subgroup lemma gives equality",
+    "all_ell": "G_ell^0=GU_K(V,h)_Qell",
+    "mumford_tate": "MT(P46)=GU_K(V,h)",
+    "hodge_group": "Hg(P46)=U_K(V,h)",
+    "derived_hodge_group": "SU_K(V,h), real signature SU(3,1)",
+    "mumford_tate_conjecture": true
+  },
+  "cycle_consequences": {
+    "complex_invariant_group": "Hg_C=GL4 acting on W direct_sum W^*",
+    "invariant_generators": "pairwise contractions W tensor W^*",
+    "geometric_interpretation": "polarization and Q(i)-endomorphism divisor classes on powers",
+    "all_Hodge_classes_generated_by_divisors": true,
+    "Hodge_conjecture_all_powers": true,
+    "Tate_conjecture_all_powers_all_ell": true,
+    "exceptional_Weil_classes": false,
+    "reason_no_Weil_class": "wedge_K^4 H^1 has Hodge types (3,1)+(1,3) and transforms by determinant"
+  },
+  "Sato_Tate": {
+    "identity_component": "U(4)",
+    "correction": "Sato-Tate uses a maximal compact subgroup of Hg(C)=GL4(C), not a maximal compact subgroup of the real Lie group Hg(R)=U(3,1)",
+    "full_component_group": "NOT_DETERMINED_IN_THIS_UNIT"
+  },
+  "verification": {
+    "source": "scripts/verify_em_free_f6d046_p46_maximal_frobenius_mumford_tate.py",
+    "repository_output": "research_notes/EM_FREE_F6D046_P46_MAXIMAL_FROBENIUS_MUMFORD_TATE_VERIFICATION_20260904.json",
+    "local_output_sha256": "d38848e14ab660839c7ed5fb38f626fcef0e793d986bbb048384ad79f144c68c",
+    "all_passed": true,
+    "check_count": 16
+  },
+  "tool_reuse": [
+    {"source":"R23 finite root-ratio certificate","state":"REUSE_APPLIED"},
+    {"source":"R23 Gaussian quartic/resolvent certificates","state":"REUSE_APPLIED"},
+    {"source":"R18 Hodge signature and Q(i)-action","state":"REUSE_APPLIED"},
+    {"source":"T7 finite symmetry module decomposition","state":"REUSE_APPLIED_AT_THEOREM_LEVEL"},
+    {"classification":"DERIVED_THEOREM / DOMAIN_CERTIFICATE / NO_NEW_GLOBAL_TOOL"}
+  ],
+  "classification": [
+    "DERIVED_FROBENIUS_TORUS_THEOREM",
+    "MAXIMAL_ANGLE_RANK",
+    "MUMFORD_TATE_GROUP_GU31",
+    "MUMFORD_TATE_CONJECTURE_ALL_ELL",
+    "HODGE_AND_TATE_ALL_POWERS",
+    "SATO_TATE_IDENTITY_U4_CORRECTED",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

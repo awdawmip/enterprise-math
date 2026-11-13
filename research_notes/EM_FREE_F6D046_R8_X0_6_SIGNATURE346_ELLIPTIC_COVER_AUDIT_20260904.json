@@ -1,0 +1,39 @@
+{
+  "schema": "EM_FREE_F6D046_AXIOM_AUDIT_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_unit": "EM-FREE-F6D046-R8-X0-6-SIGNATURE346-ELLIPTIC-COVER",
+  "verdict": "REJECT_AS_NEW_AXIOM",
+  "classification": [
+    "DERIVED_EXPLICIT_ELLIPTIC_COMMON_COVER",
+    "EXACT_LINEARIZATION_DEGREE_AND_GENUS",
+    "PRIOR_ART_HYPERGEOMETRIC_TRANSFORMATION_SPECIALIZATION",
+    "CORRECTED_SIGNATURE6_MARKING",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION"
+  ],
+  "reasons": [
+    "the elliptic cover follows from an exact polynomial square-class identity for the standard j-map",
+    "the signature-6 attachment uses a classical quadratic hypergeometric transformation",
+    "the two central characters are Kummer classes detected by disjoint branch loci",
+    "degree and genus follow from finite character image and Riemann-Hurwitz"
+  ],
+  "tool_reuse": [
+    {
+      "tool": "T9_HOLONOMY_COCOYCLE_GLUING",
+      "state": "REUSE_APPLIED",
+      "hard_boundary": "eliminating central twists does not trivialize common monodromy"
+    },
+    {
+      "tool": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "state": "COMPOSE_APPLIED",
+      "hard_boundary": "no canonical square-root branch is inferred without chosen lift data"
+    }
+  ],
+  "tool_harvest": "RESULT_ONLY / NO_NEW_TOOL_FAMILY",
+  "p000": {
+    "modified": false,
+    "challenged": false,
+    "six_dimensional_lift_claimed": false,
+    "elliptic_genus_interpreted_as_spatial_dimension": false
+  }
+}

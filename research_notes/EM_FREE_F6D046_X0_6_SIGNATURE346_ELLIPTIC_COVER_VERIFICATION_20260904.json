@@ -1,0 +1,28 @@
+{
+  "schema": "EM_FREE_F6D046_X0_6_SIGNATURE346_ELLIPTIC_COVER_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_unit": "EM-FREE-F6D046-R8-X0-6-SIGNATURE346-ELLIPTIC-COVER",
+  "all_passed": true,
+  "check_count": 52,
+  "verified_blocks": {
+    "polynomial_identity_square_class_and_period_gauges": 11,
+    "quadratic_hypergeometric_transform_coefficients_0_to_20": 21,
+    "binary_quartic_and_elliptic_invariants": 9,
+    "character_independence_degree_and_genus": 11
+  },
+  "derived": {
+    "projective_common_cover": "v^2=(t+6)(t^3+18t^2+84t+24)",
+    "projective_cover_degree_over_X0_6": 2,
+    "projective_cover_genus": 1,
+    "signature6_coordinate": "s=Q/v^3; w=(1-s)/2",
+    "normalized_signature6_squared_period": "U6(w)^2=(-v/12) H(t)^2 on the branch v(0)=-12",
+    "elliptic_model": "y^2=x^3-12x+20",
+    "elliptic_j": -3072,
+    "elliptic_discriminant": "-2^8*3^5",
+    "linear_character_rank": 2,
+    "strict_cover_degree_over_elliptic_base": 4,
+    "strict_cover_degree_over_X0_6": 8,
+    "strict_compact_genus": 9
+  },
+  "reproduce": "python scripts/verify_em_free_f6d046_x0_6_signature346_elliptic_cover.py"
+}

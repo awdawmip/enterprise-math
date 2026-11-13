@@ -1,0 +1,42 @@
+{
+  "schema": "EM_FREE_F6D046_R34_R36_INERT_PARITY_MOMENTS_AUDIT_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "date": "2026-09-04",
+  "research_units": [
+    "EM-FREE-F6D046-R34-P46-INERT-FROBENIUS-PARITY",
+    "EM-FREE-F6D046-R35-P46-ODD-DEGREE-POINT-COUNT-EQUALITY",
+    "EM-FREE-F6D046-R36-P46-SATO-TATE-TRACE-MOMENTS"
+  ],
+  "axiom_gate": {
+    "opened": false,
+    "verdict": "DERIVED_NOT_AXIOM",
+    "reason": "The results follow from the already-derived endomorphism field and compact normalizer representation."
+  },
+  "correction_gate": {
+    "rejected_overclaim": "every inert reduction is geometrically non-simple",
+    "retained_exact_statement": "every inert reduction has an even Frobenius polynomial and the R15 sufficient root-ratio certificate fails at m=2",
+    "conditional_strengthening": "ordinary plus simple implies not absolutely simple",
+    "unresolved_boundary": "nonordinary reductions require a Honda-Tate division-index calculation"
+  },
+  "proof_gates": {
+    "Galois_anticommutation": "PASS",
+    "even_characteristic_polynomial": "PASS",
+    "odd_extension_point_counts": "PASS",
+    "component_density": "PASS_DIRICHLET_CHEBOTAREV",
+    "outer_trace_zero": "PASS",
+    "Haar_moment_formula": "PASS",
+    "moments_k0_to_12": "PASS_14_NAMED_CHECKS"
+  },
+  "hard_boundaries": [
+    "Haar measure is computed group-theoretically; analytic prime equidistribution is not proved.",
+    "The p=7 Honda-Tate isogeny type is not decided by evenness alone.",
+    "No new axiom, Foundation primitive, or P000 modification is proposed."
+  ],
+  "classification": [
+    "DERIVED_ARITHMETIC_COMPONENT_THEOREM",
+    "CORRECTION_AWARE",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

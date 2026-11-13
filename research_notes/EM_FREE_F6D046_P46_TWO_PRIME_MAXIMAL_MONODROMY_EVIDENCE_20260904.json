@@ -1,0 +1,44 @@
+{
+  "schema": "EM_FREE_F6D046_P46_TWO_PRIME_MAXIMAL_MONODROMY_EVIDENCE_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "date": "2026-09-04",
+  "research_units": [
+    "EM-FREE-F6D046-R25B-P17-MAXIMAL-FROBENIUS-TORUS",
+    "EM-FREE-F6D046-R26B-TWO-PRIME-ALL-ELL-MONODROMY"
+  ],
+  "p17": {
+    "g17": "X^4+(6+2i)X^3+(4+16i)X^2+(-74+78i)X-255+136i",
+    "quartic_irreducible_witness": "(5,i-2), Rabin degree 4",
+    "cubic_resolvent": "(Y+4+16i)*(Y^2+(-8-32i)Y-60+32i)",
+    "quadratic_factor_irreducible_witness": "(5,i-2), discriminant 3 nonsquare / Rabin degree 2",
+    "galois_type": "C4_or_D4",
+    "permutation_module": "Q^4=Q*1 direct_sum Q*epsilon direct_sum W2",
+    "W2_obstruction": "complete p=17 pairwise root-ratio torsion exclusion",
+    "epsilon_obstruction": "for block-product ratio z, z+z^-1=-18/17, not an algebraic integer",
+    "trivial_obstruction": "u17=(-255+136i)/289 is not among +/-1,+/-i",
+    "relation_lattice": 0,
+    "angle_rank": 4,
+    "frobenius_torus_dimension": 5
+  },
+  "two_prime_cover": {
+    "ell_not_29": "use p=29",
+    "ell_29": "use p=17",
+    "conclusion": "G_ell^0=GU_Q(i)(V,h)_Qell for every ell",
+    "removed_dependency": "Larsen-Pink rank independence is no longer needed"
+  },
+  "verification": {
+    "source": "scripts/verify_em_free_f6d046_p46_two_prime_maximal_monodromy.py",
+    "output": "research_notes/EM_FREE_F6D046_P46_TWO_PRIME_MAXIMAL_MONODROMY_VERIFICATION_20260904.json",
+    "local_output_sha256": "2562b8150b5923d7c6f5da80cedcf1b23f9219ebf7ad70ea11837199c942eb68",
+    "all_passed": true,
+    "check_count": 17
+  },
+  "classification": [
+    "DERIVED_TWO_PRIME_MAXIMAL_TORUS_CERTIFICATE",
+    "ALL_ELL_DIRECT_MONODROMY",
+    "PROOF_DEPENDENCY_STRENGTHENING",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

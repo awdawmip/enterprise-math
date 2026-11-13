@@ -1,0 +1,33 @@
+{
+  "schema": "EM_FREE_F6D046_P46_FROBENIUS_CENSUS_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_unit": "EM-FREE-F6D046-R13-P46-FROBENIUS-CENSUS",
+  "status": "COMPUTATIONAL_EVIDENCE",
+  "all_internal_checks_passed": true,
+  "good_primes": [5, 7, 11, 13],
+  "extension_degrees": [1, 2, 3, 4],
+  "completed": {
+    "finite_field_point_counts": 16,
+    "degree_8_local_frobenius_polynomials": 4,
+    "weight_one_functional_equation_checks_per_polynomial": 5,
+    "integer_factorizations_attempted": 4
+  },
+  "model": {
+    "E": "v^2=t^4+24t^3+192t^2+528t+144",
+    "C46": "m^2=(-1/288)*v*(t^2+12t+24)",
+    "P46": "Prym(C46/E), dimension 4"
+  },
+  "method": {
+    "power_sums": "s_n(P46)=N_n(E)-N_n(C46)",
+    "coefficient_recovery": "Newton identities for n=1..4",
+    "completion": "weight-one reciprocal functional equation",
+    "arithmetic": "exact finite fields and integer polynomials; no floating point sampling"
+  },
+  "evidence_boundary": {
+    "absolute_simplicity_proved": false,
+    "geometric_splitting_proved": false,
+    "reason": "four local polynomials constrain candidate decompositions but do not alone certify the global geometric endomorphism algebra",
+    "required_next": "cross-prime endomorphism/correspondence certificate or a proved absolute-simplicity criterion"
+  },
+  "reproduce": "python scripts/verify_em_free_f6d046_p46_frobenius.py"
+}

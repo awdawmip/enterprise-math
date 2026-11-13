@@ -1,0 +1,37 @@
+{
+  "schema": "EM_FREE_F6D046_R31_R33_HODGE_RING_AUDIT_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "date": "2026-09-04",
+  "research_units": [
+    "EM-FREE-F6D046-R31-P46-HODGE-GENERIC-PEL-POINT",
+    "EM-FREE-F6D046-R32-P46-NS-RANK-ALL-POWERS",
+    "EM-FREE-F6D046-R33-P46-EXPLICIT-HODGE-NUMBERS-ALL-POWERS"
+  ],
+  "axiom_gate": {
+    "opened": false,
+    "verdict": "DERIVED_NOT_AXIOM",
+    "reason": "The result is a representation-theoretic consequence of the already-derived full Hodge group."
+  },
+  "proof_gates": {
+    "PEL_dimension_3": "PASS",
+    "Hodge_generic_from_full_Mumford_Tate": "PASS",
+    "Rosati_NS_correspondence": "PASS_EXTERNAL_THEOREM",
+    "rho_n_equals_n_squared": "PASS",
+    "Cauchy_Schur_formula": "PASS",
+    "vectors_n1_to_n5": "PASS_23_EXACT_CHECKS",
+    "Poincare_symmetry": "PASS"
+  },
+  "hard_boundaries": [
+    "Hodge-generic is not the same as a Zariski-generic point.",
+    "Picard rank one does not by itself identify the Prym polarization as a primitive integral generator.",
+    "The integral NS lattice depends on polarization type up to finite index.",
+    "The formula counts Hodge classes, not all cohomology classes.",
+    "No P000 or Foundation promotion is made."
+  ],
+  "classification": [
+    "DERIVED_PEL_AND_INVARIANT_THEORY_CONSEQUENCE",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

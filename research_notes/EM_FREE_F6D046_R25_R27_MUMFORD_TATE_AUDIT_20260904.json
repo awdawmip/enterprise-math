@@ -1,0 +1,39 @@
+{
+  "schema": "EM_FREE_F6D046_R25_R27_MUMFORD_TATE_AUDIT_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "date": "2026-09-04",
+  "research_units": [
+    "EM-FREE-F6D046-R25-P46-MAXIMAL-FROBENIUS-TORUS",
+    "EM-FREE-F6D046-R26-P46-MUMFORD-TATE-GU31",
+    "EM-FREE-F6D046-R27-P46-HODGE-TATE-DIVISOR-GENERATION"
+  ],
+  "axiom_gate": {
+    "opened": false,
+    "verdict": "DERIVED_NOT_AXIOM",
+    "reason": "All claims follow from the already-derived P46 model, exact Frobenius certificates, representation theory, and established theorems of Deligne, Faltings, and Larsen-Pink."
+  },
+  "proof_gates": {
+    "S4_certificate": "PASS",
+    "angle_relation_lattice": "PASS",
+    "frobenius_torus_rank_5": "PASS",
+    "rank_5_reductive_subgroup_upgrade": "PASS",
+    "all_ell_rank_transfer": "PASS_VIA_LARSEN_PINK",
+    "Mumford_Tate_inclusion": "PASS_VIA_DELIGNE_ABSOLUTE_HODGE",
+    "Hodge_invariants_generated_by_contractions": "PASS_VIA_GL4_FIRST_INVARIANT_THEOREM",
+    "Tate_cycles_generated_by_divisors": "PASS_VIA_FULL_MONODROMY_AND_FALTINGS"
+  },
+  "hard_boundaries": [
+    "No claim is made that P46, the common cover, or the period-covector construction is a new axiom or Foundation primitive.",
+    "The full Sato-Tate component group is not inferred merely from End^0=Q(i); only the identity component is fixed.",
+    "The proof uses connected l-adic monodromy groups; component groups require separate descent analysis.",
+    "The Hodge/Tate conclusions concern powers of P46 and do not automatically transfer to the full genus-five Jacobian without separately combining the elliptic factor.",
+    "P000 remains unchanged and is neither proved nor challenged."
+  ],
+  "classification": [
+    "DERIVED_THEOREM",
+    "MUMFORD_TATE_CLOSED",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}
