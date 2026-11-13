@@ -1,0 +1,118 @@
+{
+  "schema": "EM_R711_EXACT_GRAPH_TRIANGLE_CERTIFICATE_V1",
+  "tested_graphs": 32768,
+  "without_integral_factor": 28662,
+  "with_integral_factor": 4106,
+  "maximal_no_integral_factor": 182,
+  "maximal_relabeling_classes": 4,
+  "orbits": [
+    {
+      "canonical_graph_mask": 4095,
+      "orbit_size": 20,
+      "edge_count": 12,
+      "triangles": [
+        "012",
+        "013",
+        "014",
+        "015",
+        "023",
+        "024",
+        "025",
+        "123",
+        "124",
+        "125"
+      ],
+      "obstruction": {
+        "kind": "DOUBLE_HIT_TRIPLE",
+        "vertices": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "canonical_graph_mask": 5887,
+      "orbit_size": 30,
+      "edge_count": 11,
+      "triangles": [
+        "012",
+        "013",
+        "014",
+        "023",
+        "024",
+        "034",
+        "123",
+        "124",
+        "134",
+        "234"
+      ],
+      "obstruction": {
+        "kind": "UNUSED_VERTEX",
+        "vertices": [
+          5
+        ]
+      }
+    },
+    {
+      "canonical_graph_mask": 6142,
+      "orbit_size": 60,
+      "edge_count": 11,
+      "triangles": [
+        "023",
+        "024",
+        "034",
+        "123",
+        "124",
+        "134",
+        "234"
+      ],
+      "obstruction": {
+        "kind": "UNUSED_VERTEX",
+        "vertices": [
+          5
+        ]
+      }
+    },
+    {
+      "canonical_graph_mask": 7071,
+      "orbit_size": 72,
+      "edge_count": 10,
+      "triangles": [
+        "014",
+        "015",
+        "023",
+        "025",
+        "034"
+      ],
+      "obstruction": {
+        "kind": "COMMON_VERTEX",
+        "vertices": [
+          0
+        ]
+      }
+    }
+  ],
+  "nine_quantum_connected_counterexample": {
+    "clique_sizes": [
+      4,
+      5
+    ],
+    "bridge": [
+      3,
+      4
+    ],
+    "triangle_counts": [
+      4,
+      10
+    ],
+    "weights": [
+      "1/3",
+      "1/6"
+    ],
+    "vertex_saturation_all_equal_one": true,
+    "integral_triangle_factor": false,
+    "bridge_in_any_triangle": false
+  },
+  "status": "EXACT_FINITE_CERTIFICATE_PASS"
+}
