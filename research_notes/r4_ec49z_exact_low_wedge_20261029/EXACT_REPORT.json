@@ -1,0 +1,196 @@
+{
+  "checks": {
+    "all_assertions_passed": true,
+    "exact_section_points": 20,
+    "global_upper_points": 5,
+    "positive_leaf_checks_per_source": 18,
+    "pure_paid_prefix_mass": "17/16"
+  },
+  "eta": "1/200",
+  "fixed_prefix": [
+    [
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "9/16",
+      "1/16",
+      "0"
+    ]
+  ],
+  "global_upper_samples": [
+    {
+      "alpha": "1",
+      "beta": "1",
+      "delta": "0"
+    },
+    {
+      "alpha": "5/6",
+      "beta": "7/9",
+      "delta": "1/18"
+    },
+    {
+      "alpha": "13/16",
+      "beta": "3/4",
+      "delta": "1/16"
+    },
+    {
+      "alpha": "3/4",
+      "beta": "2/3",
+      "delta": "1/12"
+    },
+    {
+      "alpha": "133/192",
+      "beta": "85/144",
+      "delta": "59/576"
+    }
+  ],
+  "policy_interpolation": "terminal-state fresh coins, no persistent shared seed",
+  "sample_points": [
+    {
+      "alpha": "1",
+      "beta": "1",
+      "blend": "0",
+      "delta": "0"
+    },
+    {
+      "alpha": "3/4",
+      "beta": "3/4",
+      "blend": "1/4",
+      "delta": "0"
+    },
+    {
+      "alpha": "1/2",
+      "beta": "1/2",
+      "blend": "1/2",
+      "delta": "0"
+    },
+    {
+      "alpha": "1/4",
+      "beta": "1/4",
+      "blend": "3/4",
+      "delta": "0"
+    },
+    {
+      "alpha": "0",
+      "beta": "0",
+      "blend": "1",
+      "delta": "0"
+    },
+    {
+      "alpha": "11/12",
+      "beta": "8/9",
+      "blend": "0",
+      "delta": "1/36"
+    },
+    {
+      "alpha": "17/24",
+      "beta": "49/72",
+      "blend": "1/4",
+      "delta": "1/36"
+    },
+    {
+      "alpha": "1/2",
+      "beta": "17/36",
+      "blend": "1/2",
+      "delta": "1/36"
+    },
+    {
+      "alpha": "7/24",
+      "beta": "19/72",
+      "blend": "3/4",
+      "delta": "1/36"
+    },
+    {
+      "alpha": "1/12",
+      "beta": "1/18",
+      "blend": "1",
+      "delta": "1/36"
+    },
+    {
+      "alpha": "5/6",
+      "beta": "7/9",
+      "blend": "0",
+      "delta": "1/18"
+    },
+    {
+      "alpha": "2/3",
+      "beta": "11/18",
+      "blend": "1/4",
+      "delta": "1/18"
+    },
+    {
+      "alpha": "1/2",
+      "beta": "4/9",
+      "blend": "1/2",
+      "delta": "1/18"
+    },
+    {
+      "alpha": "1/3",
+      "beta": "5/18",
+      "blend": "3/4",
+      "delta": "1/18"
+    },
+    {
+      "alpha": "1/6",
+      "beta": "1/9",
+      "blend": "1",
+      "delta": "1/18"
+    },
+    {
+      "alpha": "79/96",
+      "beta": "55/72",
+      "blend": "0",
+      "delta": "17/288"
+    },
+    {
+      "alpha": "127/192",
+      "beta": "347/576",
+      "blend": "1/4",
+      "delta": "17/288"
+    },
+    {
+      "alpha": "1/2",
+      "beta": "127/288",
+      "blend": "1/2",
+      "delta": "17/288"
+    },
+    {
+      "alpha": "65/192",
+      "beta": "161/576",
+      "blend": "3/4",
+      "delta": "17/288"
+    },
+    {
+      "alpha": "17/96",
+      "beta": "17/144",
+      "blend": "1",
+      "delta": "17/288"
+    }
+  ],
+  "schema": "EC49Z_EXACT_BEHAVIORAL_WEDGE_V1",
+  "scope": "Exact single submaximal sector, not complete fixed-cost acceptance image or native signed BRC",
+  "source_laws": "EC49Y: 18 strictly positive rational (w,u,z) leaves per P/Q",
+  "stage_costs": {
+    "C1": "43/48",
+    "C2": "7/8"
+  },
+  "status": "AUTHOR_PROVED / EXACT_FRACTION_CHECK_PASS / UNREVIEWED / NOT_ADMITTED",
+  "strength": "delta/(17/288)",
+  "theorem": {
+    "beta": "alpha-delta",
+    "delta_domain": "0 <= delta <= 17/288",
+    "exact_alpha_section": "[3*delta, 1-3*delta]",
+    "lower_boundary_saturation_impossible_beyond_threshold": "For delta > 17/288, alpha=3delta is impossible",
+    "upper_boundary_all_the_way": "alpha=1-3delta attained for 0<=delta<=59/576"
+  }
+}
