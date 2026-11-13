@@ -1,0 +1,65 @@
+{
+  "schema": "PREFIX748_R6_GAMMA_NEIGHBOR_4_V1",
+  "date": "2026-11-13",
+  "mother_objective": "PREFIX-675",
+  "predecessor": "PREFIX-747",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "witness": [
+    "0",
+    "73/500"
+  ],
+  "old_witness": [
+    "0",
+    "3/20"
+  ],
+  "grid_denominator": 384,
+  "model": "189-layer stopped-survivor BRC count; two independent unit-rate Gamma clocks; Y=max",
+  "domain": "all real q>=2; entire closed listed cells and coordinate transposes",
+  "strict_gap": "V_q(e)-V_q(p,z)>7*q^2",
+  "checked_original_cells": [
+    {
+      "i": 11,
+      "j": 51,
+      "G2_floor_micro": -80983623,
+      "G4_floor_micro": -21911219,
+      "G8_floor_micro": 7714155,
+      "old_G1_floor_micro": -199177623
+    },
+    {
+      "i": 12,
+      "j": 52,
+      "G2_floor_micro": -82633603,
+      "G4_floor_micro": -22525720,
+      "G8_floor_micro": 7614806,
+      "old_G1_floor_micro": -202919029
+    }
+  ],
+  "new_cells": [
+    [
+      11,
+      51
+    ],
+    [
+      12,
+      52
+    ],
+    [
+      51,
+      11
+    ],
+    [
+      52,
+      12
+    ]
+  ],
+  "new_count": 4,
+  "prior_author_union": 141976,
+  "new_author_union": 141980,
+  "total": 147456,
+  "remaining": 5476,
+  "new_author_union_fraction": "35495/36864",
+  "verification": "Local exact independent reimplementation + 2-child-process full 2,4,8 checker run; 189-row kernel and witness moment hashes matched; original repository imported checker not yet replayed",
+  "historical_scope": "Candidate coordinates checked against connector-read PREFIX713 coupled/multicompetitor, PREFIX716, PREFIX718 and PREFIX742..747 result JSON; broader complete union audit pending",
+  "registration": "r6-20261113-132101-prefix748-registration-v1 (RUNNING at publication drafting; identity not yet returned)",
+  "grade": "AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
