@@ -30,6 +30,20 @@ from signed_brc import endpoint_multiplicity as signed_endpoint_multiplicity, sp
 def main():
     checks=0
 
+    # Preserve the exact integer sign domain for both global and local observer steps.
+    for invalid_direction in (True, False, 0, 2, -2):
+        for step_function in (
+            lambda: ORIGIN_COORD.step(0, invalid_direction),
+            lambda: local_step((0, 0, 0), 0, invalid_direction),
+        ):
+            try:
+                step_function()
+            except ValueError:
+                pass
+            else:
+                raise AssertionError(f"invalid relative direction accepted: {invalid_direction!r}")
+            checks += 1
+
     # Canonical-section / old V2 atlas compatibility over all [0,3]^6 raw lifts.
     for raw in product(range(4), repeat=6):
         state=Coord6.from_integer_lift(raw)
