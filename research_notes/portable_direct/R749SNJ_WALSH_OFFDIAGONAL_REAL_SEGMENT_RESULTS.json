@@ -1,0 +1,36 @@
+{
+  "calibration_gap_zero_at": "s=3/10",
+  "formulae": {
+    "calibrated_left": "1/2-s/3 for 1/4<=s<=3/10",
+    "calibrated_right": "2/5 for 3/10<=s<=1/3",
+    "free": "7/16-s/8"
+  },
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "proof_method": "exact 6-dimensional joint polytope enumeration plus affine witness families and event-dual certificates; no floating point",
+  "scope": "t=1/2, real s in [1/4,1/3], auxiliary 16-element Walsh fiber",
+  "segment_certificates": {
+    "calibrated_left": {
+      "distinct_vertices": 86,
+      "facet_subsets": 18564,
+      "feasible_bases": 496,
+      "nonsingular": 9536,
+      "tight_vertices": 22
+    },
+    "calibrated_right": {
+      "distinct_vertices": 88,
+      "facet_subsets": 18564,
+      "feasible_bases": 432,
+      "nonsingular": 9536,
+      "tight_vertices": 24
+    },
+    "free": {
+      "distinct_vertices": 86,
+      "facet_subsets": 18564,
+      "feasible_bases": 496,
+      "nonsingular": 9536,
+      "tight_vertices": 30
+    }
+  },
+  "status": "PASS",
+  "unit": "R749SNJ"
+}
