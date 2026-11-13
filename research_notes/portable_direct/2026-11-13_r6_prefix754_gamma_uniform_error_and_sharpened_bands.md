@@ -10,7 +10,7 @@ Status: AUTHOR EXACT-RATIONAL FORWARD-ERROR PROOF + AUTHOR INDEPENDENT FULL-NUME
 
 PREFIX-752 used a uniform IEEE-754 absolute-error enclosure <1/100 for all 147456 endpoint-comparator values G, and PREFIX-753 inferred two continuous exclusion bands with gap constants 3/4 and 29/10. Can the arithmetic error bound be tightened **without changing the frozen model**, enabling stronger strict continuous margins?
 
-**Theorem 754.1 (conditional uniform evaluation bound).** Under the IEEE-754 binary64, input-rounding and dot-product conditions stated below, every one of the 384×384 endpoint-comparator entries computed by the published PREFIX-752 expressions obeys
+**Theorem 754.1 (conditional uniform evaluation bound).** Under the IEEE-754 binary64, checked input-rounding, dot-product conditions and conservative tiny-term underflow allowance stated below, every one of the 384×384 endpoint-comparator entries computed by the published PREFIX-752 expressions obeys
 
     |G_hat(u,v) - G_exact(u,v)| < 1/100000.
 
@@ -32,7 +32,7 @@ Set N=189 and binary64 unit roundoff u=2^-53. For k u<1 let gamma_k=ku/(1-ku). E
     C_nm = binom(n+m,n) 2^(-(n+m+1)),
     D_nm = (n+m+1) C_nm,     0 <= n,m < N.
 
-All inputs are nonnegative. Bounds C_nm<=1/2 and D_nm<=(2N-1)/2 are immediate. C is formed by correctly rounded float(binomial) followed by exact binary scaling; D is one correctly rounded multiplication by a small exact integer. Thus relative input errors are <=u for T and C, and <= (1+u)^2-1 for D. No nonzero input is flushed to zero; the tail-array cross-product checks supply this precondition. Assume ordinary binary64 round-to-nearest, no overflow, and each positive length-N BLAS inner product obeys the standard gamma_N bound (including two-stage matrix products).
+All inputs are nonnegative. Bounds C_nm<=1/2 and D_nm<=(2N-1)/2 are immediate. C is formed by correctly rounded float(binomial) followed by exact binary scaling; D is one correctly rounded multiplication by a small exact integer. Thus relative input errors are <=u for T and C, and <= (1+u)^2-1 for D. The tail-array cross-product tests certify relative errors for nonzero input entries (including any exceptionally small inputs). Assume binary64 round-to-nearest for normal operations, no overflow, and gamma_N forward bounds on positive length-N inner products, with an absolute allowance of one minimum normal unit (2^-1022) per elementary tiny-term underflow or flush-to-zero. This allowance covers products that become subnormal even when the input factors are normal.
 
 Define A_i=sum_n T_in, B_i=sum_n(n+1)T_in, X_ij=(TCT^t)_ij and Z_ij=(TDT^t)_ij. Their exact bounds are
 
@@ -80,7 +80,7 @@ Using the absolute gamma_3 summation bound on these signed additions/subtraction
     E_G = E_W+E_M2+E_sq+E_P
           +gamma_3*(2h+E_W+E_M2+(m+E_mu)^2*(1+u)+m+E_mu).
 
-Exact Fraction evaluation of the complete displayed expressions gives
+The underflow allowance propagates through at most two N-term positive matrix products and the scalar formulas. Using N=189, |mu|<=378, |M2|<=71820, and the displayed monotone positive-operation bounds, a conservative additional total error below 10^9*2^-1022 covers every such tiny term (including flush-to-zero). Set E_G_total = E_G + 10^9*2^-1022. The added rational term is far smaller than 10^-100. Exact Fraction evaluation of the complete displayed expressions (including this term for E_G_total) gives
 
 | Quantity | Decimal approximation of the *rational majorant* |
 |---|---:|
@@ -89,7 +89,7 @@ Exact Fraction evaluation of the complete displayed expressions gives
 | E_W | 8.6662670989507147e-7 |
 | E_G | 1.7340907130248891e-6 |
 
-The independent Fraction program directly asserts E_mu<10^-8, E_M2<10^-6, E_W<10^-6 and **E_G<10^-5** without relying on those printed decimal approximations. This proves Theorem 754.1 under its declared arithmetic conditions.
+The independent Fraction program directly asserts E_mu<10^-8, E_M2<10^-6, E_W<10^-6 and **E_G_total<10^-5** without relying on those printed decimal approximations. This proves Theorem 754.1 under its declared arithmetic conditions.
 
 ## Entire-grid numerical replay and continuous transfer
 
@@ -108,7 +108,7 @@ For any (p,z) with |p-z|<=51/768=17/256, it belongs to a closed fine cell with |
 
     [V_q(e)-V_q(p,z)]/q^2 >= G_ij,      for every real q>=2.
 
-Combining this exact inequality with E_G<1/100000 and the two recomputed band minima yields the stated gap constants. The global maximizer corridor from PREFIX-753 stays
+Combining this exact inequality with E_G_total<1/100000 and the two recomputed band minima yields the stated gap constants. The global maximizer corridor from PREFIX-753 stays
 
     17/256 < |p-z| < 57/256.
 
