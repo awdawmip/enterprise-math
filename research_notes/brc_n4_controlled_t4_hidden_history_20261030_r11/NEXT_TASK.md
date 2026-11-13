@@ -1,0 +1,7 @@
+# Next: does the ORIGINAL stopped 16-leaf source admit controlled T4?
+Frozen predecessor: PR #1738 @ c1501f7f4863df0446db3fa1a33892976026e213.
+New exact theorem: a common J-based decoder for selectable actions K_a exists iff sum_h (P(h|j)-Q(h|j))K_a(y|j,h)=0 for every j,a,y. Original BU passive k is conditionally fair under both laws, so j remains sufficient for all shared Markov readout kernels on that unchanged source. A declared extra positive H in a 20-leaf extension breaks sufficiency at action 1; for the target (O',j,Y), the sharp two-law radius is 5/112 and one additional bit H repairs it.
+
+Next independent unit: inspect exact T3/T4 stopping filtration and the set of *lawfully available controlled time-four kernels*. Is the stage-four output accessible after stopping? If a controlled continuation is permitted, determine whether a relevant pre-T4 hidden history exists in the actual original source rather than an extended one. Either prove j sufficient for the actual operation class, or give a source-valid counterexample, complete joint P/Q table and TV deficiency certificate. Separate native X6/time and three-dimensional-slice transport from this external finite model.
+
+Do not repeat already validated 16/20 leaf arithmetic or promote a new old-observer minimax without solving its full game. Independent reviewer should check the common-kernel quantifiers, adversarial hidden-history timing, and the all-real dual certificate before admission.
