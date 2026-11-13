@@ -7,7 +7,37 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "6bcc287fa8051b1df37c32a99a9c6f86351fb165",
+          "path": "research_notes/brc_r5_direct_address_checkpoint_20261113/RESEARCH.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "1415edbfe6d8133f08194a2f840a3cd641c0d51acbba52592c2ceb76e8283272",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "8e38fb264a04369a8feede21d1a43e9ae42c87ad",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6bcc287fa8051b1df37c32a99a9c6f86351fb165/research_notes/brc_r5_direct_address_checkpoint_20261113/RESEARCH.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "em-r5-direct-directory-20261113-github-source-read-01",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-3D7CEEFD77345E549E8D4921/readbacks/c074026f5e0ef68882bd3c646974f11c7982eae498d83f92aa55171d65358769.json",
+          "verification_receipt_sha256": "c074026f5e0ef68882bd3c646974f11c7982eae498d83f92aa55171d65358769"
+        }
+      ],
+      "event_id": "r5-direct-directory-20261113-0905",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@65a37a1122c0d722d6d65f9e53b2cec078558c1f:journal/enterprise-math/2026-11-13/20261113-r5-direct-checkpoint-emr5d1.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-13T01:07:12.983570+00:00",
   "registration_key": "session:MCP-b40a7fda08a44b83a7e7e69169fecc9c:TASK_RESEARCH",
