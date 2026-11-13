@@ -1,0 +1,70 @@
+{
+  "marker": "R708_TRIAD_FEASIBILITY_SOURCE_KERNEL_EXACT_PASS",
+  "source_type": "Cell-local labeled equal-quantum three-distinct-axis candidate",
+  "finite_profiles": {
+    "0": {
+      "feasible_profiles": 1,
+      "poly_support": 1
+    },
+    "1": {
+      "feasible_profiles": 20,
+      "poly_support": 20
+    },
+    "2": {
+      "feasible_profiles": 141,
+      "poly_support": 141
+    },
+    "3": {
+      "feasible_profiles": 580,
+      "poly_support": 580
+    },
+    "4": {
+      "feasible_profiles": 1751,
+      "poly_support": 1751
+    },
+    "5": {
+      "feasible_profiles": 4332,
+      "poly_support": 4332
+    }
+  },
+  "total_profiles_checked": 6825,
+  "family_cases_checked": 35,
+  "independent_methods": [
+    "H^m coefficient recurrence",
+    "first-labeled-token source recurrence",
+    "constructive greedy certificate"
+  ],
+  "infinite_family": {
+    "D": "(m!)^2",
+    "hidden_k": "a*((m-1)!)^2",
+    "hidden_l": "(m-a)*((m-1)!)^2"
+  },
+  "witness": {
+    "n": [
+      3,
+      3,
+      2,
+      1,
+      0,
+      0
+    ],
+    "D": 36,
+    "visible_named_pair_cotriad_count": 12,
+    "hidden_integer_sources": {
+      "2": 8,
+      "3": 4
+    },
+    "conditional_probabilities": {
+      "2": "2/3",
+      "3": "1/3"
+    }
+  },
+  "scope": "Exact integer positive BRC source-counts only, no native physical update",
+  "validation": {
+    "executed": "local Python standard library exact checker",
+    "remote_file": "experiments/R708_TRIAD_FEASIBILITY_BRC_VERIFY_20261111.py",
+    "complete_finite_coverage": true,
+    "unbounded_theorem_justification": "constructive induction and labeled-source bijection",
+    "native_execution": "not performed"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "marker": "R709_TRIADIC_SWAP_BRC_KERNEL_LUMPABILITY_PASS",
+  "axioms": "Cell-local labeled complete 3-axis triads, m>=2",
+  "transition": "hold 1/2; each f/g-channel pair-swap 1/(4*comb(m,2))",
+  "analytic": {
+    "source_states": "(m!)^2",
+    "p_11": "1-1/(2*m)",
+    "p_01": "1/(2*m*(m-1))",
+    "stationary_true": "1/m",
+    "lambda": "1-1/(2*(m-1))",
+    "p_true_after_n_given_true": "1/m+(1-1/m)*lambda**n",
+    "p_true_after_n_given_false": "(1/m)*(1-lambda**n)",
+    "two_step_full_return": "1/4+1/(8*comb(m,2))"
+  },
+  "exact_checker": {
+    "m_values": [
+      2,
+      3,
+      4
+    ],
+    "details": [
+      {
+        "m": 2,
+        "full_state_count": 4,
+        "observer_true_fiber": 2,
+        "observer_false_fiber": 2,
+        "p_11": "3/4",
+        "p_01": "1/4",
+        "two_step_exact_return": "3/8"
+      },
+      {
+        "m": 3,
+        "full_state_count": 36,
+        "observer_true_fiber": 12,
+        "observer_false_fiber": 24,
+        "p_11": "5/6",
+        "p_01": "1/12",
+        "two_step_exact_return": "7/24"
+      },
+      {
+        "m": 4,
+        "full_state_count": 576,
+        "observer_true_fiber": 144,
+        "observer_false_fiber": 432,
+        "p_11": "7/8",
+        "p_01": "1/24",
+        "two_step_exact_return": "13/48"
+      }
+    ],
+    "arithmetic": "Fraction exact",
+    "checks": "normalization, full-source preservation, detailed balance, observer-fiber constancy and 2-step return"
+  },
+  "scope": "Positive BRC source-counting candidate kernel; no native V29/V39 update or heartbeat timing",
+  "validation": {
+    "executed": "local Python standard library exact checker",
+    "remote_file": "experiments/R709_TRIADIC_SWAP_BRC_DYNAMICS_VERIFY_20261111.py",
+    "unbounded_theorem_justification": "S_m transposition generators and Markov fiber-mass computation",
+    "native_execution": "not performed"
+  }
+}
