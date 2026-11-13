@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "theorem": "sum-free C, all retained nonzero moments zero => unrestricted full-state minimax TV radius 1/2",
+  "proof": "E[XX^T]=I; Cov=I-mmT PSD; orthogonality and Cauchy-Schwarz; disjoint extremal pair",
+  "five_circuit_origin": {
+    "active_subsets": 4368,
+    "nonsingular": 3008,
+    "feasible_active": 336,
+    "vertices": 26,
+    "maximum_tv": "1/2",
+    "vertices_attaining_half": 10
+  },
+  "exact_examples": [
+    {"d": 2, "omitted": [1, 2], "retained_zero_count": 1, "extremal_pair_tv": "1", "noisy_binary_exact_radius": "|lambda|/2"},
+    {"d": 3, "omitted": [1, 2, 4, 7], "retained_zero_count": 3, "extremal_pair_tv": "1", "noisy_binary_exact_radius": "|lambda|/2"},
+    {"d": 4, "omitted": [1, 2, 4, 8, 15], "retained_zero_count": 10, "extremal_pair_tv": "1", "noisy_binary_exact_radius": "|lambda|/2"}
+  ],
+  "non_sumfree_counterexample": {"d": 2, "C": [1, 2, 3], "exact_radius": "3/4"}
+}
