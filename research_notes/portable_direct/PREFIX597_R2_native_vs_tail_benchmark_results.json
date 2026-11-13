@@ -1,0 +1,98 @@
+{
+  "schema": "PREFIX597_R2_BATCH_COST_EXACT_NATIVE_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "original_carrier": "STARS 48 phases; original 96 labelled ports, 576 typed edges",
+  "methods": "literal labelled 96, optimized native 96, source-preserving 49-positive factor, 48-positive tail after first step",
+  "sequences": "full 96-port output, arbitrary integer input, nonstationary axis x>=0 and gate z>=0, integer exact",
+  "exact_equality_checks": 1800,
+  "operation_counts": {
+    "literal_labelled_edge_multiply_add_per_step": 576,
+    "native_opt_neighbor_phase_reads_per_step": 144,
+    "native_opt_source_bit_pair_sums_per_step": 48,
+    "native_opt_row_writes_per_step": 96,
+    "tail_neighbor_phase_reads_per_step": 144,
+    "tail_state_row_writes_per_step": 48,
+    "tail_initial_source_pair_sums": 47,
+    "tail_final_port_writes": 96,
+    "tail48_sparse_Q_nonzero_by_label": [
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      3
+    ],
+    "tail48_sparse_Q_nonzero_all_labels": 147,
+    "positive49_sparse_M_nonzero_by_label": [
+      27,
+      24,
+      27,
+      24,
+      24,
+      24,
+      3
+    ],
+    "positive49_sparse_B_nonzero_by_label": [
+      51,
+      48,
+      48,
+      48,
+      48,
+      48,
+      3
+    ],
+    "positive49_sparse_M_distinct_positions": 150,
+    "tail48_sparse_Q_distinct_positions": 144,
+    "positive49_sparse_M_nonzero_all_labels": 153,
+    "positive49_sparse_B_nonzero_all_labels": 294
+  },
+  "benchmarks": [
+    {
+      "depth": 2,
+      "max_output_bit_length": 10,
+      "median5_ms": {
+        "literal576": 0.2078,
+        "optimized96": 0.0364,
+        "positive49": 0.0304,
+        "tail48": 0.0384,
+        "tail48_sparse": 0.0376
+      }
+    },
+    {
+      "depth": 8,
+      "max_output_bit_length": 34,
+      "median5_ms": {
+        "literal576": 0.2496,
+        "optimized96": 0.2451,
+        "positive49": 0.1025,
+        "tail48": 0.141,
+        "tail48_sparse": 0.1056
+      }
+    },
+    {
+      "depth": 32,
+      "max_output_bit_length": 128,
+      "median5_ms": {
+        "literal576": 1.2737,
+        "optimized96": 0.7209,
+        "positive49": 0.4576,
+        "tail48": 0.6889,
+        "tail48_sparse": 0.4419
+      }
+    },
+    {
+      "depth": 64,
+      "max_output_bit_length": 254,
+      "median5_ms": {
+        "literal576": 3.5324,
+        "optimized96": 1.7238,
+        "positive49": 1.1032,
+        "tail48": 1.7403,
+        "tail48_sparse": 1.0787
+      }
+    }
+  ],
+  "scope": "Python medians include interpreter overhead, not portable speed/bit-complexity theorem",
+  "program_status": "ALL_ASSERTIONS_PASS"
+}
