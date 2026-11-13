@@ -1,0 +1,55 @@
+{
+  "schema": "PREFIX589_R2_DUAL_TYPED_BRC_CARRIER_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "method": "standard-library Python 3 exact integer and Fraction; reconstructed original 48-phase/96-port native BRC source",
+  "original_phases": 48,
+  "native_ports": 96,
+  "labelled_actions": 576,
+  "phase_identities": "W_phase=S*R, R*S*R=S^T; all 2304 entries verified per identity",
+  "coefficient_entries_checked": 64512,
+  "dual_coefficient_ones": [
+    93,
+    96,
+    96,
+    96,
+    96,
+    96,
+    3
+  ],
+  "original_gate_sources": [
+    [
+      7,
+      1
+    ],
+    [
+      29,
+      1
+    ],
+    [
+      31,
+      1
+    ]
+  ],
+  "dual_gate_sources": [
+    [
+      5,
+      3
+    ]
+  ],
+  "all_dual_source_axis_row_signatures": "96/96 rows have exactly one source axis, six outgoing actions",
+  "original_dual_unweighted_indeg_outdeg": "96/96 rows and columns have degree six",
+  "nonisomorphism_proof": "gate marked outgoing degrees {1,1,1} versus {3}",
+  "single_port_positive_lift_counterexample": [
+    "-2/3",
+    "1/3",
+    "1/3",
+    "1/3"
+  ],
+  "sharp_min_uniform_block_buffer": "max(0,max_i(3r_i-sum_g(r)))",
+  "singleton_min_buffer": 2,
+  "all_length_proof": "symbolic W^-1 A W dual identity plus W*1=3*1, 1^T*W=3*1^T",
+  "finite_uniform_open_checks": "depths 0..6 four parameter tuples; length-four independent nonstationary weight sequence",
+  "exact_sparse_core_weighted_terms_per_step": 576,
+  "limits": "original full project-module import and independent Driver review not executed; no algorithmic asymptotic improvement established",
+  "status": "ALL_ASSERTIONS_PASS_AUTHOR_SIDE_UNREVIEWED"
+}

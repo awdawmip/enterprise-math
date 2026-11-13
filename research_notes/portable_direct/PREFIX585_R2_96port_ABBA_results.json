@@ -1,0 +1,97 @@
+{
+  "schema": "PREFIX585_R2_96PORT_POLYNOMIAL_UV_VU_CERTIFICATE_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "phase_count": 48,
+  "port_count": 96,
+  "original_native_action_count": 576,
+  "phase_edges": 144,
+  "phase_involution": [
+    0,
+    9,
+    2,
+    11,
+    4,
+    8,
+    6,
+    10,
+    5,
+    1,
+    7,
+    3,
+    24,
+    33,
+    26,
+    35,
+    28,
+    32,
+    30,
+    34,
+    29,
+    25,
+    31,
+    27,
+    12,
+    21,
+    14,
+    23,
+    16,
+    20,
+    18,
+    22,
+    17,
+    13,
+    19,
+    15,
+    36,
+    45,
+    38,
+    47,
+    40,
+    44,
+    42,
+    46,
+    41,
+    37,
+    43,
+    39
+  ],
+  "symbolic_structural_inputs": "all 144 directed phase-edge rewrites; gate target fixed",
+  "identity": "A(alpha*x,z)=U V, A(x,z)^T=V U; U=H B(x)^T, V=D(z) H^-1, A=B(x) D(z)",
+  "integer_specializations": [
+    {
+      "axis_variables": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "gate": 17
+    },
+    {
+      "axis_variables": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "gate": 1
+    },
+    {
+      "axis_variables": [
+        0,
+        1,
+        2,
+        0,
+        4,
+        7
+      ],
+      "gate": 0
+    }
+  ],
+  "general_identity_proof": "symbolic block multiplication and exact native phase anti-isomorphism; see proof",
+  "status": "ALL_ASSERTIONS_PASS_AUTHOR_SIDE_UNREVIEWED"
+}

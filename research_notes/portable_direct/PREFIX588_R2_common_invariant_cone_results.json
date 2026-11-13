@@ -1,0 +1,85 @@
+{
+  "schema": "PREFIX588_R2_COMMON_NATIVE_BRC_INVARIANT_96_RAY_CONE_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "fixed_cone": "W=direct sum over 12 signed axes and 2 branch bits of (J4-I4)",
+  "inverse": "W^-1=direct sum of (J4/3-I4)",
+  "all_weights": "x_a>=0, z>=0",
+  "exact_identity": "W^-1 A(x,z) W = sum_{a=1}^6 x_a C_a + x_1*z C_gate, all 7 C have nonnegative integer entries",
+  "all_96_square_entries_each_coefficient_checked": 64512,
+  "coefficients": [
+    {
+      "coefficient": "axis_1",
+      "nonzero": 93,
+      "value_histogram": {
+        "0": 9123,
+        "1": 93
+      },
+      "all_nonnegative": true,
+      "all_integer": true
+    },
+    {
+      "coefficient": "axis_2",
+      "nonzero": 96,
+      "value_histogram": {
+        "0": 9120,
+        "1": 96
+      },
+      "all_nonnegative": true,
+      "all_integer": true
+    },
+    {
+      "coefficient": "axis_3",
+      "nonzero": 96,
+      "value_histogram": {
+        "0": 9120,
+        "1": 96
+      },
+      "all_nonnegative": true,
+      "all_integer": true
+    },
+    {
+      "coefficient": "axis_4",
+      "nonzero": 96,
+      "value_histogram": {
+        "0": 9120,
+        "1": 96
+      },
+      "all_nonnegative": true,
+      "all_integer": true
+    },
+    {
+      "coefficient": "axis_5",
+      "nonzero": 96,
+      "value_histogram": {
+        "0": 9120,
+        "1": 96
+      },
+      "all_nonnegative": true,
+      "all_integer": true
+    },
+    {
+      "coefficient": "axis_6",
+      "nonzero": 96,
+      "value_histogram": {
+        "0": 9120,
+        "1": 96
+      },
+      "all_nonnegative": true,
+      "all_integer": true
+    },
+    {
+      "coefficient": "axis_1_x_gate_z",
+      "nonzero": 3,
+      "value_histogram": {
+        "0": 9213,
+        "1": 3
+      },
+      "all_nonnegative": true,
+      "all_integer": true
+    }
+  ],
+  "unweighted_conjugate_adjacency": "96 x 96 zero-one 6-in/6-out with exactly 576 ones; seven supports disjoint",
+  "positive_weight_regression_cases": 6,
+  "conclusion": "The identical 96-ray simplicial cone is invariant under all nonnegative native 96-port BRC transition matrices and their arbitrary products",
+  "status": "ALL_ASSERTIONS_PASS_AUTHOR_SIDE_UNREVIEWED"
+}
