@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r129_oneparameter_event_sweep_20261113/check_r129_period.py",
+    "ref": "ddef5881c7e9996fbc08c6f48cd0c387606d035d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r129-period-source-check_r129_period-py-ddef5881c7e9",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R129.4 exact gcd-period and interval endpoint checks.\"\"\"\nfrom fractions import Fraction as F\nfrom math import gcd\nfrom random import Random\nfrom pathlib import Path\nimport json\nfrom check_r129 import exact_signatures, rotated, totient\n\nr=Random(129220261113)\npasses=0;probes=0;long_matches=0\nfor z in range(160):\n    A,d,E=[r.randint(-8,8) for i in range(3)]\n    g=gcd(gcd(abs(A),abs(d)),abs(E))\n    if g==0: continue\n    m=r.randint(2,9)\n    x=F(r.randint(-9,9),r.randint(1,7))\n    P=F(1,g)\n    canonical=exact_signatures(x,A,d,E,m,F(0),P)[0]\n    U=set(canonical)|{rotated(x,A,d,E,m,F(0))}\n    B=(abs(E)+sum(abs(A+i*d)+abs(A+i*d-E) for i in range(m)))//g\n    assert len(U)<=max(1,2*B)\n    for t in (F(0),F(1,17),F(-11,9),F(17,10),F(r.randint(-80,80),r.randint(1,51))):\n        assert rotated(x,A,d,E,m,t)==rotated(x,A,d,E,m,t+P)\n        probes+=1\n    l=F(r.randint(-8,8),r.randint(1,8))\n    delta=F(r.randint(1,5),r.randint(2,9))\n    h=l+P+delta\n    long=set(exact_signatures(x,A,d,E,m,l,h)[0])\n    assert long==U\n    long_matches+=1;passes+=1\nsharp=[]\nfor m in range(2,33):\n    open_one=set(exact_signatures(F(0),0,1,1,m,F(0),F(1))[0])\n    open_more=set(exact_signatures(F(0),0,1,1,m,F(0),F(11,10))[0])\n    H=1+sum(totient(q) for q in range(2,m))\n    assert len(open_one)==H and len(open_more)==H+1\n    assert (0,)*m not in open_one and (0,)*m in open_more\n    sharp.append({\"m\":m,\"open_exactly_one_period\":H,\"open_more_than_one_period\":H+1})\noutput={\"status\":\"R129_PERIOD_QUOTIENT_PASS\",\"seed\":129220261113,\n        \"valid_random_nonzero_gcd_instances\":passes,\"periodicity_exact_probes\":probes,\n        \"long_interval_set_equal_full_period\":long_matches,\n        \"sharp_family_period_endpoint_checks\":len(sharp),\n        \"sharp_family_final\":sharp[-1],\n        \"coverage\":\"finite Fraction checks; periodicity and quotient bound proved separately\"}\nPath(__file__).with_name(\"verification_r129_period.json\").write_text(json.dumps(output,indent=2,ensure_ascii=False,sort_keys=True)+\"\\n\")\nprint(output)\n",
+      "display_title": "check_r129_period.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/ddef5881c7e9996fbc08c6f48cd0c387606d035d/research_notes/brc_s23_av_r129_oneparameter_event_sweep_20261113/check_r129_period.py",
+      "encoding": "utf-8",
+      "sha": "e2645fefbd694c91825fc36961fdadc38faff4df"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
