@@ -4,6 +4,7 @@ Frozen science: awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96
 Dependency: published PREFIX741_R6_INNER_STRIP_194.py from this same directory.
 Usage: python PREFIX746_R6_GAMMA_114_EXACT.py
 """
+from fractions import Fraction as F
 from PREFIX741_R6_INNER_STRIP_194 import lower_cell, pair, tails, emu, eW, oldmu, oldW
 
 # [i, j, subdivision k, floor(1e6 * new lower bound), floor(1e6 * PREFIX-712 old sufficient bound)]
@@ -20,7 +21,7 @@ def main():
         historical = lower_cell(i, j, 1, oldmu, oldW)
         assert floor_micro(actual) == newfloor, (i,j,"new")
         assert floor_micro(historical) == oldfloor, (i,j,"old")
-        assert actual > 6/5 and historical < 0, (i,j,"strict comparison")
+        assert actual > F(6,5) and historical < 0, (i,j,"strict comparison")
         confirmed.append((i,j))
         print("PASS",i,j,split,newfloor,oldfloor,flush=True)
         pair.cache_clear()
