@@ -1,0 +1,50 @@
+{
+  "excluded": "signed/phase BRC, native X6 embedding, full fixed-cost (alpha,beta) region",
+  "finite_certificate": {
+    "endpoints": [
+      {
+        "b": "0",
+        "max_delta": "59/576",
+        "maximizing_labeled_vertices": 72,
+        "vertices": 144
+      },
+      {
+        "b": "1/16",
+        "max_delta": "59/576",
+        "maximizing_labeled_vertices": 48,
+        "vertices": 144
+      }
+    ],
+    "interior": "bounded by convexity in b, not sampled",
+    "tag_choices": "3 stop histories * 3 B histories * 2^3 A labels * 2 B labels",
+    "total_vertex_evaluations": 288
+  },
+  "full_behavioral_all_real_optimum": "59/576",
+  "generic_fraction_checks": 64,
+  "input": {
+    "eta": "1/200",
+    "model": "EC49U/V/W positive-rational auxiliary BRC, no persistent shared random seed",
+    "source_leaves_per_source": 18,
+    "stage1_cost": "43/48",
+    "stage2_cost": "7/8"
+  },
+  "proof_steps": [
+    "post-U cancellation and data contraction",
+    "cost-deficit equality b + unsensed = 1/16",
+    "two-simplex extremal reduction for fixed b",
+    "convex endpoint reduction b in [0,1/16]",
+    "exact 288-vertex Fraction certificate and rational attaining witness"
+  ],
+  "schema": "ENTERPRISE_MATH_EC49X_EXACT_FULL_BEHAVIORAL_OPTIMUM_V1",
+  "source_leaves": "18 strictly positive rational leaves per source; normalized to 1; P(W,U)=Q(W,U)",
+  "status": "AUTHOR_PROVED; FRACTION_CERT_PASS; UNREVIEWED; NOT_ADMITTED",
+  "witness": {
+    "C1": "43/48",
+    "C2": "7/8",
+    "accept": "A0:z in {0,2}; A1:z=1; B0:z=2",
+    "alpha": "109/192",
+    "beta": "67/144",
+    "delta": "59/576",
+    "prefix": "W0:A0; W1:A1; W2:STOP 3/8, A0 9/16, B0 1/16; all paid paths buy S"
+  }
+}
