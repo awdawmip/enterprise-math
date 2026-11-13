@@ -1,0 +1,15 @@
+# R697 research handoff (2026-11-10)
+
+Parent: `RS-X6-TRIADIC-CLOSURE-DYNAMICS`; publication `TP2-8B7E13C5904A2D6F1142`; original science pin `enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`; prior R695/R696 author notes in Draft PR #1997.
+
+**Complete local result:** In the R696 candidate with two distinct given axes and four possible third axes, a time-dependent port mask is a subset A of a four-element set. Full S4-equivariant rational Markov updates A→B form a 30-dimensional family with precisely 35 ordered mask-pair orbit modes, 14,400 extreme kernels, and 256 deterministic equivariant maps. The cardinality observer A↦|A| is a strong five-state Markov quotient for any such update; label-aware and branch-aware observers retain A and source history.
+
+**Constructive dynamical example:** Hold with probability 2/5; otherwise delete one random allowed axis uniformly (probability 3/5 total), with empty-mask absorbing HALT. Starting with four allowed axes, the exact hitting-time distribution is negative binomial NB(r=4,p=3/5): E τ=20/3, P(τ≤8)=64557/78125. The 24 possible full deletion orders have equal BRC mass 1/24 conditional on four successful deletions. A full proof and runnable exact verifier are included here. This is a typed combinatorial candidate, not a native P000 force equation.
+
+**Verification:** Local run of an independent exhaustive Python/Fraction checker returned `R697_S4_MASK_DYNAMICS_BRC_EXACT_PASS`. GitHub `R697_VERIFY.py` reproduces the checks and writes its own evidence. `R697_EVIDENCE.json` includes all 35 orbit types and exact absorption trace through twelve rounds. The abstract orbit proof is all-finite-domain and the Markov quotient holds for arbitrary finite horizons under the stated kernel conditions.
+
+**Open research unit:** Read the actual frozen X6 Cell/Link/Port occupancy and V29 PASS/TRANSFER, V39 loop current j; construct a legal three-nonzero-force Cell event and an evidence-preserving map to the mask update. Test native permissions, conservation, TRIADIC_CLOSURE_E and rotation-covariance on explicit events. The present full S4 symmetry may be reduced by actual interface data and must be checked rather than assumed.
+
+**Authority:** Author-side GitHub research branch only. A native service session, if registered, is not a Task CLAIM. No Result/Review/Driver/Foundation admission or source policy changes are implied. Preserve original task owner, older frozen inputs, and independent reviewer role.
+
+**Verified native registration after original handoff capture:** Researcher-ID `EM-X6-0A2486`; Research-Activity-ID `RA-7514D5D0B885B6D17B99131F`; Source registration commit `0b49735aec3f7aea55965f9d683822ee3786e3d6`; registration paths `research_session_records/MCP-c9877a21cb9a41549d5488786d3ab710.json` and `research_activity_records/RA-7514D5D0B885B6D17B99131F.json`. Session registration confers no task CLAIM, and activity semantic checkpoint is still unrecorded. Original request `R697-session-20261110T1420Z` established durable Source bytes; control-service receipt read is currently blocked by `BACKEND_IDENTITY_CHECK_UNAVAILABLE` while GitHub Source readback succeeds.
