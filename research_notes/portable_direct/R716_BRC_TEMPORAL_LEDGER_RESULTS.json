@@ -1,0 +1,55 @@
+{
+  "schema": "R716_TEMPORAL_LEDGER_EXACT_V1",
+  "source_population": 1048576,
+  "triples": 20,
+  "pairs": 15,
+  "ledger_fibers": 995085,
+  "colliding_pairs": 65286,
+  "difference_support_sizes": {
+    "8": 15,
+    "12": 15,
+    "20": 1
+  },
+  "minimum_nonzero_fiber_distance": 8,
+  "radius_3_ball_size": 1351,
+  "radius_4_ball_size": 6196,
+  "pasch_supports": 15,
+  "midpoint_incidence_distribution": {
+    "0": 13020,
+    "1": 24960,
+    "2": 152880,
+    "3": 326520,
+    "4": 83700,
+    "5": 311760,
+    "7": 72660,
+    "9": 59640,
+    "15": 3436
+  },
+  "radius4_ambiguous_centers": 1035556,
+  "radius4_unambiguous_centers": 13020,
+  "total_midpoint_trade_incidence": 4300800,
+  "sharpness_example": {
+    "A_and_B_have_same_ledger": true,
+    "A_triples": [
+      "024",
+      "035",
+      "125",
+      "134"
+    ],
+    "B_triples": [
+      "025",
+      "034",
+      "124",
+      "135"
+    ],
+    "H0_triples": [
+      "024",
+      "025",
+      "034",
+      "035"
+    ],
+    "distance_H0_A": 4,
+    "distance_H0_B": 4
+  },
+  "verification": "R716_BRC_TEMPORAL_LEDGER_RADIUS3_EXACT_PASS"
+}
