@@ -184,6 +184,5 @@ def run():
         json.dump(result,f,ensure_ascii=False,sort_keys=True,indent=2)
         f.write('\n')
 
-
 if __name__=='__main__':
     run()
