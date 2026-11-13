@@ -182,6 +182,18 @@ def run_case(case):
                     write(spec_path.relative_to(root).as_posix(), changed)
                     changed_args = copy.copy(args)
                     for key, value in changes.items(): setattr(changed_args, key, value)
+                    if label in {'required_gate', 'prior_art_skip', 'missing_gate', 'missing_spec'}:
+                        before = {p: p.read_bytes() for p in root.rglob('*') if p.is_file()}
+                        try:
+                            assert records.command_review_with_authority(changed_args) == 0
+                            assert len(list(root.joinpath('research_result_reviews', result['result_id']).glob('*.json'))) == 1
+                            assert target_path.read_bytes() == original_bytes
+                            assert parent_path.read_bytes() == parent_bytes
+                        finally:
+                            for path in root.rglob('*'):
+                                if path.is_file() and path not in before: path.unlink()
+                            for path, raw in before.items(): path.write_bytes(raw)
+                        continue
                     with mock.patch.object(records._write_tx, 'commit', wraps=records._write_tx.commit) as commit:
                         with unittest.TestCase().assertRaises(ValueError, msg=label): records.command_review_with_authority(changed_args)
                         commit.assert_not_called()
@@ -342,15 +354,16 @@ def run_case(case):
                 assert state['result_continuation']['original_process_status'] == 'UNKNOWN'
                 definition = dispatch.registered_definition(publication, root)
                 frozen = dispatch._overlay_result_state(definition, {'state': 'READY', 'dispatch_state': 'NEEDS_DISPATCH'}, root, state)
-                assert frozen['state'] == 'FROZEN_RETURN' and frozen['dispatch_state'] == 'AWAITING_TASK_CONTROL_CONTINUATION', frozen
-                assert frozen['claim_id'] is None and frozen['terminal'] is False
+                assert frozen['state'] == 'HANDOFF_READY' and frozen['dispatch_state'] == 'NEEDS_DISPATCH', frozen
+                assert frozen.get('claim_id') is None and frozen['terminal'] is False
+                assert frozen['task_completion_granted'] is False
                 route = continuation._route(frozen)
-                assert route['required_role'] == 'RESEARCH_DRIVER' and route['execution_authorized'] is False
+                assert route['required_role'] == 'RESEARCHER' and route['execution_authorized'] is False
                 for purpose in ('execution', 'adopt'):
-                    with unittest.TestCase().assertRaisesRegex(ValueError, 'closed by result state'):
-                        runtime.canonicalize_registration({'task': {'task_id': result['task_id']}}, purpose=purpose, root=root)
+                    admitted = runtime.canonicalize_registration({'task': {'task_id': result['task_id']}}, purpose=purpose, root=root)
+                    assert admitted['task_registration']['publication_id'] == publication['publication_id']
                 event = {dispatch.GITHUB_META_KEY: {'created_at': '2026-10-15T20:30:00+00:00'}}
-                assert 'without an explicit reopen' in dispatch._claim_result_gate_reason(event, state, root)
+                assert dispatch._claim_result_gate_reason(event, state, root) is None
                 gate = {'canonical_main': source, 'result_id': result['result_id'], 'result_record_sha256': packet['source_result_record_sha256'],
                         'review_id': candidate['review_id'], 'followup_id': packet['packet_id']}
                 with unittest.TestCase().assertRaisesRegex(ValueError, 'no longer has current terminal'):
