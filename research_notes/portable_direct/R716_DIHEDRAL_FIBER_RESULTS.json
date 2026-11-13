@@ -1,0 +1,63 @@
+{
+  "flag": "R716_DIHEDRAL_FIBER_EXACT_PASS",
+  "hypotheses": "odd m>=5, area m+3, labelled cyclic phase-pair edge words; dihedral action by edge re-index/reversal",
+  "tests": [
+    {
+      "m": 5,
+      "rooted_area": 40,
+      "bracelets_area": 4,
+      "rooted_joint": 40,
+      "bracelets_joint": 4,
+      "all_orbits_size": 10
+    },
+    {
+      "m": 7,
+      "rooted_area": 168,
+      "bracelets_area": 12,
+      "rooted_joint": 168,
+      "bracelets_joint": 12,
+      "all_orbits_size": 14
+    },
+    {
+      "m": 9,
+      "rooted_area": 576,
+      "bracelets_area": 32,
+      "rooted_joint": 72,
+      "bracelets_joint": 4,
+      "all_orbits_size": 18
+    },
+    {
+      "m": 11,
+      "rooted_area": 1848,
+      "bracelets_area": 84,
+      "rooted_joint": 528,
+      "bracelets_joint": 24,
+      "all_orbits_size": 22
+    },
+    {
+      "m": 13,
+      "rooted_area": 5720,
+      "bracelets_area": 220,
+      "rooted_joint": 104,
+      "bracelets_joint": 4,
+      "method": "exact_DP"
+    },
+    {
+      "m": 15,
+      "rooted_area": 17280,
+      "bracelets_area": 576,
+      "rooted_joint": 1320,
+      "bracelets_joint": 44,
+      "method": "exact_DP"
+    },
+    {
+      "m": 17,
+      "rooted_area": 51272,
+      "bracelets_area": 1508,
+      "rooted_joint": 136,
+      "bracelets_joint": 4,
+      "method": "exact_DP"
+    }
+  ],
+  "scope": "finite checks m=5..17 odd; universal theorem requires supplied group-action proof"
+}
