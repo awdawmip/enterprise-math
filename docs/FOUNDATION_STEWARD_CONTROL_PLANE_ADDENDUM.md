@@ -1,7 +1,7 @@
 # Foundation Steward Control-Plane Addendum
 
-Status: `ACTIVE / CONTROL-PLANE PRECEDENCE ADDENDUM / V1`
-Effective: `2026-08-28`
+Status: `ACTIVE / CONTROL-PLANE PRECEDENCE ADDENDUM / V2`
+Effective: `2026-11-13`
 Classification: `NO_NEW_MATHEMATICS`
 
 This addendum changes no mathematical Foundation content, theorem status, Steward authority, or backflow classification. It only fixes post-cutover control routing for Foundation Steward work.
@@ -19,11 +19,11 @@ Any older Steward/architecture prose that still names `research_task_records/<ta
 
 ## 2. Foundation question to research execution
 
-A genuine unresolved mathematical question exposed by Steward work is still minimized and recorded through the Foundation Problem Set/backflow process.
+A genuine unresolved mathematical question exposed by Steward work may be investigated, corrected or related to prior results by the Steward itself. An FQ/backflow record is useful optional support, not permission to start or continue mathematics.
 
-When that question needs an executable research task, the control path is:
+Only when choosing to publish a separately executable shared research task, the control path is:
 
-`FQ / VERIFIED RESEARCH NEED`
+`VERIFIED RESEARCH NEED (OPTIONAL FQ)`
 
 `-> V2 TASKBOOK`
 
@@ -67,6 +67,6 @@ A matched mathematical interface may be `REUSE_APPLIED`; an executable result is
 
 ## 6. Research boundary
 
-This addendum does not permit the Steward to solve a newly exposed unresolved research problem by default. The existing rule remains:
+The Steward may pursue a newly exposed mathematical problem, compare later results with old questions, and correct or generalize prior material when useful. Depth, method, order and handoff are research judgments; no FQ, Packet, classification, fixed stage or return-to-stewardship ceremony is required. Mark conjectures and unreviewed conclusions honestly. Lean/formalization is optional, not a default requirement.
 
-`VERIFY DISCREPANCY -> MINIMIZE -> PUBLISH/HANDOFF V2 RESEARCH TASK WHEN NEEDED -> RETURN TO STEWARDSHIP`.
+This freedom does not activate another role, transfer a live CLAIM, or grant review/Working Truth/Foundation authority. Shared operational writes still use the writer's actual identity, current authorization and canonical ownership/CAS. GitHub remains the scientific source of record.
