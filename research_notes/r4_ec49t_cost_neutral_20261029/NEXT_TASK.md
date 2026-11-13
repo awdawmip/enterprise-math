@@ -1,0 +1,9 @@
+# EC49U — Non-rigid stagewise source-expected cost compensation
+
+Proposed portable *author-side* question, not a canonical Task publication/CLAIM. Consume EC49T exact theorem/report before continuing. EC49S Draft PR #1662 and its immutable research commit 613f00f7a013ce64286aabbdfa32a303726c9477 are the inherited scientific source.
+
+Choose a full policy with both source-specific stage-1 and stage-2 expected costs strictly within their admissible non-rigid ranges, e.g. a fractional S-purchase rate strictly between zero and one. Then construct a compressed stochastic encoder with **equal P and Q stagewise expected costs** but distinct pathwise costs. Determine whether matching those four source/stage resource expectations, without an event/conditional-trace simulation, can still fail to reproduce the full source acceptance pair. Seek an explicit *rational* four-vector and a rigorous all-real source-coupled occupancy separator, rather than treating the stage-two-cost=1 rigid EC49T face as proof of the non-rigid case.
+
+Use the same 18 positive P/Q (W,U,Z) leaf family at eta=1/200 and 5/12, first-action costs A=1/B=2 and second S=1. Account precisely for stop rules, source-independent fresh behavioral randomization, terminal sigma algebra and possible randomized cost compensation. Note P(W,U)=Q(W,U) in this model, so some P/Q cost equations may coincide; do not count duplicates as independent constraints. Determine whether an allowed causal trace simulator is actually necessary for preserving only four scalar outputs or merely sufficient.
+
+Deliver exact derivation, scope, runnable Fraction evidence, literature comparison, immutable publication/readback, and EC49V follow-up. Leave P000/ACTIVE intact; signed BRC/X6 requires a separate typed morphism and independent verification.
