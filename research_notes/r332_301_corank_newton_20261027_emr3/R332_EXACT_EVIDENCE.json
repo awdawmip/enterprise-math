@@ -1,0 +1,39 @@
+{
+  "schema": "R332_BRC_CORANK_EXTENSION_V1",
+  "status": "PASS",
+  "performed_on": "2026-10-27",
+  "source_r330_commit": "7c73f56263c3f0515aa28e55ced2d4c703b8e086",
+  "source_r331_commit": "98e7ccce13c07fa91c816314b01f0681dc7c264e",
+  "r_interval": [
+    257,
+    300
+  ],
+  "new_positive_unbounded_bands": 44,
+  "cumulative_author_side_bands_r_0_through": 300,
+  "exact_positive_newton_coefficients": 12298,
+  "source_polynomials_B_s_rows": [
+    0,
+    902
+  ],
+  "triangular_coefficients_checked_positive": 408156,
+  "outside_triangle_negative_terms_retained": 171190,
+  "each_r_out_of_sample_degree_check": true,
+  "highest_difference_equals_6_power_r": true,
+  "sha256_new_coefficient_sequence": "6c71dd8fb6285a742788a2d0d8418d9232a54d82678319882310786eaf95f7f2",
+  "coefficient_line_format": "r,i,numerator/denominator\\n, r then i ascending",
+  "prior_r256_sha256": "eaa453a67a463d27c336adfe80d9b4422c6d03f9e3583102855b6817a8e72a8a",
+  "prior_r256_vector_direct_equality_against_uploaded_full_R331_material": true,
+  "test_command": "python R332_VERIFY.py --min-r 257 --max-r 300 --out R332_EXACT_EVIDENCE.json",
+  "optional_prior_material_command": "python R332_VERIFY.py --min-r 257 --max-r 300 --prior-file <full_R331_json> --out R332_EXACT_EVIDENCE.json",
+  "arithmetic": "Python arbitrary precision integers and fractions; no floating point",
+  "proof_dependency": "R330 exact rational coefficient extraction (4) proves deg H_r <= r",
+  "nonclaims": [
+    "not a uniform proof for every r",
+    "not native X6 dynamics",
+    "not a formal proof assistant certificate",
+    "not independently mathematically admitted"
+  ],
+  "r301_to_r320": "NOT_CERTIFIED; an attempted longer run ended before complete evidence",
+  "mathematical_status": "AUTHOR_SIDE / UNREVIEWED / NOT_ADMITTED",
+  "owner": "UNVERIFIED: em_control_tasks CONTROL_QUOTA"
+}
