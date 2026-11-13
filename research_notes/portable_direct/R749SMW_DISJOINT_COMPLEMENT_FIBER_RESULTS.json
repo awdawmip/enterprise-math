@@ -1,0 +1,75 @@
+{
+  "schema": "R749SMW_DISJOINT_COMPLEMENT_FIBER_EXACT_V1",
+  "status": "PASS",
+  "mathematical_domain": "F2^4; B ten Walsh masks; moments m_3=m_12=1/2, all other retained B moments zero",
+  "source_mask_C": [
+    1,
+    2,
+    4,
+    8,
+    15
+  ],
+  "retained_mask_B": [
+    3,
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "basis_sets_checked": 4368,
+  "nonsingular_bases": 3008,
+  "feasible_bases": 456,
+  "distinct_fiber_vertices": 17,
+  "unrestricted_exact_minimax_TV": "2/5",
+  "calibrated_exact_minimax_TV": "9/22",
+  "strict_calibration_penalty": "1/110",
+  "unrestricted_vertex_distance_histogram": {
+    "1/4": 8,
+    "2/5": 5,
+    "7/30": 4
+  },
+  "calibrated_vertex_distance_histogram": {
+    "1/4": 8,
+    "67/264": 4,
+    "9/22": 5
+  },
+  "uncalibrated_decoder_sign_class_masses": {
+    "++": "3/5",
+    "+-": "1/5",
+    "-+": "1/5",
+    "--": "0"
+  },
+  "uncalibrated_decoder_retained_moments": {
+    "3": "3/5",
+    "12": "3/5"
+  },
+  "calibrated_decoder_walsh_15": "2/11",
+  "lower_witness_events": {
+    "S1": [
+      7,
+      11,
+      13,
+      14,
+      15
+    ],
+    "w1_event_mass": "3/4",
+    "S2": [
+      0,
+      3,
+      5,
+      6,
+      9,
+      10,
+      12,
+      15
+    ],
+    "w2_event_mass": "1"
+  },
+  "exact_arithmetic": "Python fractions.Fraction only; all feasible five-active vertices enumerated, no floating point",
+  "proof_boundary": "Constrained single rational fiber and its GL(4,2)/translation orbit; full global nonlinear minimax and native V29/V39 bridge remain open."
+}

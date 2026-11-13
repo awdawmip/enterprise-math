@@ -1,0 +1,98 @@
+# R749SMN — Dependent signed-Port adaptive Walsh observer: exact rank correction
+
+Date: 2026-11-13 (Asia/Shanghai).
+Scientific continuation: R749SML/R749SMM at awdawmip/enterprise-math@d6d80b056e4bc4f579610c4dd8d0e0adf4d57427.
+Frozen scientific input: awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389.
+
+Status: author-side proof and exact finite verification; independent review not performed. This is an abstract parity-source observation model, not a native V29/V39 event. Historical bits are typed source relations, **not** additional native Enterprise spatial axes. The computed quotient applies to the specified future observer and the entire simplex of source priors; a new future operation requires observer-preservation revalidation.
+
+## 1. Model
+
+Let G=(F_2)^d. Write chi_a(x)=(-1)^(a·x) for the real Walsh character of named source mask a. Consider an arbitrary finite rooted full binary publicly observed decision tree. A source x in G remains fixed during observation. At each internal node n a possibly dependent or zero mask a_n is queried with bias lambda_n in [-1,1]. Given source x and the publicly observed route to n, the emitted sign s in {-1,+1} has probability
+
+    P(s at node n | x, public prefix) = (1+s lambda_n chi_(a_n)(x))/2.
+
+Let A(n) be the ordered ancestors of n; their observed route signs are s_m. Define the arrival function
+
+    H_n(x) = 2^(-|A(n)|) product_(m in A(n)) (1+s_m lambda_m chi_(a_m)(x)).
+
+Let K_(ell,x) be the full root-to-leaf likelihood and D_n=lambda_n H_n chi_(a_n). Define the explicit real matrix C with one row per internal node, columns indexed by nonzero Walsh masks q in G:
+
+    C[n,q] = lambda_n 2^(-|A(n)|)
+             sum_(S subseteq A(n), a_n XOR (XOR_(m in S) a_m)=q)
+               product_(m in S) (s_m lambda_m).
+
+This is a finite arithmetic construction, valid for mask dependencies and all deterministic/erased-channel parameter boundaries.
+
+## 2. Theorem 1 — exact all-depth dependent-mask rank correction
+
+For every finite publicly observed tree as above and every vector of real biases lambda_n in [-1,1],
+
+    rank_R(K) = 1 + rank_R(C).
+
+The least number c_min of independent affine **prior-expectation** coordinates sufficient to reproduce every full-path likelihood distribution for every source prior is
+
+    c_min = rank_R(C).
+
+If r=dim_(F_2) span{a_n}, then
+
+    c_min <= min(#{n:lambda_n != 0}, 2^r-1).
+
+**Proof.** At any internal node n, the total probabilities for leaves under its two children are respectively (H_n+D_n)/2 and (H_n-D_n)/2. Their difference is D_n, so every D_n is in the row span of K. Induction from H_root=1 gives each child arrival function as a linear combination of 1 and upstream contrasts, and hence each leaf likelihood lies in span{1,D_n}. Conversely the sum of all leaf likelihood rows is 1, and their subtree differences are the D_n. Thus the row span of K equals span{1,D_n}. Walsh expansion is an exact linear isomorphism of real functions on the full source population G. After removing the constant-character coordinate, the coefficients of the D_n are exactly the rows of C, giving rank(K)=1+rank(C). The full source-prior simplex has nonempty relative interior and its leaf probability outputs depend affinely on the prior. An affine prior-statistic carrier is sufficient precisely when it spans all nonconstant likelihood functionals, so its minimum dimension is rank(C). Every Fourier character in D_n belongs to span{a_n}; if lambda_n=0 its contrast vanishes. This establishes the bound. QED.
+
+This provides an exact constructive rank-correction algorithm, rather than an unproven correction based only on the GF(2) matroid rank. For rational biases, C has rational coefficients and exact Gaussian elimination gives a certificate.
+
+## 3. Theorem 2 — closed-form classification of every depth-two tree
+
+At depth 2 the root has mask a, bias alpha; the observed minus child has mask b, bias beta_minus; the plus child has mask c, bias beta_plus. The three contrast functions are
+
+    D_root  = alpha chi_a,
+    D_minus = (beta_minus/2) (chi_b - alpha chi_(a XOR b)),
+    D_plus  = (beta_plus/2) (chi_c + alpha chi_(a XOR c)).
+
+The exact minimum c_min for arbitrary masks (including zero/repeats) and real biases in [-1,1] is:
+
+**Case A: a!=0 and alpha!=0.**
+
+    c_min = 1
+       + 1[beta_minus != 0 and b not in {0,a}]
+       + 1[beta_plus  != 0 and c not in {0,a}].
+
+**Case B: alpha=0.** c_min is the number of distinct nonzero masks among the child masks b,c with corresponding nonzero child bias.
+
+**Case C: a=0 and alpha!=0.** c_min is the number of distinct nonzero child masks with nonzero bias on a reachable branch. The minus branch is reachable exactly when alpha!=1, the plus branch when alpha!=-1.
+
+In each case rank_R(K)=1+c_min.
+
+**Proof.** In Case B the public first output is an unbiased source-independent route; each nonzero-bias child contributes the corresponding single character. In Case C the first output is still source-independent with route probabilities (1-alpha)/2 and (1+alpha)/2, and a child contributes only when its route has positive probability. For Case A, chi_a is a nonconstant first direction. If a child mask lies in {0,a}, its contrast is in span{1,chi_a}. For b outside {0,a}, chi_b and chi_(a XOR b) form an independent two-character pair modulo this span. The pair is the orbit {b,a XOR b} under addition by a. Two child contrasts from distinct orbits are automatically independent. For masks in the same orbit, their coefficient pairs relative to that orbit are (1,-alpha) and either (1,alpha) or (alpha,1), with determinants 2alpha and 1+alpha^2 up to sign; these are nonzero for real alpha!=0. Thus each active child outside {0,a} contributes exactly one new coordinate. QED.
+
+## 4. Exact dependence/provenance witnesses
+
+Take two independent named historical parity sources a=1 and b=2 in (F_2)^2, set c=b=2, and set alpha=beta_minus=beta_plus=1/2. Both child nodes query the **same** Port mask. Nevertheless the public four-leaf observer has rank **4** and retains all three independent affine expectations of chi_a, chi_b and chi_(a XOR b). Indeed its child contrasts are proportional to
+
+    chi_b - (1/2) chi_(a XOR b)
+    chi_b + (1/2) chi_(a XOR b).
+
+Sum and difference recover chi_b and the joint relation chi_(a XOR b). This is a source-preserving feedback effect that a node-mask count alone misses.
+
+In contrast, a=1,b=1,c=2 at the same biases gives likelihood rank **3**, and alpha=0,b=c=2 gives rank **2**. A simplistic rule c_min=min(#informative nodes,2^r-1) is falsified by the a=1,b=1,c=2 case: it predicts 3 coordinates when 2 suffice.
+
+The joint source mask is a relational observer, not an extra native spatial dimension. Removing it as a general BRC/Port provenance direction would require exact future-observer closure beyond this finite experiment.
+
+## 5. Executed exact computation
+
+The independently written checker R749SMN_DEPENDENT_PORT_TREE_EXACT_CHECK.py enumerated **46,720** profiles, using source-bit counts r=1,2,3, all (a,b,c) masks including zero, root alpha in {-1,-1/2,0,1/2,1} and each child bias in {-1,0,1/2,1}. For each profile it computes:
+
+1. The 4-by-(2^r) *direct full-path likelihood* rank.
+2. The independent nonconstant Walsh contrast coefficient rank.
+3. The closed-form depth-two classification above.
+
+All three agree in all 46,720 cases. Integer-scaled likelihood rows have entries in [0,16]. Every 4x4 minor has absolute value <=4!*16^4=1,572,864. The nonconstant coefficient matrix has at most three rows, entries of absolute value at most 8, with 3x3 minor absolute value <=3!*8^3=3,072. Modular Gaussian elimination over the prime 1,000,000,007 is therefore *exact* for rational ranks on the stated integer grid (no nonzero minor can disappear modulo that prime). The symbolic proofs establish the full continuum of real parameters, separately from the finite exhaustive grid.
+
+Executed output: PASS 46720; per-r cases r1=640, r2=5120, r3=40960; maximum observed rank=4. Additional exact witnesses cover same-Port sibling reuse, child-root reuse and erased-root repeated children.
+
+## 6. Preserved next frontier
+
+Extend the span certificate to declared future controlled compositions, computing the minimal stable observable-source quotient rather than only the current leaf likelihoods. Then obtain licensed native V29/V39 Cell/Link/Port transitions with authentic named-Port and BRC branch provenance, and test whether their true event-observer kernels satisfy the same compression assumptions. For deeper trees the general C matrix already computes exact rank; a simple dependency-only combinatorial closed form remains an open question.
+
+Proof status: author-side exact abstract theorem and finite-grid validation; independent review and native-event bridge pending.
