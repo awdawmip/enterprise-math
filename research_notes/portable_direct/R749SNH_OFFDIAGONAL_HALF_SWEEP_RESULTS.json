@@ -1,0 +1,94 @@
+{
+  "name": "R749SNH_OFF_DIAGONAL_T_HALF_S_SWEEP",
+  "scope": "fixed t=1/2, all real s in [3/5,1]",
+  "free_rho": "(2-s)/4 on [3/5,1]",
+  "calibrated_rho": "(3-2*s)/5 for [3/5,2/3]; (2-s)/4 for [2/3,1]",
+  "proof": "source witness pair gives diameter lower; calibrated event inequalities give stronger lower; complete joint vertex enumeration and convexity give universal upper",
+  "slabs": [
+    {
+      "six_facet_combinations": 210,
+      "nonsingular_bases": 125,
+      "feasible_bases": 24,
+      "distinct_vertices": 24,
+      "endpoint_counts": {
+        "3/5": 12,
+        "2/3": 12
+      },
+      "slab": [
+        "3/5",
+        "2/3"
+      ],
+      "checks": {
+        "free": {
+          "equality_vertices": 10,
+          "max_gap": "0",
+          "violations": 0
+        },
+        "cal_left": {
+          "equality_vertices": 8,
+          "max_gap": "0",
+          "violations": 0
+        }
+      }
+    },
+    {
+      "six_facet_combinations": 210,
+      "nonsingular_bases": 125,
+      "feasible_bases": 25,
+      "distinct_vertices": 15,
+      "endpoint_counts": {
+        "1": 2,
+        "2/3": 12
+      },
+      "slab": [
+        "2/3",
+        "1"
+      ],
+      "checks": {
+        "free": {
+          "equality_vertices": 8,
+          "max_gap": "0",
+          "violations": 0
+        },
+        "cal_right": {
+          "equality_vertices": 5,
+          "max_gap": "0",
+          "violations": 0
+        }
+      }
+    }
+  ],
+  "lower_sample_checks": [
+    {
+      "s": "1/2",
+      "distance": "3/4",
+      "rho_lower": "3/8"
+    },
+    {
+      "s": "3/5",
+      "distance": "7/10",
+      "rho_lower": "7/20"
+    },
+    {
+      "s": "5/8",
+      "distance": "11/16",
+      "rho_lower": "11/32"
+    },
+    {
+      "s": "2/3",
+      "distance": "2/3",
+      "rho_lower": "1/3"
+    },
+    {
+      "s": "3/4",
+      "distance": "5/8",
+      "rho_lower": "5/16"
+    },
+    {
+      "s": "1",
+      "distance": "1/2",
+      "rho_lower": "1/4"
+    }
+  ],
+  "status": "PASS"
+}
