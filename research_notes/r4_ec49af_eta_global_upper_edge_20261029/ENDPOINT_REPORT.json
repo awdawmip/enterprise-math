@@ -1,0 +1,27 @@
+{
+  "schema": "EC49AF_ENDPOINT_SKIP_COST_AUDIT_V1",
+  "eta": "1/4",
+  "support_direction": "alpha-(177/172)*beta",
+  "endpoint_prefixes": 288,
+  "b_zero_count": 144,
+  "b_one_sixteenth_count": 144,
+  "exact_prefix_X_support": "3461/33024",
+  "b_zero_relaxed_always_S_max": "27/256",
+  "b_zero_legal_max_after_optimal_skip": "168127/1618176",
+  "b_one_sixteenth_legal_max": "3461/33024",
+  "relaxed_b_zero_surplus_over_X": "11/16512",
+  "legal_b_zero_deficit_from_X": "17/18816",
+  "example_optimal_b_zero_endpoint": {
+    "stop_history": 0,
+    "B_history": 0,
+    "A_labels": [
+      0,
+      1,
+      0
+    ],
+    "B_label": 0,
+    "skip_loss": "635/404544"
+  },
+  "scope": "Finite 288 specified endpoint prefixes at this eta and r; not a universal all-real-prefix statement.",
+  "status": "AUTHOR_EXACT_FINITE_ENUMERATION / BIGINT_CHECK_PASS / UNREVIEWED / NOT_ADMITTED"
+}

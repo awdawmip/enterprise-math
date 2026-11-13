@@ -1,0 +1,117 @@
+{
+  "schema": "EC49AF_PARAMETRIC_PHASE_AND_GLOBAL_SHARP_EDGE_V1",
+  "checker": "JavaScript BigInt reduced rational arithmetic, executed from this identical function source",
+  "leaves_per_source": 18,
+  "stage_costs": [
+    "43/48",
+    "7/8"
+  ],
+  "source_eta_domain": "0<=eta<1/2 (analytic; exact representative computations)",
+  "thresholds": [
+    "1/34",
+    "23/82"
+  ],
+  "fixed_prefix_discrimination_formula": "59/576 + max(34 eta - 1,0)/576 + max(82 eta - 23,0)/1152",
+  "all_behavioral_protocol_sharp_upper_edge": "alpha_max(delta)=1-3 delta for every 0<=delta<=59/576, all eta in domain",
+  "samples": [
+    {
+      "eta": "0",
+      "positive_observation_atoms": 8,
+      "negative_observation_atoms": 10,
+      "zero_discrimination_atoms": 0,
+      "pure_negative_capacity": "59/576",
+      "extra_negative_capacities": [
+        "0",
+        "0"
+      ],
+      "fixed_prefix_max_discrimination": "59/576",
+      "fixed_prefix_upper_alpha_at_D": "133/192",
+      "global_sharp_upper_witness_delta": "59/576"
+    },
+    {
+      "eta": "1/200",
+      "positive_observation_atoms": 8,
+      "negative_observation_atoms": 10,
+      "zero_discrimination_atoms": 0,
+      "pure_negative_capacity": "59/576",
+      "extra_negative_capacities": [
+        "0",
+        "0"
+      ],
+      "fixed_prefix_max_discrimination": "59/576",
+      "fixed_prefix_upper_alpha_at_D": "133/192",
+      "global_sharp_upper_witness_delta": "59/576"
+    },
+    {
+      "eta": "1/34",
+      "positive_observation_atoms": 7,
+      "negative_observation_atoms": 10,
+      "zero_discrimination_atoms": 1,
+      "pure_negative_capacity": "59/576",
+      "extra_negative_capacities": [
+        "0",
+        "0"
+      ],
+      "fixed_prefix_max_discrimination": "59/576",
+      "fixed_prefix_upper_alpha_at_D": "133/192",
+      "global_sharp_upper_witness_delta": "59/576"
+    },
+    {
+      "eta": "1/20",
+      "positive_observation_atoms": 7,
+      "negative_observation_atoms": 11,
+      "zero_discrimination_atoms": 0,
+      "pure_negative_capacity": "59/576",
+      "extra_negative_capacities": [
+        "7/5760",
+        "0"
+      ],
+      "fixed_prefix_max_discrimination": "199/1920",
+      "fixed_prefix_upper_alpha_at_D": "387/640",
+      "global_sharp_upper_witness_delta": "59/576"
+    },
+    {
+      "eta": "23/82",
+      "positive_observation_atoms": 6,
+      "negative_observation_atoms": 11,
+      "zero_discrimination_atoms": 1,
+      "pure_negative_capacity": "59/576",
+      "extra_negative_capacities": [
+        "175/11808",
+        "0"
+      ],
+      "fixed_prefix_max_discrimination": "923/7872",
+      "fixed_prefix_upper_alpha_at_D": "1593/2624",
+      "global_sharp_upper_witness_delta": "59/576"
+    },
+    {
+      "eta": "1/3",
+      "positive_observation_atoms": 6,
+      "negative_observation_atoms": 12,
+      "zero_discrimination_atoms": 0,
+      "pure_negative_capacity": "59/576",
+      "extra_negative_capacities": [
+        "31/1728",
+        "13/3456"
+      ],
+      "fixed_prefix_max_discrimination": "143/1152",
+      "fixed_prefix_upper_alpha_at_D": "623/1152",
+      "global_sharp_upper_witness_delta": "59/576"
+    },
+    {
+      "eta": "499/1000",
+      "positive_observation_atoms": 6,
+      "negative_observation_atoms": 12,
+      "zero_discrimination_atoms": 0,
+      "pure_negative_capacity": "59/576",
+      "extra_negative_capacities": [
+        "887/32000",
+        "8959/576000"
+      ],
+      "fixed_prefix_max_discrimination": "373/2560",
+      "fixed_prefix_upper_alpha_at_D": "4319/7680",
+      "global_sharp_upper_witness_delta": "59/576"
+    }
+  ],
+  "status": "AUTHOR_PROVED / EXACT_BIGINT_SAMPLE_CHECK_PASS / UNREVIEWED / NOT_ADMITTED"
+}
