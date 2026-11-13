@@ -1,0 +1,178 @@
+{
+  "schema": "PREFIX602_R2_EXACT_NATIVE_BRC_MIXED_SOURCE",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "observer_scope": "48-dimensional post-first-step phase right-source; entire 48-phase state",
+  "axis_weights": [
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+  ],
+  "parameter_domain": "nonnegative real gate z; witness rank at z=1 and all z>=0 except z=1",
+  "symbolic_witnesses": [
+    {
+      "pair": [
+        0,
+        36
+      ],
+      "polynomial": "t*(t - 2)*(t + 2)",
+      "degree_nonunit": 3,
+      "minor_rows": [
+        0,
+        1,
+        7
+      ],
+      "lower_minor": "-8",
+      "degree_at_z1": 3,
+      "polynomial_at_z1": "t*(t - 2)*(t + 2)"
+    },
+    {
+      "pair": [
+        0,
+        18
+      ],
+      "polynomial": "t*(t - 2)*(t**2 + 4)",
+      "degree_nonunit": 4,
+      "minor_rows": [
+        0,
+        1,
+        7,
+        18
+      ],
+      "lower_minor": "64",
+      "degree_at_z1": 4,
+      "polynomial_at_z1": "t*(t - 2)*(t**2 + 4)"
+    },
+    {
+      "pair": [
+        0,
+        4
+      ],
+      "polynomial": "-t*(t - 2)*(t + 2)*(t**2 + 4)*(-t**4 + 4*z + 12)",
+      "degree_nonunit": 9,
+      "minor_rows": [
+        0,
+        1,
+        3,
+        4,
+        7,
+        17,
+        18,
+        25,
+        26
+      ],
+      "lower_minor": "8388608*(z - 1)**4*(z + 3)**4",
+      "degree_at_z1": 5,
+      "polynomial_at_z1": "t*(t - 2)*(t + 2)*(t**2 + 4)"
+    },
+    {
+      "pair": [
+        8,
+        11
+      ],
+      "polynomial": "-t**2*(t - 2)*(t**2 + 4)*(-t**4 + 4*z + 12)",
+      "degree_nonunit": 9,
+      "minor_rows": [
+        2,
+        3,
+        4,
+        5,
+        8,
+        14,
+        16,
+        17,
+        26
+      ],
+      "lower_minor": "-4194304*(z - 1)**4*(z + 3)*(z**2 + 10*z + 37)",
+      "degree_at_z1": 5,
+      "polynomial_at_z1": "t**2*(t - 2)*(t**2 + 4)"
+    }
+  ],
+  "complete_fixed_integer_gate_pair_census": [
+    {
+      "z": 1,
+      "total": 1128,
+      "degree_counts": {
+        "1": 120,
+        "3": 7,
+        "4": 30,
+        "5": 387,
+        "6": 584
+      },
+      "witness_pair_for_degree": {
+        "1": [
+          1,
+          3
+        ],
+        "3": [
+          0,
+          36
+        ],
+        "4": [
+          0,
+          18
+        ],
+        "5": [
+          0,
+          1
+        ],
+        "6": [
+          0,
+          8
+        ]
+      }
+    },
+    {
+      "z": 2,
+      "total": 1128,
+      "degree_counts": {
+        "1": 120,
+        "3": 6,
+        "4": 20,
+        "5": 326,
+        "6": 228,
+        "8": 16,
+        "9": 80,
+        "10": 332
+      },
+      "witness_pair_for_degree": {
+        "1": [
+          1,
+          3
+        ],
+        "3": [
+          0,
+          36
+        ],
+        "4": [
+          0,
+          18
+        ],
+        "5": [
+          0,
+          1
+        ],
+        "6": [
+          0,
+          9
+        ],
+        "8": [
+          2,
+          23
+        ],
+        "9": [
+          0,
+          4
+        ],
+        "10": [
+          0,
+          8
+        ]
+      }
+    }
+  ],
+  "exact_arithmetic": "SymPy Z[z] annihilator and minors; integer fraction-free rational rank",
+  "status": "AUTHOR_SIDE_EXACT_CHECK; INDEPENDENT_REVIEW_PENDING"
+}
