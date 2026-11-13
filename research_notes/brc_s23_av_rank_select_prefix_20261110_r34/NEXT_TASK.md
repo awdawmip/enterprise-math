@@ -1,0 +1,3 @@
+# R35 follow-on
+
+Derive source-range rank/select aggregating 225 R34 prefix events directly into four maximal constant-increment blocks while preserving source/owner evidence. Validate with m=128, n=128..389, the strict theta bounds from R34 and R389=(-7551,28800); then check the same 298 trillion-horizon runs after composing R33 quotient jumps and R32 bulk compiler. Next extend to a different irrational theta interval and a different historical count m, stating full bit-operation costs (input precision, interval sorting, Floor Sum calls, query selection, output recovery). Do not modify the frozen S23 science pin or claim independent theorem acceptance; retain the R34 source evidence and review debt.

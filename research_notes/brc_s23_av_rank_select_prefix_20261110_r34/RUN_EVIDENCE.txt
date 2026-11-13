@@ -1,0 +1,21 @@
+2026-11-10. Local Python 3 Fraction/exact-integer execution; no remote GitHub code-execution claim.
+COMMAND: python /mnt/data/em_r34/VERIFY_R34_PREFIX.py
+CERTIFIED regimes 3 risk oracle calls 6 positive events 225
+REGIME start=128 end=164 lower=27/103 upper=16/61 w_sources=36 amplitude=(16,-61), first=129 last=164
+REGIME start=165 end=225 lower=43/164 upper=16/61 w_sources=60 amplitude=(-43,164), first=166 last=225
+REGIME start=226 end=389 lower=43/164 upper=59/225 w_sources=127 amplitude=(-43,164), first=227 last=389
+PREFIX EXACT SEGMENTS [(129,164,(16,-61)),(165,292,(-43,164)),(293,328,(0,0)),(329,389,(-43,164))]
+R_389 (-7551,28800)
+PASS_R34_SOURCE_SELECTED_PREFIX_WITH_261_INDEPENDENT_PHASE_CHECKS
+
+COMMAND: python /mnt/data/em_r34/VERIFY_R34_INTEGRATION.py --r32 /mnt/data/em_r32/VERIFY_R32.py --r33 /mnt/data/em_r33_recovered/em_r33/VERIFY_R33.py --reference /mnt/data/em_r32/AFFINE_RUNS_R32.tsv
+INDEPENDENT_R32_COMPLETE_TSV_MATCH 298 of 298
+PREFIX 3 farey stages 6 exact risk endpoint calls 225 sourced events; 4 maximal prefix intervals
+JUMPS 28 certified quotient decisions; complete Farey stages 78
+BULK 148 positive blocks; complete affine segments 298
+FINAL_RISK (-4017401528447,15321634290944)
+R34_AFFINE_SHA256 2573a84999d53dfd1cce772c45a41abaff251da735171efe904c860f2b2294f6
+PASS_R34_NO_STEPWISE_PREFIX_END_TO_END_298
+
+DEPENDENCIES: unchanged R32 @87fdeff1cba7055f50a5fd8dadaad390476d9da1 and R33 @18d43c744aaed7041e5f7e87f98d278489b6aa57; R32 reference 298-row TSV attached from predecessor.
+SCOPE: author-side exact tests, no independent mathematical review. The complete 298 rows are reproduced byte-for-byte; caller must preserve immutable precursor source files to rerun integration.
