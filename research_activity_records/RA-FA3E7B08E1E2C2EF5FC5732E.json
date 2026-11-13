@@ -7,7 +7,37 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "1353a03177bb2c095495ce0de22d9bdedcc5dddb",
+          "path": "research_notes/brc_r5_radius_gap_codec_20261113/R5_CENTERS_56B.hex",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "fa434574dfc6a25d621b0f2ad7f67db287feff79ec8e403f8b6f0107534a5b5b",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "ad4b03c1fc07b1ac65476a23c1bd62f0bd45b645",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/1353a03177bb2c095495ce0de22d9bdedcc5dddb/research_notes/brc_r5_radius_gap_codec_20261113/R5_CENTERS_56B.hex",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "EM-R5-GAP-20261113-1050-HEX-CHECK",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-FA3E7B08E1E2C2EF5FC5732E/readbacks/a83d39f5642501d733eb8c611fb197b80310c7913f2422a832f674d67b8f7bb8.json",
+          "verification_receipt_sha256": "a83d39f5642501d733eb8c611fb197b80310c7913f2422a832f674d67b8f7bb8"
+        }
+      ],
+      "event_id": "EM-R5-RADIUS-GAP-CODEC-20261113-104920-PR2232",
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/318f61ec41e39bdf806ee8a56868df6b8e03d47c/journal/enterprise-math/2026-11-13/20261113T104920+0800-r5-radius-gap-codec-56byte-pr2232.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-13T02:48:29.178501+00:00",
   "registration_key": "session:MCP-f8f54ea97d504b9db27befa5d3951430:TASK_RESEARCH",
