@@ -1,0 +1,109 @@
+{
+  "canonical_promotion_granted": false,
+  "created_at": "2026-11-13T12:18:37.363789+00:00",
+  "decision": "EXISTING_PUBLISHED_TASK_BOUND",
+  "driver_id": "EM-DVR-G6K2P9",
+  "existing_task_pins": [
+    {
+      "publication_id": "TP2-B531F3BB4A597B7D3EAF",
+      "record_path": "research_task_records/RS-GEO6-SECONDWAVE-PACKING-KAKEYA-PRIOR-ART-SYNTHESIS/TP2-B531F3BB4A597B7D3EAF.json",
+      "record_sha256": "sha256:2c16fec56c0694d26d726bb982d1993c508daa2919ca1a2e91f426ac8d4506e7",
+      "task_id": "RS-GEO6-SECONDWAVE-PACKING-KAKEYA-PRIOR-ART-SYNTHESIS",
+      "taskbook_blob_sha1": "sha1:9f79310e03b0f6535ba5bb9ffbc397d3e3d3bd85",
+      "taskbook_path": "research_tasks/GEO6_SECONDWAVE_PACKING_KAKEYA_PRIOR_ART_EXACT_SET_RECONCILIATION_V3_20260830.md"
+    }
+  ],
+  "existing_task_publications": [
+    {
+      "publication_id": "TP2-B531F3BB4A597B7D3EAF",
+      "task_id": "RS-GEO6-SECONDWAVE-PACKING-KAKEYA-PRIOR-ART-SYNTHESIS",
+      "task_role": "INTEGRATION_OR_TOOL_HARVEST"
+    }
+  ],
+  "foundation_authority_granted": false,
+  "gate_decisions": [
+    {
+      "decision": "NOT_REVIEWED",
+      "evidence_refs": [],
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "reason": "Not reviewed."
+    },
+    {
+      "decision": "NOT_REVIEWED",
+      "evidence_refs": [],
+      "gate": "LEAN_FORMALIZATION",
+      "reason": "Not reviewed."
+    },
+    {
+      "decision": "NOT_REVIEWED",
+      "evidence_refs": [],
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "reason": "Not reviewed."
+    },
+    {
+      "decision": "NOT_REVIEWED",
+      "evidence_refs": [],
+      "gate": "INDEPENDENT_REPLICATION",
+      "reason": "Not reviewed."
+    },
+    {
+      "decision": "SATISFIED_BY_EXISTING_CONTROL_ASSET",
+      "evidence_refs": [
+        "research_task_records/RS-GEO6-SECONDWAVE-PACKING-KAKEYA-PRIOR-ART-SYNTHESIS/TP2-B531F3BB4A597B7D3EAF.json",
+        "research_tasks/GEO6_SECONDWAVE_PACKING_KAKEYA_PRIOR_ART_EXACT_SET_RECONCILIATION_V3_20260830.md",
+        "research_result_reviews/RR-547A186EBDE5EE6CD8A3/DR-CE3F008C48F9EBBFF9FA.json"
+      ],
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "reason": "The exact second-wave GEO6 Task was previously published and is DONE / ACCEPTED on the original native Task receipt. Preserve its publication, RR, DR, original authors and control history. Bind the previously ACCEPTED First-wave immutable review to that already published downstream Task without new task/review/claim or parent closure."
+    },
+    {
+      "decision": "NOT_REVIEWED",
+      "evidence_refs": [],
+      "gate": "ADVERSARIAL_AUDIT",
+      "reason": "Not reviewed."
+    }
+  ],
+  "materialization_publisher": {
+    "authority_record_id": "DA-2C461358FCCA215C8753",
+    "authority_record_path": "research_driver_authority_records/EM-DVR-DEBB5E/DA-2C461358FCCA215C8753.json",
+    "authority_record_sha256": "sha256:a875b3e8b1e2a9aafec562762448ba8dfbb5f0e702a935f9ad96a568f99c7e68",
+    "authority_source_body_sha256": "sha256:2385212ff1a7da725297ab269038cbb64156b17384ab3565cc653f45ec4dfc9e",
+    "authority_source_comment_id": 6770739073,
+    "driver_id": "EM-DVR-DEBB5E",
+    "schema": "ENTERPRISE_MATH_FOLLOWUP_PUBLISHER_BINDING_V1",
+    "session_id": "MCP-9b4714dc46b948afa4875a86c89c713c",
+    "source_result_record_path": "research_result_records/RS-GEO6-FIRSTWAVE-ACCEPTED-PRIOR-ART-SYNTHESIS/RR-547A186EBDE5EE6CD8A3.json",
+    "source_result_record_sha256": "sha256:84e2aba44acde34bef0cf8f1d094ef39a240bc01177b07a733a7a6023f5cb023",
+    "source_review_authority_id": "DR-CE3F008C48F9EBBFF9FA",
+    "source_review_authority_sha256": "sha256:7651fa495ace4f242ae2520228c3f37523d64146a240da6f8c86d63db14e0d7a",
+    "source_review_driver_id": "EM-DVR-G6K2P9",
+    "source_review_records": [
+      {
+        "record_path": "research_result_reviews/RR-547A186EBDE5EE6CD8A3/DR-CE3F008C48F9EBBFF9FA.json",
+        "record_sha256": "sha256:8c13ceaf5a27df63a58a7041ce1689590a1ea16f9cc36e99e0cd4ada22462c5b",
+        "review_id": "DR-CE3F008C48F9EBBFF9FA"
+      }
+    ]
+  },
+  "packet_id": "DFU-50F7EDE34308B2582CA3",
+  "parent_completion_granted": false,
+  "parent_final_granted": false,
+  "parent_objective_id": "OBJ-EXTERNAL-GEOMETRY-STRUCTURAL-TRANSFER-20260830",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "result_id": "RR-547A186EBDE5EE6CD8A3",
+  "review_destination_class": "FOLLOWUP_TASK",
+  "review_disposition": "ACCEPTED",
+  "review_id": "DR-CE3F008C48F9EBBFF9FA",
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "source_next_control_plane_recommendation": "Driver review the generation-3 writer-conformant zero-math-drift envelope. Preserve the 19 claim classifications, exact 3/10/3/3 totals, NO_MATERIAL_MATCH != NOVELTY_CERTIFICATE, and exactly four selector residues. Do not open selector mathematics or a stronger successor from this maintenance execution.",
+  "source_publication_id": "TP2-060468334E0934373496",
+  "supersedes_followup_packet": {
+    "packet_id": "DFU-E7CBFD0E9958AF25E942",
+    "record_path": "research_driver_followups/DR-CE3F008C48F9EBBFF9FA/DFU-E7CBFD0E9958AF25E942.json",
+    "record_sha256": "sha256:e70e40eede544742c326ab50ddd23a4d0a2a50eb43b3ab988ed45d69f7d7992d"
+  },
+  "task_completion_granted": false,
+  "task_id": "RS-GEO6-FIRSTWAVE-ACCEPTED-PRIOR-ART-SYNTHESIS",
+  "task_publications": [],
+  "working_truth_granted": false
+}
