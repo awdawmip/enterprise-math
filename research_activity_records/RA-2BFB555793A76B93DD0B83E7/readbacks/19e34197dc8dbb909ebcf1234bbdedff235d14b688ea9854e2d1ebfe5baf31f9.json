@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/PREFIX762_R6_MIXED_VARIANCE_CURVATURE_RESULTS_SUMMARY.json",
+    "ref": "5b063a8c06ffb928b95ceb70cd7cb970e17232c3",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r6-prefix762-summary-read-20261114",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"PREFIX762_R6_MIXED_VARIANCE_SIGN_REVERSAL_SUMMARY_V1\",\n  \"scientific_pin\": \"f42f2906d77f24085c123f3ccfe9667d41caa96d\",\n  \"source_result_filename\": \"PREFIX760_R6_EXACT_GAMMA_VARIANCE_RESULTS.json\",\n  \"source_result_sha256\": \"1a480a9a05c4773f82091037fa8f6b695855ffbb885b21e804d56fdc181d4e76\",\n  \"source_result_bytes\": 24743,\n  \"calculation\": \"Fraction exact algebra on original published deltaVar and deltaV2; deltaMu=2 deltaVar-deltaV2/2\",\n  \"verified_bounds\": [\n    \"deltaVar(0)>367\",\n    \"deltaVar(1/4)<-159\",\n    \"deltaVar(1/2)>-4\",\n    \"111<deltaMu(0)<112\",\n    \"0<deltaMu(1/2)<deltaMu(1/4)<deltaMu(0)\"\n  ],\n  \"negative_mixed_rectangle\": {\n    \"p\": [\n      \"0\",\n      \"1/4\"\n    ],\n    \"z\": [\n      \"0\",\n      \"1/4\"\n    ],\n    \"deltaVar_bound\": \"<-526\",\n    \"deltaVq_bound\": \"<-526q^2+112q<0 for q>56/263\",\n    \"deltaVar_display\": \"-527.252710710715\",\n    \"deltaMu_display\": \"-100.180677622301\",\n    \"deltaV2_display\": \"-1908.64948759826\"\n  },\n  \"positive_mixed_rectangle\": {\n    \"p\": [\n      \"0\",\n      \"1/4\"\n    ],\n    \"z\": [\n      \"1/4\",\n      \"1/2\"\n    ],\n    \"deltaVar_bound\": \">155\",\n    \"deltaVq_bound\": \">155q^2>0 for q>0\",\n    \"deltaVar_display\": \"155.797473822365\",\n    \"deltaMu_display\": \"-10.7598160302871\",\n    \"deltaV2_display\": \"644.709527350035\"\n  },\n  \"proof_status\": \"AUTHOR_EXACT_RATIONAL_REDUCTION / UNREVIEWED / NOT_ADMITTED\",\n  \"check_status\": \"ALL_CHECKS_PASS PREFIX762\",\n  \"scope\": \"External 189-layer independent two-Gamma-clock auxiliary; no native X6 transfer\"\n}\n",
+      "display_title": "PREFIX762_R6_MIXED_VARIANCE_CURVATURE_RESULTS_SUMMARY.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/5b063a8c06ffb928b95ceb70cd7cb970e17232c3/research_notes/portable_direct/PREFIX762_R6_MIXED_VARIANCE_CURVATURE_RESULTS_SUMMARY.json",
+      "encoding": "utf-8",
+      "sha": "dcc5e03260d34beb8fd895c27ee989e783f6efad"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
