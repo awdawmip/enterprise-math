@@ -1,0 +1,38 @@
+Run date: 2026-11-01 (+08). Actual execution of the exact VERIFY.js source in a V8 JavaScript runtime, followed by an independently implemented NumPy int32 vectorized Python checker. No floating-point evidence used.
+
+VERIFY.js:
+{
+  "status": "PASS_BRC_N4_S23_TENBANK_TERNARY_GRID_AND_EXACT_EDGE_20261101",
+  "grid_count": 177147,
+  "grid_values": [
+    0,
+    "1/2",
+    1
+  ],
+  "grid_max_TV": "1/2",
+  "grid_equal_half": 169441,
+  "grid_below_half": 7706,
+  "edge_rational_points_checked": 121,
+  "edge_formula": "min((1+t)/2,max(1-t,1/2))",
+  "unique_edge_peak_t": "1/3",
+  "edge_peak_TV": "2/3",
+  "witness_label_TV_numerators_over_120": [
+    120,
+    120,
+    120,
+    120,
+    120,
+    120,
+    84,
+    80,
+    80,
+    80
+  ]
+}
+
+VERIFY_INDEPENDENT.py actual stdout:
+PASS_INDEPENDENT_NUMPY_INTEGER_TERNARY_GRID
+policies=177147 max_TV=160/320=1/2 equal_half=169441 below_half=7706
+
+Interpretation: JS checks all 177147 grid policies and 121 edge values n/120, including t=1/3. Analytic edge proof holds for EVERY real t∈[0,1]; finite edge probes are a consistency check, not universal inference. Both independent programs agree on grid maximum and multiplicities. The specific frozen ten-kernel bank is disproved at radius 1/2 on the full continuous policy family. It does not disprove all possible ten-kernel banks.
+
