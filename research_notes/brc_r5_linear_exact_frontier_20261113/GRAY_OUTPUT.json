@@ -1,0 +1,43 @@
+{
+  "status": "PASS_GRAY_EXACT",
+  "frozen_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "all_events_identical": true,
+  "single_process": {
+    "median_build_ms": {
+      "baseline": 66.7286,
+      "recurrence": 8.3802,
+      "gray": 7.1197
+    },
+    "median_dp_ms": {
+      "baseline": 2.2933,
+      "recurrence": 2.3017,
+      "gray": 2.2581
+    },
+    "median_build_peak_allocated_bytes": {
+      "baseline": 228880,
+      "recurrence": 2181960,
+      "gray": 194376
+    }
+  },
+  "fresh_process_R2": {
+    "baseline": {
+      "median_build_ms_tracemalloc": 277.640561,
+      "median_pipeline_ms_tracemalloc": 358.962237,
+      "median_peak_allocated_bytes": 504626,
+      "median_maxrss_kb": 104476
+    },
+    "recurrence": {
+      "median_build_ms_tracemalloc": 69.230153,
+      "median_pipeline_ms_tracemalloc": 149.444312,
+      "median_peak_allocated_bytes": 2366900,
+      "median_maxrss_kb": 104476
+    },
+    "gray": {
+      "median_build_ms_tracemalloc": 68.479714,
+      "median_pipeline_ms_tracemalloc": 147.39672,
+      "median_peak_allocated_bytes": 458998,
+      "median_maxrss_kb": 104476
+    }
+  },
+  "experimental_scope": "event build and linear DP only; no full prefix-query trie"
+}
