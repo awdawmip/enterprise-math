@@ -2,7 +2,7 @@
 
 Date: 2026-11-14 (Asia/Shanghai). Status: author-side exact conditional theorem with reproducible finite verification; NOT an accepted native-physics result.
 
-Parent task: \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\`. Publication: \`TP2-8B7E13C5904A2D6F1142\`. Frozen scientific input: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\` (not modified). Predecessor: R762N, Draft PR #2310, research commit \`d73517ebad637d29e8fb541492ee0c09e4c95a4c\`. Applies P000's six native spatial axes, 12 signed directions and non-Euclidean \`PERP_E\`; does not introduce an extra spatial axis or equate a candidate sign-cube to real \`TRIADIC_CLOSURE_E\` admission.
+Parent task: `RS-X6-TRIADIC-CLOSURE-DYNAMICS`. Publication: `TP2-8B7E13C5904A2D6F1142`. Frozen scientific input: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389` (not modified). Predecessor: R762N, Draft PR #2310, research commit `d73517ebad637d29e8fb541492ee0c09e4c95a4c`. Applies P000's six native spatial axes, 12 signed directions and non-Euclidean `PERP_E`; does not introduce an extra spatial axis or equate a candidate sign-cube to real `TRIADIC_CLOSURE_E` admission.
 
 ## Model and explicit observer
 
@@ -58,10 +58,10 @@ For the weighted observer, Theorem 2 requires minimum degree \(r=1,2,3\). The sa
 * Four positive-weighted channels are minimal for **noiseless** full-law recovery, but have code distance one and cannot detect even a single unrestricted channel substitution.
 * Eight positive-weighted channels provide **one-error detection**; twelve provide **one-error correction**. The two-square weighted 2-factor is valid despite being disconnected: endpoint recovery is local, unlike unweighted parity-equivalence recovery.
 * Seven unweighted channels retain the exact 255-class quotient, but cannot recover which of the two global parity laws generated the same signature. Error correction of the *quotient signature* is not the recovery of the full triad incidence law.
-* These are sharp finite candidate-model theorems, not verification that 256 candidate incidence laws are legal native events. A true P000 \`TRIADIC_CLOSURE_E\` and V29/V39 update could restrict the input alphabet or create temporal correlations; recompute the code on that actual legal subset.
+* These are sharp finite candidate-model theorems, not verification that 256 candidate incidence laws are legal native events. A true P000 `TRIADIC_CLOSURE_E` and V29/V39 update could restrict the input alphabet or create temporal correlations; recompute the code on that actual legal subset.
 
 ## Exact reproducibility and frontier
 
-The sibling executable \`research_artifacts/R762O_CHANNEL_ROBUSTNESS.py\` exhausts all \(2^{12}=4096\) edge masks, all 127 canonical proper vertex cuts, minimum degrees, exact extremizer counts, and pairwise Hamming distances on witness configurations across all \(2^8=256\) Boolean laws. All arithmetic uses Python exact integers and Boolean tuples. The companion JSON holds the counts, witness indices and result of the independent brute-force distance check. No stochastic estimate, physics calibration, review acceptance or native execution is asserted.
+The sibling executable `research_artifacts/R762O_CHANNEL_ROBUSTNESS.py` exhausts all \(2^{12}=4096\) edge masks, all 127 canonical proper vertex cuts, minimum degrees, exact extremizer counts, and pairwise Hamming distances on witness configurations across all \(2^8=256\) Boolean laws. All arithmetic uses Python exact integers and Boolean tuples. The companion JSON holds the counts, witness indices and result of the independent brute-force distance check. No stochastic estimate, physics calibration, review acceptance or native execution is asserted.
 
 **Next discriminating question:** extract an actual legal, source-typed P000 triadic event set \(L\subseteq\{0,1\}^8\) together with its Cell/Link/Port and event ledger. Determine the observer-code distances \(\min_{a\ne b\in L}\operatorname{dist}(U_F(a),U_F(b))\) and \(\min_{a\ne b\in L}\operatorname{dist}(W_F(a),W_F(b))\), including any V29/V39 time-indexed observations and legality of successive events. The present robustness lower bounds are for the full explicitly stated candidate alphabet and must not be silently promoted to the native one.
