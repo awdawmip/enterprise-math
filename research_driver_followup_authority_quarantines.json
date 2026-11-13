@@ -478,6 +478,42 @@
       "foundation_authority_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
+    },
+    {
+      "packet_id": "DFU-5B8E1C72A094D63F2A41",
+      "review_id": "DR-5A1D83F27C4E906B2F71",
+      "result_id": "RR-13ED25CE1AA8899BCFEC",
+      "packet_path": "research_driver_followups/DR-5A1D83F27C4E906B2F71/DFU-5B8E1C72A094D63F2A41.json",
+      "packet_blob_sha1": "sha1:be39dd48b2b9ba3662f2164248537ed940a6989a",
+      "state": "NONOPERATIONAL_SOURCE_REVIEW",
+      "operational": false,
+      "history_preserved": true,
+      "source_review_basis": "DRIVER_REVIEW_AUTHORITY",
+      "isolation_kind": "PACKET_AND_DERIVED_TASKS",
+      "expected_post_review_isolation_error": "packet references unknown review",
+      "derived_task_publications": [
+        {
+          "task_id": "RS-N-COUPLED-CRT-PRODUCT-NATURALITY-BREAK-WITHOUT-SUPPORT-EXPOSURE",
+          "publication_id": "TP2-6D4A8F21C903B75E1A42",
+          "publication_record_path": "research_task_records/RS-N-COUPLED-CRT-PRODUCT-NATURALITY-BREAK-WITHOUT-SUPPORT-EXPOSURE/TP2-6D4A8F21C903B75E1A42.json",
+          "publication_record_blob_sha1": "sha1:5d637c46cc23abda9dfb22f9ee944260257a38a8",
+          "taskbook_path": "research_tasks/N_COUPLED_CRT_PRODUCT_NATURALITY_BREAK_WITHOUT_SUPPORT_EXPOSURE_20260830.md",
+          "taskbook_blob_sha1": "sha1:4c9d0d6244103a1bcc60e1d73c58afec68309376"
+        },
+        {
+          "task_id": "RS-N-COUPLED-NONRING-SINGULARIZATION-PRIOR-ART-AUDIT",
+          "publication_id": "TP2-B3E71C5A80D49F26A164",
+          "publication_record_path": "research_task_records/RS-N-COUPLED-NONRING-SINGULARIZATION-PRIOR-ART-AUDIT/TP2-B3E71C5A80D49F26A164.json",
+          "publication_record_blob_sha1": "sha1:4a7916f240cb539104d9a88a32d11cc31fb15dab",
+          "taskbook_path": "research_tasks/N_COUPLED_NONRING_SINGULARIZATION_PRIOR_ART_AUDIT_20260830.md",
+          "taskbook_blob_sha1": "sha1:8291ff1cf340484c822d78d5f96738674e883848"
+        }
+      ],
+      "reason": "The source Driver review DR-5A1D83F27C4E906B2F71 is exact-pinned as INVALID_DRIVER_AUTHORITY. This DFU and two active generation-1 publications were materialized from that one nonoperational review. Preserve the immutable historical review, packet, taskbooks, publications, author contributions, activity and Results; withhold only the derived operational control authority until a new independently valid review and publication chain is established. No historical disposition rewrite or mathematical acceptance is granted.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
     }
   ]
 }
