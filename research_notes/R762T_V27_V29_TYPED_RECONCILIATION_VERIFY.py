@@ -104,6 +104,27 @@ def main():
     assert sum(calc_u(cells['B']['M'],cells['B']['Ri'],cells['B']['Ro']))==-1
     assert charge()==0
 
+    # Check the universal sharp minimum formula on 729 small 3-port
+    # (Omega,u) signatures embedded in the fourth inactive port.
+    general_tests=0
+    for values in itertools.product((-1,0,1), repeat=3):
+        omg=matrix()
+        for (i,j),q in zip(((0,1),(0,2),(1,2)),values):
+            omg[i][j]=q
+            omg[j][i]=-q
+        for uv in itertools.product((-1,0,1),repeat=3):
+            target=list(uv)+(0,)
+            cm=[[max(omg[i][j],0) for j in range(N)] for i in range(N)]
+            assert all(cm[i][j]-cm[j][i]==omg[i][j]
+                       for i in range(N) for j in range(N))
+            rr,ss,wg=min_boundary(cm,target)
+            assert tuple(calc_u(cm,rr,ss))==target
+            passes=sum(abs(omg[i][j]) for i in range(N) for j in range(i+1,N))
+            transfers=sum(abs(v) for v in wg)
+            assert sum(map(sum,cm))+sum(rr)+sum(ss)==passes+transfers
+            general_tests+=1
+    assert general_tests==729
+
     evidence={
         "schema":"EM_R762T_V27_V29_RECONCILIATION_EXACT_V1",
         "arithmetic":"exact nonnegative integer V29 PASS/TRANSFER",
@@ -123,6 +144,8 @@ def main():
         "local_cycle_orientations_tested":cycles,
         "coordinate_minimality_target_values_tested":coordinate_tests,
         "common_mode_shifts_checked":3**N,
+        "general_small_skew_target_cases_tested":general_tests,
+        "general_minimum_v27_primitive_events":22,
         "checks":"PASS",
         "not_tested":"physical TRIADIC_CLOSURE_E admission, actual V17 frame connection, V27 20-triad scoring implementation",
     }
