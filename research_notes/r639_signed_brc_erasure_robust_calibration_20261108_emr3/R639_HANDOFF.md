@@ -1,0 +1,9 @@
+# R639 author handoff — six-axis Smith and erasure-robust calibration
+
+Scientific input: frozen R462 @ \`18783e01e3646c72b7aab3b16d3f565e83e6446f\`; direct predecessor R638 @ \`496a84ba9e00089d443d560cc8e3da1863b422e5\`. Auxiliary static signed BRC observer \`c=(0,5,1,2,3,4)\`. No P000/worldview modifications.
+
+Result: for rank q=1..6 polynomial nuisance, q reference axes S recover the full q-component background modulo5 from per-coefficient mod \`5^N\` measurements iff \`N=2\` when both axes 1,2 selected, else \`N=1\`. Full Smith statement for any integer full-column-rank C: minimum N is \`1+max_i v_5(s_i)\`; determinant valuation may overestimate. Across 63 sets there are 47 mod5 and 16 mod25 cases, with 16 explicit integer polynomial kernels certifying mod5 failure. Single-erasure robust q+1 reference layouts classified exactly, including q=4's two optimal 5-reference sets and q=5's six-reference mod25 solution.
+
+Validation: local stdlib \`python R639_REPRODUCE.py\` -> \`R639_VANDERMONDE_ERASURE_EXACT_PASS\`; 2,112 coefficient reconstruction checks, 186 erasure cases, 136,080 BRC orientation-signature checks. Analytical proofs in \`R639_PROOF.zh-CN.md\`, machine-readable evidence in \`R639_EVIDENCE.json\`.
+
+Exact next scientific task: locate actual source-native X6 field/channel operator and its matched background observer, derive **its real** nuisance coupling C and test one state update's signed branch/path/holonomy provenance. The fixed c above is an auxiliary observation design, not extracted from the real operator. Author-side draft; pending independent Driver review and canonical admission. Native CLAIM and owner must be read independently.

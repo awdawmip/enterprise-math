@@ -1,0 +1,16 @@
+R549 2026-11-05 exact Python3 Fraction run
+Command: python3 R549_VERIFY.py
+Results:
+k=5 cone_ok ; slope lower >7/6, upper <5/4
+k=6 cone_ok ; slope lower >7/6, upper <5/4
+k=7 cone_ok ; slope lower >7/6, upper <5/4
+k=8 cone_ok ; slope lower >251/200, upper <4/3
+k=9 cone_ok ; slope lower >251/200, upper <4/3
+k=10 cone_ok ; slope lower >251/200, upper <4/3
+pi_exact_bracket_OK
+tan(2pi/7) exact rational enclosures: approx (1.253899174976723,1.2539605348716325)
+tan(3pi/11) exact rational enclosures: approx (1.1540085974240517,1.1540616907583332)
+tan(3pi/10) exact rational enclosures: approx (1.3763096608707868,1.3763821545001629)
+small_rational_rotations: [(1,7),(2,13),(2,15),(3,19),(3,20),(3,22),(3,23),(4,25),(4,27),(4,29)]
+R549_EXACT_7_OVER_15_DENSITY_CERT_PASS
+Tool: local Python3 exact fractions. Upstream R543–R547 complex root existence and moduli are inherited certificates, not rerun here. This file records the exact tests' successful run; the fractions are reproducible by R549_VERIFY.py.

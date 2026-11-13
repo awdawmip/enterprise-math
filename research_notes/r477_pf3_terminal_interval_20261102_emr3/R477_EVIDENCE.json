@@ -1,0 +1,70 @@
+{
+  "arithmetic": "Python Fraction + integer minors; no floats",
+  "classification_stream_sha256": "b6bcc35c653c68fd0cfc1c5f775aa576362ef0f9900e8dd20987a4788eb7e0c5",
+  "compared": [
+    "R477 exact rational interval test",
+    "R474 local PF3 test",
+    "all minors of order <=3 in leading (L+2)x(L+2) Toeplitz block"
+  ],
+  "domain": "positive integer coefficient tuples of length 3..6, each entry in {1,2,3}",
+  "endpoint_checks": {
+    "above_D3_2": "-71",
+    "above_t": "10",
+    "lower_D3_2": "0",
+    "lower_repair_t": "1/36",
+    "upper_D3_2": "0",
+    "upper_coefficients": [
+      "1",
+      "5",
+      "9",
+      "9"
+    ],
+    "upper_t": "9"
+  },
+  "general_real_theorem_basis": "symbolic proof, not finite enumeration",
+  "minor_checks_until_first_negative_or_complete": 106681,
+  "not_pf3": 1069,
+  "per_length": {
+    "3": {
+      "pf3": 9,
+      "tested": 27
+    },
+    "4": {
+      "pf3": 2,
+      "tested": 81
+    },
+    "5": {
+      "pf3": 0,
+      "tested": 243
+    },
+    "6": {
+      "pf3": 0,
+      "tested": 729
+    }
+  },
+  "pf3": 11,
+  "rescue_example": {
+    "appended_t": "1/30",
+    "full_D3_2": "1/360",
+    "full_D3_3": "1/5400",
+    "lower_bound": "1/36",
+    "prefix": [
+      "1",
+      "1",
+      "1/2",
+      "1/6"
+    ],
+    "prefix_D3_2": "-1/72"
+  },
+  "status": "R477_EXACT_PASS",
+  "tested": 1080,
+  "truncated_exponential_example": {
+    "D3_2": "-1/72",
+    "prefix": [
+      "1",
+      "1",
+      "1/2",
+      "1/6"
+    ]
+  }
+}

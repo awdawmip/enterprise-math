@@ -1,0 +1,7 @@
+# R447 portable continuation / owner-side handoff
+
+Current result: signed BRC auxiliary scalar, every odd r>=99: all 2625 contiguous-row Toeplitz minors of orders 1..3 with column subset of 0..24 strictly positive; equivalently via R441 Schur-LR, the top-left 25x25 Toeplitz block is TN3. Exact symbolic integer coefficient proof executed in R447_VERIFY.py, summary R447_EVIDENCE.json, exposition R447_PROOF.zh-CN.md.
+
+Do not repeat R442–R445 finite-r enumeration or R446 width-8 certificate. R447 widens the parameter-uniform window 8 -> 24. Next mathematical question: derive a bound for j<=alpha*r with alpha>0, or find a triple-column negative minor beyond this window, with signed BRC inputs and exact arithmetic; distinguish contiguous-row and arbitrary minors. Treat all unverified infinite-width claims as OPEN.
+
+Scientific status: author-side / UNREVIEWED / NOT_ADMITTED; native research profile authority_granted=false; active owner service read returned CONTROL_QUOTA on this turn. This contribution does not create a live task CLAIM, review, native execution identity or new activity registration. Retain exact Source owner/current publication authority. No P000/ACTIVE worldview edit. Current authenticated GitHub account: awdawmip. Source pins: GLOBAL_KNOWLEDGE_V1 main@2639f7f151f9a56762bb8adc2b49c77594370e18, EM main@4d349d63a10612d9e196f49791bd5946c6dd9bba; predecessor R446 PR head c3d314b33347f794bbb3b9132ed698014869c2ac.

@@ -1,0 +1,156 @@
+{
+  "schema": "R455_AUTHOR_SIDE_EXACT_CERTIFICATE_V1",
+  "date": "2026-11-01",
+  "source": {
+    "signed_model": "R454_PROOF.zh-CN.md",
+    "source_commit": "5ee2a81ccea8af95a92cae0bcbe008c04d1083f0",
+    "global_knowledge_snapshot": "0535430c6666f6bc032014cb0ca309e3c1ea632c",
+    "enterprise_math_main_snapshot": "c81693f40e81c1d640d4dd0caa54a680a93bce0a"
+  },
+  "method": "Exact integer polynomial positive coefficients of P2 and P3 at u=k-k0>=0; no floating point. Independent polynomial Desnanot-Jacobi checks and raw signed-vs-Catalan crosschecks.",
+  "s_range": [
+    141,
+    150
+  ],
+  "result": "R455_EXACT_PASS",
+  "total_positive_coefficients": 14570,
+  "polynomials_verified": 20,
+  "condensation_checks": 10,
+  "raw_signed_Catalan_crosschecks": 100,
+  "rows": [
+    {
+      "s": 141,
+      "k0": 71,
+      "min_r": 143,
+      "degrees": [
+        564,
+        846
+      ],
+      "checked_positive_coefficients": 1412,
+      "condensation_identity": "PASS",
+      "raw_Catalan_crosschecks": 10,
+      "coefficients_sha256": "63294d4797e6f4b415a9ffac1186706aba39ec1164ac96a7a0ea6841fd70dec4"
+    },
+    {
+      "s": 142,
+      "k0": 72,
+      "min_r": 145,
+      "degrees": [
+        568,
+        852
+      ],
+      "checked_positive_coefficients": 1422,
+      "condensation_identity": "PASS",
+      "raw_Catalan_crosschecks": 10,
+      "coefficients_sha256": "b3d0ee77b4a00f7249e3072b9fbad7f8b04571ff91cbf6d7692fd762f23118cf"
+    },
+    {
+      "s": 143,
+      "k0": 72,
+      "min_r": 145,
+      "degrees": [
+        572,
+        858
+      ],
+      "checked_positive_coefficients": 1432,
+      "condensation_identity": "PASS",
+      "raw_Catalan_crosschecks": 10,
+      "coefficients_sha256": "1806bafdfc41d2a4a3ab5ca361e1c6a426cac9cc785d5c069a061ce04734ba52"
+    },
+    {
+      "s": 144,
+      "k0": 73,
+      "min_r": 147,
+      "degrees": [
+        576,
+        864
+      ],
+      "checked_positive_coefficients": 1442,
+      "condensation_identity": "PASS",
+      "raw_Catalan_crosschecks": 10,
+      "coefficients_sha256": "1a74b21431309dcac5b7057c84134286428d0a9087ca84e9367ce7d157ab2e8b"
+    },
+    {
+      "s": 145,
+      "k0": 73,
+      "min_r": 147,
+      "degrees": [
+        580,
+        870
+      ],
+      "checked_positive_coefficients": 1452,
+      "condensation_identity": "PASS",
+      "raw_Catalan_crosschecks": 10,
+      "coefficients_sha256": "a6b294f4999a943e0a4f2d0d24d82dcae1f0d94610ff03fe988ecd5dee1f4667"
+    },
+    {
+      "s": 146,
+      "k0": 74,
+      "min_r": 149,
+      "degrees": [
+        584,
+        876
+      ],
+      "checked_positive_coefficients": 1462,
+      "condensation_identity": "PASS",
+      "raw_Catalan_crosschecks": 10,
+      "coefficients_sha256": "a9c9a84c42381df96ce26a70788305f3d38777f899b4a5cf91e9792803ed46da"
+    },
+    {
+      "s": 147,
+      "k0": 74,
+      "min_r": 149,
+      "degrees": [
+        588,
+        882
+      ],
+      "checked_positive_coefficients": 1472,
+      "condensation_identity": "PASS",
+      "raw_Catalan_crosschecks": 10,
+      "coefficients_sha256": "aead236f3386f1b109121def1794a9db17806d90d085ebd94d7498f9f519c346"
+    },
+    {
+      "s": 148,
+      "k0": 75,
+      "min_r": 151,
+      "degrees": [
+        592,
+        888
+      ],
+      "checked_positive_coefficients": 1482,
+      "condensation_identity": "PASS",
+      "raw_Catalan_crosschecks": 10,
+      "coefficients_sha256": "b422accd5a0c9b72d4880a77cec825aaef00784d653217ac6a2b13ebda85f6ec"
+    },
+    {
+      "s": 149,
+      "k0": 75,
+      "min_r": 151,
+      "degrees": [
+        596,
+        894
+      ],
+      "checked_positive_coefficients": 1492,
+      "condensation_identity": "PASS",
+      "raw_Catalan_crosschecks": 10,
+      "coefficients_sha256": "3c4e7ca76e25e30579537a662fa8eb9dedf456bdbcf64ddb3ef8da15cd9fbb24"
+    },
+    {
+      "s": 150,
+      "k0": 76,
+      "min_r": 153,
+      "degrees": [
+        600,
+        900
+      ],
+      "checked_positive_coefficients": 1502,
+      "condensation_identity": "PASS",
+      "raw_Catalan_crosschecks": 10,
+      "coefficients_sha256": "4c502636742b3602847f657d16164422c1b0fc912a2095f1ec3f605b2e30eb03"
+    }
+  ],
+  "reproduction": "python R455_VERIFY.py 141 150 (writes R455_EVIDENCE.json in current directory); stored records are from completed chunked runs 141; 142..144; 145..146; 147..148; 149..150. A timed-out attempted larger chunk had only its completed printed rows counted.",
+  "mathematical_scope": "Every integer s=141..150 and all integer k >= floor((s+2)/2); consecutive Toeplitz minors D2_s,D3_s strictly positive in signed BRC auxiliary scalar model.",
+  "admission": "AUTHOR_SIDE_EXACT_SYMBOLIC / REGISTER_PENDING / DRIVER_UNREVIEWED / NOT_ADMITTED",
+  "owner_status": "Native directed context authority_granted=false; one em_control_tasks read returned CONTROL_QUOTA. No owner confirmed."
+}

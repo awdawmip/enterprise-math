@@ -1,0 +1,42 @@
+{
+  "status": "R535_EXACT_JS_PASS",
+  "scientific_pin": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "order": 58,
+  "degree_max": 348,
+  "identity_points": 349,
+  "interpolant_degree": 115,
+  "sign_blocks": [
+    {
+      "from": 1,
+      "to": 4,
+      "sign": "+"
+    },
+    {
+      "from": 5,
+      "to": 6,
+      "sign": "-"
+    },
+    {
+      "from": 7,
+      "to": 13,
+      "sign": "+"
+    },
+    {
+      "from": 14,
+      "to": "infinity",
+      "sign": "-"
+    }
+  ],
+  "tail_origin": 14,
+  "tail_sign": "-",
+  "tail_newton_count": 116,
+  "all_tail_newton_strictly_negative": true,
+  "direct_Bareiss_checks": 20,
+  "original_H_B_crosschecks": 1160,
+  "full_coefficient_grid_checks": 20591,
+  "independent_status": "R535_INDEPENDENT_PASS",
+  "independent_raw_determinants": 12,
+  "independent_H_B_crosschecks": 472,
+  "independent_tail_coefficients": 116,
+  "rebuild": "node R535_VERIFY.js > R535_EVIDENCE.json && python R535_INDEPENDENT.py > R535_INDEPENDENT_EVIDENCE.json"
+}

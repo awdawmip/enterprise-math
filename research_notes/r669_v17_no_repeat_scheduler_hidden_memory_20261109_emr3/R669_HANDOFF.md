@@ -1,0 +1,9 @@
+# R669 author-side continuation | 2026-11-09 Asia/Shanghai
+
+Task: RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW. Frozen scientific source: R462@18783e01e3646c72b7aab3b16d3f565e83e6446f. Predecessors R667@06c496b74ae5027967f52b8f0119274e4be084b2 and R668@7346127d953d3bed2e53d65490dc4989055b65f8.
+
+**Completed unit:** A finite regular language forbids consecutive equal blocks from the R667 V17 legal base-012 reflection closures A,B. At counts (m,n), legal words exist iff |m-n|≤1, with unique word when unequal and two when m=n>0. At m=n=q, exact full transports are r^(-q),r^q; they coincide iff 3|q. The first nontrivial collision q=3 gives two histories with equal complete directed histograms, equal terminal V17 active triad, and equal entire S3 frame, but opposite terminal block label. Their legal next-block sets differ, so storing the last block label is an exact minimal repair for this language observer. The product (h,last) with partial rule (h,ell)->(h*g_x,x) iff ell is initial or x!=ell is future-complete for the declared scheduler.
+
+**Proof and evidence:** R669_PROOF.zh-CN.md and R669_VERIFY.py, R669_EVIDENCE.json. Exact 121 count vectors 0..10² and 41 allowed words tested; analytic proof for arbitrary finite m,n. This is a different constrained auxiliary scheduler—not yet validated as native H/V27/V30. Author-side unreviewed and outside any formal task CLAIM.
+
+**Next:** extract actual V29 port relation H and native V27/V30 event-time restriction, then test on shared-cell two-loop X6 network and compute true future-equivalence classes of signed ledger × S3 frame × scheduler. Keep source exposure, independent time and P000; next Driver review through authorized Source path.

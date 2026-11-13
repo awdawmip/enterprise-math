@@ -1,0 +1,46 @@
+{
+  "schema": "R457_SIGNED_BRC_RIGHT_EDGE_EXACT_CERT_V1",
+  "s_range": [
+    157,
+    158
+  ],
+  "input_git_revision": "12deaa67dc16d629e1cae3cb29fda351a2eaa849",
+  "per_s": [
+    {
+      "s": 157,
+      "k0": 79,
+      "r_min": 159,
+      "deg2": 628,
+      "deg3": 942,
+      "coefficients": 1572,
+      "nonpositive": 0,
+      "polynomial_stream_sha256": "aa234c8c301ba38e74bd3599c2c3f4f289fa0e105c816ef9f77aff08eaaba0a2",
+      "check": "R457_EXACT_PASS"
+    },
+    {
+      "s": 158,
+      "k0": 80,
+      "r_min": 161,
+      "deg2": 632,
+      "deg3": 948,
+      "coefficients": 1582,
+      "nonpositive": 0,
+      "polynomial_stream_sha256": "8e5b2e2e0cc1e5fcf332dc8d8e9f7201ac065c15dbf2228b7585c76fd1697ea4",
+      "check": "R457_EXACT_PASS"
+    }
+  ],
+  "total_coefficients_exact_positive": 3154,
+  "condensation_polynomial_identities_exact": 2,
+  "source_crosscheck_inputs": 20,
+  "row_r181": {
+    "positive_a": 180,
+    "positive_D2": 180,
+    "positive_D3": 180,
+    "raw_checks": 10,
+    "alternating_checks": 10,
+    "integer_stream_sha256": "959b66547b21701fc5168e50309853cf7bd5e2296617752654ff9c2203ae395f",
+    "check": "R457_ROW_EXACT_PASS"
+  },
+  "computational_semantics": "Python arbitrary-precision integer polynomial arithmetic; no floating-point sign tests",
+  "status": "AUTHOR_SIDE_SYMBOLIC / DRIVER_UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING"
+}

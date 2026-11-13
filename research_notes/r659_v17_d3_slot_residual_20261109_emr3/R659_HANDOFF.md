@@ -1,0 +1,12 @@
+# R659 researcher handoff — complete D3 labelled-slot residual
+
+Date: 2026-11-09 Asia/Shanghai. Task: RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW; immutable publication TP2-47D65B35A7D48082EFBB. Author-side only; Native Researcher EM-X6-C09471, activity RA-15C59A0720E4E40526EB4D0D; no formal CLAIM, independent Driver review or theorem promotion. R657 predecessor frozen commit 46f632eaf8d699cd4b5488cadec4c754f7b13bbc. Inputs R462@18783e01e3646c72b7aab3b16d3f565e83e6446f; V23/V27/V17/V29@b62110008321d9147212cb89f2627ff613c2550d.
+
+Read R659_PROOF.zh-CN.md and execute python3 R659_VERIFY.py. Python stdlib integer-only verification. Self-contained script writes expanded R659_EVIDENCE.json and checks 36 S3 composition identities, 54 V17 position-insertion transitions and exhaustive 256 x-seeds times 24 permutations of 4 distinct transfers, 6144 words, 1161 with strictly unique V27 maxima.
+
+Core: V17 labelled-slot permutation sigma is S3=D3. Unique encoding sigma=rho^r tau^p, r mod3 and p mod2, with product (r,p)*(s,q)=(r+(-1)^p s mod3,p xor q). R658 parity bit p is sufficient only for parity-specific output. Full slots need the three-state r component for arbitrary labelled-slot observations. Under identical future strict event words from two histories with equal ledgers and active triads, relative slot assignment Delta=sigma_B sigma_A^-1 is an exact invariant; an even non-identity Delta persists.
+
+Four-event strict counterexample:
+x seed PASS counts (2,0,0,0), y seed (3,3,3,3); event alphabet e0=(0,0),e1=(1,1),e2=(2,2),e3=(3,3), each used once; A=(e2,e0,e3,e1), B=(e3,e0,e2,e1). Both final full V29 ledgers, source-receiver pairing histograms and triads x=245/y=024 agree, both x parities odd, y parities even. Yet x slots A=(0,2,1) with D3 (2,1), B=(1,0,2) with D3 (0,1); y slot both (1,2,0). Per-event strictly unique V27; x gaps 1,1,1,1; y gaps 3,1,9,2. Observed maximum same-final-triad-and-parity full-slot fiber is 2 only on bounded stated domain.
+
+Remaining: inspect actual permitted native H/K, V28 and V30 event-time semantics. For full-slot observer determine smallest sufficient (Q34, triads, D3 residue, paired transfers and/or current path state); test non-Abelian residual transport with >2 cells, exact shared suffix and rotation-covariance. No new P000 changes or physical calibration claim. The existing project PR #1708 is the handoff; do not merge/claim without separate authority.

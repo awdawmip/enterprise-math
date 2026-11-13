@@ -1,0 +1,39 @@
+{
+  "schema": "EM_R393_AUTHOR_SIDE_SUMMARY_V1",
+  "r": 21,
+  "status": "AUTHOR_SIDE_EXACT_UNREVIEWED_NOT_ADMITTED",
+  "parameter_domain": "theta > -1",
+  "pf2_iff": "-1<theta<=eta21",
+  "eta21_bracket": [
+    "1864125/1000000",
+    "1864126/1000000"
+  ],
+  "eta21_display": "1.8641253972675944",
+  "secondary_T21_root_bracket": [
+    "1869125/1000000",
+    "1869126/1000000"
+  ],
+  "c42_identity": "24466267020*(30-16theta)^42",
+  "coefficient_count": 43,
+  "turan_count": 41,
+  "point_crosschecks": 588,
+  "bernstein_certificates": 88,
+  "subintervals": 97,
+  "bernstein_calls": 97,
+  "positive_controls": 5078,
+  "max_depth": 9,
+  "polynomial_sha256": "8790c7ac57dbce675efe10727cbd970c99a913b12ae1f955bfdf06bd0fd251f8",
+  "certificate_sha256": "aa5842f9112fdb058afacb664a58e25c92280d95ba1b8be17f4dcd70cff53f80",
+  "evidence_json_sha256": "5e0e7aaa54794e44d6a2ad0db04005b2960d528175addfc9ded26c6aa40985a6",
+  "theta_15_8": {
+    "zero_coefficients": "c22..c42",
+    "negative_coefficients": [
+      "c20",
+      "c21"
+    ]
+  },
+  "source_commit": "ebaaf4397c72d65ec052d67ce1d1a9a24dc5e412",
+  "verification": "R393_SYMBOLIC_PASS / R393_EXACT_PASS",
+  "limits": "finite signed K3 BRC D/Newton observation only; unreviewed and not admitted",
+  "next": "r22 finite PF2 or uniform in r scaling near theta=15/8"
+}

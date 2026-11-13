@@ -1,0 +1,9 @@
+# R657 portable handoff
+
+2026-11-09 Asia/Shanghai; parent RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW; author-side unreviewed; predecessor R656@0f551501e53c0608ce65f1e2bd5e8842edf89bfa; signed science R462@18783e01e3646c72b7aab3b16d3f565e83e6446f; operator V29/V27/V17@b62110008321d9147212cb89f2627ff613c2550d.
+
+New exact result: unique aggregate mincost transfer repair may produce identical complete V29 ledgers, full R648 source-target pair matrix, same terminal triads and same final signed V27 scores but different V17 slot parity if ordered events differ. Witness: x PASS counts (0,1,3,0), y (3,3,3,3), Sx=Sy=012 with identity slots. H={(0,0),(1,1),(2,2)}. A=(00,11,22) and B=(11,00,22), both strict. Final x=034 slots A=(1,2,0) even versus B=(0,2,1) odd; final y=012 slots (1,0,2) both. R642 triad directed-edge parity bits A=000, B=001. Identity edit K has R*=0; nontrivial K identity + 3→0 at cost1 with old target quotas (0,1,1,1) gives same unique real transfer plan with **R*=1**. Thus nonzero optimal repair still preserves ordered ambiguity.
+
+R657-B proves exact finite DAG over remaining source/old-target quotas, ledgers and active triad-slot states; cost d_K(i,j) on each legal event-first V29→strict V27→V17 transition. All optimal terminal states are obtained by shortest paths. Static R655 R*≤R_strict. Reproduce with python3 R657_VERIFY.py (stdlib exact). 1536 two-event cases/416 strict pairs/30 different endpoints/0 same-triad slot variants in that bounded family; 1024 three-event configurations/6144 candidate words/1911 strict words/127 configurations with all six orders strict/60 same-final-triads different-slots word pairs.
+
+Next: bind actual native H/K/V28-V30 timing and evaluate multi-plan optimal faces; preserve R648 pairing and R642 path data. Native Owner/Researcher/CLAIM unconfirmed; independent Driver pending.

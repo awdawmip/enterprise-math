@@ -1,0 +1,10 @@
+# R433 portable research continuation
+
+- Parent: signed BRC auxiliary Toeplitz PF₄ odd rows `17≤r≤97`; original definitions, P000 and ACTIVE residual/observer boundaries remain unchanged.
+- Fresh mathematical frontier: **r=17 satisfies full PF₄**, by finite-support reduction and **115,285,196** all-positive indecomposable sorted-matchable minors of orders 1–4. The order-4 count is 114,678,252. Evidence and executable Python/C++ are adjacent to this file. No independent Driver review or project mathematical admission has happened.
+- Pinned source inputs: GLOBAL_KNOWLEDGE_V1 canonical main `eb69ad2642ab0e0db3c48c9b323c83505e59ba62`; Enterprise Math canonical main `6351a9e0ace15c932e8c6e1297f46dfd1eb9e45f`; R432 author source `83a97192b7e2bb5cc7e741b005d36bca9632a653`.
+- Do not repeat R431/R432 complete PF₄ certificates for r=7,9,11,13,15 or the infinite even-row obstruction. No change to P000, ACTIVE world, native X6 or claimed accepted Source results.
+- **Next smallest open question:** full PF₄ for `r=19`, or an explicit negative fourth-order witness. The sorted-matchable domain has 268,881,741 four-minors by an independent counting-only loop; generic int256 exhaustive attempts exceeded the available 20/180 second command limits and made **no** r=19 sign classification. An improved deterministic exact sign kernel or a mathematical reduction is needed.
+- Secondary open question: exhibit an exact fifth-order negative Toeplitz minor for `r=17`, to determine whether its maximal PF order is exactly 4. The prior exploratory 5-minor search did not reach r=17; do not claim it passed.
+- Reproduce: `python R433_VERIFY.py`; `g++ -O3 -std=c++17 R433_FULL_PF4.cpp -o R433_FULL_PF4 && ./R433_FULL_PF4`. The C++ code needs Boost header-only multiprecision, no float numerical inference.
+- Actual control status: GitHub identity `awdawmip` verified; native context `authority_granted=false`, `control_tasks=CONTROL_QUOTA`. Formal Source Owner, CLAIM, Result and Driver Review remain unverified/unissued. This is an **author-side portable research artifact**, not a native Source state transition.

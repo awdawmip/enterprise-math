@@ -1,0 +1,38 @@
+{
+  "status": "R537_EXACT_JS_PASS",
+  "scientific_pin": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "order": 60,
+  "degree_max": 360,
+  "identity_points": 361,
+  "interpolant_coefficients": 120,
+  "interpolant_actual_degree": 119,
+  "sign_blocks": [
+    {
+      "from": 1,
+      "to": 8,
+      "sign": "+"
+    },
+    {
+      "from": 9,
+      "to": 22,
+      "sign": "-"
+    },
+    {
+      "from": 23,
+      "to": "infinity",
+      "sign": "+"
+    }
+  ],
+  "tail_origin": 23,
+  "tail_sign": "+",
+  "positive_tail_coefficients": 120,
+  "direct_Bareiss_checks": 20,
+  "original_H_B_crosschecks": 1200,
+  "full_coefficient_grid_checks": 22021,
+  "independent_status": "R537_INDEPENDENT_PASS",
+  "independent_raw_determinants": 12,
+  "independent_H_B_crosschecks": 549,
+  "independent_tail_coefficients": 120,
+  "conditional_on": "R462 H=B and derived fixed-t p_t polynomial lemma",
+  "rebuild": "node R537_VERIFY.js > R537_EVIDENCE.json && python R537_INDEPENDENT.py > R537_INDEPENDENT_EVIDENCE.json"
+}

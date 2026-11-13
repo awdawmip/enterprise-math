@@ -1,0 +1,20 @@
+{
+  "schema": "EM_R418_PUBLISHABLE_EVIDENCE_SUMMARY_V1",
+  "domain": "31<=s<=128; integer r>=s+1",
+  "model": "signed auxiliary BRC coefficient model (not native X6 physics)",
+  "families": 196,
+  "bands": 98,
+  "positive_numerator_coefficients": 15974,
+  "positive_denominator_coefficients": 15974,
+  "nonpositive_coefficients": 0,
+  "boundary_raw_checks": 196,
+  "independent_turan_checks": 1028,
+  "independent_catalan_checks": 3084,
+  "independent_full_degree_points": 458,
+  "full_evidence_filename": "R418_INTERVAL_EVIDENCE.json",
+  "full_evidence_bytes": 5730996,
+  "full_evidence_sha256": "6cc10c505ea1f18bc106b3e58c108b0d1eea9a049c6e9f8b99ff9ace1eb049fe",
+  "manifest_sha256": "995906309915338408717dc26399d98c3051a8deefd7370b41019bc5164120f4",
+  "source_status": "AUTHOR_SIDE_EXACT / UNREVIEWED / NOT_ADMITTED",
+  "rebuild": "python r418_interval_certificate.py && python r418_independent_validation.py"
+}

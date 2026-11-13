@@ -1,0 +1,45 @@
+{
+  "schema": "R640_X6_S3_MATRIX_PORT_EXACT_EVIDENCE_V1",
+  "result": "PASS",
+  "marker": "R640_X6_S3_FAITHFUL_MOD5_MATRIX_PORT_PASS",
+  "scientific_pin": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "source_v39": "X6_CYCLE_CURRENT_S3_OPERATION_SAFE_PORT_V39_20260906.md@b28632d19006cb77b503fecbb1a487acc8de3f28",
+  "arithmetic": "exact F5 matrix product and group multiplication; no floating point",
+  "matrix_R_mod5": [
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      4
+    ]
+  ],
+  "matrix_S_mod5": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "distinct_images": 6,
+  "homomorphism_products": 36,
+  "associative_triples": 216,
+  "packet_updates": 36,
+  "group_witness": {
+    "first_transposition": "s",
+    "second_transposition": "rs",
+    "first_then_second": "r",
+    "second_then_first": "r²"
+  },
+  "theorems": [
+    "all additive group homomorphisms S3 -> (Z/5^N Z)^m are trivial for N>=1,m>=1",
+    "GL2(F5) representation is faithful and minimal linear dimension for S3",
+    "V39 L_JH port (j,h) is exactly represented by (j,rho(h)) for declared completed loop packet updates"
+  ],
+  "scope": "V39 completed based loops, additive cycle current plus S3 holonomy; no synthetic-axis nuisance matrix or global X6 law claimed",
+  "validation": "exact Python standard-library reproduction PASS"
+}

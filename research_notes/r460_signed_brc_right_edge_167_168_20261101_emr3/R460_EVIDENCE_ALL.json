@@ -1,0 +1,53 @@
+{
+  "schema": "R460_AUTHOR_SIDE_SIGNED_BRC_INFINITE_PARAMETER_LOCAL_POSITIVITY_V1",
+  "date": "2026-11-01",
+  "source": {
+    "global_knowledge_main": "6d5a467836a2b555a1997a110968aad3d66bd074",
+    "enterprise_math_main": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "prior_research_commit": "ceb9f50c412d5aee1f909220a2181cafffb9e0be",
+    "pr": 1708
+  },
+  "s_range": [
+    167,
+    168
+  ],
+  "parameter_polynomials": 4,
+  "strict_positive_coefficients": 3354,
+  "exact_condensation_identities": 2,
+  "signed_raw_crosschecks": 20,
+  "positive_catalan_crosschecks": 20,
+  "rows": [
+    {
+      "s": 167,
+      "k0": 84,
+      "degree_p2": 668,
+      "degree_p3": 1002,
+      "strict_positive_coefficients": 1672,
+      "sha256": "93881acc78ac2348d7c01514697173fb265316f42d9d28b3d2061553de0d0e85",
+      "elapsed_seconds": 23.284
+    },
+    {
+      "s": 168,
+      "k0": 85,
+      "degree_p2": 672,
+      "degree_p3": 1008,
+      "strict_positive_coefficients": 1682,
+      "sha256": "b9d4e55210095c040bf24f21af1e7e1dec8c498bc3ec47da787ded79ca140adb",
+      "elapsed_seconds": 23.727
+    }
+  ],
+  "row_191": {
+    "positive_coefficients": 190,
+    "positive_adjacent_2x2": 190,
+    "positive_adjacent_3x3": 190,
+    "total_exact_integer_sign_checks": 570,
+    "raw_signed_crosschecks": 8,
+    "alternating_catalan_crosschecks": 8,
+    "coefficient_stream_sha256": "7b563b563b0feb1c76b09fb121bdd9c2c8f8c8500adbef6bbea5932ba53ea313",
+    "minor_stream_sha256": "167de121dc9522d19221524846051cf592c63e090ee7b49af0f3a81313316a55"
+  },
+  "method": "Exact integer polynomial coefficients in u=k−k0; Desnanot–Jacobi identity; independent signed and Catalan formula crosschecks; exact adjacent minors for r=191",
+  "scope": "Signed BRC auxiliary scalar only; PF3 via prior R447/R450/R452-R459 conditional; no native X6 or physical dynamical result",
+  "status": "AUTHOR_SIDE_EXACT_SYMBOLIC_AND_INTEGER / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING",
+  "next_question": "s=169,170 exact integer coefficient certificate; uniform (s,k) Turan positivity"
+}

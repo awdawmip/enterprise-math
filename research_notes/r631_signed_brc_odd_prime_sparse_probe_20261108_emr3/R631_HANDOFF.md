@@ -1,0 +1,10 @@
+# R631 handoff: safe odd prime BRC sparse probe schedule
+
+Date 2026-11-08. AUTHOR_SIDE_EXACT / UNREVIEWED / NOT_ADMITTED.
+Frozen R462 signed BRC science @18783e01e3646c72b7aab3b16d3f565e83e6446f, original generator blob 7fa7a762f758b30c6090468ac43487daa34abad8. Direct predecessor R630@256e0b45069acaa4b6e8eb7bc6c1a86bcfdd5310.
+
+Completed: exact all-h two-probe orientation recovery via any safe odd prime p in {3} U ({odd p>=5}\{53,83}), sampling L=least p-power>h, positive K_(2j-1) at 0, negative K_(2j) at L, with arbitrarily varying independent integral Newton nuisance of degree <=h and fixed-within-scan gain A_x of known t-order a and p-unit leading coefficient. Prime-power binomial divisibility kills the nuisance mod p; frozen D_j signatures are pairwise distinct and the uniform sharp jet depth is a+8. For h>=1, gcd of binom(L,1..h) is p, producing exact low-depth collision via Bezout. One reading is insufficient; two are sample-minimal for this model. Prime p may be selected to minimize L within this certified modular family; p=5 gives L=5 for h=3,4 instead of p=3's L=9. Verified BigInt 57,315 exact checks; source proof, verifier, evidence in this directory.
+
+State scope: six native X6 direction labels are preserved, sign/provenance/branch-grade/multiplicity and separately typed heartbeat remain available. This is a conditional auxiliary observer theorem, not a physical time or field correspondence. The current native service did not issue session/RA/owner; em_control_tasks and em_session_start reported BACKEND_IDENTITY_OR_VERSION_MISMATCH/STATUS_DATABASE_UNAVAILABLE/operation_sent=false. The project work is only an author-side Draft PR checkpoint.
+
+Next: test Source-registered X6 field operators for real sign-selectable probes, constant gain over selected index separation and integral Newton disturbance bound. Then prove future path/grade/time operation commutation or build an exact counterexample. Secondary bounded arithmetic route: reduce required calibration or optimize general non-prime-power index selection while preserving modular signatures.

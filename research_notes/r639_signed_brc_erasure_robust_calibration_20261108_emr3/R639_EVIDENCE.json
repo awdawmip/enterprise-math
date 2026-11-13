@@ -1,0 +1,77 @@
+{
+  "schema": "R639_EXACT_5ADIC_CALIBRATION_V1",
+  "status": "PASS",
+  "verification_marker": "R639_VANDERMONDE_ERASURE_EXACT_PASS",
+  "date": "2026-11-08",
+  "scientific_pin": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "predecessor": "R638@496a84ba9e00089d443d560cc8e3da1863b422e5",
+  "c": [
+    0,
+    5,
+    1,
+    2,
+    3,
+    4
+  ],
+  "q_rows": [
+    {
+      "q": 1,
+      "subsets": 6,
+      "mod5": 6,
+      "mod25": 0,
+      "robust_mod5": 15,
+      "robust_mod25": 0
+    },
+    {
+      "q": 2,
+      "subsets": 15,
+      "mod5": 14,
+      "mod25": 1,
+      "robust_mod5": 16,
+      "robust_mod25": 4
+    },
+    {
+      "q": 3,
+      "subsets": 20,
+      "mod5": 16,
+      "mod25": 4,
+      "robust_mod5": 9,
+      "robust_mod25": 6
+    },
+    {
+      "q": 4,
+      "subsets": 15,
+      "mod5": 9,
+      "mod25": 6,
+      "robust_mod5": 2,
+      "robust_mod25": 4
+    },
+    {
+      "q": 5,
+      "subsets": 6,
+      "mod5": 2,
+      "mod25": 4,
+      "robust_mod5": 0,
+      "robust_mod25": 1
+    },
+    {
+      "q": 6,
+      "subsets": 1,
+      "mod5": 0,
+      "mod25": 1
+    }
+  ],
+  "total_subsets": 63,
+  "exact_kernel_constructions": 16,
+  "erasure_survivors": 186,
+  "coefficient_checks": 2112,
+  "brc_orientation_checks": 136080,
+  "gain_orders": [
+    1,
+    2,
+    4
+  ],
+  "arithmetic": "Z integer Bareiss determinants, integer adjugates, exact modular 5 and 25; no float",
+  "scope": "exact auxiliary six-axis polynomial nuisance and full-background restoration; native X6 operator interface pending; theorem proof in R639_PROOF.zh-CN.md",
+  "code": "R639_REPRODUCE.py"
+}

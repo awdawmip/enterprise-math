@@ -1,0 +1,114 @@
+{
+  "schema": "AUTHOR_SIDE_SIGNED_BRC_R437_PF4_R23",
+  "date": "2026-10-31",
+  "global_snapshot": "977d83eec352915a0e945218ed279f29f2fc2133",
+  "enterprise_math_snapshot": "a2f0a44c2a7e0b345e0aadc72c90f0b5866bcf24",
+  "prior_r436_commit": "fc0396e7960d7a4b4e3a39c4a365c6ea151cc899",
+  "r": 23,
+  "gcd": 10,
+  "a_h_normalized": [
+    34305961365,
+    720425188665,
+    7094472810282,
+    43497671946729,
+    185959053737730,
+    588400424946750,
+    1427649256591740,
+    2715810400329741,
+    4107237092040852,
+    4978716098421780,
+    4855488761720520,
+    3809911406743260,
+    2397120583182936,
+    1201087355379912,
+    474158706312720,
+    145251376783695,
+    33809986655055,
+    5810196228291,
+    708230625102,
+    57796988535,
+    2900207310,
+    74364290
+  ],
+  "formula": "H_{r,s}=binom(r+s,2s)*[t^r]((1-t)(1+t)^(2s)(1+t^2)^(r-s))",
+  "raw_coefficient_independent_cross_checks": 22,
+  "complete_irreducible_minors": {
+    "1": {
+      "positive": 22,
+      "zero": 0,
+      "negative": 0
+    },
+    "2": {
+      "positive": 8393,
+      "zero": 0,
+      "negative": 0
+    },
+    "3": {
+      "positive": 3101868,
+      "zero": 0,
+      "negative": 0
+    },
+    "4": {
+      "positive": 1140075101,
+      "zero": 0,
+      "negative": 0
+    }
+  },
+  "pf4_certification": {
+    "u1_shards": [
+      {
+        "from": 1,
+        "to": 5,
+        "positive": 186745397
+      },
+      {
+        "from": 6,
+        "to": 10,
+        "positive": 252167517
+      },
+      {
+        "from": 11,
+        "to": 15,
+        "positive": 301527687
+      },
+      {
+        "from": 16,
+        "to": 21,
+        "positive": 399634500
+      }
+    ],
+    "signed_minors": 1140075101,
+    "exact_fallback": 0,
+    "model": "long double mant 64, IEEE-754 round nearest, 1e-15 * sum(abs(terms)) cutoff; int256 exact fallback",
+    "coverage": "u0=0, consecutive row gaps in 1..21, columns increasing, u_i<=v_i<=u_i+21; complete by finite support lemma",
+    "max_normalized_entry": 4978716098421780
+  },
+  "pf4_exact_sparse_spots": 30880,
+  "negative_pf5": {
+    "rows": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "cols": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "unscaled_determinant": "-114029467521030273094612955135626559374030500000000",
+    "exact_algorithms": [
+      "Bareiss",
+      "120-term Leibniz"
+    ]
+  },
+  "total_verified_irreducible_1_to_4": 1143185384,
+  "project_admission": "UNREVIEWED_NOT_ADMITTED",
+  "formal_task": "NO_CLAIM_NO_RESULT",
+  "owner_query": "CONTROL_QUOTA",
+  "limitations": "Only signed BRC auxiliary scalar r=23. No native X6 transfer; C++ finite exhaustive requires stated long double semantics.",
+  "next": "Check r=25 PF4 or locate exact negative 4x4; seek analytic odd r transition."
+}

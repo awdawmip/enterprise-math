@@ -1,0 +1,10 @@
+# R452 portable research handoff — signed BRC PF₃ right-edge
+
+- Parent: Enterprise Math / 原始 signed BRC 辅助标量 PF₃ 统一定理研究；延续 R451/R450。作者侧供 Driver/后续研究者使用，`UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING`。
+- Frozen source: GLOBAL_KNOWLEDGE_V1 `main@7d7a66283e85dfad85849dd29e6b42cd9f0408c4` and enterprise-math `main@85f90349600ef59f4cf9fcda5201d50be257772e`, R451 `c8ea1c32b942d841d96ffc9e3ff1d2f8760e67ee`.
+- New proved analytic lemma: for every s≥2, `(2s)!B_s(k)=E_s(k)O_s(k)R_s(k)`; after `k=floor((s-1)/2)+u`, the residual R_s has all coefficients strictly positive. Proof and definitions in `R452_PROOF.zh-CN.md`.
+- New computer-assisted finite-s / infinite-k theorem: for 2≤s≤100 and all k≥(s+2)//2, both contiguous Toeplitz D2 and D3 strictly positive at j=2k+1−s. 198 exact positive polynomials, 50,688 verified positive integer coefficients. SHA256 coefficient stream `ac6c6bf48f54f6dda11eec5c23c032efbaff4f3b27bd814cb0c51e2d5e36bdbc`.
+- Reproduce: `cd research_notes/r452_signed_brc_adaptive_right_edge_pf3_20261101_emr3 && python3 R452_CHECK.py` using standard library; expect `R452_EXACT_PASS` and matching digest. Machine results: `R452_EVIDENCE.json`, execution log: `R452_RUN_OUTPUT.txt`.
+- Independence and limitations: author checks only, not formal Source Result or Driver review; 100 is finite s maximum; k is unbounded per s; no complete semi-infinite PF₃, no PF₄ inference, no native X6 realization. The R450 local criterion's independent proof remains its earlier source, not re-verified here.
+- Next discriminating unit: find an all-s coefficientwise positivity proof for P2/P3 at k0(s), possibly by extracting E/O factors from each determinant or via a positive recurrence in s. Alternatively find first s≥101 with a nonpositive polynomial coefficient and then test actual integer k values separately.
+- Native control: tool returned `research_authority_granted=false`, `CODE_REVIEW_REQUIRED`; active owner not verified; retain AUTHOR_SIDE/REGISTER_PENDING; do not issue role-bound writes under an assumed owner or pass.

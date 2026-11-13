@@ -1,0 +1,103 @@
+{
+  "marker": "R646_V29_EVENTWISE_18_OF_24_STRICT_ODD_CYCLE_PASS",
+  "source": "V23/V27/V17/V29@b62110008321d9147212cb89f2627ff613c2550d",
+  "frozen_R462": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "initial_seed": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      0
+    ]
+  ],
+  "active_cycle": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      2,
+      4
+    ],
+    [
+      1,
+      2,
+      4
+    ],
+    [
+      0,
+      1,
+      2
+    ]
+  ],
+  "selector": "one V27 unique argmax THEN one V29 PASS after EVERY step",
+  "external_event_word_4_periodic": true,
+  "word_permutations_checked": 24,
+  "strict_successful_orders": 18,
+  "failing_orders": 6,
+  "failing_orders_characterization": "word[0] is (0,1), score tie at n=1",
+  "chosen_word": [
+    [
+      2,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      0
+    ]
+  ],
+  "chosen_phase_min_gaps_r0_to11": [
+    1,
+    1,
+    3,
+    1,
+    2,
+    7,
+    2,
+    2,
+    9,
+    3,
+    3,
+    8
+  ],
+  "base_min_gaps_by_triad_phase": [
+    1,
+    1,
+    3
+  ],
+  "all_n_certificate": "n=12k+r; each competitor gap = gap_r + 3k*positive_base_gap; r=0..11",
+  "exact_samples_per_good_order": 300,
+  "holonomy_after_3": [
+    1,
+    0,
+    2
+  ],
+  "holonomy_after_6": [
+    0,
+    1,
+    2
+  ],
+  "network_Q": 0,
+  "full_native_scheduler_claimed": false,
+  "independent_driver_review": false
+}

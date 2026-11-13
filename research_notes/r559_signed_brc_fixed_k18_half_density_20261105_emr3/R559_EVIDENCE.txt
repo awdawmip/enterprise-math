@@ -1,0 +1,16 @@
+# R559 execution evidence · 2026-11-05
+Scope: fixed k=18, signed BRC R462 auxiliary Toeplitz–Hessenberg scalar model.
+Runtime: local Python/SymPy integer and Fraction operations; exact accepting tests.
+Reproducibility: R559_VERIFY.py in this directory is generated from the prior R558 checker with k=18, thresholds dominant>30 and other<11; equivalent mathematical checks to locally executed program. The published source file is not asserted byte-identical to local run. Source-file clean rerun and independent Driver review remain next validation steps.
+
+$ python r559_verify.py
+R559_HRAW_PASS Catalan 477638700 h 39286260713700
+Root candidates [(17.859840088091214, 24.841771177549074), (17.859840088091214, -24.841771177549074), (8.474395583261634, 6.328974321037476), (8.474395583261634, -6.328974321037476), (7.80267975274227, 0.0), (4.406466667734674, 2.672904239757778)]
+R559_ROUCHE_PASS 35 disks 595 pairs dominant 30.595546787235197 max_other 10.576922825564914 maxratio 9.44508936066402e-21
+re/im 0.7189439094516809 0.7189439094516809
+R559_PHASE_PASS phi<= 1190 q<= 2832200 checked 2311 width= 2.9040757975358243e-24
+R559_RECURRENCE_PASS 514 511 0 308 raw_det=12
+R559_K18_HALF_DENSITY_AUTHOR_CERT_PASS
+EXIT:0
+
+Proof comparison semantics: integer/Fraction exact; SymPy nroots supplies only centers. Hraw checked t=2..37; Rouche 35 root disks and 595 pairs; phase sieve q=2..2832200 with totient cutoff; 12 independent integer Berkowitz determinants; 1025 exact recurrence entries. This is author-side evidence and not a native Result or independent review.

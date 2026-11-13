@@ -1,0 +1,285 @@
+{
+  "schema": "R454_AUTHOR_SIDE_EXACT_INTEGER_CERTIFICATE_V1",
+  "date": "2026-11-01",
+  "status": "UNREVIEWED_NOT_ADMITTED_REGISTER_PENDING",
+  "model": "original signed BRC auxiliary scalar coefficient H(2k+1,s)",
+  "proven_s_range": [
+    121,
+    140
+  ],
+  "k_constraint": "k>=(s+2)//2",
+  "polynomial_count": 40,
+  "total_strict_positive_integer_coefficients": 26140,
+  "polynomial_degree_formulas": {
+    "P2": "4*s",
+    "P3": "6*s"
+  },
+  "complete_symbolic_check": "All positive coefficients checked with arbitrary-precision integer Z[u] polynomial arithmetic; no floating point.",
+  "extra_exact_symbolic_identities": 20,
+  "row_digest_encoding": "R453_VERIFY.py: SHA256(order byte; 2-byte len(P); for each positive coefficient 4-byte big-endian byte length, minimal unsigned big-endian coefficient bytes), for each of P2 and P3.",
+  "combined_rows_sha256": "cec0bc53b786561f2e08ddc816765eed57b4e80c36bf0b0468ee01e489fbf7cd",
+  "combined_digest_encoding": "For ascending s, update SHA256 with ASCII decimal s, colon byte, raw 32 digest bytes.",
+  "independent_original_signed_checks": 300,
+  "independent_exact_positive_integer_minors": 120,
+  "independent_stream_sha256": "ca5569bd27e580b2cd2ed94c12197c395bc8e43351c433560221ef1410d5a861",
+  "independent_stream_encoding": "ASCII UTF-8 input:s:k:t:INTEGER\\n for raw exact H and minor:s:k:D2:D3\\n for exact minors in increasing s,k,t order.",
+  "execution_chunks": [
+    {
+      "completed_s": [
+        121,
+        122,
+        123,
+        124
+      ],
+      "source": "R454_RUN_121_132.log",
+      "interrupted_after_s": 124
+    },
+    {
+      "completed_s": [
+        125,
+        126,
+        127
+      ],
+      "source": "R454_RUN_125_128.log",
+      "interrupted_after_s": 127
+    },
+    {
+      "completed_s": [
+        128,
+        129,
+        130
+      ],
+      "source": "R454_RUN_128_130.log"
+    },
+    {
+      "completed_s": [
+        131,
+        132,
+        133
+      ],
+      "source": "R454_RUN_131_133.log"
+    },
+    {
+      "completed_s": [
+        134,
+        135
+      ],
+      "source": "R454_RUN_134_136.log",
+      "interrupted_after_s": 135
+    },
+    {
+      "completed_s": [
+        136,
+        137
+      ],
+      "source": "R454_RUN_136_137.log"
+    },
+    {
+      "completed_s": [
+        138,
+        139
+      ],
+      "source": "R454_RUN_138_139.log"
+    },
+    {
+      "completed_s": [
+        140
+      ],
+      "source": "R454_RUN_140.log"
+    }
+  ],
+  "prior_input_refs": {
+    "global": "7b33f8066e9993e7c941959a9d738ed405248eb8",
+    "em": "b3c681ad9428613ef1e9e63b3451fde8a6903ff2",
+    "frontier_r453": "147f35867e406429d0c8727d6aa09c094d9a7854"
+  },
+  "global_combined_consequence": "R452 s=2..100 + R453 s=101..120 + R454 s=121..140: for all odd r>=143, positions s=2..140 have D2>0,D3>0 (139 positions).",
+  "boundaries": [
+    "This is not a full half-infinite PF3 theorem.",
+    "Finite raw checks do not prove an infinite k statement.",
+    "Native X6 and heartbeat typed BRC correspondence unproved.",
+    "This is author-side evidence and not formal Result/Driver acceptance."
+  ],
+  "rows": [
+    {
+      "s": 121,
+      "k0": 61,
+      "r_min": 123,
+      "degree_p2": 484,
+      "degree_p3": 726,
+      "strict_positive_coefficients": 1212,
+      "sha256": "0e04974ee4b1aade6f9010c4b8d868a66e80d0746a01c0551b5b599a2d31cf22"
+    },
+    {
+      "s": 122,
+      "k0": 62,
+      "r_min": 125,
+      "degree_p2": 488,
+      "degree_p3": 732,
+      "strict_positive_coefficients": 1222,
+      "sha256": "be9242804dd04f695202a6318250993b638166dc4a3d30edd38f861c97bbe46c"
+    },
+    {
+      "s": 123,
+      "k0": 62,
+      "r_min": 125,
+      "degree_p2": 492,
+      "degree_p3": 738,
+      "strict_positive_coefficients": 1232,
+      "sha256": "b2da084a2848eafea61144ddd480111b993eba7fc3a974861bc9cacfb11043ad"
+    },
+    {
+      "s": 124,
+      "k0": 63,
+      "r_min": 127,
+      "degree_p2": 496,
+      "degree_p3": 744,
+      "strict_positive_coefficients": 1242,
+      "sha256": "1e9a660dee95bc2a73b13b75065eb44d7cb23c06247a2b2ece93f2085794c58e"
+    },
+    {
+      "s": 125,
+      "k0": 63,
+      "r_min": 127,
+      "degree_p2": 500,
+      "degree_p3": 750,
+      "strict_positive_coefficients": 1252,
+      "sha256": "9c7e3a51a9273a7388593df7f49f184ee3b20a7d40f910a0d93d8375daf35361"
+    },
+    {
+      "s": 126,
+      "k0": 64,
+      "r_min": 129,
+      "degree_p2": 504,
+      "degree_p3": 756,
+      "strict_positive_coefficients": 1262,
+      "sha256": "fe3a1137fa4899e04f1e569ffb36e5262f2c18e4221d0002ce0e4a11a8b98c3b"
+    },
+    {
+      "s": 127,
+      "k0": 64,
+      "r_min": 129,
+      "degree_p2": 508,
+      "degree_p3": 762,
+      "strict_positive_coefficients": 1272,
+      "sha256": "f879dc5404e9503660b56727398344d4cb2f5d13971dc3dfe6ec86c710af9827"
+    },
+    {
+      "s": 128,
+      "k0": 65,
+      "r_min": 131,
+      "degree_p2": 512,
+      "degree_p3": 768,
+      "strict_positive_coefficients": 1282,
+      "sha256": "5bd7aa721e7f338c8c8a530bf37138e08e88c86e39e8f22e1f81ea7e7746d971"
+    },
+    {
+      "s": 129,
+      "k0": 65,
+      "r_min": 131,
+      "degree_p2": 516,
+      "degree_p3": 774,
+      "strict_positive_coefficients": 1292,
+      "sha256": "2251028133595618b5ca62be7977cbb1a4d7201f4623f483b0c83f4e57c020af"
+    },
+    {
+      "s": 130,
+      "k0": 66,
+      "r_min": 133,
+      "degree_p2": 520,
+      "degree_p3": 780,
+      "strict_positive_coefficients": 1302,
+      "sha256": "b43a60f6e4b4e73417c170c97cfcf5f7bdd9505fce860f9584e6140f518f218f"
+    },
+    {
+      "s": 131,
+      "k0": 66,
+      "r_min": 133,
+      "degree_p2": 524,
+      "degree_p3": 786,
+      "strict_positive_coefficients": 1312,
+      "sha256": "bbce5642555f97639e40cd7004ad9c04f402f8efa3064ebabd423c9887462fb4"
+    },
+    {
+      "s": 132,
+      "k0": 67,
+      "r_min": 135,
+      "degree_p2": 528,
+      "degree_p3": 792,
+      "strict_positive_coefficients": 1322,
+      "sha256": "6cff57e1f842609c159abaac491f5327eb97ea7897c4a6860785ec6f6eab214d"
+    },
+    {
+      "s": 133,
+      "k0": 67,
+      "r_min": 135,
+      "degree_p2": 532,
+      "degree_p3": 798,
+      "strict_positive_coefficients": 1332,
+      "sha256": "5b33f4588f82cc5640e5a1553063f185ce7c3f9f587d24099607f0bc4b0ef9da"
+    },
+    {
+      "s": 134,
+      "k0": 68,
+      "r_min": 137,
+      "degree_p2": 536,
+      "degree_p3": 804,
+      "strict_positive_coefficients": 1342,
+      "sha256": "6976baa9e1c1384b084967581ccc523c5c976a7974012f6def5ad789be6dae57"
+    },
+    {
+      "s": 135,
+      "k0": 68,
+      "r_min": 137,
+      "degree_p2": 540,
+      "degree_p3": 810,
+      "strict_positive_coefficients": 1352,
+      "sha256": "51494b9ddcc89e7b9ccdf6045ec98aad06e481ad408c3cacb58d5e8cd5bec801"
+    },
+    {
+      "s": 136,
+      "k0": 69,
+      "r_min": 139,
+      "degree_p2": 544,
+      "degree_p3": 816,
+      "strict_positive_coefficients": 1362,
+      "sha256": "df1d369512a3305dcbe1bb949b1d3313a04396f04fed33b0aa0983cff0a165f4"
+    },
+    {
+      "s": 137,
+      "k0": 69,
+      "r_min": 139,
+      "degree_p2": 548,
+      "degree_p3": 822,
+      "strict_positive_coefficients": 1372,
+      "sha256": "3438fbaa00cf6898e96a69e9d982e42203ffcaab8c163b8972997e1852f6a791"
+    },
+    {
+      "s": 138,
+      "k0": 70,
+      "r_min": 141,
+      "degree_p2": 552,
+      "degree_p3": 828,
+      "strict_positive_coefficients": 1382,
+      "sha256": "e3809f4d5a0697e937ccfb10e4ce280579b9fcb9f5a10a713baa7849e7e2fe67"
+    },
+    {
+      "s": 139,
+      "k0": 70,
+      "r_min": 141,
+      "degree_p2": 556,
+      "degree_p3": 834,
+      "strict_positive_coefficients": 1392,
+      "sha256": "2d9730bcd15fec10f66c0908ed0c3cc5e3c7ede2a0edb9d66916c541a7f37ac0"
+    },
+    {
+      "s": 140,
+      "k0": 71,
+      "r_min": 143,
+      "degree_p2": 560,
+      "degree_p3": 840,
+      "strict_positive_coefficients": 1402,
+      "sha256": "3fe311c2e9eede48a5933aa05a6448c4aa763fe1c09991cd8fc63d66cc7b2793"
+    }
+  ]
+}

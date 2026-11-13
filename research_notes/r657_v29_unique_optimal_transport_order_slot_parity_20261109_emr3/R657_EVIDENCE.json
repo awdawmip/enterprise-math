@@ -1,0 +1,95 @@
+{
+  "marker": "R657_OPTIMAL_SCHEDULE_SAME_TRIAD_DIFFERENT_SLOT_PARITY_PASS",
+  "source_pin": "V29/V27/V17@b62110008321d9147212cb89f2627ff613c2550d",
+  "science_pin": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "bounded_search": {
+    "two_cases": 1536,
+    "two_strict_pairs": 416,
+    "two_different_endpoints": 30,
+    "two_same_tri_different_slots": 0,
+    "three_configs": 1024,
+    "three_words": 6144,
+    "three_strict_words": 1911,
+    "three_all_orders_strict": 127,
+    "three_same_tri_different_slots_pairs": 60
+  },
+  "witness": {
+    "seed_x": [
+      0,
+      1,
+      3,
+      0
+    ],
+    "seed_y": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "A": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "B": [
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "end_x_tri": [
+      0,
+      3,
+      4
+    ],
+    "end_y_tri": [
+      0,
+      1,
+      2
+    ],
+    "end_A_x_slots": [
+      1,
+      2,
+      0
+    ],
+    "end_B_x_slots": [
+      0,
+      2,
+      1
+    ],
+    "end_y_slots": [
+      1,
+      0,
+      2
+    ],
+    "end_slot_parities": [
+      0,
+      1
+    ],
+    "complete_V29_equal": true,
+    "transfer_pair_counts_equal": true,
+    "unique_aggregate_transport": true,
+    "min_cost_zero_variant": 0,
+    "min_cost_positive_variant": 1,
+    "strict_unique_winners": true
+  },
+  "arithmetic": "exact integer frozen signed V23/V27",
+  "status": "author-side unreviewed"
+}
