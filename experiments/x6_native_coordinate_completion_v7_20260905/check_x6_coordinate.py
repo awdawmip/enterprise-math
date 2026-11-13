@@ -44,6 +44,17 @@ def main():
                 raise AssertionError(f"invalid relative direction accepted: {invalid_direction!r}")
             checks += 1
 
+    # Boolean indices alias 0/1 in Python but are not exact native axis labels.
+    for invalid_permutation in ((False,1,2,3,4,5), (0,True,2,3,4,5)):
+        for state in (ORIGIN_COORD, Coord6((3,1,7,0,5,2))):
+            try:
+                state.rotate(invalid_permutation)
+            except ValueError:
+                pass
+            else:
+                raise AssertionError(f"invalid derived S6 permutation accepted: {invalid_permutation!r}")
+            checks+=1
+
     # Canonical-section / old V2 atlas compatibility over all [0,3]^6 raw lifts.
     for raw in product(range(4), repeat=6):
         state=Coord6.from_integer_lift(raw)
