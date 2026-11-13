@@ -81,3 +81,33 @@ The previously completed 2,747,520 boundary-prefix comparisons belong to the pre
 The next discriminating unit is to find an exact lower-memory or linear-preprocessing algorithm for *unranking the pinned 17B center payload* without the (K\times W) arbitrary-precision suffix table, or to establish a sharp time/storage tradeoff and full cold-start break-even against 33/35/56B alternatives on the same original query distribution. Retain the current frozen 28-coordinate scientific input and certificate/provenance semantics. This author-side result does not assert formal task CLAIM, Result admission, independent review or P000 promotion; these have their own current native authority.
 
 Artifacts: `VERIFY_R5_PINNED_RADIUS_COVER.py` and `EXACT_OUTPUT.json`. Source: prior PR #2253, PR #2232, original frozen coefficient fixture and the preserved 15-atom source pin.
+
+
+## Further result: exact blockwise rank/unrank with sublinear DP-row storage
+
+The full suffix DP above stores \(K\) rows of \(W+1\) arbitrary-precision path counts. Since rank/unrank visits remaining-center counts in the descending order \(K,K-1,\ldots,1\), it is possible to reconstruct only a limited block at any time.
+
+Fix an integer block size \(B\ge1\). In one forward preprocessing pass, preserve suffix-count rows \(F(1,\cdot),F(1+B,\cdot),F(1+2B,\cdot),\ldots\), plus the terminal total \(T\). When a query needs \(F(t,\cdot)\), let
+\[
+a=1+B\left\lfloor\frac{t-1}{B}\right\rfloor.
+\]
+Starting from the stored anchor \(F(a,\cdot)\), reconstruct the at-most-\(B\) rows \(F(a,\cdot),\ldots,F(\min(K,a+B-1),\cdot)\). In rank/unrank, use these rows while \(t\) decreases through that block. On entering the next smaller block, discard the previous reconstructed rows and repeat from its anchor.
+
+**Theorem (blockwise exact suffix ranks).** For the radius-\(R\) covering graph with \(W+1\) vertices, and any \(1\le K\le W+1\), this algorithm computes exactly the same \(T\), lexicographic rank and unrank as the full path-count table. With at most \(2R+1\) outgoing edges per vertex, it uses
+\[
+O(K(W+1)(2R+1))\quad\text{integer additions}
+\]
+for preprocessing and all block reconstruction together, and stores
+\[
+O\!\left((W+1)\left(B+\left\lceil K/B\right\rceil\right)\right)
+\quad\text{arbitrary-precision count entries}.
+\]
+Taking \(B\asymp\sqrt K\) makes the working count-table storage \(O((W+1)\sqrt K)\), compared with \(O((W+1)K)\) for the full table. Each arbitrary-precision integer's own bit-length still contributes to byte complexity.
+
+**Proof.** The anchor rows follow the original recurrence exactly. Every reconstructed row is determined uniquely by forward application of the same recurrence to its anchor, so it equals the full-table \(F(t,p)\) for every vertex \(p\). Both rank and unrank use only those exact counts, hence produce identical results. There are at most \(\lceil K/B\rceil\) stored anchors and at most \(B\) transient reconstructed rows. Because the rank/unrank requests decrease monotonically in \(t\), no block needs reconstruction more than once. Thus the preprocessing computes \(K-1\) rows and reconstruction computes at most another \(K-1\), with each row requiring at most \((W+1)(2R+1)\) additions. □
+
+**Actual frozen-R5 local experiment.** The additional standalone Python verifier \`VERIFY_R5_BLOCKWISE_RANK.py\` reconstructs the unchanged 953 true rational walls and the historical 213 centers from the published 56B regression seed, then checks full-table rank/unrank and blockwise rank/unrank for block sizes 1, 8, 15, 16, 32 and 64. The executed reference implementation's \`BLOCKWISE_LOCAL_OUTPUT.json\` records equality of both outputs to the exact 17B rank \`00db1e9e1b0580a2258635b9569ae84aea\` for every tested block size.
+
+In one local CPython 3.13 run, the full-table construction had a \`tracemalloc\` peak of **6,799,644 B** and took **0.294 s**; the \(B=8\) blockwise complete unrank had peak **1,345,756 B** (about **80.2%** lower) and took **0.538 s** (about **1.83×** the full-table construction time, an indicative nonidentical operation comparison). The \(B=15\) case held a maximum of 30 count rows and had a measured peak of **1,403,436 B**. These are non-portable Python run observations, not an end-to-end query speedup or a universal memory optimum. The original 17B payload and exact source seed are unchanged. The published verifier is provided for subsequent independent remote-byte execution; the saved performance JSON is from the local executed reference.
+
+**Next objective:** bench the fully loaded query system at a fixed memory budget and query count, including rational-wall reconstruction, index/rank decoding, bitmap construction, peak RSS and output recovery. The blockwise theorem addresses exactly the count-table part of rank decoding, not other index allocations or the source proof of path legality.
