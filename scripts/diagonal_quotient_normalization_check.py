@@ -31,7 +31,24 @@ def main() -> int:
         "class_pairs": 0,
         "composition_cases": 0,
         "inverse_cases": 0,
+        "invalid_integer_type_rejections": 0,
     }
+
+    # Current signed-coordinate contract: bool is not an integer X6 coordinate.
+    for bad in ((True, 0, 0), (0, False, 2), (0, 1, 0.0)):
+        try:
+            canonical_min_zero(bad)
+        except TypeError:
+            counts["invalid_integer_type_rejections"] += 1
+        else:
+            failures.append({"law": "reject_noninteger_coordinate", "value": repr(bad)})
+    for bad in (True, False, 1.0):
+        try:
+            diagonal_shift((0, 0, 0), bad)
+        except TypeError:
+            counts["invalid_integer_type_rejections"] += 1
+        else:
+            failures.append({"law": "reject_noninteger_depth", "value": repr(bad)})
 
     points = list(product(range(-4, 5), repeat=3))
     canonical = sorted({canonical_min_zero(point) for point in points})
