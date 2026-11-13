@@ -8,11 +8,13 @@ Reconciled: `2026-08-21`
 
 它不再定义 native segment identity、native line membership 或 native length。
 
-当前线段/线身份请读：
+现行原生线段/长度基础（2026-11-13）为 `p000_reality_foundation.json` V5、`definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` 及 `definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`。原生直线的 primitive 方向限于六轴正反单位步；其余组合位移可由有序 native 路径实现。
 
-- `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`；
-- `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`；
-- `definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`。
+以下旧定义仍可按**声明的历史 chart/观察者作用域**消费：
+
+- `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md` — 选定正向扇区的 component trace 与 multipath fiber；
+- `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md` — 相对/min-zero directed gauge，不是当前原生度量；
+- `definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md` — 相对观察者的双向 spectrum。
 
 冻结边界：
 
