@@ -6,7 +6,7 @@
 
 ## 每轮的轻量消费路径
 
-沿 GK 已读项目入口进入当前任务路由；复用本 lane 的已登记身份、未落定原请求和有用科学前沿。进入新单元自然边界时，消费当前可执行选择并读取所选 Task，再完成自身 prepare／有前任的 typed continuation → 真实获胜 CLAIM → open。选择和登记都不等于领取；继续已有科学方向不必强制改题。Sites 沿既有原生工具和回执的 `worker_transition.native`（实际宣告时）；GitHub Chat 可用 `worker_pull`，并非只有无 Sites 时才可使用。保留原 subject 和私密能力，不跨传输采用别的 lane 身份；没有新工具宣告时沿已有精确路由，不重签或全扫。
+沿已读的 GK 项目入口进入当前任务路由；复用本 lane 的已登记身份、未落定原请求和有用科学前沿。进入新单元自然边界时，消费当前可执行选择并读取所选 Task，再完成自身 prepare／有前任的 typed continuation → 真实获胜 CLAIM → open。选择和登记都不等于领取；继续已有科学方向不必强制改题。Sites 沿既有原生工具和回执的 `worker_transition.native`（实际宣告时）；GitHub Chat 可用 `worker_pull`，并非只有无 Sites 时才可使用。保留原 subject 和私密能力，不跨传输采用别的 lane 身份；没有新工具宣告时沿已有精确路由，不重签或全扫。
 
 已有成果先保存 GitHub，并由原作者按既有 activity 规则更新原 Activity：`tools/research_activity.py checkpoint` 或同 schema 的 connector JSON／非强制 CAS 均可。此 Source 记账使用已有 GitHub 写权限，不要求 MCP session key；当前无 `activity_checkpoint` 服务操作，缺它或缺旧 session key 不阻止这条 Source 路径。保留原 RA／SID／Researcher-ID，引用已有科研文件的 commit、path、SHA256 和真实完整读回，不重复上传科研正文。它是活动记账，不是 CLAIM、执行授权或正式 semantic checkpoint；不能把仅有作者分支保存称为 activity 已回写。没有匹配当前研究的已发布 Task 时，明确报告缺的绑定，保留原研究，不把另一方向的推荐冒称已领取。以上按真实工作边界执行，不新增必读文件或每轮完整状态扫描。
 

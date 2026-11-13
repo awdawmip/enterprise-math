@@ -2,6 +2,7 @@ import unittest
 from datetime import datetime, timezone
 
 from tools import research_runtime_reducer as rr
+from tools.research_fair_selection import selection_scope
 
 
 def task(task_id="RS-T1", state="READY", priority="P1", leverage="HIGH"):
@@ -79,7 +80,16 @@ class RuntimeReducerTests(unittest.TestCase):
             {**task("RS-R", state="READY", priority="P0"), "state": "READY", "dispatch_state": "NEEDS_DISPATCH"},
             {**task("RS-H", state="HANDOFF_READY", priority="P2", leverage="LOW"), "state": "HANDOFF_READY", "dispatch_state": "NEEDS_DISPATCH"},
         ]
-        self.assertEqual("RS-R", rr.select_state(states, policy)["task_id"])
+        seed = "runtime-reducer-original-request"
+        at = self.now("2026-09-02T00:00:00+00:00")
+        with selection_scope(seed, at):
+            selected = rr.select_state(states, policy)
+        with selection_scope(seed, at):
+            repeated = rr.select_state(list(reversed(states)), policy)
+        self.assertIn(selected["task_id"], {"RS-R", "RS-H"})
+        self.assertEqual(selected, repeated)
+        self.assertEqual(seed, selected["fair_selection"]["selection_seed"])
+        self.assertEqual(2, selected["fair_selection"]["candidate_count"])
 
     def test_superseded_blocked_task_exposes_its_retirement_evidence(self):
         old_block = {

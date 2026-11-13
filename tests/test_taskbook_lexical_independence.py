@@ -1,14 +1,25 @@
 """Task wording does not replace structured publication or evidence checks."""
+import importlib.util
 import json
 from pathlib import Path
 import tempfile
 import unittest
 
-from control_plane import research_task_records_impl as records
 from tools import research_taskbook as taskbook
 
 
 ROOT = Path(__file__).resolve().parents[1]
+# These are unit checks of the unwrapped publication implementation. Other
+# suites install repository-wide semantic-quarantine projections on the shared
+# module; those projections require the full repository, not this task fixture.
+_RECORDS_SPEC = importlib.util.spec_from_file_location(
+    "_lexical_publication_implementation",
+    ROOT / "control_plane" / "research_task_records_impl.py",
+)
+if _RECORDS_SPEC is None or _RECORDS_SPEC.loader is None:
+    raise ImportError("publication implementation cannot be loaded")
+records = importlib.util.module_from_spec(_RECORDS_SPEC)
+_RECORDS_SPEC.loader.exec_module(records)
 
 
 class TaskbookLexicalIndependenceTests(unittest.TestCase):

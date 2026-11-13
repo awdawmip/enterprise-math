@@ -27,7 +27,7 @@ class RestrictedWriterAdapterTests(unittest.TestCase):
 
     def test_payload_cannot_add_arbitrary_commands(self):
         self.mark()
-        with self.assertRaisesRegex(ContinuationError, "exactly"):
+        with self.assertRaisesRegex(ContinuationError, "native fields and optional artifact_sources"):
             writer.prepare_freeze(root=self.root, source_commit=self.source, runtime_state={}, raw_comments=[], payload={"command": "arbitrary"})
 
     def test_invocation_is_fixed_argv_without_shell(self):

@@ -1,18 +1,21 @@
+import hashlib
 import unittest
 from datetime import datetime, timezone
 from unittest import mock
 
 import research_control_dispatch as dispatch
 from control_plane import check_current_control_authority as authority
-from tools import research_dispatch_core, research_runtime
+from tools import research_dispatch_core, research_fair_selection, research_runtime
 
 
 NOW = datetime(2026, 9, 7, 1, 30, tzinfo=timezone.utc)
+SELECTION_SEED = "current-control-authority-fixture"
 
 
 def fresh(task_id, *, kind="RESEARCH", priority="P2"):
     return {
         "task_id": task_id,
+        "publication_id": "TP2-" + hashlib.sha256(task_id.encode()).hexdigest()[:20].upper(),
         "kind": kind,
         "state": "READY",
         "dispatch_state": "NEEDS_DISPATCH",
@@ -65,7 +68,8 @@ class CurrentControlAuthorityDispatchTests(unittest.TestCase):
             "validated_quarantines",
             return_value={},
         ):
-            result = dispatch.route_control(events, now=NOW, observations=observations)
+            result = dispatch.route_control(events, now=NOW, observations=observations,
+                selection_seed=SELECTION_SEED, selection_at=NOW)
         effective.assert_called_once_with(events, now=NOW, root=dispatch.ROOT)
         owners.assert_not_called()
         lanes.assert_not_called()
@@ -78,19 +82,23 @@ class CurrentControlAuthorityDispatchTests(unittest.TestCase):
             fresh("RS-HIGH", priority="P1"),
             dict(fresh("RS-OWNED", priority="P0"), dispatch_state="LEASED"),
         ]
-        with mock.patch.object(
+        with research_fair_selection.selection_scope(SELECTION_SEED, NOW), mock.patch.object(
             research_dispatch_core, "effective_states", return_value=states
         ):
             expected = research_dispatch_core.select_task([], now=NOW)
-        self.assertEqual("RS-HIGH", expected["task_id"])
+        # Priority supplies weights; the current policy does not promise that
+        # the higher-priority fixture wins every new-unit draw.
+        self.assertIn(expected["task_id"], {"RS-LOW", "RS-HIGH"})
         result = self.route(states, [])
         self.assertEqual(research_runtime.CLAIM_NEW_OWNER, result["action"])
         self.assertEqual(expected["task_id"], result["target"]["task_id"])
-        self.assertEqual(expected["fair_selection"], result["fair_selection"])
+        self.assertEqual({**expected["fair_selection"], "skipped_missing_publication": 0},
+            result["fair_selection"])
 
     def test_stale_existing_claim_competes_with_fresh_task_on_shared_snapshot(self):
         owner = {
             "task_id": "RS-RECOVER",
+            "publication_id": fresh("RS-RECOVER")["publication_id"],
             "kind": "RESEARCH",
             "priority": "P3",
             "state": "IN_PROGRESS",
@@ -111,8 +119,17 @@ class CurrentControlAuthorityDispatchTests(unittest.TestCase):
                 }
             },
         )
-        self.assertEqual("CLAIM_NEW_OWNER", result["action"])
-        self.assertEqual("RS-FRESH", result["target_key"])
+        self.assertEqual(2, result["fair_selection"]["candidate_count"])
+        self.assertEqual(SELECTION_SEED, result["fair_selection"]["selection_seed"])
+        self.assertEqual(0, result["fair_selection"]["skipped_missing_publication"])
+        self.assertIn(result["target_key"], {"RS-FRESH", "RS-RECOVER"})
+        if result["target_key"] == "RS-RECOVER":
+            self.assertEqual("PREPARE_SUCCESSOR_CLAIM", result["action"])
+            self.assertEqual(owner["claim_id"], result["expected_previous_claim_id"])
+            self.assertTrue(result["owner_claim_preserved"])
+        else:
+            self.assertEqual("CLAIM_NEW_OWNER", result["action"])
+            self.assertFalse(result["owner_claim_preserved"])
         self.assertTrue(result["new_claim_required"])
 
 

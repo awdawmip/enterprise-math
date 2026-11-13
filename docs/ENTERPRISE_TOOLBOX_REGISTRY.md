@@ -21,7 +21,14 @@ FREE Phase A remains blinded from the current catalog until candidate freeze. To
 The Common Research Surface, Toolbox, and Runtime divide ownership of repository `tools/*.py` exactly. Toolbox-owned repository tools are:
 
 - `tools/enterprise_toolbox.py` — reuse-before-invention router;
-- `tools/tool_discovery_native_valuation_ehrhart_brion_calculus_check.py` — frozen T1 discovery checker.
+- `tools/tool_discovery_native_valuation_ehrhart_brion_calculus_check.py` — frozen T1 discovery checker;
+- `tools/check_d25_e3_hesse_signed_gauge_20261111.py` — author-side coefficient-ring check for the E3/Hesse gauge;
+- `tools/check_d25_hesse_frob_lambda_defect_20261112.py` — author-side parameter-power defect check;
+- `tools/check_d25_hesse_pf_w2_reflection_20261111.py` — author-side finite PF W2 reflection check;
+- `tools/check_d25_lambda_e3_connection_bridge_20261112.py` — author-side signed Hesse/E3 connection check;
+- `tools/check_x6_triads_c6_group_brc_20261112.py` — author-side signed-triad group/BRC computation.
+
+These five author-side checker paths are registered for file ownership and discovery only. Listing them does not execute them, validate their mathematical conclusions, accept a shared tool family, or grant native event/Result authority. Their existing source and scientific scope remain unchanged.
 
 `tools/check_research_common_surface.py` audits that the indexes in `research_common_surface.json`, `enterprise_toolbox_registry.json`, and `research_runtime_state_machine.json` are pairwise disjoint and jointly cover the actual repository tool files. Runtime-owned tools are documented in `docs/RESEARCH_RUNTIME_STATE_MACHINE.md`; their registration does not duplicate Toolbox ownership or change mathematical tool-family status.
 

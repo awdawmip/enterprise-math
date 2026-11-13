@@ -155,6 +155,8 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 
 需要正式完成权时，使用 Source 实际支持的正式检查（原生 CLI 的 `--formal-task-completion`）及其当前任务、父目标和证据约束；不要把本桥可选提示当成该检查。保留真实身份和 EM-Source-Status 角标，按实际持久化回读报告成功或欠项，不为角标制造研究写入。
 
+普通汇报不能删去既有研究绑定，也不重标或转移已有会话、Task、CLAIM 与执行绑定。正式共享写入继续核验真实身份、publication、owner/lease、CAS、幂等和科学依赖；状态、角标或一条回复结束都不构成数学接纳。实际调用正式操作时仍按其当前合同核验。
+
 ## Portable research delivery (2026-09-23)
 
 定时研究与任务编写遵循 [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md)。缺少执行环境不妨碍数学推理，也不会自动停用定时任务。保留实际尚未完成的原生检查，并发布范围明确、可便携接续的下一问题。
