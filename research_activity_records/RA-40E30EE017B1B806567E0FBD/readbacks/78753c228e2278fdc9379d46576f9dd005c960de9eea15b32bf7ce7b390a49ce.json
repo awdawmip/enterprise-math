@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_r5_linear_exact_frontier_20261113/GRAY_OUTPUT.json",
+    "ref": "f09e30d67aba82b64d5059a8bfaec5d893b555ba",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-gray-20261113-2104-exact-json-readback",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"status\": \"PASS_GRAY_EXACT\",\n  \"frozen_pin\": \"435e77af0d180eac32bd1f9c4c464bc4010b7551\",\n  \"all_events_identical\": true,\n  \"single_process\": {\n    \"median_build_ms\": {\n      \"baseline\": 66.7286,\n      \"recurrence\": 8.3802,\n      \"gray\": 7.1197\n    },\n    \"median_dp_ms\": {\n      \"baseline\": 2.2933,\n      \"recurrence\": 2.3017,\n      \"gray\": 2.2581\n    },\n    \"median_build_peak_allocated_bytes\": {\n      \"baseline\": 228880,\n      \"recurrence\": 2181960,\n      \"gray\": 194376\n    }\n  },\n  \"fresh_process_R2\": {\n    \"baseline\": {\n      \"median_build_ms_tracemalloc\": 277.640561,\n      \"median_pipeline_ms_tracemalloc\": 358.962237,\n      \"median_peak_allocated_bytes\": 504626,\n      \"median_maxrss_kb\": 104476\n    },\n    \"recurrence\": {\n      \"median_build_ms_tracemalloc\": 69.230153,\n      \"median_pipeline_ms_tracemalloc\": 149.444312,\n      \"median_peak_allocated_bytes\": 2366900,\n      \"median_maxrss_kb\": 104476\n    },\n    \"gray\": {\n      \"median_build_ms_tracemalloc\": 68.479714,\n      \"median_pipeline_ms_tracemalloc\": 147.39672,\n      \"median_peak_allocated_bytes\": 458998,\n      \"median_maxrss_kb\": 104476\n    }\n  },\n  \"experimental_scope\": \"event build and linear DP only; no full prefix-query trie\"\n}\n",
+      "display_title": "GRAY_OUTPUT.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/f09e30d67aba82b64d5059a8bfaec5d893b555ba/research_notes/brc_r5_linear_exact_frontier_20261113/GRAY_OUTPUT.json",
+      "encoding": "utf-8",
+      "sha": "69e9f7aa494daede54cdf44f1648a8382bcfa534"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
