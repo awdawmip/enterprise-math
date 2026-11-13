@@ -1,0 +1,25 @@
+Executed 2026-11-11 (Asia/Shanghai); local full exact-rational script: R5_EXACT_MAX_CIRCUIT_LENGTH.py. The adjacent GitHub VERIFY_CIRCUIT_WORD_LENGTH.py is a compact, independently runnable reproduction of the same rational checks. This output is from the full local script, not a claimed execution log of a GitHub workflow.
+
+FROZEN_PHYSICAL_5_EQ_26_SLACK_21_OBS PASS
+OBSERVER_CIRCUITS 210 ALL_NULL_AND_6_SUPPORT PASS
+EXPLICIT_5_CIRCUIT_RESIDUAL_SUPPORT 26
+EXPLICIT_5_CIRCUIT_WORD_LENGTH 5 EXACT_BY_SUPPORT_BOUND
+EXPLICIT_5_CIRCUIT_PHYSICAL_EPS 196521/3397584400 POSITIVE_PAIR PASS
+EXACT_REPAIR_BASIS_DIMENSION 15 ALL_210_RECONSTRUCTED PASS
+MAX_INTEGER_CIRCUIT_COORDINATE 36
+DETERMINANT_ROOT_COEFFICIENT_BOUND 535356848614986537570569237299200
+EXPLICIT_INTEGER_PARAMETER_T 535356848614986537570569237299202
+EXPLICIT_15_CIRCUIT_WORD_LENGTH 15 PROVED_BY_INTEGER_MINOR_POLYNOMIAL_LEMMA
+EXPLICIT_15_CIRCUIT_REMAINDER_SUPPORT 28
+EXPLICIT_15_CIRCUIT_EPSILON m/(1080*T^14); m=196521/33975844, T=535356848614986537570569237299202
+EXPLICIT_15_CIRCUIT_POSITIVE_PAIR True
+PASS_EXACT_FIVE_AND_MAXIMUM_FIFTEEN_CIRCUIT_PHYSICAL_RESIDUALS
+
+Verification scope:
+- Exact Fraction physical equality/capacity/marginal/first-moment checks at published frozen witness.
+- Generation of all 210 integer-normalized K_{2,3} circuits; nullspace and 6-support tests.
+- Independent 15-circuit repair basis reconstruction of each 210 type.
+- Exact support sizes 26 and 28, exact two-sided physical positivity at explicit rational epsilon.
+- Mathematical certification of minimal length 5 by support count, length 15 by integer minors and polynomial leading-term domination. The latter proof appears in RESEARCH.md, not via exhaustive search of all 14-circuit subspaces.
+- Frozen science: GK a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e.
+- Witness provenance: PR #2017, WITNESS.txt blob f9e3671e12604bc29ee2cc07ffc59724bafacc90.
