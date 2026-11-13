@@ -1,0 +1,106 @@
+{
+  "schema": "R730_CNB_BIRKHOFF_PROJECTIVE_CERTIFICATE_V1",
+  "arithmetic": "exact integer power and exact rational cross-product comparisons",
+  "source": "R729 immutable sharp representatives A=211733226574 B=5363347296468",
+  "systems": {
+    "A": {
+      "arc_mask": "211733226574",
+      "arcs": [
+        "012>014",
+        "012>023",
+        "012>024",
+        "013>012",
+        "013>123",
+        "014>013",
+        "014>034",
+        "023>013",
+        "023>123",
+        "024>023",
+        "024>034",
+        "034>013",
+        "034>023",
+        "123>012",
+        "123>013"
+      ],
+      "states": 90,
+      "transition_entries": 180,
+      "L8_zero_entries": 108,
+      "L9_positive_entries": 8100,
+      "L9_min": 1,
+      "L9_max": 18,
+      "L9_sum": 58764,
+      "row_pairs_tested": 4005,
+      "strict_ratio_comparisons": 712890,
+      "maximum_cross_ratio": [
+        "25",
+        "1"
+      ],
+      "cross_ratio_witness": {
+        "row_i": 12,
+        "row_j": 14,
+        "column_k": 66,
+        "column_l": 68,
+        "four_entries": [
+          5,
+          1,
+          1,
+          5
+        ]
+      },
+      "hilbert_contraction": "2/3",
+      "error_bound": "|6*count_m(h)/total_m-1| <= exp(log(K)*q^floor((m-10)/9))-1 for m>=10",
+      "epsilon_10_percent_length_at_most": 91,
+      "epsilon_1_percent_length_at_most": 145
+    },
+    "B": {
+      "arc_mask": "5363347296468",
+      "arcs": [
+        "012>023",
+        "012>123",
+        "013>012",
+        "013>014",
+        "014>012",
+        "014>124",
+        "023>013",
+        "023>034",
+        "023>123",
+        "034>013",
+        "034>014",
+        "123>013",
+        "123>023",
+        "123>124",
+        "124>012"
+      ],
+      "states": 90,
+      "transition_entries": 180,
+      "L8_zero_entries": 72,
+      "L9_positive_entries": 8100,
+      "L9_min": 1,
+      "L9_max": 18,
+      "L9_sum": 61080,
+      "row_pairs_tested": 4005,
+      "strict_ratio_comparisons": 712890,
+      "maximum_cross_ratio": [
+        "21",
+        "1"
+      ],
+      "cross_ratio_witness": {
+        "row_i": 30,
+        "row_j": 44,
+        "column_k": 29,
+        "column_l": 48,
+        "four_entries": [
+          6,
+          2,
+          1,
+          7
+        ]
+      },
+      "hilbert_contraction": "(sqrt(21)-1)/(sqrt(21)+1)",
+      "error_bound": "|6*count_m(h)/total_m-1| <= exp(log(K)*q^floor((m-10)/9))-1 for m>=10",
+      "epsilon_10_percent_length_at_most": 82,
+      "epsilon_1_percent_length_at_most": 127
+    }
+  },
+  "status": "PASS"
+}
