@@ -1,0 +1,76 @@
+{
+  "schema": "PREFIX749_R6_ADAPTIVE16_6_V1",
+  "date": "2026-11-13",
+  "mother_objective": "PREFIX-675",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "189-row frozen BRC survivor count, Y=max(two independent Gamma completion clocks)",
+  "domain": "all real q>=2 and full CLOSED 384-grid listed cells plus coordinate transposes",
+  "witness": [
+    "0",
+    "73/500"
+  ],
+  "method": "2^96 outward dyadic interval bounds of exact 189-layer Gamma moments; 16x16 subdivisions",
+  "uniform_strict_gap": "V_q(e)-V_q(p,z)>12*q^2>0",
+  "columns": [
+    "i",
+    "j",
+    "floor(1e6 G16 lower)",
+    "floor(1e6 original PREFIX-712 G1 upper)"
+  ],
+  "original_cells": [
+    [
+      12,
+      56,
+      12376308,
+      -226650893
+    ],
+    [
+      13,
+      57,
+      14417493,
+      -227202205
+    ],
+    [
+      14,
+      59,
+      16418225,
+      -231181119
+    ]
+  ],
+  "new_reflected_cells": [
+    [
+      12,
+      56
+    ],
+    [
+      13,
+      57
+    ],
+    [
+      14,
+      59
+    ],
+    [
+      56,
+      12
+    ],
+    [
+      57,
+      13
+    ],
+    [
+      59,
+      14
+    ]
+  ],
+  "original_count": 3,
+  "reflected_count": 6,
+  "min_microfloor": 12376308,
+  "old_G1_max_microfloor": -226650893,
+  "conditional_prefix748_reconciled_author_union": 142326,
+  "conditional_prefix749_reconciled_author_union": 142332,
+  "total": 147456,
+  "remaining": 5124,
+  "verification": "All three exact 16x16 interval computations executed locally after reloading the frozen recurrence; every observed microfloor exact; published composite checker pending end-to-end independent replay.",
+  "grade": "AUTHOR_EXACT_INTEGER_INTERVAL_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
