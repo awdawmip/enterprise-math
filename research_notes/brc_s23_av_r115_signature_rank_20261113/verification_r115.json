@@ -1,0 +1,47 @@
+{
+  "actual_eligibility_transition_edges": 25,
+  "complexity_model": "Allocated immutable tree nodes and exact Fraction arithmetic; measured counts are not runtime speedup or big-int bit-operation counts.",
+  "counters": {
+    "atom_checks": 8789,
+    "branch_edits": 126,
+    "changed_signature_roots": 6286,
+    "eligibility_evaluations": 5148,
+    "history_checks": 527,
+    "map_alloc": 35509,
+    "map_queries": 28250,
+    "no_effect_edits": 0,
+    "rank_alloc": 36584,
+    "rank_queries": 28250,
+    "same_time_support_edits": 304,
+    "time_reintroductions": 180,
+    "topk_checks": 43945,
+    "updates": 513,
+    "witness_checks": 525
+  },
+  "max_atom_rational_bit_length": 8,
+  "maximal_connected_signature_runs": 26,
+  "model": "rational directed half-open arc, finite complete identities",
+  "parameters": {
+    "a": 0,
+    "b": 1,
+    "branches_per_time": 3,
+    "interval": ["0", "1"],
+    "j": 0,
+    "seed": 1152026,
+    "times": [-4, -3, -2, -1, 0, 1, 2, 3, 4],
+    "x": "1/4"
+  },
+  "raw_atom_count": 47,
+  "raw_cut_count": 22,
+  "result": "R115_PASS",
+  "test_scopes": [
+    "510 random one-side edits with branching and persistent version readback",
+    "finite exhaustive 4-identity ordered pair check, all signatures and k=1..5",
+    "targeted add-remove-readd replay",
+    "exact half-open singleton/open-gap representatives"
+  ],
+  "total_eligibility_transitions": 50,
+  "unique_signatures": 25,
+  "unnecessary_raw_edge_count": 21,
+  "versions": 511
+}
