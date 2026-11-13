@@ -1,0 +1,298 @@
+{
+  "status": "R115_PASS",
+  "frozen_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "input": {
+    "U": [
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        -2,
+        1
+      ],
+      [
+        -2,
+        0
+      ]
+    ],
+    "times": [
+      -2,
+      -1,
+      0,
+      1,
+      2
+    ],
+    "branches": [
+      0,
+      1
+    ],
+    "interval": [
+      "0",
+      "1"
+    ],
+    "x": "1/4",
+    "arc": "[0,{theta}) on fractional circle"
+  },
+  "cut_count": 8,
+  "atom_count": 19,
+  "signatures": 10,
+  "max_atom_numerator_bits": 5,
+  "max_atom_denominator_bits": 6,
+  "cases": {
+    "empty": {
+      "F": [],
+      "G": [],
+      "counts": [
+        1,
+        10
+      ],
+      "witness_horizon_upper": 1,
+      "time_bounds": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "-2": 1,
+        "-1": 1
+      }
+    },
+    "symmetric_full": {
+      "F": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          1
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          -2,
+          1
+        ],
+        [
+          -2,
+          0
+        ]
+      ],
+      "G": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          1
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          -2,
+          1
+        ],
+        [
+          -2,
+          0
+        ]
+      ],
+      "counts": [
+        1,
+        10
+      ],
+      "witness_horizon_upper": 19,
+      "time_bounds": {
+        "0": 19,
+        "1": 19,
+        "2": 19,
+        "-2": 19,
+        "-1": 19
+      }
+    },
+    "single_top": {
+      "F": [
+        [
+          2,
+          1
+        ]
+      ],
+      "G": [],
+      "counts": [
+        2,
+        7,
+        10
+      ],
+      "witness_horizon_upper": 2,
+      "time_bounds": {
+        "0": 2,
+        "1": 2,
+        "2": 0,
+        "-2": 2,
+        "-1": 2
+      }
+    },
+    "single_low": {
+      "F": [
+        [
+          -2,
+          0
+        ]
+      ],
+      "G": [],
+      "counts": [
+        2,
+        7,
+        10
+      ],
+      "witness_horizon_upper": 2,
+      "time_bounds": {
+        "0": 2,
+        "1": 2,
+        "2": 2,
+        "-2": 0,
+        "-1": 2
+      }
+    },
+    "asymmetric_split": {
+      "F": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "G": [
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "counts": [
+        2,
+        6,
+        6,
+        7,
+        7,
+        10
+      ],
+      "witness_horizon_upper": 7,
+      "time_bounds": {
+        "0": 5,
+        "1": 5,
+        "2": 5,
+        "-2": 7,
+        "-1": 7
+      }
+    }
+  },
+  "small_initial_pairs_exhausted": 64,
+  "direct_topk_oracle_checks": 4864,
+  "small_parameter_signature_count": 5,
+  "one_edit_indistinguishable_nonidentical_signature_pairs": 23,
+  "example": {
+    "theta": "3/8",
+    "phi": "25/48",
+    "theta_signature": [
+      false,
+      false,
+      true,
+      false,
+      true
+    ],
+    "phi_signature": [
+      true,
+      false,
+      true,
+      false,
+      true
+    ]
+  }
+}
