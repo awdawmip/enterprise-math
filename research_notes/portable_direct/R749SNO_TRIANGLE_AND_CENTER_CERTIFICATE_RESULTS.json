@@ -1,0 +1,103 @@
+{
+  "area_ratio": "32/11",
+  "center": "q0(x)=(1+t*chi_3(x)+s*chi_12(x))/16",
+  "counterexample": "at (t,s)=(7/10,3/20), source moments (-3/20,17/20,17/20,0,0) have TV(mu,q0)=37/80>71/160 by 3/160; this refutes only the q0-vs-affine-radius bound, not the exact minimax equality.",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "joint_exact_certificate": {
+    "bases": 50388,
+    "distinct_vertices": 70,
+    "feasible_bases": 4944,
+    "max_excess": "0",
+    "nonsingular": 28288,
+    "tight_vertices": 26,
+    "violating_vertices": 0
+  },
+  "lower": "W=(h,u,v,w,z)=(0,s-1,-t,-s,-s), E={3,5,7,9,11,13,14,15}",
+  "old_polygon_area": "11/800",
+  "scope": "auxiliary 16-state Walsh observer, author exact certificate; independent review pending",
+  "separate_q0_certificate_nonconvexity": [
+    {
+      "affine_lower": "9/20",
+      "argmax_free_moments": [
+        "0",
+        "-7/10",
+        "-9/10",
+        "1/10",
+        "1/10"
+      ],
+      "counts": {
+        "bases": 4368,
+        "distinct_vertices": 44,
+        "feasible_bases": 216,
+        "nonsingular": 3008
+      },
+      "excess": "0",
+      "q0_worst_tv": "9/20",
+      "s": "1/10",
+      "t": "7/10"
+    },
+    {
+      "affine_lower": "71/160",
+      "argmax_free_moments": [
+        "-3/20",
+        "17/20",
+        "17/20",
+        "0",
+        "0"
+      ],
+      "counts": {
+        "bases": 4368,
+        "distinct_vertices": 36,
+        "feasible_bases": 276,
+        "nonsingular": 3008
+      },
+      "excess": "3/160",
+      "q0_worst_tv": "37/80",
+      "s": "3/20",
+      "t": "7/10"
+    },
+    {
+      "affine_lower": "7/16",
+      "argmax_free_moments": [
+        "0",
+        "7/10",
+        "4/5",
+        "-1/5",
+        "-1/5"
+      ],
+      "counts": {
+        "bases": 4368,
+        "distinct_vertices": 38,
+        "feasible_bases": 236,
+        "nonsingular": 3008
+      },
+      "excess": "0",
+      "q0_worst_tv": "7/16",
+      "s": "1/5",
+      "t": "7/10"
+    }
+  ],
+  "status": "PASS",
+  "theorem": "rho=rho_cal=(3+t-s)/8 throughout the closed triangle for all real parameters",
+  "triangle_area": "1/25",
+  "triangle_halfspaces": [
+    "t-s >= 1/5",
+    "t+s <= 1",
+    "3t+5s >= 3"
+  ],
+  "triangle_vertices": [
+    [
+      "1/2",
+      "3/10"
+    ],
+    [
+      "3/5",
+      "2/5"
+    ],
+    [
+      "1",
+      "0"
+    ]
+  ],
+  "unit": "R749SNO"
+}
