@@ -1,0 +1,47 @@
+# EC49FMW — exact BRC seven-key three-replacement cases 12800–13499
+
+Date: 2026-11-13 (Asia/Shanghai). Author-side TASK_RESEARCH scientific evidence, pending independent review. This continuation preserves frozen scientific pin `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`, the original nine-state BRC model, all 178,850 original legal operation words, 94 complete raw cache keys, 24 observation demands, and ordered signed-X6 primitive-step prefix semantics. The predecessor is EC49FMV, [PR #2202](https://github.com/awdawmip/enterprise-math/pull/2202), commit `d7d24b4679dad94967e1a42dd9da830aa6380496`.
+
+## Exact finite result
+
+For any stipulated seven-key configuration K, define C(K) to be the minimum cardinality of the union of distinct **nonempty ordered signed native six-axis microstep prefixes** among lawful BRC operation words whose full raw cache keys belong to K and whose labels cover all 24 demands.
+
+The original C++17 integer prefix-trie/subset-demand dynamic program completed every index **12800..13499 inclusive** in the deterministic 38,169-member radius-three replacement family:
+
+```
+min_{12800 <= i <= 13499} C(K_i) = 114
+argmin = {12875}
+max = 205, attained by 11 configurations
+roots available: 102 configurations have 3, 598 have 4
+```
+
+`EXACT_VECTOR_EC49FMW.json` stores **all 700 costs**, not a sample: lossless zlib/base64 of the exact 700-byte uint8 vector, SHA256 of decompressed bytes, the full histogram, the complete argmin/argmax index lists and raw original output SHA256. The 700 raw rows were computed as two disjoint exhaustive ranges **12800..13399** and **13400..13499**, then concatenated with consecutivity, uniqueness and exact-output checks. The complete evidence package additionally retains raw original rows, the C++ solver, all frozen input artefacts and the independent Python solver.
+
+Across the already completed contiguous restricted-family indices **0..13499**, the earlier minimum 102 persists. The separately known unrestricted seven-key 84-prefix legal construction remains the upper bound `C_min(7) <= 84` for the mother problem.
+
+## Exact within-sample root-count stratification
+
+The original 700 native output rows permit a further exact finite comparison. Among the **102 three-root** configurations, the minimum is **114**, uniquely at index **12875**, and the arithmetic mean cost is **132.63725490196078**. Among the **598 four-root** configurations, the minimum is **122**, uniquely at index **12879**, and the mean is **150.40635451505017**. This is a precisely scoped empirical split of the stipulated 700 configurations and supplies a useful search-priority signal without treating root count alone as a global optimality theorem.
+
+## Exactness proof for the fixed finite catalogue
+
+For each possible first signed-X6 microstep, form the trie of all eligible original words. Its DP state for each label subset is the minimum number of nonempty native prefix nodes needed to realize that exact subset. Combine children by bitwise label-mask union and addition, activate an included nonroot trie node once, and allow terminal labels. Structural induction on trie height proves the exact subtree values. Superset closure gives minimum cost to cover a required label set.
+
+A 24-demand assignment enumerates every compatible first-root partition. Different signed first steps have disjoint nonempty prefixes, so root costs add. Enumerating these assignments proves that the root-aggregated optimum is the exact fixed-key C(K). Every configuration in the stated range was evaluated; no sampled configurations entered the reported minimum.
+
+## Explicit exact-cost witness
+
+At index **12875**, the seven full key indices are `[0,4,5,19,24,32,49]`. The file `WITNESS_12875_EC49FMW.json` stores 24 original lawful operation words, one for each target label. The signed native-prefix union has three disjoint first-step subtrees with **50 + 52 + 12 = 114** nonempty prefixes. Original frozen catalogue legality and complete raw-key membership are checked by `VERIFY_EC49FMW.py` when the referenced frozen inputs are present. The constructed 114-prefix upper bound meets the exact DP lower bound for this configuration.
+
+## Verification and source
+
+Independent Python native-prefix trie/assignment DP independently recomputed **C(K_12800)=171**, **C(K_12875)=114**, **C(K_13499)=146**, matching C++. The standalone verifier checks compressed-vector SHA256 and length, all indexed min/max values and histogram, witness label completeness, step order/sign, all 114 distinct prefixes and the root split. With the original inputs and raw output, it also checks all input SHA256, 700 row indices and values, and membership of all 24 witness words in the stipulated catalogue. No mathematical admission, new task CLAIM or native Result is represented by these author materials.
+
+SHA256 frozen catalogue: `cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e`.
+SHA256 complete original 700 rows: `36d8ad72d70b532a91d37768c75fbfb6d934bb8647e2ce3fc0544b1d93ab84d0`.
+SHA256 decoded cost vector: `e78ef2e9ba1a7b0ceb1af2a1e8fcf31bdb1bc887a737c05d98ec22b656c0d188`.
+C++ solver source SHA256: `6ea17ff267f599c69967b420ebf1a8abe151e587e57b25f599f8ecdfb9f2ecac`.
+
+## Next unit
+
+Start at **13500**; there are **24,669** remaining coverable configurations in the declared restricted family. Pursue exact costs, reusable lower-bound certificates across native first-root signatures and alternative unrestricted seven-key constructions below the known 84-prefix upper bound. Preserve complete original native path/observer distinctions. The native exact task read in this run returned `NO_CURRENT_IMMUTABLE_PUBLICATION`; therefore this is author-side evidence awaiting any later independently authorized Task/Result/Driver pathway.
