@@ -57,6 +57,20 @@ Proof is the above exhaustive classification of nonnegative integer solutions to
 
 **Explicit noninjective native-lift witness:** the same chart coordinate-root pair `(a,b)=(3,4)` mapped along labels `(0,1)` or `(0,2)` produces different native endpoints `(3,4,0,0,0,0)` and `(3,0,4,0,0,0)`. Both have `G=25`, shortest length `T=7`, and BRC multiplicity `35`. An unlabeled root with scalar square, length and BRC count does not recover native Cell endpoint; this identifies the exact data a current native-PathSqrt consumer must preserve. This is a **positive finite special result** within the existing signed X6; it is not an assertion about all `G=25` six-axis vectors, which may also use three or more nonzero coordinates.
 
+### Reproducibility and actual execution (same byte-level source)
+
+The **original published checker** `research_checks/X6_LP028_R25_ORDERED_CHART_VS_SIGNED_NATIVE_FIBERS_20261113_1100.py` was separately executed with Python from a local file whose computed Git blob SHA-1 exactly matches the published GitHub blob: `ac4e10220a8aa41c512b6c1afbe8504da6734c64` (2126 bytes; SHA-256 `6c1e3d37cbf17bf39baad0db1db2c9d6c5a527309a8f63c02ace01b1dc1db952`). Python exited successfully and printed:
+
+```text
+PASS_X6_LP028_R25_ORDERED_TWO_AXIS_CHART_FIBERS
+ordered_positive_descriptions=120; unique_positive_endpoints=36; positive_brc_mass=1056
+positive_description_preimage_size_histogram={2:30,10:6}
+signed_two_axis_unique_endpoints=132; signed_two_axis_brc_mass=4212
+status=EXACT_FINITE_TWO_AXIS_CHART_ONLY_NOT_FULL_X6_SHELL
+```
+
+This checks precisely the scoped finite domain and the type-sensitive multiplicity equations; the combinatorial proof above establishes the same identities directly.
+
 ## Additional current executable call-site classification (five complete source bodies)
 
 All were read at same current source commit; this is semantic inspection, not a claim that each original project regression ran in this turn.
