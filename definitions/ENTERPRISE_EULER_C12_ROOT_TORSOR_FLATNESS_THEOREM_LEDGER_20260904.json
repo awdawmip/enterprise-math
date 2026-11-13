@@ -1,0 +1,127 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH / EXACT_FINITE_CORE / NOT_FOUNDATION",
+  "date": "2026-09-04",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "author_program": "YUAN X / Enterprise Math",
+  "source_note": "research_notes/EULER_C12_ROOT_TORSOR_TETRAHEDRAL_FLATNESS_20260904.md",
+  "formal_module": "EnterpriseMath/Precision/EulerC12RootTorsorFlatness.lean",
+  "checker": "src/enterprise_math/euler_c12_root_torsor.py",
+  "tests": "tests/test_euler_c12_root_torsor.py",
+  "theorems": [
+    {
+      "id": "EMECR-T01",
+      "name": "CRT separation of C6 and C12",
+      "statement": "C6 is canonically C3 x C2, C12 is canonically C3 x C4, and reduction C12 -> C6 is id_C3 x (C4 -> C2).",
+      "status": "LEAN_TARGET + EXACT_CHECKER",
+      "formal_theorems": [
+        "crt6_left_inverse",
+        "crt6_right_inverse",
+        "crt12_left_inverse",
+        "crt12_right_inverse",
+        "root_cover_crt_compatibility"
+      ]
+    },
+    {
+      "id": "EMECR-T02",
+      "name": "Exact non-split root cover",
+      "statement": "The reduction C12 -> C6 is surjective with kernel {0,6}; no lift of the C6 generator is annihilated by six, hence the extension has no group-homomorphic section.",
+      "status": "LEAN_TARGET + EXACT_CHECKER",
+      "formal_theorems": [
+        "root_cover_kernel",
+        "root_cover_surjective",
+        "no_generator_section"
+      ]
+    },
+    {
+      "id": "EMECR-T03",
+      "name": "Quarter-turn root torsor",
+      "statement": "The equation 2q=6 in C12 has exactly q=3,9; they reduce to the C6 half-turn, differ by the kernel element, and are exchanged freely by inversion.",
+      "status": "LEAN_TARGET + EXACT_CHECKER",
+      "formal_theorems": [
+        "quarter_roots_exhaustive",
+        "quarter_root_reduces_to_half_turn",
+        "quarter_root_doubles_to_half_turn",
+        "inversion_exchanges_quarter_roots",
+        "no_inversion_fixed_quarter_root"
+      ]
+    },
+    {
+      "id": "EMECR-T04",
+      "name": "Three-bit tetrahedral graph holonomy",
+      "statement": "C1(K4;F2) modulo vertex-frame coboundaries is classified by the three triangular holonomies adjacent to A; every three-bit code occurs and the fourth face is their sum.",
+      "status": "LEAN_TARGET + EXHAUSTIVE_CHECKER",
+      "formal_theorems": [
+        "fourth_face_is_sum_of_first_three",
+        "holonomy_classifies_gauge_orbits",
+        "holonomy_code_surjective"
+      ]
+    },
+    {
+      "id": "EMECR-T05",
+      "name": "Filled-tetrahedron face-flatness criterion",
+      "statement": "An overlap-sign one-cochain globalizes to local root signs on the four slices if and only if all triangular face holonomies vanish.",
+      "status": "LEAN_TARGET + EXHAUSTIVE_CHECKER",
+      "formal_theorems": [
+        "coboundary_is_flat",
+        "reconstructs_every_flat_system",
+        "flat_iff_globalizable"
+      ]
+    },
+    {
+      "id": "EMECR-T06",
+      "name": "Global signed root unique up to reversal",
+      "statement": "Two vertex-root assignments induce the same overlap signs exactly when they are equal or simultaneous global reversals.",
+      "status": "LEAN_TARGET + EXHAUSTIVE_CHECKER",
+      "formal_theorems": [
+        "global_lift_unique_up_to_reversal",
+        "overall_reversal_preserves_transitions",
+        "overall_reversal_is_nontrivial"
+      ]
+    },
+    {
+      "id": "EMECR-T07",
+      "name": "Face transport detects chirality holonomy",
+      "statement": "Transporting a local quarter-turn root around a triangular face flips its sign exactly when that face holonomy is nonzero.",
+      "status": "LEAN_TARGET + EXHAUSTIVE_CHECKER",
+      "formal_theorems": [
+        "abc_transport_detects_holonomy",
+        "abd_transport_detects_holonomy",
+        "acd_transport_detects_holonomy",
+        "bcd_transport_detects_holonomy"
+      ]
+    },
+    {
+      "id": "EMECR-T08",
+      "name": "Projective Euler endpoint descent",
+      "statement": "Both quarter-turn roots and every sign-transported root double to the same half-turn state; scalar half-period output is chirality-even even when a signed root does not globalize.",
+      "status": "LEAN_TARGET + EXACT_CHECKER",
+      "formal_theorems": [
+        "projective_half_turn_endpoint",
+        "face_holonomy_cannot_change_projective_endpoint"
+      ]
+    },
+    {
+      "id": "EMECR-T09",
+      "name": "Single-seed propagation boundary",
+      "statement": "After a global choice between +/-J, the already established positive-longitudinal/equal-resultant section propagates every non-antipodal Viète root; the independent sign choice occurs only at the antipodal seed.",
+      "status": "DERIVED_FROM_THIS_TORSOR_THEOREM_AND_EXISTING_G1_PRINCIPAL_ROOT_RESULT",
+      "boundary": "The deep algebraic orientation states are not yet exact integer native Cell/trace addresses."
+    }
+  ],
+  "resolved_distinctions": [
+    "C6_ORIENTATION_FACTOR_IS_NOT_THE_C12_ROOT_COVER_KERNEL",
+    "THE_C12_ROOT_COVER_NONSPLITTING_IS_ENTIRELY_IN_THE_C4_TO_C2_FACTOR",
+    "GLOBAL_SIGNED_J_EXISTS_IFF_THE_THREE_INDEPENDENT_FACE_HOLONOMIES_VANISH",
+    "PROJECTIVE_HALF_PERIOD_ENDPOINT_DESCENDS_WITHOUT_A_GLOBAL_SIGNED_J"
+  ],
+  "negative_boundaries": [
+    "CURRENT_P000_FCC_INCIDENCE_DOES_NOT_SUPPLY_THE_SIX_OVERLAP_SIGNS",
+    "CURRENT_NATIVE_DYNAMICS_DO_NOT_YET_FORCE_FACE_FLATNESS",
+    "NO_CANONICAL_OVERALL_CHIRALITY_SIGN_IS_SELECTED",
+    "ROOT_COVER_KERNEL_IS_NOT_IDENTIFIED_WITH_TETRAHEDRAL_ENDPOINT_SUM_TORSION",
+    "ROOT_COVER_KERNEL_IS_NOT_IDENTIFIED_WITH_PELL_SHELL_SIGN",
+    "J_IS_NOT_A_PRIMITIVE_NATIVE_SPATIAL_AXIS",
+    "NO_GLOBAL_SIX_DIMENSIONAL_TRAJECTORY_FACTORIZATION_IS_CLAIMED"
+  ]
+}
