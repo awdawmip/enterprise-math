@@ -1,0 +1,66 @@
+# R5 — Exact mean-optimal radius-cover class: 91 bits / 12-byte center rank
+
+Date: 2026-11-13. Status: **author-side proof and executed exact computation; UNREVIEWED / NOT_ADMITTED**. Frozen scientific input: \`awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551\`. This is an auxiliary BRC certificate-query checkpoint index, not a new P000 axiom or native X6 dynamics.
+
+## Parent scientific frontier
+
+Draft PR [#2267](https://github.com/awdawmip/enterprise-math/pull/2267) reconstructed the original 1,065 distinct (q,n) certificate events from the frozen 15-atom fixture, its 953 rational activation walls and its event-coordinate array E with 954 strictly increasing integer boundaries. It proved the radius-2, K=213 *unconstrained-mean* covering class has 959842890872466279854034583824629760000 members, requiring 130 bits / 17 bytes to rank any radius-feasible center set. It also independently recovered the historical 213 checkpoint center list from the published 56-byte seed.
+
+Earlier Draft PR [#2227](https://github.com/awdawmip/enterprise-math/pull/2227) found exact minimum mean correction 1070 while retaining radius 2 and the same K. The present result intersects these two established constraints and counts **only the joint mean-optimal, radius-feasible center sets**; no historical center list is altered.
+
+## Exact additive-cost path theorem
+
+Let x[0] < ... < x[W] be strictly increasing integers, R >= 0, 1 <= K <= W+1, and S=(s0<...<s(K-1)) satisfy max_b min_{s in S}|x[b]-x[s]| <= R. Define start/finish conditions and the exact coverage graph of PR #2253/#2267, whose edge p->q exists iff the interval between consecutive centers is completely covered.
+
+For an admissible start p, finish p and edge p<q, set
+
+    A(p) = sum_{0<=b<p} (x[p]-x[b])
+    Z(p) = sum_{p<b<=W} (x[b]-x[p])
+    w(p,q) = sum_{p<b<=q} min(x[b]-x[p], x[q]-x[b]).
+
+**Theorem.** The exact total signed-event correction distance across all boundaries is
+
+    C(S) = A(s0) + sum_{j=0}^{K-2} w(s_j,s_{j+1}) + Z(s_{K-1}).
+
+Proof: Before the first center, s0 is the closest center; after the last, the last center is closest. Between adjacent centers p,q, earlier centers lie strictly below p and later ones strictly above q in event coordinates, so the closest center at every b in (p,q] is p or q. Those disjoint index intervals partition the boundary population. The displayed sum counts every boundary exactly once. Radius-feasibility is exactly the pre-existing graph's path criterion. QED.
+
+Define F(t,p) to be the least sum of edge weights plus final tail Z among paths of **exactly t centers starting at p**, and N(t,p) its number of minimizers:
+
+    F(1,p) = Z(p) for a legal finish, +infinity otherwise;
+    N(1,p) = 1 for a legal finish, 0 otherwise;
+    F(t,p) = min_{p->q} [w(p,q)+F(t-1,q)];
+    N(t,p) = sum_{p->q: w(p,q)+F(t-1,q)=F(t,p)} N(t-1,q).
+
+The total optimum J is min_{p legal start}[A(p)+F(K,p)] and its **exact number of optimum center sets**
+
+    Topt = sum_{p legal start: A(p)+F(K,p)=J} N(K,p).
+
+Each optimum has a unique lexicographic rank; unranking uses precisely the min-cost transitions and their suffix multiplicities. Both are exact reversible maps between [0,Topt) and the declared finite mean-optimal radius-cover class. With <=2R+1 outgoing edges per vertex, the DP requires O(K(W+1)(2R+1)) arithmetic transitions, with arbitrary-precision integer bit costs additional. A full rank/unrank table uses O(K(W+1)) integer entries; previous blockwise techniques can be adapted with their own time-memory tradeoffs.
+
+## Actual frozen R5 result
+
+Original pinned E: 954 boundaries, 1,065 events, 953 walls, 4,383 legal graph edges. R=2, K=213; all 213 historical centers recovered byte-for-byte via the original 56-byte source center payload.
+
+    J = 1070
+    Topt = 1338767625695954932334592000
+    ceil(log2(Topt)) = 91 bits
+    optimal fixed-width byte rank = 12 bytes
+    original historical center rank (0-based) = 417027933051277583800994379
+    original 12-byte BE rank = 0158f5198cd12c63a2ba0a4b
+    SHA256(12-byte rank) = da48ae93cb1e69687bb54f4ffa8bdc16683a3539d7df7ce8591a4bf1a892e87e
+
+The 12-byte capacity bound is sharp for fixed-width byte codes that distinguish **every** member of the precisely declared optimum class and take x,R,K as decoder context. It is 5 bytes smaller than the 17-byte complete radius-feasible class, and 44 bytes smaller than the 56-byte historical gap cache. The original 2,520-byte certificate seed is unchanged. An alternative canonical tie-break optimizer would need no stored center identifier but would not reproduce the historical center sequence; the 12-byte code does.
+
+## Verification evidence and provenance
+
+A locally executed, standalone Python 3 standard-library exact-arithmetic checker reconstructed E from all 32,767 nonempty masks using the PR #2267 frozen W/K coefficient list and filtered deduplicated (q,n) pairs with n>=3, preserving rational-wall multiplicity. It decoded the original 56-byte source seed and confirmed minimum mean 1070. It then computed (J,Topt) by backward min-plus-count DP and separately by forward min-plus-count propagation; both agree. Exact rank/unrank recovers **all** 213 original centers; the out-of-range rank was rejected.
+
+Additionally, it exhaustively checked 28,428 small cases with integer increments in {1,2,3}, sequence increments of length 1..6, R in {0,1,2,3}, and each permitted K. These cases included 104,562 legal center sets, of which 49,627 were mean-optimal for their respective parameters; brute subsets matched the DP optimum/count and every optimal subset's rank/unrank. Original local checker SHA-256: \`0dbeb49c18354cf988fcc008aa15b51e7f4eb28f88015607835fb98d68a4e133\`. The published \`VERIFY_R5_OPTIMAL_MEAN_COVER.py\` reuses PR #2267's pinned coefficient fixture and contains the same min-plus-count proof kernel and exhaustive checks; independent execution of the exact published Git blob remains a separate replication step.
+
+No original 28-coordinate legal-word enumeration or complete 2,747,520 boundary-prefix query oracle was rerun here. As all 213 centers are restored exactly, their previous query-data-structure semantics remain available for separate end-to-end comparison.
+
+## Engineering decision and next research question
+
+A shorter persistent encoding does not by itself imply faster startup. Unranking the 12-byte rank requires construction or reuse of min-plus-count DP tables, with more preprocessing and potentially more temporary memory than decoding 33/35/56-byte gap streams. Compare end-to-end wall reconstruction, DP/reconstruction, original bitmap construction, peak RSS, repeated rational-prefix queries, and output recovery under **identical frozen inputs and query loads**. A complementary next mathematical unit is a blockwise min-plus-count unranker achieving smaller peak memory while preserving exact 12-byte historical-center restoration.
+
+Formal Task/CLAIM, Source Activity, Result and independent review have separate authority and remain pending real native control receipts. This Draft PR is an author-side durable candidate, stacked on #2267, not canonical mathematical admission.
