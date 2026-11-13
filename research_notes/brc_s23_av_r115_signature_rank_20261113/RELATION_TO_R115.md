@@ -1,0 +1,13 @@
+# R115-SIG relationship to earlier R115 and reproducible data
+
+This directory is an independent **R115-SIG algorithmic auxiliary continuation**, not a replacement for the earlier saved **R115 bounded-future observer**.
+
+Earlier R115 was written and Source-observed at commit `5086853083aa88d3cf8d25a1fc54f6435d7b4d2f`, path `research_notes/brc_s23_av_r115_bounded_future_observer_20261113/PROOF.md`. It defines the horizon-H equivalence `θ ~_H^x φ` across all history states reachable by at most H one-sided identity edits, proves a constructive horizon saturation bound, and supplies a sharp S23 witness separating H=1 from H=2. Its Research Activity event is `R1-R115-20261113-BOUND-FUTURE-OBSERVER` in `RA-C78332A9CDB4B783369BB98F`.
+
+The new R115-SIG proof in this directory analyzes the **unrestricted-future** (`H` sufficiently large) eligibility signature from R114 as a connected partition and a persistent two-level all-k rank index. Its contribution is the exact positive-toggle-incidence boundary theorem and a concrete persistent data structure that retains complete identity/branch provenance, with test and source artifacts. It does not establish a more efficient algorithm for the earlier fixed-H observer; that is a distinct potential research direction.
+
+Correct reproducibility details: source in `check_r115.py.gz.b64` is gzip+base64; Python 3 `Fraction` is exact; `verification_r115.json` records the actual local output counters. `time_reintroductions=180` counts *a time becoming present when absent in the immediate parent history*, rather than proving the time was present in some earlier ancestor. A targeted add-remove-add path is tested separately. `branch_edits=126` is the number of selected fork-from-older-version edits, not the total number of source edits (510 randomized, 3 deterministic).
+
+Formal S23 Task publication query `research1-r115-s23-taskcheck-20261113-1125` returned `UNPUBLISHED_TOPIC_METADATA_ONLY` at its Source snapshot. Neither R115 source constitutes a canonical Task CLAIM. The actual RA includes the earlier R115 event; this directory is persisted on its own author branch, and its new activity-event Source checkpoint is pending separate CAS publication.
+
+Frozen scientific inputs: `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Future R116: on-demand universe enlargement, retaining prior signatures, creating new split signatures/representatives, and comparing integer bit cost and memory with complete rebuild.
