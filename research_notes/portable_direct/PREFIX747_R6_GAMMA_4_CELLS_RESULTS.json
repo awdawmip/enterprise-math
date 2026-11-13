@@ -1,0 +1,57 @@
+{
+  "schema": "PREFIX747_R6_GAMMA_4_CELLS_V1",
+  "date": "2026-11-13",
+  "researcher_id": "EM-DIRECT-6649FC",
+  "activity_id": "RA-E1A8598C3ED2BB594F68B2AE",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "189-row frozen BRC stopped-survivor kernel; Y=max(two independent unit-rate Gamma clocks)",
+  "grid_denominator": 384,
+  "witness": [
+    "0",
+    "73/500"
+  ],
+  "domain": "all real q>=2; full closed listed cells and coordinate transposes",
+  "strict_gap": "V_q(e)-V_q(p,z)>11*q^2",
+  "checked_original_cells": [
+    {
+      "i": 11,
+      "j": 50,
+      "G2_floor_micro": -74544460,
+      "G4_floor_micro": -16501384,
+      "G8_floor_micro": 12610669
+    },
+    {
+      "i": 12,
+      "j": 51,
+      "G2_floor_micro": -76791948,
+      "G4_floor_micro": -17685531,
+      "G8_floor_micro": 11955704
+    }
+  ],
+  "new_cells": [
+    [
+      11,
+      50
+    ],
+    [
+      12,
+      51
+    ],
+    [
+      50,
+      11
+    ],
+    [
+      51,
+      12
+    ]
+  ],
+  "new_count": 4,
+  "prior_author_union": 141972,
+  "new_author_union": 141976,
+  "total": 147456,
+  "remaining": 5480,
+  "verification": "Each original cell checked separately in a fresh local Python process using exact Fraction and frozen moment-hash regression; dependent combined checker not yet successfully re-run.",
+  "grade": "AUTHOR_EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "historical_scope": "non-overlap checked against fetched PREFIX742-746 JSON sets and earlier coverage notes; full independent union audit pending"
+}
