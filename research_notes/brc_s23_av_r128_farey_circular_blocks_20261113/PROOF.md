@@ -1,4 +1,4 @@
-# R128 — Farey-sector circular-block theorem for all joint S23 Boolean signatures
+> **Prior work / scope notice (2026-11-13):** General binary rotation-word counting and the sharp `Theta(m^4)` asymptotic were established by Frid and Jamet (2014), DOI `10.1051/ita/2014019`. R128.1–R128.2 are an independent constructive derivation of a coarser bound, not a new asymptotic result. The project-specific increment is R128.3: applying an exactly generated rotation-word candidate set to R126's signed S23 feasibility system. See [LITERATURE_RECONCILIATION.md](LITERATURE_RECONCILIATION.md). The previous suggestion to improve the free-family order below `m^4` is superseded; investigate the correlated S23 subfamily instead.\n\n# R128 — Farey-sector circular-block theorem for all joint S23 Boolean signatures
 
 Date: 2026-11-13 (Asia/Shanghai). Author-side auxiliary mathematics continuing R126 and R127; not a native X6 event permission. Frozen scientific input: `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Predecessor source: R127 author-side commit `72f6de415d45fbd9a0a3bfde7aae36ccc99d0b93`.
 
