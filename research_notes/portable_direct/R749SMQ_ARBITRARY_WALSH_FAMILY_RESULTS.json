@@ -1,0 +1,86 @@
+{
+  "arithmetic": "exact integer GF(2) enumeration and Fraction",
+  "classification": [
+    {
+      "d": 1,
+      "families_including_empty": 2,
+      "gap_types": [],
+      "odd_balanced_nonempty_families": 1,
+      "sandwich_exact_families": 2,
+      "sandwich_gap_families": 0,
+      "subspaces": 2
+    },
+    {
+      "d": 2,
+      "families_including_empty": 8,
+      "gap_types": [],
+      "odd_balanced_nonempty_families": 6,
+      "sandwich_exact_families": 8,
+      "sandwich_gap_families": 0,
+      "subspaces": 5
+    },
+    {
+      "d": 3,
+      "families_including_empty": 128,
+      "gap_types": [],
+      "odd_balanced_nonempty_families": 63,
+      "sandwich_exact_families": 128,
+      "sandwich_gap_families": 0,
+      "subspaces": 16
+    },
+    {
+      "d": 4,
+      "families_including_empty": 32768,
+      "gap_types": [
+        {
+          "count": 168,
+          "family_size": 5,
+          "h": 2,
+          "r": 1
+        },
+        {
+          "count": 168,
+          "family_size": 10,
+          "h": 3,
+          "r": 2
+        }
+      ],
+      "odd_balanced_nonempty_families": 2880,
+      "sandwich_exact_families": 32432,
+      "sandwich_gap_families": 336,
+      "subspaces": 67
+    }
+  ],
+  "exceptional_four_dimensional_five_circuits": 168,
+  "kernel_certificates": {
+    "canonical_five_circuit": [
+      1,
+      2,
+      4,
+      8,
+      15
+    ],
+    "character_zero_constraints_checked": 30,
+    "circuit_kernel_guaranteed_TV_upper": "5/6",
+    "circuit_kernel_mass_at_zero": "1/6",
+    "complement_family": [
+      3,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "complement_kernel_guaranteed_TV_upper": "5/8",
+    "complement_kernel_mass_at_zero": "3/8",
+    "convolution_columns_checked": 32
+  },
+  "proof_boundary": "finite classifications verified; universal minimax inequalities proved separately in the markdown manuscript; no V29/V39 native event claim",
+  "schema": "R749SMQ_EXACT_FINITE_CHECK_V1",
+  "scope": "all retained-character subsets in F_2^d for 1 <= d <= 4; exact special kernels at d=4",
+  "status": "PASS"
+}
