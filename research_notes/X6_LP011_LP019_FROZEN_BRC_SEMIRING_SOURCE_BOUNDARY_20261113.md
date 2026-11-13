@@ -1,0 +1,49 @@
+# X6 LP011/LP019 - frozen BRC operator/source boundary (author audit)
+
+Status: AUTHOR-SOURCE-AUDIT / EXACT ALGEBRA / NOT_REVIEWED / NOT_ADMITTED.
+Parent task: RS-X6-LEGACY-PLANE-RECONCILIATION.
+Frozen comparison: awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3.
+Native Foundation: P000 V5, source pinned to 59538f585d037d09ef687b28715c4bc1a3f9fe03.
+This is a typed historical source audit, not an independent Driver disposition or native PROGRESS.
+
+## Exact criterion, typed to path-weight observables
+
+Let S be a nontrivial commutative semiring with 0 and 1. Define support s(x)=0 if x=0, else 1 in the Boolean semiring.
+Then s is a semiring homomorphism exactly when (i) x+y=0 implies x=y=0 (zero-sum-free), and (ii) xy=0 implies x=0 or y=0 (no nonzero zero divisors). Proof: under (i), s(x+y)=s(x) OR s(y); under (ii), s(xy)=s(x) AND s(y). Conversely, each homomorphism identity forces the respective implication, since s(x)=0 iff x=0. Unit and zero are preserved since 1 is nonzero. This concerns path-weight support only. It does not recover path identity, signed orientation, provenance, native Cell displacement, or signed X6 dominant axes.
+
+Over nonnegative rationals both conditions hold. Over integers additive cancellation violates (i): x=1, y=-1, x+y=0, but s(x) OR s(y)=1. Over Z/6Z, x=2, y=3 violate (ii): xy=0 while both are nonzero.
+
+An independent exact Python finite check of 81 pairs (a,b in [0,8]^2) for the nonnegative integer support laws passed, and both explicit counterexamples passed. Finite checking illustrates the general proof; it is not used as the universal proof.
+
+## Exact frozen executable locations and typed disposition
+
+- experiments/brc_weighted_log_semiring_check.py, frozen Git blob 0fdae08413b8caff4c08ca52649d5f4b0fa8292c, lines 108-124: nonnegative rational DAG support projection, KEEP as positive-weight path semantics.
+- Same file lines 128-137: direct path +1 and two-step path 1*(-1) give signed sum zero while Boolean path existence remains true. KEEP as an explicitly negative boundary, NOT an incorrect LP019 positive-N-BRC cancellation invocation.
+- Same file lines 139-151: Z/6 zero-divisor witness (2,3), KEEP as separate coefficient-ring boundary.
+- experiments/brc_dominant_degeneracy_quotient_check.py, frozen blob 33740d338fdc0459bb5ef07a9afc01892fae4752, lines 11-29: histogram of rational weights, lead=(maximum scalar weight, number of tied maximum weights). KEEP as weighted BRC leading-pair algebra; not an operator selecting a signed native X6 axis.
+- Same file lines 184-208: explicit weighted graph with parallel edges (0->1, 2/3) retained with tie multiplicity 2. KEEP as weighted graph path identity.
+- experiments/brc_foundation_retrofit_check.py, frozen blob 8dbc1bdde0d63979f0b84d431e39864639aca423, lines 209-255: oriented forward/reverse area +1/-1, positive masses 2 and 1/2, equal CWM summary in either order, effective multiplicity 5/4. KEEP as explicit evidence that positive weighted summary does not encode signed path orientation.
+- experiments/brc_weighted_multiplicity_tower_check.py, blob 28618135c77939cfd90cbcc84a44a3de75767393: supported nonnegative weighted path transport, KEEP within weight domain.
+- experiments/brc_weighted_rational_runtime_prototype.py, blob ae6c154d13547ea9d1613e3131cedea67ac24d8d: declared nonnegative weight/support/count/effective multiplicity interface, KEEP in typed domain.
+- experiments/brc_weighted_local_bisimulation_boundary_check.py (c9d22d9b7e4f22884b48ad2801836cfdcd23995b), experiments/brc_port_contextual_equivalence_check.py (add88bf5b4bd236010a04ec45bd06297628837f6), and experiments/brc_holonomy_parity_thickness_check.py (d2aa874c2e0e7bda6b830c98fab6c44817f5ce44): no matching signed-support/native-argmax caller in the inspected targeted source search; scoped KEEP only under this finite audit.
+
+These eight checked paths do not establish the location of an erroneous historical LP011 native argmax or LP019 signed path-count cancellation call. Both remain UNRESOLVED_PROVENANCE. This author audit does not certify the entire frozen corpus or all downstream call sites.
+
+## Existing work consumed, remaining obligations
+
+Do not recompute completed native signed G25 7812 endpoints / 2538954612 free shortest BRC words, its PathSqrt 132 singleton result, or the completed direction-guard and method-level rotation proofs.
+
+Highest concrete executable debt: run the two ORIGINAL GitHub checkers after the latest S6 Boolean-axis fixes, with their actual current dependencies; no substitute checker may be called original regression:
+- experiments/x6_signed_native_spatial_v16_20260905/check_x6_signed.py: blob 83c5ed026c41360696019f2a1d92d3db41910295.
+- experiments/x6_native_coordinate_completion_v7_20260905/check_x6_coordinate.py: blob d562df4cedf3aa54fd3ca5db5ee0d17ff873a752.
+- Required direct code: x6_signed.py blob 405d9bc752bbf45582f2d0a6d9f91bff9cc5f89e; x6_coordinate.py blob 9738543aace13f8a72af577e9ad8964c5fd40de8; coordinate checker also imports six_axis.py 2a16d04bd6c5e6d50e0fdd20e455f854b71bdcf4 and signed_brc.py 300a96e3dc24bf6fff73743037a0347a8bc83176.
+- Exact acceptance: original scripts run as-is on these immutable source bytes, both exit code 0, capture stdout/check counts; preserve original checkers as benchmark objects. This audit did not execute either full original checker.
+
+Next LP011/LP019 source action: inspect executable call sites consuming the frozen scalar weighted lead or support maps as *native* signed X6 assertions; produce exact path, line, consumer and provenance only where actually found. Then integrate a typed claim-level 28-LP closure for independent Driver REQUEST_REVISION.
+
+## Control / continuity provenance
+
+Own historical Research lane: chatgpt-research-onhour-enterprise-math-20260923; Researcher EM-X6-FB6990, SID MCP-082892eb480e45dea6d4b9fcc0491034. Task=RS-X6-LEGACY-PLANE-RECONCILIATION; publication TP2-B4A441B23DA3159232C2. Current exact Source task read request onhour-20261113-2359-x6-task-read-guard-v2 returned SUCCEEDED / HANDOFF_READY / NEEDS_DISPATCH / claim_id null / execution_authorized false. Historical run bindings are provenance only, not current permission.
+Original recovery/continuation onhour-20261113-2340-x6-exact-continuation-v1 returned SUCCEEDED; any original pending effect must be checked under its original ID. Do not select maintenance lane, adopt its identity, or promote this author audit to Result/Review.
+
+Shared contract: original highest native frontier unchanged; frozen source pins unchanged; evidence debt=original post-S6 full regression, precise historical wrong-caller provenance, 28-LP dependency closure, independent Driver review. No new native semantic checkpoint or new CLAIM was established by this document.
