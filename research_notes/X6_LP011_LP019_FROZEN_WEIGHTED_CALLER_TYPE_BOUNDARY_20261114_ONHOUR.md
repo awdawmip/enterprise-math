@@ -1,0 +1,27 @@
+# X6 LP011/LP019 — frozen weighted-BRC executable caller typing (bounded source audit)
+
+Date: 2026-11-14. Research Task `RS-X6-LEGACY-PLANE-RECONCILIATION`; publication `TP2-B4A441B23DA3159232C2`.
+Science baseline: unchanged P000 V5 `59538f585d037d09ef687b28715c4bc1a3f9fe03`; historical corpus: exact frozen `fd2bcff10ca6e147348b6c1236027fc0d2877df3`.
+Research lane `chatgpt-research-onhour-enterprise-math-20260923` (not maintenance). No fresh Native CLAIM or Source PROGRESS conferred by this provenance read.
+Classification: **SOURCE-ATTESTED_BOUNDED_AUDIT / UNREVIEWED / NOT_ADMITTED**. This note is an exact historical code-content inspection, **not** a claim of newly executed frozen checkers.
+
+## Precise new named frozen executable call-site sample
+
+The four complete frozen Python bodies were read from the above immutable commit using the authorized GitHub connector. All four Git blob SHA-1 values were returned by that connector (distinct from current-main source):
+
+| Frozen path | Observed Git blob | Actual code positions and typed result |
+|---|---|---|
+| `experiments/brc_dominant_degeneracy_quotient_check.py` | `33740d338fdc0459bb5ef07a9afc01892fae4752` | Lines 14–41: `Histogram=dict[Fraction,int]` and `Lead=tuple[Fraction,int]`; `lead` uses `max(value)` **on rational path weights**, `ladd/lmul` preserve tied *weight* multiplicity. Lines 168–204 explicitly enumerate weighted graph paths to cross-check this leading-pair algebra. No signed native X6 coordinates or original-axis `argmax` are passed at these examined sites. Hence this is **weight dominance**, not a demonstrated LP011 signed spatial dominant-axis misuse. `KEEP_WEIGHTED_BRC`. |
+| `experiments/brc_weighted_log_semiring_check.py` | `0fdae08413b8caff4c08ca52649d5f4b0fa8292c` | Lines 108–125: a finite DAG checks **nonnegative rational** carrier path-sum/support equivalence; lines 128–137 separately construct the intentional **signed additive cancellation obstruction**, two branch weights +1 and −1 with algebraic sum zero but Boolean reachability true. Its strict `Ratio` constructor forbids negative numerators. Thus the signed example is an explicitly disjoint **counterexample** to extending the nonnegative support projection, not an erroneous inference that positive N-BRC branches cancel. `KEEP_TYPED_SIGNED_COUNTEREXAMPLE`. |
+| `experiments/brc_weighted_multiplicity_tower_check.py` | `28618135c77939cfd90cbcc84a44a3de75767393` | Lines 95–157: dynamic `count,total,maximum,effective` accumulation, all supported branch masses nonnegative, with `M <= W <= C M` and positive exact rational effective multiplicity. These maxima are branch weights, not native X6 coordinate axes; no signed cancellation operation in the named consumer. `KEEP_WEIGHTED_MULTIPLICITY`. |
+| `experiments/brc_weighted_projective_gauge_check.py` | `5aaec29c02b7deed5eac0f263680766dc31555e2` | Lines 70–109: `CWM(count,total,maximum)` on nonnegative exact rational mass; positive gauge scaling, maximum-weight `max_ratio`, count-preserving projective equivalence. No signed native spatial `argmax` or signed path-mass cancellation in the inspected typed code. `KEEP_PROJECTIVE_WEIGHT_GAUGE`. |
+
+The weight example is logically discriminating: Boolean support of two nonzero signed path amplitudes is true, while their signed sum is (1+(-1)=0). This establishes why a signed amplitude algebra does **not** inherit the nonnegative path-count support homomorphism, but it **does not prove that a historical program incorrectly used this operation in native signed X6 N-BRC**. The strongest supported classification for the exact four named frozen callers is `KEEP`; the alleged specific old errors LP011 native signed-axis argmax and LP019 positive-count signed cancellation remain `UNRESOLVED_PROVENANCE / OLD_CALLER_UNLOCATED`.
+
+## Shared-contract status and next precise action
+
+The separate, genuine *current-main* S6 patched original checkers have now passed **115,513 original full-regression checks** (56,510 signed native; 59,003 derived; zero failures, both actual original source objects). Exact seven-file Git blob and stdout certificate: `research_notes/X6_LP011_LP026_S6_ORIGINAL_REGRESSIONS_EXECUTED_20261114_ONHOUR.md` at immutable commit `57ed69d8e628f4ecddaa9461eaec156817215cbb`; do not recompute these finished tests.
+
+Mother objective not complete: identify old claim-level LP011/LP019 asserted bad caller **with exact source line and an actual signed-native input**, if one exists; trace actual current 28-LP downstream imports and deliver independently reviewable remaining-caller ledger. A continued negative search is bounded by named files and cannot certify corpus-wide absence. Current Source continuation request `onhour-20261113-2340-x6-exact-continuation-v1` is `SUCCEEDED` but `execution_authorized=false` and routes `PREPARE_TYPED_CONTINUATION_WITH_EXACT_PREDECESSOR_AND_FRONTIER`. Original SID `MCP-082892eb480e45dea6d4b9fcc0491034` preserved; original CLAIM/RUN historical only. No new Source writer request was submitted here, no separate identity acquired, no schedule edited.
+
+Next: take the remaining **actual current** imported consumer edges not covered in the existing LP28 ledger and test whether each really mistakes native signed Cell, min-zero observer, path identity or positive N-BRC for one another; only modify demonstrated faulty sources. Under valid own typed CLAIM/run, publish these source-verified author records as native PROGRESS. Driver `REQUEST_REVISION` and final 28-LP closure remain pending.
