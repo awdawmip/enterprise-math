@@ -13,7 +13,7 @@
     384,
     384
   ],
-  "binary64_error_assumptions": "IEEE-754 binary64, correctly-rounded normal operations including elementary products, checked relative input rounding, positive BLAS dot error gamma_189; no nonzero underflow in checked input array",
+  "binary64_error_assumptions": "IEEE-754 binary64, round-to-nearest normal operations and checked relative input rounding, positive BLAS gamma_189 dot error, plus conservative 10^9*2^-1022 allowance for subnormal or FTZ tiny-term errors; no overflow",
   "uniform_forward_absolute_G_error": "<1/100000",
   "exact_rational_certificate_computed_g_abs_error_approx": "1.7340907130248891e-6",
   "exact_rational_certificate_ran": true,
@@ -51,5 +51,6 @@
     "research_notes/portable_direct/PREFIX754_R6_INDEPENDENT_GRID_REPLAY.py"
   ],
   "limits": "Error bound is conditional on the declared arithmetic/input checks; it certifies floating-point evaluation of the fixed endpoint G, not all Gamma analytic assumptions or native X6 mapping. Historical union not reaudited.",
-  "next": "Independently examine analytical Gamma moment identity and 752 dependency assumptions; compute exact new comparator on an actually uncovered fine-cell orbit."
+  "next": "Independently examine analytical Gamma moment identity and 752 dependency assumptions; compute exact new comparator on an actually uncovered fine-cell orbit.",
+  "forward_error_underflow_allowance": "1000000000/2^1022"
 }
