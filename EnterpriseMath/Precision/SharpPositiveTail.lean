@@ -52,7 +52,6 @@ theorem step_lt_argument {s x A B : ℝ} (hs : 0 < s) (hs' : s < 1)
         ((y + 1 / 2) * (y + s) * (y + (1-s))) / (y * (y+1)^2) := by
       dsimp [F]
       field_simp [hy.ne', hy'.ne']
-      <;> ring
     rw [hid]
     apply (div_lt_iff₀ (by positivity : 0 < y*(y+1)^2)).2
     simpa only [one_mul] using hproduct
@@ -75,7 +74,6 @@ private theorem shifted_ratio_tendsto (a b : ℝ) (hb : 0 ≤ b) :
   have hn' : (0 : ℝ) < n := by exact_mod_cast (show 0 < n by omega)
   have hb' : 0 < (n : ℝ) + b := by linarith
   field_simp [hn'.ne', hb'.ne']
-  <;> ring
 
 theorem step_tendsto (s x : ℝ) {A B : ℝ} (hA : 0 < A) (hB : 0 ≤ B) :
     Tendsto (step s x A B) atTop (𝓝 x) := by
@@ -91,10 +89,10 @@ theorem step_tendsto (s x : ℝ) {A B : ℝ} (hA : 0 < A) (hB : 0 ≤ B) :
       have h2 : 0 < A + B * (n : ℝ) := by positivity
       have hden : A+B*(n:ℝ) = B*((n:ℝ)+A/B) := by
         field_simp [hp.ne']
-        <;> ring
+        ring
       have hnum : A+B*((n:ℝ)+1) = B*((n:ℝ)+(A/B+1)) := by
         field_simp [hp.ne']
-        <;> ring
+        ring
       apply (div_eq_div_iff h1.ne' h2.ne').2
       rw [hden, hnum]
       ring
@@ -123,7 +121,6 @@ theorem first_ratio (s x A B : ℝ) :
   by_cases hA : A = 0
   · simp [hA]
   · field_simp [hA]
-    <;> ring
 
 theorem least_full_ratio {s x A B : ℝ} (hs : 0 < s) (hs' : s < 1)
     (hx : 0 < x) (hA : 0 < A) (hB : 0 ≤ B) :
@@ -147,7 +144,7 @@ theorem n58_step (n : ℕ) :
   have h1 : 0 < (n : ℝ) + 1 := by positivity
   have h2 : 0 < 1103 + 26390 * (n : ℝ) := by positivity
   field_simp [h1.ne', h2.ne']
-  <;> ring
+  ring
 
 theorem n58_first_ratio :
     ramanujanStepRatio 0 = (82479 / 35296 : ℚ) / 99^4 := by
@@ -258,7 +255,8 @@ theorem n58_least_tail_multiplier :
   have hh := least_tail_multiplier (s := 1/4) (x := 1/99^4) (A := 1103) (B := 26390)
     (by norm_num) (by norm_num) (by norm_num) (by norm_num) (by norm_num) (by norm_num)
     term58 term58_pos hrec
-  convert hh using 1 <;> norm_num
+  convert hh using 1
+  norm_num
 
 /-- The ordinary factorial summands, before the common prefactor. -/
 noncomputable def factorialTerm58 (n : ℕ) : ℝ :=
@@ -277,7 +275,7 @@ theorem factorialTerm58_succ (n : ℕ) :
   have hlin : 0 < 1103+26390*(n:ℝ) := by positivity
   have hpow : (396:ℝ)^(4*n) ≠ 0 := by positivity
   field_simp [hf.ne', hn.ne', hlin.ne', hpow]
-  <;> ring
+  ring
 
 theorem term58_eq_factorialTerm58 (n : ℕ) : term58 n = factorialTerm58 n := by
   induction n with
