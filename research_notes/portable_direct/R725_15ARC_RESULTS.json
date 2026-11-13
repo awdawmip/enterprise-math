@@ -1,0 +1,235 @@
+{
+  "schema": "R725_SHARP_FIFTEEN_ARC_CLASSIFICATION_V1",
+  "status": "R725_15ARC_EXHAUSTIVE_CLASSIFICATION_PASS",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "Rooted 012; five X6 axes 01234; V17 slot transport; directed CNB; S3 support",
+  "catalog_counts": {
+    "4": {
+      "102": 16,
+      "120": 6,
+      "201": 6,
+      "210": 16,
+      "012": 12,
+      "021": 16
+    },
+    "5": {
+      "102": 40,
+      "120": 66,
+      "201": 66,
+      "210": 40,
+      "012": 60,
+      "021": 40
+    }
+  },
+  "solver_adaptive": {
+    "calls": 19447,
+    "unique_masks": 19223
+  },
+  "solver_reverse": {
+    "calls": 1226545,
+    "unique_masks": 1169633
+  },
+  "qualifying_fifteen_arc_sets_for_m4_and_m5": 72,
+  "root_preserving_symmetry_group_order": 12,
+  "orbit_count": 6,
+  "orbit_size_each": 12,
+  "orbits": [
+    {
+      "orbit": 1,
+      "canonical_mask": 211733226574,
+      "edges": [
+        "012>014",
+        "012>023",
+        "012>024",
+        "013>012",
+        "013>123",
+        "014>013",
+        "014>034",
+        "023>013",
+        "023>123",
+        "024>023",
+        "024>034",
+        "034>013",
+        "034>023",
+        "123>012",
+        "123>013"
+      ],
+      "all_length_certificate": {
+        "all_lengths": true,
+        "repeat_pair": [
+          10,
+          11
+        ],
+        "repeat_state_size": 270,
+        "checked_support_lengths": [
+          4,
+          11
+        ]
+      }
+    },
+    {
+      "orbit": 2,
+      "canonical_mask": 423074469777,
+      "edges": [
+        "012>013",
+        "012>123",
+        "013>014",
+        "013>023",
+        "013>034",
+        "013>123",
+        "014>012",
+        "023>012",
+        "023>024",
+        "023>034",
+        "024>012",
+        "034>014",
+        "034>024",
+        "123>013",
+        "123>023"
+      ],
+      "all_length_certificate": {
+        "all_lengths": true,
+        "repeat_pair": [
+          9,
+          10
+        ],
+        "repeat_state_size": 180,
+        "checked_support_lengths": [
+          4,
+          10
+        ]
+      }
+    },
+    {
+      "orbit": 3,
+      "canonical_mask": 5363347296468,
+      "edges": [
+        "012>023",
+        "012>123",
+        "013>012",
+        "013>014",
+        "014>012",
+        "014>124",
+        "023>013",
+        "023>034",
+        "023>123",
+        "034>013",
+        "034>014",
+        "123>013",
+        "123>023",
+        "123>124",
+        "124>012"
+      ],
+      "all_length_certificate": {
+        "all_lengths": true,
+        "repeat_pair": [
+          9,
+          10
+        ],
+        "repeat_state_size": 180,
+        "checked_support_lengths": [
+          4,
+          10
+        ]
+      }
+    },
+    {
+      "orbit": 4,
+      "canonical_mask": 14021360160796,
+      "edges": [
+        "012>023",
+        "012>024",
+        "012>123",
+        "014>012",
+        "014>124",
+        "023>024",
+        "023>034",
+        "024>014",
+        "024>034",
+        "024>124",
+        "034>014",
+        "123>023",
+        "123>124",
+        "124>012",
+        "124>014"
+      ],
+      "all_length_certificate": {
+        "all_lengths": true,
+        "repeat_pair": [
+          10,
+          11
+        ],
+        "repeat_state_size": 270,
+        "checked_support_lengths": [
+          4,
+          11
+        ]
+      }
+    },
+    {
+      "orbit": 5,
+      "canonical_mask": 378233292275810,
+      "edges": [
+        "012>014",
+        "012>124",
+        "013>012",
+        "014>024",
+        "014>124",
+        "014>134",
+        "023>012",
+        "024>012",
+        "024>023",
+        "024>034",
+        "034>013",
+        "124>014",
+        "124>024",
+        "124>134",
+        "134>013"
+      ],
+      "all_length_certificate": {
+        "all_lengths": false,
+        "first_failed_length": 6,
+        "reachable_at_failure": [
+          "012",
+          "120",
+          "201"
+        ]
+      }
+    },
+    {
+      "orbit": 6,
+      "canonical_mask": 2287401872294258,
+      "edges": [
+        "012>014",
+        "012>123",
+        "012>124",
+        "013>012",
+        "013>023",
+        "014>034",
+        "014>134",
+        "023>012",
+        "023>013",
+        "034>013",
+        "034>023",
+        "123>013",
+        "123>023",
+        "124>123",
+        "134>123"
+      ],
+      "all_length_certificate": {
+        "all_lengths": false,
+        "first_failed_length": 6,
+        "reachable_at_failure": [
+          "012",
+          "120",
+          "201"
+        ]
+      }
+    }
+  ],
+  "all_length_orbits": 4,
+  "all_length_exact_fifteen_arc_sets": 48,
+  "short_horizon_only_sets": 24,
+  "r721b_witness_orbit": 4,
+  "scope": "Complete 15-arc H4=H5=S3 catalog and full-length classification by lifted-set repeat/first failure."
+}
