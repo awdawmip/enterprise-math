@@ -1,0 +1,9 @@
+# EC48W — predictive sufficiency across two informative future decisions
+
+Parent: EC48V and EC48U #1600. Unreviewed, portable author-side successor QUESTION, not a native task publication.
+
+Freeze finite strictly positive two-source Weighted-BRC trees with full joint LR readout and one finite memory register. Initially source-neutral transient J may depend on an erased hidden H; then two informative post-J signals Z1,Z2 arrive with a genuine stop/continue choice after Z1. Declare whether J is erased or retained after initial continue, and whether Z1 changes the hidden transition kernel. Preserve raw four-vector O=(Paccept,Qaccept,E_PT,E_QT), not a hidden-history reward.
+
+EC48V result: one remaining informative observation can already break terminal-only U1. Exact support gap 1/16 in an eight-leaf positive rational model at c=1/8, despite all intermediate full LR being 1. The formula uses conditional future gain rate v_j=G_j/W_j. For the alpha-beta-c(TP+TQ) support family, equality for all c holds iff these scalar rates agree, but this does NOT imply raw region/future operation sufficiency.
+
+Next discriminating task: with two future decision points, test whether equality of *all* one-step scalar gain rates for multiple LR thresholds suffices for four-region equality, or whether a stronger vector of conditional future kernels is necessary. First try 2 hidden histories, 2 J labels, binary Z1,Z2, rational strict positivity, and an explicitly declared post-J memory-update/readout. Either prove a typed causal simulator/factorization theorem or give a complete rational support-gap witness including exact optimality over all admissible randomized controllers. Extend existing Fraction checker; preserve original evidence, exact source pins, full LR typing, contributor identity and no-CLAIM boundaries. Do not change P000 or assert X6 transfer.
