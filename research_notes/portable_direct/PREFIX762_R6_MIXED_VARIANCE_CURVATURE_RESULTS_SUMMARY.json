@@ -1,0 +1,48 @@
+{
+  "schema": "PREFIX762_R6_MIXED_VARIANCE_SIGN_REVERSAL_SUMMARY_V1",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_result_filename": "PREFIX760_R6_EXACT_GAMMA_VARIANCE_RESULTS.json",
+  "source_result_sha256": "1a480a9a05c4773f82091037fa8f6b695855ffbb885b21e804d56fdc181d4e76",
+  "source_result_bytes": 24743,
+  "calculation": "Fraction exact algebra on original published deltaVar and deltaV2; deltaMu=2 deltaVar-deltaV2/2",
+  "verified_bounds": [
+    "deltaVar(0)>367",
+    "deltaVar(1/4)<-159",
+    "deltaVar(1/2)>-4",
+    "111<deltaMu(0)<112",
+    "0<deltaMu(1/2)<deltaMu(1/4)<deltaMu(0)"
+  ],
+  "negative_mixed_rectangle": {
+    "p": [
+      "0",
+      "1/4"
+    ],
+    "z": [
+      "0",
+      "1/4"
+    ],
+    "deltaVar_bound": "<-526",
+    "deltaVq_bound": "<-526q^2+112q<0 for q>56/263",
+    "deltaVar_display": "-527.252710710715",
+    "deltaMu_display": "-100.180677622301",
+    "deltaV2_display": "-1908.64948759826"
+  },
+  "positive_mixed_rectangle": {
+    "p": [
+      "0",
+      "1/4"
+    ],
+    "z": [
+      "1/4",
+      "1/2"
+    ],
+    "deltaVar_bound": ">155",
+    "deltaVq_bound": ">155q^2>0 for q>0",
+    "deltaVar_display": "155.797473822365",
+    "deltaMu_display": "-10.7598160302871",
+    "deltaV2_display": "644.709527350035"
+  },
+  "proof_status": "AUTHOR_EXACT_RATIONAL_REDUCTION / UNREVIEWED / NOT_ADMITTED",
+  "check_status": "ALL_CHECKS_PASS PREFIX762",
+  "scope": "External 189-layer independent two-Gamma-clock auxiliary; no native X6 transfer"
+}
