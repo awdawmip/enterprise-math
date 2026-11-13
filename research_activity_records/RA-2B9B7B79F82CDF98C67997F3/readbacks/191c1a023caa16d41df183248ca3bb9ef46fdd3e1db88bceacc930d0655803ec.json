@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "docs/P008_MINIMAL_ORDER_CORE.zh-CN.md",
+    "ref": "3745603906e89689b61c759ca27d60dc1fc9dfc2",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-f52de59801bc-publication-observation-4",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# P008 —— 最小且保持真实相等语义的序结构核心\n\n状态：`PROVED STRUCTURAL RESOLUTION`\n\n## 结论\n\n对当前 v0.1 的根 / 商 / 坍缩结构，进取数论不需要格、完备格、域、拓扑、度量或实数完备化。\n\n设 `A`、`B` 为偏序状态空间，取保序映射\n\n\\[\nl:A\\to B.\n\\]\n\n对每个 \\(b\\in B\\)，定义主下水平集合\n\n\\[\nL_b=\\{a\\in A:l(a)\\le b\\}.\n\\]\n\n右伴随 \\(u:B\\to A\\) 存在，当且仅当每个 \\(L_b\\) 都具有最大元。此时 \\(u(b)=\\max L_b\\)，且\n\n\\[\nl(a)\\le b\\iff a\\le u(b).\n\\]\n\n若 \\(u\\) 是右伴随，则 \\(L_b=\\{a:a\\le u(b)\\}\\)。反过来，令 \\(u(b)=\\max L_b\\)。若 \\(a\\in L_b\\)，则 \\(a\\le u(b)\\)。若 \\(a\\le u(b)\\)，则由保序性得 \\(l(a)\\le l(u(b))\\le b\\)。\n\n例如，取 \\(A=B=\\{0<1\\}\\)，令 \\(l(0)=1,\\ l(1)=0\\)。两个集合 \\(L_0=\\{1\\}\\)、\\(L_1=\\{0,1\\}\\) 的最大元均为 \\(1\\)。取 \\(u(0)=1\\) 时，\\(0\\le u(0)\\) 成立，而 \\(l(0)>0\\)，故伴随关系不成立。\n\n因此，整数根与整数商中使用的 `max` 定义，本质上就是右伴随结构，而不是某种近似手段。\n\n## 精确恢复\n\n假设 \\(l\\dashv u\\)。那么\n\n\\[\nu(l(a))=a\\quad\\text{对所有 }a\n\\]\n\n成立，当且仅当 \\(l\\) 反射序。因为任何左伴随本来就单调，所以这恰好等价于 \\(l\\) 在其像上是 order embedding。\n\n这个统一结构同时解释\n\n\\[\nR_p(k^p)=k\n\\]\n\n与\n\n\\[\nQ_d(dq)=q.\n\\]\n\n## 诱导坍缩\n\n定义\n\n\\[\nC=l\\circ u:B\\to B.\n\\]\n\n在偏序上，标准 Galois connection 理论给出\n\n\\[\nC(b)\\le b,\n\\]\n\n单调性，\n\n\\[\nC(C(b))=C(b),\n\\]\n\n以及\n\n\\[\nC(b)=b\\iff b\\in\\operatorname{im}(l).\n\\]\n\n所以抽象坍缩核心就是成熟的 interior/coreflection 投影。进取数论不把这些一般序论规律作为新数学主张。`SRC-MATHLIB-CLOSURE` 与 `SRC-MATHLIB-FLOORDIV` 已记录相关成熟结构邻域。\n\n## 为什么仅有 preorder 不足以支持显式状态身份\n\nGalois connection 可以定义在 preorder 上，但不同状态可能同时满足 \\(x\\le y\\) 与 \\(y\\le x\\)。此时伴随规律只能把结果确定到 preorder 等价类，而不能保证显式状态本身相等。\n\n具体反例：令 `A={a0,a1}`、`B={b0,b1}` 都带 indiscrete preorder，即所有比较都为真。定义\n\n\\[\nl(a_0)=b_0,\\qquad l(a_1)=b_1,\n\\]\n\n以及\n\n\\[\nu(b_0)=a_1,\\qquad u(b_1)=a_0.\n\\]\n\n由于任意伴随比较两侧都为真，所以这是合法的 Galois connection。但\n\n\\[\n(l\\circ u)(b_0)=b_1,\n\\qquad\n(l\\circ u)(b_1)=b_0,\n\\]\n\n于是按真实相等，幂等性失败：\n\n\\[\nC(C(b_0))=b_0\\ne b_1=C(b_0).\n\\]\n\n因此，最小的 equality-faithful 选择只能是：\n\n1. 直接使用 partial order；或\n2. 对 preorder 先按\n   \\[\n   x\\sim y\\iff x\\le y\\land y\\le x\n   \\]\n   取商。\n\n## 不需要 lattice\n\n取三元素偏序 `0<a`、`0<b`，其中 `a,b` 互不可比，且没有共同上界。该偏序不是格，但\n\n\\[\n\\operatorname{id}\\dashv\\operatorname{id}\n\\]\n\n仍然成立，诱导坍缩就是恒等映射。\n\n所以 lattice 运算对抽象 v0.1 adjoint-collapse 模式确实不是必要结构。\n\n## 最小结构包\n\n对当前 v0.1 且要求真实相等语义的运算，干净的最小包是：\n\n1. partial orders `A,B`（或者 preorder 的 posetal reflection）；\n2. 一个 order embedding \\(l:A\\hookrightarrow B\\)；\n3. 每个相关下水平集合 \\(\\{a:l(a)\\le b\\}\\) 都有最大元。\n\n由此自动得到右伴随、生成态精确恢复，以及向下收缩且幂等的投影。\n\n未来进取数论的新运算可能需要更丰富结构，但必须逐个运算证明其必要性，而不能反过来把更强结构预先塞进基础层。\n",
+      "display_title": "P008_MINIMAL_ORDER_CORE.zh-CN.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3745603906e89689b61c759ca27d60dc1fc9dfc2/docs/P008_MINIMAL_ORDER_CORE.zh-CN.md",
+      "encoding": "utf-8",
+      "sha": "bd9db585f2e52d65880c5df39c5f1baa61dc8986"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
