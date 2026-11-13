@@ -1,0 +1,21 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX600_R2_POSITIVE_SPECTRAL_COLLISION_LOCUS_V1",
+  "date": "2026-11-08",
+  "frozen_scientific_source": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "author_side_result": true,
+  "scope": "Original native X6-BRC positive 48-tail, weights (1,1,1,1,w,w) w>0, z>=0, z!=1; collisions of H10 and R18 factors",
+  "positive_collision_cases": [
+    "w=1: exact gcd=(t^2-4)^2",
+    "w!=1, w!=25/4, z=zA=(4w^2-100w+75)/(4w-25)>=0, z!=1: t^2-4w shared",
+    "w!=1, z=zB=(12w^3+28w^2-23w-9)/(5w+3)>=0, z!=1: t^2+12w shared"
+  ],
+  "double_curve_intersection": "w*=(5+4sqrt(7))/3, z*=(14635+6848sqrt(7))/411",
+  "resultant_L_B": "-712483534798848*w^7*(w-1)^2*(3w^3+42w^2+2w+1)",
+  "checker": "PREFIX600_R2_spectral_collision_locus_certificate.py",
+  "execution": "Executed local Python SymPy exact symbolic arithmetic; ALL_ASSERTIONS_PASS",
+  "additional_evidence": "Exact root substitutions, s-resultant, symbolic gcd at w=1, 8 rational w-value conditional root gcd tests and exact intersection.",
+  "status": "UNREVIEWED_AUTHOR_SIDE_PROOF",
+  "native_researcher_id": "EM-DIRECT-1C076C",
+  "activity_id": "RA-D8B36FCD19B160E4AE44D76C",
+  "next": "Determine sharp minpoly degrees/Jordan structure at z=1 and special curves under w>0, keeping original endpoint observer."
+}
