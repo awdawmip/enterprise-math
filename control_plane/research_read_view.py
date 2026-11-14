@@ -20,6 +20,32 @@ class _ReadView:
 
 
 _CURRENT = ContextVar('research_request_read_view', default=None)
+_ATOMIC_READ_TYPES = frozenset({type(None),bool,int,float,complex,str,bytes})
+
+
+def _copy_read(value,memo=None):
+    """Keep deepcopy semantics while handling ordinary JSON containers directly."""
+    kind=type(value)
+    if kind in _ATOMIC_READ_TYPES:return value
+    if memo is None:memo={}
+    identity=id(value)
+    if identity in memo:return memo[identity]
+    if kind is dict:
+        result={};memo[identity]=result
+        for key,child in value.items():result[_copy_read(key,memo)]=_copy_read(child,memo)
+        return result
+    if kind is list:
+        result=[];memo[identity]=result
+        result.extend(_copy_read(child,memo) for child in value)
+        return result
+    if kind is tuple:
+        children=[_copy_read(child,memo) for child in value]
+        # A tuple can participate in a cycle through a mutable child.
+        if identity in memo:return memo[identity]
+        result=value if all(a is b for a,b in zip(value,children)) else tuple(children)
+        memo[identity]=result
+        return result
+    return deepcopy(value,memo)
 
 
 @contextmanager
@@ -46,11 +72,11 @@ def reuse_read(root, key, inputs, compute):
         return compute()
     saved=view.values.get(key)
     if saved is not None and saved[0]==inputs:
-        return deepcopy(saved[1])
+        return _copy_read(saved[1])
     view.computing.add(key)
     try:
         result=compute()
-        view.values[key]=(deepcopy(inputs),deepcopy(result))
+        view.values[key]=(_copy_read(inputs),_copy_read(result))
         return result
     finally:
         view.computing.discard(key)
