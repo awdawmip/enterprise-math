@@ -1,0 +1,30 @@
+{
+  "domain": "labelled q-cycle macroevents, event-shuffle within each macro, freely chosen initial port stocks",
+  "formal_review": "NOT_REVIEWED",
+  "integer_semantics": "exact Python int; exhaustive dynamic programming",
+  "native_admission_tested": false,
+  "result": "ALL_ASSERTIONS_PASSED",
+  "schema": "R762Y_EXACT_FINITE_VERIFICATION_V1",
+  "tested": [
+    {
+      "exact_cases": 52,
+      "max_macros": 4,
+      "mismatches": 0,
+      "q": 2
+    },
+    {
+      "exact_cases": 270,
+      "max_macros": 4,
+      "mismatches": 0,
+      "q": 3
+    },
+    {
+      "exact_cases": 180,
+      "max_macros": 3,
+      "mismatches": 0,
+      "q": 4
+    }
+  ],
+  "theorem_checked": "min_preemptions(q, phases, K) = distinct_roots(phases)-K for 1<=K<=distinct_roots",
+  "total_cases": 502
+}
