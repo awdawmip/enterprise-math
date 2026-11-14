@@ -1,0 +1,94 @@
+{
+  "schema": "PREFIX780_R6_HETEROGENEOUS_CORNER_BUDGET_RESULT_V1",
+  "date": "2026-11-14",
+  "research_line": "R6",
+  "mode": "external_scalar_gamma_auxiliary",
+  "scientific_input_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "predecessor_commit": "9de2d43a6559507aabf062d0ae84d0e0b47dec8a",
+  "exact_inherited_assumptions": [
+    "A1>0",
+    "A2>0",
+    "0<B1<B2",
+    "D=A2*B1-A1*B2>0",
+    "Delta_Ri Vq=q*(Ai-q*Bi)",
+    "Delta_Ri# Vq=-Delta_Ri Vq"
+  ],
+  "budget_model": {
+    "vertices": "7 base plus 7 reflected corners",
+    "private_sum_R1": "S1 = sum(epsilon_v on R1 private corners)",
+    "private_sum_R2": "S2 = sum(epsilon_v on R2 private corners)",
+    "shared_amplitude": "c0=epsilon_(39/768,39/768)",
+    "shared_defect": "delta_c >= 0",
+    "formula": "H=B2*S1+B1*S2+(B2-B1)*c0+B1*min(delta_c,2*c0)",
+    "all_private_defect_bounds": "arbitrary nonnegative, including infinite when amplitude is finite"
+  },
+  "result": "for all q>0 and all scalar readouts obeying budgets, strict positive and negative mixed increments occur if and only if H<D",
+  "margin": "max Delta >= q*(D-H)/(B1+B2) and min Delta <= -q*(D-H)/(B1+B2) when H<D",
+  "sharpness": "when H>=D choose t in (0,1] satisfying t*W+B1*min(delta_c,2*t*c0)=D and q=(A1+t*(S1+c0))/B1; resulting normalized increments (R1,R1#,R2,R2#) are (0,d_t,d_t,0)",
+  "exact_regression": {
+    "checker": "PREFIX780_R6_HETEROGENEOUS_CORNER_BUDGET_CHECK.py",
+    "arithmetic": "Python fractions.Fraction; finite rational polygon vertex support and explicit witness identities",
+    "cases": 512,
+    "strict_certified_cases": 69,
+    "sharp_witness_cases": 443,
+    "stdout_marker": "ALL_CHECKS_PASS PREFIX780 HETEROGENEOUS_SHARP_CORNER_BUDGET"
+  },
+  "rational_examples": [
+    {
+      "coefficients": {
+        "A1": "1",
+        "A2": "2",
+        "B1": "2",
+        "B2": "3",
+        "D": "1"
+      },
+      "epsilon_R1_private": [
+        "1/80",
+        "1/60",
+        "1/40"
+      ],
+      "epsilon_R2_private": [
+        "0",
+        "0",
+        "0"
+      ],
+      "shared_amplitude": "0",
+      "H": "13/80",
+      "minimum_normalized_margin": "67/400",
+      "classification": "strict_certified"
+    },
+    {
+      "coefficients": {
+        "A1": "1",
+        "A2": "2",
+        "B1": "2",
+        "B2": "3",
+        "D": "1"
+      },
+      "epsilon_R1_private": [
+        "1/3",
+        "1/4",
+        "1/5"
+      ],
+      "epsilon_R2_private": [
+        "0",
+        "0",
+        "0"
+      ],
+      "shared_amplitude": "0",
+      "H": "47/20",
+      "sharpness_scale": "20/47",
+      "sharpness_q": "2/3",
+      "four_normalized_mixed_differences": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "classification": "sharp_witness"
+    }
+  ],
+  "status": "AUTHOR_EXACT_ALGEBRAIC_PROOF_WITH_RATIONAL_REGRESSION / UNREVIEWED / NOT_ADMITTED",
+  "native_comparator_exclusions_added": 0,
+  "next": "obtain typed native observation map with Cell/Link/Port, branch, signed-source and time provenance and establish per-corner error budgets, prioritizing shared-corner reflection defect"
+}
