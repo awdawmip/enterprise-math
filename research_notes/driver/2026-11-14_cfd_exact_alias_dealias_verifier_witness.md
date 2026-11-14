@@ -45,3 +45,7 @@ The exact support lattice and its 33 retained points were previously reviewed in
 - Original host checkpoint `awdawmip/enterprise-math@20255478397fc475ec0584da0cf4311dd17bcc82:research_notes/CFD9R2K7/host_20260916/checkpoint_summary.json`.
 
 The original implementer retains authorship of the adapter and reported native experiments. This Driver contributes the present algebraic negative-control design only. Current Task acceptance, independent verifier claim and formal Result remain with their separately authorized flows.
+
+## Reproducible exact calculation
+
+An independent, standard-library-only `fractions.Fraction` / four-Fourier-mode enumeration script is published as [`cfd_alias_dealias_exact_check_20261114.py`](cfd_alias_dealias_exact_check_20261114.py), originally committed at `4f5c82c69650e980f981cc293abd047007501e43` (Git blob `2789c3a7a83d2e5addac201569dc13b5f0e6bbda`). Execute `python3 research_notes/driver/cfd_alias_dealias_exact_check_20261114.py`. The exact test passed locally on 2026-11-14, checking the two nonzero pressure-projected coefficients **including** the cosine Fourier `1/4` factor, and checking the padded alias's exclusion. This pure arithmetic script does not run or validate the native spectralDNS host.
