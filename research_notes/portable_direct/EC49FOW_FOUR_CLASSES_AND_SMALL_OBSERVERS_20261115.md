@@ -1,0 +1,45 @@
+# EC49FOW — Four complete native BRC legal-root classes and sparse terminal observers
+Date: 2026-11-15. Scientific status: AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED.
+
+## Frozen model and scope
+The scientific input is unchanged: `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`. Its original text SHA-256 is `cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e`, containing 94 key families, 178,850 signed-byte-prefix labeled words, 38,169 seven-key configurations, and 24 named demand labels. Roots are 03, 05, 06, 07. Input bytes and executable are preserved in the accompanying exact evidence archive, using the same native C++17 Trie solver as EC49FOV.
+
+For each configuration K, let E(K) be the vector of 24 exact named eligible-root masks. For a representative q let C_q={K:E(K)=E(q)}. Exactly 625 such classes partition the 38,169 configurations. For root r and reachable optional subset S, D^K_r(S) is the minimum signed-byte Trie prefix-cover cost including mandatory labels at r. Define the full rooted cost vector P(K)=(D^K_r(S)) for all four roots and reachable S. For each complete legal assignment rho of optional labels, define T_K(rho)=sum_r D^K_r(S_r(rho)). The ordering and named eligibility are fixed inside each C_q.
+
+## New finite result
+For each of q=33,94,108,112 and **all** A,B in C_q,
+`T_A = T_B iff P(A) = P(B)`.
+Moreover, a fixed subset of only 7,5,4,4 complete assignments, respectively, separates every distinct P-vector within each corresponding finite class. These are sufficient separating observer sets, not claimed minimal.
+
+| Representative q | Complete K | Reachable P coordinates per K | Complete assignments per K | Distinct P/T classes | P-equal/T-equal unordered pairs | Selected terminal observers |
+|---|---:|---:|---:|---:|---:|---:|
+| 33 | 206 | 304 | 1296 | 136 / 136 | 884 / 884 | 7 |
+| 94 | 119 | 284 | 384 | 73 / 73 | 470 / 470 | 5 |
+| 108 | 158 | 296 | 864 | 70 / 70 | 1864 / 1864 | 4 |
+| 112 | 158 | 296 | 864 | 70 / 70 | 1864 / 1864 | 4 |
+| **Combined** | **641** | — | — | — | **5082 / 5082** | — |
+
+Exactly 189,956 rooted entries, 585,696 terminal integer evaluations and 52,942 unordered within-class configuration pairs were covered. There are zero nonzero whole-assignment cost-cancellation pairs in these four classes.
+
+### Proof of the finite classification
+The reverse implication P(A)=P(B) => T_A=T_B follows termwise from the defining sum over four roots. The forward implication is proved by exhaustive classification of the **entire exact original** sets C_q, not a radius-limited neighborhood. First compute E(K) from every key's named eligible-root masks across all 38,169 original configurations and select all IDs matching each representative; the selected counts are 206,119,158,158. For each selected ID and each rooted subset coordinate, the original exact signed-byte Trie solver computes a nonnegative integer cost by dynamic programming over covered named label masks, charging one unit per retained nonempty prefix and taking superset minima. All expected coordinates occur once (the complete CSVs are specified by SHA-256 in the machine certificate). Form the two full integer vectors P and T for every selected configuration; group by exact tuple equality rather than hashes. The numbers of unordered equal pairs under P and T coincide separately in each class, and equality under P implies equality under T, so the partitions coincide. The precise group sizes and all-pair equality assertions are recomputable from the accompanying verifier.
+
+### Explicit sparse terminal witnesses
+For each class, start with one representative of each distinct P-vector. Iteratively select the legal allocation coordinate that separates the greatest number of still-colliding representative pairs (deterministically break ties by smallest allocation index). Stop when no collisions remain. Explicit selected allocation indices in the lexicographically ordered Cartesian product of named optional labels and their ascending legal roots:
+
+- C_33 (1296 allocations): `[587, 1272, 745, 205, 356, 1263, 8]`
+- C_94 (384 allocations): `[267, 148, 222, 26, 9]`
+- C_108 (864 allocations): `[168, 522, 5, 324]`
+- C_112 (864 allocations): `[164, 351, 7, 486]`
+
+Each selected observer tuple was independently checked across **all** members of its class: equality of selected terminal costs implies equality of the full rooted P-vector. This establishes the claimed finite observer sufficiency. Full named label/root assignment lists and deterministic refinement traces are in `EC49FOW_SMALL_OBSERVERS.json` in the evidence bundle.
+
+## Reproduction and checks
+The frozen original text has SHA256 `cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e`. Compile the supplied unchanged native `EC49FOR_EXTRACT.cpp` with C++17 -O2. For each `CLASS_{q}_IDS.txt`, run it with the frozen source on stdin to produce `CLASS_{q}_PROFILES.csv`. Run `EC49FOW_VERIFY.py` to recompute all legal-root domain members, reachable coordinates, complete assignment tuples, partitions and eight independent Python byte-Trie root checks (first/last case per class). Run `EC49FOW_SMALL_OBSERVERS.py` to regenerate and verify all observer lists. The -O2/-O3 CSV bytes match for the complete q=94 and q=108 classes; no -O3 claim is made for q=33 and q=112.
+
+Root CSV SHA-256: 33=`19fb4176c84219d28edb920d1a18d90c919a40e6ccab99a8d7fbab3a54b3e35c`; 94=`7221fd7148e7f368e8432ee8269feec42a666c076854b6d713b2d31aeb8f1c7c`; 108=`cbd185d794a27de7a2b280377bd8571f2e0c75f6e468c4fcaca18724b7cfccfc`; 112=`51865d0a4fc16bb9edb31939dc22f93953fb927afbafd8b8f104a45464e97fb2`. Result JSON SHA256=`bbf330e252914f5b3403c74a7b0c3ee309e0b5b2d3fe206f9acb2a2d4942662d`.
+
+## Scope, provenance and frontier
+The four classes are separate from C_22 and the three complete C_10836, C_10845, C_10853 classes already saved in PRs #2437/#2434. Earlier found **three nonzero original-class gauge pairs** in EC49FOR PR #2426 are preserved; this report adds four full-class exclusion certificates and sparse observers without claiming a universal no-gauge result. In the original 625-class finite census, other classes remain to investigate; particularly promising is to check whether there exist genuinely subset-dependent nonconstant root perturbations that cancel on every complete legal assignment, and to seek structural minimal observer bounds.
+
+This is source preservation via independent portable research, not an immutable Task publication, active CLAIM, formal Result, independent review, or P000 change. The completed local evidence archive includes the original frozen input, complete 189,956 rooted costs, the unchanged native C++17 extractor, exact Python verifier, observer generator, eight independent root recalculations, and integrity manifest. Admission status: NOT_REVIEWED.
