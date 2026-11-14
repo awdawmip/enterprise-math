@@ -1,8 +1,8 @@
 # R749SOU — Two exact positive-gap onset collars from the first Walsh threshold
 
 **Date:** 2026-11-14. **Status:** AUTHOR_ANALYTIC_NOT_REVIEWED.
-**Frozen science:** \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`.
-**Dependencies:** R749SOS–SOT ([PR #2399](https://github.com/awdawmip/enterprise-math/pull/2399), scientific SHA \`5f2830988e31eae99d9ef11882e626b56b022552\`), R749SOG transport lemma ([PR #2376](https://github.com/awdawmip/enterprise-math/pull/2376)). Scope: auxiliary 16-state Walsh source observer.
+**Frozen science:** `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`.
+**Dependencies:** R749SOS–SOT ([PR #2399](https://github.com/awdawmip/enterprise-math/pull/2399), scientific SHA `5f2830988e31eae99d9ef11882e626b56b022552`), R749SOG transport lemma ([PR #2376](https://github.com/awdawmip/enterprise-math/pull/2376)). Scope: auxiliary 16-state Walsh source observer.
 
 ## Model and exact theorem
 
@@ -119,6 +119,6 @@ In W_t, t<=1/4 and s>=1/2-1/768>1/4; in W_s the coordinates reverse. The wedges 
 
 ## Reproduction and remaining problem
 
-Run \`python research_notes/portable_direct/R749SOU_WALSH_ONSET_COLLARS_EXACT_CHECK.py\` and compare stdout to \`R749SOU_WALSH_ONSET_COLLARS_RESULTS.json\`. Standard-library Fraction tests all exact constants, the atom relabeling and 40 explicit two-way nonnegative probability transfers. Universal validity comes from the analytic proof and R749SOS–SOT exact line theorem; the program's finite transport examples are supplemental regression checks.
+Run `python research_notes/portable_direct/R749SOU_WALSH_ONSET_COLLARS_EXACT_CHECK.py` and compare stdout to `R749SOU_WALSH_ONSET_COLLARS_RESULTS.json`. Standard-library Fraction tests all exact constants, the atom relabeling and 40 explicit two-way nonnegative probability transfers. Universal validity comes from the analytic proof and R749SOS–SOT exact line theorem; the program's finite transport examples are supplemental regression checks.
 
 **Next:** derive matching dual events and piecewise minimax centers in the two-dimensional neighborhood of (5/22,1/2), to locate the actual zero/positive boundary and determine whether it has a corner. Native X6/V29/V39 typed transfer and independent mathematics review remain open.
