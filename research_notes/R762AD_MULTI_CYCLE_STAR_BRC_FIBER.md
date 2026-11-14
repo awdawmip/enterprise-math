@@ -2,10 +2,10 @@
 
 Date: 2026-11-14. Scientific status: **AUTHOR-SIDE CONDITIONAL THEOREM; REPRODUCIBLE EXACT COMPUTATION; NOT_REVIEWED; NOT_NATIVE_ADMITTED**.
 
-Parent: \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\` / \`TP2-8B7E13C5904A2D6F1142\`.
-Author-side continuity: \`EM-X6-3050F6\`; historical CLAIM \`MCP-e4b33a56e2686c66e7cd5ca2\`, RUN \`RUN-53ab7d7bffccaaf2c0af47a4\`. Source control at the last read had the same CLAIM as current owner but a read-only packet does not authorize protected progress. This note does not claim a new native checkpoint.
-Frozen P000 and X6 science: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`.
-Extends, rather than repeats, R762AC \`research_notes/R762AC_X6_STAR_BUFFER_FORCE_SOURCE_RESIDUAL.md@ff7f13951e13d2b50134e6139e9493c2659a22f2\`.
+Parent: `RS-X6-TRIADIC-CLOSURE-DYNAMICS` / `TP2-8B7E13C5904A2D6F1142`.
+Author-side continuity: `EM-X6-3050F6`; historical CLAIM `MCP-e4b33a56e2686c66e7cd5ca2`, RUN `RUN-53ab7d7bffccaaf2c0af47a4`. Source control at the last read had the same CLAIM as current owner but a read-only packet does not authorize protected progress. This note does not claim a new native checkpoint.
+Frozen P000 and X6 science: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`.
+Extends, rather than repeats, R762AC `research_notes/R762AC_X6_STAR_BUFFER_FORCE_SOURCE_RESIDUAL.md@ff7f13951e13d2b50134e6139e9493c2659a22f2`.
 
 ## Model, observation, and one-step recurrence
 
@@ -74,8 +74,8 @@ Here \(!m\) is a **Boolean fiber size**, while \(C_m\) is a **positive BRC chron
 
 ## Verification, boundaries and next obligation
 
-The accompanying \`R762AD_VERIFY.py\` uses independent bitmask recurrence and explicit token-position breadth-first counting. Exhaustive checks cover every derangement on \(m=2,\ldots,6\) labelled moved ports, with independent BFS for \(m\le4\), plus three representative disjoint-cycle families at \(m=8,9,10\). All assertions passed with Python exact integers. See \`R762AD_EVIDENCE.json\` for cycle-type counts and SHA-256 of the tested local files in the run record if separately supplied; no SHA-256 value is asserted by this note.
+The accompanying `R762AD_VERIFY.py` uses independent bitmask recurrence and explicit token-position breadth-first counting. Exhaustive checks cover every derangement on \(m=2,\ldots,6\) labelled moved ports, with independent BFS for \(m\le4\), plus three representative disjoint-cycle families at \(m=8,9,10\). All assertions passed with Python exact integers. See `R762AD_EVIDENCE.json` for cycle-type counts and SHA-256 of the tested local files in the run record if separately supplied; no SHA-256 value is asserted by this note.
 
-This is a precise extension of R762AC's **conditional star-buffer model**. The native P000 \`TRIADIC_CLOSURE_E\` incidence/legality and its V29 internal PASS coupling remain unestablished; under a different coupling the V29 observer fiber may split. Nothing here changes P000, the ACTIVE worldview, the task's frozen scientific pins, original owner rights or formal Result/Driver acceptance.
+This is a precise extension of R762AC's **conditional star-buffer model**. The native P000 `TRIADIC_CLOSURE_E` incidence/legality and its V29 internal PASS coupling remain unestablished; under a different coupling the V29 observer fiber may split. Nothing here changes P000, the ACTIVE worldview, the task's frozen scientific pins, original owner rights or formal Result/Driver acceptance.
 
 **Next discriminating question:** determine from an actually admitted Cell/Link/Port macro event whether a hub passage is recorded as boundary TRANSFER alone, boundary TRANSFER plus internal PASS, or a more detailed source-typed event. Then restrict \(D_m\) and the AD1 recurrence to that event alphabet; calculate the resulting smallest operation-safe BRC repair and actual V17/V39 frame transport instead of promoting the auxiliary model to native dynamics.
