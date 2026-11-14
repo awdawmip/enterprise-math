@@ -1,0 +1,140 @@
+{
+  "schema": "R762AH_THREE_SLOT_SLIDING_SOURCE_FIBER_EVIDENCE_V1",
+  "scientific_input": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "source_provenance": "RS-X6-TRIADIC-CLOSURE-DYNAMICS / TP2-8B7E13C5904A2D6F1142 / author-side R762AH",
+  "model": "Conditional unit-capacity outer ports, distinct named source tokens, central buffer capacity B, one ingress/egress each, no home return; observer hides egress source but retains full port/time order",
+  "exact_proof_scope": "All m>=B for fixed-B 2^(B-1) transfer representation; all m>=3 for B=3 quartic recurrence; no universal global maximum theorem",
+  "verified_execution": "Python 3 standard library exact integer verifier executed locally; remote script reproduces complete JSON report",
+  "three_method_crosscheck": {
+    "capacities": [
+      2,
+      3,
+      4
+    ],
+    "m": "B..18",
+    "methods": [
+      "direct source-subset permanent",
+      "fixed-window weighted transfer and tail matching",
+      "explicit physical named-token state transition"
+    ],
+    "status": "PASS"
+  },
+  "B3_transfer": {
+    "state_order": [
+      "00",
+      "10",
+      "01",
+      "11"
+    ],
+    "matrix": [
+      [
+        1,
+        0,
+        2,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ]
+    ],
+    "tail": [
+      2,
+      1,
+      1,
+      1
+    ]
+  },
+  "B3_sequence": {
+    "m": "2..10",
+    "values": [
+      1,
+      2,
+      6,
+      15,
+      39,
+      101,
+      262,
+      679,
+      1760
+    ],
+    "recurrence": "f_m=2f_(m-1)+f_(m-2)+f_(m-3)+f_(m-4), m>=7",
+    "generating_function": "(1+x^2)/(1-2x-x^2-x^3-x^4)"
+  },
+  "complete_normalized_B3_census": {
+    "scope": "m=2..10, exhaustive modulo ingress first-appearance relabeling",
+    "total": 1594602,
+    "observed": [
+      {
+        "m": 2,
+        "normalized_realizable_words": 2,
+        "max_source_fiber": 1
+      },
+      {
+        "m": 3,
+        "normalized_realizable_words": 10,
+        "max_source_fiber": 2
+      },
+      {
+        "m": 4,
+        "normalized_realizable_words": 54,
+        "max_source_fiber": 6
+      },
+      {
+        "m": 5,
+        "normalized_realizable_words": 290,
+        "max_source_fiber": 15
+      },
+      {
+        "m": 6,
+        "normalized_realizable_words": 1558,
+        "max_source_fiber": 39
+      },
+      {
+        "m": 7,
+        "normalized_realizable_words": 8370,
+        "max_source_fiber": 101
+      },
+      {
+        "m": 8,
+        "normalized_realizable_words": 44966,
+        "max_source_fiber": 262
+      },
+      {
+        "m": 9,
+        "normalized_realizable_words": 241570,
+        "max_source_fiber": 679
+      },
+      {
+        "m": 10,
+        "normalized_realizable_words": 1297782,
+        "max_source_fiber": 1760
+      }
+    ],
+    "sliding_attained_max_each": true,
+    "independent_sample_replay": "Every 997th complete transcript recomputed by named-token transition DP",
+    "status": "PASS"
+  },
+  "limitations": [
+    "Fixed-B sliding count proved for all m; global sharpness at B=3 checked only m<=10",
+    "No native TRIADIC_CLOSURE_E admission",
+    "No authenticated Source PROGRESS, Result or Driver review",
+    "Positive BRC branch counts are not signed or complex force amplitudes"
+  ],
+  "reproduce": "python3 research_notes/R762AH_BOUNDED_BURST_TRANSFER_VERIFY.py",
+  "full_report": "Verifier prints detailed exact JSON including all B=3 fiber histograms and three-method canonical checks"
+}
