@@ -1,0 +1,87 @@
+{
+  "aggregate": "sum_pi_derangement N2(pi)=m!*2^(m-1)*F_(m-1), Fibonacci F_1=F_2=1",
+  "by_m": {
+    "2": {
+      "cycle_types": {
+        "(2,)": {
+          "permutations": 1,
+          "shortest_trace_count_each": 4
+        }
+      },
+      "derangement_count": 1,
+      "minimum_bits_to_restore_source_destination_map": 0,
+      "total_labeled_shortest_traces": 4
+    },
+    "3": {
+      "cycle_types": {
+        "(3,)": {
+          "permutations": 2,
+          "shortest_trace_count_each": 12
+        }
+      },
+      "derangement_count": 2,
+      "minimum_bits_to_restore_source_destination_map": 1,
+      "total_labeled_shortest_traces": 24
+    },
+    "4": {
+      "cycle_types": {
+        "(2, 2)": {
+          "permutations": 3,
+          "shortest_trace_count_each": 64
+        },
+        "(4,)": {
+          "permutations": 6,
+          "shortest_trace_count_each": 32
+        }
+      },
+      "derangement_count": 9,
+      "minimum_bits_to_restore_source_destination_map": 4,
+      "total_labeled_shortest_traces": 384
+    },
+    "5": {
+      "cycle_types": {
+        "(2, 3)": {
+          "permutations": 20,
+          "shortest_trace_count_each": 192
+        },
+        "(5,)": {
+          "permutations": 24,
+          "shortest_trace_count_each": 80
+        }
+      },
+      "derangement_count": 44,
+      "minimum_bits_to_restore_source_destination_map": 6,
+      "total_labeled_shortest_traces": 5760
+    },
+    "6": {
+      "cycle_types": {
+        "(2, 2, 2)": {
+          "permutations": 15,
+          "shortest_trace_count_each": 1536
+        },
+        "(2, 4)": {
+          "permutations": 90,
+          "shortest_trace_count_each": 512
+        },
+        "(3, 3)": {
+          "permutations": 40,
+          "shortest_trace_count_each": 576
+        },
+        "(6,)": {
+          "permutations": 120,
+          "shortest_trace_count_each": 192
+        }
+      },
+      "derangement_count": 265,
+      "minimum_bits_to_restore_source_destination_map": 9,
+      "total_labeled_shortest_traces": 115200
+    }
+  },
+  "formula": "N2(pi)=r!*2^(m-1)*product(nontrivial_cycle_lengths)",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "native_TRIADIC_CLOSURE_E_admission": "NOT_PROVED",
+  "parent_artifact": "R762AC_X6_STAR_BUFFER_FORCE_SOURCE_RESIDUAL.md@ff7f13951e13d2b50134e6139e9493c2659a22f2",
+  "schema": "R762AD_STAR_PERMUTATION_BRC_EVIDENCE_V1",
+  "scope": "auxiliary source-labelled star, unit outer capacities, 2-slot hub, each moved token ingresses once and egresses once",
+  "verification": "exhaustive all derangements for moved support m=2..6; independent explicit-state BFS for m<=4; 3 larger representative cases"
+}
