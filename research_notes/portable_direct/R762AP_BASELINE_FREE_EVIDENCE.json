@@ -1,0 +1,516 @@
+{
+  "schema": "R762AP_BASELINE_FREE_ROBUST_BRC_V1",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "source_model": "R762AO AK4 conditional partial source/frame observer",
+  "finite_completeness": {
+    "states": 9,
+    "live_states": 8,
+    "transformations": 75,
+    "terminal_vectors": 43,
+    "nonempty_output_vectors": 42,
+    "total_unordered_pairs": 36,
+    "equal_baseline_pairs": 5,
+    "distinct_nonzero_equal_baseline_masks": 5
+  },
+  "states": [
+    {
+      "index": 0,
+      "state": "0:012",
+      "old_observation": "EE",
+      "S": "CE",
+      "C": "EC",
+      "T": "ET",
+      "CT": "ET",
+      "TC": "ET"
+    },
+    {
+      "index": 1,
+      "state": "0:021",
+      "old_observation": "ET",
+      "S": "U",
+      "C": "ET",
+      "T": "EC",
+      "CT": "EE",
+      "TC": "EC"
+    },
+    {
+      "index": 2,
+      "state": "0:102",
+      "old_observation": "ET",
+      "S": "U",
+      "C": "ET",
+      "T": "EE",
+      "CT": "EC",
+      "TC": "EC"
+    },
+    {
+      "index": 3,
+      "state": "0:120",
+      "old_observation": "EC",
+      "S": "U",
+      "C": "EC",
+      "T": "ET",
+      "CT": "ET",
+      "TC": "ET"
+    },
+    {
+      "index": 4,
+      "state": "0:201",
+      "old_observation": "EC",
+      "S": "U",
+      "C": "EE",
+      "T": "ET",
+      "CT": "ET",
+      "TC": "ET"
+    },
+    {
+      "index": 5,
+      "state": "0:210",
+      "old_observation": "ET",
+      "S": "U",
+      "C": "ET",
+      "T": "EC",
+      "CT": "EC",
+      "TC": "EE"
+    },
+    {
+      "index": 6,
+      "state": "1:012",
+      "old_observation": "CE",
+      "S": "CE",
+      "C": "U",
+      "T": "U",
+      "CT": "U",
+      "TC": "U"
+    },
+    {
+      "index": 7,
+      "state": "2:012",
+      "old_observation": "CE",
+      "S": "EE",
+      "C": "U",
+      "T": "U",
+      "CT": "U",
+      "TC": "U"
+    },
+    {
+      "index": 8,
+      "state": "U",
+      "old_observation": "U",
+      "S": "U",
+      "C": "U",
+      "T": "U",
+      "CT": "U",
+      "TC": "U"
+    }
+  ],
+  "joint_S_C_classes": [
+    {
+      "outputs": "CE/EC",
+      "indices": [
+        0
+      ]
+    },
+    {
+      "outputs": "U/ET",
+      "indices": [
+        1,
+        2,
+        5
+      ]
+    },
+    {
+      "outputs": "U/EC",
+      "indices": [
+        3
+      ]
+    },
+    {
+      "outputs": "U/EE",
+      "indices": [
+        4
+      ]
+    },
+    {
+      "outputs": "CE/U",
+      "indices": [
+        6
+      ]
+    },
+    {
+      "outputs": "EE/U",
+      "indices": [
+        7
+      ]
+    },
+    {
+      "outputs": "U/U",
+      "indices": [
+        8
+      ]
+    }
+  ],
+  "within_fiber_pairs": [
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      6,
+      7
+    ]
+  ],
+  "shortest_witnesses": {
+    "S": {
+      "length": 1,
+      "mask": "10000"
+    },
+    "C": {
+      "length": 1,
+      "mask": "01000"
+    },
+    "T": {
+      "length": 1,
+      "mask": "00101"
+    },
+    "CT": {
+      "length": 2,
+      "mask": "00011"
+    },
+    "TC": {
+      "length": 2,
+      "mask": "00110"
+    }
+  },
+  "first_action_absorbing_collisions": {
+    "S": {
+      "pair": [
+        1,
+        2
+      ],
+      "common_successor": 8,
+      "baseline_output_pair": [
+        "ET",
+        "ET"
+      ]
+    },
+    "C": {
+      "pair": [
+        6,
+        7
+      ],
+      "common_successor": 8,
+      "baseline_output_pair": [
+        "CE",
+        "CE"
+      ]
+    },
+    "T": {
+      "pair": [
+        6,
+        7
+      ],
+      "common_successor": 8,
+      "baseline_output_pair": [
+        "CE",
+        "CE"
+      ]
+    }
+  },
+  "d_checks": [
+    {
+      "d": 1,
+      "counts": {
+        "S": 1,
+        "C": 1,
+        "T": 1,
+        "CT": 1,
+        "TC": 0
+      },
+      "probes": 4,
+      "letters": 5,
+      "minimum_pair_distance": 1,
+      "maximum_pair_distance": 4
+    },
+    {
+      "d": 2,
+      "counts": {
+        "S": 2,
+        "C": 2,
+        "T": 1,
+        "CT": 1,
+        "TC": 1
+      },
+      "probes": 7,
+      "letters": 9,
+      "minimum_pair_distance": 2,
+      "maximum_pair_distance": 7
+    },
+    {
+      "d": 3,
+      "counts": {
+        "S": 3,
+        "C": 3,
+        "T": 2,
+        "CT": 2,
+        "TC": 1
+      },
+      "probes": 11,
+      "letters": 14,
+      "minimum_pair_distance": 3,
+      "maximum_pair_distance": 11
+    },
+    {
+      "d": 4,
+      "counts": {
+        "S": 4,
+        "C": 4,
+        "T": 2,
+        "CT": 2,
+        "TC": 2
+      },
+      "probes": 14,
+      "letters": 18,
+      "minimum_pair_distance": 4,
+      "maximum_pair_distance": 14
+    },
+    {
+      "d": 5,
+      "counts": {
+        "S": 5,
+        "C": 5,
+        "T": 3,
+        "CT": 3,
+        "TC": 2
+      },
+      "probes": 18,
+      "letters": 23,
+      "minimum_pair_distance": 5,
+      "maximum_pair_distance": 18
+    },
+    {
+      "d": 6,
+      "counts": {
+        "S": 6,
+        "C": 6,
+        "T": 3,
+        "CT": 3,
+        "TC": 3
+      },
+      "probes": 21,
+      "letters": 27,
+      "minimum_pair_distance": 6,
+      "maximum_pair_distance": 21
+    },
+    {
+      "d": 7,
+      "counts": {
+        "S": 7,
+        "C": 7,
+        "T": 4,
+        "CT": 4,
+        "TC": 3
+      },
+      "probes": 25,
+      "letters": 32,
+      "minimum_pair_distance": 7,
+      "maximum_pair_distance": 25
+    },
+    {
+      "d": 8,
+      "counts": {
+        "S": 8,
+        "C": 8,
+        "T": 4,
+        "CT": 4,
+        "TC": 4
+      },
+      "probes": 28,
+      "letters": 36,
+      "minimum_pair_distance": 8,
+      "maximum_pair_distance": 28
+    },
+    {
+      "d": 9,
+      "counts": {
+        "S": 9,
+        "C": 9,
+        "T": 5,
+        "CT": 5,
+        "TC": 4
+      },
+      "probes": 32,
+      "letters": 41,
+      "minimum_pair_distance": 9,
+      "maximum_pair_distance": 32
+    },
+    {
+      "d": 10,
+      "counts": {
+        "S": 10,
+        "C": 10,
+        "T": 5,
+        "CT": 5,
+        "TC": 5
+      },
+      "probes": 35,
+      "letters": 45,
+      "minimum_pair_distance": 10,
+      "maximum_pair_distance": 35
+    },
+    {
+      "d": 11,
+      "counts": {
+        "S": 11,
+        "C": 11,
+        "T": 6,
+        "CT": 6,
+        "TC": 5
+      },
+      "probes": 39,
+      "letters": 50,
+      "minimum_pair_distance": 11,
+      "maximum_pair_distance": 39
+    },
+    {
+      "d": 12,
+      "counts": {
+        "S": 12,
+        "C": 12,
+        "T": 6,
+        "CT": 6,
+        "TC": 6
+      },
+      "probes": 42,
+      "letters": 54,
+      "minimum_pair_distance": 12,
+      "maximum_pair_distance": 42
+    },
+    {
+      "d": 13,
+      "counts": {
+        "S": 13,
+        "C": 13,
+        "T": 7,
+        "CT": 7,
+        "TC": 6
+      },
+      "probes": 46,
+      "letters": 59,
+      "minimum_pair_distance": 13,
+      "maximum_pair_distance": 46
+    },
+    {
+      "d": 14,
+      "counts": {
+        "S": 14,
+        "C": 14,
+        "T": 7,
+        "CT": 7,
+        "TC": 7
+      },
+      "probes": 49,
+      "letters": 63,
+      "minimum_pair_distance": 14,
+      "maximum_pair_distance": 49
+    },
+    {
+      "d": 15,
+      "counts": {
+        "S": 15,
+        "C": 15,
+        "T": 8,
+        "CT": 8,
+        "TC": 7
+      },
+      "probes": 53,
+      "letters": 68,
+      "minimum_pair_distance": 15,
+      "maximum_pair_distance": 53
+    },
+    {
+      "d": 16,
+      "counts": {
+        "S": 16,
+        "C": 16,
+        "T": 8,
+        "CT": 8,
+        "TC": 8
+      },
+      "probes": 56,
+      "letters": 72,
+      "minimum_pair_distance": 16,
+      "maximum_pair_distance": 56
+    },
+    {
+      "d": 17,
+      "counts": {
+        "S": 17,
+        "C": 17,
+        "T": 9,
+        "CT": 9,
+        "TC": 8
+      },
+      "probes": 60,
+      "letters": 77,
+      "minimum_pair_distance": 17,
+      "maximum_pair_distance": 60
+    },
+    {
+      "d": 18,
+      "counts": {
+        "S": 18,
+        "C": 18,
+        "T": 9,
+        "CT": 9,
+        "TC": 9
+      },
+      "probes": 63,
+      "letters": 81,
+      "minimum_pair_distance": 18,
+      "maximum_pair_distance": 63
+    },
+    {
+      "d": 19,
+      "counts": {
+        "S": 19,
+        "C": 19,
+        "T": 10,
+        "CT": 10,
+        "TC": 9
+      },
+      "probes": 67,
+      "letters": 86,
+      "minimum_pair_distance": 19,
+      "maximum_pair_distance": 67
+    },
+    {
+      "d": 20,
+      "counts": {
+        "S": 20,
+        "C": 20,
+        "T": 10,
+        "CT": 10,
+        "TC": 10
+      },
+      "probes": 70,
+      "letters": 90,
+      "minimum_pair_distance": 20,
+      "maximum_pair_distance": 70
+    }
+  ],
+  "theorem": "No free baseline read is necessary for independent-reset fixed probes. d=e+2t+1; Nmin=ceil(7d/2); Lmin=ceil(9d/2). In one unreset trajectory with no initial read, every first letter merges distinct initial states, making zero-error recovery impossible.",
+  "status": "AUTHOR_CONDITIONAL_PROOF_EXACT_ENUMERATION_NOT_NATIVE_ADMITTED"
+}
