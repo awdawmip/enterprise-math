@@ -1,0 +1,296 @@
+{
+  "schema": "R762AV_TYPED_BRC_PATH_MULTIPLICITY_CERT_V1",
+  "status": "PASS",
+  "model": "V23 four matching code + V29 cumulative 3-PASS mask + V25 exponent maximum; n>=16 stabilized relation",
+  "declared_input": "20 three-axis sets, four matchings, 8 masks, 9 Johnson neighbors per source, n=16; AU affine proof supplies unbounded n>=16",
+  "source_comparison": "R762AU PR2451/f42064096ba3014a63a8d75bbe9f4b7dcdaff447",
+  "states": 20,
+  "masks": 8,
+  "mask_erased_union_edges": 27,
+  "mask_tagged_edges_counting_ties": 172,
+  "cycle": [
+    "012",
+    "123",
+    "234",
+    "034",
+    "035",
+    "025"
+  ],
+  "cycle_mask_multiplicity": 8,
+  "exterior_height_census": {
+    "1": 10,
+    "2": 3,
+    "3": 1
+  },
+  "distinct_unlabeled_path_max_after_3": 6,
+  "distinct_mask_tagged_path_max_after_3": 880,
+  "root145": {
+    "support_path_counts_length3": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "labeled_path_counts_length3": [
+      192,
+      16,
+      448,
+      48,
+      64,
+      112
+    ],
+    "labeled_total_length3": 880,
+    "support_total_length3": 6,
+    "labeled_growth_formula": "880 * 8^(k-3), k>=3",
+    "unlabeled_growth_formula": "6, k>=3"
+  },
+  "count_by_initial_state": [
+    {
+      "state": "012",
+      "unlabeled_paths_at_3": 1,
+      "mask_tagged_paths_at_3": 512
+    },
+    {
+      "state": "013",
+      "unlabeled_paths_at_3": 2,
+      "mask_tagged_paths_at_3": 640
+    },
+    {
+      "state": "014",
+      "unlabeled_paths_at_3": 2,
+      "mask_tagged_paths_at_3": 640
+    },
+    {
+      "state": "015",
+      "unlabeled_paths_at_3": 1,
+      "mask_tagged_paths_at_3": 512
+    },
+    {
+      "state": "023",
+      "unlabeled_paths_at_3": 3,
+      "mask_tagged_paths_at_3": 704
+    },
+    {
+      "state": "024",
+      "unlabeled_paths_at_3": 2,
+      "mask_tagged_paths_at_3": 640
+    },
+    {
+      "state": "025",
+      "unlabeled_paths_at_3": 1,
+      "mask_tagged_paths_at_3": 512
+    },
+    {
+      "state": "034",
+      "unlabeled_paths_at_3": 1,
+      "mask_tagged_paths_at_3": 512
+    },
+    {
+      "state": "035",
+      "unlabeled_paths_at_3": 1,
+      "mask_tagged_paths_at_3": 512
+    },
+    {
+      "state": "045",
+      "unlabeled_paths_at_3": 1,
+      "mask_tagged_paths_at_3": 512
+    },
+    {
+      "state": "123",
+      "unlabeled_paths_at_3": 1,
+      "mask_tagged_paths_at_3": 512
+    },
+    {
+      "state": "124",
+      "unlabeled_paths_at_3": 1,
+      "mask_tagged_paths_at_3": 512
+    },
+    {
+      "state": "125",
+      "unlabeled_paths_at_3": 1,
+      "mask_tagged_paths_at_3": 512
+    },
+    {
+      "state": "134",
+      "unlabeled_paths_at_3": 1,
+      "mask_tagged_paths_at_3": 512
+    },
+    {
+      "state": "135",
+      "unlabeled_paths_at_3": 2,
+      "mask_tagged_paths_at_3": 640
+    },
+    {
+      "state": "145",
+      "unlabeled_paths_at_3": 6,
+      "mask_tagged_paths_at_3": 880
+    },
+    {
+      "state": "234",
+      "unlabeled_paths_at_3": 1,
+      "mask_tagged_paths_at_3": 512
+    },
+    {
+      "state": "235",
+      "unlabeled_paths_at_3": 2,
+      "mask_tagged_paths_at_3": 640
+    },
+    {
+      "state": "245",
+      "unlabeled_paths_at_3": 2,
+      "mask_tagged_paths_at_3": 640
+    },
+    {
+      "state": "345",
+      "unlabeled_paths_at_3": 1,
+      "mask_tagged_paths_at_3": 512
+    }
+  ],
+  "union_adjacency": {
+    "123": [
+      "234"
+    ],
+    "124": [
+      "012"
+    ],
+    "125": [
+      "025"
+    ],
+    "134": [
+      "123"
+    ],
+    "135": [
+      "235"
+    ],
+    "145": [
+      "014",
+      "135",
+      "245"
+    ],
+    "234": [
+      "034"
+    ],
+    "235": [
+      "035",
+      "123"
+    ],
+    "245": [
+      "024"
+    ],
+    "345": [
+      "234"
+    ],
+    "012": [
+      "123"
+    ],
+    "013": [
+      "012",
+      "034"
+    ],
+    "014": [
+      "013"
+    ],
+    "015": [
+      "035"
+    ],
+    "023": [
+      "012",
+      "035",
+      "234"
+    ],
+    "024": [
+      "025",
+      "234"
+    ],
+    "025": [
+      "012"
+    ],
+    "034": [
+      "035"
+    ],
+    "035": [
+      "025"
+    ],
+    "045": [
+      "034"
+    ]
+  },
+  "mask_multiplicity": {
+    "123": {
+      "234": 8
+    },
+    "124": {
+      "012": 8
+    },
+    "125": {
+      "025": 8
+    },
+    "134": {
+      "123": 8
+    },
+    "135": {
+      "235": 8
+    },
+    "145": {
+      "135": 1,
+      "245": 7,
+      "014": 3
+    },
+    "234": {
+      "034": 8
+    },
+    "235": {
+      "123": 2,
+      "035": 8
+    },
+    "245": {
+      "024": 8
+    },
+    "345": {
+      "234": 8
+    },
+    "012": {
+      "123": 8
+    },
+    "013": {
+      "012": 8,
+      "034": 2
+    },
+    "014": {
+      "013": 8
+    },
+    "015": {
+      "035": 8
+    },
+    "023": {
+      "234": 1,
+      "035": 7,
+      "012": 3
+    },
+    "024": {
+      "234": 8,
+      "025": 2
+    },
+    "025": {
+      "012": 8
+    },
+    "034": {
+      "035": 8
+    },
+    "035": {
+      "025": 8
+    },
+    "045": {
+      "034": 8
+    }
+  },
+  "x6_signed_spatial_steps": {
+    "signed_primitive_directions": 12,
+    "checked_three_step_paths": 1728,
+    "zero_spatial_returns": 0,
+    "reason": "parity of coordinate sum is odd after 3 signed unit steps"
+  },
+  "validation": "Exact integers only; branch-word semiring coefficients; all 20x8 winner sets at n=16; n=17 sanity check; universal n>=16 uses the source AU affine dominance proof; not a native force model nor independent review"
+}
