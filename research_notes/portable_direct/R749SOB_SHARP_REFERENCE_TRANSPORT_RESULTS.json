@@ -1,0 +1,50 @@
+{
+  "base_reference": {
+    "h": "1/2",
+    "s": "1/2",
+    "t": "1/2",
+    "u": "0",
+    "v": "0",
+    "w": "0",
+    "z": "0"
+  },
+  "diamond": {
+    "L1_radius": "1/481",
+    "area": "2/231361",
+    "area_ratio_to_R749SOA": "683929/231361",
+    "local_reference_bound_K": "3509761/7372768",
+    "new_transport_H_at_radius": "5345289/1765777936",
+    "old_transport_H_at_radius": "2403/460798",
+    "uniform_strict_gap_lower_bound": "916283/97117786480"
+  },
+  "exact_vertex_certificate": {
+    "TV_to_reference_distribution": {
+      "1/4": 9,
+      "15/32": 4,
+      "5/32": 4
+    },
+    "active_sets": 4368,
+    "feasible_bases": 456,
+    "maximum_TV": "15/32",
+    "nonsingular_bases": 3008,
+    "sharp_witness_h_u_v_w_z": [
+      "0",
+      "1/2",
+      "1/2",
+      "1/2",
+      "1/2"
+    ],
+    "sharp_witness_y": [
+      "0",
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "unique_vertices": 17
+  },
+  "frozen_source": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "inference": "Finite exact base certificate + analytic transport inequality covers all real t,s in the closed diamond; NOT_REVIEWED",
+  "model": "auxiliary Walsh source fiber on F_2^4, retained masks 3,12,15,1,2,4,8",
+  "result": "PASS"
+}

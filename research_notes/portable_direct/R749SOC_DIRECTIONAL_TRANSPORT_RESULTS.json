@@ -1,0 +1,46 @@
+{
+  "base_max_TV": "15/32",
+  "base_polytope_vertices": 17,
+  "derivation": "Convex in base vertex, direction L1 ball, and coefficient c in [2,1/(1/2-d)]; reverse transport coupled to old Hausdorff witness.",
+  "diamond": {
+    "L1_radius": "1/339",
+    "area": "2/114921",
+    "area_ratio_vs_R749SOA": "683929/114921",
+    "area_ratio_vs_R749SOB": "231361/114921",
+    "directional_H_at_boundary": "932543/307999128",
+    "old_H_at_boundary": "1693/228486",
+    "positive_gap_uniform_bound": "43323/5646650680"
+  },
+  "directional_checks": {
+    "all_exact": true,
+    "directions_per_endpoint": 4,
+    "endpoint_count": 2,
+    "endpoint_table": [
+      {
+        "bound": "1",
+        "c": "2",
+        "extrema": {
+          "mask_12_sign_-1": "1",
+          "mask_12_sign_1": "7/8",
+          "mask_3_sign_-1": "1",
+          "mask_3_sign_1": "7/8"
+        }
+      },
+      {
+        "bound": "2711/2696",
+        "c": "678/337",
+        "extrema": {
+          "mask_12_sign_-1": "2711/2696",
+          "mask_12_sign_1": "1187/1348",
+          "mask_3_sign_-1": "2711/2696",
+          "mask_3_sign_1": "1187/1348"
+        }
+      }
+    ],
+    "vertices_per_direction": 17
+  },
+  "frozen_source": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "result": "PASS",
+  "scope": "auxiliary 16-state Walsh model, every real (t,s) in closed L1 diamond; author proof / NOT_REVIEWED",
+  "unit": "R749SOC"
+}
