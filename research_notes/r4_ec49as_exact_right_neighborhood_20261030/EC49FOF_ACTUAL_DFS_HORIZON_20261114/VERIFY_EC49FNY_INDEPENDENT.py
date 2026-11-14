@@ -44,3 +44,25 @@ def table(words,keys,root):
             if not (m>>j)&1:
                 f[m]=min(f[m],f[m|(1<<j)])
     return labels,idx,f,len(children)
+
+
+def frozen(path,case=32279):
+    """Load the exact frozen 94-key signed ordered-prefix original input."""
+    from pathlib import Path
+    items=iter(Path(path).read_text().split())
+    assert (int(next(items)),int(next(items)),int(next(items)))==(94,178850,38169)
+    words=[]
+    for key in range(94):
+        n=int(next(items));w=[]
+        for _ in range(n):
+            label=int(next(items));raw=next(items)
+            w.append((label,int(raw[:2],16),tuple(bytes.fromhex(raw[2:]))))
+        words.append(w)
+    target=None
+    for k in range(38169):
+        row=[int(next(items)) for _ in range(7)]
+        if k==case:target=row
+    assert target is not None
+    try:next(items);raise AssertionError("trailing source data")
+    except StopIteration:pass
+    return words,target
