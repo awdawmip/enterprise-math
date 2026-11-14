@@ -102,7 +102,7 @@ This is a **finite-window fact**, not an asserted all-length theorem. It suggest
 \frac{\max_i(p_i-i\beta)-\min_j(p_j-j\alpha)}{\beta-\alpha}
 \le \frac{(m-2)(m-1)}2-1
 ]
-for all admitted finite Sturmian words. This is equivalent to the conjectured uniform cutoff before flooring. The extremal (01^{m-2}0) and (10^{m-2}1) attain equality; all m≤64 were checked.
+for all admitted finite Sturmian words. This is a stronger sufficient inequality for the proposed uniform width cutoff: the mere floor condition would allow a larger nonintegral ratio. The extremal (01^{m-2}0) and (10^{m-2}1) attain equality; all m≤64 were checked.
 2. For even (m), use the R158 modular residue certificate to rule out the (O(m)) residual positions between the width cutoff and the claimed threshold.
 3. Classify all-length signature fibers above cardinality 2, retaining word/source identity when the observer requires it.
 
