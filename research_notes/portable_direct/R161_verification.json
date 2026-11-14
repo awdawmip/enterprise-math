@@ -1,0 +1,112 @@
+{
+  "scope": "external tied-phase finite Sturmian scalar; science pin 43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "small_exhaustive": [
+    {
+      "m": 5,
+      "binary_candidates": 32,
+      "admitted": 24,
+      "max_W": "5",
+      "max_last_missing_L": 5,
+      "exact_T": 7,
+      "T_maximizers": [
+        "01110",
+        "10001"
+      ],
+      "W_maximizers": [
+        "01110",
+        "10001"
+      ]
+    },
+    {
+      "m": 6,
+      "binary_candidates": 64,
+      "admitted": 36,
+      "max_W": "9",
+      "max_last_missing_L": 7,
+      "exact_T": 9,
+      "T_maximizers": [
+        "011110",
+        "100001"
+      ],
+      "W_maximizers": [
+        "011110",
+        "100001"
+      ]
+    },
+    {
+      "m": 7,
+      "binary_candidates": 128,
+      "admitted": 54,
+      "max_W": "14",
+      "max_last_missing_L": 14,
+      "exact_T": 16,
+      "T_maximizers": [
+        "0111110",
+        "1000001"
+      ],
+      "W_maximizers": [
+        "0111110",
+        "1000001"
+      ]
+    },
+    {
+      "m": 8,
+      "binary_candidates": 256,
+      "admitted": 76,
+      "max_W": "20",
+      "max_last_missing_L": 17,
+      "exact_T": 19,
+      "T_maximizers": [
+        "01111110",
+        "10000001"
+      ],
+      "W_maximizers": [
+        "01111110",
+        "10000001"
+      ]
+    }
+  ],
+  "farey_checks": {
+    "9": {
+      "farey_fraction_count": 29,
+      "sub_bound_triplets": 2
+    },
+    "10": {
+      "farey_fraction_count": 33,
+      "sub_bound_triplets": 2
+    },
+    "12": {
+      "farey_fraction_count": 47,
+      "sub_bound_triplets": 2
+    },
+    "16": {
+      "farey_fraction_count": 81,
+      "sub_bound_triplets": 2
+    },
+    "24": {
+      "farey_fraction_count": 181,
+      "sub_bound_triplets": 2
+    },
+    "32": {
+      "farey_fraction_count": 325,
+      "sub_bound_triplets": 2
+    },
+    "64": {
+      "farey_fraction_count": 1261,
+      "sub_bound_triplets": 2
+    },
+    "100": {
+      "farey_fraction_count": 3045,
+      "sub_bound_triplets": 2
+    }
+  },
+  "extremal_check": {
+    "range_m": [
+      5,
+      160
+    ],
+    "words_checked": 312,
+    "formula": "last_missing_L=(m-2)*ceil((m-2)/2)-1; W=m(m-3)/2"
+  },
+  "status": "R161_EXACT_CHECKS_PASS"
+}
