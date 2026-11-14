@@ -1,0 +1,28 @@
+{
+  "candidate_active_sets": 50388,
+  "complementary_parameter_area": "1/20",
+  "distinct_vertices": 38,
+  "exact_center": "p(t,s,t+s-1,0,0,0,0)",
+  "exact_worst_tv": "1-t",
+  "feasible_bases_with_repeats": 3116,
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "full_upper_wedge_formula": "for t>=s, t+s>=1: max((3-t-2*s)/4,1-t); swap t,s otherwise",
+  "lower_witness": "H=p(t,s,1-t+s,0,0,0,0), TV(H,q)=1-t",
+  "max_risk_excess": "0",
+  "meaning": "proof of worst-case risk for the specified calibrated center, not a global minimax assertion on complementary triangle",
+  "native_transfer": "OPEN",
+  "nonsingular_bases": 28288,
+  "parameter_region": "conv{(1/2,1/2),(3/5,2/5),(1,1)}",
+  "parameter_vertex_histogram": {
+    "(1,1)": 1,
+    "(1/2,1/2)": 17,
+    "(3/5,2/5)": 20
+  },
+  "review": "AUTHOR_EXACT_NOT_REVIEWED",
+  "risk_tight_vertices": 10,
+  "schema": "R749SPH_WALSH_COMPLEMENTARY_CENTER_RISK_V1",
+  "scope": "auxiliary 16-atom Walsh fiber; continuous all-real complementary triangle",
+  "status": "PASS",
+  "symmetric_region": "by swap of (t,s) and bit pairs",
+  "violations": []
+}
