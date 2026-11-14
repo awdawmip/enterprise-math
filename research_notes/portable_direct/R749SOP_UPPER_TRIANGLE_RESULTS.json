@@ -1,0 +1,107 @@
+{
+  "unit": "R749SOP",
+  "status": "PASS",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "region": "0<=t,s<=1, t+s>=1; put r=max(t,s), m=min(t,s)",
+  "common_floor": "(t+s-1)*sigma",
+  "sigma_support": [
+    0,
+    3,
+    12,
+    15
+  ],
+  "conic_identity": "Dpp-4(t+s-1)=mean(Dpm)+mean(Dmp)+3mean(Dmm)",
+  "fiber_factorization": "F(t,s)=alpha*sigma+beta*F((1-s)/beta,(1-t)/beta)",
+  "radii_reduction": "rho and rho_cal, and their difference, multiply by beta",
+  "free_phase_threshold": "5*r-4*m=1",
+  "calibration_thresholds": [
+    "8*r-7*m=1",
+    "3*r-2*m=1"
+  ],
+  "phase_gap_zero": "3*r-2*m>=1",
+  "max_gap": "1/90",
+  "maximizers": [
+    "(5/9,4/9)",
+    "(4/9,5/9)"
+  ],
+  "exact_fixed_parameter_bases_each": 4368,
+  "exact_checks": [
+    {
+      "r": "1/2",
+      "m": "1/2",
+      "beta": "1",
+      "non_singular_bases": 3008,
+      "feasible_bases": 456,
+      "vertex_count": 17,
+      "rho": "2/5",
+      "rho_cal": "9/22",
+      "gap": "1/110"
+    },
+    {
+      "r": "5/9",
+      "m": "4/9",
+      "beta": "1",
+      "non_singular_bases": 3008,
+      "feasible_bases": 440,
+      "vertex_count": 20,
+      "rho": "7/18",
+      "rho_cal": "2/5",
+      "gap": "1/90"
+    },
+    {
+      "r": "3/5",
+      "m": "1/2",
+      "beta": "9/10",
+      "non_singular_bases": 3008,
+      "feasible_bases": 196,
+      "vertex_count": 20,
+      "rho": "7/20",
+      "rho_cal": "9/25",
+      "gap": "1/100"
+    },
+    {
+      "r": "7/10",
+      "m": "1/2",
+      "beta": "4/5",
+      "non_singular_bases": 3008,
+      "feasible_bases": 196,
+      "vertex_count": 20,
+      "rho": "13/40",
+      "rho_cal": "13/40",
+      "gap": "0"
+    },
+    {
+      "r": "4/5",
+      "m": "7/10",
+      "beta": "1/2",
+      "non_singular_bases": 3008,
+      "feasible_bases": 196,
+      "vertex_count": 20,
+      "rho": "1/5",
+      "rho_cal": "1/5",
+      "gap": "0"
+    },
+    {
+      "r": "1",
+      "m": "1/2",
+      "beta": "1/2",
+      "non_singular_bases": 3008,
+      "feasible_bases": 312,
+      "vertex_count": 2,
+      "rho": "1/4",
+      "rho_cal": "1/4",
+      "gap": "0"
+    },
+    {
+      "r": "1",
+      "m": "1",
+      "fiber": "singleton",
+      "rho": "0",
+      "rho_cal": "0",
+      "gap": "0"
+    }
+  ],
+  "proof_scope": "analytic common-mass factorization, SOF exact 1D input, rational vertex checks",
+  "independent_review": "NOT_REVIEWED",
+  "native_x6_correspondence": "UNRESOLVED"
+}
