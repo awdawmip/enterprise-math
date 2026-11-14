@@ -1,0 +1,91 @@
+{
+  "status": "PASS_COMBINED_EXACT_R5_UNIVERSAL_NESTEDNESS_PHASE_TRANSITION_CHECKS",
+  "date": "2026-11-14",
+  "science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "scope": "954 indexed integer events, radius 2, each of 28 original 3-gaps optionally shortened to 2",
+  "exact_class_source": "research_notes/brc_r5_exact_cost_spectrum_20261114/EXACT_OUTPUT.json",
+  "class_source_blob_sha1": "1de71e3323aacfae1c0bde6f6b81f16daebafc97",
+  "number_of_cost_spectrum_classes": 32,
+  "counted_low_budget_class_transition_comparisons": 128,
+  "low_budget_drop_ranges": {
+    "207": [
+      14,
+      14
+    ],
+    "208": [
+      7,
+      14
+    ],
+    "209": [
+      7,
+      14
+    ],
+    "210": [
+      7,
+      14
+    ],
+    "211": [
+      6,
+      14
+    ],
+    "212": [
+      6,
+      14
+    ],
+    "213": [
+      5,
+      6
+    ]
+  },
+  "baseline_214_to_291_drop_bands": [
+    {
+      "K_from": 214,
+      "K_through": 221,
+      "exact_drop": 5,
+      "transitions": 8
+    },
+    {
+      "K_from": 222,
+      "K_through": 291,
+      "exact_drop": 4,
+      "transitions": 70
+    }
+  ],
+  "baseline_292_to_953_drop_bands": [
+    {
+      "K_from": 292,
+      "K_through": 314,
+      "exact_drop": 3,
+      "transitions": 23
+    },
+    {
+      "K_from": 315,
+      "K_through": 350,
+      "exact_drop": 2,
+      "transitions": 36
+    },
+    {
+      "K_from": 351,
+      "K_through": 953,
+      "exact_drop": 1,
+      "transitions": 603
+    }
+  ],
+  "finite_geometry_lemma": "For any feasible radius-two index-center set on distinct integer event coordinates, inserting one center decreases total nearest-center distance by at most 3.",
+  "full_conclusion": "forall closure B; for all jointly feasible adjacent K: K<=291 implies rho_B(K)>=1; K>=292 and K<=953 implies rho_B(K)=0",
+  "universal_transition_threshold": 292,
+  "closure_masks_covered_by_proof": 268435456,
+  "math_proof_mechanisms": [
+    "32-class exact finite coverage",
+    "high-budget cost invariance under gap closures",
+    "one-center gain upper bound 3",
+    "exact insertion-gain DP under no-closure seed",
+    "monotone family transfer"
+  ],
+  "executed_local_evidence": "32 cost-class comparisons performed using GitHub connector JS; baseline indexed-center path-DP 214..291 checked with local Python; companion 662 gain transitions checked with local exact Python, including brute force 240 small instances.",
+  "published_script_reexecuted_byte_for_byte": false,
+  "imported_original_github_python_modules_reexecuted_byte_for_byte": false,
+  "independent_math_review": "NOT_REVIEWED",
+  "formal_task_claim": "UNCONFIRMED",
+  "next": "Compute exact positive rho_B(K) for K207..291 and classify possible source/provenance effects. Original 2520-byte/28-coordinate/8192-prefix native experiment remains pending."
+}
