@@ -1,0 +1,37 @@
+{
+  "area": "1/24",
+  "calibrated_center": "(1+t*chi_3+s*chi_12+(t+3*s-1)*chi_15)/16",
+  "domain": "all real t,s with 1/2<=t<=1, s>=0, t+3s<=1",
+  "exact_joint_vertex_certificate": {
+    "active_bases": 50388,
+    "distinct_vertices": 82,
+    "feasible_bases": 4596,
+    "max_excess": "0",
+    "nonsingular_bases": 25664,
+    "tight_vertices": 36,
+    "violating_vertices": 0
+  },
+  "lower_diameter": "TV(mu_plus,mu_minus)=1-s",
+  "lower_source_pair": "h=-s, u=+/- (1-s), v=+/- (t+s), w=z=0, simultaneous signs",
+  "model": "16-state auxiliary Walsh source observer, not native X6/V29/V39",
+  "next_question": "Extend the lower-s diameter phase to t<1/2 and determine its sharp boundary; test admissible alternative calibrated centers across the t+3s=1 interface",
+  "review": "NOT_REVIEWED",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "status": "PASS",
+  "theorem": "rho(t,s)=rho_cal(t,s)=(1-s)/2",
+  "triangle_vertices": [
+    [
+      "1/2",
+      "0"
+    ],
+    [
+      "1",
+      "0"
+    ],
+    [
+      "1/2",
+      "1/6"
+    ]
+  ],
+  "unit": "R749SNW"
+}
