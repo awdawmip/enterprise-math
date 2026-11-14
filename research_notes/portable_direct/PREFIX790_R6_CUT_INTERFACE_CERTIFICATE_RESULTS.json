@@ -1,0 +1,78 @@
+{
+  "compatibility_cases": 4096,
+  "cut_cases": 4096,
+  "cut_signature_class_range": [
+    1,
+    5
+  ],
+  "exact_assertions": 278534,
+  "exact_weighted_suffix_quotient_strict_reductions": 171,
+  "fixed_witness": {
+    "all_cross_pair_histogram": {
+      "0": 1,
+      "1": 2,
+      "2": 1
+    },
+    "cross_pair_ghost_count": 2,
+    "cut_states": [
+      "alpha",
+      "beta"
+    ],
+    "left_weights": [
+      0,
+      1
+    ],
+    "modulus": 3,
+    "right_weights": [
+      0,
+      1
+    ],
+    "same_vertex_hidden_memory_requires_rows": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "suffix_support_equal_but_counts_differ": {
+      "quotient_wrong": 2,
+      "true": 3
+    },
+    "target": 1,
+    "true_histogram": {
+      "0": 1,
+      "2": 1
+    },
+    "typed_rows_differ_but_weighted_suffix_equal": {
+      "count_observer_classes": 1,
+      "typed_classes": 2
+    }
+  },
+  "guard_row_class_range": [
+    1,
+    7
+  ],
+  "modular_compatibility_cases": 28672,
+  "modular_cut_cases": 28672,
+  "modular_false_positive_residues_observed": 16748,
+  "modular_weighted_suffix_quotient_strict_reductions": 4445,
+  "moduli": [
+    2,
+    3,
+    5,
+    6,
+    7,
+    11,
+    13
+  ],
+  "predecessor": "PREFIX-789",
+  "schema": "PREFIX790_CUT_INTERFACE_EXACT_REGRESSION_V1",
+  "scope": "finite two-step parallel-edge cut graphs and finite Boolean prefix/suffix compatibility interfaces; exact integer and modular counts; external observer only",
+  "seed": 79020261115,
+  "source_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "status": "ALL_CHECKS_PASS PREFIX790 CUT_INTERFACE_MINIMAL_RESIDUAL",
+  "theorem_basis": "combinatorial bijection, nonnegative-semiring expansion, residual row distinguishability; regression is not universal proof"
+}
