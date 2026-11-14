@@ -1,0 +1,21 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/PREFIX780_R6_HETEROGENEOUS_CORNER_BUDGET_CHECK.py",
+    "ref": "7f456d2bae15b0442ab0cacd72d8895329cd0456",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r6-p780-code-connector-readback-20261114",
+  "result": {
+    "isError": false,
+    "raw_connector_response": {
+      "result": {
+        "content": "#!/usr/bin/env python3\n\"\"\"Exact rational regression for PREFIX-780's seven-pair nonuniform budgets.\nThis checks analytic identities and sharpness witnesses, not the inherited 189-layer coefficients.\n\"\"\"\nfrom fractions import Fraction as F\nfrom itertools import product\n\n\ndef bounds(A1, A2, B1, B2, p1, p2, c, delta):\n    assert B2 > B1 > 0 and A1 > 0 and A2 > 0\n    D = A2 * B1 - A1 * B2\n    assert D > 0\n    S1, S2 = sum(p1), sum(p2)\n    d = min(delta, 2*c)\n    H = B2*S1 + B1*S2 + (B2-B1)*c + B1*d\n    return D,H\n\n\ndef threshold_scale(D, B1, B2, S1, S2, c, delta):\n    W = B2*S1 + B1*S2 + (B2-B1)*c\n    T = W + 2*B1*c\n    assert T > 0\n    t1 = D / T\n    if t1 <= 1 and 2*t1*c <= delta:\n        t=t1\n    else:\n        assert W > 0\n        t=(D-B1*delta)/W\n    assert 0 < t <= 1\n    assert t*W + B1*min(delta, 2*t*c) == D\n    return t\n\n\ndef check_case(A1, A2, B1, B2, p1, p2, c, delta):\n    D,H=bounds(A1,A2,B1,B2,p1,p2,c,delta)\n    assert all(x >= 0 for x in (*p1,*p2,c,delta))\n    # Cross-check exact corner support by enumerating the 2D polygon vertices.\n    candidates={(F(s)*c,F(t)*c) for s in (-1,1) for t in (-1,1)}\n    for s in (-1,1):\n        for z in (-1,1):\n            candidates.add((F(s)*c,F(s)*c+F(z)*delta))\n            candidates.add((F(s)*c+F(z)*delta,F(s)*c))\n    candidates={(e,f) for e,f in candidates if abs(e)<=c and abs(f)<=c and abs(e-f)<=delta}\n    assert candidates\n    expected=(B2-B1)*c+B1*min(delta,2*c)\n    assert max((B2*e-B1*f for e,f in candidates)) == expected\n    assert max((B2*f-B1*e for e,f in candidates)) == expected\n    if H < D:\n        gap=(D-H)/(B1+B2)\n        assert gap>0\n        return 'CERTIFIED',gap\n    S1,S2=sum(p1),sum(p2)\n    t=threshold_scale(D,B1,B2,S1,S2,c,delta)\n    d=min(delta,2*t*c)\n    # Coefficients of the three private corners in each cell are +,-,-.\n    signs=(1,-1,-1)\n    e1=[t*a*s for a,s in zip(p1,signs)]\n    f1=e1[:]\n    e2=[-t*a*s for a,s in zip(p2,signs)]\n    f2=e2[:]\n    ec=t*c; fc=t*c-d\n    assert abs(ec)<=c and abs(fc)<=c and abs(ec-fc)<=delta\n    for a,e,f in zip((*p1,*p2),(*e1,*e2),(*f1,*f2)):\n        assert abs(e)<=a and abs(f)<=a and e==f\n    L1e=sum(s*v for s,v in zip(signs,e1))+ec\n    L1f=sum(s*v for s,v in zip(signs,f1))+fc\n    L2e=sum(s*v for s,v in zip(signs,e2))+ec\n    L2f=sum(s*v for s,v in zip(signs,f2))+fc\n    q=(A1+t*(S1+c))/B1\n    assert q>0\n    x1=A1-q*B1; x2=A2-q*B2\n    y1=x1+L1e; z1=-x1-L1f\n    y2=x2+L2e; z2=-x2-L2f\n    assert (y1,z1,y2,z2) == (0,d,d,0)\n    return 'SHARP_WITNESS', (t,q,d)\n\n\ndef R(n,d=1): return F(n,d)\n\n\ndef main():\n    tests=[]\n    # Two unrelated rational coefficient families with D>0.\n    families=[(R(1),R(2),R(2),R(3)), (R(1,8),R(3,10),R(4,5),R(6,5))]\n    ppatterns=[(R(0),R(0),R(0)), (R(1,80),R(1,60),R(1,40)),\n               (R(1,3),R(1,4),R(1,5)), (R(1),R(1,2),R(1,4))]\n    for A1,A2,B1,B2 in families:\n        for p1,p2 in product(ppatterns,ppatterns):\n            for c in (R(0),R(1,50),R(1,6),R(1)):\n                for delta in (R(0),R(1,40),R(1,2),R(4)):\n                    tests.append(check_case(A1,A2,B1,B2,p1,p2,c,delta)[0])\n    assert 'CERTIFIED' in tests and 'SHARP_WITNESS' in tests\n    print('ALL_CHECKS_PASS PREFIX780 HETEROGENEOUS_SHARP_CORNER_BUDGET')\n    print('exact_cases=',len(tests),'certified=',tests.count('CERTIFIED'),'sharp=',tests.count('SHARP_WITNESS'))\n\n\nif __name__=='__main__':\n    main()\n",
+        "encoding": "utf-8",
+        "sha": "5ebeb01a8c9b8a1a060e3a231ae763f547094bb8",
+        "display_url": "https://github.com/awdawmip/enterprise-math/blob/7f456d2bae15b0442ab0cacd72d8895329cd0456/research_notes/portable_direct/PREFIX780_R6_HETEROGENEOUS_CORNER_BUDGET_CHECK.py",
+        "display_title": "PREFIX780_R6_HETEROGENEOUS_CORNER_BUDGET_CHECK.py"
+      }
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
