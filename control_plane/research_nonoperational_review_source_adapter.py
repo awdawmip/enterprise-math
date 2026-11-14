@@ -98,6 +98,21 @@ def install(root: Path = ROOT) -> None:
     _install_review_dependencies(root)
 
     def combined_followup_validated(local_root: Path = followup.ROOT) -> dict[str, dict[str, Any]]:
+        from control_plane.research_read_view import reuse_read
+        from control_plane import research_result_review_binding_fault_isolation as binding
+        from control_plane import research_result_review_audit_fault_isolation as invalid_review
+        from tools import research_result_records as results
+        from tools import research_dispatch
+        import research_driver_authority as driver_authority
+
+        inputs=(authority.validated_quarantines,binding.validated_quarantines,
+            invalid_review.validated_rows,followup._validated_quarantines,
+            results.iter_results,results.iter_reviews,driver_authority.active_authority_at,
+            research_dispatch._dispatch_result_read_snapshot)
+        return reuse_read(local_root,('nonoperational_review','followup_validation'),inputs,
+            lambda:compute_followup_validated(local_root))
+
+    def compute_followup_validated(local_root: Path) -> dict[str, dict[str, Any]]:
         from control_plane import research_result_review_binding_fault_isolation as binding
         from control_plane import research_result_review_audit_fault_isolation as invalid_review
         from tools import research_dispatch
