@@ -1,0 +1,2963 @@
+{
+  "schema": "R762AQ_EXACT_AK4_OBSERVER_CERT_V1",
+  "created_date": "2026-11-15",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "publication_id": "TP2-8B7E13C5904A2D6F1142",
+  "researcher_provenance": "EM-X6-3050F6",
+  "frozen_science_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model_scope": "nine-state conditional AK4, independent reset terminal-only adaptive probes, no initial observation",
+  "semantics": "exact integer and ordered labeled event-word arithmetic; no physical X6 attribution",
+  "native_event_admitted": false,
+  "driver_reviewed": false,
+  "states": [
+    {
+      "index": 0,
+      "state": "0:012",
+      "initial_observation": "EE"
+    },
+    {
+      "index": 1,
+      "state": "1:012",
+      "initial_observation": "CE"
+    },
+    {
+      "index": 2,
+      "state": "2:012",
+      "initial_observation": "CE"
+    },
+    {
+      "index": 3,
+      "state": "0:021",
+      "initial_observation": "ET"
+    },
+    {
+      "index": 4,
+      "state": "0:102",
+      "initial_observation": "ET"
+    },
+    {
+      "index": 5,
+      "state": "0:120",
+      "initial_observation": "EC"
+    },
+    {
+      "index": 6,
+      "state": "0:201",
+      "initial_observation": "EC"
+    },
+    {
+      "index": 7,
+      "state": "0:210",
+      "initial_observation": "ET"
+    },
+    {
+      "index": 8,
+      "state": "U",
+      "initial_observation": "U"
+    }
+  ],
+  "generators": {
+    "S": [
+      1,
+      2,
+      0,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "C": [
+      5,
+      8,
+      8,
+      4,
+      7,
+      6,
+      0,
+      3,
+      8
+    ],
+    "T": [
+      4,
+      8,
+      8,
+      5,
+      0,
+      3,
+      7,
+      6,
+      8
+    ]
+  },
+  "full_closure_count": 75,
+  "max_shortest_word_length": 7,
+  "all_75_transformations": [
+    {
+      "word": "",
+      "transition_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "terminal_vector": [
+        "EE",
+        "CE",
+        "CE",
+        "ET",
+        "ET",
+        "EC",
+        "EC",
+        "ET",
+        "U"
+      ]
+    },
+    {
+      "word": "S",
+      "transition_indices": [
+        1,
+        2,
+        0,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "CE",
+        "CE",
+        "EE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "C",
+      "transition_indices": [
+        5,
+        8,
+        8,
+        4,
+        7,
+        6,
+        0,
+        3,
+        8
+      ],
+      "terminal_vector": [
+        "EC",
+        "U",
+        "U",
+        "ET",
+        "ET",
+        "EC",
+        "EE",
+        "ET",
+        "U"
+      ]
+    },
+    {
+      "word": "T",
+      "transition_indices": [
+        4,
+        8,
+        8,
+        5,
+        0,
+        3,
+        7,
+        6,
+        8
+      ],
+      "terminal_vector": [
+        "ET",
+        "U",
+        "U",
+        "EC",
+        "EE",
+        "ET",
+        "ET",
+        "EC",
+        "U"
+      ]
+    },
+    {
+      "word": "SS",
+      "transition_indices": [
+        2,
+        0,
+        1,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "CE",
+        "EE",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SC",
+      "transition_indices": [
+        8,
+        8,
+        5,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "ST",
+      "transition_indices": [
+        8,
+        8,
+        4,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        1,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CC",
+      "transition_indices": [
+        6,
+        8,
+        8,
+        7,
+        3,
+        0,
+        5,
+        4,
+        8
+      ],
+      "terminal_vector": [
+        "EC",
+        "U",
+        "U",
+        "ET",
+        "ET",
+        "EE",
+        "EC",
+        "ET",
+        "U"
+      ]
+    },
+    {
+      "word": "CT",
+      "transition_indices": [
+        3,
+        8,
+        8,
+        0,
+        6,
+        7,
+        4,
+        5,
+        8
+      ],
+      "terminal_vector": [
+        "ET",
+        "U",
+        "U",
+        "EE",
+        "EC",
+        "ET",
+        "ET",
+        "EC",
+        "U"
+      ]
+    },
+    {
+      "word": "TS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        1,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TC",
+      "transition_indices": [
+        7,
+        8,
+        8,
+        6,
+        5,
+        4,
+        3,
+        0,
+        8
+      ],
+      "terminal_vector": [
+        "ET",
+        "U",
+        "U",
+        "EC",
+        "EC",
+        "ET",
+        "ET",
+        "EE",
+        "U"
+      ]
+    },
+    {
+      "word": "TT",
+      "transition_indices": [
+        0,
+        8,
+        8,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "terminal_vector": [
+        "EE",
+        "U",
+        "U",
+        "ET",
+        "ET",
+        "EC",
+        "EC",
+        "ET",
+        "U"
+      ]
+    },
+    {
+      "word": "SSS",
+      "transition_indices": [
+        0,
+        1,
+        2,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "EE",
+        "CE",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSC",
+      "transition_indices": [
+        8,
+        5,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SST",
+      "transition_indices": [
+        8,
+        4,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SCS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SCC",
+      "transition_indices": [
+        8,
+        8,
+        6,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SCT",
+      "transition_indices": [
+        8,
+        8,
+        3,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "STC",
+      "transition_indices": [
+        8,
+        8,
+        7,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "STT",
+      "transition_indices": [
+        8,
+        8,
+        0,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "EE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CSS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        2,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CCS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        1,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CTS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        1,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TSS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        2,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TCS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        1,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U"
+      ]
+    },
+    {
+      "word": "TTS",
+      "transition_indices": [
+        1,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSSC",
+      "transition_indices": [
+        5,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSST",
+      "transition_indices": [
+        4,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSCC",
+      "transition_indices": [
+        8,
+        6,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSCT",
+      "transition_indices": [
+        8,
+        3,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSTC",
+      "transition_indices": [
+        8,
+        7,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSTT",
+      "transition_indices": [
+        8,
+        0,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "EE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "STTS",
+      "transition_indices": [
+        8,
+        8,
+        1,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CSSS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        0,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EE",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CCSS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        2,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CTSS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        2,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TSSS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        0,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "EE",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TCSS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        2,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U"
+      ]
+    },
+    {
+      "word": "TTSS",
+      "transition_indices": [
+        2,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSSCC",
+      "transition_indices": [
+        6,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSSCT",
+      "transition_indices": [
+        3,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSSTC",
+      "transition_indices": [
+        7,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSSTT",
+      "transition_indices": [
+        0,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "EE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSTTS",
+      "transition_indices": [
+        8,
+        1,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "STTSS",
+      "transition_indices": [
+        8,
+        8,
+        2,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CSSSC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        5,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CSSST",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        4,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CCSSS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        0,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EE",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CTSSS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        0,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "EE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TSSSC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        5,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TSSST",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        4,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TCSSS",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        0,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EE",
+        "U"
+      ]
+    },
+    {
+      "word": "SSTTSS",
+      "transition_indices": [
+        8,
+        2,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CSSSCC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        6,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CSSSCT",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        3,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CSSSTC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        7,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CCSSSC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        5,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CCSSST",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        4,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CTSSSC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        5,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CTSSST",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        4,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TSSSCC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        6,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TSSSCT",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        3,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TSSSTC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        7,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TCSSSC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        5,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U"
+      ]
+    },
+    {
+      "word": "TCSSST",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        4,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U"
+      ]
+    },
+    {
+      "word": "CCSSSCC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        6,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CCSSSCT",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        3,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CCSSSTC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        7,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CTSSSCC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        6,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CTSSSCT",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        3,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CTSSSTC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        7,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TCSSSCC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        6,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U"
+      ]
+    },
+    {
+      "word": "TCSSSCT",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        3,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U"
+      ]
+    },
+    {
+      "word": "TCSSSTC",
+      "transition_indices": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        7,
+        8
+      ],
+      "terminal_vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U"
+      ]
+    }
+  ],
+  "nonempty_signature_count": 42,
+  "all_terminal_signature_count": 43,
+  "all_42_nonempty_signatures": [
+    {
+      "word": "S",
+      "vector": [
+        "CE",
+        "CE",
+        "EE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "C",
+      "vector": [
+        "EC",
+        "U",
+        "U",
+        "ET",
+        "ET",
+        "EC",
+        "EE",
+        "ET",
+        "U"
+      ]
+    },
+    {
+      "word": "T",
+      "vector": [
+        "ET",
+        "U",
+        "U",
+        "EC",
+        "EE",
+        "ET",
+        "ET",
+        "EC",
+        "U"
+      ]
+    },
+    {
+      "word": "SS",
+      "vector": [
+        "CE",
+        "EE",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SC",
+      "vector": [
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "ST",
+      "vector": [
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CS",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CC",
+      "vector": [
+        "EC",
+        "U",
+        "U",
+        "ET",
+        "ET",
+        "EE",
+        "EC",
+        "ET",
+        "U"
+      ]
+    },
+    {
+      "word": "CT",
+      "vector": [
+        "ET",
+        "U",
+        "U",
+        "EE",
+        "EC",
+        "ET",
+        "ET",
+        "EC",
+        "U"
+      ]
+    },
+    {
+      "word": "TS",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TC",
+      "vector": [
+        "ET",
+        "U",
+        "U",
+        "EC",
+        "EC",
+        "ET",
+        "ET",
+        "EE",
+        "U"
+      ]
+    },
+    {
+      "word": "TT",
+      "vector": [
+        "EE",
+        "U",
+        "U",
+        "ET",
+        "ET",
+        "EC",
+        "EC",
+        "ET",
+        "U"
+      ]
+    },
+    {
+      "word": "SSS",
+      "vector": [
+        "EE",
+        "CE",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSC",
+      "vector": [
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SST",
+      "vector": [
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SCS",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "STT",
+      "vector": [
+        "U",
+        "U",
+        "EE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CCS",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CTS",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TCS",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "CE",
+        "U"
+      ]
+    },
+    {
+      "word": "TTS",
+      "vector": [
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSSC",
+      "vector": [
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSST",
+      "vector": [
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSTT",
+      "vector": [
+        "U",
+        "EE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "STTS",
+      "vector": [
+        "U",
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CSSS",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EE",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TSSS",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "EE",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSSTT",
+      "vector": [
+        "EE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "SSTTS",
+      "vector": [
+        "U",
+        "CE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CSSSC",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CSSST",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CCSSS",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EE",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CTSSS",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "EE",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TSSSC",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TSSST",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TCSSS",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EE",
+        "U"
+      ]
+    },
+    {
+      "word": "CCSSSC",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CCSSST",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CTSSSC",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "CTSSST",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U"
+      ]
+    },
+    {
+      "word": "TCSSSC",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "EC",
+        "U"
+      ]
+    },
+    {
+      "word": "TCSSST",
+      "vector": [
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "U",
+        "ET",
+        "U"
+      ]
+    }
+  ],
+  "two_probe_impossibility_witnesses": [
+    {
+      "first_word": "S",
+      "first_vector": "CECEEEUUUUUU",
+      "witness_fiber_mask": 504,
+      "witness_size": 6
+    },
+    {
+      "first_word": "C",
+      "first_vector": "ECUUETETECEEETU",
+      "witness_fiber_mask": 152,
+      "witness_size": 3
+    },
+    {
+      "first_word": "T",
+      "first_vector": "ETUUECEEETETECU",
+      "witness_fiber_mask": 97,
+      "witness_size": 3
+    },
+    {
+      "first_word": "SS",
+      "first_vector": "CEEECEUUUUUU",
+      "witness_fiber_mask": 504,
+      "witness_size": 6
+    },
+    {
+      "first_word": "SC",
+      "first_vector": "UUECUUUUUU",
+      "witness_fiber_mask": 507,
+      "witness_size": 8
+    },
+    {
+      "first_word": "ST",
+      "first_vector": "UUETUUUUUU",
+      "witness_fiber_mask": 507,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CS",
+      "first_vector": "UUUUUUCEUU",
+      "witness_fiber_mask": 447,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CC",
+      "first_vector": "ECUUETETEEECETU",
+      "witness_fiber_mask": 152,
+      "witness_size": 3
+    },
+    {
+      "first_word": "CT",
+      "first_vector": "ETUUEEECETETECU",
+      "witness_fiber_mask": 97,
+      "witness_size": 3
+    },
+    {
+      "first_word": "TS",
+      "first_vector": "UUUUCEUUUU",
+      "witness_fiber_mask": 495,
+      "witness_size": 8
+    },
+    {
+      "first_word": "TC",
+      "first_vector": "ETUUECECETETEEU",
+      "witness_fiber_mask": 97,
+      "witness_size": 3
+    },
+    {
+      "first_word": "TT",
+      "first_vector": "EEUUETETECECETU",
+      "witness_fiber_mask": 152,
+      "witness_size": 3
+    },
+    {
+      "first_word": "SSS",
+      "first_vector": "EECECEUUUUUU",
+      "witness_fiber_mask": 504,
+      "witness_size": 6
+    },
+    {
+      "first_word": "SSC",
+      "first_vector": "UECUUUUUUU",
+      "witness_fiber_mask": 509,
+      "witness_size": 8
+    },
+    {
+      "first_word": "SST",
+      "first_vector": "UETUUUUUUU",
+      "witness_fiber_mask": 509,
+      "witness_size": 8
+    },
+    {
+      "first_word": "SCS",
+      "first_vector": "UUUUUUUUU",
+      "witness_fiber_mask": 511,
+      "witness_size": 9
+    },
+    {
+      "first_word": "STT",
+      "first_vector": "UUEEUUUUUU",
+      "witness_fiber_mask": 507,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CCS",
+      "first_vector": "UUUUUCEUUU",
+      "witness_fiber_mask": 479,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CTS",
+      "first_vector": "UUUCEUUUUU",
+      "witness_fiber_mask": 503,
+      "witness_size": 8
+    },
+    {
+      "first_word": "TCS",
+      "first_vector": "UUUUUUUCEU",
+      "witness_fiber_mask": 383,
+      "witness_size": 8
+    },
+    {
+      "first_word": "TTS",
+      "first_vector": "CEUUUUUUUU",
+      "witness_fiber_mask": 510,
+      "witness_size": 8
+    },
+    {
+      "first_word": "SSSC",
+      "first_vector": "ECUUUUUUUU",
+      "witness_fiber_mask": 510,
+      "witness_size": 8
+    },
+    {
+      "first_word": "SSST",
+      "first_vector": "ETUUUUUUUU",
+      "witness_fiber_mask": 510,
+      "witness_size": 8
+    },
+    {
+      "first_word": "SSTT",
+      "first_vector": "UEEUUUUUUU",
+      "witness_fiber_mask": 509,
+      "witness_size": 8
+    },
+    {
+      "first_word": "STTS",
+      "first_vector": "UUCEUUUUUU",
+      "witness_fiber_mask": 507,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CSSS",
+      "first_vector": "UUUUUUEEUU",
+      "witness_fiber_mask": 447,
+      "witness_size": 8
+    },
+    {
+      "first_word": "TSSS",
+      "first_vector": "UUUUEEUUUU",
+      "witness_fiber_mask": 495,
+      "witness_size": 8
+    },
+    {
+      "first_word": "SSSTT",
+      "first_vector": "EEUUUUUUUU",
+      "witness_fiber_mask": 510,
+      "witness_size": 8
+    },
+    {
+      "first_word": "SSTTS",
+      "first_vector": "UCEUUUUUUU",
+      "witness_fiber_mask": 509,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CSSSC",
+      "first_vector": "UUUUUUECUU",
+      "witness_fiber_mask": 447,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CSSST",
+      "first_vector": "UUUUUUETUU",
+      "witness_fiber_mask": 447,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CCSSS",
+      "first_vector": "UUUUUEEUUU",
+      "witness_fiber_mask": 479,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CTSSS",
+      "first_vector": "UUUEEUUUUU",
+      "witness_fiber_mask": 503,
+      "witness_size": 8
+    },
+    {
+      "first_word": "TSSSC",
+      "first_vector": "UUUUECUUUU",
+      "witness_fiber_mask": 495,
+      "witness_size": 8
+    },
+    {
+      "first_word": "TSSST",
+      "first_vector": "UUUUETUUUU",
+      "witness_fiber_mask": 495,
+      "witness_size": 8
+    },
+    {
+      "first_word": "TCSSS",
+      "first_vector": "UUUUUUUEEU",
+      "witness_fiber_mask": 383,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CCSSSC",
+      "first_vector": "UUUUUECUUU",
+      "witness_fiber_mask": 479,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CCSSST",
+      "first_vector": "UUUUUETUUU",
+      "witness_fiber_mask": 479,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CTSSSC",
+      "first_vector": "UUUECUUUUU",
+      "witness_fiber_mask": 503,
+      "witness_size": 8
+    },
+    {
+      "first_word": "CTSSST",
+      "first_vector": "UUUETUUUUU",
+      "witness_fiber_mask": 503,
+      "witness_size": 8
+    },
+    {
+      "first_word": "TCSSSC",
+      "first_vector": "UUUUUUUECU",
+      "witness_fiber_mask": 383,
+      "witness_size": 8
+    },
+    {
+      "first_word": "TCSSST",
+      "first_vector": "UUUUUUUETU",
+      "witness_fiber_mask": 383,
+      "witness_size": 8
+    }
+  ],
+  "minimum_costs": {
+    "live_8": {
+      "worst_queries": 3,
+      "worst_letters": 3,
+      "sum_queries": 17,
+      "sum_letters": 19
+    },
+    "with_failure_9": {
+      "worst_queries": 3,
+      "worst_letters": 3,
+      "sum_queries": 19,
+      "sum_letters": 21
+    }
+  },
+  "policy_leaves": [
+    {
+      "index": 0,
+      "state": "0:012",
+      "ordered_reset_queries": [
+        "T",
+        "S"
+      ],
+      "terminal_outputs": [
+        "ET",
+        "CE"
+      ],
+      "query_count": 2,
+      "primitive_letters": 2
+    },
+    {
+      "index": 1,
+      "state": "1:012",
+      "ordered_reset_queries": [
+        "T",
+        "S"
+      ],
+      "terminal_outputs": [
+        "U",
+        "CE"
+      ],
+      "query_count": 2,
+      "primitive_letters": 2
+    },
+    {
+      "index": 2,
+      "state": "2:012",
+      "ordered_reset_queries": [
+        "T",
+        "S"
+      ],
+      "terminal_outputs": [
+        "U",
+        "EE"
+      ],
+      "query_count": 2,
+      "primitive_letters": 2
+    },
+    {
+      "index": 3,
+      "state": "0:021",
+      "ordered_reset_queries": [
+        "T",
+        "CT"
+      ],
+      "terminal_outputs": [
+        "EC",
+        "EE"
+      ],
+      "query_count": 2,
+      "primitive_letters": 3
+    },
+    {
+      "index": 4,
+      "state": "0:102",
+      "ordered_reset_queries": [
+        "T"
+      ],
+      "terminal_outputs": [
+        "EE"
+      ],
+      "query_count": 1,
+      "primitive_letters": 1
+    },
+    {
+      "index": 5,
+      "state": "0:120",
+      "ordered_reset_queries": [
+        "T",
+        "S",
+        "C"
+      ],
+      "terminal_outputs": [
+        "ET",
+        "U",
+        "EC"
+      ],
+      "query_count": 3,
+      "primitive_letters": 3
+    },
+    {
+      "index": 6,
+      "state": "0:201",
+      "ordered_reset_queries": [
+        "T",
+        "S",
+        "C"
+      ],
+      "terminal_outputs": [
+        "ET",
+        "U",
+        "EE"
+      ],
+      "query_count": 3,
+      "primitive_letters": 3
+    },
+    {
+      "index": 7,
+      "state": "0:210",
+      "ordered_reset_queries": [
+        "T",
+        "CT"
+      ],
+      "terminal_outputs": [
+        "EC",
+        "EC"
+      ],
+      "query_count": 2,
+      "primitive_letters": 3
+    },
+    {
+      "index": 8,
+      "state": "U",
+      "ordered_reset_queries": [
+        "T",
+        "S"
+      ],
+      "terminal_outputs": [
+        "U",
+        "U"
+      ],
+      "query_count": 2,
+      "primitive_letters": 2
+    }
+  ]
+}
