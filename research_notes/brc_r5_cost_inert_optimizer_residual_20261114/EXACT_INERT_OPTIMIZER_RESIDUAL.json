@@ -1,0 +1,91 @@
+{
+  "status": "PASS_EXACT_R5_INERT_CUT_OPTIMIZER_RESIDUAL_LOCAL",
+  "science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "scope": "954 frozen indexed 1D integer events, radius two",
+  "source_pr": 2379,
+  "source_head_sha": "68ac5b5507fbef23378658df5beb6ca1c7ab48ba",
+  "globally_cost_inert_gap_indices": [
+    0,
+    1,
+    7,
+    14,
+    15,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "observed_endpoint_optimizer_active_gaps": [
+    15,
+    17
+  ],
+  "comparison_budgets": {
+    "empty_to_single": "213..954",
+    "all_except_to_all": "207..954"
+  },
+  "strict_optimizer_inclusion_budgets_for_15_and_17": "293..314 inclusive",
+  "other_eleven_gaps": "No endpoint-context optimizer-set changes at any jointly feasible budget",
+  "sample_exact_counts": {
+    "293": {
+      "cost": 741,
+      "none": "12606779601463240519046922240",
+      "single_15": "13102659259476980304288153600",
+      "single_17": "13102659259476980304288153600",
+      "all_except_15": "13102659259476980304288153600",
+      "all_except_17": "13102659259476980304288153600",
+      "all": "13598538917490720089529384960"
+    },
+    "300": {
+      "cost": 720,
+      "none": "29490028789684490135476646770114560",
+      "single_15": "34583751573046251438378187499765760",
+      "single_17": "34694480594290406124602026371317760",
+      "all_except_15": "34694480594290406124602026371317760",
+      "all_except_17": "34583751573046251438378187499765760",
+      "all": "40694141423702005422977391179857920"
+    },
+    "314": {
+      "cost": 678,
+      "none": "34372089438980233382036766720000",
+      "single_15": "34461624376467130391986176000000",
+      "single_17": "34461624376467130391986176000000",
+      "all_except_15": "34461624376467130391986176000000",
+      "all_except_17": "34461624376467130391986176000000",
+      "all": "34551159313954027401935585280000"
+    }
+  },
+  "K293_new_optimizer_witnesses": {
+    "15": {
+      "center_bitmask_hex": "9249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249248892122490842248912491222112924891111124924491111111222249249249244492488912108922491124448922491224889124924892490891222444489244892224924",
+      "center_count": 293,
+      "old_uncovered_event": [
+        194
+      ],
+      "modified_radius": 2,
+      "unmodified_radius": 3,
+      "cost": 741
+    },
+    "17": {
+      "center_bitmask_hex": "9249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249248892122490842248912491222112924891111124924491111111222249249249244492488912244922491124421122491224889124924892490891222444489244892224924",
+      "center_count": 293,
+      "old_uncovered_event": [
+        245
+      ],
+      "modified_radius": 2,
+      "unmodified_radius": 3,
+      "cost": 741
+    }
+  },
+  "verification": {
+    "local_expanded_two_flag_DP": "PASS",
+    "local_28_full_budget_spectra": "PASS",
+    "independent_small_closed_bruteforce_cases": 139,
+    "published_short_verifier_original_byte_rerun": "PENDING",
+    "independent_review": "NOT_REVIEWED"
+  },
+  "open_question": "Classify optimizer-set effects across every intermediate closure background for all 13 cost-inert gaps."
+}
