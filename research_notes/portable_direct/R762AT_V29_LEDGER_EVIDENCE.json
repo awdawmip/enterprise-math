@@ -1,0 +1,283 @@
+{
+  "schema": "R762AT_V29_V27_LEDGER_BRC_EVIDENCE_V1",
+  "input": {
+    "V23_four_matchings": [
+      [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          5
+        ]
+      ]
+    ],
+    "V27_U": [
+      -2,
+      -4,
+      -3,
+      10
+    ],
+    "unit_pass_cycle": [
+      "0->1",
+      "1->2",
+      "2->0"
+    ],
+    "V29_initial_Rin": [
+      0,
+      0,
+      0,
+      10
+    ],
+    "V29_initial_Rout": [
+      2,
+      4,
+      3,
+      0
+    ]
+  },
+  "correction": {
+    "V27_displayed_I": [
+      0,
+      0,
+      0,
+      10
+    ],
+    "V27_displayed_O": [
+      2,
+      4,
+      3,
+      0
+    ],
+    "row_M": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "col_M": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "corrected_I": [
+      1,
+      1,
+      1,
+      10
+    ],
+    "corrected_O": [
+      3,
+      5,
+      4,
+      0
+    ],
+    "original_fails_PF10_continuity": true
+  },
+  "positive_BRC": {
+    "rho": 2,
+    "exact_integer_exponent_order_checks": 11520
+  },
+  "n_range_checked": "0..15, plus 16,17,18,21,50,100,1000",
+  "tie_census": {
+    "0": {},
+    "1": {},
+    "2": {
+      "015": [
+        "035",
+        "145"
+      ]
+    },
+    "3": {
+      "124": [
+        "012",
+        "145"
+      ],
+      "134": [
+        "123",
+        "145"
+      ]
+    },
+    "4": {
+      "345": [
+        "145",
+        "234"
+      ],
+      "045": [
+        "034",
+        "145"
+      ]
+    },
+    "5": {
+      "125": [
+        "025",
+        "145"
+      ]
+    },
+    "6": {},
+    "7": {},
+    "8": {},
+    "9": {},
+    "10": {},
+    "11": {},
+    "12": {
+      "245": [
+        "024",
+        "145"
+      ]
+    },
+    "13": {
+      "135": [
+        "145",
+        "235"
+      ]
+    },
+    "14": {
+      "014": [
+        "013",
+        "145"
+      ]
+    },
+    "15": {}
+  },
+  "affine_dominance_certificate": {
+    "n0": 15,
+    "number_of_strict_neighbor_comparisons": 160,
+    "slopes_count": {
+      "0": 52,
+      "1": 54,
+      "2": 54
+    },
+    "minimum_margin_at_15": 1,
+    "conclusion": "all n>=15 have same unique successor map"
+  },
+  "eventual_successor_map": {
+    "123": "234",
+    "124": "012",
+    "125": "025",
+    "134": "123",
+    "135": "235",
+    "145": "245",
+    "234": "034",
+    "235": "035",
+    "245": "024",
+    "345": "234",
+    "012": "123",
+    "013": "012",
+    "014": "013",
+    "015": "035",
+    "023": "035",
+    "024": "234",
+    "025": "012",
+    "034": "035",
+    "035": "025",
+    "045": "034"
+  },
+  "eventual_cycles": [
+    {
+      "states": [
+        "012",
+        "123",
+        "234",
+        "034",
+        "035",
+        "025"
+      ],
+      "holonomy": {
+        "permutation": [
+          2,
+          1,
+          0
+        ],
+        "parity": 1
+      }
+    }
+  ],
+  "max_steps_to_odd_cycle_from_any_triad": 3,
+  "depth_witnesses": [
+    "145"
+  ],
+  "V27_at_n1_cycles": [
+    {
+      "states": [
+        "012",
+        "123",
+        "234",
+        "034",
+        "035",
+        "025"
+      ],
+      "holonomy": {
+        "permutation": [
+          2,
+          1,
+          0
+        ],
+        "parity": 1
+      }
+    },
+    {
+      "states": [
+        "145",
+        "245"
+      ],
+      "holonomy": {
+        "permutation": [
+          0,
+          1,
+          2
+        ],
+        "parity": 0
+      }
+    }
+  ],
+  "scope": "Conditional V23/V25/V27 four-field selector with actual V29 cumulative PASS updates and no native TRIADIC_CLOSURE_E admission; exact positive Weighted-BRC rho^Phi order"
+}
