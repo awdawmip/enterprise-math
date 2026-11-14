@@ -62,7 +62,7 @@ There are exactly three ones, separated by zero runs of lengths `h-1` and `h`; t
 | q | Needed lower bound on k | Needed upper bound on k | Reason |
 |---|---|---|---|
 | 0 | vacuous | k<=h | Every zero run has length <=h |
-| 1 | vacuous | k<=2h | At most t+h, 2h or h+s+1, all <=2h |
+| 1 | vacuous | k<=2h | For either orientation: at most t+h+1, 2h, or h+s+1, all <=2h |
 | 2 | k>=h+1 | k<=3h | Smallest one-pair span is h+1; maximal two-one block lengths are t+2h+1 or 2h+1+s |
 | 3 | k>=2h+2 | k<=4h | Core span is 2h+2; total length 2h+2+t+s<=4h |
 
