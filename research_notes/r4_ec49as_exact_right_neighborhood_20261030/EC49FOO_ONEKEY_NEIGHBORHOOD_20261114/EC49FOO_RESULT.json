@@ -1,0 +1,53 @@
+{
+  "schema": "EC49FOO_NATIVE_ONE_KEY_FINITE_V1",
+  "date": "2026-11-14",
+  "status": "AUTHOR_EXACT_FINITE_CHECK_NOT_REVIEWED",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "parent_pr": "https://github.com/awdawmip/enterprise-math/pull/2406",
+  "baseline_config": 32315,
+  "baseline_keys": [
+    0,
+    4,
+    5,
+    11,
+    37,
+    39,
+    81
+  ],
+  "key_count": 94,
+  "candidate_one_key_swaps": 609,
+  "domain_preserving_swaps": 73,
+  "root_masks_per_config": 168,
+  "assignments_per_config": 648,
+  "root_cost_compares": 12264,
+  "terminal_assignment_compares": 47304,
+  "previous_51_overlap": 44,
+  "previous_51_overlap_root_values_verified": 7392,
+  "new_configs_outside_prior_51": 29,
+  "new_configs_terminal_equal": 11,
+  "new_configs_terminal_changed": 18,
+  "terminal_equal": 37,
+  "root_equal_when_terminal_equal": 37,
+  "terminal_changed": 36,
+  "root_changed_when_terminal_changed": 36,
+  "global_nonzero_cancellations": 0,
+  "local_cancel_swap": {
+    "from_key": 37,
+    "to_key": 62,
+    "case_id": 33269,
+    "changed_root_coords": 12,
+    "terminal_changed_assignments": 357,
+    "zero_total_nonzero_root_assignments": 54,
+    "example_delta_by_root": {
+      "03": 0,
+      "05": 1,
+      "06": -1,
+      "07": 0
+    }
+  },
+  "independent_python_projected_entries_checked": 336,
+  "cpp_O2_O3": "byte identical",
+  "formal_claim": false,
+  "review": "NOT_REVIEWED"
+}
