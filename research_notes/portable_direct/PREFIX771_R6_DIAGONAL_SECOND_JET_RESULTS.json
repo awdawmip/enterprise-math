@@ -1,0 +1,41 @@
+{
+  "schema": "PREFIX771_DIAGONAL_JET_PHASE_V2",
+  "frozen_science_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "auxiliary_model": "189-layer killed Pascal BRC stopping; independent Gamma-clock maximum",
+  "survivor_nonzero_positions": 9529,
+  "terminal_layer_empty": true,
+  "certified_stationary_bracket": [
+    "502971451/10000000000",
+    "502971452/10000000000"
+  ],
+  "bracket_width": "1/10000000000",
+  "pointwise_global_qc_upper": "28518591162857609314/1000000000000000000000",
+  "upper_strict": true,
+  "tests": [
+    {
+      "u": "502971451/10000000000",
+      "Qprime_sign": "negative",
+      "Qsecond_exact_bound": "4<Qsecond<5",
+      "decimal_display": {
+        "u": "0.0502971451",
+        "Q": "0.02851859116285760931560447086858859",
+        "Qprime": "-2.659872757607409501384493700888367E-10",
+        "Qsecond": "4.953884768256245593492914440141953"
+      }
+    },
+    {
+      "u": "502971452/10000000000",
+      "Qprime_sign": "positive",
+      "Qsecond_exact_bound": "4<Qsecond<5",
+      "decimal_display": {
+        "u": "0.0502971452",
+        "Q": "0.02851859116285760931377516712891208",
+        "Qprime": "2.294012009183744837203642185012043E-10",
+        "Qsecond": "4.953884765326063107836894361615997"
+      }
+    }
+  ],
+  "validation": "ALL_CHECKS_PASS PREFIX771 DIAGONAL_JET",
+  "status": "AUTHOR_EXACT_INTEGER_CERTIFICATE / UNREVIEWED / NOT_ADMITTED",
+  "scope_limit": "stationary existence from opposite Qprime signs; uniqueness, global min and native X6 transfer not asserted"
+}
