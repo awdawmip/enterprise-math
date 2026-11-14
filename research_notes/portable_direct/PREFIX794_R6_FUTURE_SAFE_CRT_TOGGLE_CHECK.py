@@ -1,7 +1,7 @@
 """PREFIX-794: joint-path reconstruction and future-observer rank under localized toggles."""
 from itertools import product
 from fractions import Fraction
-from collections import Counter
+from pathlib import Path
 import json
 
 
@@ -128,7 +128,7 @@ def main():
                 'rank_after_one_toggle':after_one,'rank_after_eight_toggles':after_eight,
                 'full_histogram_rank':30},
             'even_odd_parity':{'initial_pairwise_equal':True,'after_flip_a00_target_ab00':[ee,oo]}}
-    with open('/mnt/data/em793/PREFIX794_R6_FUTURE_SAFE_CRT_TOGGLE_RESULTS.json','w') as f:
+    with Path(__file__).with_name('PREFIX794_R6_FUTURE_SAFE_CRT_TOGGLE_RESULTS.json').open('w') as f:
         json.dump(result,f,indent=2,sort_keys=True);f.write('\n')
     print(json.dumps(result,indent=2));print(result['status'])
 if __name__=='__main__':main()
