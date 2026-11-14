@@ -43,8 +43,8 @@ Finally, the gap-shortening feasibility lemma already established on this exact 
 ## Corollary: minimum optimal-center reconfiguration distances also factor through 17 bits
 
 For any pair of jointly feasible consecutive budgets, define the minimum deletion/edit statistic
-`ρ_B(K) = min{|S \\ T| : S∈Opt_B(K), T∈Opt_B(K+1)}`
-(where `S \\ T` denotes set difference; total centers changed is `2ρ_B(K)+1`). The theorem gives the stronger identity
+`ρ_B(K) = min{|S∖T| : S∈Opt_B(K), T∈Opt_B(K+1)}`
+(where `S∖T` denotes set difference; total centers changed is `2ρ_B(K)+1`). The theorem gives the stronger identity
 
 `ρ_B(K) = ρ_{B∪{i}}(K)` for every `i∈I_0`, every background `B` not containing `i`, and every such `K`.
 
