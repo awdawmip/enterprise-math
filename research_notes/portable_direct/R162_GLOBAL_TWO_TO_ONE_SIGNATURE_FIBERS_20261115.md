@@ -1,0 +1,60 @@
+# R162 — Exact two-to-one theorem for finite-Sturmian phase signatures
+
+Date: 2026-11-15 (Asia/Shanghai). Scientific status: AUTHOR_PROVED / NOT_REVIEWED.
+Scope: external tied-phase scalar observer; frozen scientific input pin 43ec6098b1330ae86d0a7863be336c5d97f6ef34. Direct predecessor R161: b49381e14dfa9ade06250488733ed2a703fdc7fe. No native X6 transfer, formal claim, review or Foundation admission asserted.
+
+## 1. All-length theorems
+
+Fix a binary word length m>=1. An admitted finite-Sturmian word w has prefix sums p_0=0 and p_j=sum_{i=1}^j w_i. Its open slope support I_w=(alpha,beta) is the intersection of (0,1) with the inequalities (q-1)/k<theta<(q+1)/k for every factor of length k containing q ones. Define
+
+A=min_{0<=j<=m}(p_j-j*alpha), B=max_{0<=j<=m}(p_j-j*beta).
+
+Write alpha=a/b, beta=c/d in lowest terms (b,d>0), U=b(1+A), V=dB, and S_m(w)=(a,b,c,d,U,V). This is the exact R146/R156B absolute phase signature.
+
+**R162A (global 2-to-1 theorem).** For every m>=1 and each possible s, at most TWO admitted words of length m have S_m(w)=s. If two distinct words share s, their prefix-sum vectors differ at exactly one index j in {1,...,m}, and by precisely 1. For j<m, the words differ only by the adjacent transposition 01 <-> 10 at positions j,j+1. For j=m, they differ only in the last bit. The latter case occurs for m=1 (words 0 and 1).
+
+**R162B (index and repair).** If a signature s=(a,b,c,d,U,V) has two preimages, put D=bc-ad>0. Then the unique differing prefix index is
+
+j=(dU-bV)/D, an integer in [1,m].
+
+Thus divisibility by D and the displayed range are necessary for collision, but not sufficient. For fixed m, the original word can always be recovered exactly from its signature and at most ONE additional bit w_j (whenever j is a valid index). One extra bit is sometimes necessary.
+
+## 2. Complete symbolic proof
+
+For an admitted word w, define the closed feasibility polygon
+
+K_w = { (theta,x): alpha<=theta<=beta, 0<=x<=1,
+        p_i<=x+i*theta<=p_i+1 for i=0,...,m }.
+
+It is an intersection of affine closed half-planes, hence convex. Put z_i(theta)=p_i-i*theta and R(theta)=max_i z_i(theta)-min_i z_i(theta). For theta in the open slope support, R(theta)<1; by continuity R(alpha),R(beta)<=1, including boundary endpoints 0 and 1.
+
+At theta=alpha, the intercept x=1+min_i z_i(alpha)=1+A satisfies all closed prefix inequalities, because max z_i(alpha)<=1+min z_i(alpha). It lies in [0,1] since z_0=0. At theta=beta, x=max_i z_i(beta)=B likewise satisfies the closed inequalities and belongs to [0,1]. Hence the points P_-=(alpha,1+A) and P_+=(beta,B) lie in K_w, and so does their entire nonvertical chord
+
+Gamma_s: x(theta)=1+A + [(B-1-A)/(beta-alpha)]*(theta-alpha), theta in [alpha,beta].
+
+Two admitted words sharing s have the same alpha,beta,A,B; therefore their feasibility polygons contain the SAME entire chord Gamma_s.
+
+For such words w and v, their closed prefix inequalities at index i restrict x(theta)+i*theta simultaneously to the integer-based unit intervals [p_i(w),p_i(w)+1] and [p_i(v),p_i(v)+1] along that chord. If their prefix sums differ, the two integer intervals can intersect only if the difference is exactly +/-1, and then the intersection is the SINGLE integer max(p_i(w),p_i(v)). Thus x(theta)+i*theta must be constant on the nondegenerate theta interval. The chord necessarily has slope -i. It cannot have slope -i and -k for two different indices i,k. Any two distinct same-signature words therefore differ at ONE prefix index only, by 1.
+
+If the differing index j is internal, changing p_j while fixing p_{j-1},p_{j+1} swaps the adjacent bits 01 and 10; if j=m, only the last bit changes.
+
+If three distinct words w,v,t shared a signature, their altered indices relative to w would have to coincide: otherwise v and t would differ at two indices, contradicting the pairwise result. With all other prefixes fixed, p_j=p_{j-1}+w_j can take only TWO binary values. Thus three distinct words are impossible, proving R162A.
+
+For a collision at j, Gamma_s has slope -j. Consequently
+
+-j=(B-1-A)/(beta-alpha),
+j=(1+A-B)/(beta-alpha)=(dU-bV)/(bc-ad).
+
+The two words have different j-th bits, so that one bit separates the only possible collision. Exact fixed-length decoding may enumerate finite candidates; no polynomial bit-complexity claim is made. This proves R162B.
+
+## 3. Computation and reproducibility
+
+The companion integer-only Python checker enumerates all 524286 binary candidates of lengths 1 through 18, calculates exact reduced rational supports and U,V, and checks every two-word class against the one-prefix-difference property and the exact index formula. It found 3694 admitted words, 304 two-word fibers and zero fibers of size >=3. Source: R162_check.py; data: R162_verification.json. Expected output marker: R162_EXACT_FIBER_TWO_TO_ONE_PASS. These finite checks corroborate the all-length symbolic proof, which is independent of the cutoff.
+
+## 4. BRC observer meaning, scope and next question
+
+For a fixed length and the declared exact signature observer, word provenance requires at most one repair bit. This is a scoped exact observer-fiber statement; downstream signed/phase/joint BRC operations that require other history must establish their own safe factorization or retain further state.
+
+The next research problem is to classify exactly which signatures have TWO preimages. The rational index test is necessary, not sufficient. Investigate a local feasibility criterion for both adjacent word cells and whether terminal-bit aliases with j=m occur for m>1. Quantify decoder cost and the future-operation scope of the repaired observer.
+
+Control: exact current Source lookup em-r1-20261115-0657-s23-current-task-exact was SUCCEEDED / NO_CANONICAL_PUBLICATION_DIRECTORY for RS-S23-AV at commit 68b478219749ffbb08cbc018b1c814edfb1f59fa, observed 2026-11-15 06:57:27 Asia/Shanghai. Directory absence is not a full owner projection. This is independent author-side portable research, without a formal CLAIM or independent Review.
