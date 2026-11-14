@@ -492,6 +492,7 @@ def reduce_task(
                 ignore(state, index, str(exc))
                 continue
             state["state"] = "CLAIMED"
+            state.pop("continuation_state", None)
             if continuation is not None:
                 state.setdefault("fenced_claim_ids", []).append(continuation["expected_previous_claim_id"])
                 scope_obligation = None
@@ -528,6 +529,13 @@ def reduce_task(
                 ignore(state, index, str(exc))
             continue
 
+        modern_notes = event.get("progress_notes_schema") == "ENTERPRISE_MATH_RESEARCH_PROGRESS_NOTES_V2"
+        if kind in {"PROGRESS", "HANDOFF"} and modern_notes:
+            if (not isinstance(event.get("continuation_state"), str) or event["continuation_state"] not in {"OPEN", "COMPLETE", "UNKNOWN"}
+                    or event.get("next_action") is not None and not isinstance(event["next_action"], str)):
+                ignore(state, index, "invalid author-reported continuation notes")
+                continue
+
         if kind == "PROGRESS":
             try:
                 state["lease_until"] = at + lease_duration(event, default_lease_minutes)
@@ -541,13 +549,17 @@ def reduce_task(
             if event.get("progress_ref"):
                 state["last_progress_ref"] = event["progress_ref"]
             state["last_progress_at"] = event["at"]
-            if event.get("next_action"):
+            if modern_notes:
+                state["continuation_state"] = event["continuation_state"]
+                state["next_action"] = event.get("next_action")
+            elif event.get("next_action"):
                 state["next_action"] = event["next_action"]
+                state.pop("continuation_state", None)
             continue
 
         if kind == "HANDOFF":
             next_action = event.get("next_action")
-            if not isinstance(next_action, str) or not next_action.strip():
+            if not modern_notes and (not isinstance(next_action, str) or not next_action.strip()):
                 ignore(state, index, "HANDOFF requires next_action")
                 continue
             result_id = event.get("result_id")
@@ -605,6 +617,8 @@ def reduce_task(
                 state["last_progress_ref"] = event["progress_ref"]
             state["last_progress_at"] = event["at"]
             state["next_action"] = next_action
+            if modern_notes:state["continuation_state"] = event["continuation_state"]
+            else:state.pop("continuation_state", None)
             scope_obligation = (
                 _handoff_obligation(task, state, event)
                 if state["state"] == "HANDOFF_READY" and handoff_scope is None
