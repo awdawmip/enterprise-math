@@ -62,7 +62,7 @@ Run `VERIFY_R5_OFFLINE_MAXMIN_RECOURSE.py` beside the existing `VERIFY_R5_LOW_BU
 
 Observed result: `PASS_EXACT_R5_OFFLINE_MAXMIN_RECOURSE`; 256 all-background cases; 200 exhaustive toy-DAG crosschecks; greatest observed old-frontier width 19; greatest nondominated-vector count per layer 30 (empirical workload properties, not general complexity bounds).
 
-Complete output JSON: 144,081 bytes, SHA-256 `e8157e196f3d8408a11bf5f67935d4e083578844d6461433f209fed63f4e04ed`; stored losslessly in `EXACT_R5_OFFLINE_MAXMIN_RECOURSE.json.zlib.b64`. Decode with Python standard-library `base64.b64decode` and `zlib.decompress`, then check SHA-256. `EXACT_R5_OFFLINE_MAXMIN_SUMMARY.json` contains the exact 16 histograms and digest metadata. Full JSON includes all 256 exact values and the complete representative new-optimum center witnesses.
+The exact 256-case per-background values and result metadata are published in `EXACT_R5_OFFLINE_MAXMIN_ALL_BACKGROUND_VALUES.json` at this commit. The committed original-byte Python verifier deterministically generates the full JSON, including complete representative 954-event K-center witnesses. The actual author-side execution generated 144,081 JSON bytes (SHA-256 `e8157e196f3d8408a11bf5f67935d4e083578844d6461433f209fed63f4e04ed`); the complete local output is also retained in the conversation artifact, while the durable project repository stores the exact compact table and source needed to regenerate it.
 
 Frozen source and earlier science: PR #2427 at `35194004bf0bc839db02af35f7b293c6fc311b5d`, especially `ONLINE_COUPLING_EXACT_RECOURSE_THEOREM.md` and `research_notes/portable_direct/r5_global_optimizer_tomography_20261114/RESEARCH.md`.
 
