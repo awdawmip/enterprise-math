@@ -152,6 +152,11 @@ def _compatibility_aliases(root: Path = ROOT) -> dict[str, dict[str, Any]]:
 
 
 def iter_records(root: Path = ROOT) -> list[dict[str, Any]]:
+    from control_plane.research_read_view import source_rows
+    return source_rows(root, "driver_authority_source_records", lambda: _read_records(root))
+
+
+def _read_records(root: Path) -> list[dict[str, Any]]:
     directory = root / RECORD_ROOT
     if not directory.exists():
         return []

@@ -95,6 +95,11 @@ def record_path(root: Path, task_id: str, pub_id: str) -> Path:
 
 
 def iter_records(root: Path = ROOT) -> list[dict[str, Any]]:
+    from control_plane.research_read_view import source_rows
+    return source_rows(root, "task_publication_records", lambda: _read_records(root))
+
+
+def _read_records(root: Path) -> list[dict[str, Any]]:
     directory = root / "research_task_records"
     if not directory.exists():
         return []
