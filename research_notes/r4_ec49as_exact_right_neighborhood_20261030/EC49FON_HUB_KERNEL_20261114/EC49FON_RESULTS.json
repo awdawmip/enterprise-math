@@ -1,0 +1,113 @@
+{
+  "schema": "EC49FON_HUB_ROOT_KERNEL_NATIVE_INJECTIVITY_V1",
+  "date": "2026-11-14",
+  "status": "AUTHOR_PROVED_EXACT_ALGEBRA_AND_FINITE_CHECK_NOT_REVIEWED",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "researcher_provenance": "EM-DIRECT-204C14",
+  "historical_activity": "RA-6893088D0A7347CE7F4D8720",
+  "parent_provenance": {
+    "pr": "https://github.com/awdawmip/enterprise-math/pull/2400",
+    "commit": "32380d1f974d87198fb67d7b0ba6a769a646a7df"
+  },
+  "input_sha256": {
+    "master_and_radius3_cases.txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "FIRST_NEUTRAL_EDGES_EC49FNS.txt": "db8d3b9232f4ff31ffd2bf7ed81237625ecb6491f7883f4b03263728d6ecdc41",
+    "EC49FOM_PROFILES.csv": "e2b9c419fdd2614eeea37de54437dd776ed7024e06ceacce3941aab192b393af",
+    "EC49FOM_MOBIUS_84.csv": "04b8ab0a0b2e51262ac92d40073062a30bc8c0dcd7a0be997cbd89e3aacdbe54"
+  },
+  "hub_kernel": {
+    "root": "07",
+    "independent_optional_demands": 7,
+    "domain_options": {
+      "5": [
+        "05",
+        "07"
+      ],
+      "7": [
+        "06",
+        "07"
+      ],
+      "13": [
+        "06",
+        "07"
+      ],
+      "15": [
+        "03",
+        "05",
+        "07"
+      ],
+      "17": [
+        "03",
+        "06",
+        "07"
+      ],
+      "19": [
+        "03",
+        "05",
+        "07"
+      ],
+      "21": [
+        "03",
+        "06",
+        "07"
+      ]
+    },
+    "binary_spokes": {
+      "03": [],
+      "05": [
+        5
+      ],
+      "06": [
+        7,
+        13
+      ]
+    },
+    "legal_complete_assignments": 648,
+    "reachable_root_cost_coordinates": 168,
+    "assignment_matrix_rank_mod2": 157,
+    "kernel_rank_over_Z": 11,
+    "kernel_generators": {
+      "constant": 3,
+      "unary": 7,
+      "nonlinear": 1
+    },
+    "nonlinear_gauge": "g07(S)=1[{7,13} disjoint S], g06(S)=-1[{7,13} subset S]"
+  },
+  "native_inventory": {
+    "configurations": 51,
+    "directed_edges": 84,
+    "common_domain_edges": 82,
+    "common_domain_equal_total_and_equal_profiles": 32,
+    "common_domain_changed_both": 50,
+    "changed_profile_entries_across_82_edges": 790,
+    "domain_classes": [
+      {
+        "configs": 45,
+        "assignments_each": 648,
+        "unordered_pairs": 990,
+        "equal_pairs": 360,
+        "distinct_terminal_signatures": 12
+      },
+      {
+        "configs": 5,
+        "assignments_each": 648,
+        "unordered_pairs": 10,
+        "equal_pairs": 4,
+        "distinct_terminal_signatures": 2
+      },
+      {
+        "configs": 1,
+        "assignments_each": 1944,
+        "unordered_pairs": 0,
+        "equal_pairs": 0,
+        "distinct_terminal_signatures": 1
+      }
+    ],
+    "total_same_domain_unordered_pairs": 1000,
+    "total_terminal_equal_pairs": 364,
+    "terminal_equal_root_profile_unequal_pairs": 0
+  },
+  "method": "exact integer profile comparison; exhaustive named root assignments; GF2 incidence elimination plus Q independence of 11 integral kernel generators; no renewed native trie execution",
+  "limits": "finite frozen 51 configurations only; no new formal Task, CLAIM, Result or peer review",
+  "next": "seek native signed-prefix pair outside frozen 51 configurations with nonzero root delta in the nonlinear binary-spoke hub kernel, or prove a specific native perturbation obstruction"
+}
