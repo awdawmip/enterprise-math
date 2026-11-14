@@ -1,0 +1,103 @@
+# R153 — Unequal-denominator increment injectivity and resonant Sturmian aliases
+
+Date: 2026-11-14 (Asia/Shanghai). Status: AUTHOR-SIDE PROOF AND EXACT FINITE CHECKS; independent mathematical review NOT_REVIEWED. Scientific input remains frozen at \`43ec6098b1330ae86d0a7863be336c5d97f6ef34\`.
+
+Scope: the external tied-phase scalar S23 mechanical-word observer; not a native X6 identification. Scientific source: R146 (exact phase-fiber formula) at enterprise-math commit \`b02b0c242b274bc6a82111dbd3600126a2867319\`, R151 (pointwise covariance obstruction) at \`26ceeda4e695d738a90ac8289698a2a22e43190b\`, and R152 (coprime-denominator increment injection) at \`f6890b08b640bd8b0abea5c789e440ff63446fb2\`.
+
+## 1. Setup
+
+Let 0<a/b<c/d<1 be reduced rational endpoints, with b,d>=2, gcd(a,b)=gcd(c,d)=1. For integer cuts U,V put
+
+\[
+C_{U,V}(L)=\left\lceil\frac{cL-V}{d}\right\rceil-
+           \left\lfloor\frac{aL-U}{b}\right\rfloor-1,\qquad
+D_{U,V}(L)=C_{U,V}(L+1)-C_{U,V}(L).
+\]
+
+The unrestricted-cut quantity C may be negative; its use here is algebraic. In an actual Sturmian word, U,V are the intercept cuts from the prefix sums and C(L) counts integer phase fibers at K=L+1. Set P=lcm(b,d). Then D is P-periodic. The waveform depends only on (U mod b,V mod d).
+
+Write
+\[
+A_U(L)=\lfloor(a(L+1)-U)/b\rfloor-\lfloor(aL-U)/b\rfloor,
+\quad
+B_V(L)=\lceil(c(L+1)-V)/d\rceil-\lceil(cL-V)/d\rceil.
+\]
+Thus D=B_V-A_U. Each is a binary rotation sequence of respective period b,d and has respectively a,c ones per full period.
+
+## 2. R153.1: distinct reduced endpoint denominators give exact injection
+
+**Theorem.** If b != d (regardless of gcd(b,d)), the full waveform
+\[
+(U\bmod b,V\bmod d)\ \longmapsto\ (D_{U,V}(0),\ldots,D_{U,V}(P-1))
+\]
+is injective. Consequently the unrestricted-cut population has exactly bd distinct increment waveforms and requires at least ceil(log2(bd)) fixed-width bits to encode this complete observer.
+
+**Primitive-frequency lemma.** For 0<a<b, gcd(a,b)=1, distinct shifts U,U' modulo b, the difference A_U-A_U' has a nonzero primitive Fourier coefficient at frequency 1 on Z/bZ. The same holds for B_V-B_V' on Z/dZ.
+
+Proof: A_U(L) is the cyclic translation by t=a^{-1}U (mod b) of A_0(L). The set where A_0=1 is given by aL (mod b) in {b-a,...,b-1}. Its Fourier coefficient at frequency 1 is a nonzero geometric sum of a successive powers of a primitive b-th root: the ratio is a primitive b-th root because a is invertible modulo b, and 0<a<b. The shift t multiplies this nonzero coefficient by exp(-2 pi i t/b). Distinct t give distinct multipliers, so the coefficient of A_U-A_U' is nonzero. For B, the analogous marking set is {0,d-c+1,...,d-1}, a cyclic interval of c residues, and the same proof applies.
+
+Proof of theorem: Suppose two cut pairs have the same D. Then
+\[
+H=A_U-A_{U'}=B_V-B_{V'}.
+\]
+The left-hand side has period b and the right-hand side period d; therefore H has period g=gcd(b,d). If b>g, the primitive b-frequency of any g-periodic function is zero, so the lemma forces U=U' (mod b). Then H=0, and the B part forces V=V' (mod d). If b=g, then d>g since b!=d; start with the B frequency instead and conclude both shifts agree. This proves injection. Every residue pair is admitted by the stipulated unrestricted-cut domain, proving cardinality. QED.
+
+This strengthens R152's coprime theorem: sharing a nontrivial gcd does not itself cause an increment-waveform alias; **equal reduced endpoint denominators** are the only possible resonance for this observer.
+
+## 3. R153.2: exact equal-denominator alias family
+
+**Theorem.** For every b>=3 take a=1, c=b-1, d=b. The full increment waveform is
+\[
+\boxed{D_{U,V}(L)=1-
+  \mathbf1_{L\equiv U-1\pmod b}-
+  \mathbf1_{L\equiv -V-1\pmod b}.}
+\]
+Hence exactly b(b+1)/2 distinct waveforms occur among b^2 residue-cut pairs; each waveform encodes the unordered multiset of the two displayed marked residues. For distinct marks, the two possible assignments to lower and upper cuts collide. Coincident marks correspond to one unique assignment.
+
+Proof: With a=1, the floor increment A_U is 1 only at L=U-1 modulo b. For c=b-1, the ceiling increment B_V equals 1 at every residue except L=-V-1 modulo b. Subtract. The waveform distinguishes the unordered multiset of marked residues (a double mark yields -1 at one residue; two distinct marks yield zero at exactly two residues) and no assignment order. The number of unordered multisets of size 2 drawn from b positions is b(b+1)/2. QED.
+
+## 4. R153.3: infinitely many *actual* Sturmian words have identical complete fiber counts
+
+**Theorem.** For every h>=2 let m=2h and take the distinct length-m words
+\[
+w_0=(01)^h,\qquad w_1=(10)^h.
+\]
+Both have the same open slope support interval
+\[
+\boxed{\alpha=(h-1)/(2h-1),\qquad \beta=h/(2h-1).}
+\]
+Let b=2h-1, a=h-1, c=h. Their genuine prefix-cut pairs are
+\[
+(U_0,V_0)=(h,0),\qquad (U_1,V_1)=(b,h-1).
+\]
+For **every** integer L>=1, not merely on average,
+\[
+\boxed{
+C_{w_0}(L+1)=C_{w_1}(L+1)
+=\left\lceil\frac{hL}{b}\right\rceil+
+ \left\lceil\frac{hL-h+1}{b}\right\rceil-L.}\tag{*}
+\]
+In particular even the full infinite pair (slope interval, integer fiber count at every coefficient K>=2) does not distinguish the two words.
+
+Proof: Each alternating factor of odd length q has either (q-1)/2 or (q+1)/2 ones; the two length-(m-1) factors realize both extremes. For even q the number is q/2. The maximum lower slope and minimum upper slope derived from all factors are therefore (h-1)/(2h-1) and h/(2h-1), respectively; both lie on the correct side of 1/2. Directly using prefix sums s_j=floor(j/2) for w_0 and s_j=ceil(j/2) for w_1 gives the displayed U,V.
+
+Write x=hL/b and y=(h-1)L/b=L-x. R146's formula gives
+\[
+C_{w_0}=\lceil x\rceil-\lfloor y-h/b\rfloor-1
+=\lceil x\rceil+\lceil x+h/b\rceil-L-1,
+\]
+\[
+C_{w_1}=\lceil x-(h-1)/b\rceil-\lfloor y-1\rfloor-1
+=\lceil x-(h-1)/b\rceil+\lceil x\rceil-L.
+\]
+Because h+(h-1)=b, the two expressions are equal: the two ceiling arguments in question differ by exactly 1. The latter expression is exactly (*). Finally the first count is at least 1 in the domain L>=1, as the exact prefix realization/count formula or the displayed ceiling expression shows. QED.
+
+**Observer consequence.** For unequal endpoint denominators the complete increment waveform recovers the pair of cuts modulo their denominators. For equal denominators the above family exhibits genuinely distinct word identities with identical *all-coefficient count sequences*. A word-identity/provenance observation is a necessary extra coordinate for a lossless observer that must later distinguish these alternating words; adding merely one count anchor cannot repair this alias. This is an exact instance of the project's residual-fidelity discipline within the declared external S23 observer.
+
+## 5. Exact verification, limitations and next question
+
+Companion \`R153_check.py\`, run with Python arbitrary-size integers and \`fractions.Fraction\`, checks all reduced interior endpoint pairs for 2<=b,d<=12 and all residue cuts: 990 endpoint pairs, 68,214 cut states; 888 unequal-denominator endpoint pairs and 58,760 cut states show no waveform collision. The resonant family is checked for b=3..50 over 42,920 cut states. Actual alternating words are reconstructed from their prefix sums for h=2..50, and their equal counts tested at 5,047 (h,L) values. Independent finite binary enumeration at lengths 1..12 counts the actual equal-denominator cases without assuming the claimed classification. All checks pass; general theorems are the symbolic arguments above. Scope is author-side, NOT_REVIEWED.
+
+The R152B permanent-saturation threshold T(m) remains open in all lengths. A concrete next scientific unit is to characterize equal-denominator support for **all** finite Sturmian words and to determine whether the word-identity alias above is the only genuine all-coefficient count alias at fixed length and endpoints. Another is to use R152B's exact finite absence certificate to obtain an all-length bound for the last missing coefficient; retain per-word cuts, not merely waveform similarity.
+
+No P000 axiom is altered. No formal TASK CLAIM, Result, review acceptance or original S23-to-native-X6 bridge is asserted here.
