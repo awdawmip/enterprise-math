@@ -1,0 +1,135 @@
+{
+  "schema": "EC49FOR_NATIVE_CROSS_ROOT_GAUGE_CERTIFICATE_V1",
+  "date": "2026-11-14",
+  "source_corpus_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_configuration_count": 38169,
+  "original_named_domains": 625,
+  "exhausted_additional_named_domains": 390,
+  "exhausted_configurations": 1477,
+  "native_root_subset_entries": 231028,
+  "full_allocation_evaluations": 605023,
+  "within_domain_unordered_pairs": 77963,
+  "same_terminal_cost_pairs": 3518,
+  "same_named_root_profile_pairs": 3515,
+  "nonzero_terminal_invisible_root_profile_pairs": 3,
+  "witnesses": [
+    {
+      "case_a": 14361,
+      "case_b": 15331,
+      "keys_a": [
+        0,
+        2,
+        4,
+        5,
+        22,
+        31,
+        63
+      ],
+      "keys_b": [
+        0,
+        4,
+        5,
+        12,
+        22,
+        30,
+        63
+      ],
+      "named_domain_representative": 14355,
+      "optional_labels": [
+        11,
+        13,
+        15,
+        17,
+        19,
+        21
+      ],
+      "complete_allocations": 144,
+      "delta_roots_03_05_06_07": [
+        0,
+        2,
+        -2,
+        0
+      ]
+    },
+    {
+      "case_a": 17928,
+      "case_b": 38165,
+      "keys_a": [
+        0,
+        3,
+        4,
+        5,
+        11,
+        54,
+        77
+      ],
+      "keys_b": [
+        0,
+        4,
+        5,
+        11,
+        54,
+        77,
+        90
+      ],
+      "named_domain_representative": 16943,
+      "optional_labels": [
+        5,
+        7,
+        15,
+        17,
+        19,
+        21
+      ],
+      "complete_allocations": 144,
+      "delta_roots_03_05_06_07": [
+        0,
+        -4,
+        4,
+        0
+      ]
+    },
+    {
+      "case_a": 24541,
+      "case_b": 38166,
+      "keys_a": [
+        0,
+        4,
+        5,
+        11,
+        17,
+        54,
+        77
+      ],
+      "keys_b": [
+        0,
+        4,
+        5,
+        11,
+        54,
+        77,
+        91
+      ],
+      "named_domain_representative": 16943,
+      "optional_labels": [
+        5,
+        7,
+        15,
+        17,
+        19,
+        21
+      ],
+      "complete_allocations": 144,
+      "delta_roots_03_05_06_07": [
+        0,
+        -2,
+        2,
+        0
+      ]
+    }
+  ],
+  "exhaustive_range_rule": "All same-domain classes of size 1..4, plus two entire additional domain classes with representatives 16943 and 16995",
+  "verification": "C++17 native signed-byte-trie DP; exact Python all-class vector matching; independent Python signed-byte-trie DP and 144 complete allocations for each witness",
+  "scientific_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED"
+}
