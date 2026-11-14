@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/PREFIX767_R6_DIAGONAL_PHASE_RESULTS.json",
+    "ref": "29b75933422754f5aff764cd33d177954cd4a1b6",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "prefix767-r6-results-connector-observation",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"PREFIX767_R6_EXACT_DIAGONAL_GAMMA_PHASE_V1\",\n  \"date\": \"2026-11-14\",\n  \"scientific_pin\": \"awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d\",\n  \"model\": \"external independent two-Gamma-clock stopped-BRC auxiliary\",\n  \"derivation\": \"finite K,L moment matrices; exact diagonal derivative identity and integer interval enclosure\",\n  \"survivor_layers\": 189,\n  \"nonzero_survivor_positions\": 9529,\n  \"zero_survivors_at_layer\": 189,\n  \"square\": [\n    \"3296/65536\",\n    \"3297/65536\"\n  ],\n  \"square_delta_mu_approx\": \"-6.7814805019063645e-7\",\n  \"square_delta_variance_approx\": \"-2.3779156555107471e-5\",\n  \"square_ratio_approx\": \"0.028518591423503561\",\n  \"square_exact_sign\": [\n    \"delta_mean<0\",\n    \"delta_variance<0\"\n  ],\n  \"critical_ratio_upper_strict\": \"285186/10000000\",\n  \"diagonal_stationary_bracket\": [\n    \"251/5000\",\n    \"63/1250\"\n  ],\n  \"endpoint_derivative_signs\": [\n    \"Q'(251/5000)<0\",\n    \"Q'(63/1250)>0\"\n  ],\n  \"interval_proof\": {\n    \"domain\": \"[251/5000,252/5000]\",\n    \"bounds\": [\n      \"A<3156\",\n      \"B>242137\",\n      \"v>225\",\n      \"m<50\",\n      \"all interval derivative lower bounds >=0\"\n    ],\n    \"denominator_lower_strict\": \"D>27787>0\",\n    \"logic\": \"Q' continuous by rational polynomial with D>0 throughout interval, so one stationary point exists\"\n  },\n  \"checker\": \"research_notes/portable_direct/PREFIX767_R6_DIAGONAL_PHASE_CERTIFY.py\",\n  \"checker_git_blob_sha1\": \"9b6e5f9b76b297e3f3b4f3189f3420357645678d\",\n  \"checker_sha256\": \"23f00a25e5ed6b646a7156c64df51ca58793a031723ce41c7592733202990eea\",\n  \"observed_run\": \"ALL_CHECKS_PASS PREFIX767\",\n  \"author_validation\": \"Python 3 standard library integer/Fraction exact; independent float derivative finite difference agrees but is not proof\",\n  \"limitations\": [\n    \"author-level unreviewed\",\n    \"diagonal stationary point uniqueness unknown\",\n    \"global q_c optimum unknown\",\n    \"no native X6 transfer or new 1/768 area exclusion\"\n  ],\n  \"next_question\": \"exact interval isolation/uniqueness of diagonal stationary candidate or genuine comparator box enclosure\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/29b75933422754f5aff764cd33d177954cd4a1b6/research_notes/portable_direct/PREFIX767_R6_DIAGONAL_PHASE_RESULTS.json",
+      "encoding": "utf-8",
+      "sha": "e07d934cb0a045d7d07a911407f3b83591839e07"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
