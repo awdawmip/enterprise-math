@@ -52,7 +52,7 @@ M_{ab}\ge |U_a|+|V_b|\quad(a,b\in\{\pm1\}).
 This is a provenance-preserving grouping of all sixteen atoms, not a quotient deleting the source branches. For t,s in S, any q_h in F(t,s) has \(t+s-1\le h\le1+t-s\). Set R=(1-t)/2.
 
 **Upper bounds.** Put m=t+s and choose the compatible source law
-\(P_H=p_{t,s,m-1,-m,-m,0,0}\).
+\(P_H=p_{t,s,m-1,0,0,-m,-m}\).
 All four BRC conditions hold for t+s<=1. With b=1-m+h>=0, exact summation over sixteen atoms gives
 
 \[
@@ -63,7 +63,7 @@ Since the minimax risk cannot exceed R, necessarily \(b\le1-t\) and \(b+2m\le2(1
 
 **First lower bound.** Put d=s-t and choose the compatible law
 \(P_{L1}=p_{t,s,1+t-s,t-s,s-t,0,0}\).
-Its BRC block masses make it nonnegative on S. With a=1+t-s-h>=0,
+It is nonnegative on the lower-left chamber t+2s<=1, precisely the region where the bound h>=2t-s is active (because 2t-s>=3t+s-1 iff t+2s<=1). With a=1+t-s-h>=0,
 
 \[
 TV(P_{L1},q_h)=\frac{a+\max(a,2d)}4\ge\frac a2.
