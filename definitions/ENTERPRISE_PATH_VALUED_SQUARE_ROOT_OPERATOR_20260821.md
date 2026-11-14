@@ -1,5 +1,7 @@
 # 进取路径值平方根算子
 
+> **Current signed-X6 type notice (2026-11-14, prospective interpretation only).** The 2026-08-21 frozen theorem below remains correct as a **fixed ordered pair of positive chart generators with a specified native Cell anchor**, and its Gaussian-root and Path-formal shuffle calculations remain available at that restricted scope. Its historical `ACTIVE / CANONICAL / FROZEN` and `COMPLETE_FOR_SQUARE_NATIVE_NORMS` text must **not** be read as full signed-`Z^3` or signed-`Z^6` primitive/native-shell completeness; the historical `Sigma_O^(ij)` triple-intersection incidence is not the current native Cell start. Under P000 V5, the selected signed three-axis shell `a²+b²+c²=2500` has 150 endpoints, including `(18,24,40)` and `(24,30,32)`, which a two-positive-generator PathSqrt cannot produce. The original positive two-axis sector has exactly six roots and total N-BRC shuffle-word mass `110695538274255714208`. Exact bounded certificate, full selected-`Z^3` mass, evidence and preserved historical source: [X6 R063 current scope audit](../research_notes/X6_R063_PATHSQRT_CURRENT_NATIVE_SCOPE_CONSUMER_20261114_1200.md); [exact checker](../research_checks/X6_R063_PATHSQRT_FIXED_SECTOR_SIGNED_THREE_AXIS_SCOPE_20261114.py). Current authority is P000 V5 + signed X6 Cell torsor and the current retyped R061/R062 definitions. This is a non-retroactive type clarification, not a re-run or retraction of the old two-axis theorem.
+
 Status: `ACTIVE / CANONICAL / FROZEN`
 Date: `2026-08-21`
 Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
