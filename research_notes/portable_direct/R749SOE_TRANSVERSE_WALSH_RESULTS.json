@@ -1,0 +1,61 @@
+{
+  "analytic_lower": {
+    "events": {
+      "A": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        11,
+        13,
+        14
+      ],
+      "GI": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8,
+        12
+      ],
+      "GII": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12
+      ]
+    },
+    "universal_calibrated_lower": "(3LA+8LGII)/11=9/22-6x/11",
+    "universal_free_lower": "(LA+LGI+3LGII)/5=2/5-x/2",
+    "witnesses": "muA=(h=1-x,u=v=-x,w=z=0), muG=(h=x,u=v=-1/2,w=z=x-1/2)"
+  },
+  "calibrated_center": "[1+t chi_3+(1/2)chi_12+((2+t-1/2)/11)chi_15]/16",
+  "exact_joint_polytope_upper": {
+    "cal_tight_vertices": 13,
+    "distinct_vertices": 37,
+    "facet_sets": 18564,
+    "feasible_bases": 812,
+    "free_tight_vertices": 13,
+    "max_excess_cal": "0",
+    "max_excess_free": "0",
+    "nonsingular_bases": 9536,
+    "upper_bound_violations": 0
+  },
+  "free_center": "[1+chi_3+(chi_12+chi_15)/5]/16",
+  "gap": "1/110-(t-1/2)/22 >= 1/160",
+  "minimax_calibrated": "9/22-6(t-1/2)/11",
+  "minimax_free": "2/5-(t-1/2)/2",
+  "result": "PASS",
+  "scientific_input_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "all real t in [1/2,9/16], s=1/2; auxiliary 16-state Walsh fiber; author-side NOT_REVIEWED",
+  "unit": "R749SOE"
+}
