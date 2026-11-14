@@ -40,4 +40,42 @@ assert.deepEqual(out.map(x=>[x.sharp_onset,x.permanent_ties.length,x.changed_fro
 let coincident=[];for(let i=0;i<8;i++)for(let j=i+1;j<8;j++)if(out[i].signature===out[j].signature)coincident.push([i,j]);assert.deepEqual(coincident,[[0,7]]);
 const witness=m=>['014','245'].map(t=>ab([1,4,5],t.split('').map(Number),m));
 assert.deepEqual(witness(0),[[0,3],[0,4]]);assert.deepEqual(witness(2),[[0,4],[0,3]]);
-console.log(JSON.stringify({schema:'R762AU_BRC_MICROSTEP_EXACT_CERTIFICATE_V1',status:'PASS',source:'V23/V25/V27 conditional selector + actual V29 PASS updates',states:20,neighbors_per_state:9,masks:8,affine_scores:1440,proof_domain:'all integers n>=per-mask sharp_onset',rho:'any rational >1; exact monotone exponent comparison',sharp_thresholds:out.map(x=>x.sharp_onset),permanent_tie_counts:out.map(x=>x.permanent_ties.length),changed_state_counts:out.map(x=>x.changed_from_complete_macro.length),equal_relation_masks:coincident,reversal_witness:{S:'145',targets:['014','245'],mask0:witness(0),mask2:witness(2)},tables:out},null,2));
+
+const cyc=['012','123','234','034','035','025'];
+const cycNext=Object.fromEntries(cyc.map((s,i)=>[s,cyc[(i+1)%cyc.length]]));
+let cycleThreshold=0,cycleWitness=[];
+for(let m=0;m<8;m++)for(let s of cyc){
+ const src=s.split('').map(Number), win=cycNext[s].split('').map(Number);
+ for(let t of neighbors(src)){if(key(t)===cycNext[s])continue;
+  const [aw,bw]=ab(src,win,m),[at,bt]=ab(src,t,m);
+  const da=aw-at, db=bw-bt;assert(da>0||(da===0&&db>0));
+  const need=da>0?Math.max(0,Math.floor(-db/da)+1):0;
+  if(need>cycleThreshold){cycleThreshold=need;cycleWitness=[{mask:m,S:s,T:key(t),da,db}]}
+  else if(need===cycleThreshold&&need>0)cycleWitness.push({mask:m,S:s,T:key(t),da,db});
+ }
+}
+assert.equal(cycleThreshold,2);
+for(let m=0;m<8;m++)for(let s of cyc)assert.deepEqual(winners(s.split('').map(Number),2,m),[cycNext[s]]);
+const U=Object.fromEntries(S.map(s=>[key(s),new Set()]));
+for(let m=0;m<8;m++)for(let s of S)for(let t of winners(s,16,m))U[key(s)].add(t);
+for(let s of cyc)assert.deepEqual([...U[s]],[cycNext[s]]);
+const stack=new Set(),dist=new Map();
+function height(s){
+ if(cycNext[s])return 0;
+ if(dist.has(s))return dist.get(s);
+ if(stack.has(s))throw Error('outside cycle');
+ stack.add(s);
+ const H=1+Math.max(...[...U[s]].map(height));
+ stack.delete(s);dist.set(s,H);
+ return H;
+}
+let maxOutside=Math.max(...S.filter(s=>!cycNext[key(s)]).map(s=>height(key(s))));
+assert.equal(maxOutside,3);
+assert(U['145'].has('245')&&U['245'].has('024')&&U['024'].has('234'));
+const recurrent={uniform_cycle_threshold:cycleThreshold,sharp_witnesses:cycleWitness,
+ cycle:cyc,union_edges:Object.values(U).reduce((a,v)=>a+v.size,0),
+ outside_states:14,acyclic_outside:true,max_moves_until_cycle:maxOutside,
+ three_move_witness:['145','245','024','234'],
+ odd_v17_holonomy:'(2,1,0) under canonical shared-axis frame replacement'};
+
+console.log(JSON.stringify({schema:'R762AU_BRC_MICROSTEP_EXACT_CERTIFICATE_V1',status:'PASS',source:'V23/V25/V27 conditional selector + actual V29 PASS updates',states:20,neighbors_per_state:9,masks:8,affine_scores:1440,proof_domain:'all integers n>=per-mask sharp_onset',rho:'any rational >1; exact monotone exponent comparison',sharp_thresholds:out.map(x=>x.sharp_onset),permanent_tie_counts:out.map(x=>x.permanent_ties.length),changed_state_counts:out.map(x=>x.changed_from_complete_macro.length),equal_relation_masks:coincident,reversal_witness:{S:'145',targets:['014','245'],mask0:witness(0),mask2:witness(2)},tables:out,recurrent},null,2));
