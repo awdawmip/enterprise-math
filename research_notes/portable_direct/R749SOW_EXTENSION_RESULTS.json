@@ -1,0 +1,55 @@
+{
+  "area": "63/400000",
+  "gap": "(11t-3s-1)/24",
+  "independent_review": "PENDING",
+  "lower": {
+    "cal_dual_event_A": "(h+s+t+1)/4",
+    "cal_dual_event_B": "(1+t-s-h)/2",
+    "cal_minmax_crossing": "(1+t)/3",
+    "free_pair_TV": "(3-t+s)/4",
+    "parameter_corners": [
+      [
+        "5/22",
+        "1/2"
+      ],
+      [
+        "68/275",
+        "1/2"
+      ],
+      [
+        "509/2200",
+        "103/200"
+      ],
+      [
+        "639/2750",
+        "103/200"
+      ]
+    ],
+    "vertex_witness_checks": 4
+  },
+  "native_X6_bridge": "PENDING",
+  "positive_interior": "t>(1+3s)/11",
+  "research_id": "R749SOW",
+  "rho_cal": "(1+t)/3",
+  "rho_free": "(3-t+s)/8",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "all real 1/2<=s<=103/200; (1+3s)/11<=t<=(614-820s)/825",
+  "status": "PASS",
+  "upper": {
+    "active_bases": 77520,
+    "distinct_vertices": 200,
+    "feasible_bases": 784,
+    "max_cal_excess": "0",
+    "max_free_excess": "0",
+    "nonsingular_bases": 37184,
+    "parameter_vertex_counts": {
+      "5/22|1/2": 50,
+      "509/2200|103/200": 50,
+      "639/2750|103/200": 50,
+      "68/275|1/2": 50
+    },
+    "tight_cal": 72,
+    "tight_free": 77
+  },
+  "zero_edge": "11t-3s=1"
+}
