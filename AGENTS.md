@@ -5,3 +5,4 @@
 - FREE before candidate freeze — primitive-only entry: [FREE substrate](definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md).
 - Task/control operations, only when relevant: [current control authority](control_plane/current_control_authority.json), [runtime](docs/RESEARCH_RUNTIME_STATE_MACHINE.md), [immutable publication](docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md). Other task-specific routes: [contribution guide](CONTRIBUTING.md#agentproject-task-entry).
 - Account requirements for authorized user terminals: [global bootstrap](https://github.com/awdawmip/chatgpt-global-knowledge/blob/main/00_BOOTSTRAP.md). Public contributors use the public project entries above; private-repository access is not a prerequisite.
+- Research-console outage only: [independent GitHub research fallback](docs/RESEARCH_CONSOLE_FALLBACK.md); this is not a Task/CLAIM/Result/Review authority change.
