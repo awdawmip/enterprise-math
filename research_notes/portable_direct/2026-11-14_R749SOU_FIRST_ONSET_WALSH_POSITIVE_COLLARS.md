@@ -1,99 +1,124 @@
 # R749SOU — Two exact positive-gap onset collars from the first Walsh threshold
 
-**Date:** 2026-11-14. **Scientific status:** AUTHOR_ANALYTIC_NOT_REVIEWED.
-**Frozen science:** `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`.
-**Exact dependencies:** R749SOS–SOT, [PR #2399](https://github.com/awdawmip/enterprise-math/pull/2399) @ `5f2830988e31eae99d9ef11882e626b56b022552`; source-fiber transport in R749SOG, [PR #2376](https://github.com/awdawmip/enterprise-math/pull/2376).
-**Model:** frozen auxiliary 16-atom Walsh source observer; no native X6/V29/V39 correspondence asserted.
+**Date:** 2026-11-14. **Status:** AUTHOR_ANALYTIC_NOT_REVIEWED.
+**Frozen science:** \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`.
+**Dependencies:** R749SOS–SOT ([PR #2399](https://github.com/awdawmip/enterprise-math/pull/2399), scientific SHA \`5f2830988e31eae99d9ef11882e626b56b022552\`), R749SOG transport lemma ([PR #2376](https://github.com/awdawmip/enterprise-math/pull/2376)). Scope: auxiliary 16-state Walsh source observer.
 
-## Definitions and theorem
+## Model and exact theorem
 
-Let (kinmathbf F_2^4), (chi_m(k)=(-1)^{mathrm{popcount}(mmathbin{&}k)}), (A=chi_3), (B=chi_{12}), (C=chi_{15}=AB). Define the complete compatible fiber
+For k in F_2^4, let chi_m(k)=(-1)^popcount(m & k), A=chi_3, B=chi_12, C=chi_15=A*B. The complete compatible probability fiber is
 
-[
-F_{t,s}=left{p_{t,s,h,u,v,w,z}(k)=rac{1+tA(k)+sB(k)+hC(k)+uchi_1(k)+vchi_2(k)+wchi_4(k)+zchi_8(k)}{16}ge0quadorall kight}.
-]
+\[
+F_{t,s}=\left\{p(k)=\frac{1+tA(k)+sB(k)+hC(k)+u\chi_1(k)+v\chi_2(k)+w\chi_4(k)+z\chi_8(k)}{16}\ge0\quad(k=0,\ldots,15)\right\}.
+\]
 
-The full-simplex free and fiber-calibrated minimax TV radii are
-[
-ho(t,s)=inf_{qinDelta_{16}}sup_{pin F_{t,s}}mathrm{TV}(p,q),qquad
-ho^{mathrm{cal}}(t,s)=inf_{qin F_{t,s}}sup_{pin F_{t,s}}mathrm{TV}(p,q),qquad
-g=ho^{mathrm{cal}}-ho .
-]
+Define the free minimax total-variation Chebyshev radius rho by centers in the entire 16-atom simplex, and the calibrated radius rho_cal by centers restricted to F_(t,s). Put g=rho_cal-rho, t_*=5/22, G(t)=(22t-5)/48.
 
-Put (t_*=5/22), (G(t)=(22t-5)/48), and consider
-[
-mathcal W_t={(t,s):5/22<tle1/4, |s-1/2|le G(t)/8},quad
-mathcal W_s={(t,s):5/22<sle1/4, |t-1/2|le G(s)/8}.
-]
+Define two triangular wedges in the (t,s) parameter square:
 
-**Theorem (all real parameters).** Every point of (mathcal W_t) satisfies
-[
-oxed{g(t,s)ge rac{371}{6128}G(t)>0.}
-]
-Every point of (mathcal W_s) satisfies the same bound with (s) replacing (t). On the lower side (sle1/2) of (mathcal W_t) there is the stronger (g(t,s)ge G(t)/16). These are disjoint triangular regions, each of area (1/33792), total area (1/16896). Their apexes, ((5/22,1/2)) and ((1/2,5/22)), lie on the zero-gap locus by the exact line theorem.
+\[
+\begin{aligned}
+W_t &= \{(t,s): 5/22<t\le 1/4,\quad |s-1/2|\le G(t)/8\},\\
+W_s &= \{(t,s): 5/22<s\le 1/4,\quad |t-1/2|\le G(s)/8\}.
+\end{aligned}
+\]
 
-The first triangle has bounding rays
-[
-s=rac12pmrac{11}{192}left(t-rac5{22}ight),quad 5/22le tle1/4;
-]
-its largest half-width is (1/768).
+**Theorem (all real parameters).** On W_t,
 
-## Proof
+\[
+\boxed{g(t,s)\ge\frac{371}{6128}\frac{22t-5}{48}>0,}
+\]
 
-**1. Exact line value.** R749SOT established on the entire real interval (5/22le tle1/4):
-[
-ho(t,1/2)=rac{7-2t}{16},qquad ho^{mathrm{cal}}(t,1/2)=rac{1+t}{3},qquad g(t,1/2)=G(t).
-]
-This uses the pinned source-pair TV lower bound, event-dual calibrated lower bound, and explicit affine centers with full exact rational joint-vertex certificates. Here (0le G(t)le1/96).
+and on W_s the same estimate holds with s in place of t. On the lower half s<=1/2 of W_t, the stronger g(t,s)>=G(t)/16 holds. Each triangular wedge has exact area 1/33792; the wedges do not overlap, so their union has area 1/16896. The exact bounding slopes of W_t are
 
-**2. Compatible-fiber transport.** For (0le t,s<1) let
-[
-r_{t,s}(k)=rac{1+tA(k)+sB(k)+min(t,s)C(k)}{16}.
-]
-Examining the four ((A,B)) groups gives (min_k r_{t,s}(k)=(1-max(t,s))/16). Fix (t), start with any (pin F_{t,s_0}), set (d=|s_1-s_0|), (alpha=d/(1-max(t,s_0))le1) and
-[
-Phi(p)(k)=(1-alpha)p(k)+alpha r_{t,s_0}(k)+rac{(s_1-s_0)B(k)}{16}.
-]
-Every atom of (alpha r) is at least (d/16), so (Phi(p)ge0). Walsh orthogonality preserves unit mass, (A) moment (t), the legal zero moments and all required moments except (B), which becomes (s_1). Thus (Phi(p)in F_{t,s_1}). Also
-[
-mathrm{TV}(p,Phi(p))lealpha,mathrm{TV}(p,r)+d/2lealpha+d/2.
-]
-Using the same construction in reverse yields the exact two-way Hausdorff estimate
-[
-H(F_{t,s_0},F_{t,s_1})le rac{d}{1-max(t,s_0,s_1)}+rac d2.
-]
+\[
+s=\frac12\pm\frac{11}{192}\left(t-\frac5{22}\right),\qquad 5/22\le t\le1/4.
+\]
 
-**3. Radius stability and positivity.** The free minimax TV radius is (1)-Lipschitz in the fiber's TV-Hausdorff distance: keep the old center and approximate each source. The calibrated radius is (2)-Lipschitz: approximate the center as well as the sources. Applying in both directions gives
-[
-g(t,s_1)ge g(t,s_0)-3H.
-]
-In our triangle (d=|s-1/2|le G(t)/8le1/768), and (tle1/4<1/2-d), hence both transports apply and
-[
-Hlerac{d}{1/2-d}+rac d2.
-]
-For (G=G(t)>0), this yields
-[
-egin{aligned}
-g(t,s)&ge G-3left(rac d{1/2-d}+rac d2ight)\
-&ge Gleft(1-rac3{4-G}-rac3{16}ight)\
-&ge Gleft(1-rac{288}{383}-rac3{16}ight)
-=rac{371}{6128}G>0 .
-end{aligned}
-]
-When (sle1/2), the minimum of the two reference margins is (1/2), giving (Hle(5/2)d) and (gge G-(15/2)dge G/16).
+The largest vertical half-width is 1/768. At the apex (5/22,1/2), g=0 by the pinned line theorem.
 
-**4. Swap symmetry and area.** Exchange the two low bits of (k) with the two high bits. This permutation swaps (chi_3leftrightarrowchi_{12}), fixes (chi_{15}), and swaps ((chi_1,chi_2)leftrightarrow(chi_4,chi_8)). It bijects (F_{t,s}) with (F_{s,t}) and preserves TV and both optimization domains. Therefore, for **all real (0le t,sle1)**,
-[
-ho(t,s)=ho(s,t),quad ho^{mathrm{cal}}(t,s)=ho^{mathrm{cal}}(s,t),quad g(t,s)=g(s,t).
-]
-This proves the second positive collar. As (1/4-5/22=1/44), the first triangular area is
-[
-int_{5/22}^{1/4}rac{G(t)}4,dt=rac1{33792}.
-]
-The triangles are disjoint: the first has (tle1/4), (sge1/2-1/768>1/4), and the second reverses the roles. Their combined area is (1/16896).
+## Complete analytic proof
 
-## Verification, interpretation and open problem
+**1. Exact line theorem.** R749SOT proves for every real 5/22<=t<=1/4:
 
-Run `python research_notes/portable_direct/R749SOU_WALSH_ONSET_COLLARS_EXACT_CHECK.py` (Python 3, standard library only). Its companion `R749SOU_WALSH_ONSET_COLLARS_RESULTS.json` reports PASS. The checker uses `Fraction` for all arithmetic, validates constants, endpoints, positivity and exact TV estimates in 40 explicitly mapped two-way source transports, and tests the complete 16-atom Walsh bit-swap. The analytic inequalities and the pinned R749SOS–SOT exact line theorem supply the universal real-parameter proof. The finite examples are a regression check, not a numerical substitute for those arguments.
+\[
+\rho(t,1/2)=\frac{7-2t}{16},\qquad
+\rho_{\mathrm{cal}}(t,1/2)=\frac{1+t}{3},\qquad
+g(t,1/2)=G(t).
+\]
 
-**Scope:** author-side mathematical result in the frozen auxiliary source model, awaiting independent review and native X6/V29/V39 typed observer correspondence. **Next discriminating question:** determine the exact neighboring polyhedral minimax chambers and matching event-dual certificates at ((5/22,1/2)), including whether the actual two-dimensional (g=0)/(g>0) boundary has a corner.
+This depends on the pinned exact source-pair diameter, calibrated event-dual certificate, explicit affine upper centers and exhaustive exact joint-polytopal vertex certificates, not on floating samples. On this interval, 0<=G<=1/96.
+
+**2. Positive reference and explicit source-fiber transfer.** Define
+
+\[
+r_{t,s}(k)=\frac{1+tA(k)+sB(k)+\min(t,s)C(k)}{16}.
+\]
+
+Inspecting the four (A,B) sign groups proves r belongs to F_(t,s), with min_k r_(t,s)(k)=(1-max(t,s))/16. Given any p in F_(t,s0), choose target s1, let d=|s1-s0| and alpha=d/(1-max(t,s0))<=1. Set
+
+\[
+\Phi(p)(k)=(1-\alpha)p(k)+\alpha r_{t,s_0}(k)
+ +\frac{(s_1-s_0)B(k)}{16}.
+\]
+
+The alpha*r term places >=d/16 probability in every atom, cancelling the worst negative signed correction. Walsh orthogonality proves that Phi(p) is a normalized, nonnegative law with the required A=t and B=s1 moments and all other constrained zero coefficients. Hence Phi(p) is in F_(t,s1). The total-variation bound is
+
+\[
+\operatorname{TV}(p,\Phi(p))
+\le\alpha\operatorname{TV}(p,r)+d/2
+\le \frac{d}{1-\max(t,s_0)}+\frac d2.
+\]
+
+Apply the same construction in reverse. When both direction parameters satisfy the stated alpha<=1 condition, the Hausdorff distance between the complete compatible fibers is at most
+
+\[
+H(F_{t,s_0},F_{t,s_1})\le\frac{d}{1-\max(t,s_0,s_1)}+\frac d2.
+\]
+
+**3. Radius stability.** For compact nonempty TV source sets of Hausdorff distance H, their free minimax radii differ by <=H (keep the old center and approximate the source), and their fiber-calibrated radii differ by <=2H (approximate both source and old calibrated center). Both directions give
+
+\[
+g(t,s_1)\ge g(t,s_0)-3H.
+\]
+
+In W_t, s0=1/2, d=|s-1/2|<=G/8<=1/768, t<=1/4<1/2-d. Thus both transports apply and
+
+\[
+H\le \frac{d}{1/2-d}+\frac d2.
+\]
+
+For G(t)>0, the exact inequalities are
+
+\[
+\begin{aligned}
+g(t,s)&\ge G-3\left(\frac{d}{1/2-d}+\frac d2\right)\\
+&\ge G\left(1-\frac{3}{4-G}-\frac3{16}\right)\\
+&\ge G\left(1-\frac{288}{383}-\frac3{16}\right)
+=\frac{371}{6128}G>0,
+\end{aligned}
+\]
+
+where the last estimate uses G<=1/96. For s<=1/2, both denominators are >=1/2, so H<=5d/2 and g>=G-15d/2>=G/16.
+
+**4. Exact swap symmetry and areas.** Exchange k's two lower bits with its two upper bits. This atom permutation swaps chi_3 and chi_12, fixes chi_15, and interchanges (chi_1,chi_2) with (chi_4,chi_8). It establishes a bijection F_(t,s) <-> F_(s,t), preserving total variation and both domains of admissible prediction centers. Therefore for all real 0<=t,s<=1,
+
+\[
+\rho(t,s)=\rho(s,t),\quad
+\rho_{\mathrm{cal}}(t,s)=\rho_{\mathrm{cal}}(s,t),\quad
+g(t,s)=g(s,t).
+\]
+
+This transfers the proof to W_s. The width at t is G(t)/4, t1-t*=1/44, G(t1)=1/96. Hence
+
+\[
+\operatorname{area}(W_t)=\int_{5/22}^{1/4}G(t)/4\,dt=1/33792.
+\]
+
+In W_t, t<=1/4 and s>=1/2-1/768>1/4; in W_s the coordinates reverse. The wedges are disjoint and their total area is 1/16896.
+
+## Reproduction and remaining problem
+
+Run \`python research_notes/portable_direct/R749SOU_WALSH_ONSET_COLLARS_EXACT_CHECK.py\` and compare stdout to \`R749SOU_WALSH_ONSET_COLLARS_RESULTS.json\`. Standard-library Fraction tests all exact constants, the atom relabeling and 40 explicit two-way nonnegative probability transfers. Universal validity comes from the analytic proof and R749SOS–SOT exact line theorem; the program's finite transport examples are supplemental regression checks.
+
+**Next:** derive matching dual events and piecewise minimax centers in the two-dimensional neighborhood of (5/22,1/2), to locate the actual zero/positive boundary and determine whether it has a corner. Native X6/V29/V39 typed transfer and independent mathematics review remain open.
