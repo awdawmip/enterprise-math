@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_checks/X6_LP019_SIGNED_NATIVE_DIAGONAL_OBSERVER_RETURN_FIBERS_20261114_0800.py",
+    "ref": "8ce5e70d6373561d22644edeb380493972b4cea7",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "onhour-20261114-0800-x6-diagonal-fiber-connector-readback-v1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Finite exact corroboration of signed-X6 native vs diagonal-observer BRC returns.\nIndependent author-side checker, not a replacement for the original signed_brc.py.\nStandard library; integer-only arithmetic. Frozen mathematical input 59538f58...\n\"\"\"\nfrom collections import Counter\nfrom functools import lru_cache\nfrom math import factorial\n\nD = 6\nO = (0,) * D\n\n@lru_cache(None)\ndef compositions(n, d):\n    if d == 1:\n        return ((n,),)\n    return tuple((i,) + a for i in range(n + 1) for a in compositions(n - i, d - 1))\n\n\ndef exact_coefficient(n, k):\n    \"\"\"[x_1^k ... x_6^k](sum_i(x_i + x_i^-1))**n.\"\"\"\n    h = abs(k)\n    if n < 6*h or (n - 6*h) % 2:\n        return 0\n    m = (n - 6*h) // 2\n    return sum(factorial(n) //\n               __import__('math').prod(factorial(v+h)*factorial(v) for v in a)\n               for a in compositions(m, 6))\n\n\ndef enumerated_levels(max_length):\n    z = Counter({O: 1})\n    for n in range(max_length + 1):\n        yield n, z\n        if n < max_length:\n            new = Counter()\n            for p, count in z.items():\n                for axis in range(D):\n                    q = list(p); q[axis] += 1\n                    new[tuple(q)] += count\n                    q[axis] -= 2\n                    new[tuple(q)] += count\n            z = new\n\n\ndef main():\n    rows = []\n    checked = 0\n    for n, dist in enumerated_levels(10):\n        assert sum(dist.values()) == 12**n\n        diag = {p[0]: count for p, count in dist.items() if len(set(p)) == 1}\n        native = dist.get(O, 0)\n        relative = sum(diag.values())\n        assert native == exact_coefficient(n, 0)\n        assert relative == sum(exact_coefficient(n, k) for k in range(-n//6-1, n//6+2))\n        for k, count in diag.items():\n            assert count == exact_coefficient(n, k)\n            assert count == exact_coefficient(n, -k)\n            checked += 2\n        assert relative == native if n < 6 or n % 2 else relative > native\n        rows.append((n, len(dist), native, relative, relative-native))\n    assert rows[6][-1] == 1440\n    assert rows[8][-1] == 241920\n    print('PASS_X6_SIGNED_BRC_DIAGONAL_FIBER_EXACT')\n    print('n,number_of_native_endpoints,native_return,relative_return,collision_mass')\n    for r in rows: print(*r, sep=',')\n    print('exact_integer_checks=', checked, 'first_difference_length=6')\n\nif __name__ == '__main__':\n    main()\n",
+      "display_title": "X6_LP019_SIGNED_NATIVE_DIAGONAL_OBSERVER_RETURN_FIBERS_20261114_0800.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/8ce5e70d6373561d22644edeb380493972b4cea7/research_checks/X6_LP019_SIGNED_NATIVE_DIAGONAL_OBSERVER_RETURN_FIBERS_20261114_0800.py",
+      "encoding": "utf-8",
+      "sha": "8c1fa14e9b52b83b78179ba2c5302dc9ef8f337e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
