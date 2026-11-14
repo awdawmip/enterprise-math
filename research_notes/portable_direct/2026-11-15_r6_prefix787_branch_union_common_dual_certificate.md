@@ -1,0 +1,54 @@
+# PREFIX-787 / R6 — Branch-aware joint-source duality and an arbitrarily large convexification gap
+
+Date: 2026-11-15 (Asia/Shanghai). Status: AUTHOR_PROVED / EXACT_RATIONAL_REGRESSION / UNREVIEWED / NOT_ADMITTED.
+Provenance: R6 Researcher EM-DIRECT-E77192; SID MCP-d9aca4ec6e00440eba66035326ea5a4e; Activity RA-66BBE259AEE1AD543D9454A3. No shared CLAIM is asserted.
+Frozen science: awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d.
+Predecessor: research_notes/portable_direct/2026-11-15_r6_prefix786_joint_source_polytope_and_two_source_sharp_phase.md.
+Scope: external scalar reflected-observer mathematics. This neither executes native BRC arithmetic nor supplies an X6 Cell/Link/Port/time transfer.
+
+## Exact branch-union theorem
+
+Fix real A,B in R^m and C in R^(m x d), with m,d >= 1. Let P_1,...,P_N be a finite nonempty family of nonempty compact convex polytopes in R^d. The actual source state lies in exactly one P_j and the scalar parameter q>0 is arbitrary. Define
+    v(q,u)=A-qB+Cu; a(q,u)=(v(q,u),-v(q,u));
+    Lambda={lambda in R^m: ||lambda||_1<=1, lambda.B<=0};
+    f_j(lambda)=lambda.A+min_(u in P_j) lambda.Cu.
+Let rho_union be inf_(q>0,u in union_j P_j)||v(q,u)||_infty and rho_conv replace the source union with its convex hull.
+
+**Theorem 787.1.** The exact identities are
+    rho_union = min_j max_(lambda in Lambda) f_j(lambda);
+    rho_conv  = max_(lambda in Lambda) min_j f_j(lambda);
+    0 <= rho_conv <= rho_union.
+All dual maxima are attained. In particular, each actual source observation has both strict signs with a common positive uniform amplitude iff for **every** branch j there exists lambda_j in Lambda with f_j(lambda_j)>0. A single convex-hull certificate exists iff **one** lambda in Lambda has f_j(lambda)>0 simultaneously for every j. Writing r=rho_union, convexification preserves the **sharp amplitude** iff a common lambda satisfies f_j(lambda)>=r for all j.
+
+**Proof.** For each compact convex P_j, the PREFIX-786 LP duality gives
+    inf_(q>0,u in P_j)||A-qB+Cu||_infty
+      = max_(lambda in Lambda)[lambda.A+min_(u in P_j)lambda.Cu].
+The infimum for q>0 equals the infimum for q>=0 by continuity. The infimum over a finite union equals the smallest individual infimum, proving the first identity. The convex hull of a finite union of compact convex polytopes is compact and convex. Every linear functional attains the same minimum on that hull as on its generating union, namely min_j min_(u in P_j)lambda.Cu. Apply the same duality to prove the second identity. Set containment proves the inequality. Lambda is compact, and each f_j is continuous and concave, so maxima of f_j and min_j f_j exist. The vector (v,-v) has both strict signs precisely when v is nonzero, with amplitude ||v||_infty. Thus the quantified positivity conditions follow from the two identities. Finally max_lambda min_j f_j(lambda)=r iff some lambda has min_j f_j(lambda)>=r, since rho_conv<=r. QED.
+
+The quantifier distinction is operational: FOR EACH branch EXISTS a dual versus EXISTS one dual FOR ALL branches. Neither branch identities nor source incidence may be discarded without examining this gap.
+
+## Exact unbounded-gap family
+
+For any real M>0 take m=d=2, A=(1,0), B=(1,0), C=I_2, and the two *mutually exclusive* singleton provenance branches
+    P_plus={(0,M)}, P_minus={(0,-M)}.
+Each actual branch yields v=(1-q,+M) or v=(1-q,-M). Every q>0 gives norm at least M, and q=1 attains M, so rho_union=M. Each branch has its own sharp dual witness lambda_plus=(0,1), lambda_minus=(0,-1); both satisfy lambda.B=0 and ||lambda||_1=1.
+
+However, the convex hull contains (0,0); q=1 produces v=(0,0), hence rho_conv=0. For any lambda in Lambda, lambda_1<=0 and
+    min(f_plus(lambda),f_minus(lambda))=lambda_1-M|lambda_2|<=0.
+There is no common positive certificate. The spurious convexification loss equals M and is arbitrarily large. In particular, a branch-indexed source can preserve strict reflected mixed signs at every allowed parameter even when convexification erases them completely.
+
+For a control case replace the second branch by {(0,2M)}. Then rho_union=rho_conv=M. The shared lambda=(0,1) certifies f_1=M and f_2=2M. Branching alone is compatible with exact convexification; common dual geometry decides.
+
+## Rational computation and provenance-aware implementation
+
+When A,B,C and P_j are rational, evaluate each branch with the exact rational LP minimizing r subject to q>=0, r>=0, -r<=A_i-qB_i+(Cu)_i<=r and u in P_j, then take min_j. To solve the relaxed hull without enumerating all hull vertices, write P_j={u:H_j u<=h_j}, add weights w_j>=0 summing to 1 and perspective variables z_j with H_j z_j<=h_j w_j, and use C sum_j z_j as the source contribution. Since P_j is bounded, w_j=0 forces z_j=0. These are finite rational LPs and support exact primal/dual rational certificates. A solution with q=0 describes an infimum approached through q>0, not automatically a positive-q minimizer.
+
+For a genuine union of signed Cell/Link/Port histories, the branchwise margin is the correct scalar certificate; using the convexified margin requires the common-witness criterion. The result does not assume a two-coordinate scalar observer is a complete native three-dimensional slice. Any future native transfer must declare the slice embedding, third coordinate semantics, source/branch/time readout and preserved observations/updates.
+
+## Exact verification
+
+Companion Python: research_notes/portable_direct/PREFIX787_R6_BRANCH_UNION_GAP_CHECK.py.
+Companion JSON: research_notes/portable_direct/PREFIX787_R6_BRANCH_UNION_GAP_RESULTS.json.
+Local Python fractions.Fraction test produced ALL_CHECKS_PASS PREFIX787 BRANCH_UNION_COMMON_DUAL: 159 distinct positive rational M scales, 71 positive rational q probes, 24,486 exact assertions testing branch lower bounds, attainment, explicit dual feasibility, artificial convex-hull cancellation and same-sign control. Finite regression checks the displayed family; the general theorem is the LP/minimax proof.
+
+Next scientific step: inspect native BRC/X6 branch histories and determine the actually attainable joint source sets (individual convex polytopes, a finite branch union, or a temporally constrained branch graph). Compute exact per-branch dual certificates and the presence/absence of a common positive dual. Preserve signed sources, Cell/Link/Port identities and event-time under any attempted readout. Original Gamma comparator exclusion counts are unchanged.
