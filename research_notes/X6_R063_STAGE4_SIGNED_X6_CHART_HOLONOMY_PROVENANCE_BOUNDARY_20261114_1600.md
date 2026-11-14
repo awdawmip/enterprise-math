@@ -1,0 +1,45 @@
+# X6 historical R063 Stage 4 — signed-chart transport of the local C4 holonomy and source-bound retyping
+
+Date: 2026-11-14 16:00 Asia/Hong_Kong. Mother task `RS-X6-LEGACY-PLANE-RECONCILIATION`, publication `TP2-B4A441B23DA3159232C2`. Author-side continuation: `EM-X6-FB6990`, Research SID `MCP-082892eb480e45dea6d4b9fcc0491034`, logical Research lane `chatgpt-research-onhour-enterprise-math-20260923`. **AUTHOR-PROVED CONDITIONAL EXACT RE-TYPING / SOURCE-BOUND / UNREVIEWED / NOT_ADMITTED**. No Result, independent Driver acceptance or original native benchmark is claimed.
+
+## Exact immutable sources and scope
+
+- Frozen current X6/P000 V5 input: `awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03`, `p000_reality_foundation.json` blob `c93d8150f1d223424b3506a6d2cdd5280b50825f`; centered signed slice `definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md` blob `b0988c9fa0f2f7c3314784673cf21a2df2340ebe`; joint-observer preservation blob `3923890d77a02d84b772f789e6912dd14f220d14`. Historical comparison remains `fd2bcff10ca6e147348b6c1236027fc0d2877df3`.
+- Historical R063 Stage 4 is **open, unmerged PR #576**, `https://github.com/awdawmip/enterprise-math/pull/576`; exact historical research branch HEAD `0816a1380a1d9303acd81ebb4592c7264c3d6ecc`. The branch is not the current main's active executable.
+- Actual immutable original Stage 4 source: `scripts/r063_stage4_validate_three_sector_process_gluing.py`, Git blob `8243ebbab0ff556757361b3858d50f55a4f6ffd8`; original eight-claim typed ledger `research_results/R063_STAGE4/R063_STAGE4_SEMANTIC_SCOPE_CLAIM_LEDGER.json`, blob `3e838d5809065cdf2b5d8b1b377dc89f66933d3d`; original final classification blob `29b27fb41aac5341efa8633d65483eaf2adc9a06`; original holonomy proof blob `c2834de7ecc9c39220646edd752ee48c67a42b85`. All four bodies read by authorized GitHub at the exact branch HEAD.
+- The new research does not repeat Stage 3's already audited C4 cancellation checker, Stage 4's historic benchmark, R063 native C3/C4 benchmark, R061 Stage 2/3 findings, R062 natural path counts, or the full signed N2500 shell.
+
+## New conditional transport theorem for current signed X6 coordinate charts
+
+Fix a chosen Cell anchor and three **distinct ordered native-axis labels** `i,j,k` from six, together with three independent chart sign choices `sigma_i,sigma_j,sigma_k in {+1,-1}`. Let `A=sigma_i e_i, B=sigma_j e_j, C=sigma_k e_k` be chart-labelled primitive signed directions, with negative directions still present in the ambient X6 Cell adjacency. The Stage 4 historic local-process template `S_AB=(A,B)`, `S_BC=(B,C)`, `S_CA=(C,A)` can be transported to this chosen chart **as a conditional N1 local process atlas** by renaming the original tags `E1,E2,E3` and preserving every source position, ordered path and phase label.
+
+For local chart orientation bits `epsilon_AB,epsilon_BC,epsilon_CA in {0,1}`, the original Stage 4 overlap shifts stay, modulo four,
+```
+k_AB,BC = epsilon_AB+epsilon_BC-1
+k_BC,CA = epsilon_BC+epsilon_CA-1
+k_CA,AB = epsilon_CA+epsilon_AB-1
+H = 2*(epsilon_AB+epsilon_BC+epsilon_CA)-3 mod 4.
+```
+Hence `H in {1,3}` for all local orientations, and **no fixed signed-chart local-system absolute phase can be globally trivialized by those Stage 4 transitions**. The proof is equivariant under signed axis relabelling because its only inputs are three distinct tagged generators, their local two-sector incidence and the Stage 4 C4 phase-law; renaming preserves these incidences. For affine extensions `x -> s x+k`, `s in {1,3}`, the original Stage 4 parity argument also transports: the composite loop translation is odd, so it cannot be identity.
+
+The exact combinatorial *domain of transported presentations* is `C(6,3)*2^3=160` signed choices of unordered axis support and sign-labelled chart; each has eight local orientation-bit assignments, totalling `1280` **conditional chart/orientation instances**, with `640` holonomy values `1` and `640` values `3`. An independent direct enumeration of the relabelled `k,H` formulas in the present research analysis found `1280/1280` odd values, no zero. The symbolic parity proof, rather than the enumeration, establishes the result. These are chart presentations, **not** 160 physical sectors, 160 global native rotations, or a claim that every arbitrary X6 path admits this local C4 process structure.
+
+## Historical semantic repair at claim level, not a retroactive edit
+
+The branch's original typed ledger `R063S4-CL-001` states `NATIVE_ADMISSIBLE`, `N0_DEFINABLE_DERIVED` based on `O_E=0`, `three positive native axes E1,E2,E3`, and a globally native three-sector atlas. This is **not portable as current P000 V5 native ontology**. Current X6 has signed six-axis Cell identity; a selected three-axis chart and its three positive sector directions are chart restrictions, not all native directions, and legacy `O_E` triple-carrier incidence is not a global native Cell anchor. New disposition for this *historical claim imported into X6*: `SUPERSEDE_NATIVE / PRESERVE_CHART_INPUT`. It neither disproves the historical conditional local-sector algebra nor changes frozen P000.
+
+Original `CL-002/003/005` retain exact **N1_DERIVED_OPERATIONAL** local C4 process, affine transport and twelve sector-phase **process states** for a chosen chart, conditionally on that C4 implementation. `CL-004/006` retain **N2_READOUT_ONLY** holonomy and phase-orbit product; uniform phase quotient erases the absolute local process gauge but does not identify X6 Cell endpoints or their positive path counts. `CL-007/008` already explicitly refuse global N0 multiplication and recovery of globally ordered native paths; preserve those negative **precisely at the declared process implementation scope**. The twelve process states of `C3 x C4` are not the twelve primitive signed **X6 directions**, despite equal cardinality.
+
+No current-main Stage 4 active executable or ledger at these paths was found by the exact GitHub main-path reads (NOT_FOUND). Therefore this is **historical branch provenance with a conditional X6 reuse rule**, not a demonstrated broken active-main caller requiring a code patch. Do not modify another R063 Stage 4 task owner's original PR or pretend that it has merged.
+
+## LP019 cancellation-source classification
+
+The original script's `stage3_mul` (line 42) is C4 addition modulo four. `tensor_labels` (line 71), `orbit_tuple` (line 66), and the loop over opposite-phase pairs (lines 149–155) operate on **phase labels**, not additive natural-number N-BRC shortest-path masses. The `64` original “cancellation_translation_checks” check invariance of the opposition predicate under uniform phase shift, and do not subtract strictly positive native path counts. The original Stage 4 program contains no implementation of natural-number BRC path-multiplicity cancellation. Thus classify **this actual original branch script** as `NO_WRONG_POSITIVE_N_BRC_CANCELLATION_FOUND / PRESERVE_DERIVED_PROCESS`. This is bounded to the inspected original file, not a repository-wide absence claim.
+
+No concrete original signed-native spatial `argmax` misuse of LP011 is identified in this branch either. Both named historical offending callers remain `UNRESOLVED_PROVENANCE` after this specific bounded source read. Existing R061 Stage 2/3, R062 Stage 0 and R063 Stage 3 historical audits remain intact.
+
+## Explicit continuation packet
+
+Mother objective: source-bound pre-centered plane claim ledger and active downstream typed remediation against signed X6. Completed/new present unit: exact original R063 Stage 4 open-PR provenance and its `160 x 8` conditional signed-chart transport theorem; original CL-001 retyped for current X6; original phase transport is **not** positive native N-BRC cancellation. Immutable latest prior Native semantic Source checkpoint contains seven completed units (07:00–13:00). New 14:00 R061/R062/R063 source attribution and 15:00 R061 Stage 3 spectrum results are already saved separately on GitHub and in own Research Activity #24/#25; this 16:00 note does not recompute them.
+
+Outstanding: actual LP011 native `argmax` and LP019 positive natural BRC subtraction call sites if any; source-bound remaining 28-LP dependency closure and independent Driver `REQUEST_REVISION`; R063 original C3/C4 benchmark not rerun; general full-X6 PathSqrt unresolved. Next precise action: preserve #14/#15/#16 as three separate author-side units with pinned GitHub proof sources in the next own-run Native semantic checkpoint after fresh authorized generation, then read next original historical executable or current active consumer by exact immutable file/function/line, not index absence. Keep original author and PR ownership independent. Researcher `EM-X6-FB6990`, SID `MCP-082892eb480e45dea6d4b9fcc0491034`, CLAIM `MCP-30a8f5fd123215e08bd4a7cf`, RUN `RUN-3356cbe3c2b4916d79399941`, last known authorized generation `3` (Source must revalidate live). Do not replay previously failed or terminal requests, do not reissue 15:19 resume and do not create a new identity or scheduler.
