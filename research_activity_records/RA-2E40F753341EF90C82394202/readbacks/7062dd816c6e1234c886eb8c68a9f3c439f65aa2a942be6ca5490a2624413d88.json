@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/EC49FOQ_SIX_TERMINAL_OBSERVER_CERT_20261114/VERIFY_EC49FOQ.py",
+    "ref": "1236c727708a51659da54a8f8b4a606c287cf8fc",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "EC49FOQ-20261114-GITHUB-VERIFIER-READBACK-01",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact 6-observer equivalence certificate on frozen EC49FOP N2.\nUsage: python VERIFY_EC49FOQ.py EC49FOP_PROFILES.csv EC49FOQ_COSTS.csv.gz.b64\nUses exact integer sums of four native trie-DP root costs.\n\"\"\"\nimport base64, collections, csv, gzip, hashlib, itertools, sys\nfrom pathlib import Path\nE={5:(5,7),7:(6,7),13:(6,7),15:(3,5,7),17:(3,6,7),19:(3,5,7),21:(3,6,7)}\nR=(3,5,6,7); I=(439,314,342,8,42,266)\nA=list(itertools.product(*(E[l] for l in E)))\nassert len(A)==648\nassert [A[i] for i in I]==[(7,6,7,5,3,7,6),(5,7,7,7,6,7,7),(7,6,6,3,7,3,3),(5,6,6,3,3,7,7),(5,6,6,5,6,7,3),(5,7,7,3,7,5,7)]\nraw=collections.defaultdict(dict); d={}\nwith open(sys.argv[1],newline='') as f:\n    for row in csv.DictReader(f):\n        c,r,m,o,s,v=[int(row[k]) for k in ('config','root','must','opt','subset','cost')]\n        assert s not in raw[c,r]\n        raw[c,r][s]=v\n        if (c,r) in d: assert d[c,r]==(m,o)\n        d[c,r]=(m,o)\nids=sorted({c for c,r in d})\nassert len(ids)==411 and 32315 in ids and sum(len(v) for v in raw.values())==69048\nfull=collections.defaultdict(list); small=collections.defaultdict(list)\nrows=['config,'+','.join('cost_'+str(i) for i in I)+'\\r\\n']\nfor c in ids:\n    assert all(d[c,r]==d[32315,r] for r in R)\n    for r in R: assert len(raw[c,r])==(1<<d[c,r][1].bit_count())\n    costs=[]\n    for rho in A:\n        costs.append(sum(raw[c,r][sum(1<<l for l,q in zip(E,rho) if q==r)] for r in R))\n    full[tuple(costs)].append(c)\n    v=tuple(costs[i] for i in I)\n    small[v].append(c)\n    rows.append(str(c)+','+','.join(map(str,v))+'\\r\\n')\nassert len(full)==len(small)==178\nassert sorted(map(sorted,full.values()))==sorted(map(sorted,small.values()))\nassert sum(len(g)*(len(g)-1)//2 for g in full.values())==4068\nstored=gzip.decompress(base64.b64decode(''.join(Path(sys.argv[2]).read_text().split())))\nour=''.join(rows).encode()\nassert stored==our,('compact certificate mismatch',len(stored),len(our))\nprint('EC49FOQ PASS: 411 configurations, 648 full assignments, 178 classes, 4068 equal pairs; six observers separate all classes')\nprint('costs_csv_sha256',hashlib.sha256(stored).hexdigest())\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/1236c727708a51659da54a8f8b4a606c287cf8fc/research_notes/portable_direct/EC49FOQ_SIX_TERMINAL_OBSERVER_CERT_20261114/VERIFY_EC49FOQ.py",
+      "encoding": "utf-8",
+      "sha": "17bfdfe968a282b58ed7ba6e962c1c94e6ca85f5"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
