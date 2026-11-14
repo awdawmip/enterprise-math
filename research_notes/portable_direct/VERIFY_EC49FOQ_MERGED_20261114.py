@@ -27,6 +27,8 @@ def domain(c):
  return tuple(e)
 base=set(cases[32315]);expected=domain(cases[32315]);ids={i for i,c in enumerate(cases) if len(base-set(c))<=3 and domain(c)==expected}
 assert len(ids)==966
+whole_domain_ids={i for i,c in enumerate(cases) if domain(c)==expected}
+assert whole_domain_ids==ids  # entire named-domain class, without radius restriction
 choices={i:tuple(roots[j] for j in range(4) if expected[i]>>j&1) for i in range(24) if expected[i].bit_count()>1}
 assert choices=={5:(5,7),7:(6,7),13:(6,7),15:(3,5,7),17:(3,6,7),19:(3,5,7),21:(3,6,7)}
 rows=collections.defaultdict(dict)
