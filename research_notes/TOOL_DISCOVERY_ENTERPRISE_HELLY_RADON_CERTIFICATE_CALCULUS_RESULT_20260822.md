@@ -1,5 +1,8 @@
 # Tool Discovery Result — Enterprise Helly / Radon Finite-Certificate Calculus
 
+
+> **2026-11-14 current signed-X6 consumer typing notice (post-result addendum; original result preserved).** This 2026-08-22 result was obtained against its *historical* pinned Foundation and its fixed-positive (S_{12}) two-coordinate chart. In §11, `(5,3,0)` and the phrases “native address” / “common fixed-sector native address” mean a **selected historical chart witness only**. They are **not** a canonical six-coordinate signed native Cell address under P000 V5 and `definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` at `59538f585d037d09ef687b28715c4bc1a3f9fe03`. An X6 native lift requires an explicit selected Cell anchor and ordered signed-axis embedding. For example, different embeddings of the same fixed-chart sample can give `(5,3,0,0,0,0)` and `(5,0,3,0,0,0)`, whose native squared separation is 18. The fixed-chart Helly intersection `a∈[5,7], b∈[3,4]` and its finite-certificate theorem **remain unchanged**. The current executable producer `scripts/tool_discovery_helly_radon_certificate_calculus.py` (observed Git blob `6118b3bd04010e05355586d353c9cf0ec38b1070`) now names the output `sample_fixed_positive_chart_address` and explicitly marks native Cell address `UNSPECIFIED_REQUIRES_CELL_ANCHOR_AND_ORDERED_SIGNED_AXIS_EMBEDDING`. Full typed source evidence: `research_notes/X6_LP003_HELLY_FIXED_SECTOR_NATIVE_ADDRESS_TYPE_LEAK_20261114_0900.md` (blob `ad06efdf75cb90d2b82968c72c1048f3636dbb1c`). This addendum does not retroactively edit the historical result, change the frozen mathematical inputs, or assert independent Driver acceptance.
+
 `ENTERPRISE_FINITE_CERTIFICATE_CALCULUS_DISCOVERED`
 
 Status: `COMPLETE / RESEARCHER RESULT / FOUNDATION UNCHANGED`
