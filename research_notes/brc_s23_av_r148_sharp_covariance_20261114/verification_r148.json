@@ -1,0 +1,108 @@
+{
+  "schema": "EM_S23_R148_EXACT_VERIFICATION_V1",
+  "date": "2026-11-14",
+  "timezone": "Asia/Shanghai",
+  "frozen_science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "predecessors": [
+    "b02b0c242b274bc6a82111dbd3600126a2867319",
+    "2b81c43614889ccb638bb7d8feb329c3c467ff02"
+  ],
+  "execution": "python check_r148_publish.py (same source as published check_r148.py)",
+  "marker": "R148_SHARP_CRT_COVARIANCE_PASS",
+  "exact_arithmetic": "Python arbitrary precision integers and fractions.Fraction; exhaustive binary word enumeration m=1..15",
+  "word_lengths": [
+    1,
+    15
+  ],
+  "sturmian_words": 1906,
+  "noncoprime_endpoints": 298,
+  "covariance_positive_words": 6,
+  "covariance_negative_words": 292,
+  "positive_words": [
+    {
+      "m": 14,
+      "w": "00001000010000",
+      "params": [
+        1,
+        6,
+        3,
+        14,
+        2,
+        0
+      ],
+      "gamma": "1/336"
+    },
+    {
+      "m": 14,
+      "w": "00100100100100",
+      "params": [
+        3,
+        10,
+        5,
+        14,
+        4,
+        0
+      ],
+      "gamma": "1/560"
+    },
+    {
+      "m": 14,
+      "w": "11011011011011",
+      "params": [
+        9,
+        14,
+        7,
+        10,
+        14,
+        6
+      ],
+      "gamma": "1/560"
+    },
+    {
+      "m": 14,
+      "w": "11110111101111",
+      "params": [
+        11,
+        14,
+        5,
+        6,
+        14,
+        4
+      ],
+      "gamma": "1/336"
+    },
+    {
+      "m": 15,
+      "w": "000100010001000",
+      "params": [
+        2,
+        9,
+        4,
+        15,
+        3,
+        0
+      ],
+      "gamma": "2/405"
+    },
+    {
+      "m": 15,
+      "w": "111011101110111",
+      "params": [
+        11,
+        15,
+        7,
+        9,
+        15,
+        6
+      ],
+      "gamma": "2/405"
+    }
+  ],
+  "first_positive_length": 14,
+  "parameter_checks": 1765,
+  "parameter_range": "b,d<=8, all reduced 0<=a/b<c/d<=1, U,V residues modulo gcd(b,d)",
+  "independent_tests": "For every 1906 word, direct P=lcm(b,d) period floor/ceiling covariance equals compressed g-residue covariance; all 1765 parameter cases satisfy sharp bound/equality classifications.",
+  "review": "NOT_REVIEWED",
+  "scope": "Author-side external scalar S23 model; formal mathematical acceptance pending",
+  "next": "Classify all Sturmian slope supports satisfying positive alignment; connect residue law to boundary word-presence/one-fiber-loss criterion."
+}
