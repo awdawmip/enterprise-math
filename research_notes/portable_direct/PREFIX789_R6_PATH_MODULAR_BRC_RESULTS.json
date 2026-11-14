@@ -1,0 +1,33 @@
+{
+  "name": "PREFIX789 path-residue BRC exact integer regression",
+  "scope": "2048 seeded two-choice layered DAGs, 9 moduli each; integer weights [-9,9], 1-7 layers, target [-30,30]; deterministic witnesses",
+  "seed": 78920261115,
+  "random_layered_dags": 2048,
+  "modular_dp_comparisons": 18432,
+  "assertions": 77834,
+  "crt_mismatch": {
+    "path_sums": [
+      0,
+      5
+    ],
+    "target": 2,
+    "mod_2_target_possible": true,
+    "mod_3_target_possible": true,
+    "mod_6_target_possible": false,
+    "exact_margin": 2,
+    "single_modulus_bounds": {
+      "2": 0,
+      "3": 0,
+      "6": 2
+    }
+  },
+  "prefix788_subset_sum": {
+    "weights": [
+      3,
+      5
+    ],
+    "target": 4,
+    "margin": 1
+  },
+  "status": "ALL_CHECKS_PASS PREFIX789 PROVENANCE_PRESERVING_MODULAR_TRANSFER"
+}
