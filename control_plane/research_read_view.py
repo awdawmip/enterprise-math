@@ -54,3 +54,64 @@ def reuse_read(root, key, inputs, compute):
         return result
     finally:
         view.computing.discard(key)
+
+
+_SOURCE = ContextVar('research_immutable_source_view', default=None)
+
+
+def _copy_source(value):
+    # The loaders return accepted JSON records, not arbitrary Python objects.
+    if isinstance(value, dict):
+        return {key: _copy_source(child) for key, child in value.items()}
+    if isinstance(value, list):
+        return [_copy_source(child) for child in value]
+    return value
+
+
+@contextmanager
+def immutable_source_view(root):
+    """Raw records only, across bootstrap on a host-owned immutable read input.
+
+    Adapter installation changes operational interpretation. This separate
+    scope never caches that interpretation, authorization, or a current owner.
+    CLI/writer paths do not enable it; every new native input gets a new scope.
+    """
+    target = Path(root).resolve()
+    prior = _SOURCE.get()
+    if prior is not None and prior.active and prior.root == target:
+        yield
+        return
+    view = _ReadView(target)
+    token = _SOURCE.set(view)
+    try:
+        yield
+    finally:
+        view.active = False
+        view.values.clear()
+        _SOURCE.reset(token)
+
+
+def source_rows(root, key, compute):
+    view = _SOURCE.get()
+    if view is None or not view.active or view.root != Path(root).resolve():
+        return compute()
+    identity = ('rows', key)
+    if identity not in view.values:
+        view.values[identity] = compute()
+    return _copy_source(view.values[identity])
+
+
+def source_object(path, compute):
+    view = _SOURCE.get()
+    if view is None or not view.active:
+        return compute()
+    try:
+        relative = Path(path).relative_to(view.root)
+    except ValueError:
+        return compute()
+    if '..' in relative.parts:
+        return compute()
+    identity = ('object', relative.as_posix())
+    if identity not in view.values:
+        view.values[identity] = compute()
+    return _copy_source(view.values[identity])
