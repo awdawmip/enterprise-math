@@ -1,0 +1,100 @@
+{
+  "schema": "PREFIX786_R6_TWO_SOURCE_AFFINE_MARGIN_V1",
+  "status": "ALL_CHECKS_PASS PREFIX786 TWO_SOURCE_SHARP_MARGIN",
+  "date": "2026-11-15",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "domain": "A1>0, 0<B1<B2, D=A2*B1-A1*B2>0, sigma,eta>=0, q>0",
+  "observer": "(v1,v2,-v1,-v2), v1=A1-qB1+s, v2=A2-qB2+s+t, |s|<=sigma, |t|<=eta",
+  "sharp_uniform_infimum": "max(0,(D-(B2-B1)*sigma-B1*eta)/(B1+B2))",
+  "strict_two_sign_iff": "(B2-B1)*sigma+B1*eta<D",
+  "dual_witness": "lambda=(-B2/(B1+B2), B1/(B1+B2)); lambda dot B=0",
+  "constructive_minimizer": "T<D: s=sigma,t=-eta,r=(D-T)/(B1+B2),q=(A1+sigma+r)/B1. T>=D: theta=D/T,s=theta*sigma,t=-theta*eta,q=(A1+s)/B1, r=0.",
+  "regression": {
+    "rational_parameter_cases": 8192,
+    "pointwise_rational_probes": 65536,
+    "strict_cases": 1147,
+    "zero_cases": 7045,
+    "method": "Python fractions.Fraction; seeded samples and explicit algebraic witnesses"
+  },
+  "prefix785_extended_family": [
+    {
+      "eta": "0/1",
+      "sharp_margin": "2/3",
+      "q": "5/3",
+      "s": "1/1",
+      "t": "0/1",
+      "four_signs": [
+        "-2/3",
+        "2/3",
+        "2/3",
+        "-2/3"
+      ]
+    },
+    {
+      "eta": "1/2",
+      "sharp_margin": "1/2",
+      "q": "3/2",
+      "s": "1/1",
+      "t": "-1/2",
+      "four_signs": [
+        "-1/2",
+        "1/2",
+        "1/2",
+        "-1/2"
+      ]
+    },
+    {
+      "eta": "1/1",
+      "sharp_margin": "1/3",
+      "q": "4/3",
+      "s": "1/1",
+      "t": "-1/1",
+      "four_signs": [
+        "-1/3",
+        "1/3",
+        "1/3",
+        "-1/3"
+      ]
+    },
+    {
+      "eta": "3/2",
+      "sharp_margin": "1/6",
+      "q": "7/6",
+      "s": "1/1",
+      "t": "-3/2",
+      "four_signs": [
+        "-1/6",
+        "1/6",
+        "1/6",
+        "-1/6"
+      ]
+    },
+    {
+      "eta": "2/1",
+      "sharp_margin": "0/1",
+      "q": "1/1",
+      "s": "1/1",
+      "t": "-2/1",
+      "four_signs": [
+        "0/1",
+        "0/1",
+        "0/1",
+        "0/1"
+      ]
+    },
+    {
+      "eta": "3/1",
+      "sharp_margin": "0/1",
+      "q": "1/1",
+      "s": "1/1",
+      "t": "-2/1",
+      "four_signs": [
+        "0/1",
+        "0/1",
+        "0/1",
+        "0/1"
+      ]
+    }
+  ],
+  "scope": "External scalar reflected four-cell observation with correlated sources; not a native BRC/X6 physical realization or independent review."
+}
