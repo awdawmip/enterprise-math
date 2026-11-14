@@ -122,8 +122,12 @@ The checker covered 524,286 binary candidates and found 3,694 admitted words for
 
 ## 6. Next scientific frontier
 
-1. Combine this all-length sharp *minimum* slope width with the R159 reversal relation $W_w+W_{w^R}=2/\Delta_w-m$ to obtain a joint bound on reciprocal widths. A direct corollary is $W_w+W_{w^R}\le m(m-3)$ for $m\ge5$; this alone does not imply the stronger R158 individual envelope.
-2. Seek a sharp restriction on the reversal-odd skew $W_w-W_{w^R}$ or a positive combinatorial decomposition of the individual width. The open target is $\max_w\lfloor W_w\rfloor=m(m-3)/2-1$ for all $m\ge5$, followed by the even-length modular improvement using the R158 residue certificates.
+1. Combine this all-length sharp *minimum* slope width with the R159 reversal relation $W_w+W_{w^R}=2/\Delta_w-m$ to obtain a joint bound on reciprocal widths. **Exact sharp reversal-pair theorem (R160B).** Combining R159B with the proved minimum gap yields
+
+   $\boxed{\max_w(W_w+W_{w^R})=m(m-3),\qquad m\ge5.}$
+
+   The only maximizers are the two endpoint-defect palindrome words $10^{m-2}1$ and $01^{m-2}0$, where each individual width is $m(m-3)/2$. This exact sum maximum does not by itself establish the individual maximum over all words.
+2. Seek a sharp restriction on the reversal-odd skew $W_w-W_{w^R}$ or a positive combinatorial decomposition of the individual width. The open target is $\max_w\lfloor W_w\rfloor=(m-2)(m-1)/2-1=m(m-3)/2$ for all $m\ge5$, followed by the even-length modular improvement using the R158 residue certificates.
 3. Continue the exact all-length saturation-threshold conjecture and the separate at-most-two signature-fiber conjecture, preserving source-word identity for any loss-sensitive BRC observer.
 
 ## 7. Control/source scope
