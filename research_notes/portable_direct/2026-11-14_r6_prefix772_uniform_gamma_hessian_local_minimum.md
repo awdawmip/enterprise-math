@@ -1,7 +1,7 @@
 # PREFIX-772 / R6 — Uniform rational-interval Gamma Hessian certificate and unique local minimum
 
-Date: 2026-11-14 (Asia/Shanghai). Frozen scientific input: \`awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d\`.
-Status: \`AUTHOR_INTEGER_INTERVAL_CERTIFICATE / UNREVIEWED / NOT_ADMITTED\`.
+Date: 2026-11-14 (Asia/Shanghai). Frozen scientific input: `awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d`.
+Status: `AUTHOR_INTEGER_INTERVAL_CERTIFICATE / UNREVIEWED / NOT_ADMITTED`.
 Scope: the **external auxiliary** 189-layer killed-Pascal BRC first-stop model, two independent Gamma clocks, and their maximum. It follows PREFIX-770/771 under unchanged model inputs.
 
 ## 1. Definitions and prior exact identities
@@ -92,10 +92,10 @@ This improves PREFIX-771's strict upper bound \(0.028518591162857609314\).
 ## 5. Reproduction, scope and next question
 
 Execute the Python 3 standard-library script
-\`research_notes/portable_direct/PREFIX772_R6_UNIFORM_INTERVAL_HESSIAN_CHECK.py\`.
-The author-local run returned \`ALL_CHECKS_PASS PREFIX772 UNIFORM_HESSIAN_AND_POINT_Q\` and generated the complete structured result
-\`research_notes/portable_direct/PREFIX772_R6_UNIFORM_INTERVAL_HESSIAN_RESULTS.json\`. The exact inequality assertions use integers only; displayed decimals are explanatory.
+`research_notes/portable_direct/PREFIX772_R6_UNIFORM_INTERVAL_HESSIAN_CHECK.py`.
+The author-local run returned `ALL_CHECKS_PASS PREFIX772 UNIFORM_HESSIAN_AND_POINT_Q` and generated the complete structured result
+`research_notes/portable_direct/PREFIX772_R6_UNIFORM_INTERVAL_HESSIAN_RESULTS.json`. The exact inequality assertions use integers only; displayed decimals are explanatory.
 
-Dependencies: exact frozen input \`f42f2906d77f24085c123f3ccfe9667d41caa96d\`, PREFIX-770 transverse jet and PREFIX-771 diagonal jet and endpoint signs. Research status is \`AUTHOR_INTEGER_INTERVAL_CERTIFICATE / UNREVIEWED / NOT_ADMITTED\`.
+Dependencies: exact frozen input `f42f2906d77f24085c123f3ccfe9667d41caa96d`, PREFIX-770 transverse jet and PREFIX-771 diagonal jet and endpoint signs. Research status is `AUTHOR_INTEGER_INTERVAL_CERTIFICATE / UNREVIEWED / NOT_ADMITTED`.
 
 The new local minimum need not be the global minimum on the complete \([0,1/2]^2\) auxiliary parameter domain. Next, compare potential off-diagonal and boundary extrema with this stationary pair, and use an exact Gamma sign certificate on a previously unverified \(1/768\) cell. The historical excluded-cell area is unchanged.
