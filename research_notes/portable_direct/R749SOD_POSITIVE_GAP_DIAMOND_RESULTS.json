@@ -1,0 +1,101 @@
+{
+  "calibrated_lower_witness": {
+    "calibrated_lower_formula": "9/22-(3*abs(t-s)+15*d)/22",
+    "event_A": [
+      1,
+      2,
+      4,
+      7,
+      8,
+      11,
+      13,
+      14
+    ],
+    "event_B": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      12
+    ],
+    "uniform_calibrated_lower": "441/1100",
+    "witness_A_h": "1-abs(t-s)",
+    "witness_B_free_coefficients": "(d,-1/2+d,-1/2+d,-1/2+d,-1/2+d)",
+    "witness_endpoints_checked": 5
+  },
+  "diamond_area": "1/5000",
+  "diamond_L1_radius": "1/100",
+  "free_center_uniform_certified_upper": "481/1200",
+  "free_center_worst_joint_vertex_risk": "481/1200",
+  "global_free_center": "q0=[1+(3/5)(chi_3+chi_12)+(1/5)chi_15]/16",
+  "joint_source_polytope": {
+    "active_sets": 77520,
+    "distinct_vertices": 138,
+    "feasible_bases": 1144,
+    "nonsingular_bases": 35456
+  },
+  "method": "Exact joint 7D polytope convexity, full seven-active-constraint enumeration, plus analytic two-event lower bound.",
+  "orthant_exact_polytope_certificates": [
+    {
+      "active_sets": 50388,
+      "distinct_vertices": 58,
+      "feasible_bases": 1184,
+      "max_risk_minus_d_over_12": "2/5",
+      "nonsingular_bases": 24992,
+      "signs": [
+        1,
+        1
+      ],
+      "violations": 0
+    },
+    {
+      "active_sets": 50388,
+      "distinct_vertices": 85,
+      "feasible_bases": 1332,
+      "max_risk_minus_d_over_12": "2/5",
+      "nonsingular_bases": 24992,
+      "signs": [
+        1,
+        -1
+      ],
+      "violations": 0
+    },
+    {
+      "active_sets": 50388,
+      "distinct_vertices": 85,
+      "feasible_bases": 1332,
+      "max_risk_minus_d_over_12": "2/5",
+      "nonsingular_bases": 24992,
+      "signs": [
+        -1,
+        1
+      ],
+      "violations": 0
+    },
+    {
+      "active_sets": 50388,
+      "distinct_vertices": 106,
+      "feasible_bases": 1224,
+      "max_risk_minus_d_over_12": "2/5",
+      "nonsingular_bases": 24992,
+      "signs": [
+        -1,
+        -1
+      ],
+      "violations": 0
+    }
+  ],
+  "pointwise_free_upper": "2/5+d/12",
+  "pointwise_strict_gap_bound": "1/110-(3*abs(t-s)+15*d)/22-d/12 >= 1/110-119*d/132",
+  "result": "PASS",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "auxiliary 16-state Walsh source fiber, all real L1 diamond points, author-side / NOT_REVIEWED",
+  "strict_gap_uniform_lower": "1/13200",
+  "unit": "R749SOD"
+}
