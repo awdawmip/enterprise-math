@@ -165,7 +165,7 @@ def run():
       'model':'R762AH conditional unit-port star, ordered source-blind sliding I/O log, no home return',
       'proof_scope':'All B>=2, m>=B; lexicographic bijection to [0,f_(m,B)); fixed-length optimum ceil(log2 f)',
       'precompute_arithmetic_operations':'O(m * B * 2^(B-1))',
-      'rank_unrank_arithmetic_operations':'O(m * B + B^2) after suffix table, ignoring set/sort implementation overhead',
+      'rank_unrank_arithmetic_operations':'O(m * B * log(B) + B^3) after suffix table, including sorted candidate choices',
       'exact_exhaustive_oracle':exhaustive,
       'sampled_larger':sampled,
       'B3_first_ten_m3_to_m12': [{'m':m,'count':str(suffix_table(m,3)[0][3]),
