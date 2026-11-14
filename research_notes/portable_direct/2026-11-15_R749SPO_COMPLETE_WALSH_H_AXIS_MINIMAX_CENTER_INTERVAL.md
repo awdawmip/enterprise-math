@@ -125,7 +125,7 @@ The actually executed exact verifier reports:
 | lower-right | 41,456 | 4,636 | 80 | 34 | 0 |
 | upper-left | 41,504 | 1,704 | 107 | 67 | 0 |
 | upper-right | 41,504 | 5,032 | 87 | 61 | 0 |
-| **Total** | **165,920** | **12,952** | **429 counted per chamber** | **249** | **0** |
+| **Total** | **165,920** | **12,912** | **429 counted per chamber** | **249** | **0** |
 
 The program explicitly checks probability nonnegativity and unit mass at every candidate center and source vertex, and asserts maximal excess exactly zero. Convexity then proves feasibility and the TV bound for the full continuous parameter domains of the chambers, and convex combination handles intermediate h. The R749SPN explicit compatible source pair with TV(P+,P-)=1-t supplies the matching universal lower bound R.
 
