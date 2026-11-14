@@ -22,6 +22,14 @@ Exactly **10702** unordered pairs are equal under either observation. There are 
 
 Compared with the previously certified radius-2 census (411 cases, 178 classes, 4068 equivalent pairs), this adds 555 radius-3 cases, 249 further observer classes and 6634 additional same-cost pairs.
 
+## Strengthening: the 966 configurations exhaust the whole original named-root domain
+
+A separate unbounded-by-radius census of **all 38169** original cases constructs their 24-label named legal-root signatures and classifies them into **625 distinct domain classes**. The class whose domain equals case 32315 contains **exactly 966 configurations**. Independently computing the seven-key set-difference distance of each such case from 32315 gives the exact histogram `0:1, 1:73, 2:337, 3:555`, with **none at distance 4–7**. Thus
+
+`{K in the entire 38169-case frozen corpus : E_K(l)=E_32315(l) for all 24 labels} = N3`.
+
+Therefore the injectivity theorem above is not merely a radius-three local conclusion: it **completely classifies every original corpus configuration sharing case 32315's named legal-root domain**. There is no nonzero terminal-invisible reachable-root gauge in that entire domain class. The separate second verifier now asserts equality of the unrestricted same-domain ID set with the 966 case IDs.
+
 ## Exact enumeration proof and implementation evidence
 
 1. Parse the original 38169 seven-key cases. For every key, obtain each label's allowed root from the first byte of its original signed-prefix words. For each case compare the exact 24-label root-domain tuple to case 32315. Select distance at most three by set difference of the seven keys. This yields all 966 indices, exhaustively from the frozen corpus.
@@ -34,7 +42,7 @@ Original completion evidence in the local bundle: `EC49FOQ_RADIUS3_PROFILES.csv`
 
 ## Scope, interpretation and next question
 
-This is an **exhaustive finite author-checked theorem for N3**, not a universal injectivity theorem. Abstract nonzero gauges exist in the rank-11 kernel constructed in EC49FON, and EC49FOO exhibits such a gauge in a separately constructed native prefix model. The natural next discriminating problem is to search the remaining `38169-966` rows by named legal-root domains for a same-terminal/different-root-cost pair, preferably first in the 32315 domain outside radius three. A more scalable scheme should cache rooted prefix signatures and compare exact terminal groups before a full pairwise enumeration; any candidate collision requires a complete signed-prefix witness and four-root cost delta.
+This is an **exhaustive finite author-checked theorem for N3**, not a universal injectivity theorem. Abstract nonzero gauges exist in the rank-11 kernel constructed in EC49FON, and EC49FOO exhibits such a gauge in a separately constructed native prefix model. The natural next discriminating problem is to search the **other 624 named legal-root domain classes** of the frozen 38169-case corpus for a same-terminal/different-root-cost pair. A more scalable scheme should cache rooted prefix signatures and compare exact terminal groups before a full pairwise enumeration; any candidate collision requires a complete signed-prefix witness and four-root cost delta.
 
 P000 (six discrete native axes in Heartbeat World, time separately typed) remains unchanged. This is a BRC native signed-prefix observer calculation; it makes no additional claim about complete X6 cell states or time evolution.
 
