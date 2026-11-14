@@ -1,0 +1,82 @@
+{
+  "calibrated": "9/22-6(t-1/2)/11 on [1/2,9/16]; 3/5-2t/5 on [9/16,2/3]; (2-t)/4 on [2/3,1]",
+  "exact_joint_polytope_upper": [
+    {
+      "active_sets": 18564,
+      "distinct_vertices": 37,
+      "feasible_bases": 812,
+      "max_excess": "0",
+      "name": "FREE_I",
+      "nonsingular": 9536,
+      "parameter_interval": [
+        "1/2",
+        "3/5"
+      ],
+      "tight": 13,
+      "violations": 0
+    },
+    {
+      "active_sets": 18564,
+      "distinct_vertices": 24,
+      "feasible_bases": 724,
+      "max_excess": "0",
+      "name": "FREE_II",
+      "nonsingular": 9536,
+      "parameter_interval": [
+        "3/5",
+        "1"
+      ],
+      "tight": 12,
+      "violations": 0
+    },
+    {
+      "active_sets": 18564,
+      "distinct_vertices": 37,
+      "feasible_bases": 812,
+      "max_excess": "0",
+      "name": "CAL_I",
+      "nonsingular": 9536,
+      "parameter_interval": [
+        "1/2",
+        "9/16"
+      ],
+      "tight": 13,
+      "violations": 0
+    },
+    {
+      "active_sets": 18564,
+      "distinct_vertices": 40,
+      "feasible_bases": 392,
+      "max_excess": "0",
+      "name": "CAL_II",
+      "nonsingular": 9536,
+      "parameter_interval": [
+        "9/16",
+        "2/3"
+      ],
+      "tight": 16,
+      "violations": 0
+    },
+    {
+      "active_sets": 18564,
+      "distinct_vertices": 24,
+      "feasible_bases": 724,
+      "max_excess": "0",
+      "name": "CAL_III",
+      "nonsingular": 9536,
+      "parameter_interval": [
+        "2/3",
+        "1"
+      ],
+      "tight": 10,
+      "violations": 0
+    }
+  ],
+  "free": "13/20-t/2 on [1/2,3/5]; (2-t)/4 on [3/5,1]",
+  "gap": "strictly positive on [1/2,2/3); exactly zero on [2/3,1]",
+  "lower_event_and_diameter_certificates": "PASS",
+  "result": "PASS",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "all real t in [1/2,1] with s=1/2; auxiliary Walsh source fiber; NOT_REVIEWED",
+  "unit": "R749SOF"
+}
