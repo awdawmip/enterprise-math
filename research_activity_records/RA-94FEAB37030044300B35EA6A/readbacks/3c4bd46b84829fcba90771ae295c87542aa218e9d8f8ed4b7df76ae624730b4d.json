@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R749SOP_UPPER_TRIANGLE_RESULTS.json",
+    "ref": "eeba38373007e38d89f0e965904b3b0f4732745e",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "R749SOP-20261114-93E14A-OBS-3",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"unit\": \"R749SOP\",\n  \"status\": \"PASS\",\n  \"scientific_pin\": \"a72226e2430ffa4786321ac86e7f0c599d5f0389\",\n  \"region\": \"0<=t,s<=1, t+s>=1; put r=max(t,s), m=min(t,s)\",\n  \"common_floor\": \"(t+s-1)*sigma\",\n  \"sigma_support\": [\n    0,\n    3,\n    12,\n    15\n  ],\n  \"conic_identity\": \"Dpp-4(t+s-1)=mean(Dpm)+mean(Dmp)+3mean(Dmm)\",\n  \"fiber_factorization\": \"F(t,s)=alpha*sigma+beta*F((1-s)/beta,(1-t)/beta)\",\n  \"radii_reduction\": \"rho and rho_cal, and their difference, multiply by beta\",\n  \"free_phase_threshold\": \"5*r-4*m=1\",\n  \"calibration_thresholds\": [\n    \"8*r-7*m=1\",\n    \"3*r-2*m=1\"\n  ],\n  \"phase_gap_zero\": \"3*r-2*m>=1\",\n  \"max_gap\": \"1/90\",\n  \"maximizers\": [\n    \"(5/9,4/9)\",\n    \"(4/9,5/9)\"\n  ],\n  \"exact_fixed_parameter_bases_each\": 4368,\n  \"exact_checks\": [\n    {\n      \"r\": \"1/2\",\n      \"m\": \"1/2\",\n      \"beta\": \"1\",\n      \"non_singular_bases\": 3008,\n      \"feasible_bases\": 456,\n      \"vertex_count\": 17,\n      \"rho\": \"2/5\",\n      \"rho_cal\": \"9/22\",\n      \"gap\": \"1/110\"\n    },\n    {\n      \"r\": \"5/9\",\n      \"m\": \"4/9\",\n      \"beta\": \"1\",\n      \"non_singular_bases\": 3008,\n      \"feasible_bases\": 440,\n      \"vertex_count\": 20,\n      \"rho\": \"7/18\",\n      \"rho_cal\": \"2/5\",\n      \"gap\": \"1/90\"\n    },\n    {\n      \"r\": \"3/5\",\n      \"m\": \"1/2\",\n      \"beta\": \"9/10\",\n      \"non_singular_bases\": 3008,\n      \"feasible_bases\": 196,\n      \"vertex_count\": 20,\n      \"rho\": \"7/20\",\n      \"rho_cal\": \"9/25\",\n      \"gap\": \"1/100\"\n    },\n    {\n      \"r\": \"7/10\",\n      \"m\": \"1/2\",\n      \"beta\": \"4/5\",\n      \"non_singular_bases\": 3008,\n      \"feasible_bases\": 196,\n      \"vertex_count\": 20,\n      \"rho\": \"13/40\",\n      \"rho_cal\": \"13/40\",\n      \"gap\": \"0\"\n    },\n    {\n      \"r\": \"4/5\",\n      \"m\": \"7/10\",\n      \"beta\": \"1/2\",\n      \"non_singular_bases\": 3008,\n      \"feasible_bases\": 196,\n      \"vertex_count\": 20,\n      \"rho\": \"1/5\",\n      \"rho_cal\": \"1/5\",\n      \"gap\": \"0\"\n    },\n    {\n      \"r\": \"1\",\n      \"m\": \"1/2\",\n      \"beta\": \"1/2\",\n      \"non_singular_bases\": 3008,\n      \"feasible_bases\": 312,\n      \"vertex_count\": 2,\n      \"rho\": \"1/4\",\n      \"rho_cal\": \"1/4\",\n      \"gap\": \"0\"\n    },\n    {\n      \"r\": \"1\",\n      \"m\": \"1\",\n      \"fiber\": \"singleton\",\n      \"rho\": \"0\",\n      \"rho_cal\": \"0\",\n      \"gap\": \"0\"\n    }\n  ],\n  \"proof_scope\": \"analytic common-mass factorization, SOF exact 1D input, rational vertex checks\",\n  \"independent_review\": \"NOT_REVIEWED\",\n  \"native_x6_correspondence\": \"UNRESOLVED\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/eeba38373007e38d89f0e965904b3b0f4732745e/research_notes/portable_direct/R749SOP_UPPER_TRIANGLE_RESULTS.json",
+      "encoding": "utf-8",
+      "sha": "1e1b7a560bc50e94a0014b86bb978e2fd51dd360"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
