@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R162_check.py",
+    "ref": "f451da2665923179eed166c488a1e8063222ca29",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "R162-EM-R1-GITHUB-OBSERVATION-2-20261115",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact exhaustive corroboration of R162 all-length symbolic fiber theorem.\"\"\"\nfrom collections import defaultdict\nfrom math import gcd\nimport json\n\ndef signature(n, m):\n    p = [0]\n    for j in range(m):\n        p.append(p[-1] + ((n >> (m-1-j)) & 1))\n    a,b,c,d = 0,1,1,1\n    for i in range(m):\n        for j in range(i+1,m+1):\n            q, k = p[j]-p[i], j-i\n            if (q-1)*b > a*k:\n                a,b = q-1,k\n            if (q+1)*d < c*k:\n                c,d = q+1,k\n    if a*d >= c*b:\n        return None\n    g=gcd(abs(a),b)\n    a,b=a//g,b//g\n    g=gcd(abs(c),d)\n    c,d=c//g,d//g\n    U=b+min(b*p[j]-a*j for j in range(m+1))\n    V=max(d*p[j]-c*j for j in range(m+1))\n    return (a,b,c,d,U,V)\n\ndef prefixes(n,m):\n    p=[0]\n    for j in range(m):\n        p.append(p[-1]+((n>>(m-1-j))&1))\n    return p\n\ndef main():\n    summary=[]\n    candidate_total=0\n    admitted_total=0\n    pair_total=0\n    terminal_aliases=[]\n    for m in range(1,19):\n        classes=defaultdict(list)\n        for n in range(1<<m):\n            key=signature(n,m)\n            if key is not None:\n                classes[key].append(n)\n        count_pair=0\n        for key,words in classes.items():\n            assert len(words)<=2, (m,key,words)\n            if len(words)!=2:\n                continue\n            count_pair+=1\n            a,b,c,d,U,V=key\n            p,q=prefixes(words[0],m),prefixes(words[1],m)\n            changed=[i for i in range(1,m+1) if p[i]!=q[i]]\n            assert len(changed)==1 and abs(p[changed[0]]-q[changed[0]])==1\n            D=b*c-a*d\n            assert D>0 and (d*U-b*V)%D==0\n            index=(d*U-b*V)//D\n            assert index==changed[0], (m,key,changed,index)\n            if index==m:\n                terminal_aliases.append((m,words))\n            else:\n                w=prefixes(words[0],m)\n                v=prefixes(words[1],m)\n                assert w[index-1]==v[index-1]\n                assert w[index+1]==v[index+1]\n        admitted=sum(map(len,classes.values()))\n        summary.append({\"m\":m,\"admitted\":admitted,\n                        \"signature_classes\":len(classes),\n                        \"size2\":count_pair,\"size_ge3\":0})\n        candidate_total+=(1<<m)\n        admitted_total+=admitted\n        pair_total+=count_pair\n    assert candidate_total==524286\n    assert admitted_total==3694\n    assert pair_total==304\n    assert terminal_aliases==[(1,[0,1])],terminal_aliases\n    return {\n        \"marker\":\"R162_EXACT_FIBER_TWO_TO_ONE_PASS\",\n        \"algorithm\":\"integer cross-products and gcd; no floating point\",\n        \"scope\":\"all binary words, lengths 1 through 18 inclusive\",\n        \"candidate_total\":candidate_total,\n        \"admitted_total\":admitted_total,\n        \"two_word_fiber_total\":pair_total,\n        \"terminal_aliases\":[{\"m\":m,\"words\":ws} for m,ws in terminal_aliases],\n        \"by_length\":summary\n    }\n\nif __name__==\"__main__\":\n    print(json.dumps(main(),sort_keys=True,indent=2))\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/f451da2665923179eed166c488a1e8063222ca29/research_notes/portable_direct/R162_check.py",
+      "encoding": "utf-8",
+      "sha": "9be12d19f2f23479f8943ffa82fb4564f324a734"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
