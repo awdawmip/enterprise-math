@@ -15,9 +15,9 @@ The attached deterministic code constructs 214-center sets \`S_i\` for i=3,8,9,1
 | Closed cut index i (zero-based) | Gap starts at event | Exact \`rho_i(S_i)\` | Old-optimal maximum shared centers |
 |---|---:|---:|---:|
 | 3 | 46 | 3 | 211 |
-| 8 | 110? (see code) | 7 | 207 |
-| 9 | 116? (see code) | 7 | 207 |
-| 10 | 123? (see code) | 4 | 210 |
+| 8 | 110 | 7 | 207 |
+| 9 | 116 | 7 | 207 |
+| 10 | 123 | 4 | 210 |
 
 The cut start indices in the table must be taken from the frozen reconstruction: \`cuts[3]=46\`, \`cuts[8]=110\`, \`cuts[9]=116\`, \`cuts[10]=123\`. The first column is the identity of the closure variable; center and event indices are distinct observers.
 
