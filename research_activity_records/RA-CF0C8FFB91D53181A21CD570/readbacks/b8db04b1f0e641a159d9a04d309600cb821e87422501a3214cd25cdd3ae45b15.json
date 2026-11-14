@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R749SOA_MATCHED_POSITIVE_INTERIOR_EXACT_CHECK.py",
+    "ref": "1227cbd685a477a7796823661f28a0a2e2034d67",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r749soa-r2-20261114-src-2",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R749SOA exact rational arithmetic and finite corner audit.\nThe universal conclusion follows from the written analytic transport theorem,\nnot from finite sampling. Standard library only.\n\"\"\"\nfrom fractions import Fraction as F\nfrom itertools import product\nimport json\n\nOLD = F(1,4455)\nOUTER = F(1,827)\nINNER = F(1,1652)\nBASE_GAP = F(1,110)\n\n\ndef house_bound(delta):\n    assert F(0) <= delta < F(1,2)\n    return delta/(F(1,2)-delta) + delta/2\n\n\ndef gap_bound(delta):\n    return BASE_GAP - 3*house_bound(delta)\n\n\ndef center(t,s):\n    h = min(t,s)\n    out=[]\n    for A,B in product((-1,1),repeat=2):\n        out.append((1+t*A+s*B+h*A*B)/16)\n    return tuple(out)\n\n\ndef audit():\n    for N in (4455,1652,827,826):\n        d=F(1,N)\n        for t,s in ((F(1,2)-d,F(1,2)),(F(1,2)+d,F(1,2)),\n                    (F(1,2),F(1,2)-d),(F(1,2),F(1,2)+d)):\n            c = center(t,s)\n            assert min(c)==(1-max(t,s))/16\n            assert all(v>0 for v in c)\n            assert sum(c)==F(1,4)\n        assert gap_bound(d)>0 if N>=827 else gap_bound(d)<0\n    assert gap_bound(OUTER)==F(1,227425)\n    assert gap_bound(INNER)==F(4131,908600)\n    assert gap_bound(INNER)>=F(1,220)\n    assert gap_bound(F(1,826))<0\n    assert OLD < INNER < OUTER\n    assert (OUTER/OLD)**2 > 29\n    return {\n      'research_unit':'R749SOA',\n      'scientific_pin':'awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389',\n      'dependent_source':'R749SNG@74abff6fff03fb6defec95c6c505c69ea5b0832c',\n      'kind':'EXACT_ANALYTIC_PROOF_WITH_RATIONAL_ARITHMETIC_AUDIT',\n      'author_check':'PASS', 'independent_review':'NOT_REVIEWED',\n      'old_radius':str(OLD), 'new_outer_radius':str(OUTER),\n      'uniform_gap_outer':str(gap_bound(OUTER)),\n      'inner_radius':str(INNER), 'uniform_gap_inner':str(gap_bound(INNER)),\n      'minimum_gap_inner_at_least':'1/220',\n      'ratio_outer_to_old_area':str((OUTER/OLD)**2),\n      'area_outer':str(2*OUTER**2),\n      'new_outer_radius_next_integer_826_fails_this_bound':str(gap_bound(F(1,826))),\n      'coverage':'Analytic for all real points in closed L1 diamonds; four rational corner checks supplement proof',\n      'unresolved':'Actual positive-gap phase boundary and exact 2D piecewise minimax radii'\n    }\n\n\nif __name__=='__main__':\n    print(json.dumps(audit(),ensure_ascii=False,sort_keys=True,indent=2))\n",
+      "display_title": "R749SOA_MATCHED_POSITIVE_INTERIOR_EXACT_CHECK.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/1227cbd685a477a7796823661f28a0a2e2034d67/research_notes/portable_direct/R749SOA_MATCHED_POSITIVE_INTERIOR_EXACT_CHECK.py",
+      "encoding": "utf-8",
+      "sha": "9f73e678cec4547cc3f550f2bcd2aa420f12e084"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
