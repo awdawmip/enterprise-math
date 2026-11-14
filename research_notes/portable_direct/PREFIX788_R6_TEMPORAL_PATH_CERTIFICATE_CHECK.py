@@ -52,10 +52,15 @@ def main():
             assert rho == enumerate_path_margin(weights,target)
             checks+=1
             # For target inside [0,sum(weights)], convexification includes zero.
-            if 0 <= target <= sum(weights):
-                assert min(abs(F(target)),abs(F(sum(weights)-target)))>=0
+            total = sum(weights)
+            if 0 <= target <= total:
+                theta = F(target, total)
+                # Construct an exact convex mixture of the two attainable endpoints.
+                assert F(0) <= theta <= F(1) and (F(1)-theta)*0 + theta*total == target
                 hull_zero=True
             else:
+                # All attainable (and convexified) sums are at most total.
+                assert target > total and target-total > 0
                 hull_zero=False
             if rho==0:
                 assert target in vals
@@ -82,7 +87,8 @@ def main():
     # Named exact witness: {0,3,5,8} never contains 4, but convex hull does.
     named= {'weights':[3,5],'target':4}
     rho,values=subset_path_margin(named['weights'],named['target'])
-    assert values==[0,3,5,8] and rho==1
+    assert values==[0,3,5,8]
+    assert rho==1
     checks+=2
     output={'status':'ALL_CHECKS_PASS PREFIX788 TEMPORAL_BRANCH_DUAL_AND_SUBSET_GAP',
             'scope':'Exact rational/integer tests of explicit external scalar models, not native X6 transfer',
