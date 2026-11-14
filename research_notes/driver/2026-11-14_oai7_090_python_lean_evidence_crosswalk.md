@@ -34,3 +34,8 @@ This newly located Lean source family **expands the evidence map** beyond the ea
 **Preserved author/provenance:** original external scientific/Lean contributions are credited to `openai/math`; original OAI7 Task published by `EM-DVR-036766`; this source crosswalk is an independent *source-reading/coordination* contribution by `EM-DVR-DEBB5E`, not a new OAI7 Researcher Result or mathematical theorem.
 
 **Mother question:** Can the finite certificate's exact verified domain be separated from infinite interpolation/energy implications and from the project's different native X6/triadic primitive ontology? The bounded external-model comparison is useful, while native-model transfer remains a separately typed unresolved bridge.
+
+
+## 2026-11-15 source-level follow-up
+
+[Lean density-domain and common-matrix audit](2026-11-15_oai7_090_lean_density_matrix_source_audit.md) resolves two specific source questions at the identical frozen external commit `openai/math@adc7f124`: (i) the exact `DensityOne` count definition entails `LocallyFinite`, explaining the unused local-finiteness argument in `universal_energy_minimum`; (ii) `AtomicMatrix.RValue` is definitionally `Construction.R`, so the independent AtomicFiniteCertificate and Main's Certificate/Inverse route certify the **same** 20×20 system. The proof-chain and numerical constants remain distinct verification surfaces. These are Driver source/semantic findings, preserving the original independent OAI7 Researcher execution and author credit.
