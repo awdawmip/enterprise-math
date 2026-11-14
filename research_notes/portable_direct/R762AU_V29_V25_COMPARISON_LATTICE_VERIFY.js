@@ -129,6 +129,10 @@ function main(){
    for(let b=0;b<4;b++)if(a!==b){
      const L=copyLedger(base);L.M[a][b]++;
      const after=observe(L),before=observe(base),delta=after.map((x,i)=>x-before[i]);
+     const expected=Array(10).fill(0n);expected[a]=1n;expected[b]=-1n;
+     const small=Math.min(a,b),large=Math.max(a,b),index=pairs.findIndex(([i,j])=>i===small&&j===large);
+     expected[4+index]=a<b?1n:-1n;
+     assert(equal(delta,expected),"PASS expected V29 delta");
      assert(equal(matrix.map(r=>dot(r,after)),matrix.map((r,i)=>dot(r,before)+dot(r,delta))),"PASS intertwining");
      events.push("PASS("+a+","+b+")")
    }
@@ -136,6 +140,8 @@ function main(){
      const L=copyLedger(base);
      if(kind==="IN")L.rin[a]++;else L.rout[a]++;
      const after=observe(L),before=observe(base),delta=after.map((x,i)=>x-before[i]);
+     const expected=Array(10).fill(0n);expected[a]=kind==="IN"?1n:-1n;
+     assert(equal(delta,expected),"TRANSFER boundary expected V29 delta");
      assert(equal(matrix.map(r=>dot(r,after)),matrix.map((r,i)=>dot(r,before)+dot(r,delta))),"boundary intertwining");
      events.push(kind+"("+a+")")
    }
