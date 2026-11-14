@@ -1,0 +1,120 @@
+{
+  "schema": "EC49FOO_NATIVE_PREFIX_CANCELLATION_EXACT_CERT_V1",
+  "source_date": "2026-11-14",
+  "scientific_input_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "frozen_raw_input_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "example_scope": "independent constructed native prefix-cover operator example; outside 94-key frozen repertoire",
+  "root_labels": [
+    "06",
+    "07"
+  ],
+  "demand_labels": [
+    7,
+    13
+  ],
+  "word_depth_bound": 2,
+  "keys": {
+    "A": {
+      "06": {
+        "7": "060102",
+        "13": "060103"
+      },
+      "07": {
+        "7": "0701",
+        "13": "070203"
+      }
+    },
+    "B": {
+      "06": {
+        "7": "060203",
+        "13": "0601"
+      },
+      "07": {
+        "7": "070102",
+        "13": "070103"
+      }
+    }
+  },
+  "rooted_costs": {
+    "A": {
+      "06": {
+        "7": 2,
+        "13": 2,
+        "empty": 0,
+        "7,13": 3
+      },
+      "07": {
+        "7": 1,
+        "13": 2,
+        "empty": 0,
+        "7,13": 3
+      }
+    },
+    "B": {
+      "06": {
+        "7": 2,
+        "13": 1,
+        "empty": 0,
+        "7,13": 3
+      },
+      "07": {
+        "7": 2,
+        "13": 2,
+        "empty": 0,
+        "7,13": 3
+      }
+    }
+  },
+  "assignments": {
+    "07,07": {
+      "A": 3,
+      "B": 3
+    },
+    "07,06": {
+      "A": 3,
+      "B": 3
+    },
+    "06,07": {
+      "A": 4,
+      "B": 4
+    },
+    "06,06": {
+      "A": 3,
+      "B": 3
+    }
+  },
+  "rooted_profile_delta": {
+    "06": {
+      "7": 0,
+      "13": -1,
+      "empty": 0,
+      "7,13": 0
+    },
+    "07": {
+      "7": 1,
+      "13": 0,
+      "empty": 0,
+      "7,13": 0
+    }
+  },
+  "common_prefix_depths": {
+    "06": {
+      "A": 1,
+      "B": 0
+    },
+    "07": {
+      "A": 0,
+      "B": 1
+    }
+  },
+  "exact_hub_basis_coefficients": {
+    "unary_13": 1,
+    "interaction_06_7_13": -1
+  },
+  "verified_by": [
+    "Independent Python prefix-set union (4 exhaustive legal assignments)",
+    "C++17 native trie-OR/min-plus recurrence (-O2 -Wall -Wextra -pedantic)"
+  ],
+  "proof_status": "AUTHOR_PROVED_EXACT_CHECKED_NOT_REVIEWED",
+  "formal_claim": false
+}
