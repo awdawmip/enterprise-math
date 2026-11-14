@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r148_sharp_covariance_20261114/check_r148b.py",
+    "ref": "06f79f0d3c04f6c73a056c552793f48b9254ad08",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "call_id": null,
+  "observation_id": "r148-5-20261114-connected-github-read",
+  "result": {
+    "isError": false,
+    "original_connector_result": {
+      "content": "\"\"\"R148B: exact infinite alternating-sign family, verified at finite r.\"\"\"\nfrom fractions import Fraction as F\nfrom math import gcd\n\ndef support(word):\n    s = [0]\n    for v in word:\n        s.append(s[-1] + int(v))\n    m = len(word)\n    a, b = F(0), F(1)\n    for i in range(m):\n        for j in range(i+1, m+1):\n            a = max(a, F(s[j]-s[i]-1, j-i))\n            b = min(b, F(s[j]-s[i]+1, j-i))\n    A,B = a.numerator,a.denominator\n    C,D = b.numerator,b.denominator\n    U = min(B*(s[j]+1)-j*A for j in range(m+1))\n    V = max(D*s[j]-j*C for j in range(m+1))\n    return (A,B,C,D,U,V)\n\ndef covariance(a,b,c,d,U,V):\n    g = gcd(b,d)\n    q = F(g-1,2)\n    return sum(((F((a*t-U)%g)-q)*(F((V-c*t)%g)-q)\n                for t in range(g)),F(0))/(g*b*d)\n\nfor r in range(1,51):\n    word = '0'*r+'1'+'0'*r+'1'+'0'*r\n    a,b,c,d,U,V = support(word)\n    assert (a,b,c,d,U,V)==(1,r+2,3,3*r+2,2,0), (r,(a,b,c,d,U,V))\n    gamma = covariance(a,b,c,d,U,V)\n    if r%2:\n        expected = F(0)\n    elif r%4==0:\n        expected = F(1,4*b*d)\n    else:\n        expected = F(-3,4*b*d)\n    assert gamma==expected,(r,gamma,expected)\nprint('R148B_INFINITE_SIGN_FAMILY_FINITE_RECHECK_PASS',\n      'r=1..50','positive',12,'negative',13,'zero',25)\n",
+      "display_title": "check_r148b.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/06f79f0d3c04f6c73a056c552793f48b9254ad08/research_notes/brc_s23_av_r148_sharp_covariance_20261114/check_r148b.py",
+      "encoding": "utf-8",
+      "sha": "39ae26d3d8f6862b91c0ce4ccd21ed74897527e2"
+    },
+    "structuredContent": {
+      "content": "\"\"\"R148B: exact infinite alternating-sign family, verified at finite r.\"\"\"\nfrom fractions import Fraction as F\nfrom math import gcd\n\ndef support(word):\n    s = [0]\n    for v in word:\n        s.append(s[-1] + int(v))\n    m = len(word)\n    a, b = F(0), F(1)\n    for i in range(m):\n        for j in range(i+1, m+1):\n            a = max(a, F(s[j]-s[i]-1, j-i))\n            b = min(b, F(s[j]-s[i]+1, j-i))\n    A,B = a.numerator,a.denominator\n    C,D = b.numerator,b.denominator\n    U = min(B*(s[j]+1)-j*A for j in range(m+1))\n    V = max(D*s[j]-j*C for j in range(m+1))\n    return (A,B,C,D,U,V)\n\ndef covariance(a,b,c,d,U,V):\n    g = gcd(b,d)\n    q = F(g-1,2)\n    return sum(((F((a*t-U)%g)-q)*(F((V-c*t)%g)-q)\n                for t in range(g)),F(0))/(g*b*d)\n\nfor r in range(1,51):\n    word = '0'*r+'1'+'0'*r+'1'+'0'*r\n    a,b,c,d,U,V = support(word)\n    assert (a,b,c,d,U,V)==(1,r+2,3,3*r+2,2,0), (r,(a,b,c,d,U,V))\n    gamma = covariance(a,b,c,d,U,V)\n    if r%2:\n        expected = F(0)\n    elif r%4==0:\n        expected = F(1,4*b*d)\n    else:\n        expected = F(-3,4*b*d)\n    assert gamma==expected,(r,gamma,expected)\nprint('R148B_INFINITE_SIGN_FAMILY_FINITE_RECHECK_PASS',\n      'r=1..50','positive',12,'negative',13,'zero',25)\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/06f79f0d3c04f6c73a056c552793f48b9254ad08/research_notes/brc_s23_av_r148_sharp_covariance_20261114/check_r148b.py",
+      "encoding": "utf-8",
+      "sha": "39ae26d3d8f6862b91c0ce4ccd21ed74897527e2"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

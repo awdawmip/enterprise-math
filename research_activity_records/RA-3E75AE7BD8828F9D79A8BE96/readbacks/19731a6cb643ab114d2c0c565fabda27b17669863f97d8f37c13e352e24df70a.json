@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r148_sharp_covariance_20261114/verification_r148b.json",
+    "ref": "06f79f0d3c04f6c73a056c552793f48b9254ad08",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "call_id": null,
+  "observation_id": "r148-6-20261114-connected-github-read",
+  "result": {
+    "isError": false,
+    "original_connector_result": {
+      "content": "{\n  \"schema\": \"EM_S23_R148B_INFINITE_SIGN_FAMILY_VERIFICATION_V1\",\n  \"date\": \"2026-11-14\",\n  \"science_pin\": \"43ec6098b1330ae86d0a7863be336c5d97f6ef34\",\n  \"proof\": \"R148B_INFINITE_SIGN_FAMILY.md\",\n  \"formula\": {\n    \"word\": \"w_r = 0^r 1 0^r 1 0^r, r>=1\",\n    \"alpha\": \"1/(r+2)\",\n    \"beta\": \"3/(3r+2)\",\n    \"U\": 2,\n    \"V\": 0,\n    \"g\": \"gcd(r+2,4)\",\n    \"gamma_odd\": \"0\",\n    \"gamma_r_mod4_0\": \"1/[4(r+2)(3r+2)]\",\n    \"gamma_r_mod4_2\": \"-3/[4(r+2)(3r+2)]\"\n  },\n  \"finite_check\": {\n    \"method\": \"reconstruct exact prefix-pair slopes and endpoint intercepts with Fraction; independently evaluate g-term centered CRT covariance\",\n    \"r_min\": 1,\n    \"r_max\": 50,\n    \"positive\": 12,\n    \"negative\": 13,\n    \"zero\": 25,\n    \"marker\": \"R148B_INFINITE_SIGN_FAMILY_FINITE_RECHECK_PASS\"\n  },\n  \"mathematical_status\": \"AUTHOR_SIDE_PROOF\",\n  \"independent_review\": \"NOT_REVIEWED\",\n  \"next\": \"Classify positive alignment for other Sturmian families and test links to single-phase-fiber disappearance.\"\n}\n",
+      "display_title": "verification_r148b.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/06f79f0d3c04f6c73a056c552793f48b9254ad08/research_notes/brc_s23_av_r148_sharp_covariance_20261114/verification_r148b.json",
+      "encoding": "utf-8",
+      "sha": "8000ace5090d5904bf580d0384acd19e84ada05e"
+    },
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_S23_R148B_INFINITE_SIGN_FAMILY_VERIFICATION_V1\",\n  \"date\": \"2026-11-14\",\n  \"science_pin\": \"43ec6098b1330ae86d0a7863be336c5d97f6ef34\",\n  \"proof\": \"R148B_INFINITE_SIGN_FAMILY.md\",\n  \"formula\": {\n    \"word\": \"w_r = 0^r 1 0^r 1 0^r, r>=1\",\n    \"alpha\": \"1/(r+2)\",\n    \"beta\": \"3/(3r+2)\",\n    \"U\": 2,\n    \"V\": 0,\n    \"g\": \"gcd(r+2,4)\",\n    \"gamma_odd\": \"0\",\n    \"gamma_r_mod4_0\": \"1/[4(r+2)(3r+2)]\",\n    \"gamma_r_mod4_2\": \"-3/[4(r+2)(3r+2)]\"\n  },\n  \"finite_check\": {\n    \"method\": \"reconstruct exact prefix-pair slopes and endpoint intercepts with Fraction; independently evaluate g-term centered CRT covariance\",\n    \"r_min\": 1,\n    \"r_max\": 50,\n    \"positive\": 12,\n    \"negative\": 13,\n    \"zero\": 25,\n    \"marker\": \"R148B_INFINITE_SIGN_FAMILY_FINITE_RECHECK_PASS\"\n  },\n  \"mathematical_status\": \"AUTHOR_SIDE_PROOF\",\n  \"independent_review\": \"NOT_REVIEWED\",\n  \"next\": \"Classify positive alignment for other Sturmian families and test links to single-phase-fiber disappearance.\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/06f79f0d3c04f6c73a056c552793f48b9254ad08/research_notes/brc_s23_av_r148_sharp_covariance_20261114/verification_r148b.json",
+      "encoding": "utf-8",
+      "sha": "8000ace5090d5904bf580d0384acd19e84ada05e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
