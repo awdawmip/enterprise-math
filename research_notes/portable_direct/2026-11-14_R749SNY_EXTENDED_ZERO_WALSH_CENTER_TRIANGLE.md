@@ -1,7 +1,7 @@
 # R749SNY — Extended zero-Walsh-center minimax triangle
 
 Date: 2026-11-14. Status: **AUTHOR_EXACT_CERTIFICATE / NOT_REVIEWED**.
-Frozen scientific input: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`.
+Frozen scientific input: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`.
 Auxiliary 16-state Walsh source-observer model only. This note extends R749SNX (PR #2356), without changing P000 or a shared native task.
 
 ## 1. Statement
@@ -81,6 +81,6 @@ The 19 inequalities define a full-dimensional bounded polytope and the complete 
 
 This is a strict parameter-region extension of R749SNX. It reuses that result's source-law family and diametral witness; the new ingredient is the simpler *zero* unretained-coefficient center, which remains optimal on a larger triangle that reaches the origin and the complete \(s=0\) edge. The current exact certificate says nothing about positive calibration gaps outside \(\mathcal T_0\).
 
-The executable standard-library checker is \`R749SNY_WALSH_ZERO_CENTER_EXTENDED_TRIANGLE_EXACT_CHECK.py\` with deterministic JSON at \`R749SNY_WALSH_ZERO_CENTER_EXTENDED_TRIANGLE_RESULTS.json\`. Its assertions cover all 50,388 bases, source and center positivity, exact source-pair diameter, 82 distinct vertices and zero upper-bound excess. The check was run on 2026-11-14 using Python integer arithmetic and \`fractions.Fraction\`. Mathematical status remains author-proved/computationally checked, **NOT_REVIEWED**. Native X6/V29/V39 event transfer and formal shared TASK CLAIM are not asserted.
+The executable standard-library checker is `R749SNY_WALSH_ZERO_CENTER_EXTENDED_TRIANGLE_EXACT_CHECK.py` with deterministic JSON at `R749SNY_WALSH_ZERO_CENTER_EXTENDED_TRIANGLE_RESULTS.json`. Its assertions cover all 50,388 bases, source and center positivity, exact source-pair diameter, 82 distinct vertices and zero upper-bound excess. The check was run on 2026-11-14 using Python integer arithmetic and `fractions.Fraction`. Mathematical status remains author-proved/computationally checked, **NOT_REVIEWED**. Native X6/V29/V39 event transfer and formal shared TASK CLAIM are not asserted.
 
 **Next question:** determine the sharp region of optimality of the zero-coefficient center (including whether its outer boundary has curved or further piecewise-linear chambers), and the first genuinely positive calibration gap beyond the certified union of the zero-center and repaired-center regions. In particular, evaluate exact parametric transitions across \(t=2s\) and \(t+3s=1\).
