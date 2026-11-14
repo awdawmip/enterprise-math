@@ -1,0 +1,5 @@
+# R5 next exact real-image membership
+
+Frozen science GLOBAL a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e. For the delta=1/4 P/Q tree reuse the prior 80 H halfspaces at fed51a882c12831a889cd5437da5d1dc564fd673.
+
+New exact frontier: H has 619 nonempty faces with f-vector (82,237,227,72,1); all 237 H edges lie in actual seedless LR real-behavior image; every one of 227 two-faces contains a nonempty open reachable patch. Select rational points from relative interiors of higher-dimensional faces outside these patches (not exposed edge midpoints). Check the immediate predecessor's exact six-real-variable quadratic/zonotope iff at f00bca43d2c668e4bf05ff7974db140c9e0d2adf, including all variable boundaries. A certified real-algebraic UNSAT yields an image difference witness conditional on the prior H certificate; an exact behavioral construction demonstrates SAT for the candidate. Keep formal admission separate from author proof.

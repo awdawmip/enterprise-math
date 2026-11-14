@@ -1,0 +1,7 @@
+# Verified source and execution provenance
+
+Date 2026-11-06 Asia/Shanghai. Connected GitHub login awdawmip verified with get_user_login; repo permission admin. Frozen scientific pins: GLOBAL a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e. Predecessor EM commit 5250299b49b4ee89bf199091f2e95da44c90ea71. Current global canonical main bootstrap/manual, P000 (canonical SHA 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc), ACTIVE worldview, math/BRC and research activity policies; current EM main continuation, portable and method policies read separately. None of these current policy reads re-pin scientific inputs.
+
+New proof: RESEARCH.md. New exact rational standalone reproduction: VERIFY.py, run locally with Python standard-library fractions.Fraction; actual output stored in EXACT_OUTPUT.txt. A more extensive local checker also checked every strictly positive frozen Q3/Q4 kernel and conditional likelihood-ratio moment. The compact release verifier checks 8 exact affine bounds, 16 four-cube corners, 81 rational two-parameter witnesses, 7 stopped-mass bins, time and error maps. All-real quantifiers established analytically in RESEARCH.md. No independent mathematical review or Foundation admission.
+
+Native service requests observed: session_start FAILED/OSError, task listing WAITING_RESOURCE. GitHub publication in the PR author branch is independent Source evidence and makes no native owner/CLAIM assertion. No credentials in these files.
