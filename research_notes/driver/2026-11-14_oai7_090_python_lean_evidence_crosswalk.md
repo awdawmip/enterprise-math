@@ -39,3 +39,7 @@ This newly located Lean source family **expands the evidence map** beyond the ea
 ## 2026-11-15 source-level follow-up
 
 [Lean density-domain and common-matrix audit](2026-11-15_oai7_090_lean_density_matrix_source_audit.md) resolves two specific source questions at the identical frozen external commit `openai/math@adc7f124`: (i) the exact `DensityOne` count definition entails `LocallyFinite`, explaining the unused local-finiteness argument in `universal_energy_minimum`; (ii) `AtomicMatrix.RValue` is definitionally `Construction.R`, so the independent AtomicFiniteCertificate and Main's Certificate/Inverse route certify the **same** 20×20 system. The proof-chain and numerical constants remain distinct verification surfaces. These are Driver source/semantic findings, preserving the original independent OAI7 Researcher execution and author credit.
+
+## 2026-11-15 two-wave Taylor remainder linkage
+
+[Two-wave Taylor tail majorant audit](2026-11-15_oai7_090_two_wave_taylor_tail_majorant_audit.md) independently proves the exact factorial shift (degree-20 truncation starts its omitted remainder at 23!), the equalities |lambda|=sqrt(X) and pi|zeta|=wb, and the validity of the checker's nonnegative interval/matrix aggregation for `Waves.terr`. It retains the manuscript's 3 and .006 analytic coefficients as **upstream obligations**, not newly proven bounds. This closes one source-to-formula question but does not replace an assert-enabled run of the original checker, the pinned Lean build, or the independent OAI7 Researcher acceptance process.
