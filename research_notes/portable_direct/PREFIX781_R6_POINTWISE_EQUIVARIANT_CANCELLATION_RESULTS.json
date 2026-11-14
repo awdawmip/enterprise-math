@@ -1,0 +1,54 @@
+{
+  "schema": "PREFIX781_R6_EXACT_POINTWISE_EQUIVARIANT_CANCELLATION_V1",
+  "evidence_status": "AUTHOR_ALGEBRAIC_PROOF_WITH_EXACT_RATIONAL_REGRESSION / UNREVIEWED / NOT_ADMITTED",
+  "frozen_scientific_input": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "external reflected scalar Gamma-witness algebra; no native X6 comparator attribution",
+  "theorem": "At q>0 cancellation iff |xi|<=Si+c (i=1,2) and |x1-x2|<=S1+S2.",
+  "pointwise_weighted_distance": "max(|x1|/(S1+c),|x2|/(S2+c),|x1-x2|/(S1+S2)) with zero-denominator conventions",
+  "q_window": {
+    "left": "17/30",
+    "right": "27/40"
+  },
+  "worked_example": {
+    "q_cancel": "3/5",
+    "q_robust": "1/2",
+    "R1_private": [
+      "1/10",
+      "1/10",
+      "1/20"
+    ],
+    "R2_private": [
+      "1/10",
+      "1/20",
+      "1/20"
+    ],
+    "common": "1/10",
+    "witness": {
+      "R1_private": [
+        "9/100",
+        "-9/100",
+        "-9/200"
+      ],
+      "R2_private": [
+        "-7/80",
+        "7/160",
+        "7/160"
+      ],
+      "shared": "-1/40"
+    }
+  },
+  "uniform_recovery": {
+    "qstar": "5/8",
+    "epsstar": "1/16",
+    "qstar_formula": "(A1+2*A2)/(B1+2*B2)",
+    "epsstar_formula": "D/[2*(B1+2*B2)]"
+  },
+  "rational_regression": {
+    "cases": 512,
+    "feasible": 35,
+    "infeasible": 477,
+    "arithmetic": "Python fractions.Fraction exact",
+    "status": "ALL_CHECKS_PASS PREFIX781 POINTWISE_EQUIVARIANT_CANCELLATION"
+  },
+  "open": "Verify native typed observation correspondence and actual per-corner budgets."
+}
