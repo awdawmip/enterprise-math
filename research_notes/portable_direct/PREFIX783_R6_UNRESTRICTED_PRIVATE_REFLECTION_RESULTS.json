@@ -1,0 +1,31 @@
+{
+  "schema": "PREFIX783_R6_PRIVATE_REFLECTION_SYMMETRIZATION_RESULTS_V1",
+  "model": "two adjacent Gamma auxiliary grid cells and reflected cells",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "theorem": "Independent private reflected corner errors with pairwise equal budgets do not expand exact pointwise loss-of-both-strict-signs set; all sign-loss configurations symmetrize to identical private pairs.",
+  "criterion": "abs(x1)<=S1+c AND abs(x2)<=S2+c AND abs(x1-x2)<=S1+S2+min(delta,2c)",
+  "arithmetic": "Python Fraction: exact rational; finite deterministic regression, not proof of universal statement",
+  "counts": {
+    "total": 4096,
+    "sign_loss_feasible": 431,
+    "strict_two_sign_universal": 3665,
+    "boundary_equalities": 11,
+    "constructed_exact_observers": 431
+  },
+  "example": {
+    "q_outside": "3/5",
+    "delta_outside": "0",
+    "all_four_unrestricted_signs": [
+      "0/1",
+      "1/20",
+      "2/5",
+      "-7/20"
+    ],
+    "q_inside": "3/5",
+    "delta_inside": "1/10",
+    "q_endpoint": "13/20",
+    "delta_endpoint": "0"
+  },
+  "excluded": "No native comparator observation, BRC propagation, physical time or source recurrence execution; no Task/CLAIM/result review.",
+  "status": "ALL_CHECKS_PASS PREFIX783 PRIVATE_REFLECTION_SYMMETRIZATION"
+}
