@@ -1,0 +1,40 @@
+{
+  "schema": "PREFIX778_R6_EQUIVARIANT_RADIUS_CERTIFICATE_V1",
+  "date": "2026-11-14",
+  "scientific_input_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "predecessor": "PREFIX-777",
+  "model": "external Gamma auxiliary, 189-layer killed-Pascal",
+  "cells": [
+    [
+      38,
+      38
+    ],
+    [
+      39,
+      39
+    ],
+    [
+      38,
+      729
+    ],
+    [
+      39,
+      728
+    ]
+  ],
+  "strict_epsilon_radius_bounds": [
+    "9020758537/10^17",
+    "9020758538/10^17"
+  ],
+  "epsilon_radius_approx": "9.0207585373397955823864330163e-8",
+  "q_star_approx": "0.02852242876345894395483482895761",
+  "improvement_ratio_over_prefix777_unrestricted": "1.33166105973473906405434188775",
+  "exact_formula": "eps_star = (A39*B38-A38*B39)/(2*(B38+2*B39)); A=-Delta mu; B=-Delta variance",
+  "necessary_condition": "scalar readout Vhat_q(p,1-z)=Vhat_q(p,z) on 14 corners; vertex error <= q epsilon",
+  "local_independently_ran_equivalent_checker": "ALL_CHECKS_PASS PREFIX778 EQUIVARIANT_SHARP_RADIUS",
+  "full_local_recalculation_json_sha256": "58e5616a673dce793e8c4d33fd0a157df0f19f625d1c6749c622673fceb23e5f",
+  "reproduction": "python3 research_notes/portable_direct/PREFIX778_R6_REFLECTION_EQUIVARIANT_RADIUS_CHECK.py",
+  "status": "AUTHOR_EXACT_INTEGER_ALGEBRAIC_CERTIFICATE / UNREVIEWED / NOT_ADMITTED",
+  "original_comparator_exclusion_count_increment": 0,
+  "next": "test source/branch/signed-port native reflection and scalar observer discrepancy"
+}
