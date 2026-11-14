@@ -1,0 +1,130 @@
+{
+  "schema": "EC49FOT_NATIVE_SUBSET_GAUGE_EXACT_V1",
+  "date": "2026-11-15",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_input_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "original_shape": {
+    "key_families": 94,
+    "codewords": 178850,
+    "configurations": 38169,
+    "labels": 24,
+    "roots": [
+      3,
+      5,
+      6,
+      7
+    ],
+    "named_legal_classes": 625
+  },
+  "exact_complete_range": {
+    "minimum_class_size": 5,
+    "maximum_class_size": 64,
+    "classes": 147,
+    "configurations": 3780,
+    "rooted_cost_entries": 682446,
+    "terminal_cost_evaluations": 1702588,
+    "unordered_pairs": 68266,
+    "root_equal_pairs": 15257,
+    "terminal_equal_pairs": 15261,
+    "nonzero_terminal_invisible_rooted_gauge_pairs": 4
+  },
+  "witnesses": [
+    {
+      "a": 17741,
+      "b": 31699,
+      "legal_class_rep": 105,
+      "allocations": 256,
+      "delta_by_root": {
+        "3": 0,
+        "5": -4,
+        "6": 4,
+        "7": 0
+      },
+      "type": "constant_transfer"
+    },
+    {
+      "a": 24354,
+      "b": 31700,
+      "legal_class_rep": 105,
+      "allocations": 256,
+      "delta_by_root": {
+        "3": 0,
+        "5": -2,
+        "6": 2,
+        "7": 0
+      },
+      "type": "constant_transfer"
+    },
+    {
+      "a": 16786,
+      "b": 19592,
+      "legal_class_rep": 16786,
+      "allocations": 64,
+      "root_positive": 6,
+      "root_negative": 7,
+      "label_set": [
+        7,
+        13,
+        17,
+        21
+      ],
+      "single_positive_label": 17,
+      "independent_optional_labels": [
+        5,
+        15
+      ],
+      "component_magnitude": 1,
+      "positive_support_root_subsets": 1,
+      "negative_support_root_subsets": 4,
+      "canceling_allocations": 4,
+      "algebraic_degree": 4,
+      "type": "subset_dependent_four_label_gauge"
+    },
+    {
+      "a": 20706,
+      "b": 35148,
+      "legal_class_rep": 17035,
+      "allocations": 64,
+      "root_positive": 5,
+      "root_negative": 7,
+      "label_set": [
+        5,
+        11,
+        15,
+        19
+      ],
+      "single_positive_label": 15,
+      "independent_optional_labels": [
+        7,
+        17
+      ],
+      "component_magnitude": 1,
+      "positive_support_root_subsets": 1,
+      "negative_support_root_subsets": 4,
+      "canceling_allocations": 4,
+      "algebraic_degree": 4,
+      "type": "subset_dependent_four_label_gauge"
+    }
+  ],
+  "verification": {
+    "exact_cpp_integer_arithmetic": true,
+    "independent_python_byte_trie": true,
+    "witness_allocation_checks": 640,
+    "o2_o3_root_coordinate_checks": 1444,
+    "exact_full_root_vector_comparison": true,
+    "complete_147_class_membership_check": true
+  },
+  "evidence_archive": {
+    "name": "EC49FOT_SUBSET_DEPENDENT_GAUGE_EVIDENCE_20261115.tar.xz",
+    "sha256": "ef45a1b2b23319a000c53e0a208854d7ad55537feba65da6a220252ae0507e25",
+    "includes_frozen_input": true,
+    "rooted_cost_csv_rows": 682446
+  },
+  "project_class_coverage_after_this": {
+    "complete_named_classes": 539,
+    "total_named_classes": 625,
+    "remaining": 86
+  },
+  "status": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "control_note": "Research Control Center identity check unavailable (operation_sent=false); GitHub artifact publication is independent portable research, not native CLAIM or Result."
+}
