@@ -1,0 +1,77 @@
+{
+  "schema": "R762AS_FRAME_COVARIANT_TOKEN_BRC_EVIDENCE_V1",
+  "scope": "Three-typed-port conditional causal-token BRC with frame-to-port permutation bridge; not P000 physical triadic closure",
+  "word_length_max": 3,
+  "word_alphabet_size": 9,
+  "words_including_empty": 820,
+  "permutations_checked": 6,
+  "macro_pairs_checked": 4920,
+  "replay_prefixes_checked": 39360,
+  "sharp_single_port_failure_checks": 79536,
+  "orbit_balance_checks": 4920,
+  "periodic_cases": 2604,
+  "unbalanced_cases": 2316,
+  "all_assertions_passed": true,
+  "examples": {
+    "triadic_cycle_sequential_seed": [
+      1,
+      0,
+      0
+    ],
+    "triadic_cycle_atomic_reserve_seed": [
+      1,
+      1,
+      1
+    ],
+    "triadic_plus_pass_word": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "slot_transposition": [
+      1,
+      0,
+      2
+    ],
+    "macro_delta": [
+      1,
+      -1,
+      0
+    ],
+    "macro_H": [
+      1,
+      0,
+      0
+    ],
+    "two_macro_delta": [
+      0,
+      0,
+      0
+    ],
+    "two_macro_H": [
+      1,
+      0,
+      0
+    ],
+    "two_macro_frame": [
+      0,
+      1,
+      2
+    ],
+    "minimum_stock_for_all_repetitions": 1,
+    "minimum_stock_without_frame_permutation_for_r_repetitions": "r"
+  }
+}
