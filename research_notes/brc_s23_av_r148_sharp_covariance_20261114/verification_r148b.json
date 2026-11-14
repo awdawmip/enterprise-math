@@ -1,0 +1,29 @@
+{
+  "schema": "EM_S23_R148B_INFINITE_SIGN_FAMILY_VERIFICATION_V1",
+  "date": "2026-11-14",
+  "science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "proof": "R148B_INFINITE_SIGN_FAMILY.md",
+  "formula": {
+    "word": "w_r = 0^r 1 0^r 1 0^r, r>=1",
+    "alpha": "1/(r+2)",
+    "beta": "3/(3r+2)",
+    "U": 2,
+    "V": 0,
+    "g": "gcd(r+2,4)",
+    "gamma_odd": "0",
+    "gamma_r_mod4_0": "1/[4(r+2)(3r+2)]",
+    "gamma_r_mod4_2": "-3/[4(r+2)(3r+2)]"
+  },
+  "finite_check": {
+    "method": "reconstruct exact prefix-pair slopes and endpoint intercepts with Fraction; independently evaluate g-term centered CRT covariance",
+    "r_min": 1,
+    "r_max": 50,
+    "positive": 12,
+    "negative": 13,
+    "zero": 25,
+    "marker": "R148B_INFINITE_SIGN_FAMILY_FINITE_RECHECK_PASS"
+  },
+  "mathematical_status": "AUTHOR_SIDE_PROOF",
+  "independent_review": "NOT_REVIEWED",
+  "next": "Classify positive alignment for other Sturmian families and test links to single-phase-fiber disappearance."
+}
