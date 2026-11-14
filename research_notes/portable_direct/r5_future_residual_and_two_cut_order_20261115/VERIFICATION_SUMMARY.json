@@ -1,0 +1,66 @@
+{
+  "schema": "R5_FUTURE_OBSERVER_AND_TWO_CUT_BOUND_VERIFICATION_20261115",
+  "status": "AUTHOR_PROVED_FINITE_EXACT_TOY_CHECKED_PREVIOUS_TABLE_DERIVATION_NOT_REVIEWED",
+  "science_input_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "source_baseline": "f397ff3067c5857e374fd82547379373a6aa9c79",
+  "quotient_trial": {
+    "status": "PASS_FUTURE_LANGUAGE_RESIDUAL_OBSERVER",
+    "random_language_and_vector_trials": 3000,
+    "suffix_masks_per_trial": 16,
+    "exact_quotient_comparisons": 48000,
+    "certified_inclusion_response_comparisons": 8112,
+    "strict_equivalence_witness": {
+      "frontier_width": 2,
+      "future_classes": 1,
+      "vectors": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "strict_inclusion_witness": {
+      "u": [
+        1,
+        0
+      ],
+      "v": [
+        0,
+        1
+      ],
+      "suffix": [
+        2
+      ],
+      "response_u": 1,
+      "response_v": 2
+    },
+    "scope": "generic finite 4-symbol suffix toy checks; not the R5 954-event instance"
+  },
+  "ordered_two_cut": {
+    "status": "PASS_R5_TWO_CUT_ORDERED_CERTIFICATES",
+    "baseline_full_stdout_sha256": "e8157e196f3d8408a11bf5f67935d4e083578844d6461433f209fed63f4e04ed",
+    "old_table": "research_notes/portable_direct/r5_low_budget_unit_recourse_20261115/EXACT_R5_OFFLINE_MAXMIN_ALL_BACKGROUND_VALUES.json",
+    "k_scope": [
+      214,
+      221
+    ],
+    "two_cut_cases": 64,
+    "old_single_cut_entries": 256,
+    "better_upper_certificate_routes": {
+      "9-then-8": 36,
+      "8-then-9": 8,
+      "tie": 20
+    },
+    "upper_minus_lower_gap": {
+      "3": 36,
+      "5": 28
+    },
+    "case_representation": "8 K × 8 background masks over {3,10,27}",
+    "exact_joint_closure_distances_computed": false
+  },
+  "publication_scope": "independent scientific materials on existing R5 Draft branch; not a Task, CLAIM, Result or Review"
+}
