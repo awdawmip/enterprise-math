@@ -1,0 +1,82 @@
+{
+  "checker": "Python standard-library exact integers; full transformation closure and exhaustive subsets of maximal masks",
+  "checks_passed": true,
+  "commuting_BRC_counterexample": {
+    "checked_lengths": "0..6",
+    "checked_weight_pairs": [
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        11
+      ]
+    ],
+    "commuting_weight_mass_length2": "u*v",
+    "left_accept_word": "ab",
+    "other_lengths_mass": "0",
+    "right_accept_word": "ba"
+  },
+  "complete_pairs": 36,
+  "distinct_output_vectors": 43,
+  "distinct_pair_separation_masks": 19,
+  "domain": "AK4 partial S/C/T on (C3 x {E}) union ({E} x S3), plus absorbing undefined",
+  "four_probe_witness": [
+    "S",
+    "C",
+    "T",
+    "CT"
+  ],
+  "frame_group_size": 6,
+  "horizon_observer_classes": [
+    5,
+    8,
+    9
+  ],
+  "maximal_masks": [
+    {
+      "mask_hex": "0x1ffddfff3",
+      "shortest_witness": "CT"
+    },
+    {
+      "mask_hex": "0x1ffdff7f3",
+      "shortest_witness": "T"
+    },
+    {
+      "mask_hex": "0x1ffdffef3",
+      "shortest_witness": "TC"
+    },
+    {
+      "mask_hex": "0x1fffdf6f7",
+      "shortest_witness": "CC"
+    },
+    {
+      "mask_hex": "0x1fffdf6fb",
+      "shortest_witness": "C"
+    },
+    {
+      "mask_hex": "0xdffddf6ff",
+      "shortest_witness": ""
+    },
+    {
+      "mask_hex": "0xed98c30bf",
+      "shortest_witness": "SS"
+    },
+    {
+      "mask_hex": "0xed98c30df",
+      "shortest_witness": "S"
+    }
+  ],
+  "maximal_pair_separation_masks": 8,
+  "minimum_number_of_future_probes": 4,
+  "nonfailure_states": 8,
+  "schema": "R762AL_DIAGNOSTIC_EXACT_V1",
+  "states": 9,
+  "three_or_fewer_probes_exhaustively_ruled_out": true,
+  "transformation_semigroup_size": 75
+}
