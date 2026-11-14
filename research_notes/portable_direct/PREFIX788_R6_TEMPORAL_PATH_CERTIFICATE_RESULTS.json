@@ -1,0 +1,33 @@
+{
+  "assertions": 11912,
+  "counts": {
+    "dual_oracle_checks": 11088,
+    "matched_sign_instances": 159,
+    "subset_instances": 168
+  },
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "named_subset_gap": {
+    "convex_margin": "0",
+    "reachable": [
+      0,
+      3,
+      5,
+      8
+    ],
+    "target": 4,
+    "true_margin": "1",
+    "weights": [
+      3,
+      5
+    ]
+  },
+  "scope": "Exact rational/integer tests of explicit external scalar models, not native X6 transfer",
+  "status": "ALL_CHECKS_PASS PREFIX788 TEMPORAL_BRANCH_DUAL_AND_SUBSET_GAP",
+  "two_stage_coupling": {
+    "law": "sigma2=sigma1 in {-1,+1}",
+    "true_margin": "2M",
+    "unconstrained_margin": "0",
+    "valid_for": "every real M>0"
+  },
+  "verification": "finite regression; general LP duality, Bellman recurrence and subset-sum reduction are proved on paper"
+}
