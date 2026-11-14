@@ -1,0 +1,116 @@
+{
+  "schema": "R762AO_EXACT_FAULT_BRC_V1",
+  "scope": "AK4 conditional eight live states and absorbing undefined, reliable initial observation, independent reset per terminal word, fixed nonadaptive probes",
+  "states": 9,
+  "baseline_equal_pairs": [
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      6,
+      7
+    ]
+  ],
+  "transformation_monoid": 75,
+  "terminal_vectors": 43,
+  "masks": [
+    {
+      "bits": "10000",
+      "representative": "S",
+      "length": 1
+    },
+    {
+      "bits": "01000",
+      "representative": "C",
+      "length": 1
+    },
+    {
+      "bits": "00101",
+      "representative": "T",
+      "length": 1
+    },
+    {
+      "bits": "00011",
+      "representative": "CT",
+      "length": 2
+    },
+    {
+      "bits": "00110",
+      "representative": "TC",
+      "length": 2
+    }
+  ],
+  "representative_masks": {
+    "S": 16,
+    "C": 8,
+    "T": 5,
+    "CT": 3,
+    "TC": 6
+  },
+  "theorem": "d=e+2t+1; Nmin(d)=2d+ceil(3d/2); Lmin(d)=ceil(9d/2)",
+  "checks": [
+    {
+      "d": 1,
+      "minimum_probes": 4,
+      "minimum_letters": 5,
+      "dp_states_N": 19,
+      "dp_states_L": 19
+    },
+    {
+      "d": 2,
+      "minimum_probes": 7,
+      "minimum_letters": 9,
+      "dp_states_N": 125,
+      "dp_states_L": 125
+    },
+    {
+      "d": 3,
+      "minimum_probes": 11,
+      "minimum_letters": 14,
+      "dp_states_N": 479,
+      "dp_states_L": 479
+    },
+    {
+      "d": 4,
+      "minimum_probes": 14,
+      "minimum_letters": 18,
+      "dp_states_N": 1349,
+      "dp_states_L": 1349
+    },
+    {
+      "d": 5,
+      "minimum_probes": 18,
+      "minimum_letters": 23,
+      "dp_states_N": 3167,
+      "dp_states_L": 3167
+    },
+    {
+      "d": 6,
+      "minimum_probes": 21,
+      "minimum_letters": 27,
+      "dp_states_N": 6516,
+      "dp_states_L": 6516
+    },
+    {
+      "d": 7,
+      "minimum_probes": 25,
+      "minimum_letters": 32,
+      "dp_states_N": 12223,
+      "dp_states_L": 12223
+    }
+  ],
+  "claims": "AUTHOR_PROVED_CONDITIONAL_NOT_REVIEWED_NOT_NATIVE_ADMITTED"
+}
