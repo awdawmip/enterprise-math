@@ -1,0 +1,92 @@
+{
+  "schema": "EC49FOP_NATIVE_TWO_KEY_FINITE_V1",
+  "date": "2026-11-14",
+  "status": "AUTHOR_FINITE_EXACT_CHECK_NOT_REVIEWED",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "input_raw_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "baseline_case": 32315,
+  "baseline_keys": [
+    0,
+    4,
+    5,
+    11,
+    37,
+    39,
+    81
+  ],
+  "inventory_size": 94,
+  "all_unordered_two_key_candidates": 78561,
+  "domain_preserving_swaps": 341,
+  "by_removed": {
+    "5,81": 1,
+    "11,81": 3,
+    "37,39": 7,
+    "37,81": 185,
+    "39,81": 145
+  },
+  "reachable_root_profiles": 168,
+  "root_value_compares": 57288,
+  "complete_legal_assignments": 648,
+  "complete_assignment_compares": 220968,
+  "terminal_equal_pairs": 0,
+  "root_equal_pairs": 0,
+  "terminal_equal_root_unequal": 0,
+  "terminal_changed_pairs": 341,
+  "terminal_changed_assignments_total": 204300,
+  "local_cancellation_pairs": 99,
+  "local_cancellation_assignments": 4728,
+  "independent_sample": {
+    "remove": [
+      5,
+      81
+    ],
+    "add": [
+      1,
+      10
+    ],
+    "target_keys": [
+      0,
+      4,
+      1,
+      11,
+      37,
+      39,
+      10
+    ],
+    "changed_root_coordinates_by_root": {
+      "03": 0,
+      "05": 8,
+      "06": 6,
+      "07": 0
+    },
+    "changed_terminal_assignments": 594,
+    "locally_compensated_assignments": 54,
+    "compensation_example": {
+      "assignments": {
+        "5": "05",
+        "7": "07",
+        "13": "07",
+        "15": "03",
+        "17": "06",
+        "19": "03",
+        "21": "03"
+      },
+      "delta_root": {
+        "03": 0,
+        "05": 2,
+        "06": -2,
+        "07": 0
+      }
+    },
+    "independently_checked_root_coordinates": 336,
+    "independently_checked_assignments": 648
+  },
+  "native_Cpp_compile": "C++17 -O2",
+  "complete_profile_rows": 57456,
+  "complete_profile_header": true,
+  "complete_profile_build": "first 325 configurations plus resumptive last 16 (same exact loop)",
+  "formal_task_publication": false,
+  "claim": false,
+  "review": "NOT_REVIEWED",
+  "archive_sha256": "73192f1dcf94f82ac387b0af4adb43adcdbcbce88b938efd1299ba1508b2ca9d"
+}
