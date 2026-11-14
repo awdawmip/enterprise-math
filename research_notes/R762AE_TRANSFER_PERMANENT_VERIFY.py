@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """R762AE: exact source-blind chronological TRANSFER-fiber census.
-Python >=3.8, standard library only. No randomness or floating point.
+Python >=3.10, standard library only. No randomness or floating point.
 Physical labeled-token enumeration and binary-permanent DP are independent.
 """
 import json
