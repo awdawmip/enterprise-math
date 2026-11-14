@@ -1,0 +1,63 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_EXACT_VERIFICATION_V1",
+  "date_local": "2026-11-14",
+  "title": "R147 CRT joint fiber fluctuation and second moment",
+  "scientific_input_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "model": "EXTERNAL_SCALAR_S23_TIED_PHASE",
+  "independent_review": "NOT_REVIEWED",
+  "execution": {
+    "command": "python /mnt/data/r147_run.py",
+    "interpreter": "Python 3, stdlib only (fractions.Fraction, itertools, math)",
+    "exact_arithmetic": true,
+    "source_file": "check_r147.py",
+    "locally_executed_stdout_marker": "R147_CRT_FIBER_FLUCTUATION_PASS",
+    "words_checked": 636,
+    "coprime_endpoint_words": 534,
+    "nonzero_joint_covariance_words": 102,
+    "all_period_residue_positions_checked": 12732,
+    "coverage": "all binary candidate strings m=1..11; every actual Sturmian word and each complete CRT residue period",
+    "counts_by_m": {
+      "1": 2,
+      "2": 4,
+      "3": 8,
+      "4": 14,
+      "5": 24,
+      "6": 36,
+      "7": 54,
+      "8": 76,
+      "9": 104,
+      "10": 136,
+      "11": 178
+    },
+    "test_program_sha256": "fb4c1a648e767e2435b568fecdc20d8c636ca3133e37179190db06f792541783"
+  },
+  "exact_witness": {
+    "m": 4,
+    "word": "0101",
+    "alpha": "1/3",
+    "beta": "2/3",
+    "g": 3,
+    "period": 3,
+    "discrepancy_cycle": [
+      "0",
+      "2/3",
+      "1/3"
+    ],
+    "period_mean": "1/3",
+    "period_variance": "2/27",
+    "covariance": "-1/27",
+    "variance_if_marginals_falsely_independent": "4/27"
+  },
+  "propositions": [
+    "R147.1 exact sawtooth decomposition",
+    "R147.2 exact CRT pair support",
+    "R147.4 period mean",
+    "R147.5 gcd-residue covariance and variance",
+    "R147.6 coprime independence"
+  ],
+  "proof_status": "AUTHOR_SIDE_HUMAN_PROOF",
+  "testing_scope": "EXHAUSTIVE_FINITE_CROSSCHECK_ONLY; universal statements follow symbolic CRT and total covariance proof",
+  "uncompleted": "Use joint CRT alignment to classify possible word extinction at K=E(m) and prove or refute all-length permanent saturation threshold.",
+  "destination": "research_notes/brc_s23_av_r147_crt_joint_fiber_20261114/",
+  "control_binding": "AUTHOR_SIDE_ONLY_NO_FORMAL_CLAIM"
+}
