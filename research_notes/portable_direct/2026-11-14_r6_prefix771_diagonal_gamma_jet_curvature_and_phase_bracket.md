@@ -1,7 +1,7 @@
 # PREFIX-771 / R6 — Exact diagonal Gamma second jet and a sharper stationary bracket
 
-Date: 2026-11-14 (Asia/Shanghai). Scientific input: immutable \`awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d\`.
-Status: \`AUTHOR_EXACT_INTEGER_CERTIFICATE / UNREVIEWED / NOT_ADMITTED\`.
+Date: 2026-11-14 (Asia/Shanghai). Scientific input: immutable `awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d`.
+Status: `AUTHOR_EXACT_INTEGER_CERTIFICATE / UNREVIEWED / NOT_ADMITTED`.
 Scope: external 189-layer killed-Pascal BRC first-stop auxiliary and two independent Gamma clocks. This continues PREFIX-769/770, without claiming native X6 dynamics, a new 1/768 exclusion, or an accepted mathematical Result.
 
 ## Theorem 771.1 — diagonal second-jet identity
@@ -73,7 +73,7 @@ Rounded *displays only*, not sign tests:
 
 ## Exact arithmetic implementation and evidence
 
-The executable \`PREFIX771_R6_DIAGONAL_HESSIAN_CHECK.py\` uses integer width tests, binomial recursion, positive K/L kernels scaled by \(T=2^{377}\), and four survivor jets \(S,S',S'',S'''\). At rational \(u=x/B\), all four jets are represented as integer vectors divided by common \(J=B^{191}\). With \(E=J^2T\), the checker builds integer-scaled \(A,A',A'',D,D',D''\) and tests the signs of the exact rational \(Q'\), \(Q''\) and upper-bound inequality using integer products, before displaying any decimal values. It was run locally and returned \`ALL_CHECKS_PASS PREFIX771 DIAGONAL_JET\`; the structured output is \`PREFIX771_R6_DIAGONAL_SECOND_JET_RESULTS.json\`.
+The executable `PREFIX771_R6_DIAGONAL_HESSIAN_CHECK.py` uses integer width tests, binomial recursion, positive K/L kernels scaled by \(T=2^{377}\), and four survivor jets \(S,S',S'',S'''\). At rational \(u=x/B\), all four jets are represented as integer vectors divided by common \(J=B^{191}\). With \(E=J^2T\), the checker builds integer-scaled \(A,A',A'',D,D',D''\) and tests the signs of the exact rational \(Q'\), \(Q''\) and upper-bound inequality using integer products, before displaying any decimal values. It was run locally and returned `ALL_CHECKS_PASS PREFIX771 DIAGONAL_JET`; the structured output is `PREFIX771_R6_DIAGONAL_SECOND_JET_RESULTS.json`.
 
 The exact second-derivative check at two endpoints establishes local convexity **at those points**. Uniqueness of the stationary root over the whole bracket, positive curvature uniformly over the bracket, off-diagonal/global minimization and the native X6 relation remain open. An attractive next route is interval/Bernstein certification of \(Q''>0\) and transverse \(Q_2>0\) throughout the bracket, followed by examining the full two-parameter Hessian and an unsolved 1/768 cell.
 
