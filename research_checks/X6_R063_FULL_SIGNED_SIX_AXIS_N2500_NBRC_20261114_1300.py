@@ -75,7 +75,7 @@ assert (other_count, other_mass) == (endpoint_count, path_mass)
 signed_slice_count = intermediate[2]
 assert signed_slice_count == 150
 assert endpoint_count - signed_slice_count == 102538902
-assert tuple([18, 24, 40, 0, 0, 0])  # explicit six-axis lift
+assert sum(z*z for z in (18, 24, 40, 0, 0, 0)) == N  # explicit six-axis lift\nassert (18, 24, 40, 0, 0, 0) != (18, 24, 40, 1, 0, 0)
 print("PASS_X6_R063_FULL_SIGNED_SIX_AXIS_N2500_NATIVE_NBRC")
 print("signed_native_six_axis_endpoints", endpoint_count)
 print("signed_native_six_axis_shortest_NBRC_mass", path_mass)
