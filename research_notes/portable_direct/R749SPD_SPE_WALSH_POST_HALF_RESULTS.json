@@ -1,0 +1,81 @@
+{
+  "schema": "R749SPD_SPE_EXACT_CERTIFICATE_RESULTS_V1",
+  "status": "PASS",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "source_model": "complete 16-atom Walsh fiber, s=3/5, t real in [1/2,3/5]",
+  "free_radius": "1/2-3*t/10",
+  "calibrated_radius": [
+    {
+      "domain": [
+        "1/2",
+        "19/35"
+      ],
+      "formula": "14/25-2*t/5",
+      "gap": "3/50-t/10",
+      "h": "9/5*(t-2/5)"
+    },
+    {
+      "domain": [
+        "19/35",
+        "3/5"
+      ],
+      "formula": "27/55-3*t/11",
+      "gap": "(3*t-1)/110",
+      "h": "(85*t-32)/55"
+    }
+  ],
+  "proof_lower": "Pminus EA weighted 4/5 + Ptwo EB weighted 1/5 yields 1/2-3t/10+4*x_0/5; calibrated lower from two exact event intersection witnesses.",
+  "polytope_exact": {
+    "SPD": {
+      "all_bases": 18564,
+      "nonsingular": 9536,
+      "feasible_including_duplicates": 392,
+      "distinct_vertices": 40,
+      "vertex_t_counts": {
+        "1/2": 20,
+        "19/35": 20
+      },
+      "tight_free": 16,
+      "tight_cal": 16,
+      "max_free_excess": "0",
+      "max_cal_excess": "0"
+    },
+    "SPE": {
+      "all_bases": 18564,
+      "nonsingular": 9536,
+      "feasible_including_duplicates": 424,
+      "distinct_vertices": 37,
+      "vertex_t_counts": {
+        "19/35": 20,
+        "3/5": 17
+      },
+      "tight_free": 13,
+      "tight_cal": 13,
+      "max_free_excess": "0",
+      "max_cal_excess": "0"
+    }
+  },
+  "endpoint_values": [
+    {
+      "t": "1/2",
+      "rho": "7/20",
+      "rho_cal": "9/25",
+      "gap": "1/100"
+    },
+    {
+      "t": "19/35",
+      "rho": "59/175",
+      "rho_cal": "12/35",
+      "gap": "1/175"
+    },
+    {
+      "t": "3/5",
+      "rho": "8/25",
+      "rho_cal": "18/55",
+      "gap": "2/275"
+    }
+  ],
+  "verification_scope": "integer Bareiss plus exact Fraction exhaustive vertex enumeration and convexity over full real parameter intervals; local standard-library implementation executed PASS; remote published script should be rerun for independent byte-level reproducibility.",
+  "review": "AUTHOR_EXACT_NOT_REVIEWED",
+  "native_transfer": "OPEN"
+}
