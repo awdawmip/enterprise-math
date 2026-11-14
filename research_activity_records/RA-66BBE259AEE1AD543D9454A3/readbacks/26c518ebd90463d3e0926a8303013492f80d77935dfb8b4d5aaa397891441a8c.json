@@ -1,0 +1,21 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/PREFIX780_R6_HETEROGENEOUS_CORNER_BUDGET_RESULTS.json",
+    "ref": "5d0d9a906bb4a7d83e3f812aa43dc2ed7579cc2a",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r6-p780-results-connector-readback-20261114",
+  "result": {
+    "isError": false,
+    "raw_connector_response": {
+      "result": {
+        "content": "{\n  \"schema\": \"PREFIX780_R6_HETEROGENEOUS_CORNER_BUDGET_RESULT_V1\",\n  \"date\": \"2026-11-14\",\n  \"research_line\": \"R6\",\n  \"mode\": \"external_scalar_gamma_auxiliary\",\n  \"scientific_input_pin\": \"awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d\",\n  \"predecessor_commit\": \"9de2d43a6559507aabf062d0ae84d0e0b47dec8a\",\n  \"exact_inherited_assumptions\": [\n    \"A1>0\",\n    \"A2>0\",\n    \"0<B1<B2\",\n    \"D=A2*B1-A1*B2>0\",\n    \"Delta_Ri Vq=q*(Ai-q*Bi)\",\n    \"Delta_Ri# Vq=-Delta_Ri Vq\"\n  ],\n  \"budget_model\": {\n    \"vertices\": \"7 base plus 7 reflected corners\",\n    \"private_sum_R1\": \"S1 = sum(epsilon_v on R1 private corners)\",\n    \"private_sum_R2\": \"S2 = sum(epsilon_v on R2 private corners)\",\n    \"shared_amplitude\": \"c0=epsilon_(39/768,39/768)\",\n    \"shared_defect\": \"delta_c >= 0\",\n    \"formula\": \"H=B2*S1+B1*S2+(B2-B1)*c0+B1*min(delta_c,2*c0)\",\n    \"all_private_defect_bounds\": \"arbitrary nonnegative, including infinite when amplitude is finite\"\n  },\n  \"result\": \"for all q>0 and all scalar readouts obeying budgets, strict positive and negative mixed increments occur if and only if H<D\",\n  \"margin\": \"max Delta >= q*(D-H)/(B1+B2) and min Delta <= -q*(D-H)/(B1+B2) when H<D\",\n  \"sharpness\": \"when H>=D choose t in (0,1] satisfying t*W+B1*min(delta_c,2*t*c0)=D and q=(A1+t*(S1+c0))/B1; resulting normalized increments (R1,R1#,R2,R2#) are (0,d_t,d_t,0)\",\n  \"exact_regression\": {\n    \"checker\": \"PREFIX780_R6_HETEROGENEOUS_CORNER_BUDGET_CHECK.py\",\n    \"arithmetic\": \"Python fractions.Fraction; finite rational polygon vertex support and explicit witness identities\",\n    \"cases\": 512,\n    \"strict_certified_cases\": 69,\n    \"sharp_witness_cases\": 443,\n    \"stdout_marker\": \"ALL_CHECKS_PASS PREFIX780 HETEROGENEOUS_SHARP_CORNER_BUDGET\"\n  },\n  \"rational_examples\": [\n    {\n      \"coefficients\": {\n        \"A1\": \"1\",\n        \"A2\": \"2\",\n        \"B1\": \"2\",\n        \"B2\": \"3\",\n        \"D\": \"1\"\n      },\n      \"epsilon_R1_private\": [\n        \"1/80\",\n        \"1/60\",\n        \"1/40\"\n      ],\n      \"epsilon_R2_private\": [\n        \"0\",\n        \"0\",\n        \"0\"\n      ],\n      \"shared_amplitude\": \"0\",\n      \"H\": \"13/80\",\n      \"minimum_normalized_margin\": \"67/400\",\n      \"classification\": \"strict_certified\"\n    },\n    {\n      \"coefficients\": {\n        \"A1\": \"1\",\n        \"A2\": \"2\",\n        \"B1\": \"2\",\n        \"B2\": \"3\",\n        \"D\": \"1\"\n      },\n      \"epsilon_R1_private\": [\n        \"1/3\",\n        \"1/4\",\n        \"1/5\"\n      ],\n      \"epsilon_R2_private\": [\n        \"0\",\n        \"0\",\n        \"0\"\n      ],\n      \"shared_amplitude\": \"0\",\n      \"H\": \"47/20\",\n      \"sharpness_scale\": \"20/47\",\n      \"sharpness_q\": \"2/3\",\n      \"four_normalized_mixed_differences\": [\n        \"0\",\n        \"0\",\n        \"0\",\n        \"0\"\n      ],\n      \"classification\": \"sharp_witness\"\n    }\n  ],\n  \"status\": \"AUTHOR_EXACT_ALGEBRAIC_PROOF_WITH_RATIONAL_REGRESSION / UNREVIEWED / NOT_ADMITTED\",\n  \"native_comparator_exclusions_added\": 0,\n  \"next\": \"obtain typed native observation map with Cell/Link/Port, branch, signed-source and time provenance and establish per-corner error budgets, prioritizing shared-corner reflection defect\"\n}\n",
+        "encoding": "utf-8",
+        "sha": "54ae2d6b8145ae314d92697c465571361ed68480",
+        "display_url": "https://github.com/awdawmip/enterprise-math/blob/5d0d9a906bb4a7d83e3f812aa43dc2ed7579cc2a/research_notes/portable_direct/PREFIX780_R6_HETEROGENEOUS_CORNER_BUDGET_RESULTS.json",
+        "display_title": "PREFIX780_R6_HETEROGENEOUS_CORNER_BUDGET_RESULTS.json"
+      }
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
