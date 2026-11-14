@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/EC49FPB_OPTIMAL_FIRST_DEPTH_20261115.py",
+    "ref": "7a4c1ff9feb40525df722ba3bf91dfd43d6a5dfc",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "EC49FPB-GITHUB-CONNECTOR-READ-20261115-0752",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"EC49FPB: exact unrestricted Bellman optimization and min-depth tie break.\nConsumes original EC49FOZ evidence and FPA 75-config prior, exact integers.\n\"\"\"\nimport json, sys, os\nfrom pathlib import Path\nfrom functools import lru_cache\nfrom collections import defaultdict\nR=Path(__file__).resolve().parent\nsys.path[:0]=[str(R/'EC49FOZ_evidence'), str(R)]\nos.chdir(R/'EC49FOZ_evidence')\nimport EC49FOZ_verify as frozen\nfrom EC49FPA_CONFIG_WEIGHTED_3 import weights_for\n\ndef solve(X,weights):\n n=len(X); q=len(X[0]); FULL=(1<<n)-1\n masks=[]\n for j in range(q):\n  fibers={}\n  for i in range(n):\n   k=X[i][j];fibers[k]=fibers.get(k,0)|(1<<i)\n  masks.append(tuple(fibers.values()))\n @lru_cache(None)\n def sumw(v):return sum(weights[i] for i in range(n) if v>>i&1)\n @lru_cache(None)\n def dp(v):\n  if v.bit_count()==1:return (0,0)\n  best=None\n  for parts in masks:\n   kids=[v&p for p in parts];kids=[k for k in kids if k.bit_count()>1]\n   if len(kids)==1 and kids[0]==v:continue\n   parts2=[dp(k) for k in kids]\n   cost=sumw(v)+sum(e for e,d in parts2)\n   depth=1+max((d for e,d in parts2),default=0)\n   if best is None or (cost,depth)<best:best=(cost,depth)\n  return best\n root=dp(FULL)\n first=[]\n for j,p in enumerate(masks):\n  kids=[FULL&v for v in p];kids=[k for k in kids if k.bit_count()>1]\n  cost=sumw(FULL)+sum(dp(k)[0] for k in kids)\n  depth=1+max((dp(k)[1] for k in kids),default=0)\n  if cost==root[0]:\n   first.append({'first':j,'best_expected_weighted_total':cost,\n                 'minimal_worst_case_depth_given_first':depth})\n return {'global_minimum':root,\n         'expectation_optimal_first_queries':first,\n         'memoized_states':dp.cache_info().currsize}\n\nif __name__=='__main__':\n k,c=frozen.load();out={}\n for rep in (14304,14309):\n  x=frozen.costs(rep,k,c);out[rep]={}\n  for prior,w in [('profiles',[1]*40),\n                  ('configurations',weights_for(rep))]:\n   o=solve(x,w);out[rep][prior]=o\n   expected=(73,3) if prior=='profiles' else (177,3)\n   assert tuple(o['global_minimum'])==expected\n   assert [(t['first'],t['minimal_worst_case_depth_given_first'])\n           for t in o['expectation_optimal_first_queries']] == (\n           [(78,3),(99,4),(177,4)] if (rep,prior)==(14304,'profiles')\n           else [(119,3),(153,4),(191,4)] if prior=='profiles'\n           else [(78,3)] if rep==14304 else [(119,3)])\n   print('GLOBAL_OPTIMUM_PASS',rep,prior,o,flush=True)\n (R/'EC49FPB_OPTIMAL_FIRST_DEPTH_RESULT.json').write_text(json.dumps(out,indent=2)+'\\n')\n print('EC49FPB_GLOBAL_EXPECTATION_AND_DEPTH_CLASSIFICATION_PASS')\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/7a4c1ff9feb40525df722ba3bf91dfd43d6a5dfc/research_notes/portable_direct/EC49FPB_OPTIMAL_FIRST_DEPTH_20261115.py",
+      "encoding": "utf-8",
+      "sha": "e795cef0b6b1095b7c7068e00f60bb0546af9a74"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
