@@ -1,0 +1,199 @@
+{
+  "result": "R153_DISTINCT_DENOMINATOR_INJECTIVITY_AND_RESONANT_ALIAS_PASS",
+  "arithmetic": "exact Python integers and fractions.Fraction",
+  "endpoint_test": {
+    "all_reduced_pairs": 990,
+    "unequal_denominator_pairs": 888,
+    "equal_denominator_pairs": 102,
+    "total_cut_states": 68214,
+    "unequal_cut_states": 58760,
+    "examples": [
+      {
+        "endpoints": [
+          1,
+          3,
+          2,
+          3
+        ],
+        "first": [
+          0,
+          2
+        ],
+        "second": [
+          1,
+          0
+        ],
+        "D": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "endpoints": [
+          1,
+          3,
+          2,
+          3
+        ],
+        "first": [
+          0,
+          1
+        ],
+        "second": [
+          2,
+          0
+        ],
+        "D": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "endpoints": [
+          1,
+          3,
+          2,
+          3
+        ],
+        "first": [
+          1,
+          1
+        ],
+        "second": [
+          2,
+          2
+        ],
+        "D": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "endpoints": [
+          1,
+          4,
+          3,
+          4
+        ],
+        "first": [
+          0,
+          3
+        ],
+        "second": [
+          1,
+          0
+        ],
+        "D": [
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "endpoints": [
+          1,
+          4,
+          3,
+          4
+        ],
+        "first": [
+          0,
+          2
+        ],
+        "second": [
+          2,
+          0
+        ],
+        "D": [
+          1,
+          0,
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  "resonant_family": {
+    "b_range": [
+      3,
+      50
+    ],
+    "tested_states": 42920,
+    "waveform_count_formula": "b(b+1)/2 for every b in this range"
+  },
+  "actual_alternating": {
+    "h_range": [
+      2,
+      50
+    ],
+    "paired_words": 49,
+    "checked_coefficients": 5047
+  },
+  "finite_word_sweep": [
+    {
+      "m": 1,
+      "actual_words": 2,
+      "same_denominator_actual_words": 0
+    },
+    {
+      "m": 2,
+      "actual_words": 4,
+      "same_denominator_actual_words": 0
+    },
+    {
+      "m": 3,
+      "actual_words": 8,
+      "same_denominator_actual_words": 0
+    },
+    {
+      "m": 4,
+      "actual_words": 14,
+      "same_denominator_actual_words": 2
+    },
+    {
+      "m": 5,
+      "actual_words": 24,
+      "same_denominator_actual_words": 0
+    },
+    {
+      "m": 6,
+      "actual_words": 36,
+      "same_denominator_actual_words": 2
+    },
+    {
+      "m": 7,
+      "actual_words": 54,
+      "same_denominator_actual_words": 0
+    },
+    {
+      "m": 8,
+      "actual_words": 76,
+      "same_denominator_actual_words": 2
+    },
+    {
+      "m": 9,
+      "actual_words": 104,
+      "same_denominator_actual_words": 0
+    },
+    {
+      "m": 10,
+      "actual_words": 136,
+      "same_denominator_actual_words": 2
+    },
+    {
+      "m": 11,
+      "actual_words": 178,
+      "same_denominator_actual_words": 0
+    },
+    {
+      "m": 12,
+      "actual_words": 224,
+      "same_denominator_actual_words": 2
+    }
+  ],
+  "independence": "author-side exhaustive and symbolic validation only; NOT_REVIEWED"
+}
