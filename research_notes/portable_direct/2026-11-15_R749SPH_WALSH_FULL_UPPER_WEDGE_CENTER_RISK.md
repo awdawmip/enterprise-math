@@ -100,7 +100,33 @@ All 38 vertices project to one of the three parameter corners: 17 at \((1/2,1/2)
 
 The bit-pair swap \(k\mapsto((k\mathbin{\&}3)\ll2)\mathbin{|}((k\mathbin{\&}12)\gg2)\) swaps the \(t,s\) coefficients and permutes the four linear-source coefficients. It preserves probability positivity and TV, transferring the exact theorem to \(D_0^\top\). This is the already established automorphism from R749SPG; no new observer quotient is taken.
 
-## 4. BRC carrier interpretation and a discriminating example
+## 4. Exact parametric Minkowski decomposition of the compatible fiber
+
+The complete vertex certificate gives a second structural result. Write the three vertices of the complementary parameter triangle as \(A=(1/2,1/2)\), \(B=(3/5,2/5)\), \(C=(1,1)\). The barycentric coordinates of any real \((t,s)\in D_0\) are
+\[
+\lambda_A=2(1-3t+2s),\qquad
+\lambda_B=5(t-s),\qquad
+\lambda_C=t+s-1.
+\]
+They are nonnegative on \(D_0\) and sum exactly to one.
+
+**Exact fiber theorem:** Under the frozen seven-Walsh-term positive-law model,
+\[
+\boxed{F(t,s)=\lambda_A F(A)+\lambda_B F(B)+\lambda_C F(C)}
+\]
+where the right side is the weighted Minkowski sum of sets of 16-atom probability laws (the coefficient-zero terms are omitted).
+
+Proof: The inclusion from right to left follows by convexity of the laws, affine dependence of the fixed Walsh moments on \(t,s\), and positivity. Conversely, consider any point \((t,s,p)\) in the seven-dimensional joint polytope \(\mathcal P\). Every vertex of \(\mathcal P\) projects to \(A,B\), or \(C\), as exactly certified by the complete 38-vertex enumeration (histogram 17,20,1). Expressing the point as a convex combination of vertices and grouping them by the three projected corners produces corner-fiber laws \(p_A,p_B,p_C\). The parameter barycentric coordinates are unique, hence the three grouped weights are exactly \(\lambda_A,\lambda_B,\lambda_C\). This proves the reverse inclusion for every real parameter point.
+
+The center \(q_0\) is affine in \((t,s)\), so it respects this decomposition. Therefore the three exact corner bounds \(1/2,2/5,0\) imply
+\[
+\operatorname{TV}(p,q_0(t,s))
+\le\lambda_A\frac12+\lambda_B\frac25+\lambda_C0
+=1-t.
+\]
+This recovers the uniform upper estimate directly from a three-fiber mixing rule. It also provides a reusable finite generator for every compatible source distribution over the whole complementary triangle, supporting future parametric minimax calculations without an independent new source-fiber enumeration at each parameter point.
+
+## 5. BRC carrier interpretation and a discriminating example
 
 The four-branch positive carrier keeps \(a=\chi_3\), \(b=\chi_{12}\), \(c=\chi_1\), \(d=\chi_4\) with
 \[
@@ -117,7 +143,7 @@ For example, at \((t,s)=(3/5,3/5)\), which lies inside \(D_0\), the canonical ce
 
 The two existing minimax triangles and the two complementary risk triangles cover the upper parameter triangle. This is a complete exact center-risk classification on that domain, with the separate global minimax phase boundaries inside the complementary region still to be mapped.
 
-## 5. Reproduction, provenance, remaining problem
+## 6. Reproduction, provenance, remaining problem
 
 Files in research_notes/portable_direct:
 - R749SPH_UPPER_WEDGE_CENTER_RISK_EXACT_CERT.py
