@@ -174,6 +174,6 @@ if __name__=='__main__':
            "verification":"ALL_CHECKS_PASS PREFIX773"
         }
     print(json.dumps(output,indent=2))
-    with open('/mnt/data/PREFIX773_R6_EXACT_DIAGONAL_LOCAL_BOUNDS_RESULTS.json','w') as ff:
+    with open(__import__('pathlib').Path(__file__).with_name('PREFIX773_R6_EXACT_DIAGONAL_LOCAL_BOUNDS_RESULTS.json'),'w') as ff:
         json.dump(output,ff,indent=2);ff.write('\n')
     print('ALL_CHECKS_PASS PREFIX773')
