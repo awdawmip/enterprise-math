@@ -1,0 +1,97 @@
+{
+  "alternating": [
+    {
+      "chronological_min_interruptions": 1,
+      "chronology_penalty": 0,
+      "m": 1,
+      "macro_count": 2,
+      "unrestricted_first_start_min_interruptions": 1
+    },
+    {
+      "chronological_min_interruptions": 2,
+      "chronology_penalty": 1,
+      "m": 2,
+      "macro_count": 4,
+      "unrestricted_first_start_min_interruptions": 1
+    },
+    {
+      "chronological_min_interruptions": 3,
+      "chronology_penalty": 2,
+      "m": 3,
+      "macro_count": 6,
+      "unrestricted_first_start_min_interruptions": 1
+    },
+    {
+      "chronological_min_interruptions": 4,
+      "chronology_penalty": 3,
+      "m": 4,
+      "macro_count": 8,
+      "unrestricted_first_start_min_interruptions": 1
+    },
+    {
+      "chronological_min_interruptions": 5,
+      "chronology_penalty": 4,
+      "m": 5,
+      "macro_count": 10,
+      "unrestricted_first_start_min_interruptions": 1
+    }
+  ],
+  "counterexample": {
+    "one_seed_min_interruptions": {
+      "aabb": 1,
+      "abab": 2
+    },
+    "q": 3,
+    "source_root_counts": {
+      "0": 2,
+      "1": 2
+    },
+    "terminal_pass_per_edge": 4,
+    "two_seeds_min_interruptions": {
+      "aabb": 0,
+      "abab": 0
+    },
+    "word_aabb": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "word_abab": [
+      0,
+      1,
+      0,
+      1
+    ]
+  },
+  "date": "2026-11-14",
+  "domain": "q=2..5, two distinct named roots, all words of length 1..7 beginning with 0, every second-root offset; K=1; plus stated counterexample and alternating m=1..5",
+  "finite_tests": [
+    {
+      "all_assertions_passed": true,
+      "cases": 127,
+      "q": 2
+    },
+    {
+      "all_assertions_passed": true,
+      "cases": 254,
+      "q": 3
+    },
+    {
+      "all_assertions_passed": true,
+      "cases": 381,
+      "q": 4
+    },
+    {
+      "all_assertions_passed": true,
+      "cases": 508,
+      "q": 5
+    }
+  ],
+  "finite_total": 1270,
+  "mathematical_review": "NOT_REVIEWED",
+  "method": "complete integer dynamic programming of legal macro shuffles with first-start order, progress vector and exact port stocks",
+  "native_force_admission": "NOT_TESTED",
+  "result": "ALL_ASSERTIONS_PASSED",
+  "schema": "R762Z_EXACT_CHRONOLOGICAL_TWO_ROOT_VALIDATION_V1"
+}
