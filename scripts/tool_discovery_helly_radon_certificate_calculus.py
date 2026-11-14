@@ -134,7 +134,7 @@ def check_carath_lower_bound(d_min: int = 2, d_max: int = 8):
 
 
 def check_enterprise_demos():
-    # Fixed-sector S_12: address coordinates (a,b), interpreted as (a,b,0).
+    # Historical S_12 fixed-positive two-generator chart (a,b,0); not an X6 native Cell address.
     chart_constraints = [
         (frozenset(range(2, 8)), frozenset(range(1, 7))),
         (frozenset(range(5, 10)), frozenset(range(0, 5))),
@@ -163,7 +163,9 @@ def check_enterprise_demos():
             "globally_feasible": box_intersects(chart_constraints),
             "common_a_values": chart_common[0],
             "common_b_values": chart_common[1],
-            "sample_native_address": [5, 3, 0],
+            "coordinate_type": "FIXED_POSITIVE_S12_LOCAL_CHART",
+            "sample_fixed_positive_chart_address": [5, 3, 0],
+            "native_cell_address_status": "UNSPECIFIED_REQUIRES_CELL_ANCHOR_AND_ORDERED_SIGNED_AXIS_EMBEDDING",
         },
         "typed_boolean_brc_support": {
             "globally_feasible": box_intersects(support_constraints),
