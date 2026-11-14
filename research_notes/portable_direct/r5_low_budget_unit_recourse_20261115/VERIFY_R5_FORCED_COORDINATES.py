@@ -4,6 +4,7 @@ Computes lexicographic (cost, negative overlap) path DP in both directions and c
 all globally nearest old optimum paths. Standard library only, no floating point.
 """
 import json
+import sys
 from collections import Counter
 from fractions import Fraction
 
@@ -110,7 +111,8 @@ def analyze(S,G,expected_cost=1064):
            'marginals_for_near_original_witness':{str(j):str(marg[j]) for j in S if 0<marg[j]<tot}}
 
 def main():
-    data=json.load(open('/mnt/data/EXACT_R5_K214_NONLOCAL_RECOURSE.json',encoding='utf-8'))
+    witness_path=sys.argv[1] if len(sys.argv)>1 else 'EXACT_R5_K214_NONLOCAL_RECOURSE.json'
+    data=json.load(open(witness_path,encoding='utf-8'))
     x,cuts=frozen();G=graph(x)
     result=[]
     for row in data['witnesses']:
