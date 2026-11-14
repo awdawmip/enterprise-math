@@ -1,0 +1,82 @@
+{
+  "status": "PASS_EXACT_R5_ALL_CLOSURE_HIGH_BUDGET_SPECTRUM",
+  "science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "scope": "derived one-dimensional radius-2 cover observer",
+  "event_count": 954,
+  "cut_count": 28,
+  "closure_patterns": 268435456,
+  "all_pattern_certificate": "monotonic sandwich between exactly solved anchors",
+  "fixed_K_range": [
+    214,
+    954
+  ],
+  "fixed_K_formula_from_315": {
+    "315_to_350": "1305-2*K",
+    "351_to_954": "954-K"
+  },
+  "K_213": "1070 - int(cut8_closed or cut9_closed)",
+  "anchors": {
+    "none": {
+      "min_feasible_K": 213,
+      "J_213": 1070,
+      "J_214": 1064,
+      "J_315": 675,
+      "J_351": 603,
+      "J_954": 0,
+      "spectrum_length": 742
+    },
+    "all": {
+      "min_feasible_K": 207,
+      "J_213": 1069,
+      "J_214": 1064,
+      "J_315": 675,
+      "J_351": 603,
+      "J_954": 0,
+      "spectrum_length": 748
+    },
+    "without_8_9": {
+      "min_feasible_K": 208,
+      "J_213": 1070,
+      "J_214": 1064,
+      "J_315": 675,
+      "J_351": 603,
+      "J_954": 0,
+      "spectrum_length": 747
+    },
+    "only_8": {
+      "min_feasible_K": 212,
+      "J_213": 1069,
+      "J_214": 1064,
+      "J_315": 675,
+      "J_351": 603,
+      "J_954": 0,
+      "spectrum_length": 743
+    },
+    "only_9": {
+      "min_feasible_K": 212,
+      "J_213": 1069,
+      "J_214": 1064,
+      "J_315": 675,
+      "J_351": 603,
+      "J_954": 0,
+      "spectrum_length": 743
+    }
+  },
+  "original_margin_counts": {
+    "1": 603,
+    "2": 36,
+    "3": 23,
+    "4": 70,
+    "5": 8,
+    "6": 1
+  },
+  "small_sequences_exhaustive_subset_crosschecks": 480,
+  "independent_full_spectrum_DP_anchor_count": 5,
+  "random_closure_direct_crosschecks": 100,
+  "not_done": [
+    "full 2**28 brute force enumeration",
+    "exact J_K for partially closed patterns with K=207..212",
+    "native X6 / BRC performance benchmark",
+    "independent formal mathematical review"
+  ]
+}
