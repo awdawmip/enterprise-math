@@ -1,0 +1,81 @@
+{
+  "center": "q_t=p(t,3/5,h(t),0,0,0,0), h(t)=1/5-3t/2 on [2/15,1/5] and h(t)=(t-2/5)/2 on [1/5,2/5]",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "lower": {
+    "all_t_TV": "(18/5-t)/4",
+    "corner_distances": [
+      {
+        "t": "2/15",
+        "tv": "13/15"
+      },
+      {
+        "t": "1/5",
+        "tv": "17/20"
+      },
+      {
+        "t": "2/5",
+        "tv": "4/5"
+      }
+    ],
+    "endpoint_nonnegativity_and_sign_constancy": true,
+    "source_pair": [
+      "p(t,3/5,0,t,t,1-t,3/5)",
+      "p(t,3/5,0,-t,-t,t-1,-3/5)"
+    ]
+  },
+  "old_center_repair": {
+    "old_h": "0",
+    "old_risk_witness": "9/20",
+    "parameter": [
+      "1/5",
+      "3/5"
+    ],
+    "repaired_full_fiber_risk": "17/40",
+    "repaired_h": "-1/10",
+    "target_radius": "17/40"
+  },
+  "research_id": "R749SPA",
+  "review_status": "AUTHOR_EXACT_NOT_REVIEWED",
+  "scope": "auxiliary 16-atom Walsh source family; s=3/5, real 2/15<=t<=2/5",
+  "status": "PASS",
+  "theorem": "rho(t,3/5)=rho_cal(t,3/5)=(18/5-t)/8",
+  "universal_real_argument": "bounded joint (t,h,u,v,w,z) source polytope; exact all-vertex convex risk bound per piece; compatible affine center; affine source-pair lower bound",
+  "upper": [
+    {
+      "active_six_constraint_combinations": 18564,
+      "distinct_exact_vertices": 78,
+      "feasible_bases_with_multiplicity": 580,
+      "h_center": "1/5 + (-3/2)*t",
+      "joint_polytope_bounded_and_full_dim": true,
+      "max_risk_excess": "0",
+      "nonsingular_bases": 9536,
+      "t_coordinate_histogram": {
+        "1/5": 34,
+        "2/15": 44
+      },
+      "t_range": [
+        "2/15",
+        "1/5"
+      ],
+      "tight_vertices": 32
+    },
+    {
+      "active_six_constraint_combinations": 18564,
+      "distinct_exact_vertices": 54,
+      "feasible_bases_with_multiplicity": 948,
+      "h_center": "-1/5 + (1/2)*t",
+      "joint_polytope_bounded_and_full_dim": true,
+      "max_risk_excess": "0",
+      "nonsingular_bases": 9536,
+      "t_coordinate_histogram": {
+        "1/5": 34,
+        "2/5": 20
+      },
+      "t_range": [
+        "1/5",
+        "2/5"
+      ],
+      "tight_vertices": 18
+    }
+  ]
+}
