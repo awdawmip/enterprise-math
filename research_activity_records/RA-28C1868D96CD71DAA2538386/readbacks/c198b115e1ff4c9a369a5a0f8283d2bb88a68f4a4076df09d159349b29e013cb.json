@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r143_prefix_pair_elimination_20261114/check_r143b.py",
+    "ref": "9b930f2dd5fc48cb046657b9d6580cb807301bad",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r143b-20261114-2-github-observed",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R143B exact periodic slack growth and asymptotic lift-count regression.\"\"\"\nfrom fractions import Fraction\nfrom math import lcm\nfrom random import Random\nfrom check_r143 import observed\n\n\ndef data(K, word):\n    m = len(word)\n    L = K - 1\n    assert K >= 2\n    s = [0]\n    for b in word:\n        s.append(s[-1] + b)\n    low, high = 0, L - 1\n    alpha, beta = Fraction(0), Fraction(1)\n    for i in range(m + 1):\n        for j in range(i + 1, m + 1):\n            h = j - i\n            d = s[j] - s[i]\n            alpha = max(alpha, Fraction(d - 1, h))\n            beta = min(beta, Fraction(d + 1, h))\n            B = L * (d - 1) + i * s[j] - j * (s[i] + 1)\n            A = L * (d + 1) + i * (s[j] + 1) - j * s[i]\n            low = max(low, B // h + 1)\n            high = min(high, -((-A) // h) - 1)\n    return low, high, alpha, beta\n\n\ndef run():\n    rng = Random(20261114)\n    result = {\n        \"status\": \"R143B_PERIODIC_LIFT_MULTIPLICITY_PASS\",\n        \"random_words\": 0,\n        \"periodic_slack_checks\": 0,\n        \"positive_lift_growth_checks\": 0,\n        \"absolute_asymptotic_bound_checks\": 0,\n        \"large_coefficient_checks\": 0,\n    }\n    for m in range(1, 19):\n        P = lcm(*range(1, m + 1))\n        M = m * (m + 1) + 1\n        for z in range(100):\n            if z < 50:\n                K = rng.randint(2, 10000)\n                theta = Fraction(rng.randint(1, 20000), 20003)\n                w = observed(K, m, theta)\n            else:\n                K = rng.randint(2, 10000)\n                w = tuple(rng.getrandbits(1) for _ in range(m))\n            n0, n1, alpha, beta = data(K, w)\n            n0p, n1p, ap, bp = data(K + P, w)\n            assert (alpha, beta) == (ap, bp)\n            assert n0p <= n0 + P * alpha\n            assert n1p >= n1 + P * beta\n            result[\"periodic_slack_checks\"] += 1\n            if alpha < beta and n0 <= n1:\n                assert n1p - n0p + 1 >= n1 - n0 + 1 + P * (beta - alpha)\n                result[\"positive_lift_growth_checks\"] += 1\n            if alpha < beta:\n                C = max(0, n1 - n0 + 1)\n                assert abs(C - Fraction(K - 1) * (beta - alpha)) <= 2 * M + 1\n                result[\"absolute_asymptotic_bound_checks\"] += 1\n            result[\"random_words\"] += 1\n    for m in (10, 20, 30, 40):\n        for _ in range(25):\n            K = 10 ** 80 + rng.randint(2, 100000)\n            theta = Fraction(rng.randint(1, 100000), 100003)\n            w = observed(K, m, theta)\n            n0, n1, alpha, beta = data(K, w)\n            assert alpha < beta and n0 <= n1\n            C = n1 - n0 + 1\n            assert abs(C - (K - 1) * (beta - alpha)) <= 2 * m * (m + 1) + 3\n            result[\"large_coefficient_checks\"] += 1\n    print(result)\n\n\nif __name__ == \"__main__\":\n    run()\n",
+      "display_title": "check_r143b.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9b930f2dd5fc48cb046657b9d6580cb807301bad/research_notes/brc_s23_av_r143_prefix_pair_elimination_20261114/check_r143b.py",
+      "encoding": "utf-8",
+      "sha": "5d6c3cec675e5f45cb0f5da0e7a4557fb9204c78"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
