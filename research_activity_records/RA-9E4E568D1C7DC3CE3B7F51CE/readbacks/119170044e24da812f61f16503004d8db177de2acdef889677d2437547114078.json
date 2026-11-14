@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R749SPO_WALSH_H_AXIS_INTERVAL_CERT.py",
+    "ref": "bc071b09d96f66246c781b93ea395094e64daf9b",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r749spo-github-full-file-observation-2-20261115",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact rational certificate for the complete h-axis minimax-center interval.\nScientific source pin: awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389.\n\"\"\"\nimport json\nfrom itertools import combinations\nfrom math import comb\nfrom fractions import Fraction as F\n\nMASKS=(3,12,15,1,2,4,8)\nW=tuple(tuple(-1 if (k&m).bit_count()%2 else 1 for m in MASKS) for k in range(16))\n\ndef solve(rows,rhs,inds):\n    n=7\n    a=[list(rows[i])+[rhs[i]] for i in inds]\n    prev=1\n    for j in range(n-1):\n        p=next((i for i in range(j,n) if a[i][j]),None)\n        if p is None:return None\n        if p!=j:a[j],a[p]=a[p],a[j]\n        pivot=a[j][j]\n        for i in range(j+1,n):\n            v=a[i][j]\n            for k in range(j+1,n+1):\n                z=a[i][k]*pivot-v*a[j][k]\n                if z%prev:raise ArithmeticError('Non-exact Bareiss division')\n                a[i][k]=z//prev\n            a[i][j]=0\n        prev=pivot\n    if not a[n-1][n-1]:return None\n    x=[F(0)]*n\n    for j in range(n-1,-1,-1):\n        x[j]=(F(a[j][n])-sum((a[j][k]*x[k] for k in range(j+1,n)),F(0)))/a[j][j]\n    return tuple(x)\n\ndef law(t,s,h,u=0,v=0,w=0,z=0):\n    c=(t,s,h,u,v,w,z)\n    return tuple((1+sum(a*b for a,b in zip(row,c)))/16 for row in W)\n\ndef tv(p,q):\n    return sum((abs(a-b) for a,b in zip(p,q)),F(0))/2\n\n# Affine h(t,s)=A*t+B*s+C. Each case has exactly one extra chamber facet.\nCASES=(\n ('lower-left', (2,-1,0), (-1,-2,0,0,0,0,0), -1),\n ('lower-right',(3,1,-1),(1,2,0,0,0,0,0), 1),\n ('upper-left',(0,1,0),(-3,-2,0,0,0,0,0), -1),\n ('upper-right',(-3,-1,1),(3,2,0,0,0,0,0),1),\n)\n\ndef run():\n    out={}\n    for tag, hcoef, extra, rhs_extra in CASES:\n        rows=list(W)+[(1,0,0,0,0,0,0),(-1,1,0,0,0,0,0),(-4,-1,0,0,0,0,0),extra]\n        rhs=[-1]*16+[0,0,-1,rhs_extra]\n        nonsing=feasible=0\n        verts=set()\n        for inds in combinations(range(20),7):\n            x=solve(rows,rhs,inds)\n            if x is None:continue\n            nonsing+=1\n            if all(sum(a*b for a,b in zip(row,x))>=bound for row,bound in zip(rows,rhs)):\n                feasible+=1\n                verts.add(x)\n        maximum=None\n        tight=0\n        for x in verts:\n            t,s=x[:2]\n            h=hcoef[0]*t+hcoef[1]*s+hcoef[2]\n            p=law(*x)\n            q=law(t,s,h)\n            assert min(p)>=0 and min(q)>=0 and sum(p)==sum(q)==1\n            excess=tv(p,q)-(1-t)/2\n            maximum=excess if maximum is None else max(maximum,excess)\n            tight+=excess==0\n        assert maximum==0,(tag,maximum)\n        out[tag]={\n          'h':str(hcoef),\n          'candidate_bases':comb(20,7),\n          'nonsingular':nonsing,\n          'feasible_bases_including_repeats':feasible,\n          'distinct_vertices':len(verts),\n          'tight_vertices':tight,\n          'maximum_exact_excess':str(maximum)}\n    print(json.dumps({\n      'status':'PASS',\n      'pin':'awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389',\n      'cases':out},sort_keys=True,indent=2))\n\nif __name__=='__main__':\n    run()\n",
+      "display_title": "R749SPO_WALSH_H_AXIS_INTERVAL_CERT.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/bc071b09d96f66246c781b93ea395094e64daf9b/research_notes/portable_direct/R749SPO_WALSH_H_AXIS_INTERVAL_CERT.py",
+      "encoding": "utf-8",
+      "sha": "e9f67799e261cc41a7c2430004d379e22a4e7392"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
