@@ -1,0 +1,80 @@
+{
+  "cal_center": "p(t,3/5,9/5*(t-2/5),0,0,0,0)",
+  "calibrated_radius": "14/25-2*t/5",
+  "coverage": "exact full joint polytope vertex enumeration plus convexity for all real t",
+  "free_center": "p(2*t-4/5,1,2*t-4/5,0,0,0,0)",
+  "free_radius": "3/5-t/2",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "gap": "(t-2/5)/10",
+  "lower": {
+    "cal_event_1": {
+      "bound": "13/20-5*t/8+h/8",
+      "positive_event_indices": [
+        7,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "source": "p(t,3/5,t-2/5,-2/5,-2/5,t-1,t-1)"
+    },
+    "cal_event_2": {
+      "bound": "1/5+t/2-h/2",
+      "positive_event_indices": [
+        0,
+        3,
+        5,
+        6,
+        9,
+        10,
+        12,
+        15
+      ],
+      "source": "p(t,3/5,t+2/5,0,0,t-3/5,t-3/5)"
+    },
+    "cal_lower_intersection_h": "9/5*(t-2/5)",
+    "cal_lower_radius": "14/25-2*t/5",
+    "endpoint_checks": [
+      {
+        "cal_q_min_atom": "0",
+        "cal_radius": "2/5",
+        "free_q_min_atom": "0",
+        "free_radius": "2/5",
+        "source_pair_TV": "4/5",
+        "t": "2/5"
+      },
+      {
+        "cal_q_min_atom": "1/200",
+        "cal_radius": "9/25",
+        "free_q_min_atom": "0",
+        "free_radius": "7/20",
+        "source_pair_TV": "7/10",
+        "t": "1/2"
+      }
+    ],
+    "free_pair_TV_all_t": "6/5-t",
+    "pair_sign_consistency": true
+  },
+  "model": "Complete compatible 16-atom Walsh source; s=3/5, real t in [2/5,1/2]",
+  "native_X6_transfer": "OPEN",
+  "research_id": "R749SPC",
+  "review": "AUTHOR_EXACT_NOT_REVIEWED",
+  "status": "PASS",
+  "upper": {
+    "active_basis_combinations": 18564,
+    "cal_tight_vertices": 16,
+    "dimension": 6,
+    "distinct_exact_vertices": 40,
+    "facet_count": 18,
+    "feasible_bases_with_multiplicity": 780,
+    "free_tight_vertices": 16,
+    "max_cal_risk_excess": "0",
+    "max_free_risk_excess": "0",
+    "nonsingular_bases": 9536,
+    "vertex_t_values": {
+      "1/2": 20,
+      "2/5": 20
+    }
+  }
+}
