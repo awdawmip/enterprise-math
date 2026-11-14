@@ -1,83 +1,364 @@
 {
-  "schema": "R762AU_BRC_MICROSTEP_CERTIFICATE_SUMMARY_V1",
+  "schema": "R762AU_BRC_MICROSTEP_EXACT_CERTIFICATE_V1",
   "status": "PASS",
-  "verification_date": "2026-11-15",
-  "scope": "20 triads, 9 neighbors, 8 PASS masks, 1440 affine score functions; all n>= N via exact affine proof",
-  "rho": "any rational>1",
-  "masks": [
-    {
-      "mask": 0,
-      "N": 15,
-      "ties": 0,
-      "changed": 0
-    },
-    {
-      "mask": 1,
-      "N": 16,
-      "ties": 1,
-      "changed": 1
-    },
-    {
-      "mask": 2,
-      "N": 15,
-      "ties": 1,
-      "changed": 2
-    },
-    {
-      "mask": 3,
-      "N": 15,
-      "ties": 2,
-      "changed": 2
-    },
-    {
-      "mask": 4,
-      "N": 15,
-      "ties": 1,
-      "changed": 2
-    },
-    {
-      "mask": 5,
-      "N": 16,
-      "ties": 2,
-      "changed": 2
-    },
-    {
-      "mask": 6,
-      "N": 14,
-      "ties": 3,
-      "changed": 3
-    },
-    {
-      "mask": 7,
-      "N": 14,
-      "ties": 0,
-      "changed": 0
-    }
+  "source": "V23/V25/V27 conditional selector + actual V29 PASS updates",
+  "states": 20,
+  "neighbors_per_state": 9,
+  "masks": 8,
+  "affine_scores": 1440,
+  "proof_domain": "all integers n>=per-mask sharp_onset",
+  "rho": "any rational >1; exact monotone exponent comparison",
+  "sharp_thresholds": [
+    15,
+    16,
+    15,
+    15,
+    15,
+    16,
+    14,
+    14
   ],
-  "distinct_asymptotic_relations": 7,
-  "only_equal_pair": [
+  "permanent_tie_counts": [
     0,
-    7
+    1,
+    1,
+    2,
+    1,
+    2,
+    3,
+    0
   ],
-  "reversal": {
+  "changed_state_counts": [
+    0,
+    1,
+    2,
+    2,
+    2,
+    2,
+    3,
+    0
+  ],
+  "equal_relation_masks": [
+    [
+      0,
+      7
+    ]
+  ],
+  "reversal_witness": {
     "S": "145",
-    "candidates": [
+    "targets": [
       "014",
       "245"
     ],
-    "mask0_scores": [
-      3,
-      4
+    "mask0": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ]
     ],
-    "mask2_scores": [
-      4,
-      3
-    ],
-    "slopes": [
-      0,
-      0
+    "mask2": [
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        3
+      ]
     ]
   },
-  "complete_certificate_command": "node R762AU_MICROSTEP_BRC_VERIFY.js",
-  "full_certificate_is_stdout": true
+  "tables": [
+    {
+      "mask": 0,
+      "sharp_onset": 15,
+      "permanent_ties": [],
+      "changed_from_complete_macro": [],
+      "sharp_witnesses": [
+        {
+          "s": "014",
+          "t": "145",
+          "da": 1,
+          "db": -14
+        }
+      ],
+      "signature": "123;012;013;035;035;234;012;035;025;034;234;012;025;123;235;245;034;035;024;234"
+    },
+    {
+      "mask": 1,
+      "sharp_onset": 16,
+      "permanent_ties": [
+        {
+          "state": "013",
+          "targets": [
+            "012",
+            "034"
+          ]
+        }
+      ],
+      "changed_from_complete_macro": [
+        {
+          "state": "013",
+          "targets": [
+            "012",
+            "034"
+          ]
+        }
+      ],
+      "sharp_witnesses": [
+        {
+          "s": "014",
+          "t": "145",
+          "da": 1,
+          "db": -15
+        }
+      ],
+      "signature": "123;012|034;013;035;035;234;012;035;025;034;234;012;025;123;235;245;034;035;024;234"
+    },
+    {
+      "mask": 2,
+      "sharp_onset": 15,
+      "permanent_ties": [
+        {
+          "state": "235",
+          "targets": [
+            "035",
+            "123"
+          ]
+        }
+      ],
+      "changed_from_complete_macro": [
+        {
+          "state": "145",
+          "targets": [
+            "014"
+          ]
+        },
+        {
+          "state": "235",
+          "targets": [
+            "035",
+            "123"
+          ]
+        }
+      ],
+      "sharp_witnesses": [
+        {
+          "s": "135",
+          "t": "145",
+          "da": 1,
+          "db": -14
+        }
+      ],
+      "signature": "123;012;013;035;035;234;012;035;025;034;234;012;025;123;235;014;034;035|123;024;234"
+    },
+    {
+      "mask": 3,
+      "sharp_onset": 15,
+      "permanent_ties": [
+        {
+          "state": "145",
+          "targets": [
+            "014",
+            "245"
+          ]
+        },
+        {
+          "state": "235",
+          "targets": [
+            "035",
+            "123"
+          ]
+        }
+      ],
+      "changed_from_complete_macro": [
+        {
+          "state": "145",
+          "targets": [
+            "014",
+            "245"
+          ]
+        },
+        {
+          "state": "235",
+          "targets": [
+            "035",
+            "123"
+          ]
+        }
+      ],
+      "sharp_witnesses": [
+        {
+          "s": "135",
+          "t": "145",
+          "da": 1,
+          "db": -14
+        }
+      ],
+      "signature": "123;012;013;035;035;234;012;035;025;034;234;012;025;123;235;014|245;034;035|123;024;234"
+    },
+    {
+      "mask": 4,
+      "sharp_onset": 15,
+      "permanent_ties": [
+        {
+          "state": "024",
+          "targets": [
+            "025",
+            "234"
+          ]
+        }
+      ],
+      "changed_from_complete_macro": [
+        {
+          "state": "023",
+          "targets": [
+            "012"
+          ]
+        },
+        {
+          "state": "024",
+          "targets": [
+            "025",
+            "234"
+          ]
+        }
+      ],
+      "sharp_witnesses": [
+        {
+          "s": "014",
+          "t": "145",
+          "da": 1,
+          "db": -14
+        }
+      ],
+      "signature": "123;012;013;035;012;025|234;012;035;025;034;234;012;025;123;235;245;034;035;024;234"
+    },
+    {
+      "mask": 5,
+      "sharp_onset": 16,
+      "permanent_ties": [
+        {
+          "state": "013",
+          "targets": [
+            "012",
+            "034"
+          ]
+        },
+        {
+          "state": "023",
+          "targets": [
+            "012",
+            "035"
+          ]
+        }
+      ],
+      "changed_from_complete_macro": [
+        {
+          "state": "013",
+          "targets": [
+            "012",
+            "034"
+          ]
+        },
+        {
+          "state": "023",
+          "targets": [
+            "012",
+            "035"
+          ]
+        }
+      ],
+      "sharp_witnesses": [
+        {
+          "s": "014",
+          "t": "145",
+          "da": 1,
+          "db": -15
+        }
+      ],
+      "signature": "123;012|034;013;035;012|035;234;012;035;025;034;234;012;025;123;235;245;034;035;024;234"
+    },
+    {
+      "mask": 6,
+      "sharp_onset": 14,
+      "permanent_ties": [
+        {
+          "state": "023",
+          "targets": [
+            "012",
+            "035",
+            "234"
+          ]
+        },
+        {
+          "state": "024",
+          "targets": [
+            "025",
+            "234"
+          ]
+        },
+        {
+          "state": "145",
+          "targets": [
+            "014",
+            "135",
+            "245"
+          ]
+        }
+      ],
+      "changed_from_complete_macro": [
+        {
+          "state": "023",
+          "targets": [
+            "012",
+            "035",
+            "234"
+          ]
+        },
+        {
+          "state": "024",
+          "targets": [
+            "025",
+            "234"
+          ]
+        },
+        {
+          "state": "145",
+          "targets": [
+            "014",
+            "135",
+            "245"
+          ]
+        }
+      ],
+      "sharp_witnesses": [
+        {
+          "s": "245",
+          "t": "145",
+          "da": 1,
+          "db": -13
+        }
+      ],
+      "signature": "123;012;013;035;012|035|234;025|234;012;035;025;034;234;012;025;123;235;014|135|245;034;035;024;234"
+    },
+    {
+      "mask": 7,
+      "sharp_onset": 14,
+      "permanent_ties": [],
+      "changed_from_complete_macro": [],
+      "sharp_witnesses": [
+        {
+          "s": "014",
+          "t": "145",
+          "da": 1,
+          "db": -13
+        }
+      ],
+      "signature": "123;012;013;035;035;234;012;035;025;034;234;012;025;123;235;245;034;035;024;234"
+    }
+  ]
 }
