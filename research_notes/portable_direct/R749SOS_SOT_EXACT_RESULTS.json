@@ -1,0 +1,93 @@
+{
+  "frozen_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "joint_certificates": {
+    "positive_segment": {
+      "bases": 18564,
+      "endpoint_vertices": {
+        "1/4": 42,
+        "5/22": 50,
+        "interior": 0
+      },
+      "feasible_bases": 476,
+      "max_excess": {
+        "cal": "0",
+        "free": "0"
+      },
+      "nonsingular": 9536,
+      "tight": {
+        "cal": 28,
+        "free": 32
+      },
+      "vertices": 92
+    },
+    "zero_segment": {
+      "bases": 18564,
+      "endpoint_vertices": {
+        "1/6": 50,
+        "5/22": 50,
+        "interior": 0
+      },
+      "feasible_bases": 392,
+      "max_excess": {
+        "both": "0"
+      },
+      "nonsingular": 9536,
+      "tight": {
+        "both": 44
+      },
+      "vertices": 100
+    }
+  },
+  "lower": {
+    "cal_support_A": "3/8+t/4+h/4",
+    "cal_support_B": "1/4+t/2-h/2",
+    "cal_support_sign_A": [
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      -1,
+      -1,
+      1,
+      1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cal_support_sign_B": [
+      1,
+      -1,
+      -1,
+      1,
+      -1,
+      1,
+      1,
+      -1,
+      -1,
+      1,
+      1,
+      -1,
+      1,
+      -1,
+      -1,
+      1
+    ],
+    "pair_TV": "(7-2*t)/8"
+  },
+  "native_bridge": "UNRESOLVED",
+  "positive_gap": "(22*t-5)/48",
+  "positive_segment": "5/22<=t<=1/4: rho=(7-2*t)/16, rho_cal=(1+t)/3",
+  "research_ids": [
+    "R749SOS",
+    "R749SOT"
+  ],
+  "review": "AUTHOR_EXACT_NOT_REVIEWED",
+  "scope": "16-state frozen auxiliary Walsh source model; s=1/2; all real t in intervals",
+  "status": "PASS",
+  "zero_segment": "1/6<=t<=5/22: rho=rho_cal=(7-2*t)/16"
+}
