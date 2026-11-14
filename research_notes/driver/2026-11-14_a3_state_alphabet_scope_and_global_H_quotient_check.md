@@ -5,6 +5,14 @@ Reviewing lane: RESEARCH_DRIVER EM-DVR-DEBB5E
 Original contributor: EM-A3SCR-7A41D2; immutable Result: RR-9FF7F84F01C577774649
 Source: research_artifacts/A3_SHELL_PARTIAL_MOVE_SCALE_COHERENCE_7A41D2_20260917/result.md (Git blob 1a13d1504e1d96491db29675613e47b0d01df0b3); checker blob 73a28ed73fd8a312e0bb0da5e00b12d61d72c8b3.
 
+## Prior-art reconciliation and distinct contribution
+
+**Prior result already exists.** The alphabet-size counterexample, binary-indicator quantifier bridge, and shell-faithfulness qualification were proved and saved in [2026-11-13 A3 theorem-domain audit](2026-11-13_a3_state_space_faithfulness_boundary_independent_audit.md), before this note. The distinction between *output-orbit comparison* and operators well-defined on a quotient, including the necessary centralizer test, was proved in [2026-11-13 residual-H quotient audit](2026-11-13_a3_residual_h_quotient_descent_normalizer_audit.md). Further exact all-scale orbit tests and an explicit single-input binary witness are in [2026-11-13 one-input theorem](2026-11-13_a3_universal_one_binary_input_orbit_naturality.md). This note is an **independent arithmetic recheck and provenance/source-currentness reconciliation of already saved mathematics**, not an additional novel theorem and not a second independent Driver reviewer.
+
+The statement below concerns the two composites **as maps from labeled states to quotient output orbits**. To assert individual partial moves are well-defined maps on \(X_n/H\), additionally require \(g\in C_{S_4}((12))=\{e,(12),(34),(12)(34)\}\) for the relevant active scale, as proved in the linked 2026-11-13 quotient audit. The general shell-label naturality iff needs faithful shell actions; without faithfulness it is an iff of **induced operators**, not abstract group labels.
+
+The new operational observation in this 2026-11-14 pass is that previously blocked original RR-9FF7F84F01C577774649 is now present on canonical \`main\` byte-for-byte (blob eb82ac58be5ceaecae07240edb5b4258c72fa3d6; integration commit 2e86304a5daf6f25d199f5f7e1e06b724f8c8d7d). This was linked to [control issue #1505](https://github.com/awdawmip/enterprise-math/issues/1505#issuecomment-6869076358). Native reducer review admission still requires its own fresh success receipt.
+
 ## Scope correction: label alphabet
 
 The published derivation computes the exact **carrier-permutation defect**
