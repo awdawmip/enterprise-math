@@ -1,0 +1,17 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R160_farey_min_gap_check.py",
+    "ref": "c47e00fd99dc77fa33d75242d79d8eec9ae83def",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "EM-DIRECT-76C1E9-R160-GITHUB-READBACK-2-20261115",
+  "result": {
+    "structuredContent": {
+      "content": "\"\"\"Exact finite checks for R160; independent of project source implementation.\nTests every binary word of lengths 1..18, using Fraction and full factor scan.\n\"\"\"\nfrom fractions import Fraction\nfrom collections import Counter\nimport json\n\n\ndef slope_support(word):\n    m = len(word)\n    prefix = [0]\n    for bit in word:\n        prefix.append(prefix[-1] + bit)\n    low, high = Fraction(0), Fraction(1)\n    for i in range(m):\n        for j in range(i + 1, m + 1):\n            k, q = j - i, prefix[j] - prefix[i]\n            low = max(low, Fraction(q - 1, k))\n            high = min(high, Fraction(q + 1, k))\n            if low >= high:\n                return None\n    return low, high\n\n\ndef run(max_m=18):\n    out = []\n    for m in range(1, max_m + 1):\n        count, gap, minimizers = 0, None, []\n        for x in range(1 << m):\n            word = tuple((x >> j) & 1 for j in range(m - 1, -1, -1))\n            interval = slope_support(word)\n            if interval is None:\n                continue\n            count += 1\n            width = interval[1] - interval[0]\n            if gap is None or width < gap:\n                gap = width\n                minimizers = [\"\".join(map(str, word))]\n            elif width == gap:\n                minimizers.append(\"\".join(map(str, word)))\n        if m >= 5:\n            expected = Fraction(2, m * (m - 2))\n            assert gap == expected, (m, gap, expected)\n            assert sorted(minimizers) == sorted([\"1\" + \"0\" * (m - 2) + \"1\", \"0\" + \"1\" * (m - 2) + \"0\"]), (m, minimizers)\n        out.append({\"m\": m, \"binary_candidates\": 1 << m, \"admitted_words\": count,\n                    \"minimum_gap\": f\"{gap.numerator}/{gap.denominator}\", \"minimizers\": sorted(minimizers)})\n    return {\"status\": \"R160_FAREY_GAP_EXACT_PASS\", \"arithmetic\": \"fractions.Fraction, no float\",\n            \"complete_binary_enumeration_m\": [1, max_m],\n            \"total_binary_candidates\": sum(1 << m for m in range(1, max_m + 1)),\n            \"total_admitted_words\": sum(r[\"admitted_words\"] for r in out), \"per_length\": out}\n\nif __name__ == \"__main__\":\n    result = run()\n    print(json.dumps(result, ensure_ascii=False, indent=2))\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c47e00fd99dc77fa33d75242d79d8eec9ae83def/research_notes/portable_direct/R160_farey_min_gap_check.py",
+      "encoding": "utf-8",
+      "sha": "31a122a0ab53b2256362823744b05ddcc9a80137"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
