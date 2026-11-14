@@ -94,7 +94,7 @@ def verify():
     x,cuts=frozen()
     ALL=(1<<28)-1
     OTHER=ALL^((1<<15)|(1<<17))
-    backgrounds=[0,1<<16,(1<<8)|(1<<9)|(1<<12)|(1<<13)|(1<<16),OTHER]
+    backgrounds=[0,1<<8,1<<16,(1<<8)|(1<<9)|(1<<12)|(1<<13)|(1<<16),OTHER]
     summaries=[]
     for bg in backgrounds:
         cases={}
