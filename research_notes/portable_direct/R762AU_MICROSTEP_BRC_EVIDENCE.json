@@ -360,5 +360,71 @@
       ],
       "signature": "123;012;013;035;035;234;012;035;025;034;234;012;025;123;235;245;034;035;024;234"
     }
-  ]
+  ],
+  "recurrent": {
+    "uniform_cycle_threshold": 2,
+    "sharp_witnesses": [
+      {
+        "mask": 1,
+        "S": "123",
+        "T": "012",
+        "da": 2,
+        "db": -2
+      },
+      {
+        "mask": 1,
+        "S": "025",
+        "T": "035",
+        "da": 2,
+        "db": -2
+      },
+      {
+        "mask": 2,
+        "S": "025",
+        "T": "035",
+        "da": 2,
+        "db": -2
+      },
+      {
+        "mask": 3,
+        "S": "025",
+        "T": "035",
+        "da": 2,
+        "db": -3
+      },
+      {
+        "mask": 4,
+        "S": "123",
+        "T": "012",
+        "da": 2,
+        "db": -2
+      },
+      {
+        "mask": 5,
+        "S": "123",
+        "T": "012",
+        "da": 2,
+        "db": -3
+      }
+    ],
+    "cycle": [
+      "012",
+      "123",
+      "234",
+      "034",
+      "035",
+      "025"
+    ],
+    "union_edges": 27,
+    "outside_states": 14,
+    "acyclic_outside": true,
+    "max_moves_until_cycle": 3,
+    "three_move_witness": [
+      "145",
+      "245",
+      "024",
+      "234"
+    ],
+    "odd_v17_holonomy": "(2,1,0) under canonical shared-axis frame replacement"
+  }
 }
