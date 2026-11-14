@@ -137,6 +137,11 @@ def iter_records(root: Path = ROOT) -> list[dict[str, Any]]:
 
 
 def _read_records(root: Path) -> list[dict[str, Any]]:
+    from control_plane.research_read_view import source_rows
+    return source_rows(root, "execution_records", lambda: _parse_records(root))
+
+
+def _parse_records(root: Path) -> list[dict[str, Any]]:
     directory = root / "research_execution_records"
     if not directory.exists():
         return []
