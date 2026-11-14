@@ -69,3 +69,22 @@ Sources:
 - R762AT immutable author proof: enterprise-math@892e804f8843f7b23bcfc383bd711e599b577819.
 
 Verification: run Node.js standard-library file R762AU_MICROSTEP_BRC_VERIFY.js, which computes a full JSON certificate. Exact integer score semantics; 20 triads, nine neighbors each, all eight phase masks, all integer n by affine proof. The author checker passed locally on 2026-11-15. Independent review remains open.
+
+
+## Theorem AU3 — the odd six-cycle survives every partial PASS phase, and is a global eventual attractor
+
+There is a much stronger invariant inside the phase-sensitive successor relation. Define the ordered six-state orbit
+
+    012 -> 123 -> 234 -> 034 -> 035 -> 025 -> 012.
+
+For **every mask m=0,...,7** and **every integer n>=2**, each of these six source states has exactly its displayed next state as a *unique* maximizing neighbor. This uniform lower threshold 2 is sharp: at n=1, for instance, mask 1 and source 123 have a tie between 012 and 234 (while the displayed successor is 234).
+
+Moreover, for any integer n>=16, form the union G of all eight mask-specific successor relations. Its unique directed cycle/recurrent strongly connected component is exactly the six-state odd-holonomy orbit above; its induced subgraph on the other 14 states is a directed acyclic graph. Every directed path from an exterior state enters that six-cycle in **at most three moves**, and this bound is sharp. One three-move witness is
+
+    145 -> 245 -> 024 -> 234.
+
+Consequently, even if the selector reads the V29 count ledger at arbitrary intermediate phases and the phase mask changes adversarially between active-triad decisions, **as long as n stays >=16**, all successor choices enter the same odd V17 orbit within three decisions and then follow it uniquely. This holds for a sequential schedule with nondecreasing completed-macro count n, because all eight successor relations have stabilized by n=16. It does not require globally deterministic transient behavior.
+
+**Proof.** For each of the 6 cyclic states, each of 8 masks and all 8 competing neighbors, take the exact difference of its designated successor's affine score and the competitor's. Its coefficient of n is nonnegative; zero-slope differences are strictly positive. Taking the same exact strict affine threshold maximum as in AU1 gives precisely 2, with a tie witness at 1. For the union graph, enumerating the 20*8 current successor sets at n=16 produces 27 directed edges. All six recurrent vertices have only their designated cycle edge, while the other 14 admit no directed cycles and all directed paths have at most two edges wholly outside the cycle; the next edge enters it. The executable checker performs both exact certificates, including a no-exterior-cycle recursion and the three-move witness. The V17 holonomy of this preserved cycle is the already established transposition (2,1,0), hence odd, under the published shared-axis replacement transport law.
+
+This yields a useful separation: partial V29 ledger updates permanently alter the *transient* branching relation (AU1/AU2), yet they preserve the *recurrent* odd frame transport over the stated range (AU3). For the actual native program, the outstanding task is to establish the permitted Cell/Link/Port event and whether the V17 internal-frame update consumes this same phase-dependent selector; the theorem is exact under the declared conditional event language.
