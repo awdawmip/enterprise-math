@@ -1,0 +1,251 @@
+{
+  "algorithm": "independent_labeled_physical_DFS_and_binary_permanent_DP",
+  "canonical_fibonacci_checks": {
+    "2": 1,
+    "3": 1,
+    "4": 2,
+    "5": 3,
+    "6": 5,
+    "7": 8,
+    "8": 13,
+    "9": 21,
+    "10": 34,
+    "11": 55,
+    "12": 89,
+    "13": 144,
+    "14": 233,
+    "15": 377
+  },
+  "census": {
+    "2": {
+      "R762AD_mass": 4,
+      "canonical_fiber": 1,
+      "maximum_observed_fiber": 1,
+      "number_of_source_blind_transcripts": 4,
+      "total_labelled_shortest_histories": 4,
+      "transcript_fiber_size_histogram": {
+        "1": 4
+      }
+    },
+    "3": {
+      "R762AD_mass": 24,
+      "canonical_fiber": 1,
+      "maximum_observed_fiber": 1,
+      "number_of_source_blind_transcripts": 24,
+      "total_labelled_shortest_histories": 24,
+      "transcript_fiber_size_histogram": {
+        "1": 24
+      }
+    },
+    "4": {
+      "R762AD_mass": 384,
+      "canonical_fiber": 2,
+      "maximum_observed_fiber": 2,
+      "number_of_source_blind_transcripts": 288,
+      "total_labelled_shortest_histories": 384,
+      "transcript_fiber_size_histogram": {
+        "1": 192,
+        "2": 96
+      }
+    },
+    "5": {
+      "R762AD_mass": 5760,
+      "canonical_fiber": 3,
+      "maximum_observed_fiber": 3,
+      "number_of_source_blind_transcripts": 3840,
+      "total_labelled_shortest_histories": 5760,
+      "transcript_fiber_size_histogram": {
+        "1": 2400,
+        "2": 960,
+        "3": 480
+      }
+    },
+    "6": {
+      "R762AD_mass": 115200,
+      "canonical_fiber": 5,
+      "maximum_observed_fiber": 5,
+      "number_of_source_blind_transcripts": 63360,
+      "total_labelled_shortest_histories": 115200,
+      "transcript_fiber_size_histogram": {
+        "1": 31680,
+        "2": 20160,
+        "3": 5760,
+        "4": 2880,
+        "5": 2880
+      }
+    }
+  },
+  "claims": {
+    "canonical_schedule_exact_fiber": "F_(n-1) for n>=2",
+    "general_exact_fiber": "per(M_tau), M_ij=[i!=j and time(I_i)<time(O_j)]",
+    "repair_bits_per_transcript": "ceil(log2(per(M_tau))) for nonempty fiber",
+    "worst_case_general_max": "NOT_PROVED; n<=6 finite census only"
+  },
+  "exactness": "integer_only_exhaustive_n_2_to_6; canonical_n_2_to_15",
+  "provenance": {
+    "frozen_science_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+    "parents": [
+      "R762AC",
+      "R762AD"
+    ],
+    "publication_id": "TP2-8B7E13C5904A2D6F1142",
+    "status": "AUTHOR_SIDE_NOT_REVIEWED_NOT_NATIVE_ADMITTED",
+    "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS"
+  },
+  "representative_maximal_fibers": {
+    "2": {
+      "source_to_destination_maps": [
+        [
+          1,
+          0
+        ]
+      ],
+      "transcript": [
+        "I0",
+        "I1",
+        "O0",
+        "O1"
+      ]
+    },
+    "3": {
+      "source_to_destination_maps": [
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "transcript": [
+        "I0",
+        "I1",
+        "O0",
+        "I2",
+        "O1",
+        "O2"
+      ]
+    },
+    "4": {
+      "source_to_destination_maps": [
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ]
+      ],
+      "transcript": [
+        "I0",
+        "I1",
+        "O0",
+        "I2",
+        "O1",
+        "I3",
+        "O2",
+        "O3"
+      ]
+    },
+    "5": {
+      "source_to_destination_maps": [
+        [
+          1,
+          0,
+          4,
+          2,
+          3
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          3
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "transcript": [
+        "I0",
+        "I1",
+        "O0",
+        "I2",
+        "O1",
+        "I3",
+        "O2",
+        "I4",
+        "O3",
+        "O4"
+      ]
+    },
+    "6": {
+      "source_to_destination_maps": [
+        [
+          1,
+          0,
+          3,
+          2,
+          5,
+          4
+        ],
+        [
+          1,
+          0,
+          5,
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          0,
+          1,
+          5,
+          3,
+          4
+        ],
+        [
+          3,
+          0,
+          1,
+          2,
+          5,
+          4
+        ],
+        [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "transcript": [
+        "I0",
+        "I1",
+        "O0",
+        "I2",
+        "O1",
+        "I3",
+        "O2",
+        "I4",
+        "O3",
+        "I5",
+        "O4",
+        "O5"
+      ]
+    }
+  },
+  "schema": "R762AE_SOURCE_BLIND_TRANSFER_FIBERS_V1",
+  "scope": "conditional_two_slot_star_shortest_transfers_only"
+}
