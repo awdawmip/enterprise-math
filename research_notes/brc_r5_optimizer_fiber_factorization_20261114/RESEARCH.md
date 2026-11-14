@@ -40,6 +40,16 @@ The included exact checker constructs all 435 profiles from the immutable frozen
 
 Finally, the gap-shortening feasibility lemma already established on this exact derived observer shows `Opt_B(K) ⊆ Opt_{B∪{i}}(K)`: any previously feasible index set stays feasible with unchanged cost (cross-gap candidate distances were at least 3). Since the exact global optimum costs and integer cardinalities coincide, inclusion between finite families is equality. This establishes equality of the full index-set families, not only their numerical multiplicities.
 
+## Corollary: minimum optimal-center reconfiguration distances also factor through 17 bits
+
+For any pair of jointly feasible consecutive budgets, define the minimum deletion/edit statistic
+`ρ_B(K) = min{|S \\ T| : S∈Opt_B(K), T∈Opt_B(K+1)}`
+(where `S \\ T` denotes set difference; total centers changed is `2ρ_B(K)+1`). The theorem gives the stronger identity
+
+`ρ_B(K) = ρ_{B∪{i}}(K)` for every `i∈I_0`, every background `B` not containing `i`, and every such `K`.
+
+The same holds for every statistic computed solely from the family of optimal index sets and its labeled-set relations, including minimum symmetric difference and existence/nonexistence of nested optimal solutions. This reduces exact all-pattern optimizer-based edit-distance classification to at most `2^17=131072` effective closure masks, with each representing `2048` originals. It is a theorem about the optimizer-family observer; it does not fix the separate BRC or native six-axis provenance.
+
 ## Exact calculated certificate
 
 The verifier checks **1,916** straddling-run combinations for all 13 cost-inert candidate gaps, comprising **490,974** full-budget join/split comparisons.
