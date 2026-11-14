@@ -1,0 +1,16 @@
+{
+  "all_real_s": "from affine source/center/radius, polytope vertex convexity",
+  "calibrated_center_segments": [
+    {"active_six_facet_combinations":18564,"distinct_exact_vertices":96,"feasible_bases_including_duplicates":436,"h":"(4-10*s)/11","max_upper_excess":"0","nonsingular_bases":11520,"parameter_endpoints":{"1/2":50,"11/20":44,"9/17":2},"s_interval":["1/2","11/20"],"tight_vertices":36},
+    {"active_six_facet_combinations":18564,"distinct_exact_vertices":88,"feasible_bases_including_duplicates":432,"h":"45*(s-7/12)/11","max_upper_excess":"0","nonsingular_bases":11520,"parameter_endpoints":{"11/20":44,"7/12":44},"s_interval":["11/20","7/12"],"tight_vertices":24},
+    {"active_six_facet_combinations":18564,"distinct_exact_vertices":60,"feasible_bases_including_duplicates":844,"h":"0","max_upper_excess":"0","nonsingular_bases":11520,"parameter_endpoints":{"12/19":2,"5/7":14,"7/12":44},"s_interval":["7/12","5/7"],"tight_vertices":16}
+  ],
+  "domain":"s in [1/2,5/7], t=(1+3*s)/11",
+  "exact_minimax":"rho=rho_cal=(4+s)/11; calibration_gap=0",
+  "frozen_science":"a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "id":"R749SOX",
+  "lower":{"endpoint_signs_consistent":true,"lower_TV":"(3-t+s)/4 = 2*(4+s)/11","source_pair":"p(t,s,0,+/-t,+/-t,+/-(1-t),+/-s)"},
+  "model":"auxiliary_16_atom_Walsh_fiber","native_correspondence":"OPEN",
+  "proof":"lower source diameter + complete 6D exact vertex upper + convexity",
+  "review":"AUTHOR_EXACT_NOT_REVIEWED","status":"PASS"
+}
