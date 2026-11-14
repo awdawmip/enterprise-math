@@ -1,0 +1,188 @@
+{
+  "schema": "R762AA_THREE_ROOT_ORDERED_FRONTIER_EVIDENCE_V1",
+  "date": "2026-11-14",
+  "scientific_source_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "exact q-cycle integer-token PASS macros with fixed first-start order",
+  "method": "independent finite memoized Bellman enumeration of all next legal macro-edge shuffles and all stock allocations for K=1..d in palindrome cases",
+  "domain": "q=3, n=1..7, first root0, one token at root0; palindromes for q=3,4, each permutation fixing root0, all K=1..d",
+  "census": [
+    {
+      "n": 1,
+      "words": 1,
+      "cost_hist": {
+        "0": 1
+      },
+      "three_root_words": 0,
+      "three_root_hist": {}
+    },
+    {
+      "n": 2,
+      "words": 3,
+      "cost_hist": {
+        "0": 1,
+        "1": 2
+      },
+      "three_root_words": 0,
+      "three_root_hist": {}
+    },
+    {
+      "n": 3,
+      "words": 9,
+      "cost_hist": {
+        "0": 1,
+        "1": 6,
+        "2": 2
+      },
+      "three_root_words": 2,
+      "three_root_hist": {
+        "2": 2
+      }
+    },
+    {
+      "n": 4,
+      "words": 27,
+      "cost_hist": {
+        "0": 1,
+        "1": 12,
+        "2": 14
+      },
+      "three_root_words": 12,
+      "three_root_hist": {
+        "2": 12
+      }
+    },
+    {
+      "n": 5,
+      "words": 81,
+      "cost_hist": {
+        "0": 1,
+        "1": 20,
+        "2": 50,
+        "3": 10
+      },
+      "three_root_words": 50,
+      "three_root_hist": {
+        "2": 40,
+        "3": 10
+      }
+    },
+    {
+      "n": 6,
+      "words": 243,
+      "cost_hist": {
+        "0": 1,
+        "1": 30,
+        "2": 130,
+        "3": 80,
+        "4": 2
+      },
+      "three_root_words": 180,
+      "three_root_hist": {
+        "2": 100,
+        "3": 78,
+        "4": 2
+      }
+    },
+    {
+      "n": 7,
+      "words": 729,
+      "cost_hist": {
+        "0": 1,
+        "1": 42,
+        "2": 280,
+        "3": 350,
+        "4": 56
+      },
+      "three_root_words": 602,
+      "three_root_hist": {
+        "2": 210,
+        "3": 336,
+        "4": 56
+      }
+    }
+  ],
+  "three_root_total": 846,
+  "cases": {
+    "blocked": {
+      "word": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "frontier_K1_to_3": [
+        2,
+        1,
+        0
+      ]
+    },
+    "alternating": {
+      "word": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "frontier_K1_to_3": [
+        4,
+        2,
+        0
+      ]
+    },
+    "nested_palindrome": {
+      "word": [
+        0,
+        1,
+        2,
+        1,
+        0
+      ],
+      "frontier_K1_to_3": [
+        2,
+        1,
+        0
+      ]
+    },
+    "nongreedy": {
+      "word": [
+        0,
+        1,
+        2,
+        0,
+        2,
+        1
+      ],
+      "one_seed_witness_macro_indices": [
+        0,
+        1,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        4,
+        4,
+        4,
+        1,
+        1,
+        5,
+        5,
+        5,
+        0,
+        0
+      ],
+      "K1_initial_at_0_min": 3
+    }
+  },
+  "palindrome_tests": 30,
+  "two_root_regression_tests": 127,
+  "finite_result": "ALL_ASSERTIONS_PASSED",
+  "universal_palindrome_proof": "human proof in R762AA_NESTED_CHRONOLOGY_THREE_ROOT_FRONTIER.md",
+  "native_admission": "UNVERIFIED",
+  "independent_review": "NOT_REVIEWED"
+}
