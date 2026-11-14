@@ -1,0 +1,36 @@
+{
+  "schema": "PREFIX777_R6_SHARP_MARGIN_EXACT_VERIFICATION_RECEIPT_V1",
+  "date": "2026-11-14",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_code_path": "research_notes/portable_direct/PREFIX777_R6_QUANTITATIVE_REFLECTION_MARGIN_CHECK.py",
+  "source_code_git_blob_sha1": "6322a6c4bf1dcba0cd9edc1c8e500a342961e50a",
+  "source_code_sha256": "49c7c78ffeee4360d708fcfe09baea9f51cc6f00828e421d730e62b60260954e",
+  "local_execution": "ALL_CHECKS_PASS PREFIX777 SHARP_MARGIN",
+  "local_computation": "Python standard library arbitrary-precision integer arithmetic; decimal output display only",
+  "complete_output": {
+    "regenerates_to": "research_notes/portable_direct/PREFIX777_R6_QUANTITATIVE_REFLECTION_MARGIN_RESULTS.json",
+    "byte_length": 9014,
+    "sha256": "98ab28cd7f26ad12c70787521eb4b0a4e518dbb99f8fd98a140e0c31a9324a48",
+    "git_blob_sha1": "49d7f9a5c49f9ba261d23e9dd0ae1fd468890cbd"
+  },
+  "exact_rational_formula": "C=(a39*b38-a38*b39)/(H*(b38+b39)); H=768**376 * 2**377; a_k=-H*Delta(mu)_k; b_k=-H**2*Delta(variance)_k",
+  "sharp_margin": {
+    "decimal_display": "0.0000002709625988203541942307844842560731606065844073803183266",
+    "strictly_greater_than": "27/100000000",
+    "strictly_less_than": "271/1000000000",
+    "q_opt_decimal_display": "0.02852190918330448303131563369930884668064800587155928281"
+  },
+  "exact_checks": [
+    "189 survivor rows, 9529 nonzero survivor positions, terminal row zero",
+    "binomial reflection invariance at all enumerated rows",
+    "reflection equal and opposite on both fixed grid cells",
+    "both mixed moment differences negative for each base cell",
+    "both absolute mixed variance differences exceed 1/6",
+    "two switching ratios strictly ordered",
+    "sharp minimax parameter strictly inside switching-ratio interval",
+    "positive rational C between 27/10^8 and 271/10^9 by integer cross multiplication"
+  ],
+  "validity": "External 189-layer killed-Pascal / independent Gamma maximum auxiliary model; original comparator and native BRC bridge unverified",
+  "status": "AUTHOR_EXACT_INTEGER_AND_ALGEBRAIC_THEOREM / UNREVIEWED / NOT_ADMITTED",
+  "limitations": "Receipt summarizes a real local execution; remote GitHub source is blob-equal to locally executed checker. The 9014-byte full output is deterministic and reproduced by running the recorded script, and its digest is pinned here."
+}
