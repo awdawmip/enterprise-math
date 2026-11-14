@@ -1,0 +1,81 @@
+{
+  "status": "ALL_CHECKS_PASS PREFIX793 CAPACITATED_CRT_MAXFLOW_FIBER",
+  "tests": [
+    {
+      "shape": [
+        2,
+        2
+      ],
+      "capacity_alphabet": [
+        0,
+        1,
+        2
+      ],
+      "margin_cases": 1575,
+      "feasible": 1215,
+      "infeasible": 360,
+      "target_cell_interval_checks": 4860,
+      "max_fiber_count": 3
+    },
+    {
+      "shape": [
+        2,
+        3
+      ],
+      "capacity_alphabet": [
+        0,
+        1
+      ],
+      "margin_cases": 992,
+      "feasible": 704,
+      "infeasible": 288,
+      "target_cell_interval_checks": 4224,
+      "max_fiber_count": 3
+    }
+  ],
+  "two_by_three_by_five": {
+    "R_all": 2,
+    "row0_sums": [
+      5,
+      5,
+      5
+    ],
+    "col0_sums": [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "base_x_all": 1,
+    "each_cell_sharp_interval": [
+      0,
+      2
+    ],
+    "independent_real_residual_dimension": 8,
+    "row_patterns": 51,
+    "column_patterns": 7,
+    "integer_fiber_size": 991
+  },
+  "counterexample": {
+    "R": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "row0": [
+      1,
+      0
+    ],
+    "col0": [
+      0,
+      1
+    ],
+    "feasible": false
+  }
+}
