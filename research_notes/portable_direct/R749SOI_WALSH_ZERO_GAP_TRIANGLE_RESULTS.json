@@ -1,0 +1,53 @@
+{
+  "center": "q=(1+t chi3+s chi12+(t+s-1)chi15)/16",
+  "domain_halfspaces": [
+    "t<=1",
+    "t+s>=1",
+    "3t-2s>=1"
+  ],
+  "exact_radius": "rho=rho_cal=(3-t-2s)/4",
+  "independent_review": "NOT_REVIEWED",
+  "lower_witness": "source pair h=t+s-1, (u,v,w,z)=+/- (1-s,1-s,1-t,1-t)",
+  "native_X6_V29_V39_correspondence": "OPEN",
+  "outside_candidate_counterexample": {
+    "center_excess": "1/80",
+    "diameter_lower": "27/80",
+    "parameter": [
+      "13/20",
+      "1/2"
+    ],
+    "scope": "failure of the stated affine center outside triangle, not all calibrated centers",
+    "tv": "7/20",
+    "witness": "h=17/20, u=v=-3/20, w=z=0"
+  },
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "auxiliary 16-state Walsh source-observer fiber, all real parameters in the stated triangle",
+  "status": "PASS",
+  "triangle_area": "1/5",
+  "triangle_vertices": [
+    [
+      "1",
+      "0"
+    ],
+    [
+      "3/5",
+      "2/5"
+    ],
+    [
+      "1",
+      "1"
+    ]
+  ],
+  "unit": "R749SOI",
+  "upper_certificate": {
+    "active_basis_count": 50388,
+    "dimension": 7,
+    "distinct_feasible_vertices": 25,
+    "feasible_bases": 6048,
+    "inequalities": 19,
+    "maximum_excess": "0",
+    "nonsingular_bases": 26976,
+    "positive_excess_vertices": 0,
+    "tight_vertices": 11
+  }
+}
