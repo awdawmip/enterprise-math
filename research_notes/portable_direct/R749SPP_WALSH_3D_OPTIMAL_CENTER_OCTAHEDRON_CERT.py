@@ -55,7 +55,7 @@ def run():
         out.append({'center_scaled_10':list(map(str,q)), 'max_excess_times_320':str(max(excess)), 'tight_vertices':sum(e==0 for e in excess)})
     lo=(F(0),F(-1),F(-1),F(5),F(9))
     hi=(F(0),F(-1),F(-1),F(-5),F(-9))
-    assert all(dot(a,z)>=b for z in (lo,hi) for a in A)
+    assert all(dot(a,z)>=b for z in (lo,hi) for a,b in zip(A,B))
     assert risk_numerator(lo,hi)==288   # TV between source pair = 288/320 = 9/10
     print(json.dumps({
         'status':'PASS','unit':'R749SPP','pin':'awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389',
