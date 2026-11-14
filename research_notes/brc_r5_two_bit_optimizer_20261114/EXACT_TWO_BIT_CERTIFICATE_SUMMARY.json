@@ -1,0 +1,132 @@
+{
+  "status": "PASS_EXACT_R5_TWO_BIT_HIGH_BUDGET_OPTIMIZER",
+  "date": "2026-11-14",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "scope": "954 integer indexed events, radius-2 covering, 28 optional 3-to-2 gap closures",
+  "theorem": "For all B subset of {0..27}, for each K 293..954, Opt_B(K)=Opt_(B intersection {15,17})(K).",
+  "method": "8 exact full-budget path-count spectra; monotonic inclusion and equal finite cardinalities imply equal entire optimal-set families.",
+  "endpoint_case_count": 8,
+  "pairwise_endpoint_budget_equalities": 2648,
+  "three_observer_special_bands": {
+    "complete_invariance_K292": true,
+    "complete_invariance_K315_to_954": true,
+    "strict_four_distinct_optimizer_families_K293_to_314": true,
+    "exclusive_double_closure_improvement_K294_to_313": true
+  },
+  "joint_only_counts_by_budget": {
+    "293": {
+      "cost": 741,
+      "count": "0"
+    },
+    "294": {
+      "cost": 738,
+      "count": "991759316027479570482462720"
+    },
+    "295": {
+      "cost": 735,
+      "count": "38373428257211287296477757440"
+    },
+    "296": {
+      "cost": 732,
+      "count": "665863760942504660447275253760"
+    },
+    "297": {
+      "cost": 729,
+      "count": "6923568422980700711237367889920"
+    },
+    "298": {
+      "cost": 726,
+      "count": "48484802797469721655626096967680"
+    },
+    "299": {
+      "cost": 723,
+      "count": "243187978146344769816698636206080"
+    },
+    "300": {
+      "cost": 720,
+      "count": "905938046049837995473824078888960"
+    },
+    "301": {
+      "cost": 717,
+      "count": "2563125487107391704609849260113920"
+    },
+    "302": {
+      "cost": 714,
+      "count": "5582508239627017390177969672028160"
+    },
+    "303": {
+      "cost": 711,
+      "count": "9428790047997916007709123941498880"
+    },
+    "304": {
+      "cost": 708,
+      "count": "12379221506275940309394663627816960"
+    },
+    "305": {
+      "cost": 705,
+      "count": "12608003235094583711179124936540160"
+    },
+    "306": {
+      "cost": 702,
+      "count": "9894043794570287696559404608389120"
+    },
+    "307": {
+      "cost": 699,
+      "count": "5907987419317641130064368317235200"
+    },
+    "308": {
+      "cost": 696,
+      "count": "2629968609926654227868038169886720"
+    },
+    "309": {
+      "cost": 693,
+      "count": "844561314885042515173003650662400"
+    },
+    "310": {
+      "cost": 690,
+      "count": "185220234969080861230602355998720"
+    },
+    "311": {
+      "cost": 687,
+      "count": "25083416206839569938213817548800"
+    },
+    "312": {
+      "cost": 684,
+      "count": "1668647523225451990981017600000"
+    },
+    "313": {
+      "cost": 681,
+      "count": "19896652774866002210979840000"
+    },
+    "314": {
+      "cost": 678,
+      "count": "0"
+    }
+  },
+  "selected_values": {
+    "293": {
+      "N_none": "12606779601463240519046922240",
+      "N_15": "13102659259476980304288153600",
+      "N_17": "13102659259476980304288153600",
+      "N_both": "13598538917490720089529384960"
+    },
+    "300": {
+      "N_none": "29490028789684490135476646770114560",
+      "N_15": "34583751573046251438378187499765760",
+      "N_17": "34694480594290406124602026371317760",
+      "N_both": "40694141423702005422977391179857920"
+    },
+    "314": {
+      "N_none": "34372089438980233382036766720000",
+      "N_15": "34461624376467130391986176000000",
+      "N_17": "34461624376467130391986176000000",
+      "N_both": "34551159313954027401935585280000"
+    }
+  },
+  "small_independent_exhaustive_inputs": 72,
+  "local_execution": "Equivalent reconstructed frozen point generator and prior path DP, plus current exact certificate; PASS.",
+  "repository_original_imported_bytes_reexecuted": false,
+  "independent_math_review": "NOT_REVIEWED",
+  "formal_task_claim": "UNCONFIRMED",
+  "next": "Compute four exact adjacent-K minimum reconfiguration spectra for K292..314; native 2520-byte/28-coordinate/8192-prefix experiment remains pending."
+}
