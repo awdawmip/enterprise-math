@@ -75,7 +75,8 @@ For **every** integer L>=1, not merely on average,
 \boxed{
 C_{w_0}(L+1)=C_{w_1}(L+1)
 =\left\lceil\frac{hL}{b}\right\rceil+
- \left\lceil\frac{hL-h+1}{b}\right\rceil-L.}\tag{*}
+ \left\lceil\frac{hL-h+1}{b}\right\rceil-L
+=\left\lceil\frac{L}{b}\right\rceil.}\tag{*}
 \]
 In particular even the full infinite pair (slope interval, integer fiber count at every coefficient K>=2) does not distinguish the two words.
 
@@ -90,7 +91,7 @@ C_{w_0}=\lceil x\rceil-\lfloor y-h/b\rfloor-1
 C_{w_1}=\lceil x-(h-1)/b\rceil-\lfloor y-1\rfloor-1
 =\lceil x-(h-1)/b\rceil+\lceil x\rceil-L.
 \]
-Because h+(h-1)=b, the two expressions are equal: the two ceiling arguments in question differ by exactly 1. The latter expression is exactly (*). Finally the first count is at least 1 in the domain L>=1, as the exact prefix realization/count formula or the displayed ceiling expression shows. QED.
+Because h+(h-1)=b, the two expressions are equal: the two ceiling arguments in question differ by exactly 1. The latter expression is the first equality in (*). For the second equality, write L=qb+r with 0<=r<b. If r=0, the two ceilings contribute qb+q (hence C=q). If r=2t>0, 1<=t<=h-1, their residual contributions are t+1 and t; if r=2t+1, 0<=t<=h-2, they are t+1 and t+1. In both nonzero-residue cases, their sum is r+1. Thus C=q+1 whenever r>0, i.e. C=ceil(L/b) for every L>=1. This also proves strict presence C>=1 for both words for all K>=2. QED.
 
 **Observer consequence.** For unequal endpoint denominators the complete increment waveform recovers the pair of cuts modulo their denominators. For equal denominators the above family exhibits genuinely distinct word identities with identical *all-coefficient count sequences*. A word-identity/provenance observation is a necessary extra coordinate for a lossless observer that must later distinguish these alternating words; adding merely one count anchor cannot repair this alias. This is an exact instance of the project's residual-fidelity discipline within the declared external S23 observer.
 
