@@ -1,0 +1,111 @@
+{
+  "schema": "R5_FORCED_NONLOCAL_RECOURSE_K214_V1",
+  "status": "PASS_EXACT_R5_FORCED_COORDINATE_CLASSIFICATION",
+  "dated": "2026-11-15",
+  "model": "frozen 954-event radius-2 one-dimensional indexed-center derived observer",
+  "frozen_source_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "witness_input_file": "EXACT_R5_K214_NONLOCAL_RECOURSE.json",
+  "witness_input_sha256": "53072d874619a1eb6bede5e43d647d7d5c228f83371ea76b05eba03b5a81da82",
+  "full_output_sha256": "f0fc5dae9566480df3337a55d620c92f4c4475797ca3969738e13738a27a313f",
+  "executable_sha256": "16de8841fba77c3e4998c318e63f9337ae76c52815ea0db8b0ae69cb7723e3a7",
+  "K": 214,
+  "J_old": 1064,
+  "data": [
+    {
+      "cut": 3,
+      "closest_swaps": 3,
+      "nearest_old_optimizer_count": 2,
+      "globally_forced_removed": [
+        46,
+        50,
+        54
+      ],
+      "globally_forced_added": [
+        49,
+        53
+      ],
+      "optional_incoming": [
+        44,
+        45
+      ]
+    },
+    {
+      "cut": 8,
+      "closest_swaps": 7,
+      "nearest_old_optimizer_count": 2,
+      "globally_forced_removed": [
+        110,
+        114,
+        271,
+        274,
+        278,
+        282,
+        286
+      ],
+      "globally_forced_added": [
+        112,
+        115,
+        272,
+        276,
+        281,
+        285
+      ],
+      "optional_incoming": [
+        108,
+        109
+      ]
+    },
+    {
+      "cut": 9,
+      "closest_swaps": 7,
+      "nearest_old_optimizer_count": 2,
+      "globally_forced_removed": [
+        113,
+        117,
+        271,
+        274,
+        278,
+        282,
+        286
+      ],
+      "globally_forced_added": [
+        112,
+        115,
+        272,
+        276,
+        281,
+        285
+      ],
+      "optional_incoming": [
+        118,
+        119
+      ]
+    },
+    {
+      "cut": 10,
+      "closest_swaps": 4,
+      "nearest_old_optimizer_count": 1,
+      "globally_forced_removed": [
+        123,
+        127,
+        131,
+        136
+      ],
+      "globally_forced_added": [
+        122,
+        126,
+        130,
+        135
+      ],
+      "optional_incoming": []
+    }
+  ],
+  "cross_checks": {
+    "small_coordinate_instances": "12 random instances for each n=3..8, exhaustive center subsets at each tested K and S",
+    "number_of_comparisons": 666,
+    "status": "PASS_EXHAUSTIVE_SMALL_LEX_MARGINALS"
+  },
+  "proof_identity": "Sum of center marginals equals K times number of lexicographically nearest old optimizers",
+  "independent_review": "NOT_REVIEWED",
+  "next": "Compute exact full max_new min_old for K214..221 and cuts 3,8,9,10, all backgrounds"
+}
