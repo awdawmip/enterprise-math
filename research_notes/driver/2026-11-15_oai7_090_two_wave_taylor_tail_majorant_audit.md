@@ -12,6 +12,21 @@ v_r=\frac{x^{r+2}e^{xm}\ell\,y^r}{(r+2)!},\qquad 0\le r\le d.
 \]
 Therefore its omitted analytic tail is \(\sum_{r=d+1}^{\infty}v_r\); the factorial starts at \((d+3)!\), **not** at \((d+1)!\). This is the source's twice-integrated exponential/curvature series and is distinct from the separate 60-term exponential enclosure established in the previous π/expo audit.
 
+### Exact analytic divided-remainder identity
+
+The manuscript's actual observable is
+\[
+U_m[\varphi](v)=\frac{\varphi(m+v)-\varphi(m)-v\varphi'(m)}{v^2},\quad v\ne0,
+\qquad U_m[\varphi](0)=\frac{\varphi''(m)}2.
+\]
+For the **entire** exponential wave \(\varphi(s)=\ell e^{xs}\), Taylor's identity gives
+\[
+U_m[\ell e^{x\cdot}](v)
+=\ell e^{xm}\frac{e^{xv}-1-xv}{v^2}
+=\ell e^{xm}\sum_{r\ge0}\frac{x^{r+2}v^r}{(r+2)!},
+\]
+with its \(v=0\) value obtained by continuity. Setting \(v=y\tau\), the exact coefficient of \(\tau^r\) is precisely `tayrows`' \(v_r\). Taking real parts is legitimate because it is real-linear, and finite linear combinations commute with this identity. Thus this audit connects the paper's **deleted-jet** definition, the source Taylor recurrence, and the following remainder bound without adding any interpolation or global-energy premise.
+
 ## Both wave families have exactly the magnitudes used by the checker
 
 Let \(b=\sqrt3/2\), \(B=4/3=b^{-2}\), \(X=B/(k^2+t^2)\). The source defines
