@@ -1,0 +1,68 @@
+# EC49FOM — Exact one-hot Möbius cancellation kernel and isolated cubic BRC root interaction
+
+Date: 2026-11-14. **Author-checked exact finite science and elementary general theorem; NOT_REVIEWED.**
+Researcher provenance: EM-DIRECT-204C14, Activity RA-6893088D0A7347CE7F4D8720. This is scientific evidence outside a formally published RS-EC49AS Task; it is not a CLAIM, Result, or Driver review.
+
+## Continuation and frozen input
+
+Continuation of EC49FOL PR #2397 @ ac946a0692e99d5a21791fc8a3a7bae0fc73303a and EC49FOK PR #2393. The original scientific pin remains `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`. The exact original signed-prefix input `master_and_radius3_cases.txt` has SHA256 `cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e`; the original 84-edge inventory is `FIRST_NEUTRAL_EDGES_EC49FNS.txt` with SHA256 `db8d3b9232f4ff31ffd2bf7ed81237625ecb6491f7883f4b03263728d6ecdc41`. Both source files are preserved in the preceding EC49FOL evidence bundle.
+
+## Theorem: exact one-hot Möbius kernel
+
+Let L be a finite named-demand set and R a finite root set, with **the same nonempty independent legal-root domains** E(l) in configurations A and B. Each configuration has an exact root cost D_r^K(S) for every root-reachable set. Define mandatory M_r={l:E(l)={r}}, optional O_r={l:r∈E(l), |E(l)|>1}. Put g_r(S)=D_r^B(M_r∪S)−D_r^A(M_r∪S), S⊆O_r. Define its ordinary Boolean Möbius coefficients
+
+μ_r(Q)=Σ_{S⊆Q}(−1)^{|Q|−|S|}g_r(S), Q⊆O_r.
+
+Then the exact complete-assignment delta for ρ is
+
+Δ(ρ)=Σ_r Σ_{Q⊆O_r} μ_r(Q) ∏_{l∈Q} 1[ρ(l)=r].
+
+Choose a baseline root b_l∈E(l) for each l, and alternative indicators y_{l,s}=1[ρ(l)=s] (s∈E(l)\{b_l}). Substitute x_{l,b_l}=1−Σ_{s≠b_l}y_{l,s}, and x_{l,r}=y_{l,r} otherwise. Expand and collect monomials indexed by partial alternative assignments τ (no repeated label), writing
+
+Δ(ρ)=Σ_τ c_τ ∏_{(l,s)∈τ} y_{l,s}.
+
+**Kernel theorem.** Δ(ρ)=0 for every legal complete assignment if and only if every integer coefficient c_τ vanishes. Moreover, if d is the smallest degree |τ| with c_τ≠0, the assignment obtained by switching only the labels in such a τ away from baseline is an exact nonzero witness, requiring precisely d switched labels.
+
+**Proof.** On each optional-label Boolean cube, zeta inversion gives g_r(S)=Σ_{Q⊆S}μ_r(Q). Substituting the one-hot assignment indicators and expanding yields the displayed identity for every legal ρ. To establish coefficient independence, evaluate at the baseline and then assignments switching exactly the labels of a selected partial alternative τ. The evaluation of a monomial indexed by σ is 1 precisely when σ⊆τ, producing a unit-diagonal triangular zeta matrix on the poset of compatible partial alternatives. Möbius inversion therefore makes all c_τ uniquely determined, and identical zero functions have exactly the zero coefficient family. If d is the minimum nonzero degree, the assignment switching exactly τ activates that coefficient and no other nonzero coefficient of degree ≤d. Higher-degree coefficients are inactive. Thus Δ=c_τ≠0 at the witness. QED.
+
+The theorem uses integer sums and explicit named-root assignment domains; an arbitrary root-specific signed cost delta is permitted. It diagnoses *global* exact cancellation, as distinct from EC49FOL's isolated assignment-specific cancellations.
+
+## Exact 84-edge census
+
+The original 94-key / 178,850-word / 38,169-case signed-prefix source and original 84 directed single-key edges were reused unchanged. A C++17 signed-trie rooted-cover DP reconstructed 51 configurations (168 distinct cached root profiles) and exported 8,744 exact reachable root-cost entries. An independently coded Python integer Boolean Möbius and one-hot expansion produced a degree-indexed polynomial for every one of the 82 common-domain edges, and directly checked its value against the actual root-summed costs on **all 648 named legal assignments for each edge** (53,136 exact checks). The other two edges change legal-root domains and are intentionally outside the stated common-domain kernel theorem.
+
+| Class | Exact count |
+|---|---:|
+| Common legal-root domains | 82 |
+| All coefficients zero (all-budget terminal equality) | 32 |
+| Some coefficient nonzero | 50 |
+| Changed legal-root domains | 2 |
+| Nonzero normalized polynomial coefficients across the 50 changing edges | 2,773 |
+| Maximum nonzero coefficients on one changing edge | 96 |
+| Minimum nonzero-degree distribution: 0 / 1 / 2 / 3 | 4 / 38 / 7 / 1 |
+
+This independently matches EC49FOL's classification of 32 globally equal and 50 globally different common-domain edges, while identifying the smallest number of baseline choices that must change before each exchange becomes observable. The polynomial test is exact, including possible signed cross-root cancellations. No floating-point arithmetic is used.
+
+## New native isolated cubic witness: 32315 → 32303
+
+Exactly seven demand labels have more than one root choice:
+5:{05,07}, 7:{06,07}, 13:{06,07}, 15:{03,05,07}, 17:{03,06,07}, 19:{03,05,07}, 21:{03,06,07}. Choose the smallest root in each set as baseline; the other 17 labels have forced roots.
+
+The full exact total-delta polynomial consists of **one monomial**:
+
+Δ(ρ) = C_32303(ρ)−C_32315(ρ)
+      = − y_(13,07) y_(17,07) y_(21,07).
+
+In fact, projected root deltas for 03,05,06 are identically zero. Only root07 differs: precisely **16 of its 128 reachable optional masks** change by −1, exactly those containing all three labels 13,17,21.
+
+Thus precisely 36 of 648 complete named assignments change cost (each by −1); 612 retain their exact costs. An exact shortest witness changes only labels 13,17,21 to root07: original complete cost 180, replacement complete cost 179. All one- and two-switch assignments have delta 0. The earlier independent EC49FOL/FOJ first-separation threshold on this edge is B=157, consistent with (and distinct from) the 180→179 shortest-switch witness.
+
+An independent Python native signed-prefix trie-DP implementation, separate from the new C++ profile exporter, reconstructed both configurations directly from the pinned original source, enumerated all 648 assignments, and verified the cubic identity, 36/612 split, and 180/179 witness. This establishes a **genuine third-order root-choice interaction** in the named frozen BRC model: no single or pairwise baseline switch detects the difference, while a triple does.
+
+## Reproduction, scope, next question
+
+Local reproducible files from this run: `VERIFY_EC49FOM_EXTRACT.cpp` (native C++17 rooted cover profile generator), `VERIFY_EC49FOM_MOBIUS.py` (exact one-hot polynomial construction and all-648-per-edge validation), `EC49FOM_PROFILES.csv` (8,744 entries), `EC49FOM_MOBIUS_84.csv` (all 84), `VERIFY_EC49FOM_INDEPENDENT.py` (native Python independent triple check), run logs, and original pinned inputs. SHA256 of the 84-row normalized result CSV: `04b8ab0a0b2e51262ac92d40073062a30bc8c0dcd7a0be997cbd89e3aacdbe54`; source profile CSV: `e2b9c419fdd2614eeea37de54437dd776ed7024e06ceacce3941aab192b393af`.
+
+Coverage: exactly 51 configurations, the original 84 directed edges, with 82 common-domain edges covered by the theorem. Independent-check scope: edge 32315→32303 on the same exact input. Neither numerical behavior outside this frozen family nor project admission is claimed.
+
+**Next:** derive an interaction-isolation condition from the overlapping legal-root domains and try to construct a true all-assignment cross-root cancellation (nonzero root delta functions but every c_τ=0), or rigorously exclude one in an explicitly defined signed-prefix swap class. Compare required number of projected-root evaluations to exact full-assignment enumeration and cost of rebuilding the native trie.
