@@ -56,6 +56,11 @@ def _same_blob(left: Any, right: Any) -> bool:
 
 
 def _raw_reviews(root: Path) -> list[dict[str, Any]]:
+    from control_plane.research_read_view import source_rows
+    return source_rows(root,('review_audit_isolation','raw_reviews',_read_raw_reviews,_load),lambda:_read_raw_reviews(root))
+
+
+def _read_raw_reviews(root: Path) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     directory = root / "research_result_reviews"
     for path in sorted(directory.glob("*/*.json")) if directory.exists() else []:
@@ -66,6 +71,11 @@ def _raw_reviews(root: Path) -> list[dict[str, Any]]:
 
 
 def _raw_results(root: Path) -> list[dict[str, Any]]:
+    from control_plane.research_read_view import source_rows
+    return source_rows(root,('review_audit_isolation','raw_results',_read_raw_results,_load),lambda:_read_raw_results(root))
+
+
+def _read_raw_results(root: Path) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     directory = root / "research_result_records"
     for path in sorted(directory.glob("*/*.json")) if directory.exists() else []:
@@ -149,6 +159,16 @@ def quarantine_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
 
 
 def validated_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    from control_plane.research_read_view import reuse_read
+    inputs=(_raw_reviews,_raw_results,_read_raw_reviews,_read_raw_results,quarantine_rows,
+        _load,_blob,_sha256,_same_blob,_review_errors,_validated_rows,impl._same_git_blob_identity,
+        impl.REVIEW_SCHEMA,tuple(impl.LANE_FIELDS),tuple(sorted(impl.ALL_DISPOSITIONS)),
+        tuple(sorted(impl.DESTINATION_CLASSES)),tuple(sorted(impl.TERMINAL_DISPOSITIONS)))
+    return reuse_read(root,('review_audit_isolation','validated_rows'),inputs,
+        lambda:_validated_rows(root))
+
+
+def _validated_rows(root: Path) -> dict[str, dict[str, Any]]:
     rows = quarantine_rows(root)
     raw_reviews = {str(x.get("review_id")): x for x in _raw_reviews(root) if isinstance(x.get("review_id"), str)}
     raw_results = {str(x.get("result_id")): x for x in _raw_results(root) if isinstance(x.get("result_id"), str)}
