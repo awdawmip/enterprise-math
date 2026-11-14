@@ -99,6 +99,18 @@ For upper bounds use \(q^r=(1-\lambda)\sigma+\lambda q^{1/2}\) with either base 
 
 For lower bounds transport both source witnesses: \(\mu_A^r=(1-\lambda)\sigma+\lambda\mu_A\) and \(\mu_G^r=(1-\lambda)\sigma+\lambda\mu_G\). Average an arbitrary decoder under the same subgroup. The \(E_F,E_G\) weighted event sum has zero coefficients in (a,b,h), so its value is an affine function of (r) equal to \(2/5\) at \(r=1/2\) and \(0\) at \(r=1\); hence it equals \(\lambda(2/5)\) throughout. For calibrated decoders, \(a=b=r\), the weighted \(E_C,E_G\) expression cancels the free coefficient (h) and is likewise affine in (r), taking values \(9/22\) and zero at the endpoints; it is \(\lambda(9/22)\) throughout. These are exact dual TV lower bounds for every real (r), completing the proof.
 
+## Directional phase distinction at the common endpoint
+
+As an immediate exact corollary combining this diagonal theorem with the proven R749SOI/SON zero-gap triangle, for every real \(0<\varepsilon\le1/3\),
+
+\[
+g(1-\varepsilon,1-\varepsilon)=\frac{\varepsilon}{55}>0,
+\qquad
+g(1-\varepsilon,1-2\varepsilon)=0.
+\]
+
+Both parameter rays approach the same unique-source point \((1,1)\), but their calibration costs have different exact directional behavior. The second ray lies in the R749SOI triangle because \(t=1-\varepsilon\ge2/3\), \(s=1-2\varepsilon\ge1-t\) and \(3t-2s=1+\varepsilon\ge1\). This supplies two exact approach directions for a future two-dimensional local phase analysis.
+
 ## Exact verification, provenance and next problem
 
 Reproduce with `python3 R749SOO_DIAGONAL_HOMOTHETY_EXACT_CHECK.py`, and compare the complete JSON with `R749SOO_DIAGONAL_HOMOTHETY_RESULTS.json`. The checker uses only integers and `fractions.Fraction`. The universal real-parameter statement follows from the analytic inequality, affine identity and exact finite base certificate, rather than parameter sampling.
