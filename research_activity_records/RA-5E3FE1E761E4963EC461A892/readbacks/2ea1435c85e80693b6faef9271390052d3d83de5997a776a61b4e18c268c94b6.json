@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_checks/X6_LP003_HELLY_FIXED_POSITIVE_CHART_TYPED_OUTPUT_REGRESSION_20261114.py",
+    "ref": "e1df510fc6b825a333373e53899df280f654bf67",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "onhour-20261114-1000-x6-github-source-checker-actual-readback-v1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Guard the live Helly demo against promoting an S12 chart witness to native X6 Cell identity.\n\nUses the actual current source module. This is a consumer-interface regression, not\nan additional Helly theorem or a replacement for native signed-X6 benchmarks.\n\"\"\"\nfrom importlib.util import module_from_spec, spec_from_file_location\nfrom pathlib import Path\n\n\ndef main():\n    source = Path(__file__).resolve().parents[1] / \"scripts\" / \"tool_discovery_helly_radon_certificate_calculus.py\"\n    spec = spec_from_file_location(\"typed_helly_source\", source)\n    assert spec is not None and spec.loader is not None\n    module = module_from_spec(spec)\n    spec.loader.exec_module(module)\n\n    demos = module.check_enterprise_demos()\n    chart = demos[\"fixed_sector_chart\"]\n    assert chart[\"globally_feasible\"] is True\n    assert chart[\"common_a_values\"] == [5, 6, 7]\n    assert chart[\"common_b_values\"] == [3, 4]\n    assert chart[\"coordinate_type\"] == \"FIXED_POSITIVE_S12_LOCAL_CHART\"\n    assert chart[\"sample_fixed_positive_chart_address\"] == [5, 3, 0]\n    assert chart[\"native_cell_address_status\"] == (\n        \"UNSPECIFIED_REQUIRES_CELL_ANCHOR_AND_ORDERED_SIGNED_AXIS_EMBEDDING\"\n    )\n    assert \"sample_native_address\" not in chart\n\n    # Signed X6 native coordinates require an anchor and a declared ordered axis embedding.\n    # One unlabelled chart triple admits more than one native lift, so neither is inferred.\n    x = (5, 3, 0, 0, 0, 0)\n    y = (5, 0, 3, 0, 0, 0)\n    assert x != y and sum((a - b) ** 2 for a, b in zip(x, y)) == 18\n\n    support = demos[\"typed_boolean_brc_support\"]\n    assert support[\"globally_feasible\"] is True\n    assert support[\"coordinatewise_common_values\"] == ([1], [1], [0])\n    assert support[\"sample_support_mask\"] == [1, 1, 0]\n    assert support[\"two_constraint_conflict_verified\"] is True\n\n    # Preserve the producer's existing finite mathematical predicates.\n    assert module.check_interval_boxes()[\"helly2_violations\"] == 0\n    assert module.check_unbounded_chain()[\"all_minimal_obstructions_verified\"] is True\n    assert module.check_carath_lower_bound()[\"all_lower_bounds_verified\"] is True\n    print(\"PASS_X6_LP003_HELLY_TYPED_CHART_CONSUMER_REGRESSION\")\n\n\nif __name__ == \"__main__\":\n    main()\n",
+      "display_title": "X6_LP003_HELLY_FIXED_POSITIVE_CHART_TYPED_OUTPUT_REGRESSION_20261114.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/e1df510fc6b825a333373e53899df280f654bf67/research_checks/X6_LP003_HELLY_FIXED_POSITIVE_CHART_TYPED_OUTPUT_REGRESSION_20261114.py",
+      "encoding": "utf-8",
+      "sha": "3ed2051763303e614b30ec17050d03d450da7dd6"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
