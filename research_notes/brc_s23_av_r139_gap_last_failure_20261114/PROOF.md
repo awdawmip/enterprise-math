@@ -1,0 +1,105 @@
+# R139 — Exact last-failure formula for individual Farey gaps and word-level representation envelope
+
+Date: 2026-11-14 (Asia/Shanghai). Status: **AUTHOR-SIDE PROOF, NOT_REVIEWED**.
+Research family: one-parameter external tied-phase S23 auxiliary observer, not a native X6 update.
+Frozen scientific input: `43ec6098b1330ae86d0a7863be336c5d97f6ef34`.
+Predecessor: R138 `d24fd489a97229aecaa3c9e8ea555817bc9d5125`, especially its modular criterion and R138.5 O(b) cutoff algorithm.
+Proof dependencies: R137B exact Farey-gap/word correspondence at `ab486d53fad5fdeb15b6c8647b6778b8b1e1b093`; R138.1 modular feasibility predicate. Those predecessor statements remain author-side / NOT_REVIEWED.
+
+## 1. Definitions and exact claim
+
+Fix integers `m>=1`, `K>=2`, `L=K-1`. The observed word is
+```text
+S_i^(K)(theta) = floor((L+i+1) theta) - floor((L+i) theta),
+0<=i<m, 0<theta<1.
+```
+For Farey neighbors `a/b<c/d` of order m, `bc-ad=1`. A specified consecutive intercept gap has affine lower cut `p-j alpha` and upper cut `q-k alpha` (synthetic bottom/top cuts included), with `0<=j,k<=m`; the two cuts are distinct and maintain strict order for `alpha in (a/b,c/d)`. Define
+```text
+D = j*b*c - k*a*d + (q-p)*b*d,
+h_L = ((L+k)*a) mod b  in {0,...,b-1},
+B = b*d - D.
+```
+R138's exact criterion is
+```text
+G(K)  <=>  L+D > d*(b-h_L),     L=K-1>=1.     (R138)
+```
+Here G(K) means that this precise gap, rather than merely an equivalent word in some other gap, is realized by the tied observer at coefficient K.
+
+**R139.1 (closed-form last failure, all m and all gaps).**
+For every admissible Farey gap above:
+- If `B<=0`, G(K) holds for every integer `K>=2`.
+- If `B>=1`, the largest coefficient where this specified gap is infeasible is exactly `K_bad=B+1`, and every integer `K>=B+2` is feasible.
+Consequently the exact eventual feasible coefficient is
+```text
+K_gap = max(2, b*d - D + 2).                         (1)
+```
+It is computable from the existing gap metadata in **O(1) integer operations**. This replaces the O(b) residue-class search in R138.5, and includes strict equality, Farey boundary cells and synthetic 0/1 cuts.
+
+## 2. Proof
+
+R138 implies that if G(K) fails, then
+```text
+L+D <= d*(b-h_L) <= b*d.
+```
+Thus every failing `L` obeys `L<=B=bd-D`. In particular `B<=0` gives no failure among `L>=1`, and every `L>B` succeeds.
+
+It remains to show that the upper candidate `L=B` really fails whenever `B>=1`. Using `bc-ad=1`, reduce D modulo b:
+```text
+D = jbc - kad + (q-p)bd
+  = 0 - k*(-1) + 0  (mod b)
+  = k  (mod b).
+```
+At `L=B=bd-D` we have
+```text
+L+k = bd-D+k = 0 (mod b),
+h_L = ((L+k)*a) mod b = 0.
+```
+Therefore the strict feasibility inequality reads `L+D=bd > d(b-0)=bd`, which is false by equality. Hence `B` is the *largest* failing L. Converting `L=K-1` proves (1). QED.
+
+The argument also shows that every gap's final non-realization happens exactly at an endpoint-integrality collision `((L+k)a) mod b=0`, not at a generic nonzero residue. All possible earlier failures remain described by R138's residue predicate.
+
+## 3. Complete-language tail certificate without scanning K
+
+Let `\mathcal G_m` be the finite set of all consecutive intercept gaps of all order-m Farey intervals; for each gap g let W(g) be its associated m-bit mechanical word, and write
+```text
+T(g) = max(2, b_g*d_g-D_g+2).
+```
+Let `\mathcal W_m={W(g): g in \mathcal G_m}`; R137B shows this is the complete finite Sturmian language. Define the **representation envelope**
+```text
+U_rep(m) = max_{w in W_m} min_{g:W(g)=w} T(g).       (2)
+```
+**R139.2 (global tail certificate).** For every integer `K>=U_rep(m)`, the tied family realizes every word in `W_m`.
+
+Proof: For each word choose one minimizing gap in (2); R139.1 makes that exact gap feasible at every coefficient K at least its cutoff. Thus each word has an explicit gap and R137B constructs a rational witness. Taking the maximum produces a common tail bound. QED.
+
+Enumerating order-m Farey cells and their m+1 gaps, constructing all words, computing (1), and grouping by word evaluates `U_rep(m)` in polynomial time depending only on m (a straightforward O(m^4) exact arithmetic implementation with O(m)-bit words). In particular, this calculation does not sweep coefficients K or assume that feasible gap representations are unique.
+
+**Precision:** `U_rep(m)` is a *certified sufficient* threshold for the complete word language; it need not be the smallest eventual word threshold. A word may be present at a coefficient where each of its individual representations has an eventual cutoff larger than that coefficient.
+
+## 4. Exact finite checks and observed next hypothesis
+
+The attached standalone checker uses only Python integers and `fractions.Fraction`; it independently constructs Farey cells, intercept gaps and words, and compares R138 modular feasibility against the rational integer-in-open-interval predicate. For each gap it verifies the exact final failure when B>=1, immediate success afterward, additional tail instances and a 41-digit K. All computations were executed locally (see `verification_r139.json`).
+
+Verified finite coverage: m=1,...,22; 21,842 distinct gap records; 195,918 rational-vs-modular exact comparisons; 21,756 nontrivial final-failure certificates; 87,368 additional tail checks; 2,874 complete-language coefficient checks.
+
+Selected values:
+|m|all-gap cutoff|representation envelope|exact word eventual cutoff (finite exhaustive)|
+|--:|--:|--:|--:|
+|3|6|4|3|
+|5|18|10|7|
+|7|38|26|16|
+|10|83|65|33|
+|15|198|170|92|
+|20|363|325|163|
+|22|443|401|201|
+
+**Finite observation / open hypothesis:** for every checked m in 4,...,22,
+`U_rep(m)=(m-2)^2+1`. The current proof establishes (1) and (2) for all m; this simple closed form for the representation envelope has only been tested in the stated finite interval and is not claimed as a theorem.
+
+## 5. Next discriminating unit
+
+Prove or refute `U_rep(m)=(m-2)^2+1` for all m>=4 by classifying word equivalences across neighboring Farey cells, particularly `10^{m-2}1` and its complement. Then seek exact word-level eventual cutoff from the *union* of all gap representations using modular constraints, rather than the per-representation sufficient envelope. Keep canonical owner/CLAIM, mathematical review and native X6 transfer separately typed.
+
+## Reproduction
+
+`python check_r139.py` prints `R139_EXACT_LAST_BAD_GAP_PASS` and writes `verification_r139.json` (when run in a writable directory; see script path constant). Exact base reference: R138 `check_r138.py`, where `last_bad_L_gap` scans residues; formula (1) replaces that search.
