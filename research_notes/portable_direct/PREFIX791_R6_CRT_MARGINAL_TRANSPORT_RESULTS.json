@@ -1,0 +1,160 @@
+{
+  "compatible_and_incompatible_pairs_checked": 72784,
+  "endpoint_constructions": 71440,
+  "exact_assertions": 316004,
+  "fixed_examples": {
+    "same_marginals_target_0_ambiguous": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        2,
+        3,
+        4
+      ]
+    ],
+    "same_marginals_target_0_forced_positive": [
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        3,
+        4
+      ]
+    ]
+  },
+  "frozen_science": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "incompatible_pairs_checked": 21376,
+  "joint_support_bound_cases": [
+    {
+      "actual_joint_classes": 1,
+      "consistent_classes": 1,
+      "largest_modulus": 1,
+      "lcm": 1,
+      "moduli": [
+        1
+      ],
+      "potential_false_classes": 0
+    },
+    {
+      "actual_joint_classes": 3,
+      "consistent_classes": 6,
+      "largest_modulus": 3,
+      "lcm": 6,
+      "moduli": [
+        2,
+        3
+      ],
+      "potential_false_classes": 3
+    },
+    {
+      "actual_joint_classes": 4,
+      "consistent_classes": 4,
+      "largest_modulus": 4,
+      "lcm": 4,
+      "moduli": [
+        2,
+        4
+      ],
+      "potential_false_classes": 0
+    },
+    {
+      "actual_joint_classes": 5,
+      "consistent_classes": 60,
+      "largest_modulus": 5,
+      "lcm": 60,
+      "moduli": [
+        3,
+        4,
+        5
+      ],
+      "potential_false_classes": 55
+    },
+    {
+      "actual_joint_classes": 5,
+      "consistent_classes": 30,
+      "largest_modulus": 5,
+      "lcm": 30,
+      "moduli": [
+        2,
+        3,
+        5
+      ],
+      "potential_false_classes": 25
+    },
+    {
+      "actual_joint_classes": 7,
+      "consistent_classes": 7,
+      "largest_modulus": 7,
+      "lcm": 7,
+      "moduli": [
+        1,
+        7
+      ],
+      "potential_false_classes": 0
+    },
+    {
+      "actual_joint_classes": 9,
+      "consistent_classes": 18,
+      "largest_modulus": 9,
+      "lcm": 18,
+      "moduli": [
+        3,
+        6,
+        9
+      ],
+      "potential_false_classes": 9
+    },
+    {
+      "actual_joint_classes": 9,
+      "consistent_classes": 36,
+      "largest_modulus": 9,
+      "lcm": 36,
+      "moduli": [
+        4,
+        6,
+        9
+      ],
+      "potential_false_classes": 27
+    },
+    {
+      "actual_joint_classes": 1,
+      "consistent_classes": 1,
+      "largest_modulus": 1,
+      "lcm": 1,
+      "moduli": [
+        1,
+        1
+      ],
+      "potential_false_classes": 0
+    },
+    {
+      "actual_joint_classes": 7,
+      "consistent_classes": 210,
+      "largest_modulus": 7,
+      "lcm": 210,
+      "moduli": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "potential_false_classes": 203
+    }
+  ],
+  "limitations": "Target bounds concern all integer-weight path multisets with the given marginals; a fixed native provenance graph can impose stricter constraints. No native X6 experimental admission.",
+  "multi_coprime_cases": 1500,
+  "predecessor": "PREFIX-790",
+  "proof_basis": "CRT bijection on gcd-compatible pairs; integer transportation in each full gcd block; sharp event-set intersection bound for coprime moduli; projection-cardinality extremum",
+  "schema": "PREFIX791_CRT_JOINT_RESIDUE_TRANSPORT_V1",
+  "scope": "finite multisets of integer path weights; independent marginal residues; external observer; exact integer arithmetic",
+  "seed": 79120261115,
+  "sharp_intervals_with_multiple_feasible_counts": 20032,
+  "status": "ALL_CHECKS_PASS PREFIX791 SHARP_CRT_MARGINAL_CERTIFICATES",
+  "two_modulus_cases": 1800
+}

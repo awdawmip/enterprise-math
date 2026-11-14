@@ -1,0 +1,104 @@
+# PREFIX-791 / R6 — Sharp CRT joint-residue bounds from marginal path counts
+
+Date: 2026-11-15 (Asia/Shanghai).
+Scientific status: AUTHOR_PROVED / EXACT_INTEGER_REGRESSION / UNREVIEWED / NOT_ADMITTED.
+Predecessors: PREFIX-790 (typed cut compatibility and residual quotient), PREFIX-789 (source-preserving modular transfers).
+Frozen scientific input: awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d.
+Researcher/Activity (existing own registered identifiers): EM-DIRECT-E77192 / RA-66BBE259AEE1AD543D9454A3 / MCP-d9aca4ec6e00440eba66035326ea5a4e.
+
+## Exact object and question
+
+This is an external finite integer-weight **complete-path** observer. A path is an individually counted identity, with an integer additive statistic w. Even equal weights do not merge path identities. The question is: if only exact marginal counts of w modulo two (or several) moduli are retained, what can be certified about an actual *same-path* joint residue, without inventing a CRT witness from residues observed on different paths?
+
+Let P be a finite multiset of complete, named paths and w:P -> Z. For m,n>=1 let g=gcd(m,n), L=lcm(m,n). Define
+
+    R_a = #{p in P : w(p) == a (mod m)}    for a in Z/mZ
+    C_b = #{p in P : w(p) == b (mod n)}    for b in Z/nZ.
+
+For h in Z/gZ let
+
+    N_h = sum_{a == h (mod g)} R_a = sum_{b == h (mod g)} C_b.
+
+These equalities are necessary for any two marginal histograms to come from the same path multiset.
+
+## Theorem 791.1 — Exact joint transportation polytope
+
+Fix arbitrary nonnegative integer marginal arrays R and C whose per-gcd-class totals N_h agree. An array of nonnegative integer counts X_ab is realized as
+
+    X_ab = #{p : w(p)==a (mod m) and w(p)==b (mod n)}
+
+by SOME finite multiset of integer-weight paths with the given margins, if and only if:
+
+1. X_ab=0 for a != b (mod g).
+2. All row sums are R_a.
+3. All column sums are C_b.
+
+Proof. For necessity, a single integer weight automatically satisfies the gcd compatibility condition, and the row/column identities follow by counting. For sufficiency, the generalized Chinese remainder theorem gives a unique t modulo L for each compatible pair (a,b). Create X_ab distinguishable paths with representative weight t. Their two marginal tables are exactly R,C. This is also a constructive bijection between feasible joint tables and nonnegative integer transportation matrices on the disjoint complete bipartite gcd blocks. QED.
+
+This realization is over the entire class of integer-weight path multisets with the specified marginals. A FIXED directed source graph or native source/Port/branch/event-time guard may permit a smaller subclass.
+
+## Theorem 791.2 — Sharp target multiplicity interval for arbitrary m,n
+
+For compatible residues a==b (mod g), every joint table satisfying Theorem 791.1 has
+
+    lower = max(0, R_a + C_b - N_h)
+    upper = min(R_a, C_b),    h=a mod g,
+
+    lower <= X_ab <= upper.                                   (791.1)
+
+Every INTEGER x in this inclusive interval is attainable by a path multiset with exactly the same complete marginal arrays. For incompatible pairs, X_ab=0 identically. Each compatible (a,b) is a unique target t modulo L, so these are sharp bounds for modulo-L target multiplicities.
+
+Proof. Within gcd block h there are N_h paths. The sets of paths counted by R_a and C_b have intersection X_ab. Cardinality gives both inequalities. To realize any x in the interval, reserve x units for cell (a,b). Distribute the remaining R_a-x units of row a across all other columns, possible because R_a-x <= N_h-C_b. Distribute the remaining C_b-x units of column b across all other rows, possible because C_b-x <= N_h-R_a. Fill the remaining rectangle of other rows and columns by integral transportation (nonnegative integer row and column totals match; all its edges are available). Fill other gcd blocks independently. Theorem 791.1 realizes the result with integer path weights. Empty, singleton, modulus-one and endpoint blocks are covered. QED.
+
+Decision certificates: If upper=0, every compatible path multiset has no such target. If lower>0, every compatible path multiset has the target. If lower=0<upper, the marginal observations allow both absence and presence; joint source evidence is needed to decide. If lower=upper, the exact count is known.
+
+### Explicit two-modulus examples
+
+m=2,n=3, target t=0 (mod 6). The weight multisets {0,1,2} and {2,3,4} have identical marginals (two evens, one odd; one member in each residue modulo 3), but target counts 1 and 0. Formula (791.1) gives [0,1].
+
+The weight multisets {0,0,1} and {0,3,4} have identical marginals (two evens, one odd; two weights 0 mod 3 and one 1 mod 3), but target counts 2 and 1. Formula (791.1) gives [1,2]. This proves a positive same-path witness from the marginal data despite incomplete joint provenance.
+
+## Theorem 791.3 — Sharp k-modulus target interval when pairwise coprime
+
+Let k>=1, positive moduli m_1,...,m_k be pairwise coprime, N>=0 paths, and let R_i(a) be complete marginal histograms of total N. For target t modulo product_i m_i define r_i=R_i(t mod m_i). Among all compatible integer-weight path multisets, attainable multiplicities X_t are exactly the integers in
+
+    max(0, sum_i r_i - (k-1)*N) <= X_t <= min_i r_i.          (791.2)
+
+Proof. Regard the N distinguishable path slots as a finite set. For each i, let E_i denote the slots whose i-th residue equals the target; |E_i|=r_i. Their intersection has at most min_i r_i elements, and at least N - sum_i(N-r_i) by the union bound on complements. For the upper endpoint choose nested sets E_i={0,...,r_i-1}. For the lower endpoint, arrange complements of sizes N-r_i as consecutive (possibly wrapping) sections of a cyclic ordering of the N slots: their union has size min(N,sum_i(N-r_i)). Thus the lower endpoint is attained. At each coordinate independently fill the remaining slots with the prescribed non-target residue multiplicities. Pairwise coprimality makes every resulting residue tuple CRT-consistent and produces a corresponding integer path weight.
+
+For all intermediate integer counts, the assignments of each coordinate's fixed residue multiset over N named slots are connected by swaps of two slots in one coordinate. Each swap changes the target intersection cardinality by at most one. Connecting the two endpoint assignments therefore passes through every intermediate integer value. N=0 gives the zero table. QED.
+
+The statement for three or more non-coprime moduli may have additional compatible-tuple constraints and is not covered by (791.2).
+
+## Theorem 791.4 — Sharp worst-case information lost by independent full supports
+
+For arbitrary positive moduli m_1,...,m_k let
+
+    L=lcm_i m_i,    M=max_i m_i.
+
+The CRT-consistent joint residue tuples have exactly L classes. Suppose every individual modulus has full supported residue set but all joint path associations have been erased. The true joint support necessarily has at least M classes. It can have exactly M, so the largest possible number of falsely admitted CRT-consistent joint classes is
+
+    L-M.                                                          (791.3)
+
+Proof. Every joint support must surject onto each coordinate residue set, and thus contain at least m_i elements for every i. Hence its size is at least M. Take the M different path weights 0,1,...,M-1. Since M<=L, they represent M distinct joint residue classes; since M>=m_i, they cover all residues of every individual modulus. The independently reconstructed consistent support is all L classes, while only M occur. QED.
+
+Exact instances: (m_1,m_2)=(2,3) gives 6-3=3 potential false joint classes; (2,3,5) gives 30-5=25; (3,6,9) gives 18-9=9; (2,3,5,7) gives 210-7=203. The count L-M concerns possible *support*, not a simultaneous integer transportation assignment claiming each false class occurs.
+
+## Interface with PREFIX-790, native BRC, and residual fidelity
+
+PREFIX-789 established that independently observed residues can belong to different paths; PREFIX-790 distinguished typed junction-compatible suffix continuation and ghost compositions. PREFIX-791 supplies an **optimal information bound** when one intentionally compresses that joint typed state to marginal residue *counts*, and a sharp worst-case bound for support-only compression.
+
+In a future native BRC/X6 application, w must be an explicitly declared, source-faithful integer path statistic, and the relevant Cell/Link/Port, source sign, triadic relation, branch, event-time and compatible future-operation predicates must first be read from the frozen native inputs. Missing path association is a structural residual, not an additional spatial coordinate or an observed physical law. General marginal intervals remain valid over any restricted subclass, though the native restrictions can sharpen them. Native mathematical acceptance, physical duration calibration and comparison-grid exclusion have not been established by this external scalar model.
+
+Algorithmic accounting: given N explicitly enumerated path weights, computing modular marginals costs O(N) residue operations; gcd-block totals are O(m+n+g) preprocessing, followed by O(1) per compatible target bound. If the native graph has exponentially many paths, generating its exact marginal histograms remains an independent cost; the theorem does not claim an unconditional asymptotic speedup.
+
+## Source code and evidence
+
+Exact checker: research_notes/portable_direct/PREFIX791_R6_CRT_MARGINAL_TRANSPORT_CHECK.py.
+Machine-readable result: research_notes/portable_direct/PREFIX791_R6_CRT_MARGINAL_TRANSPORT_RESULTS.json.
+Validation: Python standard-library exact integers, deterministic seed 79120261115; 1,800 generated path-multiset cases, 72,784 queried residue pairs, 71,440 explicit endpoint transportation + CRT reconstructions, 1,500 coprime multi-modulus cases, ten joint-support examples; 316,004 counted exact assertions, ALL_CHECKS_PASS. Every constructed endpoint is checked for BOTH full original histograms and the actual joint target count. Universality follows from the preceding proofs, not from the finite regression.
+Status: author proof and exact finite regression; independent mathematical review and native admission outstanding.
+
+## Preserved unfinished scientific question
+
+Identify a genuinely native, source/target-admitted BRC/X6 complete-path observer at the frozen pin, with real Cell/Link/Port guards, ordered event time and force/source provenance. Compute its joint counts over a declared finite horizon and compare them with sharp marginal certificates (791.1). Determine which native residual rows from PREFIX-790 permit strictly tighter, future-operation-safe compression. A separate exact combinatorial direction is transportation under 3+ non-coprime moduli with CRT compatibility and source-specific path restrictions.
