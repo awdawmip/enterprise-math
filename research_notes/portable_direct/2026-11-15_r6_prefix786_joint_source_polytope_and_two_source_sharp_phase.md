@@ -1,0 +1,107 @@
+# PREFIX-786 / R6 — Joint-source polytope duality and exact two-source mixed-sign phase boundary
+
+Date: 2026-11-15 (Asia/Shanghai). Role: independently continued R6 scalar-observer research. Prior registered provenance: Researcher EM-DIRECT-E77192, session MCP-d9aca4ec6e00440eba66035326ea5a4e; current shared Task CLAIM not asserted.
+Status: AUTHOR_EXACT_ALGEBRAIC_PROOF_WITH_RATIONAL_REGRESSION / UNREVIEWED / NOT_ADMITTED.
+Frozen scientific input: awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d.
+Direct predecessor: PREFIX-785, research_notes/portable_direct/2026-11-14_r6_prefix785_correlated_single_source_sharp_margin.md (verified GitHub source, original author model).
+This is an **external reflected scalar Gamma-style observer theorem**, not native Cell/Link/Port/force-source execution. The already verified 189-layer stopped-model coefficients remain pinned and are **not recomputed** here.
+
+## 1. A general joint-source dual certificate
+
+Let m>=1; let A,B be real m-vectors, C an m-by-d real matrix, and P a nonempty compact convex polytope in R^d. Define a correlated scalar observer
+
+    v(q,u)=A-q B+C u,    q>0, u in P.
+
+The reflected four-sign construction for m=2 is a(q,u)=(v1,v2,-v1,-v2). Its exact two-sign margin equals ||v||_infty.
+
+**Theorem 786.1 (source-polytope distance and duality).** With the above domain, the sharp uniform margin is
+
+    rho = inf_(q>0,u in P) ||A-q B+C u||_infty
+        = max_(||lambda||_1<=1, lambda dot B<=0)
+             [lambda dot A + min_(u in P) (C^T lambda) dot u].       (1)
+
+In particular, if A,B,C and a bounded nonempty P have rational polyhedral descriptions, rho is the rational optimum of a finite linear program. The primal LP minimizes r subject to
+
+    -r <= A_i-q B_i+(C u)_i <= r  (i=1..m),
+    q>=0, r>=0, and u in P.                                      (2)
+
+Any dual-feasible lambda gives an exact uniform lower bound, and a primal witness achieving it proves sharpness. The constraint lambda dot B<=0 explicitly controls q>=0; a certificate with lambda dot B=0 cancels q for all positive q.
+
+**Proof.** The support-function identity ||x||_infty=max_(||lambda||_1<=1) lambda dot x holds for every x. Apply convex affine minimax (equivalently strong LP duality to (2)) with compact convex lambda-domain and convex (q,u) domain; one obtains max_lambda inf_(q>=0,u in P) lambda dot(A-qB+Cu). The infimum in q is -infinity if lambda dot B>0 and otherwise equals its q=0 value; the remaining infimum is exactly the support minimization over P, proving (1). Every q=0 point is a limit of q>0 points, so the two infima coincide. Because P is compact and the primal LP is feasible and bounded below by zero, finite LP duality applies. Rational LP data have a rational optimal basic solution, establishing exact rationality. QED.
+
+For a rational box P=prod_j[-h_j,h_j] the inner term in (1) is
+    min_(u in P)(C^T lambda) dot u = -sum_j h_j |(C^T lambda)_j|.
+This retains common-source incidence instead of replacing C P by unrelated coordinate boxes.
+
+## 2. An exact two-source theorem, applicable to the earlier A/B ordering
+
+Assume real parameters
+
+    A1>0,    0<B1<B2,    D=A2 B1-A1 B2>0,
+    sigma>=0, eta>=0, q>0,
+    -sigma<=s<=sigma, -eta<=t<=eta.
+
+Define *one shared source* s and *one extra source* t:
+
+    v1=A1-q B1+s,
+    v2=A2-q B2+s+t,
+    a=(v1,v2,-v1,-v2).                                          (3)
+
+Write T=(B2-B1)sigma+B1 eta.
+
+**Theorem 786.2 (sharp two-source phase boundary).**
+
+    inf_(q>0,|s|<=sigma,|t|<=eta) ||(v1,v2)||_infty
+       = max{0,(D-T)/(B1+B2)}.                                  (4)
+
+Thus every admissible q,s,t has at least one strictly positive and one strictly negative entry of a, with a common uniform absolute magnitude >=(D-T)/(B1+B2)>0, **if and only if**
+
+    (B2-B1)sigma+B1 eta < D.                                   (5)
+
+When T>=D an admissible positive-q observation has a=(0,0,0,0). This is the exact threshold for this two-source joint observer class.
+
+**Proof (lower bound).** The signed-source eliminant is
+
+    -B2 v1+B1 v2 = D-(B2-B1)s+B1 t >= D-T.
+
+Since |-B2 v1+B1 v2|<=(B1+B2)||v||_infty, the claimed positive lower bound follows when T<D. If T>=D, the lower bound zero is trivial. This is also the dual witness lambda=(-B2,B1)/(B1+B2), with lambda dot B=0.
+
+**Proof (attainment for T<D).** Set
+    r=(D-T)/(B1+B2), s=sigma, t=-eta,
+    q=(A1+sigma+r)/B1>0.
+Then v1=-r, and the eliminant gives v2=r, so
+    a=(-r,r,r,-r).
+This achieves (4) exactly, including sigma=eta=0.
+
+**Proof (zero construction for T>=D).** Since D>0, necessarily T>0. Put
+    theta=D/T in (0,1], s=theta sigma, t=-theta eta,
+    q=(A1+s)/B1>0.
+Then v1=0 and -B2 v1+B1 v2=D-theta T=0; hence v2=0. The source bounds hold. QED.
+
+The coefficient hypotheses A1,A2>0, 0<B1<B2 and D>0 are the inherited exact-sign conditions recorded in PREFIX-780 for the two fixed Gamma grid cells R38 and R39. Formula (4) therefore applies algebraically to those coefficients *if* a proposed reflected scalar readout has precisely the joint incidence pattern (3). This pattern is an explicit hypothesis to check, not an asserted native-source mapping. The four mixed differences then are q times the four a coordinates.
+
+## 3. Explicit one-to-two-source sensitivity extending PREFIX-785
+
+Use the illustrative PREFIX-785 coefficients A=(0,3), B=(1,2), keep s in [-1,1] and introduce independent t in [-eta,eta]. These satisfy all Theorem 786.2 hypotheses except A1>0, but the same eliminant and direct positive-q witnesses give, independently, for every eta>=0,
+
+    rho(eta)=max{0,(2-eta)/3}.                                  (6)
+
+For 0<=eta<=2 the attaining observation is
+    q=(5-eta)/3>0, s=1, t=-eta,
+    a=(-rho,+rho,+rho,-rho).
+For eta>=2 choose q=1,s=1,t=-2 and all four entries are zero.
+
+In particular: eta=0 recovers PREFIX-785's exact 2/3 margin; eta=1 gives 1/3; eta=2 is the precise cancellation threshold. At each eta<2 every positive q and every allowed source pair have both signs. This quantifies how one new, independent but provenance-labeled source dilutes an exact common-source certificate.
+
+A realizable external *scalar corner-error* representation uses the common corner of two adjacent base rectangles for s and one positive-signed private corner of the second rectangle for t, applying matching errors at reflected partner corners. This constructs the formal joint incidence (3) while preserving exact reflected signs. No native X6 Cell, branch, signed-Port, provenance/event-time lease or future-operation preservation is inferred from that scalar construction.
+
+## 4. Verification, reproducibility, and continuation
+
+Companion code: research_notes/portable_direct/PREFIX786_R6_TWO_SOURCE_AFFINE_MARGIN_CHECK.py.
+Companion output: research_notes/portable_direct/PREFIX786_R6_TWO_SOURCE_AFFINE_MARGIN_RESULTS.json.
+The script runs 8,192 deterministic rational parameter cases and 65,536 independently sampled rational point probes under exact Python fractions.Fraction arithmetic. It checks each algebraically constructed minimizer, all source bounds, reflection signs, the sharp value, and the illustrative family eta=0,1/2,1,3/2,2,3. Result: ALL_CHECKS_PASS PREFIX786 TWO_SOURCE_SHARP_MARGIN.
+The proof establishes the universal statements; the finite regression tests the formulas and implementation. The frozen killed-Pascal calculation was not re-run in this unit.
+
+**Next discriminating unit.** Read the original native BRC/X6 source-to-Cell/Link/Port/time incidence if available, determine the true attainable *joint* observer polytope (possibly with branch-indexed unions rather than a single convex P), then compute its source-preserving LP certificate and contrast with coordinate-box relaxation. For a branch union, exact uniform margin is the minimum of the per-branch margins; do not convexify the union without checking whether that changes the claim. Original comparator grid exclusion counts remain unchanged.
+
+Source status at publication: mathematical author result awaiting independent review; existing registered R6 Activity/CLAIM authority must be treated separately from scientific GitHub persistence.
