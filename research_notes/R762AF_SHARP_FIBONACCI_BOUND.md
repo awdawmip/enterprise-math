@@ -43,3 +43,27 @@ The complete normalized enumeration covers m=2,...,11. Numbers of physically rea
 No proof here admits the auxiliary star as a native TRIADIC_CLOSURE_E, or supplies its actual signed-source PASS/TRANSFER alphabet, V17 internal frame rule, V39 transport or multi-macro repeat legality. The m>6 tests are entirely abstract; even within six X6 axes, m>3 is a nonprimitive auxiliary population. P000 and ACTIVE worldview are unchanged. This GitHub contribution is author-side preservation, not a Source CLAIM, PROGRESS, Result or independent Driver review.
 
 Next: use the actual native triadic force incidence/update laws to restrict the admissible source-to-port permutation graph and temporal transcript language, and determine the resulting BRC fiber bound and source-preserving observation/repair requirements.
+
+
+## Exact interval-factorization algorithm (additional AF3 theorem)
+
+The same cycle-block argument yields an exact **polynomial-time** formula, not merely a Fibonacci upper bound. Let p_1,...,p_m be the ingress order, and define W_tau(a,b) for integers 0<=a<b<=m to be 1 exactly when the I/O subword of tau restricted to source/destination labels {p_(a+1),...,p_b} supports a single nontrivial cycle under the two-slot star rule. For b-a<2 put W=0. Lemma 2 gives a deterministic linear-time (in the full word length O(m)) test for each W: track the one pending in-hub source token, the unique open outer-port vacancy, and the newly ingressed token; the recorded output port forces the next transfer, or disproves the single-cycle possibility.
+
+**Theorem AF3.** For every realizable tau in the declared model,
+
+$$
+A(\tau)=\sum_{\substack{0=i_0<i_1<\cdots<i_r=m\\ i_j-i_{j-1}\ge2}}
+\prod_{j=1}^{r} W_\tau(i_{j-1},i_j).
+$$
+
+Equivalently let d_0=1 and, for 1<=b<=m, let
+
+$$
+d_b=\sum_{a=0}^{b-2}d_a\,W_\tau(a,b).
+$$
+
+Then A(tau)=d_m.
+
+**Proof.** By Lemmas 1 and 2, each physical source map determines exactly one ordered cycle-interval partition with W=1 on every interval. Conversely, independently combine the uniquely forced one-cycle matchings on all intervals of such a partition. They are source/destination-disjoint. Each chosen source enters before its selected output, each destination port is vacant before its own output, and the global hub occupancy at any prefix equals the I-minus-O count of tau, which is at most two and independent of hidden source choices. Consequently the combined matching is a valid physical replay and forms exactly the prescribed cycle partition. These operations are mutually inverse. Summing the products proves the identity; the recurrence enumerates all valid last blocks. QED.
+
+There are O(m²) candidate intervals and each single-cycle word projection/replay takes O(m) elementary operations. Therefore this specific bounded-buffer permanent can be evaluated in **O(m³) arithmetic/branch operations and O(m²) auxiliary storage**, with exact integers of O(m) bits by AF1. This is strictly model-specific; it does not claim a polynomial algorithm for arbitrary 0/1 permanents or for unbounded hubs, nor a complexity gain for input with unaccounted conversion costs. The already published independent verifier implements both the physical-state dynamic program and the recurrence above and compares their answers on every normalized realizable word for m=2,...,11.
