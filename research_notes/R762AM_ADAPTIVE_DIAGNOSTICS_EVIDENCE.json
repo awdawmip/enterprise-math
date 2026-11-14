@@ -1,0 +1,64 @@
+{
+  "ET_baseline_fiber_size": 3,
+  "adaptive_global_minimax": [
+    {
+      "candidate_partitions": 18,
+      "count": 8,
+      "minimum_adaptive_probes_including_empty_if_chosen": 3,
+      "worst_total_event_letters_at_minimum_depth": 3
+    },
+    {
+      "candidate_partitions": 19,
+      "count": 9,
+      "minimum_adaptive_probes_including_empty_if_chosen": 3,
+      "worst_total_event_letters_at_minimum_depth": 3
+    }
+  ],
+  "checks_passed": true,
+  "distinct_observation_vectors": 43,
+  "free_initial_observation_policy": {
+    "CE": "S",
+    "EC": "C",
+    "EE": "stop",
+    "ET": "T; if output EC then CT on another reset copy else stop",
+    "U": "stop",
+    "maximum_additional_probe_count": 2,
+    "maximum_event_letters": 3,
+    "uniform_live_expected_additional_probes": "9/8",
+    "uniform_live_expected_event_letters": "11/8"
+  },
+  "generated_transformation_monoid": 75,
+  "informative_single_letter_tests_on_ET": [
+    "T"
+  ],
+  "live_states": 8,
+  "max_output_categories_from_one_any_length_probe_on_ET": 2,
+  "nonadaptive_after_free_initial_observation": [
+    {
+      "count": 8,
+      "minimum_nonempty_fixed_words_after_baseline": 4,
+      "pair_masks": 18,
+      "witness": [
+        "S",
+        "C",
+        "T",
+        "CT"
+      ]
+    },
+    {
+      "count": 9,
+      "minimum_nonempty_fixed_words_after_baseline": 4,
+      "pair_masks": 19,
+      "witness": [
+        "S",
+        "C",
+        "T",
+        "CT"
+      ]
+    }
+  ],
+  "schema": "R762AM_ADAPTIVE_DIAGNOSTICS_EXACT_V1",
+  "scope": "AK4 eight reachable partial source/frame states; optional absorbing undefined",
+  "total_states": 9,
+  "validation": "Complete finite transformation monoid closure; exact partition/subset search; explicit adaptive-policy signatures on 9 states; integer costs"
+}
