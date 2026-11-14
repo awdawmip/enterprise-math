@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R749SPM_Q0_WEDGE_SHARPNESS_EXACT_CHECK.py",
+    "ref": "b8ba040ecef02ef2a2eb38cb4b034e4bac51bc91",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r749spl-spm-20261115-r2-source-obs-5",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R749SPM: exact rational witness audit for R749SPK q0 risk sharpness.\n\nGrid check is a reproducibility audit; universal theorem is proved algebraically\nusing the four explicit case-wise probability laws in the accompanying note.\n\"\"\"\nfrom fractions import Fraction as F\nimport json\n\nMASKS=(3,12,15,1,2,4,8)\nW=tuple(tuple((-1 if (k&m).bit_count()%2 else 1) for m in MASKS) for k in range(16))\ndef law(t,s,h=0,u=0,v=0,w=0,z=0):\n    return tuple((1+sum(a*b for a,b in zip(row,(t,s,h,u,v,w,z))))/16 for row in W)\ndef tv(p,q):return sum(map(abs,(a-b for a,b in zip(p,q))),F(0))/2\n\ndef witness(t,s):\n    assert 0<=t<=s and t+s<=1\n    if s<2*t:\n        return 'LOWER_FACE',law(t,s,1+t-s),(1+t-s)/2,(2*t-s)/2\n    assert s+3*t>1\n    if t+s==1:\n        return 'TOP_EDGE',law(t,s,0,t,t,s,s),(2*s+t)/4,t/4\n    if s<=1-2*t:\n        return 'UPPER_INNER',law(t,s,-t,0,0,1-t,t+s),(1+s+t)/4,(s+3*t-1)/4\n    return 'UPPER_OUTER',law(t,s,t+s-1,0,0,1-t,1-t),(3-3*t-s)/4,(1-t-s)/4\n\ndef run(N=40):\n    checks=0; classes={};bad=[];max_abs_err=F(0)\n    for i in range(N+1):\n        for j in range(i,N-i+1):\n            t,s=F(i,N),F(j,N)\n            inside = s>=2*t and s+3*t<=1\n            if inside:continue\n            label,p,expected_risk,excess=witness(t,s)\n            q=law(t,s)\n            assert min(p)>=0 and sum(p)==1 and min(q)>=0 and sum(q)==1\n            risk=tv(p,q)\n            err=abs(risk-expected_risk);max_abs_err=max(max_abs_err,err)\n            if risk!=(1-t)/2+excess or excess<=0:\n                bad.append((t,s,label,risk,expected_risk,excess))\n            classes[label]=classes.get(label,0)+1;checks+=1\n    assert not bad and checks==sum(classes.values())\n    print(json.dumps({\n        'status':'PASS',\n        'scope':'Exact rational sample grid audit; universal theorem proved algebraically in accompanying note',\n        'sample_grid_denominator':N,'outside_T_observed':checks,'witness_classes':classes,\n        'full_atom_nonnegative_and_normalized':True,'maximum_formula_error':str(max_abs_err),\n        'exact_witness_excess_strict_positive':True,\n        'universal_theorem':'q0 risk <=(1-t)/2 iff s>=2t and s+3t<=1 in 0<=t<=s,t+s<=1',\n        'scientific_status':'AUTHOR_EXACT_NOT_REVIEWED'\n    },indent=2,sort_keys=True))\nif __name__=='__main__':run()\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/b8ba040ecef02ef2a2eb38cb4b034e4bac51bc91/research_notes/portable_direct/R749SPM_Q0_WEDGE_SHARPNESS_EXACT_CHECK.py",
+      "encoding": "utf-8",
+      "sha": "27555d4639257f7bf21491a67baaee59a4cf5b9f"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
