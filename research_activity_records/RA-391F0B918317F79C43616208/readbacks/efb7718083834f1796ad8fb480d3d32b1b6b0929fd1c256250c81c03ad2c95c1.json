@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_r139_gap_last_failure_20261114/check_r139b.py",
+    "ref": "419b3f1f0b732cb945a51b3b9e33406449fe6b81",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r139b-source-observed-check_r139b-py-419b3f1f0b73",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R139B extremal word: exact one-division test and independent rational-atom check.\nRequires check_r139.py in the same directory. No floating-point arithmetic.\n\"\"\"\nfrom fractions import Fraction\nimport json\nfrom check_r139 import cells, feasible\n\n\ndef strict_word(t, K, m):\n    return tuple(int(((K+i)*t) % 1 < t % 1) for i in range(m))\n\n\ndef chronological_words(K, m):\n    L=K-1\n    split=sorted({Fraction(a,n) for n in range(max(1,L), L+m+1)\n                  for a in range(n+1)})\n    return {strict_word((a+b)/2,K,m) for a,b in zip(split,split[1:])}\n\n\ndef main():\n    count=0\n    independent=0\n    rows=[]\n    for m in range(4,41):\n        target=(1,)+(0,)*(m-2)+(1,)\n        target_comp=tuple(1-v for v in target)\n        gaps=[g for g in cells(m) if g[-1]==target]\n        assert len(gaps)==2,(m,'expected two Farey gap representations',len(gaps))\n        K_bad=(m-2)*((m-1)//2)\n        for K in list(range(2,(m-1)**2+4))+[10**80+137,10**80+7]:\n            L=K-1\n            q,r=divmod(L,m)\n            predicted=2*q+r>=m-2\n            actual=any(feasible(g,K) for g in gaps)\n            assert predicted==actual,(m,K,predicted,actual)\n            count+=1\n        assert not any(feasible(g,K_bad) for g in gaps)\n        assert all(any(feasible(g,K) for g in gaps)\n                   for K in range(K_bad+1,(m-1)**2+4))\n        rows.append(dict(m=m,last_missing_K=K_bad,eventual_K=K_bad+1,\n                         gap_representations=len(gaps)))\n        if m<=8:\n            for K in range(2,40):\n                L=K-1\n                q,r=divmod(L,m)\n                predicted=2*q+r>=m-2\n                present=chronological_words(K,m)\n                assert (target in present)==predicted,(m,K,'target')\n                assert (target_comp in present)==predicted,(m,K,'complement')\n                independent+=2\n    out={'marker':'R139B_EXTREMAL_WORD_TEST_PASS',\n         'arithmetic':'Python exact integers and fractions.Fraction',\n         'frozen_source_pin':'43ec6098b1330ae86d0a7863be336c5d97f6ef34',\n         'm_range':[4,40],\n         'exact_quotient_vs_gap_comparisons':count,\n         'independent_chronological_original_strict_comparisons':independent,\n         'rows':rows,'formal_verification':'NOT_PERFORMED',\n         'independent_mathematical_review':'NOT_REVIEWED'}\n    print(out['marker'])\n    print('quotient_vs_gap_comparisons',count)\n    print('independent_chronological_comparisons',independent)\n    with open('verification_r139b.json','w',encoding='utf-8') as f:\n        json.dump(out,f,indent=2,ensure_ascii=False)\nif __name__=='__main__':main()\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/419b3f1f0b732cb945a51b3b9e33406449fe6b81/research_notes/brc_s23_av_r139_gap_last_failure_20261114/check_r139b.py",
+      "encoding": "utf-8",
+      "sha": "4ef2fae47b36e677170b79030bb7b909088a79f7"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
