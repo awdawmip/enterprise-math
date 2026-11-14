@@ -77,7 +77,22 @@ The function \(E=\operatorname{TV}(\mu,q_{t,s})-(1-s)/2\) is convex over this po
 
 The 19 inequalities define a full-dimensional bounded polytope and the complete seven-active-basis enumeration covers its vertices. Therefore \(E\le0\) throughout \(P\), for **all real** \((t,s)\in\mathcal T_0\), and \(q_{t,s}\) attains the unrestricted diameter lower bound. This establishes both equalities.
 
-## 4. Novelty, scope and reproduction
+## 4. Exact block-swap companion triangle
+
+The coordinate permutation \((x_1,x_2,x_3,x_4)\mapsto(x_3,x_4,x_1,x_2)\) sends \(\chi_3\leftrightarrow\chi_{12}\), \(\chi_1,\chi_2\leftrightarrow\chi_4,\chi_8\), and fixes \(\chi_{15}\). It bijects the compatible source fibers, preserves total variation, and maps calibrated predictions to calibrated predictions. Applying this exact isometry to the proved theorem gives a second all-real parameter triangle
+
+\[
+\mathcal T_0^\ast=\{t\ge0,\quad s\ge2t,\quad s+3t\le1\}
+=\operatorname{conv}\{(0,0),(0,1),(1/5,2/5)\},
+\]
+
+on which
+\[
+\boxed{\rho(t,s)=\rho^{\mathrm{cal}}(t,s)=\frac{1-t}{2}}
+\]
+with the same unretained-zero center \(q_{t,s}\). The two proved triangles meet only at \((0,0)\), where both formulas give \(1/2\), and their combined area is \(1/5\). In particular, both entire nonnegative coordinate-axis segments have exact radius \(1/2\). This second triangle is a symmetry corollary: its proof inherits the complete R749SNY certificate under an explicit coordinate bijection, not a second independent enumeration.
+
+## 5. Novelty, scope and reproduction
 
 This is a strict parameter-region extension of R749SNX. It reuses that result's source-law family and diametral witness; the new ingredient is the simpler *zero* unretained-coefficient center, which remains optimal on a larger triangle that reaches the origin and the complete \(s=0\) edge. The current exact certificate says nothing about positive calibration gaps outside \(\mathcal T_0\).
 
