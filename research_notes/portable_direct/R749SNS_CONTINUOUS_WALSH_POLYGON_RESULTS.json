@@ -1,0 +1,169 @@
+{
+  "area_gain": "5/38",
+  "center_coefficients": {
+    "P1_repaired_outer_triangle": "3/20-3*s/2",
+    "P2_center_transition_triangle": "(t+s-1)/2",
+    "P3_old_edge_extension_triangle": "(3*t+5*s-3)/2"
+  },
+  "frozen_scientific_input": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "interpretation": "16-state auxiliary Walsh source model, NOT native X6/V29/V39",
+  "invalid_naive_center_interpolation": {
+    "candidate_eta": "-3/40",
+    "conclusion": "Specific single-affine interpolation is not a uniform minimax center",
+    "excess": "1/120",
+    "loss": "41/96",
+    "parameter": [
+      "17/30",
+      "13/60"
+    ],
+    "source_free_coefficients": [
+      "-13/60",
+      "-47/60",
+      "-47/60",
+      "0",
+      "0"
+    ],
+    "target_radius": "67/160"
+  },
+  "lower_event": [
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    14,
+    15
+  ],
+  "new_polygon_area": "43/800",
+  "new_polygon_vertices": [
+    [
+      "7/10",
+      "1/10"
+    ],
+    [
+      "7/10",
+      "3/20"
+    ],
+    [
+      "1",
+      "0"
+    ],
+    [
+      "3/5",
+      "2/5"
+    ],
+    [
+      "1/2",
+      "3/10"
+    ],
+    [
+      "3/5",
+      "1/5"
+    ],
+    [
+      "3/5",
+      "7/40"
+    ]
+  ],
+  "new_triangle_area": "1/160",
+  "new_triangles": [
+    {
+      "active_bases": 50388,
+      "area": "1/400",
+      "distinct_vertices": 124,
+      "feasible_bases": 756,
+      "maximum_excess": "0",
+      "name": "P1_repaired_outer_triangle",
+      "nonsingular_bases": 27648,
+      "parameter_halfspaces": [
+        "t<=7/10",
+        "3t+4s>=5/2",
+        "t+4s<=13/10"
+      ],
+      "tight_vertices": 40,
+      "vertices": [
+        [
+          "7/10",
+          "1/10"
+        ],
+        [
+          "7/10",
+          "3/20"
+        ],
+        [
+          "3/5",
+          "7/40"
+        ]
+      ],
+      "violating_vertices": 0
+    },
+    {
+      "active_bases": 50388,
+      "area": "1/800",
+      "distinct_vertices": 114,
+      "feasible_bases": 904,
+      "maximum_excess": "0",
+      "name": "P2_center_transition_triangle",
+      "nonsingular_bases": 27600,
+      "parameter_halfspaces": [
+        "t>=3/5",
+        "t+4s>=13/10",
+        "t+2s<=1"
+      ],
+      "tight_vertices": 28,
+      "vertices": [
+        [
+          "7/10",
+          "3/20"
+        ],
+        [
+          "3/5",
+          "7/40"
+        ],
+        [
+          "3/5",
+          "1/5"
+        ]
+      ],
+      "violating_vertices": 0
+    },
+    {
+      "active_bases": 50388,
+      "area": "1/400",
+      "distinct_vertices": 116,
+      "feasible_bases": 928,
+      "maximum_excess": "0",
+      "name": "P3_old_edge_extension_triangle",
+      "nonsingular_bases": 28912,
+      "parameter_halfspaces": [
+        "3t+4s<=27/10",
+        "t+s>=4/5",
+        "t+2s>=1"
+      ],
+      "tight_vertices": 36,
+      "vertices": [
+        [
+          "7/10",
+          "3/20"
+        ],
+        [
+          "3/5",
+          "1/5"
+        ],
+        [
+          "1/2",
+          "3/10"
+        ]
+      ],
+      "violating_vertices": 0
+    }
+  ],
+  "next_question": "Find the adjacent real chambers and distinguish optimal-center switching from a true positive calibration gap",
+  "old_domain": "R749SNO+R749SNR Q (area 19/400)",
+  "probability_source_lower_witness": "(h,u,v,w,z)=(0,s-1,-t,-s,-s)",
+  "review": "NOT_REVIEWED",
+  "status": "PASS",
+  "theorem": "rho(t,s)=rho_cal(t,s)=(3+t-s)/8 on the displayed triangulated polygon",
+  "unit": "R749SNS"
+}
