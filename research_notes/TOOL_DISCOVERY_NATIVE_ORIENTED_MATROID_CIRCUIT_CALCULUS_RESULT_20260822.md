@@ -7,6 +7,8 @@ Task: `RS-TD-OM-NATIVE-ORIENTED-MATROID-CIRCUIT-CALCULUS`
 Owner branch: `research/tool-native-oriented-matroid-circuits`
 Frozen source: `awdawmip/enterprise-math@00765cc76ea71f789481fbe91c29d852bbf6b209`
 
+> **Current-reader typed reconciliation (2026-11-15; X6 mother task, author-side / unreviewed):** This is the preserved **2026-08-22 historical research return** with the original oriented-graphic-matroid/circuit-cocircuit results and original executable untouched. Present P000 V5 defines an affine signed \(\mathbb Z^6\) native Cell torsor: six independent axes, each with primitive positive and negative unit steps. The historical checker `experiments/tool_discovery_native_oriented_matroid_circuit_calculus_check.py`, `grid(a,b)` (original lines 43–52; Git blob `bce4453d740ac3c0c401843b732dc78c74056883`), uses exactly two **positive** chart generator labels `Xi,Xj` on a finite grid. It demonstrates an exact **typed finite-graph** graphic-matroid construction, not a census of the twelve signed-X6 one-step directions. For example, the actual native neighbor `-e_0` of a chosen Cell exists in P000 but is not an outgoing generator edge in that positive grid. To apply the circuit theorem to a signed-X6 path subgraph, construct that explicit graph with Cell anchors, axis/sign-labelled edges, and retained path/order provenance; then use graphic matroid operations on **that** graph. Carrier shortcuts or positive-chart edges are not native edges without such an embedding. No accepted Result, frozen source, previously executed code, or independent Driver review is changed by this annotation. `RETYPE_CURRENT_READER / PRESERVE_TYPED_GRAPH_THEOREM / NO_NATIVE_FULL_X6_EXECUTION_CLAIM`.
+
 Leading verdict:
 
 `NATIVE_CIRCUIT_CALCULUS_DISCOVERED`
@@ -46,7 +48,7 @@ Thus the discovered tool is not a replacement for the current metric/gauge layer
 
 ## 2. Exact no-go boundary: do not orient the three positive directions by importing the carrier
 
-The current native foundation explicitly separates the three positive native axis families from the classical planar carrier relation. In particular:
+At the 2026-08-22 historical research baseline, the selected three positive chart generators were separated from the classical triangular carrier relation. Under the current signed-X6 P000 V5 foundation, these generators are only a selected positive chart subset of the six signed native axes (twelve primitive directions). In particular:
 
 - `e_1+e_2+e_3=0` is a carrier-presentation relation, not a native vector identity;
 - reverse-third-family endpoint shortcuts are carrier-only and do not preserve native component trace;
