@@ -1,0 +1,108 @@
+{
+  "R762U_original_two_B_ports": {
+    "bad_profile": {
+      "A:0": 3,
+      "A:1": 4,
+      "A:2": 3,
+      "B:0": 10
+    },
+    "bad_seed": 20,
+    "count_events": 22,
+    "good_profile": {
+      "A:0": 2,
+      "A:1": 4,
+      "A:2": 3,
+      "B:0": 10
+    },
+    "good_seed": 19
+  },
+  "R762U_reconnected_shared_B_port": {
+    "bad_profile": {
+      "A:0": 3,
+      "A:1": 4,
+      "A:2": 3,
+      "B:0": 10
+    },
+    "bad_seed": 20,
+    "count_events": 22,
+    "good_profile": {
+      "A:0": 2,
+      "A:1": 4,
+      "A:2": 3,
+      "B:0": 1
+    },
+    "good_seed": 10
+  },
+  "arithmetic": "exact unbounded Python integers; no floats",
+  "cycle_family": {
+    "1": {
+      "grouped": 2,
+      "grouped_profile": {
+        "a": 1,
+        "c": 1
+      },
+      "interleaved": 1
+    },
+    "2": {
+      "grouped": 4,
+      "grouped_profile": {
+        "a": 2,
+        "c": 2
+      },
+      "interleaved": 1
+    },
+    "3": {
+      "grouped": 6,
+      "grouped_profile": {
+        "a": 3,
+        "c": 3
+      },
+      "interleaved": 1
+    },
+    "4": {
+      "grouped": 8,
+      "grouped_profile": {
+        "a": 4,
+        "c": 4
+      },
+      "interleaved": 1
+    },
+    "5": {
+      "grouped": 10,
+      "grouped_profile": {
+        "a": 5,
+        "c": 5
+      },
+      "interleaved": 1
+    },
+    "6": {
+      "grouped": 12,
+      "grouped_profile": {
+        "a": 6,
+        "c": 6
+      },
+      "interleaved": 1
+    },
+    "7": {
+      "grouped": 14,
+      "grouped_profile": {
+        "a": 7,
+        "c": 7
+      },
+      "interleaved": 1
+    },
+    "8": {
+      "grouped": 16,
+      "grouped_profile": {
+        "a": 8,
+        "c": 8
+      },
+      "interleaved": 1
+    }
+  },
+  "domain": "all ordered nonloop directed events on a,b,c lengths 1..5, and all ordered directed events including loops lengths 1..4; all initial allocations with K-1 tokens excluded",
+  "including_loops_sequences_exhaustively_verified": 7380,
+  "nonloop_sequences_exhaustively_verified": 9330,
+  "schema": "R762X_TEMPORAL_PREFIX_CAUSAL_SEED_EXACT_V1",
+  "status": "CONDITIONAL_TOKEN_LIFT_ONLY_NOT_NATIVE_TRIADIC_EVENT"
+}
