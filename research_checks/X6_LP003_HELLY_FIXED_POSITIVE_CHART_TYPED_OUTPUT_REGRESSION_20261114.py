@@ -35,7 +35,7 @@ def main():
 
     support = demos["typed_boolean_brc_support"]
     assert support["globally_feasible"] is True
-    assert support["coordinatewise_common_values"] == [[1], [1], [0]]
+    assert support["coordinatewise_common_values"] == ([1], [1], [0])
     assert support["sample_support_mask"] == [1, 1, 0]
     assert support["two_constraint_conflict_verified"] is True
 
