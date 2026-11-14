@@ -3,7 +3,8 @@
 External S23 finite mechanical-word observer. No native X6 claim.
 """
 from fractions import Fraction
-from math import gcd,lcm
+from math import lcm
+from pathlib import Path
 from collections import defaultdict
 import json
 
@@ -31,7 +32,7 @@ def fiber(d,L):
 
 
 def test_reversal():
-    words=0;unequal=0;equal=0;cut_alias=0;count_alias=0;triples=0;nontrivial=0
+    words=0;unequal=0;equal=0;cut_alias=0;count_alias=0
     for m in range(1,13):
         for x in range(1<<m):
             w=f'{x:0{m}b}';d=stats([int(c) for c in w]);
@@ -41,7 +42,7 @@ def test_reversal():
             rev=w[::-1];dr=stats([int(c) for c in rev]);assert dr is not None
             assert (a,b)==dr[:2]
             # Formula: reversed min/max envelopes
-            U_reverse=b.denominator*(s[-1]+1)-m*b.numerator if False else a.denominator*(s[-1]+1)-m*a.numerator-max(a.denominator*t-j*a.numerator for j,t in enumerate(s))
+            U_reverse=a.denominator*(s[-1]+1)-m*a.numerator-max(a.denominator*t-j*a.numerator for j,t in enumerate(s))
             V_reverse=b.denominator*s[-1]-m*b.numerator-min(b.denominator*t-j*b.numerator for j,t in enumerate(s))
             assert (U_reverse,V_reverse)==dr[2:4]
             # Observed equivalence in one affine period
@@ -93,6 +94,6 @@ def test_all_identity_groups():
 
 if __name__=='__main__':
     payload={'marker':'R155_REVERSAL_AND_THREE_ONE_FAMILY_EXACT_PASS','observer':'EXTERNAL_TIED_PHASE_S23','verification_kind':'exact_integer_fraction_finite_regression','reversal':test_reversal(),'three_one':test_three_ones(),'groups':test_all_identity_groups(),'review':'NOT_REVIEWED','scientific_pin':'43ec6098b1330ae86d0a7863be336c5d97f6ef34'}
-    with open('/mnt/data/R155_verification.json','w') as f:json.dump(payload,f,indent=2,ensure_ascii=False)
+    with open(Path(__file__).with_name('R155_verification.json'),'w') as f:json.dump(payload,f,indent=2,ensure_ascii=False)
     print(json.dumps({k:v for k,v in payload.items() if k!='groups'},ensure_ascii=False,indent=2))
     print('collision_pairs_total',sum(x['equal_cut_collision_pairs'] for x in payload['groups']))
