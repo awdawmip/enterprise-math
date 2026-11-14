@@ -1,0 +1,65 @@
+{
+  "schema": "PREFIX775_R6_EXACT_TWO_CELL_NONMODULARITY_V1",
+  "date": "2026-11-14",
+  "scientific_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "external independent two Gamma clocks; Y=max(C_p,C_z), V_q=q^2 Var(Y)-q E(Y)",
+  "grid_denominator": 768,
+  "survivor_count": 9529,
+  "terminal_row_empty": true,
+  "positive_cell": {
+    "cell": {
+      "p": [
+        "12/768",
+        "13/768"
+      ],
+      "z": [
+        "760/768",
+        "761/768"
+      ]
+    },
+    "delta_mu_sign": "positive",
+    "delta_var_sign": "positive",
+    "delta_mu_decimal": "0.00400860250394806010701568214409096597680937",
+    "delta_var_decimal": "0.119085462452226970087126411772313830982404",
+    "switch_ratio_decimal": "0.0336615605414991342514097851786087515162213",
+    "mixed_V2_decimal": "0.468324644801011760134474282801073391975995",
+    "mixed_V_at_0_033662_sign": "positive"
+  },
+  "negative_cell": {
+    "cell": {
+      "p": [
+        "38/768",
+        "39/768"
+      ],
+      "z": [
+        "38/768",
+        "39/768"
+      ]
+    },
+    "delta_mu_sign": "negative",
+    "delta_var_sign": "negative",
+    "delta_mu_decimal": "-0.00493294208071696916035758307185623325091865",
+    "delta_var_decimal": "-0.172962230950636480405374458856463721969049",
+    "switch_ratio_decimal": "0.0285203425834905751783645373324392666679512",
+    "mixed_V2_decimal": "-0.681983039641111983300782669282142421374360",
+    "mixed_V_at_0_033662_sign": "negative"
+  },
+  "certified_switch_ratio_pos": [
+    "33661560/10^9",
+    "33661562/10^9"
+  ],
+  "certified_switch_ratio_neg": [
+    "28520342/10^9",
+    "28520343/10^9"
+  ],
+  "lattice_two_signs_for_all_real_q_at_least": "33662/1000000",
+  "checks": [
+    "positive/negative mixed signs",
+    "switch ratios exact rational brackets",
+    "mixed signs at q=0.033662",
+    "mixed signs at q=2"
+  ],
+  "validation": "ALL_CHECKS_PASS PREFIX775 TWO_GRID_CELL_SIGN",
+  "original_comparator_exclusion_count_increment": 0,
+  "research_status": "AUTHOR_EXACT_INTEGER_FINITE_CERTIFICATE / UNREVIEWED / NOT_ADMITTED"
+}
