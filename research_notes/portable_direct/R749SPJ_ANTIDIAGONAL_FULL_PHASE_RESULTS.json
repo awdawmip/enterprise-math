@@ -1,0 +1,79 @@
+{
+  "arithmetic": "integer Bareiss + Fraction, no floating point, full vertex census and convexity",
+  "calibrated_radius": "(6-3r)/11 for 1/2<=r<=8/15; 2/5 for 8/15<=r<=3/5; (1+r)/4 for 3/5<=r<=1",
+  "free_radius": "max(1/2-r/5,(1+r)/4) for 1/2<=r<=1",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "gap": "(5-8r)/110, (2r-1)/10, (3-5r)/20, 0 on [1/2,8/15],[8/15,5/9],[5/9,3/5],[3/5,1]",
+  "max_observed_risk_excess": "0",
+  "new_continuous_region": "(t,s)=(r,1-r), 1/2<=r<=3/5, symmetric reflection",
+  "phase_intervals": [
+    {
+      "cal_formula": "(6-3r)/11",
+      "cal_tight_vertices": 13,
+      "distinct_exact_vertices": 37,
+      "feasible_bases_including_repeats": 912,
+      "free_formula": "1/2-r/5",
+      "free_tight_vertices": 13,
+      "interval": [
+        "1/2",
+        "8/15"
+      ],
+      "max_cal_excess": "0",
+      "max_free_excess": "0",
+      "nonsingular_bases": 10848,
+      "potential_active_bases": 18564,
+      "status": "PASS",
+      "vertex_parameter_projection": {
+        "1/2": 17,
+        "8/15": 20
+      }
+    },
+    {
+      "cal_formula": "2/5",
+      "cal_tight_vertices": 16,
+      "distinct_exact_vertices": 40,
+      "feasible_bases_including_repeats": 880,
+      "free_formula": "1/2-r/5",
+      "free_tight_vertices": 16,
+      "interval": [
+        "8/15",
+        "5/9"
+      ],
+      "max_cal_excess": "0",
+      "max_free_excess": "0",
+      "nonsingular_bases": 10848,
+      "potential_active_bases": 18564,
+      "status": "PASS",
+      "vertex_parameter_projection": {
+        "5/9": 20,
+        "8/15": 20
+      }
+    },
+    {
+      "cal_formula": "2/5",
+      "cal_tight_vertices": 16,
+      "distinct_exact_vertices": 40,
+      "feasible_bases_including_repeats": 880,
+      "free_formula": "(1+r)/4",
+      "free_tight_vertices": 12,
+      "interval": [
+        "5/9",
+        "3/5"
+      ],
+      "max_cal_excess": "0",
+      "max_free_excess": "0",
+      "nonsingular_bases": 10848,
+      "potential_active_bases": 18564,
+      "status": "PASS",
+      "vertex_parameter_projection": {
+        "3/5": 20,
+        "5/9": 20
+      }
+    }
+  ],
+  "prior_exact_input": "R749SPG zero triangle; R749SPI upper-fiber homothety",
+  "status": "PASS",
+  "symmetry_exact": true,
+  "theorem": "R749SPJ complete exact anti-diagonal minimax phases, 1/2<=r<=1",
+  "total_active_bases": 55692
+}
