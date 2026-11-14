@@ -88,4 +88,28 @@ for k in range(7):
 out['weighted_BRC_2_3_5_k0_to_6']=weight_summary
 out['model_scope']='conditional source permutation algebra; not native TRIADIC_CLOSURE_E admission'
 out['verification']='PASS: exhaustive group compositions, all words length<=8, independent weighted history sums length<=6'
+
+# Conditional joint-source/frame carrier: the two factors must not be conflated.
+C3={E,C,CI}
+for source_group,card,name in [(C3,18,'source_C3_frame_S3'),(G,36,'source_S3_frame_S3')]:
+    states=list(product(sorted(source_group),sorted(G)))
+    assert len(states)==card
+    counted=0
+    for i,(source_a,frame_a) in enumerate(states):
+        for source_b,frame_b in states[i+1:]:
+            counted+=1
+            if source_a!=source_b:
+                assert typ(mul(inv(source_a),source_a))=='id'
+                assert typ(mul(inv(source_a),source_b))!='id'
+            else:
+                assert frame_a!=frame_b
+                assert typ(mul(inv(frame_a),frame_a))=='id'
+                assert typ(mul(inv(frame_a),frame_b))!='id'
+    out[name]={'reachable_joint_states':card,
+               'distinguished_unordered_pairs':counted,
+               'fixed_binary_bits':(card-1).bit_length(),
+               'max_one_coordinate_separating_word_length':2}
+    assert counted==card*(card-1)//2
+out['prior_V17_relation']='V17 conditional S3 frame holonomy already known; no automatic source/frame identification'
+
 print(json.dumps(out,ensure_ascii=False,indent=2,sort_keys=True))
