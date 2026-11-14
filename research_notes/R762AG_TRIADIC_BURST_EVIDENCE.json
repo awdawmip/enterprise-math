@@ -1,0 +1,156 @@
+{
+  "schema": "R762AG_TRIADIC_BURST_C3_EVIDENCE_V1",
+  "status": "AUTHOR_SIDE_CONDITIONAL_NOT_REVIEWED_NOT_NATIVE_ADMITTED",
+  "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "parent": "R762AF PR2389 7db9d11653d34d264aaec846ae6a91f6972cde86",
+  "exact_enumeration": "3 capacities times all 720 I/O word permutations = 2160 independent comparisons",
+  "two_independent_methods": [
+    "explicit labeled-token state propagation",
+    "time-inequality/permutation matching"
+  ],
+  "capacity_results": {
+    "1": {
+      "realizable_logs": 0,
+      "fiber_histogram": {},
+      "named_physical_histories": 0
+    },
+    "2": {
+      "realizable_logs": 24,
+      "fiber_histogram": {
+        "1": 24
+      },
+      "named_physical_histories": 24
+    },
+    "3": {
+      "realizable_logs": 60,
+      "fiber_histogram": {
+        "1": 24,
+        "2": 36
+      },
+      "named_physical_histories": 96
+    }
+  },
+  "residue_checks": [
+    {
+      "h": 0,
+      "residue_history_counts": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "h": 1,
+      "residue_history_counts": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "h": 2,
+      "residue_history_counts": [
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "h": 3,
+      "residue_history_counts": [
+        2,
+        3,
+        3
+      ]
+    },
+    {
+      "h": 4,
+      "residue_history_counts": [
+        6,
+        5,
+        5
+      ]
+    },
+    {
+      "h": 5,
+      "residue_history_counts": [
+        10,
+        11,
+        11
+      ]
+    },
+    {
+      "h": 6,
+      "residue_history_counts": [
+        22,
+        21,
+        21
+      ]
+    },
+    {
+      "h": 7,
+      "residue_history_counts": [
+        42,
+        43,
+        43
+      ]
+    },
+    {
+      "h": 8,
+      "residue_history_counts": [
+        86,
+        85,
+        85
+      ]
+    },
+    {
+      "h": 9,
+      "residue_history_counts": [
+        170,
+        171,
+        171
+      ]
+    },
+    {
+      "h": 10,
+      "residue_history_counts": [
+        342,
+        341,
+        341
+      ]
+    },
+    {
+      "h": 11,
+      "residue_history_counts": [
+        682,
+        683,
+        683
+      ]
+    },
+    {
+      "h": 12,
+      "residue_history_counts": [
+        1366,
+        1365,
+        1365
+      ]
+    },
+    {
+      "h": 13,
+      "residue_history_counts": [
+        2730,
+        2731,
+        2731
+      ]
+    },
+    {
+      "h": 14,
+      "residue_history_counts": [
+        5462,
+        5461,
+        5461
+      ]
+    }
+  ],
+  "weighted_scope": "h=0..14; (u,v)=(1,1),(2,3),(3,1); exact integer recurrence vs binomial sum"
+}
