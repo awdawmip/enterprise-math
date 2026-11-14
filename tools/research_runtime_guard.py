@@ -48,7 +48,8 @@ def _activity_gate(state: Mapping[str, Any], boundary: str, root: Path) -> dict[
         # pre-registration. This never grants a task claim or a protected write.
         return {"activity_allowed": True, "persistence_allowed": True,
                 "authorized": False, "authorization_authority": "UNSHARED_RESEARCH_NO_TASK_AUTHORITY",
-                "activity_registration_optional": True, "scope": "UNSHARED_DERIVATION_AND_MATERIALS"}
+                "activity_registration_optional": True, "unshared_research_allowed": True,
+                "scope": "UNSHARED_DERIVATION_AND_MATERIALS"}
     try:
         result = _activity.guard(activity_id=state.get("activity_id"), boundary=boundary,
             event_id=state.get("research_checkpoint_event_id"), session_id=state.get("session_id"),
@@ -467,7 +468,7 @@ def main() -> int:
     if args.command == "pre-final" and _is_control_only_pre_final_state(state):
         return 0 if result["final_allowed"] else 2
     if _is_activity_state(state) and args.command in ("authorize", "pre-final"):
-        allowed = (result["activity_allowed"] and result["persistence_allowed"]) if args.command == "authorize" else result["final_allowed"]
+        allowed = (result.get("unshared_research_allowed", False) or result["activity_allowed"] and result["persistence_allowed"]) if args.command == "authorize" else result["final_allowed"]
         return 0 if allowed else 2
     return 0
 

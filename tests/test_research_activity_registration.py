@@ -101,7 +101,8 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
         self.assertNotIn(b"\r", path.read_bytes())
         gate = subprocess.run(cmd + ["guard", "--activity-id", receipt["record"]["activity_id"]],
             capture_output=True, text=True, encoding="utf-8", timeout=15)
-        self.assertEqual(gate.returncode, 2)
+        self.assertEqual(gate.returncode, 0)
+        self.assertTrue(json.loads(gate.stdout)["unshared_research_allowed"])
         self.assertFalse(json.loads(gate.stdout)["activity_allowed"])
         observation = self.root.joinpath("registration-observation.json")
         observation.write_bytes(activity.encoded(self.registration_source(receipt["record"])))

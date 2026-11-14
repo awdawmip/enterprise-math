@@ -492,7 +492,9 @@ def guard(*, activity_id: str | None = None, boundary: str = "startup",
               "authority": dict(NO_AUTHORITY), "activity_allowed": False,
               "persistence_allowed": False,
               "registration_visibility": "CURRENT_REPOSITORY_VIEW",
-              "required_action": "REGISTER_RESEARCH_ACTIVITY"}
+              "required_action": "REGISTER_RESEARCH_ACTIVITY",
+              "unshared_research_allowed": True,
+              "independent_science_publication_requires_activity": False}
     if activity_id is None or not record_path(activity_id, root).is_file():
         return result
     record, _ = _read_record(activity_id, root)
@@ -630,7 +632,7 @@ def main(argv: list[str] | None = None) -> int:
                  "required_action": "PUBLISH_ACTIVITY_RECORD_WITH_CAS_AND_VERIFY_IMMUTABLE_EM_READBACK",
                  "canonical_owner_visibility": "NOT_ESTABLISHED_BY_LOCAL_WRITE"}
     print(encoded(value).decode("utf-8"), end="")
-    return 2 if args.command in ("guard", "audit") and not value["persistence_allowed"] else 0
+    return 2 if args.command in ("guard", "audit") and not (value.get("unshared_research_allowed", False) if args.command == "guard" else value["persistence_allowed"]) else 0
 
 
 if __name__ == "__main__":

@@ -200,8 +200,15 @@ def validate_frontier(frontier: Mapping[str, Any], *, root: Path,
     commit = _source(frontier.get("source_commit"))
     if source_commit is not None:
         verify_source_snapshot(root, source_commit)
+    modern = frontier.get('progress_notes_schema') == 'ENTERPRISE_MATH_RESEARCH_PROGRESS_NOTES_V2'
+    if modern:
+        _require(isinstance(frontier.get('continuation_state'), str) and frontier['continuation_state'] in {'OPEN', 'COMPLETE', 'UNKNOWN'}, 'invalid frontier continuation_state')
     for key in ("current_unfinished_unit", "next_action"):
-        _require(_text(frontier.get(key)), f"frontier requires {key}")
+        value = frontier.get(key)
+        if modern:
+            _require(value is None or isinstance(value, str), f"frontier {key} must be text or null")
+        else:
+            _require(_text(value), f"frontier requires {key}")
     pins = frontier.get("artifacts")
     _require(isinstance(pins, list) and bool(pins) and len(pins) <= 64, "frontier requires 1..64 immutable artifact pins")
     seen = set()
@@ -455,7 +462,10 @@ def checkpoint_frontier(task_id: str, publication_id: str, *, root: Path,
         raw = _path(root, path).read_bytes()
         _require(hashlib.sha256(raw).hexdigest() == pointer.get("checkpoint_sha256"), "checkpoint bytes differ from locator digest")
         checkpoint = json.loads(raw)
-        _require(checkpoint.get("schema") == "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1", "invalid checkpoint schema")
+        _require(checkpoint.get("schema") in {"ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1", "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V2"}, "invalid checkpoint schema")
+        if checkpoint["schema"].endswith("_V2"):
+            _require(isinstance(checkpoint.get("continuation_state"), str) and checkpoint["continuation_state"] in {"OPEN", "COMPLETE", "UNKNOWN"}, "invalid checkpoint continuation_state")
+            _require(all(checkpoint.get(k) is None or isinstance(checkpoint.get(k), str) for k in ("current_unfinished_unit", "next_action")), "invalid checkpoint optional notes")
         for key in ("task_id", "publication_id", "claim_id", "ownership_epoch", "session_id", "researcher_id"):
             _require(checkpoint.get(key) == pointer.get(key) and checkpoint.get(key) is not None,
                      f"checkpoint locator {key} binding differs")
@@ -781,7 +791,8 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
             "recovery_rule": "Verify durable units; consume VERIFIED_COMPLETE, resolve UNKNOWN minimally, resume the smallest UNFINISHED unit.",
             "independence_rule": "New session or role never erases prior mathematical contributions or source exposure.",
             "continuation_input_contract": {
-                "frontier_required": ["source_commit", "artifacts", "current_unfinished_unit", "next_action", "completed_units", "do_not_repeat", "contributor_ids"],
+                "frontier_required": ["source_commit", "artifacts", "completed_units", "do_not_repeat", "contributor_ids"],
+                "optional_progress_notes": {"continuation_state": ["OPEN", "COMPLETE", "UNKNOWN"], "next_action": "text or null; no invented successor required", "current_unfinished_unit": "text or null; author-reported unit only"},
                 "artifact_pin_required": ["repository", "source_commit", "path", "git_blob_sha1", "sha256"],
                 "recovery_evidence_required_for_live_takeover": ["basis", "previous_session_id", "observed_at", "source_ref", "active_session_confirmed"],
                 "recovery_basis": ["STALE_SESSION"],
@@ -794,7 +805,7 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                 "claim_input_fields": ["new_researcher_id", "new_session_id", "new_claim_id", "execution_branch", "execution_branch_base", "allowed_outputs", "expected_previous_claim_id", "expected_previous_comment_id", "frontier", "reason"],
             },
             "frontier_template": {"source_commit": source_commit, "artifacts": pins[:64],
-                "current_unfinished_unit": None, "next_action": None, "completed_units": [],
+                "progress_notes_schema": "ENTERPRISE_MATH_RESEARCH_PROGRESS_NOTES_V2", "continuation_state": "UNKNOWN", "current_unfinished_unit": None, "next_action": None, "completed_units": [],
                 "do_not_repeat": [], "contributor_ids": [state.get("researcher_id") or state.get("last_researcher_id")] if state.get("researcher_id") or state.get("last_researcher_id") else []},
             "capability_required": ("No computation or new research is required to consume completed records."
                 if state.get("dispatch_state") == "COMPLETE" else
@@ -833,6 +844,10 @@ def prepare_takeover(task_id: str, *, root: Path, events: list[dict[str, Any]],
     # Preserve all caller-supplied science, pins and attribution; never infer
     # a proof, new owner, clean context or contribution-free successor.
     frontier = copy.deepcopy(dict(frontier))
+    if "continuation_state" in frontier:
+        frontier["progress_notes_schema"] = "ENTERPRISE_MATH_RESEARCH_PROGRESS_NOTES_V2"
+        frontier.setdefault("completed_units", [])
+        frontier.setdefault("do_not_repeat", [])
     supplied = frontier.get("contributor_ids", [])
     _require(isinstance(supplied, list) and all(_text(value) for value in supplied),
              "frontier contributor_ids must be a list of actual source identities")
