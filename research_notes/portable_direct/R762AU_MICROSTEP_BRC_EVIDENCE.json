@@ -1,0 +1,83 @@
+{
+  "schema": "R762AU_BRC_MICROSTEP_CERTIFICATE_SUMMARY_V1",
+  "status": "PASS",
+  "verification_date": "2026-11-15",
+  "scope": "20 triads, 9 neighbors, 8 PASS masks, 1440 affine score functions; all n>= N via exact affine proof",
+  "rho": "any rational>1",
+  "masks": [
+    {
+      "mask": 0,
+      "N": 15,
+      "ties": 0,
+      "changed": 0
+    },
+    {
+      "mask": 1,
+      "N": 16,
+      "ties": 1,
+      "changed": 1
+    },
+    {
+      "mask": 2,
+      "N": 15,
+      "ties": 1,
+      "changed": 2
+    },
+    {
+      "mask": 3,
+      "N": 15,
+      "ties": 2,
+      "changed": 2
+    },
+    {
+      "mask": 4,
+      "N": 15,
+      "ties": 1,
+      "changed": 2
+    },
+    {
+      "mask": 5,
+      "N": 16,
+      "ties": 2,
+      "changed": 2
+    },
+    {
+      "mask": 6,
+      "N": 14,
+      "ties": 3,
+      "changed": 3
+    },
+    {
+      "mask": 7,
+      "N": 14,
+      "ties": 0,
+      "changed": 0
+    }
+  ],
+  "distinct_asymptotic_relations": 7,
+  "only_equal_pair": [
+    0,
+    7
+  ],
+  "reversal": {
+    "S": "145",
+    "candidates": [
+      "014",
+      "245"
+    ],
+    "mask0_scores": [
+      3,
+      4
+    ],
+    "mask2_scores": [
+      4,
+      3
+    ],
+    "slopes": [
+      0,
+      0
+    ]
+  },
+  "complete_certificate_command": "node R762AU_MICROSTEP_BRC_VERIFY.js",
+  "full_certificate_is_stdout": true
+}
