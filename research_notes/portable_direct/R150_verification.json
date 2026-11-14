@@ -1,0 +1,28 @@
+{
+  "marker": "R150_EXACT_LAG_DERIVATIVE_INVERSE_PASS",
+  "exhaustive_g_range": "1..12",
+  "exhaustive_cases": 22357,
+  "independent_full_period_cases": 1200,
+  "total_cases": 23560,
+  "arithmetic": "Python integers and fractions, exact; no floats",
+  "examples": {
+    "w_r2_00100100": {
+      "g": 4,
+      "ell": 1,
+      "lag_covariance": ["-3/128", "-1/128", "5/128", "-1/128"],
+      "lag_derivatives": ["1/64", "3/64", "-3/64", "-1/64"]
+    },
+    "w_r4_00001000010000": {
+      "g": 2,
+      "ell": 1,
+      "lag_covariance": ["1/336", "-1/336"],
+      "lag_derivatives": ["-1/168", "1/168"]
+    },
+    "zero_lag_example": {
+      "g": 5,
+      "ell": 1,
+      "lag_covariance": ["0", "-1/25", "-1/25", "0", "2/25"],
+      "lag_derivatives": ["-1/25", "0", "1/25", "2/25", "-2/25"]
+    }
+  }
+}
