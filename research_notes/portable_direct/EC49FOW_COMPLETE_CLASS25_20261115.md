@@ -1,4 +1,4 @@
-# EC49FOW — Complete class-25 native BRC equivalence and seven terminal observers
+# EC49FOW — Complete class-25 native BRC equivalence and five-observer certificate
 
 Date: 2026-11-15. Frozen science pin: fc0f038e7bfd12c886b4d37f900bfb770c0f61ab. Raw frozen input SHA256: cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e. Scientific context: EC49FOR, EC49FOS, EC49FOU, EC49FOV (draft PR #2437); no change to P000. Status: AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED.
 
@@ -44,3 +44,17 @@ This is a class-complete finite result. The three nonzero native root-constant g
 **Next problems:** find a smaller separating set or a rigorous lower bound for the minimum; complete other legal-root classes (notably representatives 0 and 1, whose local exports remain partial); search for root-cost perturbations dependent on demand subsets that still cancel for all complete allocations.
 
 Publication of this report is evidence preservation only; Activity, immutable Task/CLAIM, formal Result, Review and mathematical admission are separate control operations.
+
+## Stronger exact certificate — five terminal observations (2026-11-15)
+
+A second exact search reduced the sufficient fixed-observation set from seven to **five** complete root assignments. Optional label order remains (5,7,11,13,15,17,19,21). Five zero-based Python Cartesian-product indices are **[477,107,137,110,367]**, with root assignments respectively:
+
+- 477: (07,07,05,07,05,07,03,03)
+- 107: (05,06,07,06,07,07,07,07)
+- 137: (05,06,07,07,07,07,03,07)
+- 110: (05,06,07,07,05,06,03,07)
+- 367: (07,06,07,06,05,06,07,06)
+
+On all 344 distinct full 292-coordinate root profiles in C25, after each of the five observations the numbers of colliding unordered class pairs are exactly **[1340,99,29,13,0]**. Thus equality of these five integer terminal costs implies equality of all full root-cost coordinates for any two original configurations in C25. The independently executable check is experiments/EC49FOW_VERIFY_FIVE.py, which imports the frozen-data loader from experiments/EC49FOW_VERIFY_CLASS25.py. Five is sufficient; optimality/minimality remains open.
+
+**Complete revised evidence bundle (V2):** EC49FOW_COMPLETE_CLASS25_EVIDENCE_V2_20261115.tar.xz, SHA256 **a815df445b747ef79de000499ec3eae484d157a4f0e867ed67f059c52d0de0b2**. Includes the pinned original input bytes, all 129064 exact root-cost CSV rows, full paper, C++17 source, both Python exact verifiers, five- and seven-observation certificates, logs, and checked manifest. Original V1 bundle remains separately available as historical evidence.
