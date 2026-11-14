@@ -20,12 +20,12 @@ follow-up validator 232 times. Full input and guarded scoped input produced
 identical outputs; the profiles took 137.119s and 184.078s respectively, including
 profiler overhead. They are local observations, not live percentiles.
 
-The first candidate produced the same complete output as the baseline: profiled
+The candidate produced the same complete output as the baseline: profiled
 full/scoped timings changed to 95.350s / 130.225s. Its 45 regressions and 39
-subtests passed. A further JSON-container copy fast path retains shared aliases,
-cycles and custom deepcopy protocols; its final same-input timing is reported
-separately. These frozen comparisons use a counterfactual evaluation time;
-they do not reconstruct historical live ownership.
+subtests passed. Python's standard deepcopy remains unchanged. The final change
+is confined to the two exact validators and their raw record reads.
+These comparisons use a counterfactual evaluation time, not historical live
+ownership reconstruction.
 This optimization does not omit authenticated event history, remove a quarantine,
 change a review disposition or migrate formal authority. Activity and independent
 scientific publication remain separate from protected Result/Review actions.
