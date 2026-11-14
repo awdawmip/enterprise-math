@@ -1,9 +1,9 @@
 # PREFIX-783 — Private reflection defects are immaterial to pointwise two-sign persistence
 
 Date: 2026-11-14. Scientific status: AUTHOR_PROVED / EXACT_RATIONAL_REGRESSION / UNREVIEWED / NOT_ADMITTED.
-Prior frozen scientific input: \`f42f2906d77f24085c123f3ccfe9667d41caa96d\`.
-Source lineage: PREFIX-782 (2026-11-14), \`2026-11-14_r6_prefix782_shared_reflection_defect_pointwise_window.md\`.
-Source Researcher-ID: \`EM-DIRECT-E77192\`; historic activity \`RA-66BBE259AEE1AD543D9454A3\`. This is independent auxiliary-model work, not a native X6 CLAIM.
+Prior frozen scientific input: `f42f2906d77f24085c123f3ccfe9667d41caa96d`.
+Source lineage: PREFIX-782 (2026-11-14), `2026-11-14_r6_prefix782_shared_reflection_defect_pointwise_window.md`.
+Source Researcher-ID: `EM-DIRECT-E77192`; historic activity `RA-66BBE259AEE1AD543D9454A3`. This is independent auxiliary-model work, not a native X6 CLAIM.
 
 ## 1. Setup and new question
 
@@ -76,8 +76,8 @@ When \(\delta=1/10\), the same \(q=3/5\) is in the sign-loss interval, and PREFI
 
 ## 4. Verification, provenance and next scientific question
 
-Companion program \`PREFIX783_R6_UNRESTRICTED_PRIVATE_REFLECTION_CHECK.py\` uses exact Python \`fractions.Fraction\` to test 4,096 seeded rational coefficient/budget/parameter cases. It compares the three-inequality test with a separately coded exact three-interval feasibility oracle, constructs real corner assignments for every feasible case, checks all mixed signs, and includes equality and the worked example. Machine result: \`ALL_CHECKS_PASS PREFIX783 PRIVATE_REFLECTION_SYMMETRIZATION\`. This finite regression is a check of the implementation and examples; Theorem 783.1 is proved for arbitrary real parameters by the order-preserving symmetrization argument.
+Companion program `PREFIX783_R6_UNRESTRICTED_PRIVATE_REFLECTION_CHECK.py` uses exact Python `fractions.Fraction` to test 4,096 seeded rational coefficient/budget/parameter cases. It compares the three-inequality test with a separately coded exact three-interval feasibility oracle, constructs real corner assignments for every feasible case, checks all mixed signs, and includes equality and the worked example. Machine result: `ALL_CHECKS_PASS PREFIX783 PRIVATE_REFLECTION_SYMMETRIZATION`. This finite regression is a check of the implementation and examples; Theorem 783.1 is proved for arbitrary real parameters by the order-preserving symmetrization argument.
 
-Scientific references: PREFIX-782 at \`enterprise-math\` main (original paper blob \`37ec3608c4bc109cdd5821bf3a55ef42846878d8\`), PREFIX-781 at immutable commit \`7d70facce45b39ab1ee764ec6ff2ca118f4ef379\`; frozen input pin maintained. No new native BRC arithmetic, Gamma recurrence or source coefficients were computed, and no native comparator grid exclusion is added.
+Scientific references: PREFIX-782 at `enterprise-math` main (original paper blob `37ec3608c4bc109cdd5821bf3a55ef42846878d8`), PREFIX-781 at immutable commit `7d70facce45b39ab1ee764ec6ff2ca118f4ef379`; frozen input pin maintained. No new native BRC arithmetic, Gamma recurrence or source coefficients were computed, and no native comparator grid exclusion is added.
 
 Next: identify whether a native BRC/X6 scalar observation offers *independently selectable, reflection-symmetric corner error boxes*; if it produces correlated, signed-source, non-box, or non-symmetric restrictions, derive a native-faithful sign-loss polytope instead of applying the present saturation theorem. Retain Cell, Link, Port, branch, provenance and event time for that comparison.
