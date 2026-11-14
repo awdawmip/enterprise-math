@@ -1,0 +1,113 @@
+{
+  "schema": "EC49FPB_UNRESTRICTED_GLOBAL_EXPECTED_OPTIMALITY_V1",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "source_evidence_archive_sha256": "87885adf5ea5b87093ec4d07b961df42dec468954c792ff6779f3c51a88f18f3",
+  "scope": "Exactly two full original legal-root-domain classes, 14304 and 14309, each 75 native configurations, 40 distinct root profiles and 432 complete legal integer-cost assignment queries. All terminating deterministic adaptive observation trees, no depth bound.",
+  "proof": "Finite Bellman induction over exact integer observation fibers: V({p})=0, V(F)=sum weights in F+min over genuinely splitting query a of sum V(G) on nonsingleton output fibers G. Every subproblem is a strict subset. Positive weights allow deletion of nonsplitting queries. Enumerate complete resulting DP DAG and compare independent tuple-partition implementation.",
+  "prior_multiplicities": {
+    "singleton_profiles": 38,
+    "double_profiles": 1,
+    "thirtyfive_profiles": 1
+  },
+  "results": {
+    "14304": {
+      "uniform_profiles": {
+        "optimal_total": 73,
+        "prior_count": 40,
+        "min_expected_fraction": "73/40",
+        "first_assignments": [
+          {
+            "index": 78,
+            "minimax_depth_under_optimal_expectation": 3
+          },
+          {
+            "index": 99,
+            "minimax_depth_under_optimal_expectation": 4
+          },
+          {
+            "index": 177,
+            "minimax_depth_under_optimal_expectation": 4
+          }
+        ],
+        "primary_memo_states": 1664,
+        "independent_memo_states": 1783,
+        "tie_break_memo_states": 1787,
+        "achieving_depth_histogram": {
+          "1": 15,
+          "2": 17,
+          "3": 8
+        }
+      },
+      "uniform_configurations": {
+        "optimal_total": 177,
+        "prior_count": 75,
+        "min_expected_fraction": "177/75",
+        "first_assignments": [
+          {
+            "index": 78,
+            "minimax_depth_under_optimal_expectation": 3
+          }
+        ],
+        "primary_memo_states": 1442,
+        "independent_memo_states": 1783,
+        "tie_break_memo_states": 1787,
+        "achieving_weighted_depth_histogram": {
+          "1": 15,
+          "2": 18,
+          "3": 42
+        }
+      }
+    },
+    "14309": {
+      "uniform_profiles": {
+        "optimal_total": 73,
+        "prior_count": 40,
+        "min_expected_fraction": "73/40",
+        "first_assignments": [
+          {
+            "index": 119,
+            "minimax_depth_under_optimal_expectation": 3
+          },
+          {
+            "index": 153,
+            "minimax_depth_under_optimal_expectation": 4
+          },
+          {
+            "index": 191,
+            "minimax_depth_under_optimal_expectation": 4
+          }
+        ],
+        "primary_memo_states": 1653,
+        "independent_memo_states": 1782,
+        "tie_break_memo_states": 1787,
+        "achieving_depth_histogram": {
+          "1": 15,
+          "2": 17,
+          "3": 8
+        }
+      },
+      "uniform_configurations": {
+        "optimal_total": 177,
+        "prior_count": 75,
+        "min_expected_fraction": "177/75",
+        "first_assignments": [
+          {
+            "index": 119,
+            "minimax_depth_under_optimal_expectation": 3
+          }
+        ],
+        "primary_memo_states": 1423,
+        "independent_memo_states": 1782,
+        "tie_break_memo_states": 1787,
+        "achieving_weighted_depth_histogram": {
+          "1": 15,
+          "2": 18,
+          "3": 42
+        }
+      }
+    }
+  },
+  "verification": "Exact native source rebuilt from prior SHA256 pinned original BRC data. Three independent Python Bellman variants executed locally: bitset global, tuple-partition global, lexicographic (total,depth) exact global. No floating point. NOT_REVIEWED.",
+  "source_pr": 2459
+}
