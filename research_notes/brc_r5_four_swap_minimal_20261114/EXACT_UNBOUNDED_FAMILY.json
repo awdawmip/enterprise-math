@@ -1,0 +1,64 @@
+{
+  "status": "PASS_EXACT_UNBOUNDED_SINGLE_GAP_RECOURSE_K2_TO_K50",
+  "validation": "Verified by independent original-index shortest-center path DP for each K=2..50; brute force all center subsets for K=2..6. Symbolic theorem covers every integer K>=2.",
+  "input_lineage": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "radius": 2,
+  "steps": [
+    1,
+    2,
+    3
+  ],
+  "closed_gap_index": 0,
+  "n_formula": "3*K-2",
+  "x_formula": "(0,3,5,6,...,n+2)",
+  "y_formula": "(0,2,4,5,...,n+1)",
+  "old_unique_optimum": "(0,2,5,8,...,3K-4)",
+  "new_optimum_witness": "(1,3,6,9,...,3K-3)",
+  "both_cost_formula": "2*K-1",
+  "replacements_formula": "K",
+  "verified_k_min": 2,
+  "verified_k_max": 50,
+  "verified_old_optimum_count": 1,
+  "verified_new_optimum_count_formula": "2*K (observed over K2..K50; not claimed all K)",
+  "verified_max_old_overlap": 0,
+  "first_cases": [
+    {
+      "k": 2,
+      "n": 4,
+      "cost": 3,
+      "rho": 2
+    },
+    {
+      "k": 3,
+      "n": 7,
+      "cost": 5,
+      "rho": 3
+    },
+    {
+      "k": 4,
+      "n": 10,
+      "cost": 7,
+      "rho": 4
+    },
+    {
+      "k": 5,
+      "n": 13,
+      "cost": 9,
+      "rho": 5
+    },
+    {
+      "k": 6,
+      "n": 16,
+      "cost": 11,
+      "rho": 6
+    },
+    {
+      "k": 50,
+      "n": 148,
+      "cost": 99,
+      "rho": 50
+    }
+  ],
+  "review": "NOT_REVIEWED",
+  "native_954_instance": "NOT_COMPUTED"
+}
