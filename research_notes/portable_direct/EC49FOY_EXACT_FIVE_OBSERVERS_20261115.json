@@ -1,0 +1,169 @@
+{
+  "schema": "EC49FOY_EXACT_FIVE_SPARSE_TERMINAL_OBSERVERS_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "scientific_input_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "frozen_source_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "source_parent_pr": "https://github.com/awdawmip/enterprise-math/pull/2445",
+  "source_parent_commit": "92e2b5479df80bcfeca5e1be5226a701229410d9",
+  "definitions": {
+    "rooted_profile": "all reachable named root/subset integer costs",
+    "terminal_cost": "sum of the native prefix-Trie root costs for one complete legal root assignment",
+    "collision_mask": "780-bit set of unordered pairs of distinct root profiles whose terminal values agree at an observer",
+    "minimum_observers": "minimum number of fixed complete legal assignments separating all distinct root profiles in one frozen class"
+  },
+  "classes": [
+    {
+      "representative": 14304,
+      "configurations": 75,
+      "root_profiles": 40,
+      "terminal_allocations": 432,
+      "pair_count": 780,
+      "distinct_single_collision_masks": 425,
+      "distinct_pair_intersections": 48792,
+      "all_pair_intersections_pairwise_overlap": true,
+      "minimum_observers": 5,
+      "optional_labels": [
+        7,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21
+      ],
+      "witness_indices": [
+        78,
+        99,
+        226,
+        2,
+        63
+      ],
+      "root_vectors": [
+        [
+          6,
+          5,
+          7,
+          5,
+          3,
+          7,
+          3
+        ],
+        [
+          6,
+          5,
+          7,
+          7,
+          7,
+          3,
+          3
+        ],
+        [
+          7,
+          5,
+          6,
+          3,
+          7,
+          3,
+          6
+        ],
+        [
+          6,
+          5,
+          6,
+          3,
+          3,
+          3,
+          7
+        ],
+        [
+          6,
+          5,
+          7,
+          3,
+          7,
+          3,
+          3
+        ]
+      ],
+      "profile_csv_sha256": "03c030adfd11fd833a4d7234dd3b963511eb6ae14cb4c6010e8e667a03f3d52f"
+    },
+    {
+      "representative": 14309,
+      "configurations": 75,
+      "root_profiles": 40,
+      "terminal_allocations": 432,
+      "pair_count": 780,
+      "distinct_single_collision_masks": 425,
+      "distinct_pair_intersections": 48792,
+      "all_pair_intersections_pairwise_overlap": true,
+      "minimum_observers": 5,
+      "optional_labels": [
+        5,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21
+      ],
+      "witness_indices": [
+        119,
+        153,
+        237,
+        6,
+        135
+      ],
+      "root_vectors": [
+        [
+          5,
+          7,
+          6,
+          3,
+          6,
+          3,
+          7
+        ],
+        [
+          5,
+          7,
+          6,
+          7,
+          7,
+          3,
+          3
+        ],
+        [
+          7,
+          5,
+          6,
+          3,
+          7,
+          5,
+          3
+        ],
+        [
+          5,
+          5,
+          6,
+          3,
+          3,
+          7,
+          3
+        ],
+        [
+          5,
+          7,
+          6,
+          7,
+          3,
+          3,
+          3
+        ]
+      ],
+      "profile_csv_sha256": "cc734f77d2d142651fdfcb41d38b20ae93b0d85f7b49fa90f2e868f92c0de7f6"
+    }
+  ],
+  "proof_method": "For every distinct pairwise intersection H of observer equality masks, the exact inverted incidence index establishes that every other pairwise intersection J intersects H; hence no four observations separate. Five explicit observation masks intersect to zero.",
+  "review": "NOT_REVIEWED",
+  "task_status": "INDEPENDENT_PORTABLE_RESEARCH_NO_FORMAL_CLAIM"
+}
