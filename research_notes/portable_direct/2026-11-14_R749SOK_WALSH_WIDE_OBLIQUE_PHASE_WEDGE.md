@@ -131,4 +131,4 @@ Run \`python3 R749SOK_WALSH_OBLIQUE_WEDGE_CERT.py\` in this folder and compare t
 
 The new exact two-dimensional boundary length is the intersection segment from \((3/5,2/5)\) to \((37/50,61/100)\). Next determine the maximal connected region on which the two explicit centers remain minimax, identify the next dual active-facet change, and only then consider a typed BRC/native source correspondence.
 
-**Artifacts:** this complete proof, the exact standalone checker, and its PASS JSON. Both the code and JSON were executed locally and the exact bytes are to be established by immutable GitHub readback.
+**Artifacts:** this complete proof, the exact standalone checker, and its PASS JSON. Both the code and JSON were executed locally; their exact bytes were verified through GitHub immutable commit readback. Executed code blob: da7f7bdefa112dbc798981dc2702052807b8e7a4; output JSON blob: cae3603229ba86e912d2154685a62a6ffbfacf02.
