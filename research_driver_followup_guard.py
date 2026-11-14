@@ -200,6 +200,14 @@ def authority_for_result(
 
 
 def authority_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    from control_plane.research_read_view import reuse_read
+    records = _canonical_results()
+    readers = (records.iter_results, records.iter_reviews, records.result_map)
+    return reuse_read(root, "driver_followup_authority_map", readers,
+                      lambda: _authority_map_with_snapshot(root))
+
+
+def _authority_map_with_snapshot(root: Path) -> dict[str, dict[str, Any]]:
     from tools import research_dispatch
 
     # This scope ends before callers publish any review, taskbook or packet.

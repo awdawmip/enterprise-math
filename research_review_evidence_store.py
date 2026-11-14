@@ -34,6 +34,11 @@ class ReviewEvidenceError(ValueError):
 
 
 def _load(path: Path) -> dict[str, Any]:
+    from control_plane.research_read_view import source_object
+    return source_object(path, lambda: _read_object(path))
+
+
+def _read_object(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict):
         raise ReviewEvidenceError(f"{path}: JSON object required")
