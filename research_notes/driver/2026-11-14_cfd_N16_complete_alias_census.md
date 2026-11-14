@@ -16,7 +16,7 @@ Fix nu=(1,-7,6), L=ker_Z(nu·), C=[-7,7]^3 intersection Z^3, S=L intersection C,
 
 Among the 280 off-L alias pairs, 268 can give a nonzero Leray-projected symmetrized advective coefficient for some divergence-free integer polarizations a perpendicular to p and b perpendicular to q, and the remaining 12 are p=q self-pairs whose bilinear cross coefficient vanishes. All 42 in-L aliased pairs consist of p,q both on the diagonal (1,1,1) line; their incompressible cross symbols vanish as well. Counts describe pairwise possibilities, not a guaranteed net effect for arbitrary many-mode initial data.
 
-In the 3/2-padded grid N=24, **no** out-of-band w returns into the original C: each |w_i|<=14, and whenever |w_i|>=8, its wrapped 24-grid magnitude is at least 10, so the retained cutoff rejects it. Hence the classification isolates the N=16 underpadding failure and supplies a stronger independent-verifier regression family than the previous single two-mode witness.
+In the 3/2-padded grid N=24, **no** out-of-band w returns into the original C: each |w_i|<=14, and whenever |w_i|>=8, its wrapped 24-grid magnitude is at least 8, so the retained cutoff rejects it. Hence the classification isolates the N=16 underpadding failure and supplies a stronger independent-verifier regression family than the previous single two-mode witness.
 
 ## Complete exact enumeration certificate
 
