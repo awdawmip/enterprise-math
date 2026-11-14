@@ -136,6 +136,62 @@ def marginal(distribution, index):
 assert left != right and all(marginal(left, k) == marginal(right, k)
                              for k in (0,1))
 
+
+# AK4: exact finite partial-action witness, with full marginals but 8 states.
+t = next(p for p in S3 if parity(p) == 1)
+def partial_step(state, label):
+    if state is None:
+        return None
+    s, h = state
+    if label == "S" and h == E:
+        return multiply(cycle, s), h
+    if label == "C" and s == E:
+        return s, multiply(cycle, h)
+    if label == "T" and s == E:
+        return s, multiply(t, h)
+    return None
+
+reachable = {(E, E)}
+frontier = deque([(E, E)])
+while frontier:
+    state = frontier.popleft()
+    for label in "SCT":
+        nxt = partial_step(state, label)
+        if nxt is not None and nxt not in reachable:
+            reachable.add(nxt)
+            frontier.append(nxt)
+expected_reachable = {(E, h) for h in S3} | {(s, E) for s in C3}
+assert reachable == expected_reachable and len(reachable) == 8
+assert {s for s,h in reachable} == set(C3)
+assert {h for s,h in reachable} == set(S3)
+
+states = list(sorted(reachable)) + [None]  # None = absorbing undefined.
+classes = {state: ("UNDEFINED",) if state is None
+           else (ctype(state[0]), ctype(state[1])) for state in states}
+refinements = 0
+while True:
+    signature = {state: (classes[state],) + tuple(
+        classes[partial_step(state, label)] for label in "SCT")
+        for state in states}
+    names = {sg:i for i,sg in enumerate(sorted(set(signature.values()), key=repr))}
+    updated = {state: names[signature[state]] for state in states}
+    unchanged_equivalence = all(
+        (classes[x] == classes[y]) == (updated[x] == updated[y])
+        for x in states for y in states)
+    if unchanged_equivalence:
+        break
+    classes = updated
+    refinements += 1
+assert refinements == 2 and len(set(classes.values())) == 9
+partial_action_result = {
+    "reachable_states": len(reachable),
+    "source_marginal_order": len({s for s,h in reachable}),
+    "frame_marginal_order": len({h for s,h in reachable}),
+    "joint_observer_classes_including_undefined": len(set(classes.values())),
+    "strict_refinement_rounds": refinements,
+    "fixed_binary_bits_on_nonfailure_states": 3
+}
+
 result = {
   "schema": "R762AK_EXACT_EVIDENCE_V1",
   "domain": "finite total reversible paired left group actions; joint cycle-type observer",
@@ -149,6 +205,7 @@ result = {
        "weights": list(weights), "checks": mass_checks},
   "equal_marginals_distinct_joint_counterexample": True,
   "checks_passed": True,
+  "partial_action_witness": partial_action_result,
   "scientific_scope": "conditional subgroup model; native TRIADIC_CLOSURE_E unresolved"
 }
 Path(__file__).with_name("R762AK_COUPLED_SOURCE_FRAME_EVIDENCE.json").write_text(
