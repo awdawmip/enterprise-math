@@ -1,0 +1,143 @@
+{
+  "schema": "EC49FAY_H6_H9_FIXED_EARLY_EXACT_OPTIMUM_V1",
+  "verified_date": "2026-11-05",
+  "source_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor": "EC49FAX@f67f2dbe6fb39372c0256fa1d51855cc2717fb9a",
+  "explicit_witness": {
+    "2": [
+      "fe",
+      "ge"
+    ],
+    "3": [
+      "feg",
+      "gef"
+    ],
+    "4": [
+      "fegc",
+      "fegd",
+      "gefc",
+      "gefd"
+    ],
+    "5": [
+      "feggf",
+      "gefgf"
+    ],
+    "6": [
+      "fegccc",
+      "fegddd",
+      "gefccc",
+      "gefddd"
+    ],
+    "7": [
+      "fegccfg",
+      "fegddgf",
+      "gefccfg",
+      "gefddgf"
+    ],
+    "8": [
+      "feggfgfc",
+      "feggfgfd",
+      "gefgfgfc",
+      "gefgfgfd"
+    ],
+    "9": [
+      "feggfgfgf",
+      "gefgfgfgf"
+    ]
+  },
+  "global_cache_key_count": 5,
+  "early_cache_keys": [
+    "2,1,1,0,0,0",
+    "3,0,1,0,0,0",
+    "3,1,1,0,0,0",
+    "4,2,1,0,0,0"
+  ],
+  "late_cache_key": "6,4,1,0,0,0",
+  "early_prefix_edges": 38,
+  "per_horizon_witness": {
+    "2": {
+      "word_count": 2,
+      "signature_mask": 48,
+      "keys": [
+        "2,1,1,0,0,0",
+        "3,0,1,0,0,0"
+      ],
+      "total_prefix_edges": 12
+    },
+    "3": {
+      "word_count": 2,
+      "signature_mask": 48,
+      "keys": [
+        "3,1,1,0,0,0"
+      ],
+      "total_prefix_edges": 16
+    },
+    "4": {
+      "word_count": 4,
+      "signature_mask": 15,
+      "keys": [
+        "4,2,1,0,0,0"
+      ],
+      "total_prefix_edges": 32
+    },
+    "5": {
+      "word_count": 2,
+      "signature_mask": 48,
+      "keys": [
+        "4,2,1,0,0,0"
+      ],
+      "total_prefix_edges": 38
+    },
+    "6": {
+      "word_count": 4,
+      "signature_mask": 15,
+      "keys": [
+        "6,4,1,0,0,0"
+      ],
+      "total_prefix_edges": 70
+    },
+    "7": {
+      "word_count": 4,
+      "signature_mask": 15,
+      "keys": [
+        "6,4,1,0,0,0"
+      ],
+      "total_prefix_edges": 82
+    },
+    "8": {
+      "word_count": 4,
+      "signature_mask": 15,
+      "keys": [
+        "6,4,1,0,0,0"
+      ],
+      "total_prefix_edges": 106
+    },
+    "9": {
+      "word_count": 2,
+      "signature_mask": 48,
+      "keys": [
+        "6,4,1,0,0,0"
+      ],
+      "total_prefix_edges": 112
+    }
+  },
+  "witness_total_edges": 112,
+  "selected_late_candidate_words": {
+    "6": 240,
+    "7": 1260,
+    "8": 2240,
+    "9": 560
+  },
+  "signed_primitive_trie_nodes": 26705,
+  "finite_or_masks": 16384,
+  "root_states": 16384,
+  "maximum_subtree_dp_states": 16384,
+  "dp_state_merge_checks": 424124,
+  "exact_cost_h6": 32,
+  "exact_cost_h6_h7": 44,
+  "exact_cost_h6_h7_h8": 68,
+  "exact_cost_h6_h7_h8_h9": 74,
+  "fixed_early_family_optimum": 112,
+  "method": "Complete endpoint multiset generation, exact 9-state observer, native signed primitive-prefix trie, exact OR/min-plus DP.",
+  "admission": "AUTHOR_EXACT_FINITE_UNREVIEWED"
+}

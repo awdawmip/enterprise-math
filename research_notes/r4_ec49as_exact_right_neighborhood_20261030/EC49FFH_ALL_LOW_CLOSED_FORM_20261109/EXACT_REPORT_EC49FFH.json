@@ -1,0 +1,179 @@
+{
+  "schema": "EC49FFH_ALL_LOW_THEOREM_CHECK_V1",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "model": "original 9-state BRC observer / strict-positive complete key domain",
+  "mathematical_claim": "forall integers U>=2: k=ceil(log2 U), min lex native single-word length sum=4U-4+6*k-2*popcount(U-1)",
+  "coverage": "independent exact subset-mask DP for each U=2..16 inclusive; formula structural checks through 1,000,000",
+  "rows": [
+    {
+      "last_required_low_horizon": 2,
+      "minimum_keys": 1,
+      "minimum_total_one_word_per_key_native_length": 8,
+      "canonical_terminal_horizons": [
+        3
+      ],
+      "independent_dp_states": 2
+    },
+    {
+      "last_required_low_horizon": 3,
+      "minimum_keys": 2,
+      "minimum_total_one_word_per_key_native_length": 18,
+      "canonical_terminal_horizons": [
+        3,
+        4
+      ],
+      "independent_dp_states": 4
+    },
+    {
+      "last_required_low_horizon": 4,
+      "minimum_keys": 2,
+      "minimum_total_one_word_per_key_native_length": 20,
+      "canonical_terminal_horizons": [
+        3,
+        5
+      ],
+      "independent_dp_states": 8
+    },
+    {
+      "last_required_low_horizon": 5,
+      "minimum_keys": 3,
+      "minimum_total_one_word_per_key_native_length": 32,
+      "canonical_terminal_horizons": [
+        3,
+        4,
+        6
+      ],
+      "independent_dp_states": 14
+    },
+    {
+      "last_required_low_horizon": 6,
+      "minimum_keys": 3,
+      "minimum_total_one_word_per_key_native_length": 34,
+      "canonical_terminal_horizons": [
+        3,
+        4,
+        7
+      ],
+      "independent_dp_states": 24
+    },
+    {
+      "last_required_low_horizon": 7,
+      "minimum_keys": 3,
+      "minimum_total_one_word_per_key_native_length": 38,
+      "canonical_terminal_horizons": [
+        3,
+        5,
+        8
+      ],
+      "independent_dp_states": 38
+    },
+    {
+      "last_required_low_horizon": 8,
+      "minimum_keys": 3,
+      "minimum_total_one_word_per_key_native_length": 40,
+      "canonical_terminal_horizons": [
+        3,
+        5,
+        9
+      ],
+      "independent_dp_states": 60
+    },
+    {
+      "last_required_low_horizon": 9,
+      "minimum_keys": 4,
+      "minimum_total_one_word_per_key_native_length": 54,
+      "canonical_terminal_horizons": [
+        3,
+        4,
+        6,
+        10
+      ],
+      "independent_dp_states": 90
+    },
+    {
+      "last_required_low_horizon": 10,
+      "minimum_keys": 4,
+      "minimum_total_one_word_per_key_native_length": 56,
+      "canonical_terminal_horizons": [
+        3,
+        4,
+        6,
+        11
+      ],
+      "independent_dp_states": 134
+    },
+    {
+      "last_required_low_horizon": 11,
+      "minimum_keys": 4,
+      "minimum_total_one_word_per_key_native_length": 60,
+      "canonical_terminal_horizons": [
+        3,
+        4,
+        7,
+        12
+      ],
+      "independent_dp_states": 192
+    },
+    {
+      "last_required_low_horizon": 12,
+      "minimum_keys": 4,
+      "minimum_total_one_word_per_key_native_length": 62,
+      "canonical_terminal_horizons": [
+        3,
+        4,
+        7,
+        13
+      ],
+      "independent_dp_states": 274
+    },
+    {
+      "last_required_low_horizon": 13,
+      "minimum_keys": 4,
+      "minimum_total_one_word_per_key_native_length": 68,
+      "canonical_terminal_horizons": [
+        3,
+        5,
+        8,
+        14
+      ],
+      "independent_dp_states": 380
+    },
+    {
+      "last_required_low_horizon": 14,
+      "minimum_keys": 4,
+      "minimum_total_one_word_per_key_native_length": 70,
+      "canonical_terminal_horizons": [
+        3,
+        5,
+        8,
+        15
+      ],
+      "independent_dp_states": 524
+    },
+    {
+      "last_required_low_horizon": 15,
+      "minimum_keys": 4,
+      "minimum_total_one_word_per_key_native_length": 74,
+      "canonical_terminal_horizons": [
+        3,
+        5,
+        9,
+        16
+      ],
+      "independent_dp_states": 706
+    },
+    {
+      "last_required_low_horizon": 16,
+      "minimum_keys": 4,
+      "minimum_total_one_word_per_key_native_length": 76,
+      "canonical_terminal_horizons": [
+        3,
+        5,
+        9,
+        17
+      ],
+      "independent_dp_states": 948
+    }
+  ],
+  "status": "EXACT_INTEGER_PASS"
+}

@@ -1,0 +1,9 @@
+# EC49FDE — introduce an admissible alternative BRC cache key
+
+**Frozen control baseline:** `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`. The baseline uses 24 signed-native-step slots, nine-state observer, and `L=(4,2,1), M=(7,3,2)`. Under that exact scientific key, the EC49FDD complete twenty-variable H4–H9 theorem proves minimum **158** while the other four H2/H3 slots remain fixed; **all** its subsets have the same optimum by monotonicity.
+
+**Next discriminating science:** specify one admissible alternative BRC multiset cache-key pair or typed extension of the allowed native operation words. Preserve the original six-axis primitive-step identities, ordered sign, branch provenance, and relevant nine-state endpoint signature. Determine legal nonnegative letter multiplicities for each affected slot before doing the exact search. Construct and output an explicit lawful assignment of all 24 labelled words and their literal prefix union when seeking a **≤157-edge witness**. If no strict witness appears, run an exact full candidate-language trie DP and report the finite domain, all valid masks, optimum, and what changes relative to the baseline. If a key is infeasible, record the exact negative-count/signature obstruction and propose a minimal repaired key.
+
+Avoid attributing the fixed-key 158 bound to changed-key or larger native/world models. Seek information gain toward the nine-window **93-edge mother objective** through a mathematically distinct construction; retain the completed theorem as an obstacle certificate, not an automatic impossibility claim.
+
+**Handoff:** reuse [EC49FDD README](README_EC49FDD.md), the exact C++ and independent Python solvers, and the published frozen upstream model. Native service authority is separate: current Owner/CLAIM/Result and independent Driver review have not been confirmed. Follow actual current Source control and P000; no credential propagation, no Foundation promotion.

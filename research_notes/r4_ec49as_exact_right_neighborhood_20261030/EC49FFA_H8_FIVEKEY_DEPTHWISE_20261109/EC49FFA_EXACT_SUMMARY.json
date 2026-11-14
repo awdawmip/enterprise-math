@@ -1,0 +1,35 @@
+{
+  "schema": "EC49FFA_SIGNED_NATIVE_DEPTHWISE_CERT_SUMMARY_V1",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "date": "2026-11-09",
+  "model": "H8 mixed-B 23 original words, at most 5 positive complete BRC keys, native signed X6 microstep-prefix union",
+  "verified": {
+    "5689": {
+      "total_feasible_key_inventories": 5472,
+      "signature_infeasible_key_inventories": 672,
+      "verified_witnesses": 5472,
+      "min_certified_cost_lower_bound": 98,
+      "max_certified_cost_lower_bound": 172,
+      "sum_individual_lower_bounds": 687184,
+      "original_endpoint_label_word_checks": 68369,
+      "witness_file_sha256": "aed6630feb853cfde71cf830522e159cd9b10411e807d35ca392f111daa20d32",
+      "auditor": "EXACT_INTEGER_PASS"
+    },
+    "5789": {
+      "total_feasible_key_inventories": 9216,
+      "signature_infeasible_key_inventories": 0,
+      "verified_witnesses": 9216,
+      "min_certified_cost_lower_bound": 96,
+      "max_certified_cost_lower_bound": 185,
+      "sum_individual_lower_bounds": 1163067,
+      "original_endpoint_label_word_checks": 54223,
+      "witness_file_sha256": "bf18af4c4ff08859742ac0e6971c218d583cdcd43141c832971553e24fc3c6d8",
+      "auditor": "EXACT_INTEGER_PASS"
+    }
+  },
+  "witness_format": "Each JSONL line: five sorted full keys, native edge lower_bound, 20 group-index subsets D indexed by signed microstep depth",
+  "bundle_sha256": "537c03824e44785ba3b0c3ba4dfc7abcb04d592b78b9486ecf7c30d127efbfcf",
+  "bundle_size_bytes": 159008,
+  "raw_bundle_location": "Conversation attachment EC49FFA_complete_exact_evidence.tar.xz; not claimed uploaded to GitHub",
+  "math_status": "author-side complete finite classification; independent Driver review pending"
+}

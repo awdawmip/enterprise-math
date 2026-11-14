@@ -1,0 +1,56 @@
+{
+  "schema": "EC49FGK_ORIGINAL_24_LABEL_KEY_COVER_V1",
+  "date": "2026-11-10",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "frozen_model_blob": "7e97065ac9a0ff70435b92ee2f4bd718c9bf1859",
+  "observer": "frozen original 9-state DFA",
+  "native_path": "signed ordered X6",
+  "candidate_words": 178850,
+  "legal_raw_keys": 94,
+  "coverage_classes": 21,
+  "cover_count_exactly_k_keys": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 16,
+    "6": 2004,
+    "7": 108434
+  },
+  "dp_distinct_union_states": [
+    2,
+    22,
+    172,
+    717,
+    1794,
+    3002,
+    3746,
+    3951
+  ],
+  "two_forced_raw_keys": [
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      3,
+      0,
+      1
+    ]
+  ],
+  "seven_key_covers_with_3_1_1": 106478,
+  "seven_key_covers_without_3_1_1": 1956,
+  "validation": {
+    "python": "Executed local exact integer support enumeration and 0..7 mask OR DP; all fixed assertions pass",
+    "cpp": "Compiled g++ -O3 -std=c++17; independently enumerated 5-, 6-, 7-element covers from 94 masks; exit 0",
+    "python_report_generated": "EXACT_REPORT_EC49FGK.json",
+    "key_masks_generated": "EC49FGK_key_masks.txt",
+    "test_observations": "EXACT_5=16 EXACT_6=2004 EXACT_7=108434 SEVEN_WITHOUT_3_1_1=1956 SEVEN_WITH_3_1_1=106478"
+  },
+  "scope": "Exact unweighted raw-key support-cover classification; native microstep prefix cost 93 versus 94 is still open for arbitrary seven-key sets.",
+  "owner": "EC49AS: no current immutable task publication at this run (native control query).",
+  "native_result": "not submitted; no active CLAIM",
+  "dp_state_count_measurement": "Python defaultdict adds one zero-count FULL-mask entry for k=0..4 during terminal readout; counts match executed report"
+}

@@ -1,0 +1,175 @@
+{
+  "schema": "EC49FGK_SINGLE_SEVEN_KEY_NO_311_SOLVER_CASE_V1",
+  "date": "2026-11-10",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "frozen_model_git_blob_sha1": "7e97065ac9a0ff70435b92ee2f4bd718c9bf1859",
+  "allowed_keys": [
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      2,
+      2,
+      1
+    ],
+    [
+      3,
+      0,
+      1
+    ],
+    [
+      4,
+      0,
+      1
+    ],
+    [
+      4,
+      2,
+      1
+    ],
+    [
+      5,
+      4,
+      1
+    ],
+    [
+      6,
+      4,
+      1
+    ]
+  ],
+  "solver": "SciPy 1.17/HiGHS (local)",
+  "mip_status": 0,
+  "mip_objective_rounded": 102,
+  "mip_dual_bound_rounded": 102,
+  "mip_gap": 0,
+  "operation_trie_nodes": 10901,
+  "discount_variables": 1904,
+  "integer_model_constraints": 14728,
+  "independent_signed_prefix_witness_edges": 102,
+  "demands": [
+    {
+      "window": 2,
+      "signature": 16,
+      "word": "fe"
+    },
+    {
+      "window": 2,
+      "signature": 32,
+      "word": "ge"
+    },
+    {
+      "window": 3,
+      "signature": 16,
+      "word": "fef"
+    },
+    {
+      "window": 3,
+      "signature": 32,
+      "word": "geg"
+    },
+    {
+      "window": 4,
+      "signature": 1,
+      "word": "gefd"
+    },
+    {
+      "window": 4,
+      "signature": 2,
+      "word": "fegd"
+    },
+    {
+      "window": 4,
+      "signature": 4,
+      "word": "fegc"
+    },
+    {
+      "window": 4,
+      "signature": 8,
+      "word": "gefc"
+    },
+    {
+      "window": 5,
+      "signature": 16,
+      "word": "fegfg"
+    },
+    {
+      "window": 5,
+      "signature": 32,
+      "word": "gefgf"
+    },
+    {
+      "window": 6,
+      "signature": 1,
+      "word": "gefddg"
+    },
+    {
+      "window": 6,
+      "signature": 2,
+      "word": "fegdgd"
+    },
+    {
+      "window": 6,
+      "signature": 4,
+      "word": "fegcgc"
+    },
+    {
+      "window": 6,
+      "signature": 8,
+      "word": "gefcgc"
+    },
+    {
+      "window": 7,
+      "signature": 1,
+      "word": "gefgfgd"
+    },
+    {
+      "window": 7,
+      "signature": 2,
+      "word": "fegdggf"
+    },
+    {
+      "window": 7,
+      "signature": 4,
+      "word": "fegcgfg"
+    },
+    {
+      "window": 7,
+      "signature": 8,
+      "word": "gefcgfg"
+    },
+    {
+      "window": 8,
+      "signature": 1,
+      "word": "gefgfgdf"
+    },
+    {
+      "window": 8,
+      "signature": 2,
+      "word": "fegdggff"
+    },
+    {
+      "window": 8,
+      "signature": 4,
+      "word": "fegcgfgf"
+    },
+    {
+      "window": 8,
+      "signature": 8,
+      "word": "gefcgfgf"
+    },
+    {
+      "window": 9,
+      "signature": 16,
+      "word": "fegfgggff"
+    },
+    {
+      "window": 9,
+      "signature": 32,
+      "word": "gefgfggff"
+    }
+  ],
+  "scope": "Fixed seven-key allowlist mathematical optimum from solver only. The 102-edge upper-bound witness has independent exact integer replay; not the global C_min(7)."
+}

@@ -1,0 +1,100 @@
+{
+  "schema": "EC49FIK_RADIUS6_PAIR_SCREEN_EXACT_V1",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_total_legal_words": 178850,
+  "legal_words_using_witness_seven_keys": 9838,
+  "profile_cases": [
+    {
+      "profile": "A",
+      "budget": 3,
+      "position_count": 9344,
+      "singleton_reject": 3740,
+      "singleton_survive": 5604,
+      "pair_reject": 5604,
+      "pair_survive": 0,
+      "finite_full_enumeration": true
+    },
+    {
+      "profile": "A",
+      "budget": 5,
+      "position_count": 4400,
+      "singleton_reject": 0,
+      "singleton_survive": 4400,
+      "pair_reject": 3300,
+      "pair_survive": 1100,
+      "finite_full_enumeration": true
+    },
+    {
+      "profile": "A",
+      "budget": 7,
+      "position_count": 6582,
+      "singleton_reject": 5412,
+      "singleton_survive": 1170,
+      "pair_reject": 390,
+      "pair_survive": 780,
+      "finite_full_enumeration": true
+    },
+    {
+      "profile": "A",
+      "budget": 9,
+      "position_count": 8700,
+      "singleton_reject": 0,
+      "singleton_survive": 8700,
+      "pair_reject": 8568,
+      "pair_survive": 132,
+      "finite_full_enumeration": true
+    },
+    {
+      "profile": "B",
+      "budget": 3,
+      "position_count": 9344,
+      "singleton_reject": 3740,
+      "singleton_survive": 5604,
+      "pair_reject": 5604,
+      "pair_survive": 0,
+      "finite_full_enumeration": true
+    },
+    {
+      "profile": "B",
+      "budget": 5,
+      "position_count": 4400,
+      "singleton_reject": 0,
+      "singleton_survive": 4400,
+      "pair_reject": 3300,
+      "pair_survive": 1100,
+      "finite_full_enumeration": true
+    },
+    {
+      "profile": "B",
+      "budget": 7,
+      "position_count": 6582,
+      "singleton_reject": 5412,
+      "singleton_survive": 1170,
+      "pair_reject": 390,
+      "pair_survive": 780,
+      "finite_full_enumeration": true
+    }
+  ],
+  "additional_exclusions": {
+    "A": 17862,
+    "B": 9294
+  },
+  "still_open": {
+    "A": {
+      "all": 24123,
+      "fixed7": 22111,
+      "released": 2012
+    },
+    "B": {
+      "all": 32691,
+      "fixed7": 30679,
+      "released": 2012
+    }
+  },
+  "verification": {
+    "A_budget_3_5_7_9": "EXACT_FULL_ENUMERATION_PASS",
+    "B_budget_3_5_7": "EXACT_FULL_ENUMERATION_PASS",
+    "B_budget_9": "UNFINISHED; not asserted"
+  },
+  "basis": "EC49FIJ exact singleton exclusion, EC49FHH radius<=5 local theorem, original frozen catalog"
+}

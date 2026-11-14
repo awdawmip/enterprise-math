@@ -1,0 +1,81 @@
+{
+  "schema": "EC49FGW_RADIUS5_EXACT_SCREEN_RESULT_V1",
+  "date": "2026-11-10",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "baseline_witness_original_git_blob": "e65c1598ad9fa2680558046ed1e59d83806536b8",
+  "model": "original frozen 9-state BRC with ordered signed six-axis native prefixes and full raw cache keys",
+  "target": {
+    "max_raw_keys": 7,
+    "max_native_prefix_cost": 93,
+    "changed_labeled_words": 5,
+    "baseline_cost": 94
+  },
+  "candidate_catalog": {
+    "legal_words": 178850,
+    "raw_keys": 94,
+    "native_prefix_index_size": 735728
+  },
+  "results": [
+    {
+      "profile": "A",
+      "total_positions": 42504,
+      "unchanged_background_excludes": 8568,
+      "unrestricted_key_singleton_excludes": 16760,
+      "key_union_cover_excludes": 1120,
+      "remaining": 16056,
+      "new_key_cover_rejections_by_slots": {
+        "0 slots but >=1 needed": 704,
+        "1 slot but >=2 needed": 384,
+        "2 slots but >=3 needed": 32
+      },
+      "remaining_by_new_key_slots": {
+        "0": 11158,
+        "1": 4602,
+        "2": 296
+      },
+      "original_baseline_key_release_hist": {
+        "0": 21166,
+        "1": 11590,
+        "2": 1174,
+        "3": 6
+      }
+    },
+    {
+      "profile": "B",
+      "total_positions": 42504,
+      "unchanged_background_excludes": 8568,
+      "unrestricted_key_singleton_excludes": 16760,
+      "key_union_cover_excludes": 1120,
+      "remaining": 16056,
+      "new_key_cover_rejections_by_slots": {
+        "0 slots but >=1 needed": 704,
+        "1 slot but >=2 needed": 384,
+        "2 slots but >=3 needed": 32
+      },
+      "remaining_by_new_key_slots": {
+        "0": 11158,
+        "1": 4602,
+        "2": 296
+      },
+      "original_baseline_key_release_hist": {
+        "0": 21166,
+        "1": 11590,
+        "2": 1174,
+        "3": 6
+      }
+    }
+  ],
+  "checks": {
+    "method": "integer exact full enumerations plus deterministic direct prefix-word crosscheck",
+    "total_subset_tests_per_profile": 42504,
+    "direct_crosscheck_cases": 24,
+    "local_run_receipts": [
+      "EC49FGW_EXACT_PASS",
+      "EC49FGW_KEY_SCREEN_PASS",
+      "EC49FGW_DIRECT_CROSSCHECK_PASS"
+    ],
+    "prior_local_archive_sha256": "53dddf93b60fa3bd7376c2707721e7db9805477d3b07f449f54ba1507ea852e8"
+  },
+  "mathematical_scope": "EXACT_NECESSARY_CONDITION_REJECTIONS_ONLY; not full five-way joint test; seven-key global optimum unproved",
+  "source_file_provenance": "This JSON is a condensed author audit from full local EXACT_REPORT_EC49FGW.json and EXACT_KEY_SCREEN_EC49FGW.json. All counts are checked against the local executed outputs."
+}

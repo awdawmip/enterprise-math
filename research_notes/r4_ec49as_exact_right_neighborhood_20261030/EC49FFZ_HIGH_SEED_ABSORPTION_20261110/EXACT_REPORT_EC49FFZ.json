@@ -1,0 +1,186 @@
+{
+  "schema": "EC49FFZ_AUTHOR_EXACT_AUDIT_V1",
+  "date": "2026-11-10",
+  "author_id": "EM-DIRECT-3B76DE",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "proposition": "For integer h>=4, fixed high H2=(fe,ge) and H3=(feg,gef) plus four low Hh signatures (1,2,4,8), arbitrary positive full BRC keys on Hh, min distinct native signed-X6 prefix edges=4*h+16.",
+  "proof_kind": "ANALYTIC_WITH_FINITE_ORIGINAL_DFA_AUDIT",
+  "original_brc_op_codes": {
+    "a": [
+      -1,
+      -1
+    ],
+    "c": [
+      1,
+      2,
+      -1,
+      -2
+    ],
+    "d": [
+      2,
+      1,
+      -2,
+      -1
+    ],
+    "e": [
+      3,
+      1,
+      1,
+      -3
+    ],
+    "f": [
+      1,
+      -1
+    ],
+    "g": [
+      2,
+      -2
+    ]
+  },
+  "nine_state_DFA": "Original EC49FFC/FFD; exactly transcribed into VERIFY_EC49FFZ_NATIVE.py",
+  "low_first_step_reachability": {
+    "a": [
+      2,
+      8
+    ],
+    "c": [
+      4
+    ],
+    "d": [
+      1
+    ],
+    "e": [
+      2,
+      8
+    ],
+    "f": [
+      2,
+      4
+    ],
+    "g": [
+      1,
+      8
+    ]
+  },
+  "native_end_point": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "analytic_witness": "4:fegSc; 2:fegSd; 8:gefSc; 1:gefSd where S in {f,g}^{h-4}",
+  "full_key_formula": "K=(h-#g(S),2+#g(S),1)",
+  "native_length": "2h+4",
+  "native_union_cost": "4h+16",
+  "high_seed_added_edges": 0,
+  "suffix_counts": {
+    "h4_through_h12": 511,
+    "all_verified": true
+  },
+  "witnesses_default_h_range": [
+    4,
+    150
+  ],
+  "witnesses_default_h_count": 147,
+  "extra_suffix_h": [
+    16,
+    31,
+    70,
+    100,
+    150
+  ],
+  "exhaustive_literal_enumeration": [
+    {
+      "h": 2,
+      "low_terminal_words": 4,
+      "by_signature": {
+        "1": 1,
+        "2": 1,
+        "4": 1,
+        "8": 1
+      },
+      "last_four_prefix_separation": "PASS"
+    },
+    {
+      "h": 3,
+      "low_terminal_words": 30,
+      "by_signature": {
+        "1": 8,
+        "2": 7,
+        "4": 8,
+        "8": 7
+      },
+      "last_four_prefix_separation": "PASS"
+    },
+    {
+      "h": 4,
+      "low_terminal_words": 176,
+      "by_signature": {
+        "1": 45,
+        "2": 43,
+        "4": 45,
+        "8": 43
+      },
+      "last_four_prefix_separation": "PASS"
+    },
+    {
+      "h": 5,
+      "low_terminal_words": 950,
+      "by_signature": {
+        "1": 232,
+        "2": 243,
+        "4": 232,
+        "8": 243
+      },
+      "last_four_prefix_separation": "PASS"
+    },
+    {
+      "h": 6,
+      "low_terminal_words": 4932,
+      "by_signature": {
+        "1": 1160,
+        "2": 1306,
+        "4": 1160,
+        "8": 1306
+      },
+      "last_four_prefix_separation": "PASS"
+    },
+    {
+      "h": 7,
+      "low_terminal_words": 25060,
+      "by_signature": {
+        "1": 5724,
+        "2": 6806,
+        "4": 5724,
+        "8": 6806
+      },
+      "last_four_prefix_separation": "PASS"
+    }
+  ],
+  "sample_costs": {
+    "4": 32,
+    "5": 36,
+    "9": 52,
+    "20": 96,
+    "31": 140,
+    "40": 176,
+    "100": 416,
+    "150": 616
+  },
+  "independent_exact_integer_DP": {
+    "h_range": [
+      4,
+      35
+    ],
+    "all_32_cases_exact": true,
+    "verified_formula": "4*h+16",
+    "sample_h40": 176,
+    "source": "VERIFY_EC49FFZ_HIGH23_LOWh.cpp",
+    "literal_run_log": "EC49FFZ_complete_exact_evidence_20261110.tar.xz:ffz_exact_h3_h35.jsonl"
+  },
+  "native_verifier": "VERIFY_EC49FFZ_NATIVE.py",
+  "native_verifier_git_blob": "06212ace738151aeb1bdf77c9f3f85c5c5dd7e25",
+  "control_note": "Author-side manuscript. EC49AS query NO_CURRENT_IMMUTABLE_PUBLICATION; no task CLAIM, native Result, Driver acceptance asserted."
+}

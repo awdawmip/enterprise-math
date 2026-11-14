@@ -1,0 +1,387 @@
+{
+  "schema": "EC49FDR_19_LABEL_NATIVE_X6_TRIE_LOWER_BOUNDS_V1",
+  "date": "2026-11-07",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor_commit": "9eb422ab5476e11583f4dbafd65c6d423b3b1a21",
+  "scope": "Fixed six H2/H3 seed words; original four five-cache-key families; replace only the critical fifth full BRC key by the 15 EC49FDO-eligible keys in each family.",
+  "seed_words": {
+    "H2": [
+      "de",
+      "ed",
+      "ce",
+      "ec"
+    ],
+    "H3": [
+      "feg",
+      "gef"
+    ]
+  },
+  "seed_primitive_prefix_edges": 42,
+  "full_input_keys": {
+    "1512": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        4,
+        4,
+        1
+      ],
+      [
+        5,
+        5,
+        1
+      ]
+    ],
+    "1513": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        5,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        1
+      ],
+      [
+        7,
+        3,
+        1
+      ]
+    ],
+    "2200": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        4,
+        4,
+        1
+      ],
+      [
+        5,
+        5,
+        1
+      ]
+    ],
+    "2203": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        5,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        1
+      ],
+      [
+        7,
+        3,
+        1
+      ]
+    ]
+  },
+  "new_z_ge_2_keys": [
+    [
+      6,
+      4,
+      2
+    ],
+    [
+      7,
+      3,
+      2
+    ],
+    [
+      8,
+      2,
+      2
+    ],
+    [
+      8,
+      2,
+      3
+    ]
+  ],
+  "method": {
+    "label_count": 19,
+    "labels": "8 for H7/H8/H9 signatures, 3 for other nonseed key occurrence, 4 for H6/two-slot horizon signature pairs, 4 for other early four-slot rank clauses",
+    "rank_clauses": [
+      18,
+      20,
+      33,
+      40
+    ],
+    "word_language": "Complete frozen nine-state DFA enumerator and positive BRC full-key multiplicities from EC49FDQ",
+    "primitive_paths": "Full ordered signed native X6, not operation-letter prefixes",
+    "recurrence": "Exact bottom-up bitmask OR/min-plus DP over complete-word terminal selections. Nonroot selected subtree pays one per native signed primitive-prefix edge unless in prepaid seed.",
+    "full_cost_bound": "C_full >= 42 + D_root[(1<<19)-1]",
+    "proof_scope": "Every original legal system satisfies all 19 labels. Relaxing remaining exact horizon slot counts admits a superset. Trie DP is exact for that superset by induction on subtree height."
+  },
+  "rows": [
+    {
+      "family": "1512",
+      "replacement_key": [
+        6,
+        4,
+        2
+      ],
+      "relaxation_exact_new_prefix_edges": 68,
+      "full_prefix_cost_lower_bound": 110,
+      "candidate_words": 9896,
+      "primitive_trie_edges": 66977
+    },
+    {
+      "family": "1512",
+      "replacement_key": [
+        7,
+        3,
+        2
+      ],
+      "relaxation_exact_new_prefix_edges": 64,
+      "full_prefix_cost_lower_bound": 106,
+      "candidate_words": 14216,
+      "primitive_trie_edges": 97115
+    },
+    {
+      "family": "1512",
+      "replacement_key": [
+        8,
+        2,
+        2
+      ],
+      "relaxation_exact_new_prefix_edges": 68,
+      "full_prefix_cost_lower_bound": 110,
+      "candidate_words": 9896,
+      "primitive_trie_edges": 68780
+    },
+    {
+      "family": "1512",
+      "replacement_key": [
+        8,
+        2,
+        3
+      ],
+      "relaxation_exact_new_prefix_edges": 76,
+      "full_prefix_cost_lower_bound": 118,
+      "candidate_words": 10736,
+      "primitive_trie_edges": 82681
+    },
+    {
+      "family": "1513",
+      "replacement_key": [
+        6,
+        4,
+        2
+      ],
+      "relaxation_exact_new_prefix_edges": 68,
+      "full_prefix_cost_lower_bound": 110,
+      "candidate_words": 9896,
+      "primitive_trie_edges": 68780
+    },
+    {
+      "family": "1513",
+      "replacement_key": [
+        7,
+        3,
+        2
+      ],
+      "relaxation_exact_new_prefix_edges": 64,
+      "full_prefix_cost_lower_bound": 106,
+      "candidate_words": 14216,
+      "primitive_trie_edges": 97115
+    },
+    {
+      "family": "1513",
+      "replacement_key": [
+        8,
+        2,
+        2
+      ],
+      "relaxation_exact_new_prefix_edges": 68,
+      "full_prefix_cost_lower_bound": 110,
+      "candidate_words": 9896,
+      "primitive_trie_edges": 66977
+    },
+    {
+      "family": "1513",
+      "replacement_key": [
+        8,
+        2,
+        3
+      ],
+      "relaxation_exact_new_prefix_edges": 76,
+      "full_prefix_cost_lower_bound": 118,
+      "candidate_words": 10736,
+      "primitive_trie_edges": 82681
+    },
+    {
+      "family": "2200",
+      "replacement_key": [
+        6,
+        4,
+        2
+      ],
+      "relaxation_exact_new_prefix_edges": 64,
+      "full_prefix_cost_lower_bound": 106,
+      "candidate_words": 9833,
+      "primitive_trie_edges": 66977
+    },
+    {
+      "family": "2200",
+      "replacement_key": [
+        7,
+        3,
+        2
+      ],
+      "relaxation_exact_new_prefix_edges": 64,
+      "full_prefix_cost_lower_bound": 106,
+      "candidate_words": 14153,
+      "primitive_trie_edges": 97115
+    },
+    {
+      "family": "2200",
+      "replacement_key": [
+        8,
+        2,
+        2
+      ],
+      "relaxation_exact_new_prefix_edges": 72,
+      "full_prefix_cost_lower_bound": 114,
+      "candidate_words": 9833,
+      "primitive_trie_edges": 68780
+    },
+    {
+      "family": "2200",
+      "replacement_key": [
+        8,
+        2,
+        3
+      ],
+      "relaxation_exact_new_prefix_edges": 76,
+      "full_prefix_cost_lower_bound": 118,
+      "candidate_words": 10673,
+      "primitive_trie_edges": 82681
+    },
+    {
+      "family": "2203",
+      "replacement_key": [
+        6,
+        4,
+        2
+      ],
+      "relaxation_exact_new_prefix_edges": 72,
+      "full_prefix_cost_lower_bound": 114,
+      "candidate_words": 9833,
+      "primitive_trie_edges": 68780
+    },
+    {
+      "family": "2203",
+      "replacement_key": [
+        7,
+        3,
+        2
+      ],
+      "relaxation_exact_new_prefix_edges": 64,
+      "full_prefix_cost_lower_bound": 106,
+      "candidate_words": 14153,
+      "primitive_trie_edges": 97115
+    },
+    {
+      "family": "2203",
+      "replacement_key": [
+        8,
+        2,
+        2
+      ],
+      "relaxation_exact_new_prefix_edges": 64,
+      "full_prefix_cost_lower_bound": 106,
+      "candidate_words": 9833,
+      "primitive_trie_edges": 66977
+    },
+    {
+      "family": "2203",
+      "replacement_key": [
+        8,
+        2,
+        3
+      ],
+      "relaxation_exact_new_prefix_edges": 76,
+      "full_prefix_cost_lower_bound": 118,
+      "candidate_words": 10673,
+      "primitive_trie_edges": 82681
+    }
+  ],
+  "summary": {
+    "new_rows": 16,
+    "min_new_full_bound": 106,
+    "new_bound_histogram": {
+      "106": 6,
+      "110": 4,
+      "114": 2,
+      "118": 4
+    },
+    "prior_events_excluded_by_FDP": 28,
+    "prior_additional_events_excluded_by_FDQ": 16,
+    "new_events_excluded_by_FDR": 16,
+    "total_events_excluded": 60,
+    "original_unmodified_baseline_witness_edge_count": 94,
+    "mother_target_still_open": true
+  },
+  "verification": {
+    "local_python_exact_integer_dp": "Executed all 16 cases",
+    "independent_hash_order_rerun": "16/16 bounds and language/Trie sizes agree",
+    "original_four_family_regression": "4/4 give exact relaxed 94",
+    "third_party_solver": "none for new 16 bounds",
+    "formal_checker": "not performed",
+    "source_native_result": "not written - native backend STATUS_DATABASE_UNAVAILABLE",
+    "independent_driver_review": "pending"
+  },
+  "next": "EC49FDS: change early H2/H3 seed and jointly change multiple cache keys; search <=93 under all original five-key/rank9/ordered native X6 conditions."
+}

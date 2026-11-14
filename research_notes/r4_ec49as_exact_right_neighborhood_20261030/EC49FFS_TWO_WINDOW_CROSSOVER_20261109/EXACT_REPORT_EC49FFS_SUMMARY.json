@@ -1,0 +1,191 @@
+{
+  "schema": "EC49FFS_EXACT_FINITE_CENSUS_V1",
+  "date": "2026-11-09",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_model_git_blob": "6350340fbe869f17b5a50bd1ba30640db44a3a99",
+  "domain": "all ten integer pairs 4<=a<b<=8; 8 low-signature demands, unrestricted complete positive BRC cache keys",
+  "lower_certificate": "exhaustive full-key/operation-word enumeration, 256-mask rooted signed-X6 prefix trie DP; reconstruct exactly eight terminal witnesses and independently count signed-X6 prefixes",
+  "symbolic_universal_upper": "for all 4<=a<b, C_min <= min(4a+16+8(b-a), 4b+30), using two distinct full keys",
+  "exact_finite_theorem": "for 4<=a<b<=8 the symbolic upper equals the exact global minimum",
+  "rows": [
+    {
+      "a": 4,
+      "b": 5,
+      "exact_cost": 40,
+      "extension_cost": 40,
+      "independent_cost": 50,
+      "rooted_trie_nodes": 4903,
+      "low_words_a": 176,
+      "low_words_b": 950,
+      "legal_keys_a": 7,
+      "legal_keys_b": 13
+    },
+    {
+      "a": 4,
+      "b": 6,
+      "exact_cost": 48,
+      "extension_cost": 48,
+      "independent_cost": 54,
+      "rooted_trie_nodes": 24955,
+      "low_words_a": 176,
+      "low_words_b": 4932,
+      "legal_keys_a": 7,
+      "legal_keys_b": 22
+    },
+    {
+      "a": 4,
+      "b": 7,
+      "exact_cost": 56,
+      "extension_cost": 56,
+      "independent_cost": 58,
+      "rooted_trie_nodes": 125245,
+      "low_words_a": 176,
+      "low_words_b": 25060,
+      "legal_keys_a": 7,
+      "legal_keys_b": 34
+    },
+    {
+      "a": 4,
+      "b": 8,
+      "exact_cost": 62,
+      "extension_cost": 64,
+      "independent_cost": 62,
+      "rooted_trie_nodes": 623045,
+      "low_words_a": 176,
+      "low_words_b": 125680,
+      "legal_keys_a": 7,
+      "legal_keys_b": 50
+    },
+    {
+      "a": 5,
+      "b": 6,
+      "exact_cost": 44,
+      "extension_cost": 44,
+      "independent_cost": 54,
+      "rooted_trie_nodes": 24955,
+      "low_words_a": 950,
+      "low_words_b": 4932,
+      "legal_keys_a": 13,
+      "legal_keys_b": 22
+    },
+    {
+      "a": 5,
+      "b": 7,
+      "exact_cost": 52,
+      "extension_cost": 52,
+      "independent_cost": 58,
+      "rooted_trie_nodes": 125245,
+      "low_words_a": 950,
+      "low_words_b": 25060,
+      "legal_keys_a": 13,
+      "legal_keys_b": 34
+    },
+    {
+      "a": 5,
+      "b": 8,
+      "exact_cost": 60,
+      "extension_cost": 60,
+      "independent_cost": 62,
+      "rooted_trie_nodes": 623045,
+      "low_words_a": 950,
+      "low_words_b": 125680,
+      "legal_keys_a": 13,
+      "legal_keys_b": 50
+    },
+    {
+      "a": 6,
+      "b": 7,
+      "exact_cost": 48,
+      "extension_cost": 48,
+      "independent_cost": 58,
+      "rooted_trie_nodes": 125245,
+      "low_words_a": 4932,
+      "low_words_b": 25060,
+      "legal_keys_a": 22,
+      "legal_keys_b": 34
+    },
+    {
+      "a": 6,
+      "b": 8,
+      "exact_cost": 56,
+      "extension_cost": 56,
+      "independent_cost": 62,
+      "rooted_trie_nodes": 623045,
+      "low_words_a": 4932,
+      "low_words_b": 125680,
+      "legal_keys_a": 22,
+      "legal_keys_b": 50
+    },
+    {
+      "a": 7,
+      "b": 8,
+      "exact_cost": 52,
+      "extension_cost": 52,
+      "independent_cost": 62,
+      "rooted_trie_nodes": 623045,
+      "low_words_a": 25060,
+      "low_words_b": 125680,
+      "legal_keys_a": 34,
+      "legal_keys_b": 50
+    }
+  ],
+  "crossover": {
+    "windows": [
+      4,
+      8
+    ],
+    "optimum": 62,
+    "extension_cost": 64,
+    "independent_cost": 62,
+    "construction": "take the four low-signature canonical words at H4 and independently at H8, with original keys (4,2,1) and (4,6,1); union has 62 distinct signed-X6 prefixes",
+    "witness_word_formulas": [
+      "fe g^(h-3) c",
+      "fe g^(h-3) d",
+      "gfe g^(h-4) c",
+      "gfe g^(h-4) d"
+    ]
+  },
+  "one_key_finite_check": {
+    "windows": [
+      4,
+      6
+    ],
+    "only_common_complete_key": [
+      5,
+      3,
+      1
+    ],
+    "exact_trie_optimum": 88,
+    "unrestricted_exact_optimum": 48,
+    "penalty": 40,
+    "independent_milp": {
+      "word_count": 368,
+      "distinct_prefixes": 2588,
+      "binary_variables": 2956,
+      "linear_constraints": 5896,
+      "objective": 88,
+      "mip_gap": 0,
+      "solver": "SciPy/HiGHS optimal",
+      "native_prefix_union_recount": 88
+    }
+  },
+  "noncommon_key_obstructions": {
+    "windows": [
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ]
+    ],
+    "reason": "For any common complete key, earlier horizon H3 requires x<=4,y<=2 (for z>=1), whereas later H5 already requires x+y>=7."
+  },
+  "files": [
+    "README_EC49FFS.md",
+    "VERIFY_EC49FFS_COMPACT.py",
+    "VERIFY_EC49FFS_MILP.py"
+  ],
+  "admission": "AUTHOR_FINITE_DP_AND_ANALYTIC_TWO_KEY_CONSTRUCTIONS; NATIVE_RESULT_PENDING; DRIVER_REVIEW_PENDING"
+}

@@ -1,0 +1,509 @@
+{
+  "schema": "EC49FBI_EXACT_FINITE_ILP_AUTHOR_CERTIFICATE",
+  "date": "2026-11-05",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "environment": {
+    "python": "3.13.5",
+    "scipy": "1.17.0",
+    "solver": "SciPy milp/HiGHS"
+  },
+  "keys": {
+    "L": [
+      4,
+      2,
+      1,
+      0,
+      0,
+      0
+    ],
+    "M": [
+      6,
+      4,
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  "frozen_early": [
+    "fe",
+    "ge",
+    "feg",
+    "gef"
+  ],
+  "counts": {
+    "4": {
+      "raw": 48,
+      "eligible": 48,
+      "L": 48
+    },
+    "5": {
+      "raw": 110,
+      "eligible": 34,
+      "L": 24,
+      "M": 10
+    },
+    "6": {
+      "raw": 960,
+      "eligible": 240,
+      "M": 240
+    },
+    "7": {
+      "raw": 2520,
+      "eligible": 1260,
+      "M": 1260
+    },
+    "8": {
+      "raw": 2240,
+      "eligible": 2240,
+      "M": 2240
+    },
+    "9": {
+      "raw": 630,
+      "eligible": 560,
+      "M": 560
+    }
+  },
+  "trie_edges": 26742,
+  "prepaid_prefix_edges": 16,
+  "tests": [
+    {
+      "name": "mixed_H5_unrestricted",
+      "constraints": 26761,
+      "nnz": 57884,
+      "solver_status": 0,
+      "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "solver_objective": 96,
+      "solver_dual_bound": 96,
+      "mip_gap": 0,
+      "prefix_union_count": 112,
+      "selected_words": [
+        [
+          4,
+          "gefd",
+          1,
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          4,
+          "gefc",
+          8,
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          4,
+          "fegd",
+          2,
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          4,
+          "fegc",
+          4,
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          5,
+          "gefgf",
+          32,
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          5,
+          "feggf",
+          16,
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          6,
+          "gefddd",
+          1,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          6,
+          "gefccc",
+          8,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          6,
+          "fegccc",
+          4,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          6,
+          "fegddd",
+          2,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          7,
+          "fegccfg",
+          4,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          7,
+          "gefddgf",
+          1,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          7,
+          "gefccfg",
+          8,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          7,
+          "fegddgf",
+          2,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          8,
+          "feggffgc",
+          4,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          8,
+          "gefgfgfc",
+          8,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          8,
+          "gefgfgfd",
+          1,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          8,
+          "feggffgd",
+          2,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          9,
+          "gefgfgfgf",
+          32,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          9,
+          "feggffggf",
+          16,
+          [
+            6,
+            4,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "mixed_H5_force_at_least_one_M",
+      "constraints": 26762,
+      "nnz": 57894,
+      "solver_status": 0,
+      "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "solver_objective": 112,
+      "solver_dual_bound": 112.00000000000001,
+      "mip_gap": 0,
+      "prefix_union_count": 128,
+      "selected_words": [
+        [
+          4,
+          "gefc",
+          8,
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          4,
+          "gefd",
+          1,
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          4,
+          "cefg",
+          4,
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          4,
+          "fegd",
+          2,
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          5,
+          "feggf",
+          16,
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          5,
+          "ceccc",
+          4,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          5,
+          "geffg",
+          32,
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          6,
+          "ceccfg",
+          4,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          6,
+          "gefccc",
+          8,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          6,
+          "fegddd",
+          2,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          6,
+          "gefddd",
+          1,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          7,
+          "gefccfg",
+          8,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          7,
+          "feggfcc",
+          4,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          7,
+          "fegddgf",
+          2,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          7,
+          "gefddgf",
+          1,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          8,
+          "feggfcfg",
+          4,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          8,
+          "geffgfgc",
+          8,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          8,
+          "geffgfgd",
+          1,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          8,
+          "feggffgd",
+          2,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          9,
+          "geffgfgfg",
+          32,
+          [
+            6,
+            4,
+            1
+          ]
+        ],
+        [
+          9,
+          "feggffggf",
+          16,
+          [
+            6,
+            4,
+            1
+          ]
+        ]
+      ]
+    }
+  ],
+  "independent_witness_validation": "Python standard-library independent signed-X6 endpoint, DFA, rank, cache-key, prefix recount PASS for both; author computed MILP lower bounds; no separate exact integer certificate",
+  "scope": "Fixed early H2/H3 and L/M key schedule, arbitrary eligible H5 mixing; author numeric MIP optimal status, no Driver review"
+}

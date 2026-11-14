@@ -1,0 +1,609 @@
+{
+  "actual_histories": [
+    [
+      2,
+      -1,
+      2,
+      -1,
+      1,
+      -2,
+      -1,
+      1,
+      -2,
+      -1
+    ],
+    [
+      -2,
+      -2,
+      2,
+      -1,
+      1,
+      -1,
+      2,
+      -1,
+      -1,
+      1
+    ],
+    [
+      -1,
+      -1,
+      1,
+      -2,
+      1,
+      -1,
+      2,
+      -2,
+      -1,
+      2
+    ],
+    [
+      -2,
+      -2,
+      1,
+      -1,
+      2,
+      -1,
+      1,
+      2,
+      -1,
+      -1
+    ],
+    [
+      1,
+      -1,
+      -2,
+      -1,
+      -2,
+      2,
+      -1,
+      -1,
+      1,
+      2
+    ],
+    [
+      1,
+      -2,
+      -1,
+      -1,
+      -2,
+      -1,
+      2,
+      1,
+      -1,
+      2
+    ],
+    [
+      2,
+      -1,
+      -1,
+      -2,
+      1,
+      -2,
+      -1,
+      -1,
+      2,
+      1
+    ],
+    [
+      -1,
+      2,
+      -2,
+      -1,
+      -1,
+      -2,
+      -1,
+      1,
+      2,
+      1
+    ],
+    [
+      -2,
+      -2,
+      -1,
+      -1,
+      -1,
+      2,
+      1,
+      -1,
+      1,
+      2
+    ]
+  ],
+  "all_H_analytic_upper": {
+    "combined": "min(8H+12,4H+30), H>=3",
+    "for_H_ge_2": "8H+12",
+    "for_H_ge_3": "4H+30"
+  },
+  "domain": "native six-axis signed primitive ordered path; A/B first-event five buckets; two positive BRC factors",
+  "exact_h2_h3_exhaustive": {
+    "H2": 28,
+    "H3": 36,
+    "fiber_h2_counts": {
+      "(2, 1, 1, 0, 0, 0)": 2,
+      "(3, 0, 1, 0, 0, 0)": 2,
+      "(3, 1, 1, 0, 0, 0)": 4
+    },
+    "fiber_h3_counts": {
+      "(2, 2, 1, 0, 0, 0)": 3,
+      "(3, 1, 1, 0, 0, 0)": 6,
+      "(3, 2, 1, 0, 0, 0)": 12,
+      "(4, 0, 1, 0, 0, 0)": 3,
+      "(4, 0, 2, 0, 0, 0)": 3,
+      "(4, 1, 1, 0, 0, 0)": 12,
+      "(4, 2, 1, 0, 0, 0)": 12
+    },
+    "fiber_minima_H3": {
+      "(2, 2, 1, 0, 0, 0)": null,
+      "(3, 1, 1, 0, 0, 0)": 42,
+      "(3, 2, 1, 0, 0, 0)": 36,
+      "(4, 0, 1, 0, 0, 0)": null,
+      "(4, 0, 2, 0, 0, 0)": null,
+      "(4, 1, 1, 0, 0, 0)": 36,
+      "(4, 2, 1, 0, 0, 0)": 44
+    },
+    "number_of_optimal_H3_subsets": 2,
+    "optimal_H3_examples": [
+      {
+        "fiber": [
+          4,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "words": [
+          "cef",
+          "def",
+          "ecf",
+          "edf"
+        ]
+      },
+      {
+        "fiber": [
+          3,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "words": [
+          "ceg",
+          "deg",
+          "ecg",
+          "edg"
+        ]
+      }
+    ],
+    "rank9_subsets": 4662,
+    "return_words_h2": 8,
+    "return_words_h3": 51,
+    "subset_masks_tested": 12369
+  },
+  "inference_scope": "h2-h3 exhaustive; h>=2 constructive certificates plus analytic prefix counting; no claim that general-H upper is optimal",
+  "status": "PASS",
+  "unimodular_certificates": [
+    {
+      "cost": 28,
+      "determinant": -1,
+      "kind": "base_h2",
+      "positive_counts": [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_columns": [
+        [
+          "ce",
+          "A"
+        ],
+        [
+          "ce",
+          "AB"
+        ],
+        [
+          "ce",
+          "BA"
+        ],
+        [
+          "de",
+          "B"
+        ],
+        [
+          "de",
+          "AB"
+        ],
+        [
+          "ec",
+          "A"
+        ],
+        [
+          "ec",
+          "AB"
+        ],
+        [
+          "ed",
+          "B"
+        ],
+        [
+          "ed",
+          "AB"
+        ]
+      ],
+      "words": [
+        "ce",
+        "de",
+        "ec",
+        "ed"
+      ]
+    },
+    {
+      "determinant": -1,
+      "h": 3,
+      "joint_trie_cost": 42,
+      "kind": "equal_two_branch",
+      "positive_counts": [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_columns": [
+        [
+          "feg",
+          "N"
+        ],
+        [
+          "feg",
+          "A"
+        ],
+        [
+          "feg",
+          "B"
+        ],
+        [
+          "feg",
+          "AB"
+        ],
+        [
+          "feg",
+          "BA"
+        ],
+        [
+          "gef",
+          "N"
+        ],
+        [
+          "gef",
+          "A"
+        ],
+        [
+          "gef",
+          "B"
+        ],
+        [
+          "gef",
+          "AB"
+        ]
+      ],
+      "words": [
+        "feg",
+        "gef"
+      ]
+    },
+    {
+      "determinant": -1,
+      "h": 4,
+      "joint_trie_cost": 46,
+      "kind": "equal_two_branch",
+      "positive_counts": [
+        4,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_columns": [
+        [
+          "fegf",
+          "N"
+        ],
+        [
+          "fegf",
+          "A"
+        ],
+        [
+          "fegf",
+          "B"
+        ],
+        [
+          "fegf",
+          "AB"
+        ],
+        [
+          "fegf",
+          "BA"
+        ],
+        [
+          "geff",
+          "N"
+        ],
+        [
+          "geff",
+          "A"
+        ],
+        [
+          "geff",
+          "B"
+        ],
+        [
+          "geff",
+          "AB"
+        ]
+      ],
+      "words": [
+        "fegf",
+        "geff"
+      ]
+    },
+    {
+      "determinant": -1,
+      "h": 5,
+      "joint_trie_cost": 50,
+      "kind": "equal_two_branch",
+      "positive_counts": [
+        5,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_columns": [
+        [
+          "fegff",
+          "N"
+        ],
+        [
+          "fegff",
+          "A"
+        ],
+        [
+          "fegff",
+          "B"
+        ],
+        [
+          "fegff",
+          "AB"
+        ],
+        [
+          "fegff",
+          "BA"
+        ],
+        [
+          "gefff",
+          "N"
+        ],
+        [
+          "gefff",
+          "A"
+        ],
+        [
+          "gefff",
+          "B"
+        ],
+        [
+          "gefff",
+          "AB"
+        ]
+      ],
+      "words": [
+        "fegff",
+        "gefff"
+      ]
+    },
+    {
+      "determinant": -1,
+      "h": 6,
+      "joint_trie_cost": 54,
+      "kind": "equal_two_branch",
+      "positive_counts": [
+        6,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_columns": [
+        [
+          "fegfff",
+          "N"
+        ],
+        [
+          "fegfff",
+          "A"
+        ],
+        [
+          "fegfff",
+          "B"
+        ],
+        [
+          "fegfff",
+          "AB"
+        ],
+        [
+          "fegfff",
+          "BA"
+        ],
+        [
+          "geffff",
+          "N"
+        ],
+        [
+          "geffff",
+          "A"
+        ],
+        [
+          "geffff",
+          "B"
+        ],
+        [
+          "geffff",
+          "AB"
+        ]
+      ],
+      "words": [
+        "fegfff",
+        "geffff"
+      ]
+    },
+    {
+      "determinant": -1,
+      "h": 32,
+      "joint_trie_cost": 158,
+      "kind": "equal_two_branch",
+      "positive_counts": [
+        32,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_columns": [
+        [
+          "fegfffffffffffffffffffffffffffff",
+          "N"
+        ],
+        [
+          "fegfffffffffffffffffffffffffffff",
+          "A"
+        ],
+        [
+          "fegfffffffffffffffffffffffffffff",
+          "B"
+        ],
+        [
+          "fegfffffffffffffffffffffffffffff",
+          "AB"
+        ],
+        [
+          "fegfffffffffffffffffffffffffffff",
+          "BA"
+        ],
+        [
+          "geffffffffffffffffffffffffffffff",
+          "N"
+        ],
+        [
+          "geffffffffffffffffffffffffffffff",
+          "A"
+        ],
+        [
+          "geffffffffffffffffffffffffffffff",
+          "B"
+        ],
+        [
+          "geffffffffffffffffffffffffffffff",
+          "AB"
+        ]
+      ],
+      "words": [
+        "fegfffffffffffffffffffffffffffff",
+        "geffffffffffffffffffffffffffffff"
+      ]
+    },
+    {
+      "determinant": -1,
+      "h": 2,
+      "joint_trie_cost": 28,
+      "kind": "equal_four_branch",
+      "positive_counts": [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "determinant": -1,
+      "h": 3,
+      "joint_trie_cost": 36,
+      "kind": "equal_four_branch",
+      "positive_counts": [
+        4,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "determinant": -1,
+      "h": 4,
+      "joint_trie_cost": 44,
+      "kind": "equal_four_branch",
+      "positive_counts": [
+        5,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "determinant": -1,
+      "h": 5,
+      "joint_trie_cost": 52,
+      "kind": "equal_four_branch",
+      "positive_counts": [
+        6,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "determinant": -1,
+      "h": 6,
+      "joint_trie_cost": 60,
+      "kind": "equal_four_branch",
+      "positive_counts": [
+        7,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "determinant": -1,
+      "h": 32,
+      "joint_trie_cost": 268,
+      "kind": "equal_four_branch",
+      "positive_counts": [
+        33,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "EC49FKO_SIX_KEY_EXACT_NATIVE_DEPTH_SUMMARY_V1",
+  "date": "2026-11-11",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "model": "nine-state full raw-key signed ordered native X6 BRC",
+  "legal_words": 178850,
+  "full_raw_keys": 94,
+  "observation_labels": 24,
+  "five_disjoint_forcing_label_key_family_sizes": [
+    1,
+    1,
+    2,
+    7,
+    34
+  ],
+  "covering_six_key_sets": 2004,
+  "six_sets_containing_five_key_cover": 1376,
+  "inclusion_minimal_six_key_covers": 628,
+  "number_with_one_five_key_cover": 1328,
+  "number_with_two_five_key_covers": 48,
+  "number_with_no_five_key_covers": 628,
+  "exact_per_depth_native_prefix_necessary_sieve": {
+    "contains_five_key_cover": {
+      "lower_bound_at_least_94": 823,
+      "lower_bound_at_most_93": 553
+    },
+    "minimal_six_key_cover": {
+      "lower_bound_at_least_94": 440,
+      "lower_bound_at_most_93": 188
+    },
+    "total_excluded_for_93_or_fewer_prefixes": 1263,
+    "total_survivors": 741,
+    "smallest_computed_lower_bound": 67
+  },
+  "proof_bound": "For each six-key K: sum_d ceil(N_d(K)/M_d(K)), where N_d counts labels whose minimal legal native microstep word length is >=d and M_d is maximum forced-label support of any literal ordered signed native prefix at depth d",
+  "executable": "VERIFY_EC49FKO_PORTABLE.py",
+  "executed_stdout": "EC49FKO_ALL_SIX_KEY_EXACT_PASS 2004 excluded 1263 survivors 741 lower_min 67",
+  "independent_audit": "Second checker parsed the 178850-row frozen TSV, used literal tuples, verified all 2004 exact per-set values in 9 disjoint bounded batches; the aggregate 4-class counts matched exactly.",
+  "independent_audit_partitions": [
+    [
+      0,
+      500
+    ],
+    [
+      500,
+      1000
+    ],
+    [
+      1000,
+      1100
+    ],
+    [
+      1100,
+      1200
+    ],
+    [
+      1200,
+      1300
+    ],
+    [
+      1300,
+      1400
+    ],
+    [
+      1400,
+      1500
+    ],
+    [
+      1500,
+      1600
+    ],
+    [
+      1600,
+      2004
+    ]
+  ],
+  "local_delivery_archive": "EC49FKO_six_key_2004_exact_evidence_20261111.tar.xz",
+  "archive_sha256": "4c97d588734e724c115b7deaee0b6261f582ffc716a1b9be7d64ee2c7b38a85f",
+  "full_reproducible_report_sha256": "f18400edcc357c2b171a8da2aa01f38ce0be56a05cfcaadd949a9fced2d3b7dc",
+  "scientific_scope": "Exactly six full cache keys in the immutable frozen nine-state model; 1263 necessary infeasibility certificates, 741 unresolved six-key sets. Five-key lower bound >=99 previously in EC49FKN.",
+  "project_admission": "UNREVIEWED; NO FORMAL RESULT",
+  "native_gateway_error": "BACKEND_IDENTITY_CHECK_UNAVAILABLE; operation_sent=false"
+}

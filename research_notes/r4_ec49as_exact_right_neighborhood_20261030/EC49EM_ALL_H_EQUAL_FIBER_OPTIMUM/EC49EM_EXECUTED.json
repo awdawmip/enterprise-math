@@ -1,0 +1,314 @@
+{
+  "status": "PASS",
+  "unit": "EC49EM",
+  "arithmetic": "exact integer / rank modulo 1000003",
+  "prime": 1000003,
+  "determinant_bound": 19683,
+  "rank_masks_tested": 4095,
+  "full_rank_masks": 576,
+  "minimal_full_rank_masks": [
+    {
+      "types": [
+        [
+          0,
+          "A"
+        ],
+        [
+          0,
+          "B"
+        ],
+        [
+          1,
+          "A"
+        ],
+        [
+          2,
+          "B"
+        ]
+      ],
+      "columns": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        11,
+        13,
+        17,
+        18
+      ],
+      "det": "-1"
+    },
+    {
+      "types": [
+        [
+          0,
+          "A"
+        ],
+        [
+          1,
+          "A"
+        ],
+        [
+          1,
+          "B"
+        ],
+        [
+          2,
+          "B"
+        ]
+      ],
+      "columns": [
+        1,
+        3,
+        4,
+        6,
+        8,
+        12,
+        13,
+        17,
+        18
+      ],
+      "det": "-1"
+    },
+    {
+      "types": [
+        [
+          0,
+          "B"
+        ],
+        [
+          1,
+          "A"
+        ],
+        [
+          2,
+          "A"
+        ],
+        [
+          2,
+          "B"
+        ]
+      ],
+      "columns": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        11,
+        13,
+        17,
+        18
+      ],
+      "det": "-1"
+    },
+    {
+      "types": [
+        [
+          1,
+          "A"
+        ],
+        [
+          1,
+          "B"
+        ],
+        [
+          2,
+          "A"
+        ],
+        [
+          2,
+          "B"
+        ]
+      ],
+      "columns": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        11,
+        13,
+        17,
+        18
+      ],
+      "det": "-1"
+    }
+  ],
+  "h2": {
+    "positive": "3,1,1,0,0,0",
+    "words": [
+      "ce",
+      "de",
+      "ec",
+      "ed"
+    ],
+    "cost": 28
+  },
+  "qzero_9_minor": "-1",
+  "witness_samples": [
+    {
+      "H": 5,
+      "words": [
+        "fegff",
+        "gefff"
+      ],
+      "cost": 50,
+      "p": [
+        5,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "H": 6,
+      "words": [
+        "fegfff",
+        "geffff"
+      ],
+      "cost": 54,
+      "p": [
+        6,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "H": 7,
+      "words": [
+        "fegffff",
+        "gefffff"
+      ],
+      "cost": 58,
+      "p": [
+        7,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "H": 8,
+      "words": [
+        "fegfffff",
+        "geffffff"
+      ],
+      "cost": 62,
+      "p": [
+        8,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "H": 9,
+      "words": [
+        "fegffffff",
+        "gefffffff"
+      ],
+      "cost": 66,
+      "p": [
+        9,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "H": 10,
+      "words": [
+        "fegfffffff",
+        "geffffffff"
+      ],
+      "cost": 70,
+      "p": [
+        10,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "H": 30,
+      "words": [
+        "fegfffffffffffffffffffffffffff",
+        "geffffffffffffffffffffffffffff"
+      ],
+      "cost": 150,
+      "p": [
+        30,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "analytic_bounds_samples": [
+    {
+      "H": 5,
+      "qPositiveExtraAtLeast": 22,
+      "qZeroExtraAtLeast": 22,
+      "totalAtLeast": 50
+    },
+    {
+      "H": 6,
+      "qPositiveExtraAtLeast": 28,
+      "qZeroExtraAtLeast": 26,
+      "totalAtLeast": 54
+    },
+    {
+      "H": 7,
+      "qPositiveExtraAtLeast": 34,
+      "qZeroExtraAtLeast": 30,
+      "totalAtLeast": 58
+    },
+    {
+      "H": 8,
+      "qPositiveExtraAtLeast": 38,
+      "qZeroExtraAtLeast": 34,
+      "totalAtLeast": 62
+    },
+    {
+      "H": 9,
+      "qPositiveExtraAtLeast": 42,
+      "qZeroExtraAtLeast": 38,
+      "totalAtLeast": 66
+    },
+    {
+      "H": 10,
+      "qPositiveExtraAtLeast": 46,
+      "qZeroExtraAtLeast": 42,
+      "totalAtLeast": 70
+    },
+    {
+      "H": 30,
+      "qPositiveExtraAtLeast": 126,
+      "qZeroExtraAtLeast": 122,
+      "totalAtLeast": 150
+    }
+  ],
+  "claims": [
+    "for every integer H>=5: U_equal(H)=4H+30",
+    "U_equal(9)=66",
+    "every fullrank q>=1 fiber at h=9 requires at least 70 total native-prefix edges"
+  ],
+  "analytic_proof": "See README_EC49EM.md; finite checks are certificate regressions."
+}

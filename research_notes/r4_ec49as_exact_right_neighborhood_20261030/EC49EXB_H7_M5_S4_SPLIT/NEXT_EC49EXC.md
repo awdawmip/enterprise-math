@@ -1,0 +1,5 @@
+# EC49EXC — Complete the H7/M5/S4 optimum on late-repeat schedules
+
+At EC49EXB, the exact minimum for the 21,583 *early-repeat* key schedules is 80. Of the 26,037 admissible M=5,S<=4 schedules, only 4,454 remain: (5,7) repetition 1,251; (6,7) repetition 3,203. The operation code is prefix-free, and every full four-signature horizon adds at least 8 *native* primitive-prefix edges. The all-H EC49EXA construction gives an upper bound E<=80; 80 is not yet certified globally.
+
+For each remaining fixed schedule, reuse the H6 key-specific optimal primitive-prefix lower bound (not just the global E>=60), add eight for h7, and discard cases where the bound reaches 80. Solve survivors by exact bounded OR-mask native-prefix trie DP and independently decode/check any E<80 witness against complete signed X6 displacement, six-axis positive-count symbolic BRC keys, and nine-history rational observer rank. Only then declare the full H7/M5/S4 optimum. Preserve frozen GK scientific pin 773d538180bfb49e24cffeb35c3ee75eb0628e2e, EM scientific pin fc0f038e7bfd12c886b4d37f900bfb770c0f61ab. Do not claim Source-native CLAIM/Result/Driver acceptance from the GitHub draft alone.

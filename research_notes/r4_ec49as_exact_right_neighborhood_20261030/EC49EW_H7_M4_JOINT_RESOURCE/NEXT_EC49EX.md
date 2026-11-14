@@ -1,0 +1,9 @@
+# EC49EX — Finish seven-window four-BRC-key, six-observer global minimum
+
+Scientific starting point: EC49EW, frozen native signed X6 seven-letter language with the inherited nine-history 5-bucket observer. Complete `H=7,M=4,S=4` optimum has **E=92**, supported by exhaustive 752-key-schedule classification and exact native trie DP. The full `H=7,M=4,S<=6` has an independently checked **E=72 feasible witness**; for signature schedule `T2,T2,T2,T4,T2` its 72 BRC key schedules were exhaustively solved with exact optimum E=72. Full six-observer global optimum is still open.
+
+**Discriminating next unit:** Enumerate all permitted T4/T2 and other allowable observer signature patterns within S<=6, construct every globally 4-key schedule, and prove an E>=72 lower bound or find a real signed-native witness E<72. Earlier broad enumeration counts 26,207 M4 observer schedules; verify exactly what observer patterns these count before relying on it. Apply each exact H6 prefix minimum and the appropriate number of distinct compulsory terminal primitive edges as a certified cutoff. Solve all survivors by the unchanged exact C++ OR-mask trie DP, or prove an analytic shortcut; preserve raw costs or reproducible certificates.
+
+**Independent next branch:** H=7,M=5,S=4 exact optimum, testing tradeoff from (92,4,4) toward known unrestricted E=58. Verify any candidate with a separate native signed-axis expansion and nine-history rank checker. Theorem strength: only certify the full Pareto frontier after every feasible stratum is bounded with matching native witnesses.
+
+**Frozen pins:** Global Knowledge `773d538180bfb49e24cffeb35c3ee75eb0628e2e`; Enterprise Math `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`. P000 and ACTIVE worldview unchanged. Predecessor author-side PR #1730; status unreviewed/not admitted; native Owner lookup returned CONTROL_QUOTA and Site-scoped service offered readonly access.

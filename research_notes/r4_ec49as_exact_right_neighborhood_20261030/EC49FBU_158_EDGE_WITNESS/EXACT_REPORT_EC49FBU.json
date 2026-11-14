@@ -1,0 +1,130 @@
+{
+  "schema": "EC49FBU_158_EDGE_SIGNED_X6_WITNESS_V1",
+  "date": "2026-11-05",
+  "scientific_input_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor_author_commit": "04ffe42946b5ac11f2909fb6a674c3bf55a2efd0",
+  "comparison_EC49FBT_cost": 159,
+  "native_signed_primitive_union_edges": 158,
+  "schedule": {
+    "H2_H3": "fixed four root words",
+    "H4_H5_L": [
+      4,
+      2,
+      1
+    ],
+    "H6_H9_M": [
+      7,
+      3,
+      2
+    ]
+  },
+  "observation_requirements": {
+    "H2": [
+      16,
+      32
+    ],
+    "H3": [
+      16,
+      32
+    ],
+    "H4": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "H5": [
+      16,
+      32
+    ],
+    "H6": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "H7": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "H8": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "H9": [
+      16,
+      32
+    ]
+  },
+  "chosen": {
+    "2": [
+      "fe",
+      "ge"
+    ],
+    "3": [
+      "feg",
+      "gef"
+    ],
+    "4": [
+      "degf",
+      "fegd",
+      "cefg",
+      "gefc"
+    ],
+    "5": [
+      "feggf",
+      "geffg"
+    ],
+    "6": [
+      "aeeddd",
+      "dedead",
+      "aeeccc",
+      "ceceac"
+    ],
+    "7": [
+      "aeeddgf",
+      "dedeagf",
+      "aeeccfg",
+      "ceceafg"
+    ],
+    "8": [
+      "feggfead",
+      "geffgaed",
+      "geffgaec",
+      "feggfeac"
+    ],
+    "9": [
+      "feggfeafg",
+      "geffgaegf"
+    ]
+  },
+  "search_method": "Seeded coordinate descent over the complete 16,152-word finite candidate family; seed 349, improvement found at iteration 14. Feasible construction, no global MILP bound.",
+  "validation": {
+    "method": "independent Node.js signed-native primitive-prefix expansion and operation-trie identity",
+    "run_date": "2026-11-05",
+    "status": "PASS",
+    "number_of_words": 24,
+    "distinct_BRC_keys": 5,
+    "cumulative_edges": {
+      "H2": 12,
+      "H3": 16,
+      "H4": 46,
+      "H5": 52,
+      "H6": 112,
+      "H7": 124,
+      "H8": 152,
+      "H9": 158
+    },
+    "compressed": {
+      "operation_edges": 57,
+      "weighted": 170,
+      "collision_cf": 6,
+      "collision_dg": 6,
+      "cost": 158
+    }
+  }
+}

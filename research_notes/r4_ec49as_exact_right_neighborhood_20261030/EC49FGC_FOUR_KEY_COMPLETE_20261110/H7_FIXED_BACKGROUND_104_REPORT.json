@@ -1,0 +1,31 @@
+{
+  "schema": "EC49FGC_FROZEN_MOTHER_H7_FIXED_KEY_NATIVE_PREFIX_MILP_AUDIT_V1",
+  "scientific_input": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "frozen_horizons": "H2 high,H3 high,H4 low,H5 high,H6 low,H7 low,H8 low,H9 high",
+  "scope": "Other 20 operation words fixed as in ADDENDUM; H7 all 1260 complete feasible words with K=(6,4,1) unrestricted operation order",
+  "fixed_native_prefixes": 89,
+  "low_signature_candidate_counts": {
+    "1": 360,
+    "2": 270,
+    "4": 360,
+    "8": 270
+  },
+  "word_variables": 1260,
+  "nonbase_native_prefix_variables": 9916,
+  "inequality_rows": 21964,
+  "solver": "scipy.optimize.milp/HiGHS",
+  "status": "OPTIMAL",
+  "min_extra_edges": 15,
+  "total_exact_native_prefixes": 104,
+  "primal": 15,
+  "dual": 15,
+  "gap": 0,
+  "chosen_H7_words": {
+    "1": "gefdfgd",
+    "2": "fegdgfd",
+    "4": "feggfcc",
+    "8": "geffgcc"
+  },
+  "executed_validation": "Python local two independent formulations: signed-prefix 16-mask trie DP + word-selector MIP; full signed-native prefix witness re-expansion PASS",
+  "conclusion_scope": "This is a lower bound only under frozen 20 background words and fixed H7 key; not global no-go for original <=5 keys and <=93 edges."
+}
