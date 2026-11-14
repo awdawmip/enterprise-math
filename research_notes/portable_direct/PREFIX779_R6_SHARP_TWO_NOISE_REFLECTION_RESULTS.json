@@ -1,0 +1,59 @@
+{
+  "schema": "PREFIX779_R6_SHARP_TWO_NOISE_REFLECTION_TRADEOFF_V1",
+  "date": "2026-11-14",
+  "scientific_input_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "inherited_exact_source": "PREFIX778_R6_REFLECTION_EQUIVARIANT_RADIUS_CHECK.py, immutable frozen 189-layer BRC-Gamma coefficient checks",
+  "model": "external scalar two-Gamma observer on four 1/768 parameter cells, 14 vertices",
+  "coefficients": {
+    "A1": "-mixed_difference_mu(R38)",
+    "B1": "-mixed_difference_variance(R38)",
+    "A2": "-mixed_difference_mu(R39)",
+    "B2": "-mixed_difference_variance(R39)",
+    "inherited_conditions": "0<B1<B2; D=A2*B1-A1*B2>0",
+    "D": "A2*B1-A1*B2",
+    "C": "D/(B1+B2)",
+    "K": "2*B1+4*B2"
+  },
+  "noise": {
+    "amplitude": "abs(Vhat(v)-V(v))<=q*epsilon",
+    "reflection": "abs(Vhat(v#)-Vhat(v))<=q*delta",
+    "q_domain": "real q>0",
+    "epsilon_domain": "epsilon>=0",
+    "delta_domain": "delta>=0"
+  },
+  "quantitative_certificate": "G=D-K*epsilon-B1*min(delta,2*epsilon); if G>0, max cell mixed difference >=q*G/(B1+B2) and min <=-q*G/(B1+B2)",
+  "sharp_boundary": {
+    "delta_low": "0<=delta<=C/2",
+    "epsilon_low": "(D-B1*delta)/(2*(B1+2*B2))",
+    "delta_high": "delta>=C/2",
+    "epsilon_high": "C/4",
+    "strict_success": "epsilon<epsilon_crit(delta)",
+    "counterexample": "epsilon=epsilon_crit(delta), q=(A1+4*epsilon)/B1, (base1,mirror1,base2,mirror2)/q=(0,d,d,0), d=min(delta,2*epsilon)"
+  },
+  "original_gamma_approximate_context": {
+    "delta_zero_radius": "9.0207585373397955823864330163e-8",
+    "delta_saturation": "1.3548129941e-7 (display approximation inherited from PREFIX777)",
+    "amplitude_saturation": "6.7740649705e-8 (display approximation inherited from PREFIX777)"
+  },
+  "verification": {
+    "tool": "Python3 plus sympy symbolic simplification, fractions.Fraction",
+    "proof_kind": "universal algebraic proof with 3 rational parameter families and 4 defect regimes each",
+    "checked_rational_parameter_families": 3,
+    "checked_defect_regimes_per_family": 4,
+    "checked_strict_interior_scales_per_regime": 3,
+    "local_execution_stdout_marker": "ALL_CHECKS_PASS PREFIX779 SHARP_TWO_NOISE_TRADEOFF",
+    "local_checker_sha256": "bb3aa7260ed9a910587c65a721595f7b6bc5e7b1a5293e0d9ca4fca6525a92d7",
+    "local_checker_git_blob_sha1": "91f95aa98423c160c5f7014348fffd24ffd5fff3",
+    "remote_checker_blob_sha1": "91f95aa98423c160c5f7014348fffd24ffd5fff3",
+    "remote_readback_verified": true,
+    "reran_full_189_layer_kernel_this_turn": false
+  },
+  "authority": {
+    "status": "AUTHOR_ALGEBRAIC_PROOF_WITH_RATIONAL_REGRESSION / UNREVIEWED / NOT_ADMITTED",
+    "formal_claim": false,
+    "result": false,
+    "review": false,
+    "original_comparator_exclusion_count_increment": 0
+  },
+  "unresolved": "Typed native X6/BRC comparator mapping and exact or certified 14-corner reflection/amplitude error budgets."
+}
