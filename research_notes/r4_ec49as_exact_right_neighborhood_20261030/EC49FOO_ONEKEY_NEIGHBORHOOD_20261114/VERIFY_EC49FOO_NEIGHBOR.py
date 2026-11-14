@@ -71,11 +71,11 @@ assert len(original)==51
 previous=[x for x in edge_rows if x[2] in original]
 new=[x for x in edge_rows if x[2] not in original]
 assert len(previous)==44 and len(new)==29
-assert sum(x[9] for x in edge_rows)==37
 assert sum(x[10] for x in edge_rows)==37
-assert all(x[9]==x[10] for x in edge_rows)
-assert (sum(x[9] for x in new),sum(not x[9] for x in new))==(11,18)
-compensated=[x for x in edge_rows if x[11]]
+assert sum(x[11] for x in edge_rows)==37
+assert all(x[10]==x[11] for x in edge_rows)
+assert (sum(x[10] for x in new),sum(not x[10] for x in new))==(11,18)
+compensated=[x for x in edge_rows if x[12]]
 assert len(compensated)==1 and compensated[0][:3]==(37,62,33269)
 assert sum(x[7] for x in edge_rows)==14139
 result={
