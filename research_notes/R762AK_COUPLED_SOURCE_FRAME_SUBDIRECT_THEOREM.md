@@ -69,3 +69,25 @@ All checker operations are exact integer arithmetic and finite complete enumerat
 For each proposed P000-compatible `TRIADIC_CLOSURE_E` macro-event and its V29 PASS/TRANSFER, V17 frame and V39 return transports, record `{signed_X6_port,source_slot_action,frame_action,enablement,ordered_time,observer,provenance}`. Determine whether actions are actually total, fixed and reversible on one source-typed signed-fiber. If yes, form their paired generators and compute both marginal projection groups. The two theorems then give an exact carrier classification. If the native event system instead has partial enabling, calculate future-observer equivalence on the corresponding labeled transition system.
 
 **Scientific status:** These results are author-checked conditional finite group theorems; no native-force event legitimacy, formal Source Result, independent Driver review or P000 modification is inferred.
+
+## 7. AK4 — Exact finite obstruction when native enablement is partial
+
+The word **total** in AK1 is mathematically essential. Here is a constructive eight-state counterexample with full *separate* source and frame marginals.
+
+Fix `c=(012) in C3`, `t=(01) in S3`, and start at `(1,1)`. Use three typed *partial*, locally reversible events:
+
+* `S: (s,h) -> (cs,h)` **only if** `h=1`;
+* `C: (s,h) -> (s,ch)` **only if** `s=1`;
+* `T: (s,h) -> (s,th)` **only if** `s=1`.
+
+The full reachable set is exactly
+`R=({1} x S3) union (C3 x {1})`, of cardinality `6+3-1=8`. The first condition lets `C,T` generate all six frame elements while the source is identity; the second lets `S` generate all three source elements while the frame is identity. No event can enter a state with both components nonidentity: when the source changes the frame must be identity, and when the frame changes the source must be identity. Thus **both marginal projections are surjective**, yet only **8**, not 18, joint states are reachable. This is an exact typed counterexample to importing AK1 into a state-dependent native interface without its total-action hypothesis.
+
+The appropriate replacement is the standard finite future-observer congruence, with precise partial-action semantics. Introduce a failure state `⊥` whose observer output is a distinct `UNDEFINED`, and totalize all missing transitions to `⊥`, with `⊥` absorbing. For any finite typed deterministic transition system, define
+`x ~_0 y iff Obs(x)=Obs(y)`, and
+`x ~_(n+1) y iff Obs(x)=Obs(y) and δ_e(x) ~_n δ_e(y) for every labeled event e`.
+Induction on the length of a future event word proves that `~_n` identifies exactly the states with equal readouts after **all words of length at most n**. This descending sequence of equivalence relations stabilizes after finitely many strict refinements (at most the number of totalized states minus one), and its limit is the **coarsest exact future-safe observer quotient**. This computes the true typed BRC residual without positing a group action.
+
+In the eight-state witness, the joint cycle-type observer plus the `S,C,T` partial future language separates all eight states (and the failure state). Exact partition refinement stabilizes after **two refinements** at nine equivalence classes including `⊥`. Hence the smallest full-future repair state on reachable, nonfailure configurations has 8 classes and requires **3 fixed bits**. All these statements are checked in the updated verifier.
+
+**Next native dependency:** compute the *actual* enabled-event table. A surjective pair of marginal holonomy/source tests alone cannot select the 18-state theorem without verifying totality.
