@@ -1,0 +1,122 @@
+{
+  "schema": "ENTERPRISE_MATH_R5_K214_NONLOCAL_RECOURSE_EVIDENCE_V1",
+  "status": "PASS_EXACT_R5_K214_NONLOCAL_RECOURSE",
+  "date": "2026-11-15",
+  "scientific_input_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "domain": "derived frozen 954-event integer indexed-center radius-two observer",
+  "K": 214,
+  "old_mask": 0,
+  "minimum_total_cost": 1064,
+  "max_new_min_old_lower_bound_witnesses": [
+    {
+      "bit": 3,
+      "start_event_index": 46,
+      "verified_exact_min_swaps": 3,
+      "old_max_overlap": 211,
+      "sampling_histogram": {
+        "0": 107,
+        "3": 149
+      },
+      "new_only": [
+        46,
+        50,
+        54
+      ],
+      "old_only": [
+        45,
+        49,
+        53
+      ]
+    },
+    {
+      "bit": 8,
+      "start_event_index": 110,
+      "verified_exact_min_swaps": 7,
+      "old_max_overlap": 207,
+      "sampling_histogram": {
+        "5": 192,
+        "6": 44,
+        "7": 20
+      },
+      "new_only": [
+        110,
+        114,
+        271,
+        274,
+        278,
+        282,
+        286
+      ],
+      "old_only": [
+        109,
+        112,
+        115,
+        272,
+        276,
+        281,
+        285
+      ]
+    },
+    {
+      "bit": 9,
+      "start_event_index": 116,
+      "verified_exact_min_swaps": 7,
+      "old_max_overlap": 207,
+      "sampling_histogram": {
+        "5": 197,
+        "6": 43,
+        "7": 16
+      },
+      "new_only": [
+        113,
+        117,
+        271,
+        274,
+        278,
+        282,
+        286
+      ],
+      "old_only": [
+        112,
+        115,
+        119,
+        272,
+        276,
+        281,
+        285
+      ]
+    },
+    {
+      "bit": 10,
+      "start_event_index": 123,
+      "verified_exact_min_swaps": 4,
+      "old_max_overlap": 210,
+      "sampling_histogram": {
+        "0": 54,
+        "3": 73,
+        "4": 129
+      },
+      "new_only": [
+        123,
+        127,
+        131,
+        136
+      ],
+      "old_only": [
+        122,
+        126,
+        130,
+        135
+      ]
+    }
+  ],
+  "witness_discovery": "Deterministic random seed 20261115, 256 exact globally optimal new paths per cut; for each S exhaustive old-optimal-path maximum overlap DP",
+  "full_output": {
+    "file": "EXACT_R5_K214_NONLOCAL_RECOURSE.json",
+    "bytes": 24394,
+    "sha256": "53072d874619a1eb6bede5e43d647d7d5c228f83371ea76b05eba03b5a81da82",
+    "reproduce": "python VERIFY_R5_K214_NONLOCAL_RECOURSE.py > EXACT_R5_K214_NONLOCAL_RECOURSE.json"
+  },
+  "scope": "Each witness-specific min is exact; global max over all new optimizers remains open",
+  "review": "NOT_REVIEWED"
+}
