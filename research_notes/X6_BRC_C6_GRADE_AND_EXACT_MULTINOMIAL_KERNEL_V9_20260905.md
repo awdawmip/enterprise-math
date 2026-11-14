@@ -80,9 +80,15 @@ Therefore a min-zero endpoint `a in A6_D` is reachable by a positive path of len
 1. `m>=|a|_1`;
 2. `m-|a|_1` is divisible by 6.
 
-Equivalently
+The grade congruence alone is **necessary, not sufficient**: it determines only whether `k=(m-|a|_1)/6` is integral, not whether the six occurrence counts `n_i=a_i+k` are nonnegative. The exact if-and-only-if condition, for `a in A6_D` and integer `m>=0`, is therefore
 
-`rho(a)=m mod 6`.
+`a is positive-word reachable at length m <=> m>=|a|_1 AND rho(a)=m mod 6`.
+
+**Minimal positive-length witness:** for `m=1`, `a=(7,0,0,0,0,0)` is a valid min-zero relative address and `rho(a)=7=1 mod 6`, but `k=(1-7)/6=-1`. Five reconstructed occurrence counts are negative, so `N_1(a)=0`. More generally `a_m=(m+6,0,0,0,0,0)` passes the grade congruence and fails reachability for every integer `m>=0`.
+
+**Exact support and mass conservation at each fixed length.** The map from nonnegative six-axis occurrence histograms `n` with `sum n_i=m` to their min-zero endpoint `a=can6(n)` is injective at fixed `m`: if two histograms differ by `kD`, equal sums force `6k=0`. Thus the number of reachable derived endpoints is exactly `binomial(m+5,5)`. Their positive N-BRC word masses, computed in Section 4, sum to `6^m`, since every one of the `6^m` ordered positive-axis words has one such histogram. These are **derived relative-observer support/mass identities**, not native Cell return claims or signed amplitude cancellations.
+
+**Source/execution check (2026-11-15):** the original version's grade-only equivalence was present in frozen historical Git blob `7eea4b5f9146090d16dfa6463087039666b50b3f` and remained in this current typed V9 note prior to the correction. A distinct exact stdlib checker at `research_checks/X6_V9_POSITIVE_GRADE_SUPPORT_BOUNDARY_20261115_0100.py`, GitHub commit `1883e83d27552a6622aeb50bbf921351b042b779`, Git blob `d469edf91f06c1a9cf6f8bf897d391e0817d7680`, executed successfully with `PASS_X6_V9_POSITIVE_GRADE_REACHABILITY_GATE`: for `m=0..10` it verified the full reachable histograms, endpoint cardinality, mass conservation, and grade-valid but unreachable witnesses. This refines the actual LP019 **current positive-BRC support predicate** without attributing any unlocated historical wrong signed-cancellation caller. Original R063 C3/C4 benchmark remains unexecuted here; independent review and admission remain pending.
 
 ## 4. Exact N-BRC endpoint multiplicity
 
