@@ -63,7 +63,7 @@
     "initial_run_generation": 1,
     "initial_run_revision": 0,
     "current_resume_request_id": "dvr-20261114-1106-cfd-resume-own-run",
-    "current_resume_last_observed_status": "RUNNING",
+    "current_resume_last_observed_status": "SUCCEEDED",
     "implementation_checkpoint": {
       "source_commit": "20255478397fc475ec0584da0cf4311dd17bcc82",
       "path": "research_notes/CFD9R2K7/host_20260916/checkpoint_summary.json",
@@ -75,7 +75,35 @@
       "primary_task": "dvr-20261114-1106-cfd-primary-state",
       "independent_verify_task": "dvr-20261114-1106-cfd-verify-state",
       "prior_art_task": "dvr-20261114-1106-cfd-priorart-state",
-      "observed_status": "QUEUED_NOT_TERMINAL"
+      "observed_status": "SUCCEEDED_ALL_THREE",
+      "as_of_utc": {
+        "primary": "2026-11-14T03:30:13.505465Z",
+        "independent_verify": "2026-11-14T03:31:47.857411Z",
+        "prior_art": "2026-11-14T03:33:34.005764Z"
+      },
+      "task_states": {
+        "primary": {
+          "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+          "publication_id": "TP2-C3B717C14153D5AC45BF",
+          "state": "NEEDS_DISPATCH",
+          "owner": "taskbook/unassigned",
+          "claim_id": null
+        },
+        "independent_verify": {
+          "task_id": "RS-CFD-TRAJECTORY-VERIFY-20260910",
+          "publication_id": "TP2-499BEE22860EFD4AD321",
+          "state": "NEEDS_DISPATCH",
+          "owner": "taskbook/unassigned",
+          "claim_id": null
+        },
+        "prior_art": {
+          "task_id": "RS-CFD-PRIOR-ART-AUDIT-20260910",
+          "publication_id": "TP2-C136200E29852C806DED",
+          "state": "NEEDS_DISPATCH",
+          "owner": "taskbook/unassigned",
+          "claim_id": null
+        }
+      }
     },
     "known_dependency_gate": {
       "task_id": "GV-CFD-HOST-INDEPENDENT-REVIEW-20260917",
@@ -89,8 +117,24 @@
     "formal_result_id": null,
     "formal_review_id": null,
     "formal_followup_id": null,
-    "independent_reviewer_owner": "UNVERIFIED_CURRENT_OWNER",
-    "next_action": "Reconcile original control requests; preserve prior host experiment; coordinate independent verifier only if native current owner and dispatch authorize; keep author, verifier and reviewer separate.",
-    "note": "Control metadata and handoff, not a source-native Result or mathematical acceptance."
+    "independent_reviewer_owner": "UNCLAIMED_AS_OF_2026-11-14T03:31:47.857411Z",
+    "next_action": "The existing independent trajectory verification task and CFD prior-art audit are available as of their native observations. Coordinate a distinct authorized RESEARCHER to prepare/CLAIM the same task under fresh native selection; use pinned host byte inventory and finite-matrix evidence. Governance run remains owned by original Driver; no proxy CLAIM, no rerun of author host experiment.",
+    "note": "As-of dated control readings and recomputed immutable author output; native task owner and review status must be refreshed before a later write. No new verifier Result/Review/Followup asserted.",
+    "run_generation": 2,
+    "run_revision_before_progress": 0,
+    "original_governance_progress_request": "dvr-20261114-1132-cfd-governance-progress-v1",
+    "original_governance_progress_status": "SUCCEEDED",
+    "original_governance_progress_source_commit": "3107e49116f42ef796ee6894895c21ab6bbc2805",
+    "exact_benchmark_readback": {
+      "source_commit": "a282f0f9832a69af0b65549dc0083ddd2a6d8ada",
+      "path": "research_notes/CFD9R2K7/host_20260916/host_validation_numba.json",
+      "git_blob_sha1": "7282be0e2949b7b7d47910607d550aecd87fb27a",
+      "sha256": "17b170dddc80aa7368ca6d4dfb1bf4aca6d357b64995ecd041c5b316e2d021a6",
+      "recheck_note": "research_notes/driver/2026-11-14_cfd_numba_source_benchmark_arithmetic_readback.md",
+      "note_commit": "7ce8285be1637dd7f63be915cb7fa0c6d2f23292",
+      "arithmetic_status": "ALL_8_REPORTED_MEDIAN_RATIOS_AND_80_RECORDED_PHASE_SUMS_RECOMPUTED_PASS",
+      "independent_host_execution": false,
+      "selected_cost_exclusions_preserved": true
+    }
   }
 }
