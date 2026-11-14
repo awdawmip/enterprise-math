@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_r5_all_closure_jk_sandwich_20261114/EXACT_R5_ALL_CLOSURE_JK.json",
+    "ref": "136928dfd4d66b8fefce72a7067fdfed834f3e9f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "call_id": null,
+  "observation_id": "r5-20261114-r12-pr2373-exact-json-readback",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"status\": \"PASS_EXACT_R5_ALL_CLOSURE_HIGH_BUDGET_SPECTRUM\",\n  \"science_pin\": \"435e77af0d180eac32bd1f9c4c464bc4010b7551\",\n  \"scope\": \"derived one-dimensional radius-2 cover observer\",\n  \"event_count\": 954,\n  \"cut_count\": 28,\n  \"closure_patterns\": 268435456,\n  \"all_pattern_certificate\": \"monotonic sandwich between exactly solved anchors\",\n  \"fixed_K_range\": [\n    214,\n    954\n  ],\n  \"fixed_K_formula_from_315\": {\n    \"315_to_350\": \"1305-2*K\",\n    \"351_to_954\": \"954-K\"\n  },\n  \"K_213\": \"1070 - int(cut8_closed or cut9_closed)\",\n  \"anchors\": {\n    \"none\": {\n      \"min_feasible_K\": 213,\n      \"J_213\": 1070,\n      \"J_214\": 1064,\n      \"J_315\": 675,\n      \"J_351\": 603,\n      \"J_954\": 0,\n      \"spectrum_length\": 742\n    },\n    \"all\": {\n      \"min_feasible_K\": 207,\n      \"J_213\": 1069,\n      \"J_214\": 1064,\n      \"J_315\": 675,\n      \"J_351\": 603,\n      \"J_954\": 0,\n      \"spectrum_length\": 748\n    },\n    \"without_8_9\": {\n      \"min_feasible_K\": 208,\n      \"J_213\": 1070,\n      \"J_214\": 1064,\n      \"J_315\": 675,\n      \"J_351\": 603,\n      \"J_954\": 0,\n      \"spectrum_length\": 747\n    },\n    \"only_8\": {\n      \"min_feasible_K\": 212,\n      \"J_213\": 1069,\n      \"J_214\": 1064,\n      \"J_315\": 675,\n      \"J_351\": 603,\n      \"J_954\": 0,\n      \"spectrum_length\": 743\n    },\n    \"only_9\": {\n      \"min_feasible_K\": 212,\n      \"J_213\": 1069,\n      \"J_214\": 1064,\n      \"J_315\": 675,\n      \"J_351\": 603,\n      \"J_954\": 0,\n      \"spectrum_length\": 743\n    }\n  },\n  \"original_margin_counts\": {\n    \"1\": 603,\n    \"2\": 36,\n    \"3\": 23,\n    \"4\": 70,\n    \"5\": 8,\n    \"6\": 1\n  },\n  \"small_sequences_exhaustive_subset_crosschecks\": 480,\n  \"independent_full_spectrum_DP_anchor_count\": 5,\n  \"random_closure_direct_crosschecks\": 100,\n  \"not_done\": [\n    \"full 2**28 brute force enumeration\",\n    \"exact J_K for partially closed patterns with K=207..212\",\n    \"native X6 / BRC performance benchmark\",\n    \"independent formal mathematical review\"\n  ]\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/136928dfd4d66b8fefce72a7067fdfed834f3e9f/research_notes/brc_r5_all_closure_jk_sandwich_20261114/EXACT_R5_ALL_CLOSURE_JK.json",
+      "encoding": "utf-8",
+      "sha": "1dc6efb11c1905de9724deddaa0105330250a059"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
