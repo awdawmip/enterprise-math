@@ -1,0 +1,26 @@
+EC49FOC native signed ordered-prefix BRC exact author verification
+Date: 2026-11-14
+Frozen input pin: fc0f038e7bfd12c886b4d37f900bfb770c0f61ab
+Source master SHA256: cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e
+Input target: case 32279, 24 demand labels, roots 03/05/06/07
+
+Direct legal-root enumeration (author local equivalent):
+EC49FOC_EXACT_PASS h17=1 h18=1 descendants=128 H17=16 H18=16 FEASIBLE=96
+FULL_18 156 ROOT_ASSIGNMENTS 324
+DELETIONS_18 [(4,154),(5,154),(6,155),(8,154),(9,153),(10,147),(11,149),(12,143),(14,153),(15,147),(16,153),(17,148),(18,151),(19,153),(20,151),(21,153),(22,148),(23,148)]
+Original complete certificate SHA256: a11c4c13fa10ddf0f1a34076f831100de045d9517c3b9a26304e81c4976d9f50
+
+Independent min-plus subset-convolution (author local executable):
+EC49FOC_ALL_SUBSETS_PASS n=18 subsets=262144 strict_obstructions=1 H=59,75,89,102,113,118,126,131,134,137,140,143,146,149,151,153,155,156
+
+128 full-optimum computations:
+64 descendants full=154 (label 13 erased)
+32 descendants full=155 (label 7 erased, 13 retained)
+32 descendants full=156 (7,13 retained);
+  of these 16 have h*=17 (11 retained) and 16 have h*=18 (11 erased).
+All calculations exact integer and exhaust all legal root placements for each checked demand set.
+
+The complete local archive contains master file, native independent root code,
+the full 128-descendant machine certificate and the actual execution logs.
+The GitHub branch supplies a reproducible proof and companion verifier scripts.
+Mathematical status: NOT_REVIEWED / no formal CLAIM / no Result.
