@@ -1,0 +1,46 @@
+{
+  "schema": "PREFIX785_R6_CORRELATED_SOURCE_MARGIN_V1",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "a=(t-q, t+3-2q, q-t, -t-3+2q), q>0, t in [-1,1]",
+  "coefficients": {
+    "A": [
+      "0",
+      "3"
+    ],
+    "B": [
+      "1",
+      "2"
+    ],
+    "D": "3"
+  },
+  "pointwise_sharp_margin": "abs(3-q)/2 + max(0,abs(3q-3)/2-1)",
+  "piecewise": [
+    "2-2q for 0<q<=1/3",
+    "(3-q)/2 for 1/3<=q<=5/3",
+    "q-1 for 5/3<=q<=3",
+    "2q-4 for q>=3"
+  ],
+  "uniform_infimum": "2/3",
+  "unique_optimum_q": "5/3",
+  "attaining_t": "1",
+  "attaining_four_signs": [
+    "-2/3",
+    "2/3",
+    "2/3",
+    "-2/3"
+  ],
+  "independent_box_cancel_q": "1",
+  "independent_box_cancel_signs": [
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "rational_regression": {
+    "parameter_cases": 4096,
+    "independent_t_checks": 24576,
+    "arithmetic": "Python fractions.Fraction exact"
+  },
+  "scope": "algebraic provenance-linked single-source observer; not native X6 transfer or Gamma recurrence",
+  "status": "ALL_CHECKS_PASS PREFIX785 CORRELATED_SOURCE_UNIFORM_MARGIN"
+}
