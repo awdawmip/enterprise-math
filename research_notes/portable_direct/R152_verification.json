@@ -1,0 +1,108 @@
+{
+  "result": "R152_COPRIME_INCREMENT_AND_FIRST_PERIOD_PASS",
+  "date": "2026-11-14",
+  "frozen_scientific_input": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "coprime_slope_pairs": 306,
+  "distinct_increment_waveforms": 14508,
+  "finite_word_rows": [
+    {
+      "m": 1,
+      "words": 2,
+      "last_missing_L": 0,
+      "T": 2,
+      "max_period_P": 1,
+      "missing_in_first_period": 0
+    },
+    {
+      "m": 2,
+      "words": 4,
+      "last_missing_L": 0,
+      "T": 2,
+      "max_period_P": 2,
+      "missing_in_first_period": 0
+    },
+    {
+      "m": 3,
+      "words": 8,
+      "last_missing_L": 1,
+      "T": 3,
+      "max_period_P": 3,
+      "missing_in_first_period": 2
+    },
+    {
+      "m": 4,
+      "words": 14,
+      "last_missing_L": 2,
+      "T": 4,
+      "max_period_P": 4,
+      "missing_in_first_period": 6
+    },
+    {
+      "m": 5,
+      "words": 24,
+      "last_missing_L": 5,
+      "T": 7,
+      "max_period_P": 15,
+      "missing_in_first_period": 26
+    },
+    {
+      "m": 6,
+      "words": 36,
+      "last_missing_L": 7,
+      "T": 9,
+      "max_period_P": 20,
+      "missing_in_first_period": 54
+    },
+    {
+      "m": 7,
+      "words": 54,
+      "last_missing_L": 14,
+      "T": 16,
+      "max_period_P": 35,
+      "missing_in_first_period": 132
+    },
+    {
+      "m": 8,
+      "words": 76,
+      "last_missing_L": 17,
+      "T": 19,
+      "max_period_P": 35,
+      "missing_in_first_period": 250
+    },
+    {
+      "m": 9,
+      "words": 104,
+      "last_missing_L": 27,
+      "T": 29,
+      "max_period_P": 63,
+      "missing_in_first_period": 452
+    },
+    {
+      "m": 10,
+      "words": 136,
+      "last_missing_L": 31,
+      "T": 33,
+      "max_period_P": 63,
+      "missing_in_first_period": 728
+    },
+    {
+      "m": 11,
+      "words": 178,
+      "last_missing_L": 44,
+      "T": 46,
+      "max_period_P": 99,
+      "missing_in_first_period": 1222
+    },
+    {
+      "m": 12,
+      "words": 224,
+      "last_missing_L": 49,
+      "T": 51,
+      "max_period_P": 110,
+      "missing_in_first_period": 1818
+    }
+  ],
+  "arithmetic": "Python unbounded integers and fractions.Fraction",
+  "coverage": "All reduced interior coprime denominator pairs with 2<=b,d<=10, all residues U mod b and V mod d; all binary words length 1..12 filtered by alpha<beta; L=1..P and P+1..2P",
+  "independence": "author-side calculation, NOT_REVIEWED"
+}
