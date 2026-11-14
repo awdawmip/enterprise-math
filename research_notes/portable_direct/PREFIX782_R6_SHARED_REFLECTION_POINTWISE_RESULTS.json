@@ -1,0 +1,146 @@
+{
+  "theorem": "PREFIX782_SHARED_ONLY_REFLECTION_DEFECT_FIXED_Q",
+  "arithmetic": "exact Python Fraction, no floating point",
+  "finite_regression": {
+    "cases": 12960,
+    "feasible": 616,
+    "infeasible": 12344
+  },
+  "example": {
+    "parameters": {
+      "A1": [
+        1,
+        1
+      ],
+      "A2": [
+        2,
+        1
+      ],
+      "B1": [
+        2,
+        1
+      ],
+      "B2": [
+        3,
+        1
+      ],
+      "S1": [
+        1,
+        5
+      ],
+      "S2": [
+        3,
+        20
+      ],
+      "c": [
+        1,
+        10
+      ],
+      "delta": [
+        1,
+        10
+      ]
+    },
+    "q": [
+      3,
+      5
+    ],
+    "equivariant_window": [
+      [
+        13,
+        20
+      ],
+      [
+        13,
+        20
+      ]
+    ],
+    "defective_window": [
+      [
+        7,
+        12
+      ],
+      [
+        13,
+        20
+      ]
+    ],
+    "witness": {
+      "h": [
+        0,
+        1
+      ],
+      "h_ref": [
+        -1,
+        20
+      ],
+      "u1": [
+        1,
+        5
+      ],
+      "u2": [
+        -3,
+        20
+      ],
+      "increments": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          20
+        ],
+        [
+          1,
+          20
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "r": [
+        1,
+        20
+      ],
+      "s": [
+        -1,
+        40
+      ]
+    },
+    "private_corners_base_and_reflected": [
+      [
+        [
+          1,
+          10
+        ],
+        [
+          -1,
+          20
+        ],
+        [
+          -1,
+          20
+        ]
+      ],
+      [
+        [
+          -1,
+          20
+        ],
+        [
+          1,
+          20
+        ],
+        [
+          1,
+          20
+        ]
+      ]
+    ]
+  },
+  "scope": "4 auxiliary gamma cells; 3 private errors per cell; reflected private errors exactly equal; only shared pair may differ",
+  "status": "AUTHOR_UNREVIEWED_NOT_ADMITTED",
+  "regression": "ALL_CHECKS_PASS PREFIX782 SHARED_DEFECT_POINTWISE_WINDOW"
+}
