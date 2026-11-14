@@ -1,0 +1,49 @@
+# EC49FOA — Exact horizon lifting under one-label erasure
+
+Date: 2026-11-14. Status: author-side exact finite enumeration / NOT_REVIEWED. Continuing EC49FNZ, PR #2348 at immutable commit 3e4b14d26ced9433fe9d1f81072e4d577fc98f16. Frozen science pin fc0f038e7bfd12c886b4d37f900bfb770c0f61ab remains unchanged.
+
+## Exact proposition
+
+For a lawful rooted partial assignment p, let S_r denote the assigned distinguishable demands at root r, U its still unassigned labels, R_i the legal roots for label i, and D_r(S) the exact native signed ordered-prefix minimum-cover cost. For 1 <= h <= |U| define
+
+    H_h(p) = max_{T subset U, |T|=h} min_{rho in product(i in T) R_i}
+             sum_r D_r(S_r union {i in T : rho(i)=r}).
+
+Then H_h(p) <= H_{h+1}(p) <= F(p), where F(p)=H_|U|(p) is the exact cheapest full extension.
+
+Proof: every h-subset T can be extended to one (h+1)-subset T'. Monotonicity of rooted minimum-cover cost under inclusion implies that each T' root assignment restricts to a T assignment of no greater cost. Thus min-cost(T') >= min-cost(T), and maximizing over all T and T' establishes the first inequality. The second follows by iterating; the last horizon enumerates every full legal root placement exactly. Consequently H_h>B excludes every full extension below or at B, while F<=B is witnessed by the returned explicit full root minimizer.
+
+## New finite census: threshold B=155
+
+Start from exactly nine distinct frozen target-32279 residual cuts from EC49FNY / EC49FNZ. They have respectively 1,2,3 unassigned labels in 2,5,2 cases. For EACH of the 198 originally assigned labels across these nine cuts, erase its assignment (one label from one rooted mask) but retain all other rooted masks. The resulting 198 states are **lawful auxiliary partial states**; they are not asserted to have occurred as historical solver DFS nodes. At most four labels remain unassigned.
+
+Exhaustive enumeration of each horizon, every eligible future-label subset and all native legal root choices yields:
+
+| First strict horizon h with H_h>155 | Number of auxiliary states |
+|---|---:|
+| 1 | 63 |
+| 2 | 91 |
+| 3 | 40 |
+| 4 | 1 |
+| No strict forcing; an actual full extension has cost <=155 | 3 |
+| Total | 198 |
+
+**Sharp h=4 witness:** source pattern 159571690231449, erased label 15; remaining demands [15,17,19,21], remaining rooted masks [0,5312869,8668826,10240], base lower bound 131. Exact horizon sequence is (141,150,153,156). All three-label subsets have minimum cost at most 153; all four labels together cost at least 156 (attained with roots [05,06,05,06]). Hence one, two and three-label lookahead are all insufficient at B=155, while four-label lookahead is decisive.
+
+**Sharp h=3 witness:** pattern 159609271197337, erased label 17; remaining labels [17,19,21], masks [0,5312837,8668826,43040], base 146. Exact horizons (150,154,158). Singleton costs for [17],[19],[21] are (150,149,150); pair costs for (17,19),(17,21),(19,21) are (154,154,153); the triple minimum 158 is attained at (07,05,06).
+
+**Actual reopened feasible ancestors:** pattern 159609271197337 erasing 13 admits full minimum 154 with demands [13,19,21] and roots (06,05,06); pattern 159881934509721 erasing 15 admits minimum 155 with demands [15,21] and roots (07,06); pattern 159609271195289 erasing 13 admits minimum 155 at roots (06,05,06) for [13,19,21]. These explain why a strict cutoff at one descendant need not survive restoring a previously fixed root choice.
+
+## Reproducibility / immutable inputs
+
+Original master file master_and_radius3_cases.txt SHA256 cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e; nine-cut certificate source EC49FNY_CERT_ALL.txt SHA256 708da9a677ecf1d7842daf732ea51c796262a2974ef3476c9ef34f2f4107b271. Reuse the independent rooted native prefix-trie DP VERIFY_EC49FNY_INDEPENDENT.py from the frozen EC49FNY source archive (PR #2343@635225c8dbc3b5861bd79419037a1af977742b78).
+
+Run:
+
+    python VERIFY_EC49FOA_ERASURE_HORIZONS.py master_and_radius3_cases.txt EC49FNY_CERT_ALL.txt EC49FOA_ERASURE_CENSUS.json
+
+The checker reconstructs all rooted costs from original signed prefix words (94 keys, 178850 native words, 4 roots), deduplicates nine cuts, enumerates each of 198 erasures, checks monotone horizons, recomputes full minima and records root witnesses. The full 198-case source-backed JSON has SHA256 9a47a33ac4b6a41db2cd92ee659e43e5bb9fe069f653acc64d2f3aebc8c70588. The companion compact CSV represents all 198 cases and has SHA256 7582b00238154854fdd50a0d717887881c8c40ae230492699fa1ddc45017235a. All JSON/CSV/code files were independently SHA256-checked in the local bundle before publication. Compressed files use xz then base64 encoding, with no data loss.
+
+Evidence scope: **only** the frozen 32279 target and these 198 auxiliary erasure states. Does not recompute the original 24-demand global optimum; no wall-clock runtime, full configuration-graph, formal review, independent mathematical admission or formal Task/CLAIM/Result assertion.
+
+Next scientific frontier: derive a root-interaction graph sufficient to predict the minimal lookahead horizon without enumerating every future-label subset, then compare true previously visited early solver cuts and non-stable neighbors.
