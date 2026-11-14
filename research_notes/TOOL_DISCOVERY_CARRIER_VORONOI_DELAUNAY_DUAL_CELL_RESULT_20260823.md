@@ -5,6 +5,8 @@ Task: `RS-TD-VD-CARRIER-VORONOI-DELAUNAY-DUAL-CELL-CALCULUS`
 Hard target: `ENTERPRISE_CARRIER_VORONOI_DELAUNAY_TOOL_CLASSIFIED`  
 Date: `2026-08-23`
 
+**Current-reader type notice (2026-11-15; LP026/LP028).** This 2026-08-23 result, including its historical global-tool disposition, is retained at the original frozen source baseline. Under the subsequently adopted P000 V5, signed native Cell coordinates form a Z^6 torsor with an exact native squared comparator G(q-p)=sum_i(q_i-p_i)^2 for all Cell pairs; the old statement about a *then-unavailable* cross-sector native comparator does not describe present P000 V5. That native comparator is a different semantic type from this report's rational Euclidean **carrier** comparator. Current exact native finite-site Voronoi and lattice-bisector evidence is in [X6 LP026/LP028 native discrete Voronoi tie theorem](X6_LP026_LP028_NATIVE_DISCRETE_VORONOI_BISECTOR_TIE_20261115_0300.md). No reclassification of the frozen August tool decision or global toolbox admission is implied.
+
 ## 1. Frozen return
 
 **Terminal classification**
@@ -297,10 +299,11 @@ Yet
 Therefore the finite site family alone does not determine `NEAREST_SITES`.
 Distance/comparator semantics are logically necessary input.
 
-The Enterprise-specific version is even sharper: the current Foundation does
-not supply an arbitrary cross-sector native point-to-point metric.  Substituting
+At the frozen August 2026 task baseline, the then-current Foundation did
+not supply an arbitrary cross-sector native point-to-point metric. Substituting
 the classical carrier Euclidean comparator there would not fill a missing
-definition; it would cross a frozen semantic layer.
+definition; it would cross a frozen semantic layer. The later P000 V5 signed
+Cell comparator is separately available, as stated in the dated notice above.
 
 ### 9.3 Minimal tie
 
