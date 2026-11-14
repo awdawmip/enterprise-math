@@ -1,0 +1,48 @@
+# EC49FOS — exact complete largest-domain census and 15-probe terminal observer
+
+Date: 2026-11-15. Scientific state: `AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED`.
+Frozen input pin: `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`.
+Original source file SHA-256: `cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e`.
+Scientific input: 94 native prefix-cache keys, 178,850 source codewords, 38,169 seven-key configurations, labels 0..23, named roots 03/05/06/07. No replacement or mutation of the frozen science.
+
+## Finite theorem (entire named legal-root class represented by configuration 16768)
+
+Let `E_l(K)` be the named legal root set of label `l` in configuration `K`. Let `C` be the set of all configurations from the frozen original corpus satisfying `E_l(K)=E_l(16768)` for each of the 24 labels. For root `r` and a reachable demanded subset `S`, let `D_r^K(S)` be the exact minimum rooted nonempty prefix coverage cost computed by the native signed-byte Trie dynamic program. Define the full reachable rooted profile
+`P(K)=(D_r^K(S))_{r,S}` and the total terminal cost vector over every legal complete assignment `rho`:
+`T(K)=(sum_r D_r^K(S_r(rho)))_rho`.
+
+An exhaustive exact finite verification of the frozen input gives:
+
+1. `|C|=2368` (complete class, not a sample), with eight optional labels `5,7,11,13,15,17,19,21`; the other labels have fixed named roots.
+2. There are exactly **1,296** complete legal named-root assignments per configuration, and **336** reachable rooted-subset cost coordinates per configuration.
+3. The 2,368 profiles have **258** equivalence classes under `P` and exactly **258** under `T`. Of the `2368*2367/2 = 2,802,528` distinct configuration pairs, exactly **468,517** are terminal-equal and exactly **468,517** are rooted-profile-equal.
+4. Therefore, *for every pair* `K,K' in C`: `T(K)=T(K') iff P(K)=P(K')`. In this complete original-input class, there is **no nonzero terminal-invisible rooted gauge**.
+5. A fixed set of **15** out of the 1,296 legal complete assignments separates all 258 distinct terminal vectors. Hence on this *specific finite class*, equality of the total costs at these 15 probes is equivalent to equality of all 336 reachable rooted cost coordinates.
+
+The statement is a finite corpus property, not a universal injectivity theorem for all BRC inputs or a new P000 claim. It complements EC49FOR's three genuine nonzero gauges in *other* legal-root classes, and does not revise the prior 966-config class result EC49FOQ.
+
+## Exact coverage proof and computations
+
+The frozen source is parsed as 94 complete key families plus all 38,169 original configurations. Each key supplies one 24-label-by-four-root bitmask of path availability. For each original configuration `K`, the bitwise OR across its seven keys yields its exact 24-label named-root signature; select those and only those signatures equal to that of original configuration 16768. This exhaustive 38,169-case scan finds exactly the 2,368 selected IDs, which are provided in the evidence archive.
+
+For each configuration/root, reconstruct the native byte Trie from the original full signed codewords, retaining label masks at terminal nodes. At a node, combine child covered-mask states by bitwise union and integer minimum, then add one for nonempty subtree coverage. Apply a downward subset minimum to obtain every queried subset cost. Retain the actual original root names and demand labels. The extractor emits 336 complete rooted subset entries per configuration. One initial interrupted extraction is preserved only as complete records for the first 911 configurations; the final partial configuration 26615 from that run was excluded and recomputed in a separate complete run. Four completed segments produce the rest: 365+365+365+362 configurations. The exact parser checks every ID has exactly the full 336 key set with no duplicates and the required mandatory/optional masks. Total: **795,648 rooted costs**, all signed 32-bit exact nonnegative integers.
+
+Enumerate the Cartesian product of legal roots of the eight optional labels; there are exactly 1,296 distinct complete assignments. For each configuration and each assignment, form each root's named demanded subset and sum its exact four rooted costs. This gives **3,068,928 exact terminal evaluations**. Group complete rooted vectors and complete terminal vectors by *all* integer entries, not by approximate equality or an unchecked hash. Their equal-pair counts agree exactly (468,517), and the grouping has the same 258 classes. Equality of rooted profiles always implies equality of terminal costs by direct summation; the reverse implication within this finite class follows from the independently enumerated exact partition equality.
+
+For the compressed observer, greedily choose an assignment that most reduces the number of colliding pairs of the 258 complete terminal signatures; ties break by the lowest original assignment index. The 15 selected assignment indices, in the lexicographic Cartesian product in optional-label order, are:
+`[396,1212,33,1096,77,845,1124,248,666,429,24,60,378,425,485]`.
+Remaining colliding class pairs after each choice:
+`[2978,533,184,84,43,25,13,10,7,5,4,3,2,1,0]`.
+The 15-probe uniqueness result is *verified for this finite class*; greedy selection does not assert that 15 is the minimum possible.
+
+## Independent checks and reproducibility
+
+The root-cost extraction uses C++17 with `-O3`. An independent Python byte-Trie implementation, which reads original codewords as bytes and recursively recomputes integer subset coverage costs, matched **all 336 rooted coordinates** for configuration IDs `16768, 26615, 32909, 36842, 37568` spanning the initial batch and four completion segments. This separately checks the interruption/restart boundary. The complete 2,368-case classification is exhaustively verified by a separate NumPy integer-array + Python exact-key script; its exactness comes from integer arithmetic and full vector comparison, not floating point.
+
+Local evidence bundle: `EC49FOS_LARGEST_DOMAIN_COMPLETE_EVIDENCE_20261115.tar.xz` (full frozen 9.3MB source, C++ source, independent Python byte-trie, exhaustive Python verifier, complete profiles, IDs, counts, logs, and SHA256 manifest). Reproduction on original data: build `EC49FOR_EXTRACT.cpp` with C++17 `-O3` and run with the supplied selected original IDs; then run the supplied `EC49FOS_VERIFY.py` and `EC49FOS_INDEPENDENT_VERIFY.py`. A complete rerun may be partitioned by disjoint IDs; only completed per-configuration blocks count.
+
+## Current control and continuing question
+
+At 2026-11-14T16:37:08Z the native exact topic lookup for `RS-EC49AS` returned `SUCCEEDED / NO_CANONICAL_PUBLICATION_DIRECTORY` at control Source `477c6808d3e3f9ee57e2179266eb6a8ca793e1de`. This is a publication-directory observation, not an active-owner projection. Scientific material is published as **independent portable research**, without fabricating an active CLAIM or Result. Preserve historical authorship/Activity records; no new mathematical admission is asserted.
+
+Next independent scientific problem: exhaust additional named-root classes, focusing on the remaining 233 complete-class categories, and isolate a truly subset-dependent nonzero gauge (as distinct from EC49FOR's constant root transfers), or prove a precise finite restriction for each tested class. Use the 15-probe observer solely as a proven shortcut inside the frozen 16768 class; it is not a cross-class equivalence test.
