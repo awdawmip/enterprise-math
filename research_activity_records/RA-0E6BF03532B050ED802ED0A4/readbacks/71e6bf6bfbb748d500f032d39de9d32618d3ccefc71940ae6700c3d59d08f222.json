@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/R762Z_CHRONOLOGY_FRONTIER_EVIDENCE.json",
+    "ref": "003bc4d7c56aa303c0f38fe6635e03da0453a91c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "call_id": null,
+  "observation_id": "emr3-20261114-r762z-immutable-evidence-readback-01",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"alternating\": [\n    {\n      \"chronological_min_interruptions\": 1,\n      \"chronology_penalty\": 0,\n      \"m\": 1,\n      \"macro_count\": 2,\n      \"unrestricted_first_start_min_interruptions\": 1\n    },\n    {\n      \"chronological_min_interruptions\": 2,\n      \"chronology_penalty\": 1,\n      \"m\": 2,\n      \"macro_count\": 4,\n      \"unrestricted_first_start_min_interruptions\": 1\n    },\n    {\n      \"chronological_min_interruptions\": 3,\n      \"chronology_penalty\": 2,\n      \"m\": 3,\n      \"macro_count\": 6,\n      \"unrestricted_first_start_min_interruptions\": 1\n    },\n    {\n      \"chronological_min_interruptions\": 4,\n      \"chronology_penalty\": 3,\n      \"m\": 4,\n      \"macro_count\": 8,\n      \"unrestricted_first_start_min_interruptions\": 1\n    },\n    {\n      \"chronological_min_interruptions\": 5,\n      \"chronology_penalty\": 4,\n      \"m\": 5,\n      \"macro_count\": 10,\n      \"unrestricted_first_start_min_interruptions\": 1\n    }\n  ],\n  \"counterexample\": {\n    \"one_seed_min_interruptions\": {\n      \"aabb\": 1,\n      \"abab\": 2\n    },\n    \"q\": 3,\n    \"source_root_counts\": {\n      \"0\": 2,\n      \"1\": 2\n    },\n    \"terminal_pass_per_edge\": 4,\n    \"two_seeds_min_interruptions\": {\n      \"aabb\": 0,\n      \"abab\": 0\n    },\n    \"word_aabb\": [\n      0,\n      0,\n      1,\n      1\n    ],\n    \"word_abab\": [\n      0,\n      1,\n      0,\n      1\n    ]\n  },\n  \"date\": \"2026-11-14\",\n  \"domain\": \"q=2..5, two distinct named roots, all words of length 1..7 beginning with 0, every second-root offset; K=1; plus stated counterexample and alternating m=1..5\",\n  \"finite_tests\": [\n    {\n      \"all_assertions_passed\": true,\n      \"cases\": 127,\n      \"q\": 2\n    },\n    {\n      \"all_assertions_passed\": true,\n      \"cases\": 254,\n      \"q\": 3\n    },\n    {\n      \"all_assertions_passed\": true,\n      \"cases\": 381,\n      \"q\": 4\n    },\n    {\n      \"all_assertions_passed\": true,\n      \"cases\": 508,\n      \"q\": 5\n    }\n  ],\n  \"finite_total\": 1270,\n  \"mathematical_review\": \"NOT_REVIEWED\",\n  \"method\": \"complete integer dynamic programming of legal macro shuffles with first-start order, progress vector and exact port stocks\",\n  \"native_force_admission\": \"NOT_TESTED\",\n  \"result\": \"ALL_ASSERTIONS_PASSED\",\n  \"schema\": \"R762Z_EXACT_CHRONOLOGICAL_TWO_ROOT_VALIDATION_V1\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/003bc4d7c56aa303c0f38fe6635e03da0453a91c/research_notes/R762Z_CHRONOLOGY_FRONTIER_EVIDENCE.json",
+      "encoding": "utf-8",
+      "sha": "b2cd4c1704933f8bdc4a1afeab986567c4ae8931"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
