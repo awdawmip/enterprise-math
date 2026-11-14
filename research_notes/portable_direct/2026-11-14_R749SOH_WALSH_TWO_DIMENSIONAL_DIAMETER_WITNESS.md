@@ -59,7 +59,7 @@ P_{-+}=2(1-t),\quad P_{--}=0.
 
 For \(++\), the minimum atom numerator is \(2(t+s)-2(1-s)-2(1-t)=4(t+s-1)\ge0\).
 For \(+-\) and \(-+\), the minimum is zero; for \(--\), all atoms are zero.
-Thus both source laws are nonnegative and have total mass \(1\) (all nonconstant Walsh characters sum to zero). They retain precisely the specified \(t,s\) and zero first-order moments \(\chi_1,\chi_2,\chi_4,\chi_8\) in the *source family* sense: these four are free **fiber** coordinates, not retained observations. [Correction to wording: the free coordinates are allowed to be nonzero; their selected values are as above.] Both belong to the exact source fiber \(F_{t,s}\).
+Thus both source laws are nonnegative and have total mass \(1\) (all nonconstant Walsh characters sum to zero). They have the prescribed retained Walsh moments \(t,s\), while the four unretained fiber coordinates \(u,v,w,z\) take the explicitly selected nonzero values. Both belong to the exact source fiber \(F_{t,s}\).
 
 Put \(a_0=1-s\), \(b_0=1-t\). Since \(a_0\ge b_0\ge0\), the absolute source-difference sums over the four blocks are
 
