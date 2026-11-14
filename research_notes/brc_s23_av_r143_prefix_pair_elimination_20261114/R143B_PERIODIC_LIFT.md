@@ -1,0 +1,77 @@
+# R143B — Quantitative coefficient-period lift of exact S23 witnesses
+
+Date: 2026-11-14. Status: AUTHOR-SIDE EXACT THEOREM; NOT_REVIEWED.
+Scientific input pin: \`43ec6098b1330ae86d0a7863be336c5d97f6ef34\`.
+Type: external tied-phase scalar observer, without any claim of native Heartbeat X6 transfer.
+Predecessor: R143 exact prefix-pair integer elimination (same research branch).
+
+## 1. Exact witness-block count
+
+Fix m>=1, K>=2 and a length-m binary word w with prefix sums s_0=0, s_j=sum_{i<j}w_i. Put L=K-1, and let n_min(L), n_max(L) be the exact bounds from R143:
+\[
+n_{\min}(L)=\max\left(0,\max_{i<j}\left[\left\lfloor\frac{L(d_{ij}-1)+i s_j-j(s_i+1)}{j-i}\right\rfloor+1\right]\right),
+\]
+\[
+n_{\max}(L)=\min\left(L-1,\min_{i<j}\left[\left\lceil\frac{L(d_{ij}+1)+i(s_j+1)-j s_i}{j-i}\right\rceil-1\right]\right).
+\]
+Here d_ij=s_j-s_i. For every feasible integer N, the original parameter theta lies in a nonempty open subinterval whose floor(L*theta)=N. Different N give disjoint such intervals. Therefore the exact number of feasible integer phase blocks is
+\[
+\boxed{C_w(K)=\max(0,n_{\max}(L)-n_{\min}(L)+1).}
+\]
+This counts phase **blocks**, not the number of distinct binary words.
+
+Define the free-intercept slope-support endpoints, with the boundary slopes included,
+\[
+\alpha_w=\max\left(0,\max_{i<j}\frac{d_{ij}-1}{j-i}\right),\qquad
+\beta_w=\min\left(1,\min_{i<j}\frac{d_{ij}+1}{j-i}\right).
+\]
+For a finite Sturmian word, alpha_w<beta_w. For an arbitrary prescribed binary word the definition still applies, but the results below require alpha_w<beta_w.
+
+## 2. R143B.1 — Strict quantitative lcm-period growth
+
+Let P_m=lcm(1,...,m). Since every denominator j-i divides P_m, translating L to L+P_m changes every lower R143 integer-bound term by exactly P_m(d_ij-1)/(j-i), and every upper term by exactly P_m(d_ij+1)/(j-i). The explicit lower boundary 0 has slope 0; the upper boundary L-1 has slope P_m.
+
+For any binary w with alpha_w<beta_w, we therefore obtain
+\[
+\boxed{n_{\min}(L+P_m)\le n_{\min}(L)+P_m\alpha_w,}
+\]
+\[
+\boxed{n_{\max}(L+P_m)\ge n_{\max}(L)+P_m\beta_w.}
+\]
+In particular the integer slack D_w(L)=n_max(L)-n_min(L)+1 satisfies
+\[
+\boxed{D_w(L+P_m)\ge D_w(L)+P_m(\beta_w-\alpha_w).}
+\]
+Both P_m*alpha_w and P_m*beta_w are integers (their defining fractions have denominators <=m). Thus P_m(beta_w-alpha_w) is a **positive integer**, at least one. Consequently, once w is realized at K, it stays realized at every K+tP_m, with at least t*P_m(beta-alpha) additional feasible integer phase blocks after t periods:
+\[
+\boxed{C_w(K+tP_m)\ge C_w(K)+tP_m(\beta_w-\alpha_w)}
+\quad\text{whenever }C_w(K)\ge1,\ t\ge0.
+\]
+The original R137C inclusion V(K,m) subset V(K+P_m,m) follows as an immediate corollary for every realized word. This quantitative argument is independent of Farey gap reconstruction.
+
+## 3. R143B.2 — Exact asymptotic lift density with explicit error
+
+Put M=m(m+1)+1. For each i<j, the L-independent term in either prefix-pair inequality has magnitude at most m(m+1). Floor and ceiling introduce an error of at most one. As a result each lower affine-bound candidate differs from L*(d_ij-1)/(j-i) by at most M, and each upper candidate differs from L*(d_ij+1)/(j-i) by at most M. The boundary candidates 0 and L-1 obey the same error estimate.
+
+Taking maximum/minimum preserves uniform error bounds:
+\[
+|n_{\min}(L)-L\alpha_w|\le M,\quad
+|n_{\max}(L)-L\beta_w|\le M.
+\]
+For alpha_w<beta_w, the function x -> max(0,x) is 1-Lipschitz and L(beta-alpha)>=0. Thus
+\[
+\boxed{\left|C_w(K)-(K-1)(\beta_w-\alpha_w)\right|\le 2m(m+1)+3}
+\]
+for **every** K>=2. Hence, for every fixed admissible binary word w,
+\[
+\boxed{\lim_{K\to\infty}\frac{C_w(K)}{K-1}=\beta_w-\alpha_w.}
+\]
+The exact free-intercept slope-support width, already defined in R142, is therefore the asymptotic growth rate of *integer phase-block multiplicity* in the tied-phase model.
+
+This theorem is exact and uniform in K; the O(m^2) error constant is explicit. It gives a quantitative bridge between the free-intercept slope-support geometry and the one-parameter tied-phase observer without assuming the unresolved permanent-saturation threshold formula.
+
+## 4. Reproducibility and next question
+
+The exact integer regression \`check_r143b.py\` evaluated 1,800 random-word/coefficient instances, all 1,800 P_m-period slack inequalities, 1,229 positive block-growth and absolute-error cases, and 100 further positive instances with K=10^80+small offset. It returned \`R143B_PERIODIC_LIFT_MULTIPLICITY_PASS\`. This finite regression corroborates the universal algebraic proof; independent review remains NOT_REVIEWED.
+
+Next: exploit the R143 pairwise integer bounds and R143B monotone slack to characterize the last missing coefficient for each word in the avoidant family A_m. Periodic quantitative growth alone does not identify the minimal eventual threshold T(m).
