@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FOD_NEIGHBOR_CORE_20261114/VERIFY_BOUNDARY.py",
+    "ref": "bea93995c4fa413fd3f7d8ed1adf413d89bca81a",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r4-ec49fod-20261114-imm-source-3",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Independent boundary-layer enumerator for EC49FOD.\nEnumerates legal assignments directly, without subset min-plus convolution.\nSupply the original 94-key master and VERIFY_EC49FNY_INDEPENDENT.py.\n\"\"\"\nimport hashlib,itertools\nfrom pathlib import Path\nimport VERIFY_EC49FNY_INDEPENDENT as native\n\nCASES=(32264,32274,32279,32315,32318)\nROOTS=(3,5,6,7)\nFIXED=(0,5,138,8192)\nB=155\nMASTER_SHA='cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e'\n\ndef main():\n    src=Path('master_and_radius3_cases.txt')\n    assert hashlib.sha256(src.read_bytes()).hexdigest()==MASTER_SHA\n    U=tuple(i for i in range(24) if not any(x>>i&1 for x in FIXED))\n    assert len(U)==18\n    for case in CASES:\n        words,keys=native.frozen(src,case=case)\n        profiles={r:native.table(words,keys,r) for r in ROOTS}\n        choices={i:tuple(r for r in ROOTS if i in profiles[r][1]) for i in U}\n        base={r:0 for r in ROOTS}\n        for j,r in enumerate(ROOTS):\n            for i in range(24):\n                if FIXED[j]>>i&1: base[r]|=1<<profiles[r][1][i]\n        def f(T):\n            forced=base.copy();flex=[]\n            for i in T:\n                if len(choices[i])==1:\n                    r=choices[i][0]; forced[r]|=1<<profiles[r][1][i]\n                else: flex.append(i)\n            best=10**9\n            for allocation in itertools.product(*(choices[i] for i in flex)):\n                masks=forced.copy()\n                for i,r in zip(flex,allocation):\n                    masks[r]|=1<<profiles[r][1][i]\n                best=min(best,sum(profiles[r][2][masks[r]] for r in ROOTS))\n            return best\n        high={};strict={}\n        for h in (16,17,18):\n            vals=[f(T) for T in itertools.combinations(U,h)]\n            high[h]=max(vals);strict[h]=sum(v>B for v in vals)\n        expect=({16:0,17:0,18:1} if case==32279 else\n                {16:0,17:5,18:1})\n        assert strict==expect\n        assert (high[16],high[17],high[18])==(\n            (153,155,156) if case==32279 else (155,157,158))\n        if case!=32279:\n            assert [i for i in U if f(tuple(j for j in U if j!=i))>B]==[4,5,6,8,9]\n        print('EC49FOD_BOUNDARY_PASS',case,strict,high,flush=True)\n    print('EC49FOD_BOUNDARY_SUCCESS subset_checks=860')\nif __name__=='__main__':main()\n",
+      "display_title": "VERIFY_BOUNDARY.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/bea93995c4fa413fd3f7d8ed1adf413d89bca81a/research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FOD_NEIGHBOR_CORE_20261114/VERIFY_BOUNDARY.py",
+      "encoding": "utf-8",
+      "sha": "0ccbcd5f206231cb74d1019425fe131ad3a01e3d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
