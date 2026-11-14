@@ -48,6 +48,8 @@ These rule locators stay outside `source_artifacts`, `frontier_template.artifact
 
 ## Source publication and authorization
 
+Progress notes may use checkpoint V2 with author-reported `continuation_state=OPEN|COMPLETE|UNKNOWN` and absent/null unfinished-unit or next-action text. Omitted lists are empty; no successor action is invented. Existing complete V1 notes retain their old shape and remain readable. COMPLETE describes the reported working unit, not Task DONE, a Result or mathematical acceptance; source provenance, current owner, contribution preservation and CLAIM/CAS still decide protected writes. Activity association and its optional observation audit are separate from actual GitHub publication.
+
 Source artifact/checkpoint publication occurs before a PROGRESS/HANDOFF pointer is emitted. A generated plan, a queued job, an upload, a transport checkpoint or an unknown response is not completed Source publication. Multi-file native output sets use current-head non-force CAS, then complete blob/content readback. Unknown outcomes use durable operation reconciliation; do not blind-retry a mutation.
 
 New Result freeze requires actual-current claim/session/epoch and fresh authenticated events. New review requires current DA/session, current Result bytes and contribution-independence checks. Receipt payload digests bind the declared operation and evidence. The exact legacy cutover manifest preserves pre-existing bytes but exempts no original integrity or mathematical check. Post-cutover records lacking valid authorization remain raw history without operational result/review authority.

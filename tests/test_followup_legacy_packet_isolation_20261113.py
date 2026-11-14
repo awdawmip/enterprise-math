@@ -60,10 +60,18 @@ class LegacyFollowupPacketIsolationTests(unittest.TestCase):
         self.assertNotIn("packet_id", record)
         indexed = followup.packet_map(root)
         self.assertNotIn("DR-2C7E91A4B5D8063F1248", indexed)
-        self.assertEqual(
-            "DFU-E7CBFD0E9958AF25E942",
-            indexed["DR-CE3F008C48F9EBBFF9FA"]["packet_id"],
-        )
+        # The legacy-isolation regression must survive legitimate new packets.
+        # Keep the original baseline as history; verify the selected current
+        # record against its actual source rather than hard-coding yesterday\'s head.
+        review_id = "DR-CE3F008C48F9EBBFF9FA"
+        store = root / "research_driver_followups" / review_id
+        self.assertTrue((store / "DFU-E7CBFD0E9958AF25E942.json").is_file())
+        selected = indexed[review_id]
+        raw = json.loads((store / (selected["packet_id"] + ".json")).read_text(encoding="utf-8"))
+        self.assertEqual(followup.SCHEMA, raw["schema"])
+        self.assertEqual(followup.POLICY, raw["policy"])
+        self.assertEqual(review_id, raw["review_id"])
+        self.assertEqual(raw["packet_id"], selected["packet_id"])
 
     def test_pretyped_accepted_review_binds_its_exact_existing_task(self):
         # Original 2026-08-30 accepted GEO6 review has a canonical immutable

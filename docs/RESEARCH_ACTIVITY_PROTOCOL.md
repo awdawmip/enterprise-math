@@ -5,6 +5,14 @@ register a formal task, claim, Result, review, Working Truth, or mathematical
 acceptance. FREE registration requires no question and opens no research catalog.
 Formal task execution keeps its existing publication/claim/firewall gates.
 
+Activity is optional bookkeeping for independent derivation and source publication.
+Reuse an existing own Activity when useful; missing registration, an unfinished
+index or an absent observation sidecar does not veto reading, mathematics or
+saving the actual scientific file. The lightweight `guard` reports association
+and debt separately. Run `audit` only when checking observation evidence; it
+keeps its strict source checks. Neither mode grants a Task claim or permission
+to rewrite another author's record. No new per-turn startup read is required.
+
 The executable schema is in [`tools/research_activity.py`](../tools/research_activity.py);
 [`research_persistence_policy.json`](../research_persistence_policy.json) owns the
 checkpoint persistence requirement. This protocol does not replace either.
