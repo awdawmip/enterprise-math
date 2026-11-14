@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R749SOQ_EDGE_FLOOR_RESULTS.json",
+    "ref": "7c433b3d1b74a63ee993514333daedd806a33ab0",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r749soq-sor-20261114-native-3",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"axis_certificate\": {\n    \"bases\": 18564,\n    \"bound_tight_vertices\": 12,\n    \"bound_violations\": 0,\n    \"distinct_vertices\": 32,\n    \"feasible_bases\": 2480,\n    \"interior_vertices\": 4,\n    \"max_tv\": \"1/2\",\n    \"nonsingular_bases\": 9536,\n    \"s_endpoints_counts\": {\n      \"0\": 26,\n      \"1\": 2\n    }\n  },\n  \"axis_theorem\": \"rho(0,s)=rho_cal(0,s)=1/2 for all real 0<=s<=1, and swapped\",\n  \"common_floor\": \"t+s<=1: all atomwise infima 0; t+s>=1: (t+s-1)*sigma using R749SOP\",\n  \"common_floor_checks\": {\n    \"analytic_domain\": \"all real t>=0,s>=0,t+s<=1 via convex corner construction\",\n    \"atom_witness_checks\": 96,\n    \"param_pairs\": 6,\n    \"upper_triangle_reference\": \"R749SOP exact common floor for t+s>=1\"\n  },\n  \"research_id\": \"R749SOQ\",\n  \"scientific_pin\": \"a72226e2430ffa4786321ac86e7f0c599d5f0389\",\n  \"scope\": \"auxiliary 16-atom Walsh model; author-side NOT_REVIEWED\",\n  \"status\": \"PASS\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/7c433b3d1b74a63ee993514333daedd806a33ab0/research_notes/portable_direct/R749SOQ_EDGE_FLOOR_RESULTS.json",
+      "encoding": "utf-8",
+      "sha": "84b294e213434f49efdf0b5dff328c49ee1bcd5d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
