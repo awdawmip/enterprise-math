@@ -1,0 +1,273 @@
+{
+  "schema": "ENTERPRISE_MATH_R762AU_EXACT_COMPARISON_LATTICE_EVIDENCE_V1",
+  "research_unit": "R762AU",
+  "date": "2026-11-15",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "researcher_provenance": "EM-X6-3050F6",
+  "source_science_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "v23_four_field_code_source": "R762AT source proof @892e804f8843f7b23bcfc383bd711e599b577819",
+  "v29_count_ledger_source": "research_notes/X6_NETWORK_EVENT_LEDGER_AND_CONTRAST_TRANSDUCER_V29_20260906.md",
+  "program_path": "research_notes/portable_direct/R762AU_V29_V25_COMPARISON_LATTICE_VERIFY.js",
+  "program_git_blob": "14046dae5c320f466f67e1a0a81bfb187277edc1",
+  "arithmetic": "exact JavaScript BigInt Bareiss, Cramer's integral decoding; no floating point determinant; no pi/trigonometric numerical native inference",
+  "scope": "Conditional V23/V25 signed exponents and V29 four-port local count ledgers; any integers u and Omega realizable by V29; query results are exact score differences, not signs alone.",
+  "result": {
+    "result": "PASS",
+    "input": "V23 four matchings / V25 exponent differences / V29 signed contrast",
+    "method": "Exact BigInt Bareiss determinant, exact Cramer decoding, nonnegative ledger realization",
+    "state_count": 20,
+    "directed_edges": 180,
+    "difference_rows": 160,
+    "contrast_coordinates": 10,
+    "determinant": "-1",
+    "coordinate_order": [
+      "u0",
+      "u1",
+      "u2",
+      "u3",
+      "Omega01",
+      "Omega02",
+      "Omega03",
+      "Omega12",
+      "Omega13",
+      "Omega23"
+    ],
+    "probes": [
+      {
+        "S": "145",
+        "T": "125",
+        "U": "014",
+        "row": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          -1,
+          -1
+        ]
+      },
+      {
+        "S": "013",
+        "T": "014",
+        "U": "012",
+        "row": [
+          0,
+          0,
+          -2,
+          -1,
+          0,
+          0,
+          0,
+          -2,
+          -1,
+          0
+        ]
+      },
+      {
+        "S": "023",
+        "T": "034",
+        "U": "012",
+        "row": [
+          -1,
+          -1,
+          -1,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          -1,
+          -1
+        ]
+      },
+      {
+        "S": "024",
+        "T": "045",
+        "U": "012",
+        "row": [
+          0,
+          1,
+          0,
+          -1,
+          1,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "S": "345",
+        "T": "135",
+        "U": "034",
+        "row": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "S": "012",
+        "T": "025",
+        "U": "013",
+        "row": [
+          -1,
+          -1,
+          -1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "S": "025",
+        "T": "245",
+        "U": "012",
+        "row": [
+          0,
+          -1,
+          -1,
+          -1,
+          1,
+          1,
+          1,
+          -1,
+          0,
+          1
+        ]
+      },
+      {
+        "S": "245",
+        "T": "125",
+        "U": "024",
+        "row": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "S": "034",
+        "T": "234",
+        "U": "013",
+        "row": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          -1,
+          0,
+          -1,
+          0
+        ]
+      },
+      {
+        "S": "245",
+        "T": "345",
+        "U": "024",
+        "row": [
+          -1,
+          0,
+          -1,
+          -1,
+          -1,
+          0,
+          0,
+          1,
+          1,
+          0
+        ]
+      }
+    ],
+    "at_baseline_d0": [
+      "-9",
+      "-4",
+      "-1",
+      "-14",
+      "-4",
+      "9",
+      "-3",
+      "-4",
+      "10",
+      "-5"
+    ],
+    "at_macro_d1": [
+      "-9",
+      "-6",
+      "-1",
+      "-13",
+      "-3",
+      "9",
+      "-4",
+      "-4",
+      "10",
+      "-5"
+    ],
+    "at_macro_slope": [
+      "0",
+      "-2",
+      "0",
+      "1",
+      "1",
+      "0",
+      "-1",
+      "0",
+      "0",
+      "0"
+    ],
+    "exact_decoding_and_realization_witnesses": 53,
+    "exact_event_increment_witnesses": 20,
+    "events": [
+      "PASS(0,1)",
+      "PASS(0,2)",
+      "PASS(0,3)",
+      "IN(0)",
+      "OUT(0)",
+      "PASS(1,0)",
+      "PASS(1,2)",
+      "PASS(1,3)",
+      "IN(1)",
+      "OUT(1)",
+      "PASS(2,0)",
+      "PASS(2,1)",
+      "PASS(2,3)",
+      "IN(2)",
+      "OUT(2)",
+      "PASS(3,0)",
+      "PASS(3,1)",
+      "PASS(3,2)",
+      "IN(3)",
+      "OUT(3)"
+    ]
+  },
+  "unresolved": [
+    "Original P000 TRIADIC_CLOSURE_E Cell/Link/Port event scheduler still unspecified",
+    "V39 based-loop and full provenance observers are not proven to factor through this ten-coordinate score quotient",
+    "Formal Source PROGRESS/Result and independent Driver review require actual original-run authority"
+  ]
+}
