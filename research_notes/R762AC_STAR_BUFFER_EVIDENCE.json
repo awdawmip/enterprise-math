@@ -1,0 +1,62 @@
+{
+  "schema": "R762AC_X6_STAR_BUFFER_EXACT_V1",
+  "status": "PASS",
+  "model": "conditional source-labelled full-occupancy star with unbounded source identity",
+  "finite_check": "BFS on all reachable labelled placements, n=2..6, B=1 and B=2",
+  "census": [
+    {
+      "cycle_size": 2,
+      "minimum_moves": 4,
+      "shortest_schedules_capacity_2": 4
+    },
+    {
+      "cycle_size": 3,
+      "minimum_moves": 6,
+      "shortest_schedules_capacity_2": 12
+    },
+    {
+      "cycle_size": 4,
+      "minimum_moves": 8,
+      "shortest_schedules_capacity_2": 32
+    },
+    {
+      "cycle_size": 5,
+      "minimum_moves": 10,
+      "shortest_schedules_capacity_2": 80
+    },
+    {
+      "cycle_size": 6,
+      "minimum_moves": 12,
+      "shortest_schedules_capacity_2": 192
+    }
+  ],
+  "signed_three_port_incidence_cases": 160,
+  "cyclic_source_residual_by_macro_count": [
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      6,
+      3
+    ]
+  ],
+  "arithmetic": "exact integer and finite tuples",
+  "universal_proof": "in companion research note; finite testing is corroboration"
+}
