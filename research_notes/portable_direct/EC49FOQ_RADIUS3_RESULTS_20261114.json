@@ -1,0 +1,37 @@
+{
+  "schema": "EC49FOQ_NATIVE_PREFIX_SAME_DOMAIN_RADIUS3_CENSUS_V1",
+  "as_of": "2026-11-14",
+  "input_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "baseline": 32315,
+  "radius_bins": {
+    "0": 1,
+    "1": 73,
+    "2": 337,
+    "3": 555
+  },
+  "config_count": 966,
+  "projected_root_entries": 162288,
+  "complete_assignments_per_config": 648,
+  "terminal_classes": 427,
+  "projected_root_classes": 427,
+  "pair_count": 466095,
+  "terminal_equal_pairs": 10702,
+  "profile_equal_pairs": 10702,
+  "nonzero_gauge_pairs": 0,
+  "gauge_collisions": [],
+  "baseline_equal_terminal_count": 38,
+  "baseline_equal_profile_count": 38,
+  "proof_cross_check_overlap": {
+    "configs": 215,
+    "rows": 36120
+  },
+  "provenance_rows": {
+    "old_r2": 69048,
+    "full_prefix": 50904,
+    "remainder": 42336
+  },
+  "result_scope": "Frozen 38169-case corpus, up to 3 seven-key substitutions around case 32315, unchanged 24-label named legal-root domains.",
+  "validation": "Exact C++17 signed-prefix trie DP from EC49FOP + Python full 648-assignment integer grouping on all 966 configurations.",
+  "review": "NOT_REVIEWED"
+}
