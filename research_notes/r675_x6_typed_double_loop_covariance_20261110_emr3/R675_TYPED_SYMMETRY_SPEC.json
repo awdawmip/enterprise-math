@@ -1,0 +1,150 @@
+{
+  "schema": "ENTERPRISE_MATH_R675_TYPED_SYMMETRY_SPEC_V1",
+  "status": "AUTHOR_SIDE_SYMBOLIC_WITNESS_NOT_NATIVE_EXECUTION",
+  "date": "2026-11-10",
+  "parent_task": "RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW",
+  "frozen_science": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "predecessor": "7e85d3b0fe3543e28c91894c174090102babb6db",
+  "identity": {
+    "researcher_id": "EM-X6-0AE6CE",
+    "activity_id": "RA-6EDF1FA3D29E7A06B9855639"
+  },
+  "cell_space": "X6 affine torsor relative anchor o",
+  "oriented_loops": {
+    "A": [
+      "o",
+      "o+E1",
+      "o+E1+E2",
+      "o+E2",
+      "o"
+    ],
+    "B": [
+      "o",
+      "o+E3",
+      "o+E3+E4",
+      "o+E4",
+      "o"
+    ]
+  },
+  "labels": {
+    "ports": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "active_labels": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "frame_slots": [
+      0,
+      1,
+      2
+    ]
+  },
+  "group_maps": {
+    "spatial_axis_map": {
+      "1": 3,
+      "2": 4,
+      "3": 1,
+      "4": 2,
+      "5": 5,
+      "6": 6
+    },
+    "port_map": {
+      "0": 2,
+      "1": 1,
+      "2": 0,
+      "3": 3
+    },
+    "active_triad_label_map": {
+      "0": 1,
+      "1": 0,
+      "2": 2,
+      "3": 3
+    },
+    "frame_conjugator": [
+      1,
+      0,
+      2
+    ],
+    "cycle_label_map": {
+      "A": "B",
+      "B": "A"
+    }
+  },
+  "blocks": {
+    "A": {
+      "triads": [
+        "012",
+        "013",
+        "023",
+        "012"
+      ],
+      "holonomy": [
+        0,
+        2,
+        1
+      ],
+      "port": 0
+    },
+    "B": {
+      "triads": [
+        "012",
+        "013",
+        "123",
+        "012"
+      ],
+      "holonomy": [
+        2,
+        1,
+        0
+      ],
+      "port": 2
+    }
+  },
+  "holonomy_composition": "(p*q)[i]=p[q[i]]",
+  "algebraic_certificate": {
+    "c*a*c^-1": [
+      2,
+      1,
+      0
+    ],
+    "c*b*c^-1": [
+      0,
+      2,
+      1
+    ],
+    "h(AB)": [
+      1,
+      2,
+      0
+    ],
+    "h(BA)": [
+      2,
+      0,
+      1
+    ],
+    "c*h(AB)*c^-1": [
+      2,
+      0,
+      1
+    ],
+    "Q_change_PER_V29_TRANSFER": 0,
+    "observer": "full nonnegative V29 ledger plus shared-cell full S3 frame h",
+    "future_scope": "finite complete-block words A,B, with arbitrary nonnegative V29 initial ledgers for primitive covariance"
+  },
+  "proof_claims": [
+    "T_R(e) ∘ R = R ∘ T_e for typed V29 primitive events",
+    "T_swap(w) ∘ R = R ∘ T_w for all complete-block words w",
+    "frame conjugation c and active-label swap tau are unique under specified exchange conditions"
+  ],
+  "caveats": [
+    "Explicit R674 loop-completion coupling, no autonomous V27 selector",
+    "No numerical BRC or native residual computation performed",
+    "No independent Driver review"
+  ]
+}
