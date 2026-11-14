@@ -57,12 +57,39 @@ M=list(maximal.items())
 for k in range(4):
     assert not any((lambda masks: __import__('functools').reduce(lambda x,y:x|y,masks,0)==allpairs)([x[0] for x in subset]) for subset in combinations(M,k))
 assert len({tuple(output(run(s,w)) for w in ('S','C','T','CT')) for s in states})==N
+# Independently certify four-probe optimality on the eight NONFAILURE states.
+live_pairs=list(combinations(range(N-1),2))
+live_full=(1<<len(live_pairs))-1
+live_masks=set()
+for signature in vec:
+    live_masks.add(sum(1<<j for j,(i,k) in enumerate(live_pairs) if signature[i]!=signature[k]))
+live_maximal={m for m in live_masks if not any(m!=z and (m&z)==m for z in live_masks)}
+for k in range(4):
+    assert all(__import__('functools').reduce(lambda x,y:x|y,sub,0)!=live_full for sub in combinations(live_maximal,k))
+assert len({tuple(output(run(s,w)) for w in ('S','C','T','CT')) for s in states[:-1]})==N-1
 # Horizon partitions: n=0,1,2.
 parts=[]
 for horizon in range(3):
     words=[''.join(p) for j in range(horizon+1) for p in product('SCT',repeat=j)]
     parts.append(len({tuple(output(run(s,w)) for w in words) for s in states}))
 assert parts==[5,8,9]
+# Construct both exact deterministic languages: only ab accepted on the left,
+# only ba on the right. All intermediate outputs are 0, accept is transient.
+def accept(orientation,w):
+    stage=0
+    for letter in w:
+        if stage==0: stage=1 if letter==orientation[0] else 3
+        elif stage==1: stage=2 if letter==orientation[1] else 3
+        else: stage=3
+    return int(stage==2)
+assert accept('ab','ab')==1 and accept('ba','ab')==0
+for u,v in ((2,3),(3,5),(7,11)):
+    for k in range(7):
+        def mass(orientation):
+            return sum(accept(orientation,''.join(w))*
+                       __import__('math').prod(u if e=='a' else v for e in w)
+                       for w in product('ab',repeat=k))
+        assert mass('ab')==mass('ba')==(u*v if k==2 else 0)
 # Distinct commutative-weight BRC histories ab vs ba are indistinguishable by their
 # summed terminal mass, for arbitrary positive weights u,v, but labeled futures differ.
 for u,v in ((2,3),(3,5),(7,11)):
