@@ -1,0 +1,29 @@
+{
+  "definitions": {
+    "B(C)": "|CUT_REL(C)|",
+    "CUT_REL(C)": "unordered adjacency incidences {x,y} with x occupied and y unoccupied",
+    "E(C)": "|INTERNAL_CONTACT_REL(C)|",
+    "INTERNAL_CONTACT_REL(C)": "unordered adjacent occupied-occupied pairs",
+    "allowed_name_for_B": "CONTACT_CUT_COUNT"
+  },
+  "finite_exact_identity": {
+    "formula": "B(C)=6|C|-2E(C)",
+    "proof": "sum six adjacency incidences per occupied packet; every internal occupied-occupied contact is counted twice, while every occupied-empty cut incidence is counted once"
+  },
+  "generation": "R060",
+  "interpretation_guard": "CONTACT_CUT_COUNT != GEOMETRIC_SURFACE_AREA",
+  "researcher_id": "EM-R060-00CD9F",
+  "schema": "R060_CONTACT_CUT_PROTOCOL_V1",
+  "semantic_typing": {
+    "ADJACENCY": "N0 DECLARED_N0_PRIMITIVE",
+    "B": "N2_READOUT_COLLAPSE",
+    "CUT_REL": "N0 N0_DEFINABLE_DERIVED",
+    "E": "N2_READOUT_COLLAPSE",
+    "INTERNAL_CONTACT_REL": "N0 N0_DEFINABLE_DERIVED",
+    "OCCUPANCY": "N0 DECLARED_N0_PRIMITIVE"
+  },
+  "stage": "0",
+  "status": "FROZEN_STAGE0",
+  "task_id": "RS-R060-STAGE-0-RELATIONAL-3D-STABLE-COLLAPSE-FOUNDATION",
+  "taskbook_source_commit": "1d4b7dd5b2dd326019e1d91dbcbe050b0cd13f89"
+}
