@@ -46,7 +46,11 @@ def domain(case):
 ids = [int(x) for x in (D / "EC49FOS_CLASS16768_IDS.txt").read_text().split()]
 assert len(ids) == len(set(ids)) == 2368 and ids[0] == 16768
 legal = domain(cases[16768])
-assert [i for i, case in enumerate(cases) if domain(case) == legal] == ids
+signatures = [domain(case) for case in cases]
+counts = collections.Counter(signatures)
+assert len(counts) == 625 and max(counts.values()) == 2368
+assert [i for i, sig in enumerate(signatures) if sig == legal] == ids
+idset = set(ids)
 optional = [l for l, x in enumerate(legal) if x.bit_count() > 1]
 assert optional == [5, 7, 11, 13, 15, 17, 19, 21]
 choices = [tuple(ROOTS[j] for j in range(4) if (legal[l] >> j) & 1) for l in optional]
@@ -76,14 +80,14 @@ for part in parts:
                     ("config", "root", "must", "opt", "subset", "cost"))
             except (TypeError, ValueError):
                 continue
-            assert c in ids and r in ROOTS
+            assert c in idset and r in ROOTS
             assert m == must[r] and o == opts[r]
             key = (r, subset)
             observed = data.setdefault(c, {})
             assert key not in observed, (c, key)
             observed[key] = cost
 expected = {(r, subset) for r in ROOTS for subset in subsets[r]}
-assert set(data) == set(ids)
+assert set(data) == idset
 for c, profile in data.items():
     assert set(profile) == expected and len(profile) == 336
 
