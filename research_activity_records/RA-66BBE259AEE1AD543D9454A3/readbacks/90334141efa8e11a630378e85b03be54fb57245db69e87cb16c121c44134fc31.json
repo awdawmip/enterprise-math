@@ -1,0 +1,21 @@
+{
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "path": "research_notes/portable_direct/PREFIX781_R6_POINTWISE_EQUIVARIANT_CANCELLATION_RESULTS.json",
+    "ref": "acfaa5cf2faedd90034aa42d15f51b4d370d9348"
+  },
+  "observation_id": "r6-p781-results-connector-readback-20261114",
+  "result": {
+    "isError": false,
+    "raw_connector_response": {
+      "result": {
+        "content": "{\n  \"schema\": \"PREFIX781_R6_EXACT_POINTWISE_EQUIVARIANT_CANCELLATION_V1\",\n  \"evidence_status\": \"AUTHOR_ALGEBRAIC_PROOF_WITH_EXACT_RATIONAL_REGRESSION / UNREVIEWED / NOT_ADMITTED\",\n  \"frozen_scientific_input\": \"awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d\",\n  \"scope\": \"external reflected scalar Gamma-witness algebra; no native X6 comparator attribution\",\n  \"theorem\": \"At q>0 cancellation iff |xi|<=Si+c (i=1,2) and |x1-x2|<=S1+S2.\",\n  \"pointwise_weighted_distance\": \"max(|x1|/(S1+c),|x2|/(S2+c),|x1-x2|/(S1+S2)) with zero-denominator conventions\",\n  \"q_window\": {\n    \"left\": \"17/30\",\n    \"right\": \"27/40\"\n  },\n  \"worked_example\": {\n    \"q_cancel\": \"3/5\",\n    \"q_robust\": \"1/2\",\n    \"R1_private\": [\n      \"1/10\",\n      \"1/10\",\n      \"1/20\"\n    ],\n    \"R2_private\": [\n      \"1/10\",\n      \"1/20\",\n      \"1/20\"\n    ],\n    \"common\": \"1/10\",\n    \"witness\": {\n      \"R1_private\": [\n        \"9/100\",\n        \"-9/100\",\n        \"-9/200\"\n      ],\n      \"R2_private\": [\n        \"-7/80\",\n        \"7/160\",\n        \"7/160\"\n      ],\n      \"shared\": \"-1/40\"\n    }\n  },\n  \"uniform_recovery\": {\n    \"qstar\": \"5/8\",\n    \"epsstar\": \"1/16\",\n    \"qstar_formula\": \"(A1+2*A2)/(B1+2*B2)\",\n    \"epsstar_formula\": \"D/[2*(B1+2*B2)]\"\n  },\n  \"rational_regression\": {\n    \"cases\": 512,\n    \"feasible\": 35,\n    \"infeasible\": 477,\n    \"arithmetic\": \"Python fractions.Fraction exact\",\n    \"status\": \"ALL_CHECKS_PASS PREFIX781 POINTWISE_EQUIVARIANT_CANCELLATION\"\n  },\n  \"open\": \"Verify native typed observation correspondence and actual per-corner budgets.\"\n}\n",
+        "encoding": "utf-8",
+        "sha": "6559a76d42db375e8eac690da2f6a861894c325f",
+        "display_url": "https://github.com/awdawmip/enterprise-math/blob/acfaa5cf2faedd90034aa42d15f51b4d370d9348/research_notes/portable_direct/PREFIX781_R6_POINTWISE_EQUIVARIANT_CANCELLATION_RESULTS.json",
+        "display_title": "PREFIX781_R6_POINTWISE_EQUIVARIANT_CANCELLATION_RESULTS.json"
+      }
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
