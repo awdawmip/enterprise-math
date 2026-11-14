@@ -41,18 +41,16 @@ Independent rooted-table recalculation found all 24 labels covered in every mixt
 
 ## Exact complete verification and limits
 
-The evidence bundle contains `VERIFY_EC49FOG_CROSSED_DFS.cpp` which reads all frozen words/caches, rebuilds signed-prefix rooted trie DP with multi-label prefix selection, applies 16 mixed four-root tables under two original orders, and emits `fo_g_results.tsv` (32 records). C++17 `-O2` and `-O3` output compared byte-for-byte equal. `VERIFY_EC49FOG_INDEPENDENT.py` with reused prior independent `VERIFY_EC49FNY_INDEPENDENT.py` reconstructs eight root tables independently from original words, recomputes all 32 DFS runs, checks every count and exact trace invariance of the 05/06 variants. The frozen input SHA256 is checked. Comparison of native root DP arrays identifies the 308 and 3 changed masks.
+The reusable `VERIFY_EC49FOG.py` is published in this PR and uses `VERIFY_EC49FNY_INDEPENDENT.py` from the immutable EC49FOF PR #2375 research source. It reconstructs eight root tables independently from original signed-prefix words, recomputes all 32 DFS runs, checks every count and exact trace invariance of the 05/06 variants. `RESULTS_32.tsv` preserves the 32 native C++17 records; local C++17 `-O2` and `-O3` outputs compared byte-for-byte equal. The complete C++17 program and both Python verification paths are included in the separately provided original evidence archive. The frozen input SHA256 is checked. Comparison of native root DP arrays identifies the 308 and 3 changed masks.
 
 This is a complete finite algorithm test of these 32 intervention configurations. Original all-cache neutrality from EC49FOF remains sourced there; no general prediction over 38,169 caches is asserted. Root-table hybrid combinations are explanatory mathematical interventions, not necessarily genuine cache swaps.
 
 ## Reproduce
 
-Obtain the original `master_and_radius3_cases.txt` from EC49FOF PR #2375's complete evidence bundle (SHA256 above). Decode the committed `EC49FOG_COMPLETE_SCIENCE.tar.xz.b64` with base64 and xz/tar; it contains full proof, source, Python verifier, TSV, SHA256SUMS, and execution logs. Run:
+Obtain the original `master_and_radius3_cases.txt` from EC49FOF PR #2375's complete evidence bundle (SHA256 above). This PR directly contains the complete proof, reproducible Python verifier and 32-result data; the original local evidence archive also contains the C++17 source, the prior Python checker, SHA256SUMS and execution logs. Run:
 ```sh
-g++ -std=c++17 -O2 -Wall -Wextra VERIFY_EC49FOG_CROSSED_DFS.cpp -o ec49fog
-./ec49fog < master_and_radius3_cases.txt > compare.tsv
-cmp compare.tsv fo_g_results.tsv
-python VERIFY_EC49FOG_INDEPENDENT.py master_and_radius3_cases.txt fo_g_results.tsv
+python VERIFY_EC49FOG.py master_and_radius3_cases.txt
+# Compare the 32 CASE rows and the EXACT_PASS line to RESULTS_32.tsv
 ```
 
 ## Remaining question
