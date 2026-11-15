@@ -10,17 +10,13 @@ Scope: the auxiliary selected-source last-occurrence observer only; the P000 six
 
 For k>=1, S_k is the set of repetition-free words (including the empty word) over k labeled sources. Its chronological product is u⋆v = (letters of u not in support(v), in their original order) followed by v. A faithful rational affine representation consists of affine transformations T_s on Q^d, with T_empty=identity, T_(u⋆v)=T_v∘T_u, and T_u≠T_v whenever u≠v. Let m(k) be the least such d. This is the unrestricted map-faithful dimension: **no linear query readouts are assumed**.
 
-**R193 theorem.** m(1)=1, m(2)=3 (R192B), and for every k>=3,
+**R193 theorem.** m(1)=1, m(2)=3 (R192B), and for every k>=3:
 
-[
-oxed{m(k) ge m(k-1)+2,qquad m(k) ge 2k-1.}
-]
+    m(k) >= m(k-1)+2;     m(k) >= 2k-1.
 
-Consequently, the unrestricted k=3 problem narrows to **5<=m(3)<=6**, with the upper bound 6 given by R183's reset representation. More generally,
+Consequently, the unrestricted k=3 problem narrows to **5<=m(3)<=6**, with the upper bound 6 given by R183's reset representation. More generally:
 
-[
-oxed{2k-1 le m(k) le k(k+1)/2quad(kge2).}
-]
+    2k-1 <= m(k) <= k(k+1)/2   for k>=2.
 
 The lower bound holds over any infinite field for which R192B's m(2)=3 proof applies.
 
@@ -34,9 +30,7 @@ Write L_s for the linear part of T_s. Let d be the dimension of an arbitrary fai
 
 Because T_i is idempotent, its affine image H_i=T_i(Q^d) is an affine subspace of dimension rank(L_i). For every word s supported outside {i}, define B_s:H_i→H_i by B_s(y)=T_i(T_s(y)). The word identity
 
-[
-(istar sstar i)star tstar i=(sstar t)star i
-]
+    (i ⋆ s ⋆ i) ⋆ t ⋆ i = (s ⋆ t) ⋆ i
 
 for s,t supported outside {i} gives B_(s⋆t)=B_t∘B_s and B_empty=id on H_i (since T_i fixes H_i). Thus B is an affine action of S_(k-1). It is faithful: at y=T_i(x) from a generic orbit, B_s(y)=T_(s⋆i)(x); distinct s give distinct repetition-free words s⋆i and therefore distinct points. Hence dim H_i=rank(L_i)>=m(k-1).
 
@@ -46,11 +40,7 @@ Restrict the generic orbit to the five-element two-source subband S_{i,j}. Its a
 
 **Rank obstruction and induction.** For distinct i,j, chronological composition gives L_(i⋆j)=L_j L_i. Sylvester's rank inequality and the two lemmas imply
 
-[
-2m(k-1)-d
- le operatorname{rank}(L_jL_i)
- le d-3.
-]
+    2m(k-1)-d <= rank(L_j L_i) <= d-3.
 
 Thus 2d>=2m(k-1)+3. Since dimensions are integers, d>=m(k-1)+2. Taking the minimum over faithful actions gives the first asserted bound. Starting from m(2)=3, induction yields m(k)>=3+2(k-2)=2k-1. R183 gives the quadratic upper bound. QED.
 
