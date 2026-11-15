@@ -1,0 +1,172 @@
+{
+  "status": "R165_TERMINAL_ALIAS_EXACT_PASS",
+  "arithmetic": "Python Fraction exact rational and integer arithmetic",
+  "validation": "all 2^m binary words for each 1<=m<=max_length",
+  "max_length": 14,
+  "total_binary_candidates": 32766,
+  "total_two_preimage_classes": 114,
+  "lengths": [
+    {
+      "length": 1,
+      "candidate_words": 2,
+      "admitted_words": 2,
+      "signatures": 1,
+      "two_preimage_classes": 1,
+      "terminal_alias_classes": 1
+    },
+    {
+      "length": 2,
+      "candidate_words": 4,
+      "admitted_words": 4,
+      "signatures": 3,
+      "two_preimage_classes": 1,
+      "terminal_alias_classes": 0
+    },
+    {
+      "length": 3,
+      "candidate_words": 8,
+      "admitted_words": 8,
+      "signatures": 8,
+      "two_preimage_classes": 0,
+      "terminal_alias_classes": 0
+    },
+    {
+      "length": 4,
+      "candidate_words": 16,
+      "admitted_words": 14,
+      "signatures": 12,
+      "two_preimage_classes": 2,
+      "terminal_alias_classes": 0
+    },
+    {
+      "length": 5,
+      "candidate_words": 32,
+      "admitted_words": 24,
+      "signatures": 24,
+      "two_preimage_classes": 0,
+      "terminal_alias_classes": 0
+    },
+    {
+      "length": 6,
+      "candidate_words": 64,
+      "admitted_words": 36,
+      "signatures": 32,
+      "two_preimage_classes": 4,
+      "terminal_alias_classes": 0
+    },
+    {
+      "length": 7,
+      "candidate_words": 128,
+      "admitted_words": 54,
+      "signatures": 50,
+      "two_preimage_classes": 4,
+      "terminal_alias_classes": 0
+    },
+    {
+      "length": 8,
+      "candidate_words": 256,
+      "admitted_words": 76,
+      "signatures": 70,
+      "two_preimage_classes": 6,
+      "terminal_alias_classes": 0
+    },
+    {
+      "length": 9,
+      "candidate_words": 512,
+      "admitted_words": 104,
+      "signatures": 100,
+      "two_preimage_classes": 4,
+      "terminal_alias_classes": 0
+    },
+    {
+      "length": 10,
+      "candidate_words": 1024,
+      "admitted_words": 136,
+      "signatures": 122,
+      "two_preimage_classes": 14,
+      "terminal_alias_classes": 0
+    },
+    {
+      "length": 11,
+      "candidate_words": 2048,
+      "admitted_words": 178,
+      "signatures": 162,
+      "two_preimage_classes": 16,
+      "terminal_alias_classes": 0
+    },
+    {
+      "length": 12,
+      "candidate_words": 4096,
+      "admitted_words": 224,
+      "signatures": 204,
+      "two_preimage_classes": 20,
+      "terminal_alias_classes": 0
+    },
+    {
+      "length": 13,
+      "candidate_words": 8192,
+      "admitted_words": 282,
+      "signatures": 266,
+      "two_preimage_classes": 16,
+      "terminal_alias_classes": 0
+    },
+    {
+      "length": 14,
+      "candidate_words": 16384,
+      "admitted_words": 346,
+      "signatures": 320,
+      "two_preimage_classes": 26,
+      "terminal_alias_classes": 0
+    }
+  ],
+  "right_append_separation": {
+    "initial_words": [
+      "01",
+      "10"
+    ],
+    "initial_signature": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "suffix": "0",
+    "after_signatures": {
+      "100": [
+        0,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "010": [
+        0,
+        1,
+        2,
+        3,
+        1,
+        0
+      ]
+    }
+  },
+  "right_append_alias_persistence": {
+    "words": [
+      "101001",
+      "100101"
+    ],
+    "suffix": "0",
+    "same_signature": [
+      1,
+      3,
+      1,
+      2,
+      3,
+      1
+    ]
+  },
+  "independent_review": "NOT_REVIEWED",
+  "proof_scope": "Symbolic terminal-alias impossibility for all m>=2; finite checks corroborate only lengths checked"
+}
