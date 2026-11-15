@@ -41,7 +41,7 @@ This operation is associative, has identity (0,0,0), and (on the ambient finite 
 
 Thus the ambient carrier is a finite two-step nilpotent group H_q^6 of order q^13. The coordinates retain a signed order cocycle: switching two blocks P,Q changes the J readout by |Q|D(P)-|P|D(Q), reduced modulo q as applicable. Equation (1) and its integer analogue are exact, with no probability, positive-mass collapse, or physical calibration assumptions.
 
-**Proof.** The first |P| prefixes contribute J(P). Each of the |Q| later prefixes equals D(P) plus the corresponding prefix of Q, giving (1). Formula (2) follows by reduction; expanding the third coordinate of a triple product shows its two bracketings both equal c+f+h+d*b+g*(b+e). Direct multiplication verifies (3). The commutator is central and determined by d*b-a*e, establishing nilpotency class at most two. QED.
+**Proof.** The first |P| prefixes contribute J(P). Each of the |Q| later prefixes equals D(P) plus the corresponding prefix of Q, giving (1). Formula (2) follows by reduction; expanding the third coordinate of a triple product shows its two bracketings both equal c+f+i+d*b+g*(b+e). Direct multiplication verifies (3). The commutator is central and determined by d*b-a*e, establishing nilpotency class at most two. QED.
 
 ## 3. R171B: minimal quotient for arbitrary left/right path contexts
 
