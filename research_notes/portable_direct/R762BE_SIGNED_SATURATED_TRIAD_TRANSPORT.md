@@ -51,6 +51,20 @@ The full-existence and total-positive-multiplicity observers factor exactly thro
 
 Run `node research_notes/portable_direct/R762BE_SIGNED_TRIAD_PARITY_VERIFY.js`. It enumerates *every pair of named bijections* (saturated `r` anchoring), for every canonical sign population `(p,q,t)` and `1<=n<=5`, with BigInt integer arithmetic. It counts each full admissible named partition and every specified visible `r[0],s[j],third[k]` pairing, independently comparing them with BE1 and BE2. All assertions passed: **440** sign-population profiles; **3,184,820** complete named bijection candidates; **142,976** admissible partition occurrences summed across profiles; **8,092** pair/third certificate checks. General `n` conclusions follow the symbolic proofs, not extrapolation of the finite checker. The evidence JSON retains per-`n` figures, exact witness and verification boundary. This is an author-side result, **NOT_REVIEWED**.
 
+## BE5 — Exact obstruction to arbitrary signed-axis frame transport
+
+Let the *hypothetical* signed-permutation frame group be the hyperoctahedral group `W_6=(Z/2Z)^6 ⋊ S_6`. A frame map sends an input record on native axis `i` with sign `alpha` to axis `pi(i)` with sign `epsilon_i alpha`, for `epsilon_i ∈ {+1,-1}`. This is a **candidate transformation class**, not a claim that all these maps are admitted native rotations.
+
+**Theorem.** For the sign-product `+1` triad candidate defined above, the subgroup of `W_6` preserving *every* permitted three-distinct-axis triad is exactly the pure-axis-permutation subgroup `S_6`, of order `6!=720`. In particular, no nontrivial independent native-axis sign flip preserves the full candidate relation. The same assertion holds for `m>=4` native axes, with subgroup `S_m`.
+
+**Proof.** A pure permutation `pi` changes only axis names and retains the product of three signs, so every `pi∈S_6` preserves admissibility. Conversely, for a signed frame `(epsilon,pi)`, a permitted triad with unsigned axis set `T={i,j,k}` and initial sign product `+1` remains permitted precisely when `epsilon_i epsilon_j epsilon_k=+1`. For any two distinct native axes `i,j` choose two other distinct axes `a,b`; comparing the necessary conditions for `{i,a,b}` and `{j,a,b}` yields `epsilon_i=epsilon_j`. Thus all six `epsilon_i` have common sign `lambda`. Since every triple then contributes `lambda^3=lambda`, preservation forces `lambda=+1`. Hence the full stabilizer is precisely `S_6`. QED.
+
+For `m=3` the argument differs: only one native axis triple exists, so a two-axis sign flip can preserve the product. This explains the `m>=4` boundary.
+
+**Meaning for the next native bridge.** If a future source-backed native frame group genuinely contains a sign-flipping transform of the hypothetical form above and requires closure covariance under that transform, the `+1` parity candidate cannot be directly promoted as the native closure law. The repair must change/extend its typed incidence or frame action (possibly retaining an orientation/source witness), or use an actually permitted subgroup. This is a conditional obstruction, not a claim about unverified V17/V29/V39 operations.
+
+**Independent finite crosscheck.** The companion verifier checks all `2^6=64` sign-flip assignments against all `C(6,3)=20` triple-axis constraints: `1,280` exact parity comparisons and exactly one globally preserving flip mask. Permutations preserve the relation by the direct argument above.
+
 ## Next native question
 
 Retrieve or define the real signed `TRIADIC_CLOSURE_E` Cell/Link/Port permission and the V17 frame transport, V29 PASS/TRANSFER and V39 loop observation actions. Test whether the actual native relation admits an anchored matching law and whether its safe future observer quotient needs full signed/ordered BRC provenance or a smaller exact repair residual. P000 remains frozen; no Working Truth or Foundation promotion is asserted.
