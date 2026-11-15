@@ -1,0 +1,329 @@
+{
+  "schema": "EM_R189_APERTURE_MINIMAX_EXACT_CHECK_V1",
+  "scientific_input_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "status": "PASS",
+  "arithmetics": "INTEGER_EXACT",
+  "scope": "SOURCE_ONLY_LAST_OCCURRENCE_OBSERVER",
+  "finite_minimax_k_le_5": [
+    {
+      "k": 1,
+      "aperture": 1,
+      "states": 2,
+      "query_types": 1,
+      "depth": 1,
+      "attempts": [
+        {
+          "depth": 1,
+          "feasible": true
+        }
+      ],
+      "decision_nodes": 1,
+      "leaves": 2,
+      "all_states_decoded": true,
+      "max_witness_depth": 1,
+      "tree_sha256": "e2d86520247d7f0a382d629433802d2a3f64dd547d6cfffb709f71c4d1515184",
+      "memo_entries": 3
+    },
+    {
+      "k": 2,
+      "aperture": 1,
+      "depth": null,
+      "reason": "SINGLETON_ONLY_CANNOT_OBSERVE_ORDER"
+    },
+    {
+      "k": 2,
+      "aperture": 2,
+      "states": 5,
+      "query_types": 3,
+      "depth": 2,
+      "attempts": [
+        {
+          "depth": 2,
+          "feasible": true
+        }
+      ],
+      "decision_nodes": 3,
+      "leaves": 5,
+      "all_states_decoded": true,
+      "max_witness_depth": 2,
+      "tree_sha256": "0495c71c55626bf35feef78c1b3914735aa06211dcd12a4e68711e3bf85aa3b6",
+      "memo_entries": 13
+    },
+    {
+      "k": 3,
+      "aperture": 1,
+      "depth": null,
+      "reason": "SINGLETON_ONLY_CANNOT_OBSERVE_ORDER"
+    },
+    {
+      "k": 3,
+      "aperture": 2,
+      "states": 16,
+      "query_types": 6,
+      "depth": 4,
+      "attempts": [
+        {
+          "depth": 3,
+          "feasible": false
+        },
+        {
+          "depth": 4,
+          "feasible": true
+        }
+      ],
+      "decision_nodes": 14,
+      "leaves": 16,
+      "all_states_decoded": true,
+      "max_witness_depth": 4,
+      "tree_sha256": "56d9ca50e7c1a88ed9cc5da8c6999986481fc9c6ffac056fdeb4a25d50d23354",
+      "memo_entries": 88
+    },
+    {
+      "k": 3,
+      "aperture": 3,
+      "states": 16,
+      "query_types": 7,
+      "depth": 3,
+      "attempts": [
+        {
+          "depth": 3,
+          "feasible": true
+        }
+      ],
+      "decision_nodes": 10,
+      "leaves": 16,
+      "all_states_decoded": true,
+      "max_witness_depth": 3,
+      "tree_sha256": "e2a4dc4b03c285d508355eb8dfa5667436b55c25d68a96bd596de94fdfa5ed4a",
+      "memo_entries": 59
+    },
+    {
+      "k": 4,
+      "aperture": 1,
+      "depth": null,
+      "reason": "SINGLETON_ONLY_CANNOT_OBSERVE_ORDER"
+    },
+    {
+      "k": 4,
+      "aperture": 2,
+      "states": 65,
+      "query_types": 10,
+      "depth": 6,
+      "attempts": [
+        {
+          "depth": 4,
+          "feasible": false
+        },
+        {
+          "depth": 5,
+          "feasible": false
+        },
+        {
+          "depth": 6,
+          "feasible": true
+        }
+      ],
+      "decision_nodes": 57,
+      "leaves": 65,
+      "all_states_decoded": true,
+      "max_witness_depth": 6,
+      "tree_sha256": "a7ae02e43b62c80d0aca2a855b4d80b64fbe1f9d79d1e5c38f6ad1b15dcac2fe",
+      "memo_entries": 998
+    },
+    {
+      "k": 4,
+      "aperture": 3,
+      "states": 65,
+      "query_types": 14,
+      "depth": 5,
+      "attempts": [
+        {
+          "depth": 4,
+          "feasible": false
+        },
+        {
+          "depth": 5,
+          "feasible": true
+        }
+      ],
+      "decision_nodes": 51,
+      "leaves": 65,
+      "all_states_decoded": true,
+      "max_witness_depth": 5,
+      "tree_sha256": "249f335caaa129354affc9303036336c599bef818956a570c8ebe4abe5739715",
+      "memo_entries": 824
+    },
+    {
+      "k": 4,
+      "aperture": 4,
+      "states": 65,
+      "query_types": 15,
+      "depth": 4,
+      "attempts": [
+        {
+          "depth": 4,
+          "feasible": true
+        }
+      ],
+      "decision_nodes": 41,
+      "leaves": 65,
+      "all_states_decoded": true,
+      "max_witness_depth": 4,
+      "tree_sha256": "a2c2d6dc39e396fcbc6d32b394b0892435565d805e406a0c48a286d948239d3e",
+      "memo_entries": 426
+    },
+    {
+      "k": 5,
+      "aperture": 1,
+      "depth": null,
+      "reason": "SINGLETON_ONLY_CANNOT_OBSERVE_ORDER"
+    },
+    {
+      "k": 5,
+      "aperture": 2,
+      "states": 326,
+      "query_types": 15,
+      "depth": 8,
+      "attempts": [
+        {
+          "depth": 5,
+          "feasible": false
+        },
+        {
+          "depth": 6,
+          "feasible": false
+        },
+        {
+          "depth": 7,
+          "feasible": false
+        },
+        {
+          "depth": 8,
+          "feasible": true
+        }
+      ],
+      "decision_nodes": 298,
+      "leaves": 326,
+      "all_states_decoded": true,
+      "max_witness_depth": 8,
+      "tree_sha256": "ea0698690d08323f82d0abddff6d7ce19dc9c06d3d24817fb90f571b69f3c7a9",
+      "memo_entries": 15405
+    },
+    {
+      "k": 5,
+      "aperture": 3,
+      "states": 326,
+      "query_types": 25,
+      "depth": 7,
+      "attempts": [
+        {
+          "depth": 5,
+          "feasible": false
+        },
+        {
+          "depth": 6,
+          "feasible": false
+        },
+        {
+          "depth": 7,
+          "feasible": true
+        }
+      ],
+      "decision_nodes": 268,
+      "leaves": 326,
+      "all_states_decoded": true,
+      "max_witness_depth": 7,
+      "tree_sha256": "eb7395b4da3079b99c64e19e22cd79c5dbf5a51b1a71a1af0ed29a3083e6950f",
+      "memo_entries": 15759
+    },
+    {
+      "k": 5,
+      "aperture": 4,
+      "states": 326,
+      "query_types": 30,
+      "depth": 6,
+      "attempts": [
+        {
+          "depth": 5,
+          "feasible": false
+        },
+        {
+          "depth": 6,
+          "feasible": true
+        }
+      ],
+      "decision_nodes": 237,
+      "leaves": 326,
+      "all_states_decoded": true,
+      "max_witness_depth": 6,
+      "tree_sha256": "3213147682ed060b9a6c1259af6e354d8231bfedd6a429c72a384a48222695d9",
+      "memo_entries": 7983
+    },
+    {
+      "k": 5,
+      "aperture": 5,
+      "states": 326,
+      "query_types": 31,
+      "depth": 5,
+      "attempts": [
+        {
+          "depth": 5,
+          "feasible": true
+        }
+      ],
+      "decision_nodes": 206,
+      "leaves": 326,
+      "all_states_decoded": true,
+      "max_witness_depth": 5,
+      "tree_sha256": "0d5e8a5acf5b581838ff58120114f8945b7de80285138e14118c0226e8838423",
+      "memo_entries": 3740
+    }
+  ],
+  "near_full_constructive_exhaustive_k_3_to_8": [
+    {
+      "k": 3,
+      "aperture": 2,
+      "states": 16,
+      "worst_queries": 4,
+      "failures": 0
+    },
+    {
+      "k": 4,
+      "aperture": 3,
+      "states": 65,
+      "worst_queries": 5,
+      "failures": 0
+    },
+    {
+      "k": 5,
+      "aperture": 4,
+      "states": 326,
+      "worst_queries": 6,
+      "failures": 0
+    },
+    {
+      "k": 6,
+      "aperture": 5,
+      "states": 1957,
+      "worst_queries": 7,
+      "failures": 0
+    },
+    {
+      "k": 7,
+      "aperture": 6,
+      "states": 13700,
+      "worst_queries": 8,
+      "failures": 0
+    },
+    {
+      "k": 8,
+      "aperture": 7,
+      "states": 109601,
+      "worst_queries": 9,
+      "failures": 0
+    }
+  ],
+  "review": "NOT_REVIEWED",
+  "native_brc_integration": "NOT_EXECUTED",
+  "claim_scope": "Finite minimax exact by full-belief DP; all-k theorem by symbolic argument"
+}
