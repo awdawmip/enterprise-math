@@ -48,10 +48,16 @@
     "activity": {
       "id": "RA-5E3FE1E761E4963EC461A892",
       "count": 68,
-      "commit": "06610716ed4337fe4022ab096497347958e0b932",
+      "commit": "18455ea87b7f29e7dd2684d4c7885aab1795d009",
       "event_id": "onhour-20261116-0300-x6-original-r063-native-replay-runner-v1"
     },
-    "status": "AUTHOR-TOOLING / EXECUTED-SYNTHETIC / NO_ORIGINAL_NATIVE_RUN / NOT_REVIEWED / NOT_ADMITTED"
+    "status": "AUTHOR-TOOLING / EXECUTED-SYNTHETIC / NO_ORIGINAL_NATIVE_RUN / NOT_REVIEWED / NOT_ADMITTED",
+    "synthetic_test_code": {
+      "commit": "21a93a1403880410ae81e74de679270a03a35302",
+      "path": "research_checks/test_x6_r063_replay_wrapper_20261116.py",
+      "git_blob_sha1": "9f5309a04c731268dff10c4c79ed5cc3385e0dad",
+      "sha256": "bcda850fb5f21672f3e2446c47eedd44b6c495cae42405a654ce2bb58ca88018"
+    }
   },
   "current_unfinished_unit": "R063 original six-file executable Stage0 17 gates and full r=1..512 same-object run; exact LP011 historical native argmax wrong-caller provenance, LP019 positive-path signed cancellation wrong-caller provenance, 28-LP downstream closure and independent Driver REQUEST_REVISION.",
   "native_benchmark": {
@@ -66,7 +72,8 @@
   "native_control": {
     "pending_original_continuation_read_request_id": "onhour-20261116-0305-x6-exact-continuation-read-v1",
     "continuation_read_last_known": "QUEUED / WAIT_ORIGINAL / error=null",
-    "new_native_semantic_request": "NOT_YET_SUBMITTED_AT_GITHUB_SAVE"
+    "new_native_semantic_request": "onhour-20261116-0322-x6-native-r063-runner-tooling-unit47-progress-v1",
+    "new_native_semantic_status_last_observed": "RUNNING / WAIT_ORIGINAL / error=null"
   },
   "do_not_repeat": [
     "Author exact math units #1-46 and original Native progress #1-46 already Source published",
@@ -77,7 +84,7 @@
     "No repeat of original denied 17:00 prose write"
   ],
   "next_actions": [
-    "Consume original read onhour-20261116-0305-x6-exact-continuation-read-v1 by original request_id, no re-collection",
+    "Reconcile original read (now SUCCEEDED) and native #47 publication request onhour-20261116-0322-x6-native-r063-runner-tooling-unit47-progress-v1 until terminal; do not repeat the publication.",
     "Same RUN if current holder still authorized: publish author-side source-verified experiment-runner tooling #47 as progress, not original test PASS",
     "Execute pinned original R063 benchmark on authorized checkout; ensure 17 gates, 512 tested radii, exact hashes, store separate native evidence",
     "Continue LP011/LP019 source-located wrong caller search and 28-LP current consumer closure, then independent Driver REQUEST_REVISION"
