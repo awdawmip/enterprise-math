@@ -1,0 +1,135 @@
+{
+  "schema": "R5_MULTISTAR_SOURCE_KERNEL_FINITE_EVIDENCE_V1",
+  "date": "2026-11-15",
+  "source_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "research_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "model": "R5_auxiliary_mixed_weighted_indexed_center_observer",
+  "verifier": "VERIFY_R5_MULTISTAR_RESIDUAL.py",
+  "execution": "PASS_R5_SEPARATED_STAR_AND_AB_UNIVERSAL",
+  "arithmetic": "exact_integer_set_differences_and_bit_count_hamming",
+  "old_core_labels": [
+    "0125",
+    "0135",
+    "0235",
+    "0245",
+    "0246"
+  ],
+  "a_core_labels": [
+    "1235:1",
+    "1245:1",
+    "1246:1",
+    "1345:0",
+    "1346:0"
+  ],
+  "ab_additional_label": "1236:1",
+  "distance_table": {
+    "1235": [
+      1,
+      1,
+      1,
+      2,
+      3
+    ],
+    "1236": [
+      2,
+      2,
+      2,
+      3,
+      2
+    ],
+    "1245": [
+      1,
+      2,
+      2,
+      1,
+      2
+    ],
+    "1246": [
+      2,
+      3,
+      3,
+      2,
+      1
+    ],
+    "1345": [
+      2,
+      1,
+      2,
+      2,
+      3
+    ],
+    "1346": [
+      3,
+      2,
+      3,
+      3,
+      2
+    ]
+  },
+  "three_bit_star": {
+    "target_suffixes": [
+      1,
+      2,
+      4
+    ],
+    "old_language_variants": 32,
+    "zero_helper_present": 16,
+    "kappa_a_5": 16,
+    "kappa_a_6": 16,
+    "kappa_ab_6": 32,
+    "method": "exhaustive exact minimum set cover"
+  },
+  "two_star_six_bit": {
+    "centers": [
+      0,
+      31
+    ],
+    "star_directions": [
+      0,
+      1,
+      2
+    ],
+    "min_interstar_target_hamming": 3,
+    "cases": [
+      {
+        "centers_retained": [],
+        "allowed_old_suffix_count": 6,
+        "kappa_a": 12,
+        "kappa_ab": 12
+      },
+      {
+        "centers_retained": [
+          0
+        ],
+        "allowed_old_suffix_count": 7,
+        "kappa_a": 11,
+        "kappa_ab": 12
+      },
+      {
+        "centers_retained": [
+          31
+        ],
+        "allowed_old_suffix_count": 7,
+        "kappa_a": 11,
+        "kappa_ab": 12
+      },
+      {
+        "centers_retained": [
+          0,
+          31
+        ],
+        "allowed_old_suffix_count": 8,
+        "kappa_a": 10,
+        "kappa_ab": 12
+      }
+    ],
+    "method": "exact lower bounds from disjoint radius-one incidences and single-star theorem, all-target upper-witness coverage by integer program"
+  },
+  "arbitrary_two_bit_nested_languages": {
+    "nonempty_pairs": 65,
+    "universal_ab_lower_and_upper_certificates_checked": true,
+    "count_formula": "3**4-2**4"
+  },
+  "scope": "finite computational corroboration; universal theorem established by written proof, no independent review",
+  "remaining_question": "overlapping radius-one target clusters and provenance-preserving DFA transfer for old/new regular languages"
+}
