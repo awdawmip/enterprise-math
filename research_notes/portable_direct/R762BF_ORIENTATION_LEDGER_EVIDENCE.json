@@ -1,0 +1,29 @@
+{
+  "schema": "R762BF_ORIENTATION_LEDGER_EXACT_V1",
+  "date": "2026-11-15",
+  "status": "PASS",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "scope": "conditional signed-axis parity candidate and hypothetical W6 signed frame group; NOT_REVIEWED",
+  "domain": {
+    "axes": 6,
+    "orientationStates": 64,
+    "frameFlipMasks": 64,
+    "nativeAxisTriples": 20,
+    "signedTriadAssignments": 8
+  },
+  "verified": {
+    "covariantEligibilityChecks": 655360,
+    "invarianceFailures": 0,
+    "distinctOrientationSignatures": 64,
+    "singleAxisFlipAffectedTriples": 10,
+    "singleAxisFlipUnaffectedTriples": 10,
+    "globalScalarCanMatch": false
+  },
+  "proofScope": "General all-m>=4 injectivity, Wm covariance, and sharp 2^m states follow symbolic proofs",
+  "limitations": [
+    "No source authority for W6 as physical native rotation group",
+    "No P000 TRIADIC_CLOSURE_E signed event admission",
+    "Fixed named axis/Port observer, not gauge-quotiented",
+    "No independent review or formal Lean proof"
+  ]
+}
