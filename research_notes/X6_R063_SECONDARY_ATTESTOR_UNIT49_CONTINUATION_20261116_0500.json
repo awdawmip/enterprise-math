@@ -32,7 +32,9 @@
     "unit48_source_commit": "cc0d2f61bbf5516bd06f32c2714d2b2a7e0cc986",
     "prior_own_continuation_request_id": "onhour-20261116-0501-x6-exact-own-continuation-v1",
     "prior_own_continuation_status": "SUCCEEDED / OWN_RECORDED_RUN_AVAILABLE / historical as-of read, not current execution grant",
-    "unit49_native_publish_request_id": null
+    "unit49_native_publish_request_id": null,
+    "unit49_own_continuation_request_id": "onhour-20261116-0542-x6-own-source-continuation-after-unit48-v1",
+    "unit49_own_continuation_last_status": "RUNNING / WAIT_ORIGINAL / error=null, only original request receipt may be reconciled; no new progress request issued"
   },
   "completed_current_unit": {
     "number": 49,
@@ -61,7 +63,8 @@
       "count": 70
     },
     "science_status": "AUTHOR_SOURCE_REPAIRED / LOCAL SYNTHETIC PASS / UNREVIEWED / NOT_ADMITTED",
-    "original_same_object_benchmark_executed": false
+    "original_same_object_benchmark_executed": false,
+    "source_support_issue_comment_url": "https://github.com/awdawmip/enterprise-math/issues/2416#issuecomment-6901725804"
   },
   "unresolved": {
     "native_benchmark": "Original six frozen files; actual N=2500 17 gates, r=1..512 original execution, exact discovery and row hashes, 13 artifacts; issue #2416 OPEN/unassigned.",
@@ -73,6 +76,6 @@
     "Do not use maintenance conversation_id or identity, new scheduler, identity impersonation, or repeat denied mutation.",
     "Only new unit49 may be Source-published if current original Researcher/CLAIM/RUN actually authorizes; pending original request is reconciled first."
   ],
-  "next_exact_action": "Verify GitHub Activity #70, unit49 output and #2416 support. Obtain fresh current Source exact continuation and validate own session/CLAIM/RUN, then author-publish unit49 once with original legal same-RUN generation (or preserve original request pending if accepted); run original frozen six-file benchmark via authorized checkout under issue #2416, record actual owner and 17/512/13/exit/hash evidence. Concurrently seek verified exact LP011/LP019 active source callers and independent Driver review; no automatic promotion.",
+  "next_exact_action": "First reconcile original pending onhour-20261116-0542-x6-own-source-continuation-after-unit48-v1, then only if exact own Research claim is presently valid resume and Source-publish saved unit49 once. Original R063 frozen six-file benchmark (17 gates, 512 cases, 13 files) remains unexecuted, owner of issue #2416 unconfirmed. Keep distinct LP011/LP019 historical caller provenance and Driver review open.",
   "session_action_boundary": "Preserve hourly schedule, phase, enabled state, notification settings. Own Research lane exclusively. Read-only recovery is not owner rights."
 }
