@@ -1,0 +1,41 @@
+{
+  "arithmetic": "exact Python integers; no randomness or floating point",
+  "assertions_total": 331328,
+  "checks": [
+    {
+      "feasible_candidates": 8760,
+      "grid": "2x2",
+      "infeasible_candidates": 33576,
+      "max_capacity": 2,
+      "paired_checks": 84672,
+      "selected_pairs": 7776,
+      "states": 1296,
+      "stride": 1
+    },
+    {
+      "feasible_candidates": 11685,
+      "grid": "2x3",
+      "infeasible_candidates": 18690,
+      "max_capacity": 1,
+      "paired_checks": 60750,
+      "selected_pairs": 10935,
+      "states": 729,
+      "stride": 1
+    },
+    {
+      "feasible_candidates": 23154,
+      "grid": "2x3",
+      "infeasible_candidates": 69796,
+      "max_capacity": 2,
+      "paired_checks": 185900,
+      "selected_pairs": 17070,
+      "states": 1138,
+      "stride": 41
+    }
+  ],
+  "name": "PREFIX797_SHARP_INTEGRAL_MULTI_CELL_PROJECTION",
+  "predecessor": "PREFIX-796",
+  "scope": "2x2 all (K,x) with 0<=x<=K<=2; 2x3 all with 0<=x<=K<=1; deterministic stride-41 of 2x3 0<=x<=K<=2",
+  "status": "ALL_CHECKS_PASS",
+  "witness_assertions": 6
+}
