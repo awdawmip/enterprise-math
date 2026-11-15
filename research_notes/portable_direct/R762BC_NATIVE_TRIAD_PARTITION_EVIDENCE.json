@@ -1,0 +1,116 @@
+{
+  "schema": "R762BC_TRIAD_PARTITION_LIFT_EVIDENCE_V1",
+  "date": "2026-11-15",
+  "inputs": "signed X6 Cell incidence; six unsigned native axis labels; equal quantum weights; distinct names; each triad uses 3 distinct axes",
+  "status": "ALL_ASSERTIONS_PASS",
+  "algorithm": "exact BigInt elementary symmetric polynomial coefficient + independent named-partition recursion; exhaustive named-pair completion",
+  "proof_horizon": "all n >= 0 by combinatorial induction; finite tests n <= 4; direct independent n <= 3",
+  "stats": {
+    "exhaustive_partition_profiles": 2521,
+    "exhaustive_named_pair_lift_checks": 13860,
+    "infeasible_profiles": 1779,
+    "saturated_axis_checks": 875,
+    "rotation_coefficient_checks": 1260720
+  },
+  "summary": [
+    {
+      "n": 0,
+      "all_axis_count_profiles": 1,
+      "feasible_count_profiles": 1,
+      "max_labelled_BRC_partitions": "1"
+    },
+    {
+      "n": 1,
+      "all_axis_count_profiles": 56,
+      "feasible_count_profiles": 20,
+      "max_labelled_BRC_partitions": "1"
+    },
+    {
+      "n": 2,
+      "all_axis_count_profiles": 462,
+      "feasible_count_profiles": 141,
+      "max_labelled_BRC_partitions": "10"
+    },
+    {
+      "n": 3,
+      "all_axis_count_profiles": 2002,
+      "feasible_count_profiles": 580,
+      "max_labelled_BRC_partitions": "124"
+    },
+    {
+      "n": 4,
+      "all_axis_count_profiles": 6188,
+      "feasible_count_profiles": 1751,
+      "max_labelled_BRC_partitions": "4960"
+    }
+  ],
+  "examples": {
+    "distribution_1,1,1,1,1,1": {
+      "counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "partition_count": "10"
+    },
+    "resource_forced_hidden_axis": {
+      "counts": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "observed_axes": [
+        2,
+        3
+      ],
+      "allowed_third_axes": [
+        0
+      ],
+      "compatible_full_partitions": "2"
+    },
+    "obstructed_pair_lift": {
+      "counts": [
+        2,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "observed_axes": [
+        2,
+        3
+      ],
+      "allowed_third_axes": [],
+      "compatible_full_partitions": "0"
+    },
+    "distribution_2,2,2,0,0,0": {
+      "counts": [
+        2,
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "partition_count": "4"
+    },
+    "distribution_3,3,3,0,0,0": {
+      "counts": [
+        3,
+        3,
+        3,
+        0,
+        0,
+        0
+      ],
+      "partition_count": "36"
+    }
+  }
+}
