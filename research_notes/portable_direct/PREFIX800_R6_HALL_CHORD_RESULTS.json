@@ -1,0 +1,106 @@
+{
+  "schema": "PREFIX800_R6_HALL_CHORD_RESULTS_V1",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "checker": "research_notes/portable_direct/PREFIX800_R6_HALL_CHORD_CHECK.py",
+  "status": "ALL_CHECKS_PASS",
+  "arithmetic": "exact nonnegative integer capacities, row/column margins, source-labeled table counts, signed integer observer exponents",
+  "families": [
+    {
+      "domain": "2x3 K in (0, 1, 2)",
+      "counters": {
+        "assertions": 78732,
+        "capacities": 729,
+        "cut_leaves": 46656,
+        "cut_nodes": 130167,
+        "cut_prunes": 40948,
+        "fibers": 39366,
+        "naive_leaves": 99652,
+        "naive_nodes": 153573,
+        "strict_savings": 9304,
+        "tables": 46656
+      }
+    },
+    {
+      "domain": "3x3 K in (0, 1)",
+      "counters": {
+        "assertions": 35680,
+        "capacities": 512,
+        "cut_leaves": 19683,
+        "cut_nodes": 63254,
+        "cut_prunes": 20864,
+        "fibers": 17840,
+        "naive_leaves": 54017,
+        "naive_nodes": 90194,
+        "strict_savings": 5928,
+        "tables": 19683
+      }
+    },
+    {
+      "domain": "2x4 K in (1,)",
+      "counters": {
+        "assertions": 378,
+        "capacities": 1,
+        "cut_leaves": 256,
+        "cut_nodes": 1479,
+        "cut_prunes": 578,
+        "fibers": 189,
+        "naive_leaves": 1512,
+        "naive_nodes": 2835,
+        "strict_savings": 188,
+        "tables": 256
+      }
+    }
+  ],
+  "total": {
+    "assertions": 114791,
+    "capacities": 1242,
+    "cut_leaves": 66595,
+    "cut_nodes": 194900,
+    "cut_prunes": 62390,
+    "fibers": 57395,
+    "naive_leaves": 155181,
+    "naive_nodes": 246602,
+    "strict_savings": 15420,
+    "tables": 66595
+  },
+  "explicit_early_cut": {
+    "K": [
+      [
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "r": [
+      1,
+      3
+    ],
+    "s": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fixed_zero_positions_one_based": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "bottom_row_demand": 3,
+    "bottom_row_remaining_capacity": 2,
+    "deficiency": 1
+  },
+  "scope": "Exhaustive declared finite families; universal proof in manuscript; no native X6 transfer or official mathematical review."
+}
