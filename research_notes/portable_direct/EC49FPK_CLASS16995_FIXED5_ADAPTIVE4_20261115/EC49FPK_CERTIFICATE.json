@@ -1,0 +1,83 @@
+{
+  "schema": "EC49FPK_CLASS16995_EXACT_OPTIMALITY_SUMMARY_V1",
+  "date": "2026-11-15",
+  "scientific_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "frozen_original_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "rooted_cost_csv_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "original_domain_representative": 16995,
+  "source_configurations": 242,
+  "distinct_rooted_profiles": 112,
+  "distinct_terminal_profiles": 112,
+  "complete_legal_allocations": 324,
+  "observer": "all original legal full-allocation exact integer terminal costs",
+  "fixed": {
+    "optimum": 5,
+    "upper_bound_query_indices": [
+      44,
+      167,
+      290,
+      297,
+      312
+    ],
+    "lower_bound_disjoint_witnesses": [
+      {
+        "sources": [
+          17148,
+          37956
+        ],
+        "size": 16
+      },
+      {
+        "sources": [
+          17148,
+          37996
+        ],
+        "size": 36
+      },
+      {
+        "sources": [
+          17380,
+          19343
+        ],
+        "size": 36
+      },
+      {
+        "sources": [
+          16995,
+          17380
+        ],
+        "size": 54
+      }
+    ],
+    "forced_four_query_combinations_checked": 1119744,
+    "min_unseparated_rooted_profile_pairs": 2
+  },
+  "adaptive": {
+    "minimum_worst_case_depth": 4,
+    "lower_bound_first_queries_checked": 324,
+    "upper_bound_initial_query_index": 4,
+    "distinct_leaves": 112,
+    "leaf_depth_histogram": {
+      "1": 3,
+      "2": 33,
+      "3": 43,
+      "4": 33
+    },
+    "complete_tree_generated_and_checked_by": "VERIFY_EC49FPK.py"
+  },
+  "reproduction": {
+    "predecessor": "https://github.com/awdawmip/enterprise-math/pull/2472",
+    "local_execution": "EC49FPK_OPTIMA_PASS",
+    "archive_name": "EC49FPK_CLASS16995_FIXED5_ADAPTIVE4_EVIDENCE_20261115.tar.xz",
+    "archive_sha256": "2289bacb28d285b02036af5898f66104f85e314524a33b57990bc2d79cb897e7",
+    "archive_scope": "frozen source, rooted cost CSV, native extractor, complete verifier, generated full tree, run log and SHA256 checksums",
+    "archive_in_repository": false
+  },
+  "mathematical_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "role_scope": "independent portable research; not a formal CLAIM/Result/Review",
+  "next_questions": [
+    "expected query cost with specified prior",
+    "terminal versus named-root heterogeneous query costs",
+    "subset-dependent invisible root gauges"
+  ]
+}
