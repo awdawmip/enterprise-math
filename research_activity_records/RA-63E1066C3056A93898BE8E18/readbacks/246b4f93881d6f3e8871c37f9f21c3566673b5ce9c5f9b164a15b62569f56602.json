@@ -1,0 +1,36 @@
+{
+  "schema": "EM_R6_SOURCE_OBSERVATION_V1",
+  "event_id": "prefix804-r6-named-edge-cut-20261115",
+  "artifact_name": "results",
+  "source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "9fae696df91e89bbd37a0bd4a47be22342ab489e",
+    "path": "research_notes/portable_direct/PREFIX804_R6_EDGE_CUT_CONVOLUTION_RESULTS.json",
+    "git_blob_sha1": "1f5d3f02871fb645c0c0603c53a391ee69a8b68e",
+    "sha256": "ca96dede8836c5cbde79314befd403372e575b7d3443d6aa06dee5b039cf79a7",
+    "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9fae696df91e89bbd37a0bd4a47be22342ab489e/research_notes/portable_direct/PREFIX804_R6_EDGE_CUT_CONVOLUTION_RESULTS.json"
+  },
+  "verification": {
+    "tool_name": "mcp__GitHub__fetch_file",
+    "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+    "server_signature_authenticated": false,
+    "call_id": null,
+    "observation_id": "r6-prefix804-results-observed",
+    "network_request_by_this_tool": false
+  },
+  "connector_readback": {
+    "tool_name": "mcp__GitHub__fetch_file",
+    "arguments": {
+      "repository_full_name": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX804_R6_EDGE_CUT_CONVOLUTION_RESULTS.json",
+      "ref": "9fae696df91e89bbd37a0bd4a47be22342ab489e"
+    },
+    "result": {
+      "content": "{\n  \"arithmetic\": \"arbitrary-precision integer histograms / signed integer Laurent exponents\",\n  \"coverage\": \"all capacities in 0..max for each declared complete bipartite shape; all feasible row/col margins\",\n  \"elapsed_seconds\": 0.335662,\n  \"frozen_science_pin\": \"f42f2906d77f24085c123f3ccfe9667d41caa96d\",\n  \"result\": \"ALL_CHECKS_PASS PREFIX804 NAMED_EDGE_CUT_LAURENT_CONVOLUTION\",\n  \"schema\": \"PREFIX804_NAMED_TWO_SIDED_CUT_CONVOLUTION_V1\",\n  \"shapes\": [\n    {\n      \"checks\": 2592,\n      \"cols\": 2,\n      \"complete_named_tables\": 1296,\n      \"expansion_monomial_multiplications\": 1296,\n      \"fibers\": 1215,\n      \"max_capacity\": 2,\n      \"patterns\": 81,\n      \"rows\": 2,\n      \"wall_seconds\": 0.009951\n    },\n    {\n      \"checks\": 80190,\n      \"cols\": 3,\n      \"complete_named_tables\": 46656,\n      \"expansion_monomial_multiplications\": 46656,\n      \"fibers\": 39366,\n      \"max_capacity\": 2,\n      \"patterns\": 729,\n      \"rows\": 2,\n      \"wall_seconds\": 0.224672\n    },\n    {\n      \"checks\": 36704,\n      \"cols\": 3,\n      \"complete_named_tables\": 19683,\n      \"expansion_monomial_multiplications\": 19440,\n      \"fibers\": 17840,\n      \"max_capacity\": 1,\n      \"patterns\": 512,\n      \"rows\": 3,\n      \"wall_seconds\": 0.091167\n    }\n  ],\n  \"totals\": {\n    \"complete_named_tables\": 67635,\n    \"exact_checks\": 119492,\n    \"expansion_monomial_multiplications\": 67392,\n    \"fibers\": 58421,\n    \"patterns\": 1322\n  },\n  \"two_edge_cut_witness\": {\n    \"cols\": [1,1,2,1],\n    \"crossing_multiplicities\": {\"0,1\":4,\"1,0\":2},\n    \"crossing_named_edges\": [[0,2],[1,2]],\n    \"cut_demand\": 1,\n    \"edge_capacities\": [1,1,1,0,1,1,1,0,0,0,1,1,0,0,1,1],\n    \"histogram\": [\n      {\"count\":1,\"exponent\":[-1,2]},\n      {\"count\":1,\"exponent\":[-1,3]},\n      {\"count\":1,\"exponent\":[0,2]},\n      {\"count\":1,\"exponent\":[0,3]},\n      {\"count\":1,\"exponent\":[2,-1]},\n      {\"count\":1,\"exponent\":[2,0]}\n    ],\n    \"per_transfer_histogram\": {\n      \"0,1\": [\n        {\"count\":1,\"exponent\":[-1,2]},\n        {\"count\":1,\"exponent\":[-1,3]},\n        {\"count\":1,\"exponent\":[0,2]},\n        {\"count\":1,\"exponent\":[0,3]}\n      ],\n      \"1,0\": [\n        {\"count\":1,\"exponent\":[2,-1]},\n        {\"count\":1,\"exponent\":[2,0]}\n      ]\n    },\n    \"rows\": [1,2,1,1],\n    \"stats\": {\n      \"A_edges\":4,\"B_edges\":4,\"cross_edges\":8,\"cross_fibers\":4,\n      \"exponent_multiplications\":1024,\"partA_fibers\":15,\"partB_fibers\":15\n    }\n  }\n}\n",
+      "encoding": "utf-8",
+      "sha": "1f5d3f02871fb645c0c0603c53a391ee69a8b68e",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9fae696df91e89bbd37a0bd4a47be22342ab489e/research_notes/portable_direct/PREFIX804_R6_EDGE_CUT_CONVOLUTION_RESULTS.json",
+      "display_title": "PREFIX804_R6_EDGE_CUT_CONVOLUTION_RESULTS.json"
+    }
+  }
+}
