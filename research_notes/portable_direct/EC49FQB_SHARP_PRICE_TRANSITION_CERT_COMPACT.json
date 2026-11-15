@@ -1,0 +1,104 @@
+{
+  "schema": "EC49FQB_CLASS16943_SHARP_CRITICAL_RATIO_CERT_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "source_root_costs_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "domain": {
+    "profiles": 141,
+    "configs": 310,
+    "terminal_queries": 144,
+    "named_root_queries": 84,
+    "partition_representatives": 209
+  },
+  "critical_prices": [
+    {
+      "prior": "uniform141",
+      "ratio": "4/7",
+      "root_price": 4,
+      "terminal_price": 7,
+      "global_optimum_total_integer": 1448,
+      "pure_root_optimum_total_integer": 1448,
+      "bellman_subsets": 10461,
+      "mixed_witness": {
+        "root_queries_weighted": 355,
+        "terminal_queries_weighted": 4,
+        "integer_cost": 1448
+      },
+      "root_only_count": 362,
+      "continuum": {
+        "at_or_below": "pure_root_optimal",
+        "above": "every_global_optimal_policy_mixes"
+      },
+      "exact_full_certificate_sha256": "28489de22173965edf74482579b27af74faf079732183f63de1dcc7e845475bb"
+    },
+    {
+      "prior": "weighted310",
+      "ratio": "26/71",
+      "root_price": 26,
+      "terminal_price": 71,
+      "global_optimum_total_integer": 26858,
+      "pure_root_optimum_total_integer": 26858,
+      "bellman_subsets": 10496,
+      "mixed_witness": {
+        "root_queries_weighted": 962,
+        "terminal_queries_weighted": 26,
+        "integer_cost": 26858
+      },
+      "root_only_count": 1033,
+      "continuum": {
+        "at_or_below": "pure_root_optimal",
+        "above": "every_global_optimal_policy_mixes"
+      },
+      "exact_full_certificate_sha256": "892627e2364e748a4814fe4034f119c090a96294633a101992610fa77614c7e6"
+    }
+  ],
+  "additional_exact_probes": [
+    {
+      "r": 7,
+      "t": 20,
+      "cost_uniform": 2534,
+      "cost_weighted": 7231,
+      "cert_sha256": "20decebcde387e417bbb23e792b25fb0e52bc2b73eff4d911c99e87dc7edf109"
+    },
+    {
+      "r": 9,
+      "t": 16,
+      "cost_uniform": 3258,
+      "cost_weighted": 8883,
+      "cert_sha256": "6b9fe09d8e0be0abbb1d66702c03a33b83b3bb44b6484a7adeb7d6d3723b46e1"
+    },
+    {
+      "r": 9,
+      "t": 25,
+      "cost_uniform": 3258,
+      "cost_weighted": 9297,
+      "cert_sha256": "ba7afb2555bf090a9944f0b86e6e3a146b92e8900fe37c471b964717ddb415ad"
+    },
+    {
+      "r": 3,
+      "t": 5,
+      "cost_uniform": 1084,
+      "cost_weighted": 2904,
+      "cert_sha256": "1e30fdd11a25cebe68de44072166d1f887a95e9beb9fe5d4eec871ac2cf0b8c6"
+    },
+    {
+      "r": 73,
+      "t": 200,
+      "cost_uniform": 26426,
+      "cost_weighted": 75409,
+      "cert_sha256": "86ec4d34e946501d8aee28d91b154d173a4e066fe8435a6d7e6fc5b9e2505f73"
+    },
+    {
+      "r": 7,
+      "t": 12,
+      "cost_uniform": 2533,
+      "cost_weighted": 6840,
+      "cert_sha256": "bb486dcbe3517cea18e009f1cbd214ebe046e260811e61154d2b445ee1046a6c"
+    }
+  ],
+  "proof_logic": "Integer Bellman at the exact sharp boundary proves global lower bound against every native scalar query; pure-root policy attains equality. Price monotonic scaling extends this to every real 0<r/t<=critical. Verified mixed tree 355r+4t or 962r+26t strictly outperforms best pure-root total 362r or 1033r above critical; original-config terminal-only collision witness proves every optimum must mix. At boundary pure-root and mixed tie.",
+  "all_310_original_configurations_independent_replayed": true,
+  "full_certificate_storage": "Complete exact decision trees and execution evidence in separately delivered local evidence archive",
+  "next_question": "Find all later breakpoints and complete piecewise-affine numerical cost envelope for r/t>critical; characterize changes in optimal query trees."
+}
