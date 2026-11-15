@@ -51,3 +51,27 @@ Run: node R762BP_BRC_TRIADIC_PARTITION_VERIFY.js R762BP_BRC_TRIADIC_PARTITION_EV
 ## Subsequent discriminating question
 
 Read the exact frozen and authenticated native signed Cell/Link/Port TRIADIC_CLOSURE_E admission predicate and admissible V17/V29/V39 updates. Determine whether its event state includes (1) a directed 3-cycle Link record, (2) one or multiple simultaneously permitted decompositions for six quanta, (3) a sign/quantum rule, and (4) an actual rotation subgroup. Restrict B_2 to the admitted event set before claiming a physical BRC observer fiber. Carry the labelled branch identifiers and their multiplicity until a context-typed future-observer descent is proved. Preserve the R762BO odd-path parity theorem and R762BJ–BM coordinate observer theorems without conflating their observers with this candidate force-incidence family.
+
+
+## Supplementary Theorem 4 — Complete signed S6 orbit classification
+
+Equip each of six distinct named Ports with an **independent sign** in {+,-}, while retaining the oriented two-triad decomposition sigma. The signed candidate carrier has |B_2|*2^6=2560 labelled states. Define the multiset (u,v), 0<=u<=v<=3, where u and v count positive signs on each of the two oriented three-cycles.
+
+**Theorem.** These unordered pairs (u,v) classify the S6-relabelling orbits exactly. There are ten orbits; their sizes are:
+
+| sign-count pair | orbit size | stabilizer order |
+|---|---:|---:|
+| (0,0) | 40 | 18 |
+| (0,1) | 240 | 3 |
+| (0,2) | 240 | 3 |
+| (0,3) | 80 | 9 |
+| (1,1) | 360 | 2 |
+| (1,2) | 720 | 1 |
+| (1,3) | 240 | 3 |
+| (2,2) | 360 | 2 |
+| (2,3) | 240 | 3 |
+| (3,3) | 40 | 18 |
+
+**Proof.** For each fixed oriented two-cycle decomposition, if u<v the sign allocations are 2*C(3,u)*C(3,v); if u=v they are C(3,u)^2. Multiply by the 40 underlying sigma values. These cases are disjoint and sum to 2560. Any two sign configurations within a single oriented 3-cycle with a fixed positive count are related by a cyclic rotation of the three positions; consequently any two decompositions with equal unordered sign-count pairs are related by an S6 relabelling, allowing the two cycles to be interchanged. Orbit-stabilizer yields the displayed stabilizers. In particular, the (1,2) signed structure has trivial S6 stabilizer. The full signed carrier has exactly 2^10 possible S6-invariant Boolean admissibility subsets: a candidate native predicate may now distinguish entire signed orbit types without losing label covariance. Which, if any, are physically admitted remains an independent P000 force-law and V17/V29/V39 question.
+
+**Exact extension check.** The checker enumerates all 2560 sign-decorated branch records; groups their sign-count types; verifies all ten orbit counts; and explicitly conjugates one representative from each class by all 720 S6 permutations (7200 transformations), confirming the full predicted orbit as a set. This is a source-preserving typed candidate check, not a native force computation.
