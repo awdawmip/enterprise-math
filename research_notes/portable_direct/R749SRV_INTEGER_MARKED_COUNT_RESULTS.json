@@ -1,0 +1,120 @@
+{
+  "status": "PASS",
+  "research_unit": "R749SRV",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model_weights": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ],
+  "marked_source_index": 0,
+  "observer": "R(r)=r^3*T_r/C_r-r^4*H4(r)",
+  "read_offsets": [
+    0,
+    1,
+    5
+  ],
+  "error_model": "C_r exact; independent integer errors epsilon_h in {-1,0,1} on T_{r+h}",
+  "theorem": "For every integer r>=53 and all 27 errors, nearest ideal six-phase signature uniquely equals r mod 6. Cutoff 53 is least possible.",
+  "finite_verified_range": [
+    53,
+    511
+  ],
+  "finite_cutoffs": 459,
+  "finite_error_vectors_per_cutoff": 27,
+  "finite_vectors_checked": 12393,
+  "finite_competitor_distance_comparisons": 74358,
+  "smallest_finite_gap": [
+    "211244629/3408068268",
+    54,
+    [
+      -1,
+      1,
+      -1
+    ]
+  ],
+  "sharpness_counterexample": {
+    "r": 52,
+    "true_phase": 4,
+    "error": [
+      -1,
+      1,
+      -1
+    ],
+    "decoded_phase": 3,
+    "true_distance": "141581357/5883732",
+    "rival_distance": "583868191/24540516",
+    "difference_rival_minus_true": "-60425304925/222823795194",
+    "observed_scaled_residuals": [
+      "52293631/2699676",
+      "46683721/2941866",
+      "283413083/12270258"
+    ]
+  },
+  "tail_range": "all integer r>=512",
+  "minimum_ideal_signature_distance": "15/2",
+  "tail_exact_residual_bound": "0<R(r)-P(r mod 6)<35/12",
+  "tail_raw_count_noise_bound_at_512": "15099494400000/34842114263551",
+  "tail_count_noise_bound": "112500*r^3/(r-1)^5 decreasing for r>=512",
+  "tail_sum_bound": "35/12 + 5/6 = 15/4 (strict inequality) ",
+  "tail_positive_coefficient_certificates": [
+    {
+      "phase": 0,
+      "start": 516,
+      "C_degree": 5,
+      "T_degree": 6,
+      "num_degree": 4,
+      "upper_degree": 5,
+      "all_coefficients_positive": true
+    },
+    {
+      "phase": 1,
+      "start": 517,
+      "C_degree": 5,
+      "T_degree": 6,
+      "num_degree": 4,
+      "upper_degree": 5,
+      "all_coefficients_positive": true
+    },
+    {
+      "phase": 2,
+      "start": 512,
+      "C_degree": 5,
+      "T_degree": 6,
+      "num_degree": 4,
+      "upper_degree": 5,
+      "all_coefficients_positive": true
+    },
+    {
+      "phase": 3,
+      "start": 513,
+      "C_degree": 5,
+      "T_degree": 6,
+      "num_degree": 4,
+      "upper_degree": 5,
+      "all_coefficients_positive": true
+    },
+    {
+      "phase": 4,
+      "start": 514,
+      "C_degree": 5,
+      "T_degree": 6,
+      "num_degree": 4,
+      "upper_degree": 5,
+      "all_coefficients_positive": true
+    },
+    {
+      "phase": 5,
+      "start": 515,
+      "C_degree": 5,
+      "T_degree": 6,
+      "num_degree": 4,
+      "upper_degree": 5,
+      "all_coefficients_positive": true
+    }
+  ],
+  "independent_small_enumeration_cutoffs": 24,
+  "review": "AUTHOR_EXACT_NOT_REVIEWED"
+}
