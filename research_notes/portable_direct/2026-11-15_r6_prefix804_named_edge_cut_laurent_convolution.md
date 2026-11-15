@@ -1,0 +1,116 @@
+# PREFIX-804 — Exact named-edge cut convolution beyond forced bridges
+
+Date: 2026-11-15. Research line: R6, Enterprise Math independent portable BRC auxiliary integer-source model. Frozen scientific input: f42f2906d77f24085c123f3ccfe9667d41caa96d (unchanged). Immediate predecessor: PREFIX-803, research_notes/portable_direct/2026-11-15_r6_prefix803_bridge_forced_laurent_factorization.md. Status: AUTHOR_PROVED / EXACT_INTEGER_REGRESSION / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED.
+
+## Question, population and observables
+
+PREFIX-803 gives unique forced transport across a bridge. A cut containing two or more positive-capacity named edges can carry a nonunique *allocation* even when its signed total is fixed. Can the complete finite-capacity integer-source fiber and its signed multivariate observation be factored without dropping this difference?
+
+Let G=(U,V,E) be a finite **named** bipartite multigraph. An edge e=(u,v) has integral capacity K_e≥0 and signed integer observer weight w_e∈Z^d. Let R∈Z_{\ge0}^U and S∈Z_{\ge0}^V be required row and column margins, respectively. Define F_G(R,S) as all named integer assignments 0≤x_e≤K_e with the exact margins. The complete signed-observer Laurent polynomial is
+
+\[
+H_G(R,S;z)=\sum_{x\in F_G(R,S)}z^{\sum_{e\in E}w_ex_e}.
+\]
+
+Coefficients count all **named** assignments, including collisions of distinct states on the same exponent. If the fiber is empty H=0. A graph with no edges has H=1 only if all margins vanish.
+
+The following results concern static integer source fibers. They do not identify U,V or a two-sided cut with native X6 spatial planes. Native Heartbeat/X6 contains six spatial axes plus separately typed time, and a compatible event/Port/Link mapping remains unproved.
+
+## Theorem 804.1 — Integral cut conservation
+
+Choose any partition of the *vertices* into A and B. Divide named edges into internal E_A, internal E_B, and crossing X. For a crossing edge let σ_e=+1 if its row endpoint lies in A and its column endpoint lies in B; let σ_e=−1 for the opposite orientation. Define
+
+\[
+D_A=\sum_{u\in U\cap A}R_u-\sum_{v\in V\cap A}S_v.
+\]
+
+Every legal integer assignment satisfies
+
+\[
+\boxed{\sum_{e\in X}\sigma_ex_e=D_A.}
+\]
+
+Writing X_+ and X_- for the positive and negative crossing orientations, a necessary capacity certificate is
+
+\[
+-\sum_{X_-}K_e\le D_A\le\sum_{X_+}K_e.
+\]
+
+**Proof.** Sum the row margin equations for vertices in A and subtract the column equations for vertices in A. Every internal edge cancels exactly; every edge outside A vanishes; each crossing edge remains with coefficient +1 or −1 according to its orientation. Apply the integral box bounds. QED.
+
+## Theorem 804.2 — Exact named-cut Laurent convolution
+
+For each crossing assignment t∈∏_{e∈X}{0,…,K_e}, subtract t_e at both endpoints of every crossing edge to obtain induced residual margins (R_A(t),S_A(t)) and (R_B(t),S_B(t)). The induced named internal-edge polynomials H_A(t;z), H_B(t;z) are zero for any negative, unbalanced, or infeasible residual margins. Then
+
+\[
+\boxed{
+H_G(R,S;z)=
+\sum_{\substack{0\le t_e\le K_e\\\sum_{e\in X}\sigma_et_e=D_A}}
+z^{\sum_{e\in X}w_et_e}\,H_A(t;z)\,H_B(t;z).
+}
+\tag{804.2}
+\]
+
+All coefficients and signed multivariate exponents are exact. Crucially, the summation index is the *entire named crossing assignment*, not the cut total D_A.
+
+**Proof.** The restriction x↦(t,x_A,x_B) maps each full legal table to a unique crossing assignment and two internal assignments. Given t, the full row/column constraints are equivalent to the two separate systems with residual margins computed by subtracting the crossing allocations. Conversely, combining the three named assignments produces exactly one legal original table. Hence the full fiber is the disjoint union of the Cartesian products F_A(t)×F_B(t) over feasible t. The observer exponent separates additively into crossing, A, and B terms. The generating series of a Cartesian product multiplies, and that of a disjoint union adds, proving (804.2) with multiplicity. QED.
+
+**Boundary cases.** If X is empty, (804.2) is the disjoint-component product with the usual balance constraint. If X has one edge, its count is forced to σ_eD_A: this exactly recovers PREFIX-803 bridge elimination. Zero-capacity edges remain named but have fixed zero values. Distinct parallel edges remain separate. Empty induced graphs contribute 1 only under zero residual margins.
+
+## Corollary 804.3 — One free transfer variable for a two-edge cut
+
+For exactly two co-oriented crossing edges e1,e2 from A to B with capacities K1,K2, conservation fixes t2=D_A−t1 and the cut-capacity candidate set is the integer interval
+
+\[
+\boxed{\max(0,D_A-K_2)\le t_1\le \min(K_1,D_A).}
+\]
+
+The *actually feasible* candidates are precisely those in this interval for which both induced polynomials are nonzero. For a general nonempty crossing set X the unrestricted integral solution set to ∑σ_et_e=D_A is an affine integer lattice of rank |X|−1, since every σ_e is ±1; box bounds and internal feasibility can reduce the available dimension or make the fiber empty. This rank is a parameterization fact, **not** a claim that all crossing choices are feasible.
+
+Proof: substitute t2=D_A−t1 into both capacity inequalities. For the general statement choose any crossing variable as pivot and solve integrally for it, using its coefficient ±1. The internal feasibility criterion follows from Theorem 804.2. QED.
+
+## Exact two-edge-cut counterexample to cut-total-only observation
+
+Let b=c=4. Give unit capacity to each of the four edges of the square (rows 0,1 × cols 0,1), to each of the four edges of the square (rows 2,3 × cols 2,3), and to **both named crossing edges** (0,2) and (1,2). All other edges have capacity zero. Set row margins R=(1,2,1,1), column margins S=(1,1,2,1), and let A comprise rows 0,1 and columns 0,1. Then D_A=1.
+
+The crossing assignment (t_02,t_12)=(0,1) occurs in four legal named complete tables. The distinct crossing assignment (1,0) occurs in two. Neither positive-capacity crossing edge is individually a bridge, yet both assignments have exactly the same cut total 1. Thus D_A alone cannot preserve the complete named-source fiber.
+
+Take signed observer weights w_(0,0)=(1,0), w_(2,2)=(0,1), w_(0,2)=(2,−1), w_(1,2)=(−1,2), with all others zero. Exact enumeration gives
+
+\[
+H(z_1,z_2)=
+z_1^{-1}z_2^2(1+z_1)(1+z_2)
++
+z_1^2z_2^{-1}(1+z_2).
+\]
+
+The six exponent pairs are (−1,2), (−1,3), (0,2), (0,3), (2,−1), (2,0), each with coefficient 1. The first summand contains four named assignments and the second two. Replacing both t values with the single cut total would erase the provenance and the different signed weights. No future-observer quotient is claimed safe.
+
+## Exact reproducibility and limitations
+
+A Python 3 stdlib checker independently constructs (1) every full named Cartesian edge assignment and its exact two-coordinate signed Laurent histogram indexed by global margins; (2) a separated A/B/X expansion and exact coefficient convolution, then compares the complete dictionaries for every attainable global margin fiber. Cut conservation is separately checked on all tables of each shape's maximum-capacity instance. The 4×4 two-edge-cut witness is independently enumerated.
+
+| Complete test family | Capacity range on each edge | Capacity patterns | Feasible margin fibers | Named tables |
+|---|---|---:|---:|---:|
+| 2×2 | 0..2 | 81 | 1,215 | 1,296 |
+| 2×3 | 0..2 | 729 | 39,366 | 46,656 |
+| 3×3 | 0..1 | 512 | 17,840 | 19,683 |
+| **Total** | | **1,322** | **58,421** | **67,635** |
+
+The checker reported **119,492 exact assertions** and all passed. It uses arbitrary-precision integer counts, exact signed integer exponents, and no approximate arithmetic. The recorded 0.335662-second elapsed time applies only to this single local implementation/environment, not a complexity or comparative speed theorem. This finite test is an implementation regression, while the two general theorems rest on the proofs above. No independent mathematical review, formal proof assistant verification or native X6 event admission has been performed.
+
+Reproduction command from this directory:
+
+    python PREFIX804_R6_EDGE_CUT_CONVOLUTION_CHECK.py > PREFIX804_R6_EDGE_CUT_CONVOLUTION_RESULTS.json
+
+The JSON result includes complete test-family counts, the signed six-term histogram, distinct crossing transfer groups and verifier statistics. The runtime field varies between invocations; exact integer fields must agree.
+
+## Source relations and next problem
+
+Retained scientific sources: PREFIX-797 joint cut feasibility; PREFIX-798/799 weighted Laurent and chord fibers; PREFIX-800/801 Hall feasibility and incremental update; PREFIX-802 suffix memoization; PREFIX-803 bridge forcing. PREFIX-804 extends bridge preprocessing to a finite separator and makes the hidden crossing-allocation residual explicit. It is not claimed to be a novel discovery in classical network-flow literature; it is a proved and regression-tested extension within this project auxiliary source model.
+
+Next useful work: implement a separator-aware suffix solver that sums only |X|−1 transfer variables, uses component memoization and optional Hall certificates, and compare whole-cost wall time, memory, output-support size and decompositions with existing bridge-first and unmodified suffix enumeration on declared sparse/dense ensembles. Separately require a real native Cell/Link/Port, force-source and ordered-time observer interface before treating this static identity as X6 dynamics. Shared formal task RS-X6-NATIVE-TIME-DYNAMICS is not claimed, and no Result/Review/Foundation promotion follows.
+
+Artifacts:
+- research_notes/portable_direct/PREFIX804_R6_EDGE_CUT_CONVOLUTION_CHECK.py
+- research_notes/portable_direct/PREFIX804_R6_EDGE_CUT_CONVOLUTION_RESULTS.json
