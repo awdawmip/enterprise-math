@@ -25,6 +25,8 @@ let orderedPairs = 0, typedTriads = 0, covarianceTests = 0;
 let stabilizerTests = 0, candidateOrbitTests = 0, observerCollisionPairs = 0;
 let pairStabilizerTotal = 0, triadStabilizerTotal = 0;
 let nontrivialInvariantSubsets = 0;
+const holonomyFixedHistogram = {0:0,1:0,2:0,3:0,4:0};
+let holonomyChecks = 0;
 for (const i of A) for (const j of A) if (i !== j) {
   orderedPairs++;
   const fiber = candidates(i, j);
@@ -32,6 +34,14 @@ for (const i of A) for (const j of A) if (i !== j) {
   const stabilizer = group.filter(p => p[i] === i && p[j] === j);
   assert.equal(stabilizer.length, 24);
   pairStabilizerTotal += stabilizer.length;
+  const pairHistogram = {0:0,1:0,2:0,3:0,4:0};
+  for (const h of stabilizer) {
+    const fixed = fiber.filter(k => h[k] === k).length;
+    pairHistogram[fixed]++;
+    holonomyFixedHistogram[fixed]++;
+    holonomyChecks++;
+  }
+  assert.deepEqual(pairHistogram,{0:9,1:8,2:6,3:0,4:1});
   for (const k of fiber) {
     typedTriads++;
     const orbit = new Set(stabilizer.map(p => p[k]));
@@ -77,6 +87,8 @@ assert.equal(observerCollisionPairs,180);
 assert.equal(pairStabilizerTotal,720);
 assert.equal(triadStabilizerTotal,720);
 assert.equal(nontrivialInvariantSubsets,0);
+assert.equal(holonomyChecks,720);
+assert.deepEqual(holonomyFixedHistogram,{0:270,1:240,2:180,3:0,4:30});
 const result={
   schema:'ENTERPRISE_MATH_R762BA_EXACT_TEST_V1',
   model:'positive equal-quantum, ordered-two-force observation, pairwise-distinct native X6 axes; candidate relation not native admission',
@@ -95,6 +107,8 @@ const result={
   nontrivial_invariant_subsets:nontrivialInvariantSubsets,
   two_force_observer_collision_pairs:observerCollisionPairs,
   optional_signed_completion_if_both_signs_admitted:8,
+  based_pair_holonomy_checks:holonomyChecks,
+  fixed_source_branch_histogram:holonomyFixedHistogram,
   conclusion:'PASS: stabilizer transitivity excludes an S6-equivariant deterministic third-axis selector; 4-sheet source fiber is sharp'
 };
 console.log(JSON.stringify(result,null,2));
