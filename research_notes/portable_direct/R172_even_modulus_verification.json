@@ -1,0 +1,69 @@
+{
+  "formula": "q^(2d+1)/gcd(q,4)",
+  "full_states_tested": 167291,
+  "invariants": "even q: a=sum(b) mod 2; q divisible by 4 also sum(c)=a(a+1)/2 mod 2",
+  "marker": "R172_ALL_MODULI_IMAGE_CERTIFICATE_EXACT_PASS",
+  "mathematical_status": "AUTHOR_PROVED; INDEPENDENT_REVIEW_NOT_RUN",
+  "verified_cases": {
+    "q10_d2": {
+      "full_states": 100000,
+      "index": 2,
+      "prediction_exact": true,
+      "reachable": 50000
+    },
+    "q12_d1": {
+      "full_states": 1728,
+      "index": 4,
+      "prediction_exact": true,
+      "reachable": 432
+    },
+    "q2_d1": {
+      "full_states": 8,
+      "index": 2,
+      "prediction_exact": true,
+      "reachable": 4
+    },
+    "q2_d3": {
+      "full_states": 128,
+      "index": 2,
+      "prediction_exact": true,
+      "reachable": 64
+    },
+    "q2_d6": {
+      "full_states": 8192,
+      "index": 2,
+      "prediction_exact": true,
+      "reachable": 4096
+    },
+    "q3_d2": {
+      "full_states": 243,
+      "index": 1,
+      "prediction_exact": true,
+      "reachable": 243
+    },
+    "q4_d1": {
+      "full_states": 64,
+      "index": 4,
+      "prediction_exact": true,
+      "reachable": 16
+    },
+    "q4_d3": {
+      "full_states": 16384,
+      "index": 4,
+      "prediction_exact": true,
+      "reachable": 4096
+    },
+    "q6_d2": {
+      "full_states": 7776,
+      "index": 2,
+      "prediction_exact": true,
+      "reachable": 3888
+    },
+    "q8_d2": {
+      "full_states": 32768,
+      "index": 4,
+      "prediction_exact": true,
+      "reachable": 8192
+    }
+  }
+}
