@@ -25,13 +25,16 @@ New researchers should treat this file as the main entry point and read only the
 Read in this order:
 
 1. `research_notes/EM_FREE_F6D046_LATEST_FRONTIER_R105_20260904.md`
-2. `research_notes/EM_FREE_F6D046_RESEARCH_CHAIN_INDEX_R85_20260904.md`
-3. `research_notes/EM_FREE_F6D046_CHAIN_CONTINUATION_INDEX_R96_R105_20260904.md`
-4. `research_notes/EM_FREE_F6D046_P46_TWO_ADIC_SCALAR_AUTOMORPHISM_ORDER_REFINEMENT_R100_20260904.md`
-5. `research_notes/EM_FREE_F6D046_P46_PRINCIPAL_RING_CLASS_DEFECT_R104_20260904.md`
-6. `research_notes/EM_FREE_F6D046_P46_PRINCIPAL_VS_WEIL_RESTRICTION_CENTER_R105_20260904.md`
+2. `research_notes/EM_FREE_F6D046_RAMANUJAN_RESEARCH_CHAIN_INDEX_20260904.md`
+3. `research_notes/EM_FREE_F6D046_R40_R101_CONTINUATION_INDEX_20260904.md`
+4. `research_notes/EM_FREE_F6D046_P46_TWO_ADIC_INTEGRAL_KERNEL_ORDER_20260904.md`
+5. `research_notes/EM_FREE_F6D046_P46_LOCAL_GLOBAL_UNITARY_C3_DEFECT_20260904.md`
+6. `research_notes/EM_FREE_F6D046_P46_PRINCIPALIZATION_VS_WEIL_RESTRICTION_CENTER_20260904.md`
 
 All six paths are on the pinned research branch above. Follow their own source/evidence pointers only when a proof detail is needed.
+
+The R40–R101 continuation index routes the earlier derived chain; the final principalization/center note covers R102–R105. These paths are verified in the immutable evidence branch and the repair changes locators only, not scientific conclusions.
+
 
 ## 3. Frozen research status
 
