@@ -113,6 +113,24 @@ H_2(x)=(A(x)-J(x))/2
 
 This proves the theorem.
 
+## Quantitative corollary (same inherited VK constant)
+
+The preceding proof also gives an explicit Vinogradov–Korobov-*scale* convergence rate, rather than only an unquantified little-o. With c>0 as in the imported bound for e(x), for sufficiently large x,
+
+|H_2(x)+gamma x| <= C' x exp[-(c/4) Phi(log x)].            (E)
+
+Indeed, in Proof 2 the error in (B) is exactly e(y)/y-int_y^infinity e(u)u^{-2}du. The first term is O(exp(-c Phi(log y))). For the integral, set v=log u and split exp(-c Phi(v)) as exp[-(c/2)Phi(v)] times itself. Since Phi is eventually increasing and int exp[-(c/2)Phi(v)]dv converges, the tail is O(exp[-(c/2)Phi(log y)]). Thus
+
+M(y)=log y-gamma+O(exp[-(c/2)Phi(log y)]).
+
+In Proof 3 put y=sqrt(x). The hyperbola error is O(x log x exp[-c Phi(log y)]), and psi(y)^2=x+O(x exp[-c Phi(log y)]). Since log x is eventually at most exp[(c/2)Phi(log y)], all these are O(x exp[-(c/2)Phi(log y)]). For J(x), split int_1^x e(u)du/u at sqrt(x): the first interval contributes O(sqrt(x)), the second O(x exp[-c Phi(log y)]), and the boundary term e(x)log x is no larger. Finally, for large x,
+
+Phi((log x)/2) >= (1/2)Phi(log x),
+
+because their ratio tends to 2^(-3/5)>1/2. This establishes (E). Consequently the normalized q_2(N) decays at an explicit VK scale after harmless O(1/N) adjustment.
+
+The constant c/4 is deliberately conservative, inherited from the external PNT; no numerical c or threshold and no new zeta zero-free region are asserted. This refinement still does not control the whole infinite energy because the Taylor remainder is not uniform over the escaping N range.
+
 ## Scope and reproducibility
 
 The proof is a genuine consequence of established **unconditional** PNT bounds; it is not a new zero-free region, a strengthened RH result, or a bound for the full infinite road energy. A finite independent arithmetic sanity check of H_2(N)/N+gamma at N=10,100,1000,10000,100000 gave approximately 0.2533, 0.1689, 0.0161, -0.0140, -0.0057 respectively; these examples do not establish the limiting theorem.
