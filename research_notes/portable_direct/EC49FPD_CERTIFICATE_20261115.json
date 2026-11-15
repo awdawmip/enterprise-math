@@ -1,0 +1,113 @@
+{
+  "schema": "EC49FPD_COMPLETE_ORIGINAL_BRC_FOUR_77_CLASSES_CERTIFICATE_V1",
+  "date": "2026-11-15",
+  "frozen_science_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_input_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "original_input_shape": {
+    "families": 94,
+    "codewords": 178850,
+    "configurations": 38169,
+    "labels": 24,
+    "named_roots": [
+      3,
+      5,
+      6,
+      7
+    ],
+    "legal_root_domains": 625
+  },
+  "complete_profile_sha256_O2_O3": "2e07ad0d935efd9824729feec6349c2af162e152cd9c8a2a93848fd4343eea93",
+  "classes": [
+    {
+      "rep": 16860,
+      "configurations": 77,
+      "allocations": 1296,
+      "root_entries": 26180,
+      "root_coordinates_per_config": 340,
+      "classes_P": 31,
+      "classes_T": 31,
+      "equal_pairs_P": 1036,
+      "equal_pairs_T": 1036,
+      "nonzero_gauge": 0,
+      "adaptive_optimal_depth": 4,
+      "adaptive_first_query": 1018,
+      "distinct_response_partitions": 1251,
+      "membership_sha256": "e9ff4581676ae62923a1e1863697b906b1c6ee5e2fb62b01ac20f1d9485ee7fe"
+    },
+    {
+      "rep": 16864,
+      "configurations": 77,
+      "allocations": 1296,
+      "root_entries": 25872,
+      "root_coordinates_per_config": 336,
+      "classes_P": 39,
+      "classes_T": 39,
+      "equal_pairs_P": 704,
+      "equal_pairs_T": 704,
+      "nonzero_gauge": 0,
+      "adaptive_optimal_depth": 3,
+      "adaptive_first_query": 2,
+      "membership_sha256": "a175f0fe30091d11eee19b66eaeff9806e3ccb40bcdebdb19e9c48d222a437b3"
+    },
+    {
+      "rep": 16988,
+      "configurations": 77,
+      "allocations": 1296,
+      "root_entries": 25872,
+      "root_coordinates_per_config": 336,
+      "classes_P": 39,
+      "classes_T": 39,
+      "equal_pairs_P": 704,
+      "equal_pairs_T": 704,
+      "nonzero_gauge": 0,
+      "adaptive_optimal_depth": 3,
+      "adaptive_first_query": 2,
+      "membership_sha256": "d0f203e8a820da2f71a36f58c0579a9d7b63d0814c890484389d744e9343d43f"
+    },
+    {
+      "rep": 17022,
+      "configurations": 77,
+      "allocations": 1296,
+      "root_entries": 26180,
+      "root_coordinates_per_config": 340,
+      "classes_P": 31,
+      "classes_T": 31,
+      "equal_pairs_P": 1036,
+      "equal_pairs_T": 1036,
+      "nonzero_gauge": 0,
+      "adaptive_optimal_depth": 4,
+      "adaptive_first_query": 1020,
+      "distinct_response_partitions": 1251,
+      "membership_sha256": "958c62e6fa091aa6b0dff53848217a63f4a3ad749bf0685f36bfa36582cfdb3c"
+    }
+  ],
+  "totals": {
+    "completed_classes": 4,
+    "configurations": 308,
+    "root_cost_records": 104104,
+    "complete_assignment_evaluations": 399168,
+    "within_class_pairs": 11704,
+    "root_equal_pairs": 3480,
+    "terminal_equal_pairs": 3480,
+    "hidden_gauge_pairs": 0,
+    "prior_completed_classes": 559,
+    "updated_completed_classes": 563,
+    "original_classes": 625
+  },
+  "evidence": {
+    "archive_name": "EC49FPD_FOUR_77_DEPTH4_EVIDENCE_20261115.tar.xz",
+    "archive_sha256": "17c4a3ac53d363b5a5aae46f73d876a09bbc583fcc8d4d35f3351c41f65be778",
+    "source": "Local generated conversation artifact; not represented as uploaded to GitHub",
+    "files": "Frozen input, original C++17 extractor, both full CSVs, exact Python verifiers, complete decision trees, logs, manifest",
+    "checks": [
+      "Full 38,169-case domain classification",
+      "All 11,704 within-class pairs",
+      "Original C++17 -O2/-O3 byte-identical outputs",
+      "Independent Python byte-Trie for eight complete root-cost profiles",
+      "Two independent optimal query-depth searches",
+      "All 140 decision-tree leaf profiles decoded independently"
+    ]
+  },
+  "mathematical_review": "NOT_REVIEWED",
+  "task_claim_result": "Not claimed from research artifact"
+}
