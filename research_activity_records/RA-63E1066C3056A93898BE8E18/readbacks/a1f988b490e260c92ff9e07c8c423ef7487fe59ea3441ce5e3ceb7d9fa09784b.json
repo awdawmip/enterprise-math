@@ -1,0 +1,36 @@
+{
+  "schema": "EM_R6_SOURCE_OBSERVATION_V1",
+  "event_id": "prefix806-r6-hall-filtered-separator-20261115",
+  "artifact_name": "results",
+  "source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "2d2fc3f64e9cdbafd14ddbb94634ff7da1c95558",
+    "path": "research_notes/portable_direct/PREFIX806_R6_HALL_SIGNATURE_RESULTS.json",
+    "git_blob_sha1": "44fc67b819a9ea2e0c54e5214d03b124c777d35b",
+    "sha256": "6b02653504b15a7972c5c21c7fd58ccfa215c51d9ebcf1fe68018c3f545827d4",
+    "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/2d2fc3f64e9cdbafd14ddbb94634ff7da1c95558/research_notes/portable_direct/PREFIX806_R6_HALL_SIGNATURE_RESULTS.json"
+  },
+  "verification": {
+    "tool_name": "mcp__GitHub__fetch_file",
+    "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+    "server_signature_authenticated": false,
+    "call_id": null,
+    "observation_id": "r6-prefix806-results-observed",
+    "network_request_by_this_tool": false
+  },
+  "connector_readback": {
+    "tool_name": "mcp__GitHub__fetch_file",
+    "arguments": {
+      "repository_full_name": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX806_R6_HALL_SIGNATURE_RESULTS.json",
+      "ref": "2d2fc3f64e9cdbafd14ddbb94634ff7da1c95558"
+    },
+    "result": {
+      "content": "{\n  \"schema\": \"PREFIX806_EXACT_HALL_SIGNATURE_CHECK_V1\",\n  \"frozen_scientific_input\": \"f42f2906d77f24085c123f3ccfe9667d41caa96d\",\n  \"assertions\": 5769,\n  \"capacity_patterns\": 145,\n  \"feasible_margin_fibers\": 1919,\n  \"full_table_occurrences\": 2025,\n  \"accumulated\": {\n    \"plain\": {\n      \"cutBalancedAssignments\": 2985,\n      \"groups\": 2469,\n      \"componentComputes\": 4871,\n      \"polyProducts\": 2025\n    },\n    \"filtered\": {\n      \"hallTests\": 2469,\n      \"hallRejected\": 444,\n      \"componentComputes\": 4041,\n      \"polyProducts\": 2025\n    }\n  },\n  \"examples\": [\n    {\n      \"family\": \"2x2\",\n      \"capacity_patterns\": 81\n    },\n    {\n      \"family\": \"2x3\",\n      \"capacity_patterns\": 64\n    },\n    {\n      \"name\": \"4x4 named-crossing witness\",\n      \"K\": [\n        [\n          1,\n          1,\n          1,\n          1\n        ],\n        [\n          1,\n          1,\n          1,\n          1\n        ],\n        [\n          0,\n          0,\n          1,\n          1\n        ],\n        [\n          0,\n          0,\n          1,\n          1\n        ]\n      ],\n      \"R\": [\n        2,\n        2,\n        1,\n        1\n      ],\n      \"S\": [\n        1,\n        1,\n        2,\n        2\n      ],\n      \"named_table_count\": 16,\n      \"observer_support\": 4,\n      \"plain\": {\n        \"cutFreeBranches\": 8,\n        \"cutBalancedAssignments\": 6,\n        \"negativeResidualRejects\": 0,\n        \"hallTests\": 0,\n        \"hallRejected\": 0,\n        \"groups\": 6,\n        \"componentComputes\": 6,\n        \"componentCacheHits\": 6,\n        \"polyProducts\": 10\n      },\n      \"filtered\": {\n        \"cutFreeBranches\": 8,\n        \"cutBalancedAssignments\": 6,\n        \"negativeResidualRejects\": 0,\n        \"hallTests\": 6,\n        \"hallRejected\": 0,\n        \"groups\": 6,\n        \"componentComputes\": 6,\n        \"componentCacheHits\": 6,\n        \"polyProducts\": 10\n      },\n      \"full_histogram\": {\n        \"-3,-6\": 3,\n        \"-3,1\": 5,\n        \"2,1\": 5,\n        \"2,8\": 3\n      }\n    },\n    {\n      \"name\": \"4x4 dense unit\",\n      \"K\": [\n        [\n          1,\n          1,\n          1,\n          1\n        ],\n        [\n          1,\n          1,\n          1,\n          1\n        ],\n        [\n          1,\n          1,\n          1,\n          1\n        ],\n        [\n          1,\n          1,\n          1,\n          1\n        ]\n      ],\n      \"R\": [\n        2,\n        2,\n        2,\n        2\n      ],\n      \"S\": [\n        2,\n        2,\n        2,\n        2\n      ],\n      \"named_table_count\": 90,\n      \"observer_support\": 9,\n      \"plain\": {\n        \"cutFreeBranches\": 128,\n        \"cutBalancedAssignments\": 70,\n        \"negativeResidualRejects\": 0,\n        \"hallTests\": 0,\n        \"hallRejected\": 0,\n        \"groups\": 70,\n        \"componentComputes\": 38,\n        \"componentCacheHits\": 102,\n        \"polyProducts\": 74\n      },\n      \"filtered\": {\n        \"cutFreeBranches\": 128,\n        \"cutBalancedAssignments\": 70,\n        \"negativeResidualRejects\": 0,\n        \"hallTests\": 70,\n        \"hallRejected\": 8,\n        \"groups\": 70,\n        \"componentComputes\": 30,\n        \"componentCacheHits\": 94,\n        \"polyProducts\": 74\n      },\n      \"full_histogram\": {\n        \"-5,-13\": 1,\n        \"-5,-6\": 8,\n        \"-5,1\": 11,\n        \"0,-6\": 13,\n        \"0,1\": 24,\n        \"0,8\": 13,\n        \"5,1\": 11,\n        \"5,15\": 1,\n        \"5,8\": 8\n      }\n    },\n    {\n      \"name\": \"4x4 stressed boundary\",\n      \"K\": [\n        [\n          1,\n          1,\n          1,\n          1\n        ],\n        [\n          1,\n          1,\n          1,\n          1\n        ],\n        [\n          1,\n          1,\n          1,\n          1\n        ],\n        [\n          1,\n          1,\n          1,\n          1\n        ]\n      ],\n      \"R\": [\n        3,\n        1,\n        1,\n        1\n      ],\n      \"S\": [\n        1,\n        1,\n        2,\n        2\n      ],\n      \"named_table_count\": 18,\n      \"observer_support\": 5,\n      \"plain\": {\n        \"cutFreeBranches\": 128,\n        \"cutBalancedAssignments\": 28,\n        \"negativeResidualRejects\": 15,\n        \"hallTests\": 0,\n        \"hallRejected\": 0,\n        \"groups\": 13,\n        \"componentComputes\": 11,\n        \"componentCacheHits\": 15,\n        \"polyProducts\": 16\n      },\n      \"filtered\": {\n        \"cutFreeBranches\": 128,\n        \"cutBalancedAssignments\": 28,\n        \"negativeResidualRejects\": 15,\n        \"hallTests\": 13,\n        \"hallRejected\": 0,\n        \"groups\": 13,\n        \"componentComputes\": 11,\n        \"componentCacheHits\": 15,\n        \"polyProducts\": 16\n      },\n      \"full_histogram\": {\n        \"-4,-1\": 4,\n        \"-4,-8\": 1,\n        \"1,-1\": 6,\n        \"1,-8\": 1,\n        \"1,6\": 6\n      }\n    }\n  ],\n  \"status\": \"ALL_EXACT_CHECKS_PASS\"\n}\n",
+      "encoding": "utf-8",
+      "sha": "44fc67b819a9ea2e0c54e5214d03b124c777d35b",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2d2fc3f64e9cdbafd14ddbb94634ff7da1c95558/research_notes/portable_direct/PREFIX806_R6_HALL_SIGNATURE_RESULTS.json",
+      "display_title": "PREFIX806_R6_HALL_SIGNATURE_RESULTS.json"
+    }
+  }
+}
