@@ -1,0 +1,36 @@
+{
+  "schema": "EM_R6_SOURCE_OBSERVATION_V1",
+  "event_id": "prefix805-r6-observer-signature-20261115",
+  "artifact_name": "timings",
+  "source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "de4d19ec53a15716405f16a8f1432b4873d90d54",
+    "path": "research_notes/portable_direct/PREFIX805_R6_TIMING_REPLICATIONS.json",
+    "git_blob_sha1": "9116521f0704af278d614e5bf5a2476a32a0db2d",
+    "sha256": "a661b88e700bc11cce3902415995a0ac115d78c5206d52fb4825f0ccb59f0dbc",
+    "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/de4d19ec53a15716405f16a8f1432b4873d90d54/research_notes/portable_direct/PREFIX805_R6_TIMING_REPLICATIONS.json"
+  },
+  "verification": {
+    "tool_name": "mcp__GitHub__fetch_file",
+    "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+    "server_signature_authenticated": false,
+    "call_id": null,
+    "observation_id": "r6-prefix805-timings-observed",
+    "network_request_by_this_tool": false
+  },
+  "connector_readback": {
+    "tool_name": "mcp__GitHub__fetch_file",
+    "arguments": {
+      "repository_full_name": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX805_R6_TIMING_REPLICATIONS.json",
+      "ref": "de4d19ec53a15716405f16a8f1432b4873d90d54"
+    },
+    "result": {
+      "content": "[\n  {\n    \"name\": \"sparse_two_block_two_crossings\",\n    \"replications\": 9,\n    \"baseline_median_seconds\": 0.0076525,\n    \"separator_median_seconds\": 0.0005946,\n    \"ratio\": 12.87,\n    \"baseline_seconds\": [\n      0.0075055,\n      0.0651185,\n      0.0079789,\n      0.008038,\n      0.0074096,\n      0.0076525,\n      0.0075157,\n      0.0084969,\n      0.0074555\n    ],\n    \"separator_seconds\": [\n      0.0022356,\n      0.000568,\n      0.0007118,\n      0.0004942,\n      0.0006519,\n      0.000494,\n      0.0005749,\n      0.0006303,\n      0.0005946\n    ]\n  },\n  {\n    \"name\": \"dense_4x4_unit_capacities\",\n    \"replications\": 9,\n    \"baseline_median_seconds\": 0.0099318,\n    \"separator_median_seconds\": 0.0052964,\n    \"ratio\": 1.88,\n    \"baseline_seconds\": [\n      0.0106922,\n      0.0109471,\n      0.0104947,\n      0.0098454,\n      0.0099318,\n      0.0098432,\n      0.0097782,\n      0.0106949,\n      0.0097132\n    ],\n    \"separator_seconds\": [\n      0.0055998,\n      0.0056886,\n      0.0053645,\n      0.0048983,\n      0.0047774,\n      0.0052964,\n      0.004468,\n      0.0047634,\n      0.0057269\n    ]\n  }\n]\n",
+      "encoding": "utf-8",
+      "sha": "9116521f0704af278d614e5bf5a2476a32a0db2d",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/de4d19ec53a15716405f16a8f1432b4873d90d54/research_notes/portable_direct/PREFIX805_R6_TIMING_REPLICATIONS.json",
+      "display_title": "PREFIX805_R6_TIMING_REPLICATIONS.json"
+    }
+  }
+}
