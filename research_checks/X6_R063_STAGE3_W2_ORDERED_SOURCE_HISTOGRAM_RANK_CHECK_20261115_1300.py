@@ -89,6 +89,11 @@ def rank_gauss(mat):
     return k
 
 
+def tensor3_signature(p, q, r):
+    return tuple(sorted((i, j, k, (int(x == 'j') + int(y == 'j') + int(z == 'j')) % 4)
+                        for i, x in enumerate(p) for j, y in enumerate(q) for k, z in enumerate(r)))
+
+
 def main():
     src = words(2,1)
     target = words(3,4)
@@ -121,7 +126,13 @@ def main():
     assert len(kernel_basis)==9-rank_gauss(rows)
     # Nonnegative input witnesses: same exact output histogram, different source-order observer.
     assert H[1] == H[3] and pairs[1] != pairs[3]
-    output = dict(source_words=src, target_word_count=len(target), source_ordered_pairs=9,
+    left = tensor3_signature('iij', 'iji', 'ij')
+    right = tensor3_signature('iji', 'iij', 'ij')
+    assert len(left) == len(right) == 18
+    triple_diff = [(x, y) for x, y in zip(left, right) if x != y]
+    assert len(triple_diff) == 12
+    assert triple_diff[0] == ((0, 1, 0, 1), (0, 1, 0, 0))
+    output = dict(source_words=src, triple_source_order_changed_cells=len(triple_diff), target_word_count=len(target), source_ordered_pairs=9,
                   unique_unordered_source_types=6, source_pair_formal_witness_totals=[sum(r.values()) for r in H],
                   histogram_matrix_rank_Q=6, kernel_dimension_Q=3,
                   kernel_basis=kernel_basis, minor_column_words=chosen,
