@@ -86,3 +86,33 @@ This proves that an **arbitrary integral signed/additive readout of a TU source 
 A sufficient extension beyond coordinate projections is available if stacking the actual readout rows below the TU equation matrix still gives a TU matrix (including the bound rows): then every integral lattice point of \(kW(P)\) has an integral lift through the bounded augmented system, and the same full-source decomposition proves IDP of \(W(P)\). This is a **sufficient** condition, not asserted necessary.
 
 For native signed-Port/Link reductions, it is essential to distinguish the three different sets: (i) integer full-source configurations, (ii) integer **attainable** observer signatures, and (iii) all integer points in the continuous observer image. Equalities of (i) and (ii) under scale do not imply equality with (iii) unless a separate integral-lift theorem applies.
+
+
+### Even 0/1 observer weights suffice (a named-source duplication witness)
+
+The preceding readout \(W\) had an entry \(2\), which could obscure the true boundary. The same Reeve phenomenon occurs when **every named observer coefficient is \(0\) or \(1\)**. Introduce two distinct named copies \(z_4,z_5\) constrained to equal \(x_4\). Let \(P'\subset[0,1]^6\), with variable order \((x_1,x_2,x_3,x_4,z_4,z_5)\), be defined by the integral equality system
+\[
+A'=\begin{pmatrix}
+1&1&1&1&0&0\\
+0&0&0&-1&1&0\\
+0&0&0&-1&0&1
+\end{pmatrix},\qquad A'v=(1,0,0)^\mathsf T.
+\]
+The six columns of \(A'\) are three repetitions of \(e_1\), followed by \(e_1-e_2-e_3,e_2,e_3\). Any square minor has determinant \(0,\pm1\) (in particular, the 83 square minors across orders 1–3 were all checked by exact integer arithmetic), so \(A'\) is TU. The lattice points of \(P'\) are precisely the four lifted simplex vertices, the fourth having \(x_4=z_4=z_5=1\).
+
+Use the **0/1-valued** linear readout
+\[
+W'=\begin{pmatrix}
+0&1&0&1&0&0\\
+0&0&1&1&0&0\\
+0&0&0&0&1&1
+\end{pmatrix}.
+\]
+The four vertex images are again \(0,(1,0,0),(0,1,0),(1,1,2)\), hence \(W'(P')=P_R\). The lattice value \((1,1,1)\in 2W'(P')\) still has no lifted **integer** aggregate in \(2P'\). The two replicated named witnesses contribute height \(2\), despite every individual readout weight being only \(0\) or \(1\).
+
+Precisely as expected, stacking the observation rows destroys TU. Rows 2,3 of \(A'\) and row 3 of \(W'\), restricted to columns \((x_4,z_4,z_5)\), give
+\[
+\begin{pmatrix}-1&1&0\\-1&0&1\\0&1&1\end{pmatrix},
+\qquad\det=2.
+\]
+Thus **even nonnegative unit observation weights** do not ensure that a TU source remains integral after readout; the structural augmented-matrix or fiber-integrality condition must be checked. This counterexample has separately named copies and keeps their equality provenance explicit; it does not identify distinct sources or assert any native-X6 correspondence.
