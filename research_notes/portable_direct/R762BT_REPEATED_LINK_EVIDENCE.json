@@ -1,0 +1,335 @@
+{
+  "schema": "EM_R762BT_REPEATED_LINK_EXACT_CERTIFICATE_V1",
+  "model": "CONDITIONAL_TWO_DIRECTED_TRIADS_FIXED_ARROW_1_TO_2",
+  "source_branch_count": 40,
+  "conditioned_branches": 8,
+  "distinct_truth_sets": 16,
+  "informative_named_link_queries": 20,
+  "bipartite_graph": "K4,4",
+  "nonnegative_integer_repetition_allowed": true,
+  "repeated_query_error_semantics": "ONE_ADVERSARIAL_BIT_FLIP_PER_RECORDED_QUERY_CALL",
+  "finite_simple_panels_examined": 65536,
+  "finite_simple_panel_base_optima": [
+    {
+      "distance": 1,
+      "min_calls": 5,
+      "number_of_simple_optima": 672
+    },
+    {
+      "distance": 2,
+      "min_calls": 6,
+      "number_of_simple_optima": 16
+    },
+    {
+      "distance": 3,
+      "min_calls": 10,
+      "number_of_simple_optima": 264
+    },
+    {
+      "distance": 4,
+      "min_calls": 12,
+      "number_of_simple_optima": 60
+    },
+    {
+      "distance": 5,
+      "min_calls": 15,
+      "number_of_simple_optima": 16
+    },
+    {
+      "distance": 6,
+      "min_calls": 16,
+      "number_of_simple_optima": 1
+    }
+  ],
+  "constructive_exact_checks": 120,
+  "constructive_examples": [
+    {
+      "required_distance": 1,
+      "query_count": 5,
+      "minimum_distance": 1,
+      "cross_distance": 1,
+      "same_side_distance": 1
+    },
+    {
+      "required_distance": 2,
+      "query_count": 6,
+      "minimum_distance": 2,
+      "cross_distance": 2,
+      "same_side_distance": 2
+    },
+    {
+      "required_distance": 3,
+      "query_count": 10,
+      "minimum_distance": 3,
+      "cross_distance": 3,
+      "same_side_distance": 4
+    },
+    {
+      "required_distance": 4,
+      "query_count": 12,
+      "minimum_distance": 4,
+      "cross_distance": 4,
+      "same_side_distance": 6
+    },
+    {
+      "required_distance": 5,
+      "query_count": 15,
+      "minimum_distance": 5,
+      "cross_distance": 5,
+      "same_side_distance": 7
+    },
+    {
+      "required_distance": 6,
+      "query_count": 16,
+      "minimum_distance": 6,
+      "cross_distance": 6,
+      "same_side_distance": 8
+    },
+    {
+      "required_distance": 7,
+      "query_count": 20,
+      "minimum_distance": 7,
+      "cross_distance": 7,
+      "same_side_distance": 8
+    },
+    {
+      "required_distance": 8,
+      "query_count": 22,
+      "minimum_distance": 8,
+      "cross_distance": 8,
+      "same_side_distance": 10
+    },
+    {
+      "required_distance": 9,
+      "query_count": 26,
+      "minimum_distance": 9,
+      "cross_distance": 9,
+      "same_side_distance": 12
+    },
+    {
+      "required_distance": 10,
+      "query_count": 28,
+      "minimum_distance": 10,
+      "cross_distance": 10,
+      "same_side_distance": 14
+    },
+    {
+      "required_distance": 11,
+      "query_count": 31,
+      "minimum_distance": 11,
+      "cross_distance": 11,
+      "same_side_distance": 15
+    },
+    {
+      "required_distance": 12,
+      "query_count": 32,
+      "minimum_distance": 12,
+      "cross_distance": 12,
+      "same_side_distance": 16
+    },
+    {
+      "required_distance": 13,
+      "query_count": 36,
+      "minimum_distance": 13,
+      "cross_distance": 13,
+      "same_side_distance": 16
+    },
+    {
+      "required_distance": 14,
+      "query_count": 38,
+      "minimum_distance": 14,
+      "cross_distance": 14,
+      "same_side_distance": 18
+    },
+    {
+      "required_distance": 15,
+      "query_count": 42,
+      "minimum_distance": 15,
+      "cross_distance": 15,
+      "same_side_distance": 20
+    },
+    {
+      "required_distance": 16,
+      "query_count": 44,
+      "minimum_distance": 16,
+      "cross_distance": 16,
+      "same_side_distance": 22
+    },
+    {
+      "required_distance": 17,
+      "query_count": 47,
+      "minimum_distance": 17,
+      "cross_distance": 17,
+      "same_side_distance": 23
+    },
+    {
+      "required_distance": 18,
+      "query_count": 48,
+      "minimum_distance": 18,
+      "cross_distance": 18,
+      "same_side_distance": 24
+    }
+  ],
+  "repeated_seven_distance_named_witness": [
+    {
+      "name": "2->3",
+      "repetitions": 2
+    },
+    {
+      "name": "5->6",
+      "repetitions": 2
+    },
+    {
+      "name": "6->4",
+      "repetitions": 2
+    },
+    {
+      "name": "4->5",
+      "repetitions": 2
+    },
+    {
+      "name": "6->5",
+      "repetitions": 1
+    },
+    {
+      "name": "2->4",
+      "repetitions": 1
+    },
+    {
+      "name": "3->6",
+      "repetitions": 1
+    },
+    {
+      "name": "5->3",
+      "repetitions": 1
+    },
+    {
+      "name": "4->6",
+      "repetitions": 1
+    },
+    {
+      "name": "6->3",
+      "repetitions": 1
+    },
+    {
+      "name": "2->5",
+      "repetitions": 1
+    },
+    {
+      "name": "3->4",
+      "repetitions": 1
+    },
+    {
+      "name": "5->4",
+      "repetitions": 1
+    },
+    {
+      "name": "3->5",
+      "repetitions": 1
+    },
+    {
+      "name": "4->3",
+      "repetitions": 1
+    },
+    {
+      "name": "2->6",
+      "repetitions": 1
+    }
+  ],
+  "signed_fault_budgets": [
+    {
+      "adversarial_flips": 0,
+      "distance": 1,
+      "repeated_link_calls": 5,
+      "repeated_sign_calls": 4,
+      "total_atomic_calls": 9
+    },
+    {
+      "adversarial_flips": 1,
+      "distance": 3,
+      "repeated_link_calls": 10,
+      "repeated_sign_calls": 12,
+      "total_atomic_calls": 22
+    },
+    {
+      "adversarial_flips": 2,
+      "distance": 5,
+      "repeated_link_calls": 15,
+      "repeated_sign_calls": 20,
+      "total_atomic_calls": 35
+    },
+    {
+      "adversarial_flips": 3,
+      "distance": 7,
+      "repeated_link_calls": 20,
+      "repeated_sign_calls": 28,
+      "total_atomic_calls": 48
+    },
+    {
+      "adversarial_flips": 4,
+      "distance": 9,
+      "repeated_link_calls": 26,
+      "repeated_sign_calls": 36,
+      "total_atomic_calls": 62
+    },
+    {
+      "adversarial_flips": 5,
+      "distance": 11,
+      "repeated_link_calls": 31,
+      "repeated_sign_calls": 44,
+      "total_atomic_calls": 75
+    },
+    {
+      "adversarial_flips": 6,
+      "distance": 13,
+      "repeated_link_calls": 36,
+      "repeated_sign_calls": 52,
+      "total_atomic_calls": 88
+    },
+    {
+      "adversarial_flips": 7,
+      "distance": 15,
+      "repeated_link_calls": 42,
+      "repeated_sign_calls": 60,
+      "total_atomic_calls": 102
+    },
+    {
+      "adversarial_flips": 8,
+      "distance": 17,
+      "repeated_link_calls": 47,
+      "repeated_sign_calls": 68,
+      "total_atomic_calls": 115
+    },
+    {
+      "adversarial_flips": 9,
+      "distance": 19,
+      "repeated_link_calls": 52,
+      "repeated_sign_calls": 76,
+      "total_atomic_calls": 128
+    },
+    {
+      "adversarial_flips": 10,
+      "distance": 21,
+      "repeated_link_calls": 58,
+      "repeated_sign_calls": 84,
+      "total_atomic_calls": 142
+    },
+    {
+      "adversarial_flips": 11,
+      "distance": 23,
+      "repeated_link_calls": 63,
+      "repeated_sign_calls": 92,
+      "total_atomic_calls": 155
+    },
+    {
+      "adversarial_flips": 12,
+      "distance": 25,
+      "repeated_link_calls": 68,
+      "repeated_sign_calls": 100,
+      "total_atomic_calls": 168
+    }
+  ],
+  "proof_scope": "ALL_INTEGER_DISTANCES_Q_AT_LEAST_ONE_BY_ANALYTIC_LOWER_BOUND_AND_CONSTRUCTION",
+  "native_closure_event_permission": "UNRESOLVED",
+  "independent_review": "NOT_REVIEWED"
+}
