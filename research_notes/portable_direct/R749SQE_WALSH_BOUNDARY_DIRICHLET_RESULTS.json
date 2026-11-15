@@ -1,0 +1,151 @@
+{
+  "schema": "R749SQE_WALSH_BOUNDARY_DIRICHLET_V1",
+  "status": "PASS",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": "R749SQB PR 2487 / R749SQC-SQD PR 2488",
+  "model": "frozen 16-atom auxiliary Walsh, t=1/10 s=1/2",
+  "arithmetic": "exact Python integers/Fraction, no floating arithmetic",
+  "alphabet_counts": {
+    "first_grid": 33,
+    "forced": 25,
+    "positive_slack": 23,
+    "simplex_barycentric": 24
+  },
+  "slack_multiplicities": {
+    "1": 3,
+    "2": 4,
+    "3": 6,
+    "4": 4,
+    "5": 3,
+    "6": 2,
+    "7": 1
+  },
+  "limiting_moments": {
+    "mean_A0": "379/630",
+    "mean_A1": "1481/2520",
+    "mean_K": "1/72",
+    "var_A0": "1489163/158760000",
+    "var_A1": "752929/79380000",
+    "var_K": "23/129600",
+    "cov_A0_A1": "1483423/158760000",
+    "cov_A0_K": "41/1134000",
+    "cov_A1_K": "-641/4536000"
+  },
+  "moment_cases": [
+    {
+      "r": 1,
+      "C_r": "1",
+      "T_r": "0",
+      "E_A0_over_r": "0",
+      "E_A1_over_r": "0",
+      "E_K_over_r": "0"
+    },
+    {
+      "r": 2,
+      "C_r": "4",
+      "T_r": "0",
+      "E_A0_over_r": "3/8",
+      "E_A1_over_r": "3/8",
+      "E_K_over_r": "0"
+    },
+    {
+      "r": 3,
+      "C_r": "14",
+      "T_r": "0",
+      "E_A0_over_r": "19/42",
+      "E_A1_over_r": "19/42",
+      "E_K_over_r": "0"
+    },
+    {
+      "r": 4,
+      "C_r": "42",
+      "T_r": "1",
+      "E_A0_over_r": "1/2",
+      "E_A1_over_r": "83/168",
+      "E_K_over_r": "1/168"
+    },
+    {
+      "r": 5,
+      "C_r": "113",
+      "T_r": "4",
+      "E_A0_over_r": "59/113",
+      "E_A1_over_r": "291/565",
+      "E_K_over_r": "4/565"
+    },
+    {
+      "r": 6,
+      "C_r": "279",
+      "T_r": "14",
+      "E_A0_over_r": "301/558",
+      "E_A1_over_r": "889/1674",
+      "E_K_over_r": "7/837"
+    },
+    {
+      "r": 7,
+      "C_r": "651",
+      "T_r": "43",
+      "E_A0_over_r": "358/651",
+      "E_A1_over_r": "821/1519",
+      "E_K_over_r": "43/4557"
+    },
+    {
+      "r": 8,
+      "C_r": "1437",
+      "T_r": "117",
+      "E_A0_over_r": "2139/3832",
+      "E_A1_over_r": "525/958",
+      "E_K_over_r": "39/3832"
+    },
+    {
+      "r": 9,
+      "C_r": "3040",
+      "T_r": "293",
+      "E_A0_over_r": "3859/6840",
+      "E_A1_over_r": "797/1440",
+      "E_K_over_r": "293/27360"
+    },
+    {
+      "r": 10,
+      "C_r": "6193",
+      "T_r": "694",
+      "E_A0_over_r": "3524/6193",
+      "E_A1_over_r": "17273/30965",
+      "E_K_over_r": "347/30965"
+    },
+    {
+      "r": 20,
+      "C_r": "1977378",
+      "T_r": "520686",
+      "E_A0_over_r": "11641417/19773780",
+      "E_A1_over_r": "5690537/9886890",
+      "E_K_over_r": "86781/6591260"
+    },
+    {
+      "r": 40,
+      "C_r": "5290849536",
+      "T_r": "2942976197",
+      "E_A0_over_r": "126302954117/211633981440",
+      "E_A1_over_r": "128499977/220452064",
+      "E_K_over_r": "420425171/30233425920"
+    },
+    {
+      "r": 80,
+      "C_r": "134118393448996",
+      "T_r": "151020869996155",
+      "E_A0_over_r": "6436448867517697/10729471475919680",
+      "E_A1_over_r": "3142713998760771/5364735737959840",
+      "E_K_over_r": "30204173999231/2145894295183936"
+    },
+    {
+      "r": 120,
+      "C_r": "132664091049253744",
+      "T_r": "223993947949123557",
+      "E_A0_over_r": "398433622959143743/663320455246268720",
+      "E_A1_over_r": "622560866871355085/1061312728394029952",
+      "E_K_over_r": "74664649316374519/5306563641970149760"
+    }
+  ],
+  "independent_checks": "two distinct finite graded algorithms agree for slack degrees 0..9 on all nine count/moment statistics",
+  "theorem_proof": "Riemann-sum equidistribution on 23-dimensional rational simplex; not inferred from finite checks",
+  "review": "AUTHOR_EXACT_NOT_REVIEWED"
+}
