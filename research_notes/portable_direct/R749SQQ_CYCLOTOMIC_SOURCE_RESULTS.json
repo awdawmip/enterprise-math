@@ -1,0 +1,189 @@
+{
+  "status": "PASS",
+  "model": "labeled nonnegative multiplicities, sum(s_i k_i)<=r-1",
+  "arithmetic": "exact Python integers and fractions",
+  "inputs_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "checks": {
+    "independent_enumerations": 64,
+    "source_deletion_equalities": 48002,
+    "smooth_coefficient_assertions": 2,
+    "oscillatory_amplitude_assertions": 2
+  },
+  "max_r": 24001,
+  "results": [
+    {
+      "case": "order5",
+      "weights": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        3
+      ],
+      "d": 7,
+      "q": 5,
+      "max_nontrivial_pole_order": 3,
+      "smooth_coefficients": [
+        "1/8",
+        "3/16",
+        "-119/96",
+        "1309/192",
+        "-18599/384",
+        "296989/768"
+      ],
+      "parity_amplitude": "945/32",
+      "r_samples": [
+        {
+          "r": 500,
+          "exact_scaled_residual": "4283003694730873/196844959060224",
+          "predicted_periodic_lead": "945/32",
+          "exact_difference": "-1530074002516367/196844959060224"
+        },
+        {
+          "r": 501,
+          "exact_scaled_residual": "-55517262601307773/1596697356557568",
+          "predicted_periodic_lead": "-945/32",
+          "exact_difference": "-8364793790467093/1596697356557568"
+        },
+        {
+          "r": 1000,
+          "exact_scaled_residual": "84299245629121103/3292133635358464",
+          "predicted_periodic_lead": "945/32",
+          "exact_difference": "-12921575790058537/3292133635358464"
+        },
+        {
+          "r": 1001,
+          "exact_scaled_residual": "-79993521914445601/2486340971915520",
+          "predicted_periodic_lead": "-945/32",
+          "exact_difference": "-6568765087565401/2486340971915520"
+        },
+        {
+          "r": 4000,
+          "exact_scaled_residual": "1495188931245296731/52384234268048128",
+          "predicted_periodic_lead": "945/32",
+          "exact_difference": "-51782986982999549/52384234268048128"
+        },
+        {
+          "r": 4001,
+          "exact_scaled_residual": "-66023273679933989/2186493727796480",
+          "predicted_periodic_lead": "-945/32",
+          "exact_difference": "-1453380780944189/2186493727796480"
+        },
+        {
+          "r": 12000,
+          "exact_scaled_residual": "49960406328024545244853/1710902437541308126464",
+          "predicted_periodic_lead": "945/32",
+          "exact_difference": "-564681280617210364787/1710902437541308126464"
+        },
+        {
+          "r": 12001,
+          "exact_scaled_residual": "-23745641612899709816005/798088697502658002176",
+          "predicted_periodic_lead": "-945/32",
+          "exact_difference": "-177084764774340689245/798088697502658002176"
+        },
+        {
+          "r": 24000,
+          "exact_scaled_residual": "535196510132693310601951/18224942177158757023488",
+          "predicted_periodic_lead": "945/32",
+          "exact_difference": "-3008813536526232747929/18224942177158757023488"
+        },
+        {
+          "r": 24001,
+          "exact_scaled_residual": "-108023092025966601683115/3644229331678292685568",
+          "predicted_periodic_lead": "-945/32",
+          "exact_difference": "-404444574842020812435/3644229331678292685568"
+        }
+      ]
+    },
+    {
+      "case": "order6",
+      "weights": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        5
+      ],
+      "d": 7,
+      "q": 6,
+      "max_nontrivial_pole_order": 2,
+      "smooth_coefficients": [
+        "1/8",
+        "3/8",
+        "-133/48",
+        "931/48",
+        "-16583/96",
+        "165767/96",
+        "-10655477/576"
+      ],
+      "parity_amplitude": "4725/32",
+      "r_samples": [
+        {
+          "r": 500,
+          "exact_scaled_residual": "524268287811038701/964520522791488",
+          "predicted_periodic_lead": "4725/32",
+          "exact_difference": "381850804367608051/964520522791488"
+        },
+        {
+          "r": 501,
+          "exact_scaled_residual": "262132386698551481/977917636383552",
+          "predicted_periodic_lead": "-4725/32",
+          "exact_difference": "406528037695810331/977917636383552"
+        },
+        {
+          "r": 1000,
+          "exact_scaled_residual": "1370218573164982637/3944614385134656",
+          "predicted_periodic_lead": "4725/32",
+          "exact_difference": "787771605359943587/3944614385134656"
+        },
+        {
+          "r": 1001,
+          "exact_scaled_residual": "1963522119344549869/31466615890417920",
+          "predicted_periodic_lead": "-4725/32",
+          "exact_difference": "6609764621914070869/31466615890417920"
+        },
+        {
+          "r": 4000,
+          "exact_scaled_residual": "14025222562808188464229/70833558056665292352",
+          "predicted_periodic_lead": "4725/32",
+          "exact_difference": "3566205006003703890379/70833558056665292352"
+        },
+        {
+          "r": 4001,
+          "exact_scaled_residual": "-26741201341087864775657/282562476074752559040",
+          "predicted_periodic_lead": "-4725/32",
+          "exact_difference": "14980914266824817770093/282562476074752559040"
+        },
+        {
+          "r": 12000,
+          "exact_scaled_residual": "12529394148131279662140433/76144671796283826525504",
+          "predicted_periodic_lead": "4725/32",
+          "exact_difference": "1286157453211245901733983/76144671796283826525504"
+        },
+        {
+          "r": 12001,
+          "exact_scaled_residual": "-1908987411671944410797839/14686264136590066384704",
+          "predicted_periodic_lead": "-4725/32",
+          "exact_difference": "259531277246432578818611/14686264136590066384704"
+        },
+        {
+          "r": 24000,
+          "exact_scaled_residual": "6832737643325590244843238497/43769933575444731416406336",
+          "predicted_periodic_lead": "4725/32",
+          "exact_difference": "369833388826329121639490447/43769933575444731416406336"
+        },
+        {
+          "r": 24001,
+          "exact_scaled_residual": "-303810329115673675854487091/2188587737022803965901376",
+          "predicted_periodic_lead": "-4725/32",
+          "exact_difference": "19348328929099722235637959/2188587737022803965901376"
+        }
+      ]
+    }
+  ],
+  "verification_scope": "finite arithmetic checks; all-r asymptotics rely on the paper pole proof"
+}
