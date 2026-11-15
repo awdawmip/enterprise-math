@@ -2455,6 +2455,44 @@
       "repairs_event_id": null,
       "state": "EM_REPRESENTED",
       "notes": "Source-level actual secondary attestor glob completeness repair; local synthetic witness PASS normal/-O; original R063 native 17-gate/512-case replay NOT_EXECUTED; UNREVIEWED/NOT_ADMITTED."
+    },
+    {
+      "event_id": "onhour-20261116-0631-x6-r063-native-sixblob-unit50-v1",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "59661270bb90039ba325f9d8bb503d80bad323e4",
+          "path": "research_checks/X6_R063_ORIGINAL_SIX_BLOB_NATIVE_REPLAY_20261116_0631_MANIFEST.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "58e94bd62a8fe9fadddda0aa8c59c3f48e790ef9",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/59661270bb90039ba325f9d8bb503d80bad323e4/research_checks/X6_R063_ORIGINAL_SIX_BLOB_NATIVE_REPLAY_20261116_0631_MANIFEST.json",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "441042862a2c29496d4e86926c23218a32c015e5",
+          "path": "research_notes/X6_R063_ORIGINAL_SIX_BLOB_NATIVE_REPLAY_20261116_0631_REPORT.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "0494585a4542a722d836c8e781d935ab9ca6ca96",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/441042862a2c29496d4e86926c23218a32c015e5/research_notes/X6_R063_ORIGINAL_SIX_BLOB_NATIVE_REPLAY_20261116_0631_REPORT.md",
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/59661270bb90039ba325f9d8bb503d80bad323e4/research_checks/X6_R063_ORIGINAL_SIX_BLOB_NATIVE_REPLAY_20261116_0631_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/441042862a2c29496d4e86926c23218a32c015e5/research_notes/X6_R063_ORIGINAL_SIX_BLOB_NATIVE_REPLAY_20261116_0631_REPORT.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED",
+      "notes": "Unit50 actual byte-verified original six-file R063 Stage0 program executed local Python exit=0, 17/17 gates, 512/512 r-range, C3/C4 mismatches=0, discovery and rows digests match, original 13 output bytes hashed. Original positive two-generator scope only. Exact local 22-entry evidence archive preserved; author-executed UNREVIEWED/NOT_ADMITTED. Native Source semantic PROGRESS independent."
     }
   ],
   "mode": "TASK_RESEARCH",
