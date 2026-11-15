@@ -1,0 +1,254 @@
+{
+  "status": "PASS",
+  "model": "positive labeled source alphabet, strict prefix sum <= r-1",
+  "source_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "source_weights": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ],
+  "mark_indices_checked": [
+    0,
+    2,
+    3,
+    4
+  ],
+  "smooth_coefficients_by_mark": {
+    "0": [
+      "1/6",
+      "1/2",
+      "-115/36",
+      "115/6",
+      "-16315/108"
+    ],
+    "2": [
+      "1/6",
+      "0",
+      "-35/18",
+      "35/3",
+      "-4625/54"
+    ],
+    "3": [
+      "1/6",
+      "-1/2",
+      "5/36",
+      "-5/6",
+      "2165/108"
+    ],
+    "4": [
+      "1/6",
+      "-2",
+      "205/18",
+      "-205/3",
+      "28015/54"
+    ]
+  },
+  "phase_1_by_mod_6": [
+    "455/36",
+    "-295/36",
+    "-25/36",
+    "185/36",
+    "-25/36",
+    "-295/36"
+  ],
+  "phase_1_two_step_by_mod_6": [
+    [
+      "455/36",
+      "-295/36"
+    ],
+    [
+      "-295/36",
+      "-25/36"
+    ],
+    [
+      "-25/36",
+      "185/36"
+    ],
+    [
+      "185/36",
+      "-25/36"
+    ],
+    [
+      "-25/36",
+      "-295/36"
+    ],
+    [
+      "-295/36",
+      "455/36"
+    ]
+  ],
+  "phase_by_mark": {
+    "0": [
+      "455/36",
+      "-295/36",
+      "-25/36",
+      "185/36",
+      "-25/36",
+      "-295/36"
+    ],
+    "2": [
+      "25/18",
+      "55/18",
+      "-215/18",
+      "295/18",
+      "-215/18",
+      "55/18"
+    ],
+    "3": [
+      "-505/36",
+      "185/36",
+      "455/36",
+      "-775/36",
+      "455/36",
+      "185/36"
+    ],
+    "4": [
+      "-455/18",
+      "295/18",
+      "25/18",
+      "-185/18",
+      "25/18",
+      "295/18"
+    ]
+  },
+  "checks": {
+    "independent_small_r": 32,
+    "marked_deletion": 4000,
+    "periodic_pattern": 24,
+    "two_step_distinct": 6,
+    "difference_decompositions": 24
+  },
+  "largest_exact_prefix": 6005,
+  "samples": [
+    {
+      "r": 120,
+      "phase_class": 0,
+      "predicted_scaled_residual": "455/36",
+      "scaled_residual_error": "11126825/1285362",
+      "numeric_error": 8.656569122161695
+    },
+    {
+      "r": 121,
+      "phase_class": 1,
+      "predicted_scaled_residual": "-295/36",
+      "scaled_residual_error": "11353259/972540",
+      "numeric_error": 11.673822156415161
+    },
+    {
+      "r": 122,
+      "phase_class": 2,
+      "predicted_scaled_residual": "-25/36",
+      "scaled_residual_error": "59972531/5563134",
+      "numeric_error": 10.780349889109269
+    },
+    {
+      "r": 123,
+      "phase_class": 3,
+      "predicted_scaled_residual": "185/36",
+      "scaled_residual_error": "108869071/11568204",
+      "numeric_error": 9.411060783506239
+    },
+    {
+      "r": 124,
+      "phase_class": 4,
+      "predicted_scaled_residual": "-25/36",
+      "scaled_residual_error": "28886197/3006018",
+      "numeric_error": 9.609455765068606
+    },
+    {
+      "r": 125,
+      "phase_class": 5,
+      "predicted_scaled_residual": "-295/36",
+      "scaled_residual_error": "12196775/1135836",
+      "numeric_error": 10.738147936850039
+    },
+    {
+      "r": 600,
+      "phase_class": 0,
+      "predicted_scaled_residual": "455/36",
+      "scaled_residual_error": "54348425/29745522",
+      "numeric_error": 1.8271128339922897
+    },
+    {
+      "r": 601,
+      "phase_class": 1,
+      "predicted_scaled_residual": "-295/36",
+      "scaled_residual_error": "3005428409/1199670804",
+      "numeric_error": 2.505210928680732
+    },
+    {
+      "r": 602,
+      "phase_class": 2,
+      "predicted_scaled_residual": "-25/36",
+      "scaled_residual_error": "1409433091/604792926",
+      "numeric_error": 2.3304391146268135
+    },
+    {
+      "r": 603,
+      "phase_class": 3,
+      "predicted_scaled_residual": "185/36",
+      "scaled_residual_error": "354600473/174223764",
+      "numeric_error": 2.035316336065383
+    },
+    {
+      "r": 604,
+      "phase_class": 4,
+      "predicted_scaled_residual": "-25/36",
+      "scaled_residual_error": "640121117/307403154",
+      "numeric_error": 2.082350518108217
+    },
+    {
+      "r": 605,
+      "phase_class": 5,
+      "predicted_scaled_residual": "-295/36",
+      "scaled_residual_error": "44776525/19072692",
+      "numeric_error": 2.3476772445127305
+    },
+    {
+      "r": 6000,
+      "phase_class": 0,
+      "predicted_scaled_residual": "455/36",
+      "scaled_residual_error": "49144675/265621302",
+      "numeric_error": 0.1850178228551865
+    },
+    {
+      "r": 6001,
+      "phase_class": 1,
+      "predicted_scaled_residual": "-295/36",
+      "scaled_residual_error": "27085188019/106337002284",
+      "numeric_error": 0.25471084793853904
+    },
+    {
+      "r": 6002,
+      "phase_class": 2,
+      "predicted_scaled_residual": "-25/36",
+      "scaled_residual_error": "138947196391/585340484886",
+      "numeric_error": 0.2373784147495985
+    },
+    {
+      "r": 6003,
+      "phase_class": 3,
+      "predicted_scaled_residual": "185/36",
+      "scaled_residual_error": "242936677511/1171655563068",
+      "numeric_error": 0.20734479071209816
+    },
+    {
+      "r": 6004,
+      "phase_class": 4,
+      "predicted_scaled_residual": "-25/36",
+      "scaled_residual_error": "62217271967/293157701334",
+      "numeric_error": 0.21223140884200994
+    },
+    {
+      "r": 6005,
+      "phase_class": 5,
+      "predicted_scaled_residual": "-295/36",
+      "scaled_residual_error": "11257141325/46944267876",
+      "numeric_error": 0.23979799524693732
+    }
+  ],
+  "math_proof_scope": "root-of-unity rational generating function proof in companion note; finite checks are supporting evidence",
+  "formal_review": "NOT_REVIEWED"
+}
