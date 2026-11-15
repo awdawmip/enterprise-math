@@ -1,0 +1,79 @@
+{
+  "schema": "X6_LP019_SIX_AXIS_RHO_G_L_G13_EXACT_AUTHOR_CERTIFICATE_V1",
+  "mother_task": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "frozen_P000_pin": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "population": "signed named native Z^6 Cell-relative displacement; exact norm G<=13",
+  "observer": "rho=z-min(z)*ones(6),G=sum(z_i^2),L=sum(abs(z_i))",
+  "path_observer": "natural strictly positive shortest native signed primitive-axis multinomial B=L!/prod(|z_i|!)",
+  "first_G_with_BRC_nonconstant_observer_fiber": 13,
+  "first_common_L": 7,
+  "BRC_values": [
+    630,
+    840
+  ],
+  "native_vectors_examined": 12277,
+  "distinct_observer_fibers": 11396,
+  "two_endpoint_fibers": 881,
+  "positive_BRC_nonconstant_fibers": 360,
+  "S6_orbits": [
+    {
+      "sorted_rho": [
+        0,
+        0,
+        1,
+        2,
+        2,
+        4
+      ],
+      "ordered_fibers": 180
+    },
+    {
+      "sorted_rho": [
+        0,
+        2,
+        2,
+        3,
+        4,
+        4
+      ],
+      "ordered_fibers": 180
+    }
+  ],
+  "first_difference_per_fiber": 210,
+  "sum_of_absolute_BRC_differences": 75600,
+  "sum_of_BRC_both_endpoints": 529200,
+  "exact_full_signed_ordered_enumeration": "all 7^6 vector candidates in [-3,3]^6; filter sum squares<=13; complete because 4^2>13",
+  "independent_methods": [
+    "direct ordered six-vector grouping",
+    "sorted multiset six-vector grouping",
+    "relative-depth t=1,2 pair generation"
+  ],
+  "execution_modes": [
+    "python3",
+    "python3 -O",
+    "python3 -OO"
+  ],
+  "result": "PASS, exit code zero in all three modes",
+  "rows_sha256": "06da3e155ede1dbdd02652aeffbc79a42e5ca58d0eb028b028e96294c9f1c45b",
+  "checker": {
+    "commit": "c844b56982b7352cb1c96455e22dd8eb9f871282",
+    "path": "research_checks/X6_LP019_SIX_AXIS_BRC_G13_PUBLIC_CHECK_20261116.py",
+    "git_blob_sha1": "3f8f62286772203be89ad866ea5b265127805e58",
+    "local_executed_sha256": "ee111f7ea3d974d6460fbcac24615d38f7bb56e3548b50745d9c64c69f11b873"
+  },
+  "proof": {
+    "commit": "da76c02f0f733fad050aeafbea901691c4436a11",
+    "path": "research_notes/X6_LP019_SIGNED_X6_RHO_G_L_SHARP_BRC_G13_THEOREM_20261116_0600.md",
+    "git_blob_sha1": "94c7aad4d63406712eeedbddec455fa4a520b11a"
+  },
+  "status": "AUTHOR_PROVED_EXACT_CHECK_PASS_UNREVIEWED_NOT_ADMITTED",
+  "native_source_semantic_progress": "NOT_YET_PUBLISHED",
+  "original_R063_frozen_17gate_512case_native_benchmark": "NOT_EXECUTED",
+  "outstanding": [
+    "own previous Native semantic unit49 must be reconciled from original resume request",
+    "historical actual LP011/LP019 wrong-caller provenance",
+    "28-LP full actual consumer closure",
+    "R063 native same-object benchmark support #2416",
+    "independent Driver REQUEST_REVISION"
+  ]
+}
