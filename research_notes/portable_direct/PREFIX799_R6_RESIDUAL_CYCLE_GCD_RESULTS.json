@@ -1,0 +1,41 @@
+{
+  "arithmetic": "exact Python integers",
+  "counters": {
+    "basepoint_assertions": 21492,
+    "capacity_cases": 206,
+    "explicit_saturation_counterexample_checks": 5,
+    "family_2x2_Kmax2_stride1": 1,
+    "family_2x3_Kmax1_stride1": 1,
+    "family_2x3_Kmax2_stride17": 1,
+    "family_3x3_Kmax1_stride29": 1,
+    "feasible_fibers": 4786,
+    "gcd_assertions": 19144,
+    "modular_assertions": 19144,
+    "reachability_checks": 5373,
+    "tables": 5373
+  },
+  "example": {
+    "actual_gcd": 2,
+    "attainable_Q": [
+      0,
+      2
+    ],
+    "graph": "two disjoint K_2,2 blocks in a 4x4 table",
+    "margins": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "structural_gcd": 1
+  },
+  "family_coverage": [
+    "all 2x2 capacity matrices with entries 0,1,2",
+    "all 2x3 capacity matrices with entries 0,1",
+    "2x3 capacity matrices with entries 0,1,2 at zero-based product-index multiples of 17",
+    "3x3 capacity matrices with entries 0,1 at zero-based product-index multiples of 29"
+  ],
+  "schema": "PREFIX799_RESIDUAL_CYCLE_GCD_CHECK_V1",
+  "status": "ALL_CHECKS_PASS PREFIX799 CAPACITY_AWARE_CYCLE_GCD",
+  "weight_patterns": 4
+}
