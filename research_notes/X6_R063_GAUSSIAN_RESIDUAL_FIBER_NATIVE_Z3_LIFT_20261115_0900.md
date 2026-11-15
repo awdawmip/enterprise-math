@@ -4,24 +4,21 @@
 
 ## New factorization-to-native theorem
 
-Fix a named signed native three-axis affine subtorsor with a genuine Cell anchor. For every nonnegative integer N define the signed integer pair fiber
-[
-R_2(M)={(a,b)inmathbb Z^2:a^2+b^2=M}.
-]
-Then the signed three-axis shell has an **exact disjoint residual decomposition**
-[
-R_3(N)=igsqcup_{c=-lfloorsqrt Nfloor}^{lfloorsqrt Nfloor}
- {(a,b,c):(a,b)in R_2(N-c^2)}.
-]
-Here c is an actual named signed third native coordinate, not an omitted or inferred zero. The positive shortest signed-axis word count at a native endpoint is
-[
-B_3(a,b,c)=
- {(|a|+|b|+|c|)!over |a|!,|b|!,|c|!}
- = { |a|+|b|choose |a|}{|a|+|b|+|c|choose |c|}.
-]
-Consequently the exact mass equals (sum_csum_{(a,b)in R_2(N-c^2)}B_3(a,b,c)), with explicit c and Gaussian factorization channel provenance. This is a constructive bridge from **general-norm Gaussian C4** to selected signed native three-axis path BRC; it does not assert that the original C3 square-only scaled lift already computes non-square residual fibers.
+Fix a named signed native three-axis affine subtorsor with a genuine Cell anchor. For every nonnegative integer N, let
 
-For M>0, factor M in ordinary integers. An odd exponent of any prime 3 mod 4 gives R2(M)=empty. For every 1 mod 4 prime p=x²+y² and exponent e, allocate between its conjugate Gaussian prime factors as (pi^jarpi^{e-j}) for j=0,...,e; p=2 contributes (1+i)^e; 3 mod 4 primes with even exponent contribute a scalar. Multiply and apply the four Gaussian units. Gaussian unique factorization proves completeness and absence of extra roots; deduplicate equal signed ordered pairs. For M=0 use {(0,0)}. Crucially, the factor search is at the Gaussian **prime** level, not a brute scan of the target equation a²+b²=M.
+`R2(M) = {(a,b) ∈ ℤ² : a²+b²=M}`.
+
+The native signed three-axis shell has the exact **disjoint** residual decomposition
+
+`R3(N) = ⨆_{c=-⌊√N⌋}^{⌊√N⌋} {(a,b,c) : (a,b) ∈ R2(N-c²)}`.
+
+Here c is the actual named signed third native coordinate; it is never an omitted coordinate or a coordinate assumed to be zero. The positive shortest signed-axis word count is
+
+`B3(a,b,c) = (|a|+|b|+|c|)!/(|a|!·|b|!·|c|!) = C(|a|+|b|, |a|) · C(|a|+|b|+|c|, |c|)`.
+
+Hence the exact BRC mass is the sum of `B3(a,b,c)` over all signed residual layers and their factorization-generated pair roots, preserving c, sign and provenance. This is a constructive bridge from **general-norm Gaussian C4** to selected signed native three-axis BRC; it does not imply that the old C3 square-only scaled lift computes nonsquare residuals.
+
+For M>0, factor M in ordinary integers. An odd exponent of any prime congruent to 3 modulo 4 gives `R2(M)=∅`. For every prime p congruent to 1 modulo 4, fix Gaussian prime `π=x+iy` of norm p and exponent e, allocating `π^j · conjugate(π)^(e-j)` for j=0,...,e. The factor p=2 contributes `(1+i)^e`, and primes congruent to 3 modulo 4 with even exponent contribute scalar factors. Multiply all factors, apply the four Gaussian units, and deduplicate signed ordered pairs. Gaussian unique factorization establishes completeness; each returned pair has norm M. For M=0 use `R2(0)={(0,0)}`. Searching a representation of each **Gaussian prime** is not a brute scan of the target equation `a²+b²=M`.
 
 ## New N=2500 residual-stratum certificate
 
@@ -43,9 +40,9 @@ The layer count identity is 20 + 2(4+8+16+12+8+12+4+1)=**150**. Summing exactly 
 
 ## Necessary non-square residuals: a quantitative C3-to-C4 obstruction
 
-Among the 17 signed third-coordinate layers, six have **non-square** residual norms: (c=\pm18,\pm24,\pm32). Their exact residuals are (2176,1924,1476), respectively. These six layers contain **64/150** signed native endpoints, with total shortest signed-word BRC mass **17907199673506715190850275622180431628800**. The other 86 endpoints occur at square residual norms. This classification was extracted from the actual factorization-first certificate and checked by exact `isqrt` comparisons against every returned layer.
+Among the 17 signed third-coordinate layers, six have **non-square** residual norms: c = ±18, ±24, ±32. Their exact residuals are 2176, 1924, 1476, respectively. These six layers contain **64/150** signed native endpoints, with total shortest signed-word BRC mass **17907199673506715190850275622180431628800**. The other 86 endpoints occur at square residual norms. This classification was extracted from the actual factorization-first certificate and checked by exact `isqrt` comparisons against every returned layer.
 
-For example ((18,24,40)) lies on (G=2500), but its fixed-third-coordinate (c=18) gives (24^2+40^2=2176\neq r^2) for any integer (r). The frozen R063 C3 scaled-square interface `discover_c3(r)` accepts integer radius (r) for a **square** target (r^2), whereas its `discover_c4(N)` and `gaussian_norm_root_set(M)` take general nonnegative integer norm arguments. Therefore simply ranging over c and invoking only square-input C3 leaves at least these 64 native endpoints ungenerated. Using the already-existing general-norm C4 Gaussian-factor construction at each residual (M=N-c^2) is sufficient for completeness of this selected native (Z^3) shell; path multiplication then proceeds through the explicitly typed binomial insertion factor. This is a certified **interface-domain obstruction**, not a claim that an old consumer actually made this mistaken promotion.
+For example the native triple `(18,24,40)` lies on `G=2500`, but its fixed-third-coordinate `c=18` gives `24²+40²=2176`, which is not any integer square `r²` for any integer `r`. The frozen R063 C3 scaled-square interface `discover_c3`r`` accepts integer radius `r` for a **square** target `r²`, whereas its `discover_c4(N)` and `gaussian_norm_root_set(M)` take general nonnegative integer norm arguments. Therefore simply ranging over c and invoking only square-input C3 leaves at least these 64 native endpoints ungenerated. Using the already-existing general-norm C4 Gaussian-factor construction at each residual `M=N-c²` is sufficient for completeness of this selected native `ℤ³` shell; path multiplication then proceeds through the explicitly typed binomial insertion factor. This is a certified **interface-domain obstruction**, not a claim that an old consumer actually made this mistaken promotion.
 
 ## Executed certificate and strict verification order
 
