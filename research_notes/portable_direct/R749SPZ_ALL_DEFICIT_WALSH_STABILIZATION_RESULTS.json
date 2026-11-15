@@ -1,0 +1,244 @@
+{
+  "schema": "R749SPZ_ALL_DEFICIT_BOUNDARY_SATURATION_V1",
+  "status": "PASS",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "auxiliary 16-atom Walsh optimal-center fiber; t=1/10,s=1/2",
+  "K_first_grid": 33,
+  "forced_types": 25,
+  "positive_deficit_types": 23,
+  "proved_symbolic_range": "all integers D>=2, all n>=2D-3 for signed profile and all n>=2D for mass; exact finite D computation via recurrence",
+  "computed_deficits": [
+    {
+      "D": 2,
+      "stabilized_from_n": 1,
+      "mass_saturated_from_n": 4,
+      "mass": 15,
+      "optional_count_sum": 1,
+      "byK": [
+        {
+          "optional_count": 0,
+          "patterns": 14,
+          "maximum_minimum_length": 4
+        },
+        {
+          "optional_count": 1,
+          "patterns": 1,
+          "maximum_minimum_length": 1
+        }
+      ],
+      "profile": [
+        [
+          -1,
+          -1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "D": 4,
+      "stabilized_from_n": 5,
+      "mass_saturated_from_n": 8,
+      "mass": 176,
+      "optional_count_sum": 16,
+      "byK": [
+        {
+          "optional_count": 0,
+          "patterns": 161,
+          "maximum_minimum_length": 8
+        },
+        {
+          "optional_count": 1,
+          "patterns": 14,
+          "maximum_minimum_length": 5
+        },
+        {
+          "optional_count": 2,
+          "patterns": 1,
+          "maximum_minimum_length": 2
+        }
+      ],
+      "profile": [
+        [
+          -3,
+          -4
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "D": 6,
+      "stabilized_from_n": 9,
+      "mass_saturated_from_n": 12,
+      "mass": 1468,
+      "optional_count_sum": 192,
+      "byK": [
+        {
+          "optional_count": 0,
+          "patterns": 1292,
+          "maximum_minimum_length": 12
+        },
+        {
+          "optional_count": 1,
+          "patterns": 161,
+          "maximum_minimum_length": 9
+        },
+        {
+          "optional_count": 2,
+          "patterns": 14,
+          "maximum_minimum_length": 6
+        },
+        {
+          "optional_count": 3,
+          "patterns": 1,
+          "maximum_minimum_length": 3
+        }
+      ],
+      "profile": [
+        [
+          -5,
+          -15
+        ],
+        [
+          -4,
+          -9
+        ],
+        [
+          -3,
+          -13
+        ],
+        [
+          -2,
+          3
+        ],
+        [
+          -1,
+          -6
+        ],
+        [
+          0,
+          18
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          3
+        ]
+      ]
+    },
+    {
+      "D": 8,
+      "stabilized_from_n": 13,
+      "mass_saturated_from_n": 16,
+      "mass": 9584,
+      "optional_count_sum": 1660,
+      "byK": [
+        {
+          "optional_count": 0,
+          "patterns": 8116,
+          "maximum_minimum_length": 16
+        },
+        {
+          "optional_count": 1,
+          "patterns": 1292,
+          "maximum_minimum_length": 13
+        },
+        {
+          "optional_count": 2,
+          "patterns": 161,
+          "maximum_minimum_length": 10
+        },
+        {
+          "optional_count": 3,
+          "patterns": 14,
+          "maximum_minimum_length": 7
+        },
+        {
+          "optional_count": 4,
+          "patterns": 1,
+          "maximum_minimum_length": 4
+        }
+      ],
+      "profile": [
+        [
+          -7,
+          -40
+        ],
+        [
+          -6,
+          -42
+        ],
+        [
+          -5,
+          -78
+        ],
+        [
+          -4,
+          -56
+        ],
+        [
+          -3,
+          -78
+        ],
+        [
+          -2,
+          17
+        ],
+        [
+          -1,
+          32
+        ],
+        [
+          0,
+          86
+        ],
+        [
+          1,
+          50
+        ],
+        [
+          2,
+          63
+        ],
+        [
+          3,
+          24
+        ],
+        [
+          4,
+          16
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          4
+        ]
+      ]
+    }
+  ],
+  "exact_conditional_TV_W1_at_D8": "83/(9584*n), n>=16",
+  "review": "AUTHOR_EXACT_NOT_REVIEWED"
+}
