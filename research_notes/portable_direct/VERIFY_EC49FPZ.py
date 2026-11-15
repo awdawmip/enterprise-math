@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """EC49FPZ: complete 14-knot native BRC finite Bellman audit; no floating point.
-Usage: python VERIFY_EC49FPY.py frozen_original_master.txt EC49FPG_PROFILE.csv EC49FPS_CONFIG_WEIGHTED_HALF_PRICE_CERT.json
+Usage: python VERIFY_EC49FPZ.py frozen_original_master.txt EC49FPG_PROFILE.csv EC49FPS_CONFIG_WEIGHTED_HALF_PRICE_CERT.json
 Exhausts all 420 native queries, 395 partition types, and all needed information states at 14 exact price knots.
 """
 import csv, hashlib, itertools, json, sys
