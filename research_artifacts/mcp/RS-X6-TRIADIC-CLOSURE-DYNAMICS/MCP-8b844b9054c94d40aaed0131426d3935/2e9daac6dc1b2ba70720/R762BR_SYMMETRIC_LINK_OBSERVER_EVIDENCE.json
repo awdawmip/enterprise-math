@@ -1,0 +1,260 @@
+{
+  "schema": "R762BR_EXACT_FINITE_BRC_INCIDENCE_V1",
+  "model": "conditional two ordered 3-cycles with Q_(1,2)=1, named Link Q_(a,b), hidden independent sign bits S_3..S_6",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "population": {
+    "all_oriented_triads": 40,
+    "conditional_link_fiber": 8,
+    "s4_permutations": 24,
+    "states": [
+      [
+        2,
+        3,
+        1,
+        5,
+        6,
+        4
+      ],
+      [
+        2,
+        3,
+        1,
+        6,
+        4,
+        5
+      ],
+      [
+        2,
+        4,
+        5,
+        1,
+        6,
+        3
+      ],
+      [
+        2,
+        4,
+        6,
+        1,
+        3,
+        5
+      ],
+      [
+        2,
+        5,
+        4,
+        6,
+        1,
+        3
+      ],
+      [
+        2,
+        5,
+        6,
+        3,
+        1,
+        4
+      ],
+      [
+        2,
+        6,
+        4,
+        5,
+        3,
+        1
+      ],
+      [
+        2,
+        6,
+        5,
+        3,
+        4,
+        1
+      ]
+    ]
+  },
+  "query_orbits": {
+    "A": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ]
+    ],
+    "B": [
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        1
+      ]
+    ],
+    "C": [
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        6,
+        5
+      ]
+    ]
+  },
+  "panel_results": {
+    "A": {
+      "named_queries": 4,
+      "distinct_words": 4,
+      "min_distance": 0,
+      "distance_histogram": {
+        "0": 4,
+        "2": 24
+      }
+    },
+    "B": {
+      "named_queries": 4,
+      "distinct_words": 4,
+      "min_distance": 0,
+      "distance_histogram": {
+        "0": 4,
+        "2": 24
+      }
+    },
+    "C": {
+      "named_queries": 12,
+      "distinct_words": 8,
+      "min_distance": 4,
+      "distance_histogram": {
+        "4": 12,
+        "6": 16
+      }
+    },
+    "AB": {
+      "named_queries": 8,
+      "distinct_words": 4,
+      "min_distance": 0,
+      "distance_histogram": {
+        "0": 4,
+        "4": 24
+      }
+    },
+    "AC": {
+      "named_queries": 16,
+      "distinct_words": 8,
+      "min_distance": 6,
+      "distance_histogram": {
+        "6": 16,
+        "8": 12
+      }
+    },
+    "BC": {
+      "named_queries": 16,
+      "distinct_words": 8,
+      "min_distance": 6,
+      "distance_histogram": {
+        "6": 16,
+        "8": 12
+      }
+    },
+    "ABC": {
+      "named_queries": 20,
+      "distinct_words": 8,
+      "min_distance": 6,
+      "distance_histogram": {
+        "6": 4,
+        "8": 12,
+        "10": 12
+      }
+    }
+  },
+  "signed": {
+    "no_errors": {
+      "panel": "C",
+      "sign_repetitions": 1,
+      "query_count": 16,
+      "min_distance": 1
+    },
+    "one_error": {
+      "panel": "C",
+      "sign_repetitions": 3,
+      "query_count": 24,
+      "min_distance": 3
+    },
+    "two_errors": {
+      "panel": "AC",
+      "sign_repetitions": 5,
+      "query_count": 36,
+      "min_distance": 5
+    }
+  },
+  "covariance_checks": 3840,
+  "coverage": {
+    "all_labelled_cycle_permutations": 720,
+    "all_conditional_states": 8,
+    "all_stabilizer_permutations": 24,
+    "all_s4_named_query_checks": 3840,
+    "signed_128_state_pairs_per_panel": 8128,
+    "sign_repeated_panels": 3
+  },
+  "independent_review": "NOT_REVIEWED"
+}
