@@ -1,0 +1,2081 @@
+{
+  "schema": "R762AX_TOKEN_FEASIBLE_PASS_CERT_V1",
+  "status": "PASS",
+  "date": "2026-11-15",
+  "model": "single-use directed cycle with sequential token enabling; conditional exact V23/V25/V29 positive typed BRC selector at integer n>=16",
+  "frozen_source": "enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "dependencies": [
+    "R762AU PR #2451@f42064096ba3014a63a8d75bbe9f4b7dcdaff447",
+    "R762AW PR #2458@a71f4f4d72a27a013f46f41f87d2cb9785dd3820"
+  ],
+  "theorem_general": "m>=2: q(K)=m!/product cyclic positive-support gap factorials; q=0 for empty support; every macro restores K; legal future word language depends minimally on support(K)",
+  "theorem_brc": "n>=16,r>=1: B_r^K(S)=B_1^K(S)q(K)^(r-1) for q>=1; C states B_r=q^r",
+  "exact_cycle_support_cases": 252,
+  "exact_resource_permutation_checks": 695480,
+  "conditional_first_macro_expansions": 360,
+  "triad_states": 20,
+  "cycle": [
+    "012",
+    "123",
+    "234",
+    "034",
+    "035",
+    "025"
+  ],
+  "phases": {
+    "0": {
+      "positive_support": [],
+      "q": 0,
+      "orders": [],
+      "one_macro": {
+        "123": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "124": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "125": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "134": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "135": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "145": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "234": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "235": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "245": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "345": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "012": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "013": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "014": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "015": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "023": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "024": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "025": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "034": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "035": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        },
+        "045": {
+          "B1": 0,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 0
+        }
+      }
+    },
+    "1": {
+      "positive_support": [
+        0
+      ],
+      "q": 1,
+      "orders": [
+        "012"
+      ],
+      "one_macro": {
+        "123": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "124": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "125": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "134": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "135": {
+          "B1": 2,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "distinct_state_paths": 2
+        },
+        "145": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "234": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "distinct_state_paths": 1
+        },
+        "235": {
+          "B1": 1,
+          "end_vector": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "245": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "345": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "012": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "013": {
+          "B1": 2,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "distinct_state_paths": 2
+        },
+        "014": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "015": {
+          "B1": 1,
+          "end_vector": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "023": {
+          "B1": 1,
+          "end_vector": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "024": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "025": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "034": {
+          "B1": 1,
+          "end_vector": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "035": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "045": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "distinct_state_paths": 1
+        }
+      }
+    },
+    "2": {
+      "positive_support": [
+        1
+      ],
+      "q": 1,
+      "orders": [
+        "120"
+      ],
+      "one_macro": {
+        "123": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "124": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "125": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "134": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "135": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "distinct_state_paths": 1
+        },
+        "145": {
+          "B1": 1,
+          "end_vector": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "234": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "distinct_state_paths": 1
+        },
+        "235": {
+          "B1": 2,
+          "end_vector": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "245": {
+          "B1": 2,
+          "end_vector": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "345": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "012": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "013": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "014": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "015": {
+          "B1": 1,
+          "end_vector": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "023": {
+          "B1": 1,
+          "end_vector": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "024": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "025": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "034": {
+          "B1": 1,
+          "end_vector": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "035": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "045": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "distinct_state_paths": 1
+        }
+      }
+    },
+    "3": {
+      "positive_support": [
+        0,
+        1
+      ],
+      "q": 3,
+      "orders": [
+        "012",
+        "102",
+        "120"
+      ],
+      "one_macro": {
+        "123": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "124": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "125": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "134": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "135": {
+          "B1": 5,
+          "end_vector": [
+            0,
+            0,
+            2,
+            0,
+            0,
+            3
+          ],
+          "distinct_state_paths": 2
+        },
+        "145": {
+          "B1": 3,
+          "end_vector": [
+            2,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "234": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          "distinct_state_paths": 1
+        },
+        "235": {
+          "B1": 5,
+          "end_vector": [
+            3,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "245": {
+          "B1": 4,
+          "end_vector": [
+            1,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "345": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "012": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "013": {
+          "B1": 4,
+          "end_vector": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            1
+          ],
+          "distinct_state_paths": 2
+        },
+        "014": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "015": {
+          "B1": 3,
+          "end_vector": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "023": {
+          "B1": 3,
+          "end_vector": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "024": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "025": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "034": {
+          "B1": 3,
+          "end_vector": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "035": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "045": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          "distinct_state_paths": 1
+        }
+      }
+    },
+    "4": {
+      "positive_support": [
+        2
+      ],
+      "q": 1,
+      "orders": [
+        "201"
+      ],
+      "one_macro": {
+        "123": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "124": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "125": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "134": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "135": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "distinct_state_paths": 1
+        },
+        "145": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "234": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "distinct_state_paths": 1
+        },
+        "235": {
+          "B1": 1,
+          "end_vector": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "245": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "345": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "012": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "013": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "014": {
+          "B1": 2,
+          "end_vector": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "015": {
+          "B1": 1,
+          "end_vector": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "023": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "024": {
+          "B1": 2,
+          "end_vector": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "025": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "034": {
+          "B1": 1,
+          "end_vector": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "035": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "045": {
+          "B1": 1,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "distinct_state_paths": 1
+        }
+      }
+    },
+    "5": {
+      "positive_support": [
+        0,
+        2
+      ],
+      "q": 3,
+      "orders": [
+        "012",
+        "021",
+        "201"
+      ],
+      "one_macro": {
+        "123": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "124": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "125": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "134": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "135": {
+          "B1": 4,
+          "end_vector": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            3
+          ],
+          "distinct_state_paths": 2
+        },
+        "145": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "234": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          "distinct_state_paths": 1
+        },
+        "235": {
+          "B1": 3,
+          "end_vector": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "245": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "345": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "012": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "013": {
+          "B1": 5,
+          "end_vector": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            2
+          ],
+          "distinct_state_paths": 2
+        },
+        "014": {
+          "B1": 5,
+          "end_vector": [
+            0,
+            3,
+            0,
+            0,
+            2,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "015": {
+          "B1": 3,
+          "end_vector": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "023": {
+          "B1": 3,
+          "end_vector": [
+            2,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "024": {
+          "B1": 4,
+          "end_vector": [
+            0,
+            1,
+            0,
+            0,
+            3,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "025": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "034": {
+          "B1": 3,
+          "end_vector": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "035": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "045": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          "distinct_state_paths": 1
+        }
+      }
+    },
+    "6": {
+      "positive_support": [
+        1,
+        2
+      ],
+      "q": 3,
+      "orders": [
+        "120",
+        "201",
+        "210"
+      ],
+      "one_macro": {
+        "123": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "124": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "125": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "134": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "135": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          "distinct_state_paths": 1
+        },
+        "145": {
+          "B1": 3,
+          "end_vector": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "234": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          "distinct_state_paths": 1
+        },
+        "235": {
+          "B1": 4,
+          "end_vector": [
+            3,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "245": {
+          "B1": 5,
+          "end_vector": [
+            2,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "345": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "012": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "013": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "014": {
+          "B1": 4,
+          "end_vector": [
+            0,
+            3,
+            0,
+            0,
+            1,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "015": {
+          "B1": 3,
+          "end_vector": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "023": {
+          "B1": 3,
+          "end_vector": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "024": {
+          "B1": 5,
+          "end_vector": [
+            0,
+            2,
+            0,
+            0,
+            3,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "025": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "034": {
+          "B1": 3,
+          "end_vector": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "035": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "045": {
+          "B1": 3,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          "distinct_state_paths": 1
+        }
+      }
+    },
+    "7": {
+      "positive_support": [
+        0,
+        1,
+        2
+      ],
+      "q": 6,
+      "orders": [
+        "012",
+        "021",
+        "102",
+        "120",
+        "201",
+        "210"
+      ],
+      "one_macro": {
+        "123": {
+          "B1": 6,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            6,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "124": {
+          "B1": 6,
+          "end_vector": [
+            0,
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "125": {
+          "B1": 6,
+          "end_vector": [
+            0,
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "134": {
+          "B1": 6,
+          "end_vector": [
+            0,
+            0,
+            0,
+            6,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "135": {
+          "B1": 8,
+          "end_vector": [
+            0,
+            0,
+            2,
+            0,
+            0,
+            6
+          ],
+          "distinct_state_paths": 2
+        },
+        "145": {
+          "B1": 6,
+          "end_vector": [
+            2,
+            0,
+            4,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "234": {
+          "B1": 6,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            6
+          ],
+          "distinct_state_paths": 1
+        },
+        "235": {
+          "B1": 8,
+          "end_vector": [
+            6,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "245": {
+          "B1": 8,
+          "end_vector": [
+            2,
+            0,
+            0,
+            6,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "345": {
+          "B1": 6,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            6,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "012": {
+          "B1": 6,
+          "end_vector": [
+            0,
+            0,
+            0,
+            6,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "013": {
+          "B1": 8,
+          "end_vector": [
+            0,
+            0,
+            6,
+            0,
+            0,
+            2
+          ],
+          "distinct_state_paths": 2
+        },
+        "014": {
+          "B1": 8,
+          "end_vector": [
+            0,
+            6,
+            0,
+            0,
+            2,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "015": {
+          "B1": 6,
+          "end_vector": [
+            6,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "023": {
+          "B1": 6,
+          "end_vector": [
+            4,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "024": {
+          "B1": 8,
+          "end_vector": [
+            0,
+            2,
+            0,
+            0,
+            6,
+            0
+          ],
+          "distinct_state_paths": 2
+        },
+        "025": {
+          "B1": 6,
+          "end_vector": [
+            0,
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "034": {
+          "B1": 6,
+          "end_vector": [
+            6,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "035": {
+          "B1": 6,
+          "end_vector": [
+            0,
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          "distinct_state_paths": 1
+        },
+        "045": {
+          "B1": 6,
+          "end_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            6
+          ],
+          "distinct_state_paths": 1
+        }
+      }
+    }
+  },
+  "independent_review": "NOT_REVIEWED",
+  "native_P000_event_admission": "OPEN",
+  "frame_transport_theorem": "For a fixed post-macro port permutation sigma and token inventory K, named macro-word count across r steps is product_{j=0}^{r-1} q_m(sigma^j K); periodic by the finite support orbit. This frame action is conditional, not a native P000 frame-port claim.",
+  "frame_transport_tests": 13128,
+  "frame_periodic_factorization_checks": 33792,
+  "maximal_support_period": 6,
+  "frame_witness": {
+    "m": 4,
+    "frame_permutation": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "initial_support": [
+      0,
+      1
+    ],
+    "q_cycle": [
+      4,
+      6
+    ],
+    "first_eight_counts": [
+      4,
+      24,
+      96,
+      576,
+      2304,
+      13824,
+      55296,
+      331776
+    ]
+  },
+  "exact_general_verification_scope": "m=2..7 resource permutations: 252 support cases and 695480 individual permutation checks; frame coupling m=4..5 all permutations/supports: 13128 support-orbit cases and 33792 horizon checks r=1..8; universal m and r follow proofs"
+}
