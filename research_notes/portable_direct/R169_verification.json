@@ -1,0 +1,112 @@
+{
+  "checks": {
+    "exhaustive_aliases": 41,
+    "exhaustive_suffix_cases": 1016,
+    "family_members": 54,
+    "precollision_prefixes": 405,
+    "zero_extension_cases": 306
+  },
+  "examples": [
+    {
+      "first_collision_after_appends": 2,
+      "k": 2,
+      "m": 7,
+      "max_additional_preserving_length": 1,
+      "signature": [
+        "1/3",
+        "1/2",
+        "2/3",
+        "0/1"
+      ],
+      "u": "0100101",
+      "v": "0101001"
+    },
+    {
+      "first_collision_after_appends": 3,
+      "k": 3,
+      "m": 9,
+      "max_additional_preserving_length": 2,
+      "signature": [
+        "1/4",
+        "1/3",
+        "3/4",
+        "1/3"
+      ],
+      "u": "010001001",
+      "v": "010010001"
+    },
+    {
+      "first_collision_after_appends": 4,
+      "k": 4,
+      "m": 11,
+      "max_additional_preserving_length": 3,
+      "signature": [
+        "1/5",
+        "1/4",
+        "4/5",
+        "1/2"
+      ],
+      "u": "01000010001",
+      "v": "01000100001"
+    },
+    {
+      "first_collision_after_appends": 5,
+      "k": 5,
+      "m": 13,
+      "max_additional_preserving_length": 4,
+      "signature": [
+        "1/6",
+        "1/5",
+        "5/6",
+        "3/5"
+      ],
+      "u": "0100000100001",
+      "v": "0100001000001"
+    },
+    {
+      "first_collision_after_appends": 6,
+      "k": 6,
+      "m": 15,
+      "max_additional_preserving_length": 5,
+      "signature": [
+        "1/7",
+        "1/6",
+        "6/7",
+        "2/3"
+      ],
+      "u": "010000001000001",
+      "v": "010000010000001"
+    },
+    {
+      "first_collision_after_appends": 7,
+      "k": 7,
+      "m": 17,
+      "max_additional_preserving_length": 6,
+      "signature": [
+        "1/8",
+        "1/7",
+        "7/8",
+        "5/7"
+      ],
+      "u": "01000000010000001",
+      "v": "01000000100000001"
+    }
+  ],
+  "exhaustive_suffix_length_range": [
+    0,
+    6
+  ],
+  "frozen_science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "k_exhaustive_suffix_range": [
+    2,
+    9
+  ],
+  "k_full_prefix_and_zero_range": [
+    2,
+    28
+  ],
+  "marker": "R169_NONCONSTANT_BIRTH_LIFESPAN_EXACT_PASS",
+  "method": "Exact Fraction O(n^2) strip-pair support oracle, all endpoint extrema",
+  "review": "AUTHOR_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+  "schema": "EM_R169_EXACT_REPRODUCIBILITY_V1"
+}
