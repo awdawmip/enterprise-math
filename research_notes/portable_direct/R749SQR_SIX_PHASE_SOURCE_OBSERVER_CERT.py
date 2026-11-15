@@ -110,7 +110,7 @@ def run():
     C,M=prefix_dp(S,MAX_R)
     checks={"marked_deletion":0,"independent_brute":0,
             "newton_full_grid":0,"smooth_coefficients":0,
-            "period_and_shift":0,"cyclotomic_amplitudes":0}
+            "period_and_shift":0,"cyclotomic_amplitudes":0,"slack_conservation":0}
     # Root A_{-1}=-1/256, A_{omega}=A_{omega^2}=-1/243.
     # d!W/(d+1)=7!*36/8=22680; marked source belongs to
     # root order -> multiplier ratio is -3 (m=2,d=7).
@@ -132,6 +132,11 @@ def run():
         for r in range(1,21):
             assert (C[r],M[m][r])==brute(S,r,m)
             checks["independent_brute"]+=1
+    # Add a unique weight-one slack variable q=r-1-sum_i s_i*k_i.
+    # Unit-source symmetry yields 4T1+2T2+2T3=(r-1)*C for every r.
+    for r in range(1,MAX_R+1):
+        assert 4*M[0][r]+4*M[3][r]+6*M[5][r]==(r-1)*C[r], r
+        checks["slack_conservation"]+=1
     # All-r theorem: proper rational generating functions have only
     # roots of orders 1,2,3; z=1 pole order 8 for C, order 9 for T.
     # Thus on each r=a+6*n, C is degree <=7 and T= h*M degree <=8.
@@ -175,6 +180,7 @@ def run():
             "analytic_validity":"all r>=0 by root-of-unity partial fractions; E_r defined r>=1",
             "finite_validation_range":[0,MAX_R],"checks":checks,
             "observer_weights":[1,2,3],
+            "exact_slack_identity":"4T1+2T2+2T3=(r-1)*C; 2E1+E2+E3=(r-1)/(2r)",
             "smooth_coefficients":{str(h):list(map(str,smooth[h])) for h in (1,2,3)},
             "periodic_amplitudes":{str(h):{"parity":str(F(2835,32)*(-3 if h==2 else 1)),
                                             "cubic":str(F(280,3)*(-3 if h==3 else 1))} for h in (1,2,3)},
