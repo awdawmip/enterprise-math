@@ -1,0 +1,80 @@
+{
+  "schema": "EC49FPM_UNRESTRICTED_GLOBAL_EXPECTATION_SUMMARY_V1",
+  "frozen_scientific_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "native_root_cost_csv_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "original_class_representative": 16995,
+  "source_configurations": 242,
+  "distinct_named_root_profiles": 112,
+  "admissible_terminal_query_count": 324,
+  "prior": "Uniform over 112 distinct rooted profiles",
+  "no_worst_depth_restriction": true,
+  "exact_optimal_observation_sum": 238,
+  "exact_optimal_expectation_numerator": 119,
+  "exact_optimal_expectation_denominator": 56,
+  "all_optimal_initial_query_indices": [
+    118,
+    119,
+    124,
+    201,
+    203,
+    204
+  ],
+  "optimal_tree_worst_depth_by_first": {
+    "118": 4,
+    "119": 5,
+    "124": 4,
+    "201": 4,
+    "203": 4,
+    "204": 5
+  },
+  "tree_depth_histogram_by_first": {
+    "118": [
+      9,
+      84,
+      15,
+      4,
+      0
+    ],
+    "119": [
+      13,
+      79,
+      15,
+      3,
+      2
+    ],
+    "124": [
+      10,
+      84,
+      12,
+      6,
+      0
+    ],
+    "201": [
+      9,
+      84,
+      15,
+      4,
+      0
+    ],
+    "203": [
+      10,
+      84,
+      12,
+      6,
+      0
+    ],
+    "204": [
+      13,
+      79,
+      15,
+      3,
+      2
+    ]
+  },
+  "exact_unrestricted_dp_memoized_states": 17944,
+  "proof_algorithm": "Exact integer dynamic programming on strict response fibers over full 324-query menu; finite-depth bound used solely as valid upper bound; all initial queries evaluated; six full trees validated",
+  "reproduction": "python VERIFY_EC49FPM.py EVIDENCE_DIR EC49FPM_CERTIFICATE.json",
+  "verification_stdout": "EC49FPM_UNRESTRICTED_EXACT_PASS 238 112 [118, 119, 124, 201, 203, 204]",
+  "scientific_status": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED"
+}
