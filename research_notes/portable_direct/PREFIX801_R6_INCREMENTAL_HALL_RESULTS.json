@@ -1,0 +1,73 @@
+{
+  "families": [
+    {
+      "family": "2x3,K in [0, 1, 2]",
+      "stats": {
+        "capacities": 729,
+        "comparisons": 39366,
+        "fibers": 39366,
+        "histogram_comparisons": 3936,
+        "incremental_leaves": 46656,
+        "incremental_nodes": 130167,
+        "incremental_prunes": 40948,
+        "recompute_leaves": 46656,
+        "recompute_nodes": 130167,
+        "recompute_prunes": 40948,
+        "tables": 46656
+      }
+    },
+    {
+      "family": "3x3,K in [0, 1]",
+      "stats": {
+        "capacities": 512,
+        "comparisons": 17840,
+        "fibers": 17840,
+        "histogram_comparisons": 1784,
+        "incremental_leaves": 19683,
+        "incremental_nodes": 63254,
+        "incremental_prunes": 20864,
+        "recompute_leaves": 19683,
+        "recompute_nodes": 63254,
+        "recompute_prunes": 20864,
+        "tables": 19683
+      }
+    },
+    {
+      "family": "2x4,K in [1]",
+      "stats": {
+        "capacities": 1,
+        "comparisons": 189,
+        "fibers": 189,
+        "histogram_comparisons": 18,
+        "incremental_leaves": 256,
+        "incremental_nodes": 1479,
+        "incremental_prunes": 578,
+        "recompute_leaves": 256,
+        "recompute_nodes": 1479,
+        "recompute_prunes": 578,
+        "tables": 256
+      }
+    }
+  ],
+  "mode": "FULL",
+  "status": "ALL_CHECKS_PASS PREFIX801 INCREMENTAL_HALL",
+  "timing_scope": "sequential within one Python process, methods called in fixed order; illustrative only",
+  "timings_seconds": {
+    "incremental": 1.686127,
+    "recompute": 2.213928
+  },
+  "total": {
+    "capacities": 1242,
+    "comparisons": 57395,
+    "fibers": 57395,
+    "histogram_comparisons": 5738,
+    "incremental_leaves": 66595,
+    "incremental_nodes": 194900,
+    "incremental_prunes": 62390,
+    "recompute_leaves": 66595,
+    "recompute_nodes": 194900,
+    "recompute_prunes": 62390,
+    "tables": 66595
+  },
+  "verification": "both algorithms independently evaluate exact Hall predicates and reconstruct identical sorted integer tables"
+}
