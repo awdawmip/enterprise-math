@@ -23,11 +23,22 @@ C(A)=min_{q informative on A} [W(A)+sum_v C(A_v)] otherwise
 
 where A_v are the nonempty response fibers of q. All informative queries strictly decrease candidate set cardinality; the finite recursion is well founded. Duplicate restricted partitions are equivalent. The verifier uses the separately validated terminal-only decision trees restricted to each candidate set as **feasible upper bounds** and prunes only with admissible lower bounds. It evaluates every distinct full-set first-query option, reaching 25,509 memoized subproblems in the uniform-profile case and 24,063 with source-configuration weights. Optimal totals and exact minimizers are those stated. The terminal-only witness trees are rechecked path by path, with totals 238 and 641.
 
+
+## Price-monotonicity corollary (unbounded parameter family)
+
+Normalize the terminal scalar query price to (t>0), and let every named-root scalar query have price (r\ge t). The same finite input now has a rigorously determined **global price-dependent optimum throughout the entire half-line** (r/t\ge1):
+
+- best worst-case monetary observation cost: **(4t)**;
+- unrestricted optimal expected monetary cost for 112 equally probable root profiles: **(t\cdot119/56)**;
+- unrestricted optimal expected monetary cost for 242 equally probable original configurations: **(t\cdot641/242)**.
+
+Proof: For every realized adaptive query path, replacing each root query's price (r) by (t) weakly decreases its path cost while leaving every response unchanged. Thus the expected and worst-case costs of every mixed strategy at (r\ge t) are at least (t) times the corresponding all-unit observation cost, which is exactly minimized above. The certified all-terminal strategies cost precisely (t) times those values, proving equality. The sets of globally optimal first observations remain exactly those terminal indices displayed above, as the exhaustive unit-price calculation already excludes any root-first ties. This is an **all-real-positive-prices statement on the declared half-line**, derived from the finite theorem; further computation is needed only for (0<r<t).
+
 ## Reproduction and scope
 
 Run `python3 VERIFY_EC49FPQ.py EVIDENCE_DIR OUTPUT_CERTIFICATE.json` with the frozen `frozen_original_master.txt`, native `EC49FPG_PROFILE.csv`, and established `EC49FPL_CERTIFICATE.json` and `EC49FPN_CERTIFICATE.json` from the EC49FPL–FPN evidence archive (PR #2479). The verifier checks SHA256 for both scientific input files, reconstructs the finite universe and all 420 observations, validates old witness trees, writes 395 three-query obstruction fibers, all first-query expected costs and observer keys in a machine-readable output. Independent small implementations were used for the mixed depth-three and the two unrestricted-expectation calculations.
 
-The scientific claim concerns the frozen **BRC rooted byte-Trie observation model** and its exact integer output table. No heartbeat dynamics, classical π/trigonometric propagation or physical residual attribution is asserted. The optimality is at **equal unit cost** for one root scalar or one terminal scalar. The next question is the parametric optimum when those two observation prices differ, then the gauge-bearing class16943.
+The scientific claim concerns the frozen **BRC rooted byte-Trie observation model** and its exact integer output table. No heartbeat dynamics, classical π/trigonometric propagation or physical residual attribution is asserted. The optimality is at **equal unit cost** for one root scalar or one terminal scalar. The remaining price-dependent problem is the exact frontier when the root readout price is strictly less than the terminal readout price, \(0<r<t\), then the gauge-bearing class16943.
 
 ## Control and source status
 
