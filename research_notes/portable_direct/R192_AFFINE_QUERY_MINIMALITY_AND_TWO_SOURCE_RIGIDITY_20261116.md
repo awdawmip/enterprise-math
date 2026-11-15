@@ -50,7 +50,7 @@ The same argument holds for any rational numeric encoding in which each singleto
     A(x_a,x_b,x_ab) = (1,x_b,1),
     B(x_a,x_b,x_ab) = (x_a,1,2).
 
-These affine maps satisfy A²=A, B²=B, A o B o A=B o A, B o A o B=A o B. On x_0=(0,0,0), the five words ε,a,b,ab,ba yield respectively (0,0,0), (1,0,1), (0,1,2), (1,1,2), (1,1,1), so all five actions are distinct.
+These affine maps satisfy A²=A, B²=B, A o B o A=A o B, B o A o B=B o A. On x_0=(0,0,0), the five words ε,a,b,ab,ba yield respectively (0,0,0), (1,0,1), (0,1,2), (1,1,2), (1,1,1), so all five actions are distinct.
 
 **Lower bound.** Suppose these five transformations had a faithful affine representation on Q². Because the five affine transformations are distinct and Q is infinite, we may choose a rational initial point x_0 at which their five evaluations are distinct. Indeed, each pairwise coincidence set is a proper affine subspace and a finite union of proper affine subspaces cannot cover Q². Let the corresponding distinct points be p_ε,p_a,p_b,p_ab,p_ba.
 
