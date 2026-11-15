@@ -1,0 +1,301 @@
+{
+  "schema": "EC49FQG_MINIMAL_GLOBAL_OPTIMAL_FIRST_ACTION_PALETTE_V1",
+  "generated_on": "2026-11-16",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "domain": 16943,
+  "frozen_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "frozen_root_cost_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "native_scope": {
+    "source_configurations": 310,
+    "full_named_root_profiles": 141,
+    "terminal_actions": 144,
+    "named_root_actions": 84,
+    "all_physical_actions": 228,
+    "distinct_response_partitions": 209
+  },
+  "priors": {
+    "uniform_profiles": {
+      "minimal_all_price_first_action_palette": [
+        32,
+        34,
+        140,
+        142,
+        153,
+        161
+      ],
+      "anchors": [
+        {
+          "x": "4/7",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "10/17",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "3/5",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "2/3",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "3/4",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "7/9",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "4/5",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "153/184",
+          "optimal_first": [
+            32,
+            34,
+            153,
+            161
+          ]
+        },
+        {
+          "x": "1",
+          "optimal_first": [
+            32,
+            34
+          ]
+        },
+        {
+          "x": "3",
+          "optimal_first": [
+            32,
+            34,
+            140,
+            142
+          ]
+        }
+      ],
+      "low_tail": [
+        153,
+        161
+      ],
+      "high_tail": [
+        32,
+        34,
+        140,
+        142
+      ],
+      "excluded_at_first_query": 222
+    },
+    "configuration_multiplicity": {
+      "minimal_all_price_first_action_palette": [
+        16,
+        23,
+        46,
+        59,
+        88,
+        93,
+        124,
+        131,
+        153,
+        161
+      ],
+      "anchors": [
+        {
+          "x": "26/71",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "29/57",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "31/60",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "48/83",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "3/5",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "51/83",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "2/3",
+          "optimal_first": [
+            153,
+            161
+          ]
+        },
+        {
+          "x": "17/24",
+          "optimal_first": [
+            59,
+            88,
+            153,
+            161
+          ]
+        },
+        {
+          "x": "8/11",
+          "optimal_first": [
+            59,
+            88
+          ]
+        },
+        {
+          "x": "7/9",
+          "optimal_first": [
+            59,
+            88
+          ]
+        },
+        {
+          "x": "11/14",
+          "optimal_first": [
+            59,
+            88
+          ]
+        },
+        {
+          "x": "7/8",
+          "optimal_first": [
+            46,
+            59,
+            88,
+            93
+          ]
+        },
+        {
+          "x": "33/35",
+          "optimal_first": [
+            16,
+            23,
+            46,
+            93
+          ]
+        },
+        {
+          "x": "1",
+          "optimal_first": [
+            16,
+            23,
+            124,
+            131
+          ]
+        },
+        {
+          "x": "3",
+          "optimal_first": [
+            16,
+            23,
+            59,
+            88
+          ]
+        }
+      ],
+      "low_tail": [
+        153,
+        161
+      ],
+      "high_tail": [
+        16,
+        23,
+        59,
+        88
+      ],
+      "excluded_at_first_query": 218
+    }
+  },
+  "combined_palette": [
+    16,
+    23,
+    32,
+    34,
+    46,
+    59,
+    88,
+    93,
+    124,
+    131,
+    140,
+    142,
+    153,
+    161
+  ],
+  "physical_optimal_partition_aliases": 0,
+  "all_finite_open_phase_necessary_first_set_cardinality_at_most": 2,
+  "strict_equal_price_only_initial_ties_multiplicity": [
+    124,
+    131
+  ],
+  "reentrant_multiplicity_indices": [
+    59,
+    88
+  ],
+  "reentrant_exact_witness": {
+    "optimal_at": "17/24",
+    "absent_at": "1",
+    "optimal_again_at": "3"
+  },
+  "verification": {
+    "inherited_full_Bellman_anchors": 25,
+    "additional_full_Bellman_tail_checks": 2,
+    "independent_full_tree_replays": 54,
+    "source_readout_reconstruction": true,
+    "exact_integer_arithmetic": true,
+    "source_hash_audit": true,
+    "actual_new_Bellman_recomputation": false
+  },
+  "evidence_archive": "EC49FQG_GLOBAL_FIRST_ACTION_PALETTE_COMPLETE_20261116.tar.xz",
+  "parent_research_pr": "https://github.com/awdawmip/enterprise-math/pull/2531",
+  "claim_result_review": "NOT_ESTABLISHED"
+}
