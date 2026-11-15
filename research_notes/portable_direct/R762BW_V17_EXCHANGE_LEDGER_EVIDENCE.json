@@ -1,0 +1,230 @@
+{
+  "schema": "ENTERPRISE_MATH_R762BW_EXACT_V17_EXCHANGE_LEDGER_EVIDENCE_V1",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "scope": "CONDITIONAL_V17_JOHNSON_REPLACEMENT_PLUS_AXIS_CONTEXT_V29_STYLE_TRANSFER; NOT_NATIVE_EVENT_PERMISSION",
+  "base_ordered_frame": [
+    1,
+    2,
+    3
+  ],
+  "axis_count": 6,
+  "transition_rule": "replace exactly one of 3 frame slots with one of the 3 absent labels",
+  "ledger": "30 nonnegative directed old_axis->new_axis counts; antisymmetric current on 15 unordered label pairs",
+  "arithmetic": "exact_nonnegative_integers",
+  "enumeration": "complete dynamic programming on (ordered_frame, 30-vector directed_histogram) for 0<=length<=6",
+  "by_length": [
+    {
+      "length": 0,
+      "all_ordered_switch_paths": 1,
+      "based_return_paths": 1,
+      "directed_histogram_classes": 1,
+      "directed_histogram_holonomy_pairs": 1,
+      "directed_histogram_mixed_classes": 0,
+      "histogram_holonomy_fiber_sizes": {
+        "1": 1
+      },
+      "antisymmetric_current_classes": 1,
+      "current_mixed_classes": 0,
+      "zero_current_paths_by_terminal_frame": {
+        "123": 1
+      }
+    },
+    {
+      "length": 1,
+      "all_ordered_switch_paths": 9,
+      "based_return_paths": 0,
+      "directed_histogram_classes": 0,
+      "directed_histogram_holonomy_pairs": 0,
+      "directed_histogram_mixed_classes": 0,
+      "histogram_holonomy_fiber_sizes": {},
+      "antisymmetric_current_classes": 0,
+      "current_mixed_classes": 0,
+      "zero_current_paths_by_terminal_frame": {}
+    },
+    {
+      "length": 2,
+      "all_ordered_switch_paths": 81,
+      "based_return_paths": 9,
+      "directed_histogram_classes": 9,
+      "directed_histogram_holonomy_pairs": 9,
+      "directed_histogram_mixed_classes": 0,
+      "histogram_holonomy_fiber_sizes": {
+        "1": 9
+      },
+      "antisymmetric_current_classes": 1,
+      "current_mixed_classes": 0,
+      "zero_current_paths_by_terminal_frame": {
+        "123": 9
+      }
+    },
+    {
+      "length": 3,
+      "all_ordered_switch_paths": 729,
+      "based_return_paths": 36,
+      "directed_histogram_classes": 36,
+      "directed_histogram_holonomy_pairs": 36,
+      "directed_histogram_mixed_classes": 0,
+      "histogram_holonomy_fiber_sizes": {
+        "1": 36
+      },
+      "antisymmetric_current_classes": 36,
+      "current_mixed_classes": 0,
+      "zero_current_paths_by_terminal_frame": {}
+    },
+    {
+      "length": 4,
+      "all_ordered_switch_paths": 6561,
+      "based_return_paths": 369,
+      "directed_histogram_classes": 171,
+      "directed_histogram_holonomy_pairs": 171,
+      "directed_histogram_mixed_classes": 0,
+      "histogram_holonomy_fiber_sizes": {
+        "1": 171
+      },
+      "antisymmetric_current_classes": 91,
+      "current_mixed_classes": 0,
+      "zero_current_paths_by_terminal_frame": {
+        "123": 189
+      }
+    },
+    {
+      "length": 5,
+      "all_ordered_switch_paths": 59049,
+      "based_return_paths": 2952,
+      "directed_histogram_classes": 684,
+      "directed_histogram_holonomy_pairs": 828,
+      "directed_histogram_mixed_classes": 144,
+      "histogram_holonomy_fiber_sizes": {
+        "1": 540,
+        "2": 144
+      },
+      "antisymmetric_current_classes": 184,
+      "current_mixed_classes": 38,
+      "zero_current_paths_by_terminal_frame": {}
+    },
+    {
+      "length": 6,
+      "all_ordered_switch_paths": 531441,
+      "based_return_paths": 26937,
+      "directed_histogram_classes": 2571,
+      "directed_histogram_holonomy_pairs": 3723,
+      "directed_histogram_mixed_classes": 1008,
+      "histogram_holonomy_fiber_sizes": {
+        "1": 1563,
+        "2": 936,
+        "4": 72
+      },
+      "antisymmetric_current_classes": 823,
+      "current_mixed_classes": 505,
+      "zero_current_paths_by_terminal_frame": {
+        "123": 5265,
+        "132": 24,
+        "213": 24,
+        "321": 24
+      }
+    }
+  ],
+  "five_same_hist_identity_path": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      2,
+      3
+    ],
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      4,
+      3
+    ],
+    [
+      1,
+      5,
+      3
+    ],
+    [
+      1,
+      2,
+      3
+    ]
+  ],
+  "five_same_hist_transposition_path": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      2,
+      3
+    ],
+    [
+      5,
+      2,
+      3
+    ],
+    [
+      5,
+      4,
+      3
+    ],
+    [
+      2,
+      4,
+      3
+    ],
+    [
+      2,
+      1,
+      3
+    ]
+  ],
+  "six_zero_current_transposition_path": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      2,
+      3
+    ],
+    [
+      5,
+      2,
+      3
+    ],
+    [
+      5,
+      4,
+      3
+    ],
+    [
+      5,
+      1,
+      3
+    ],
+    [
+      4,
+      1,
+      3
+    ],
+    [
+      2,
+      1,
+      3
+    ]
+  ],
+  "status": "AUTHOR_EXACT_CHECK_ALL_PASS_NOT_INDEPENDENTLY_REVIEWED",
+  "next_question": "Find native signed TRIADIC_CLOSURE_E admissibility rule and an event-to-axis-exchange transducer preserving Cell/Link/Port semantics; restrict reachable language and recompute observer fibers."
+}
