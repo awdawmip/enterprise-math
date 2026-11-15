@@ -106,6 +106,18 @@ def check(max_n):
     return {'marker':'R170_UNIVERSAL_PARITY_REPAIR_EXACT_PASS','max_length':max_n,'total_binary_candidates':sum(x['binary_candidates'] for x in summary),'total_admitted':sum(x['admitted'] for x in summary),'distinct_signatures_summed':sum(x['signatures'] for x in summary),'doubleton_signatures':aliases,'append_cocycle_pair_checks':append_tests,'associativity_checks':associativity_tests,'terminal_alias_examples':terminal_aliases,'by_length':summary}
 
 
+def context_congruence_test():
+    """Test all pairs of words through length 5 with all two-sided contexts through length 2."""
+    words=[w for n in range(6) for w in product((0,1),repeat=n)]
+    contexts=[w for n in range(3) for w in product((0,1),repeat=n)]
+    for u in words:
+        for v in words:
+            equivalent=all(parity(x+u+y)==parity(x+v+y) for x in contexts for y in contexts)
+            assert equivalent == (sketch(u)==sketch(v)), (u,v)
+    assert len({sketch(w) for w in words})==8
+    return {'word_pairs':len(words)**2,'contexts_per_pair':len(contexts)**2,'classes':8}
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--max-n', type=int, default=14)
@@ -113,6 +125,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     assert 1 <= args.max_n <= 17
     result=check(args.max_n)
+    result["two_sided_context_test"] = context_congruence_test()
     with open(args.json_path, 'w', encoding='utf8') as f:
         json.dump(result,f,indent=2,ensure_ascii=False)
         f.write('\n')
