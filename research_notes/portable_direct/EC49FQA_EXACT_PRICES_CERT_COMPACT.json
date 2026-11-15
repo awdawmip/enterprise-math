@@ -1,0 +1,159 @@
+{
+  "schema": "EC49FQA_CLASS16943_PRICE_THEOREM_COMPACT_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "frozen_scientific_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "native_root_costs_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "original_config_count": 310,
+  "full_root_profile_count": 141,
+  "terminal_action_count": 144,
+  "named_root_action_count": 84,
+  "unlabeled_partition_count": 209,
+  "oracle": "Exhaustive well-founded exact subset Bellman with safe one-more-query lower bound; prices integer; root-only benchmark independently restricted",
+  "first_action_results": [
+    {
+      "root_price": 1,
+      "terminal_price": 3,
+      "uniform_total": 362,
+      "weighted_total": 1033,
+      "first_uniform": [
+        153,
+        161
+      ],
+      "first_weighted": [
+        153,
+        161
+      ],
+      "bellman_states": 10494
+    },
+    {
+      "root_price": 1,
+      "terminal_price": 2,
+      "uniform_total": 362,
+      "weighted_total": 1014,
+      "first_uniform": [
+        153,
+        161
+      ],
+      "first_weighted": [
+        153,
+        161
+      ],
+      "bellman_states": 10494
+    },
+    {
+      "root_price": 3,
+      "terminal_price": 4,
+      "uniform_total": 1057,
+      "weighted_total": 2602,
+      "first_uniform": [
+        153,
+        161
+      ],
+      "first_weighted": [
+        59,
+        88
+      ],
+      "bellman_states": 10304
+    },
+    {
+      "root_price": 1,
+      "terminal_price": 1,
+      "uniform_total": 296,
+      "weighted_total": 690,
+      "first_uniform": [
+        32,
+        34
+      ],
+      "first_weighted": [
+        16,
+        23,
+        124,
+        131
+      ],
+      "bellman_states": 7612
+    }
+  ],
+  "root_only_minimum": {
+    "uniform_root_calls": 362,
+    "weighted_root_calls": 1033,
+    "root_only_bellman_states": 2568
+  },
+  "policy_witnesses": [
+    {
+      "prior": "weighted",
+      "price": "r:t=1:2",
+      "root_calls": 962,
+      "terminal_calls": 26,
+      "max_depth": 5,
+      "cost": 1014
+    },
+    {
+      "prior": "uniform",
+      "price": "r:t=3:4",
+      "root_calls": 303,
+      "terminal_calls": 37,
+      "max_depth": 4,
+      "cost": 1057
+    },
+    {
+      "prior": "weighted",
+      "price": "r:t=3:4",
+      "root_calls": 202,
+      "terminal_calls": 499,
+      "max_depth": 3,
+      "cost": 2602
+    }
+  ],
+  "terminal_only_impossible_witness": {
+    "original_config_a": 17928,
+    "original_config_b": 38165,
+    "all_terminal_queries_identical": true,
+    "named_root_query_index": 148,
+    "named_root_root": 5,
+    "named_root_optional_subset_mask": 0,
+    "response_a": 66,
+    "response_b": 62
+  },
+  "continuous_exact_intervals": [
+    {
+      "prior": "uniform",
+      "ratio_interval": "0<r/t<=1/2",
+      "minimum_expected_cost": "362*r/141",
+      "witness": "pure named root"
+    },
+    {
+      "prior": "weighted",
+      "ratio_interval": "0<r/t<=1/3",
+      "minimum_expected_cost": "1033*r/310",
+      "witness": "pure named root"
+    }
+  ],
+  "forced_mixing_sufficient_intervals": [
+    {
+      "prior": "uniform",
+      "condition": "r/t>37/59",
+      "all_global_optima_use_both_modalities": true,
+      "not_claimed_sharp": true
+    },
+    {
+      "prior": "weighted",
+      "condition": "r/t>26/71",
+      "all_global_optima_use_both_modalities": true,
+      "not_claimed_sharp": true
+    }
+  ],
+  "verification": {
+    "source_replay_configurations": 310,
+    "all_prior_price_trees_replayed": true,
+    "full_141_leaves_verified": true,
+    "unit_price_regression_pass": true,
+    "arithmetic": "exact integer"
+  },
+  "reproducibility": {
+    "solver": "EC49FQA_PRICED_BELLMAN.py",
+    "replay": "EC49FQA_INDEPENDENT_REPLAY.py",
+    "usage": "python EC49FQA_PRICED_BELLMAN.py MASTER ROOT_CSV OUTPUT_JSON R_PRICE T_PRICE [--root-only]"
+  },
+  "reference": "https://github.com/awdawmip/enterprise-math/pull/2512"
+}
