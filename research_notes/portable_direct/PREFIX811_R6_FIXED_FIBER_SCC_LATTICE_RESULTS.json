@@ -1,0 +1,152 @@
+{
+  "schema": "EM_PREFIX811_FIXED_FIBER_SCC_SIGNATURE_CHECK_V1",
+  "exact_integer_only": true,
+  "algorithm": "SCC residual-arc internal integral fundamental-cycle gcd vs exhaustive all-table observer differences",
+  "family_results": [
+    {
+      "shape": "2x2",
+      "capacities": "0..2",
+      "capacity_patterns": 81,
+      "observers_per_fiber": 81,
+      "margin_fibers": 1215,
+      "named_tables": 1296,
+      "multi_table_fibers": 80,
+      "exact_lattice_comparisons": 98415,
+      "constant_tests": 93455,
+      "varying_tests": 4960,
+      "reanchoring_checks": 640
+    },
+    {
+      "shape": "2x3",
+      "capacities": "0..1",
+      "capacity_patterns": 64,
+      "observers_per_fiber": 729,
+      "margin_fibers": 704,
+      "named_tables": 729,
+      "multi_table_fibers": 23,
+      "exact_lattice_comparisons": 513216,
+      "constant_tests": 500130,
+      "varying_tests": 13086,
+      "reanchoring_checks": 184
+    },
+    {
+      "shape": "3x3",
+      "capacities": "0..1",
+      "capacity_patterns": 512,
+      "observers_per_fiber": 17,
+      "margin_fibers": 17840,
+      "named_tables": 19683,
+      "multi_table_fibers": 1457,
+      "exact_lattice_comparisons": 303280,
+      "constant_tests": 292651,
+      "varying_tests": 10629,
+      "reanchoring_checks": 11656
+    }
+  ],
+  "totals": {
+    "capacity_patterns": 657,
+    "margin_fibers": 19759,
+    "named_tables": 21708,
+    "exact_lattice_comparisons": 914911,
+    "constant_tests": 886236,
+    "varying_tests": 28675,
+    "basepoint_invariance_checks": 12480
+  },
+  "witnesses": {
+    "blocked_full_graph_curl": {
+      "capacity": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "margins": {
+        "rows": [
+          1,
+          1
+        ],
+        "cols": [
+          0,
+          1,
+          1
+        ]
+      },
+      "x": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "y": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "w_blocked": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "w_active": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "blocked_values": [
+        0,
+        0
+      ],
+      "active_values": [
+        0,
+        1
+      ]
+    },
+    "observer_hole": {
+      "m": 2,
+      "n": 2,
+      "K": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "x": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "y": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "w": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "reachable_values": [
+        0,
+        2
+      ],
+      "difference_group_generator": 2
+    }
+  },
+  "all_assertions_passed": true
+}
