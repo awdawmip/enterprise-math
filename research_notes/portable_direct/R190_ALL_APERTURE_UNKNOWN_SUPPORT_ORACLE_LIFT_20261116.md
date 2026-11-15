@@ -65,3 +65,13 @@ Determine closed forms or stronger constructive/minimax bounds for `C_b(k)` at i
 ## Lineage clarification
 
 The project's earlier R189-A/B source-aperture research was already independently published under commit `63da2b5b0af0424614b4237eec2bb5648a122c7f`. This R190 proves the all-aperture minimax transfer not established there, and reuses the independently run R189-prefixed local verifier and JSON that were created before the name collision was discovered. The independent research branch preserves the complete proof in this R190 file and the verification program/JSON without changing either earlier scientific result or its Activity record.
+
+## Exact known-support sorting values transferred from the earlier R189 certificate
+
+The existing R189 finite minimax certificate at `63da2b5b0af0424614b4237eec2bb5648a122c7f:research_notes/portable_direct/R189_verification.json` has `status=PASS`, includes explicit failed shallower-depth attempts and successful decoded decision trees, and establishes `Q_3(5)=7` and `Q_4(5)=6` for the source-only observer. Applying R190 gives the **additional exact known-support subset-maximum sorting values**
+
+```
+C_3(5) = 6;  C_4(5) = 5.
+```
+
+Likewise the earlier certified `Q_2(5)=8` and `Q_5(5)=5` yield `C_2(5)=7` and `C_5(5)=4`. These values are deductions from a separately saved finite oracle certificate and the universal R190 theorem; the attached R190-prefixed source proof and R189-prefixed local verifier have distinct evidence scopes. This also confirms that the R190 bound is attained at aperture three for `k=5` with a nontrivial intermediate query alphabet.
