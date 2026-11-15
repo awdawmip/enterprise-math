@@ -1,0 +1,73 @@
+{
+  "schema": "PREFIX819_R6_GITHUB_SOURCE_OBSERVATION_V1",
+  "event_id": "prefix819-r6-marked-addition-moment-repair-20261116",
+  "observed_at": "2026-11-15T21:07:18.010Z",
+  "source_observations": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/2026-11-16_r6_prefix819_single_marked_addition_conditional_moment_repair.md",
+      "commit": "42b28927fdc6b6cfbbfa32ab67c14197c538feca",
+      "sha256": "932c9f796edd290496b432b8ca51b1aade1ed3a48da82a89dcddbdca3745b7a3",
+      "git_blob_sha1": "abcab13b673102c213edb8048cf4fa08efdd4167",
+      "readback": {
+        "tool_name": "mcp__GitHub__fetch_file",
+        "observation_id": "r6-prefix819-20261116-source-0",
+        "arguments": {
+          "repository_full_name": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/2026-11-16_r6_prefix819_single_marked_addition_conditional_moment_repair.md",
+          "ref": "42b28927fdc6b6cfbbfa32ab67c14197c538feca"
+        },
+        "result": {
+          "content": "# PREFIX-819 — One marked addition, exact conditional BRC moment repair and a nonnegative counterexample\n\nDate: 2026-11-16 (Asia/Shanghai). Independent portable TASK_RESEARCH auxiliary mathematics. Frozen scientific P000 pin: `f42f2906d77f24085c123f3ccfe9667d41caa96d`. Predecessors: PREFIX-817–818. Research lineage: `EM-DIRECT-AB379B / MCP-ddad8ec8dced4918a59a479555c21490`. No formal shared-task CLAIM. Scope: exact weighted formal-toggle counts, not native X6 events or elapsed physical time.\n\n## Problem\n\nPREFIX-818 gives a triangular `T(q)=(q+1)(q+2)/2`-coordinate elementary-symmetric integer carrier for **pure removal**, independent of the number m of named branches. Determine whether permitting **one named addition branch** loses that compressed observer information, and find a finite exact repair.\n\nStates are subsets S⊆[m] with |S|<=q; all named branches i have removal weight β_i∈Z_{≥0}. Choose one distinguished branch j with addition weight a∈Z_{≥0} whenever j∉S and |S|<q. All other additions have weight 0. Paths multiply transition weights and alternatives add. The observer retains, at every future formal toggle horizon, the exact terminal-count histogram by |S|.\n\n## Theorem 819.1: exact marked/unmarked conditional moment carrier\n\nRepresent S as `(z,U)`, where z=1 if j∈S and z=0 otherwise, with U⊆[m]\\{j} and |U|=k<=q−z. For arbitrary integer initial named mass μ, define\n\n`M_{z,k,h}=Σ_{|U|=k} μ_{U∪(z?{j}:∅)} e_h(β_i:i∈U)`, `0<=h<=k<=q−z`.\n\nThe integer coordinates have dimension\n`T(q)+T(q−1)=(q+1)^2`,\nwhere T(−1)=0. Their **exact one-toggle update**, with missing/out-of-range coordinates interpreted as 0, is\n\n`M'_{0,k,h}=(h+1)M_{0,k+1,h+1}+β_j M_{1,k,h}`,\n`M'_{1,k,h}=(h+1)M_{1,k+1,h+1}+a M_{0,k,h}`.\n\nThe output after each update is\n`Y_l=M_{0,l,0}+M_{1,l−1,0}` for l=0,...,q.\nThe recurrence works for **every** m,q, removal weights β_i, distinguished addition weight a, initial integer mass, and unlimited formal-toggle horizon. It uses nonnegative coordinates/updates for nonnegative data.\n\n*Proof.* Unmarked branch removals preserve z and by the PREFIX-818 elementary-symmetric identity give (h+1)M_{z,k+1,h+1} on each z-class. Removal of the distinguished j transfers z=1 to z=0 without changing U, multiplying by β_j; it contributes β_j M_{1,k,h}. Addition of j transfers z=0 to z=1, when k<q, without changing U and contributes a M_{0,k,h}. These are the only permitted moves and yield exactly the two equations. The readout counts U together with z; the two contributions at total size l are (z,k)=(0,l),(1,l−1). Induction establishes the result for all horizons. QED.\n\nThis is a sufficient **integer future-count carrier**, of dimension independent of m for fixed q. It is not claimed to be minimal for every weight choice. A full arbitrary named initial mass costs at least its input-reading cost to transform; the recurrence uses O(q²) integer additions/multiplications per update, with size-dependent bit lengths.\n\n## Proposition 819.2: a single addition makes the original unconditioned moments insufficient\n\nTake m=3, capacity q=2, removal β=(1,2,3), and permit addition **only** of branch 1, with weight a=1. Consider two nonnegative integer initial mass distributions:\n`μ=δ_{ {1} }+δ_{ {3} }`, and `ν=2δ_{ {2} }`.\n\nBoth have the **same full PREFIX-818 unconditioned moment carrier**: the only nonzero moments are `M_{1,0}=2` and `M_{1,1}=4`. Their initial terminal-count histograms coincide at (0,2,0). After one allowed toggle the histograms differ:\n\n`Y^(1)(μ)=(4,0,1)`, `Y^(1)(ν)=(4,0,2)`.\n\nFor both, the weighted total to empty is 4. The additional count-two mass from adding named branch 1 is 1 from μ (the {3} state) and 2 from ν (the two {2} states). Thus the original T(2)=6 moment vector is not a future-sufficient observer under this enlarged move language. The conditional j-presence refinement distinguishes the two distributions and repairs exactly this loss. QED.\n\nThe construction directly tests the information-preservation requirement: one new future operation reveals a previously hidden named-source correlation, while a bounded-size exact integer carrier remains available.\n\n## Independent exact verification\n\nStandalone standard Node.js BigInt checker: `research_notes/portable_direct/PREFIX819_R6_MARKED_ADDITION_MOMENT_CHECK.js`. Results JSON: `research_notes/portable_direct/PREFIX819_R6_MARKED_ADDITION_MOMENT_RESULTS.json`.\n\nFor m=1..7, q=0..min(m,4), three exact β patterns, distinguished index first or last, and a=1,2,3, independently compare generic named-state weighted path enumeration to the conditional-moment recurrence for every named basis state and horizons h=0..q+3. Coverage: 504 parameter cases, 8,775 named initial states, 61,902 exact full-histogram comparisons. The nonnegative μ/ν witness is checked directly. All asserted equalities and the strict witness difference passed. General validity rests on the constructive proof.\n\n## Next\n\nDetermine the minimal rational observability rank for the one-marked-addition model at q>=2 and characterize the gap to the (q+1)^2 sufficient carrier. Extend to s addition-enabled named branches, testing the natural 2^s conditional-type moments against a sharper minimal repair. Retain the original X6 native event admission and causal time problem as separate from these auxiliary exact formal-toggle counts.\n",
+          "encoding": "utf-8",
+          "sha": "abcab13b673102c213edb8048cf4fa08efdd4167",
+          "display_url": "https://github.com/awdawmip/enterprise-math/blob/42b28927fdc6b6cfbbfa32ab67c14197c538feca/research_notes/portable_direct/2026-11-16_r6_prefix819_single_marked_addition_conditional_moment_repair.md"
+        }
+      }
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX819_R6_MARKED_ADDITION_MOMENT_CHECK.js",
+      "commit": "4b11a8b44e576b5301f9e0045864d4b0fa962b65",
+      "sha256": "4c9dcc4e29dbd7b89f1bbe479a9484960d5b276c2a42e36342ae13702c30cca5",
+      "git_blob_sha1": "4a639ac17bf782b5e47c88119bcad525f80aaafa",
+      "readback": {
+        "tool_name": "mcp__GitHub__fetch_file",
+        "observation_id": "r6-prefix819-20261116-source-1",
+        "arguments": {
+          "repository_full_name": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/PREFIX819_R6_MARKED_ADDITION_MOMENT_CHECK.js",
+          "ref": "4b11a8b44e576b5301f9e0045864d4b0fa962b65"
+        },
+        "result": {
+          "content": "'use strict';\n// Exact single-marked-addition BRC future-count trace and conditional-moment regression.\nconst run=function run(){\nconst ck=(p,m)=>{if(!p)throw Error(m)};\nconst bc=x=>{let k=0;while(x){x&=x-1;k++}return k};\nconst esym=arr=>{let a=[1n];for(const v of arr){let n=Array(a.length+1).fill(0n);for(let j=0;j<a.length;j++){n[j]+=a[j];n[j+1]+=a[j]*BigInt(v)}a=n}return a};\nconst ss=(m,q)=>Array.from({length:2**m},(_,i)=>i).filter(x=>bc(x)<=q);\nfunction named(m,q,beta,j,alpha,initial,H){\n let masses=new Map([[initial,1n]]),out=[];\n for(let h=0;h<=H;h++){\n  const counts=Array(q+1).fill(0n);\n  for(const [s,w]of masses)counts[bc(s)]+=w;\n  out.push(counts);\n  let next=new Map();\n  for(const [s,w]of masses){\n   for(let i=0;i<m;i++){\n    const has=!!(s&(2**i)),rate=has?beta[i]:(i===j&&bc(s)<q?alpha:0);\n    if(rate){let t=s^(2**i);next.set(t,(next.get(t)||0n)+w*BigInt(rate))}\n   }\n  }\n  masses=next;\n }\n return out;\n}\nfunction compressed(m,q,beta,j,alpha,initial,H){\n let M=[0,1].map(z=>Array.from({length:Math.max(0,q-z+1)},(_,k)=>Array(k+1).fill(0n)));\n const z=+(!!(initial&(2**j))),unmarked=[];for(let i=0;i<m;i++)if(i!==j&&(initial&(2**i)))unmarked.push(beta[i]);\n M[z][unmarked.length]=esym(unmarked);\n const out=[];\n for(let step=0;step<=H;step++){\n  out.push(Array.from({length:q+1},(_,k)=>(M[0][k]?.[0]||0n)+(k>=1?(M[1][k-1]?.[0]||0n):0n)));\n  let N=[0,1].map(z=>Array.from({length:Math.max(0,q-z+1)},(_,k)=>Array(k+1).fill(0n)));\n  for(let z=0;z<=1;z++)for(let k=0;k<M[z].length-1;k++)for(let h=0;h<=k;h++)\n   N[z][k][h]+=BigInt(h+1)*M[z][k+1][h+1];\n  for(let k=0;k<M[1].length;k++)for(let h=0;h<=k;h++)N[0][k][h]+=BigInt(beta[j])*M[1][k][h];\n  for(let k=0;k<M[1].length;k++)for(let h=0;h<=k;h++)N[1][k][h]+=BigInt(alpha)*M[0][k][h];\n  M=N;\n }\n return out;\n}\nconst eq=(a,b)=>a.length===b.length&&a.every((x,i)=>x===b[i]);\nlet r={schema:\"PREFIX819_R6_EXACT_REGRESSION_V1\",arithmetic:\"BigInt\",cases:0,initial_named_states:0,horizon_histogram_matches:0,explicit_witness_validated:false};\nfor(let m=1;m<=7;m++)for(let q=0;q<=Math.min(m,4);q++)for(let pat=0;pat<3;pat++)for(let mark of new Set([0,m-1]))for(let alpha=1;alpha<=3;alpha++){\n const beta=Array.from({length:m},(_,i)=>pat===0?i+1:pat===1?2*i+3:m+1-i);\n for(const s of ss(m,q)){\n  let a=named(m,q,beta,mark,alpha,s,q+3);\n  let b=compressed(m,q,beta,mark,alpha,s,q+3);\n  for(let h=0;h<=q+3;h++){ck(eq(a[h],b[h]),\"marker moment mismatch \"+[m,q,pat,mark,alpha,s,h]);r.horizon_histogram_matches++}\n  r.initial_named_states++;\n }\n r.cases++;\n}\nconst m=3,q=2,bet=[1,2,3],j=0,alpha=1;\nfunction mix(list){\n const outs=Array.from({length:2},()=>Array(q+1).fill(0n));\n for(let v=0;v<list.length;v+=2){\n  const s=list[v],cnt=BigInt(list[v+1]),tr=named(m,q,bet,j,alpha,s,1);\n  for(let h=0;h<=1;h++)for(let k=0;k<=q;k++)outs[h][k]+=cnt*tr[h][k];\n }\n return outs;\n}\nconst A=mix([1,1,4,1]),B=mix([2,2]);\nck(eq(A[0],B[0]),\"witness initial different\");\nck(A[1][2]===1n&&B[1][2]===2n&&A[1][0]===B[1][0]&&A[1][0]===4n,\"witness future mismatch\");\nr.explicit_witness={m,q,alpha_j:alpha,marked_branch:1,beta:bet,mu:{\"{1}\":1,\"{3}\":1},nu:{\"{2}\":2},old_pure_removal_moments:{M_1_0:2,M_1_1:4},h0_count_hist:[0,2,0],h1_mu:[4,0,1],h1_nu:[4,0,2]};\nr.explicit_witness_validated=true;r.all_exact_assertions_passed=true;\nreturn r;\n};\nprocess.stdout.write(JSON.stringify(run(),null,2)+'\\n');\n",
+          "encoding": "utf-8",
+          "sha": "4a639ac17bf782b5e47c88119bcad525f80aaafa",
+          "display_url": "https://github.com/awdawmip/enterprise-math/blob/4b11a8b44e576b5301f9e0045864d4b0fa962b65/research_notes/portable_direct/PREFIX819_R6_MARKED_ADDITION_MOMENT_CHECK.js"
+        }
+      }
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX819_R6_MARKED_ADDITION_MOMENT_RESULTS.json",
+      "commit": "e0dbdb90f0cb0045eec8cd519678e0f46ca652cb",
+      "sha256": "91d12d67d49ef1cd6b99c2cad2bbb2806531d9ea6cda0360805c4893d3e64f84",
+      "git_blob_sha1": "166deb571f5e79c74d21c2fc0b0abca2475f43be",
+      "readback": {
+        "tool_name": "mcp__GitHub__fetch_file",
+        "observation_id": "r6-prefix819-20261116-source-2",
+        "arguments": {
+          "repository_full_name": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/PREFIX819_R6_MARKED_ADDITION_MOMENT_RESULTS.json",
+          "ref": "e0dbdb90f0cb0045eec8cd519678e0f46ca652cb"
+        },
+        "result": {
+          "content": "{\n  \"schema\": \"PREFIX819_R6_EXACT_REGRESSION_V1\",\n  \"arithmetic\": \"BigInt\",\n  \"cases\": 504,\n  \"initial_named_states\": 8775,\n  \"horizon_histogram_matches\": 61902,\n  \"explicit_witness_validated\": true,\n  \"explicit_witness\": {\n    \"m\": 3,\n    \"q\": 2,\n    \"alpha_j\": 1,\n    \"marked_branch\": 1,\n    \"beta\": [\n      1,\n      2,\n      3\n    ],\n    \"mu\": {\n      \"{1}\": 1,\n      \"{3}\": 1\n    },\n    \"nu\": {\n      \"{2}\": 2\n    },\n    \"old_pure_removal_moments\": {\n      \"M_1_0\": 2,\n      \"M_1_1\": 4\n    },\n    \"h0_count_hist\": [\n      0,\n      2,\n      0\n    ],\n    \"h1_mu\": [\n      4,\n      0,\n      1\n    ],\n    \"h1_nu\": [\n      4,\n      0,\n      2\n    ]\n  },\n  \"all_exact_assertions_passed\": true\n}\n",
+          "encoding": "utf-8",
+          "sha": "166deb571f5e79c74d21c2fc0b0abca2475f43be",
+          "display_url": "https://github.com/awdawmip/enterprise-math/blob/e0dbdb90f0cb0045eec8cd519678e0f46ca652cb/research_notes/portable_direct/PREFIX819_R6_MARKED_ADDITION_MOMENT_RESULTS.json"
+        }
+      }
+    }
+  ]
+}
