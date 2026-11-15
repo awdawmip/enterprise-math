@@ -1,0 +1,109 @@
+{
+  "admission": "AUTHOR_PROVED_NOT_INDEPENDENTLY_REVIEWED",
+  "coupling_counterexample": {
+    "attainable_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "joint_laurent_polynomial": "z1 + z2",
+    "marginal_ranges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "margins": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "selected_edges": [
+      0,
+      1
+    ],
+    "unattainable_pairs": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ]
+  },
+  "families": {
+    "2x2_maxcap2": {
+      "all_tables": 1296,
+      "candidate_vectors": 183264,
+      "capacity_patterns": 81,
+      "excluded_vectors": 154752,
+      "feasible_vectors": 28512,
+      "histogram_checks": 28512,
+      "margin_fibers": 1215,
+      "subfiber_checks": 27702,
+      "subfibers": 27702
+    },
+    "2x3_maxcap1": {
+      "all_tables": 729,
+      "candidate_vectors": 93248,
+      "capacity_patterns": 64,
+      "excluded_vectors": 67760,
+      "feasible_vectors": 25488,
+      "histogram_checks": 25488,
+      "margin_fibers": 704,
+      "subfiber_checks": 24640,
+      "subfibers": 24640
+    },
+    "3x3_maxcap1": {
+      "all_tables": 19683,
+      "candidate_vectors": 97448,
+      "capacity_patterns": 512,
+      "excluded_vectors": 59072,
+      "feasible_vectors": 38376,
+      "histogram_checks": 38376,
+      "margin_fibers": 17840,
+      "subfiber_checks": 35680,
+      "subfibers": 35680
+    }
+  },
+  "model": "FINITE_NAMED_BIPARTITE_INTEGER_CAPACITY_TRANSPORT_AUXILIARY",
+  "named_parallel": {
+    "margin_fibers": 22,
+    "selected_vector_checks": 880,
+    "tables": 32
+  },
+  "proof_scope": "all finite named bipartite multigraphs, integral capacities and vertex demands",
+  "regression_scope": "all capacity patterns and feasible margins of specified finite grids; all indicated T and F cases",
+  "schema": "PREFIX808_R6_EXACT_MULTI_EDGE_CUT_PROJECTION_V1",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_frontier": "PREFIX-807",
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "totals": {
+    "all_tables": 21708,
+    "candidate_vectors": 373960,
+    "capacity_patterns": 657,
+    "excluded_vectors": 281584,
+    "feasible_vectors": 92376,
+    "histogram_checks": 92376,
+    "margin_fibers": 19759,
+    "parallel_selected_vector_checks": 880,
+    "subfiber_checks": 88022,
+    "subfibers": 88022
+  }
+}
