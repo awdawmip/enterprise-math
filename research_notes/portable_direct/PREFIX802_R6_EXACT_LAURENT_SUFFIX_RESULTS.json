@@ -1,0 +1,104 @@
+{
+  "schema": "PREFIX802_EXACT_LAURENT_SUFFIX_DP_V1",
+  "source_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "status": "ALL_CHECKS_PASS PREFIX802 LAURENT_SUFFIX_MEMO",
+  "coverage": [
+    {
+      "shape": "2x2",
+      "max_capacity": 2,
+      "patterns": 81,
+      "fibers": 1215,
+      "tables": 1296,
+      "assertions": 2430
+    },
+    {
+      "shape": "2x3",
+      "max_capacity": 2,
+      "patterns": 729,
+      "fibers": 39366,
+      "tables": 46656,
+      "assertions": 78732
+    },
+    {
+      "shape": "3x3",
+      "max_capacity": 1,
+      "patterns": 512,
+      "fibers": 17840,
+      "tables": 19683,
+      "assertions": 35680
+    }
+  ],
+  "totals": {
+    "capacity_patterns": 1322,
+    "margin_fibers": 58421,
+    "complete_named_tables": 67635,
+    "exact_histogram_and_count_assertions": 116842,
+    "output_support_terms": 66960,
+    "memo_states_accumulated": 3440381,
+    "memo_cache_hits_accumulated": 260453,
+    "transition_scans": 3642413
+  },
+  "larger_cases": [
+    {
+      "shape": "3x3",
+      "capacity": 2,
+      "row_column_margin": 3,
+      "named_tables": "31",
+      "uncached_calls": 5341,
+      "cached_unique_states": 1683,
+      "cached_hits": 771,
+      "call_reduction": 3658
+    },
+    {
+      "shape": "4x4",
+      "capacity": 1,
+      "row_column_margin": 2,
+      "named_tables": "90",
+      "uncached_calls": 20057,
+      "cached_unique_states": 4881,
+      "cached_hits": 1261,
+      "call_reduction": 15176
+    },
+    {
+      "shape": "4x4",
+      "capacity": 2,
+      "row_column_margin": 4,
+      "named_tables": "2371",
+      "uncached_calls": 5152152,
+      "cached_unique_states": 143852,
+      "cached_hits": 97976,
+      "call_reduction": 5008300
+    },
+    {
+      "shape": "5x5",
+      "capacity": 1,
+      "row_column_margin": 2,
+      "named_tables": "2040",
+      "uncached_calls": 949201,
+      "cached_unique_states": 53468,
+      "cached_hits": 16527,
+      "call_reduction": 895733
+    }
+  ],
+  "component_factorization": {
+    "named_tables": "4",
+    "support_terms": 2,
+    "verified": true
+  },
+  "prefix_observer_repair": {
+    "joint_observer_support": [
+      "0,0",
+      "1,0"
+    ],
+    "coefficients": [
+      "1",
+      "1"
+    ],
+    "verified": true
+  },
+  "semantics": {
+    "arithmetic": "exact nonnegative BigInt coefficients and signed integer Laurent exponents",
+    "coverage": "All capacity assignments and all attainable margin fibers for the listed finite shapes; four additional individually specified dense/sparse cases",
+    "benchmark_metric": "Exact search calls/states; not elapsed time or general worst-case speedup"
+  }
+}
