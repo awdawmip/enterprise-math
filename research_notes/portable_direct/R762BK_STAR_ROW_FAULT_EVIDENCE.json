@@ -1,0 +1,112 @@
+{
+  "schema": "EM_R762BK_EXACT_INTEGER_EVIDENCE_V1",
+  "model": "signed native X6 relative Cell; coordinate Port-1 star rows; adversarial corrupted labelled rows and known erasures",
+  "theorem": "minimum row Hamming distance=min degree of G_H; unique recovery from t errors and e erasures iff 2t+e<d; vertex-wise strict majority decoder",
+  "family_checks": 1024,
+  "binary_state_pairs_per_family": 496,
+  "binary_pair_checks": 507904,
+  "min_distance_checks": 1024,
+  "mixed_budget_checks": 12288,
+  "profile": {
+    "0": {
+      "minRows": 0,
+      "optimal": 1,
+      "all": 256
+    },
+    "1": {
+      "minRows": 3,
+      "optimal": 30,
+      "all": 515
+    },
+    "2": {
+      "minRows": 5,
+      "optimal": 12,
+      "all": 227
+    },
+    "3": {
+      "minRows": 8,
+      "optimal": 15,
+      "all": 25
+    },
+    "4": {
+      "minRows": 10,
+      "optimal": 1,
+      "all": 1
+    }
+  },
+  "eligible": {
+    "t0e0": {
+      "qualifyingFamilies": 768,
+      "minRows": 3,
+      "optimalFamilies": 30
+    },
+    "t0e1": {
+      "qualifyingFamilies": 253,
+      "minRows": 5,
+      "optimalFamilies": 12
+    },
+    "t0e2": {
+      "qualifyingFamilies": 26,
+      "minRows": 8,
+      "optimalFamilies": 15
+    },
+    "t0e3": {
+      "qualifyingFamilies": 1,
+      "minRows": 10,
+      "optimalFamilies": 1
+    },
+    "t1e0": {
+      "qualifyingFamilies": 26,
+      "minRows": 8,
+      "optimalFamilies": 15
+    },
+    "t1e1": {
+      "qualifyingFamilies": 1,
+      "minRows": 10,
+      "optimalFamilies": 1
+    },
+    "t1e2": {
+      "qualifyingFamilies": 0,
+      "minRows": null,
+      "optimalFamilies": 0
+    },
+    "t1e3": {
+      "qualifyingFamilies": 0,
+      "minRows": null,
+      "optimalFamilies": 0
+    },
+    "t2e0": {
+      "qualifyingFamilies": 0,
+      "minRows": null,
+      "optimalFamilies": 0
+    },
+    "t2e1": {
+      "qualifyingFamilies": 0,
+      "minRows": null,
+      "optimalFamilies": 0
+    },
+    "t2e2": {
+      "qualifyingFamilies": 0,
+      "minRows": null,
+      "optimalFamilies": 0
+    },
+    "t2e3": {
+      "qualifyingFamilies": 0,
+      "minRows": null,
+      "optimalFamilies": 0
+    }
+  },
+  "one_fault_majority_checks": 7872,
+  "sharp_2_error_ambiguity": {
+    "full_rows": 10,
+    "minimum_distance": 4,
+    "distinct_states": [
+      "00000",
+      "10000"
+    ],
+    "received_distance_from_each": 2
+  },
+  "source_scope": "Enumerates all 1024 graph families, all 32 binary relative charts and their pairs, listed budgets; all Z^6 follows from proof.",
+  "formal_verification": "NOT_PERFORMED",
+  "independent_review": "NOT_REVIEWED"
+}
