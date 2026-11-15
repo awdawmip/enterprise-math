@@ -1,0 +1,92 @@
+{
+  "schema": "EM_R187_VERIFICATION_SUMMARY_V1",
+  "testing": "Exact standard-library Python integer computations",
+  "result": "PASS",
+  "full_partial_source_orders_tested_1_to_7": 16071,
+  "minimax_cases_1_to_4": 18,
+  "unknown_support_minimax": [
+    {
+      "k": 1,
+      "states": 2,
+      "value": 1
+    },
+    {
+      "k": 2,
+      "states": 5,
+      "value": 2
+    },
+    {
+      "k": 3,
+      "states": 16,
+      "value": 4
+    },
+    {
+      "k": 4,
+      "states": 65,
+      "value": 6
+    }
+  ],
+  "fixed_r_minimax_k4": [
+    {
+      "r": 0,
+      "value": 0
+    },
+    {
+      "r": 1,
+      "value": 2
+    },
+    {
+      "r": 2,
+      "value": 3
+    },
+    {
+      "r": 3,
+      "value": 5
+    },
+    {
+      "r": 4,
+      "value": 5
+    }
+  ],
+  "worst_pair_queries_mergesort_recovery": [
+    {
+      "k": 1,
+      "max": 0
+    },
+    {
+      "k": 2,
+      "max": 2
+    },
+    {
+      "k": 3,
+      "max": 5
+    },
+    {
+      "k": 4,
+      "max": 8
+    },
+    {
+      "k": 5,
+      "max": 11
+    },
+    {
+      "k": 6,
+      "max": 15
+    },
+    {
+      "k": 7,
+      "max": 19
+    }
+  ],
+  "one_source_law_exhaustive": {
+    "k_min": 1,
+    "k_max": 8,
+    "b_min": 1,
+    "b_max": "k",
+    "formula": "ceil((k-1)/b)",
+    "passed": true
+  },
+  "independent_review": "NOT_REVIEWED",
+  "native_brc_integrated": false,
+  "stdout_note": "Python script produces expanded per-case JSON; this file is a compact summary of the same executed tests."
+}
