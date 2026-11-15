@@ -1,0 +1,148 @@
+# R749SQE — Dirichlet limit law and exact asymptotic transport for Walsh boundary provenance
+
+Date: 2026-11-15. Status: **AUTHOR_EXACT_NOT_REVIEWED**. Independent portable mathematical continuation. Scientific pin: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`. Precursors: R749SQA (PR #2484), R749SQB (PR #2487), R749SQC–SQD (PR #2488). This result concerns the auxiliary 16-atom signed Walsh optimal-center source model at \((t,s)=(1/10,1/2)\), with 25 compulsory first-grid letters and two alternative 26th letters, without identifying a native X6/Port event law.
+
+## Question and exact finite source
+
+The previous results classified **missing** conditional source multisets at fixed \(V=0\), deficit \(D\ge\max(2,2r-2)\) and boundary length \(n=2D-r\). Their missing-source histogram is the formal generating series
+
+\[
+x^{-D}\sum_{q=0}^{r-1}[z^q]\prod_{i=1}^{23}(1-z^{s_i}x^{b_{j,i}})^{-1},\quad j\in\{0,1\}.
+\]
+
+The 23 nonzero-slack source types are 22 compulsory letters other than the unique zero-slack letter \(e=(h,d,v)=(0,1,1)\) and one optional letter. Their integer slack and shifted reading weights are
+
+\[
+s_i=2d_i-1-v_i>0,\qquad b_{j,i}=h_{j,i}+d_i-v_i\in[0,2s_i].
+\]
+
+For the optional letter \((s,b_0,b_1)=(3,2,1)\); for each compulsory letter \(b_0=b_1\). Exactly 23 positive-slack variables occur, with slack multiplicities \((1:3,2:4,3:6,4:4,5:3,6:2,7:1)\). The coefficients count **unordered source multisets**, each once.
+
+Define
+
+\[
+\mathcal L_r=\{m\in\mathbb Z_{\ge0}^{23}:s\cdot m\le r-1\},\quad C_r=|\mathcal L_r|,
+\]
+
+and sample \(M_r\) uniformly from \(\mathcal L_r\). Its paired *shifted* Walsh readouts and optional-source counter are
+
+\[
+Y_{0,r}=\sum_i b_{0,i}M_{r,i},\qquad
+Y_{1,r}=\sum_i b_{1,i}M_{r,i},\qquad K_r=M_{r,\mathrm{optional}}.
+\]
+
+At each allowed \((D,r)\), the actual missing \(H\) positions are \(H_j=Y_{j,r}-D\). The fixed shift drops out of the scaled limit. The formal missing-pattern probability law is uniform on \(\mathcal L_r\), not an empirical law of sources *present* at length \(2D-r\).
+
+## Theorem 1 — full joint limit law (all integer depths)
+
+Let \(Z=(Z_0,Z_1,\ldots,Z_{23})\) have the uniform distribution on the standard 23-simplex, i.e. the **Dirichlet(1,...,1)** law with 24 barycentric coordinates. Define
+
+\[
+a_{j,i}=\frac{b_{j,i}}{s_i},\qquad c_i=\frac{\mathbf1_{\{i=\mathrm{optional}\}}}{s_i}.
+\]
+
+Then, as every integer \(r\to\infty\), the entire joint source-readout vector converges in distribution and in every fixed polynomial moment:
+
+\[
+\boxed{\left(\frac{Y_{0,r}}r,\frac{Y_{1,r}}r,\frac{K_r}r\right)
+\Longrightarrow\left(\sum_{i=1}^{23}a_{0,i}Z_i,\sum_{i=1}^{23}a_{1,i}Z_i,\frac{Z_{\mathrm{optional}}}{3}\right).}
+\]
+
+No averaging over a congruence subsequence is required. This is a **joint** limit: both alphabet readouts are coupled by their same source multiplicities, retaining the provenance relation.
+
+The exact rational first moments are
+
+\[
+\boxed{\mu_0=\frac{379}{630},\quad
+\mu_1=\frac{1481}{2520},\quad
+\mu_K=\frac1{72},\quad
+\mu_0-\mu_1=\mu_K.}
+\]
+
+The exact limiting covariance entries (order \(Y_0/r,Y_1/r,K/r\)) are
+
+\[
+\boxed{\begin{aligned}
+\sigma_{00}&=\frac{1489163}{158760000},&
+\sigma_{11}&=\frac{752929}{79380000},&
+\sigma_{KK}&=\frac{23}{129600},\\
+\sigma_{01}&=\frac{1483423}{158760000},&
+\sigma_{0K}&=\frac{41}{1134000},&
+\sigma_{1K}&=-\frac{641}{4536000}.
+\end{aligned}}
+\]
+
+This is a nontrivial joint distribution supported on the plane \(Y_0/r-Y_1/r=K/r\), an exact relation both at every finite \(r\) and in the limit.
+
+## Theorem 2 — persistent boundary transport under coupled scaling
+
+Equip paired \(H\)-readouts at length \(n\) with the inherited Walsh total-variation ground cost \(|H-H'|/(20n)\). The matched source multiset has nonnegative coordinate shift \(K_r\), so the mean-difference dual bound makes the natural coupling optimal. For all integers \(r,n\ge1\),
+
+\[
+\boxed{W_1^{\mathrm{formal\ missing}}(r,n)=\frac{\mathbb E K_r}{20n}.}
+\]
+
+For any integer sequence \(D_r\ge\max(2,2r-2)\) and \(n_r=2D_r-r\ge1\) with \(n_r/r\to c\in[3,\infty)\) finite,
+
+\[
+\boxed{W_1^{\mathrm{formal\ missing}}(r,n_r)\longrightarrow\frac{1}{1440c}.}
+\]
+
+At the smallest universally admissible deficit \(D_r=2r-2\), for sufficiently large \(r\), the limit is \(1/4320\). If \(n_r/r\to\infty\), the cost tends to zero. Measured instead in \(H/r\) units, the limiting optimal transport cost is \(1/72\).
+
+## Proof
+
+### Rational-simplex equidistribution
+
+Consider the compact rational 23-dimensional simplex
+
+\[
+\mathcal P=\left\{u\in\mathbb R_{\ge0}^{23}:\sum_{i=1}^{23}s_iu_i\le1\right\}.
+\]
+
+Its boundary has zero 23-dimensional Lebesgue measure, and its interior has positive finite volume. \(\mathcal L_r\) consists of integer points whose \(m/r\) lies in \(\mathcal P\), excluding only points on the hyperplane \(s\cdot m=r\); there are \(O(r^{22})\) such boundary points, while \(C_r\sim\operatorname{vol}(\mathcal P)r^{23}\). For every continuous \(f\) on \(\mathcal P\), bounded-grid Riemann sums give
+
+\[
+\frac1{C_r}\sum_{m\in\mathcal L_r}f(m/r)
+\longrightarrow\frac1{\operatorname{vol}(\mathcal P)}\int_{\mathcal P}f(u)\,du.
+\]
+
+The linear coordinate change \(Z_i=s_i u_i\) for \(i\ge1\), \(Z_0=1-\sum_iZ_i\), has constant Jacobian and maps uniform measure on \(\mathcal P\) to uniform measure on the standard simplex, namely Dirichlet with 24 parameters all one. Substituting the three linear functions of \(u\) proves joint weak convergence. All scaled coordinates are uniformly bounded; the same Riemann argument gives convergence of all fixed polynomial moments.
+
+### Exact moments
+
+For the Dirichlet(1^24) vector, set \(N=24\). Then
+
+\[
+\mathbb EZ_i=\frac1N,\qquad
+\operatorname{Cov}(Z_i,Z_j)=\frac{N\mathbf1_{\{i=j\}}-1}{N^2(N+1)}.
+\]
+
+For any two coefficient vectors \(v,w\), extended by a zero for \(Z_0\),
+
+\[
+\mu(v)=\frac{\sum v_i}{N},\qquad
+\operatorname{Cov}(v\cdot Z,w\cdot Z)
+=\frac{N\sum v_iw_i-(\sum v_i)(\sum w_i)}{N^2(N+1)}.
+\]
+
+Direct exact enumeration of the inherited eight-facet first-grid model and its 25 uniquely forced two-source letters produces the 23 \((s,b_0,b_1)\) tuples in the verifier. In particular,
+\(\sum a_{0,i}=1516/105\),
+\(\sum a_{1,i}=1481/105\),
+\(\sum a_{0,i}^2=1262473/88200\),
+\(\sum a_{1,i}^2=1233073/88200\).
+The optional \(c_i=1/3\). Substituting into the covariance identity produces every rational constant stated above. The relation \(a_{0,i}-a_{1,i}=c_i\) holds typewise, preserving the paired readout residual exactly.
+
+### Transport
+
+Pair each formal missing pattern in alphabet A0 with precisely the same 26-type multiplicity vector in A1. The pairing preserves \(C_r\) and produces displacement \(H_0-H_1=K_r\ge0\), giving upper cost \(\mathbb EK_r/(20n)\). The 1-Lipschitz Kantorovich potential \(H/(20n)\) gives the reverse bound from the mean-\(H\) difference. Equality holds at every finite depth. The first theorem yields \(\mathbb EK_r/r\to1/72\); hence the limit at \(n_r/r\to c\) is \(1/(20\cdot72c)=1/(1440c)\).
+
+## Exact reproduction and evidence
+
+The attached standard-library Python verifier reconstructs 33 first-grid points and 25 forced sources from the inherited eight facets, derives 23 typed \((s,b_0,b_1,k)\) letters, and evaluates all rational limiting first and second moments with \`fractions.Fraction\`. A graded integer moment DP through 120 slack degrees computes nine finite statistics. A separately structured Laurent enumeration through slack degree 9 agrees on **all nine statistics in each of ten degrees**. The checker reproduces
+\(C_1,\ldots,C_9=(1,4,14,42,113,279,651,1437,3040)\) and
+\(T_1,\ldots,T_9=(0,0,0,1,4,14,43,117,293)\), and records extra finite-depth moment data through \(r=120\). The universal theorem is proved by rational-simplex Riemann sums; no finite test is extrapolated. Arithmetic is integer/Fraction only, without floating tolerances. The result JSON was generated by actually running the program, with PASS.
+
+## Status and next research
+
+This is **AUTHOR_EXACT_NOT_REVIEWED**, conditional on the inherited author-level R749SPR/SPU source classification and R749SQB/SQD boundary enumeration. No shared Task CLAIM or Result/Review is asserted. Next: determine the projected Dirichlet law's explicit piecewise-polynomial/B-spline density and exact knots, then test native signed Port readout candidates only with a separately verified observer/event bridge.
