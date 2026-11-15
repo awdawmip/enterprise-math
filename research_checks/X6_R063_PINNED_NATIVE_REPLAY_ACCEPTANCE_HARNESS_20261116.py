@@ -74,6 +74,14 @@ def original_blob_sha1(data: bytes) -> str:
     return hashlib.sha1(b'blob ' + str(len(data)).encode('ascii') + b'\0' + data).hexdigest()
 
 def verify_pins(repo: Path) -> dict[str, str]:
+    # The frozen loader concatenates *every* sorted part*.inc, not just these six hashes.
+    # A leftover extra part would change the executable object while the pinned six files match.
+    parts_dir = repo / 'scripts/r063_stage0_checker_parts'
+    require(parts_dir.is_dir(), 'missing original checker part directory')
+    actual_parts = sorted(p.name for p in parts_dir.glob('part*.inc'))
+    expected_parts = [f'part{i:02}.inc' for i in range(5)]
+    require(actual_parts == expected_parts,
+            'original loader glob source set differs from frozen five: '+repr(actual_parts))
     pins = {}
     for rel, want in ORIGINAL.items():
         p = repo / rel
