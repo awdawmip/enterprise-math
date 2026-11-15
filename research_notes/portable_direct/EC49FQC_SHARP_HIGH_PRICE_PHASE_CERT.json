@@ -1,0 +1,184 @@
+{
+  "schema": "EC49FQC_CLASS16943_GLOBAL_PRICED_PHASES_V1",
+  "date": "2026-11-16",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "frozen_science_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "root_cost_csv_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "domain": {
+    "original_configs": 310,
+    "named_root_profiles": 141,
+    "terminal_actions": 144,
+    "named_root_actions": 84,
+    "raw_actions": 228,
+    "unique_response_partitions": 209
+  },
+  "bellman_anchor_certificates": [
+    {
+      "r": 4,
+      "t": 5,
+      "uniform": 1393,
+      "weighted": 3301,
+      "sha256": "4bee14710e11531d155394c059ad510436cdc6bf35bf53429199613682f9cebd"
+    },
+    {
+      "r": 153,
+      "t": 184,
+      "uniform": 52666,
+      "weighted": 122515,
+      "sha256": "862a9c37eb16e9a89b248b05c1453d403aac30ae267d5e06cdb05598a13a2d78"
+    },
+    {
+      "r": 7,
+      "t": 8,
+      "uniform": 2310,
+      "weighted": 5389,
+      "sha256": "63789d4bf28702002d8e0cd617b73e2a4bf20b33f82493e1c5f92051e72d6477"
+    },
+    {
+      "r": 33,
+      "t": 35,
+      "uniform": 10244,
+      "weighted": 23926,
+      "sha256": "078dc6d02b07cea75f5d953f6c125806ca169e032f544e012f97e6e7699c62ff"
+    },
+    {
+      "r": 1,
+      "t": 1,
+      "uniform": 296,
+      "weighted": 690,
+      "sha256": "c92c8fbaa82f40dc072664741e3864f11a9e5d5bb706dca1a62a463ec5f389b7"
+    },
+    {
+      "r": 3,
+      "t": 1,
+      "uniform": 308,
+      "weighted": 700,
+      "sha256": "9b5b7c5226c6005d1c1d418d82422195bb9f57a580e2898393043b43c42cd383"
+    }
+  ],
+  "extra_tree_witness": {
+    "r": 157,
+    "t": 189,
+    "uniform_aggregate_reads": [
+      242,
+      85
+    ],
+    "sha256": "ca68a82a5b67ef7f40d8ac5c9c82634c9a8254038f2fa2457723b12269b8dcf4"
+  },
+  "phase_functions": {
+    "uniform": {
+      "population": 141,
+      "segments": [
+        {
+          "lower": "4/5",
+          "upper": "153/184",
+          "reads": [
+            242,
+            85
+          ]
+        },
+        {
+          "lower": "153/184",
+          "upper": "1",
+          "reads": [
+            58,
+            238
+          ]
+        },
+        {
+          "lower": "1",
+          "upper": "3",
+          "reads": [
+            6,
+            290
+          ]
+        },
+        {
+          "lower": "3",
+          "upper": "infinity",
+          "reads": [
+            4,
+            296
+          ]
+        }
+      ]
+    },
+    "config_weighted": {
+      "population": 310,
+      "segments": [
+        {
+          "lower": "4/5",
+          "upper": "7/8",
+          "reads": [
+            179,
+            517
+          ]
+        },
+        {
+          "lower": "7/8",
+          "upper": "33/35",
+          "reads": [
+            147,
+            545
+          ]
+        },
+        {
+          "lower": "33/35",
+          "upper": "1",
+          "reads": [
+            112,
+            578
+          ]
+        },
+        {
+          "lower": "1",
+          "upper": "3",
+          "reads": [
+            5,
+            685
+          ]
+        },
+        {
+          "lower": "3",
+          "upper": "infinity",
+          "reads": [
+            4,
+            688
+          ]
+        }
+      ]
+    }
+  },
+  "terminal_equivalence": {
+    "signature_count": 139,
+    "nontrivial_profile_pairs": [
+      [
+        17928,
+        38165
+      ],
+      [
+        24541,
+        38166
+      ]
+    ],
+    "each_profile_original_config_multiplicity": 1,
+    "forced_root_reads_minimum": 4
+  },
+  "proof_methods": [
+    "complete exact integer Bellman at rational anchor prices",
+    "finite-tree affine price envelopes are concave",
+    "endpoint equality plus feasible witnesses certifies complete closed intervals",
+    "two terminal-invisible disjoint pairs force at least 4 root reads for every tree",
+    "sharp infinite ray from price ratio 3",
+    "local affine-contact slope identifies optimal aggregate read counts"
+  ],
+  "reproducible_source": {
+    "repository": "awdawmip/enterprise-math",
+    "prior_pull_request": 2515,
+    "solver_path": "research_notes/portable_direct/EC49FQA_PRICED_BELLMAN.py",
+    "independent_replay_path": "research_notes/portable_direct/EC49FQA_INDEPENDENT_REPLAY.py",
+    "full_raw_evidence": "EC49FQC_CLASS16943_HIGH_PRICE_COMPLETE_EVIDENCE_20261116.tar.xz supplied with research conversation"
+  },
+  "next_open_problem": "global exact price-phase diagram on 0<r/t<4/5; compare sharp pure-root boundaries 4/7 and 26/71"
+}
