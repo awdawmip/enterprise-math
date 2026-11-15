@@ -1,0 +1,277 @@
+{
+  "schema": "EM_R189_CHECK_V1",
+  "result": "PASS",
+  "theorem": "Q_b(k) = C_b(k)+1 for integers k>=1, b>=2 (query sizes truncated to k)",
+  "total_partial_history_checks": 93521,
+  "total_witness_checks": 547995,
+  "tournament_rows": [
+    {
+      "k": 2,
+      "b": 2,
+      "partial_histories_checked": 5,
+      "max_tournament_subset_queries": 1,
+      "adjacent_witnesses": 5,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 3,
+      "b": 2,
+      "partial_histories_checked": 16,
+      "max_tournament_subset_queries": 3,
+      "adjacent_witnesses": 32,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 3,
+      "b": 3,
+      "partial_histories_checked": 16,
+      "max_tournament_subset_queries": 2,
+      "adjacent_witnesses": 32,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 4,
+      "b": 2,
+      "partial_histories_checked": 65,
+      "max_tournament_subset_queries": 5,
+      "adjacent_witnesses": 195,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 4,
+      "b": 3,
+      "partial_histories_checked": 65,
+      "max_tournament_subset_queries": 4,
+      "adjacent_witnesses": 195,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 4,
+      "b": 4,
+      "partial_histories_checked": 65,
+      "max_tournament_subset_queries": 3,
+      "adjacent_witnesses": 195,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 5,
+      "b": 2,
+      "partial_histories_checked": 326,
+      "max_tournament_subset_queries": 8,
+      "adjacent_witnesses": 1304,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 5,
+      "b": 3,
+      "partial_histories_checked": 326,
+      "max_tournament_subset_queries": 6,
+      "adjacent_witnesses": 1304,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 5,
+      "b": 4,
+      "partial_histories_checked": 326,
+      "max_tournament_subset_queries": 5,
+      "adjacent_witnesses": 1304,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 5,
+      "b": 5,
+      "partial_histories_checked": 326,
+      "max_tournament_subset_queries": 4,
+      "adjacent_witnesses": 1304,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 6,
+      "b": 2,
+      "partial_histories_checked": 1957,
+      "max_tournament_subset_queries": 11,
+      "adjacent_witnesses": 9785,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 6,
+      "b": 3,
+      "partial_histories_checked": 1957,
+      "max_tournament_subset_queries": 8,
+      "adjacent_witnesses": 9785,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 6,
+      "b": 4,
+      "partial_histories_checked": 1957,
+      "max_tournament_subset_queries": 7,
+      "adjacent_witnesses": 9785,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 6,
+      "b": 5,
+      "partial_histories_checked": 1957,
+      "max_tournament_subset_queries": 6,
+      "adjacent_witnesses": 9785,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 6,
+      "b": 6,
+      "partial_histories_checked": 1957,
+      "max_tournament_subset_queries": 5,
+      "adjacent_witnesses": 9785,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 7,
+      "b": 2,
+      "partial_histories_checked": 13700,
+      "max_tournament_subset_queries": 14,
+      "adjacent_witnesses": 82200,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 7,
+      "b": 3,
+      "partial_histories_checked": 13700,
+      "max_tournament_subset_queries": 10,
+      "adjacent_witnesses": 82200,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 7,
+      "b": 4,
+      "partial_histories_checked": 13700,
+      "max_tournament_subset_queries": 9,
+      "adjacent_witnesses": 82200,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 7,
+      "b": 5,
+      "partial_histories_checked": 13700,
+      "max_tournament_subset_queries": 8,
+      "adjacent_witnesses": 82200,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 7,
+      "b": 6,
+      "partial_histories_checked": 13700,
+      "max_tournament_subset_queries": 7,
+      "adjacent_witnesses": 82200,
+      "singleton_calls_each": 1
+    },
+    {
+      "k": 7,
+      "b": 7,
+      "partial_histories_checked": 13700,
+      "max_tournament_subset_queries": 6,
+      "adjacent_witnesses": 82200,
+      "singleton_calls_each": 1
+    }
+  ],
+  "exact_decision_tree_rows": [
+    {
+      "k": 2,
+      "b": 2,
+      "known_support": true,
+      "exact_minimax": 1,
+      "state_count": 2,
+      "beliefs_visited": 3
+    },
+    {
+      "k": 2,
+      "b": 2,
+      "known_support": false,
+      "exact_minimax": 2,
+      "state_count": 5,
+      "beliefs_visited": 12
+    },
+    {
+      "k": 3,
+      "b": 2,
+      "known_support": true,
+      "exact_minimax": 3,
+      "state_count": 6,
+      "beliefs_visited": 16
+    },
+    {
+      "k": 3,
+      "b": 2,
+      "known_support": false,
+      "exact_minimax": 4,
+      "state_count": 16,
+      "beliefs_visited": 89
+    },
+    {
+      "k": 3,
+      "b": 3,
+      "known_support": true,
+      "exact_minimax": 2,
+      "state_count": 6,
+      "beliefs_visited": 16
+    },
+    {
+      "k": 3,
+      "b": 3,
+      "known_support": false,
+      "exact_minimax": 3,
+      "state_count": 16,
+      "beliefs_visited": 89
+    },
+    {
+      "k": 4,
+      "b": 2,
+      "known_support": true,
+      "exact_minimax": 5,
+      "state_count": 24,
+      "beliefs_visited": 189
+    },
+    {
+      "k": 4,
+      "b": 2,
+      "known_support": false,
+      "exact_minimax": 6,
+      "state_count": 65,
+      "beliefs_visited": 1110
+    },
+    {
+      "k": 4,
+      "b": 3,
+      "known_support": true,
+      "exact_minimax": 4,
+      "state_count": 24,
+      "beliefs_visited": 183
+    },
+    {
+      "k": 4,
+      "b": 3,
+      "known_support": false,
+      "exact_minimax": 5,
+      "state_count": 65,
+      "beliefs_visited": 1102
+    },
+    {
+      "k": 4,
+      "b": 4,
+      "known_support": true,
+      "exact_minimax": 3,
+      "state_count": 24,
+      "beliefs_visited": 183
+    },
+    {
+      "k": 4,
+      "b": 4,
+      "known_support": false,
+      "exact_minimax": 4,
+      "state_count": 65,
+      "beliefs_visited": 1102
+    }
+  ],
+  "arithmetic": "integers-only, exhaustive finite histories for k<=7, exact decision trees k<=4",
+  "review": "NOT_REVIEWED"
+}
