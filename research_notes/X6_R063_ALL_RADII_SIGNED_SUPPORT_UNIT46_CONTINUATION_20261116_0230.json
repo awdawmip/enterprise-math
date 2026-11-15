@@ -1,0 +1,76 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_CONTINUATION_V1",
+  "record_status": "AUTHOR_CHECKPOINT_NOT_FORMAL_RESULT",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "lane_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "separate_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
+  "run_id": "RUN-3356cbe3c2b4916d79399941",
+  "immutable_scientific_inputs": {
+    "centered_signed_x6": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical_plane": "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "p000": "P000 V5 / active signed-X6 Cell-relative spatial model",
+    "r063_original_loader_blob": "b4e000a6377f2858ae434eb0eecd0c25c33e8592"
+  },
+  "native_prior_status": {
+    "last_original_request_id": "onhour-20261116-0202-x6-publish-saved-units44-45-semantic-v1",
+    "status": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED",
+    "scope": "author semantic checkpoints 44 and 45; no Result admission"
+  },
+  "current_science_unit": {
+    "number": 46,
+    "statement": "For each positive integer radius r, the signed six-axis sum-of-squares shell is covered by the complete R063 fixed-pair charts if and only if r=1; constructive support>=3 witness for each r>=2.",
+    "proof_uses": "Four-square theorem and exact support/type embedding; even r explicit four-support, odd r four-square construction",
+    "finite_check": "r=1..512 exact integer witnesses PASS, direct six-axis enumeration r=1..6 PASS, 512-row digest 29719b9b33986a5876d666a35f0803b7e0f9d99decdba821aa477f1060786bc3",
+    "review": "AUTHOR-PROVED / AUTHOR-EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "github_science": [
+      {
+        "path": "research_notes/X6_R063_ALL_RADII_SIGNED_SUPPORT_OBSTRUCTION_20261116_0230.md",
+        "commit": "5d0e56f301e451a7d8a05bcb95a67063e93b327a",
+        "sha256": "7075773ec0cfb2b7d830b83de75a2abd2979e629b9b1df100dab50a98d6d4ed3",
+        "blob_sha1": "52f026c75a040ab25742be250c91c67e76056bd1"
+      },
+      {
+        "path": "research_checks/X6_R063_ALL_RADII_SIGNED_SUPPORT_OBSTRUCTION_20261116_0230.py",
+        "commit": "a3fe47c918c61f14f7f06497281a9bf8511110f4",
+        "sha256": "42a0581fc7752a299f39c0fb441203127bdc55c44cff87b3d51f30ad5c51c164",
+        "blob_sha1": "63f28f6884d1ee584179d45819835ce0369e34ab"
+      }
+    ],
+    "activity": {
+      "id": "RA-5E3FE1E761E4963EC461A892",
+      "checkpoint_count": 67,
+      "commit": "5690387619c84c34eb25515f70caccac174cacc8",
+      "event_id": "onhour-20261116-0230-x6-r063-all-radii-signed-support-unit46-v1"
+    }
+  },
+  "native_pending_request": {
+    "request_id": "onhour-20261116-0250-x6-own-run3356-resume-for-unit46-v1",
+    "operation": "resume",
+    "last_observed": "QUEUED / WAIT_ORIGINAL / error=null",
+    "instruction": "reconcile original request before semantic publication; never duplicate resume"
+  },
+  "current_unfinished_unit": "Original pinned R063 Stage0 six-file same-object native replay, 17 gates, complete r=1..512, original discovery phase ordering and complete output digest; parallel LP011/LP019 exact historical wrong-caller provenance and full 28-LP consumer closure; independent Driver REQUEST_REVISION.",
+  "native_benchmark": {
+    "issue_url": "https://github.com/awdawmip/enterprise-math/issues/2416",
+    "status": "OPEN_UNASSIGNED_AS_OBSERVED_2026-11-16",
+    "requested_owner": "authorized repository checkout/runner, actual assignee not yet named",
+    "execution_state": "NOT_EXECUTED_THIS_TURN",
+    "next_action": "Execute exact original frozen loader and five parts with --N 2500 --regression-max-r 512 in isolated output; verify 17 gates, discovery snapshot and original 512 row SHA"
+  },
+  "do_not_repeat": [
+    "Previous published author progress #1-45 and all prior saved exact certificates",
+    "Do not duplicate queued original resume or Source progress mutations",
+    "Do not substitute any independent model/theorem/checker for original R063 same-object execution",
+    "Do not re-register, reclaim, dispatch or borrow maintenance conversation identity",
+    "Do not attribute located correct LP011/LP019 callers as historical wrong callers without exact evidence"
+  ],
+  "next_actions": [
+    "Read original resume receipt until terminal; if SUCCEEDED and own RUN still authorized, publish original same-RUN zero-upload semantic unit46 with immutable GitHub references and verify Source checkpoint",
+    "Arrange or perform original R063 same-object executable from an authorized checkout, consistent with existing support issue #2416; retain exact frozen pins and executable acceptance",
+    "Finish actual LP011/LP019 wrong historical caller searches with exact file-line evidence, classify unresolved honestly, finish 28-LP downstream and Driver review"
+  ]
+}
