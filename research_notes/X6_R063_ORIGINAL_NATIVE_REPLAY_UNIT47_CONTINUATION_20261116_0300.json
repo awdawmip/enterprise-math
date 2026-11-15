@@ -1,0 +1,92 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_CONTINUATION_V1",
+  "record_status": "AUTHOR_TOOLING_CHECKPOINT_NOT_ORIGINAL_BENCHMARK_OR_FORMAL_RESULT",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "lane_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "separate_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
+  "run_id": "RUN-3356cbe3c2b4916d79399941",
+  "run_generation_last_verified": 24,
+  "immutable_scientific_inputs": {
+    "centered_signed_x6": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical_plane": "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "original_owner_branch": "research/r063-stage0-path-valued-sqrt-2500",
+    "source_blobs": {
+      "scripts/r063_stage0_validate_path_valued_sqrt_2500.py": "b4e000a6377f2858ae434eb0eecd0c25c33e8592",
+      "scripts/r063_stage0_checker_parts/part00.inc": "4a69c4d698887bce56323f393cb979609ce4ab0a",
+      "scripts/r063_stage0_checker_parts/part01.inc": "913078c642b8995bfc135ef0350912387a17cdb8",
+      "scripts/r063_stage0_checker_parts/part02.inc": "b543e185ec415b512c0ca0421616404cc12a19a7",
+      "scripts/r063_stage0_checker_parts/part03.inc": "4f1bbf72abed19dc7dc605371872ee31c501cebe",
+      "scripts/r063_stage0_checker_parts/part04.inc": "a1834a4b39a9d528760e67220b5fe5f368c9e655"
+    }
+  },
+  "native_prior_status": {
+    "completed_author_semantic_number": 46,
+    "original_request_id": "onhour-20261116-0309-x6-unit46-semantic-progress-v1",
+    "status": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "34ee48c0abedaf78512058c235d7f9f1621fac60",
+    "source_checkpoint": "research_artifacts/mcp/RS-X6-LEGACY-PLANE-RECONCILIATION/MCP-082892eb480e45dea6d4b9fcc0491034/9b522b7594a2b0cf6874/_checkpoint.json",
+    "canonical_publication_verified": true,
+    "authenticated_readback": true
+  },
+  "current_research_unit": {
+    "number": 47,
+    "kind": "SOURCE_PINNED_EXPERIMENT_ENABLEMENT_AND_VALIDATION_ENVELOPE",
+    "question": "How can authorized runner reproduce exactly frozen R063 same-object experiment, avoiding extra part*.inc inclusion and vacuous 512 regression acceptance?",
+    "finding": "Original loader execs sorted(part*.inc); verifying six individual blobs alone does not ensure exact composition if extra part*.inc remains. A faithful replay requires exact five-part glob inventory and source pin checks, followed by original loader invocation and independent 17-gate/512-case assertions.",
+    "code": {
+      "commit": "46731d958b284b1018658a70d55f15f1739edb6d",
+      "path": "research_checks/X6_R063_PINNED_SAME_OBJECT_REPLAY_RUNNER_20261116.py",
+      "git_blob_sha1": "8d89a2a82f0fd5eab0b21761cf3e1d667e3342b2",
+      "sha256": "233a3fef4f96fd0c1512c2a272bbe6c4e289e4de760d5733c29eaad916d3428a"
+    },
+    "validation": "AUTHOR_EXECUTED_PY_COMPILE_AND_SYNTHETIC_ACCEPTANCE_FIXTURE_PASS; source mismatch / false gate / zero actual tested_r_count rejected; ORIGINAL_SIX_FILE_BENCHMARK_NOT_EXECUTED",
+    "support_comment_url": "https://github.com/awdawmip/enterprise-math/issues/2416#issuecomment-6899838422",
+    "activity": {
+      "id": "RA-5E3FE1E761E4963EC461A892",
+      "count": 68,
+      "commit": "18455ea87b7f29e7dd2684d4c7885aab1795d009",
+      "event_id": "onhour-20261116-0300-x6-original-r063-native-replay-runner-v1"
+    },
+    "status": "AUTHOR-TOOLING / EXECUTED-SYNTHETIC / NO_ORIGINAL_NATIVE_RUN / NOT_REVIEWED / NOT_ADMITTED",
+    "synthetic_test_code": {
+      "commit": "21a93a1403880410ae81e74de679270a03a35302",
+      "path": "research_checks/test_x6_r063_replay_wrapper_20261116.py",
+      "git_blob_sha1": "9f5309a04c731268dff10c4c79ed5cc3385e0dad",
+      "sha256": "bcda850fb5f21672f3e2446c47eedd44b6c495cae42405a654ce2bb58ca88018"
+    }
+  },
+  "current_unfinished_unit": "R063 original six-file executable Stage0 17 gates and full r=1..512 same-object run; exact LP011 historical native argmax wrong-caller provenance, LP019 positive-path signed cancellation wrong-caller provenance, 28-LP downstream closure and independent Driver REQUEST_REVISION.",
+  "native_benchmark": {
+    "issue_url": "https://github.com/awdawmip/enterprise-math/issues/2416",
+    "owner": "UNASSIGNED",
+    "status": "NOT_EXECUTED_THIS_TURN",
+    "original_loader_blob": "b4e000a6377f2858ae434eb0eecd0c25c33e8592",
+    "discovery_sha256": "6dd26e75436fb6740134590fc243b59ab9eb287cadbc46d417d5bbbb74022f0d",
+    "rows_sha256": "51891fbf9c3a66b1e00dfaa92fa6ae46984e4a6c99325624ec5b88371b66dcae",
+    "exact_next": "With actual authorized repository checkout and stdlib Python, run existing new pinned wrapper --repo <original_checkout> --evidence-dir <new_absent_dir>, keep all original outputs/stdout/stderr/output SHA256, link immutable evidence; reject failure, changes, empty/partial regression."
+  },
+  "native_control": {
+    "pending_original_continuation_read_request_id": "onhour-20261116-0305-x6-exact-continuation-read-v1",
+    "continuation_read_last_known": "QUEUED / WAIT_ORIGINAL / error=null",
+    "new_native_semantic_request": "onhour-20261116-0322-x6-native-r063-runner-tooling-unit47-progress-v1",
+    "new_native_semantic_status_last_observed": "RUNNING / WAIT_ORIGINAL / error=null"
+  },
+  "do_not_repeat": [
+    "Author exact math units #1-46 and original Native progress #1-46 already Source published",
+    "Do not call original synthetic fixture test an original R063 run",
+    "Do not reissue pending read or any accepted mutation",
+    "Do not relabel any correct LP011/LP019 signed/relative consumer as a historical wrong caller without a real source locus",
+    "Never borrow maintenance lane identity or change scheduler",
+    "No repeat of original denied 17:00 prose write"
+  ],
+  "next_actions": [
+    "Reconcile original read (now SUCCEEDED) and native #47 publication request onhour-20261116-0322-x6-native-r063-runner-tooling-unit47-progress-v1 until terminal; do not repeat the publication.",
+    "Same RUN if current holder still authorized: publish author-side source-verified experiment-runner tooling #47 as progress, not original test PASS",
+    "Execute pinned original R063 benchmark on authorized checkout; ensure 17 gates, 512 tested radii, exact hashes, store separate native evidence",
+    "Continue LP011/LP019 source-located wrong caller search and 28-LP current consumer closure, then independent Driver REQUEST_REVISION"
+  ]
+}

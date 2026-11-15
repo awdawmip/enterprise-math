@@ -1,0 +1,92 @@
+{
+  "schema": "ENTERPRISE_MATH_SOURCE_OBSERVATION_BUNDLE_V1",
+  "activity_id": "RA-9B596EB6873BC7BAF237BC3A",
+  "event_id": "prefix816-r6-exact-hub-future-count-lumpability-20261116",
+  "source_scope": "independent auxiliary BRC named-source hub-toggle future observer",
+  "claim_authority_granted": false,
+  "mathematical_review_granted": false,
+  "verification": "Observed full connector immutable GitHub fetch_file content, Git blob and computed SHA256; observation IDs locally assigned, not platform signatures",
+  "observations": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/2026-11-16_r6_prefix816_exact_hub_toggle_observer_lumping.md",
+      "commit": "425581e81f31af6bbcd6c97bc8a9022d47e1baa5",
+      "git_blob_sha1": "a3b9e3c56090c9827917bcf7dbc32e6862fe3d4f",
+      "sha256": "ad8189cf7c990fed513f823cb15db51d8cbcdf6173f9e98e6af8f8e551b4606b",
+      "bytes": 8315,
+      "tool_name": "mcp__GitHub__fetch_file",
+      "readback": {
+        "tool_name": "mcp__GitHub__fetch_file",
+        "observation_id": "r6-prefix816-20261116-source-0",
+        "arguments": {
+          "repository_full_name": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/2026-11-16_r6_prefix816_exact_hub_toggle_observer_lumping.md",
+          "ref": "425581e81f31af6bbcd6c97bc8a9022d47e1baa5"
+        },
+        "result": {
+          "isError": false,
+          "structuredContent": {
+            "content": "# PREFIX-816 — Exact future-observer lumpability for named BRC hub-cycle toggles\n\nDate: 2026-11-16. Research mode: independent portable TASK_RESEARCH auxiliary mathematics. Frozen scientific input: f42f2906d77f24085c123f3ccfe9667d41caa96d (unchanged). Sources: PREFIX-809 named source-cycle moves; PREFIX-811/812 observer-difference fibers; PREFIX-815 exact bounded-hub source fiber and unbounded joint rank. Current method rules were read separately from the scientific pin.\n\n## Question and mathematical model\n\nPREFIX-815 proves a one-edge release can produce arbitrarily large rank in a joint named-source observer. Can the much smaller scalar hub count nevertheless preserve every future observation in a specifically declared branch-toggle language?\n\nTake m>=1 named unfixed spoke branches in the PREFIX-815 integer transportation construction and hub capacity 0<=q<=m. Its legal named source tables are in bijection with subsets S of [m] of size <=q. Here t_i=1 iff i is in S, y_h=|S|, and all other edge values are uniquely reconstructed by the PREFIX-815 equations. The complete state is S; proposed scalar observer U(S)=|S|.\n\nDeclare a weighted operation language. A legal elementary residual-cycle toggle adds an inactive branch i if |S|<q (weight alpha_i>=0), or removes an active i (weight beta_i>=0). All weights are nonnegative integers. The weight of a path is the product of step weights, and weights of alternative named paths add. Zero-weight steps contribute zero, including if their underlying combinatorial toggle is feasible. Each toggle is a valid four-edge integer residual cycle of the hub source graph and changes its hub count by exactly +1 or -1.\n\nFor initial S, length h>=0 and terminal count l, define P_h(S,l) to be the sum of the weights of all h-toggle paths ending at any named state T with |T|=l. Say the scalar observer is future-sufficient when P_h(S,l) depends only on |S| for every h and l. h counts formal operations; it is not asserted to be native Heartbeat time.\n\n## Theorem 816.1 (sharp all-horizon count-lumping criterion)\n\nSuppose m>=2. The scalar count observer is future-sufficient if and only if:\n\n1. q=0: no restriction on named weights;\n2. q=1: beta_1=...=beta_m; the alpha_i may differ;\n3. 2<=q<=m: beta_1=...=beta_m and alpha_1=...=alpha_m.\n\nFor m=1, count already identifies every named state, so no additional restriction is needed.\n\nUnder these conditions, let B be the (q+1) by (q+1) integer matrix indexed by counts k=0,...,q. Its only possibly nonzero entries are\n\n  B[k,k-1] = k*beta       (1<=k<=q),\n  B[k,k+1] = (m-k)*alpha (0<=k<q, q>=2),\n  B[0,1]   = sum_i alpha_i (q=1).\n\nIn the q=0 case B=[0]. For every S with k=|S| and all integers h>=0, the row (P_h(S,0),...,P_h(S,q)) equals row k of B^h, interpreted as exact integer path counting, with B^0 the identity.\n\n### Proof\n\nLet Q(S,T) denote the named one-step weighted adjacency. At count k=|S|, the sum of outgoing weights to count k-1 is D(S)=sum_{i in S} beta_i, and the sum to k+1 is A(S)=1_{k<q} sum_{i not in S} alpha_i. All other count-class row sums are zero. If D and A depend only on k, then the partition by count is weighted equitable. Grouping the intermediate named states in a length-(h+1) path by their count and applying induction proves the B^h formula. Conversely, future sufficiency at h=1 requires D and A to be class-constant.\n\nIf q=0 there is just one named state. If m>=2 and q>=1, comparing the singleton states {i} and {j} shows beta_i=beta_j because their downward totals are beta_i and beta_j. At q=1, the unique empty state can add branches with combined weight sum_i alpha_i, whereas singletons cannot add. Uniform beta is therefore sufficient and no equality of alpha is needed.\n\nIf q>=2, comparison of singleton upward totals gives sum_{r!=i} alpha_r=sum_{r!=j} alpha_r; hence alpha_i=alpha_j. Conversely, common beta and alpha imply D(S)=k*beta and A(S)=(m-k)*alpha when k<q, as stated. At m=1 no count class has two named states. Boundary counts and zero weights cause no exception. QED.\n\n## Corollary 816.2 (exact compressed path evaluation)\n\nThe named legal fiber has N(m,q)=sum_{k=0}^q binom(m,k) states. When the criterion holds, the quotient contains q+1 count states. Constructing its nonzero weights uses O(m+q) integer operations and O(q) storage; propagating a quotient histogram through H formal steps uses O(Hq) integer arithmetic operations. Integer bit lengths depend on H, m and the named weights, so this is an arithmetic-operation rather than universal bit-complexity bound.\n\nAt q=1 with nonuniform births but uniform removals, the full (m+1)-state named graph has the exact two-state future-count operator\n\n  B = [[0, sum_i alpha_i], [beta, 0]].\n\n## Corollary 816.3 (typed branch-count carrier)\n\nPartition branch indices into types a such that all members of a type share the same pair of weights (alpha_a,beta_a), and let m_a be their population. The vector c=(c_a), with c_a the number of active branches in type a, is sufficient for weighted future paths observed through the type-count vector. Its only moves are c->c+e_a with weight (m_a-c_a)*alpha_a if sum_a c_a<q, and c->c-e_a with weight c_a*beta_a. Proof: each named state with the same type-count vector has exactly those aggregated row sums, so the same induction applies. This provides an exact intermediate BRC carrier between named branch states and the scalar count.\n\n## Sharp witnesses and residual scope\n\nEXCEPTION AT CAP ONE. Let m=3, q=1, alpha=(1,2,3), beta=(2,2,2). The exact quotient is B=[[0,6],[2,0]]. Every singleton yields precisely the same future count histogram for all h even though its source identity differs.\n\nFAILURE AT CAP TWO. Let m=3,q=2,alpha=(1,2,1),beta=(1,1,1). Initial named states S={1} and S={2} have identical hub readout U=1. The one-step total weight for reaching U=2 is 2+1=3 from {1}, but 1+1=2 from {2}. Thus the scalar quotient fails at h=1.\n\nNAMED-FUTURE DISTINCTION. Even if all weights are uniform, future operations that inspect the named predicate t_i=0, or observe whether pinning a specified branch i at zero is enabled, distinguish {i} from {j} for j!=i. The scalar reduction is exact for the declared weighted toggle and aggregate-observation language; named future tests require richer state. This is an explicit example of observer- and operation-dependent structural residual preservation.\n\n## Exact regression\n\nExecutable source: research_notes/portable_direct/PREFIX816_R6_BRC_HUB_LUMPABILITY_CHECK.py.\nStructured output: research_notes/portable_direct/PREFIX816_R6_BRC_HUB_LUMPABILITY_RESULTS.json.\nPython standard library, no floating point, no randomness. Run:\npython research_notes/portable_direct/PREFIX816_R6_BRC_HUB_LUMPABILITY_CHECK.py\n\nExhaustive domain: every m=2,3,4; every q=0,...,m; every alpha,beta in {0,1,2}^m. A generic enumerator builds named legal states and all named toggle weights independently of the theorem's criterion, computes one-step class totals, and compares to the stated classification. All 35,964 patterns agree: 7,776 lumpable and 28,188 non-lumpable. Per m: 243, 2,916, and 32,805. In deterministic selected lumpable patterns (plus every m=2,q=1 case), the checker independently expands actual named weighted paths and compares them with B^h for h=0,...,4: 2,920 additional exact assertions, all passing. Explicit nonuniform-birth witnesses are separately asserted. General all-m/all-h validity rests on the proof, while these finite checks confirm the implementation in their stated domain.\n\n## Next research question and status\n\nClassify the coarsest observer-safe intermediate quotient under heterogeneous named toggle weights when total count is insufficient; investigate whether further collapses of identical (alpha,beta)-types are possible under q=1, finite horizons, or constrained future tests. Combine the dynamic sufficient-state quotient here with the static integer-lattice results of PREFIX-815 to quantify when large joint source-difference rank coexists with a small future language. Exact native X6 Cell/Link/Port attribution and physical time evolution are separate unproved bridges.\n\nStatus: AUTHOR_PROVED / EXACT_FINITE_REGRESSION / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED. Independent auxiliary research only: no shared CLAIM, Result, Driver review, or Foundation promotion.",
+            "encoding": "utf-8",
+            "sha": "a3b9e3c56090c9827917bcf7dbc32e6862fe3d4f",
+            "display_url": "https://github.com/awdawmip/enterprise-math/blob/425581e81f31af6bbcd6c97bc8a9022d47e1baa5/research_notes/portable_direct/2026-11-16_r6_prefix816_exact_hub_toggle_observer_lumping.md"
+          }
+        }
+      }
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX816_R6_BRC_HUB_LUMPABILITY_CHECK.py",
+      "commit": "e0d424b311d81be1cf343b509a4f4e499db78088",
+      "git_blob_sha1": "d8cd12212c0bce616359d97d991f4018b7546a51",
+      "sha256": "4d1dca719cdf67b0fec95ffbc1c18c86cefa9af966c18752c94feb2337b16622",
+      "bytes": 3936,
+      "tool_name": "mcp__GitHub__fetch_file",
+      "readback": {
+        "tool_name": "mcp__GitHub__fetch_file",
+        "observation_id": "r6-prefix816-20261116-source-1",
+        "arguments": {
+          "repository_full_name": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/PREFIX816_R6_BRC_HUB_LUMPABILITY_CHECK.py",
+          "ref": "e0d424b311d81be1cf343b509a4f4e499db78088"
+        },
+        "result": {
+          "isError": false,
+          "structuredContent": {
+            "content": "#!/usr/bin/env python3\n\"\"\"Exact integer exhaustive checker for PREFIX-816. Python standard library only.\"\"\"\nimport json\nfrom itertools import product, combinations\n\n\ndef states(m,q):\n    return tuple(s for s in range(1<<m) if s.bit_count()<=q)\n\n\ndef edge_weights(s,m,q,alpha,beta):\n    out={}\n    for i in range(m):\n        t=s^(1<<i)\n        if s&(1<<i):\n            out[t]=beta[i]\n        elif s.bit_count()<q:\n            out[t]=alpha[i]\n    return out\n\n\ndef row_by_level(s,m,q,alpha,beta):\n    row=[0]*(q+1)\n    for t,v in edge_weights(s,m,q,alpha,beta).items():\n        row[t.bit_count()]+=v\n    return tuple(row)\n\n\ndef is_lumpable(m,q,alpha,beta):\n    seen={}\n    for s in states(m,q):\n        k=s.bit_count(); row=row_by_level(s,m,q,alpha,beta)\n        if k in seen and seen[k]!=row: return False\n        seen[k]=row\n    return True\n\n\ndef prediction(m,q,alpha,beta):\n    if m==1 or q==0: return True\n    if len(set(beta))!=1: return False\n    return q==1 or len(set(alpha))==1\n\n\ndef path_levels(s,m,q,alpha,beta,h):\n    current={s:1}\n    for _ in range(h):\n        nxt={}\n        for x,w in current.items():\n            for y,v in edge_weights(x,m,q,alpha,beta).items():\n                nxt[y]=nxt.get(y,0)+w*v\n        current=nxt\n    z=[0]*(q+1)\n    for x,w in current.items(): z[x.bit_count()]+=w\n    return tuple(z)\n\n\ndef quotient(m,q,alpha,beta):\n    rows=[]\n    for k in range(q+1):\n        row=[0]*(q+1)\n        if k>0: row[k-1]=k*beta[0]\n        if k<q: row[k+1]=sum(alpha) if q==1 else (m-k)*alpha[0]\n        rows.append(tuple(row))\n    return tuple(rows)\n\n\ndef quotient_path(k,B,h):\n    n=len(B); v=[0]*n; v[k]=1\n    for _ in range(h):\n        v=[sum(v[i]*B[i][j] for i in range(n)) for j in range(n)]\n    return tuple(v)\n\n\ndef main():\n    checked=0; true_cases=0; false_cases=0; trajectory_checks=0\n    per_dimension={}\n    for m in range(2,5):\n        local=0\n        for q in range(m+1):\n            for a in product(range(3),repeat=m):\n                for b in product(range(3),repeat=m):\n                    actual=is_lumpable(m,q,a,b)\n                    predicted=prediction(m,q,a,b)\n                    assert actual==predicted, (m,q,a,b,actual,predicted)\n                    checked+=1; local+=1\n                    if actual: true_cases+=1\n                    else: false_cases+=1\n                    if actual and (checked % 19==0 or m==2 and q==1):\n                        B=quotient(m,q,a,b)\n                        for s in states(m,q):\n                            for h in range(5):\n                                assert path_levels(s,m,q,a,b,h)==quotient_path(s.bit_count(),B,h)\n                                trajectory_checks+=1\n        per_dimension[str(m)]=local\n    # Explicit sharp witnesses, including the exceptional q=1 regime.\n    assert is_lumpable(3,1,(1,2,3),(2,2,2))\n    assert quotient(3,1,(1,2,3),(2,2,2))==((0,6),(2,0))\n    assert not is_lumpable(3,1,(1,2,3),(1,2,1))\n    assert row_by_level(1,3,2,(1,2,1),(1,1,1))[2]==3\n    assert row_by_level(2,3,2,(1,2,1),(1,1,1))[2]==2\n    result={\n      'schema':'ENTERPRISE_MATH_PREFIX816_EXACT_CHECK_V1',\n      'proof_target':'exact strong cardinality lumpability of BRC hub toggle graph',\n      'domain':{'m':[2,3,4],'q':'all 0..m','alpha_beta_values':[0,1,2], 'paths_h':[0,1,2,3,4]},\n      'all_weight_patterns_checked':checked,\n      'lumpable_cases':true_cases,\n      'non_lumpable_cases':false_cases,\n      'per_m_checks':per_dimension,\n      'trajectory_assertions':trajectory_checks,\n      'zero_failures':True,\n      'counterexamples':{'q1_nonuniform_birth_lumpable':{'alpha':[1,2,3],'beta':[2,2,2],'B':[[0,6],[2,0]]},'q2_nonuniform_birth_nolump':{'alpha':[1,2,1],'beta':[1,1,1],'birth_from_singleton0':3,'birth_from_singleton1':2}},\n      'scope':'finite exhaustive unit test; general theorem established by separate proof'\n    }\n    print(json.dumps(result,ensure_ascii=False,indent=2,sort_keys=True))\n\nif __name__=='__main__':main()\n",
+            "encoding": "utf-8",
+            "sha": "d8cd12212c0bce616359d97d991f4018b7546a51",
+            "display_url": "https://github.com/awdawmip/enterprise-math/blob/e0d424b311d81be1cf343b509a4f4e499db78088/research_notes/portable_direct/PREFIX816_R6_BRC_HUB_LUMPABILITY_CHECK.py"
+          }
+        }
+      }
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX816_R6_BRC_HUB_LUMPABILITY_RESULTS.json",
+      "commit": "626d9877ea1eea01dfb1d0f45dae8c02219a3bf6",
+      "git_blob_sha1": "3cb8a1f3c4dcc5ac3ad393b42086b92d9e8df3aa",
+      "sha256": "e16f2d7a63d597799e5fcf50adeaf1889c8c619afe057181168a6c79dbcb0bd0",
+      "bytes": 1189,
+      "tool_name": "mcp__GitHub__fetch_file",
+      "readback": {
+        "tool_name": "mcp__GitHub__fetch_file",
+        "observation_id": "r6-prefix816-20261116-source-2",
+        "arguments": {
+          "repository_full_name": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/PREFIX816_R6_BRC_HUB_LUMPABILITY_RESULTS.json",
+          "ref": "626d9877ea1eea01dfb1d0f45dae8c02219a3bf6"
+        },
+        "result": {
+          "isError": false,
+          "structuredContent": {
+            "content": "{\n  \"all_weight_patterns_checked\": 35964,\n  \"counterexamples\": {\n    \"q1_nonuniform_birth_lumpable\": {\n      \"B\": [\n        [\n          0,\n          6\n        ],\n        [\n          2,\n          0\n        ]\n      ],\n      \"alpha\": [\n        1,\n        2,\n        3\n      ],\n      \"beta\": [\n        2,\n        2,\n        2\n      ]\n    },\n    \"q2_nonuniform_birth_nolump\": {\n      \"alpha\": [\n        1,\n        2,\n        1\n      ],\n      \"beta\": [\n        1,\n        1,\n        1\n      ],\n      \"birth_from_singleton0\": 3,\n      \"birth_from_singleton1\": 2\n    }\n  },\n  \"domain\": {\n    \"alpha_beta_values\": [\n      0,\n      1,\n      2\n    ],\n    \"m\": [\n      2,\n      3,\n      4\n    ],\n    \"paths_h\": [\n      0,\n      1,\n      2,\n      3,\n      4\n    ],\n    \"q\": \"all 0..m\"\n  },\n  \"lumpable_cases\": 7776,\n  \"non_lumpable_cases\": 28188,\n  \"per_m_checks\": {\n    \"2\": 243,\n    \"3\": 2916,\n    \"4\": 32805\n  },\n  \"proof_target\": \"exact strong cardinality lumpability of BRC hub toggle graph\",\n  \"schema\": \"ENTERPRISE_MATH_PREFIX816_EXACT_CHECK_V1\",\n  \"scope\": \"finite exhaustive unit test; general theorem established by separate proof\",\n  \"trajectory_assertions\": 2920,\n  \"zero_failures\": true\n}\n",
+            "encoding": "utf-8",
+            "sha": "3cb8a1f3c4dcc5ac3ad393b42086b92d9e8df3aa",
+            "display_url": "https://github.com/awdawmip/enterprise-math/blob/626d9877ea1eea01dfb1d0f45dae8c02219a3bf6/research_notes/portable_direct/PREFIX816_R6_BRC_HUB_LUMPABILITY_RESULTS.json"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schema": "ENTERPRISE_MATH_SOURCE_OBSERVATION_BUNDLE_V1",
+  "activity_id": "RA-9B596EB6873BC7BAF237BC3A",
+  "event_id": "prefix815-r6-hub-unpin-unbounded-joint-lattice-20261116",
+  "source_scope": "independent auxiliary named-source BRC integer transportation",
+  "claim_authority_granted": false,
+  "mathematical_review_granted": false,
+  "verification": "Observed connector immutable GitHub fetch_file full content and Git blob, author SHA256; observation IDs are local, not server-signed",
+  "observations": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/2026-11-16_r6_prefix815_single_unpin_unbounded_joint_lattice_rank.md",
+      "commit": "f2697fcdaa9752f83f3a7420ff0f2fb04364d924",
+      "git_blob_sha1": "a78f4694eb88d05ddc86a20eb3f63dee3ae8dba7",
+      "sha256": "93fcf6cdbc763b9f85877635d6b156f77a74cf35398e2623b539f12399dcaaac",
+      "bytes": 7531,
+      "tool_name": "mcp__GitHub__fetch_file",
+      "readback": {
+        "tool_name": "mcp__GitHub__fetch_file",
+        "observation_id": "r6-prefix815-20261116-artifact-0",
+        "arguments": {
+          "repository_full_name": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/2026-11-16_r6_prefix815_single_unpin_unbounded_joint_lattice_rank.md",
+          "ref": "f2697fcdaa9752f83f3a7420ff0f2fb04364d924"
+        },
+        "result": {
+          "isError": false,
+          "structuredContent": {
+            "content": "# PREFIX-815 — A single source unpin can unlock arbitrarily many independent joint residual directions\n\nDate: 2026-11-16 (Asia/Shanghai).\nResearch scope: BRC-compatible **auxiliary named-source integer transportation fibers**. The claims concern exact finite combinatorics, not a native X6 temporal evolution.\nFrozen scientific input: \\`f42f2906d77f24085c123f3ccfe9667d41caa96d\\`.\nPredecessors: PREFIX-808 (joint cut constraints), PREFIX-809 (cycle connectivity), PREFIX-811–814 (fiber residual SCCs and observer lattices).\nStatus: AUTHOR_PROVED / EXACT_FINITE_REGRESSION / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED.\n\n## 1. Explicit unbounded family\n\nFor any integers n≥1 and q≥0, define a named bipartite graph with rows r₀,r₁,…,rₙ and columns c₀,c₁,…,cₙ. It has exactly 3n+1 named edges:\n\n- Hub h=(r₀,c₀), integer capacity q;\n- for each i=1,…,n, aᵢ=(rᵢ,c₀), bᵢ=(rᵢ,cᵢ), dᵢ=(r₀,cᵢ), each capacity 1.\n\nAll rᵢ (i≥1) and cᵢ (i≥1) have margin 1; r₀ and c₀ have margin n. Fix a feasible seed x⁰ with x⁰_h=0, x⁰_{aᵢ}=1, x⁰_{bᵢ}=0 and x⁰_{dᵢ}=1. For an optional set J⊆{1,…,n}, additionally fix bⱼ=0 for j∈J. Initially h=0 is also pinned. Releasing only h means dropping its pin while retaining its actual capacity q.\n\nDefine the **joint named-source observer** T(y)=(y_{b₁},…,y_{bₙ})∈ℤⁿ and the hub observer U(y)=y_h. Do not collapse named branches.\n\n**Theorem 815.1 (exact fiber, all n and q).** The released feasible fiber is in bijection with subsets S⊆{1,…,n}\\J of cardinality at most q. The unique table corresponding to S has\n\n\\[\ny_h=|S|,\\quad\ny_{b_i}=\\mathbf1_{i\\in S},\\quad\ny_{a_i}=1-\\mathbf1_{i\\in S},\\quad\ny_{d_i}=1-\\mathbf1_{i\\in S}.\n\\]\n\n**Proof.** Row rᵢ and column cᵢ each have margin 1, implying y_{aᵢ}+y_{bᵢ}=1 and y_{dᵢ}+y_{bᵢ}=1. Thus the integral value tᵢ=y_{bᵢ} is 0 or 1 and determines both other spoke edges. Row r₀ gives y_h+Σ_i y_{dᵢ}=n, so y_h=Σ_i tᵢ. Column c₀ then holds identically. The hub bound is exactly Σ_i tᵢ≤q and the optional pins require tⱼ=0. Every such choice satisfies all margins and capacities, proving both directions and uniqueness. □\n\nHence the full joint Laurent/polynomial histogram, including the exact hub readout, is\n\n\\[\nH_{n,q,J}(u,z_1,\\ldots,z_n)\n = \\sum_{\\substack{S\\subseteq[n]\\setminus J\\\\|S|\\le q}}\n     u^{|S|}\\prod_{i\\in S} z_i\n = \\sum_{k=0}^{\\min(q,n-|J|)}\n     u^k e_k(z_i:i\\notin J).\n\\]\n\nThis counts every **named** feasible source table once, rather than just recording its scalar total. The number of states is Σ_{k=0}^{min(q,n-|J|)} \\binom{n-|J|}{k}. With h still pinned at 0 there is precisely one feasible table.\n\n**Theorem 815.2 (unbounded rank jump from releasing one edge).** If q≥1, the integer group of joint-observer differences after releasing h is the coordinate sublattice\n\n\\[\nL_T(F_{J})=\\bigoplus_{i\\notin J}\\mathbb Z e_i\n\\subseteq\\mathbb Z^n,\n\\qquad \\operatorname{rank}L_T=n-|J|.\n\\]\n\nWith h pinned it is zero. Thus one **named edge** release (already with q=1 and J=∅) can raise the observer-difference lattice rank by an arbitrarily large n, even though the enlarged fiber contains only n+1 states.\n\n**Proof.** All differences are supported on the unpinned coordinate indices, giving the upper bound. For every i∉J, the empty subset and singleton {i} are feasible when q≥1. Their T difference is e_i. Hence the full free coordinate lattice is generated. The pinned fiber is a singleton. □\n\n**Theorem 815.3 (sharp SCC coalescence for q≥1, J=∅).** At x⁰ and with h pinned, the directed movable residual graph consists of n directed paths c₀→rᵢ→cᵢ→r₀ and no directed cycles: its 2n+2 vertices are singleton SCCs. Releasing h with q≥1 adds r₀→c₀; every vertex can now reach every other, yielding one SCC. Consequently a local unpin may merge arbitrarily many components and activate arbitrarily many joint-observer generators.\n\n**Proof.** At unit capacities, x⁰_{aᵢ}=x⁰_{dᵢ}=1 leaves their backward residual arcs, while x⁰_{bᵢ}=0 leaves its forward arc. There is no arc out of r₀ while h is pinned. When h is released with q≥1, its forward residual arc closes each of the listed paths into a directed cycle, and any vertex reaches any other through r₀ and c₀. □\n\n## 2. Exact distinction between marginal gcds and a joint lattice\n\nTake n=2, q=1, J=∅ and instead observe W₁=T₁+T₂, W₂=T₁−T₂. The joint observed support is exactly {(0,0),(1,1),(1,−1)}. Both scalar observer-difference gcds equal 1, but the two-dimensional difference lattice is generated by (1,1) and (1,−1), of index 2 in ℤ². In particular W₁≡W₂ (mod 2) for every legal difference; the scalar gcd pair (1,1) loses that parity coupling. Its integer Smith invariants are (1,2), up to sign and basis conventions. This example requires retaining the **joint** integer lattice, not only one gcd per output coordinate.\n\n## 3. Exact finite regression\n\nProgram: \\`research_notes/portable_direct/PREFIX815_R6_HUB_RELEASE_CHECK.js\\`.\nResults: \\`research_notes/portable_direct/PREFIX815_R6_HUB_RELEASE_RESULTS.json\\`.\nRun with \\`node research_notes/portable_direct/PREFIX815_R6_HUB_RELEASE_CHECK.js\\` and compare the JSON objects semantically.\n\nThe verifier builds a generic bounded-edge integer table enumerator from row/column residual demands and per-edge capacity bounds. It does **not** enumerate tables using Theorem 815.1's subset parametrization; that is constructed independently for comparison. It computes SCC reachability by transitive closure of the named residual arcs at the seed. Tested all n=1,…,8, q=0,…,n with no extra pins, and for n≤6 every optional spoke-pin subset J. It independently verifies the singleton pinned fiber, exact released support and each hub count, witness generators and SCC counts, and the rank-two parity example.\n\nObserved exact results: 785 finite test families, 6,958 fully enumerated legal source tables (across families), 6,958 exact joint-support comparisons, 1,838 standard-basis witness checks, 44 SCC count checks, 1,570 pinned/unpinned enumeration calls, and no failed assertions. Maximum n=8 and maximum single-family support=256. These finite tests validate the formulas within that stated domain; general n is covered by the constructive proofs.\n\n## 4. Research implication and next question\n\nPREFIX-814 provides a correct **recompute only affected SCCs** route, but one release cannot be assumed to introduce only one new joint-cycle generator: this construction generates n independent observer directions and may coalesce all 2n+2 SCCs. Any amortized dynamic-Hermite/Smith update must account for the size of the newly activated cycle space and observer-output rank, not just the number of edited edges.\n\nNext: derive an output-sensitive incremental cycle-basis / Hermite-normal-form update with a lower bound accounting for k newly enabled independent generators; benchmark it against full recomputation for sparse hub-release and dense multi-pin families. Study whether a declared finite-horizon observer admits safe compression of the n named branches; do not infer safety from their identical scalar hub count. Native X6 Cell/Link/Port and temporal admission are separate unproved mappings.\n\nThe frozen P000, ACTIVE worldview and named joint relation preservation constraints remain untouched. No shared Task CLAIM, Driver review, or native-event Result is asserted by this independent auxiliary research publication.\n",
+            "encoding": "utf-8",
+            "sha": "a78f4694eb88d05ddc86a20eb3f63dee3ae8dba7",
+            "display_url": "https://github.com/awdawmip/enterprise-math/blob/f2697fcdaa9752f83f3a7420ff0f2fb04364d924/research_notes/portable_direct/2026-11-16_r6_prefix815_single_unpin_unbounded_joint_lattice_rank.md"
+          }
+        }
+      }
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX815_R6_HUB_RELEASE_CHECK.js",
+      "commit": "f2697fcdaa9752f83f3a7420ff0f2fb04364d924",
+      "git_blob_sha1": "1e597fc79c47e9588391e2db0b08a7fe01aaa22e",
+      "sha256": "ed8117bc9af6df9253047c14a7d4aa628aa909daa9188ba4cb88698e73218a2f",
+      "bytes": 5197,
+      "tool_name": "mcp__GitHub__fetch_file",
+      "readback": {
+        "tool_name": "mcp__GitHub__fetch_file",
+        "observation_id": "r6-prefix815-20261116-artifact-1",
+        "arguments": {
+          "repository_full_name": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/PREFIX815_R6_HUB_RELEASE_CHECK.js",
+          "ref": "f2697fcdaa9752f83f3a7420ff0f2fb04364d924"
+        },
+        "result": {
+          "isError": false,
+          "structuredContent": {
+            "content": "// PREFIX-815 exact named-source hub-release verifier.\n// Pure integer JS, no dependencies; run: node research_notes/portable_direct/PREFIX815_R6_HUB_RELEASE_CHECK.js\n\"use strict\";\nconst result=(function exactCheck() {\n  \"use strict\";\n  function insist(ok, msg) { if (!ok) throw new Error(msg); }\n  function pop(x) { let n=0; while(x){n+=x&1; x>>=1;} return n; }\n  function enumerate(n,q,pinMask,pinHub) {\n    const edges=[];\n    for(let i=1;i<=n;i++){\n      edges.push({r:i,c:0,cap:1,tag:\"a\"+i});\n      edges.push({r:i,c:i,cap:(pinMask&(1<<(i-1)))?0:1,tag:\"b\"+i});\n      edges.push({r:0,c:i,cap:1,tag:\"c\"+i});\n    }\n    edges.push({r:0,c:0,cap:pinHub?0:q,tag:\"h\"});\n    const m=edges.length, suffixR=Array.from({length:m+1},()=>Array(n+1).fill(0)),suffixC=Array.from({length:m+1},()=>Array(n+1).fill(0));\n    for(let k=m-1;k>=0;k--){\n      suffixR[k]=suffixR[k+1].slice(); suffixC[k]=suffixC[k+1].slice();\n      suffixR[k][edges[k].r]+=edges[k].cap;\n      suffixC[k][edges[k].c]+=edges[k].cap;\n    }\n    const rr=[n,...Array(n).fill(1)],cc=[n,...Array(n).fill(1)],x=Array(m).fill(0), states=new Map();\n    let nodes=0;\n    function dfs(k){\n      nodes++;\n      if(k===m){\n        insist(rr.every(v=>v===0)&&cc.every(v=>v===0),\"bad leaf\");\n        const t=Array.from({length:n},(_,i)=>x[3*i+1]);\n        const key=t.join(\"\");\n        insist(!states.has(key),\"duplicate source table \"+key);\n        states.set(key,{t,hub:x[m-1]});\n        return;\n      }\n      const e=edges[k];\n      for(let v=0;v<=e.cap && v<=rr[e.r] && v<=cc[e.c];v++){\n        rr[e.r]-=v;cc[e.c]-=v;x[k]=v;\n        let good=true;\n        for(let j=0;j<=n;j++){\n          if(rr[j]<0||cc[j]<0||rr[j]>suffixR[k+1][j]||cc[j]>suffixC[k+1][j]){good=false;break;}\n        }\n        if(good)dfs(k+1);\n        rr[e.r]+=v;cc[e.c]+=v;\n      }\n    }\n    dfs(0); return {states,nodes};\n  }\n  function sccCount(n,q,pinHub){\n    const N=2*(n+1),reach=Array.from({length:N},(_,i)=>Array.from({length:N},(_,j)=>i===j));\n    function arc(r,c,cap,x,move){if(!move)return;if(x<cap)reach[r][n+1+c]=true;if(x>0)reach[n+1+c][r]=true;}\n    for(let i=1;i<=n;i++){arc(i,0,1,1,true);arc(i,i,1,0,true);arc(0,i,1,1,true);}\n    arc(0,0,q,0,!pinHub);\n    for(let k=0;k<N;k++)for(let i=0;i<N;i++)if(reach[i][k])for(let j=0;j<N;j++)if(reach[k][j])reach[i][j]=true;\n    let count=0;\n    for(let i=0;i<N;i++)if(!Array.from({length:i},(_,j)=>reach[i][j]&&reach[j][i]).some(Boolean))count++;\n    return count;\n  }\n  const stats={schema:\"PREFIX815_R6_HUB_RELEASE_REGRESSION_V1\",frozen_science_pin:\"f42f2906d77f24085c123f3ccfe9667d41caa96d\",integer_arithmetic:\"exact JS safe integers; n<=8; 0<=q<=n\",families:0,unpin_cases:0,pinned_cases:0,source_tables_checked:0,search_nodes:0,hub_scc_checks:0,one_other_pin_cases:0,restricted_pin_cases:0,subset_support_assertions:0,rank_witness_checks:0,parity_observer_checks:0,max_family_n:8,max_eligible_count:0,verdict:\"\"};\n  for(let n=1;n<=8;n++)for(let q=0;q<=n;q++){\n    const cases=[0];\n    if(n<=6)for(let mask=1;mask<(1<<n);mask++)cases.push(mask);\n    for(const mask of cases){\n      const actual=enumerate(n,q,mask,false);\n      const pinned=enumerate(n,q,mask,true);\n      const allowed=[];\n      for(let bits=0;bits<(1<<n);bits++)if(!(bits&mask)&&pop(bits)<=q)allowed.push(bits);\n      insist(actual.states.size===allowed.length,`count n${n} q${q} m${mask}`);\n      for(const bits of allowed){\n        const key=Array.from({length:n},(_,i)=>(bits>>i)&1).join(\"\");\n        const s=actual.states.get(key);\n        insist(!!s,`missing ${n}/${q}/${mask}/${key}`);\n        insist(s.hub===pop(bits),`hub conservation ${key}`);\n        stats.subset_support_assertions++;\n      }\n      insist(pinned.states.size===1&&pinned.states.has(\"0\".repeat(n)),`pin not singleton ${n}/${q}/${mask}`);\n      stats.source_tables_checked+=actual.states.size;\n      stats.search_nodes+=actual.nodes+pinned.nodes;\n      stats.families++;stats.unpin_cases++;stats.pinned_cases++;\n      if(mask)stats.restricted_pin_cases++;\n      if(pop(mask)===1)stats.one_other_pin_cases++;\n      stats.max_eligible_count=Math.max(stats.max_eligible_count,allowed.length);\n      const permitted=n-pop(mask);\n      if(q===0)insist(actual.states.size===1,\"zero q rank\");\n      else {\n        for(let i=0;i<n;i++)if(!(mask&(1<<i))){\n          const singleton=\"0\".repeat(i)+\"1\"+\"0\".repeat(n-i-1);\n          insist(actual.states.has(singleton),\"standard basis missing\");\n          stats.rank_witness_checks++;\n        }\n      }\n      if(mask===0){\n        const before=sccCount(n,q,true),after=sccCount(n,q,false);\n        insist(before===2*n+2,\"pinned SCC count\");\n        insist(after===(q===0?2*n+2:1),\"unpinned SCC count\");\n        stats.hub_scc_checks++;\n      }\n    }\n  }\n  const p=enumerate(2,1,0,false).states, seen=new Set();\n  for(const state of p.values()){\n    const [a,b]=state.t, u=a+b, v=a-b;\n    insist(((u-v)%2)===0,\"parity\");\n    seen.add(u+\",\"+v);\n    stats.parity_observer_checks++;\n  }\n  insist(seen.size===3&&seen.has(\"0,0\")&&seen.has(\"1,1\")&&seen.has(\"1,-1\"),\"parity witness\");\n  insist(Math.abs(1*(-1)-1*1)===2,\"index 2\");\n  stats.verdict=\"ALL_EXACT_ASSERTIONS_PASSED\";\n  return stats;\n})();\nconsole.log(JSON.stringify(result,null,2));\n",
+            "encoding": "utf-8",
+            "sha": "1e597fc79c47e9588391e2db0b08a7fe01aaa22e",
+            "display_url": "https://github.com/awdawmip/enterprise-math/blob/f2697fcdaa9752f83f3a7420ff0f2fb04364d924/research_notes/portable_direct/PREFIX815_R6_HUB_RELEASE_CHECK.js"
+          }
+        }
+      }
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX815_R6_HUB_RELEASE_RESULTS.json",
+      "commit": "f2697fcdaa9752f83f3a7420ff0f2fb04364d924",
+      "git_blob_sha1": "edd4d5a270f3cde059686a6914b10e1984567d7d",
+      "sha256": "1003234e4c3ebfc55efb4f69b4eccdbacad8ae3aed754e2fec548c561ec151f2",
+      "bytes": 590,
+      "tool_name": "mcp__GitHub__fetch_file",
+      "readback": {
+        "tool_name": "mcp__GitHub__fetch_file",
+        "observation_id": "r6-prefix815-20261116-artifact-2",
+        "arguments": {
+          "repository_full_name": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/PREFIX815_R6_HUB_RELEASE_RESULTS.json",
+          "ref": "f2697fcdaa9752f83f3a7420ff0f2fb04364d924"
+        },
+        "result": {
+          "isError": false,
+          "structuredContent": {
+            "content": "{\n  \"schema\": \"PREFIX815_R6_HUB_RELEASE_REGRESSION_V1\",\n  \"frozen_science_pin\": \"f42f2906d77f24085c123f3ccfe9667d41caa96d\",\n  \"integer_arithmetic\": \"exact JS safe integers; n<=8; 0<=q<=n\",\n  \"families\": 785,\n  \"unpin_cases\": 785,\n  \"pinned_cases\": 785,\n  \"source_tables_checked\": 6958,\n  \"search_nodes\": 78955,\n  \"hub_scc_checks\": 44,\n  \"one_other_pin_cases\": 112,\n  \"restricted_pin_cases\": 741,\n  \"subset_support_assertions\": 6958,\n  \"rank_witness_checks\": 1838,\n  \"parity_observer_checks\": 3,\n  \"max_family_n\": 8,\n  \"max_eligible_count\": 256,\n  \"verdict\": \"ALL_EXACT_ASSERTIONS_PASSED\"\n}\n",
+            "encoding": "utf-8",
+            "sha": "edd4d5a270f3cde059686a6914b10e1984567d7d",
+            "display_url": "https://github.com/awdawmip/enterprise-math/blob/f2697fcdaa9752f83f3a7420ff0f2fb04364d924/research_notes/portable_direct/PREFIX815_R6_HUB_RELEASE_RESULTS.json"
+          }
+        }
+      }
+    }
+  ]
+}

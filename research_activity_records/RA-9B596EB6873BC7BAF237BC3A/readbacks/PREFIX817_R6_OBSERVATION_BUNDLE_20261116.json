@@ -1,0 +1,95 @@
+{
+  "schema": "ENTERPRISE_MATH_SOURCE_OBSERVATION_BUNDLE_V1",
+  "activity_id": "RA-9B596EB6873BC7BAF237BC3A",
+  "event_id": "prefix817-r6-count-trace-linear-carrier-20261116",
+  "source_scope": "independent BRC future-count exact integer moments and finite-horizon trace",
+  "claim_authority_granted": false,
+  "mathematical_review_granted": false,
+  "verification": "Actual full GitHub fetch_file connector bytes at immutable commits, Git blob SHA1 and computed SHA256. Observation IDs locally assigned, no server signature.",
+  "observations": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/2026-11-16_r6_prefix817_future_count_trace_linear_carrier.md",
+      "commit": "8da79be1e60db050741e00567e2d5473d506c97e",
+      "git_blob_sha1": "99482caa6085175520f50361984f1fc90ed8a140",
+      "sha256": "add668baf55e0ce7b9aa9ce883ee1c72e013220ad65084759f27dd9f3c193c42",
+      "bytes": 9308,
+      "tool_name": "mcp__GitHub__fetch_file",
+      "readback": {
+        "tool_name": "mcp__GitHub__fetch_file",
+        "observation_id": "r6-prefix817-20261116-source-0",
+        "arguments": {
+          "repository_full_name": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/2026-11-16_r6_prefix817_future_count_trace_linear_carrier.md",
+          "ref": "8da79be1e60db050741e00567e2d5473d506c97e"
+        },
+        "result": {
+          "isError": false,
+          "structuredContent": {
+            "content": "# PREFIX-817 — Exact count-trace compression, minimal three-moment carrier, and a finite-horizon certificate\n\nDate: 2026-11-16 (Asia/Shanghai). Research mode: independent portable TASK_RESEARCH auxiliary mathematics. Frozen scientific input: \\`f42f2906d77f24085c123f3ccfe9667d41caa96d\\` (unchanged). Predecessors: PREFIX-815 (bounded-hub named-source fiber) and PREFIX-816 (weighted branch-toggle count lumpability). This note concerns the declared auxiliary integer BRC path-count language, not an admitted native X6 temporal mechanism. Status: AUTHOR_PROVED / EXACT_INTEGER_REGRESSION / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED.\n\n## 1. Exact named-source dynamics\n\nLet \\`m>=1\\`, \\`0<=q<=m\\`, with nonnegative integer weights \\`alpha_i\\`, \\`beta_i\\` for i=1,...,m. The legal named states are subsets \\`S\\` of \\`[m]\\` with \\`|S|<=q\\`, exactly those in the PREFIX-815 named hub fiber. The weighted adjacency matrix \\`Q\\` is indexed by such states and assigns \\`Q[S,S∪{i}]=alpha_i\\` for inactive i when |S|<q, and \\`Q[S,S\\{i}]=beta_i\\` for active i. A path's weight is the product of its step weights and alternatives sum, retaining exact integer multiplicities. The count readout matrix \\`C[S,k]=1_{|S|=k}\\` has columns \\`k=0,...,q\\`. The entire length-h terminal-count histogram from S is the S-row of \\`G_h=Q^h C\\`. Here \\`h\\` is a formal number of toggles, not physical time.\n\n## 2. Theorem 817.1: a finite certificate for all future count observations\n\nLet \\`N=sum_{k=0}^q binom(m,k)\\` and define the integer observability matrix\n\n\\`O_{N-1}=[C | QC | ... | Q^(N-1) C]\\`.\n\nFor two legal named states S and T, their terminal-count histograms agree for **every** \\`h>=0\\` if and only if their rows in \\`O_{N-1}\\` agree. Moreover, \\`V=span_Q{columns of C,QC,...,Q^(N-1)C}\\` is Q-invariant, and its dimension \\`d=rank_Q(O_{N-1})\\` is the smallest possible dimension of a linear, exact future-count realization that supports arbitrary initial rational (hence integer) row masses. A rational-basis realization of dimension d exists; a basis-free sufficient realization retains the complete \\`N\\` states.\n\n**Proof.** Equality of all horizons implies the finite equalities. By the Cayley–Hamilton theorem for the N×N integer matrix Q, \\`Q^N\\` is a rational/integer linear combination of lower nonnegative powers through \\`Q^(N-1)\\`. Multiplying this recurrence by every higher power and by C proves that zero differences through horizon N−1 remain zero at every horizon. The same recurrence gives Q-invariance of V. Choose a basis matrix \\`E\\` for V; because \\`QE=ER\\` for some d×d rational R and \\`C=EC_*\\`, we have \\`Q^h C=E R^h C_*\\` for every h. Every initial row mass µ therefore maps to the d-coordinate row µE and produces precisely µQ^h C. Conversely, any linear realization of dimension r factoring every initial mass-to-entire-future-output map has image rank at most r. The latter map's rank is d by its finite observability columns, so r>=d. QED.\n\nAn exact incremental stopping certificate is available: if the column spans \\`V_t=span{C,QC,...,Q^t C}\\` and \\`V_{t+1}\\` have the same rational dimension, then \\`V_t=V_{t+1}\\` and \\`QV_t⊆V_t\\`; all later columns lie in that same space. This can stop earlier than the general N−1 bound. Linear compressed states should be distinguished from a positive **named-state partition** quotient: a rational basis may have signed coordinates. The explicit q=1 construction below is nonnegative and integral.\n\n## 3. Theorem 817.2: exact three-moment BRC carrier at hub capacity one\n\nAssume q=1, arbitrary m>=1 and arbitrary nonnegative integral named weights. Write a row of initial path mass as \\`µ=(µ_empty, µ_{ {1} },...,µ_{ {m} })\\`. Define\n\n\\`p0=µ_empty\\`, \\`p1=sum_i µ_{ {i} }\\`, \\`pβ=sum_i beta_i µ_{ {i} }\\`,\n\\`A=sum_i alpha_i\\`, \\`B=sum_i alpha_i beta_i\\`.\n\nThen the exact one-toggle propagation of these **three** integers is\n\n\\`(p0',p1',pβ')=(pβ, A*p0, B*p0)\\`.\n\nAt every horizon h, the aggregate terminal-count histogram is \\`(p0^(h),p1^(h))\\`. This holds for any initial integer mass vector and hence all named initial states, with no floating-point or approximation. The \\`pβ\\` coordinate records the source-removal moment, while \\`B\\` retains an alpha–beta joint interaction not reconstructible from A and an unweighted total alone.\n\n**Proof.** From q=1, every singleton {i} has precisely one outgoing named edge: removal to empty with weight beta_i; empty can only add i with weight alpha_i. Thus \\`µ'_empty=sum_i beta_i µ_i\\`, and \\`µ'_i=alpha_i µ_empty\\`. Summing the latter both with and without beta_i proves the recurrence. The two exposed count totals are p0 and p1. Induction proves all-horizon equality. QED.\n\n**Minimal linear dimension.** If m>=2 and the beta_i are not all equal, then \\`d=3\\`. If they are all equal, or if m=1, \\`d=2\\`. At q=0, \\`d=1\\`. Indeed, the column span generated by C includes the empty-state indicator \\`e0\\` and the all-singleton indicator \\`u\\`. Applying Q to e0 yields the singleton beta-vector \\`v\\`; and \\`Qu=A e0\\`, \\`Qv=B e0\\`. This span is invariant. If beta is nonconstant, e0,u,v are independent and all occur in the observability span by h=1; otherwise v is a multiple of u. At q=0 there is one state. These give both matching upper and lower bounds, by Theorem 817.1. In particular at q=1 the minimal linear realization is certified by horizons 0 and 1.\n\n## 4. Theorem 817.3: minimal state-partition quotient at q=1\n\nA nonnegative weighted **partition** of named states respecting current count and all future terminal-count histograms must keep the empty state separate. Two singleton states {i},{j} can occupy one class if and only if \\`beta_i=beta_j\\`. Thus the unique coarsest such partition has \\`r+1\\` classes, where \\`r\\` is the number of distinct beta values, even when alpha values are arbitrary.\n\n**Proof.** If beta_i differs from beta_j, the horizon-one weight from the respective singleton to count zero differs, so the states must be separated. If beta_i=beta_j=b, both singleton states send exactly b aggregate weight to the unique empty class, and no other positive-weight outgoing class; hence the partition grouped by b is weighted equitable. The empty state sends weight \\`A_b=sum_{i:beta_i=b}alpha_i\\` to class b. Multiplication of its explicit nonnegative quotient adjacency preserves every count terminal histogram at every horizon. QED.\n\nThe minimal **linear** dimension and minimal **state-partition** cardinality are distinct exact resources. For example with m=6, q=1, alpha=(1,2,3,4,5,6) and beta=(0,1,2,3,4,5), the named graph has 7 states, the minimal state-partition quotient still has 7 classes, while the integral BRC moment recurrence has 3 coordinates, with A=21 and B=70. Its input transform from named µ costs O(m) integer operations and O(1) additional storage after weights are known. Each subsequent formal toggle costs O(1) integer arithmetic operations. The arithmetic bit length grows with the horizon and weights; no universal bit-complexity or native physical speedup is asserted.\n\n## 5. A positive-weight later-horizon witness at q=2\n\nTake m=3, q=2, alpha=(1,1,2), beta=(1,1,1), and compare S={1,2} with T={1,3}. Both currently have hub count 2. Their terminal-count rows for horizons h=0 and h=1 are identical:\n\n\\`G_0[S,*]=G_0[T,*]=(0,0,1)\\` and \\`G_1[S,*]=G_1[T,*]=(0,2,0)\\`.\n\nBut at h=2 they differ: \\`G_2[S,*]=(2,0,6)\\`, \\`G_2[T,*]=(2,0,5)\\`. The common second-step count-zero term 2 comes from successive removals; the unequal count-two term remembers which named branch was active before removal. This is an exact BRC source-residual witness: first-hop aggregate equality does not ensure future safety when q>=2.\n\n## 6. Exact regression and interpretation\n\nProgram: \\`research_notes/portable_direct/PREFIX817_R6_COUNT_TRACE_CHECK.js\\` (Node.js, standard library only; BigInt throughout). Results: \\`research_notes/portable_direct/PREFIX817_R6_COUNT_TRACE_RESULTS.json\\`.\n\nThe checker enumerates all m=1..4 and alpha,beta in {0,1,2}^m with q=1: 7,380 weight configurations, 35,982 named initial states and 323,838 state/horizon output-vector matches against the independent three-moment recurrence (h=0..8). It also checks 70,236 singleton/empty pair equivalence decisions against Theorem 817.3. Independently, for all m=1..3, all q=0..m, all weights in the same domain, it builds generic named Q matrices and checks the N−1-horizon finite certificate against the next three horizons: 3,177 weighted instances, 40,833 state-pair comparisons, 5,697 additional horizon equalities on pairs passing the initial certificate. It asserts the positive-weight q=2 witness above. All assertions passed with exact integer arithmetic. The arbitrary-size results follow from proofs, while computation verifies this finite window and implementation.\n\nFuture question: classify the minimal nonnegative **moment** carrier for q>=2 and characterize when it stays polynomial in m, q and the number of named weight-types; test direct sum/branch-symmetry reductions against the exact observability rank. Any stronger native X6 statement requires a source-admitted Cell/Link/Port operator, explicit event-order readout and an observer/future-operation factorization certificate; the frozen P000 and native temporal model are unchanged.",
+            "encoding": "utf-8",
+            "sha": "99482caa6085175520f50361984f1fc90ed8a140",
+            "display_url": "https://github.com/awdawmip/enterprise-math/blob/8da79be1e60db050741e00567e2d5473d506c97e/research_notes/portable_direct/2026-11-16_r6_prefix817_future_count_trace_linear_carrier.md",
+            "display_title": "2026-11-16_r6_prefix817_future_count_trace_linear_carrier.md"
+          }
+        }
+      }
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX817_R6_COUNT_TRACE_CHECK.js",
+      "commit": "261191ab2e1f619980772235956fe631d13d13a8",
+      "git_blob_sha1": "bc2b4dfadc5719c43422bcfe9ff71ae5f2eab7b1",
+      "sha256": "84ed6a1ff81b64f07a0324302451961a232b1baa45f694a0f054dfe7c50bb624",
+      "bytes": 3434,
+      "tool_name": "mcp__GitHub__fetch_file",
+      "readback": {
+        "tool_name": "mcp__GitHub__fetch_file",
+        "observation_id": "r6-prefix817-20261116-source-1",
+        "arguments": {
+          "repository_full_name": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/PREFIX817_R6_COUNT_TRACE_CHECK.js",
+          "ref": "261191ab2e1f619980772235956fe631d13d13a8"
+        },
+        "result": {
+          "isError": false,
+          "structuredContent": {
+            "content": "'use strict';\n// Exact BigInt regression for PREFIX-817; no external dependencies.\nconst assert = require('node:assert/strict');\nconst bitcount = n => { let k=0; while(n){n &= n-1;k++;} return k; };\nconst eq = (a,b) => a.length === b.length && a.every((x,i)=>x===b[i]);\nfunction states(m,q) {return Array.from({length:1<<m},(_,i)=>i).filter(x=>bitcount(x)<=q);}\nfunction graph(m,q,alpha,beta) {\n const ss=states(m,q), N=ss.length, idx=new Map(ss.map((s,i)=>[s,i]));\n const Q=Array.from({length:N},()=>Array(N).fill(0n));\n for(let s=0;s<N;s++) for(let i=0;i<m;i++) {\n   const active=!!(ss[s]&(1<<i));\n   if(active) Q[s][idx.get(ss[s]^(1<<i))] += BigInt(beta[i]);\n   else if(bitcount(ss[s])<q) Q[s][idx.get(ss[s]^(1<<i))] += BigInt(alpha[i]);\n }\n return {ss,Q};\n}\nfunction traceRows(m,q,alpha,beta,H) {\n const {ss,Q}=graph(m,q,alpha,beta), N=ss.length;\n let G=ss.map(s=>Array.from({length:q+1},(_,k)=>BigInt(bitcount(s)===k)));\n const series=[G];\n for(let h=1;h<=H;h++) {\n   G=Array.from({length:N},(_,i)=>Array.from({length:q+1},(_,k)=>\n     Q[i].reduce((v,w,j)=>v+w*series[h-1][j][k],0n)));\n   series.push(G);\n }\n return {ss,series};\n}\nfunction* vectors(m) {for(let x=0;x<3**m;x++){let a=[],v=x;for(let i=0;i<m;i++){a.push(v%3);v=Math.floor(v/3);}yield a;}}\nconst res={schema:'PREFIX817_EXACT_INTEGER_REGRESSION_V1',arithmetic:'BigInt exact',q1_weight_patterns:0,q1_individual_states_checked:0,q1_horizon_vector_checks:0,q1_partition_pair_checks:0,generic_weight_patterns:0,generic_pairs_checked:0,generic_horizon_certificate_checks:0,late_distinguishing_witness:{m:3,q:2,alpha:[1,1,2],beta:[1,1,1],S:[0,1],T:[0,2],h0:[[0,0,1],[0,0,1]],h1:[[0,2,0],[0,2,0]],h2:[[2,0,6],[2,0,5]]}};\nfor(let m=1;m<=4;m++) for(const alpha of vectors(m)) for(const beta of vectors(m)) {\n const {ss,series}=traceRows(m,1,alpha,beta,8), A=alpha.reduce((a,b)=>a+b,0), B=alpha.reduce((a,v,i)=>a+v*beta[i],0);\n res.q1_weight_patterns++;\n for(let si=0;si<ss.length;si++) {\n   const S=ss[si], isEmpty=S===0, bi=isEmpty?0:beta[Math.log2(S)];\n   let p0=isEmpty?1n:0n,p1=isEmpty?0n:1n,pb=BigInt(bi);\n   for(let h=0;h<=8;h++) {\n     assert(eq(series[h][si],[p0,p1])); res.q1_horizon_vector_checks++;\n     [p0,p1,pb]=[pb,BigInt(A)*p0,BigInt(B)*p0];\n   }\n   res.q1_individual_states_checked++;\n }\n for(let i=0;i<ss.length;i++) for(let j=i+1;j<ss.length;j++) {\n   const same=ss[i]===0&&ss[j]===0 || ss[i]!==0&&ss[j]!==0&&beta[Math.log2(ss[i])]===beta[Math.log2(ss[j])];\n   assert.equal(series.every(G=>eq(G[i],G[j])),same);\n   res.q1_partition_pair_checks++;\n }\n}\nfor(let m=1;m<=3;m++) for(let q=0;q<=m;q++) for(const alpha of vectors(m)) for(const beta of vectors(m)) {\n const N=states(m,q).length,{ss,series}=traceRows(m,q,alpha,beta,N+2);\n res.generic_weight_patterns++;\n for(let i=0;i<N;i++) for(let j=i+1;j<N;j++) {\n   let same=true;\n   for(let h=0;h<N;h++) if(!eq(series[h][i],series[h][j])){same=false;break;}\n   if(same) for(let h=N;h<=N+2;h++) {\n     assert(eq(series[h][i],series[h][j]));res.generic_horizon_certificate_checks++;\n   }\n   res.generic_pairs_checked++;\n }\n}\nconst w=res.late_distinguishing_witness;\nconst {ss,series}=traceRows(w.m,w.q,w.alpha,w.beta,2);\nconst mask = ids=>ids.reduce((a,i)=>a|(1<<i),0);\nfor(let h=0;h<=2;h++) assert(eq(series[h][ss.indexOf(mask(w.S))],w[\"h\"+h][0].map(BigInt)) && eq(series[h][ss.indexOf(mask(w.T))],w[\"h\"+h][1].map(BigInt)));\nres.all_assertions_passed=true;\nprocess.stdout.write(JSON.stringify(res,null,2)+'\\n');",
+            "encoding": "utf-8",
+            "sha": "bc2b4dfadc5719c43422bcfe9ff71ae5f2eab7b1",
+            "display_url": "https://github.com/awdawmip/enterprise-math/blob/261191ab2e1f619980772235956fe631d13d13a8/research_notes/portable_direct/PREFIX817_R6_COUNT_TRACE_CHECK.js",
+            "display_title": "PREFIX817_R6_COUNT_TRACE_CHECK.js"
+          }
+        }
+      }
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX817_R6_COUNT_TRACE_RESULTS.json",
+      "commit": "b65d480752edba213782d1db5cfdf7f3ad9159d2",
+      "git_blob_sha1": "03514618a82eb5461526ac79f5acabe5c61e9811",
+      "sha256": "47ff2055bb644be27d1be041e72e3001bedb236ea5e3796eff0424cc162ee948",
+      "bytes": 628,
+      "tool_name": "mcp__GitHub__fetch_file",
+      "readback": {
+        "tool_name": "mcp__GitHub__fetch_file",
+        "observation_id": "r6-prefix817-20261116-source-2",
+        "arguments": {
+          "repository_full_name": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/PREFIX817_R6_COUNT_TRACE_RESULTS.json",
+          "ref": "b65d480752edba213782d1db5cfdf7f3ad9159d2"
+        },
+        "result": {
+          "isError": false,
+          "structuredContent": {
+            "content": "{\n  \"schema\": \"PREFIX817_EXACT_INTEGER_REGRESSION_V1\",\n  \"arithmetic\": \"BigInt exact\",\n  \"q1_weight_patterns\": 7380,\n  \"q1_individual_states_checked\": 35982,\n  \"q1_horizon_vector_checks\": 323838,\n  \"q1_partition_pair_checks\": 70236,\n  \"generic_weight_patterns\": 3177,\n  \"generic_pairs_checked\": 40833,\n  \"generic_horizon_certificate_checks\": 5697,\n  \"late_distinguishing_witness\": {\n    \"m\": 3,\n    \"q\": 2,\n    \"alpha\": [1, 1, 2],\n    \"beta\": [1, 1, 1],\n    \"S\": [0, 1],\n    \"T\": [0, 2],\n    \"h0\": [[0, 0, 1], [0, 0, 1]],\n    \"h1\": [[0, 2, 0], [0, 2, 0]],\n    \"h2\": [[2, 0, 6], [2, 0, 5]]\n  },\n  \"all_assertions_passed\": true\n}\n",
+            "encoding": "utf-8",
+            "sha": "03514618a82eb5461526ac79f5acabe5c61e9811",
+            "display_url": "https://github.com/awdawmip/enterprise-math/blob/b65d480752edba213782d1db5cfdf7f3ad9159d2/research_notes/portable_direct/PREFIX817_R6_COUNT_TRACE_RESULTS.json",
+            "display_title": "PREFIX817_R6_COUNT_TRACE_RESULTS.json"
+          }
+        }
+      }
+    }
+  ]
+}

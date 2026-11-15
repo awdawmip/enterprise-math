@@ -1,0 +1,77 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "record_status": "GITHUB_DURABLE_RESEARCH_AUTHOR_PACKET_UNREVIEWED",
+  "observed_date": "2026-11-16",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "lane_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "separate_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
+  "run_id": "RUN-3356cbe3c2b4916d79399941",
+  "last_read_run_generation": 25,
+  "immutable_scientific_inputs": {
+    "native_baseline": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical_baseline": "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "original_r063_branch": "research/r063-stage0-path-valued-sqrt-2500",
+    "original_source_blob_sha1": [
+      "b4e000a6377f2858ae434eb0eecd0c25c33e8592",
+      "4a69c4d698887bce56323f393cb979609ce4ab0a",
+      "913078c642b8995bfc135ef0350912387a17cdb8",
+      "b543e185ec415b512c0ca0421616404cc12a19a7",
+      "4f1bbf72abed19dc7dc605371872ee31c501cebe",
+      "a1834a4b39a9d528760e67220b5fe5f368c9e655"
+    ],
+    "N": 2500,
+    "regression_r_range": [
+      1,
+      512
+    ],
+    "required_original_gate_count": 17,
+    "required_original_output_count": 13,
+    "discovery_sha256": "6dd26e75436fb6740134590fc243b59ab9eb287cadbc46d417d5bbbb74022f0d",
+    "regression_rows_sha256": "51891fbf9c3a66b1e00dfaa92fa6ae46984e4a6c99325624ec5b88371b66dcae"
+  },
+  "native_source": {
+    "saved_units_confirmed": 47,
+    "unit47_source_request_id": "onhour-20261116-0322-x6-native-r063-runner-tooling-unit47-progress-v1",
+    "unit47_source_status": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED",
+    "unit47_source_commit": "881ca95440d3b58018c4d80c15479b0e678bca09",
+    "own_continuation_request_id": "onhour-20261116-0402-x6-own-exact-continuation-v1",
+    "own_continuation_status": "SUCCEEDED / OWN_RECORDED_RUN_AVAILABLE",
+    "unit48_own_resume_request_id": "onhour-20261116-0405-x6-own-run3356-resume-for-unit48-v1",
+    "unit48_resume_last_status": "SUCCEEDED / RUN_READY / authorized=true, generation 25; original same Research claim renewed",
+    "unit48_semantic_progress_status": "QUEUED / WAIT_ORIGINAL / error=null; terminal requires reconcile original request",
+    "unit48_research_activity_reference": "awdawmip/enterprise-math@4c523ff58d7bf2cfc058d1372f6daf271435ff62:research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+    "unit48_activity_count": 69,
+    "unit48_native_publish_request_id": "onhour-20261116-0419-x6-r063-assert-bypass-unit48-source-progress-v1"
+  },
+  "completed_current_unit": {
+    "number": 48,
+    "kind": "REPLAY_EXECUTION_ACCEPTANCE_REPAIR",
+    "reproducible_finding": "Old replay attestor's 28 Python asserts are elided by -O; bad six frozen blobs and false gate/0-of-512 outputs were actually accepted under -O, rejected under normal Python",
+    "remedy": "Replaced 28 assertions in existing same-object replay wrapper with unconditional if/raise checks; modified four test assertions; cross-mode normal/-O synthetic tests PASS and wrong source/false gate/zero coverage rejected",
+    "report": "awdawmip/enterprise-math@ce51e5490c4ea67703ae4796301639103dfd085a:research_notes/X6_R063_SAME_OBJECT_REPLAY_ASSERT_OPTIMIZATION_REPAIR_UNIT48_20261116_0400.md",
+    "wrapper": "awdawmip/enterprise-math@66859ef1caf0cf37fc2e503558fd597ea845b912:research_checks/X6_R063_PINNED_SAME_OBJECT_REPLAY_RUNNER_20261116.py",
+    "test": "awdawmip/enterprise-math@8b764785f2552853dd33d6845d4379b88f173536:research_checks/test_x6_r063_replay_wrapper_20261116.py",
+    "witness": "awdawmip/enterprise-math@7ccb27047e0e7405ee6f0dd4361859c3840b6ac8:research_checks/X6_R063_PYTHON_OPTIMIZATION_ACCEPTANCE_BYPASS_WITNESS_20261116_0400.py",
+    "source_support_issue": "https://github.com/awdawmip/enterprise-math/issues/2416#issuecomment-6900680303",
+    "scientific_evidence_status": "AUTHOR_EXECUTED_SYNTHETIC_OPTIMIZATION_REPLAY_BYPASS_AND_REPAIR_PASS_UNREVIEWED",
+    "original_same_object_benchmark_executed": false
+  },
+  "unresolved": {
+    "native_benchmark": "Six unmodified original R063 files; original 17 gates; full r=1..512 same-object actual execution. Still requires authorized checkout and a real execution owner; issue #2416 OPEN, owner unconfirmed.",
+    "parent": "Exact LP011 historical wrong-native argmax caller and LP019 wrong N-BRC cancellation caller remain UNRESOLVED_PROVENANCE; remaining active 28 LP dependent closure and independent Driver REQUEST_REVISION"
+  },
+  "do_not_repeat": [
+    "Do not repeat Source #1..47, original unit47 checkpoint already published.",
+    "Do not replay old original failed/refused request, or issue an extra resume while current unit48 resume is RUNNING.",
+    "Do not modify original six frozen R063 files, pin, or acceptance model.",
+    "Do not substitute synthetic tests, independent mathematics, or a modified loader for original native experiment.",
+    "Do not use CONTROL_PLANE_MAINTENANCE conversation identity or create scheduler/cron.",
+    "Do not issue another Native semantic PROGRESS while original unit48 request is QUEUED or outcome unknown; use original target_request_id receipt."
+  ],
+  "next_exact_action": "Reconcile original native publish request onhour-20261116-0419-x6-r063-assert-bypass-unit48-source-progress-v1 by em_control_result and consume terminal/source effects without resubmission. Keep original R063 frozen same-object 17-gate/512-case benchmark at issue #2416 assigned to an actual authorized repo runner; original execution missing. Then continue exact LP011/LP019 consumer provenance and independent Driver review.",
+  "session_action_boundary": "No user-requested suspension or schedule change. Keep existing hourly research enabled, settings unchanged; wait only for real native write authority in the original Research lane."
+}
