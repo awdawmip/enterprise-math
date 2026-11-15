@@ -38,6 +38,24 @@ Without RH, the following hold.
 \]
 This is a **compact-\(a\) tail conclusion away from \(a=0\)**, not the small-\(a\) escaping-tail estimate of the original RH task.
 
+### Elementary proof away from the endpoint
+
+There is also a direct full-integer estimate for \(a>1/2\), without any zeta growth theorem. Möbius inversion yields the exact finite formula
+\[
+S_a(N):=\sum_{n\le N}R_a(n)
+=\sum_{d\le N}\frac{\mu(d)}{d^a}\Big\lfloor\frac Nd\Big\rfloor,
+\quad
+c_a=\sum_{d\ge1}\frac{\mu(d)}{d^{1+a}},
+\]
+the latter series being absolutely convergent for \(a>0\). Consequently,
+\[
+|S_a(N)-Nc_a|
+\le \sum_{d\le N}d^{-a}+N\sum_{d>N}d^{-1-a}.
+\]
+For \(1/2<a<1\), this is \(O_a(N^{1-a})\); for \(a=1\), \(O(\log(2N))\); and for \(a>1\), \(O_a(1)\). Since \(B_{a,N}=S_a(N)-Nc_a-K_a\) with fixed \(K_a=1+c_a/2\), the weighted squares are summable: for \(1/2<a<1\), \(\sum_N N^{-2a}<\infty\), and the cases \(a\ge1\) are even smaller.
+
+**Only the endpoint \(a=1/2\) requires the analytic argument below.** Indeed the absolute-value bound gives merely \(O(\sqrt N)\) there, which alone would permit the divergent harmonic-square majorant. The Hardy analysis supplies the needed cancellation without assuming RH. The analytic argument below additionally proves the strong parameter continuity needed for the compact-interval uniform tail.
+
 ### Classical inputs (unconditional)
 
 For \(T=2+|t|\), uniformly for \(1/2\le\sigma\le3/2\),
