@@ -1,0 +1,83 @@
+{
+  "schema": "EC49FPQ_MIXED_SENSING_SUMMARY_V1",
+  "date_utc": "2026-11-15",
+  "source_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "native_cost_csv_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "domain_representative": 16995,
+  "source_configurations": 242,
+  "distinct_rooted_profiles": 112,
+  "query_cost": "unit_per_observed_scalar",
+  "terminal_observations": 324,
+  "named_root_subset_observations": 96,
+  "total_observations": 420,
+  "distinct_query_partitions": 395,
+  "exact_adaptive_worst_depth": 4,
+  "depth3_excluded_by": "All 395 first-response partitions have a fiber not identifiable by two further observations; full mask certificate in conversation archive.",
+  "expected_cost_uniform_root_profiles": {
+    "numerator": 238,
+    "denominator": 112,
+    "optimal_initial_actions": [
+      [
+        "T",
+        118
+      ],
+      [
+        "T",
+        119
+      ],
+      [
+        "T",
+        124
+      ],
+      [
+        "T",
+        201
+      ],
+      [
+        "T",
+        203
+      ],
+      [
+        "T",
+        204
+      ]
+    ],
+    "memoized_candidate_subsets": 25509
+  },
+  "expected_cost_uniform_original_sources": {
+    "numerator": 641,
+    "denominator": 242,
+    "optimal_initial_actions": [
+      [
+        "T",
+        150
+      ],
+      [
+        "T",
+        209
+      ],
+      [
+        "T",
+        290
+      ],
+      [
+        "T",
+        312
+      ]
+    ],
+    "memoized_candidate_subsets": 24063
+  },
+  "prior_certificates": [
+    "EC49FPL_CERTIFICATE.json",
+    "EC49FPN_CERTIFICATE.json"
+  ],
+  "verification_command": "python3 VERIFY_EC49FPQ.py EVIDENCE_DIR OUTPUT_CERTIFICATE.json",
+  "local_full_machine_certificate_sha256": "5bb305c06da5686209e24bb3a940d42bd9ade7fda7e43896f33375597b67c88f",
+  "local_complete_evidence_archive_sha256": "76f64db5e7f88c54209a13960f92a6ad8ff4b3d2548175a997521808f01930e4",
+  "proof_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "control_status": "NO_CURRENT_IMMUTABLE_PUBLICATION; INDEPENDENT_PORTABLE_RESEARCH",
+  "original_control_request_id": "r4-ec49fpq-cont-20261115-0627",
+  "new_formal_claim": false,
+  "next_question": "Exact price-dependent frontier when root and terminal scalar queries carry distinct prices."
+}
