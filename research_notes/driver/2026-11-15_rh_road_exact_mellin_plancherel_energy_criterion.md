@@ -65,7 +65,7 @@ Fix a>0 and let C_{1/2}={s:Re(s)>1/2}. The following are equivalent:
 
 (i) E_a<infinity.
 
-(ii) D_a(s) has a holomorphic continuation ḼD_a(s) to C_{1/2} such that F_a(s)=ḼD_a(s)/s satisfies
+(ii) D_a(s) has a holomorphic continuation D_a^{ext}(s) to C_{1/2} such that F_a(s)=D_a^{ext}(s)/s satisfies
 
     sup_{sigma>1/2} (1/(2*pi)) int_R
                |F_a(sigma+it)|^2 dt < infinity.     (3)
@@ -95,7 +95,7 @@ every such sigma, and monotone convergence as sigma decreases to
 1/2 shows that the supremum in (3) equals P_a.
 
 Conversely, suppose (ii). On sigma>1, identity of holomorphic
-functions identifies ḼD_a with the original D_a, so (6) applies.
+functions identifies D_a^{ext} with the original D_a, so (6) applies.
 The uniform bound (3) and monotone convergence as sigma decreases
 to 1/2 force P_a<infinity.
 
