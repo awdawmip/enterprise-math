@@ -1,0 +1,242 @@
+{
+  "schema": "R749SPX_CONDITIONAL_TAIL_FLUX_V1",
+  "status": "PASS",
+  "frozen_input": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "16-atom auxiliary signed Walsh; (t,s)=(1/10,1/2)",
+  "alphabet_size": 26,
+  "forced_letters": [
+    [
+      -2,
+      -1,
+      1
+    ],
+    [
+      -2,
+      0,
+      0
+    ],
+    [
+      -2,
+      1,
+      -1
+    ],
+    [
+      -1,
+      -2,
+      1
+    ],
+    [
+      -1,
+      -1,
+      1
+    ],
+    [
+      -1,
+      -1,
+      2
+    ],
+    [
+      -1,
+      1,
+      -2
+    ],
+    [
+      -1,
+      1,
+      -1
+    ],
+    [
+      -1,
+      2,
+      -1
+    ],
+    [
+      0,
+      -2,
+      0
+    ],
+    [
+      0,
+      -1,
+      -1
+    ],
+    [
+      0,
+      -1,
+      0
+    ],
+    [
+      0,
+      0,
+      -2
+    ],
+    [
+      0,
+      0,
+      -1
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      2,
+      0
+    ],
+    [
+      1,
+      -1,
+      0
+    ],
+    [
+      1,
+      0,
+      -1
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      2,
+      0,
+      0
+    ]
+  ],
+  "formula": "C_n(H,U,V)=sum_{k=1}^n sum_{r=0}^{k-1}MF(n-k,H+r,U,V) >= 0",
+  "n1_to_n7_exhaustive": true,
+  "levels": [
+    {
+      "n": 1,
+      "multisets": 26,
+      "readouts": 26,
+      "slices": 17,
+      "maximum_sign_changes": 1,
+      "multi_crossing_slices": 0,
+      "verified_flux_cells": 119,
+      "max_fiber_0": 1,
+      "max_fiber_1": 1
+    },
+    {
+      "n": 2,
+      "multisets": 351,
+      "readouts": 179,
+      "slices": 55,
+      "maximum_sign_changes": 1,
+      "multi_crossing_slices": 0,
+      "verified_flux_cells": 605,
+      "max_fiber_0": 7,
+      "max_fiber_1": 7
+    },
+    {
+      "n": 3,
+      "multisets": 3276,
+      "readouts": 531,
+      "slices": 115,
+      "maximum_sign_changes": 3,
+      "multi_crossing_slices": 3,
+      "verified_flux_cells": 1725,
+      "max_fiber_0": 29,
+      "max_fiber_1": 34,
+      "counterexample": [
+        {
+          "H": -2,
+          "M0": 29,
+          "M1": 26,
+          "difference": 3
+        },
+        {
+          "H": -1,
+          "M0": 28,
+          "M1": 34,
+          "difference": -6
+        },
+        {
+          "H": 0,
+          "M0": 29,
+          "M1": 27,
+          "difference": 2
+        }
+      ],
+      "conditional_0_0": {
+        "mass": 158,
+        "optional_count_sum": 32,
+        "expected_K": "16/79",
+        "conditional_W1_TV": "4/1185"
+      }
+    },
+    {
+      "n": 4,
+      "multisets": 23751,
+      "readouts": 1181,
+      "slices": 197,
+      "maximum_sign_changes": 1,
+      "multi_crossing_slices": 0,
+      "verified_flux_cells": 3743,
+      "max_fiber_0": 154,
+      "max_fiber_1": 144
+    },
+    {
+      "n": 5,
+      "multisets": 142506,
+      "readouts": 2221,
+      "slices": 301,
+      "maximum_sign_changes": 1,
+      "multi_crossing_slices": 0,
+      "verified_flux_cells": 6923,
+      "max_fiber_0": 595,
+      "max_fiber_1": 586
+    },
+    {
+      "n": 6,
+      "multisets": 736281,
+      "readouts": 3743,
+      "slices": 427,
+      "maximum_sign_changes": 1,
+      "multi_crossing_slices": 0,
+      "verified_flux_cells": 11529,
+      "max_fiber_0": 2259,
+      "max_fiber_1": 2192
+    },
+    {
+      "n": 7,
+      "multisets": 3365856,
+      "readouts": 5839,
+      "slices": 575,
+      "maximum_sign_changes": 3,
+      "multi_crossing_slices": 4,
+      "verified_flux_cells": 17825,
+      "max_fiber_0": 7943,
+      "max_fiber_1": 7828
+    }
+  ],
+  "review": "AUTHOR_EXACT_NOT_REVIEWED"
+}

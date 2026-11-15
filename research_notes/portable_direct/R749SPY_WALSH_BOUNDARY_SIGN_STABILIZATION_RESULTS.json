@@ -1,0 +1,233 @@
+{
+  "schema": "R749SPY_EVENTUAL_SIGN_REENTRY_EXACT_V1",
+  "status": "PASS",
+  "frozen_input": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "auxiliary 16-atom Walsh center, fixed t=1/10,s=1/2",
+  "first_grid_points": 33,
+  "forced_letters": [
+    [
+      -2,
+      -1,
+      1
+    ],
+    [
+      -2,
+      0,
+      0
+    ],
+    [
+      -2,
+      1,
+      -1
+    ],
+    [
+      -1,
+      -2,
+      1
+    ],
+    [
+      -1,
+      -1,
+      1
+    ],
+    [
+      -1,
+      -1,
+      2
+    ],
+    [
+      -1,
+      1,
+      -2
+    ],
+    [
+      -1,
+      1,
+      -1
+    ],
+    [
+      -1,
+      2,
+      -1
+    ],
+    [
+      0,
+      -2,
+      0
+    ],
+    [
+      0,
+      -1,
+      -1
+    ],
+    [
+      0,
+      -1,
+      0
+    ],
+    [
+      0,
+      0,
+      -2
+    ],
+    [
+      0,
+      0,
+      -1
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      2,
+      0
+    ],
+    [
+      1,
+      -1,
+      0
+    ],
+    [
+      1,
+      0,
+      -1
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      2,
+      0,
+      0
+    ]
+  ],
+  "zero_deficit_letters": [
+    [
+      -1,
+      2,
+      -1
+    ],
+    [
+      0,
+      2,
+      0
+    ]
+  ],
+  "positive_deficit_letter_count": 23,
+  "deficit_cap": 6,
+  "accepted": [
+    {
+      "optional_k": 0,
+      "positive_deficit": 6,
+      "positive_multisets": 1292,
+      "max_required_n": 12,
+      "aggregated_states": 209
+    },
+    {
+      "optional_k": 1,
+      "positive_deficit": 4,
+      "positive_multisets": 161,
+      "max_required_n": 9,
+      "aggregated_states": 73
+    },
+    {
+      "optional_k": 2,
+      "positive_deficit": 2,
+      "positive_multisets": 14,
+      "max_required_n": 6,
+      "aggregated_states": 14
+    },
+    {
+      "optional_k": 3,
+      "positive_deficit": 0,
+      "positive_multisets": 1,
+      "max_required_n": 3,
+      "aggregated_states": 1
+    }
+  ],
+  "stable_signed_profile_for_U_equal_2n_minus_6_V0_n_ge9": [
+    [
+      -5,
+      -15
+    ],
+    [
+      -4,
+      -9
+    ],
+    [
+      -3,
+      -13
+    ],
+    [
+      -2,
+      3
+    ],
+    [
+      -1,
+      -6
+    ],
+    [
+      0,
+      18
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      4,
+      3
+    ]
+  ],
+  "for_all_n_ge9": {
+    "D_n_H_minus2": 3,
+    "D_n_H_minus1": -6,
+    "D_n_H_zero": 18
+  },
+  "for_all_n_ge12": {
+    "slice_mass": 1468,
+    "optional_count_sum": 192,
+    "conditional_expected_K": "48/367",
+    "conditional_W1_WalshTV": "12/(1835*n)"
+  },
+  "proof_logic": "deficiency d=2-u>=0; if k>=1 optional letters, remaining D=6-2k; every positive-deficit F letter has v<=d. Forced zero-deficit (-1,2,-1) multiplicity must equal V>=0, and (0,2,0) supplies filler. Max n needed for difference is 9; for both distributions, 12.",
+  "review": "AUTHOR_EXACT_NOT_REVIEWED"
+}
