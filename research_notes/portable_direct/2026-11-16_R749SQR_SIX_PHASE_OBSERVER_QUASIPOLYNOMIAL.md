@@ -89,14 +89,38 @@ The three marked observations have periodic vector
 Hence observer-specific linear combinations compress differently **at order six**, after subtracting their corresponding smooth expansions:
 - \(E_1+E_2/3\): parity cancels; nonzero least period 3.
 - \(E_1+E_3/3\): cubic part cancels; nonzero least period 2.
-- \(2E_1+E_2+E_3\): both order-six cyclic contributions cancel. Higher-order periodic terms remain an open question.
+- \(2E_1+E_2+E_3\): both order-six cyclic contributions cancel. In this particular linear combination, **all-order** cancellation is established by Theorem C below.
 
 This supplies a constructive separation between the minimal carrier for one immediate read and the minimal carrier for a declared family of future operations. It does not assert native spatial dimension, signed-force cancellation, or an implementation of typed BRC.
 
+## Theorem C — Exact all-order slack-source conservation
+
+The sixth-order cancellation above is the shadow of a substantially stronger identity: for **every** integer \(r\ge1\),
+
+\[
+\boxed{4T_{1,r}+2T_{2,r}+2T_{3,r}=(r-1)C_r,\qquad
+2E_{1,r}+E_{2,r}+E_{3,r}=\frac{r-1}{2r}.}
+\]
+
+**Combinatorial proof.** Adjoin the uniquely determined nonnegative slack variable
+\(q=r-1-\sum_i s_i k_i\). The resulting configurations satisfy exactly
+\[
+q+k_1+k_2+k_3+2(k_4+k_5)+3(k_6+k_7)=r-1.
+\]
+This equation is symmetric under permutations of the **four** weight-one variables \(q,k_1,k_2,k_3\). Their total first moments are therefore identical. The two weight-two variables have equal first moments, as do the two weight-three variables. Summing the displayed equation over every configuration gives \((r-1)C_r=4T_{1,r}+2T_{2,r}+2T_{3,r}\). Division by \(2rC_r\) yields the mean identity for all \(r\ge1\), including the boundary \(r=1\). QED.
+
+**General form.** For any finite labeled positive-integer source alphabet with \(m_1\ge1\) weight-one labels and \(m_w\) labels of each other weight \(w\), choose one marked source of each distinct weight and set \(T_{w,r}=w\sum_{\Omega_r}k_{j(w)}\). The same slack-variable symmetry gives the exact invariant
+\[
+\boxed{(m_1+1)T_{1,r}+\sum_{w>1}m_w T_{w,r}=(r-1)C_r.}
+\]
+It follows directly from conservation of weighted budget; no analytic asymptotics, special multiplicities or cyclotomic expansions are needed.
+
+The composite observer \(2E_1+E_2+E_3\) is consequently an exact function of \(r\) alone and has **no** periodic source residual at any order. Individual marked observers still have the nonzero independent order-2 and order-3 root phases of Theorem B. This establishes an exact, constructive distinction between information lost in a selected observer and information retained by a richer observer family.
+
 ## Computational certificate and limits
 
-Run R749SQR_SIX_PHASE_SOURCE_OBSERVER_CERT.py with Python 3.10+ (standard library only). Exact integer/Fraction arithmetic returns PASS for the full grid \(0\le r\le8005\), 24,015 marked-deletion identities, 60 independently enumerated populations, 32,024 Newton reconstruction equalities, 21 rational smooth-coefficient checks, two amplitude equalities and four phase-class checks. The companion JSON includes reconstruction coefficients and scaled exact rational samples displayed to nine decimal places. Finite tests corroborate the derivation; the **all-r** assertions follow from the preceding partial-fraction proof.
+Run R749SQR_SIX_PHASE_SOURCE_OBSERVER_CERT.py with Python 3.10+ (standard library only). Exact integer/Fraction arithmetic returns PASS for the full grid \(0\le r\le8005\), 24,015 marked-deletion identities, 8,005 exact slack-source conservation identities, 60 independently enumerated populations, 32,024 Newton reconstruction equalities, 21 rational smooth-coefficient checks, two amplitude equalities and four phase-class checks. The companion JSON includes reconstruction coefficients and scaled exact rational samples displayed to nine decimal places. Finite tests corroborate the derivation; the **all-r** assertions follow from the preceding partial-fraction proof.
 
-**Next:** classify the first nonzero higher-order cyclotomic terms of the combination \(2E_1+E_2+E_3\); generalize minimal shift-faithful states to arbitrary allowed future-operation semigroups and marked observer families; determine whether any typed BRC-provenance-preserving lift exists.
+**Next:** classify **all** independent all-precision linear conservation relations among marked-source observers for general weights; generalize minimal shift-faithful states to arbitrary allowed future-operation semigroups and marked observer families; determine whether any typed BRC-provenance-preserving lift exists.
 
 Current mathematical status: AUTHOR_EXACT_NOT_REVIEWED. No shared X6 CLAIM, Result, review or native Port correspondence is asserted.
