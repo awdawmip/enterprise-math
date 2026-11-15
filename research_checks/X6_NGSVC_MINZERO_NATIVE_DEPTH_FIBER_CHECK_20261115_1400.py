@@ -62,6 +62,5 @@ def main():
     print('exact_polynomial_convolution_t=0..99', 'PASS')
     print('signed_native_BRC_fiber_collision',sorted((z,shortest_brc(z)) for z in native_fiber))
 
-
 if __name__ == '__main__':
     main()
