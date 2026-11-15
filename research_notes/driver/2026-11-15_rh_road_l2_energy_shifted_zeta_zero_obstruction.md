@@ -110,3 +110,32 @@ No converse implication RH => E_a<infinity has been proved here. This file does 
 Exact source linkage:
 - RH-ROAD-TAIL-20260909 / TP2-DCE65A0EFCE8151C39BD.
 - 2026-11-15_rh_road_exact_mobius_sawtooth_allorder_identity.md, GitHub source commit 5cbfaa676f521f0becc89ccec641f436cd6a6e53 (the preceding exact road decomposition).
+
+## Theorem C (quantitative finite-cutoff obstruction from one off-line zero)
+
+Write E_a(X)=sum_{1<=N<=X}|B_{a,N}|^2/N^2, X>=1. Under Theorem B's zero rho=beta+i gamma, fix an a>0 small enough that zeta(rho-a) != 0 and beta-a>1/2. Then for every real eta with
+
+```text
+0 <= eta < beta-a-1/2,
+```
+
+the finite energies satisfy
+
+```text
+limsup_{X->infinity} E_a(X) / X^{2 eta} = +infinity. (D)
+```
+
+Thus an off-critical zero enforces not merely divergence but a failure of every subcritical power upper bound for the finite-cutoff road energy.
+
+**Proof.** Suppose to the contrary that E_a(X)=O(X^{2 eta}). On a dyadic block 2^k<=N<2^{k+1}, Cauchy–Schwarz and the bound for the discrete difference in Theorem A give, uniformly for s in any compact subset of Re(s)>1/2+eta,
+
+```text
+sum_{2^k<=N<2^{k+1}} |B_{a,N}| |N^{-s}-(N+1)^{-s}|
+ <= |s| E_a(2^{k+1})^{1/2}
+          (sum_{2^k<=N<2^{k+1}}N^{-2 Re(s)})^{1/2}
+ = O_s(2^{k(eta+1/2-Re(s))}).
+```
+
+The geometric series in k converges when Re(s)>1/2+eta. Hence the Abel series in (A) continues D_a(s) holomorphically throughout that half-plane. But s_0=rho-a is a nonremovable pole of the zeta quotient with Re(s_0)=beta-a>1/2+eta. Contradiction. Thus E_a(X) is not O(X^{2 eta}), and because it is nonnegative, (D) follows. QED.
+
+The exponent in (D) depends on the location of a hypothetical zero and is *not* a universal lower bound independent of that hypothesis. It supplies a finite-cutoff falsifier for overly strong candidate full-road estimates.
