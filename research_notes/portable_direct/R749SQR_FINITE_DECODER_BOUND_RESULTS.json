@@ -1,0 +1,180 @@
+{
+  "status": "PASS",
+  "finite_sufficient_threshold": 512,
+  "claim": "For all integer r>=512: 0 < r^4*(E_{1,r}-H_{1,4}(r))-P_1(r) < 35/12.",
+  "consequence": "Two consecutive scaled residual reads identify r mod 6 by nearest exact phase pair for all integer r>=512.",
+  "last_small_r_failing_sufficient_bound": 511,
+  "number_small_r_failing_sufficient_bound": 450,
+  "method": "exact rational quasipolynomial interpolation, degree bounds proven from generating-function poles; coefficientwise positive polynomials in n=(r-first_r)/6 for n>=0",
+  "cases": [
+    {
+      "residue_mod_6": 0,
+      "first_r": 516,
+      "C_coefficients": [
+        "8970149848",
+        "7733379763/15",
+        "23704977/2",
+        "817439/6",
+        "783",
+        "9/5"
+      ],
+      "N_coefficients": [
+        "513395980372/27",
+        "141801456169/162",
+        "543959177/36",
+        "37559023/324",
+        "667/2"
+      ],
+      "upper_35_over_12_coefficients": [
+        "193003320158/27",
+        "203600012731/324",
+        "1401104231/72",
+        "182375239/648",
+        "7801/4",
+        "21/4"
+      ],
+      "all_coefficients_strictly_positive": true
+    },
+    {
+      "residue_mod_6": 1,
+      "first_r": 517,
+      "C_coefficients": [
+        "9056406172",
+        "15585625451/30",
+        "11920739",
+        "410287/3",
+        "1569/2",
+        "9/5"
+      ],
+      "N_coefficients": [
+        "710191840171/27",
+        "783768837643/648",
+        "4504961149/216",
+        "51786439/324",
+        "1378/3"
+      ],
+      "upper_35_over_12_coefficients": [
+        "3000145874/27",
+        "99062782885/324",
+        "3005104421/216",
+        "38726983/162",
+        "43891/24",
+        "21/4"
+      ],
+      "all_coefficients_strictly_positive": true
+    },
+    {
+      "residue_mod_6": 2,
+      "first_r": 512,
+      "C_coefficients": [
+        "8631671650",
+        "7499040898/15",
+        "23164183/2",
+        "804959/6",
+        "777",
+        "9/5"
+      ],
+      "N_coefficients": [
+        "636687889171/27",
+        "88691221313/81",
+        "2059095893/108",
+        "47804155/324",
+        "2569/6"
+      ],
+      "upper_35_over_12_coefficients": [
+        "86112506533/54",
+        "58837345661/162",
+        "3178525859/216",
+        "157953775/648",
+        "22057/12",
+        "21/4"
+      ],
+      "all_coefficients_strictly_positive": true
+    },
+    {
+      "residue_mod_6": 3,
+      "first_r": 513,
+      "C_coefficients": [
+        "8715316669",
+        "15114238541/30",
+        "11649301",
+        "404035/3",
+        "1557/2",
+        "9/5"
+      ],
+      "N_coefficients": [
+        "2245734696427/108",
+        "624187387789/648",
+        "3614289233/216",
+        "41855587/324",
+        "374"
+      ],
+      "upper_35_over_12_coefficients": [
+        "124897513577/27",
+        "164004820147/324",
+        "3724770397/216",
+        "42707719/162",
+        "15173/8",
+        "21/4"
+      ],
+      "all_coefficients_strictly_positive": true
+    },
+    {
+      "residue_mod_6": 4,
+      "first_r": 514,
+      "C_coefficients": [
+        "8799608881",
+        "15231068681/30",
+        "11716770",
+        "811187/6",
+        "780",
+        "9/5"
+      ],
+      "N_coefficients": [
+        "1159824834983/54",
+        "321640038983/324",
+        "34411507/2",
+        "42941347/324",
+        "2297/6"
+      ],
+      "upper_35_over_12_coefficients": [
+        "452227127549/108",
+        "316277248937/648",
+        "16968159",
+        "169641211/648",
+        "11353/6",
+        "21/4"
+      ],
+      "all_coefficients_strictly_positive": true
+    },
+    {
+      "residue_mod_6": 5,
+      "first_r": 515,
+      "C_coefficients": [
+        "8884552027",
+        "15348574811/30",
+        "11784499",
+        "407155/3",
+        "1563/2",
+        "9/5"
+      ],
+      "N_coefficients": [
+        "2639346921925/108",
+        "730704432715/648",
+        "4214407787/216",
+        "48612967/324",
+        "1298/3"
+      ],
+      "upper_35_over_12_coefficients": [
+        "39821741645/27",
+        "118127890189/324",
+        "3209826583/216",
+        "39820429/162",
+        "44321/24",
+        "21/4"
+      ],
+      "all_coefficients_strictly_positive": true
+    }
+  ],
+  "math_review": "NOT_REVIEWED"
+}
