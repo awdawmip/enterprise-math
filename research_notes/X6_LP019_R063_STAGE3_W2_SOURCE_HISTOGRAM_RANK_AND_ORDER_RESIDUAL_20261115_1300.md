@@ -52,3 +52,11 @@ This certificate is **one W2 coefficient-level source-preservation criterion**; 
 **Remaining evidence:** locate actual LP011 signed native argmax and LP019 natural positive N-BRC incorrect callsite, close 28-LP consumers, independent Driver REQUEST_REVISION, and receive the original unchanged R063 Stage0 17-gate / 512-case runner evidence under #2416.
 
 **Next exact action:** inspect a new named current/frozen consumer that imports `relation_weights` or discards `(p,q)` source ordering. If it relies on ordered provenance after histogram aggregation, test the explicit pair-swap collision and correct that actual consumer; otherwise preserve typed historical Stage3 without claiming a defect. Track original Native Source semantic PROGRESS separately from GitHub publication.
+
+## Actual frozen Stage3 3-tensor consumer: stronger no-factorization witness
+
+The original same frozen source separately defines `tensor3_signature(p,q,r)` (line 61), and calls it in the associativity corpus (lines 111–115), with **ordered port indices** `(i,j,k)` and phase `(j(p[i])+j(q[j])+j(r[k])) mod 4`. The rank-six observer collision above has a directly source-defined downstream witness, not merely a hypothetical future operation.
+
+Set `p=iij`, `q=iji`, and fixed third source `r=ij`. The pair `(p,q)` and swapped pair `(q,p)` have identical all-35-word Stage3 coefficient histograms, but their actual ordered 3-tensor signatures each have 18 labeled cells and differ at **12** entries. The first differing exact entry is `(0,1,0,1)` versus `(0,1,0,0)`. The appended independent checker computes this from the original tensor formula with integer-only arithmetic and checks the exact 12-cell difference.
+
+Thus no function of only the pair histogram can reproduce this **existing frozen Stage3 ordered tensor consumer** on both inputs. An interface promising the full tensor must retain the three source-order residual directions or the original named ordered pairs. The original Stage3 code itself computes the tensor from the uncollapsed sources and is not identified as a bug. This is a concrete information-preservation boundary for LP019 and the joint-relation observer contract, not a statement about signed cancellation of positive natural N-BRC or a new full-X6 tensor operator.
