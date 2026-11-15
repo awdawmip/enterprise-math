@@ -1,0 +1,453 @@
+{
+  "arithmetic": "exact Python integers, two-coordinate signed integer Laurent exponents",
+  "complete_families": [
+    "2x2 capacities 0..2 all induced margin fibers",
+    "2x3 capacities 0..1 all induced margin fibers"
+  ],
+  "exhaustive": {
+    "capacity_patterns": 145,
+    "counted_named_tables": 2025,
+    "margin_fibers": 1919,
+    "raw_allocation_minus_quotient_signature_total": 0
+  },
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "observer_sensitive_witness": {
+    "named_edge_observer": {
+      "b": 4,
+      "c": 4,
+      "capacities": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "row_demand": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "col_demand": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "cut_rowsA": [
+        0,
+        1
+      ],
+      "cut_colsA": [
+        0,
+        1
+      ],
+      "direct_dfs_calls": 1621,
+      "baseline_memo": {
+        "branches": 956,
+        "leaves": 241,
+        "states": 847
+      },
+      "named_tables": 16,
+      "name": "source_specific_future_observer",
+      "observer_support": 2,
+      "histogram": [
+        {
+          "exponent": [
+            0,
+            0
+          ],
+          "count": 8
+        },
+        {
+          "exponent": [
+            1,
+            0
+          ],
+          "count": 8
+        }
+      ],
+      "separator": {
+        "component_A_calls": 5,
+        "component_A_dp_states": 75,
+        "component_B_calls": 5,
+        "component_B_dp_states": 74,
+        "crossing_prefix_candidates": 8,
+        "invalid_cut_or_capacity_prefixes": 2,
+        "quotient_signatures": 6,
+        "raw_cut_allocations_after_margin_bounds": 6,
+        "raw_named_crossing_edges": 4
+      },
+      "timing_seconds_single_run": {
+        "baseline_memo": 0.001794,
+        "direct": 0.001589,
+        "separator": 0.000403
+      }
+    },
+    "zero_observer": {
+      "b": 4,
+      "c": 4,
+      "capacities": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "row_demand": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "col_demand": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "cut_rowsA": [
+        0,
+        1
+      ],
+      "cut_colsA": [
+        0,
+        1
+      ],
+      "direct_dfs_calls": 1621,
+      "baseline_memo": {
+        "branches": 956,
+        "leaves": 241,
+        "states": 847
+      },
+      "named_tables": 16,
+      "name": "signature_merges_hidden_named_crossings",
+      "observer_support": 1,
+      "histogram": [
+        {
+          "exponent": [
+            0,
+            0
+          ],
+          "count": 16
+        }
+      ],
+      "separator": {
+        "component_A_calls": 5,
+        "component_A_dp_states": 75,
+        "component_B_calls": 5,
+        "component_B_dp_states": 74,
+        "crossing_prefix_candidates": 8,
+        "invalid_cut_or_capacity_prefixes": 2,
+        "quotient_signatures": 5,
+        "raw_cut_allocations_after_margin_bounds": 6,
+        "raw_named_crossing_edges": 4
+      },
+      "timing_seconds_single_run": {
+        "baseline_memo": 0.001893,
+        "direct": 0.001619,
+        "separator": 0.0005
+      }
+    }
+  },
+  "result": "ALL_CHECKS_PASS PREFIX805 EXACT_BOUNDARY_SIGNATURE_QUOTIENT",
+  "sampled": {
+    "case_count": 100,
+    "cases_summary": {
+      "total_support": 131,
+      "total_tables": 136
+    },
+    "model": "3x3 capacities 0..2, one planted table per case",
+    "seed": 80520261115
+  },
+  "schema": "PREFIX805_BOUNDARY_SIGNATURE_QUOTIENT_V1",
+  "timed_examples": [
+    {
+      "name": "sparse_two_block_two_crossings",
+      "b": 4,
+      "c": 4,
+      "capacities": [
+        2,
+        2,
+        2,
+        0,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2
+      ],
+      "row_demand": [
+        3,
+        3,
+        2,
+        2
+      ],
+      "col_demand": [
+        2,
+        2,
+        4,
+        2
+      ],
+      "cut_rowsA": [
+        0,
+        1
+      ],
+      "cut_colsA": [
+        0,
+        1
+      ],
+      "named_tables": 21,
+      "observer_support": 7,
+      "histogram": [
+        {
+          "exponent": [
+            -5,
+            -2
+          ],
+          "count": 3
+        },
+        {
+          "exponent": [
+            -5,
+            3
+          ],
+          "count": 3
+        },
+        {
+          "exponent": [
+            0,
+            -7
+          ],
+          "count": 3
+        },
+        {
+          "exponent": [
+            0,
+            -2
+          ],
+          "count": 3
+        },
+        {
+          "exponent": [
+            0,
+            3
+          ],
+          "count": 3
+        },
+        {
+          "exponent": [
+            5,
+            -7
+          ],
+          "count": 3
+        },
+        {
+          "exponent": [
+            5,
+            -2
+          ],
+          "count": 3
+        }
+      ],
+      "baseline_memo": {
+        "branches": 5148,
+        "leaves": 1922,
+        "states": 4429
+      },
+      "separator": {
+        "component_A_calls": 3,
+        "component_A_dp_states": 115,
+        "component_B_calls": 3,
+        "component_B_dp_states": 129,
+        "crossing_prefix_candidates": 3,
+        "invalid_cut_or_capacity_prefixes": 0,
+        "quotient_signatures": 3,
+        "raw_cut_allocations_after_margin_bounds": 3,
+        "raw_named_crossing_edges": 2
+      },
+      "direct_dfs_calls": 10028,
+      "timing_seconds_single_run": {
+        "baseline_memo": 0.008524,
+        "direct": 0.010125,
+        "separator": 0.00063
+      }
+    },
+    {
+      "name": "dense_4x4_unit_capacities",
+      "b": 4,
+      "c": 4,
+      "capacities": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "row_demand": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "col_demand": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "cut_rowsA": [
+        0,
+        1
+      ],
+      "cut_colsA": [
+        0,
+        1
+      ],
+      "named_tables": 90,
+      "observer_support": 11,
+      "histogram": [
+        {
+          "exponent": [
+            -5,
+            -6
+          ],
+          "count": 4
+        },
+        {
+          "exponent": [
+            -5,
+            -1
+          ],
+          "count": 12
+        },
+        {
+          "exponent": [
+            -5,
+            4
+          ],
+          "count": 4
+        },
+        {
+          "exponent": [
+            0,
+            -11
+          ],
+          "count": 1
+        },
+        {
+          "exponent": [
+            0,
+            -6
+          ],
+          "count": 13
+        },
+        {
+          "exponent": [
+            0,
+            -1
+          ],
+          "count": 22
+        },
+        {
+          "exponent": [
+            0,
+            4
+          ],
+          "count": 13
+        },
+        {
+          "exponent": [
+            0,
+            9
+          ],
+          "count": 1
+        },
+        {
+          "exponent": [
+            5,
+            -6
+          ],
+          "count": 4
+        },
+        {
+          "exponent": [
+            5,
+            -1
+          ],
+          "count": 12
+        },
+        {
+          "exponent": [
+            5,
+            4
+          ],
+          "count": 4
+        }
+      ],
+      "baseline_memo": {
+        "branches": 6141,
+        "leaves": 1091,
+        "states": 4881
+      },
+      "separator": {
+        "component_A_calls": 59,
+        "component_A_dp_states": 827,
+        "component_B_calls": 59,
+        "component_B_dp_states": 827,
+        "crossing_prefix_candidates": 128,
+        "invalid_cut_or_capacity_prefixes": 58,
+        "quotient_signatures": 70,
+        "raw_cut_allocations_after_margin_bounds": 70,
+        "raw_named_crossing_edges": 8
+      },
+      "direct_dfs_calls": 20057,
+      "timing_seconds_single_run": {
+        "baseline_memo": 0.00998,
+        "direct": 0.020007,
+        "separator": 0.004596
+      }
+    }
+  ],
+  "wall_seconds_total": 0.292848
+}
