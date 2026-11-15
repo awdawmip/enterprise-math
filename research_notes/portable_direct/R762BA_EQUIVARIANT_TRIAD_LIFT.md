@@ -44,11 +44,33 @@ For fixed ordered first legs (i,j), the apparent two-force observer O_(i,j) send
 
 A coarse observer whose *entire* future interface genuinely factors through O_(i,j) may safely use one class instead. This observer-relative distinction preserves the current project's joint-relation and BRC source discipline. The count four is positive branch multiplicity; no signed or phase cancellation is inferred.
 
-## 4. Exact reproducible checks
+## 4. Candidate frame transport and based-pair holonomy
 
-Companion executable: R762BA_EQUIVARIANT_TRIAD_LIFT_VERIFY.js (standard-library Node.js). Its actual output is preserved in R762BA_EQUIVARIANT_TRIAD_LIFT_EVIDENCE.json. Checked domain: all 720 permutations of six axes, 30 ordered distinct visible pairs, 120 ordered positive triads, all four candidate axes per pair; all pair stabilizers have order 24 and point/triple stabilizers order 6. 86,400 covariance instances, 120 four-point K-orbit checks, 11,520 invariant-subset action checks (30 pairs × 16 subsets × 24 stabilizer elements), and 180 two-force-projection collision pairs passed. Assertion execution in Node v22.16.0 completed. BA1–BA2 and BA3 are mathematical proofs; the finite program independently checks the exact finite S6 base model.
+**Theorem BA4 (exact source-fiber transport).** For each axis permutation g in S6, the map β_g:(i,j,k)→(g(i),g(j),g(k)) is a bijection from the four candidate third-axis branches over (i,j) to those over (g(i),g(j)), preserving positive BRC multiplicity and the named third port. For two frame steps g,h, β_h∘β_g=β_(hg). Hence any finite word of axis-permutation frame labels yields a source-preserving transport, without choosing a preferred third axis.
 
-## 5. Scientific boundary and next discriminatory question
+**Proof.** A permutation preserves pairwise distinctness, gives an inverse via g^{-1}, and acts on all three labels by ordinary composition. The group action is functorial and carries all four source records injectively and surjectively. QED.
+
+Suppose a frame path is *based at the visible ordered pair*, i.e. its total permutation g fixes i and j. Its induced holonomy on the hidden four-choice fiber is an element of K≅S4. **Theorem BA5 (sharp loop source-return spectrum).** The number of source branches returning to their original third-axis label is Fix(g|F_(i,j)), and lies in {0,1,2,4}, with exact multiplicities among the 24 possible K elements:
+
+| S4 cycle class on four hidden axes | elements | fixed third axes |
+| --- | ---: | ---: |
+| identity | 1 | 4 |
+| one transposition | 6 | 2 |
+| one 3-cycle | 8 | 1 |
+| double transposition | 3 | 0 |
+| one 4-cycle | 6 | 0 |
+
+In particular, an apparently closed two-leg pair-loop can permute all hidden third-source branches with **zero** full-source returns. The fixed-count histogram across all 30 ordered pairs and their 24 stabilizer elements is 0→270, 1→240, 2→180, 3→0, 4→30.
+
+**Proof.** A hidden source k returns exactly when g(k)=k. The conjugacy-class enumeration of S4 is exhaustive (1+6+8+3+6=24), and cycle decomposition determines fixed points. The 30 visible ordered pairs have conjugate stabilizers, so the aggregate histogram is 30 times the per-pair count. QED.
+
+These are exact results for the candidate S6-labelled transport groupoid. They do not assert that an actual V17 event realizes an arbitrary S6 word, or that a native V39 based loop has this holonomy. Once a typed native β is available, the stabilizer/fixed-point criterion supplies a direct observer-sensitive test.
+
+## 5. Exact reproducible checks
+
+Companion executable: R762BA_EQUIVARIANT_TRIAD_LIFT_VERIFY.js (standard-library Node.js). Its actual output is preserved in R762BA_EQUIVARIANT_TRIAD_LIFT_EVIDENCE.json. Checked domain: all 720 permutations of six axes, 30 ordered distinct visible pairs, 120 ordered positive triads, all four candidate axes per pair; all pair stabilizers have order 24 and point/triple stabilizers order 6. 86,400 covariance instances, 120 four-point K-orbit checks, 11,520 invariant-subset action checks (30 pairs × 16 subsets × 24 stabilizer elements), 180 two-force-projection collision pairs and 720 based-pair holonomy elements passed. The latter have fixed-hidden-source histogram (0:270, 1:240, 2:180, 3:0, 4:30). Assertion execution in Node v22.16.0 completed. BA1–BA5 are mathematical proofs; the finite program independently checks the exact finite S6 base model.
+
+## 6. Scientific boundary and next discriminatory question
 
 An *admitted* native signed Cell/Link/Port closure relation and its actual legal leg triples remain to be specified. It may restrict signs, source incidence, geometry, timing or relation types. When that definition becomes available, compute the actual stabilizer orbits and permitted port tests, and use them to determine whether the four-sheet fiber persists or is refined. Establish the true frame-to-port map β for V17; check V29 sequential-versus-atomic PASS/TRANSFER and V39 based-loop outputs on the same named-source event histories. Any coupling that erases k must carry an observer/future-operation safety proof. Retain all frozen science inputs, existing R762AW–AZ proofs, and author/reviewer separation.
 
