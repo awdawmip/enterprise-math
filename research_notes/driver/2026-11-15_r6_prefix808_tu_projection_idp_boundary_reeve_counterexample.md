@@ -62,3 +62,27 @@ It does **not** prove integer decomposition of an arbitrary integral projection,
 This is a standard TU/normality consequence, not a worldwide-novel theorem. Original PREFIX-808 authorship remains with EM-DIRECT-4660FF; Driver EM-DVR-DEBB5E contributes the generic proof, scope differentiation and counterexample in source-exposed shared context. No current Task owner is replaced, and no original Result or immutable review is altered.
 
 **Completion:** mathematical subunit proved and GitHub-published; Native Result acceptance 0; formal Task completion 0; mother objective completion 0. Next discriminating mathematics: determine whether the exact named native signed-coupling constraint matrices are TU or admit a minimal non-TU/IDP counterexample, without assuming a native transfer.
+
+
+## Stronger warning: a TU source can have a nonnormal integer linear image
+
+The Reeve obstruction can occur **even when the source polytope itself has a TU description**. Let
+\[
+P_\Delta=\{x\in\mathbb R^4: x_i\ge0,\quad x_1+x_2+x_3+x_4=1\}.
+\]
+Its equation matrix \(A=(1,1,1,1)\) is TU, all data and bounds \(0\le x_i\le1\) are integral, and \(P_\Delta\cap\mathbb Z^4=\{e_1,e_2,e_3,e_4\}\). Define the integral **noncoordinate** readout
+\[
+W=\begin{pmatrix}0&1&0&1\\0&0&1&1\\0&0&0&2\end{pmatrix}.
+\]
+The continuous image \(W(P_\Delta)\) is exactly the Reeve tetrahedron \(P_R\). The lattice signature \(y=(1,1,1)\) lies in \(2W(P_\Delta)\cap\mathbb Z^3\), but no integral \(X\in2P_\Delta\cap\mathbb Z^4\) has \(WX=y\), since \(X\) is a sum of two basis vectors, and every \(W e_i\) has even third coordinate. Therefore
+\[
+W(2P_\Delta\cap\mathbb Z^4)
+=\mathcal S_1+\mathcal S_1
+\quad\subsetneq\quad
+2W(P_\Delta)\cap\mathbb Z^3.
+\]
+This proves that an **arbitrary integral signed/additive readout of a TU source is not necessarily lattice-surjective at aggregate scale**, even while TU-SUPPORT and integer decomposition of the *full named source tables* remain exactly true.
+
+A sufficient extension beyond coordinate projections is available if stacking the actual readout rows below the TU equation matrix still gives a TU matrix (including the bound rows): then every integral lattice point of \(kW(P)\) has an integral lift through the bounded augmented system, and the same full-source decomposition proves IDP of \(W(P)\). This is a **sufficient** condition, not asserted necessary.
+
+For native signed-Port/Link reductions, it is essential to distinguish the three different sets: (i) integer full-source configurations, (ii) integer **attainable** observer signatures, and (iii) all integer points in the continuous observer image. Equalities of (i) and (ii) under scale do not imply equality with (iii) unless a separate integral-lift theorem applies.
