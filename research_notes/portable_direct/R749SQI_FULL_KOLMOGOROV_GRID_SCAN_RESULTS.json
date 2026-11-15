@@ -1,0 +1,12 @@
+{
+  "schema": "R749SQI_FULL_KOLMOGOROV_GRID_SCAN_V1",
+  "status": "PASS",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "mode": "exhaustive integer Kolmogorov CDF endpoint scan",
+  "domain": "all integer r in 1..3360",
+  "integer_grid_sizes": 3360,
+  "cdf_boundary_comparisons": 3766560,
+  "assertion": "For every tested r, d_K(L(3K_r/r),Beta(1,23)) = P(K_r=0) = 1-C_(r-3)/C_r",
+  "arithmetic": "pure Python integer exact comparisons; no float, Fraction not needed in final scan",
+  "interpretation": "finite exact verification; does not prove all positive r"
+}
