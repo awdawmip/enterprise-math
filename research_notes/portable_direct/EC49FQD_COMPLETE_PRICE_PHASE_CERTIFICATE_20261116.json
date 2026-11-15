@@ -1,0 +1,175 @@
+{
+  "schema": "EC49FQD_COMPLETE_UNIFORM_PRICE_PHASES_V1",
+  "date": "2026-11-16",
+  "scientific_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "root_profile_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "native_brc_class": 16943,
+  "original_configurations": 310,
+  "complete_profiles": 141,
+  "terminal_queries": 144,
+  "root_queries": 84,
+  "observation_scope": "all_228",
+  "optimization": "unrestricted adaptive finite decision trees",
+  "prior": "uniform_distinct_root_profiles",
+  "prices": "r>0,t>0",
+  "cost_denominator": 141,
+  "breakpoints": [
+    "4/7",
+    "10/17",
+    "3/5",
+    "2/3",
+    "3/4",
+    "7/9",
+    "4/5",
+    "153/184",
+    "1",
+    "3"
+  ],
+  "phase_counts": [
+    [
+      362,
+      0
+    ],
+    [
+      355,
+      4
+    ],
+    [
+      338,
+      14
+    ],
+    [
+      323,
+      23
+    ],
+    [
+      311,
+      31
+    ],
+    [
+      303,
+      37
+    ],
+    [
+      267,
+      65
+    ],
+    [
+      242,
+      85
+    ],
+    [
+      58,
+      238
+    ],
+    [
+      6,
+      290
+    ],
+    [
+      4,
+      296
+    ]
+  ],
+  "exact_endpoints": [
+    {
+      "r": 4,
+      "t": 7,
+      "optimal_sum": 1448,
+      "origin": "EC49FQB"
+    },
+    {
+      "r": 10,
+      "t": 17,
+      "optimal_sum": 3618,
+      "origin": "EC49FQD"
+    },
+    {
+      "r": 3,
+      "t": 5,
+      "optimal_sum": 1084,
+      "origin": "EC49FQD"
+    },
+    {
+      "r": 2,
+      "t": 3,
+      "optimal_sum": 715,
+      "origin": "EC49FQD"
+    },
+    {
+      "r": 3,
+      "t": 4,
+      "optimal_sum": 1057,
+      "origin": "EC49FQD"
+    },
+    {
+      "r": 7,
+      "t": 9,
+      "optimal_sum": 2454,
+      "origin": "EC49FQD"
+    },
+    {
+      "r": 4,
+      "t": 5,
+      "optimal_sum": 1393,
+      "origin": "EC49FQC"
+    },
+    {
+      "r": 153,
+      "t": 184,
+      "optimal_sum": 52666,
+      "origin": "EC49FQC"
+    },
+    {
+      "r": 1,
+      "t": 1,
+      "optimal_sum": 296,
+      "origin": "EC49FQC"
+    },
+    {
+      "r": 3,
+      "t": 1,
+      "optimal_sum": 308,
+      "origin": "EC49FQC"
+    }
+  ],
+  "additional_anchor_prices": [
+    "7/12",
+    "23/39",
+    "7/10",
+    "48/61"
+  ],
+  "feasible_witness_certificate_names": [
+    "ROOT_ONLY",
+    "4_7",
+    "10_17",
+    "3_5",
+    "2_3",
+    "3_4",
+    "7_9",
+    "FQC_157_189",
+    "153_184",
+    "1_1",
+    "3_1"
+  ],
+  "proof_components": [
+    "full-exact-integer-Bellman",
+    "concave lower envelope endpoint lemma",
+    "small positive price monotonic bound",
+    "two terminal-signature collision pairs force R>=4",
+    "open-phase affine slope rigidity"
+  ],
+  "validation": [
+    "EC49FQD_FULL_UNIFORM_POSITIVE_PRICE_PHASE_CERTIFICATE_PASS",
+    "EC49FQA_ALL_INDEPENDENT_REPLAYS_PASS"
+  ],
+  "original_source_replay": "All 310 source configurations and all 141 distinct profiles were checked by EC49FQA_INDEPENDENT_REPLAY.py.",
+  "reuse": [
+    "https://github.com/awdawmip/enterprise-math/pull/2515",
+    "https://github.com/awdawmip/enterprise-math/pull/2518"
+  ],
+  "scope_limit": "310-configuration multiplicity prior has separate still-incomplete phase problem",
+  "mathematical_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "formal_task_claim": false
+}
