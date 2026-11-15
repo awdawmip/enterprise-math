@@ -29,7 +29,7 @@ For any nonempty set `S` of distinct rooted profiles, let `W(S)=Σ_{i∈S}w_i`. 
 C_w(S)=
 \begin{cases}
 0,& |S|\le 1,\\
-W(S)+\min_{q:,|F_q(S)|>1}\sum_{G\in F_q(S)} C_w(G),&|S|>1.
+W(S)+\min_{q:\,|F_q(S)|>1}\sum_{G\in F_q(S)} C_w(G),&|S|>1.
 \end{cases}
 \]
 
@@ -43,6 +43,6 @@ The complete 324-query cost array, all profile weights, an explicit 112-leaf opt
 
 ## Scope and next frontier
 
-Original625 legal-root-domain classification stays at **565 classified / 60 remaining**; EC49FPN advances the exact optimal observation economics within the already classified class16995. Scientific result is finite, original native BRC, terminal-only, integer exact, source-config-uniform prior and unit observation costs; independent mathematical review remains pending. Portable GitHub research is not a formal shared Task/CLAIM/Result. `RS-EC49AS` current exact lookup (2026-11-15T05:34:48.950537Z) returned `NO_CANONICAL_PUBLICATION_DIRECTORY`.
+Original 625 legal-root-domain classification stays at **565 classified / 60 remaining**; EC49FPN advances the exact optimal observation economics within the already classified class16995. Scientific result is finite, original native BRC, terminal-only, integer exact, source-config-uniform prior and unit observation costs; independent mathematical review remains pending. Portable GitHub research is not a formal shared Task/CLAIM/Result. `RS-EC49AS` current exact lookup (2026-11-15T05:34:48.950537Z) returned `NO_CANONICAL_PUBLICATION_DIRECTORY`.
 
 Next: characterize observer choice as root/terminal query costs vary, solve mixed-observer weighted expectation, and search the 60 remaining original native legal-root classes.
