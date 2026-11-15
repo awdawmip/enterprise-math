@@ -1,0 +1,106 @@
+{
+  "schema": "PREFIX809_R6_CYCLE_FIBER_CONNECTIVITY_V1",
+  "source_frontier": "PREFIX-808",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "FINITE_NAMED_BIPARTITE_INTEGER_CAPACITY_TRANSPORT_AUXILIARY",
+  "families": {
+    "2x2_k0to2": {
+      "capacity_patterns": 81,
+      "margin_fibers": 1215,
+      "complete_tables": 1296,
+      "nontrivial_ordered_pairs": 164,
+      "cycle_moves": 166,
+      "total_move_edge_changes": 664,
+      "max_moves": 2,
+      "short_cycles_2": 0,
+      "cycles_ge4": 166,
+      "observer_checks": 164,
+      "frozen_pair_checks": 0,
+      "max_l1": 8
+    },
+    "2x3_k0to1": {
+      "capacity_patterns": 64,
+      "margin_fibers": 704,
+      "complete_tables": 729,
+      "nontrivial_ordered_pairs": 54,
+      "cycle_moves": 54,
+      "total_move_edge_changes": 216,
+      "max_moves": 1,
+      "short_cycles_2": 0,
+      "cycles_ge4": 54,
+      "observer_checks": 54,
+      "frozen_pair_checks": 18,
+      "max_l1": 4
+    },
+    "3x3_k0to1": {
+      "capacity_patterns": 512,
+      "margin_fibers": 17840,
+      "complete_tables": 19683,
+      "nontrivial_ordered_pairs": 4698,
+      "cycle_moves": 4698,
+      "total_move_edge_changes": 19440,
+      "max_moves": 1,
+      "short_cycles_2": 0,
+      "cycles_ge4": 4698,
+      "observer_checks": 4698,
+      "frozen_pair_checks": 2538,
+      "max_l1": 6
+    },
+    "parallel_2x2_k1": {
+      "capacity_patterns": 1,
+      "margin_fibers": 22,
+      "complete_tables": 32,
+      "nontrivial_ordered_pairs": 24,
+      "cycle_moves": 24,
+      "total_move_edge_changes": 64,
+      "max_moves": 1,
+      "short_cycles_2": 16,
+      "cycles_ge4": 8,
+      "observer_checks": 24,
+      "frozen_pair_checks": 4,
+      "max_l1": 4
+    }
+  },
+  "counterexample": {
+    "margins": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "tables": [
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1
+      ]
+    ],
+    "selected_first_row": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "diagonal_observer_values": [
+      0,
+      2
+    ],
+    "missing_diagonal_observer_value": 1
+  },
+  "status": "ALL_EXACT_ASSERTIONS_PASSED"
+}
