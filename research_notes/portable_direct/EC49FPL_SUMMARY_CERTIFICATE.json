@@ -1,0 +1,39 @@
+{
+  "schema": "EC49FPL_DEPTH4_UNIFORM_EXPECTATION_SUMMARY_V1",
+  "date": "2026-11-15",
+  "frozen_scientific_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "rooted_cost_table_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "original_domain_representative": 16995,
+  "original_configurations": 242,
+  "distinct_root_profiles": 112,
+  "legal_terminal_queries": 324,
+  "prior": "uniform per distinct rooted profile",
+  "query_cost": "one per exact terminal query",
+  "max_worst_case_depth": 4,
+  "minimum_total_observations": 238,
+  "exact_expected_observations": {
+    "numerator": 119,
+    "denominator": 56
+  },
+  "optimal_first_query_indices": [
+    118,
+    124,
+    201,
+    203
+  ],
+  "feasible_initial_queries": 57,
+  "canonical_witness_initial_query": 118,
+  "canonical_witness_leaf_depth_histogram": {
+    "1": 9,
+    "2": 84,
+    "3": 15,
+    "4": 4
+  },
+  "exact_dynamic_subproblems": 27454,
+  "prior_initial_query_4_best_suffix_total": 261,
+  "checker": "VERIFY_EC49FPL.py",
+  "checker_output": "EC49FPL_EXACT_EXPECTATION_DP4_PASS 238 112 [118, 124, 201, 203] {1: 9, 2: 84, 3: 15, 4: 4}",
+  "verification_scope": "Exhaustive finite Bellman search over all 324 terminal queries and all reachable response fibers, exact integers, maximum depth four",
+  "proof_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED"
+}

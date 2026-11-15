@@ -1,0 +1,35 @@
+{
+  "schema": "EC49FPN_SOURCE_WEIGHTED_UNRESTRICTED_EXPECTATION_SUMMARY_V1",
+  "source_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "rooted_cost_csv_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "class_representative": 16995,
+  "source_configurations": 242,
+  "distinct_root_profiles": 112,
+  "legal_terminal_queries": 324,
+  "prior": "Each of 242 source configs equally likely; grouped by exact 112 rooted/terminal profiles",
+  "unrestricted_depth": true,
+  "unit_scalar_probe_cost": 1,
+  "minimum_total_path_length": 641,
+  "expectation_numerator": 641,
+  "expectation_denominator": 242,
+  "optimal_first_terminal_queries": [
+    150,
+    209,
+    290,
+    312
+  ],
+  "canonical_witness_first_query": 150,
+  "canonical_witness_worst_depth": 4,
+  "canonical_witness_source_depth_histogram": {
+    "1": 12,
+    "2": 138,
+    "3": 15,
+    "4": 77
+  },
+  "cached_weighted_dp_subsets": 20692,
+  "proof": "Weighted exact integer Bellman recursion on strict fibers, all 324 initial queries, valid bound 4W(S) using proven universal depth-four tree restricted to S",
+  "verification": "EC49FPN_SOURCE_WEIGHTED_PASS 641 242 [150, 209, 290, 312]",
+  "script": "research_notes/portable_direct/VERIFY_EC49FPN.py",
+  "mathematical_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED"
+}
