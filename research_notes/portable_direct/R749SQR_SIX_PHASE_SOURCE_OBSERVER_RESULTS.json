@@ -13,7 +13,8 @@
       "newton_full_grid": 32024,
       "smooth_coefficients": 21,
       "period_and_shift": 4,
-      "cyclotomic_amplitudes": 2
+      "cyclotomic_amplitudes": 2,
+      "slack_conservation": 8005
     },
     "arithmetic": "Python integers and Fraction"
   },
@@ -389,5 +390,13 @@
   ],
   "scope": "all-r theorem from pole proof; finite computation checked r=0..8005",
   "review_state": "AUTHOR_EXACT_NOT_REVIEWED",
-  "next": "classify first surviving higher-order phases of 2E1+E2+E3; possible typed BRC port mapping remains to be proven"
+  "next": "classify complete all-r linear source conservation relations; minimal shift-future cyclic carrier for observer semigroups; typed BRC Port mapping open",
+  "exact_slack_conservation": {
+    "all_r_statement": "4T_1(r)+2T_2(r)+2T_3(r)=(r-1)C_r; 2E_1(r)+E_2(r)+E_3(r)=(r-1)/(2r)",
+    "proof": "adjoin unit-weight slack q=r-1-sum s_i*k_i; four unit variables are exchangeable",
+    "finite_checks": 8005,
+    "first_r": 1,
+    "last_r": 8005,
+    "general_form": "(m_1+1)T_1+sum_{w>1}m_w*T_w=(r-1)C_r, provided m_1>=1"
+  }
 }
