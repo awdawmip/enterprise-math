@@ -1,0 +1,52 @@
+{
+  "schema": "EM_R188_VERIFICATION_SUMMARY_V1",
+  "result": "PASS",
+  "checked_scope": "all last-occurrence partial source orders k=1..7",
+  "total_states": 16071,
+  "case_count": 7,
+  "cases": [
+    {
+      "k": 1,
+      "states": 2,
+      "max_pair": 0
+    },
+    {
+      "k": 2,
+      "states": 5,
+      "max_pair": 1
+    },
+    {
+      "k": 3,
+      "states": 16,
+      "max_pair": 3
+    },
+    {
+      "k": 4,
+      "states": 65,
+      "max_pair": 5
+    },
+    {
+      "k": 5,
+      "states": 326,
+      "max_pair": 8
+    },
+    {
+      "k": 6,
+      "states": 1957,
+      "max_pair": 11
+    },
+    {
+      "k": 7,
+      "states": 13700,
+      "max_pair": 14
+    }
+  ],
+  "properties": {
+    "each_adjacent_pair_compared": true,
+    "extra_pair_calls_after_sort": 0,
+    "singleton_calls_per_input": 1,
+    "exact_integer": true
+  },
+  "note": "Compact summary of actual local exhaustive reference checks; accompanying script reproduces expanded per-case JSON. This is not a native BRC package integration test.",
+  "independent_review": "NOT_REVIEWED"
+}
