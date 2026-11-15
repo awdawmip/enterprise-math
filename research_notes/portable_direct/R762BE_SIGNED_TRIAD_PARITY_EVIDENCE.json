@@ -1,0 +1,38 @@
+{
+  "schema": "R762BE_EXACT_PARITY_TRIAD_CHECK_V1",
+  "status": "PASS",
+  "date": "2026-11-15",
+  "scope": "conditional signed-parity triadic relation; author-proved NOT_REVIEWED",
+  "arithmetic": "exact BigInt analytic count vs independently enumerated named bijections",
+  "maxN": 5,
+  "totals": {
+    "profiles": 440,
+    "namedCandidatePartitions": 3184820,
+    "validNamedPartitions": 142976,
+    "pairThirdChecks": 8092
+  },
+  "byN": [
+    {"n":1,"profiles":8,"namedCandidatePartitions":8,"validNamedPartitions":4,"pairThirdChecks":8},
+    {"n":2,"profiles":27,"namedCandidatePartitions":108,"validNamedPartitions":28,"pairThirdChecks":108},
+    {"n":3,"profiles":64,"namedCandidatePartitions":2304,"validNamedPartitions":320,"pairThirdChecks":576},
+    {"n":4,"profiles":125,"namedCandidatePartitions":72000,"validNamedPartitions":5536,"pairThirdChecks":2000},
+    {"n":5,"profiles":216,"namedCandidatePartitions":3110400,"validNamedPartitions":137088,"pairThirdChecks":5400}
+  ],
+  "witness": {
+    "n":2,
+    "r":[1,1],
+    "s":[1,-1],
+    "third":[{"axis":3,"sign":1},{"axis":4,"sign":-1}],
+    "fullPartitions":2,
+    "observedPair":"u+ on axis1, v+ on axis2",
+    "unsignedHiddenAxes":[3,4],
+    "signedHiddenAxes":[3],
+    "namedLiftForAxis3":1,
+    "namedLiftForAxis4":0
+  },
+  "limits": [
+    "All-n formula follows symbolic matching proof; tests exhaust only n=1..5",
+    "sign parity is a declared candidate, not native P000 TRIADIC_CLOSURE_E",
+    "all full partitions uniquely anchor at the named first saturated axis"
+  ]
+}
