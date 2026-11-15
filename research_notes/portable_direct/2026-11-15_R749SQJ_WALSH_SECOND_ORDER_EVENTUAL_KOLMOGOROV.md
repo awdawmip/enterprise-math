@@ -106,3 +106,48 @@ A second standard-library certificate, \`R749SQJ_FULL_GRID_10000_CERT.py\`, chec
 \boxed{\forall r\in\{1,\dots,10000\},\quad d_K(\mathcal L(3K_r/r),\mathrm{Beta}(1,23))=1-C_{r-3}/C_r.}
 \]
 The second checker was executed and produced PASS; its output is recorded as \`R749SQJ_FULL_GRID_10000_RESULTS.json\`. This finite theorem plus the independent eventual theorem covers a finite initial interval and an unspecified infinite terminal interval. Their possible middle gap remains the precise all-r closure question.
+
+
+## Theorem C — Global normalized weighted-count monotonicity and exact one-sided Kolmogorov maximum
+
+The normalized-ratio inequality used above admits a **fully combinatorial proof for every integer**, not merely an eventual or finite-range check. It also holds far beyond the Walsh instance.
+
+Let \(d\ge1\) and positive integer weights \(s_1,\ldots,s_d\), with **at least one \(s_i=1\)**. Put
+\[
+q_m=\#\{n\in\mathbb Z_{\ge0}^d:\ \sum_i s_in_i=m\},\qquad
+C_r=\sum_{m=0}^{r-1}q_m,\quad r\ge1.
+\]
+Then for all \(r\ge1\),
+\[
+\boxed{C_{r+1}/(r+1)^d\le C_r/r^d.}
+\]
+Consequently \(C_t/C_r\ge(t/r)^d\) for all integers \(0\le t\le r\).
+
+**Proof.** The unit-weight coordinate supplies an injection \(q_{m-1}\hookrightarrow q_m\), so the \(q_m\) are nondecreasing (and \(q_m=0\) for \(m<0\)). Differentiating the product generating function yields the exact finite identity
+\[
+m q_m=\sum_{i=1}^{d}s_i\sum_{j\ge1}q_{m-js_i}.
+\]
+For each \(i\), group the indices \(\ell=1,\ldots,m\) in consecutive blocks
+\(\ell=(j-1)s_i+1,\ldots,js_i\). In every *complete* block, \(q_{m-\ell}\ge q_{m-js_i}\); the final incomplete block contributes nonnegatively. Thus
+\[
+s_i\sum_{j\ge1}q_{m-js_i}\le\sum_{\ell=1}^{m}q_{m-\ell}=C_m.
+\]
+Summing over \(i\) gives \(mq_m\le dC_m\). Therefore
+\[
+ C_{m+1}=C_m+q_m\le C_m(1+d/m)
+ \le C_m(1+1/m)^d,
+\]
+by the binomial theorem. This proves the asserted global monotonicity and its ratio consequence. \(\square\)
+
+Now suppose an optional labeled type contributes any integer slack \(h\ge1\), and the exact source tail is \(\Pr(K_r\ge k)=C_{r-hk}/C_r\). The same nondecreasing \(q_m\) implies \(p_k=\Pr(K_r=k)\) is nonincreasing. For \(X_r=hK_r/r\), at each post-jump point \(x=hk/r\) with \(t=r-hk\):
+\[
+F_{X_r}(x)-F_{\mathrm{Beta}(1,d)}(x)
+=(t/r)^d-C_{t-h}/C_r
+\le (C_t-C_{t-h})/C_r=p_k\le p_0.
+\]
+Between jumps this signed difference decreases. Equality occurs at \(x=0\). Hence **for every positive integer \(r\)**,
+\[
+\boxed{\sup_{x\in\mathbb R}\big(F_{X_r}(x)-F_{\mathrm{Beta}(1,d)}(x)\big)
+=\Pr(K_r=0)=1-C_{r-h}/C_r.}
+\]
+This exact one-sided Kolmogorov theorem is unconditional for the specified positive integer weights, one unit-weight type, and declared optional-source tail. In the frozen Walsh case \(d=23,h=3\), only the **opposite-sign pre-jump deviation** remains to be bounded for the full two-sided distance. The finite certificate checks it for every \(r\le10000\); Theorem B proves it eventually. This is a reusable integer-weighted BRC provenance lemma, not an assertion about signed-amplitude cancellation.
