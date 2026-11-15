@@ -1,0 +1,104 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "observed_date": "2026-11-16",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "lane_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_separately": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
+  "run_id": "RUN-3356cbe3c2b4916d79399941",
+  "last_verified_run_generation": 26,
+  "highest_verified_native_source_unit": 48,
+  "unit49_native_semantic_state": "NOT_YET_CONFIRMED_AS_PUBLISHED",
+  "unit50_native_semantic_state": "NOT_YET_CONFIRMED_AS_PUBLISHED",
+  "original_pending_requests": [
+    {
+      "request_id": "onhour-20261116-0542-x6-own-source-continuation-after-unit48-v1",
+      "status": "SUCCEEDED"
+    },
+    {
+      "request_id": "onhour-20261116-0605-x6-exact-own-continuation-v1",
+      "status": "SUCCEEDED"
+    },
+    {
+      "request_id": "onhour-20261116-0616-x6-own-run3356-resume-for-unit49-v1",
+      "status": "SUCCEEDED",
+      "writer_generation": 26
+    }
+  ],
+  "unchanged_science": {
+    "native_baseline": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "legacy_baseline": "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "r063_original_branch": "research/r063-stage0-path-valued-sqrt-2500",
+    "r063_original_source_gitblobs": [
+      "b4e000a6377f2858ae434eb0eecd0c25c33e8592",
+      "4a69c4d698887bce56323f393cb979609ce4ab0a",
+      "913078c642b8995bfc135ef0350912387a17cdb8",
+      "b543e185ec415b512c0ca0421616404cc12a19a7",
+      "4f1bbf72abed19dc7dc605371872ee31c501cebe",
+      "a1834a4b39a9d528760e67220b5fe5f368c9e655"
+    ],
+    "N": 2500,
+    "regression_r_range": [
+      1,
+      512
+    ],
+    "sectors": "FIXED_POSITIVE_TWO_GENERATOR_CHART"
+  },
+  "unit49_saved": {
+    "report": {
+      "commit": "3ecc6190eced87364a305e4958d7267a58bf0127",
+      "path": "research_notes/X6_R063_SECONDARY_ATTESTOR_LOADER_GLOB_CLOSURE_UNIT49_20261116_0500.md"
+    },
+    "harness_commit": "db6d8f1dca48ad2560e428c18ae3f3123b040a17",
+    "test_commit": "097290e6a20699951f274708eb010d2e6468a415",
+    "science_status": "AUTHOR-REPAIRED SYNTHETIC PASS / UNREVIEWED / NOT_ADMITTED"
+  },
+  "unit50_new_actual_execution": {
+    "result": "ORIGINAL_SAME_OBJECT_REPLAY_VERIFIED",
+    "execution": "Actual unchanged original six-file Python loader, not reimplementation",
+    "original_exit_code": 0,
+    "original_gates": "17/17 PASS",
+    "original_radii": "512/512",
+    "original_13_files": true,
+    "total_output_bytes": 70445,
+    "discovery_sha256": "6dd26e75436fb6740134590fc243b59ab9eb287cadbc46d417d5bbbb74022f0d",
+    "rows_sha256": "51891fbf9c3a66b1e00dfaa92fa6ae46984e4a6c99325624ec5b88371b66dcae",
+    "C3_C4_regression_mismatch_count": 0,
+    "source_manifest": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "59661270bb90039ba325f9d8bb503d80bad323e4",
+      "path": "research_checks/X6_R063_ORIGINAL_SIX_BLOB_NATIVE_REPLAY_20261116_0631_MANIFEST.json",
+      "blob_sha1": "58e94bd62a8fe9fadddda0aa8c59c3f48e790ef9"
+    },
+    "report": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "441042862a2c29496d4e86926c23218a32c015e5",
+      "path": "research_notes/X6_R063_ORIGINAL_SIX_BLOB_NATIVE_REPLAY_20261116_0631_REPORT.md",
+      "blob_sha1": "0494585a4542a722d836c8e781d935ab9ca6ca96"
+    },
+    "local_full_attestation_sha256": "6e908ed004148f90bde75a5055a3fa1162ef229df8c8bab082de769853f32503",
+    "local_complete_22entry_archive_sha256": "f177034622b874d0195745e15c5ad5de47b4de9d4ae80c8f8088cff300ca5bc0",
+    "activity": {
+      "commit": "169a04221cb0a0619db3e51c6fc669cd16f289be",
+      "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+      "count": 71
+    },
+    "support_issue_comment": "https://github.com/awdawmip/enterprise-math/issues/2416#issuecomment-6902607883",
+    "science_status": "AUTHOR EXECUTED / EXACT ORIGINAL SOURCE PASS / UNREVIEWED / NOT_ADMITTED"
+  },
+  "unresolved": {
+    "parent": "28-LP complete active consumer closure, historical LP011 true wrong-dominance caller and LP019 positive N-BRC cancellation wrong caller exact provenance, Helly chart type repair as applicable, independent Driver REQUEST_REVISION review",
+    "R063": "Independent/authorized-host verification of author-side same-object result if required and durable publication of complete binary evidence into approved artifact store. Existing GitHub immutable manifest provides 13 output hashes; local complete archive preserved."
+  },
+  "do_not_repeat": [
+    "Do not repeat original R063 six-file 512-case native experiment absent changed source or independent validation requirement; use exact original report/manifest.",
+    "Do not turn unit49 synthetic wrapper tests into original-native result: unit50 original is separately executed.",
+    "Do not repeat #1..48 Native Source publish; #49/#50 only role-bound publish when current claim generation authorized.",
+    "Do not borrow maintenance lane identity, claim, or reissue denied mutations.",
+    "Keep original R063 fixed positive sector and signed-X6 scope distinct."
+  ],
+  "next_exact_action": "Publish unit49 author-side secondary-harness fix and unit50 actual original 17-gate/512-case execution as own Source semantic PROGRESS with original RUN/generation if still authorized; consume native original receipt. Continue finite exact LP011/LP019 and active 28-LP caller provenance; independent Driver review remains separately authorized."
+}
