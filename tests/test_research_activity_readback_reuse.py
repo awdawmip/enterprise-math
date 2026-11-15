@@ -83,6 +83,30 @@ class ResearchActivityReadbackReuseTests(unittest.TestCase):
         with self.assertRaises(activity.ActivityError):
             activity.verify_observation(untrusted, self.source)
 
+    def test_sparse_git_blob_summary_without_sha256_remains_debt(self):
+        pin = {key: self.source[key] for key in ("repository", "commit", "path")}
+        readback = self.source["readback"]["result"]["structuredContent"]
+        sparse = {**pin, "publication_state": "EM_SOURCE_OBSERVED",
+                  "verification": {
+                      "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+                      "tool_name": "github_fetch_file",
+                      "git_blob_sha1": readback["sha"],
+                      "immutable_url": readback["display_url"],
+                      "server_signature_authenticated": False}}
+        record = activity.read(self.activity_id, self.root)
+        record["checkpoints"].append({
+            "event_id": "sparse-blob-summary", "em_sources": [sparse],
+            "kb_sources": [], "repairs_event_id": None, "state": "EM_REPRESENTED"})
+        self.path().write_bytes(activity.encoded(record))
+        self.assertIn("sparse-blob-summary", activity._events(record, self.root))
+        audit = self.audit()
+        self.assertIn("sparse-blob-summary", audit["legacy_observation_debt_events"])
+        self.assertIn("sparse-blob-summary", audit["sync_debt_events"])
+        bad = copy.deepcopy(record)
+        bad["checkpoints"][-1]["em_sources"][0]["verification"]["immutable_url"] = "https://example.org/false"
+        with self.assertRaises(activity.ActivityError):
+            activity._events(bad, self.root)
+
     def test_same_path_size_and_mtime_cannot_hide_changed_receipt_bytes(self):
         record = self.checkpoint('first')
         self.audit()

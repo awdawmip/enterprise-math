@@ -262,6 +262,26 @@ def _checked_source(source: Any, activity_id: str, root: Path,
                     readbacks: dict[str, dict[str, Any]] | None = None) -> str:
     if not isinstance(source, dict):
         raise ActivityError("invalid stored source")
+    # Some already-published events contain sparse Git-blob summaries without
+    # a SHA256 input pin or a complete observation sidecar. Preserve the event
+    # as historical debt; never promote the summary to a verified readback.
+    verification = source.get("verification")
+    if (set(source) == {"repository", "commit", "path", "publication_state", "verification"}
+            and source.get("publication_state") == "EM_SOURCE_OBSERVED"
+            and isinstance(verification, dict)
+            and set(verification) == {"kind", "tool_name", "git_blob_sha1",
+                                     "immutable_url", "server_signature_authenticated"}
+            and (verification["kind"], verification["tool_name"])
+                == ("OBSERVED_CONNECTOR_GIT_BLOB_READBACK", "github_fetch_file")
+            and verification["server_signature_authenticated"] is False):
+        commit = _hex(source.get("commit"), 40, "legacy commit")
+        path = _relative(source.get("path"))
+        if (source.get("repository") != REPOSITORY or path.startswith(STORE + "/")
+                or verification["immutable_url"]
+                    != f"https://github.com/{REPOSITORY}/blob/{commit}/{path}"):
+            raise ActivityError("invalid sparse historical Git blob summary")
+        _hex(verification["git_blob_sha1"], 40, "legacy git blob")
+        return "LEGACY_EM_SOURCE_REPORTED"
     base, _ = _source(source, activity_id)
     if source.get("publication_state") == "VERIFY_EM_PUBLICATION":
         if source != base:
