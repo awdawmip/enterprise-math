@@ -81,3 +81,32 @@ The attached R749SPU_MINIMAL_WALSH_SOURCE_ALPHABET_CERT.py runs using Python's s
 The result remains in the **frozen auxiliary Walsh model**, with full signed atoms and source label carrier; native P000 X6 Cell/Link/Port and V29/V39 observer-preserving transfer are unproved. No shared task CLAIM, review or mathematical Foundation promotion is asserted.
 
 **Next science:** (i) compare the two minimal alphabets' maximal source fibers and recovery metadata for all n, seeking an exact asymptotic or extremal separation; (ii) determine a neighboring rational parameter chamber where the optimal-center polytope has a provably stable alphabet cardinality; (iii) independently review the inherited unimodular certificate and this exact 2/3-level classifier.
+
+
+## Corollary: sharp provenance ambiguity exponent 22
+
+For either of the two 26-type alphabets and every integer \(n\ge2\), define the labeled-multiset fiber
+\[
+M_A(n,X)=\#\{(c_a)_{a\in A}\in\mathbb Z_{\ge0}^{26}:\ \sum_{a\in A}c_a=n,\ \sum_{a\in A}c_a a=X\}.
+\]
+Every possible unordered length-n source multiset is counted exactly once by its 26 integer multiplicities. By the theorem, all \(L_K(n)=(46n^3+33n^2+17n+3)/3\) averaged readouts occur. Hence
+\[
+\sum_{X\in nK\cap\mathbb Z^3}M_A(n,X)=\binom{n+25}{25},\qquad
+\max_X M_A(n,X)\ \ge\
+\frac{3\binom{n+25}{25}}{46n^3+33n^2+17n+3}.
+\]
+Four alphabet types, for example
+\[
+(-2,-1,1),\quad(-2,0,0),\quad(-1,-2,1),\quad(2,0,0),
+\]
+are in the common forced set and have affinely independent columns \((1,H,U,V)^T\); their 4-by-4 determinant is \(-4\). Holding fixed the multiplicities of the other 22 alphabet types uniquely determines these four multiplicities over the rationals from the four affine readout equations. Each of the 22 free multiplicities lies between 0 and n, giving
+\[
+\boxed{\frac{3\binom{n+25}{25}}{46n^3+33n^2+17n+3}
+\ \le\ M_A^{\max}(n)\ \le\ (n+1)^{22}.}
+\]
+Since the lower bound is asymptotic to \(\frac{3}{46\cdot25!}n^{22}\), this proves \(M_A^{\max}(n)=\Theta(n^{22})\) **for both exact minimal alphabets**. If the declared future operation must recover the exact original source multiset from the averaged center, the tight worst-fiber auxiliary label length is
+\[
+\boxed{\lceil\log_2 M_A^{\max}(n)\rceil
+=22\log_2 n+O(1)\text{ bits}.}
+\]
+The upper information bound is achieved abstractly by an index inside the known readout's finite preimage; the theorem concerns representational size, not lookup-time complexity. The averaging observer is sufficient for the minimax law and is demonstrably insufficient for provenance recovery at unbounded precision unless this residual label is retained. The exponent 22 arises from 26 nonnegative source multiplicities minus four independent constraints (one total count and three signed-coordinate readouts); the rank-four claim is supported by the explicit nonzero determinant.
