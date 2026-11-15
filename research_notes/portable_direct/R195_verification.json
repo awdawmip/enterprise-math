@@ -1,0 +1,78 @@
+{
+  "schema": "ENTERPRISE_MATH_R195_EXACT_BINARY_AFFINE_CHECK_V1",
+  "status": "PASS",
+  "frozen_scientific_input": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "arithmetic": "exact F_2 bit values; exhaustive finite enumeration, no floats",
+  "validated": "all partial-permutation states for k=1..7; every generator append k=1..7; every ordered product k=1..5",
+  "rows": [
+    {
+      "k": 1,
+      "dimension": 1,
+      "quotient_states": 2,
+      "distinct_actions": 2,
+      "distinct_single_orbit_points": 2,
+      "generator_appends_checked": 2,
+      "ordered_pair_products_checked": 4
+    },
+    {
+      "k": 2,
+      "dimension": 3,
+      "quotient_states": 5,
+      "distinct_actions": 5,
+      "distinct_single_orbit_points": 5,
+      "generator_appends_checked": 10,
+      "ordered_pair_products_checked": 25
+    },
+    {
+      "k": 3,
+      "dimension": 6,
+      "quotient_states": 16,
+      "distinct_actions": 16,
+      "distinct_single_orbit_points": 16,
+      "generator_appends_checked": 48,
+      "ordered_pair_products_checked": 256
+    },
+    {
+      "k": 4,
+      "dimension": 10,
+      "quotient_states": 65,
+      "distinct_actions": 65,
+      "distinct_single_orbit_points": 65,
+      "generator_appends_checked": 260,
+      "ordered_pair_products_checked": 4225
+    },
+    {
+      "k": 5,
+      "dimension": 15,
+      "quotient_states": 326,
+      "distinct_actions": 326,
+      "distinct_single_orbit_points": 326,
+      "generator_appends_checked": 1630,
+      "ordered_pair_products_checked": 106276
+    },
+    {
+      "k": 6,
+      "dimension": 21,
+      "quotient_states": 1957,
+      "distinct_actions": 1957,
+      "distinct_single_orbit_points": 1957,
+      "generator_appends_checked": 11742,
+      "ordered_pair_products_checked": 0
+    },
+    {
+      "k": 7,
+      "dimension": 28,
+      "quotient_states": 13700,
+      "distinct_actions": 13700,
+      "distinct_single_orbit_points": 13700,
+      "generator_appends_checked": 95900,
+      "ordered_pair_products_checked": 0
+    }
+  ],
+  "totals": {
+    "states": 16071,
+    "generator_appends": 109592,
+    "ordered_pair_products": 110786
+  },
+  "scope": "Finite checks only; all-field lower bound relies on the algebraic proof; no native BRC integration or independent review"
+}
