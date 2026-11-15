@@ -1,0 +1,179 @@
+{
+  "schema": "ENTERPRISE_MATH_R762BQ_LINK_QUERY_CERTIFICATE_V1",
+  "generated_by": "R762BQ_DIRECTED_LINK_QUERY_VERIFY.js",
+  "arithmetic": "EXACT_FINITE_BOOLEAN_TYPED_BRC_BRANCH_CARRIER_WITH_UNIT_RATIONAL_WEIGHTS",
+  "scope": "CONDITIONAL_INCIDENCE_CANDIDATE_NOT_ADMITTED_NATIVE_TRIADIC_CLOSURE",
+  "sources": [
+    "P000 V5 frozen a72226e2430ffa4786321ac86e7f0c599d5f0389",
+    "R762BP 131bd4d77341d0fc16e9a25c85fe44ac4d5ce726"
+  ],
+  "count_all": 40,
+  "fixed_link": "1->2",
+  "eight_conditional_permutations": [
+    {
+      "index": 0,
+      "sigma": [
+        2,
+        3,
+        1,
+        5,
+        6,
+        4
+      ]
+    },
+    {
+      "index": 1,
+      "sigma": [
+        2,
+        3,
+        1,
+        6,
+        4,
+        5
+      ]
+    },
+    {
+      "index": 2,
+      "sigma": [
+        2,
+        4,
+        5,
+        1,
+        6,
+        3
+      ]
+    },
+    {
+      "index": 3,
+      "sigma": [
+        2,
+        4,
+        6,
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "index": 4,
+      "sigma": [
+        2,
+        5,
+        4,
+        6,
+        1,
+        3
+      ]
+    },
+    {
+      "index": 5,
+      "sigma": [
+        2,
+        5,
+        6,
+        3,
+        1,
+        4
+      ]
+    },
+    {
+      "index": 6,
+      "sigma": [
+        2,
+        6,
+        4,
+        5,
+        3,
+        1
+      ]
+    },
+    {
+      "index": 7,
+      "sigma": [
+        2,
+        6,
+        5,
+        3,
+        4,
+        1
+      ]
+    }
+  ],
+  "informative_named_queries": 20,
+  "distinct_true_sets": 16,
+  "repeated_query_name_pairs": [
+    [
+      "2->3",
+      "3->1"
+    ],
+    [
+      "2->4",
+      "4->1"
+    ],
+    [
+      "2->5",
+      "5->1"
+    ],
+    [
+      "2->6",
+      "6->1"
+    ]
+  ],
+  "true_states_per_informative_query": 2,
+  "query_graph": "K4,4",
+  "graph_parts": [
+    [
+      0,
+      3,
+      4,
+      7
+    ],
+    [
+      1,
+      2,
+      5,
+      6
+    ]
+  ],
+  "adaptive_minimax_extra_link_queries": 4,
+  "nonadaptive_minimal_extra_link_queries": 5,
+  "no_separating_panels_of_sizes_1_to_4": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "distinct_five_query_panels": 672,
+  "named_five_query_panels": 1944,
+  "example_panel": [
+    "2->3",
+    "2->4",
+    "2->5",
+    "3->4",
+    "5->6"
+  ],
+  "example_codes": [
+    "10001",
+    "10000",
+    "01001",
+    "01000",
+    "00110",
+    "00100",
+    "00010",
+    "00000"
+  ],
+  "signed_fiber_size": 128,
+  "hidden_sign_bits": 4,
+  "signed_adaptive_min_total_atomic_queries": 8,
+  "signed_nonadaptive_min_total_atomic_queries": 9,
+  "exhaustive": {
+    "all_source_branches": 40,
+    "all_conditional_branches": 8,
+    "all_potential_directed_link_queries": 30,
+    "all_distinct_masks": 16,
+    "all_five_mask_panels": 4368,
+    "all_five_named_panels": 15504,
+    "dynamic_program_states": 217
+  },
+  "math_review": "NOT_REVIEWED"
+}
