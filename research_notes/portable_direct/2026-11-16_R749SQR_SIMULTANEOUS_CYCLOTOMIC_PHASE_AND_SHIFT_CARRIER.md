@@ -106,7 +106,7 @@ has the following six **distinct ordered pairs**:
 
 Their minimum pairwise \(L_\infty\) distance in unscaled values is \(35/6\). One future increment is enough to recover all six phase classes; no smaller shift-invariant state quotient preserves this observation family.
 
-At finite precision define \(R(r)=r^4(E_{1,r}-H_{1,4}(r))\). Theorem 1 implies \(R(r)=P_1(r)+O(1/r)\), also at \(r+1\). Therefore some finite \(r_0\) exists such that the nearest one of the six signatures to \((R(r),R(r+1))\) identifies \(r\bmod6\) for all integers \(r\ge r_0\); an error strictly below \(35/12\) in pair \(L_\infty\) norm suffices. No explicit \(r_0\) is claimed. This future increment is an auxiliary change of boundary parameter, not an asserted physical heartbeat/time update.
+At finite precision define \(R(r)=r^4(E_{1,r}-H_{1,4}(r))\). Theorem 1 implies \(R(r)=P_1(r)+O(1/r)\), also at \(r+1\). Therefore some finite \(r_0\) exists such that the nearest one of the six signatures to \((R(r),R(r+1))\) identifies \(r\bmod6\) for all integers \(r\ge r_0\); an error strictly below \(35/12\) in pair \(L_\infty\) norm suffices. The explicit uniform bound \(r\ge512\) is established in Theorem 3 below. This future increment is an auxiliary change of boundary parameter, not an asserted physical heartbeat/time update.
 
 ## Exact checks, status, and next research
 
@@ -115,3 +115,32 @@ The companion dependency-free Python \`R749SQR_SIMULTANEOUS_CYCLOTOMIC_CERT.py\`
 **Next:** obtain an explicit finite decoding threshold or exact finite error bound; classify minimal phase quotients for a restricted semigroup of future source operations; construct and test an actual BRC provenance-port/observer map with retained labels, branch information and signed/amplitude typing before claiming native transport. P000/worldview and the immutable scientific pin remain unchanged.
 
 Provenance: R749SQQ@3dfef5ca3ae9352e2cecafe3a36d735a89a07b92; frozen science@a72226e2430ffa4786321ac86e7f0c599d5f0389. This research note is not a shared Task CLAIM or a formal Result/Review.
+
+## Theorem 3 — an explicit exact finite phase-decoding threshold
+
+The asymptotic existence statement above can be strengthened to the following **all-integer bound** for the same alphabet, marked unit source, smooth fourth-order truncation and \(P_1\):
+\[
+\boxed{\text{For every integer }r\ge512,\qquad
+0<R(r)-P_1(r)<\frac{35}{12}.}
+\]
+Consequently the exact six-state nearest-pair decoder, based on \((R(r),R(r+1))\) and the displayed signatures, correctly recovers \(r\bmod6\) **for every integer \(r\ge512\)**. The bound \(512\) is the smallest threshold for this particular uniform scalar error inequality: \(r=511\) fails its upper inequality. This does not claim optimality of \(512\) among all possible decoders.
+
+**Exact proof certificate.** Since the weights \(1,1,2,3,6\) divide six, the generating functions have only sixth roots of unity as poles. Their pole orders show that, on each residue class modulo six, \(C_r\) is exactly a polynomial of degree at most five and the marked \(T_{1,r}\) is exactly a polynomial of degree at most six. Six and seven exact equally spaced values therefore determine these respective polynomials by the Newton forward-difference formula; the degree bounds make this valid at *all* subsequent points, not merely the interpolation samples.
+
+For each residue \(a=0,\ldots,5\), set
+\[
+ r_a=(516,517,512,513,514,515)_a,\quad r=r_a+6n,\quad n\in\mathbb Z_{\ge0}.
+\]
+Define the exact polynomial numerator
+\[
+N_a(n)=r^3T_{1,r}-C_r\big(r^4 H_{1,4}(r)+P_1(a)\big).
+\]
+Then \(R(r)-P_1(r)=N_a(n)/C_r\). Exact interpolation and cancellation give \(\deg N_a=4\). The companion dependency-free certificate computes the coefficients in powers of \(n\) and shows that every coefficient of all three polynomials
+\[
+ C_{r_a+6n},\quad N_a(n),\quad U_a(n)=\frac{35}{12}C_{r_a+6n}-N_a(n)
+\]
+is **strictly positive**. The full rational coefficient arrays for all six residue classes are recorded in \`R749SQR_FINITE_DECODER_BOUND_RESULTS.json\`. Hence \(0<N_a(n)<(35/12)C_r\) for all nonnegative integer \(n\), proving the universal displayed bound. Independently computed exact finite prefixes for \(1\le r<512\) identify \(r=511\) as the last failure of this scalar sufficient bound. QED.
+
+The extra certificate \`R749SQR_FINITE_DECODER_BOUND_CERT.py\` imports the first R749SQR certificate, performs all polynomial operations with \`Fraction\` using no third-party libraries, checks additional sample values beyond the interpolation degree, and returns \`PASS\`. The paper's main theorem still has scientific status **AUTHOR_EXACT_NOT_REVIEWED**; no formal reviewer is claimed.
+
+The finite error theorem completes the previously posed question of an explicit sufficient decoding threshold. The next question is whether a smaller threshold is attainable for the actual joint pair classifier (which is less restrictive than the scalar \(35/12\) bound), and the minimal carrier for other allowed future source-operation semigroups.
