@@ -1,0 +1,100 @@
+{
+  "schema": "EC49FPE_FIXED_OBSERVATION_EXCLUSIVE_PAIRS_V1",
+  "date": "2026-11-15",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "input": {
+    "frozen_source_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+    "source_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "root_profile_sha256": "2e07ad0d935efd9824729feec6349c2af162e152cd9c8a2a93848fd4343eea93"
+  },
+  "ordering": "24-domain labels ascending; roots 03 05 06 07 ascending; 0-based query index",
+  "theorem": "min fixed terminal observations to distinguish all 31 rooted-cost profiles is 5 in each complete 77-configuration class",
+  "certificate_lemma": "Each available action distinguishes at most one of five identified profile pairs, implying >=5 actions; five explicit actions give 31/31 injective signatures, implying <=5.",
+  "domains": [
+    {
+      "representative": 16860,
+      "configuration_count": 77,
+      "distinct_profiles": 31,
+      "all_queries": 1296,
+      "exclusive_witness_original_configuration_pairs": [
+        [
+          16860,
+          18514
+        ],
+        [
+          16860,
+          19727
+        ],
+        [
+          16860,
+          21230
+        ],
+        [
+          16860,
+          25850
+        ],
+        [
+          19727,
+          25949
+        ]
+      ],
+      "queries_distinguishing_zero_witness_pairs": 1038,
+      "queries_distinguishing_exactly_one_witness_pair": 258,
+      "queries_distinguishing_two_or_more": 0,
+      "upper_bound_query_indices": [
+        62,
+        331,
+        732,
+        868,
+        992
+      ],
+      "number_of_distinct_upper_bound_signatures": 31,
+      "minimum_fixed_queries": 5,
+      "previous_optimal_adaptive_depth": 4
+    },
+    {
+      "representative": 17022,
+      "configuration_count": 77,
+      "distinct_profiles": 31,
+      "all_queries": 1296,
+      "exclusive_witness_original_configuration_pairs": [
+        [
+          17022,
+          25612
+        ],
+        [
+          17022,
+          33870
+        ],
+        [
+          17022,
+          34409
+        ],
+        [
+          17022,
+          34418
+        ],
+        [
+          20175,
+          34418
+        ]
+      ],
+      "queries_distinguishing_zero_witness_pairs": 1038,
+      "queries_distinguishing_exactly_one_witness_pair": 258,
+      "queries_distinguishing_two_or_more": 0,
+      "upper_bound_query_indices": [
+        114,
+        271,
+        776,
+        798,
+        1126
+      ],
+      "number_of_distinct_upper_bound_signatures": 31,
+      "minimum_fixed_queries": 5,
+      "previous_optimal_adaptive_depth": 4
+    }
+  ],
+  "verification": "run VERIFY_EC49FPE_FIXED_FIVE.py with actual immutable corpus, full EC49FPD_PROFILE.csv and EC49FPD_CLASSES.json",
+  "complete_local_evidence_tar_xz": "EC49FPE_FIXED_FIVE_COMPLETE_EVIDENCE_20261115.tar.xz",
+  "archive_sha256": "a32dd4c7fed5627665be7e9fe0636fefdd08b15d40edb3bea00186f40c5a1fa6"
+}
