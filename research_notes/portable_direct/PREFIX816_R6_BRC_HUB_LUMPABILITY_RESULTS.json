@@ -1,0 +1,73 @@
+{
+  "all_weight_patterns_checked": 35964,
+  "counterexamples": {
+    "q1_nonuniform_birth_lumpable": {
+      "B": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "alpha": [
+        1,
+        2,
+        3
+      ],
+      "beta": [
+        2,
+        2,
+        2
+      ]
+    },
+    "q2_nonuniform_birth_nolump": {
+      "alpha": [
+        1,
+        2,
+        1
+      ],
+      "beta": [
+        1,
+        1,
+        1
+      ],
+      "birth_from_singleton0": 3,
+      "birth_from_singleton1": 2
+    }
+  },
+  "domain": {
+    "alpha_beta_values": [
+      0,
+      1,
+      2
+    ],
+    "m": [
+      2,
+      3,
+      4
+    ],
+    "paths_h": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "q": "all 0..m"
+  },
+  "lumpable_cases": 7776,
+  "non_lumpable_cases": 28188,
+  "per_m_checks": {
+    "2": 243,
+    "3": 2916,
+    "4": 32805
+  },
+  "proof_target": "exact strong cardinality lumpability of BRC hub toggle graph",
+  "schema": "ENTERPRISE_MATH_PREFIX816_EXACT_CHECK_V1",
+  "scope": "finite exhaustive unit test; general theorem established by separate proof",
+  "trajectory_assertions": 2920,
+  "zero_failures": true
+}
