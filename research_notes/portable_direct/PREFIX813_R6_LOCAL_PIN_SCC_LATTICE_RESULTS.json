@@ -1,0 +1,109 @@
+{
+  "schema": "PREFIX813_R6_LOCAL_PIN_SCC_LATTICE_RESULTS_V1",
+  "arithmetic": "exact safe integers within declared bounded suites",
+  "suites": [
+    {
+      "suite": "K22_cap012",
+      "capacity_patterns": 81,
+      "margin_fibers": 1215,
+      "tables": 1296,
+      "pins": 4320,
+      "observer_checks": 17280
+    },
+    {
+      "suite": "K23_binary",
+      "capacity_patterns": 64,
+      "margin_fibers": 704,
+      "tables": 729,
+      "pins": 2916,
+      "observer_checks": 11664
+    },
+    {
+      "suite": "K33_binary",
+      "capacity_patterns": 512,
+      "margin_fibers": 17840,
+      "tables": 19683,
+      "pins": 118098,
+      "observer_checks": 472392
+    },
+    {
+      "suite": "K22_named_parallel",
+      "capacity_patterns": 32,
+      "margin_fibers": 212,
+      "tables": 243,
+      "pins": 810,
+      "observer_checks": 3240
+    },
+    {
+      "suite": "P3_cap012",
+      "capacity_patterns": 27,
+      "margin_fibers": 108,
+      "tables": 216,
+      "pins": 540,
+      "observer_checks": 2160
+    }
+  ],
+  "counts": {
+    "capacity_patterns": 716,
+    "margin_fibers": 20079,
+    "source_tables": 22167,
+    "seed_checks": 22167,
+    "pin_checks": 126684,
+    "observer_gcd_assertions": 595404,
+    "reach_refinement_assertions": 4408668,
+    "locality_assertions": 126684,
+    "divisibility_assertions": 506736,
+    "cross_scc_pin_cases": 108604,
+    "same_scc_pin_cases": 18080,
+    "old_scc_unchanged_pin_cases": 109853
+  },
+  "witnesses": {
+    "same_scc_but_gcd_jumps": {
+      "capacity": [
+        2,
+        2,
+        2
+      ],
+      "seed": [
+        1,
+        1,
+        1
+      ],
+      "observer_weights": [
+        1,
+        2,
+        0
+      ],
+      "old_scc": 1,
+      "new_scc": 1,
+      "gcd_before": 1,
+      "gcd_after": 2
+    },
+    "scc_split": {
+      "capacity": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "seed": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "observer_weights": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "old_scc": 1,
+      "new_scc": 4,
+      "gcd_before": 2,
+      "gcd_after": 0
+    }
+  },
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "limits": "Finite complete enumeration of the five suites; mathematical universality rests on the accompanying proof; no native X6 event admissibility established"
+}
