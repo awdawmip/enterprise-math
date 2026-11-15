@@ -1,0 +1,47 @@
+{
+  "schema": "R762BN_S6_TRIAD_WITNESS_EXACT_V1",
+  "domain": {
+    "native_axes": 6,
+    "permutations": 720,
+    "ordered_visible_pairs": 30,
+    "third_axis_candidates_per_pair": 4,
+    "third_sign_sectors": 2
+  },
+  "checks": {
+    "stabilizer_fixed_candidate_tests": 120,
+    "stabilizer_fixed_candidates": 0,
+    "transport_source_covariance": 86400,
+    "transport_range": 86400,
+    "group_action_cocycle_generator_checks": 432000,
+    "ordered_distinct_axis_triples_per_sign": 120
+  },
+  "witness": {
+    "pair": [
+      1,
+      2
+    ],
+    "permutation": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      5
+    ],
+    "before": 2,
+    "after": 3,
+    "third_before": 5,
+    "third_after": 6
+  },
+  "conclusions": {
+    "no_deterministic_equivariant_third_axis_selector_without_extra_state": true,
+    "conditional_orbit_sizes_per_sign": [
+      0,
+      4
+    ],
+    "local_witness_min_bits_for_one_sign": 2,
+    "local_witness_min_bits_if_both_signs_admitted": 3,
+    "scope": "P000 signed X6 axes plus S6 coordinate skeleton; force-closure and force covariance are explicitly conditional; no native Source event authorization inferred"
+  },
+  "validation": "EXACT_FINITE_ENUMERATION_NODE_JS; AUTHOR_CHECKED; NOT_INDEPENDENTLY_REVIEWED"
+}
