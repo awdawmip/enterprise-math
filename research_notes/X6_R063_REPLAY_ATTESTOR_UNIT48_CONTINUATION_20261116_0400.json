@@ -10,7 +10,7 @@
   "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
   "claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
   "run_id": "RUN-3356cbe3c2b4916d79399941",
-  "last_read_run_generation": 24,
+  "last_read_run_generation": 25,
   "immutable_scientific_inputs": {
     "native_baseline": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03",
     "historical_baseline": "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3",
@@ -41,10 +41,11 @@
     "own_continuation_request_id": "onhour-20261116-0402-x6-own-exact-continuation-v1",
     "own_continuation_status": "SUCCEEDED / OWN_RECORDED_RUN_AVAILABLE",
     "unit48_own_resume_request_id": "onhour-20261116-0405-x6-own-run3356-resume-for-unit48-v1",
-    "unit48_resume_last_status": "RUNNING / WAIT_ORIGINAL / error=null",
-    "unit48_semantic_progress_status": "NOT_SUBMITTED_WAITING_SAME_RUN_AUTHORIZATION",
+    "unit48_resume_last_status": "SUCCEEDED / RUN_READY / authorized=true, generation 25; original same Research claim renewed",
+    "unit48_semantic_progress_status": "QUEUED / WAIT_ORIGINAL / error=null; terminal requires reconcile original request",
     "unit48_research_activity_reference": "awdawmip/enterprise-math@4c523ff58d7bf2cfc058d1372f6daf271435ff62:research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
-    "unit48_activity_count": 69
+    "unit48_activity_count": 69,
+    "unit48_native_publish_request_id": "onhour-20261116-0419-x6-r063-assert-bypass-unit48-source-progress-v1"
   },
   "completed_current_unit": {
     "number": 48,
@@ -68,8 +69,9 @@
     "Do not replay old original failed/refused request, or issue an extra resume while current unit48 resume is RUNNING.",
     "Do not modify original six frozen R063 files, pin, or acceptance model.",
     "Do not substitute synthetic tests, independent mathematics, or a modified loader for original native experiment.",
-    "Do not use CONTROL_PLANE_MAINTENANCE conversation identity or create scheduler/cron."
+    "Do not use CONTROL_PLANE_MAINTENANCE conversation identity or create scheduler/cron.",
+    "Do not issue another Native semantic PROGRESS while original unit48 request is QUEUED or outcome unknown; use original target_request_id receipt."
   ],
-  "next_exact_action": "First reconcile original own resume request onhour-20261116-0405-x6-own-run3356-resume-for-unit48-v1. If it returns SUCCEEDED/RUN_READY with original claim current authority, submit Author semantic PROGRESS #48 based on three pinned GitHub verified files and report + Activity #69 using present checkpoint schema; read back. Regardless, actual #2416 authorized repo runner must execute hardened original same-object wrapper against six frozen files and publish exit/output hash evidence. Then close downstream historical callers or preserve unresolved accurately.",
+  "next_exact_action": "Reconcile original native publish request onhour-20261116-0419-x6-r063-assert-bypass-unit48-source-progress-v1 by em_control_result and consume terminal/source effects without resubmission. Keep original R063 frozen same-object 17-gate/512-case benchmark at issue #2416 assigned to an actual authorized repo runner; original execution missing. Then continue exact LP011/LP019 consumer provenance and independent Driver review.",
   "session_action_boundary": "No user-requested suspension or schedule change. Keep existing hourly research enabled, settings unchanged; wait only for real native write authority in the original Research lane."
 }
