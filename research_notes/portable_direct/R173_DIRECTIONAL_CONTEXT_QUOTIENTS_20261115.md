@@ -65,11 +65,7 @@ times as many states as the right-only future-suffix quotient. For the six-dimen
 | 2 | 4,096 | 4,096 | 1 |
 | 3 | 531,441 | 1,594,323 | 3 |
 | 4 | 16,777,216 | 16,777,216 | 1 |
-| 6 | 2,176,782,336 | 3,265,173,504 | 3 |
-
-For q=6 the displayed values use 6^12=2,176,782,336 and 6^13/gcd(6,4)=6^13/2=6,530,347,008, not 3,265,173,504; the correct count is 6,530,347,008 and ratio 3. (This line is explicitly self-corrected below to avoid propagating an earlier tabulation error.)
-
-**Corrected q=6 row:** right-only 2,176,782,336; two-sided 6,530,347,008; extra factor 3.
+| 6 | 2,176,782,336 | 6,530,347,008 | 3 |
 
 For q=2, length parity is reconstructible from D parity. For q=4, the two R172 parity constraints reconstruct length modulo 4 from (D,J). For other moduli, adding left contexts genuinely distinguishes more states. These are exact minimal-state differences in the declared observer, not speculative performance claims for an implementation.
 
