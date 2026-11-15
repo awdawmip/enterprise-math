@@ -1,0 +1,74 @@
+{
+  "schema": "EC49FPX_FORCED_MIXING_UNIT_PRICE_CERT_V1",
+  "date": "2026-11-15",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "rooted_cost_csv_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "class_representative": 16995,
+  "source_configurations": 242,
+  "named_root_profiles": 112,
+  "actions": {
+    "root_scalar": 96,
+    "complete_allocation_terminal": 324
+  },
+  "previous_pure_weighted_minimum": {
+    "root": 841,
+    "terminal": 641
+  },
+  "previous_mixed_witness": {
+    "root_weighted": 762,
+    "terminal_weighted": 44,
+    "strict_forced_interval": [
+      "44/79",
+      "199/254"
+    ]
+  },
+  "new_mixed_witness": {
+    "from": "EC49FPN pure-terminal global optimum first action 150",
+    "response_path": [
+      210,
+      205,
+      205
+    ],
+    "replace_action": {
+      "original_terminal_index": 4,
+      "new_named_root_index": 327
+    },
+    "affected_profiles": 2,
+    "affected_source_mass": 37,
+    "weighted_reads": {
+      "root": 37,
+      "terminal": 604
+    },
+    "all_profiles_uniquely_identified": true,
+    "all_source_configurations_replayed": 242,
+    "strict_beats_both_pure_price_ratio": [
+      "151/201",
+      "1"
+    ]
+  },
+  "theorem": {
+    "forced_mixed_open_price_ratio": [
+      "44/79",
+      "1"
+    ],
+    "upper_endpoint_sharp": "at r=t a pure-terminal tree attains global 420-action optimum"
+  },
+  "single_splice_neighborhood": {
+    "parent": "EC49FPS fixed exact pure-root optimal tree",
+    "allowed_actions": "all 324 terminal actions at all reached internal nodes; restricted original continuation",
+    "improving_replacements": 9747,
+    "sharp_min_ratio": "44/79",
+    "scope": "local single splice; not global first price breakpoint"
+  },
+  "validation": "REPRODUCE_EC49FPX.py emitted EC49FPX_REPRODUCTION_PASS; independently replayed all 242 from frozen data, output EC49FPX_INDEPENDENT_242_CONFIGURATION_REPLAY_PASS",
+  "mathematical_status": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "open_problem": "Global first strategy breakpoint in 1/2 < r/t <= 44/79, and full 420-action Bellman at 3/5",
+  "task_control": {
+    "topic": "RS-EC49AS",
+    "source": "d2abe977942b39693219535bde40d6265e1a2744",
+    "read_request": "emr4-ec49fpx-owner-20261115-1931-v1",
+    "observed_state": "NO_CANONICAL_PUBLICATION_DIRECTORY",
+    "formal_claim": false
+  }
+}
