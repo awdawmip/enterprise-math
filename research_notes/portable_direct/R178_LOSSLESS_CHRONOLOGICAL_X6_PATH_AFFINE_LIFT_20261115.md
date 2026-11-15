@@ -69,7 +69,7 @@ This is the **smallest** possible alias length for the `(m,D,J)` carrier on sign
 
 ## R178E — Storage-bit accounting and necessary distinction
 
-There are exactly `12^m` ordered X6 native paths of length `m`. Any injective binary encoding for this fixed-length family requires at least `ceil(m log2(12))` bits in the worst case. The positional integer `h(P)<13^m` uses at most `ceil(m log2(13))` bits, up to the usual zero/length convention. Thus the code has optimal **Θ(m)** bit storage order. Its affine slope `13^m` adds another Θ(m)-bit integer; storing the length or deriving the slope avoids mistaking a fixed-dimensional representation for constant-bit storage.
+There are exactly `12^m` ordered X6 native paths of length `m`. Any **fixed-width** injective binary encoding of this fixed-length family requires at least `ceil(m log2(12))` bits. An unrestricted variable-length injective encoding still requires Ω(m) worst-case bits (there are fewer than `2^(L+1)` binary strings of lengths at most `L`); a prefix-free encoding again obeys the usual `ceil(m log2(12))` worst-case lower bound. The positional integer `h(P)<13^m` uses at most `ceil(m log2(13))` bits, up to the usual zero/length convention. Thus the code has optimal **Θ(m)** bit storage order. Its affine slope `13^m` adds another Θ(m)-bit integer; storing the length or deriving the slope avoids mistaking a fixed-dimensional representation for constant-bit storage.
 
 No runtime speedup is claimed. Dense `(n+12)`-dimensional affine composition, materializing all branches, integer multiplication and output recovery have separate costs. One compressed coordinate is useful for exact composition and retention of identity, not for constant-size physical state.
 
