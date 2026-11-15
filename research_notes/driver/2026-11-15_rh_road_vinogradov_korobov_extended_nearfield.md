@@ -42,23 +42,23 @@ This is a previously established external theorem, not proved here. The constant
 
 ## Summability lemma (preserves the full exponent)
 
-**Lemma.** For any fixed c>0, there is C_c>0 such that for all integers L>=2,
+**Lemma.** For any fixed c>0, choose an integer N_0>exp(e) so large that 2c Phi'(log x)<=1/2 for all x>=N_0. There exists C_c>0 such that, for every integer L>=N_0,
 
 ```
-sum_{2<=n<=L} exp(-2c Phi(log n)) <= C_c [1+L exp(-2c Phi(log L))],
+sum_{N_0<=n<=L} exp(-2c Phi(log n)) <= C_c [1+L exp(-2c Phi(log L))].
 ```
 
-where small n with log n<=e are absorbed into C_c, and Phi is used only on its declared domain.
+Only integers n>=N_0 occur in this expression, so Phi(log n) is defined. The finitely many smaller indices of the eventual q_N sum are handled separately.
 
 **Proof.** For u>e,
 ```
 Phi'(u)=u^(-2/5) (log u)^(-1/5) [3/5-1/(5 log u)] -> 0.
 ```
-For x sufficiently large, set f(x)=exp(-2c Phi(log x)). Then f is positive, eventually decreasing, and
+For x>=N_0, set f(x)=exp(-2c Phi(log x)). Then f is positive and decreasing, and
 ```
 d[x f(x)]/dx=f(x)[1-2c Phi'(log x)] >= f(x)/2.
 ```
-Thus `integral_{x_0}^L f(x) dx <= 2L f(L)+O_c(1)`. The integral comparison for a decreasing positive f and finitely many small n yields the displayed bound. QED.
+Thus `integral_{N_0}^L f(x) dx <= 2L f(L)+O_c(1)`. Integral comparison for decreasing positive f yields the displayed bound (enlarging C_c for the initial endpoint). QED.
 
 ## Theorem: expanded uniform o(a) moving window
 
@@ -76,17 +76,17 @@ E_a(L_delta(a)) = o(a).
 
 In particular `E_a(floor(a^(-1) exp(h(a))))=o(a)` whenever `h(a)>=0` and `h(a)=o(G(log(1/a)))`.
 
-**Proof.** Define `q_N=(psi(N)-N-1/2)/N`. The imported PNT bound, plus `1/N <= C exp(-c Phi(log N))` for all sufficiently large N, yields (after absorbing small N)
+**Proof.** Define `q_N=(psi(N)-N-1/2)/N`. The imported PNT bound, plus `1/N <= C exp(-c Phi(log N))` for all N>=N_0 after enlarging N_0, yields
 
 ```
 |q_N| <= C' exp(-c Phi(log N)).
 ```
 
-By the lemma, `sum_{N<=L}q_N^2 <= C''[1+L exp(-2c Phi(log L))]`. Use the inherited exact first-order decomposition and `(u+v)^2<=2u^2+2v^2`:
+By the lemma and a finite bound on the omitted indices N<N_0, `sum_{N<=L}q_N^2 <= C''[1+L exp(-2c Phi(log L))]` for L>=N_0. Use the inherited exact first-order decomposition and `(u+v)^2<=2u^2+2v^2`:
 
 ```
 E_a(L) <= C_1 a^2 [1+L exp(-2c Phi(log L))]
-           + C_1 a^4 L (1+log L)^4,    L>=2.            (1)
+           + C_1 a^4 L (1+log L)^4,    L>=N_0.          (1)
 ```
 
 Take `L=floor(a^(-1) exp(h))` where `0<=h<=delta G(t)`. Because `G(t)=o(t)`, we have
@@ -111,7 +111,7 @@ The first and third tend to zero, since `h=O(G(t))=o(t)`. The middle tends to ze
 
 The previous `exp(delta sqrt(log(1/a)))` near-field horizon is strictly improved to a Vinogradov–Korobov horizon `exp(delta (log(1/a))^(3/5)/(log log(1/a))^(1/5))`. The unsquared external PNT exponent c is preserved with multiplier 2c in the energy window by the summability lemma (rather than lost in an arbitrary square-root split). This is a **derived implication of established unconditional prime-number-theorem estimates**, not a newly proved PNT improvement. No statement is made at the boundary delta=2c.
 
-The open RH-ROAD-TAIL task still requires a genuinely uniform control of the escaping infinite tail `N>L_delta(a)` as a->0+. The proof provides neither that control nor RH, parent completion, an independent reviewer finding, or native Result acceptance. A future native review must inspect this exact statement and all dependencies; authorship is not independent of this Driver note. No CLAIМ or researcher ownership has been transferred.
+The open RH-ROAD-TAIL task still requires a genuinely uniform control of the escaping infinite tail `N>L_delta(a)` as a->0+. The proof provides neither that control nor RH, parent completion, an independent reviewer finding, or native Result acceptance. A future native review must inspect this exact statement and all dependencies; authorship is not independent of this Driver note. No CLAIM or researcher ownership has been transferred.
 
 ## Provenance and verification
 
