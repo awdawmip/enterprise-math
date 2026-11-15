@@ -1,0 +1,224 @@
+{
+  "schema": "EC49FQE_CLASS16943_ALL_POSITIVE_PRICE_MULTIPLICITY_PHASE_V1",
+  "scientific_input_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "root_costs_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "native_BRC_class": 16943,
+  "configurations": 310,
+  "root_cost_profiles": 141,
+  "terminal_scalar_queries": 144,
+  "root_scalar_queries": 84,
+  "model": "finite adaptive identification of rooted profiles, unrestricted depth, positive scalar observation prices",
+  "prior": "uniform 310 original configurations; rooted profiles weighted by exact source multiplicities",
+  "breakpoints": [
+    "26/71",
+    "29/57",
+    "31/60",
+    "48/83",
+    "3/5",
+    "51/83",
+    "2/3",
+    "17/24",
+    "8/11",
+    "7/9",
+    "11/14",
+    "7/8",
+    "33/35",
+    "1",
+    "3"
+  ],
+  "phases": [
+    {
+      "interval": "0 to 26/71",
+      "R": 1033,
+      "T": 0,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "26/71 to 29/57",
+      "R": 962,
+      "T": 26,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "29/57 to 31/60",
+      "R": 791,
+      "T": 113,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "31/60 to 48/83",
+      "R": 731,
+      "T": 144,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "48/83 to 3/5",
+      "R": 648,
+      "T": 192,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "3/5 to 51/83",
+      "R": 638,
+      "T": 198,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "51/83 to 2/3",
+      "R": 555,
+      "T": 249,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "2/3 to 17/24",
+      "R": 549,
+      "T": 253,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "17/24 to 8/11",
+      "R": 213,
+      "T": 491,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "8/11 to 7/9",
+      "R": 202,
+      "T": 499,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "7/9 to 11/14",
+      "R": 193,
+      "T": 506,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "11/14 to 7/8",
+      "R": 179,
+      "T": 517,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "7/8 to 33/35",
+      "R": 147,
+      "T": 545,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "33/35 to 1",
+      "R": 112,
+      "T": 578,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "1 to 3",
+      "R": 5,
+      "T": 685,
+      "expected": "(R*r+T*t)/310"
+    },
+    {
+      "interval": "3 to infinity",
+      "R": 4,
+      "T": 688,
+      "expected": "(R*r+T*t)/310"
+    }
+  ],
+  "endpoints": [
+    {
+      "ratio": "26/71",
+      "exact_integer_optimum": 26858,
+      "full_certificate_sha256": "892627e2364e748a4814fe4034f119c090a96294633a101992610fa77614c7e6",
+      "archive_path": "certificates/EC49FQE_26_71.json"
+    },
+    {
+      "ratio": "29/57",
+      "exact_integer_optimum": 29380,
+      "full_certificate_sha256": "badd2618e0eebcba156b2815477af984dde7f339147c7395fc9eb66a9d88e73f",
+      "archive_path": "certificates/EC49FQE_29_57.json"
+    },
+    {
+      "ratio": "31/60",
+      "exact_integer_optimum": 31301,
+      "full_certificate_sha256": "06fb1fff843fc67fdcabc765cffbfc8b2a102ee69966a355072e96ac3a57f1dd",
+      "archive_path": "certificates/EC49FQE_31_60.json"
+    },
+    {
+      "ratio": "48/83",
+      "exact_integer_optimum": 47040,
+      "full_certificate_sha256": "6b279e1ee6cd878b6b77629efbcbd1546bf5adaaa2d69c45a11ba656d21b1c4e",
+      "archive_path": "certificates/EC49FQE_48_83.json"
+    },
+    {
+      "ratio": "3/5",
+      "exact_integer_optimum": 2904,
+      "full_certificate_sha256": "527b3c5bfd86b3afd751d93420f1164b2c184c5054737208c4b5a3ded0c85cea",
+      "archive_path": "certificates/EC49FQE_3_5.json"
+    },
+    {
+      "ratio": "51/83",
+      "exact_integer_optimum": 48972,
+      "full_certificate_sha256": "e649bb0135fb34fca4f7a14e0258b081e00ab0d14344cfe25e3aa40b063994e5",
+      "archive_path": "certificates/EC49FQE_51_83.json"
+    },
+    {
+      "ratio": "2/3",
+      "exact_integer_optimum": 1857,
+      "full_certificate_sha256": "3e4da2ae3deb9fb39c43ed9559f80e081f1b1f99c701a6b1223ad81c58824f2b",
+      "archive_path": "certificates/EC49FQE_2_3.json"
+    },
+    {
+      "ratio": "17/24",
+      "exact_integer_optimum": 15405,
+      "full_certificate_sha256": "5b47f9621b63393b3b1332fdfff5211406b57cd59cc0b501b8fb61bf22dce8a2",
+      "archive_path": "certificates/EC49FQE_17_24.json"
+    },
+    {
+      "ratio": "8/11",
+      "exact_integer_optimum": 7105,
+      "full_certificate_sha256": "eeaa2a0d674996f8048029390a18fb8122977067e1e417b373088d5013b3b347",
+      "archive_path": "certificates/EC49FQE_8_11.json"
+    },
+    {
+      "ratio": "7/9",
+      "exact_integer_optimum": 5905,
+      "full_certificate_sha256": "710bf9a14dd32c23fd056766239bfdb6cf82951467a3bd2480de997d8954dd46",
+      "archive_path": "certificates/EC49FQE_7_9.json"
+    },
+    {
+      "ratio": "11/14",
+      "exact_integer_optimum": 9207,
+      "full_certificate_sha256": "a81c9acb314a5d720e153a1a02fec2a9c157a7f7e2ad56855edf410a803bb13f",
+      "archive_path": "certificates/EC49FQE_11_14.json"
+    },
+    {
+      "ratio": "7/8",
+      "exact_integer_optimum": 5389,
+      "full_certificate_sha256": "63789d4bf28702002d8e0cd617b73e2a4bf20b33f82493e1c5f92051e72d6477",
+      "archive_path": "certificates/EC49FQE_7_8.json"
+    },
+    {
+      "ratio": "33/35",
+      "exact_integer_optimum": 23926,
+      "full_certificate_sha256": "078dc6d02b07cea75f5d953f6c125806ca169e032f544e012f97e6e7699c62ff",
+      "archive_path": "certificates/EC49FQE_33_35.json"
+    },
+    {
+      "ratio": "1",
+      "exact_integer_optimum": 690,
+      "full_certificate_sha256": "c92c8fbaa82f40dc072664741e3864f11a9e5d5bb706dca1a62a463ec5f389b7",
+      "archive_path": "certificates/EC49FQE_1.json"
+    },
+    {
+      "ratio": "3",
+      "exact_integer_optimum": 700,
+      "full_certificate_sha256": "9b5b7c5226c6005d1c1d418d82422195bb9f57a580e2898393043b43c42cd383",
+      "archive_path": "certificates/EC49FQE_3.json"
+    }
+  ],
+  "verification": "Exhaustive exact integer Bellman at all 15 boundaries; independent 310-config replay; separate 139 terminal signatures, two doubleton fibers; rational endpoint and concavity checker",
+  "result_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "task_binding": "NO_CANONICAL_PUBLICATION_DIRECTORY (RS-EC49AS), 2026-11-15T18:34:53Z; no CLAIM, no Result",
+  "next": "Classify tied optimal trees and extend parametric method to other native BRC classes."
+}
