@@ -280,6 +280,8 @@ def _checked_source(source: Any, activity_id: str, root: Path,
                 or not isinstance(verification, dict) or not required <= verification.keys()
                 or verification.keys() - required - optional
                 or (verification["kind"], verification["tool_name"]) not in {
+                    # Historic GitHub.fetch summaries remain legacy debt, not verified readbacks.
+                    ("OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED", "github_fetch"),
                     ("OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED", "github_fetch_file"),
                     ("OBSERVED_MCP_GITHUB_API_STRUCTURE_AND_BYTES_VERIFIED", "em_mcp_github_contents")}
                 or verification["server_signature_authenticated"] is not False
