@@ -38,11 +38,24 @@ for(let n=1;n<=5;n++){
  profiles+=perProfiles;candidates+=perCandidates;valid+=perValid;checks+=perChecks;
 }
 if(D(2,2,1,1)!==2n||D(1,1,0,0)!==1n)throw Error('two-triad witness');
+// For every triple of distinct axes, classify signed-permutation frame flips
+// that preserve the complete +1 parity incidence relation.
+let invariantFlipMasks=0, tripleSignTests=0;
+for(let mask=0;mask<64;mask++){
+  let invariant=true;
+  for(let i=0;i<6;i++)for(let j=i+1;j<6;j++)for(let k=j+1;k<6;k++){
+    const parity=((mask>>i)&1)^((mask>>j)&1)^((mask>>k)&1);
+    tripleSignTests++; if(parity!==0)invariant=false;
+  }
+  if(invariant)invariantFlipMasks++;
+}
+if(invariantFlipMasks!==1||tripleSignTests!==1280)
+  throw Error('signed frame covariance check failed');
 const evidence={
  schema:'R762BE_EXACT_PARITY_TRIAD_CHECK_V1',status:'PASS',date:'2026-11-15',
  scope:'conditional signed-parity triadic relation; author-proved NOT_REVIEWED',
  arithmetic:'exact BigInt analytic count vs independently enumerated named bijections',
- maxN:5,totals:{profiles,namedCandidatePartitions:candidates,validNamedPartitions:valid,pairThirdChecks:checks},
+ maxN:5,frameTransportCheck:{flipMasks:64,triplesPerMask:20,conditions:tripleSignTests,invariantFlipMasks,purePermutationStabilizerOrder:720},totals:{profiles,namedCandidatePartitions:candidates,validNamedPartitions:valid,pairThirdChecks:checks},
  byN,witness:{n:2,r:[1,1],s:[1,-1],third:[{axis:3,sign:1},{axis:4,sign:-1}],fullPartitions:2,observedPair:'u+ on axis1, v+ on axis2',unsignedHiddenAxes:[3,4],signedHiddenAxes:[3],namedLiftForAxis3:1,namedLiftForAxis4:0},
  limits:['All-n formula follows symbolic matching proof; tests exhaust only n=1..5','sign parity is a declared candidate, not native P000 TRIADIC_CLOSURE_E','all full partitions uniquely anchor at the named first saturated axis']
 };
