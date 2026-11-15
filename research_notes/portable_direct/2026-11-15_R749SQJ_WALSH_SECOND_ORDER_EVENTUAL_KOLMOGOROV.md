@@ -96,3 +96,13 @@ Local execution gave **PASS**: \(C_t/t^{23}\) is nonincreasing for \(t=1,\ldots,
 ## Scope and next problem
 
 Theorem B has an existence-only cutoff; the original all-positive-integer conjecture remains open below that unknown cutoff. The strongest next action is to obtain an explicit upper bound on \(R_0\) by bounding the degree-20 pole-one remainder and the lower-order cyclotomic terms, then combine it with an exact finite certificate (or find a global monotonicity theorem for \(C_t/t^{23}\)). This is a provenance-sensitive BRC count statement about an auxiliary Walsh source fiber, not a native dynamical or Foundation theorem.
+
+
+## New exhaustive finite theorem certificate (all 1 ≤ r ≤ 10,000)
+
+A second standard-library certificate, \`R749SQJ_FULL_GRID_10000_CERT.py\`, checks normalized ratio monotonicity
+\(\ C_{t+1}t^{23}\le C_t(t+1)^{23}\ \) for every \(1\le t<10000\) (9,999 exact inequalities), and all negative pre-jump Kolmogorov errors for **every** \(1\le r\le10000\), **16,661,667** exact integer comparisons. All pass. The monotone exact-weight-count injection in Theorem B implies \(p_k\le p_0\); these 9,999 normalized-ratio inequalities imply the full positive post-jump discrepancy bound for every r in that finite range. Therefore
+\[
+\boxed{\forall r\in\{1,\dots,10000\},\quad d_K(\mathcal L(3K_r/r),\mathrm{Beta}(1,23))=1-C_{r-3}/C_r.}
+\]
+The second checker was executed and produced PASS; its output is recorded as \`R749SQJ_FULL_GRID_10000_RESULTS.json\`. This finite theorem plus the independent eventual theorem covers a finite initial interval and an unspecified infinite terminal interval. Their possible middle gap remains the precise all-r closure question.
