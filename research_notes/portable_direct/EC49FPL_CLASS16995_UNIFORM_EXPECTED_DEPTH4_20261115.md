@@ -4,14 +4,14 @@ Date: 2026-11-15. Status: **AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED*
 
 ## Exact object, observations, and frozen source
 
-Continue EC49FPK [PR #2476](https://github.com/awdawmip/enterprise-math/pull/2476), which established fixed terminal minimum 5 and worst-case adaptive minimum 4. This note retains frozen scientific commit \`fc0f038e7bfd12c886b4d37f900bfb770c0f61ab\` and the original native BRC byte-Trie model:
+Continue EC49FPK [PR #2476](https://github.com/awdawmip/enterprise-math/pull/2476), which established fixed terminal minimum 5 and worst-case adaptive minimum 4. This note retains frozen scientific commit `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab` and the original native BRC byte-Trie model:
 
-- Frozen original corpus SHA256 \`cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e\`.
-- Native rooted-cost CSV SHA256 \`a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f\`.
+- Frozen original corpus SHA256 `cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e`.
+- Native rooted-cost CSV SHA256 `a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f`.
 - Entire original legal-root-domain of configuration 16995: **242 source configurations**, **112 distinct named-root profiles**, **324 legal complete-allocation terminal queries**.
-- For a configuration K, a named root r and a reachable optional-demand subset S, \`P_K(r,S)\` is the exact original byte-Trie minimum prefix-cover cost. A complete legal assignment q gives \`T_K(q)=sum_r P_K(r,S_r(q))\`. Roots, labels, demand incidence, and byte provenance are retained.
+- For a configuration K, a named root r and a reachable optional-demand subset S, `P_K(r,S)` is the exact original byte-Trie minimum prefix-cover cost. A complete legal assignment q gives `T_K(q)=sum_r P_K(r,S_r(q))`. Roots, labels, demand incidence, and byte provenance are retained.
 
-The finite statistical experiment assigns prior probability **1/112 to each distinct named-root profile**, not 1/242 to each source configuration. A terminal query returns its exact integer \`T(q)\`. Query choice may depend on earlier integer responses; every individual query has unit cost. Impose **worst-case depth ≤4**. Minimize the expected number of queries, equivalently the integer sum of all 112 decision-path lengths.
+The finite statistical experiment assigns prior probability **1/112 to each distinct named-root profile**, not 1/242 to each source configuration. A terminal query returns its exact integer `T(q)`. Query choice may depend on earlier integer responses; every individual query has unit cost. Impose **worst-case depth ≤4**. Minimize the expected number of queries, equivalently the integer sum of all 112 decision-path lengths.
 
 ## Theorem (exact bounded-depth expected optimum)
 
@@ -30,11 +30,11 @@ The only optimal *first-query indices* in the zero-indexed frozen complete-alloc
 | 3 | 15 |
 | 4 | 4 |
 
-Consequently its exact total is \`9 + 2·84 + 3·15 + 4·4 = 238\`. The prior EC49FPK witness rooted at T(4) admits a depth-4 expected-optimal suffix of sum **261** (261/112), establishing a concrete improvement in *expected* cost without changing worst-case depth.
+Consequently its exact total is `9 + 2·84 + 3·15 + 4·4 = 238`. The prior EC49FPK witness rooted at T(4) admits a depth-4 expected-optimal suffix of sum **261** (261/112), establishing a concrete improvement in *expected* cost without changing worst-case depth.
 
 ### Exact finite lower-bound argument
 
-Represent each subset \`S\` of the 112 named-root profiles by an integer bit mask; \`Q={0,...,323}\` is the fixed set of admissible terminal queries. For query \`q\`, let \`F_q(S)\` be the partition of S into fibers with the *same exact integer response*. Define \`C(S,d)\` as the minimal sum of future query counts on all members of S for any depth-≤d adaptive continuation:
+Represent each subset `S` of the 112 named-root profiles by an integer bit mask; `Q={0,...,323}` is the fixed set of admissible terminal queries. For query `q`, let `F_q(S)` be the partition of S into fibers with the *same exact integer response*. Define `C(S,d)` as the minimal sum of future query counts on all members of S for any depth-≤d adaptive continuation:
 
 \[
 C(S,d)=
@@ -47,7 +47,7 @@ C(S,d)=
 
 This Bellman recurrence is exact: a first query costs one for each candidate state, separates it by observed response, and the remaining branches are independent. For every member of every fiber, its suffix decision can be chosen only from the same 324 exact native terminal queries. Since the recurrence explicitly considers *all* q, induction on d establishes its optimality over all deterministic decision trees with the stated depth bound. Equal-response partitions may be deduplicated without losing any distinct continuation or cost.
 
-The independent first-query enumeration evaluates \`112+sum_{G in F_q(U)} C(G,3)\` for all **324** q, where U is the full state set. The least value is **238**, achieved exactly by q=118,124,201,203. From the minimizing choices, recursively construct a response-indexed decision tree; a separate leaf traversal follows actual exact integer responses for every one of the 112 states, finds all distinct paths, verifies maximal depth 4, and computes the 238 weighted total. The complete constructive certificate is regenerated by \`VERIFY_EC49FPL.py\`. Local exact verifier output: \`EC49FPL_EXACT_EXPECTATION_DP4_PASS\`, 27,454 memoized dynamic subproblems.
+The independent first-query enumeration evaluates `112+sum_{G in F_q(U)} C(G,3)` for all **324** q, where U is the full state set. The least value is **238**, achieved exactly by q=118,124,201,203. From the minimizing choices, recursively construct a response-indexed decision tree; a separate leaf traversal follows actual exact integer responses for every one of the 112 states, finds all distinct paths, verifies maximal depth 4, and computes the 238 weighted total. The complete constructive certificate is regenerated by `VERIFY_EC49FPL.py`. Local exact verifier output: `EC49FPL_EXACT_EXPECTATION_DP4_PASS`, 27,454 memoized dynamic subproblems.
 
 ### Scope and future question
 
@@ -55,6 +55,6 @@ The theorem is an **exact finite computational proof** for this frozen 112-profi
 
 ## Reproduction and provenance
 
-Run \`python VERIFY_EC49FPL.py /path/to/EC49FPK_EVIDENCE /path/to/certificate.json\`, where \`EC49FPK_EVIDENCE\` contains the exact files \`frozen_original_master.txt\` and \`EC49FPG_PROFILE.csv\` from the previously preserved [EC49FPK evidence archive](https://github.com/awdawmip/enterprise-math/pull/2476) (source-scoped hashes given above). All arithmetic in the proof is exact integers; there is no floating-point comparison. The verifier rebuilds the complete class using all 38,169 source configurations, reconstructs all terminal and rooted profiles, checks the frozen hashes, enumerates all choices, and emits the full decision tree and 324 first-query values.
+Run `python VERIFY_EC49FPL.py /path/to/EC49FPK_EVIDENCE /path/to/certificate.json`, where `EC49FPK_EVIDENCE` contains the exact files `frozen_original_master.txt` and `EC49FPG_PROFILE.csv` from the previously preserved [EC49FPK evidence archive](https://github.com/awdawmip/enterprise-math/pull/2476) (source-scoped hashes given above). All arithmetic in the proof is exact integers; there is no floating-point comparison. The verifier rebuilds the complete class using all 38,169 source configurations, reconstructs all terminal and rooted profiles, checks the frozen hashes, enumerates all choices, and emits the full decision tree and 324 first-query values.
 
-Research artifacts on this branch are durable pending review and merge. Earlier \`RS-EC49AS\` publication lookups did not identify a current immutable task directory, so no formal Task claim or scientific admission is inferred. Next valuable step: compare cap 4 with unconstrained expected-depth search and quantify the gap for source-weighted priors.
+Research artifacts on this branch are durable pending review and merge. Earlier `RS-EC49AS` publication lookups did not identify a current immutable task directory, so no formal Task claim or scientific admission is inferred. Next valuable step: compare cap 4 with unconstrained expected-depth search and quantify the gap for source-weighted priors.
