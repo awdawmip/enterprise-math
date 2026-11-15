@@ -1,0 +1,137 @@
+{
+  "schema": "EC49FPC_EIGHT_COMPLETE_NATIVE_DOMAIN_CERTIFICATE_V1",
+  "date": "2026-11-15",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_input_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "source_shape": {
+    "keys": 94,
+    "codewords": 178850,
+    "configs": 38169,
+    "labels": 24,
+    "roots": [
+      3,
+      5,
+      6,
+      7
+    ],
+    "domain_classes": 625
+  },
+  "classes": [
+    {
+      "representative": 14316,
+      "configs": 74,
+      "complete_allocations_per_config": 864,
+      "root_cost_entries": 24568,
+      "root_terminal_equivalence_classes": 29,
+      "equal_pairs_exact": 991,
+      "terminal_equal_root_unequal_pairs": 0,
+      "optimal_adaptive_depth": 2,
+      "first_query_zero_based": 11
+    },
+    {
+      "representative": 14320,
+      "configs": 74,
+      "complete_allocations_per_config": 864,
+      "root_cost_entries": 24568,
+      "root_terminal_equivalence_classes": 29,
+      "equal_pairs_exact": 991,
+      "terminal_equal_root_unequal_pairs": 0,
+      "optimal_adaptive_depth": 2,
+      "first_query_zero_based": 20
+    },
+    {
+      "representative": 16777,
+      "configs": 74,
+      "complete_allocations_per_config": 432,
+      "root_cost_entries": 12136,
+      "root_terminal_equivalence_classes": 34,
+      "equal_pairs_exact": 781,
+      "terminal_equal_root_unequal_pairs": 0,
+      "optimal_adaptive_depth": 2,
+      "first_query_zero_based": 132
+    },
+    {
+      "representative": 16781,
+      "configs": 74,
+      "complete_allocations_per_config": 432,
+      "root_cost_entries": 11840,
+      "root_terminal_equivalence_classes": 40,
+      "equal_pairs_exact": 562,
+      "terminal_equal_root_unequal_pairs": 0,
+      "optimal_adaptive_depth": 3,
+      "first_query_zero_based": 0
+    },
+    {
+      "representative": 16987,
+      "configs": 74,
+      "complete_allocations_per_config": 432,
+      "root_cost_entries": 11840,
+      "root_terminal_equivalence_classes": 40,
+      "equal_pairs_exact": 562,
+      "terminal_equal_root_unequal_pairs": 0,
+      "optimal_adaptive_depth": 3,
+      "first_query_zero_based": 0
+    },
+    {
+      "representative": 16989,
+      "configs": 74,
+      "complete_allocations_per_config": 864,
+      "root_cost_entries": 24568,
+      "root_terminal_equivalence_classes": 36,
+      "equal_pairs_exact": 668,
+      "terminal_equal_root_unequal_pairs": 0,
+      "optimal_adaptive_depth": 3,
+      "first_query_zero_based": 2
+    },
+    {
+      "representative": 17017,
+      "configs": 74,
+      "complete_allocations_per_config": 432,
+      "root_cost_entries": 12136,
+      "root_terminal_equivalence_classes": 34,
+      "equal_pairs_exact": 781,
+      "terminal_equal_root_unequal_pairs": 0,
+      "optimal_adaptive_depth": 2,
+      "first_query_zero_based": 254
+    },
+    {
+      "representative": 17027,
+      "configs": 74,
+      "complete_allocations_per_config": 864,
+      "root_cost_entries": 24568,
+      "root_terminal_equivalence_classes": 36,
+      "equal_pairs_exact": 668,
+      "terminal_equal_root_unequal_pairs": 0,
+      "optimal_adaptive_depth": 3,
+      "first_query_zero_based": 2
+    }
+  ],
+  "totals": {
+    "complete_classes": 8,
+    "configs": 592,
+    "root_cost_entries": 146224,
+    "terminal_cost_evaluations": 383616,
+    "within_class_config_pairs": 21608,
+    "root_equal_config_pairs": 6004,
+    "terminal_equal_config_pairs": 6004,
+    "nonzero_gauges": 0,
+    "adaptive_depth_two_classes": 4,
+    "adaptive_depth_three_classes": 4
+  },
+  "validation": {
+    "native_cpp_std": "c++17",
+    "build_flags": [
+      "-O2",
+      "-O3"
+    ],
+    "complete_profile_csv_sha256": "3f8d43c2234e80d9699157352bfe9f7f87166985310fd4fe66e1c78f851e252c",
+    "independent_python_byte_trie_configurations": 16,
+    "complete_terminal_query_options_checked_per_domain": "all",
+    "two_query_lower_bound": "all first complete allocations; every answer fiber tested against all second allocations",
+    "tree_leaves_singleton_checked": true,
+    "archive_name": "EC49FPC_EIGHT_CLASSES_ADAPTIVE_EVIDENCE_20261115.tar.xz",
+    "archive_sha256": "6509d7d4600d0ea3088334f54df35ed0ae745d2dad73640fd775bde4148c7d97"
+  },
+  "admission": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "formal_claim": false
+}
