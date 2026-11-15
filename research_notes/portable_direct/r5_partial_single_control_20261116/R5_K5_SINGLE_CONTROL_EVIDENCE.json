@@ -1,0 +1,153 @@
+{
+  "status": "PASS_R5_K5_SINGLE_CONTROL_EXACT_7_VS_INVARIANT_8",
+  "frozen_science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": {
+    "k": 5,
+    "slack": 2,
+    "commands": [
+      "Set_0(0)",
+      "Set_0(1)"
+    ],
+    "observer": "q(u)=sum cyclic u_i*u_(i+1)",
+    "genuine_source_library": "L(v), size 5k+q(v)"
+  },
+  "exact": {
+    "static_minimum": 7,
+    "dynamic_minimum": 7,
+    "self_loop_controller_minimum": 8,
+    "static_six_tuples_exhausted": 906192,
+    "self_loop_seven_tuples_exhausted": 11440
+  },
+  "states": [
+    {
+      "state": 0,
+      "belief_hex": "000000ff",
+      "source_center": 7,
+      "source_cost": 27,
+      "raw_masks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "max_slack": 2,
+      "set_0_to_0_state": 0,
+      "set_0_to_1_state": 0
+    },
+    {
+      "state": 1,
+      "belief_hex": "00003333",
+      "source_center": 13,
+      "source_cost": 26,
+      "raw_masks": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        9,
+        12,
+        13
+      ],
+      "max_slack": 1,
+      "set_0_to_0_state": 1,
+      "set_0_to_1_state": 1
+    },
+    {
+      "state": 2,
+      "belief_hex": "00330033",
+      "source_center": 21,
+      "source_cost": 26,
+      "raw_masks": [
+        0,
+        1,
+        4,
+        5,
+        16,
+        17,
+        20,
+        21
+      ],
+      "max_slack": 1,
+      "set_0_to_0_state": 2,
+      "set_0_to_1_state": 2
+    },
+    {
+      "state": 3,
+      "belief_hex": "01040400",
+      "source_center": 26,
+      "source_cost": 26,
+      "raw_masks": [
+        10,
+        18,
+        24
+      ],
+      "max_slack": 1,
+      "set_0_to_0_state": 3,
+      "set_0_to_1_state": 4
+    },
+    {
+      "state": 4,
+      "belief_hex": "02080800",
+      "source_center": 27,
+      "source_cost": 28,
+      "raw_masks": [
+        11,
+        19,
+        25
+      ],
+      "max_slack": 2,
+      "set_0_to_0_state": 3,
+      "set_0_to_1_state": 4
+    },
+    {
+      "state": 5,
+      "belief_hex": "54404000",
+      "source_center": 30,
+      "source_cost": 28,
+      "raw_masks": [
+        14,
+        22,
+        26,
+        28,
+        30
+      ],
+      "max_slack": 2,
+      "set_0_to_0_state": 5,
+      "set_0_to_1_state": 6
+    },
+    {
+      "state": 6,
+      "belief_hex": "e8808000",
+      "source_center": 31,
+      "source_cost": 30,
+      "raw_masks": [
+        15,
+        23,
+        27,
+        29,
+        30,
+        31
+      ],
+      "max_slack": 2,
+      "set_0_to_0_state": 5,
+      "set_0_to_1_state": 6
+    }
+  ],
+  "self_loop_eight_source_centers": [
+    11,
+    15,
+    19,
+    21,
+    23,
+    27,
+    29,
+    31
+  ],
+  "proof_status": "FINITE_EXHAUSTIVE_CERTIFICATE_AND_EXPLICIT_CONSTRUCTION",
+  "independent_review": "NOT_REVIEWED"
+}
