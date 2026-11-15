@@ -54,7 +54,7 @@ def corner(a,b,x):
         if forced==v:first.append(q)
     return v,first,dp.cache_info().currsize
 
-EXPECTED={(1,10,1):931389,(1,6,1):561869,(1,10,3):960699,(1,6,3):578779}
+EXPECTED={(1,10,1):931389,(1,6,1):561869,(1,10,3):960699,(1,6,3):578779,(1,10,4):972423,(1,6,4):585543}
 for (a,b,x),expected in EXPECTED.items():
     p=folder/f"probe_x_{x}_1_lam_{a}_{b}.json"
     raw=p.read_bytes();c=json.loads(raw)
@@ -75,4 +75,9 @@ for q,tree in [(140,w["trees"]["interpolated"]),(142,w["extra_q142_tree"])]:
     actual=read_tree(tree,V,m)
     assert actual==(5,293,5,704),actual
     print("TREE_PASS",q,actual,flush=True)
-print("EC49FQJ_RECTANGLE_EXACT_PASS")
+w4=json.loads((folder/"witness_both_queries_x_4_1_lam_1_10.json").read_text())
+for q,tree in [(140,w4["trees"]["interpolated"]),(142,w4["extra_q142_tree"])]:
+    assert tree["q"]==q
+    assert read_tree(tree,V,m)==(4,296,4,707)
+    print("HIGH_PRICE_TREE_PASS",q,flush=True)
+print("EC49FQJ_PIECEWISE_STRIP_EXACT_PASS")
