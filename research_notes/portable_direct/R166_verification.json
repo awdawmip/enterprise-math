@@ -1,0 +1,140 @@
+{
+  "marker": "R166_EXACT_APPEND_PRESERVATION_PASS",
+  "candidate_words": 131068,
+  "m_min": 2,
+  "m_max": 16,
+  "collision_pairs": 191,
+  "next_bit_checks": 382,
+  "persistent_next_bit_cases": 140,
+  "exact_future_path_pairs": 191,
+  "verified_persistent_steps": 336,
+  "maximum_actual_survival_steps": 6,
+  "max_geometric_width_bound": 48,
+  "both_next_bits_persistent": 0,
+  "horizon_candidate_checks": 1302,
+  "unique_prefixwise_horizon_survivors": {
+    "1": 10,
+    "2": 4,
+    "3": 0,
+    "4": 0,
+    "5": 0
+  },
+  "per_length": [
+    {
+      "m": 2,
+      "double_pairs": 1,
+      "persistence_none": 1
+    },
+    {
+      "m": 3
+    },
+    {
+      "m": 4,
+      "double_pairs": 2,
+      "persistence_none": 2
+    },
+    {
+      "m": 5
+    },
+    {
+      "m": 6,
+      "double_pairs": 4,
+      "persistence_none": 2,
+      "persistence_1": 1,
+      "persistence_0": 1
+    },
+    {
+      "m": 7,
+      "double_pairs": 4,
+      "persistence_0": 1,
+      "persistence_none": 2,
+      "persistence_1": 1
+    },
+    {
+      "m": 8,
+      "double_pairs": 6,
+      "persistence_none": 4,
+      "persistence_1": 1,
+      "persistence_0": 1
+    },
+    {
+      "m": 9,
+      "double_pairs": 4,
+      "persistence_0": 2,
+      "persistence_1": 2
+    },
+    {
+      "m": 10,
+      "double_pairs": 14,
+      "persistence_none": 4,
+      "persistence_0": 5,
+      "persistence_1": 5
+    },
+    {
+      "m": 11,
+      "double_pairs": 16,
+      "persistence_0": 6,
+      "persistence_none": 4,
+      "persistence_1": 6
+    },
+    {
+      "m": 12,
+      "double_pairs": 20,
+      "persistence_none": 8,
+      "persistence_0": 6,
+      "persistence_1": 6
+    },
+    {
+      "m": 13,
+      "double_pairs": 16,
+      "persistence_0": 6,
+      "persistence_none": 4,
+      "persistence_1": 6
+    },
+    {
+      "m": 14,
+      "double_pairs": 26,
+      "persistence_none": 6,
+      "persistence_0": 10,
+      "persistence_1": 10
+    },
+    {
+      "m": 15,
+      "double_pairs": 32,
+      "persistence_0": 14,
+      "persistence_none": 4,
+      "persistence_1": 14
+    },
+    {
+      "m": 16,
+      "double_pairs": 46,
+      "persistence_none": 10,
+      "persistence_0": 18,
+      "persistence_1": 18
+    }
+  ],
+  "representative_cases": {
+    "0": {
+      "m": 6,
+      "w": "100101",
+      "v": "101001",
+      "bit": "0",
+      "signature": "(Fraction(1, 3), Fraction(1, 2), 3, 1)"
+    },
+    "1": {
+      "m": 6,
+      "w": "010110",
+      "v": "011010",
+      "bit": "1",
+      "signature": "(Fraction(1, 2), Fraction(2, 3), 1, 0)"
+    },
+    "none": {
+      "m": 2,
+      "w": "01",
+      "v": "10",
+      "signature": "(Fraction(0, 1), Fraction(1, 1), 1, 0)"
+    }
+  },
+  "validation": "complete binary enumeration by length, independent O(m^2) Fraction signature oracle; criterion uses only old signature, swap index and total ones",
+  "independent_review": "NOT_REVIEWED"
+}
