@@ -1,0 +1,252 @@
+{
+  "schema": "PREFIX806_EXACT_HALL_SIGNATURE_CHECK_V1",
+  "frozen_scientific_input": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "assertions": 5769,
+  "capacity_patterns": 145,
+  "feasible_margin_fibers": 1919,
+  "full_table_occurrences": 2025,
+  "accumulated": {
+    "plain": {
+      "cutBalancedAssignments": 2985,
+      "groups": 2469,
+      "componentComputes": 4871,
+      "polyProducts": 2025
+    },
+    "filtered": {
+      "hallTests": 2469,
+      "hallRejected": 444,
+      "componentComputes": 4041,
+      "polyProducts": 2025
+    }
+  },
+  "examples": [
+    {
+      "family": "2x2",
+      "capacity_patterns": 81
+    },
+    {
+      "family": "2x3",
+      "capacity_patterns": 64
+    },
+    {
+      "name": "4x4 named-crossing witness",
+      "K": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "R": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "S": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "named_table_count": 16,
+      "observer_support": 4,
+      "plain": {
+        "cutFreeBranches": 8,
+        "cutBalancedAssignments": 6,
+        "negativeResidualRejects": 0,
+        "hallTests": 0,
+        "hallRejected": 0,
+        "groups": 6,
+        "componentComputes": 6,
+        "componentCacheHits": 6,
+        "polyProducts": 10
+      },
+      "filtered": {
+        "cutFreeBranches": 8,
+        "cutBalancedAssignments": 6,
+        "negativeResidualRejects": 0,
+        "hallTests": 6,
+        "hallRejected": 0,
+        "groups": 6,
+        "componentComputes": 6,
+        "componentCacheHits": 6,
+        "polyProducts": 10
+      },
+      "full_histogram": {
+        "-3,-6": 3,
+        "-3,1": 5,
+        "2,1": 5,
+        "2,8": 3
+      }
+    },
+    {
+      "name": "4x4 dense unit",
+      "K": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "R": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "S": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "named_table_count": 90,
+      "observer_support": 9,
+      "plain": {
+        "cutFreeBranches": 128,
+        "cutBalancedAssignments": 70,
+        "negativeResidualRejects": 0,
+        "hallTests": 0,
+        "hallRejected": 0,
+        "groups": 70,
+        "componentComputes": 38,
+        "componentCacheHits": 102,
+        "polyProducts": 74
+      },
+      "filtered": {
+        "cutFreeBranches": 128,
+        "cutBalancedAssignments": 70,
+        "negativeResidualRejects": 0,
+        "hallTests": 70,
+        "hallRejected": 8,
+        "groups": 70,
+        "componentComputes": 30,
+        "componentCacheHits": 94,
+        "polyProducts": 74
+      },
+      "full_histogram": {
+        "-5,-13": 1,
+        "-5,-6": 8,
+        "-5,1": 11,
+        "0,-6": 13,
+        "0,1": 24,
+        "0,8": 13,
+        "5,1": 11,
+        "5,15": 1,
+        "5,8": 8
+      }
+    },
+    {
+      "name": "4x4 stressed boundary",
+      "K": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "R": [
+        3,
+        1,
+        1,
+        1
+      ],
+      "S": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "named_table_count": 18,
+      "observer_support": 5,
+      "plain": {
+        "cutFreeBranches": 128,
+        "cutBalancedAssignments": 28,
+        "negativeResidualRejects": 15,
+        "hallTests": 0,
+        "hallRejected": 0,
+        "groups": 13,
+        "componentComputes": 11,
+        "componentCacheHits": 15,
+        "polyProducts": 16
+      },
+      "filtered": {
+        "cutFreeBranches": 128,
+        "cutBalancedAssignments": 28,
+        "negativeResidualRejects": 15,
+        "hallTests": 13,
+        "hallRejected": 0,
+        "groups": 13,
+        "componentComputes": 11,
+        "componentCacheHits": 15,
+        "polyProducts": 16
+      },
+      "full_histogram": {
+        "-4,-1": 4,
+        "-4,-8": 1,
+        "1,-1": 6,
+        "1,-8": 1,
+        "1,6": 6
+      }
+    }
+  ],
+  "status": "ALL_EXACT_CHECKS_PASS"
+}
