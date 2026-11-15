@@ -64,6 +64,10 @@ def exact_size(m,k,L):
     return ans
 
 
+def exact_size_swapped(m,k,L):
+    # Count pairs (missing-source prefix permutation, L-symbol tail) directly.
+    return sum(m**ell for ell in range(L)) + sum(perm(k,j)*(m-j)**L for j in range(k+1))
+
 def accessible_pairs(m,k,L):
     """Full image generation for small L; yields unique observation states."""
     if L==0:
@@ -114,6 +118,7 @@ def run():
          "status":"PASS", "exact_arithmetic":"integer and Fraction, no floats",
          "exhaustive_reachable_rows":[],"exhaustive_transition_pairs":0,
          "exact_joint_codec_roundtrips":0,
+         "swapped_formula_cross_checks":0,
          "random_triple_associativity":0,"future_context_checks":0,
          "brc_alternative_and_serial_checks":0,"resource_rows":[]}
     for m in (2,3,4,5):
@@ -122,6 +127,11 @@ def run():
                 if m**(L+k+1)>60000:continue
                 states=exhaustive_reachability(m,k,L)
                 out["exhaustive_reachable_rows"].append({"m":m,"k":k,"L":L,"states":states})
+    for m in (2,3,4,12):
+        for k in range(m+1):
+            for L in range(8):
+                assert exact_size(m,k,L)==exact_size_swapped(m,k,L)
+                out["swapped_formula_cross_checks"]+=1
     # Reversible minimal-width enumerative fixed code, for the declared joint image.
     # This is a finite table encoder, not an assertion of constant-space indexing.
     for m,k,L in ((3,2,2),(4,3,2),(12,6,1)):
