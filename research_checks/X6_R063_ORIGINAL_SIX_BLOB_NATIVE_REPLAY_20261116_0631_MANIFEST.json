@@ -1,0 +1,123 @@
+{
+  "schema": "X6_R063_FROZEN_ORIGINAL_NATIVE_REPLAY_MANIFEST_V1",
+  "observed_date": "2026-11-16",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "author_researcher": "EM-X6-FB6990",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "source_ref": "awdawmip/enterprise-math@research/r063-stage0-path-valued-sqrt-2500",
+  "source_read_transport": "AUTHORIZED_GITHUB_CONNECTOR_EXACT_FILES",
+  "source_integrity_method": "GIT_BLOB_SHA1_AND_EXACT_BYTE_LENGTH_FOR_EACH_OF_SIX_FILES",
+  "source_blobs": {
+    "scripts/r063_stage0_validate_path_valued_sqrt_2500.py": {
+      "git_blob_sha1": "b4e000a6377f2858ae434eb0eecd0c25c33e8592",
+      "bytes": 440
+    },
+    "scripts/r063_stage0_checker_parts/part00.inc": {
+      "git_blob_sha1": "4a69c4d698887bce56323f393cb979609ce4ab0a",
+      "bytes": 7638
+    },
+    "scripts/r063_stage0_checker_parts/part01.inc": {
+      "git_blob_sha1": "913078c642b8995bfc135ef0350912387a17cdb8",
+      "bytes": 9557
+    },
+    "scripts/r063_stage0_checker_parts/part02.inc": {
+      "git_blob_sha1": "b543e185ec415b512c0ca0421616404cc12a19a7",
+      "bytes": 10150
+    },
+    "scripts/r063_stage0_checker_parts/part03.inc": {
+      "git_blob_sha1": "4f1bbf72abed19dc7dc605371872ee31c501cebe",
+      "bytes": 15390
+    },
+    "scripts/r063_stage0_checker_parts/part04.inc": {
+      "git_blob_sha1": "a1834a4b39a9d528760e67220b5fe5f368c9e655",
+      "bytes": 15470
+    }
+  },
+  "original_program_untouched": true,
+  "original_command": "python3 scripts/r063_stage0_validate_path_valued_sqrt_2500.py --N 2500 --regression-max-r 512 --out <isolated-dir>",
+  "original_process_exit_code": 0,
+  "original_stdout_status": "PASS",
+  "original_stderr_empty": true,
+  "actual_original_gate_count": 17,
+  "actual_original_gates_all_pass": true,
+  "actual_original_output_count": 13,
+  "regression_r_range": [
+    1,
+    512
+  ],
+  "regression_tested_r_count": 512,
+  "regression_combined_C3_C4_mismatch_count": 0,
+  "discovery_phase_frozen_sha256": "6dd26e75436fb6740134590fc243b59ab9eb287cadbc46d417d5bbbb74022f0d",
+  "original_512_row_sha256": "51891fbf9c3a66b1e00dfaa92fa6ae46984e4a6c99325624ec5b88371b66dcae",
+  "one_selected_positive_two_generator_sector_BRC_mass": "110695538274255714208",
+  "output_files": {
+    "R063_STAGE0_COMPONENT_ROOT_FIBER.json": {
+      "bytes": 7101,
+      "sha256": "da57efd6ec5b5cffc632897f40d9f297ee87fb2bc53c74a1ac7e9894cfd98ff9"
+    },
+    "R063_STAGE0_DERIVATION_PROVENANCE_GRAPH.json": {
+      "bytes": 14206,
+      "sha256": "0a169d89c4d43a4c0bd19377b89ac8a62192b2dfc00b35d467d8e053cd9ea10c"
+    },
+    "R063_STAGE0_DISCOVERY_PHASE_FROZEN.json": {
+      "bytes": 15500,
+      "sha256": "893c3ea2f0f606c896d4cb8574a64be78f9af3c41b1b024b5a580236d492622a"
+    },
+    "R063_STAGE0_GAUSSIAN_FACTOR_ROUTE_AUDIT.md": {
+      "bytes": 3081,
+      "sha256": "1cf87b36abace98f7a45a4e42e9e981dde72aab491e12837b9a912f4ef6625d0"
+    },
+    "R063_STAGE0_GENERAL_SQUARE_REGRESSION.json": {
+      "bytes": 546,
+      "sha256": "1a5b42f3931c90eca87ee43b9248c1fa59f8105fcebd6e72f3d63ac24761619d"
+    },
+    "R063_STAGE0_MISMATCHES.json": {
+      "bytes": 304,
+      "sha256": "c47e6dbd14cf6f98357b6cb79ccc969bc09caa6749e4e3a270c0d5f76bb763d0"
+    },
+    "R063_STAGE0_PATH_CARDINALITY_CERTIFICATE.json": {
+      "bytes": 8225,
+      "sha256": "c9f26ddb8979c17bb8fa6a8298ed687df0054c983ada3b95fc0ac7c65beb5558"
+    },
+    "R063_STAGE0_PATH_ROOT_OPERATOR_CANDIDATE_MATRIX.md": {
+      "bytes": 1786,
+      "sha256": "66fcf4bcb58e629fc59599175ebc6031c8a55b336404cce669e49b61664c06d0"
+    },
+    "R063_STAGE0_PATH_VALUED_SQRT_FORMULA.md": {
+      "bytes": 2164,
+      "sha256": "4bb1f9ea9eb4b089593690ba69e8fb06a0d4aa9017be0553053ce94000749d6e"
+    },
+    "R063_STAGE0_REPLAY_SUMMARY.json": {
+      "bytes": 3481,
+      "sha256": "7e3a5ecbe9b0f1d3bf30a649179839ce869403eecf7bb6e23a594748924e94fa"
+    },
+    "R063_STAGE0_REPRODUCIBILITY_PROOF.md": {
+      "bytes": 1848,
+      "sha256": "4172f538d60ec395a63a139673d152339b7cea150bb06d53c5b56b6dbe3df10f"
+    },
+    "R063_STAGE0_SCALED_SQUARE_LIFT_THEOREM.md": {
+      "bytes": 1926,
+      "sha256": "9e6bb237c1f38d1dc43b476f5a372f588821ba04a911333dc9405afec3994056"
+    },
+    "R063_STAGE0_SQRT2500_DISCOVERY_TREE.json": {
+      "bytes": 10277,
+      "sha256": "7e6fc83f1885440e1675f0d1a4184c33d0f33fce880640838003b1a7d33af54a"
+    }
+  },
+  "output_total_bytes": 70445,
+  "local_complete_replay_attestation_sha256": "6e908ed004148f90bde75a5055a3fa1162ef229df8c8bab082de769853f32503",
+  "local_evidence_zip_sha256": "f177034622b874d0195745e15c5ad5de47b4de9d4ae80c8f8088cff300ca5bc0",
+  "local_evidence_zip_byte_count": 43317,
+  "local_evidence_zip_entries": 22,
+  "original_execution_scope": "FROZEN_R063_FIXED_POSITIVE_TWO_GENERATOR_SECTOR_AND_512_ORIGINAL_REGRESSION",
+  "evidence_level": "AUTHOR_EXECUTED_EXACT_ORIGINAL_SOURCE_REPLAY_UNREVIEWED_NOT_ADMITTED",
+  "review_status": "INDEPENDENT_DRIVER_REVIEW_PENDING",
+  "parent_outstanding": [
+    "LP011 historical wrong native dominant-axis caller provenance",
+    "LP019 historical positive BRC signed-cancellation wrong caller provenance",
+    "28-LP current consumer closure",
+    "Independent Driver REQUEST_REVISION final decision"
+  ],
+  "native_semantic_checkpoint": "NOT_ASSERTED_BY_THIS_GITHUB_MANIFEST"
+}
