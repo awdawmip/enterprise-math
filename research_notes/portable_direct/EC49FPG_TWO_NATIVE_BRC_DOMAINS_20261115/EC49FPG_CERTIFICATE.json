@@ -1,0 +1,137 @@
+{
+  "schema": "EC49FPG_NATIVE_BRC_EXACT_FINITE_PARTITION_CERTIFICATE_V1",
+  "date": "2026-11-15",
+  "mathematical_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "formal_claim_or_result": false,
+  "frozen_scientific_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_frozen_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "root_cost_table_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "original_corpus": {
+    "families": 94,
+    "words": 178850,
+    "configurations": 38169,
+    "root_names": [
+      "03",
+      "05",
+      "06",
+      "07"
+    ],
+    "demand_labels": 24,
+    "domain_classes": 625
+  },
+  "operator": "T_K(q)=sum_r P_K(r,S_r(q)); q runs over all legal assignments of optional labels to named roots",
+  "query_index_semantics": "zero-based; optional demand labels ascending and legal root labels ascending 03,05,06,07",
+  "classes": [
+    {
+      "representative": 16943,
+      "source_configuration_count": 310,
+      "root_cost_coordinates_per_configuration": 84,
+      "complete_terminal_allocations": 144,
+      "root_cost_entries": 26040,
+      "terminal_evaluations": 44640,
+      "source_unordered_pairs": 47895,
+      "root_profiles": 141,
+      "terminal_profiles": 139,
+      "root_equal_source_pairs": 1689,
+      "terminal_equal_source_pairs": 1691,
+      "terminal_invisible_root_nonzero_pairs": 2,
+      "gauges": [
+        {
+          "sources": [
+            17928,
+            38165
+          ],
+          "difference_second_minus_first_by_root": {
+            "03": 0,
+            "05": -4,
+            "06": 4,
+            "07": 0
+          },
+          "constant_over_every_eligible_subset": true
+        },
+        {
+          "sources": [
+            24541,
+            38166
+          ],
+          "difference_second_minus_first_by_root": {
+            "03": 0,
+            "05": -2,
+            "06": 2,
+            "07": 0
+          },
+          "constant_over_every_eligible_subset": true
+        }
+      ],
+      "greedy_fixed_terminal_queries": [
+        64,
+        140,
+        72,
+        31
+      ],
+      "separated_terminal_profiles": 139,
+      "one_named_root_baseline": {
+        "observable": "P_K(root05, empty optional subset)",
+        "with_four_terminal_queries_distinct_rooted_profiles": 141,
+        "minimum_added_named_root_measurements": 1
+      }
+    },
+    {
+      "representative": 16995,
+      "source_configuration_count": 242,
+      "root_cost_coordinates_per_configuration": 96,
+      "complete_terminal_allocations": 324,
+      "root_cost_entries": 23232,
+      "terminal_evaluations": 78408,
+      "source_unordered_pairs": 29161,
+      "root_profiles": 112,
+      "terminal_profiles": 112,
+      "root_equal_source_pairs": 1791,
+      "terminal_equal_source_pairs": 1791,
+      "terminal_invisible_root_nonzero_pairs": 0,
+      "greedy_fixed_terminal_queries": [
+        92,
+        190,
+        47,
+        4,
+        80,
+        9
+      ],
+      "separated_root_profiles": 112
+    }
+  ],
+  "totals": {
+    "source_configuration_count": 552,
+    "root_cost_entries": 49272,
+    "terminal_evaluations": 123048,
+    "source_unordered_pairs": 77056,
+    "root_equal_source_pairs": 3480,
+    "terminal_equal_source_pairs": 3482,
+    "invisible_root_nonzero_source_pairs": 2
+  },
+  "validation": {
+    "complete_domain_partition": true,
+    "full_source_exhaustion": true,
+    "integer_exact": true,
+    "original_CXX17_optimization_modes": [
+      "O2",
+      "O3"
+    ],
+    "compilation_outputs_identical": true,
+    "independent_python_byte_trie_configuration_count": 8,
+    "source_integrity_sha256_checked": true,
+    "root_table_sha256_checked": true,
+    "upper_bound_query_optimality_claimed": false
+  },
+  "evidence_bundle": {
+    "file": "EC49FPG_TWO_DOMAINS_GAUGE_EVIDENCE_20261115.tar.xz",
+    "sha256": "f053318c84346a5785217a4daf94f15125eb16b602668ea83a8e421124077cae",
+    "storage": "conversation attachment; GitHub hosts theorem, exact certificate and executable verifier"
+  },
+  "related_previous_pr": 2469,
+  "next_scientific_questions": [
+    "Search subset-dependent terminal-invisible gauges in other complete original classes",
+    "Minimize terminal queries under one independent named-root baseline for class16943",
+    "Find exact fixed and adaptive sensing minima for class16995"
+  ]
+}
