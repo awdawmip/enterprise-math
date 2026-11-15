@@ -1,0 +1,51 @@
+{
+  "result": "R182_EXACT_REFERENCE_PASS",
+  "frozen_scientific_input": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "stats": [
+    {
+      "k": 1,
+      "states": 2,
+      "presence_states": 2,
+      "information_lower_bound_bits": 1,
+      "simplex_affine_dim": 1
+    },
+    {
+      "k": 2,
+      "states": 5,
+      "presence_states": 4,
+      "information_lower_bound_bits": 3,
+      "simplex_affine_dim": 4
+    },
+    {
+      "k": 3,
+      "states": 16,
+      "presence_states": 8,
+      "information_lower_bound_bits": 4,
+      "simplex_affine_dim": 15
+    },
+    {
+      "k": 4,
+      "states": 65,
+      "presence_states": 16,
+      "information_lower_bound_bits": 7,
+      "simplex_affine_dim": 64
+    },
+    {
+      "k": 5,
+      "states": 326,
+      "presence_states": 32,
+      "information_lower_bound_bits": 9,
+      "simplex_affine_dim": 325
+    }
+  ],
+  "checks": {
+    "state_compositions": 110786,
+    "subset_observers": 3359802,
+    "separating_pairs": 55186,
+    "band_identities": 110786,
+    "affine_compositions": 173,
+    "packet_pairs": 80,
+    "complete_atom_words": 5461
+  },
+  "scope": "Exact finite examples k<=5; algebraic k>=1 theorem established by symbol proof. Reference implementation; not native enterprise_math import."
+}
