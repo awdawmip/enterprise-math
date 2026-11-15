@@ -1,0 +1,88 @@
+{
+  "schema": "R762BG_ORIENTATION_TRIPLE_CODE_EXACT_CERT_V1",
+  "scope": "conditional signed eta-ledger triad relation; 6 fixed axes and 20 named triples",
+  "source_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "code_length": 20,
+  "code_dimension": 6,
+  "code_states": 64,
+  "minimum_distance": 8,
+  "weight_enumerator": [
+    {
+      "weight": 0,
+      "count": 1
+    },
+    {
+      "weight": 8,
+      "count": 15
+    },
+    {
+      "weight": 10,
+      "count": 32
+    },
+    {
+      "weight": 12,
+      "count": 15
+    },
+    {
+      "weight": 20,
+      "count": 1
+    }
+  ],
+  "six_independent_triad_probes": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      2,
+      4
+    ],
+    [
+      1,
+      2,
+      5
+    ],
+    [
+      1,
+      2,
+      6
+    ],
+    [
+      1,
+      3,
+      4
+    ],
+    [
+      2,
+      3,
+      4
+    ]
+  ],
+  "checked_error_masks_at_radius_le_3": 1351,
+  "coverage_by_translation": 86464,
+  "four_error_ambiguity": {
+    "delta_axis_mask": 15,
+    "delta_codeword": 820755,
+    "observed_word": 531,
+    "distances": [
+      4,
+      4
+    ]
+  },
+  "linearity_pairs": 4096,
+  "S6_permutations": 720,
+  "S6_orientation_covariance_pairs": 46080,
+  "eligible_named_sign_assignments_per_ledger": 80,
+  "eligibility_checks": 10240,
+  "all_positive_signed_record_observer_histogram": {
+    "0": 1,
+    "8": 15,
+    "10": 32,
+    "12": 15,
+    "20": 1
+  },
+  "future_named_flip_separated_ordered_pairs": 4032,
+  "verification": "Exact integer and Boolean exhaustive checking. Symbolic proof supports general statements. AUTHOR_CHECKED_NOT_INDEPENDENTLY_REVIEWED."
+}
