@@ -1,0 +1,154 @@
+{
+  "schema": "PREFIX803_EXACT_BRIDGE_FACTOR_VERIFICATION_V1",
+  "arithmetic": "Python arbitrary-precision integers, exact dictionary Laurent histograms",
+  "shapes": [
+    {
+      "b": 2,
+      "c": 2,
+      "capacity_max": 2,
+      "patterns": 81,
+      "fibers": 1215,
+      "tables": 1296,
+      "checks": 2430,
+      "bridge_force_events": 4311,
+      "unforced_branch_nodes": 544
+    },
+    {
+      "b": 2,
+      "c": 3,
+      "capacity_max": 2,
+      "patterns": 729,
+      "fibers": 39366,
+      "tables": 46656,
+      "checks": 78732,
+      "bridge_force_events": 227761,
+      "unforced_branch_nodes": 45520
+    },
+    {
+      "b": 3,
+      "c": 3,
+      "capacity_max": 1,
+      "patterns": 512,
+      "fibers": 17840,
+      "tables": 19683,
+      "checks": 35680,
+      "bridge_force_events": 109127,
+      "unforced_branch_nodes": 25144
+    }
+  ],
+  "checks": 116846,
+  "totals": {
+    "patterns": 1322,
+    "fibers": 58421,
+    "tables": 67635,
+    "bridge_force_events": 341199,
+    "unforced_branch_nodes": 71208
+  },
+  "linked_squares": {
+    "edge_capacities": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "row_margins": [
+      1,
+      2,
+      1,
+      1
+    ],
+    "col_margins": [
+      1,
+      1,
+      2,
+      1
+    ],
+    "table_count": 4,
+    "weights": {
+      "(0,0)": [
+        1,
+        0
+      ],
+      "(2,2)": [
+        0,
+        1
+      ],
+      "(1,2)": [
+        -2,
+        3
+      ]
+    },
+    "histogram": [
+      {
+        "exponent": [
+          -2,
+          3
+        ],
+        "multiplicity": 1
+      },
+      {
+        "exponent": [
+          -2,
+          4
+        ],
+        "multiplicity": 1
+      },
+      {
+        "exponent": [
+          -1,
+          3
+        ],
+        "multiplicity": 1
+      },
+      {
+        "exponent": [
+          -1,
+          4
+        ],
+        "multiplicity": 1
+      }
+    ],
+    "stats": {
+      "memo_states": 17,
+      "branch_nodes": 2,
+      "bridge_forces": 13,
+      "factorizations": 1,
+      "candidate_edges": 4
+    },
+    "overflow_margins": {
+      "row": [
+        0,
+        2,
+        1,
+        1
+      ],
+      "col": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "feasible": false,
+      "stats": {
+        "memo_states": 1,
+        "branch_nodes": 0,
+        "bridge_forces": 1,
+        "factorizations": 0,
+        "candidate_edges": 0
+      }
+    }
+  },
+  "result": "ALL_CHECKS_PASS PREFIX803 BRIDGE_FORCED_LAURENT_FACTORIZATION"
+}
