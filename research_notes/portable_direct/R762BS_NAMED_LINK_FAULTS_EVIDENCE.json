@@ -1,0 +1,209 @@
+{
+  "schema": "EM_R762BS_NAMED_LINK_FAULT_CERTIFICATE_V1",
+  "source_count": 40,
+  "fixed_link": "1->2",
+  "conditional_branches": 8,
+  "named_informative_queries": 20,
+  "unique_truth_sets": 16,
+  "all_named_panels_examined": 1048576,
+  "all_source_pairs": 28,
+  "full_panel_distance": 6,
+  "optima": [
+    {
+      "target_distance": 1,
+      "min_named_queries": 5,
+      "number_of_minimum_panels": 1944,
+      "example_queries": [
+        "2->3",
+        "2->4",
+        "3->4",
+        "3->5",
+        "4->5"
+      ],
+      "example_actual_distance": 1
+    },
+    {
+      "target_distance": 2,
+      "min_named_queries": 6,
+      "number_of_minimum_panels": 52,
+      "example_queries": [
+        "3->4",
+        "3->5",
+        "4->3",
+        "4->5",
+        "5->3",
+        "5->4"
+      ],
+      "example_actual_distance": 2
+    },
+    {
+      "target_distance": 3,
+      "min_named_queries": 10,
+      "number_of_minimum_panels": 2270,
+      "example_queries": [
+        "2->4",
+        "2->5",
+        "2->6",
+        "3->4",
+        "3->5",
+        "3->6",
+        "4->5",
+        "4->6",
+        "5->3",
+        "5->4"
+      ],
+      "example_actual_distance": 3
+    },
+    {
+      "target_distance": 4,
+      "min_named_queries": 12,
+      "number_of_minimum_panels": 551,
+      "example_queries": [
+        "2->3",
+        "2->4",
+        "2->5",
+        "3->4",
+        "3->5",
+        "3->6",
+        "4->3",
+        "4->5",
+        "4->6",
+        "5->3",
+        "5->4",
+        "5->6"
+      ],
+      "example_actual_distance": 4
+    },
+    {
+      "target_distance": 5,
+      "min_named_queries": 15,
+      "number_of_minimum_panels": 224,
+      "example_queries": [
+        "2->3",
+        "2->4",
+        "2->5",
+        "2->6",
+        "3->4",
+        "3->5",
+        "3->6",
+        "4->3",
+        "4->5",
+        "4->6",
+        "5->3",
+        "5->4",
+        "5->6",
+        "6->3",
+        "6->4"
+      ],
+      "example_actual_distance": 5
+    },
+    {
+      "target_distance": 6,
+      "min_named_queries": 16,
+      "number_of_minimum_panels": 16,
+      "example_queries": [
+        "2->3",
+        "2->4",
+        "2->5",
+        "2->6",
+        "3->4",
+        "3->5",
+        "3->6",
+        "4->3",
+        "4->5",
+        "4->6",
+        "5->3",
+        "5->4",
+        "5->6",
+        "6->3",
+        "6->4",
+        "6->5"
+      ],
+      "example_actual_distance": 6
+    }
+  ],
+  "independent_hidden_sign_bits": 4,
+  "signed_corruption_budgets": [
+    {
+      "adversarial_flips": 0,
+      "required_distance": 1,
+      "min_link_queries": 5,
+      "hidden_sign_calls": 4,
+      "total_named_atomic_queries": 9
+    },
+    {
+      "adversarial_flips": 1,
+      "required_distance": 3,
+      "min_link_queries": 10,
+      "hidden_sign_calls": 12,
+      "total_named_atomic_queries": 22
+    },
+    {
+      "adversarial_flips": 2,
+      "required_distance": 5,
+      "min_link_queries": 15,
+      "hidden_sign_calls": 20,
+      "total_named_atomic_queries": 35
+    }
+  ],
+  "S4_orbit_classification": [
+    {
+      "target_distance": 1,
+      "orbit_size_counts": {
+        "24": 81
+      },
+      "number_of_orbits": 81
+    },
+    {
+      "target_distance": 2,
+      "orbit_size_counts": {
+        "4": 1,
+        "12": 2,
+        "24": 1
+      },
+      "number_of_orbits": 4
+    },
+    {
+      "target_distance": 3,
+      "orbit_size_counts": {
+        "6": 3,
+        "8": 10,
+        "12": 17,
+        "24": 82
+      },
+      "number_of_orbits": 112
+    },
+    {
+      "target_distance": 4,
+      "orbit_size_counts": {
+        "1": 1,
+        "3": 2,
+        "4": 4,
+        "6": 12,
+        "12": 22,
+        "24": 8
+      },
+      "number_of_orbits": 49
+    },
+    {
+      "target_distance": 5,
+      "orbit_size_counts": {
+        "4": 2,
+        "12": 10,
+        "24": 4
+      },
+      "number_of_orbits": 16
+    },
+    {
+      "target_distance": 6,
+      "orbit_size_counts": {
+        "1": 2,
+        "4": 2,
+        "6": 1
+      },
+      "number_of_orbits": 5
+    }
+  ],
+  "scope": "CONDITIONAL_DIRECTED_LINK_AND_INDEPENDENT_SIGN_ORACLES",
+  "review": "NOT_REVIEWED"
+}
