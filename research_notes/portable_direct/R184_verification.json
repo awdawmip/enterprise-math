@@ -1,0 +1,57 @@
+{
+  "status": "R184_EXACT_QUERY_COMPLEXITY_PASS",
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "theorem_scope": "All k>=1 by symbolic proof; k=1..6 exhaustive checks",
+  "native_brc_execution": "NOT_RUN; query-semantics reference test",
+  "rows": [
+    {
+      "k": 1,
+      "partial_permutation_states": 2,
+      "full_subset_queries": 1,
+      "indispensable_fixed_catalog": 1,
+      "optimal_worst_case_adaptive_queries": 1
+    },
+    {
+      "k": 2,
+      "partial_permutation_states": 5,
+      "full_subset_queries": 3,
+      "indispensable_fixed_catalog": 3,
+      "optimal_worst_case_adaptive_queries": 2
+    },
+    {
+      "k": 3,
+      "partial_permutation_states": 16,
+      "full_subset_queries": 7,
+      "indispensable_fixed_catalog": 6,
+      "optimal_worst_case_adaptive_queries": 3
+    },
+    {
+      "k": 4,
+      "partial_permutation_states": 65,
+      "full_subset_queries": 15,
+      "indispensable_fixed_catalog": 10,
+      "optimal_worst_case_adaptive_queries": 4
+    },
+    {
+      "k": 5,
+      "partial_permutation_states": 326,
+      "full_subset_queries": 31,
+      "indispensable_fixed_catalog": 15,
+      "optimal_worst_case_adaptive_queries": 5
+    },
+    {
+      "k": 6,
+      "partial_permutation_states": 1957,
+      "full_subset_queries": 63,
+      "indispensable_fixed_catalog": 21,
+      "optimal_worst_case_adaptive_queries": 6
+    }
+  ],
+  "checks": {
+    "catalog_required_witnesses": 56,
+    "catalog_witness_contexts": 61910,
+    "all_subset_context_compositions": 65246,
+    "exact_recovery_states": 2371,
+    "deletion_adversary_checks": 242850
+  }
+}
