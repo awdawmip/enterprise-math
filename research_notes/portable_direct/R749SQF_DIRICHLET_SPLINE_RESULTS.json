@@ -1,0 +1,159 @@
+{
+  "schema": "R749SQF_DIRICHLET_SPLINE_AND_PROVENANCE_TAIL_V1",
+  "status": "PASS",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "provenance": "R749SQE immutable science @087166f458cef7c564d4e4df1de7c58846075861",
+  "model": "auxiliary 16-atom Walsh t=1/10,s=1/2, uniform missing-source multisets",
+  "arithmetic": "Python stdlib Fraction and integer only; no float",
+  "source_types": {
+    "positive_slack": 23,
+    "other": 22,
+    "conditional_simplex_barycentric": 23
+  },
+  "conditional_knots": [
+    {
+      "knot": "0",
+      "multiplicity": 6
+    },
+    {
+      "knot": "1/4",
+      "multiplicity": 1
+    },
+    {
+      "knot": "1/3",
+      "multiplicity": 1
+    },
+    {
+      "knot": "1/2",
+      "multiplicity": 2
+    },
+    {
+      "knot": "4/7",
+      "multiplicity": 1
+    },
+    {
+      "knot": "3/5",
+      "multiplicity": 1
+    },
+    {
+      "knot": "2/3",
+      "multiplicity": 2
+    },
+    {
+      "knot": "3/4",
+      "multiplicity": 1
+    },
+    {
+      "knot": "4/5",
+      "multiplicity": 2
+    },
+    {
+      "knot": "1",
+      "multiplicity": 4
+    },
+    {
+      "knot": "4/3",
+      "multiplicity": 1
+    },
+    {
+      "knot": "2",
+      "multiplicity": 1
+    }
+  ],
+  "spline": {
+    "degree": 21,
+    "distinct_knots": 12,
+    "partial_fraction_terms": 23,
+    "boundary_F_0": "0",
+    "boundary_F_2": "1"
+  },
+  "conditional_S_moments": {
+    "1": "482/805",
+    "2": "17950601/48686400",
+    "3": "3312362413/14200200000",
+    "4": "23494607999719/155066184000000"
+  },
+  "conditional_S_variance": "11407951/1119787200",
+  "marginal_K_density": "69*(1-3k)^22 indicator(0<k<1/3)",
+  "marginal_K_moments": {
+    "1": "1/72",
+    "2": "1/2700",
+    "3": "1/70200",
+    "4": "1/1421550"
+  },
+  "limit_means": {
+    "Y0": "379/630",
+    "Y1": "1481/2520",
+    "K": "1/72"
+  },
+  "limit_covariances": {
+    "Y1_K": "-641/4536000",
+    "Y0_K": "41/1134000"
+  },
+  "finite_tail_identity": "Pr(K_r >= k)=C_(r-3k)/C_r, C_s=0 for s<1",
+  "finite_checks": {
+    "r_max": 120,
+    "tail_full_range": true,
+    "independent_no_optional_partition": true,
+    "cases": [
+      {
+        "r": 1,
+        "C_r": "1",
+        "E_K": "0",
+        "Pr_K_ge_1": "0",
+        "support_K": 1
+      },
+      {
+        "r": 4,
+        "C_r": "42",
+        "E_K": "1/42",
+        "Pr_K_ge_1": "1/42",
+        "support_K": 2
+      },
+      {
+        "r": 8,
+        "C_r": "1437",
+        "E_K": "39/479",
+        "Pr_K_ge_1": "113/1437",
+        "support_K": 3
+      },
+      {
+        "r": 10,
+        "C_r": "6193",
+        "E_K": "694/6193",
+        "Pr_K_ge_1": "651/6193",
+        "support_K": 4
+      },
+      {
+        "r": 20,
+        "C_r": "1977378",
+        "E_K": "86781/329563",
+        "Pr_K_ge_1": "71228/329563",
+        "support_K": 7
+      },
+      {
+        "r": 40,
+        "C_r": "5290849536",
+        "E_K": "420425171/755835648",
+        "Pr_K_ge_1": "277902389/755835648",
+        "support_K": 14
+      },
+      {
+        "r": 80,
+        "C_r": "134118393448996",
+        "E_K": "151020869996155/134118393448996",
+        "Pr_K_ge_1": "36239521620451/67059196724498",
+        "support_K": 27
+      },
+      {
+        "r": 120,
+        "C_r": "132664091049253744",
+        "E_K": "223993947949123557/132664091049253744",
+        "Pr_K_ge_1": "84641832318302039/132664091049253744",
+        "support_K": 40
+      }
+    ]
+  },
+  "formal_claim": "all-depth exact finite tail + Dirichlet conditional disintegration and confluent spline by divided differences",
+  "scope": "AUTHOR_EXACT_NOT_REVIEWED; dependent on inherited 33-point and 25-forced-letter classification"
+}
