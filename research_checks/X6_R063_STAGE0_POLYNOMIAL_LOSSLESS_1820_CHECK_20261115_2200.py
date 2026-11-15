@@ -7,6 +7,7 @@ exact positive two-generator local chart. Source archived N=2500 values are
 pinned by literal source-verified integer lexemes, not binary floating point.
 """
 import hashlib
+import os
 import json
 import re
 from math import comb, isqrt
@@ -111,8 +112,9 @@ def run():
         'native_17_gates_executed': False,
         'claim_strength': 'INDEPENDENT_AUTHOR_SIDE_EXACT_INTEGER_GATE; NOT_FORMAL_RESULT_OR_NATIVE_BENCHMARK',
     }
-    out = Path('/mnt/data/X6_R063_STAGE0_POLYNOMIAL_LOSSLESS_1820_RESULTS_20261115_2200.json')
-    out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    output_path = os.environ.get('EM_R063_RESULTS_PATH')
+    if output_path:
+        Path(output_path).write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print('PASS_X6_R063_POLYNOMIAL_SEMANTIC_GATE_1820')
     print(json.dumps(result, indent=2, ensure_ascii=False))
 
