@@ -1,0 +1,61 @@
+{
+  "schema": "R762BP_EXACT_BRC_TYPED_ENUMERATION_V1",
+  "scope": "AUTHOR_BUILT_EXPLICIT_POSITIVE_RATIONAL_LABELLED_BRANCH_CARRIER; CANDIDATE_3_CYCLE_PORT_NETWORK; NOT_NATIVE_FORCE_ADMISSION",
+  "branch_weight": "1/1",
+  "observer": "named directed Link and optional six named sign queries",
+  "checks": [
+    {
+      "n": 3,
+      "triads": 1,
+      "branch_count": 2,
+      "observer_edge_0_to_1": 1,
+      "observer_same_triad_0_1": 2
+    },
+    {
+      "n": 6,
+      "triads": 2,
+      "branch_count": 40,
+      "observer_edge_0_to_1": 8,
+      "observer_same_triad_0_1": 16
+    },
+    {
+      "n": 9,
+      "triads": 3,
+      "branch_count": 2240,
+      "observer_edge_0_to_1": 280,
+      "observer_same_triad_0_1": 560
+    }
+  ],
+  "six_axis": {
+    "S6_size": 720,
+    "orbit_size": 40,
+    "stabilizer_size": 18,
+    "edge_outgoing_histogram": {
+      "1": "8",
+      "2": "8",
+      "3": "8",
+      "4": "8",
+      "5": "8"
+    },
+    "fixed_directed_link_0_to_1_count": 8,
+    "visible_signs_fixed_plus_plus_hidden_sign_states": 128,
+    "min_full_link_residual_bits": 3,
+    "min_signed_hidden_residual_bits": 7,
+    "all_signed_cycle_states": 2560,
+    "signed_S6_orbits": {
+      "0,0": 40,
+      "0,1": 240,
+      "0,2": 240,
+      "0,3": 80,
+      "1,1": 360,
+      "1,2": 720,
+      "1,3": 240,
+      "2,2": 360,
+      "2,3": 240,
+      "3,3": 40
+    },
+    "signed_orbit_representative_permutations_checked": 7200
+  },
+  "result": "PASS",
+  "independent_review": "NOT_REVIEWED"
+}
