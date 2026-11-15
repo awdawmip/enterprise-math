@@ -1,0 +1,45 @@
+{
+  "schema": "EC49FPJ_OPTIMAL_UNIFORM_EXPECTED_MIXED_BRC_DEPTH3_SUMMARY_V1",
+  "frozen_scientific_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "original_root_cost_csv_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "domain_representative": 16943,
+  "source_configurations": 310,
+  "distinct_rooted_profiles": 141,
+  "distinct_terminal_profiles": 139,
+  "terminal_scalar_queries": 144,
+  "named_root_scalar_queries": 84,
+  "all_first_queries_evaluated": 228,
+  "first_queries_admitting_worst_depth_at_most_3": 63,
+  "optimal_total_observations_over_141_states": 296,
+  "optimal_uniform_prior_average": {
+    "numerator": 296,
+    "denominator": 141
+  },
+  "all_optimal_first_queries": [
+    [
+      "T",
+      32
+    ],
+    [
+      "T",
+      34
+    ]
+  ],
+  "chosen_witness_first_query": [
+    "T",
+    32
+  ],
+  "witness_first_query_response_fibers": 30,
+  "witness_leaf_count": 141,
+  "witness_depth_histogram": {
+    "1": 6,
+    "2": 115,
+    "3": 20
+  },
+  "previous_T0_total_observations": 322,
+  "depth_constrained_optimum": true,
+  "unrestricted_expectation_optimum": "UNRESOLVED",
+  "verification": "VERIFY_EC49FPJ.py asserts all stated counts on pinned original bytes and prints complete optimal decision tree",
+  "mathematical_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED"
+}
