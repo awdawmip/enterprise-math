@@ -1,0 +1,40 @@
+{
+  "result": "ALL_EXACT_ASSERTIONS_PASSED",
+  "counts": {
+    "parameter_cases": 144,
+    "basis_states": 2808,
+    "exact_histogram_comparisons": 33696,
+    "observability_rank_checks": 144,
+    "moment_surjectivity_checks": 12,
+    "RA_word_histogram_comparisons": 1397
+  },
+  "model": "Capacity-two named-source weighted removal and single marked addition",
+  "finite_domain": {
+    "m": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "unmarked_beta_base": [
+      1,
+      3,
+      5
+    ],
+    "marked_beta": [
+      0,
+      1,
+      4
+    ],
+    "addition_a": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "Q_horizons": "0..11",
+    "RA_word_lengths": "0..6 for beta=[4,1,2,3], a=2",
+    "arithmetic": "exact BigInt counts; finite rank tests modulo prime 1009"
+  },
+  "theorem_scope": "Linear future-count dimension 8 for q=2, a>0, m>=4 and at least three pairwise distinct unmarked beta. Symbolic minor 2*a^2 independent of b is in paper."
+}
