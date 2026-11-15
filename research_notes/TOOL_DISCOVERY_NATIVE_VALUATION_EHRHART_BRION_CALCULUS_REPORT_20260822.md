@@ -1,5 +1,8 @@
 # Native Graded Scale Valuation Calculus — Tool Discovery Report
 
+> **Current X6 reader compatibility note (2026-11-15; preserves the original 2026-08-22 provenance).** The expressions “current three-positive-axis canonical address atlas” and “current canonical addresses” below refer to the *August 2026 local/relative three-sector observer*, not the September 5 P000 V5 signed native Cell space. Under frozen P000 V5, a selected native three-axis slice is a signed `Z^3` Cell torsor; the min-zero `A_E` of §10 is a quotient/relative observer retaining no integer common depth. Its exact `F_A(t)=3t²+3t+1` and `b_A(t)=6t` are **correct for that observer** and are not native signed cube Cell counts. Likewise §11's `2^m` and `binom(m,a)` count a declared *fixed positive two-generator chart*, not all signed native shortest paths. For the exact lossless depth-fiber lift, native cube enumeration and explicit positive N-BRC observer collision, see [X6 LP019/LP028 signed-depth repair](X6_LP019_NGSVC_MINZERO_CUBE_FIBER_AND_SIGNED_BRC_LOSSLESS_LIFT_20261115_1400.md). No August original theorem, source attribution, code, or independent review status is altered by this reading note.
+
+
 Status: `RESEARCH_CHECKPOINT / TOOL_DISCOVERY_COMPLETE / DRIVER_REVIEW_REQUIRED`  
 Date: `2026-08-22`  
 Researcher-ID: `EM-TDEV-8A73F1`  
