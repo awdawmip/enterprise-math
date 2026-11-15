@@ -15,7 +15,8 @@
     "lambda_lower": "1/10",
     "lambda_upper": "1/6",
     "root_to_terminal_price_lower": "1",
-    "root_to_terminal_price_upper": "3"
+    "root_to_terminal_price_upper": "4",
+    "root_to_terminal_price_transition": "3"
   },
   "global_expected_optimum": "(1-lambda)*(5*r+293*t)/141 + lambda*(5*r+704*t)/310",
   "all_optimal_initial_physical_indices": [
@@ -54,6 +55,22 @@
       "weight_mass": 262260,
       "optimal_integer_cost": 578779,
       "full_certificate_sha256": "9534c4165d8fd562c50e7d63e638afa947622dc2be96b6aca1b6271bae20d907"
+    },
+    {
+      "lambda": "1/10",
+      "r": 4,
+      "t": 1,
+      "weight_mass": 437100,
+      "optimal_integer_cost": 972423,
+      "full_certificate_sha256": "d8252864981b0c473158a126d93dcc723a645f0e77635f98cb0fc5bc4d3f7af1"
+    },
+    {
+      "lambda": "1/6",
+      "r": 4,
+      "t": 1,
+      "weight_mass": 262260,
+      "optimal_integer_cost": 585543,
+      "full_certificate_sha256": "d4ab4e77eb99855f1b993072299101aae1b3df5cb28b6d14577c3584079245cb"
     }
   ],
   "witness_first_actions": [
@@ -69,12 +86,29 @@
   "dual_witness_certificate_sha256": "81b5cd2b1cc90f693451fc150bbbf2561e945377bef1c56f1c33fb109b9c8dab",
   "source_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
   "source_native_root_cost_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
-  "full_portable_tar_xz_sha256": "6dec9a4b8bcff4a20628d1f02869e4e4c9d53b206be9ab6423c847b51fac793e",
+  "full_portable_tar_xz_sha256": "43d5c87a98e61658299a2af3e189330a2954af97a2e45431ba8f34ff9e78a734",
   "proof": "For each fixed adaptive tree, expected cost is bilinear in lambda and r/t. The difference from either complete witness is the convex bilinear interpolation of four nonnegative Bellman corner differences. Exact forced-first intersections prove the first-action palette.",
   "status": {
     "mathematical": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
     "formal_claim": false,
     "formal_result": false
   },
-  "next_question": "Find nearest exact phase boundary outside the rectangle, identify first competing physical query or descendant transition."
+  "next_question": "Determine the nearest exact phase boundary outside lambda∈[1/10,1/6], r/t∈[1,4], including the earliest new first-action index or descendant transition.",
+  "global_expected_optimum_piecewise": [
+    {
+      "domain": "1 <= r/t <= 3",
+      "formula": "(1-lambda)*(5*r+293*t)/141 + lambda*(5*r+704*t)/310"
+    },
+    {
+      "domain": "3 <= r/t <= 4",
+      "formula": "(1-lambda)*(4*r+296*t)/141 + lambda*(4*r+707*t)/310"
+    }
+  ],
+  "high_price_both_witness_replay_counts": {
+    "uniform_root": 4,
+    "uniform_terminal": 296,
+    "multiplicity_root": 4,
+    "multiplicity_terminal": 707
+  },
+  "high_price_dual_witness_certificate_sha256": "2169f6f788c6a7df1b7b6a62cd978f9e405041e9864a54fd825952b00db95d07"
 }
