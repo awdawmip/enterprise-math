@@ -4,7 +4,7 @@
 
 ## Original source and new question
 
-This unit continues the saved independent R063 512-row digest reconstruction (2026-11-15 21:00) and the prior exact wrong-degree polynomial mutation witness (17:00). It tests **semantic coefficient correctness against the actual frozen archived data**, rather than repeating root-set completeness or asserting that the 17 historical native gates were rerun.
+This unit continues the saved independent R063 512-row digest reconstruction (2026-11-15 21:00), the prior exact wrong-degree polynomial mutation witness (17:00), and the preexisting exact JSON transport-collision audit (07:00, source report at research_notes/X6_R063_STAGE0_JSON_EXACT_INTEGER_TRANSPORT_COLLISION_20261115_0700.md). It tests **semantic coefficient correctness against the actual frozen archived data**, rather than repeating root-set completeness or asserting that the 17 historical native gates were rerun.
 
 Frozen branch: research/r063-stage0-path-valued-sqrt-2500. Loader blob b4e000a6377f2858ae434eb0eecd0c25c33e8592; part02.inc blob b543e185ec415b512c0ca0421616404cc12a19a7; native acceptance gates part04.inc blob a1834a4b39a9d528760e67220b5fe5f368c9e655.
 
@@ -36,7 +36,7 @@ The tool-side source read preserved raw JSON integer lexemes before an exact Big
 | (50,0) | 1 |
 | **Total** | **110695538274255714208** |
 
-**A concrete lossless-consumer boundary:** ordinary JavaScript JSON.parse converts the two 55347740058143507128 integer lexemes to binary64 values whose exact integral value is 55347740058143506432, **696 lower per branch**. The archived total converts to binary64 integral value 110695538274255716352, **2,144 higher** than the true total. Independently summing individually rounded branches yields 110695538274255712816, **1,392 lower** than the true total. The two floating pathways disagree by **3,536**. A console's shorter rounded decimal rendering is not the exact integer held in the Float64 value. These errors arise in the **consumer's number representation**; the frozen archived JSON integers are correct.
+**Previously documented lossless-consumer boundary, independently reconfirmed here (not claimed as a novel finding):** ordinary JavaScript JSON.parse converts the two 55347740058143507128 integer lexemes to binary64 values whose exact integral value is 55347740058143506432, **696 lower per branch**. The archived total converts to binary64 integral value 110695538274255716352, **2,144 higher** than the true total. Independently summing individually rounded branches yields 110695538274255712816, **1,392 lower** than the true total. The two floating pathways disagree by **3,536**. A console's shorter rounded decimal rendering is not the exact integer held in the Float64 value. These errors arise in the **consumer's number representation**; the frozen archived JSON integers are correct.
 
 ## Actually executed new checker
 
@@ -44,7 +44,7 @@ A separate exact Python checker, committed at research_checks/X6_R063_STAGE0_POL
 
 It uses exact isqrt to define the fixed positive chart's ordered component root population for **all r=1..512**. For all **1,820** root branches it recomputes the noncommuting-word coefficient cardinality by two integer routes (math.comb and Pascal recursion), obtaining **zero disagreements**; it also detects **3,640** independently constructed wrong-degree n±1 formula mutations. At r=50 it matches all six archival integer lexemes and their exact total. The full 512-radius certificate uses canonical decimal-string path counts, never JSON binary64. This is a *new semantic check* of the existing source family, not a repeat of the 512-row C2/C3/C4 hash construction.
 
-The code tests the two-generator **positive sector chart**, not all signed native-X6 Cells or unproved triadic dynamics. An independent 512-case semantic check is not the missing **unchanged original loader + five pinned part files + 17 native gates + 512 same-object regression** execution.
+The new research increment is the **complete 1,820-branch formal coefficient check, 3,640 detectable degree mutations, and source-archive cross-artifact verification of 14 rank samples**; the binary64 defect is reused prior evidence. The code tests the two-generator **positive sector chart**, not all signed native-X6 Cells or unproved triadic dynamics. An independent 512-case semantic check is not the missing **unchanged original loader + five pinned part files + 17 native gates + 512 same-object regression** execution.
 
 ## Connection to active research and next exact action
 
