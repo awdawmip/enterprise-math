@@ -77,13 +77,13 @@ def check_sources(repo: Path) -> dict[str, dict[str, object]]:
     result = {}
     part_dir = repo / "scripts/r063_stage0_checker_parts"
     actual_part_names = sorted(p.name for p in part_dir.glob("part*.inc")) if part_dir.is_dir() else []
-    assert actual_part_names == [f"part{i:02}.inc" for i in range(5)], (
-        "The original glob would load a different code set", actual_part_names
-    )
+    if not (actual_part_names == [f"part{i:02}.inc" for i in range(5)]):
+        raise AssertionError(("The original glob would load a different code set", actual_part_names))
     for name, expected in SOURCES.items():
         data = (repo / name).read_bytes()
         got = git_blob_sha1(data)
-        assert got == expected, f"FROZEN_SOURCE_BLOB_MISMATCH {name}: {got} != {expected}"
+        if not (got == expected):
+            raise AssertionError(f"FROZEN_SOURCE_BLOB_MISMATCH {name}: {got} != {expected}")
         result[name] = {"blob_sha1": got, "sha256": file_sha256(data), "bytes": len(data)}
     return result
 
@@ -92,7 +92,8 @@ def audit_outputs(out: Path, sources: dict[str, dict[str, object]]) -> dict[str,
     outputs = {}
     for name in REQUIRED_OUTPUTS:
         body = (out / name).read_bytes()
-        assert body, f"EMPTY_OUTPUT {name}"
+        if not (body):
+            raise AssertionError(f"EMPTY_OUTPUT {name}")
         outputs[name] = {"sha256": file_sha256(body), "bytes": len(body)}
     def j(name: str) -> dict:
         return json.loads((out / name).read_text(encoding="utf-8"))
@@ -103,41 +104,64 @@ def audit_outputs(out: Path, sources: dict[str, dict[str, object]]) -> dict[str,
     # self-referential hash field is inserted.
     unsigned_discovery = dict(discovery)
     unsigned_discovery.pop("discovery_snapshot_sha256")
-    assert canonical_sha256(unsigned_discovery) == discovery_sha == EXPECTED_DISCOVERY_SHA
-    assert discovery["input"]["N"] == 2500
+    if not (canonical_sha256(unsigned_discovery) == discovery_sha == EXPECTED_DISCOVERY_SHA):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_03")
+    if not (discovery["input"]["N"] == 2500):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_04")
 
     regression = j("R063_STAGE0_GENERAL_SQUARE_REGRESSION.json")
-    assert regression["r_range"] == [1, 512]
-    assert regression["tested_r_count"] == 512
-    assert regression["combined_checker_mismatch_count"] == 0
-    assert regression["C3_mismatch_count"] == regression["C4_mismatch_count"] == 0
-    assert regression["rows_sha256"] == EXPECTED_ROWS_SHA
-    assert regression["C2_failure_count"] == 484
+    if not (regression["r_range"] == [1, 512]):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_05")
+    if not (regression["tested_r_count"] == 512):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_06")
+    if not (regression["combined_checker_mismatch_count"] == 0):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_07")
+    if not (regression["C3_mismatch_count"] == regression["C4_mismatch_count"] == 0):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_08")
+    if not (regression["rows_sha256"] == EXPECTED_ROWS_SHA):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_09")
+    if not (regression["C2_failure_count"] == 484):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_10")
 
     summary = j("R063_STAGE0_REPLAY_SUMMARY.json")
     gates = summary["acceptance_gates"]
-    assert set(gates) == EXPECTED_GATES, f"GATE_SET_MISMATCH {set(gates) ^ EXPECTED_GATES}"
-    assert len(gates) == 17 and all(v is True for v in gates.values())
-    assert summary["N"] == 2500 and summary["r"] == 50
-    assert summary["discovery_snapshot_sha256"] == discovery_sha
-    assert summary["ordered_nonnegative_component_root_count"] == 6
-    assert summary["one_sector_total_path_cardinality"] == EXPECTED_SECTOR_BRC
-    assert summary["general_regression"]["r_range"] == [1, 512]
-    assert summary["general_regression"]["rows_sha256"] == EXPECTED_ROWS_SHA
-    assert summary["general_regression"]["combined_checker_mismatch_count"] == 0
+    if not (set(gates) == EXPECTED_GATES):
+        raise AssertionError(f"GATE_SET_MISMATCH {set(gates) ^ EXPECTED_GATES}")
+    if not (len(gates) == 17 and all(v is True for v in gates.values())):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_12")
+    if not (summary["N"] == 2500 and summary["r"] == 50):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_13")
+    if not (summary["discovery_snapshot_sha256"] == discovery_sha):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_14")
+    if not (summary["ordered_nonnegative_component_root_count"] == 6):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_15")
+    if not (summary["one_sector_total_path_cardinality"] == EXPECTED_SECTOR_BRC):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_16")
+    if not (summary["general_regression"]["r_range"] == [1, 512]):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_17")
+    if not (summary["general_regression"]["rows_sha256"] == EXPECTED_ROWS_SHA):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_18")
+    if not (summary["general_regression"]["combined_checker_mismatch_count"] == 0):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_19")
     core = dict(summary)
     core.pop("summary_core_sha256")
-    assert canonical_sha256(core) == summary["summary_core_sha256"]
+    if not (canonical_sha256(core) == summary["summary_core_sha256"]):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_20")
 
     mismatch = j("R063_STAGE0_MISMATCHES.json")
-    assert mismatch["mismatch_count"] == 0
+    if not (mismatch["mismatch_count"] == 0):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_21")
     fiber = j("R063_STAGE0_COMPONENT_ROOT_FIBER.json")
-    assert fiber["root_count"] == 6 and fiber["C3_exact"] is True and fiber["C4_exact"] is True
+    if not (fiber["root_count"] == 6 and fiber["C3_exact"] is True and fiber["C4_exact"] is True):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_22")
     pathcert = j("R063_STAGE0_PATH_CARDINALITY_CERTIFICATE.json")
-    assert pathcert["one_sector_total_path_cardinality"] == EXPECTED_SECTOR_BRC
-    assert sum(int(x["cardinality"]) for x in pathcert["branches"]) == EXPECTED_SECTOR_BRC
+    if not (pathcert["one_sector_total_path_cardinality"] == EXPECTED_SECTOR_BRC):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_23")
+    if not (sum(int(x["cardinality"]) for x in pathcert["branches"]) == EXPECTED_SECTOR_BRC):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_24")
     graph = j("R063_STAGE0_DERIVATION_PROVENANCE_GRAPH.json")
-    assert graph["node_id_uniqueness"] is True
+    if not (graph["node_id_uniqueness"] is True):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_25")
     return {
         "schema": "X6_R063_EXACT_ORIGINAL_STAGE0_REPLAY_ATTESTATION_V1",
         "status": "ORIGINAL_SAME_OBJECT_REPLAY_VERIFIED",
@@ -171,8 +195,10 @@ def main() -> int:
     process = subprocess.run(cmd, cwd=repo, capture_output=True, text=True, check=False)
     (dest / "original_stdout.txt").write_text(process.stdout, encoding="utf-8")
     (dest / "original_stderr.txt").write_text(process.stderr, encoding="utf-8")
-    assert process.returncode == 0, f"ORIGINAL_EXIT_NONZERO {process.returncode}"
-    assert json.loads(process.stdout.strip().splitlines()[-1])["status"] == "PASS"
+    if not (process.returncode == 0):
+        raise AssertionError(f"ORIGINAL_EXIT_NONZERO {process.returncode}")
+    if not (json.loads(process.stdout.strip().splitlines()[-1])["status"] == "PASS"):
+        raise AssertionError("R063_REPLAY_CHECK_FAILED_27")
     result = audit_outputs(original_out, sources)
     result["original_process_exit_code"] = process.returncode
     result["original_command"] = ["python3", *cmd[1:]]
