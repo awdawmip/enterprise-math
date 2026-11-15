@@ -57,7 +57,7 @@ Taking u=1 and v=0 gives H(10)=0 and H(01)=1, proving noncommutativity of K's im
 
 ## 3. Strong preservation along shared suffixes
 
-**Theorem R170C (collision-pair suffix persistence).** Let m>=2 and let distinct admitted u,v of length m share the same phase signature. Their prefix defect is at an internal j<m, with equal total counts N(u)=N(v). For *any* common appended binary suffix z, of any finite length, equation (1) yields
+**Theorem R170C (internal-exchange suffix persistence).** Let m>=2 and let distinct admitted u,v of length m share the same phase signature **and have their unique differing prefix at an internal index j<m**. Their total counts are then equal: N(u)=N(v). For *any* common appended binary suffix z, of any finite length, equation (1) yields
 
     H(uz)-H(vz) = H(u)-H(v) = 1  (mod 2).
 
