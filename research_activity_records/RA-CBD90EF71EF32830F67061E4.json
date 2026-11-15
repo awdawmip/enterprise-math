@@ -7,7 +7,32 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "event_id": "em-r1-r167-final-nonremergence-20261115-1008",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "d700f5c6ad0141a1fb6e8636119182b677e36f31",
+          "path": "research_notes/portable_direct/R167_nonremergence_check.py",
+          "sha256": "632d3d4621cab3df52bcbad5bfa0bcbfa765603d29eb064db32c95f80d8feb04",
+          "publication_state": "VERIFY_EM_PUBLICATION"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "d700f5c6ad0141a1fb6e8636119182b677e36f31",
+          "path": "research_notes/portable_direct/R167_nonremergence_verification.json",
+          "sha256": "849565018bfb73332371b59bdb1f97c94692bf813202fa1a63979c6a687efbe5",
+          "publication_state": "VERIFY_EM_PUBLICATION"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@f23b8e067874926c7f5e98d8ca59e79593a12b7d:journal/enterprise-math/2026-11-15/20261115T100800+0800-r167-final-only-nonremergence-em-r1.md"
+      ],
+      "state": "VERIFY_EM_PUBLICATION",
+      "repairs_event_id": null
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-15T02:03:54.324495+00:00",
   "registration_key": "session:MCP-9026015cca8c4c67a4f2879767528beb:TASK_RESEARCH",
