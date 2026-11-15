@@ -1,8 +1,8 @@
 # R5: Exact recourse spectra and a residual-faithful suffix quotient
 
-Date: 2026-11-15. Scientific source pin: \`435e77af0d180eac32bd1f9c4c464bc4010b7551\`. Model: the *auxiliary one-dimensional integer indexed-center observer* (not a native six-dimensional X6 embedding), coverage radius 2, gaps \`(3,2,2,3,(2,1)^m)\`, independently shortening zero-based gaps 0 and 3 from 3 to 2, exactly K=3+m distinct indexed centers. Research status: AUTHOR_PROVED / EXACT_FINITE_CHECKED (m=1..6) / NOT_REVIEWED.
+Date: 2026-11-15. Scientific source pin: `435e77af0d180eac32bd1f9c4c464bc4010b7551`. Model: the *auxiliary one-dimensional integer indexed-center observer* (not a native six-dimensional X6 embedding), coverage radius 2, gaps `(3,2,2,3,(2,1)^m)`, independently shortening zero-based gaps 0 and 3 from 3 to 2, exactly K=3+m distinct indexed centers. Research status: AUTHOR_PROVED / EXACT_FINITE_CHECKED (m=1..6) / NOT_REVIEWED.
 
-This builds on the verified author-side product theorem \`r5_nonisolating_pair_block_20261115/COUPLED_21_UNBOUNDED_SWITCH_THEOREM.md\` at commit \`669c96f388bb2d84ef297e9a2ee09a5751c97353\`: for each mask t in {0,a,b,ab}, the *complete* optimizer family decomposes as
+This builds on the verified author-side product theorem `r5_nonisolating_pair_block_20261115/COUPLED_21_UNBOUNDED_SWITCH_THEOREM.md` at commit `669c96f388bb2d84ef297e9a2ee09a5751c97353`: for each mask t in {0,a,b,ab}, the *complete* optimizer family decomposes as
 
 \[
  F_t(m)=\{S_c\cup H: S_c\in G_t,\ H\in {\cal H}_{m-1}\},
@@ -74,12 +74,12 @@ This yields an explicit *residual-faithful observer quotient*: \(\pi(S_c\cup H)=
 
 ## Exact calculations and reproducibility
 
-The independently written standard-library Python file \`VERIFY_R5_RECOURSE_SPECTRUM.py\` enumerates **every** K-element center subset of n=5+2m events for each of the four closure masks, discards cover-radius violations, computes exact total nearest-center distance, obtains each entire optimizer family, and verifies both polynomial identities by direct integer pair-counting and minimum-over-all-old-solutions for m=1,..,6. It also verifies the Q distance claim. Re-executed local output:
+The independently written standard-library Python file `VERIFY_R5_RECOURSE_SPECTRUM.py` enumerates **every** K-element center subset of n=5+2m events for each of the four closure masks, discards cover-radius violations, computes exact total nearest-center distance, obtains each entire optimizer family, and verifies both polynomial identities by direct integer pair-counting and minimum-over-all-old-solutions for m=1,..,6. It also verifies the Q distance claim. Re-executed local output:
 
-- Status: \`PASS_R5_EXACT_RECOURSE_SPECTRUM\`.
+- Status: `PASS_R5_EXACT_RECOURSE_SPECTRUM`.
 - Finite coverage: 24 complete optimizer problems, all \(\binom{5+2m}{3+m}\) possible sets for every mask and m=1..6.
 - For m=6: n=17, K=9, optimum cost 10, optimizer family sizes [160,384,288,544], |Q|=32, recourse maxima [0,2,1,2].
-- Complete local execution JSON: 10,380 UTF-8 bytes, SHA-256 \`98861d3b895c9e33d545158aceff62e3b33d69f56ad33c84ace8a694ff1e01a3\`. The checked-in program deterministically regenerates this JSON under standard CPython JSON formatting.
+- Complete local execution JSON: 10,380 UTF-8 bytes, SHA-256 `98861d3b895c9e33d545158aceff62e3b33d69f56ad33c84ace8a694ff1e01a3`. The checked-in program deterministically regenerates this JSON under standard CPython JSON formatting.
 - Exact arithmetic only. The arbitrary-m statements are proved from the existing all-m product theorem; the m<=6 exhaustive run independently tests their finite instances. No independent mathematical review or native P000 promotion is claimed.
 
 ## Next questions
