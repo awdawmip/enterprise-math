@@ -1,0 +1,54 @@
+{
+  "arithmetic": "exact_nonnegative_integers",
+  "assertions": 53980,
+  "counterexamples": {
+    "assertions": 4,
+    "diagonal_cycle_gcd": 2,
+    "diagonal_query_histogram": {
+      "0": 1,
+      "2": 1
+    },
+    "two_cycle_gcd": 1,
+    "two_cycle_query_histogram": {
+      "0": 1,
+      "2": 1,
+      "3": 1,
+      "5": 1
+    }
+  },
+  "family_checks": [
+    {
+      "assertions": 14580,
+      "capacity_masks": 81,
+      "distinct_fibers": 1215,
+      "enumerated_tables": 1296,
+      "gcd_one_gap_fibers": 0,
+      "kmax": 2,
+      "shape": "2x2",
+      "stride": 1
+    },
+    {
+      "assertions": 8448,
+      "capacity_masks": 64,
+      "distinct_fibers": 704,
+      "enumerated_tables": 729,
+      "gcd_one_gap_fibers": 8,
+      "kmax": 1,
+      "shape": "2x3",
+      "stride": 1
+    },
+    {
+      "assertions": 30948,
+      "capacity_masks": 74,
+      "distinct_fibers": 2579,
+      "enumerated_tables": 2889,
+      "gcd_one_gap_fibers": 94,
+      "kmax": 1,
+      "shape": "3x3",
+      "stride": 7
+    }
+  ],
+  "schema": "PREFIX798_R6_WEIGHTED_PROVENANCE_HISTOGRAM_V1",
+  "scope": "bounded_transportation_fibers;synthetic_abstract_provenance_counts",
+  "status": "ALL_CHECKS_PASS"
+}
