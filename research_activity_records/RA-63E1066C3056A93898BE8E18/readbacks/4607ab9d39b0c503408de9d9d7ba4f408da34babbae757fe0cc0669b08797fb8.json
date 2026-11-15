@@ -1,0 +1,36 @@
+{
+  "schema": "EM_R6_SOURCE_OBSERVATION_V1",
+  "event_id": "prefix807-r6-edge-interval-20261115",
+  "artifact_name": "results",
+  "source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "69bf98c644608041871b306493c32f3df6a6b56e",
+    "path": "research_notes/portable_direct/PREFIX807_R6_EDGE_INTERVAL_CERTIFICATE_RESULTS.json",
+    "git_blob_sha1": "326b9d6e2fbfe70dfe4df305bca7789f63662599",
+    "sha256": "53e620f74fae7ec24028df75d793b0594ca8892909d48ed36c16d64bad124ad1",
+    "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/69bf98c644608041871b306493c32f3df6a6b56e/research_notes/portable_direct/PREFIX807_R6_EDGE_INTERVAL_CERTIFICATE_RESULTS.json"
+  },
+  "verification": {
+    "tool_name": "mcp__GitHub__fetch_file",
+    "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+    "server_signature_authenticated": false,
+    "call_id": null,
+    "observation_id": "r6-prefix807-results-observed",
+    "network_request_by_this_tool": false
+  },
+  "connector_readback": {
+    "tool_name": "mcp__GitHub__fetch_file",
+    "arguments": {
+      "repository_full_name": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX807_R6_EDGE_INTERVAL_CERTIFICATE_RESULTS.json",
+      "ref": "69bf98c644608041871b306493c32f3df6a6b56e"
+    },
+    "result": {
+      "content": "{\n  \"schema\": \"EM_PREFIX807_EDGE_INTERVAL_EXACT_CERTIFICATE_V1\",\n  \"frozen_scientific_input_commit\": \"f42f2906d77f24085c123f3ccfe9667d41caa96d\",\n  \"integer_assertions\": 2214960,\n  \"edge_interval_certificates\": 405840,\n  \"forced_edge_intervals\": 373264,\n  \"nondegenerate_edge_intervals\": 32576,\n  \"one_frozen_edge_certificates\": 37152,\n  \"families\": [\n    {\n      \"rows\": 2,\n      \"cols\": 2,\n      \"max_edge_capacity\": 2,\n      \"capacity_patterns\": 81,\n      \"distinct_margin_fibers\": 1215,\n      \"full_named_table_occurrences\": 1296\n    },\n    {\n      \"rows\": 2,\n      \"cols\": 3,\n      \"max_edge_capacity\": 2,\n      \"capacity_patterns\": 729,\n      \"distinct_margin_fibers\": 39366,\n      \"full_named_table_occurrences\": 46656\n    },\n    {\n      \"rows\": 3,\n      \"cols\": 3,\n      \"max_edge_capacity\": 1,\n      \"capacity_patterns\": 512,\n      \"distinct_margin_fibers\": 17840,\n      \"full_named_table_occurrences\": 19683\n    },\n    {\n      \"rows\": 2,\n      \"cols\": 3,\n      \"max_edge_capacity\": 1,\n      \"capacity_patterns\": 64,\n      \"distinct_margin_fibers\": 704,\n      \"full_named_table_occurrences\": 729\n    }\n  ],\n  \"observation_gap_witness\": {\n    \"capacities\": [\n      2,\n      2,\n      2,\n      2\n    ],\n    \"row_demands\": [\n      2,\n      2\n    ],\n    \"column_demands\": [\n      2,\n      2\n    ],\n    \"named_selected_edge\": [\n      0,\n      0\n    ],\n    \"full_named_tables\": 3,\n    \"edge_support\": [\n      0,\n      1,\n      2\n    ],\n    \"signed_integer_observer\": \"2*x_00\",\n    \"observer_histogram\": {\n      \"0\": 1,\n      \"2\": 1,\n      \"4\": 1\n    }\n  },\n  \"status\": \"ALL_EXACT_CHECKS_PASS\"\n}\n",
+      "encoding": "utf-8",
+      "sha": "326b9d6e2fbfe70dfe4df305bca7789f63662599",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/69bf98c644608041871b306493c32f3df6a6b56e/research_notes/portable_direct/PREFIX807_R6_EDGE_INTERVAL_CERTIFICATE_RESULTS.json",
+      "display_title": "PREFIX807_R6_EDGE_INTERVAL_CERTIFICATE_RESULTS.json"
+    }
+  }
+}
