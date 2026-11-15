@@ -1,0 +1,77 @@
+{
+  "schema": "PREFIX812_EXACT_CHECK_V1",
+  "arithmetic": "integer-only",
+  "suites": [
+    {
+      "name": "K2x2_0_1_2",
+      "capacity_patterns": 81,
+      "margin_fibers": 1215,
+      "source_tables": 1296,
+      "nonfirst_table_comparisons": 81,
+      "reachability_bit_equalities": 1296,
+      "cross_scc_frozen_edge_checks": 0,
+      "multi_table_fibers": 80
+    },
+    {
+      "name": "K2x3_0_1",
+      "capacity_patterns": 64,
+      "margin_fibers": 704,
+      "source_tables": 729,
+      "nonfirst_table_comparisons": 25,
+      "reachability_bit_equalities": 625,
+      "cross_scc_frozen_edge_checks": 42,
+      "multi_table_fibers": 23
+    },
+    {
+      "name": "K3x3_0_1",
+      "capacity_patterns": 512,
+      "margin_fibers": 17840,
+      "source_tables": 19683,
+      "nonfirst_table_comparisons": 1843,
+      "reachability_bit_equalities": 66348,
+      "cross_scc_frozen_edge_checks": 6885,
+      "multi_table_fibers": 1457
+    },
+    {
+      "name": "K2x2_parallel_0_1",
+      "capacity_patterns": 32,
+      "margin_fibers": 212,
+      "source_tables": 243,
+      "nonfirst_table_comparisons": 31,
+      "reachability_bit_equalities": 496,
+      "cross_scc_frozen_edge_checks": 75,
+      "multi_table_fibers": 29
+    }
+  ],
+  "totals": {
+    "capacity_patterns": 689,
+    "margin_fibers": 19971,
+    "source_tables": 21951,
+    "nonfirst_table_comparisons": 1980,
+    "reachability_bit_equalities": 68765,
+    "cross_scc_frozen_edge_checks": 7002,
+    "multi_table_fibers": 1589
+  },
+  "witness": {
+    "initial_fiber_tables": [
+      [
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ]
+    ],
+    "reachability_invariant_on_unit_4_cycle": true,
+    "original_scc_count": 1,
+    "pin_edge_00_to_1_after_removal_scc_count": 4,
+    "observer_diagonal_before": 2,
+    "observer_diagonal_after": 0
+  },
+  "status": "ALL_EXACT_ASSERTIONS_PASSED"
+}
