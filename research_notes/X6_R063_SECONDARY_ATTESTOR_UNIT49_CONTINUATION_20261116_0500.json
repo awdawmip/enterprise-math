@@ -1,0 +1,78 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "record_status": "GITHUB_DURABLE_RESEARCH_AUTHOR_PACKET_UNREVIEWED",
+  "observed_date": "2026-11-16",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "lane_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "separate_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
+  "run_id": "RUN-3356cbe3c2b4916d79399941",
+  "last_observed_run_generation": 25,
+  "immutable_scientific_inputs": {
+    "native_baseline": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical_baseline": "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "original_r063_branch": "research/r063-stage0-path-valued-sqrt-2500",
+    "N": 2500,
+    "regression_r_range": [
+      1,
+      512
+    ],
+    "required_original_gate_count": 17,
+    "required_original_output_count": 13,
+    "discovery_sha256": "6dd26e75436fb6740134590fc243b59ab9eb287cadbc46d417d5bbbb74022f0d",
+    "regression_rows_sha256": "51891fbf9c3a66b1e00dfaa92fa6ae46984e4a6c99325624ec5b88371b66dcae"
+  },
+  "native_source": {
+    "confirmed_completed_through_unit": 48,
+    "original_unit48_publish_request_id": "onhour-20261116-0419-x6-r063-assert-bypass-unit48-source-progress-v1",
+    "unit48_status": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED / canonical_publication_verified=true / authenticated_readback=true",
+    "unit48_source_commit": "cc0d2f61bbf5516bd06f32c2714d2b2a7e0cc986",
+    "prior_own_continuation_request_id": "onhour-20261116-0501-x6-exact-own-continuation-v1",
+    "prior_own_continuation_status": "SUCCEEDED / OWN_RECORDED_RUN_AVAILABLE / historical as-of read, not current execution grant",
+    "unit49_native_publish_request_id": null
+  },
+  "completed_current_unit": {
+    "number": 49,
+    "kind": "ORIGINAL_R063_SECONDARY_ATTESTOR_SOURCE_MANIFEST_CLOSURE",
+    "original_loader_blob": "b4e000a6377f2858ae434eb0eecd0c25c33e8592",
+    "observation": "The exact original loader concatenates every sorted part*.inc; pre-repair secondary wrapper checked only six pinned source hashes, so extra unpinned part*.inc could change executable content undetected.",
+    "repair": "Secondary wrapper now checks exactly part00.inc..part04.inc in loader glob before pin verification; primary wrapper already had that check.",
+    "code": {
+      "commit": "db6d8f1dca48ad2560e428c18ae3f3123b040a17",
+      "path": "research_checks/X6_R063_PINNED_NATIVE_REPLAY_ACCEPTANCE_HARNESS_20261116.py",
+      "blob": "234e0f00654ae5cdb5254f37fc9d63ea1b51cd30"
+    },
+    "test": {
+      "commit": "097290e6a20699951f274708eb010d2e6468a415",
+      "path": "research_checks/test_x6_r063_secondary_harness_glob_set_20261116.py",
+      "blob": "a6a4c3ca5e1d088d92cb44b01df1b2267b1a7cc7",
+      "execution": "Synthetic equivalent harness fixture tested locally ordinary Python/-O; actual full repository harness regression is pending authorized checkout"
+    },
+    "report": {
+      "commit": "3ecc6190eced87364a305e4958d7267a58bf0127",
+      "path": "research_notes/X6_R063_SECONDARY_ATTESTOR_LOADER_GLOB_CLOSURE_UNIT49_20261116_0500.md"
+    },
+    "research_activity": {
+      "commit": "e9cf35d4264f279832708e5a02790773be4d7ef6",
+      "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+      "count": 70
+    },
+    "science_status": "AUTHOR_SOURCE_REPAIRED / LOCAL SYNTHETIC PASS / UNREVIEWED / NOT_ADMITTED",
+    "original_same_object_benchmark_executed": false
+  },
+  "unresolved": {
+    "native_benchmark": "Original six frozen files; actual N=2500 17 gates, r=1..512 original execution, exact discovery and row hashes, 13 artifacts; issue #2416 OPEN/unassigned.",
+    "parent": "LP011/LP019 exact historical false callsite attribution, remaining active 28 LP consumer closure and independent Driver REQUEST_REVISION"
+  },
+  "do_not_repeat": [
+    "Source native #1..48 already published; consume highest exact checkpoint.",
+    "Do not re-run auxiliary R063 certificates or substitute synthetic tests for original unchanged native experiment.",
+    "Do not use maintenance conversation_id or identity, new scheduler, identity impersonation, or repeat denied mutation.",
+    "Only new unit49 may be Source-published if current original Researcher/CLAIM/RUN actually authorizes; pending original request is reconciled first."
+  ],
+  "next_exact_action": "Verify GitHub Activity #70, unit49 output and #2416 support. Obtain fresh current Source exact continuation and validate own session/CLAIM/RUN, then author-publish unit49 once with original legal same-RUN generation (or preserve original request pending if accepted); run original frozen six-file benchmark via authorized checkout under issue #2416, record actual owner and 17/512/13/exit/hash evidence. Concurrently seek verified exact LP011/LP019 active source callers and independent Driver review; no automatic promotion.",
+  "session_action_boundary": "Preserve hourly schedule, phase, enabled state, notification settings. Own Research lane exclusively. Read-only recovery is not owner rights."
+}
