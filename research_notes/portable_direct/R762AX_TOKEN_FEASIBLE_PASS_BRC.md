@@ -90,3 +90,31 @@ Keep the same hypotheses as AX4 and index the six-cycle C by j∈ℤ/6ℤ. Let D
 As a triad-only terminal observer, each endpoint has period at most two in the macro count (with positive scalar q(K)^(r−1) factored out). The **complete named-source histories still grow** by q(K) per macro: terminal readout and BRC provenance are distinct observers. Example, K=(1,0,0), root 145: terminal alternates C_2 then C_5 with one history each. Root 013 has D_1=(0,0,1,0,0,1), which is invariant under half-cycle shifting and therefore keeps that same two-point endpoint vector for every macro count. Root 145 with K=(1,1,0) has D_1=(2,0,1,0,0,0); after two macros, D_2=(0,0,0,6,0,3) under the C-index order (shift +3). For an observer that queries only weighted terminal triad counts, the six-component endpoint vector is a sufficient future macro state after absorption. It is not a sufficient state for a future query about original ordered PASS labels.
 
 This extension follows from the already proven uniform cyclic successor property; it adds no assumption of a physical V17 frame return. Actual frame and V39 based-loop measurements require their own signed source/transport map.
+
+
+## AX6. Exact periodic BRC word growth under finite frame-to-port transport
+
+Suppose the named physical directed m-cycle edges are fixed, and after every complete macro an externally specified frame-port permutation \(\sigma\in S_m\) transports the port inventory according to \(K_{j+1}=\sigma K_j\), where \((\sigma K)_{\sigma(i)}=K_i\). This is a **conditional port-transport law**, not an assertion that P000/V17 already supplies such a permutation. Within each macro the AX1 source-token enabling rule still applies. Write \(q_j=q_m(\sigma^j K_0)\). Then the number of complete **named** PASS histories after r macros is exactly
+
+\[
+\boxed{\mathcal N_r(K_0,\sigma)=\prod_{j=0}^{r-1}q_j.}
+\]
+
+If the occupied support has \(\sigma\)-orbit period d, set \(Q=\prod_{j=0}^{d-1}q_j\). For any \(r=ad+b\) with \(a\geq0\) and \(0\leq b<d\),
+
+\[
+\boxed{\mathcal N_r(K_0,\sigma)
+=Q^a\prod_{j=0}^{b-1}q_j.}
+\]
+
+**Proof.** A complete macro returns its input inventory exactly, so after frame transport the next starting inventory is \(\sigma K_j\). By AX1, every earlier named history has exactly \(q_m(K_j)\) one-macro extensions. Multiplying recursively gives the first identity. The support orbit of any permutation is periodic with period d, and AX1 depends only on support; splitting the product into a full d-period block and a remainder proves the second. Empty support yields zero histories for positive r, consistently with the formula. QED.
+
+The frame permutation can change growth even while preserving the **number** of occupied ports. For m=4, take \(K_0=(1,1,0,0)\) and the transposition \(\sigma=(1\ 2)\). Before the first macro S={0,1}, cyclic gaps (1,3), so q0=4. Before the second S={0,2}, gaps (2,2), so q1=6. The frame restores the original S after two macros. Thus, for all r≥0,
+
+\[
+\boxed{\mathcal N_r=4^{\lceil r/2\rceil}6^{\lfloor r/2\rfloor}.}
+\]
+
+For r=1,…,8 this yields 4,24,96,576,2304,13824,55296,331776. This gives a concrete information-preserving distinction between **current positive-support cardinality** and **labelled support placement relative to an active frame**. In m=3, however, all positive supports of fixed cardinality have equal cyclic gap profiles, so any \(\sigma\in S_3\) leaves q3 unchanged. This last simplification holds for the token scheduler word count; a separate V17/V29 correspondence is required before transporting the conditional triad selector itself.
+
+Exact independent integer verification covers every initial Boolean support and every frame permutation for m=4,5, enumerating 13,128 support-orbit cases against direct permutation-feasibility enumeration, with 33,792 periodic product checks for horizons r=1,…,8. The largest tested support-orbit period is 6. The proof applies to every m≥2, any finite permutation \(\sigma\), and all r≥0.
