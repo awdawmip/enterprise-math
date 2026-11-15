@@ -1,0 +1,106 @@
+{
+  "schema": "R749SQI_CUBIC_ROOT_SUBLEADING_EXACT_V1",
+  "status": "PASS",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "16-atom auxiliary Walsh; 23 labeled positive-slack types",
+  "slack_multiplicities": {
+    "1": 3,
+    "2": 4,
+    "3": 6,
+    "4": 4,
+    "5": 3,
+    "6": 2,
+    "7": 1
+  },
+  "global_quasipolynomial_period": 420,
+  "claim": "Degree-six coefficient of primitive cube-root sum in R749SQG remainder",
+  "normalized_laurent_linear": "A_rho(w)=B_rho[1+(106-4*rho)/3*w+O(w^2)]",
+  "coefficient_r6_by_r_mod3": {
+    "0": "-13/20662426080",
+    "1": "41/123974556480",
+    "2": "37/123974556480"
+  },
+  "coefficient_r7_by_r_mod3": {
+    "0": "-1/433910947680",
+    "1": "1/867821895360",
+    "2": "1/867821895360"
+  },
+  "validation": {
+    "all_420_residue_classes": true,
+    "sixth_420_step_forward_difference": true,
+    "r_range_needed": "1..2940",
+    "r_count_computed": 3360,
+    "arithmetic": "Python integers and Fraction, no float",
+    "examples": {
+      "1": {
+        "actual": "816954656000000/19683",
+        "predicted": "816954656000000/19683"
+      },
+      "2": {
+        "actual": "815072272000000/19683",
+        "predicted": "815072272000000/19683"
+      },
+      "3": {
+        "actual": "-1633909312000000/19683",
+        "predicted": "-1633909312000000/19683"
+      }
+    },
+    "computed_first_pole_coefficients": {
+      "g0": "1/94058496000",
+      "g1": "1/3359232000",
+      "h0": "1/2415919104",
+      "h1": "35/2415919104"
+    }
+  },
+  "status_scope": "AUTHOR_EXACT_NOT_REVIEWED; symbolic local cube-root pole proof establishes all r>=1; finite checks independent",
+  "sharp_kolmogorov": {
+    "limit": "lim_(r->infty) r * d_K(3K_r/r,Beta(1,23)) = 69",
+    "uniform_grid_tail": "C_(r-3k)/C_r = (1-3k/r)^23 + (897/r)*(1-3k/r)^22*(3k/r) + O(r^-2)",
+    "quantifier": "uniformly over k >= 0 with 0 <= 3k <= r",
+    "sample_exact_suprema": {
+      "30": {
+        "argmax": "K=0 atom",
+        "exact_error": "106404980/152147427",
+        "exact_zero_mass": "106404980/152147427",
+        "r_times_error_exact": "1064049800/50715809"
+      },
+      "60": {
+        "argmax": "K=0 atom",
+        "exact_error": "812446883521/1527607864324",
+        "exact_zero_mass": "812446883521/1527607864324",
+        "r_times_error_exact": "12186703252815/381901966081"
+      },
+      "120": {
+        "argmax": "K=0 atom",
+        "exact_error": "48022258730951705/132664091049253744",
+        "exact_zero_mass": "48022258730951705/132664091049253744",
+        "r_times_error_exact": "720333880964275575/16583011381156718"
+      },
+      "420": {
+        "argmax": "K=0 atom",
+        "exact_error": "930143754489551159009961517/6625949487803443895509022784",
+        "exact_zero_mass": "930143754489551159009961517/6625949487803443895509022784",
+        "r_times_error_exact": "32555031407134290565348653095/552162457316953657959085232"
+      },
+      "840": {
+        "argmax": "K=0 atom",
+        "exact_error": "1588044245393116102975288177568485/20984126844402037067043099968459449",
+        "exact_zero_mass": "1588044245393116102975288177568485/20984126844402037067043099968459449",
+        "r_times_error_exact": "1333957166130217526499242069157527400/20984126844402037067043099968459449"
+      },
+      "1680": {
+        "argmax": "K=0 atom",
+        "exact_error": "4166427166561132722566210975168751023819/105783414018544520976149051046247583241522",
+        "exact_zero_mass": "4166427166561132722566210975168751023819/105783414018544520976149051046247583241522",
+        "r_times_error_exact": "1166599606637117162318539073047250286669320/17630569003090753496024841841041263873587"
+      },
+      "2940": {
+        "argmax": "K=0 atom",
+        "exact_error": "15388383618668612290730115650973345085125175/671720193876278167282470118883761385371921539",
+        "exact_zero_mass": "15388383618668612290730115650973345085125175/671720193876278167282470118883761385371921539",
+        "r_times_error_exact": "15080615946295240044915513337953878183422671500/223906731292092722427490039627920461790640513"
+      }
+    },
+    "argument": "uniform expansion of degree-23 polynomial part; on each lattice interval the continuous CDF is increasing; maximal first-order positive discrepancy is 69 at X=0, negative discrepancy is at most 39*(22/23)^22"
+  }
+}
