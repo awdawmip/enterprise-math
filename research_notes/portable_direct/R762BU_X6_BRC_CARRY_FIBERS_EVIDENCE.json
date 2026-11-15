@@ -1,0 +1,192 @@
+{
+  "schema": "R762BU_EXACT_FINITE_VERIFIER_V1",
+  "inputs": {
+    "nativeAxes": 6,
+    "steps": 12,
+    "triples": 20,
+    "maxSteps": 9
+  },
+  "observer": {
+    "minimalConnectedPanels": 3,
+    "connectedTripletFamilies": 480,
+    "disconnectedTripletFamilies": 660,
+    "connectedPatterns": {
+      "112T1": 180,
+      "012T0": 180,
+      "111T0": 120
+    },
+    "example": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        4
+      ],
+      [
+        1,
+        5,
+        6
+      ]
+    ]
+  },
+  "m3": {
+    "classes": {
+      "1:1": 12,
+      "1:33": 12,
+      "1:3": 120,
+      "2:12": 20,
+      "1:6": 120
+    },
+    "conditionalPaths": 1728,
+    "optimalTripleObserverFamilies": 480,
+    "fullSignatureFibers": 284,
+    "witnesses": [
+      [
+        [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          -1,
+          -1,
+          -1
+        ]
+      ]
+    ]
+  },
+  "budgets": [
+    {
+      "m": 0,
+      "q": 1,
+      "maxFiber": 1,
+      "endpoints": 1,
+      "relativeClasses": 1,
+      "paths": 1,
+      "distribution": {
+        "1": 1
+      }
+    },
+    {
+      "m": 1,
+      "q": 1,
+      "maxFiber": 1,
+      "endpoints": 12,
+      "relativeClasses": 12,
+      "paths": 12,
+      "distribution": {
+        "1": 12
+      }
+    },
+    {
+      "m": 2,
+      "q": 1,
+      "maxFiber": 1,
+      "endpoints": 73,
+      "relativeClasses": 73,
+      "paths": 144,
+      "distribution": {
+        "1": 73
+      }
+    },
+    {
+      "m": 3,
+      "q": 2,
+      "maxFiber": 2,
+      "endpoints": 304,
+      "relativeClasses": 284,
+      "paths": 1728,
+      "distribution": {
+        "1": 264,
+        "2": 20
+      }
+    },
+    {
+      "m": 4,
+      "q": 2,
+      "maxFiber": 2,
+      "endpoints": 985,
+      "relativeClasses": 835,
+      "paths": 20736,
+      "distribution": {
+        "1": 685,
+        "2": 150
+      }
+    },
+    {
+      "m": 5,
+      "q": 2,
+      "maxFiber": 2,
+      "endpoints": 2668,
+      "relativeClasses": 2036,
+      "paths": 248832,
+      "distribution": {
+        "1": 1404,
+        "2": 632
+      }
+    },
+    {
+      "m": 6,
+      "q": 3,
+      "maxFiber": 3,
+      "endpoints": 6321,
+      "relativeClasses": 4347,
+      "paths": 2985984,
+      "distribution": {
+        "1": 2514,
+        "2": 1692,
+        "3": 141
+      }
+    },
+    {
+      "m": 7,
+      "q": 3,
+      "maxFiber": 3,
+      "endpoints": 13504,
+      "relativeClasses": 8408,
+      "paths": 35831808,
+      "distribution": {
+        "1": 4104,
+        "2": 3512,
+        "3": 792
+      }
+    },
+    {
+      "m": 8,
+      "q": 3,
+      "maxFiber": 3,
+      "endpoints": 26577,
+      "relativeClasses": 15069,
+      "paths": 429981696,
+      "distribution": {
+        "1": 6264,
+        "2": 6102,
+        "3": 2703
+      }
+    },
+    {
+      "m": 9,
+      "q": 4,
+      "maxFiber": 4,
+      "endpoints": 48940,
+      "relativeClasses": 25420,
+      "paths": 5159780352,
+      "distribution": {
+        "1": 9084,
+        "2": 9732,
+        "3": 6024,
+        "4": 580
+      }
+    }
+  ]
+}
