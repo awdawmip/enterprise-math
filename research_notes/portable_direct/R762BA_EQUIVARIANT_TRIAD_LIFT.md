@@ -14,7 +14,7 @@ Let A={1,...,6}, G=S6, P={(i,j) in A^2 : i≠j} be visible *ordered* positive tw
 
 **Theorem BA1.** Every G-invariant R⊆E with π(R)=P is E itself. No G-equivariant section s:P→E of π exists. The full relational completion E is a sharp four-sheet G-equivariant lift.
 
-**Proof.** For fixed (i,j), K=Stab_G(i,j) fixes i and j pointwise and freely permutes the other four axis names; K≅S4. K acts transitively on F_(i,j). Therefore every K-invariant nonempty fiber equals F_(i,j). Since G acts transitively on P, any invariant R surjective onto P is all of E. If s were a G-equivariant section, s(i,j)=(i,j,k) would be fixed under all K. There is no K-fixed remaining axis k, contradiction. The entire E is manifestly equivariant, attaining four branches. QED.
+**Proof.** For fixed (i,j), K=Stab_G(i,j) fixes i and j pointwise and allows every permutation of the other four axis names; K≅S4. K acts transitively on F_(i,j). Therefore every K-invariant nonempty fiber equals F_(i,j). Since G acts transitively on P, any invariant R surjective onto P is all of E. If s were a G-equivariant section, s(i,j)=(i,j,k) would be fixed under all K. There is no K-fixed remaining axis k, contradiction. The entire E is manifestly equivariant, attaining four branches. QED.
 
 **Theorem BA2 (sharp auxiliary-state cost).** Let U→P be any nonempty finite equivariant bundle of auxiliary states and f:U→E an equivariant map over P. For every (i,j), U_(i,j) contains a K-orbit of size divisible by four and hence at least four. This lower bound is attained by U=E and f=id.
 
