@@ -72,3 +72,33 @@ The four independent exact Bellman replays found precisely [140,142] at every co
 **Next:** locate the first exact two-dimensional phase boundary outside lambda in [1/10,1/6] or x in [1,3]. Compare all 228 forced-first costs with the appropriate descendant optimizations and inspect where fixed witness-tree optimality first breaks, preserving complete named-root residual information.
 
 Context: RS-EC49AS publication directory not found on current project main as observed in the corresponding run. This is independent portable research under the existing user authorization, not a formal Task claim.
+
+## Extension EC49FQJ-S2: exact descendant-policy kink in a two-parameter strip
+
+The same frozen BRC input also yields a second certified rectangle, with 1/10 <= lambda <= 1/6 and 3 <= x=r/t <= 4:
+
+    V(lambda;r,t)=(1-lambda)*(4r+296t)/141 + lambda*(4r+707t)/310.
+
+The complete optimal initial physical query set remains **{140,142} at every point**, although the optimal descendant policy changes at x=3.
+
+New exact unrestricted Bellman corner certificates (t=1, r=4) establish:
+
+| lambda | x | total integer mass | Bellman optimum integer | all optimal physical first indices |
+|---|---:|---:|---:|---|
+| 1/10 | 4 | 437100 | 972423 | 140,142 |
+| 1/6 | 4 | 262260 | 585543 | 140,142 |
+
+The x=3 corners are inherited from the earlier verified rectangle (values 960699 and 578779). Two new explicit native decision trees with first physical query 140 and 142 each have exact profile/multiplicity-count vector (U_R,U_T;M_R,M_T)=(4,296;4,707). They are contained in the complete evidence archive file witness_both_queries_x_4_1_lam_1_10.json. Both trees replay correctly on every one of the 141 distinct complete named-root profiles and all 310 multiplicities. The strengthened independent verifier recomputes all six distinct exact Bellman corners and both sets of tree witnesses.
+
+At the shared boundary x=3, the low and high formulas agree:
+
+    5*3+293=4*3+296=308,
+    5*3+704=4*3+707=719.
+
+The identical bilinear four-corner interpolation lemma from the main proof, applied to [1/10,1/6] times [3,4], proves the new formula and all optimal first actions throughout that rectangle, including the real-parameter interior. Thus **the optimal expected cost is now fully determined on the strip**
+
+    1/10 <= lambda <= 1/6,  1 <= x <= 4,
+
+as the lower of the two displayed policy cost functions, with an exact non-removable kink at x=3. Its price slope strictly decreases from 5*((1-lambda)/141+lambda/310) to 4*((1-lambda)/141+lambda/310) there. Since both sides retain the first query set {140,142}, this is an **optimal descendant-policy transition with no initial-query transition**.
+
+The two rectangle certificates are exhaustive on the original frozen native finite state space. The remaining scientific direction is to determine the first boundary beyond the verified strip in either parameter and to classify the descendant changes there. This research remains AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED; this extension makes no separate Task/CLAIM/Result assertion.
