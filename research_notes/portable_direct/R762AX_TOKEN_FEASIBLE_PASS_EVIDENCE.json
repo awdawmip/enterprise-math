@@ -2045,5 +2045,37 @@
     }
   },
   "independent_review": "NOT_REVIEWED",
-  "native_P000_event_admission": "OPEN"
+  "native_P000_event_admission": "OPEN",
+  "frame_transport_theorem": "For a fixed post-macro port permutation sigma and token inventory K, named macro-word count across r steps is product_{j=0}^{r-1} q_m(sigma^j K); periodic by the finite support orbit. This frame action is conditional, not a native P000 frame-port claim.",
+  "frame_transport_tests": 13128,
+  "frame_periodic_factorization_checks": 33792,
+  "maximal_support_period": 6,
+  "frame_witness": {
+    "m": 4,
+    "frame_permutation": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "initial_support": [
+      0,
+      1
+    ],
+    "q_cycle": [
+      4,
+      6
+    ],
+    "first_eight_counts": [
+      4,
+      24,
+      96,
+      576,
+      2304,
+      13824,
+      55296,
+      331776
+    ]
+  },
+  "exact_general_verification_scope": "m=2..7 resource permutations: 252 support cases and 695480 individual permutation checks; frame coupling m=4..5 all permutations/supports: 13128 support-orbit cases and 33792 horizon checks r=1..8; universal m and r follow proofs"
 }
