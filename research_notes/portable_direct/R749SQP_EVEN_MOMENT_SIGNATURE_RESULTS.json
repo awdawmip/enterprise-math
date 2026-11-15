@@ -1,0 +1,97 @@
+{
+  "schema": "R749SQP_EVEN_SIGNATURE_EXACT_CERT_V1",
+  "status": "PASS",
+  "model": "auxiliary labeled positive weighted-source multiset; no native X6 transfer",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "weights_A": [
+    1,
+    1,
+    1,
+    2,
+    7,
+    11,
+    15
+  ],
+  "weights_B": [
+    1,
+    1,
+    1,
+    3,
+    5,
+    13,
+    14
+  ],
+  "d": 7,
+  "h": 1,
+  "shared_sums": {
+    "S1": 38,
+    "S2": 402,
+    "S4": 67686
+  },
+  "delta_S6": 907200,
+  "smooth_mean_coefficients_A": [
+    "1/8",
+    "29/16",
+    "-2765/96",
+    "102305/192",
+    "-5066369/384",
+    "282255869/768",
+    "-50406501643/4608"
+  ],
+  "smooth_mean_coefficients_B": [
+    "1/8",
+    "29/16",
+    "-2765/96",
+    "102305/192",
+    "-5066369/384",
+    "282255869/768",
+    "-50362956043/4608"
+  ],
+  "predicted_r6_mean_difference": "-9450",
+  "identity_checks": 24000,
+  "independent_enumeration_checks": 64,
+  "largest_integer_dp_r": 12000,
+  "samples": [
+    {
+      "r": 100,
+      "scaled_r6_difference_exact": "-125716728000000000/10119319186493",
+      "scaled_r6_difference_decimal": "-12423.437356122"
+    },
+    {
+      "r": 200,
+      "scaled_r6_difference_exact": "-14702923647040000000000/3426189111493532771",
+      "scaled_r6_difference_decimal": "-4291.334531920"
+    },
+    {
+      "r": 500,
+      "scaled_r6_difference_exact": "160492542385703125000000000/105054779038434360884243",
+      "scaled_r6_difference_decimal": "1527.703392979"
+    },
+    {
+      "r": 1000,
+      "scaled_r6_difference_exact": "-338709826298320578125000000000/20984418177928871616478671",
+      "scaled_r6_difference_decimal": "-16141.015844536"
+    },
+    {
+      "r": 2000,
+      "scaled_r6_difference_exact": "-151587508734654729296000000000000000/19384975108492691591844016759521",
+      "scaled_r6_difference_decimal": "-7819.845415651"
+    },
+    {
+      "r": 4000,
+      "scaled_r6_difference_exact": "-15650951573397763024520000000000000000/1745508734630221313361711131039361",
+      "scaled_r6_difference_decimal": "-8966.412635405"
+    },
+    {
+      "r": 8000,
+      "scaled_r6_difference_exact": "-33915459651807763073246445568000000000000000/3544611607995975046042054366957374856507",
+      "scaled_r6_difference_decimal": "-9568.173724676"
+    },
+    {
+      "r": 12000,
+      "scaled_r6_difference_exact": "-1397255704382481325004477908224000000000000000/146243233693180931142156846849040577889487",
+      "scaled_r6_difference_decimal": "-9554.327192422"
+    }
+  ],
+  "limitation": "Exact finite checks and exact formal Taylor coefficients; all-r asymptotic conclusion uses root-of-unity pole argument in paper; author checked, independent review pending"
+}
