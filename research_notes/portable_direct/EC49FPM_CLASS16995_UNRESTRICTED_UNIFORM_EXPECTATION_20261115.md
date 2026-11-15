@@ -42,7 +42,7 @@ Verified output (exact finite run):
 
 `EC49FPM_UNRESTRICTED_EXACT_PASS 238 112 [118, 119, 124, 201, 203, 204]`.
 
-The same invocation first runs `VERIFY_EC49FPL.py`, which verifies original frozen bytes and reconstructs all 112 rooted profiles and 324 complete legal terminal costs from the original 38,169 configurations. All DP arithmetic is exact integer arithmetic. Local verification produced 17,934 memoized unrestricted subproblems. `VERIFY_EC49FPM.py` writes the complete 324-entry initial-cost sequence and all six complete optimal trees to a machine-readable JSON certificate; the full output and frozen inputs are included in the handoff evidence archive.
+The same invocation first runs `VERIFY_EC49FPL.py`, which verifies original frozen bytes and reconstructs all 112 rooted profiles and 324 complete legal terminal costs from the original 38,169 configurations. All DP arithmetic is exact integer arithmetic. Local verification produced 17,944 memoized unrestricted subproblems. `VERIFY_EC49FPM.py` writes the complete 324-entry initial-cost sequence and all six complete optimal trees to a machine-readable JSON certificate; the full output and frozen inputs are included in the handoff evidence archive.
 
 ## Claim scope, provenance and next research
 
