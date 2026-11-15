@@ -1,0 +1,11 @@
+# Frozen sources and actual verification provenance
+
+Date: 2026-11-01. Real GitHub account: awdawmip.
+
+- Base analytic lawful/hull optimum and exact source definition: awdawmip/enterprise-math at commit 43ec6098b1330ae86d0a7863be336c5d97f6ef34, path research_notes/brc_n4_s23_asymmetric_hull_gap_sqrt43_20261101_research1/PROOF.md (author-side, UNREVIEWED).
+- Previous stability theorem and verified local proof: awdawmip/enterprise-math at commit 08019c1af1e253a0f45623e8c0da9aeef14dbe67, path research_notes/brc_n4_s23_uniform_robust_hull_gap_20261101_research1/PROOF.md (author-side, UNREVIEWED). The present contribution is the sharp anisotropic pointwise modulus plus stronger stability corollary, not a repeat of this predecessor.
+- This author's scientific model follows that frozen three-control slice; source provenance is pinned to those two commits. Nothing is adopted as native P000 or canonical mathematical truth merely by writing this note.
+- Global current behavioral snapshot read and verified at canonical main d63e70daeafb077bdd91e2cc837104b97e43c689: 00_BOOTSTRAP.md, OPERATING_MANUAL.md, projects/enterprise-math/P000_STARTUP.json (projection original blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc), ACTIVE worldview, mathematical and output policies and relevant project role routing.
+- EM normative current main snapshot 24eb5e125a7bf52366cc49f1ed2594c0cd6d5b14: docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context, docs/PORTABLE_RESEARCH_PROTOCOL.md and research_priorities/research_method.json. This current policy snapshot is deliberately distinct from frozen scientific material.
+- Actual calculation: VERIFY.js executed in V8 JavaScript with arbitrary precision BigInt rationals and Q(sqrt(43)), and real output stored in RUN_EVIDENCE.json. The code's 2,916 finite strategy-pair checks are supportive computational evidence; global real conclusions have the analytic proof in PROOF.md.
+- Live owner was **not** established: canonical control task inventory returned CONTROL_QUOTA. The private Enterprise Math gateway session-start operation returned STATIC_READONLY_SCOPE_DENIED, with operation_sent=false and no native RA/CLAIM. GitHub author-side branch publication is independent storage, not native control admission. No credentials or session keys are published.

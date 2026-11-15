@@ -1,0 +1,6 @@
+# Scope, inputs and permissions
+Date: 2026-11-04.
+Frozen mathematical source: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34. Parent author's completed exact three-point model and 10^-12 root bracket: PR #1765 at 0362a3de0fe88977eb6cdc22caa4e4749985ad84, research_notes/brc_n4_s23_s19_fixed_k17_parameter_reentrance_20261104_research1/{PROOF.md,VERIFY.py,ROOT_PROOF.md,ROOT_CERT.py}.
+Current global behavioral rules loaded at awdawmip/chatgpt-global-knowledge main@2827dbd8bdd216a1135fade833ca64144cd0c526, including entry, math/code/judgment preferences, P000 startup and ACTIVE worldview. Current EM control main@82205c53d6ae2c00213796b7c138d398b198e51a: docs/RESEARCH_CONTINUATION_PROTOCOL.md, docs/PORTABLE_RESEARCH_PROTOCOL.md, research_priorities/research_method.json and current control authority.
+Source-observer model unchanged, no new approximation of its probabilistic semantics. Proof of Chernoff/KL formula and derivative is included; no external data or hidden trained model required.
+GitHub authenticated as awdawmip (push/admin in project). Native Sites gateway connection status research_authority_granted=false on 2026-11-04; this author-side note neither asserts a native CLAIM nor requests Result/Review/admission. Formal current task owner not verified.

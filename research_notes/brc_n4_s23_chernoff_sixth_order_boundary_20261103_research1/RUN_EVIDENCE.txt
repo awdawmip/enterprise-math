@@ -1,0 +1,10 @@
+PASS_BRC_S23_CHERNOFF_SIXTH_ORDER_CRITICAL_SHIFT_20261103
+sympy_version=1.14.0
+delta1=2*(s - 1)/(3*(s - 2))
+delta3=16*(s - 1)*(2*s**2 - 4*s + 9)/(45*(s - 2)**3)
+F2=0; F4=-2*s*(s - 1)*(9*s**2 - 40*s + 4)/(9*(s - 2)**3)
+F6=-4*s*(s - 1)*(270*s**5 - 1485*s**4 + 728*s**3 + 4296*s**2 - 8448*s + 1264)/(405*(s - 2)**5)
+F6_at_sstar=22963736/3796875 - 2413784*sqrt(91)/3796875 < 0 (exact integer certificates)
+F4prime_at_sstar=-1183/250 + 127*sqrt(91)/250 > 0
+critical_shift_k=21392/30375 - 162368*sqrt(91)/2764125 > 0
+exact_symbolic_equalities=10; integer_sign_certificates=4

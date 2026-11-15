@@ -1,0 +1,102 @@
+{
+  "pass": "PASS_BRC_S23_J_EDGE_SHARP_40_63_20261102",
+  "pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "statement": "For fixed seven D1,D2,D3,D4,D6,D7,D8 and K1,K2,K3, max over real t in [0,1] of min-bank max-six-source TV(J(t)) equals 40/63, uniquely at t=17/63.",
+  "t_star": "17/63",
+  "sharp_radius": "40/63",
+  "left_upper_decoder": "D6",
+  "left_endpoints": {
+    "t=0": "1/2",
+    "t=17/63": "40/63"
+  },
+  "right_upper_decoder": "K1",
+  "right_endpoints": {
+    "t=17/63": "40/63",
+    "t=1": "4/7"
+  },
+  "critical_risk_event_witnesses": [
+    {
+      "decoder": "D1",
+      "risk": "1",
+      "source_row_0based": 0,
+      "stop_event_atoms_1based": [
+        1
+      ]
+    },
+    {
+      "decoder": "D2",
+      "risk": "1",
+      "source_row_0based": 0,
+      "stop_event_atoms_1based": [
+        1
+      ]
+    },
+    {
+      "decoder": "D3",
+      "risk": "1",
+      "source_row_0based": 0,
+      "stop_event_atoms_1based": [
+        1
+      ]
+    },
+    {
+      "decoder": "D4",
+      "risk": "1",
+      "source_row_0based": 0,
+      "stop_event_atoms_1based": [
+        1
+      ]
+    },
+    {
+      "decoder": "D6",
+      "risk": "40/63",
+      "source_row_0based": 3,
+      "stop_event_atoms_1based": [
+        1,
+        4
+      ]
+    },
+    {
+      "decoder": "D7",
+      "risk": "1",
+      "source_row_0based": 0,
+      "stop_event_atoms_1based": [
+        1
+      ]
+    },
+    {
+      "decoder": "D8",
+      "risk": "1",
+      "source_row_0based": 0,
+      "stop_event_atoms_1based": [
+        1
+      ]
+    },
+    {
+      "decoder": "K1",
+      "risk": "40/63",
+      "source_row_0based": 5,
+      "stop_event_atoms_1based": [
+        4
+      ]
+    },
+    {
+      "decoder": "K2",
+      "risk": "277/315",
+      "source_row_0based": 4,
+      "stop_event_atoms_1based": [
+        1,
+        3
+      ]
+    },
+    {
+      "decoder": "K3",
+      "risk": "46/63",
+      "source_row_0based": 5,
+      "stop_event_atoms_1based": [
+        4
+      ]
+    }
+  ],
+  "verification": "Python Fraction exact; event definition max of all 16 stopping subsets per each six original prepared input; convexity supplies all-real interval upper, exact critical events supply lower; no floating-point."
+}

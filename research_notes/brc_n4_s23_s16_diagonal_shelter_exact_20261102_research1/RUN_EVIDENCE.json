@@ -1,0 +1,123 @@
+{
+  "pass": "PASS_BRC_N4_S23_S16_DIAGONAL_SHELTER_EXACT_20261102",
+  "science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "predecessor": "PR_1765_HEAD_2b85bbba145e2f102eb4744009eb807a51bb3b0b",
+  "arithmetic": "integer exact; all prepared probabilities denominated by 40; total-variation risks are riskMatrix80/80",
+  "labelled_sources": [
+    "AU0",
+    "AU1",
+    "AV",
+    "BU0",
+    "BU1",
+    "BV"
+  ],
+  "off_policy_binary_coordinates": [
+    "00000000000",
+    "00000001000",
+    "00000000001",
+    "00101000000",
+    "00110000000",
+    "00101001000",
+    "00100000001",
+    "00100000000"
+  ],
+  "risk_matrix_numerators_denominator_80": [
+    [
+      40,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    [
+      80,
+      40,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    [
+      80,
+      80,
+      40,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    [
+      80,
+      80,
+      80,
+      40,
+      80,
+      80,
+      80,
+      80
+    ],
+    [
+      80,
+      80,
+      80,
+      80,
+      40,
+      80,
+      80,
+      80
+    ],
+    [
+      80,
+      80,
+      80,
+      80,
+      80,
+      40,
+      80,
+      80
+    ],
+    [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      40,
+      80
+    ],
+    [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      40
+    ]
+  ],
+  "protected_diagonal": "1/2",
+  "unprotected_offdiagonal": "1",
+  "prepared_row_normalization_checks": 96,
+  "exact_risks_checked": 64,
+  "all_release_choices_verified": 8,
+  "theorem_dependency": "S9 sharp radii (1/2 for h!=5, 11/21 for h=5) from predecessor; new theorem applies shelter lemma, not a fresh independent S9 proof",
+  "resulting_S16_radii": [
+    "1/2",
+    "1/2",
+    "1/2",
+    "1/2",
+    "11/21",
+    "1/2",
+    "1/2",
+    "1/2"
+  ],
+  "evidence_status": "author-side exact finite computation plus analytic reduction; no native Result/review/admission"
+}

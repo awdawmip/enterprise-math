@@ -1,0 +1,11 @@
+2026-11-04 author-side execution with Python stdlib Fraction/isqrt, command: python VERIFY.py.
+Source: frozen scientific pin enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34.
+PASS_BRC_S23_ALL_INTEGER_BUDGET_GLOBAL_OPTIMUM_EXACT_20261104
+model: s=1/2, v=1/21, p=11/42, q=10/42, costs T=3/2, B=1
+epsilon=175/14400000000 ; d-b<epsilon
+bounds: b>1/10000 ; 2b-c>1/10000 ; 2c-3b>1/4000000
+exchange: 2c-3d>2epsilon; all nonoptimal C gaps>1/6000000
+for every integer K>=1, unique optimal (m,n)=(2*(K//3),K%3)
+K<=100 exact rational exhaustive competing allocations: 117811
+shared-exponent objective: C(m,n)=max_t[m*f_T(t)+n*f_B(t)]
+Exactly 117811 nonoptimal pairs in 1<=K<=100 were tested; the all-K claim is proved by the general analytic argument. Native result/review not performed.

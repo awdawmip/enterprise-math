@@ -1,0 +1,32 @@
+{
+  "result": "PASS_BRC_N4_S23_EIGHT_WITNESS_SHARP_HALF_AND_EIGHT_OFF_COUNTEREXAMPLES_20261102",
+  "pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "eight_witness_risks": {
+    "W": {"WA": "1/2", "JBXY": "1", "CZ": "1"},
+    "J": {"WA": "2/3", "JBXY": "1/2", "CZ": "1"},
+    "A": {"WA": "1/2", "JBXY": "1", "CZ": "1"},
+    "B": {"WA": "6/7", "JBXY": "1/2", "CZ": "1"},
+    "C": {"WA": "6/7", "JBXY": "1", "CZ": "1/2"},
+    "X": {"WA": "14/15", "JBXY": "1/2", "CZ": "1"},
+    "Y": {"WA": "1", "JBXY": "1/2", "CZ": "1"},
+    "Z": {"WA": "1", "JBXY": "1", "CZ": "1/2"}
+  },
+  "chosen_decoders": {"W":"WA","J":"JBXY","A":"WA","B":"JBXY","C":"CZ","X":"JBXY","Y":"JBXY","Z":"CZ"},
+  "radius": "1/2",
+  "singular_pair_certificates": 7,
+  "label_assignments": 243,
+  "triple_event_mass": "19/7",
+  "exact_full_domain_counterexamples": [
+    {"released":1,"policy":"00000000000","remaining_ten_risks":"1 x 10"},
+    {"released":2,"policy":"00000001000","remaining_ten_risks":"1 x 10"},
+    {"released":3,"policy":"00000000001","remaining_ten_risks":"1 x 10"},
+    {"released":4,"policy":"00101000000","remaining_ten_risks":"1 x 10"},
+    {"released":5,"policy":"00110000000","remaining_ten_risks":"1 x 10"},
+    {"released":6,"policy":"00101001000","remaining_ten_risks":"1 x 10"},
+    {"released":7,"policy":"00100000001","remaining_ten_risks":"1 x 10"},
+    {"released":8,"policy":"00100000000","remaining_ten_risks":"1 x 10"}
+  ],
+  "exact_disjoint_support_certificates": 80,
+  "arithmetic": "Python stdlib Fraction",
+  "status": "AUTHOR_EXACT_PROOF_UNREVIEWED_NOT_ADMITTED"
+}

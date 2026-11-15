@@ -1,0 +1,9 @@
+# Sources and provenance
+
+- Frozen scientific input: Enterprise Math `43ec6098b1330ae86d0a7863be336c5d97f6ef34`; six labeled stochastic source model and causal branch law as restated in this directory's `PROOF.md`.
+- Highest relevant verified predecessor: `research_notes/brc_n4_s23_fiber_gate_reopen_sharp_20261103_research1/PROOF.md` at `df0f97163bcab3c86281146945f97a66b7667b5a` (four-dimensional closed-gate fiber, constant replacement U_beta, sharp 21 condition number).
+- Earlier full-fiber classification: `research_notes/brc_n4_s23_complete_observer_fiber_stratification_20261103_research1/PROOF.md` at `6c2368ce2c205fde60263f1671c694591c7dacb6` (32 upstream patterns and fibers).
+- Current behavioral and mathematical evidence rules: `awdawmip/chatgpt-global-knowledge` canonical main `00_BOOTSTRAP.md`, `OPERATING_MANUAL.md`, output and math policies; Enterprise Math `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `research_priorities/research_method.json`, locked P000 / ACTIVE Heartbeat World / joint-observer preservation.
+- Implementation: `VERIFY.py` (Python 3 standard library; exact `fractions.Fraction`). Execution result: `RUN_EVIDENCE.json`. No external theorem or numerical approximation is needed.
+- The future operation is explicitly an algebraic intervention defined in the frozen stochastic model. It does not require, invoke or assert a Heartbeat physical update, BRC–Shor execution, or any signed-amplitude cancellation.
+- Role/permission at source capture: GitHub login `awdawmip` verified; Enterprise Math Sites read-only gateway `research_authority_granted=false`; native owner/CLAIM not established because `em_control_tasks` returned `CONTROL_QUOTA`. This is an independent author-side derivation and source handoff, not a formal task Result or independent Review.

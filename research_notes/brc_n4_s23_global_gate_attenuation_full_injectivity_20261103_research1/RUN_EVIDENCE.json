@@ -1,0 +1,17 @@
+{
+  "marker": "PASS_BRC_S23_GLOBAL_GATE_ATTENUATION_INJECTIVITY_20261103",
+  "frozen_scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "observer": "six labeled source-mixed four-outcome distributions; no port collapse",
+  "operator": "A_lambda z: multiply z[0:5] by lambda; preserve z[5:11]",
+  "lambda_one_half": "1/2",
+  "global_bound_lambda_one_half": "(1/84)*||z-w||inf <= d <= 2*||z-w||inf",
+  "all_binary_corners_exact_reconstruction": 2048,
+  "rational_interior_points_reconstructed": 160,
+  "additional_lambdas_reconstructed": 4,
+  "additional_lambda_tests": 320,
+  "rational_pair_bound_tests": 480,
+  "both_endpoint_noninjectivity_witnesses": 2,
+  "arithmetic": "Python stdlib Fraction exact rational",
+  "scope": "Finite execution checks; all-real cube injectivity and bounds follow from symbolic proof in PROOF.md",
+  "formal_review": "NOT_PERFORMED; NOT_ADMITTED"
+}

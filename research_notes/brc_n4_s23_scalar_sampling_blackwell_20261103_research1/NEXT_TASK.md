@@ -1,0 +1,6 @@
+# Next independently executable scientific unit
+
+1. Fix F=(3,31), missing row j=0, beta_E=1/2, beta_N=0 and the prior pair h=1/42. Let full-row trial cost c_T=7/4 and repaired scalar trial cost c_B=1. For budget L in a specified finite rational grid, minimize the exact e(f,r) from PROOF.md over integers f,r>=0 with (7/4)f+r<=L. Compute a rational table and determine whether the local Fisher threshold predicts any finite-budget optimum. Retain the possibility of ties.
+2. Extend to the whole nine-parameter state rather than the two chosen hypotheses: add one operator I setting the N-view z2 gate to gamma=0, and test the exact full-bank inverse norm after missing-row repair. For beta_E=1/2 and beta_N=0 the previous witness contrast improves fourfold; find another state pair (or a uniform upper certificate) to determine the actual *global* effect. Preserve source labels and operator costs.
+3. Continue the parent ten-label S23 decoder minimax [1/2,2/3] as a separate open objective; no statistical two-point conclusion proves the parent minimax.
+Keep frozen scientific input @43ec6098b1330ae86d0a7863be336c5d97f6ef34 and P000; author-side UNREVIEWED / NOT_ADMITTED. Reuse existing PR #1765 frontier.

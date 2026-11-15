@@ -1,0 +1,8 @@
+# Exact sources and provenance
+
+- Mathematical predecessor: Enterprise Math PR #1765, immutable commit 52b75934716d469de77ec5bd43c1eee936101741, research_notes/brc_n4_s23_six_control_box_split_erasure_20261101_research1/MULTIAFFINE_COUNTEREXAMPLE.md (full-box a_A/c_AV theorem, proof/model), with PROOF.md in the same directory (source mixing and BRC law).
+- Current project reading pin: awdawmip/enterprise-math main@96dbd541e2c8f4f873aaf4ee37a42cf6af0f3278; p000_reality_foundation.json, definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json, definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json, control_plane/current_control_authority.json, docs/PORTABLE_RESEARCH_PROTOCOL.md, docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md.
+- Current global authoritative read pin: awdawmip/chatgpt-global-knowledge main@0db5316b498ced93c8305ff49bcfd860f15abe65; 00_BOOTSTRAP.md, OPERATING_MANUAL.md, project P000_STARTUP, ACTIVE worldview, mathematical and BRC policies.
+- Provenance: own non-native author derivation from the declared finite model; exact analytic theorem plus an actually executed V8 integer check. No third-party scientific priority claim and no formal checker/independent acceptance claim.
+- Verified native control observation: em_status version 0.6.11, research_authority_granted=false, control CODE_REVIEW_REQUIRED, active quota 5/5; bounded owner query returned CONTROL_QUOTA. No native task owner was successfully resolved; no native CLAIM, Result, review, or admission performed.
+- Public project branch is the durable author-science handoff; global private governance content is not reproduced in this folder. No credentials, secret values or access-control changes.

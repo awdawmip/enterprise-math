@@ -1,0 +1,48 @@
+{
+  "status": "PASS_BRC_N4_S23_OBSERVER_CONDITIONING_20261101",
+  "arithmetic": "integer_exact",
+  "prepared_denominator": 33600,
+  "source_denominator": 1680,
+  "exact_grid_points": 2401,
+  "bounded_offsets": "u,v,w,x in [-1/2,1/2]",
+  "full_cube_risk": "r(z)=1-min_{i,j} p_i(z)_j",
+  "exact_gap": "(1/2)max(|(u+v)/2|,|(9u+11v)/20|,|(w+x)/2|,|(w+9x)/10|)",
+  "au_sharp": {
+    "offsets_over_840": [
+      210,
+      -190,
+      0,
+      0
+    ],
+    "gap": "1/168",
+    "radius": "127/168",
+    "inverse_constant": 42
+  },
+  "bu_sharp": {
+    "offsets_over_840": [
+      0,
+      0,
+      210,
+      -90
+    ],
+    "gap": "1/28",
+    "radius": "11/14",
+    "inverse_constant": 7
+  },
+  "erasure_witness": {
+    "offsets_over_840": [
+      210,
+      -210,
+      0,
+      0
+    ],
+    "omitted_row": 1,
+    "other_rows": "uniform",
+    "full_gap": "1/80"
+  },
+  "model": "six labelled sources; positive BRC weights 20M; four stops; causal S23",
+  "inference": "finite grid checks exact formulas, universal statements require analytic proof",
+  "executed_at_date": "2026-11-01",
+  "execution_environment": "functions.exec V8 JavaScript engine; exact integer arithmetic",
+  "source_consistency": "VERIFY.js exact text executed via dynamic function before creating Git blobs"
+}

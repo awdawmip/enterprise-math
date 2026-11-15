@@ -1,0 +1,5 @@
+# Source and validation status
+
+Frozen science pin: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Prior related exact source: `awdawmip/enterprise-math@6b7d90cb199a14983c492124730706c1289bc985`, PR #1765, two real edges and 84-triple/59049-coloring lower. GLOBAL_KNOWLEDGE canonical normative read `5005b5c1fbf7f6fcb2e97d486990c866ef069d19`; project Source control main read `7d5cf2250c5a333307999efbca6d245aba43b724` at research start, P000 projection matched canonical blob `770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc`.
+
+Actual V8 exact integer checker `VERIFY.js` includes original causal F, six distinct tagged source law, shared b_U, 25 full rectangle certificates, 36 two-coordinate bilinear interpolation identities, original witness hypergraph 84/120, all 59049 allocations. The universal continuum claim is proved analytically from the multilinear interpolation of the source rows and convexity of TV, with exact finite vertex certificates. No independent review/native Result admission. Authenticated GitHub login `awdawmip` has push/admin; native current owner query returned `CONTROL_QUOTA`, Site gateway `research_authority_granted=false`.

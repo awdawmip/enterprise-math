@@ -1,0 +1,8 @@
+# Sources and provenance
+
+- GLOBAL_KNOWLEDGE_V1 read lease from connected GitHub main commit `b687941eae4c219b60f62a03369de1449bd1ad23` verified in this run, including both global entries, Enterprise Math project bootstrap, P000 startup projection and matching canonical original blob `770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc`, ACTIVE worldview, math/BRC/code/temporal/activity and handoff policies.
+- Enterprise Math current-main read pin: `a0596d5e530eaee2052dbaf5b668f40d88b6217e`, including `AGENTS.md`, original project P000, native X6/independent-time contract, joint-relation preservation, current control authority, autonomous research and portable research protocol.
+- Exact predecessor PR #1765 at immutable commit `8ce7267979cea4cfb13b86fb9e34e101b5c93621`, in `research_notes/brc_n4_s23_nonuniform_edge_repair_20261101_research1/`: its PROOF.md fixes first nine decoders and the H/J edges; VERIFY.js and RUN_EVIDENCE.txt support the previous 177147-point ternary grid result for its particular repaired tenth label.
+- This turn's independent Fraction verifier in VERIFY.py and captured stdout in RUN_EVIDENCE.txt: exact arithmetic for three legal policies, all nine old labels each, explicit tenth construction, all 18 prepared-row errors and BV sharpness. Universal real-decoder result is analytic.
+- Role and admission: authenticated GitHub login `awdawmip`; current Enterprise Math MCP `research_authority_granted=false`, active owner query `CONTROL_QUOTA`. GitHub author-side research only. No native task owner/CLAIM/Result/review issued or inferred. UNREVIEWED / NOT_ADMITTED.
+- P000's six native spatial axes and the six latent *statistical* BRC sources are unrelated types until an explicit native transfer bridge is proved.

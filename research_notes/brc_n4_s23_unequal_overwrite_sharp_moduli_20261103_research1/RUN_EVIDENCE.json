@@ -1,0 +1,44 @@
+{
+  "status": "PASS_BRC_S23_UNEQUAL_OVERWRITE_EXACT_MODULI_20261103",
+  "frozen_science": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "metric": "maximum labeled source total variation across baseline and two overwritten views",
+  "coefficient": {
+    "non2_mask_3": "min(a,b*b/21)",
+    "non2_masks_27_11_19": "min(a*a,b*b/21)",
+    "a": "1-beta_non2",
+    "b": "1-beta_exposing2"
+  },
+  "mask_order": [
+    [
+      3,
+      31
+    ],
+    [
+      27,
+      7
+    ],
+    [
+      11,
+      23
+    ],
+    [
+      19,
+      15
+    ]
+  ],
+  "beta_values": [
+    "0",
+    "1/5",
+    "1/2",
+    "3/4",
+    "9/10",
+    "1"
+  ],
+  "counts": {
+    "witness": 396,
+    "inverse": 500,
+    "global_inequality": 500,
+    "zero_endpoint": 44
+  },
+  "proof": "symbolic inversion and witnesses establish global all-real theorem; finite exact tests check implementation"
+}

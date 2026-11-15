@@ -1,0 +1,7 @@
+# Next independent scientific unit
+
+Continue immutable source-tagged S23 two-observer model and keep frozen pin `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Highest verified author frontier: `s=1/9,h=1/42` complete unique optimum for every integer K>=1; exact **minimal** eventual period-17 onset K0=170; see accompanying PROOF.md and VERIFY.py in this research directory. Exact all-K proof depends on 19 rational interval signs, strict D(L,r) monotonicity and prior general rational-cost endpoint lemma. K=169 is the last failure.
+
+New discriminating question: for rational `s` near 1/9 (first select `s=1/9 +/- 1/10000`, if model-valid), keep exact source probabilities and cost `2-s`. After reducing p/q, test whether the same integer endpoint/convexity mechanism gives a new eventual period p; rigorously bound the positive margin E and finite residual comparisons. If not, record the first sign flip and search the exact transition parameter. Use shared Chernoff exponent for each mixed observation. Produce one verified exact rational counterexample or an explicit parameter interval with certified margins.
+
+Review/admission status remains AUTHOR_ANALYTIC_PROOF / EXACT_RATIONAL_EXECUTED / UNREVIEWED / NOT_ADMITTED. Native role, activity and CLAIM require their own authenticated service; GitHub author-side checkpoints are not formal task Results. The unrestricted ten-label minimax mother question is separate and open in recorded interval [1/2,2/3].

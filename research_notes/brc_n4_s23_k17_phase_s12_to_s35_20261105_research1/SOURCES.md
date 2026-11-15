@@ -1,0 +1,7 @@
+# Source and scope register
+- Frozen scientific model: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34; a=11/21, b=10/21, ternary T and projected Bernoulli B, budget K=17, c_T=2-s, c_B=1.
+- Immediate verified antecedent: awdawmip/enterprise-math@6cea711da98353ce1408ed8d63ec76df9536a50e; research_notes/brc_n4_s23_k17_phase_s25_to_s12_20261105_research1/PROOF.md and VERIFY.py (Git blob 6e445e1c57ff575aa0037bd2b7ceac09d890aa07). The new verifier imports this earlier shared arithmetic code on the same PR branch.
+- Current normative: docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context; docs/PORTABLE_RESEARCH_PROTOCOL.md; research_priorities/research_method.json; project's locked P000 and active worldview; authorized account bootstrap/manual, math, temporal semantics, and code research policies. Rules are current-read and distinct from frozen scientific pins.
+- Tool evidence: local Python interpreter with standard library Fraction/isqrt; exact rational interval log/sqrt and optimal Bernoulli KL enclosure; code rerun output summary RUN_EVIDENCE.txt; complete stdout archived in local run artifact.
+- Scope: exact auxiliary statistical discrimination and integer-cost phase diagram; NOT the mother ten-label minimax theorem. Mathematics is author-side, not independently reviewed or Source Result-admitted.
+- Identity: real MCP-issued Researcher-ID EM-DIRECT-FC4FB1, RA-7531E1328C3FF9D7503AB22C; execution_authorized=false, formal task CLAIM and owner unknown. No borrowed claim, signed ChatGPT session or invented reviewer.

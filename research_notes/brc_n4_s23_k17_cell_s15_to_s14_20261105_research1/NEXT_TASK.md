@@ -1,0 +1,3 @@
+# Next executable task: K=17 phase cell 1/4 ≤ s < 1/3
+
+Continue same frozen input `43ec6098b1330ae86d0a7863be336c5d97f6ef34`, T ternary complete source, B Bernoulli projection, costs 2−s and 1, shared Chernoff exponent. New rigorously proved starting optimizer at s=1/4 is (8,3). First classify feasible maxima n_m=17−2m+floor(ms), including interior jump at s=2/7, and boundary s=1/3. Compare admissible candidates using exact convex-secant or a tighter shared-t certificate; identify continuous switching and discontinuous budget jumps. Publish exact argument and executed bounds with explicit original ten-label minimax [1/2,2/3] mother-gap scope. Preserve unreviewed status until independent mathematical admission.

@@ -1,0 +1,7 @@
+# Exact source and provenance
+- Canonical current global policy read: `awdawmip/chatgpt-global-knowledge` main at `b9206b383039edd2d197bb0f7d0bb7918e01ea73`, including 00_BOOTSTRAP.md, OPERATING_MANUAL.md, project TASK bootstrap, P000_STARTUP.json (projection blob `770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc` matched full P000), ACTIVE `我眼中的世界.md`, current MATH_RESEARCH_POLICY and OUTPUT_TEMPORAL_SEMANTICS_POLICY.
+- Current EM control read: main `f12541ee71e77f200608fed40ba445faaf642dae`, `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `research_priorities/research_method.json`.
+- Frozen BRC scientific pin: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`; no update to original scientific input.
+- Immediate author-side predecessor: `awdawmip/enterprise-math@dfcef016a6c64662e1b55cca302f1ef80c3ae733`, `research_notes/brc_n4_s23_one_source_label_deletion_exact_fibers_20261103_research1/PROOF.md`, PR #1765, unreviewed.
+- New analytic derivation: sibling PROOF.md. Verification: `python VERIFY.py` with `fractions.Fraction`, actual stdout in RUN_EVIDENCE.txt; finite test counts are not a substitute for real-parameter proof.
+- 2026-11-03 native `em_control_tasks` returned `CONTROL_QUOTA`, Sites status `research_authority_granted=false`. GitHub authenticated `awdawmip` with push permission. Author-side storage does not constitute native claimant status, Result, independent review or Foundation promotion.
