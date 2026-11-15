@@ -1,7 +1,7 @@
 # R5 — A five-cycle exact partial-control transducer: seven states, but eight with self-loop resets
 
 Date: 2026-11-16 (Asia/Shanghai).
-Frozen scientific input: \`435e77af0d180eac32bd1f9c4c464bc4010b7551\`.
+Frozen scientific input: `435e77af0d180eac32bd1f9c4c464bc4010b7551`.
 Evidence: AUTHOR_PROVED / EXACT_FINITE_EXHAUSTIVE / NOT_REVIEWED.
 Scope: source-labelled *auxiliary integer indexed-centre* cycle-of-triangles repair model, not the native X6 metric or heartbeat dynamics. P000 and the active worldview remain unchanged.
 
@@ -30,13 +30,13 @@ A state is a set of raw masks. Encode the set \(B\) by the 32-bit integer \(\sum
 
 | State | Belief hex | Centre \(r_t\) | \(q(r_t)\) | Set0→ | Set1→ |
 |---|---|---:|---:|---:|---:|
-| 0 | \`000000ff\` | 7 | 2 | 0 | 0 |
-| 1 | \`00003333\` | 13 | 1 | 1 | 1 |
-| 2 | \`00330033\` | 21 | 1 | 2 | 2 |
-| 3 | \`01040400\` | 26 | 1 | 3 | 4 |
-| 4 | \`02080800\` | 27 | 3 | 3 | 4 |
-| 5 | \`54404000\` | 30 | 3 | 5 | 6 |
-| 6 | \`e8808000\` | 31 | 5 | 5 | 6 |
+| 0 | `000000ff` | 7 | 2 | 0 | 0 |
+| 1 | `00003333` | 13 | 1 | 1 | 1 |
+| 2 | `00330033` | 21 | 1 | 2 | 2 |
+| 3 | `01040400` | 26 | 1 | 3 | 4 |
+| 4 | `02080800` | 27 | 3 | 3 | 4 |
+| 5 | `54404000` | 30 | 3 | 5 | 6 |
+| 6 | `e8808000` | 31 | 5 | 5 | 6 |
 
 The seven belief masks cover all 32 possible raw states. Direct integer checks establish (i) every \(u\in B_t\) satisfies \(u\le r_t\) and \(q(r_t)-q(u)\le2\); (ii) the image of \(B_t\) under either named reset is contained in its indicated target state. The first condition supplies the genuine fixed labelled library at each state; the second gives a simple induction on arbitrarily long reset words. This proves \(N_{\mathrm{dyn}}\le7\).
 
@@ -65,10 +65,10 @@ have \(\bigcup P(v)=\{0,\ldots,15\}\). For each \(P(v)\), use the source library
 
 ## Reproducibility and verification scope
 
-Run the adjacent \`R5_K5_SINGLE_CONTROL_EXACT.py\` with Python 3 standard library; its output is the adjacent \`R5_K5_SINGLE_CONTROL_EVIDENCE.json\`. The script verifies all 7 source centres, memberwise exact slack bounds, both transitions, the 32-mask cover, all 906192 six-centre static candidates, all 11440 seven-centre invariant candidates, and the eight-centre upper witness. All checks use Python integer arithmetic; no solver, floating point or tolerance. The finite exhaustive argument is specific to \(k=5,s=2,J=\{0\}\), and depends on the inherited source-labelled common-library theorem in precisely that model. Independent review: NOT_REVIEWED.
+Run the adjacent `R5_K5_SINGLE_CONTROL_EXACT.py` with Python 3 standard library; its output is the adjacent `R5_K5_SINGLE_CONTROL_EVIDENCE.json`. The script verifies all 7 source centres, memberwise exact slack bounds, both transitions, the 32-mask cover, all 906192 six-centre static candidates, all 11440 seven-centre invariant candidates, and the eight-centre upper witness. All checks use Python integer arithmetic; no solver, floating point or tolerance. The finite exhaustive argument is specific to \(k=5,s=2,J=\{0\}\), and depends on the inherited source-labelled common-library theorem in precisely that model. Independent review: NOT_REVIEWED.
 
 ### Provenance and next question
 
-Source: \`r5_partial_set_future_safe_20261116/PARTIAL_NAMED_SET_FUTURE_SAFETY_THEOREM.md\`, \`r5_slack_dynamic_source_20261116/SLACK_SOURCE_COVER_AND_DYNAMIC_BELIEF_THEOREMS.md\`, \`r5_shared_source_helly_20261116/SHARED_SOURCE_HELLY_AND_ROBUST_CONTROLLER_THEOREM.md\` at the inherited frozen pin. Historical author provenance: \`EM-DIRECT-B78E55\`, \`RA-33C87C2B703418F0706695E9\`; present Task/CLAIM permission is a separate control matter.
+Source: `r5_partial_set_future_safe_20261116/PARTIAL_NAMED_SET_FUTURE_SAFETY_THEOREM.md`, `r5_slack_dynamic_source_20261116/SLACK_SOURCE_COVER_AND_DYNAMIC_BELIEF_THEOREMS.md`, `r5_shared_source_helly_20261116/SHARED_SOURCE_HELLY_AND_ROBUST_CONTROLLER_THEOREM.md` at the inherited frozen pin. Historical author provenance: `EM-DIRECT-B78E55`, `RA-33C87C2B703418F0706695E9`; present Task/CLAIM permission is a separate control matter.
 
 Next: determine whether \(N_{\mathrm{dyn}}(k,\{0\},2)=M_{\mathrm{stat}}(k,2)\) persists for any unbounded \(k\)-family, and whether an exact non-inert advantage persists for \(k\ge6\). Search for structural finite-state constructions that reuse a static covering dictionary; seek explicit lower certificates for \(k=6\) before extrapolating.
