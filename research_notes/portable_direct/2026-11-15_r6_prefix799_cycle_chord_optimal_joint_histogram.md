@@ -10,7 +10,7 @@ Scope: a finite integer transportation fiber as an auxiliary named-source positi
 
 PREFIX-798 computed an exact scalar weighted-source histogram by row transfer. Can the full *joint* weighted-source histogram be reconstructed using only the independent cycle residuals, and can the resulting exhaustive search bound be optimized without losing capacity correlations?
 
-Let G=(U \u222a V,E) be a finite bipartite graph with b row vertices and c column vertices. Each edge e=(i,j) has a positive integral capacity K_e; zero-capacity pairs are omitted and fixed at zero. The row and column margins m=(r_1,...,r_b,s_1,...,s_c) are nonnegative integers, with equal totals on every connected component. Define A by A_{v,e}=1 when vertex v is incident to edge e and 0 otherwise. Assume the fiber
+Let G=(U∪V,E) be a finite bipartite graph with b row vertices and c column vertices. Each edge e=(i,j) has a positive integral capacity K_e; zero-capacity pairs are omitted and fixed at zero. The row and column margins m=(r_1,...,r_b,s_1,...,s_c) are nonnegative integers, with equal totals on every connected component. Define A by A_{v,e}=1 when vertex v is incident to edge e and 0 otherwise. Assume the fiber
 
 F(K,m)={x in Z^E: Ax=m, 0<=x_e<=K_e for all e}
 
