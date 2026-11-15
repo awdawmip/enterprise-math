@@ -76,3 +76,11 @@ The one-bit identity residual can be *born* at a later length even if shorter wo
 Next: classify exact collision-birth lengths for a fixed adjacent swap and test whether finite observer enrichments (signed ports, BRC path/provenance carriers) admit controlled recovery after scalar collision splits. Such a transfer requires the relevant typed observation and future-operation map; do not equate scalar signature identity with BRC branch equality.
 
 Research path: independent portable_direct artifact. The exact RS-S23-AV task publication directory was absent in Source control read as-of 2026-11-15T02:02:17.831751Z; no formal claim, Result, Review, or shared-owner mutation is asserted.
+
+## Exact collision-birth witness (allowed by R167)
+
+At length 3, u=001 and v=010 have differing exact signatures:
+S(001)=(0,1/2,1,0), S(010)=(0,2/3,1,0).
+After appending a common 0, the length-4 words 0010 and 0100 satisfy
+S(0010)=S(0100)=(0,1/2,1,0).
+Thus the consecutive collision-lifespan result is genuinely one-sided: a first collision may arise after a noncolliding prefix, whereas an established collision cannot disappear and subsequently reappear. These values were obtained by the exact Fraction signature oracle included in the script.
