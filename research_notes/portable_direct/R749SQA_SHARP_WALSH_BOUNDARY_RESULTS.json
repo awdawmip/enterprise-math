@@ -1,0 +1,203 @@
+{
+  "schema": "R749SQA_SHARP_WALSH_BOUNDARY_V1",
+  "status": "PASS",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor_commit": "b4507430ced229f67db20fe0424e3988ca747c7a",
+  "model": "auxiliary signed 16-atom Walsh source, t=1/10, s=1/2",
+  "arithmetic": "Python integers and Fraction only; no floating tolerance",
+  "first_grid_points": 33,
+  "forced_source_types": 25,
+  "slack_multiplicities": {
+    "1": 3,
+    "2": 4,
+    "3": 6,
+    "4": 4,
+    "5": 3,
+    "6": 2,
+    "7": 1
+  },
+  "slack_g0_to_g7": [
+    1,
+    3,
+    10,
+    28,
+    71,
+    166,
+    372,
+    786
+  ],
+  "boundary_layer_constants_C1_to_C8": [
+    1,
+    4,
+    14,
+    42,
+    113,
+    279,
+    651,
+    1437
+  ],
+  "layer_checks": [
+    {
+      "r": 1,
+      "threshold_D": 2,
+      "missing": 1,
+      "previous_D_missing": null
+    },
+    {
+      "r": 2,
+      "threshold_D": 2,
+      "missing": 4,
+      "previous_D_missing": null
+    },
+    {
+      "r": 3,
+      "threshold_D": 4,
+      "missing": 14,
+      "previous_D_missing": 13
+    },
+    {
+      "r": 4,
+      "threshold_D": 6,
+      "missing": 42,
+      "previous_D_missing": 41
+    },
+    {
+      "r": 5,
+      "threshold_D": 8,
+      "missing": 113,
+      "previous_D_missing": 112
+    },
+    {
+      "r": 6,
+      "threshold_D": 10,
+      "missing": 279,
+      "previous_D_missing": 278
+    },
+    {
+      "r": 7,
+      "threshold_D": 12,
+      "missing": 651,
+      "previous_D_missing": 650
+    },
+    {
+      "r": 8,
+      "threshold_D": 14,
+      "missing": 1437,
+      "previous_D_missing": 1436
+    }
+  ],
+  "exact_D_cases": [
+    {
+      "D": 2,
+      "N": 15,
+      "W": 1,
+      "sharp_signed_n": 1,
+      "tail_gap_one": 1,
+      "mass_at_2D_minus_2": 11,
+      "mass_at_2D_minus_1": 14,
+      "saturated_W1_prefactor": "1/300"
+    },
+    {
+      "D": 3,
+      "N": 52,
+      "W": 3,
+      "sharp_signed_n": 3,
+      "tail_gap_one": 1,
+      "mass_at_2D_minus_2": 48,
+      "mass_at_2D_minus_1": 51,
+      "saturated_W1_prefactor": "3/1040"
+    },
+    {
+      "D": 4,
+      "N": 176,
+      "W": 16,
+      "sharp_signed_n": 5,
+      "tail_gap_one": 1,
+      "mass_at_2D_minus_2": 172,
+      "mass_at_2D_minus_1": 175,
+      "saturated_W1_prefactor": "1/220"
+    },
+    {
+      "D": 5,
+      "N": 521,
+      "W": 55,
+      "sharp_signed_n": 7,
+      "tail_gap_one": 1,
+      "mass_at_2D_minus_2": 517,
+      "mass_at_2D_minus_1": 520,
+      "saturated_W1_prefactor": "11/2084"
+    },
+    {
+      "D": 6,
+      "N": 1468,
+      "W": 192,
+      "sharp_signed_n": 9,
+      "tail_gap_one": 1,
+      "mass_at_2D_minus_2": 1464,
+      "mass_at_2D_minus_1": 1467,
+      "saturated_W1_prefactor": "12/1835"
+    },
+    {
+      "D": 7,
+      "N": 3838,
+      "W": 576,
+      "sharp_signed_n": 11,
+      "tail_gap_one": 1,
+      "mass_at_2D_minus_2": 3834,
+      "mass_at_2D_minus_1": 3837,
+      "saturated_W1_prefactor": "72/9595"
+    },
+    {
+      "D": 8,
+      "N": 9584,
+      "W": 1660,
+      "sharp_signed_n": 13,
+      "tail_gap_one": 1,
+      "mass_at_2D_minus_2": 9580,
+      "mass_at_2D_minus_1": 9583,
+      "saturated_W1_prefactor": "83/9584"
+    },
+    {
+      "D": 9,
+      "N": 22749,
+      "W": 4414,
+      "sharp_signed_n": 15,
+      "tail_gap_one": 1,
+      "mass_at_2D_minus_2": 22745,
+      "mass_at_2D_minus_1": 22748,
+      "saturated_W1_prefactor": "2207/227490"
+    },
+    {
+      "D": 10,
+      "N": 51968,
+      "W": 11244,
+      "sharp_signed_n": 17,
+      "tail_gap_one": 1,
+      "mass_at_2D_minus_2": 51964,
+      "mass_at_2D_minus_1": 51967,
+      "saturated_W1_prefactor": "2811/259840"
+    },
+    {
+      "D": 11,
+      "N": 114278,
+      "W": 27163,
+      "sharp_signed_n": 19,
+      "tail_gap_one": 1,
+      "mass_at_2D_minus_2": 114274,
+      "mass_at_2D_minus_1": 114277,
+      "saturated_W1_prefactor": "27163/2285560"
+    },
+    {
+      "D": 12,
+      "N": 243454,
+      "W": 63212,
+      "sharp_signed_n": 21,
+      "tail_gap_one": 1,
+      "mass_at_2D_minus_2": 243450,
+      "mass_at_2D_minus_1": 243453,
+      "saturated_W1_prefactor": "15803/1217270"
+    }
+  ],
+  "universal_scope": "symbolic proof in accompanying note",
+  "review": "AUTHOR_EXACT_NOT_REVIEWED"
+}
