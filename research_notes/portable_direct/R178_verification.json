@@ -1,0 +1,89 @@
+{
+  "alphabet_size": 12,
+  "collision_witness": {
+    "P": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "P_code": 4578,
+    "Q": [
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        -1
+      ]
+    ],
+    "Q_code": 2562,
+    "shared_length_D_J": "(4, (0, 0, 0, 0, 0, 0), (0, 0, 0, 0, 0, 0))"
+  },
+  "conclusion": "REFERENCE_EXACT_PASS",
+  "exact_arithmetic": true,
+  "first_moment_collision_length": 4,
+  "length_counts": {
+    "0": {
+      "distinct_D_J": 1,
+      "distinct_positional_codes": 1,
+      "moment_collision_excess": 0,
+      "path_count": 1
+    },
+    "1": {
+      "distinct_D_J": 12,
+      "distinct_positional_codes": 12,
+      "moment_collision_excess": 0,
+      "path_count": 12
+    },
+    "2": {
+      "distinct_D_J": 144,
+      "distinct_positional_codes": 144,
+      "moment_collision_excess": 0,
+      "path_count": 144
+    },
+    "3": {
+      "distinct_D_J": 1728,
+      "distinct_positional_codes": 1728,
+      "moment_collision_excess": 0,
+      "path_count": 1728
+    },
+    "4": {
+      "distinct_D_J": 20305,
+      "distinct_positional_codes": 20736,
+      "moment_collision_excess": 431,
+      "path_count": 20736
+    }
+  },
+  "native_brc_integration": {
+    "attempted": true,
+    "error": "native package unavailable: No module named 'enterprise_math'",
+    "imported": false,
+    "passed": false
+  },
+  "positive_packet_product_checks": 36,
+  "radix": 13,
+  "random_matrix_composition_checks": 180,
+  "schema": "R178_LOSSLESS_PATH_AFFINE_EXACT_VERIFICATION_V1"
+}
