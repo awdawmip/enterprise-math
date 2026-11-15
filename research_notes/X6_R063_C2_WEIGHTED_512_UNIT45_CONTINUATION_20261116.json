@@ -19,7 +19,7 @@
   "original_requests": {
     "onhour-20261116-0013-x6-own-run3356-resume-for-unit44-v1": "SUCCEEDED / RUN_READY, original same owner heartbeat verified",
     "onhour-20261116-0106-x6-exact-continuation-v1": "SUCCEEDED / read only / current control Source at admission fd19ca4f24226954a2eab626b62edb4dd80e3622",
-    "onhour-20261116-x6-own-run3356-resume-for-unit45-v1": "BACKEND_IDENTITY_CHECK_UNAVAILABLE; operation_sent=false; not sent to backend / no new authority"
+    "onhour-20261116-x6-own-run3356-resume-for-unit45-v1": "First local authentication probe returned BACKEND_IDENTITY_CHECK_UNAVAILABLE / operation_sent=false. One bounded retry of SAME original request_id was accepted as QUEUED / WAIT_ORIGINAL / error=null; latest original receipt QUEUED. DO NOT REISSUE; reconcile original ID."
   },
   "frozen_inputs": {
     "R063_loader_git_blob_sha1": "b4e000a6377f2858ae434eb0eecd0c25c33e8592",
@@ -64,6 +64,8 @@
     "No new Researcher/Driver identity, CLAIM, dispatch or maintenance lane reuse",
     "Never treat supplemental checker as the frozen native R063 run"
   ],
-  "next_exact_action": "Check original pending request receipts and fresh own exact continuation. Verify original SID/CLAIM/run still winning, and reauthorize only through existing approved native route; if native writes permitted, publish GitHub-backed saved units 44 and 45 with immutable Source evidence. Separately secure real runner for issue #2416 to execute unchanged native six-file original with 17 gates/512 cases, then source-checkpoint results. Continue 28-LP provenance audit without inventing wrong callers.",
-  "notification_and_scheduler": "UNCHANGED_NO_AUTOMATION_ACTION"
+  "next_exact_action": "Read original onhour-20261116-x6-own-run3356-resume-for-unit45-v1 receipt until terminal; no duplicate resume. On SUCCEEDED/RUN_READY confirm original winning CLAIM, generation and Source. Publish saved units #44/#45 only with valid native authorization. Independently execute original pinned R063 17 gates/512 benchmark via assigned issue #2416 runner, record original output readback. Continue LP011/LP019 historical caller provenance and 28-LP consumer closure.",
+  "notification_and_scheduler": "UNCHANGED_NO_AUTOMATION_ACTION",
+  "current_pending_request": "onhour-20261116-x6-own-run3356-resume-for-unit45-v1",
+  "current_pending_status": "QUEUED / WAIT_ORIGINAL, error=null; no signed current write authorization"
 }
