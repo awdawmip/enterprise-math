@@ -84,6 +84,24 @@ For any sequence \(a_j\downarrow0\), Fatou's lemma for nonnegative series and (1
 
 Equivalently, given \(K>0\), choose a finite \(M\) for which \(\sum_{N\le M}q_N^2/N^2>2K\). By convergence (1) for those finitely many \(N\), there is \(a_K>0\) such that \(\sum_{N\le M}|B_{a,N}/a|^2/N^2>K\) for every \(0<a<a_K\). The full \(E_a/a^2\) dominates the partial sum. This establishes the extended limit without a uniform Taylor expansion in \(N\).
 
+## Corollary: every diverging finite nearfield has the same lower-scale barrier
+
+Let \(L:(0,a_0)\to\mathbb N\) satisfy \(L(a)\to\infty\) as \(a\downarrow0\), without any monotonicity assumption, and write
+
+\[
+E_a(L)=\sum_{1\le N\le L}\frac{|B_{a,N}|^2}{N^2}.
+\]
+
+Then the **stronger finite-cutoff statement**
+
+\[
+\boxed{\lim_{a\downarrow0}\frac{E_a(L(a))}{a^2}=+\infty}
+\]
+
+also holds. For any \(K\), choose \(M\) from (5) with a finite partial \(q\)-energy exceeding \(2K\). Eventually \(L(a)\ge M\), while (1) makes that same finite \(M\)-term partial road energy exceed \(K a^2\). Thus no inaccessible part of the infinite tail is needed for this lower-scale conclusion.
+
+In particular, the earlier proved \(E_a(L(a))=o(a)\) estimates on specified growing nearfield horizons are consistent with the **simultaneous** bounds \(a^2\ll E_a(L(a))=o(a)\). The notation \(a^2\ll E_a(L(a))\) here means the ratio tends to infinity, not merely an ordinary constant-factor lower bound.
+
 ## Interpretation and remaining questions
 
 This result **excludes a global \(E_a=O(a^2)\) upper bound** as \(a\downarrow0\). It neither gives a quantitative divergence rate nor implies that \(E_a\) is finite. It is compatible with earlier finite-nearfield \(o(a)\) upper bounds (which do not estimate the full escaping tail) and with the possibility that some \(E_a=+\infty\).
