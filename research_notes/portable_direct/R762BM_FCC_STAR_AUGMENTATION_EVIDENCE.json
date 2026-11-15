@@ -1,0 +1,264 @@
+{
+  "schema": "EM_R762BM_FCC_STAR_AUGMENTATION_V1",
+  "frozen_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "prior_math": "R762BL_X6_TRIAD_HYPERGRAPH_CUT_THEOREM.md@35f7fe654506441106e5c64dd9a15c78acd0c358",
+  "axes_as_K4_edges": [
+    "12",
+    "13",
+    "14",
+    "23",
+    "24",
+    "34"
+  ],
+  "all_triplets_lex": [
+    "123",
+    "124",
+    "125",
+    "126",
+    "134",
+    "135",
+    "136",
+    "145",
+    "146",
+    "156",
+    "234",
+    "235",
+    "236",
+    "245",
+    "246",
+    "256",
+    "345",
+    "346",
+    "356",
+    "456"
+  ],
+  "carrier_star_rows": [
+    "123",
+    "145",
+    "246",
+    "356"
+  ],
+  "face_rows": [
+    "124",
+    "135",
+    "236",
+    "456"
+  ],
+  "path_rows": [
+    "125",
+    "126",
+    "134",
+    "136",
+    "146",
+    "156",
+    "234",
+    "235",
+    "245",
+    "256",
+    "345",
+    "346"
+  ],
+  "base_distance": 2,
+  "examined_augmentations": 65536,
+  "by_q": {
+    "2": {
+      "minimal_added": 0,
+      "minimal_total": 4,
+      "optimal_extension_count": 1,
+      "witness_added": []
+    },
+    "3": {
+      "minimal_added": 2,
+      "minimal_total": 6,
+      "optimal_extension_count": 6,
+      "witness_added": [
+        "156",
+        "234"
+      ]
+    },
+    "4": {
+      "minimal_added": 4,
+      "minimal_total": 8,
+      "optimal_extension_count": 30,
+      "witness_added": [
+        "146",
+        "156",
+        "234",
+        "235"
+      ]
+    },
+    "5": {
+      "minimal_added": 6,
+      "minimal_total": 10,
+      "optimal_extension_count": 84,
+      "witness_added": [
+        "136",
+        "146",
+        "156",
+        "234",
+        "235",
+        "245"
+      ]
+    },
+    "6": {
+      "minimal_added": 8,
+      "minimal_total": 12,
+      "optimal_extension_count": 114,
+      "witness_added": [
+        "134",
+        "136",
+        "146",
+        "156",
+        "234",
+        "235",
+        "245",
+        "256"
+      ]
+    },
+    "7": {
+      "minimal_added": 10,
+      "minimal_total": 14,
+      "optimal_extension_count": 84,
+      "witness_added": [
+        "126",
+        "134",
+        "136",
+        "146",
+        "156",
+        "234",
+        "235",
+        "245",
+        "256",
+        "345"
+      ]
+    },
+    "8": {
+      "minimal_added": 12,
+      "minimal_total": 16,
+      "optimal_extension_count": 30,
+      "witness_added": [
+        "125",
+        "126",
+        "134",
+        "136",
+        "146",
+        "156",
+        "234",
+        "235",
+        "245",
+        "256",
+        "345",
+        "346"
+      ]
+    },
+    "9": {
+      "minimal_added": 14,
+      "minimal_total": 18,
+      "optimal_extension_count": 6,
+      "witness_added": [
+        "124",
+        "126",
+        "134",
+        "135",
+        "136",
+        "146",
+        "156",
+        "234",
+        "235",
+        "236",
+        "245",
+        "256",
+        "345",
+        "456"
+      ]
+    },
+    "10": {
+      "minimal_added": 16,
+      "minimal_total": 20,
+      "optimal_extension_count": 1,
+      "witness_added": [
+        "124",
+        "125",
+        "126",
+        "134",
+        "135",
+        "136",
+        "146",
+        "156",
+        "234",
+        "235",
+        "236",
+        "245",
+        "256",
+        "345",
+        "346",
+        "456"
+      ]
+    }
+  },
+  "one_error_minimal_additions": [
+    [
+      "125",
+      "346"
+    ],
+    [
+      "126",
+      "345"
+    ],
+    [
+      "134",
+      "256"
+    ],
+    [
+      "136",
+      "245"
+    ],
+    [
+      "146",
+      "235"
+    ],
+    [
+      "156",
+      "234"
+    ]
+  ],
+  "s4_invariant_families": [
+    {
+      "add_face_orbit": false,
+      "add_path_orbit": false,
+      "rows": 4,
+      "min_distance": 2,
+      "degree": 2
+    },
+    {
+      "add_face_orbit": false,
+      "add_path_orbit": true,
+      "rows": 16,
+      "min_distance": 8,
+      "degree": 8
+    },
+    {
+      "add_face_orbit": true,
+      "add_path_orbit": false,
+      "rows": 8,
+      "min_distance": 4,
+      "degree": 4
+    },
+    {
+      "add_face_orbit": true,
+      "add_path_orbit": true,
+      "rows": 20,
+      "min_distance": 10,
+      "degree": 10
+    }
+  ],
+  "ambiguity": {
+    "source_difference": "e_1",
+    "differing_rows": [
+      "123",
+      "145"
+    ],
+    "received_construction": "take one differing STAR row from each source; remaining two rows agree"
+  },
+  "claim_scope": "Entire-row Hamming errors/known erasures of coordinate-triad observers on signed Z^6 / diagonal, not TRIADIC_CLOSURE_E force-event permissions"
+}
