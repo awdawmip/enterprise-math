@@ -35,6 +35,31 @@ const calculate = function calculate(){
  for(const s of states.map(name))ck(phases["7"].one_macro[s].B1===(ex.has(s)?8:6),"AW regression");
  ck(same(phases["7"].one_macro["145"].end_vector,[2,0,4,0,0,0]),"AW 145");
  ck(same(phases["7"].one_macro["013"].end_vector,[0,0,6,0,0,2]),"AW 013");
- return {schema:"R762AX_TOKEN_FEASIBLE_PASS_CERT_V1",status:"PASS",date:"2026-11-15",model:"single-use directed cycle with sequential token enabling; conditional exact V23/V25/V29 positive typed BRC selector at integer n>=16",frozen_source:"enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",dependencies:["R762AU PR #2451@f42064096ba3014a63a8d75bbe9f4b7dcdaff447","R762AW PR #2458@a71f4f4d72a27a013f46f41f87d2cb9785dd3820"],theorem_general:"m>=2: q(K)=m!/product cyclic positive-support gap factorials; q=0 for empty support; every macro restores K; legal future word language depends minimally on support(K)",theorem_brc:"n>=16,r>=1: B_r^K(S)=B_1^K(S)q(K)^(r-1) for q>=1; C states B_r=q^r",exact_cycle_support_cases:cycleCases,exact_resource_permutation_checks:permutationTests,conditional_first_macro_expansions:expansions,triad_states:20,cycle:C,phases,independent_review:"NOT_REVIEWED",native_P000_event_admission:"OPEN"};
+ let frameTests=0, periodChecks=0, maximalPeriod=0, frameWitness=null;
+ for(const m of [4,5]){
+  const all=perm(Array.from({length:m},(_,i)=>i));
+  for(const sigma of all)for(let mask=0;mask<(1<<m);mask++){
+   const initial=Array.from({length:m},(_,i)=>i).filter(i=>(mask>>i)&1);
+   let S=initial, orbit=[];
+   do {
+    const K=Array.from({length:m},(_,i)=>S.includes(i)?1:0);
+    const viaQ=q(m,S), viaEnumerate=all.filter(p=>feasible(p,K)).length;
+    ck(viaQ===viaEnumerate,"frame orbit legal word check");frameTests++;
+    orbit.push(viaQ);S=S.map(i=>sigma[i]).sort((a,b)=>a-b);
+    ck(orbit.length<=fac(m),"finite frame orbit");
+   } while(!same(S,initial));
+   const d=orbit.length;maximalPeriod=Math.max(maximalPeriod,d);
+   let product=1;
+   for(let h=0;h<8;h++){
+    product*=orbit[h%d];
+    const completeBlocks=Math.floor((h+1)/d),remainder=(h+1)%d;
+    let block=1,tail=1;for(let j=0;j<d;j++)block*=orbit[j];for(let j=0;j<remainder;j++)tail*=orbit[j];
+    ck(product===block**completeBlocks*tail,"frame transport block product");periodChecks++;
+   }
+   if(m===4&&same(sigma,[0,2,1,3])&&same(initial,[0,1]))frameWitness={m,sigma,initial_support:initial,orbit_q:orbit,first_eight_histories:Array.from({length:8},(_,i)=>orbit.slice(0,i+1).reduce((a,b)=>a*b,1))};
+  }
+ }
+ ck(frameWitness!==null&&same(frameWitness.orbit_q,[4,6]),"m4 alternating 4-6 witness");
+ return {schema:"R762AX_TOKEN_FEASIBLE_PASS_CERT_V1",status:"PASS",date:"2026-11-15",model:"single-use directed cycle with sequential token enabling; conditional exact V23/V25/V29 positive typed BRC selector at integer n>=16",frozen_source:"enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",dependencies:["R762AU PR #2451@f42064096ba3014a63a8d75bbe9f4b7dcdaff447","R762AW PR #2458@a71f4f4d72a27a013f46f41f87d2cb9785dd3820"],theorem_general:"m>=2: q(K)=m!/product cyclic positive-support gap factorials; q=0 for empty support; every macro restores K; legal future word language depends minimally on support(K)",frame_transport_theorem:"For a fixed port permutation sigma, the macro word count across r frames is product_{j=0}^{r-1} q_m(sigma^j K), periodic by sigma orbit; m=4 witness (1 2), S={0,1} gives alternating q=4,6",frame_transport_tests:frameTests,frame_periodic_factorization_checks:periodChecks,maximal_support_period:maximalPeriod,frame_witness:frameWitness,theorem_brc:"n>=16,r>=1: B_r^K(S)=B_1^K(S)q(K)^(r-1) for q>=1; C states B_r=q^r",exact_cycle_support_cases:cycleCases,exact_resource_permutation_checks:permutationTests,conditional_first_macro_expansions:expansions,triad_states:20,cycle:C,phases,independent_review:"NOT_REVIEWED",native_P000_event_admission:"OPEN"};
 };
 console.log(JSON.stringify(calculate(),null,2));
