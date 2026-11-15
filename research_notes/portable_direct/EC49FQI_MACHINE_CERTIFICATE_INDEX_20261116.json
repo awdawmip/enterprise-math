@@ -1,0 +1,157 @@
+{
+  "schema": "EC49FQI_PRIOR_INTERPOLATION_FINITE_CERTIFICATE_V1",
+  "evidence_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "date": "2026-11-16",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "named_root_costs": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "scope": {
+    "native_BRC_class": 16943,
+    "original_configurations": 310,
+    "complete_root_profiles": 141,
+    "terminal_queries": 144,
+    "root_queries": 84,
+    "physical_queries": 228,
+    "distinct_partitions": 209,
+    "root_price": 1,
+    "terminal_price": 1,
+    "prior_lambda_domain": "0<=lambda<=1",
+    "prior": "(1-lambda)/141+lambda*m_i/310",
+    "identification_target": "full_named_root_profile"
+  },
+  "critical_lambda": [
+    "155/1847",
+    "620/3299"
+  ],
+  "optimal_tree_lines": [
+    {
+      "label": "A",
+      "uniform_counts": {
+        "root": 6,
+        "terminal": 290
+      },
+      "multiplicity_counts": {
+        "root": 6,
+        "terminal": 751
+      },
+      "uniform_total": 296,
+      "multiplicity_total": 757,
+      "first_query": 32
+    },
+    {
+      "label": "B",
+      "uniform_counts": {
+        "root": 5,
+        "terminal": 293
+      },
+      "multiplicity_counts": {
+        "root": 5,
+        "terminal": 704
+      },
+      "uniform_total": 298,
+      "multiplicity_total": 709,
+      "first_query": 140
+    },
+    {
+      "label": "C",
+      "uniform_counts": {
+        "root": 5,
+        "terminal": 295
+      },
+      "multiplicity_counts": {
+        "root": 5,
+        "terminal": 685
+      },
+      "uniform_total": 300,
+      "multiplicity_total": 690,
+      "first_query": 16
+    }
+  ],
+  "rational_certificates": [
+    [
+      "0/1",
+      91760,
+      [
+        32,
+        34
+      ],
+      "b88e136ebfefbfe5653ad8c4c5d40c717dc7c1aa101c03f1f677119a6c9a9ecf"
+    ],
+    [
+      "1/16",
+      1483137,
+      [
+        32,
+        34
+      ],
+      "409142f2eaf320d7087168a076efe1abe4ea4dc2295cb7fc59b11b07b5ef0fc9"
+    ],
+    [
+      "155/1847",
+      171802155,
+      [
+        32,
+        34,
+        140,
+        142
+      ],
+      "00d4bbd4e56920a0f1f8304aee3360371e1ad5c16c5c8281ab1fee4629a0080f"
+    ],
+    [
+      "1/8",
+      746629,
+      [
+        140,
+        142
+      ],
+      "0e5a042fc1a80234a69e64b866fc62227ecc7ecfa3ab449b1ba776fd017fb04e"
+    ],
+    [
+      "620/3299",
+      309466800,
+      [
+        16,
+        23,
+        140,
+        142
+      ],
+      "e7f1428f46bee52bb4e5b270e047ba726402baa07cf973ab18545e5d4ab0510a"
+    ],
+    [
+      "1/4",
+      376290,
+      [
+        16,
+        23
+      ],
+      "8652929bb510f59f34c24efac253afd9e8c88d99f481fffbc3c9088a6f1364cd"
+    ],
+    [
+      "1/1",
+      97290,
+      [
+        16,
+        23,
+        124,
+        131
+      ],
+      "9f0122742663e3fce9854f928e55129ccd0b61701f803ce5eeb6326ac3cc8ce0"
+    ]
+  ],
+  "proof": "Exact unrestricted Bellman at four endpoints, interior fully forced first query checks, three feasible affine witness lines; minimum of lines verified throughout prior continuum by concavity/endpoint contact and affine-gap first-action argument.",
+  "verification": [
+    "EC49FQI_INDEPENDENT_EXHAUSTIVE_BELLMAN_PASS 7",
+    "EC49FQI_FULL_PRIOR_CONTINUUM_AND_PHYSICAL_FIRST_ACTIONS_PASS"
+  ],
+  "portable_archive_sha256": "23ded506cc426da523e83d6bb42314d29a11adc5f53b768c8bbf302f3a2e5954",
+  "inherited_frontier": "EC49FQH PR #2536 @ 579efb941579d874e3fdf78d992f63f58edfe51b",
+  "limitations": [
+    "Finite class 16943 only",
+    "Equal prices r=t=1 only",
+    "No independent peer review",
+    "Portable GitHub research does not grant formal Task CLAIM/Result"
+  ],
+  "next_question": "Exact joint phase diagram in (root/terminal price, prior lambda) and persistence of the intermediate 140/142 phase"
+}
