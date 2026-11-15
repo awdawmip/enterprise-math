@@ -1,0 +1,21 @@
+{
+  "schema": "EM_R196_BRC_SOURCE_LIFT_EXACT_V1",
+  "status": "PASS",
+  "backend": "exact_reference_mirror",
+  "frozen_scientific_input": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "arithmetic": "Fractions and integer tuple enumeration; no floats",
+  "rows": [
+    {"k":1,"d":1,"states":2},
+    {"k":2,"d":3,"states":5},
+    {"k":3,"d":6,"states":16},
+    {"k":4,"d":10,"states":65},
+    {"k":5,"d":15,"states":326}
+  ],
+  "totals": {"states":414,"unique_orbits":414,"generator_appends":1950,"ordered_products":4510},
+  "native_api_laws_checked": [
+    "Affine.then","EffectHistogram.from_terms","alternatives","then","positive rational weights","multiplicity"
+  ],
+  "conditional_counterexamples": ["single-atom physical fiber","two-by-two joint correlation"],
+  "native_integration_executed": false,
+  "limitation": "reference backend mirrors stated methods, native package integration requires --native run in installed project"
+}
