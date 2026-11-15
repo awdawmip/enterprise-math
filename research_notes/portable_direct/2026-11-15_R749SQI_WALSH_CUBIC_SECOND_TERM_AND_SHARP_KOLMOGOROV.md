@@ -173,3 +173,15 @@ All statements are internal to the frozen auxiliary Walsh source model, without 
 ## Open next question
 
 Determine whether for **every** positive integer r the exact Kolmogorov supremum is attained at the zero atom, rather than merely to first asymptotic order and in the seven tested cases. Independently derive an explicit nonasymptotic constant B in the bound \(d_K\le69/r+B/r^2\), or compute the next (degree-5) cubic-root coefficient. Preserve the unchanged scientific pin and contributor/provenance distinction.
+
+
+## Additional complete finite verification: r=1,…,3360
+
+A second independent exact integer checker exhaustively evaluates the two one-sided CDF discrepancies at every discrete support boundary for **each of the 3,360 positive integer resolutions** \(r=1,\ldots,3360\). There are precisely **3,766,560** verified integer comparisons, all PASS. Across that entire finite domain,
+
+\[
+d_K(\mathcal L(3K_r/r),\operatorname{Beta}(1,23))
+=\Pr(K_r=0)=1-\frac{C_{r-3}}{C_r}.
+\]
+
+The checker is \`R749SQI_FULL_KOLMOGOROV_GRID_SCAN.py\`, with machine-readable evidence \`R749SQI_FULL_KOLMOGOROV_GRID_SCAN_RESULTS.json\`. It uses no floating point and raises on the first violation. The exact all-\(r\) zero-atom maximizer claim remains **OPEN**; this finite census supports the conjecture and is kept separate from the asymptotic theorem.
