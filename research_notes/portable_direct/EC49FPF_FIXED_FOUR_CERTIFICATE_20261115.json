@@ -1,0 +1,130 @@
+{
+  "schema": "EC49FPF_NATIVE_BRC_FIXED_FOUR_EXCLUSIVE_WITNESS_V1",
+  "date": "2026-11-15",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_input_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "root_table_sha256": "2e07ad0d935efd9824729feec6349c2af162e152cd9c8a2a93848fd4343eea93",
+  "original_corpus": {
+    "key_families": 94,
+    "words": 178850,
+    "configurations": 38169,
+    "named_roots": [
+      3,
+      5,
+      6,
+      7
+    ],
+    "demand_labels": 24,
+    "complete_domain_classes": 625
+  },
+  "query_order": "optional demand labels ascending, legally allowed roots 03,05,06,07 ascending; zero based",
+  "fixed_four_lower_bound_lemma": "Every query distinguishes at most one of four distinct witness pairs; any three fixed queries leave some pair unresolved",
+  "class_results": [
+    {
+      "representative": 16864,
+      "complete_original_configurations": 77,
+      "distinct_root_profiles": 39,
+      "legal_terminal_queries": 1296,
+      "source_witness_pairs": [
+        [
+          16864,
+          17249
+        ],
+        [
+          17249,
+          26174
+        ],
+        [
+          17249,
+          26250
+        ],
+        [
+          19743,
+          26250
+        ]
+      ],
+      "per_pair_separation_counts": [
+        144,
+        4,
+        20,
+        24
+      ],
+      "all_query_witness_histogram": {
+        "separates_zero": 1104,
+        "separates_one": 192,
+        "separates_two_or_more": 0
+      },
+      "optimal_fixed_query_indices": [
+        79,
+        887,
+        920,
+        1212
+      ],
+      "number_of_distinct_four_response_signatures": 39,
+      "minimum_fixed_queries": 4,
+      "previous_optimal_adaptive_depth": 3
+    },
+    {
+      "representative": 16988,
+      "complete_original_configurations": 77,
+      "distinct_root_profiles": 39,
+      "legal_terminal_queries": 1296,
+      "source_witness_pairs": [
+        [
+          17373,
+          20051
+        ],
+        [
+          17373,
+          20659
+        ],
+        [
+          17373,
+          32442
+        ],
+        [
+          20051,
+          32434
+        ]
+      ],
+      "per_pair_separation_counts": [
+        20,
+        144,
+        4,
+        24
+      ],
+      "all_query_witness_histogram": {
+        "separates_zero": 1104,
+        "separates_one": 192,
+        "separates_two_or_more": 0
+      },
+      "optimal_fixed_query_indices": [
+        122,
+        502,
+        609,
+        847
+      ],
+      "number_of_distinct_four_response_signatures": 39,
+      "minimum_fixed_queries": 4,
+      "previous_optimal_adaptive_depth": 3
+    }
+  ],
+  "exact_verification": {
+    "root_entries": 104104,
+    "recomputed_complete_terminal_costs": 101088,
+    "all_source_domain_signatures_checked": 38169,
+    "native_CXX_O2_recomputed_entries": 104104,
+    "adaptive_tree_decoder_rechecked": true,
+    "independent_script": "VERIFY_EC49FPF_FIXED_FOUR.py",
+    "result": "EC49FPF_EXACT_CERTIFICATE_PASS"
+  },
+  "prior_prs": [
+    2463,
+    2466
+  ],
+  "complete_local_evidence_archive": "EC49FPF_FIXED4_EXACT_EVIDENCE_20261115.tar.xz",
+  "complete_local_evidence_sha256": "1122ad32aae47b49f8fc1b4a2dfdc293d44c44fae14b6595603857d20a3e27dc",
+  "mathematical_review": "NOT_REVIEWED",
+  "formal_task_claim_result": "Not established by this portable proof"
+}
