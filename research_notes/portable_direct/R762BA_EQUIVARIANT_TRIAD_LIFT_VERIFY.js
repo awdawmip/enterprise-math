@@ -49,7 +49,7 @@ for (const i of A) for (const j of A) if (i !== j) {
   // Any nonempty K-invariant subset of the four third axes is the full fiber.
   for (let mask=0;mask<16;mask++) {
     const subset = new Set(fiber.filter((_,n) => (mask & (1<<n)) !== 0));
-    const invariant = stabilizer.every(p => fiber.every(k => subset.has(k) === subset.has(p[k])));
+    const invariant = stabilizer.map(p => fiber.every(k => subset.has(k) === subset.has(p[k]))).every(Boolean);
     if (invariant) assert(mask === 0 || mask === 15);
     if (invariant && mask !== 0 && mask !== 15) nontrivialInvariantSubsets++;
     stabilizerTests += stabilizer.length;
