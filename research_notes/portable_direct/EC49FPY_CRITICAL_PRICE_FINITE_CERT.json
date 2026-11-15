@@ -1,0 +1,89 @@
+{
+  "schema": "EC49FPY_NATIVE_BRC_PRICE_PHASE_EXACT_FINITE_V1",
+  "scientific_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "scope": {
+    "legal_root_domain_representative": 16995,
+    "original_configurations": 242,
+    "named_root_profiles": 112,
+    "legal_terminal_queries": 324,
+    "legal_named_root_queries": 96,
+    "distinct_response_partitions": 395,
+    "prior": "uniform over 242 original configurations, with multiplicity retained",
+    "identification_target": "complete named-root cost profile",
+    "tree_depth": "unrestricted finite",
+    "sensor_prices": "positive rational variables r,t"
+  },
+  "source": {
+    "frozen_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "native_root_csv_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+    "prior_pure_root_tree_commit": "ab9f585d097492931704a4dd408afdc3948d439d",
+    "prior_pure_root_tree_path": "research_notes/portable_direct/EC49FPS_CONFIG_WEIGHTED_HALF_PRICE_CERT.json"
+  },
+  "exact_bellman": {
+    "root_price_integer": 44,
+    "terminal_price_integer": 79,
+    "global_weighted_optimal_cost": 37004,
+    "equals_pure_root_weighted_cost": true,
+    "pure_root_weighted_reads": 841,
+    "optimal_original_first_actions": [
+      346,
+      354
+    ],
+    "primary_solver_memo_masks": 22818,
+    "alternate_incumbent_solver_memo_masks": 20107,
+    "other_exact_price_case": {
+      "root_price_integer": 3,
+      "terminal_price_integer": 5,
+      "global_weighted_optimal_cost": 2491,
+      "optimal_first_actions": [
+        346,
+        354
+      ]
+    }
+  },
+  "independent_242_replay": {
+    "configuration_count": 242,
+    "identified_profiles": 112,
+    "weighted_cost_integer": 37004,
+    "weighted_root_terminal_histogram": {
+      "1,0": 3,
+      "2,0": 65,
+      "2,1": 4,
+      "3,0": 58,
+      "3,1": 38,
+      "4,0": 35,
+      "4,1": 2,
+      "5,0": 37
+    },
+    "status": "PASS"
+  },
+  "compared_witnesses": {
+    "FPT": {
+      "weighted_root_reads": 762,
+      "weighted_terminal_reads": 44,
+      "mixing_window_open": [
+        "44/79",
+        "199/254"
+      ]
+    },
+    "FPX": {
+      "weighted_root_reads": 37,
+      "weighted_terminal_reads": 604,
+      "mixing_window_open": [
+        "151/201",
+        "1"
+      ]
+    }
+  },
+  "theorem": {
+    "first_critical_ratio": "44/79",
+    "x_less": "all optima root-only",
+    "x_equal_low": "pure root and mixed co-optimal",
+    "x_between": "all optima mixed",
+    "x_equal_one": "pure terminal and mixed co-optimal",
+    "x_above_one": "all optima terminal-only"
+  },
+  "scope_limitation": "Numerical piecewise-linear optimum within 44/79 < r/t < 1 is not yet determined. No formal project Result/Review or Foundation admission.",
+  "next_problem": "Compute exact numerical Bellman envelope and switch ratios strictly between 44/79 and 1; retain source multiplicity and all named-root response semantics."
+}
