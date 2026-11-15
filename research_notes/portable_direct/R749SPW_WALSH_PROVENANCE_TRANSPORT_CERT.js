@@ -19,7 +19,7 @@ function verify() {
   const F=[...forced].sort((a,b)=>a-b).map(i=>P[i]);
   assert(F.length===25,"expected 25 forced first-grid letters");
   assert(!F.some(x=>key(x)==="0,0,0"||key(x)==="-1,0,0"),"optional overlap");
-  const nChoose=(n,k)=>{let v=1;for(let i=1;i<=k;i++)v=v*(n-k+i)/i;return Math.round(v)};
+  const nChoose=(n,k)=>{let v=1n;for(let i=1;i<=k;i++)v=v*BigInt(n-k+i)/BigInt(i);return Number(v)};
   const enumerate=(n,m,visit)=>{
     const z=[];
     const go=(start,depth)=>{if(depth===n){visit(z);return;}for(let i=start;i<m;i++){z[depth]=i;go(i,depth+1)}};
@@ -75,7 +75,7 @@ function verify() {
     for(let k=0;k<=n;k++){
       const signs=Array.from({length:16},(_,i)=>((i.toString(2).split("1").length-1)%2)===0?1:-1);
       assert(signs.filter(s=>s===1).length===8&&signs.filter(s=>s===-1).length===8,"Walsh signs");
-      assert(16*k===2*160*n*(k/(20*n)),"Walsh TV identity");
+      assert(16*k*20*n===2*160*n*k,"Walsh TV identity");
     }
     table.push({
       n,source_multisets:N,
