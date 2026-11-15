@@ -1,0 +1,166 @@
+{
+  "cycle_6_counterexample": {
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "fiber_tables": [
+      [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    ],
+    "fundamental_cycle": [
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1
+    ],
+    "num_4_cycles": 0
+  },
+  "families": [
+    {
+      "all_checks_pass": true,
+      "capacity_patterns": 81,
+      "capacity_values": [
+        0,
+        1,
+        2
+      ],
+      "complete_tables": 1296,
+      "m": 2,
+      "margin_fibers": 1215,
+      "n": 2,
+      "universal_invariants": 5569,
+      "variable_observers": 992,
+      "weight_tests": 6561
+    },
+    {
+      "all_checks_pass": true,
+      "capacity_patterns": 64,
+      "capacity_values": [
+        0,
+        1
+      ],
+      "complete_tables": 729,
+      "m": 2,
+      "margin_fibers": 704,
+      "n": 3,
+      "universal_invariants": 40950,
+      "variable_observers": 5706,
+      "weight_tests": 46656
+    },
+    {
+      "all_checks_pass": true,
+      "capacity_patterns": 512,
+      "capacity_values": [
+        0,
+        1
+      ],
+      "complete_tables": 19683,
+      "m": 3,
+      "margin_fibers": 17840,
+      "n": 3,
+      "universal_invariants": 3942,
+      "variable_observers": 2202,
+      "weight_tests": 6144
+    }
+  ],
+  "joint_observer_lattice": {
+    "congruence": "W_plus-W_minus divisible by 2",
+    "fundamental_cycle_signatures": [
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "lattice_index": 2,
+    "observer_weights": [
+      [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "smith_factors": [
+      1,
+      2
+    ]
+  },
+  "proof_method": "integer spanning forest cycle basis; all-margin exact exhaustive capacities and observer coefficients",
+  "schema": "PREFIX810_R6_CYCLE_OBSERVER_RESULTS_V1",
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "totals": {
+    "capacity_patterns": 657,
+    "complete_tables": 21708,
+    "margin_fibers": 19759,
+    "universal_invariants": 50461,
+    "variable_observers": 8900,
+    "weight_tests": 59361
+  }
+}
