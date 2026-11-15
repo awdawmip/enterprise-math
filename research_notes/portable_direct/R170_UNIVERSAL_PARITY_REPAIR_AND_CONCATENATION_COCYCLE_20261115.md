@@ -55,6 +55,25 @@ obey the closed, exact multiplication
 
 Taking u=1 and v=0 gives H(10)=0 and H(01)=1, proving noncommutativity of K's image. This is a finite, explicit, compositional joint/order residual, without identifying it with signed BRC amplitude or native X6 path semantics.
 
+### R170D. Exact minimality for *all two-sided concatenation contexts*
+
+Define a context equivalence on arbitrary finite binary words:
+
+    u ≡_H v   iff   H(xuy)=H(xvy) for every binary prefix x and suffix y.
+
+**Theorem.** This equivalence has *exactly eight classes*, and u ≡_H v holds **if and only if** K(u)=K(v). Therefore the eight-state K monoid is the **minimal exact quotient for the declared readout H under arbitrary left and right concatenation contexts**.
+
+Proof: iterating equation (1) yields, modulo 2,
+
+    H(xuy)-H(xvy) =
+       (H(u)-H(v))
+       + (|u|-|v|) N(x)
+       + |y| (N(u)-N(v)).                                 (4)
+
+Equality of K clearly makes (4) zero for all x,y. Conversely, choose contexts (x,y)=(empty,empty), (1,empty), and (empty,0). Equation (4) forces, in order, equality of H, length parity, and ones-count parity. Thus equality for all contexts forces equality of all three K coordinates. Every class is realized already by length-two words 00,01,10,11 (all four even-length classes), and length-three words 000,001,010,011 (all four odd-length classes). Hence exactly eight nonempty classes; any deterministic context-safe quotient must distinguish all eight. QED.
+
+This theorem supplies an explicit scope-typed minimal-state certificate. It is stronger than merely exhibiting the eight-state associative carrier: no smaller quotient can preserve this particular H readout under the full two-sided concatenation operation family. Restricting to right suffixes only, the analogous exact quotient has four classes determined by (N mod 2,H), as follows from equation (1) by choosing suffixes empty and 0.
+
 ## 3. Strong preservation along shared suffixes
 
 **Theorem R170C (internal-exchange suffix persistence).** Let m>=2 and let distinct admitted u,v of length m share the same phase signature **and have their unique differing prefix at an internal index j<m**. Their total counts are then equal: N(u)=N(v). For *any* common appended binary suffix z, of any finite length, equation (1) yields
@@ -79,7 +98,7 @@ Arithmetic complexity for the full observer includes constructing S_m and any ne
 
 ## 5. Independent exact verification
 
-Executable file `R170_parity_repair_check.py` uses Python integer arithmetic and `fractions.Fraction` (no floating point) to enumerate *every* binary word at lengths 1..15, compute the exact all-factor slope support and endpoint signature, and group all admitted words by unaugmented signature. For each of 1,760 signature classes it checks no more than two preimages and distinct H for any doubleton, comparing H with an independent prefix-count implementation. It independently checks the one-index defect of doubletons, plus the composition law on 4,464 doubleton-with-short-suffix cases and 960 three-block associativity instances. Result: 65,534 candidate words, 1,906 admitted words, 146 two-word fibers, zero repair collisions, and only one observed terminal alias (m=1). Result marker: `R170_UNIVERSAL_PARITY_REPAIR_EXACT_PASS` and dataset `R170_parity_verification.json`.
+Executable file `R170_parity_repair_check.py` uses Python integer arithmetic and `fractions.Fraction` (no floating point) to enumerate *every* binary word at lengths 1..15, compute the exact all-factor slope support and endpoint signature, and group all admitted words by unaugmented signature. For each of 1,760 signature classes it checks no more than two preimages and distinct H for any doubleton, comparing H with an independent prefix-count implementation. It independently checks the one-index defect of doubletons, plus the composition law on 4,464 doubleton-with-short-suffix cases and 960 three-block associativity instances, as well as 3,969 word-pair checks against 49 short two-sided contexts per pair (eight observed classes). Result: 65,534 candidate words, 1,906 admitted words, 146 two-word fibers, zero repair collisions, and only one observed terminal alias (m=1). Result marker: `R170_UNIVERSAL_PARITY_REPAIR_EXACT_PASS` and dataset `R170_parity_verification.json`.
 
 The exhaustive checks establish the finite range; the unlimited-length claims follow from R162A and the direct algebraic proof above. R162's underlying author proof is an explicit mathematical dependency, not independent review. Formal checker and independent mathematical reviewer: NOT_REVIEWED / NOT_RUN.
 
