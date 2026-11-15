@@ -21,7 +21,7 @@ The uniform source-residual law of SQF depends exactly on the integer sequence $
 
 ## 2. Theorem: exact quasi-period, dominant parity correction
 
-**Theorem (all $r\ge1$).** $C_r$ is a rational-coefficient quasipolynomial of degree 23, with **least quasipolynomial period exactly 420**. There exist unique rational polynomials $P_{23}$ and $Q_9$ of degrees 23 and 9 and a rational 420-quasipolynomial $R_{420}$ of constituent degree at most 7 such that
+**Theorem (all $r\ge1$).** $C_r$ is a rational-coefficient quasipolynomial of degree 23, with **least quasipolynomial period exactly 420**. There exist rational polynomials $P_{23}$ and $Q_9$ of degrees 23 and 9, uniquely determined as the respective pole contributions at $z=1$ and $z=-1$, and a rational 420-quasipolynomial $R_{420}$ with no $z=1$ or $z=-1$ spectral component and constituent degree at most 7 such that
 \[
 \boxed{C_r=P_{23}(r)+(-1)^{r-1}Q_9(r)+R_{420}(r).}
 \]
