@@ -1,0 +1,100 @@
+{
+  "schema": "R749SQO_EXACT_SOURCE_EVIDENCE_V1",
+  "status": "PASS",
+  "generated_date": "2026-11-15",
+  "frozen_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "auxiliary positive labeled integer source multisets",
+  "A": [
+    1,
+    1,
+    2,
+    3,
+    7
+  ],
+  "B": [
+    1,
+    1,
+    1,
+    5,
+    6
+  ],
+  "shared_signature": {
+    "d": 5,
+    "D": 9,
+    "Q": 59,
+    "h": 1
+  },
+  "S4_A": 2495,
+  "S4_B": 1919,
+  "delta_S4": 576,
+  "W_A": 42,
+  "W_B": 30,
+  "r4_mean_coefficients_A": [
+    "1/6",
+    "7/12",
+    "-295/72",
+    "3835/144",
+    "-196325/864"
+  ],
+  "r4_mean_coefficients_B": [
+    "1/6",
+    "7/12",
+    "-295/72",
+    "3835/144",
+    "-203237/864"
+  ],
+  "predicted_limit_r4_mean_difference": "8",
+  "finite_validation": {
+    "deletion_identity_checks": 2048,
+    "independent_recursive_enumerations": 60,
+    "largest_exact_dp_r": 4001,
+    "phase_samples": 12,
+    "comparison_r4_decimal": [
+      {
+        "r": 100,
+        "v": "9.979837032957"
+      },
+      {
+        "r": 210,
+        "v": "7.411008577564"
+      },
+      {
+        "r": 420,
+        "v": "7.698133512907"
+      },
+      {
+        "r": 840,
+        "v": "7.847170676866"
+      },
+      {
+        "r": 1000,
+        "v": "8.027741713427"
+      },
+      {
+        "r": 1680,
+        "v": "7.923104495586"
+      },
+      {
+        "r": 2100,
+        "v": "7.938406220600"
+      },
+      {
+        "r": 4000,
+        "v": "8.066923806139"
+      }
+    ],
+    "periodic_witness": {
+      "weights": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "unit_marked_phase": "-(3/10)*(-1)^(r-1)",
+      "nonunit_marked_phase": "(6/5)*(-1)^(r-1)"
+    },
+    "max_reported_phase_abs_error": "0.020702063"
+  },
+  "verification_note": "Local exact-integer/Fraction certificate run PASS; infinite-scale results follow the pole proof, not finite extrapolation. The companion repository script recomputes full rational test values.",
+  "independent_review": false
+}
