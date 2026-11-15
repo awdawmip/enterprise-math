@@ -20,6 +20,8 @@ The unrestricted finite adaptive optimum, with no a priori maximum depth, has th
 | 1:2 | 362 | 1014 | [153,161] / [153,161] | 10494 |
 | 3:4 | 1057 | 2602 | [153,161] / [59,88] | 10304 |
 
+The listed optimal first-action indices are representatives after globally identical response partitions are deduplicated at each price; equal-price duplicate actions with identical response partitions are omitted from these representative lists.
+
 For comparison, at r:t=1:1 the same new solver reproduces prior EC49FPZ exact results: 296/141 and 690/310 with optimal first indices [32,34] / [16,23,124,131] and 7612 Bellman states. The root-only action restriction has global minimum sums 362r (uniform) and 1033r (source-multiplicity). The root-only solver evaluates 2568 masks.
 
 At r:t=1:2 the weighted optimal policy has 962 weighted root reads and 26 weighted terminal reads, hence exact sum 962r+26t=1014 (r=1,t=2); its maximum depth is 5. The uniform optimal policy is root-only at this price (362 root reads). At r:t=3:4 the uniform optimal policy has 303 root reads and 37 terminal reads, hence 303r+37t=1057; the weighted optimal policy has 202 root reads and 499 terminal reads, hence 202r+499t=2602. Their maximum depths are 4 and 3 respectively. All trees distinguish each of the 141 profiles for all 310 configurations.
