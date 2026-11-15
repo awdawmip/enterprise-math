@@ -62,7 +62,7 @@ def main():
     assert sep==F(15,2)
     assert max(abs(x-y) for x,y in zip(S[0],S[3]))==sep
     assert tuple(1 if y>x else -1 for x,y in zip(S[0],S[3]))==(-1,1,1)
-    rows=[];cpolys=[];tpolys=[]
+    rows=[]
     for a in range(6):
         base=36+a
         cp=interp([C[base+6*j] for j in range(6)])
@@ -84,7 +84,6 @@ def main():
           'residual_numerator_degree':4,'C_top_in_n':'9/5',
           'lim_r_times_R_minus_P':str(gam),
           'quasipolynomial_samples_checked':12})
-        cpolys.append((base,cp));tpolys.append((base,tp))
     # Independent direct-DP checks at separate finite cutoffs.
     def R(r,eps=0):
         return F(r**3*(T[r]+eps),C[r])-sum(v*r**(4-i) for i,v in enumerate(H))
@@ -108,7 +107,9 @@ def main():
         'noise_asymptotic':'(r+h)^3/C_(r+h)=4320/r^2+O(r^-3), h=0,1,5',
         'sharp_threshold_asymptotic':'N(M)=24*sqrt(2*M)+O(1) as M tends to infinity',
         'residue_coefficients':rows,
-        'finite_independent_coeff_checks':72,
+        'finite_residue_positions_checked':72,
+        'out_of_sample_C_checks':36,
+        'out_of_sample_T_checks':30,
         'prior_known_exact_thresholds':{'M=0':35,'M=1':53,'M=2':65}}
     return result
 if __name__=='__main__':
