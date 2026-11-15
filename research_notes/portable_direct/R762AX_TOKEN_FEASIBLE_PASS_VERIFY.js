@@ -56,7 +56,7 @@ const calculate = function calculate(){
     let block=1,tail=1;for(let j=0;j<d;j++)block*=orbit[j];for(let j=0;j<remainder;j++)tail*=orbit[j];
     ck(product===block**completeBlocks*tail,"frame transport block product");periodChecks++;
    }
-   if(m===4&&same(sigma,[0,2,1,3])&&same(initial,[0,1]))frameWitness={m,sigma,initial_support:initial,orbit_q:orbit,first_eight_histories:Array.from({length:8},(_,i)=>orbit.slice(0,i+1).reduce((a,b)=>a*b,1))};
+   if(m===4&&same(sigma,[0,2,1,3])&&same(initial,[0,1]))frameWitness={m,sigma,initial_support:initial,orbit_q:orbit,first_eight_histories:Array.from({length:8},(_,i)=>Array.from({length:i+1},(_,j)=>orbit[j%orbit.length]).reduce((a,b)=>a*b,1))};
   }
  }
  ck(frameWitness!==null&&same(frameWitness.orbit_q,[4,6]),"m4 alternating 4-6 witness");
