@@ -1,0 +1,122 @@
+{
+  "status": "PASS",
+  "research_unit": "R749SRW",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": "R749SRV / same branch source",
+  "model_weights": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ],
+  "marked_source_index": 0,
+  "read_offsets": [
+    0,
+    1,
+    5
+  ],
+  "integer_error_budget_per_marked_total": 2,
+  "denominator_counts": "exact unperturbed prefix C_r",
+  "theorem": "For all integer r>=65 and all 125 error triples epsilon in [-2,2]^3, unique nearest phase is r mod 6; r=64 has a wrong-decoding vector, so 65 is the least all-integer cutoff.",
+  "finite_range": [
+    65,
+    522
+  ],
+  "finite_r_count": 458,
+  "error_vectors_per_r": 125,
+  "finite_error_vectors_verified": 57250,
+  "finite_signature_distances_verified": 343500,
+  "minimum_success_margin": [
+    "456681943/13305600828",
+    66,
+    [
+      -2,
+      2,
+      -2
+    ],
+    3
+  ],
+  "sharp_counterexample": {
+    "r": 64,
+    "true_phase": 4,
+    "error": [
+      -2,
+      2,
+      -2
+    ],
+    "rival_phase": 3,
+    "decoded_phase": 3,
+    "true_distance": "463686775/22359348",
+    "rival_distance": "604132351/29434860",
+    "rival_minus_true": "-216897888749/1015654750110",
+    "observed_scaled_residuals": [
+      "5756801/371844",
+      "70116085/5589837",
+      "145922869/7358715"
+    ]
+  },
+  "tail_range": "all integer r>=523",
+  "tail_rational_noise_bound_start": "447048959375/538294594356",
+  "tail_noise_bound_general": "2*112500*r^3/(r-1)^5 decreasing strictly for r>1",
+  "tail_residual_certificate": "six exact positive-coefficient residue polynomials from R749SRV show 0<R-P<35/12 for every r>=512",
+  "tail_signature_min_separation": "15/2",
+  "tail_half_separation": "15/4",
+  "tail_verified_positive_polynomials": [
+    {
+      "phase": 0,
+      "start": 516,
+      "C_degree": 5,
+      "T_degree": 6,
+      "num_degree": 4,
+      "upper_degree": 5,
+      "all_coefficients_positive": true
+    },
+    {
+      "phase": 1,
+      "start": 517,
+      "C_degree": 5,
+      "T_degree": 6,
+      "num_degree": 4,
+      "upper_degree": 5,
+      "all_coefficients_positive": true
+    },
+    {
+      "phase": 2,
+      "start": 512,
+      "C_degree": 5,
+      "T_degree": 6,
+      "num_degree": 4,
+      "upper_degree": 5,
+      "all_coefficients_positive": true
+    },
+    {
+      "phase": 3,
+      "start": 513,
+      "C_degree": 5,
+      "T_degree": 6,
+      "num_degree": 4,
+      "upper_degree": 5,
+      "all_coefficients_positive": true
+    },
+    {
+      "phase": 4,
+      "start": 514,
+      "C_degree": 5,
+      "T_degree": 6,
+      "num_degree": 4,
+      "upper_degree": 5,
+      "all_coefficients_positive": true
+    },
+    {
+      "phase": 5,
+      "start": 515,
+      "C_degree": 5,
+      "T_degree": 6,
+      "num_degree": 4,
+      "upper_degree": 5,
+      "all_coefficients_positive": true
+    }
+  ],
+  "review": "AUTHOR_EXACT_NOT_REVIEWED"
+}
