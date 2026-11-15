@@ -1,0 +1,71 @@
+{
+  "schema": "R762BJ_EXACT_NATIVE_STAR_VERIFICATION_V1",
+  "subset_masks": 1024,
+  "mask_erasure_pairs_checked": 4096,
+  "three_level_states": 729,
+  "coordinate_reconstructions": 746496,
+  "diagonal_shift_observer_checks": 14580,
+  "erasure_table": [
+    {
+      "erasure_budget": 0,
+      "min_rows": 3,
+      "optimal_families": 30,
+      "all_admissible_families": 768,
+      "witness_triples": [
+        "125",
+        "126",
+        "134"
+      ]
+    },
+    {
+      "erasure_budget": 1,
+      "min_rows": 5,
+      "optimal_families": 12,
+      "all_admissible_families": 253,
+      "witness_triples": [
+        "125",
+        "126",
+        "134",
+        "136",
+        "145"
+      ]
+    },
+    {
+      "erasure_budget": 2,
+      "min_rows": 8,
+      "optimal_families": 15,
+      "all_admissible_families": 26,
+      "witness_triples": [
+        "123",
+        "124",
+        "125",
+        "126",
+        "135",
+        "136",
+        "145",
+        "146"
+      ]
+    },
+    {
+      "erasure_budget": 3,
+      "min_rows": 10,
+      "optimal_families": 1,
+      "all_admissible_families": 1,
+      "witness_triples": [
+        "123",
+        "124",
+        "125",
+        "126",
+        "134",
+        "135",
+        "136",
+        "145",
+        "146",
+        "156"
+      ]
+    }
+  ],
+  "coverage": "All 1024 labelled star subfamilies; all deletions of <=e rows for e=0..3; all {-1,0,1}^6 integer chart inputs for each subfamily; shifts -5,+7",
+  "proof_status": "Symbolic group/graph proof in accompanying research note; finite assertions are supporting tests",
+  "checks_passed": true
+}
