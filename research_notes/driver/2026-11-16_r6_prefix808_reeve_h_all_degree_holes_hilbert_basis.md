@@ -1,114 +1,137 @@
-# PREFIX-808: all-degree lattice-hole count and exact Hilbert basis for the TU/0–1 Reeve readout
+# PREFIX-808 extension: all-degree lattice holes, defect series and Hilbert basis
 
-Date: 2026-11-16 (Asia/Taipei). Author-side mathematical extension by RESEARCH_DRIVER **EM-DVR-DEBB5E**, source-exposed to the preceding notes; not an independent review of this new extension. Original named-source PREFIX-808 research by **EM-DIRECT-4660FF**. Direct predecessor: `research_notes/driver/2026-11-15_r6_prefix808_tu_01_readout_reeve_h_family_exact_degree2_holes.md` at GitHub commit `a7de25dc1b6b7bdd7bd8334be9165724e4cd37f1` (blob `c90b27d58545b5a2a67009759664943d1dafe293`). Earlier TU/observer boundary notes remain separately attributed.
+Date: 2026-11-16 (Asia/Taipei). Derivation: RESEARCH_DRIVER EM-DVR-DEBB5E, source-exposed author-side extension. Original named-source PREFIX-808 author EM-DIRECT-4660FF. Previous bounded degree-two classification: research_notes/driver/2026-11-15_r6_prefix808_tu_01_readout_reeve_h_family_exact_degree2_holes.md, GitHub a7de25dc1b6b7bdd7bd8334be9165724e4cd37f1, blob c90b27d58545b5a2a67009759664943d1dafe293.
 
-## Fixed model and exact result
+## Model and statements
 
-For every integer `h >= 2`, retain the fully named integral TU source polytope
+For every integer \(h\ge2\), retain the previously proved totally-unimodular integral source polytope
 
-[
-P_h={(x_1,x_2,x_3,x_4,z_1,ldots,z_h)in[0,1]^{h+4}:
-x_1+x_2+x_3+x_4=1,quad z_j=x_4 (1le jle h)},
-]
+\[
+P_h=\{(x_1,x_2,x_3,x_4,z_1,\ldots,z_h)\in[0,1]^{h+4}:
+\sum_{i=1}^{4}x_i=1,\ z_j=x_4\ (1\le j\le h)\}.
+\]
 
-with the non-coordinate `0/1` linear readout
+Define the 0/1 linear observation map
 
-[
-W_h(x,z)=(x_2+x_4, x_3+x_4, sum_{j=1}^h z_j).
-]
+\[
+W_h(x,z)=\left(x_2+x_4,\ x_3+x_4,\ \sum_{j=1}^h z_j\right).
+\]
 
-Its image `Q_h=W_h(P_h)` is the Reeve tetrahedron with vertices `v_0=(0,0,0)`, `v_1=(1,0,0)`, `v_2=(0,1,0)`, and `v_3=(1,1,h)`. By `kP_h` and `kQ_h` we mean ordinary dilations by a nonnegative integer `k`. Source-attainable observations at degree `k` are `S_{h,k}=W_h(kP_h\cap\mathbb Z^{h+4})`.
+Its image is the Reeve tetrahedron \(Q_h\) with vertices
+\(v_0=(0,0,0)\), \(v_1=(1,0,0)\), \(v_2=(0,1,0)\), \(v_3=(1,1,h)\).
+For nonnegative integer \(k\), define the set of source-attainable integer observations by
 
-**Theorem (complete all-degree defect classification).** For every `h>=2` and every integer `k>=0`,
+\[
+S_{h,k}=W_h(kP_h\cap\mathbb Z^{h+4}).
+\]
 
-[
-(kQ_hcapmathbb Z^3)setminus S_{h,k}
+**Theorem 1 (exact degree-by-degree lattice holes).** For each \(h\ge2\) and \(k\ge0\),
+
+\[
+\boxed{
+(kQ_h\cap\mathbb Z^3)\setminus S_{h,k}
 =
-igcup_{r=1}^{h-1} igcup_{q=0}^{k-2}
-left{(q+1+a,q+1+b,qh+r): a,b,cinmathbb Z_{ge0},
- a+b+c=k-q-2ight}.
-	ag{1}
-]
+\bigcup_{r=1}^{h-1}\ \bigcup_{q=0}^{k-2}
+\{(q+1+a,\ q+1+b,\ qh+r):
+a,b,c\in\mathbb Z_{\ge0},\ a+b+c=k-q-2\}.}
+\tag{1}
+\]
 
-The right side is empty for `k=0,1`. Distinct tuples `(r,q,a,b,c)` generate distinct points in (1). In particular,
+The union is empty for \(k=0,1\) and its parameterization is injective. Consequently,
 
-[
-oxed{#((kQ_hcapmathbb Z^3)setminus S_{h,k})=(h-1)inom{k+1}{3}},
-qquad kge0,
-	ag{2}
-]
+\[
+\boxed{\#((kQ_h\cap\mathbb Z^3)\setminus S_{h,k})
+=(h-1)\binom{k+1}{3},}
+\quad k\ge0,
+\tag{2}
+\]
+using the zero convention for \(k<2\), and
 
-where `\binom{k+1}{3}=0` for `k<2`. Thus `|S_{h,k}|=\binom{k+3}{3}` and
+\[
+\# S_{h,k}=\binom{k+3}{3},\qquad
+\#(kQ_h\cap\mathbb Z^3)=\binom{k+3}{3}+(h-1)\binom{k+1}{3}.
+\tag{3}
+\]
 
-[
-|kQ_hcapmathbb Z^3|=inom{k+3}{3}+(h-1)inom{k+1}{3}.
-	ag{3}
-]
+Thus the exact hole-count generating function and Ehrhart series are
 
-Equivalently, the lattice-hole series and Ehrhart series are, respectively,
+\[
+\sum_{k\ge0}\#((kQ_h\cap\mathbb Z^3)\setminus S_{h,k})\,t^k
+=\frac{(h-1)t^2}{(1-t)^4},
+\qquad
+\sum_{k\ge0}\#(kQ_h\cap\mathbb Z^3)t^k
+=\frac{1+(h-1)t^2}{(1-t)^4}.
+\tag{4}
+\]
 
-[
-sum_{kge0}#((kQ_hcapmathbb Z^3)setminus S_{h,k}),t^k
-=rac{(h-1)t^2}{(1-t)^4},qquad
-sum_{kge0}|kQ_hcapmathbb Z^3|t^k
-=rac{1+(h-1)t^2}{(1-t)^4}.
-	ag{4}
-]
+**Theorem 2 (complete minimal Hilbert basis).** Let
 
-**Theorem (minimal Hilbert basis).** Define the graded lattice-point semigroup
+\[
+C_h=\{(x,y,z,k)\in\mathbb Z^3\times\mathbb Z_{\ge0}:
+(x,y,z)\in kQ_h\}.
+\]
 
-[
-C_h={(x,y,z,k)inmathbb Z^3	imesmathbb Z_{ge0}:
-(x,y,z)in kQ_h}.
-]
+The unique minimal Hilbert basis of the additive semigroup \(C_h\) is precisely
+the four degree-one elements \((v_i,1)\), \(i=0,1,2,3\), together with
+the \(h-1\) degree-two elements
 
-Its unique minimal Hilbert basis comprises precisely the four degree-one rays `(v_i,1)`, `i=0,1,2,3`, and the `h-1` degree-two elements `w_r=(1,1,r,2)`, `1\le r\le h-1`. In particular, augmenting the source readout semigroup by these precise degree-two abstract observer elements fills *all* higher-degree lattice holes. This is a semigroup-completion statement, not a claim that the added observers have integral source preimages in `P_h`.
+\[
+w_r=(1,1,r,2),\quad 1\le r\le h-1.
+\tag{5}
+\]
 
-## Proof
+These extra abstract integer observation states generate the saturation of the attainable observation semigroup in all degrees. They do not acquire integer preimages in the original source \(P_h\).
 
-Write `(x,y,z)` for an integer point in `kQ_h`, and set `t=z/h`. The unique nonnegative barycentric masses relative to `v_0,v_1,v_2,v_3` are
+## Proofs
 
-[
-lambda_3=t,qquad lambda_1=x-t,qquad lambda_2=y-t,qquad
-lambda_0=k-x-y+t.
-	ag{5}
-]
+A point \((x,y,z)\in\mathbb Z^3\) lies in \(kQ_h\) exactly when the barycentric quantities
 
-They sum to `k`. Hence membership is **equivalent** to all four expressions in (5) being nonnegative.
+\[
+t=\frac zh,\quad x-t,\quad y-t,\quad k-x-y+t
+\tag{6}
+\]
+are nonnegative; they sum to \(k\).
 
-For any `z\ge0`, perform unique Euclidean division `z=qh+r`, with `q\ge0` and `0\le r<h`.
+Write \(z=qh+r\) uniquely, where \(q\ge0\) and \(0\le r<h\). If \(r=0\), then (6) is an integer quadruple:
+\[
+(x_4,x_2,x_3,x_1)=(q,\ x-q,\ y-q,\ k+q-x-y).
+\]
+It yields a nonnegative integer point of \(kP_h\) with all \(z_j=x_4\).
+Conversely, any integral named-source point has observed third coordinate \(h x_4\), divisible by \(h\). Hence the source-attainable points of \(kQ_h\) are **exactly** those with \(r=0\).
 
-When `r=0`, (5) gives four nonnegative integers
-[
-d=q,quad b=x-q,quad c=y-q,quad a=k+q-x-y,
-]
-whose sum is `k`. The point is the readout of the integer source allocation
-`(x_1,x_2,x_3,x_4)=(a,b,c,d)` with all `z_j=d`. Conversely every integer source allocation has third observation coordinate divisible by `h`, so **exactly** these `r=0` lattice points are source-attainable.
+If \(1\le r<h\), let \(\theta=r/h\in(0,1)\). Since \(x,y,k,q\) are integers, (6) is equivalent to
 
-When `1\le r<h`, put `\theta=r/h\in(0,1)`. The inequalities (5), using the integrality of `x,y,k,q`, become precisely
-[
-a=x-q-1\ge0,qquad b=y-q-1\ge0,qquad
+\[
+a=x-q-1\ge0,\quad b=y-q-1\ge0,\quad
 c=k+q-x-y\ge0.
-	ag{6}
-]
-Thus `a+b+c=k-q-2`, and the other masses are automatically nonnegative. Necessarily `0\le q\le k-2`. These are exactly the points (1), none attainable from the named integer source. For each fixed `r,q`, the nonnegative solutions `a+b+c=k-q-2` number `\binom{k-q}{2}`. Summing over `r=1,\ldots,h-1` and `q=0,\ldots,k-2` gives
-[
-(h-1)sum_{q=0}^{k-2}inom{k-q}{2}=(h-1)inom{k+1}{3},
-]
-which proves (1)–(2). The source's nonnegative integer quadruples summing to `k` number `\binom{k+3}{3}` and are readout-distinct because `z/h=x_4`, `x_2=x-x_4`, `x_3=y-x_4`; hence (3), and standard generating-function identities give (4).
+\tag{7}
+\]
+These obey \(a+b+c=k-q-2\), so necessarily \(0\le q\le k-2\); conversely any such \((q,r,a,b,c)\) gives a point of \(kQ_h\) with \(r>0\). The residues \(r\), quotient \(q\), and coordinates \(a,b\) uniquely recover the parameters, establishing (1) and disjointness.
 
-For the Hilbert basis, every `r=0` point has the degree-one decomposition already obtained. Every `r>0` point with (6) has the **exact** graded decomposition
-[
+For fixed \(q,r\), stars-and-bars counts exactly \(\binom{k-q}{2}\) solutions. The hockey-stick identity gives
+
+\[
+(h-1)\sum_{q=0}^{k-2}\binom{k-q}{2}
+=(h-1)\binom{k+1}{3}.
+\tag{8}
+\]
+
+The integral source has precisely the nonnegative integer four-tuples summing to \(k\), numbering \(\binom{k+3}{3}\). The output map is injective on them: \(x_4=z/h\), \(x_2=x-x_4\), \(x_3=y-x_4\), and \(x_1=k-x_2-x_3-x_4\). This yields (2)--(3), and summing their binomial coefficients over \(k\) gives (4).
+
+For Theorem 2, every point with \(r=0\) decomposes into the four degree-one vertex elements using the explicit integer four-tuple above. When \(1\le r<h\), the uniquely determined \(q,a,b,c\) in (7) provide an exact graded decomposition:
+
+\[
 (x,y,z,k)
-= q(v_3,1)+(1,1,r,2)+a(v_1,1)+b(v_2,1)+c(v_0,1).
-	ag{7}
-]
-Therefore the stated elements generate `C_h`. The degree-one points are exactly the four vertices (use (1) with `k=1` and the source allocation). Every `w_r` is a degree-two hole and cannot be written as a sum of two degree-one lattice points. Thus each of `h-1` degree-two elements is indecomposable; no proper subcollection can generate `C_h`. This proves the minimal Hilbert basis.
+=q(v_3,1)+w_r+a(v_1,1)+b(v_2,1)+c(v_0,1).
+\tag{9}
+\]
 
-## Verification scope and contribution boundary
+The degrees on the right total \(q+2+a+b+c=k\). Thus the proposed set generates all of \(C_h\). At degree 1, there are only the four vertex lattice points. Every \(w_r\) is a degree-two hole and cannot be written as a sum of two degree-one elements; it is therefore indecomposable. Each vertex degree-one element is also indecomposable. Consequently the displayed generating set is minimal and, as the set of all indecomposable elements in this positive affine semigroup, unique. QED.
 
-As an auxiliary exact finite check, enumerated `h=2,3,4,5,6,7` and `k=1,2,\ldots,8`, comparing all lattice points of `kQ_h` against exact integer source readouts, with the counts in (2) in every case. The universal proofs above use (5)–(7), not the enumeration. No independent formal checker or Native Result review is claimed.
+## Independent coverage, research meaning and remaining bridge
 
-**Research significance.** The previous source-exposed Driver note classified exactly the `k=2` holes. The new result gives the complete degree-by-degree defect function, its Hilbert/Ehrhart series and the minimal saturation generators. For native signed-Port/Link questions, transferring these formulas requires an exact correspondence of named source equations, allowed future operations and observer fibers; abstract TU/0–1 readouts alone do not establish that correspondence.
+Auxiliary finite integer enumeration over \(h=2,\ldots,7\) and \(k=1,\ldots,8\) compared all lattice points of \(kQ_h\) with source-observable integer points. All counts agreed with (2). The universal claim rests on equations (6)--(9), not on finite enumeration. Theorem 2 further strengthens the preceding degree-two classification by showing that *no generators of degree greater than two are needed* for the observer saturation.
 
-Status: author-side proved and GitHub-published mathematical subunit; Native Result acceptance 0; formal Task completion 0; parent-objective completion 0.
+The distinction between named source realizability and abstract observer lattice saturation is substantive. Any proposed transfer to native X6 signed-Port/Link algebra requires exact native source equations, allowed transitions, preserved provenance and observer fibers. No native correspondence is inferred here.
+
+Evidence status: authored mathematical proof, GitHub Source publication; source-exposed, not independently reviewed or formally checked. Native Result acceptance: none in this subunit; formal Task completed: none; parent Objective completed: none.
