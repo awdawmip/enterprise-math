@@ -1,0 +1,283 @@
+{
+  "status": "PASS",
+  "model": "positive integer labeled-source multisets, auxiliary Walsh source line",
+  "first_moment_deletion_checks": 2048,
+  "independent_recursive_enumeration_checks": 272,
+  "max_r_dp": 6002,
+  "alphabet_results": [
+    {
+      "weights": [
+        1,
+        1,
+        1,
+        2,
+        4
+      ],
+      "marked_index": 0,
+      "h": 1,
+      "D": 4,
+      "Q": 18,
+      "smooth_coefficients": [
+        "1/6",
+        "1/6",
+        "-5/4",
+        "5"
+      ],
+      "C_256": "1237277184",
+      "M_256": "52990757248"
+    },
+    {
+      "weights": [
+        1,
+        1,
+        1,
+        2,
+        4
+      ],
+      "marked_index": 4,
+      "h": 4,
+      "D": 4,
+      "Q": 18,
+      "smooth_coefficients": [
+        "1/6",
+        "-4/3",
+        "5",
+        "-20"
+      ],
+      "C_256": "1237277184",
+      "M_256": "12791146368"
+    },
+    {
+      "weights": [
+        1,
+        1,
+        2
+      ],
+      "marked_index": 0,
+      "h": 1,
+      "D": 1,
+      "Q": 3,
+      "smooth_coefficients": [
+        "1/4",
+        "-1/8",
+        "-3/16",
+        "9/32"
+      ],
+      "C_256": "1422784",
+      "M_256": "90879296"
+    },
+    {
+      "weights": [
+        1,
+        1,
+        2
+      ],
+      "marked_index": 2,
+      "h": 2,
+      "D": 1,
+      "Q": 3,
+      "smooth_coefficients": [
+        "1/4",
+        "-5/8",
+        "9/16",
+        "-27/32"
+      ],
+      "C_256": "1422784",
+      "M_256": "45086016"
+    },
+    {
+      "weights": [
+        1,
+        1,
+        3,
+        3,
+        6
+      ],
+      "marked_index": 0,
+      "h": 1,
+      "D": 9,
+      "Q": 51,
+      "smooth_coefficients": [
+        "1/6",
+        "7/12",
+        "-85/24",
+        "1105/48"
+      ],
+      "C_256": "192208280",
+      "M_256": "8310414178"
+    },
+    {
+      "weights": [
+        1,
+        1,
+        2,
+        5,
+        5
+      ],
+      "marked_index": 0,
+      "h": 1,
+      "D": 9,
+      "Q": 51,
+      "smooth_coefficients": [
+        "1/6",
+        "7/12",
+        "-85/24",
+        "1105/48"
+      ],
+      "C_256": "207584936",
+      "M_256": "8975247346"
+    },
+    {
+      "weights": [
+        1,
+        1,
+        1,
+        3,
+        6,
+        6
+      ],
+      "marked_index": 5,
+      "h": 6,
+      "D": 12,
+      "Q": 78,
+      "smooth_coefficients": [
+        "1/7",
+        "-25/14",
+        "167/14",
+        "-2839/28"
+      ],
+      "C_256": "4396812651",
+      "M_256": "25524103572"
+    },
+    {
+      "weights": [
+        1,
+        1,
+        2,
+        3,
+        6
+      ],
+      "marked_index": 3,
+      "h": 3,
+      "D": 8,
+      "Q": 46,
+      "smooth_coefficients": [
+        "1/6",
+        "-1/2",
+        "5/36",
+        "-5/6"
+      ],
+      "C_256": "285593616",
+      "M_256": "4014227547"
+    }
+  ],
+  "g3_periodic_values_n_0_1_2": [
+    "0",
+    "1/3",
+    "-1/3"
+  ],
+  "matched_signature_example": {
+    "A": [
+      1,
+      1,
+      3,
+      3,
+      6
+    ],
+    "B": [
+      1,
+      1,
+      2,
+      5,
+      5
+    ],
+    "shared_d_D_Q_h": [
+      5,
+      9,
+      51,
+      1
+    ],
+    "A_nonunit_gcd": 3,
+    "B_nonunit_gcd": 1,
+    "predicted_r_cubed_mean_difference_by_r_mod_3": {
+      "0": "10/3",
+      "1": "0",
+      "2": "-10/3"
+    },
+    "samples": [
+      {
+        "r": 300,
+        "r_mod_3": 0,
+        "expected_limit": "10/3",
+        "scaled_exact_fraction": "503670625/158796623",
+        "scaled_exact_decimal": "3.171796827191",
+        "scaled_minus_limit_decimal": "-0.161536506143"
+      },
+      {
+        "r": 301,
+        "r_mod_3": 1,
+        "expected_limit": "0",
+        "scaled_exact_fraction": "-581801116575/7087198216774",
+        "scaled_exact_decimal": "-0.082091836404",
+        "scaled_minus_limit_decimal": "-0.082091836404"
+      },
+      {
+        "r": 302,
+        "r_mod_3": 2,
+        "expected_limit": "-10/3",
+        "scaled_exact_fraction": "-23526741693380/7321131038811",
+        "scaled_exact_decimal": "-3.213539215274",
+        "scaled_minus_limit_decimal": "0.119794118059"
+      },
+      {
+        "r": 3000,
+        "r_mod_3": 0,
+        "expected_limit": "10/3",
+        "scaled_exact_fraction": "188877177625000/56946996236767",
+        "scaled_exact_decimal": "3.316718880829",
+        "scaled_minus_limit_decimal": "-0.016614452504"
+      },
+      {
+        "r": 3001,
+        "r_mod_3": 1,
+        "expected_limit": "0",
+        "scaled_exact_fraction": "-1088206903194310500/123415257659721170453",
+        "scaled_exact_decimal": "-0.008817442218",
+        "scaled_minus_limit_decimal": "-0.008817442218"
+      },
+      {
+        "r": 3002,
+        "r_mod_3": 2,
+        "expected_limit": "-10/3",
+        "scaled_exact_fraction": "-411243626774457589600/123826231458650242977",
+        "scaled_exact_decimal": "-3.321134964135",
+        "scaled_minus_limit_decimal": "0.012198369198"
+      },
+      {
+        "r": 6000,
+        "r_mod_3": 0,
+        "expected_limit": "10/3",
+        "scaled_exact_fraction": "27099078384750000/8150066735318389",
+        "scaled_exact_decimal": "3.325013066128",
+        "scaled_minus_limit_decimal": "-0.008320267205"
+      },
+      {
+        "r": 6001,
+        "r_mod_3": 1,
+        "expected_limit": "0",
+        "scaled_exact_fraction": "-69382350345537241000/15674199664077564640903",
+        "scaled_exact_decimal": "-0.004426532253",
+        "scaled_minus_limit_decimal": "-0.004426532253"
+      },
+      {
+        "r": 6002,
+        "r_mod_3": 2,
+        "expected_limit": "-10/3",
+        "scaled_exact_fraction": "-52238514787675470339200/15700310284108460745927",
+        "scaled_exact_decimal": "-3.327228178449",
+        "scaled_minus_limit_decimal": "0.006105154885"
+      }
+    ]
+  },
+  "evidence_scope": "integer dynamic-programming and bounded independent enumeration only; infinite claims supplied by explicit pole proof; no independent peer review"
+}
