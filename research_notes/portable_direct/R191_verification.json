@@ -1,0 +1,78 @@
+{
+  "arithmetic": "Python arbitrary integers and Fraction; no floats used in evidence",
+  "checks": {
+    "append_rank_updates": 125663,
+    "dyadic_affine_compositions": 51150,
+    "dyadic_denominator_witnesses": 19,
+    "dyadic_word_observations": 1365,
+    "oracle_checks": 1104,
+    "quotient_compositions": 110786,
+    "rank_roundtrips": 16071,
+    "rank_unique_codes": 16071
+  },
+  "finite_domains": {
+    "affine": "341 by 150 selected words; exact free-monoid composition",
+    "append": "all partial permutations k=1..7 and every target or one unselected source",
+    "bit_growth": "m=1..19 for word (source 1)(source 0)^m",
+    "dyadic": "all words of length <=5 over 3 targets + 1 unselected symbol",
+    "query": "all state/subset pairs k=1..4",
+    "rank_unrank": "all partial permutations k=1..7",
+    "star": "all state pairs k=1..5"
+  },
+  "fixed_science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "native_brc_integration": "NOT_EXECUTED",
+  "review": "NOT_REVIEWED",
+  "rows": [
+    {
+      "k": 1,
+      "states": 2,
+      "optimal_fixed_bits": 1,
+      "quadratic_reset_coordinates": 1,
+      "dyadic_affine_coordinates": 1
+    },
+    {
+      "k": 2,
+      "states": 5,
+      "optimal_fixed_bits": 3,
+      "quadratic_reset_coordinates": 3,
+      "dyadic_affine_coordinates": 2
+    },
+    {
+      "k": 3,
+      "states": 16,
+      "optimal_fixed_bits": 4,
+      "quadratic_reset_coordinates": 6,
+      "dyadic_affine_coordinates": 3
+    },
+    {
+      "k": 4,
+      "states": 65,
+      "optimal_fixed_bits": 7,
+      "quadratic_reset_coordinates": 10,
+      "dyadic_affine_coordinates": 4
+    },
+    {
+      "k": 5,
+      "states": 326,
+      "optimal_fixed_bits": 9,
+      "quadratic_reset_coordinates": 15,
+      "dyadic_affine_coordinates": 5
+    },
+    {
+      "k": 6,
+      "states": 1957,
+      "optimal_fixed_bits": 11,
+      "quadratic_reset_coordinates": 21,
+      "dyadic_affine_coordinates": 6
+    },
+    {
+      "k": 7,
+      "states": 13700,
+      "optimal_fixed_bits": 14,
+      "quadratic_reset_coordinates": 28,
+      "dyadic_affine_coordinates": 7
+    }
+  ],
+  "schema": "EM_R191_EXACT_CHECK_V1",
+  "status": "PASS"
+}
