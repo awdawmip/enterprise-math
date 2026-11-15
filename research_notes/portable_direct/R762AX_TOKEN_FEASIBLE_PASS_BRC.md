@@ -76,3 +76,17 @@ Companion JavaScript checker uses exact integers: it reconstructs the four V23 m
 Existing sources: R762AW, [PR #2458](https://github.com/awdawmip/enterprise-math/pull/2458) commit \`a71f4f4d72a27a013f46f41f87d2cb9785dd3820\`; R762AU, [PR #2451](https://github.com/awdawmip/enterprise-math/pull/2451) commit \`f42064096ba3014a63a8d75bbe9f4b7dcdaff447\`; R762AR/R762AS ordered token BRC and frame transport, PR #2436/#2440.
 
 **Next scientific target:** establish the native P000 signed three-force Cell/Link/Port event and its legal PASS microstep schedule, and measure whether resource consumption is sequential or atomic. Then identify the V17 frame-to-port relabeling and V39 based-loop observer. Those actual interfaces determine whether AX1's token cycle is an admissible native scheduler or merely a precisely scoped comparator.
+
+## AX5. Exact terminal-state distribution and two-step coarse period
+
+Keep the same hypotheses as AX4 and index the six-cycle C by j∈ℤ/6ℤ. Let D_1^K(S)_j count the fully labelled one-macro histories ending at C_j (the 20×8 exact vectors are present in the JSON evidence). Then for every r≥1 with q(K)>0,
+
+\[
+\boxed{D_r^K(S)_j=q(K)^{r-1}\,D_1^K(S)_{\,j-3(r-1)\pmod 6}.}
+\]
+
+**Proof.** After the first macro, every labelled branch is on C. Each later macro consists of exactly three microsteps; on C each microstep advances one vertex, regardless of the chosen legal PASS order or mask. Thus the macro maps C_i to C_(i+3 mod 6), with precisely q(K) different retained PASS-order labels. Iterating r−1 times gives the coefficient and index shift. QED.
+
+As a triad-only terminal observer, each endpoint has period at most two in the macro count (with positive scalar q(K)^(r−1) factored out). The **complete named-source histories still grow** by q(K) per macro: terminal readout and BRC provenance are distinct observers. Example, K=(1,0,0), root 145: terminal alternates C_2 then C_5 with one history each. Root 013 has D_1=(0,0,1,0,0,1), which is invariant under half-cycle shifting and therefore keeps that same two-point endpoint vector for every macro count. Root 145 with K=(1,1,0) has D_1=(2,0,1,0,0,0); after two macros, D_2=(0,0,3,6,0,0) under the C-index order (shift +3). For an observer that queries only weighted terminal triad counts, the six-component endpoint vector is a sufficient future macro state after absorption. It is not a sufficient state for a future query about original ordered PASS labels.
+
+This extension follows from the already proven uniform cyclic successor property; it adds no assumption of a physical V17 frame return. Actual frame and V39 based-loop measurements require their own signed source/transport map.
