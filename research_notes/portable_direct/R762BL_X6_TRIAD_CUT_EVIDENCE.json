@@ -1,0 +1,274 @@
+{
+  "schema": "R762BL_EXACT_COORDINATE_TRIAD_ROW_CODE_EVIDENCE_V1",
+  "status": "EXACT_FINITE_CHECKED",
+  "source_pinned": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "method": "complete 2^20 selection enumeration, 31 complementary cut classes, independently checked against normalized signed integer triples on 243 anchored chart states",
+  "triples": [
+    "123",
+    "124",
+    "125",
+    "126",
+    "134",
+    "135",
+    "136",
+    "145",
+    "146",
+    "156",
+    "234",
+    "235",
+    "236",
+    "245",
+    "246",
+    "256",
+    "345",
+    "346",
+    "356",
+    "456"
+  ],
+  "number_of_observation_sets": 1048576,
+  "cut_representatives": 31,
+  "distance_histogram": [
+    5944,
+    51945,
+    177522,
+    305965,
+    291301,
+    158031,
+    48795,
+    8307,
+    735,
+    30,
+    1
+  ],
+  "thresholds": [
+    {
+      "q": 0,
+      "min_rows": 0,
+      "number_of_optimal_designs": 1,
+      "witness_bitmask": "0x0",
+      "witness_rows": [],
+      "regular_hypergraph_count": 1
+    },
+    {
+      "q": 1,
+      "min_rows": 3,
+      "number_of_optimal_designs": 480,
+      "witness_bitmask": "0x1c",
+      "witness_rows": [
+        "125",
+        "126",
+        "134"
+      ],
+      "regular_hypergraph_count": 10
+    },
+    {
+      "q": 2,
+      "min_rows": 4,
+      "number_of_optimal_designs": 75,
+      "witness_bitmask": "0xf00",
+      "witness_rows": [
+        "146",
+        "156",
+        "234",
+        "235"
+      ],
+      "regular_hypergraph_count": 75
+    },
+    {
+      "q": 3,
+      "min_rows": 6,
+      "number_of_optimal_designs": 330,
+      "witness_bitmask": "0x1f80",
+      "witness_rows": [
+        "145",
+        "146",
+        "156",
+        "234",
+        "235",
+        "236"
+      ],
+      "regular_hypergraph_count": 330
+    },
+    {
+      "q": 4,
+      "min_rows": 8,
+      "number_of_optimal_designs": 780,
+      "witness_bitmask": "0x3fc0",
+      "witness_rows": [
+        "136",
+        "145",
+        "146",
+        "156",
+        "234",
+        "235",
+        "236",
+        "245"
+      ],
+      "regular_hypergraph_count": 780
+    },
+    {
+      "q": 5,
+      "min_rows": 10,
+      "number_of_optimal_designs": 1044,
+      "witness_bitmask": "0x7fe0",
+      "witness_rows": [
+        "135",
+        "136",
+        "145",
+        "146",
+        "156",
+        "234",
+        "235",
+        "236",
+        "245",
+        "246"
+      ],
+      "regular_hypergraph_count": 1044
+    },
+    {
+      "q": 6,
+      "min_rows": 12,
+      "number_of_optimal_designs": 780,
+      "witness_bitmask": "0xfff0",
+      "witness_rows": [
+        "134",
+        "135",
+        "136",
+        "145",
+        "146",
+        "156",
+        "234",
+        "235",
+        "236",
+        "245",
+        "246",
+        "256"
+      ],
+      "regular_hypergraph_count": 780
+    },
+    {
+      "q": 7,
+      "min_rows": 14,
+      "number_of_optimal_designs": 330,
+      "witness_bitmask": "0x1fff8",
+      "witness_rows": [
+        "126",
+        "134",
+        "135",
+        "136",
+        "145",
+        "146",
+        "156",
+        "234",
+        "235",
+        "236",
+        "245",
+        "246",
+        "256",
+        "345"
+      ],
+      "regular_hypergraph_count": 330
+    },
+    {
+      "q": 8,
+      "min_rows": 16,
+      "number_of_optimal_designs": 75,
+      "witness_bitmask": "0x3fffc",
+      "witness_rows": [
+        "125",
+        "126",
+        "134",
+        "135",
+        "136",
+        "145",
+        "146",
+        "156",
+        "234",
+        "235",
+        "236",
+        "245",
+        "246",
+        "256",
+        "345",
+        "346"
+      ],
+      "regular_hypergraph_count": 75
+    },
+    {
+      "q": 9,
+      "min_rows": 18,
+      "number_of_optimal_designs": 10,
+      "witness_bitmask": "0x7fffe",
+      "witness_rows": [
+        "124",
+        "125",
+        "126",
+        "134",
+        "135",
+        "136",
+        "145",
+        "146",
+        "156",
+        "234",
+        "235",
+        "236",
+        "245",
+        "246",
+        "256",
+        "345",
+        "346",
+        "356"
+      ],
+      "regular_hypergraph_count": 10
+    },
+    {
+      "q": 10,
+      "min_rows": 20,
+      "number_of_optimal_designs": 1,
+      "witness_bitmask": "0xfffff",
+      "witness_rows": [
+        "123",
+        "124",
+        "125",
+        "126",
+        "134",
+        "135",
+        "136",
+        "145",
+        "146",
+        "156",
+        "234",
+        "235",
+        "236",
+        "245",
+        "246",
+        "256",
+        "345",
+        "346",
+        "356",
+        "456"
+      ],
+      "regular_hypergraph_count": 1
+    }
+  ],
+  "complete_design_cut_sizes": [
+    {
+      "partition_size": 1,
+      "crossing_rows": 10
+    },
+    {
+      "partition_size": 2,
+      "crossing_rows": 16
+    },
+    {
+      "partition_size": 3,
+      "crossing_rows": 18
+    }
+  ],
+  "chart_states_checked": 243,
+  "chart_pair_count": 29403,
+  "exact_row_comparisons": 588060,
+  "complete_design_empirical_minimum_distance": 10,
+  "proof_scope": "all Z^6/diagonal chart states by cut theorem; finite program checks all H and finite chart consistency; official triadic force event authorization not claimed",
+  "review": "NOT_REVIEWED"
+}
