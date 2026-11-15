@@ -1,0 +1,586 @@
+{
+  "schema": "PREFIX822_EXACT_OBSERVER_CHECK_V1",
+  "frozen_input": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "method": "exact integer path counts, prime-field elimination modulo 1000000007, and Fraction Gaussian elimination for q=4",
+  "verification_scope": "q=1..10, a in {1,2}, b in {0,1,3}; named-state words up to length four at q=1..4",
+  "interpretation": "Rows reproduce the local successful exact checker run. Modular ranks are characteristic-zero lower bounds; the general separate-word upper bound is proved in the paper. General Q-only formula remains open.",
+  "finite_rank_rows": [
+    {
+      "q": 1,
+      "a": 1,
+      "b": 0,
+      "moment_dim": 4,
+      "Q_modular_rank": 3,
+      "immediate_CQ_kernel": 1,
+      "separate_word_rank": 3
+    },
+    {
+      "q": 1,
+      "a": 1,
+      "b": 1,
+      "moment_dim": 4,
+      "Q_modular_rank": 3,
+      "immediate_CQ_kernel": 1,
+      "separate_word_rank": 3
+    },
+    {
+      "q": 1,
+      "a": 1,
+      "b": 3,
+      "moment_dim": 4,
+      "Q_modular_rank": 3,
+      "immediate_CQ_kernel": 1,
+      "separate_word_rank": 3
+    },
+    {
+      "q": 1,
+      "a": 2,
+      "b": 0,
+      "moment_dim": 4,
+      "Q_modular_rank": 3,
+      "immediate_CQ_kernel": 1,
+      "separate_word_rank": 3
+    },
+    {
+      "q": 1,
+      "a": 2,
+      "b": 1,
+      "moment_dim": 4,
+      "Q_modular_rank": 3,
+      "immediate_CQ_kernel": 1,
+      "separate_word_rank": 3
+    },
+    {
+      "q": 1,
+      "a": 2,
+      "b": 3,
+      "moment_dim": 4,
+      "Q_modular_rank": 3,
+      "immediate_CQ_kernel": 1,
+      "separate_word_rank": 3
+    },
+    {
+      "q": 2,
+      "a": 1,
+      "b": 0,
+      "moment_dim": 9,
+      "Q_modular_rank": 8,
+      "immediate_CQ_kernel": 1,
+      "separate_word_rank": 8
+    },
+    {
+      "q": 2,
+      "a": 1,
+      "b": 1,
+      "moment_dim": 9,
+      "Q_modular_rank": 8,
+      "immediate_CQ_kernel": 1,
+      "separate_word_rank": 8
+    },
+    {
+      "q": 2,
+      "a": 1,
+      "b": 3,
+      "moment_dim": 9,
+      "Q_modular_rank": 8,
+      "immediate_CQ_kernel": 1,
+      "separate_word_rank": 8
+    },
+    {
+      "q": 2,
+      "a": 2,
+      "b": 0,
+      "moment_dim": 9,
+      "Q_modular_rank": 8,
+      "immediate_CQ_kernel": 1,
+      "separate_word_rank": 8
+    },
+    {
+      "q": 2,
+      "a": 2,
+      "b": 1,
+      "moment_dim": 9,
+      "Q_modular_rank": 8,
+      "immediate_CQ_kernel": 1,
+      "separate_word_rank": 8
+    },
+    {
+      "q": 2,
+      "a": 2,
+      "b": 3,
+      "moment_dim": 9,
+      "Q_modular_rank": 8,
+      "immediate_CQ_kernel": 1,
+      "separate_word_rank": 8
+    },
+    {
+      "q": 3,
+      "a": 1,
+      "b": 0,
+      "moment_dim": 16,
+      "Q_modular_rank": 14,
+      "immediate_CQ_kernel": 2,
+      "separate_word_rank": 15
+    },
+    {
+      "q": 3,
+      "a": 1,
+      "b": 1,
+      "moment_dim": 16,
+      "Q_modular_rank": 14,
+      "immediate_CQ_kernel": 2,
+      "separate_word_rank": 15
+    },
+    {
+      "q": 3,
+      "a": 1,
+      "b": 3,
+      "moment_dim": 16,
+      "Q_modular_rank": 14,
+      "immediate_CQ_kernel": 2,
+      "separate_word_rank": 15
+    },
+    {
+      "q": 3,
+      "a": 2,
+      "b": 0,
+      "moment_dim": 16,
+      "Q_modular_rank": 14,
+      "immediate_CQ_kernel": 2,
+      "separate_word_rank": 15
+    },
+    {
+      "q": 3,
+      "a": 2,
+      "b": 1,
+      "moment_dim": 16,
+      "Q_modular_rank": 14,
+      "immediate_CQ_kernel": 2,
+      "separate_word_rank": 15
+    },
+    {
+      "q": 3,
+      "a": 2,
+      "b": 3,
+      "moment_dim": 16,
+      "Q_modular_rank": 14,
+      "immediate_CQ_kernel": 2,
+      "separate_word_rank": 15
+    },
+    {
+      "q": 4,
+      "a": 1,
+      "b": 0,
+      "moment_dim": 25,
+      "Q_modular_rank": 21,
+      "immediate_CQ_kernel": 3,
+      "separate_word_rank": 24
+    },
+    {
+      "q": 4,
+      "a": 1,
+      "b": 1,
+      "moment_dim": 25,
+      "Q_modular_rank": 23,
+      "immediate_CQ_kernel": 2,
+      "separate_word_rank": 24
+    },
+    {
+      "q": 4,
+      "a": 1,
+      "b": 3,
+      "moment_dim": 25,
+      "Q_modular_rank": 23,
+      "immediate_CQ_kernel": 2,
+      "separate_word_rank": 24
+    },
+    {
+      "q": 4,
+      "a": 2,
+      "b": 0,
+      "moment_dim": 25,
+      "Q_modular_rank": 21,
+      "immediate_CQ_kernel": 3,
+      "separate_word_rank": 24
+    },
+    {
+      "q": 4,
+      "a": 2,
+      "b": 1,
+      "moment_dim": 25,
+      "Q_modular_rank": 23,
+      "immediate_CQ_kernel": 2,
+      "separate_word_rank": 24
+    },
+    {
+      "q": 4,
+      "a": 2,
+      "b": 3,
+      "moment_dim": 25,
+      "Q_modular_rank": 23,
+      "immediate_CQ_kernel": 2,
+      "separate_word_rank": 24
+    },
+    {
+      "q": 5,
+      "a": 1,
+      "b": 0,
+      "moment_dim": 36,
+      "Q_modular_rank": 29,
+      "immediate_CQ_kernel": 4,
+      "separate_word_rank": 35
+    },
+    {
+      "q": 5,
+      "a": 1,
+      "b": 1,
+      "moment_dim": 36,
+      "Q_modular_rank": 33,
+      "immediate_CQ_kernel": 3,
+      "separate_word_rank": 35
+    },
+    {
+      "q": 5,
+      "a": 1,
+      "b": 3,
+      "moment_dim": 36,
+      "Q_modular_rank": 33,
+      "immediate_CQ_kernel": 3,
+      "separate_word_rank": 35
+    },
+    {
+      "q": 5,
+      "a": 2,
+      "b": 0,
+      "moment_dim": 36,
+      "Q_modular_rank": 29,
+      "immediate_CQ_kernel": 4,
+      "separate_word_rank": 35
+    },
+    {
+      "q": 5,
+      "a": 2,
+      "b": 1,
+      "moment_dim": 36,
+      "Q_modular_rank": 33,
+      "immediate_CQ_kernel": 3,
+      "separate_word_rank": 35
+    },
+    {
+      "q": 5,
+      "a": 2,
+      "b": 3,
+      "moment_dim": 36,
+      "Q_modular_rank": 33,
+      "immediate_CQ_kernel": 3,
+      "separate_word_rank": 35
+    },
+    {
+      "q": 6,
+      "a": 1,
+      "b": 0,
+      "moment_dim": 49,
+      "Q_modular_rank": 38,
+      "immediate_CQ_kernel": 5,
+      "separate_word_rank": 48
+    },
+    {
+      "q": 6,
+      "a": 1,
+      "b": 1,
+      "moment_dim": 49,
+      "Q_modular_rank": 46,
+      "immediate_CQ_kernel": 3,
+      "separate_word_rank": 48
+    },
+    {
+      "q": 6,
+      "a": 1,
+      "b": 3,
+      "moment_dim": 49,
+      "Q_modular_rank": 46,
+      "immediate_CQ_kernel": 3,
+      "separate_word_rank": 48
+    },
+    {
+      "q": 6,
+      "a": 2,
+      "b": 0,
+      "moment_dim": 49,
+      "Q_modular_rank": 38,
+      "immediate_CQ_kernel": 5,
+      "separate_word_rank": 48
+    },
+    {
+      "q": 6,
+      "a": 2,
+      "b": 1,
+      "moment_dim": 49,
+      "Q_modular_rank": 46,
+      "immediate_CQ_kernel": 3,
+      "separate_word_rank": 48
+    },
+    {
+      "q": 6,
+      "a": 2,
+      "b": 3,
+      "moment_dim": 49,
+      "Q_modular_rank": 46,
+      "immediate_CQ_kernel": 3,
+      "separate_word_rank": 48
+    },
+    {
+      "q": 7,
+      "a": 1,
+      "b": 0,
+      "moment_dim": 64,
+      "Q_modular_rank": 48,
+      "immediate_CQ_kernel": 6,
+      "separate_word_rank": 63
+    },
+    {
+      "q": 7,
+      "a": 1,
+      "b": 1,
+      "moment_dim": 64,
+      "Q_modular_rank": 60,
+      "immediate_CQ_kernel": 4,
+      "separate_word_rank": 63
+    },
+    {
+      "q": 7,
+      "a": 1,
+      "b": 3,
+      "moment_dim": 64,
+      "Q_modular_rank": 60,
+      "immediate_CQ_kernel": 4,
+      "separate_word_rank": 63
+    },
+    {
+      "q": 7,
+      "a": 2,
+      "b": 0,
+      "moment_dim": 64,
+      "Q_modular_rank": 48,
+      "immediate_CQ_kernel": 6,
+      "separate_word_rank": 63
+    },
+    {
+      "q": 7,
+      "a": 2,
+      "b": 1,
+      "moment_dim": 64,
+      "Q_modular_rank": 60,
+      "immediate_CQ_kernel": 4,
+      "separate_word_rank": 63
+    },
+    {
+      "q": 7,
+      "a": 2,
+      "b": 3,
+      "moment_dim": 64,
+      "Q_modular_rank": 60,
+      "immediate_CQ_kernel": 4,
+      "separate_word_rank": 63
+    },
+    {
+      "q": 8,
+      "a": 1,
+      "b": 0,
+      "moment_dim": 81,
+      "Q_modular_rank": 59,
+      "immediate_CQ_kernel": 7,
+      "separate_word_rank": 80
+    },
+    {
+      "q": 8,
+      "a": 1,
+      "b": 1,
+      "moment_dim": 81,
+      "Q_modular_rank": 77,
+      "immediate_CQ_kernel": 4,
+      "separate_word_rank": 80
+    },
+    {
+      "q": 8,
+      "a": 1,
+      "b": 3,
+      "moment_dim": 81,
+      "Q_modular_rank": 77,
+      "immediate_CQ_kernel": 4,
+      "separate_word_rank": 80
+    },
+    {
+      "q": 8,
+      "a": 2,
+      "b": 0,
+      "moment_dim": 81,
+      "Q_modular_rank": 59,
+      "immediate_CQ_kernel": 7,
+      "separate_word_rank": 80
+    },
+    {
+      "q": 8,
+      "a": 2,
+      "b": 1,
+      "moment_dim": 81,
+      "Q_modular_rank": 77,
+      "immediate_CQ_kernel": 4,
+      "separate_word_rank": 80
+    },
+    {
+      "q": 8,
+      "a": 2,
+      "b": 3,
+      "moment_dim": 81,
+      "Q_modular_rank": 77,
+      "immediate_CQ_kernel": 4,
+      "separate_word_rank": 80
+    },
+    {
+      "q": 9,
+      "a": 1,
+      "b": 0,
+      "moment_dim": 100,
+      "Q_modular_rank": 71,
+      "immediate_CQ_kernel": 8,
+      "separate_word_rank": 99
+    },
+    {
+      "q": 9,
+      "a": 1,
+      "b": 1,
+      "moment_dim": 100,
+      "Q_modular_rank": 95,
+      "immediate_CQ_kernel": 5,
+      "separate_word_rank": 99
+    },
+    {
+      "q": 9,
+      "a": 1,
+      "b": 3,
+      "moment_dim": 100,
+      "Q_modular_rank": 95,
+      "immediate_CQ_kernel": 5,
+      "separate_word_rank": 99
+    },
+    {
+      "q": 9,
+      "a": 2,
+      "b": 0,
+      "moment_dim": 100,
+      "Q_modular_rank": 71,
+      "immediate_CQ_kernel": 8,
+      "separate_word_rank": 99
+    },
+    {
+      "q": 9,
+      "a": 2,
+      "b": 1,
+      "moment_dim": 100,
+      "Q_modular_rank": 95,
+      "immediate_CQ_kernel": 5,
+      "separate_word_rank": 99
+    },
+    {
+      "q": 9,
+      "a": 2,
+      "b": 3,
+      "moment_dim": 100,
+      "Q_modular_rank": 95,
+      "immediate_CQ_kernel": 5,
+      "separate_word_rank": 99
+    },
+    {
+      "q": 10,
+      "a": 1,
+      "b": 0,
+      "moment_dim": 121,
+      "Q_modular_rank": 84,
+      "immediate_CQ_kernel": 9,
+      "separate_word_rank": 120
+    },
+    {
+      "q": 10,
+      "a": 1,
+      "b": 1,
+      "moment_dim": 121,
+      "Q_modular_rank": 116,
+      "immediate_CQ_kernel": 5,
+      "separate_word_rank": 120
+    },
+    {
+      "q": 10,
+      "a": 1,
+      "b": 3,
+      "moment_dim": 121,
+      "Q_modular_rank": 116,
+      "immediate_CQ_kernel": 5,
+      "separate_word_rank": 120
+    },
+    {
+      "q": 10,
+      "a": 2,
+      "b": 0,
+      "moment_dim": 121,
+      "Q_modular_rank": 84,
+      "immediate_CQ_kernel": 9,
+      "separate_word_rank": 120
+    },
+    {
+      "q": 10,
+      "a": 2,
+      "b": 1,
+      "moment_dim": 121,
+      "Q_modular_rank": 116,
+      "immediate_CQ_kernel": 5,
+      "separate_word_rank": 120
+    },
+    {
+      "q": 10,
+      "a": 2,
+      "b": 3,
+      "moment_dim": 121,
+      "Q_modular_rank": 116,
+      "immediate_CQ_kernel": 5,
+      "separate_word_rank": 120
+    }
+  ],
+  "exact_rational_boundary": [
+    {
+      "q": 4,
+      "a": 1,
+      "b": 0,
+      "rational_Q_rank": 21
+    },
+    {
+      "q": 4,
+      "a": 1,
+      "b": 1,
+      "rational_Q_rank": 23
+    }
+  ],
+  "named_state_checks": [
+    {
+      "q": 1,
+      "named_states": 4,
+      "exact_assertions": 136
+    },
+    {
+      "q": 2,
+      "named_states": 11,
+      "exact_assertions": 374
+    },
+    {
+      "q": 3,
+      "named_states": 26,
+      "exact_assertions": 884
+    },
+    {
+      "q": 4,
+      "named_states": 57,
+      "exact_assertions": 1938
+    }
+  ]
+}
