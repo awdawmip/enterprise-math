@@ -1,0 +1,76 @@
+{
+  "schema": "PREFIX814_EXACT_UNPIN_REGRESSION_V1",
+  "integer_semantics": "Python arbitrary-precision integers; full exhaustive suites; no random samples",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "suites": {
+    "K22": {
+      "arc_insertion_checks": 5184,
+      "configurations": 81,
+      "margin_fibers": 1215,
+      "observer_lattice_exact_checks": 12960,
+      "partition_refinement_comparisons": 69120,
+      "scc_merge_cases": 1276,
+      "source_tables": 1296,
+      "unpin_cases": 4320
+    },
+    "K23": {
+      "arc_insertion_checks": 2916,
+      "configurations": 64,
+      "margin_fibers": 704,
+      "observer_lattice_exact_checks": 8748,
+      "partition_refinement_comparisons": 72900,
+      "scc_merge_cases": 204,
+      "source_tables": 729,
+      "unpin_cases": 2916
+    },
+    "K33": {
+      "arc_insertion_checks": 118098,
+      "configurations": 512,
+      "margin_fibers": 17840,
+      "observer_lattice_exact_checks": 354294,
+      "partition_refinement_comparisons": 4251528,
+      "scc_merge_cases": 15066,
+      "source_tables": 19683,
+      "unpin_cases": 118098
+    },
+    "PAR22": {
+      "arc_insertion_checks": 810,
+      "configurations": 32,
+      "margin_fibers": 212,
+      "observer_lattice_exact_checks": 2430,
+      "partition_refinement_comparisons": 12960,
+      "same_scc_lattice_changes": 4,
+      "scc_merge_cases": 138,
+      "source_tables": 243,
+      "unpin_cases": 810
+    },
+    "PAR3": {
+      "arc_insertion_checks": 648,
+      "configurations": 27,
+      "margin_fibers": 108,
+      "observer_lattice_exact_checks": 1620,
+      "partition_refinement_comparisons": 2160,
+      "same_scc_lattice_changes": 115,
+      "scc_merge_cases": 147,
+      "source_tables": 216,
+      "unpin_cases": 540
+    }
+  },
+  "totals": {
+    "arc_insertion_checks": 127656,
+    "configurations": 716,
+    "margin_fibers": 20079,
+    "observer_lattice_exact_checks": 380052,
+    "partition_refinement_comparisons": 4408668,
+    "same_scc_lattice_changes": 119,
+    "scc_merge_cases": 16831,
+    "source_tables": 22167,
+    "unpin_cases": 126684
+  },
+  "witnesses": {
+    "three_parallel_scc_unchanged_gcd_2_to_1": "PASS",
+    "two_by_two_scc_merge_four_to_one": "PASS",
+    "single_named_edge_reversal_no_new_table": "PASS"
+  },
+  "verdict": "ALL_EXACT_ASSERTIONS_PASSED"
+}
