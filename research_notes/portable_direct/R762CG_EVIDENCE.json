@@ -1,0 +1,579 @@
+{
+  "schema": "R762CG_EXACT_N_BRC_EVIDENCE_V1",
+  "result": "PASS",
+  "arithmetic": "exact_nonnegative_integer_branch_multiplicity",
+  "BRC_carrier": "N-BRC labelled ordered-loop path branches; group algebra N[(Z/qZ)^3]",
+  "input": "P000 signed X6; three named signed Ports with distinct axes; B, L+, L- four-primitive-step loops; fixed q",
+  "observer": "endpoint Cell, named signed Ports, directed cyclic Links, elapsed primitive-step time, signed-direction histogram",
+  "future_scope": "terminal Port guard after k signed oriented loops with |k|<=h; separately all finite future macro-event sequences",
+  "relabel_and_sign_checks": 17280,
+  "q_range": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "explicit_source_enumeration_q": [
+    2,
+    3,
+    4
+  ],
+  "closed_path_area": "A_j(H)=s_j s_(j+1) sum_{p<t} delta_p[a_j] delta_t[a_(j+1)]",
+  "source_counts": [
+    {
+      "q": 2,
+      "branches": 64,
+      "all_future_classes": 8,
+      "all_future_bits": 3,
+      "one_port_weights": [
+        2,
+        2
+      ],
+      "horizons": [
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          1,
+          8,
+          3
+        ],
+        [
+          2,
+          8,
+          3
+        ],
+        [
+          3,
+          8,
+          3
+        ],
+        [
+          4,
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "q": 3,
+      "branches": 512,
+      "all_future_classes": 27,
+      "all_future_bits": 5,
+      "one_port_weights": [
+        2,
+        3,
+        3
+      ],
+      "horizons": [
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          1,
+          27,
+          5
+        ],
+        [
+          2,
+          27,
+          5
+        ],
+        [
+          3,
+          27,
+          5
+        ],
+        [
+          4,
+          27,
+          5
+        ],
+        [
+          5,
+          27,
+          5
+        ]
+      ]
+    },
+    {
+      "q": 4,
+      "branches": 4096,
+      "all_future_classes": 64,
+      "all_future_bits": 6,
+      "one_port_weights": [
+        2,
+        4,
+        6,
+        4
+      ],
+      "horizons": [
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          1,
+          64,
+          6
+        ],
+        [
+          2,
+          64,
+          6
+        ],
+        [
+          3,
+          64,
+          6
+        ],
+        [
+          4,
+          64,
+          6
+        ],
+        [
+          5,
+          64,
+          6
+        ],
+        [
+          6,
+          64,
+          6
+        ]
+      ]
+    },
+    {
+      "q": 5,
+      "branches": 32768,
+      "all_future_classes": 125,
+      "all_future_bits": 7,
+      "one_port_weights": [
+        2,
+        5,
+        10,
+        10,
+        5
+      ],
+      "horizons": [
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          1,
+          64,
+          6
+        ],
+        [
+          2,
+          125,
+          7
+        ],
+        [
+          3,
+          125,
+          7
+        ],
+        [
+          4,
+          125,
+          7
+        ],
+        [
+          5,
+          125,
+          7
+        ],
+        [
+          6,
+          125,
+          7
+        ],
+        [
+          7,
+          125,
+          7
+        ]
+      ]
+    },
+    {
+      "q": 6,
+      "branches": 262144,
+      "all_future_classes": 216,
+      "all_future_bits": 8,
+      "one_port_weights": [
+        2,
+        6,
+        15,
+        20,
+        15,
+        6
+      ],
+      "horizons": [
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          1,
+          64,
+          6
+        ],
+        [
+          2,
+          216,
+          8
+        ],
+        [
+          3,
+          216,
+          8
+        ],
+        [
+          4,
+          216,
+          8
+        ],
+        [
+          5,
+          216,
+          8
+        ],
+        [
+          6,
+          216,
+          8
+        ],
+        [
+          7,
+          216,
+          8
+        ],
+        [
+          8,
+          216,
+          8
+        ]
+      ]
+    },
+    {
+      "q": 7,
+      "branches": 2097152,
+      "all_future_classes": 343,
+      "all_future_bits": 9,
+      "one_port_weights": [
+        2,
+        7,
+        21,
+        35,
+        35,
+        21,
+        7
+      ],
+      "horizons": [
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          1,
+          64,
+          6
+        ],
+        [
+          2,
+          216,
+          8
+        ],
+        [
+          3,
+          343,
+          9
+        ],
+        [
+          4,
+          343,
+          9
+        ],
+        [
+          5,
+          343,
+          9
+        ],
+        [
+          6,
+          343,
+          9
+        ],
+        [
+          7,
+          343,
+          9
+        ],
+        [
+          8,
+          343,
+          9
+        ],
+        [
+          9,
+          343,
+          9
+        ]
+      ]
+    },
+    {
+      "q": 8,
+      "branches": 16777216,
+      "all_future_classes": 512,
+      "all_future_bits": 9,
+      "one_port_weights": [
+        2,
+        8,
+        28,
+        56,
+        70,
+        56,
+        28,
+        8
+      ],
+      "horizons": [
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          1,
+          64,
+          6
+        ],
+        [
+          2,
+          216,
+          8
+        ],
+        [
+          3,
+          512,
+          9
+        ],
+        [
+          4,
+          512,
+          9
+        ],
+        [
+          5,
+          512,
+          9
+        ],
+        [
+          6,
+          512,
+          9
+        ],
+        [
+          7,
+          512,
+          9
+        ],
+        [
+          8,
+          512,
+          9
+        ],
+        [
+          9,
+          512,
+          9
+        ],
+        [
+          10,
+          512,
+          9
+        ]
+      ]
+    },
+    {
+      "q": 9,
+      "branches": 134217728,
+      "all_future_classes": 729,
+      "all_future_bits": 10,
+      "one_port_weights": [
+        2,
+        9,
+        36,
+        84,
+        126,
+        126,
+        84,
+        36,
+        9
+      ],
+      "horizons": [
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          1,
+          64,
+          6
+        ],
+        [
+          2,
+          216,
+          8
+        ],
+        [
+          3,
+          512,
+          9
+        ],
+        [
+          4,
+          729,
+          10
+        ],
+        [
+          5,
+          729,
+          10
+        ],
+        [
+          6,
+          729,
+          10
+        ],
+        [
+          7,
+          729,
+          10
+        ],
+        [
+          8,
+          729,
+          10
+        ],
+        [
+          9,
+          729,
+          10
+        ],
+        [
+          10,
+          729,
+          10
+        ],
+        [
+          11,
+          729,
+          10
+        ]
+      ]
+    },
+    {
+      "q": 10,
+      "branches": 1073741824,
+      "all_future_classes": 1000,
+      "all_future_bits": 10,
+      "one_port_weights": [
+        2,
+        10,
+        45,
+        120,
+        210,
+        252,
+        210,
+        120,
+        45,
+        10
+      ],
+      "horizons": [
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          1,
+          64,
+          6
+        ],
+        [
+          2,
+          216,
+          8
+        ],
+        [
+          3,
+          512,
+          9
+        ],
+        [
+          4,
+          1000,
+          10
+        ],
+        [
+          5,
+          1000,
+          10
+        ],
+        [
+          6,
+          1000,
+          10
+        ],
+        [
+          7,
+          1000,
+          10
+        ],
+        [
+          8,
+          1000,
+          10
+        ],
+        [
+          9,
+          1000,
+          10
+        ],
+        [
+          10,
+          1000,
+          10
+        ],
+        [
+          11,
+          1000,
+          10
+        ],
+        [
+          12,
+          1000,
+          10
+        ]
+      ]
+    }
+  ],
+  "not_checked": "genuine native TRIADIC_CLOSURE_E license; V17/V29/V39 transport; physical calibration; independent review"
+}
