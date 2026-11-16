@@ -1,0 +1,351 @@
+{
+  "schema": "PREFIX843_MODULAR_BRC_FIBER_REPAIR_V1",
+  "input_commit": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "theorem": "At time t, U in [0,N) has observer fibers by U mod M_t, M_t=m/gcd(m,c_t); largest fiber ceil(N/M_t); minimal worst-case supplementary bits ceil(log2 ceil(N/M_t)). The fibers coarsen with t and converge to M_inf=m_perp(ab).",
+  "verification": "ALL_EXACT_ASSERTIONS_PASSED",
+  "stats": {
+    "families": 192,
+    "time_modulus_cases": 24576,
+    "assignments_checked": 1003520,
+    "fibers_checked": 115708,
+    "repair_checked": 1003520,
+    "monotone_step_checks": 21504,
+    "temporal_future_pairs_checked": 69112064,
+    "unbounded_modulus_cases": 7
+  },
+  "worked_cases": [
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "modulus": 4,
+      "N": 4,
+      "by_time": [
+        {
+          "t": 1,
+          "c_t": 1,
+          "observable_classes": 4,
+          "M": 4,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        },
+        {
+          "t": 2,
+          "c_t": 2,
+          "observable_classes": 2,
+          "M": 2,
+          "largest_fiber": 2,
+          "min_repair_bits": 1
+        },
+        {
+          "t": 3,
+          "c_t": 2,
+          "observable_classes": 2,
+          "M": 2,
+          "largest_fiber": 2,
+          "min_repair_bits": 1
+        },
+        {
+          "t": 4,
+          "c_t": 4,
+          "observable_classes": 1,
+          "M": 1,
+          "largest_fiber": 4,
+          "min_repair_bits": 2
+        },
+        {
+          "t": 5,
+          "c_t": 4,
+          "observable_classes": 1,
+          "M": 1,
+          "largest_fiber": 4,
+          "min_repair_bits": 2
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "modulus": 5,
+      "N": 4,
+      "by_time": [
+        {
+          "t": 1,
+          "c_t": 1,
+          "observable_classes": 4,
+          "M": 5,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        },
+        {
+          "t": 2,
+          "c_t": 2,
+          "observable_classes": 4,
+          "M": 5,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        },
+        {
+          "t": 3,
+          "c_t": 2,
+          "observable_classes": 4,
+          "M": 5,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        },
+        {
+          "t": 4,
+          "c_t": 4,
+          "observable_classes": 4,
+          "M": 5,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        },
+        {
+          "t": 5,
+          "c_t": 4,
+          "observable_classes": 4,
+          "M": 5,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "modulus": 10,
+      "N": 9,
+      "by_time": [
+        {
+          "t": 1,
+          "c_t": 1,
+          "observable_classes": 9,
+          "M": 10,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        },
+        {
+          "t": 2,
+          "c_t": 2,
+          "observable_classes": 5,
+          "M": 5,
+          "largest_fiber": 2,
+          "min_repair_bits": 1
+        },
+        {
+          "t": 3,
+          "c_t": 6,
+          "observable_classes": 5,
+          "M": 5,
+          "largest_fiber": 2,
+          "min_repair_bits": 1
+        },
+        {
+          "t": 4,
+          "c_t": 12,
+          "observable_classes": 5,
+          "M": 5,
+          "largest_fiber": 2,
+          "min_repair_bits": 1
+        },
+        {
+          "t": 5,
+          "c_t": 36,
+          "observable_classes": 5,
+          "M": 5,
+          "largest_fiber": 2,
+          "min_repair_bits": 1
+        },
+        {
+          "t": 6,
+          "c_t": 72,
+          "observable_classes": 5,
+          "M": 5,
+          "largest_fiber": 2,
+          "min_repair_bits": 1
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "modulus": 11,
+      "N": 9,
+      "by_time": [
+        {
+          "t": 1,
+          "c_t": 1,
+          "observable_classes": 9,
+          "M": 11,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        },
+        {
+          "t": 2,
+          "c_t": 2,
+          "observable_classes": 9,
+          "M": 11,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        },
+        {
+          "t": 3,
+          "c_t": 6,
+          "observable_classes": 9,
+          "M": 11,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        },
+        {
+          "t": 4,
+          "c_t": 12,
+          "observable_classes": 9,
+          "M": 11,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        },
+        {
+          "t": 5,
+          "c_t": 36,
+          "observable_classes": 9,
+          "M": 11,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        },
+        {
+          "t": 6,
+          "c_t": 72,
+          "observable_classes": 9,
+          "M": 11,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "modulus": 12,
+      "N": 9,
+      "by_time": [
+        {
+          "t": 1,
+          "c_t": 1,
+          "observable_classes": 9,
+          "M": 12,
+          "largest_fiber": 1,
+          "min_repair_bits": 0
+        },
+        {
+          "t": 2,
+          "c_t": 2,
+          "observable_classes": 6,
+          "M": 6,
+          "largest_fiber": 2,
+          "min_repair_bits": 1
+        },
+        {
+          "t": 3,
+          "c_t": 6,
+          "observable_classes": 2,
+          "M": 2,
+          "largest_fiber": 5,
+          "min_repair_bits": 3
+        },
+        {
+          "t": 4,
+          "c_t": 12,
+          "observable_classes": 1,
+          "M": 1,
+          "largest_fiber": 9,
+          "min_repair_bits": 4
+        },
+        {
+          "t": 5,
+          "c_t": 36,
+          "observable_classes": 1,
+          "M": 1,
+          "largest_fiber": 9,
+          "min_repair_bits": 4
+        },
+        {
+          "t": 6,
+          "c_t": 72,
+          "observable_classes": 1,
+          "M": 1,
+          "largest_fiber": 9,
+          "min_repair_bits": 4
+        }
+      ]
+    }
+  ],
+  "arbitrarily_large_overhead_witnesses": [
+    {
+      "L": 4,
+      "ab": "12",
+      "N": 4,
+      "uniform_least_modulus": 5,
+      "raw_bits": 3,
+      "payload_bits": 2
+    },
+    {
+      "L": 8,
+      "ab": "840",
+      "N": 4,
+      "uniform_least_modulus": 11,
+      "raw_bits": 4,
+      "payload_bits": 2
+    },
+    {
+      "L": 10,
+      "ab": "2520",
+      "N": 4,
+      "uniform_least_modulus": 11,
+      "raw_bits": 4,
+      "payload_bits": 2
+    },
+    {
+      "L": 20,
+      "ab": "232792560",
+      "N": 4,
+      "uniform_least_modulus": 23,
+      "raw_bits": 5,
+      "payload_bits": 2
+    },
+    {
+      "L": 30,
+      "ab": "2329089562800",
+      "N": 4,
+      "uniform_least_modulus": 31,
+      "raw_bits": 5,
+      "payload_bits": 2
+    },
+    {
+      "L": 40,
+      "ab": "5342931457063200",
+      "N": 4,
+      "uniform_least_modulus": 41,
+      "raw_bits": 6,
+      "payload_bits": 2
+    },
+    {
+      "L": 50,
+      "ab": "3099044504245996706400",
+      "N": 4,
+      "uniform_least_modulus": 53,
+      "raw_bits": 6,
+      "payload_bits": 2
+    }
+  ],
+  "scope": "Fixed raw observer Z=c_t(S+U) mod m and positive integers p,W>=2,a,b,m; one Q-only tagged-deletion channel. Supplementary digit h=floor(U/M_t) and known time t."
+}
