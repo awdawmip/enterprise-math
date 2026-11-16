@@ -1,0 +1,182 @@
+{
+  "status": "PASS_R5_SHARP_ABSOLUTE_MARGIN_BIT_COST_PARETO",
+  "scientific_scope": "derived indexed-event radius-two integer count observer only, frozen input 435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "relation_to_prior": "conditional on the exact exhaustive classification of all D3/D4-margin-optimal fixed schedules at commit 9a87e52e",
+  "full_count_checks": 25856,
+  "middle_window_peak_bits": {
+    "224": 133,
+    "225": 145,
+    "226": 156,
+    "227": 166,
+    "228": 175,
+    "229": 183,
+    "230": 191,
+    "231": 197,
+    "232": 204,
+    "233": 209,
+    "234": 215,
+    "235": 220,
+    "236": 224,
+    "237": 229,
+    "238": 233,
+    "239": 236,
+    "240": 240,
+    "241": 243,
+    "242": 246,
+    "243": 249,
+    "244": 251,
+    "245": 253,
+    "246": 255,
+    "247": 257,
+    "248": 259,
+    "249": 260,
+    "250": 261,
+    "251": 262,
+    "252": 263,
+    "253": 263,
+    "254": 264,
+    "255": 264,
+    "256": 264,
+    "257": 263,
+    "258": 263,
+    "259": 262,
+    "260": 261,
+    "261": 260,
+    "262": 259,
+    "263": 257,
+    "264": 255,
+    "265": 253,
+    "266": 251,
+    "267": 249,
+    "268": 246,
+    "269": 243,
+    "270": 240,
+    "271": 237,
+    "272": 234,
+    "273": 230,
+    "274": 226,
+    "275": 222,
+    "276": 217,
+    "277": 213,
+    "278": 208,
+    "279": 203,
+    "280": 197,
+    "281": 191,
+    "282": 185,
+    "283": 178,
+    "284": 171,
+    "285": 164,
+    "286": 156,
+    "287": 147,
+    "288": 138,
+    "289": 128,
+    "290": 116
+  },
+  "late_window_peak_bits": {
+    "298": 111,
+    "299": 114,
+    "300": 115,
+    "301": 117,
+    "302": 118,
+    "303": 119,
+    "304": 120,
+    "305": 120,
+    "306": 120,
+    "307": 120,
+    "308": 119,
+    "309": 118,
+    "310": 117,
+    "311": 115
+  },
+  "early_window_peak_bits": {
+    "217": 108,
+    "218": 108,
+    "219": 108
+  },
+  "optimal_three_calls": {
+    "candidate_count": 938,
+    "pareto_schedules": [
+      {
+        "budgets": [
+          217,
+          224,
+          298
+        ],
+        "cost": 739,
+        "max_count_bits": 133,
+        "total_count_bits": 352
+      },
+      {
+        "budgets": [
+          217,
+          289,
+          298
+        ],
+        "cost": 804,
+        "max_count_bits": 128,
+        "total_count_bits": 347
+      },
+      {
+        "budgets": [
+          217,
+          290,
+          298
+        ],
+        "cost": 805,
+        "max_count_bits": 116,
+        "total_count_bits": 335
+      }
+    ],
+    "best_peak_bits": 116,
+    "best_peak_witness_count": 4,
+    "minimum_cost_at_best_peak_bits": 805,
+    "minimum_total_count_bits": 335,
+    "minimum_total_count_bits_witness_count": 1,
+    "minimum_cost": 739
+  },
+  "optimal_four_calls": {
+    "candidate_count": 1876,
+    "pareto_schedules": [
+      {
+        "budgets": [
+          217,
+          218,
+          224,
+          298
+        ],
+        "cost": 957,
+        "max_count_bits": 133,
+        "total_count_bits": 460
+      },
+      {
+        "budgets": [
+          217,
+          218,
+          289,
+          298
+        ],
+        "cost": 1022,
+        "max_count_bits": 128,
+        "total_count_bits": 455
+      },
+      {
+        "budgets": [
+          217,
+          218,
+          290,
+          298
+        ],
+        "cost": 1023,
+        "max_count_bits": 116,
+        "total_count_bits": 443
+      }
+    ],
+    "best_peak_bits": 116,
+    "best_peak_witness_count": 8,
+    "minimum_cost_at_best_peak_bits": 1023,
+    "minimum_total_count_bits": 443,
+    "minimum_total_count_bits_witness_count": 2,
+    "minimum_cost": 957
+  },
+  "interpretation": "bit_length(N) for positive exact integer N; peak bits per scalar count, not compressed-code lower bound or measured runtime"
+}
