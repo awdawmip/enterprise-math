@@ -1,4 +1,66 @@
 {
+  "schema": "R749SSM_FOUR_READ_7_8_PAIR_SEPARATION_V1",
+  "status": "PASS",
+  "cutoffs": [
+    7,
+    8
+  ],
+  "read_offsets": [
+    0,
+    6,
+    12,
+    18
+  ],
+  "weights": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ],
+  "shared_real_calibration_error_bounds": [
+    "-2",
+    "2"
+  ],
+  "anchors": {
+    "7": [
+      "65",
+      "91"
+    ],
+    "8": [
+      "98",
+      "156"
+    ],
+    "13": [
+      "506",
+      "1261"
+    ],
+    "14": [
+      "662",
+      "1767"
+    ],
+    "19": [
+      "2106",
+      "7447"
+    ],
+    "20": [
+      "2576",
+      "9553"
+    ],
+    "25": [
+      "6331",
+      "28883"
+    ],
+    "26": [
+      "7441",
+      "35214"
+    ]
+  },
+  "determinants": {
+    "H2": "det(L0,L1,L2)",
+    "H3": "6*det(L0,L1,L3)"
+  },
+  "resultant": "-67436544*(d+65)*(d+506)*(234443938*d+1569882365)*Q(d)",
   "Q_coefficients_low_to_high": [
     "109796349314075020060949372306640574723358682",
     "-38045439719073116059985350517020931359464817",
@@ -8,33 +70,7 @@
     "175742992512176288201620423729874424"
   ],
   "Q_lower_bound_for_abs_d_le_2": "16979397777109496872916184850765128499562660",
-  "anchors": {},
-  "boundary": "Local cutoff-pair theorem, not global four-read injectivity or native X6/BRC.",
-  "claim": "Four reads distinguish cutoff 7 and 8 uniformly on bounded real common-error model; three reads intersect by R749SSL.",
-  "cutoffs": [
-    7,
-    8
-  ],
-  "determinants": {},
-  "read_offsets": [
-    0,
-    6,
-    12,
-    18
-  ],
-  "resultant": "-67436544*(d+65)*(d+506)*(234443938*d+1569882365)*Q(d)",
-  "schema": "R749SSM_FOUR_READ_7_8_PAIR_SEPARATION_V1",
-  "shared_real_calibration_error_bounds": [
-    "-2",
-    "2"
-  ],
-  "status": "PASS",
   "verification": "Exact source counts, full bivariate determinants, quadratic resultant polynomial identity, exact interval triangle positivity; no floats.",
-  "weights": [
-    1,
-    1,
-    2,
-    3,
-    6
-  ]
+  "claim": "Four reads distinguish cutoff 7 and 8 uniformly on bounded real common-error model; three reads intersect by R749SSL.",
+  "boundary": "Local cutoff-pair theorem, not global four-read injectivity or native X6/BRC."
 }
