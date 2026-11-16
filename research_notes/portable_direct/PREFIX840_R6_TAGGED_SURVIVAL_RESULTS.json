@@ -1,0 +1,80 @@
+{
+  "schema": "PREFIX840_EXACT_BRC_TAGGED_ONE_DELETION_CHECK_V1",
+  "claim": "G(t)=c_t sum_i w_i; G_i(t)=c_t sum_{j!=i}w_j; p-1 named probes and G recover all named weights at any t>=1.",
+  "verified": {
+    "p_min": 1,
+    "p_max": 5,
+    "weight_alphabet": [
+      1,
+      2,
+      3
+    ],
+    "a_values": [
+      1,
+      2,
+      3
+    ],
+    "b_values": [
+      1,
+      2,
+      3
+    ],
+    "time_range": [
+      1,
+      9
+    ],
+    "configurations": 3267,
+    "timeChecks": 29403,
+    "scalarChecks": 162324,
+    "recoveredChecks": 132921,
+    "assertions": "ALL_EXACT_ASSERTIONS_PASSED"
+  },
+  "sample": {
+    "p": 3,
+    "weights": [
+      1,
+      2,
+      3
+    ],
+    "a": 2,
+    "b": 3,
+    "rows": [
+      {
+        "t": 1,
+        "G": "6",
+        "Gi": [
+          "5",
+          "4",
+          "3"
+        ]
+      },
+      {
+        "t": 2,
+        "G": "12",
+        "Gi": [
+          "10",
+          "8",
+          "6"
+        ]
+      },
+      {
+        "t": 3,
+        "G": "36",
+        "Gi": [
+          "30",
+          "24",
+          "18"
+        ]
+      },
+      {
+        "t": 6,
+        "G": "432",
+        "Gi": [
+          "360",
+          "288",
+          "216"
+        ]
+      }
+    ]
+  }
+}
