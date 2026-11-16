@@ -1,0 +1,95 @@
+{
+  "schema": "EC49FQV_TWO_EXACT_PRICE_SLICES_36GRID_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "date": "2026-11-16",
+  "frozen_scientific_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "inherited": "EC49FQU PR #2574 @f7cf7580d52ca8bb59645abb4f804593c8c5a549",
+  "inherited_full_certificates": 129,
+  "new_full_certificates": 4,
+  "source_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "source_profile_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "new_bellman_anchors": [
+    {
+      "file": "11_8_0_1.json",
+      "sha256": "5accb710bb7cdd7366ca0714c9fa8bfd0c10a10188f5fdbe2a678fff660edf18",
+      "bytes": 60612,
+      "root_price": 11,
+      "terminal_price": 8,
+      "prior": "0/1",
+      "integer_optimum": 739660,
+      "optimal_first": [
+        32,
+        34
+      ]
+    },
+    {
+      "file": "11_8_4030_58597.json",
+      "sha256": "9671ac2329e5bc5f7172822cb04a60fc14ce37c6e055bbf7aac79b0bc9c5097e",
+      "bytes": 86022,
+      "root_price": 11,
+      "terminal_price": 8,
+      "prior": "4030/58597",
+      "integer_optimum": 43812456240,
+      "optimal_first": [
+        32,
+        34,
+        140,
+        142
+      ]
+    },
+    {
+      "file": "35_24_0_1.json",
+      "sha256": "30863e559bb4249d074273aa652a7ea3b2e7a214af99c5fd38c9878d8438c594",
+      "bytes": 60823,
+      "root_price": 35,
+      "terminal_price": 24,
+      "prior": "0/1",
+      "integer_optimum": 2222700,
+      "optimal_first": [
+        32,
+        34
+      ]
+    },
+    {
+      "file": "35_24_11470_175453.json",
+      "sha256": "df1bed0b0f4c318ffc0218a83c8c237cd62287fec4437b72c8f83a48f2255483",
+      "bytes": 86288,
+      "root_price": 35,
+      "terminal_price": 24,
+      "prior": "11470/175453",
+      "integer_optimum": 393974315280,
+      "optimal_first": [
+        32,
+        34,
+        140,
+        142
+      ]
+    }
+  ],
+  "geometry": {
+    "nodes": 36,
+    "containing_strips": 35,
+    "unresolved_strip_area": "3866402060924905195/766379559945117517848",
+    "certified_fraction": "1528892717829310130501/1532759119890235035696",
+    "maximum_interval": [
+      "5/4",
+      "4/3"
+    ],
+    "max_gap_expression": "50*(4/3-5/4)/(sqrt(29383/4)+sqrt(21995/3))^2*t"
+  },
+  "complete_evidence_archive": {
+    "filename": "EC49FQV_TWO_SLICES_36GRID_COMPLETE_EVIDENCE_20261116.tar.xz",
+    "sha256": "81cca622b63abc51b4cf24a264c40aaf68ff0ebda8cbe0d757783e8cea52faab",
+    "includes": [
+      "4 exact Bellman complete certificates",
+      "frozen BRC inputs",
+      "independent full-subset Bellman verifier",
+      "native generator",
+      "rational enclosure script",
+      "129 inherited complete certificates embedded",
+      "raw logs",
+      "manifest SHA256"
+    ]
+  },
+  "next_problem": "Give parameterized Bellman lower-bound proof throughout 35 candidate phase strips, or identify a legal native decision-tree counterexample below min(A,B,C)."
+}
