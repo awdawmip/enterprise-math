@@ -39,11 +39,11 @@
     "type": "EXACT_FINITE_SIGNED_X6_HELLY_S12_BRC_BRIDGE",
     "producer_blob": "6118b3bd04010e05355586d353c9cf0ec38b1070",
     "math": "(A,B)=({5,6,7},{3,4}); 6 positive chart points; 15 signed native axis pairs; 4 sign combinations; 360 unique nonaxial endpoints at any fixed native anchor; local N_BRC=926; all charts N_BRC=55560",
-    "author_execution": "Independent local exact Python PASS normal and -O; published checker equivalent algorithm; full producer not executed",
+    "author_execution": "Exact producer Git blob 6118b3bd and prior LP003 typed regression blob 3ed20517 both reconstructed byte-identically and executed under Python 3.13.5, PASS; standalone signed X6 BRC checker exact integer PASS normal/-O. Original R063 unit50 not rerun.",
     "proof": {
-      "commit": "db7d377ed9ddca458077c029b1210c57ecfa2012",
+      "commit": "e3cee55911b848cbbb2df4f16baf07d2a02aa493",
       "path": "research_notes/X6_HELLY_S12_SIGNED_X6_BRC_LIFT_UNIT54_20261116.md",
-      "git_blob_sha1": "a67b6f4d4fa5a56077c10677b3554d1d6051c392"
+      "git_blob_sha1": "a04884a98af6ccbb0897ef540d98657fddabedc8"
     },
     "checker": {
       "commit": "1c1b774b98edd6ffd9babc06cad8028e58ef4466",
@@ -55,13 +55,22 @@
       "path": "research_checks/X6_HELLY_S12_SIGNED_X6_BRC_UNIT54_RESULTS_20261116.json",
       "git_blob_sha1": "63b12bf3bbe08247a944d329f3d32f017fd9a170",
       "certificate_sha256": "296181452b79778a945e89f60ed4dd7584b853dec08efa580b40e70cba14cd56"
+    },
+    "original_producer_run": {
+      "commit": "1d9af3b31194b4361db571e5f34dea1ad2c160d6",
+      "path": "research_checks/X6_HELLY_S12_ORIGINAL_SOURCE_RUN_UNIT54_20261116.json",
+      "git_blob_sha1": "cabe10801d68164ed2a0c17e754b325c00ed5748",
+      "original_stdout_sha256": "3e9eb8a87cef9b74e34749e572f484bcb9face8b8d8ba7c8f029fcb2549fa068",
+      "interval_box_families": 66675,
+      "helly_violations": 0,
+      "typed_original_regression": "PASS"
     }
   },
   "activity": {
     "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
     "checkpoint_count": 75,
-    "commit": "cad0f7b0746cb4cb6443dfea38e4e28d4fe2520f",
-    "git_blob_sha1": "5f3c61feab1362fd70c314f63cc15780bd0a8c8c",
+    "commit": "c9f8f714f0cb8b33fadcff3726d801a35e7f58bb",
+    "git_blob_sha1": "be2aa8ef9c2fb4c840da3413172dd29bbcc6c011",
     "readback_verified": true
   },
   "do_not_repeat": [
