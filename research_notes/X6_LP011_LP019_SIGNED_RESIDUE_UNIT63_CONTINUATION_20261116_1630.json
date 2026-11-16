@@ -1,0 +1,90 @@
+{
+  "schema": "X6_AUTHOR_TASK_CONTINUATION_V1",
+  "observed_date": "2026-11-16",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "parent_objective_id": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "lane_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_not_used": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
+  "run_id": "RUN-3356cbe3c2b4916d79399941",
+  "last_verified_generation": 33,
+  "owned_run_resume": {
+    "request_id": "onhour-20261116-1622-x6-own-run3356-resume-for-provenance-unit63-v1",
+    "status": "SUCCEEDED",
+    "phase": "RUN_READY",
+    "authorized": true
+  },
+  "frozen_science": {
+    "p000_v5": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:p000_reality_foundation.json",
+    "signed_native_brc_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+    "historical_plane": "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "native_unit62_receipt": {
+    "request_id": "onhour-20261116-1509-x6-unit62-frozen-original-plus4-native-progress-v1",
+    "status": "SUCCEEDED",
+    "phase": "SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "461c618c64db9b9fa42807cfb607e3c6b079508c",
+    "canonical_publication_verified": true,
+    "authenticated_readback": true
+  },
+  "unit63": {
+    "result": "AUTHOR-PROVED/FINITE_EXACT_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+    "source_scope": "pre-rebase historical algebraic signed-residual source and typed-dominance note, not original six-axis native benchmark",
+    "theorem": "For p>=2,k>=1,G=(k+1)^p-k^p,0<d<G,g=gcd(d,G): primitive positive integer solution of u*d+v*(d-G)=0 is u=(G-d)/g,v=d/g; total natural multiplicity G/g>0; scalar signed residual cancellation cannot be positive N-BRC path-count cancellation.",
+    "finite_check": {
+      "range": "p2 k1..20; p3 k1..12; p4 k1..9; p5 k1..6; all interior n",
+      "inputs": 29394,
+      "failures": 0,
+      "regular_and_optimized_python_equal": true
+    },
+    "typed_provenance": "historical pure algebra note e5821dca source lines 8-30; positive-N BRC bridge 6ec0d73a source lines 29-33,63-93; dominant-degeneracy note b5e20704 lines 10-34,229-244 is max positive-rational branch weight, excluded as native singleton signed axis argmax; retired signed-origin coordinate old bridge 82c88778 and aefe07dd already superseded.",
+    "files": [
+      {
+        "path": "research_checks/X6_LP019_SIGNED_RESIDUE_PRIMITIVE_UNIT63_20261116.py",
+        "commit": "7f0f90afe6c9fc17b0544437be32007c099aae7f",
+        "git_blob_sha1": "87d6cdceaaab38540c8ba8733c59e288c0de4f5c"
+      },
+      {
+        "path": "research_checks/X6_LP019_SIGNED_RESIDUE_PRIMITIVE_UNIT63_RESULTS_20261116.json",
+        "commit": "96b544bd8b30fa1fec44c11e05fc15864f894396",
+        "git_blob_sha1": "9ffc17c9b56641b42f119bd0afc19bca3c82dd64"
+      },
+      {
+        "path": "research_notes/X6_LP011_LP019_SCALAR_RESIDUE_DOMINANCE_TYPED_PROVENANCE_UNIT63_20261116.md",
+        "commit": "7335bccb6c9f5c07d467d5f31ee33cb11005f617",
+        "git_blob_sha1": "6cc963e5b49301d734110f442183601f78893399"
+      },
+      {
+        "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+        "commit": "62b9ef04fe8212c6029ea255b3b0788c1c4d6e80",
+        "git_blob_sha1": "c47e2c26cccacf3a5db9c3b41b32faa5aa74e128",
+        "entry_count": 85
+      },
+      {
+        "path": "research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
+        "commit": "19e0b4f4ccda10c099400aa60c0cebbf7c7e6ee0",
+        "git_blob_sha1": "1c2c265e860243226cf2e1da7b1dd65fc29dee83"
+      }
+    ]
+  },
+  "pending_native_request": {
+    "request_id": "onhour-20261116-1626-x6-unit63-signed-residue-provenance-native-progress-v1",
+    "last_observed_status": "RUNNING",
+    "last_observed_phase": "WAIT_ORIGINAL",
+    "error": null,
+    "rule": "Read original request receipt; do not reissue this semantic publication."
+  },
+  "current_unfinished_unit": "LP011 real historical native signed singleton-argmax caller and LP019 positive-natural-N-BRC signed-subtraction caller are not yet source-localized. Need 28-LP other actual downstream consumers and independent Driver REQUEST_REVISION.",
+  "do_not_repeat": [
+    "Native R063 original 17 gates/512 radii in unit50, original Helly 66,675 in unit54, plus2/+4 signed original check in units61-62.",
+    "Native Source unit62 already SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED.",
+    "Unit63 proved signed scalar residual primitive pair and 29,394 finite tests, source-pinned and Activity #85 recorded.",
+    "Do not attribute old BRC positive weight argmax to native spatial signed axis, or positive N-BRC count to signed scalar residue."
+  ],
+  "next_exact_action": "Read the unit63 original native Source receipt; then pinpoint actual historical or downstream LP011 and LP019 native-misuse callers with exact immutable file:line. If absent, record correctly scoped negative and continue remaining downstream types. Independent Driver REQUEST_REVISION via separate authorized Driver.",
+  "no_new_scheduler": true,
+  "formal_admission": false
+}
