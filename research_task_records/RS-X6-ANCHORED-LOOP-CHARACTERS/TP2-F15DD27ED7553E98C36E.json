@@ -1,0 +1,62 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-X6-ANCHORED-LOOP-CHARACTERS",
+  "registry_key": "RS-X6-ANCHORED-LOOP-CHARACTERS",
+  "publication_id": "TP2-F15DD27ED7553E98C36E",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-X6-ANCHORED-LOOP-CHARACTERS.md",
+  "taskbook_blob_sha1": "sha1:2cfdced30af7ab697c9e619d8eedaf074c6c89ce",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-F22CCA",
+  "published_at": "2026-11-16T05:14:57.171180+00:00",
+  "parent_objective_id": "PO-X6-UPPER-STRUCTURE-20260906",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "三槽全开时，裸支撑图上的全轴重命名不变标量相位只读置换奇偶。保留一根具名轴后的分类待定。",
+  "next_action": "在 J(6,3) 的平坦三角商上，指定一根轴 d 并确定其 S5 稳定子对整系数闭路循环的作用。",
+  "research_value": "确定一个可读轴标签能增加哪种闭路信息，给出可复核的字符分类与路径见证。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "X6U",
+  "source_refs": [
+    "awdawmip/enterprise-math@fa76228ee339e27b64f595f4ad645e515974d919:research_tasks/RS_X6_TRIADIC_CLOSURE_DYNAMICS_20260906.md",
+    "awdawmip/enterprise-math@fa76228ee339e27b64f595f4ad645e515974d919:p000_reality_foundation.json",
+    "awdawmip/enterprise-math@fa76228ee339e27b64f595f4ad645e515974d919:research_constraints/heartbeat_brc_only.json",
+    "awdawmip/enterprise-math@ab4699ad2a80b0e040c5a5f287cd34a537d75e6f:research_notes/X6_ACTIVE_TRIAD_HOLONOMY_CONTROL_V17_20260906.md",
+    "awdawmip/enterprise-math@7b6ea72b90918af5363b319ef16e25122a123ad9:research_notes/portable_direct/20261116_heartbeat_triad_refinement/LOOP_CHARACTERS.md",
+    "awdawmip/enterprise-math@7b6ea72b90918af5363b319ef16e25122a123ad9:research_notes/portable_direct/20261116_heartbeat_triad_refinement/check_flat_paths.py"
+  ],
+  "dependencies": [
+    {
+      "target": "Heartbeat X6 typed-path research at 7b6ea72b90918af5363b319ef16e25122a123ad9",
+      "action": "CONSUME",
+      "satisfied": true
+    }
+  ],
+  "evidence_status": "CONDITIONAL_AUTHOR_RESULTS_AND_OPEN_FOLLOWUP",
+  "successor_gate": {
+    "new_information_gap": "一根持续可读轴的稳定子允许哪些标量字符？",
+    "why_parent_result_does_not_close_it": "已有定理对全部六轴重命名取不变，固定轴会改变不变条件。",
+    "discriminating_outcomes": "新增字符可由闭路对区分，或证明只有平凡和奇偶。",
+    "kill_condition": "若同一固定轴及同一平坦路径商下已有完整证明，则核对命题、复算并返回引用。",
+    "alternative_route_or_free_exploration_considered": "只保留具名末框是另一种观测，无法决定对整路的乘法字符。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "这是一个可独立解出的有限群作用问题，母任务继续处理原生事件许可。"
+  }
+}
