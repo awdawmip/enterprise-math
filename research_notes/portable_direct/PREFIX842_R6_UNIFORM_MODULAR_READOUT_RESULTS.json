@@ -1,0 +1,238 @@
+{
+  "schema": "PREFIX842_UNIFORM_MODULAR_PROVENANCE_V1",
+  "frozen_scientific_input": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "theorems": [
+    "For all t>=1, Z_W(t) mod m is label-injective iff the factor of m coprime to ab is >=W^p.",
+    "The least uniform modulus is min{m>=W^p:gcd(m,ab)=1}, at most W^p+rad(ab)-1.",
+    "For finite 1<=t<=T, injectivity iff m/gcd(m,c_T)>=W^p; finite optimum is nondecreasing and stabilizes at the least uniform modulus."
+  ],
+  "checked": {
+    "p": [
+      1,
+      4
+    ],
+    "W": [
+      2,
+      4
+    ],
+    "a": [
+      1,
+      4
+    ],
+    "b": [
+      1,
+      4
+    ],
+    "horizons": [
+      1,
+      12
+    ],
+    "late_saturation_t": 100,
+    "stats": {
+      "parameterFamilies": 192,
+      "finiteHorizons": 2304,
+      "finiteMinimumCandidates": 93413,
+      "uniformModuli": 9340,
+      "saturationChecks": 9340,
+      "fullResidueComparisons": 5780,
+      "modularDynamicConfigurations": 477,
+      "modularDynamicFrames": 2862,
+      "modularWeightDecodes": 7344
+    },
+    "result": "ALL_EXACT_ASSERTIONS_PASSED"
+  },
+  "examples": [
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "T": 1,
+      "leastModulus": "4"
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "T": 2,
+      "leastModulus": "5"
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "T": 3,
+      "leastModulus": "5"
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "T": 4,
+      "leastModulus": "5"
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "T": 5,
+      "leastModulus": "5"
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "T": 6,
+      "leastModulus": "5"
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "T": 7,
+      "leastModulus": "5"
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "T": 8,
+      "leastModulus": "5"
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "T": 9,
+      "leastModulus": "5"
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "T": 10,
+      "leastModulus": "5"
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "T": 11,
+      "leastModulus": "5"
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "a": 2,
+      "b": 1,
+      "T": 12,
+      "leastModulus": "5"
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "T": 1,
+      "leastModulus": "9"
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "T": 2,
+      "leastModulus": "9"
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "T": 3,
+      "leastModulus": "11"
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "T": 4,
+      "leastModulus": "11"
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "T": 5,
+      "leastModulus": "11"
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "T": 6,
+      "leastModulus": "11"
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "T": 7,
+      "leastModulus": "11"
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "T": 8,
+      "leastModulus": "11"
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "T": 9,
+      "leastModulus": "11"
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "T": 10,
+      "leastModulus": "11"
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "T": 11,
+      "leastModulus": "11"
+    },
+    {
+      "p": 2,
+      "W": 3,
+      "a": 2,
+      "b": 3,
+      "T": 12,
+      "leastModulus": "11"
+    }
+  ]
+}
