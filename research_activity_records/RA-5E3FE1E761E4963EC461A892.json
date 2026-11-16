@@ -3465,6 +3465,72 @@
         "https://github.com/awdawmip/enterprise-math/blob/607736fa5be987cf625c1806d71dc004ee8d311d/research_notes/X6_LP019_MINZERO_G_T_NBRC_OBSERVER_FIBER_OBSTRUCTION_UNIT68_20261117.md"
       ],
       "notes": "Unit68 exact all-positive-integer witness: signed Z6 x=(0,-3m,-3m,0,0,0) and y=(4m,m,m,0,0,0) have identical selected signed-Z3 min-zero observer (3m,0,0), native G=18m^2 and native T=6m, but distinct nonnegative shortest-path BRC counts (6m)!/((3m)!)^2 versus (6m)!/((4m)!(m!)^2), ratio product_j (m+j)(2m+j)/(j(3m+j))>1. Actual local Python normal/-O/-OO checked m=1..128, shortest-word recursion both m=1..5, independent V8 BigInt samples; frozen module read not executed, original benchmark unchanged. Original Source current continuation read onhour-20261117-0004-x6-continuation-read-v1 and own claim onhour-20261117-0011-x6-own-claim-after-typed-prepare-v1 are pending; author-saved GitHub, no native progress asserted. AUTHOR-EXACT/FINITE-EXECUTED/UNREVIEWED/NOT_ADMITTED."
+    },
+    {
+      "event_id": "onhour-20261117-0105-x6-unit69-two-depth-native-repair",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "b89055e5ea79b9dd4b6944567cc479baeff127ed",
+          "path": "research_checks/X6_UNIT69_SIGNED_DEPTH_TWO_CANDIDATE_EXACT_20261117.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "f1c90d2b6d42fd3f97e65edfc82743e762202e18",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b89055e5ea79b9dd4b6944567cc479baeff127ed/research_checks/X6_UNIT69_SIGNED_DEPTH_TWO_CANDIDATE_EXACT_20261117.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "b89055e5ea79b9dd4b6944567cc479baeff127ed",
+          "path": "research_checks/X6_UNIT69_SIGNED_DEPTH_TWO_CANDIDATE_RESULTS_20261117.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "35795860e33a1c95f60c5d7420b300e4dd56e701",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b89055e5ea79b9dd4b6944567cc479baeff127ed/research_checks/X6_UNIT69_SIGNED_DEPTH_TWO_CANDIDATE_RESULTS_20261117.json",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "b89055e5ea79b9dd4b6944567cc479baeff127ed",
+          "path": "research_notes/X6_LP019_SIGNED_DEPTH_TWO_CANDIDATE_REPAIR_UNIT69_20261117.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "d506335f05a4a41f53b4505e3737f067fe68135a",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b89055e5ea79b9dd4b6944567cc479baeff127ed/research_notes/X6_LP019_SIGNED_DEPTH_TWO_CANDIDATE_REPAIR_UNIT69_20261117.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "b89055e5ea79b9dd4b6944567cc479baeff127ed",
+          "path": "research_notes/X6_LP019_UNIT69_TWO_CANDIDATE_CONTINUATION_20261117.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "6ef1950f8b5671ef25088c05e378e9452a92722f",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b89055e5ea79b9dd4b6944567cc479baeff127ed/research_notes/X6_LP019_UNIT69_TWO_CANDIDATE_CONTINUATION_20261117.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/b89055e5ea79b9dd4b6944567cc479baeff127ed/research_checks/X6_UNIT69_SIGNED_DEPTH_TWO_CANDIDATE_EXACT_20261117.py",
+        "https://github.com/awdawmip/enterprise-math/blob/b89055e5ea79b9dd4b6944567cc479baeff127ed/research_checks/X6_UNIT69_SIGNED_DEPTH_TWO_CANDIDATE_RESULTS_20261117.json",
+        "https://github.com/awdawmip/enterprise-math/blob/b89055e5ea79b9dd4b6944567cc479baeff127ed/research_notes/X6_LP019_SIGNED_DEPTH_TWO_CANDIDATE_REPAIR_UNIT69_20261117.md",
+        "https://github.com/awdawmip/enterprise-math/blob/b89055e5ea79b9dd4b6944567cc479baeff127ed/research_notes/X6_LP019_UNIT69_TWO_CANDIDATE_CONTINUATION_20261117.json"
+      ],
+      "notes": "X6 Unit69: exact selected native Z3 minzero+G+T signed-depth recovery theorem. At most 2 integer h=(-R±sqrt(R²+3(G-Q)))/3 candidates after T filtering; one bit sharp at r=(3,0,0), G=18, T=6, depths -3/+1 and N-BRC 20/30. Independent Python exact census 9261 signed triples, 8801 fibers, 460 doubletons (180 N-BRC-distinct), zero failures. Frozen science preserved; actual Source Units66-68 original progress verified SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED at 1c61053c3b1191f564f99a26405c4b30761d1eea. Author scientific files merged in PR #2584; Unit69 native semantic checkpoint NOT SUBMITTED and Driver review pending. Retain genuine current claim liveness checks; no maintenance identity. AUTHOR-EXACT/SCOPED FINITE EXECUTED/UNREVIEWED/NOT_ADMITTED."
     }
   ],
   "mode": "TASK_RESEARCH",
