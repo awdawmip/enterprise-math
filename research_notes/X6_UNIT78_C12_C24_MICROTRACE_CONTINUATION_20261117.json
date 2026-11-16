@@ -11,7 +11,7 @@
   "original_claim_id": "MCP-579c8e23625448582b421831",
   "original_run_id": "RUN-fb25028676f9692ab1bacaee",
   "last_historically_verified_generation": 4,
-  "current_writer_authority": "UNCONFIRMED; exact current continuation read QUEUED; run-get authorization is historical only; do not infer from recovery_status.",
+  "current_writer_authority": "Same own source CLAIM/lease observed in exact continuation, native resume original request QUEUED; still NO new generation or current write permit",
   "frozen_scientific_inputs": {
     "p000_native": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
     "historical_plane": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
@@ -31,9 +31,18 @@
       "repeat": false
     },
     "onhour-20261117-0706-x6-source-exact-continuation-read": {
+      "observed_terminal": "SUCCEEDED / FOLLOW_CANONICAL_ROUTE",
+      "as_of": "2026-11-16T23:18:53Z",
+      "source_read": "245d49e86d43519c22a0f764b5fb515a344678c5",
+      "verified_same_owner_claim": "MCP-579c8e23625448582b421831",
+      "verified_same_owner_sid": "MCP-082892eb480e45dea6d4b9fcc0491034",
+      "lease_until_as_of": "2026-11-17T01:00:12Z",
+      "read_grants_live_write_authority": false,
+      "repeat": false
+    },
+    "onhour-20261117-0721-x6-own-run-resume-unit78-v1": {
       "observed": "QUEUED / WAIT_ORIGINAL",
-      "last_progress": "CURRENT_CONTROL_FOLLOW_RETRY / EVENT_READ_CONTROL_BUSY",
-      "next_action": "em_control_result with same request_id, then original reconciliation only if needed",
+      "scope": "same own SID+RUN fresh native authorization and writer generation; original ID only, do not reissue",
       "repeat": false
     }
   },
@@ -103,7 +112,7 @@
     "Complete bounded actual 28-LP live consumer dependency closure and independent Driver REQUEST_REVISION",
     "Native semantic Unit77 and Unit78 not published under current own authorization"
   ],
-  "next_exact_action": "First consume receipt onhour-20261117-0706-x6-source-exact-continuation-read. With exact current ownership validation if own CLAIM remains valid, resume own session and publish Unit77/78 native PROGRESS using frozen Source pointers; if fenced/closed never restore by force. Continue selected source:line consumer audit, original benchmark separate. If unresolved keep original ID and Source-authored science frontiers, do not create new CLAIM or substitute session.",
+  "next_exact_action": "Read original resume onhour-20261117-0721-x6-own-run-resume-unit78-v1. If SUCCEEDED/RUN_READY with authorized current generation, publish actual own Unit77/78 source PROGRESS as one checkpoint with existing GitHub evidence refs, and read original request; otherwise preserve the original request. Continue actual source:line 28-LP consumer audit and historical LP011/LP019 provenance. No new CLAIM, dispatch, maintenance identity, or native original R063/Helly reruns.",
   "schedule_changed": false,
   "notifications_changed": false,
   "auto_disable_requested": false
