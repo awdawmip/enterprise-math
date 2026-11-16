@@ -3857,6 +3857,58 @@
         "https://github.com/awdawmip/enterprise-math/blob/610e6e8ea8cb82220030c855b7a96b2e133866f2/research_checks/X6_UNIT74_FULL6_BRC_COLLISION_PLUS2_RESULTS_20261117.json"
       ],
       "notes": "Unit74 P000 V5 full signed native six-axis X6 original frozen signed_brc.py git blob 300a96e3dc24bf6fff73743037a0347a8bc83176 byte-verified and actually executed on two integer displacements A=(-6,-6,-2,2,2,7), B=(-5,-5,-1,3,3,8). Same can6=(0,0,4,8,8,13), G=133, T=25, shortest positive N_BRC=742096122768000 but distinct |axis| multisets; original native 27-step endpoint counts 734913692436924000 versus 752485468486752000, gap 17571776049828000. Exact independent first-excess proof C_(T+2)=C_T(T+1)(T+2)Σ_i(|z_i|+1)^(-1); no signed cancellation. Complete axis-sorted finite cube census M=1..8: no exceptional pair M≤7, exactly two reversal-equivalent pairs at M=8. Normal/-O/-OO local executed checker and original-source calls pass, identical certificate SHA256 95d626065ff47de4ea5710352d6c0c8102a3b5b9e49f124bee73795b59c51129; scoped original check and bounded finite exhaustive, not complete R063/Helly rerun. Native Unit69–71 original Source SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED; native Unit72–73 original onhour-20261117-0447-x6-unit72-73-native-semantic-progress-v1 RUNNING/WAIT_ORIGINAL when last read; separate Unit74 Source semantic publication not asserted. Historic LP011/LP019 wrong callers and full LP28 consumer closure & independent Driver REQUEST_REVISION remain pending. AUTHOR-EXACT/FINITE-EXECUTED/UNREVIEWED/NOT_ADMITTED."
+    },
+    {
+      "event_id": "onhour-20261117-unit75-typed-positive-mass-current-consumer",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "516d98c0da0d65b847261c5874a71225943deb79",
+          "path": "research_notes/X6_UNIT75_CURRENT_TYPED_POSITIVE_MASS_SOURCE_CONSUMER_AUDIT_20261117.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "03801faa6f9f8133444e67af344d7b460a033d0f",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/516d98c0da0d65b847261c5874a71225943deb79/research_notes/X6_UNIT75_CURRENT_TYPED_POSITIVE_MASS_SOURCE_CONSUMER_AUDIT_20261117.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "4632aa99210cef16b3ebcf8c0fcdc37b42ab9e6d",
+          "path": "research_checks/X6_UNIT75_INVERSION_ORBIT_POSITIVE_MASS_CHECK_20261117.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "d77b8bfd3c29fceb4286067e2740e6e709980617",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/4632aa99210cef16b3ebcf8c0fcdc37b42ab9e6d/research_checks/X6_UNIT75_INVERSION_ORBIT_POSITIVE_MASS_CHECK_20261117.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "466e86a90fd0f170b7d7b34ae060ca700c98fc55",
+          "path": "research_checks/X6_UNIT75_INVERSION_ORBIT_POSITIVE_MASS_RESULTS_20261117.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "8ba2579cea74c9c53f60b1b5c5e647d6a52ee120",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/466e86a90fd0f170b7d7b34ae060ca700c98fc55/research_checks/X6_UNIT75_INVERSION_ORBIT_POSITIVE_MASS_RESULTS_20261117.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/516d98c0da0d65b847261c5874a71225943deb79/research_notes/X6_UNIT75_CURRENT_TYPED_POSITIVE_MASS_SOURCE_CONSUMER_AUDIT_20261117.md",
+        "https://github.com/awdawmip/enterprise-math/blob/4632aa99210cef16b3ebcf8c0fcdc37b42ab9e6d/research_checks/X6_UNIT75_INVERSION_ORBIT_POSITIVE_MASS_CHECK_20261117.py",
+        "https://github.com/awdawmip/enterprise-math/blob/466e86a90fd0f170b7d7b34ae060ca700c98fc55/research_checks/X6_UNIT75_INVERSION_ORBIT_POSITIVE_MASS_RESULTS_20261117.json"
+      ],
+      "notes": "Unit75 exact current-source classification for P000 signed-X6 LP011/LP019 28-LP remaining consumer closure. Full inspected production modules: group_ring_inverse_quotient, brc_newton_fiber_quotient, brc_residue_port, brc_control_port, operation_quotient, partial_operation_quotient, signed; current direct test evidence in test_group_ring_inverse_quotient and test_p023_operation_quotient; precise current source:line and immutable blobs. General inverse-orbit positive-mass theorem for finite abelian U: with p,q >=0, kernel 2[e]+p[g]+q[g^-1], inverse-orbit class descent iff p=q or g^2=e. Independent finite U(7), g=3 checker: 16 nonnegative weight pairs, 6 units, 96 source pair comparisons, 384 class comparisons, 4 safe and 12 unsafe; three modes normal/-O/-OO byte-identical emitted certificate SHA256 fa356a3c74b497158c8f9e37dead69262b5735909a16dcfc75e6da7d3a6e5bcf. Source signed coefficient cancellation is Newton polynomial algebra, not natural positive N_BRC subtraction; negative_weight is nonnegative inverse-direction weight. Historical alleged LP011 native wrong argmax, LP019 positive-count signed subtraction remain UNRESOLVED_PROVENANCE; 28-LP graph incomplete. Native Unit74 original already SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED Source cc3368100f8de3b00c89b7f4d1567f008b9944c4. Own resume original onhour-20261117-0536-x6-own-run-resume-unit75-v1 pending at author save; Unit75 native semantic publication not claimed. Scientific AUTHOR-PROVED / EXACT-SCOPED-EXECUTED / UNREVIEWED / NOT_ADMITTED."
     }
   ],
   "mode": "TASK_RESEARCH",
