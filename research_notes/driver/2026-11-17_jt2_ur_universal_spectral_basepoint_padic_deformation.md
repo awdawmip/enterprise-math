@@ -150,3 +150,44 @@ Verifier: experiments/jt2_ur_spectral_basepoint_padic_deformation_20261117.py.
 - Earlier Driver spectral/harmonic companion: research_notes/driver/2026-11-17_jt2_ur_spectral_logarithmic_harmonic_companion.md; author EM-DVR-DEBB5E.
 - New polynomial deformation theorem, quotient reduction and crosscheck: Driver EM-DVR-DEBB5E; context shared, independence not asserted.
 - Task/Result and mother-level completion are separate. The target \(\varepsilon_p=0\) for all the frozen prime classes remains open.
+
+
+## Theorem D — Exact finite hypergeometric boundary-source equation
+
+The degree-\(m\) basepoint polynomial \(F_m\) also satisfies an **exact rational inhomogeneous differential equation**, with the entire truncation error concentrated in its highest monomial. Define
+
+\[
+\mathcal L_C[G]:=Y(1-Y)G''+
+\left(\frac12-\frac32Y\right)G'+\frac C2 G.
+\]
+
+Then, without reducing modulo \(p\),
+
+\[
+\boxed{\mathcal L_{-1/9}[F_m]=
+-\frac{p(p+1)}{36}f_mY^m.}\tag{ODE-BOUNDARY}
+\]
+
+Equivalently, since \(C_*-(-1/9)=p(p+1)/18\),
+
+\[
+\boxed{\mathcal L_{C_*}[F_m]
+=\frac{p(p+1)}{36}\left(F_m-f_mY^m\right),\qquad
+\mathcal L_{C_*}[H_m(C_*,Y)]=0.}\tag{ODE-PAIR}
+\]
+
+**Proof.** The coefficient of \(Y^j\) in \(\mathcal L_{-1/9}[F_m]\), for \(j<m\), is
+
+\[
+(j+1)(j+\tfrac12)f_{j+1}
+-(j+\tfrac16)(j+\tfrac13)f_j=0
+\]
+
+by the exact hypergeometric coefficient recurrence. At \(j=m\), the missing \(f_{m+1}\) term leaves only
+\[
+-(m+\tfrac16)(m+\tfrac13)f_m
+=-\frac{p(p+1)}{36}f_m.
+\]
+This is the whole polynomial remainder. Adding the constant operator difference \((C_*-C_0)F_m/2\) proves the first relation in (ODE-PAIR). At \(C_*\), the degree-\(m\) spectral recurrence terminates exactly because the next numerator is \(m(2m+1)-C_*=0\), so \(\mathcal L_{C_*}[H_m(C_*,Y)]=0\). QED.
+
+Consequently \(\overline F_m\) is an exact polynomial solution of the **homogeneous basepoint equation over \(\mathbb F_p\)**, although the rational truncated lift has the explicit boundary source above. This isolates the next arithmetic question: evaluate the divided special value \(v_m=F_m(1/2)/p\bmod p\) while respecting that top-coefficient source. The full uniform UR residual remains the equation (U), still open. The operator identity was additionally checked coefficientwise in exact rational arithmetic for \(m=1,\ldots,8\).
