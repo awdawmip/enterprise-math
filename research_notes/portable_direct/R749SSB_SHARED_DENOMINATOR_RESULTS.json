@@ -1,0 +1,210 @@
+{
+  "status": "PASS",
+  "unit": "R749SSB",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "W=(1,1,2,3,6), shifts=(0,1,5), unique nearest max-norm signature",
+  "error_model": "one shared signed denominator count error d across three samples; independent signed integer numerator errors e_i",
+  "M_and_K_inclusive": [
+    0,
+    1,
+    2
+  ],
+  "cutoff_exclusive": 1350,
+  "tail_source": "R749SSA PR#2546 independent-error certificate, tail r>=1350",
+  "tail_bound_r_1350_for_budgets_up_to_2": "63374339249936/28025208984321",
+  "min_signature_separation": "15/2",
+  "exact_shared_end_coordinate_criterion": "fix common d and one signed numerator endpoint at maximizer coordinate; other e_i via exact integer intervals",
+  "independent_direct_cube_checks": 216,
+  "independent_source_recursions": 24,
+  "results": [
+    {
+      "M": 0,
+      "K": 0,
+      "N_shared": 35,
+      "N_independent": 35,
+      "last_failure": {
+        "r": 34,
+        "phase": 4,
+        "rival": 3,
+        "common_denominator_error": 0,
+        "numerator_errors": [
+          0,
+          0,
+          0
+        ],
+        "true_distance": "13130875/403164",
+        "rival_distance": "5097527/161244"
+      },
+      "finite_cutoffs_checked": 1349,
+      "exact_cases_after_separation_prune": 384
+    },
+    {
+      "M": 1,
+      "K": 0,
+      "N_shared": 53,
+      "N_independent": 53,
+      "last_failure": {
+        "r": 52,
+        "phase": 4,
+        "rival": 3,
+        "common_denominator_error": 0,
+        "numerator_errors": [
+          -1,
+          1,
+          -1
+        ],
+        "true_distance": "141581357/5883732",
+        "rival_distance": "583868191/24540516"
+      },
+      "finite_cutoffs_checked": 1349,
+      "exact_cases_after_separation_prune": 386
+    },
+    {
+      "M": 2,
+      "K": 0,
+      "N_shared": 65,
+      "N_independent": 65,
+      "last_failure": {
+        "r": 64,
+        "phase": 4,
+        "rival": 3,
+        "common_denominator_error": 0,
+        "numerator_errors": [
+          -2,
+          2,
+          -2
+        ],
+        "true_distance": "463686775/22359348",
+        "rival_distance": "604132351/29434860"
+      },
+      "finite_cutoffs_checked": 1349,
+      "exact_cases_after_separation_prune": 390
+    },
+    {
+      "M": 0,
+      "K": 1,
+      "N_shared": 41,
+      "N_independent": 261,
+      "last_failure": {
+        "r": 40,
+        "phase": 4,
+        "rival": 3,
+        "common_denominator_error": -1,
+        "numerator_errors": [
+          0,
+          0,
+          0
+        ],
+        "true_distance": "215303065/5621508",
+        "rival_distance": "322060235/8482212"
+      },
+      "finite_cutoffs_checked": 1349,
+      "exact_cases_after_separation_prune": 570
+    },
+    {
+      "M": 1,
+      "K": 1,
+      "N_shared": 55,
+      "N_independent": 267,
+      "last_failure": {
+        "r": 54,
+        "phase": 0,
+        "rival": 3,
+        "common_denominator_error": 1,
+        "numerator_errors": [
+          -1,
+          1,
+          -1
+        ],
+        "true_distance": "167881525/10434852",
+        "rival_distance": "38566028/2400813"
+      },
+      "finite_cutoffs_checked": 1349,
+      "exact_cases_after_separation_prune": 572
+    },
+    {
+      "M": 2,
+      "K": 1,
+      "N_shared": 67,
+      "N_independent": 273,
+      "last_failure": {
+        "r": 66,
+        "phase": 0,
+        "rival": 3,
+        "common_denominator_error": 1,
+        "numerator_errors": [
+          -2,
+          2,
+          -2
+        ],
+        "true_distance": "26210851/1903932",
+        "rival_distance": "18295210/1332477"
+      },
+      "finite_cutoffs_checked": 1349,
+      "exact_cases_after_separation_prune": 573
+    },
+    {
+      "M": 0,
+      "K": 2,
+      "N_shared": 41,
+      "N_independent": 507,
+      "last_failure": {
+        "r": 40,
+        "phase": 4,
+        "rival": 3,
+        "common_denominator_error": -2,
+        "numerator_errors": [
+          0,
+          0,
+          0
+        ],
+        "true_distance": "44896037/936900",
+        "rival_distance": "1869955/39636"
+      },
+      "finite_cutoffs_checked": 1349,
+      "exact_cases_after_separation_prune": 758
+    },
+    {
+      "M": 1,
+      "K": 2,
+      "N_shared": 59,
+      "N_independent": 513,
+      "last_failure": {
+        "r": 58,
+        "phase": 4,
+        "rival": 3,
+        "common_denominator_error": -2,
+        "numerator_errors": [
+          -1,
+          1,
+          -1
+        ],
+        "true_distance": "216936817/5742036",
+        "rival_distance": "60734627/1614384"
+      },
+      "finite_cutoffs_checked": 1349,
+      "exact_cases_after_separation_prune": 762
+    },
+    {
+      "M": 2,
+      "K": 2,
+      "N_shared": 71,
+      "N_independent": 513,
+      "last_failure": {
+        "r": 70,
+        "phase": 4,
+        "rival": 3,
+        "common_denominator_error": -2,
+        "numerator_errors": [
+          -2,
+          2,
+          -2
+        ],
+        "true_distance": "93086707/2798982",
+        "rival_distance": "2873625235/86594292"
+      },
+      "finite_cutoffs_checked": 1349,
+      "exact_cases_after_separation_prune": 762
+    }
+  ]
+}
