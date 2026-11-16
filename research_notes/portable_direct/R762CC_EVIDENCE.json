@@ -1,0 +1,80 @@
+{
+  "schema": "ENTERPRISE_MATH_R762CC_EXACT_POLICY_OBSERVER_CENSUS_V1",
+  "scope": "conditional signed S6xC3 sign-only 729-laws of R762CA/R762CB; native event licensing unproved",
+  "population": 729,
+  "orbit_sizes": [
+    1,
+    1,
+    3,
+    3
+  ],
+  "options_per_orbit": [
+    3,
+    3,
+    9,
+    9
+  ],
+  "quotient_class_counts": {
+    "aggregate": 90,
+    "sector": 225,
+    "event": 256,
+    "joint": 729
+  },
+  "fiber_size_histograms": {
+    "aggregate": {
+      "1": 9,
+      "2": 18,
+      "4": 9,
+      "6": 18,
+      "9": 6,
+      "12": 18,
+      "18": 9,
+      "36": 3
+    },
+    "sector": {
+      "1": 81,
+      "3": 108,
+      "9": 36
+    },
+    "event": {
+      "1": 49,
+      "2": 112,
+      "4": 78,
+      "8": 16,
+      "16": 1
+    },
+    "joint": {
+      "1": 729
+    }
+  },
+  "fixed_index_bits": {
+    "aggregate": 7,
+    "sector": 8,
+    "event": 8,
+    "joint": 10
+  },
+  "rooted_event_query_worst_case": 8,
+  "joint_closure_event_query_worst_case": 12,
+  "two_count_sector_probe": "N_s(0), N_s(2)=3k for closed sector",
+  "witness_1": {
+    "policies": [
+      "((0, 0), (0, 0), (1, 1), (0, 0))",
+      "((0, 0), (0, 0), (1, 2), (0, 0))"
+    ],
+    "same_sign_spectra": true,
+    "different_rooted_gate": true,
+    "N0_N4": [
+      3,
+      63
+    ]
+  },
+  "witness_2": {
+    "policies": [
+      "((1, 0), (0, 0), (0, 0), (0, 0))",
+      "((0, 0), (0, 0), (0, 0), (0, 0))"
+    ],
+    "same_event_gates": true,
+    "different_closure": true
+  },
+  "independent_review": "NOT_REVIEWED"
+}
