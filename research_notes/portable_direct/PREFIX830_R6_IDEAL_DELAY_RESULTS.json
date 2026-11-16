@@ -1,0 +1,135 @@
+{
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "arithmetic": "BigInt exact integer",
+  "positive_mark_weights": {
+    "a": 2,
+    "b": 3
+  },
+  "tested_n": [
+    7,
+    8,
+    9,
+    10
+  ],
+  "independent_named_histogram_scalar_comparisons": 366,
+  "elementary_equality_assertions": 34,
+  "results": [
+    {
+      "n": 7,
+      "A": [
+        1,
+        19,
+        28,
+        59,
+        65,
+        90,
+        102
+      ],
+      "B": [
+        2,
+        14,
+        39,
+        45,
+        76,
+        85,
+        103
+      ],
+      "shift": 1,
+      "delta_e_n": "-13967553600",
+      "first_difference_step": 7,
+      "first_difference_bin": 0,
+      "delta_first_count": "-70396470144000"
+    },
+    {
+      "n": 8,
+      "A": [
+        1,
+        5,
+        10,
+        24,
+        28,
+        42,
+        47,
+        51
+      ],
+      "B": [
+        2,
+        3,
+        12,
+        21,
+        31,
+        40,
+        49,
+        50
+      ],
+      "shift": 26,
+      "delta_e_n": "-1210809600",
+      "first_difference_step": 8,
+      "first_difference_bin": 0,
+      "delta_first_count": "-48819843072000"
+    },
+    {
+      "n": 9,
+      "A": [
+        2,
+        18,
+        42,
+        66,
+        113,
+        116,
+        169,
+        175,
+        199
+      ],
+      "B": [
+        1,
+        25,
+        31,
+        84,
+        87,
+        134,
+        158,
+        182,
+        198
+      ],
+      "shift": 100,
+      "delta_e_n": "3377425033382400",
+      "first_difference_step": 9,
+      "first_difference_bin": 0,
+      "delta_first_count": "1225599996113805312000"
+    },
+    {
+      "n": 10,
+      "A": [
+        1,
+        13,
+        126,
+        214,
+        215,
+        413,
+        414,
+        502,
+        615,
+        627
+      ],
+      "B": [
+        6,
+        7,
+        134,
+        183,
+        243,
+        385,
+        445,
+        494,
+        621,
+        622
+      ],
+      "shift": 314,
+      "delta_e_n": "-5687272703608009113600",
+      "first_difference_step": 10,
+      "first_difference_bin": 0,
+      "delta_first_count": "-20637975186852743471431680000"
+    }
+  ],
+  "scope": "Exhaustive exact subset-state dynamic programming for all reachable named states, n=7..10, t=0..n; general minimum theorem separately from PREFIX-829"
+}
