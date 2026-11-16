@@ -68,7 +68,7 @@ def main():
                     assert coarse(loop_word("B", j, axes, signs)) == coarse(loop_word("L", j, axes, signs))
         samples.append({
             "q":q,
-            "same_observation_states":q,
+            "constructed_phase_witnesses":q,
             "fixed_repair_bits":(q-1).bit_length(),
             "witness_primitive_steps":4*q,
             "pairwise_future_distinctions":q*(q-1),
