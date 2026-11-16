@@ -1,0 +1,107 @@
+{
+  "unit": "R749SSV",
+  "date": "2026-11-17",
+  "status": "PASS",
+  "evidence_class": "AUTHOR_EXACT_NOT_REVIEWED",
+  "scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "input": {
+    "weights": [
+      1,
+      1,
+      2,
+      3,
+      6
+    ],
+    "labels_distinct": true,
+    "q_lower": 6,
+    "phase_modulus": 6,
+    "shared_real_errors": "e,d in [-2,2] unchanged across 11 observations",
+    "observation": "Y_q=q^3*(T_q+e)/(C_q+d)-S(q)/108",
+    "S": "18x^4+54x^3-345x^2+2070x-16315"
+  },
+  "phases": [
+    {
+      "r": 0,
+      "L": "455/36",
+      "sharp_K": "7655/3"
+    },
+    {
+      "r": 1,
+      "L": "-295/36",
+      "sharp_K": "26740/9"
+    },
+    {
+      "r": 2,
+      "L": "-25/36",
+      "sharp_K": "25805/9"
+    },
+    {
+      "r": 3,
+      "L": "185/36",
+      "sharp_K": "8060/3"
+    },
+    {
+      "r": 4,
+      "L": "-25/36",
+      "sharp_K": "24445/9"
+    },
+    {
+      "r": 5,
+      "L": "-295/36",
+      "sharp_K": "25940/9"
+    }
+  ],
+  "exact_certificates": {
+    "uniform_sharp_K": "26740/9",
+    "uniform_eleven_read_quadratic_numerator": "534800/3",
+    "envelope_polynomial_count": 48,
+    "step_bernstein_polynomial_count": 72,
+    "minimum_shifted_envelope_coefficient": "667/1296",
+    "minimum_shifted_step_bernstein_coefficient": "1/2160",
+    "coefficient_sign": "strictly positive",
+    "parameter_scope": "all continuous errors e,d in [-2,2], not grid samples"
+  },
+  "theorems": [
+    "|Y_q(e,d)-L_r|<K_r/q, phasewise asymptotically sharp",
+    "|Y_(q+6)(e,d)-Y_q(e,d)|<6*K_r/q^2, phasewise asymptotically sharp",
+    "0<Delta_11<6*K_r*sum(j=0..9)1/(q+6j)^2<60*K_r/q^2",
+    "q<sqrt((534800/3)/Delta_11) for every admissible exact 11-read vector",
+    "if |z_j-y_j|<=eps and Delta_z>2eps, q<sqrt((534800/3)/(Delta_z-2eps))"
+  ],
+  "local_validation": {
+    "expanded_exact_program": "PASS",
+    "sample_q_values": [
+      6,
+      7,
+      12,
+      61
+    ],
+    "sample_global_bound_pairs_new_vs_previous": [
+      [
+        "6",
+        "52",
+        "636"
+      ],
+      [
+        "7",
+        "47",
+        "506"
+      ],
+      [
+        "12",
+        "69",
+        "1092"
+      ],
+      [
+        "61",
+        "106",
+        "2595"
+      ]
+    ]
+  },
+  "dependency": "R749SSU positivity and observer definition; R749SST injectivity only for unique inversion, not for new inequality",
+  "review": "NOT_INDEPENDENTLY_REVIEWED",
+  "formal_task_claim": "NOT_ACQUIRED",
+  "native_X6_BRC_admission": "NOT_ASSERTED",
+  "next": "Finite cutoff minimax noise separation; global 5-10 read horizon; provenance preserving typed BRC carrier"
+}
