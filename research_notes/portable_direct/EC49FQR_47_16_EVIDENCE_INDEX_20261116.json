@@ -1,0 +1,123 @@
+{
+  "schema": "EC49FQR_NATIVE_BRC_ALL_PRIOR_SLICE_EVIDENCE_V1",
+  "date": "2026-11-16",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "inherited_pr": 2565,
+  "inherited_head": "689c90d17967fb70ff206ac498d59aaad7fe8909",
+  "class_id": 16943,
+  "native_scope": {
+    "original_configurations": 310,
+    "full_named_root_profiles": 141,
+    "terminal_physical_observations": 144,
+    "named_root_physical_observations": 84,
+    "distinct_response_partitions": 209
+  },
+  "source_sha256": {
+    "frozen_original_master_txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE_csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "prices": {
+    "root": 47,
+    "terminal": 16
+  },
+  "anchor_certificates": [
+    {
+      "lambda": "0/1",
+      "exact_integer_optimum": "1525820",
+      "first": [
+        32,
+        34
+      ],
+      "sha256": "48c18e1325dd891f1c22702e8c84860e74644ab322ac129d7defcd7c3b115ebe",
+      "bundle_path": "certificates/47_16_0_1.json"
+    },
+    {
+      "lambda": "310/112969",
+      "exact_integer_optimum": "172434900960",
+      "first": [
+        32,
+        34,
+        140,
+        142
+      ],
+      "sha256": "24e6e2e46badbeda5bb5b63b6bb17491b97ed19775a7d8e79cbdcf0bceb26a4f",
+      "bundle_path": "certificates/47_16_310_112969.json"
+    },
+    {
+      "lambda": "620/3299",
+      "exact_integer_optimum": "5093744850",
+      "first": [
+        16,
+        23,
+        140,
+        142
+      ],
+      "sha256": "c4f2b64209fb6c3c1e6a414bc50740bf559640ce8cf40eb3d3c21f197f9a746d",
+      "bundle_path": "certificates/47_16_620_3299.json"
+    },
+    {
+      "lambda": "1/1",
+      "exact_integer_optimum": "1578495",
+      "first": [
+        16,
+        23
+      ],
+      "sha256": "76fa732c7223d69d7f52000b114b86c332c2304290ca850772e2efed9a183530",
+      "bundle_path": "certificates/47_16_1_1.json"
+    }
+  ],
+  "gamma": "310/112969",
+  "beta": "620/3299",
+  "policy_count_vectors": {
+    "A": [
+      6,
+      290,
+      6,
+      751
+    ],
+    "B": [
+      5,
+      293,
+      5,
+      704
+    ],
+    "C": [
+      5,
+      295,
+      5,
+      685
+    ]
+  },
+  "inherited_certificate_count": 81,
+  "new_certificate_count": 4,
+  "exact_remaining_area": "63266932358723791445/7398811896183040660488",
+  "exact_certified_fraction": "14734356860007357529531/14797623792366081320976",
+  "exact_global_gap": "(25/4)/(sqrt(57245/8)+sqrt(14269/2))^2",
+  "global_gap_approximate": "0.000218682601258424",
+  "reproduced": {
+    "local_python_interpreter": "3.x",
+    "input_sha256_checked": true,
+    "independent_algorithm": "full-profile positive-weight subset Bellman with all 228 physical first labels, independent of native constructor",
+    "independently_recomputed_anchors": 4,
+    "inherited_certificate_sha256_rechecked": 81,
+    "all_optimal_first_trees_replayed": true,
+    "exact_area_verified": true,
+    "exact_width_comparison_verified": true,
+    "result_tag": "EC49FQR_FULL_FIRST_NATIVE_CONTINUUM_AND_22_NODE_CHECKS_PASS"
+  },
+  "reproduction": {
+    "evidence_archive_root": "EC49FQR_NATIVE_SLICE_47_16_20261116",
+    "independent": "PYTHONPATH=code python3 code/EC49FQR_INDEPENDENT_VERIFY.py",
+    "raw_creator": "python3 code/EC49FQL_ALL_FIRST_BELLMAN.py source/frozen_original_master.txt source/EC49FPG_PROFILE.csv /tmp/test.json 47 16 310 112969",
+    "code_sha256": {
+      "independent_verifier": "54bfe365cac9b8fcd273c04f15ed022704cdee3526b8b0143e4ca44a5fee68e2"
+    }
+  },
+  "status": {
+    "mathematical": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+    "formal_task": "NO_CANONICAL_PUBLICATION_DIRECTORY",
+    "formal_claim": false,
+    "formal_result": false,
+    "activity_checkpoint_written": false
+  }
+}
