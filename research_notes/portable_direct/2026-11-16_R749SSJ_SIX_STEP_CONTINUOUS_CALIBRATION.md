@@ -1,13 +1,13 @@
 # R749SSJ — Strict six-step raw-ratio growth and two-read continuous-error calibration
 
-Date: 2026-11-16 (Asia/Shanghai). Status: \`AUTHOR_EXACT_NOT_REVIEWED\`.
+Date: 2026-11-16 (Asia/Shanghai). Status: `AUTHOR_EXACT_NOT_REVIEWED`.
 Mode: independent portable auxiliary-source mathematics; no shared X6 CLAIM.
-Frozen science: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`.
-Predecessors: R749SSI / PR #2560 @ \`0465b731bdd411719f75421d5d144f3c69631841\`; R749SSF–SSH / PR #2557 @ \`d980a326e3036d9d1f821e1b8c56dfdfdaaa5b47\`.
+Frozen science: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`.
+Predecessors: R749SSI / PR #2560 @ `0465b731bdd411719f75421d5d144f3c69631841`; R749SSF–SSH / PR #2557 @ `d980a326e3036d9d1f821e1b8c56dfdfdaaa5b47`.
 
 ## 1. Model and three theorems
 
-Let five distinct positive labeled sources have weights \`(1,1,2,3,6)\` and let the first weight-one source be marked. For integer \`q>=1\` define
+Let five distinct positive labeled sources have weights `(1,1,2,3,6)` and let the first weight-one source be marked. For integer `q>=1` define
 
 \[
 \Omega_q=\{k\in\mathbb Z_{\ge0}^5:k_1+k_2+2k_3+3k_4+6k_5\le q-1\},\quad
@@ -128,8 +128,8 @@ For each **known** cutoff, conversion from \(Y\) back to \(X\) is exact, so the 
 
 ## 4. Evidence, scope and next question
 
-Companion files: \`R749SSJ_SIX_STEP_CONTINUOUS_CALIBRATION_CERT.py\` and \`R749SSJ_SIX_STEP_CONTINUOUS_CALIBRATION_RESULTS.json\`. Run Python 3 in the same directory. Only standard-library integer operations and \`fractions.Fraction\` are used. The \`PASS\` result verifies six known exact count anchors, 750 finite inequalities, 150 complete positive Newton certificates, coefficient 115/6, the exact single-read fiber witness and a rational inverse sample. The generating-function degree argument and concave endpoint extension are written above and jointly establish the infinite real-parameter theorem.
+Companion files: `R749SSJ_SIX_STEP_CONTINUOUS_CALIBRATION_CERT.py` and `R749SSJ_SIX_STEP_CONTINUOUS_CALIBRATION_RESULTS.json`. Run Python 3 in the same directory. Only standard-library integer operations and `fractions.Fraction` are used. The `PASS` result verifies six known exact count anchors, 750 finite inequalities, 150 complete positive Newton certificates, coefficient 115/6, the exact single-read fiber witness and a rational inverse sample. The generating-function degree argument and concave endpoint extension are written above and jointly establish the infinite real-parameter theorem.
 
-Status: author exact proof and independent local computation, not an independent Driver review or Foundation admission. Scientific carrier: five positive *labeled* sources with a common-error update; no signed-native BRC/Cell/Port/X6 identification is asserted. The shared \`RS-X6-NATIVE-TIME-DYNAMICS\` Task has separate formal ownership.
+Status: author exact proof and independent local computation, not an independent Driver review or Foundation admission. Scientific carrier: five positive *labeled* sources with a common-error update; no signed-native BRC/Cell/Port/X6 identification is asserted. The shared `RS-X6-NATIVE-TIME-DYNAMICS` Task has separate formal ownership.
 
 **Open frontier:** For unknown integer cutoff \(q\ge6\), determine whether the ordered smooth pair \((Y(q;e,d),Y(q+6;e,d))\), with a common bounded integer or real error pair, identifies \(q\) and the error coordinates globally. Prove an exact cross-cutoff injectivity theorem or find a collision; then obtain a scale-dependent noise radius. Any future BRC source-port mapping must keep the five labels, the common-error relation and the six-step observation operation.
