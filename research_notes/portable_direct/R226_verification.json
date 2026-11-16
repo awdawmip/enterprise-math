@@ -1,0 +1,96 @@
+{
+  "schema": "EM_R226_EXCHANGEABLE_NONRESET_REVERSIBLE_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "inputs": {
+    "m": 12,
+    "k": 6,
+    "L": 2,
+    "a": "7/10",
+    "b": "1/20",
+    "c": "1/10",
+    "d": "7/10",
+    "e": "1/25",
+    "pi0": "1/4",
+    "pi_each": "1/8"
+  },
+  "W": [
+    144,
+    576,
+    1440,
+    4320,
+    17280,
+    86400,
+    518400
+  ],
+  "T": [
+    1407600,
+    1174176,
+    986400,
+    833760,
+    708480,
+    604800,
+    518400
+  ],
+  "full_markov_eigenvalues": [
+    "1",
+    "3/5",
+    "33/50"
+  ],
+  "minimal_scalar_degree": 12,
+  "hankel_rank": 12,
+  "hankel_determinants_mod_primes": [
+    {
+      "prime": 1000000007,
+      "det": 146616006
+    },
+    {
+      "prime": 1000000009,
+      "det": 156237222
+    }
+  ],
+  "exact_full_state_vs_reduced_moment_checks": 8,
+  "moment_prefix": {
+    "2": "5934294/5",
+    "3": "28622169/25",
+    "4": "1382779179/1250",
+    "8": "7644937401909819/7812500000",
+    "12": "21566960773474812763257/24414062500000000"
+  },
+  "characteristic_recurrence_ascending_coefficients": [
+    "7318525637367/250000000000000",
+    "-119909145265897/250000000000000",
+    "2805458663089/781250000000",
+    "-81222411556649/5000000000000",
+    "4944931989219/100000000000",
+    "-8536627789/80000000",
+    "836874180037/5000000000",
+    "-48067289319/250000000",
+    "4013330161/25000000",
+    "-38003/400",
+    "37831/1000",
+    "-91/10",
+    "1"
+  ],
+  "recurrence_checks": 13,
+  "distinct_roots_certificate": {
+    "bc": "1/200",
+    "e_times_a_plus_e_minus_d": "1/625",
+    "unequal": true
+  },
+  "block_symmetric_check": {
+    "group_sizes": [
+      3,
+      3
+    ],
+    "reduced_realization_bound": 38,
+    "moment_comparisons": 6,
+    "first_terms": [
+      "228907872/187",
+      "1130749344/935",
+      "2234767473/1870",
+      "3614457454417/3060000"
+    ],
+    "result": "PASS"
+  },
+  "result": "PASS"
+}
