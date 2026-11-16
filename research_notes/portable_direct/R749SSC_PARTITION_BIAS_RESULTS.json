@@ -1,0 +1,242 @@
+{
+  "status": "PASS",
+  "unit": "R749SSC",
+  "date": "2026-11-16",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": {
+    "source_weights": [
+      1,
+      1,
+      2,
+      3,
+      6
+    ],
+    "marked_index": 0,
+    "shifts": [
+      0,
+      1,
+      5
+    ],
+    "P_numerators_over_36": [
+      455,
+      -295,
+      -25,
+      185,
+      -25,
+      -295
+    ],
+    "numerator_error": "independent integer |e_i| <= M",
+    "denominator_error": "one shared signed integer error for each block of the selected set partition of observation indexes",
+    "decoder": "unique nearest max norm ideal signature; ties fail"
+  },
+  "budget_rows": "K=0,1,2; columns M=0,1,2",
+  "threshold_matrices": {
+    "all-common": [
+      [
+        35,
+        53,
+        65
+      ],
+      [
+        41,
+        55,
+        67
+      ],
+      [
+        41,
+        59,
+        71
+      ]
+    ],
+    "01|2": [
+      [
+        35,
+        53,
+        65
+      ],
+      [
+        261,
+        267,
+        273
+      ],
+      [
+        497,
+        503,
+        503
+      ]
+    ],
+    "02|1": [
+      [
+        35,
+        53,
+        65
+      ],
+      [
+        261,
+        267,
+        273
+      ],
+      [
+        507,
+        513,
+        513
+      ]
+    ],
+    "12|0": [
+      [
+        35,
+        53,
+        65
+      ],
+      [
+        249,
+        255,
+        261
+      ],
+      [
+        409,
+        415,
+        415
+      ]
+    ],
+    "independent": [
+      [
+        35,
+        53,
+        65
+      ],
+      [
+        261,
+        267,
+        273
+      ],
+      [
+        507,
+        513,
+        513
+      ]
+    ]
+  },
+  "phase_distinguishing_offset_pattern": [
+    0,
+    1,
+    5
+  ],
+  "partition_index_maps": {
+    "all-common": [
+      0,
+      0,
+      0
+    ],
+    "01|2": [
+      0,
+      0,
+      1
+    ],
+    "02|1": [
+      0,
+      1,
+      0
+    ],
+    "12|0": [
+      1,
+      0,
+      0
+    ],
+    "independent": [
+      0,
+      1,
+      2
+    ]
+  },
+  "last_failures_at_M_2_K_2": [
+    {
+      "partition": "all-common",
+      "r": 70,
+      "phase": 4,
+      "rival": 3,
+      "denominator_errors": [
+        -2,
+        -2,
+        -2
+      ],
+      "numerator_errors": [
+        -2,
+        2,
+        -2
+      ]
+    },
+    {
+      "partition": "01|2",
+      "r": 502,
+      "phase": 4,
+      "rival": 3,
+      "denominator_errors": [
+        -2,
+        -2,
+        2
+      ],
+      "numerator_errors": [
+        -2,
+        2,
+        -2
+      ]
+    },
+    {
+      "partition": "02|1",
+      "r": 512,
+      "phase": 2,
+      "rival": 3,
+      "denominator_errors": [
+        -2,
+        2,
+        -2
+      ],
+      "numerator_errors": [
+        -2,
+        -2,
+        2
+      ]
+    },
+    {
+      "partition": "12|0",
+      "r": 414,
+      "phase": 0,
+      "rival": 3,
+      "denominator_errors": [
+        2,
+        -2,
+        -2
+      ],
+      "numerator_errors": [
+        -2,
+        2,
+        -2
+      ]
+    },
+    {
+      "partition": "independent",
+      "r": 512,
+      "phase": 2,
+      "rival": 3,
+      "denominator_errors": [
+        -2,
+        2,
+        -2
+      ],
+      "numerator_errors": [
+        -2,
+        -2,
+        2
+      ]
+    }
+  ],
+  "verification": {
+    "finite_exact_cutoff_partition_budget_cases": 12390,
+    "independent_direct_cube_crosschecks": 720,
+    "global_tail": "R749SSA PR#2546 verified infinite-tail bound r>=1350 for independent denominator-error model; all partitions are subsets",
+    "unreviewed": true,
+    "author_run": "standard library Python Fraction certificate, PASS",
+    "full_expanded_result": "R749SSC_PARTITION_BIAS_CERT.py outputs R749SSC_PARTITION_BIAS_RESULTS.json on execution"
+  }
+}
