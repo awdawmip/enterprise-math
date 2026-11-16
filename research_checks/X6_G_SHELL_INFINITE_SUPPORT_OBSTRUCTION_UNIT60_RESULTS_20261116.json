@@ -1,0 +1,78 @@
+{
+  "schema": "X6_G_SHELL_INFINITE_SUPPORT_OBSTRUCTION_UNIT60_V1",
+  "status": "AUTHOR_EXECUTED_FINITE_VERIFICATION_UNREVIEWED_NOT_ADMITTED",
+  "frozen_p000": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "finite_checked_g_range": [
+    1,
+    10000
+  ],
+  "all_n_ge3_constructive_four_square_lifts_verified": 9998,
+  "pair_representable_positive_count": 2749,
+  "pair_absent_positive_count": 7251,
+  "pair_absent_count_g1_to_512": 332,
+  "three_mod_four_primes_up_to_N": 619,
+  "g1_to_512_agrees_unit59": true,
+  "unbounded_proof_uses": "Lagrange four-square theorem + Fermat two-square criterion; g≡3 mod4 infinite pair-empty family by elementary residue arithmetic.",
+  "example_orbit_lower_bounds": [
+    {
+      "g": 3,
+      "native_witness": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "support": 3,
+      "signed_permutation_orbit_endpoints": 160,
+      "brc_per_endpoint": 6,
+      "certified_missing_brc_mass_lower_bound": 960
+    },
+    {
+      "g": 25,
+      "native_witness": [
+        1,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "support": 6,
+      "signed_permutation_orbit_endpoints": 3840,
+      "brc_per_endpoint": 554400,
+      "certified_missing_brc_mass_lower_bound": 2128896000
+    },
+    {
+      "g": 512,
+      "native_witness": [
+        1,
+        1,
+        0,
+        1,
+        5,
+        22
+      ],
+      "support": 5,
+      "signed_permutation_orbit_endpoints": 3840,
+      "brc_per_endpoint": 1966582800,
+      "certified_missing_brc_mass_lower_bound": 7551677952000
+    },
+    {
+      "g": 10000,
+      "native_witness": [
+        1,
+        1,
+        0,
+        1,
+        14,
+        99
+      ],
+      "support": 5,
+      "signed_permutation_orbit_endpoints": 3840,
+      "brc_per_endpoint": 4.170477321902448e+23,
+      "certified_missing_brc_mass_lower_bound": "1601463291610540020111360000"
+    }
+  ]
+}
