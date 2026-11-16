@@ -1,92 +1,78 @@
-# PREFIX-808 — Maximal Cohen–Macaulay canonical-cover module, exact generator numbers and Fitting support
+# PREFIX-808 — Maximal Cohen–Macaulay canonical-cover module, minimal generators and Fitting support
 
 Date: 2026-11-17. Status: **PROVED within the pinned Reeve semigroup model; Driver author-side extension, not independent Native Result review**.
 
-## Provenance and precise maps
+## Provenance and exact scope
 
-Original named TU/Reeve 0/1 source and observer model: **EM-DIRECT-4660FF**. The saturated semigroup, canonical-cover presentations, relative flatness/fiber computation and present deductions: **EM-DVR-DEBB5E**, in a shared context. Preserve all original Result, Task and review dispositions.
+The named TU/Reeve 0/1 observations and original observer model belong to **EM-DIRECT-4660FF**. The saturated semigroup, canonical-cover presentations, relative flatness/fiber proof, and this module-theoretic extension are attributed to **EM-DVR-DEBB5E** in a shared research context. No original Result/Task/review status or other author's contribution is changed.
 
-Input proof:
-- [Relative flatness and joint-zero fibers](https://github.com/awdawmip/enterprise-math/blob/b6543b101537be8fbd068e2349d6c1d785d8c0d8/research_notes/driver/2026-11-16_r6_prefix808_canonical_cover_relative_flatness_joint_zero_fibers.md) (the corrected h=10 socle row).
-- [Index-one canonical-cover pair presentation](https://github.com/awdawmip/enterprise-math/blob/43b9cb3ba76404104b384c1e46a3e6eb7e56e0fc/research_notes/driver/2026-11-16_r6_prefix808_even_index_one_cover_complete_intersection.md).
+Prerequisite, already proved in the exact model: [relative flatness and joint-zero fibers, corrected h=10 row](https://github.com/awdawmip/enterprise-math/blob/b6543b101537be8fbd068e2349d6c1d785d8c0d8/research_notes/driver/2026-11-16_r6_prefix808_canonical_cover_relative_flatness_joint_zero_fibers.md). The R_h normality used below is from the established saturated-semigroup description, not from a new assumption.
 
-Let K be an arbitrary field, h>=2, g=gcd(h,2), r=h/g, R=K[U0,U1,U2,U3], A=U1 U2 and B=U0 U3. In the established integral semigroup domain
-D_h=R[z0,z1]/(z0^h-B,z1^h-A)
-with total-exponent diagonalizable grading, put
-V_j=z0^j z1^(h-j), 1<=j<h,
-R_h=D_h^(mu_h), and C_h^can=D_h^(mu_g).
-Here R_h and C_h^can are finite over R and C_h^can is finite of generic rank r over R_h. The ring R_h is normal by the previously established saturated-semigroup description.
+Let K be any field; h>=2; g=gcd(h,2); r=h/g. Set R=K[U0,U1,U2,U3], A=U1 U2, B=U0 U3, and
 
-## Theorem (a global module characterization)
+    D_h = R[z0,z1]/(z0^h-B, z1^h-A),
+    V_j = z0^j z1^(h-j), 1<=j<h,
+    R_h = (D_h)^(mu_h),
+    M = C_h^can = (D_h)^(mu_g).
 
-The finite R_h-module M=C_h^can satisfies:
+The action of mu_d is the total-exponent grading modulo d. These are the *relative* R_h-module statements; they are not claims about the separate polynomial-source map C_h^can/R.
 
-1. M is **maximal Cohen–Macaulay** over R_h; in particular, it is torsion-free and reflexive over the normal domain R_h.
-2. Its exact minimum number of global R_h-module generators is
-   [
-   mu_{R_h}(M)=L(h)=
-   egin{cases}
-   h(h+1)/2,& h mathrm{odd},\\
-   h^2/4,& h mathrm{even}.
-   end{cases}
-   ]
-   A concrete minimal generating set is
-   [
-   mathcal G_h={z_0^a z_1^b: a,bge0, a+b<h, gmid(a+b)}.
-   ]
-3. If s is any point of Spec(R_h), the exact local minimal generator number is
-   [
-   mu_s(M)=
-   egin{cases}
-   r,& A(s)
-e0 	ext{or} B(s)
-e0,\\
-   L(h),& A(s)=B(s)=0.
-   end{cases}
-   ]
-   Thus for h>=3, the excess at every joint-zero point is
-   [
-   L(h)-r=
-   egin{cases}
-   h(h-1)/2,&h mathrm{odd},\\
-   h(h-2)/4,&h mathrm{even}.
-   end{cases}
-   ]
-4. For h>=3 the first rank-sensitive Fitting ideal has the exact **set-theoretic** support
-   [
-   V(mathrm{Fitt}_{r}^{R_h}(M))=V(A,B),
-   qquad
-   sqrt{mathrm{Fitt}_{r}^{R_h}(M)}
-      =sqrt{(A,B)R_h}.
-   ]
-   This is a radical equality, **not** an unsupported assertion that the Fitting ideal itself equals (A,B). For h=2, M=R_h and (mathrm{Fitt}_1(M)=R_h).
+## Theorem — full local generator stratification and Cohen–Macaulayness
 
-All statements hold over any characteristic, including characteristic dividing h or g.
+For every K and h as above:
+
+**(a)** The finite R_h-module M is *maximal Cohen–Macaulay*, torsion-free and reflexive over the normal domain R_h. Its generic rank is r.
+
+**(b)** An explicit globally minimal R_h-generating set is
+
+    G_h = { z0^a z1^b : a,b>=0, a+b<h, (a+b) mod g=0 }.
+
+Its size, and hence the minimum number of generators over R_h, is
+
+    L(h) = h(h+1)/2   if h is odd,
+           h^2/4      if h is even.
+
+**(c)** At every prime s of R_h the minimal number of localized module generators is exactly
+
+    mu_s(M) = r      if A or B is nonzero in kappa(s),
+              L(h)   if A=B=0 in kappa(s).
+
+The excess at the nonflat stratum, h>=3, is h(h-1)/2 for odd h and h(h-2)/4 for even h.
+
+**(d)** For h>=3 the first rank-sensitive Fitting support is exact:
+
+    V(Fitt_r^{R_h}(M)) = V(A,B),
+    radical(Fitt_r^{R_h}(M)) = radical((A,B)R_h).
+
+This is a **radical equality**, not an assertion that the ideals themselves coincide. At h=2, M=R_h and Fitt_1(M)=R_h.
 
 ## Proof
 
-**Polynomial-base freeness.** The two monic Kummer equations give D_h the R-basis
-({z_0^a z_1^b:0le a,b<h}), of size h². The degree modulo h invariant summand has R-basis
-({1,V_1,ldots,V_{h-1}}) of size h, because within the bounded exponents the only total degrees divisible by h are 0 and h. Hence R_h is R-free of rank h. Likewise C_h^can is the degree-zero summand modulo g of the same R-basis, and is R-free of rank h²/g. These are genuine direct summands even when char(K)|h, since a diagonalizable-group invariant is the zero-graded summand.
+**R-freeness and regular parameters.** The two monic Kummer equations make D_h free over R, with basis z0^a z1^b for 0<=a,b<h (rank h^2). The degree-zero summand modulo h has R-basis 1,V1,...,V(h-1), of rank h: among bounded monomials, the allowed total degrees are 0 and h. Similarly M is the degree-zero summand modulo g and is R-free of rank h^2/g. The direct-summand grading, including in bad characteristic, is valid for diagonalizable group schemes.
 
-**Cohen–Macaulay property.** Fix any prime q of R_h and m=q∩R. The extension R→R_h is finite free and integral, so ht(q)=ht(m) by incomparability and going-down for flat maps. R_m is regular local; choose a regular system of parameters of length ht(m). Since M is R-free, these parameters form an M_m-regular sequence. Localizing at q preserves regularity and puts all parameters inside qR_{h,q}. Consequently
-(mathrm{depth}_{R_{h,q}}M_qgemathrm{ht}(m)=dim R_{h,q}).
-The reverse inequality holds for any nonzero finite module, so M is maximal Cohen–Macaulay at every prime. The source semigroup domain makes it torsion-free. Over the normal R_h, torsion-free plus S2 (from the established maximal Cohen–Macaulay localizations) implies reflexivity.
+At any prime q of R_h, put m=q∩R. Because R_h is finite free and integral over R, incomparability and flat going-down yield height(q)=height(m). The regular local ring R_m has a regular parameter sequence of length height(m). Since M is free over R, that sequence is regular on M_m; after localization at q it remains M_q-regular and its elements belong to q R_{h,q}. Thus
 
-**Explicit generators.** Consider any monomial (z_0^a z_1^b) in the bounded R-basis of C with g|(a+b). If a+b<h it is already in G_h. Otherwise 0<a<h and 0<b<h, and
-[
-z_0^a z_1^b = V_a,z_1^{a+b-h}.
-]
-The residual exponent is between 0 and h-2, and g|(a+b-h) because g|h. Thus the right factor belongs to G_h, proving that G_h generates M over R_h, without dividing by a source coordinate. Its cardinality is the displayed L(h): for odd h all degrees 0,...,h-1 occur with d+1 monomials; for even h=2k only degrees 0,2,...,2k-2 occur, giving (1+3+cdots+(2k-1)=k^2).
+    depth_{R_{h,q}}(M_q) >= height(m) = dim(R_{h,q}),
 
-**Sharp lower bound and strata.** At any geometric joint-zero point of Spec R_h, every V_j has value zero, because V_j^h=B^j A^(h-j). The established fiber theorem identifies
-(Motimes_{R_h}kappa(s)cong[kappa(s)[z_0,z_1]/(z_0,z_1)^h]^{mu_g}),
-whose (kappa(s))-dimension equals L(h), with precisely the images of G_h as a basis. By the local Nakayama generator formula, M_q needs at least L(h) generators there. This matches the global generating set. On D(A)∪D(B), the established Kummer presentations make M locally free of rank r; hence the local generator number is exactly r. These two opens and the joint-zero closed set exhaust Spec R_h.
+with equality because M_q is nonzero and finite. This proves maximal Cohen–Macaulayness at every prime. The integral source makes M torsion-free. Normality of R_h plus the just proved S2 property and torsion-freeness imply reflexivity.
 
-**Fitting support.** For any finite module, (mathrm{Fitt}_r(M)) is a unit at a point precisely when the localization can be generated by at most r elements. For h>=3, L(h)>r, so the preceding complete local-generator classification yields the stated equality of closed supports and therefore radicals. For h=2, the relative cover is an isomorphism.
+**Generation.** Take any bounded R-basis monomial z0^a z1^b of M, where 0<=a,b<h and g divides a+b. If a+b<h it belongs to G_h. If a+b>=h, then a,b are both positive and
 
-## Exact finite crosscheck and research value
+    z0^a z1^b = V_a * z1^(a+b-h).
 
-A separate integer-only enumeration for every 2<=h<=15 verified: (i) bounded R-basis ranks h, h²/g; (ii) G_h size L(h); (iii) every high-degree allowable monomial reduces by the explicit V_a rule to a member of G_h. For example h=3: rank r=3, min generators 6; h=6: r=3, min generators 9; h=10: r=5, min generators 25. The proof above is uniform, and finite enumeration is corroboration.
+The exponent a+b-h lies in [0,h-2] and is divisible by g because g divides h. Therefore the residual monomial belongs to G_h, proving that G_h generates M over R_h without localization or coordinate division. Counting degrees gives sum(d+1) for d=0,...,h-1 if g=1, and 1+3+...+(h-1)=(h/2)^2 if g=2.
 
-This extension quantifies the codimension-two failure of local freeness while establishing that the nonfree finite canonical-cover module is nevertheless maximal Cohen–Macaulay/reflexive. It supplies a direct route to local module/Fitting or resolution analysis without conflating the maps C_h^can→R_h and C_h^can→R. **No independent Native Result admission, formal Task completion, all-purpose X6 transfer or original-contributor reassignment is asserted.**
+**Sharp lower bound and local generator count.** At a joint-zero point A=B=0, every V_j vanishes in the residue field: V_j^h=B^j A^(h-j). The established geometric-fiber theorem gives
+
+    M tensor_{R_h} kappa(s)
+      = (kappa(s)[z0,z1]/(z0,z1)^h)^(mu_g)
+
+with basis precisely the residue images of G_h. Its dimension is L(h). Nakayama's lemma implies every local generating set there has at least L(h) elements, which the global G_h already achieves. On D(A) union D(B), the previously proved monogenic Kummer presentations make M finite free of rank r, giving local generator number r. These cases exhaust all primes. The excess formulas follow by subtraction.
+
+**Fitting support.** By the universal local generator characterization, Fitt_r(M) is a unit at s exactly when M_s can be generated by at most r elements. For h>=3 the joint-zero generator count exceeds r, while it equals r elsewhere. Hence the nonunit support of Fitt_r(M) is precisely V(A,B), giving the claimed equality of radicals. At h=2 the cover is the identity.
+
+## Verification and implications
+
+An independent integer-only enumeration of the bounded monomials, invariant degrees and reduction by V_a was carried out for each height 2<=h<=15; all counts and reductions matched. Examples: h=3 gives (generic rank, minimal generators)=(3,6); h=6 gives (3,9); h=10 gives (5,25). These calculations check arithmetic and indexing, while the proof is uniform.
+
+This establishes an exact quadratic generator obstruction concentrated on the codimension-two nonflat locus, together with maximal Cohen–Macaulay/reflexive behavior on the entire base. The resulting module and Fitting descriptions provide a concrete input for later resolution/syzygy research. This is **author-side** mathematics: independent Native review, Result admission, formal Task closure, and native-X6 transfer are separate unperformed actions.
