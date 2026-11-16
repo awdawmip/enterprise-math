@@ -1,0 +1,61 @@
+{
+  "schema": "R762CM_MARKED_PORT_WEIGHTED_BRC_EVIDENCE_V1",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "scope": "conditional six-distinguishable-token candidate, NOT native event license",
+  "marked_native_axis_token": "K4-edge-01",
+  "number_of_assemblies": 10,
+  "observer_classes": {
+    "F": 4,
+    "M": 2,
+    "O": 4
+  },
+  "test_lambda_values": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    11
+  ],
+  "test_depth_range": [
+    0,
+    9
+  ],
+  "raw_named_states_per_lambda": 10,
+  "group_stabilizer_size": 4,
+  "exact_assertion_checks": 942,
+  "transfer_matrix_lambda_2": [
+    [
+      4,
+      2,
+      6
+    ],
+    [
+      4,
+      2,
+      6
+    ],
+    [
+      6,
+      3,
+      3
+    ]
+  ],
+  "spectrum_lambda_2": [
+    12,
+    0,
+    -3
+  ],
+  "row_total_lambda_formula": "3*lambda+6",
+  "stationary_class_mass_ratio": [
+    4,
+    2,
+    4
+  ],
+  "minimal_predictive_classes": "2 if lambda=1, else 3",
+  "author_execution": "PASS",
+  "independent_review": "NOT_REVIEWED",
+  "native_event_license": "UNVERIFIED"
+}
