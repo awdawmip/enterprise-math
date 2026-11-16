@@ -95,6 +95,7 @@ def main():
             budget=fused
             independent=sum(separate[str(k)]['attempted_transitions'] for k in plan)
             independent_bits=sum(separate[str(k)]['operand_bit_volume'] for k in plan)
+            # Output bits of all three exact integer counts
             bits=sum(fused['counts'][str(k)]['bits'] for k in plan)
             m.append({'plan':plan,'raw_count_bits':bits,'independent_DP_transitions':independent,
                       'fused_DP_transitions':fused['attempted_transitions'],
