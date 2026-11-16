@@ -1,0 +1,107 @@
+{
+  "schema": "EC49FQZ_BRC_47NODE_TWO_SEAM_CERT_INDEX_V1",
+  "date": "2026-11-17",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "frozen_scientific_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor": {
+    "pr": 2587,
+    "head": "67ed797fd858cebd8639c816ab3ff6223ac951ed",
+    "grid_nodes": 45,
+    "full_archive_sha256": "d471c8e43bfdf3dfb89362019aa5a728acb2da91f262d0e6fced43048df3ed00"
+  },
+  "native_scope": {
+    "domain_rep": 16943,
+    "configurations": 310,
+    "complete_named_root_profiles": 141,
+    "terminal_queries": 144,
+    "root_queries": 84,
+    "physical_queries": 228,
+    "distinct_partitions": 209
+  },
+  "scientific_input_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "profile": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "seam_only_exact_certificates": [
+    {
+      "price_ratio": "73/32",
+      "lambda": "7130/229487",
+      "root_price": 73,
+      "terminal_price": 32,
+      "weighted_integer_optimum": "694468676160",
+      "optimal_first_queries": [
+        32,
+        34,
+        140,
+        142
+      ],
+      "independent_states": 5929,
+      "raw_full_tree_certificate_sha256": "c95a3b6fbb284a6ab10cc68a3ef88a0935218c701685d7c5b621db15343647ba",
+      "independent_verified": true,
+      "full_witness_replayed": true
+    },
+    {
+      "price_ratio": "191/64",
+      "lambda": "310/451369",
+      "root_price": 191,
+      "terminal_price": 64,
+      "weighted_integer_optimum": "2757607251840",
+      "optimal_first_queries": [
+        32,
+        34,
+        140,
+        142
+      ],
+      "independent_states": 5932,
+      "raw_full_tree_certificate_sha256": "cb0db5642cb81bc274ea21b1f0cda9825dca061f6a9c48551fda5316283d7e7d",
+      "independent_verified": true,
+      "full_witness_replayed": true
+    }
+  ],
+  "derived_all_real_prior_phase_labels": [
+    "32,34",
+    "140,142",
+    "16,23"
+  ],
+  "phase_boundaries": [
+    "G(x)=310*(3-x)/(7557-169*x)",
+    "beta=620/3299"
+  ],
+  "grid": {
+    "nodes": 47,
+    "intervals": 46,
+    "containing_strip_area": "5959469197718386554712955/1505500161665693064580080288",
+    "certified_fraction_lower_bound": "3005040854133667742605447621/3011000323331386129160160576",
+    "certified_percent_lower_bound": "99.80207676659679666155819773041975",
+    "regret_worst_interval": [
+      "35/16",
+      "9/4"
+    ],
+    "regret_upper_over_t": "0.0001087784330666855807751029523779",
+    "exact_area_gain": "827952521505/7926637399062368"
+  },
+  "implementation_issue": {
+    "original": "INF=10**12",
+    "counterexample_price": "191/64",
+    "counterexample_prior": "310/451369",
+    "incorrect_initial_weighted_total": "1000000000000",
+    "correct_total": "2757607251840",
+    "remedy": "INF=(N+1)*max(price)*(N+sum(weights))+1",
+    "fixed_program_verified": true
+  },
+  "full_evidence_archive": {
+    "filename": "EC49FQZ_TWO_SINGLE_SEAM_47GRID_FULL_EVIDENCE_20261117.tar.xz",
+    "sha256": "ad0b4e53a0feac5e5b9f177c45147bdc7ab03996208a8a3bbcaf43aeafc1b5ff",
+    "included": "two native full tree seam certificates; two auxiliary native anchors; raw source; frozen data; independent checker and successful logs; proof; geometry checker and exact output; previous full archive; per-file SHA256 manifest",
+    "verified_local_manifest_files": 24,
+    "repository_representation": "compact index and proof; raw full witness archive delivered as conversation attachment"
+  },
+  "control": {
+    "researcher_current_authenticated_capability": "UNVERIFIED",
+    "canonical_claim": "NOT_ESTABLISHED",
+    "result": "NOT_ESTABLISHED",
+    "activity_scientific_checkpoint": "NOT_ESTABLISHED",
+    "review": "NOT_REVIEWED"
+  },
+  "next_problem": "parametric native Bellman bound covering remaining 46 strips or an exact fully labeled strict tree counterexample"
+}
