@@ -9,16 +9,16 @@
   "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
   "claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
   "run_id": "RUN-3356cbe3c2b4916d79399941",
-  "last_observed_generation": 27,
+  "last_observed_generation": 28,
   "last_observed_revision": 1,
-  "current_execution_authorization": "PENDING_ORIGINAL_SAME_RUN_RESUME_RECEIPT",
+  "current_execution_authorization": "Original own same-session resume onhour-20261116-0858-x6-own-run3356-resume-after-unit51-v1 SUCCEEDED / RUN_READY, authorized=true, generation 28; fresh Source write independently CAS checked",
   "native_verified_through_unit": 51,
   "native_unit51_original_request_id": "onhour-20261116-0805-x6-lp011-valuation-unit51-native-progress-v1",
   "native_unit51_actual_terminal": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED",
   "native_unit51_source_commit": "7b2c20378b72f5f88c2c0fd0b9da5a04ce421344",
   "original_own_continuation_request_id": "onhour-20261116-0857-x6-exact-continuation",
   "original_own_continuation_terminal": "SUCCEEDED / OWN_RECORDED_RUN_AVAILABLE / RECORDED_CLAIM_SOURCE_BYTES_ONLY",
-  "original_pending_resume_request_id": "onhour-20261116-0858-x6-own-run3356-resume-after-unit51-v1",
+  "original_pending_resume_request_id": null,
   "resume_last_observation": "RUNNING / WAIT_ORIGINAL / error=null",
   "science_pins": {
     "P000_V5": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:p000_reality_foundation.json",
@@ -84,6 +84,10 @@
     "Locate exact incorrectly typed active LP011/LP019 caller or record bounded provenance nonmatch; complete current 28-LP consumer closure.",
     "Independent Driver REQUEST_REVISION review after author evidence is ready."
   ],
-  "next_exact_action": "First read original resume onhour-20261116-0858-x6-own-run3356-resume-after-unit51-v1 terminal with em_control_result. If it authenticated current same claimant and gives writer generation, publish zero-upload original-run PROGRESS for already-verified GitHub units52/53/54; then continue direct downstream Helly importer and remaining LP011/LP019 source audit. If pending, preserve original request and no same-write replay.",
-  "research_status": "AUTHOR-PROVED / EXACT FINITE CHECK PASS / SOURCE-PUBLISHED GITHUB / ACTIVITY-PUBLISHED / UNREVIEWED / NOT_ADMITTED"
+  "next_exact_action": "First consume/reconcile original onhour-20261116-0911-x6-unit52-54-native-semantic-progress-v1. If SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED, record new Source commit and do not re-publish; otherwise preserve original request and any specific error. Continue scoped actual importer/consumer evidence for remaining 28 LP and independent Driver REQUEST_REVISION. Retain original own SID/CLAIM/RUN and no maintenance lane.",
+  "research_status": "AUTHOR-PROVED / EXACT FINITE CHECK PASS / SOURCE-PUBLISHED GITHUB / ACTIVITY-PUBLISHED / UNREVIEWED / NOT_ADMITTED",
+  "original_resume_terminal": "SUCCEEDED / RUN_READY",
+  "native_52_54_progress_request_id": "onhour-20261116-0911-x6-unit52-54-native-semantic-progress-v1",
+  "native_52_54_progress_last_observation": "QUEUED / WAIT_ORIGINAL / error=null",
+  "native_52_54_progress_status": "UNCONFIRMED_PENDING_ORIGINAL_REQUEST"
 }
