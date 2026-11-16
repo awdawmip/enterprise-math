@@ -1,0 +1,201 @@
+{
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "arithmetic": "JavaScript BigInt",
+  "scope": "n=1,2,3,4,5,6,12 complete labeled Q-branch enumeration through first difference; n=4,5,6,12 exact lift symmetric checks",
+  "a": "2",
+  "b": "3",
+  "tested_cases": 7,
+  "independent_named_histogram_scalar_comparisons": 308,
+  "elementary_coefficient_comparisons": 64,
+  "examples": [
+    {
+      "n": 1,
+      "source_count": 1,
+      "A": [
+        1
+      ],
+      "B": [
+        2
+      ],
+      "delta_e_n": "-1",
+      "first_difference_step": 1,
+      "first_difference_bin": 0,
+      "delta_named_histogram": "-1"
+    },
+    {
+      "n": 2,
+      "source_count": 2,
+      "A": [
+        1,
+        4
+      ],
+      "B": [
+        2,
+        3
+      ],
+      "delta_e_n": "-2",
+      "first_difference_step": 2,
+      "first_difference_bin": 0,
+      "delta_named_histogram": "-4"
+    },
+    {
+      "n": 3,
+      "source_count": 3,
+      "A": [
+        1,
+        5,
+        6
+      ],
+      "B": [
+        2,
+        3,
+        7
+      ],
+      "delta_e_n": "-12",
+      "first_difference_step": 3,
+      "first_difference_bin": 0,
+      "delta_named_histogram": "-72"
+    },
+    {
+      "n": 4,
+      "source_count": 4,
+      "A": [
+        1,
+        7,
+        8,
+        14
+      ],
+      "B": [
+        2,
+        4,
+        11,
+        13
+      ],
+      "delta_e_n": "-360",
+      "first_difference_step": 4,
+      "first_difference_bin": 0,
+      "delta_named_histogram": "-8640"
+    },
+    {
+      "n": 5,
+      "source_count": 5,
+      "A": [
+        1,
+        18,
+        19,
+        44,
+        48
+      ],
+      "B": [
+        4,
+        8,
+        33,
+        34,
+        51
+      ],
+      "delta_e_n": "-1108800",
+      "first_difference_step": 5,
+      "first_difference_bin": 0,
+      "delta_named_histogram": "-133056000"
+    },
+    {
+      "n": 6,
+      "source_count": 6,
+      "A": [
+        1,
+        6,
+        7,
+        17,
+        18,
+        23
+      ],
+      "B": [
+        2,
+        3,
+        11,
+        13,
+        21,
+        22
+      ],
+      "delta_e_n": "-100800",
+      "first_difference_step": 6,
+      "first_difference_bin": 0,
+      "delta_named_histogram": "-72576000"
+    },
+    {
+      "n": 12,
+      "source_count": 12,
+      "A": [
+        1,
+        12,
+        25,
+        66,
+        91,
+        130,
+        174,
+        213,
+        238,
+        279,
+        292,
+        303
+      ],
+      "B": [
+        4,
+        6,
+        31,
+        58,
+        105,
+        117,
+        187,
+        199,
+        246,
+        273,
+        298,
+        300
+      ],
+      "delta_e_n": "-67440294559676054016000",
+      "first_difference_step": 12,
+      "first_difference_bin": 0,
+      "delta_named_histogram": "-32304008998556125355350425600000"
+    }
+  ],
+  "lifts": [
+    {
+      "seed_n": 4,
+      "new_delay": 5,
+      "source_count": 8,
+      "shift": 15,
+      "delta_e_new": "-21600",
+      "new_delta_histogram": "-2592000"
+    },
+    {
+      "seed_n": 5,
+      "new_delay": 6,
+      "source_count": 10,
+      "shift": 52,
+      "delta_e_new": "-288288000",
+      "new_delta_histogram": "-207567360000"
+    },
+    {
+      "seed_n": 6,
+      "new_delay": 7,
+      "source_count": 12,
+      "shift": 24,
+      "delta_e_new": "-14515200",
+      "new_delta_histogram": "-73156608000"
+    },
+    {
+      "seed_n": 12,
+      "new_delay": 13,
+      "source_count": 24,
+      "shift": 304,
+      "delta_e_new": "-246022194553698245050368000",
+      "new_delta_histogram": "-1531985322747525688852138583654400000"
+    }
+  ],
+  "source_notes": [
+    "PREFIX-827 exact state-trace closed form, frozen source f42f2906d77f24085c123f3ccfe9667d41caa96d",
+    "PREFIX-828 Prouhet binary-parity delayed trace construction",
+    "n=6 and n=12 numeric PTE witnesses independently verified from literature examples; n=5 symmetric construction independently found and checked"
+  ]
+}
