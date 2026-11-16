@@ -1,0 +1,3 @@
+# Provenance
+Current global control main 8a8cb8428793c82b127e153c76e3c2084a05a15f; EM current main 619ffe5ed518437e088cd56682802811f6e2d288. Frozen science GLOBAL a01383f825ef9d43b4b754254303298c64041568, EM 86149263e38c22292c9def1e0f69092efa1be77e.
+Predecessor PR #1767 head fed51a882c12831a889cd5437da5d1dc564fd673, research_notes/brc_r5_kernel_perturbation_phase_diagram_20261106_t0047/{RESEARCH_HULL.md,H_FACETS.txt,VERIFY_HULL.py}. Read but did not rerun the 80/82 hull certificate. Exact checker executed as local Python Fraction script with seed 51106, 180 policy cases and 1080 exact polygon memberships. No global real quantifier elimination, formal claim, Result or independent Driver review. This is independently writable portable author research.

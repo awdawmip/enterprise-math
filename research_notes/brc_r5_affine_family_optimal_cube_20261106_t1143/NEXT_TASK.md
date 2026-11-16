@@ -1,0 +1,5 @@
+# Next R5 research unit
+
+Frozen science: GLOBAL a01383f825ef9d43b4b754254303298c64041568, EM 86149263e38c22292c9def1e0f69092efa1be77e. Current verified author-side mathematical increment: explicit seedless-LR all-real four-cube of radius 10395/788344 and its optimality within the specified affine inverse family, with code and exact output in this directory.
+
+Select rational FULL_HIST feasible W outside the new cube, with T strictly in the known time octagon interior and e_P+e_Q!=1. Form the full six-variable linear FULL membership LP and exact seven-variable K(W). Compute global min/max of F=(A+B)J-X1(alpha A+beta B) over all real feasible K(W) with exact active-face certificates. A strict one-sided sign yields a global LR nonreachability proof; a zero or sign crossing yields an explicit LR reconstruction. Publish the exact witness, code, evidence, verification domain and remaining question. The R5 mother question remains open; preserve native owner/claim and mathematical admission boundaries.

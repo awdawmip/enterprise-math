@@ -1,0 +1,11 @@
+# Next R5 unit — mixed-error discrimination after the sharp three-key plane
+
+Status: OPEN / AUTHOR-SIDE / UNREVIEWED / NOT_ADMITTED. Frozen science unchanged: Global a01383f825ef9d43b4b754254303298c64041568, EM 86149263e38c22292c9def1e0f69092efa1be77e. Continue under freshly routed normative rules.
+
+Latest exact frontier: adjacent RESEARCH.md proves a global, all-real FULL_HIST supporting plane for M0+M1+M6 and the sharp maximum 6269/11400 at TP=TQ=31/10, with a seedless LR equality flow and a new common real three-key zonotope. Earlier two-tail and high-key planes remain valid at their actual scopes. The complete seven-key four-observer R5 image comparison is still open.
+
+Next independent discriminator: Fix TP=TQ=31/10. Optimize a signed rational direction alpha*eQ + beta*(1-eP) for FULL_HIST over all seven declaration keys. Since declaring at likelihood-ratio r has coefficient alpha+beta*r, choose rational directions where signs differ among middle and extreme keys (e.g. alpha=1,beta=-1, then perturb the direction around degeneracies). Use exact rational LP dual certificates for universal FULL_HIST upper bounds. Separately optimize seedless LR with the original full flow constraints AND the shared-central-history nonlinear equation 9*b*z=4*a*(v-z), including degenerate branches and boundary cases. A claimed global four-observer separation needs an exact FULL_HIST observation and a global seedless LR infeasibility proof, not a fixed-flow counterexample. A seedless LR recovery should be published with exact rational parameters and the common region it proves.
+
+Alternative independent units: add the high intermediate key 3/2; or impose nonsymmetric rational TP,TQ to activate other faces of the new support plane. Retain both central history contributions until observation-preserving quotient elimination is justified. Floating-point LP/nonlinear solvers may discover candidate patterns; reconstruct exact Fraction identities and check all legal real parameters before any universal claim.
+
+Native owner and CLAIM are unconfirmed: em_status, em_control_tasks, em_context_manifest returned BACKEND_IDENTITY_OR_VERSION_MISMATCH with operation_sent=false; author-side evidence may continue without impersonating an authenticated Source execution or an independent reviewer.

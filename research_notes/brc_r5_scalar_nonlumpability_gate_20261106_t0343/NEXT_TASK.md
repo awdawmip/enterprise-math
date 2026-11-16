@@ -1,0 +1,7 @@
+# R5 next exact unit: sign range of one quadratic on a rational fiber
+
+Frozen scientific pins: GLOBAL a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e. Reuse δ=1/4 positive P/Q tree and old six-variable criterion from EM f00bca43d2c668e4bf05ff7974db140c9e0d2adf, author-side 80-halfspace hull H from fed51a882c12831a889cd5437da5d1dc564fd673, and the new seven-variable linear fiber K(W), single scalar quadratic F in RESEARCH.md.
+
+Select rational W from H, especially relative interiors of dimension >=2 not already covered by locally full-rank patches. Build K(W) using exact affine time equalities, seven-ratio zonotope inequalities, bounds for g,u,X, and the four central-J inequalities. If K(W) is empty, examine the inherited hull certificate. Otherwise obtain exact global min/max sign of F on K(W): opposite-sign feasible points give an explicit LR point by solving a quadratic on their segment; F strictly one-sided gives a complete all-real LR-unattainability certificate. Include every boundary case, especially A+B=0, zero ratio masses and deterministic actions. Exact LP can precondition the rational fiber, followed by certified global quadratic optimization (e.g., rational Bernstein subdivision or CAD); numerical solver probes alone are discovery, not certificates.
+
+Either a rational hull W with exact UNSAT sign or an all-W sign-crossing synthesis advances the unchanged R5 mother question. Do not infer independent review, formal CLAIM or admission from PR storage.

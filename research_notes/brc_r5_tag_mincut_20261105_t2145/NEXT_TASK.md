@@ -1,0 +1,3 @@
+# R5 follow-up scientific question
+Keep frozen GLOBAL a01383f825ef9d43b4b754254303298c64041568 and EM 86149263e38c22292c9def1e0f69092efa1be77e unchanged.
+For a fully specified strictly positive nonterminal-merger P/Q BRC, construct complete exact four-observer Bellman sign cones including all stopping and declaration alternatives. On each rational feasible cone derive genuinely global C(n),A_i(n),u_i(n) and tag kernel T. Apply the cut certificate; if any D(n)>0, return a signed-direction separation witness. Otherwise prove all-cone and boundary zero certificates, and only then independently test actual real-behavior image equality or nonmembership. Parent R5 remains OPEN; no Task-ID or CLAIM is created by this note.

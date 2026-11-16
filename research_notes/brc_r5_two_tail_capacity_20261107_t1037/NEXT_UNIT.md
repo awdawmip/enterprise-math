@@ -1,0 +1,7 @@
+# Next R5 unit — global intermediate-key observer discrimination
+
+Status OPEN / AUTHOR-SIDE / UNREVIEWED. Frozen scientific source pins unchanged: Global a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e.
+
+Verified frontier: adjacent RESEARCH.md establishes a new low-key supporting plane; exact all-real global bound M0+M6<=(3761/18000)(TQ-1), with a sharp nonnegative six-slack dual certificate; and the exact common two-tail-only four-observer parallelogram at TP=TQ=t for every real 1<=t<=4. Equality flow is unique in observer-relevant variables.
+
+Next concrete discriminator: allow one intermediate LR stop key (1/2 or 3/2) in addition to both extremes, fix rational TP,TQ (try symmetric t=31/10 first, then nonsymmetric pairs), and compare FULL_HIST to ALL globally reoptimized seedless LR policies. Either derive an exact rational Farkas/dual separation certificate or exhibit a rational LR recovery and extend the common observation region. Reuse full central-history z interval and its B-first extremizer only for certified four-observer operations; keep provenance until safe projection. Formal R5 owner/CLAIM and independent mathematical admission remain unconfirmed due to native backend identity/version mismatch, operation_sent=false.
