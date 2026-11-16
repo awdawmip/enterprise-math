@@ -88,9 +88,31 @@ Both denominators are units of \(\mathbb Z[[z]]\) with constant coefficient \(1\
 
 **Exact witness.** In the two-letter alphabet \(A=\{0,1\}\), set \(m=1,k=1,h=2\), \(u=11\), \(v=10\). Both have selected-source support size 1, while \(C_{11}=1+z\) and \(C_{10}=1\). Their avoidance sequences begin respectively \(1,2,3,5,8\) and \(1,2,3,4,5\), first differing at length 3. In \(J_{1,1,4}\), R215's full calculation yields \(|J(11)J|=20\), \(|J(10)J|=21\) and both right ideals of size 19. At \(L=3\) the two-sided cardinalities coincide. Border-spectrum equality is a cardinality property; additional composition/observer preservation requires a separate congruence proof.
 
+## Theorem 4 — A strict future-composition counterexample for cardinality-only compression
+
+Even the combined invariant \((h,r,C_u)\), which completely determines all *current* principal right- and two-sided-ideal sizes for each cutoff, is **not** stable under allowed event appending. A minimal concrete witness is available over one direction and one nonneutral source:
+
+\[
+m=k=1,\quad L=6,\quad u=01,\quad v=10.
+\]
+
+Both short words have length \(2\), support cardinality \(1\), and border polynomial \(C_u=C_v=1\). Hence their principal two-sided ideal cardinalities agree for every cutoff; for the displayed \(L=6\) both equal \(106\). Now right-multiply both by the neutral event \(0\):
+
+\[
+u0=010,\quad v0=100,\qquad C_{010}(z)=1+z^2,\quad C_{100}(z)=1.
+\]
+
+R215's full-state term for support size one at depth \(6\) is \(T_1(6)=64\). At short lengths \(0,\ldots,5\), words containing \(010\) count \(0+0+0+1+4+11=16\), whereas those containing \(100\) count \(0+0+0+1+4+12=17\). Thus
+
+\[
+|J_{1,1,6}(u0)J_{1,1,6}|=80\ne81=|J_{1,1,6}(v0)J_{1,1,6}|.
+\]
+
+**Conclusion.** Equality of all present principal ideal *cardinalities*, even across all tail cutoffs and with matching border polynomials, is not a right congruence under future event appending. Any genuinely future-composition-closed cardinality observer must preserve further contextual structure, or prove a more refined syntactic congruence. This is a precise obstruction to this *particular* proposed compression, not to ideal-query compression in general; R214's full Green-J quotient remains valid for its specified membership-predicate language.
+
 ## Exact verification and reproducibility
 
-The standalone Python 3 standard-library verifier \`R216_border_spectrum_exact_check.py\` independently compares (4) against a prefix-automaton DP and exhaustive literal-word enumeration. Evidence \`R216_verification.json\` records **330 exhaustive pattern models**, **916,710 enumerated literal input words**, **3,515 same-border pair checks**, **3,484 first-distinguishing-coefficient pair checks**, and **8 cases over the full X6 84-letter event alphabet** against independent automaton DP through length 28. It also recomputes the two-sided-ideal witness at cutoffs \(L=3,4\). All executed assertions passed.
+The standalone Python 3 standard-library verifier \`R216_border_spectrum_exact_check.py\` independently compares (4) against a prefix-automaton DP and exhaustive literal-word enumeration. Evidence \`R216_verification.json\` records **330 exhaustive pattern models**, **916,710 enumerated literal input words**, **3,515 same-border pair checks**, **3,484 first-distinguishing-coefficient pair checks**, and **8 cases over the full X6 84-letter event alphabet** against independent automaton DP through length 28. It also recomputes the two-sided-ideal witness at cutoffs \(L=3,4\) and the future-composition counterexample at cutoff \(L=6\). All executed assertions passed.
 
 The symbolic proofs cover arbitrary admissible \(m,k,L,u,v\); finite tests corroborate the explicit recurrences and witness. Tests are abstract exact integer observer combinatorics, not native physical propagation. **Independent Review=NOT_REVIEWED; native installed BRC EffectHistogram integration=NOT_EXECUTED.**
 
