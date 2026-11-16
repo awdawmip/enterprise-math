@@ -1,0 +1,58 @@
+{
+  "schema": "EM_R225_NONUNIFORM_RESETTING_EXACT_VERIFICATION_V1",
+  "classification": "EXACT_FINITE_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+  "model": "scalar source-support principal-ideal query, not native BRC dynamics",
+  "parameter_cases_checked": 216,
+  "dynamic_vs_spectral_comparisons": 1084,
+  "alternating_difference_checks": 4320,
+  "exact_hankel_rank_checks": 216,
+  "witness": {
+    "m": 12,
+    "k": 6,
+    "L": 2,
+    "pi_numerators": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "pi_denominator": 127,
+    "alpha": "1/4",
+    "distinct_positive_atoms": 64,
+    "minimal_rational_recurrence_degree": 64,
+    "W": [
+      144,
+      576,
+      1440,
+      4320,
+      17280,
+      86400,
+      518400
+    ],
+    "f_n": {
+      "2": "17478964872/16129",
+      "3": "2083322540628/2048383",
+      "4": "251482108027194/260144641",
+      "12": "1759150558550710811224562876602317/2253484738076257826811740288"
+    },
+    "hankel_determinants": [
+      {
+        "prime": 1000000007,
+        "det_hankel64_mod_p": 651567929,
+        "rank": 64
+      },
+      {
+        "prime": 1000000009,
+        "det_hankel64_mod_p": 632163607,
+        "rank": 64
+      }
+    ],
+    "asymptotic_decay_ratio": "251/254",
+    "asymptotic_leading_coefficient": "10800000/127",
+    "limit": 518400
+  },
+  "result": "PASS"
+}
