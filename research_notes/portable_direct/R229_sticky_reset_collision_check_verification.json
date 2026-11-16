@@ -1,0 +1,95 @@
+{
+  "schema": "EM_R229_EXACT_SCALAR_SPECTRAL_CHECK_V1",
+  "scope": "source-support principal-ideal scalar readout on J_(m,k,L), stationary sticky-reset Markov source chain",
+  "arithmetic": "Python Fraction exact rationals; polynomial Euclidean gcd/lcm; exact source-mask dynamic programming; exact Hankel Gaussian rank",
+  "status": "PASS",
+  "witness": {
+    "pi": [
+      "11/56",
+      "25/56",
+      "5/14"
+    ],
+    "alpha": [
+      "1/5",
+      "1/3",
+      "1/2"
+    ],
+    "rho": [
+      "11/73",
+      "30/73",
+      "32/73"
+    ],
+    "spectrum": [
+      "5/14",
+      "5/21",
+      "2/7",
+      "3/4",
+      "1"
+    ],
+    "proper_block_polynomials": [
+      {
+        "U": [],
+        "coefficients_low_to_high": [
+          "-5/14",
+          "1"
+        ]
+      },
+      {
+        "U": [
+          1
+        ],
+        "coefficients_low_to_high": [
+          "5/28",
+          "-83/84",
+          "1"
+        ]
+      },
+      {
+        "U": [
+          2
+        ],
+        "coefficients_low_to_high": [
+          "3/14",
+          "-29/28",
+          "1"
+        ]
+      }
+    ],
+    "degree": 5,
+    "poly": [
+      "-25/1372",
+      "275/1176",
+      "-4657/4116",
+      "2995/1176",
+      "-221/84",
+      "1"
+    ],
+    "f_L": "1969/146",
+    "f_L_plus_1": "540331/42924",
+    "block_degrees": [
+      1,
+      2,
+      2
+    ]
+  },
+  "noncolliding_degree": 6,
+  "equal_holding_equal_probability_degree": 3,
+  "native_12_direction_alphabet_degree": 5,
+  "test_parameter_configs": 73,
+  "regression_degree_histogram": {
+    "2": 12,
+    "3": 4,
+    "4": 6,
+    "5": 14,
+    "6": 11,
+    "9": 5,
+    "13": 6,
+    "16": 1,
+    "17": 10
+  },
+  "limitations": [
+    "No native physical BRC EffectHistogram integration",
+    "No independent reviewer",
+    "General arbitrary-k theorem is author-proved, finite tests are not universal proof"
+  ]
+}
