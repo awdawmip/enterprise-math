@@ -31,8 +31,8 @@ Numerically the *certified* lower bound is \(\approx 1.6779891603\cdot10^{-5}\),
 
 Consequently, for additive measurement error bounded independently in every coordinate by
 \[
-\boxed{\eta < \frac{31812123498730990225741221895424092208843153635292804339475}
-{379169594788943850964259428512311489875715900200250817134369434}}
+\boxed{\eta < \frac{6362424699746198045148244379084818441768630727058560867895}
+{758339189577887701928518857024622979751431800400501634268738868}}
 \]
 (approximately \(8.3899458\cdot10^{-6}\)), the two four-read cutoff classes can be distinguished by minimum sup-norm distance. Each candidate family is compact, and measurement balls of this strict radius do not intersect.
 
