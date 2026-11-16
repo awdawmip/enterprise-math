@@ -1,0 +1,85 @@
+{
+  "schema": "EC49FQR_SECOND_NATIVE_BRC_ALL_PRIOR_SLICE_EVIDENCE_V1",
+  "date": "2026-11-16",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "native_root": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "class_id": 16943,
+  "prices": {
+    "root": 39,
+    "terminal": 16
+  },
+  "gamma": "930/38107",
+  "beta": "620/3299",
+  "anchor_certificates": [
+    {
+      "lambda": "0",
+      "integer_optimum": "1510940",
+      "optimal_first": [
+        32,
+        34
+      ],
+      "sha256": "73310b3c32612205ae71e90c547578e6d27c16a22546c8e4e0a33144412e30f7",
+      "bundle_path": "certificates/39_16_0_1.json"
+    },
+    {
+      "lambda": "930/38107",
+      "integer_optimum": "57778558880",
+      "optimal_first": [
+        32,
+        34,
+        140,
+        142
+      ],
+      "sha256": "6fbdccd8237db56c4ecdd05ed376fc9775567395ff1ae6fd8954a13a4f6562a8",
+      "bundle_path": "certificates/39_16_930_38107.json"
+    },
+    {
+      "lambda": "620/3299",
+      "integer_optimum": "5057028450",
+      "optimal_first": [
+        16,
+        23,
+        140,
+        142
+      ],
+      "sha256": "856bcf34fc327c73740091d92e6f2cd5ba59910355998e6d0638c1f5f014cef2",
+      "bundle_path": "certificates/39_16_620_3299.json"
+    },
+    {
+      "lambda": "1",
+      "integer_optimum": "1572855",
+      "optimal_first": [
+        16,
+        23
+      ],
+      "sha256": "b40273f66790312b8344ddd4064e3bdb0d858ec500cc2f755eec52e00cfd9097",
+      "bundle_path": "certificates/39_16_1_1.json"
+    }
+  ],
+  "combined_certificates": 89,
+  "independent_mass_Bellman_anchors_for_second_slice": 4,
+  "physical_first_actions_exhaustively_checked": 228,
+  "replay_all_tied_first_trees": true,
+  "inherited_81_SHA256_checked": true,
+  "prior_first_slice": {
+    "price": "47/16",
+    "anchors": 4,
+    "proof": "EC49FQR_47_16_BRC_22_NODE_THEOREM_20261116.md"
+  },
+  "exact_23_node_area": "696012280557809479893905/84708997399399632521927112",
+  "exact_certified_fraction": "168721982518241455563960319/169417994798799265043854224",
+  "sharp_23_node_chord_certificate": "(25/4)/(sqrt(28707/4)+sqrt(57245/8))^2",
+  "independent_pass_marker": "EC49FQR_SECOND_SLICE_39_16_23_NODE_ALL_CHECKS_PASS",
+  "local_archive_root": "EC49FQR_TWO_SLICES_23GRID_20261116",
+  "independent_reproduction": "PYTHONPATH=code python3 code/EC49FQR_SECOND_39_16_INDEPENDENT_VERIFY.py",
+  "mathematical_status": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "formal_control": {
+    "task_lookup": "NO_CANONICAL_PUBLICATION_DIRECTORY",
+    "claim": false,
+    "result": false,
+    "activity_checkpoint": false
+  }
+}
