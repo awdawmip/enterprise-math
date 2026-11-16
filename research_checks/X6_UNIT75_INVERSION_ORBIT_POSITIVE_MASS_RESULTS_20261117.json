@@ -1,0 +1,71 @@
+{
+  "asymmetric_3_5": {
+    "3": {
+      "(1, 1)": 1,
+      "(2, 4)": 2,
+      "(3, 5)": 2
+    },
+    "5": {
+      "(1, 1)": 2,
+      "(2, 4)": 1,
+      "(3, 5)": 2
+    }
+  },
+  "classes": [
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      6,
+      6
+    ]
+  ],
+  "first_unsafe_example": {
+    "inverse_u": 4,
+    "negative_weight": 1,
+    "positive_weight": 0,
+    "row_inverse_u": {
+      "(2, 4)": 2,
+      "(3, 5)": 0,
+      "(6, 6)": 1
+    },
+    "row_u": {
+      "(2, 4)": 2,
+      "(3, 5)": 1,
+      "(6, 6)": 0
+    },
+    "source_u": 2
+  },
+  "modulus": 7,
+  "multiplier": 3,
+  "result": "PASS",
+  "safe_weight_pairs": 4,
+  "schema": "EM_X6_UNIT75_SCOPED_INTEGER_CERTIFICATE_V1",
+  "scope": "Exact finite exhaustive 16 weight pairs (0..3)^2 and all 6 source units; mathematical general equivalence is separately proved in report",
+  "source_domain": "U(7), finite inversion orbits; nonspatial BRC mass",
+  "source_pair_comparisons": 96,
+  "symmetric_3_5": {
+    "3": {
+      "(1, 1)": 1,
+      "(2, 4)": 1,
+      "(3, 5)": 2
+    },
+    "5": {
+      "(1, 1)": 1,
+      "(2, 4)": 1,
+      "(3, 5)": 2
+    }
+  },
+  "target_class_delta_checks": 384,
+  "unsafe_weight_pairs": 12,
+  "weight_pairs_checked": 16
+}
