@@ -29,6 +29,18 @@ Nathaniel Craig 的 [OpenAI 文章](https://openai.com/index/step-toward-definin
 
 旧路读数为 1+i；新增四条支路的读数之和 q+2q²+q³=q(1+q)²≠0。因此，哪怕所有旧路径都可逐条保真嵌入，把所有新增细路也纳入求和，总响应已经改变。这是精确的有限反例。后续可以比较哪些细路属于同一个粗路径、它们如何计权，并对新增支路的加权总贡献给出各层估计；有限例子未决定尺度极限。PATH_FORMAL_BRC 的来源与原始步词可保存，N_BRC 用于验证分支数，复数仅作独立声明的辅助符号读出。这里没有把正权直接当成量子振幅。
 
+## 任意细化倍数下全部路径的定量残差
+
+限定在均匀扩大标签群方案，粗位移为 (1,1)，单位正权读出改为从每一层的全部最短步词中等权抽取。把每条路径的标签读成 A_m，即它的原始整数标签除以 m²；整数标签为 0 至 m²，落在 C_(4m²) 的指定代表区间，不存在模折返的歧义。A_m 是辅助细格上水平步在竖直步之前的有序步对所占的比例。原点处均满足 E[A_m]=1/2，仅凭平均值会判断两类路径分布完全一致。
+
+两条旧路径的逐段细分始终给出 0、1，各占一半，故方差恒为 1/4。对于全部 binom(2m,m) 条等权最短步词则严格有
+
+    Var(A_m) = (2m+1)/(12m²)。
+
+**证明。** 把 m 个竖直步在 2m 步词中的位置写为 t₁<…<t_m。路径整数标签是 Σ(t_j−j)。全部步词与均匀的 m 元位置子集一一对应。设 I_k 指示位置 k 是否被选，P(I_k=1)=1/2，不同 k,l 有 Cov(I_k,I_l)=−1/[4(2m−1)]。因此 Var(Σ k I_k)=((2m)Σk²−(Σk)²)/[4(2m−1)]=m²(2m+1)/12。减去常数 Σj 并除以 m⁴ 得式。均值可由与反序词配对得到。两族方差之差为 (3m+1)(m−1)/(12m²)。在 m=2 时比较值分别是 1/4 和 5/48。对这些等权各层，E[(A_m−1/2)²]→0；给定 ε>0，落在中点 ε 外的细路比例至多 (2m+1)/(12m²ε²)。因此完整细支路的归一化标签越细越集中，嵌入的两条旧支路始终在两个端点。这个概率结论使用明示的单位分支权和平方偏差观察；它与上节的符号相干和是不同的读出。
+
+下面的候选 BRC 直方图递推对 m=1,…,16 用精确分数独立复算均值和方差。水平末步保留上游标签分箱；竖直末步将所有上游分箱平移 x；两类以分支末步身份区分并加总。总条数另经项目原 N_BRC 内核对照。
+
 ## 命名来源的交叉检查
 
 [项目 V38](https://github.com/awdawmip/enterprise-math/blob/a776f9ea24a702c10da3ef8a20c0763f3f341bae/research_notes/X6_ZERO_CURRENT_NONABELIAN_COMMUTATOR_MEMORY_V38_20260906.md) 的两条历史 ABA⁻¹B⁻¹、AA⁻¹BB⁻¹ 具有完全相同的 12 项有向事件多重集，净流均为零。重跑[项目原检验](https://github.com/awdawmip/enterprise-math/blob/a776f9ea24a702c10da3ef8a20c0763f3f341bae/experiments/x6_nonabelian_multicircuit_v37_20260906/check_nonabelian_multicircuit.py)，运输分别是三循环 (1,2,0) 和恒等 (0,1,2)。任意逐有向边固定的可交换标量赋值均在这两条历史上给出同一乘积，不能从中恢复哪一槽承载具名来源。若细分时在各顶点重命名，用同一基点识别两层，沿路相邻的重命名抵消，终端运输只受基点共轭；三循环仍与恒等有别。[V39](https://github.com/awdawmip/enterprise-math/blob/a776f9ea24a702c10da3ef8a20c0763f3f341bae/research_notes/X6_CYCLE_CURRENT_S3_OPERATION_SAFE_PORT_V39_20260906.md) 给出在固定网络上查询净流和框架运输、允许续接闭路这一语言中的最粗充分记录 (j,h)。这个例子明确了与 Craig 的可交换行列式相位不同的项目观察要求。
@@ -109,4 +121,31 @@ for m in (2,3):
     squares = [sparse_transport(s, (1,2,-1,-2), m)[1] for s in product(range(m), repeat=2)]
     assert Counter(squares) == {0:m*m-1, 1:1}
 print(sparse_checks, 'nonuniform fixed-C4 path comparisons')
+
+from fractions import Fraction
+
+def shortest_tag_histogram(m):
+    partial = {(0,0): Counter({0:1})}
+    for x in range(m+1):
+        for y in range(m+1):
+            if x == y == 0:
+                continue
+            bins_xy = Counter()
+            if x > 0:
+                bins_xy.update(partial[x-1,y])
+            if y > 0:
+                for tag, count in partial[x,y-1].items():
+                    bins_xy[tag+x] += count
+            partial[x,y] = bins_xy
+    return partial[m,m]
+
+for m in range(1, 17):
+    histogram = shortest_tag_histogram(m)
+    total = shortest_path_multiplicity((m,m,0,0,0,0))
+    assert sum(histogram.values()) == total
+    mean = sum(Fraction(k, m*m)*v for k,v in histogram.items()) / total
+    variance = sum((Fraction(k, m*m)-mean)**2 * v for k,v in histogram.items()) / total
+    assert mean == Fraction(1,2)
+    assert variance == Fraction(2*m+1,12*m*m)
+print('tag moment formulas verified for m=1..16')
 ```
