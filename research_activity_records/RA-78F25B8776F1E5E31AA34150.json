@@ -63,31 +63,60 @@
       "state": "EM_REPRESENTED"
     },
     {
-      "event_id": "r2-20261116-r749sse-restricted-future-carrier",
       "em_sources": [
         {
-          "repository": "awdawmip/enterprise-math",
           "commit": "2ca2b25cb64b121748499edcd61eb90cb99faad8",
           "path": "research_notes/portable_direct/2026-11-16_R749SSE_RESTRICTED_FUTURE_OBSERVER_CARRIER.md",
-          "sha256": "fa3882b4b51271c5c6706cba665e269db7351db53d1ab0869d20fcf79051839c",
           "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "fa3882b4b51271c5c6706cba665e269db7351db53d1ab0869d20fcf79051839c",
           "verification": {
-            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
-            "tool_name": "github_fetch_file",
-            "observation_id": "r2-20261116-r749sse-proof-immutable-source-read",
             "call_id": null,
             "git_blob_sha1": "162ac785889893a2626baa824664a4b2652ed044",
             "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/2ca2b25cb64b121748499edcd61eb90cb99faad8/research_notes/portable_direct/2026-11-16_R749SSE_RESTRICTED_FUTURE_OBSERVER_CARRIER.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
             "network_request_by_this_tool": false,
-            "server_signature_authenticated": false
+            "observation_id": "r2-20261116-r749sse-proof-immutable-source-read",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
           },
           "verification_receipt": "research_activity_records/RA-78F25B8776F1E5E31AA34150/readbacks/d55264560615f8ceeaa5d0df6c65c1ea3c34518d785db2f5f5dce1dcb7802bc9.json",
           "verification_receipt_sha256": "d55264560615f8ceeaa5d0df6c65c1ea3c34518d785db2f5f5dce1dcb7802bc9"
         }
       ],
+      "event_id": "r2-20261116-r749sse-restricted-future-carrier",
       "kb_sources": [],
-      "state": "EM_REPRESENTED",
-      "repairs_event_id": null
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    },
+    {
+      "em_sources": [
+        {
+          "commit": "f24fa2becad95c5ef9d8fbbf12832f43573526c6",
+          "path": "research_notes/portable_direct/2026-11-16_R749SSO_CERTIFIED_FOUR_READ_NOISE_MARGIN.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "f7ed97971e92889e55cbe7ead25987adb6fca272f5e33fec3be2582bc2a9f5f3",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "dff231af3501a245ce380fc11f54a08f237ddb31",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/f24fa2becad95c5ef9d8fbbf12832f43573526c6/research_notes/portable_direct/2026-11-16_R749SSO_CERTIFIED_FOUR_READ_NOISE_MARGIN.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r2-20261116-r749sso-proof-immutable-read",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-78F25B8776F1E5E31AA34150/readbacks/5b89f480985b97367dc24ca4f6faea51f23dc2c9ee2a00e8fe4bf54863545e41.json",
+          "verification_receipt_sha256": "5b89f480985b97367dc24ca4f6faea51f23dc2c9ee2a00e8fe4bf54863545e41"
+        }
+      ],
+      "event_id": "r2-20261116-r749sso-certified-four-read-gap",
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/5d82247989f6683211eaa1f33315a71b17799d98/journal/enterprise-math/2026-11-16/20261116T225100%2B0800-r749sso-certified-four-read-gap-research2.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
     }
   ],
   "mode": "TASK_RESEARCH",
