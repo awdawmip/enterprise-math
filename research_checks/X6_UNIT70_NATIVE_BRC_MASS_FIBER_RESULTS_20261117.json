@@ -1,0 +1,25 @@
+{
+  "scope": "signed native selected Z3 slice; raw triples [-15,15]^3",
+  "stats": {
+    "raw_input": 29791,
+    "two_equal": 645,
+    "unique": 26815,
+    "two_distinct": 1014
+  },
+  "witnesses": {
+    "two_equal": {
+      "r": [0, 1, 2], "G": 5, "T": 3,
+      "endpoints": [[-2, -1, 0], [0, 1, 2]], "N_BRC": [3, 3]
+    },
+    "unique": {
+      "r": [0, 0, 0], "G": 0, "T": 0,
+      "endpoints": [[0, 0, 0]], "N_BRC": [1]
+    },
+    "two_distinct": {
+      "r": [0, 3, 3], "G": 18, "T": 6,
+      "endpoints": [[-4, -1, -1], [0, 3, 3]], "N_BRC": [30, 20]
+    }
+  },
+  "checks": "all exact integers, independent of optimization assert",
+  "status": "AUTHOR_SCOPED_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED"
+}
