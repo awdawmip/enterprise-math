@@ -1,0 +1,169 @@
+{
+  "status": "PASS",
+  "unit": "R749SRZ",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "W=(1,1,2,3,6); J=(0,1,5); both count channels may have independent signed bounded integer errors",
+  "new_analytic_theorem": "N(M,K) = 96K+sqrt(9216K^2+1152M)+O(1) as M+K -> infinity, with absolute implied constant",
+  "denominator_only_exact_N_for_K_0_to_4": {
+    "0": {
+      "global_N": 35,
+      "last_failure": {
+        "r": 34,
+        "rival": 3,
+        "denominator_errors": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "1": {
+      "global_N": 261,
+      "last_failure": {
+        "r": 260,
+        "rival": 3,
+        "denominator_errors": [
+          -1,
+          1,
+          -1
+        ]
+      }
+    },
+    "2": {
+      "global_N": 507,
+      "last_failure": {
+        "r": 506,
+        "rival": 3,
+        "denominator_errors": [
+          -2,
+          2,
+          -2
+        ]
+      }
+    },
+    "3": {
+      "global_N": 759,
+      "last_failure": {
+        "r": 758,
+        "rival": 3,
+        "denominator_errors": [
+          -3,
+          3,
+          -3
+        ]
+      }
+    },
+    "4": {
+      "global_N": 1005,
+      "last_failure": {
+        "r": 1004,
+        "rival": 3,
+        "denominator_errors": [
+          -4,
+          4,
+          -4
+        ]
+      }
+    }
+  },
+  "finite_r_examined_per_K": 1349,
+  "independent_cube_brute_comparisons": 144,
+  "prior_proven_tail_residual_bound": "0<R(r)-P[r mod 6]<1600/r for r>=516",
+  "tail_bound_for_all_r_ge_1350_K_le_4": "93267895499872/28025208984267",
+  "tail_bound_float": 3.3280000000082577,
+  "ideal_signature_half_separation": "15/4",
+  "selected_joint_failure_witnesses": [
+    {
+      "r": 960,
+      "M": 0,
+      "K": 5,
+      "numerator_errors": [
+        0,
+        0,
+        0
+      ],
+      "denominator_errors": [
+        5,
+        -5,
+        -5
+      ],
+      "true_distance": "27580669878937/5284358359236",
+      "rival_distance": "26293212202580/5257090841319",
+      "rival_ties_or_wins": true
+    },
+    {
+      "r": 1920,
+      "M": 0,
+      "K": 10,
+      "numerator_errors": [
+        0,
+        0,
+        0
+      ],
+      "denominator_errors": [
+        10,
+        -10,
+        -10
+      ],
+      "true_distance": "993897324875231/221422759622460",
+      "rival_distance": "362638007516980/82818309670119",
+      "rival_ties_or_wins": true
+    },
+    {
+      "r": 1974,
+      "M": 100,
+      "K": 10,
+      "numerator_errors": [
+        -100,
+        100,
+        100
+      ],
+      "denominator_errors": [
+        10,
+        -10,
+        -10
+      ],
+      "true_distance": "1138093321776775/254235583843596",
+      "rival_distance": "828036155932640/190195907669037",
+      "rival_ties_or_wins": true
+    },
+    {
+      "r": 3954,
+      "M": 400,
+      "K": 20,
+      "numerator_errors": [
+        -400,
+        400,
+        400
+      ],
+      "denominator_errors": [
+        20,
+        -20,
+        -20
+      ],
+      "true_distance": "16705675910275825/4062672092243196",
+      "rival_distance": "12336165409393790/3043159750425537",
+      "rival_ties_or_wins": true
+    },
+    {
+      "r": 9888,
+      "M": 2500,
+      "K": 50,
+      "numerator_errors": [
+        -2500,
+        2500,
+        2500
+      ],
+      "denominator_errors": [
+        50,
+        -50,
+        -50
+      ],
+      "true_distance": "615834649700288035/158098427428593996",
+      "rival_distance": "229404496514412580/59256958320698031",
+      "rival_ties_or_wins": true
+    }
+  ],
+  "proof_scope": "Analytic asymptotic proof in paired Markdown; finite exact proof of K=0..4 thresholds via endpoint lemma, scan and certified infinite tail.",
+  "next_question": "Derive exact eventual offsets/quasiperiodic changes beyond the leading joint asymptotic and solve integer-error two-channel exact interval feasibility."
+}
