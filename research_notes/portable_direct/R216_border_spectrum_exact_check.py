@@ -119,6 +119,14 @@ def verify():
     assert two_sided_ideal_size(u,1,1,4)==20
     assert two_sided_ideal_size(v,1,1,4)==21
     assert two_sided_ideal_size(u,1,1,3)==two_sided_ideal_size(v,1,1,3)
+    future_u=((0,0),(0,1))
+    future_v=((0,1),(0,0))
+    future_0=(0,0)
+    assert border_poly((0,1))==border_poly((1,0))==[1,0]
+    assert two_sided_ideal_size(future_u,1,1,6)==106
+    assert two_sided_ideal_size(future_v,1,1,6)==106
+    assert two_sided_ideal_size(future_u+(future_0,),1,1,6)==80
+    assert two_sided_ideal_size(future_v+(future_0,),1,1,6)==81
     return {
         'status':'PASS','pattern_models':tests,'large_a84_models':large_a_checks,
         'exhaustively_inspected_input_words':enumerations,
@@ -135,6 +143,14 @@ def verify():
             'two_sided_ideal_sizes':[20,21],
             'first_distinguishable_word_length':3,
             'first_distinguishable_tail_cutoff_L':4
+        },
+        'future_congruence_counterexample':{
+            'parameters':{'m':1,'k':1,'L':6},
+            'u':'01','v':'10','shared_initial_border':'1',
+            'shared_initial_ideal_size':106,
+            'appended_letter':'0','new_words':['010','100'],
+            'new_border_polynomials':['1+z^2','1'],
+            'new_ideal_sizes':[80,81]
         },
         'scope':'a=2 through h=6/n=8, a=3 through h=4/n=7, a=4 through h=3/n=6; 84-symbol DP check',
         'arithmetic':'exact integer observer word counting',
