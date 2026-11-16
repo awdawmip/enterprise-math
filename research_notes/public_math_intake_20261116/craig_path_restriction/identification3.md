@@ -81,6 +81,10 @@ A_N 是路径中 X 先于 Y 的有名步对占全部 N² 对的比例。χ(x) �
 
 允许其余三个坐标取任何终点，且每个所选轴的取向由其实际最短步确定。这将“跨尺度修正能否取消”落实在现有 X6 计数核可直接枚举的一个有向循环量上。这里约束是固定终点、等权最短路；加权或含回步的演化需另作推导。三轴边的系数在每个顶点收支相等是消去一阶方差的确切原因。
 
+三环还能逐条路径对应到已有文献。三元组的奇排列计数记作 K，则 T=1−K/N³。Zeilberger 已给出这个 Gepner 统计至十二阶的有限 N 中心矩多项式，Even-Zohar、Lakrec、Tessler 在附录 C 描述其 logistic 极限。对接相同的有限词定义后，我们复核了四阶矩，并把本辅助字符在 N⁻⁴、N⁻⁵ 的修正算了出来。[逐词对应与有限修正](gepner3.md) · [原始研究](https://arxiv.org/pdf/2012.00742)
+
+一般六轴零行和反对称系数的[极限分布](x6_limit3.md)由一个六阶反对称矩阵的非零二维块决定。缩放后的循环量最多含两项独立的中心 logistic 随机量。因而等向三环、其它单环与多个方向合并的循环可以用同一矩阵判别。具体地，轴 1、2、3 和轴 4、5、6 各取单位三环，两组三色投影在每个 N 都独立。各轴库存均为 N 时，两个循环之和的方差为 1/(2N²)，标准化极限峰度为 18/5；单个三环是 21/5。对两组不相交的轴，这个区别可以直接按有限词枚举检验。
+
 ## 复算
 
-在同目录运行 check_identification3.py、check_boundary3.py、check_witness3.py、check_secmom3.py、check_phase2.py、check_firstorder3.py、check_x6_projection3.py。上轮 check_weighted.py 的加载器校验项目 signed_brc.py 的固定 Git blob；整库内可直接运行。本页程序检查有偏近均匀正权模型在 20 个尺度/参数单元上的全词分布与删步、四点复数差商的有理包围、四个深度的通用上界。各专篇列出独立的子词枚举和区间检验范围。有限样本核验与全称定理的解析证明分别给出。
+在同目录运行 check_identification3.py、check_boundary3.py、check_witness3.py、check_secmom3.py、check_phase2.py、check_firstorder3.py、check_x6_projection3.py、check_gepner3.py、check_x6_limit3.py。上轮 check_weighted.py 的加载器校验项目 signed_brc.py 的固定 Git blob；整库内可直接运行。本页程序检查有偏近均匀正权模型在 20 个尺度/参数单元上的全词分布与删步、四点复数差商的有理包围、四个深度的通用上界。各专篇列出独立的子词枚举和区间检验范围。有限样本核验与全称定理的解析证明分别给出。
