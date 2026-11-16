@@ -65,9 +65,9 @@ Every one of the 97 intervals is bounded by
 `R(a,b)=50(b-a)/(sqrt(K(a))+sqrt(K(b)))^2`.
 Certified integer square-root brackets to 10^-40 separately compare the 97 bounds, with **unique maximal bound on [2,65/32]**. Combined with the unchanged inherited x>=3 tail certificate:
 
-`0 <= t*min(A,B,C) - V(x,lambda) <= 0.00005413048225249587545*t`
+`0 <= t*min(A,B,C) - V(x,lambda) <= 50*(65/32-2)*t / (sqrt(K(2))+sqrt(K(65/32)))^2`
 
-holds for every real x>=1 and lambda in [0,1]. This numerical right endpoint is a rounded readout of the *exact algebraic upper bound* for [2,65/32], not an experimentally measured error. EC49FRD's previous upper guarantee was 0.00005461007501624838*t.
+holds for every real x>=1 and lambda in [0,1]. The exact right-hand side is approximately `0.00005413048225249587545103954322*t`; the decimal is only a rounded readout, not the asserted exact inequality endpoint. EC49FRD's previous upper guarantee was 0.00005461007501624838*t.
 
 ## Theorem 3 — rational implementability and quantitative stability of the ideal K-grid
 
