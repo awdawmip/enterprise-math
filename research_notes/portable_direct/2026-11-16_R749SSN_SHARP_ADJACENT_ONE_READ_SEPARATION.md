@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-16. **Status:** AUTHOR_EXACT_NOT_REVIEWED (exact author proof and independently executable symbolic certificate; pending independent review).
 
-**Frozen scientific source:** \`a72226e2430ffa4786321ac86e7f0c599d5f0389\`; five labeled weights \((1,1,2,3,6)\), carried forward from R749SSM [PR #2572](https://github.com/awdawmip/enterprise-math/pull/2572), scientific commit \`7ea79c50d4f448c515719b1f883b5fb68fe4d69a\`. Behavioral rules were read separately from this scientific pin.
+**Frozen scientific source:** `a72226e2430ffa4786321ac86e7f0c599d5f0389`; five labeled weights \((1,1,2,3,6)\), carried forward from R749SSM [PR #2572](https://github.com/awdawmip/enterprise-math/pull/2572), scientific commit `7ea79c50d4f448c515719b1f883b5fb68fe4d69a`. Behavioral rules were read separately from this scientific pin.
 
 ## Exact model
 
@@ -92,12 +92,12 @@ with the following **complete signs**, in *ascending* coefficient order \(j=0,\l
 
 | residue \(r\) | signs of \(a_{r,0},\ldots,a_{r,10}\) |
 |---:|:---|
-| 0 | \`+++++++++++\` |
-| 1 | \`+++++++++++\` |
-| 2 | \`0++++++++++\` |
-| 3 | \`+++++++++++\` |
-| 4 | \`+++++++++++\` |
-| 5 | \`+++++++++++\` |
+| 0 | `+++++++++++` |
+| 1 | `+++++++++++` |
+| 2 | `0++++++++++` |
+| 3 | `+++++++++++` |
+| 4 | `+++++++++++` |
+| 5 | `+++++++++++` |
 
 The program uses only exact integers/rationals in the proof assertions; it reconstructs all 66 coefficients, checks their signs, the degree-10 identities and multiple original source-count instances. Consequently \(G_r(n)\ge g\) for all \(n\ge84\), i.e. all \(q\ge504\). Equality occurs only for \(r=2,n=84\), namely \(q=506\). Direct exact rational evaluation gives \(G_r(n)>g\) at \(q=501,502,503\). This proves the uniform minimum over all integers \(q\ge501\).
 
@@ -132,6 +132,6 @@ Both numerator-error values are strictly between \(-2\) and \(2\); both denomina
 
 The theorem is a *binary adjacent-cutoff* observer result under a single frozen smooth ratio and bounded **real common-in-time calibration errors**. It does not classify arbitrary nonadjacent cutoffs. It uses precise rational source counts, not a native signed-X6 Cell/Link/Port evolution or a new BRC physics law. The labels, count moments, error pairing and observer map are explicitly retained, so future typed embedding has a clear invariant to preserve.
 
-Reproduce with \`python R749SSN_ADJACENT_SINGLE_READ_CERT.py\` (SymPy required); compare the printed JSON to \`R749SSN_ADJACENT_SINGLE_READ_RESULTS.json\`. All positivity assertions are exact, without numerical root isolation. Author proof is pending independent review.
+Reproduce with `python R749SSN_ADJACENT_SINGLE_READ_CERT.py` (SymPy required); compare the printed JSON to `R749SSN_ADJACENT_SINGLE_READ_RESULTS.json`. All positivity assertions are exact, without numerical root isolation. Author proof is pending independent review.
 
 **Next scientific questions:** classify nonadjacent phases and cutoffs in the exact scalar image model; derive a multicutoff minimum-error decision rule; test whether two or more scheduled observations preserve unknown-cutoff distinction with a smaller tail threshold, retaining common calibration across reads; develop a typed joint-source BRC carrier preserving all future-observer fibers.
