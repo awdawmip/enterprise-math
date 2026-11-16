@@ -1,0 +1,147 @@
+{
+  "schema": "EM_X6_TASK_RESEARCH_UNIT75_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-17",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "frozen_scientific_inputs": {
+    "native": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historic": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "original_signed_brc_git_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+    "p000": "ACTIVE_LOCKED / GK V4 projection source V5 native"
+  },
+  "research_logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_id_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "original_source_unit74": {
+    "request_id": "onhour-20261117-unit74-full6-shortest-equal-plus2-native-progress-v1",
+    "state": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "cc3368100f8de3b00c89b7f4d1567f008b9944c4",
+    "authenticated_readback": true,
+    "canonical_publication_verified": true,
+    "source_comment_id": 6929266158,
+    "researcher_id_as_source_provenance_only": "EM-X6-FB6990",
+    "session_id_as_source_provenance_only": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id_as_source_provenance_only": "MCP-579c8e23625448582b421831",
+    "run_id_as_source_provenance_only": "RUN-fb25028676f9692ab1bacaee",
+    "checkpoint_source_path": "research_artifacts/mcp/RS-X6-LEGACY-PLANE-RECONCILIATION/MCP-082892eb480e45dea6d4b9fcc0491034/beaedd3718a6f6b4de79/_checkpoint.json",
+    "checkpoint_git_blob": "5d476c3f8733b6284d545569fa47ffc47802f0ab"
+  },
+  "current_session_subject_observation": {
+    "bridge_recovery_request": "onhour-20261117-0503-recovery-status-x6-v1",
+    "bridge_issue": "https://github.com/awdawmip/kimi-query-bridge/issues/6991",
+    "bridge_status": "SUCCEEDED / ACTIVE D25 session / no X6 run",
+    "bridge_session_id": "MCP-de3e5bafb24f43f4a5e6285e7601676a",
+    "bridge_researcher_id": "EM-ENTERPRISE-9C9163",
+    "bridge_own_prior_contributions": [
+      "EM-DIRECT-B63A06"
+    ],
+    "native_request_bridge_receipt_probe_issue": "https://github.com/awdawmip/kimi-query-bridge/issues/6992",
+    "native_request_bridge_receipt_probe": "CHAT_REQUEST_NOT_FOUND / not in D25 chat subject",
+    "interpretation": "Source old X6 research identity provenance and bridge active D25 belong to distinct execution bindings. Do not borrow/impersonate. Current own X6 CLAIM/session capability unverified.",
+    "native_exact_continuation_request": "onhour-20261117-0504-x6-source-continuation-read-v1",
+    "native_exact_continuation_latest_observed": "RUNNING / SOURCE_AND_NATIVE, error=null, original read only; pending terminal",
+    "own_native_authorized_writes_this_turn": 0
+  },
+  "unit75_science": {
+    "claim": "For all z∈Z^6 and w=z+1_6 with native G(z)=G(w) and T(z)=T(w), equality of C_T and C_(T+2) is equivalent to equality of absolute-coordinate multisets and thus all uniform positive ordered six-axis signed-native path counts C_L for every L≥0.",
+    "proof_kernel": "exact 3 positive/3 negative split; equal positive triples S,P from G,T,shortest; F(E)=E/P−(E+2S+3)/(P+E+S+1) strictly increasing; equal first excess forces e2, hence identical triples and absolute multisets",
+    "witness_z": [
+      -8,
+      -3,
+      -3,
+      1,
+      5,
+      5
+    ],
+    "witness_w": [
+      -7,
+      -2,
+      -2,
+      2,
+      6,
+      6
+    ],
+    "same_native_quadratic_G": 133,
+    "same_native_shortest_T": 25,
+    "same_shortest_positive_BRC": 742096122768000,
+    "different_C27": [
+      752485468486752000,
+      734913692436924000
+    ],
+    "verification": "author exact proof, independent real Python normal M<=20 and -O/-OO M8, finite complete permutation-class census; 0 failures; M28 uncompleted timeout; no universal c>1 inference",
+    "census_M20": {
+      "sorted_six_tuple_inputs": 9366819,
+      "G_T_shortest_mass_equal_pairs": 17830,
+      "different_absolute_multiset_pairs": 120,
+      "different_abs_with_equal_first_excess": 0,
+      "adjacent_depth_checked_pairs": 1628,
+      "adjacent_depth_different_abs_pairs": 88
+    },
+    "evidence": [
+      {
+        "path": "research_checks/X6_UNIT75_ADJACENT_DEPTH_TWO_BRC_COEFFICIENT_CLASSIFIER_20261117.py",
+        "source_commit": "1203451da496e85ba1ca57d577f1d79747c342f0",
+        "git_blob_sha1": "5021b4252b684d36f0b72449b7cc57f6dedf695b",
+        "sha256": "d581bacea248d40c523a010ca6147de7c1e93ac5c33784fd683fb8da737342a5"
+      },
+      {
+        "path": "research_checks/X6_UNIT75_ADJACENT_TWO_COEFF_RESULTS_20261117.json",
+        "source_commit": "c75f051eb7ee3b9d654a5fe3059e7ae0e911b5a5",
+        "git_blob_sha1": "2a02c4efbdfb1a5d4ae8e1ca690e01ca5039eec9",
+        "sha256": "9f27775e6fcf20d15129c89c20c986063c35c7fcb5f41fc02b026d726a68a109"
+      },
+      {
+        "path": "research_notes/X6_UNIT75_ADJACENT_DEPTH_TWO_COEFFICIENT_ALL_LENGTH_BRC_RECONSTRUCTION_20261117.md",
+        "source_commit": "1218a3fe3c7c3d862a770b52e557613179cd087c",
+        "git_blob_sha1": "dcbf6dca6ecf1c12728ca225ea4d3d8d5894489e"
+      }
+    ],
+    "status": "SOURCE_GITHUB_SCIENTIFIC_BYTES_WRITTEN_READBACK / AUTHOR_EXACT / UNREVIEWED / NOT_ADMITTED / NATIVE_SEMANTIC_NOT_SUBMITTED / ACTIVITY_NOT_ASSOCIATED"
+  },
+  "bounded_new_current_consumer_audit": {
+    "scope": "four actual current-main executable source bodies selected from previously inventoried 820 current-path candidates, line-level manually inspected, not executed or full 28-LP dependency closure",
+    "inspected": [
+      {
+        "path": "experiments/x6_branch_selector_context_v3_20260906/check_branch_selector_context.py",
+        "blob": "bb8fd71bafa5b8c53c5170d2347baa0f2c06f5fb",
+        "lines": "26-31, 33-49",
+        "classification": "INNER/OUTER event-context branching and local L1; not native singleton signed-axis argmax"
+      },
+      {
+        "path": "experiments/x6_triadic_decomposition_brc_v2_20260906/check_triadic_decomposition_brc.py",
+        "blob": "5d0f2cb88a0d4e437b5025e9050e3044f7831cd4",
+        "lines": "35-76, 82-105, 137-145",
+        "classification": "max(D) tests nonnegative triad occupancy feasibility; formula_signed_ordered uses nonnegative triad branch counts and binomial labels; no positive N_BRC signed subtraction at inspected lines"
+      },
+      {
+        "path": "experiments/x6_signed_cycle_atlas_v12_20260906/check_signed_cycle_atlas.py",
+        "blob": "9c5bfac5c2d317d38221aca732c8250944051f15",
+        "lines": "22-35, 93-120",
+        "classification": "signed-cycle holonomy class and group action; distinct from subtraction of positive native N_BRC"
+      },
+      {
+        "path": "experiments/x6_rotation_law_selection_v3_20260906/check_equivariant_branch_laws.py",
+        "blob": "62d03a89c19518c3d80ebee3589952d1755d4ff8",
+        "lines": "5-33",
+        "classification": "C6 binary branch patterns, stabilizer and S3 symmetry; no native Cell dominance or positive path count operations"
+      }
+    ],
+    "result": "NO_VERIFIED_LP011_OR_LP019_WRONG_CALL_SITE_IN_THIS_BOUNDED_FOUR_BODY_AUDIT; keep exact missing historical attribution"
+  },
+  "current_unfinished_unit": "LP011 original wrong signed native singleton argmax caller and LP019 original positive N_BRC signed subtraction caller exact historical source:line still unresolved; current full 28-LP dependency closure and independent Driver REQUEST_REVISION pending.",
+  "evidence_debts": [
+    "Confirm original read-only native continuation outcome via onhour-20261117-0504-x6-source-continuation-read-v1 before X6 role-bound writes",
+    "Resolve real lane/session ownership split without re-registering/replaying old native X6 mutation or borrowing Sites owner profile",
+    "Unit75 Source GitHub evidence needs own genuinely authorized Activity and native PROGRESS linkage; existing X6 RA #98 unchanged",
+    "Independent Driver review and possible source-backed revision still pending"
+  ],
+  "do_not_repeat": [
+    "Unit74 native Source original request already SUCCEEDED; do not replay",
+    "Units69–73 already completed and Source published",
+    "R063 original 17-gate/512, Helly original, V7 cover original regression, LP028 fixed-positive/all-pair full checks previously done",
+    "No maintenance lane operations, no new scheduler/cron, preserve original notification behavior"
+  ],
+  "next_exact_action": "Read the terminal receipt for original X6 continuation read; if no valid own X6 session/CLAIM persists, preserve neutral Source evidence and request canonical legal successor binding instead of borrowing D25. Expand remaining uninspected current 28-LP executable dependency edges, search specific frozen LP011 and LP019 alleged wrong-caller source:line, and test c>1 all-length two-coefficient sufficiency only as an open scientific extension.",
+  "scheduler_changed": false,
+  "notifications_changed": false
+}
