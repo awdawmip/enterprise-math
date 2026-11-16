@@ -1,0 +1,53 @@
+<!-- ENTERPRISE_MATH_TASK_V1
+{
+  "task_id": "RS-X6-DELETION-FIXED-TABLE-PHASE-RANGE",
+  "title": "固定二层完整路径概率表的极限相位可达范围",
+  "kind": "RESEARCH",
+  "owner": "taskbook/unassigned",
+  "base_state": "READY",
+  "priority": "P2",
+  "leverage": "MEDIUM",
+  "frontier": "已知在所有共同二层表上取最大值的直径，也有同一张正表的两塔分歧见证。给定一张指定的正表，其可达相位边界及误差证书仍待求解。",
+  "next_action": "用已存的两塔见证与均匀零宽对照校准固定表的内下界，然后构造只允许该完整二层表的外界或直接边界。",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "task_lineage": "NEW_DIRECTION",
+  "parent_task_id": null,
+  "dependencies": [],
+  "source_refs": [
+    "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/identification3.md",
+    "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/witness3.md",
+    "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/phase2.md",
+    "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/boundary3.md",
+    "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/check_witness3.py",
+    "https://github.com/awdawmip/enterprise-math/blob/c4d450536bf71ed87fd74555295ec60485262f0a/experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py"
+  ],
+  "evidence_status": "PINNED_AUTHOR_SIDE_PROOFS_AND_REPRODUCIBLE_TESTS",
+  "created_by_role": "RESEARCHER",
+  "task_authority": "PUBLISHED_REGISTERED",
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "publication_template": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "registry_key": "RS-X6-DELETION-FIXED-TABLE-PHASE-RANGE",
+  "parent_objective_id": "OBJ-X6-CRAIG-PATH-REFINEMENT",
+  "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+  "final_response_identity_policy": "INHERIT_GLOBAL"
+}
+-->
+
+# 固定二层完整路径概率表的极限相位可达范围
+
+在两类来源分别等权删步的无限相容路径族中，给定整张二层表 μ₂，考察所有可实现的 Z∞=lim Eχ(A_N)。词的顺序固定为 XXYY、XYXY、XYYX、YXXY、YXYX、YYXX。主算例取全支撑有理表 μ*=(1/4,1/12,1/4,1/12,1/12,1/4)。χ 是原来由有限单位根定义的同一辅助字符，s=(1+i)/√2。
+
+以 μ* 的切向宽度为最小主目标：在所有实现 μ* 的路径族中，求 Re(conj(i s)Z∞) 的上确界与下确界之差。可交付精确值，或可复算、能按给定精度收敛的内外证书；采用数值证书时，提供一次实际运行得到的严格包围，说明如何继续缩小。内界须由真实相容族实现或由已证明的逼近构造支持，外界须覆盖该表的全部相容延拓。一般表或其他方向可作为自然推广。
+
+均匀六项各 1/6 是已知零宽对照；μ* 已知有相位各异的两套相容塔，可作非零对照并检验所选投影。所有表共用的最坏直径约 0.0388424244518264，是外部校准值；仅约束前两阶面积矩时，须证明所得优化对该六项固定表松弛的紧性，或者明确量化其缺口。保留有限词计算和可核的误差来源。
+
+这些题目承接直接研究提交 2565d7618b5062dbbc49174fc30f7ddae2c2483d。它们在 V2 中首次作为可独立领取的问题发布；三项共享已保存的输入，各自可独立开展。既有证明与算例按原作者侧证据引用。
+
+## 固定输入
+
+- [identification3.md](https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/identification3.md)
+- [witness3.md](https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/witness3.md)
+- [phase2.md](https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/phase2.md)
+- [boundary3.md](https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/boundary3.md)
+- [check_witness3.py](https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/check_witness3.py)
+- [signed_brc.py](https://github.com/awdawmip/enterprise-math/blob/c4d450536bf71ed87fd74555295ec60485262f0a/experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py)
