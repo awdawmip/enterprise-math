@@ -1,0 +1,144 @@
+{
+  "status": "PASS",
+  "pattern_models": 330,
+  "large_a84_models": 8,
+  "exhaustively_inspected_input_words": 916710,
+  "same_border_pair_checks": 3515,
+  "first_distinguishable_coefficient_pair_checks": 3484,
+  "sample": [
+    {
+      "a": 2,
+      "word": "0",
+      "C": [
+        1
+      ],
+      "denominator": [
+        1,
+        -1
+      ],
+      "avoid_n0_to8": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "a": 2,
+      "word": "1",
+      "C": [
+        1
+      ],
+      "denominator": [
+        1,
+        -1
+      ],
+      "avoid_n0_to8": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "a": 2,
+      "word": "00",
+      "C": [
+        1,
+        1
+      ],
+      "denominator": [
+        1,
+        -1,
+        -1
+      ],
+      "avoid_n0_to8": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        13,
+        21,
+        34,
+        55
+      ]
+    },
+    {
+      "a": 2,
+      "word": "01",
+      "C": [
+        1,
+        0
+      ],
+      "denominator": [
+        1,
+        -2,
+        1
+      ],
+      "avoid_n0_to8": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  ],
+  "witness": {
+    "parameters": {
+      "m": 1,
+      "k": 1,
+      "a": 2,
+      "L": 4
+    },
+    "patterns": [
+      "11",
+      "10"
+    ],
+    "border_polynomials": [
+      "1+z",
+      "1"
+    ],
+    "avoid_n0_to4": [
+      [
+        1,
+        2,
+        3,
+        5,
+        8
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "two_sided_ideal_sizes": [
+      20,
+      21
+    ],
+    "first_distinguishable_word_length": 3,
+    "first_distinguishable_tail_cutoff_L": 4
+  },
+  "scope": "a=2 through h=6/n=8, a=3 through h=4/n=7, a=4 through h=3/n=6; 84-symbol DP check",
+  "arithmetic": "exact integer observer word counting",
+  "review": "NOT_REVIEWED",
+  "native_brc_integration": "NOT_EXECUTED"
+}
