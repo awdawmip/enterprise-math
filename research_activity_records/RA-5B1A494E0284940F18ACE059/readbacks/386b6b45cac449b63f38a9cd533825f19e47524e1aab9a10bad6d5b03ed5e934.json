@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261116_heartbeat_triad_refinement/check_extensions.py",
+    "ref": "8a01484604e68c498ad76a5242b8a4f72389586e",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-triad-graft-4",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Pure auxiliary finite-algebra comparison, based on the sourced V38 packets.\"\"\"\nimport hashlib\nimport importlib.util\nimport itertools\nimport sys\nfrom contextlib import redirect_stdout\nfrom io import StringIO\nfrom pathlib import Path\n\nsrc = Path(sys.argv[1])\nbuf = src.read_bytes()\nassert hashlib.sha1(b\"blob \"+str(len(buf)).encode()+b\"\\0\"+buf).hexdigest() == \"328c328d76e5766261f590afa710671b0a81f0cb\"\nspec = importlib.util.spec_from_file_location(\"v38\",src)\nv38 = importlib.util.module_from_spec(spec)\nwith redirect_stdout(StringIO()):\n    spec.loader.exec_module(v38)\n\ndef perm_product(g,h):\n    return tuple(g[i] for i in h)\n\ndef subgroup(identity, generators, product):\n    seen = {identity}\n    active = [identity]\n    while active:\n        word = active.pop()\n        for gen in generators:\n            out = product(word,gen)\n            if out not in seen:\n                seen.add(out)\n                active.append(out)\n    return seen\n\ndef affine(g,h):\n    x,y,k = g\n    u,v,j = h\n    for _ in range(k):\n        u,v = -v,u\n    return ((x+u)%3,(y+v)%3,(k+j)%4)\n\ndef cycle(n, xs):\n    v = list(range(n))\n    for i,j in zip(xs,xs[1:]+xs[:1]):\n        v[i]=j\n    return tuple(v)\n\nX,Y = (0,0,1),(2,1,1)\nA,B = affine(X,X),affine(Y,Y)\nold = subgroup((0,0,0), [A,B], affine)\nnew = subgroup((0,0,0), [X,Y], affine)\nassert (len(old),len(new)) == (6,36)\nassert [sum(affine(g,g)==t for g in new) for t in (A,B)] == [2,2]\nassert all(affine(affine(a,b),c) == affine(a,affine(b,c))\n           for a,b,c in itertools.product(new,repeat=3))\n\n# Actual three transport slots use zero-based labels.\nra = (1,3,2,4)\nrb = (0,3,1,4)\nxp,yp = cycle(5,ra),cycle(5,rb)\nap,bp = perm_product(xp,xp),perm_product(yp,yp)\nassert ap[:3] == v38.hol(v38.A) and bp[:3] == v38.hol(v38.B)\nassert ap[3:] == bp[3:] == (4,3)\nassert len(subgroup(tuple(range(5)),[ap,bp],perm_product)) == 6\nfor n in (3,4):\n    permutations = itertools.permutations(range(n))\n    possible = {perm_product(h,h) for h in permutations}\n    assert not any(g[:3] == ap[:3] for g in possible)\n\n# V38 family readout, path order equals reverse composition for forward maps.\ns3 = list(itertools.permutations(range(3)))\nidentity = tuple(range(3))\ndef inv(g):\n    return tuple(g.index(i) for i in identity)\n\ndef signatures(gs,k):\n    out=[]\n    for length in range(1,k+1):\n        for word in itertools.product(gs,repeat=length):\n            val=identity\n            for g in word:\n                val=perm_product(g,val)\n            out.append(sum(v==i for i,v in enumerate(val)))\n    return tuple(out)\ndef orbit(gs):\n    return min(tuple(perm_product(q,perm_product(g,inv(q))) for g in gs) for q in s3)\nfor k in (3,4):\n    sig2,sig3,orbits = set(),{},set()\n    for tup in itertools.product(s3,repeat=k):\n        sig2.add(signatures(tup,2))\n        key=signatures(tup,3)\n        canonical=orbit(tup)\n        orbits.add(canonical)\n        assert sig3.setdefault(key,canonical) == canonical\n    print(k,len(sig2),len(sig3),len(orbits))\nC=v38.seq_hol((v38.A,v38.B,v38.Ai,v38.Bi))\nbase=(v38.hol(v38.A),v38.hol(v38.B))\nassert signatures(base+(C,),2)==signatures(base+(inv(C),),2)\nassert signatures(base+(C,),3)!=signatures(base+(inv(C),),3)\nprint(\"Group of order 36, five-slot roots and sharp three-packet observation: PASS\")\n",
+      "display_title": "check_extensions.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/8a01484604e68c498ad76a5242b8a4f72389586e/research_notes/portable_direct/20261116_heartbeat_triad_refinement/check_extensions.py",
+      "encoding": "utf-8",
+      "sha": "fdfe1855775e6085d3c313655732a31bfb272e3a"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
