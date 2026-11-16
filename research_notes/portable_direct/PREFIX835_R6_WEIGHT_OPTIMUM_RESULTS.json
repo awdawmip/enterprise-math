@@ -1,0 +1,589 @@
+{
+  "schema": "PREFIX835_R6_EVEN_RECOLLISION_EXHAUSTIVE_MIN_MAX_WEIGHT_V1",
+  "fixed_operator": {
+    "a": 1,
+    "b": 2
+  },
+  "capacity": 3,
+  "T_even_domain": [
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24,
+    26,
+    28,
+    30,
+    32,
+    34,
+    36,
+    38,
+    40
+  ],
+  "method": "Complete sorted triple enumeration by increasing maximum weight; equal (sum,4e2+3(T-2)e3) hash buckets; first distinct pair certifies optimum.",
+  "rows": [
+    {
+      "T": 4,
+      "minimum_max_weight": 11,
+      "A": [
+        1,
+        4,
+        10
+      ],
+      "B": [
+        2,
+        2,
+        11
+      ],
+      "delta_e2": 6,
+      "delta_e3": -4,
+      "triples_examined_before_first_solution": 232,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        4
+      ],
+      "histogram_at_T": [
+        "0",
+        "1368",
+        "0",
+        "30"
+      ],
+      "linear_family_max_weight": 11
+    },
+    {
+      "T": 6,
+      "minimum_max_weight": 9,
+      "A": [
+        2,
+        5,
+        8
+      ],
+      "B": [
+        3,
+        3,
+        9
+      ],
+      "delta_e2": 3,
+      "delta_e3": -1,
+      "triples_examined_before_first_solution": 138,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        6
+      ],
+      "histogram_at_T": [
+        "0",
+        "12240",
+        "0",
+        "60"
+      ],
+      "linear_family_max_weight": 17
+    },
+    {
+      "T": 8,
+      "minimum_max_weight": 23,
+      "A": [
+        1,
+        4,
+        22
+      ],
+      "B": [
+        2,
+        2,
+        23
+      ],
+      "delta_e2": 18,
+      "delta_e3": -4,
+      "triples_examined_before_first_solution": 2048,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        8
+      ],
+      "histogram_at_T": [
+        "0",
+        "57120",
+        "0",
+        "216"
+      ],
+      "linear_family_max_weight": 23
+    },
+    {
+      "T": 10,
+      "minimum_max_weight": 28,
+      "A": [
+        2,
+        15,
+        22
+      ],
+      "B": [
+        3,
+        8,
+        28
+      ],
+      "delta_e2": 72,
+      "delta_e3": -12,
+      "triples_examined_before_first_solution": 3715,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        10
+      ],
+      "histogram_at_T": [
+        "0",
+        "1256832",
+        "0",
+        "624"
+      ],
+      "linear_family_max_weight": 29
+    },
+    {
+      "T": 12,
+      "minimum_max_weight": 34,
+      "A": [
+        2,
+        16,
+        26
+      ],
+      "B": [
+        5,
+        5,
+        34
+      ],
+      "delta_e2": 135,
+      "delta_e3": -18,
+      "triples_examined_before_first_solution": 6676,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        12
+      ],
+      "histogram_at_T": [
+        "0",
+        "4744960",
+        "0",
+        "1408"
+      ],
+      "linear_family_max_weight": 35
+    },
+    {
+      "T": 14,
+      "minimum_max_weight": 21,
+      "A": [
+        2,
+        11,
+        17
+      ],
+      "B": [
+        3,
+        6,
+        21
+      ],
+      "delta_e2": 36,
+      "delta_e3": -4,
+      "triples_examined_before_first_solution": 1585,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        14
+      ],
+      "histogram_at_T": [
+        "0",
+        "6005376",
+        "0",
+        "1920"
+      ],
+      "linear_family_max_weight": 41
+    },
+    {
+      "T": 16,
+      "minimum_max_weight": 24,
+      "A": [
+        1,
+        13,
+        16
+      ],
+      "B": [
+        3,
+        3,
+        24
+      ],
+      "delta_e2": 84,
+      "delta_e3": -8,
+      "triples_examined_before_first_solution": 2348,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        16
+      ],
+      "histogram_at_T": [
+        "0",
+        "9296640",
+        "0",
+        "3840"
+      ],
+      "linear_family_max_weight": 47
+    },
+    {
+      "T": 18,
+      "minimum_max_weight": 40,
+      "A": [
+        3,
+        24,
+        27
+      ],
+      "B": [
+        7,
+        7,
+        40
+      ],
+      "delta_e2": 192,
+      "delta_e3": -16,
+      "triples_examined_before_first_solution": 10886,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        18
+      ],
+      "histogram_at_T": [
+        "0",
+        "210018816",
+        "0",
+        "13824"
+      ],
+      "linear_family_max_weight": 53
+    },
+    {
+      "T": 20,
+      "minimum_max_weight": 30,
+      "A": [
+        1,
+        9,
+        26
+      ],
+      "B": [
+        2,
+        4,
+        30
+      ],
+      "delta_e2": 81,
+      "delta_e3": -6,
+      "triples_examined_before_first_solution": 4528,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        20
+      ],
+      "histogram_at_T": [
+        "0",
+        "66695168",
+        "0",
+        "18432"
+      ],
+      "linear_family_max_weight": 59
+    },
+    {
+      "T": 22,
+      "minimum_max_weight": 26,
+      "A": [
+        3,
+        9,
+        24
+      ],
+      "B": [
+        5,
+        5,
+        26
+      ],
+      "delta_e2": 30,
+      "delta_e3": -2,
+      "triples_examined_before_first_solution": 3024,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        22
+      ],
+      "histogram_at_T": [
+        "0",
+        "431585280",
+        "0",
+        "36864"
+      ],
+      "linear_family_max_weight": 65
+    },
+    {
+      "T": 24,
+      "minimum_max_weight": 43,
+      "A": [
+        1,
+        14,
+        36
+      ],
+      "B": [
+        2,
+        6,
+        43
+      ],
+      "delta_e2": 198,
+      "delta_e3": -12,
+      "triples_examined_before_first_solution": 13292,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        24
+      ],
+      "histogram_at_T": [
+        "0",
+        "835624960",
+        "0",
+        "104448"
+      ],
+      "linear_family_max_weight": 71
+    },
+    {
+      "T": 26,
+      "minimum_max_weight": 43,
+      "A": [
+        12,
+        33,
+        33
+      ],
+      "B": [
+        16,
+        19,
+        43
+      ],
+      "delta_e2": 72,
+      "delta_e3": -4,
+      "triples_examined_before_first_solution": 13788,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        26
+      ],
+      "histogram_at_T": [
+        "0",
+        "48559104000",
+        "0",
+        "319488"
+      ],
+      "linear_family_max_weight": 77
+    },
+    {
+      "T": 28,
+      "minimum_max_weight": 42,
+      "A": [
+        1,
+        18,
+        32
+      ],
+      "B": [
+        2,
+        7,
+        42
+      ],
+      "delta_e2": 234,
+      "delta_e3": -12,
+      "triples_examined_before_first_solution": 12389,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        28
+      ],
+      "histogram_at_T": [
+        "0",
+        "5245599744",
+        "0",
+        "417792"
+      ],
+      "linear_family_max_weight": 83
+    },
+    {
+      "T": 30,
+      "minimum_max_weight": 34,
+      "A": [
+        1,
+        19,
+        21
+      ],
+      "B": [
+        3,
+        4,
+        34
+      ],
+      "delta_e2": 189,
+      "delta_e3": -9,
+      "triples_examined_before_first_solution": 6614,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        30
+      ],
+      "histogram_at_T": [
+        "0",
+        "8379498496",
+        "0",
+        "671744"
+      ],
+      "linear_family_max_weight": 89
+    },
+    {
+      "T": 32,
+      "minimum_max_weight": 48,
+      "A": [
+        1,
+        25,
+        30
+      ],
+      "B": [
+        4,
+        4,
+        48
+      ],
+      "delta_e2": 405,
+      "delta_e3": -18,
+      "triples_examined_before_first_solution": 18566,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        32
+      ],
+      "histogram_at_T": [
+        "0",
+        "35918970880",
+        "0",
+        "1835008"
+      ],
+      "linear_family_max_weight": 95
+    },
+    {
+      "T": 34,
+      "minimum_max_weight": 26,
+      "A": [
+        1,
+        16,
+        16
+      ],
+      "B": [
+        2,
+        5,
+        26
+      ],
+      "delta_e2": 96,
+      "delta_e3": -4,
+      "triples_examined_before_first_solution": 2955,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        34
+      ],
+      "histogram_at_T": [
+        "0",
+        "27820818432",
+        "0",
+        "2162688"
+      ],
+      "linear_family_max_weight": 101
+    },
+    {
+      "T": 36,
+      "minimum_max_weight": 41,
+      "A": [
+        2,
+        18,
+        34
+      ],
+      "B": [
+        3,
+        10,
+        41
+      ],
+      "delta_e2": 153,
+      "delta_e3": -6,
+      "triples_examined_before_first_solution": 11569,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        36
+      ],
+      "histogram_at_T": [
+        "0",
+        "292940677120",
+        "0",
+        "7077888"
+      ],
+      "linear_family_max_weight": 107
+    },
+    {
+      "T": 38,
+      "minimum_max_weight": 29,
+      "A": [
+        1,
+        13,
+        22
+      ],
+      "B": [
+        2,
+        5,
+        29
+      ],
+      "delta_e2": 108,
+      "delta_e3": -4,
+      "triples_examined_before_first_solution": 4093,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        38
+      ],
+      "histogram_at_T": [
+        "0",
+        "156023390208",
+        "0",
+        "9437184"
+      ],
+      "linear_family_max_weight": 113
+    },
+    {
+      "T": 40,
+      "minimum_max_weight": 50,
+      "A": [
+        4,
+        19,
+        46
+      ],
+      "B": [
+        5,
+        14,
+        50
+      ],
+      "delta_e2": 114,
+      "delta_e3": -4,
+      "triples_examined_before_first_solution": 21029,
+      "equality_times_through_T_plus_2": [
+        0,
+        1,
+        40
+      ],
+      "histogram_at_T": [
+        "0",
+        "4120935137280",
+        "0",
+        "36175872"
+      ],
+      "linear_family_max_weight": 119
+    }
+  ],
+  "all_tested_instances": 19,
+  "triples_examined": 139475,
+  "named_edge_updates": 13794,
+  "histogram_scalar_comparisons": 1900,
+  "result": "ALL_EXACT_ASSERTIONS_PASSED",
+  "scope": "Exact finite optimum only for even T=4,6,...,40 and p=3 fixed b=2; unbounded T optimum remains open."
+}
