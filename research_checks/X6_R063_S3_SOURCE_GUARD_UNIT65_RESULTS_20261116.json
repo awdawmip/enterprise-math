@@ -1,0 +1,33 @@
+{
+  "schema": "X6_R063_STAGE3_ASSERT_GUARD_UNIT65_V1",
+  "observed_at_date": "2026-11-16",
+  "source": {
+    "repository": "awdawmip/enterprise-math",
+    "source_commit": "69b7a90328bdb72852d47b338dedd7b276740ac9",
+    "path": "scripts/r063_stage3_validate_pairwise_interaction_process.py",
+    "git_blob_sha1": "4fca0c160acaa2b5d257d9bc1aefe82e1e3f4636",
+    "line": 57
+  },
+  "scope": "Literal frozen function fragment with injected empty residual_sets, not full original R063 Stage3 benchmark",
+  "test_rows": [
+    {
+      "mode": "ordinary",
+      "return_code": 0,
+      "outcome": "ASSERTION_ERROR_REJECTED"
+    },
+    {
+      "mode": "python -O",
+      "return_code": 0,
+      "outcome": "SILENT_EMPTY_TUPLE"
+    },
+    {
+      "mode": "python -OO",
+      "return_code": 0,
+      "outcome": "SILENT_EMPTY_TUPLE"
+    }
+  ],
+  "original_benchmark": "NOT_RERUN",
+  "tested_local_checker_sha256": "572e6cb0f6ef3af87617f8b52a7831923a5358ec5dd8675e690be8ab86a40b64",
+  "independent_driver": "NOT_REVIEWED",
+  "interpretation": "Implementation guard failure under optimized Python, no mathematical rejection or positive N_BRC subtraction demonstrated"
+}
