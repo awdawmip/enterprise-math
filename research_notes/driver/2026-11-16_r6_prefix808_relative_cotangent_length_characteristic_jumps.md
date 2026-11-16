@@ -103,6 +103,8 @@ For `k=2`, the intermediate sum is empty. The maximal ideal modulo its square ha
 
 ## Exact finite matrix crosscheck
 
+Reproduction: run `python experiments/reeve_relative_cotangent_20261116.py` from the repository root; it constructs the two conormal matrices explicitly and prints the 56-case PASS verdict.
+
 An integer-exponent sparse conormal matrix was assembled over each prime field `F_p`, `p in {2,3,5,7}`. For odd `h in {3,5,7,9,11,13}`, the matrix includes the `h+1` degree-`h` gradient relations inside the `2L` free differentials. For even `h=2k` with `1<=k<=8`, it includes all `df * S_(<=k-2)` and `dS_k` in the `3k^2` free module. Each rank was computed by exact modular row elimination, with no floating point or sampling. All **56** characteristic/height instances match the displayed formulas, including:
 
 | h | char 2 | char 3 | char 5 | char 7 |
