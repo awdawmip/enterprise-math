@@ -1,0 +1,22 @@
+{
+  "schema": "X6_LP019_SIGNED_RESIDUE_PRIMITIVE_INTEGER_CERT_V1",
+  "scope": "pure algebraic collapse n between adjacent p-powers; not native signed Cell pathway",
+  "ranges": [
+    {"p": 2, "k_min": 1, "k_max": 20, "interior_n_checked": 420},
+    {"p": 3, "k_min": 1, "k_max": 12, "interior_n_checked": 2184},
+    {"p": 4, "k_min": 1, "k_max": 9, "interior_n_checked": 9990},
+    {"p": 5, "k_min": 1, "k_max": 6, "interior_n_checked": 16800}
+  ],
+  "total_interior_n_checked": 29394,
+  "failure_count": 0,
+  "examples": [
+    {"p": 2, "k": 2, "n": 5, "L": 4, "U": 9, "G": 5, "d": 1,
+     "branch_multiplicities_lower_upper": [4, 1],
+     "signed_residuals_lower_upper": [1, -4],
+     "signed_contributions": [4, -4], "positive_N_total": 5},
+    {"p": 2, "k": 2, "n": 6, "L": 4, "U": 9, "G": 5, "d": 2,
+     "branch_multiplicities_lower_upper": [3, 2],
+     "signed_residuals_lower_upper": [2, -3],
+     "signed_contributions": [6, -6], "positive_N_total": 5}
+  ]
+}
