@@ -1,0 +1,50 @@
+{
+  "schema": "R762CN_EXACT_EVIDENCE_V1",
+  "parameter_domain_checked": "0<=lambda,mu<=12",
+  "depths_checked": "one-step predictive quotient equals all-horizon through 9; quotient future counts through 6",
+  "assertion_groups": 7598,
+  "state_count": 10,
+  "edge_count": 6,
+  "cases": {
+    "adjacent": {
+      "pair": [
+        "01",
+        "02"
+      ],
+      "class_count": 7,
+      "class_sizes": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "degree_distribution": {
+        "18": 4,
+        "20": 6
+      }
+    },
+    "disjoint": {
+      "pair": [
+        "01",
+        "23"
+      ],
+      "class_count": 3,
+      "class_sizes": [
+        2,
+        4,
+        4
+      ],
+      "degree_distribution": {
+        "18": 4,
+        "20": 6
+      }
+    }
+  },
+  "status": "AUTHOR_EXACT_CHECK_PASSED",
+  "independent_review": "NOT_REVIEWED",
+  "verifier": "R762CN_VERIFY.py",
+  "method": "exact integer enumeration verified in current local runtime; independent mathematical review not performed"
+}
