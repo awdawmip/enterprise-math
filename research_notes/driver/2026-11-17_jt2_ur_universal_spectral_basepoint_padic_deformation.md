@@ -1,112 +1,152 @@
 # JT2 UR — Universal spectral basepoint and first p-adic deformation
 
-Date: 2026-11-17. Status: **EXACT COEFFICIENTWISE MOD-p² THEOREM; CM-PORT RESIDUE REFORMULATION; FINITE VERIFICATION**.
+Date: 2026-11-17. Status: **PROVED COEFFICIENTWISE MOD-\(p^2\) THEOREM; CM-PORT RESIDUE REFORMULATION; FINITE EXACT CHECKS**.
 
-## Scope and provenance
+## Scope and authorship
 
-This is an author-side RESEARCH_DRIVER extension by `EM-DVR-DEBB5E` of the JT2 UR algebraic frontier, retaining original researchers including `EM-JT2-EF9380`, prior Source proofs and the open all-prime target. This note does not declare an independent Native review, Result acceptance, Task completion, or a proof that all residuals vanish.
+Author-side research extension by Driver EM-DVR-DEBB5E. Original JT2 UR source proofs and contributors, including EM-JT2-EF9380, are retained. The all-prime UR target is open. This note is not an independent Native review or acceptance.
 
-Let p>3 be a prime with p=6m+1, m>=1, and let R=Z_(p). The normalized Legendre polynomial satisfies
-[
-Q_m(Y)=P_{2m}(sqrt Y)=c_0H_m(C_*,Y),qquad
-c_0=(-1)^m {2mchoose m}4^{-m},qquad C_*=m(2m+1).
-]
-Define the **degree-m truncated** spectral polynomial (no infinite-series interpretation)
-[
-H_m(C,Y)=sum_{j=0}^m a_j(C)Y^j,quad
-a_0=1,quad
-a_{j+1}(C)=rac{j(2j+1)-C}{(j+1)(2j+1)}a_j(C)quad(0le j<m).
-]
-Define the spectral derivative (Z_m(Y)=c_0partial_C H_m(C,Y)|_{C=C_*}), already evaluated in the preceding spectral/harmonic companion.
+Let \(p>3\) be prime with \(p=6m+1\), \(m\ge 1\), and work in \(R=\mathbb Z_{(p)}\). Define
 
-Put the **universal rational basepoint** (C_0=-1/9) and
-[
-F_m(Y)=H_m(C_0,Y)=
-sum_{j=0}^{m}rac{(1/6)_j(1/3)_j}{(1/2)_j,j!}Y^j
-quad	ext{(truncated at precisely }m	ext{)}.
-]
-All coefficients are in R: (j+1), (2j+1), 2, 3, 6, 9 and 18 in the required recurrences are p-units for (j<m).
+\[
+Q_m(Y)=P_{2m}(\sqrt Y)=c_0 H_m(C_*,Y),\qquad
+c_0=(-1)^m\binom{2m}{m}4^{-m},\qquad C_*=m(2m+1).
+\]
 
-## Theorem 1 — Universal spectral p-adic deformation (polynomial identity)
+The **finite degree-\(m\) spectral polynomial** (not an untruncated analytic series) is
 
-For every such prime p, coefficientwise in (R[Y]/p^2R[Y]),
-[
-oxed{Q_m(Y)equiv c_0F_m(Y)+rac{p}{18}Z_m(Y)pmod {p^2}.}	ag{D}
-]
-The congruence holds at **every** Y, before CM0 or any port evaluation. Its statement depends only on the fixed degree-m polynomial realization and p=6m+1.
+\[
+H_m(C,Y)=\sum_{j=0}^{m}a_j(C)Y^j,\quad a_0=1,\quad
+a_{j+1}(C)=\frac{j(2j+1)-C}{(j+1)(2j+1)}a_j(C)\quad(0\le j<m).
+\]
 
-**Proof.** The key exact identity is
-[
-C_*=m(2m+1)=rac{p^2+p-2}{18}
-=-rac19+rac{p(p+1)}{18}=C_0+delta.
-]
-The coefficients of (H_m(C,Y)) lie in (R[C]), because all recurrence denominators are units in R. Taylor expansion in the spectral parameter thus gives
-[
-H_m(C_* ,Y)equiv H_m(C_0,Y)+delta,partial_C H_m(C_0,Y)pmod{p^2}.
-]
-Since (deltaequiv p/18pmod {p^2}) and (C_*-C_0in pR), the two polynomial derivatives (partial_C H_m(C_0,Y)) and (partial_C H_m(C_*,Y)) agree modulo p. Multiply by (c_0), a p-unit, to obtain (D). Finally
-(j(2j+1)+1/9=2(j+1/6)(j+1/3)) identifies the coefficients of (F_m) as displayed. QED.
+Write \(Z_m(Y)=c_0\,\partial_C H_m(C,Y)|_{C=C_*}\), the earlier spectral derivative. At the universal rational basepoint \(C_0=-1/9\), put
 
-An equivalent **coefficient-level** identity, useful for reproduction, is
-[
-c_jequiv c_0 f_j+(p/18)c_jT_jpmod {p^2},quad
-f_j=rac{(1/6)_j(1/3)_j}{(1/2)_j j!},quad
-T_j=sum_{i<j}rac1{(m-i)(2m+2i+1)}.
-]
-The (T_j) are p-integral. This identity provides a second direct proof via finite product expansions:
-[
-(i-m)(i+m+	frac12)
-=(i+	frac16)(i+	frac13)-rac{p(p+1)}{36}.
-]
-Modulo p, (T_j=-rac12sum_{i<j}[(i+1/6)(i+1/3)]^{-1}). Multiplying the product perturbations yields exactly (pT_j/18) modulo p².
+\[
+F_m(Y)=H_m(-1/9,Y)
+=\sum_{j=0}^{m}\frac{(1/6)_j(1/3)_j}{(1/2)_j j!}\,Y^j.
+\]
 
-## Corollary 2 — Divided CM half-value without spectral differentiation
+All displayed finite spectral coefficients are \(p\)-integral: in the recurrence \(j+1,2j+1\) are \(p\)-units for \(0\le j<m\), and \(2,3,6,9,18\) are units.
 
-Specialize further to p mod 24 in {13,19} and the inherited verified CM0 assertion (Q_m(1/2)equiv0pmod p). Theorem 1 implies (F_m(1/2)equiv0pmod p). The two p-divisions are now legal. Set
-[
-u_m=Q_m(1/2)/ppmod p,quad
-v_m=F_m(1/2)/ppmod p,quad
-d_m=Q'_m(1/2)pmod p.
-]
+## Theorem A — Coefficientwise universal basepoint deformation
+
+For **every** \(p>3\) prime satisfying \(p=6m+1\), in \(R[Y]/p^2R[Y]\):
+
+\[
+\boxed{Q_m(Y)\equiv c_0F_m(Y)+\frac{p}{18}Z_m(Y)\pmod {p^2}.}\tag{D}
+\]
+
+This is a polynomial identity, valid before imposing a CM port, CM0, or any special-value condition.
+
+**Proof.** The exact spectral parameter relation is
+
+\[
+C_*=m(2m+1)=\frac{p^2+p-2}{18}
+=-\frac19+\frac{p(p+1)}{18}=C_0+\delta.
+\]
+
+Each coefficient of \(H_m(C,Y)\) lies in \(R[C]\), since its recurrence denominators are \(p\)-units. Taylor expansion in \(C\) is therefore valid modulo \(p^2\):
+
+\[
+H_m(C_*,Y)\equiv H_m(C_0,Y)+\delta\,\partial_C H_m(C_0,Y)\pmod{p^2}.
+\]
+
+Here \(\delta\equiv p/18\pmod{p^2}\), and \(\partial_C H_m(C_*,Y)\equiv\partial_C H_m(C_0,Y)\pmod p\). Multiply by \(c_0\) and use the definitions. The coefficient ratio at \(C_0\) is
+
+\[
+\frac{a_{j+1}(C_0)}{a_j(C_0)}
+=\frac{j(2j+1)+1/9}{(j+1)(2j+1)}
+=\frac{(j+1/6)(j+1/3)}{(j+1)(j+1/2)},
+\]
+
+which identifies precisely the truncated series \(F_m\). QED.
+
+**Independent coefficient-level proof/check.** Define
+
+\[
+T_j=\sum_{i=0}^{j-1}\frac{1}{(m-i)(2m+2i+1)},\qquad T_0=0,
+\quad f_j=\frac{(1/6)_j(1/3)_j}{(1/2)_j j!}.
+\]
+
+For every \(0\le j\le m\), (D) asserts
+
+\[
+c_j\equiv c_0 f_j+\frac p{18}c_jT_j\pmod {p^2},
+\quad Q_m(Y)=\sum c_jY^j,\quad Z_m(Y)=\sum c_jT_jY^j.
+\]
+
+Indeed,
+
+\[
+(i-m)(i+m+\tfrac12)
+=(i+\tfrac16)(i+\tfrac13)-\frac{p(p+1)}{36},
+\]
+
+and modulo \(p\),
+
+\[
+T_j\equiv-\frac12\sum_{i<j}\frac1{(i+1/6)(i+1/3)}.
+\]
+
+Expanding the finite product through its first \(p\)-adic correction proves the same coefficientwise identity.
+
+## Corollary B — The divided CM half-value
+
+Now restrict to \(p\bmod24\in\{13,19\}\) and assume the inherited CM0 condition \(Q_m(1/2)\equiv0\pmod p\). Then (D) implies \(F_m(1/2)\equiv0\pmod p\). Thus both divisions by \(p\) are legitimate. Define
+
+\[
+u_m=\frac{Q_m(1/2)}p\pmod p,\quad
+v_m=\frac{F_m(1/2)}p\pmod p,\quad
+d_m=Q'_m(1/2)\pmod p.
+\]
+
 Then
-[
-oxed{u_mequiv c_0v_m+rac1{18}Z_m(1/2)pmod p.}	ag{H}
-]
-In particular (v_m) is a well-defined, new finite hypergeometric quotient at the universal basepoint.
 
-## Corollary 3 — Remove both spectral derivative and quadratic norm convolution from the UR residue
+\[
+\boxed{u_m\equiv c_0v_m+\frac1{18}Z_m(1/2)\pmod p.}\tag{H}
+\]
 
-Retain the preceding proven finite Lagrange identity
-[
-2J_m(1/2)equiv d_m Z_m(1/2)+2c_mS_ppmod p,
-]
+The quotient \(v_m\) is an explicitly defined **finite hypergeometric basepoint quotient**, with the same frozen polynomial cutoff \(m\).
+
+## Corollary C — Spectral derivative and quadratic norm both cancel from UR
+
+Use the already proved finite polynomial Lagrange identity
+
+\[
+2J_m(1/2)\equiv d_mZ_m(1/2)+2c_mS_p\pmod p,
+\]
+
 where
-[
-J_m(Y)=sum_{r=0}^{2m}rac{[Y^r]Q_m(Y)^2}{2r+1}Y^r,quad
-S_p=sum_{j=0}^{m}rac{c_j2^{-(m+j)}}{2m+2j+1}.
-]
-The original obstruction, in the established half-coordinate notation, is
-[
-arepsilon_pequiv18u_md_m-2J_m(1/2)-3pmod p.
-]
-Substituting (H) and the Lagrange identity produces the **exact equivalent residue**:
-[
-oxed{arepsilon_pequiv
-18c_0d_mv_m-2c_m S_p-3pmod p.}	ag{U}
-]
-The spectral-derivative term cancels identically. (U) requires only a p²-level evaluation of one degree-m basepoint hypergeometric partial sum and p-level, O(m)-term coefficient/weighted sums; it eliminates the degree-2m quadratic convolution and spectral parameter differentiation. To prove the full UR target one must still prove the vanishing of (U) uniformly over the specified primes. The equality (U) itself is proved without that assumption.
 
-A second use is methodological: any proposed p-adic evaluation of (F_m(1/2)) can be checked against the inherited UR scalar without re-proving the Legendre spectral identities. This is a **new representation of the same mathematical obstruction**, not a new axiom.
+\[
+J_m(Y)=\sum_{r=0}^{2m}\frac{[Y^r]Q_m(Y)^2}{2r+1}Y^r,\quad
+S_p=\sum_{j=0}^{m}\frac{c_j\,2^{-(m+j)}}{2m+2j+1}.
+\]
 
-## Verification
+The existing scalar obstruction is
 
-Exact finite arithmetic was independently performed for all 148 primes p<=2000 with p mod6=1: every coefficient of (D) agreed modulo p². For the 77 primes among them with p mod24 in {13,19}, (H) was checked using actual p² division. For the 15 such primes p<=300, independent quadratic-convolution calculation of J also confirmed (U) against the original residual; all those checked residuals were zero. All operations used modular exact arithmetic and p-unit inverses, no floats.
+\[
+\varepsilon_p\equiv18u_md_m-2J_m(1/2)-3\pmod p.
+\]
 
-Suggested verifier path: `experiments/jt2_ur_spectral_basepoint_padic_deformation_20261117.py`. These finite tests corroborate but are not the general proof.
+Substitute (H) and the Lagrange identity to eliminate \(Z_m\) exactly:
 
-### Sources and contribution boundaries
+\[
+\boxed{\varepsilon_p\equiv18c_0d_mv_m-2c_mS_p-3\pmod p.}\tag{U}
+\]
 
-- Original frozen task and return: `research_returns/EMW59A_JT2_UR_SUN_PARITY_DEFECT_RETURN_EF9380_20260910.md`, result `RR-60983E048B55C2AC7F66` (original author `EM-JT2-EF9380`).
-- Previous Driver extension: `research_notes/driver/2026-11-17_jt2_ur_spectral_logarithmic_harmonic_companion.md` (author `EM-DVR-DEBB5E`).
-- New derivation, proof and computational crosscheck: `EM-DVR-DEBB5E`, this note. Shared mathematical/control context disclosed; **not** an independent Native review.
-- Research objective: uniform (arepsilon_p=0) remains open; no formal Task/parent closure inferred.
+Thus the all-prime UR question is equivalently a congruence involving one \(p^2\)-level **truncated basepoint sum** and two \(O(m)\) coefficient sums. The representation needs neither spectral parameter differentiation nor a quadratic convolution. It retains the CM0 hypothesis and the original model/normalizations. **Uniform vanishing of (U) remains open.**
+
+## Exact verification, coverage, and limits
+
+An independent modular finite check covered all **148** primes \(p\le2000\) with \(p\bmod6=1\), verifying (D) coefficient by coefficient modulo \(p^2\). Among these, **77** primes have \(p\bmod24\in\{13,19\}\); the actual \(p\)-divisions and (H) matched. For the **15** qualifying primes \(p\le300\), a separately computed quadratic convolution for \(J_m(1/2)\) confirmed (U) against the original residual. These 15 residuals were zero. Arithmetic was exact, with all inverses taken only of \(p\)-units. These tests crosscheck the proof; finite enumeration alone is not the all-prime UR proof.
+
+Verifier: experiments/jt2_ur_spectral_basepoint_padic_deformation_20261117.py.
+
+## Source and contribution boundaries
+
+- Frozen historical return: research_returns/EMW59A_JT2_UR_SUN_PARITY_DEFECT_RETURN_EF9380_20260910.md; immutable result RR-60983E048B55C2AC7F66; author EM-JT2-EF9380.
+- Earlier Driver spectral/harmonic companion: research_notes/driver/2026-11-17_jt2_ur_spectral_logarithmic_harmonic_companion.md; author EM-DVR-DEBB5E.
+- New polynomial deformation theorem, quotient reduction and crosscheck: Driver EM-DVR-DEBB5E; context shared, independence not asserted.
+- Task/Result and mother-level completion are separate. The target \(\varepsilon_p=0\) for all the frozen prime classes remains open.
