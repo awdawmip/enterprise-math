@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/divisor_extrema/20261116_c74_pointwise_two_block_identification/C74_RESEARCH_NOTE.md",
+    "ref": "f4c80ac49a49e878bc64315828d480f1343a7f3d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "c74-pointwise-source-20261116",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# C74　两块因子安排的逐条恢复与实数精度\n\n2026 年 11 月 16 日。沿用原三状态正权路径、同一残差反馈、两次可见更新 $23$ 和三条完整尾 $557,575,755$。公开整数 $c\\ge2$ 为初始 5 库存。写 $v,w$ 为两次更新后的 5 库存，$2\\le w\\le v\\le c$，三个隙长依次为 $c-v,v-w,w-2$。总计 $\\binom c2$ 条安排。按 $(7,u,1-u)/8$ 制备，令 $z_j=P_j(1)/P_j(0)$ 为同一安排、同一完整尾 $j$ 在两种制备下的联合概率比。实验只给一个准确数 $g=\\max_j z_j/\\min_j z_j$。\n\n## 全库存中可以点名的无限恢复区域\n\n存在绝对常数 $\\kappa_0>0,c_0$，使得对每个整数 $c\\ge c_0$，\n$$\n2\\le w\\le v\\le\\kappa_0c^{4/13}\\quad\\Longrightarrow\\quad\n\\{(v',w'):g(c,v',w')=g(c,v,w)\\}=\\{(v,w)\\}.\n$$\n右边允许同库存的每条合法安排竞争，即使对手的首落点远超上述界也在比较之内。因此每个充分大库存里至少能在此三角区逐条保证 $\\Omega(c^{8/13})$ 个安排。另有绝对常数 $\\kappa_1>0$，取 $V=\\lfloor\\kappa_1c^{1/3}\\rfloor$，三角区 $v\\le V$ 中至少 $\\binom V2-O_\\delta(V^\\delta)$ 条具有同样的全库唯一性，对每个固定 $\\delta>0$ 分别成立。两项前置常数和起始库存均未数值化；这些界用于确定有证明覆盖的区域，最优指数仍待确定。 [区域与端点常数倍](SMALL_LANDING_GLOBAL.md) · [剩余整数行的计数](RARE_NEAR_SYNCHRONY.md)\n\n1. 对两个模板的外层读数作有理变形，固定 $c$ 后得到一个关于公开乘积 $a(c)$ 的至多二次方程。其系数的高度由两模板的首落点控制，而 $\\nu_2(a(c))=-3c+3+s_2(c+5)$。若两词不同而读数相同，必须有 $c<72\\max(v,v',100)$。所以小首落点目标可能的异词对手，必须把第一落点推到线性库存范围。若实验事先限定 $v\\le V$，选一个 $c\\ge72\\max(V,100)$ 即可区分这个模板集的全部成员。 [校准及非零多项式证明](LINEAR_CALIBRATION.md)\n2. 对这些大首落点对手，同时比较原读数在实数和 2 进两种意义下的变化。改变最后一个隙带来的中心比偏移，精确分子在最后一个扰动参数上次数至多二。其一阶系数即使为零，二阶系数仍足以排除竞争。完整证明使用双方共有的分段截断，保留原读数的方向。\n3. 内块接近完全同步时，实数间距特别小。对每个正奇数 $K$ 和 $n\\ge s\\ge2$，准确选择率比满足 $|1-\\rho_K(n,s)|\\gg_K n^{-3K}$。证明取 Gamma 比的四次方，使用已知渐近展开。其截断多项式经清分母后，各整系数中只有常数项为奇数，因此两个整数落点所给的多项式值与其 256 倍之间保留一个格距。$K=3$ 的九次下界确保上述 $4/13$ 区域包含每个合法 $w$。 [系数的全部奇偶性与准确核验](GAMMA_LATTICE.md)\n4. 对 $v\\le V$，原区域证明只须另行检查 $|1-\\rho_3(v,w)|<v^{-8}$ 的词。更宽的 $v^{-2}$ 近同步条件已迫使一个带固定有理平移的库存比逼近代数无理数 $256^{-1/9}$ 到分母平方阶。在同一个二倍长度区间中满足条件的不同有理值数为常数，Roth 定理进一步限制同一有理数可能对应的未约分分母数，得到 $O_\\delta(V^\\delta)$。不用 Roth 定理，仅用整数取值的初等下界也能将候选数压至 $O(V^{7/9})$。在 $2\\le v\\le1024$ 的 1023 个整数行中，按准确分数检查，$v^{-2}$ 窗口只有 $(402,217)$，更窄的 $v^{-8}$ 窗口为空。理论所计的是仍需检查的安排数。[完整算术论证](RARE_NEAR_SYNCHRONY.md) · [Roth 原论文](https://www.cambridge.org/core/journals/mathematika/article/rational-approximations-to-algebraic-numbers/EFB89E2873019B246F004FAA06E05A7F)\n\n## 逐库存的完整有限结论\n\n| 库存 | 处理的安排数 | 同库存内相同的模指纹 |\n|---|---:|---:|\n| 2501 至 3000 的连续 500 个库存 | 1,895,833,250 | 0 |\n| 4096 | 8,386,560 | 0 |\n| 8192 | 33,550,336 | 0 |\n| 10000 | 49,995,000 | 0 |\n| 本轮合计 | 1,987,765,146 | 0 |\n\n上一轮给出了库存 3898 中一个指定观测的完整原像。本轮三个单列大库存则各自涵盖该库存的所有可能读数。接上 C71，连续逐条证明范围为每个 $2\\le c\\le3000$，共 4,499,999,500 条安排。程序将排序方向无关的有理数 $g+g^{-1}$ 约化到素数 $2^{61}-1$ 下，逐库存检查分母非零并排序比较全部余数。若准确读数相等，两余数必然相等。因此零重复为准确单射证书。 [有限证明](FINITE_STOCKS.md) · [503 个库存的原始输出](single_h_2501_3000_and_large.txt)\n\n## 已知第一落点时，读数随库存至多相等一次\n\n固定 $v$，令 $[a,b]$ 表示一种后缀的两个真实内侧极端。原 $g$ 的对数等于一个由 $c,v$ 公共决定的正常数乘 $\\int_a^b[(P+t)(Q+t)]^{-1}dt$，其中 $P,Q$ 随外库存 $c$ 严格增加。区间若嵌套，积分始终严格有序。若不嵌套，差集为一左一右两段，增大 $c$ 后权重比沿 $t$ 严格增加，右段相对左段只可能穿越一次。因而两种不同后缀在全部 $c\\ge v$ 上至多一次并列。任意两个不同的合法外库存各读一次 $g$，均可用一个至多二次的方程解出该内侧区间。例 $v=5$ 时，$w=2,4$ 的读数在整数 $c=14$ 与 $15$ 之间翻转次序。\n\n在给定 $v$ 的实验里，对每个 $c$，若 $v\\le\\min(c,\\max\\{768,\\lfloor c/64\\rfloor\\})$，一次原 $g$ 已能区分全部合法 $w$。有限部分在 $v\\le768$ 共检查 75,202,816 对，并将有限外库存、首次换序和无限远顺序拼接。这个有条件结论的竞争者具有相同 $v$；第一节定理则允许任意 $v'$。 [单次穿越、线性界和证书](SAME_LANDING.md) · [双库存的准确区间反演](recover_interval.py)\n\n## 实数舍入会带来多大损失\n\n对于任一固定深度 $r\\ge1$，若把 $g$ 按等宽实数格舍入到 $b(c)$ 个二进制小数位，且希望同库存唯一识别比例趋近 1，则必有\n$$ b(c)-(r+3/4)\\log_2 c\\ \\longrightarrow+\\infty .$$\n若要求歧义比例为 $O(c^{-\\sigma})$，$0<\\sigma<r$，则必要下界为 $b(c)\\ge[r+3/4+(5+9/(4r))\\sigma]\\log_2 c-O(1)$。这些必要条件对任意网格偏移成立。同一批有限库存也能看见这一损失：$c=8192$ 时 $8\\le w\\le v\\le16$ 的 45 个原读数全落在 $[1,1+2^{-119})$；其中两条 $(15,8)$ 和 $(10,10)$ 的准确差在 $[2^{-132},2^{-131})$。要使整个库存对于任意格偏移都逐条可分，至少需 132 个二进制小数位。 [实数精度证明](SCALAR_ROUNDING.md) · [两读数准确差的复核](precision_pair.json)\n\n**前轮归属及公式校正。** C69 已给出一、二、三块固定原读数的密度一结论。C69 三块中心函数的展开式中，第二落点变量的分子幂应为 39，原文印作 24；由同段未展开分式可直接校正，C73 给出正确展开。C73 的一般定理覆盖所有固定块数并给幂次误差。C74 的进展是全库存逐条区域、算术间隔、有限全库证明的扩展及舍入界。所有结论为作者证明与复算，尚待外部独立复核。两块固定单项能否在每个库存逐条单射仍未解决。[C69 单读数原稿](https://github.com/awdawmip/enterprise-math/blob/776862c927e553b6697723ad27fe61c8334d23e6/research_notes/divisor_extrema/20261113_c69_fixed_stock_identification/singleh/ONE_H.md) · [C73 研究笔记](https://github.com/awdawmip/enterprise-math/blob/776862c927e553b6697723ad27fe61c8334d23e6/research_notes/divisor_extrema/20261116_c73_fixed_depth_recovery/C73_RESEARCH_NOTE.md) · [复算说明](REPRODUCE.md)\n",
+      "display_title": "C74_RESEARCH_NOTE.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/f4c80ac49a49e878bc64315828d480f1343a7f3d/research_notes/divisor_extrema/20261116_c74_pointwise_two_block_identification/C74_RESEARCH_NOTE.md",
+      "encoding": "utf-8",
+      "sha": "83ead27ab5711ebf5b29d82181977268009540ba"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
