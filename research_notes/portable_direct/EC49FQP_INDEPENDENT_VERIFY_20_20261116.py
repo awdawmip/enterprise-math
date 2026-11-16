@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """EC49FQP independent exact verification.
 Run INSIDE the unpacked EC49FQP_EVIDENCE directory:
-    PYTHONPATH=code python3 code/EC49FQP_VERIFY_20261116.py
+    PYTHONPATH=code python3 code/EC49FQP_INDEPENDENT_VERIFY.py
 Needs the bundled native-data reader, frozen sources, and all 61 certificates.
 No third-party packages or floating-point Bellman arithmetic.
 """
