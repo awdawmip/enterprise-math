@@ -1,0 +1,61 @@
+{
+  "schema": "EM_R748_C1_SIGNED_PAIR_BRC_SPECTRUM_EXACT_V1",
+  "status": "PASS",
+  "vertices": 60,
+  "signed_ports": 12,
+  "edges": 960,
+  "degree": 16,
+  "spectrum": {
+    "0": 15,
+    "4": 5,
+    "8": 6,
+    "16": 1,
+    "-4": 9,
+    "-2": 24
+  },
+  "verified_independent_eigenvectors": 60,
+  "integer_walk_checks": {
+    "1": {
+      "trace": 0,
+      "return_walks_per_vertex": 0,
+      "resampled_return": "0/16",
+      "retained_return": 0
+    },
+    "2": {
+      "trace": 960,
+      "return_walks_per_vertex": 16,
+      "resampled_return": "16/256",
+      "retained_return": 0
+    },
+    "3": {
+      "trace": 6720,
+      "return_walks_per_vertex": 112,
+      "resampled_return": "112/4096",
+      "retained_return": 1
+    },
+    "4": {
+      "trace": 94080,
+      "return_walks_per_vertex": 1568,
+      "resampled_return": "1568/65536",
+      "retained_return": 0
+    },
+    "5": {
+      "trace": 1240320,
+      "return_walks_per_vertex": 20672,
+      "resampled_return": "20672/1048576",
+      "retained_return": 0
+    },
+    "6": {
+      "trace": 18408960,
+      "return_walks_per_vertex": 306816,
+      "resampled_return": "306816/16777216",
+      "retained_return": 1
+    }
+  },
+  "second_eigen_absolute_P": "1/2",
+  "observer_limit_return": "1/60",
+  "retained_source_period": 3,
+  "3k_gap_limit": "59/60",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "exact finite proposed C1 Port model; no native V29/V39 execution"
+}
