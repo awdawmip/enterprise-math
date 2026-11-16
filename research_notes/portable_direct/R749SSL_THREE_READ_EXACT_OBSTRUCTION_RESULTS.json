@@ -1,0 +1,24 @@
+{
+  "schema": "R749SSL_THREE_READ_UNKNOWN_CUTOFF_OBSTRUCTION_V1",
+  "status": "PASS",
+  "cutoffs": [
+    7,
+    8
+  ],
+  "first_state_d": "-1",
+  "first_state_e": "unique root in (0,1/100) of P(e)",
+  "P_high_to_low": [
+    "5957265452844",
+    "-5464016404300823",
+    "35816460863863"
+  ],
+  "determinant_identity": "cons(e)=-P(e)/191164619161600000",
+  "alternative": {
+    "H": "151241499*e-18047271191",
+    "d": "2*(202246101*e+4057501031)/H",
+    "e": "3*(425014044*e^2-46558027037*e-65798686651)/(8*H)",
+    "bounds": "-1<d<0 and 1<e<2 on [0,1/100]"
+  },
+  "verification": "exact rational determinant polynomial, endpoint isolation signs, 4-point rational inverse identities and interval bounds",
+  "scope": "existential three-read real-error collision only; integer and four-read questions open"
+}

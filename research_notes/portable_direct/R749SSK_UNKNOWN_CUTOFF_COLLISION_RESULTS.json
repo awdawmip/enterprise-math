@@ -1,0 +1,72 @@
+{
+  "schema": "R749SSK_EXACT_TWO_READ_COLLISION_V1",
+  "status": "PASS",
+  "method": "exact integer coin-change and fractions.Fraction",
+  "anchors": {
+    "6": {
+      "C": 41,
+      "T": 50
+    },
+    "7": {
+      "C": 65,
+      "T": 91
+    },
+    "8": {
+      "C": 98,
+      "T": 156
+    },
+    "12": {
+      "C": 380,
+      "T": 881
+    },
+    "13": {
+      "C": 506,
+      "T": 1261
+    },
+    "14": {
+      "C": 662,
+      "T": 1767
+    }
+  },
+  "A": {
+    "q": 6,
+    "p": 7,
+    "q_errors": [
+      "0",
+      "0"
+    ],
+    "p_errors": [
+      "445301541473/452834122344",
+      "-16718273227/37736176862"
+    ],
+    "two_reads": [
+      "400643/4428",
+      "690461/10260"
+    ],
+    "jacobians": [
+      "-399398688/15171025",
+      "-13434258626320847134747513933982/543072425292244300021539126975"
+    ],
+    "third_gap": "2499325179139188767/1219962360222318330"
+  },
+  "B": {
+    "q": 6,
+    "p": 8,
+    "same_known_d": "-1",
+    "numerator_errors": [
+      "-96083110/75133251",
+      "20416063/33392556"
+    ],
+    "two_reads": [
+      "9031928401/100177668",
+      "7216422841/100177668"
+    ],
+    "third_gap": "321813705516/162895381165"
+  },
+  "scope": "two exact continuous-error cutoff collisions, local open overlap, and two exact third-read separations",
+  "unresolved": [
+    "three-read global injectivity",
+    "unknown-cutoff integer-error injectivity",
+    "BRC type preservation"
+  ]
+}
