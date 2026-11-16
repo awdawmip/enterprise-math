@@ -1,0 +1,102 @@
+{
+  "schema": "PREFIX824_R6_POSITIVE_CARRIER_REGRESSION_V1",
+  "model": "positive_branch_named_subset_Q_equals_R_plus_A",
+  "b0": {
+    "q_range": [
+      1,
+      6
+    ],
+    "a_values": [
+      1,
+      2,
+      3
+    ],
+    "cases": 18,
+    "initial_named_state_checks": 1395,
+    "carrier_update_coordinate_checks": 43581,
+    "output_and_dependency_checks": 75201,
+    "full_exact_rational_rank_checks": 6,
+    "dimensions_by_q": {
+      "1": {
+        "dimension": 3,
+        "named_state_count": 4,
+        "coordinates": 3,
+        "future_step_bound": 3
+      },
+      "2": {
+        "dimension": 8,
+        "named_state_count": 11,
+        "coordinates": 8,
+        "future_step_bound": 4
+      },
+      "3": {
+        "dimension": 14,
+        "named_state_count": 26,
+        "coordinates": 14,
+        "future_step_bound": 5
+      },
+      "4": {
+        "dimension": 21,
+        "named_state_count": 57,
+        "coordinates": 21,
+        "future_step_bound": 6
+      },
+      "5": {
+        "dimension": 29,
+        "named_state_count": 120,
+        "coordinates": 29,
+        "future_step_bound": 7
+      },
+      "6": {
+        "dimension": 38,
+        "named_state_count": 247,
+        "coordinates": 38,
+        "future_step_bound": 8
+      }
+    },
+    "rank_by_q": {
+      "1": [
+        3
+      ],
+      "2": [
+        8
+      ],
+      "3": [
+        14
+      ],
+      "4": [
+        21
+      ],
+      "5": [
+        29
+      ],
+      "6": [
+        38
+      ]
+    }
+  },
+  "b_positive_q1_q2": {
+    "q_values": [
+      1,
+      2
+    ],
+    "a_values": [
+      1,
+      2,
+      3
+    ],
+    "b_values": [
+      1,
+      2,
+      3
+    ],
+    "cases": 18,
+    "named_state_checks": 135,
+    "carrier_update_coordinate_checks": 900,
+    "histogram_checks": 2070,
+    "full_exact_rank_checks": 2
+  },
+  "all_exact_assertions": "PASSED",
+  "native_X6_admission": "NOT_TESTED",
+  "independent_review": "NOT_PERFORMED"
+}
