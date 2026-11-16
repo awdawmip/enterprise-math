@@ -1,0 +1,41 @@
+{
+  "global_pairs": 15,
+  "id": "R762CH",
+  "model": "P000-compatible six-axis primitive closed paths with prospective all-rooted-pair readouts",
+  "no_go": "B23 and L23 have old roots 000 and 010; after 3->4 both path-area roots 000; after reversing 4->3 their old area roots re-emerge; dropping dormant pair area is not all-future safe.",
+  "one_port_weight": "f_q(0)=2; f_q(a)=binomial(q,a) for 1<=a<q",
+  "pair_covariance_checks": 10800,
+  "permutations_checked": 720,
+  "q2": {
+    "bits": 15,
+    "classes": 32768,
+    "ordered_source_histories": 1073741824
+  },
+  "q3": {
+    "bits": 24,
+    "classes": 14348907,
+    "ordered_source_histories": 35184372088832
+  },
+  "q7": {
+    "bits": 43,
+    "classes": 4747561509943,
+    "ordered_source_histories": "40564819207303340847894502572032"
+  },
+  "q_range": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "result": "For any set E of unordered axis pairs, the exact mod-q pair-cocycle observer quotient on the common loop-slot coarse fibre has q^|E| classes and ceil(log2(q^|E|)) bits.",
+  "review": "NOT_REVIEWED",
+  "scope": "conditional mathematical observer and candidate event interface; native TRIADIC_CLOSURE_E and V17/V29/V39 licensing not established",
+  "signed_frames_checked": 160,
+  "tests_passed": 11156,
+  "total_all_pair_weight": "2^(15q)"
+}
