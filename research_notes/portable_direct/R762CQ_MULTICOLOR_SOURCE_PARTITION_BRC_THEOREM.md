@@ -37,7 +37,7 @@ It is connected and `d(k)`-regular. The unrestricted positive N-BRC path count f
 
 Let `f=1_F`, `p=1_P` on ten states. Define the two-channel N-BRC future observer
 `O_h(i)=(kind(i),((T_~^t f)(i),(T_~^t p)(i))_{t=0,...,h})`.
-For **all source equivalence relations** on the six labels, equality of `O_1` is equivalent to equality of `O_h` for every finite `h≥0`. In particular, the `O_1` fibers are the **smallest exact sufficient state partition** for this declared future-count observation language.
+For **all source equivalence relations** on the six labels, equality of `O_1` is equivalent to equality of `O_h` for every integer `h≥1`. In particular, the `O_1` fibers are the **smallest exact sufficient state partition** for this declared future-count observation language.
 
 This is an exact, exhaustive **finite computer-assisted proof**. The attached dependency-free verifier enumerates all 203 canonical restricted-growth strings (one per set partition of six labels); for each, it constructs all ten states and all cross-triple exchanges, groups states by `(kind,Tf,Tp)`, and checks for every pair of source/target groups that every source state has the same integer transition count into the target group. Thus each group partition is equitable. By induction, the two initial constant-on-block vectors `f,p` remain constant on blocks under every power of T. Conversely distinct `O_1` signatures are distinguished already at time 0 or 1. The verifier also checks all 24 K4 vertex relabelings across all 203 cases, graph-component cardinalities/degrees, and the binary-source regression against R762CP. This proof is finite and exhaustive because **every** equality pattern on six labels has a unique restricted-growth canonical representative.
 
