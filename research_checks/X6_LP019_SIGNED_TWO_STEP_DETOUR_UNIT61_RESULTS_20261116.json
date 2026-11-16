@@ -1,0 +1,155 @@
+{
+  "schema": "X6_LP019_UNIT61_TWO_STEP_DETOUR_EXACT_V1",
+  "scientific_pin": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "P000_type": "signed X6 Cell displacement; pure coordinate adjacency",
+  "claims": "N_{T+2}(z)=N_T(z)*(T+1)*(T+2)*sum_i 1/(|z_i|+1)",
+  "source_api_names": [
+    "signed_brc.shortest_path_multiplicity",
+    "signed_brc.endpoint_multiplicity",
+    "p022_geodesic_multiplicity.sc_geodesic_path_count",
+    "p022_geodesic_multiplicity.sc_shell_total_geodesic_paths"
+  ],
+  "source_api_executed": false,
+  "samples": [
+    {
+      "z": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "G": 0,
+      "T": 0,
+      "N_T": 1,
+      "N_T_plus_2": 12,
+      "independent_word_recurrence": 12
+    },
+    {
+      "z": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "G": 1,
+      "T": 1,
+      "N_T": 1,
+      "N_T_plus_2": 33,
+      "independent_word_recurrence": 33
+    },
+    {
+      "z": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "G": 2,
+      "T": 2,
+      "N_T": 2,
+      "N_T_plus_2": 120,
+      "independent_word_recurrence": 120
+    },
+    {
+      "z": [
+        -1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "G": 2,
+      "T": 2,
+      "N_T": 2,
+      "N_T_plus_2": 120,
+      "independent_word_recurrence": 120
+    },
+    {
+      "z": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "G": 5,
+      "T": 3,
+      "N_T": 3,
+      "N_T_plus_2": 290,
+      "independent_word_recurrence": 290
+    },
+    {
+      "z": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "G": 3,
+      "T": 3,
+      "N_T": 6,
+      "N_T_plus_2": 540,
+      "independent_word_recurrence": 540
+    },
+    {
+      "z": [
+        3,
+        0,
+        0,
+        -4,
+        0,
+        0
+      ],
+      "G": 25,
+      "T": 7,
+      "N_T": 35,
+      "N_T_plus_2": 11214,
+      "independent_word_recurrence": null
+    }
+  ],
+  "G25_by_T_support": {
+    "T11_s5": [
+      960,
+      399168000,
+      160864704000
+    ],
+    "T11_s6": [
+      3840,
+      2128896000,
+      774918144000
+    ],
+    "T5_s1": [
+      12,
+      12,
+      2604
+    ],
+    "T7_s2": [
+      120,
+      4200,
+      1345680
+    ],
+    "T9_s4": [
+      2880,
+      10886400,
+      4031596800
+    ]
+  },
+  "G25_all": {
+    "endpoints": 7812,
+    "N_T_mass": 2538954612,
+    "N_T_plus_2_mass": 939815793084
+  },
+  "P022_T5_mass": 106452,
+  "crosscheck": "enumerate all signed quadratic-shell endpoints and independent orbit-partition counting; direct factorial detour + common denominator + word recurrence on small cases",
+  "project_admission": "UNREVIEWED_NOT_ADMITTED"
+}
