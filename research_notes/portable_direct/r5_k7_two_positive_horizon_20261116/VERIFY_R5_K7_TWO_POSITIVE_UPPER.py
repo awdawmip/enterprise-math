@@ -35,6 +35,7 @@ assert all(genuine(r,u) and all((raw_set(u,a),TARGETS[r][a]) in valid for a in (
 # The explicit action table in fact satisfies commuting and idempotent positive resets.
 assert all(TARGETS[TARGETS[r][a]][a]==TARGETS[r][a] for r in CENTRES for a in (0,1))
 assert all(TARGETS[TARGETS[r][0]][1]==TARGETS[TARGETS[r][1]][0] for r in CENTRES)
+# Compare the state count with all frozen previous k=6 data without redoing its search.
 report={'status':'PASS_R5_K7_TWO_RAISES_NINETEEN_UPPER',
         'frozen_science_pin':'435e77af0d180eac32bd1f9c4c464bc4010b7551',
         'model':'genuine-source 7-cycle q(u)=sum adjacent products, slack=2, only Set_0(1),Set_1(1)',
