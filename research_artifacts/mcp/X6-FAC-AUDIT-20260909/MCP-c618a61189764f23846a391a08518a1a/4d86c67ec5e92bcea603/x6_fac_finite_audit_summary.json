@@ -1,0 +1,127 @@
+{
+  "schema": "X6_FAC_SMALL_FINITE_96_V1",
+  "date": "2026-11-17",
+  "n_trials": 96,
+  "ps": [
+    11,
+    13,
+    17,
+    19
+  ],
+  "gap_lower_bounds": [
+    6,
+    12,
+    18,
+    24
+  ],
+  "q_rule": "first prime >=p+g",
+  "Rs": [
+    12,
+    18,
+    24
+  ],
+  "seeds": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      2
+    ]
+  ],
+  "semantics": "gcd(N,coefficient) proper factor in fine polynomial, all divisor quotient or any cyclotomic quotient",
+  "hypothesis": "small-window sanity only, not representative factor scale",
+  "counts": [
+    {
+      "R": 12,
+      "seed": [
+        0,
+        1
+      ],
+      "trials": 16,
+      "fine": 10,
+      "divisor": 12,
+      "union": 14,
+      "mul": 20287,
+      "add": 21439,
+      "gcd": 832
+    },
+    {
+      "R": 12,
+      "seed": [
+        0,
+        1,
+        2
+      ],
+      "trials": 16,
+      "fine": 12,
+      "divisor": 15,
+      "union": 15,
+      "mul": 24323,
+      "add": 25475,
+      "gcd": 832
+    },
+    {
+      "R": 18,
+      "seed": [
+        0,
+        1
+      ],
+      "trials": 16,
+      "fine": 16,
+      "divisor": 16,
+      "union": 16,
+      "mul": 40686,
+      "add": 42414,
+      "gcd": 1200
+    },
+    {
+      "R": 18,
+      "seed": [
+        0,
+        1,
+        2
+      ],
+      "trials": 16,
+      "fine": 12,
+      "divisor": 15,
+      "union": 15,
+      "mul": 49741,
+      "add": 51469,
+      "gcd": 1200
+    },
+    {
+      "R": 24,
+      "seed": [
+        0,
+        1
+      ],
+      "trials": 16,
+      "fine": 16,
+      "divisor": 16,
+      "union": 16,
+      "mul": 64995,
+      "add": 68067,
+      "gcd": 1728
+    },
+    {
+      "R": 24,
+      "seed": [
+        0,
+        1,
+        2
+      ],
+      "trials": 16,
+      "fine": 12,
+      "divisor": 15,
+      "union": 15,
+      "mul": 81661,
+      "add": 84733,
+      "gcd": 1728
+    }
+  ],
+  "verification": "direct quotient/cyclotomic exponentiation assertions passed in Python/SymPy; full 96-row local JSON SHA256 b06c1b8615fc58d88e5802be33ce7bba03bd45d7b5fcc2bcb9ff3d8b48056a0e",
+  "code_sha256": "7c78efb6845655117e579e6b067cce2e67c970047b86459954d5c66ff4bc8e09"
+}
