@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/public_math_intake_20261116/craig_path_restriction/firstorder3.md",
+    "ref": "2565d7618b5062dbbc49174fc30f7ddae2c2483d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "craig-x6-identification-firstorder3.md",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 任意相容路径族的相干修正首项\n\n沿用[前次的路径模型](https://github.com/awdawmip/enterprise-math/blob/25b4d0e92c20c363e8ee01fbd4ac5bea076bd3da/research_notes/public_math_intake_20261116/craig_path_restriction/README.md)。只用辅助正向字符 z(t)，0≤t≤1，及具名的同类均匀删步核。令 Z_N=E[z(A_N)]，其中 A_N 是 N² 个横竖步对中横步在前的比例。每个 N 层的来源分支与稀疏层补全按相同删步核解释。\n\n## 首项公式与加速\n\n记 Θ 为极端排序规则。给定 Θ，p_Θ 是一个 X 在一个 Y 前的概率，b_Θ 是二层词 XYYX 和 YXXY 的条件概率之和。令 r_H 是正向 8H 阶首根，C=lim H²|1−r_H|²，C∈[1/2,1]。先前[分圆字符构造](https://github.com/awdawmip/enterprise-math/blob/25b4d0e92c20c363e8ee01fbd4ac5bea076bd3da/research_notes/public_math_intake_20261116/craig_path_restriction/coherent.md)已证明该极限存在并给出显式有理误差界。记\n\n    L = C E[b_Θ z(p_Θ)]。\n\n对任意相容塔和每个 N≥1，有\n\n    |Z∞−Z_N−L/N| ≤ 18/N²。\n    lim N(Z∞−Z_N) = L。\n\n故整个第一阶误差的实部、虚部都有确定极限。含内部路径时 b>0，所有 z(p_Θ) 都在闭第一象限，投向单位对角线的标量至少为 1/√2，因此 |L|≥Cb/√2。对于二倍细化，还能精确定位相邻层修正 Z_(2N)−Z_N=L/(2N)+O(N⁻²)，并从两个细层算出二阶准确的组合\n\n    |2Z_(2N)−Z_N−Z∞| ≤ 27/N²。\n\n该组合是两个已有辅助读数的线性外推。权重 (−1,2) 不用作路径的正概率。\n\n## 证明\n\n**极端表示及两样本投影。** Choi–Evans 的边界定理给出极端桥的两个独立无原子样本：给定 Θ，具名 X 和 Y 各自的排序键独立同分布，两类也独立，排序后的相对次序给出全部层。一般相容塔为极端桥的混合。规范实现可取两个分布的均值测度为 [0,1] 上的均匀测度。若从无界子列出发，删步复合给出全部中间层。[Choi–Evans 原文 §§5–7](https://pmc.ncbi.nlm.nih.gov/articles/PMC5619682/) · [作者预印本](https://arxiv.org/abs/1605.03512)\n\n以下先条件在 Θ。写 H(x,y)=1{x<y}，p=EH。设 U(x)=E_Y H(x,Y)−p，V(y)=E_X H(X,y)−p，R(x,y)=H(x,y)−p−U(x)−V(y)。R 各自在给定任一端时均值为零。将所有有序对取平均得到 D=A_N−p 的两样本 Hoeffding 分解\n\n    D = Σ_i U(X_i)/N + Σ_j V(Y_j)/N + Σ_ij R(X_i,Y_j)/N²。\n\n三个部分正交。不同指标的 R 项即使只共享一个具名来源，其余变量条件平均仍使协方差为零。因此 E[D²|Θ]=S/N+T/N²，其中 S=Var U+Var V，T=E R²。等价地，上一节[二层表](secmom3.md)给出 2S=b_Θ，4T=c_Θ（c_Θ 为两种完全交错词概率之和）。极端态中两个互不共名的比较独立，故 d_Θ=p²。跨 Θ 的极限面积分布正是 p_Θ 的分布。\n\n**三、四阶余项的统一控制。** 展开 D³，把三个有序比较看作二部多重图的三条带位置边。若有一个比较与另两项所用名字均不同，中心化后其条件期望为零。要有贡献，三个边节点构成的相交图必须连通。该相交图含某棵三节点生成树，共三种候选。沿每棵树的两条邻接可各指定共享 X 或 Y，共四种选择。同色约束为两个独立条件（两条树边约束的下标形成森林），异色约束则落在独立的两个指标数组中。每种至多 N⁴ 组具名下标。单项中心化乘积模至多 1，分母为 N⁶，故 |E[D³|Θ]|≤12/N²。\n\n将 N² 个有序比较分入 N 个循环完美匹配，匹配 l 比较 X_i 与 Y_(i+l mod N)。给定 Θ，每个匹配内的 N 个比较独立，成功率同为 p。令 B_l 为该匹配的成功比例减 p，则 D 为各 B_l 的平均。逐点 Jensen 给出 E D⁴ ≤ (1/N)Σ_l E B_l⁴，匹配之间即使相关也适用。单个匹配的独立中心化 Bernoulli 指标具有方差 ≤1/4，由绝对值 ≤1 可知四阶矩也 ≤1/4。独立变量和的四阶矩展开只剩四次对角和两个成对下标项，故\n\n    E[B_l⁴ | Θ] ≤ [N/4+3N(N−1)/16]/N⁴ ≤ 1/(4N²)。\n\n此处只对正权具名比较的分组计数使用概率表示，数值工作不生成连续键或物理相位。\n\n**字符的二阶项。** 在[有限单位根推导的字符展开](boundary3.md)中，α=lim_H H(r_H−1) 是纯虚数，|α|²=C，z'(t)=2αz(t)。所以 z''(t)=−4Cz(t)，|z'''(t)|≤8，|z''''(t)|≤16。这些是对已经固定的辅助字符求导。水平方向、竖直方向的原生作用和每一步的标签仍只按原路径规则生成。对 z(p+D) 在 p 展开到三阶。一次项条件均值为零。二次项为 −2C z(p)(S/N+T/N²)，三次项的模至多 8·12/(6N²)，四次余量的模至多 16/(96N²)。于是\n\n    |z(p)−E[z(A_N)|Θ]−C b_Θ z(p)/N|\n       ≤ [C c_Θ/2 + 16 + 1/6]/N² < 18/N²。\n\n该常数独立于 Θ，按实际极端分布积分便得到首项与统一余量。Z∞=E z(p_Θ) 也可由极端态内的 E D²→0 直接验证。二倍外推的 27 取自 18(1+2/4)。没有主张这些余量常数最优。\n\n## 从有限层计算首项\n\n令 e_j=E[b_Θ(2p_Θ−1)^j]。对 μ_(j+2) 中的词，两种颜色各自独立均匀赋名。取前两个 X 和前两个 Y 的诱导词，记其属于 {XYYX,YXXY} 的指标为 B。对其余 j 对同名号 X_i、Y_i，若 X_i 在前则记 σ_i=1，否则记为 −1。下式只涉及这一层的有限路径权与具名比较\n\n    e_j=E[B·∏_(i=3)^(j+2) σ_i]。\n\n因为在极端表示中，这 j+1 组名字互不相交，给定 Θ 独立，条件均值分别为 b_Θ 与 2p_Θ−1。特别地，e_0=b，且 |e_j|≤b。取 κ≥0、H≥1，α_H=H(r_H−1)，C_H=H²|r_H−1|²，s=(1+i)/√2。字符展开给出有限粗层的首项近似\n\n    L_(κ,H)=C_H s Σ_(j=0)^κ α_H^j e_j/j!，\n    |L−L_(κ,H)| ≤ b[ (κ+2)/((κ+1)(κ+1)!) + 3/(2H) + 1/(12H²) ]。\n\n此处用 |α−α_H|≤1/(2H)，|C−C_H|≤1/(12H²)，以及阶乘尾项几何界。μ_(κ+2) 用同一删步核供给上述所有 e_j。首项的可计算性因而也有一个只用有限层的证书。\n\n## 三个可交叉复核的情形\n\n1. 具名均匀排序。p=1/2、b=1/3。于是 L=C(1+i)/(3√2)，剥掉常相位方向就得到前轮等权模型的 mδ_m→C/3。更一般地，只要混合中 p_Θ=p 几乎处处（等价于 d=p²），就有 L=Cb z(p)，其中 b 可从该族的二层表整体读取。\n2. 每个 X 独立以概率 t 排在整个 Y 块前，否则在后。所有 Y 的次序保留，X 的位次取得块内均匀排序。按具名次序，维持两类样本各自的连续随机内部顺序即可构成极端实现。此时 p=t，A_N 是 Bin(N,t)/N，b=2t(1−t)，故 L=2Ct(1−t)z(t)。在这个模型里，有限层 Z_N=(1−t+t z(1/N))^N 也是可直接比对的有限多项式。\n3. 项目既有的具名剩余权排序，X、Y 权比为 2:1。其极端实现可取两类指数等待键（共同连续单调变换可使键位于 [0,1]）。直接用[原有偏正权公式](https://github.com/awdawmip/enterprise-math/blob/25b4d0e92c20c363e8ee01fbd4ac5bea076bd3da/research_notes/public_math_intake_20261116/craig_path_restriction/weighted.md)：p=2/3，S=2/(9·4)+4/(9·5)=13/90。因此 b=13/45，L=(13C/45)z(2/3)。取 t=2/3 的前/后块模型，其 b=4/9。这两个模型均有相同的整个极限面积分布 δ_(2/3)，而且有不同的首阶系数。\n\n## 计算证据\n\n[check_firstorder3.py](check_firstorder3.py) 核对原 BRC 最短路数，枚举均匀族、2:1 具名排序及两组前/后块模型，以精确分数检查极端投影的二阶系数、中心三次和四次界。以独立枚举未使用名字的完美匹配，复核了 3 个模型在 j=0,…,3 的 12 个标记矩。另用二进分圆根的纯有理包围求均匀族和 t=1/4、3/4 的读数，单独验证 N|Z∞−Z_N| 的代表性区间及二倍外推。全部路径权和末步标签均来自具名词或等价分箱。N=16 时，N²|Z∞−Z_N|² 在均匀族落于 [4439278,4439279]/10⁸，在两组块模型均落于 [5276594,5276595]/10⁸。该区间只用有理数与整数平方根核验。\n",
+      "display_title": "firstorder3.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/firstorder3.md",
+      "encoding": "utf-8",
+      "sha": "8a0d450431f44914abadf64c64c3dfdf18cf80b4"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

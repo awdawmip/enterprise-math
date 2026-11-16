@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/public_math_intake_20261116/craig_path_restriction/check_gepner3.py",
+    "ref": "2565d7618b5062dbbc49174fc30f7ddae2c2483d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "craig-x6-identification-check_gepner3.py",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Check the finite Gepner normalization and its fourth moment using exact counts.\"\"\"\nfrom functools import lru_cache\nfrom collections import Counter\nfrom fractions import Fraction\nfrom itertools import combinations\n\nfrom check_x6_projection3 import paths\nfrom check_weighted import load_signed_brc\n\n\ndef statistics(word):\n    seen = [0, 0, 0]\n    cyclic_pairs = 0\n    for color in word:\n        cyclic_pairs += seen[(color - 1) % 3]\n        seen[color] += 1\n    return cyclic_pairs\n\n\ndef cyclic_histogram(counts):\n    \"\"\"Distribution by cyclic pair count, adding the last colored step.\"\"\"\n    @lru_cache(maxsize=None)\n    def build(state):\n        if not any(state):\n            return {0: 1}\n        out = Counter()\n        for color, amount in enumerate(state):\n            if amount == 0:\n                continue\n            previous = list(state)\n            previous[color] -= 1\n            increment = previous[(color - 1) % 3]\n            for value, freq in build(tuple(previous)).items():\n                out[value + increment] += freq\n        return out\n    return build(counts)\n\n\nif __name__ == \"__main__\":\n    brc = load_signed_brc()\n    for n in range(1, 5):\n        count = fourth_numerator = 0\n        endpoint = (n, n, n, 0, 0, 0)\n        for word in paths(endpoint):\n            cyclic_pairs = statistics(word)\n            centered = 2 * cyclic_pairs - 3 * n * n\n            if n <= 3:\n                odd = sum((a, b, c) in {(0, 2, 1), (1, 0, 2), (2, 1, 0)}\n                          for a, b, c in combinations(word, 3))\n                assert 2 * odd - n**3 == -n * centered\n            fourth_numerator += centered**4\n            count += 1\n        assert count == brc.shortest_path_multiplicity(endpoint)\n        moment = Fraction(fourth_numerator, count * (2*n*n)**4)\n        assert moment == Fraction(21, 80*n**4) - Fraction(1, 5*n**5)\n        print(n, count, moment)\n\n    for n in range(1, 7):\n        hist = cyclic_histogram((n, n, n))\n        total = brc.shortest_path_multiplicity((n, n, n, 0, 0, 0))\n        assert total == sum(hist.values())\n        def central(power):\n            raw = sum((2*v-3*n*n)**power * weight for v, weight in hist.items())\n            return Fraction(raw, total * (2*n*n)**power)\n        assert central(4) == Fraction(21,80*n**4)-Fraction(1,5*n**5)\n        assert central(6) == (Fraction(279,448*n**6)-Fraction(41,28*n**7)\n                              +Fraction(8,7*n**8)-Fraction(2,7*n**9))\n    print(\"Exact last-step recursion and fourth/sixth moments through N=6.\")\n",
+      "display_title": "check_gepner3.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/check_gepner3.py",
+      "encoding": "utf-8",
+      "sha": "975978d359ac62942cc499094f7e0d70d3ae2518"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

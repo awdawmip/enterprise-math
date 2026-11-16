@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/public_math_intake_20261116/craig_path_restriction/gepner3.md",
+    "ref": "2565d7618b5062dbbc49174fc30f7ddae2c2483d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "craig-x6-identification-gepner3.md",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 三轴循环与 Gepner 统计的精确对照\n\n沿用[六轴等权最短路的投影](x6_projection3.md)，令三轴各有 N 步，取定方向 1→2→3→1。对每个各色取一的具名三元组，按出现顺序查看三色排列。偶排列 123、231、312 有两条定向边正向，奇排列 132、213、321 有一条正向。若 K 计数具有奇排列的三元组，则 T=1−K/N³，且 H=T−1/2。Gepner 统计按三种奇排列计数，故三环在这里逐词等于同一个经典统计的补量。Zeilberger 给出截至十二阶的有限 N 中心矩多项式和标准化极限，其中四阶与六阶公式在本文记号下逐项吻合；Even-Zohar、Lakrec、Tessler《Spectral Analysis of Word Statistics》附录 C 给出了平衡三色统计的 logistic 极限。依照后者用奇减偶定义的带符号统计 #g，#g=2K−N³=−2N³H，所以 −2NH 和 #g/N² 是同一个随机变量；标准化后为均值零、方差一的 logistic 分布。此处的正负选择不改变对称极限。[Zeilberger 原文](https://arxiv.org/abs/1604.00663) · [Even-Zohar 等，附录 C](https://arxiv.org/pdf/2012.00742)\n\n## 有限 N 的四阶读数\n\n由来源比较的退化分解，H 是三条颜色边各 N² 个有名残差的和除以 N²。计算 E H⁴ 时，每个下标模式可画为有四条边的带色多重图。若有只出现一次的具名顶点，给定其余位置键后在该顶点条件平均为零。剩余每型至多四个顶点；若各色使用 v_i 个不同顶点，则赋名数为各 (N)_{v_i} 的乘积。因至少两种颜色参与，乘积是 N² 的倍数。因此 N⁸ E H⁴ 是次数至多 4、且被 N² 整除的多项式。准确知道三个 N 的分布就能确定它在所有 N 的取值。独立枚举前三个层得到 1/16、13/1280、47/19440，给出\n\n    E H⁴ = 21/(80N⁴) − 1/(5N⁵)。\n\n第 4 层的 34,650 条词独立给出 17/20480。作为额外检验，(2NH) 的峰度恰为 21/5−16/(5N)。对六条边同样计数，E H⁶=O(N⁻⁶)。记 a 为中心辅助字符的正频率，s=(1+i)/√2；词反转令 H 变为 −H。取字符的实部，代入精确二阶、四阶矩，得\n\n    1−Eχ(T)/s = a²/(2N²) − 7a⁴/(40N⁴) + 2a⁴/(15N⁵) + O(N⁻⁶)。\n\n继续用同一来源图。N¹² E H⁶ 的次数≤6，并被 N² 整除。配套程序按末步递推循环比较数的完整直方图（加入 i 步时增量为已有的前一轴库存）。五个尺度足以定出整个多项式，第六个独立核验，得\n\n    E H⁶ = 279/(448N⁶) − 41/(28N⁷) + 8/(7N⁸) − 2/(7N⁹)。\n\n八边给 E H⁸=O(N⁻⁸)。前式的相位缺额因此另有 +31a⁶/(560N⁶)−41a⁶/(315N⁷)+O(N⁻⁸)。程序对带符号奇偶词数、平衡样本量与上述矩逐项使用整数或有理数；已知前十二阶矩的文献归属见首段。[复算程序](check_gepner3.py)\n\n以上公式给出此辅助字符在 X6 的有限库存修正。已知三色 logistic 极限在上文单独归属。跨到任意无散度的六轴加权循环时，见[六轴循环的极限分布](x6_limit3.md)。\n",
+      "display_title": "gepner3.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/gepner3.md",
+      "encoding": "utf-8",
+      "sha": "5399dc8bacc1edbd9b9ea358b2b2ea52363583f6"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

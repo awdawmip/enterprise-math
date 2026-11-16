@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/public_math_intake_20261116/craig_path_restriction/check_phase2.py",
+    "ref": "2565d7618b5062dbbc49174fc30f7ddae2c2483d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "craig-x6-identification-check_phase2.py",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Integer interval certificate for the exact level-2 extremal phase diameter.\n\nAll interval endpoints below are integers representing multiples of 2^-384.\nOnly exact integer arithmetic and integer square roots are used.\n\"\"\"\nfrom fractions import Fraction\nfrom functools import lru_cache\nfrom math import isqrt\n\nS = 1 << 384\nONE = (S, S)\nZERO = (0, 0)\n\n\ndef up(x, y):\n    return -((-x) // y)\n\n\ndef add(x,y):\n    return (x[0]+y[0],x[1]+y[1])\n\n\ndef sub(x,y):\n    return (x[0]-y[1],x[1]-y[0])\n\n\ndef scale(x,a):\n    assert a>=0\n    return (x[0]*a,x[1]*a)\n\n\ndef div(x,a):\n    assert a>0\n    return (x[0]//a,up(x[1],a))\n\n\ndef ratio(x,y):\n    assert x[0]>=0 and y[0]>0\n    return (x[0]*S//y[1], up(x[1]*S,y[0]))\n\n\ndef mul(x,y):\n    p=[a*b for a in x for b in y]\n    return (min(p)//S,up(max(p),S))\n\n\ndef sqrt_interval(x):\n    assert x[0]>=0\n    lo=isqrt(x[0]*S)\n    hisq=x[1]*S\n    hi=isqrt(hisq)\n    return lo, hi + (hi*hi != hisq)\n\n\n@lru_cache(maxsize=None)\ndef root(order_bits):\n    \"\"\"Positive unit root of order 2**order_bits by algebraic halving.\"\"\"\n    assert order_bits>=2\n    real=ZERO\n    for _ in range(2,order_bits):\n        real=sqrt_interval(div(add(ONE,real),2))\n    imag=sqrt_interval(sub(ONE,mul(real,real)))\n    return (real,imag)\n\n\ndef cmul(z,w):\n    a,b=z\n    c,d=w\n    return sub(mul(a,c),mul(b,d)),add(mul(a,d),mul(b,c))\n\n\ndef cpow(z,n):\n    acc=(ONE,ZERO)\n    while n:\n        if n & 1:\n            acc=cmul(acc,z)\n        n//=2\n        if n:\n            z=cmul(z,z)\n    return acc\n\n\nB=48\nden=1<<B\nr0=139642759441871\nbden=1<<80\n# alpha=Im lim L(r_L-1). The finite multiple comparison gives 1/(2L).\nbound=S//(2*bden)\nalphaL=scale(root(83)[1],bden)\nalpha=(alphaL[0]-bound,alphaL[1]+bound)\nh1=root(3)[1]\n\n\ndef evaluate(j):\n    r=div(scale(ONE,j),den)\n    c,h=cpow(root(B+3),j)\n    deriv=mul(c,alpha)\n    F=sub(mul(add(ONE,r),deriv),add(h,h1))\n    D=scale(ratio(sub(h,mul(r,h1)),add(ONE,r)),2)\n    return F,D\n\n\ndef main():\n    Fl,Dl=evaluate(r0)\n    Fr,Dr=evaluate(r0+1)\n    assert Fl[0]>0 and Fr[1]<0\n    # D'(r)=2F(r)/(1+r)^2; F decreases; integrate on this tiny bracket.\n    error=up(2*Fl[1],den)\n    lower=max(Dl[0],Dr[0])\n    upper=Dl[1]+error\n    assert lower<=upper\n    fscale=10**22\n    rounded_low=(lower*fscale)//S\n    rounded_high=up(upper*fscale,S)\n    assert rounded_high - rounded_low <= 2\n    print('r* in',r0,'..',r0+1,'over',den)\n    print('sign certificate:',Fl[0]>0,Fr[1]<0)\n    print('D_2 in',rounded_low,'..',rounded_high,'over',fscale)\n    print('gap less than',Fraction(rounded_high-rounded_low,fscale))\n\n\nif __name__=='__main__':\n    main()\n",
+      "display_title": "check_phase2.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/check_phase2.py",
+      "encoding": "utf-8",
+      "sha": "0d2958032f66b0b80be71c0c2cb794760dd0bf35"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

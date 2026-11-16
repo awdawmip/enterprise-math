@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/public_math_intake_20261116/craig_path_restriction/check_identification3.py",
+    "ref": "2565d7618b5062dbbc49174fc30f7ddae2c2483d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "craig-x6-identification-check_identification3.py",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Rational certificates for the two-colour subword tower's information bounds.\"\"\"\nfrom fractions import Fraction as Q\nfrom math import factorial, prod\n\nfrom check_weighted import load_signed_brc, words\nfrom check_deletion import operator\nfrom check_coherent import positive_root_coordinates, sqrt_enclosure\n\n\ndef model_word_probability(word, eps):\n    # Named rank density f_X(t)=1+eps*(2*t-1) and f_Y(t)=1-eps*(2*t-1).\n    # The ordered path contributes a simplex integral, evaluated via polynomial primitives.\n    p = [Q(1)]\n    for c in word:\n        slope = eps if c == 'X' else -eps\n        nxt = [Q(0)] * (len(p)+2)\n        for j, coeff in enumerate(p):\n            nxt[j+1] += coeff*(1-slope)/(j+1)\n            nxt[j+2] += coeff*2*slope/(j+2)\n        p = nxt\n    return sum(p)*factorial(word.count('X'))*factorial(word.count('Y'))\n\n\ndef check_sqrt_stability():\n    brc = load_signed_brc()\n    levels = 0\n    for eps in [Q(0), Q(1,7), Q(1,4), Q(3,4)]:\n        previous = None\n        for n in range(1,6):\n            paths = list(words(n))\n            assert len(paths) == brc.shortest_path_multiplicity((n,n,0,0,0,0))\n            law = {w:model_word_probability(w,eps) for w in paths}\n            assert min(law.values()) > 0 and sum(law.values()) == 1\n            if n == 1:\n                assert law['XY'] == Q(1,2)-eps/3\n            if n == 2:\n                gap = law['XXYY'] + law['YYXX'] - Q(1,3)\n                assert gap == 4*eps**2/15\n                assert (eps/3)**2 == Q(5,12)*gap\n            if previous:\n                pushed = {w:Q(0) for w in previous}\n                for w,p in law.items():\n                    for u,c in operator(w,n-1).items():\n                        pushed[u] += p*c / n**2\n                assert previous == pushed\n            levels += 1\n            previous = law\n    return levels\n\n\ndef interval_product(a,b):\n    endpoints = [x*y for x in a for y in b]\n    return min(endpoints), max(endpoints)\n\n\ndef interval_add(a,b):\n    return a[0]+b[0], a[1]+b[1]\n\n\ndef alternating_phase_distance_bounds(nodes, scale):\n    # nodes are integers in [0,scale], scale a power of two.\n    weights = [Q(1,prod(v-u for u in nodes if u!=v)) for v in nodes]\n    total = sum(x for x in weights if x>0)\n    weights = [w/total for w in weights]\n    for j in range(len(nodes)-1):\n        assert sum(w*v**j for w,v in zip(weights,nodes)) == 0\n    real,imag=positive_root_coordinates(4*scale)\n    point=((Q(1),Q(1)),(Q(0),Q(0))); z={0:point}\n    for i in range(1,scale+1):\n        a,b=point\n        neg=interval_product(b,imag)\n        point=(interval_add(interval_product(a,real),(-neg[1],-neg[0])),\n               interval_add(interval_product(a,imag),interval_product(b,real)))\n        z[i]=point\n    coord=[]\n    for dim in range(2):\n        s=(Q(0),Q(0))\n        for i,w in zip(nodes,weights):\n            s=interval_add(s,interval_product((w,w),z[i][dim]))\n        coord.append(s)\n    low_sq=high_sq=Q(0)\n    for lo,hi in coord:\n        low_sq += min(abs(lo),abs(hi))**2 if lo*hi>0 else 0\n        high_sq += max(abs(lo),abs(hi))**2\n    return sqrt_enclosure(low_sq)[0],sqrt_enclosure(high_sq)[1]\n\n\ndef check_minimax():\n    # Exact degree 2 witness at 0,1/4,3/4,1, and level-1 normal direction.\n    lo,hi=alternating_phase_distance_bounds([0,1,3,4],4)\n    print('K=2 diameter lower witness, enclosure in millionths:',\n          (lo*10**6).__floor__(), (hi*10**6).__ceil__())\n    assert Q(38,1000) < lo < hi < Q(40,1000)\n    reports = []\n    for k in (2,4,8,10):\n        n=k+1\n        diameter=Q(4, 2**n*factorial(n))\n        reports.append((k,diameter))\n        assert 2*Q(1,2*n)**n <= diameter\n    return reports\n\n\nif __name__ == '__main__':\n    print('exact near-uniform positive model laws:',check_sqrt_stability())\n    print('universal diameter upper bounds:',check_minimax())\n",
+      "display_title": "check_identification3.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/check_identification3.py",
+      "encoding": "utf-8",
+      "sha": "ccefc9fbf281e7d15ac082c7fa78b31b63b47027"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

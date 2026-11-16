@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/public_math_intake_20261116/craig_path_restriction/check_secmom3.py",
+    "ref": "2565d7618b5062dbbc49174fc30f7ddae2c2483d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "craig-x6-identification-check_secmom3.py",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Exact BRC checks of area moments from a two-of-each source restriction.\"\"\"\nfrom collections import Counter\nfrom fractions import Fraction as Q\nfrom math import comb\nfrom pathlib import Path\nimport sys\n\n# Accept a checkout or the flat workspace used for this computation.\nhere = Path(__file__).resolve().parent\nprevious = [here, here.parent / \"craig_path_restriction\", here.parent]\nfor path in previous:\n    if (path / \"check_weighted.py\").is_file():\n        sys.path.insert(0, str(path))\n        break\nfrom check_weighted import area, load_signed_brc, source_subwords, words\n\n\ndef law_from_comparisons(word):\n    h = [i for i,c in enumerate(word) if c == 'X']\n    v = [i for i,c in enumerate(word) if c == 'Y']\n    a,b,c,d = (int(i < j) for i in h for j in v)\n    return Q(a+b+c+d,4), Q(a*b+c*d,2), Q(a*c+b*d,2), Q(a*d+b*c,2)\n\n\nW2 = (\"XXYY\",\"XYXY\",\"XYYX\",\"YXXY\",\"YXYX\",\"YYXX\")\nMOMENTS = (\n    (1,1,1,1),\n    (Q(3,4),Q(1,2),Q(1,2),Q(1,2)),\n    (Q(1,2),Q(1,2),0,0),\n    (Q(1,2),0,Q(1,2),0),\n    (Q(1,4),0,0,0),\n    (0,0,0,0),\n)\n\n\ndef read_profile(profile):\n    p,x,y,d = [sum(profile.get(w,0)*row[j] for w,row in zip(W2,MOMENTS))\n                  for j in range(4)]\n    b = profile.get(\"XYYX\",0) + profile.get(\"YXXY\",0)\n    c = profile.get(\"XYXY\",0) + profile.get(\"YXYX\",0)\n    assert 2*(x+y-2*d) == b and 4*(p-x-y+d) == c\n    return tuple(map(Q,(p,d,b,c)))\n\n\ndef test_finite_words():\n    brc = load_signed_brc()\n    checked = 0\n    for n in range(2,7):\n        family = list(words(n))\n        assert len(family) == brc.shortest_path_multiplicity((n,n,0,0,0,0))\n        avoiding = []\n        for w in family:\n            norm = comb(n,2)**2\n            pairs = Counter(u for _,u in source_subwords(w,2))\n            profile = {u:Q(count,norm) for u,count in pairs.items()}\n            p,d,b,c = read_profile(profile)\n            a = Q(area(w),n*n)\n            assert p == a\n            assert a*a == d + b/(2*n) + c/(4*n*n)\n            if b == 0 and c > 0:\n                assert c == Q(4,n*n)\n                avoiding.append(w)\n            checked += 1\n        assert set(avoiding) == {\"X\"*(n-1)+\"YX\"+\"Y\"*(n-1),\n                                 \"Y\"*(n-1)+\"XY\"+\"X\"*(n-1)}\n    return checked\n\n\ndef four_block(n,u):\n    \"\"\"X-low / Y-low / X-high / Y-high; each X high or Y low with probability u.\"\"\"\n    bins = Counter()\n    for h in range(n+1):\n        wh = comb(n,h)*(1-u)**h*u**(n-h)\n        for v in range(n+1):\n            wv = comb(n,v)*(1-u)**v*u**(n-v)\n            bins['X'*h+'Y'*(n-v)+'X'*(n-h)+'Y'*v] += wh*wv\n    return bins\n\n\ndef three_block(n,t):\n    return {'X'*h+'Y'*n+'X'*(n-h): comb(n,h)*t**h*(1-t)**(n-h)\n            for h in range(n+1)}\n\n\ndef test_projective_families():\n    checks = 0\n    for law in (three_block,four_block):\n        for t in (Q(1,2),Q(2,3),Q(1,7),Q(1,101)):\n            profile = law(2,t)\n            p,d,b,c = read_profile(profile)\n            j_inf = p-d\n            j2 = j_inf-b/4-c/16\n            if law is four_block:\n                assert (b,c) == (4*t**3*(1-t),4*t*t*(1-t)**2)\n                assert j_inf / j2 == 4*(1+t)/(3+t)\n            else:\n                assert j_inf == 2*j2 and c == 0\n            for n in range(2,8):\n                law_n = law(n,t)\n                assert sum(law_n.values()) == 1\n                target = sum(Q(area(w),n*n)**2 * mass for w,mass in law_n.items())\n                assert target == d+b/(2*n)+c/(4*n*n)\n                deletion = Counter()\n                for w,mass in law_n.items():\n                    for _,u in source_subwords(w,2):\n                        deletion[u] += mass/comb(n,2)**2\n                assert deletion == profile\n                checks += 1\n    return checks\n\n\nif __name__ == '__main__':\n    assert tuple(law_from_comparisons(word) for word in W2) == MOMENTS\n    count = test_finite_words()\n    print('two-level named-comparison table: 6; deterministic fine words:',count)\n    print('exact full two-level restrictions and variance formulas:',test_projective_families())\n",
+      "display_title": "check_secmom3.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/check_secmom3.py",
+      "encoding": "utf-8",
+      "sha": "12f8047137cbe94bebf45a06114b1fe9843d804a"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

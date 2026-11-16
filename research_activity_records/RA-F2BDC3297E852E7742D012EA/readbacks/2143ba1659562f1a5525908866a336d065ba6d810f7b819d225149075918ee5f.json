@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/public_math_intake_20261116/craig_path_restriction/check_x6_limit3.py",
+    "ref": "2565d7618b5062dbbc49174fc30f7ddae2c2483d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "craig-x6-identification-check_x6_limit3.py",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Exact finite word checks for the circulation limit. Python standard library only.\"\"\"\n\nfrom fractions import Fraction as F\nfrom functools import cache\nfrom itertools import combinations, permutations\nfrom math import comb, lcm, prod\n\n\ndef circulation(size, cycles):\n    matrix = [[0] * size for _ in range(size)]\n    for coefficient, vertices in cycles:\n        for i, j in zip(vertices, vertices[1:] + vertices[:1]):\n            matrix[i][j] += coefficient\n            matrix[j][i] -= coefficient\n    assert all(sum(row) == 0 for row in matrix)\n    return matrix\n\n\ndef spectral_invariants(weights, matrix):\n    pairs = combinations(range(len(weights)), 2)\n    s = sum(F(matrix[i][j] ** 2, weights[i] * weights[j]) for i, j in pairs)\n    p = F(0)\n    for i, j, k, l in combinations(range(len(weights)), 4):\n        pf = (matrix[i][j] * matrix[k][l] - matrix[i][k] * matrix[j][l]\n              + matrix[i][l] * matrix[j][k])\n        p += F(pf**2, weights[i] * weights[j] * weights[k] * weights[l])\n    return s, p\n\n\ndef finite_moments(n, weights, matrix):\n    \"\"\"Append the final letter and combine raw moment sums over all words.\"\"\"\n    d = len(weights)\n    coeff = [[F(matrix[i][j], weights[i] * weights[j]) for j in range(d)]\n             for i in range(d)]\n    common = lcm(*(v.denominator for row in coeff for v in row))\n    edge = [[int(common * v) for v in row] for row in coeff]\n    choose = [[comb(k, j) for j in range(k + 1)] for k in range(5)]\n\n    @cache\n    def moments(inventory):\n        if not any(inventory):\n            return (1, 0, 0, 0, 0)\n        total = [0] * 5\n        for last, count in enumerate(inventory):\n            if count == 0:\n                continue\n            prev = list(inventory)\n            prev[last] -= 1\n            old = moments(tuple(prev))\n            step = sum(prev[i] * edge[i][last] for i in range(d))\n            powers = [1, step, step**2, step**3, step**4]\n            for k in range(5):\n                total[k] += sum(choose[k][j] * old[j] * powers[k - j]\n                                for j in range(k + 1))\n        return tuple(total)\n\n    sums = moments(tuple(n * w for w in weights))\n    moments.cache_clear()\n    return tuple(F(v, sums[0] * (2 * n * common)**k) for k, v in enumerate(sums))\n\n\ndef interpolate(nodes, values, x):\n    return sum(y * prod((x - z) / (u - z) for z in nodes if z != u)\n               for u, y in zip(nodes, values))\n\n\ndef check_example(label, weights, cycles, expected_blocks):\n    matrix = circulation(len(weights), cycles)\n    s, p = spectral_invariants(weights, matrix)\n    assert (0 if s == 0 else 2 if p else 1) == expected_blocks\n    variance = s / 12\n    fourth = 3 * variance**2 + (s**2 - 2 * p) / 120\n    finite = [finite_moments(n, weights, matrix) for n in range(1, 5)]\n    for m0, m1, m2, m3, _ in finite:\n        assert (m0, m1, m2, m3) == (1, 0, variance, 0)\n    nodes = [F(1, n) for n in (1, 2, 3)]\n    fourths = [m[4] for m in finite[:3]]\n    assert interpolate(nodes, fourths, F(0)) == fourth\n    assert interpolate(nodes, fourths, F(1, 4)) == finite[3][4]\n    print(f'{label}: blocks={expected_blocks} S={s} P={p} '\n          f'variance={variance} limiting fourth={fourth}')\n\n\ndef check_gepner_orientation():\n    plus = {(2, 1, 0), (1, 0, 2), (0, 2, 1)}\n    for triple in permutations(range(3)):\n        a, b, c = (triple.index(i) for i in range(3))\n        cycle = (a < b) + (b < c) + (c < a)\n        g = 1 if triple in plus else -1\n        assert g == 3 - 2 * cycle\n    print('Gepner orientation verified on all six triple orders.')\n\n\nif __name__ == '__main__':\n    check_gepner_orientation()\n    tri = [(1, (0, 1, 2))]\n    check_example('zero', (1, 1, 1), [], 0)\n    check_example('unit triangle', (1, 1, 1), tri, 1)\n    check_example('unequal triangle', (1, 2, 3), tri, 1)\n    check_example('disjoint triangles', (1,) * 6, tri + [(2, (3, 4, 5))], 2)\n    check_example('overlapping weighted six-axis', (1, 2, 1, 1, 2, 1),\n                  tri + [(-2, (0, 3, 4)), (1, (1, 4, 5, 3))], 2)\n",
+      "display_title": "check_x6_limit3.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/check_x6_limit3.py",
+      "encoding": "utf-8",
+      "sha": "a7bc97d2e70fc8ba3c1283b905d7bfd8cc6b11c4"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
