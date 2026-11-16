@@ -1,0 +1,82 @@
+{
+  "schema": "EM_R228_EXACT_REPRODUCTION_V1",
+  "status": "PASS",
+  "model": "stationary reversible sticky-reset source chain",
+  "parameters": {
+    "k": 6,
+    "m": 12,
+    "L": 2,
+    "alpha": [
+      "1/20",
+      "1/10",
+      "3/20",
+      "1/5",
+      "1/4",
+      "3/10",
+      "7/20"
+    ],
+    "pi": [
+      "1/28",
+      "1/14",
+      "3/28",
+      "1/7",
+      "5/28",
+      "3/14",
+      "1/4"
+    ],
+    "rho": [
+      "55692/2000513",
+      "117572/2000513",
+      "186732/2000513",
+      "264537/2000513",
+      "352716/2000513",
+      "453492/2000513",
+      "569772/2000513"
+    ]
+  },
+  "degree_upper_bound": 250,
+  "rational_hankel_full_rank": true,
+  "modular_certificates": [
+    {
+      "prime": 1000000007,
+      "rank": 250,
+      "determinant_mod_prime": 8827868
+    },
+    {
+      "prime": 1000000009,
+      "rank": 250,
+      "determinant_mod_prime": 569768765
+    }
+  ],
+  "exact_moments": {
+    "2": "10703531240028/10002565",
+    "3": "55145714582097/56014364",
+    "4": "143749360496201427/156840219200",
+    "5": "378374314038154762761/439152613760000",
+    "6": "200813539485475995415263/245925463705600000"
+  },
+  "finite_regression": {
+    "configurations": 24,
+    "exact_equalities_and_difference_checks": 252,
+    "k_values": [
+      1,
+      2,
+      3
+    ],
+    "L_values": [
+      1,
+      2
+    ],
+    "m_values": [
+      1,
+      12
+    ],
+    "alpha_scales": [
+      10,
+      16
+    ]
+  },
+  "arithmetic": "Python Fraction and modular integers, no floating point",
+  "review": "NOT_REVIEWED",
+  "native_effect_histogram": "NOT_EXECUTED"
+}
