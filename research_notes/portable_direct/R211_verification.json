@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "method": "exhaustive reachable-state enumeration plus symbolic-proof checks",
+  "models": 18,
+  "states": 783,
+  "full_tail_pairs_checked": 143989,
+  "power_indices_checked": 783,
+  "right_zero_fibre_pairs_checked": 39987,
+  "associativity_triples_checked": 4649,
+  "sample_small_model": {
+    "states": 403,
+    "full": 360,
+    "nonidempotents": 42
+  },
+  "X6": {
+    "m": 12,
+    "k": 6,
+    "L": 2,
+    "all_states": "1407685",
+    "full_tail_idempotents": "1407600",
+    "nonidempotents": "84",
+    "identity_idempotents": 1,
+    "full_order_fibre_states": "720",
+    "single_branch_repeated_records": [
+      {
+        "n": 1,
+        "observer": {
+          "s": [
+            1
+          ],
+          "t": [
+            1
+          ]
+        },
+        "weight": "2/3",
+        "count": "2"
+      },
+      {
+        "n": 2,
+        "observer": {
+          "s": [
+            1
+          ],
+          "t": [
+            1,
+            1
+          ]
+        },
+        "weight": "4/9",
+        "count": "4"
+      },
+      {
+        "n": 3,
+        "observer": {
+          "s": [
+            1
+          ],
+          "t": [
+            1,
+            1
+          ]
+        },
+        "weight": "8/27",
+        "count": "8"
+      },
+      {
+        "n": 4,
+        "observer": {
+          "s": [
+            1
+          ],
+          "t": [
+            1,
+            1
+          ]
+        },
+        "weight": "16/81",
+        "count": "16"
+      }
+    ]
+  },
+  "proof_domain": "all integers m>=1,k>=0,L>=1; finite check m=1..2,k=0..2,L=1..3"
+}
