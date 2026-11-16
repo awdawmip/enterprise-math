@@ -1,0 +1,150 @@
+{
+  "schema": "EC49FQS_BRC_25_NODE_EXACT_EVIDENCE_INDEX_V1",
+  "date": "2026-11-16",
+  "scientific_repo": "awdawmip/enterprise-math",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "frozen_source_sha256": {
+    "original_master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "root_cost_profile": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "predecessor": {
+    "pr": 2568,
+    "commit": "444c69119e9ec7175642687b1380a0f0e92af0ad",
+    "inherited_certificates": 89
+  },
+  "native_model": {
+    "configurations": 310,
+    "full_named_root_profiles": 141,
+    "physical_observations": 228,
+    "distinct_query_partitions": 209,
+    "terminal_observations": 144,
+    "named_root_observations": 84
+  },
+  "independent_full_recomputations": 8,
+  "new_cases": [
+    [
+      "35/16",
+      "0",
+      "1503500",
+      [
+        32,
+        34
+      ],
+      "b48f4331a960590f55fcb035495deb4f276201b6a6098000f1d99b57563aef7a"
+    ],
+    [
+      "35/16",
+      "4030/114997",
+      "173786064480",
+      [
+        32,
+        34,
+        140,
+        142
+      ],
+      "e4923063a8e14d952e19e5805993e5ad205c4827a159f14121adaf0cba8a56d5"
+    ],
+    [
+      "35/16",
+      "620/3299",
+      "5038670250",
+      [
+        16,
+        23,
+        140,
+        142
+      ],
+      "baf337767a76ea800916aba5287ca0aa74692712e2837d9603b07cf8489b5780"
+    ],
+    [
+      "35/16",
+      "1",
+      "1570035",
+      [
+        16,
+        23
+      ],
+      "c363a09e49d618958cd329449202931547161e572b9ca69b1d63f57eab71d6b7"
+    ],
+    [
+      "37/16",
+      "0",
+      "1507220",
+      [
+        32,
+        34
+      ],
+      "2d85d01ec1720f68047cf9ee6f4db17f6ccf891e3b4e057fd1e78be2d0b75013"
+    ],
+    [
+      "37/16",
+      "3410/114659",
+      "173560870560",
+      [
+        32,
+        34,
+        140,
+        142
+      ],
+      "38ab674804dcd9945d653b805c1339042651b1451ddd9cd7d031f5fce7a74b27"
+    ],
+    [
+      "37/16",
+      "620/3299",
+      "5047849350",
+      [
+        16,
+        23,
+        140,
+        142
+      ],
+      "40f230c0f5a1c593beb6615bc4cb6752c80dce15df2c6ae5939db3c9e1724d92"
+    ],
+    [
+      "37/16",
+      "1",
+      "1571445",
+      [
+        16,
+        23
+      ],
+      "ac04b9e7fc484bb6314589340102069351ddd98e8dfbb0d97a494502d8362118"
+    ]
+  ],
+  "certified_grid": {
+    "nodes": 25,
+    "remaining_price_bands": 24,
+    "unresolved_area_exact": "3218137345754103957378935/426045785417908030352880504",
+    "certified_fraction_exact": "848873433490061956748382073/852091570835816060705761008",
+    "certified_fraction_percent": "99.62232494066366"
+  },
+  "global_regret": {
+    "max_interval": "[2,17/8]",
+    "symbolic": "(25/4)/(sqrt(7219)+sqrt(57583/8))^2",
+    "decimal": "0.00021675998976334448395915",
+    "unit": "terminal-price t"
+  },
+  "offline_complete_evidence": {
+    "filename": "EC49FQS_TWO_SLICES_25GRID_COMPLETE_EVIDENCE_20261116.tar.xz",
+    "sha256": "2950f94cbcfa4ea897f08e8807197bc490a7d40500f7777a1ca9abac195bcf38",
+    "manifest_file_count": 133,
+    "certificates_total": 97,
+    "new_certificates": 8,
+    "previous_certificates": 89,
+    "method": "two separately implemented exact Bellman solvers; all first physical labels; tied-first full-tree replay; inherited certificate SHA256; rational area and regret proof"
+  },
+  "probe": {
+    "price": "73/32",
+    "prior": "7130/229487",
+    "full_slice_claim": false,
+    "all_first": [
+      32,
+      34,
+      140,
+      142
+    ]
+  },
+  "status": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "formal_task": "RS-EC49AS unpublished as of native continuation-read r4-ec49fqs-20261116-0922-continuation-read, FAILED CANONICAL_REJECTED; no CLAIM or formal Result; Activity checkpoint pending",
+  "next": "Investigate x=33/16 in [2,17/8] or parameterized Bellman obstruction to another first action."
+}
