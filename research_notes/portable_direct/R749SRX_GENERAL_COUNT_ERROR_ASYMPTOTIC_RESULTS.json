@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "unit": "R749SRX",
+  "review": "AUTHOR_EXACT_NOT_REVIEWED",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "weights": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ],
+  "marked_source": 0,
+  "offsets": [
+    0,
+    1,
+    5
+  ],
+  "phase_signature_min_linf_separation": "15/2",
+  "closest_pair": [
+    0,
+    3
+  ],
+  "closest_pair_signed_direction": [
+    -1,
+    1,
+    1
+  ],
+  "rational_gf_C": "z/((1-z)^3*(1-z^2)*(1-z^3)*(1-z^6))",
+  "rational_gf_T": "z^2/((1-z)^4*(1-z^2)*(1-z^3)*(1-z^6))",
+  "count_asymptotic": "C_r=r^5/4320+O(r^4)",
+  "noise_asymptotic": "(r+h)^3/C_(r+h)=4320/r^2+O(r^-3), h=0,1,5",
+  "sharp_threshold_asymptotic": "N(M)=24*sqrt(2*M)+O(1) as M tends to infinity",
+  "residue_coefficients": [
+    {
+      "phase": 0,
+      "C_degree": 5,
+      "T_degree": 6,
+      "residual_numerator_degree": 4,
+      "C_top_in_n": "9/5",
+      "lim_r_times_R_minus_P": "3335/3",
+      "quasipolynomial_samples_checked": 12
+    },
+    {
+      "phase": 1,
+      "C_degree": 5,
+      "T_degree": 6,
+      "residual_numerator_degree": 4,
+      "C_top_in_n": "9/5",
+      "lim_r_times_R_minus_P": "13780/9",
+      "quasipolynomial_samples_checked": 12
+    },
+    {
+      "phase": 2,
+      "C_degree": 5,
+      "T_degree": 6,
+      "residual_numerator_degree": 4,
+      "C_top_in_n": "9/5",
+      "lim_r_times_R_minus_P": "12845/9",
+      "quasipolynomial_samples_checked": 12
+    },
+    {
+      "phase": 3,
+      "C_degree": 5,
+      "T_degree": 6,
+      "residual_numerator_degree": 4,
+      "C_top_in_n": "9/5",
+      "lim_r_times_R_minus_P": "3740/3",
+      "quasipolynomial_samples_checked": 12
+    },
+    {
+      "phase": 4,
+      "C_degree": 5,
+      "T_degree": 6,
+      "residual_numerator_degree": 4,
+      "C_top_in_n": "9/5",
+      "lim_r_times_R_minus_P": "11485/9",
+      "quasipolynomial_samples_checked": 12
+    },
+    {
+      "phase": 5,
+      "C_degree": 5,
+      "T_degree": 6,
+      "residual_numerator_degree": 4,
+      "C_top_in_n": "9/5",
+      "lim_r_times_R_minus_P": "12980/9",
+      "quasipolynomial_samples_checked": 12
+    }
+  ],
+  "finite_residue_positions_checked": 72,
+  "out_of_sample_C_checks": 36,
+  "out_of_sample_T_checks": 30,
+  "prior_known_exact_thresholds": {
+    "M=0": 35,
+    "M=1": 53,
+    "M=2": 65
+  }
+}
