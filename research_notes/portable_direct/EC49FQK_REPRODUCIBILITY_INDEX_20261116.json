@@ -1,0 +1,153 @@
+{
+  "schema": "EC49FQK_SHARP_PRIOR_RAY_REPRODUCIBILITY_V1",
+  "date": "2026-11-16",
+  "theorem": "all-real lambda in [155/1847,620/3299], x=r/t>=1, unrestricted BRC class 16943",
+  "mathematical_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "source_repository": "awdawmip/enterprise-math",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "prior_artifact": "https://github.com/awdawmip/enterprise-math/pull/2542",
+  "model": {
+    "original_configurations": 310,
+    "full_root_profiles": 141,
+    "terminal_queries": 144,
+    "named_root_queries": 84,
+    "physical_query_count": 228,
+    "distinct_response_partitions": 209
+  },
+  "input_sha256": {
+    "frozen_original_master.txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE.csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "load_bearing_corners": [
+    {
+      "lambda": "155/1847",
+      "x": 1,
+      "value": "7861/3694",
+      "first": [
+        32,
+        34,
+        140,
+        142
+      ],
+      "certificate_sha256": "692dc2f9cbc0a180fff6ee277b2dd3b0ad12686cd4c6cfe5224cab511e563627"
+    },
+    {
+      "lambda": "155/1847",
+      "x": 3,
+      "value": "8111/3694",
+      "first": [
+        140,
+        142
+      ],
+      "certificate_sha256": "8be3931bc17329e3268098a61af382c4783c2360114da73ee034b2dd9882772f"
+    },
+    {
+      "lambda": "620/3299",
+      "x": 1,
+      "value": "7080/3299",
+      "first": [
+        16,
+        23,
+        140,
+        142
+      ],
+      "certificate_sha256": "939c76483cb8842a7e1ccda411e5570f0ac28f55638103d9c29169e79a9fcc62"
+    },
+    {
+      "lambda": "620/3299",
+      "x": 3,
+      "value": "7290/3299",
+      "first": [
+        16,
+        23,
+        140,
+        142
+      ],
+      "certificate_sha256": "6ba1ae79ca989f49879ef9809e8859f3d526770d184069728e5efff00da28076"
+    }
+  ],
+  "supplemental_probes": [
+    {
+      "lambda": "155/1847",
+      "x": 2,
+      "sha256": "b6a1dfe3806612a98b6ecdaf556e4ece8ad0a0f152abbc368ae1171f1f6259e6"
+    },
+    {
+      "lambda": "155/1847",
+      "x": 4,
+      "sha256": "dcc5f980c48c47e9e171fe5cc915aaac9eb15db100f220d5bcd04533d0a31f03"
+    },
+    {
+      "lambda": "620/3299",
+      "x": 2,
+      "sha256": "08764c5498dc10e9e8bab3f205fd96682bfbf76d0bca027c1cff100392fbeed7"
+    },
+    {
+      "lambda": "620/3299",
+      "x": 4,
+      "sha256": "98479579bcd36a94675ad2c6621713a4fde31bfcf9935defb8ff6a83415b69b7"
+    },
+    {
+      "lambda": "620/3299",
+      "x": 5,
+      "sha256": "792b77def28ccc67e91bc2c41109d37005dc84af6976e0aa51b930484bee9e2e"
+    },
+    {
+      "lambda": "1/5",
+      "x": 4,
+      "sha256": "7adcce82fbcd19df7ea6c143ec99070230dec24d1a4bd2e1275ea4616dbc73d3"
+    }
+  ],
+  "new_q23_native_witness_sha256": {
+    "x1": "4d9ab81c763128d4e219c4e783b4a63ba7f74b6fc1d0e763c8e4ceda5d808f86",
+    "x3": "3714a4d114e3821a412002a5832adf47e2c10895ccbb1603f000bd2929eaac46"
+  },
+  "exact_native_terminal_collision_pairs": [
+    [
+      17928,
+      38165
+    ],
+    [
+      24541,
+      38166
+    ]
+  ],
+  "witness_count_vectors": {
+    "left_lower_q32": [
+      6,
+      290,
+      6,
+      751
+    ],
+    "middle_q140_q142_x_1_to_3": [
+      5,
+      293,
+      5,
+      704
+    ],
+    "middle_q140_q142_x_3_to_infinity": [
+      4,
+      296,
+      4,
+      707
+    ],
+    "right_upper_q16_q23_x_1_to_3": [
+      5,
+      295,
+      5,
+      685
+    ],
+    "right_upper_q16_q23_x_3_to_infinity": [
+      4,
+      298,
+      4,
+      688
+    ]
+  },
+  "archive_sha256": "b7208cf0af5349e572fe029d18ab68ba19bbe173e2119b8a1d5f697da5c54f83",
+  "validation": "EC49FQK_SHARP_HIGH_PRICE_STRIP_ALL_CHECKS_PASS",
+  "archive_contents": "Full frozen input bytes, exact machine certificates, complete replay trees, independent verifier, original solver, source reproducer, execution logs, SHA256SUMS.txt",
+  "remaining": "Adjacent phase curves for lambda below 155/1847 with x>1 and for lambda above 620/3299",
+  "formal_task_binding": "UNPUBLISHED_TOPIC_NO_CLAIM_RESULT_REVIEW",
+  "note": "A GitHub source note and code are immutable only after commit readback; the portable archive is attached to the research conversation."
+}
