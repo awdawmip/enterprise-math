@@ -56,7 +56,7 @@ The author ran `research_checks/X6_THREE_SLICE_MINIMAL_HOLONOMY_UNIT64_20261116.
 
 Finite computations independently corroborate the graph-theoretic **all-integer proof**, rather than replacing it. The immutable checker and full certificate are saved as:
 
-- [Exact source/checker](https://github.com/awdawmip/enterprise-math/blob/9eb87f549606a5d6cd3e14d02007ae40bf50fa37/research_checks/X6_THREE_SLICE_MINIMAL_HOLONOMY_UNIT64_20261116.py), Git blob `4ab314a0b200c8c231b7a15152381add72d268a7`.
+- [Exact source/checker](https://github.com/awdawmip/enterprise-math/blob/0b9921a0b229a1708a4e2a02f517be81c6703701/research_checks/X6_THREE_SLICE_MINIMAL_HOLONOMY_UNIT64_20261116.py), Git blob `bf3825a30a3bc9a2b249f6c5a2c5c65fa9d84dc5`.
 - [Exact integer JSON certificate](https://github.com/awdawmip/enterprise-math/blob/6e498d2d1c528ea33187a9e32b6f1619ec242fc9/research_checks/X6_THREE_SLICE_MINIMAL_HOLONOMY_UNIT64_RESULTS_20261116.json), blob `63699cb16e8610ccbc5ede1bb509ded3222048a8`.
 
 ## Source and consumer disposition
@@ -68,3 +68,7 @@ The original 28-claim ledger at `a0bfa8eace20b061f5b228c733acdc46221388d7:resear
 **Next precise action:** identify an actual consumer of partially compatible 3-axis charts and its operation; preserve H and h or demonstrate a safe quotient. Continue remaining 28-LP downstream calls, original LP011/LP019 provenance and independent Driver `REQUEST_REVISION`. Reuse previous frozen original R063, Helly and signed BRC +4 producer executions; do not repeat them.
 
 Status: AUTHOR-EXACT / FINITE-EXECUTED / UNREVIEWED / NOT_ADMITTED.
+
+## Optimization-mode evidence guard correction (same Unit64, not new theorem)
+
+The first author checker blob `4ab314a0b200c8c231b7a15152381add72d268a7` contained Python `assert` statements, which `-O` and `-OO` remove. Current checker at immutable commit `0b9921a0b229a1708a4e2a02f517be81c6703701` and blob `bf3825a30a3bc9a2b249f6c5a2c5c65fa9d84dc5` replaces all ten `assert` statements with the explicit `require(condition)` runtime guard, so all scientific checks execute in normal, `-O` and `-OO` modes. All three modes were actually run after this repair and produced identical exact JSON. An injected `require(False)` run under `-O` was **actually rejected** with a nonzero exit and `RuntimeError`. The exact JSON certificate blob `63699cb16e8610ccbc5ede1bb509ded3222048a8` is unchanged. This repair strengthens execution evidence without changing the proposition or native frozen sources.
