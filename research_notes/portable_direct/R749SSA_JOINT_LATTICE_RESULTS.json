@@ -1,0 +1,196 @@
+{
+  "status": "PASS",
+  "unit": "R749SSA",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "exact_criterion": "Two global extreme observed-value anchors for a max-norm coordinate and integer interval test for e at each admissible denominator d",
+  "complexity_per_rival": "O(k^2*(2K+1)) exact arithmetic checks independent of M (aside from integer bit length)",
+  "global_thresholds_M_0_to_2_K_0_to_2": [
+    {
+      "M": 0,
+      "K": 0,
+      "N": 35,
+      "last_failure": {
+        "r": 34,
+        "phase": 4,
+        "rival": 3,
+        "numerator_errors": [
+          0,
+          0,
+          0
+        ],
+        "denominator_errors": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "M": 1,
+      "K": 0,
+      "N": 53,
+      "last_failure": {
+        "r": 52,
+        "phase": 4,
+        "rival": 3,
+        "numerator_errors": [
+          -1,
+          1,
+          -1
+        ],
+        "denominator_errors": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "M": 2,
+      "K": 0,
+      "N": 65,
+      "last_failure": {
+        "r": 64,
+        "phase": 4,
+        "rival": 3,
+        "numerator_errors": [
+          -2,
+          2,
+          -2
+        ],
+        "denominator_errors": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "M": 0,
+      "K": 1,
+      "N": 261,
+      "last_failure": {
+        "r": 260,
+        "phase": 2,
+        "rival": 3,
+        "numerator_errors": [
+          0,
+          0,
+          0
+        ],
+        "denominator_errors": [
+          -1,
+          1,
+          -1
+        ]
+      }
+    },
+    {
+      "M": 1,
+      "K": 1,
+      "N": 267,
+      "last_failure": {
+        "r": 266,
+        "phase": 2,
+        "rival": 3,
+        "numerator_errors": [
+          -1,
+          -1,
+          1
+        ],
+        "denominator_errors": [
+          -1,
+          1,
+          -1
+        ]
+      }
+    },
+    {
+      "M": 2,
+      "K": 1,
+      "N": 273,
+      "last_failure": {
+        "r": 272,
+        "phase": 2,
+        "rival": 3,
+        "numerator_errors": [
+          -2,
+          -2,
+          2
+        ],
+        "denominator_errors": [
+          -1,
+          1,
+          -1
+        ]
+      }
+    },
+    {
+      "M": 0,
+      "K": 2,
+      "N": 507,
+      "last_failure": {
+        "r": 506,
+        "phase": 2,
+        "rival": 3,
+        "numerator_errors": [
+          0,
+          0,
+          0
+        ],
+        "denominator_errors": [
+          -2,
+          2,
+          -2
+        ]
+      }
+    },
+    {
+      "M": 1,
+      "K": 2,
+      "N": 513,
+      "last_failure": {
+        "r": 512,
+        "phase": 2,
+        "rival": 3,
+        "numerator_errors": [
+          -1,
+          -1,
+          1
+        ],
+        "denominator_errors": [
+          -2,
+          2,
+          -2
+        ]
+      }
+    },
+    {
+      "M": 2,
+      "K": 2,
+      "N": 513,
+      "last_failure": {
+        "r": 512,
+        "phase": 2,
+        "rival": 3,
+        "numerator_errors": [
+          -2,
+          -2,
+          2
+        ],
+        "denominator_errors": [
+          -2,
+          2,
+          -2
+        ]
+      }
+    }
+  ],
+  "finite_cutoffs_per_pair": 1349,
+  "total_cutoff_budget_pairs": 12141,
+  "independent_direct_cube_checks": 96,
+  "certified_infinite_tail_start": 1350,
+  "tail_noise_bound_for_M_K_le_2": "63374339249936/28025208984321",
+  "ideal_half_min_separation": "15/4",
+  "next_question": "Reduce the O(K) denominator scan to lattice floor-sum or polyhedral integer feasibility; characterize exact additive phase offsets for large simultaneous budgets."
+}
