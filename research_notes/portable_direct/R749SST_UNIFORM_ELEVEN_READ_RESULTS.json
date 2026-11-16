@@ -1,0 +1,54 @@
+{
+  "research_unit": "R749SST",
+  "status": "PASS",
+  "evidence_class": "AUTHOR_EXACT_NOT_REVIEWED",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "source_model": "five distinct labeled sources (1,1,2,3,6), marked k1",
+  "domain": "q>=6 integer, e,d,E,D in [-2,2] real, fixed across each candidate's six-step reads",
+  "uniform_full_state_read_upper_bound": 11,
+  "equal_phase_limit_read_upper_bound": 10,
+  "phase_limits": [
+    "455/36",
+    "-295/36",
+    "-25/36",
+    "185/36",
+    "-25/36",
+    "-295/36"
+  ],
+  "degree_bounds": {
+    "C_r": 5,
+    "T_r": 6,
+    "observer_numerator": 5,
+    "observer_denominator": 5,
+    "difference_numerator": 10,
+    "same_limit_difference_numerator": 9
+  },
+  "four_jet_determinant": "3224862720000*h^2*(3*h^2+1445)",
+  "matched_fifth_obstructions": {
+    "0,0": "1150*h*(258213*h^2+6816674)/(9*(3*h^2+1445))",
+    "1,1": "100*h*(10664979*h^2+243694783)/(27*(3*h^2+1445))",
+    "2,2": "10*h*(100428693*h^2+2357398450)/(27*(3*h^2+1445))",
+    "3,3": "20*h*(15902457*h^2+394064185)/(9*(3*h^2+1445))",
+    "4,4": "10*h*(100279653*h^2+2405588050)/(27*(3*h^2+1445))",
+    "5,5": "100*h*(10679883*h^2+238875823)/(27*(3*h^2+1445))",
+    "1,5": "-100*(414*h^4-10672431*h^3+276630*h^2-241285303*h+1201140)/(27*(3*h^2+1445))",
+    "5,1": "100*(414*h^4+10672431*h^3+276630*h^2+241285303*h+1201140)/(27*(3*h^2+1445))",
+    "2,4": "10*(4140*h^4+100354173*h^3+2756580*h^2+2381493250*h+7329600)/(27*(3*h^2+1445))",
+    "4,2": "-10*(4140*h^4-100354173*h^3+2756580*h^2-2381493250*h+7329600)/(27*(3*h^2+1445))"
+  },
+  "proof_checks": [
+    "all six exact quasipolynomial phase coefficient identities",
+    "24 direct labeled cutoffs",
+    "ten equal-limit jet determinants, unique solutions and nonzero fifth coefficients",
+    "six diagonal positive quadratic factors",
+    "four cross-phase modulo-3 obstructions",
+    "585 supplemental strict X(q+6)>X(q) checks"
+  ],
+  "full_error_recovery": "R749SSJ exact two-read known-q invertibility",
+  "scope_boundary": "Exact identifiability only. This is not a uniform positive noise radius, optimal horizon, physical X6 event or BRC port theorem.",
+  "open_questions": [
+    "sharpen worst-case horizon 11",
+    "cutoff-dependent minmax robust separation",
+    "provenance-preserving native BRC observer transfer"
+  ]
+}
