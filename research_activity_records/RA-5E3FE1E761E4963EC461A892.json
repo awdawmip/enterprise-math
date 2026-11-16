@@ -3229,6 +3229,58 @@
         "https://github.com/awdawmip/enterprise-math/blob/6e498d2d1c528ea33187a9e32b6f1619ec242fc9/research_checks/X6_THREE_SLICE_MINIMAL_HOLONOMY_UNIT64_RESULTS_20261116.json"
       ],
       "notes": "Unit64 same mathematical proposition, corrected evidence: initial Python checker assertions were elided in -O/-OO. Replaced with explicit require() fail-closed guards, independently ran ordinary, -O, -OO with identical exact 1140/480/20577/2187 certificate; adversarial require(False) under -O exits nonzero RuntimeError. Actual Source GitHub checker/report readback verified, JSON unchanged. This repair supersedes the original event's optimization-mode assertion while preserving its history. AUTHOR-EXACT/EXACT-EXECUTED/UNREVIEWED/NOT_ADMITTED."
+    },
+    {
+      "event_id": "onhour-20261116-1800-x6-unit65-r063s3-source-guard-audit",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "909d89718fa3f503f979e816264e00a72cafe408",
+          "path": "research_notes/X6_LP019_R063_STAGE3_BRANCH_SOURCE_AUDIT_UNIT65_20261116.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "9a0028d08aaaf5ade28a3d5cc1da5dc63b63d0a2",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/909d89718fa3f503f979e816264e00a72cafe408/research_notes/X6_LP019_R063_STAGE3_BRANCH_SOURCE_AUDIT_UNIT65_20261116.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "ee284dec6afd211e426abf77c901731f0e41ade1",
+          "path": "research_checks/X6_R063_S3_ASSERT_OPTIMIZATION_GUARD_UNIT65_20261116.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "e7303766414f6b040846549e84150d54942ee823",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/ee284dec6afd211e426abf77c901731f0e41ade1/research_checks/X6_R063_S3_ASSERT_OPTIMIZATION_GUARD_UNIT65_20261116.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "d526c934f91d2069afc632d038c9f6edf4ac8274",
+          "path": "research_checks/X6_R063_S3_SOURCE_GUARD_UNIT65_RESULTS_20261116.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "8480f348f910be1a7fba5a92fe8d9e9c1e04e785",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/d526c934f91d2069afc632d038c9f6edf4ac8274/research_checks/X6_R063_S3_SOURCE_GUARD_UNIT65_RESULTS_20261116.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/909d89718fa3f503f979e816264e00a72cafe408/research_notes/X6_LP019_R063_STAGE3_BRANCH_SOURCE_AUDIT_UNIT65_20261116.md",
+        "https://github.com/awdawmip/enterprise-math/blob/ee284dec6afd211e426abf77c901731f0e41ade1/research_checks/X6_R063_S3_ASSERT_OPTIMIZATION_GUARD_UNIT65_20261116.py",
+        "https://github.com/awdawmip/enterprise-math/blob/d526c934f91d2069afc632d038c9f6edf4ac8274/research_checks/X6_R063_S3_SOURCE_GUARD_UNIT65_RESULTS_20261116.json"
+      ],
+      "notes": "Unit65 scope: immutable R063 Stage3 original PR #574 remains OPEN/DRAFT at 69b7a903 (owned independently); original lines 22/26-28/69/75-81 and source Stage3 theorem classify signed C4 phase interaction (ac-bd,ad+bc) N1, not signed cancellation of positive native N_BRC (separately line120). Actual original verifier guard at scripts/r063_stage3_validate_pairwise_interaction_process.py:57 uses assert stripped by -O/-OO. Three actual CPython mode scoped injected-empty-residual runs yield normal REJECTED, -O/-OO SILENT_EMPTY_TUPLE, 0 test harness failures; not whole original Stage3 benchmark. Researcher owner PR untouched; owner-side if/raise and normal/-O/-OO original benchmark and negative-injection acceptance remain pending. LP011/LP019 exact historical erroneous caller unresolved. Author source-check + scoped executed, UNREVIEWED/NOT_ADMITTED."
     }
   ],
   "mode": "TASK_RESEARCH",
