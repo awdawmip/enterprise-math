@@ -3073,6 +3073,58 @@
       "repairs_event_id": null,
       "state": "EM_REPRESENTED",
       "notes": "Unit62 executed exact frozen X6 signed_brc.py Git blob 300a96e3dc24bf6fff73743037a0347a8bc83176 in both Python normal and -O modes; 10,364 direct 6D signed-word recurrence state comparisons PASS through length6; all 7,812 G25 signed endpoints +2/+4 checked with original producer APIs, plus4 mass 219805827756912, +2 mass confirmed 939815793084; 32 exact weighted sign-reversal probes. AUTHOR-EXECUTED/UNREVIEWED/NOT_ADMITTED. Prior unit59-61 Source original request confirmed SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED, no repeat. Historical LP011/LP019 specific wrong-call provenance and independent Driver review still unresolved."
+    },
+    {
+      "event_id": "onhour-20261116-1618-x6-lp011-lp019-unit63-signed-scalar-primitive-check",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "7f0f90afe6c9fc17b0544437be32007c099aae7f",
+          "path": "research_checks/X6_LP019_SIGNED_RESIDUE_PRIMITIVE_UNIT63_20261116.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "87d6cdceaaab38540c8ba8733c59e288c0de4f5c",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/7f0f90afe6c9fc17b0544437be32007c099aae7f/research_checks/X6_LP019_SIGNED_RESIDUE_PRIMITIVE_UNIT63_20261116.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "96b544bd8b30fa1fec44c11e05fc15864f894396",
+          "path": "research_checks/X6_LP019_SIGNED_RESIDUE_PRIMITIVE_UNIT63_RESULTS_20261116.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "9ffc17c9b56641b42f119bd0afc19bca3c82dd64",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/96b544bd8b30fa1fec44c11e05fc15864f894396/research_checks/X6_LP019_SIGNED_RESIDUE_PRIMITIVE_UNIT63_RESULTS_20261116.json",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "7335bccb6c9f5c07d467d5f31ee33cb11005f617",
+          "path": "research_notes/X6_LP011_LP019_SCALAR_RESIDUE_DOMINANCE_TYPED_PROVENANCE_UNIT63_20261116.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "6cc963e5b49301d734110f442183601f78893399",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/7335bccb6c9f5c07d467d5f31ee33cb11005f617/research_notes/X6_LP011_LP019_SCALAR_RESIDUE_DOMINANCE_TYPED_PROVENANCE_UNIT63_20261116.md",
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/7f0f90afe6c9fc17b0544437be32007c099aae7f/research_checks/X6_LP019_SIGNED_RESIDUE_PRIMITIVE_UNIT63_20261116.py",
+        "https://github.com/awdawmip/enterprise-math/blob/96b544bd8b30fa1fec44c11e05fc15864f894396/research_checks/X6_LP019_SIGNED_RESIDUE_PRIMITIVE_UNIT63_RESULTS_20261116.json",
+        "https://github.com/awdawmip/enterprise-math/blob/7335bccb6c9f5c07d467d5f31ee33cb11005f617/research_notes/X6_LP011_LP019_SCALAR_RESIDUE_DOMINANCE_TYPED_PROVENANCE_UNIT63_20261116.md"
+      ],
+      "notes": "Unit63 exact new historical scoped LP019 algebraic residual primitive cancellation: for gap G and 0<d<G, minimal integer coefficient pair ((G-d)/g,d/g), g=gcd(d,G), signed weighted residual sum zero but positive N total G/g. Executed 29,394 exhaustive declared finite inputs, regular/-O equal. LP011 old positive weight dominant is typed non-native-axis false positive. Original unit62 Native Source SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED confirmed through own request. Actual historical wrong LP011/019 native caller unresolved; unit63 UNREVIEWED/NOT_ADMITTED."
     }
   ],
   "mode": "TASK_RESEARCH",
