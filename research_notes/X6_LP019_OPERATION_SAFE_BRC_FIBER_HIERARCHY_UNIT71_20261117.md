@@ -45,3 +45,16 @@ This is an operational extension of Units61,62,69,70: `(can3,G,T)` is sufficient
 The currently read `src/enterprise_math/diagonal_quotient.py` (main blob `a527e347e33d0a0039258a9b25f48b1f1466d149`) explicitly marks its canonical-min-zero operations as derived quotient, and `src/enterprise_math/p022_geodesic_multiplicity.py` (main blob `46373050168d2430b6cb3952aa763f3081284632`) is a separately typed graph metric. **No wrong native call is attributed to these inspected sources.** Historical LP011 bad argmax and LP019 signed-positive-BRC subtraction source:line remain UNRESOLVED_PROVENANCE; current 28-LP full dependency closure and independent Driver REQUEST_REVISION remain open. Original R063 and Helly benchmarks were not rerun.
 
 Related exact prior results: [Unit69](https://github.com/awdawmip/enterprise-math/blob/b89055e5ea79b9dd4b6944567cc479baeff127ed/research_notes/X6_LP019_SIGNED_DEPTH_TWO_CANDIDATE_REPAIR_UNIT69_20261117.md), [Unit70](https://github.com/awdawmip/enterprise-math/blob/a396f46b0f86eec4c0346728f49ca0c63a4e2ee9/research_notes/X6_LP019_NATIVE_BRC_EQUAL_MASS_FIBER_CRITERION_UNIT70_20261117.md). Author-side proof and finite execution; not independent mathematical review or Result admission.
+
+
+## Scoped native original-source executable crosscheck (post-theorem)
+
+The exact **frozen** original `experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py` at scientific commit `59538f585d037d09ef687b28715c4bc1a3f9fe03` was fetched and its *actual local installed source bytes* independently checked as Git blob SHA-1 `300a96e3dc24bf6fff73743037a0347a8bc83176`. The actual original functions `endpoint_multiplicity`, `shortest_path_multiplicity`, `spatial_norm_squared` and `endpoint_weight` were executed for three selected genuine observer double-fibers, exact lengths \(T,T+2,T+4,T+6\), and named sign/axis weights. This is a **three-pair scoped import check**; it leaves the frozen R063 benchmark unmodified and does not rerun its full corpus.
+
+| Shared observer-fiber type | Original native count profile on first point | On second point | Named independent-weight witness |
+|---|---:|---:|---|
+| r=(0,1,2), G=5, T=3 | 3, 290, 26,775, 2,570,904 | 3, 290, 26,775, 2,570,904 | shortest `w1=2` axis-unsigned: 12 versus 3 |
+| r=(0,0,0), G=3, T=3 | 6, 540, 46,620, 4,210,920 | same | `+e1` weight 2, negative 1: 6 versus 12 |
+| r=(0,0,3), G=18, T=6 | 20, 5,040, 918,540, 147,378,000 | 30, 7,056, 1,207,080, 183,245,040 | already different at shortest length |
+
+The standalone locally executed original-source verifier returned `PASS` in Python ordinary/`-O`/`-OO`, with byte-identical JSON results (SHA256 `15d34db43070e1b93da1ec29e55ab8d3048af546c8d83a877a72a4d7a2e3df2d`). Reproduction [pinned-source adapter](https://github.com/awdawmip/enterprise-math/blob/110ea7d2e796a8d7fcfd2b81e2bdfd6d47c6f286/research_checks/X6_UNIT71_PINNED_ORIGINAL_BRC_WITNESS_CHECK_20261117.py) and [original-source output certificate](https://github.com/awdawmip/enterprise-math/blob/b263721b9be119044fadd5fd3b4ed9d19611e877/research_checks/X6_UNIT71_PINNED_ORIGINAL_BRC_WITNESS_RESULTS_20261117.json) preserve the scoped input/output, signed six-axis provenance and original-code blob guard. The returned data corroborate the theorem at these exact witnesses. Author-scoped, unreviewed.
