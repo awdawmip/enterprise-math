@@ -12,7 +12,7 @@ def run():
     sha=hashlib.sha256(raw).hexdigest()
     expected='9cc63ca013a1652219245c42c554cd2bb23b87ee19b54a8cf9b1477b6dd2bd49'
     assert sha==expected,(sha,expected)
-    x,cuts=frozen();ks=tuple(range(214,315));signatures=set();start=time.perf_counter();tests=0
+    x,cuts=frozen();ks=tuple(range(214,315));signatures=set();begun=time.perf_counter();tests=0
     minbits=999;maxbits=0
     start=int(sys.argv[1]) if len(sys.argv)>1 else 0
     stop=int(sys.argv[2]) if len(sys.argv)>2 else 256
@@ -35,6 +35,6 @@ def run():
                       'three_count_signatures':len(signatures),
                       'raw_bit_range_214_291_294':[minbits,maxbits],
                       'per_budget_canonical_sha256':sha,
-                      'direct_comparison_elapsed_s':round(time.perf_counter()-start,3)},indent=2,sort_keys=True))
+                      'direct_comparison_elapsed_s':round(time.perf_counter()-begun,3)},indent=2,sort_keys=True))
 
 if __name__=='__main__':run()
