@@ -24,7 +24,7 @@
     "fresh_continuation_read_request": "onhour-20261117-0204-x6-continuation-read-unit70-v1",
     "fresh_continuation_status": "SUCCEEDED/OWN_RECORDED_RUN_REQUIRES_REAUTHORIZATION",
     "own_resume_request": "onhour-20261117-0207-x6-own-run-resume-unit70-v1",
-    "own_resume_last_read": "QUEUED/WAIT_ORIGINAL, error=null",
+    "own_resume_last_read": "QUEUED/WAIT_ORIGINAL, error=null (original request; never reissue)",
     "unit70_semantic_progress": "NOT_SUBMITTED; requires original successful native reauthorization"
   },
   "unit70": {
@@ -71,12 +71,26 @@
     "Do not register, claim, resume, prepare, open or dispatch maintenance conversation"
   ],
   "unresolved": [
-    "Canonical merge of Unit70 author evidence and existing RA Activity checkpoint if not completed",
-    "Own resume native request receipt and current winning claim authorization",
+    "Own original resume receipt and current own winning CLAIM authorization remain pending. No Unit70 native semantic checkpoint posted.",
     "Unit70 native semantic checkpoint after authorized own resume",
     "Current 28-LP active consumer full dependency inventory",
     "LP011 and LP019 exact historical wrong caller provenance",
     "Driver REQUEST_REVISION and independent review"
   ],
-  "next_exact_action": "Reconcile original resume request ID; only on SUCCEEDED/RUN_READY with current own authority publish Unit70 semantic checkpoint using original RUN. Finish author Activity checkpoint using true immutable GitHub readback evidence and current schema; continue current executable source caller audit. Never treat draft/Activity as native task admission."
+  "next_exact_action": "Consume original resume request onhour-20261117-0207-x6-own-run-resume-unit70-v1. If SUCCEEDED/RUN_READY and current own authorization is verified, use this same Researcher/SID/CLAIM/RUN to publish native semantic Unit69/70 progress once, then readback; otherwise preserve exact request. Independently continue actual source:line current 28-LP consumers and alleged LP011/LP019 bad caller audit. The 4 author evidence files are merged to main and Activity #93 recorded.",
+  "canonical_integration": {
+    "status": "MERGED_AND_VERIFIED",
+    "pr_number": 2588,
+    "merge_commit": "a396f46b0f86eec4c0346728f49ca0c63a4e2ee9",
+    "file_count": 4,
+    "immutable_git_blob_readback": true
+  },
+  "original_research_activity": {
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "checkpoint_count": 93,
+    "event_id": "onhour-20261117-0208-x6-unit70-exact-balance-only-brc-fiber",
+    "commit": "5e377a38d0e679b591c2c89119a946005c132f93",
+    "blob": "798f5149927a5d88a6a5362fb9920fa3cff437e6",
+    "verified": true
+  }
 }
