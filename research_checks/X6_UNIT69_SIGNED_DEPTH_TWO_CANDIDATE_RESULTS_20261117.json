@@ -1,0 +1,36 @@
+{
+  "schema": "EM_X6_UNIT69_TWO_CANDIDATE_SIGNED_DEPTH_V1",
+  "science_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "model": "selected signed Z3 embedded into X6 with other three coordinates zero",
+  "box": "[-10,10]^3",
+  "points_tested": 9261,
+  "distinct_observer_G_T_fibers": 8801,
+  "fiber_size_histogram": {
+    "1": 8341,
+    "2": 460
+  },
+  "double_fibers": 460,
+  "double_fibers_with_distinct_N_BRC": 180,
+  "failures": 0,
+  "exact_depth_formula": "h=(-R +/- sqrt(R^2+3*(G-Q)))/3, R=sum(r), Q=sum(r_i^2)",
+  "repair": "choose one of at most two feasible integer h after T filter; one selector bit sufficient and necessary in worst case",
+  "sharp_witness": {
+    "r": [
+      3,
+      0,
+      0
+    ],
+    "G": 18,
+    "T": 6,
+    "candidate_depths": [
+      -3,
+      1
+    ],
+    "N_BRC": [
+      20,
+      30
+    ]
+  },
+  "status": "AUTHOR_EXACT_SCOPED_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED"
+}
