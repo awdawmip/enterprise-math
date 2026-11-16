@@ -1,0 +1,82 @@
+{
+  "schema": "EM_X6_TASK_RESEARCH_UNIT70_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-17",
+  "mother_task": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "science_pins": {
+    "native": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "P000": "V5 ACTIVE_LOCKED"
+  },
+  "lane": {
+    "conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+    "excluded_maintenance_conversation": "chatgpt-hourly-enterprise-math-20260921",
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-579c8e23625448582b421831",
+    "run_id": "RUN-fb25028676f9692ab1bacaee",
+    "historical_generation": 1,
+    "permission": "current native execution reauthorization NOT YET CONFIRMED"
+  },
+  "native": {
+    "units66_68_original_request": "onhour-20261117-0017-x6-unit66-68-saved-author-native-progress-v1",
+    "units66_68_status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "fresh_continuation_read_request": "onhour-20261117-0204-x6-continuation-read-unit70-v1",
+    "fresh_continuation_status": "SUCCEEDED/OWN_RECORDED_RUN_REQUIRES_REAUTHORIZATION",
+    "own_resume_request": "onhour-20261117-0207-x6-own-run-resume-unit70-v1",
+    "own_resume_last_read": "QUEUED/WAIT_ORIGINAL, error=null",
+    "unit70_semantic_progress": "NOT_SUBMITTED; requires original successful native reauthorization"
+  },
+  "unit70": {
+    "claim": "Among two surviving integer depth candidates of (can3,G,T) in registered signed Z3, N_BRC masses coincide iff r entries form arithmetic progression; otherwise positive masses differ strictly",
+    "finite_check": {
+      "inputs": 29791,
+      "observed_signatures": 28474,
+      "full_fiber_singletons": 26815,
+      "full_double_equal": 645,
+      "full_double_distinct": 1014,
+      "failures": 0,
+      "python_modes": [
+        "normal",
+        "-O",
+        "-OO"
+      ],
+      "exact_integer": true
+    },
+    "science_status": "AUTHOR_EXACT_SCOPED_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED"
+  },
+  "saved_branch": "research/onhour-x6-unit70-20261117",
+  "saved_files": [
+    {
+      "path": "research_checks/X6_UNIT70_NATIVE_BRC_MASS_FIBER_CLASSIFIER_20261117.py",
+      "commit": "a703126cc7ec27f9b784c303d9a0aead049cca02",
+      "blob": "446ef76321252c9b995cfec2f0fbc64d2dd723d3"
+    },
+    {
+      "path": "research_checks/X6_UNIT70_NATIVE_BRC_MASS_FIBER_RESULTS_20261117.json",
+      "commit": "ba1b0d593f52c642cdc19dd925e86c73ecc6526a",
+      "blob": "60c525ea62f37da4f2fd2f81b4f48dff97cfea83"
+    },
+    {
+      "path": "research_notes/X6_LP019_NATIVE_BRC_EQUAL_MASS_FIBER_CRITERION_UNIT70_20261117.md",
+      "commit": "d235de0cc02732a1054a4714a7b36a5de290417a",
+      "blob": "6bcfb7118be34837a8f57d97df8b78015d1643e4"
+    }
+  ],
+  "previous_activity": "RA-5E3FE1E761E4963EC461A892 checkpoint count 92 at commit 6ca04d4761c0f378a787e1edc1e82b40d3d03c67",
+  "do_not_repeat": [
+    "Original R063 / Helly native benchmark, or Units 1–69 proofs and checks",
+    "Units66–68 original Source semantic publication",
+    "Unresolved exact LP011 argmax/LP019 positive-mass cancellation source:line must not be invented",
+    "Do not register, claim, resume, prepare, open or dispatch maintenance conversation"
+  ],
+  "unresolved": [
+    "Canonical merge of Unit70 author evidence and existing RA Activity checkpoint if not completed",
+    "Own resume native request receipt and current winning claim authorization",
+    "Unit70 native semantic checkpoint after authorized own resume",
+    "Current 28-LP active consumer full dependency inventory",
+    "LP011 and LP019 exact historical wrong caller provenance",
+    "Driver REQUEST_REVISION and independent review"
+  ],
+  "next_exact_action": "Reconcile original resume request ID; only on SUCCEEDED/RUN_READY with current own authority publish Unit70 semantic checkpoint using original RUN. Finish author Activity checkpoint using true immutable GitHub readback evidence and current schema; continue current executable source caller audit. Never treat draft/Activity as native task admission."
+}
