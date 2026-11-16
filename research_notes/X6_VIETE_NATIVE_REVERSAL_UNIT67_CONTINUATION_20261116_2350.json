@@ -1,0 +1,99 @@
+{
+  "schema": "EM_X6_TASK_RESEARCH_AUTHOR_CONTINUATION_UNIT67_V1",
+  "date": "2026-11-16",
+  "mother_task": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "science": {
+    "native_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "P000": "V5 ACTIVE LOCKED; canonical signed X6 Cell torsor",
+    "native_signed_slice": "selected signed Z3 from X6; fixed actual Cell",
+    "observer_semantics": "min-zero relative quotient, not native Cell identity"
+  },
+  "lane": {
+    "conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+    "excluded_maintenance_conversation": "chatgpt-hourly-enterprise-math-20260921",
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "prior_claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
+    "prior_run_id": "RUN-3356cbe3c2b4916d79399941",
+    "prior_run_generation": 36,
+    "source_authorization": "Current 2026-11-16T15:15:49Z continuation reported NO CURRENT OWNER; own typed continuation requested; new CLAIM/RUN not yet confirmed"
+  },
+  "native": {
+    "unit64_65_original_request_id": "onhour-20261116-1916-x6-saved-unit64-65-native-progress-v1",
+    "unit64_65_status": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED; canonical readback",
+    "unit66_resume_request_id": "onhour-20261116-1925-x6-own-run3356-resume-for-unit66-v1",
+    "unit66_resume_status": "SUCCEEDED / RUN_READY generation36 historical; no fresh authority by itself",
+    "exact_current_continuation_request_id": "onhour-20261116-2316-x6-current-continuation-read-v1",
+    "exact_continuation_status": "SUCCEEDED; source snapshot 0a2f4daa76d2c687a4d57030cfec946a2cf21006, runtime.actor=null, runtime.claim_id=null; typed continuation route",
+    "typed_prepare_request_id": "onhour-20261116-2348-x6-own-typed-continuation-unit67-v1",
+    "typed_prepare_status": "RUNNING / WAIT_ORIGINAL; error=null at observation; original request must be read, never resubmitted",
+    "unit66_67_semantic_progress": "NOT_SUBMITTED pending actual fresh winning CLAIM/open/run",
+    "no_claim_false_positive": true
+  },
+  "new_unit": {
+    "id": 67,
+    "title": "Exact signed-native shortest-path reversal and current Viète R061 native/observer misclassification",
+    "statement": "Every signed-shortest-path word to z maps via reversed order and flipped signed steps bijectively onto shortest words to -z; N_BRC(z)=N_BRC(-z), G(z)=G(-z). This refutes purported universal inverse mismatch when moved into signed-native path-word type, while old positive/minzero trace type retains historical scope.",
+    "source": "research_notes/VIETE_NATIVE_TRACE_ORIENTATION_QUOTIENT_OBSTRUCTION_20260903.md",
+    "original_lines": [
+      35,
+      41,
+      83,
+      99,
+      124
+    ],
+    "actual_witness": "+e_1 shortest path (+e_1) whose inverse (-e_1) is the unique reverse shortest path. minzero derived squared gauges 1 and 2, native squared norms both 1",
+    "finite_validation": "125 exact signed Z3 endpoint vectors in [-2,2]^3; 1957 shortest words; 3914 inverse observations; additional ±(3,4,0), 35 words per direction, full norm 25 and old observer reverse 17; zero mismatches; ordinary/-O/-OO modes",
+    "status": "AUTHOR_EXACT_PROVED_EXECUTED_UNREVIEWED_NOT_ADMITTED"
+  },
+  "saved_sources": [
+    {
+      "path": "research_notes/X6_LP011_LP019_VIETE_SIGNED_REVERSAL_CONSUMER_UNIT67_20261116.md",
+      "commit": "f98e8c75118ca7d2cbeb4cf643b2135d21eef45",
+      "blob": "189a9b6c4214aaf838abfb4dba0fe9138a688047"
+    },
+    {
+      "path": "research_checks/X6_UNIT67_SIGNED_PATH_INVERSION_CHECK_20261116.py",
+      "commit": "bcc9ea627634a8a8bb97d487b44feb00d94272b3",
+      "blob": "ec9f15f44463ab05979158fadc002b6cfda2476f"
+    },
+    {
+      "path": "research_checks/X6_UNIT67_SIGNED_PATH_INVERSION_RESULTS_20261116.json",
+      "commit": "0874d246d397c68ebd182a4ebba9ba70db51e5cc",
+      "blob": "ecd0df007bc346b84cd502de298a6c7d72f51027"
+    },
+    {
+      "path": "research_notes/VIETE_NATIVE_TRACE_ORIENTATION_QUOTIENT_OBSTRUCTION_20260903.md",
+      "commit": "12340b9732a15ab8791166372230ac6b26ed012e",
+      "blob": "19b67db2fd82bd78ca36b595f80bf9f14804ee20"
+    },
+    {
+      "path": "research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
+      "commit": "17aadd6ee369ece50ac3f2162596c12ea9934bf5",
+      "blob": "a1b2eabc5b8f5fe89bff1bc5fa66148b2791866e"
+    },
+    {
+      "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+      "commit": "1901676d2126baf61c8a8caacf8c57508523be42",
+      "blob": "8b2463de58c90628f110e33535fd0c3c07460249",
+      "checkpoint_count": 90
+    }
+  ],
+  "mother_unfinished": [
+    "LP011 alleged historical native signed argmax caller still UNRESOLVED_PROVENANCE; do not misattribute historical dominant branch weight",
+    "LP019 alleged signed subtraction of positive native N_BRC caller still UNRESOLVED_PROVENANCE; R063 PR574 excluded by previous scoped inspection",
+    "Full 28-LP active consumer dependency closure and other actual current reader leakage",
+    "R063 Stage3 original PR574 assert optimization guard owner-side correction and full native benchmark not yet executed; preserve original PR owner",
+    "Independent Driver REQUEST_REVISION pending"
+  ],
+  "do_not_repeat": [
+    "Units1–66 source-attested author results and original frozen native R063/Helly benchmarks already run",
+    "Original Unit66 512-shell integer check already executed; no double publish",
+    "Unit67 Viète original 2026-09-03 source preserved, exact proof and current-reader type notice already committed, activity #90 done",
+    "Original queued/unknown native requests must use original target_request_id receipt/reconcile, no substitution or duplicate claims"
+  ],
+  "next_exact_action": "Read original onhour-20261116-2348-x6-own-typed-continuation-unit67-v1 result. Only if SUCCEEDED and authorized, use that prepare request_id for an own authenticated CLAIM then verify winning RUN/open, and publish Source progress for saved Unit66/67 with full own writer generation/readback. If no authority, leave original request pending. Continue actual source-line search for LP011/LP019 and inspect new current consumers without erasing native signed path provenance.",
+  "source_persistence_status": "GitHub main committed and independently read back; native Unit67 not yet published; independent mathematical admission not granted"
+}
