@@ -1,0 +1,58 @@
+{
+  "author_status": "AUTHOR_EXACT_NOT_REVIEWED",
+  "common_within_state_errors": "Each state uses its own real (e,d) in [-2,2]^2",
+  "cutoffs": [
+    8,
+    9
+  ],
+  "four_read_separation": {
+    "Q_bernstein_coefficients_on_minus2_plus2": [
+      "39532880480510034618388156550903156649308160",
+      "32315187533271303915199787746092592692400128",
+      "117240976377789928603783057522747678432027808/5",
+      "71198425341406905515441700886389555535734368/5",
+      "30669549096837765962367866530027547948772032/5",
+      "711621081548133241108717887581952023428928"
+    ],
+    "bernstein_all_positive": true,
+    "common_root_determinants": "f=det(rows012), g=det(rows013)",
+    "quintic_Q_coefficients_ascending": [
+      "19042774742613941301134787391164065250594816",
+      "-10607977574627059592249580049853570554088576",
+      "259206111485804009334400947416274794358340",
+      "225665575370900725811848376223012798253276",
+      "2665724529495411954752877400836869271273",
+      "26462686334042645429945701137787854"
+    ],
+    "resultant_constant_multiplier": "-235092492288000",
+    "resultant_factorization": "K*(d+98)*(d+662)*(79435415*d+612671694)*Q(d)",
+    "scaled_determinant_factor": "24"
+  },
+  "minimal_consecutive_six_shift_reads": 4,
+  "schema": "R749SSP_SHARP_HORIZON_8_9_CERT_V1",
+  "status": "PASS",
+  "three_read_collision": {
+    "cutoff_8_denominator_error": "-1",
+    "cutoff_8_numerator_error": "unique root in (-163/500,-13/40) of 86485661024256*e**2 - 75908891607492816*e - 24689030348714335",
+    "cutoff_9_denominator_error_formula": "(3161870784*e + 155094721265)/(1264228704*e - 221765645410",
+    "cutoff_9_error_bounds_rational": {
+      "dprime": [
+        "-770335566301/1110882598694",
+        "-19257993923677/27772222995938"
+      ],
+      "eprime": [
+        "345424543185546857/374925010445163000",
+        "553274689607213/599876603294760"
+      ]
+    },
+    "cutoff_9_numerator_error_formula": "(143842148352*e**2 - 23723179174944*e - 29856214143065)/(136536700032*e - 23950689704280)",
+    "third_read_identity": "third difference numerator divisible by Phi, exact symbolic identity"
+  },
+  "weights": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ]
+}
