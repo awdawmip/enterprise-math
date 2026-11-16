@@ -129,7 +129,7 @@ def main():
                     interpolate(hist,q,a*b)
                     summary['named_initial_states']+=1
                     summary['named_histogram_recurrences']+=(len(hist)-2*q-1)*(q+1)
-                    summary['named_histogram_interpolations']+=(len(hist)-2)*(q+1)
+                    summary['named_histogram_interpolations']+=(len(hist)-1)*(q+1)
     print(json.dumps(summary,ensure_ascii=False,indent=2))
     from pathlib import Path
     Path(__file__).with_name('PREFIX826_R6_Q_ONLY_RECURRENCE_RESULTS.json').write_text(
