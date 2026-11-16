@@ -46,8 +46,8 @@ There are ten 3+3 partitions because C(6,3)/2=10. R762CL shows all nine other st
 
 | source subgroup orbit (size) | F1 (2) | F2 (2) | M (2) | O (4) |
 |---|---:|---:|---:|---:|
-| F1 (2) | lambda | 2 | lambda | 2 lambda+2 |
-| F2 (2) | 2 | lambda | lambda | 2 lambda+2 |
+| F1 (2) | lambda | 2 | 2 | 2 lambda+2 |
+| F2 (2) | 2 | lambda | 2 | 2 lambda+2 |
 | M (2) | 2 | 2 | lambda | 2 lambda+2 |
 | O (4) | lambda+1 | lambda+1 | lambda+1 | 3 |
 
