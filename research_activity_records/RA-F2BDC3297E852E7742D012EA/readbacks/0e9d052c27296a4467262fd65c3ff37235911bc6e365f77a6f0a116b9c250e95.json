@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/public_math_intake_20261116/craig_path_restriction/check_signature.py",
+    "ref": "25b4d0e92c20c363e8ee01fbd4ac5bea076bd3da",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "craig-continued-check_signature.py",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Integer BRC subset counts, triangular minors, deck collisions, and two-scale energy.\"\"\"\nfrom collections import Counter\nfrom fractions import Fraction\nfrom math import comb\n\nfrom check_deletion import observables, operator, words\nfrom check_weighted import law_weight\n\n\ndef count_subword(word, pattern):\n    counts = [1] + [0] * len(pattern)\n    for symbol in word:\n        for j in range(len(pattern), 0, -1):\n            if pattern[j-1] == symbol:\n                counts[j] += counts[j-1]\n    return counts[-1]\n\n\ndef verify_triangular_certificate():\n    checked_rows = 0\n    for n in range(1, 8):\n        for k in range(1, n+1):\n            for coarse in words(k):\n                padded = 'X' * (n-k) + coarse + 'Y' * (n-k)\n                bins = operator(padded, k)\n                leading = len(coarse) - len(coarse.lstrip('X'))\n                trailing = len(coarse) - len(coarse.rstrip('Y'))\n                diagonal = comb(n-k+leading, leading) * comb(n-k+trailing, trailing)\n                assert bins[coarse] == count_subword(padded, coarse) == diagonal\n                assert all(u == coarse or observables(u)[0] > observables(coarse)[0] for u in bins)\n                checked_rows += 1\n    return checked_rows\n\n\ndef verify_decks():\n    sizes = []\n    patterns = words(2)\n    for n in range(2, 7):\n        signatures = Counter()\n        for word in words(n):\n            profile = tuple(count_subword(word, u) for u in patterns)\n            assert profile == tuple(operator(word, 2)[u] for u in patterns)\n            signatures[profile] += 1\n        sizes.append(len(signatures))\n    assert sizes == [6, 20, 70, 252, 920]\n    assert Counter(signatures.values()) == {1:916, 2:4}\n    x, y = 'XYYXXXYXYYYX', 'YXXXYXYYYXXY'\n    assert [operator(x, 2)[u] for u in patterns] == [48,42,42,42,39,12]\n    assert all(operator(x, 2)[u] == operator(y, 2)[u] for u in patterns)\n    assert (operator(x,3)['XXYYXY'],operator(y,3)['XXYYXY']) == (0,54)\n    assert len({tuple(count_subword(w,u) for u in words(3)) for w in words(6)}) == 924\n    # Means and conditional variances agree for this different pair, full tag laws differ.\n    a,b = 'XYXYYX','XYYXXY'\n    assert observables(a)[1:] == observables(b)[1:]\n    assert (operator(a,2)['YYXX'],operator(b,2)['YYXX']) == (0,1)\n    return sizes\n\n\ndef verify_mixing():\n    checked = 0\n    for n in range(2, 6):\n        for k in range(1,n+1):\n            for w in words(n):\n                a = observables(w)[1]\n                numerator = sum(count * observables(u)[1] * (1-observables(u)[1])\n                                for u,count in operator(w,k).items())\n                assert a*(1-a) >= numerator / comb(n,k)**2\n                checked += 1\n        for rate_x,rate_y in [(1,1),(2,1),(1,3)]:\n            energies = []\n            for m in (2,n):\n                energies.append(sum(law_weight(w,rate_x,rate_y)*observables(w)[1]*(1-observables(w)[1])\n                                    for w in words(m)))\n            assert 0 < energies[0] <= energies[1]\n    return checked\n\n\nif __name__ == '__main__':\n    print('exact triangular certificate rows:', verify_triangular_certificate())\n    print('distinct level-2 decks, N=2..6:', verify_decks())\n    print('sourcewise mixing inequalities:', verify_mixing())\n",
+      "display_title": "check_signature.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/25b4d0e92c20c363e8ee01fbd4ac5bea076bd3da/research_notes/public_math_intake_20261116/craig_path_restriction/check_signature.py",
+      "encoding": "utf-8",
+      "sha": "330470b8d51aec74a12b9332ce148f72441e18a6"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
