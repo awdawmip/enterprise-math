@@ -16,7 +16,7 @@ y_m=(4m, m, m,0,0,0).
 ```
 
 Their selected three-axis min-zero observations are **identical**:
-`can3(x_m[1:3])=can3(y_m[1:3])=(3m,0,0)` (here use the *first three coordinates*, not Python 1:3 slicing). Moreover
+`can3(x_m[:3])=can3(y_m[:3])=(3m,0,0)`, taking the first three signed coordinates of each six-axis vector. Moreover
 
 ```
 G(x_m)=G(y_m)=18m²,    T(x_m)=T(y_m)=6m,
