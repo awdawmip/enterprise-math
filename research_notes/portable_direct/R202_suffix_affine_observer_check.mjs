@@ -71,8 +71,8 @@ function run(){
     const concatenated=wordAction(a,L,[...w,...v],1);
     if(sig(then(f,g))!==sig(concatenated))throw Error("concat failed");
     const suffix=[...w,...v].slice(-L);
-    if([...w,...v].length>=L&&sig(concatenated)!==sig(wordAction(a,L,suffix,1)))throw Error("suffix absorption failed");
-    associative++;absorption++;
+    if([...w,...v].length>=L){if(sig(concatenated)!==sig(wordAction(a,L,suffix,1)))throw Error("suffix absorption failed");absorption++;}
+    associative++;
   }
   return {status:"PASS",method:"EXACT_GF2_ROW_SELECTOR_DESCRIPTOR",
    models:results,rank_certificate_a84_L2:ranks,
