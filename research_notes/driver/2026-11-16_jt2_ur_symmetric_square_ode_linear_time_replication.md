@@ -84,3 +84,14 @@ Published code: [exact symmetric-square scanner](https://github.com/awdawmip/ent
 This is a distinct identity for the symmetric square of the Legendre solution and an asymptotically faster exact finite scanner. The full 575-prime evidence is reproduced byte-for-byte and now depends on two distinct coefficient-generation representations. The all-prime statement \(\varepsilon_p=0\) for admissible primes is still an open mathematical obligation. The recurrence makes a modular telescoping or creative-telescoping attack on \(J_m\) possible without explicit quadratic convolution.
 
 Completion classification: one proved general polynomial identity; one finite exhaustive computational replication on the stated prime interval; no independent Native Result acceptance, formal Task completion, or JT2 parent closure.
+
+
+## Extended exact finite scan (p ≤ 100000)
+
+The same exact O(m) modular algorithm was run in disjoint prime intervals (p≤50000; 50000<p≤75000; 75000<p≤100000), with explicit sieve completeness and no duplicated prime. A total of **2,398** primes satisfy p≡13,19 (mod 24) and p≤100000. Across all 2,398 cases:
+
+```
+SUMMARY hi=100000 total=2398 cmfails=0 e_nonzero=0
+```
+
+The concatenated ascending-p CSV (same seven columns and LF line terminators as the 575-prime baseline) contains 76,179 bytes and has SHA-256 `a27b272cb9e2b000adf986ff496d8cee43dd42b5c5d56a72d3d26bd72f827e56`. Last checked row: `(99907,16651,0,70,49626,96331,0)`. This extends the evidence window; it remains an exact finite experiment rather than an all-prime proof. Reproduce with the committed scanner's `--limit 100000 --csv` invocation; calculation may be partitioned into disjoint prime ranges without changing the algorithm.
