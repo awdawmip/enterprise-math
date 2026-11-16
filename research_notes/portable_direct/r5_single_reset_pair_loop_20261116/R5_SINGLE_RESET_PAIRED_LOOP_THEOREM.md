@@ -20,9 +20,21 @@ Within the class of controllers whose states are disjoint one-state or two-state
 
 `W_k=min {sum_(a,b) w(a,b) z_(a,b) : z_(a,b) in {0,1}, sum_((a,b):y in P_k(a,b)) z_(a,b)>=1 for all y}.`
 
-Converse: each component has a fixed source-centre pair and can cover only fibers in its P set; one must select enough components to cover every initial raw fiber. A pair of equal centres may be collapsed to one state without changing its output or allowed transitions. This proves both directions. The theorem is a constructive sufficient controller architecture; the universal minimum `N_dyn(k,{0},2)` may use more general overlapping belief states.
+Converse: each component has a fixed source-centre pair and can cover only fibers in its P set; one must select enough components to cover every initial raw fiber. A pair of equal centres may be collapsed to one state without changing its output or allowed transitions. This proves both directions. The paired-loop theorem gives a constructive controller; Theorem 1b below proves it also captures every reset-algebra coherent controller. General deterministic controllers may have transition-order residuals.
 
 Static source coverage is the ordinary integer set cover of the `2^k` raw states by `C_k(r)`. Thus always `M_stat(k,2) <= N_dyn(k,{0},2) <= W_k`. The left inequality holds because each dynamic Moore state has one actual source-labelled output, and the inherited common-source law canonicalizes it to a source centre without raising cost.
+
+## Theorem 1b (all reset-coherent controllers reduce to paired loops)
+
+A deterministic controller is *reset-algebra coherent* if its internal transition functions satisfy `delta_b(delta_c(q))=delta_b(q)` for all internal states q and b,c in {0,1}; in particular each delta_b is idempotent. This is a genuine restriction on its **internal** transition functions, not merely on the raw named Set operations. Let `N_coherent(k)` be the minimum number of source-feasible states among all such controllers, allowing overlapping beliefs, arbitrary initial state assignments, noncanonical actual source libraries and transient states.
+
+**General theorem.** For every k>=3 at slack s=2 and control J={0}, `N_coherent(k)=W_k`, where W_k is the weighted set-cover optimum in Theorem 1.
+
+**Proof.** The explicit paired-loop construction satisfies the two-sided reset absorption identities and gives the upper bound. For the lower bound take an arbitrary reset-coherent controller Q. For any state q define p_0=delta_0(q) and p_1=delta_1(q). Absorption gives delta_c(p_b)=delta_c(q)=p_c for each c,b. Hence {p_0,p_1} is a closed one- or two-state reset component. If two such components share a state p, then applying delta_0 and delta_1 to p identifies both endpoints; distinct components are disjoint. All components lie inside Q, so the sum of their cardinalities is <=|Q|.
+
+For every fixed tail y, take the controller's initial state q for raw mask 2y (the choice for raw 2y+1 would work equally well). After the one-command word Set_0(b), its state is p_b and its true raw mask is 2y+b. Correctness requires the actual source library at p_b to be feasible within slack 2 at 2y+b. The inherited *common source law* permits canonicalizing each output library to an L(r_b) of no greater cardinality while preserving all its raw snapshot obligations. It follows that y belongs to P_k(r_0,r_1). Thus the closed components form a weighted set cover of all fixed tails. Each component costs exactly one or two distinct states, and distinct components do not share states; therefore W_k<=|Q|. Taking the minimum over Q gives W_k<=N_coherent(k), as claimed. QED.
+
+The argument also shows that transient control states and overlapping raw belief sets cannot improve upon W_k **within the reset-coherent class**. Consequently, for k=9 the computed 44-state paired-loop minimum is also the minimum coherent-controller size. Any 43-state general controller, should one exist, must violate at least one internal absorption identity. This is the exact remaining structural distinction.
 
 ## Theorem 2 / finite certificates at k=8
 
@@ -40,7 +52,7 @@ For k=9, the standard-library checker verifies a **43-library static cover** ove
 
 `43 <= N_dyn(9,{0},2) <= 44` (lower computationally MILP-certified, upper exact constructive).
 
-This is a precise one-state gap for the general dynamic problem, not a claimed counterexample to `N_dyn=M_stat`. It tests whether more general belief-state transitions can beat the disjoint paired-loop architecture. Finding a 43-state transition table or an exact, scope-appropriate 44-state lower certificate settles this instance.
+This is a precise one-state gap for the general dynamic problem, not a claimed counterexample to `N_dyn=M_stat`. By Theorem 1b, a 43-state solution would need genuinely non-coherent internal reset transitions. Finding a 43-state transition table or an exact, scope-appropriate 44-state lower certificate settles this instance.
 
 ## Reproduction, evidence scope, and project provenance
 
