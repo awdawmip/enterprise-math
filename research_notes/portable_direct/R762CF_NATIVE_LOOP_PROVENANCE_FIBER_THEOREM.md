@@ -11,7 +11,7 @@ For **each integer q >= 2**, there exists an S6-axis-label and C3-rooted-Port co
 
 O = (final signed X6 Cell coordinate relative to a chosen anchor, three signed named Ports, cyclic Links, elapsed primitive-step time, histogram of all signed primitive-axis steps)
 
-contains exactly q reachable states with pairwise distinguishable future event-permission languages. The minimum fixed-width full-future BRC repair information in this fibre is
+contains at least q reachable complete histories with pairwise distinguishable future event-permission languages, and its all-future behavioural quotient has exactly q classes. The minimum fixed-width full-future BRC repair information in this fibre is
 
 R(q) = ceil(log2(q)) bits.
 
@@ -49,7 +49,7 @@ Start with anchor Cell c, P=((1,+),(2,+),(3,+)), r=0 and empty H. Fix j=1. For e
 
 W_r = B_1^(q-r) L_1^r.
 
-Every history has q completed loops, 4q primitive axial steps, endpoint c, unchanged signed Ports/Links and time t=4q. Its directed signed step histogram records q occurrences **each** of +e_1,-e_1,+e_2,-e_2, with zero other entries. Therefore O(W_r) is literally identical for all r. However the retained provenance register equals r mod q. All q states are reachable and distinct under future T-permission.
+Every history has q completed loops, 4q primitive axial steps, endpoint c, unchanged signed Ports/Links and time t=4q. Its directed signed step histogram records q occurrences **each** of +e_1,-e_1,+e_2,-e_2, with zero other entries. Therefore O(W_r) is literally identical for all r. However the retained provenance register equals r mod q. All q represented phases are reachable and distinct under future T-permission. The full H-labelled states of this fibre need not number q: different ordered histories with the same r can be separate complete states but are future-permission-equivalent. Every future transition/permission in this model depends on H only via r, so the behavioural quotient of the complete fibre has at most q classes; the witnesses prove that it has exactly q.
 
 For r ≠ s, put k=(-r mod q), 0<=k<=q-1. The future query L_1^k followed by T_(1,4) is legal from phase r and illegal from phase s. Thus the right languages are pairwise distinct. Their minimal sufficient exact all-future quotient has q states by the direct distinguishability argument (equivalently the Myhill–Nerode right-congruence criterion). A q-valued state needs ceil(log2 q) fixed bits; storing r achieves this bound.
 
