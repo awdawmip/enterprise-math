@@ -1,0 +1,80 @@
+{
+  "schema": "EM_PORTABLE_EXACT_RESEARCH_RESULT_V1",
+  "id": "R749SSW",
+  "date": "2026-11-17",
+  "status": "AUTHOR_EXACT_NOT_REVIEWED",
+  "frozen_scientific_input": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": {
+    "weights": [
+      1,
+      1,
+      2,
+      3,
+      6
+    ],
+    "source_labels": "five distinct labels; k1 and k2 not identified",
+    "cutoff": "integer q>=6",
+    "parameters": "e,d real in [-2,2], fixed between readings"
+  },
+  "theorem": "(T_{q+6}+e)/(C_{q+6}+d) - (T_q+e)/(C_q+d) > 1 for all admissible q,e,d",
+  "sharpness": "difference tends to 1 at q->infinity in each of six residue classes for fixed admissible e,d",
+  "symbolic_cert": {
+    "residues": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "corner_tests": "e=2; d=-2 or +2; minimum follows from monotonicity in e and concavity in d",
+    "polynomial_count": 12,
+    "degree": 8,
+    "min_coefficient": "69/40",
+    "zero_degree_coefficients": {
+      "d_minus_2": [
+        "39",
+        "945",
+        "2184",
+        "4527",
+        "8685",
+        "14859"
+      ],
+      "d_plus_2": [
+        "1679",
+        "3341",
+        "5588",
+        "9239",
+        "15065",
+        "23339"
+      ]
+    },
+    "phase_C_leading": "9/5 k^5",
+    "phase_T_leading": "9/5 k^6"
+  },
+  "example": {
+    "q": 6,
+    "e": 2,
+    "d": -2,
+    "C6": 41,
+    "T6": 50,
+    "C12": 380,
+    "T12": 881,
+    "X6": "4/3",
+    "X12": "883/378",
+    "X12_minus_X6": "379/378"
+  },
+  "corollaries": [
+    "Exact two-read recovery of e,d at known q by linear elimination; determinant x1-x0>1",
+    "Fixed q explicit perturbation bounds for e,d from two observations"
+  ],
+  "validation": "Exact rational symbolic computation; source-based generating-function argument gives infinite q coverage; author checked, awaiting independent mathematical review",
+  "files": [
+    "2026-11-17_R749SSW_SHARP_TWO_READ_CONDITIONING.md",
+    "R749SSW_TWO_READ_CONDITIONING_CERT.py",
+    "R749SSW_TWO_READ_CONDITIONING_RESULTS.json"
+  ],
+  "next": "Use stable elimination to certify finite-range cross-q separation; reduce unknown-q 11-read sufficiency; source-preserving typed BRC carrier",
+  "native_x6_claim": false,
+  "formal_task_claim": false
+}
