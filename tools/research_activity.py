@@ -351,8 +351,9 @@ def _events(record: Mapping[str, Any], root: Path) -> dict[str, dict[str, Any]]:
         if row.get("state") != status and not legacy_report:
             raise ActivityError("checkpoint state must be derived from actual source evidence")
         repair = row.get("repairs_event_id")
-        if repair is not None and (repair not in events or status != "EM_REPRESENTED"):
-            raise ActivityError("repair must reference an earlier event and provide verified EM source")
+        if repair is not None and (repair not in events or (status != "EM_REPRESENTED" and not legacy_report)):
+            # Preserve historically reported repair links without certifying observation.
+            raise ActivityError("repair must reference an earlier event and have a valid observed or legacy source")
         events[event_id] = row
     return events
 
@@ -457,8 +458,10 @@ def audit_observations(*, activity_id: str | None = None, boundary: str = "start
     if session_id is not None and session_id != record["session_id"]:
         raise ActivityError("activity belongs to a different or unknown original session")
     events = _events(record, root)
-    repaired = {x["repairs_event_id"] for x in events.values() if x["repairs_event_id"] is not None}
     legacy = _legacy_events(events)
+    repaired = {x["repairs_event_id"] for x in events.values()
+                if x["repairs_event_id"] is not None and x["event_id"] not in legacy}
+    # A legacy repair link records its provenance but cannot clear unobserved debt.
     debts = [x for x in events.values()
              if (x["state"] != "EM_REPRESENTED" or x["event_id"] in legacy)
              and x["event_id"] not in repaired]
