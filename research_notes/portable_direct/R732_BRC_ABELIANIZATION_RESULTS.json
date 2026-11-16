@@ -1,0 +1,644 @@
+{
+  "schema": "R732_BRC_CNB_NONABELIAN_COUNT_OBSTRUCTION_V1",
+  "source_masks": {
+    "A": "211733226574",
+    "B": "5363347296468"
+  },
+  "arithmetic": "exact nonnegative integer; full finite rooted CNB enumeration",
+  "root": "012",
+  "systems": {
+    "A": {
+      "arcs": [
+        "012>014",
+        "012>023",
+        "012>024",
+        "013>012",
+        "013>123",
+        "014>013",
+        "014>034",
+        "023>013",
+        "023>123",
+        "024>023",
+        "024>034",
+        "034>013",
+        "034>023",
+        "123>012",
+        "123>013"
+      ],
+      "elementary_excursions": {
+        "X": [
+          "012",
+          "023",
+          "013",
+          "012"
+        ],
+        "Y": [
+          "012",
+          "023",
+          "123",
+          "012"
+        ],
+        "X_holonomy": "021",
+        "Y_holonomy": "102"
+      },
+      "first_collision_length": 6,
+      "first_collision": {
+        "XY": {
+          "path": [
+            "012",
+            "023",
+            "013",
+            "012",
+            "023",
+            "123",
+            "012"
+          ],
+          "holonomy": "201"
+        },
+        "YX": {
+          "path": [
+            "012",
+            "023",
+            "123",
+            "012",
+            "023",
+            "013",
+            "012"
+          ],
+          "holonomy": "120"
+        },
+        "identical_edge_counts": [
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "four_port_two_PASS_count_matrix": [
+          0,
+          5,
+          4,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "five_port_one_PASS_count_matrix": [
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "four_port_equal": true,
+        "five_port_equal": true
+      },
+      "rooted_CNB_exact_coverage_to_6": {
+        "1": {
+          "rooted_cnb_histories": 0,
+          "distinct_arc_multisets": 0,
+          "max_named_holonomies_per_multiset": 0
+        },
+        "2": {
+          "rooted_cnb_histories": 0,
+          "distinct_arc_multisets": 0,
+          "max_named_holonomies_per_multiset": 0
+        },
+        "3": {
+          "rooted_cnb_histories": 3,
+          "distinct_arc_multisets": 3,
+          "max_named_holonomies_per_multiset": 1
+        },
+        "4": {
+          "rooted_cnb_histories": 7,
+          "distinct_arc_multisets": 7,
+          "max_named_holonomies_per_multiset": 1
+        },
+        "5": {
+          "rooted_cnb_histories": 8,
+          "distinct_arc_multisets": 8,
+          "max_named_holonomies_per_multiset": 1
+        },
+        "6": {
+          "rooted_cnb_histories": 13,
+          "distinct_arc_multisets": 10,
+          "max_named_holonomies_per_multiset": 2
+        }
+      },
+      "four_excursions": {
+        "length": 12,
+        "words": [
+          {
+            "word": "XXYY",
+            "holonomy": "012"
+          },
+          {
+            "word": "XYXY",
+            "holonomy": "120"
+          },
+          {
+            "word": "XYYX",
+            "holonomy": "012"
+          },
+          {
+            "word": "YXXY",
+            "holonomy": "012"
+          },
+          {
+            "word": "YXYX",
+            "holonomy": "201"
+          },
+          {
+            "word": "YYXX",
+            "holonomy": "012"
+          }
+        ],
+        "common_arc_counts": [
+          0,
+          4,
+          0,
+          2,
+          0,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        "distinct_even_holonomies": [
+          "012",
+          "120",
+          "201"
+        ],
+        "four_port_two_PASS_count_matrix": [
+          0,
+          10,
+          8,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        "five_port_one_PASS_count_matrix": [
+          0,
+          0,
+          4,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "edge_signs": [
+        {
+          "arc": "012>014",
+          "parity": 0
+        },
+        {
+          "arc": "012>023",
+          "parity": 1
+        },
+        {
+          "arc": "012>024",
+          "parity": 1
+        },
+        {
+          "arc": "013>012",
+          "parity": 0
+        },
+        {
+          "arc": "013>123",
+          "parity": 1
+        },
+        {
+          "arc": "014>013",
+          "parity": 0
+        },
+        {
+          "arc": "014>034",
+          "parity": 0
+        },
+        {
+          "arc": "023>013",
+          "parity": 0
+        },
+        {
+          "arc": "023>123",
+          "parity": 0
+        },
+        {
+          "arc": "024>023",
+          "parity": 0
+        },
+        {
+          "arc": "024>034",
+          "parity": 0
+        },
+        {
+          "arc": "034>013",
+          "parity": 1
+        },
+        {
+          "arc": "034>023",
+          "parity": 1
+        },
+        {
+          "arc": "123>012",
+          "parity": 0
+        },
+        {
+          "arc": "123>013",
+          "parity": 1
+        }
+      ]
+    },
+    "B": {
+      "arcs": [
+        "012>023",
+        "012>123",
+        "013>012",
+        "013>014",
+        "014>012",
+        "014>124",
+        "023>013",
+        "023>034",
+        "023>123",
+        "034>013",
+        "034>014",
+        "123>013",
+        "123>023",
+        "123>124",
+        "124>012"
+      ],
+      "elementary_excursions": {
+        "X": [
+          "012",
+          "023",
+          "013",
+          "012"
+        ],
+        "Y": [
+          "012",
+          "123",
+          "013",
+          "012"
+        ],
+        "X_holonomy": "021",
+        "Y_holonomy": "210"
+      },
+      "first_collision_length": 6,
+      "first_collision": {
+        "XY": {
+          "path": [
+            "012",
+            "023",
+            "013",
+            "012",
+            "123",
+            "013",
+            "012"
+          ],
+          "holonomy": "120"
+        },
+        "YX": {
+          "path": [
+            "012",
+            "123",
+            "013",
+            "012",
+            "023",
+            "013",
+            "012"
+          ],
+          "holonomy": "201"
+        },
+        "identical_edge_counts": [
+          1,
+          1,
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "four_port_two_PASS_count_matrix": [
+          0,
+          7,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "five_port_one_PASS_count_matrix": [
+          0,
+          1,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "four_port_equal": true,
+        "five_port_equal": true
+      },
+      "rooted_CNB_exact_coverage_to_6": {
+        "1": {
+          "rooted_cnb_histories": 0,
+          "distinct_arc_multisets": 0,
+          "max_named_holonomies_per_multiset": 0
+        },
+        "2": {
+          "rooted_cnb_histories": 0,
+          "distinct_arc_multisets": 0,
+          "max_named_holonomies_per_multiset": 0
+        },
+        "3": {
+          "rooted_cnb_histories": 3,
+          "distinct_arc_multisets": 3,
+          "max_named_holonomies_per_multiset": 1
+        },
+        "4": {
+          "rooted_cnb_histories": 7,
+          "distinct_arc_multisets": 7,
+          "max_named_holonomies_per_multiset": 1
+        },
+        "5": {
+          "rooted_cnb_histories": 8,
+          "distinct_arc_multisets": 8,
+          "max_named_holonomies_per_multiset": 1
+        },
+        "6": {
+          "rooted_cnb_histories": 14,
+          "distinct_arc_multisets": 11,
+          "max_named_holonomies_per_multiset": 2
+        }
+      },
+      "four_excursions": {
+        "length": 12,
+        "words": [
+          {
+            "word": "XXYY",
+            "holonomy": "012"
+          },
+          {
+            "word": "XYXY",
+            "holonomy": "201"
+          },
+          {
+            "word": "XYYX",
+            "holonomy": "012"
+          },
+          {
+            "word": "YXXY",
+            "holonomy": "012"
+          },
+          {
+            "word": "YXYX",
+            "holonomy": "120"
+          },
+          {
+            "word": "YYXX",
+            "holonomy": "012"
+          }
+        ],
+        "common_arc_counts": [
+          2,
+          2,
+          4,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        "distinct_even_holonomies": [
+          "012",
+          "120",
+          "201"
+        ],
+        "four_port_two_PASS_count_matrix": [
+          0,
+          14,
+          2,
+          4,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        "five_port_one_PASS_count_matrix": [
+          0,
+          2,
+          2,
+          4,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "edge_signs": [
+        {
+          "arc": "012>023",
+          "parity": 1
+        },
+        {
+          "arc": "012>123",
+          "parity": 0
+        },
+        {
+          "arc": "013>012",
+          "parity": 0
+        },
+        {
+          "arc": "013>014",
+          "parity": 0
+        },
+        {
+          "arc": "014>012",
+          "parity": 0
+        },
+        {
+          "arc": "014>124",
+          "parity": 1
+        },
+        {
+          "arc": "023>013",
+          "parity": 0
+        },
+        {
+          "arc": "023>034",
+          "parity": 1
+        },
+        {
+          "arc": "023>123",
+          "parity": 0
+        },
+        {
+          "arc": "034>013",
+          "parity": 1
+        },
+        {
+          "arc": "034>014",
+          "parity": 0
+        },
+        {
+          "arc": "123>013",
+          "parity": 1
+        },
+        {
+          "arc": "123>023",
+          "parity": 0
+        },
+        {
+          "arc": "123>124",
+          "parity": 0
+        },
+        {
+          "arc": "124>012",
+          "parity": 0
+        }
+      ]
+    }
+  },
+  "status": "PASS"
+}
