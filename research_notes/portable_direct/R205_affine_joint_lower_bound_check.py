@@ -3,6 +3,7 @@ Uses the explicit R201 reset/shift construction, not the installed BRC package.
 """
 import json
 from math import comb, ceil, log2
+from pathlib import Path
 
 M,K,L=12,6,2
 A=M*(K+1)
@@ -80,4 +81,6 @@ result={
     'claims_scope':'Explicit R201 construction and fixed-fiber witness; universal lower bound from separate proof'
 }
 print(json.dumps(result,indent=2,ensure_ascii=False))
-with open('/mnt/data/r205/R205_verification.json','w') as f:json.dump(result,f,indent=2)
+with Path(__file__).with_name('R205_verification.json').open('w',encoding='utf-8') as f:
+    json.dump(result,f,indent=2)
+    f.write('\n')
