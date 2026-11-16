@@ -1,0 +1,151 @@
+{
+  "schema": "EC49FQW_EXACT_BRC_40GRID_CERTIFICATE_INDEX_V1",
+  "date": "2026-11-16",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "frozen_scientific_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "inherited": "EC49FQV PR #2576 @34358d691d3b75df970caf3c0c47250f87fd9d43",
+  "scope": {
+    "original_configurations": 310,
+    "full_named_root_profiles": 141,
+    "physical_queries": 228,
+    "distinct_query_partitions": 209,
+    "new_price_nodes": 4,
+    "new_complete_integer_bellman_anchors": 8
+  },
+  "source_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "source_profile_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "new_anchors": [
+    {
+      "file": "25_24_0_1.json",
+      "x": "25/24",
+      "prior": "0",
+      "integer_optimum": 2204100,
+      "first": [
+        32,
+        34
+      ],
+      "sha256": "fc86ffbb795606b811c562ccc63968b6b66c0c92227c9e819b0edc75662d2350"
+    },
+    {
+      "file": "25_24_310_3769.json",
+      "x": "25/24",
+      "prior": "310/3769",
+      "integer_optimum": 8418367440,
+      "first": [
+        32,
+        34,
+        140,
+        142
+      ],
+      "sha256": "378df2a8502be04114c2872d0933364bdc66f49dcdccb94a29170996d7e0cd22"
+    },
+    {
+      "file": "9_8_0_1.json",
+      "x": "9/8",
+      "prior": "0",
+      "integer_optimum": 735940,
+      "first": [
+        32,
+        34
+      ],
+      "sha256": "3018c31ea4326e033f5652bfb3e05e217dac6cf3364a1baed929b9fa2b775526"
+    },
+    {
+      "file": "9_8_310_3929.json",
+      "x": "9/8",
+      "prior": "310/3929",
+      "integer_optimum": 2928336880,
+      "first": [
+        32,
+        34,
+        140,
+        142
+      ],
+      "sha256": "98726d9e144d36cbb0fa7dde1b90158d0fb38bbd0318f80215dda047e748d642"
+    },
+    {
+      "file": "29_24_0_1.json",
+      "x": "29/24",
+      "prior": "0",
+      "integer_optimum": 2211540,
+      "first": [
+        32,
+        34
+      ],
+      "sha256": "391047f5041f28b51a490b39a193a7520a8912f20bf60417a0ae3d3e22aca44b"
+    },
+    {
+      "file": "29_24_13330_176467.json",
+      "x": "29/24",
+      "prior": "13330/176467",
+      "integer_optimum": 394987687920,
+      "first": [
+        32,
+        34,
+        140,
+        142
+      ],
+      "sha256": "86d82e0dff6af0903d185c30273f30b5681961be47e6f55811a58c701d547e30"
+    },
+    {
+      "file": "31_24_0_1.json",
+      "x": "31/24",
+      "prior": "0",
+      "integer_optimum": 2215260,
+      "first": [
+        32,
+        34
+      ],
+      "sha256": "035229fb6e23578ca966ee9d130016bbfda3b3f0f0f9d3529ac6c294606d639d"
+    },
+    {
+      "file": "31_24_12710_176129.json",
+      "x": "31/24",
+      "prior": "12710/176129",
+      "integer_optimum": 394649897040,
+      "first": [
+        32,
+        34,
+        140,
+        142
+      ],
+      "sha256": "8ca75f58b7fd305c9acaa9a66cf9bc08097d4464b7e40b16bcb26609b70c697f"
+    }
+  ],
+  "verification": {
+    "native_subset_bellman": "PASS",
+    "independent_subset_bellman": "PASS",
+    "all_minimizing_first_trees_replayed": "PASS",
+    "exact_fraction_area": "PASS",
+    "square_root_inequalities": "PASS",
+    "independent_project_review": "NOT_REVIEWED"
+  },
+  "geometry": {
+    "node_count": 40,
+    "adjacent_intervals": 39,
+    "unresolved_area": "97662317051285/21777095929333869",
+    "certified_fraction": "43456529541616453/43554191858667738",
+    "certified_percent": "99.77576827193075519940318809",
+    "max_gap_interval": [
+      "47/16",
+      "3"
+    ],
+    "max_gap_expression": "50*(1/16)/(sqrt(112969/16)+sqrt(7050))^2",
+    "max_gap_decimal": "0.000110732667027230763516081150986951226568930994791398"
+  },
+  "complete_evidence_archive": {
+    "name": "EC49FQW_FOUR_SLICES_40GRID_COMPLETE_EVIDENCE_20261116.tar.xz",
+    "sha256": "bce41b3c4a31091fc001cade94603fe553fb162b4dc09408bfeb526e3c25e333",
+    "contains": [
+      "eight full new Bellman certificates",
+      "frozen exact input tables",
+      "independent full-subset Bellman implementation",
+      "native full-subset Bellman implementation",
+      "strict 40-grid geometry checker",
+      "logs and SHA256 file manifest",
+      "inherited complete EC49FQV archive"
+    ],
+    "location": "ChatGPT research handoff; not in GitHub PR"
+  },
+  "next_problem": "Establish exact full-prior slice near log-K midpoint of [47/16,3], or parameterized Bellman theorem/counterexample for 39 phase strips."
+}
