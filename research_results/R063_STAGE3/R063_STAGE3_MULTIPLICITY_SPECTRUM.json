@@ -1,0 +1,66 @@
+{
+  "W1": {
+    "Boolean_support": 1,
+    "R062_N_BRC": 1,
+    "cancellation_matching_count": 1,
+    "full_target_native_path_count": 1,
+    "generated_target_path_support": 1,
+    "interaction_cell_count": 4,
+    "residual_process_object_count": 1,
+    "signed_gaussian_provenance_preimages": 4,
+    "source_path_pair_count": 4
+  },
+  "W2_all_source_pairs": {
+    "iijxiij": {"coefficient_max": 36,"coefficient_min": 8,"formal_witness_count": 102,"support_count": 5},
+    "iijxiji": {"coefficient_max": 8,"coefficient_min": 1,"formal_witness_count": 54,"support_count": 14},
+    "iijxjii": {"coefficient_max": 6,"coefficient_min": 1,"formal_witness_count": 26,"support_count": 8},
+    "ijixiij": {"coefficient_max": 8,"coefficient_min": 1,"formal_witness_count": 54,"support_count": 14},
+    "ijixiji": {"coefficient_max": 8,"coefficient_min": 2,"formal_witness_count": 52,"support_count": 11},
+    "ijixjii": {"coefficient_max": 8,"coefficient_min": 1,"formal_witness_count": 54,"support_count": 14},
+    "jiixiij": {"coefficient_max": 6,"coefficient_min": 1,"formal_witness_count": 26,"support_count": 8},
+    "jiixiji": {"coefficient_max": 8,"coefficient_min": 1,"formal_witness_count": 54,"support_count": 14},
+    "jiixjii": {"coefficient_max": 36,"coefficient_min": 8,"formal_witness_count": 102,"support_count": 5}
+  },
+  "W2_iij_x_iij": {
+    "Boolean_support": 1,
+    "R062_N_BRC": 35,
+    "cancellation_matching_count": 4,
+    "full_target_native_path_count": 35,
+    "generated_target_path_support": 5,
+    "interaction_cell_count": 9,
+    "process_formal_witness_count": 102,
+    "residual_process_object_count": 4,
+    "signed_gaussian_provenance_preimages": 4,
+    "source_path_pair_count": 9
+  },
+  "formulas": {
+    "binary_positive_channel_counts": {"minus_i": "bd","plus_i": "ac","plus_j": "ad+bc"},
+    "distinct_residual_process_object_count": "C(max(ac,bd), abs(ac-bd))",
+    "full_target_native_path_multiplicity": "C(A+B,A) after declared ordered unit normalization",
+    "interaction_cell_count": "(a+b)*(c+d)",
+    "maximal_cancellation_matching_count": "max(ac,bd)! / abs(ac-bd)!",
+    "process_formal_target_weight": "number of (distinct residual induced-poset normal form, concrete linear extension) witnesses mapping to that target word",
+    "source_native_path_pair_count": "C(a+b,a)*C(c+d,c)"
+  },
+  "full_support_nonuniform_weight_witness": {
+    "coefficient_max": 41,
+    "coefficient_min": 14,
+    "formal_witness_count": 260,
+    "full_target_path_count": 9,
+    "p": "jij",
+    "q": "jiiij",
+    "support_count": 9,
+    "target": [8,1]
+  },
+  "researcher_id": "EM-R063S3-F1CF9D",
+  "schema": "R063_STAGE3_MULTIPLICITY_SPECTRUM_V1",
+  "separation_verdicts": [
+    "cancellation matching multiplicity is not residual-object multiplicity in general (ties give k! versus 1)",
+    "process formal witness multiplicity is not native path multiplicity",
+    "generated process support can be a proper subset of the full native target path fiber",
+    "signed Gaussian provenance preimage multiplicity remains a separate upstream factorization layer",
+    "R062 N_BRC is the full native target path multiplicity after target trace is fixed, not the Stage 3 process weight",
+    "Boolean support forgets all multiplicities and path-order structure"
+  ],
+  "taskbook_source": "f1cf9d88428c14ae56e228ed97eba9b657b1fb90"
+}
