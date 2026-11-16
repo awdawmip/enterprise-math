@@ -1,0 +1,110 @@
+{
+  "schema": "EM_X6_TASK_RESEARCH_UNIT78_AUTHOR_CONTINUATION_V1",
+  "observed_date": "2026-11-17",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "separate_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "original_claim_id": "MCP-579c8e23625448582b421831",
+  "original_run_id": "RUN-fb25028676f9692ab1bacaee",
+  "last_historically_verified_generation": 4,
+  "current_writer_authority": "UNCONFIRMED; exact current continuation read QUEUED; run-get authorization is historical only; do not infer from recovery_status.",
+  "frozen_scientific_inputs": {
+    "p000_native": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical_plane": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "original_viète_current_consumer_read": "76570a3b4dd3416bd5c2a90ec4edd0d955be3175"
+  },
+  "original_requests": {
+    "onhour-20261117-0630-x6-unit75-native-semantic-progress-v1": {
+      "observed_terminal": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED",
+      "source_commit": "5af0c6ef40dcd9fde219fb86ed5e89c82ab48c7d",
+      "authenticated_readback": true,
+      "repeat": false
+    },
+    "onhour-20261117-0629-x6-exact-continuation-read": {
+      "observed_terminal": "SUCCEEDED",
+      "as_of": "2026-11-16T22:57:47Z",
+      "current_authority": false,
+      "repeat": false
+    },
+    "onhour-20261117-0706-x6-source-exact-continuation-read": {
+      "observed": "QUEUED / WAIT_ORIGINAL",
+      "last_progress": "CURRENT_CONTROL_FOLLOW_RETRY / EVENT_READ_CONTROL_BUSY",
+      "next_action": "em_control_result with same request_id, then original reconciliation only if needed",
+      "repeat": false
+    }
+  },
+  "unit78": {
+    "scope": "all 20 named signed triads, both orientations, original OUTER C12 microtrace and a declared typed history sheet, not native spinor equivalence",
+    "new_exact": {
+      "root": "signed-native C12 x3",
+      "first_microstep": "x4 determined solely by signed root; forward e_k, reverse e_j",
+      "second_microstep": "x5 retains hidden source axis i, 12/20 signed roots ambiguous",
+      "total_labeled_roots": 40,
+      "distinct_signed_root_cells": 20,
+      "root_fiber_histogram": {
+        "1": 8,
+        "2": 6,
+        "3": 4,
+        "4": 2
+      },
+      "typed_history_lift": "F(k,b)=(k+1 mod12,b xor[k=11]); F^12 toggles sheet; one additional history bit required and sufficient for C24 semiconjugate trace, not new space axis",
+      "joint_max_options": 8,
+      "extra_bits_worst_case": 3
+    },
+    "check": "20 triads x 2 orientations; 480 signed macro checks and 960 labeled C24 sheet-state checks; local equivalent implementation normal/-O/-OO JSON identical; no native R063/Helly rerun",
+    "local_json_sha256": "7efa8b5c8ff21ad5c5bd7d669fa40f1dc5e2c7164ea1ffc9ebea70ff02f3bd95",
+    "scientific_status": "AUTHOR-EXACT / FINITE-EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "native_source_semantic_status": "NOT_SUBMITTED; own-run current authorization not established",
+    "git": {
+      "report": {
+        "commit": "6d87e94cec3969b54270a5c81c727fc8144588a2",
+        "path": "research_notes/X6_UNIT78_C12_C24_ORIENTED_FRAME_MICROTRACE_LIFT_20261117.md",
+        "blob": "4ab6c7c02f7f3a5ee192b3c8ca1d0d82ca025f2f"
+      },
+      "checker": {
+        "commit": "aa04771d1fa795cc34c3e875dfaf10586e757c74",
+        "path": "research_checks/X6_UNIT78_C12_C24_FRAME_MICROTRACE_CHECK_20261117.py",
+        "blob": "3a1ac2fc5892c0985c3e016c6dd30066778f0746"
+      },
+      "results": {
+        "commit": "aab21c43af9c876ec6b7822bfbb5b313d84a942d",
+        "path": "research_checks/X6_UNIT78_C12_C24_FRAME_MICROTRACE_RESULTS_20261117.json",
+        "blob": "e8da0f0148a4ce6dd591e1006ecd953e24f5acaf"
+      },
+      "research_activity": {
+        "commit": "0171ec5608c32b394de7bcfa5b3c07010de58a7b",
+        "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+        "blob": "346f406b8798f9aaeb9587dfe584fca842ae8a1b",
+        "checkpoints": 102
+      },
+      "lp28_crosswalk": {
+        "commit": "0fb48e00fd945a810ac04647baa22c38607de0fa",
+        "path": "research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
+        "blob": "163f2edfbec2fcdad5bdeb0e67b00b8ebb96fc2f"
+      }
+    }
+  },
+  "do_not_repeat": [
+    "Unit75 original Native semantic already SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED in its exact original request.",
+    "Unit76 already separate anchored minzero completed, Unit77 original C12 root frame theorem already in GitHub + Activity #101.",
+    "Unit78 GitHub proof checker certificate Activity #102 and LP28 source addendum already written/read.",
+    "Do not re-run native R063 full benchmarks or original Helly, or switch to maintenance conversation",
+    "Unresolved original current continuation read uses exact id; do not reissue unknown/pending",
+    "Original native CLAIM/RUN are not granted by a historical authorization or account status"
+  ],
+  "unresolved": [
+    "Find an actual source:line downstream consumer treating C12 root-only two-microstep future as deterministic or identifying the new C24 history bit with the Viète complex spinor; patch only a confirmed current defect",
+    "LP011 old alleged wrong native argmax caller remains UNRESOLVED_PROVENANCE",
+    "LP019 old alleged positive BRC sign subtraction caller remains UNRESOLVED_PROVENANCE",
+    "Complete bounded actual 28-LP live consumer dependency closure and independent Driver REQUEST_REVISION",
+    "Native semantic Unit77 and Unit78 not published under current own authorization"
+  ],
+  "next_exact_action": "First consume receipt onhour-20261117-0706-x6-source-exact-continuation-read. With exact current ownership validation if own CLAIM remains valid, resume own session and publish Unit77/78 native PROGRESS using frozen Source pointers; if fenced/closed never restore by force. Continue selected source:line consumer audit, original benchmark separate. If unresolved keep original ID and Source-authored science frontiers, do not create new CLAIM or substitute session.",
+  "schedule_changed": false,
+  "notifications_changed": false,
+  "auto_disable_requested": false
+}
