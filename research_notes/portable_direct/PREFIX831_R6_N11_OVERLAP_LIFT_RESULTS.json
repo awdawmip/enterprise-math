@@ -1,0 +1,105 @@
+{
+  "schema": "PREFIX831_R6_N11_OVERLAP_LIFT_EXACT_V1",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "positive named-source BRC Q-only; q=p=16, absent mark, a=2, b=3, steps 0..11",
+  "seed_A": [
+    -98,
+    -82,
+    -58,
+    -34,
+    13,
+    16,
+    69,
+    75,
+    99
+  ],
+  "seed_B": [
+    98,
+    82,
+    58,
+    34,
+    -13,
+    -16,
+    -69,
+    -75,
+    -99
+  ],
+  "seed_delta_e9": "3377425033382400",
+  "lifts": [
+    {
+      "h": 24,
+      "cancelled": [
+        -75,
+        -58,
+        -34,
+        58,
+        82,
+        99
+      ],
+      "surviving_per_side": 12
+    },
+    {
+      "h": 53,
+      "cancelled": [
+        -45,
+        -16,
+        8,
+        37,
+        40,
+        69,
+        93,
+        122
+      ],
+      "surviving_per_side": 16
+    }
+  ],
+  "positive_translation": 100,
+  "A": [
+    2,
+    18,
+    49,
+    54,
+    79,
+    111,
+    113,
+    116,
+    143,
+    175,
+    187,
+    190,
+    206,
+    246,
+    251,
+    276
+  ],
+  "B": [
+    1,
+    26,
+    31,
+    71,
+    87,
+    90,
+    102,
+    134,
+    161,
+    164,
+    166,
+    198,
+    223,
+    228,
+    259,
+    275
+  ],
+  "equal_elementary_degrees": "0..10",
+  "first_different_degree": 11,
+  "delta_e11": "386647617821617152000",
+  "first_different_bin": 5,
+  "delta_Y_5_at_t11": "15433735631061927532953600000",
+  "exact_checks": {
+    "histogram_scalar_comparisons": 204,
+    "named_states_visited": 525970,
+    "named_transition_updates": 4092476,
+    "status": "ALL_EXACT_ASSERTIONS_PASSED"
+  },
+  "claim": "11 <= p_min(11) <= 16; no minimality at 16 or physical-time attribution"
+}
