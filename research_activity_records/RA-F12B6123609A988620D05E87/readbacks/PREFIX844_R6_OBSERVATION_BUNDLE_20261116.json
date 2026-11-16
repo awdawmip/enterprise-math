@@ -1,0 +1,64 @@
+{
+  "schema": "PREFIX844_R6_SOURCE_FULL_READBACK_BUNDLE_V1",
+  "source_kind": "Connected GitHub immutable full-file retrieval",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "observations": [
+    {
+      "tool_name": "mcp__GitHub__fetch_file",
+      "arguments": {
+        "repository_full_name": "awdawmip/enterprise-math",
+        "path": "research_notes/portable_direct/2026-11-16_r6_prefix844_joint_modular_observer_crt_and_uniform_bank_optimality.md",
+        "ref": "5a69aa5c13c98e2077b379c59c4056b1e62dea91"
+      },
+      "result": {
+        "isError": false,
+        "structuredContent": {
+          "content": "# PREFIX-844 — Joint modular BRC observers: CRT fibers, temporal recovery, optimal fixed bank\n\nStatus: AUTHOR_PROVED / EXACT_BIGINT_REGRESSION / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED.\nContinuity: independent R6 portable research after PREFIX-843; inherited frozen scientific pin f42f2906d77f24085c123f3ccfe9667d41caa96d.\nReference: 2026-11-16_r6_prefix843_modular_fiber_lattice_exact_repair.md.\nScope: the exact positive-integer tagged BRC model with fixed named source weights and Q-only time evolution. No native X6 Cell/Link/Port event bridge, shared CLAIM, Result, Review or Foundation status is asserted.\n\n## Mathematical input and observer scope\n\nLet p>=1 original named sources have positive integer weights 1<=w_i<=W, W>=2. The N=W^p ordered assignments correspond bijectively to U in {0,...,N-1} using\n\\[\nS=\\sum_{i=0}^{p-1}W^i,\\quad U=\\sum_{i=1}^{p}(w_i-1)W^{i-1}.\n\\]\nFor fixed positive integers a,b, PREFIX-840 gives the tagged Q-only scalar \\(c_t(S+U)\\) at integer time t>=1, with\n\\[\nc_t=a^{\\lfloor t/2\\rfloor}b^{\\lfloor(t-1)/2\\rfloor}.\n\\]\nAllow k>=1 raw modular channels. Channel j at time t_j reads\n\\[\nY_j(U)=[c_{t_j}(S+U)]_{m_j},\\quad m_j\\ge1.\n\\]\nRaw channels do not expose U, individual weights or extra repair bits. The future operation in this note is repeated Q-only tagged evolution and explicitly declared new readout channels; native space, source-port and path metadata are not projected away by this abstract result.\n\n## Theorem 844.1: exact joint fibers, reconstruction and minimal repair\n\nWrite \\(c_j=c_{t_j}\\), \\(g_j=\\gcd(m_j,c_j)\\) and\n\\[\nL=\\operatorname{lcm}_{1\\le j\\le k}(m_j/g_j).\n\\]\nThen for any named assignments U,V:\n\\[\n(Y_j(U))_{j=1}^k=(Y_j(V))_{j=1}^k \\iff U\\equiv V\\pmod L.\n\\]\nExactly min(N,L) distinct joint observations occur, the largest fiber contains ceil(N/L) assignments, and the raw joint observation is injective iff L>=N. The exact worst-case number of extra fixed-length binary bits sufficient and necessary for recovery is\n\\[\n\\boxed{B_{\\rm repair}=\\lceil\\log_2\\lceil N/L\\rceil\\rceil}.\n\\]\n\nProof: For each channel, m_j divides c_j(U-V) exactly when m_j/g_j divides U-V; the reduced coefficient is invertible modulo the reduced modulus. Taking the lcm gives the joint equivalence. N consecutive integers occupy min(N,L) residue classes, with the largest class ceil(N/L). Each channel can be divided by g_j and the reduced coefficient inverted; generalized CRT reconstructs r=U mod L from the consistent joint residues even when moduli overlap. The additional coordinate h=floor(U/L) reconstructs U=r+hL and hence the named base-W digits. The largest fiber forces at least the displayed number of binary labels, which this h coordinate achieves. QED.\n\n## Theorem 844.2: common-time multichannel readout equals one larger raw modulus\n\nIf all channels read at time t, let M=lcm(m_1,...,m_k). Then\n\\[\n\\boxed{L=M/\\gcd(M,c_t)}.\n\\]\nThus the entire fixed-time bank and the single raw residue of c_t(S+U) modulo M have identical information fibers on this tagged population.\n\nProof: At a prime \\ell let v=v_\\ell(c_t) and s_j=v_\\ell(m_j), s=max_j s_j. The exponent in each reduced modulus is max(0,s_j-v), and in their lcm is max(0,s-v); this is the exponent in M/gcd(M,c_t). QED.\n\nThis is an exact preservation certificate for the declared raw scalar partition, not a license to merge distinct native ports, joint interaction channels or histories.\n\n## Theorem 844.3: fixed-bank information degrades and stabilizes\n\nFor a fixed bank repeatedly read at every t>=1, set L_t=M/gcd(M,c_t), C=ab, and let M_{\\perp C} be the largest divisor of M coprime to C. Then\n\\[\nL_{t+1}\\mid L_t,\\quad L_t=M_{\\perp C}\\ \\hbox{eventually}.\n\\]\nConsequently uniform injectivity at all positive times is equivalent to\n\\[\n\\boxed{M_{\\perp(ab)}\\ge N}.\n\\]\nProof: c_t divides c_{t+1}; every effective prime power is nonincreasing. The exponent of any prime dividing ab in c_t grows without bound, so eventually its contribution to L_t is zero. Primes not dividing ab retain their full exponents from M. Apply Theorem 844.1. QED.\n\nOnce two assignments become aliased by this fixed bank, future Q-only reads with the same bank remain aliased. A genuinely new modulus can refine the observer and restore discrimination.\n\n## Theorem 844.4: total register width optimum across all fixed raw banks\n\nDefine the PREFIX-842 uniformly admissible single modulus\n\\[\nm_\\infty^*=\\min\\{m\\ge N:\\gcd(m,ab)=1\\}.\n\\]\nIf any finite fixed bank of raw modular channels is uniformly injective for all t>=1, then\n\\[\n\\boxed{\\sum_{j=1}^{k}\\lceil\\log_2m_j\\rceil\\ge\\lceil\\log_2m_\\infty^*\\rceil}.\n\\]\nThe one-channel bank m_1=m_\\infty^* attains equality.\n\nProof: Uniform injectivity implies M_{\\perp(ab)}>=N. This number is coprime to ab and hence at least m_\\infty^*. Meanwhile product(m_j)>=M>=M_{\\perp(ab)}. Apply log2 and integer ceiling. The singleton bank is uniformly injective by Theorem 844.3. QED.\n\nThe optimality claim counts raw register bits under the specified fixed-bank interface, not normalized U storage, network topology, fault-tolerance overhead, or native-port obligations.\n\n## Concrete counterexample and exact computer check\n\nLet p=W=2, a=2, b=1, t=4, hence N=4,S=3,c_4=4. A raw modulus-4 observer produces zero for U=0,1,2,3, including at all later times. A newly introduced modulus-5 observer at t=4 yields respectively 2,1,0,4 and distinguishes all four configurations. Here joint effective L=lcm(1,5)=5.\n\nThe accompanying Node.js BigInt checker exhaustively tested p=1..3; W=2..3; a,b=1..3; t=1..7; m1,m2=1..9, covering 54 parameter families, 30,618 observer cases, 270,459 assignment checks, 2,168,775 unordered pair comparisons, and 26,244 temporal divisibility checks. At t=28 it verified stabilization in 4,374 cases; the four-assignment restoration example was separately asserted. Output: ALL_EXACT_ASSERTIONS_PASSED. The finite tests check the formulas within this domain; the general conclusions follow from the proofs.\n\nReproduction files: PREFIX844_R6_JOINT_MODULAR_OBSERVER_CHECK.js and PREFIX844_R6_JOINT_MODULAR_OBSERVER_RESULTS.json.\n\n## Unresolved research frontier\n\n1. Construct and verify a genuinely native X6 Cell/Link/Port event and permissioned observation law realizing the tagged scalar without losing signed path, port, provenance or time order.\n2. With channel-alphabet or topology constraints, minimize maximum per-port width and communication rounds; the raw sum-bit optimum above is already fixed.\n3. Extend the joint-fiber result to operations that change source weights and require retained transition/interaction residuals.\n4. Preserve earlier q>=5 nonnegative Q carrier and even-time recollision resource questions for independent study.\n",
+          "encoding": "utf-8",
+          "sha": "2b72d9a3a6c8e8e950cb287029604975a47adf4c",
+          "display_url": "https://github.com/awdawmip/enterprise-math/blob/5a69aa5c13c98e2077b379c59c4056b1e62dea91/research_notes/portable_direct/2026-11-16_r6_prefix844_joint_modular_observer_crt_and_uniform_bank_optimality.md",
+          "display_title": "2026-11-16_r6_prefix844_joint_modular_observer_crt_and_uniform_bank_optimality.md"
+        }
+      },
+      "observation_id": "r6-prefix844-20261116-readback-1"
+    },
+    {
+      "tool_name": "mcp__GitHub__fetch_file",
+      "arguments": {
+        "repository_full_name": "awdawmip/enterprise-math",
+        "path": "research_notes/portable_direct/PREFIX844_R6_JOINT_MODULAR_OBSERVER_CHECK.js",
+        "ref": "5a69aa5c13c98e2077b379c59c4056b1e62dea91"
+      },
+      "result": {
+        "isError": false,
+        "structuredContent": {
+          "content": "\"use strict\";\n// PREFIX-844 independent exact BigInt checker; run with node.\nfunction run() {\n const gcd=(a,b)=>{while(b){const r=a%b;a=b;b=r}return a};\n const lcm=(a,b)=>a/gcd(a,b)*b;\n const eff=(m,c)=>m/gcd(m,c);\n const cop=(m,c)=>{for(let k=2n;k*k<=c;k++)if(c%k===0n){while(c%k===0n)c/=k;while(m%k===0n)m/=k}if(c>1n)while(m%c===0n)m/=c;return m};\n const ok=(x,s)=>{if(!x)throw Error(s)};\n const z={familyCount:0,observerCases:0,orderedAssignments:0,unorderedPairs:0,monoChecks:0,longHorizonChecks:0,allExactAssertionsPassed:true,domain:\"p=1..3,W=2..3,a,b=1..3,t=1..7,m1,m2=1..9; temporal stabilization at t=28\"};\n for(let p=1;p<=3;p++)for(let W=2;W<=3;W++){\n  const N=W**p,S=Array.from({length:p},(_,i)=>W**i).reduce((a,b)=>a+b,0);\n  for(let a=1;a<=3;a++)for(let b=1;b<=3;b++){\n   z.familyCount++;\n   for(let m1=1;m1<=9;m1++)for(let m2=1;m2<=9;m2++){\n    const x=BigInt(m1),y=BigInt(m2),M=lcm(x,y),Linf=cop(M,BigInt(a*b));\n    let prev=null;\n    for(let t=1;t<=7;t++){\n     const c=BigInt(a)**BigInt(Math.floor(t/2))*BigInt(b)**BigInt(Math.floor((t-1)/2));\n     const L=lcm(eff(x,c),eff(y,c));\n     ok(L===eff(M,c),\"joint lcm\");if(prev!==null){ok(prev%L===0n,\"time nesting\");z.monoChecks++}prev=L;\n     const sig=[];\n     for(let u=0;u<N;u++){const U=BigInt(u),v=c*(BigInt(S)+U);sig.push(String(v%x)+\":\"+String(v%y));ok(U===U%L+(U/L)*L,\"repair\");z.orderedAssignments++}\n     const counts=new Map();for(const v of sig)counts.set(v,(counts.get(v)||0)+1);\n     ok(counts.size===Math.min(N,Number(L)),\"classes\");\n     ok(Math.max(...counts.values())===Math.ceil(N/Number(L)),\"largest fiber\");\n     for(let u=0;u<N;u++)for(let v=u+1;v<N;v++){ok((sig[u]===sig[v])===(BigInt(v-u)%L===0n),\"fiber\");z.unorderedPairs++}\n     z.observerCases++;\n    }\n    const c=BigInt(a)**14n*BigInt(b)**13n;\n    ok(eff(M,c)===Linf,\"terminal coprime part\");z.longHorizonChecks++;\n   }\n  }\n }\n const observations=Array.from({length:4},(_,u)=>({U:u,mod4:Number(4n*(3n+BigInt(u))%4n),mod5:Number(4n*(3n+BigInt(u))%5n)}));\n ok(observations.every(q=>q.mod4===0)&&new Set(observations.map(q=>q.mod5)).size===4,\"late channel\");\n z.restorationWitness={p:2,W:2,a:2,b:1,t:4,S:3,N:4,observations};\n return z;\n}\nconsole.log(JSON.stringify(run(),null,2));\n",
+          "encoding": "utf-8",
+          "sha": "83c087e73d3ff9ace70d9770afd8ea09a8ae39f9",
+          "display_url": "https://github.com/awdawmip/enterprise-math/blob/5a69aa5c13c98e2077b379c59c4056b1e62dea91/research_notes/portable_direct/PREFIX844_R6_JOINT_MODULAR_OBSERVER_CHECK.js",
+          "display_title": "PREFIX844_R6_JOINT_MODULAR_OBSERVER_CHECK.js"
+        }
+      },
+      "observation_id": "r6-prefix844-20261116-readback-2"
+    },
+    {
+      "tool_name": "mcp__GitHub__fetch_file",
+      "arguments": {
+        "repository_full_name": "awdawmip/enterprise-math",
+        "path": "research_notes/portable_direct/PREFIX844_R6_JOINT_MODULAR_OBSERVER_RESULTS.json",
+        "ref": "5a69aa5c13c98e2077b379c59c4056b1e62dea91"
+      },
+      "result": {
+        "isError": false,
+        "structuredContent": {
+          "content": "{\n  \"familyCount\": 54,\n  \"observerCases\": 30618,\n  \"orderedAssignments\": 270459,\n  \"unorderedPairs\": 2168775,\n  \"monoChecks\": 26244,\n  \"longHorizonChecks\": 4374,\n  \"allExactAssertionsPassed\": true,\n  \"domain\": \"p=1..3,W=2..3,a,b=1..3,t=1..7,m1,m2=1..9; temporal stabilization at t=28\",\n  \"restorationWitness\": {\n    \"p\": 2,\n    \"W\": 2,\n    \"a\": 2,\n    \"b\": 1,\n    \"t\": 4,\n    \"S\": 3,\n    \"N\": 4,\n    \"observations\": [\n      {\n        \"U\": 0,\n        \"mod4\": 0,\n        \"mod5\": 2\n      },\n      {\n        \"U\": 1,\n        \"mod4\": 0,\n        \"mod5\": 1\n      },\n      {\n        \"U\": 2,\n        \"mod4\": 0,\n        \"mod5\": 0\n      },\n      {\n        \"U\": 3,\n        \"mod4\": 0,\n        \"mod5\": 4\n      }\n    ]\n  }\n}\n",
+          "encoding": "utf-8",
+          "sha": "700d3e8cb389c3ab43c6bcc37b8d347c082ddbc2",
+          "display_url": "https://github.com/awdawmip/enterprise-math/blob/5a69aa5c13c98e2077b379c59c4056b1e62dea91/research_notes/portable_direct/PREFIX844_R6_JOINT_MODULAR_OBSERVER_RESULTS.json",
+          "display_title": "PREFIX844_R6_JOINT_MODULAR_OBSERVER_RESULTS.json"
+        }
+      },
+      "observation_id": "r6-prefix844-20261116-readback-3"
+    }
+  ]
+}
