@@ -1,0 +1,136 @@
+{
+  "status": "PASS",
+  "theorem": "Exact minimal rational scalar recurrence order 250, generic sharpness under freely varying positive row-stochastic P with uniform initial pi",
+  "arithmetic": "Integer Fp with exact Fraction independent four-term crosscheck",
+  "m": 12,
+  "k": 6,
+  "L": 2,
+  "initial_distribution": "uniform 1/7",
+  "integer_transition_weights": [
+    [
+      62,
+      38,
+      60,
+      37,
+      72,
+      74,
+      49
+    ],
+    [
+      79,
+      61,
+      12,
+      35,
+      39,
+      30,
+      14
+    ],
+    [
+      47,
+      37,
+      16,
+      87,
+      62,
+      44,
+      39
+    ],
+    [
+      63,
+      63,
+      72,
+      96,
+      44,
+      19,
+      27
+    ],
+    [
+      30,
+      42,
+      83,
+      62,
+      82,
+      52,
+      75
+    ],
+    [
+      45,
+      71,
+      49,
+      82,
+      79,
+      46,
+      86
+    ],
+    [
+      11,
+      53,
+      67,
+      59,
+      35,
+      1,
+      60
+    ]
+  ],
+  "row_denominators": [
+    392,
+    270,
+    332,
+    384,
+    426,
+    458,
+    286
+  ],
+  "P_ij": "integer_transition_weights[i][j]/row_denominators[i]",
+  "W_r": [
+    144,
+    576,
+    1440,
+    4320,
+    17280,
+    86400,
+    518400
+  ],
+  "D_general": 256,
+  "D_reduced_upper_bound": 250,
+  "determinant_certificates": [
+    {
+      "prime": 1000000007,
+      "hankel_dimension": 250,
+      "modular_rank": 250,
+      "determinant_mod_p": 844129038,
+      "first_six_terms_mod_p": [
+        286921810,
+        66962113,
+        107745955,
+        389107245,
+        287512740,
+        938626599
+      ],
+      "row_denominators_all_units_mod_p": true
+    },
+    {
+      "prime": 1000000009,
+      "hankel_dimension": 250,
+      "modular_rank": 250,
+      "determinant_mod_p": 225185489,
+      "first_six_terms_mod_p": [
+        715493243,
+        231376042,
+        816488656,
+        972015047,
+        506336105,
+        201214174
+      ],
+      "row_denominators_all_units_mod_p": true
+    }
+  ],
+  "first_four_exact_rational_terms": [
+    "8452656/7",
+    "212007623737227359/198574435059",
+    "1953973716052323993381959932339/2027921464748623285721880",
+    "292768810663236011459528405690991191867469659/331359107004187325411850236156207385600"
+  ],
+  "certificate_logic": "All row sums and 7 are units mod each prime; a nonzero determinant reduction certifies nonzero determinant over Q.",
+  "native_brc_runtime": "NOT_EXECUTED",
+  "review": "NOT_REVIEWED"
+}
