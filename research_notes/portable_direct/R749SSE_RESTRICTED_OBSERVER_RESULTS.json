@@ -1,0 +1,144 @@
+{
+  "unit": "R749SSE",
+  "status": "PASS",
+  "review": "AUTHOR_EXACT_NOT_REVIEWED",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "weights": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ],
+  "marked_source": 0,
+  "offsets": [
+    0,
+    1,
+    5
+  ],
+  "numerator_budget_M": 2,
+  "denominator_budget_K": 2,
+  "sharp_coordinate_injectivity_threshold": 6,
+  "finite_collision_free_cutoffs": [
+    6,
+    47
+  ],
+  "exact_residue_formula_checked": [
+    1,
+    100
+  ],
+  "analytical_infinite_tail_starts": 48,
+  "C48": 104712,
+  "T48": 883842,
+  "early_collision_witnesses": {
+    "1": {
+      "first": [
+        -1,
+        0
+      ],
+      "second": [
+        -2,
+        1
+      ],
+      "ratio": "-1"
+    },
+    "2": {
+      "first": [
+        -1,
+        -2
+      ],
+      "second": [
+        -1,
+        -1
+      ],
+      "ratio": "0"
+    },
+    "3": {
+      "first": [
+        1,
+        -2
+      ],
+      "second": [
+        2,
+        -1
+      ],
+      "ratio": "1"
+    },
+    "4": {
+      "first": [
+        1,
+        -2
+      ],
+      "second": [
+        2,
+        -1
+      ],
+      "ratio": "1"
+    },
+    "5": {
+      "first": [
+        -2,
+        -2
+      ],
+      "second": [
+        -1,
+        -1
+      ],
+      "ratio": "1"
+    }
+  },
+  "joint_observer_class_counts": {
+    "0": {
+      "one_positive_budget_error_type": 1,
+      "joint_positive_budget_types": 1
+    },
+    "1": {
+      "one_positive_budget_error_type": 1,
+      "joint_positive_budget_types": 1
+    },
+    "2": {
+      "one_positive_budget_error_type": 1,
+      "joint_positive_budget_types": 1
+    },
+    "empty": {
+      "one_positive_budget_error_type": 1,
+      "joint_positive_budget_types": 1
+    },
+    "0,1": {
+      "one_positive_budget_error_type": 2,
+      "joint_positive_budget_types": 4
+    },
+    "0,2": {
+      "one_positive_budget_error_type": 2,
+      "joint_positive_budget_types": 4
+    },
+    "1,2": {
+      "one_positive_budget_error_type": 2,
+      "joint_positive_budget_types": 4
+    },
+    "0,1,2": {
+      "one_positive_budget_error_type": 5,
+      "joint_positive_budget_types": 25
+    }
+  },
+  "future_separator": {
+    "base_cutoff": 6,
+    "numerator_partitions": [
+      "012",
+      "01|2"
+    ],
+    "first_two_errors": [
+      0,
+      0
+    ],
+    "third_error_difference": 1,
+    "denominator_errors": [
+      0,
+      0,
+      0
+    ],
+    "third_cutoff": 11,
+    "delta_third_Y": "1331/281"
+  },
+  "scope": "fixed-cutoff auxiliary source observer; not native BRC/X6 admission"
+}
