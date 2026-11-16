@@ -19,7 +19,7 @@
 
 - 上轮遗留 `math-intake-20261115-0930-integration-continuation-r1` 通过 `em_control_result` 原生回读为 `SUCCEEDED/error=null`，原观测时间 `2026-11-15T01:31:51.436481Z`。其准入 Source `417b71f7db564a23803308fa82d0218d6d0a805d`，固定时点综合任务 `READY / NEEDS_DISPATCH`、`owner=taskbook/unassigned`、`claim_id=null`、`execution_authorized=false`、`persisted_checkpoint=NOT_FOUND`。`source_unchanged_at_completion=false`，这组状态只适用于历史快照，不推出 2026-11-16 的实时所有权。
 - 原生 `em_status` 当前为 `0.6.11 / CANONICAL_CONTROL_ADAPTER_TRIAL`，`current_control_source=bae50d8a34ca9bea2d8095d777b7a2be0a159014`。本对话未据旧会话或共享 owner profile 声称自己的 Researcher/Driver 原生授权。
-- 本轮唯一新发精确只读 continuation `math-intake-20261116-0930-integration-continuation-r1` 已提交，末次原生回读 `RUNNING/error=null`，仍属于原请求在途。后继仅以相同 `request_id` 调用 `em_control_result` 获取真实终局；仅当前正式 Driver/owner 才能据新鲜 Source 决定是否正式发布、CLAIM 或执行。不可把历史 Source、queued/running 观察作为当下任务认领。
+- 本轮唯一新发精确只读 continuation `math-intake-20261116-0930-integration-continuation-r1` 已提交；实际轮询先后观察到 `QUEUED`、`RUNNING`、`QUEUED`，各次 `error=null`，截至记录封存未取得终局，原请求仍在途。后继仅以相同 `request_id` 调用 `em_control_result` 获取真实终局；仅当前正式 Driver/owner 才能据新鲜 Source 决定是否正式发布、CLAIM 或执行。不可把历史 Source、queued/running 观察作为当下任务认领。
 - 本轮没有新增可去重之外的公开数学更新或新验证结论，故不新建 Task、CLAIM、Result、Review。下一轮优先消费本次在途请求与更高有效前沿，再核公开来源增量。
 
 本记录不调整 P000、冻结科学输入、旧任务或其既有成果，也不代替原生任务注册簿。
