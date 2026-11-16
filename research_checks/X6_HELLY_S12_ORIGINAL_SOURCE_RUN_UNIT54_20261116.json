@@ -1,0 +1,66 @@
+{
+  "schema": "X6_HELLY_S12_ORIGINAL_MODULE_RUN_V1",
+  "date": "2026-11-16",
+  "source": {
+    "repository": "awdawmip/enterprise-math",
+    "path": "scripts/tool_discovery_helly_radon_certificate_calculus.py",
+    "git_blob_sha1": "6118b3bd04010e05355586d353c9cf0ec38b1070",
+    "source_byte_count": 6623,
+    "reconstruction_from_connector_body": "BYTE_IDENTICAL_GIT_BLOB_RECHECKED"
+  },
+  "consumer": {
+    "path": "research_checks/X6_LP003_HELLY_FIXED_POSITIVE_CHART_TYPED_OUTPUT_REGRESSION_20261114.py",
+    "git_blob_sha1": "3ed2051763303e614b30ec17050d03d450da7dd6",
+    "actual_run": "PASS_X6_LP003_HELLY_TYPED_CHART_CONSUMER_REGRESSION"
+  },
+  "execution": {
+    "python": "3.13.5",
+    "exit_code": 0,
+    "stderr": "",
+    "actual_original_stdout_bytes": 3955,
+    "actual_original_stdout_sha256": "3e9eb8a87cef9b74e34749e572f484bcb9face8b8d8ba7c8f029fcb2549fa068",
+    "original_internal_payload_sha256": "58afd3ceaad7c7135437846f861240e028fd645741cdbd2e8d562a5f20d4701e",
+    "interval_box_helly2": {
+      "families_checked": 66675,
+      "pairwise_feasible_families": 5636,
+      "violations": 0,
+      "sharp_two_constraint_obstruction": true
+    },
+    "unbounded_relational_chain": {
+      "range": [
+        2,
+        10
+      ],
+      "rows": 9,
+      "all_minimal_obstructions_verified": true
+    },
+    "subcube_carath_lower_bound": {
+      "range": [
+        2,
+        8
+      ],
+      "rows": 7,
+      "all_lower_bounds_verified": true
+    },
+    "fixed_sector_chart": {
+      "globally_feasible": true,
+      "common_a_values": [
+        5,
+        6,
+        7
+      ],
+      "common_b_values": [
+        3,
+        4
+      ],
+      "coordinate_type": "FIXED_POSITIVE_S12_LOCAL_CHART",
+      "native_cell_address_status": "UNSPECIFIED_REQUIRES_CELL_ANCHOR_AND_ORDERED_SIGNED_AXIS_EMBEDDING"
+    }
+  },
+  "boundaries": [
+    "Original source finite output verified against exact Git blob in isolated local reconstruction; no frozen source changed.",
+    "Unit54 signed BRC all-pair expansion is a typed follow-on computation using producer's six exact chart points, not part of original Helly source's output.",
+    "Regression source under python -O would omit assert statements; actual regression was executed under ordinary Python. Unit54 new checker uses explicit checks under Python -O."
+  ],
+  "evidence_class": "AUTHOR_EXECUTED_EXACT_PINNED_SOURCE / NOT_DRIVER_REVIEW / NOT_ADMITTED"
+}
