@@ -1,0 +1,49 @@
+{
+  "unit": "R749SSU",
+  "status": "PASS",
+  "class": "AUTHOR_EXACT_NOT_REVIEWED",
+  "scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "K": 20383,
+  "phase_bounds": [
+    "55442045/3159",
+    "41724295135/2047032",
+    "4955229250/255879",
+    "155263925/8424",
+    "4897450820/255879",
+    "3194235995/157464"
+  ],
+  "max_exact_bound": "41724295135/2047032",
+  "constant_identity_forced_e": [
+    "-83605/17496",
+    "-417355/69984",
+    "-47873/8748",
+    "-352807/69984",
+    "-46955/8748",
+    "-413035/69984"
+  ],
+  "theorem": "Delta>0 and q<=floor(40766/Delta) for every admissible 11-read vector",
+  "samples": [
+    {
+      "q": 6,
+      "e": "1/3",
+      "d": "-1/2",
+      "delta": "34115206/532989",
+      "bound": "636"
+    },
+    {
+      "q": 7,
+      "e": "2",
+      "d": "-2",
+      "delta": "12770177/158660",
+      "bound": "506"
+    },
+    {
+      "q": 12,
+      "e": "0",
+      "d": "1",
+      "delta": "1048525994/28091257",
+      "bound": "1092"
+    }
+  ],
+  "proof_dependencies": "R749SST global 11-read uniqueness and all-phase quasi-polynomial identities; R749SSJ known-q two-read calibration"
+}
