@@ -52,7 +52,7 @@ C_1Q^{q}=aq\,C_0Q^{q-1},\qquad C_1Q^{q+1}=aq\,C_0Q^{q}.
 Equivalently, using the conditional moments,
 \[
 z_{1,q}=a q!\,U_{q-1,q-1}=aq\,z_{0,q-1},\qquad
-z_{1,q+1}=a q!\,U_{q,q}=aq\,z_{0,q}.
+z_{1,q+1}=a q\,q!\,U_{q,q}=aq\,z_{0,q}.
 \]
 Every other nonzero coordinate C_lQ^j is retained in I_q. Since z_{l,j}(Q\mu)=z_{l,j+1}(\mu), ordinary rows shift by one; when the shift reaches the only deleted intermediate row z_{1,q}, the first identity above supplies the displayed positive update. Boundary rows shift to zero by finite nilpotence. Hence the update is exact at every step, and all coordinates and coefficients are nonnegative integers.
 
