@@ -2635,16 +2635,44 @@
             "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/db7d377ed9ddca458077c029b1210c57ecfa2012/research_notes/X6_HELLY_S12_SIGNED_X6_BRC_LIFT_UNIT54_20261116.md",
             "server_signature_authenticated": false
           }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "1d9af3b31194b4361db571e5f34dea1ad2c160d6",
+          "path": "research_checks/X6_HELLY_S12_ORIGINAL_SOURCE_RUN_UNIT54_20261116.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": null,
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/1d9af3b31194b4361db571e5f34dea1ad2c160d6/research_checks/X6_HELLY_S12_ORIGINAL_SOURCE_RUN_UNIT54_20261116.json",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "e3cee55911b848cbbb2df4f16baf07d2a02aa493",
+          "path": "research_notes/X6_HELLY_S12_SIGNED_X6_BRC_LIFT_UNIT54_20261116.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "a04884a98af6ccbb0897ef540d98657fddabedc8",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/e3cee55911b848cbbb2df4f16baf07d2a02aa493/research_notes/X6_HELLY_S12_SIGNED_X6_BRC_LIFT_UNIT54_20261116.md",
+            "server_signature_authenticated": false
+          }
         }
       ],
       "kb_sources": [
         "https://github.com/awdawmip/enterprise-math/blob/1c1b774b98edd6ffd9babc06cad8028e58ef4466/research_checks/X6_HELLY_S12_SIGNED_X6_BRC_LIFT_UNIT54_20261116.py",
         "https://github.com/awdawmip/enterprise-math/blob/3a5a9fd1d90c1609fa514c77a02b87d9805fc881/research_checks/X6_HELLY_S12_SIGNED_X6_BRC_UNIT54_RESULTS_20261116.json",
-        "https://github.com/awdawmip/enterprise-math/blob/db7d377ed9ddca458077c029b1210c57ecfa2012/research_notes/X6_HELLY_S12_SIGNED_X6_BRC_LIFT_UNIT54_20261116.md"
+        "https://github.com/awdawmip/enterprise-math/blob/db7d377ed9ddca458077c029b1210c57ecfa2012/research_notes/X6_HELLY_S12_SIGNED_X6_BRC_LIFT_UNIT54_20261116.md",
+        "https://github.com/awdawmip/enterprise-math/blob/1d9af3b31194b4361db571e5f34dea1ad2c160d6/research_checks/X6_HELLY_S12_ORIGINAL_SOURCE_RUN_UNIT54_20261116.json",
+        "https://github.com/awdawmip/enterprise-math/blob/e3cee55911b848cbbb2df4f16baf07d2a02aa493/research_notes/X6_HELLY_S12_SIGNED_X6_BRC_LIFT_UNIT54_20261116.md"
       ],
       "repairs_event_id": null,
       "state": "EM_REPRESENTED",
-      "notes": "Unit54 current Helly S12 fixed-positive chart source blob 6118b3bd, typed signed-X6 all pair/polarity lift at fixed anchor: six chart points x 15 axis pairs x 4 sign choices = 360 distinct two-support native endpoints, local positive N_BRC=926, full lifted N_BRC=55560, with source-root, signed axis and Cell origin preserved. Exact Python enumeration PASS in normal and -O mode; GitHub code is an equivalent public implementation, not byte-identical claim. UNREVIEWED/NOT_ADMITTED; native semantic PROGRESS separate; #51 original succeeded."
+      "notes": "Unit54 current Helly S12 fixed-positive chart source blob 6118b3bd, typed signed-X6 all pair/polarity lift at fixed anchor: six chart points x 15 axis pairs x 4 sign choices = 360 distinct two-support native endpoints, local positive N_BRC=926, full lifted N_BRC=55560, with source-root, signed axis and Cell origin preserved. Exact Python enumeration PASS in normal and -O mode; GitHub code is an equivalent public implementation, not byte-identical claim. UNREVIEWED/NOT_ADMITTED; native semantic PROGRESS separate; #51 original succeeded. Addendum: Original Helly producer Git blob 6118b3bd (6623 bytes) and existing LP003 regression blob 3ed20517 reconstructed byte-identically and executed Python 3.13.5, original 66675 interval families / 0 violations, chain n=2..10 and Carath d=2..8 PASS. Original stdout sha256 3e9eb8a87cef9b74e34749e572f484bcb9face8b8d8ba7c8f029fcb2549fa068, typed regression PASS. Proof note updated on GitHub. No change to original R063 benchmark."
     }
   ],
   "mode": "TASK_RESEARCH",
