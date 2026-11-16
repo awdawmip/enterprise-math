@@ -1,0 +1,72 @@
+{
+  "schema": "EM_R200_EXACT_REFERENCE_V1",
+  "status": "PASS",
+  "parameters": {
+    "small_uniform_m": "1..3",
+    "small_uniform_k": "0..3",
+    "small_L": "0..3",
+    "uniform_alphabet_size": "m(k+1)",
+    "additional_nonuniform_L": "0..4"
+  },
+  "counts": {
+    "models": 57,
+    "exhaustive_states": 13313,
+    "random_compositions": 5700,
+    "analytic_count_checks": 57,
+    "uneven_multiplicity_models": 9
+  },
+  "native_m12_k6": {
+    "L0": {
+      "paired_events_count": 1957,
+      "paired_bits": 11,
+      "direction_only_count": 1957,
+      "direction_only_bits": 11
+    },
+    "L1": {
+      "paired_events_count": 46957,
+      "paired_bits": 16,
+      "direction_only_count": 23485,
+      "direction_only_bits": 15
+    },
+    "L2": {
+      "paired_events_count": 1407685,
+      "paired_bits": 21,
+      "direction_only_count": 281893,
+      "direction_only_bits": 19
+    },
+    "L3": {
+      "paired_events_count": 50583973,
+      "paired_bits": 26,
+      "direction_only_count": 3387109,
+      "direction_only_bits": 22
+    },
+    "L4": {
+      "paired_events_count": 2095910437,
+      "paired_bits": 31,
+      "direction_only_count": 40857061,
+      "direction_only_bits": 26
+    }
+  },
+  "collision": {
+    "event_alphabet": "0=(direction0,none);1=(direction0,source0)",
+    "word_a": [
+      1,
+      0
+    ],
+    "word_b": [
+      0,
+      1
+    ],
+    "common_source_order": [
+      0
+    ],
+    "common_direction_tail": [
+      0
+    ],
+    "distinct_paired_tail": [
+      0,
+      1
+    ]
+  },
+  "notes": "Integer-exact independent reference; not native package integration or independent theorem review."
+}
