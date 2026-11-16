@@ -1,0 +1,126 @@
+{
+  "schema": "R758P2_X6_SIX_STEP_S3_AREA_EXACT_V1",
+  "validation": "PASS",
+  "local_validation_command": "python r758p2_verify.py (locally executed standard-library checker)",
+  "frozen_science_source_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "X6 Z^6 three selected axes; six signed unit steps one +/- of each",
+  "assignment": "candidate based-frame transport with one axis-involutive S3 transposition per signed direction",
+  "words_per_fixed_three_axes": 720,
+  "simple_words_per_fixed_three_axes": 192,
+  "all_three_axis_support_over_X6": {
+    "axis_triplets": 20,
+    "all_closed": 14400,
+    "simple": 3840
+  },
+  "by_transposition_pattern": {
+    "one_label": {
+      "all": {
+        "e": 720
+      },
+      "simple": {
+        "e": 192
+      }
+    },
+    "two_labels": {
+      "all": {
+        "e": 432,
+        "r": 144,
+        "r2": 144
+      },
+      "simple": {
+        "e": 96,
+        "r": 48,
+        "r2": 48
+      }
+    },
+    "three_labels": {
+      "all": {
+        "e": 288,
+        "r": 216,
+        "r2": 216
+      },
+      "simple": {
+        "e": 48,
+        "r": 72,
+        "r2": 72
+      }
+    }
+  },
+  "simple_signed_area_fibers": {
+    "distinct_area_vectors": 20,
+    "nonzero_area_component_counts": {
+      "2": 144,
+      "3": 48
+    },
+    "area_111_vector_count": 8,
+    "area_110_vector_count": 12,
+    "each_111_fiber": {
+      "e": 6
+    },
+    "each_110_fiber": {
+      "r": 6,
+      "r2": 6
+    },
+    "identity_iff_three_nonzero_areas": true
+  },
+  "same_signed_area_distinct_based_frame_witness": {
+    "area": [
+      1,
+      0,
+      1
+    ],
+    "r2_word": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        2,
+        -1
+      ]
+    ],
+    "r_word": [
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  "review_scope": "Exact declared candidate connection and all 720 fixed-axis words; source-native force admission and frame bridge pending"
+}
