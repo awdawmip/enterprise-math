@@ -732,3 +732,16 @@ At g=3 there are 160 native signed endpoints with s=3 and 960 natural paths, whi
 
 **Type/consumer action:** This is proof of insufficiency for using pair-only R063 results as a *full six-axis quadratic/N-BRC shell observer*, not proof that R063's valid original fixed two-generator experiment or current correct P022 endpoint/L1 shell producer is defective. Keep R063 original Stage0 author-executed 17-gate/512-radius evidence; do not redo. Retain historic LP011 wrong native singleton-argmax and LP019 wrong positive-N-BRC signed-subtraction callers as `UNRESOLVED_PROVENANCE`; no exact wrong historic callsite newly discovered. Full 28-LP downstream closure and independent Driver REQUEST_REVISION remain open. No author-side admission claim.
 
+
+
+## 2026-11-16 14:xx — signed X6 first-excess BRC versus geodesic-only consumers (unit 61)
+
+**Exact new operator:** for an arbitrary native signed displacement `z in Z^6` with primitive coordinate steps, `a_i=|z_i|`, `T=sum_i a_i`, shortest natural BRC `N_T=T!/prod_i a_i!`, the first available non-geodesic length is `T+2` (parity excludes `T+1`) and
+`N_(T+2)(z) = N_T(z) (T+1)(T+2) sum_i 1/(a_i+1)`.
+The six terms are disjoint positive signed-word backtracks, one axis chosen for the extra opposite pair; no subtraction. This preserves original ordered-step provenance and separates length from P000 quadratic readout `G=sum_i z_i²`.
+
+**Exact checked G=25:** 7,812 distinct native signed endpoints; 2,538,954,612 shortest natural BRC paths (consumed unit58); and **939,815,793,084 first-excess signed paths** summing `N_(T(z)+2)(z)` with endpoint-adaptive lengths. Independent signed-endpoint enumeration and signed multiset/orbit counting agree; small direct signed-walk recursion checks the factorial identity; regular Python and `-O` identical. This is a different object from both the fixed `G=25` shortest mass and P022's `L1=5` fixed-radius geodesic mass 106,452. Frozen `signed_brc.endpoint_multiplicity` supports a fixed length beyond shortest; the correct current P022 `sc_geodesic_path_count` and `sc_shell_total_geodesic_paths` remain geodesic-only. Source was read but those imported producers were not executed in this unit. Status `PRESERVE_PATH_BRC / PRESERVE_TYPED_GRAPH_SHELL`, with explicit future-operation length type; no identified wrong caller and no current producer patch.
+
+**Durable source:** [unit61 proof and boundaries](https://github.com/awdawmip/enterprise-math/blob/284aa0f9cb8bec137f9e8e4be65f585278095644/research_notes/X6_LP019_SIGNED_TWO_STEP_DETOUR_FIRST_EXCESS_UNIT61_20261116.md), [executed exact checker](https://github.com/awdawmip/enterprise-math/blob/0b4b97dd2bcd01e75291985b54a51c583c78f66c/research_checks/X6_LP019_SIGNED_TWO_STEP_DETOUR_UNIT61_20261116.py), [machine-readable full G25 certificate](https://github.com/awdawmip/enterprise-math/blob/caa9fda6daf89a4de2548004db22c2df0aa06d29/research_checks/X6_LP019_SIGNED_TWO_STEP_DETOUR_UNIT61_RESULTS_20261116.json). Research Activity #83 has a connector-observed immutable Git source reference. Formal Native Source and independent Driver review have their own receipts.
+
+**Remaining mother obligation:** locate exact historical LP011/LP019 wrong caller lines, finish 28-LP downstream graph, and hand to independent Driver `REQUEST_REVISION`; do not conflate proof of possible unsafe transfer with historical misuse.
