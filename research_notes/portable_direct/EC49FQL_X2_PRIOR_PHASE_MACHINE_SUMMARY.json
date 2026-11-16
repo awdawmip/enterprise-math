@@ -1,0 +1,158 @@
+{
+  "schema": "EC49FQL_ALL_PRIOR_PRICE2_PHASE_CERTIFICATE_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "observed_date": "2026-11-16",
+  "source_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "native_root_cost_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "population": {
+    "original_configs": 310,
+    "distinct_named_root_profiles": 141,
+    "terminal_queries": 144,
+    "named_root_queries": 84,
+    "total_queries": 228,
+    "unique_partitions": 209
+  },
+  "prices": {
+    "root": 2,
+    "terminal": 1
+  },
+  "prior": "(1-lambda)/141 + lambda*m_i/310",
+  "exact_breakpoints": [
+    "310/7219",
+    "620/3299"
+  ],
+  "affine_segments": [
+    {
+      "interval": "0<=lambda<=310/7219",
+      "uniform_total": 302,
+      "config_total": 763,
+      "denominators": [
+        141,
+        310
+      ],
+      "first": [
+        32,
+        34
+      ]
+    },
+    {
+      "interval": "310/7219<=lambda<=620/3299",
+      "uniform_total": 303,
+      "config_total": 714,
+      "denominators": [
+        141,
+        310
+      ],
+      "first": [
+        140,
+        142
+      ]
+    },
+    {
+      "interval": "620/3299<=lambda<=1",
+      "uniform_total": 305,
+      "config_total": 695,
+      "denominators": [
+        141,
+        310
+      ],
+      "first": [
+        16,
+        23
+      ]
+    }
+  ],
+  "exact_boundary_first_actions": {
+    "310/7219": [
+      32,
+      34,
+      140,
+      142
+    ],
+    "620/3299": [
+      16,
+      23,
+      140,
+      142
+    ]
+  },
+  "endpoints": [
+    {
+      "lambda": "0/1",
+      "v": "302/141",
+      "first": [
+        32,
+        34
+      ],
+      "bellman_masks": 6590,
+      "certificate_sha256": "a934acf73cac9d83bfebf9f40323af1052010e08ba2894380bcb7577378f0a72"
+    },
+    {
+      "lambda": "310/7219",
+      "v": "15561/7219",
+      "first": [
+        32,
+        34,
+        140,
+        142
+      ],
+      "bellman_masks": 6869,
+      "certificate_sha256": "ffc3bde64e09a6eba818b743b8d714c9dbb6c6b0cac2ec02883119e8becbc1c2"
+    },
+    {
+      "lambda": "620/3299",
+      "v": "7185/3299",
+      "first": [
+        16,
+        23,
+        140,
+        142
+      ],
+      "bellman_masks": 7018,
+      "certificate_sha256": "cd2ed2b34dab8933d327e86505ff9dd30c7e7603446fe4c7f0b76125b9388526"
+    },
+    {
+      "lambda": "1/1",
+      "v": "139/62",
+      "first": [
+        16,
+        23
+      ],
+      "bellman_masks": 6914,
+      "certificate_sha256": "b3a01fc576d45c19b36543bb388b1ae46083f1d9e2a6e2ceef2467b663d9290d"
+    }
+  ],
+  "native_witness_count_vectors": {
+    "q32_q34": [
+      6,
+      290,
+      6,
+      751
+    ],
+    "q140_q142": [
+      5,
+      293,
+      5,
+      704
+    ],
+    "q16_q23": [
+      5,
+      295,
+      5,
+      685
+    ],
+    "order": [
+      "U_R",
+      "U_T",
+      "M_R",
+      "M_T"
+    ]
+  },
+  "mathematical_method": "unrestricted finite Bellman at four exact prior endpoints, exhaustive 228 physical forced-first checks, complete native tree replays, affine policy difference interpolation over prior continuum",
+  "validation": "EC49FQL_ALL_PRIOR_AT_PRICE_2_FULL_PHASES_PASS",
+  "unresolved": "Global sharpness of candidate left boundary lambda=310*(3-x)/(7557-169*x) for intermediate x in (1,3); preserve proven x=2 slice",
+  "canonical_task_id": "RS-EC49AS",
+  "formal_claim": false,
+  "formal_result": false
+}
