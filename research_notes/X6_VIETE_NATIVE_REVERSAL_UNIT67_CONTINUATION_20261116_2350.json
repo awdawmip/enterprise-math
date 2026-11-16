@@ -30,7 +30,13 @@
     "typed_prepare_request_id": "onhour-20261116-2348-x6-own-typed-continuation-unit67-v1",
     "typed_prepare_status": "RUNNING / WAIT_ORIGINAL; error=null at observation; original request must be read, never resubmitted",
     "unit66_67_semantic_progress": "NOT_SUBMITTED pending actual fresh winning CLAIM/open/run",
-    "no_claim_false_positive": true
+    "no_claim_false_positive": true,
+    "latest_receipt_diagnostic": {
+      "attempted_original_request_id": "onhour-20261116-2348-x6-own-typed-continuation-unit67-v1",
+      "result": "Backend identity check returned BACKEND_IDENTITY_CHECK_UNAVAILABLE; operation_sent=false; no new native effect inferred; preserve last RUNNING/WAIT_ORIGINAL original request and reconcile only via exact same request_id.",
+      "terminal_status_confirmed": false,
+      "identity_error": "BACKEND_IDENTITY_CHECK_UNAVAILABLE"
+    }
   },
   "new_unit": {
     "id": 67,
@@ -94,6 +100,6 @@
     "Unit67 Viète original 2026-09-03 source preserved, exact proof and current-reader type notice already committed, activity #90 done",
     "Original queued/unknown native requests must use original target_request_id receipt/reconcile, no substitution or duplicate claims"
   ],
-  "next_exact_action": "Read original onhour-20261116-2348-x6-own-typed-continuation-unit67-v1 result. Only if SUCCEEDED and authorized, use that prepare request_id for an own authenticated CLAIM then verify winning RUN/open, and publish Source progress for saved Unit66/67 with full own writer generation/readback. If no authority, leave original request pending. Continue actual source-line search for LP011/LP019 and inspect new current consumers without erasing native signed path provenance.",
+  "next_exact_action": "When native backend identity check recovers, use em_control_result original onhour-20261116-2348-x6-own-typed-continuation-unit67-v1; no re-submit. If Source prepare SUCCEEDED with authorized own session, proceed original prepare ID -> winning CLAIM -> RUN_READY/open -> publish Unit66/67 original Source semantic checkpoint. If no claim, do not borrow. Continue LP011/LP019 provenance search and independent Driver review.",
   "source_persistence_status": "GitHub main committed and independently read back; native Unit67 not yet published; independent mathematical admission not granted"
 }
