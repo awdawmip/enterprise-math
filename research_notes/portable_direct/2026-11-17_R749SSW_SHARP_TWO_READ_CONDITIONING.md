@@ -1,83 +1,95 @@
-# R749SSW — Exact two-read conditioning at a known cutoff
+# R749SSW — Sharp normalized two-read gap and stable error inversion at known cutoff
 
-**Date:** 2026-11-17. **Status:** AUTHOR_EXACT_NOT_REVIEWED. **Scope:** frozen five-distinct-labeled-source auxiliary scalar observation model, not native X6/BRC dynamics. **Scientific input pin:** `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`. Follows R749SST (11-read global exact injectivity), R749SSU (finite inversion) and R749SSV (sharp phase envelopes), preserving their author-only evidence status.
+**Date:** 2026-11-17. **Research status:** AUTHOR_EXACT_NOT_REVIEWED.
+**Scope:** frozen auxiliary scalar model with five *distinct labeled* sources of weights (1,1,2,3,6).
+**Frozen scientific input:** awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389.
+**Prior frontier:** R749SST (11-read global exact identifiability), R749SSU (constructive inversion), R749SSV (sharp phase envelopes). Their evidence status is retained.
 
-## Model and new theorem
+## Definitions and theorem
 
-With the first two weight-one sources **distinct and labeled**, set
-[
-Omega_q={(k_1,ldots,k_5)inmathbf Z_{ge0}^5:
-k_1+k_2+2k_3+3k_4+6k_5le q-1},quad
-C_q=|Omega_q|,quad T_q=sum_{kinOmega_q}k_1.
-]
-For every integer (qge6), and every common pair (e,din[-2,2]), put
-[
-X_q(e,d)=rac{T_q+e}{C_q+d},qquad
-Y_q(e,d)=q^3X_q(e,d)-rac{S(q)}{108},
-]
-where (S(q)=18q^4+54q^3-345q^2+2070q-16315), exactly as in R749SSV.
+For every integer \(q\ge6\), define
+\[
+\Omega_q=\{(k_1,\ldots,k_5)\in\mathbf Z_{\ge0}^5:
+k_1+k_2+2k_3+3k_4+6k_5\le q-1\},\quad
+C_q=|\Omega_q|,\quad T_q=\sum_{k\in\Omega_q}k_1.
+\]
+The first two weight-one sources are distinct. Let \(e,d\in[-2,2]\) be the same errors across all observations, and put
+\[
+X_q(e,d)=\frac{T_q+e}{C_q+d},\qquad
+Y_q(e,d)=q^3X_q(e,d)-\frac{S(q)}{108},
+\]
+with \(S(q)=18q^4+54q^3-345q^2+2070q-16315\).
 
-**Theorem 1 (sharp normalized inter-read gap).** For *all* integers (qge6) and *all* common continuous errors (e,din[-2,2]),
-[
-oxed{X_{q+6}(e,d)-X_q(e,d)>1.}
-]
-The constant 1 is sharp: for every fixed admissible pair, the left-hand side converges to 1 as (q	oinfty) along any residue class modulo 6.
+**Theorem 1 — exact global two-read gap.** For every integer \(q\ge6\) and every real \(e,d\in[-2,2]\),
+\[
+\boxed{X_{q+6}(e,d)-X_q(e,d)>1.}
+\]
+The constant 1 is asymptotically sharp: for every fixed admissible \(e,d\), the left side tends to 1 along every residue class modulo 6.
 
-**Corollary 1 (known-cutoff two-read injectivity).** For any fixed integer (qge6), the pair ((Y_q,Y_{q+6})) uniquely determines both (e) and (d) on the entire admissible square. Given the readings (y_0,y_1), let
-[
-x_0=rac{y_0+S(q)/108}{q^3},qquad
-x_1=rac{y_1+S(q+6)/108}{(q+6)^3}.
-]
-The exact inverse is
-[
-oxed{d=rac{x_0 C_q-T_q-x_1 C_{q+6}+T_{q+6}}{x_1-x_0}},
-qquad
-oxed{e=x_0(C_q+d)-T_q}.
-]
-The denominator (x_1-x_0) is strictly larger than 1 on the model image. In particular, the Jacobian of the two-read map never vanishes. Its normalized determinant is ((x_0-x_1)/[(C_q+d)(C_{q+6}+d)]).
+**Corollary 1 — known-cutoff two-read recovery.** For each fixed known integer \(q\ge6\), the map
+\((e,d)\mapsto(Y_q(e,d),Y_{q+6}(e,d))\)
+is injective on the entire real square \([-2,2]^2\). Given two exact readings \(y_0,y_1\), form
+\[
+x_0=\frac{y_0+S(q)/108}{q^3},\qquad
+x_1=\frac{y_1+S(q+6)/108}{(q+6)^3}.
+\]
+Then \(x_1-x_0>1\), and both parameters are recovered by
+\[
+\boxed{d=\frac{x_0C_q-T_q-x_1C_{q+6}+T_{q+6}}{x_1-x_0}},
+\qquad
+\boxed{e=x_0(C_q+d)-T_q}.
+\]
+The normalized Jacobian determinant is exactly
+\[
+\det D_{(e,d)}(X_q,X_{q+6})
+=\frac{x_0-x_1}{(C_q+d)(C_{q+6}+d)}<0.
+\]
 
-**Corollary 2 (explicit local error stability).** For two admissible error pairs ((e,d)) and ((e',d')) at the *same known* cutoff, let
-(delta=max(|X_q(e,d)-X_q(e',d')|,|X_{q+6}(e,d)-X_{q+6}(e',d')|)).
+**Corollary 2 — explicit fixed-cutoff stability.** Take two admissible model states \((e,d)\), \((e',d')\) with the same cutoff, and let
+\[
+\delta=\max_{j=0,1}\left|X_{q+6j}(e,d)-X_{q+6j}(e',d')\right|.
+\]
 Then
-[
-|d'-d|le (C_q+C_{q+6}+4)delta
-]
+\[
+|d'-d|\le(C_q+C_{q+6}+4)\delta,
+\]
 and
-[
-|e'-e|leleft[(C_q+2)+rac{T_q+2}{C_q-2}
-(C_q+C_{q+6}+4)ight]delta.
-]
-If the two raw (Y) vectors differ by at most (arepsilon) in sup norm, it suffices to set (deltalearepsilon/q^3). If a noisy measurement and an admissible fitted vector each deviate by at most (arepsilon) from one another's common observed data, replace (arepsilon) by (2arepsilon) for the two-model comparison. These are conservative, exact cutoff-dependent bounds.
+\[
+|e'-e|\le\left[(C_q+2)
++\frac{T_q+2}{C_q-2}(C_q+C_{q+6}+4)\right]\delta.
+\]
+When the corresponding raw \(Y\)-vectors differ by at most \(\varepsilon\) in sup norm, one may use \(\delta\le\varepsilon/q^3\). Comparing an admissible fit with the true state when each may deviate by \(\varepsilon\) from the observed vector requires using \(2\varepsilon\) for the two-state comparison.
 
-## Proof by six residue-class polynomial positivity
+## Exact proof by six residue classes
 
-The exact generating functions are
-[
-sum_{qge0} C_q z^q =
-rac{z}{(1-z)^3(1-z^2)(1-z^3)(1-z^6)},quad
-sum_{qge0} T_q z^q =
-rac{z^2}{(1-z)^4(1-z^2)(1-z^3)(1-z^6)}.
-]
-All poles are sixth roots of unity. At (z=1) their respective maximal orders are 6 and 7, so (C_{6+r+6k}) and (T_{6+r+6k}) are **exact** polynomials in (kge0) of degrees 5 and 6, for each (r=0,ldots,5). Interpolation using 6 and 7 values therefore determines the polynomials globally; the certificate reconstructs the coefficients from the original labeled-source generating function.
+The labeled-source generating functions are
+\[
+\sum_{q\ge0}C_qz^q=\frac{z}{(1-z)^3(1-z^2)(1-z^3)(1-z^6)},
+\]
+\[
+\sum_{q\ge0}T_qz^q=\frac{z^2}{(1-z)^4(1-z^2)(1-z^3)(1-z^6)}.
+\]
+Every pole is a sixth root of unity. The pole at 1 has order 6 for \(C\) and order 7 for \(T\); the others have smaller order. Thus for each \(r=0,\ldots,5\), the sequences \(C_{6+r+6k}\) and \(T_{6+r+6k}\) are exactly polynomials in \(k\ge0\) of degrees 5 and 6. Six and seven exact initial values uniquely determine these polynomials for the entire infinite residue class. The accompanying certificate reconstructs their values from five labeled sources, interpolates over exact rationals, and checks extra instances.
 
-Write (C=C_q, C'=C_{q+6}, T=T_q, T'=T_{q+6}) and
-(A=T'C-TC', B=T'-T, D=C'-C).
-Here (D>0) because the larger cutoff admits strictly more labeled configurations; also (Cge C_6=41), hence (C+d,C'+d>0).
+Abbreviate \(C=C_q,\ C'=C_{q+6},\ T=T_q,\ T'=T_{q+6}\), and define
+\[
+A=T'C-TC',\qquad B=T'-T,\qquad D=C'-C.
+\]
+Here \(D>0\), and \(C_q\ge41\) for \(q\ge6\), so both \(C+d,C'+d\) are positive.
 
-Direct expansion gives
-[
-(C+d)(C'+d)ig(X_{q+6}(e,d)-X_q(e,d)-1ig)
-=N(e,d)
-]
-where
-[
-N(e,d)=A+dB-eD-(C+d)(C'+d).
-]
-For fixed (d), this expression is decreasing in (e), since (D>0). For (e=2), it is a concave quadratic in (d), since the (d^2)-coefficient is (-1). Consequently its minimum over the full square occurs among ((e,d)=(2,-2),(2,2)).
+The numerator of the desired strict inequality is
+\[
+\begin{aligned}
+N(e,d)
+&=(C+d)(C'+d)[X_{q+6}(e,d)-X_q(e,d)-1]\\
+&=A+dB-eD-(C+d)(C'+d).
+\end{aligned}
+\]
+For fixed \(d\), \(N\) decreases in \(e\) because \(D>0\). For \(e=2\), it is a concave quadratic function of \(d\) with leading coefficient \(-1\). Therefore the minimum on the full square occurs at one of the two corners \((e,d)=(2,-2),(2,2)\).
 
-For each residue (r), substitute (q=6+r+6k) into these two exact endpoint expressions and expand in nonnegative integer (k). Every coefficient in each of the resulting **12 degree-eight polynomials** is a *strictly positive rational number*. The global minimum coefficient is (69/40). The degree-zero coefficients, an additional convenient auditable checksum, are:
+Substitute \(q=6+r+6k\) into both corner polynomials. For all six residues and both endpoints, the resulting **12 polynomials are of degree 8 with every coefficient strictly positive**. The smallest coefficient among all 12 is \(69/40\). Their constant terms are:
 
-| (r) | (N(2,-2)) at (k=0) | (N(2,2)) at (k=0) |
+| Residue \(r\) | \(N(2,-2)\), \(k=0\) | \(N(2,2)\), \(k=0\) |
 |---:|---:|---:|
 | 0 | 39 | 1679 |
 | 1 | 945 | 3341 |
@@ -86,27 +98,28 @@ For each residue (r), substitute (q=6+r+6k) into these two exact endpoint expres
 | 4 | 8685 | 15065 |
 | 5 | 14859 | 23339 |
 
-Coefficient positivity establishes (N(e,d)>0) for the entire continuous square, **at every integer (qge6)**. Division by the two positive denominators proves Theorem 1. The code independently checks (D)'s positive coefficients.
+Every such polynomial is positive for \(k\ge0\). Therefore \(N(e,d)>0\) for the full continuous error square and all \(q\ge6\), which proves Theorem 1 after division by its positive denominators.
 
-For sharpness, the coefficient of (k^5) in each phase polynomial (C_{6+r+6k}) equals the coefficient of (k^6) in (T_{6+r+6k}), namely (9/5). Their rational quotient therefore behaves as (k+	ext{constant}+O(1/k)) for fixed (e,d). Taking one step (kmapsto k+1) proves the limit 1.
+For sharpness, the coefficient of \(k^5\) in every phase polynomial \(C_{6+r+6k}\), and of \(k^6\) in \(T_{6+r+6k}\), both equal \(9/5\). Hence for any fixed \(e,d\), \(X_{6+r+6k}(e,d)=k+\mathrm{constant}+O(k^{-1})\); subtract successive values to get the limit 1.
 
-To obtain Corollary 1, solve the two linear equations (e-x_i d=x_i C_i-T_i); their determinant is (x_1-x_0>1). For Corollary 2, subtract the two states' equations to get
-[
-(e'-e)-x_i(d'-d)=delta_i(C_i+d'),quad |delta_i|ledelta.
-]
-Eliminating (e'-e), using (x_1-x_0>1) and (|C_i+d'|le C_i+2), yields the (d) bound. The (e) bound follows from the (i=0) equation and
-(0<x_0le (T_q+2)/(C_q-2)).
+For Corollary 1, solve the linear equations \(e-x_i d=x_i C_i-T_i\), \(i=0,1\), using the strictly nonzero denominator \(x_1-x_0\). The Jacobian expression follows by differentiation.
 
-## Exact example and computational scope
+For Corollary 2, let \(\delta_i=X_{q+6i}(e',d')-X_{q+6i}(e,d)\), and subtract the defining equations:
+\[
+(e'-e)-x_i(d'-d)=\delta_i(C_{q+6i}+d').
+\]
+Subtract the equations for \(i=0,1\), use \(x_1-x_0>1\), \(C_i+d'\le C_i+2\), and then \(0<x_0\le(T_q+2)/(C_q-2)\).
 
-At (q=6,e=2,d=-2): (C_6=41,T_6=50,C_{12}=380,T_{12}=881), so
-[
-X_6=4/3,quad X_{12}=883/378,quad X_{12}-X_6=379/378=1+1/378.
-]
-The strict inequality is close to equality already at this small cutoff.
+## Concrete witness, validation and provenance
 
-**Reproduction:** Python 3, SymPy; execute `python research_notes/portable_direct/R749SSW_TWO_READ_CONDITIONING_CERT.py`. It uses only exact integers/rationals, verifies all 12 positivity polynomials, the (D) polynomials, highest coefficients and the example; it outputs a JSON PASS record. The generating-function pole argument is the mathematical proof that finite interpolation determines the full infinite residue-class sequences. No floating-point grid or finite-(q) extrapolation is used.
+For \(q=6,e=2,d=-2\), the exact values are \(C_6=41,T_6=50,C_{12}=380,T_{12}=881\). Consequently
+\[
+X_6=4/3,\quad X_{12}=883/378,\quad X_{12}-X_6=379/378=1+1/378.
+\]
 
-**Relation to the existing frontier.** R749SST supplies the separately needed unknown-(q) 11-read injectivity theorem. Here (q) is fixed and known, and the result gives a uniform conditioning certificate for elimination of its two error parameters; it strengthens the previously used two-read inversion step. The six-step interval is the **auxiliary scalar observation offset**, not a native heartbeat duration. Source labels, multiplicities, joint composite directions, common errors and future observer fibers remain typed and uncollapsed; any BRC/X6 transfer needs a genuine preservation map.
+Reproduction requires Python 3 and SymPy. Run the sibling file
+R749SSW_TWO_READ_CONDITIONING_CERT.py; it emits an exact-rational JSON PASS record checking all 12 coefficient-positive polynomials, positivity of \(D\), leading coefficients and the witness. The all-cutoff coverage depends on the explicitly proved generating-function quasipolynomial lemma; extra numerical checks are not used as its replacement.
 
-**Next questions:** derive certified finite-range cross-(q) noise separation using this stable parameter elimination; check whether unknown-(q) global injectivity requires 5–10 rather than 11 reads; construct a signed/source-preserving BRC carrier for the labeled joint combinatorial population.
+This result strengthens the previously employed two-read parameter elimination at **fixed known** \(q\). Unknown-\(q\) identification still uses its own R749SST 11-read result. Six-step spacing denotes the auxiliary scalar observer, not a native physical time interval. Five source labels, joint populations, provenance, common errors and future observer fibers are retained. A native X6/BRC result requires an independently verified typed preservation map; P000 remains unchanged.
+
+**Next research:** finite-cutoff cross-\(q\) minimax gap and robust recovery; possible reduction of the unknown-\(q\) 11-read global upper bound; explicitly typed, signed and source-preserving BRC extension.
