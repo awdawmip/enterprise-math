@@ -1,0 +1,110 @@
+{
+  "schema": "EM_X6_TASK_RESEARCH_UNIT76_AUTHOR_CONTINUATION_V1",
+  "observed_at_scope": "2026-11-17 06:xx Asia/Hong_Kong; GitHub current main scoped source read and canonical native receipt read",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "research_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-579c8e23625448582b421831",
+  "run_id": "RUN-fb25028676f9692ab1bacaee",
+  "native_run_generation_observed": 4,
+  "native_run_revision_observed": 0,
+  "original_resume": {
+    "request_id": "onhour-20261117-0536-x6-own-run-resume-unit75-v1",
+    "receipt_status": "SUCCEEDED",
+    "phase": "RUN_READY",
+    "canonical_owner_revalidated": true
+  },
+  "original_continuation_read": {
+    "request_id": "onhour-20261117-0602-x6-own-continuation-read",
+    "receipt_status": "SUCCEEDED",
+    "phase": "OWN_RECORDED_RUN_AVAILABLE",
+    "execution_granted_by_projection": false
+  },
+  "frozen_scientific_pins": {
+    "signed_x6": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "original_signed_brc_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176"
+  },
+  "last_native_confirmed_unit74": {
+    "request_id": "onhour-20261117-unit74-full6-shortest-equal-plus2-native-progress-v1",
+    "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "cc3368100f8de3b00c89b7f4d1567f008b9944c4"
+  },
+  "completed_unit75": {
+    "status": "AUTHOR_PROVED/FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+    "report_commit": "516d98c0da0d65b847261c5874a71225943deb79",
+    "activity_count": 99,
+    "native_semantic": "NOT_SUBMITTED_AT_PREVIOUS_AUTHOR_SAVE"
+  },
+  "completed_unit76": {
+    "theorem": "For named j and pinned integer c, can3 restricted to signed selected three-axis hyperplane z_j=c is bijective with exact native inverse z_i=r_i+c-r_j. At c=0 it is group-isomorphic under quotient addition to native two-axis subgroup. Pinned historical R061 reverse (1,0,4) lifts to (-3,-4,0), preserving native BRC 35 and G25; unpinned r loses depth.",
+    "classification": "PRESERVE_OBSERVER/CONDITIONAL_PINNED_TWO_AXIS_NATIVE_LIFT",
+    "scientific_status": "AUTHOR_PROVED/ORIGINAL_CURRENT_MODULE_EXECUTED/FINITE_SCOPED/UNREVIEWED/NOT_ADMITTED",
+    "scoped_tests": {
+      "signed_states": 1875,
+      "affine_pin_checks": 13125,
+      "native_compositions": 19683,
+      "original_source_git_blob": "a527e347e33d0a0039258a9b25f48b1f1466d149",
+      "python_modes": [
+        "normal",
+        "-O",
+        "-OO"
+      ],
+      "stdout_sha256": "fd4c7814fedefe27a136243bf918a6eee34ea2f0838a23b29782b979cad5a9fa",
+      "failures": 0
+    },
+    "evidence": [
+      {
+        "path": "research_notes/X6_UNIT76_PINNED_AXIS_MINZERO_NATIVE_BRC_RECOVERY_20261117.md",
+        "commit": "02773d9d66369dfd28bb9a5115e5f1c1c4736145",
+        "git_blob_sha1": "4c19e944571328eb9bdcb6af31b98927ef8d4260"
+      },
+      {
+        "path": "research_checks/X6_UNIT76_ANCHORED_MINZERO_NATIVE_BRC_CHECK_20261117.py",
+        "commit": "05382ead9cf77014f636540faf778281f0e1b6ea",
+        "git_blob_sha1": "415c76213dfb1c6c15377679fe0c74556e068a44"
+      },
+      {
+        "path": "research_checks/X6_UNIT76_ANCHORED_MINZERO_NATIVE_BRC_RESULTS_20261117.json",
+        "commit": "1df0bb21022e99a888c1e47bd1f896c819c899e5",
+        "git_blob_sha1": "e1cc7daa8ec3a6120dfd51ee8376d0f5c8f007b0"
+      }
+    ],
+    "activity": {
+      "id": "RA-5E3FE1E761E4963EC461A892",
+      "count": 100,
+      "commit": "20b9b99267536fac72e66c782a774bd3088490b0",
+      "git_blob_sha1": "da22c58cd03f1dad59e73a3bae76b92b667ae31c"
+    },
+    "crosswalk": {
+      "path": "research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
+      "commit": "36b422522e44b5b24f746def0ca6439bca016033",
+      "git_blob_sha1": "9aafb3d42997b428939144bd5c64b69ccbd19280"
+    }
+  },
+  "source_provenance_open": {
+    "LP011": "ARCHIVE_ONLY old ledger contains no wrong singleton native argmax caller location; historical OG:235-246 M=max is valid positive/minzero reverse, now explicitly typed, not wrong caller.",
+    "LP019": "ARCHIVE_ONLY old ledger contains no wrong positive N_BRC signed-cancellation caller location; natural BRC remains positive.",
+    "full_28_LP_dependency_closure": false,
+    "driver_REQUEST_REVISION": "INDEPENDENT_REVIEW_OUTSTANDING"
+  },
+  "evidence_debts": [
+    "Native Source semantic PROGRESS Unit75/Unit76 not confirmed as of this GitHub-author save. Do not mark status until original write receipt/readback.",
+    "Trace exactly identified historical LP011/LP019 wrong callers or recommend Driver retire unsupported blame with bounded source coverage.",
+    "Finish remaining active/current 28-LP dependence edges and independent Driver REQUEST_REVISION."
+  ],
+  "do_not_repeat": [
+    "Previously saved and natively confirmed Units64-74 and original R063/Helly native benchmark.",
+    "Original own resume request onhour-20261117-0536-x6-own-run-resume-unit75-v1; it is SUCCEEDED.",
+    "Unit75 and Unit76 GitHub proofs, programs, exact results, Activity and immutable readbacks.",
+    "Do not claim old R061 valid minzero reverse is erroneous native argmax without actual caller.",
+    "Do not use maintenance logical conversation_id or borrow session credentials."
+  ],
+  "next_exact_action": "Along original own Research session and RUN, verify actual current protected writer authority before single Native semantic PROGRESS for already GitHub-saved Unit75-Unit76, read original receipt; then inspect further exact frozen historical LP011/LP019 source bodies/current downstream dependencies and seek independent Driver revision decision. Preserve future useful research without duplication.",
+  "schedule_changed": false,
+  "notifications_changed": false
+}
