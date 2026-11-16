@@ -10,7 +10,7 @@
   "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
   "claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
   "run_id": "RUN-3356cbe3c2b4916d79399941",
-  "last_verified_generation": 29,
+  "last_verified_generation": 30,
   "scientific_pins": {
     "p000_v5_and_centered_x6": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03",
     "historical_pre_rebase": "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3",
@@ -71,13 +71,20 @@
       "checkpoint_count": 78,
       "event_id": "onhour-20261116-1119-x6-lp019-p022-shell-typed-source-unit57-v1"
     },
-    "status": "AUTHOR_PROVED_AND_EXACT_CHECK_PASSED / UNREVIEWED / NOT_ADMITTED / NO_INCORRECT_P022_CALLER_LOCATED"
+    "status": "AUTHOR_PROVED_AND_EXACT_CHECK_PASSED / UNREVIEWED / NOT_ADMITTED / NO_INCORRECT_P022_CALLER_LOCATED",
+    "crosswalk": {
+      "path": "research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
+      "commit": "3d8293245c6ebaf098fc280b4cb8663a6445996f",
+      "blob": "6323f3f76f54e732bce77831a67d2dff8d1b2590",
+      "scope": "LP018/019/020/028 P022 exact named edge"
+    }
   },
   "native_57": {
     "original_resume_request_id": "onhour-20261116-1113-x6-own-run3356-resume-for-unit57",
-    "resume_last_observed": "RUNNING / WAIT_ORIGINAL, error=null",
-    "semantic_progress": "NOT_SUBMITTED_PENDING_ORIGINAL_RESUME",
-    "next_action": "Read terminal of existing resume request; if SUCCEEDED RUN_READY and same claim/run live, publish exact GitHub saved unit57 checkpoint with zero uploads under new semantic progress ID and read it; never replay resume."
+    "resume_last_observed": "SUCCEEDED / RUN_READY; authorized=true; generation=30; original request preserved",
+    "semantic_progress": "QUEUED / WAIT_ORIGINAL, error=null; initial native Source publish request accepted, terminal not yet verified",
+    "next_action": "Read original native unit57 publish target_request_id until terminal. Consume exact Source readback if success; on error follow permitted reconciliation. No repeat write.",
+    "original_publish_request_id": "onhour-20261116-1124-x6-lp019-p022-typed-shell-unit57-native-progress-v1"
   },
   "current_unfinished_unit": "Locate precise actual historical wrong LP011 signed native dominant singleton caller and LP019 wrongly signed-cancelled positive natural path BRC caller; expand 28-LP current and old consumer graph; inspect P022 shell-total downstream for actual G/L1 misuse; independent Driver REQUEST_REVISION remains open.",
   "do_not_repeat": [
@@ -86,7 +93,8 @@
     "Original native unit55/56 publish onhour-20261116-1044-x6-helly-unit55-56-native-progress-v1 already SUCCEEDED; do not reissue",
     "Original resume onhour-20261116-1113-x6-own-run3356-resume-for-unit57 is in flight; reconcile same ID only",
     "Current P022 production is not proven to make a wrong G-shell call; change only actual wrong consumers",
-    "Do not use maintenance lane identities or review own research independently"
+    "Do not use maintenance lane identities or review own research independently",
+    "Native #57 original publish onhour-20261116-1124-x6-lp019-p022-typed-shell-unit57-native-progress-v1 is QUEUED; read its receipt without resubmission."
   ],
-  "next_exact_action": "Original resume receipt -> same-run Source semantic checkpoint of unit57 if authorized -> inspect exact P022 shell-total import callsites with current blob, then resolve verified erroneous consumer or report bounded provenance. Preserve original sid/claim/run and immutable input."
+  "next_exact_action": "First consume original native #57 Source semantic publish receipt. Retain Researcher/SID/CLAIM/RUN generation30 and GitHub Activity #78; next source-audit non-exhausted actual P022 downstream G/L1 shell import callsites, patch only demonstrated wrong consumer."
 }
