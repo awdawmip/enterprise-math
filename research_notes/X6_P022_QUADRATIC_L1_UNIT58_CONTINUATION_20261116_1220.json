@@ -1,0 +1,86 @@
+{
+  "schema": "X6_AUTHOR_TASK_CONTINUATION_V1",
+  "observed_date": "2026-11-16",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "parent_objective_id": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "lane_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "separate_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
+  "run_id": "RUN-3356cbe3c2b4916d79399941",
+  "last_confirmed_run_generation": 30,
+  "scientific_pins": {
+    "p000_v5": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical_pre_rebase": "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "p022_producer_blob": "46373050168d2430b6cb3952aa763f3081284632",
+    "p022_test_blob": "ef3da1a789186867c538b604da1b642bf6039591"
+  },
+  "verified_native_57": {
+    "request_id": "onhour-20261116-1124-x6-lp019-p022-typed-shell-unit57-native-progress-v1",
+    "status": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "43790e183e2f2fc77aaf02813b5ec5b5b2141588",
+    "authenticated_readback": true,
+    "canonical_publication_verified": true
+  },
+  "unit58": {
+    "scientific_statement": "M_d(g,t)=t![x^t y^g](1+2 sum_{a>=1}x^a y^(a*a)/a!)^d; exact typed transfer of native G quadratic shells to shortest-unit-step T layers retaining positive natural BRC mass, signed axes and support.",
+    "exact_G25_six_axis": {
+      "endpoints": 7812,
+      "natural_BRC_mass": 2538954612,
+      "two_axis_covered_endpoints": 132,
+      "two_axis_covered_mass": 4212,
+      "two_axis_complement_mass": 2538950400,
+      "P022_L1_radius_5_mass": 106452,
+      "G25_intersect_L1_5_mass": 12
+    },
+    "source_execution": "Normal and -O Python produced identical exact JSON; one full signed endpoint recursive enumeration and independent coefficient recurrence; source-matched Git blob.",
+    "checker": {
+      "path": "research_checks/X6_P022_QUADRATIC_L1_JOINT_SHELL_UNIT58_20261116.py",
+      "commit": "a5daefffcc73d9fd13d65da1e0b7f0bc93826591",
+      "blob": "63fc9b0e91b98748b961dc0a98af2572c6d3c6d5",
+      "local_sha256": "7f0924529387bbc9f8d530eab9e6d141b2af8bfc9698c894f33382a8d4b3d207"
+    },
+    "machine_results": {
+      "path": "research_checks/X6_P022_QUADRATIC_L1_JOINT_SHELL_UNIT58_RESULTS_20261116.json",
+      "commit": "eee3c0cd63d0f5b1da7b3cb0aa5030fb718a6c12",
+      "blob": "5db1464d87def517b3a836acaae0b3b044b14841",
+      "local_sha256": "24b2053158b740b1e65d96261b91d6ac12c5aeaf54c31c7e345b4c02aacd7c18"
+    },
+    "report": {
+      "path": "research_notes/X6_LP019_P022_SIX_AXIS_QUADRATIC_L1_JOINT_SHELL_UNIT58_20261116.md",
+      "commit": "6434de4f39f3ca31f0b1822a0464dfb71f7cb6c8",
+      "blob": "e9b1c555c2b8a491d130243829004d14355bab1f"
+    },
+    "activity": {
+      "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+      "commit": "d423d2bf684e91896aeefd37a45f35cc0afff32f",
+      "blob": "a24b5b3b63b43e16f50e869982b197357976ac34",
+      "checkpoint_count": 79
+    },
+    "crosswalk": {
+      "path": "research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
+      "commit": "bb1df37170d3ae7fcdfe838642911aac7d1fc1af",
+      "blob": "8e332a0e552d38acee08bd5136a19481917200dd"
+    },
+    "status": "AUTHOR-PROVED / EXACT EXECUTION VERIFIED / GITHUB SOURCE SAVED AND READ BACK / UNREVIEWED / NOT_ADMITTED",
+    "consumer_audit": "14 selectively named src/tests/scripts source files at de0040f; no demonstrated wrong production caller in bounded set. GitHub code-search incomplete; not global absence."
+  },
+  "native_58": {
+    "original_resume_request_id": "onhour-20261116-1218-x6-own-run3356-resume-for-unit58-v1",
+    "resume_last_observed": "RUNNING / WAIT_ORIGINAL, error=null, preserve same original request; no second resume",
+    "semantic_publish_status": "NOT_SUBMITTED_PENDING_ORIGINAL_SAME_RUN_RESUME",
+    "semantic_publish_request_id": null
+  },
+  "current_unfinished_unit": "Find source-pinned actual LP011 wrong singleton argmax and LP019 wrong positive natural path signed-cancellation caller, and downstream P022 G/L1 misuse if any. Resolve 28-LP graph and independent Driver REQUEST_REVISION.",
+  "next_exact_action": "Consume original same-SID resume target_request_id; if SUCCEEDED and live OWN CLAIM, use authorized original run to Source-publish unit58 GitHub references via zero-upload checkpoint and read original progress receipt. Independently pursue actual uninspected caller sources; do not rerun frozen native R063 and Helly experiments.",
+  "do_not_repeat": [
+    "Original native R063 Stage0 six-blob 17 gates and 512 radii unit50 already Source-published.",
+    "Original Helly producer 66,675 constraints and typed guard unit54–56 already Source-published.",
+    "Native #57 original request SUCCEEDED, no repeat.",
+    "Unit58 exact checker, report, results, Activity #79 and crosswalk already saved; do not reissue GitHub saves.",
+    "Old forbidden, rejected or unknown writes not to be replayed; original pending resume receipt only.",
+    "Do not cross into CONTROL_PLANE_MAINTENANCE conversation or identity; independent Driver reviews remain independent."
+  ]
+}
