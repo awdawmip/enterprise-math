@@ -4,6 +4,11 @@
 The selected three-axis charts are observations in Z^3/Z(1,1,1), not full native Cells.
 No source mutation or unreviewed research promotion is implied by this checker.
 """
+def require(condition):
+    """An active check in ordinary, -O and -OO interpreter modes."""
+    if not condition:
+        raise RuntimeError("Unit64 exact checker invariant violated")
+
 from itertools import combinations, product
 from collections import Counter, defaultdict, deque
 import json
@@ -63,7 +68,7 @@ def obstruction_for_representative(slices, charts):
         def val(idx,vertex):return charts[idx][slices[idx].index(vertex)]
         return (val(0,ca)-val(0,ab))+(val(1,ab)-val(1,bc))+(val(2,bc)-val(2,ca))
     pair=[(i,j,set(a)&set(b)) for (i,a),(j,b) in combinations(list(enumerate(slices)),2) if len(set(a)&set(b))==2]
-    assert len(pair)==1
+    require(len(pair)==1)
     i,j,common=pair[0]; u,v=sorted(common)
     return (charts[i][slices[i].index(u)]-charts[i][slices[i].index(v)])-(charts[j][slices[j].index(u)]-charts[j][slices[j].index(v)])
 
@@ -79,8 +84,8 @@ def main():
         family_classes[f'{"-".join(map(str,intersections))};triple={triple}']+=1
         _,state=solve(slices,((0,0,0),)*3)
         if state=='unique_mod_diagonal':connected+=1
-    assert total==1140 and covered==connected==480
-    assert family_classes==Counter({'1-1-2;triple=1':180,'0-1-2;triple=0':180,'1-1-1;triple=0':120})
+    require(total==1140 and covered==connected==480)
+    require(family_classes==Counter({'1-1-2;triple=1':180,'0-1-2;triple=0':180,'1-1-1;triple=0':120}))
 
     local=[c for c in product(range(3),repeat=3) if min(c)==0]
     census={}
@@ -89,10 +94,10 @@ def main():
         for charts in product(local,repeat=3):
             z,state=solve(slices,charts)
             residue=obstruction_for_representative(slices,charts)
-            assert (z is not None)==(residue==0)
+            require((z is not None)==(residue==0))
             if z is not None:
-                assert state=='unique_mod_diagonal'
-                assert all(chart(z,sl)==c for sl,c in zip(slices,charts))
+                require(state=='unique_mod_diagonal')
+                require(all(chart(z,sl)==c for sl,c in zip(slices,charts)))
             outcomes[state]+=1
             checks+=1
         census[name]={'local_chart_families':checks, 'states':dict(outcomes)}
@@ -101,14 +106,14 @@ def main():
     for slices in (TREE,COMMON,CYCLE):
         for z in product((-1,0,1),repeat=6):
             candidate,state=solve(slices,[chart(z,s) for s in slices])
-            assert state=='unique_mod_diagonal'
-            assert len({a-b for a,b in zip(candidate,z)})==1
+            require(state=='unique_mod_diagonal')
+            require(len({a-b for a,b in zip(candidate,z)})==1)
 
     # Explicit signed holonomy obstruction on a triple cycle, with no repeated pair overlap.
     bad=((0,0,0),(0,0,0),(0,1,0))
     # For CYCLE, chart 3 corresponds to axes (1,3,5); its second entry at axis 3 introduces H != 0.
     H=obstruction_for_representative(CYCLE,bad)
-    assert abs(H)==1 and solve(CYCLE,bad)[1]=='cycle_holonomy_nonzero'
+    require(abs(H)==1 and solve(CYCLE,bad)[1]=='cycle_holonomy_nonzero')
     # Minimal L1 raw-chart repair: altering the axis-3 entry of chart 3 removes H at cost |H|.
     repaired=[list(c) for c in bad]
     # The chosen coefficient is +1 in H for chart3's shared index at axis 3 (bc).
@@ -117,7 +122,7 @@ def main():
     delta=-H
     repaired[2][pos]+=delta
     repaired=[chart(v,(0,1,2)) for v in repaired]   # just min-zero normalize each local 3-tuple
-    assert solve(CYCLE,repaired)[1]=='unique_mod_diagonal'
+    require(solve(CYCLE,repaired)[1]=='unique_mod_diagonal')
 
     result={'schema':'X6_THREE_SLICE_HOLONOMY_UNIT64_EXACT_V1',
             'science_pin':'59538f585d037d09ef687b28715c4bc1a3f9fe03',
