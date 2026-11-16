@@ -66,7 +66,7 @@ def run(old, limits):
 if __name__=='__main__':
     p=argparse.ArgumentParser()
     p.add_argument('--prior',type=Path,default=DEFAULT)
-    p.add_argument('--budgets',nargs=2,type=int,default=[10979,9833])
+    p.add_argument('--budgets',nargs=2,type=int,default=[10980,9835])
     a=p.parse_args()
     result=json.loads(json.dumps(run(a.prior.resolve(),dict(zip((11,12),a.budgets)))))
     reference=json.loads((HERE/'result.json').read_text())
