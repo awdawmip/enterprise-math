@@ -66,15 +66,16 @@
     },
     "lp28_crosswalk": {
       "path": "research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
-      "commit": "79913c72df99c20d251acaa031853ea7ac69edaf",
-      "git_blob_sha1": "98ccd4de0f8c9cea7e9c8ab9502fd517e9c6ccc2"
+      "commit": "716a87abbfe0d435385a620f1a9c171711eafd5d",
+      "git_blob_sha1": "08a84b2faa91b3861aead66f69a389ff79cf65db"
     }
   },
   "original_resume_request": {
     "request_id": "onhour-20261117-0536-x6-own-run-resume-unit75-v1",
-    "last_observed_status": "QUEUED",
+    "last_observed_status": "RUNNING",
     "phase": "WAIT_ORIGINAL",
-    "next_action": "Read original em_control_result / reconcile as needed; if SUCCEEDED/RUN_READY and fresh own-generation authorized, publish own Unit75 semantic checkpoint once. Do not replay resume."
+    "next_action": "Read original em_control_result / reconcile as needed; if SUCCEEDED/RUN_READY and fresh own-generation authorized, publish own Unit75 semantic checkpoint once. Do not replay resume.",
+    "last_observed_source": "em_control_result original request_id onhour-20261117-0536-x6-own-run-resume-unit75-v1; error=null"
   },
   "native_unit75_semantic_publication_status": "NOT_SUBMITTED; waiting original own-session resume terminal authorization",
   "do_not_repeat": [
