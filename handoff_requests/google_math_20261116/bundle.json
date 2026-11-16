@@ -1,0 +1,88 @@
+{
+  "schema": "ENTERPRISE_MATH_PROPOSAL_BUNDLE_V1",
+  "dispatchable": false,
+  "review_state": "OPTIONAL_PORTFOLIO_REVIEW",
+  "submitted_by": "EM-DIRECT-3DCA45",
+  "activity_id": "RA-9E375C17D7CF85D0BD8EF124",
+  "proposed_objective": {
+    "objective_id": "OBJ-GOOGLE-20261116-ERDOS1063-SEVEN-PHASE",
+    "title": "Google 数学成果后续：二项整除周期与有限相位辨识",
+    "scope": "限于冻结的 Erdős #1063 单异常周期计数和五来源七/八点相位观测。分别研究模4计数、原始独立误差下的锐半径及 u 趋近 −1 的次阶辨识。",
+    "success_criteria": [
+      "对三个给定问题分别形成可核验的定理、适用边界或经认证的部分结果，并说明其数学假设。",
+      "保留数论序列、采样模板、参数语义和两类噪声范数的来源及适用域。"
+    ],
+    "closure_criteria": [
+      "三项已各自有来源支撑的受理结局或明确处置与剩余义务，父目标的覆盖范围据实复核。"
+    ],
+    "research_value": "从已完成的奇偶分类与首阶差分模型提取新的可检验信息，明确整除分布与有限观测恢复精度。"
+  },
+  "taskbooks": [
+    {
+      "task_id": "RS-ERDOS1063-SINGLE-EXCEPTION-MOD4",
+      "path": "RS-ERDOS1063-SINGLE-EXCEPTION-MOD4.md",
+      "research_value": "从一位奇偶信息提取下一位，检验 2 进局部条件与全局各位置乘积如何共同决定周期密度的分母。",
+      "dependencies": []
+    },
+    {
+      "task_id": "RS-SEVEN-PHASE-RAW-NOISE-RADIUS",
+      "path": "RS-SEVEN-PHASE-RAW-NOISE-RADIUS.md",
+      "research_value": "把差分坐标上的稳定性转换为仪器逐位置读数实际可承受的误差，并判断第八个位置的收益。",
+      "dependencies": []
+    },
+    {
+      "task_id": "RS-SEVEN-PHASE-CANCELLATION-LAYER",
+      "path": "RS-SEVEN-PHASE-CANCELLATION-LAYER.md",
+      "research_value": "判定极限图像的重合是否真的丢失原始计数中的相位信息，确定需要达到的观测精度。",
+      "dependencies": []
+    }
+  ],
+  "source_materials": [
+    {
+      "url": "https://github.com/awdawmip/enterprise-math/blob/ab4699ad2a80b0e040c5a5f287cd34a537d75e6f/research_notes/portable_direct/2026-11-16_google_math_continuation/joint/erdos-reflection.md",
+      "git_blob_sha1": "de488263afb98e469e4aa5b9e6cf92433b5d683c"
+    },
+    {
+      "url": "https://github.com/awdawmip/enterprise-math/blob/ab4699ad2a80b0e040c5a5f287cd34a537d75e6f/research_notes/portable_direct/2026-11-16_google_math_continuation/joint/erdos_parity.py",
+      "git_blob_sha1": "316324c93c5ec9d3bc306d137a39b059ac02b132"
+    },
+    {
+      "url": "https://github.com/awdawmip/enterprise-math/blob/ab4699ad2a80b0e040c5a5f287cd34a537d75e6f/research_notes/portable_direct/2026-11-16_google_math_continuation/joint/erdos_parity.json",
+      "git_blob_sha1": "223b061c0e6f4bf8c6c13056f92e54bc214578ca"
+    },
+    {
+      "url": "https://github.com/awdawmip/enterprise-math/blob/ab4699ad2a80b0e040c5a5f287cd34a537d75e6f/research_notes/portable_direct/2026-11-16_google_math_continuation/joint/shape-seven.md",
+      "git_blob_sha1": "9e7767287081c5a7c9c1a5ed7ae6a0e2217bb9b4"
+    },
+    {
+      "url": "https://github.com/awdawmip/enterprise-math/blob/ab4699ad2a80b0e040c5a5f287cd34a537d75e6f/research_notes/portable_direct/2026-11-16_google_math_continuation/joint/shape-lp.py",
+      "git_blob_sha1": "45e07fabcd8b5cac3891b7a946bea0d5ee7c2330"
+    },
+    {
+      "url": "https://github.com/awdawmip/enterprise-math/blob/ab4699ad2a80b0e040c5a5f287cd34a537d75e6f/research_notes/portable_direct/2026-11-16_google_math_continuation/joint/shape_decode.py",
+      "git_blob_sha1": "34e7ba3bfb96855e931addfe2aef3f92eb347a52"
+    },
+    {
+      "url": "https://github.com/awdawmip/enterprise-math/blob/ab4699ad2a80b0e040c5a5f287cd34a537d75e6f/research_notes/portable_direct/2026-11-16_google_math_continuation/joint/joint-seven-proof.md",
+      "git_blob_sha1": "acae2e63b6b7e8d6b46c3a9581786bd24f7fb2da"
+    },
+    {
+      "url": "https://github.com/awdawmip/enterprise-math/blob/ab4699ad2a80b0e040c5a5f287cd34a537d75e6f/research_notes/portable_direct/2026-11-16_google_math_continuation/joint/joint_check.py",
+      "git_blob_sha1": "01846019e664c89ee5d05daa037467507d0d9e8f"
+    }
+  ],
+  "control_evidence": {
+    "source": "3844ac1a58a09e136cf45ec81b551eb7bfcc6a8a",
+    "official_task_directory_count": 522,
+    "objective_heads": 22,
+    "open_objectives": 18,
+    "original_task_lookup_requests": [
+      "google-nov16-mod4-prepublication-0353",
+      "google-nov16-rawnoise-prepublication-0353",
+      "google-nov16-cancellayer-prepublication-0353"
+    ],
+    "lookup_status": "NO_CANONICAL_PUBLICATION_DIRECTORY",
+    "task_scope": "Three new formal units from a non-task scientific activity",
+    "required_next_actor": "Own active RESEARCH_DRIVER with current authenticated DA for initial objective selection"
+  }
+}
