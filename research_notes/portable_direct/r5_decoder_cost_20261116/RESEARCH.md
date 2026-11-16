@@ -1,7 +1,7 @@
 # R5 — exact three-count decoder cost frontier and adaptive-robust bit-length minimum
 
-Date: 2026-11-16. Frozen scientific input: \`435e77af0d180eac32bd1f9c4c464bc4010b7551\`.
-Provenance: the complete derived 954-indexed-event, radius-two nearest-center model and its 28 closure bits; earlier exact three-query and all-triples classification in \`research_notes/portable_direct/r5_minimum_scalar_queries_20261116/\` at immutable commit \`143ada28910f2b0e042d2d0ffcb066fee45d083e\`.
+Date: 2026-11-16. Frozen scientific input: `435e77af0d180eac32bd1f9c4c464bc4010b7551`.
+Provenance: the complete derived 954-indexed-event, radius-two nearest-center model and its 28 closure bits; earlier exact three-query and all-triples classification in `research_notes/portable_direct/r5_minimum_scalar_queries_20261116/` at immutable commit `143ada28910f2b0e042d2d0ffcb066fee45d083e`.
 Evidence status: AUTHOR_PROVED / EXACT_INTEGER_FINITE_CHECKED / NOT_REVIEWED. This is a typed auxiliary integer observer, not a native X6 observer admission, Activity, Claim, Result, Review or Foundation promotion.
 
 ## Question and cost model
@@ -11,7 +11,7 @@ The eight effective closure bits are U={3,8,9,10,15,17,25,27}. A complete exact 
 - B: K=223..291, with coordinates (25,27).
 - C: K=293..314, with coordinates (15,17).
 
-For each input mask m, a budget query returns the positive exact integer N_m(K), the number of optimal center subsets. **One count costs \`N_m(K).bit_length()\` raw binary data bits**. No compression, channel metadata, budget-selection signaling or computing time is included. A protocol has three scalar queries; its cost is the sum of those three bit lengths. We also compare the total *center budget* K_A+K_B+K_C, the worst count bit length, and expected total count bits under the uniform eight-bit quotient prior. The quotient has 256 equally likely signatures under uniform original 28-bit masks.
+For each input mask m, a budget query returns the positive exact integer N_m(K), the number of optimal center subsets. **One count costs `N_m(K).bit_length()` raw binary data bits**. No compression, channel metadata, budget-selection signaling or computing time is included. A protocol has three scalar queries; its cost is the sum of those three bit lengths. We also compare the total *center budget* K_A+K_B+K_C, the worst count bit length, and expected total count bits under the uniform eight-bit quotient prior. The quotient has 256 equally likely signatures under uniform original 28-bit masks.
 
 ## Exact theorems
 
@@ -59,7 +59,7 @@ Relative to the minimum-budget decoder, the pointwise-bit-optimal decoder saves 
 
 ## Reproducibility and scientific scope
 
-Run \`python research_notes/portable_direct/r5_decoder_cost_20261116/VERIFY_R5_DECODER_COST_COMPACT.py\` from the checked-out research branch containing the earlier \`VERIFY_R5_ALL_TRIPLE_DECODERS.py\` dependency. Python standard library only, all arithmetic exact (integers and rational input reconstruction). The earlier dependency's precise arithmetic functions \`frozen\`, \`close\`, \`spectrum\` are reused; no numerical MILP solver or floating-point operation is involved. The output JSON includes the exact metrics, 612 pointwise comparison cases, 8,280 valid triples and Pareto points. Locally executed result: \`PASS_R5_DECODER_COST_EXACT\`; independent review remains open.
+Run `python research_notes/portable_direct/r5_decoder_cost_20261116/VERIFY_R5_DECODER_COST_COMPACT.py` from the checked-out research branch containing the earlier `VERIFY_R5_ALL_TRIPLE_DECODERS.py` dependency. Python standard library only, all arithmetic exact (integers and rational input reconstruction). The earlier dependency's precise arithmetic functions `frozen`, `close`, `spectrum` are reused; no numerical MILP solver or floating-point operation is involved. The output JSON includes the exact metrics, 612 pointwise comparison cases, 8,280 valid triples and Pareto points. Locally executed result: `PASS_R5_DECODER_COST_EXACT`; independent review remains open.
 
 This result concerns the raw-bit cost of the declared derived scalar observer. The execution cost of computing the counts, encoding overhead, and preservation of richer native X6 paths, BRC provenance, signed information or future operations were not optimized or asserted by this result.
 
