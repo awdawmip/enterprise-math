@@ -1,0 +1,113 @@
+{
+  "schema": "PREFIX828_R6_DELAYED_NAMED_OBSERVER_V1",
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "profile_checks": 65,
+  "power_checks": 65,
+  "direct_histogram_comparisons": 20,
+  "first_gap_checks": 5,
+  "range": "n=1..10 profile and power sums; n=1..5 direct named Q-branch enumeration; all exact BigInt",
+  "scope": "unnormalized positive-count BRC Q-only observer; operator time, not native X6 or physical time",
+  "cases": [
+    {
+      "n": 1,
+      "source_count_per_state": 1,
+      "capacity": 1,
+      "first_different_step": 1,
+      "elementary_gap": "-1",
+      "first_trace_gap": "-1",
+      "gap_bin": 0,
+      "branch_enumerated": true
+    },
+    {
+      "n": 2,
+      "source_count_per_state": 2,
+      "capacity": 2,
+      "first_different_step": 2,
+      "elementary_gap": "-2",
+      "first_trace_gap": "-4",
+      "gap_bin": 0,
+      "branch_enumerated": true
+    },
+    {
+      "n": 3,
+      "source_count_per_state": 4,
+      "capacity": 4,
+      "first_different_step": 3,
+      "elementary_gap": "-16",
+      "first_trace_gap": "-96",
+      "gap_bin": 1,
+      "branch_enumerated": true
+    },
+    {
+      "n": 4,
+      "source_count_per_state": 8,
+      "capacity": 8,
+      "first_different_step": 4,
+      "elementary_gap": "-384",
+      "first_trace_gap": "-9216",
+      "gap_bin": 4,
+      "branch_enumerated": true
+    },
+    {
+      "n": 5,
+      "source_count_per_state": 16,
+      "capacity": 16,
+      "first_different_step": 5,
+      "elementary_gap": "-24576",
+      "first_trace_gap": "-2949120",
+      "gap_bin": 11,
+      "branch_enumerated": true
+    },
+    {
+      "n": 6,
+      "source_count_per_state": 32,
+      "capacity": 32,
+      "first_different_step": 6,
+      "elementary_gap": "-3932160",
+      "first_trace_gap": "-2831155200",
+      "gap_bin": 26,
+      "branch_enumerated": false
+    },
+    {
+      "n": 7,
+      "source_count_per_state": 64,
+      "capacity": 64,
+      "first_different_step": 7,
+      "elementary_gap": "-1509949440",
+      "first_trace_gap": "-7610145177600",
+      "gap_bin": 57,
+      "branch_enumerated": false
+    },
+    {
+      "n": 8,
+      "source_count_per_state": 128,
+      "capacity": 128,
+      "first_different_step": 8,
+      "elementary_gap": "-1352914698240",
+      "first_trace_gap": "-54549520633036800",
+      "gap_bin": 120,
+      "branch_enumerated": false
+    },
+    {
+      "n": 9,
+      "source_count_per_state": 256,
+      "capacity": 256,
+      "first_different_step": 9,
+      "elementary_gap": "-2770769301995520",
+      "first_trace_gap": "-1005456764308134297600",
+      "gap_bin": 247,
+      "branch_enumerated": false
+    },
+    {
+      "n": 10,
+      "source_count_per_state": 512,
+      "capacity": 512,
+      "first_different_step": 10,
+      "elementary_gap": "-12767704943595356160",
+      "first_trace_gap": "-46331447699318828433408000",
+      "gap_bin": 502,
+      "branch_enumerated": false
+    }
+  ]
+}
