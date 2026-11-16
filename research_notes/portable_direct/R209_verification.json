@@ -1,0 +1,248 @@
+{
+  "schema": "R209_DIRECT_STIRLING_RANK_UNRANK_V1",
+  "status": "PASS",
+  "check_type": "exact Python int; exhaustive where described",
+  "backend": "Python standard library; local execution 2026-11-16",
+  "parameter_models": 27,
+  "roundtrips": 514,
+  "word_image_checks": 10803,
+  "append_checks": 2835,
+  "state_composition_checks": 1658,
+  "suffix_fibre_checks": 50,
+  "large_rank_roundtrips": 50,
+  "models": [
+    {
+      "m": 1,
+      "k": 0,
+      "L": 0,
+      "count": 1,
+      "complete": true
+    },
+    {
+      "m": 1,
+      "k": 0,
+      "L": 1,
+      "count": 2,
+      "complete": true
+    },
+    {
+      "m": 1,
+      "k": 0,
+      "L": 2,
+      "count": 3,
+      "complete": true
+    },
+    {
+      "m": 1,
+      "k": 1,
+      "L": 0,
+      "count": 2,
+      "complete": true
+    },
+    {
+      "m": 1,
+      "k": 1,
+      "L": 1,
+      "count": 4,
+      "complete": true
+    },
+    {
+      "m": 1,
+      "k": 1,
+      "L": 2,
+      "count": 8,
+      "complete": true
+    },
+    {
+      "m": 1,
+      "k": 2,
+      "L": 0,
+      "count": 5,
+      "complete": true
+    },
+    {
+      "m": 1,
+      "k": 2,
+      "L": 1,
+      "count": 10,
+      "complete": true
+    },
+    {
+      "m": 1,
+      "k": 2,
+      "L": 2,
+      "count": 23,
+      "complete": true
+    },
+    {
+      "m": 2,
+      "k": 0,
+      "L": 0,
+      "count": 1,
+      "complete": true
+    },
+    {
+      "m": 2,
+      "k": 0,
+      "L": 1,
+      "count": 3,
+      "complete": true
+    },
+    {
+      "m": 2,
+      "k": 0,
+      "L": 2,
+      "count": 7,
+      "complete": true
+    },
+    {
+      "m": 2,
+      "k": 1,
+      "L": 0,
+      "count": 2,
+      "complete": true
+    },
+    {
+      "m": 2,
+      "k": 1,
+      "L": 1,
+      "count": 7,
+      "complete": true
+    },
+    {
+      "m": 2,
+      "k": 1,
+      "L": 2,
+      "count": 25,
+      "complete": true
+    },
+    {
+      "m": 2,
+      "k": 2,
+      "L": 0,
+      "count": 5,
+      "complete": true
+    },
+    {
+      "m": 2,
+      "k": 2,
+      "L": 1,
+      "count": 19,
+      "complete": true
+    },
+    {
+      "m": 2,
+      "k": 2,
+      "L": 2,
+      "count": 83,
+      "complete": true
+    },
+    {
+      "m": 3,
+      "k": 0,
+      "L": 0,
+      "count": 1,
+      "complete": true
+    },
+    {
+      "m": 3,
+      "k": 0,
+      "L": 1,
+      "count": 4,
+      "complete": true
+    },
+    {
+      "m": 3,
+      "k": 0,
+      "L": 2,
+      "count": 13,
+      "complete": true
+    },
+    {
+      "m": 3,
+      "k": 1,
+      "L": 0,
+      "count": 2,
+      "complete": true
+    },
+    {
+      "m": 3,
+      "k": 1,
+      "L": 1,
+      "count": 10,
+      "complete": true
+    },
+    {
+      "m": 3,
+      "k": 1,
+      "L": 2,
+      "count": 52,
+      "complete": true
+    },
+    {
+      "m": 3,
+      "k": 2,
+      "L": 0,
+      "count": 5,
+      "complete": true
+    },
+    {
+      "m": 3,
+      "k": 2,
+      "L": 1,
+      "count": 28,
+      "complete": true
+    },
+    {
+      "m": 3,
+      "k": 2,
+      "L": 2,
+      "count": 181,
+      "complete": true
+    }
+  ],
+  "x6_case": {
+    "m": 12,
+    "k": 6,
+    "L": 2,
+    "state_count": 1407685,
+    "minimum_fixed_bits": 21,
+    "full_tail_fibre": 720,
+    "stirling_fibre_C": 5
+  },
+  "depths": [
+    {
+      "L": 0,
+      "states": 1957,
+      "fixed_bits": 11
+    },
+    {
+      "L": 1,
+      "states": 46957,
+      "fixed_bits": 16
+    },
+    {
+      "L": 2,
+      "states": 1407685,
+      "fixed_bits": 21
+    },
+    {
+      "L": 3,
+      "states": 50583973,
+      "fixed_bits": 26
+    },
+    {
+      "L": 4,
+      "states": 2095910437,
+      "fixed_bits": 31
+    },
+    {
+      "L": 5,
+      "states": 97426560037,
+      "fixed_bits": 37
+    }
+  ],
+  "scientific_review": "NOT_REVIEWED",
+  "native_brc_integration": "NOT_EXECUTED",
+  "frozen_science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34"
+}
