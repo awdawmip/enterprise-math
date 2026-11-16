@@ -1,0 +1,81 @@
+{
+  "schema": "R5_FACTOR_COUPLING_CERTIFICATE_V1",
+  "date": "2026-11-17",
+  "status": "PASS_R5_101_BUDGET_FACTOR_AND_COUPLING",
+  "scope": "frozen 954-event derived one-dimensional indexed-center observer; not native X6 or BRC",
+  "scientific_input": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "upstream_101_budget_coefficients_sha256": "a781cf89e534587009e207e51bbda2f411e4147746f7d6a0b72a1354e80f0d4d",
+  "upstream_source_commit": "cb5249695a7dce70f102d0ae426423a18facd12a",
+  "cut27_factorization": {
+    "budgets": [
+      214,
+      222
+    ],
+    "positive_coefficient_pairs_checked": 75,
+    "all_mask_count_equalities_implied_and_crosschecked": 1152,
+    "off_to_on_count_ratio": "13/9",
+    "required_to_unrequired_coefficient_ratio": "4/9",
+    "required_share_among_all_closed": "4/13"
+  },
+  "joint_25_27": {
+    "budget_range": [
+      223,
+      290
+    ],
+    "sign_runs": [
+      [
+        "positive",
+        223,
+        256
+      ],
+      [
+        "negative",
+        257,
+        290
+      ]
+    ],
+    "no_zero": true,
+    "all_additive_mixed_differences_positive": true,
+    "normalized_determinant_witnesses": {
+      "223": "5243370299654400",
+      "256": "18488884278613022566862826063585898937239135630668233530125757871955490693263664677782102115947582895576436906378136822983968",
+      "257": "-4841159290353227824778326793981978200406917135431213616377325677178923206214022240462836537509402186717630340131338500016608",
+      "290": "-4480959628801816010008494336"
+    }
+  },
+  "joint_15_17": {
+    "budget_range": [
+      294,
+      313
+    ],
+    "sign_runs": [
+      [
+        "negative",
+        294,
+        298
+      ],
+      [
+        "positive",
+        299,
+        301
+      ],
+      [
+        "negative",
+        302,
+        313
+      ]
+    ],
+    "no_zero": true,
+    "all_additive_mixed_differences_positive": true,
+    "normalized_determinant_witnesses": {
+      "294": "-14807008151670680320",
+      "298": "-573311313248053354923074138980",
+      "299": "3364841292427202627424212772763",
+      "301": "549425364648528478298964731369617",
+      "302": "-610208451438013331998344779593356",
+      "313": "-673336017700"
+    }
+  },
+  "verification_scope": "Postprocess the exact 101-budget precursor coefficient data with Python arbitrary-precision integers; previous 24 independently masked DPs, not a new full independent 256-mask DP.",
+  "review": "NOT_REVIEWED"
+}
