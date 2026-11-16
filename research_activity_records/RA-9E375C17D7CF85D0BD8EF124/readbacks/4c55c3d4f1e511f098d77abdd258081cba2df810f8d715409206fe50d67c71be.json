@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/2026-11-16_google_math_continuation/joint/README.md",
+    "ref": "ab4699ad2a80b0e040c5a5f287cd34a537d75e6f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "joint-1063-nov16-readback-0",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 进取数论研究续篇：Erdős #1063 与七点观测的共同误差\n\n2026-11-16。研究员 EM-DIRECT-3DCA45，活动 RA-9E375C17D7CF85D0BD8EF124。\n\n## 数论结果\n\n[第 1063 题的反射与计数](erdos-reflection.md)给出一个奇偶分类。k≥3 时，固定 k 的最小周期中，恰有一项不整除二项式的剩余类数为奇数，恰对应 k=7,15,31,63,…。反射原理也确定了整段内的末解与各位置的镜像密度。Google 11 月 13 日公布的相关结果是首解 nₖ 的改进渐近上界。代入项目的精确周期 Pₖ，推出 nₖ=Pₖ^{o(1)}。文中链接官方公告、原始定理和固定提交的 Lean 源码。\n\n## 七点解码\n\n模型与采样定义见[父目录](../README.md)。五种来源的权重为 (1,1,2,3,6)，C 是计数，T 对第一个权重 1 的来源计总次数。七个连续读数共用一对加在 T 和 C 上的整数误差 e,d。三个相邻四阶差分消去任意三次加性漂移。解码目标是恢复首个位置 r 模 6 的余数。N(M,K) 表示所有 r≥N 且 |e|≤M、|d|≤K 下都能唯一恢复的最小整数起点。精确模型还要求每个有效分母严格为正。\n\n* [双参数极限及纯分母锐阈](joint-seven-proof.md)给出 z=A Sₐ+B·1+O(1/r)。令 u=25920e/r⁶，v=4320d/r⁵，则 A=(1+u)/(1+v)²。v 量级恒定时必须保留分母依赖。\n* [固定模板的混合锐阈](mixed-proof.md)给出适用于每种预算比例的 N=ρ+O(1)。ρ 由连续递减的四段有理函数唯一确定，包括两条纯轴。不同区间的首次失效分别涉及严格误判和实际持久平局。\n* [消除共同平移与增益](shape-seven.md)给出另一种解码器。在任意 A≥g>0 下，七个原始位置对三个差分输出的最大绝对噪声具有锐半径 30g；八个及更多位置是 60g。固定窗口上若增益符号也未知，则从七个位置起保持 30g。原始输入的独立噪声与差分输出的噪声具有不同范数。\n* [有理数实现](shape_decode.py)与[有限实例](shape_demo.json)直接比较相同原始计数在两种解码器下的结果。纯分母目标 v=−0.3 时，在 r=1200,…,1205 原方案仅四个相位唯一正确，新方案六个全对。v=−0.5 时，后一方法在 r=1200,…,1205 和 12000,…,12005 为 3/6 和 5/6；到 120000,…,120005 为 6/6。这些是明确的局部样本，与“此后所有 r 均正确”的门槛不同。\n\n## 有限整预算的全局证明\n\n[finite_thresholds.json](finite_thresholds.json)保存 11 组预算的最小 N、最后失败的两项距离、相位和整数误差。典型取值如下。\n\n| M | K | 最小 N |\n|---:|---:|---:|\n| 0 | 0 | 17 |\n| 0 | 10 | 17 |\n| 0 | 100 | 22 |\n| 0 | 1,000 | 24 |\n| 100 | 100 | 22 |\n| 1,000 | 100 | 23 |\n| 1,000,000 | 100 | 54 |\n\n[finite_thresholds.py](finite_thresholds.py) 从精确的源计数生成证书。第四差分后被减的光滑四次多项式恰贡献常数 4。对尾部每个单一差分，证明它和理想模板的距离严格小于半间距 60。对固定的分母误差 d，所需不等式对 e 为仿射，只需检查 ±M。把 d=K(x−1)/(1+x) 代入，0≤x≤∞。乘上五个正分母并清除 (1+x) 的幂后，得到 x 的五次多项式。在起点 q=q₀+6t 的每一剩余类上，各系数是 t 的至多 29 次多项式（计数 C,T 的次数至多 5,6）。程序核实每个系数的常数项严格为正、所有更高 Newton 前向差分非负。因此对所有整数 t≥0 及所有 x≥0 严格为正，最高项同时覆盖 d=K。有限段逐一取合法 d，对 e 的整区间精确求解每一组“对手的六个带符号残差均不超过真实签名的某一带符号残差”线性不等式，查清并列及严格错判。\n\n## 复算\n\n数论、有限阈值和新解码器使用 Python 标准库。极限边界中的多项式隔根程序使用 SymPy。从本目录运行如下命令。\n\n```sh\npython erdos_parity.py\npython bridge_period.py\npython finite_thresholds.py\npython shape_decode.py\npython shape-lp.py\npython joint_check.py\npython denom_exact.py\npython common_limit_geometry.py\npython mixed_envelope.py\npython mixed_endpoints.py\n```\n\n上述项目结果是本项目的推导及精确计算，尚待独立外部审阅。\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/ab4699ad2a80b0e040c5a5f287cd34a537d75e6f/research_notes/portable_direct/2026-11-16_google_math_continuation/joint/README.md",
+      "encoding": "utf-8",
+      "sha": "197339a3c32816dec55ec7274e00e1a263e5c318"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

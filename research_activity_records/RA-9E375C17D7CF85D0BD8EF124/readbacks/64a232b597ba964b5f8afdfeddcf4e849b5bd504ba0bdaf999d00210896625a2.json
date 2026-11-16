@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/2026-11-16_google_math_continuation/joint/erdos-reflection.md",
+    "ref": "ab4699ad2a80b0e040c5a5f287cd34a537d75e6f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "joint-1063-nov16-readback-1",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# Erdős 第 1063 题：反射、首末解与周期计数的奇偶性\n\n令 Fₖ(n) 为所有满足 (n−i) 不整除二项式 C(n,k) 的偏移 i，0≤i<k，n≥2k。合格指 |Fₖ(n)|=1，nₖ 是首个合格整数。设 Lⱼ=lcm(1,…,j)，Pₖ=Lₖ·L_{⌊k/2⌋}。[前一份证明](../period_proof.md)给出：Pₖ 是位置集合的最小周期，且对 k≥3 也是合格谓词的最小周期。本文按 Pₖ 计成功的剩余类，记总数 Hₖ。\n\n## Google 结果和可直接推出的搜索尺度\n\n2026-11-13 的 Google Research 公告报告了对该题改进上界的形式化。DeepMind 定理目录给出的断言是 nₖ=O(U(k))，其中 U(k)=exp((k/log k)(log log k + log log log k + log 2))，并且 U(k)=o(k·lcm(1,…,k−1))。所链接固定提交的 Lean 文件第 5524 行有相应的 theorem erdos_1063.better_upper。本研究核读了文件中的定义及目标，未在本地重建 Lean 证明。Jiang 等的论文 v2，补充说明 9，另报告更精细的上下界及其证据状态。公式的 O 常数不能作为小 k 时的数值截断。\n\n* [Google Research 公告](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/)\n* [官方定理目录](https://google-deepmind.github.io/formal-conjectures/src/FormalConjectures/ErdosProblems/%C2%AB1063%C2%BB/)\n* [固定版本的 Lean 证明文件](https://github.com/lfsong-google/formal-conjectures/blob/ff33e501bb78a90ae4703e22e052f8bb38e10146/FormalConjectures/ErdosProblems/1063.lean#L5524)\n* [Jiang 等，补充说明 9](https://arxiv.org/html/2610.02945v2#S15)\n\n素数定理的等价形式 log Lₖ~k 给出 log Pₖ=(3/2+o(1))k。代入上述上界，有 nₖ=Pₖ^{o(1)}，且 limsup (log nₖ/log Pₖ)·(log k/log log k) ≤ 2/3。因而对充分大的 k，第一个成功数在一个周期的任意固定正次幂以内。此推论约束枚举候选数，不估算一次大整数整除的机器成本。\n\n## 一个反射配对\n\n把剩余类取作足够大的正代表。若 n′≡k−1−n (mod Pₖ)，则 Fₖ(n′)={k−1−i : i∈Fₖ(n)}。事实上 n′−(k−1−i)≡−(n−i) (mod Pₖ)。对每个 p≤k，按 p 在 Pₖ 中的幂次截断，两者的 p 赋值相同。[局部周期证明](../period_proof.md)说明这些截断赋值足以决定删去任意一项后的乘积能否被 k! 整除。故各位置的失败条件恰反转。固定单异常位置的密度在 i 与 k−1−i 之间也相同。\n\n反射 n↦Pₖ+k−1−n 将 [2k,Pₖ−k−1] 映到自身。只要 nₖ 落在其中，最后一个合格数就是 Pₖ+k−1−nₖ；上面的渐近界保证对充分大的 k 必然如此。k=60 时，首解 2117441088029 的唯一异常偏移 29 变为 30。其反射给出的末解为 22570536559081644141673291595482752030。bridge_period.py 对 60≤k≤64 的首末见证分别直接做二项式整除。\n\n## 奇偶分类\n\n**定理。** 对 k≥3，一个最小周期内的成功剩余类数 Hₖ 为奇数，当且仅当 k=2ʲ−1、j≥3。按具名周期 P₂=2 计，H₂=2；若改按布尔谓词自身的最小周期 1 计，k=2 时有 1 类。\n\n**证明。** 反射把非固定成功类两两配对。Pₖ 为偶数，故 k 为偶数时方程 2n≡k−1 (mod Pₖ) 无解，Hₖ 为偶数。设 k=2m+1。两固定类为 n≡m 与 n≡m+Pₖ/2。对第一类，按任一 p≤k 可选在中心 m 处任意深的 p 进代表，因为这个选择与该素数的有效局部周期一致。删去非中心项后仍有中心深项，可补足 k! 的 p 赋值。删去中心后局部赋值总和等于 vₚ((m!)²)。因此第一固定类的唯一异常是中心（k!/(m!)²>1）。对第二固定类，同一结论对全部奇素数仍有效，余下只须检查 2 的贡献。\n\n设 k≥5，h=⌊log₂ k⌋≥2。则 m 有 h 位，v₂(Pₖ)=2h−1。第二固定类中心项的 2 赋值等于 2h−2；距中心 u≥1 的位置保留原有 v₂(u)≤h−1。删中心后，赋值缺口 v₂(k!)−2v₂(m!)=s₂(m)>0，其中 s₂(m) 为 m 的二进制 1 的个数，此等式由 Legendre 公式得到。删去距中心 u 的项时，恰在 v₂(u)>2h−2−s₂(m) 时失败。因为 s₂(m)≤h、v₂(u)≤h−1，这一情况只能在 s₂(m)=h 时出现。此时 m=2ʰ−1，而 1≤u≤m 中唯一达到 v₂(u)=h−1 的是 u=2ʰ⁻¹。因此若 k=2ʰ⁺¹−1，第二类恰在中心及左右这两个位置失败，只有第一固定类计入 Hₖ；其余奇数 k≥5 的两个固定类均成功。最后对 k=3，模 6 的两固定类可取 n=7,10，直接检查两者均只有偏移 1 失败。证毕。\n\n还可把同一证明用于完整分布。在 k≥3 的一个周期内，恰有 j 个异常的类数若为奇数，则 k=2ʰ−1、h≥3 且 j 为 1 或 3；这些 k 的 j=1 和 j=3 两个计数均为奇数。因为全部非固定类成对、而两个固定类的失败数已完全确定。作为另一项直接推论，k=2ʰ−1、h≥3 时密度 Hₖ/Pₖ 化简后分母的 2 部分仍达到 Pₖ 的完整 2 部分。\n\n## 精确核对\n\nerdos_parity.py 用中国剩余定理求每个位置的成功类数。对每个 p≤k，统计局部空集以及恰有一个给定异常偏移的类数。对固定 i，将各素数允许“空或仅 i”的类数相乘，再减全空类数，即为偏移 i 的精确全局计数。程序在 2≤k≤128 核对对称性和计数奇偶，并直接用整数二项式核对奇数 k 的两个固定类。2≤k≤10 还按整个周期逐项用整除独立重算所有位置计数。\n\n| k | Pₖ | Hₖ |\n|---:|---:|---:|\n| 5 | 120 | 32 |\n| 7 | 2,520 | 269 |\n| 8 | 10,080 | 288 |\n| 15 | 151,351,200 | 24,217 |\n| 31 | 26,018,632,160,368,848,000 | 281,937,347,357,589 |\n\n这是项目对周期内部结构的数学推导，与 Google 的首解增长上界分别归属。程序使用 Python 标准库。尚无外部同行评审或 Lean 核验。\n",
+      "display_title": "erdos-reflection.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/ab4699ad2a80b0e040c5a5f287cd34a537d75e6f/research_notes/portable_direct/2026-11-16_google_math_continuation/joint/erdos-reflection.md",
+      "encoding": "utf-8",
+      "sha": "de488263afb98e469e4aa5b9e6cf92433b5d683c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
