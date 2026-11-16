@@ -5,6 +5,7 @@ paired-event observer algebra, not for native physical BRC dynamics.
 """
 from collections import deque
 from math import comb
+from pathlib import Path
 import json
 
 
@@ -125,7 +126,9 @@ def main():
     ab=( (1,), ((0,1),(0,0)) )
     assert ideal_counts(*a,aa)==(19,20),ideal_counts(*a,aa)
     assert ideal_counts(*a,ab)==(19,21),ideal_counts(*a,ab)
-    evidence={'schema':'R215_EXACT_CHECK_V1','result':'PASS','models':results,'total_states_checked':sum(r['states'] for r in results),'pairwise_products':sum(r['pairwise_products'] for r in results),'witness':{'m':1,'k':1,'L':4,'pattern_11':{'right_ideal':19,'two_sided_ideal':20},'pattern_10':{'right_ideal':19,'two_sided_ideal':21}},'scope':'Complete enumeration of specified finite J monoids; symbolic proof separate. Exact nonnegative integers only.'}
+    x6=[T(12,6,2,r) for r in range(7)]
+    assert x6==[1407600,1174176,986400,833760,708480,604800,518400]
+    evidence={'x6_full_ideal_counts_by_support_size':x6,'schema':'R215_EXACT_CHECK_V1','result':'PASS','models':results,'total_states_checked':sum(r['states'] for r in results),'pairwise_products':sum(r['pairwise_products'] for r in results),'witness':{'m':1,'k':1,'L':4,'pattern_11':{'right_ideal':19,'two_sided_ideal':20},'pattern_10':{'right_ideal':19,'two_sided_ideal':21}},'scope':'Complete enumeration of specified finite J monoids; symbolic proof separate. Exact nonnegative integers only.'}
     print(json.dumps(evidence,indent=2,ensure_ascii=False))
-    with open('/mnt/data/R215_verification.json','w') as f:json.dump(evidence,f,indent=2,ensure_ascii=False)
+    with Path(__file__).with_name('R215_verification.json').open('w',encoding='utf-8') as f:json.dump(evidence,f,indent=2,ensure_ascii=False)
 if __name__=='__main__':main()
