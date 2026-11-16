@@ -1,0 +1,178 @@
+{
+  "schema": "X6_LP015_019_SECTOR_SIGNED_SHELL_OVERLAP_UNIT66_V1",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "date": "2026-11-16",
+  "domain": "all integers 1<=G<=512, native signed selected Z3; fixed native Cell start",
+  "formula": {
+    "minzero_endpoints": "E=3*R2-3*is_square",
+    "minzero_positive_BRC": "W=3*W2-3*is_square",
+    "signed_endpoints": "S=4*E-6*is_square+8*Q_count",
+    "signed_positive_BRC": "B=4*W-6*is_square+8*Q_mass"
+  },
+  "counts": {
+    "shells": 512,
+    "signed_native_points_examined": 91124,
+    "nonnegative_triples_examined": 12166,
+    "two_gen_pairs_examined": 528,
+    "failed_equalities": 0
+  },
+  "samples": {
+    "1": {
+      "square": true,
+      "two_generator_sector": {
+        "endpoints": 2,
+        "brc": 2
+      },
+      "three_sector_minzero_union": {
+        "endpoints": 3,
+        "brc": 3
+      },
+      "strict_positive_three_support": {
+        "endpoints": 0,
+        "brc": 0
+      },
+      "signed_three_axis_shell": {
+        "endpoints": 6,
+        "brc": 6
+      }
+    },
+    "2": {
+      "square": false,
+      "two_generator_sector": {
+        "endpoints": 1,
+        "brc": 2
+      },
+      "three_sector_minzero_union": {
+        "endpoints": 3,
+        "brc": 6
+      },
+      "strict_positive_three_support": {
+        "endpoints": 0,
+        "brc": 0
+      },
+      "signed_three_axis_shell": {
+        "endpoints": 12,
+        "brc": 24
+      }
+    },
+    "3": {
+      "square": false,
+      "two_generator_sector": {
+        "endpoints": 0,
+        "brc": 0
+      },
+      "three_sector_minzero_union": {
+        "endpoints": 0,
+        "brc": 0
+      },
+      "strict_positive_three_support": {
+        "endpoints": 1,
+        "brc": 6
+      },
+      "signed_three_axis_shell": {
+        "endpoints": 8,
+        "brc": 48
+      }
+    },
+    "25": {
+      "square": true,
+      "two_generator_sector": {
+        "endpoints": 4,
+        "brc": 72
+      },
+      "three_sector_minzero_union": {
+        "endpoints": 9,
+        "brc": 213
+      },
+      "strict_positive_three_support": {
+        "endpoints": 0,
+        "brc": 0
+      },
+      "signed_three_axis_shell": {
+        "endpoints": 30,
+        "brc": 846
+      }
+    },
+    "50": {
+      "square": false,
+      "two_generator_sector": {
+        "endpoints": 3,
+        "brc": 268
+      },
+      "three_sector_minzero_union": {
+        "endpoints": 9,
+        "brc": 804
+      },
+      "strict_positive_three_support": {
+        "endpoints": 6,
+        "brc": 166320
+      },
+      "signed_three_axis_shell": {
+        "endpoints": 84,
+        "brc": 1333776
+      }
+    },
+    "65": {
+      "square": false,
+      "two_generator_sector": {
+        "endpoints": 4,
+        "brc": 678
+      },
+      "three_sector_minzero_union": {
+        "endpoints": 12,
+        "brc": 2034
+      },
+      "strict_positive_three_support": {
+        "endpoints": 6,
+        "brc": 216216
+      },
+      "signed_three_axis_shell": {
+        "endpoints": 96,
+        "brc": 1737864
+      }
+    },
+    "100": {
+      "square": true,
+      "two_generator_sector": {
+        "endpoints": 4,
+        "brc": 6008
+      },
+      "three_sector_minzero_union": {
+        "endpoints": 9,
+        "brc": 18021
+      },
+      "strict_positive_three_support": {
+        "endpoints": 0,
+        "brc": 0
+      },
+      "signed_three_axis_shell": {
+        "endpoints": 30,
+        "brc": 72078
+      }
+    },
+    "512": {
+      "square": false,
+      "two_generator_sector": {
+        "endpoints": 1,
+        "brc": 601080390
+      },
+      "three_sector_minzero_union": {
+        "endpoints": 3,
+        "brc": 1803241170
+      },
+      "strict_positive_three_support": {
+        "endpoints": 0,
+        "brc": 0
+      },
+      "signed_three_axis_shell": {
+        "endpoints": 12,
+        "brc": 7212964680
+      }
+    }
+  },
+  "frozen_science": {
+    "baseline": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "not_executed": "No original R061/R062/R063 checker or native benchmark executed"
+}
