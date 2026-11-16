@@ -1,0 +1,131 @@
+{
+  "schema": "EM_X6_TASK_RESEARCH_UNIT74_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-17",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "research_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-579c8e23625448582b421831",
+  "run_id": "RUN-fb25028676f9692ab1bacaee",
+  "generation_last_verified": 3,
+  "scientific_pins": {
+    "native": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historic": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "native_signed_brc_original_git_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+    "P000": "ACTIVE_LOCKED / global V4 projection & native Source V5"
+  },
+  "latest_succeeded_native": [
+    {
+      "request_id": "onhour-20261117-0259-x6-unit69-71-native-progress-v1",
+      "status": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED",
+      "source_commit": "0c1fdb23d6566f8bb74f96759099899016d015d7"
+    },
+    {
+      "request_id": "onhour-20261117-0447-x6-unit72-73-native-semantic-progress-v1",
+      "status": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED",
+      "source_commit": "0b428135a2642716c49da2190a9172dd321332d1",
+      "authenticated_readback": true
+    },
+    {
+      "request_id": "onhour-20261117-0430-x6-own-run-resume-after-unit72-v1",
+      "status": "SUCCEEDED / RUN_READY",
+      "generation": 3
+    }
+  ],
+  "original_pending_or_inflight": [
+    {
+      "request_id": "onhour-20261117-unit74-full6-shortest-equal-plus2-native-progress-v1",
+      "operation": "publish_checkpoint",
+      "last_observed": "QUEUED / WAIT_ORIGINAL, error=null",
+      "next_action": "Read original em_control_result, verify true Source effect, do not replay"
+    },
+    {
+      "request_id": "onhour-20261117-0432-x6-source-continuation-v1",
+      "operation": "continuation",
+      "last_observed": "SUCCEEDED / OWN_RECORDED_RUN_AVAILABLE"
+    }
+  ],
+  "completed_unit74": {
+    "status": "AUTHOR_EXACT / ORIGINAL_FROZEN_SOURCE_SCOPED_EXECUTED / FINITE_CUBE_EXHAUSTIVE / UNREVIEWED / NOT_ADMITTED",
+    "input_pair_A": [
+      -6,
+      -6,
+      -2,
+      2,
+      2,
+      7
+    ],
+    "input_pair_B": [
+      -5,
+      -5,
+      -1,
+      3,
+      3,
+      8
+    ],
+    "passive_signature": {
+      "r": [
+        0,
+        0,
+        4,
+        8,
+        8,
+        13
+      ],
+      "G": 133,
+      "T": 25
+    },
+    "positive_shortest_native_BRC_both": 742096122768000,
+    "positive_length27_native_BRC": [
+      734913692436924000,
+      752485468486752000
+    ],
+    "first_excess_gap": 17571776049828000,
+    "finite_completeness": "all coordinate-permutation classes of integer signed six-axis A,B within [-M,M]^6, M<=8; no shortest-mass-equal/different-abs-multiset pairs until M=8; exactly two M8 sorted directed pairs under sign reversal",
+    "executed": "local source exact Git blob verified; original functions spatial_norm_squared, shortest_event_count, shortest_path_multiplicity, endpoint_multiplicity invoked for both endpoints; independent cube census normal/-O/-OO byte-identical",
+    "sha256_result": "95d626065ff47de4ea5710352d6c0c8102a3b5b9e49f124bee73795b59c51129",
+    "evidence": [
+      {
+        "path": "research_notes/X6_UNIT74_FULL6_SHORTEST_BRC_COLLISION_PLUS2_SEPARATION_20261117.md",
+        "source_commit": "459e5562afb99d6ad0bfc6ce9ba0bc51c13599e8",
+        "git_blob_sha1": "7a2ee0548e25c044022aa4b0e006177010f13d4e"
+      },
+      {
+        "path": "research_checks/X6_UNIT74_FULL6_BRC_COLLISION_PLUS2_CHECK_20261117.py",
+        "source_commit": "3c9a51ea60031573d155598e0f894e2c4011ec45",
+        "git_blob_sha1": "6aecbf26187c0de358ca6316da97709961c3fcfd"
+      },
+      {
+        "path": "research_checks/X6_UNIT74_FULL6_BRC_COLLISION_PLUS2_RESULTS_20261117.json",
+        "source_commit": "610e6e8ea8cb82220030c855b7a96b2e133866f2",
+        "git_blob_sha1": "d347d3a68f3d05509c46f9942c700105820c167b"
+      }
+    ],
+    "activity": {
+      "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+      "count": 98,
+      "source_commit": "5a3bde664289cc218a1ca660c4b2ba5a7ad828eb",
+      "git_blob_sha1": "47ede93da496631817cb7f75625bc42f4186d2df"
+    }
+  },
+  "current_unfinished_unit": "Trace genuine LP011 mistaken native singleton argmax and LP019 positive N_BRC signed subtraction to exact source:line or bounded evidence-limited absence; close remaining live 28-LP consumer dependency graph; independent Driver REQUEST_REVISION.",
+  "evidence_debts": [
+    "Unit74 Native semantic publication pending original request terminal & authenticated Source readback",
+    "Remaining LP011/LP019 old wrong-caller provenance requires exact frozen source:line",
+    "Independent Driver review/acceptance not performed by author",
+    "Remaining 28-LP current executable/reader dependency closure not complete"
+  ],
+  "do_not_repeat": [
+    "Units69–73 original native Source published checkpoint",
+    "Unit72/73 original full finite tests and R063/Helly frozen benchmark",
+    "Unit74 author original-source plus-two two-endpoint verification and complete cube M1..8 census",
+    "No new CLAIM/session or maintenance conversation operations",
+    "Pending semantic requests must be read/reconciled by original ID"
+  ],
+  "next_exact_action": "Consume original Unit74 native request and current own Source/CLAIM frontier; source-pin audit of actual current LP011/LP019 native-effect consumers including operation type, signed direction/branch, and exact source lines; preserve accepted prior results. Only add a new research unit where distinct evidence or a genuine counterexample arises.",
+  "schedule_changed": false,
+  "notifications_changed": false
+}
