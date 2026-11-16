@@ -1,0 +1,245 @@
+{
+  "id": "R762CJ",
+  "status": "AUTHOR_CHECKED_NOT_REVIEWED",
+  "model": "R762CI conditional K4 opposite-edge signed pair-area residue (D3)",
+  "scope": "integer q=2..16, exhaustive all q^3 states and 24 S4 relabelings",
+  "general_proof": "separate written combinatorial proof, not inferred from finite runs",
+  "number_of_actions": 24,
+  "orbit_formula": "C(floor(q/2)+3,3)+C(floor((q-1)/2)+2,3)",
+  "max_orbit_formula": "3 if q=2; 12 if q=3 or 4; 24 if q>=5",
+  "rows": [
+    {
+      "q": 2,
+      "orbit_count": 4,
+      "max_fiber": 3,
+      "repair_bits": 2,
+      "size_distribution": {
+        "1": 2,
+        "3": 2
+      },
+      "positive_source_mass": "64",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 3,
+      "orbit_count": 5,
+      "max_fiber": 12,
+      "repair_bits": 4,
+      "size_distribution": {
+        "1": 1,
+        "4": 2,
+        "6": 1,
+        "12": 1
+      },
+      "positive_source_mass": "512",
+      "q3_orbit_masses": [
+        8,
+        72,
+        108,
+        108,
+        216
+      ]
+    },
+    {
+      "q": 4,
+      "orbit_count": 11,
+      "max_fiber": 12,
+      "repair_bits": 4,
+      "size_distribution": {
+        "1": 2,
+        "3": 2,
+        "4": 2,
+        "6": 2,
+        "12": 3
+      },
+      "positive_source_mass": "4096",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 5,
+      "orbit_count": 14,
+      "max_fiber": 24,
+      "repair_bits": 5,
+      "size_distribution": {
+        "1": 1,
+        "4": 4,
+        "6": 2,
+        "12": 6,
+        "24": 1
+      },
+      "positive_source_mass": "32768",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 6,
+      "orbit_count": 24,
+      "max_fiber": 24,
+      "repair_bits": 5,
+      "size_distribution": {
+        "1": 2,
+        "3": 2,
+        "4": 4,
+        "6": 4,
+        "12": 10,
+        "24": 2
+      },
+      "positive_source_mass": "262144",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 7,
+      "orbit_count": 30,
+      "max_fiber": 24,
+      "repair_bits": 5,
+      "size_distribution": {
+        "1": 1,
+        "4": 6,
+        "6": 3,
+        "12": 15,
+        "24": 5
+      },
+      "positive_source_mass": "2097152",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 8,
+      "orbit_count": 45,
+      "max_fiber": 24,
+      "repair_bits": 5,
+      "size_distribution": {
+        "1": 2,
+        "3": 2,
+        "4": 6,
+        "6": 6,
+        "12": 21,
+        "24": 8
+      },
+      "positive_source_mass": "16777216",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 9,
+      "orbit_count": 55,
+      "max_fiber": 24,
+      "repair_bits": 5,
+      "size_distribution": {
+        "1": 1,
+        "4": 8,
+        "6": 4,
+        "12": 28,
+        "24": 14
+      },
+      "positive_source_mass": "134217728",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 10,
+      "orbit_count": 76,
+      "max_fiber": 24,
+      "repair_bits": 5,
+      "size_distribution": {
+        "1": 2,
+        "3": 2,
+        "4": 8,
+        "6": 8,
+        "12": 36,
+        "24": 20
+      },
+      "positive_source_mass": "1073741824",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 11,
+      "orbit_count": 91,
+      "max_fiber": 24,
+      "repair_bits": 5,
+      "size_distribution": {
+        "1": 1,
+        "4": 10,
+        "6": 5,
+        "12": 45,
+        "24": 30
+      },
+      "positive_source_mass": "8589934592",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 12,
+      "orbit_count": 119,
+      "max_fiber": 24,
+      "repair_bits": 5,
+      "size_distribution": {
+        "1": 2,
+        "3": 2,
+        "4": 10,
+        "6": 10,
+        "12": 55,
+        "24": 40
+      },
+      "positive_source_mass": "68719476736",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 13,
+      "orbit_count": 140,
+      "max_fiber": 24,
+      "repair_bits": 5,
+      "size_distribution": {
+        "1": 1,
+        "4": 12,
+        "6": 6,
+        "12": 66,
+        "24": 55
+      },
+      "positive_source_mass": "549755813888",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 14,
+      "orbit_count": 176,
+      "max_fiber": 24,
+      "repair_bits": 5,
+      "size_distribution": {
+        "1": 2,
+        "3": 2,
+        "4": 12,
+        "6": 12,
+        "12": 78,
+        "24": 70
+      },
+      "positive_source_mass": "4398046511104",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 15,
+      "orbit_count": 204,
+      "max_fiber": 24,
+      "repair_bits": 5,
+      "size_distribution": {
+        "1": 1,
+        "4": 14,
+        "6": 7,
+        "12": 91,
+        "24": 91
+      },
+      "positive_source_mass": "35184372088832",
+      "q3_orbit_masses": null
+    },
+    {
+      "q": 16,
+      "orbit_count": 249,
+      "max_fiber": 24,
+      "repair_bits": 5,
+      "size_distribution": {
+        "1": 2,
+        "3": 2,
+        "4": 14,
+        "6": 14,
+        "12": 105,
+        "24": 112
+      },
+      "positive_source_mass": "281474976710656",
+      "q3_orbit_masses": null
+    }
+  ]
+}
