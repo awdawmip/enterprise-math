@@ -1,0 +1,295 @@
+{
+  "marker": "R664_MINIMAL_SIX_STEP_HISTOGRAM_D3_COLLISION_EXACT_PASS",
+  "source": "V17/V20/V36, R663 author-side; frozen R462 unchanged",
+  "domain": "based closed J(6,3) directed-edge paths, 2<=length<=6; repeats allowed",
+  "enumeration": {
+    "2": {
+      "closed_words": 9,
+      "distinct_directed_transition_histograms": 9,
+      "ambiguous_histograms": 0,
+      "different_holonomy_ordered_pairs": 0
+    },
+    "3": {
+      "closed_words": 36,
+      "distinct_directed_transition_histograms": 36,
+      "ambiguous_histograms": 0,
+      "different_holonomy_ordered_pairs": 0
+    },
+    "4": {
+      "closed_words": 369,
+      "distinct_directed_transition_histograms": 333,
+      "ambiguous_histograms": 0,
+      "different_holonomy_ordered_pairs": 0
+    },
+    "5": {
+      "closed_words": 2952,
+      "distinct_directed_transition_histograms": 2628,
+      "ambiguous_histograms": 0,
+      "different_holonomy_ordered_pairs": 0
+    },
+    "6": {
+      "closed_words": 26937,
+      "distinct_directed_transition_histograms": 22647,
+      "ambiguous_histograms": 108,
+      "different_holonomy_ordered_pairs": 288
+    }
+  },
+  "witness": {
+    "triangle_A": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        2,
+        3
+      ]
+    ],
+    "triangle_B": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "A_then_B": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        2,
+        3
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "B_then_A": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        2,
+        3
+      ]
+    ],
+    "h_A": [
+      0,
+      2,
+      1
+    ],
+    "h_B": [
+      2,
+      1,
+      0
+    ],
+    "h_AB": [
+      1,
+      2,
+      0
+    ],
+    "h_BA": [
+      2,
+      0,
+      1
+    ],
+    "relative": [
+      1,
+      2,
+      0
+    ],
+    "same_directed_transition_histogram": true
+  },
+  "six_cell_x6_chart": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ]
+  ],
+  "v36_strict_copy_ring": true,
+  "first_ambiguous_fiber_example": {
+    "histogram": "((((0, 1, 2), (0, 1, 3)), 1), (((0, 1, 2), (0, 2, 3)), 1), (((0, 1, 3), (0, 1, 2)), 1), (((0, 1, 3), (1, 2, 3)), 1), (((0, 2, 3), (0, 1, 3)), 1), (((1, 2, 3), (0, 1, 2)), 1))",
+    "first_word": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        3
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "second_word": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        3
+      ],
+      [
+        0,
+        1,
+        3
+      ]
+    ],
+    "holonomies": [
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ]
+    ]
+  },
+  "scope": "Directed transition counts vs V17 group memory; V36 cyclic relation dynamics; no V29 H assumed.",
+  "review": "AUTHOR_SIDE_UNREVIEWED"
+}

@@ -1,0 +1,115 @@
+{
+  "schema": "R475_AUTHOR_EXACT_SIGNED_BRC_CERTIFICATE_V1",
+  "date": "2026-11-02",
+  "frozen_scientific_commit": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "frozen_kernel_git_blob": "7c641c985b8c48ef3fb2ddcb2142e38ca0a4ccff",
+  "exact_accelerator_git_blob": "9057a6c46814a06cea45bffc20fe6f44f370b0bb",
+  "s_range": [
+    249,
+    256
+  ],
+  "k_domain": "for each fixed integer s, all integers k >= (s+2)//2",
+  "positive_integer_polynomial_coefficients": 20216,
+  "total_polynomials": 16,
+  "desnanot_jacobi_polynomial_identities": 8,
+  "raw_signed_crosschecks": 80,
+  "catalan_crosschecks": 80,
+  "s_certificates": [
+    {
+      "degree_p2": 996,
+      "degree_p3": 1494,
+      "elapsed_seconds": 18.408,
+      "k0": 125,
+      "r_min": 251,
+      "s": 249,
+      "sha256": "9a2f44e41cdeaaddebf4ef9c4a3dd2bcc580c2b4aac1ce2b776ccb0d38e358f3",
+      "strict_positive_coefficients": 2492
+    },
+    {
+      "degree_p2": 1000,
+      "degree_p3": 1500,
+      "elapsed_seconds": 18.098,
+      "k0": 126,
+      "r_min": 253,
+      "s": 250,
+      "sha256": "eac64d0c5bb703cce3b5469959be4f872416a0f6eab92536dd6ecec5ecc1005e",
+      "strict_positive_coefficients": 2502
+    },
+    {
+      "degree_p2": 1004,
+      "degree_p3": 1506,
+      "elapsed_seconds": 17.316,
+      "k0": 126,
+      "r_min": 253,
+      "s": 251,
+      "sha256": "cc181f0680250e34a6559efff188e709f9c60769e8f78e31f3b21baab2509077",
+      "strict_positive_coefficients": 2512
+    },
+    {
+      "degree_p2": 1008,
+      "degree_p3": 1512,
+      "elapsed_seconds": 18.807,
+      "k0": 127,
+      "r_min": 255,
+      "s": 252,
+      "sha256": "0a66454cca6ef66ee6a548c3d4ade1901fc6002d238b8246f763b5d09b24f2c6",
+      "strict_positive_coefficients": 2522
+    },
+    {
+      "degree_p2": 1012,
+      "degree_p3": 1518,
+      "elapsed_seconds": 18.67,
+      "k0": 127,
+      "r_min": 255,
+      "s": 253,
+      "sha256": "dfdacdb4eea4ace6895762c8913f812a55b8e2824b05d5d86776b2cdadef0ebf",
+      "strict_positive_coefficients": 2532
+    },
+    {
+      "degree_p2": 1016,
+      "degree_p3": 1524,
+      "elapsed_seconds": 17.501,
+      "k0": 128,
+      "r_min": 257,
+      "s": 254,
+      "sha256": "8a99d06b54c37cdad50fa2adc9f4c023548dd38620db60279dcc81464bb19d9a",
+      "strict_positive_coefficients": 2542
+    },
+    {
+      "degree_p2": 1020,
+      "degree_p3": 1530,
+      "elapsed_seconds": 18.538,
+      "k0": 128,
+      "r_min": 257,
+      "s": 255,
+      "sha256": "e431295aa59332fef6c2c366a1aef34aaafc643f12fcf28d50eb6d960d9a7821",
+      "strict_positive_coefficients": 2552
+    },
+    {
+      "degree_p2": 1024,
+      "degree_p3": 1536,
+      "elapsed_seconds": 18.224,
+      "k0": 129,
+      "r_min": 259,
+      "s": 256,
+      "sha256": "5bafc7e5805dec025aa60974b9930319c9733ed4986002d5b66c11f141e740cf",
+      "strict_positive_coefficients": 2562
+    }
+  ],
+  "finite_rows": [
+    273,
+    275,
+    277,
+    279
+  ],
+  "per_kind_row_sign_checks": 1100,
+  "total_row_sign_checks": 3300,
+  "finite_row_raw_signed_crosschecks": 32,
+  "finite_row_alternating_crosschecks": 32,
+  "finite_row_coefficient_stream_sha256": "f71e9a60e63221f38f489dda8382b21dcb4d87b58039b17f61cb063650cbfd43",
+  "finite_row_D2_D3_stream_sha256": "9bad7abf24a40694968985006f81a21de7663c720911bc35e51b4ba8d18ce13a",
+  "independent_row_streams_agree": true,
+  "claim": "D2 and D3 adjacent Toeplitz minors strictly positive at j=r-s for each fixed s and all k domain; finite new rows adjacent minors positive; PF3 full-row inference uses author-side R441-A/R447/R473/R474 dependencies",
+  "validation": "Python arbitrary-precision integers; formal/independent Driver review not performed",
+  "status": "AUTHOR_SIDE_EXACT; NATIVE_CLAIM_NOT_OBTAINED; DRIVER_UNREVIEWED; NOT_ADMITTED"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "ENTERPRISE_MATH_R415_GITHUB_RESEARCH_DELIVERY_V1",
+  "status": "AUTHOR_SIDE_EXACT_UNREVIEWED_NOT_ADMITTED",
+  "date": "2026-10-30",
+  "global_read": "4458ae7b7f0c3f1645083f0d64fd7d5e77f112e8",
+  "enterprise_math_main_read": "93aed370045bcd8a1cc8685c3f593f0d4e375577",
+  "predecessor_r414": "9290f8145defff77a7a389ff7e6635d60d9ae70f",
+  "question": "For every integer r>=29, D_(r,28)>0 for the specified signed BRC auxiliary combinatorial H?",
+  "answer": "Proved via two exact rational numerator/denominator polynomial coefficient certificates",
+  "theorem_scope": "s=28; all integer r>=29; auxiliary signed BRC combinatorial object only",
+  "evidence_sha256": "7cf60bf4d463546ea381d5b33437c0a1526006e64dd438cbc354ba8bb78fc6bc",
+  "verification": [
+    "R415_EXACT_PASS 2 57 57 92 276",
+    "R415_INDEPENDENT_INTEGER_PASS 10 points, 30 Catalan-kernel checks",
+    "R415_RECURRENCE_PASS direct_coefficients= 1347 s28_cert_crosschecks= 292 uncovered_region_positive_grid= 13366 first_uncovered= (158, 29) s29_unknown_grid= 163",
+    "R415_WEIGHTED_RECURRENCE_PASS 12880 exact integer identities r<=160"
+  ],
+  "new_lemma": "(2s+2)(2s+1)H_(r,s+1)=(r+s+1)[(r-s)H_(r,s)+2(r+s)H_(r-1,s)] for r>=1,0<=s<r",
+  "remaining": "s>=29,r-s>=129; first (r,s)=(158,29); no uniform two-parameter proof",
+  "native_permission": "research_authority_granted=false; control_tasks CONTROL_QUOTA; formal Source owner unverified",
+  "files": {
+    "R415_PROOF.zh-CN.md": "b113e3f121fcf861985447632a1d1d95f2ed2bd5",
+    "R415_HANDOFF.md": "f29fbe94dae83421621afa2000e39897fafa7143",
+    "R415_EVIDENCE.json": "79bb31bf43449d35481f8fdcbd06ec5f125a44e8",
+    "r415_verify.py": "9d9fb1d0c010390d8f5e626bd1db30d974c89e34",
+    "r415_independent_verify.py": "4535720aa13457c58da8b590fe1f8c6ef0bfa920",
+    "r415_recurrence_check.py": "3a543be596972a05ebeaff44c44d9a0d917141ea",
+    "r415_weighted_recurrence.py": "078846916808d56b0d6dac31169c3bd4770d428d"
+  },
+  "transparency": "Git blob identities refer to UTF-8 file bytes. The JSON contains full exact integer coefficient certificates. This is not independent mathematical admission."
+}

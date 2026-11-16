@@ -1,0 +1,191 @@
+{
+  "marker": "R645_V29_PASS_ONLY_FOUR_EVENT_ODD_HOLONOMY_EXACT_PASS",
+  "date_local": "2026-11-09",
+  "scope": "V23 code + V27 unique-neighbor score + V29 PASS-only counts; proposed packet-boundary selector",
+  "source_original": "b62110008321d9147212cb89f2627ff613c2550d",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "number_of_active_triads": 20,
+  "directed_triad_neighbors": 180,
+  "primitive_PASS_port_types": 12,
+  "enumeration": {
+    "0": {
+      "distinct_multisets": 1,
+      "strict_orbits_over_20_starts": 0,
+      "odd_cycle_orbits": 0,
+      "even_nontrivial_cycle_orbits": 0,
+      "odd_from_012": 0,
+      "immediate_odd_from_012": 0
+    },
+    "1": {
+      "distinct_multisets": 12,
+      "strict_orbits_over_20_starts": 0,
+      "odd_cycle_orbits": 0,
+      "even_nontrivial_cycle_orbits": 0,
+      "odd_from_012": 0,
+      "immediate_odd_from_012": 0
+    },
+    "2": {
+      "distinct_multisets": 78,
+      "strict_orbits_over_20_starts": 0,
+      "odd_cycle_orbits": 0,
+      "even_nontrivial_cycle_orbits": 0,
+      "odd_from_012": 0,
+      "immediate_odd_from_012": 0
+    },
+    "3": {
+      "distinct_multisets": 364,
+      "strict_orbits_over_20_starts": 0,
+      "odd_cycle_orbits": 0,
+      "even_nontrivial_cycle_orbits": 0,
+      "odd_from_012": 0,
+      "immediate_odd_from_012": 0
+    },
+    "4": {
+      "distinct_multisets": 1365,
+      "strict_orbits_over_20_starts": 168,
+      "odd_cycle_orbits": 60,
+      "even_nontrivial_cycle_orbits": 24,
+      "odd_from_012": 4,
+      "immediate_odd_from_012": 2
+    }
+  },
+  "witness": {
+    "events": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "M": [
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "Rin": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "Rout": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "I": [
+      1,
+      0,
+      2,
+      1
+    ],
+    "O": [
+      2,
+      1,
+      0,
+      1
+    ],
+    "u": [
+      -1,
+      -1,
+      2,
+      0
+    ],
+    "Omega": [
+      [
+        0,
+        1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        -1,
+        0
+      ]
+    ],
+    "Q": 0,
+    "triad_cycle": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        4
+      ],
+      [
+        1,
+        2,
+        4
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "strict_gaps": [
+      1,
+      1,
+      3
+    ],
+    "holonomy": [
+      1,
+      0,
+      2
+    ]
+  },
+  "closed_form": "M_n=(n+1)M, u_n=(n+1)u, Omega_n=(n+1)Omega, score_n=(n+1)score_0",
+  "exact_packet_samples": 151,
+  "formal_task_claim": false,
+  "independent_driver_review": false
+}

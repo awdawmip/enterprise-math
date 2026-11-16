@@ -1,0 +1,81 @@
+{
+  "schema": "EM_R389_AUTHOR_SIDE_EXACT_SUMMARY_V1",
+  "date": "2026-10-29",
+  "scope": "signed 12-branch BRC finite Newton corank 17; theta>-1",
+  "status": [
+    "R389_SYMBOLIC_PASS",
+    "R389_EXACT_PASS",
+    "UNREVIEWED",
+    "NOT_ADMITTED"
+  ],
+  "theorem": "C17(theta) PF2 iff -1<theta<=eta17",
+  "eta17_defining_polynomial": "T17=c17^2-c16*c18",
+  "eta17_bracket": [
+    "1859526/1000000",
+    "1859527/1000000"
+  ],
+  "eta17_approx_display": "1.8595269648424637",
+  "top_coefficient": "c34=129644790*(30-16theta)^34",
+  "counts": {
+    "C_polynomials": 35,
+    "T_polynomials": 33,
+    "crosschecks": 476,
+    "certificate_objects": 70,
+    "certified_subintervals": 80,
+    "bernstein_calls": 82,
+    "positive_Bernstein_controls": 3420,
+    "max_subdivision_depth": 10,
+    "negative_cover_leaves": 11
+  },
+  "negative_witness_order": [
+    "T17",
+    "T17",
+    "c17",
+    "c17",
+    "c16",
+    "c14",
+    "c12",
+    "c7",
+    "c11",
+    "c8",
+    "c0"
+  ],
+  "tail": "-c0(4+u) has 11 strictly positive power coefficients for u>=0",
+  "theta_15_8": {
+    "zero_c_indices": [
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34
+    ],
+    "negative_c_indices": [
+      16,
+      17
+    ]
+  },
+  "source_r388_commit": "c22cb51e62d4a3a8109978d60606b97c53d50067",
+  "local_polynomial_file_sha256": "ce28b2a8911dea73a5b15430958c363560a99ed7472bdab62e732c05c7abc8f4",
+  "local_evidence_file_sha256": "14d5420c649b0ba784923b1b237ca3012e4866e9bf880db98b8b4af01a9f323e",
+  "certificate_Bernstein_controls_sha256": "19b910cb963b361bbcceb5f924ae46462c99712b7c4b111b4a592f84d914403b",
+  "global_knowledge_snapshot": "607c020e4096679b5351231b91faf4cd6c863379",
+  "enterprise_math_snapshot": "13a8b50bd82b4b6407a959df611b63d6d96bc6e8",
+  "status_boundary": "author-side; native research authority false, Source owner and Driver admission not established",
+  "next": [
+    "corank18 exact phase",
+    "uniform-in-r theta=15/8 neighborhood",
+    "independent review of signed BRC extraction and Bernstein evidence"
+  ]
+}

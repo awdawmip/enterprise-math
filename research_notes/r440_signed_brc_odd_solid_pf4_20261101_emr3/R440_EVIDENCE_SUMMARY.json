@@ -1,0 +1,43 @@
+{
+  "schema": "EM_R440_SIGNED_BRC_ODD_SOLID_PF4_EVIDENCE_SUMMARY_V1",
+  "status": "AUTHOR_SIDE_EXACT_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "date": "2026-11-01",
+  "global_main": "bc1bcc8e37542f6acf0042cd9671ab44696adcc7",
+  "em_main": "42da097851a02b96f8ff2018f5c28096eec13866",
+  "model": "original signed BRC H(r,s), odd r>=5, consecutive row AND column Toeplitz minors p<=4",
+  "exact_source_original_signed_vs_catalan": 2448,
+  "determinants_checked": 9792,
+  "determinants_positive": 9790,
+  "determinants_negative": 2,
+  "determinants_internal_zero": 0,
+  "odd_r_7_through_97_all_positive": 9384,
+  "verified_odd_rows": 46,
+  "negative_witnesses": [
+    {
+      "r": 5,
+      "p": 4,
+      "d": 1,
+      "gcd": 14,
+      "normalized_det": "-81"
+    },
+    {
+      "r": 99,
+      "p": 4,
+      "d": 96,
+      "gcd": 404,
+      "normalized_det": "-4326141419490865273677202540057073528586532246800554919817305839911537477845060811759488414491462453391837105694206933982652536875",
+      "raw_det": "-115246082789101735991251056864398754373427074253183158266550193264854116984597924848915937271509963257957985112375950573367129607905225440000"
+    }
+  ],
+  "exact_det_transcript_sha256": "8cec26d08db49f1a59c6af2c829fa81b6c6c3fc323f315e018fe5c2ae1205816",
+  "R432_P_48": "-71552034705250",
+  "R432_P_49": "52661023196976",
+  "R99_exact_determinant_analytic_ratio_match": true,
+  "symbolic_independent": "R440_SYMBOLIC_PASS, direct Catalan ratio b2...b6 identity via SymPy rational cancellation",
+  "repro": "python R440_VERIFY.py creates full R440_EVIDENCE.json with by_row results and all negative witness values; python R440_SYMBOLIC.py independently checks infinite tail",
+  "finite_domain": "r odd 5,...,99; p=1..4; d=0,...,r-2; exhaustive all solid minors only",
+  "infinite_tail": "r odd>=99 follows exact Catalan polynomial identity and monotonic P(k)/k^6",
+  "native_claim": "none, native X6 correspondence unproved",
+  "source_owner": "not established: CONTROL_QUOTA; source session STATIC_READONLY_SCOPE_DENIED; activity REGISTER_PENDING",
+  "next": "r=29 nonconsecutive row/col sparse 4x4 PF4 witness or exhaustive proof"
+}

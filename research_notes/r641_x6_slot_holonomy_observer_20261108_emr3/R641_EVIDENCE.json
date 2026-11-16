@@ -1,0 +1,101 @@
+{
+  "schema": "R641_X6_SLOT_HOLONOMY_EXACT_V1",
+  "status": "PASS",
+  "marker": "R641_X6_ORDERED_HOLONOMY_120_STATE_EXACT_PASS",
+  "origin": "2026-11-08",
+  "typed_scope": "V26/V27 J(6,3) active-triad slot transport; not PF10 count evolution",
+  "vertices": 20,
+  "degree": 9,
+  "directed_triads_edges": 180,
+  "base": [
+    0,
+    1,
+    2
+  ],
+  "three_step_base_loops": 36,
+  "three_step_nonidentity_loops": 18,
+  "three_step_transposition_histogram": {
+    "(1, 0, 2)": 6,
+    "(0, 2, 1)": 6,
+    "(2, 1, 0)": 6
+  },
+  "three_step_identity_loops": 18,
+  "witness_A": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      1,
+      3
+    ],
+    [
+      0,
+      2,
+      3
+    ],
+    [
+      0,
+      1,
+      2
+    ]
+  ],
+  "witness_B": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      1,
+      3
+    ],
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      0,
+      1,
+      2
+    ]
+  ],
+  "holonomy_A": [
+    0,
+    2,
+    1
+  ],
+  "holonomy_B": [
+    2,
+    1,
+    0
+  ],
+  "holonomy_AB": [
+    1,
+    2,
+    0
+  ],
+  "holonomy_BA": [
+    2,
+    0,
+    1
+  ],
+  "same_directed_transition_histogram": true,
+  "all_closed_holonomies_reachable": 6,
+  "minimal_full_open_state_count": 120,
+  "reachable_state_outgoing_transitions": 1080,
+  "independent_source_style_step_agreements": 1080,
+  "minimal_base_closed_holonomy_state_count": 6,
+  "minimal_triad_plus_parity_states": 40,
+  "parity_quotient_update_rows": 360,
+  "unordered_three_step_loop_pairs": 630,
+  "noncommuting_loop_pairs": 108,
+  "proof_status": "Author exact finite construction; distinct mathematical proof supplied; unreviewed",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "source_V26": "enterprise-math@b62110008321d9147212cb89f2627ff613c2550d:experiments/x6_dynamic_law_holonomy_v24_20260906/check_channel_circulation_bridge.py",
+  "source_V26_file_blob": "5618dae00632f9f796d3f5a6a692c248ea699131"
+}

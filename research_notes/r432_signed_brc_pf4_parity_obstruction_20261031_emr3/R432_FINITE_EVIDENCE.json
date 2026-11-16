@@ -1,0 +1,145 @@
+{
+  "status": "R432_EXACT_AND_FINITE_VERIFIED",
+  "analytic": {
+    "degree_certificate": "Q[k] polynomials degree <=8; 9 distinct Fraction evaluations per parity",
+    "catalan_raw_checks": 1569,
+    "normalized_closed_form_checks": 980,
+    "original_minor_checks": 196,
+    "P48": "-71552034705250",
+    "P49": "52661023196976"
+  },
+  "finite": {
+    "input": "original signed H / positive row gcd; exact 4x4 int128; exhaustive non-split sorted-support minors",
+    "r5_to_r11": "replayed prior R431 counts and negative counts exactly",
+    "rows": [
+      {
+        "r": 12,
+        "gcd": 4,
+        "order2": 990,
+        "order3": 85987,
+        "order4": 7418708,
+        "negative4": 3,
+        "examples": [
+          {
+            "u": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "v": [
+              8,
+              10,
+              11,
+              12
+            ],
+            "scaled_det": "-205793677413028793088"
+          },
+          {
+            "u": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "v": [
+              9,
+              10,
+              11,
+              12
+            ],
+            "scaled_det": "-70071444644931770040"
+          },
+          {
+            "u": [
+              0,
+              1,
+              2,
+              4
+            ],
+            "v": [
+              9,
+              10,
+              11,
+              12
+            ],
+            "scaled_det": "-205793677413028793088"
+          }
+        ]
+      },
+      {
+        "r": 13,
+        "gcd": 4,
+        "order2": 1298,
+        "order3": 135586,
+        "order4": 14071673,
+        "negative4": 0
+      },
+      {
+        "r": 14,
+        "gcd": 8,
+        "order2": 1664,
+        "order3": 205803,
+        "order4": 25293944,
+        "negative4": 3,
+        "examples": [
+          {
+            "u": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "v": [
+              10,
+              12,
+              13,
+              14
+            ],
+            "scaled_det": "-46252183789887949665792"
+          },
+          {
+            "u": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "v": [
+              11,
+              12,
+              13,
+              14
+            ],
+            "scaled_det": "-13431508553254911223104"
+          },
+          {
+            "u": [
+              0,
+              1,
+              2,
+              4
+            ],
+            "v": [
+              11,
+              12,
+              13,
+              14
+            ],
+            "scaled_det": "-46252183789887949665792"
+          }
+        ]
+      },
+      {
+        "r": 15,
+        "gcd": 17,
+        "order2": 2093,
+        "order3": 302484,
+        "order4": 43447521,
+        "negative4": 0
+      }
+    ],
+    "integer_domain": "5<=r<=15 only; 24*(max(a/gcd))^4 <2^127 verified; no float or sample extrapolation"
+  },
+  "admissibility": "AUTHOR_SIDE / UNREVIEWED / NOT_ADMITTED"
+}

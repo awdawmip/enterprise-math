@@ -1,0 +1,5 @@
+# R400 complete exact evidence reconstruction
+
+All files from original signed K/J, no external solver. Execute, in this directory, python r400_symbolic.py && python r400_certify.py (Python 3 + sympy). These generate the entire R400_POLYNOMIALS.json and R400_EVIDENCE.json, including all signed integer polynomial coefficients and per-segment exact rational Bernstein positive controls. Output polynomial-data JSON SHA256: c5e5b85f815359ea5f5778ca2403085eb7440dab2f8dd112ac5ddde2c12af2ab. Output certificate JSON SHA256: 37afb9f598af641746b524c43b2a86cf0d084fd1040ac40bc3ca06c2d36d96de. Ordered Bernstein coefficient stream SHA256: 27cf4b2e67fc28668e09b619fd9e8eb84f13343ac31953b0162d52b96970d0cd.
+
+784 exact direct Fraction crosschecks, 116 sign objects, 126 contiguous leaves, 133 Bernstein computations and 8865 strictly positive rational controls. The user-facing ZIP also contains both full generated JSONs, logs and SHA256SUMS. The scripts and hash-bound outputs are an author-side reproducibility capsule, not an accepted formal Result or independent review.

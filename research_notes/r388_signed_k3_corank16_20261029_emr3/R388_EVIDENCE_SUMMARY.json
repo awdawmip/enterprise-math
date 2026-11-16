@@ -1,0 +1,48 @@
+{
+  "schema": "EM_R388_CORANK16_AUTHOR_SIDE_EXACT_SUMMARY_V1",
+  "date": "2026-10-29",
+  "scope": "finite rank r=16, auxiliary signed BRC K3 parameter; theta>-1",
+  "status": [
+    "R388_SYMBOLIC_PASS",
+    "R388_EXACT_PASS",
+    "UNREVIEWED",
+    "NOT_ADMITTED"
+  ],
+  "statement": "33-entry finite Newton sequence PF2 iff -1<theta<=eta16",
+  "eta16_defining_polynomial": "T17=c17^2-c16*c18",
+  "eta16_root_bracket": [
+    "1861528/1000000",
+    "1861529/1000000"
+  ],
+  "eta16_approx_display": "1.861528970158295",
+  "counts": {
+    "C_polynomials": 33,
+    "T_polynomials": 31,
+    "crosscheck_exact_identities": 448,
+    "certificate_objects": 66,
+    "certified_subintervals": 74,
+    "bernstein_calls": 76,
+    "strict_positive_Bernstein_coefficients": 3008,
+    "negative_cover_leaves": 9
+  },
+  "tail": "-c0(4+u) has eleven strictly positive power coefficients for u>=0",
+  "theta_star": "15/8",
+  "theta_star_degree_Q16": 16,
+  "theta_star_negative_T": [
+    14,
+    15
+  ],
+  "polynomial_payload_sha256": "5c456f839456b068ba568cc3390c1b7fc48845f1f77bdb279db948f6f1737cc1",
+  "certificate_control_points_sha256": "c8b3ad42a3ae660173993c8883b2802c3f81dacc0be3761af6afdb7edf465e6a",
+  "full_evidence_file_sha256": "033bb251c16f162a136a225fcbfdb71371a4fe6030fa3157ac443ce2a2a12177",
+  "unresolved": [
+    "independent Driver review",
+    "native R386 formal-residue derivation audit",
+    "uniform-in-r neighborhood near theta=15/8",
+    "native X6 correspondence"
+  ],
+  "source_snapshots": {
+    "global_knowledge_main": "6c80c3e3d5cd8f9fffe28100d20ea42ff4654648",
+    "enterprise_math_main": "13270e163c2838f90f79952fc309beb8ae34b050"
+  }
+}

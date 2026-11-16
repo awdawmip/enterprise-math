@@ -1,0 +1,22 @@
+R556 AUTHOR-SIDE EXACT EXECUTION EVIDENCE — 2026-11-05
+Frozen scientific input: R462@18783e01e3646c72b7aab3b16d3f565e83e6446f
+Upstream reused exact-kernel code: R555@174ccd2f7da6f22eef16deab81b8ab3d69101e9d
+
+Independent local source-construction program:
+K=15, C15=9694845, p2=40920, characteristic degree=29; max integer coefficient 78 bits.
+30 raw H coefficient-convolution identities: PASS.
+R556_RATIONAL_ROUCHE_PASS nroots=29 pairs=406 radius=1/10000
+maximum exact right/left ratio (rounded display) = 0.005038156694670677; strict max<3/500.
+All 29 root isolations PASS. Unique dominant conjugate pair |lambda|>21, other 27 roots |lambda_j|<8.
+R556_EXACT_RECURRENCE_PASS (positive,negative,zero,adjacent_changes)=(514,511,0,306) for m=0..1024.
+
+R556_MODULAR_RESULTANT_VERIFIED:
+p=65537; E degree841; R degree812; R(1) nonzero; two independent SymPy finite-field resultant cross-checks built into published checker; Newton interpolation exact.
+R_sha256=704303ec06de0fd5ab4c78be0d3f235be0aaaaa7a6a07939ebcf427dc57ddeb3
+Full totient bound q<=1,318,688; candidates=1574, largest q=3570.
+Exact GF(65537) Euclidean gcd: first [0,800) PASS (800);
+second [800,1250) PASS (450);
+third [1250,1574) PASS (324).
+All 1574 candidates excluded with same R SHA256; numba JIT used only to accelerate integer residues with the same modular Euclidean algorithm.
+
+Verification boundary: numerical roots discovered centers only, all accepted root assertions use exact Fraction inequalities. SymPy and JIT calculations are exact finite-field integer arithmetic. Source-published verification wrapper reuses the pinned R555 helper code; fully independent rerun of published bytes is a separate review action. No formal native CLAIM/Result or Driver acceptance asserted.

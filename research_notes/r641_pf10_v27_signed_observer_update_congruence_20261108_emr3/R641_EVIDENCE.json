@@ -1,0 +1,95 @@
+{
+  "schema": "R641_PF10_SOURCE_V27_OBSERVER_CONGRUENCE_V1",
+  "status": "PASS",
+  "date": "2026-11-08",
+  "marker": "R641_PF10_V27_UPDATE_CONGRUENCE_EXACT_PASS",
+  "source_project_main": "b62110008321d9147212cb89f2627ff613c2550d",
+  "source_v26_blob": "a8252050cc03f6930bb86251094d899c04743b60",
+  "source_v27_blob": "c5a02e6727dfc1f70ae4594c3ee807d1760c0be9",
+  "source_checker_blob": "5618dae00632f9f796d3f5a6a692c248ea699131",
+  "source_v17_blob": "42b810a8f82c504833027da17884cc4fb2943e5b",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "predecessor": "R640@d57da3c84cb9add0d563d2c22dfd9a0d503f1ad9",
+  "model": "fixed four-port internal PF10 I/O/M counts X, original 20 native X6 triad relation S evolves by V27 argmax exact Phi(T(X)), counts held fixed",
+  "source_counts_original": {
+    "I": [
+      0,
+      0,
+      0,
+      10
+    ],
+    "O": [
+      2,
+      4,
+      3,
+      0
+    ],
+    "M_nonzero": [
+      "M01",
+      "M12",
+      "M20"
+    ]
+  },
+  "signed_contrast_u": [
+    -2,
+    -4,
+    -3,
+    10
+  ],
+  "signed_contrast_omega": [
+    [
+      0,
+      1,
+      -1,
+      0
+    ],
+    [
+      -1,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      -1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "distinct_valid_source_states": 15,
+  "kernel_basis_perturbations": 14,
+  "triad_states": 20,
+  "future_steps_per_start": 12,
+  "transition_checks": 3640,
+  "odd_cycle": [
+    "012",
+    "123",
+    "234",
+    "034",
+    "035",
+    "025"
+  ],
+  "odd_holonomy": [
+    2,
+    1,
+    0
+  ],
+  "flat_cycle": [
+    "145",
+    "245"
+  ],
+  "flat_holonomy": [
+    0,
+    1,
+    2
+  ],
+  "method": "Python standard-library integer exact score with V23 matching code, V27 source, V17 slot connection; no float",
+  "scope": "exact V27 frozen-count relation update; operation-safe quotient for S/history if S/path retained; raw count update source still unresolved",
+  "review": "AUTHOR_SIDE_UNREVIEWED"
+}

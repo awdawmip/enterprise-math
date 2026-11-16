@@ -1,0 +1,45 @@
+{
+  "schema": "ENTERPRISE_MATH_R480_LOG_POISSON_WINDOW_EXACT_V1",
+  "date": "2026-11-02",
+  "scientific_pin": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "inputs": "R479 exact signed-BRC Catalan transform; no native X6 promotion",
+  "arithmetic": "Python integers and Fraction only; no float",
+  "theorem": "for any fixed m and 0<c<1, all adjacent minors D_(m,j)>0 for all sufficiently large odd r and all 0<=j<=floor(c log_3 r)-m+1",
+  "explicit_threshold": {
+    "odd_r_at_least": "1000000000000000000000001",
+    "L": 25,
+    "all_m_1_to_4": true,
+    "max_position_by_m": "j<=25-m+1",
+    "certificates": [
+      {
+        "m": 1,
+        "error_over_poisson_minor_lt_1_over_16": true,
+        "floor_of_1e12_times_ratio": "10"
+      },
+      {
+        "m": 2,
+        "error_over_poisson_minor_lt_1_over_16": true,
+        "floor_of_1e12_times_ratio": "1143"
+      },
+      {
+        "m": 3,
+        "error_over_poisson_minor_lt_1_over_16": true,
+        "floor_of_1e12_times_ratio": "2092463"
+      },
+      {
+        "m": 4,
+        "error_over_poisson_minor_lt_1_over_16": true,
+        "floor_of_1e12_times_ratio": "50398702454"
+      }
+    ]
+  },
+  "finite_exact_cross_checks": {
+    "r_odd_9_to_101": 47,
+    "original_signed_convolution_checks": 20,
+    "coefficient_error_checks": 309,
+    "normalized_determinant_checks": 954,
+    "entrywise_bound_checks": 954,
+    "positive_when_bound_sufficient": 0
+  },
+  "result": "R480_EXACT_PASS"
+}

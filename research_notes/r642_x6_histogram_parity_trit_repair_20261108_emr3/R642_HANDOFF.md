@@ -1,0 +1,11 @@
+# R642｜Triad histogram parity and sharp three-state repair
+
+Date 2026-11-08. Source: V26/V27 J(6,3) active-triad slot-transport program @b62110008321d9147212cb89f2627ff613c2550d; predecessor R641@f1b10d4dadac4c015de6f0256b3fb281147de7f7; immutable signed BRC R462@18783e01e3646c72b7aab3b16d3f565e83e6446f. P000 and ACTIVE unchanged.
+
+New theorem: A complete directed-edge histogram h of legal active-triad transitions determines final slot permutation parity by (-1)^sum_e h(e)(i_e+j_e), where i_e is the departing member's old sorted position and j_e the arriving member's new sorted position. Given h, the maximum exact S3 outcome fiber has size three, attained both for even and odd permutations: AABB, ABAB, BABA share h=2hA+2hB but give all three even holonomies; appending A to each shares h=3hA+2hB and gives all three odd holonomies. A single q in Z3 is a necessary and sufficient additional online observer when h is retained: σ=ρ^qτ^ε and q_new=q+(-1)^ε q_edge modulo3, with ε obtained from h.
+
+Verified using independently coded standard-library Python: 20 active triads, 180 directed edges, 1080 state-edge transition checks, 120 reachable slot states, six same-histogram witness paths, PASS marker R642_HISTOGRAM_PARITY_SHARP_TRIT_REPAIR_PASS. Exact proof in R642_PROOF.zh-CN.md; runnable R642_EXACT_VERIFY.py and R642_EVIDENCE.json. Classification: author mathematical theorem, not Driver-admitted.
+
+Further exact corollary: with the start triad fixed, edge-flow divergence D_h(v)=1_(v=start)-1_(v=end) recovers the final active triad from h. Thus (h,q) is future-step closed for the precise (terminal triad, full inherited slot map) readout; 120 shortest representative paths and their 1080 extensions checked endpoint recovery. Histograms themselves are unbounded.
+
+Typed boundary: PF10 (u,Omega) contrasts belong to four internal ports, with no established event-time update or port↔triad transition bridge. Next question: find a source-defined PF10 event update, type an explicit edge-event map, then check whether (u,Omega,h,q) is a closed future observer; if not, construct an exact same-observer/different-successor witness and retain needed internal reference counts. Owner, formal CLAIM and independent review require Source authority, not a Git commit or checkpoint.

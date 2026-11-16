@@ -1,0 +1,6 @@
+R556 independent raw integer cross-check, 2026-11-05
+Actual executed local equivalent:
+- For k=15 and t=2,...,31, 30 identities comparing Catalan closed-form H and independent original [x^31](1-x)(1+x)^(2t)(1+x²)^(31-t): PASS.
+- For n=1,...,16, exact SymPy Berkowitz determinant of integer matrix H(3+i-j) equals recurrence s_n*(C15*p2)^n: PASS.
+Result: R556_RAW_H_AND_BERKOWITZ_PASS: H=30, integer determinants=16
+See R556_INDEPENDENT.py for published compact equivalent checker; exact published bytes await independent rerun.

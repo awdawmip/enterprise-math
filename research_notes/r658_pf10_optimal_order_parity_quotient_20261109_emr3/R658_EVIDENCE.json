@@ -1,0 +1,109 @@
+{
+  "marker": "R658_OPTIMAL_HOLONOMY_PARITY_QUOTIENT_EXACT_PASS",
+  "status": "AUTHOR_SIDE_EXACT_PROOF_AND_BOUNDED_COMPUTATION_UNREVIEWED",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "source": "V23/V27/V17/V29@b62110008321d9147212cb89f2627ff613c2550d",
+  "model": "two native X6 Cells; four typed PF10 ports; V29 event-first, strict signed V27, V17 slot inheritance",
+  "theorem": "triad-plus-one-parity-bit per Cell is an exact future-closed quotient for strict-validity, edit cost and terminal triad+parity observation for any finite legal event word",
+  "parity_transition": "p_next = p_previous xor ((departing_index_in_S + entering_index_in_T) mod 2)",
+  "two_cell_slot_factor": {
+    "full": 36,
+    "parity": 4,
+    "ratio": 9,
+    "scope": "fixed two triads; slot-state cardinality only"
+  },
+  "witness": {
+    "seed_x": [
+      0,
+      1,
+      3,
+      0
+    ],
+    "seed_y": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "sender_quotas": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "old_target_quotas": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "H": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "K": "identity cost0 plus 3->0 cost1 and 3->1 cost1",
+    "min_repair_cost": 1,
+    "detailed_aggregate_plans": 3,
+    "actual_pair_histograms": 2,
+    "allowed_scheduled_words": 18,
+    "strict_scheduled_words": 12,
+    "exact_strict_terminal_states": [
+      {
+        "x_triad": [
+          0,
+          3,
+          4
+        ],
+        "x_parity": 0,
+        "y_triad": [
+          0,
+          1,
+          2
+        ],
+        "y_parity": 1
+      },
+      {
+        "x_triad": [
+          0,
+          3,
+          4
+        ],
+        "x_parity": 1,
+        "y_triad": [
+          0,
+          1,
+          2
+        ],
+        "y_parity": 1
+      }
+    ]
+  },
+  "crosschecks": {
+    "x_seed_count": 256,
+    "sender0_receiver_choices": 2,
+    "order_permutations": 6,
+    "examined_event_words": 3072,
+    "all_steps_strict_event_words": 1072,
+    "parity_quotient_vs_full_slot_disagreements": 0
+  },
+  "evidence_generation": "python3 R658_VERIFY.py produces expanded JSON with all strict witness words and recomputes assertions",
+  "limitations": [
+    "Auxiliary event-first model; actual native V28/V30 event timing and H/K unverified",
+    "Formal Source CLAIM and independent Driver review not granted",
+    "Memory ratio is slot-state factor, not runtime benchmark"
+  ]
+}

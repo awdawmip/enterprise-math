@@ -1,0 +1,3 @@
+# R555 handoff
+
+Mother objective: signed-BRC Toeplitz–Hessenberg sign classification under frozen R462 inputs. New exact result fixed k=14: sign natural density 1/2 each; finite zero set. See R555_PROOF.zh-CN.md and exact verification source. Main calculations: Rouché 27 disks, degree702 root ratio, 1356 exhaustive cyclotomic gcd checks, 16 raw determinants. Scientific scope: auxiliary scalar; P000/ACTIVE not changed. Remaining work: independent review, fixed k=15, parameterized dominant-root separation, s=3,m=63. Source branch is author-side durable handoff (not canonical native RESULT).

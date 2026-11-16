@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-31",
+  "status": "R424_EXACT_PASS",
+  "verification": "Python standard library exact integers/Fraction. Script regenerated JSON locally and printed PASS.",
+  "counts": {
+    "raw_delta_vs_even_kernel": 3320,
+    "linear_moment_pairs": 1680,
+    "strict_positive_kernel": 3319,
+    "zero_kernel": 1,
+    "global_tail_exact_turan_normalization_samples": 90,
+    "dual_scaling_finite_samples": 20,
+    "exact_negative_boundary": {
+      "s": 2,
+      "m": 1,
+      "r": 3,
+      "D": -5
+    }
+  },
+  "proof_scope": "Uniform theorem forall integer s>=50,m>=1 proven analytically; finite computation confirms formulas/samples only.",
+  "source_sha256_local_originals": {
+    "proof": "51e5cdfd7e8f33101c969e7dd45d79050f234fd7b8e08c0d32c8aca0dceef696",
+    "checker": "7012b11383f9a6c6edf8e8c9e41b906ea02f78c6500efd18f80f9ea5fa7f2556",
+    "full_raw_evidence": "82506414180c65c6067133a24e1d12ed7cf3d5d347919d97e4eaf7488255c3c7"
+  },
+  "reproduce": "python R424_VERIFY.py; expect R424_EXACT_PASS 3320 1680 3319 1 global_tail_samples 90 negative_edge -5",
+  "source_snapshots": {
+    "global_main": "d2d8c2f23743310331d91d020f43bbc30cdb20de",
+    "enterprise_math_main": "9e5ac99311a1be29a5ac8330a8857e96cb43c033",
+    "prior_R423": "7ae3dfd9cad5b0ca61f6becd107e44a6ba207da4"
+  },
+  "review_status": "AUTHOR_SIDE_ANALYTIC/EXACT_CHECKED/UNREVIEWED/NOT_ADMITTED"
+}

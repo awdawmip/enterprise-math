@@ -1,0 +1,114 @@
+{
+  "schema": "EM_R434_SIGNED_BRC_EDGE_PF5_EXACT_V1",
+  "date": "2026-10-31",
+  "model": "original_signed_BRC_auxiliary_scalar",
+  "theorem": "E_r=det[H_{r,3+i-j}]_{i,j=0..4} negative for all even r>=4 and odd r>=17; positive for odd 5<=r<=15",
+  "inputs": {
+    "global": "2411d1ac1896b2a440781a9861c8e18e7833f18a",
+    "em": "b0eb4620efb9af04281551a38ce39dba182bdac4",
+    "parent_r433": "72cbe7577e31c9b6dfe345e8220b4305aa02878d"
+  },
+  "polynomial_degree_bound": 30,
+  "polynomial_identity_points": {
+    "even": 31,
+    "odd": 31,
+    "total": 62
+  },
+  "exact_original_signed_catalan_cross_checks": 450,
+  "exact_five_by_five_determinant_checks": 75,
+  "r17": {
+    "rows": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "cols": [
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "normalization_gcd": "38",
+    "normalized_determinant": "-645900499675468409684083200000",
+    "original_determinant": "-51178034603069684920011159277977600000",
+    "pf4_status": "R433 AUTHOR_SIDE_FINITE_EXHAUSTIVE / independent review pending",
+    "max_pf_order_conditional_on_r433": "4"
+  },
+  "odd_P_small": [
+    [
+      "2",
+      "-247518238968"
+    ],
+    [
+      "3",
+      "-1266159537500"
+    ],
+    [
+      "4",
+      "-4383326365704"
+    ],
+    [
+      "5",
+      "-10798834168512"
+    ],
+    [
+      "6",
+      "-17517828440000"
+    ],
+    [
+      "7",
+      "-5921622860508"
+    ],
+    [
+      "8",
+      "83290020660000"
+    ]
+  ],
+  "odd_P_shift8_coefficients_ascending": [
+    "83290020660000",
+    "166477393066950",
+    "105818920032015",
+    "34549901324400",
+    "6783034993519",
+    "852324476240",
+    "69489249500",
+    "3573253840",
+    "105701120",
+    "1375232"
+  ],
+  "even_Q_coefficients_ascending": [
+    "124308",
+    "6451956",
+    "10984269",
+    "14689622",
+    "11173205",
+    "8377372",
+    "3492724",
+    "2196736",
+    "343808"
+  ],
+  "small_r_determinants": {
+    "4": "-4851392",
+    "5": "19545599808",
+    "6": "-9505821523968",
+    "7": "7379939251125000",
+    "8": "-2704209051297600000",
+    "9": "650214335788900033536",
+    "10": "-247295599124380291989504",
+    "11": "21684188682794389160433024",
+    "12": "-10653418993573713019500085248",
+    "13": "312604174496119339592478720000",
+    "14": "-268473628492260747138939268104192",
+    "15": "694618114119846108590856773323008",
+    "16": "-4528894647080916803535115885130170368"
+  },
+  "run_receipt": "R434_EXACT_PASS parity_polynomial_points 62 catalan_checks 450 direct_5x5 75 r17_raw -51178034603069684920011159277977600000 odd_shift8_all_positive True",
+  "arithmetic": "Python standard-library arbitrary-precision int and Fraction, no float",
+  "coverage": "31-point polynomial identity certificate under proven degree<=30 bound; direct original signed input; boundary finite checks",
+  "native_x6_transfer": "NOT_ESTABLISHED",
+  "admission": "AUTHOR_SIDE_EXACT / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING",
+  "source_owner_status": "CONTROL_QUOTA; authority_granted=false"
+}

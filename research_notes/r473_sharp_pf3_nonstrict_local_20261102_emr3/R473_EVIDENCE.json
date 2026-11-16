@@ -1,0 +1,74 @@
+{
+  "schema": "R473_SHARP_PF3_BOUNDED_ENUMERATION_V1",
+  "result": "R473_EXACT_PASS",
+  "theorem": "positive finite sequence; strict D2 for j=0..n-1; PF3 iff D3>=0 for j=0..n-1",
+  "domain": "n=2..5, all a_0..a_n in {1,2,3,4}; full enumeration of ordinary Schur minors of orders 1..3",
+  "statistics": [
+    {
+      "n": 2,
+      "candidate_sequences": 64,
+      "strict_d2_sequences": 32,
+      "local_d3_nonnegative": 23,
+      "ordinary_schur_pf3": 23
+    },
+    {
+      "n": 3,
+      "candidate_sequences": 256,
+      "strict_d2_sequences": 38,
+      "local_d3_nonnegative": 12,
+      "ordinary_schur_pf3": 12
+    },
+    {
+      "n": 4,
+      "candidate_sequences": 1024,
+      "strict_d2_sequences": 29,
+      "local_d3_nonnegative": 1,
+      "ordinary_schur_pf3": 1
+    },
+    {
+      "n": 5,
+      "candidate_sequences": 4096,
+      "strict_d2_sequences": 15,
+      "local_d3_nonnegative": 0,
+      "ordinary_schur_pf3": 0
+    }
+  ],
+  "boundary_example": {
+    "a": [
+      1,
+      2,
+      2
+    ],
+    "D2": [
+      1,
+      2,
+      4
+    ],
+    "D3": [
+      1,
+      0,
+      8
+    ],
+    "ordinary_minor_count": 19,
+    "zero_ordinary_minors": 1
+  },
+  "failure_example": {
+    "a": [
+      1,
+      2,
+      3
+    ],
+    "D2": [
+      1,
+      1,
+      9
+    ],
+    "D3": [
+      1,
+      -4,
+      27
+    ],
+    "negative_ordinary_minors": 1
+  },
+  "status": "FINITE_REGRESSION_WITH_GENERAL_ANALYTIC_PROOF; AUTHOR_SIDE; UNREVIEWED; NOT_ADMITTED"
+}

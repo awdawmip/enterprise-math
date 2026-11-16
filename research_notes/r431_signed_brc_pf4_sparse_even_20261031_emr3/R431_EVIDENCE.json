@@ -1,0 +1,29 @@
+{
+  "status": "R431_EXACT_PASS",
+  "date": "2026-10-31",
+  "read_pin_global": "bab8501c72c23032c08c8dea882d5430007e4a59",
+  "read_pin_enterprise_math": "cadef72c7c0768fa79c822812c76f753459cbb80",
+  "prior_r430": "dd80416771860a1a67668ab8c14d0d10f3d88747",
+  "scope": "signed BRC auxiliary scalar only; exact all-even sparse-minor identity and consecutive-minor identity; complete semi-infinite PF4 only r=7,9,11",
+  "method": "exact Q[k]/Q[r] coefficient identities; finite-support matching and splitting reduction; exact original signed convolution; integer Bareiss determinants",
+  "full_local_json_sha256": "cfb94159041418f2382420ae7d58c730e83b40146b1e0058076f006607f14a3f",
+  "symbolic_even_sparse_F_shifted_ascending": ["4772729250","28412494875","26338175280","10822110925","2403829190","301549600","20201856","564224"],
+  "symbolic_consecutive_Q_shifted_ascending": ["90306","204375","155425","57681","11759","1345","81","2"],
+  "negative_sparse_minor_even": {"r6":"-4117994496","r8":"-317918745144000","r10":"-3551056169914116864"},
+  "finite_unreduced_semifinite_domain_reduced_exactly": true,
+  "enumerated_by_r": [
+    {"r":5,"order2":38,"order3":342,"order4":3035,"order4_negative":1},
+    {"r":6,"order2":80,"order3":1221,"order4":18432,"order4_negative":5},
+    {"r":7,"order2":145,"order3":3356,"order4":76949,"order4_negative":0},
+    {"r":8,"order2":238,"order3":7770,"order4":251544,"order4_negative":5},
+    {"r":9,"order2":364,"order3":15932,"order4":691942,"order4_negative":0},
+    {"r":10,"order2":528,"order3":29838,"order4":1673928,"order4_negative":5},
+    {"r":11,"order2":735,"order3":52092,"order4":3666369,"order4_negative":0}
+  ],
+  "total_exact_minors":6494878,
+  "negative_minors":16,
+  "full_evidence_rebuild": "python R431_VERIFY.py",
+  "admission": "AUTHOR_SIDE_EXACT / UNREVIEWED / NOT_ADMITTED",
+  "native_owner": "CONTROL_QUOTA; author-side portable research only",
+  "next": "Exact PF4 classification for r>=12: nonconsecutive internal Toeplitz minors"
+}

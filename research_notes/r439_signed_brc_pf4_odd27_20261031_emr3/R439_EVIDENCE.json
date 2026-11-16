@@ -1,0 +1,104 @@
+{
+  "schema": "AUTHOR_SIDE_SIGNED_BRC_R439_FULL_PF4_R27",
+  "date": "2026-10-31",
+  "status": "AUTHOR_SIDE_COMPUTER_ASSISTED_EXACT_UNREVIEWED_NOT_ADMITTED_REGISTER_PENDING",
+  "global_snapshot": "10597c4479f124884878d0d88d9eb657020bf264",
+  "em_snapshot": "fc10280dbc1cb9ef929869cc3379f8bb31bf1d31",
+  "prior_R438_commit": "7173a1c3464c97975b2ee4fbd400a1f214eaddad",
+  "r": 27,
+  "n": 25,
+  "gcd": 116,
+  "three_way_integer_input_checks": 26,
+  "irreducible_orders": {
+    "one": 26,
+    "two": 13975,
+    "three": 7280780,
+    "four": 3772906345,
+    "total": 3780201126
+  },
+  "fourth_parts": [
+    [
+      1,
+      5,
+      503412499
+    ],
+    [
+      6,
+      7,
+      247320000
+    ],
+    [
+      8,
+      10,
+      414725834
+    ],
+    [
+      11,
+      13,
+      461076642
+    ],
+    [
+      14,
+      16,
+      499802641
+    ],
+    [
+      17,
+      19,
+      530250269
+    ],
+    [
+      20,
+      22,
+      551907471
+    ],
+    [
+      23,
+      25,
+      564410989
+    ]
+  ],
+  "fourth_signs": {
+    "positive": 3772906345,
+    "zero": 0,
+    "negative": 0,
+    "exact_fallback": 0
+  },
+  "fourth_exact_integer_spots": 36188,
+  "independent_dynamic_program_count_check": "PASS_ALL_PARTS",
+  "float_model": {
+    "mantissa_bits": 64,
+    "iec559": true,
+    "rounding": "FE_TONEAREST",
+    "compiler": "g++ -O3 -march=native -std=c++17 -fno-fast-math",
+    "input_max": "991271928325110705",
+    "cutoff": "1e-15 * absolute Leibniz term sum",
+    "rigorous_bound": "gamma_26 / (1-gamma_26) < 1e-15",
+    "integer_fallback": "boost::multiprecision::int256_t",
+    "integer_absolute_det_bound": "24*M^4 < 2^245"
+  },
+  "negative_fifth": {
+    "rows": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "cols": [
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "raw_det": "-4879066184369172962162267144222813070669793907904000000000",
+    "independent_exact_methods": [
+      "Bareiss",
+      "120-term Leibniz"
+    ]
+  },
+  "coverage": "ALL irreducible minors orders 1..4; half-infinite Toeplitz via uncrossing and gap factorization",
+  "source_auth": "directed authority_granted=false; owner query CONTROL_QUOTA",
+  "next": "find first odd r>=29 failing PF4; independent numerical certificate audit; no native X6 transfer"
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "EM_R629_NEWTON_DRIFT_BRC_PROBE_V1",
+  "date": "2026-11-08",
+  "frozen_R462": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "reused_R628": "5c711f09b8420505d29be363003448d4c1d7469e",
+  "source_K_blob": "7fa7a762f758b30c6090468ac43487daa34abad8",
+  "nuisance": "H_x(k)=sum_{j=0}^h B_xj binomial(k,j); B_xj in Z[[t]]",
+  "probe_schedule": "P,M,P,M,..., k=0..h+1",
+  "exact_difference": "Delta^(h+1)Y=(-1)^(h+1)*2^h*A_x*(P_j-M_j)",
+  "delta_orders": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "delta_leading": [
+    "2",
+    "-8",
+    "6",
+    "106",
+    "83",
+    "9"
+  ],
+  "verified_h": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "permutations": 720,
+  "checks": {
+    "finite_difference_per_axis": 30,
+    "full_orientation_band": 7200,
+    "full_orientation_normalized": 7200,
+    "minimal_probe_zero_fibers": 21600,
+    "sharp_depth_collision": 10,
+    "wide_band_full_collision": 10
+  },
+  "total": 36050,
+  "status": "AUTHOR_SIDE_EXACT_UNREVIEWED",
+  "marker": "R629_NEWTON_DRIFT_BRC_EXACT_PASS"
+}

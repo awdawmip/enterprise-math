@@ -1,0 +1,105 @@
+{
+  "schema": "EM_R435_SIGNED_BRC_ROW19_CERTIFIED_V1",
+  "result": "r=19 full PF4, non-PF5, exact maximal PF order 4",
+  "model": "original signed BRC auxiliary scalar",
+  "definition": "H(r,s)=binom(r+s,2s)*[t^r](1-t)(1+t)^(2s)(1+t^2)^(r-s)",
+  "r": 19,
+  "n": 17,
+  "gcd": "2",
+  "normalized_coefficients": [
+    "883631595",
+    "15021737115",
+    "118215578250",
+    "570420017475",
+    "1885199008440",
+    "4516469666280",
+    "8099050221360",
+    "11069635101525",
+    "11635491988575",
+    "9424350050115",
+    "5858143180890",
+    "2766367523205",
+    "975765719500",
+    "250607657300",
+    "45153996888",
+    "5398847454",
+    "394777383",
+    "14549535"
+  ],
+  "raw_coefficients": [
+    "1767263190",
+    "30043474230",
+    "236431156500",
+    "1140840034950",
+    "3770398016880",
+    "9032939332560",
+    "16198100442720",
+    "22139270203050",
+    "23270983977150",
+    "18848700100230",
+    "11716286361780",
+    "5532735046410",
+    "1951531439000",
+    "501215314600",
+    "90307993776",
+    "10797694908",
+    "789554766",
+    "29099070"
+  ],
+  "original_signed_vs_catalan": 18,
+  "complete_minor_counts": {
+    "1": {
+      "positive": 18,
+      "zero": 0,
+      "negative": 0
+    },
+    "2": {
+      "positive": 4539,
+      "zero": 0,
+      "negative": 0
+    },
+    "3": {
+      "positive": 1107924,
+      "zero": 0,
+      "negative": 0
+    },
+    "4": {
+      "positive": 268881741,
+      "zero": 0,
+      "negative": 0
+    }
+  },
+  "complete_total": 269994222,
+  "fourth_order": {
+    "checker": "R435_FAST_CERTIFIED_PF4.cpp",
+    "report": "R435_FAST_STDOUT.txt",
+    "roundoff_cutoff": "1e-15 * sum_abs_approx",
+    "verified_mantissa_bits": 64,
+    "positive": 268881741,
+    "negative": 0,
+    "zero": 0,
+    "exact_fallback": 0,
+    "negative_control": "PASS",
+    "error_bound": "gamma_26/(1-gamma_26) < 1e-15 under IEEE-754 FE_TONEAREST"
+  },
+  "independent_4x4_exact_spots": 15555,
+  "r19_5x5_negative": "-1072490571380901349955734874221287438418464",
+  "r19_5x5_rows": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "r19_5x5_cols": [
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "author_status": "AUTHOR_SIDE_COMPUTER_ASSISTED_EXACT / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING",
+  "native_X6_transfer": "NOT_ESTABLISHED",
+  "global_read_sha": "1a4dca50bbc3efc855a838801c7cc381951c0a1e",
+  "project_canonical_read_sha": "3244d13af5ec26808eac8494504988f414cddc6e"
+}

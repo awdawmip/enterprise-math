@@ -1,0 +1,85 @@
+{
+  "schema": "EM_R630_MOD3_SPARSE_BRC_TOMOGRAPHY_V1",
+  "date": "2026-11-08",
+  "frozen_R462": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "inherited_R629": "ec2f19f968fbab2270615cbf21f45d0164624828",
+  "original_K_blob": "7fa7a762f758b30c6090468ac43487daa34abad8",
+  "mod3_delta_valuations": [
+    0,
+    2,
+    7,
+    6,
+    8,
+    11
+  ],
+  "probe_indices": "0 and L=least power of 3 strictly greater than h",
+  "verified_h_gcd": [
+    {
+      "h": 0,
+      "L": 1,
+      "gcd": "0"
+    },
+    {
+      "h": 1,
+      "L": 3,
+      "gcd": "3"
+    },
+    {
+      "h": 2,
+      "L": 3,
+      "gcd": "3"
+    },
+    {
+      "h": 3,
+      "L": 9,
+      "gcd": "3"
+    },
+    {
+      "h": 8,
+      "L": 9,
+      "gcd": "3"
+    },
+    {
+      "h": 9,
+      "L": 27,
+      "gcd": "3"
+    },
+    {
+      "h": 26,
+      "L": 27,
+      "gcd": "3"
+    },
+    {
+      "h": 27,
+      "L": 81,
+      "gcd": "3"
+    },
+    {
+      "h": 80,
+      "L": 81,
+      "gcd": "3"
+    }
+  ],
+  "tested_two_probe_h": [
+    0,
+    1,
+    2,
+    3,
+    8,
+    9
+  ],
+  "gain_valuations": [
+    0,
+    2
+  ],
+  "checks": {
+    "integral_binomial_gcd_h0_to_80": 81,
+    "full_orientation_two_probe": 8640,
+    "one_probe_zero_fiber": 4320,
+    "sharp_jet_collision": 10
+  },
+  "total": 13051,
+  "arithmetic": "exact BigInt signed BRC polynomials, integral Newton interpolation, binomial modular tests",
+  "marker": "R630_MOD3_SPARSE_TWO_PROBE_EXACT_PASS",
+  "status": "AUTHOR_SIDE_EXACT_UNREVIEWED"
+}

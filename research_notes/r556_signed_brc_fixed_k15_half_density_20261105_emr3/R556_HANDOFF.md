@@ -1,0 +1,5 @@
+# R556 scientific handoff
+Frozen input R462@18783e01e3646c72b7aab3b16d3f565e83e6446f; upstream R555@174ccd2f7da6f22eef16deab81b8ab3d69101e9d.
+Proved author-side fixed k=15 determinant has positive and negative signs each natural density 1/2; zero indices finite. Reuse the author-side Rouché+finite-field proof only under those exact definitions. Exact 29-root rational proof and 1574 cyclotomic exclusions in this directory.
+Reproduce from this directory with `python R556_VERIFY.py`, then `START=0 END=800 python R556_MODULAR.py`, `START=800 END=1250 python R556_MODULAR.py`, `START=1250 END=1574 python R556_MODULAR.py`; requirements Python 3, SymPy, NumPy and Numba, and checked-in R555 helpers in sibling directory.
+Research next: k=16 exact certificates; more importantly uniform k>=5 root-modulus gap and algebraic noncyclotomic criteria. Broader mother objective: auxiliary BRC scalar sign taxonomy, no automatic native-X6 lift. Activity register RA-7C3D65DBBF01CB1ACC168D0A (session native); owner/claim/Driver admission are separate.

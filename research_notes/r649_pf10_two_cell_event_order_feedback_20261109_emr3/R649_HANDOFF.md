@@ -1,0 +1,13 @@
+# R649 — two-Cell event-order feedback handoff
+
+Date 2026-11-09 Asia/Shanghai; author-side TASK-related scientific progress continuing R648 (PR #1708). Frozen R462@18783e01e3646c72b7aab3b16d3f565e83e6446f; V29/V26/V27/V17 source@b62110008321d9147212cb89f2627ff613c2550d. The event-first V29→V27→V17 composition is an explicit auxiliary protocol, with permitted x→y transfer assumed, not yet an admitted X6 network law.
+
+**New exact result:** With x internal PASS seed M=E_30 and y seed M=3(E_01+E_20+E_23+E_30), both starting triad 012 and identity slots, two transfer orders e=(x0→y0), f=(x1→y1) yield identical full V29 counts and identical R648 pairing N / 9+9 counters, yet opposite outcomes: ef leaves x=(012;slots 0,1,2), fe leaves x=(135;slots 1,0,2). y ends (124;slots 0,2,1) either way. Every chosen V27 maximizer is strict (x gaps 1,1; y gaps 3,1 versus 2,1). This two-event order collision is minimal. One binary residual is sharp for the two-order witness.
+
+**General repair:** retain current triad and V17 slot map for each Cell, alongside full V29 ledger and R648 pairing counters. The event-first coupled update is deterministic (where V27 winners are unique) for any authorized labeled next event. Conditional finite extra state has at most 120² possibilities across both Cells, with no assertion of global optimality.
+
+**Verification:** R649_VERIFY.py, R649_EVIDENCE.json. Exact bounded exhaustive domain: 4^4=256 x-seed B-counts and 6 send-port unordered pairs, 1536 cases; 416 strict in both orders; 30 distinct endpoint augmented outputs; nonnegative V29 and total u-charge conservation throughout. Full proof R649_PROOF.zh-CN.md.
+
+**Authority:** Native Sites/MCP backend calls in this run returned BACKEND_IDENTITY_CHECK_UNAVAILABLE (operation_sent=false) for status/task/control; formal current Owner and CLAIM therefore unconfirmed, no current service-issued Researcher-ID obtained. Authenticated GitHub user awdawmip has project push rights; research material is authored/persisted through GitHub as an unreviewed branch artifact, not as a native Result. Do not reuse the previous R648 researcher/session capability.
+
+**Next:** Obtain permitted native X6 adjacent Cell-pair and Source-approved inter-event ordering rule; compare 120² conditional finite-state repair with actual V28/V30 forward observations and seek a smaller behaviorally sufficient quotient, using discriminating event words and exact arithmetic.

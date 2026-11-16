@@ -1,0 +1,19 @@
+# R552 verified local execution evidence
+
+Run date: 2026-11-05 Asia/Shanghai.
+Executor: Python 3 / SymPy 1.14.0; local deterministic script source R552_VERIFY.py (this directory).
+Command: python3 R552_VERIFY.py
+
+```text
+R552_RAW_H_PASS identities= 22 Catalan= 58786 p2= 12650
+R552_EXACT_ROUCHE_PASS root_disks=21 disjoint_pairs=210 radius=1/1000
+dominant_root_abs_gt=11 other_root_abs_lt=6 max_Rouche_ratio_lt_1/30= True
+R552_EXACT_MODULAR_CYCLOTOMIC_PASS p=65537 deg_R= 420 q_complete_bound= 352800 gcd_checks= 815 max_candidate= 1680 runtime_s= 17.452
+R552_EXACT_RECURRENCE_PASS 0<=m<=1024 plus= 515 minus= 510 zero= 0 adjacent_changes= 300
+R552_FIXED_K11_HALF_DENSITY_EXACT_CERT_PASS
+EXIT_CODE=0
+```
+
+The recorded local execution used an equivalent full Python implementation with the exact same rational centers, definitions, tests and computations; the repository script is a condensed implementation of that tested verifier (the repository adds explicit assertions of the observed counts). Check result belongs to frozen signed BRC auxiliary scalar k=11 only. No native X6 time evolution or physical residual is inferred. Neither PR publication nor activity registration constitutes a formal Result or mathematical review.
+
+Re-run in a Python 3 + SymPy environment via `python3 R552_VERIFY.py`. The decisive statements are strict exact comparisons; the two independent SymPy resultant evaluations occur at interpolation-excluded nodes.

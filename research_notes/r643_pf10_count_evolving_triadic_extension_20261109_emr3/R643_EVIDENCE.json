@@ -1,0 +1,145 @@
+{
+  "status": "R643_PF10_COUNT_EVOLVING_EXACT_PASS",
+  "date_utc": "2026-11-08",
+  "frozen_science_R462": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "source_pinned_V26_V27": "b62110008321d9147212cb89f2627ff613c2550d",
+  "class": "AUTHOR_SIDE_EXACT_PROOF_AND_PROPOSED_AUXILIARY_EVENT_EXTENSION",
+  "python_command": "python3 R643_VERIFY.py",
+  "type": "PF10 four internal ports; J(6,3) twenty active-triad vertices; ordered slot transport",
+  "initial_u": [
+    -2,
+    -4,
+    -3,
+    10
+  ],
+  "initial_Omega": [
+    [
+      0,
+      1,
+      -1,
+      0
+    ],
+    [
+      -1,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      -1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "added_passage_per_step": [
+    "M[0,1]+=1",
+    "M[1,2]+=1",
+    "M[2,0]+=1"
+  ],
+  "odd_path": [
+    "012",
+    "123",
+    "234",
+    "034",
+    "035",
+    "025",
+    "012"
+  ],
+  "cycle_initial_winner_margins": [
+    4,
+    1,
+    1,
+    4,
+    1,
+    1
+  ],
+  "all_n_cycle_proof": "winner initial gap positive and circulation slope maximal at all six visited vertices",
+  "holonomy_6": [
+    2,
+    1,
+    0
+  ],
+  "holonomy_12": [
+    0,
+    1,
+    2
+  ],
+  "finite_tie_census": {
+    "1": [
+      "015"
+    ],
+    "2": [
+      "124",
+      "134"
+    ],
+    "3": [
+      "045",
+      "345"
+    ],
+    "4": [
+      "125"
+    ],
+    "11": [
+      "245"
+    ],
+    "12": [
+      "135"
+    ],
+    "13": [
+      "014"
+    ]
+  },
+  "stabilized_global_from_n": 14,
+  "stabilized_successor_map": {
+    "123": "234",
+    "124": "012",
+    "125": "025",
+    "134": "123",
+    "135": "235",
+    "145": "245",
+    "234": "034",
+    "235": "035",
+    "245": "024",
+    "345": "234",
+    "012": "123",
+    "013": "012",
+    "014": "013",
+    "015": "035",
+    "023": "035",
+    "024": "234",
+    "025": "012",
+    "034": "035",
+    "035": "025",
+    "045": "034"
+  },
+  "finite_crosscheck_points": 3020,
+  "kernel_generators": 14,
+  "safe_linear_example": "M->2M, induced signed observer map (u,Omega)->(u,2Omega)",
+  "unsafe_counterexample": {
+    "initial_M00": [
+      0,
+      2
+    ],
+    "same_initial_signed_observer": true,
+    "update": "I0+=M00",
+    "u0_after": [
+      -2,
+      0
+    ],
+    "starting_triad": "013",
+    "different_unique_successors": [
+      "012",
+      "035"
+    ]
+  },
+  "actual_native_pf10_count_update_identified": false,
+  "Driver_review": "PENDING",
+  "formal_CLAIM": "NOT_GRANTED"
+}

@@ -1,0 +1,112 @@
+{
+  "schema": "EM_R636_RANK_TWO_BACKGROUND_CALIBRATION_EVIDENCE_V1",
+  "date": "2026-11-08",
+  "source_pins": {
+    "frozen_science": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+    "signed_K_generator_blob": "7fa7a762f758b30c6090468ac43487daa34abad8",
+    "predecessor_R635": "86d36d60dcf43bd633592b7ca093c09bba3c137a"
+  },
+  "model": "Y_x^{+,-}=A_x^{+,-} K_(2j-1/2j)+H0+c_xH1",
+  "c": [
+    0,
+    5,
+    1,
+    2,
+    3,
+    4
+  ],
+  "gain_a_tested": [
+    1,
+    2,
+    4
+  ],
+  "theorem": "Two distinct matched background reference jets suffice at minimum depth a+8, and one at any selected axis fails under an explicit all-order integer polynomial counterexample.",
+  "witness_table": [
+    {
+      "r": 1,
+      "p": 5,
+      "q": 6,
+      "h": 3,
+      "cq_minus_cr": 4
+    },
+    {
+      "r": 2,
+      "p": 5,
+      "q": 6,
+      "h": -2,
+      "cq_minus_cr": -1
+    },
+    {
+      "r": 3,
+      "p": 5,
+      "q": 6,
+      "h": 2,
+      "cq_minus_cr": 3
+    },
+    {
+      "r": 4,
+      "p": 5,
+      "q": 6,
+      "h": 1,
+      "cq_minus_cr": 2
+    },
+    {
+      "r": 5,
+      "p": 4,
+      "q": 6,
+      "h": -1,
+      "cq_minus_cr": 1
+    },
+    {
+      "r": 6,
+      "p": 4,
+      "q": 5,
+      "h": -2,
+      "cq_minus_cr": -1
+    }
+  ],
+  "extended_local_exact_checks": {
+    "marker": "R636_RANK_TWO_BACKGROUND_TWO_CALIBRATIONS_EXACT_PASS",
+    "by_a": {
+      "1": {
+        "finite_order_sharpness": 1,
+        "first_gain_checks": 72,
+        "original_probe": 12,
+        "reference_invariance": 6,
+        "second_gain_checks": 72,
+        "swapped_probe": 72,
+        "two_reference_orientation_recovery": 10800
+      },
+      "2": {
+        "finite_order_sharpness": 1,
+        "first_gain_checks": 72,
+        "original_probe": 12,
+        "reference_invariance": 6,
+        "second_gain_checks": 72,
+        "swapped_probe": 72,
+        "two_reference_orientation_recovery": 10800
+      },
+      "4": {
+        "finite_order_sharpness": 1,
+        "first_gain_checks": 72,
+        "original_probe": 12,
+        "reference_invariance": 6,
+        "second_gain_checks": 72,
+        "swapped_probe": 72,
+        "two_reference_orientation_recovery": 10800
+      }
+    },
+    "total": 33105,
+    "method": "Python integer polynomial regeneration and equality verification, plus 15 reference-location pairs * 720 permutations * 3 gains = 32400 distinct recovery cases",
+    "artifact_note": "Extended full-script and complete raw evidence are in the run-local attachment bundle; GitHub contains compact independently executed reproducer and core evidence summary."
+  },
+  "github_reproducer": {
+    "script": "R636_VERIFY.py",
+    "marker": "R636_COMPACT_REPRODUCE_PASS",
+    "exact_count": 32616,
+    "verified_locally": true,
+    "coverage": "18 full-polynomial two-orientation collision cases and 32400 two-reference permutation reconstructions; 198 auxiliary assertions not included in this program's printed count"
+  },
+  "mathematical_status": "AUTHOR_SIDE_PROVED_DERIVATION_UNREVIEWED_NOT_ADMITTED",
+  "open": "Native X6 field coupling and matched reference legality; future-operation provenance/branch-grade/heartbeat preservation"
+}

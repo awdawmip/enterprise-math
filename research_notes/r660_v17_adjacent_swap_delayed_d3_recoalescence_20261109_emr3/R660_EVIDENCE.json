@@ -1,0 +1,365 @@
+{
+  "marker": "R660_THREE_STEP_ADJACENT_SWAP_DELAYED_D3_RECOALESCENCE_PASS",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "operators": "V23/V27/V17/V29@b62110008321d9147212cb89f2627ff613c2550d",
+  "model": "two X6 Cells, four typed PF10 ports; auxiliary event-first strict signed V27 then V17",
+  "finite_domain": {
+    "x_seed_counts": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "y_seed": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "alphabet": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "lengths": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "coverage": [
+    {
+      "length": 0,
+      "total_words": 256,
+      "strict_words": 256,
+      "same_summary_different_slot_pairs": 0,
+      "maximum_full_slot_fiber": 1
+    },
+    {
+      "length": 1,
+      "total_words": 1024,
+      "strict_words": 560,
+      "same_summary_different_slot_pairs": 0,
+      "maximum_full_slot_fiber": 1
+    },
+    {
+      "length": 2,
+      "total_words": 4096,
+      "strict_words": 1634,
+      "same_summary_different_slot_pairs": 0,
+      "maximum_full_slot_fiber": 1
+    },
+    {
+      "length": 3,
+      "total_words": 16384,
+      "strict_words": 5501,
+      "same_summary_different_slot_pairs": 21,
+      "maximum_full_slot_fiber": 2
+    }
+  ],
+  "witness": {
+    "x_seed": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "y_seed": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "word_A": [
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "word_B": [
+      [
+        3,
+        3
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "end_A": [
+      [
+        3,
+        4,
+        5
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        0,
+        2
+      ]
+    ],
+    "end_B": [
+      [
+        3,
+        4,
+        5
+      ],
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        0,
+        2
+      ]
+    ],
+    "trace_A": [
+      {
+        "event": [
+          2,
+          2
+        ],
+        "x": {
+          "triad": [
+            1,
+            2,
+            3
+          ],
+          "slots": [
+            1,
+            2,
+            0
+          ],
+          "gap": 1
+        },
+        "y": {
+          "triad": [
+            0,
+            2,
+            4
+          ],
+          "slots": [
+            0,
+            2,
+            1
+          ],
+          "gap": 3
+        }
+      },
+      {
+        "event": [
+          3,
+          3
+        ],
+        "x": {
+          "triad": [
+            1,
+            3,
+            4
+          ],
+          "slots": [
+            1,
+            0,
+            2
+          ],
+          "gap": 1
+        },
+        "y": {
+          "triad": [
+            1,
+            2,
+            4
+          ],
+          "slots": [
+            0,
+            2,
+            1
+          ],
+          "gap": 1
+        }
+      },
+      {
+        "event": [
+          0,
+          0
+        ],
+        "x": {
+          "triad": [
+            3,
+            4,
+            5
+          ],
+          "slots": [
+            0,
+            2,
+            1
+          ],
+          "gap": 1
+        },
+        "y": {
+          "triad": [
+            0,
+            1,
+            2
+          ],
+          "slots": [
+            1,
+            0,
+            2
+          ],
+          "gap": 9
+        }
+      }
+    ],
+    "trace_B": [
+      {
+        "event": [
+          3,
+          3
+        ],
+        "x": {
+          "triad": [
+            0,
+            1,
+            5
+          ],
+          "slots": [
+            0,
+            1,
+            2
+          ],
+          "gap": 1
+        },
+        "y": {
+          "triad": [
+            0,
+            2,
+            4
+          ],
+          "slots": [
+            0,
+            2,
+            1
+          ],
+          "gap": 3
+        }
+      },
+      {
+        "event": [
+          2,
+          2
+        ],
+        "x": {
+          "triad": [
+            0,
+            3,
+            5
+          ],
+          "slots": [
+            0,
+            1,
+            2
+          ],
+          "gap": 1
+        },
+        "y": {
+          "triad": [
+            1,
+            2,
+            4
+          ],
+          "slots": [
+            0,
+            2,
+            1
+          ],
+          "gap": 1
+        }
+      },
+      {
+        "event": [
+          0,
+          0
+        ],
+        "x": {
+          "triad": [
+            3,
+            4,
+            5
+          ],
+          "slots": [
+            1,
+            0,
+            2
+          ],
+          "gap": 1
+        },
+        "y": {
+          "triad": [
+            0,
+            1,
+            2
+          ],
+          "slots": [
+            1,
+            0,
+            2
+          ],
+          "gap": 9
+        }
+      }
+    ],
+    "relative_D3_delta": [
+      1,
+      2,
+      0
+    ],
+    "same_full_ledger_and_pair_histogram": true,
+    "first_triad_recoalescence_after_event": 3
+  },
+  "scope": "auxiliary model exact; minimum only for declared finite domain; not yet native V28/V30 verified",
+  "review": "AUTHOR_SIDE_UNREVIEWED"
+}

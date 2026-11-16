@@ -1,0 +1,102 @@
+{
+  "schema": "EM_R466_SIGNED_BRC_EXACT_V1",
+  "date": "2026-11-02",
+  "global_knowledge_control_main": "5e6228882955de015d4738f43080d5001dad1046",
+  "enterprise_math_control_main": "f0088f95e173a47c7f899ca8a1dca59c358570e3",
+  "science_frozen_pin": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "prior_verified_frontier": "05b83c027e15126853a8a2ae8479da16e70226e3",
+  "s_range": [
+    193,
+    200
+  ],
+  "k_range": "all integer k >= floor((s+2)/2)",
+  "polynomials": 16,
+  "positive_coefficients": 15736,
+  "desnanot_jacobi_polynomial_checks": 8,
+  "raw_signed_point_checks": 80,
+  "catalan_point_checks": 80,
+  "per_s": [
+    {
+      "s": 193,
+      "k0": 97,
+      "degree_p2": 772,
+      "degree_p3": 1158,
+      "positive_coefficients": 1932,
+      "sha256": "db62b629f3e600600021507f3d603c390cfd62343b31e52c31ff6c5d8c20db03"
+    },
+    {
+      "s": 194,
+      "k0": 98,
+      "degree_p2": 776,
+      "degree_p3": 1164,
+      "positive_coefficients": 1942,
+      "sha256": "bfa848f9316635ba4b5a1ae4c4c67e4a1296f67f3a24df9c1bfcb6a8ad823714"
+    },
+    {
+      "s": 195,
+      "k0": 98,
+      "degree_p2": 780,
+      "degree_p3": 1170,
+      "positive_coefficients": 1952,
+      "sha256": "3fffdd01c82973128400aaf81846ca37023b72c52aff9abe9cdb87ca6cdb3e6e"
+    },
+    {
+      "s": 196,
+      "k0": 99,
+      "degree_p2": 784,
+      "degree_p3": 1176,
+      "positive_coefficients": 1962,
+      "sha256": "685241dc06dcc6a65e410846c3151a9fee24703094ca2b92e58ef047d93edf66"
+    },
+    {
+      "s": 197,
+      "k0": 99,
+      "degree_p2": 788,
+      "degree_p3": 1182,
+      "positive_coefficients": 1972,
+      "sha256": "debd7b47d755911dcaf8b78b0619ff2b59e04ac5cc63229b30ff222ce647e679"
+    },
+    {
+      "s": 198,
+      "k0": 100,
+      "degree_p2": 792,
+      "degree_p3": 1188,
+      "positive_coefficients": 1982,
+      "sha256": "bbadacc710bc7c58b49433f4e6a88836b0790e8bbfa6a50d6107a814254542d0"
+    },
+    {
+      "s": 199,
+      "k0": 100,
+      "degree_p2": 796,
+      "degree_p3": 1194,
+      "positive_coefficients": 1992,
+      "sha256": "8d20e739e706a7f8f2c1d888bbf3cd67c635fd3d812bc78ff6db1a4f70beb01d"
+    },
+    {
+      "s": 200,
+      "k0": 101,
+      "degree_p2": 800,
+      "degree_p3": 1200,
+      "positive_coefficients": 2002,
+      "sha256": "c726c4c65d6a156ae082d71aa8fd832f59c166ab1bbcdd14c84acade960ff76e"
+    }
+  ],
+  "row_r": [
+    217,
+    219,
+    221,
+    223
+  ],
+  "row_strict_positive_coefficient_checks": 876,
+  "row_strict_positive_d2_checks": 876,
+  "row_strict_positive_d3_checks": 876,
+  "row_raw_signed_checks": 32,
+  "row_alternating_catalan_checks": 32,
+  "row_coefficient_stream_sha256": "833ac4906729cfec0c48a218e27ca0b462e26d17c65d090a09e0cd69d0106549",
+  "row_minor_stream_sha256": "46034ba3ec0ded7a6f8b1e7030d61a2ea0b5b0af32755c6b99e17486b12f42df",
+  "frozen_kernel_sha256": "f819ceedc385429684ecc330aedfffa42f21dbff22b1ae140b61f1ecc85c2458",
+  "execution": "First 193-200 batch time-limited after 193-196 PASS; independent 197-200 chunk PASS. All eight s have individual exact certificate results; row checker independently passed.",
+  "source_scope": "signed BRC auxiliary scalar model; conditional half-infinite PF3 stitching requires earlier author-side R447/R450",
+  "status": "AUTHOR_SIDE_EXACT_SYMBOLIC_AND_INTEGER; REGISTER_PENDING; DRIVER_UNREVIEWED; NOT_ADMITTED",
+  "next": "s=201..208 and uniform Turan positivity lower bound"
+}

@@ -1,0 +1,10 @@
+# R639 research handoff | complete reference count–digit precision frontier
+Date 2026-11-08. AUTHOR_SIDE_EXACT_DERIVATION / UNREVIEWED / NOT_ADMITTED. Scientific pin R462@18783e01e3646c72b7aab3b16d3f565e83e6446f; predecessor R638@496a84ba9e00089d443d560cc8e3da1863b422e5. Full proof R639_PROOF.zh-CN.md, executable exact Python verifier R639_VERIFY.py, computed coverage record R639_EVIDENCE.json. P000 and ACTIVE worldview unchanged.
+
+## Scientific result
+For rank-three synthetic axis nuisance H_x=H0+c_x H1+c_x²H2 (c=0,5,1,2,3,4), frozen signed six BRC pairs with arbitrary independent polynomial gains of known positive mod5 t order a>=1 and negative order>=a-1, reference subset S, coefficient modulus 5^N (N>=1) and jet cutoff d, complete orientation recovery iff d>=a+8 AND [r>=4 or (r==3 and ({1,2} not contained in S or N>=2))]. 64 subsets classified. Every r<=2 subset admits a full 12-polynomial identical-output collision with exact same reference polynomials; every special triple {1,2,k} has a complete output collision with mod5-agreeing references; all >=4 sets reconstruct every background readout with three F5-distinct Lagrange anchors and N=1. One additional reference trades off a full base-5 digit for bad triples.
+Proof via g(c)=prod(c-c_s), shared signed branch factor Z=prod(U_jV_j), swap highest two nonreference labels p,q; all gains remain Z[t] and have lawful leading residue. Bad triples use g(c)=c(c-c_k).
+Exact integer validation passed: 90,720 orientation recoveries; 78 collision families, 936 exact signed polynomial identities, 144 reference checks, 6 low-depth checks.
+
+## Real control/next unit
+Author-side research; formal Task CLAIM/Driver admission remains separate. Select one registered X6 triadic-field or channel update and obtain an actual axis-background coupling matrix and nonperturbative matched-reference interface; test future path/branch/holonomy residual fidelity, then compute mod-p row-span and Smith precision for that *actual* operator. Avoid promoting synthetic c into a native field law.

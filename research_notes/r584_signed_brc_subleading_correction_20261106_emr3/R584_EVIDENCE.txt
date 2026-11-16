@@ -1,0 +1,24 @@
+# R584 actual exact verification evidence
+
+Observed: 2026-11-06T11:22:43Z. Python 3.13.5; modules: standard library fractions, math.
+Executed locally: python /mnt/data/R584_VERIFY.py
+Local executing source SHA256: 05a7698d340397d003ae38bc7f87c8100f526ed6f981a0674aac5949060fc26a
+Coverage: m=1..96 inclusive; 96 exact rational comparisons of independent binomial-sum vs. generating-derivative routes; all 96 E_m>0 and coefficientwise central-binomial lower bounds verified. Floating diagnostics not used as theorem acceptance tests.
+
+Raw stdout:
+~~~text
+m= 1 b_m= -2 E_m= 3/2
+m= 2 b_m= -29/4 E_m= 29/12
+m= 3 b_m= -89/4 E_m= 151/36
+m= 12 b_m= (exact verified) E_m= (exact verified)
+ scaled E_m*sqrt(pi*m)/2^m= 1.845897469353  two-term= 1.791666666667
+m= 24 b_m= (exact verified) E_m= (exact verified)
+ scaled E_m*sqrt(pi*m)/2^m= 1.912391052711  two-term= 1.895833333333
+m= 48 b_m= (exact verified) E_m= (exact verified)
+ scaled E_m*sqrt(pi*m)/2^m= 1.952613649315  two-term= 1.947916666667
+m= 96 b_m= (exact verified) E_m= (exact verified)
+ scaled E_m*sqrt(pi*m)/2^m= 1.975222476674  two-term= 1.973958333333
+R584_POSITIVE_SUBLEADING_CORRECTION_EXACT_96_PASS
+~~~
+
+Proof status: author-side analytic proof for all positive m. Independent Driver mathematical review pending.

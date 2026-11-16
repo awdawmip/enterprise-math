@@ -1,0 +1,78 @@
+{
+  "schema": "R458_SIGNED_BRC_AUTHOR_SIDE_EXACT_CERTIFICATE_V1",
+  "date": "2026-11-01",
+  "status": "UNREVIEWED_NOT_ADMITTED_REGISTER_PENDING",
+  "fixed_source": {
+    "global_main": "301e34842658e23e49724e5dd846a9952258ba50",
+    "em_main": "96dbd541e2c8f4f873aaf4ee37a42cf6af0f3278",
+    "r457_head": "10b55e0d7da1ff24372b7a698bb9bd19cf6c4333"
+  },
+  "range": [
+    159,
+    162
+  ],
+  "rows": [
+    {
+      "s": 159,
+      "k0": 80,
+      "r_min": 161,
+      "degree_p2": 636,
+      "degree_p3": 954,
+      "strict_positive_coefficients": 1592,
+      "sha256": "d58b62977aa11030fa75d6abd8413e103352c8036502286f67a760a0e652b8c8"
+    },
+    {
+      "s": 160,
+      "k0": 81,
+      "r_min": 163,
+      "degree_p2": 640,
+      "degree_p3": 960,
+      "strict_positive_coefficients": 1602,
+      "sha256": "65a85978e57282fe5d46d0589fe17c4a52ab319aa5704033393a035bd64380d7"
+    },
+    {
+      "s": 161,
+      "k0": 81,
+      "r_min": 163,
+      "degree_p2": 644,
+      "degree_p3": 966,
+      "strict_positive_coefficients": 1612,
+      "sha256": "66700c34b2a6517d2a30e4fb6a26901eca0d958003e672f459ddf8a72e6f4f71"
+    },
+    {
+      "s": 162,
+      "k0": 82,
+      "r_min": 165,
+      "degree_p2": 648,
+      "degree_p3": 972,
+      "strict_positive_coefficients": 1622,
+      "sha256": "f7c5c0a45f9a6da1630d2754bc18b8c3987027a41eb4e5caa724a6af7584f654"
+    }
+  ],
+  "full_coefficients_positively_checked": 6428,
+  "exact_polynomial_identities": 4,
+  "raw_and_EOR_crosschecks": 40,
+  "raw_and_Catalan_crosschecks": 40,
+  "full_row": {
+    "r": [
+      183,
+      185
+    ],
+    "positive_coefficients": 366,
+    "positive_D2": 366,
+    "positive_D3": 366,
+    "all_exact_sign_checks": 1098,
+    "raw_checks": 16,
+    "alternating_Catalan_checks": 16,
+    "coefficient_stream_sha256": "94d9ecfdde4d26d366924e85f04cbbe95f1154390b70e9068518544a386268f7",
+    "minor_stream_sha256": "d5f25e1e76e50fe1c11daec586f500e907c4baf4eeeef6728bfefb83907e6cbf"
+  },
+  "actual_code_sha256": {
+    "R458_VERIFY_py": "0b49ce5a4dd85679eed3c0144403f5e2c903a19890e60a0a333ab84c0b08f09d",
+    "R458_ROW_VERIFY_py": "0aef5a43fa774e95b218c0bf63a15be0cb0138e9aaf26b6f882690094f6ebdfe"
+  },
+  "algorithm": "Exact integer polynomial generation and exhaustive coefficient test, exact condensation equality; full row exact integer checks.",
+  "source_relation": "Both programs are deterministic modifications of R456 committed sources; source SHA hashes refer to actual locally executed bytes.",
+  "scopes": "infinite k for four fixed s; full finite-support half-infinite PF3 only r=183,185 by inherited criterion; not native X6.",
+  "owner": "Current native owner unavailable: em_control_tasks CONTROL_QUOTA; research_authority_granted=false."
+}

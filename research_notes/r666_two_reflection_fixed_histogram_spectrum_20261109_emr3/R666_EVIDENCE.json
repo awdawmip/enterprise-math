@@ -1,0 +1,49 @@
+{
+  "marker": "R666_TWO_REFLECTION_FIXED_HISTOGRAM_DIHEDRAL_SPECTRUM_PASS",
+  "p_min": 2,
+  "p_max": 19,
+  "dp_m_n_max": 22,
+  "dp_cases": 9522,
+  "word_p_min": 2,
+  "word_p_max": 10,
+  "word_m_n_max": 7,
+  "word_cases": 576,
+  "word_instances": 115821,
+  "formula": "min(p/gcd(p,2),min(m,n)+1)",
+  "loop_A": [
+    "012",
+    "013",
+    "023",
+    "012"
+  ],
+  "loop_B": [
+    "012",
+    "013",
+    "123",
+    "012"
+  ],
+  "loop_frame_A": [
+    0,
+    2,
+    1
+  ],
+  "loop_frame_B": [
+    2,
+    1,
+    0
+  ],
+  "loop_product": [
+    1,
+    2,
+    0
+  ],
+  "witness_counts": {
+    "A1B1": 2,
+    "A2B1": 2,
+    "A2B2": 3,
+    "A3B3": 3
+  },
+  "independent_review": "NOT_DONE",
+  "native_V29_license": "NOT_CHECKED",
+  "frozen_science_R462": "18783e01e3646c72b7aab3b16d3f565e83e6446f"
+}

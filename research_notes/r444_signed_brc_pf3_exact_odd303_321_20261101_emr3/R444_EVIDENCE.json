@@ -1,0 +1,67 @@
+{
+  "schema": "R444_SIGNED_BRC_PF3_EXACT_EVIDENCE_V1",
+  "date": "2026-11-01",
+  "status": "AUTHOR_SIDE_EXACT_INTEGER_EXHAUSTION_UNREVIEWED",
+  "tested_rows": [
+    303,
+    305,
+    307,
+    309,
+    311,
+    313,
+    315,
+    317,
+    319,
+    321
+  ],
+  "full_half_infinite_reduction": "R441-A dual Jacobi-Trudi and Littlewood-Richardson; all contiguous rows with all strictly increasing columns",
+  "signed_brc_raw_and_catalan_exact_equalities": 3110,
+  "exhaustive_minors": {
+    "order1": 3110,
+    "order2": 485325,
+    "order3": 50669840,
+    "total": 51158275,
+    "negative": 0,
+    "zero": 0
+  },
+  "runs": [
+    {
+      "rows": "303..311 odd",
+      "exit_code": 0,
+      "checked": 24354325,
+      "exact_stdout_sha256": "ebd494381817e5d036ff0b45c2dbaef0477c004b578f0d1a3304c9d00363d6ac"
+    },
+    {
+      "rows": "313..321 odd",
+      "exit_code": 0,
+      "checked": 26803950,
+      "exact_stdout_sha256": "82521b629817a9325b78ac9293cecd42fdf1970f467ad478e686da95b134f57f"
+    }
+  ],
+  "exact_input": {
+    "bytes": 713891,
+    "sha256": "7a74f731ab10d73368d60ec8c3ddbaac645241fc480cc754c75715931109e223"
+  },
+  "order4_negative_witnesses": {
+    "count": 10,
+    "leibniz_terms_per_witness": 24,
+    "all_strictly_negative": true,
+    "sha256": "c410552e48409dc00af994182234cffcc49ffcd3c5380c128ca5781bf052c538"
+  },
+  "independent_python_order3_spotcheck": {
+    "checked": 1250,
+    "pass": true,
+    "stdout_sha256": "1442d3685e65ca848fb4b410102d9e91a6193c02e86cea7131ddf457f2c9d873"
+  },
+  "arithmetic": "Python arbitrary-precision integers; Boost cpp_int arbitrary-precision integers; no floating point for the 51,158,275 decisions",
+  "source_reuse": {
+    "R441": "8fba98f1654ef4050ccc562be1ec197c01f31a47",
+    "R443": "81f4e314fa9dae6fbde8e0182ff1df4526b8025f"
+  },
+  "input_control": {
+    "global_knowledge_main": "e018eb6a288f10f039d001422932728e5b58c584",
+    "enterprise_math_main": "f8cc8141ca4c92b793ec694de7bfff9ad5e3bba6"
+  },
+  "provenance": "GitHub authenticated awdawmip; native research authority false; formal active owner unverified; no CLAIM/Result/review/admission",
+  "next": "seek uniform odd r>=99 PF3 nonnegativity of all three-row arbitrary-column Schur minors, or exact first counterexample beyond r=321"
+}

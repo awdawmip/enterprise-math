@@ -1,0 +1,73 @@
+{
+  "schema": "EM_R433_AUTHOR_SIDE_EXACT_V1",
+  "date": "2026-10-31",
+  "model": "signed_BRC_auxiliary_scalar",
+  "r": 17,
+  "n": 15,
+  "global_canonical_main": "eb69ad2642ab0e0db3c48c9b323c83505e59ba62",
+  "em_canonical_main": "6351a9e0ace15c932e8c6e1297f46dfd1eb9e45f",
+  "frontier": "R432 author proof at 83a97192b7e2bb5cc7e741b005d36bca9632a653",
+  "coefficient_checks_original_vs_catalan": 16,
+  "gcd": "38",
+  "normalized_coefficients": [
+    "3411705",
+    "51175575",
+    "352336080",
+    "1471685475",
+    "4156927425",
+    "8382559185",
+    "12423001500",
+    "13726279710",
+    "11353874675",
+    "6999985025",
+    "3176099256",
+    "1037186150",
+    "235481246",
+    "35225190",
+    "3208920",
+    "145860"
+  ],
+  "lower_order": {
+    "1": {
+      "positive": 16,
+      "zero": 0,
+      "negative": 0,
+      "total": 16,
+      "first_negative": null
+    },
+    "2": {
+      "positive": 3160,
+      "zero": 0,
+      "negative": 0,
+      "total": 3160,
+      "first_negative": null
+    },
+    "3": {
+      "positive": 603768,
+      "zero": 0,
+      "negative": 0,
+      "total": 603768,
+      "first_negative": null
+    }
+  },
+  "fourth_order": {
+    "positive": 114678252,
+    "zero": 0,
+    "negative": 0,
+    "total": 114678252,
+    "negative_control": "r=6 sparse determinant -4117994496"
+  },
+  "python_cross_checks": 320,
+  "arithmetic_bounds": {
+    "i128_3x3_bits": 104,
+    "int256_4x4_bits": 140
+  },
+  "source_restriction": "only auxiliary signed BRC row, native X6 fidelity not established",
+  "finite_completeness": "sorted-matchable adjacent row gaps<=n, support-block factorization, row translation",
+  "run_receipts": {
+    "python": "R433_R17_LOWER_EXACT {\"1\":{\"positive\":16,\"zero\":0,\"negative\":0,\"total\":16,\"first_negative\":null},\"2\":{\"positive\":3160,\"zero\":0,\"negative\":0,\"total\":3160,\"first_negative\":null},\"3\":{\"positive\":603768,\"zero\":0,\"negative\":0,\"total\":603768,\"first_negative\":null}}\nR433_EXACT_LOWER_PASS 606944 spot 320 gcd 38",
+    "cpp": "R433_R17_PF4_EXACT positive=114678252 zero=0 negative=0 total=114678252 negative_control=PASS"
+  },
+  "auth_state": "GitHub awdawmip authenticated; native control_tasks CONTROL_QUOTA; Source owner not confirmed; no CLAIM, Result or Driver Review",
+  "admission": "AUTHOR_SIDE_EXACT / FINITE_EXHAUSTIVE / DRIVER_UNREVIEWED / NOT_ADMITTED"
+}

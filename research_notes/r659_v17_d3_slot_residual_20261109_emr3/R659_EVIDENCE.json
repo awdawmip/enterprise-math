@@ -1,0 +1,160 @@
+{
+  "marker": "R659_SAME_PARITY_DIFFERENT_D3_RESIDUE_PASS",
+  "status": "AUTHOR_SIDE_EXACT_MODEL_PROOF_AND_FINITE_VALIDATION_UNREVIEWED",
+  "task": "RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW",
+  "scientific_pin": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "source_pin": "V23/V27/V17/V29@b62110008321d9147212cb89f2627ff613c2550d",
+  "model": "two native X6 Cells, four typed PF10 ports; frozen signed BRC V27 with event-first V29 and V17 slot inheritance",
+  "theorem": {
+    "slot_encoding": "sigma = rho^r tau^p, r mod3, p mod2; rho=(1,2,0), tau=(1,0,2)",
+    "semidirect_product": "(r,p)*(s,q)=(r+(-1)^p*s mod3, p xor q)",
+    "transition": "sigma_next = sigma compose gamma_leave_insert",
+    "common_suffix_invariance": "Delta=sigma_B compose inverse(sigma_A) is invariant under identical future strict event words whenever prior ledgers and current triads agree"
+  },
+  "finite_tests": {
+    "S3_products": 36,
+    "V17_transitions": 54,
+    "x_seed_count": 256,
+    "distinct_events": 4,
+    "permutations_each": 24,
+    "all_words": 6144,
+    "all_step_strict_words": 1161,
+    "max_same_triad_parity_full_slot_fiber": 2
+  },
+  "strict_witness": {
+    "x_pass_seed": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "y_pass_seed": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "events": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "order_A": [
+      [
+        2,
+        2
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "order_B": [
+      [
+        3,
+        3
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "final_ledger_and_pair_histogram_equal": true,
+    "final_x_triad": [
+      2,
+      4,
+      5
+    ],
+    "final_y_triad": [
+      0,
+      2,
+      4
+    ],
+    "x_slots_A": [
+      0,
+      2,
+      1
+    ],
+    "x_slots_B": [
+      1,
+      0,
+      2
+    ],
+    "x_D3_A": [
+      2,
+      1
+    ],
+    "x_D3_B": [
+      0,
+      1
+    ],
+    "y_slots_both": [
+      1,
+      2,
+      0
+    ],
+    "x_parity_both": 1,
+    "y_parity_both": 0,
+    "relative_x_Delta": "rho, not identity",
+    "x_score_gaps_A": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "x_score_gaps_B": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "y_score_gaps_A": [
+      3,
+      1,
+      9,
+      2
+    ],
+    "y_score_gaps_B": [
+      3,
+      1,
+      9,
+      2
+    ]
+  },
+  "code": "R659_VERIFY.py is self-contained exact-integer script, dynamically generates expanded R659_EVIDENCE.json on execution",
+  "scope": [
+    "auxiliary exact typed signed BRC V29→strict V27→V17 protocol",
+    "finite search domain specified, no universal maximum-fiber claim",
+    "not established native X6 V28/V30 time update law"
+  ],
+  "driver_review": "UNREVIEWED"
+}

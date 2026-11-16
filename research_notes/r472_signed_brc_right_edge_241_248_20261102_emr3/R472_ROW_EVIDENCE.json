@@ -1,0 +1,45 @@
+{
+  "schema": "R472_SIGNED_BRC_PF3_LOCAL_CERTIFICATE_V1",
+  "checked_odd_r_from": 265,
+  "checked_odd_r_to": 271,
+  "rows": 4,
+  "support_definition": "a_h=H(r,r-h) for 0<=h<=r-2; zero otherwise",
+  "coefficient_count_strictly_positive": 1068,
+  "adjacent_2x2_count_strictly_positive": 1068,
+  "adjacent_3x3_count_strictly_positive": 1068,
+  "total_exact_integer_sign_checks": 3204,
+  "independent_signed_raw_checks": 32,
+  "independent_alternating_catalan_checks": 32,
+  "exact_arithmetic": "Python arbitrary-precision integer arithmetic",
+  "coefficient_stream_sha256": "a77d791685011a4d813f68ef1cbafe15295929ff5d9718f8f32017d504f49bcf",
+  "adjacent_minor_stream_sha256": "fda0320d5ad40eab04885fd051b43c016feea4b3c150ff6c311dfac4e9bdf2c8",
+  "stream_encoding": "sequential 4-byte big-endian length followed by big-endian unsigned integer, each r then j ascending; adjacent minor stream D2,D3 interleaved",
+  "row_statistics": [
+    {
+      "r": 265,
+      "positive_coefficients": 264,
+      "positive_adjacent_2x2": 264,
+      "positive_adjacent_3x3": 264
+    },
+    {
+      "r": 267,
+      "positive_coefficients": 266,
+      "positive_adjacent_2x2": 266,
+      "positive_adjacent_3x3": 266
+    },
+    {
+      "r": 269,
+      "positive_coefficients": 268,
+      "positive_adjacent_2x2": 268,
+      "positive_adjacent_3x3": 268
+    },
+    {
+      "r": 271,
+      "positive_coefficients": 270,
+      "positive_adjacent_2x2": 270,
+      "positive_adjacent_3x3": 270
+    }
+  ],
+  "scope": "four odd r=265,267,269,271; complete finite-support local adjacent minors, zero-padded; PF3 inference conditional on R450",
+  "status": "AUTHOR_SIDE_EXACT_INTEGER; DRIVER_UNREVIEWED; NOT_ADMITTED"
+}

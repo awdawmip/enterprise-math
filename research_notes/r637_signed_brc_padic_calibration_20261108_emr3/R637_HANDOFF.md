@@ -1,0 +1,8 @@
+# R637 handoff — bounded precision signed BRC calibration
+Date 2026-11-08. Author-side exact continuation R636@87cf91ddd0162c4f4e0e7c15037a4e4c7334f7e2; frozen R462@18783e01e3646c72b7aab3b16d3f565e83e6446f.
+
+On six X6-labeled axes with hypothetical rank-two background H0+c_x H1, c=(0,5,1,2,3,4), R636's exact two-reference identification extends to finite precision per coefficient modulo 5^N. For a calibration pair (r,s), e=v5(c_s-c_r), all orientations are uniformly recovered iff N>=e+1 and t-degree d>=a+8. Fourteen pairs need mod5; the pair axes(1,2) needs mod25. Necessity: a complete Z[t] collision with swapped labels5,6 has identical twelve outputs and both refs mod5 for axes1,2; references differ modulo25. A general Smith normal form lemma gives the p-adic precision loss for any square integer calibration matrix.
+
+Exact computation: Python R637_VERIFY.py run locally, 32400 direction checks (15 pairs, three a values, all 720 permutations) plus complete six-axis polynomial collision; evidence JSON and full proof in same folder. Reuse applied: R462 signed K and R636 exact collision. Scientific result is author-side/unreviewed and auxiliary static, not a native triadic update law.
+
+Current native researcher EM-DIRECT-F43999, activity RA-C49ABBAED6338BB7DE3C63B2 registered; no formal CLAIM or review. Related native task RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW has READY / NEEDS_DISPATCH, owner taskbook/unassigned, as-of 2026-11-08T11:23:40Z. Next: inspect a real Source X6 joint-field operator for finite-digit observation and reference semantics, and compute Smith factors of its actual coupling matrix before invoking this theorem as an engineering interface.

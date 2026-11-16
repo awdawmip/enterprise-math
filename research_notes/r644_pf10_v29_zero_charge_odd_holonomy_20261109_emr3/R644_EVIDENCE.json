@@ -1,0 +1,164 @@
+{
+  "marker": "R644_V29_CONSERVATIVE_ZERO_Q_ODD_HOLONOMY_PASS",
+  "date_local": "2026-11-09",
+  "source_V29": "research_notes/X6_NETWORK_EVENT_LEDGER_AND_CONTRAST_TRANSDUCER_V29_20260906.md",
+  "frozen_R462": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "role": "AUTHOR_SIDE_UNREVIEWED",
+  "initial_x": {
+    "M": [
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "Rin": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "Rout": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "I": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "O": [
+      2,
+      1,
+      1,
+      0
+    ],
+    "u": [
+      -1,
+      0,
+      0,
+      1
+    ],
+    "Omega": [
+      [
+        0,
+        1,
+        -1,
+        0
+      ],
+      [
+        -1,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "initial_y": {
+    "M": "zero",
+    "Rin": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "Rout": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "u": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "five_event_seed": [
+    "PASS x:0->1",
+    "PASS x:1->2",
+    "PASS x:2->0",
+    "TRANSFER x:0->y:0",
+    "TRANSFER y:0->x:3"
+  ],
+  "all_event_network_Q": 0,
+  "exact_odd_loop": [
+    "012",
+    "123",
+    "234",
+    "034",
+    "035",
+    "025",
+    "012"
+  ],
+  "source_initial_gap_on_each_odd_edge": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "source_circulation_winning_slopes": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "winner_maximum_slope_each": true,
+  "holonomy_after_6": [
+    2,
+    1,
+    0
+  ],
+  "holonomy_after_12": [
+    0,
+    1,
+    2
+  ],
+  "closed_integer_form": "M_n=(n+1)C, I_n=(n+1,n+1,n+1,1), O_n=(n+2,n+1,n+1,0)",
+  "min_transfer_residual_count_per_side": 1,
+  "min_seed_PRIMITIVE_events_for_exact_target": 5,
+  "local_exact_verification": "151 packet updates + 20 triads / 180 directed edge encoding + all six strict-margin/slope checks",
+  "next_question": "native autonomous event scheduler and neighboring Cell coupling with ordered frame transport",
+  "physical_time_not_calibrated": true,
+  "formal_claim": false,
+  "independent_driver_review": false
+}
