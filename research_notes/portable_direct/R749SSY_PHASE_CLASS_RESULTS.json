@@ -1,0 +1,127 @@
+{
+  "id": "R749SSY",
+  "status": "PASS",
+  "input_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "domain": "integer q>=501; labeled source weights (1,1,2,3,6); real e,d in [-2,2]",
+  "observable": "one scalar Y_q(e,d)",
+  "limit_classes": {
+    "0": [
+      1,
+      5
+    ],
+    "1": [
+      2,
+      4
+    ],
+    "2": [
+      3
+    ],
+    "3": [
+      0
+    ]
+  },
+  "thresholds": [
+    "-2",
+    "1203/250",
+    "11"
+  ],
+  "guaranteed_absolute_measurement_noise_strictly_below": "1/100",
+  "phase_guard_count": 9,
+  "strictly_positive_polynomial_coefficient_count": 54,
+  "minimum_coefficient": "38502/625",
+  "guards": [
+    {
+      "residue": 0,
+      "first_cutoff": 504,
+      "threshold_index": 2,
+      "relation": "lower_above",
+      "polynomial_degree": 5,
+      "minimal_coefficient": "39582/125"
+    },
+    {
+      "residue": 1,
+      "first_cutoff": 505,
+      "threshold_index": 0,
+      "relation": "upper_below",
+      "polynomial_degree": 5,
+      "minimal_coefficient": "150282/125"
+    },
+    {
+      "residue": 2,
+      "first_cutoff": 506,
+      "threshold_index": 0,
+      "relation": "lower_above",
+      "polynomial_degree": 5,
+      "minimal_coefficient": "31482/125"
+    },
+    {
+      "residue": 2,
+      "first_cutoff": 506,
+      "threshold_index": 1,
+      "relation": "upper_below",
+      "polynomial_degree": 5,
+      "minimal_coefficient": "667818/625"
+    },
+    {
+      "residue": 3,
+      "first_cutoff": 501,
+      "threshold_index": 1,
+      "relation": "lower_above",
+      "polynomial_degree": 5,
+      "minimal_coefficient": "38502/625"
+    },
+    {
+      "residue": 3,
+      "first_cutoff": 501,
+      "threshold_index": 2,
+      "relation": "upper_below",
+      "polynomial_degree": 5,
+      "minimal_coefficient": "142182/125"
+    },
+    {
+      "residue": 4,
+      "first_cutoff": 502,
+      "threshold_index": 0,
+      "relation": "lower_above",
+      "polynomial_degree": 5,
+      "minimal_coefficient": "31482/125"
+    },
+    {
+      "residue": 4,
+      "first_cutoff": 502,
+      "threshold_index": 1,
+      "relation": "upper_below",
+      "polynomial_degree": 5,
+      "minimal_coefficient": "667818/625"
+    },
+    {
+      "residue": 5,
+      "first_cutoff": 503,
+      "threshold_index": 0,
+      "relation": "upper_below",
+      "polynomial_degree": 5,
+      "minimal_coefficient": "150282/125"
+    }
+  ],
+  "sharpness": {
+    "y": "483/100",
+    "states": [
+      {
+        "q": 500,
+        "e": 2,
+        "d": "-27938674640336/14145809615083",
+        "C": 7677066992,
+        "T": 643545647661
+      },
+      {
+        "q": 501,
+        "e": -2,
+        "d": "56906884259978/28518301075091",
+        "C": 7753232942,
+        "T": 651222714653
+      }
+    ]
+  },
+  "claim": "phase LIMIT CLASS identification with one noisy read; sharp integer lower cutoff 501",
+  "status_of_review": "AUTHOR_EXACT_NOT_REVIEWED"
+}
