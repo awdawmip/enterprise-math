@@ -3753,6 +3753,58 @@
         "https://github.com/awdawmip/enterprise-math/blob/8fb00b9a806608fe6b02243b692c2419628ed1ad/research_checks/X6_UNIT72_SIGNED_ONE_STEP_DEPTH_PROBE_RESULTS_20261117.json"
       ],
       "notes": "Unit72 selected native signed-X6 three-axis observer fibre: one tagged +e_i quadratic G-step comparator (integer threshold K_i=3+6r_i-2R) distinguishes any two global admissible depths of (can3,G,T) by exact difference ±2sqrt(D), D=R²+3(G-Q). Worst-case one binary bit necessary and sufficient for native depth; equal-unweighted-BRC witness r=(0,2,4), G=11,T=5, h=-3/-1, masses both20, raw Δ_i=-5/-1 both negative, calibrated threshold succeeds. Independently implemented all 15625 signed triples in [-12,12]^3; 14887 observed signatures, 912 two-global-depth signatures, 2736 exact named-axis checks 0 failures; no original benchmark import. Native Units69–71 original onhour-20261117-0259-x6-unit69-71-native-progress-v1 SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED; Unit72 native semantic checkpoint not yet confirmed. Historical alleged LP011/LP019 wrong caller still UNRESOLVED_PROVENANCE; Driver REQUEST_REVISION pending. AUTHOR_EXACT/FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED."
+    },
+    {
+      "event_id": "onhour-20261117-0440-x6-unit73-full6-active-depth-probe",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "940463f7f2327264cb7a41b9d5d5ab8305983e69",
+          "path": "research_notes/X6_FULL_NATIVE_SIX_AXIS_MINZERO_ACTIVE_DEPTH_ONE_BIT_UNIT73_20261117.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "4a0d1cee5eb4a6a3e05434e066457b0007889ec0",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/940463f7f2327264cb7a41b9d5d5ab8305983e69/research_notes/X6_FULL_NATIVE_SIX_AXIS_MINZERO_ACTIVE_DEPTH_ONE_BIT_UNIT73_20261117.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "cc624c53bcf68c86e6025095cbe88d976325583c",
+          "path": "research_checks/X6_UNIT73_FULL6_NATIVE_DEPTH_PROBE_CHECK_20261117.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "1c5b9c4bdad06f3de2176029ff559f85053eab25",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/cc624c53bcf68c86e6025095cbe88d976325583c/research_checks/X6_UNIT73_FULL6_NATIVE_DEPTH_PROBE_CHECK_20261117.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "c7742a4c98cb42dfb2ae8731da5e4c8a89bd7493",
+          "path": "research_checks/X6_UNIT73_FULL6_NATIVE_DEPTH_PROBE_RESULTS_20261117.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "12db8cb56780e442e1b2c83165cf8474422d66e7",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/c7742a4c98cb42dfb2ae8731da5e4c8a89bd7493/research_checks/X6_UNIT73_FULL6_NATIVE_DEPTH_PROBE_RESULTS_20261117.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/940463f7f2327264cb7a41b9d5d5ab8305983e69/research_notes/X6_FULL_NATIVE_SIX_AXIS_MINZERO_ACTIVE_DEPTH_ONE_BIT_UNIT73_20261117.md",
+        "https://github.com/awdawmip/enterprise-math/blob/cc624c53bcf68c86e6025095cbe88d976325583c/research_checks/X6_UNIT73_FULL6_NATIVE_DEPTH_PROBE_CHECK_20261117.py",
+        "https://github.com/awdawmip/enterprise-math/blob/c7742a4c98cb42dfb2ae8731da5e4c8a89bd7493/research_checks/X6_UNIT73_FULL6_NATIVE_DEPTH_PROBE_RESULTS_20261117.json"
+      ],
+      "notes": "Unit73 full signed native six-axis X6 (P000 V5) extension of selected 3-axis Unit72: global min-zero r6,G6,T6 observer has at most two integer common depths h=(-R±sqrt(D))/6, D=R²+6(G−Q). One tagged native +e_i quadratic readout Δ_i has exact calibrated comparator 6Δ_i−(6+12r_i−2R)=±2sqrt(D), any one of six named axes uniquely disambiguates; information-theoretic worst-case one bit necessary. Actual independent complete input cube [-3,3]^6 117649 native states, 113086 passive signatures, 9825 globally two-depth signatures (4563 both states in cube), 3423 BRC-equal and 6402 BRC-unequal, 58950 native-axis comparator checks 0 failures. Normal/-O/-OO output SHA256 c3dad4d03ada52ee032638eeb13fc68db8394492f8ff362f844924cc88d83b07 identical; exact integers, not original frozen R063 native benchmark. Prior Native Source Units69–71 SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED; own new resume onhour-20261117-0430-x6-own-run-resume-after-unit72-v1 originally RUNNING/WAIT_ORIGINAL; no duplicate. Exact LP011/LP019 historic wrong-caller provenance and 28-LP downstream closure/Driver revision still open. AUTHOR-EXACT/FINITE-EXECUTED/UNREVIEWED/NOT_ADMITTED."
     }
   ],
   "mode": "TASK_RESEARCH",
