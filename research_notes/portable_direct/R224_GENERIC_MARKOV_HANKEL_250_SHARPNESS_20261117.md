@@ -58,6 +58,6 @@ Status: AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED; formal Task CLAIM, 
 
 ## Next problems
 
-1. Compare a 250-dimensional reduced linear transfer to direct support/current-label state propagation (448 states) with full input-conversion, exact integer bit cost and query recovery.
+1. Compare a 250-dimensional reduced linear transfer to direct support/current-label state propagation (256 reachable states: one neutral-current option plus |S| nonneutral-current options per source-support set S) with full input-conversion, exact integer bit cost and query recovery.
 2. Classify exact low-Hankel-rank strata (exchangeable, partially lumpable, reversible) in the full positive stochastic family; a 250→7 reduction is substantive only under its stated source symmetry.
 3. Integrate the support readout with native typed BRC EffectHistogram while retaining signs, ports, branch identity, multiplicity and positive rational weights as distinct carriers.
