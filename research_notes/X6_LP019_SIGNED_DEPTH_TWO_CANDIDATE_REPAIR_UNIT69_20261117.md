@@ -27,7 +27,7 @@ A one-bit branch selector is sufficient for exact reconstruction when two candid
 
 ## Sharpness and actual multiplicity obstruction
 
-For `r=(3,0,0)`, `g=18`, `t=6`, the formula yields `D=144`, giving two feasible depths `h=-3` and `h=1`. The corresponding signed native displacements are `(0,-3,-3)` and `(4,1,1)`, both embedded with other three coordinates zero. The exact shortest BRC counts are `6!/(3!3!)=20` and `6!/(4!1!1!)=30`, respectively. Thus the one-bit worst-case requirement is sharp for reconstructing the endpoint and even for reconstructing natural N-BRC multiplicity.
+For `r=(3,0,0)`, `g=18`, `t=6`, the formula yields `D=36`, giving two feasible depths `h=-3` and `h=1`. The corresponding signed native displacements are `(0,-3,-3)` and `(4,1,1)`, both embedded with other three coordinates zero. The exact shortest BRC counts are `6!/(3!3!)=20` and `6!/(4!1!1!)=30`, respectively. Thus the one-bit worst-case requirement is sharp for reconstructing the endpoint and even for reconstructing natural N-BRC multiplicity.
 
 This uses the already saved Unit68 collision as a *sharp selector lower-bound witness*. The new conclusion is the **global upper bound of two fibers, explicit discriminant test, and exact recovery algorithm**. The existing frozen `x6_signed.py` already carries the lossless `(r,h)` chart: we derive how far the `h` state can be conditionally compressed when `G` and `T` are retained. No new primitive, no P000 revision, and no cross-slice claim are introduced.
 
