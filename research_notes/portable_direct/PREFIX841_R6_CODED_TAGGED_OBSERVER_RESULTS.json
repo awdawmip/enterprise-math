@@ -1,0 +1,143 @@
+{
+  "schema": "PREFIX841_EXACT_CODED_PROVENANCE_REGRESSION_V1",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "claims": [
+    "Z_t=c_t sum_i w_i W^(i-1), and U=Z_t/c_t-sum_i W^(i-1) is an exact base-W lossless name code.",
+    "Fixed-length normalized output requires and achieves ceil(log2(W^p)) bits for all bounded assignments.",
+    "Z_t modulo m is injective on all assignments iff m/gcd(m,c_t)>=W^p.",
+    "Given the unordered weight multiset with counts m_v, lexicographic assignment rank uses exactly ceil(log2(p!/product_v m_v!)) bits."
+  ],
+  "verification": {
+    "p_range": [
+      1,
+      5
+    ],
+    "W_range": [
+      1,
+      4
+    ],
+    "a_values": [
+      1,
+      2
+    ],
+    "b_values": [
+      1,
+      2
+    ],
+    "time_range": [
+      1,
+      6
+    ],
+    "modular_domain": {
+      "p_range": [
+        1,
+        4
+      ],
+      "W_values": [
+        2,
+        3
+      ],
+      "a_values": [
+        1,
+        2,
+        3
+      ],
+      "b_values": [
+        1,
+        2,
+        3
+      ],
+      "time_range": [
+        1,
+        5
+      ],
+      "m_range": "1..W^p+7"
+    },
+    "statistics": {
+      "configurations": 7176,
+      "frameChecks": 43056,
+      "missingNameChecks": 198864,
+      "codedScalarChecks": 43056,
+      "decodedWeightChecks": 198864,
+      "rankChecks": 1794,
+      "modularCases": 9270,
+      "modularResidueChecks": 187865,
+      "precisionChecks": 42720
+    },
+    "assertions": "ALL_EXACT_ASSERTIONS_PASSED"
+  },
+  "examples": {
+    "p": 3,
+    "W": 4,
+    "weights": [
+      1,
+      2,
+      4
+    ],
+    "a": 2,
+    "b": 2,
+    "rows": [
+      {
+        "t": 1,
+        "c": "1",
+        "D": [
+          "1",
+          "2",
+          "4"
+        ],
+        "coded": "73",
+        "ordinal": "52",
+        "rawBits": 7,
+        "idealFixedBits": 6,
+        "conditionalRank": "0",
+        "conditionalFiber": "6"
+      },
+      {
+        "t": 2,
+        "c": "2",
+        "D": [
+          "2",
+          "4",
+          "8"
+        ],
+        "coded": "146",
+        "ordinal": "52",
+        "rawBits": 8,
+        "idealFixedBits": 6,
+        "conditionalRank": "0",
+        "conditionalFiber": "6"
+      },
+      {
+        "t": 4,
+        "c": "8",
+        "D": [
+          "8",
+          "16",
+          "32"
+        ],
+        "coded": "584",
+        "ordinal": "52",
+        "rawBits": 10,
+        "idealFixedBits": 6,
+        "conditionalRank": "0",
+        "conditionalFiber": "6"
+      },
+      {
+        "t": 6,
+        "c": "32",
+        "D": [
+          "32",
+          "64",
+          "128"
+        ],
+        "coded": "2336",
+        "ordinal": "52",
+        "rawBits": 12,
+        "idealFixedBits": 6,
+        "conditionalRank": "0",
+        "conditionalFiber": "6"
+      }
+    ]
+  },
+  "caveat": "The coded scalar assumes a provenance-sensitive linear terminal observer; untagged Q-only occupancy data cannot evaluate it."
+}
