@@ -1,0 +1,1643 @@
+{
+  "schema": "PREFIX848_AUTONOMOUS_DYNAMIC_STREAM_WINDOW_CHECK_V1",
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "finite_scope": {
+    "p": [
+      2,
+      3,
+      4
+    ],
+    "W": 2,
+    "w": [
+      2,
+      3
+    ],
+    "C": [
+      1,
+      2,
+      6
+    ],
+    "total_cases": 18,
+    "max_width_searched": 6
+  },
+  "method": "Enumerate all Hamming-one state trajectories and every admissible w-long modulus word. Build the directed overlap graph on length-(w-1) modulus words; test for any directed cycle. For every B below optimum, absence of a directed cycle certifies impossibility of all infinite predetermined schedules.",
+  "summary": {
+    "cases": 18,
+    "modulus_words_tested": 13456,
+    "trajectory_word_evaluations_upper_bound": 4590296,
+    "accepted_words": 4574,
+    "period_rotation_checks": 54
+  },
+  "certificates": [
+    {
+      "p": 2,
+      "W": 2,
+      "w": 2,
+      "C": 1,
+      "N": 4,
+      "trajectories_per_window": 12,
+      "minimum_per_heartbeat_bits": 2,
+      "witness_period": [
+        4
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 2,
+          "possible_words": 4,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 4,
+          "possible_words": 16,
+          "good_words": 4,
+          "has_cycle": true,
+          "cycle": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "w": 2,
+      "C": 2,
+      "N": 4,
+      "trajectories_per_window": 12,
+      "minimum_per_heartbeat_bits": 3,
+      "witness_period": [
+        5
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 2,
+          "possible_words": 4,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 4,
+          "possible_words": 16,
+          "good_words": 8,
+          "has_cycle": true,
+          "cycle": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "w": 2,
+      "C": 6,
+      "N": 4,
+      "trajectories_per_window": 12,
+      "minimum_per_heartbeat_bits": 3,
+      "witness_period": [
+        5
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 3,
+          "possible_words": 9,
+          "good_words": 6,
+          "has_cycle": true,
+          "cycle": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "w": 3,
+      "C": 1,
+      "N": 4,
+      "trajectories_per_window": 36,
+      "minimum_per_heartbeat_bits": 2,
+      "witness_period": [
+        4
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 2,
+          "possible_words": 8,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 4,
+          "possible_words": 64,
+          "good_words": 16,
+          "has_cycle": true,
+          "cycle": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "w": 3,
+      "C": 2,
+      "N": 4,
+      "trajectories_per_window": 36,
+      "minimum_per_heartbeat_bits": 3,
+      "witness_period": [
+        5
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 2,
+          "possible_words": 8,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 4,
+          "possible_words": 64,
+          "good_words": 32,
+          "has_cycle": true,
+          "cycle": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "W": 2,
+      "w": 3,
+      "C": 6,
+      "N": 4,
+      "trajectories_per_window": 36,
+      "minimum_per_heartbeat_bits": 3,
+      "witness_period": [
+        5
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 3,
+          "possible_words": 27,
+          "good_words": 18,
+          "has_cycle": true,
+          "cycle": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "p": 3,
+      "W": 2,
+      "w": 2,
+      "C": 1,
+      "N": 8,
+      "trajectories_per_window": 32,
+      "minimum_per_heartbeat_bits": 3,
+      "witness_period": [
+        8,
+        7
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 2,
+          "possible_words": 4,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 4,
+          "possible_words": 16,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 8,
+          "possible_words": 64,
+          "good_words": 9,
+          "has_cycle": true,
+          "cycle": [
+            8,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "p": 3,
+      "W": 2,
+      "w": 2,
+      "C": 2,
+      "N": 8,
+      "trajectories_per_window": 32,
+      "minimum_per_heartbeat_bits": 4,
+      "witness_period": [
+        9,
+        7
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 2,
+          "possible_words": 4,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 4,
+          "possible_words": 16,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 4,
+          "moduli": 8,
+          "possible_words": 64,
+          "good_words": 36,
+          "has_cycle": true,
+          "cycle": [
+            9,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "p": 3,
+      "W": 2,
+      "w": 2,
+      "C": 6,
+      "N": 8,
+      "trajectories_per_window": 32,
+      "minimum_per_heartbeat_bits": 4,
+      "witness_period": [
+        11,
+        7
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 3,
+          "possible_words": 9,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 4,
+          "moduli": 5,
+          "possible_words": 25,
+          "good_words": 12,
+          "has_cycle": true,
+          "cycle": [
+            11,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "p": 3,
+      "W": 2,
+      "w": 3,
+      "C": 1,
+      "N": 8,
+      "trajectories_per_window": 128,
+      "minimum_per_heartbeat_bits": 3,
+      "witness_period": [
+        8,
+        7,
+        7
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 2,
+          "possible_words": 8,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 4,
+          "possible_words": 64,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 8,
+          "possible_words": 512,
+          "good_words": 73,
+          "has_cycle": true,
+          "cycle": [
+            8,
+            7,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "p": 3,
+      "W": 2,
+      "w": 3,
+      "C": 2,
+      "N": 8,
+      "trajectories_per_window": 128,
+      "minimum_per_heartbeat_bits": 4,
+      "witness_period": [
+        9,
+        7,
+        7
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 2,
+          "possible_words": 8,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 4,
+          "possible_words": 64,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 4,
+          "moduli": 8,
+          "possible_words": 512,
+          "good_words": 292,
+          "has_cycle": true,
+          "cycle": [
+            9,
+            7,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "p": 3,
+      "W": 2,
+      "w": 3,
+      "C": 6,
+      "N": 8,
+      "trajectories_per_window": 128,
+      "minimum_per_heartbeat_bits": 4,
+      "witness_period": [
+        11,
+        7,
+        7
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 3,
+          "possible_words": 27,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 4,
+          "moduli": 5,
+          "possible_words": 125,
+          "good_words": 62,
+          "has_cycle": true,
+          "cycle": [
+            11,
+            7,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "p": 4,
+      "W": 2,
+      "w": 2,
+      "C": 1,
+      "N": 16,
+      "trajectories_per_window": 80,
+      "minimum_per_heartbeat_bits": 4,
+      "witness_period": [
+        16,
+        11
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 2,
+          "possible_words": 4,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 4,
+          "possible_words": 16,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 8,
+          "possible_words": 64,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 4,
+          "moduli": 16,
+          "possible_words": 256,
+          "good_words": 21,
+          "has_cycle": true,
+          "cycle": [
+            16,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "p": 4,
+      "W": 2,
+      "w": 2,
+      "C": 2,
+      "N": 16,
+      "trajectories_per_window": 80,
+      "minimum_per_heartbeat_bits": 5,
+      "witness_period": [
+        17,
+        11
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 2,
+          "possible_words": 4,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 4,
+          "possible_words": 16,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 4,
+          "moduli": 8,
+          "possible_words": 64,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 5,
+          "moduli": 16,
+          "possible_words": 256,
+          "good_words": 152,
+          "has_cycle": true,
+          "cycle": [
+            17,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "p": 4,
+      "W": 2,
+      "w": 2,
+      "C": 6,
+      "N": 16,
+      "trajectories_per_window": 80,
+      "minimum_per_heartbeat_bits": 5,
+      "witness_period": [
+        17,
+        11
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 3,
+          "possible_words": 9,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 4,
+          "moduli": 5,
+          "possible_words": 25,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 5,
+          "moduli": 11,
+          "possible_words": 121,
+          "good_words": 78,
+          "has_cycle": true,
+          "cycle": [
+            17,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "p": 4,
+      "W": 2,
+      "w": 3,
+      "C": 1,
+      "N": 16,
+      "trajectories_per_window": 400,
+      "minimum_per_heartbeat_bits": 4,
+      "witness_period": [
+        16,
+        11,
+        11
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 2,
+          "possible_words": 8,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 4,
+          "possible_words": 64,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 8,
+          "possible_words": 512,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 4,
+          "moduli": 16,
+          "possible_words": 4096,
+          "good_words": 361,
+          "has_cycle": true,
+          "cycle": [
+            16,
+            11,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "p": 4,
+      "W": 2,
+      "w": 3,
+      "C": 2,
+      "N": 16,
+      "trajectories_per_window": 400,
+      "minimum_per_heartbeat_bits": 5,
+      "witness_period": [
+        17,
+        11,
+        11
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 2,
+          "possible_words": 8,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 4,
+          "possible_words": 64,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 4,
+          "moduli": 8,
+          "possible_words": 512,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 5,
+          "moduli": 16,
+          "possible_words": 4096,
+          "good_words": 2512,
+          "has_cycle": true,
+          "cycle": [
+            17,
+            11,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "p": 4,
+      "W": 2,
+      "w": 3,
+      "C": 6,
+      "N": 16,
+      "trajectories_per_window": 400,
+      "minimum_per_heartbeat_bits": 5,
+      "witness_period": [
+        17,
+        11,
+        11
+      ],
+      "all_strictly_smaller_bitwidths_no_cycle": true,
+      "attempts": [
+        {
+          "B": 0,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 1,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 2,
+          "moduli": 1,
+          "possible_words": 1,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 3,
+          "moduli": 3,
+          "possible_words": 27,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 4,
+          "moduli": 5,
+          "possible_words": 125,
+          "good_words": 0,
+          "has_cycle": false,
+          "cycle": null
+        },
+        {
+          "B": 5,
+          "moduli": 11,
+          "possible_words": 1331,
+          "good_words": 882,
+          "has_cycle": true,
+          "cycle": [
+            17,
+            11,
+            11
+          ]
+        }
+      ]
+    }
+  ],
+  "sampleChecks": [
+    {
+      "p": 2,
+      "w": 2,
+      "C": 1,
+      "t": 1,
+      "period": [
+        4
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 2,
+      "C": 1,
+      "t": 4,
+      "period": [
+        4
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 2,
+      "C": 1,
+      "t": 9,
+      "period": [
+        4
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 2,
+      "C": 2,
+      "t": 1,
+      "period": [
+        5
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 2,
+      "C": 2,
+      "t": 4,
+      "period": [
+        5
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 2,
+      "C": 2,
+      "t": 9,
+      "period": [
+        5
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 2,
+      "C": 6,
+      "t": 1,
+      "period": [
+        5
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 2,
+      "C": 6,
+      "t": 4,
+      "period": [
+        5
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 2,
+      "C": 6,
+      "t": 9,
+      "period": [
+        5
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 3,
+      "C": 1,
+      "t": 1,
+      "period": [
+        4
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 3,
+      "C": 1,
+      "t": 4,
+      "period": [
+        4
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 3,
+      "C": 1,
+      "t": 9,
+      "period": [
+        4
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 3,
+      "C": 2,
+      "t": 1,
+      "period": [
+        5
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 3,
+      "C": 2,
+      "t": 4,
+      "period": [
+        5
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 3,
+      "C": 2,
+      "t": 9,
+      "period": [
+        5
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 3,
+      "C": 6,
+      "t": 1,
+      "period": [
+        5
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 3,
+      "C": 6,
+      "t": 4,
+      "period": [
+        5
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 2,
+      "w": 3,
+      "C": 6,
+      "t": 9,
+      "period": [
+        5
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 2,
+      "C": 1,
+      "t": 1,
+      "period": [
+        8,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 2,
+      "C": 1,
+      "t": 4,
+      "period": [
+        8,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 2,
+      "C": 1,
+      "t": 9,
+      "period": [
+        8,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 2,
+      "C": 2,
+      "t": 1,
+      "period": [
+        9,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 2,
+      "C": 2,
+      "t": 4,
+      "period": [
+        9,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 2,
+      "C": 2,
+      "t": 9,
+      "period": [
+        9,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 2,
+      "C": 6,
+      "t": 1,
+      "period": [
+        11,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 2,
+      "C": 6,
+      "t": 4,
+      "period": [
+        11,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 2,
+      "C": 6,
+      "t": 9,
+      "period": [
+        11,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 3,
+      "C": 1,
+      "t": 1,
+      "period": [
+        8,
+        7,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 3,
+      "C": 1,
+      "t": 4,
+      "period": [
+        8,
+        7,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 3,
+      "C": 1,
+      "t": 9,
+      "period": [
+        8,
+        7,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 3,
+      "C": 2,
+      "t": 1,
+      "period": [
+        9,
+        7,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 3,
+      "C": 2,
+      "t": 4,
+      "period": [
+        9,
+        7,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 3,
+      "C": 2,
+      "t": 9,
+      "period": [
+        9,
+        7,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 3,
+      "C": 6,
+      "t": 1,
+      "period": [
+        11,
+        7,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 3,
+      "C": 6,
+      "t": 4,
+      "period": [
+        11,
+        7,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 3,
+      "w": 3,
+      "C": 6,
+      "t": 9,
+      "period": [
+        11,
+        7,
+        7
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 2,
+      "C": 1,
+      "t": 1,
+      "period": [
+        16,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 2,
+      "C": 1,
+      "t": 4,
+      "period": [
+        16,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 2,
+      "C": 1,
+      "t": 9,
+      "period": [
+        16,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 2,
+      "C": 2,
+      "t": 1,
+      "period": [
+        17,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 2,
+      "C": 2,
+      "t": 4,
+      "period": [
+        17,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 2,
+      "C": 2,
+      "t": 9,
+      "period": [
+        17,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 2,
+      "C": 6,
+      "t": 1,
+      "period": [
+        17,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 2,
+      "C": 6,
+      "t": 4,
+      "period": [
+        17,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 2,
+      "C": 6,
+      "t": 9,
+      "period": [
+        17,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 3,
+      "C": 1,
+      "t": 1,
+      "period": [
+        16,
+        11,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 3,
+      "C": 1,
+      "t": 4,
+      "period": [
+        16,
+        11,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 3,
+      "C": 1,
+      "t": 9,
+      "period": [
+        16,
+        11,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 3,
+      "C": 2,
+      "t": 1,
+      "period": [
+        17,
+        11,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 3,
+      "C": 2,
+      "t": 4,
+      "period": [
+        17,
+        11,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 3,
+      "C": 2,
+      "t": 9,
+      "period": [
+        17,
+        11,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 3,
+      "C": 6,
+      "t": 1,
+      "period": [
+        17,
+        11,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 3,
+      "C": 6,
+      "t": 4,
+      "period": [
+        17,
+        11,
+        11
+      ],
+      "all_rotations_valid": true
+    },
+    {
+      "p": 4,
+      "w": 3,
+      "C": 6,
+      "t": 9,
+      "period": [
+        17,
+        11,
+        11
+      ],
+      "all_rotations_valid": true
+    }
+  ]
+}
