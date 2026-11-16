@@ -1,0 +1,90 @@
+{
+  "schema": "EM_X6_TASK_RESEARCH_AUTHOR_CONTINUATION_UNIT68_V1",
+  "date": "2026-11-17",
+  "mother_task": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "science": {
+    "native_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "P000": "V5 ACTIVE_LOCKED",
+    "native_signed_slice": "selected actual three-axis signed Z3 sub-torsor of frozen Z6",
+    "observer": "min-zero Z3/Z111; not native Cell identity"
+  },
+  "lane": {
+    "conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+    "excluded_maintenance_conversation": "chatgpt-hourly-enterprise-math-20260921",
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "new_claim_id": "MCP-579c8e23625448582b421831",
+    "new_run_id": "RUN-fb25028676f9692ab1bacaee",
+    "new_run_generation": 1,
+    "claim_receipt_request_id": "onhour-20261117-0011-x6-own-claim-after-typed-prepare-v1",
+    "claim_receipt_status": "SUCCEEDED/RUN_READY",
+    "claim_source_observed_at": "2026-11-16T16:15:29Z",
+    "previous_claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
+    "previous_run_id": "RUN-3356cbe3c2b4916d79399941"
+  },
+  "native": {
+    "prior_same_session_prepare_request_id": "onhour-20261116-2348-x6-own-typed-continuation-unit67-v1",
+    "prepare_status": "SUCCEEDED/PREPARED_NOT_CLAIMED",
+    "continuation_read_request_id": "onhour-20261117-0004-x6-continuation-read-v1",
+    "continuation_read_status": "SUCCEEDED/OWN_RECORDED_RUN_REQUIRES_REAUTHORIZATION (as-of Source read preceding fresh CLAIM)",
+    "new_claim_status": "SUCCEEDED/RUN_READY",
+    "unit66_67_68_semantic_progress_request_id": "onhour-20261117-0017-x6-unit66-68-saved-author-native-progress-v1",
+    "unit66_67_68_semantic_progress_status": "RUNNING/WAIT_ORIGINAL at observation, not yet Source-published; DO NOT RESUBMIT"
+  },
+  "new_unit": {
+    "id": 68,
+    "title": "Same min-zero observer, same native G and T, distinct natural BRC multiplicity",
+    "theorem": "forall m>=1: x=(0,-3m,-3m,0,0,0), y=(4m,m,m,0,0,0); can3(x_S)=can3(y_S)=(3m,0,0), G=18m^2, T=6m, N(x)=(6m)!/((3m)!)^2 < N(y)=(6m)!/((4m)!(m!)^2)",
+    "ratio": "product j=1..m of ((m+j)(2m+j))/(j(3m+j)); each numerator-minus-denominator=2m^2 > 0",
+    "m1_counts": [
+      20,
+      30
+    ],
+    "verification": "Actual portable local Python standard/-O/-OO for m1..128, independent factor-count and recursion m1..5; V8 BigInt factorial m1..128; original frozen signed_brc module source was read but not executed in Unit68.",
+    "status": "AUTHOR-EXACT/FINITE-EXECUTED/UNREVIEWED/NOT_ADMITTED"
+  },
+  "saved_sources": [
+    {
+      "path": "research_checks/X6_LP019_EQUAL_OBSERVER_G_T_DIFFERENT_BRC_UNIT68_20261117.py",
+      "commit": "3f1eed8cfd84bba0b49c1fd706b7c501e3729f2d",
+      "blob": "24d0a75a91fc3c697f1935b09eae82f6bb18570f"
+    },
+    {
+      "path": "research_checks/X6_LP019_EQUAL_OBSERVER_G_T_DIFFERENT_BRC_UNIT68_RESULTS_20261117.json",
+      "commit": "83182532eb3af7670b4fd3c875aa5bfa9828ca2c",
+      "blob": "891c53cee8c1ddef84728bb2a27065ba254f48ec"
+    },
+    {
+      "path": "research_notes/X6_LP019_MINZERO_G_T_NBRC_OBSERVER_FIBER_OBSTRUCTION_UNIT68_20261117.md",
+      "commit": "607736fa5be987cf625c1806d71dc004ee8d311d",
+      "blob": "5271df0f7c336dc20c5d6eb8903bce911a40b2dd"
+    },
+    {
+      "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+      "commit": "37d2dc3eec857b37af73e8f58e107484a12bda46",
+      "blob": "9983ec427d7d7836889207723ba5363c01964dfb",
+      "checkpoint_count": 91
+    },
+    {
+      "path": "research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
+      "commit": "e77a95b2d21ab155ce74576b8352dc90b5fd4634",
+      "blob": "f52dec198eb30ec9c75c51b70150d3b0bb4c3920"
+    }
+  ],
+  "mother_unfinished": [
+    "Exact historical LP011 wrong native signed argmax caller remains UNRESOLVED_PROVENANCE; do not misattribute historical positive quotient inverse",
+    "Exact historical LP019 alleged positive native BRC signed-subtraction caller remains UNRESOLVED_PROVENANCE; PR #574 explicitly does not establish such a caller",
+    "Complete actual current 28-LP consumer dependency graph; scoped Unit68 production adapter regression",
+    "R063 Stage3 independently owned original PR #574 assert guard -O/-OO remains original owner/Driver action; full original benchmark not rerun",
+    "Independent Driver REQUEST_REVISION remains open"
+  ],
+  "do_not_repeat": [
+    "Frozen P000 V5 signed X6 and historical input do not rebase",
+    "Original R063 and Helly complete original experiments, Units1-67 theorem and checks already saved, no duplication",
+    "Native Unit64-65 SOURCE_CHECKPOINT_PUBLISHED prior; Units66-68 first semantic request pending original reconciliation",
+    "Do not reuse maintenance lane identity or prepare/claim/open under its conversation_id"
+  ],
+  "next_exact_action": "Read original native progress request onhour-20261117-0017-x6-unit66-68-saved-author-native-progress-v1 and reconcile only that ID if ambiguous. Confirm Source publication and checkpoint bytes when successful; no duplicate. Continue exact source:line downstream consumers for LP011 and LP019, retain Unit68 safe observer-fiber counterexample, and complete scoped 28-LP dependencies under own run. Freeze/Result/review per current shared contract."
+}
