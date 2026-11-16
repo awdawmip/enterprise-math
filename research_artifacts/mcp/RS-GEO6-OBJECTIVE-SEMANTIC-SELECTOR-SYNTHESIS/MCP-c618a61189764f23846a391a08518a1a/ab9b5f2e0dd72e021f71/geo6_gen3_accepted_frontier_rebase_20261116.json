@@ -1,0 +1,176 @@
+{
+  "schema": "GEO6_GEN3_ACCEPTED_FRONTIER_REBASE_V1",
+  "task_id": "RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS",
+  "publication_id": "TP2-AA14FBBC7B234E6DCD4A",
+  "prepared_by": "EM-EMF6D046-5A2844",
+  "status": "AUTHOR_SIDE_BOUNDARY_RECONCILIATION_NOT_NEW_MATH_RESULT",
+  "evidence_commit": "bae50d8a34ca9bea2d8095d777b7a2be0a159014",
+  "frozen_math": {
+    "selectors": [
+      "CONTACT_SELECTOR",
+      "LOCALITY_REFINEMENT_SELECTOR",
+      "ROTATION_CLOSURE_SELECTOR",
+      "TRANSLATION_ACTION_SELECTOR",
+      "NONOVERLAP_SELECTOR",
+      "TRANSLATION_FOLNER_SELECTOR",
+      "PHYSICAL_REFINEMENT_SELECTOR",
+      "MIXED_DIRECTION_SELECTOR",
+      "SUPPORT_RELATION_SELECTOR",
+      "SELF_DUAL_IDENTIFICATION_SELECTOR",
+      "COMPLEXITY_FUNCTIONAL_SELECTOR",
+      "REFINEMENT_TRANSPORT_SELECTOR"
+    ],
+    "upper_rows": [
+      "XOOXOOOXOOO",
+      "OOOODDOOOD",
+      "OOOOXOOOO",
+      "ODOOOOOO",
+      "OOOOOOO",
+      "OOOOOO",
+      "DOOOD",
+      "OOOO",
+      "DDD",
+      "OO",
+      "O"
+    ],
+    "dependency_dag": [
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        8,
+        11
+      ],
+      [
+        6,
+        11
+      ]
+    ],
+    "roots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8
+    ],
+    "recommendation_count": 3,
+    "full_resolvers": []
+  },
+  "stages": [
+    {
+      "label": "GEN1_OR_ACCEPTED_V2_SNAPSHOT",
+      "partial_indices": [
+        0,
+        2,
+        7
+      ],
+      "counts": {
+        "R": 0,
+        "P": 3,
+        "U": 9,
+        "D": 0
+      },
+      "evidence": "RR-0A26702D3A361799ADE0 / DR-007256B8119682DF8EFA"
+    },
+    {
+      "label": "AFTER_ACCEPTED_Q24",
+      "partial_indices": [
+        0,
+        2,
+        6,
+        7,
+        11
+      ],
+      "counts": {
+        "R": 0,
+        "P": 5,
+        "U": 7,
+        "D": 0
+      },
+      "evidence": "RR-1DE3F3213271AED2625C / DR-19B757A8E5D817B5E495"
+    },
+    {
+      "label": "CLOSED_LOCKED_P000_OBJECTIVE",
+      "partial_indices": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11
+      ],
+      "counts": {
+        "R": 0,
+        "P": 9,
+        "U": 3,
+        "D": 0
+      },
+      "evidence": "OG-7A3E19C4D8B2056F1A92"
+    }
+  ],
+  "terminal_review_bindings": [
+    {
+      "result_id": "RR-85C8C9CDB6C3A8B8622C",
+      "review_id": "DR-4B7A2D91E6C0538FA124",
+      "disposition": "ACCEPTED",
+      "new_partial_indices": [
+        4,
+        8
+      ]
+    },
+    {
+      "result_id": "RR-79C65C93052D6857CA9C",
+      "review_id": "DR-8E3C51A7D2B9046F1C85",
+      "disposition": "ACCEPTED",
+      "new_partial_indices": []
+    },
+    {
+      "result_id": "RR-EBE56954DEFC688B316A",
+      "review_id": "DR-C6A128F3B95D407E2A71",
+      "disposition": "ACCEPTED",
+      "new_partial_indices": [
+        3,
+        5
+      ]
+    }
+  ],
+  "parent": {
+    "old_generation": "OG-BB398D541DDECF58D19E",
+    "current_canonical_generation": "OG-7A3E19C4D8B2056F1A92",
+    "current_status": "CLOSED",
+    "gen3_task_stale_parent_ref": true
+  },
+  "open_checks": [
+    "Current exact canonical P000-L1 publication head and no-duplicate gate",
+    "Complete post-closure accepted P000/Full-Cell authority delta to current Source",
+    "Gen3 new Result freeze and independent Driver acceptance"
+  ],
+  "no_successor_or_p000_promotion": true,
+  "references": [
+    "https://github.com/awdawmip/enterprise-math/pull/1059",
+    "https://github.com/awdawmip/enterprise-math/pull/1075",
+    "https://github.com/awdawmip/enterprise-math/blob/main/driver_reviews/EXTERNAL_GEOMETRY_STRUCTURAL_TRANSFER_OBJECTIVE_CLOSURE_20260902.md",
+    "https://github.com/awdawmip/enterprise-math/blob/main/research_task_records/RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS/TP2-AA14FBBC7B234E6DCD4A.json"
+  ]
+}
