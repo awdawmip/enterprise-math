@@ -64,7 +64,7 @@ For every such source chain, the least scalar constant-coefficient recurrence de
 
 In particular, `D_6=250`.
 
-**Proof.** Every proper `U` contributes a killed block of dimension `|U|+1`. For the full set `U=[k]`, `P_D=P` is stochastic and the probability of staying inside the full alphabet is exactly `1`; its entire scalar contribution is the constant `W_k`, requiring only one state rather than `k+1`. Taking the direct sum of the remaining exact rational killed realizations and this constant gives `D_k) states; the characteristic polynomial yields an annihilating recurrence of degree at most `D_k`. The sum of `|U|` over all `2^k` subsets is `k2^(k-1)`; subtracting the full-set `k+1` block gives (6). QED.
+**Proof.** Every proper `U` contributes a killed block of dimension `|U|+1`. For the full set `U=[k]`, `P_D=P` is stochastic and the probability of staying inside the full alphabet is exactly `1`; its entire scalar contribution is the constant `W_k`, requiring only one state rather than `k+1`. Taking the direct sum of the remaining exact rational killed realizations and this constant gives `D_k` states; the characteristic polynomial yields an annihilating recurrence of degree at most `D_k`. The sum of `|U|` over all `2^k` subsets is `k2^(k-1)`; subtracting the full-set `k+1` block gives (6). QED.
 
 ## Theorem 3 — Explicit reversible sharpness at six sources
 
