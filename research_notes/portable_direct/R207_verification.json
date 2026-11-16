@@ -1,0 +1,91 @@
+{
+  "schema": "R207_REPRODUCIBLE_RESULT_SUMMARY_V1",
+  "status": "PASS",
+  "observed_execution": "2026-11-16; local Python standard library, no dependencies",
+  "source_pin": "awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "validation_scope": "All enumerated joint states round-trip via stratified ranks; all 1,407,685 X6 cases reconstruct valid full histories; 8,947 deterministic ordered pair compositions checked; full theoretical claims proved separately.",
+  "finite_models_checked": 20,
+  "total_exhaustive_codec_checks": 1420305,
+  "total_composition_checks": 8947,
+  "x6": {
+    "m": 12,
+    "k": 6,
+    "L": 2,
+    "source_states": 1957,
+    "fibre_sizes_by_source_order_length": [
+      157,
+      588,
+      720,
+      720,
+      720,
+      720,
+      720
+    ],
+    "reachable_joint_states": 1407685,
+    "source_bits": 11,
+    "fibre_bits": 10,
+    "total_split_bits": 21,
+    "information_theoretic_minimum_bits": 21,
+    "exhaustive_codec_checks": 1407685,
+    "history_reconstruction_checks": 1407685,
+    "composition_checks": 1414,
+    "ordered_code_digest_sha256": "1895bbff3e75d35a81830da52fd7cb2ab96909b32e1c4bbfc4e9c956e0d3dfcd"
+  },
+  "small_parameter_states": [
+    {
+      "k": 0,
+      "counts": [
+        3,
+        7,
+        13,
+        21
+      ]
+    },
+    {
+      "k": 1,
+      "counts": [
+        8,
+        25,
+        52,
+        89
+      ]
+    },
+    {
+      "k": 2,
+      "counts": [
+        23,
+        83,
+        181,
+        317
+      ]
+    },
+    {
+      "k": 3,
+      "counts": [
+        78,
+        301,
+        670,
+        1185
+      ]
+    },
+    {
+      "k": 4,
+      "counts": [
+        323,
+        1279,
+        2869,
+        5093
+      ]
+    }
+  ],
+  "counterexample_to_universal_split_optimality": {
+    "m": 1,
+    "k": 1,
+    "states": 8,
+    "split_bits": 4,
+    "global_minimum_bits": 3
+  },
+  "full_check_output": "Execute R207_depth2_split_codec_check.py; the program writes its complete per-model report to R207_verification.json in the working directory. This saved JSON is the compact verified summary, not claimed byte-identical to the generated extended report.",
+  "independent_mathematical_review": "NOT_REVIEWED",
+  "native_brc_integration": "NOT_EXECUTED"
+}
