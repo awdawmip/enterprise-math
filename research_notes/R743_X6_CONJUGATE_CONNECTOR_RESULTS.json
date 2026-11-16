@@ -1,0 +1,86 @@
+{
+  "schema": "R743_X6_CONJUGATE_CONNECTOR_BRC_EXACT_V1",
+  "date": "2026-11-12",
+  "status": "AUTHOR_SIDE_EXACT_PROOF",
+  "parent_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "source": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "validation": "R743_X6_CONJUGATE_CONNECTOR_BRC_EXACT_PASS",
+  "scope": "All 24 permutations of four connector axes, 12 signed unit steps on six axes",
+  "paths": 24,
+  "nonbacktracking": 24,
+  "shared_signed_current_classes": 1,
+  "shared_signed_current_support": 4,
+  "first_signs": "all positive",
+  "epsilon_fibers": {
+    "+": 12,
+    "-": 12
+  },
+  "holonomy_fibers": {
+    "102": 8,
+    "210": 8,
+    "021": 8
+  },
+  "joint_fibers": {
+    "+:102": 4,
+    "-:021": 4,
+    "-:210": 4,
+    "+:021": 4,
+    "+:210": 4,
+    "-:102": 4
+  },
+  "labels": {
+    "axis0": [
+      0,
+      1,
+      2
+    ],
+    "axis1": [
+      0,
+      2,
+      1
+    ],
+    "axis2": [
+      1,
+      0,
+      2
+    ],
+    "axis3": [
+      2,
+      1,
+      0
+    ],
+    "square": [
+      1,
+      0,
+      2
+    ]
+  },
+  "bits_worst": {
+    "current": 5,
+    "current_plus_epsilon": 4,
+    "current_plus_h": 3,
+    "current_plus_h_and_epsilon": 2
+  },
+  "samples": [
+    {
+      "sigma": "0123",
+      "word": "1,2,3,4,5,6,-5,-6,-4,-3,-2,-1",
+      "epsilon": "+",
+      "h": "102"
+    },
+    {
+      "sigma": "0132",
+      "word": "1,2,4,3,5,6,-5,-6,-3,-4,-2,-1",
+      "epsilon": "-",
+      "h": "021"
+    },
+    {
+      "sigma": "0213",
+      "word": "1,3,2,4,5,6,-5,-6,-4,-2,-3,-1",
+      "epsilon": "-",
+      "h": "210"
+    }
+  ],
+  "frozen_science_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "independent_evidence": "Direct Python standard-library permutation/current and S3 enumeration was also executed."
+}
