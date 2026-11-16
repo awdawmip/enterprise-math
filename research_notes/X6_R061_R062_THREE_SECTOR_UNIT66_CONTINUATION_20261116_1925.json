@@ -1,0 +1,96 @@
+{
+  "schema": "EM_X6_TASK_RESEARCH_AUTHOR_CONTINUATION_UNIT66_V1",
+  "date": "2026-11-16",
+  "mother_task": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "project": "Enterprise Math",
+  "science": {
+    "repository": "awdawmip/enterprise-math",
+    "native_source_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "P000": "V5 ACTIVE LOCKED",
+    "native_model": "signed X6 Cell torsor, fixed signed 3-axis slice"
+  },
+  "lane": {
+    "conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+    "not_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
+    "run_id": "RUN-3356cbe3c2b4916d79399941",
+    "last_verified_generation": 35,
+    "authority": "original same-session resume readback at 2026-11-16T10:20:16Z, new resume pending, fresh owner authorization needed before subsequent protected writes"
+  },
+  "newly_completed_unit": {
+    "id": 66,
+    "description": "All-g>=1 exact inclusion-exclusion theorem for overlap of three named positive sectors vs complete signed 3-axis BRC shells, retrospective historical n25 sector72,minzero213,native846; n3 support-three obstruction and n50 1,330,560 missing signed path mass",
+    "claims": [
+      "E=3R2-3s",
+      "W=3W2-3s",
+      "S=4E-6s+8Q",
+      "B=4W-6s+8V"
+    ],
+    "proof": "disjoint support and exact sign-lift multiplicities",
+    "finite_validation": "512 complete integer shells, 0 mismatches in independent direct enumerator, ordinary/-O/-OO passed; published script blob independently matched locally before running",
+    "status": "AUTHOR_PROVED_EXACT_EXECUTED_UNREVIEWED_NOT_ADMITTED"
+  },
+  "sources": [
+    {
+      "kind": "report",
+      "path": "research_notes/X6_LEGACY_R061_R062_THREE_SECTOR_INCLUSION_EXCLUSION_UNIT66_20261116.md",
+      "commit": "c42e0c5508b89879e0e6ff00a4c0e91f55f7d679",
+      "git_blob_sha1": "305900f3d3b99cc52d6db82e6695f5d304e61175"
+    },
+    {
+      "kind": "checker",
+      "path": "research_checks/X6_LEGACY_3SECTOR_SIGNED_SHELL_OVERLAP_UNIT66_20261116.py",
+      "commit": "6d668f12df872a4151cab35c35a22b6056f50f04",
+      "git_blob_sha1": "47b23ecba4755b1ddeb925e3b683de9f2a70c5e2"
+    },
+    {
+      "kind": "results",
+      "path": "research_checks/X6_LEGACY_3SECTOR_SIGNED_SHELL_OVERLAP_UNIT66_RESULTS_20261116.json",
+      "commit": "72034346cee53c17ebdf6bff86411194a1e13e32",
+      "git_blob_sha1": "007d7e83e8a33847baf8d062d44626980a73e2c6"
+    },
+    {
+      "kind": "activity",
+      "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+      "commit": "d81e3c0e8b7a9af218312775bbbd6383f9243ada",
+      "git_blob_sha1": "330c0ef4e6f24b5f91ff05b5c3db0cb689586d83",
+      "event_id": "onhour-20261116-1918-x6-unit66-three-sector-inclusion-exclusion"
+    },
+    {
+      "kind": "crosswalk",
+      "path": "research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
+      "commit": "229f093c0ba612e996e249a01441204641467390",
+      "git_blob_sha1": "a36de7f4c530040148b87863d094404136579491"
+    }
+  ],
+  "native": {
+    "prior_resume_id": "onhour-20261116-1810-x6-own-run3356-resume-unit65-v1",
+    "prior_resume_status": "SUCCEEDED / RUN_READY / generation35 / owner-authorized",
+    "previous_publish_request_id": "onhour-20261116-1916-x6-saved-unit64-65-native-progress-v1",
+    "previous_publish_status": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED / authenticated_readback=true",
+    "latest_source_readback_commit": "2958ccd5ea20d50d4372d8b3fd56e82cb9ed4c46",
+    "unit66_new_resume_request_id": "onhour-20261116-1925-x6-own-run3356-resume-for-unit66-v1",
+    "unit66_resume_status": "QUEUED / WAIT_ORIGINAL at last observation; original request retained",
+    "unit66_semantic_progress_status": "NOT_SUBMITTED pending own fresh resume terminal"
+  },
+  "ongoing_mother_objective": "X6 historical pre-rebase claim reconciliation, exact source consumers, typed signed Cell and path BRC, 28-LP dependencies, independent Driver review",
+  "unresolved": [
+    "LP011 alleged historical wrong signed-native singleton argmax caller: require exact file:line or preserve UNRESOLVED_PROVENANCE",
+    "LP019 alleged old positive N_BRC signed subtraction caller: require exact source:line; inspected R063 Stage3 PR574 is not such an error",
+    "28-LP actual live downstream consumers not exhaustively closed",
+    "Original R063 Stage3 PR574 optimization assert guard fix by own PR owner/Driver and original benchmark modes, independent Driver REQUEST_REVISION"
+  ],
+  "do_not_repeat": [
+    "original R063 Stage0 17 gates / 512 radii",
+    "original Helly constraints 66675 and native signed shell tests",
+    "Unit64 complete three-chart 1140 census and three-mode guard corrected",
+    "Unit65 original PR574 fragment injection and classification",
+    "Unit66 512-shell checker unchanged"
+  ],
+  "next_action": "First consume original onhour-20261116-1925-x6-own-run3356-resume-for-unit66-v1 receipt, then if RUN_READY authorized publish zero-upload Native Source semantic progress referencing the exact GitHub unit66 commits, preserve original IDs, read back; continue exact LP011/LP019 historical caller provenance and current remaining 28-LP consumer graph. Independent Driver review separate.",
+  "formal_status": "NOT_ADMITTED"
+}
