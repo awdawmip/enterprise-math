@@ -56,6 +56,14 @@ def describe_large_classes(classes):
                 representatives[11, 936].append(full - {a, b})
             elif all(x != 0 or y != 0 for x, y in zip(a, b)):
                 representatives[11, 944].append(full - {a, b})
+    full = direct | {origin}
+    pair_positions = Counter()
+    for centre in POINTS:
+        lengths = [min(v, 5 - v) for v in centre if v]
+        for sign, shape in enumerate((direct, mirror)):
+            if full.isdisjoint(translate(shape | {origin}, centre)):
+                pair_positions[len(lengths), len(set(lengths)), sign] += 1
+    assert pair_positions == {(2,1,0):24, (1,1,1):12, (3,2,1):48, (3,1,0):16}
     for key, shapes in representatives.items():
         generated = set()
         for shape in shapes:

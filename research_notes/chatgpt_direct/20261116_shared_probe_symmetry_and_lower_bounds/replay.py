@@ -17,10 +17,16 @@ def main():
     if not old.is_dir():p.error('Supply the previous shared-probe certificate directory with --previous')
     env=dict(os.environ,NATIVE_PROBE_PREVIOUS=str(old))
     suites={'symmetry':[('inversion.py','inversion.json',['--older',str(old)]),('orbit.py','orbit.json',['--older',str(old)]),('packets.py','packets.json',['--older',str(old)])],
-            'native':[('replay.py','result.json',['--original',str((ROOT/'original').resolve())])], 'group':[('replay.py','result.json',[]),('translation_replay.py','translation.json',[])],'anchors':[('replay.py','result.json',[]),('three.py','three.json',[]),('extra_triples.py','extra_triples.json',[]),('slices.py','slices.json',[])]}
+            'native':[('replay.py','result.json',['--original',str((ROOT/'original').resolve())])], 'group':[('replay.py','result.json',[]),('translation_replay.py','translation.json',[]),('rotation_three.py','rotation_three.json',[])],'anchors':[('replay.py','result.json',[]),('three.py','three.json',[]),('extra_triples.py','extra_triples.json',[]),('slices.py','slices.json',[])]}
     suites['asymmetric']=[('replay.py','result.json',['--older',str(old),'--group',str(ROOT/'group'),'--original',str((ROOT/'original').resolve())])]
     suites['asymmetric8721']=[('replay.py','result.json',['--older',str(old),'--group',str(ROOT/'group'),'--original',str((ROOT/'original').resolve())]),('structure.py','structure.json',[])]
+    suites['eleven_neighborhood']=[('replay.py','result.json',['--older',str(old)])]
     suites['exchange']=[('replay.py','result.json',['--older',str(old),'--group',str(ROOT/'group'),'--table',str(ROOT/'asymmetric/groups.json')]),('overlap.py','overlap.json',['--group',str(ROOT/'group'),str(ROOT/'asymmetric/groups.json'),str(ROOT/'asymmetric8721/groups.json')])]
+    suites['twelve']=[('replay.py','result.json',['--older',str(old),'--original',str((ROOT/'original').resolve())])]
+    suites['twelve'].append(('neighborhood.py','neighborhood.json',['--older',str(old)]))
+    suites['twelve'].append(('five.py','five.json',['--older',str(old)]))
+    suites['mixed_twelve']=[('replay.py','result.json',[])]
+    suites['mixed_twelve'].append(('two_cores.py','two_cores.json',[]))
     suites['large_triplets']=[('verify_8721.py','result.json',[])]
     suites['frontier_cases']=[('replay.py','result.json',[])]
     if (ROOT/'low/result.json').is_file():suites['low']=[('replay.py','result.json',['--prior',str(old)])]

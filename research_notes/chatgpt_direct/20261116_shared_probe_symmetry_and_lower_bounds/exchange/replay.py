@@ -57,7 +57,7 @@ def check(older,groupdir,table,radius,workers):
     for k in range(1,radius+1):
         r=[z for z in results if z[0]==k]
         assert set((mask,n,c) for _,mask,n,c,_,_ in r)==expected(k)
-        assert len(r)==len(expected(k))
+        assert len(r)==len({(mask,n,c) for _,mask,n,c,_,_ in r})
         assert not any(ok for *_,ok in r)
         summary.append({'replacements':k,'possible_subsets':comb(13,k),'compatible_subset_profiles':len(r),'nodes':sum(z[4]for z in r)})
     return {'certified_radius':radius,'lower_cost_profiles':len(profiles),'details':summary}

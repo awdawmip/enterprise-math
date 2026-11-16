@@ -12,32 +12,34 @@ int pos(Mask m){return Word(m)?__builtin_ctzll(Word(m)):64+__builtin_ctzll(Word(
 int size(Mask m){return __builtin_popcountll(Word(m))+__builtin_popcountll(Word(m>>64));}
 struct Row {Mask points;int type,touch;};
 vector<Row> rows;int row_kind[13];Mask old[13];
-unsigned long long nodes;vector<Mask> answer;
+int minimum_id[24]{};unsigned long long nodes;vector<Mask> answer;
 int nt;int need[24];int order[24][2];Mask slices[15];array<int,15> bounds_lo[24],bounds_hi[24];
 bool search(Mask free,int labels,const vector<int>& pool){
  ++nodes;
  if(!labels)return !free;
- int low[15]{},high[15]{},qty[15];
+ int low=0,high=0,qty[15];
+ for(int i=0;i<nt;i++)if(need[i]){low+=need[i]*bounds_lo[i][0];high+=need[i]*bounds_hi[i][0];}
  for(int j=0;j<15;j++){
-  qty[j]=size(free&slices[j]);for(int i=0;i<nt;i++)if(need[i]){low[j]+=need[i]*bounds_lo[i][j];high[j]+=need[i]*bounds_hi[i][j];}
-  if(qty[j]<low[j]||qty[j]>high[j])return false;
+  qty[j]=size(free&slices[j]);
+  if(qty[j]<low||qty[j]>high)return false;
  }
  vector<int> choices;choices.reserve(pool.size());Mask covered=0;int avail[24]{};
- for(int id:pool){auto &r=rows[id];int t=r.type;if(!need[t] || (r.points&~free))continue;
+ for(int id:pool){auto &r=rows[id];int t=r.type;if(!need[t] || id<minimum_id[t] || (r.points&~free))continue;
   choices.push_back(id);++avail[t];covered|=r.points;
  }
  if(covered!=free)return false;
  int few=1000000,pivot=-1;
  for(int i=0;i<nt;i++){
   if(need[i]>avail[i])return false;
-  if(need[i]==1&&avail[i]<few){few=avail[i];pivot=125+i;}
+  if(need[i]>0&&avail[i]<few){few=avail[i];pivot=125+i;}
  }
  int counts[125]={};
  for(int i:choices){Mask m=rows[i].points;for(;m;m&=m-1)++counts[pos(m)];}
  for(Mask m=free;m;m&=m-1){int p=pos(m);if(counts[p]<few){pivot=p;few=counts[p];}}
  for(int i:choices){auto&r=rows[i];if(pivot<125?!(r.points>>pivot&1):r.type!=pivot-125)continue;
+  int previous=minimum_id[r.type];if(pivot>=125)minimum_id[r.type]=i+1;
   --need[r.type];answer.push_back(r.points);if(search(free^r.points,labels-1,choices))return true;
-  answer.pop_back();++need[r.type];}
+  answer.pop_back();++need[r.type];minimum_id[r.type]=previous;}
  return false;
 }
 int main(int argc,char**argv){
@@ -52,6 +54,7 @@ int main(int argc,char**argv){
    for(int j=0;j<13;j++){if(m&old[j])touch|=1<<j;if(old[j]==m)ident=j;}
    if(ident>=0)row_kind[ident]=i;else rows.push_back({m,i,touch});
   }}
+ for(int i=0;i<nt;i++)for(int j=1;j<15;j++)if(bounds_lo[i][j]!=bounds_lo[i][0]||bounds_hi[i][j]!=bounds_hi[i][0])return 3;
  for(int t:row_kind)if(t<0)return 3;
  struct Profile{int cost;array<int,24> qty;};vector<Profile> profiles;int c;
  while(pf>>c){Profile l{c,{}};for(int t=0;t<nt;t++)pf>>l.qty[t];if(c<=8722)profiles.push_back(l);}
@@ -64,11 +67,11 @@ int main(int argc,char**argv){
     auto &p=profiles[n];bool allowed=true;for(int t=0;t<nt;t++){need[t]=p.qty[t]-fixed[t];if(need[t]<0)allowed=false;}
     if(!allowed)continue;
     nodes=0;answer.clear();bool ok=search(free,k,candidates);
-    cout<<k<<" "<<removed<<" "<<n<<" "<<p.cost<<" "<<nodes<<" "<<ok<<"\n";
+    cout<<k<<" "<<removed<<" "<<n<<" "<<p.cost<<" "<<nodes<<" "<<ok<<endl;
     if(ok){ofstream hit("found_"+to_string(p.cost)+"_"+to_string(removed)+".txt");for(int i=0;i<13;i++)if(!(removed>>i&1))answer.push_back(old[i]);
       for(Mask m:answer){for(;m;m&=m-1)hit<<pos(m)<<" ";hit<<"\n";}return 0;}
    }
-   if(removed%64<4)cout<<flush;
+   cout<<flush;
   }
   cout<<flush;
  }
