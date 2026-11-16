@@ -1,0 +1,121 @@
+{
+  "schema": "R5_101_BUDGET_COHORT_SWEEP_CERT_V1",
+  "status": "PASS_R5_ALL_101_HIGH_BUDGET_COHORT_SWEEP",
+  "freeze": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": "954-event derived integer indexed-center radius-two observer",
+  "budgets": {
+    "first": 214,
+    "last": 314,
+    "count": 101
+  },
+  "effective_bits_order": [
+    3,
+    8,
+    9,
+    10,
+    15,
+    17,
+    25,
+    27
+  ],
+  "kernel": {
+    "base_arcs": 4383,
+    "conditional_arcs": 16
+  },
+  "single_full_closed_sweep": {
+    "layer_updates": 313,
+    "cohort_integer_additions": 824772,
+    "cohort_pass_predecessor_evaluations": 669898,
+    "local_observed_seconds": 0.349
+  },
+  "exact_support_bands": [
+    {
+      "K_min": 214,
+      "K_max": 221,
+      "cut_ids": [
+        3,
+        8,
+        9,
+        10,
+        27
+      ],
+      "cohort_pattern_count": 3
+    },
+    {
+      "K_min": 222,
+      "K_max": 222,
+      "cut_ids": [
+        27
+      ],
+      "cohort_pattern_count": 1
+    },
+    {
+      "K_min": 223,
+      "K_max": 291,
+      "cut_ids": [
+        25,
+        27
+      ],
+      "cohort_pattern_count": 2
+    },
+    {
+      "K_min": 292,
+      "K_max": 292,
+      "cut_ids": [],
+      "cohort_pattern_count": 1
+    },
+    {
+      "K_min": 293,
+      "K_max": 314,
+      "cut_ids": [
+        15,
+        17
+      ],
+      "cohort_pattern_count": 2
+    }
+  ],
+  "positive_cohort_mask_patterns": {
+    "0": 1,
+    "0,1,2,3,4,5,8,9,10,11,128,129,130,131,132,133,136,137,138,139": 6,
+    "0,1,2,3,4,5,8,9,10,128,129,130,131,132,133,136,137,138": 1,
+    "0,1,2,4,8,128,129,130,132,136": 1,
+    "0,128": 1,
+    "0,16,32": 2,
+    "0,16,32,48": 20,
+    "0,64,128": 1,
+    "0,64,128,192": 68
+  },
+  "distinct_positive_cohort_patterns": 9,
+  "deterministic_per_budget_canonical_json_sha256": "9cc63ca013a1652219245c42c554cd2bb23b87ee19b54a8cf9b1477b6dd2bd49",
+  "full_local_augmented_report_sha256": "c21903fbd6226c8fd2996b39345d5197df2c4539d355ba1f0854fb1a1283493d",
+  "independent_direct_comparison": {
+    "masks": 256,
+    "budgets": 101,
+    "matched_minimum_costs": 25856,
+    "matched_integer_optimal_counts": 25856,
+    "mismatches": 0,
+    "local_observed_seconds": 33.021,
+    "model": "independently recomputed mask-specific predecessor kernels and min-plus/tie-count DP"
+  },
+  "representative_exact_all_closed_counts": {
+    "214": "4573020854769248525038387200000",
+    "219": "187580583979624109446476595200000",
+    "220": "62718381194661282010229637120000",
+    "221": "10060466827209074662346588160000",
+    "222": "580132637801580470678323200000",
+    "223": "209661782760358268989540757667840000",
+    "290": "76401934975139135178185856931332096",
+    "291": "10211420035936236257356176949248",
+    "292": "247939829006869892620615680",
+    "293": "13598538917490720089529384960",
+    "294": "342162737216429487140162764800",
+    "313": "572125572783419276193927738163200",
+    "314": "34551159313954027401935585280000"
+  },
+  "source_verifiers": [
+    "R5_PATH_REQUIREMENT_DP_20261116.py",
+    "R5_ALL_BUDGET_COHORT_SWEEP_20261116.py",
+    "VERIFY_R5_101_BUDGET_ALL_MASKS_20261116.py"
+  ],
+  "claim_scope": "Finite exact derived-observer reconstruction; author-side proof and tests; independent mathematical review pending."
+}
