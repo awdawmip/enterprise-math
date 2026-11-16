@@ -1,0 +1,105 @@
+{
+  "schema": "X6_AUTHOR_TASK_CONTINUATION_V1",
+  "observed_date": "2026-11-16",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "parent_objective_id": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "lane_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_not_used": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-30a8f5fd123215e08bd4a7cf",
+  "run_id": "RUN-3356cbe3c2b4916d79399941",
+  "last_verified_run_generation": 32,
+  "frozen_science": {
+    "p000_v5": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:p000_reality_foundation.json",
+    "signed_native_brc": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+    "signed_brc_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+    "historical_plane": "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "own_continuation_read": {
+    "request_id": "onhour-20261116-1504-own-x6-continuation-read-v1",
+    "status": "SUCCEEDED",
+    "phase": "OWN_RECORDED_RUN_AVAILABLE",
+    "observed_at_utc": "2026-11-16T07:04:51.453717+00:00",
+    "scope": "read-only projection, new native writes still reauthorize and CAS"
+  },
+  "latest_confirmed_native_semantic": {
+    "through_unit": 61,
+    "request_id": "onhour-20261116-1418-x6-unit59-61-saved-exact-native-progress-v1",
+    "status": "SUCCEEDED",
+    "phase": "SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "cc871bc74328416d97ae5ecb7988df1a0390dc4f",
+    "canonical_publication_verified": true,
+    "authenticated_readback": true,
+    "checkpoint_url": "https://github.com/awdawmip/enterprise-math/blob/cc871bc74328416d97ae5ecb7988df1a0390dc4f/research_artifacts/mcp/RS-X6-LEGACY-PLANE-RECONCILIATION/MCP-082892eb480e45dea6d4b9fcc0491034/a3e76f56e926312e43cb/_checkpoint.json"
+  },
+  "unit62": {
+    "result": "FROZEN_ORIGINAL_PRODUCER_EXECUTED/EXACT_AUTHOR_PROOF/UNREVIEWED/NOT_ADMITTED",
+    "native_six_axis_walk_length_range": "0..6",
+    "direct_state_comparisons": 10364,
+    "G25_endpoints": 7812,
+    "shortest_mass": 2538954612,
+    "first_excess_mass": 939815793084,
+    "second_excess_mass": 219805827756912,
+    "formula": "B_(T+4)(z)=B_T(z)*prod_{j=1}^4(T+j)*(sum_i [1/(2(a_i+1)(a_i+2))]+sum_{i<j}[1/((a_i+1)(a_j+1))]), a_i=|z_i|, T=sum_i a_i",
+    "independent_validations": "original pinned signed_brc.py imported and executed; all endpoint T,T+1,T+2,T+4 exact Fraction formula agrees; 10,364 signed-word recurrence comparisons; 32 exact sign-weight provenance checks; Python regular and -O identical result SHA256",
+    "immutable_artifacts": [
+      {
+        "path": "research_checks/X6_SIGNED_NATIVE_BRC_ORIGINAL_SOURCE_PLUS4_UNIT62_20261116.py",
+        "commit": "8e67c1578bdaff6d27439124669a19a5e9b675da",
+        "git_blob_sha1": "f34f7ffb7cedf4d1252234255b4c6fa962ba412d",
+        "sha256": "fa5cd16e2471d8be122b1bfe0efcac727a633ff7548ef0ad95384d10e45c1ec4"
+      },
+      {
+        "path": "research_checks/X6_SIGNED_NATIVE_BRC_ORIGINAL_SOURCE_PLUS4_UNIT62_RESULTS_20261116.json",
+        "commit": "6582da34f9d5e7e95e3f93d0bf94f967ee706d1e",
+        "git_blob_sha1": "146446c4ecc26cb78bf25f64f39b1ccbd0a63c7c",
+        "sha256": "82b04f102c8cc2c43c43780b21e73370de0ac2aabb31ebe3d48eec851e66fc25"
+      },
+      {
+        "path": "research_notes/X6_LP019_FROZEN_ORIGINAL_BRC_SECOND_EXCESS_SOURCE_RUN_UNIT62_20261116.md",
+        "commit": "86e565c558cb14a4693bb9f8e6b1df960b3f3eb0",
+        "git_blob_sha1": "83339855db8c5500377cfb8e1cab841bdb9e4521"
+      }
+    ],
+    "activity": {
+      "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+      "entry_count": 84,
+      "commit": "5c7edd76fc5517f7b5c80d8be9b3e23032b1be16",
+      "git_blob_sha1": "2e625b0262e2af94c751d0d345805c6d6d281326"
+    },
+    "lp28_crosswalk": {
+      "path": "research_notes/X6_LP28_SOURCE_CONSUMER_ACTION_CROSSWALK_20261112_ONHOUR_1400.md",
+      "commit": "c58aa53b934aa31c40fa7d6fce5b5013eab515c8",
+      "git_blob_sha1": "6f85eb443cdb92ded659f9548e6d3687396ade5f"
+    }
+  },
+  "original_pending_requests": [
+    {
+      "request_id": "onhour-20261116-1509-x6-unit62-frozen-original-plus4-native-progress-v1",
+      "operation": "em_execution_publish",
+      "status_at_submission": "QUEUED/WAIT_ORIGINAL",
+      "error": null,
+      "next": "Read exact original receipt; never duplicate submit"
+    }
+  ],
+  "durably_done_and_do_not_repeat": [
+    "Original frozen R063 six-blob native 17-gate/512-radius experiment unit50 already executed and native Source-published.",
+    "Original Helly producer 66675 checks unit54 already executed and native Source-published.",
+    "Source native unit59-61 SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED; no duplicate.",
+    "Units 59-61 exact support census, all-radii proof and first 2-step detour are saved and not rerun.",
+    "Unit62 original frozen source and 7812 G25 signed endpoints second detour +4 validated both Python modes; no duplicate.",
+    "Original Research lane session/CLAIM/RUN preserved; do not act on maintenance lane.",
+    "Source/GitHub Activity is author-side evidence distinct from formal independent Driver acceptance."
+  ],
+  "current_unfinished_unit": "Historical LP011 singleton signed-dominant argmax wrong caller and LP019 positive natural BRC signed-subtraction wrong caller still UNRESOLVED_PROVENANCE; 28-LP actual downstream dependency graph closure and independent Driver REQUEST_REVISION remain; unit62 Native Source original request pending terminal receipt.",
+  "next_exact_action": "First poll/reconcile original onhour-20261116-1509-x6-unit62-frozen-original-plus4-native-progress-v1 to terminal and authenticate Source checkpoint, do not resubmit. Verify current own winning CLAIM and writer generation before further protected operation; trace exact source-pinned actual LP011/LP019 historical/downstream callers with file:line and observer type, fixing only proven wrong live consumers; independent Driver review via its own identity.",
+  "excluded_claims": [
+    "No signed cancellation of positive natural BRC mass.",
+    "G=25 adaptive per-endpoint T(z)+4 is not a single fixed graph-time shell.",
+    "No historical incorrect caller identity established by this unit.",
+    "No Result/freeze/admission granted by author-side Source checkpoint."
+  ],
+  "schedule_modified": false
+}
