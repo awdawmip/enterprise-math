@@ -1,0 +1,95 @@
+{
+  "research": "R749SSN",
+  "status": "AUTHOR_EXACT_NOT_REVIEWED",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": {
+    "weights": [
+      1,
+      1,
+      2,
+      3,
+      6
+    ],
+    "error_interval": "[-2,2] each real e,d",
+    "observer": "Y_q=q^3(T_q+e)/(C_q+d)-S(q)/108"
+  },
+  "theorem": {
+    "adjacent_cutoff_first_uniform_separation_q": 501,
+    "minimum_gap_numerator": "1423720838927976185",
+    "minimum_gap_denominator": "53569280690597608884",
+    "attained_at": [
+      506,
+      507
+    ],
+    "optimal_nearest_set_noise_radius": "1423720838927976185/107138561381195217768"
+  },
+  "counterexample_at_500": {
+    "common_observation": "518977395929101571945/107139759660293253408",
+    "cutoff_500": {
+      "e": "88846406643319567/116298494160000000",
+      "d": "-2"
+    },
+    "cutoff_501": {
+      "e": "-439730328340660223/579241618362031194",
+      "d": "2"
+    }
+  },
+  "polynomial_certificates": [
+    {
+      "residue": 0,
+      "higher_cutoff": "q",
+      "shift": "n=t+84",
+      "shifted_gap_polynomial_degree": 10,
+      "coefficient_signs_ascending": "+++++++++++",
+      "constant_coefficient": "150330280324484099830603776457738071735900/1488035574738822469",
+      "leading_coefficient": "54169703866458179352459/7440177873694112345"
+    },
+    {
+      "residue": 1,
+      "higher_cutoff": "q+1",
+      "shift": "n=t+84",
+      "shifted_gap_polynomial_degree": 10,
+      "coefficient_signs_ascending": "+++++++++++",
+      "constant_coefficient": "18974183028600919942974582009608255730750/1488035574738822469",
+      "leading_coefficient": "19456809978950928795627/7440177873694112345"
+    },
+    {
+      "residue": 2,
+      "higher_cutoff": "q+1",
+      "shift": "n=t+84",
+      "shifted_gap_polynomial_degree": 10,
+      "coefficient_signs_ascending": "0++++++++++",
+      "constant_coefficient": "0",
+      "leading_coefficient": "15117698243012522476023/7440177873694112345"
+    },
+    {
+      "residue": 3,
+      "higher_cutoff": "q",
+      "shift": "n=t+84",
+      "shifted_gap_polynomial_degree": 10,
+      "coefficient_signs_ascending": "+++++++++++",
+      "constant_coefficient": "406762312967232493631998739904/180959651",
+      "leading_coefficient": "15117698243012522476023/7440177873694112345"
+    },
+    {
+      "residue": 4,
+      "higher_cutoff": "q",
+      "shift": "n=t+84",
+      "shifted_gap_polynomial_degree": 10,
+      "coefficient_signs_ascending": "+++++++++++",
+      "constant_coefficient": "19288778252555961778271561276027134435488/1488035574738822469",
+      "leading_coefficient": "19456809978950928795627/7440177873694112345"
+    },
+    {
+      "residue": 5,
+      "higher_cutoff": "q+1",
+      "shift": "n=t+84",
+      "shifted_gap_polynomial_degree": 10,
+      "coefficient_signs_ascending": "+++++++++++",
+      "constant_coefficient": "168185602818775876587221841641809039829358/1488035574738822469",
+      "leading_coefficient": "54169703866458179352459/7440177873694112345"
+    }
+  ],
+  "proof": "6 quasipolynomial residue classes; 66 nonnegative exact shifted coefficients; finite 501..503 checks, exact 500 collision",
+  "checks": "PASS"
+}
