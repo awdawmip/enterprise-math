@@ -111,6 +111,18 @@ d_n=\frac{T_{n+6}-T_n-X_1(n)C_{n+6}+X_0(n)C_n}{X_1(n)-X_0(n)},
 \]
 Retain the candidate only when \(|e_n|,|d_n|\le2\) and \(Y_{n+6j}(e_n,d_n)=y_j\) for all \(0\le j\le10\). Proof A makes the scan finite, the actual generating triple passes it, and the previously established R749SST 11-read theorem makes it unique. No new claim about the sharp minimal observation horizon is needed.
 
+## Corollary: finite-resolution cutoff screening
+
+Suppose measured readings \(z_0,\ldots,z_{10}\) satisfy \(|z_j-y_j|\le\varepsilon\) for some actual admissible trajectory. Write \(\Delta_z=\max_jz_j-\min_jz_j\). Whenever \(\Delta_z>2\varepsilon\), the true observed spread obeys
+\[
+\Delta_y\ge\Delta_z-2\varepsilon>0,
+\]
+and hence every compatible integer cutoff satisfies the **noise-aware finite candidate bound**
+\[
+\boxed{6\le q\le\left\lfloor\frac{40766}{\Delta_z-2\varepsilon}\right\rfloor.}
+\]
+This is a guaranteed *search truncation* under an explicit absolute error budget. It does not assert that the remaining candidates can all be distinguished at this noise level. Once the finite candidate set is known, any rigorous interval/semialgebraic feasibility test may be applied to the observation inequalities and the shared calibration constraints. If \(\Delta_z\le2\varepsilon\), this particular spread-based upper bound is unavailable and an additional observation or sharper invariant is needed.
+
 ## Exact verification and scope
 
 The accompanying Python/SymPy program recomputes all six \(C_r,T_r\) rational quasipolynomials from labeled weights, verifies their degrees and additional sample values, checks every numerator cancellation, every coefficient-wise rational envelope, the strict universal \(K=20383\), and the six inconsistent constant-trajectory values. Exact rational inversion is exercised at \(q=6,7,12\) with permitted nontrivial errors; all tests PASS. The code and JSON are supplied as source material, not as an independent mathematical referee.
