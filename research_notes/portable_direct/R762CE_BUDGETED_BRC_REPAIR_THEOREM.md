@@ -43,11 +43,11 @@ It validates the supplied certificate mask, independently rederives the minimum 
 
 For the 36-law fiber `(1,3,3,0)`, one sequence of sharp query sets at q=0..6 is:
 ```
-[]; [C0]; [C0,g21]; [C0,g21,g30];
-[C0,g21,g22,g23]; [C0,g21,g22,g23,g30];
-[C0,g21,g22,g23,g30,g31].
+[]; [C0]; [C0,g20]; [C0,g20,g30];
+[C0,g20,g21,g22]; [C0,g20,g21,g22,g30];
+[C0,g20,g21,g22,g30,g31].
 ```
-The labels here are interpreted in the machine ordering above: `g21,g22,g23` correspond to positions 6,7,8 (zero-based 3-gate orbit 2); `g30,g31` correspond to positions 9,10 (orbit 3). The full certificate uses exact numerical bit positions, to avoid any naming ambiguity.
+The labels here are interpreted in the machine ordering above: `g20,g21,g22` correspond to positions 6,7,8 (zero-based root indices for orbit 2); `g30,g31` correspond to positions 9,10 (orbit 3). The full certificate uses exact numerical bit positions, to avoid any naming ambiguity.
 
 The exhaustive verifier also records the per-class residual-size histograms at each budget. All calculations use exact integers and sets.
 
