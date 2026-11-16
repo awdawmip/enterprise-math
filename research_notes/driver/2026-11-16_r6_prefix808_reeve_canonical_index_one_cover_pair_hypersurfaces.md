@@ -1,0 +1,102 @@
+# PREFIX-808 — explicit index-one cover and two paired hypersurfaces for the Reeve observation algebra
+
+Date: 2026-11-16. Status: **PROVED MODEL-INTERNAL / DRIVER AUTHOR-SIDE EXTENSION**. No independent native Result admission, no native X6/Port correspondence.
+
+## Source and contribution scope
+
+Input model and original named observations: `EM-DIRECT-4660FF`. The saturated Reeve semigroup normal form, the `(mu_h)^3` quotient realization, and `Cl(B_h)=(Z/h)^3` with canonical index `h/gcd(h,2)` were established in earlier, individually attributed Driver notes by `EM-DVR-DEBB5E`. This note derives the **explicit canonical-cover algebra and its paired-hypersurface presentation** from those immutable inputs. It is a same-Driver mathematical extension, not an independent review. In particular it preserves the actual original TU/0–1 observation and does not assert a native-event realization.
+
+Source pins:
+- Reeve diagonalizable quotient: `58aa141f95750e6bad42aa785a42cef6818b72b4:research_notes/driver/2026-11-16_r6_prefix808_reeve_diagonalizable_quotient_lattice_congruence_v1.md`.
+- Previous class group and index theorem: `7f327615b9eef9e01b96f23846fadbe7f36447b4:research_notes/driver/2026-11-16_r6_prefix808_reeve_class_group_q_gorenstein_index.md`.
+
+## Precise statement
+
+Let `h>=2` be an integer and `K` **any** field. Let `T=K[Y0,Y1,Y2,Y3]`. Put
+
+```text
+G=(Z/hZ)^3,
+phi: Z^4 -> G,
+phi(a0,a1,a2,a3)=(a0-a3, a1+a3, a2+a3) mod h,
+L=ker(phi), R_h=K[L intersect N^4].
+```
+
+The previously proved saturated Reeve observation algebra `B_h=K[C_h]` is `R_h`. Define `e=(1,1,1,1)`, `delta=phi(e)=(0,2,2)`, `g=gcd(h,2)`, and `r=h/g`. Let
+
+```text
+L_can=phi^(-1)(<delta>),
+C_h^can=K[L_can intersect N^4].
+```
+
+**Theorem.** For every such `h,K`:
+
+1. The reflexive canonical class of `R_h` is `-delta` in `Cl(R_h)=G`, so its exact order is `r`. The algebra `C_h^can` is an explicit index-one canonical cover of `R_h`; it is finite of generic degree `r`, normal and Gorenstein. The claim remains valid if `char K` divides `h`; generic degree need not be separable.
+2. Put `Z_0=Y0Y3`, `Z_1=Y1Y2`, `U_i=Y_i^h`, and define the **paired hypersurface complete intersection**
+   
+   ```text
+   D_h=K[U0,U3,Z_0,U1,U2,Z_1]/
+       (Z_0^h-U0 U3, Z_1^h-U1 U2)
+       =K[Y0^h,Y3^h,Y0Y3,Y1^h,Y2^h,Y1Y2] subset T.
+   ```
+
+   There is a canonical chain of explicit finite inclusions
+   
+   ```text
+   R_h = D_h^(mu_h)  subset  C_h^can = D_h^(mu_g)  subset  D_h  subset  T,
+   ```
+   
+   where the diagonalizable `mu_d` assigns character `1 mod d` to both `Z_0,Z_1` and character `0` to all `U_i`; for `d=1` invariants are the entire algebra. In particular, **if `h` is odd, `C_h^can=D_h` is the displayed complete intersection of two hypersurfaces**; if `h` is even, `C_h^can=D_h^(mu_2)` is its parity-zero subalgebra.
+3. Equivalently, `C_h^can=T^H_can` for `H_can=ker((mu_h)^3 -> mu_r)`, with the arrow induced by the character `delta`. As diagonalizable group schemes,
+   
+   ```text
+   H_can = D(G/<delta>) ~= (mu_h)^2 x mu_g.
+   ```
+   
+   The use of group **schemes** is essential when `char K` divides `h`; the statement does not replace `mu_p` by a group of `p` distinct points.
+
+The canonical cover inherits the toric exponent grading. `Z_0,Z_1` have rational original-degree `2/h`; no ordinary degree-one grading for these new variables is presumed.
+
+## Proof
+
+**(A) Canonical class and canonical-cover lattice.** The four coordinate functionals of the facet-normal embedding of the Reeve cone are primitive. The toric divisor sequence gives `Cl(R_h)=Z^4/L=G`. The normal affine semigroup canonical module is the interior-monomial ideal
+
+```text
+omega_(R_h) = span_K{Y^a : a in L, all a_i>=1}
+            = (Y0Y1Y2Y3) * T_(-delta),
+T_gamma = span_K{Y^b : b_i>=0, phi(b)=gamma}.
+```
+
+The second equality is a bijection `a=e+b`: `phi(a)=0` iff `phi(b)=-delta`. Hence the class is `-delta`. The order of `delta=(0,2,2)` in `G` is exactly `r=h/g`, so the canonical class is torsion of exact order `r`. For every `j`, its `j`th reflexive power has the monomial model `T_(-j delta)`, with the rational monomial shifts understood; multiplication and reflexive closure give the usual canonical-cover algebra. The direct sum over the cyclic character subgroup is precisely
+
+```text
+oplus_(j=0)^(r-1) T_(j delta)
+   = K[{a in N^4: phi(a) in <delta>}]
+   = C_h^can.
+```
+
+It is normal because `L_can intersect N^4` is saturated in the **new** lattice `L_can`. Its field extension over `R_h` has exact degree `[L_can:L]=r`.
+
+Moreover `e in L_can`; every interior monomial `Y^a` of `C_h^can` has `a_i>=1`, so `a-e in L_can intersect N^4`. Conversely adding `e` to any nonnegative lattice exponent is interior. Thus its canonical module is **principal**, `omega_(C_h^can)=(Y0Y1Y2Y3) C_h^can`. Normal affine semigroup rings over fields are Cohen–Macaulay; this principal canonical module proves the cover is Gorenstein.
+
+**(B) Paired hypersurfaces.** The pair semigroup `{(a,b)>=0:a=b mod h}` is generated by `(h,0),(0,h),(1,1)` with the single primitive relation `h(1,1)=(h,0)+(0,h)`. Hence its ring is `K[X,Y,Z]/(Z^h-XY)`, including in characteristic dividing `h`. The two independent coordinate pairs `(Y0,Y3)`, `(Y1,Y2)` yield exactly `D_h` as stated.
+
+A monomial in `D_h` has `a0=a3 mod h` and `a1=a2 mod h`. It belongs to `R_h` exactly when also `a1+a3=0 mod h`, which is the total `mu_h` character (each `Z_i` has weight one, each `U_i` weight zero). Therefore `R_h=D_h^(mu_h)`.
+
+The condition `phi(a) in <delta>` is equivalent to
+
+```text
+a0=a3 mod h,  a1=a2 mod h,
+a1+a3=0 mod g.
+```
+
+Indeed `<delta>={(0,2j,2j):j mod r}`, the multiples of `g` along the diagonal of `(Z/h)^2`. The first two congruences characterize `D_h`; the last is precisely its `mu_g`-invariant condition. Thus `C_h^can=D_h^(mu_g)`. Since `g=1` for odd `h`, the odd case is the explicit complete intersection.
+
+**(C) Residual group scheme.** The exact sequence `0 -> <delta> -> G -> G/<delta> -> 0` dualizes to a diagonalizable kernel `H_can=D(G/<delta>)` of the character map `D(G)->mu_r`. Applying a unimodular change of the last two factors sends `(2,2)` to `(2,0)`. Therefore `G/<delta>=(Z/h)^2 x (Z/g)`; taking diagonalizable duals yields the asserted isomorphism. Character-graded invariants remain degree-zero subalgebras without a characteristic restriction. QED.
+
+## Exact small-case corroboration
+
+For `h=2,3,4,5,6,7`, all exponent vectors `a_i in {0,...,h}` were enumerated. Membership in the subgroup `<delta>` after `phi` exactly agreed with the displayed three congruences (respectively 17, 36, 29, 64, 45, 100 accepted exponent tuples). The unrestricted proof is the lattice argument above, not the finite test.
+
+## Boundaries and continuation
+
+This identifies the canonical cover and a **complete-intersection presentation of that cover for odd h**, refining the prior class/index calculation. It does not prove that the original native X6 Cell/Link/Port events realize the Reeve semigroup, nor independently review this Driver's own earlier class-group theorem. A distinct scientific reviewer may assess the original facet-lattice correspondence and the reflexive canonical-module argument before formal Native Result admission. No Task closure or mother-objective closure is inferred.
