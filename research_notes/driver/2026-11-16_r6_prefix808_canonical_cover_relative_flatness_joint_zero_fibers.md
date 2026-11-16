@@ -92,7 +92,7 @@ Enumerate `0<=a,b<h` with `a+b<h` and `a+b=0 mod gcd(h,2)`; count basis monomial
 ```text
 (2,1,1,1) (3,3,6,3) (4,2,4,3) (5,5,15,5)
 (6,3,9,5) (7,7,28,7) (8,4,16,7) (9,9,45,9)
-(10,5,25,5) (11,11,66,11) (12,6,36,11)
+(10,5,25,9) (11,11,66,11) (12,6,36,11)
 ```
 The proof is the arbitrary-height monomial and localization argument above; finite enumeration is corroboration only.
 
