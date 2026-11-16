@@ -1,0 +1,108 @@
+{
+  "schema": "EM_R201_BINARY_AFFINE_OBSERVER_VERIFICATION_V1",
+  "status": "PASS",
+  "arithmetic": "exact Boolean/int plus BigInt counts",
+  "backend": "JS_DESCRIPTOR_REFERENCE_NOT_INSTALLED_NATIVE_BRC",
+  "frozen_science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "totals": {
+    "models": 6,
+    "words": 1374,
+    "state_classes": 58,
+    "action_orbits": 58,
+    "composition_checks": 1800,
+    "errors": 0
+  },
+  "models": [
+    {
+      "a": 2,
+      "k": 1,
+      "L": 2,
+      "labels": [
+        -1,
+        0
+      ],
+      "word_test_depth": 7,
+      "words_checked": 255,
+      "reachable_states": 8,
+      "affine_dimension": 5
+    },
+    {
+      "a": 3,
+      "k": 2,
+      "L": 2,
+      "labels": [
+        -1,
+        0,
+        1
+      ],
+      "word_test_depth": 5,
+      "words_checked": 364,
+      "reachable_states": 23,
+      "affine_dimension": 7
+    },
+    {
+      "a": 3,
+      "k": 2,
+      "L": 1,
+      "labels": [
+        0,
+        0,
+        1
+      ],
+      "word_test_depth": 5,
+      "words_checked": 364,
+      "reachable_states": 7,
+      "affine_dimension": 5
+    },
+    {
+      "a": 2,
+      "k": 0,
+      "L": 3,
+      "labels": [
+        -1,
+        -1
+      ],
+      "word_test_depth": 6,
+      "words_checked": 127,
+      "reachable_states": 15,
+      "affine_dimension": 6
+    },
+    {
+      "a": 2,
+      "k": 1,
+      "L": 0,
+      "labels": [
+        0,
+        -1
+      ],
+      "word_test_depth": 7,
+      "words_checked": 255,
+      "reachable_states": 2,
+      "affine_dimension": 1
+    },
+    {
+      "a": 1,
+      "k": 1,
+      "L": 2,
+      "labels": [
+        0
+      ],
+      "word_test_depth": 8,
+      "words_checked": 9,
+      "reachable_states": 3,
+      "affine_dimension": 3
+    }
+  ],
+  "native_x6": {
+    "direction_count": 12,
+    "source_count": 6,
+    "alphabet_count": 84,
+    "tail_depth": 2,
+    "observer_state_count": "1407685",
+    "minimal_binary_state_bits": 21,
+    "affine_observer_dimension": 35,
+    "physical_dim_example": 2,
+    "dense_rational_slot_increment": 1400
+  },
+  "native_brc_installed_package_integration": "NOT_EXECUTED"
+}
