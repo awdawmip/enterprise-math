@@ -1,0 +1,229 @@
+{
+  "domain": "all integer k>=3",
+  "exact_output_spot_checks": [
+    {
+      "exact_common_denominator_bits": 21,
+      "k": 0,
+      "old_full_matrix_bound_bits": 21,
+      "sharp_formula_match": true,
+      "spectral_scaled_bound_bits": 21
+    },
+    {
+      "exact_common_denominator_bits": 22,
+      "k": 1,
+      "old_full_matrix_bound_bits": 51,
+      "sharp_formula_match": true,
+      "spectral_scaled_bound_bits": 40
+    },
+    {
+      "exact_common_denominator_bits": 37,
+      "k": 2,
+      "old_full_matrix_bound_bits": 80,
+      "sharp_formula_match": true,
+      "spectral_scaled_bound_bits": 58
+    },
+    {
+      "exact_common_denominator_bits": 53,
+      "k": 3,
+      "old_full_matrix_bound_bits": 109,
+      "sharp_formula_match": true,
+      "spectral_scaled_bound_bits": 76
+    },
+    {
+      "exact_common_denominator_bits": 71,
+      "k": 4,
+      "old_full_matrix_bound_bits": 138,
+      "sharp_formula_match": true,
+      "spectral_scaled_bound_bits": 94
+    },
+    {
+      "exact_common_denominator_bits": 90,
+      "k": 5,
+      "old_full_matrix_bound_bits": 167,
+      "sharp_formula_match": true,
+      "spectral_scaled_bound_bits": 112
+    },
+    {
+      "exact_common_denominator_bits": 144,
+      "k": 8,
+      "old_full_matrix_bound_bits": 254,
+      "sharp_formula_match": true,
+      "spectral_scaled_bound_bits": 167
+    },
+    {
+      "exact_common_denominator_bits": 290,
+      "k": 16,
+      "old_full_matrix_bound_bits": 486,
+      "sharp_formula_match": true,
+      "spectral_scaled_bound_bits": 313
+    },
+    {
+      "exact_common_denominator_bits": 581,
+      "k": 32,
+      "old_full_matrix_bound_bits": 951,
+      "sharp_formula_match": true,
+      "spectral_scaled_bound_bits": 604
+    },
+    {
+      "exact_common_denominator_bits": 1163,
+      "k": 64,
+      "old_full_matrix_bound_bits": 1880,
+      "sharp_formula_match": true,
+      "spectral_scaled_bound_bits": 1186
+    }
+  ],
+  "finite_integrality_bases_checked": 249,
+  "frozen_science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "full_matrix_lcm": 552847680,
+  "initial_mass_denominator": 2055053,
+  "mask_count": 63,
+  "parameter": "2/5",
+  "pass": true,
+  "proof_status": "AUTHOR_PROVED_EXACT_COMPUTATION_NOT_REVIEWED",
+  "required_prime_witnesses": [
+    {
+      "degree": 3,
+      "mask": 3,
+      "prime": 2,
+      "proof_mode": "eventual_geometric",
+      "q_k_mod_p_for_k_3_to_d_plus_2": [
+        1,
+        1,
+        1
+      ],
+      "recurrence_unit": 1,
+      "scaled_characteristic_mod_p": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "degree": 3,
+      "mask": 17,
+      "prime": 3,
+      "proof_mode": "eventual_geometric",
+      "q_k_mod_p_for_k_3_to_d_plus_2": [
+        1,
+        2,
+        1
+      ],
+      "recurrence_unit": 2,
+      "scaled_characteristic_mod_p": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "degree": 2,
+      "mask": 2,
+      "prime": 5,
+      "proof_mode": "eventual_geometric",
+      "q_k_mod_p_for_k_3_to_d_plus_2": [
+        3,
+        2
+      ],
+      "recurrence_unit": 3,
+      "scaled_characteristic_mod_p": [
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "degree": 2,
+      "mask": 32,
+      "prime": 277,
+      "proof_mode": "eventual_geometric",
+      "q_k_mod_p_for_k_3_to_d_plus_2": [
+        149,
+        187
+      ],
+      "recurrence_unit": 31,
+      "scaled_characteristic_mod_p": [
+        0,
+        246,
+        1
+      ]
+    },
+    {
+      "degree": 2,
+      "mask": 2,
+      "prime": 7,
+      "proof_mode": "eventual_geometric",
+      "q_k_mod_p_for_k_3_to_d_plus_2": [
+        1,
+        4
+      ],
+      "recurrence_unit": 4,
+      "scaled_characteristic_mod_p": [
+        0,
+        3,
+        1
+      ]
+    },
+    {
+      "degree": 3,
+      "mask": 40,
+      "prime": 11,
+      "proof_mode": "eventual_geometric",
+      "q_k_mod_p_for_k_3_to_d_plus_2": [
+        9,
+        1,
+        5
+      ],
+      "recurrence_unit": 5,
+      "scaled_characteristic_mod_p": [
+        0,
+        0,
+        6,
+        1
+      ]
+    },
+    {
+      "degree": 2,
+      "mask": 1,
+      "prime": 13,
+      "proof_mode": "eigenmode_geometric",
+      "q_k_mod_p_for_k_3_to_d_plus_2": [
+        2,
+        4
+      ],
+      "recurrence_unit": 2,
+      "scaled_characteristic_mod_p": [
+        12,
+        5,
+        1
+      ]
+    },
+    {
+      "degree": 1,
+      "mask": 0,
+      "prime": 2053,
+      "proof_mode": "eventual_geometric",
+      "q_k_mod_p_for_k_3_to_d_plus_2": [
+        752
+      ],
+      "recurrence_unit": 1470,
+      "scaled_characteristic_mod_p": [
+        583,
+        1
+      ]
+    }
+  ],
+  "scaled_characteristic_coefficients_checked": 249,
+  "schema": "EM_R254_SHARP_63_LABELLED_DENOMINATOR_V1",
+  "scope": "positive scalar observer only; fixed rational parameter 2/5; no native signed port preservation",
+  "sharp_divisor": 7479000,
+  "spectral_minimum_integer_scaling": 299160,
+  "T_factors": {
+    "2": 3,
+    "3": 3,
+    "5": 1,
+    "277": 1
+  },
+  "theorem": "lcm_m denom(h_m,k)=J*T^k/K, with J=2055053, T=299160, K=7479000"
+}
