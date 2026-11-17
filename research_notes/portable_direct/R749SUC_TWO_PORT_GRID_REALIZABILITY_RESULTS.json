@@ -1,0 +1,179 @@
+{
+  "exact_4_3_classes": 190,
+  "exact_4_3_impossible": 66,
+  "finite_grid_examples": {
+    "K2_M1": {
+      "bit_cost": 4,
+      "classes": 15,
+      "excluded": 1,
+      "realized_witnesses": 15,
+      "table_diagonal_bins": [
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    "K3_M2": {
+      "bit_cost": 7,
+      "classes": 68,
+      "excluded": 13,
+      "realized_witnesses": 68,
+      "table_diagonal_bins": [
+        [
+          5,
+          5,
+          9
+        ],
+        [
+          5,
+          8,
+          9
+        ],
+        [
+          9,
+          9,
+          9
+        ]
+      ]
+    },
+    "K4_M3": {
+      "bit_cost": 8,
+      "classes": 190,
+      "excluded": 66,
+      "realized_witnesses": 190,
+      "table_diagonal_bins": [
+        [
+          7,
+          7,
+          7,
+          16
+        ],
+        [
+          7,
+          8,
+          10,
+          16
+        ],
+        [
+          7,
+          10,
+          15,
+          16
+        ],
+        [
+          16,
+          16,
+          16,
+          16
+        ]
+      ]
+    },
+    "K5_M2": {
+      "bit_cost": 7,
+      "classes": 70,
+      "excluded": 11,
+      "realized_witnesses": 70,
+      "table_diagonal_bins": [
+        [
+          5,
+          6,
+          9
+        ],
+        [
+          6,
+          8,
+          9
+        ],
+        [
+          9,
+          9,
+          9
+        ]
+      ]
+    },
+    "K5_M4": {
+      "bit_cost": 9,
+      "classes": 426,
+      "excluded": 199,
+      "realized_witnesses": 426,
+      "table_diagonal_bins": [
+        [
+          9,
+          9,
+          9,
+          9,
+          25
+        ],
+        [
+          9,
+          9,
+          10,
+          15,
+          25
+        ],
+        [
+          9,
+          10,
+          15,
+          20,
+          25
+        ],
+        [
+          9,
+          15,
+          20,
+          24,
+          25
+        ],
+        [
+          25,
+          25,
+          25,
+          25,
+          25
+        ]
+      ]
+    },
+    "K7_M3": {
+      "bit_cost": 8,
+      "classes": 204,
+      "excluded": 52,
+      "realized_witnesses": 204,
+      "table_diagonal_bins": [
+        [
+          7,
+          7,
+          10,
+          16
+        ],
+        [
+          7,
+          10,
+          13,
+          16
+        ],
+        [
+          10,
+          13,
+          15,
+          16
+        ],
+        [
+          16,
+          16,
+          16,
+          16
+        ]
+      ]
+    }
+  },
+  "formula": "sum_{i,j=0}^M count_{a,b=0}^M [L_a L_b < U_i U_j - max(U_i,U_j)], U_M=infinity; infinite diagonal upper counts all",
+  "optimal_fixed_width_bits_4_3": 8,
+  "scope": "Exact rational 2-port W>=0,rho(W)<1 under all ordered rank-one grid guards",
+  "status": "PASS"
+}
