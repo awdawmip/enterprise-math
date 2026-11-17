@@ -7,7 +7,108 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "event_id": "em-r1-r231-multipair244-20261117",
+      "repairs_event_id": null,
+      "state": "VERIFY_EM_PUBLICATION",
+      "outcome": "R231 author-proof and exact finite test: k=6 sticky-reset proper killed blocks have seven shared non-pole source masks at lambda=1/2; exactly 21 nontrivial rational pairwise gcds among 1953, each x-1/2, yielding minimal scalar recurrence degree 244 (generic 250). PASS; independent mathematical review NOT_REVIEWED. Full native typed BRC intact; EffectHistogram NOT_EXECUTED.",
+      "source_frozen_pin": "awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "f15c70f1ad510fa08387dd227177936ff9a2cd7e",
+          "path": "research_notes/portable_direct/R231_MULTIPAIR_SOURCE_SPECTRAL_COLLISION_244_20261117.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "GITHUB_CONNECTOR_PINNED_FETCH_FILE_READBACK",
+            "git_blob_sha1": "c44bbefd538babd73f3fcff123709841e7b38832",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/f15c70f1ad510fa08387dd227177936ff9a2cd7e/research_notes/portable_direct/R231_MULTIPAIR_SOURCE_SPECTRAL_COLLISION_244_20261117.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "f15c70f1ad510fa08387dd227177936ff9a2cd7e",
+          "path": "research_notes/portable_direct/R231_multipair_collision_exact_check.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "GITHUB_CONNECTOR_PINNED_FETCH_FILE_READBACK",
+            "git_blob_sha1": "ab5e590a239fb266cccdbb7d98afd9dbe299654c",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/f15c70f1ad510fa08387dd227177936ff9a2cd7e/research_notes/portable_direct/R231_multipair_collision_exact_check.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "f15c70f1ad510fa08387dd227177936ff9a2cd7e",
+          "path": "research_notes/portable_direct/R231_verification.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "GITHUB_CONNECTOR_PINNED_FETCH_FILE_READBACK",
+            "git_blob_sha1": "a06df934992f17b45e947a244a881479247d1ca0",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/f15c70f1ad510fa08387dd227177936ff9a2cd7e/research_notes/portable_direct/R231_verification.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/1d333de3d690d003cd9c27b310bb29d6aa64bef0/journal/enterprise-math/2026-11-17/20261117-r1-r231-multipair244-f15c70f1.md"
+      ],
+      "formal_claim": false,
+      "next_question": "Tighten multi-mode spectral collision bound; seek maximum multiplicity antichain and exact lower scalar recurrence."
+    },
+    {
+      "event_id": "em-r1-r232-sperner231-20261117",
+      "repairs_event_id": null,
+      "state": "VERIFY_EM_PUBLICATION",
+      "outcome": "R232 author-proof: fixed non-pole spectral root across proper source masks has Sperner multiplicity bound C(k,floor(k/2)); sharp positive reversible k=6 witness has 20 source masks sharing lambda=1/2. Exhaustive exact Fraction check of 63 block polynomials and all 1953 pairwise gcds (190 nontrivial, only x-1/2) yields exactly minimal scalar recurrence degree 231. AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED. Native typed BRC EffectHistogram NOT_EXECUTED.",
+      "source_frozen_pin": "awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "b7801c2e08e1ae3f857b6d5f14e26184caa1bf54",
+          "path": "research_notes/portable_direct/R232_SPERNER_MAXIMAL_SPECTRAL_COLLISION_231_20261117.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "GITHUB_CONNECTOR_PINNED_FETCH_FILE_READBACK",
+            "git_blob_sha1": "788e6f7892aaedddb26448c8ff7aeb07645e48cf",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b7801c2e08e1ae3f857b6d5f14e26184caa1bf54/research_notes/portable_direct/R232_SPERNER_MAXIMAL_SPECTRAL_COLLISION_231_20261117.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "b7801c2e08e1ae3f857b6d5f14e26184caa1bf54",
+          "path": "research_notes/portable_direct/R232_sperner_spectral_collision_231_check.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "GITHUB_CONNECTOR_PINNED_FETCH_FILE_READBACK",
+            "git_blob_sha1": "e62e157faa371a9216d062c199706091ef669a4f",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b7801c2e08e1ae3f857b6d5f14e26184caa1bf54/research_notes/portable_direct/R232_sperner_spectral_collision_231_check.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "b7801c2e08e1ae3f857b6d5f14e26184caa1bf54",
+          "path": "research_notes/portable_direct/R232_verification.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "GITHUB_CONNECTOR_PINNED_FETCH_FILE_READBACK",
+            "git_blob_sha1": "9f0026bd8800a83e0e01c34fbbb3a7db2b1def6f",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b7801c2e08e1ae3f857b6d5f14e26184caa1bf54/research_notes/portable_direct/R232_verification.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/85497cb87ecbb4bfd73ccf8598d0f9de183f2fda/journal/enterprise-math/2026-11-17/20261117-r1-r232-sperner231-b7801c2e.md"
+      ],
+      "formal_claim": false,
+      "next_question": "Determine global minimum order allowing simultaneous multiple-eigenvalue collisions; exact-bit cost vs 256-state propagation; native read-only typed BRC observer integration."
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-17T00:04:28.429255+00:00",
   "registration_key": "session:MCP-07b4791735b74a598afff18d13a968ce:TASK_RESEARCH",
