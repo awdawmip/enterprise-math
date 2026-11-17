@@ -6,7 +6,8 @@ from itertools import product
 from pathlib import Path
 
 HERE=Path(__file__).resolve().parent
-sys.path.insert(0,str(HERE))
+COORD=HERE.parent / "experiments" / "x6_native_coordinate_completion_v7_20260905"
+sys.path.insert(0,str(COORD))
 from x6_coordinate import Coord6,canonical
 import x6_cover
 import x6_cover_strict_v2 as strict
@@ -33,7 +34,7 @@ def expected(z,axis,d,m):
     return (*k,m)
 
 def main():
-    require(blob_sha(HERE/'x6_cover.py')==ORIGINAL_SHA,'frozen source blob changed')
+    require(blob_sha(COORD/'x6_cover.py')==ORIGINAL_SHA,'frozen source blob changed')
     checks=0
     for z in product((-1,0,1),repeat=6):
         h=min(z)
@@ -75,7 +76,7 @@ def main():
     summary={
         'schema':'EM_X6_UNIT94_STRICT_COVER_SUCCESSOR_CHECK_V1',
         'frozen_cover_git_blob_sha1':ORIGINAL_SHA,
-        'strict_cover_git_blob_sha1':blob_sha(HERE/'x6_cover_strict_v2.py'),
+        'strict_cover_git_blob_sha1':blob_sha(COORD/'x6_cover_strict_v2.py'),
         'execution_environment':'CPython with exact original x6_cover blob and extracted necessary Coord6 dependency, NOT complete project source tree',
         'original_full_coordinate_module_executed':False,
         'original_native_R063_Helly_or_LP026_full_benchmark_executed':False,
