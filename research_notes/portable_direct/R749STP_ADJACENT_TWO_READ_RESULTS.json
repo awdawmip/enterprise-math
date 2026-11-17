@@ -1,0 +1,57 @@
+{
+  "unit": "R749STP",
+  "frozen_science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "evidence": "AUTHOR_EXACT_NOT_REVIEWED",
+  "weights": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ],
+  "comparison": [
+    73,
+    265
+  ],
+  "read_indices": [
+    0,
+    1
+  ],
+  "counts": {
+    "73": {
+      "C": 707343,
+      "T": 8931013
+    },
+    "79": {
+      "C": 1020943,
+      "T": 13914446
+    },
+    "265": {
+      "C": 338147679,
+      "T": 15099942957
+    },
+    "271": {
+      "C": 377285215,
+      "T": 17225006406
+    }
+  },
+  "local_diff_derivative_lower_bounds": {
+    "73": {
+      "positive_d_e": "48414733542/722157511645",
+      "positive_minus_d_d": "188855589955784853136147/521511471625298310606025"
+    },
+    "265": {
+      "positive_d_e": "291148391248134/127578119851541053",
+      "positive_minus_d_d": "799849077100258385144721786239507/16276176664854173311160778944348809"
+    }
+  },
+  "exact_min_F0_minus_F1": "980722950443484973593733668/6142123829965035791412569735",
+  "exact_strict_noise_per_raw_read": "eta < 245180737610871243398433417/6142123829965035791412569735",
+  "one_read_F0_extremes": [
+    "-5139841969075768/717561205762695",
+    "23581222102518344/717557156478663"
+  ],
+  "conclusion": "Minimal number of successive initial exact reads distinguishing q=73 from p=265 is exactly two.",
+  "scope": "Fixed nuisance pair per candidate across both reads; four nuisance parameters range independently over the full real square [-2,2]^2 each. Auxiliary scalar observer only.",
+  "next": "Determine general exact adjacent two-read separators by phase/gap; prove source-preserving typed BRC readout correspondence."
+}
