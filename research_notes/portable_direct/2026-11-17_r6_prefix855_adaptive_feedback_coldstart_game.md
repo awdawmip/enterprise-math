@@ -1,0 +1,57 @@
+# PREFIX-855 — Adaptive feedback cannot beat five-bit cold-start recovery in the five-source named BRC observer
+
+Date: 2026-11-17. Status: AUTHOR_PROVED / EXACT_FINITE_GAME_CERTIFICATE / INDEPENDENT_INTEGER_CROSSCHECK / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED.
+Frozen scientific input: `f42f2906d77f24085c123f3ccfe9667d41caa96d`.
+Direct predecessor: PREFIX-854, `2026-11-17_r6_prefix854_variable_modulus_dynamic_pair_automaton.md`.
+Provenance: own historical Researcher `EM-DIRECT-B518B3`, native session `MCP-adddf9d72d594b378439e0dbb22af0f0`, existing Source Activity `RA-14044F2E842D112941E256BF`. Independent auxiliary research; no X6 shared CLAIM.
+
+## 1. Exact typed model and question
+
+Take five **named** binary BRC source increments `x_i in {0,1}` and the injective integer readout `U(x)=sum_{i=0}^4 2^i x_i`. The world-state readout set is `X={0,...,31}`. Between readings the real source may perform zero or one named-bit flip, so `N(x)={x} union {x xor 2^i : 0<=i<5}`. The baseline and known time multiplier `c_t=2^{floor(t/2)}` can be inverted for any odd modulus `q`, yielding the normalized observation `U(x_t) mod q`.
+
+The observer initially knows no source bits. At each sample it may select an odd `q in Q4={3,5,7,9,11,13,15}` as an **arbitrary function of the entire previous observation sequence**, then observe the resulting residue; it retains arbitrary private memory. The adversary selects any admissible source trajectory. This changes PREFIX-854's predeclared-schedule question into a feedback-dependent sensor-scheduling problem. Ask whether a four-bit port can guarantee exact current-state recovery at any finite or eventual observation time.
+
+## 2. Exact information-state game
+
+Represent every nonempty candidate-state set `B subseteq X` by its 32-bit integer mask. Define
+
+`Post(B)=union_{x in B} N(x)`,
+`Child(B,q,r)=Post(B) intersect {u in X : u mod q=r}`
+
+for every residue `r` that gives a nonempty child. Because `Post(X)=X`, this same update also correctly implements the initial cold observation. The posterior `B` is the exact set of all source states compatible with the observed residue history, regardless of the controller's choice rule.
+
+A singleton is a successful information state. Let `W_0={B:|B|=1}` and inductively define the finite-horizon controller attractor
+
+`W_{k+1}=W_k union {B: exists q in Q4 such that every nonempty Child(B,q,r) belongs to W_k}`.
+
+Induction on `k` proves `B in W_k` exactly when a feedback choice strategy guarantees synchronization in at most `k` further readings, assuming singleton states are already recognized. A state outside the eventual fixed point `W_*` has, for every permitted `q`, at least one nonempty successor outside `W_*`. The adversary can choose such outcomes indefinitely; finite branching ensures a consistent infinite source trajectory for those observations.
+
+## 3. Theorem 855-A: exact feedback lower bound
+
+For the declared five-source binary named BRC observer and the complete four-bit **odd** modulus set `Q4`, no arbitrary adaptive or history-dependent selection of moduli can guarantee cold-start exact recovery, even with unbounded receiver memory and no fixed time limit.
+
+**Finite exhaustive certificate.** Exhaustively BFS-expand all nonempty belief sets reachable from `X` using all seven choices, and enumerate *every* residue child. The exact reachable graph has `1944` distinct states and `1944*7=13608` complete controller-action rows. Independently compute successors using explicit finite sets (rather than bit-mask unions) for every action row. The attractor stabilizes in one nontrivial round:
+
+- `W_0`: 32 singleton sets;
+- `W_1`: 48 sets (adds 16 two-element sets);
+- `W_2=W_1`: no additional state.
+
+Thus the remaining `1896` reachable belief sets form a closed adversarial losing region: for every one of these states and every odd `q<=15`, at least one possible observed residue leads to another losing state. The initial `X` belongs to the losing region. This verifies all quantified cases of the finite game and proves the theorem; the attached exact checker regenerates the complete state graph and checks its closure.
+
+This result strengthens PREFIX-854's impossibility for predeclared four-bit sequences to impossibility for **arbitrary feedback-based** four-bit odd-modulus schedules. It uses only the declared positive-integer named-source observer, not an assumption about native X6 event implementation.
+
+## 4. Theorem 855-B: tight cold-start width and warm tracking
+
+PREFIX-854 supplies the explicit two-reading schedule `(17,31)`. An independent enumeration here verifies every pair of legal two-step histories having identical observations ends at the same state; zero off-diagonal terminal pairs survive. No single odd modulus `q<32` can distinguish all 32 possible initial states, so two readings are also the shortest cold-start length at five-bit maximum width. Combining with Theorem 855-A yields the **exact optimal adaptive cold-start maximum width of five bits**.
+
+After these two observations, the decoder knows the current full named state. PREFIX-850's `q=11` criterion is separately checked for all 32 old states: the six admissible next states have six distinct residues modulo 11. Hence the continuing protocol `17,31,11,11,...` synchronizes once in two five-bit samples and then performs arbitrary-length exact tracking with a four-bit sample at each later heartbeat. If communication is lost long enough for the baseline to become unknown, restarting the same two-sample five-bit schedule restores exact tracking regardless of missed updates. This is a port-width/latency tradeoff, not a claim of globally four-bit cold-start recovery.
+
+## 5. Verification scope, reproduction and evidence
+
+Run `node research_notes/portable_direct/PREFIX855_R6_ADAPTIVE_COLDSTART_GAME_CHECK.js` (Node.js built-ins only). It enumerates information states with BigInt, checks the complete transition graph against a distinct set-based oracle, computes the exact winning fixed point, verifies all losing-state/action successor witnesses, and checks the positive `(17,31)` construction and subsequent modulo-11 tracking. Run with `--full` to print all indexed graph masks/transitions, a complete reproducible finite certificate. The default JSON records the canonical SHA-256 of the serialized graph and a concise 16-pair list. An independent Python integer/set BFS on the same declared model separately returned `1944`, `[32,48]`, `1896`, and verified `(17,31)`; its comparison is author-side crosschecking, not external peer review.
+
+**Information retained:** The exact proof concerns the typed observer `U mod q` with named binary source identity and one-flip/no-op transitions. No source-provenance, joint/composite background, path order, native Cell/Link/Port state or future observer is erased by this statement. The odd-modulus assumption is load-bearing. Raw five-bit port capacity omits stored receiver belief/known state, scheduling logic and time labels.
+
+**Next questions:** (i) Generalize the feedback-game lower bound and synchronization cost for arbitrary `p` and at-most-`h` named flips; (ii) derive a shorter analytic adversarial invariant replacing the 1,944-state exhaustive certificate; (iii) examine mixed/even-modulus time-dependent effective observations, separately from the invertible-odd theorem; (iv) seek an independently authorized native X6 Cell/Link/Port observer mapping.
+
+Scientific status: exact finite exhaustive proof for the stated model; author-verified, not independently reviewed or admitted.
