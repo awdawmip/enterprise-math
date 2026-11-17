@@ -1,0 +1,43 @@
+{
+  "schema": "EC49FRQ_PARITY_BELLMAN_SUMMARY_V1",
+  "date": "2026-11-17",
+  "original_model": "BRC class 16943 original named response tree",
+  "scientific_input_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source": {
+    "master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "profile_csv_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "universe": {
+    "configurations": 310,
+    "fully_named_profiles": 141,
+    "terminal_actions": 144,
+    "root_actions": 84,
+    "all_physical_actions": 228,
+    "same_price_distinct_response_partitions": 209
+  },
+  "exact_dp_results": [
+    {"x": 1, "alpha": 24, "beta": 1, "even_Ux": 7861, "odd_Ux": 7886, "states": 12922, "checked_by": ["original_all228", "equal_partition_209"]},
+    {"x": 1, "alpha": 19, "beta": 2, "even_Ux": 7080, "odd_Ux": 7099, "states": 12922, "checked_by": ["original_all228", "equal_partition_209"]},
+    {"x": 2, "alpha": 49, "beta": 1, "even_Ux": 15561, "odd_Ux": 15561, "states": 12922, "checked_by": ["equal_partition_209"], "role": "supplementary_nonloadbearing"}
+  ],
+  "inherited_native_bellman": {
+    "x3": {"alpha": 19, "beta": 2, "even_Ux": 7290, "odd_Ux": 7311},
+    "unrestricted_endpoint_bounds": {"U1": 296, "M1": 690, "U3": 308, "M3": 700},
+    "terminal_indistinguishable_pairs": [[8,139], [46,140]],
+    "root_lower_bound": "U_R >= 4 and U_R = 4 implies M_R = 4"
+  },
+  "candidate_cost_vectors": {
+    "A": [6,290,6,751],
+    "B": [5,293,5,704],
+    "C": [5,295,5,685]
+  },
+  "main_statement": "For each original legal complete deterministic identifying tree Q there is one T in {A,B,C} such that C_T(x,lambda) <= C_Q(x,lambda) for all real 1<=x<=3 and 0<=lambda<=1.",
+  "local_self_contained_archive": {
+    "filename": "EC49FRQ_LOW_PRICE_STRIP_UNIFORM_PARETO_FULL_EVIDENCE_20261117.tar.xz",
+    "sha256": "5336a97f56e2d6408a8e03e8ffc72ed27fb486ed9bd8122e0c96fb9d7843561f",
+    "manifest_entries_verified": 18,
+    "contains": ["frozen_original_source", "full_A_B_C_tree_witnesses", "full_new_parity_optimal_witnesses", "two_DP_implementations", "exact_exhaustive_certificates", "logs", "proof"]
+  },
+  "mathematics_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_TWICE_NOT_REVIEWED",
+  "control_status": "PORTABLE_RESEARCH_ARTIFACT_ONLY_NO_CLAIM_OR_RESULT_OR_REVIEW"
+}
