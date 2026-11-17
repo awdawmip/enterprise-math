@@ -1,0 +1,82 @@
+{
+  "cost_improvement": 517,
+  "fixed_one_error_optimal_cost": 2193,
+  "frozen_science_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "guarantee": "0 <= 2*eta < delta, one arbitrary unmarked replacement; true state any mask 0..255",
+  "intact_observation_cardinalities": {
+    "214": 32,
+    "223": 4,
+    "294": 4
+  },
+  "lower_bound_witness": "state16 three disjoint windows; six mandatory intact-path reads; corrupt sixth => seventh required",
+  "min_positive_center_gap_by_budget": {
+    "214": "13883516118328421520506880000",
+    "223": "267753525139190986466918400000",
+    "294": "76289178155959966960189440"
+  },
+  "min_positive_gap_delta": "76289178155959966960189440",
+  "number_of_distinct_signature_tuples": 256,
+  "permutation_costs": {
+    "214,223,294": 1756,
+    "214,294,223": 1685,
+    "223,214,294": 1756,
+    "223,294,214": 1676,
+    "294,214,223": 1685,
+    "294,223,214": 1676
+  },
+  "readout_budgets": [
+    294,
+    223,
+    214
+  ],
+  "reference_count_crosscheck": 768,
+  "schema": "R5_ADAPTIVE_ONE_UNMARKED_ERROR_CERTIFICATE_V1",
+  "source_compact_sha256": "92d667238b8dfc58b1315352b80c9f6b36236d8f6f7a894401151c546bc8e645",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "stdout": "PASS_R5_SHARP_ADAPTIVE_SINGLE_UNMARKED_ERROR_1676",
+  "symbolic_corruption_exhaustive_runs": 22272,
+  "three_source_witnesses": [
+    {
+      "states": [
+        16,
+        17
+      ],
+      "window": [
+        214,
+        221
+      ],
+      "window_cardinality": 8
+    },
+    {
+      "states": [
+        16,
+        80
+      ],
+      "window": [
+        223,
+        291
+      ],
+      "window_cardinality": 69
+    },
+    {
+      "states": [
+        16,
+        32
+      ],
+      "window": [
+        294,
+        313
+      ],
+      "window_cardinality": 20
+    }
+  ],
+  "worst_case_cost": 1676,
+  "worst_witness": {
+    "budget": 214,
+    "corrupted_symbol": "103134691164725417009479680000",
+    "cost": 1676,
+    "initial_read_index": 0,
+    "mask": 0
+  },
+  "zero_error_path_cost": 1462
+}
