@@ -1,0 +1,48 @@
+{
+  "arithmetic": "exact integers only; all state-pair paths enumerated without sampling",
+  "cases_failing_uniform_lifetime_condition": 592,
+  "cases_passing_uniform_lifetime_condition": 280,
+  "coverage": {
+    "J": "all subsets if p<=3; p=4 masks 0,1,2,3,8,12,15",
+    "h": "0..min(2,p)",
+    "p": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "q": "odd 3..2^p+1",
+    "r": "0..min(2,p)",
+    "windows": [
+      1,
+      2,
+      3
+    ]
+  },
+  "examples": {
+    "p4_J0_r0_h1": {
+      "all_future_samples_minimal_odd_q": 11,
+      "initial_single_sample_minimal_odd_q": 3
+    },
+    "p6_J3_r1_h1": {
+      "divisibility_witness_for_failed_q": {
+        "d": 25,
+        "eps": [
+          -1,
+          0,
+          0,
+          -1,
+          -1,
+          0
+        ]
+      },
+      "failed_q": 25,
+      "fixed_odd_q_minimum": 27
+    }
+  },
+  "model": "U(x)=sum(2^i*x_i), x_i in {0,1}; odd fixed q with c_t a power of 2; initial R(z_K;J,r); at most h coordinate flips per later update, including no-op",
+  "parameter_modulus_cases": 872,
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "terminal_window_assertions": 2616,
+  "universal_proof": "See PREFIX-853 paper: persistence of initial aliases; common-predecessor divergence for local aliases; induction on exact state after successful first observation."
+}
