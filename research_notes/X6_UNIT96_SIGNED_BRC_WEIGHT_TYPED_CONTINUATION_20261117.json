@@ -34,7 +34,29 @@
     "invalid_input_examples": 4,
     "original_frozen_modified": false,
     "original_R063_Helly_rerun": false,
-    "native_semantic_progress_submitted": false
+    "native_semantic_progress_submitted": false,
+    "report": {
+      "path": "research_notes/X6_UNIT96_SIGNED_BRC_EXACT_WEIGHT_SOURCE_BOUNDARY_AND_CONSUMER_20261117.md",
+      "commit": "8c82cd4df9b88ac3b6bf467bd90bb216e9e2abce",
+      "blob": "292edda8ae75529ccae756980f26466c6de90067"
+    },
+    "bounded_live_consumers": [
+      {
+        "path": "research_checks/X6_LP026_SIGNED_LAURENT_QUOTIENT_CONSUMER_CHECK_20261112_ONHOUR.py",
+        "blob": "e2bc083f1832b8eae2d8887095912da0e0e8984f",
+        "status": "LEGAL_FRACTION_INPUTS; independent permitted zero-weight sector; no bad call"
+      },
+      {
+        "path": "research_checks/X6_LP019_FCC_SIGNED_BRC_PUSHFORWARD_20261113_ONHOUR.py",
+        "blob": "a82b8cfb6039531aec2266e283a5277ab20f7c4c",
+        "status": "KEEP_INTEGER_NATIVE_CARRIER_PUSHFORWARD; no signed BRC weight call"
+      },
+      {
+        "path": "research_checks/X6_LP026_SIGNED_RELATIVE_C6_PARITY_BRC_20261112_ONHOUR.py",
+        "blob": "08d0cd5c2720410d9a938c49df830d90573b408f",
+        "status": "KEEP_INTEGER_NATIVE_RELATIVE_BRC; no signed BRC weight call"
+      }
+    ]
   },
   "identity": {
     "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
@@ -62,9 +84,10 @@
     "Unit96 original import 12,129 rational endpoint checks absent source change",
     "Original R063/Helly native benchmark",
     "Already SUCCEEDED bridge #6994/#6995 and original continuation request; do not reissue",
-    "Maintenance/D25 role-bound writes"
+    "Maintenance/D25 role-bound writes",
+    "Unit96 three bounded source inspections: signed Laurent quotient, integer FCC pushforward, integer relative parity BRC"
   ],
-  "next_action": "Trace actual current and historical callsites of signed_brc.endpoint_weight and precise argument types; if an incorrect consumer exists, apply bounded opt-in correction and regression; otherwise continue declared 28-LP LP011/LP019 historical source:line audit. Independently check original own Native run authorization via current continuation/receipt without borrowing subject.",
+  "next_action": "Within the frozen legacy corpus, identify the original LP011 signed-dominant selector and LP019 positive-BRC cancellation source:line, if any. For actual typed downstream weighted BRC, inspect new, uninspected direct endpoint_weight callsites; do not rerun three already inspected readers. Only call Native Source continuation/claim with own verified authority and original request receipt.",
   "native_progress": "NOT_SUBMITTED_NO_ORIGINAL_AUTHENTICATED_WRITER",
   "scheduler_modified": false,
   "notifications_modified": false
