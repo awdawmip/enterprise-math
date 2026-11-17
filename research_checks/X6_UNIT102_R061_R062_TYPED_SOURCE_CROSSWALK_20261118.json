@@ -1,0 +1,161 @@
+{
+  "schema": "EM_X6_UNIT102_SOURCE_TYPED_DEPENDENCY_CROSSWALK_V1",
+  "date": "2026-11-18",
+  "status": "AUTHOR-SOURCE-COMPARED / EXPLICIT-COUNTEREXAMPLE / UNREVIEWED / NOT_ADMITTED",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "p000_science_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "main_semantic_entries_checked": 8,
+  "source_review_scope": "Exactly eight named historical definitions and their current main counterparts; does not exhaust 28-LP or historical call-sites.",
+  "legacy_LP011_candidate": {
+    "file": "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
+    "line": 241,
+    "expression": "M=max(A,B,C)",
+    "classification": "RELATIVE_CANONICALIZATION_MAX_NOT_NATIVE_SIGNED_DIRECTION_ARGMAX",
+    "historical_wrong_native_argmax_caller_found": false
+  },
+  "legacy_LP019_candidate": {
+    "file": "definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
+    "lines": "65-85",
+    "expression": "PATH_FORMAL_BRC -> epsilon -> N_BRC -> beta -> BOOLEAN_BRC",
+    "classification": "NATURAL_ADDITION_CONVOLUTION_AND_SUPPORT_NO_NATURAL_MASS_SUBTRACTION",
+    "historical_N_BRC_positive_subtraction_caller_found": false
+  },
+  "exact_counterexamples": [
+    {
+      "raw_native_displacement": [
+        1,
+        0,
+        0
+      ],
+      "raw_reverse": [
+        -1,
+        0,
+        0
+      ],
+      "native_squared_length_forward": 1,
+      "native_squared_length_reverse": 1,
+      "native_shortest_BRC_forward": 1,
+      "native_shortest_BRC_reverse": 1,
+      "relative_reverse": [
+        0,
+        1,
+        1
+      ],
+      "relative_reverse_squared_gauge": 2,
+      "relative_reverse_positive_shortest_BRC": 2
+    },
+    {
+      "raw_native_displacement": [
+        3,
+        4,
+        0
+      ],
+      "raw_reverse": [
+        -3,
+        -4,
+        0
+      ],
+      "native_squared_length_forward": 25,
+      "native_squared_length_reverse": 25,
+      "native_shortest_BRC_forward": 35,
+      "native_shortest_BRC_reverse": 35,
+      "relative_reverse": [
+        1,
+        0,
+        4
+      ],
+      "relative_reverse_squared_gauge": 17,
+      "relative_reverse_positive_shortest_BRC": 5
+    }
+  ],
+  "entries": [
+    {
+      "id": "R061_TRACE",
+      "path": "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md",
+      "old_blob": "b631242db84c5bd3640e6dc554b19a1d04d464f3",
+      "old_lines": "21-23,99,121-123",
+      "main_blob": "94f470618436e8a44b0de5c13df116ef5c3bdabc",
+      "main_lines": "18-20,68-72",
+      "disposition": "PRESERVE_PATH_BRC; SUPERSEDE_NATIVE_LINE",
+      "finding": "Original three-positive support-two trace is not a primitive straight segment. Its labeled path shuffles remain available for a typed composite displacement."
+    },
+    {
+      "id": "R061_DIRECTED",
+      "path": "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
+      "old_blob": "58ccac6d8b88dcfd91a0a6017ca7b29187b4e7b0",
+      "old_lines": "21-46,233-287",
+      "main_blob": "875e3b274e5be03c5872f782872065a0b96d14eb",
+      "main_lines": "15-55,89-115",
+      "disposition": "PRESERVE_OBSERVER; SUPERSEDE_NATIVE_METRIC",
+      "finding": "The old M=max(A,B,C) is a relative min-zero reverse decode, not an argmax native signed-direction selector. Native signed distance and BRC reversal are symmetric."
+    },
+    {
+      "id": "R061_BIDIRECTIONAL",
+      "path": "definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md",
+      "old_blob": "da35c76869ff88e46e28e33ba5bc37c95374a15d",
+      "old_lines": "13-23,40-60,107-127",
+      "main_blob": "358a4997157d7546d88e63ae8d32e95feebf9c08",
+      "main_lines": "14-28,38-49",
+      "disposition": "PRESERVE_OBSERVER; SUPERSEDE_NATIVE_LENGTH_FIX",
+      "finding": "Bidirectional observer spectrum may diagnose min-zero quotient, but native signed metric already has orientation symmetry."
+    },
+    {
+      "id": "R062_BRC",
+      "path": "definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
+      "old_blob": "6ec0d73a19e28ec586c59a97d24f5798c9119771",
+      "old_lines": "63-91,127-154",
+      "main_blob": "97ab1403ab04b4fa80034625fb1b2e3ed115e59b",
+      "main_lines": "21-36,38-86",
+      "disposition": "PRESERVE_PATH_BRC; RETYPE_SIGNED",
+      "finding": "Historical finite formal N-sums augment by addition/convolution to N-BRC then support to Boolean. These cited lines have no natural-positive path subtraction; the native transition skeleton has now been retyped signed."
+    },
+    {
+      "id": "COORD_BRC_INDEX",
+      "path": "definitions/ENTERPRISE_COORDINATE_SYSTEM_AND_BRC_BRIDGE_20260816.md",
+      "old_blob": "82c8877888f8da43a85eb8148b0d0d47a9e59d42",
+      "old_lines": "32-52,59-64",
+      "main_blob": "a1deeb2e125bc5c1d6fa5ca2f249440c4ec67431",
+      "main_lines": "19-27,38-54,62-74",
+      "disposition": "SUPERSEDE_NATIVE; PRESERVE_TERMINOLOGY",
+      "finding": "The historical three-positive/no-negative statements are explicitly fenced as intermediate 2026-08-20 history, and the current entry points to signed X6."
+    },
+    {
+      "id": "PATHSQRT_R063",
+      "path": "definitions/ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md",
+      "old_blob": "61f23f2bcf965aa21d093ae3e35c0d6cb70610b7",
+      "old_lines": "13-17,63-70,113-119,218",
+      "main_blob": "11165ecc25d4b2cca5f78d6c4d3228f9395df9e2",
+      "main_lines": "3,5,66-70,220",
+      "disposition": "PRESERVE_PATH_BRC_FIXED_POSITIVE_PAIR; SCOPE_GUARD",
+      "finding": "Current 2026-11-14 type notice restricts historical ACTIVE/CANONICAL/FROZEN completeness to one ordered positive-generator pair, not full signed native shells; existing R063 finite certificate is consumed, not rerun."
+    },
+    {
+      "id": "TRIANGULAR_CARRIER",
+      "path": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
+      "old_blob": "546c8df08f1aaacaeca2b29d7f45d094ebe6299d",
+      "old_lines": "historical full document (319 lines)",
+      "main_blob": "b573b267a13eba31280703290d63279d367631eb",
+      "main_lines": "3,24-57",
+      "disposition": "PRESERVE_CARRIER; SUPERSEDE_NATIVE_ORIGIN",
+      "finding": "Triple boundary incidence, circle footprints and min-zero triples survive only at carrier/observer strength. Centered signed native Cell-zero is separately retained."
+    },
+    {
+      "id": "FCC_PRIMARY_CARRIER",
+      "path": "definitions/P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md",
+      "old_blob": "b84ea850151386dae04e2798b20430381afb8786",
+      "old_lines": "3 and historical selected STAR carrier",
+      "main_blob": "8d73366ba7bd22b32c62c001b5cbe89d3fb63edb",
+      "main_lines": "10,23-27,68-93",
+      "disposition": "PRESERVE_CARRIER; NO_NATIVE_PROMOTION",
+      "finding": "Current source labels FCC as 3D carrier/readout, and the STAR kernel as non-equivalence of native Cell coordinates."
+    }
+  ],
+  "remaining": [
+    "LP011 historical exact wrong native signed argmax caller not proven by this bounded source review",
+    "LP019 historical natural N-BRC positive-subtraction caller not proven by this bounded source review",
+    "28-LP remainder source:line consumers, independent Driver REQUEST_REVISION, native authenticated owner claim/run"
+  ],
+  "no_change_to_main_definitions": true
+}
