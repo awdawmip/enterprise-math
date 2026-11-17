@@ -1,0 +1,118 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-18",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_id_forbidden": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_inputs": {
+    "P000_V5": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "highest_author_verified_frontier": {
+    "unit": 103,
+    "status": "AUTHOR-PROVED / FINITE-INTEGER-EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "proposition": "No single-valued S3-equivariant dominant signed native-axis selector exists on all nonzero signed triples; set-valued signed maxima are fully equivariant, unique maxima admit single selector, ties require set output or declared index priority.",
+    "proof_witness": {
+      "d": [
+        1,
+        1,
+        0
+      ],
+      "swap": [
+        1,
+        0,
+        2
+      ],
+      "allowed_signed_axes": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "minimum_N_BRC_words": 2
+    },
+    "finite_execution": {
+      "signed_cube": "[-2,2]^3",
+      "total": 125,
+      "unique": 60,
+      "two_way_tie": 48,
+      "three_way_tie": 16,
+      "zero": 1,
+      "permutation_checks": 750,
+      "reversal_checks": 125,
+      "python_modes": [
+        "normal",
+        "-O",
+        "-OO"
+      ],
+      "mode_outputs_identical": true
+    },
+    "artifacts": [
+      {
+        "path": "research_checks/X6_UNIT103_DOMINANT_AXIS_TIE_EQUIVARIANCE_CHECK_20261118.py",
+        "commit": "4091ba0a7877a8e683062ab1677ca4922b8a5120",
+        "git_blob_sha1": "6fbfd53982d9d2e872bb3f71e7333c463c3e120e",
+        "sha256": "54d370fc0a3f80f1b455b68c4ce3a8d46fb096d3f754232bf06c3427a00ae4f7",
+        "git_matches_executed_local": true,
+        "readback_verified": true
+      },
+      {
+        "path": "research_checks/X6_UNIT103_DOMINANT_AXIS_TIE_EQUIVARIANCE_RESULTS_20261118.json",
+        "commit": "03e66b5eafc540352ddb9dddd08a5fac8bc2be58",
+        "git_blob_sha1": "96cf3a2ccd18e90715bacb62fd55000816d7d043",
+        "sha256": "c55eb6f25edb771ce4cddefd87516f3ba1e12157e2a16d06b3ab09958ae187bb",
+        "readback_verified": true
+      },
+      {
+        "path": "research_notes/X6_UNIT103_LP011_SIGNED_DOMINANT_TIE_EQUIVARIANCE_20261118.md",
+        "commit": "665b5505a5360f4f6cc4488ea1bcd7b430ee16a1",
+        "git_blob_sha1": "a31f1c296e8ff19d70f27b476145bc1f98eb6f39",
+        "readback_verified": true
+      }
+    ]
+  },
+  "previous_frontier": {
+    "unit": 102,
+    "report": "research_notes/X6_UNIT102_R061_R062_EIGHT_SURFACE_SOURCE_CROSSWALK_20261118.md",
+    "report_commit": "56553a2b41000bed7b99302a40687dab8290b019",
+    "typed_ledger": "research_checks/X6_UNIT102_R061_R062_TYPED_SOURCE_CROSSWALK_20261118.json",
+    "ledger_commit": "aed3ff02f8531fbbffc2434a8a6d2874b56ab57a",
+    "continuation": "research_notes/X6_UNIT102_R061_R062_TYPED_SOURCE_CONTINUATION_20261118.json",
+    "activity_index": 116
+  },
+  "research_identity": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "native_owner_claim": "MCP-3e221a50dc8818f914e228f6",
+    "claim_request_id": "onhour-20261118-0204-x6-own-original-unit101-claim-v1",
+    "claim_receipt": "SUCCEEDED/RUN_READY",
+    "run_id": "RUN-95866d78d35721116c362956",
+    "run_generation": 1,
+    "last_read_revision": 0,
+    "claim_comment_id": 6956795609,
+    "lease_until_UTC": "2026-11-17T20:13:50+00:00",
+    "execution_started": false
+  },
+  "remaining": [
+    "LP011 exact alleged wrong native argmax historical caller source:line is unresolved; the set/single tie boundary is now mathematically proved",
+    "LP019 alleged exact subtraction of positive N-BRC historical caller source:line remains unresolved",
+    "28-LP exact downstream source:line crosswalk incomplete",
+    "Independent Driver REQUEST_REVISION not yet operationally dispositioned",
+    "Native semantic PROGRESS or authorized checkpoint readback still required"
+  ],
+  "do_not_repeat": [
+    "Units 64-103 completed certificates and prior source audits",
+    "original frozen R063/Helly native benchmark",
+    "Original typed prepare or successful same request claim again",
+    "Maintenance conversation_id/role ownership"
+  ],
+  "next_exact_action": "Checkpoint Unit102+Unit103 evidence on own authorized run with current owner generation/revision and verify same original request receipt; then trace remaining exact LP011/LP019 executable callsites and 28-LP per-row dependencies, no re-execution of prior native benchmark. Continue while current run is valid, handoff when required under Source contract.",
+  "continuation_state": "OPEN"
+}
