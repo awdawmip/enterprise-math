@@ -1,0 +1,170 @@
+{
+  "schema": "EM_R258_SIMULTANEOUS_13_23_SHARP_DENOMINATOR_V1",
+  "date": "2026-11-18",
+  "frozen_science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "s": "866/2197",
+  "t": "389159/500963",
+  "E": "1188664967880",
+  "J": "3327364117",
+  "T": "3975468120",
+  "K": "36933000",
+  "special_scaling_ratio": "299",
+  "mask_count": 63,
+  "integer_scaled_nonleading_coefficient_checks": 249,
+  "integer_normalized_base_checks": 249,
+  "number_of_prime_nonzero_witnesses": 11,
+  "prime_witnesses": {
+    "2": {
+      "m": 3,
+      "type": "G",
+      "u": 1,
+      "q": [
+        1,
+        1,
+        1
+      ]
+    },
+    "3": {
+      "m": 17,
+      "type": "G",
+      "u": 2,
+      "q": [
+        2,
+        1,
+        2
+      ]
+    },
+    "5": {
+      "m": 2,
+      "type": "G",
+      "u": 1,
+      "q": [
+        3,
+        4
+      ]
+    },
+    "7": {
+      "m": 2,
+      "type": "G",
+      "u": 4,
+      "q": [
+        6,
+        3
+      ]
+    },
+    "11": {
+      "m": 48,
+      "type": "O",
+      "period": 3,
+      "full_cycle": [
+        1,
+        1,
+        9
+      ],
+      "q": [
+        1,
+        1,
+        9
+      ]
+    },
+    "13": {
+      "m": 9,
+      "type": "G",
+      "u": 7,
+      "q": [
+        5,
+        9,
+        11
+      ]
+    },
+    "17": {
+      "m": 0,
+      "type": "G",
+      "u": 2,
+      "q": [
+        13
+      ]
+    },
+    "23": {
+      "m": 42,
+      "type": "G",
+      "u": 3,
+      "q": [
+        10,
+        7,
+        21,
+        17
+      ]
+    },
+    "67": {
+      "m": 0,
+      "type": "G",
+      "u": 30,
+      "q": [
+        60
+      ]
+    },
+    "947": {
+      "m": 32,
+      "type": "G",
+      "u": 914,
+      "q": [
+        231,
+        900
+      ]
+    },
+    "3449": {
+      "m": 0,
+      "type": "G",
+      "u": 718,
+      "q": [
+        2531
+      ]
+    }
+  },
+  "domain": "all k >=3",
+  "theorem": "LCM den(h_{m,k}) = J*T^k/K, with no 13- or 23-adic drops",
+  "direct_fraction_checks": [
+    {
+      "k": 3,
+      "bits": 103
+    },
+    {
+      "k": 4,
+      "bits": 135
+    },
+    {
+      "k": 5,
+      "bits": 166
+    },
+    {
+      "k": 6,
+      "bits": 198
+    },
+    {
+      "k": 7,
+      "bits": 230
+    },
+    {
+      "k": 8,
+      "bits": 262
+    },
+    {
+      "k": 10,
+      "bits": 326
+    },
+    {
+      "k": 12,
+      "bits": 390
+    },
+    {
+      "k": 16,
+      "bits": 517
+    }
+  ],
+  "checker_file": "R258_simultaneous_13_23_certificate.py",
+  "result": "PASS",
+  "math_review": "NOT_REVIEWED",
+  "native_BRC": "NOT_EXECUTED",
+  "formal_claim": "NONE"
+}
