@@ -1,0 +1,61 @@
+{
+  "unit": "R749STR",
+  "evidence": "AUTHOR_EXACT_NOT_REVIEWED",
+  "local_checker_execution": "PASS on 2026-11-17, Python fractions and SymPy exact",
+  "frozen_science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "setting": "Five labeled integer sources weights (1,1,2,3,6), q=73, p=73+6h, h>=1, nuisance real in [-2,2]^4, pair fixed across reads j=0,1",
+  "collisions": [
+    {
+      "h": 1,
+      "p": 79,
+      "e": "-251839066287820157213308556/126987724119296300884285527",
+      "d": "156633484697374856671338713/84658482746197533922857018",
+      "E": "-2/5",
+      "D": "19/10",
+      "equal_reads": [
+        0,
+        1
+      ]
+    },
+    {
+      "h": 2,
+      "p": 85,
+      "e": "-3017722237060578733161/1527694442423074582592",
+      "d": "1445925897017416432877/763847221211537291296",
+      "E": "7/5",
+      "D": "2",
+      "equal_reads": [
+        0,
+        1
+      ]
+    }
+  ],
+  "separator": "L_n(e,d)=Y_n(e,d)-(21/20)Y_(n+6)(e,d)",
+  "h_ge_3": {
+    "exact_q_min": "33210791290663/51995544553800",
+    "exact_p_upper": "1740831760941127/2855570604280200",
+    "sharp_uniform_difference": "148157200542443986379/5091802077550505078161",
+    "equality": {
+      "h": 3,
+      "e": -2,
+      "d": 2,
+      "E": 2,
+      "D": 2
+    },
+    "noise_per_raw_read_strict": "eta<1481572005424439863790/208763885179570708204601"
+  },
+  "exact_bernstein_certificate": {
+    "variables": "t=h-3>=0, u=(2-E)/4 in [0,1], v=(D+2)/4 in [0,1]",
+    "polynomial_t_degree": 10,
+    "basis_u_degree": 1,
+    "basis_v_degree": 2,
+    "number_coefficients": 66,
+    "positive_coefficients": 65,
+    "zero_coefficients": 1,
+    "only_zero_location": "u Bernstein index 0, v Bernstein index 2, t constant term",
+    "certificate_generated_by": "R749STR_FULL_TWO_READ_GAP_CLASSIFICATION_CERT.py",
+    "note": "Exact checker generates R749STR_FULL_TWO_READ_GAP_CLASSIFICATION_RESULTS.json including all six 11-element exact coefficient arrays. The present summary preserves core verification evidence."
+  },
+  "scope": "All positive integer h, continuous four-dimensional legal nuisance cube, auxiliary scalar observer; not native X6/Port/Cell",
+  "next": "Prove one-read overlap threshold; source-preserving BRC/Port/Cell lift"
+}

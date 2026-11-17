@@ -1,0 +1,27 @@
+{
+  "unit": "R749STS",
+  "evidence": "AUTHOR_EXACT_NOT_REVIEWED",
+  "frozen_science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "q": 73,
+  "p": "73+6h for any integer h>=1",
+  "one_read_collision_if": "1<=h<=129",
+  "one_read_separation_if": "h>=130",
+  "q_interval": [
+    "-182118587/38196630",
+    "962852177/38196414"
+  ],
+  "one_read_upper_strictly_decreases_for": "all h>=0",
+  "threshold_differences": {
+    "h129": "27717700477367/1508935762911405",
+    "h130": "-623634232392236/114862724731769385"
+  },
+  "proof": "strict positive numerator/denominator coefficients for Y_(73+6h)(2,-2)-Y_(79+6h)(2,-2) and -Y_(79+6h)(-2,2), exact formulas and full coefficient generation in accompanying checker",
+  "local_execution": "PASS, exact Python Fraction + SymPy",
+  "combined_R749STR_optimality": {
+    "h_1_or_2": "at least 3 initial reads",
+    "h_3_to_129": "exactly 2 initial reads",
+    "h_ge_130": "exactly 1 initial read"
+  },
+  "scope": "all legal real nuisance parameters in [-2,2]^2 separately per candidate, fixed across observations; five-source auxiliary scalar observer",
+  "next": "Exact 3-read or larger optimum for h=1,2; typed native X6 BRC/Port/Cell observer realization"
+}
