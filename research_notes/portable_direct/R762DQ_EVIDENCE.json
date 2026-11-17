@@ -1,0 +1,85 @@
+{
+  "claims": "for Q=3^a, a>=2, c_XZ(n)=1 on [0,3d), 9 on [3d,5d), 81 on [5d,7d)",
+  "independent_review": "NOT_REVIEWED",
+  "method": "integer cyclic-convolution and binomial congruences",
+  "results": [
+    {
+      "Q": 9,
+      "d": 3,
+      "exact_mass_checks": 21,
+      "exponents_checked": [
+        1,
+        21
+      ],
+      "named_branch_projection_two_rounds": true,
+      "one_axis_x5d_divisible_by_9": true,
+      "one_axis_xQ_leading_test": true,
+      "selected_coefficient_contents": {
+        "1": "1",
+        "8": "1",
+        "9": "9",
+        "14": "9",
+        "15": "81",
+        "16": "81",
+        "17": "81",
+        "18": "81",
+        "20": "81",
+        "21": "729"
+      },
+      "sharp_content_checks": 20
+    },
+    {
+      "Q": 27,
+      "d": 9,
+      "exact_mass_checks": 63,
+      "exponents_checked": [
+        1,
+        63
+      ],
+      "named_branch_projection_two_rounds": true,
+      "one_axis_x5d_divisible_by_9": true,
+      "one_axis_xQ_leading_test": true,
+      "selected_coefficient_contents": {
+        "1": "1",
+        "26": "1",
+        "27": "9",
+        "44": "9",
+        "45": "81",
+        "46": "81",
+        "53": "81",
+        "54": "81",
+        "62": "81",
+        "63": "729"
+      },
+      "sharp_content_checks": 62
+    },
+    {
+      "Q": 81,
+      "d": 27,
+      "exact_mass_checks": 189,
+      "exponents_checked": [
+        1,
+        189
+      ],
+      "named_branch_projection_two_rounds": true,
+      "one_axis_x5d_divisible_by_9": true,
+      "one_axis_xQ_leading_test": true,
+      "selected_coefficient_contents": {
+        "1": "1",
+        "80": "1",
+        "81": "9",
+        "134": "9",
+        "135": "81",
+        "136": "81",
+        "161": "81",
+        "162": "81",
+        "188": "81",
+        "189": "729"
+      },
+      "sharp_content_checks": 188
+    }
+  ],
+  "status": "PASS",
+  "theorem": "R762DQ",
+  "verification_scope": "finite Q=9,27,81; all integers; general result needs human proof"
+}
