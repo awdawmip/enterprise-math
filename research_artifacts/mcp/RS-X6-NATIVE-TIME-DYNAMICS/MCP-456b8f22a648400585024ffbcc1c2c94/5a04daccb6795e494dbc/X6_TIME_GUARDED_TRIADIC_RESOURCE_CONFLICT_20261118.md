@@ -1,0 +1,30 @@
+# X6 native time: guarded triadic relocation and resource-conflict configurations
+Date: 2026-11-18. Task RS-X6-NATIVE-TIME-DYNAMICS; publication TP2-91D4A7C2F63805BE21A3. Author-side conditional research, not independently Driver-reviewed. Owner EM-X6CM-EDBD55; real continued CLAIM MCP-36298b29adf350c3e448bfc8; run RUN-cb1a43fc81738a505dd275e8.
+
+## Scope and prior frontier
+Use existing original P000 six-axis discrete Cell torsor, separately typed time and native TRIADIC_CLOSURE_E; preserve signed primitive-port and branch provenance. The prior X6 two-chain theorem [X6_TIME_OPPOSING_CAUSAL_LINKS_EXACT_PROOF_20261117.md](https://github.com/awdawmip/enterprise-math/blob/7f4ad117a1778bfb6d2cd889e83ab25bd203ac62/research_artifacts/mcp/RS-X6-NATIVE-TIME-DYNAMICS/MCP-c618a61189764f23846a391a08518a1a/d6b5fa9190c4cf79bedd/X6_TIME_OPPOSING_CAUSAL_LINKS_EXACT_PROOF_20261117.md) concerns hypothetical event-poset causal edges, not physically admitted Cell/Link/Port events. We test a new resource-conflict obstruction to using its k-cut formulas on real executable events.
+
+## Explicit *candidate* link/port law
+Take native Cell torsor C over Z^6. A one-triad occupancy sigma(c) is either empty (quiescent) or an ordered canonical positive triadic frame F=(i0,i1,i2), with 3 distinct native unsigned axes in {0,...,5}, all three nonzero primitive tokens carrying identity and positive sign, and declared equal-unit TRIADIC_CLOSURE_E(F)=true. This is a **declared model predicate** supported as a canonical equal-quantum P000 triad, not a classical Euclidean sum-of-vectors proof. Token identity/order and provenance are preserved. Only all-positive frames are considered in the exact finite test (not 960 general signed frames).
+
+For r in {0,1,2}, target d=c+E_{i_r}; let ell=(c,d,+E_{i_r}) be a directed candidate link/port with an available port guard. An atomic whole-triad transfer e(c,F,r) is enabled iff sigma(c)=F (with closure), sigma(d)=empty and selected directed link/port is available. The update sets sigma(c)=empty and sigma(d)=F and records source/target, r, sign, token IDs, branch/source provenance and the event order. It does not split the triad into 1- or 2-force primitive balance events. Its physical admissibility, environmental response and interaction law are **additional candidate assumptions**. P000 does not by itself instantiate an inter-Cell transfer.
+
+## Theorem A — exclusive three-way choice
+Suppose all three distinct targets and ports are available at a source carrying F. Each of e(c,F,0), e(c,F,1), e(c,F,2) is individually enabled. Once any one executes, sigma(c) becomes empty; both other candidates fail the source occupancy guard. Therefore at most one of these three labeled alternatives is possible in a serial execution of these one-shot candidate events.
+
+An unconstrained three-atom antichain-poset would count its ideals by (1+x)^3 = 1+3x+3x^2+x^3, including impossible 2- or 3-exit sets. In the specified guarded model the actual labeled event-configuration polynomial is exactly K_1(x)=1+3x. Thus **event precedence acyclicity does not imply joint executability**. The prior conditional k-cut formula requires an admission/resource-compatibility certificate when moving to a guarded Cell/Link/Port event language.
+
+Proof: Distinct native E_i steps give distinct target cells. All guards pass initially. Each event irreversibly depletes the unique source triad, making every other event's required source predicate false. QED.
+
+## Theorem B — disjoint sources
+Let m source cells be far enough apart so that all m triples of targets and their link/resource footprints are mutually disjoint, with each source carrying a separate labeled F and with the stated candidate law. Assume events from distinct sources commute. Each source independently offers exactly four possibilities: no departure or one of its three ports. Hence the exact labeled configuration polynomial is K_m(x)=(1+3x)^m, [x^k]K_m=binomial(m,k)*3^k and K_m(1)=4^m. Proof: Cartesian product of the four local choices; no cross-source guard interference, with full labeled source/port observer. QED.
+
+For m=2 the exact polynomial is 1+6x+9x^2 (16 configurations), whereas a false unconstrained antichain of 6 events would count (1+x)^6 and 64 subsets. This counts configurations under the specified label observer, not all chronological serializations or clock durations.
+
+## Exact finite witness
+Standard-library Python checker x6_guarded_triadic_conflict_check_20261118.py enumerated all 6*5*4=120 ordered positive frames and 360 frame/port single-hop candidates; each succeeds once with triadic-token-preserving source/target update, and all three second-departures from its now-empty source are rejected. It also exhaustively enumerated all 4^m configurations for m=1,...,7 with source cells spaced ten native +E1 steps apart, checking the exact binomial coefficients. Result: m=1 [1,3], m=2 [1,6,9], m=7 [1,21,189,945,2835,5103,5103,2187]; all checks passed using exact integer arithmetic. Universal theorem is established by the conditional combinatorial proofs, not extrapolated from finite tests.
+
+## Distinct remaining native question
+To test against an actually admitted X6 multi-Cell time event, require an authenticated resource/port update law, three nonzero signed primitive force contributions with TRIADIC_CLOSURE_E, declared source/target ledger and environmental response, exact time order and observer-provenance lease. Introduce event conflict/resource exclusion separately from causal precedence. Only after physical link/event admission can actual prefixes be compared with the already proved zero-, one-, two-link conditional poset k-cut results.
+
+Status: exact conditional theorem and finite experiment; NO native physical event admission, NO independent mathematical review, NO Result freeze/Foundation promotion.
