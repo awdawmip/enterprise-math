@@ -1,0 +1,551 @@
+{
+  "schema": "EM_R762CX_EXACT_INTEGER_BRC_EVIDENCE_V1",
+  "model": "oriented_C3_positive_N_BRC_branch_multiplicities",
+  "weights": "coprime_positive_p_q",
+  "verified_on": "2026-11-17",
+  "max_weight": 14,
+  "max_horizon": 20,
+  "primitive_weight_pairs": 127,
+  "pairs_with_3_dividing_D": 34,
+  "gcd_checks": 2667,
+  "integer_transport_checks": 26670,
+  "horizon_denominator_checks": 2667,
+  "all_pass": true,
+  "examples": [
+    {
+      "weights": [
+        1,
+        1
+      ],
+      "samples": [
+        {
+          "t": 0,
+          "count": [
+            "1",
+            "0",
+            "0"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "1",
+          "source_word_seed_min": "1"
+        },
+        {
+          "t": 1,
+          "count": [
+            "0",
+            "1",
+            "1"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "2",
+          "source_word_seed_min": "2"
+        },
+        {
+          "t": 2,
+          "count": [
+            "2",
+            "1",
+            "1"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "4",
+          "source_word_seed_min": "4"
+        },
+        {
+          "t": 3,
+          "count": [
+            "2",
+            "3",
+            "3"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "8",
+          "source_word_seed_min": "8"
+        },
+        {
+          "t": 4,
+          "count": [
+            "6",
+            "5",
+            "5"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "16",
+          "source_word_seed_min": "16"
+        },
+        {
+          "t": 5,
+          "count": [
+            "10",
+            "11",
+            "11"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "32",
+          "source_word_seed_min": "32"
+        },
+        {
+          "t": 6,
+          "count": [
+            "22",
+            "21",
+            "21"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "64",
+          "source_word_seed_min": "64"
+        },
+        {
+          "t": 7,
+          "count": [
+            "42",
+            "43",
+            "43"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "128",
+          "source_word_seed_min": "128"
+        },
+        {
+          "t": 8,
+          "count": [
+            "86",
+            "85",
+            "85"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "256",
+          "source_word_seed_min": "256"
+        }
+      ]
+    },
+    {
+      "weights": [
+        1,
+        2
+      ],
+      "samples": [
+        {
+          "t": 0,
+          "count": [
+            "1",
+            "0",
+            "0"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "1",
+          "source_word_seed_min": "1"
+        },
+        {
+          "t": 1,
+          "count": [
+            "0",
+            "1",
+            "2"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "3",
+          "source_word_seed_min": "3"
+        },
+        {
+          "t": 2,
+          "count": [
+            "4",
+            "4",
+            "1"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "9",
+          "source_word_seed_min": "9"
+        },
+        {
+          "t": 3,
+          "count": [
+            "9",
+            "6",
+            "12"
+          ],
+          "gcd": "3",
+          "endpoint_seed_min": "9",
+          "source_word_seed_min": "27"
+        },
+        {
+          "t": 4,
+          "count": [
+            "24",
+            "33",
+            "24"
+          ],
+          "gcd": "3",
+          "endpoint_seed_min": "27",
+          "source_word_seed_min": "81"
+        },
+        {
+          "t": 5,
+          "count": [
+            "90",
+            "72",
+            "81"
+          ],
+          "gcd": "9",
+          "endpoint_seed_min": "27",
+          "source_word_seed_min": "243"
+        },
+        {
+          "t": 6,
+          "count": [
+            "225",
+            "252",
+            "252"
+          ],
+          "gcd": "9",
+          "endpoint_seed_min": "81",
+          "source_word_seed_min": "729"
+        },
+        {
+          "t": 7,
+          "count": [
+            "756",
+            "729",
+            "702"
+          ],
+          "gcd": "27",
+          "endpoint_seed_min": "81",
+          "source_word_seed_min": "2187"
+        },
+        {
+          "t": 8,
+          "count": [
+            "2160",
+            "2160",
+            "2241"
+          ],
+          "gcd": "27",
+          "endpoint_seed_min": "243",
+          "source_word_seed_min": "6561"
+        }
+      ]
+    },
+    {
+      "weights": [
+        1,
+        3
+      ],
+      "samples": [
+        {
+          "t": 0,
+          "count": [
+            "1",
+            "0",
+            "0"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "1",
+          "source_word_seed_min": "1"
+        },
+        {
+          "t": 1,
+          "count": [
+            "0",
+            "1",
+            "3"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "4",
+          "source_word_seed_min": "4"
+        },
+        {
+          "t": 2,
+          "count": [
+            "6",
+            "9",
+            "1"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "16",
+          "source_word_seed_min": "16"
+        },
+        {
+          "t": 3,
+          "count": [
+            "28",
+            "9",
+            "27"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "64",
+          "source_word_seed_min": "64"
+        },
+        {
+          "t": 4,
+          "count": [
+            "54",
+            "109",
+            "93"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "256",
+          "source_word_seed_min": "256"
+        },
+        {
+          "t": 5,
+          "count": [
+            "420",
+            "333",
+            "271"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "1024",
+          "source_word_seed_min": "1024"
+        },
+        {
+          "t": 6,
+          "count": [
+            "1270",
+            "1233",
+            "1593"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "4096",
+          "source_word_seed_min": "4096"
+        },
+        {
+          "t": 7,
+          "count": [
+            "5292",
+            "6049",
+            "5043"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "16384",
+          "source_word_seed_min": "16384"
+        },
+        {
+          "t": 8,
+          "count": [
+            "23190",
+            "20421",
+            "21925"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "65536",
+          "source_word_seed_min": "65536"
+        }
+      ]
+    },
+    {
+      "weights": [
+        1,
+        5
+      ],
+      "samples": [
+        {
+          "t": 0,
+          "count": [
+            "1",
+            "0",
+            "0"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "1",
+          "source_word_seed_min": "1"
+        },
+        {
+          "t": 1,
+          "count": [
+            "0",
+            "1",
+            "5"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "6",
+          "source_word_seed_min": "6"
+        },
+        {
+          "t": 2,
+          "count": [
+            "10",
+            "25",
+            "1"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "36",
+          "source_word_seed_min": "36"
+        },
+        {
+          "t": 3,
+          "count": [
+            "126",
+            "15",
+            "75"
+          ],
+          "gcd": "3",
+          "endpoint_seed_min": "72",
+          "source_word_seed_min": "216"
+        },
+        {
+          "t": 4,
+          "count": [
+            "150",
+            "501",
+            "645"
+          ],
+          "gcd": "3",
+          "endpoint_seed_min": "432",
+          "source_word_seed_min": "1296"
+        },
+        {
+          "t": 5,
+          "count": [
+            "3150",
+            "3375",
+            "1251"
+          ],
+          "gcd": "9",
+          "endpoint_seed_min": "864",
+          "source_word_seed_min": "7776"
+        },
+        {
+          "t": 6,
+          "count": [
+            "18126",
+            "9405",
+            "19125"
+          ],
+          "gcd": "9",
+          "endpoint_seed_min": "5184",
+          "source_word_seed_min": "46656"
+        },
+        {
+          "t": 7,
+          "count": [
+            "66150",
+            "113751",
+            "100035"
+          ],
+          "gcd": "27",
+          "endpoint_seed_min": "10368",
+          "source_word_seed_min": "279936"
+        },
+        {
+          "t": 8,
+          "count": [
+            "668790",
+            "566325",
+            "444501"
+          ],
+          "gcd": "27",
+          "endpoint_seed_min": "62208",
+          "source_word_seed_min": "1679616"
+        }
+      ]
+    },
+    {
+      "weights": [
+        2,
+        7
+      ],
+      "samples": [
+        {
+          "t": 0,
+          "count": [
+            "1",
+            "0",
+            "0"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "1",
+          "source_word_seed_min": "1"
+        },
+        {
+          "t": 1,
+          "count": [
+            "0",
+            "2",
+            "7"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "9",
+          "source_word_seed_min": "9"
+        },
+        {
+          "t": 2,
+          "count": [
+            "28",
+            "49",
+            "4"
+          ],
+          "gcd": "1",
+          "endpoint_seed_min": "81",
+          "source_word_seed_min": "81"
+        },
+        {
+          "t": 3,
+          "count": [
+            "351",
+            "84",
+            "294"
+          ],
+          "gcd": "3",
+          "endpoint_seed_min": "243",
+          "source_word_seed_min": "729"
+        },
+        {
+          "t": 4,
+          "count": [
+            "1176",
+            "2760",
+            "2625"
+          ],
+          "gcd": "3",
+          "endpoint_seed_min": "2187",
+          "source_word_seed_min": "6561"
+        },
+        {
+          "t": 5,
+          "count": [
+            "24570",
+            "20727",
+            "13752"
+          ],
+          "gcd": "9",
+          "endpoint_seed_min": "6561",
+          "source_word_seed_min": "59049"
+        },
+        {
+          "t": 6,
+          "count": [
+            "172593",
+            "145404",
+            "213444"
+          ],
+          "gcd": "9",
+          "endpoint_seed_min": "59049",
+          "source_word_seed_min": "531441"
+        },
+        {
+          "t": 7,
+          "count": [
+            "1444716",
+            "1839294",
+            "1498959"
+          ],
+          "gcd": "27",
+          "endpoint_seed_min": "177147",
+          "source_word_seed_min": "4782969"
+        },
+        {
+          "t": 8,
+          "count": [
+            "15872976",
+            "13382145",
+            "13791600"
+          ],
+          "gcd": "27",
+          "endpoint_seed_min": "1594323",
+          "source_word_seed_min": "43046721"
+        }
+      ]
+    }
+  ]
+}
