@@ -70,6 +70,28 @@ for permutation in PERMS:
         assert marked_port in transformed
         marked_equivariance_checks += 1
 
+# The optimal selector chooses the unique minority-sign Port when one exists.
+# Homogeneous-sign triples retain all three equivariant Port branches.
+def minimal_options(state):
+    k = negative_count(state)
+    if k == 1:
+        return [x for x in state if x < 0]
+    if k == 2:
+        return [x for x in state if x > 0]
+    return list(state)
+
+minimal_cover = [(s, port) for s in STATES for port in minimal_options(s)]
+assert len(minimal_cover) == 240
+assert [sum(len(minimal_options(s)) for s in STATES if negative_count(s) == k)
+        for k in range(4)] == [60, 60, 60, 60]
+minimal_cover_equivariance_checks = 0
+for permutation in PERMS:
+    for state in STATES:
+        transported = {permutation[abs(x)-1] * (1 if x > 0 else -1)
+                       for x in minimal_options(state)}
+        assert transported == set(minimal_options(act(state, permutation)))
+        minimal_cover_equivariance_checks += 1
+
 for mask in range(16):
     accepted = {state for state in STATES if mask & (1 << negative_count(state))}
     for permutation in PERMS:
@@ -87,6 +109,9 @@ evidence = {
     "three_step_nonreturn_checks": parity_checks,
     "stabilizer_size_for_+++": len(stabilizer),
     "marked_cover_states": len(marked),
+    "optimal_marked_cover_states": len(minimal_cover),
+    "minimal_fibers_by_sign_count": [3, 1, 1, 3],
+    "minimal_cover_equivariance_checks": minimal_cover_equivariance_checks,
     "marked_equivariance_checks": marked_equivariance_checks,
     "invariant_boolean_candidate_laws": 16,
     "nonempty_boolean_candidate_laws": 15,
