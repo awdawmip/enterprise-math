@@ -84,6 +84,12 @@ Inserting a probe into a gap has exact seed-cost multiplier 1 iff both resulting
 
 Example: p=1, q=2, last observation at time s=6. Endpoint-only costs 81 seeds. The two-time schedules {1,6},{2,6},{3,6},{4,6},{5,6} require respectively 81,243,81,243,81 seeds. Therefore sampling time placement, not merely the number of sampled instants, is an exact BRC information resource.
 
+## Corollary D: separately inexpensive observers need not be jointly inexpensive
+
+Even in the same fixed candidate source law, exact per-schedule compression budgets do not compose automatically. Let p=1, q=2, D=3 and end time 6. The individually queried schedules {1,6} and {3,6} each require only 81 seeds. Their *jointly observed union* {1,3,6} has gaps (1,2,3), so Theorem A requires 3^6/(g_1 g_2 g_3)=729/3=243 seeds. The two smaller joint distributions are marginals of the larger one; a purported 81-seed representation certified only for each schedule individually is not automatically certified to supply their simultaneous three-time correlations.
+
+This is an explicit observer-composition residual, not an inference that both separately requested marginal laws could never be realized with 81 seeds. The additional factor 3 applies precisely when the user/event can jointly request all three named Port values. Whether native signed E licenses that compound observation is unresolved.
+
 ## Reproducibility and limits
 
 R762DA_VERIFY.js independently enumerates joint increment histogram products with BigInt: all p,q=1..6, all 18,072 nonempty timestamp schedules within 1..h for 1<=h<=8, including 669,348 positive and 2,476,044 zero joint-event numerators. It also checks 1,080 schedules with 1<=p,q<=3 in a nonabelian S3 carrier (1,235,250 event numerators). For each case, actual gcd of every joint-event numerator equals the product of the gap gcds, and the exact quotient is integral. Theorem A is proved for all finite groups and all horizons; bounded enumeration is supporting evidence only. Refer to R762DA_EVIDENCE.json.
