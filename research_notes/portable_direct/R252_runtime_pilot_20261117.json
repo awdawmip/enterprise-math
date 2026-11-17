@@ -1,0 +1,47 @@
+{
+  "incomplete": "Follow-up benchmark process was terminated by 200s command timeout before additional n=1000 or n=2000 rows were returned; those n are not measured; the prior four rows had already printed.",
+  "measurement": "Sequential Python Fraction wall-clock perf_counter single observations, same results verified, includes each fast_total preprocessing",
+  "parameter": "s=2/5",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.13.5",
+  "rows": [
+    {
+      "n": 10,
+      "fast_s": 0.033466,
+      "direct_s": 0.022637,
+      "direct_div_fast": 0.676,
+      "rational_num_bits": 173,
+      "rational_den_bits": 154,
+      "exact_equal": true
+    },
+    {
+      "n": 100,
+      "fast_s": 0.125642,
+      "direct_s": 0.482654,
+      "direct_div_fast": 3.841,
+      "rational_num_bits": 1808,
+      "rational_den_bits": 1792,
+      "exact_equal": true
+    },
+    {
+      "n": 235,
+      "fast_s": 0.269157,
+      "direct_s": 2.960685,
+      "direct_div_fast": 11,
+      "rational_num_bits": 4267,
+      "rational_den_bits": 4253,
+      "exact_equal": true
+    },
+    {
+      "n": 500,
+      "fast_s": 1.100881,
+      "direct_s": 14.089999,
+      "direct_div_fast": 12.799,
+      "rational_num_bits": 9081,
+      "rational_den_bits": 9071,
+      "exact_equal": true
+    }
+  ],
+  "schema": "EM_R252_RUNTIME_PILOT_V1",
+  "scope": "Single environment pilot; not a general performance or asymptotic bit-complexity theorem."
+}
