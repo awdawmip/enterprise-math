@@ -1,0 +1,37 @@
+{
+  "J": 1184397599,
+  "K": 3805974000,
+  "T": 989553240,
+  "domain": "all integers k >= 3",
+  "exact_fraction_spot_checks_k": [3,4,5,6,7,8,9,10,11,12],
+  "formal_CLAIM": "NONE",
+  "frozen_science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "integral_scaled_coefficients": 249,
+  "integrality_base_cases": 249,
+  "mask_count": 63,
+  "native_BRC_integration": "NOT_EXECUTED",
+  "other_prime_witnesses": {
+    "2":{"mask":3,"kind":"eventually_geometric","unit":1,"initial":[1,1,1],"scaled_polynomial":[0,0,1,1]},
+    "3":{"mask":17,"kind":"eventually_geometric","unit":1,"initial":[1,1,1],"scaled_polynomial":[0,0,2,1]},
+    "5":{"mask":2,"kind":"eventually_geometric","unit":2,"initial":[1,1],"scaled_polynomial":[0,3,1]},
+    "7":{"mask":2,"kind":"eventually_geometric","unit":2,"initial":[3,6],"scaled_polynomial":[0,5,1]},
+    "11":{"mask":4,"kind":"nonzero_finite_orbit","period":10,"initial":[8,4],"full_values":[8,4,4,5,1,3,7,7,6,10]},
+    "17":{"mask":32,"kind":"nonzero_finite_orbit","period":8,"initial":[5,2],"full_values":[5,2,3,2,16,16,10,14]},
+    "70481":{"mask":32,"kind":"eventually_geometric","unit":51999,"initial":[8135,55384],"scaled_polynomial":[0,18482,1]},
+    "904811":{"mask":0,"kind":"eventually_geometric","unit":624845,"initial":[824067],"scaled_polynomial":[279966,1]}
+  },
+  "p13": {
+    "all_mask_orbits":63,
+    "cover_masks_other_k":[9,26,10,13],
+    "global_period":2184,
+    "m9_mod_169_on_exceptional_k":[143,26],
+    "m9_mod_169_period":2184,
+    "no_nonzero_mask_k_mod_2184":[1093,2185],
+    "per_mask_period_counts":{"1":39,"6":6,"12":4,"21":2,"26":2,"28":2,"168":8}
+  },
+  "parameter":"67/169",
+  "pass":true,
+  "schema":"EM_R256_PERIODIC_13_ADIC_DENOMINATOR_V1",
+  "scientific_status":"AUTHOR_PROVED / EXACT_INTEGER_MODULAR_CERTIFICATE / NOT_REVIEWED",
+  "theorem":"LCM reduced denominators = (J*T**k//K) / (13 if k%1092 == 1 else 1)"
+}
