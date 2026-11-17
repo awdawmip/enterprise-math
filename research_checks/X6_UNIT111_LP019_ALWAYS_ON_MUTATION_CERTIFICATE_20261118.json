@@ -1,0 +1,72 @@
+{
+  "schema": "ENTERPRISE_MATH_X6_UNIT111_AUTHOR_EXACT_MUTATION_CERTIFICATE_V1",
+  "date": "2026-11-18",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "unit": 111,
+  "status": "AUTHOR_SOURCE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "scientific_pin": {
+    "P000_V5": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "signed_native_brc_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+    "unit108_lp019_blob": "c1842fbd34fb6fffa08a40a709b4838a6f2a5640",
+    "unit111_lp019_blob": "541c78d4cb639934939635274f96fce8e6ef0e4c"
+  },
+  "execution": {
+    "interpreter": "CPython subprocess normal/-O/-OO using full unchanged original native module in exact directory relative to scripts",
+    "converted_original_assertions_to_always_on": 18,
+    "baseline_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "unit108_and_unit111_exit_code_each_mode": 0,
+    "unit108_and_unit111_stdout_byte_identical": true,
+    "stdout_sha256_each": "eae53806d60ac8cfc6e757b004cce2f5f2ee3d989a318801226de45b8e5fcfac",
+    "histograms_checked": 625,
+    "original_signed_endpoint_formula_comparisons": 2925,
+    "original_native_six_axis_dp_endpoint_comparisons": 10364,
+    "native_dp_endpoint_lengths": [
+      1,
+      12,
+      73,
+      304,
+      985,
+      2668,
+      6321
+    ],
+    "total_native_endpoint_invocations_including_return_helpers_and_parity_probe": 10368,
+    "return_multiplicity_calls": 3
+  },
+  "mutation_controls": [
+    {
+      "kind": "zero_word_formula",
+      "modified_location": "def word_formula: return sum(...) -> return 0*sum(...)",
+      "old_unit108": {
+        "normal": "FAIL",
+        "-O": "FALSE_PASS",
+        "-OO": "FALSE_PASS"
+      },
+      "new_unit111": {
+        "normal": "FAIL_UNIT111_ALWAYS_ON_CHECK_10",
+        "-O": "FAIL_UNIT111_ALWAYS_ON_CHECK_10",
+        "-OO": "FAIL_UNIT111_ALWAYS_ON_CHECK_10"
+      }
+    },
+    {
+      "kind": "shift_hidden_histogram_count",
+      "modified_location": "hidden_histogram_count result +2 for valid fiber",
+      "old_unit108": {
+        "normal": "FAIL",
+        "-O": "FALSE_PASS",
+        "-OO": "FALSE_PASS"
+      },
+      "new_unit111": {
+        "normal": "FAIL_UNIT111_ALWAYS_ON_CHECK_11",
+        "-O": "FAIL_UNIT111_ALWAYS_ON_CHECK_11",
+        "-OO": "FAIL_UNIT111_ALWAYS_ON_CHECK_11"
+      }
+    }
+  ],
+  "interpretation": "The original signed BRC endpoint calls still execute in optimized modes; 18 independent LP019 model/observer/word-formula assert tests are elided, permitting a mathematically wrong internal two-axis counting formula or residual histogram to yield status PASS. Unit111 versioned opt-in program restores all 18 tests as always-on conditions while maintaining the frozen real X6 native source and identical nonmutated output.",
+  "scope": "Original 2-axis signed net/thickness BRC formulas and 6-axis true native integration only; old frozen R063/Helly benchmark not executed; LP019 historical original wrong positive-path subtraction caller still unlocated; no independent review or accepted Result."
+}
