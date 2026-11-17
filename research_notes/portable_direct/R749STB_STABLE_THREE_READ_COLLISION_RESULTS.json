@@ -1,0 +1,122 @@
+{
+  "unit": "R749STB",
+  "status": "PASS",
+  "evidence": "AUTHOR_EXACT_NOT_REVIEWED",
+  "frozen_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "candidates": [
+    73,
+    77
+  ],
+  "e_interval": [
+    "-151/100",
+    "-149/100"
+  ],
+  "d_center": "-183/200-(183/500)*(e+3/2)",
+  "d_strip_halfwidth": "1/1000",
+  "all_parameters_strictly_interior": true,
+  "F_increasing_in_d_on_strip": true,
+  "fourth_residual_lower_bound": "1/100000",
+  "three_read_collision": "unique analytic d(e) on the stated strip",
+  "observer_only_next_read_minimax_error_strictly_above": "1/200000",
+  "bernstein_positive_coefficients": 199,
+  "checks": [
+    {
+      "part": "F_lower_edge_denominator",
+      "bidegree": [3, 0],
+      "count": 4,
+      "min_coefficient": "7956877093595706400407603874331498813790322053429"
+    },
+    {
+      "part": "F_lower_edge_numerator",
+      "bidegree": [3, 0],
+      "count": 4,
+      "min_coefficient": "16831745616856103821983971568276106480304592"
+    },
+    {
+      "part": "F_upper_edge_denominator",
+      "bidegree": [3, 0],
+      "count": 4,
+      "min_coefficient": "71611894284799801855456881434857352240775055930761"
+    },
+    {
+      "part": "F_upper_edge_numerator",
+      "bidegree": [3, 0],
+      "count": 4,
+      "min_coefficient": "110960731634296191040459288844728304633449328"
+    },
+    {
+      "part": "E_gt_minus_2_denominator",
+      "bidegree": [2, 2],
+      "count": 9,
+      "min_coefficient": "708758824661074334699654400499236"
+    },
+    {
+      "part": "E_gt_minus_2_numerator",
+      "bidegree": [2, 2],
+      "count": 9,
+      "min_coefficient": "1781246628490509706655163316407421"
+    },
+    {
+      "part": "E_lt_2_denominator",
+      "bidegree": [2, 2],
+      "count": 9,
+      "min_coefficient": "708758824661074334699654400499236"
+    },
+    {
+      "part": "E_lt_2_numerator",
+      "bidegree": [2, 2],
+      "count": 9,
+      "min_coefficient": "1035181412366969762189518313018523"
+    },
+    {
+      "part": "D_gt_minus_2_denominator",
+      "bidegree": [2, 2],
+      "count": 9,
+      "min_coefficient": "1417517649322148669399308800998472"
+    },
+    {
+      "part": "D_gt_minus_2_numerator",
+      "bidegree": [2, 2],
+      "count": 9,
+      "min_coefficient": "1354221613894673840179854885972105"
+    },
+    {
+      "part": "D_lt_2_denominator",
+      "bidegree": [2, 2],
+      "count": 9,
+      "min_coefficient": "1417517649322148669399308800998472"
+    },
+    {
+      "part": "D_lt_2_numerator",
+      "bidegree": [2, 2],
+      "count": 9,
+      "min_coefficient": "4302625560020764320247010841288783"
+    },
+    {
+      "part": "fourth_residual_gt_1e_minus_5_denominator",
+      "bidegree": [3, 3],
+      "count": 16,
+      "min_coefficient": "33973955896542138637725848420988812454480098952936900000"
+    },
+    {
+      "part": "fourth_residual_gt_1e_minus_5_numerator",
+      "bidegree": [3, 3],
+      "count": 16,
+      "min_coefficient": "65962379689681490761681931608203284588660629863531"
+    },
+    {
+      "part": "F_strictly_increasing_in_d_denominator",
+      "bidegree": [6, 6],
+      "count": 49,
+      "min_coefficient": "9289077603096459816344615428869895591850595890291561339077737208972437051292368093"
+    },
+    {
+      "part": "F_strictly_increasing_in_d_numerator",
+      "bidegree": [5, 4],
+      "count": 30,
+      "min_coefficient": "17042200319792002029954192485242067464133300405308765523229365381271963300000000"
+    }
+  ],
+  "dependence": "R749STA for all-q qualitative robust corollary",
+  "next": "four-read separation on all q and phase classes; quantitative noise margins"
+}

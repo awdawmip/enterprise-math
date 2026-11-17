@@ -1,0 +1,31 @@
+{
+  "unit": "R749STC",
+  "status": "PASS",
+  "evidence": "AUTHOR_EXACT_NOT_REVIEWED",
+  "frozen_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "cutoff_pair": [73, 77],
+  "resultant_degree_e": 8,
+  "resultant_factors": [
+    {"degree": 1, "multiplicity": 1, "roots_in_closed_e_interval": 0, "roots_in_bracket": 0, "factor": "e + 8931013"},
+    {"degree": 1, "multiplicity": 1, "roots_in_closed_e_interval": 0, "roots_in_bracket": 0, "factor": "e + 13914446"},
+    {"degree": 1, "multiplicity": 1, "roots_in_closed_e_interval": 0, "roots_in_bracket": 0, "factor": "6452525806155848*e - 25965592240373824272017"},
+    {"degree": 5, "multiplicity": 1, "roots_in_closed_e_interval": 1, "roots_in_bracket": 1, "factor": "48203618100664315919793199875318609801109785139264689357025514443909691674525536*e**5 - 47339078479132608001824225612519416732130108517061139219280138258618107363972839312577527*e**4 - 738732779343216786199547162741700624129959343388071402886174552427212336910938344906975867119594*e**3 - 903201593748491419919809902290771374178955202981440472076460735482039462776156923539902077758635598168*e**2 + 979909102727511828392872438299692038588241930273629348538160741449649546760526428744869974815935134367909*e - 323893344543257328151175910709446504453194983803262499657180674327200610224087931752867113953950207288114"}
+  ],
+  "unique_candidate_e_bracket": ["1653/5000", "3307/10000"],
+  "four_read_exact_collision_in_allowed_error_box": false,
+  "exact_three_read_collision_exists": "R749STA and R749STB",
+  "pairwise_minimal_exact_observations": 4,
+  "positive_bernstein_coefficients": 50,
+  "bernstein_certificates": [
+    {"part": "strict_F_increasing_on_full_admissible_d_denominator", "bidegree": [0, 6], "count": 7, "min_coefficient": "7431212481578749078030308810009502664337512258944210650000000"},
+    {"part": "strict_F_increasing_on_full_admissible_d_numerator", "bidegree": [2, 4], "count": 15, "min_coefficient": "13626038343290627675098237255856338499514240483730706586379"},
+    {"part": "F_at_minus_one_strictly_positive_denominator", "bidegree": [0, 0], "count": 1, "min_coefficient": "1"},
+    {"part": "F_at_minus_one_strictly_positive_numerator", "bidegree": [2, 0], "count": 3, "min_coefficient": "3954160707469746544941600862916554951/3683738480947042025647328940456956250000"},
+    {"part": "alternative_E_exceeds_2_when_d_at_most_minus_one_denominator", "bidegree": [1, 2], "count": 6, "min_coefficient": "3543768517319543228087126555000"},
+    {"part": "alternative_E_exceeds_2_when_d_at_most_minus_one_numerator", "bidegree": [2, 2], "count": 9, "min_coefficient": "2448923509314533245728357330636"},
+    {"part": "two_read_inversion_denominator_positive_denominator", "bidegree": [0, 2], "count": 3, "min_coefficient": "706915000672634625322316250"},
+    {"part": "two_read_inversion_denominator_positive_numerator", "bidegree": [1, 2], "count": 6, "min_coefficient": "708753703463908645617425311"}
+  ],
+  "proof_scope": "all continuous error parameters in [-2,2] for the fixed pair q73,p77",
+  "next": "global minimal horizon 4..11; search four-read alias at large cutoffs; improve noise bounds"
+}
