@@ -1,0 +1,72 @@
+{
+  "schema": "EC49FRR_JOINT_NAMED_QUERY_SURCHARGE_PHASE_CERTIFICATE_V1",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_configurations": 310,
+  "complete_named_states": 141,
+  "physical_named_actions": 228,
+  "original_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "original_profile_csv_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "epsilon_critical": "2/141",
+  "anchor_epsilon_zero": {
+    "uniform_cost_total": 296,
+    "all_optimal_first_actions": [
+      32,
+      34
+    ]
+  },
+  "anchor_epsilon_2_over_141": {
+    "integer_scale": 141,
+    "surcharged_query_cost": 143,
+    "other_query_cost": 141,
+    "exact_bellman_minimum": 42018,
+    "recursive_state_subsets": 13063,
+    "all_optimal_first_actions": [
+      32,
+      34,
+      140,
+      142
+    ]
+  },
+  "full_original_BRC_witnesses": {
+    "A": {
+      "first": 32,
+      "original_path_cost_total": 296,
+      "charged_query_incidence": 141
+    },
+    "A_prime": {
+      "first": 34,
+      "original_path_cost_total": 296,
+      "charged_query_incidence": 141
+    },
+    "B": {
+      "first": 140,
+      "original_path_cost_total": 298,
+      "charged_query_incidence": 0
+    },
+    "B_prime": {
+      "first": 142,
+      "original_path_cost_total": 298,
+      "charged_query_incidence": 0
+    }
+  },
+  "analytic_conclusion": "For all real epsilon>=0, V(epsilon)/t=min(296+141epsilon,298)/141.",
+  "all_optimal_first_actions_by_epsilon": {
+    "0<=eps<2/141": [
+      32,
+      34
+    ],
+    "eps=2/141": [
+      32,
+      34,
+      140,
+      142
+    ],
+    "eps>2/141": [
+      140,
+      142
+    ]
+  },
+  "native_source_comparison": "141 named representatives match; 144 terminal physical responses match; 84 root physical responses match via exact (root,subset) label reindexing",
+  "verification": "Exact finite full-BRC Bellman and original source-replayed complete trees; universal real epsilon via analytic two-anchor proof",
+  "mathematical_admission": "NOT_REVIEWED"
+}
