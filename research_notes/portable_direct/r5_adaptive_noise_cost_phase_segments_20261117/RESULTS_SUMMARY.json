@@ -1,0 +1,94 @@
+{
+  "status": "PASS_R5_NOISE_COST_FOUR_QUERY_FULL_INTERVAL_AND_LOW_STEPS",
+  "pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "inputs": {
+    "cohort_sha256": "a781cf89e534587009e207e51bbda2f411e4147746f7d6a0b72a1354e80f0d4d",
+    "table_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b"
+  },
+  "checked": {
+    "budgets": 101,
+    "masks": 256,
+    "counts": 25856,
+    "pairs_per_triple": 32640,
+    "full_state_cliques_at_215": 19,
+    "hard_product_fibre_states": 64
+  },
+  "plateaus": [
+    {
+      "eta": "[0, A/2)",
+      "cost": 731,
+      "budgets": [
+        214,
+        223,
+        294
+      ],
+      "gap_A": "76289178155959966960189440",
+      "attaining_pairs": 64,
+      "first_pair": [
+        16,
+        32
+      ]
+    },
+    {
+      "eta": "[A/2, B/2)",
+      "cost": 732,
+      "budgets": [
+        214,
+        223,
+        295
+      ],
+      "gap_B": "3133722521542003559403356160",
+      "attaining_pairs": 64,
+      "first_pair": [
+        16,
+        32
+      ]
+    },
+    {
+      "eta": "[B/2, C/2)",
+      "cost": 733,
+      "budgets": [
+        214,
+        223,
+        296
+      ],
+      "gap_C": "13883516118328421520506880000",
+      "attaining_pairs": 16,
+      "first_pair": [
+        2,
+        8
+      ]
+    },
+    {
+      "eta": "[D3/2, D4/2)",
+      "cost": 955,
+      "lower_factors": [
+        433,
+        224,
+        298
+      ],
+      "upper_first": 215,
+      "upper_next": [
+        214,
+        216,
+        217,
+        218
+      ],
+      "upper_final": [
+        224,
+        298
+      ],
+      "histogram": {
+        "214": 5,
+        "216": 7,
+        "217": 5,
+        "218": 2
+      },
+      "D3": "1744659037213380157479321600000",
+      "D4": "1882951873548292168718745600000"
+    }
+  ],
+  "certification": "Verifier reconstructs exact integers, checks every stored count, every pair margin, product fibre, early cliques at D3 and D4-1, and all 19 full-mask cliques. Complete expanded JSON is reproduced by running verifier.",
+  "unresolved_interval": "C/2 <= eta < D3/2",
+  "review": "NOT_REVIEWED"
+}
