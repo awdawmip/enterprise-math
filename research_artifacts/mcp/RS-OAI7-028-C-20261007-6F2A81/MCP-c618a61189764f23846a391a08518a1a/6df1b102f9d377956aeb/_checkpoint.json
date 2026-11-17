@@ -1,0 +1,49 @@
+{
+  "claim_id": "MCP-756bde324e94672de40f98b3",
+  "completed_units": [
+    "Constructed exact finite signed-residue family (Lambda=Z^k, phi_(j,+/-)=+/-y_j mod p) with H(F_S(Y))=s log(p-m), relative entropy deficit tending to zero, but every signed marginal fails the strict (tau,beta)-coverage condition on m=ceil(p^(1-beta)) missing residues.",
+    "Proved one common Bernoulli shift h=Bm(1,...,1) repairs all signed marginals with zero exceptional residues for p>=2m, while joint-vector support remains incomplete; fixed p=101, m=11, beta=1/2, tau=3/8 and exact finite checker.",
+    "Proved exact two-shift threshold a=tau*(p-m)/p: (tau,beta) coverage of each signed marginal iff a<=q<=1-a; minimal shared entropy cost over this family h_2(a), p=101 gives a=135/404 and H=0.637084540827282 nats; checked exact rational boundary cases.",
+    "Compared exact external transfer theorem's common checkpoint A, conditionally iid h_1..h_n, shared information cost H(H), and its stringent size/entropy hypotheses; p=101 witness fails the theorem's size condition and is scoped to entropy-alone obstruction."
+  ],
+  "contributor_ids": [
+    "EM-EMF6D046-5A2844"
+  ],
+  "current_unfinished_unit": "Determine the strongest correct same-checkpoint shared-time coverage-transfer lemma and residual threshold under the external source hypotheses, including precise conditional information cost and exceptional-set probability; evaluate whether any typed X6/BRC counterpart preserves observer provenance.",
+  "do_not_repeat": [
+    "Do not treat the finite entropy-only counterexample as a counterexample to the full external transfer theorem; its conditional coverage and sample-size assumptions are not met.",
+    "Do not replace one shared displacement/checkpoint with independently selected shifts for separate signed coordinates.",
+    "Do not infer joint-vector coverage or native X6 walk reachability from marginal residue coverage."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Use the pinned coverage-transfer.tex proof line-by-line and identify which conditional coverage and Chernoff-size assumptions are essential or improvable, with exact quantifier order. If proposing an X6 transfer, require independently typed native carrier/Link/Port source safety; coordinate an independent mathematics review on the saved finite result.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:9f6fb7b9f0d9f8531cb42facf9bc416665878aac",
+      "path": "research_artifacts/mcp/RS-OAI7-028-C-20261007-6F2A81/MCP-c618a61189764f23846a391a08518a1a/6df1b102f9d377956aeb/OAI7_028_C_SHARED_SHIFT_COVERAGE_PROOF_20261117.md",
+      "sha256": "sha256:cd5874ef0a12437521a495f4868a4ee42f4efd59fd405e8e6fb0f6f0711ce7c6"
+    },
+    {
+      "git_blob_sha1": "sha1:f4f69d2ab3f425c2483de2d4c0203d655663b76c",
+      "path": "research_artifacts/mcp/RS-OAI7-028-C-20261007-6F2A81/MCP-c618a61189764f23846a391a08518a1a/6df1b102f9d377956aeb/OAI7_028_C_SHARED_SHIFT_COVERAGE_CHECK_20261117.py",
+      "sha256": "sha256:680e46b1c5a2dc6b242c1b808cae53850ceafae30a47ae08fd04118e6ad16a68"
+    },
+    {
+      "git_blob_sha1": "sha1:fd4d586ad5e9fbffcbe4a024bfaea0bf94b070e0",
+      "path": "research_artifacts/mcp/RS-OAI7-028-C-20261007-6F2A81/MCP-c618a61189764f23846a391a08518a1a/6df1b102f9d377956aeb/OAI7_028_C_BERNOULLI_SHIFT_COST_20261117.md",
+      "sha256": "sha256:203fe1a3d58bb3b6e489cb9f14aab174aabec17bce624e69d9e0eee1a3d41015"
+    },
+    {
+      "git_blob_sha1": "sha1:118f3db50f38adf34736c8081b9280214724ff33",
+      "path": "research_artifacts/mcp/RS-OAI7-028-C-20261007-6F2A81/MCP-c618a61189764f23846a391a08518a1a/6df1b102f9d377956aeb/OAI7_028_C_BERNOULLI_SHIFT_COST_CHECK_20261117.py",
+      "sha256": "sha256:25514cbb3c924cf77582b8b399cb8b023cd8299a5ec41fe5a48252498c397d75"
+    }
+  ],
+  "ownership_epoch": 6939732111,
+  "publication_id": "TP2-96FAC49786245691AE19",
+  "researcher_id": "EM-EMF6D046-5A2844",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-c618a61189764f23846a391a08518a1a",
+  "task_id": "RS-OAI7-028-C-20261007-6F2A81",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
