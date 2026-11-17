@@ -1,0 +1,153 @@
+{
+  "status": "PASS_R5_COMPLETE_ADAPTIVE_ABSOLUTE_NOISE_COST_PHASE_DIAGRAM",
+  "frozen_science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "verified_inputs_sha256": [
+    "a781cf89e534587009e207e51bbda2f411e4147746f7d6a0b72a1354e80f0d4d",
+    "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b"
+  ],
+  "verified_integer_counts": 25856,
+  "pairs_per_three_query_margin": 32640,
+  "independent_factor_fibre_size": 64,
+  "three_query": [
+    {
+      "minimax_cost": 731,
+      "budgets": [
+        214,
+        223,
+        294
+      ],
+      "lower_tau_inclusive": "0",
+      "upper_tau_exclusive": "76289178155959966960189440",
+      "global_pair_margin": "76289178155959966960189440",
+      "margin_pair_count": 64
+    },
+    {
+      "minimax_cost": 732,
+      "budgets": [
+        214,
+        223,
+        295
+      ],
+      "lower_tau_inclusive": "76289178155959966960189440",
+      "upper_tau_exclusive": "3133722521542003559403356160",
+      "global_pair_margin": "3133722521542003559403356160",
+      "margin_pair_count": 64
+    },
+    {
+      "minimax_cost": 733,
+      "budgets": [
+        214,
+        223,
+        296
+      ],
+      "lower_tau_inclusive": "3133722521542003559403356160",
+      "upper_tau_exclusive": "13883516118328421520506880000",
+      "global_pair_margin": "13883516118328421520506880000",
+      "margin_pair_count": 16
+    },
+    {
+      "minimax_cost": 734,
+      "budgets": [
+        215,
+        223,
+        296
+      ],
+      "lower_tau_inclusive": "13883516118328421520506880000",
+      "upper_tau_exclusive": "25845652773852463277015040000",
+      "global_pair_margin": "25845652773852463277015040000",
+      "margin_pair_count": 8
+    },
+    {
+      "minimax_cost": 735,
+      "budgets": [
+        216,
+        223,
+        296
+      ],
+      "lower_tau_inclusive": "25845652773852463277015040000",
+      "upper_tau_exclusive": "58182461585441404127941754880",
+      "global_pair_margin": "58182461585441404127941754880",
+      "margin_pair_count": 64
+    },
+    {
+      "minimax_cost": 736,
+      "budgets": [
+        216,
+        223,
+        297
+      ],
+      "lower_tau_inclusive": "58182461585441404127941754880",
+      "upper_tau_exclusive": "92195224223274674159616000000",
+      "global_pair_margin": "92195224223274674159616000000",
+      "margin_pair_count": 8
+    },
+    {
+      "minimax_cost": 737,
+      "budgets": [
+        217,
+        223,
+        297
+      ],
+      "lower_tau_inclusive": "92195224223274674159616000000",
+      "upper_tau_exclusive": "267753525139190986466918400000",
+      "global_pair_margin": "267753525139190986466918400000",
+      "margin_pair_count": 64
+    },
+    {
+      "minimax_cost": 738,
+      "budgets": [
+        217,
+        224,
+        297
+      ],
+      "lower_tau_inclusive": "267753525139190986466918400000",
+      "upper_tau_exclusive": "651779164849779092423599718400",
+      "global_pair_margin": "651779164849779092423599718400",
+      "margin_pair_count": 64
+    },
+    {
+      "minimax_cost": 739,
+      "budgets": [
+        217,
+        224,
+        298
+      ],
+      "lower_tau_inclusive": "651779164849779092423599718400",
+      "upper_tau_exclusive": "1744659037213380157479321600000",
+      "global_pair_margin": "1744659037213380157479321600000",
+      "margin_pair_count": 16
+    }
+  ],
+  "four_query": {
+    "lower_tau_inclusive": "1744659037213380157479321600000",
+    "upper_tau_exclusive": "1882951873548292168718745600000",
+    "minimax_cost": 955,
+    "early_factor_minimax_two_query_cost": 433,
+    "middle_earliest_budget": 224,
+    "late_earliest_budget": 298,
+    "first_budget": 215,
+    "second_budget_distribution": {
+      "214": 5,
+      "216": 7,
+      "217": 5,
+      "218": 2
+    },
+    "maximal_first_reading_ambiguity_cliques": 19,
+    "last_budgets": [
+      224,
+      298
+    ]
+  },
+  "impossibility": {
+    "tau_inclusive_from": "1882951873548292168718745600000",
+    "globally_indistinguishable_masks": [
+      11,
+      14
+    ],
+    "global_max_pair_margin": "1882951873548292168718745600000",
+    "peak_budget": [
+      217
+    ]
+  },
+  "review": "NOT_REVIEWED"
+}
