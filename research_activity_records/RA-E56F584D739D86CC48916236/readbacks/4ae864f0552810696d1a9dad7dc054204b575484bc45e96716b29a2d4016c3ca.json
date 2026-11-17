@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_adaptive_single_unmarked_error_20261117/RESULTS_ADAPTIVE_SINGLE_ERROR_EXACT.json",
+    "ref": "0ac6d4b0334bf45a2f4fa18c50f870c48b31f808",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261117-1240-single-unmarked-error-immutable-readback",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"cost_improvement\": 517,\n  \"fixed_one_error_optimal_cost\": 2193,\n  \"frozen_science_commit\": \"435e77af0d180eac32bd1f9c4c464bc4010b7551\",\n  \"guarantee\": \"0 <= 2*eta < delta, one arbitrary unmarked replacement; true state any mask 0..255\",\n  \"intact_observation_cardinalities\": {\n    \"214\": 32,\n    \"223\": 4,\n    \"294\": 4\n  },\n  \"lower_bound_witness\": \"state16 three disjoint windows; six mandatory intact-path reads; corrupt sixth => seventh required\",\n  \"min_positive_center_gap_by_budget\": {\n    \"214\": \"13883516118328421520506880000\",\n    \"223\": \"267753525139190986466918400000\",\n    \"294\": \"76289178155959966960189440\"\n  },\n  \"min_positive_gap_delta\": \"76289178155959966960189440\",\n  \"number_of_distinct_signature_tuples\": 256,\n  \"permutation_costs\": {\n    \"214,223,294\": 1756,\n    \"214,294,223\": 1685,\n    \"223,214,294\": 1756,\n    \"223,294,214\": 1676,\n    \"294,214,223\": 1685,\n    \"294,223,214\": 1676\n  },\n  \"readout_budgets\": [\n    294,\n    223,\n    214\n  ],\n  \"reference_count_crosscheck\": 768,\n  \"schema\": \"R5_ADAPTIVE_ONE_UNMARKED_ERROR_CERTIFICATE_V1\",\n  \"source_compact_sha256\": \"efbbdad49f602b94eb593e3491827f0a4b1bf712f006d332174171888d22b1fb\",\n  \"status\": \"AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED\",\n  \"stdout\": \"PASS_R5_SHARP_ADAPTIVE_SINGLE_UNMARKED_ERROR_1676\",\n  \"symbolic_corruption_exhaustive_runs\": 22272,\n  \"three_source_witnesses\": [\n    {\n      \"states\": [\n        16,\n        17\n      ],\n      \"window\": [\n        214,\n        221\n      ],\n      \"window_cardinality\": 8\n    },\n    {\n      \"states\": [\n        16,\n        80\n      ],\n      \"window\": [\n        223,\n        291\n      ],\n      \"window_cardinality\": 69\n    },\n    {\n      \"states\": [\n        16,\n        32\n      ],\n      \"window\": [\n        294,\n        313\n      ],\n      \"window_cardinality\": 20\n    }\n  ],\n  \"worst_case_cost\": 1676,\n  \"worst_witness\": {\n    \"budget\": 214,\n    \"corrupted_symbol\": \"103134691164725417009479680000\",\n    \"cost\": 1676,\n    \"initial_read_index\": 0,\n    \"mask\": 0\n  },\n  \"zero_error_path_cost\": 1462\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/0ac6d4b0334bf45a2f4fa18c50f870c48b31f808/research_notes/portable_direct/r5_adaptive_single_unmarked_error_20261117/RESULTS_ADAPTIVE_SINGLE_ERROR_EXACT.json",
+      "encoding": "utf-8",
+      "sha": "0fcb5b33845491299dcf28cb57bffe574a77b5bb"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
