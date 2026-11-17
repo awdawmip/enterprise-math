@@ -268,6 +268,35 @@
           "verification_receipt_sha256": "a882843699c730590a630a582b257e2ddec2b1c80073a7638bdd48ca1a90ddc6"
         }
       ]
+    },
+    {
+      "event_id": "r2-20261118-r749stz-resource-rollback-v1",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "d01c5b73d57fa87d0ddd17d30c6f1cf07d5b8660",
+          "path": "research_notes/portable_direct/R749STZ_RESOURCE_ROLLBACK_RESULTS.json",
+          "sha256": "728d007ef67fe421110bea3587fe0fea1f0b503b7e9af67c3bc6fec15aa37698",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "r2-20261118-r749stz-source-json-readback-v1",
+            "git_blob_sha1": "62b3088a7975ead4383a27186ae5d39d01fa59be",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/d01c5b73d57fa87d0ddd17d30c6f1cf07d5b8660/research_notes/portable_direct/R749STZ_RESOURCE_ROLLBACK_RESULTS.json",
+            "server_signature_authenticated": false,
+            "network_request_by_this_tool": false,
+            "call_id": null
+          },
+          "verification_receipt": "research_activity_records/RA-8E622667CFB9085398D4F800/readbacks/0fedb1c80bfddca83b6ca0dcbfff615a49a7a66d213d0ee65b115ac3cba88162.json",
+          "verification_receipt_sha256": "0fedb1c80bfddca83b6ca0dcbfff615a49a7a66d213d0ee65b115ac3cba88162"
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/d80c62efb091f1953f81081b1cd97982a900a9f5/journal/enterprise-math/2026-11-18/20261118T041507%2B0800-r749stz-resource-rollback.md"
+      ]
     }
   ],
   "mode": "TASK_RESEARCH",
