@@ -1,0 +1,120 @@
+{
+  "schema": "EM_X6_UNIT93_AUTHOR_SOURCE_CONTINUATION_V1",
+  "date": "2026-11-17",
+  "mother_goal": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "scientific_pins": {
+    "p000": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "primitive_signed_brc_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176"
+  },
+  "current_source_read": {
+    "repository": "awdawmip/enterprise-math",
+    "main_at_inspection": "a02fd667ebada3666a187c5cc35b23ffceeaeab1",
+    "cover_source": {
+      "path": "experiments/x6_native_coordinate_completion_v7_20260905/x6_cover.py",
+      "blob": "171baf1cee7f1aceaf38c73d0c0659a25fd8d7bd",
+      "line": 64
+    },
+    "signed_native_source": {
+      "path": "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py",
+      "blob": "405d9bc752bbf45582f2d0a6d9f91bff9cc5f89e",
+      "line": 47
+    },
+    "coordinate_source": {
+      "path": "experiments/x6_native_coordinate_completion_v7_20260905/x6_coordinate.py",
+      "blob": "9738543aace13f8a72af577e9ad8964c5fd40de8",
+      "line": 91
+    }
+  },
+  "prior_verified_frontier": "Unit92: exact four-chart composition under 20 named triads, 400 pair comparison and 288 omitted-transition failures. Units64-92 author GitHub evidence preserved; no Native completion invented.",
+  "unit93": {
+    "classification": "AUTHOR-EXACT / MODEL-EXECUTED / NATIVE-SOURCE-STATIC-READ / UNREVIEWED / NOT_ADMITTED",
+    "source_defect": "CoverState.step accepts direction=True because the guard tests membership in (-1,1) without exact type(direction) is int; pinned Spatial6.step and Coord6.step reject Boolean directions.",
+    "explicit_witness": "CoverState(Coord6((0,)*6),0,0).step(0,True) has the same positive step output as step(0,1), while Spatial6().step(0,True) raises ValueError.",
+    "proposed_repair": "Add 'type(direction) is not int or ' to x6_cover.CoverState.step guard, preserving existing valid +/-1 operations; update dependent pin/replay only via source-owner-consistent patch.",
+    "universal_semantics": "For z in Z^6, axis i=0..5, exact integer direction epsilon +/-1, all integer m>=0, cover step applied to (rho(z), min(z) [mod m]) equals the same quotient observation of z+epsilon e_i.",
+    "model_checks": {
+      "starting_states": 729,
+      "moduli": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "six_axes": true,
+      "signed_directions": 2,
+      "exact_equalities": 43740,
+      "three_python_modes_identical": true,
+      "source_modules_executed": false,
+      "native_R063_Helly_executed": false
+    },
+    "artifacts": [
+      {
+        "path": "research_checks/X6_UNIT93_COVER_SIGNED_STEP_TYPE_BOUNDARY_20261117.py",
+        "commit": "71f3b4687c5a05865aacfd2c9f4214b6e80efd04",
+        "blob_sha1": "d652981adab606eba9ac5ea90f4311ac7a499bef",
+        "sha256": "a4381eac88610a92b238267b50248579d7439d75f1d893719d8ad0c0bfb01fe8"
+      },
+      {
+        "path": "research_checks/X6_UNIT93_COVER_SIGNED_STEP_TYPE_RESULTS_20261117.json",
+        "commit": "bf00e9c1cc13437e23848497c0486554bb345149",
+        "blob_sha1": "e16072e696b88530717c1ede62d7136162910162",
+        "sha256": "71c577ba8f276dd85c7162d93d0cfcb883154af788c4dbf87ad4cbf0f6a6ddb1"
+      },
+      {
+        "path": "research_notes/X6_UNIT93_COVER_NATIVE_SIGNED_DIRECTION_AUDIT_20261117.md",
+        "commit": "55d6eee9b6b3f3407b706c2e23cedbea36fadebf",
+        "blob_sha1": "6f0d141fdb885711735a3ce40d5a331d1d2edd50"
+      }
+    ],
+    "current_downstream_inspected": "research_checks/X6_LP026_CURRENT_COVER_FAST_G_NATIVE_BRC_IMPORT_20261112_ONHOUR.py @blob346be279c42a1a44a7ecfae01256cb92e3109f00 invokes CoverState.step through source_key_step and passes correctly typed +/-1; this is source boundary input defect, no confirmed bad caller.",
+    "original_source_modified": false,
+    "native_progress_submitted": false,
+    "independent_review": "NOT_REVIEWED / NOT_ADMITTED"
+  },
+  "own_research_provenance": {
+    "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+    "separate_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+    "sid": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "researcher_id": "EM-X6-FB6990",
+    "historical_claim": "MCP-579c8e23625448582b421831",
+    "historical_run": "RUN-fb25028676f9692ab1bacaee",
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "activity_events_preunit93": 106,
+    "managed_recovery_read_request": "onhour-20261117-1208-x6-sid-recovery-r11",
+    "exact_continuation_request": "onhour-20261117-1211-x6-own-exact-cont-r11",
+    "exact_continuation_result": "SUCCEEDED / execution_authorized=false",
+    "current_owner_claim_or_run_write_authorization": "NOT_ESTABLISHED",
+    "prior_bridge_read_receipts": [
+      {
+        "issue": 6994,
+        "result": "SUCCEEDED"
+      },
+      {
+        "issue": 6995,
+        "result": "SUCCEEDED"
+      }
+    ]
+  },
+  "open_parent_gaps": [
+    "LP011/LP019 original erroneous historical caller file:line or independent Driver REQUEST_REVISION disposition",
+    "Remaining 28-LP dependency graph and exact current consumer coverage",
+    "Source-owner-safe original CoverState strict direction guard integration, native module test and dependent LP026 pin regression",
+    "Native semantic Units77-93 linkage under original legitimate current X6 run and Activity history preservation",
+    "Independent scientific review/admission"
+  ],
+  "do_not_repeat": [
+    "Original R063 Stage0/Stage3 and Helly full native benchmark",
+    "Units64-92 evidence and earlier all-length exact certificates",
+    "Bridge #6994/#6995 success readbacks",
+    "Native claim or progress without authenticated current author run",
+    "Other research or maintenance identity"
+  ],
+  "next_exact_action": "First confirm source owner and current import/pin references to CoverState, apply minimal explicit type(direction) strict integer guard with one direct module regression and correct downstream source pin ownership; continue original LP011/LP019 historical attribution and 28-LP graph. For native semantic progress only recover original winning owner authorization; do not replay denied writes.",
+  "source_author_activity": "Unit93 GitHub files verified; original Research Activity update separate from this packet and checked on its own CAS.",
+  "scheduler_modified": false,
+  "notifications_modified": false
+}
