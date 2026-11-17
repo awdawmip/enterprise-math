@@ -1,0 +1,81 @@
+{
+  "schema": "EM_R762DP_AUTHOR_EXACT_INTEGER_EVIDENCE_V1",
+  "observed_date": "2026-11-18",
+  "status": "PASS",
+  "method": "exact Python integer positive BRC 2-coordinate cyclic convolution; no float",
+  "task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "scope": "candidate endpoint observer pi_XZ, not native TRIADIC_CLOSURE_E",
+  "source_program": "research_notes/portable_direct/R762DP_VERIFY.py",
+  "theorem_checks_total": 231,
+  "full_mass_checks_total": 273,
+  "moduli": [
+    {
+      "q": 9,
+      "n_range": [
+        1,
+        21
+      ],
+      "theorem_checks": 17,
+      "full_mass_checks": 21,
+      "frobenius_D_check": true,
+      "sample_contents": {
+        "1": "1",
+        "8": "1",
+        "9": "9",
+        "10": "9",
+        "14": "9",
+        "15": "81",
+        "17": "81",
+        "18": "81",
+        "20": "81",
+        "21": "729"
+      }
+    },
+    {
+      "q": 27,
+      "n_range": [
+        1,
+        63
+      ],
+      "theorem_checks": 53,
+      "full_mass_checks": 63,
+      "frobenius_D_check": true,
+      "sample_contents": {
+        "1": "1",
+        "26": "1",
+        "27": "9",
+        "28": "9",
+        "44": "9",
+        "45": "81",
+        "53": "81",
+        "54": "81",
+        "62": "81",
+        "63": "729"
+      }
+    },
+    {
+      "q": 81,
+      "n_range": [
+        1,
+        189
+      ],
+      "theorem_checks": 161,
+      "full_mass_checks": 189,
+      "frobenius_D_check": true,
+      "sample_contents": {
+        "1": "1",
+        "80": "1",
+        "81": "9",
+        "82": "9",
+        "134": "9",
+        "135": "81",
+        "161": "81",
+        "162": "81",
+        "188": "81",
+        "189": "729"
+      }
+    }
+  ],
+  "independent_review": "NOT_REVIEWED",
+  "unproved": "5d<=n<6d and n>=7d universal formulas remain open; n=7d=729 checked for Q=9,27,81 only"
+}
