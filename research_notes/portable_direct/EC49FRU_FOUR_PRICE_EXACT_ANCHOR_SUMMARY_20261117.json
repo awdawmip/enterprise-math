@@ -1,0 +1,112 @@
+{
+  "schema": "EC49FRU_FOUR_NAMED_PRICE_BELLMAN_PUBLICATION_SUMMARY_V1",
+  "date": "2026-11-17",
+  "frozen_scientific_input": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "class_id": 16943,
+  "configurations": 310,
+  "named_states": 141,
+  "original_physical_observations": 228,
+  "source_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "profile_csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "new_anchor": {
+    "price_integer_deltas": {
+      "32": 3,
+      "34": 3,
+      "140": 1,
+      "142": 1
+    },
+    "base_price_integer_units": 141,
+    "unrestricted_integer_bellman_total": 42159,
+    "expected_unscaled_path_count_value": 299,
+    "independent_raw_source_reconstruction_route_counts": 2,
+    "original_observation_vectors_identical": true,
+    "subproblem_count_each": 13063,
+    "all_optimal_first_original_query_indices": [
+      32,
+      34,
+      46,
+      93,
+      140,
+      142
+    ]
+  },
+  "replayed_complete_original_trees": [
+    {
+      "first_query": 32,
+      "observation_uses": 296,
+      "charged_incidence": [
+        141,
+        0,
+        0,
+        0
+      ],
+      "max_depth": 3
+    },
+    {
+      "first_query": 34,
+      "observation_uses": 296,
+      "charged_incidence": [
+        0,
+        141,
+        0,
+        0
+      ],
+      "max_depth": 3
+    },
+    {
+      "first_query": 140,
+      "observation_uses": 298,
+      "charged_incidence": [
+        0,
+        0,
+        141,
+        0
+      ],
+      "max_depth": 3
+    },
+    {
+      "first_query": 142,
+      "observation_uses": 298,
+      "charged_incidence": [
+        0,
+        0,
+        0,
+        141
+      ],
+      "max_depth": 3
+    },
+    {
+      "first_query": 46,
+      "observation_uses": 299,
+      "charged_incidence": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_depth": 3
+    },
+    {
+      "first_query": 93,
+      "observation_uses": 299,
+      "charged_incidence": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_depth": 3
+    }
+  ],
+  "full_tree_payload": {
+    "storage": "recomputable deterministic output of EC49FRU_EXACT_FOUR_PRICE_BELLMAN_VERIFY.py using prior frozen full raw evidence archive",
+    "local_full_certificate_sha256": "c04af9da813db40993757d2668f2605327706aaa82e4e6f20090a6138b1dbb4e",
+    "local_full_certificate_bytes": 81033
+  },
+  "theorem": "For every real a,b,c,d>=0, 141*V(a,b,c,d)/t=min(296+141a,296+141b,298+141c,298+141d,299).",
+  "proof": "Staircase-anchor lifting lemma with breakpoints 0,2,3 and complete original BRC Bellman anchors 296,298,299.",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_BELLMAN_TWO_RAW_RECONSTRUCTIONS / NOT_REVIEWED",
+  "control": "Independent portable research: no new CLAIM, Result, Review or Activity checkpoint; RS-EC49AS topic has no canonical task publication directory per current exact Source lookup."
+}
