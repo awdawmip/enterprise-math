@@ -1,0 +1,83 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-18",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_scientific_inputs": {
+    "P000_V5": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "highest_author_verified_frontier": {
+    "unit": 107,
+    "status": "AUTHOR-PROVED/EXACT-FINITE-EXECUTED/UNREVIEWED/NOT_ADMITTED",
+    "statement": "For signed native Z^6 shortest-path multiplicities, B(T_i^eps z)=B(z)*(L+1)/(|z_i|+1) on an outward step and B(z)*|z_i|/L on an inward step. For the fixed Johnson packet (rho_J,q_orbit,L1,L_E²,F), no proper subset of raw signed axis coordinates suffices to determine all named next B values globally. Every omitted axis has an explicit +/-3 witness with Bnow=4 and next B=5 versus 3. On {-1,0,1}^6, five coordinates suffice and four fail.",
+    "finite_execution": {
+      "states": 15625,
+      "named_updates": 187500,
+      "small_cube_states": 729,
+      "subsets_checked": 64,
+      "minimum_sufficient_cube_axes": 5,
+      "python_modes": [
+        "normal",
+        "-O",
+        "-OO"
+      ],
+      "byte_identical": true,
+      "certificate_sha256": "3eef377d7682493367106832be48ea536353c85c1850db7846eb76fb6da9dfd8",
+      "original_R063_Helly_executed": false
+    },
+    "artifacts": [
+      {
+        "commit": "ea29a83c66b705eae503d7b29ff75e6d9b182886",
+        "path": "research_checks/X6_UNIT107_JOHNSON_BRC_NAMED_AXIS_REPAIR_CHECK_20261118.py",
+        "git_blob_sha1": "7c651e0f853c9620cc578049ff033307d7af1f09",
+        "sha256": "1bc44ed4c6741c60cff1293ec9d51107cbce19628382277e776487bde2c5a248",
+        "readback_verified": true
+      },
+      {
+        "commit": "f6ade3da54202e2e5103baed8bd501568cf9369d",
+        "path": "research_checks/X6_UNIT107_JOHNSON_BRC_NAMED_AXIS_REPAIR_RESULTS_20261118.json",
+        "git_blob_sha1": "534563dce121d4f4b7fd8ecbac63523d83908911",
+        "sha256": "3eef377d7682493367106832be48ea536353c85c1850db7846eb76fb6da9dfd8",
+        "readback_verified": true
+      },
+      {
+        "commit": "f24dabbb2db5c482e7e10c7f26c6783acc336a89",
+        "path": "research_notes/X6_UNIT107_JOHNSON_BRC_NAMED_AXIS_REPAIR_MINIMALITY_20261118.md",
+        "git_blob_sha1": "5d1b6cfb9ded8bea892c21decd39caae718a24d0",
+        "readback_verified": true
+      }
+    ]
+  },
+  "research_identity": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-3e221a50dc8818f914e228f6",
+    "run_id": "RUN-95866d78d35721116c362956",
+    "last_verified_generation": 2,
+    "last_verified_revision": 2,
+    "original_unit104_progress": "onhour-20261118-0402-x6-own-unit104-native-progress-v1",
+    "original_unit104_progress_status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "current_queued_read": "onhour-20261118-0503-x6-own-frontier-read-v1",
+    "current_queued_read_last_observed": "QUEUED/error=null",
+    "units105_107_native_progress": "NOT_SUBMITTED_AWAIT_OWN_CURRENT_AUTHORIZATION"
+  },
+  "remaining": [
+    "LP011 alleged faulty signed argmax native caller exact frozen source:line still unconfirmed; classify old ledger and request driver decision",
+    "LP019 alleged positive N-BRC sign-cancellation caller exact frozen source:line still unconfirmed; preserve natural multiplicity",
+    "28-LP downstream real current call graph and operation/observer demand types incomplete",
+    "Independent Driver REQUEST_REVISION and Result review pending",
+    "Native R063/Helly original benchmark support Issue #2416 OPEN, owner/acceptance pending"
+  ],
+  "do_not_repeat": [
+    "Unit107 proof/finite checks after verified GitHub publication",
+    "Units64-106 saved science and original Native Unit104 successful request",
+    "Original R063/Helly native benchmarks",
+    "No maintenance lane session/claim/run",
+    "No duplicate original queued Source request"
+  ],
+  "next_exact_action": "Read exact current continuation receipt on original onhour-20261118-0503-x6-own-frontier-read-v1; verify own winning live CLAIM, then same original RUN/generation CAS checkpoint Units105-107 and request a single Native semantic publication if authorized. Independently trace actual live 28-LP downstream file:line typed consumers; preserve R063 original benchmark support issue and independent Driver review.",
+  "continuation_state": "OPEN"
+}
