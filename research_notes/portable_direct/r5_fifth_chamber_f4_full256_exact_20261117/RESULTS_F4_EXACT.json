@@ -1,0 +1,52 @@
+{
+  "schema": "R5_FIFTH_CHAMBER_ADAPTIVE_F4_EXACT_V1",
+  "source_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "frozen_count_table_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "tau_real_interval_left_closed_right_open": [
+    "25845652773852463277015040000",
+    "58182461585441404127941754880"
+  ],
+  "states": 256,
+  "budget_range": [
+    214,
+    314
+  ],
+  "arbitrary_unmarked_errors": 4,
+  "exact_minimax_cost": 4535,
+  "lower_certificate": {
+    "actual_masks": [
+      18,
+      24,
+      82,
+      34,
+      17
+    ],
+    "tau": "L",
+    "physical_budgets_count": 101,
+    "exact_cost": 4535,
+    "memo_states": 4321
+  },
+  "upper_certificate": {
+    "states": 256,
+    "tau": "U-1",
+    "physical_budget_actions": [
+      216,
+      223,
+      296,
+      214,
+      215
+    ],
+    "exact_cost": 4535,
+    "memo_states": 18193706,
+    "action_table_sha256": "091d7f80f6cb7b0983fb2a3659c4e9a334d53d99746b5523c24cdc9a138b0925",
+    "executed_cpp_sha256": "872d86c714e1bb7186f376374e2fdd66fce26180cd526ef88c21c1fcb0d48632"
+  },
+  "regression": {
+    "f3_cpp_four_tier_replay_cost": 3585,
+    "visited_states": 1704343
+  },
+  "proof": "Matching exact integer Bellman lower at tau=L and constructive full-256 upper at tau=U-1; integer count gaps and monotonic support extend to all real tau in [L,U).",
+  "review": "NOT_REVIEWED",
+  "source_publication": "DRAFT_PR_BRANCH_ONLY",
+  "formal_claim": false
+}
