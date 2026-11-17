@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R749STT_THREE_READ_73_85_RESULTS.json",
+    "ref": "1a738eef0a86a01155fa4bcc1dc9bc978cc80d68",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r2-20261117-r749stt-github-json-fullread-01",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"unit\": \"R749STT\",\n  \"frozen_science_pin\": \"a72226e2430ffa4786321ac86e7f0c599d5f0389\",\n  \"model\": \"five distinct labeled sources, weights (1,1,2,3,6)\",\n  \"candidates\": [\n    73,\n    85\n  ],\n  \"read_indices\": [\n    0,\n    1,\n    2\n  ],\n  \"status\": \"AUTHOR_EXACT_NOT_REVIEWED\",\n  \"two_read_exact_collision\": {\n    \"e\": \"-3017722237060578733161/1527694442423074582592\",\n    \"d\": \"1445925897017416432877/763847221211537291296\",\n    \"E\": \"7/5\",\n    \"D\": \"2\",\n    \"equalities\": [\n      \"Y_73(e,d)=Y_85(E,D)\",\n      \"Y_79(e,d)=Y_91(E,D)\"\n    ]\n  },\n  \"linear_three_read_statistic_coefficients\": [\n    \"1\",\n    \"-21/10\",\n    \"11/10\"\n  ],\n  \"exact_attained_lower_bound\": \"67536937868192626099237277/18291917078444373205412530425\",\n  \"attaining_parameters\": [\n    -2,\n    2,\n    2,\n    2\n  ],\n  \"strict_additive_noise_per_raw_read\": \"eta < 67536937868192626099237277/153652103458932734925465255570\",\n  \"derivative_sign_checks\": {\n    \"73_positive_d_e\": {\n      \"bernstein_count\": 3,\n      \"strictly_positive\": 3,\n      \"min_bernstein\": \"61636307932971525\",\n      \"denominator_coefficients_positive\": 4\n    },\n    \"73_positive_signed_d_d\": {\n      \"bernstein_count\": 10,\n      \"strictly_positive\": 10,\n      \"min_bernstein\": \"3685584839315143920363561800379375\",\n      \"denominator_coefficients_positive\": 7\n    },\n    \"85_positive_d_e\": {\n      \"bernstein_count\": 3,\n      \"strictly_positive\": 3,\n      \"min_bernstein\": \"123187900606923355\",\n      \"denominator_coefficients_positive\": 4\n    },\n    \"85_positive_signed_d_d\": {\n      \"bernstein_count\": 10,\n      \"strictly_positive\": 10,\n      \"min_bernstein\": \"89815012766212818375162394725947451\",\n      \"denominator_coefficients_positive\": 7\n    }\n  },\n  \"total_positive_bernstein_coefficients\": 26,\n  \"counts\": {\n    \"73\": {\n      \"C\": 707343,\n      \"T\": 8931013\n    },\n    \"79\": {\n      \"C\": 1020943,\n      \"T\": 13914446\n    },\n    \"85\": {\n      \"C\": 1436968,\n      \"T\": 21025004\n    },\n    \"91\": {\n      \"C\": 1978664,\n      \"T\": 30933812\n    },\n    \"97\": {\n      \"C\": 2672553,\n      \"T\": 44459556\n    }\n  },\n  \"conclusion\": \"m_initial({73,85})=3 for candidate-wise fixed real nuisance pairs in [-2,2]^2\",\n  \"scope\": \"Auxiliary scalar observer only; no native X6/Port/Cell correspondence.\",\n  \"open_problem\": \"Determine exact first-horizon for pair 73/79; retain full source provenance in any BRC lift.\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/1a738eef0a86a01155fa4bcc1dc9bc978cc80d68/research_notes/portable_direct/R749STT_THREE_READ_73_85_RESULTS.json",
+      "encoding": "utf-8",
+      "sha": "df6850ee5e3640b6f194c998ff8408b9a4533cd9"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
