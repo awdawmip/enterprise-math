@@ -1,0 +1,65 @@
+{
+  "schema": "EM_R762DI_EXACT_AUTHOR_EVIDENCE_V1",
+  "status": "PASS",
+  "date": "2026-11-17",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "researcher_id": "EM-X6-3050F6",
+  "science_model": "six signed native X6 coordinate directions; two 3-distinct-axis path blocks with opposite signed multisets",
+  "scopes": {
+    "axis_supports": 20,
+    "sign_patterns_per_support": 8,
+    "ordered_block_pairs": 36,
+    "six_step_words_checked": 5760,
+    "moduli_inclusive": [
+      2,
+      16
+    ],
+    "modular_histograms_checked": 2400,
+    "word_modulus_assignments": 86400
+  },
+  "exact_results": {
+    "integral_area_class_count": 19,
+    "integral_class_multiplicity_histogram": {
+      "1": 6,
+      "2": 12,
+      "6": 1
+    },
+    "q2": {
+      "classes": 1,
+      "class_multiplicities": {
+        "36": 1
+      },
+      "minimal_uniform_seeds": 1
+    },
+    "q4": {
+      "classes": 8,
+      "class_multiplicities": {
+        "4": 6,
+        "6": 2
+      },
+      "minimal_uniform_seeds": 18
+    },
+    "q_else": {
+      "domain": "integer q>=3 and q!=4",
+      "classes": 19,
+      "class_multiplicities": {
+        "1": 6,
+        "2": 12,
+        "6": 1
+      },
+      "minimal_uniform_seeds": 36
+    }
+  },
+  "validation": "Exact integer enumeration and analytic parity / 36-case proof; no floating arithmetic",
+  "review": "NOT_REVIEWED",
+  "provenance": {
+    "frozen_task": "e3f42efac29a2da2d95be391f3231a664e2fade0",
+    "frozen_p000": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+    "prior_math": "R762DD PR #2641@29f57350d6c661d4783f012381f5a58f8a7d8b45",
+    "prior_signed_return": "research_notes/X6_SIGNED_PATH_BRC_AND_PRIMITIVE_LINE_V17_20260905.md (general odd-return no-go reused; paired triadic block classification is current increment)"
+  },
+  "limitations": [
+    "Candidate path blocks have not been licensed as TRIADIC_CLOSURE_E force events",
+    "Uniform-seed statement preserves one-time area marginal only; not named-source sequences or arbitrary later queries"
+  ]
+}
