@@ -1,0 +1,108 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-18",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "task_lane": "TASK_RESEARCH",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_separate": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_science": {
+    "p000_version": "V5",
+    "p000_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "spatial_axes": 6,
+    "primitive_signed_directions": 12
+  },
+  "latest_completed": {
+    "unit": 100,
+    "scientific_status": "AUTHOR-PROVED / EXACT-INTEGER-EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "scope": "derived FCC 3D signed-orientation carrier representation, not P000 native six-axis rotation",
+    "findings": {
+      "carrier_matrices": 24,
+      "unoriented_line_actions": 24,
+      "negative_carrier_orientation_images": 72,
+      "orientation_reversal_at_fixed_line": 12,
+      "signed_pair_compositions_verified": 576,
+      "signed_basis_equalities_verified": 3456,
+      "explicit_witness": "M=diag(-1,-1,1), +AB -> -AB although line AB -> AB"
+    },
+    "source_artifacts": [
+      {
+        "path": "research_checks/X6_UNIT100_FCC_SIGNED_CARRIER_LIFT_CHECK_20261118.py",
+        "commit": "b6245eed154573848c37f99b7a8f408a301fcfc4",
+        "git_blob_sha1": "d0fb2d1a2716da182497afa91c84f45e78eea8db",
+        "sha256": "582abd44f34be4f7c2b63b6d8d5e46198afe159cb494cd17e418dd89cf1655b4"
+      },
+      {
+        "path": "research_checks/X6_UNIT100_FCC_SIGNED_CARRIER_LIFT_RESULTS_20261118.json",
+        "commit": "bfa0956483ce7e6f92c076127fb81d3032cfd280",
+        "git_blob_sha1": "f98a2f234ba4b544842c4ab04cdb477aad6ae044",
+        "sha256": "af192bba169238315c086c71a1c320f2eddfa7676b6bb982bd7581cff9a2e7f4"
+      },
+      {
+        "path": "research_notes/X6_UNIT100_FCC_CARRIER_ORIENTATION_LOSS_20261118.md",
+        "commit": "25f3125031e2a3cbc48be0c9ae2290bb79d53f4b",
+        "git_blob_sha1": "8a515d4691a0346f11cb73aef53a70f73bf4b595"
+      }
+    ],
+    "original_r063_helly_benchmark_executed": false,
+    "source_readback_verified": true
+  },
+  "previous_completed": {
+    "unit": 99,
+    "source_files_scanned": 27,
+    "test_files_scanned": 27,
+    "status": "AUTHOR-SOURCE-INSPECTED / UNREVIEWED / NOT_ADMITTED",
+    "report": {
+      "path": "research_notes/X6_UNIT99_FROZEN_SRC_TESTS_TYPED_CALL_GRAPH_20261118.md",
+      "commit": "44d7f630d86e84bd65bedac0f2673291ff01f2d2"
+    },
+    "manifest": {
+      "path": "research_checks/X6_UNIT99_FROZEN_SRC_TESTS_SOURCE_MANIFEST_20261118.json",
+      "commit": "199677f40b9eb2aeeb796d785ad1a758d48ba678"
+    },
+    "activity_event": "onhour-20261118-0000-x6-unit99-frozen-src-tests-typed-callgraph",
+    "activity_record_commit": "7709a463216efaa495756bbe65a4475dfb46c383"
+  },
+  "history_identity": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "research_activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "current_owner_authenticated": false
+  },
+  "native_status": {
+    "exact_continuation_read_request_id": "onhour-20261118-0004-x6-own-exact-cont-read-v1",
+    "exact_continuation_read_terminal": "SUCCEEDED",
+    "next_native_phase": "TYPED_FRONTIER_REQUIRED",
+    "previous_claim_id_as_read": "MCP-579c8e23625448582b421831",
+    "previous_comment_id_as_read": 6921946977,
+    "execution_authorized": false,
+    "fresh_authenticated_winning_claim_verified": false,
+    "registration_reissued": false,
+    "claim_mutation_submitted": false,
+    "open_mutation_submitted": false,
+    "semantic_progress_submitted": false,
+    "source_authority_note": "Read snapshot at old Source sha is not fresh write authority; preserve existing own SID and verify typed winner/claim on next protected operation."
+  },
+  "unresolved": [
+    "LP011 alleged historical invalid native argmax source: UNRESOLVED_PROVENANCE",
+    "LP019 alleged subtraction of natural N-BRC path multiplicity: UNRESOLVED_PROVENANCE",
+    "28-LP remaining active theorem-facing and downstream dependency crosswalk",
+    "actual consumer passing unsigned FCC six-edge action as signed carrier data (no error callsite found)",
+    "independent Driver REQUEST_REVISION and review/admission",
+    "native Research execution original winning claim/capability and semantic progress association"
+  ],
+  "do_not_repeat": [
+    "Unit97 116 historical experiments",
+    "Unit98 56 historical scripts",
+    "Unit99 54 historical src/tests selected direct imports",
+    "Unit100 24-matrix 576-pair finite signed carrier lift",
+    "Unit96 12129 exact rational checks",
+    "Original R063/Helly native benchmark",
+    "maintenance lane or previously rejected mutations",
+    "same original continuation read request reissue"
+  ],
+  "next_exact_action": "Consume successful native continuation read by original request ID; use current authenticated own research session and current owner/claim to decide whether a typed fresh prepare is legal, not from recovery projection. Trace exact signed-orientation-dependent consumers of historical six-line FCC S4 edge action; complete remaining research_checks/theorem-facing 28-LP provenance crosswalk; preserve frozen Native benchmark and route any actual wrong live caller to targeted correction. Independent Driver handles existing REQUEST_REVISION.",
+  "continuation_state": "OPEN"
+}
