@@ -12,9 +12,14 @@ SHA="50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b"
 L=25845652773852463277015040000
 U=58182461585441404127941754880
 H0=(18,24,82,34,17)
-SUFFIX=(0,144,208,1,255,2,3)
 NAMES=["H8","H9","H10","H11","H12"]
-SIZES=[8,9,10,11,12]
+SETS=[
+ H0+(0,144,208),
+ H0+(0,144,208,1),
+ H0+(0,1,144,208,255),
+ H0+(0,1,2,144,208,255),
+ H0+(0,1,2,3,144,208,255),
+]
 EXPECTED_RIGHT=[1206404,5020198,4805671,6398337,9769571]
 def families(T,H,tau):
     cheapest={}
@@ -53,8 +58,7 @@ def main():
     assert set(right["costs"])==expected_costs
     assert 291 in right["costs"]
     results={"H12":list(H12),"left":left,"right":right}
-    for n,name,states in zip(SIZES,NAMES,EXPECTED_RIGHT):
-        H=H0+SUFFIX[:n-5]
+    for H,name,states in zip(SETS,NAMES,EXPECTED_RIGHT):
         res=calculate(T,H,U-1)
         assert res["V"]==8335 and res["states"]==states
         results[name]=res
