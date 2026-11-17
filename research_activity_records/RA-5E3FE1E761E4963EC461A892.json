@@ -5331,10 +5331,23 @@
             "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/e43a95dff2a7501f43130a80891b7815e86f07dc/research_notes/X6_UNIT111_LP019_ALWAYS_ON_ORIGINAL_NATIVE_MUTATION_20261118.md",
             "server_signature_authenticated": false
           }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "9fd367d27d2c3678dc4f5f8928537020cc36d21e",
+          "path": "research_checks/X6_UNIT111_LP019_MUTATION_SENSITIVITY_REPLAY_20261118.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "5c2149ca91cfe10ebbcca5abfdc247547687ab61",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9fd367d27d2c3678dc4f5f8928537020cc36d21e/research_checks/X6_UNIT111_LP019_MUTATION_SENSITIVITY_REPLAY_20261118.py",
+            "server_signature_authenticated": false
+          }
         }
       ],
       "kb_sources": [],
-      "notes": "Unit111: LP019 two-axis signed thickness and positive BRC word formula had 18 non-native assert checks removed under Python -O/-OO despite genuine pinned frozen six-axis signed_brc.py native endpoint calls. Two controlled mutations (zero word_formula and wrong hidden histogram count) caused Unit108 optimized FALSE PASS while original native endpoint calls remained, and failed ordinary mode; new immutable opt-in V3 changes all 18 assertions to always-on checks, rejects both changes in all 3 modes and retains unchanged original pin and unmutated 10,364 real native DP comparisons, 2,925 two-axis word formula cases, 625 histograms, output digest eae53806d60ac8cfc6e757b004cce2f5f2ee3d989a318801226de45b8e5fcfac. Unit110 LP011 similarly saved. Original historical wrong LP011 argmax/LP019 N-BRC subtraction caller UNRESOLVED_PROVENANCE; benchmark R063 not rerun; author UNREVIEWED / NOT_ADMITTED."
+      "notes": "Unit111: LP019 two-axis signed thickness and positive BRC word formula had 18 non-native assert checks removed under Python -O/-OO despite genuine pinned frozen six-axis signed_brc.py native endpoint calls. Two controlled mutations (zero word_formula and wrong hidden histogram count) caused Unit108 optimized FALSE PASS while original native endpoint calls remained, and failed ordinary mode; new immutable opt-in V3 changes all 18 assertions to always-on checks, rejects both changes in all 3 modes and retains unchanged original pin and unmutated 10,364 real native DP comparisons, 2,925 two-axis word formula cases, 625 histograms, output digest eae53806d60ac8cfc6e757b004cce2f5f2ee3d989a318801226de45b8e5fcfac. Unit110 LP011 similarly saved. Original historical wrong LP011 argmax/LP019 N-BRC subtraction caller UNRESOLVED_PROVENANCE; benchmark R063 not rerun; author UNREVIEWED / NOT_ADMITTED. Reproducible self-checker Unit111 LP019 mutation replay saved with immutable Git source pin and executed locally: PASS."
     }
   ],
   "mode": "TASK_RESEARCH",
