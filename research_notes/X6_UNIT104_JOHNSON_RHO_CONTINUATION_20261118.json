@@ -1,0 +1,129 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-18",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_id_forbidden": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_inputs": {
+    "P000_V5": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "highest_author_verified_frontier": {
+    "unit": 104,
+    "status": "AUTHOR-PROVED / EXACT-FINITE-EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "proposition": "Johnson FCC rho_J:Z6->(Z/2)^3 x Z/3 is surjective (image24), index24 kernel; sorted rho_J_orbit image12 and invariant under 48 complementary-pair permutations; equality of rho_J, rho_J_orbit and q_orbit does not imply equality of full signed native Cell endpoints.",
+    "witness": {
+      "x": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "y": [
+        6,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "rho_J": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "q_orbit": [
+        0,
+        0,
+        0
+      ],
+      "native_squared_distance": 36,
+      "native_min_steps": 6,
+      "native_shortest_word_count": 1
+    },
+    "finite_execution": {
+      "states": 15625,
+      "group_actions": 48,
+      "invariance_equalities": 750000,
+      "rho_J_image": 24,
+      "rho_J_orbit_image": 12,
+      "python_modes": [
+        "normal",
+        "-O",
+        "-OO"
+      ],
+      "byte_identical": true,
+      "original_native_benchmark_executed": false
+    },
+    "source_scope": {
+      "frozen_directory": "research_checks/",
+      "directory_inventory_count": 120,
+      "selected_full_files_inspected": 16,
+      "source_of_focus": "research_checks/P000_SIX_AXIS_JOHNSON_TROPICAL_ARITHMETIC_INTEGRATION_CHECK_20260830.py",
+      "git_blob_sha1": "62ea223dcbbb118186513737243ead040b77adc0",
+      "lines": "10-13,39-59,82-87,130-173"
+    },
+    "artifacts": [
+      {
+        "path": "research_checks/X6_UNIT104_FCC_JOHNSON_RHO_TYPED_OBSERVER_CHECK_20261118.py",
+        "commit": "f865691e9dd01df0631ec68a62b0ca83d1661fcc",
+        "git_blob_sha1": "9a8a31788d5a898ded208501f8e4410cedd65f2a",
+        "sha256": "2a996202c26132d60ef98c02130d0647a617b2977ff704ff3e445efa2afa38f1",
+        "readback_verified": true
+      },
+      {
+        "path": "research_checks/X6_UNIT104_FCC_JOHNSON_RHO_TYPED_OBSERVER_RESULTS_20261118.json",
+        "commit": "c03a0df354ab3fc970dbf24e0a29fb572a3be71a",
+        "git_blob_sha1": "04c4303cb6ac86612abc931ae115b2622ca438da",
+        "sha256": "3e5a116880db042a5e016882f780a1d802e36887f1030ad796c4551df8b560fc",
+        "readback_verified": true
+      },
+      {
+        "path": "research_notes/X6_UNIT104_JOHNSON_RHO_OBSERVER_TYPED_COLLISION_AUDIT_20261118.md",
+        "commit": "1658d82472cb2748f5dd81ad47db92e20c07dfda",
+        "git_blob_sha1": "b107f1089f394f330ba21ef02475243788259475",
+        "readback_verified": true
+      }
+    ]
+  },
+  "previous_frontier": {
+    "unit": 103,
+    "continuation": "research_notes/X6_UNIT103_SIGNED_DOMINANT_TIE_CONTINUATION_20261118.json",
+    "claim_progress_source_commit": "c024460007fc7d0fa52d45e571801043e150dcfe"
+  },
+  "research_identity": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "owner_claim": "MCP-3e221a50dc8818f914e228f6",
+    "run_id": "RUN-95866d78d35721116c362956",
+    "run_generation_last_verified": 1,
+    "run_revision_last_verified": 1,
+    "original_native_progress_request_id": "onhour-20261118-0204-x6-own-units102-103-native-progress-v1",
+    "original_native_progress_status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "current_continuation_request_id": "onhour-20261118-0308-x6-own-exact-cont-v1",
+    "current_continuation_last_observed": "RUNNING/error=null"
+  },
+  "remaining": [
+    "LP011 alleged wrong native signed argmax historical executable source:line is unresolved",
+    "LP019 alleged signed subtraction of natural positive N-BRC historical executable source:line is unresolved",
+    "28-LP typed downstream dependencies, including consumers of Johnson rho vs native signed Cell, incomplete",
+    "Independent Driver REQUEST_REVISION pending actual disposition",
+    "Unit104 own RA Source activity checkpoint and native semantic checkpoint pending readback/authorization at creation of this file"
+  ],
+  "do_not_repeat": [
+    "Units64-103 verified results",
+    "Unit104 15625-state 750000-invariance finite experiment and 16 historical selected files",
+    "Frozen R063/Helly native benchmark",
+    "Original Units102-103 SUCCEEDED Native PROGRESS",
+    "Original running read-only continuation request",
+    "Maintenance conversation/session or unrelated Driver identities"
+  ],
+  "next_exact_action": "Read original onhour-20261118-0308-x6-own-exact-cont-v1 to terminal without reissuing; verify own surviving claim on exact Source and authorized resume if required. Record Unit104 in existing RA with real GitHub blob/CAS. Only after current own authorization write and read back native semantic checkpoint. Continue targeted downstream source:line research on native Cell inputs / Johnson rho and independent LP011/LP019 wrong-caller provenance; preserve frozen benchmarks.",
+  "continuation_state": "OPEN"
+}
