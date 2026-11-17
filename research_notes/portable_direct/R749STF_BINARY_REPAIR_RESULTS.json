@@ -1,0 +1,67 @@
+{
+  "classification": "AUTHOR_EXACT_NOT_REVIEWED",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": {
+    "next_observation_index": 3,
+    "observations_for_ambiguity": 3,
+    "q_candidates": [
+      73,
+      77
+    ],
+    "weights": [
+      1,
+      1,
+      2,
+      3,
+      6
+    ]
+  },
+  "new_proved_consequences": {
+    "eta_range": "0<=eta<=1/100000000",
+    "minimum_repair_cardinality": 2,
+    "one_bit_all_future_error_bound": "66000*eta",
+    "one_bit_exact_all_future_reconstruction": true,
+    "one_bit_fourth_read_error_bound": "103*eta",
+    "two_states_per_prefix_in_restricted_sheet": true,
+    "zero_bit_fourth_read_minimax_error_strictly_greater_than": "1/200000"
+  },
+  "precise_dependency": {
+    "R749STB": "PR #2616 / d2a4436f4ed42aba25a54f9b7015e4c4a776c944: analytic collision curve, admissible errors, fourth gap >1/100000",
+    "this_checker_reverifies_STB": false
+  },
+  "q_certificates": {
+    "73": {
+      "C_q": 707343,
+      "C_q_plus_6": 1020943,
+      "Kd": "3456580",
+      "Ke": "31982347136790/707341",
+      "T_q": 8931013,
+      "T_q_plus_6": 13914446,
+      "all_future_bound_66000_verified": true,
+      "all_future_global_factor_upper": "607733651857296875/9504490088448",
+      "denominator_upper": 722160341025,
+      "fourth_Lipschitz_bound_103_verified": true,
+      "fourth_Lipschitz_factor_A3": "534092811179521869982525/5496478931401917757533",
+      "gap_numerator_lower": 724220177653,
+      "strict_margin": 2059836628,
+      "true_normalized_two_read_gap_lower": "724220177653/722160341025"
+    },
+    "77": {
+      "C_q": 906087,
+      "C_q_plus_6": 1285543,
+      "Kd": "4383268",
+      "Ke": "54615698878434/906085",
+      "T_q": 12046216,
+      "T_q_plus_6": 18379893,
+      "all_future_bound_66000_verified": true,
+      "all_future_global_factor_upper": "431616200842606243889538125/6591018830527020460032",
+      "denominator_upper": 1164818183505,
+      "fourth_Lipschitz_bound_103_verified": true,
+      "fourth_Lipschitz_factor_A3": "4131927878465987941174825/40461418238861949194943",
+      "gap_numerator_lower": 1167840027137,
+      "strict_margin": 3021843632,
+      "true_normalized_two_read_gap_lower": "1167840027137/1164818183505"
+    }
+  },
+  "unit": "R749STF"
+}
