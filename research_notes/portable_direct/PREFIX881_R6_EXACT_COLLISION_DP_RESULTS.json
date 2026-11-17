@@ -1,0 +1,88 @@
+{
+  "schema": "PREFIX881_R6_EXACT_DP_V1",
+  "models": [
+    {
+      "p": 1,
+      "a_delta_deltaPrime_cases": 27,
+      "feasible_cases": 15,
+      "DP_brute_agree": 27
+    },
+    {
+      "p": 2,
+      "a_delta_deltaPrime_cases": 175,
+      "feasible_cases": 107,
+      "DP_brute_agree": 175
+    },
+    {
+      "p": 3,
+      "a_delta_deltaPrime_cases": 735,
+      "feasible_cases": 507,
+      "DP_brute_agree": 735
+    },
+    {
+      "p": 4,
+      "a_delta_deltaPrime_cases": 2511,
+      "feasible_cases": 1883,
+      "DP_brute_agree": 2511
+    },
+    {
+      "p": 5,
+      "a_delta_deltaPrime_cases": 7623,
+      "feasible_cases": 6051,
+      "DP_brute_agree": 7623
+    },
+    {
+      "p": 6,
+      "a_delta_deltaPrime_cases": 21463,
+      "feasible_cases": 17731,
+      "DP_brute_agree": 21463
+    }
+  ],
+  "boundary_examples": [
+    {
+      "p": 32,
+      "q1": 524287,
+      "q2": 524285,
+      "k": 8192,
+      "l": 8192,
+      "a": 4294959104,
+      "b": 4294942720,
+      "d": 16384,
+      "e": 0,
+      "witness": {
+        "X": [
+          0,
+          16384
+        ],
+        "Y": [
+          4294959104,
+          4294959104
+        ]
+      },
+      "previous_conservative_range_holds": false
+    }
+  ],
+  "port_pair_checks": [
+    {
+      "p": 4,
+      "Q": 31,
+      "pairs_tested": 256,
+      "colliding": 144,
+      "injective": 112
+    },
+    {
+      "p": 5,
+      "Q": 63,
+      "pairs_tested": 1024,
+      "colliding": 480,
+      "injective": 544
+    },
+    {
+      "p": 6,
+      "Q": 15,
+      "pairs_tested": 64,
+      "colliding": 64,
+      "injective": 0
+    }
+  ]
+}
