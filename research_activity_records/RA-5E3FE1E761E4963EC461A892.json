@@ -4306,6 +4306,89 @@
       "notes": "Unit93 pinpointed actual current CoverState.step source-guard type inconsistency: x6_cover.py blob171baf1... line64 accepts direction=True as +1 whereas native Spatial6.step line47 rejects bool; bounded LP026 consumer passes legitimate integer signed axes. All m>=0 signed primitive operation semantics proven symbolically. Standalone precise integer model executed 729 states x5 moduli x6 axes x2 signs=43,740 equalities; Python normal/-O/-OO identical exact certificate, no original project source module or R063/Helly run; corrected strict integer direction guard supplied as regression proposal. GitHub checker/result/report/continuation saved and readback verified. Parent LP011/LP019 provenance, 28-LP dependency closure and original Native semantic run remain OPEN. AUTHOR-EXACT/MODEL-EXECUTED/UNREVIEWED/NOT_ADMITTED.",
       "repairs_event_id": null,
       "state": "EM_REPRESENTED"
+    },
+    {
+      "em_sources": [
+        {
+          "commit": "60159728c51356c87e98df3af6dca7408d874546",
+          "path": "experiments/x6_native_coordinate_completion_v7_20260905/x6_cover_strict_v2.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "c456031c687e2d86464cf3dddd7a9f68cc49583c343f0b15e6969951a2b4e2b1",
+          "verification": {
+            "git_blob_sha1": "d38c2d0fa3fed306afeb387ce60f7f2d9bd52f68",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/60159728c51356c87e98df3af6dca7408d874546/experiments/x6_native_coordinate_completion_v7_20260905/x6_cover_strict_v2.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          }
+        },
+        {
+          "commit": "2f745a2eb9ef44c6c89b2b67c77b9617f0a8bd52",
+          "path": "research_checks/X6_UNIT94_STRICT_COVER_SUCCESSOR_NATIVE_SOURCE_CHECK_20261117.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "d2fc1202998528116de6653ba745b5a61858b412ecc4f4d5659433d84cc4b68f",
+          "verification": {
+            "git_blob_sha1": "804774b0825afdb09fc995669b804418a6cfb121",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/2f745a2eb9ef44c6c89b2b67c77b9617f0a8bd52/research_checks/X6_UNIT94_STRICT_COVER_SUCCESSOR_NATIVE_SOURCE_CHECK_20261117.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          }
+        },
+        {
+          "commit": "4ff9b01568729ba7e92dbdee15087189e62be00a",
+          "path": "research_checks/X6_UNIT94_STRICT_COVER_SUCCESSOR_RESULTS_20261117.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "a9ed4e4babe0f7044e6e2c744f9523f05cbfcb7a7335b9e9336c30265e1c5386",
+          "verification": {
+            "git_blob_sha1": "387951a4af761c2495d22cedac03dc25dfd47b6b",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/4ff9b01568729ba7e92dbdee15087189e62be00a/research_checks/X6_UNIT94_STRICT_COVER_SUCCESSOR_RESULTS_20261117.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          }
+        },
+        {
+          "commit": "983c93e40934bc024e803e083118752946dc88de",
+          "path": "research_notes/X6_UNIT94_STRICT_COVER_SOURCE_SUCCESSOR_INTEGRATION_20261117.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "verification": {
+            "git_blob_sha1": "c05808ac569d5ad1167f8f46ff773e601d24f6d1",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/983c93e40934bc024e803e083118752946dc88de/research_notes/X6_UNIT94_STRICT_COVER_SOURCE_SUCCESSOR_INTEGRATION_20261117.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          }
+        },
+        {
+          "commit": "cde7cab86153e6465cbc39f9dde561d170133f26",
+          "path": "research_notes/X6_UNIT94_STRICT_COVER_SOURCE_SUCCESSOR_CONTINUATION_20261117.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "verification": {
+            "git_blob_sha1": "b5957a711605995377137e14943d5e5431bbffef",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/cde7cab86153e6465cbc39f9dde561d170133f26/research_notes/X6_UNIT94_STRICT_COVER_SOURCE_SUCCESSOR_CONTINUATION_20261117.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          }
+        }
+      ],
+      "event_id": "onhour-20261117-2100-x6-unit94-strict-cover-source-successor",
+      "kb_sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/60159728c51356c87e98df3af6dca7408d874546/experiments/x6_native_coordinate_completion_v7_20260905/x6_cover_strict_v2.py",
+        "https://github.com/awdawmip/enterprise-math/blob/2f745a2eb9ef44c6c89b2b67c77b9617f0a8bd52/research_checks/X6_UNIT94_STRICT_COVER_SUCCESSOR_NATIVE_SOURCE_CHECK_20261117.py",
+        "https://github.com/awdawmip/enterprise-math/blob/4ff9b01568729ba7e92dbdee15087189e62be00a/research_checks/X6_UNIT94_STRICT_COVER_SUCCESSOR_RESULTS_20261117.json",
+        "https://github.com/awdawmip/enterprise-math/blob/983c93e40934bc024e803e083118752946dc88de/research_notes/X6_UNIT94_STRICT_COVER_SOURCE_SUCCESSOR_INTEGRATION_20261117.md",
+        "https://github.com/awdawmip/enterprise-math/blob/cde7cab86153e6465cbc39f9dde561d170133f26/research_notes/X6_UNIT94_STRICT_COVER_SOURCE_SUCCESSOR_CONTINUATION_20261117.json"
+      ],
+      "notes": "Unit94 source-level executed versioned strict X6 CoverState successor: original frozen x6_cover blob171baf1... left unchanged, new opt-in x6_cover_strict_v2 blobd38c2... rejects direction=True. Direct CPython execution used both original and strict source modules plus full current x6_coordinate blob973854..., 729 states x 5 moduli x 6 named axes x 2 exact signed directions=43,740 exact integer equalities; normal/-O/-OO output SHA256 a9ed4e4b... identical, zero failures. Current historical LP026 importer pins previous Coord6 dd6... while main Coord6 is 973..., a STATIC pin mismatch only; full original LP026/R063/Helly native benchmarks not rerun. GitHub code/checker/certificate/report/continuation readback verified. Original SID/claim/run retained, Native semantic PROGRESS not written (current original X6 writer authorization unresolved), Driver review/admission pending. Parent LP011/LP019 provenance and 28-LP consumer mapping remain open. AUTHOR-SOURCE-EXECUTED / UNREVIEWED / NOT_ADMITTED.",
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
     }
   ],
   "mode": "TASK_RESEARCH",
