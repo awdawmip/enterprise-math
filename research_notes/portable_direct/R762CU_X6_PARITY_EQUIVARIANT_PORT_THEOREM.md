@@ -2,7 +2,7 @@
 
 **Task:** RS-X6-TRIADIC-CLOSURE-DYNAMICS / TP2-8B7E13C5904A2D6F1142. **Researcher:** EM-X6-3050F6 (continuation of existing Run RUN-2f66fcc8f96765967a2e8cae). **Date:** 2026-11-17. **Status:** complete elementary proofs and author-side exact finite verification; independent review NOT_REVIEWED. **Predecessor:** R762CT, PR #2617 @ 0e19a5c924100daaeefe0ea5dbcd9b1ab518743e.
 
-**Frozen inputs:** P000 V5, \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json\`; \`definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md\`, \`definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md\` at the same pin. Exact taskbook \`@e3f42efac29a2da2d95be391f3231a664e2fade0\`. Current behavioral rules are read separately, not science repins.
+**Frozen inputs:** P000 V5, `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json`; `definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md`, `definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` at the same pin. Exact taskbook `@e3f42efac29a2da2d95be391f3231a664e2fade0`. Current behavioral rules are read separately, not science repins.
 
 ## Exact typed setup
 
@@ -55,7 +55,7 @@ Thus one local, symmetry-preserving explicit Port selector needs **3 tagged alte
 
 ## Exact verification and interfaces
 
-\`R762CU_VERIFY.py\` is a standard-library-only executable exact enumeration. It verifies all 160 signed triads, the four orbit sizes and transitivity, 720 permutations × 160 sign-preservation/covariance checks, 160×6 three-step nonreturn witnesses, the 36-element stabilizer, 720×480 marked-cover equivariance checks, and 16 invariant Boolean closure candidates. \`R762CU_EVIDENCE.json\` records the reproducible counts.
+`R762CU_VERIFY.py` is a standard-library-only executable exact enumeration. It verifies all 160 signed triads, the four orbit sizes and transitivity, 720 permutations × 160 sign-preservation/covariance checks, 160×6 three-step nonreturn witnesses, the 36-element stabilizer, 720×480 marked-cover equivariance checks, and 16 invariant Boolean closure candidates. `R762CU_EVIDENCE.json` records the reproducible counts.
 
 **Native licensing still open:** P000 supplies the arity and geometry, not a specific Cell/Link/Port update or V17/V29/V39 transport. Theorems 1–3 give two exact tests for any proposed native law: (a) it must avoid identifying a triadic balance with an odd-length primitive Cell return; (b) a deterministic all-equal positive-Port choice must expose a symmetry-breaking Port mark or a declared branch, or else use a different event type. The next discriminating unit is to apply these tests to an exact sourced TRIADIC_CLOSURE_E event licence, then combine licensed source-word operations with the R762CT observer quotient and R762CH/CK path-area provenance.
 
