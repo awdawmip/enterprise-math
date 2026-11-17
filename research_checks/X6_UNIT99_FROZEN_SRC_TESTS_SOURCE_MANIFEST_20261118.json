@@ -1,0 +1,283 @@
+{
+  "schema": "EM_X6_UNIT99_TYPED_CALL_GRAPH_SOURCE_MANIFEST_V1",
+  "date": "2026-11-18",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "historical_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "frozen_p000_baseline": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "selection": "Direct files in historical src/enterprise_math and tests whose BASENAME matches case-insensitive brc|signed|plane|dominanc|axis|coordinate|relative|space|native|slice|fcc; directory entries excluded. Source bodies individually read at this pinned commit; import statements and relevant semantic callers manually inspected.",
+  "source_count": 27,
+  "test_count": 27,
+  "read_failures": 0,
+  "direct_x6_native_imports_found": 0,
+  "source_entries": [
+    {
+      "path": "src/enterprise_math/brc_critical_degeneracy.py",
+      "git_blob_sha1": "8abc2ed4608bd222d16b6453e4f48f7b80566653"
+    },
+    {
+      "path": "src/enterprise_math/brc_critical_orbits.py",
+      "git_blob_sha1": "3a9df1911c45ace0e64fdc150acdc783abbc3a53"
+    },
+    {
+      "path": "src/enterprise_math/brc_critical_ratio_jet.py",
+      "git_blob_sha1": "c4716fa4fbec2960858ce4f7b231d4486372c653"
+    },
+    {
+      "path": "src/enterprise_math/brc_feedback.py",
+      "git_blob_sha1": "48c871114586a75d5f144528ff334a8e580f3d94"
+    },
+    {
+      "path": "src/enterprise_math/brc_histogram.py",
+      "git_blob_sha1": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+    },
+    {
+      "path": "src/enterprise_math/brc_logarithm.py",
+      "git_blob_sha1": "4732e5fc381ce613d240c4381ccbef03c27a69c7"
+    },
+    {
+      "path": "src/enterprise_math/brc_moment_transfer.py",
+      "git_blob_sha1": "33dded95dad6cd6926de9a2eb065ceac51d852a6"
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_fiber_quotient.py",
+      "git_blob_sha1": "f9db29609e74b8f2a7202a1f626a138eb716fa29"
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_handoff.py",
+      "git_blob_sha1": "92dbddfd756562da7de31b480b4099cfde5e42ed"
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_observer_lattice.py",
+      "git_blob_sha1": "3bfb8c345d772fbe2871a3fd79b08b4ad730b350"
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_quadratic_selector.py",
+      "git_blob_sha1": "9a2bff3e8026f2fe68680994d74082883461c84b"
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_recursion.py",
+      "git_blob_sha1": "2762e581b2fff3b83ef49b71dc3ba6a30e20fc1b"
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_schedule_strata.py",
+      "git_blob_sha1": "adbb64bbb72c4ada89e234536192bf49edf600ae"
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_selector_chambers.py",
+      "git_blob_sha1": "d87b065fa8ce2699df080d9a9cb4d27f7bac9d29"
+    },
+    {
+      "path": "src/enterprise_math/brc_rational_holonomy.py",
+      "git_blob_sha1": "2591640fe348da9cd7f293a957bea9ae92c82943"
+    },
+    {
+      "path": "src/enterprise_math/brc_recurrent_invariants.py",
+      "git_blob_sha1": "da43bdeb328dc25718b19bb336c3e9ddbdefb1ba"
+    },
+    {
+      "path": "src/enterprise_math/brc_recurrent_ports.py",
+      "git_blob_sha1": "24a7fd37e274c067eaf560036f51fae80baa1644"
+    },
+    {
+      "path": "src/enterprise_math/brc_reducible_critical_jet.py",
+      "git_blob_sha1": "90ec5debd3d784309f47e1819bc8a71e2c586396"
+    },
+    {
+      "path": "src/enterprise_math/brc_weighted.py",
+      "git_blob_sha1": "3f205696709e847909958a153f8fe10d3f6b70f0"
+    },
+    {
+      "path": "src/enterprise_math/brc_weighted_recurrent.py",
+      "git_blob_sha1": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+    },
+    {
+      "path": "src/enterprise_math/euler_fcc_chirality.py",
+      "git_blob_sha1": "6f8b147c094720c2749f620a40394c4d7b67a386"
+    },
+    {
+      "path": "src/enterprise_math/euler_fcc_chirality_connectivity.py",
+      "git_blob_sha1": "ddf9a06abd859f5cc9c109b76e1979147fbed399"
+    },
+    {
+      "path": "src/enterprise_math/euler_native_bisector.py",
+      "git_blob_sha1": "f6e0162012af2ab10685076e0ff5c0e728ba1ec0"
+    },
+    {
+      "path": "src/enterprise_math/native_trisector_coupled_closure.py",
+      "git_blob_sha1": "01dc2fae89147947dec50a7fba7e17c90e570fcd"
+    },
+    {
+      "path": "src/enterprise_math/precision_signed_holonomy.py",
+      "git_blob_sha1": "74dde113b454f83237fca5483343b51111f5c55d"
+    },
+    {
+      "path": "src/enterprise_math/prime_method_inventory_native_trisector_coupled_closure.json",
+      "git_blob_sha1": "e46b57927df1be98bed44b19c671eea8c417071c"
+    },
+    {
+      "path": "src/enterprise_math/signed.py",
+      "git_blob_sha1": "46386899c59483a9d83f8fe23387dbf8d20e18ec"
+    }
+  ],
+  "test_entries": [
+    {
+      "path": "tests/test_brc_critical_degeneracy_foundation.py",
+      "git_blob_sha1": "db33afe63a6fbe6ac3c8f86608ed0b65a8f7f1cc"
+    },
+    {
+      "path": "tests/test_brc_critical_orbit_foundation.py",
+      "git_blob_sha1": "a262329f486ed83a20d3e0653e29d3463c576570"
+    },
+    {
+      "path": "tests/test_brc_critical_ratio_jet_foundation.py",
+      "git_blob_sha1": "559ed5c2bbbd062f60a73632a8d93ca41ba5d4ec"
+    },
+    {
+      "path": "tests/test_brc_logarithm_runtime.py",
+      "git_blob_sha1": "6131039b64437ea704e0183b63662b842201abec"
+    },
+    {
+      "path": "tests/test_brc_newton_fiber_quotient_foundation.py",
+      "git_blob_sha1": "2fc8a1dcee7710d3f3f2654a1cd9e19d51ea9cc1"
+    },
+    {
+      "path": "tests/test_brc_newton_handoff_resonance_foundation.py",
+      "git_blob_sha1": "d7f38f044659a0d94e43daaa42150ff80ea2270c"
+    },
+    {
+      "path": "tests/test_brc_newton_observer_lattice_foundation.py",
+      "git_blob_sha1": "360d4c45715f4546d9303c492de141ddcde4d061"
+    },
+    {
+      "path": "tests/test_brc_newton_quadratic_positive_selector_foundation.py",
+      "git_blob_sha1": "360a743800f2c66b17b39abd598b64532315852f"
+    },
+    {
+      "path": "tests/test_brc_newton_quadratic_selector_foundation.py",
+      "git_blob_sha1": "95cc01034a483d0f436e28b0c3de7ba05e22a59b"
+    },
+    {
+      "path": "tests/test_brc_newton_recursion_foundation.py",
+      "git_blob_sha1": "1b3599b82db86c3e62efa91edd4c659505baff7b"
+    },
+    {
+      "path": "tests/test_brc_newton_schedule_strata_foundation.py",
+      "git_blob_sha1": "3c53c4b51844e71e9124726c10e3f53fd54ef270"
+    },
+    {
+      "path": "tests/test_brc_newton_selector_chambers_foundation.py",
+      "git_blob_sha1": "70d39ca4cd97f45b012206350dfb860f2a9a3ffa"
+    },
+    {
+      "path": "tests/test_brc_recurrent_interaction_foundation.py",
+      "git_blob_sha1": "9b978776facaa5013eb11e2024315d0f75ae94f8"
+    },
+    {
+      "path": "tests/test_brc_recurrent_port_foundation.py",
+      "git_blob_sha1": "fb2a4fbf6b1bcf574411af7551b3c2f9b68c3540"
+    },
+    {
+      "path": "tests/test_brc_reducible_critical_jet_foundation.py",
+      "git_blob_sha1": "e695b83d8c244f480862dd60d669f7abaf5f3afb"
+    },
+    {
+      "path": "tests/test_brc_universal_histogram_foundation.py",
+      "git_blob_sha1": "a0fc2c27d009a3dfe36abdf38f46cef672785f91"
+    },
+    {
+      "path": "tests/test_brc_weighted_foundation_tool.py",
+      "git_blob_sha1": "69963f8a1089a87b6fb48e648f15ef19bff70e56"
+    },
+    {
+      "path": "tests/test_brc_weighted_recurrent.py",
+      "git_blob_sha1": "bc32a22ae6596c73f4947ebb239671ad31e099bd"
+    },
+    {
+      "path": "tests/test_control_plane_efficiency_unittest.py",
+      "git_blob_sha1": "638d48a92898c372cd391a9f23cc55fed12ffcc8"
+    },
+    {
+      "path": "tests/test_euler_fcc_chirality.py",
+      "git_blob_sha1": "b66156ae75fc921b43fb4bc3e5082ad66e52b36a"
+    },
+    {
+      "path": "tests/test_euler_fcc_chirality_connectivity.py",
+      "git_blob_sha1": "794037b5d2f2a58b79b0054814d6e7a69b3fe7f1"
+    },
+    {
+      "path": "tests/test_euler_native_bisector.py",
+      "git_blob_sha1": "57eb499033b2432a3b5b325d711c50cf1719e4f0"
+    },
+    {
+      "path": "tests/test_exact_arithmetic_brc_runtime.py",
+      "git_blob_sha1": "6dedba31a1b1634afb59ca6862fc8823714df732"
+    },
+    {
+      "path": "tests/test_native_trisector_coupled_closure.py",
+      "git_blob_sha1": "e0f4611115ce80979b362451435cd873a34a6c24"
+    },
+    {
+      "path": "tests/test_p006_signed.py",
+      "git_blob_sha1": "e74d69aef5d853d587597770db4aecee8d5babc9"
+    },
+    {
+      "path": "tests/test_precision_signed_holonomy.py",
+      "git_blob_sha1": "cab5fd4e4d74303c06cb91dee8817ac520351efc"
+    },
+    {
+      "path": "tests/test_prime_toolkit_native_trisector.py",
+      "git_blob_sha1": "17e8af9b723a261959237ee4b863b33d875ed34d"
+    }
+  ],
+  "key_witnesses": [
+    {
+      "path": "src/enterprise_math/brc_weighted.py",
+      "blob": "3f205696709e847909958a153f8fe10d3f6b70f0",
+      "lines": "1-9,20-35,40-69,80-111",
+      "type": "FINITE_POSITIVE_CWM_BRANCH_WEIGHT_NOT_X6_NATIVE_AXIS"
+    },
+    {
+      "path": "tests/test_brc_weighted_foundation_tool.py",
+      "blob": "69963f8a1089a87b6fb48e648f15ef19bff70e56",
+      "lines": "26-45,108-112",
+      "type": "POSITIVE_RECOALESCENCE_AND_NEGATIVE_WEIGHT_REJECTION"
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_handoff.py",
+      "blob": "92dbddfd756562da7de31b480b4099cfde5e42ed",
+      "lines": "350-438",
+      "type": "RATIONAL_NEWTON_POLYNOMIAL_COEFFICIENT_FIBER_AGGREGATION"
+    },
+    {
+      "path": "tests/test_brc_newton_handoff_resonance_foundation.py",
+      "blob": "d7f38f044659a0d94e43daaa42150ff80ea2270c",
+      "lines": "93-106",
+      "type": "LEGITIMATE_SIGNED_POLYNOMIAL_COEFFICIENT_CANCELLATION"
+    },
+    {
+      "path": "src/enterprise_math/signed.py",
+      "blob": "46386899c59483a9d83f8fe23387dbf8d20e18ec",
+      "lines": "1-73",
+      "type": "INTEGER_SIGNED_ROOT_NOT_X6_DIRECTION"
+    },
+    {
+      "path": "tests/test_p006_signed.py",
+      "blob": "e74d69aef5d853d587597770db4aecee8d5babc9",
+      "lines": "1-75",
+      "type": "SIGNED_INTEGER_ROOT_TEST_NOT_NATIVE_X6"
+    },
+    {
+      "path": "src/enterprise_math/euler_fcc_chirality.py",
+      "blob": "6f8b147c094720c2749f620a40394c4d7b67a386",
+      "lines": "1-498",
+      "type": "FOUR_SLICE_EIGHT_SHEET_CHIRALITY_NOT_SIX_AXIS_NATIVE_CELL"
+    }
+  ],
+  "execution": {
+    "source_reads": "ACTUALLY_EXECUTED",
+    "python_source_tests": "NOT_EXECUTED",
+    "original_R063_Helly_native_benchmark": "NOT_EXECUTED"
+  },
+  "classification": "AUTHOR-SOURCE-INSPECTED / UNREVIEWED / NOT_ADMITTED"
+}
