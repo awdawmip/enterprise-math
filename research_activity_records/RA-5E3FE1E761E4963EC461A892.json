@@ -5226,6 +5226,67 @@
       ],
       "kb_sources": [],
       "notes": "Unit109 original signed_brc.py full opt-in Unit108 LP011/LP019 integration, unchanged original Git blob 300a96e3dc24bf6fff73743037a0347a8bc83176. Executed both scripts on real pinned module in normal/-O/-OO, all exit 0 and byte-identical within each consumer. Independent CPython profiler counts LP011 real shortest_path_multiplicity 3375 each mode, LP019 endpoint_multiplicity 10368 each mode (10364 DP comparisons, three return checks and one odd-parity probe). Negative original-module altered-copy Git pin rejected all 3 modes. User task original run resume request onhour-20261118-0519-x6-own-run9586-unit105-107-resume-v1 reconciled SUCCEEDED generation3. Historical frozen R063/Helly benchmark not executed; LP011/LP019 historic wrong caller remains UNRESOLVED_PROVENANCE; Driver review/admission pending. AUTHOR SOURCE-EXECUTED EXACT-INTEGER UNREVIEWED NOT_ADMITTED."
+    },
+    {
+      "event_id": "onhour-20261118-0700-x6-unit110-lp011-always-on-mutation-source",
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "ae6ce7477300249b5287e2871d2679cba78c8f25",
+          "path": "research_checks/X6_UNIT110_LP011_FULL_ALWAYS_ON_NATIVE_V3_20261118.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "8d45dc1c88fd8dc897b6abe6d538de3185a135cd",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/ae6ce7477300249b5287e2871d2679cba78c8f25/research_checks/X6_UNIT110_LP011_FULL_ALWAYS_ON_NATIVE_V3_20261118.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "18ca6d7049cc65cdfc79a98edce48ae7fd491f60",
+          "path": "research_checks/X6_UNIT110_LP011_MUTATION_SENSITIVITY_REPLAY_20261118.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "48ec93daa7a3ccde1ef55d92e67b8f1c26f4d659",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/18ca6d7049cc65cdfc79a98edce48ae7fd491f60/research_checks/X6_UNIT110_LP011_MUTATION_SENSITIVITY_REPLAY_20261118.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "e9fbef25831bfd850926a4406ee3ff96827c8c5f",
+          "path": "research_checks/X6_UNIT110_LP011_ALL_INVARIANT_MUTATION_RESULTS_20261118.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "b1966d2a1a2dd222d7fcdbaf99f3882381064084",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/e9fbef25831bfd850926a4406ee3ff96827c8c5f/research_checks/X6_UNIT110_LP011_ALL_INVARIANT_MUTATION_RESULTS_20261118.json",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "9ac523bc6ec49a2a68df3706ea76cc05c95e027e",
+          "path": "research_notes/X6_UNIT110_LP011_MUTATION_SENSITIVITY_AND_ALWAYS_ON_NATIVE_20261118.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "7c13af922b3dd8d41e0535695dac6070d1ff509b",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9ac523bc6ec49a2a68df3706ea76cc05c95e027e/research_notes/X6_UNIT110_LP011_MUTATION_SENSITIVITY_AND_ALWAYS_ON_NATIVE_20261118.md",
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [],
+      "notes": "Unit110 LP011 exact original native X6 BRC source-pinned opt-in full always-on checker: 13 remaining assert invariants converted to unconditional checks, original module required and blob-pinned; 3375 3-slice signed input tuples and actual native calls in Python normal/-O/-OO all PASS same bytes. Fault injections (selected-axis embedding erased, negative observer erased) silently PASS Unit108 -O/-OO but are rejected by new Unit110 in all modes, even while original native BRC is executed. Real original native module unchanged; R063/Helly benchmark not run. Original native Unit105–109 PROGRESS SUCCEEDED, historical LP011 wrong argmax caller and LP019 wrong path subtraction remain UNRESOLVED_PROVENANCE; author evidence UNREVIEWED / NOT_ADMITTED."
     }
   ],
   "mode": "TASK_RESEARCH",
