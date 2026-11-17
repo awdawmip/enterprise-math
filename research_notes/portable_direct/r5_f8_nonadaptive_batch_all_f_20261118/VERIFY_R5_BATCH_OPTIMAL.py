@@ -26,6 +26,8 @@ def verify(path):
             actual={k for k in K if abs(N[k][a]-N[k][b])>t}
             assert actual==expected,(a,b,t,sorted(actual^expected))
     assert sum(w for pair,s,w in W)==735
+    tight=[k for k in K if sum(w for pair,s,w in W if k in s)==k]
+    assert tight==[214,215,216,223,296],tight
     for k in K:
         assert sum(w for pair,s,w in W if k in s)<=k
     q=(216,223,296)
@@ -40,7 +42,8 @@ def verify(path):
     print(json.dumps({"domain":"256 x 101","input_sha256":SHA,
       "checked_pairs":32640,"covered_by_budgets":[216,223,296],
       "separation_multiplicity_distribution":counts,
-      "dual_weights":[296,223,213,1,2],
+      "dual_weights":[296,223,213,1,2],"dual_tight_budgets":tight,
+      "unique_optimal_batch":"(2*f+1) copies of each 216,223,296",
       "all_f_cost":"735*(2*f+1)","f8_batch_cost":12495,
       "f8_adaptive_interval":[8335,8343],
       "f8_saving_interval":[4152,4160]},sort_keys=True,indent=2))
