@@ -1,0 +1,109 @@
+{
+  "schema": "ENTERPRISE_MATH_R762DL_AUTHOR_EVIDENCE_V1",
+  "status": "PASS",
+  "date": "2026-11-18",
+  "computation_type": "Positive named BRC-branch integer group-algebra convolution; no classical pi/trigonometric/native physical simulation",
+  "branch_population": 36,
+  "single_block_area_outcomes": 19,
+  "configuration_checks": 127,
+  "integer_state_count_checks": 64653,
+  "independent_polynomial_count_comparisons": 2705,
+  "normalized_moduli": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    12,
+    16,
+    18,
+    25
+  ],
+  "case_digest": [
+    {
+      "Q": 2,
+      "lastK": 10,
+      "lastGCD": "524288",
+      "reachableOutcomes": 8
+    },
+    {
+      "Q": 3,
+      "lastK": 10,
+      "lastGCD": "387420489",
+      "reachableOutcomes": 27
+    },
+    {
+      "Q": 4,
+      "lastK": 10,
+      "lastGCD": "512",
+      "reachableOutcomes": 64
+    },
+    {
+      "Q": 5,
+      "lastK": 10,
+      "lastGCD": "1",
+      "reachableOutcomes": 125
+    },
+    {
+      "Q": 6,
+      "lastK": 10,
+      "lastGCD": "1",
+      "reachableOutcomes": 216
+    },
+    {
+      "Q": 7,
+      "lastK": 10,
+      "lastGCD": "1",
+      "reachableOutcomes": 343
+    },
+    {
+      "Q": 8,
+      "lastK": 10,
+      "lastGCD": "16",
+      "reachableOutcomes": 512
+    },
+    {
+      "Q": 9,
+      "lastK": 12,
+      "lastGCD": "729",
+      "reachableOutcomes": 729
+    },
+    {
+      "Q": 10,
+      "lastK": 10,
+      "lastGCD": "1",
+      "reachableOutcomes": 1000
+    },
+    {
+      "Q": 12,
+      "lastK": 10,
+      "lastGCD": "1",
+      "reachableOutcomes": 1728
+    },
+    {
+      "Q": 16,
+      "lastK": 9,
+      "lastGCD": "2",
+      "reachableOutcomes": 3766
+    },
+    {
+      "Q": 18,
+      "lastK": 9,
+      "lastGCD": "1",
+      "reachableOutcomes": 4472
+    },
+    {
+      "Q": 25,
+      "lastK": 7,
+      "lastGCD": "1",
+      "reachableOutcomes": 2255
+    }
+  ],
+  "theorem": "For Q>=2, gcd=1 unless Q is a power of 2 or 3 AND 2k>=Q. For Q=p^a (p=2 or 3), gcd is a positive p-power and p^floor(2k/Q) divides gcd. Q=1 has gcd 36^k.",
+  "independent_mathematical_review": "NOT_REVIEWED",
+  "native_triadic_event_license": "NOT_ESTABLISHED"
+}
