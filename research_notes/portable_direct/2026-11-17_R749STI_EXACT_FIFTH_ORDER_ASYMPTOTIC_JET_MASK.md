@@ -1,0 +1,80 @@
+# R749STI — Exact fifth-order asymptotic masking of two six-phase cutoff states
+
+Date: 2026-11-17. Evidence: AUTHOR_EXACT_NOT_REVIEWED.
+Frozen scientific input: awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389.
+Continuation: R749SSY and R749STH. This is an auxiliary scalar result, not a native X6 Port/Cell theorem.
+
+## Model and result
+
+Five distinct labeled sources have weights (1,1,2,3,6). For n≥1 define
+
+\[
+\Omega_n=\{k\in\mathbb Z_{\ge0}^{5}:k_1+k_2+2k_3+3k_4+6k_5\le n-1\},\quad
+C_n=|\Omega_n|,\quad T_n=\sum_{k\in\Omega_n}k_1.
+\]
+
+Let S(n)=18n^4+54n^3-345n^2+2070n-16315 and
+\[
+Y_n(e,d)=n^3\frac{T_n+e}{C_n+d}-\frac{S(n)}{108}.
+\]
+Each state retains its error parameters within [-2,2]^2 for every subsequent observation.
+
+**Theorem.** Compare Y_{74+6j}(e,d) and Y_{76+6j}(E,D) at the same nonnegative integer j. The following quadruple is the **unique real solution** making their asymptotic expansions agree through inverse-time order four:
+\[
+\boxed{
+e=\frac{69402481}{101966688},\quad d=-\frac{656227}{472068},\quad
+E=\frac{194725627}{101966688},\quad D=-\frac{755303}{472068}.
+}
+\]
+All four parameters are strictly inside [-2,2]. Both observations tend to -25/36. With x=(6j)^{-1}, their difference satisfies
+\[
+\boxed{
+Y_{74+6j}(e,d)-Y_{76+6j}(E,D)
+=\frac{55842420440}{39339}\,x^5+O(x^6)
+\qquad(j\to\infty).
+}
+\]
+In particular the scaled difference (6j)^5 times the observation difference tends to the explicit positive rational coefficient. **No real quadruple** makes these two sequences agree through inverse-time order five: the first four equations have unique solution, whose fifth coefficient is nonzero.
+
+This is asymptotic jet coincidence, not equality of the first four or five exact observations. At j=0 the constructed exact difference is positive, approximately 0.0003508162732308300.
+
+## Algebraic proof
+
+The partition generating functions are
+\[
+\sum_{n\ge1}C_nz^{n-1}=\frac{1}{(1-z)^3(1-z^2)(1-z^3)(1-z^6)},\qquad
+\sum_{n\ge1}T_nz^{n-1}=\frac{z}{(1-z)^4(1-z^2)(1-z^3)(1-z^6)}.
+\]
+Clearing with (1-z^6)^6 and (1-z^6)^7 gives finite integer numerator polynomials. Binomial coefficient extraction therefore yields exact rational degree-five and degree-six quasi-polynomials c_r(n),t_r(n) valid for each residue r mod 6 and every n≥29. This finite generating-function identity proves the general coverage; an independent integer dynamic-programming recurrence cross-checks n=29..240 for residues 2 and 4.
+
+At n=q+6j and x=1/(6j), expand the rational function using n^{-h}=x^h(1+qx)^{-h}. The phase-2 and phase-4 zeroth coefficients both equal -25/36. Writing the coefficient of x^k in their difference as a_k, direct exact rational expansion yields
+
+\[
+\begin{aligned}
+a_1&=-\frac{80}{9}(-81D+81d-17),\\
+a_2&=\frac{10}{3}(-22248D-1296E+21816d+1296e-3677),\\
+a_3&=-\frac{40}{81}(-15096375D-1592136E+14501511d+1557144e-2014655),\\
+a_4&=\frac{80}{3}(-27590814D-4009716E+25946595d+3834756e-3029047),\\
+a_5&=-\frac{80}{243}(-217401614550D-39133705608E+200059063218d\\
+&\qquad+36592306632e-19912450691).
+\end{aligned}
+\]
+
+The equations a_1=a_2=a_3=a_4=0 form an affine linear system in the order (e,d,E,D), whose coefficient matrix is
+
+\[
+\begin{pmatrix}
+0&-720&0&720\\
+4320&72720&-4320&-74160\\
+-768960&-7161240&786240&7455000\\
+102260160&691909200&-106925760&-735755040
+\end{pmatrix}
+\]
+
+with exact nonzero determinant 18794499932160000. Exact Gaussian elimination gives the boxed admissible quadruple, and substitution into a_5 yields 55842420440/39339. The normalized rational denominator at x=0 has leading constant 1/4320>0, so the Laurent expansion and O(x^6) remainder are justified. Uniqueness and fifth-order sharpness follow.
+
+## Validation and next question
+
+Run the companion Python 3 / SymPy certificate R749STI_JET_COLLISION_CERT.py. Its author-side execution returned PASS with exact rational assertions for all four zero coefficients, the determinant, box admissibility and the nonzero fifth. A separate dynamic-programming check reconstructs C_n and T_n and checks the source formulas over 29≤n≤240 at both phases. Exact-rational sample differences at j=0,1,10,100,1000,10000 are recorded in the companion JSON.
+
+This constructs a two-state BRC observation fiber: a four-coefficient asymptotic observer loses the source/cutoff label although the exact future series separates at fifth order. A one-bit selector repairs this *two-state* observer. A native provenance-preserving X6/BRC Port mapping remains open. Next, classify legal jet masking in other residue pairs and seek a uniform fifth-order separation radius. The finite exact observation bound 5≤m_*≤11 is unchanged by this result.
