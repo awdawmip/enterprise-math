@@ -1,0 +1,158 @@
+{
+  "status": "PASS",
+  "type": "AUTHOR_EXACT_FINITE_VERIFICATION",
+  "n": 6,
+  "q_range": [
+    2,
+    8
+  ],
+  "frames": [
+    "identity",
+    "flip_axis_0",
+    "flip_axis_1"
+  ],
+  "checks": [
+    {
+      "q": 2,
+      "d": 2,
+      "kernel_sizes": [
+        32,
+        32,
+        32
+      ],
+      "predicted_kernel_sizes": [
+        32,
+        32,
+        32
+      ],
+      "bcr_class_sizes": [
+        1024,
+        1024,
+        1024
+      ],
+      "triangle_checks": 1920
+    },
+    {
+      "q": 3,
+      "d": 1,
+      "kernel_sizes": [
+        243,
+        3,
+        1
+      ],
+      "predicted_kernel_sizes": [
+        243,
+        3,
+        1
+      ],
+      "bcr_class_sizes": [
+        59049,
+        4782969,
+        14348907
+      ],
+      "triangle_checks": 7470
+    },
+    {
+      "q": 4,
+      "d": 2,
+      "kernel_sizes": [
+        1024,
+        64,
+        32
+      ],
+      "predicted_kernel_sizes": [
+        1024,
+        64,
+        32
+      ],
+      "bcr_class_sizes": [
+        1048576,
+        16777216,
+        33554432
+      ],
+      "triangle_checks": 34208
+    },
+    {
+      "q": 5,
+      "d": 1,
+      "kernel_sizes": [
+        3125,
+        5,
+        1
+      ],
+      "predicted_kernel_sizes": [
+        3125,
+        5,
+        1
+      ],
+      "bcr_class_sizes": [
+        9765625,
+        6103515625,
+        30517578125
+      ],
+      "triangle_checks": 91888
+    },
+    {
+      "q": 6,
+      "d": 2,
+      "kernel_sizes": [
+        7776,
+        96,
+        32
+      ],
+      "predicted_kernel_sizes": [
+        7776,
+        96,
+        32
+      ],
+      "bcr_class_sizes": [
+        60466176,
+        4897760256,
+        14693280768
+      ],
+      "triangle_checks": 239040
+    },
+    {
+      "q": 7,
+      "d": 1,
+      "kernel_sizes": [
+        16807,
+        7,
+        1
+      ],
+      "predicted_kernel_sizes": [
+        16807,
+        7,
+        1
+      ],
+      "bcr_class_sizes": [
+        282475249,
+        678223072849,
+        4747561509943
+      ],
+      "triangle_checks": 486594
+    },
+    {
+      "q": 8,
+      "d": 2,
+      "kernel_sizes": [
+        32768,
+        128,
+        32
+      ],
+      "predicted_kernel_sizes": [
+        32768,
+        128,
+        32
+      ],
+      "bcr_class_sizes": [
+        1073741824,
+        274877906944,
+        1099511627776
+      ],
+      "triangle_checks": 978144
+    }
+  ],
+  "total_triangle_checks": 1839264,
+  "proof_scope": "finite tests of kernel-size theorem; general all-q statement proved separately"
+}
