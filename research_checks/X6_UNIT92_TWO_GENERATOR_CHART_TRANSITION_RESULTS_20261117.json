@@ -1,0 +1,118 @@
+{
+  "atlas": [
+    [
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      -1
+    ],
+    [
+      -1,
+      -1,
+      1,
+      -1,
+      1,
+      1
+    ],
+    [
+      -1,
+      -1,
+      1,
+      1,
+      -1,
+      -1
+    ],
+    [
+      -1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1
+    ]
+  ],
+  "chart_pair_hamming": {
+    "12": 3,
+    "13": 4,
+    "23": 3,
+    "01": 2,
+    "02": 3,
+    "03": 2
+  },
+  "classification": "AUTHOR-EXACT / FINITE-EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "date": "2026-11-17",
+  "existing_source_consumer_misuse_proved": false,
+  "finite_depth_nonfactorization": "for every m>=1 via z=0,z=m*1 in mixed-sign chart C; exact analytic proof, tested m 1..10",
+  "first_witness": {
+    "basis_axis": 0,
+    "first_chart": 3,
+    "first_triad": [
+      0,
+      1,
+      2
+    ],
+    "naive_raw": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "naive_relative": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "second_chart": 1,
+    "second_triad": [
+      0,
+      2,
+      3
+    ],
+    "true_raw": [
+      0,
+      -1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "true_relative": [
+      1,
+      0,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "metrics": {
+    "basis_vectors_checked": 2400,
+    "corrected_pairs": 400,
+    "mismatching_basis_images": 832,
+    "naive_bad_pairs": 288,
+    "naive_good_pairs": 112,
+    "pairs_checked": 400
+  },
+  "native_R063_Helly_reexecuted": false,
+  "raw_mismatch_basis_count_histogram": {
+    "0": 112,
+    "2": 64,
+    "3": 192,
+    "4": 32
+  },
+  "schema": "X6_UNIT92_TWO_GENERATOR_CHART_TRANSITION_EXACT_V1",
+  "scope": "20x20 ordered named triad pairs and 6 signed basis images; distinct-chart omission witness",
+  "triad_chart_sizes": [
+    4,
+    4,
+    8,
+    4
+  ]
+}
