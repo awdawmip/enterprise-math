@@ -1,0 +1,159 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact integer within safe JS integer bound on the tested inputs",
+  "pairs_independently_checked": 252,
+  "saturation_checked": [
+    {
+      "M": 1,
+      "energy": 1,
+      "plateau": 15,
+      "first_saturated_K": 2,
+      "at_previous_K": null
+    },
+    {
+      "M": 2,
+      "energy": 6,
+      "plateau": 70,
+      "first_saturated_K": 5,
+      "at_previous_K": 68
+    },
+    {
+      "M": 3,
+      "energy": 15,
+      "plateau": 208,
+      "first_saturated_K": 13,
+      "at_previous_K": 206
+    },
+    {
+      "M": 4,
+      "energy": 32,
+      "plateau": 481,
+      "first_saturated_K": 37,
+      "at_previous_K": 479
+    },
+    {
+      "M": 5,
+      "energy": 49,
+      "plateau": 959,
+      "first_saturated_K": 81,
+      "at_previous_K": 957
+    },
+    {
+      "M": 6,
+      "energy": 86,
+      "plateau": 1710,
+      "first_saturated_K": 151,
+      "at_previous_K": 1708
+    },
+    {
+      "M": 7,
+      "energy": 111,
+      "plateau": 2840,
+      "first_saturated_K": 253,
+      "at_previous_K": 2838
+    },
+    {
+      "M": 8,
+      "energy": 160,
+      "plateau": 4433,
+      "first_saturated_K": 393,
+      "at_previous_K": 4431
+    },
+    {
+      "M": 9,
+      "energy": 209,
+      "plateau": 6615,
+      "first_saturated_K": 577,
+      "at_previous_K": 6613
+    },
+    {
+      "M": 10,
+      "energy": 278,
+      "plateau": 9502,
+      "first_saturated_K": 811,
+      "at_previous_K": 9500
+    }
+  ],
+  "selected_grids": [
+    {
+      "K": 2,
+      "M": 1,
+      "classes": 15,
+      "fixed_width_bits": 4
+    },
+    {
+      "K": 3,
+      "M": 2,
+      "classes": 68,
+      "fixed_width_bits": 7
+    },
+    {
+      "K": 4,
+      "M": 3,
+      "classes": 190,
+      "fixed_width_bits": 8
+    },
+    {
+      "K": 5,
+      "M": 4,
+      "classes": 426,
+      "fixed_width_bits": 9
+    },
+    {
+      "K": 5,
+      "M": 2,
+      "classes": 70,
+      "fixed_width_bits": 7
+    },
+    {
+      "K": 7,
+      "M": 3,
+      "classes": 204,
+      "fixed_width_bits": 8
+    },
+    {
+      "K": 12,
+      "M": 3,
+      "classes": 206,
+      "fixed_width_bits": 8
+    },
+    {
+      "K": 13,
+      "M": 3,
+      "classes": 208,
+      "fixed_width_bits": 8
+    },
+    {
+      "K": 36,
+      "M": 4,
+      "classes": 479,
+      "fixed_width_bits": 9
+    },
+    {
+      "K": 37,
+      "M": 4,
+      "classes": 481,
+      "fixed_width_bits": 9
+    },
+    {
+      "K": 80,
+      "M": 5,
+      "classes": 957,
+      "fixed_width_bits": 10
+    },
+    {
+      "K": 81,
+      "M": 5,
+      "classes": 959,
+      "fixed_width_bits": 10
+    },
+    {
+      "K": 320,
+      "M": 160,
+      "classes": 275605156,
+      "fixed_width_bits": 29
+    }
+  ],
+  "proof_scope": "Theorems A-C for all integer K>M>=1; finite checks are independent regression evidence",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389"
+}
