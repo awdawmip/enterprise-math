@@ -1,0 +1,90 @@
+{
+  "unit": "R749STT",
+  "frozen_science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "five distinct labeled sources, weights (1,1,2,3,6)",
+  "candidates": [
+    73,
+    85
+  ],
+  "read_indices": [
+    0,
+    1,
+    2
+  ],
+  "status": "AUTHOR_EXACT_NOT_REVIEWED",
+  "two_read_exact_collision": {
+    "e": "-3017722237060578733161/1527694442423074582592",
+    "d": "1445925897017416432877/763847221211537291296",
+    "E": "7/5",
+    "D": "2",
+    "equalities": [
+      "Y_73(e,d)=Y_85(E,D)",
+      "Y_79(e,d)=Y_91(E,D)"
+    ]
+  },
+  "linear_three_read_statistic_coefficients": [
+    "1",
+    "-21/10",
+    "11/10"
+  ],
+  "exact_attained_lower_bound": "67536937868192626099237277/18291917078444373205412530425",
+  "attaining_parameters": [
+    -2,
+    2,
+    2,
+    2
+  ],
+  "strict_additive_noise_per_raw_read": "eta < 67536937868192626099237277/153652103458932734925465255570",
+  "derivative_sign_checks": {
+    "73_positive_d_e": {
+      "bernstein_count": 3,
+      "strictly_positive": 3,
+      "min_bernstein": "61636307932971525",
+      "denominator_coefficients_positive": 4
+    },
+    "73_positive_signed_d_d": {
+      "bernstein_count": 10,
+      "strictly_positive": 10,
+      "min_bernstein": "3685584839315143920363561800379375",
+      "denominator_coefficients_positive": 7
+    },
+    "85_positive_d_e": {
+      "bernstein_count": 3,
+      "strictly_positive": 3,
+      "min_bernstein": "123187900606923355",
+      "denominator_coefficients_positive": 4
+    },
+    "85_positive_signed_d_d": {
+      "bernstein_count": 10,
+      "strictly_positive": 10,
+      "min_bernstein": "89815012766212818375162394725947451",
+      "denominator_coefficients_positive": 7
+    }
+  },
+  "total_positive_bernstein_coefficients": 26,
+  "counts": {
+    "73": {
+      "C": 707343,
+      "T": 8931013
+    },
+    "79": {
+      "C": 1020943,
+      "T": 13914446
+    },
+    "85": {
+      "C": 1436968,
+      "T": 21025004
+    },
+    "91": {
+      "C": 1978664,
+      "T": 30933812
+    },
+    "97": {
+      "C": 2672553,
+      "T": 44459556
+    }
+  },
+  "conclusion": "m_initial({73,85})=3 for candidate-wise fixed real nuisance pairs in [-2,2]^2",
+  "scope": "Auxiliary scalar observer only; no native X6/Port/Cell correspondence.",
+  "open_problem": "Determine exact first-horizon for pair 73/79; retain full source provenance in any BRC lift."
+}
