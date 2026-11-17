@@ -1,0 +1,89 @@
+{
+  "schema": "EM_R246_TWO_MODE_PARAMETER_NONMONOTONICITY_V1",
+  "status": "PASS",
+  "event_n": 126,
+  "root_bisections": 96,
+  "frozen_scientific_commit": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "model": "R245 seven-source reversible sticky-reset; 63 proper masks; W fixed; two Perron modes masks 59/55",
+  "result": "INTERIOR_STRICT_MAXIMUM_WITNESS; GLOBAL_NONDECREASING_AND_NONINCREASING_BOTH_FALSE",
+  "exact_integer_matrix_propagation": true,
+  "rank_one_factorization_exactly_matches_dense_at_all_anchors": true,
+  "rank_one_scalar_multiplications_per_time_step_max": 747,
+  "dense_scalar_multiplications_per_time_step": 1071,
+  "comparison_margins": {
+    "E_126(2/5)>E_126(39/100)": {
+      "sign": "positive",
+      "numerator_bits": 25616,
+      "denominator_bits": 25598,
+      "sha256": "edfb6bc0dff0c6812164223cf8e52558c839541457a6b3838a3f90fd5f479550"
+    },
+    "E_126(2/5)>E_126(41/100)": {
+      "sign": "positive",
+      "numerator_bits": 25605,
+      "denominator_bits": 25587,
+      "sha256": "51a37c7bbfac33e8a3e10508cdd20ce6948308397bbb0585613882ba40cdffe2"
+    }
+  },
+  "parameters": [
+    {
+      "s": "39/100",
+      "E_diagnostic_rounded_bounds": [
+        "0.1359716517392619",
+        "0.1359716517392619"
+      ],
+      "Phi_n_numerator_bits": 3512,
+      "Phi_n_denominator_bits": 3497,
+      "root_bounds": {
+        "55": [
+          "4898691348616855352620349060865017/4989690639945225151219406062223360",
+          "1224672837154213838155087265219777/1247422659986306287804851515555840"
+        ],
+        "59": [
+          "4942928454388584621733990460265791/4989690639945225151219406062223360",
+          "2471464227194292310866995230139941/2494845319972612575609703031111680"
+        ]
+      }
+    },
+    {
+      "s": "2/5",
+      "E_diagnostic_rounded_bounds": [
+        "0.136176365784681",
+        "0.136176365784681"
+      ],
+      "Phi_n_numerator_bits": 2286,
+      "Phi_n_denominator_bits": 2270,
+      "root_bounds": {
+        "55": [
+          "6743183636591971184165154789719/6858187817641006722941148200960",
+          "26972734546367884736660619158953/27432751270564026891764592803840"
+        ],
+        "59": [
+          "1698610260915131103348781039297/1714546954410251680735287050240",
+          "27177764174642097653580496628829/27432751270564026891764592803840"
+        ]
+      }
+    },
+    {
+      "s": "41/100",
+      "E_diagnostic_rounded_bounds": [
+        "0.1359522599118395",
+        "0.1359522599118395"
+      ],
+      "Phi_n_numerator_bits": 3511,
+      "Phi_n_denominator_bits": 3495,
+      "root_bounds": {
+        "55": [
+          "1202876881637974898703061250101627/1221524954364456132453961836789760",
+          "4811507526551899594812245000420137/4886099817457824529815847347159040"
+        ],
+        "59": [
+          "2420532538148557865484987582075383/2443049908728912264907923673579520",
+          "968213015259423146193995032832879/977219963491564905963169469431808"
+        ]
+      }
+    }
+  ],
+  "review": "NOT_REVIEWED",
+  "native_BRC": "NOT_EXECUTED",
+  "certificate_semantics": "Rational root interval endpoints and cross-product sign assertions are authoritative; decimal display is diagnostic and rounded."
+}
