@@ -1,0 +1,147 @@
+{
+  "all_pass": true,
+  "checks": [
+    {
+      "denominator_bits": 12,
+      "event_n": 1,
+      "k": 0,
+      "numerator_bits": 16,
+      "value_mod_p": [
+        357038501,
+        231368749
+      ]
+    },
+    {
+      "denominator_bits": 13,
+      "event_n": 2,
+      "k": 1,
+      "numerator_bits": 15,
+      "value_mod_p": [
+        232099376,
+        679736984
+      ]
+    },
+    {
+      "denominator_bits": 15,
+      "event_n": 3,
+      "k": 2,
+      "numerator_bits": 16,
+      "value_mod_p": [
+        430041409,
+        949890416
+      ]
+    },
+    {
+      "denominator_bits": 21,
+      "event_n": 6,
+      "k": 5,
+      "numerator_bits": 18,
+      "value_mod_p": [
+        89557394,
+        670564995
+      ]
+    },
+    {
+      "denominator_bits": 24,
+      "event_n": 7,
+      "k": 6,
+      "numerator_bits": 21,
+      "value_mod_p": [
+        870648920,
+        29402079
+      ]
+    },
+    {
+      "denominator_bits": 28,
+      "event_n": 8,
+      "k": 7,
+      "numerator_bits": 23,
+      "value_mod_p": [
+        696103719,
+        762250873
+      ]
+    },
+    {
+      "denominator_bits": 46,
+      "event_n": 13,
+      "k": 12,
+      "numerator_bits": 35,
+      "value_mod_p": [
+        371312069,
+        600216352
+      ]
+    },
+    {
+      "denominator_bits": 228,
+      "event_n": 64,
+      "k": 63,
+      "numerator_bits": 153,
+      "value_mod_p": [
+        66122845,
+        806461770
+      ]
+    },
+    {
+      "denominator_bits": 458,
+      "event_n": 128,
+      "k": 127,
+      "numerator_bits": 302,
+      "value_mod_p": [
+        573604124,
+        725136903
+      ]
+    },
+    {
+      "denominator_bits": 841,
+      "event_n": 235,
+      "k": 234,
+      "numerator_bits": 550,
+      "value_mod_p": [
+        450717621,
+        725214822
+      ]
+    },
+    {
+      "denominator_bits": 1795,
+      "event_n": 501,
+      "k": 500,
+      "numerator_bits": 1168,
+      "value_mod_p": [
+        420398060,
+        242632716
+      ]
+    },
+    {
+      "denominator_bits": 3588,
+      "event_n": 1001,
+      "k": 1000,
+      "numerator_bits": 2329,
+      "value_mod_p": [
+        892170889,
+        238566034
+      ]
+    }
+  ],
+  "consequence": "omega(k) output bit length of 63-label exact rational result for s=2/5",
+  "exact_checks": 12,
+  "formula": "h_0,k=(37422/2053)*(5/12)^k",
+  "independent_recurrence_iterations": 1001,
+  "mask": 0,
+  "modular_checks": 24,
+  "parameter_s": "2/5",
+  "reduced_denominator": "2053*2^max(2k-1,0)*3^max(k-5,0)",
+  "review": "NOT_REVIEWED",
+  "rho_0": "2079/16424",
+  "schema": "EM_R253_EXACT_SINGLETON_OUTPUT_SIZE_V1",
+  "scope": "fixed rational parameter, singleton m=0; no claim of global scalar output lower bound or full native BRC histogram",
+  "self_loop": "5/12",
+  "source_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "valuation_facts": {
+    "gcd_2053_60": 1,
+    "gcd_37422_2053": 1,
+    "v2_37422": 1,
+    "v3_37422": 5
+  },
+  "weight": 144,
+  "weighted_rho_0": "37422/2053"
+}
