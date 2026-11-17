@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""R252: exact labeled-mask binary coefficient extraction for frozen R234 observer.
+"""R252: exact labelled-mask binary coefficient extraction for frozen R234 observer.
 
 Independent Python Fraction implementation of R250/R251 model; no 229-degree
 polynomial LCM, roots, floats, or external libraries. Finite tests also use a
