@@ -1,0 +1,104 @@
+{
+  "arithmetic": "unbounded Python integers; exact C_Q^3 convolution; formal Z[zeta] pairs",
+  "cases": [
+    {
+      "Q": 3,
+      "n_max": 48,
+      "n_min": 1
+    },
+    {
+      "Q": 9,
+      "n_max": 180,
+      "n_min": 1
+    },
+    {
+      "Q": 27,
+      "n_max": 120,
+      "n_min": 1
+    }
+  ],
+  "character_checks": 27,
+  "claim_scope": "positive six-named-branch candidate endpoint group-ring law",
+  "configuration_count": 348,
+  "conjecture_tested": "For Q=9 and Q=27, the stronger all-n sharpness formula holds on specified finite ranges; universal extension unproved",
+  "independent_mathematical_review": "NOT_REVIEWED",
+  "native_event_admission": "NOT_ESTABLISHED",
+  "result": "PASS",
+  "samples": {
+    "27": [
+      {"gcd": "1", "n": 2, "support": 19, "v3": 0},
+      {"gcd": "1", "n": 3, "support": 44, "v3": 0},
+      {"gcd": "1", "n": 4, "support": 85, "v3": 0},
+      {"gcd": "1", "n": 6, "support": 231, "v3": 0},
+      {"gcd": "1", "n": 7, "support": 344, "v3": 0},
+      {"gcd": "1", "n": 8, "support": 489, "v3": 0},
+      {"gcd": "1", "n": 9, "support": 670, "v3": 0},
+      {"gcd": "1", "n": 12, "support": 1469, "v3": 0},
+      {"gcd": "1", "n": 18, "support": 4579, "v3": 0},
+      {"gcd": "3", "n": 27, "support": 14483, "v3": 1},
+      {"gcd": "9", "n": 36, "support": 19571, "v3": 2},
+      {"gcd": "27", "n": 45, "support": 19683, "v3": 3},
+      {"gcd": "81", "n": 54, "support": 19683, "v3": 4},
+      {"gcd": "2187", "n": 81, "support": 19683, "v3": 7},
+      {"gcd": "177147", "n": 120, "support": 19683, "v3": 11}
+    ],
+    "3": [
+      {"gcd": "1", "n": 2, "support": 19, "v3": 0},
+      {"gcd": "3", "n": 3, "support": 27, "v3": 1},
+      {"gcd": "9", "n": 4, "support": 27, "v3": 2},
+      {"gcd": "81", "n": 6, "support": 27, "v3": 4},
+      {"gcd": "729", "n": 7, "support": 27, "v3": 6},
+      {"gcd": "729", "n": 8, "support": 27, "v3": 6},
+      {"gcd": "2187", "n": 9, "support": 27, "v3": 7},
+      {"gcd": "59049", "n": 12, "support": 27, "v3": 10},
+      {"gcd": "43046721", "n": 18, "support": 27, "v3": 16},
+      {"gcd": "847288609443", "n": 27, "support": 27, "v3": 25},
+      {"gcd": "16677181699666569", "n": 36, "support": 27, "v3": 34},
+      {"gcd": "328256967394537077627", "n": 45, "support": 27, "v3": 43}
+    ],
+    "9": [
+      {"gcd": "1", "n": 2, "support": 19, "v3": 0},
+      {"gcd": "1", "n": 3, "support": 44, "v3": 0},
+      {"gcd": "1", "n": 4, "support": 85, "v3": 0},
+      {"gcd": "1", "n": 6, "support": 231, "v3": 0},
+      {"gcd": "1", "n": 7, "support": 344, "v3": 0},
+      {"gcd": "1", "n": 8, "support": 489, "v3": 0},
+      {"gcd": "3", "n": 9, "support": 617, "v3": 1},
+      {"gcd": "9", "n": 12, "support": 729, "v3": 2},
+      {"gcd": "81", "n": 18, "support": 729, "v3": 4},
+      {"gcd": "2187", "n": 27, "support": 729, "v3": 7},
+      {"gcd": "59049", "n": 36, "support": 729, "v3": 10},
+      {"gcd": "1594323", "n": 45, "support": 729, "v3": 13},
+      {"gcd": "43046721", "n": 54, "support": 729, "v3": 16},
+      {"gcd": "847288609443", "n": 81, "support": 729, "v3": 25},
+      {"gcd": "1350851717672992089", "n": 120, "support": 729, "v3": 38},
+      {"gcd": "4710128697246244834921603689", "n": 180, "support": 729, "v3": 58}
+    ]
+  },
+  "schema": "R762DN_AUTHOR_BRC_EXACT_EVIDENCE_V1",
+  "source_pins": {
+    "p000": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+    "predecessor_r762dm": "abd4abb36cd82ff3a56b05b7f2ba41ac142e643e",
+    "taskbook": "e3f42efac29a2da2d95be391f3231a664e2fade0"
+  },
+  "spectrum_counts": {
+    "(-1, -1)": 1,
+    "(0, -1)": 4,
+    "(0, 0)": 12,
+    "(0, 1)": 1,
+    "(1, 0)": 4,
+    "(1, 1)": 4,
+    "(2, 0)": 1
+  },
+  "t_residue_multisets": {
+    "0": {"-1": 6, "-4": 8, "14": 1, "2": 12},
+    "1": {"-2": 21, "7": 6},
+    "2": {"-1": 6, "-4": 8, "14": 1, "2": 12},
+    "3": {"-2": 21, "7": 6},
+    "4": {"-1": 6, "-4": 8, "14": 1, "2": 12},
+    "5": {"-2": 21, "7": 6}
+  },
+  "t_state_checks": 162,
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "universal_proved": "Q=3 exact all n; any Q=3^a v3>=max(0,floor(n/3^(a-1))-2); first two plateaux exact"
+}
