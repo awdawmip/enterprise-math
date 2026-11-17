@@ -1,0 +1,24 @@
+{
+  "schema": "ENTERPRISE_MATH_GITHUB_CONNECTOR_OBSERVATION_V1",
+  "observation_id": "r2-20261118-r749stz-source-json-readback-v1",
+  "tool_name": "mcp__GitHub__fetch_file",
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "path": "research_notes/portable_direct/R749STZ_RESOURCE_ROLLBACK_RESULTS.json",
+    "ref": "d01c5b73d57fa87d0ddd17d30c6f1cf07d5b8660"
+  },
+  "actual_connector_response": {
+    "result": {
+      "content": "{\n  \"status\": \"PASS\",\n  \"frozen_weight_vector\": [\n    1,\n    1,\n    2,\n    3,\n    6\n  ],\n  \"domain\": \"all five-source words of length 0..7; POP budget 0..min(3,length)\",\n  \"machines\": {\n    \"RESET_FLIP\": {\n      \"word_instances\": 97656,\n      \"endpoint_inventory_fibers\": 1170,\n      \"exact_class_count_cases\": 4650,\n      \"classified_history_instances\": 390586,\n      \"total_predicted_classes_across_cases\": 33285,\n      \"exact_injectivity_criterion_checks\": 4650,\n      \"fibers_with_extra_resource_boundary\": 1028\n    },\n    \"BIJECTIVE\": {\n      \"word_instances\": 97656,\n      \"endpoint_inventory_fibers\": 792,\n      \"exact_class_count_cases\": 3140,\n      \"classified_history_instances\": 390586,\n      \"total_predicted_classes_across_cases\": 25152,\n      \"exact_injectivity_criterion_checks\": 3140,\n      \"fibers_with_extra_resource_boundary\": 0\n    }\n  },\n  \"witness\": {\n    \"word_pair\": [\n      \"ABC\",\n      \"BAC\"\n    ],\n    \"inventory\": [\n      1,\n      1,\n      1,\n      0,\n      0\n    ],\n    \"common_terminal_resource\": 0,\n    \"common_suffix_with_one_POP\": \"C\",\n    \"ledger_traces\": [\n      [\n        0,\n        0,\n        1,\n        0\n      ],\n      [\n        0,\n        1,\n        0,\n        0\n      ]\n    ],\n    \"after_one_POP_resource\": [\n      1,\n      0\n    ],\n    \"terminal_resource_0_number_of_minimal_classes\": 4,\n    \"terminal_resource_0_number_of_suffixes\": 2,\n    \"optimal_extra_bits\": 1\n  }\n}\n",
+      "encoding": "utf-8",
+      "sha": "62b3088a7975ead4383a27186ae5d39d01fa59be",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/d01c5b73d57fa87d0ddd17d30c6f1cf07d5b8660/research_notes/portable_direct/R749STZ_RESOURCE_ROLLBACK_RESULTS.json",
+      "display_title": "R749STZ_RESOURCE_ROLLBACK_RESULTS.json"
+    }
+  },
+  "bytes_sha256": "728d007ef67fe421110bea3587fe0fea1f0b503b7e9af67c3bc6fec15aa37698",
+  "git_blob_sha1": "62b3088a7975ead4383a27186ae5d39d01fa59be",
+  "verified_immutable_path": "https://github.com/awdawmip/enterprise-math/blob/d01c5b73d57fa87d0ddd17d30c6f1cf07d5b8660/research_notes/portable_direct/R749STZ_RESOURCE_ROLLBACK_RESULTS.json",
+  "server_signature_authenticated": false,
+  "note": "Local observation envelope; connector response retained verbatim, no server-issued signature claimed."
+}
