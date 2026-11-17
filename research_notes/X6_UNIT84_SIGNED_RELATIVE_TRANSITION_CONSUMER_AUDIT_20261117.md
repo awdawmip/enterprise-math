@@ -57,3 +57,19 @@ The following actual code was fetched through the authenticated GitHub connector
 - **Next discriminating action:** independently inspect a concrete current downstream invocation that *actually* consumes `rho` under native signed future operations, with exact argument type/consumer/path/line and observe whether it preserves the proved \(\bar K\) rule; continue still-unread frozen executable/source branch calls before claiming the historical LP011/LP019 error. Provide precise bounded positive and missing provenance evidence to an authorized independent Driver for `REQUEST_REVISION`, and resolve X6 writer binding only through its actual Source session/conversation identity authorization, never by D25/maintenance reuse.
 
 State: **AUTHOR-EXACT / FINITE-EXECUTED / SOURCE-INSPECTED / UNREVIEWED / NOT_ADMITTED**.
+
+
+## Same-turn downstream follow-through: multiplicity vs support-only quotient
+
+After the first durable Unit84 checkpoint, additional current executables were inspected on the same main control snapshot:
+
+- `src/enterprise_math/operation_quotient.py`, blob `758a65de02a434446936cd7e37b2ae604eade863`, computes deterministic finite-operation observational congruences and distinguishes named operation words. No signed-X6 BRC mass accumulator is claimed by this module.
+- `src/enterprise_math/partial_operation_quotient.py`, blob `d1f86491ce07279c058a4c99f40cabb1f96da0de`, preserves *operation enabledness* in partial-word signatures; it has no claim of natural positive BRC multiplicity.
+- `src/enterprise_math/relation_observable_composition.py`, blob `b7b7be69ecfe9c4b61ae0a694f0ff6c61483c025`, explicitly maps relation successors to `frozenset` observation signatures and uses set union. This is an exact **Boolean/support** future observer, not a positive-mass path histogram.
+- `src/enterprise_math/safe_operation_algebra.py`, blob `1df77cc34f2f52c8a8620b8235ac438a1b37ef1c`, counts finite *operations* compatible with a partition, not path multiplicities from a native signed X6 starting state.
+
+**Second exact typing discriminator, tested locally:** Starting at the chosen native Cell-relative zero displacement, take all \(12^2=144\) two-step signed words. There are **73** different min-zero observer states after support projection, while the single relative observation \(r=(1,1,0,0,0,0)\) is reached by the two distinct labeled positive-step words \((+e_1,+e_2)\) and \((+e_2,+e_1)\). Thus its exact natural BRC mass is **2**, whereas the corresponding set-valued relation-composition output merely records the *presence* of \(r\) (Boolean 1). The two positive words are direct, valid signed-native histories; the other signed two-step words do not produce this same \(r\). The test was executed with independent integer loops on 2026-11-17. This is a concrete source-type **non-substitutability** witness, and not an allegation that the current Boolean module illegally claims to compute BRC mass.
+
+**Consequence for actual consumers:** Unit84's exact relative strong lumpability requires the nonnegative integer \(\bar K\) transition counts, **not** merely a set of reachable successor observer classes. Where a real downstream caller demands BRC mass, the correct carrier is `Counter`/positive multiplicity or equivalent provenance-preserving histogram. Existing support-only implementations are correct for declared support questions and were not patched. LP019's alleged historical wrong caller still lacks independent path:line evidence.
+
+The local 144-word/73-support/2-mass follow-through is additional bounded author evidence, not a rerun of native R063/Helly, formal review, or an original-X6-authenticated checkpoint.
