@@ -1,0 +1,20 @@
+{
+  "schema": "EM_PLUGIN_GITHUB_OBSERVATION_V1",
+  "tool_name": "mcp__GitHub__fetch_file",
+  "observation_id": "r6-prefix853-20261117-readback-3",
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "path": "research_notes/portable_direct/PREFIX853_R6_FIXED_MODULUS_DYNAMIC_MEMORY_RESULTS.json",
+    "ref": "54eb186edf4dd70c583b469479d9851de4f4707a"
+  },
+  "result": {
+    "result": {
+      "content": "{\n  \"arithmetic\": \"exact integers only; all state-pair paths enumerated without sampling\",\n  \"cases_failing_uniform_lifetime_condition\": 592,\n  \"cases_passing_uniform_lifetime_condition\": 280,\n  \"coverage\": {\n    \"J\": \"all subsets if p<=3; p=4 masks 0,1,2,3,8,12,15\",\n    \"h\": \"0..min(2,p)\",\n    \"p\": [\n      1,\n      2,\n      3,\n      4\n    ],\n    \"q\": \"odd 3..2^p+1\",\n    \"r\": \"0..min(2,p)\",\n    \"windows\": [\n      1,\n      2,\n      3\n    ]\n  },\n  \"examples\": {\n    \"p4_J0_r0_h1\": {\n      \"all_future_samples_minimal_odd_q\": 11,\n      \"initial_single_sample_minimal_odd_q\": 3\n    },\n    \"p6_J3_r1_h1\": {\n      \"divisibility_witness_for_failed_q\": {\n        \"d\": 25,\n        \"eps\": [\n          -1,\n          0,\n          0,\n          -1,\n          -1,\n          0\n        ]\n      },\n      \"failed_q\": 25,\n      \"fixed_odd_q_minimum\": 27\n    }\n  },\n  \"model\": \"U(x)=sum(2^i*x_i), x_i in {0,1}; odd fixed q with c_t a power of 2; initial R(z_K;J,r); at most h coordinate flips per later update, including no-op\",\n  \"parameter_modulus_cases\": 872,\n  \"status\": \"ALL_EXACT_ASSERTIONS_PASSED\",\n  \"terminal_window_assertions\": 2616,\n  \"universal_proof\": \"See PREFIX-853 paper: persistence of initial aliases; common-predecessor divergence for local aliases; induction on exact state after successful first observation.\"\n}\n",
+      "encoding": "utf-8",
+      "sha": "c846aa52d0a6923809f0bd8fc2cb9bd5aba8f8fc",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/54eb186edf4dd70c583b469479d9851de4f4707a/research_notes/portable_direct/PREFIX853_R6_FIXED_MODULUS_DYNAMIC_MEMORY_RESULTS.json",
+      "display_title": "PREFIX853_R6_FIXED_MODULUS_DYNAMIC_MEMORY_RESULTS.json"
+    }
+  },
+  "observer_validation": "remote content, SHA256, Git blob and immutable path inspected; original GitHub connector response preserved"
+}
