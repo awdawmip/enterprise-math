@@ -1,0 +1,223 @@
+{
+  "schema": "EC49FSD_FULL_REAL_EIGHT_PHASE_NATIVE_BRC_CERTIFICATE_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CROSSCHECKED_NOT_REVIEWED",
+  "created_at": "2026-11-18",
+  "pinned_science": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "frozen_raw_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "profile": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "model": {
+    "named_states": 141,
+    "original_configs": 310,
+    "native_observations": 228,
+    "distributions": "uniform over 141 named states",
+    "observer_prices": {
+      "q32": "1/2",
+      "q34": "1/2",
+      "q140": "1-z",
+      "others": "1"
+    },
+    "domain": "0<=z<=1",
+    "criterion": "min sum of adaptive complete-tree path prices divided by t"
+  },
+  "phases": [
+    {
+      "interval": [
+        "0",
+        "1/6"
+      ],
+      "A": "215",
+      "K": 10,
+      "counts": {
+        "U": 306,
+        "N32": 41,
+        "N34": 141,
+        "N140": 10
+      },
+      "root": 34,
+      "worst_depth": 4,
+      "witness_from_inherited_bundle": "ec49fsc_runs_PARTIAL/anchor_1_10000.json"
+    },
+    {
+      "interval": [
+        "1/6",
+        "3/14"
+      ],
+      "A": "217",
+      "K": 22,
+      "counts": {
+        "U": 308,
+        "N32": 41,
+        "N34": 141,
+        "N140": 22
+      },
+      "root": 34,
+      "worst_depth": 4,
+      "witness_from_inherited_bundle": "ec49fsc_runs_PARTIAL/anchor_4_21.json"
+    },
+    {
+      "interval": [
+        "3/14",
+        "1/4"
+      ],
+      "A": "437/2",
+      "K": 29,
+      "counts": {
+        "U": 305,
+        "N32": 32,
+        "N34": 141,
+        "N140": 29
+      },
+      "root": 34,
+      "worst_depth": 3,
+      "witness_from_inherited_bundle": "ec49fsc_runs_PARTIAL/anchor_2_9.json"
+    },
+    {
+      "interval": [
+        "1/4",
+        "11/30"
+      ],
+      "A": "219",
+      "K": 31,
+      "counts": {
+        "U": 312,
+        "N32": 45,
+        "N34": 141,
+        "N140": 31
+      },
+      "root": 34,
+      "worst_depth": 4,
+      "witness_from_inherited_bundle": "ec49fsc_runs_PARTIAL/anchor_11_30.json"
+    },
+    {
+      "interval": [
+        "11/30",
+        "2/5"
+      ],
+      "A": "449/2",
+      "K": 46,
+      "counts": {
+        "U": 309,
+        "N32": 28,
+        "N34": 141,
+        "N140": 46
+      },
+      "root": 34,
+      "worst_depth": 3,
+      "witness_from_inherited_bundle": "ec49fsc_runs_PARTIAL/anchor_2_5.json"
+    },
+    {
+      "interval": [
+        "2/5",
+        "1/2"
+      ],
+      "A": "453/2",
+      "K": 51,
+      "counts": {
+        "U": 311,
+        "N32": 28,
+        "N34": 141,
+        "N140": 51
+      },
+      "root": 34,
+      "worst_depth": 3,
+      "witness_from_inherited_bundle": "ec49fsc_runs_PARTIAL/anchor_1_2.json"
+    },
+    {
+      "interval": [
+        "1/2",
+        "33/64"
+      ],
+      "A": "479/2",
+      "K": 77,
+      "counts": {
+        "U": 315,
+        "N32": 10,
+        "N34": 141,
+        "N140": 77
+      },
+      "root": 34,
+      "worst_depth": 3,
+      "witness_from_inherited_bundle": "ec49fsc_runs_PARTIAL/anchor_23_45.json"
+    },
+    {
+      "interval": [
+        "33/64",
+        "1"
+      ],
+      "A": "545/2",
+      "K": 141,
+      "counts": {
+        "U": 321,
+        "N32": 18,
+        "N34": 79,
+        "N140": 141
+      },
+      "root": 140,
+      "worst_depth": 3,
+      "witness_from_inherited_bundle": "ec49fsc_runs_PARTIAL/anchor_1_1.json"
+    }
+  ],
+  "exact_global_endpoints": [
+    {
+      "z": "0",
+      "global_bellman_value": "215",
+      "independent_recomputed_dp_subsets": 9884,
+      "independent_match": true
+    },
+    {
+      "z": "1/6",
+      "global_bellman_value": "640/3",
+      "independent_recomputed_dp_subsets": 9857,
+      "independent_match": true
+    },
+    {
+      "z": "3/14",
+      "global_bellman_value": "1486/7",
+      "independent_recomputed_dp_subsets": 9839,
+      "independent_match": true
+    },
+    {
+      "z": "1/4",
+      "global_bellman_value": "845/4",
+      "independent_recomputed_dp_subsets": 9788,
+      "independent_match": true
+    },
+    {
+      "z": "11/30",
+      "global_bellman_value": "6229/30",
+      "independent_recomputed_dp_subsets": 9736,
+      "independent_match": true
+    },
+    {
+      "z": "2/5",
+      "global_bellman_value": "2061/10",
+      "independent_recomputed_dp_subsets": 9707,
+      "independent_match": true
+    },
+    {
+      "z": "1/2",
+      "global_bellman_value": "201",
+      "independent_recomputed_dp_subsets": 9486,
+      "independent_match": true
+    },
+    {
+      "z": "33/64",
+      "global_bellman_value": "12787/64",
+      "independent_recomputed_dp_subsets": 9471,
+      "independent_match": true
+    },
+    {
+      "z": "1",
+      "global_bellman_value": "263/2",
+      "independent_recomputed_dp_subsets": 6441,
+      "independent_match": true
+    }
+  ],
+  "proof": "finite exact Bellman full original action set at nine endpoints + valid tree witnesses at both endpoints of each phase + concavity of minimum of affine tree costs",
+  "technical_reproduction": "See EC49FSD_EIGHT_PHASE_RECOMPUTE_20261118.py and EC49FSD_INDEPENDENT_BELLMAN_RECHECK_20261118.py; source tree modules, frozen data and complete witnesses retained in inherited evidence package",
+  "parent": "https://github.com/awdawmip/enterprise-math/pull/2672",
+  "formal_task_claim": "NONE; RS-EC49AS task-directory lookup returned NO_CANONICAL_PUBLICATION_DIRECTORY",
+  "next_problem": "Extend to q32=q34=s and independent q140 discount; classify phase wall bifurcations or the full three-price cube."
+}
