@@ -1,7 +1,9 @@
-"""Opt-in strict exact int/Fraction weighted signed-BRC interface.
-Original signed_brc.py remains immutable; valid positive rational calculations preserved.
+"""Opt-in exact-weight boundary repair for the frozen signed-axis BRC kernel.
+
+The frozen signed_brc.py is unchanged. Positive/negative weights must be
+strictly positive exact integers or Fractions, never Boolean, floating,
+string or Decimal coercions. No P000 or BRC counting semantics are changed.
 """
-"""Exact signed-axis BRC kernels on the P000-V4 X6 spatial candidate."""
 from __future__ import annotations
 
 from fractions import Fraction
@@ -63,14 +65,15 @@ def endpoint_weight(
     negative_weights:Sequence[Fraction|int],
 )->Fraction:
     z=_z6(z)
-    wp_raw=tuple(positive_weights); wm_raw=tuple(negative_weights)
+    wp_raw=tuple(positive_weights)
+    wm_raw=tuple(negative_weights)
     if len(wp_raw)!=6 or len(wm_raw)!=6:
-        raise ValueError("six strictly positive exact weights per sign required")
+        raise ValueError("six weights per native sign required")
     if any(isinstance(w,bool) or not isinstance(w,(int,Fraction)) for w in wp_raw+wm_raw):
-        raise TypeError("exact int/Fraction branch weights required")
+        raise TypeError("signed BRC weights must be exact int/Fraction, not coerced values")
     wp=tuple(map(Fraction,wp_raw)); wm=tuple(map(Fraction,wm_raw))
-    if len(wp)!=6 or len(wm)!=6 or any(w<=0 for w in wp+wm):
-        raise ValueError("six strictly positive exact weights per sign required")
+    if any(w<=0 for w in wp+wm):
+        raise ValueError("signed BRC weights must be strictly positive")
     if type(length) is not int or length<0: raise ValueError("nonnegative integer length required")
     a=tuple(max(x,0) for x in z); b=tuple(max(-x,0) for x in z)
     base=sum(a)+sum(b); gap=length-base
