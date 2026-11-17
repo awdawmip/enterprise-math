@@ -1,4 +1,4 @@
-# R259 — Labelled modular observability and effective p-adic denominator-loss periodicity
+# R259C — Labelled modular observability and effective p-adic denominator-loss periodicity
 
 Date: 2026-11-18 (Asia/Shanghai). Research status: **AUTHOR_PROVED / EXACT_FINITE_STATE_VERIFICATION / NOT_REVIEWED**. Scientific input remains frozen at `43ec6098b1330ae86d0a7863be336c5d97f6ef34`.
 
@@ -9,6 +9,10 @@ This result uses only the seven-source positive rational **auxiliary scalar** ob
 `h_(m,k)(s) = W_popcount(m) rho_D^T P_D^k 1`, `k>=0`.
 
 The source inputs and earlier proofs are pinned in R257 at commit `8a0b721455f00e8c5e50ff08831c12fea01c86e4`, R256 at `c7b15b956ec9fb996c5b72eaae06bed14399e234`, and R255B at `6c12b514474d865d3fb8efb940a1b100b14d9208`. Their prime-specific denominator theorems are used only in their stated domains.
+
+## Relation to previously published R259
+
+The earlier R259 research material (independent commit `d789f0e6907aa18a923830bd0036cf19d0d5ef3d`) already derives the much sharper **23-adic first-layer** periodicity bound: for `v_23(t)=-2` the post-transient period divides `12144`, and for `v_23(t)<=-3` it divides `22`. That result remains the preferred efficient 23-adic test. The present supplement gives a **general p-adic depth-r theorem for any prime**, plus independently recomputed *exact minimal full joint-state periods* for R256/R257/R258. It does not supersede that sharper R259 bound.
 
 ## Theorem A — exact joint modular observation criterion
 
@@ -38,7 +42,7 @@ The condition `p^r | A_k` is eventually constant as `v_p(A_k)=v_p(J/K)+k v_p(T)`
 
 *Proof.* One step shifts each mask's length-`d_m` window and appends the integer-recursive next term modulo `p^r`. There are at most `p^(r sum_m d_m)=p^(249r)` states; pigeonhole plus determinism gives a preperiod followed by a cycle. The all-zero test is a function of state, and intersection with the eventually constant divisibility test for `A_k` preserves eventual periodicity. QED.
 
-## R259 independently recomputed full labelled orbit certificates
+## R259C independently recomputed full labelled orbit certificates
 
 The attached pure-standard-library script reconstructs `a,b,pi,rho` from exact rational inputs, all 63 characteristic polynomials, the 249 direct integer bases, `J`, and their gcd `K`. It then enumerates the **entire 249-coordinate joint state** modulo each indicated prime, stopping at the first repeated state. Assertions check the printed period, zero set, integrality and source constants.
 
