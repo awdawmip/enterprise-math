@@ -1,0 +1,85 @@
+{
+  "schema": "PREFIX883_EXACT_WITNESS_COUNT_VALIDATION_V1",
+  "precision": "exact_integer",
+  "signed_parameter_checks": 16948,
+  "per_p": [
+    {
+      "p": 1,
+      "cases": 27
+    },
+    {
+      "p": 2,
+      "cases": 125
+    },
+    {
+      "p": 3,
+      "cases": 441
+    },
+    {
+      "p": 4,
+      "cases": 1377
+    },
+    {
+      "p": 5,
+      "cases": 3993
+    },
+    {
+      "p": 6,
+      "cases": 10985
+    }
+  ],
+  "full_collision_spectrum_cross_checks": 660,
+  "no_op_pair_cross_checks": 21844,
+  "p32_high_strip": {
+    "odd_moduli": 644,
+    "ordered_modulus_pairs": 414736,
+    "pairs_with_noop_collisions": 2658,
+    "unordered_noop_witness_pairs_sum": 11347681168486410
+  },
+  "p32_examples": [
+    {
+      "a": 4294959104,
+      "d": 16384,
+      "e": 0,
+      "count": 8192
+    },
+    {
+      "a": 3831432631,
+      "d": 0,
+      "e": 2,
+      "count": 231767332
+    },
+    {
+      "a": 4294967295,
+      "d": 0,
+      "e": 0,
+      "count": 1
+    },
+    {
+      "a": 2147483648,
+      "d": -1073741824,
+      "e": 33554432,
+      "count": 536870912
+    },
+    {
+      "a": 0,
+      "d": 1,
+      "e": 1,
+      "count": 2147483648
+    },
+    {
+      "a": 0,
+      "d": 1,
+      "e": -1,
+      "count": 0
+    },
+    {
+      "a": 0,
+      "d": 2147483648,
+      "e": -2147483648,
+      "count": 0
+    }
+  ],
+  "mismatches": 0,
+  "claim": "author proof plus exhaustive stated finite validation"
+}
