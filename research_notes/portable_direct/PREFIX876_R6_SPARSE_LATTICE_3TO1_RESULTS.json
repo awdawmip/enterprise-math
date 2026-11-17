@@ -1,0 +1,59 @@
+{
+  "schema": "EM_PORTABLE_EXACT_INTEGER_CERTIFICATE_V1",
+  "date": "2026-11-17",
+  "name": "PREFIX-876",
+  "p": 32,
+  "B": 19,
+  "Q": 524287,
+  "N": 4294967296,
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "D_19_size": 307,
+  "D_extended_size": 309,
+  "lattice_3to1_pairs_including_diagonal": 27000811,
+  "diagonal_pairs": 34,
+  "lattice_non_diagonal_pairs": 27000777,
+  "intersection_with_PREFIX874": 25427,
+  "new_beyond_PREFIX874": 26975350,
+  "old_PREFIX875_non_diagonal": 1747629,
+  "old_PREFIX875_new_beyond_PREFIX874": 1746491,
+  "strict_new_over_PREFIX874_875": 25228859,
+  "confirmed_union_PREFIX874_875_876": 163028070,
+  "direct_sample": {
+    "difference": 6,
+    "moduli": [
+      160001,
+      479997
+    ],
+    "transitions": [
+      [
+        4,
+        6
+      ],
+      [
+        480007,
+        480003
+      ]
+    ]
+  },
+  "verification": {
+    "methods": [
+      "symbolic constructive three-case proof",
+      "309 exact arithmetic interval counts",
+      "complete 309*307*2 intersection enumeration",
+      "low/interior/high explicit legal event witnesses per difference",
+      "independent JS exact count",
+      "small B=3..6 direct ordered-pair enumeration"
+    ],
+    "arithmetic": "Python unbounded integers / JS exact safe integers",
+    "scope": "Declared 3:1 difference set; not the complete 19-bit modulus square"
+  },
+  "status_dimensions": {
+    "author_proved": true,
+    "finite_integer_regression": true,
+    "independent_mathematical_review": false,
+    "formal_admission": false,
+    "shared_claim_acquired": false
+  },
+  "next": "General bounded-k,l sparse lattice union with correct de-duplication; 32-source 19-bit candidate/no-go"
+}
