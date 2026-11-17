@@ -1,0 +1,141 @@
+{
+  "schema": "EC49FSG_5_16_NATIVE_SEVEN_PHASE_CERTIFICATE_V1",
+  "date": "2026-11-18",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "model": "BRC16943; 141 named profiles; 310 raw configurations; all 228 named physical observers; uniform prior; complete adaptive trees",
+  "costs": {
+    "q32": "11/16",
+    "q34": "11/16",
+    "q140": "1-z",
+    "other": "1",
+    "z": "[0,1]"
+  },
+  "segments": [
+    {
+      "lo": "0",
+      "hi": "1/16",
+      "intercept": "993/4",
+      "N140": 13,
+      "U": 297,
+      "N32": 15,
+      "N34": 141,
+      "root": 34,
+      "depth": 3
+    },
+    {
+      "lo": "1/16",
+      "hi": "1/12",
+      "intercept": "1987/8",
+      "N140": 15,
+      "U": 299,
+      "N32": 21,
+      "N34": 141,
+      "root": 34,
+      "depth": 3
+    },
+    {
+      "lo": "1/12",
+      "hi": "1/6",
+      "intercept": "1989/8",
+      "N140": 18,
+      "U": 298,
+      "N32": 17,
+      "N34": 141,
+      "root": 34,
+      "depth": 3
+    },
+    {
+      "lo": "1/6",
+      "hi": "7/32",
+      "intercept": "2005/8",
+      "N140": 30,
+      "U": 300,
+      "N32": 17,
+      "N34": 141,
+      "root": 34,
+      "depth": 3
+    },
+    {
+      "lo": "7/32",
+      "hi": "5/16",
+      "intercept": "4017/16",
+      "N140": 32,
+      "U": 302,
+      "N32": 22,
+      "N34": 141,
+      "root": 34,
+      "depth": 3
+    },
+    {
+      "lo": "5/16",
+      "hi": "479/1456",
+      "intercept": "4107/16",
+      "N140": 50,
+      "U": 302,
+      "N32": 4,
+      "N34": 141,
+      "root": 34,
+      "depth": 3
+    },
+    {
+      "lo": "479/1456",
+      "hi": "1",
+      "intercept": "2293/8",
+      "N140": 141,
+      "U": 301,
+      "N32": 7,
+      "N34": 39,
+      "root": 140,
+      "depth": 3
+    }
+  ],
+  "bellman_vertices": [
+    {
+      "z": "0",
+      "value": "993/4",
+      "exact_independent_match": true
+    },
+    {
+      "z": "1/16",
+      "value": "3959/16",
+      "exact_independent_match": true
+    },
+    {
+      "z": "1/12",
+      "value": "1977/8",
+      "exact_independent_match": true
+    },
+    {
+      "z": "1/6",
+      "value": "1965/8",
+      "exact_independent_match": true
+    },
+    {
+      "z": "7/32",
+      "value": "3905/16",
+      "exact_independent_match": true
+    },
+    {
+      "z": "5/16",
+      "value": "3857/16",
+      "exact_independent_match": true
+    },
+    {
+      "z": "479/1456",
+      "value": "349787/1456",
+      "exact_independent_match": true
+    },
+    {
+      "z": "1",
+      "value": "1165/8",
+      "exact_independent_match": true
+    }
+  ],
+  "proof": "Finite native Bellman exhaustive all 228 original named observations at 8 vertices; complete 141-state witness paths for 7 affine cost types; concavity gives all real z",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_TWO_IMPLEMENTATIONS_NOT_REVIEWED",
+  "dependencies": [
+    2675,
+    2678,
+    2681
+  ]
+}
