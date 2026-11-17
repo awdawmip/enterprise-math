@@ -1,0 +1,107 @@
+{
+  "schema": "ENTERPRISE_MATH_X6_UNIT110_AUTHOR_EXACT_EXECUTION_CERTIFICATE_V1",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "date": "2026-11-18",
+  "unit": 110,
+  "status": "AUTHOR_SOURCE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "model": "Frozen signed native X6 P000 V5 at 59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "scientific_pin": {
+    "original_native_path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+    "native_git_blob_sha1": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+    "unit108_input_blob": "296e4cdb8b5710a6b2017f24e4b6059a2554714e",
+    "unit110_output_blob": "8d45dc1c88fd8dc897b6abe6d538de3185a135cd",
+    "unit110_replay_blob": "48ec93daa7a3ccde1ef55d92e67b8f1c26f4d659"
+  },
+  "scope": "LP011 original-module three-mode integration and mutation sensitivity; original R063/Helly benchmark not executed",
+  "transformation": "13 remaining Unit108 LP011 assert invariants converted to always-on conditional raises; require original native module present and exact Git blob. Original Unit108 preserved.",
+  "execution": {
+    "actual_interpreter": "CPython subprocess normal, -O, -OO; original native module loaded from matching Git blob and called on every selected integer triple",
+    "selected_embedding": [
+      0,
+      2,
+      5
+    ],
+    "domain": "all signed d in [-7,7]^3",
+    "domain_size": 3375,
+    "checks_all_modes": {
+      "normal": {
+        "exit_code": 0,
+        "reported_real_native_calls": 3375
+      },
+      "-O": {
+        "exit_code": 0,
+        "reported_real_native_calls": 3375
+      },
+      "-OO": {
+        "exit_code": 0,
+        "reported_real_native_calls": 3375
+      }
+    },
+    "baseline_unit108_same_native_output": true,
+    "three_modes_stdout_sha256": "fba4072526686d8bf1c1415c977f565d8c652788f34a9d58e5b85831a8f8ff33",
+    "output": {
+      "status": "PASS",
+      "signed_points": 3375,
+      "signed_ties": 644,
+      "zero_cases": 1,
+      "legacy_selector_agreement": 1513,
+      "brc_shortest_formula_checks": 3375,
+      "existing_native_brc_imported": true,
+      "existing_native_brc_calls": 3375
+    }
+  },
+  "negative_controls": {
+    "erased_embedded_axes": {
+      "mutation": "In throwaway copy, replace 'out[k] = x' with 'out[k] = 0'",
+      "v2_exit_codes": {
+        "normal": 1,
+        "-O": 0,
+        "-OO": 0
+      },
+      "v3_exit_codes": {
+        "normal": 1,
+        "-O": 1,
+        "-OO": 1
+      },
+      "v3_failure": "UNIT110_ALWAYS_ON_CHECK_04:line_99"
+    },
+    "erased_negative_observer": {
+      "mutation": "In throwaway copy, replace 'return frozenset(negative)' with 'return frozenset()'",
+      "v2_exit_codes": {
+        "normal": 1,
+        "-O": 0,
+        "-OO": 0
+      },
+      "v3_exit_codes": {
+        "normal": 1,
+        "-O": 1,
+        "-OO": 1
+      },
+      "v3_failure": "UNIT110_ALWAYS_ON_CHECK_03:line_98"
+    },
+    "missing_real_native_source": {
+      "v3_exit_codes": {
+        "normal": 1,
+        "-O": 1,
+        "-OO": 1
+      },
+      "failure": "Unit110 requires real frozen native signed_brc.py"
+    },
+    "tampered_native_git_blob": {
+      "v3_exit_codes": {
+        "normal": 1,
+        "-O": 1,
+        "-OO": 1
+      },
+      "failure": "Unit110 frozen native source blob mismatch"
+    }
+  },
+  "inference": "Previous Unit108 native calls do execute under optimization, but their checks of embedding correctness, sign observer, equivariance and other 13 assertions are removed; a corrupted embedding can still yield PASS because the native module and reference both consume the same corrupted embedding. Unit110 opt-in version rejects tested corruptions while preserving unmodified results.",
+  "not_inferred": [
+    "No evidence the production/native module itself was corrupt",
+    "No direct original historical LP011 wrong caller identified",
+    "No R063/Helly benchmark executed",
+    "No independent review/admission"
+  ]
+}
