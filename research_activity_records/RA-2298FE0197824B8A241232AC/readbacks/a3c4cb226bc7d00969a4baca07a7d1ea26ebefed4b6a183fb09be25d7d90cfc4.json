@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/PREFIX870_R6_BALANCED_GCD_CHECK.py",
+    "ref": "188619d4cda722895eadda7cb0f96afe6f4b5fb9",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r6-prefix870-20261117-source-2",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"PREFIX-870: exact certificate for a named-source auxiliary BRC observer.\"\"\"\nimport json\nfrom math import gcd, isqrt\n\ndef h(g):\n    r=1\n    for d in range(1,2*g+1):\n        r=2*r%g\n        if r==1 or r==g-1: return d\n    raise AssertionError(\"odd half-order failed\")\n\ndef lower(p):\n    T=(1<<p)*(p+1)\n    B=1\n    while ((1<<B)-1)**2<T: B+=1\n    assert ((1<<(B-1))-1)**2<T\n    return B\n\ndef row(p):\n    N=1<<p\n    g=next(g for g in range(2*p+1,1001,2) if h(g)>=p)\n    a=isqrt((N+g-1)//g)\n    if a%2==0: a+=1\n    while g*a*(a+2)<N: a+=2\n    b=a+2\n    q1,q2=g*a,g*b\n    D=[0]+[s*(1<<i) for i in range(p) for s in (-1,1)]\n    assert len(set(d%g for d in D))==2*p+1\n    assert gcd(a,b)==1 and gcd(q1,q2)==g and q1%2==q2%2==1\n    assert g*a*b>=N and h(g)>=p\n    B=max(q1.bit_length(),q2.bit_length()); L=lower(p)\n    assert B-L==(0 if p%2 else 1)\n    return dict(p=p,L=L,B=B,g=g,h=h(g),a=a,b=b,q1=q1,q2=q2,lcm=g*a*b)\n\ndef main():\n    rows=[row(p) for p in range(32,56)]\n    q1,q2=11,33\n    seen=set()\n    for u in range(32):\n        seen.add((u%q1,u%q2))\n        for i in range(5):\n            seen.add((u%q1,(u^(1<<i))%q2))\n    assert len(seen)==192\n    M=(1<<19)-1\n    assert M*M==274876858369 and M*M<65*(1<<32)==279172874240\n    assert rows[0][\"B\"]==20\n    out=dict(schema=\"PREFIX870_R6_EXACT_INTEGER_CERTIFICATE_V1\",\n             frozen_scientific_input=\"f42f2906d77f24085c123f3ccfe9667d41caa96d\",\n             model=\"auxiliary named-binary BRC, fixed two odd modular ports, full ordered transition\",\n             p_range=[32,55],rows=rows,\n             exact_global_p=list(range(33,56,2)),\n             gap_at_most_one_p=list(range(32,56,2)),\n             p32_class_optimum=20, p32_global_bounds=[19,20],\n             p5_sanity_transitions=len(seen),\n             validation=\"ALL_EXACT_ASSERTIONS_PASSED\")\n    print(json.dumps(out,sort_keys=True,indent=2))\nif __name__==\"__main__\":\n    main()\n",
+      "display_title": "PREFIX870_R6_BALANCED_GCD_CHECK.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/188619d4cda722895eadda7cb0f96afe6f4b5fb9/research_notes/portable_direct/PREFIX870_R6_BALANCED_GCD_CHECK.py",
+      "encoding": "utf-8",
+      "sha": "9865f14906fb6b3e48e2aaa883ea178012cc97ff"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
