@@ -7,7 +7,37 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "921a0571cef10fd0a82218dc68f823841824278f",
+          "path": "research_notes/portable_direct/r5_f8_h14_joint_50_66_20261118/RESEARCH.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "baa0b16b27ff7eb380098e66ccd5280c40279956cff46583c1433bf61300f3c8",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "e97b0bb0e5beacea01bcdbd6241436fcd8c34e73",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/921a0571cef10fd0a82218dc68f823841824278f/research_notes/portable_direct/r5_f8_h14_joint_50_66_20261118/RESEARCH.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r5-20261118-0404-h14-full-immutable-readback-01",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-B1A5102AD1877F18B4C40118/readbacks/b11ac77a2e521d23bfd1dc2df4330b7d1c2d7fb5373bb9c99f8b827fe7ed9c3e.json",
+          "verification_receipt_sha256": "b11ac77a2e521d23bfd1dc2df4330b7d1c2d7fb5373bb9c99f8b827fe7ed9c3e"
+        }
+      ],
+      "event_id": "r5-20261118-0404-h14-joint-f8-exact-v1",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@1b44b1c79bbc9afa18af3c63c28e7ce766f3d41a:journal/enterprise-math/2026-11-18/20261118T040230+0800-r5-f8-h14-joint-50-66.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-17T14:05:45.628682+00:00",
   "registration_key": "session:MCP-c5244149a8a14782aaaaf84250cf5169:TASK_RESEARCH",
