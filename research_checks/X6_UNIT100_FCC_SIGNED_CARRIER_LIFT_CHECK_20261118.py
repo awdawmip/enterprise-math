@@ -20,6 +20,10 @@ VEC = {
 }
 INDEX = {e: i for i, e in enumerate(EDGES)}
 
+def require(condition, message):
+    if not condition:
+        raise AssertionError(message)
+
 def determinant(m):
     return (m[0][0] * (m[1][1]*m[2][2]-m[1][2]*m[2][1])
            -m[0][1] * (m[1][0]*m[2][2]-m[1][2]*m[2][0])
@@ -37,9 +41,9 @@ def signed_orientation_map(m):
         image=matvec(m,VEC[e])
         options=[(INDEX[f],s) for f in EDGES for s in (-1,1)
                  if image==tuple(s*x for x in VEC[f])]
-        assert len(options)==1, (e,m,image,options)
+        require(len(options)==1, (e,m,image,options))
         out.append(options[0])
-    assert sorted(j for j,s in out)==list(range(6))
+    require(sorted(j for j,s in out)==list(range(6)), "signed images are not bijective")
     return tuple(out)
 
 def compose(a,b):
@@ -52,23 +56,23 @@ for cp in permutations(range(3)):
         for j,row in enumerate(cp):m[row][j]=signs[j]
         m=tuple(tuple(row) for row in m)
         if determinant(m)==1:matrices.append(m)
-assert len(matrices)==24 and len(set(matrices))==24
+require(len(matrices)==24 and len(set(matrices))==24, "rotation count mismatch")
 images={m:signed_orientation_map(m) for m in matrices}
 unsigned={tuple(j for j,s in v) for v in images.values()}
-assert len(unsigned)==24
+require(len(unsigned)==24, "carrier permutation action count mismatch")
 negative=sum(s==-1 for v in images.values() for j,s in v)
 fixed_but_reversed=sum(j==i and s==-1 for v in images.values() for i,(j,s) in enumerate(v))
 wrong_any=sum(any(s==-1 for j,s in v) for v in images.values())
 for a in matrices:
     for b in matrices:
         ab=matmul(a,b)
-        assert ab in images
-        assert images[ab]==compose(images[a],images[b])
+        require(ab in images, "rotation product leaves group")
+        require(images[ab]==compose(images[a],images[b]), "signed lift composition mismatch")
 
 witness=((-1,0,0),(0,-1,0),(0,0,1))
-assert witness in images
+require(witness in images, "signed reversal witness missing")
 ab_image=images[witness][INDEX[('A','B')]]
-assert ab_image==(INDEX[('A','B')],-1)
+require(ab_image==(INDEX[('A','B')],-1), 'AB carrier orientation-reversal witness failed')
 result={
     'schema':'EM_X6_UNIT100_DERIVED_FCC_SIGNED_CARRIER_LIFT_CERT_V1',
     'historical_source':'fd2bcff10ca6e147348b6c1236027fc0d2877df3:research_checks/P000_6D_AXIS_MIXING_ROTATION_ALGEBRA_CHECK_20260829.py',
