@@ -1,0 +1,76 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-18",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "forbidden_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_inputs": {
+    "P000_V5": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "legacy": "fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "highest_author_frontier": {
+    "unit": 110,
+    "status": "AUTHOR-SOURCE-EXECUTED / EXACT-INTEGER / UNREVIEWED / NOT_ADMITTED",
+    "question": "LP011 Unit108 native calls execute in optimized Python but 13 remaining observer/embedding assertions are optimized away; can a bad embedding retain an apparent PASS?",
+    "finding": "Yes: corrupting out[k]=x to out[k]=0 leaves Unit108 -O/-OO returning PASS with 3375 native calls, because both native call and expected c6 use the same wrong embedded vector; observer sign mutation also false-PASSes. New opt-in Unit110 V3 makes 13 invariants unconditional and requires original pinned native source. 3375 full real original-native checks pass in normal/-O/-OO, mutations are rejected in all modes, output SHA256 fba4072526686d8bf1c1415c977f565d8c652788f34a9d58e5b85831a8f8ff33.",
+    "artifacts": [
+      {
+        "path": "research_checks/X6_UNIT110_LP011_FULL_ALWAYS_ON_NATIVE_V3_20261118.py",
+        "commit": "ae6ce7477300249b5287e2871d2679cba78c8f25",
+        "git_blob_sha1": "8d45dc1c88fd8dc897b6abe6d538de3185a135cd"
+      },
+      {
+        "path": "research_checks/X6_UNIT110_LP011_MUTATION_SENSITIVITY_REPLAY_20261118.py",
+        "commit": "18ca6d7049cc65cdfc79a98edce48ae7fd491f60",
+        "git_blob_sha1": "48ec93daa7a3ccde1ef55d92e67b8f1c26f4d659"
+      },
+      {
+        "path": "research_checks/X6_UNIT110_LP011_ALL_INVARIANT_MUTATION_RESULTS_20261118.json",
+        "commit": "e9fbef25831bfd850926a4406ee3ff96827c8c5f",
+        "git_blob_sha1": "b1966d2a1a2dd222d7fcdbaf99f3882381064084"
+      },
+      {
+        "path": "research_notes/X6_UNIT110_LP011_MUTATION_SENSITIVITY_AND_ALWAYS_ON_NATIVE_20261118.md",
+        "commit": "9ac523bc6ec49a2a68df3706ea76cc05c95e027e",
+        "git_blob_sha1": "7c13af922b3dd8d41e0535695dac6070d1ff509b"
+      }
+    ]
+  },
+  "own_native": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-3e221a50dc8818f914e228f6",
+    "run_id": "RUN-95866d78d35721116c362956",
+    "last_known_generation": 3,
+    "last_execution_checkpoint_revision": 3,
+    "unit105_109_progress_request_id": "onhour-20261118-0612-x6-own-units105-109-native-progress-v1",
+    "unit105_109_progress_result": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED / canonical_publication_verified / source_commit=cd541df82c1bb7d3779cd834de2e7a52b6728c51",
+    "unit109_exact_cont_request": "onhour-20261118-0608-x6-own-unit109-exact-cont-v1",
+    "unit109_exact_cont_result": "SUCCEEDED, as-of read only",
+    "new_exact_cont_request": "onhour-20261118-0720-x6-own-post-unit110-exact-cont-v1",
+    "new_exact_cont_last_observed": "QUEUED / error=null; do not resend",
+    "unit110_native_semantic_progress": "NOT_WRITTEN / fresh authorization pending"
+  },
+  "activity_id": "RA-5E3FE1E761E4963EC461A892",
+  "activity_checkpoint_count": 124,
+  "activity_commit": "171c330ff49a98fb93a65260c023057c0f5bec21",
+  "do_not_repeat": [
+    "Units64–109 saved research and scientific certificates",
+    "Unit110 native LP011 three-mode regression and mutation sensitivity",
+    "Unit105–109 native PROGRESS already published; do not reissue original request",
+    "Original frozen R063/Helly benchmark and accepted result",
+    "Do not claim other lane/maintenance identities"
+  ],
+  "remaining": [
+    "LP019 Unit108 optimized-mode signed/word-count invariants still assert-only; run exact original native and mutation tests, repair if demonstrated",
+    "LP011/LP019 historical old wrong caller exact frozen source:line still UNRESOLVED_PROVENANCE",
+    "28-LP genuine typed downstream consumer crosswalk and Driver REQUEST_REVISION",
+    "Original R063 native benchmark support Issue #2416 remains open and unassigned"
+  ],
+  "next_exact_action": "Continue real LP019 checker optimized-mode mutation sensitivity, then consume original own continuation request onhour-20261118-0720-x6-own-post-unit110-exact-cont-v1. Only with fresh own winning claim and permitted run generation checkpoint/publish Unit110+ subsequent results; no duplicate dispatch.",
+  "continuation_state": "OPEN",
+  "independent_review": "UNREVIEWED/NOT_ADMITTED",
+  "scheduling": "Original hourly on-hour automation untouched"
+}
