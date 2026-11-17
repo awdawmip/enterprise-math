@@ -1,0 +1,56 @@
+{
+  "schema": "PREFIX884_R6_RESULTS_V1",
+  "model": "p named binary sources, zero or single XOR bit transition; ordered two-port residues",
+  "randomized_w_checks": 7200,
+  "random_seed": 884,
+  "small_exhaustive_pair_checks": 217,
+  "small_p_range": [
+    1,
+    7
+  ],
+  "small_odd_moduli": "1..min(2^p-1,13)",
+  "assertions": [
+    "collision_count_from_d_e_lattice_equals_direct_multiset_second_moment",
+    "complement_observation_fiber_multiplicity_symmetry",
+    "fiber_occupancy_lower_bound",
+    "odd_q_central_fiber_parity_invariant"
+  ],
+  "large_p": 32,
+  "large_pairs": [
+    {
+      "q1": 524287,
+      "q2": 524285,
+      "collisions": 1260570120266,
+      "occupancy_lower_bound": 0,
+      "central_fiber_multiplicity": 4
+    },
+    {
+      "q1": 500383,
+      "q2": 522777,
+      "collisions": 61029441402,
+      "occupancy_lower_bound": 0,
+      "central_fiber_multiplicity": 0
+    },
+    {
+      "q1": 523001,
+      "q2": 523003,
+      "collisions": 502527821442,
+      "occupancy_lower_bound": 0,
+      "central_fiber_multiplicity": 4
+    },
+    {
+      "q1": 262143,
+      "q2": 524287,
+      "collisions": 1329274396737,
+      "occupancy_lower_bound": 4295753727,
+      "central_fiber_multiplicity": 2
+    },
+    {
+      "q1": 524287,
+      "q2": 524287,
+      "collisions": 568927306772480,
+      "occupancy_lower_bound": 0,
+      "central_fiber_multiplicity": 8192
+    }
+  ]
+}
