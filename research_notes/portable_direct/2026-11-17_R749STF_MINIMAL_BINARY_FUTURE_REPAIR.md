@@ -89,11 +89,11 @@ For \(n=q+6j\), the exact rational-fraction difference formula and coordinate cl
 \boxed{|Y_n(\hat e,\hat d)-Y_n(e,d)|\le A_{q,j}\eta,\quad
 A_{q,j}=\frac{n^3}{q^3(C_n-2)}(K_e+M_nK_d).}
 \]
-The reproducible exact checker proves \(A_{73,3}<98\) and \(A_{77,3}<103\). Therefore, at the **fourth read**, the bit-conditioned forecast error is strictly less than \(103\eta\), and in particular \(<1.03\cdot10^{-6}\) when \(\eta\le10^{-8}\). In contrast, without the bit even an *exact* common prefix has minimax fourth-read error \(>5\cdot10^{-6}\).
+The reproducible exact checker proves \(A_{73,3}<98\) and \(A_{77,3}<103\). Therefore, at the **fourth read**, the bit-conditioned forecast error is at most \(103\eta\) (strictly less when \(\eta>0\)), and in particular \(<1.03\cdot10^{-6}\) when \(\eta\le10^{-8}\). In contrast, without the bit even an *exact* common prefix has minimax fourth-read error \(>5\cdot10^{-6}\).
 
 There is also a uniform bound for **all future scalar reads**, with no horizon restriction:
 \[
-\boxed{\sup_{j\ge0}|Y_{q+6j}(\hat e,\hat d)-Y_{q+6j}(e,d)|<66000\eta.}
+\boxed{\sup_{j\ge0}|Y_{q+6j}(\hat e,\hat d)-Y_{q+6j}(e,d)|\le66000\eta.}
 \]
 Indeed, for \(n\ge73\) the integer Cartesian box \(0\le k_i\le\lfloor(n-1)/(5w_i)\rfloor\) lies in \(\Omega_n\), giving \(C_n\ge(n-1)^5/112500\), hence \(C_n-2\ge(n-1)^5/225000\). Moreover \(T_n\le(n-1)C_n\), so \(M_n<2n\). Since \(n/(n-1)\le73/72\), one obtains
 \[
