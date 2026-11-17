@@ -89,6 +89,8 @@ Locally generated complete verification JSON SHA-256:
 `40a5e9145f732af15564b9269b4ffbca2b69fc1f17e1fa0c4fc3a7448484bab9`.
 Script SHA-256 (local source):
 `cee028677b3f6766413b4dd169b784b816d73673bbc693d8fd42cc93c0c6d929`.
+Full 44-comparison JSON evidence is additionally preserved as [reversible gzip/base64 text](R247_verification_full.json.gz.b64). Recover with `base64 -d R247_verification_full.json.gz.b64 | gzip -d > R247_verification_full.json`, and verify the resulting SHA-256 against the value above. The Git blob for this archive was verified to match the locally encoded full output byte-for-byte (`f0ed1c66b06ee148d35b46521111d4d2f3581428`).
+
 The expected SHA-256 here fingerprints the actual local run, not an independent mathematical review. Re-run on the exact published source and compare outputs before using hashes as cross-machine evidence.
 
 Numerical values (diagnostic only; PASS depends solely on exact comparisons):
