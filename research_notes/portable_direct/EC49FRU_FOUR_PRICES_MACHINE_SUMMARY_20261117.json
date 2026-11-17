@@ -1,0 +1,46 @@
+{
+  "schema": "EC49FRU_FOUR_NATIVE_NAMED_OBSERVERS_PRICE_CERTIFICATE_V1",
+  "date": "2026-11-17",
+  "scientific_input_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent_provenance": "awdawmip/enterprise-math/pull/2648@4f745adfb05c8dea4e4436cc24ecc4832870aeaf",
+  "research_status": "AUTHOR_PROVED_EXACT_FINITE_BELLMAN_CHECKED_NOT_REVIEWED",
+  "model": {
+    "original_brc_class": 16943,
+    "complete_named_states": 141,
+    "original_configurations": 310,
+    "native_named_physical_queries": 228,
+    "terminal_named_physical_queries": 144,
+    "root_named_physical_queries": 84,
+    "prior": "UNIFORM_NAMED_STATE_LAMBDA_ZERO",
+    "base_root_terminal_price_ratio": "1",
+    "surcharge_domain": "a,b,c,d are arbitrary real nonnegative multiples of base t; q32,q34,q140,q142 repriced separately"
+  },
+  "source_sha256": {
+    "frozen_original_master.txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE.csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "integer_bellman_anchors": [
+    {"surcharge_numerator_per_141":[0,0,0,0],"value":41736,"first_original_queries":[32,34],"subsets":13063},
+    {"surcharge_numerator_per_141":[2,2,0,0],"value":42018,"first_original_queries":[32,34,140,142],"subsets":13063},
+    {"surcharge_numerator_per_141":[3,3,1,1],"value":42159,"first_original_queries":[32,34,46,93,140,142],"subsets":13063}
+  ],
+  "native_complete_tree_replays": {
+    "A":{"root":32,"base_query_uses":296,"q32_q34_q140_q142_incidence":[141,0,0,0]},
+    "Aprime":{"root":34,"base_query_uses":296,"q32_q34_q140_q142_incidence":[0,141,0,0]},
+    "B":{"root":140,"base_query_uses":298,"q32_q34_q140_q142_incidence":[0,0,141,0]},
+    "Bprime":{"root":142,"base_query_uses":298,"q32_q34_q140_q142_incidence":[0,0,0,141]},
+    "T":{"root":46,"base_query_uses":299,"q32_q34_q140_q142_incidence":[0,0,0,0]}
+  },
+  "additional_full_native_integer_probes": [
+    {"z":[1,7,10,3],"value":41877,"first":[32],"subsets":13063},
+    {"z":[5,4,0,9],"value":42018,"first":[140],"subsets":13063},
+    {"z":[4,6,2,3],"value":42159,"first":[46,93],"subsets":13063}
+  ],
+  "closed_form": "V(a,b,c,d)/t=min(296/141+a,296/141+b,298/141+c,298/141+d,299/141) for a,b,c,d>=0",
+  "minimum_complete_fixed_tree_menu_size": 5,
+  "coverage": "All real nonnegative surcharges via the mathematical concavity/coordinate-monotonicity proof and exact finite anchors; finite computations use all 228 original named physical queries; five full identifying trees separately replayed over 141 states.",
+  "proof_file": "EC49FRU_FOUR_INDEPENDENT_NATIVE_PRICES_THEOREM_20261117.md",
+  "reproducer": "EC49FRU_FOUR_PRICES_VERIFY_20261117.py",
+  "prior_full_native_tree_source": "EC49FRS_FOUR_EQUAL_SURCHARGE_EXPANSION_20261117.json in prior self-contained bundle",
+  "next_question": "First unavoidable extra incidence gradient under strictly-positive discounts or a fifth original named-observer price"
+}
