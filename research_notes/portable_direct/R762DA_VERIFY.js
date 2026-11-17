@@ -80,9 +80,21 @@ for(let t=1;t<=5;t++) {
   rows.push({times:[t,6],minSeeds:String(729n/g)});
 }
 if(rows.map(x=>x.minSeeds).join(",")!=="81,243,81,243,81") throw Error("Schedule example failed");
+function sparseSeed(times) {
+  const gaps=times.map((t,i)=>t-(times[i-1]||0));
+  const divisor=gaps.map(d=>gcdAll(c3(d,1n,2n))).reduce((x,y)=>x*y,1n);
+  return 3n**BigInt(times[times.length-1])/divisor;
+}
+const nonComposition={
+  first:String(sparseSeed([1,6])),
+  second:String(sparseSeed([3,6])),
+  union:String(sparseSeed([1,3,6]))
+};
+if(nonComposition.first!=="81" || nonComposition.second!=="81" ||
+   nonComposition.union!=="243") throw Error("Joint observer witness failed");
 console.log(JSON.stringify({
   status:"PASS", arithmetic:"BigInt exact", model:"finite group positive right walk",
-  c3:cycle, s3:nonabelian, twoTimeExample:rows,
+  c3:cycle, s3:nonabelian, twoTimeExample:rows, jointNoncomposition:nonComposition,
   claim:"verified gcd factorization and denominator integrality in bounded domains",
   review:"NOT_REVIEWED", nativeEventAdmission:false
 },null,2));
