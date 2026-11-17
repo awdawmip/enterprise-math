@@ -1,0 +1,57 @@
+{
+  "unit": "R749STM",
+  "source_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "status": "AUTHOR_EXACT_NOT_REVIEWED",
+  "scope": "sharp sheared two-jet margins for all six same-residue pairs; explicit finite two-time thresholds for two first forbidden gap pairs",
+  "six_phase_shear_verification": {
+    "residue_count": 6,
+    "symbolic_all_k_h": true,
+    "dynamic_count_crosscheck": {
+      "min_n": 29,
+      "max_n": 240
+    },
+    "sharp_margins": {
+      "r1": "max(0,(41*h-1296)/324)",
+      "r5": "max(0,(h-1296)/324)",
+      "r0_r2_r3_r4": "0"
+    }
+  },
+  "certificates": [
+    {
+      "residue": 1,
+      "h": 32,
+      "k": 0,
+      "q": 73,
+      "p": 265,
+      "alpha": "689/324",
+      "sigma_min_abs_sheared_second_jet": "4/81",
+      "base_denominator_constant": "1/4320",
+      "radius": "1/265000",
+      "uq_variation_bound": "7309212985203715051339/21171146833125000000000000000",
+      "up_variation_bound": "125548713119323399923911/105855734165625000000000000000",
+      "remainder_majorant_M": "530035184326583040339033713134999029361586173726867/531039339176759666204452514648437500000000",
+      "uniform_j_threshold": "3899747",
+      "max_x": "300214239747928131294250488281250000000000000000/7024556297880205033613213800178142136129101560402168351",
+      "eta_critical_at_J": "5/615927273500052",
+      "proof": "Exact rational P/U polynomial at x=1/(6j); F=a1*x+a2*x^2+x^3*Q/(Uq*Up); coefficientwise absolute norms with |e|,|d|,|E|,|D|<=2; U>=c5/2. Two-time jet estimator at j,2j, error <=M*x*(5/2+3/2*(q+27)*rho)/4320; positivity of |J2|>=sigma; raw-noise bound from 4 readouts."
+    },
+    {
+      "residue": 5,
+      "h": 1297,
+      "k": 0,
+      "q": 77,
+      "p": 7859,
+      "alpha": "649/324",
+      "sigma_min_abs_sheared_second_jet": "1/324",
+      "base_denominator_constant": "1/4320",
+      "radius": "1/7859000",
+      "uq_variation_bound": "29684360101898342144516697259/2428406925452643867219000000000000000",
+      "up_variation_bound": "2818437511252104726139858833619/2428406925452643867219000000000000000",
+      "remainder_majorant_M": "108385183244626755330004526350981113574546275596219135019507591746521/150778497340270080501219055234708337548828125000000000000",
+      "uniform_j_threshold": "44927677740",
+      "max_x": "987473508830985468882567129241310687330200195312500000000000000/266189349485923792140011926523376522751201947374463558185104806503010475597",
+      "eta_critical_at_J": "1/261597111117468792114240",
+      "proof": "Exact rational P/U polynomial at x=1/(6j); F=a1*x+a2*x^2+x^3*Q/(Uq*Up); coefficientwise absolute norms with |e|,|d|,|E|,|D|<=2; U>=c5/2. Two-time jet estimator at j,2j, error <=M*x*(5/2+3/2*(q+27)*rho)/4320; positivity of |J2|>=sigma; raw-noise bound from 4 readouts."
+    }
+  ]
+}
