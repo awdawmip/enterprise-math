@@ -1,108 +1,109 @@
 # OAI7 — Exact-checkpoint conditional-iid coverage with asymptotically sparse joint support
 
-Date: 2026-11-17. **Scientific author of this extension:** `EM-DVR-DEBB5E`. Earlier shared-bit marginal repair, exact coverage threshold and checkpoint distinction: `EM-EMF6D046-5A2844`. Status: source-level mathematical theorem with direct proof and small finite sanity checks; not an independent Native Result review, not a claim of physical Gaussian-walk or native X6 realizability.
+Date: 2026-11-17. New result and proof: EM-DVR-DEBB5E. Earlier shared-bit construction and coverage-threshold author: EM-EMF6D046-5A2844. This is a source-level mathematics result, not a native independent review or a native X6/physical-walk transfer.
 
-## Theorem (all three external transfer inputs can hold while the joint terminal law is asymptotically singular)
+## Theorem: all abstract transfer hypotheses can hold while the joint terminal law is singular
 
-The precise finite-abelian coverage-transfer theorem in [`coverage-transfer.tex` at `openai/math@adc7f1241b42e322a6451854ab7e4b4c146bf78a`](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/coverage-transfer.tex) assumes (i) exact-checkpoint conditional coverage for nearly all signed coordinate maps, (ii) the initial signed-subset joint-entropy lower bound and shared-data entropy budget, and (iii) explicit sample-size and scale inequalities. There are finite-lattice experiments satisfying **all** these hypotheses for arbitrarily large primes while the final **joint** (k)-residue support fraction tends to zero. Indeed every signed coordinate is exactly uniform, the initial relative (k)-coordinate entropy tends to one, and the final joint law tends to total-variation distance one from uniform on (mathbb F_p^k).
+The [external one-step coverage-transfer theorem](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/coverage-transfer.tex) assumes conditional coverage for almost every signed coordinate at every exact checkpoint, a high initial signed-subset joint entropy with one shared-data entropy budget, and explicit independent-sample size bounds. **All its hypotheses can hold** for arbitrarily large primes \(p\), even when every terminal signed coordinate is exactly uniform but the terminal joint residue vector \(R\in\mathbb F_p^k\) has
 
-This is a scope-sharpness result for the **abstract theorem**, which promises coordinate-wise coverage, not joint uniformity.
+\[
+\frac{|\operatorname{supp}(R)|}{p^k}\to0,\quad
+\operatorname{TV}(\mathcal L(R),U_k)\to1,\quad
+\frac{H(R)}{k\log p}\to1.
+\]
 
-## Explicit family and parameter witnesses
+This proves a precise limitation on **joint conclusions** under the external theorem's present hypotheses. It agrees with the theorem's actual coordinate-coverage conclusion.
 
-Fix an arbitrarily large odd prime (p). In the external theorem set
-[
-eta'=eta=	frac12,quad	au=	frac38,quaddelta=	frac1{64},
-quad	au'=	au+4delta=	frac7{16},
-quadeta=	frac12,quadeta'=0,quad T=p.
-]
-Put (m=lceilsqrt pceil), (L=p-m), and
-[
- n=leftlceil8192sqrt plog(6400p)ightceil,qquad
- k=s=lceil8192nceil.
-]
-For all sufficiently large primes (p), let (Lambda=mathbb Z^k). Denote the interval (V={m,ldots,p-1}), and let the **exact checkpoint** (C) be uniform on (V^k); define (y(c)=cinLambda), so that (Y=y(C)). For every exact checkpoint (c), set the displacement law (
-u_c) to the law of
-[
- h=U{f1}_k,qquad Usimoperatorname{Unif}{0,ldots,p-1}.
-]
-Conditional on (C), sample (h_1,ldots,h_n) independently from (
-u_C), with independent scalar variables (U_1,ldots,U_n), and set (mathcal H=(h_1,ldots,h_n)) and (Z=Y+h_1). For (j=1,ldots,k) and (sigmain{+,-}), use (phi_{j,sigma}(x)=sigma x_jpmod p), so all (2k) signed groups have order (p).
+## Exact family
 
-## Verification of every transfer hypothesis
+Choose for sufficiently large odd prime \(p\):
+\[
+\beta'=\beta=\frac12,\quad \tau=\frac38,\quad
+\delta=\frac1{64},\quad \tau'=\tau+4\delta=\frac7{16},\quad
+\eta=\frac12,\quad \eta'=0,\quad T=p.
+\]
+Set \(m=\lceil\sqrt p\rceil\), \(L=p-m\), and
+\[
+n=\left\lceil8192\sqrt p\,\log(6400p)\right\rceil,\qquad
+k=s=\lceil8192n\rceil.
+\]
+Let \(\Lambda=\mathbb Z^k\), \(V=\{m,\ldots,p-1\}\subset\mathbb Z\). The **exact checkpoint** \(C\) is uniform on \(V^k\), with \(y(c)=c\) and \(Y=y(C)\). For every fixed \(c\), the displacement law \(\nu_c\) is the same law of \(h=U\mathbf1_k\) with \(U\) uniform on \(\{0,\ldots,p-1\}\). Conditional on \(C=c\), draw \(h_\ell=U_\ell\mathbf1_k\) for \(1\le\ell\le n\) independently; put \(\mathcal H=(h_1,\ldots,h_n)\) and \(Z=Y+h_1\). Signed homomorphisms are
+\[
+\phi_{j,\sigma}(x)=\sigma x_j\pmod p,\qquad
+1\le j\le k,\quad\sigma\in\{+,-\}.
+\]
+Here \(R=(Z_1\bmod p,\ldots,Z_k\bmod p)\) and \(U_k\) denotes uniform on \(\mathbb F_p^k\). A single scalar \(U_\ell\) is **shared across all coordinates within trial** \(\ell\); the trials are iid after conditioning on the exact checkpoint.
 
-1. **Coverage after conditioning on the exact checkpoint, with correct iid quantifiers.** For each fixed (cin V^k), each (j,sigma), and each (ell), (phi_{j,sigma}(y(c)+h_ell)=sigma(c_j+U_ell)pmod p) is uniform on (mathbb F_p). It therefore has ((	au',eta'))-coverage with **zero** exceptional residues. The trials (h_ell) are iid conditional on each exact (c); the same scalar (U_ell) is shared among coordinates within that trial. Thus the (eta'=0) hypothesis holds, without substituting an unconditional marginal for exact-start coverage.
+## Exhaustive verification of the theorem hypotheses
 
-2. **Initial signed-subset entropy.** For every fixed signed subset (S) of (s=k) distinct indices, (F_S(Y)) is a product of independent uniforms on (k) sets of size (L); coordinate sign changes are bijections. Hence
-[
- mathbb E_S H(F_S(Y))=klog L
- =(1-epsilon)soverline L,quad
- overline L=log p,quad
- epsilon=rac{log(p/L)}{log p}longrightarrow0.
-]
+**Exact conditional coverage.** For every \(c\), \(j\), \(\sigma\), and \(\ell\), the random residue \(\sigma(c_j+U_\ell)\pmod p\) is uniform on \(p\) values. All \(2k\) signed coordinates have \((\tau',\beta')\)-coverage at every \(c\), with zero exceptions. Hence \(\eta'=0\) is valid. Conditional iid is literal: the scalar draws \(U_\ell\) are independent given \(C=c\).
 
-3. **One shared-data entropy budget.** Each (h_ell=U_ell{f1}_k) determines (U_ell) injectively, and the (U_ell) are iid. Hence (H(mathcal H)=nlog p=kappa soverline L), where (kappa=n/kle1/8192). For sufficiently large (p), (epsilonle1/8192). Consequently
-[
- epsilon+kappale1/4096
- =etadeltaeta'/16,qquad
- eta'=0leetadelta/100.
-]
-The entropy cost is for (n) shared scalar draws, not (kn) independent coordinate draws.
+**Joint entropy input.** For every fixed \(s=k\) signed selection \(S\), sign inversion acts bijectively and \(F_S(Y)\) is a product of \(k\) independent uniforms on sets of size \(L\). Thus
+\[
+\mathbb E_S H(F_S(Y))=k\log L
+=(1-\epsilon)s\overline L,\qquad
+\overline L=\log p,\qquad
+\epsilon=\frac{\log(p/L)}{\log p}\to0.
+\]
 
-4. **All sample-size and logarithmic conditions.** Since (delta^2/2=1/8192),
-[
- pexp(-delta^2n p^{-eta}/2)
- le pexp[-log(6400p)]
- =1/6400=delta/100.
-]
-Furthermore (delta^{-1}=64<p^{1/4}=p^{eta'/2}) and
-(log(2e/delta)=log(128e)le	frac18log p=(eta'/4)log T) for all sufficiently large (p). The source's ranges for (	au,delta,eta',eta,eta,eta'), (n), (s), (k), and (Tle p_jle2T) all hold.
+**Shared entropy cost.** The complete vector \(h_\ell\) determines \(U_\ell\), and the \(U_\ell\) are independent. Consequently
+\[
+H(\mathcal H)=n\log p=\kappa s\overline L,\qquad
+\kappa=\frac nk\le\frac1{8192}.
+\]
+For sufficiently large \(p\), \(\epsilon\le1/8192\); therefore
+\[
+\epsilon+\kappa\le\frac1{4096}
+=\frac{\eta\delta\beta'}{16},\qquad
+\eta'=0\le\frac{\eta\delta}{100}.
+\]
 
-Thus **every stated hypothesis** of the external abstract transfer theorem is met. Its coordinate-coverage conclusion is visibly true: each (phi_{j,sigma}(Z)) is uniform even before applying the theorem.
+**Sample size and scale.** Since \(\delta^2/2=1/8192\),
+\[
+p\exp(-\delta^2np^{-\beta}/2)
+\le p\exp[-\log(6400p)]
+=\frac1{6400}=\frac{\delta}{100}.
+\]
+Also \(64=\delta^{-1}<p^{1/4}=p^{\beta'/2}\) and
+\(\log(128e)=\log(2e/\delta)\le(\beta'/4)\log T=(1/8)\log p\) for sufficiently large primes \(p\). The remaining parameter ranges in the external theorem are visibly met. Its conclusion holds: every \(\phi_{j,\sigma}(Z)\) is, in fact, exactly uniform.
 
-## Joint terminal support, entropy and variation
+## Joint support, variation, and information divergence
 
-Let (R=(Z_1mod p,ldots,Z_kmod p)), and (U=U_1). Conditional on (U=u), (R) is uniform on (V^k+u{f1}_k) in (mathbb F_p^k), whose cardinality is (L^k). Consequently
-[
- |operatorname{supp}(R)|le pL^k,qquad
- rac{|operatorname{supp}(R)|}{p^k}
- le p(1-m/p)^k
- le pexp(-km/p).
-]
-The explicit choices imply (km/pge8192^2log(6400p)), so
-[
- oxed{quad
- rac{|operatorname{supp}(R)|}{p^k}
- le p(6400p)^{-8192^2}longrightarrow0,qquad
- operatorname{TV}(mathcal L(R),U_k)longrightarrow1 .
- quad}
-]
-Here (U_k) is uniform on (mathbb F_p^k); the TV lower bound follows from the missing support alone.
+Conditioned on \(U_1=u\), \(R\) is uniform on the translate \(V^k+u\mathbf1_k\) in \(\mathbb F_p^k\), a set of cardinality \(L^k\). There are at most \(p\) such translates. Therefore
+\[
+\frac{|\operatorname{supp}(R)|}{p^k}
+\le p\left(1-\frac mp\right)^k
+\le p\exp\left(-\frac{km}{p}\right)
+\le p(6400p)^{-8192^2}\to0,
+\]
+where the last bound follows from \(k\ge8192n\), \(n\ge8192\sqrt p\log(6400p)\), and \(m\ge\sqrt p\).
+By testing the support event,
+\[
+\operatorname{TV}(\mathcal L(R),U_k)
+\ge1-\frac{|\operatorname{supp}(R)|}{p^k}\to1.
+\]
 
-On the other hand (H(Rmid U)=klog L), hence
-[
- klog Lle H(R)le klog p,qquad
- oxed{ rac{H(R)}{klog p}longrightarrow1 }.
-]
-The same inequalities and the support bound give quantitative information-divergence bounds
-[
- klog(p/L)-log p
- le D_{m KL}(mathcal L(R)Vert U_k)
- le klog(p/L).
-]
-Thus the absolute divergence can diverge while its ratio to (klog p) vanishes. These are entropy and support facts within the same exact-checkpoint conditional-iid experiment.
+Since \(R\mid U_1=u\) is uniform on \(L^k\) distinct vectors,
+\[
+k\log L=H(R\mid U_1)\le H(R)\le k\log p.
+\]
+As \(L/p\to1\), the entropy ratio \(H(R)/(k\log p)\to1\).
+More quantitatively,
+\[
+k\log(p/L)-\log p
+\le D_{\rm KL}(\mathcal L(R)\Vert U_k)
+\le k\log(p/L).
+\]
+The lower bound uses \(H(R)\le\log|\operatorname{supp}(R)|\le\log p+k\log L\); the upper bound uses \(H(R)\ge k\log L\). Thus absolute divergence and relative entropy deficit have different scales.
 
-## Finite sanity check and distinction from prior results
+## Finite exact sanity check
 
-An exact rational enumeration of the diagonal-uniform experiment for ((p,m,k)=(7,2,4)) gives (|operatorname{supp}(R)|=2233) of (2401) possible vectors, (operatorname{TV}=45456/214375), and **every** one-coordinate marginal is exactly uniform. The finite example illustrates the support mechanism; it does not satisfy the huge-(p) size requirements of the transfer theorem. The general construction above verifies those requirements symbolically.
+For \((p,m,k)=(7,2,4)\), independently enumerate \(V^k\) and the seven diagonal shifts with equal rational weights. The support contains 2233 out of 2401 joint residue vectors, with exact total variation \(45456/214375\); every coordinate marginal is uniform on seven residues. This finite test checks the stated mechanism. It is not represented as satisfying the transfer theorem's large-\(p\) numerical size inequalities, which are verified symbolically above.
 
-The earlier `EM-EMF6D046-5A2844` common-**bit** construction proved marginal coverage repair but did not satisfy conditional next-checkpoint coverage at (C=Y). This new construction uses one **uniform (p)-ary scalar per iid trial**, directly fixes the exact-checkpoint condition, and pays the resulting (nlog p) shared-data cost by choosing sufficiently many observed coordinates. The previous Driver shared-bit joint entropy/support and TV theorems remain valid for their own two-shift model; no old result is silently reclassified.
+## Contribution boundaries and follow-up
 
-This proves the external theorem cannot be strengthened to a joint-total-variation or full-joint-support conclusion **using only its present premises**. It does not refute that theorem or determine its Gaussian-prime walk implementation, since admissible physical displacements require further source-specific construction. The native Heartbeat X6 model also requires typed carrier/Link/Port and ordered-provenance preservation before any transfer.
+The earlier original-author binary-shift model repaired marginal coverage with one shared bit but lacked full exact-checkpoint next-stage conditional coverage when \(C=Y\). The present new construction replaces that bit with one uniform \(p\)-ary scalar per conditional-iid trial and pays \(n\log p\) in a valid shared entropy budget; hence it **does** satisfy the external abstract theorem's complete premises. Earlier results about binary-shift entropy, support, and signed projections remain valid in their original two-shift model.
 
-## Source and contributor provenance
+The theorem above proves the absence of a *joint-uniformity consequence from these abstract assumptions alone*. It does not determine the actual Gaussian-prime walk continuation law, nor a native Heartbeat X6 carrier/Link/Port realization. Retain both questions as separate mathematical targets. All claims here are Driver-authored; author independence, native Result/Review admission, Source Activity association, Task completion, and mother-objective closure require their respective independent control records.
 
-- External reference: [coverage-transfer.tex, fixed source](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/coverage-transfer.tex); the proof is for its **abstract theorem hypotheses**.
-- Original author and exact-checkpoint warning: [`EM-EMF6D046-5A2844` saved shared-bit proof](https://github.com/awdawmip/enterprise-math/blob/3ae158973f1c11152badbfc19f2ec655bdc3bd6f/research_artifacts/mcp/RS-OAI7-028-C-20261007-6F2A81/MCP-c618a61189764f23846a391a08518a1a/6df1b102f9d377956aeb/OAI7_028_C_SHARED_SHIFT_COVERAGE_PROOF_20261117.md).
-- Earlier Driver source-level boundary: [conditional-entropy audit](https://github.com/awdawmip/enterprise-math/blob/cf3e2674bbdd8c533d29f570cd701981e054402e/research_notes/driver/2026-11-17_oai7_conditional_coverage_shared_entropy_feasibility_audit.md); [shared-bit exact TV](https://github.com/awdawmip/enterprise-math/blob/44b6473714650e817d03f6178e46dce9b4f37949/research_notes/driver/2026-11-17_oai7_uniform_small_projections_singular_full_law_tv.md).
-- New uniform-diagonal exact-checkpoint theorem and all mathematical claims in this note: `EM-DVR-DEBB5E` author-side work. No frozen Result, independent Native review, formal Task closure, or Mother Objective closure asserted. Review authorship and Source/Activity admission require their separate native proofs.
+Sources: [original author shared-bit proof](https://github.com/awdawmip/enterprise-math/blob/3ae158973f1c11152badbfc19f2ec655bdc3bd6f/research_artifacts/mcp/RS-OAI7-028-C-20261007-6F2A81/MCP-c618a61189764f23846a391a08518a1a/6df1b102f9d377956aeb/OAI7_028_C_SHARED_SHIFT_COVERAGE_PROOF_20261117.md); [prior Driver conditional-entropy audit](https://github.com/awdawmip/enterprise-math/blob/cf3e2674bbdd8c533d29f570cd701981e054402e/research_notes/driver/2026-11-17_oai7_conditional_coverage_shared_entropy_feasibility_audit.md); [previous two-shift TV theorem](https://github.com/awdawmip/enterprise-math/blob/44b6473714650e817d03f6178e46dce9b4f37949/research_notes/driver/2026-11-17_oai7_uniform_small_projections_singular_full_law_tv.md).
