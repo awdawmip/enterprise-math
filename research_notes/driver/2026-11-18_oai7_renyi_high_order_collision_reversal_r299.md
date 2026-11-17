@@ -72,10 +72,10 @@ At Shannon order the opposite strict inequality holds, with an **exact positive 
 \[
 \boxed{
 H_1(Q)-H_1(S)=
-\frac2{105}\log\frac{2^{38}7^7}{3^35^{20}}>0,
+\frac2{105}\log\frac{2^{38}7^7}{3^3\cdot5^{20}}>0,
 }
 \]
-because \(2^{38}7^7=226373776118382592>2574920654296875=3^35^{20}\).
+because \(2^{38}7^7=226373776118382592>2574920654296875=3^3\cdot5^{20}\).
 
 At the explicit finite integer order \(\alpha=26\), Q has three numerators equal to 15, whereas S has exactly one 15 and the other 12 numerators are at most 14. The exact integer inequality
 \[
