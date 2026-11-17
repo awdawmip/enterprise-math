@@ -1,0 +1,201 @@
+{
+  "schema": "EM_R762DS_AUTHOR_RUN_EVIDENCE_SUMMARY_V1",
+  "date": "2026-11-18",
+  "model": "F=1+2X+2Z+XZ over Z[C_Q^2]",
+  "modulus": "3^30",
+  "arithmetic": "pure integer exact modular cyclic recurrence",
+  "origin": "Executed author-side reference script R762DS_VERIFY.py, with the same recurrence and verification predicates as repository verifier",
+  "validation": "all coefficients divisible by 3^e and at least one not divisible by 3^(e+1); cyclic total mass equals 6^n mod 3^30",
+  "status": "PASS",
+  "review": "NOT_REVIEWED",
+  "cases": [
+    {
+      "Q": 9,
+      "d": 3,
+      "n_from": 1,
+      "n_to": 80,
+      "coefficient_visits": 6480,
+      "transitions": [
+        {
+          "n": 1,
+          "e": 0
+        },
+        {
+          "n": 9,
+          "e": 2
+        },
+        {
+          "n": 15,
+          "e": 4
+        },
+        {
+          "n": 21,
+          "e": 6
+        },
+        {
+          "n": 27,
+          "e": 8
+        },
+        {
+          "n": 33,
+          "e": 10
+        },
+        {
+          "n": 39,
+          "e": 12
+        },
+        {
+          "n": 45,
+          "e": 14
+        },
+        {
+          "n": 51,
+          "e": 16
+        },
+        {
+          "n": 57,
+          "e": 18
+        },
+        {
+          "n": 63,
+          "e": 20
+        },
+        {
+          "n": 69,
+          "e": 22
+        },
+        {
+          "n": 75,
+          "e": 24
+        }
+      ],
+      "boundary_witness": {
+        "n": 27,
+        "i": 3,
+        "j": 3,
+        "v": "197215918210269"
+      },
+      "final_coefficient_vector_sha256": "aaa55164cb6261972bd3004dd0a4e1126c52a2b912614bc4e435538d2e7f758b"
+    },
+    {
+      "Q": 27,
+      "d": 9,
+      "n_from": 1,
+      "n_to": 160,
+      "coefficient_visits": 116640,
+      "transitions": [
+        {
+          "n": 1,
+          "e": 0
+        },
+        {
+          "n": 27,
+          "e": 2
+        },
+        {
+          "n": 45,
+          "e": 4
+        },
+        {
+          "n": 63,
+          "e": 6
+        },
+        {
+          "n": 81,
+          "e": 8
+        },
+        {
+          "n": 99,
+          "e": 10
+        },
+        {
+          "n": 117,
+          "e": 12
+        },
+        {
+          "n": 135,
+          "e": 14
+        },
+        {
+          "n": 153,
+          "e": 16
+        }
+      ],
+      "boundary_witness": {
+        "n": 81,
+        "i": 9,
+        "j": 9,
+        "v": "148752243602604"
+      },
+      "final_coefficient_vector_sha256": "5120f7e9ee2a6437e204617f161dd73eec53f64da3f2ada9e179fee7fa0df4c2"
+    },
+    {
+      "Q": 81,
+      "d": 27,
+      "n_from": 1,
+      "n_to": 297,
+      "coefficient_visits": 1948617,
+      "transitions": [
+        {
+          "n": 1,
+          "e": 0
+        },
+        {
+          "n": 81,
+          "e": 2
+        },
+        {
+          "n": 135,
+          "e": 4
+        },
+        {
+          "n": 189,
+          "e": 6
+        },
+        {
+          "n": 243,
+          "e": 8
+        },
+        {
+          "n": 297,
+          "e": 10
+        }
+      ],
+      "boundary_witness": {
+        "n": 243,
+        "i": 27,
+        "j": 27,
+        "v": "141558884797617"
+      },
+      "final_coefficient_vector_sha256": "af2b7689855bb6c167d87c4cf24e1347b9cee129fc733aac56914c5550c6a6f5"
+    },
+    {
+      "Q": 243,
+      "d": 81,
+      "n_from": 1,
+      "n_to": 245,
+      "coefficient_visits": 14467005,
+      "transitions": [
+        {
+          "n": 1,
+          "e": 0
+        },
+        {
+          "n": 243,
+          "e": 2
+        }
+      ],
+      "boundary_witness": {
+        "n": 243,
+        "i": 81,
+        "j": 81,
+        "v": "162987961520700"
+      },
+      "final_coefficient_vector_sha256": "0fa4e904e6b17338fd19a8c650051b2b86e0fb25931d07fc5c89bd2f56a9df15"
+    }
+  ],
+  "total_exponent_configurations": 782,
+  "total_coefficient_visits": 16538742,
+  "theorem": "v3(c_Q(n))=2 max(0,floor((n-Q/3)/(2Q/3))) (a>=2, Q=3^a, n>=0)",
+  "limitations": "finite author tests supplement symbolic all-a proof; partial XZ endpoint observer only"
+}
