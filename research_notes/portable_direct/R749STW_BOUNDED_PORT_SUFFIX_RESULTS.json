@@ -1,0 +1,146 @@
+{
+  "schema": "R749STW_FIVE_SOURCE_BOUNDED_PORT_CERTIFICATE_V1",
+  "research_id": "R749STW",
+  "date": "2026-11-18",
+  "frozen_source_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor_commit": "8d0ace56daa4cfc9fd2a78c9341681acc8f4b92e",
+  "proof_scope": "exact symbolic source-labeled branch observer with lifetime total POP budget; no native triadic physical event asserted",
+  "evidence_class": "AUTHOR_EXACT_NOT_REVIEWED",
+  "execution": "PASS",
+  "verification": {
+    "source_letters": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "source_weights": [
+      1,
+      1,
+      2,
+      3,
+      6
+    ],
+    "raw_X6_dimensions": 6,
+    "source_word_lengths_exhaustive": [
+      0,
+      7
+    ],
+    "labeled_words": 97656,
+    "content_vectors": 792,
+    "vector_pop_budget_pairs": 5412,
+    "two_source_predecessor_lengths": [
+      0,
+      14
+    ],
+    "checks": [
+      "enumerate every word",
+      "group by source content",
+      "enumerate actual suffixes for each r",
+      "independent multinomial count",
+      "recursive count",
+      "lexicographic rank/unrank complete coverage",
+      "N_(ell-1)=full fiber",
+      "mixed-source ell-2 not full",
+      "N_r=5^r iff all counts >=r"
+    ]
+  },
+  "theorem": "For composition n, s=min(r,ell), future classes count N_s=sum_{a_i<=n_i,sum a_i=s} s!/prod(a_i!), and optimal extra fixed bits are (N_s-1).bit_length()",
+  "examples": [
+    {
+      "counts": [
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "length": 6,
+      "full_histories": 360,
+      "s_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "N": [
+        1,
+        5,
+        21,
+        72,
+        192,
+        360,
+        360
+      ],
+      "bits": [
+        0,
+        3,
+        5,
+        7,
+        8,
+        9,
+        9
+      ]
+    },
+    {
+      "counts": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "length": 10,
+      "full_histories": 113400,
+      "s_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "N": [
+        1,
+        5,
+        25,
+        120,
+        540,
+        2220,
+        8100,
+        25200,
+        63000,
+        113400,
+        113400
+      ],
+      "bits": [
+        0,
+        3,
+        5,
+        7,
+        10,
+        12,
+        13,
+        15,
+        16,
+        17,
+        17
+      ]
+    }
+  ],
+  "separation": [
+    "combinatorial proof all lengths",
+    "finite exact test lengths <=7",
+    "candidate observer only, native BRC licensing open"
+  ],
+  "next": "verify a genuine triadic/resource-licensed native Cell/Link/Port event and test descendant observer safety"
+}
