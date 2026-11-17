@@ -1,0 +1,63 @@
+{
+  "arithmetic": "Python fractions.Fraction exact; all 63 source masks preserved, mod 23 recurrence; no floating approximations",
+  "cases": [
+    {
+      "J": "28499307077",
+      "K": "9732204000",
+      "T": "2238406920",
+      "all_63_source_states_return": true,
+      "early_k_3_to_8_common_zero_count": 0,
+      "minimum_active_masks_per_event": 2,
+      "minimum_occurs_first_at": 6073,
+      "no_23_dip_for_all_k_ge_3": true,
+      "period_checked": 12144,
+      "period_k_9_through_end_common_zero_count": 0,
+      "r": 2,
+      "s": "35597/90113",
+      "t": "411/529",
+      "u_mod23": 19,
+      "v_mod23": 20
+    },
+    {
+      "J": "4197801049",
+      "K": "2194092000",
+      "T": "1513923480",
+      "all_63_source_states_return": true,
+      "early_k_3_to_8_common_zero_count": 0,
+      "minimum_active_masks_per_event": 2,
+      "minimum_occurs_first_at": 6073,
+      "no_23_dip_for_all_k_ge_3": true,
+      "period_checked": 12144,
+      "period_k_9_through_end_common_zero_count": 0,
+      "r": 2,
+      "s": "24911/60947",
+      "t": "412/529",
+      "u_mod23": 15,
+      "v_mod23": 5
+    },
+    {
+      "J": "15106173046037",
+      "K": "5122353276000",
+      "T": "1178141253480",
+      "all_63_source_states_return": true,
+      "early_k_3_to_8_common_zero_count": 0,
+      "minimum_active_masks_per_event": 29,
+      "minimum_occurs_first_at": 9,
+      "no_23_dip_for_all_k_ge_3": true,
+      "period_checked": 22,
+      "period_k_9_through_end_common_zero_count": 0,
+      "r": 3,
+      "s": "804575/2062139",
+      "t": "9445/12167",
+      "u_mod23": 15,
+      "v_mod23": 0
+    }
+  ],
+  "limits": "Finite cases do not show absence of dips for all rational parameters; first-factor 23-divisibility only, not all 23-adic drop exponents.",
+  "pass": true,
+  "proof": "Rank-one characteristic identity; valuations v23(T)=r-1; nilpotent companion part dimension<=6; exponent GL_2(F_23)=lcm(23*(23-1),23^2-1)=12144.",
+  "review": "AUTHOR_PROVED / EXACT_MODULAR_VERIFIED / NOT_REVIEWED",
+  "schema": "EM_R259_23ADIC_UNIFORM_PERIOD_V1",
+  "science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "symbolic_theorem": "At 23-adic t-poles of order r>=2, mod-23 scaled source characteristics are y^d without source6, y^(d-2)(y^2-u*y+v*B_R) with source6 and r=2, and y^(d-1)(y-u) with source6 and r>=3. Normalized 63-mask outputs are jointly periodic from k=9 with period dividing 12144 (r=2) or 22 (r>=3)."
+}
