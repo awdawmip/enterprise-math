@@ -1,0 +1,117 @@
+{
+  "schema": "PREFIX868_EXACT_ODD_TRANSITION_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_EXHAUSTION",
+  "date": "2026-11-17",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "p27": {
+    "excluded_width": 16,
+    "odd_candidate_pairs": 1073676289,
+    "safe_moduli": 32535,
+    "eligible_first": 4084,
+    "eligible_pairs": 8583704,
+    "zero_fiber_survivors": 0,
+    "crt": {
+      "g": 59,
+      "h": 29,
+      "a": 1507,
+      "b": 1511,
+      "q1": 88913,
+      "q2": 89149,
+      "lcm": 134347543,
+      "N": 134217728,
+      "peak_width": 17
+    }
+  },
+  "p28": {
+    "counting_lower": 17,
+    "crt": {
+      "g": 59,
+      "h": 29,
+      "a": 2133,
+      "b": 2135,
+      "q1": 125847,
+      "q2": 125965,
+      "lcm": 268683345,
+      "N": 268435456,
+      "peak_width": 17
+    }
+  },
+  "p29": {
+    "excluded_width": 17,
+    "odd_candidate_pairs": 4294836225,
+    "safe_moduli": 65262,
+    "eligible_first": 4080,
+    "eligible_pairs": 8417211,
+    "zero_fiber_survivors": 0,
+    "shards": [
+      {
+        "range": [
+          0,
+          126900
+        ],
+        "first": 1995,
+        "eligible": 2063648,
+        "survivors": 0
+      },
+      {
+        "range": [
+          126901,
+          129000
+        ],
+        "first": 1050,
+        "eligible": 2680074,
+        "survivors": 0
+      },
+      {
+        "range": [
+          129001,
+          130000
+        ],
+        "first": 500,
+        "eligible": 1648760,
+        "survivors": 0
+      },
+      {
+        "range": [
+          130001,
+          131071
+        ],
+        "first": 535,
+        "eligible": 2024729,
+        "survivors": 0
+      }
+    ],
+    "crt": {
+      "g": 59,
+      "h": 29,
+      "a": 3015,
+      "b": 3019,
+      "q1": 177885,
+      "q2": 178121,
+      "lcm": 537034815,
+      "N": 536870912,
+      "peak_width": 18
+    }
+  },
+  "p30": {
+    "counting_lower": 18,
+    "crt": {
+      "g": 61,
+      "h": 30,
+      "a": 4195,
+      "b": 4197,
+      "q1": 255895,
+      "q2": 256017,
+      "lcm": 1073991315,
+      "N": 1073741824,
+      "peak_width": 18
+    }
+  },
+  "validation": {
+    "integer_semantics": "C++17 uint64_t for products, uint32_t for states p<=29; no rounding",
+    "execution": "g++ -O3 -std=c++17; p27 full domain and p29 four disjoint ranges completed",
+    "independent_full_crosscheck": "NOT_PERFORMED",
+    "review": "NOT_INDEPENDENTLY_REVIEWED",
+    "native_x6_admission": "NOT_ESTABLISHED"
+  }
+}
