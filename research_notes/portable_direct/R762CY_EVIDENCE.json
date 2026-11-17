@@ -1,0 +1,54 @@
+{
+  "schema": "R762CY_WINDOW_OBSERVER_EVIDENCE_V1",
+  "arithmetic": "Python arbitrary-precision exact integers",
+  "finite_domain": {
+    "coprime_pq": "1<=p,q<=5",
+    "h": "0..8",
+    "r": "0..h"
+  },
+  "tests": {
+    "weight_pairs": 19,
+    "horizon_cases": 171,
+    "window_cases": 855,
+    "coefficient_gcd_checks": 855,
+    "integral_window_checks": 112917,
+    "flow_conservation_layers": 2280,
+    "constructed_path_cases": 70
+  },
+  "examples": {
+    "p=1,q=2,h=6": {
+      "r=0": 81,
+      "r=1": 81,
+      "r=2": 243,
+      "r=3": 243,
+      "r=4": 729,
+      "r=5": 729,
+      "r=6": 729
+    },
+    "p=1,q=1,h=6": {
+      "r=0": 64,
+      "r=1": 64,
+      "r=2": 64,
+      "r=3": 64,
+      "r=4": 64,
+      "r=5": 64,
+      "r=6": 64
+    },
+    "p=2,q=3,h=5": {
+      "r=0": 3125,
+      "r=1": 3125,
+      "r=2": 3125,
+      "r=3": 3125,
+      "r=4": 3125,
+      "r=5": 3125
+    },
+    "p=2,q=4,h=5": {
+      "r=0": 27,
+      "r=1": 81,
+      "r=2": 81,
+      "r=3": 243,
+      "r=4": 243,
+      "r=5": 243
+    }
+  }
+}
