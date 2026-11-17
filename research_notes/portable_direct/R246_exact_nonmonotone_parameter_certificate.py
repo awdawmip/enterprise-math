@@ -110,6 +110,18 @@ def main():
         'E_126(2/5)>E_126(41/100)':mid['phi']*right['X_lower']-right['phi']*mid['X_upper']
     }
     assert all(v>0 for v in margins.values()),[(k,float(v)) for k,v in margins.items()]
+    threshold_cases=[(F(39,100),125,'above'),(F(39,100),126,'below'),
+                     (F(2,5),126,'above'),(F(2,5),127,'below'),
+                     (F(41,100),125,'above'),(F(41,100),126,'below')]
+    threshold_certificates={}
+    for s,n,expect in threshold_cases:
+        row=rows[PARAMS.index(s)] if n==EVENT else cert(s,n)
+        if expect=='above':
+            margin=125*row['phi']-142*row['X_upper']
+        else:
+            margin=142*row['X_lower']-125*row['phi']
+        assert margin>0,(s,n,expect)
+        threshold_certificates[f's={s};n={n};E_{n} {">" if expect=="above" else "<"} 17/125']=digest_margin(margin)
     output={'schema':'EM_R246_TWO_MODE_PARAMETER_NONMONOTONICITY_V1',
          'frozen_scientific_commit':'43ec6098b1330ae86d0a7863be336c5d97f6ef34',
          'model':'R245 seven-source reversible sticky-reset; 63 proper masks; W fixed; two Perron modes masks 59/55',
@@ -117,6 +129,8 @@ def main():
          'event_n':EVENT,'root_bisections':BISECTIONS,'exact_integer_matrix_propagation':True,'rank_one_factorization_exactly_matches_dense_at_all_anchors':True,
          'rank_one_scalar_multiplications_per_time_step_max':3*249,'dense_scalar_multiplications_per_time_step':1071,
          'comparison_margins':{k:digest_margin(v) for k,v in margins.items()},
+         'strict_17_over_125_first_crossings':{'39/100':126,'2/5':127,'41/100':126},
+         'threshold_17_over_125_sign_certificates':threshold_certificates,
          'parameters':[
              {'s':r['s'],'E_diagnostic_rounded_bounds':[
                  format(float(r['E_lower']),'.16g'),format(float(r['E_upper']),'.16g')],
