@@ -1,0 +1,278 @@
+{
+  "schema": "EC49FSA_FSB_Q140_EXACT_NATIVE_BRC_PHASES_V1",
+  "date": "2026-11-18",
+  "scientific_status": "AUTHOR_PROVED / EXACT_FINITE_BELLMAN_CROSSCHECKED / NOT_REVIEWED",
+  "frozen_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "frozen_raw_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "profile_csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "model": {
+    "class_id": 16943,
+    "named_state_profiles": 141,
+    "raw_configurations": 310,
+    "physically_named_observations": 228,
+    "prior": "uniform over named state profiles",
+    "tree_scope": "ALL COMPLETE ADMISSIBLE NATIVE DETERMINISTIC ADAPTIVE TREES",
+    "common_price": "t > 0",
+    "reported_cost": "sum of 141 state-path costs divided by t"
+  },
+  "slices": [
+    {
+      "name": "A_q140_only",
+      "prices": "q140=(1-z)t; all other q=t",
+      "domain": [
+        "0",
+        "1"
+      ],
+      "breakpoints": [
+        "0",
+        "1/57",
+        "1"
+      ],
+      "exact_global_cost_pieces": [
+        {
+          "range": [
+            "0",
+            "1/57"
+          ],
+          "intercept": 296,
+          "slope": -27,
+          "witness_root": 34,
+          "tree_stats": {
+            "U": 296,
+            "N140": 27
+          }
+        },
+        {
+          "range": [
+            "1/57",
+            "1"
+          ],
+          "intercept": 298,
+          "slope": -141,
+          "witness_root": 140,
+          "tree_stats": {
+            "U": 298,
+            "N140": 141
+          }
+        }
+      ],
+      "exact_global_bellman_endpoints": [
+        [
+          "0",
+          "296"
+        ],
+        [
+          "1/57",
+          "5615/19"
+        ],
+        [
+          "1",
+          "157"
+        ]
+      ],
+      "extra_independent_crosschecks": [
+        [
+          "1/10000",
+          "2959973/10000"
+        ],
+        [
+          "1/2",
+          "455/2"
+        ]
+      ],
+      "minimum_fixed_tree_affine_types": 2
+    },
+    {
+      "name": "B_q32_zero_q140_discount",
+      "prices": "q32=0; q140=(1-z)t; all other q=t",
+      "domain": [
+        "0",
+        "1"
+      ],
+      "breakpoints": [
+        "0",
+        "1/6",
+        "1/3",
+        "1/2",
+        "2/3",
+        "4/5",
+        "13/15",
+        "1"
+      ],
+      "exact_global_cost_pieces": [
+        {
+          "range": [
+            "0",
+            "1/6"
+          ],
+          "intercept": 155,
+          "slope": 0,
+          "witness_stats": {
+            "A": 155,
+            "K140": 0,
+            "N32": 141
+          }
+        },
+        {
+          "range": [
+            "1/6",
+            "1/3"
+          ],
+          "intercept": 156,
+          "slope": -6,
+          "witness_stats": {
+            "A": 156,
+            "K140": 6,
+            "N32": 141
+          }
+        },
+        {
+          "range": [
+            "1/3",
+            "1/2"
+          ],
+          "intercept": 158,
+          "slope": -12,
+          "witness_stats": {
+            "A": 158,
+            "K140": 12,
+            "N32": 141
+          }
+        },
+        {
+          "range": [
+            "1/2",
+            "2/3"
+          ],
+          "intercept": 161,
+          "slope": -18,
+          "witness_stats": {
+            "A": 161,
+            "K140": 18,
+            "N32": 141
+          }
+        },
+        {
+          "range": [
+            "2/3",
+            "4/5"
+          ],
+          "intercept": 173,
+          "slope": -36,
+          "witness_stats": {
+            "A": 173,
+            "K140": 36,
+            "N32": 141
+          }
+        },
+        {
+          "range": [
+            "4/5",
+            "13/15"
+          ],
+          "intercept": 185,
+          "slope": -51,
+          "witness_stats": {
+            "A": 185,
+            "K140": 51,
+            "N32": 141
+          }
+        },
+        {
+          "range": [
+            "13/15",
+            "1"
+          ],
+          "intercept": 198,
+          "slope": -66,
+          "witness_stats": {
+            "A": 198,
+            "K140": 66,
+            "N32": 141
+          }
+        }
+      ],
+      "exact_global_bellman_endpoints": [
+        [
+          "0",
+          "155"
+        ],
+        [
+          "1/6",
+          "155"
+        ],
+        [
+          "1/3",
+          "154"
+        ],
+        [
+          "1/2",
+          "152"
+        ],
+        [
+          "2/3",
+          "149"
+        ],
+        [
+          "4/5",
+          "721/5"
+        ],
+        [
+          "13/15",
+          "704/5"
+        ],
+        [
+          "1",
+          "132"
+        ]
+      ],
+      "extra_independent_crosschecks": [
+        [
+          "1/10000",
+          "155"
+        ],
+        [
+          "1/4",
+          "309/2"
+        ],
+        [
+          "5/8",
+          "599/4"
+        ],
+        [
+          "20/27",
+          "439/3"
+        ],
+        [
+          "5/6",
+          "285/2"
+        ]
+      ],
+      "minimum_fixed_tree_affine_types": 7
+    }
+  ],
+  "proof": "Fixed native tree has affine cost A-zK. The infimum is concave. Each exact full-Bellman rational endpoint equals the cost of one complete tree witnessing the entire adjacent interval. Concavity gives the endpoint chord as global lower bound, witnessed affine cost supplies upper bound. This proves every real z in the domain; distinct gradients on strict open intervals give minimum menu cardinality.",
+  "verification": {
+    "frozen_archive_manifest_files": 38,
+    "frozen_archive_mismatches": 0,
+    "native_reconstructions_agree_on_all_228_observation_vectors": true,
+    "two_bellman_implementations_checked_anchor_count": 18,
+    "all_18_anchor_values_agree": true,
+    "witness_replay": "All generated witness trees distinguish all 141 states; no original physical observer repeats on a state path; integer cost identity checked.",
+    "local_archive_file_count": 71,
+    "local_archive_sha256": "181a91f4ba2912e6abe1ad2ce3104c603a0407e0b65d10c72fcf2281ead1023a",
+    "local_archive_name": "EC49FSA_FSB_Q140_NATIVE_BRC_EXACT_PHASE_EVIDENCE_20261118.tar.xz"
+  },
+  "source_control": {
+    "task_id_hint": "RS-EC49AS",
+    "task_lookup": "SUCCEEDED / NO_CANONICAL_PUBLICATION_DIRECTORY",
+    "task_source_commit": "37170cd77ff951c64c28cc1f4b46a5989441343b",
+    "task_observed_at_utc": "2026-11-17T19:33:04.496594+00:00",
+    "formal_claim": "NOT_ESTABLISHED",
+    "formal_result_review": "NOT_ESTABLISHED",
+    "native_owner_projection": "NOT_EVALUATED_BY_TASK_DIRECTORY_ABSENCE"
+  },
+  "next_open_problem": "Full three-observer discount phase complex for q32,q34,q140 on [0,1]^3, maintaining all original 228 physical observers."
+}
