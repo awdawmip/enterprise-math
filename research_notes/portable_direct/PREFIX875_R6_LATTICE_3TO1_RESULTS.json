@@ -1,0 +1,121 @@
+{
+  "schema": "EM_PREFIX875_3TO1_EXACT_RESULTS_V1",
+  "date": "2026-11-17",
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "named-binary one-toggle/no-change ordered transition, fixed odd moduli",
+  "theorem": "k*q1-l*q2 = +/-2^i with 0<max(k*q1,l*q2)+2^i<2^p forces no-change versus named-single-toggle collision",
+  "p": 32,
+  "B": 19,
+  "Q": 524287,
+  "parameters": "q2=3*q1-2^i, i=1..20; q1,q2 positive odd <=Q; exclude diagonal q1=q2=1",
+  "family_pairs": 1747629,
+  "intersection_with_PREFIX874_gap_family": 1138,
+  "additional_ordered_pairs": 1746491,
+  "PREFIX874_ordered_pair_count": 136052720,
+  "union_ordered_pair_count_lower_bound": 137799211,
+  "per_exponent": [
+    {
+      "i": 1,
+      "pairs": 87381,
+      "new_pairs": 87124
+    },
+    {
+      "i": 2,
+      "pairs": 87381,
+      "new_pairs": 87348
+    },
+    {
+      "i": 3,
+      "pairs": 87382,
+      "new_pairs": 87348
+    },
+    {
+      "i": 4,
+      "pairs": 87381,
+      "new_pairs": 87347
+    },
+    {
+      "i": 5,
+      "pairs": 87382,
+      "new_pairs": 87346
+    },
+    {
+      "i": 6,
+      "pairs": 87381,
+      "new_pairs": 87343
+    },
+    {
+      "i": 7,
+      "pairs": 87382,
+      "new_pairs": 87342
+    },
+    {
+      "i": 8,
+      "pairs": 87381,
+      "new_pairs": 87339
+    },
+    {
+      "i": 9,
+      "pairs": 87382,
+      "new_pairs": 87338
+    },
+    {
+      "i": 10,
+      "pairs": 87381,
+      "new_pairs": 87335
+    },
+    {
+      "i": 11,
+      "pairs": 87382,
+      "new_pairs": 87334
+    },
+    {
+      "i": 12,
+      "pairs": 87381,
+      "new_pairs": 87331
+    },
+    {
+      "i": 13,
+      "pairs": 87382,
+      "new_pairs": 87330
+    },
+    {
+      "i": 14,
+      "pairs": 87381,
+      "new_pairs": 87327
+    },
+    {
+      "i": 15,
+      "pairs": 87382,
+      "new_pairs": 87326
+    },
+    {
+      "i": 16,
+      "pairs": 87381,
+      "new_pairs": 87323
+    },
+    {
+      "i": 17,
+      "pairs": 87382,
+      "new_pairs": 87322
+    },
+    {
+      "i": 18,
+      "pairs": 87381,
+      "new_pairs": 87320
+    },
+    {
+      "i": 19,
+      "pairs": 87382,
+      "new_pairs": 87320
+    },
+    {
+      "i": 20,
+      "pairs": 87381,
+      "new_pairs": 87348
+    }
+  ],
+  "computational_scope": "Exact exhaustive enumeration of every admissible odd q1 in 20 integer intervals, with actual legal XOR transition and residue checks; no 19-bit full square enumeration",
+  "mathematical_status": "AUTHOR_PROVED / EXACT_FINITE_EXHAUSTION / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED"
+}
