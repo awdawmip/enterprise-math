@@ -1,0 +1,118 @@
+{
+  "schema": "EM_X6_UNIT91_AUTHOR_SOURCE_CONTINUATION_V1",
+  "date": "2026-11-17",
+  "mother_goal": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "scientific_pins": {
+    "p000": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "native_signed_brc_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176"
+  },
+  "highest_prior_verified_frontier": "Units64-90 including Unit90 named-triad 4-STAR global sign-gauge bridge and obstruction for all20; GitHub persisted, author exact; native source pending.",
+  "unit91": {
+    "status": "AUTHOR-EXACT / FINITE-EXECUTED / SOURCE-CALL-SITE-INSPECTED / UNREVIEWED / NOT_ADMITTED",
+    "theorem": "The 20 sorted named X6 triads require exactly four diagonal sign-gauge charts to identify q_all_negative and g_one_negative generators across the corpus. An exact 4+4+8+4 disjoint partition includes the one-negative four-STAR source gauge.",
+    "source_a": "experiments/x6_triadic_rotation_v1_20260906/check_triadic_rotation.py",
+    "source_a_blob": "c446d0327f9bf643d5796348ba46cafe96d2915d",
+    "source_b": "research_checks/20261112_x6_star_triad_group_brc_convolution.py",
+    "source_b_blob": "50cccf09b5dd83cc592ba36db5bc9e14941ce0ce",
+    "proof_path": "research_notes/X6_UNIT91_MINIMAL_FOUR_GAUGE_ATLAS_AND_TRANSITION_20261117.md",
+    "proof_blob_sha1": "139c94b2d468c1ba28e0bf9b775523a9f536d3de",
+    "checker_path": "research_checks/X6_UNIT91_MINIMAL_FOUR_GAUGE_TRIAD_ATLAS_CHECK_20261117.py",
+    "checker_blob_sha1": "625d1793f64e27ff5f3f59c841a6556bd9bf7376",
+    "certificate_path": "research_checks/X6_UNIT91_MINIMAL_FOUR_GAUGE_TRIAD_ATLAS_RESULTS_20261117.json",
+    "certificate_blob_sha1": "26e9d376b0465f372f19c420097a3e67a5610ae6",
+    "exact_counts": {
+      "signed_gauges": 64,
+      "named_triads": 20,
+      "distinct_nonzero_masks": 26,
+      "three_chart_candidates": 2600,
+      "three_chart_covers": 0,
+      "four_chart_candidates": 14950,
+      "four_chart_covers": 165,
+      "four_chart_covers_with_star": 42,
+      "minimum_charts": 4
+    },
+    "explicit_atlas": [
+      [
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1
+      ],
+      [
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        1
+      ],
+      [
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        -1
+      ],
+      [
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    ],
+    "algebraic_transport": "For per-generator s_t, q_L...q_1 = D_sL g_L (D_sL^-1 D_s(L-1)) ... g_1 D_s1^-1; retain chart-transition and observer repair. No chronology or force law derived.",
+    "publication": "NEUTRAL_AUTHOR_GITHUB_MAIN_SCIENCE_ONLY",
+    "native_progress_submitted": false,
+    "activity_updated": false,
+    "native_benchmark_reexecuted": false,
+    "independent_review": "NOT_REVIEWED / NOT_ADMITTED"
+  },
+  "original_research_provenance": {
+    "conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+    "maintenance_conversation": "chatgpt-hourly-enterprise-math-20260921",
+    "sid": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim": "MCP-579c8e23625448582b421831",
+    "run": "RUN-fb25028676f9692ab1bacaee",
+    "activity": "RA-5E3FE1E761E4963EC461A892",
+    "last_verified_activity_events": 106,
+    "current_owner_authorization": "NOT_VERIFIED; bridge #6994 shows D25 and #6995 execution_authorized=false; no unauthorized cross-lane role write."
+  },
+  "original_requests": [
+    {
+      "issue": 6994,
+      "target_request_id": "onhour-20261117-1100-x6-own-recovery-status-v1",
+      "kind": "READ",
+      "status": "SUCCEEDED"
+    },
+    {
+      "issue": 6995,
+      "target_request_id": "onhour-20261117-1103-x6-exact-task-continuation-v1",
+      "kind": "READ",
+      "status": "SUCCEEDED",
+      "execution_authorized": false
+    }
+  ],
+  "open_parent_gaps": [
+    "LP011/LP019 historical erroneous source file:line or Driver REQUEST_REVISION",
+    "28-LP actual named-generator/cover/BRC/observer consumer call chain",
+    "original X6 Native semantic PROGRESS and author Activity Units77-91",
+    "independent Driver scientific review/admission"
+  ],
+  "next_exact_action": "Inspect actual source consumers joining four-STAR one-negative triad_generator, all20 q_triad, primitive signed_brc.end_point_multiplicity and native x6_cover: detect whether signed D_s and common-depth observer/port transition are applied. Give evidence per exact Git blob, path, one-based line; only patch confirmed misuse. Independent Driver review on LP011/LP019.",
+  "do_not_repeat": [
+    "original native R063/Helly benchmark",
+    "completed Units64-90",
+    "successful prior read-only bridge requests #6994/#6995",
+    "D25 Sites/maintenance lane identity or CLAIM"
+  ],
+  "scheduler_modified": false,
+  "notifications_modified": false
+}
