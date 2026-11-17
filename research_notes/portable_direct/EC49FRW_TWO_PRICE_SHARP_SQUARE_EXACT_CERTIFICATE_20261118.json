@@ -1,0 +1,86 @@
+{
+  "schema": "EC49FRW_SHARP_SQUARE_EXACT_CERTIFICATE_V1",
+  "date": "2026-11-18",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_BELLMAN_AND_141_STATE_TREE_REPLAY / NOT_REVIEWED",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "prior_research": [
+    "https://github.com/awdawmip/enterprise-math/pull/2655",
+    "https://github.com/awdawmip/enterprise-math/pull/2659",
+    "https://github.com/awdawmip/enterprise-math/pull/2660"
+  ],
+  "original_class": 16943,
+  "original_configurations": 310,
+  "named_states": 141,
+  "physical_observations": 228,
+  "terminal_observations": 144,
+  "root_observations": 84,
+  "scope": "All real independent a,b in [0,1/4], uniform prior 141 complete named states, base root/terminal price t, p32=(1-a)t,p34=(1-b)t,p_other=t",
+  "theorem": "141V(a,b)/t=min(296-141a-11b,296-11a-141b)",
+  "exact_integer_bellman_anchors": [
+    {
+      "a": "0",
+      "b": "0",
+      "integer_cost": 296,
+      "denominator": 1,
+      "equivalent": "296"
+    },
+    {
+      "a": "1/4",
+      "b": "0",
+      "integer_cost": 1043,
+      "denominator": 4,
+      "equivalent": "1043/4"
+    },
+    {
+      "a": "0",
+      "b": "1/4",
+      "integer_cost": 1043,
+      "denominator": 4,
+      "equivalent": "1043/4"
+    },
+    {
+      "a": "1/4",
+      "b": "1/4",
+      "integer_cost": 1032,
+      "denominator": 4,
+      "equivalent": "258"
+    }
+  ],
+  "proven_completeness": "For each nonsingleton state subset S, all 228 original physical q response partitions are examined; only informative nodes retained; base D(singleton)=0; integer bitmask dynamic programming.",
+  "tree_witnesses": [
+    {
+      "type": "T32",
+      "U": 296,
+      "N32": 141,
+      "N34": 11,
+      "root_query": 32,
+      "max_depth": 3,
+      "all_141_complete_named_states_replayed": true
+    },
+    {
+      "type": "T34",
+      "U": 296,
+      "N32": 11,
+      "N34": 141,
+      "root_query": 34,
+      "max_depth": 3,
+      "all_141_complete_named_states_replayed": true
+    }
+  ],
+  "proof": "F as infimum of legal affine policy costs is concave. On a>=b and b>=a half-squares, four exact Bellman vertex values equal the corresponding T32/T34 affine witness value. Simplex interpolation bounds F below the affine witness, while admissible tree bounds F above, hence equality on both triangles. Distinct slopes force two fixed policy types. Inherited complete tree (297,141,15) beats both on diagonal s>1/4 by 4s-1.",
+  "largest_closed_square_radius_for_this_two_tree_menu": "1/4",
+  "raw_response_reconstruction_paths": 2,
+  "independent_optimizer_implementations": 1,
+  "original_source_sha256": {
+    "frozen_original_master.txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE.csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "local_self_contained_archive": {
+    "filename": "EC49FRW_SHARP_TWO_PRICE_SQUARE_FULL_EVIDENCE_20261118.tar.xz",
+    "bytes": 206392,
+    "sha256": "9009e27390b5113be6feffc2e601161588f0fa7f4e1e440f5a7ef55516ee10f6",
+    "note": "Conversation-hosted artifact; not embedded or uploaded as binary to GitHub. Includes frozen raw inputs, two complete tree JSONs, exact solver, verifier and source manifests."
+  },
+  "full_local_verifier_certificate_sha256": "260463ae4158efd7129ce4c4b138b4bff6229a9e452afc2e994a00b3a4ab73b4",
+  "next": "Construct exact 2-parameter polyhedral Bellman complex beyond [0,1/4]^2, preserving all named observer identities, certify every candidate region by rational vertices."
+}
