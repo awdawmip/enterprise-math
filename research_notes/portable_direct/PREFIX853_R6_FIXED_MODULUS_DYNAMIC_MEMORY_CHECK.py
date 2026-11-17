@@ -90,6 +90,5 @@ def all_checks():
       'universal_proof':'See PREFIX-853 paper: persistence of initial aliases; common-predecessor divergence for local aliases; induction on exact state after successful first observation.'
     }
 
-
 if __name__=='__main__':
     print(json.dumps(all_checks(),ensure_ascii=False,indent=2,sort_keys=True))
