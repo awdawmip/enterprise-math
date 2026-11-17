@@ -80,6 +80,53 @@ For the asymptotic statement, `m/p ->0`. The coverage interval is bounded away f
 
 Equations (1) and (4) then yield (6)-(7); the strict original author's coverage threshold holds by its existing two-shift partition proof. This uses one and the same common bit across all coordinates and never inserts independent coordinate-specific shifts.
 
+## Sharp projection-scale transition (further theorem)
+
+The scale `s ~ p/m` is the precise window where signed projections cease to be close to uniform. Fix `0<q<1`; along primes with `m/p -> 0`, take a sequence of projection sizes `s=s_p` such that
+
+```text
+s_p * m/p -> c,   0 <= c < infinity.
+```
+
+For *every* selection of `s_p` distinct signed coordinates, the TV distance has a limit independent of the selected indices and signs:
+
+```text
+a = exp(-c)
+lim TV(Law(F_S(Z)), U_s)
+  = (1-a)/2 * (1 + abs(q-a) + abs((1-q)-a)).                  (8)
+```
+
+The signed projections are related by coordinate permutations/sign inversions to the same `s`-coordinate common-shift law, so the exact formula (2) with `k=s` applies. Set `a_p=(L/p)^s`, `d_p=(D/p)^s`. Formula (2) becomes
+
+```text
+TV_s = 1/2 * [ d_p*(1/a_p - 1)
+            + (a_p-d_p)*(abs(q/a_p-1)+abs((1-q)/a_p-1))
+            + 1-2*a_p+d_p ].
+```
+
+Since `log(1-x)=-x+O(x^2)`, the hypotheses imply `a_p -> exp(-c)=a` and `d_p -> exp(-2c)=a^2`. Substitution and algebra give (8). At `c=0`, its continuous value is zero, consistent with (1).
+
+For the fair common bit `q=1/2`, (8) has the explicit critical profile
+
+```text
+TV_limit(c) =
+    exp(-c)*(1-exp(-c)),  if 0 <= c <= log(2);
+    (1-exp(-c))^2,        if c >= log(2).                     (9)
+```
+
+Thus, for every fixed `c>0`, a projection of `s ~ c*p/m` coordinates remains separated from uniform by a strictly positive amount, whereas projections with `s=o(p/m)` converge to uniform. For `s*m/p -> infinity`, the missing-support bound (3) implies `TV_s -> 1`, since `(L/p)^s <= exp(-s*m/p)`. The full scale transition is consequently `o(p/m)` (uniform), `Theta(p/m)` (nontrivial TV limit), and `omega(p/m)` (asymptotically singular), for fixed `0<q<1`.
+
+Independent numerical substitution of the *finite exact formula* against (9):
+
+```text
+c             limiting TV    p=101,m=11    p=1009,m=32    p=10007,m=101
+0.25          0.172270123    0.158691063    0.174117366    0.173373922
+log(2)        0.250000000    0.228412555    0.252285850    0.251638985
+2.00          0.747645072    0.761045464    0.753539344    0.749273090
+```
+
+Here `s` was the nearest integer to `c*p/m`. These finite checks illustrate convergence; (8)-(9) follow from the exact probability partition, not a numerical fit.
+
 ## Independent exact-arithmetic checks
 
 With the author's `p=101, m=11, k=2, q=135/404`, exact rational enumeration gives
