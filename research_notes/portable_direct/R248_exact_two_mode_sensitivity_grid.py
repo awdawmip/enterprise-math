@@ -126,8 +126,13 @@ def run(grid,ns):
             X=X0+X1;XP=XP0+XP1
             phi,phip=ph[n]
             deriv_numerator=I(phip)*X-I(phi)*XP
+            floor=F(63,1000) if n==270 else F(1,100)
+            floor_margin=deriv_numerator.l-floor*X.u**2
+            assert floor_margin>0,(s,n,'derivative lower bound failed')
             row['n'][str(n)]={'positive':deriv_numerator.l>0,
                 'lower_margin':short_margin(deriv_numerator.l) if deriv_numerator.l>0 else str(float(deriv_numerator.l)),
+                'certified_derivative_floor':str(floor),
+                'floor_margin':short_margin(floor_margin),
                 'approx_dE_ds':float(deriv_numerator.l/(X.u**2)),
                 'approx_E':float(phi/X.l-1)}
             assert deriv_numerator.l>0,(s,n,deriv_numerator)
