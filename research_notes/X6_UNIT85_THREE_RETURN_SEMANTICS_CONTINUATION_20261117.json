@@ -1,0 +1,99 @@
+{
+  "schema": "EM_X6_UNIT85_AUTHOR_SOURCE_CONTINUATION_V1",
+  "date": "2026-11-17",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "status": "AUTHOR-EXACT / LOCAL-INTEGER-EXECUTED / SOURCE-INSPECTED / UNREVIEWED / NOT_ADMITTED",
+  "scientific_pins": {
+    "p000_signed_x6": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "frozen_old_corpus": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "native_brc_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176"
+  },
+  "previous_frontier": "Unit84 exact signed 12-label min-zero all-horizon lumpability and bounded live support-vs-mass source consumer, main proof/cert/source already saved; no repeat.",
+  "unit85": {
+    "claim": "Signed native Cell return and signed min-zero relative return first diverge at path length six; counts 19920 and 21360. Positive-only relative return at length six equals 720; three distinct observer/language carriers.",
+    "exact_formula": "A_L(h*1)=L! sum_(a_i,b_i>=0, a_i-b_i=h, sum(a_i+b_i)=L) prod_i 1/(a_i! b_i!)",
+    "proof_path": "research_notes/X6_UNIT85_THREE_RETURN_SEMANTICS_20261117.md",
+    "checker_path": "research_checks/X6_UNIT85_THREE_RETURN_SEMANTICS_CHECK_20261117.py",
+    "checker_git_blob": "0398b8aa14821853c7a1e8060ccc1c09f864bdf9",
+    "checker_sha256": "67e082dafe9a4a4741ce17c8f3ca6cb90bd2d039b2c68d18c7c0ea0d6261b51c",
+    "result_path": "research_checks/X6_UNIT85_THREE_RETURN_SEMANTICS_RESULTS_20261117.json",
+    "result_git_blob": "e470ca44e8d1c5b5d830f07570c06437e3f0df88",
+    "result_sha256": "b3cdb86fd12c576e94d0a95aa361709ec04394dcd6f425064cd5767605ea94e0",
+    "executions": [
+      "python",
+      "python -O",
+      "python -OO"
+    ],
+    "max_length": 12,
+    "diagonal_fibers_checked": 39,
+    "native_state_entries_cumulative": 553995,
+    "failures": 0,
+    "actual_consumers": [
+      {
+        "path": "experiments/x6_native_coordinate_completion_v7_20260905/x6_coordinate.py",
+        "git_blob": "9738543aace13f8a72af577e9ad8964c5fd40de8",
+        "lines": "197-242",
+        "scope": "POSITIVE_RELATIVE_RETURN_N_BRC_NOT_NATIVE"
+      },
+      {
+        "path": "experiments/x6_native_coordinate_completion_v7_20260905/check_x6_coordinate.py",
+        "git_blob": "d562df4cedf3aa54fd3ca5db5ee0d17ff873a752",
+        "lines": "186-205",
+        "scope": "POSITIVE_RELATIVE_RETURN_AND_SIGNED_NATIVE_CELL_RETURN_DISTINCT_CORRECT"
+      }
+    ],
+    "historical_lp011_lp019_wrong_caller": "UNRESOLVED_PROVENANCE",
+    "source_type_audit": "NO_CURRENT_WRONG_CALL_FOUND_AT_THE_TWO_DIRECTLY_INSPECTED_EXECUTABLE_SITES; DO_NOT_INFER_REPO_WIDE_ABSENCE",
+    "native_R063_Helly_benchmark_rerun": false
+  },
+  "original_research_lane": {
+    "logical_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+    "maintenance_separate": "chatgpt-hourly-enterprise-math-20260921",
+    "historical_sid": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "historical_claim": "MCP-579c8e23625448582b421831",
+    "historical_run": "RUN-fb25028676f9692ab1bacaee",
+    "researcher_id": "EM-X6-FB6990",
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "activity_last_verified": 106,
+    "activity_updated": false,
+    "write_authority": "NOT_VERIFIED_FOR_ORIGINAL_X6_LANE; D25_PROFILE_DISTINCT"
+  },
+  "consumed_requests": [
+    {
+      "request_id": "onhour-20261117-1100-x6-own-recovery-status-v1",
+      "issue": 6994,
+      "terminal": "SUCCEEDED"
+    },
+    {
+      "request_id": "onhour-20261117-1103-x6-exact-task-continuation-v1",
+      "issue": 6995,
+      "terminal": "SUCCEEDED",
+      "route": "PREPARE_TYPED_CONTINUATION_WITH_EXACT_PREDECESSOR_AND_FRONTIER",
+      "execution_authorized": false
+    }
+  ],
+  "remaining": [
+    "Trace remaining 28-LP real typed executable dependents; patch only demonstrated wrong native/signed/positive call site",
+    "LP011 and LP019 original wrong-caller provenance or independent Driver REQUEST_REVISION",
+    "Original X6 owner-authenticated native PROGRESS and own Research Activity association of author Units77-85",
+    "Independent Result/Driver review and admission if authorized"
+  ],
+  "next_exact_action": "Trace source-pinned real downstream code consuming a min-zero relative return as native Cell return, or positive-only mass as signed BRC; preserve source:line and exact observer/operation. If absent, deliver bounded evidence for independent Driver REQUEST_REVISION rather than inventing a wrong caller.",
+  "do_not_repeat": [
+    "Unit64-84 original exact proofs/checkers",
+    "native R063/Helly full benchmark",
+    "original successful read requests #6994/#6995",
+    "D25 or maintenance identity writes",
+    "replay unknown or denied writes"
+  ],
+  "persistence": {
+    "github_author_material": "BLOBS_CREATED_PENDING_CANONICAL_COMMIT",
+    "activity": "UNCHANGED_106",
+    "native_semantic": "NOT_SUBMITTED",
+    "review": "UNREVIEWED_NOT_ADMITTED"
+  },
+  "scheduled_frequency_modified": false,
+  "notification_settings_modified": false
+}
