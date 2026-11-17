@@ -1,0 +1,184 @@
+{
+  "schema": "ENTERPRISE_MATH_R762DJ_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "source": "2026-11-17 local Python exact integer run; verified mathematical assertions in the uploaded reproducible Python program",
+  "method": "Integer exhaustive signed paths, exact character histogram, integer convolution k=1..8",
+  "signed_single_block_paths_checked": 576,
+  "exact_assertion_checks": 1232,
+  "character_F_histogram": {
+    "0": 12,
+    "3": 6,
+    "6": 1,
+    "-3": 8
+  },
+  "character_R_histogram": {
+    "2": 12,
+    "14": 1,
+    "-4": 8,
+    "-1": 6
+  },
+  "result_rows": [
+    {
+      "q": 3,
+      "k": 1,
+      "total_named_paths": 36,
+      "states": 19,
+      "gcd_path_counts": 1,
+      "endpoint_equal_seeds": 36,
+      "joint_trajectory_equal_seeds": 36,
+      "tv_to_reachable_uniform": "38/108"
+    },
+    {
+      "q": 3,
+      "k": 2,
+      "total_named_paths": 1296,
+      "states": 27,
+      "gcd_path_counts": 9,
+      "endpoint_equal_seeds": 144,
+      "joint_trajectory_equal_seeds": 1296,
+      "tv_to_reachable_uniform": "38/432"
+    },
+    {
+      "q": 3,
+      "k": 3,
+      "total_named_paths": 46656,
+      "states": 27,
+      "gcd_path_counts": 81,
+      "endpoint_equal_seeds": 576,
+      "joint_trajectory_equal_seeds": 46656,
+      "tv_to_reachable_uniform": "38/1728"
+    },
+    {
+      "q": 3,
+      "k": 4,
+      "total_named_paths": 1679616,
+      "states": 27,
+      "gcd_path_counts": 729,
+      "endpoint_equal_seeds": 2304,
+      "joint_trajectory_equal_seeds": 1679616,
+      "tv_to_reachable_uniform": "38/6912"
+    },
+    {
+      "q": 3,
+      "k": 5,
+      "total_named_paths": 60466176,
+      "states": 27,
+      "gcd_path_counts": 6561,
+      "endpoint_equal_seeds": 9216,
+      "joint_trajectory_equal_seeds": 60466176,
+      "tv_to_reachable_uniform": "38/27648"
+    },
+    {
+      "q": 3,
+      "k": 6,
+      "total_named_paths": 2176782336,
+      "states": 27,
+      "gcd_path_counts": 59049,
+      "endpoint_equal_seeds": 36864,
+      "joint_trajectory_equal_seeds": 2176782336,
+      "tv_to_reachable_uniform": "38/110592"
+    },
+    {
+      "q": 3,
+      "k": 7,
+      "total_named_paths": 78364164096,
+      "states": 27,
+      "gcd_path_counts": 531441,
+      "endpoint_equal_seeds": 147456,
+      "joint_trajectory_equal_seeds": 78364164096,
+      "tv_to_reachable_uniform": "38/442368"
+    },
+    {
+      "q": 3,
+      "k": 8,
+      "total_named_paths": 2821109907456,
+      "states": 27,
+      "gcd_path_counts": 4782969,
+      "endpoint_equal_seeds": 589824,
+      "joint_trajectory_equal_seeds": 2821109907456,
+      "tv_to_reachable_uniform": "38/1769472"
+    },
+    {
+      "q": 4,
+      "k": 1,
+      "total_named_paths": 36,
+      "states": 8,
+      "gcd_path_counts": 2,
+      "endpoint_equal_seeds": 18,
+      "joint_trajectory_equal_seeds": 18,
+      "tv_to_reachable_uniform": "3/36"
+    },
+    {
+      "q": 4,
+      "k": 2,
+      "total_named_paths": 1296,
+      "states": 8,
+      "gcd_path_counts": 8,
+      "endpoint_equal_seeds": 162,
+      "joint_trajectory_equal_seeds": 324,
+      "tv_to_reachable_uniform": "3/324"
+    },
+    {
+      "q": 4,
+      "k": 3,
+      "total_named_paths": 46656,
+      "states": 8,
+      "gcd_path_counts": 32,
+      "endpoint_equal_seeds": 1458,
+      "joint_trajectory_equal_seeds": 5832,
+      "tv_to_reachable_uniform": "3/2916"
+    },
+    {
+      "q": 4,
+      "k": 4,
+      "total_named_paths": 1679616,
+      "states": 8,
+      "gcd_path_counts": 128,
+      "endpoint_equal_seeds": 13122,
+      "joint_trajectory_equal_seeds": 104976,
+      "tv_to_reachable_uniform": "3/26244"
+    },
+    {
+      "q": 4,
+      "k": 5,
+      "total_named_paths": 60466176,
+      "states": 8,
+      "gcd_path_counts": 512,
+      "endpoint_equal_seeds": 118098,
+      "joint_trajectory_equal_seeds": 1889568,
+      "tv_to_reachable_uniform": "3/236196"
+    },
+    {
+      "q": 4,
+      "k": 6,
+      "total_named_paths": 2176782336,
+      "states": 8,
+      "gcd_path_counts": 2048,
+      "endpoint_equal_seeds": 1062882,
+      "joint_trajectory_equal_seeds": 34012224,
+      "tv_to_reachable_uniform": "3/2125764"
+    },
+    {
+      "q": 4,
+      "k": 7,
+      "total_named_paths": 78364164096,
+      "states": 8,
+      "gcd_path_counts": 8192,
+      "endpoint_equal_seeds": 9565938,
+      "joint_trajectory_equal_seeds": 612220032,
+      "tv_to_reachable_uniform": "3/19131876"
+    },
+    {
+      "q": 4,
+      "k": 8,
+      "total_named_paths": 2821109907456,
+      "states": 8,
+      "gcd_path_counts": 32768,
+      "endpoint_equal_seeds": 86093442,
+      "joint_trajectory_equal_seeds": 11019960576,
+      "tv_to_reachable_uniform": "3/172186884"
+    }
+  ],
+  "theorem_scope": "Conditional independent paired triadic X6 candidate paths; native TRIADIC_CLOSURE_E permission NOT established",
+  "review_status": "NOT_REVIEWED"
+}
