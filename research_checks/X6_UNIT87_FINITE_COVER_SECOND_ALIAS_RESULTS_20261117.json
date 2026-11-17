@@ -1,0 +1,71 @@
+{
+  "schema": "EM_X6_UNIT87_SECOND_ALIAS_EXACT_V1",
+  "date": "2026-11-17",
+  "classification": "AUTHOR_EXACT_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "model": "12 signed native X6 primitive axes; derived finite-depth observer",
+  "method": "independent exact six-axis integer convolution; not full endpoint table",
+  "mode_results": [
+    "python",
+    "python -O",
+    "python -OO"
+  ],
+  "output_identical": true,
+  "local_executed_checker_sha256": "0afa120a8d00b85287f3bb6ffd121a621b448862562f102996edb7147482915a",
+  "local_raw_output_sha256": "43183df3109c09a600d7f626eca48fe4741ef02d8241a9ceda470dd90f98ae19",
+  "prealias_odd_comparisons": 95,
+  "failures": 0,
+  "first_alias_formula": "2*(6*m)!/(m!)^6",
+  "next_even_alias_formula": "12*(6*m+2)!/((m+1)!*(m!)^5)",
+  "cases": [
+    {
+      "modulus": 1,
+      "first_length": 6,
+      "first_alias_extra": "1440",
+      "next_even_length": 8,
+      "next_even_alias_extra": "241920",
+      "native_return_first": "19920",
+      "cover_return_first": "21360"
+    },
+    {
+      "modulus": 2,
+      "first_length": 12,
+      "first_alias_extra": "14968800",
+      "next_even_length": 14,
+      "next_even_alias_extra": "5448643200",
+      "native_return_first": "8175770064",
+      "cover_return_first": "8190738864"
+    },
+    {
+      "modulus": 3,
+      "first_length": 18,
+      "first_alias_extra": "274450176000",
+      "next_even_length": 20,
+      "next_even_alias_extra": "156436600320000",
+      "native_return_first": "7402621930738320",
+      "cover_return_first": "7402896380914320"
+    },
+    {
+      "modulus": 4,
+      "first_length": 24,
+      "first_alias_extra": "6493341074220000",
+      "next_even_length": 26,
+      "next_even_alias_extra": "5064806037891600000",
+      "native_return_first": "9463540456205136873936",
+      "cover_return_first": "9463546949546211093936"
+    },
+    {
+      "modulus": 5,
+      "first_length": 30,
+      "first_alias_extra": "177665292119576701440",
+      "next_even_length": 32,
+      "next_even_alias_extra": "176243969782620087828480",
+      "native_return_first": "14615050011682746903615601920",
+      "cover_return_first": "14615050189348039023192303360"
+    }
+  ],
+  "limits": [
+    "does not run original native R063/Helly benchmark",
+    "not a full six-dimensional endpoint-table census",
+    "not a native semantic checkpoint"
+  ]
+}
