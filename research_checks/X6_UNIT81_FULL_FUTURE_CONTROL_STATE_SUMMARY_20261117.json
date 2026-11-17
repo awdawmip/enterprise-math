@@ -1,0 +1,39 @@
+{
+  "schema": "EM_X6_UNIT81_FUTURE_SUFFIX_SUMMARY_V1",
+  "date": "2026-11-17",
+  "scientific_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frame_fiber_histogram": {
+    "1": 8,
+    "2": 6,
+    "3": 4,
+    "4": 2
+  },
+  "exact_population": 1280,
+  "roots": 20,
+  "root_conditional_suffixes": 640,
+  "root_conditional_history_count": 1280,
+  "fixed_future_control_crosschecks": 320,
+  "suffixes_per_root": "16*m",
+  "histories_per_root": "32*m",
+  "root_only_future_bits": "4+ceil(log2(m))",
+  "root_only_full_history_bits": "5+ceil(log2(m))",
+  "root_plus_named_control_prior_bits": "ceil(log2(m))",
+  "max_future_bits": 6,
+  "max_full_history_bits": 7,
+  "max_prior_state_bits": 2,
+  "conditional_uniform_labeled_history_entropy_bits_expression": "4+7/10+(3/10)*log2(3)",
+  "conditional_uniform_labeled_history_entropy_bits_approx": 5.175488750216347,
+  "checker_commit": "dece6e93db1c138d47fa660b2f66af1ecdb3d19d",
+  "checker_path": "research_checks/X6_UNIT81_FULL_FUTURE_CONTROL_STATE_EXACT_20261117.py",
+  "checker_sha256_local": "caf493d86255073eebe7a842a1a961c0e8a96e43ae1c137004100124553fe046",
+  "result_sha256_local": "d65f8015d245180764d048abfaa58c772f5edf3cb702325f51d0a3a88b31e7a0",
+  "python_modes": [
+    "python",
+    "python -O",
+    "python -OO"
+  ],
+  "all_three_local_outputs_equal": true,
+  "verification_status": "LOCAL_EXECUTED_AUTHOR_EXACT_NOT_INDEPENDENTLY_REVIEWED",
+  "scope": "Original 20 triads, both orientations, all 64 shortest BRC branch words per frame; nonzero root beta1=1",
+  "errors": 0
+}
