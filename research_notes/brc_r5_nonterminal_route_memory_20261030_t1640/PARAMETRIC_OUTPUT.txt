@@ -1,0 +1,7 @@
+DET_ROUTE_BASE=-a*b*(p - q)**2
+DET_TAIL_PAIR=b*(2*a + b)*(p - q)**2
+FULL_ERROR_DIFFERENCE=b*(p - q)/2
+NONZERO_RANK4_IF_AND_ONLY_IF=(p!=q and b!=0) for 0<p,q<1
+REAL_IMAGE_GAP_IF=(p!=q and b!=0), legal error kernels
+RAW_LINFTY_LOWER_BOUND=abs(b)*abs(p-q)/(4*(1+abs(b)))
+PASS_EXACT_R5_ROUTE_MEMORY_PARAMETRIC_OPEN_FAMILY

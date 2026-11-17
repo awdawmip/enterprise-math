@@ -1,0 +1,9 @@
+# Next R5 research unit — escape the law-proportional delay annihilator
+
+Frozen GLOBAL_KNOWLEDGE_V1 main@7e623e2746c8af0a97a8b6fcff6ebf7f93f2dff0; Enterprise Math main@c1b3200a053883f81951d54f5d55356daec114ce. Read this directory's RESEARCH.md, RESEARCH_INVARIANT.md, VERIFY.py, VERIFY_INVARIANT.py and both outputs. Author-side UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY / REGISTER_PENDING; native owner read CONTROL_QUOTA.
+
+Proved: A third true key K=(3,8/5) after I=(1,1), J=(2,2) cannot repair the FULL/LR convex hull by additional *law-neutral* time delay if the final answer remains P. The sourcewise proportional-flow annihilator H=5eP+5TP-8TQ has exact min_FULL=-35/8 and min_LR=-33/8 for all real policies, so support gap is exactly 1/4 and full-witness L-infinity distance >=1/72. This survives every 0<epsilon<1 and every positive integer delay h, and the declared more general law-neutral finite-mean K subtree. The explicit stop/continue model remains full affine rank 4. Do not repeat time-only delay variants as hull-equality candidates.
+
+First unresolved question: Construct a truly source-advantage-changing third or fourth time/P-over-Q-LR key, with law-dependent nature branches or terminal response changes and strictly positive two-law masses. Verify all shared keys and consistent stop answers. Test the exact old H support difference before searching other directions; if positive, publish a strict no-go. Otherwise establish four-rank and exact FULL/LR all-signed hull equality with primal/Farkas certificates for every deterministic FULL vertex in multi-affine cases, or sound all-real semialgebraic certification if a parameter repeats on one path. Only after hull equality, test actual real LR image nonmembership.
+
+Preserve P000, ACTIVE worldview, detailed BRC/branch provenance and the auxiliary-classical (non-native X6) scope. No native CLAIM/Result or independent review is conferred by these files.

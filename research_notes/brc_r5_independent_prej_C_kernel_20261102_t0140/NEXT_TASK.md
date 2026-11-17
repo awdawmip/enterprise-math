@@ -1,0 +1,9 @@
+# Next R5 independent-source research unit (2026-11-02)
+
+Frozen science: Global Knowledge main@a01383f825ef9d43b4b754254303298c64041568 and Enterprise Math main@86149263e38c22292c9def1e0f69092efa1be77e. Read current behavioral rules at their current version and retain P000, ACTIVE worldview and portable research constraints. Previous author-side frontier is 105d4541610c9e310f8fba6d9e56bfe057c41f39.
+
+This unit proves an open-interval signed separation for an *independent C route before J*: n=(11480,-1856,9320,-9392), W(tau)=(61/160+tau/4,11/16-tau/8,43/20,125/64), exact margin D(tau)=min(3102*tau-1210,341)>0 for every real 55/141<tau<1. Both-law natural probabilities are strictly positive; all four genuine LR decision keys are verified. The third C kernel has conditional Q mass to K of 1/2 vs 1/4 (A) and 0 (B), outside their mixture hull. The proof and executable exact Fraction certificate are in this directory.
+
+Next experiment: allow C post-J kernel C_s=(1-s)*(A+B)/2+s*C for s in [0,1], using the same law-independent nature probability under P and Q. Retain the independent pre-J parameter tau. Calculate all 32 LR deterministic observations as exact polynomials in (s,tau), locate exact signed-support phase boundaries, and test *complete* four-hull inclusion by rational convex combinations of all FULL deterministic policies or exact Farkas normals when the tested direction becomes inconclusive. At s=0 future mechanisms are source blind and actual image equality is available by predictive Q/P Markovization; at s=1, tau>55/141 the open-interval gap is proved. A complete hull equality point, if found, triggers the real image membership question. Preserve source labels, P/Q mass, time/answer observations, native owner/claim/Driver distinctions, and the unchanged frozen scientific pins.
+
+Status: author-proved/exact-checked/portable, no native owner confirmation (CONTROL_QUOTA) or research authorization; original mother problem remains open.

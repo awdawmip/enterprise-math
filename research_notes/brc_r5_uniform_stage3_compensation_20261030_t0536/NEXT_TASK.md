@@ -1,0 +1,11 @@
+# R5 continuation — from one-dimensional stage-3 compensation to multivariate exact hull feasibility
+
+Parent: Enterprise Math finite positive two-law stopping mother question, unchanged.
+
+Frozen knowledge: GLOBAL_KNOWLEDGE_V1 main `ea1ec326d006b42227fe130821942e42504b9dae`; EM canonical main `58d3995828b0ab3b3ebc9d015b8f7c9e751822ad`. Previous R5 author frontier: `238e91a96e5b10ba2ba672cf84fb6e2c41ceed63`. New folder: `research_notes/brc_r5_uniform_stage3_compensation_20261030_t0536`. Consume its RESEARCH.md, VERIFY.js and EXACT_OUTPUT.txt before extending; do not reprove this completed unit.
+
+**New exact theorem (AUTHOR_PROVED / UNREVIEWED):** On the same doubly colliding positive rational tree, modifying the two time-3 collision p-errors by the same +kappa yields exact all-real support gap Delta/epsilon = 3/22 on 0<=rho<=3/44, 25/176-rho/12 on 3/44<=rho<=75/44, and zero beyond if Bernoulli rates remain admissible, with rho=kappa/epsilon. For rho=1 the LR hull is full-dimensional but separated by integer gap 1023; `dist_infinity>=31/559632`. This eliminates the same-sign small-compensation route; gap zero in one direction at rho=75/44 does not imply full hull equality.
+
+**Smallest research step:** parameterize independently signed time-3 p-errors `delta_A,delta_B` and a selected time-2 noncollision P-error compensator. Preserve positive kernels and exact labelled BRC cylinder masses. Derive the exact piecewise support functions by the finite deterministic corner groups for the full three-parameter perturbation, and search for necessary equal-support polyhedral cones. Any strict signed witness yields an exact integer/rational Farkas separator. No changes to Q-only rates can repair a P/T-only separation.
+
+**Acceptance gate:** check every FULL deterministic four-vector against the LR four-dimensional convex hull with exact rational LP/Caratheodory (<=5 LR vertices) and provide complete certificates or the first separation. Only if equality survives all directions, investigate actual real behavioral-image difference by a rigorous semialgebraic certificate. Do not infer Native X6 correspondence, formal CLAIM, Result, independent review or admission from author-side GitHub preservation.

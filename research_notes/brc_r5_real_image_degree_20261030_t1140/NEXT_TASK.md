@@ -1,0 +1,5 @@
+# Next independent unit: rank-four same-hull candidate
+
+Mother target: find FULL and seedless LR policies with equal four-observer convex hulls yet distinct actual real images. The fixed 14-node two-residual collision family is now classified: a=b gives identical actual images filling a rank-3 convex polytope (rank 2 at zero), while a!=b yields an exact signed hull separation. Reuse RESEARCH.md, VERIFY.js and EXACT_OUTPUT.txt without repeating this classification.
+
+Preserve positive P/Q natural path masses, source labels, two genuine likelihood collisions, original four-observer and seedless real-policy semantics. Introduce an independent P-law terminal-error residual to raise affine rank to four; check strict legal error rates. Obtain all-signed convex-hull identity via exact rational Caratheodory/Farkas or complete facet/vertex certificate before claiming actual-image separation. For equal-hull candidates, seek a rigorous real-image nonmembership or higher-dimensional face-lift certificate. Keep formal Source ownership, activity, CLAIM, Result and independent Driver review separate from author-side GitHub evidence.

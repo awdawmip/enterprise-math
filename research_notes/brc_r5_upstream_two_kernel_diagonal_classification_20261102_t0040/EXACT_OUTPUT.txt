@@ -1,0 +1,10 @@
+u>=v LR_vertices=32 tensor_Bernstein_controls=288 all_nonnegative=True zeros= 156 witness_gap=(735/8)*|u-v|_on_triangle
+u<=v LR_vertices=32 tensor_Bernstein_controls=288 all_nonnegative=True zeros= 176 witness_gap=(735/8)*|u-v|_on_triangle
+sample u,v 3/4 1/4 witness_gap 735/16 dual_norm 25599/4 L_inf_distance_lower_bound 35/4876
+sample u,v 1/4 3/4 witness_gap 735/16 dual_norm 24165/4 L_inf_distance_lower_bound 49/6444
+sample u,v 1/2 1/2 witness_gap 0 dual_norm 12303/2 L_inf_distance_lower_bound 0
+diagonal_actual_image_markovization_exact_rational_regressions 9 PASS
+theorem: for 0<=u,v<=1, hull_EQUAL_iff_u_EQ_v and diagonal_actual_real_images_EQUAL
+uniform witness dist_infty >= (245/18168)*|u-v| when u!=v
+scope: auxiliary two-law finite stopping graph, exact rational verification author-side proof, no native X6 promotion
+PASS_EXACT_R5_TWO_UPSTREAM_TRIANGULAR_BERNSTEIN_CLASSIFICATION

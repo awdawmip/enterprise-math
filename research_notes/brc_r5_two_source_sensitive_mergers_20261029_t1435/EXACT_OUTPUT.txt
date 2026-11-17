@@ -1,0 +1,12 @@
+input: theta=27/496, epsilon=1/256; two origins, horizon=4
+first_source_kernels: (Fraction(1, 4), Fraction(1, 2), Fraction(1, 4)) (Fraction(1, 8), Fraction(3, 4), Fraction(1, 8))
+second_source_kernels: (Fraction(65, 256), Fraction(63, 128), Fraction(65, 256)) (Fraction(63, 256), Fraction(65, 128), Fraction(63, 256))
+t3_r3/4_positive_Q_P_flows: {('A', Fraction(1, 2), Fraction(3, 2)): (Fraction(1, 32), Fraction(3, 128)), ('A', Fraction(3, 2), Fraction(1, 2)): (Fraction(1, 32), Fraction(3, 128)), ('B', Fraction(1, 2), Fraction(3, 2)): (Fraction(1, 64), Fraction(3, 256)), ('B', Fraction(3, 2), Fraction(1, 2)): (Fraction(1, 64), Fraction(3, 256))}
+initial_stop_and_full_continuations: 275/248 68577/63488 144477/126976
+full_observer: (Fraction(449, 4096), Fraction(1599, 2048), Fraction(15, 8), Fraction(15, 8)) full_min: 138977/126976
+LR_min: 275/248 exact_deterministic_masks: 1024 ties: 512
+gap: 1823/126976 integer_gap: 1823/256
+LR_plane: 496eP+496eQ+27TP+27TQ >= 550
+FULL_plane_value: 138977/256
+L_infinity_distance_lower_bound: 1823/267776
+PASS_EXACT_R5_TWO_SOURCE_SENSITIVE_MERGERS

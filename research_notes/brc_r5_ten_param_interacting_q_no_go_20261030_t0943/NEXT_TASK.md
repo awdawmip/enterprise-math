@@ -1,0 +1,11 @@
+# R5 next exact unit — collision residuals / new mergers, not ten-parameter compensation
+
+Author-side highest proof: this directory's RESEARCH.md, VERIFY.py and EXACT_OUTPUT.txt; scientific predecessor immutable commit 4314ac1f0ed0b23095887cfc012859d658af35c1. Status AUTHOR_PROVED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING. This is not a canonical Source Result, claim or independently accepted theorem.
+
+**No-replay scientific boundary:** on the positive 14-node two-law tree, fixed opposite third-stage collision Q corrections c_A11=+1,c_B11=-1 force max of two Q/time support gaps >=eta/25 for ALL admissible other TEN real Q corrections (A1/B1, A0/A00/A01, B0/B00/B01, A10/B10), even if P terminal error rates are changed arbitrarily. The shared A1/B1 time-2 gating of A10/B10 was included exactly. Do not tune or resample this exhausted ten-parameter family.
+
+**Different next mathematical question:** modify the two *colliding* t3 Q residual coefficients themselves, or alter the strictly positive rational P/Q natural transition kernel to create an additional non-lumpable interacting LR collision. Retain original O=(eP,eQ,TP,TQ), no persistent correlated LR seed, strict kernel/error positivity, source-provenance and time/LR keys. Avoid the already excluded predictive-lumpable equality family.
+
+**Exact acceptance for a candidate:** test ALL signed directions in four-observer space, not a direction sweep. For EVERY FULL deterministic observer vector either exhibit a nonnegative rational combination of <=5 deterministic LR observer vectors (sum weights 1; all four coordinates match exactly), or give an exact rational Farkas separating normal. Only after equal hulls are rigorously certified should actual real behavioral LR image nonmembership be proved, e.g. by rigorous semialgebraic elimination. A persistent external mixture of LR deterministic strategies is not itself one legal seedless LR behavioral policy.
+
+Publish full assumptions, derivation, checker actually run, raw stdout, evidence scope and next action via existing R5 Draft PR #1663. Claim/Result/Driver review must use an independently verified live Source owner and role-bound current authority; GitHub author-side preservation does not create those rights. Do not modify P000 or ACTIVE worldview.

@@ -1,0 +1,10 @@
+corner eta=1/2 z=3/4: D=-3/8, E=-1/40, H_gap=0, J_gap=0, N_gap=29/8, det=373/81920
+corner eta=1/2 z=9/10: D=-9/20, E=-7/100, H_gap=0, J_gap=0, N_gap=7/4, det=883/204800
+corner eta=3/5 z=3/4: D=-29/80, E=-7/400, H_gap=0, J_gap=0, N_gap=29/8, det=1021/204800
+corner eta=3/5 z=9/10: D=-83/200, E=-49/1000, H_gap=0, J_gap=0, N_gap=29/8, det=2473/512000
+bilinear/interpolation: 8320 exact terminal expansions at four parameter corners; 2048 FULL and 32 LR deterministic policies per corner
+all-real parameter rectangle: eta in [1/2,3/5], z in [3/4,9/10]
+H and J gaps identically zero; N positive gap >=7/4 for all real policies
+uniform Linf distance lower bound >=7/2088; at eta=1/2,z=3/4 the distance lower bound >=1/144
+rank determinant exactly (59+(59*eta-46)*z)/10240 > 0 throughout (0,5/6)x(0,1)
+PASS_EXACT_R5_TWO_PARAMETER_DOUBLE_GAP_CANCEL_THIRD_FACET_RECTANGLE

@@ -1,0 +1,11 @@
+# Follow-up R5 — interacting three-epoch strict-stop process outside generalized diamond no-go
+
+**Mother target:** a finite, strictly positive two-law P/Q process with only absorbing STOP/CONTINUE actions; four observations (eP,eQ,TP,TQ); FULL and seedless LR have equal full-four-dimensional convex hulls but unequal actual real behavioral images.
+
+Consume this directory's RESEARCH.md, VERIFY.py and EXACT_OUTPUT.txt. The generalized theorem fully classifies the two-source/two-merger strict-stop diamond for arbitrary positive normalized path weights with source-separating early ratios and distinct late collision ratios and an arbitrary legal **common** affine terminal Bernoulli error kernel. Convex hulls agree exactly when each late source slope agrees, and then the actual images agree too; full four-dimensional rank is decided by the given 4×4 determinant. Avoid re-running parameter grids within this class.
+
+**First new independent scientific unit:** add one more genuine absorbing STOP/CONTINUE epoch with nonnested interacting LR mergers and strictly positive rational P/Q transition probabilities. Give the exact path tree, likelihood-ratio-derived FULL/LR information keys, legal terminal error experiment and four observer formulas. Enumerate all deterministic policies with Fraction arithmetic. For every FULL vertex require a rational convex representation using at most five LR observations, or produce a strict exact Farkas separator. If equality and affine rank four hold, seek a FULL rational witness absent from all real seedless LR policies with a checkable semialgebraic certificate. Provide analytic real-parameter quantifier arguments.
+
+**Alternative scope-changing unit:** a well-defined common event space with differing P/Q conditional Bernoulli error mechanisms, or more than two interacting source classes, explicitly declaring compatibility with the observed likelihood process. Neither is covered by this theorem.
+
+Status of this handoff: author-side exact mathematical evidence, UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING; the native context manifest has authority_granted=false and task inventory returned CONTROL_QUOTA at the 2026-10-30 read. PR evidence is portable research provenance, not a Source CLAIM, formal Result, or Driver review. A future authorized owner/Driver must use its own identity and native workflow.
