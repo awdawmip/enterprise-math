@@ -89,7 +89,15 @@
         "git_blob_sha1": "b107f1089f394f330ba21ef02475243788259475",
         "readback_verified": true
       }
-    ]
+    ],
+    "activity_checkpoint": {
+      "activity_id": "RA-5E3FE1E761E4963EC461A892",
+      "count": 118,
+      "event_id": "onhour-20261118-0300-x6-unit104-johnson-rho-typed-observer-audit",
+      "commit": "168f6b441fdc8a46633edda91b546214b7bc11d6",
+      "git_blob_sha1": "9a4c5a092730a38d1481ea87870b0278768b09d7",
+      "readback_verified": true
+    }
   },
   "previous_frontier": {
     "unit": 103,
@@ -107,14 +115,16 @@
     "original_native_progress_request_id": "onhour-20261118-0204-x6-own-units102-103-native-progress-v1",
     "original_native_progress_status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
     "current_continuation_request_id": "onhour-20261118-0308-x6-own-exact-cont-v1",
-    "current_continuation_last_observed": "RUNNING/error=null"
+    "current_continuation_last_observed": "SUCCEEDED/OWN_RECORDED_RUN_REQUIRES_REAUTHORIZATION",
+    "same_run_resume_request_id": "onhour-20261118-0316-x6-own-run9586-resume-v1",
+    "same_run_resume_last_observed": "RUNNING/error=null"
   },
   "remaining": [
     "LP011 alleged wrong native signed argmax historical executable source:line is unresolved",
     "LP019 alleged signed subtraction of natural positive N-BRC historical executable source:line is unresolved",
     "28-LP typed downstream dependencies, including consumers of Johnson rho vs native signed Cell, incomplete",
     "Independent Driver REQUEST_REVISION pending actual disposition",
-    "Unit104 own RA Source activity checkpoint and native semantic checkpoint pending readback/authorization at creation of this file"
+    "Unit104 original RA Source activity #118 readback complete; Native semantic PROGRESS requires same-run owner authorization and readback"
   ],
   "do_not_repeat": [
     "Units64-103 verified results",
@@ -124,6 +134,6 @@
     "Original running read-only continuation request",
     "Maintenance conversation/session or unrelated Driver identities"
   ],
-  "next_exact_action": "Read original onhour-20261118-0308-x6-own-exact-cont-v1 to terminal without reissuing; verify own surviving claim on exact Source and authorized resume if required. Record Unit104 in existing RA with real GitHub blob/CAS. Only after current own authorization write and read back native semantic checkpoint. Continue targeted downstream source:line research on native Cell inputs / Johnson rho and independent LP011/LP019 wrong-caller provenance; preserve frozen benchmarks.",
+  "next_exact_action": "Read original onhour-20261118-0316-x6-own-run9586-resume-v1 to terminal; when RUN_READY use current returned writer generation and own claim for Unit104 Native semantic PROGRESS then read back. If fenced, preserve original refusal and seek canonical continuation under same original SID. Preserve Activity #118 and all four GitHub immutable artifacts. Continue LP011/LP019 exact historical wrong-caller source:line and actual 28-LP downstream typed sources without re-running original R063/Helly.",
   "continuation_state": "OPEN"
 }
