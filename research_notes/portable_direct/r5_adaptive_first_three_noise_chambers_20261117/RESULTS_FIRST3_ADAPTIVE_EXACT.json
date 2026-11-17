@@ -1,376 +1,433 @@
 {
   "schema": "R5_FIRST3_ADAPTIVE_NOISE_F0_F20_EXACT_V2",
   "frozen_science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
-  "original_full_101_table_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
   "original_full_table_crosschecked": true,
-  "status": "PASS_R5_FIRST_THREE_NOISE_CHAMBERS_ADAPTIVE_F0_TO_F20",
-  "review": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
   "chambers": [
     {
       "chamber_index": 1,
-      "two_eta_left_closed_right_open": [
+      "two_eta_interval_left_closed_right_open": [
         "0",
         "76289178155959966960189440"
       ],
-      "min_cost_budget_Q": [
+      "optimal_test_min_costs": [
         214,
         223,
         294
       ],
+      "original_mask_pair_count_checked": 32640,
+      "full_256_mask_minimax_gap": "76289178155959966960189440",
+      "per_budget_min_distinct_center_gap": {
+        "214": "13883516118328421520506880000",
+        "223": "267753525139190986466918400000",
+        "294": "76289178155959966960189440"
+      },
+      "witness_strong_windows_at_left": [
+        [
+          214,
+          221
+        ],
+        [
+          223,
+          291
+        ],
+        [
+          294,
+          313
+        ]
+      ],
       "all_f_constructive_upper": "731+945f",
-      "finite_f0_to_f20": [
+      "finite_minimax": [
         {
           "f": 0,
-          "exact_cost": 731,
+          "optimal_cost": 731,
           "exhaustive_states": 11
         },
         {
           "f": 1,
-          "exact_cost": 1676,
+          "optimal_cost": 1676,
           "exhaustive_states": 56
         },
         {
           "f": 2,
-          "exact_cost": 2621,
+          "optimal_cost": 2621,
           "exhaustive_states": 175
         },
         {
           "f": 3,
-          "exact_cost": 3566,
+          "optimal_cost": 3566,
           "exhaustive_states": 424
         },
         {
           "f": 4,
-          "exact_cost": 4511,
+          "optimal_cost": 4511,
           "exhaustive_states": 875
         },
         {
           "f": 5,
-          "exact_cost": 5456,
+          "optimal_cost": 5456,
           "exhaustive_states": 1616
         },
         {
           "f": 6,
-          "exact_cost": 6401,
+          "optimal_cost": 6401,
           "exhaustive_states": 2751
         },
         {
           "f": 7,
-          "exact_cost": 7346,
+          "optimal_cost": 7346,
           "exhaustive_states": 4400
         },
         {
           "f": 8,
-          "exact_cost": 8291,
+          "optimal_cost": 8291,
           "exhaustive_states": 6699
         },
         {
           "f": 9,
-          "exact_cost": 9236,
+          "optimal_cost": 9236,
           "exhaustive_states": 9800
         },
         {
           "f": 10,
-          "exact_cost": 10181,
+          "optimal_cost": 10181,
           "exhaustive_states": 13871
         },
         {
           "f": 11,
-          "exact_cost": 11126,
+          "optimal_cost": 11126,
           "exhaustive_states": 19096
         },
         {
           "f": 12,
-          "exact_cost": 12071,
+          "optimal_cost": 12071,
           "exhaustive_states": 25675
         },
         {
           "f": 13,
-          "exact_cost": 13016,
+          "optimal_cost": 13016,
           "exhaustive_states": 33824
         },
         {
           "f": 14,
-          "exact_cost": 13961,
+          "optimal_cost": 13961,
           "exhaustive_states": 43775
         },
         {
           "f": 15,
-          "exact_cost": 14906,
+          "optimal_cost": 14906,
           "exhaustive_states": 55776
         },
         {
           "f": 16,
-          "exact_cost": 15851,
+          "optimal_cost": 15851,
           "exhaustive_states": 70091
         },
         {
           "f": 17,
-          "exact_cost": 16796,
+          "optimal_cost": 16796,
           "exhaustive_states": 87000
         },
         {
           "f": 18,
-          "exact_cost": 17741,
+          "optimal_cost": 17741,
           "exhaustive_states": 106799
         },
         {
           "f": 19,
-          "exact_cost": 18686,
+          "optimal_cost": 18686,
           "exhaustive_states": 129800
         },
         {
           "f": 20,
-          "exact_cost": 19631,
+          "optimal_cost": 19631,
           "exhaustive_states": 156331
         }
-      ],
-      "original_mask_pairs_compared": 32640,
-      "full_256_mask_minimax_gap": "76289178155959966960189440"
+      ]
     },
     {
       "chamber_index": 2,
-      "two_eta_left_closed_right_open": [
+      "two_eta_interval_left_closed_right_open": [
         "76289178155959966960189440",
         "3133722521542003559403356160"
       ],
-      "min_cost_budget_Q": [
+      "optimal_test_min_costs": [
         214,
         223,
         295
       ],
+      "original_mask_pair_count_checked": 32640,
+      "full_256_mask_minimax_gap": "3133722521542003559403356160",
+      "per_budget_min_distinct_center_gap": {
+        "214": "13883516118328421520506880000",
+        "223": "267753525139190986466918400000",
+        "295": "3133722521542003559403356160"
+      },
+      "witness_strong_windows_at_left": [
+        [
+          214,
+          221
+        ],
+        [
+          223,
+          291
+        ],
+        [
+          295,
+          313
+        ]
+      ],
       "all_f_constructive_upper": "732+946f",
-      "finite_f0_to_f20": [
+      "finite_minimax": [
         {
           "f": 0,
-          "exact_cost": 732,
+          "optimal_cost": 732,
           "exhaustive_states": 11
         },
         {
           "f": 1,
-          "exact_cost": 1678,
+          "optimal_cost": 1678,
           "exhaustive_states": 56
         },
         {
           "f": 2,
-          "exact_cost": 2624,
+          "optimal_cost": 2624,
           "exhaustive_states": 175
         },
         {
           "f": 3,
-          "exact_cost": 3570,
+          "optimal_cost": 3570,
           "exhaustive_states": 424
         },
         {
           "f": 4,
-          "exact_cost": 4516,
+          "optimal_cost": 4516,
           "exhaustive_states": 875
         },
         {
           "f": 5,
-          "exact_cost": 5462,
+          "optimal_cost": 5462,
           "exhaustive_states": 1616
         },
         {
           "f": 6,
-          "exact_cost": 6408,
+          "optimal_cost": 6408,
           "exhaustive_states": 2751
         },
         {
           "f": 7,
-          "exact_cost": 7354,
+          "optimal_cost": 7354,
           "exhaustive_states": 4400
         },
         {
           "f": 8,
-          "exact_cost": 8300,
+          "optimal_cost": 8300,
           "exhaustive_states": 6699
         },
         {
           "f": 9,
-          "exact_cost": 9246,
+          "optimal_cost": 9246,
           "exhaustive_states": 9800
         },
         {
           "f": 10,
-          "exact_cost": 10192,
+          "optimal_cost": 10192,
           "exhaustive_states": 13871
         },
         {
           "f": 11,
-          "exact_cost": 11138,
+          "optimal_cost": 11138,
           "exhaustive_states": 19096
         },
         {
           "f": 12,
-          "exact_cost": 12084,
+          "optimal_cost": 12084,
           "exhaustive_states": 25675
         },
         {
           "f": 13,
-          "exact_cost": 13030,
+          "optimal_cost": 13030,
           "exhaustive_states": 33824
         },
         {
           "f": 14,
-          "exact_cost": 13976,
+          "optimal_cost": 13976,
           "exhaustive_states": 43775
         },
         {
           "f": 15,
-          "exact_cost": 14922,
+          "optimal_cost": 14922,
           "exhaustive_states": 55776
         },
         {
           "f": 16,
-          "exact_cost": 15868,
+          "optimal_cost": 15868,
           "exhaustive_states": 70091
         },
         {
           "f": 17,
-          "exact_cost": 16814,
+          "optimal_cost": 16814,
           "exhaustive_states": 87000
         },
         {
           "f": 18,
-          "exact_cost": 17760,
+          "optimal_cost": 17760,
           "exhaustive_states": 106799
         },
         {
           "f": 19,
-          "exact_cost": 18706,
+          "optimal_cost": 18706,
           "exhaustive_states": 129800
         },
         {
           "f": 20,
-          "exact_cost": 19652,
+          "optimal_cost": 19652,
           "exhaustive_states": 156331
         }
-      ],
-      "original_mask_pairs_compared": 32640,
-      "full_256_mask_minimax_gap": "3133722521542003559403356160"
+      ]
     },
     {
       "chamber_index": 3,
-      "two_eta_left_closed_right_open": [
+      "two_eta_interval_left_closed_right_open": [
         "3133722521542003559403356160",
         "13883516118328421520506880000"
       ],
-      "min_cost_budget_Q": [
+      "optimal_test_min_costs": [
         214,
         223,
         296
       ],
+      "original_mask_pair_count_checked": 32640,
+      "full_256_mask_minimax_gap": "13883516118328421520506880000",
+      "per_budget_min_distinct_center_gap": {
+        "214": "13883516118328421520506880000",
+        "223": "267753525139190986466918400000",
+        "296": "58182461585441404127941754880"
+      },
+      "witness_strong_windows_at_left": [
+        [
+          214,
+          221
+        ],
+        [
+          223,
+          290
+        ],
+        [
+          296,
+          313
+        ]
+      ],
       "all_f_constructive_upper": "733+947f",
-      "finite_f0_to_f20": [
+      "finite_minimax": [
         {
           "f": 0,
-          "exact_cost": 733,
+          "optimal_cost": 733,
           "exhaustive_states": 11
         },
         {
           "f": 1,
-          "exact_cost": 1680,
+          "optimal_cost": 1680,
           "exhaustive_states": 56
         },
         {
           "f": 2,
-          "exact_cost": 2627,
+          "optimal_cost": 2627,
           "exhaustive_states": 175
         },
         {
           "f": 3,
-          "exact_cost": 3574,
+          "optimal_cost": 3574,
           "exhaustive_states": 424
         },
         {
           "f": 4,
-          "exact_cost": 4521,
+          "optimal_cost": 4521,
           "exhaustive_states": 875
         },
         {
           "f": 5,
-          "exact_cost": 5468,
+          "optimal_cost": 5468,
           "exhaustive_states": 1616
         },
         {
           "f": 6,
-          "exact_cost": 6415,
+          "optimal_cost": 6415,
           "exhaustive_states": 2751
         },
         {
           "f": 7,
-          "exact_cost": 7362,
+          "optimal_cost": 7362,
           "exhaustive_states": 4400
         },
         {
           "f": 8,
-          "exact_cost": 8309,
+          "optimal_cost": 8309,
           "exhaustive_states": 6699
         },
         {
           "f": 9,
-          "exact_cost": 9256,
+          "optimal_cost": 9256,
           "exhaustive_states": 9800
         },
         {
           "f": 10,
-          "exact_cost": 10203,
+          "optimal_cost": 10203,
           "exhaustive_states": 13871
         },
         {
           "f": 11,
-          "exact_cost": 11150,
+          "optimal_cost": 11150,
           "exhaustive_states": 19096
         },
         {
           "f": 12,
-          "exact_cost": 12097,
+          "optimal_cost": 12097,
           "exhaustive_states": 25675
         },
         {
           "f": 13,
-          "exact_cost": 13044,
+          "optimal_cost": 13044,
           "exhaustive_states": 33824
         },
         {
           "f": 14,
-          "exact_cost": 13991,
+          "optimal_cost": 13991,
           "exhaustive_states": 43775
         },
         {
           "f": 15,
-          "exact_cost": 14938,
+          "optimal_cost": 14938,
           "exhaustive_states": 55776
         },
         {
           "f": 16,
-          "exact_cost": 15885,
+          "optimal_cost": 15885,
           "exhaustive_states": 70091
         },
         {
           "f": 17,
-          "exact_cost": 16832,
+          "optimal_cost": 16832,
           "exhaustive_states": 87000
         },
         {
           "f": 18,
-          "exact_cost": 17779,
+          "optimal_cost": 17779,
           "exhaustive_states": 106799
         },
         {
           "f": 19,
-          "exact_cost": 18726,
+          "optimal_cost": 18726,
           "exhaustive_states": 129800
         },
         {
           "f": 20,
-          "exact_cost": 19673,
+          "optimal_cost": 19673,
           "exhaustive_states": 156331
         }
-      ],
-      "original_mask_pairs_compared": 32640,
-      "full_256_mask_minimax_gap": "13883516118328421520506880000"
+      ]
     }
-  ]
+  ],
+  "review": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "status": "PASS_R5_FIRST_THREE_NOISE_CHAMBERS_ADAPTIVE_F0_TO_F20"
 }
