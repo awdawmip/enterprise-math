@@ -1,0 +1,74 @@
+{
+  "schema": "EM_X6_UNIT95_STRICT_LP026_OPT_IN_RESULTS_V1",
+  "date": "2026-11-17",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "test_kind": "VERSIONED_OPT_IN_FULL_LP026_IMPORTED_SOURCE_EXACT_CONSUMER",
+  "original_frozen_consumer_unchanged": true,
+  "source_artifacts": {
+    "original_historical_consumer": {
+      "path": "research_checks/X6_LP026_CURRENT_COVER_FAST_G_NATIVE_BRC_IMPORT_20261112_ONHOUR.py",
+      "blob": "346be279c42a1a44a7ecfae01256cb92e3109f00",
+      "prior_pinned_coordinate": "dd6dd7e74b83be09bb7545ee92357eda445c6ca3"
+    },
+    "opt_in_consumer": {
+      "path": "research_checks/X6_UNIT95_STRICT_COVER_LP026_OPT_IN_IMPORT_20261117.py",
+      "blob": "4104b0b011b4ea8d72db2eb12a23f946a6792bfe",
+      "commit": "a473be615309aded72452fa7aab39ae7c10b84e9",
+      "sha256": "0fc7a678a5b37b19f2ca20ed6e19e3fa7185884fb85a12684960f4c31502d62e"
+    },
+    "coordinate": {
+      "path": "experiments/x6_native_coordinate_completion_v7_20260905/x6_coordinate.py",
+      "blob": "9738543aace13f8a72af577e9ad8964c5fd40de8"
+    },
+    "strict_cover": {
+      "path": "experiments/x6_native_coordinate_completion_v7_20260905/x6_cover_strict_v2.py",
+      "blob": "d38c2d0fa3fed306afeb387ce60f7f2d9bd52f68"
+    },
+    "signed_brc": {
+      "path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+      "blob": "300a96e3dc24bf6fff73743037a0347a8bc83176"
+    },
+    "fast_recovery": {
+      "path": "research_checks/X6_LP026_CYCLIC_G_FAST_INTERVAL_RECOVERY_20261112_ONHOUR.py",
+      "blob": "496764aa8ebdb19bb03b7d40b82128a82be0ed84"
+    }
+  },
+  "execution": {
+    "project_source_bytes": "EXACT_GIT_BLOBS_RECONSTRUCTED_IN_LOCAL_PARTIAL_PROJECT_TREE",
+    "modes": [
+      "CPython",
+      "CPython -O",
+      "CPython -OO"
+    ],
+    "output_sha256": "319ae30d1c60eb91c2258a42cc7caa86c9156ed254f6bb58cf72c24fc8a8952b",
+    "stdout_byte_identical_all_modes": true,
+    "assertions_restored_as_require": 18,
+    "mode_independent_checks": true,
+    "all_checks_passed": true,
+    "max_original_consumer_word_length": 6,
+    "native_brc_endpoint_checks": 10364,
+    "cover_state_checks": 59267,
+    "cover_signed_step_checks": 281472,
+    "fast_native_norm_recovery_checks": 59267,
+    "ambiguous_native_norm_cases": 2355,
+    "section_norm_diff_from_unique_native_cases": 49834,
+    "explicit_reverse_axis_norms": {
+      "section": 5,
+      "native": 1
+    },
+    "exact_length9_same_norm_distinct_brc": {
+      "norm_squared": 21,
+      "first_multiplicity": 10080,
+      "second_multiplicity": 7560
+    },
+    "strict_bool_direction_rejected": true,
+    "strict_type_guard_retained_under_optimization": true,
+    "original_historical_consumer_current_main_preflight": "FAILS_BEFORE_IMPORT_AT_FROZEN_COORDINATE_PIN_OLD_dd6d_NEW_9738",
+    "original_historical_consumer_execution_completed": false,
+    "native_R063_or_Helly_full_benchmark_executed": false,
+    "independent_review": "NOT_REVIEWED",
+    "native_semantic_checkpoint_submitted": false
+  },
+  "scope": "This verifies a new versioned opt-in consumer with current main coordinate source and strict cover. It neither rewrites historical frozen consumer nor changes older benchmark/result bytes."
+}
