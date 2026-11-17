@@ -35,6 +35,7 @@ def expected(z,axis,d,m):
 
 def main():
     require(blob_sha(COORD/'x6_cover.py')==ORIGINAL_SHA,'frozen source blob changed')
+    require(blob_sha(COORD/'x6_coordinate.py')=='9738543aace13f8a72af577e9ad8964c5fd40de8','current coordinate source blob changed')
     checks=0
     for z in product((-1,0,1),repeat=6):
         h=min(z)
@@ -77,8 +78,9 @@ def main():
         'schema':'EM_X6_UNIT94_STRICT_COVER_SUCCESSOR_CHECK_V1',
         'frozen_cover_git_blob_sha1':ORIGINAL_SHA,
         'strict_cover_git_blob_sha1':blob_sha(COORD/'x6_cover_strict_v2.py'),
-        'execution_environment':'CPython with exact original x6_cover blob and extracted necessary Coord6 dependency, NOT complete project source tree',
-        'original_full_coordinate_module_executed':False,
+        'execution_environment':'CPython with exact Git blob sources x6_cover and x6_coordinate plus strict successor, partial project tree',
+        'original_full_coordinate_module_executed':True,
+        'coordinate_git_blob_sha1':'9738543aace13f8a72af577e9ad8964c5fd40de8',
         'original_native_R063_Helly_or_LP026_full_benchmark_executed':False,
         'witness_original_true_accepted':True,
         'strict_rejected_direction_types':[repr(x) for x in invalid],
