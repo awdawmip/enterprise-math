@@ -31,6 +31,18 @@ The full actual-source checker `[Unit96 checker](https://github.com/awdawmip/ent
 
 The equality proof for valid weights is direct: after preserving and validating 12 exact positive rational inputs, both code paths run the same sum over six nonnegative backtrack counts `k_i` with `sum k_i=(L-||z||_1)/2` and multinomial factorial coefficients. The independent dynamic recurrence checks the asserted interpretation, rather than proving every possible length by finite enumeration.
 
+## Bounded current downstream consumer check (additional same-turn source reading)
+
+Three concrete executable source bodies were read on current `main` after the independent Unit96 test; their observed immutable Git blob identifiers, exact operation and input types are:
+
+| Source / blob | Observed call and input contract | Classification |
+|---|---|---|
+| `research_checks/X6_LP026_SIGNED_LAURENT_QUOTIENT_CONSUMER_CHECK_20261112_ONHOUR.py` · `e2bc083f1832b8eae2d8887095912da0e0e8984f` | Line 39 `quotient_walks` uses `map(Fraction,wp/wm)`; lines 53–69 independently calculate native weighted paths; lines 140–151 supply only `Fraction`/integer inputs; separate positive-only test deliberately supplies zero negative weights. This is **not** a direct `signed_brc.endpoint_weight` call. | `KEEP_DECLARED_EXACT_INPUTS`; potential permissive coercion at a different test-helper boundary, **no bad real call**; do not impose strict positivity on the separate zero-weight positive-sector model |
+| `research_checks/X6_LP019_FCC_SIGNED_BRC_PUSHFORWARD_20261113_ONHOUR.py` · `a82b8cfb6039531aec2266e283a5277ab20f7c4c` | Its `advance_native` and `advance_carrier` propagate nonnegative **integer unweighted** counts for twelve signed steps. No imported `signed_brc.endpoint_weight` or rational input conversion. | `KEEP_TYPED_INTEGER_PUSHFORWARD` |
+| `research_checks/X6_LP026_SIGNED_RELATIVE_C6_PARITY_BRC_20261112_ONHOUR.py` · `08d0cd5c2720410d9a938c49df830d90573b408f` | `signed_relative_brc` uses exact factorial integers and sums over native lifts; no rational weight caller. | `KEEP_TYPED_INTEGER_RELATIVE_BRC` |
+
+These are **three bounded full-body source inspections, not executed regressions on their original frozen harnesses and not a repository-wide caller closure**. At present no demonstrated bad downstream call consumes a float, Boolean or string as a signed-BRC branch weight. The concrete repaired interface and the 12,129 exact rational comparisons remain the Unit96 executed increment.
+
 ## Source and admission boundary
 
 Existing actual current LP019/LP026 typed signed-path consumers and earlier Unit93–95 strict CoverState tests remain valid, completed and not repeated. The new interface is *opt-in* and changes only input validation, not the original frozen science or original benchmark object. No original R063/Helly benchmark was rerun. No Native Source CLAIM, RUN, PROGRESS, independent Driver review, Result or P000 promotion is claimed.
