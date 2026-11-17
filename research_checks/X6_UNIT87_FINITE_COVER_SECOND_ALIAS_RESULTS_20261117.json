@@ -10,9 +10,9 @@
     "python -OO"
   ],
   "output_identical": true,
-  "local_executed_checker_sha256": "0afa120a8d00b85287f3bb6ffd121a621b448862562f102996edb7147482915a",
-  "local_raw_output_sha256": "43183df3109c09a600d7f626eca48fe4741ef02d8241a9ceda470dd90f98ae19",
-  "prealias_odd_comparisons": 95,
+  "local_executed_checker_sha256": "4cd36a7ec3579513fe4c8f5f25429fc19913e9b7fd1f814a3ea73b533f12858b",
+  "local_raw_output_sha256": "5f498c5cea2848ea96fc884b94649584d8b5533e6a7e2a42ed7e7da507ec3d5b",
+  "prealias_odd_comparisons": 132,
   "failures": 0,
   "first_alias_formula": "2*(6*m)!/(m!)^6",
   "next_even_alias_formula": "12*(6*m+2)!/((m+1)!*(m!)^5)",
@@ -61,11 +61,21 @@
       "next_even_alias_extra": "176243969782620087828480",
       "native_return_first": "14615050011682746903615601920",
       "cover_return_first": "14615050189348039023192303360"
+    },
+    {
+      "modulus": 6,
+      "first_length": 36,
+      "first_alias_extra": "5340355473274298494617600",
+      "next_even_length": 38,
+      "next_even_alias_extra": "6435891253220283157227724800",
+      "native_return_first": "25436579108685507465742483486534800",
+      "cover_return_first": "25436579114025862939016781981152400"
     }
   ],
   "limits": [
     "does not run original native R063/Helly benchmark",
     "not a full six-dimensional endpoint-table census",
     "not a native semantic checkpoint"
-  ]
+  ],
+  "amendment": "Extended executable check to m=6 and corrected exact rational ratio comparison by cross multiplication; earlier m<=5 certificate retained without changes to values."
 }

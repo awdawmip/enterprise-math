@@ -35,7 +35,7 @@ def cover_return(modulus: int, length: int) -> int:
         raise ValueError("positive modulus and nonnegative length required")
     return sum(
         signed_endpoint_count(6, length, h)
-        for h in range(-length//6, length//6+1)
+        for h in range(-(length//6), length//6+1)
         if h % modulus == 0
     )
 
@@ -47,7 +47,7 @@ def native_return(length: int) -> int:
 def run():
     cases = []
     all_horizon_comparisons = 0
-    for m in range(1, 6):
+    for m in range(1, 7):
         a = 6*m
         first = 2 * factorial(a) // factorial(m)**6
         second = 12 * factorial(a+2) // (factorial(m+1) * factorial(m)**5)
@@ -55,7 +55,7 @@ def run():
         second_direct = cover_return(m, a+2)-native_return(a+2)
         assert first_direct == first
         assert second_direct == second
-        assert second == first * (6*(a+2)*(a+1)//(m+1))
+        assert second * (m+1) == first * 6*(a+2)*(a+1)
         for length in range(a):
             assert cover_return(m, length) == native_return(length)
             all_horizon_comparisons += 1
@@ -72,7 +72,7 @@ def run():
             "cover_return_next_even":cover_return(m,a+2),
             "counted_by":"independent_integer_six_axis_convolution"
         })
-    assert len(cases)==5
+    assert len(cases)==6
     return {
         "schema":"EM_X6_UNIT87_SECOND_ALIAS_EXACT_V1",
         "status":"AUTHOR_EXACT_EXECUTED_UNREVIEWED_NOT_ADMITTED",
@@ -81,7 +81,7 @@ def run():
         "model":"signed Z6 BRC, C_m=(min-zero, common-depth mod m)",
         "first_alias_formula":"2*(6*m)!/(m!)**6",
         "next_even_alias_formula":"12*(6*m+2)!/((m+1)!*(m!)**5)",
-        "checked_moduli":[1,2,3,4,5],
+        "checked_moduli":[1,2,3,4,5,6],
         "prealias_and_odd_horizon_compares":all_horizon_comparisons,
         "test_cases":cases,
         "coverage_note":"exact axis-interleaving DP at all stated lengths; not full six-dimensional endpoint table; no native benchmark reexecution",

@@ -30,7 +30,7 @@ This identifies the actual **positive BRC mass** folded into cover return at the
 
 The checker \`research_checks/X6_UNIT87_FINITE_COVER_SECOND_ALIAS_CHECK_20261117.py\` computes each \`A_L(h)\` by independent axis-interleaving convolution, recursively combining \`j\` events on one axis and \`L-j\` on the remaining axes with binomial shuffle factor \`C(L,j)\`. It does not call Unit85 or Unit86's dynamic programming, and does not enumerate the full six-dimensional endpoint table. Exact integers only.
 
-The checker executed in ordinary Python, Python \`-O\`, and Python \`-OO\`: identical serialized outputs, \`failures=0\`; 95 pre-alias/odd-horizon equality comparisons, and independently recomputed first and next-even aliases for each \`m=1..5\`.
+The checker executed in ordinary Python, Python \`-O\`, and Python \`-OO\`: identical serialized outputs, \`failures=0\`; 132 pre-alias/odd-horizon equality comparisons, and independently recomputed first and next-even aliases for each \`m=1..5\`.
 
 | Cover modulus | first L | first extra BRC words | next nonzero L | next extra BRC words |
 |---:|---:|---:|---:|---:|
@@ -39,6 +39,7 @@ The checker executed in ordinary Python, Python \`-O\`, and Python \`-OO\`: iden
 | 3 | 18 | 274,450,176,000 | 20 | 156,436,600,320,000 |
 | 4 | 24 | 6,493,341,074,220,000 | 26 | 5,064,806,037,891,600,000 |
 | 5 | 30 | 177,665,292,119,576,701,440 | 32 | 176,243,969,782,620,087,828,480 |
+| 6 | 36 | 5,340,355,473,274,298,494,617,600 | 38 | 6,435,891,253,220,283,157,227,724,800 |
 
 Unlike Unit86's earlier formula-only large-horizon values, these cover-return coefficients at lengths 18, 20, 24, 26, 30, and 32 were actually computed by this independent six-axis integer convolution. This is **not** a complete native six-dimensional endpoint-table benchmark.
 
@@ -59,3 +60,9 @@ Frozen science: P000 \`59538f585d037d09ef687b28715c4bc1a3f9fe03\`; historical co
 Original research lane historical SID \`MCP-082892eb480e45dea6d4b9fcc0491034\`, CLAIM \`MCP-579c8e23625448582b421831\`, RUN \`RUN-fb25028676f9692ab1bacaee\`, Activity \`RA-5E3FE1E761E4963EC461A892\` at last-verified 106 events; no authenticated current writer binding. Original read requests \`#6994\` and \`#6995\` are terminal \`SUCCEEDED\` and unmodified. No task dispatch, new CLAIM/open, review, schedule or native Result mutation.
 
 **Next precise scientific action:** inspect another real unreviewed X6 consumer that uses endpoint return, cover identity or triadic branch counting, record source blob, arguments, observer and expected output algebra; repair only a proven current defect. Deliver LP011/LP019 provenance determination with source:line if found, otherwise retain documented unresolved status for independent Driver. Native R063/Helly benchmarks remain the original object and verification scope.
+
+## Bounded post-publication check extension (same author, same proposition)
+
+The executed finite certificate was extended from `m=1..5` to `m=1..6` (through `L=38`). The original displayed ratio is a rational identity, so its executable assertion must use cross multiplication rather than the prematurely truncated Python integer expression: `second*(m+1) == first*6*(6*m+2)*(6*m+1)`. The initial five results were valid; this precision fix matters at `m=6` because the ratio is nonintegral. A first local check identified the stale five-case length assertion; after correcting it, normal Python, `-O`, and `-OO` all completed with identical output and zero failures.
+
+Execution certificate: 132 pre-alias/odd-horizon comparisons; source SHA256 `4cd36a7ec3579513fe4c8f5f25429fc19913e9b7fd1f814a3ea73b533f12858b`; execution output SHA256 `5f498c5cea2848ea96fc884b94649584d8b5533e6a7e2a42ed7e7da507ec3d5b`. This remains a bounded exact integer convolution rather than a full native benchmark.
