@@ -1,0 +1,71 @@
+{
+  "schema": "EM_X6_UNIT96_AUTHOR_SOURCE_CONTINUATION_V1",
+  "date": "2026-11-17",
+  "mother_goal": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "scientific_pins": {
+    "p000": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "signed_brc_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176"
+  },
+  "highest_verified_author_frontier": "Unit96: exact signed BRC Fraction input coercion source defect; strict opt-in source implementation and original-source import 12,129 exact weighted endpoints verified under 3 legal rational profiles, all three CPython modes byte-identical. Original source/LP026 and R063/Helly frozen benchmarks unchanged.",
+  "unit96": {
+    "classification": "AUTHOR-SOURCE-EXECUTED / EXACT-RATIONAL-EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "original_bad_consumer_found": false,
+    "input_source_defect": "signed_brc.py:62; map(Fraction,...) accepts bool float str Decimal outside annotated int/Fraction; no demonstrated current consumer miscall",
+    "strict_source": {
+      "path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc_strict_v2.py",
+      "blob": "5b66765c9fb0865684c468d4c93604bd1e9b004b",
+      "commit": "aebc38455061d07cee8b441a2fd91ff737dfcae2"
+    },
+    "checker": {
+      "path": "research_checks/X6_UNIT96_SIGNED_BRC_EXACT_WEIGHT_INPUT_BOUNDARY_CHECK_20261117.py",
+      "blob": "c458cfeef5d58de048dfcdefabfc0f771fa467ca",
+      "commit": "712143b1f3b66c80217e18e39ec39149c1e57616",
+      "stdout_sha256": "e029c1fe55ac3f038dda9e02c197860d99965b4e2825c2774bcfaf0324d00171"
+    },
+    "certificate": {
+      "path": "research_checks/X6_UNIT96_SIGNED_BRC_EXACT_WEIGHT_INPUT_BOUNDARY_RESULTS_20261117.json",
+      "blob": "d85f17195aeb5355ded14d4350ab35a6aa31b39b",
+      "commit": "6450b56d57c047f4808693053fc03cc980823765"
+    },
+    "checked_native_endpoints": 12129,
+    "invalid_input_examples": 4,
+    "original_frozen_modified": false,
+    "original_R063_Helly_rerun": false,
+    "native_semantic_progress_submitted": false
+  },
+  "identity": {
+    "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+    "explicitly_not_maintenance": "chatgpt-hourly-enterprise-math-20260921",
+    "historical_sid": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "researcher_id": "EM-X6-FB6990",
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "historical_claim": "MCP-579c8e23625448582b421831",
+    "historical_run": "RUN-fb25028676f9692ab1bacaee",
+    "own_recovery_status_issue": 6994,
+    "own_exact_continuation_issue": 6995,
+    "exact_continuation_read_request": "onhour-20261117-1103-x6-exact-task-continuation-v1",
+    "source_execution_authorized": false
+  },
+  "open_gaps": [
+    "LP011 original historical wrong native signed dominance caller exact path:line is unresolved",
+    "LP019 original historical wrong signed cancellation caller exact path:line is unresolved",
+    "Remaining 28-LP true semantic consumer graph incomplete",
+    "Bounded actual consumers of signed_brc.endpoint_weight and type coercion need verified source callsites",
+    "Independent Driver REQUEST_REVISION; original Native current winning owner and semantic PROGRESS unresolved"
+  ],
+  "do_not_repeat": [
+    "Original signed_brc.py and other frozen source edits",
+    "Unit93-95 validated input boundary and opt-in LP026 full consumer, unchanged pins",
+    "Unit96 original import 12,129 rational endpoint checks absent source change",
+    "Original R063/Helly native benchmark",
+    "Already SUCCEEDED bridge #6994/#6995 and original continuation request; do not reissue",
+    "Maintenance/D25 role-bound writes"
+  ],
+  "next_action": "Trace actual current and historical callsites of signed_brc.endpoint_weight and precise argument types; if an incorrect consumer exists, apply bounded opt-in correction and regression; otherwise continue declared 28-LP LP011/LP019 historical source:line audit. Independently check original own Native run authorization via current continuation/receipt without borrowing subject.",
+  "native_progress": "NOT_SUBMITTED_NO_ORIGINAL_AUTHENTICATED_WRITER",
+  "scheduler_modified": false,
+  "notifications_modified": false
+}
