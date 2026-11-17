@@ -1,0 +1,106 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-18",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_id_forbidden": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_inputs": {
+    "P000_V5": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "highest_author_verified_frontier": {
+    "unit": 107,
+    "status": "AUTHOR-SOURCE-AUDITED/EXACT-PYTHON-CONTROL-FLOW-EXECUTED/UNREVIEWED/NOT_ADMITTED",
+    "result": "Two current LP011/LP019 consumer programs call the real signed_brc API only inside assert, while reporting a comparison counter outside assert. Under -O/-OO the reported 3375/10364 counts remain, but actual API invocations become 0. The executable witness tests Python assert/counter control flow, not the original full programs.",
+    "original_source_blobs": {
+      "LP011": "cf2c11d47a4abf5a462c4c96540a125f0f942a8d",
+      "LP019": "24664a814c83b471febaabb4a1c0b0ae0c59d571"
+    },
+    "census_scope": "27 current main research_checks scripts with X6_LP011 or X6_LP019 filename prefix, read exact bytes; not a corpus-wide historical negative",
+    "exact_observation": {
+      "LP011": {
+        "expected": 3375,
+        "normal_actual": 3375,
+        "optimized_O_actual": 0,
+        "optimized_OO_actual": 0,
+        "reported_in_all_modes": 3375
+      },
+      "LP019": {
+        "expected": 10364,
+        "normal_actual": 10364,
+        "optimized_O_actual": 0,
+        "optimized_OO_actual": 0,
+        "reported_in_all_modes": 10364
+      }
+    },
+    "modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "three_modes_result_byte_identical": true,
+    "program_sha256": "bec7427f11b87fa053448e44ca8e936d937d2ade2a1b40e572a45bf82036c63d",
+    "certificate_sha256": "7156af21d8e9327c2636ddf989de5e5b2ac8b832783e485cdddb2b1b1aad68",
+    "native_original_benchmark_executed": false,
+    "original_full_consumers_reexecuted": false,
+    "artifacts": [
+      {
+        "path": "research_checks/X6_UNIT107_LP011_LP019_OPTIMIZED_ASSERT_CALL_ELISION_CHECK_20261118.py",
+        "commit": "3cb9d245e3916f91154f732eb859afda1d0c3de7",
+        "git_blob_sha1": "b6e1771285d0bf609f2caba69f52c383a3d80dae",
+        "readback_verified": true
+      },
+      {
+        "path": "research_checks/X6_UNIT107_LP011_LP019_OPTIMIZED_ASSERT_CALL_ELISION_RESULTS_20261118.json",
+        "commit": "fd693fb46fe4aaa793b55cac9d4a4ce994cba500",
+        "git_blob_sha1": "5a08405366e23f111821dafa57060c93803acbee",
+        "readback_verified": true
+      },
+      {
+        "path": "research_notes/X6_UNIT107_LP011_LP019_ACTUAL_NATIVE_CALL_OPTIMIZATION_GAP_20261118.md",
+        "commit": "770b28028bd9d1a9d31f9c194e416bd25e33ff3e",
+        "git_blob_sha1": "804f8a6dc5577918e6d823e2a8393a6778fbc75c",
+        "readback_verified": true
+      }
+    ]
+  },
+  "previous_frontier": {
+    "unit": 106,
+    "continuation": "research_notes/X6_UNIT106_OPERATION_AWARE_JOHNSON_BRC_CONTINUATION_20261118.json",
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "activity_count_before_this_unit": 120
+  },
+  "native_identity": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-3e221a50dc8818f914e228f6",
+    "run_id": "RUN-95866d78d35721116c362956",
+    "last_saved_generation": 2,
+    "last_saved_revision": 2,
+    "original_unit104_progress_request": "onhour-20261118-0402-x6-own-unit104-native-progress-v1",
+    "original_unit104_progress_status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "original_unit104_progress_source_commit": "b935d61e55dcaca2db42688c8c40099e17221e73",
+    "original_latest_continuation_read_request": "onhour-20261118-0503-x6-own-frontier-read-v1",
+    "original_latest_continuation_read_status": "SUCCEEDED/OWN_RECORDED_RUN_AVAILABLE",
+    "units105_106_107_native_progress": "NOT_SUBMITTED",
+    "fresh_writer_authority": "REQUIRES_CURRENT_SOURCE_REAUTHORIZATION"
+  },
+  "remaining": [
+    "Version and run always-on original signed_brc API comparison in LP011 and LP019 consumers under normal/-O/-OO and preserve immutable original Source pins",
+    "LP011 historic wrong native argmax actual executable file:line UNRESOLVED_PROVENANCE",
+    "LP019 historic subtraction of natural N-BRC actual executable file:line UNRESOLVED_PROVENANCE",
+    "Actual 28-LP downstream consumers beyond this 27-file topic-prefix census remain incompletely classified",
+    "Independent Driver REQUEST_REVISION, review and formal Result outstanding",
+    "Original R063/Helly native benchmark issue #2416 open and still lacks confirmed responsible runner"
+  ],
+  "do_not_repeat": [
+    "Units64-106 verified author research and prior Native Source PROGRESS",
+    "Original Unit104 Native PROGRESS already succeeded; never reissue",
+    "Original R063/Helly benchmark not executed by Unit107; preserve original pinned object and gates",
+    "No maintenance lane identities or owner-custody borrowed"
+  ],
+  "next_exact_action": "Version-correct the two named active Source consumers: make original native blob pin and imported API comparisons always-on in each Python mode, execute both full modules with original source and equal actual native-call count in normal/-O/-OO; if running cannot be completed, preserve not-executed status and continue other source-line audit. For Native semantic publication first confirm own current claim/run on Source, resume same own run as needed and publish one authenticated checkpoint for verified Units105-107 only.",
+  "continuation_state": "OPEN"
+}
