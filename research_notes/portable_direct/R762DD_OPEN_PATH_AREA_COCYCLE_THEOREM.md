@@ -1,81 +1,85 @@
 # R762DD — Integral open X6 path-area cocycle and sharp parity repair
 
-Date: 2026-11-17. Task `RS-X6-TRIADIC-CLOSURE-DYNAMICS`, publication `TP2-8B7E13C5904A2D6F1142`; author identity `EM-X6-3050F6` with own existing SID `MCP-4b2d70a97f594366a7c94a0f8b45df38`. Independent review: `NOT_REVIEWED`.
+Date: 2026-11-17. Task RS-X6-TRIADIC-CLOSURE-DYNAMICS; publication TP2-8B7E13C5904A2D6F1142; author EM-X6-3050F6 using existing session MCP-4b2d70a97f594366a7c94a0f8b45df38. Independent review NOT_REVIEWED.
 
-## Frozen scientific sources and typed scope
+## Frozen scientific provenance
 
-Taskbook `awdawmip/enterprise-math@e3f42efac29a2da2d95be391f3231a664e2fade0:research_tasks/RS_X6_TRIADIC_CLOSURE_DYNAMICS_20260906.md`; frozen P000 V5 `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json`; R762CH full signed X6 **closed** path area at PR #2575@1c860018c4399e1b7497192ef818e3567390d2e2; R762DC bounded passive frame diagnostics PR #2641. P000 keeps six native spatial axes, native three-force stability, PERP_E/120-degree relation and Cell torsor. The ordered pair-area numbers below are path-provenance relations; their 15 coordinates are not additional spatial axes or native two-dimensional planes. No authentic `TRIADIC_CLOSURE_E` event licensing is assumed.
+Frozen taskbook: awdawmip/enterprise-math@e3f42efac29a2da2d95be391f3231a664e2fade0:research_tasks/RS_X6_TRIADIC_CLOSURE_DYNAMICS_20260906.md. Frozen P000 V5: awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json. Predecessors: R762CH closed-X6 path area, Draft PR #2575@1c860018c4399e1b7497192ef818e3567390d2e2; R762DC bounded pair diagnostics, Draft PR #2641.
 
-## Definition — native signed unit-step paths without closing hypothesis
+P000 fixes six native spatial axes, native three-force stability, PERP_E / 120-degree relation and an affine signed Cell torsor. Fifteen pair-area coordinates below describe *history/provenance*, not additional spatial axes or native two-dimensional planes. No actual licensed TRIADIC_CLOSURE_E event is assumed.
 
-Fix a chosen native chart anchor. An arbitrary (possibly open) primitive X6 path is a finite word (H=(d_1,\ldots,d_m)) with each (d_t\in\{\pm e_1,\ldots,\pm e_6\}\subset\mathbb Z^6). Let
+## Definitions — arbitrary signed X6 paths
+
+Fix a chosen native chart anchor. A possibly *open* primitive X6 path is a finite word $H=(d_1,\ldots,d_m)$, each $d_t\in\{\pm e_1,\ldots,\pm e_6\}\subset\mathbb Z^6$. For $i\ne j$ put
 
 \[
 v_i(H)=\sum_t d_{t,i},\qquad
-B_{ij}(H)=\sum_{p<t} d_{p,i}d_{t,j}\quad(i\ne j),
-\]
-\[
+B_{ij}(H)=\sum_{p<t}d_{p,i}d_{t,j},\qquad
 A_{ij}(H)=B_{ij}(H)-B_{ji}(H)\quad(i<j).
 \]
 
-The (A\)-array is an alternating 15-coordinate history relation. In a closed path, (B_{ij}) for (i<j) is precisely the R762CH path-area (C_{ij}), while (A_{ij}=2C_{ij}).
+Thus $A(H)$ is an alternating rank-15 integral path-provenance array, and $v(H)$ is the signed Cell displacement. On closed histories, $B_{ij}$ for $i<j$ is exactly R762CH's $C_{ij}$.
 
-## Theorem 1 — integral 2-step central extension of signed X6 path concatenation
+## Theorem 1 — exact open-path cocycle and central extension
 
-For every pair of signed unit-step paths H,K (open or closed),
+For **all** (open or closed) signed native unit-step words $H,K$,
 
 \[
-\boxed{v(HK)=v(H)+v(K),\quad
-A(HK)=A(H)+A(K)+v(H)\wedge v(K).}
+\boxed{v(HK)=v(H)+v(K),\qquad A(HK)=A(H)+A(K)+v(H)\wedge v(K),}
 \]
+where $(v\wedge w)_{ij}=v_iw_j-v_jw_i$. In particular the path map $\Phi(H)=(v(H),A(H))$ takes concatenation to the associative integral two-step nilpotent group law
 
-Here ((v\wedge w)_{ij}=v_iw_j-v_jw_i). Therefore the image of the path map (Phi(H)=(v(H),A(H))) lies in the integral two-step nilpotent group
 \[
 (v,a)\star(w,b)=(v+w,a+b+v\wedge w).
 \]
-This operation is associative, has identity ((0,0)), inverse ((-v,-a)), and central subgroup ((0,a)). It transforms under signed native-axis permutations via (v\mapsto Pv, A\mapsto(\wedge^2P)A).
 
-**Proof.** Splitting the sum defining (B_{ij}(HK)) into within-H, within-K and cross-boundary ordered pairs gives (B_{ij}(HK)=B_{ij}(H)+B_{ij}(K)+v_i(H)v_j(K)). Subtract the reversed (j,i) expression to get the boxed law. The associator's extra terms on both sides are ((v\wedge w)+(v\wedge z)+(w\wedge z)), by bilinearity. Antisymmetry gives (v\wedge(-v)=0). Covariance follows from relabeling the underlying signed steps. QED.
+Its identity is $(0,0)$, inverse is $(-v,-a)$, and $(0,a)$ is central. Under any signed axis permutation $P$, $v\mapsto Pv$ and $A\mapsto(\wedge^2P)A$.
 
-## Theorem 2 — exact parity image, reconstruction, and realization
+**Proof.** Split the ordered pair sum at the concatenation boundary:
+$B_{ij}(HK)=B_{ij}(H)+B_{ij}(K)+v_i(H)v_j(K)$.
+Subtract the same equation with $(i,j)$ reversed to obtain the boxed law. The cocycle identity follows by bilinearity, because $(v\wedge w)+(v+w)\wedge z=v\wedge(w+z)+(w\wedge z)$. The inverse works because $v\wedge(-v)=0$, and the signed permutation identity follows from relabeling every native step. QED.
 
-For **every** signed primitive path and every i<j,
+## Theorem 2 — exact parity image and closed-loop realization
+
+For every signed native step word H and all $i<j$,
+
 \[
 \boxed{A_{ij}(H)\equiv v_i(H)v_j(H)\pmod 2,\qquad
 B_{ij}(H)=\frac{A_{ij}(H)+v_i(H)v_j(H)}2.}
 \]
 
-Moreover, **every** pair ((v,A)\in\mathbb Z^6\times\mathbb Z^{15}) satisfying the displayed 15 parity congruences is represented by some signed unit-step path.
+Conversely **every** $(v,A)\in\mathbb Z^6\times\mathbb Z^{15}$ with those fifteen parity congruences occurs for at least one signed native unit-step path.
 
-**Proof of parity and reconstruction.** Because one native unit step has only one nonzero axis coordinate, (d_{t,i}d_{t,j}=0) for (i\ne j). Hence (v_iv_j=\sum_{p\ne t}d_{p,i}d_{t,j}=B_{ij}+B_{ji}). Subtraction gives (A=B_{ij}-B_{ji}=2B_{ij}-v_iv_j), proving both assertions.
+**Proof.** A single native step has exactly one nonzero coordinate, so $d_{t,i}d_{t,j}=0$ for $i\ne j$. Expanding $v_iv_j$ and discarding its zero diagonal terms gives $v_iv_j=B_{ij}+B_{ji}$, while $A=B_{ij}-B_{ji}$. Solve these two equations for $B_{ij}$ to obtain both claims.
 
-**Proof of surjectivity onto the parity lattice.** Construct a signed coordinate walk (H_0) from 0 to any prescribed (v\in\mathbb Z^6); its area (A^0) has the required parity. For any target A having the same parity, ((A_{ij}-A^0_{ij})/2) are integers. Append signed four-step closed loops (L_{ij}=(+e_i,+e_j,-e_i,-e_j)), each of which has v=0 and (A=+2e_{ij}), and their reverse-oriented analogues, which have (A=-2e_{ij}). Additivity in Theorem 1 when one factor is closed shows independent adjustment of every pair coordinate without changing v. Thus all admissible parity tuples occur. QED.
+For realization, choose any signed coordinate path $H_0$ ending at the desired $v$. Its area $A^0$ obeys the same parity constraints. Consequently each $(A_{ij}-A^0_{ij})/2$ is an integer. The closed four-step loop $L_{ij}=(+e_i,+e_j,-e_i,-e_j)$ has $v=0$ and $A=+2e_{ij}$; swapping its first two positive steps produces $A=-2e_{ij}$. Concatenate the required number of positive/negative loops independently for each pair. Theorem 1 gives exact additivity when the appended path is closed, so all fifteen coordinates can be adjusted with no change to v. QED.
 
-**Immediate implication.** The signed-X6 path algebra is an index-(2^{15}) parity-constrained sublattice of the naive (mathbb Z^6\times\mathbb Z^{15}) coordinate set (as a set; the parity constraints are nonlinear in v). Unlike R762CH, the open-path (A) is not simply additive: omitting (v\wedge w) yields an incorrect update for open fragments.
+**Consequences.** At every fixed $v$, exactly one of the $2^{15}$ parity assignments for the fifteen $A_{ij}$ is allowed; the full image in $\mathbb Z^6\times\mathbb Z^{15}$ is not a linear sublattice because its congruences involve products $v_iv_j$. For an open path, $A$ is **not** simply additive under concatenation; the $v\wedge w$ term is essential. On a closed path $v=0$, $A=2C$, recovering the additive closed-loop carrier of R762CH.
 
-## Theorem 3 — sharp modulus for lossless recovery of ordered pair residues
+## Theorem 3 — sharp modulus to recover ordered pair areas
 
-Fix (q\ge2), and suppose the signed endpoint (v(H)) is retained exactly. An observer retaining only (A(H)\bmod m) for some positive integer (m) can reconstruct the complete **ordered** (B_{ij}(H)\bmod q) for all signed unit-step histories if and only if
+Fix $q\ge2$ and assume the endpoint displacement $v(H)$ is retained **exactly**. Retaining $A(H)\pmod m$ for a positive integer $m$ is sufficient to determine all ordered $B_{ij}(H)\pmod q$ over **every** signed native path if and only if
 
 \[
-\boxed{q\mid m/\gcd(m,2).}
+\boxed{q\mid\frac{m}{\gcd(m,2)}.}
 \]
 
-The smallest admissible modulus is
+The smallest possible modulus is
+
 \[
-\boxed{m_{\min}(q)=\begin{cases}q,&q\text{ odd},\\2q,&q\text{ even}.\end{cases}}
+\boxed{m_{\min}(q)=\begin{cases}q,&q\ {\rm odd},\\2q,&q\ {\rm even}.\end{cases}}
 \]
 
-**Sufficiency.** Fix v, so all valid A have the parity of (v_iv_j). If two such arrays agree mod m, their coordinate differences are divisible by both m and 2, hence by (operatorname{lcm}(m,2)=2m/\gcd(m,2)). By Theorem 2, their B differences equal half their A differences and are multiples of (m/\gcd(m,2)), hence vanish modulo q under the stated condition.
+**Sufficiency.** Fix $v$. Every admissible $A_{ij}$ has parity $v_iv_j$, so a difference between two admissible $A$ values congruent modulo m must be divisible by $\operatorname{lcm}(m,2)=2m/\gcd(m,2)$. Theorem 2 implies the corresponding ordered $B$ values differ by a multiple of $m/\gcd(m,2)$, hence coincide mod q whenever the boxed divisibility holds.
 
-**Necessity, with concrete equal-coarse-data counterexample.** If (q\nmid m/\gcd(m,2)), set (t=m/\gcd(m,2)). For any fixed pair i<j, compare the two open histories (H=B_{ij}^{t}) and (K=L_{ij}^{t}), where (B_{ij}=(+e_i,-e_i,+e_j,-e_j)) and L is the oriented loop above. Both are actually closed; they have identical Cell endpoint 0, length 4t, and full signed-direction step histogram. But (A(K)-A(H)=2t e_{ij}\equiv0\pmod m), whereas (B_{ij}(K)-B_{ij}(H)=t\not\equiv0\pmod q). Thus the proposed quotient loses an observable phase even on the strongest common coarse fibre. The least m meeting the divisibility condition is q if q odd, and 2q if q even. QED.
+**Necessity.** Suppose $q\nmid m/\gcd(m,2)$ and put $t=m/\gcd(m,2)$. For any fixed axis pair $i<j$, take $H=B_{ij}^{\,t}$ and $K=L_{ij}^{\,t}$, with $B_{ij}=(+e_i,-e_i,+e_j,-e_j)$ and $L_{ij}$ as above. Both paths have identical endpoint $v=0$, time $4t$, and complete twelve-direction signed-step histograms. Their $A$ difference is $2te_{ij}\equiv0\pmod m$, but their ordered area $B_{ij}$ difference is $t\not\equiv0\pmod q$. Hence the proposed quotient fails on a common coarse fibre. The least m satisfying the criterion is q for odd q and 2q for even q. QED.
 
-**Information nuance.** On any fixed v, exactly q distinct (A_{ij}\bmod m_{\min}) values are parity-admissible; the necessary 2q modulus for even q is a *congruence repair*, not an additional bit per pair over the actual parity-constrained population. If v itself is discarded, the reconstruction formula no longer applies and future signed Cell updates must be assessed separately.
+**State cost.** On any fixed $v$, the modulus $m_{\min}$ has exactly q parity-admissible residues per $A_{ij}$; the even-q factor two is a **congruence representation repair**, not an additional history bit on this parity-constrained population. If endpoint $v$ is omitted, this reconstruction theorem does not apply without an observer-safety proof.
 
-## Exact executable author verification
+## Exact author-side verification
 
-Run `node R762DD_VERIFY.js > R762DD_EVIDENCE.json`. Uses JavaScript Number only with bounded integers here; no floating point error arises in the enumerated ranges. The checker exhaustively enumerates all (1+12+12^2+12^3+12^4=22621) signed X6 words of lengths 0..4 and checks parity and B reconstruction on each, all 145²=21025 ordered concatenations of empty/two-step words for the cocycle, all 15 loop edge generators, and 75 exact equal-coarse-history failure witnesses for every smaller modulus than the sharp bound at q=2,...,10. Author execution PASS. General theorems have the proofs above; independent review NOT_REVIEWED.
+Run: node R762DD_VERIFY.js > R762DD_EVIDENCE.json. The executable uses bounded integers with exact arithmetic. It checks **all 22,621** signed X6 native-step words of length 0 through 4 for parity and reconstruction; **21,025** ordered pairs of empty/two-step words for the cocycle; all **15** pair loop generators; and **75** sharp counterexamples for every modulus below $m_{\min}(q)$ for q=2,...,10. Local execution returned PASS. These finite checks support the code/example claims; the general theorems have independent algebraic proofs above. Independent mathematical review remains NOT_REVIEWED.
 
-## Research continuation
+## Remaining native research frontier
 
-This open-path integral update is a candidate *carrier* for legal Cell/Link/Port path provenance. Obtain the authentic `TRIADIC_CLOSURE_E` signed incidence/update predicate and V17/V29/V39 transport, identify which future operations consult B, A, Port/source sequence and other joint residuals, and certify a scope-typed minimal quotient or native separating suffix. Preserve the frozen task science and joint-relation observer contract.
+Read and pin the authentic signed TRIADIC_CLOSURE_E Cell/Link/Port event predicate and licensed V17/V29/V39 rotations. Determine whether actual legal suffixes read the ordered $B$, alternating $A$, named Port/source histories, or further joint residuals. Apply the exact open-path cocycle and parity repair only under that legal observer language. The protected P000 and joint-relation observer-preservation contract remain unchanged.
