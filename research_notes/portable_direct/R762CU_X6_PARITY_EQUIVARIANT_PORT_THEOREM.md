@@ -53,9 +53,31 @@ Thus one local, symmetry-preserving explicit Port selector needs **3 tagged alte
 
 **BRC significance:** If a proposed rotation/update follows one of the three equal homogeneous Ports, a one-state unmarked triad observation loses the branch identity. A 3-sheeted source-marking or a genuine three-branch positive N-BRC successor preserves it. This is an observer-specific information lower bound, not a physical-force balance equation.
 
+
+## Theorem 4 — full four-orbit optimal equivariant selector cover has 240 states
+
+For each sign-count orbit \(\Omega_k\), consider all nonempty finite \(S_6\)-equivariant Port-selecting covers. Their **sharp minimum number of tagged states per original triad** is
+
+\[
+(m_0,m_1,m_2,m_3)=(3,1,1,3).
+\]
+
+For k=1, the unique negative Port is fixed by each triad stabilizer and can be selected equivariantly without a tag. For k=2, select the unique positive Port. For k=0 or k=3, the three Port labels form a transitive stabilizer orbit, so the proof of Theorem 3 applies with either common sign, forcing at least three lifts; marking all three attains the bound.
+
+Consequently, a single \(S_6\)-equivariant chosen-Port lift covering **all 160 signed candidates** has sharp minimum total cardinality
+
+\[
+\boxed{20\cdot3+60\cdot1+60\cdot1+20\cdot3=240.}
+\]
+
+An explicit optimal cover is
+\(\widehat{\Omega}=\{(T,a):a\in A(T)\}\), where \(A(T)=T\) for k=0 or 3, \(A(T)\) is the singleton negative Port for k=1, and the singleton positive Port for k=2. The transported allowed-Port sets satisfy \(A(\pi T)=\pi A(T)\), so this construction is \(S_6\)-equivariant. The 480-state uniformly three-marked cover in Theorem 3 remains a valid, nonminimal uniform construction. The two-bit worst-case local mark cost is sharp on k=0 and 3; the mixed-sign orbits need zero additional mark bits in this explicitly declared selector language.
+
+**Proof of optimality.** Every nonempty fiber has size at least one. For any all-positive or all-negative base triad, its stabilizer contains an S3 acting transitively on the three candidate Ports, giving the three-point lower bound exactly as in Theorem 3. Orbit transitivity makes these bounds uniform within k. The explicit cover attains the orbit-wise bounds, so the weighted sum above is globally minimal. QED.
+
 ## Exact verification and interfaces
 
-`R762CU_VERIFY.py` is a standard-library-only executable exact enumeration. It verifies all 160 signed triads, the four orbit sizes and transitivity, 720 permutations × 160 sign-preservation/covariance checks, 160×6 three-step nonreturn witnesses, the 36-element stabilizer, 720×480 marked-cover equivariance checks, and 16 invariant Boolean closure candidates. `R762CU_EVIDENCE.json` records the reproducible counts.
+`R762CU_VERIFY.py` is a standard-library-only executable exact enumeration. It verifies all 160 signed triads, the four orbit sizes and transitivity, 720 permutations × 160 sign-preservation/covariance checks, 160×6 three-step nonreturn witnesses, the 36-element stabilizer, 720×480 marked-cover equivariance checks, and 16 invariant Boolean closure candidates, plus the optimal 240-state four-orbit source-marked cover. `R762CU_EVIDENCE.json` records the reproducible counts.
 
 **Native licensing still open:** P000 supplies the arity and geometry, not a specific Cell/Link/Port update or V17/V29/V39 transport. Theorems 1–3 give two exact tests for any proposed native law: (a) it must avoid identifying a triadic balance with an odd-length primitive Cell return; (b) a deterministic all-equal positive-Port choice must expose a symmetry-breaking Port mark or a declared branch, or else use a different event type. The next discriminating unit is to apply these tests to an exact sourced TRIADIC_CLOSURE_E event licence, then combine licensed source-word operations with the R762CT observer quotient and R762CH/CK path-area provenance.
 
