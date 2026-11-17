@@ -1,0 +1,71 @@
+{
+  "schema": "EM_SOURCE_OBSERVATION_BUNDLE_V1",
+  "event_id": "r6-prefix859-20261117-two-read-pareto",
+  "activity_id": "RA-14044F2E842D112941E256BF",
+  "researcher_id": "EM-DIRECT-B518B3",
+  "session_id": "MCP-adddf9d72d594b378439e0dbb22af0f0",
+  "shared_claim_acquired": false,
+  "scope": "Independent named-source positive BRC modular observer; exact GitHub byte readback, no native X6 claim or peer-reviewed mathematical acceptance",
+  "artifacts": [
+    {
+      "kind": "paper",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/2026-11-17_r6_prefix859_two_read_odd_pareto_and_21_orbit.md",
+      "commit": "1234c74d99c5735659de57cd2f41504df41a4711",
+      "sha256": "672bb1d9d87a3c5372a4a3d3a5c4ac95ca824eddf020e640f5cc32ebfa16e027",
+      "git_blob_sha1": "8e5fab28aecb73c7e4d73a9b055fb7e1c6418ae6",
+      "observation_id": "r6-prefix859-20261117-source-observed-1",
+      "verification_kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+      "tool": "mcp__GitHub__fetch_file",
+      "readback_verified": true,
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/1234c74d99c5735659de57cd2f41504df41a4711/research_notes/portable_direct/2026-11-17_r6_prefix859_two_read_odd_pareto_and_21_orbit.md"
+    },
+    {
+      "kind": "checker",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX859_R6_TWO_READ_ODD_PARETO_CHECK.cpp",
+      "commit": "73d4e1067362eab9093c7f478c8c76db810b04cf",
+      "sha256": "a246c29011c83f573010bcbcc2d4da49de75ca052b676b4ed4a0bc8bd03c5ea4",
+      "git_blob_sha1": "5a4fd727974d4872c1c37e522cb1312d0f40e06b",
+      "observation_id": "r6-prefix859-20261117-source-observed-2",
+      "verification_kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+      "tool": "mcp__GitHub__fetch_file",
+      "readback_verified": true,
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/73d4e1067362eab9093c7f478c8c76db810b04cf/research_notes/portable_direct/PREFIX859_R6_TWO_READ_ODD_PARETO_CHECK.cpp"
+    },
+    {
+      "kind": "results",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX859_R6_TWO_READ_ODD_PARETO_RESULTS.json",
+      "commit": "0b27c2bd5fdd38658a9ffdfef850263759d917bf",
+      "sha256": "bd536da2694a491c58c00f005d99516f985e75562df960c28b3580d75220774d",
+      "git_blob_sha1": "1c3952517c5cb00878fa7d56ef685b91b6c2cf8f",
+      "observation_id": "r6-prefix859-20261117-source-observed-3",
+      "verification_kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+      "tool": "mcp__GitHub__fetch_file",
+      "readback_verified": true,
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/0b27c2bd5fdd38658a9ffdfef850263759d917bf/research_notes/portable_direct/PREFIX859_R6_TWO_READ_ODD_PARETO_RESULTS.json"
+    },
+    {
+      "kind": "independent_checker",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX859_R6_INDEPENDENT_CROSSCHECK.py",
+      "commit": "09884d422cf58220085db9e8126dccc582ddbd00",
+      "sha256": "18c4a900d08544a9b34942addca50bf51eded51d8df6a792e9ce3e0afa801d63",
+      "git_blob_sha1": "fa4cf58354f54c15bab860d8f18d971d4896d1c3",
+      "observation_id": "r6-prefix859-20261117-source-observed-4",
+      "verification_kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+      "tool": "mcp__GitHub__fetch_file",
+      "readback_verified": true,
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/09884d422cf58220085db9e8126dccc582ddbd00/research_notes/portable_direct/PREFIX859_R6_INDEPENDENT_CROSSCHECK.py"
+    }
+  ],
+  "validation": {
+    "local_cpp17_exhaustive": "PASS_p3_to_p11_odd_pairs",
+    "independent_python_direct": "PASS_full_p3_to_p7_and_witnesses_p8_to_p11",
+    "github_source_readback": true,
+    "formal_activity_cli_audit_executed": false,
+    "independent_review": false
+  },
+  "kb_ref": "https://github.com/awdawmip/chatgpt-global-knowledge/blob/57e8e3c2a6abce2318154f95d997045b8574a587/journal/enterprise-math/2026-11-17/20261117T1250-r6-prefix859-two-read-pareto-nonmersenne-orbit.md"
+}
