@@ -1,0 +1,150 @@
+{
+  "schema": "PREFIX857_R6_TEMPORAL_ADAPTIVE_GAME_V1",
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "Five named binary source positions, no-op/one-bit-flip each heartbeat, raw m<=16, c_t=2^floor(t/2), t>=1, arbitrary feedback/history",
+  "effective_moduli_per_t": {
+    "1": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "2": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11,
+      13,
+      15
+    ],
+    "3": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11,
+      13,
+      15
+    ],
+    "4": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15
+    ],
+    "5": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15
+    ],
+    "6": [
+      1,
+      2,
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15
+    ],
+    "7": [
+      1,
+      2,
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15
+    ],
+    "8": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15
+    ]
+  },
+  "reachable_posterior_counts_per_t": {
+    "1": 136,
+    "2": 1525,
+    "3": 5164,
+    "4": 9219,
+    "5": 11528,
+    "6": 12330,
+    "7": 12496,
+    "8": 8796
+  },
+  "infinite_late_graph": {
+    "states": 8796,
+    "action_rows": 70368,
+    "winning_layers_cumulative": [
+      32,
+      56
+    ],
+    "losing_states": 8740,
+    "all_losing_actions_have_losing_successor": true
+  },
+  "backward_winning_posterior_counts_per_t": {
+    "1": 4,
+    "2": 69,
+    "3": 94,
+    "4": 96,
+    "5": 96,
+    "6": 96,
+    "7": 96,
+    "8": 56
+  },
+  "initial_four_bit_winning_moduli": [],
+  "four_bit_adaptive_cold_start_from_t1": false,
+  "four_bit_adaptive_cold_start_from_any_t_ge1": false,
+  "action_set_temporal_nesting_checked_to_t": 32,
+  "five_bit_positive_schedule": [
+    17,
+    31
+  ],
+  "five_bit_terminal_off_diagonal_collisions": 0,
+  "next_question": "derive a short invariant/certificate for the 1,896 and 8,740 losing-state regions; arbitrary p and multi-source flips; native observer bridge"
+}
