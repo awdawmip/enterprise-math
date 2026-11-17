@@ -1,0 +1,60 @@
+{
+  "schema": "R5_FIFTH_CHAMBER_F1_FULL_256_EXACT_V1",
+  "science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "tau_interval": [
+    "25845652773852463277015040000",
+    "58182461585441404127941754880"
+  ],
+  "error_model": "at most 1 arbitrary unmarked corrupted reading; otherwise absolute error <= eta; tau=2eta",
+  "exact_full_256_optimum": 1685,
+  "lower": {
+    "mask_subset": [
+      18,
+      24,
+      82,
+      34,
+      17
+    ],
+    "tau_endpoint": "L",
+    "value": 1685,
+    "bellman_states": 133,
+    "distinct_action_families": 7,
+    "budget_representatives": [
+      214,
+      215,
+      216,
+      221,
+      222,
+      223,
+      296
+    ]
+  },
+  "upper": {
+    "state_count": 256,
+    "tau_endpoint": "U-1",
+    "value": 1685,
+    "bellman_states": 17945,
+    "distinct_action_families": 12,
+    "budget_representatives": [
+      214,
+      215,
+      216,
+      217,
+      219,
+      220,
+      221,
+      222,
+      223,
+      291,
+      295,
+      296
+    ]
+  },
+  "proof": "Monotonicity of minimax risk in tau and integer center distances. Lower at L on five-state restriction, upper at U-1 over all 256 states.",
+  "local_run_status": "PASS_R5_FIFTH_CHAMBER_F1_FULL_256_EXACT_1685",
+  "local_full_policy_states": 4240,
+  "local_full_policy_sha256": "369ea769a9314ba895f7828c46d5634dd651c428170dffe23e9ad49ab580ddf4",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "next": "Full 256-state f=2 optimum, then all-f structural bound"
+}
