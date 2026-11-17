@@ -1,0 +1,200 @@
+{
+  "continuation": "Prove sharp lower bound for all f or find finite counterexample above tested range; study high-noise.",
+  "costs": [
+    214,
+    223,
+    294
+  ],
+  "finite_checked_f_max": 20,
+  "finite_lower_and_equalities": [
+    {
+      "adaptive_saving": 0,
+      "all_f_upper": 731,
+      "dp_states": 11,
+      "exact_minmax": 731,
+      "f": 0,
+      "fixed_repetition_cost": 731
+    },
+    {
+      "adaptive_saving": 517,
+      "all_f_upper": 1676,
+      "dp_states": 56,
+      "exact_minmax": 1676,
+      "f": 1,
+      "fixed_repetition_cost": 2193
+    },
+    {
+      "adaptive_saving": 1034,
+      "all_f_upper": 2621,
+      "dp_states": 175,
+      "exact_minmax": 2621,
+      "f": 2,
+      "fixed_repetition_cost": 3655
+    },
+    {
+      "adaptive_saving": 1551,
+      "all_f_upper": 3566,
+      "dp_states": 424,
+      "exact_minmax": 3566,
+      "f": 3,
+      "fixed_repetition_cost": 5117
+    },
+    {
+      "adaptive_saving": 2068,
+      "all_f_upper": 4511,
+      "dp_states": 875,
+      "exact_minmax": 4511,
+      "f": 4,
+      "fixed_repetition_cost": 6579
+    },
+    {
+      "adaptive_saving": 2585,
+      "all_f_upper": 5456,
+      "dp_states": 1616,
+      "exact_minmax": 5456,
+      "f": 5,
+      "fixed_repetition_cost": 8041
+    },
+    {
+      "adaptive_saving": 3102,
+      "all_f_upper": 6401,
+      "dp_states": 2751,
+      "exact_minmax": 6401,
+      "f": 6,
+      "fixed_repetition_cost": 9503
+    },
+    {
+      "adaptive_saving": 3619,
+      "all_f_upper": 7346,
+      "dp_states": 4400,
+      "exact_minmax": 7346,
+      "f": 7,
+      "fixed_repetition_cost": 10965
+    },
+    {
+      "adaptive_saving": 4136,
+      "all_f_upper": 8291,
+      "dp_states": 6699,
+      "exact_minmax": 8291,
+      "f": 8,
+      "fixed_repetition_cost": 12427
+    },
+    {
+      "adaptive_saving": 4653,
+      "all_f_upper": 9236,
+      "dp_states": 9800,
+      "exact_minmax": 9236,
+      "f": 9,
+      "fixed_repetition_cost": 13889
+    },
+    {
+      "adaptive_saving": 5170,
+      "all_f_upper": 10181,
+      "dp_states": 13871,
+      "exact_minmax": 10181,
+      "f": 10,
+      "fixed_repetition_cost": 15351
+    },
+    {
+      "adaptive_saving": 5687,
+      "all_f_upper": 11126,
+      "dp_states": 19096,
+      "exact_minmax": 11126,
+      "f": 11,
+      "fixed_repetition_cost": 16813
+    },
+    {
+      "adaptive_saving": 6204,
+      "all_f_upper": 12071,
+      "dp_states": 25675,
+      "exact_minmax": 12071,
+      "f": 12,
+      "fixed_repetition_cost": 18275
+    },
+    {
+      "adaptive_saving": 6721,
+      "all_f_upper": 13016,
+      "dp_states": 33824,
+      "exact_minmax": 13016,
+      "f": 13,
+      "fixed_repetition_cost": 19737
+    },
+    {
+      "adaptive_saving": 7238,
+      "all_f_upper": 13961,
+      "dp_states": 43775,
+      "exact_minmax": 13961,
+      "f": 14,
+      "fixed_repetition_cost": 21199
+    },
+    {
+      "adaptive_saving": 7755,
+      "all_f_upper": 14906,
+      "dp_states": 55776,
+      "exact_minmax": 14906,
+      "f": 15,
+      "fixed_repetition_cost": 22661
+    },
+    {
+      "adaptive_saving": 8272,
+      "all_f_upper": 15851,
+      "dp_states": 70091,
+      "exact_minmax": 15851,
+      "f": 16,
+      "fixed_repetition_cost": 24123
+    },
+    {
+      "adaptive_saving": 8789,
+      "all_f_upper": 16796,
+      "dp_states": 87000,
+      "exact_minmax": 16796,
+      "f": 17,
+      "fixed_repetition_cost": 25585
+    },
+    {
+      "adaptive_saving": 9306,
+      "all_f_upper": 17741,
+      "dp_states": 106799,
+      "exact_minmax": 17741,
+      "f": 18,
+      "fixed_repetition_cost": 27047
+    },
+    {
+      "adaptive_saving": 9823,
+      "all_f_upper": 18686,
+      "dp_states": 129800,
+      "exact_minmax": 18686,
+      "f": 19,
+      "fixed_repetition_cost": 28509
+    },
+    {
+      "adaptive_saving": 10340,
+      "all_f_upper": 19631,
+      "dp_states": 156331,
+      "exact_minmax": 19631,
+      "f": 20,
+      "fixed_repetition_cost": 29971
+    }
+  ],
+  "freeze_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": "Four-state deterministic window witness: masks(16,17,80,32); f arbitrary unmarked errors; 0<=2eta<delta for 256-state upper",
+  "noise_delta": "76289178155959966960189440",
+  "review": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "schema": "R5_SHARP_ADAPTIVE_F0_FMAX_MINMAX_V1",
+  "status": "PASS_R5_ADAPTIVE_UNMARKED_ERROR_FINITE_F0_TO_F20",
+  "universal_constructive_upper": "C_f <= 731+945*f, for every nonnegative integer f",
+  "windows": [
+    [
+      214,
+      221
+    ],
+    [
+      223,
+      291
+    ],
+    [
+      294,
+      313
+    ]
+  ]
+}
