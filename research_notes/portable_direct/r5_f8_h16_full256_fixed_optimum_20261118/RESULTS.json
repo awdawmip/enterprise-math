@@ -1,0 +1,77 @@
+{
+  "schema": "R5_FIFTH_F8_H16_FULL256_FIXED_SCHEDULE_V1",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "table_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "tau_left": "25845652773852463277015040000",
+  "tau_right_exclusive": "58182461585441404127941754880",
+  "H16": [
+    18,
+    24,
+    82,
+    34,
+    17,
+    0,
+    1,
+    2,
+    3,
+    144,
+    208,
+    255,
+    50,
+    66,
+    4,
+    5
+  ],
+  "f8_H16_exact": 8335,
+  "H16_bellman_states": 23851087,
+  "H16_query_budgets": [
+    214,
+    215,
+    216,
+    223,
+    296
+  ],
+  "solver_stdout": "EXACT_RESTRICTED n=16 f=8 V=8335 states=23851087 actions=5",
+  "full256_fixed_schedule_exact": "735*(2*f+1) for all integer f>=0 and all real tau in fifth chamber",
+  "full256_fixed_f8": 12495,
+  "four_dual_witnesses": [
+    [
+      [
+        0,
+        64
+      ],
+      223
+    ],
+    [
+      [
+        1,
+        2
+      ],
+      1
+    ],
+    [
+      [
+        2,
+        8
+      ],
+      215
+    ],
+    [
+      [
+        16,
+        32
+      ],
+      296
+    ]
+  ],
+  "pair_count": 32640,
+  "all_two_type_covers": 0,
+  "three_type_covers": 3468,
+  "unique_minimal_three_type": [
+    216,
+    223,
+    296
+  ],
+  "review": "NOT_REVIEWED",
+  "outer_exit": "UNCONFIRMED_AFTER_TIMEOUT; SOLVER_STDOUT_COMPLETE"
+}
