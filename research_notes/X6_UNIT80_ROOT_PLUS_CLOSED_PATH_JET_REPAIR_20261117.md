@@ -13,9 +13,7 @@ The independent source consumer `experiments/x6_rotation_path_tensor_jet_2026090
 For each `0<=i<j<k<6`, orientation `eps=+/-`, and BRC branch word `beta in {0,1}^6`, take the six macro phases
 
 `p+=(e_i,-e_j,e_k,-e_i,e_j,-e_k)`,
-`p-=(e_i,-e_k,e_j,-e_i,e_k,e_j,-e_k)`.
-
-**Correction to the displayed p- list:** the six phase entries actually used throughout the proof and checker are `p-=(e_i,-e_k,e_j,-e_i,e_k,-e_j)`. The immediately preceding seven-token shorthand is an editorial typo; only this explicitly corrected six-entry definition is normative. (This explicit correction preserves the original executable bytes without concealing a textual transcription error.)
+`p-=(e_i,-e_k,e_j,-e_i,e_k,-e_j)`.
 
 Each macro edge from `a=p_r` to `b=p_(r+1)` has two length-two positive-BRC alternatives: INNER primitive steps `(-a,b)` via the chosen Cell, or OUTER steps `(b,-a)` via `a+b`. The corresponding microtrace has `x_(2r)=p_r`, `x_(2r+1)=0` for INNER and `p_r+p_(r+1)` for OUTER. Nonzero `R=x3` forces `beta_1=1`, yielding precisely `20*2*32=1280` labeled full-branch histories, grouped into twenty signed roots. These 1280 histories, including distinct source frames and branch words, are the entire declared finite domain.
 
