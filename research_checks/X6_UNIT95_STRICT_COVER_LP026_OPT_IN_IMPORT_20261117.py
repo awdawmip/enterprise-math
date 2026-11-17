@@ -14,6 +14,10 @@ from hashlib import sha1
 from pathlib import Path
 import sys
 
+def require(condition, details=None):
+    if not condition:
+        raise AssertionError(details)
+
 ROOT = Path(__file__).resolve().parents[1]
 COORD = ROOT / 'experiments' / 'x6_native_coordinate_completion_v7_20260905'
 SIGNED = ROOT / 'experiments' / 'x6_signed_native_spatial_v16_20260905'
@@ -29,7 +33,7 @@ PINS = {
 for file, pin in PINS.items():
     raw = file.read_bytes()
     actual = sha1(b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest()
-    assert actual == pin, (str(file),actual,pin)
+    require(actual == pin, (str(file), actual, pin))
 sys.path[:0] = [str(COORD), str(SIGNED), str(CHECKS)]
 from x6_coordinate import Coord6, canonical  # noqa: E402
 from x6_cover_strict_v2 import CoverState  # noqa: E402
@@ -81,32 +85,32 @@ def main(max_n=6):
     g_ambiguous=0
     old_section_distinctions=0
     for n in range(max_n+1):
-        assert sum(native.values())==12**n
+        require(sum(native.values()) == 12 ** n)
         for z,v in native.items():
-            assert endpoint_multiplicity(n,z)==v,(n,z,v)
+            require(endpoint_multiplicity(n, z) == v, (n, z, v))
             native_brc_checks+=1
         for m in range(6):
             groups=defaultdict(set)
             for z in native:
                 groups[key(z,m)].add(spatial_norm_squared(z))
             actual=cover[m]
-            assert actual==projected(native,m),(n,m)
-            assert sum(actual.values())==12**n,(n,m)
+            require(actual == projected(native, m), (n, m))
+            require(sum(actual.values()) == 12 ** n, (n, m))
             for k,v in actual.items():
-                assert v>0
+                require(v > 0)
                 r,h=k
-                assert canonical(r)==r
+                require(canonical(r) == r)
                 s=CoverState(Coord6(r),h,m)
-                assert (s.coordinate.values,s.depth)==k
+                require((s.coordinate.values, s.depth) == k)
                 try:
                     g=recover_native_norm_fast(r,h,m,n)
                 except AmbiguousNativeNorm:
-                    assert len(groups[k])>1,(n,m,k,groups[k])
+                    require(len(groups[k]) > 1, (n, m, k, groups[k]))
                     g_ambiguous+=1
                 except NoReachableNativeLift as e:
                     raise AssertionError(('reachable key rejected',n,m,k)) from e
                 else:
-                    assert groups[k]=={g},(n,m,k,groups[k],g)
+                    require(groups[k] == {g}, (n, m, k, groups[k], g))
                 fast_g_checks+=1
                 # The section observer can differ from the native norm, even
                 # where the native norm is individually recoverable.
@@ -116,7 +120,7 @@ def main(max_n=6):
                 if n<max_n:
                     for axis,d in STEPS:
                         k2=source_key_step(k,axis,d,m)
-                        assert k2==expected_key_step(k,axis,d,m),(n,m,k,axis,d,k2)
+                        require(k2 == expected_key_step(k, axis, d, m), (n, m, k, axis, d, k2))
                         transition_checks+=1
         if n<max_n:
             native=native_next(native)
@@ -129,17 +133,17 @@ def main(max_n=6):
     # Exact witnesses of the observer distinction.
     reverse=(-1,0,0,0,0,0)
     section=CoverState(Coord6(canonical(reverse)),-1,1)
-    assert section.coordinate.norm_squared()==5
-    assert spatial_norm_squared(reverse)==1
-    assert recover_native_norm_fast(section.coordinate.values,section.depth,1,1)==1
+    require(section.coordinate.norm_squared() == 5)
+    require(spatial_norm_squared(reverse) == 1)
+    require(recover_native_norm_fast(section.coordinate.values, section.depth, 1, 1) == 1)
     # Two lifts of the same m=3, exact length N=9 class carry the same norm
     # but distinct signed-BRC multiplicities.
     a=(-3,-3,0,-1,-1,-1)
     b=(0,0,3,2,2,2)
-    assert key(a,3)==key(b,3)
-    assert spatial_norm_squared(a)==spatial_norm_squared(b)==21
-    assert (endpoint_multiplicity(9,a),endpoint_multiplicity(9,b))==(10080,7560)
-    assert recover_native_norm_fast(*key(a,3),3,9)==21
+    require(key(a, 3) == key(b, 3))
+    require(spatial_norm_squared(a) == spatial_norm_squared(b) == 21)
+    require((endpoint_multiplicity(9, a), endpoint_multiplicity(9, b)) == (10080, 7560))
+    require(recover_native_norm_fast(*key(a, 3), 3, 9) == 21)
     try:
         CoverState(Coord6(ZERO),0,0).step(0,True)
     except ValueError:
