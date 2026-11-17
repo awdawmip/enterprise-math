@@ -1,0 +1,55 @@
+{
+  "schema": "EM_R247_VERIFICATION_MANIFEST_V1",
+  "frozen_scientific_commit": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "predecessor_commit": "f27cf3726bb58f2b5705cb80c4b8f48d254011f9",
+  "script": "R247_finite_grid_two_mode_cert.py",
+  "local_script_sha256": "cee028677b3f6766413b4dd169b784b816d73673bbc693d8fd42cc93c0c6d929",
+  "full_local_execution_output_sha256": "40a5e9145f732af15564b9269b4ffbca2b69fc1f17e1fa0c4fc3a7448484bab9",
+  "execution_observation": "2026-11-17 Asia/Shanghai, locally executed Python3 standard library, exit=0, PASS",
+  "exact_methods": [
+    "fractions.Fraction for all final comparisons",
+    "integer rank-one Markov propagation for 63 source masks",
+    "104 dyadic secular-root bisections for each of masks 59 and 55 at each grid point",
+    "rational Perron amplitude enclosures"
+  ],
+  "parameter_grid": {
+    "from": "390/1000",
+    "to": "410/1000",
+    "increment": "1/1000",
+    "count": 21,
+    "includes_endpoints": true
+  },
+  "checked_cases": {
+    "every_parameter": [
+      [
+        270,
+        "E_n<1/100"
+      ],
+      [
+        403,
+        "E_n<1/1000"
+      ]
+    ],
+    "at_right_endpoint_also": [
+      [
+        269,
+        "E_n>1/100"
+      ],
+      [
+        402,
+        "E_n>1/1000"
+      ]
+    ]
+  },
+  "exact_comparison_count": 44,
+  "all_comparisons_passed": true,
+  "sharp_finite_grid_thresholds": {
+    "1/100": 270,
+    "1/1000": 403
+  },
+  "scope_limit": "21 rational points only; no real-continuum uniform theorem established",
+  "independent_review": "NOT_REVIEWED",
+  "native_BRC": "NOT_EXECUTED",
+  "reproduction": "python3 R247_finite_grid_two_mode_cert.py > R247_verification_full.json; compare sha256 of output",
+  "validation_note": "Verification manifest is a compact report of executed checks, not the complete numerator/denominator certificate. Full 44 exact numerator/denominator margin digests are deterministically printed by the published Python program."
+}
