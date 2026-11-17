@@ -137,8 +137,8 @@ def run(grid,ns):
 if __name__=='__main__':
     import time
     start=time.time();grid=[F(j,1000) for j in range(390,411)]
-    data=run(grid,[270,403]);data={'schema':'EM_R248_TWO_MODE_GRID_SENSITIVITY_V1','source_commit':'43ec6098b1330ae86d0a7863be336c5d97f6ef34','cases':data,'all_pass':True,'elapsed_s':time.time()-start}
-    open('/mnt/data/R248_verification.json','w').write(json.dumps(data,indent=2))
-    print('PASS',len(data['cases']),'elapsed',data['elapsed_s'])
+    data=run(grid,[270,403]);data={'schema':'EM_R248_TWO_MODE_GRID_SENSITIVITY_V1','source_commit':'43ec6098b1330ae86d0a7863be336c5d97f6ef34','cases':data,'all_pass':True}
+    open('R248_verification.json','w').write(json.dumps(data,indent=2))
+    print('PASS',len(data['cases']),'elapsed',round(time.time()-start,3))
     for row in data['cases']:
         print(row['s'],*[row['n'][str(n)]['approx_dE_ds'] for n in (270,403)])
