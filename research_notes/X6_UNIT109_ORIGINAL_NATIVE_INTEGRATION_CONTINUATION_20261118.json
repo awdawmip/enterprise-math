@@ -1,0 +1,74 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-18",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "forbidden_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_inputs": {
+    "P000_V5": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "legacy": "fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "highest_author_frontier": {
+    "unit": 109,
+    "status": "AUTHOR-SOURCE-EXECUTED/EXACT-INTEGER-VALIDATED/UNREVIEWED/NOT_ADMITTED",
+    "question": "Original pinned signed BRC source actual call execution in optimized LP011/LP019 Unit108 opt-in programs",
+    "finding": "Both unchanged source-pinned Unit108 consumers pass against real unchanged original signed_brc.py in normal/-O/-OO; observed exactly 3375 native shortest-path calls and 10368 original endpoint calls in each mode, with all emitted JSON bytes identical within each consumer; negative pin experiment rejected all 3 modes",
+    "artifacts": [
+      {
+        "path": "research_checks/X6_UNIT109_LP011_LP019_ORIGINAL_NATIVE_THREE_MODE_INTEGRATION_20261118_RESULTS.json",
+        "commit": "4e05f2db147db0538ddc9a001b2fa242676a2c21",
+        "git_blob_sha1": "a9e32c99cb108690679a0ea5c23860b3b9bc225d"
+      },
+      {
+        "path": "research_checks/X6_UNIT109_NATIVE_CALL_TRACE_20261118.py",
+        "commit": "95b7938bc3ac4da28f6a2136e7513d1d8b65c169",
+        "git_blob_sha1": "b00762e0cbb65a45d186a1b8826f63eb71cd8c63"
+      },
+      {
+        "path": "research_notes/X6_UNIT109_LP011_LP019_ORIGINAL_NATIVE_THREE_MODE_INTEGRATION_20261118.md",
+        "commit": "db7fcd00249167940ab5ef99ad2ad7c758121ddf",
+        "git_blob_sha1": "b8d3c024a890c05630e8be56aae6e5047fce0eff"
+      }
+    ]
+  },
+  "own_native": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-3e221a50dc8818f914e228f6",
+    "run_id": "RUN-95866d78d35721116c362956",
+    "current_generation": 3,
+    "checkpoint_revision": 3,
+    "checkpoint_sha256": "61baddd4c6b7405b40db223ae9cb6a63cdb3890794136e6a77acb28f79837063",
+    "resume_request_id": "onhour-20261118-0519-x6-own-run9586-unit105-107-resume-v1",
+    "resume_status": "SUCCEEDED/authorized=true",
+    "original_exact_continuation_request_id": "onhour-20261118-0608-x6-own-unit109-exact-cont-v1",
+    "original_exact_continuation_last_observed": "QUEUED/error=null",
+    "native_publish_request_id": "onhour-20261118-0612-x6-own-units105-109-native-progress-v1",
+    "native_publish_last_observed": "QUEUED/error=null; this is a pending write; use original request only",
+    "last_verified_native_semantic_progress": "Unit104 SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED"
+  },
+  "activity_id": "RA-5E3FE1E761E4963EC461A892",
+  "activity_checkpoint_count": 123,
+  "activity_source_commit": "b5820c79feeb8a8222c070ea582ec300f4db5449",
+  "do_not_repeat": [
+    "Unit109 pinned original-module LP011/LP019 complete integration under 3 modes",
+    "Units105–108 previous saved certificates and opt-in patches",
+    "Original Unit104 native Source PROGRESS already published",
+    "No replays of pending native continuation/publish request IDs",
+    "Original R063/Helly benchmark and previously accepted result",
+    "No maintenance conversation execution identity"
+  ],
+  "remaining": [
+    "Reconcile exact original continuation/publish requests; if Native Source checkpoint published consume remote success, never reissue",
+    "LP011/LP019 history old wrong native argmax/path-subtraction caller exact frozen file:line UNRESOLVED_PROVENANCE",
+    "28-LP remaining true downstream typed consumer and Source action crosswalk",
+    "Independent Driver REQUEST_REVISION pending",
+    "R063 exact historical native benchmark Issue #2416 open, no confirmed assigned runner; do not treat Unit109 as its execution"
+  ],
+  "next_exact_action": "Read original em_control_result target_request_id=onhour-20261118-0608-x6-own-unit109-exact-cont-v1 and onhour-20261118-0612-x6-own-units105-109-native-progress-v1, then inspect current same-SID claim/Source effects. Continue exact LP011/LP019 historical source:line and 28-LP actionable correction. Do not dispatch while own frontier active.",
+  "continuation_state": "OPEN",
+  "independent_review": "UNREVIEWED/NOT_ADMITTED",
+  "scheduling": "Original on-hour schedule untouched"
+}
