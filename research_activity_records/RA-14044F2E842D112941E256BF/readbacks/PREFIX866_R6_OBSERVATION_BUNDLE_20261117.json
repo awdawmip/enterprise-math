@@ -1,0 +1,83 @@
+{
+  "schema": "PREFIX866_GITHUB_CONNECTOR_OBSERVATION_V1",
+  "scope": "Source readback evidence, not platform identity attestation",
+  "activity_id": "RA-14044F2E842D112941E256BF",
+  "observations": [
+    {
+      "tool_name": "mcp__GitHub__fetch_file",
+      "observation_id": "r6-prefix866-20261117-source-1",
+      "arguments": {
+        "repository_full_name": "awdawmip/enterprise-math",
+        "path": "research_notes/portable_direct/2026-11-17_r6_prefix866_p17_exact_eleven_bit_no_go.md",
+        "ref": "b422c90643ba9d2ca6c2c487d5ce77ee2797c192"
+      },
+      "result": {
+        "isError": false,
+        "structuredContent": {
+          "content": "# PREFIX-866 — Exact eleven-bit no-go and sharp twelve-bit recovery for 17 named sources\n\nDate: 2026-11-17. Role: auxiliary TASK_RESEARCH / named-source BRC observer.\nFrozen scientific input: `f42f2906d77f24085c123f3ccfe9667d41caa96d` (unchanged).\nPredecessor: PREFIX-864 exact fiber/divisibility theorem; PREFIX-865 no-op least-common-multiple and forced-coupled-decoder obstruction.\nStatus: AUTHOR_PROVED / EXACT_FINITE_EXHAUSTION / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED.\n\n## The exact question and answer\n\nLet `u` range over every p-bit named binary source state (`0<=u<2^p`). A legal ordered heartbeat transition is `(u,u)` or `(u,u xor 2^i)` for some i in [0,p). Both states are initially unknown. Read fixed odd moduli `q1,q2>=3` before and after the heartbeat, obtaining `(u mod q1, v mod q2)`. Demand recovery of the COMPLETE ordered transition, with peak port width `B=max(bit_length(q1),bit_length(q2))`.\n\n**Theorem 866 (sharp):** For p=17, the minimum peak width among ALL fixed ordered odd-modulus two-read complete-transition observers is exactly\n\n`B_fix,odd(17)=12.`\n\nMore precisely, EVERY ordered pair of odd moduli `3<=q1,q2<=2047` has an actual transition collision, while `(q1,q2)=(1221,4033)` is injective. Together with PREFIX-864, this completes exact values for p=10 through p=18 inclusive.\n\n## Proof: complete finite exclusion at B=11 with a single old-residue fiber\n\nPut `p=17`, `N=2^17=131072`, `T=N*(p+1)=2359296`, and `M=2^11-1=2047`. Any valid pair (q1,q2) must satisfy the following necessary conditions:\n\n1. Each q is odd in [3,M] and `h(q)>=p`, where `h(q)=min {d>=1:2^d == +1 or -1 (mod q)}`. If `h(q)<p`, the modulus identifies two p-bit states at Hamming distance at most two. For q1 these can be distinct predecessors of the SAME legal successor, colliding for any q2; for q2 reverse the role of predecessor/successor. Concretely, differences `2^d-1` and `2^d+1` correspond to pairs of Hamming distance two, and each pair has a common one-flip neighbor.\n2. `q1*q2>=T` by the total number of distinct ordered legal transitions.\n3. `lcm(q1,q2)>=N` by the no-op argument of PREFIX-865.\n4. In the old-residue-zero fiber, there are `m=ceil(N/q1)` distinct old states `u=0,q1,2q1,...<N`, hence exactly `m*(p+1)` legal ordered transitions. Their second residues must all be distinct, requiring `q2>=m*(p+1)`. Also `T<=q1*M` and `m*(p+1)<=M` follow as preliminary q1 pruning.\n\nThe **complete exact certificate** enumerates the 1023 odd candidate values for each port (1,046,529 ordered pairs), constructs the 958 moduli satisfying condition 1, and applies conditions 2–4 to give precisely 441 eligible q1 values and 113,884 eligible ordered pairs.\n\nFor EACH of these 113,884 pairs it fully enumerates the **whole zero fiber**, not a statistical sample:\n\n`V_0(q1) = [u] + [u xor 2^i for i=0,...,16]`, for every `u=0,q1,2q1,...<N`.\n\nIt then checks whether all `v mod q2` in this multiset are different. **Precisely zero** pairs pass. By PREFIX-864's exact fiber criterion, any collision already inside this single fiber disproves global injectivity. All pruned pairs fail independent necessary conditions. Thus no eleven-bit fixed odd-modulus observer is injective. This finite domain is exhaustively covered by integer loops and has no untested external parameter.\n\nThe standalone Python certificate and an independently implemented compiled C++ exact residue checker both yield:\n\n`half_period_safe_moduli=958`;\n`eligible_first_moduli=441`;\n`eligible_pairs=113884`;\n`pairs_surviving_zero_fiber=0`.\n\nThe C++ version uses integer timestamp arrays instead of Python residue sets and reproduces the same counts.\n\n## Constructive twelve-bit upper bound\n\nSelect `g=37, a=33, b=109` and moduli `q1=g*a=1221, q2=g*b=4033` (both odd, each <=4095). Exact modular powering gives `h(37)=18>=17`, and `gcd(33,109)=1`. Hence `lcm(q1,q2)=37*33*109=133089 >= 131072=N`.\n\nFor every transition, `delta=v-u` is one of `{0,+/-1,+/-2,...,+/-2^16}`. Their residues modulo 37 are pairwise distinct because h(37)>=17. From the difference between the two observed residues modulo 37, recover delta exactly. Then generalized CRT on `v == r1+delta (mod q1)`, `v == r2 (mod q2)` determines the unique 0<=v<N, and `u=v-delta`. Thus the complete transition is recovered in twelve-bit ports. Combining the upper construction with the complete B=11 exclusion proves the theorem.\n\n## Evidence, verification and status\n\nScientific source anchors: PREFIX-864 at `b8b6e11f65662d769d9efd491a9a64123545d516`; PREFIX-865 at `7bcccec60fb2cb573eef95d5ab1ef66d0d337660`; PREFIX-861 at `727d6ca2dee6f707e3dd3cabba600d2c21b12bc8`.\n\nThe exact scripts `PREFIX866_R6_P17_ELEVEN_BIT_EXCLUSION_CHECK.py` and `PREFIX866_R6_P17_INDEPENDENT_CXX_CHECK.cpp` each execute the declared finite domain using integer arithmetic. The Python script also checks the constructive CRT parameters; the C++ script independently checks all eleven-bit candidates. Results are recorded in `PREFIX866_R6_P17_ELEVEN_BIT_EXCLUSION_RESULTS.json`. Both ran successfully in this research session. The finite certificate requires no probabilistic assumption, external mathematical library, numerical approximation or prior unseen proof.\n\nThis is a self-contained auxiliary named-source observer theorem; it changes neither P000 V5 nor the native X6 Cell/Link/Port interface or shared-task claim authority.\n\n## Continued research question\n\nThe new zero-fiber phenomenon suggests asking whether, for larger p and B near counting-optimal, collisions in the old-residue-zero fiber alone always certify certain odd-modulus lower bounds. Examine p=19,20 and derive a structural arithmetic criterion replacing finite enumeration, while keeping fixed-odd complete-transition and other observation models separated.\n",
+          "encoding": "utf-8",
+          "sha": "35074a3d14e28c0b03304e081252f3ff301d78ea",
+          "display_url": "https://github.com/awdawmip/enterprise-math/blob/b422c90643ba9d2ca6c2c487d5ce77ee2797c192/research_notes/portable_direct/2026-11-17_r6_prefix866_p17_exact_eleven_bit_no_go.md"
+        }
+      },
+      "sha256": "cc7aa27955cbae714bc591f4222272d77146646934e5025d79fdf9862f93a439"
+    },
+    {
+      "tool_name": "mcp__GitHub__fetch_file",
+      "observation_id": "r6-prefix866-20261117-source-2",
+      "arguments": {
+        "repository_full_name": "awdawmip/enterprise-math",
+        "path": "research_notes/portable_direct/PREFIX866_R6_P17_ELEVEN_BIT_EXCLUSION_CHECK.py",
+        "ref": "9242e1d39e9b6d25ee2815d0383429ceb4234fb8"
+      },
+      "result": {
+        "isError": false,
+        "structuredContent": {
+          "content": "#!/usr/bin/env python3\n\"\"\"Exact p=17 fixed-odd two-read complete-transition impossibility at B=11.\nAll pairs of odd moduli 3..2047 are covered; pruning uses proven necessary\nconditions. The residue test uses only old-state fiber r=0, not sampled states.\n\"\"\"\nimport json\nfrom math import gcd\n\nP, N, B = 17, 1 << 17, 11\nCAP, TRANSITIONS = (1 << B) - 1, N * (P + 1)\n\ndef half_period(q):\n    x = 2 % q\n    for d in range(1, q + 1):\n        if x == 1 or x == q - 1:\n            return d\n        x = 2 * x % q\n    raise AssertionError(\"invalid modular order\")\n\ndef fiber_zero(q1):\n    return [v for u in range(0, N, q1)\n            for v in [u] + [u ^ (1 << i) for i in range(P)]]\n\ndef injective_fiber(q1, q2):\n    residues = set()\n    for v in fiber_zero(q1):\n        r = v % q2\n        if r in residues:\n            return False\n        residues.add(r)\n    return True\n\ndef main():\n    q_safe = [q for q in range(3, CAP + 1, 2) if half_period(q) >= P]\n    tested_q1 = 0\n    candidates = 0\n    fiber_pass = []\n    for q1 in q_safe:\n        first_bucket_size = ((N + q1 - 1) // q1) * (P + 1)\n        if TRANSITIONS > q1 * CAP or first_bucket_size > CAP:\n            continue\n        qs = [q2 for q2 in q_safe\n              if q1 * q2 >= TRANSITIONS\n              and q1 * q2 // gcd(q1, q2) >= N\n              and q2 >= first_bucket_size]\n        if not qs:\n            continue\n        tested_q1 += 1\n        candidates += len(qs)\n        # Generate once per q1, test every possible q2 with exact integer residue comparisons.\n        vals = fiber_zero(q1)\n        for q2 in qs:\n            seen = set()\n            for v in vals:\n                r = v % q2\n                if r in seen:\n                    break\n                seen.add(r)\n            else:\n                fiber_pass.append([q1, q2])\n    # Independently verify the published upper witness using the exact CRT lemma.\n    g, a, b = 37, 33, 109\n    assert half_period(g) == 18 >= P\n    assert gcd(a, b) == 1\n    assert g * a * b >= N\n    assert max((g * a).bit_length(), (g * b).bit_length()) == 12\n    assert len(q_safe) == 958\n    assert tested_q1 == 441 and candidates == 113884\n    assert not fiber_pass\n    cert = {\n      \"schema\": \"PREFIX866_P17_EXACT_ELEVEN_BIT_NO_GO_V1\",\n      \"status\": \"ALL_EXACT_ASSERTIONS_PASSED\",\n      \"model\": \"complete ordered no-op-or-one-bit-flip transition; fixed ordered odd moduli\",\n      \"p\": P, \"peak_width_excluded\": B,\n      \"total_ordered_candidate_pairs\": ((CAP - 1) // 2)**2,\n      \"half_period_safe_moduli\": len(q_safe),\n      \"eligible_first_moduli_after_necessary_bounds\": tested_q1,\n      \"candidate_pairs_after_necessary_bounds\": candidates,\n      \"pairs_surviving_exact_full_zero_fiber\": len(fiber_pass),\n      \"exact_optimal_peak_width\": 12,\n      \"constructive_upper_witness\": {\"q1\": g*a, \"q2\": g*b,\n                                     \"g\": g, \"a\": a, \"b\": b,\n                                     \"h_g\": half_period(g), \"lcm\": g*a*b},\n    }\n    print(json.dumps(cert, ensure_ascii=False, separators=(',', ':')))\n\nif __name__ == '__main__':\n    main()\n",
+          "encoding": "utf-8",
+          "sha": "5be111c7526ccdbca0b86ac10ab6fc19542b55fb",
+          "display_url": "https://github.com/awdawmip/enterprise-math/blob/9242e1d39e9b6d25ee2815d0383429ceb4234fb8/research_notes/portable_direct/PREFIX866_R6_P17_ELEVEN_BIT_EXCLUSION_CHECK.py"
+        }
+      },
+      "sha256": "45b784b6ccf7bb427f7dfb43285d4f01cc6d296227270f0f9a536cc4cd84dc5e"
+    },
+    {
+      "tool_name": "mcp__GitHub__fetch_file",
+      "observation_id": "r6-prefix866-20261117-source-3",
+      "arguments": {
+        "repository_full_name": "awdawmip/enterprise-math",
+        "path": "research_notes/portable_direct/PREFIX866_R6_P17_INDEPENDENT_CXX_CHECK.cpp",
+        "ref": "1fbb0d472deb2a63750a6a5a2b76a81db73bb979"
+      },
+      "result": {
+        "isError": false,
+        "structuredContent": {
+          "content": "#include<bits/stdc++.h>\nusing namespace std;\nint h(int q){int a=2%q;for(int d=1;d<=(q*2);d++){if(a==1||a==q-1)return d;a=(a*2)%q;}return -1;}\nint main(){const int p=17,N=1<<p,M=(1<<11)-1,T=N*(p+1);vector<int> good;for(int q=3;q<=M;q+=2)if(h(q)>=p)good.push_back(q);\n  vector<int> marks(M+1);int epoch=0;vector<int> seen(N);int total=0, tested=0; long long eligible_pairs=0;auto t0=chrono::steady_clock::now();\n  for(int q1:good){if(1LL*q1*M<T)continue;\n    int cnt=(N+q1-1)/q1; if(cnt*(p+1)>M)continue;\n    vector<int> cand;for(int q2:good){if(1LL*q1*q2<T)continue;int g=gcd(q1,q2);if(1LL*q1*q2/g<N)continue; if(q2<cnt*(p+1))continue;cand.push_back(q2);}\n    if(cand.empty())continue; tested++; eligible_pairs += cand.size();\n    for(int r=0;r<q1 && !cand.empty();++r){vector<int> next;for(int u=r;u<N;u+=q1){next.push_back(u);for(int i=0;i<p;++i)next.push_back(u^(1<<i));}\n      epoch++; bool dup=false;for(int v:next){if(seen[v]==epoch){dup=true;break;}seen[v]=epoch;}if(dup){cand.clear();break;}\n      vector<int> filtered;for(int q2:cand){epoch++;bool collision=false;for(int v:next){int rr=v%q2;if(marks[rr]==epoch){collision=true;break;}marks[rr]=epoch;}if(!collision)filtered.push_back(q2);}\n      cand.swap(filtered);\n    }\n    for(int q2:cand){cout<<\"SOLUTION \"<<q1<<\" \"<<q2<<\"\\n\";total++;}\n    if(tested%20==0)cerr<<\"q1 checked=\"<<tested<<\" q1=\"<<q1<<\" elapsed=\"<<chrono::duration<double>(chrono::steady_clock::now()-t0).count()<<\"\\n\";\n  }\n  if(good.size()!=958 || tested!=441 || eligible_pairs!=113884 || total!=0){cerr<<\"BAD CERTIFICATE\\n\";return 1;}\n  cerr<<\"DONE good=\"<<good.size()<<\" q1-tested=\"<<tested<<\" eligible_pairs=\"<<eligible_pairs<<\" solutions=\"<<total<<\" time=\"<<chrono::duration<double>(chrono::steady_clock::now()-t0).count()<<\"\\n\";\n}\n",
+          "encoding": "utf-8",
+          "sha": "ed4710b28abe3945c2e9fb655ac74ad06e7dd578",
+          "display_url": "https://github.com/awdawmip/enterprise-math/blob/1fbb0d472deb2a63750a6a5a2b76a81db73bb979/research_notes/portable_direct/PREFIX866_R6_P17_INDEPENDENT_CXX_CHECK.cpp"
+        }
+      },
+      "sha256": "481bd376eb01b3c18f122af1f16e61726bd064e960560ffb2995c855da329047"
+    },
+    {
+      "tool_name": "mcp__GitHub__fetch_file",
+      "observation_id": "r6-prefix866-20261117-source-4",
+      "arguments": {
+        "repository_full_name": "awdawmip/enterprise-math",
+        "path": "research_notes/portable_direct/PREFIX866_R6_P17_ELEVEN_BIT_EXCLUSION_RESULTS.json",
+        "ref": "a8ce5f9cb9a50b446003213af36a10337738d63a"
+      },
+      "result": {
+        "isError": false,
+        "structuredContent": {
+          "content": "{\"schema\":\"PREFIX866_P17_EXACT_ELEVEN_BIT_NO_GO_V1\",\"status\":\"ALL_EXACT_ASSERTIONS_PASSED\",\"model\":\"complete ordered no-op-or-one-bit-flip transition; fixed ordered odd moduli\",\"p\":17,\"peak_width_excluded\":11,\"total_ordered_candidate_pairs\":1046529,\"half_period_safe_moduli\":958,\"eligible_first_moduli_after_necessary_bounds\":441,\"candidate_pairs_after_necessary_bounds\":113884,\"pairs_surviving_exact_full_zero_fiber\":0,\"exact_optimal_peak_width\":12,\"constructive_upper_witness\":{\"q1\":1221,\"q2\":4033,\"g\":37,\"a\":33,\"b\":109,\"h_g\":18,\"lcm\":133089}}\n",
+          "encoding": "utf-8",
+          "sha": "7e938923e789b648ff620fac75df56e07c890f4c",
+          "display_url": "https://github.com/awdawmip/enterprise-math/blob/a8ce5f9cb9a50b446003213af36a10337738d63a/research_notes/portable_direct/PREFIX866_R6_P17_ELEVEN_BIT_EXCLUSION_RESULTS.json"
+        }
+      },
+      "sha256": "c11b10c4458ffc10fab57e2e1b1e1428dee5cdb2475d933a3c2e42224940d186"
+    }
+  ]
+}
