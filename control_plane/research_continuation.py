@@ -485,8 +485,72 @@ def checkpoint_frontier(task_id: str, publication_id: str, *, root: Path,
             pin = artifact_pin(root, output["path"], source_commit)
             _require(pin["sha256"] == str(output.get("sha256", "")).removeprefix("sha256:"), "checkpoint output bytes changed")
             pins.append(pin)
+        # A later, narrower PROGRESS must not erase an earlier authenticated
+        # Source checkpoint from the consumer's recoverable provenance.  This
+        # is read-only history for the same recorded claim, not a merged
+        # working frontier, correction decision, or new execution authority.
+        recent_progress = []
+        prefix = f"research_artifacts/mcp/{task_id}/{pointer['session_id']}/"
+        for index, event in enumerate(filtered):
+            if (event.get("event") != "PROGRESS"
+                    or event.get("task_id") != task_id
+                    or event.get("publication_id") != publication_id
+                    or event.get("claim_id") != pointer["claim_id"]):
+                continue
+            source_ref = _fixed_source_candidate(
+                event.get("progress_ref"), "AUTHENTICATED_PRIOR_PROGRESS")
+            if (source_ref is None
+                    or not source_ref["path"].startswith(prefix)
+                    or not source_ref["path"].endswith("/_checkpoint.json")
+                    or source_ref["path"] == path):
+                continue
+            recent_progress.append((index, event, source_ref))
+        prior_checkpoints = []
+        for index, event, source_ref in recent_progress[-8:]:
+            try:
+                earlier_state = research_runtime_reducer.reduce_task(
+                    definition, filtered[:index + 1],
+                    now=research_runtime_reducer.parse_time(event["at"]),
+                    default_lease_minutes=120)
+                if (earlier_state.get("claim_id") != pointer["claim_id"]
+                        or earlier_state.get("ownership_epoch") != pointer["ownership_epoch"]
+                        or earlier_state.get("session_id") != pointer["session_id"]
+                        or earlier_state.get("last_progress_ref") != event.get("progress_ref")
+                        or earlier_state.get("last_progress_at") != event["at"]):
+                    continue
+                earlier_path = source_ref["path"]
+                earlier = json.loads(_path(root, earlier_path).read_text(encoding="utf-8"))
+                _require(earlier.get("schema") in {
+                    "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+                    "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V2"}, "invalid earlier checkpoint schema")
+                for key in ("task_id", "publication_id", "claim_id",
+                            "ownership_epoch", "session_id", "researcher_id"):
+                    _require(earlier.get(key) is not None
+                             and earlier.get(key) == pointer.get(key),
+                             f"earlier checkpoint {key} binding differs")
+                earlier_pin = artifact_pin(root, earlier_path, source_commit)
+                for output in earlier.get("output_manifest", []):
+                    _require(isinstance(output, dict) and _text(output.get("path")),
+                             "invalid earlier checkpoint output manifest")
+                    output_pin = artifact_pin(root, output["path"], source_commit)
+                    _require(output_pin["sha256"] == str(output.get("sha256", "")).removeprefix("sha256:"),
+                             "earlier checkpoint output bytes changed")
+                prior_checkpoints.append({
+                    "source_artifact": earlier_pin,
+                    "original_progress_ref": event["progress_ref"],
+                    "original_progress_comment_id": (event.get("_github") or {}).get("comment_id"),
+                    "completed_units": earlier.get("completed_units", []),
+                    "verification": "CURRENT_SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+                    "semantic_status": "AUTHOR_REPORTED_NOT_MATHEMATICAL_ACCEPTANCE",
+                    "execution_authorized": False,
+                })
+            except (OSError, ValueError, KeyError, TypeError, ContinuationError):
+                # A bad or unavailable historical record is not promoted to
+                # verified provenance.  The current pointer remains usable.
+                continue
         return {"state": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED", "checkpoint": checkpoint,
-                "source_artifacts": pins, "semantic_status": "AUTHOR_REPORTED_NOT_MATHEMATICAL_ACCEPTANCE",
+                "source_artifacts": pins, "prior_authenticated_checkpoints": prior_checkpoints,
+                "semantic_status": "AUTHOR_REPORTED_NOT_MATHEMATICAL_ACCEPTANCE",
                 "execution_authorized": False}
     except Exception as exc:
         return {"state": "UNKNOWN", "reason": str(exc), "source_artifacts": pins, "execution_authorized": False}
