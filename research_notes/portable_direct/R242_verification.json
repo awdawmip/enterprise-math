@@ -1,0 +1,96 @@
+{
+  "arithmetic": "Python Fraction and integer arithmetic only",
+  "cases": [
+    {
+      "matrix_denominator": 30669704049600,
+      "open_interval_status": "boundary_extension",
+      "root_lower_numerator_per_10pow30": "990628239518040768505715844335",
+      "root_signs": "f(lower)>0>f(upper)",
+      "root_upper_numerator_per_10pow30": "990628239518040768505715844336",
+      "s": "39/100",
+      "verified_first_horizons": [
+        {
+          "first_integer_n": 513,
+          "moment_n_bits": [14355, 14346],
+          "moment_n_sha256": "a14381ac05b52380ab6bb6863565b7973c7f5f4b33a0fba9cbaabf549f04fd68",
+          "moment_predecessor_sha256": "c21f7367aa910162d5548ef87ac129d10e53aa7008478f19dfe00ca4227d6ef6",
+          "n_minus_1_rigorous_gt_target": true,
+          "n_rigorous_lt_target": true,
+          "target_relative_error": "1/100"
+        },
+        {
+          "first_integer_n": 768,
+          "moment_n_bits": [21493, 21488],
+          "moment_n_sha256": "561f3f181baac98230cef523c81b6aef572bf9166fa5af6fefb321aaeed9cd81",
+          "moment_predecessor_sha256": "e0ba9fb11861c54b1d1f4bd018bca8c48f68ec0bd99f29204905dfb96f678409",
+          "n_minus_1_rigorous_gt_target": true,
+          "n_rigorous_lt_target": true,
+          "target_relative_error": "1/1000"
+        }
+      ]
+    },
+    {
+      "matrix_denominator": 552847680,
+      "open_interval_status": "interior",
+      "root_lower_numerator_per_10pow30": "990705011925087650351768220351",
+      "root_signs": "f(lower)>0>f(upper)",
+      "root_upper_numerator_per_10pow30": "990705011925087650351768220352",
+      "s": "2/5",
+      "verified_first_horizons": [
+        {
+          "first_integer_n": 608,
+          "moment_n_bits": [11044, 11036],
+          "moment_n_sha256": "4cfa01dccf3e8c99bd2330877fcf598ffff5c4a25596a53833e00fc68875caaf",
+          "moment_predecessor_sha256": "bd2b539c07877a065caa7bdb68bfa4953aa9d1bf8aa91af1d055605d080920c5",
+          "n_minus_1_rigorous_gt_target": true,
+          "n_rigorous_lt_target": true,
+          "target_relative_error": "1/100"
+        },
+        {
+          "first_integer_n": 912,
+          "moment_n_bits": [16570, 16566],
+          "moment_n_sha256": "e2122f986b834d4d5a30ebb270995a927f4203d2fc407e92ad843a066061c315",
+          "moment_predecessor_sha256": "18e386233c026bb3a717713af3da3783cd2c4f50e784240c6b852b4f358999e6",
+          "n_minus_1_rigorous_gt_target": true,
+          "n_rigorous_lt_target": true,
+          "target_relative_error": "1/1000"
+        }
+      ]
+    },
+    {
+      "matrix_denominator": 29048283633600,
+      "open_interval_status": "boundary_extension",
+      "root_lower_numerator_per_10pow30": "990783090226728155385416492288",
+      "root_signs": "f(lower)>0>f(upper)",
+      "root_upper_numerator_per_10pow30": "990783090226728155385416492289",
+      "s": "41/100",
+      "verified_first_horizons": [
+        {
+          "first_integer_n": 752,
+          "moment_n_bits": [21021, 21015],
+          "moment_n_sha256": "e1412ec1e8c07beaacb653b6aa1da912573697bae69ec3b60548b2e6019154b7",
+          "moment_predecessor_sha256": "a7746bae808eeeab3d5b0ab50e72cd9922b5ca5407ffb72fcafbe7afe395bff5",
+          "n_minus_1_rigorous_gt_target": true,
+          "n_rigorous_lt_target": true,
+          "target_relative_error": "1/100"
+        },
+        {
+          "first_integer_n": 1128,
+          "moment_n_bits": [31539, 31538],
+          "moment_n_sha256": "e817ee5c16fa791d8b59180c18bafe71368a1a84beaa455f10de5b3b5ef91215",
+          "moment_predecessor_sha256": "5b5df759bdd0d9e058f104684e8cacf710dbc4584f2856c761b72f17415c3771",
+          "n_minus_1_rigorous_gt_target": true,
+          "n_rigorous_lt_target": true,
+          "target_relative_error": "1/1000"
+        }
+      ]
+    }
+  ],
+  "independent_review": "NOT_REVIEWED",
+  "native_BRC": "NOT_EXECUTED",
+  "result": "PASS",
+  "root_interval_scale": "1000000000000000000000000000000",
+  "schema": "EM_R242_EXACT_ANCHOR_HORIZONS_V1",
+  "scope": "three rational s values in closure of (39/100,41/100)",
+  "spectral_monotonicity": "positive subleading modes imply E_(n+1)<E_n for all n>=2"
+}
