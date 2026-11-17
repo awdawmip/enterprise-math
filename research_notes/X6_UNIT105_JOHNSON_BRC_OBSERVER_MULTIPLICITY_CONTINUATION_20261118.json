@@ -1,0 +1,138 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-18",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_id_forbidden": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_inputs": {
+    "P000_V5": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "highest_author_verified_frontier": {
+    "unit": 105,
+    "status": "AUTHOR-PROVED / EXACT-FINITE-EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "statement": "Johnson rho_J and q_orbit, even augmented with native L1 shortest length and L_E², cannot determine shortest N-BRC multiplicity; exact x/y collision 20 vs 30.",
+    "witness": {
+      "a": [
+        -3,
+        0,
+        3,
+        0,
+        0,
+        0
+      ],
+      "b": [
+        -1,
+        -4,
+        -1,
+        0,
+        0,
+        0
+      ],
+      "rho_J": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "q_orbit": [
+        0,
+        0,
+        0
+      ],
+      "l1": 6,
+      "l2": 18,
+      "shortest_BRC_a": 20,
+      "shortest_BRC_b": 30
+    },
+    "finite_census": [
+      {
+        "box": 1,
+        "states": 729,
+        "distinct_packets": 94,
+        "conflicting_fibers": 0
+      },
+      {
+        "box": 2,
+        "states": 15625,
+        "distinct_packets": 903,
+        "conflicting_fibers": 0
+      },
+      {
+        "box": 3,
+        "states": 117649,
+        "distinct_packets": 4758,
+        "conflicting_fibers": 0
+      },
+      {
+        "box": 4,
+        "states": 531441,
+        "distinct_packets": 17822,
+        "conflicting_fibers": 3
+      }
+    ],
+    "exact_count_level_repair": "Given L1, retain F(z)=prod_i |z_i|!, with B_min=L1!/F. This restores numeric count, not ordered path words.",
+    "python_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "output_sha256": "254a53cc3aaa25a3700cd492a96f96a52b458d89f6521c27f880f46f6d7f7f2e",
+    "source_artifacts": [
+      {
+        "path": "research_checks/X6_UNIT105_JOHNSON_BRC_FIXED_LENGTH_NORM_COLLISION_CHECK_20261118.py",
+        "commit": "f6997c7dbe6201ac4270d5c8b81c0cd1dfa20814",
+        "git_blob_sha1": "45674250d69a2e241601c7509f37e0f59e7d183c",
+        "sha256": "c11b9e8d60682b7699ad7e1595b34eba2b476cb31cc630650624c94394d9d66a",
+        "readback_verified": true
+      },
+      {
+        "path": "research_checks/X6_UNIT105_JOHNSON_BRC_FIXED_LENGTH_NORM_COLLISION_RESULTS_20261118.json",
+        "commit": "6f200054e9f499326943b91b6bbc50b526d50cb5",
+        "git_blob_sha1": "794ac001c0c0c549f3dc2921f358ea1ea316c075",
+        "sha256": "254a53cc3aaa25a3700cd492a96f96a52b458d89f6521c27f880f46f6d7f7f2e",
+        "readback_verified": true
+      },
+      {
+        "path": "research_notes/X6_UNIT105_JOHNSON_NATIVE_BRC_FIXED_METRIC_OBSERVER_COLLISION_20261118.md",
+        "commit": "f173c3959bab96628af66f8b58ccad22c46f3248",
+        "git_blob_sha1": "285e9012baab9a82f2591d2f4c1bc538b1a83f43",
+        "readback_verified": true
+      }
+    ]
+  },
+  "research_identity": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "claim_id": "MCP-3e221a50dc8818f914e228f6",
+    "run_id": "RUN-95866d78d35721116c362956",
+    "last_verified_generation": 2,
+    "last_verified_revision": 2,
+    "original_unit104_semantic_progress_request_id": "onhour-20261118-0402-x6-own-unit104-native-progress-v1",
+    "last_observed_status": "RUNNING/error=null",
+    "new_unit105_native_semantic_progress": "NOT_SUBMITTED"
+  },
+  "prior_source_frontier": {
+    "unit": 104,
+    "continuation": "research_notes/X6_UNIT104_JOHNSON_RHO_CONTINUATION_20261118.json",
+    "research_activity_checkpoint": 118
+  },
+  "remaining": [
+    "LP011 alleged wrong-native signed argmax executable historical callsite source:line unresolved",
+    "LP019 alleged signed subtraction of positive N-BRC historical executable callsite source:line unresolved",
+    "28-LP actual Johnson/FCC-derived typed downstream consumer source:line provenance and independent Driver REQUEST_REVISION pending",
+    "Unit105 Native semantic checkpoint and activity association need current original Research SID and Source write readback"
+  ],
+  "do_not_repeat": [
+    "Units64-104 existing research",
+    "Original R063/Helly native benchmarks",
+    "Original Units102-103 succeeded Native PROGRESS",
+    "Original Unit104 pending request onhour-20261118-0402-x6-own-unit104-native-progress-v1; consume terminal, never replay",
+    "Maintenance lane or unrelated Driver roles"
+  ],
+  "next_exact_action": "First reconcile original Unit104 semantic PROGRESS on its exact request ID. Update existing Source Activity with Unit105 3 verified GitHub sources and this continuation. Under own live claim/run, checkpoint Unit105 using current writer generation/revision and publish only after original Unit104 receipt terminal. Continue actual 28-LP consumer provenance and the two LP011/019 historical callsite evidence gaps; don't rerun frozen benchmark.",
+  "continuation_state": "OPEN"
+}
