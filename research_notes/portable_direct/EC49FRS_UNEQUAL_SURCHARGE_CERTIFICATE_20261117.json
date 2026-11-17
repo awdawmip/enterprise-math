@@ -1,0 +1,94 @@
+{
+  "schema": "EC49FRS_ORIGINAL_228_BRC_UNEQUAL_NAMED_SURCHARGE_MACHINE_EVIDENCE_V1",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent_immutable_commit": "bf6939bbaffa98a6be07ea83f65f90a3207a7ce1",
+  "original_brc_class": 16943,
+  "complete_named_states": 141,
+  "original_configurations": 310,
+  "original_physical_queries": 228,
+  "data_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "profile": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "exact_integer_objective": "141 times summed full named state path observation cost, with q32=141+A q34=141+B and other physical observations=141",
+  "cases": [
+    {
+      "A": 1,
+      "B": 3,
+      "integer_bellman": 41877,
+      "all_first_original": [
+        32
+      ],
+      "subsets": 13063
+    },
+    {
+      "A": 2,
+      "B": 5,
+      "integer_bellman": 42018,
+      "all_first_original": [
+        32,
+        140,
+        142
+      ],
+      "subsets": 13063
+    },
+    {
+      "A": 3,
+      "B": 5,
+      "integer_bellman": 42018,
+      "all_first_original": [
+        140,
+        142
+      ],
+      "subsets": 13063
+    },
+    {
+      "A": 1,
+      "B": 1,
+      "integer_bellman": 41877,
+      "all_first_original": [
+        32,
+        34
+      ],
+      "subsets": 13063
+    },
+    {
+      "A": 5,
+      "B": 1,
+      "integer_bellman": 41877,
+      "all_first_original": [
+        34
+      ],
+      "subsets": 13063
+    },
+    {
+      "A": 5,
+      "B": 2,
+      "integer_bellman": 42018,
+      "all_first_original": [
+        34,
+        140,
+        142
+      ],
+      "subsets": 13063
+    },
+    {
+      "A": 5,
+      "B": 5,
+      "integer_bellman": 42018,
+      "all_first_original": [
+        140,
+        142
+      ],
+      "subsets": 13063
+    }
+  ],
+  "finite_verification": "Seven exhaustive integer Bellman runs of all 228 original physical observations; two original source reconstructions matched all original response vectors by typed root-key reindexing",
+  "analytic_result": "V(a,b)/t=min(296/141+a,296/141+b,298/141) for every real a,b>=0, conditional on inherited complete diagonal Bellman theorem",
+  "minimal_fixed_policy_menu": [
+    "A q32",
+    "A_prime q34",
+    "B q140"
+  ],
+  "evidence_status": "AUTHOR_PROVED / EXACT_FINITE_BELLMAN_GRID_CHECKED / NOT_REVIEWED"
+}
