@@ -1,0 +1,250 @@
+{
+  "schema": "PREFIX882_EXACT_MODULAR_INDEX_RESULTS_V1",
+  "method": "Exact modular inverse and bit carry-borrow feasibility DP",
+  "exhaustive_small_cases": [
+    {
+      "p": 3,
+      "Q": 15,
+      "pairs": 64,
+      "collision": 40,
+      "injective": 24
+    },
+    {
+      "p": 4,
+      "Q": 31,
+      "pairs": 256,
+      "collision": 144,
+      "injective": 112
+    },
+    {
+      "p": 5,
+      "Q": 63,
+      "pairs": 1024,
+      "collision": 480,
+      "injective": 544
+    },
+    {
+      "p": 6,
+      "Q": 15,
+      "pairs": 64,
+      "collision": 64,
+      "injective": 0
+    },
+    {
+      "p": 7,
+      "Q": 15,
+      "pairs": 64,
+      "collision": 64,
+      "injective": 0
+    }
+  ],
+  "exhaustive_pair_count": 1472,
+  "p32_deterministic_seed": 882,
+  "p32_q_range": [
+    500001,
+    524287
+  ],
+  "p32_pairs_tested": 128,
+  "p32_collision_pairs": 128,
+  "p32_injective_pairs": 0,
+  "p32_max_DP_checked": 2,
+  "p32_mean_DP_checked": 1.016,
+  "p32_sample_witnesses": [
+    {
+      "p": 32,
+      "q1": 500383,
+      "q2": 522777,
+      "gcd": 1,
+      "period": 522777,
+      "K": 8583,
+      "k": 7657,
+      "a": 3831432631,
+      "d": 0,
+      "e": 2,
+      "X": [
+        2,
+        2
+      ],
+      "Y": [
+        3831432633,
+        3831432635
+      ],
+      "pairs_checked": 4,
+      "admissible_ks_checked": 2,
+      "DP_checked": 1
+    },
+    {
+      "p": 32,
+      "q1": 521021,
+      "q2": 510463,
+      "gcd": 1,
+      "period": 510463,
+      "K": 8243,
+      "k": 4107,
+      "a": 2139833247,
+      "d": 1,
+      "e": 1048576,
+      "X": [
+        0,
+        1
+      ],
+      "Y": [
+        2139833247,
+        2140881823
+      ],
+      "pairs_checked": 107,
+      "admissible_ks_checked": 3,
+      "DP_checked": 1
+    },
+    {
+      "p": 32,
+      "q1": 504467,
+      "q2": 520513,
+      "gcd": 1,
+      "period": 520513,
+      "K": 8513,
+      "k": 5839,
+      "a": 2945582813,
+      "d": 2,
+      "e": 256,
+      "X": [
+        0,
+        2
+      ],
+      "Y": [
+        2945582813,
+        2945583069
+      ],
+      "pairs_checked": 213,
+      "admissible_ks_checked": 5,
+      "DP_checked": 1
+    },
+    {
+      "p": 32,
+      "q1": 520821,
+      "q2": 517589,
+      "gcd": 1,
+      "period": 517589,
+      "K": 8246,
+      "k": 5605,
+      "a": 2919201705,
+      "d": 1,
+      "e": 256,
+      "X": [
+        256,
+        257
+      ],
+      "Y": [
+        2919201961,
+        2919202217
+      ],
+      "pairs_checked": 83,
+      "admissible_ks_checked": 3,
+      "DP_checked": 1
+    },
+    {
+      "p": 32,
+      "q1": 515763,
+      "q2": 516699,
+      "gcd": 9,
+      "period": 57411,
+      "K": 8327,
+      "k": 8248,
+      "a": 4254013224,
+      "d": 1,
+      "e": -2097152,
+      "X": [
+        2097152,
+        2097153
+      ],
+      "Y": [
+        4256110376,
+        4254013224
+      ],
+      "pairs_checked": 110,
+      "admissible_ks_checked": 3,
+      "DP_checked": 1
+    },
+    {
+      "p": 32,
+      "q1": 522943,
+      "q2": 513965,
+      "gcd": 1,
+      "period": 513965,
+      "K": 8213,
+      "k": 7056,
+      "a": 3689885808,
+      "d": 1,
+      "e": -131072,
+      "X": [
+        0,
+        1
+      ],
+      "Y": [
+        3689885808,
+        3689754736
+      ],
+      "pairs_checked": 102,
+      "admissible_ks_checked": 3,
+      "DP_checked": 1
+    },
+    {
+      "p": 32,
+      "q1": 520393,
+      "q2": 512737,
+      "gcd": 1,
+      "period": 512737,
+      "K": 8253,
+      "k": 2545,
+      "a": 1324400185,
+      "d": 2,
+      "e": -512,
+      "X": [
+        0,
+        2
+      ],
+      "Y": [
+        1324400185,
+        1324399673
+      ],
+      "pairs_checked": 216,
+      "admissible_ks_checked": 5,
+      "DP_checked": 1
+    },
+    {
+      "p": 32,
+      "q1": 505029,
+      "q2": 513031,
+      "gcd": 1,
+      "period": 513031,
+      "K": 8504,
+      "k": 3975,
+      "a": 2007490275,
+      "d": 4,
+      "e": 32,
+      "X": [
+        32,
+        36
+      ],
+      "Y": [
+        2007490307,
+        2007490339
+      ],
+      "pairs_checked": 337,
+      "admissible_ks_checked": 7,
+      "DP_checked": 1
+    }
+  ],
+  "p32_complete_strip": {
+    "odd_q1_q2_from": 523001,
+    "odd_q1_q2_to": 524287,
+    "odd_moduli_count": 644,
+    "ordered_pairs_checked": 414736,
+    "explicit_collisions_found": 414736,
+    "injective_pairs": [],
+    "max_dp_calls_per_pair": 3,
+    "max_d_e_pairs_before_witness": 1868,
+    "verification": "exact candidate enumeration, complete carry/borrow DP and independently checked XOR/remainders per witness"
+  },
+  "conclusion": "EXACT_ALGORITHM_AND_DECLARED_FINITE_TESTS_ONLY"
+}
