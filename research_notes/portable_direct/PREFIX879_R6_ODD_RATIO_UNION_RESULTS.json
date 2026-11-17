@@ -1,0 +1,88 @@
+{
+  "schema": "PREFIX879_R6_ODD_RATIO_UNION_V1",
+  "date": "2026-11-18",
+  "timezone": "Asia/Shanghai",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "named binary XOR, p=32, old/new fixed odd modular ports",
+  "p": 32,
+  "B": 19,
+  "Q": 524287,
+  "I": 21,
+  "set_counts": {
+    "D": 307,
+    "Dstar": 309,
+    "E": 74,
+    "even_sparse_positive": 402,
+    "even_sparse_signed": 804
+  },
+  "prior_source": "PREFIX-878 old-predicate union",
+  "prior_predicate_coverage": 203011850,
+  "ordered_families": [
+    {
+      "ratio": "5:1",
+      "total": 34524336,
+      "prior_overlap": 70853,
+      "earlier_new_overlap": 0,
+      "net_new": 34453483
+    },
+    {
+      "ratio": "1:5",
+      "total": 34524336,
+      "prior_overlap": 68333,
+      "earlier_new_overlap": 12477,
+      "net_new": 34443526
+    },
+    {
+      "ratio": "7:1",
+      "total": 24772594,
+      "prior_overlap": 39002,
+      "earlier_new_overlap": 28715,
+      "net_new": 24704877
+    },
+    {
+      "ratio": "1:7",
+      "total": 24772594,
+      "prior_overlap": 36755,
+      "earlier_new_overlap": 38868,
+      "net_new": 24696971
+    },
+    {
+      "ratio": "9:1",
+      "total": 19267530,
+      "prior_overlap": 43842,
+      "earlier_new_overlap": 49833,
+      "net_new": 19173855
+    },
+    {
+      "ratio": "1:9",
+      "total": 19267530,
+      "prior_overlap": 42763,
+      "earlier_new_overlap": 55112,
+      "net_new": 19169655
+    },
+    {
+      "ratio": "11:1",
+      "total": 15764380,
+      "prior_overlap": 25104,
+      "earlier_new_overlap": 60516,
+      "net_new": 15678760
+    },
+    {
+      "ratio": "1:11",
+      "total": 15764380,
+      "prior_overlap": 32837,
+      "earlier_new_overlap": 62688,
+      "net_new": 15668855
+    }
+  ],
+  "new_disjoint_coverage": 187989982,
+  "previous_plus_new_coverage": 391001832,
+  "checks": {
+    "cpp17": "compiled gcc -O3 -std=c++17, exact full enumeration; PASS",
+    "python3": "5648 individually constructed XOR collision witnesses; PASS",
+    "js_memo": "independent 5:1 / 1:5 line count and 12477 uncovered intersection; PASS"
+  },
+  "scope": "Complete finite enumeration of the eight stated new sufficient collision families, relative to PREFIX-878 exact old predicate. Not a universal p32 impossibility proof.",
+  "mathematical_review": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED",
+  "remaining": "Decide whether any fixed odd 19-bit modular-port pair is lossless at p=32, else derive an exhaustive negative certificate."
+}
