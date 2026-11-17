@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "frozen_weight_vector": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ],
+  "domain": "all five-source words of length 0..7; POP budget 0..min(3,length)",
+  "machines": {
+    "RESET_FLIP": {
+      "word_instances": 97656,
+      "endpoint_inventory_fibers": 1170,
+      "exact_class_count_cases": 4650,
+      "classified_history_instances": 390586,
+      "total_predicted_classes_across_cases": 33285,
+      "exact_injectivity_criterion_checks": 4650,
+      "fibers_with_extra_resource_boundary": 1028
+    },
+    "BIJECTIVE": {
+      "word_instances": 97656,
+      "endpoint_inventory_fibers": 792,
+      "exact_class_count_cases": 3140,
+      "classified_history_instances": 390586,
+      "total_predicted_classes_across_cases": 25152,
+      "exact_injectivity_criterion_checks": 3140,
+      "fibers_with_extra_resource_boundary": 0
+    }
+  },
+  "witness": {
+    "word_pair": [
+      "ABC",
+      "BAC"
+    ],
+    "inventory": [
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "common_terminal_resource": 0,
+    "common_suffix_with_one_POP": "C",
+    "ledger_traces": [
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ]
+    ],
+    "after_one_POP_resource": [
+      1,
+      0
+    ],
+    "terminal_resource_0_number_of_minimal_classes": 4,
+    "terminal_resource_0_number_of_suffixes": 2,
+    "optimal_extra_bits": 1
+  }
+}
