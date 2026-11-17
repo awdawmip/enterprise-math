@@ -88,7 +88,7 @@ The two desired equalities are exactly \(E-x_jD=b_j\). Consequently the followin
 \boxed{D(q)=\frac{b_0-b_1}{x_1-x_0},\qquad E(q)=b_0+x_0D(q).}
 \]
 
-The Python/SymPy companion reconstructs and reduces these rational functions, asserts the two identities by exact rational cancellation, and outputs the full formulas in the machine-readable results file.
+The Python/SymPy companion reconstructs and reduces these rational functions, asserts the two identities by exact rational cancellation, and generates an expanded local JSON with the complete rational formulas and coefficient vectors; the committed JSON contains the compact exact verification summary.
 
 **Proof that both errors always lie strictly inside the permitted square.** For either parameter \(V(q)=N(q)/H(q)\), shift \(q=q_0+k\), with \(q_0=73\) or \(14\) and \(k\ge0\). The three polynomials \(H(q_0+k)\), \(2H(q_0+k)-N(q_0+k)\), and \(2H(q_0+k)+N(q_0+k)\) all have degree 12 and **all 13 coefficients strictly positive**. Hence \(H>0\) and \(-2<V<2\) everywhere in the stated interval. The minimum exact coefficient in each certified polynomial is:
 
