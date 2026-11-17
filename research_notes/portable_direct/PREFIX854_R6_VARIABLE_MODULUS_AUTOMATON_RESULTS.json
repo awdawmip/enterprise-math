@@ -1,0 +1,308 @@
+{
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "domain": {
+    "p": 5,
+    "J": "all 5 bits unknown",
+    "initial_missing_updates": 0,
+    "subsequent_flips_per_heartbeat": 1,
+    "raw_modulus": "odd fixed at each read; schedule may vary",
+    "4_bit_candidates": [
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15
+    ],
+    "constructive_5_bit_schedule": [
+      17,
+      31
+    ]
+  },
+  "exact_finite_certificate": {
+    "reachable_pair_sets": 15,
+    "initial_state_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "transition_moduli": [
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15
+    ],
+    "states": [
+      {
+        "state": 0,
+        "ambiguous_pair": [
+          0,
+          3
+        ],
+        "offdiagonal_pair_count": 310,
+        "successors": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 1,
+        "ambiguous_pair": [
+          0,
+          5
+        ],
+        "offdiagonal_pair_count": 174,
+        "successors": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 2,
+        "ambiguous_pair": [
+          0,
+          7
+        ],
+        "offdiagonal_pair_count": 116,
+        "successors": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 3,
+        "ambiguous_pair": [
+          0,
+          9
+        ],
+        "offdiagonal_pair_count": 84,
+        "successors": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 4,
+        "ambiguous_pair": [
+          0,
+          11
+        ],
+        "offdiagonal_pair_count": 62,
+        "successors": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 5,
+        "ambiguous_pair": [
+          0,
+          13
+        ],
+        "offdiagonal_pair_count": 50,
+        "successors": [
+          0,
+          1,
+          7,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 6,
+        "ambiguous_pair": [
+          0,
+          15
+        ],
+        "offdiagonal_pair_count": 38,
+        "successors": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 7,
+        "ambiguous_pair": [
+          0,
+          7
+        ],
+        "offdiagonal_pair_count": 112,
+        "successors": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 8,
+        "ambiguous_pair": [
+          0,
+          3
+        ],
+        "offdiagonal_pair_count": 282,
+        "successors": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 9,
+        "ambiguous_pair": [
+          0,
+          5
+        ],
+        "offdiagonal_pair_count": 130,
+        "successors": [
+          0,
+          13,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 10,
+        "ambiguous_pair": [
+          0,
+          7
+        ],
+        "offdiagonal_pair_count": 114,
+        "successors": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 11,
+        "ambiguous_pair": [
+          0,
+          9
+        ],
+        "offdiagonal_pair_count": 78,
+        "successors": [
+          0,
+          14,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 12,
+        "ambiguous_pair": [
+          0,
+          11
+        ],
+        "offdiagonal_pair_count": 54,
+        "successors": [
+          0,
+          1,
+          2,
+          3,
+          12,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 13,
+        "ambiguous_pair": [
+          0,
+          5
+        ],
+        "offdiagonal_pair_count": 170,
+        "successors": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "state": 14,
+        "ambiguous_pair": [
+          0,
+          5
+        ],
+        "offdiagonal_pair_count": 166,
+        "successors": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    ],
+    "all_state_sets_have_distinct_endpoint_pair": true,
+    "transition_closure_verified": true
+  },
+  "constructive_last_pair_count": 32,
+  "constructive_distinct_terminal_collisions": 0,
+  "minimum_max_per_sample_width_bits": 5,
+  "contrast": "reverse two-sample schedule (31,17) is not terminal-lossless; not a sliding-window claim",
+  "proof_scope": "uniform terminal source recovery for an exact two-sample schedule; any-length 4-bit obstruction via exhaustive finite reachable set closure; auxiliary model only"
+}
