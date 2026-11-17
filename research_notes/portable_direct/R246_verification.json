@@ -85,5 +85,48 @@
   ],
   "review": "NOT_REVIEWED",
   "native_BRC": "NOT_EXECUTED",
-  "certificate_semantics": "Rational root interval endpoints and cross-product sign assertions are authoritative; decimal display is diagnostic and rounded."
+  "certificate_semantics": "Rational root interval endpoints and cross-product sign assertions are authoritative; decimal display is diagnostic and rounded.",
+  "strict_17_over_125_first_crossings": {
+    "39/100": 126,
+    "2/5": 127,
+    "41/100": 126
+  },
+  "threshold_17_over_125_sign_certificates": {
+    "s=2/5;n=126;E_126 > 17/125": {
+      "sign": "positive",
+      "denominator_bits": 18027,
+      "numerator_bits": 18036,
+      "sha256": "ed050983d7369e5168de4463bc579a7cdd56f7571c9439f18b545859403a2acd"
+    },
+    "s=2/5;n=127;E_127 < 17/125": {
+      "sign": "positive",
+      "denominator_bits": 17904,
+      "numerator_bits": 17917,
+      "sha256": "19ad097959c94933917e1c8c4dc51263bc843c542252bc3dc3b6fdfc02af21e2"
+    },
+    "s=39/100;n=125;E_125 > 17/125": {
+      "sign": "positive",
+      "denominator_bits": 19329,
+      "numerator_bits": 19342,
+      "sha256": "52ef9bc93cf68f528059f23732a2328ecd01008f29d9aac0994861b4c014fdb1"
+    },
+    "s=39/100;n=126;E_126 < 17/125": {
+      "sign": "positive",
+      "denominator_bits": 19543,
+      "numerator_bits": 19550,
+      "sha256": "8a5f80f05014dc679fd3d920506acd90f108511070a3bfcd430f923eb964f938"
+    },
+    "s=41/100;n=125;E_125 > 17/125": {
+      "sign": "positive",
+      "denominator_bits": 19441,
+      "numerator_bits": 19454,
+      "sha256": "ab3e300e1c6a65d5da891207f9d09ffb64b720967ed3d16ca25ee6a224abad7b"
+    },
+    "s=41/100;n=126;E_126 < 17/125": {
+      "sign": "positive",
+      "denominator_bits": 19399,
+      "numerator_bits": 19407,
+      "sha256": "02ec3d53f5cdf75baef9689fe8fe2605095b34eaa5ae3c7722b2f0855a4b6b49"
+    }
+  }
 }
