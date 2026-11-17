@@ -1,0 +1,137 @@
+{
+  "alphabet": "A B C D E",
+  "composition_fibers": 792,
+  "composition_resource_cases": 3876,
+  "examples": {
+    "21111": [
+      {
+        "bits": 1,
+        "boolean_guard_classes": 2,
+        "full_peek_1_classes": 5,
+        "pop_only_classes": 1,
+        "r": 0
+      },
+      {
+        "bits": 4,
+        "boolean_guard_classes": 10,
+        "full_peek_1_classes": 21,
+        "pop_only_classes": 5,
+        "r": 1
+      },
+      {
+        "bits": 6,
+        "boolean_guard_classes": 42,
+        "full_peek_1_classes": 72,
+        "pop_only_classes": 21,
+        "r": 2
+      },
+      {
+        "bits": 8,
+        "boolean_guard_classes": 135,
+        "full_peek_1_classes": 192,
+        "pop_only_classes": 72,
+        "r": 3
+      },
+      {
+        "bits": 9,
+        "boolean_guard_classes": 300,
+        "full_peek_1_classes": 360,
+        "pop_only_classes": 192,
+        "r": 4
+      },
+      {
+        "bits": 9,
+        "boolean_guard_classes": 360,
+        "full_peek_1_classes": 360,
+        "pop_only_classes": 360,
+        "r": 5
+      },
+      {
+        "bits": 9,
+        "boolean_guard_classes": 360,
+        "full_peek_1_classes": 360,
+        "pop_only_classes": 360,
+        "r": 6
+      }
+    ],
+    "22222": [
+      {
+        "bits": 1,
+        "boolean_guard_classes": 2,
+        "full_peek_1_classes": 5,
+        "pop_only_classes": 1,
+        "r": 0
+      },
+      {
+        "bits": 4,
+        "boolean_guard_classes": 10,
+        "full_peek_1_classes": 25,
+        "pop_only_classes": 5,
+        "r": 1
+      },
+      {
+        "bits": 6,
+        "boolean_guard_classes": 50,
+        "full_peek_1_classes": 120,
+        "pop_only_classes": 25,
+        "r": 2
+      },
+      {
+        "bits": 8,
+        "boolean_guard_classes": 240,
+        "full_peek_1_classes": 540,
+        "pop_only_classes": 120,
+        "r": 3
+      },
+      {
+        "bits": 11,
+        "boolean_guard_classes": 1074,
+        "full_peek_1_classes": 2220,
+        "pop_only_classes": 540,
+        "r": 4
+      },
+      {
+        "bits": 13,
+        "boolean_guard_classes": 4350,
+        "full_peek_1_classes": 8100,
+        "pop_only_classes": 2220,
+        "r": 5
+      },
+      {
+        "bits": 14,
+        "boolean_guard_classes": 15300,
+        "full_peek_1_classes": 25200,
+        "pop_only_classes": 8100,
+        "r": 6
+      }
+    ]
+  },
+  "guard_group": [
+    "A",
+    "B"
+  ],
+  "observation_trace": "all guard results before/after 0..r POP; no APPEND needed for finite independent oracle",
+  "r_per_word_length": "0..min(4,length)",
+  "rank_unrank_checks": 488086,
+  "schema": "R749STY_BOOLEAN_GUARD_EXACT_CERT_V1",
+  "scope": "Exact finite regression only; all APPEND interleavings and all lengths follow separate proof.",
+  "status": "PASS",
+  "weight_vector": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ],
+  "word_instances": 97656,
+  "word_lengths_exhaustively_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ]
+}
