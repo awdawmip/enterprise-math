@@ -4,19 +4,19 @@ Date: 2026-11-17. Research line: RS-X6-TRIADIC-CLOSURE-DYNAMICS / TP2-8B7E13C590
 
 ## Frozen premises and exact object
 
-Scientific inputs are fixed at awdawmip/enterprise-math@e3f42efac29a2da2d95be391f3231a664e2fade0:research_tasks/RS_X6_TRIADIC_CLOSURE_DYNAMICS_20260906.md and P000 V5 at awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json. Use the signed native Cell torsor Z^6 and ordered path-area cocycle from R762DD, Draft PR #2641@29f57350d6c661d4783f012381f5a58f8a7d8b45. R762DH's triangle observer compression is a distinct, conditional downstream observer.
+Scientific inputs are fixed at awdawmip/enterprise-math@e3f42efac29a2da2d95be391f3231a664e2fade0:research_tasks/RS_X6_TRIADIC_CLOSURE_DYNAMICS_20260906.md and P000 V5 at awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json. Reuse the general odd-return parity obstruction and signed path kernel already established in V17 (research_notes/X6_SIGNED_PATH_BRC_AND_PRIMITIVE_LINE_V17_20260905.md), the signed native Cell torsor Z^6, and the ordered path-area cocycle from R762DD, Draft PR #2641@29f57350d6c661d4783f012381f5a58f8a7d8b45. R762DH's triangle observer compression is a distinct, conditional downstream observer.
 
 A **candidate triadic path block** is a word of length three with three distinct native axis labels S={i,j,k}, each appearing exactly once and with independently declared signs epsilon_a in {+1,-1}. The block is a primitive-coordinate *path object*, not a declaration that a force triple satisfies the native TRIADIC_CLOSURE_E predicate. All six spatial axes and the distinct time coordinate remain as P000 specifies. A 15-component area record describes ordered history, not new native spatial directions.
 
 For an ordered signed path H=(d_1,...,d_m), define v(H)=sum_t d_t and for a<b define A_ab(H)=sum_{r<t}(d_{r,a}d_{t,b}-d_{r,b}d_{t,a}), as in R762DD.
 
-## Theorem I — sharp Cell-return obstruction and six-step paired return
+## Theorem I — V17 odd-return obstruction specialized to a sharp paired-triad return
 
-No odd-length word of signed native unit-coordinate steps can return to the same native Cell. In particular **no three-step candidate triadic block is a native Cell-return loop**, regardless of signs, supports or order.
+By the established V17 signed return kernel, no odd-length word of signed native unit-coordinate steps can return to the same native Cell. In particular **no three-step candidate triadic block is a native Cell-return loop**, regardless of signs, supports or order.
 
 For two consecutive length-three blocks each with three distinct axes, a native Cell return is possible if and only if their signed axis-step multisets are exactly opposite. Consequently the shortest Cell return formed from an integral number of such three-step blocks has exactly two blocks, hence six primitive steps. Once the first block has support S and signs epsilon, the second block must have precisely support S and signs -epsilon, though its order remains arbitrary.
 
-Proof: the integer coordinate sum sum_a v_a changes parity at every signed unit step, so after any odd number of steps its parity differs from the initial Cell. For two three-step blocks, each coordinate of each block's v is 0 or +/-1, and the sum can vanish precisely when the second displacement is the first's negative; distinct-axis support makes the signed multiset unique. The construction (epsilon_i e_i,epsilon_j e_j,epsilon_k e_k,-epsilon_i e_i,-epsilon_j e_j,-epsilon_k e_k) attains six steps. This concerns returns **under the two-triad-block restriction**; the unrestricted coordinate graph admits two-step backtracks.
+Proof (parity recalled from V17, paired-triad classification new here): the integer coordinate sum sum_a v_a changes parity at every signed unit step, so after any odd number of steps its parity differs from the initial Cell. For two three-step blocks, each coordinate of each block's v is 0 or +/-1, and the sum can vanish precisely when the second displacement is the first's negative; distinct-axis support makes the signed multiset unique. The construction (epsilon_i e_i,epsilon_j e_j,epsilon_k e_k,-epsilon_i e_i,-epsilon_j e_j,-epsilon_k e_k) attains six steps. This concerns returns **under the two-triad-block restriction**; the unrestricted coordinate graph admits two-step backtracks.
 
 ## Theorem II — exact 36-history area spectrum
 
