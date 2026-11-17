@@ -1,0 +1,130 @@
+{
+  "schema": "ENTERPRISE_MATH_X6_AUTHOR_EXACT_EXECUTION_CERTIFICATE_V1",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "unit": 109,
+  "date": "2026-11-18",
+  "status": "AUTHOR_SOURCE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "model": "Frozen P000 V5 native signed X6; real source signed_brc.py used, not a reconstructed BRC implementation",
+  "frozen_source_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "original_brc_path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+  "original_brc_git_blob_sha1": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+  "materialization": "Local copies of three exact GitHub file blobs; each Git object id recomputed with b'blob '+size+b'\\0'+bytes. All matched GitHub connector readings; native sources were unchanged.",
+  "execution": "Local Python subprocess standard interpreter; normal/-O/-OO; wrapper uses sys.setprofile event=='call' for code filename ending in original signed_brc.py. It neither patches original code nor disables the original pin check.",
+  "lp011": {
+    "source_checker_blob": "296e4cdb8b5710a6b2017f24e4b6059a2554714e",
+    "stdout_sha256": "fba4072526686d8bf1c1415c977f565d8c652788f34a9d58e5b85831a8f8ff33",
+    "exit_codes": {
+      "normal": 0,
+      "-O": 0,
+      "-OO": 0
+    },
+    "reported_native_calls": {
+      "normal": 3375,
+      "-O": 3375,
+      "-OO": 3375
+    },
+    "profiled_shortest_path_multiplicity_calls": {
+      "normal": 3375,
+      "-O": 3375,
+      "-OO": 3375
+    },
+    "output": {
+      "LP011_status": "bounded proposed typed consumer; historical original caller not located",
+      "brc_shortest_formula_checks": 3375,
+      "existing_native_brc_calls": 3375,
+      "existing_native_brc_imported": true,
+      "legacy_selector_agreement": 1513,
+      "signed_points": 3375,
+      "signed_ties": 644,
+      "status": "PASS",
+      "three_axis_embedding": [
+        0,
+        2,
+        5
+      ],
+      "zero_cases": 1
+    }
+  },
+  "lp019": {
+    "source_checker_blob": "c1842fbd34fb6fffa08a40a709b4838a6f2a5640",
+    "stdout_sha256": "eae53806d60ac8cfc6e757b004cce2f5f2ee3d989a318801226de45b8e5fcfac",
+    "exit_codes": {
+      "normal": 0,
+      "-O": 0,
+      "-OO": 0
+    },
+    "reported_native_endpoint_comparisons": {
+      "normal": 10364,
+      "-O": 10364,
+      "-OO": 10364
+    },
+    "profiled_endpoint_multiplicity_calls": {
+      "normal": 10368,
+      "-O": 10368,
+      "-OO": 10368
+    },
+    "profiled_return_multiplicity_calls": {
+      "normal": 3,
+      "-O": 3,
+      "-OO": 3
+    },
+    "output": {
+      "axis_thickness_is_needed_beyond_signed_and_total": true,
+      "endpoint_counts_by_length": [
+        1,
+        4,
+        9,
+        16,
+        25,
+        36,
+        49,
+        64,
+        81,
+        100,
+        121,
+        144,
+        169
+      ],
+      "exact_histograms_checked": 625,
+      "existing_native_brc_git_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+      "existing_native_brc_imported": true,
+      "free_signed_step_lengths": "0..12",
+      "native_endpoints_by_length": [
+        1,
+        12,
+        73,
+        304,
+        985,
+        2668,
+        6321
+      ],
+      "native_six_axis_dp_lengths": "0..6",
+      "native_six_axis_endpoint_comparisons": 10364,
+      "position_sensitive_order_not_quotiented": true,
+      "signed_endpoint_formula_comparisons": 2925,
+      "six_axis_return_n2": 12,
+      "six_axis_return_n4": 396,
+      "status": "PASS",
+      "two_axis_return_n2": 4,
+      "two_axis_return_n4": 36
+    }
+  },
+  "negative_control": {
+    "test": "Modified throwaway local copy of original BRC source by appending a harmless comment, without touching original; run same LP019 checker",
+    "modified_blob": "437f18a0357203ed78eabfbdea04682e1faeeab7",
+    "expected_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+    "all_modes_rejected": true,
+    "modes": {
+      "normal": "RuntimeError: original signed BRC Git blob mismatch",
+      "-O": "RuntimeError: original signed BRC Git blob mismatch",
+      "-OO": "RuntimeError: original signed BRC Git blob mismatch"
+    }
+  },
+  "scope": "Full original-BRC module integration of two opt-in Unit108 checker variants; original frozen R063/Helly benchmark not executed; remaining assert-only auxiliary checks under -O/-OO are elided; normal mode checks them.",
+  "native_control": {
+    "original_resume_request": "onhour-20261118-0519-x6-own-run9586-unit105-107-resume-v1",
+    "original_resume_status": "SUCCEEDED",
+    "original_run": "RUN-95866d78d35721116c362956",
+    "generation": 3
+  }
+}
