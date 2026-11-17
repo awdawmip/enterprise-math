@@ -1,0 +1,102 @@
+{
+  "schema": "EM_X6_UNIT90_AUTHOR_SOURCE_CONTINUATION_V1",
+  "date": "2026-11-17",
+  "mother_goal": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "scientific_pins": {
+    "p000": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "native_signed_brc_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176"
+  },
+  "highest_prior_verified_frontier": "Units64-89 authored and preserved, including Unit89 triad-vs-primitive constrained 3-block exact bridge. Preserve original native R063/Helly benchmarks without replay.",
+  "unit90": {
+    "status": "AUTHOR-EXACT / FINITE-EXECUTED / SOURCE-CALL-SITE-INSPECTED / UNREVIEWED / NOT_ADMITTED",
+    "proof_path": "research_notes/X6_UNIT90_NAMED_TRIAD_GAUGE_AND_STAR_OBSERVER_BOUNDARY_20261117.md",
+    "proof_blob_sha1": "3430fae1a438468703ed52a9c25a3d3c43231439",
+    "checker_path": "research_checks/X6_UNIT90_NAMED_TRIAD_GAUGE_COMPATIBILITY_CHECK_20261117.py",
+    "checker_blob_sha1": "78f76d3fcf453609d62b65050f37872413c4305b",
+    "certificate_path": "research_checks/X6_UNIT90_NAMED_TRIAD_GAUGE_COMPATIBILITY_RESULTS_20261117.json",
+    "certificate_blob_sha1": "840ff690bd7938f7945dbccb6543f1ff260f95d8",
+    "exact_theorem": "Among diagonal sign gauges preserving the six named axes, the 20-triad q/g generator families have no common gauge (two-triad counterexample); exactly two common gauges exist for the four FCC STAR triads, inducing all-length word conjugacy.",
+    "relative_observer": "Min-zero rho does not factor through nonuniform diagonal gauge; equal rho fibers 0 and all-ones separate after D. Preserve signed native chart or (rho,common_depth) and transport before re-observation.",
+    "evidence": {
+      "individual_triad_gauge_count": 16,
+      "all20_gauge_matches_per_sign_assignment": {
+        "0": 12,
+        "4": 12,
+        "6": 24,
+        "8": 16
+      },
+      "incompatible_pair_count": 30,
+      "star_global_gauges": [
+        [
+          1,
+          1,
+          -1,
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          1,
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "star_word_checks_lengths_0_to_3": 85,
+      "six_axis_norm_length_displacements_checked": 729,
+      "source_a": "experiments/x6_triadic_rotation_v1_20260906/check_triadic_rotation.py",
+      "source_a_blob": "c446d0327f9bf643d5796348ba46cafe96d2915d",
+      "source_b": "research_checks/20261112_x6_star_triad_group_brc_convolution.py",
+      "source_b_blob": "50cccf09b5dd83cc592ba36db5bc9e14941ce0ce"
+    },
+    "publication": "NEUTRAL_AUTHOR_GITHUB_MAIN_SCIENCE_ONLY",
+    "native_progress_submitted": false,
+    "activity_updated": false,
+    "native_benchmark_reexecuted": false
+  },
+  "original_research_provenance": {
+    "conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+    "maintenance_conversation": "chatgpt-hourly-enterprise-math-20260921",
+    "sid": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim": "MCP-579c8e23625448582b421831",
+    "run": "RUN-fb25028676f9692ab1bacaee",
+    "activity": "RA-5E3FE1E761E4963EC461A892",
+    "last_verified_activity_events": 106,
+    "current_owner_authorization": "NOT_VERIFIED; original bridge #6994 points to D25 and #6995 execution_authorized=false; no original writer binding this turn"
+  },
+  "original_requests": [
+    {
+      "issue": 6994,
+      "status": "SUCCEEDED",
+      "kind": "READ",
+      "target_request_id": "onhour-20261117-1100-x6-own-recovery-status-v1"
+    },
+    {
+      "issue": 6995,
+      "status": "SUCCEEDED",
+      "kind": "READ",
+      "target_request_id": "onhour-20261117-1103-x6-exact-task-continuation-v1",
+      "execution_authorized": false
+    }
+  ],
+  "open_parent_gaps": [
+    "LP011/LP019 exact old erroneous call source file:line or independent Driver REQUEST_REVISION",
+    "remaining 28-LP actual downstream source import/consumer analysis",
+    "original X6 Native semantic PROGRESS and Activity Units77-90 under original authenticated execution",
+    "independent scientific Driver review/admission"
+  ],
+  "next_exact_action": "Inspect actual call chain for four-STAR triad_generator versus 20-triad q_triad and signed_brc.endpoint_multiplicity/CoverState/rho observers. Record exact imported file:line and frozen git blob; verify whether any current consumer mixes these generator conventions without D_s and without (rho,common-depth) observer repair. Patch only confirmed misuse. Provide evidence to independent Driver for pending REQUEST_REVISION.",
+  "do_not_repeat": [
+    "native R063/Helly original benchmarks",
+    "already published Units64-89",
+    "successful read-only bridge requests #6994/#6995",
+    "D25 Sites/maintenance lane session or claim"
+  ],
+  "scheduler_modified": false,
+  "notifications_modified": false
+}
