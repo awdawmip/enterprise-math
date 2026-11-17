@@ -110,6 +110,9 @@ def main():
     dz = act(diagonal(star_s), z)
     assert dz == (0, 0, -1, 0, 0, 0)
     assert relative(dz) != act(diagonal(star_s), relative(z))
+    same_fiber = (1, 1, 1, 1, 1, 1)
+    assert relative(same_fiber) == relative((0,) * N)
+    assert relative(act(diagonal(star_s), same_fiber)) != relative((0,) * N)
     norm_checks = 0
     for z in product((-1, 0, 1), repeat=6):
         dz = act(diagonal(star_s), z)
