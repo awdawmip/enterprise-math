@@ -1,0 +1,95 @@
+{
+  "allowed_outputs": [
+    "research_artifacts/mcp/RS-X6-NATIVE-ROTATION-DYNAMICS/MCP-456b8f22a648400585024ffbcc1c2c94/"
+  ],
+  "claim_id": "MCP-68880a07cb8490c74cd8c7ff",
+  "continuation": {
+    "expected_previous_claim_id": "MCP-8244889141704cdf7523c288",
+    "expected_previous_comment_id": 6901109341,
+    "frontier": {
+      "artifacts": [
+        {
+          "git_blob_sha1": "448120b04ecdadf44d8a06516605bfcca94474a1",
+          "path": "research_tasks/RS_X6_NATIVE_ROTATION_DYNAMICS_20260906.md",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "3ff333774b1199a07c968c5bfaab9d7f7284efe1335f9775aa1b644641a40a9c",
+          "source_commit": "9d09f6bc13b36a8d47d11b524fae4dd5254ac333"
+        },
+        {
+          "git_blob_sha1": "c6a1d09d7f513f4ad5e9f04445225ece49b38050",
+          "path": "research_task_records/RS-X6-NATIVE-ROTATION-DYNAMICS/TP2-6A1F9D8C2047E3B51C01.json",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "262cef2ea080fdc8e3c0af7c08a4c6d1c52c7ed7c79b82c9dcb375913f35ed8d",
+          "source_commit": "9d09f6bc13b36a8d47d11b524fae4dd5254ac333"
+        },
+        {
+          "git_blob_sha1": "f95918c6b132f621d468866167cc0b95d6e3e957",
+          "path": "research_artifacts/mcp/RS-X6-NATIVE-ROTATION-DYNAMICS/latest_checkpoint.json",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "cbb53f4e8244fcacc884baf6e139abe0be522ea3a619426f5ddc3316a06286fe",
+          "source_commit": "9d09f6bc13b36a8d47d11b524fae4dd5254ac333"
+        },
+        {
+          "git_blob_sha1": "7340a08369290a51cda54e2f4804d35f2e26cd6d",
+          "path": "research_artifacts/mcp/RS-X6-NATIVE-ROTATION-DYNAMICS/MCP-c618a61189764f23846a391a08518a1a/0f0e002ae5e625394259/_checkpoint.json",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "4d8c842a78b9942c3796df6c7efb24bc3a25a2e281ea9bde20ea3a2d44d1b255",
+          "source_commit": "9d09f6bc13b36a8d47d11b524fae4dd5254ac333"
+        },
+        {
+          "git_blob_sha1": "21eade70b2ea882ca50c283684079bc415e9cc5d",
+          "path": "research_artifacts/mcp/RS-X6-NATIVE-ROTATION-DYNAMICS/MCP-c618a61189764f23846a391a08518a1a/0f0e002ae5e625394259/X6_SIGNED_WORD_ORBIT_SPLITTING_AND_CONCATENATION_20261116.md",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "fe3ac83d64cc25a8cd5ac93f76617c6fa53656dc18ba2350366bc6669995df56",
+          "source_commit": "9d09f6bc13b36a8d47d11b524fae4dd5254ac333"
+        },
+        {
+          "git_blob_sha1": "55c283e0ec80e82a20f1c9d59c958c8bfb2b2d22",
+          "path": "research_artifacts/mcp/RS-X6-NATIVE-ROTATION-DYNAMICS/MCP-c618a61189764f23846a391a08518a1a/0f0e002ae5e625394259/x6_orbit_burnside_check.py",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "7c755b80d80fca6900ef415adc0aef61637adff71e3b978b1c65d5f8666873fa",
+          "source_commit": "9d09f6bc13b36a8d47d11b524fae4dd5254ac333"
+        }
+      ],
+      "completed_units": [
+        "Current weighted fair P0 selection X6 task exact V2 TP2-6A1F9D8C2047E3B51C01, same preexisting researcher SID, typed continuation from prior HANDOFF and native winning CLAIM MCP-8244889141704cdf7523c288 RUN-41b6b206cd573c8c9f7b1da6.",
+        "New theorem: under candidate H=(C2)^6 ⋊ A6 acting on Σ^N ordered signed primitive words, H orbit count Σ_{k=1..min(6,N)}(1+1_{k>=5}) S(N,k) 2^(N-k), with n=0 count 1. Full signed B6 orbit count lacks factor, and parity split begins at N=5.",
+        "Proof uses set partitions by unsigned used axes, per-block relative sign configurations, odd-permutation existence on at least two unused axes, and index-two subgroup orbit-splitting criterion; exact exhaustive Burnside over 23040 H elements each N=0..8 matches formula and records first split 258 vs 257.",
+        "Independently established obstruction: compressing independently to H-word orbit is not a concatenation congruence: e1/e2 are one-letter orbit-equivalent but e1e1 and e1e2 are inequivalent by their unsigned-axis partition. Preserve common frame and relative axis context.",
+        "Duplicate-avoidance read: existing 2026-11-12 Driver theorem already proves sharp finite-horizon quotient depth bits and modular grade (research_notes/driver/2026-11-12_x6_finite_depth_signed_brc_cover_rotation_descent_and_minimum_memory.md); no reproof. Existing 2026-11-15 signed-C6 group and ordered-path lift preserved."
+      ],
+      "contributor_ids": [
+        "EM-EMF6D046-5A2844",
+        "EM-X6-DFD1FD"
+      ],
+      "current_unfinished_unit": "Determine actual typed physical X6 native Cell, clock, branch, and 3-force triadic-event admissible rotation successor under composition, retaining full signed path provenance and observer-future-operation safety. Independent math review of scoped word-orbit theorem pending.",
+      "do_not_repeat": [
+        "Preexisting H signed-C6 23040 group classification and path-word lift, finite depth descent 720/22320, and FCC C6/C12 local microtraces.",
+        "Preexisting 2026-11-12 33-kB Driver quotient-depth memory, CRT-grade checksum and alias threshold proofs; do not count as this new result.",
+        "Do not discard common frame/relative axis data or ordered path/branch provenance; no unauthorized native physical admission or duplicated independent Driver review."
+      ],
+      "next_action": "Independently review Stirling/Burnside proof and program as candidate algebraic static-word result; then construct and test a native Cell/time/triadic-event transition retaining shared frame alignment. Do not promote static H orbit parity split to P000 intrinsic chirality or accepted physical rotation.",
+      "source_commit": "9d09f6bc13b36a8d47d11b524fae4dd5254ac333"
+    },
+    "mode": "RESUME",
+    "previous_researcher_id": "EM-EMF6D046-5A2844",
+    "reason": "Correct invalid/undefined source_commit in prior rejected validator input using the six matching immutable 40-hex actual Source pins from the verified native continuation; preserve exact 2026-11-16 checkpoint, all contributor provenance and current P0 fair selection. Proceed only under current no-live-owner and original predecessor CAS.",
+    "schema": "ENTERPRISE_MATH_CLAIM_CONTINUATION_V1",
+    "session_id": "MCP-456b8f22a648400585024ffbcc1c2c94"
+  },
+  "execution_branch": "main",
+  "execution_branch_base": "9d09f6bc13b36a8d47d11b524fae4dd5254ac333",
+  "execution_record_id": "ER-F436AA146B4F2ABAD1E7",
+  "executor_role": "RESEARCHER",
+  "owner_lease_minutes": 120,
+  "prepared_at": "2026-11-17T15:48:59.326002+00:00",
+  "publication_id": "TP2-6A1F9D8C2047E3B51C01",
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+  "record_state": "CLAIM_INTENT",
+  "researcher_id": "EM-X6CM-EDBD55",
+  "task_id": "RS-X6-NATIVE-ROTATION-DYNAMICS",
+  "taskbook_blob_sha1": "sha1:448120b04ecdadf44d8a06516605bfcca94474a1",
+  "taskbook_path": "research_tasks/RS_X6_NATIVE_ROTATION_DYNAMICS_20260906.md",
+  "theorem_owner": "taskbook/unassigned",
+  "theorem_owner_source": "PREDECESSOR_EXECUTION_BINDING"
+}
