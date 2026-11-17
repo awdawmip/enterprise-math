@@ -1,0 +1,311 @@
+{
+  "schema": "EC49FRU_FOUR_NAMED_PRICE_EXACT_CERTIFICATE_V1",
+  "generated_date": "2026-11-17",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "raw_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "raw_profile_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "model": {
+    "complete_named_states": 141,
+    "original_configs": 310,
+    "original_physical_queries": 228,
+    "terminal_queries": 144,
+    "root_queries": 84,
+    "selected_named_queries": [
+      32,
+      34,
+      140,
+      142
+    ]
+  },
+  "exact_claim": "V(a,b,c,d)/t = min(296/141+a, 296/141+b, 298/141+c, 298/141+d, 299/141), for all real a,b,c,d >= 0",
+  "integer_arithmetic": "Every integer delta d is a surcharge d/141 * t per use; Bellman objective is 141 times total over 141 named paths; divide result by 141^2 to obtain V/t.",
+  "all_228_query_bellman": [
+    [
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      41736,
+      [
+        32,
+        34
+      ]
+    ],
+    [
+      [
+        2,
+        2,
+        0,
+        0
+      ],
+      42018,
+      [
+        32,
+        34,
+        140,
+        142
+      ]
+    ],
+    [
+      [
+        3,
+        3,
+        1,
+        1
+      ],
+      42159,
+      [
+        32,
+        34,
+        46,
+        93,
+        140,
+        142
+      ]
+    ],
+    [
+      [
+        0,
+        7,
+        3,
+        6
+      ],
+      41736,
+      [
+        32
+      ]
+    ],
+    [
+      [
+        0,
+        8,
+        8,
+        8
+      ],
+      41736,
+      [
+        32
+      ]
+    ],
+    [
+      [
+        7,
+        0,
+        6,
+        3
+      ],
+      41736,
+      [
+        34
+      ]
+    ],
+    [
+      [
+        8,
+        0,
+        8,
+        8
+      ],
+      41736,
+      [
+        34
+      ]
+    ],
+    [
+      [
+        8,
+        8,
+        0,
+        8
+      ],
+      42018,
+      [
+        140
+      ]
+    ],
+    [
+      [
+        8,
+        8,
+        8,
+        0
+      ],
+      42018,
+      [
+        142
+      ]
+    ],
+    [
+      [
+        8,
+        8,
+        8,
+        8
+      ],
+      42159,
+      [
+        46,
+        93
+      ]
+    ],
+    [
+      [
+        3,
+        6,
+        1,
+        8
+      ],
+      42159,
+      [
+        32,
+        46,
+        93,
+        140
+      ]
+    ],
+    [
+      [
+        5,
+        5,
+        2,
+        3
+      ],
+      42159,
+      [
+        46,
+        93
+      ]
+    ]
+  ],
+  "bellman_subsets_each": 13063,
+  "independent_second_implementation_anchors": [
+    {
+      "delta": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "cost": 41736,
+      "first": [
+        32,
+        34
+      ],
+      "subsets": 13063
+    },
+    {
+      "delta": [
+        2,
+        2,
+        0,
+        0
+      ],
+      "cost": 42018,
+      "first": [
+        32,
+        34,
+        140,
+        142
+      ],
+      "subsets": 13063
+    },
+    {
+      "delta": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "cost": 42159,
+      "first": [
+        32,
+        34,
+        46,
+        93,
+        140,
+        142
+      ],
+      "subsets": 13063
+    }
+  ],
+  "witness_141_state_native_tree_replay": [
+    [
+      32,
+      296,
+      [
+        141,
+        0,
+        0,
+        0
+      ],
+      3,
+      "e27c98cb89afef15e0ef0dedb1634f19fa7353a4eff14adb40770bd8acb28539"
+    ],
+    [
+      34,
+      296,
+      [
+        0,
+        141,
+        0,
+        0
+      ],
+      3,
+      "c7cdd6d9c86d1c6e48547d69901b468064da785b3c3011ca11cb9d01e1523fe8"
+    ],
+    [
+      140,
+      298,
+      [
+        0,
+        0,
+        141,
+        0
+      ],
+      3,
+      "1277292549960781936cd3294e70680cae9c67f3f2b67172af6387689cac26a5"
+    ],
+    [
+      142,
+      298,
+      [
+        0,
+        0,
+        0,
+        141
+      ],
+      3,
+      "b5bf44204e7be4fdb0fcffb9795adbb4354078f94c2815e57e35c23c5e4e1fa3"
+    ],
+    [
+      46,
+      299,
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      3,
+      "e3f10cd93e366fe129fa67f346c49a80ed949acff0858010b992234205e93a1d"
+    ],
+    [
+      93,
+      299,
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      3,
+      "58385e0de2a141f4080ce4e4fecbf4605500c2c0bc8dd261fe0a8b134edfeb1c"
+    ]
+  ],
+  "tree_digest_serialization": "sha256(json.dumps(tree,sort_keys=True,separators=(',',':')).encode('utf-8'))",
+  "full_tree_source": "Attached self-contained EC49FRU evidence archive includes full six original native trees. Regenerate with companion Bellman verifier.",
+  "evidence_status": "AUTHOR_PROVED / EXACT_FINITE_BELLMAN_CHECKED / NOT_REVIEWED",
+  "load_bearing_math": "Three exact native Bellman anchors + nondecreasing jointly concave unrestricted value + five complete native cost witnesses prove the all-real positive orthant theorem."
+}
