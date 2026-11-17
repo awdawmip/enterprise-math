@@ -1,0 +1,62 @@
+{
+  "schema": "EM_SOURCE_OBSERVATION_BUNDLE_V1",
+  "event_id": "r6-prefix860-20261117-digit-offset-hamming",
+  "activity_id": "RA-14044F2E842D112941E256BF",
+  "researcher_id": "EM-DIRECT-B518B3",
+  "session_id": "MCP-adddf9d72d594b378439e0dbb22af0f0",
+  "shared_claim_acquired": false,
+  "scope": "Auxiliary named-source positive BRC modular observer; exact GitHub source readbacks; no X6 native claim",
+  "artifacts": [
+    {
+      "kind": "paper",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/2026-11-17_r6_prefix860_binary_offset_hamming_obstruction.md",
+      "commit": "48cb3952a18f10317fc78f97a7cb01f5d6b867f0",
+      "sha256": "4f0900588c531e1b741d04b36120f76e1d799fb6811f464d5e704ba0e06a13a9",
+      "git_blob_sha1": "6b0edcc9f130fe6fe39ec5ab233e8d08944ad85b",
+      "observation_id": "r6-prefix860-20261117-source-observed-1",
+      "verification_kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+      "tool": "mcp__GitHub__fetch_file",
+      "readback_verified": true,
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/48cb3952a18f10317fc78f97a7cb01f5d6b867f0/research_notes/portable_direct/2026-11-17_r6_prefix860_binary_offset_hamming_obstruction.md"
+    },
+    {
+      "kind": "checker",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX860_R6_OFFSET_HAMMING_CHECK.py",
+      "commit": "47d0706baa447297b89cdca12bf8dd12fded433c",
+      "sha256": "4b022f12f5918f88c21614e7e12096165375222c75c3c8276404b9c97f63e795",
+      "git_blob_sha1": "df9a70ae71e8eef6317210560dfe00add5765d38",
+      "observation_id": "r6-prefix860-20261117-source-observed-2",
+      "verification_kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+      "tool": "mcp__GitHub__fetch_file",
+      "readback_verified": true,
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/47d0706baa447297b89cdca12bf8dd12fded433c/research_notes/portable_direct/PREFIX860_R6_OFFSET_HAMMING_CHECK.py"
+    },
+    {
+      "kind": "results",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/PREFIX860_R6_OFFSET_HAMMING_RESULTS.json",
+      "commit": "27ecf620f29a6e59025cab6820837fcf98a5fdae",
+      "sha256": "71fb6211e79d40d52802b9a3a4d69c8d28e2523ea4b0324328868d5a32411a16",
+      "git_blob_sha1": "1c4501933c86900d1f965165ce1ce31973cdfd0e",
+      "observation_id": "r6-prefix860-20261117-source-observed-3",
+      "verification_kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+      "tool": "mcp__GitHub__fetch_file",
+      "readback_verified": true,
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/27ecf620f29a6e59025cab6820837fcf98a5fdae/research_notes/portable_direct/PREFIX860_R6_OFFSET_HAMMING_RESULTS.json"
+    }
+  ],
+  "validation": {
+    "python_integer_local": "ALL_EXACT_ASSERTIONS_PASSED",
+    "exact_parameter_checks": 497,
+    "additional_p6_c15_assertion": true,
+    "source_checker_remote_bytes_readback": true,
+    "independent_review": false,
+    "formal_activity_cli_audit_executed": false
+  },
+  "kb_refs": [
+    "https://github.com/awdawmip/chatgpt-global-knowledge/blob/a8d64a4f1367e875f7d29fc8bdc038b066188efa/journal/enterprise-math/2026-11-17/20261117T1250-r6-prefix860-offset-hamming-iff.md",
+    "https://github.com/awdawmip/chatgpt-global-knowledge/blob/62661b9403111c5181e7264e800023fa7e4375b2/journal/enterprise-math/2026-11-17/20261117T1250-r6-prefix860-count-correction.md"
+  ]
+}
