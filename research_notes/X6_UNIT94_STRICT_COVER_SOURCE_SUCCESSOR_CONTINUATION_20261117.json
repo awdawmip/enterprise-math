@@ -1,0 +1,120 @@
+{
+  "schema": "EM_X6_UNIT94_AUTHOR_SOURCE_CONTINUATION_V1",
+  "date": "2026-11-17",
+  "mother_goal": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "scientific_pins": {
+    "p000": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "signed_primitive_brc_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176"
+  },
+  "source_inspection": {
+    "repository": "awdawmip/enterprise-math",
+    "current_main_at_start": "273531bff0c408b58ede126ee8c7c14d2216dea9",
+    "original_cover": {
+      "path": "experiments/x6_native_coordinate_completion_v7_20260905/x6_cover.py",
+      "git_blob_sha1": "171baf1cee7f1aceaf38c73d0c0659a25fd8d7bd",
+      "modified": false
+    },
+    "original_coordinate": {
+      "path": "experiments/x6_native_coordinate_completion_v7_20260905/x6_coordinate.py",
+      "git_blob_sha1": "9738543aace13f8a72af577e9ad8964c5fd40de8"
+    },
+    "historical_lp026_script": {
+      "path": "research_checks/X6_LP026_CURRENT_COVER_FAST_G_NATIVE_BRC_IMPORT_20261112_ONHOUR.py",
+      "git_blob_sha1": "346be279c42a1a44a7ecfae01256cb92e3109f00",
+      "pinned_original_coordinate": "dd6dd7e74b83be09bb7545ee92357eda445c6ca3",
+      "current_coordinate_mismatch": true,
+      "preflight_verified_static_only": true
+    }
+  },
+  "unit94": {
+    "classification": "AUTHOR-SOURCE-EXECUTED / INTEGER-EXACT / UNREVIEWED / NOT_ADMITTED",
+    "fixed_version": "STRICT_COVER_V2_OPT_IN",
+    "new_guard": "type(direction) is int AND direction in (-1,+1)",
+    "source_bug": "Frozen CoverState.step accepts direction=True as +1",
+    "new_source_exposed_for_opt_in": true,
+    "frozen_importer_unchanged": true,
+    "exact_integer_semantics": "All valid integer +/-1 transitions have identical old/new source bodies; kappa_m(z+epsilon*e_i) agrees for all z in Z6, all m>=0",
+    "actual_local_source_modules_executed": [
+      "x6_cover.py@171baf1cee7f1aceaf38c73d0c0659a25fd8d7bd",
+      "x6_cover_strict_v2.py@d38c2d0fa3fed306afeb387ce60f7f2d9bd52f68",
+      "x6_coordinate.py@9738543aace13f8a72af577e9ad8964c5fd40de8"
+    ],
+    "exact_integer_comparisons": 43740,
+    "states": 729,
+    "moduli": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "axes": 6,
+    "directions": [
+      -1,
+      1
+    ],
+    "ordinary_O_OO_byte_identical": true,
+    "results_sha256": "a9ed4e4babe0f7044e6e2c744f9523f05cbfcb7a7335b9e9336c30265e1c5386",
+    "full_project_tree_executed": false,
+    "original_full_lp026_benchmark_executed": false,
+    "original_native_R063_Helly_executed": false,
+    "artifacts": [
+      {
+        "path": "experiments/x6_native_coordinate_completion_v7_20260905/x6_cover_strict_v2.py",
+        "commit": "60159728c51356c87e98df3af6dca7408d874546",
+        "git_blob_sha1": "d38c2d0fa3fed306afeb387ce60f7f2d9bd52f68",
+        "sha256": "c456031c687e2d86464cf3dddd7a9f68cc49583c343f0b15e6969951a2b4e2b1"
+      },
+      {
+        "path": "research_checks/X6_UNIT94_STRICT_COVER_SUCCESSOR_NATIVE_SOURCE_CHECK_20261117.py",
+        "commit": "2f745a2eb9ef44c6c89b2b67c77b9617f0a8bd52",
+        "git_blob_sha1": "804774b0825afdb09fc995669b804418a6cfb121",
+        "sha256": "d2fc1202998528116de6653ba745b5a61858b412ecc4f4d5659433d84cc4b68f"
+      },
+      {
+        "path": "research_checks/X6_UNIT94_STRICT_COVER_SUCCESSOR_RESULTS_20261117.json",
+        "commit": "4ff9b01568729ba7e92dbdee15087189e62be00a",
+        "git_blob_sha1": "387951a4af761c2495d22cedac03dc25dfd47b6b",
+        "sha256": "a9ed4e4babe0f7044e6e2c744f9523f05cbfcb7a7335b9e9336c30265e1c5386"
+      },
+      {
+        "path": "research_notes/X6_UNIT94_STRICT_COVER_SOURCE_SUCCESSOR_INTEGRATION_20261117.md",
+        "commit": "983c93e40934bc024e803e083118752946dc88de",
+        "git_blob_sha1": "c05808ac569d5ad1167f8f46ff773e601d24f6d1"
+      }
+    ]
+  },
+  "provenance": {
+    "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+    "not_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+    "original_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "researcher_id": "EM-X6-FB6990",
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "original_claim_id": "MCP-579c8e23625448582b421831",
+    "original_run_id": "RUN-fb25028676f9692ab1bacaee",
+    "prior_continuation_request": "onhour-20261117-1211-x6-own-exact-cont-r11",
+    "prior_continuation_result": "SUCCEEDED / execution_authorized=false",
+    "native_write_permission": "NOT_ESTABLISHED",
+    "native_progress_submitted": false
+  },
+  "open_parent_gaps": [
+    "Opt-in integration by the actual current downstream LP026 source owner: repin dependencies, import strict successor, execute complete exact LP026 regression. Historical pinned importer unchanged.",
+    "LP011/LP019 alleged wrong historical callers lack exact source file:line provenance or Driver revision.",
+    "Remaining 28-LP real downstream consumer/type dependency graph.",
+    "Native semantic Unit77–94 linkage only with original legitimate current Research run and ownership.",
+    "Independent review/admission."
+  ],
+  "do_not_repeat": [
+    "Original native R063/Helly full benchmark and earlier LP026 frozen consumer tests.",
+    "Units64–93 proven certificates and repository evidence.",
+    "Original #6994/#6995 and onhour-20261117-1211-x6-own-exact-cont-r11 successful read-only receipts.",
+    "Do not overwrite original pinned x6_cover source or accept typed new module as old Native experimental completion.",
+    "No new CLAIM, session substitution, maintenance identity, review or admission."
+  ],
+  "next_exact_action": "Take an existing-current consumer LP026 integration under source-owner-consistent new pin and strict import, run same intended exact checks against compatible dependency pins; if unavailable, continue remaining 28-LP/LP011/LP019 true file:line audit. Reconcile Native owner only on authorized original SID/CLAIM/RUN; do not replay denied writes.",
+  "scheduler_modified": false,
+  "notifications_modified": false
+}
