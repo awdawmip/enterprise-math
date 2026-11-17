@@ -1,0 +1,64 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX874_SPARSE_GAP_RESULTS_V1",
+  "date": "2026-11-17",
+  "frozen_scientific_input": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "auxiliary named-binary BRC observer, one-bit toggle or no-change, two fixed odd moduli",
+  "theorem": "For B>=3, p>=B+2 and q1,q2 odd <=2^B-1, a gap |q1-q2| in D_B forces an explicit collision",
+  "definition_D_B": "powers 2^i, 1<=i<B; sums 2^i+2^j, 1<=j<i<B; differences 2^i-2^j, 1<=j<i<=B",
+  "exact_formulae": {
+    "distinct_differences": "B^2-3*B+3",
+    "sum_of_differences": "(12*B-38)*2^(B-2)+16",
+    "excluded_ordered_pairs": "(4*B^2-24*B+50)*2^(B-2)-16"
+  },
+  "p32_B19": {
+    "p": 32,
+    "B": 19,
+    "Q": 524287,
+    "distinct_gaps": 307,
+    "gap_sum": 24903696,
+    "excluded_ordered_odd_modulus_pairs": 136052720,
+    "total_ordered_odd_modulus_pairs": 68719476736,
+    "remaining_global_width_question": "B_fix_odd(32) in {19,20}"
+  },
+  "local_exact_python_checks": [
+    {
+      "p": 7,
+      "B": 5,
+      "unordered_pairs": 112,
+      "ordered_pairs": 224,
+      "invalid_certificates": 0
+    },
+    {
+      "p": 8,
+      "B": 6,
+      "unordered_pairs": 392,
+      "ordered_pairs": 784,
+      "invalid_certificates": 0
+    },
+    {
+      "p": 9,
+      "B": 7,
+      "unordered_pairs": 1240,
+      "ordered_pairs": 2480,
+      "invalid_certificates": 0
+    }
+  ],
+  "example": {
+    "larger_first_modulus": 500001,
+    "smaller_second_modulus": 499995,
+    "gap": 6,
+    "old_new_pair_A": [
+      10,
+      8
+    ],
+    "old_new_pair_C": [
+      500011,
+      500003
+    ],
+    "valid_named_flips": "bit 1 down and bit 3 down",
+    "modular_collision_verified": true
+  },
+  "evidence_strength": "AUTHOR_PROVED plus finite Python integer regression; accompanying JS certificate script is source for independent rerun",
+  "project_admission": "NOT_REVIEWED_NOT_ADMITTED",
+  "native_X6_equivalence": "NOT_CLAIMED"
+}
