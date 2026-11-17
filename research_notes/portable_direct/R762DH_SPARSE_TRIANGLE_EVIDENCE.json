@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "type": "AUTHOR_EXACT_INTEGER_VERIFICATION",
+  "date": "2026-11-17",
+  "title": "R762DH sparse nonadaptive triangle observer basis",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "task_publication_id": "TP2-8B7E13C5904A2D6F1142",
+  "frozen_taskbook": "e3f42efac29a2da2d95be391f3231a664e2fade0:research_tasks/RS_X6_TRIADIC_CLOSURE_DYNAMICS_20260906.md",
+  "method": "integer modular enumeration; gradient potentials and all pair-area assignments; proof supplies general Smith form",
+  "coverage": {
+    "configurations": 75,
+    "gradient_potentials_checked": 74570,
+    "full_pair_area_assignments_checked": 322348,
+    "n": [
+      4,
+      5,
+      6
+    ],
+    "q": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "frame_cases": [
+      "id",
+      "one",
+      "complement",
+      "two",
+      "cross"
+    ],
+    "full_pair_cases": "n=4 q=2..5 and n=5 q=2..3; frame cases id/one/two/cross",
+    "mismatches": 0
+  },
+  "x6_exact_examples": [
+    {
+      "q": 2,
+      "c": 6,
+      "base_probes": 10,
+      "extra_probes": 0,
+      "minimum_probes": 10,
+      "kernel": 32
+    },
+    {
+      "q": 2,
+      "c": 2,
+      "base_probes": 10,
+      "extra_probes": 4,
+      "minimum_probes": 10,
+      "kernel": 32
+    },
+    {
+      "q": 2,
+      "c": 1,
+      "base_probes": 10,
+      "extra_probes": 5,
+      "minimum_probes": 10,
+      "kernel": 32
+    },
+    {
+      "q": 3,
+      "c": 6,
+      "base_probes": 10,
+      "extra_probes": 0,
+      "minimum_probes": 10,
+      "kernel": 243
+    },
+    {
+      "q": 3,
+      "c": 2,
+      "base_probes": 10,
+      "extra_probes": 4,
+      "minimum_probes": 14,
+      "kernel": 3
+    },
+    {
+      "q": 3,
+      "c": 1,
+      "base_probes": 10,
+      "extra_probes": 5,
+      "minimum_probes": 15,
+      "kernel": 1
+    },
+    {
+      "q": 6,
+      "c": 6,
+      "base_probes": 10,
+      "extra_probes": 0,
+      "minimum_probes": 10,
+      "kernel": 7776
+    },
+    {
+      "q": 6,
+      "c": 2,
+      "base_probes": 10,
+      "extra_probes": 4,
+      "minimum_probes": 14,
+      "kernel": 96
+    },
+    {
+      "q": 6,
+      "c": 1,
+      "base_probes": 10,
+      "extra_probes": 5,
+      "minimum_probes": 15,
+      "kernel": 32
+    }
+  ],
+  "independent_review": "NOT_REVIEWED",
+  "native_event_licence": "PENDING",
+  "verified_in": "current JS analysis execution; compatible verifier supplied"
+}
