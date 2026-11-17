@@ -80,6 +80,26 @@ p-2\ge p^{1-\beta'}.
 \]
 The example `p=101`, `beta'=1/2` meets this inequality. For `tau'=7/16` the coverage-only entropy minimum from Lemma 1 uses `r_p=91` constrained residues and equals approximately `2.422939090849` nats per conditionally covered sample; the author's marginal Bernoulli entropy `0.637084540827` nats is correctly calculated for a **different, unconditionally repaired** marginal. Repeating a single bit across the `n` trials to avoid the linear entropy charge destroys conditional independence. Taking conditionally iid bits retains independence but still gives only two support values per conditional signed marginal.
 
+
+## Cross-check against the actual Gaussian-walk schedule
+
+The source [schedule.tex at the same fixed commit](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/schedule.tex), lines 20–23 and 85–93, fixes one infinite self-avoiding D-step walk **before** the random choice of checkpoint times. Thus the lattice location \(z_t\) is deterministic at each exact time \(t\): with \(A=A_{i+1}\) denoting the checkpoint's exact random time, \(Y=z_A=y(A)\), as required by the abstract transfer theorem. Lines 449–460 explicitly take independent fresh physical continuations conditional on this exact time. This resolves the possible conditional-sigma-field ambiguity in this particular application.
+
+The schedule takes \(n_i=\lceil T^{6\beta_i/5}\rceil\), while lines 269–289 establish
+\[
+s_i L_*\ge\exp(r_i\log T-O(M^6)),\qquad
+0.23<r_i\le0.25,\quad
+0<\beta_i\le1/200,\quad T\le p_j\le2T.
+\]
+Therefore
+\[
+\frac{n_i}{s_i}
+\le 2 L_*\exp(O(M^6))T^{6\beta_i/5-r_i},
+\]
+and \(r_i>2\beta_i\). The entropy feasibility lower bound of Theorem 2 has the per-coordinate normalized scale \(n_i/s_i\) (times the coverage floor), while the schedule's asserted upper budget in lines 463–479 is \(O_D(\exp[-4\beta_i\log T/5+O_D(M^6)])\). The exponent comparison \(6\beta_i/5-r_i<-4\beta_i/5\) shows these necessary and advertised upper scales **are compatible** in the stated parameter regime. Compatibility is not a separate check of the paper's construction of the conditional laws; that construction retains its own exact-start induction and coverage obligations.
+
+Thus the new entropy inequality is a reusable diagnostic for other schedules and bounded-coordinate variants, but the existing Gaussian-walk schedule was already designed with an \(s_i\) vastly larger than its \(n_i\). The next distinct audit target is the source's proof of each conditional law at its exact checkpoint, not a presumed \(s_i\)-versus-\(n_i\) contradiction.
+
 ## Review and continuation status
 
-The independently checked original author's **unconditional** two-shift counting, exact threshold, and entropy accounting are mathematically consistent with the inspected source. The new inequalities isolate the conditional iid/common-data-budget interface as a necessary feasibility test, without changing the original author's propositions, proof scope, or contribution attribution. Next useful audit: determine whether the intended Gaussian-walk application has sufficiently growing `k,s` and a concrete `nu_a` to satisfy both conditional coverage and the lower bound, and examine the current native Result/publication before any immutable review. This file is a mathematical evidence note, not a source-native Result, REVIEW, accepted Task or closed mother objective.
+The independently checked original author's **unconditional** two-shift counting, exact threshold, and entropy accounting are mathematically consistent with the inspected source. The new inequalities isolate the conditional iid/common-data-budget interface as a necessary feasibility test, without changing the original author's propositions, proof scope, or contribution attribution. The actual schedule exponent scaling and exact-time conditioning were checked against the pinned source above. Next useful audit: independently examine the exact-start coverage induction for the scheduled physical displacement laws and inspect the current native Result/publication before any immutable review. This file is a mathematical evidence note, not a source-native Result, REVIEW, accepted Task or closed mother objective.
