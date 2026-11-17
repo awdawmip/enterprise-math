@@ -1,0 +1,8 @@
+# Frozen scientific and current normative sources (2026-11-06)
+
+- Frozen scientific input: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34:research_notes/brc_n4_s23_asymmetric_hull_gap_sqrt43_20261101_research1/PROOF.md`. Original six-row S23 lawful positive statistical experiment and Q box; mathematical definitions reused without rebase.
+- Immediate predecessor: `awdawmip/enterprise-math@132ecfa92a844056c9c78d135e4faaef582b77d5:research_notes/brc_s23_tagged_blackwell_separation_20261106_research1/PROOF.md` (PR #1774). Its fixed AV hypothesis pair is a sharp member of the present family.
+- Current EM control main at startup: `35fdf192ba078dcf1286d9ddf3665dcfed54e9f0`. Normative: `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `research_priorities/research_method.json`, `p000_reality_foundation.json`, `definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json`, `definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`.
+- Account global main at startup: `f7f194b007b3846c75f034f7e1b613601983c35b`; `00_BOOTSTRAP.md`, `OPERATING_MANUAL.md`, `knowledge/preferences/MATH_RESEARCH_POLICY.json`, `knowledge/preferences/OUTPUT_TEMPORAL_SEMANTICS_POLICY.json`, `knowledge/preferences/CODE_GENERATION_POLICY.json` through global canonical routes.
+- The calculations are self-contained finite-distribution decision mathematics; no external recent scientific theorem is invoked. Frozen task source and current normative source remain separate.
+- Author-side result. Native backend role/session/CLAIM ownership must be proven by current server receipt before formal task execution/result binding.
