@@ -1,0 +1,164 @@
+{
+  "schema": "EC49FSF_3_8_NATIVE_EIGHT_PHASE_CERTIFICATE_V1",
+  "date": "2026-11-18",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source": "BRC16943: 141 named profiles; 310 raw configurations; 228 distinct named physical observers",
+  "costs": {
+    "q32": "5/8",
+    "q34": "5/8",
+    "q140": "1-z",
+    "other": "1",
+    "z": "[0,1]"
+  },
+  "segments": [
+    {
+      "lo": "0",
+      "hi": "3/56",
+      "intercept": "1901/8",
+      "q140_uses": 8,
+      "U": 304,
+      "q32_uses": 36,
+      "q34_uses": 141,
+      "root": 34,
+      "max_depth": 4
+    },
+    {
+      "lo": "3/56",
+      "hi": "1/16",
+      "intercept": "238",
+      "q140_uses": 15,
+      "U": 301,
+      "q32_uses": 27,
+      "q34_uses": 141,
+      "root": 34,
+      "max_depth": 3
+    },
+    {
+      "lo": "1/16",
+      "hi": "1/6",
+      "intercept": "1905/8",
+      "q140_uses": 17,
+      "U": 303,
+      "q32_uses": 32,
+      "q34_uses": 141,
+      "root": 34,
+      "max_depth": 3
+    },
+    {
+      "lo": "1/6",
+      "hi": "5/14",
+      "intercept": "1925/8",
+      "q140_uses": 32,
+      "U": 304,
+      "q32_uses": 28,
+      "q34_uses": 141,
+      "root": 34,
+      "max_depth": 3
+    },
+    {
+      "lo": "5/14",
+      "hi": "3/8",
+      "intercept": "1965/8",
+      "q140_uses": 46,
+      "U": 309,
+      "q32_uses": 28,
+      "q34_uses": 141,
+      "root": 34,
+      "max_depth": 3
+    },
+    {
+      "lo": "3/8",
+      "hi": "2/5",
+      "intercept": "2019/8",
+      "q140_uses": 64,
+      "U": 309,
+      "q32_uses": 10,
+      "q34_uses": 141,
+      "root": 34,
+      "max_depth": 3
+    },
+    {
+      "lo": "2/5",
+      "hi": "77/192",
+      "intercept": "2035/8",
+      "q140_uses": 69,
+      "U": 311,
+      "q32_uses": 10,
+      "q34_uses": 141,
+      "root": 34,
+      "max_depth": 3
+    },
+    {
+      "lo": "77/192",
+      "hi": "1",
+      "intercept": "1133/4",
+      "q140_uses": 141,
+      "U": 305,
+      "q32_uses": 7,
+      "q34_uses": 51,
+      "root": 140,
+      "max_depth": 3
+    }
+  ],
+  "bellman_vertices": [
+    {
+      "z": "0",
+      "optimum": "1901/8",
+      "two_native_implementations_match": true
+    },
+    {
+      "z": "3/56",
+      "optimum": "13283/56",
+      "two_native_implementations_match": true
+    },
+    {
+      "z": "1/16",
+      "optimum": "3793/16",
+      "two_native_implementations_match": true
+    },
+    {
+      "z": "1/6",
+      "optimum": "5647/24",
+      "two_native_implementations_match": true
+    },
+    {
+      "z": "5/14",
+      "optimum": "12835/56",
+      "two_native_implementations_match": true
+    },
+    {
+      "z": "3/8",
+      "optimum": "1827/8",
+      "two_native_implementations_match": true
+    },
+    {
+      "z": "2/5",
+      "optimum": "9071/40",
+      "two_native_implementations_match": true
+    },
+    {
+      "z": "77/192",
+      "optimum": "14509/64",
+      "two_native_implementations_match": true
+    },
+    {
+      "z": "1",
+      "optimum": "569/4",
+      "two_native_implementations_match": true
+    }
+  ],
+  "computer_check": {
+    "exact_rational": true,
+    "all_physical_observers": 228,
+    "named_paths_per_witness": 141,
+    "algorithm": "finite Bellman over informative observer response fibers; independent original-94-family reconstruction; witness path replay",
+    "local_source_certificate_sha256": "30f786fa9ea0e2f120747424607e4f04a982a9770c10027da79a005e5ecf31dc",
+    "local_proof_sha256": "83ab36a46de417c69e057a5a7800b8e60f67bba6a6460b95f451095f8f27c285"
+  },
+  "proof": "concavity of finite min-of-affine tree costs + exact Bellman vertex lower bounds + complete tree affine upper witnesses",
+  "admission": "AUTHOR_PROVED_EXACT_FINITE_TWO_IMPLEMENTATIONS_NOT_REVIEWED",
+  "pr_dependencies": [
+    2675,
+    2678
+  ]
+}
