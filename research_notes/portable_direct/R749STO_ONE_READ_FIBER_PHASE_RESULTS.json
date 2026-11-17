@@ -1,0 +1,79 @@
+{
+  "unit": "R749STO",
+  "source_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "evidence": "AUTHOR_EXACT_NOT_REVIEWED",
+  "method": "exact integer counting; degree-certified quasi-polynomial interpolation; rational coefficient signs",
+  "model_weights": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ],
+  "pair_73_265": {
+    "all_j": "j >= 0: one-read exact collision exists for at least one legal nuisance quadruple for each j",
+    "negative_A_coefficients": [
+      "185034310886727648",
+      "479867227815153924/5",
+      "104557058039804638/5",
+      "12556822630357872/5",
+      "914721784528474/5",
+      "41863885885308/5",
+      "1204171196152/5",
+      "21055290288/5",
+      "204062976/5",
+      "839808/5"
+    ],
+    "positive_B_coefficients": [
+      "848923995690660384",
+      "1799454737894302404/5",
+      "323951603642534894/5",
+      "32356792871851248/5",
+      "1969737648578666/5",
+      "75762761861148/5",
+      "1847393803256/5",
+      "27682850352/5",
+      "232637184/5",
+      "839808/5"
+    ]
+  },
+  "pair_77_7859": {
+    "j_0_to_22": "every legal nuisance quadruple yields strictly positive first-read difference",
+    "j_23_on": "one-read exact collision exists for at least one legal nuisance quadruple for each integer j >= 23",
+    "minimum_gap_first_23": "2781963755899710066647/603273189896095648315920",
+    "minimum_gap_at_j": 22,
+    "finite_23_positive_A": true,
+    "negative_A_shift_23_coefficients": [
+      "1414655900193139915164228",
+      "9988699779431299423509207/5",
+      "1893012645470731951058141/10",
+      "69356552780915589360393/10",
+      "233013468308866677061/2",
+      "1686175716452304501/2",
+      "9651200488989487/5",
+      "9785737608006/5",
+      "926476056",
+      "839808/5"
+    ],
+    "positive_B_shift_23_coefficients": [
+      "1252137522228136686123571260",
+      "710673343482947706199070409/5",
+      "61790097763674354050876659/10",
+      "1254464371705310581765239/10",
+      "11297485271642393361799/10",
+      "32646913056746261991/10",
+      "22156942683508913/5",
+      "15765635946138/5",
+      "5723292168/5",
+      "839808/5"
+    ],
+    "noise_if_each_readout_error_le_eta": "uniform early separation when 2*eta < minimum_gap_first_23"
+  },
+  "scope": "Independent nuisance parameters may vary with the chosen index j. No simultaneous multi-index collision is asserted.",
+  "prior_two_read": "R749STN: for 73,265 two-read H(j)>0 at j>=37; for 77,7859 at j>=1.",
+  "integer_count_checks": {
+    "dynamic_program_max_n": 8000,
+    "interpolation_off-grid_per_pair": 10,
+    "extreme_numerator_crosschecks_per_pair": 4
+  }
+}
