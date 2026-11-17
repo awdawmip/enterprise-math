@@ -4456,6 +4456,60 @@
       "notes": "Unit95 performed full exact LP026 imported-source consumer using versioned Unit94 strict CoverState and current coordinate at actual verified Git blobs, original LP026 historical script unchanged. Current main coordinate blob973854... differs from original historical pinned dd6dd... so old script fails preflight before imports; separate opt-in full consumer uses strict-cover blobd38c2... and current coord blob973854..., signed native BRC blob300a..., fast recovery blob496764... . 18 original asserts became mode-invariant require checks. CPython normal/-O/-OO stdout byte-identical SHA256 319ae30d1c60eb91c2258a42cc7caa86c9156ed254f6bb58cf72c24fc8a8952b, all checks pass: 10364 native BRC endpoints, 59267 cover states, 281472 signed source-step transitions, 59267 fast native squared norms, 2355 ambiguous classes, 49834 section/native norm differences. True invalid direction rejected. Source and result GitHub saved and readback; no original frozen R063/Helly native rerun; native semantic progress not written, owner original X6 SID/CLAIM/RUN preserved, Driver review pending. Historical LP011/LP019 source provenance and 28-LP graph OPEN. AUTHOR-SOURCE-EXECUTED / INTEGER-EXACT / UNREVIEWED / NOT_ADMITTED.",
       "repairs_event_id": null,
       "state": "EM_REPRESENTED"
+    },
+    {
+      "event_id": "onhour-20261117-2200-x6-unit96-signed-brc-exact-weight-boundary",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "aebc38455061d07cee8b441a2fd91ff737dfcae2",
+          "path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc_strict_v2.py",
+          "sha256": "c8cf886226f3446ff38201cb9bd0f5f178ada649a6e400fe8645fcae0adf8eb9",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "git_blob_sha1": "5b66765c9fb0865684c468d4c93604bd1e9b004b",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/aebc38455061d07cee8b441a2fd91ff737dfcae2/experiments/x6_signed_native_spatial_v16_20260905/signed_brc_strict_v2.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "712143b1f3b66c80217e18e39ec39149c1e57616",
+          "path": "research_checks/X6_UNIT96_SIGNED_BRC_EXACT_WEIGHT_INPUT_BOUNDARY_CHECK_20261117.py",
+          "sha256": "6d01fe9361e3b77ce1528a75919b4a1e57d2dfa463a8dc4445e52c7fc4c94706",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "git_blob_sha1": "c458cfeef5d58de048dfcdefabfc0f771fa467ca",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/712143b1f3b66c80217e18e39ec39149c1e57616/research_checks/X6_UNIT96_SIGNED_BRC_EXACT_WEIGHT_INPUT_BOUNDARY_CHECK_20261117.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "6450b56d57c047f4808693053fc03cc980823765",
+          "path": "research_checks/X6_UNIT96_SIGNED_BRC_EXACT_WEIGHT_INPUT_BOUNDARY_RESULTS_20261117.json",
+          "sha256": "e029c1fe55ac3f038dda9e02c197860d99965b4e2825c2774bcfaf0324d00171",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "git_blob_sha1": "d85f17195aeb5355ded14d4350ab35a6aa31b39b",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6450b56d57c047f4808693053fc03cc980823765/research_checks/X6_UNIT96_SIGNED_BRC_EXACT_WEIGHT_INPUT_BOUNDARY_RESULTS_20261117.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          }
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/d0992f687f14006de1cc0d8c9ea22912641dac87/research_notes/X6_UNIT96_SIGNED_BRC_EXACT_WEIGHT_SOURCE_BOUNDARY_AND_CONSUMER_20261117.md",
+        "https://github.com/awdawmip/enterprise-math/blob/1ec51b6aa617f8c2ce194c320442e563935d87c9/research_notes/X6_UNIT96_SIGNED_BRC_WEIGHT_TYPED_CONTINUATION_20261117.json"
+      ],
+      "notes": "Unit96 preserved source-level true boundary in frozen signed_brc.endpoint_weight line62: eager Fraction coercion accepts bool,float,str,Decimal beyond declared exact int/Fraction. Opt-in strict signed_brc_strict_v2 retains valid math and rejects invalid. Real original-module import and 12,129 independent exact rational dynamic endpoint equality tests across 3 profiles, CPython normal/-O/-OO identical; original signed BRC unchanged. Counterexample float 0.1 rational differs by 1/180143985094819840. No actual erroneous downstream call demonstrated, native R063/Helly not rerun, Native semantic PROGRESS not submitted; independent review pending. Parent LP011/LP019 historical attribution and 28-LP remaining graph open. AUTHOR-SOURCE-EXECUTED / EXACT-RATIONAL-EXECUTED / UNREVIEWED / NOT_ADMITTED."
     }
   ],
   "mode": "TASK_RESEARCH",
