@@ -1,0 +1,85 @@
+{
+  "unit": "R749STA",
+  "status": "PASS",
+  "evidence": "AUTHOR_EXACT_NOT_REVIEWED",
+  "scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "theorem": "For all integers q>=73 with q≡1 (mod 6), p=q+4 admits exact equality of the first three observations for some distinct admissible candidate parameters strictly inside (-2,2); global exact-identification horizon is at least four.",
+  "fixed_original_e": "-3/2",
+  "original_d": "a root of F(q,d) in (-1,0)",
+  "alternative_parameters": "E(q,d) and D(q,d) from the first two normalized readouts",
+  "certificate_method": "Exact positive coefficients after q=73+k,d=-u/(1+u), IVT; rational cubic and gcd for q=73.",
+  "positivity_checks": [
+    {
+      "name": "-numerator_at_d=-1",
+      "degree_k": 21,
+      "count": 22,
+      "min_positive": "960048"
+    },
+    {
+      "name": "numerator_at_d=0",
+      "degree_k": 21,
+      "count": 22,
+      "min_positive": "1139472"
+    },
+    {
+      "name": "collinearity_denominator",
+      "degree_k": 24,
+      "degree_u": 3,
+      "count": 100,
+      "min_positive": "2187"
+    },
+    {
+      "name": "E_denominator",
+      "degree_k": 16,
+      "degree_u": 2,
+      "count": 51,
+      "min_positive": "52488"
+    },
+    {
+      "name": "E_lower_guard",
+      "degree_k": 16,
+      "degree_u": 2,
+      "count": 51,
+      "min_positive": "103896"
+    },
+    {
+      "name": "E_upper_guard",
+      "degree_k": 16,
+      "degree_u": 2,
+      "count": 51,
+      "min_positive": "71064"
+    },
+    {
+      "name": "D_denominator",
+      "degree_k": 16,
+      "degree_u": 2,
+      "count": 51,
+      "min_positive": "4374"
+    },
+    {
+      "name": "D_lower_guard",
+      "degree_k": 16,
+      "degree_u": 2,
+      "count": 51,
+      "min_positive": "3834"
+    },
+    {
+      "name": "D_upper_guard",
+      "degree_k": 16,
+      "degree_u": 2,
+      "count": 51,
+      "min_positive": "9288"
+    }
+  ],
+  "strictly_positive_coefficients": 450,
+  "q73_cubic": "-15618855526087614323456*d**3 + 251745728589325682154438351145*d**2 + 1051525031591217484057132026985205*d + 961772529408317889570818785924418",
+  "q73_root_isolation": [
+    "-1",
+    "-9/10"
+  ],
+  "q73_root_count": 1,
+  "q73_fourth_read_num_gcd_degree": 0,
+  "verification_scope": "Exact polynomial certificate for entire infinite arithmetic progression; finite special witness distinguished at fourth read.",
+  "review": "independent mathematics review pending",
+  "next_question": "Test four-read global or eventual residue-class separation; develop residual repair coordinate."
+}
