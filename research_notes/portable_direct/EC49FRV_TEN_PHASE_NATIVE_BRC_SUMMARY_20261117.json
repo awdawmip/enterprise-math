@@ -1,0 +1,132 @@
+{
+  "schema": "EC49FRV_PUBLICATION_SUMMARY_V1",
+  "date": "2026-11-17",
+  "parent": "EC49FRU",
+  "parent_commit": "2788eba05069adc1b66395b08035eca77ca22a5f",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_class": 16943,
+  "original_configurations": 310,
+  "named_states": 141,
+  "physical_observations": 228,
+  "discounted_physical_queries": [
+    32,
+    34
+  ],
+  "discount_interval": "0 <= delta <= 1",
+  "exact_cost_expression": "141*V(delta)/t=min_{(U,N) in types}(U-delta*N)",
+  "affine_types": [
+    [
+      296,
+      152
+    ],
+    [
+      297,
+      156
+    ],
+    [
+      304,
+      177
+    ],
+    [
+      306,
+      182
+    ],
+    [
+      310,
+      190
+    ],
+    [
+      315,
+      199
+    ],
+    [
+      321,
+      209
+    ],
+    [
+      337,
+      233
+    ],
+    [
+      343,
+      241
+    ],
+    [
+      355,
+      256
+    ]
+  ],
+  "exact_transition_points": [
+    "1/4",
+    "1/3",
+    "2/5",
+    "1/2",
+    "5/9",
+    "3/5",
+    "2/3",
+    "3/4",
+    "4/5"
+  ],
+  "exact_anchors": [
+    [
+      "0",
+      296
+    ],
+    [
+      "1/4",
+      1032
+    ],
+    [
+      "1/3",
+      735
+    ],
+    [
+      "2/5",
+      1166
+    ],
+    [
+      "1/2",
+      430
+    ],
+    [
+      "5/9",
+      1840
+    ],
+    [
+      "3/5",
+      978
+    ],
+    [
+      "2/3",
+      545
+    ],
+    [
+      "3/4",
+      649
+    ],
+    [
+      "4/5",
+      751
+    ],
+    [
+      "1",
+      99
+    ]
+  ],
+  "checked_original_bellman_anchors": 11,
+  "raw_source_reconstructions": 2,
+  "shared_bellman_recurrence": true,
+  "reachable_subsets_per_anchor_per_route": 13063,
+  "full_native_trees_replayed": 10,
+  "exact_domain": "All real discounts 0<=delta<=1 using the uniform prior over 141 named states and root/terminal x=1",
+  "source_hashes": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "profile_csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "full_local_machine_certificate_sha256": "d7d79859cc0f36661571c9d0035edd80d1276ae70521c29fb9594c2a34723c3b",
+  "full_local_machine_certificate_bytes": 148697,
+  "full_local_evidence_archive_sha256": "bffb4641372b59b4813911ed1665c5a642a6499244c9db7bf1da50c9d33e87e2",
+  "full_local_evidence_archive_bytes": 227128,
+  "proof_status": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / TWO_INDEPENDENT_RAW_RESPONSE_RECONSTRUCTIONS / NOT_REVIEWED",
+  "activity_note": "Independent portable research. No authenticated Task/CLAIM/Result/Review or Source Activity checkpoint."
+}
