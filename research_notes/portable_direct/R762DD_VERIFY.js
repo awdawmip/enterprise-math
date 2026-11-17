@@ -6,6 +6,7 @@ function data(w){const v=Array(n).fill(0),c=Array.from({length:n},()=>Array(n).f
 function wedge(v,w){return E.map(([i,j])=>v[i]*w[j]-v[j]*w[i]);}
 function B(i,j){return [[i,1],[i,-1],[j,1],[j,-1]];}
 function L(i,j){return [[i,1],[j,1],[i,-1],[j,-1]];}
+function M(i,j){return [[j,1],[i,1],[j,-1],[i,-1]];}
 function eq(a,b){assert.deepEqual(a,b);}
 function checkWord(w){const x=data(w);E.forEach(([i,j],k)=>{assert((x.A[k]-x.v[i]*x.v[j])%2===0);assert.equal((x.A[k]+x.v[i]*x.v[j])/2,x.c[i][j]);});return x;}
 let words=[[]],parityChecks=0;
@@ -17,7 +18,7 @@ let composeChecks=0;
 const two=[[]];for(const a of dirs)for(const b of dirs)two.push([a,b]);
 for(const H of two)for(const K of two){const x=data(H),y=data(K),z=data([...H,...K]),w=wedge(x.v,y.v);E.forEach((e,k)=>assert.equal(z.A[k],x.A[k]+y.A[k]+w[k]));composeChecks++;}
 let generatorChecks=0;
-for(const [i,j] of E){const b=data(B(i,j)),l=data(L(i,j));assert(b.v.every(x=>x===0)&&l.v.every(x=>x===0));E.forEach((p,k)=>{assert.equal(b.A[k],0);assert.equal(l.A[k],p[0]===i&&p[1]===j?2:0);});generatorChecks++;}
+for(const [i,j] of E){const b=data(B(i,j)),l=data(L(i,j)),m=data(M(i,j));assert(b.v.every(x=>x===0)&&l.v.every(x=>x===0)&&m.v.every(x=>x===0));E.forEach((p,k)=>{assert.equal(b.A[k],0);assert.equal(l.A[k],p[0]===i&&p[1]===j?2:0);assert.equal(m.A[k],p[0]===i&&p[1]===j?-2:0);});generatorChecks++;}
 let modulusChecks=0;const modulus=[];
 for(let q=2;q<=10;q++){
  const m0=q%2?q:2*q;
