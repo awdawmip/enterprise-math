@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_f8_h14_joint_50_66_20261118/RESEARCH.md",
+    "ref": "921a0571cef10fd0a82218dc68f823841824278f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261118-0404-h14-full-immutable-readback-01",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# R5 fifth-chamber f=8: 14-state exact joint certificate\n\nDate: 2026-11-18 (Asia/Shanghai). Proof status: AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED.\n\n## Frozen model and statement\n\nScientific pin 435e77af0d180eac32bd1f9c4c464bc4010b7551; original 101x256 exact integer count table SHA256 50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b. Physical costs k=214,...,314; normal real reading |y-N_h(k)|<=eta except at most f=8 unmarked arbitrary errors. Let tau=2eta and L=25845652773852463277015040000, U=58182461585441404127941754880.\n\nConsider H14=(18,24,82,34,17,0,1,2,3,144,208,255,50,66).\n\n**Theorem.** For every real L<=tau<U, the exact minimax adaptive cost C8(H14;tau)=8335.\n\n## Proof and executed calculation\n\nThe original five-state H0=(18,24,82,34,17) is a subset and has exact cost C8(H0;L)=8335. This gives the entire-chamber lower bound.\n\nFor the upper bound, at tau=U-1 construct all inclusion-maximal supports for single normal readings over H14, using only five actual physical costs {214,215,216,223,296}. The fully enumerated masks are in ACTIONS_H14_50_66_RIGHT.txt. The companion C++17 Bellman solver is the previously verified 12-state exact solver extended only to n<=15 (14 counters x4 bits =56 bits in uint64); errors are incremented only while <=8 and saturate at 9, without nibble carry. Exact minimax evaluates all compatible maximal answer supports and returns:\n\nEXACT_RESTRICTED n=14 f=8 V=8335 states=9280321 actions=5\n\nThis final exact stdout was produced and stored. The outer command wrapper reported a timeout instead of an independent successful shell-exit receipt, so this evidence is a completed solver output with a wrapper-exit observation limitation. Support masks and compiled source are preserved for rerun.\n\nFor any real tau<U, the normal-response compatibility relation is a subset of the one at U-1, since integer centers have integer differences. Thus the upper-bound strategy works throughout the chamber. The upper and H0 lower match.\n\n## Provenance, boundary, and next\n\nThis extends the previously published H12 certificate by adding two named configurations 50 and 66 simultaneously. It uses the same scalar observer, not an automatic native P000/X6 provenance-preserving state reduction. It does not assert formal Task/CLAIM/Result/Review acceptance. The complete 256-state f8 question remains bounded by 8335<=C8*<=8343.\n\nNext: test whether a 15th discriminating state forces higher cost under the same five physical budgets, or construct a compact residual-sufficient decomposition for the entire 256-state problem. The prior R5 f8 H12 / four-and-five budget certificates remain at project GitHub commit f4cd0ba590a979165f3360941c9a1651c1f5028c.\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/921a0571cef10fd0a82218dc68f823841824278f/research_notes/portable_direct/r5_f8_h14_joint_50_66_20261118/RESEARCH.md",
+      "encoding": "utf-8",
+      "sha": "e97b0bb0e5beacea01bcdbd6241436fcd8c34e73"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
