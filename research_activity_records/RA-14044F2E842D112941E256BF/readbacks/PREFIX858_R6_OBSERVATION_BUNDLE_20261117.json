@@ -1,0 +1,64 @@
+{
+  "schema": "EM_SOURCE_OBSERVATION_BUNDLE_V1",
+  "event_id": "r6-prefix858-20261117-orbit-coldstart-family",
+  "activity_id": "RA-14044F2E842D112941E256BF",
+  "researcher_id": "EM-DIRECT-B518B3",
+  "session_id": "MCP-adddf9d72d594b378439e0dbb22af0f0",
+  "shared_claim_acquired": false,
+  "scope": "Independent BRC scalar named-source mathematical result; GitHub immutable commit/path readback, no mathematical review or native X6 admission",
+  "artifacts": [
+    {
+      "kind": "paper",
+      "path": "research_notes/portable_direct/2026-11-17_r6_prefix858_arithmetic_orbit_coldstart_family.md",
+      "commit": "880414f9150caa24b19dd4c8d5669b37b52bd939",
+      "sha256": "52d3a37dd29b23055bb3326ba336ee91ee4c9a3a9403b9ad219538f31d278f2a",
+      "git_blob_sha1": "4dfc1cc6f80370bdfb2dfa8a3710186a4d17be58",
+      "repository": "awdawmip/enterprise-math",
+      "observation_id": "r6-prefix858-20261117-source-observed-1",
+      "verification_kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+      "tool": "mcp__GitHub__fetch_file",
+      "readback_verified": true,
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/880414f9150caa24b19dd4c8d5669b37b52bd939/research_notes/portable_direct/2026-11-17_r6_prefix858_arithmetic_orbit_coldstart_family.md"
+    },
+    {
+      "kind": "checker",
+      "path": "research_notes/portable_direct/PREFIX858_R6_ORBIT_TWO_READ_CHECK.py",
+      "commit": "f810f1a3825cb79d08c65ea1a22049d011876752",
+      "sha256": "8b490b06337703d51fb4652d29f2b5e9766956bda1c67a1c957be1fa2dce4a51",
+      "git_blob_sha1": "1b21691c66c979d2b9cda34ac29e1f3d927ef572",
+      "repository": "awdawmip/enterprise-math",
+      "observation_id": "r6-prefix858-20261117-source-observed-2",
+      "verification_kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+      "tool": "mcp__GitHub__fetch_file",
+      "readback_verified": true,
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/f810f1a3825cb79d08c65ea1a22049d011876752/research_notes/portable_direct/PREFIX858_R6_ORBIT_TWO_READ_CHECK.py"
+    },
+    {
+      "kind": "results",
+      "path": "research_notes/portable_direct/PREFIX858_R6_ORBIT_TWO_READ_RESULTS.json",
+      "commit": "a98628c71b27750829173649f79162034f14965c",
+      "sha256": "6731cf541dd4bcf955452c747341176d657237bd4f92434a9abbb1997ebca4b6",
+      "git_blob_sha1": "d0aed235aaa5ce7214134ceaece60ed590d51d67",
+      "repository": "awdawmip/enterprise-math",
+      "observation_id": "r6-prefix858-20261117-source-observed-3",
+      "verification_kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+      "tool": "mcp__GitHub__fetch_file",
+      "readback_verified": true,
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/a98628c71b27750829173649f79162034f14965c/research_notes/portable_direct/PREFIX858_R6_ORBIT_TWO_READ_RESULTS.json"
+    }
+  ],
+  "validation": {
+    "python_integer_local": "ALL_EXACT_ASSERTIONS_PASSED",
+    "python_local_scope": {
+      "family": 52,
+      "cyclic": 93,
+      "small_odd": 35,
+      "direct": 75
+    },
+    "javascript_independent_residue_regression": "PASSED",
+    "source_checker_remote_bytes_readback": true,
+    "independent_review": false,
+    "formal_admission": false
+  },
+  "kb_ref": "https://github.com/awdawmip/chatgpt-global-knowledge/blob/368d6c98956b2cade66d145cb04b24938c6a5cd8/journal/enterprise-math/2026-11-17/20261117T1149-r6-prefix858-arithmetic-orbit-coldstart.md"
+}
