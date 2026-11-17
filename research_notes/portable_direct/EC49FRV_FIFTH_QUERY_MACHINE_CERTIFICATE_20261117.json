@@ -1,0 +1,135 @@
+{
+  "schema": "EC49FRV_FIFTH_NAMED_QUERY_PRICE_REDUNDANCY_V1",
+  "date": "2026-11-17",
+  "original_brc_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_master_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "source_profile_sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f",
+  "exact_statement": "For every real a,b,c,d,e>=0 and original physical query q46 surcharge e: V_5/t=min(296/141+a,296/141+b,298/141+c,298/141+d,299/141)",
+  "native_state_count": 141,
+  "original_physical_query_count": 228,
+  "original_query_surcharge_order": [
+    32,
+    34,
+    140,
+    142,
+    46
+  ],
+  "integer_baseline_cost": 282,
+  "witness_trees": [
+    {
+      "chamber": "A",
+      "root": 32,
+      "surcharges": [
+        2,
+        16,
+        16,
+        16,
+        60
+      ],
+      "bellman_integer_cost": 83754,
+      "total_uses": 296,
+      "incidence": [
+        141,
+        0,
+        0,
+        0,
+        0
+      ],
+      "depth": 3,
+      "tree_sha256": "8d441e8c0e5959458945b09d551fb60468961b4b90d7ee1989c9d1c26e577bb8"
+    },
+    {
+      "chamber": "A_prime",
+      "root": 34,
+      "surcharges": [
+        16,
+        2,
+        16,
+        16,
+        60
+      ],
+      "bellman_integer_cost": 83754,
+      "total_uses": 296,
+      "incidence": [
+        0,
+        141,
+        0,
+        0,
+        0
+      ],
+      "depth": 3,
+      "tree_sha256": "85994ee6a02b9d4d7f1f2b1c277143967f643a8ce09b943f482166e1a5143735"
+    },
+    {
+      "chamber": "B",
+      "root": 140,
+      "surcharges": [
+        16,
+        16,
+        1,
+        16,
+        60
+      ],
+      "bellman_integer_cost": 84177,
+      "total_uses": 298,
+      "incidence": [
+        0,
+        0,
+        141,
+        0,
+        0
+      ],
+      "depth": 3,
+      "tree_sha256": "ce3716167af47bb2ecf5b0fb33c1ca9941ef246ce248420a96cccf9b598ec6a2"
+    },
+    {
+      "chamber": "B_prime",
+      "root": 142,
+      "surcharges": [
+        16,
+        16,
+        16,
+        1,
+        60
+      ],
+      "bellman_integer_cost": 84177,
+      "total_uses": 298,
+      "incidence": [
+        0,
+        0,
+        0,
+        141,
+        0
+      ],
+      "depth": 3,
+      "tree_sha256": "2be56d45de7dc46271e708ee2934162e64f3eb02d1fc1951ea0f66ac3c450a8d"
+    },
+    {
+      "chamber": "C",
+      "root": 93,
+      "surcharges": [
+        16,
+        16,
+        16,
+        16,
+        60
+      ],
+      "bellman_integer_cost": 84318,
+      "total_uses": 299,
+      "incidence": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "depth": 3,
+      "tree_sha256": "0b0938139b8c0bbeb78d33bc327e3397bd7ed8685168b315189f377621bab545"
+    }
+  ],
+  "all_228_query_bellman_reachable_subsets_each": 13063,
+  "complete_replay_states_per_witness": 141,
+  "serialization": "sha256(json.dumps(tree,sort_keys=True,separators=(',',':')).encode())",
+  "proof": "V5>=V4 by nonnegative q46 price. Each of five global V4 affine pieces is realized by one full original q46-free tree, so V5<=V4 for every a,b,c,d,e>=0.",
+  "status": "AUTHOR_PROVED/EXACT_FINITE_BELLMAN_AND_FULL_TREE_REPLAY/NOT_REVIEWED"
+}
