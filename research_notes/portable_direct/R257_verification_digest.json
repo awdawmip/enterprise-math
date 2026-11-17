@@ -1,0 +1,176 @@
+{
+  "schema": "EM_R257_SHARP_23ADIC_DENOMINATOR_V1",
+  "date": "2026-11-18",
+  "parameter": "770/1973",
+  "derived_t": "1285775/1656299",
+  "science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "J": "327870790093",
+  "T": "153448180920",
+  "K": "166791501000",
+  "E": "3529308161160",
+  "domain": "all integers k >= 3",
+  "mask_count": 63,
+  "nonleading_scaled_coefficients_integral": 249,
+  "base_integrality_checks": 249,
+  "minimal_spectral_scale_prime_tests": [
+    2,
+    3,
+    5,
+    23,
+    31,
+    101,
+    1973
+  ],
+  "conclusion": "lcm_den(h_{m,k})=J*T^k/K; p=23 has no exceptional drop",
+  "prime_witnesses": {
+    "2": {
+      "mask": 3,
+      "type": "geometric",
+      "unit": 1,
+      "initial": [
+        1,
+        1,
+        1
+      ]
+    },
+    "3": {
+      "mask": 17,
+      "type": "geometric",
+      "unit": 1,
+      "initial": [
+        2,
+        2,
+        2
+      ]
+    },
+    "5": {
+      "mask": 2,
+      "type": "geometric",
+      "unit": 1,
+      "initial": [
+        1,
+        3
+      ]
+    },
+    "7": {
+      "mask": 2,
+      "type": "geometric",
+      "unit": 3,
+      "initial": [
+        1,
+        3
+      ]
+    },
+    "11": {
+      "mask": 4,
+      "type": "zero_free_complete_orbit",
+      "period": 10,
+      "initial": [
+        5,
+        6
+      ],
+      "sha256_of_JSON_compact_cycle": "27e3a832b22d5da96548e021e4b7b1baca8dfd6a451cc08b3dd84223c5bacd79"
+    },
+    "23": {
+      "mask": 42,
+      "type": "geometric",
+      "unit": 17,
+      "initial": [
+        17,
+        13,
+        14,
+        8
+      ],
+      "scaled_characteristic_mod_p_low_degree_first": [
+        0,
+        0,
+        0,
+        6,
+        1
+      ]
+    },
+    "31": {
+      "mask": 32,
+      "type": "geometric",
+      "unit": 15,
+      "initial": [
+        18,
+        22
+      ]
+    },
+    "101": {
+      "mask": 32,
+      "type": "geometric",
+      "unit": 57,
+      "initial": [
+        35,
+        76
+      ]
+    },
+    "401": {
+      "mask": 49,
+      "type": "zero_free_complete_orbit",
+      "period": 200,
+      "initial": [
+        192,
+        88,
+        13,
+        246
+      ],
+      "sha256_of_JSON_compact_cycle": "be677bef9b87f6be1e6422057b653ece0c43a6dca1904b1ee1afd238a6abae24"
+    },
+    "1973": {
+      "mask": 8,
+      "type": "geometric",
+      "unit": 761,
+      "initial": [
+        511,
+        190
+      ]
+    },
+    "3061": {
+      "mask": 0,
+      "type": "geometric",
+      "unit": 476,
+      "initial": [
+        180
+      ]
+    },
+    "3469": {
+      "mask": 0,
+      "type": "geometric",
+      "unit": 1985,
+      "initial": [
+        726
+      ]
+    }
+  },
+  "original_fraction_spot_checks": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    12,
+    16
+  ],
+  "spot_check_denominator_bit_lengths": [
+    113,
+    150,
+    187,
+    224,
+    262,
+    299,
+    373,
+    447,
+    596
+  ],
+  "all_checks": "PASS",
+  "proof_basis": "monic integral recurrence and zero-free complete prime witnesses",
+  "reproducible_source": "R257_sharp_23adic_denominator_certificate.py",
+  "independent_review": "NOT_REVIEWED",
+  "formal_claim": "NONE",
+  "native_signed_brc": "NOT_EXECUTED"
+}
