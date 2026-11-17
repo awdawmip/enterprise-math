@@ -1,0 +1,169 @@
+{
+  "unit": "R749STD",
+  "date": "2026-11-17",
+  "evidence": "AUTHOR_EXACT_NOT_REVIEWED",
+  "verification": "PASS: local SymPy exact rational arithmetic, 88/88 strict Bernstein coefficients across 13 polynomial tests",
+  "note": "Publication summary. Execute companion Python to regenerate full rational minima and verify all coefficients, which are not duplicated in this summary.",
+  "frozen_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "source_weights": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ],
+  "cutoff_pair": [
+    602,
+    604
+  ],
+  "count_data": {
+    "C_T_602": [
+      "19230175073",
+      "1938941614326"
+    ],
+    "C_T_604": [
+      "19548563534",
+      "1977560635876"
+    ]
+  },
+  "center": {
+    "e": "7294566461180559224916/10000000000000000000000",
+    "d": "-14160257025121226420360/10000000000000000000000",
+    "radius": "1/100000000000"
+  },
+  "polynomials": [
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "degree": 3,
+  "existence": "Poincare-Miranda strict face signs after exact inverse-Jacobian preconditioning",
+  "four_read_exact_alias_exists": true,
+  "fifth_gap": "Y_626(e,d)-Y_628(E,D)>1/1000000000000000",
+  "uniform_global_exact_horizon_bounds": [
+    5,
+    11
+  ],
+  "positive_bernstein_coefficients": 88,
+  "sign_certificates": [
+    {
+      "name": "G1 left negative",
+      "bidegree": [
+        0,
+        3
+      ],
+      "coefficients": 4,
+      "strict_positive": true
+    },
+    {
+      "name": "G1 right positive",
+      "bidegree": [
+        0,
+        3
+      ],
+      "coefficients": 4,
+      "strict_positive": true
+    },
+    {
+      "name": "G2 bottom negative",
+      "bidegree": [
+        2,
+        0
+      ],
+      "coefficients": 3,
+      "strict_positive": true
+    },
+    {
+      "name": "G2 top positive",
+      "bidegree": [
+        2,
+        0
+      ],
+      "coefficients": 3,
+      "strict_positive": true
+    },
+    {
+      "name": "t0 positive",
+      "bidegree": [
+        0,
+        1
+      ],
+      "coefficients": 2,
+      "strict_positive": true
+    },
+    {
+      "name": "B=x1_minus_x0*denominator positive",
+      "bidegree": [
+        1,
+        2
+      ],
+      "coefficients": 6,
+      "strict_positive": true
+    },
+    {
+      "name": "D below +2",
+      "bidegree": [
+        1,
+        2
+      ],
+      "coefficients": 6,
+      "strict_positive": true
+    },
+    {
+      "name": "D above -2",
+      "bidegree": [
+        1,
+        2
+      ],
+      "coefficients": 6,
+      "strict_positive": true
+    },
+    {
+      "name": "E below +2",
+      "bidegree": [
+        2,
+        3
+      ],
+      "coefficients": 12,
+      "strict_positive": true
+    },
+    {
+      "name": "E above -2",
+      "bidegree": [
+        2,
+        3
+      ],
+      "coefficients": 12,
+      "strict_positive": true
+    },
+    {
+      "name": "fifth read residual numerator nonzero",
+      "bidegree": [
+        2,
+        3
+      ],
+      "coefficients": 12,
+      "strict_positive": true
+    },
+    {
+      "name": "fifth alternative denominator positive",
+      "bidegree": [
+        1,
+        2
+      ],
+      "coefficients": 6,
+      "strict_positive": true
+    },
+    {
+      "name": "fifth read source minus alternative gap exceeds 1e-15",
+      "bidegree": [
+        2,
+        3
+      ],
+      "coefficients": 12,
+      "strict_positive": true
+    }
+  ],
+  "scope": "Five labeled source auxiliary scalar observer, continuous shared errors each in [-2,2]; project-native X6 transfer not claimed",
+  "next": "Seek 5-read aliases and improve global upper bound; independent review"
+}
