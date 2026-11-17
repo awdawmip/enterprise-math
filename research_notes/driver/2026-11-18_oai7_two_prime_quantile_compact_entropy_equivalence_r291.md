@@ -48,7 +48,7 @@ r_i=iq\bmod p,\qquad p-r_i.
 
 Coprimality makes the `r_i` run once through `1,...,p-1`. Exactly `q-(p-1)=q-p+1` unsplit length-`p` intervals remain, and the split lengths comprise two copies of each `1,...,p-1`. Divide by `pq` for the atom probabilities. Every segment yields a different ordered pair `(\lfloor pW\rfloor,\lfloor qW\rfloor)`: crossing each interior endpoint increases at least one of those coordinates, and neither decreases. CRT is injective on residue pairs. This proves the multiset identity and the entropy formula.
 
-The independently derived compact-diameter result applies because the probability generating polynomial of any finitely supported real-weight integer law with both exact modular uniforms vanishes at all primitive roots of orders `p` and `q`, and must therefore be divisible by `\Phi_p(x)\Phi_q(x)`, of degree `p+q-2`; `S` attains that width.
+The compact-diameter result follows for *all coprime integers* `p,q` by the same complete root argument: exact uniform reduction modulo `p` makes the probability generating polynomial vanish at **every nontrivial `p`th root of unity**, hence divisible over `\u211d[x]` by `C_p(x)=1+x+...+x^{p-1}`; analogously it is divisible by `C_q(x)`. Because `gcd(p,q)=1`, these two factors have disjoint complex zero sets and are relatively prime, so their product `C_p(x)C_q(x)` divides the generating polynomial and has degree `p+q-2`. The compact sum has precisely this product as its normalized generating polynomial and attains that diameter. For primes, these `C_p,C_q` coincide with the cyclotomic polynomials `\Phi_p,\Phi_q` used in the earlier pinned proof.
 
 ## Theorem 2 (three-prime equality does not extend universally)
 
