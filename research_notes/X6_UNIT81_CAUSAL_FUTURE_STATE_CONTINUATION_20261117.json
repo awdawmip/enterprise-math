@@ -1,0 +1,96 @@
+{
+  "schema": "EM_X6_TASK_RESEARCH_UNIT81_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-17",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "research_lane": "TASK_RESEARCH",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "separate_control_maintenance_conversation": "chatgpt-hourly-enterprise-math-20260921",
+  "original_owner_provenance": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-579c8e23625448582b421831",
+    "run_id": "RUN-fb25028676f9692ab1bacaee",
+    "note": "This original role/source provenance is not a capability to submit through another Sites subject. No new registration, prepare, CLAIM, open, release, dispatch or publication attempted."
+  },
+  "scientific_pins": {
+    "p000_signed_x6_source_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical_plane_corpus": "fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "completed_unit": {
+    "id": "Unit81",
+    "classification": "AUTHOR-EXACT / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "exact_result": "For each of 20 nonzero signed C12 roots with m eligible frames, there are 32m full BRC histories and 16m distinct post-root suffixes, each suffix merging only past beta0. Full precommitted suffix needs 4+ceil(log2(m)) bits, full history 5+ceil(log2(m)); supplied named future operation bits beta2..beta5 leave only ceil(log2(m)) prior state bits. m in {1,2,3,4}; worst prior memory 2 bits, precommitted suffix 6, full history 7.",
+    "populations": {
+      "raw_labeled_histories": 2560,
+      "nonzero_root_labeled_histories": 1280,
+      "distinct_signed_roots": 20,
+      "root_conditional_distinct_future_suffixes": 640,
+      "fixed_future_control_checks": 320,
+      "failed_checks": 0
+    },
+    "checks": [
+      "Python ordinary",
+      "Python -O",
+      "Python -OO"
+    ],
+    "execution_evidence": "Three locally executed modes yielded identical exact JSON. Authenticated GitHub connected source readbacks were exact content matches.",
+    "source_files": [
+      {
+        "path": "research_checks/X6_UNIT81_FULL_FUTURE_CONTROL_STATE_EXACT_20261117.py",
+        "commit": "dece6e93db1c138d47fa660b2f66af1ecdb3d19d",
+        "blob": "cff48b44b9dd1fdc3a69684fd47415a37f1d8c03",
+        "sha256": "caf493d86255073eebe7a842a1a961c0e8a96e43ae1c137004100124553fe046"
+      },
+      {
+        "path": "research_checks/X6_UNIT81_FULL_FUTURE_CONTROL_STATE_SUMMARY_20261117.json",
+        "commit": "9c00513ffe48d1a152bd0e061e4b2033a133322f",
+        "blob": "15659568a31b02047d577b6e5d4e3b34a44fcaf9"
+      },
+      {
+        "path": "research_notes/X6_UNIT81_CAUSAL_FULL_SUFFIX_OPERATION_STATE_20261117.md",
+        "commit": "c4539e9a299875aeda0f22d7c734e975667bae80",
+        "blob": "f318b9937248525e1e640f808b376b0471635eb5"
+      }
+    ],
+    "new_bounded_archival_audit": {
+      "scope": "Seven frozen 2026-08/09 historical definitions and BRC notes, recorded in Unit81 theorem report with exact path and blob",
+      "lp011": "Specific erroneous native singleton argmax historic caller remains UNRESOLVED_PROVENANCE",
+      "lp019": "Specific erroneous positive natural BRC signed cancellation historic caller remains UNRESOLVED_PROVENANCE"
+    }
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "checkpoint_count": 106,
+    "commit": "27bf47c6341205c7d80db6dcea95d552789bd065",
+    "blob": "5aeff62613c3976fbeec3a54d7a8a12fbb7733f4",
+    "readback_verified": true
+  },
+  "native_control": {
+    "own_session_recovery_status": "RESEARCHER existing SID; metadata only; last recorded RUN-fb25028676f9692ab1bacaee generation5, no role authority from read projection",
+    "original_continuation_receipt": "onhour-20261117-0900-x6-own-exact-continuation-read: SUCCEEDED (read-only)",
+    "this_run_exact_continuation": "onhour-20261117-1000-x6-task-existing-continuation-read: SUCCEEDED / TYPED_FRONTIER_REQUIRED (read-only)",
+    "execution_authorized_in_current_Sites_subject": false,
+    "unit77_81_native_semantic_progress": "NOT_PUBLISHED_FROM_CURRENT_SITES_SUBJECT; original capability/claim and any original pending request require authentic current-lane readback"
+  },
+  "open_mother_obligations": [
+    "Locate exact frozen historical LP011 negative/dominant native signed argmax caller with path:line and current consumer",
+    "Locate exact frozen historical LP019 signed subtraction of natural positive BRC caller with path:line and current consumer",
+    "Resolve remainder of 28-LP current executable downstream dependency graph on exact versioned source edges",
+    "Independent RESEARCH_DRIVER REQUEST_REVISION and mathematical review/admission",
+    "Native semantic checkpoint for current author Units77–81 along original authenticated lane when authorized"
+  ],
+  "do_not_repeat": [
+    "Units64–80 completed and recorded source evidence",
+    "Frozen native R063 complete original benchmark",
+    "Frozen Helly original benchmark",
+    "Source-published earlier requests; consume existing original receipts",
+    "Other owner's PR and accepted Result",
+    "Any maintenance lane identity/CLAIM"
+  ],
+  "next_exact_action": "Read latest current task and Activity #106 and this immutable continuation first. On the frozen historical corpus perform a new bounded source-line-oriented search for actual LP011/LP019 erroneous callers and dependency edges (rather than synonyms in unrelated algebra). Classify only verified original call sites; preserve already correctly retyped consumers. If independent Developer/Driver revision evidence exists, use its actual existing review route. For native semantic PROGRESS first reconcile existing original requests and fresh owner-authorization for the real Research conversation; no Sites capability substitution.",
+  "current_research_state": "OPEN",
+  "schedule_change": false,
+  "notification_change": false
+}
