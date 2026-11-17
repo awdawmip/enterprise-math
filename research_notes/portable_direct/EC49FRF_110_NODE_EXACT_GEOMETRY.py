@@ -25,7 +25,7 @@ D=Q(2185500)
 def area(nodes):
     return sum(((b-a)*(G(a)-G(b)) for a,b in zip(nodes,nodes[1:])),Q(0))
 def area_from_k(nodes):
-    return D/Q(169**2)*sum((K(a)/K(b)+K(b)/K(a)-2 for a,b in zip(nodes,nodes[1:]),Q(0))
+    return D/Q(169**2)*sum((K(a)/K(b)+K(b)/K(a)-2 for a,b in zip(nodes,nodes[1:])),Q(0))
 s98,s110=area(old),area(new)
 assert s98==area_from_k(old) and s110==area_from_k(new)
 assert s98==Q(296902200973874060795,160864097511408031554912)
