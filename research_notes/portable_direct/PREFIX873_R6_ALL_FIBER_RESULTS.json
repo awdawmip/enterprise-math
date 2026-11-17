@@ -1,0 +1,109 @@
+{
+  "schema": "PREFIX873_R6_EXACT_ALL_FIBER_PROFILE_V1",
+  "date": "2026-11-17",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "continuation": "PREFIX-872",
+  "model": "p=32 named binary sources; no-change or single named flip; ordered transition; odd fixed moduli",
+  "p": 32,
+  "Q": 524287,
+  "N": "4294967296",
+  "gcds": [
+    1,
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15,
+    19,
+    21,
+    23,
+    25,
+    27,
+    29,
+    35,
+    37,
+    39,
+    47,
+    49,
+    53,
+    55,
+    59,
+    61
+  ],
+  "family": "A_g=largest odd <= floor(Q/g); (q1,q2)=(g*A_g,g*(A_g-2)) and reverse",
+  "ordered_pairs": 46,
+  "residue_fibers_evaluated": 24114624,
+  "nonzero_first_fiber_cases": 5,
+  "nonzero_cases": [
+    {
+      "g": 15,
+      "orientation": "high-first",
+      "q1": 524265,
+      "q2": 524235,
+      "violating_ra": 316480,
+      "max_over": 2095,
+      "r": 4,
+      "a": 11
+    },
+    {
+      "g": 21,
+      "orientation": "high-first",
+      "q1": 524265,
+      "q2": 524223,
+      "violating_ra": 488776,
+      "max_over": 3710,
+      "r": 1,
+      "a": 20
+    },
+    {
+      "g": 27,
+      "orientation": "high-first",
+      "q1": 524259,
+      "q2": 524205,
+      "violating_ra": 172780,
+      "max_over": 1068,
+      "r": 1,
+      "a": 26
+    },
+    {
+      "g": 35,
+      "orientation": "high-first",
+      "q1": 524265,
+      "q2": 524195,
+      "violating_ra": 276900,
+      "max_over": 1407,
+      "r": 0,
+      "a": 6
+    },
+    {
+      "g": 39,
+      "orientation": "high-first",
+      "q1": 524277,
+      "q2": 524199,
+      "violating_ra": 1217652,
+      "max_over": 2943,
+      "r": 0,
+      "a": 7
+    }
+  ],
+  "zero_first_fiber_cases": "All other 41 ordered pairs generated above have violating_ra=0.",
+  "total_violating_residue_increment_classes": 2472588,
+  "dual_theorem": "Reversing ordered toggles swaps q1/q2; 5 reverse orientations fail dual capacity",
+  "single_port_power_obstruction": {
+    "condition": "q divides 2^d-1 or 2^d+1 for some 1<=d<p",
+    "odd_moduli_tested": 262144,
+    "invalid_odd_moduli": 385,
+    "invalid_in_upper_half": 24,
+    "q_524287_witness_d": 19
+  },
+  "analytic_excluded_ordered_pairs": 12,
+  "remaining_pairs_with_prior_direct_collisions": 34,
+  "crosschecks": [
+    "Direct Python enumeration of p32 10 chosen max-margin witnesses (five gcds x both orientations)",
+    "Python and independent C++ modulo-power scans agree: 385 invalid ports, 24 above half cap"
+  ],
+  "finite_scope": "Exactly the 46 extremal ordered pairs defined by gcds and family, NOT all 19-bit pairs",
+  "record_status": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED"
+}
