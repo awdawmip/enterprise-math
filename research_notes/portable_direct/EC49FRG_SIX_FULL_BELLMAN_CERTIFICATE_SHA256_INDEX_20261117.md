@@ -35,8 +35,8 @@ The exact geometry calculation returned 116 nodes, 115 gaps, certified area at l
 ## Complete evidence bundle
 
 File: `EC49FRG_SIX_SEAMS_116NODE_COMPLETE_EVIDENCE_20261117.tar.xz` (conversation artifact delivered alongside PR).
-SHA256: **`a156306454093a2d5c164fc1aa936d54915e490415bee4007216c066983186c8`**.
-Self-contained archive includes 29 manifest-indexed files, all 29 sizes and SHA256s rechecked after re-extraction. The raw original JSON certificates are in that bundle; this Markdown file provides GitHub-durable scientific results, original certificate hashes and the full recreation contract. In this project connector, the raw compressed bundle is not asserted to be a GitHub blob. A later executor can retrieve the conversation artifact or reproduce the six files from pinned source inputs using the included native script and parameters.
+SHA256: **`5522d6697cdf087d7691240e4278848256e30fe9065cf88d249ef0579890b796`**.
+Self-contained archive includes 30 manifest-indexed files, all 30 sizes and SHA256s rechecked after re-extraction. The supplementary [globally optimal dyadic area allocation theorem](EC49FRG_DYADIC_GREEDY_AREA_BUDGET_THEOREM_20261117.md) strengthens the six-new-node selection to a global optimum within the permitted arithmetic-midpoint refinement family. The raw original JSON certificates are in that bundle; this Markdown file provides GitHub-durable scientific results, original certificate hashes and the full recreation contract. In this project connector, the raw compressed bundle is not asserted to be a GitHub blob. A later executor can retrieve the conversation artifact or reproduce the six files from pinned source inputs using the included native script and parameters.
 
 Sources and scripts contain no credentials. Formal `RS-EC49AS` task directory was not found on canonical main during this run; activity, CLAIM, Result and Review are distinct outstanding control association tasks, not properties of these files.
 
