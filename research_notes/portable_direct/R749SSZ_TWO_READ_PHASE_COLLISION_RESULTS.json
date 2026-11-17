@@ -1,0 +1,95 @@
+{
+  "schema": "EM_PORTABLE_EXACT_RESEARCH_SUMMARY_V1",
+  "unit": "R749SSZ",
+  "date": "2026-11-17",
+  "status": "PASS",
+  "evidence": "AUTHOR_EXACT_NOT_REVIEWED",
+  "scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": {
+    "weights": [
+      1,
+      1,
+      2,
+      3,
+      6
+    ],
+    "labels_distinct": true,
+    "q_min": 6,
+    "errors": "each state uses fixed e,d in [-2,2] across six-step observations",
+    "readout": "Y_q=q^3(T_q+e)/(C_q+d)-(18q^4+54q^3-345q^2+2070q-16315)/108"
+  },
+  "results": [
+    {
+      "case": "1_to_5",
+      "q_mod6": 1,
+      "p_mod6": 5,
+      "p_equals_q_plus": 4,
+      "q_min": 73,
+      "limit_E": "719/486",
+      "limit_D": "-10/81",
+      "parameter_positive_coefficient_minima": {
+        "E_den": "52488",
+        "E_upper": "27324",
+        "E_lower": "182628",
+        "D_den": "4374",
+        "D_upper": "9288",
+        "D_lower": "8208"
+      },
+      "third_negative_num_min": "969292800",
+      "third_positive_den_min": "162",
+      "witness": {
+        "q": 73,
+        "p": 77,
+        "e": "0",
+        "d": "0",
+        "E": "161410530278749232579/80920497832103909961",
+        "D": "-2809928951420394832/26973499277367969987",
+        "first": "1429915/139914",
+        "second": "70726835/7875846",
+        "third_alternative_minus_original": "-91819440949694837419012459/86654385746672240556595340808"
+      }
+    },
+    {
+      "case": "2_to_4",
+      "q_mod6": 2,
+      "p_mod6": 4,
+      "p_equals_q_plus": 2,
+      "q_min": 14,
+      "limit_E": "2977/3888",
+      "limit_D": "-17/81",
+      "parameter_positive_coefficient_minima": {
+        "E_den": "209952",
+        "E_upper": "259146",
+        "E_lower": "580662",
+        "D_den": "8748",
+        "D_upper": "19332",
+        "D_lower": "15660"
+      },
+      "third_negative_num_min": "376482240",
+      "third_positive_den_min": "162",
+      "witness": {
+        "q": 14,
+        "p": 16,
+        "e": "0",
+        "d": "0",
+        "E": "164564889239/89946921178",
+        "D": "-9715958336/224867302945",
+        "first": "2088313/35748",
+        "second": "809315/17388",
+        "third_alternative_minus_original": "-4317740311435911772/25414697480166605541"
+      }
+    }
+  ],
+  "validation": {
+    "method": "SymPy symbolic exact rational cancellation plus all-positive shifted polynomial coefficient certificates",
+    "parameter_guards": 12,
+    "parameter_guard_degree": 12,
+    "parameter_positive_coefficients": 156,
+    "third_read_sign_guards": 4,
+    "third_positive_coefficients": 74,
+    "local_execution": "PASS",
+    "full_coefficient_vectors": "Recomputed and exported by R749SSZ_TWO_READ_PHASE_COLLISION_CERT.py; this committed JSON is a compact verified summary of its exact certificate"
+  },
+  "scope": "arbitrarily high cutoffs in stated residue families; exact two-read collision; third-read nonfactorization, NOT a native X6 theorem or a global three-read upper bound",
+  "next": "test 3- and 4-read phase-residue sufficiency and typed future-observer BRC carrier"
+}
