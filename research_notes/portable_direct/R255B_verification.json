@@ -1,0 +1,118 @@
+{
+  "arithmetic": "exact Fraction/integers; sample verification is independent of all-parameter proof",
+  "complete_denominator_bounded_counts": {
+    "1": 1515,
+    "13": 7,
+    "23": 0,
+    "299": 0
+  },
+  "domain": "rational 39/100<s<41/100; t(s)=(1691s-2615)/(2615s-3539)",
+  "frozen_science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "grid_21_all_quotients_one": true,
+  "passed": true,
+  "review": "AUTHOR_PROVED / EXACT_COMPUTATION / NOT_REVIEWED",
+  "schema": "EM_R255B_COMPLETE_RATIONAL_SPECTRAL_SCALE_LAW_V1",
+  "scope": "minimal common integral characteristic scaling of all 63 labelled masks, not minimal reduced output denominator",
+  "special_examples": [
+    {
+      "E": "299160",
+      "T_min": "299160",
+      "coefficient_count": 249,
+      "mask_count": 63,
+      "predicted_ratio": 1,
+      "ratio": 1,
+      "s": "2/5",
+      "t": "1077/1385",
+      "v13_s": 0,
+      "v23_t": 0
+    },
+    {
+      "E": "12373718760",
+      "T_min": "12373718760",
+      "coefficient_count": 249,
+      "mask_count": 63,
+      "predicted_ratio": 1,
+      "ratio": 1,
+      "s": "46/117",
+      "t": "228169/293773",
+      "v13_s": -1,
+      "v23_t": 0
+    },
+    {
+      "E": "77662442520",
+      "T_min": "5974034040",
+      "coefficient_count": 249,
+      "mask_count": 63,
+      "predicted_ratio": 13,
+      "ratio": 13,
+      "s": "66/169",
+      "t": "330329/425501",
+      "v13_s": -2,
+      "v23_t": 0
+    },
+    {
+      "E": "12864192120",
+      "T_min": "989553240",
+      "coefficient_count": 249,
+      "mask_count": 63,
+      "predicted_ratio": 13,
+      "ratio": 13,
+      "s": "67/169",
+      "t": "54773/70481",
+      "v13_s": -2,
+      "v23_t": 0
+    },
+    {
+      "E": "820697347080",
+      "T_min": "63130565160",
+      "coefficient_count": 249,
+      "mask_count": 63,
+      "predicted_ratio": 13,
+      "ratio": 13,
+      "s": "857/2197",
+      "t": "268498/345883",
+      "v13_s": -3,
+      "v23_t": 0
+    },
+    {
+      "E": "3529308161160",
+      "T_min": "153448180920",
+      "coefficient_count": 249,
+      "mask_count": 63,
+      "predicted_ratio": 23,
+      "ratio": 23,
+      "s": "770/1973",
+      "t": "1285775/1656299",
+      "v13_s": 0,
+      "v23_t": -2
+    },
+    {
+      "E": "477928033560",
+      "T_min": "20779479720",
+      "coefficient_count": 249,
+      "mask_count": 63,
+      "predicted_ratio": 23,
+      "ratio": 23,
+      "s": "767/1966",
+      "t": "349463/450179",
+      "v13_s": 1,
+      "v23_t": -3
+    },
+    {
+      "E": "1188664967880",
+      "T_min": "3975468120",
+      "coefficient_count": 249,
+      "mask_count": 63,
+      "predicted_ratio": 299,
+      "ratio": 299,
+      "s": "866/2197",
+      "t": "389159/500963",
+      "v13_s": -3,
+      "v23_t": -2
+    }
+  ],
+  "theorem": "T_min(s)=E(s)/(13^(v_13(s)<=-2)*23^(v_23(t(s))<=-2))",
+  "theorem_argument": "pair-plus-singleton traces force the input-entry denominator at p away from 13/23; R255 p-adic coefficient and trace laws resolve both exceptional primes",
+  "unique_reduced_parameters": 1522,
+  "verified_all_q_upto": 500
+}
