@@ -1,0 +1,148 @@
+{
+  "schema": "R762DR_POSITIVE_BRC_INTEGER_CERTIFICATE_V1",
+  "result": "PASS",
+  "model": "F=1+2X+2Z+XZ in Z[C_Q^2], Q=3^a, a=2,3,4",
+  "arithmetic": "exact integer modular cyclic convolution, modulus 2187",
+  "configurations": 348,
+  "coefficients_visited": 1648188,
+  "step_assertions": 696,
+  "verified_content": "1 (n<3d); 9 (3d<=n<5d); 81 (5d<=n<7d); 729 (7d<=n<9d)",
+  "run": [
+    {
+      "a": 2,
+      "Q": 9,
+      "d": 3,
+      "n_checked": [
+        1,
+        26
+      ],
+      "transitions": [
+        {
+          "n": 9,
+          "gcd_mod_2187": 9
+        },
+        {
+          "n": 15,
+          "gcd_mod_2187": 81
+        },
+        {
+          "n": 21,
+          "gcd_mod_2187": 729
+        }
+      ],
+      "witness_7d": {
+        "i": 0,
+        "j": 2,
+        "coeff_mod_2187": 729
+      },
+      "status": "PASS"
+    },
+    {
+      "a": 3,
+      "Q": 27,
+      "d": 9,
+      "n_checked": [
+        1,
+        80
+      ],
+      "transitions": [
+        {
+          "n": 27,
+          "gcd_mod_2187": 9
+        },
+        {
+          "n": 45,
+          "gcd_mod_2187": 81
+        },
+        {
+          "n": 63,
+          "gcd_mod_2187": 729
+        }
+      ],
+      "witness_7d": {
+        "i": 0,
+        "j": 0,
+        "coeff_mod_2187": 729
+      },
+      "status": "PASS"
+    },
+    {
+      "a": 4,
+      "Q": 81,
+      "d": 27,
+      "n_checked": [
+        1,
+        242
+      ],
+      "transitions": [
+        {
+          "n": 81,
+          "gcd_mod_2187": 9
+        },
+        {
+          "n": 135,
+          "gcd_mod_2187": 81
+        },
+        {
+          "n": 189,
+          "gcd_mod_2187": 729
+        }
+      ],
+      "witness_7d": {
+        "i": 0,
+        "j": 0,
+        "coeff_mod_2187": 729
+      },
+      "status": "PASS"
+    }
+  ],
+  "Q9_exact_finite_polynomial_certificate": {
+    "Q": 9,
+    "n": 21,
+    "all_81_coefficients_divisible_by_729": true,
+    "quotient_mod_3_in_x_z_basis": [
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        3,
+        7,
+        1
+      ],
+      [
+        3,
+        8,
+        1
+      ],
+      [
+        7,
+        3,
+        1
+      ],
+      [
+        7,
+        7,
+        1
+      ],
+      [
+        7,
+        8,
+        1
+      ],
+      [
+        8,
+        3,
+        1
+      ],
+      [
+        8,
+        7,
+        1
+      ]
+    ]
+  },
+  "independent_review": "NOT_REVIEWED",
+  "native_TRIADIC_CLOSURE_E": "NOT_ESTABLISHED"
+}
