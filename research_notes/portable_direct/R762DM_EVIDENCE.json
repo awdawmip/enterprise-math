@@ -1,0 +1,250 @@
+{
+  "schema": "R762DM_AUTHOR_EXACT_VERIFICATION_V1",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "result": "PASS",
+  "arithmetic": "Python arbitrary-precision integers, exact group-algebra convolution and gcd",
+  "cases": [
+    {
+      "Q": 2,
+      "n_min": 1,
+      "n_max": 26
+    },
+    {
+      "Q": 4,
+      "n_min": 1,
+      "n_max": 26
+    },
+    {
+      "Q": 8,
+      "n_min": 1,
+      "n_max": 26
+    },
+    {
+      "Q": 16,
+      "n_min": 1,
+      "n_max": 26
+    },
+    {
+      "Q": 32,
+      "n_min": 1,
+      "n_max": 34
+    }
+  ],
+  "configurations": 138,
+  "nonzero_coefficient_checks": 329802,
+  "direct_36_way_checks": 4,
+  "even_n_seed_checks": 69,
+  "claim": "v2(content P^n mod (X^Q,Y^Q,Z^Q)=(max(0,floor(n/(Q/2))-1))) for Q=2^a",
+  "samples": [
+    {
+      "Q": 2,
+      "blocks_k": 1,
+      "gcd": "2",
+      "v2_gcd": 1,
+      "min_equal_seeds": "18",
+      "support_size": 8
+    },
+    {
+      "Q": 2,
+      "blocks_k": 2,
+      "gcd": "8",
+      "v2_gcd": 3,
+      "min_equal_seeds": "162",
+      "support_size": 8
+    },
+    {
+      "Q": 2,
+      "blocks_k": 4,
+      "gcd": "128",
+      "v2_gcd": 7,
+      "min_equal_seeds": "13122",
+      "support_size": 8
+    },
+    {
+      "Q": 2,
+      "blocks_k": 8,
+      "gcd": "32768",
+      "v2_gcd": 15,
+      "min_equal_seeds": "86093442",
+      "support_size": 8
+    },
+    {
+      "Q": 2,
+      "blocks_k": 12,
+      "gcd": "8388608",
+      "v2_gcd": 23,
+      "min_equal_seeds": "564859072962",
+      "support_size": 8
+    },
+    {
+      "Q": 4,
+      "blocks_k": 1,
+      "gcd": "1",
+      "v2_gcd": 0,
+      "min_equal_seeds": "36",
+      "support_size": 19
+    },
+    {
+      "Q": 4,
+      "blocks_k": 2,
+      "gcd": "2",
+      "v2_gcd": 1,
+      "min_equal_seeds": "648",
+      "support_size": 62
+    },
+    {
+      "Q": 4,
+      "blocks_k": 4,
+      "gcd": "8",
+      "v2_gcd": 3,
+      "min_equal_seeds": "209952",
+      "support_size": 64
+    },
+    {
+      "Q": 4,
+      "blocks_k": 8,
+      "gcd": "128",
+      "v2_gcd": 7,
+      "min_equal_seeds": "22039921152",
+      "support_size": 64
+    },
+    {
+      "Q": 4,
+      "blocks_k": 12,
+      "gcd": "2048",
+      "v2_gcd": 11,
+      "min_equal_seeds": "2313662762852352",
+      "support_size": 64
+    },
+    {
+      "Q": 8,
+      "blocks_k": 1,
+      "gcd": "1",
+      "v2_gcd": 0,
+      "min_equal_seeds": "36",
+      "support_size": 19
+    },
+    {
+      "Q": 8,
+      "blocks_k": 2,
+      "gcd": "1",
+      "v2_gcd": 0,
+      "min_equal_seeds": "1296",
+      "support_size": 85
+    },
+    {
+      "Q": 8,
+      "blocks_k": 4,
+      "gcd": "2",
+      "v2_gcd": 1,
+      "min_equal_seeds": "839808",
+      "support_size": 442
+    },
+    {
+      "Q": 8,
+      "blocks_k": 8,
+      "gcd": "8",
+      "v2_gcd": 3,
+      "min_equal_seeds": "352638738432",
+      "support_size": 512
+    },
+    {
+      "Q": 8,
+      "blocks_k": 12,
+      "gcd": "32",
+      "v2_gcd": 5,
+      "min_equal_seeds": "148074416822550528",
+      "support_size": 512
+    },
+    {
+      "Q": 16,
+      "blocks_k": 1,
+      "gcd": "1",
+      "v2_gcd": 0,
+      "min_equal_seeds": "36",
+      "support_size": 19
+    },
+    {
+      "Q": 16,
+      "blocks_k": 2,
+      "gcd": "1",
+      "v2_gcd": 0,
+      "min_equal_seeds": "1296",
+      "support_size": 85
+    },
+    {
+      "Q": 16,
+      "blocks_k": 4,
+      "gcd": "1",
+      "v2_gcd": 0,
+      "min_equal_seeds": "1679616",
+      "support_size": 489
+    },
+    {
+      "Q": 16,
+      "blocks_k": 8,
+      "gcd": "2",
+      "v2_gcd": 1,
+      "min_equal_seeds": "1410554953728",
+      "support_size": 3186
+    },
+    {
+      "Q": 16,
+      "blocks_k": 12,
+      "gcd": "4",
+      "v2_gcd": 2,
+      "min_equal_seeds": "1184595334580404224",
+      "support_size": 4096
+    },
+    {
+      "Q": 32,
+      "blocks_k": 1,
+      "gcd": "1",
+      "v2_gcd": 0,
+      "min_equal_seeds": "36",
+      "support_size": 19
+    },
+    {
+      "Q": 32,
+      "blocks_k": 2,
+      "gcd": "1",
+      "v2_gcd": 0,
+      "min_equal_seeds": "1296",
+      "support_size": 85
+    },
+    {
+      "Q": 32,
+      "blocks_k": 4,
+      "gcd": "1",
+      "v2_gcd": 0,
+      "min_equal_seeds": "1679616",
+      "support_size": 489
+    },
+    {
+      "Q": 32,
+      "blocks_k": 8,
+      "gcd": "1",
+      "v2_gcd": 0,
+      "min_equal_seeds": "2821109907456",
+      "support_size": 3281
+    },
+    {
+      "Q": 32,
+      "blocks_k": 12,
+      "gcd": "1",
+      "v2_gcd": 0,
+      "min_equal_seeds": "4738381338321616896",
+      "support_size": 10425
+    },
+    {
+      "Q": 32,
+      "blocks_k": 16,
+      "gcd": "2",
+      "v2_gcd": 1,
+      "min_equal_seeds": "3979330554973200442195968",
+      "support_size": 23778
+    }
+  ],
+  "limitations": "Finite author tests are not a proof; theorem relies on group-ring factorization and local mod-2 algebra. Does not authorize a primitive TRIADIC_CLOSURE_E event.",
+  "independent_review": "NOT_REVIEWED"
+}
