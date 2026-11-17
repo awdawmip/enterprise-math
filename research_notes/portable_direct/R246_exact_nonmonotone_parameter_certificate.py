@@ -115,10 +115,10 @@ def main():
          'model':'R245 seven-source reversible sticky-reset; 63 proper masks; W fixed; two Perron modes masks 59/55',
          'result':'INTERIOR_STRICT_MAXIMUM_WITNESS; GLOBAL_NONDECREASING_AND_NONINCREASING_BOTH_FALSE',
          'event_n':EVENT,'root_bisections':BISECTIONS,'exact_integer_matrix_propagation':True,'rank_one_factorization_exactly_matches_dense_at_all_anchors':True,
-         'rank_one_scalar_multiplications_per_time_step_max':2*249,'dense_scalar_multiplications_per_time_step':1071,
+         'rank_one_scalar_multiplications_per_time_step_max':3*249,'dense_scalar_multiplications_per_time_step':1071,
          'comparison_margins':{k:digest_margin(v) for k,v in margins.items()},
          'parameters':[
-             {'s':r['s'],'E_certified_bracket':[
+             {'s':r['s'],'E_diagnostic_rounded_bounds':[
                  format(float(r['E_lower']),'.16g'),format(float(r['E_upper']),'.16g')],
               'Phi_n_numerator_bits':r['phi'].numerator.bit_length(),
               'Phi_n_denominator_bits':r['phi'].denominator.bit_length(),
