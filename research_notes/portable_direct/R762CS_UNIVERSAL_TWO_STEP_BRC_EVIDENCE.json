@@ -1,0 +1,81 @@
+{
+  "schema": "EM_R762CS_TWO_STEP_ALL_POSITIVE_BRC_CERTIFICATE_V1",
+  "proposition": "O2 equality is equivalent to all-future F/P equality for every positive real source class weight on any partition of six named K4 edges",
+  "scope": "conditional source-matched cross-triad swaps; weighted positive N-BRC, not native signed TRIADIC_CLOSURE_E licence",
+  "theoretical_horizon": 8,
+  "partition_orbits_under_vertex_S4": 25,
+  "canonical_partition_representatives": [
+    "000000",
+    "000001",
+    "000011",
+    "000012",
+    "000111",
+    "000112",
+    "000123",
+    "001012",
+    "001023",
+    "001100",
+    "001101",
+    "001102",
+    "001112",
+    "001122",
+    "001123",
+    "001200",
+    "001203",
+    "001212",
+    "001213",
+    "001233",
+    "001234",
+    "012210",
+    "012213",
+    "012234",
+    "012345"
+  ],
+  "exact_symbolic_pair_checks": {
+    "pairs": 525,
+    "identical_polynomials": 235,
+    "positive_infeasible": 244,
+    "ideal_certified": 46
+  },
+  "finite_integer_audit": {
+    "weights_per_class": "1..5",
+    "assignments": 115155,
+    "minimal_observation_depth_histogram": {
+      "0": 15635,
+      "1": 99280,
+      "2": 240
+    }
+  },
+  "sharpness_witness": {
+    "partition": "001112",
+    "weights": [
+      2,
+      1,
+      1
+    ],
+    "state_indices": [
+      2,
+      6
+    ],
+    "state_masks": [
+      13,
+      22
+    ],
+    "O1": [
+      2,
+      2
+    ],
+    "O2": [
+      [
+        2,
+        14
+      ],
+      [
+        4,
+        12
+      ]
+    ]
+  },
+  "arithmetic": "exact SymPy rational polynomial ideals and Python integers; no floating-point",
+  "independent_review": "NOT_REVIEWED"
+}
