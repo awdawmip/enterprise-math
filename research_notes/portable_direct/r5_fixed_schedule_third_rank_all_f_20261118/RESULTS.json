@@ -1,0 +1,84 @@
+{
+  "schema": "R5_FIXED_SCHEDULE_GAP2_ALL_F_V1",
+  "date": "2026-11-18",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "frozen_scalar_input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "tau_min": "25845652773852463277015040000",
+  "tau_max_exclusive": "58182461585441404127941754880",
+  "error_quantifier": "all integers f>=0; t=2f+1",
+  "fixed_query_multiset_cost_ranks": [
+    "735*t",
+    "735*t+1",
+    "735*t+2"
+  ],
+  "cost_gap2_multiset_count": {
+    "f=0": 6,
+    "f>=1": 9
+  },
+  "s_0": [
+    215,
+    216,
+    223,
+    296
+  ],
+  "s_1": [
+    217,
+    224,
+    297
+  ],
+  "s_2": [
+    218,
+    225,
+    298
+  ],
+  "cost_gap2_single_layer_triples": [
+    [
+      218,
+      223,
+      296
+    ],
+    [
+      216,
+      225,
+      296
+    ],
+    [
+      216,
+      223,
+      298
+    ],
+    [
+      217,
+      224,
+      296
+    ],
+    [
+      217,
+      223,
+      297
+    ],
+    [
+      216,
+      224,
+      297
+    ]
+  ],
+  "additional_fge1_multisets": [
+    "replace_two_216_with_217",
+    "replace_two_223_with_224",
+    "replace_two_296_with_297"
+  ],
+  "pair_count_exhaustive": 32640,
+  "budgets": 101,
+  "finite_t_regressions": [
+    1,
+    3,
+    5,
+    17
+  ],
+  "proof_mode": "symbolic dual-gap classification plus exhaustive frozen integer separation cert",
+  "executed_pass_marker": "PASS_R5_FIXED_COST_GAP2_ALL_F",
+  "review_status": "NOT_REVIEWED",
+  "native_x6_scope": "derived scalar observer only",
+  "next_problem": "adaptive full 256 states, f=8: 8335 <= C8* <= 8343; seek residual-faithful decomposition or multi-state certificate"
+}
