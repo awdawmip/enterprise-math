@@ -93,3 +93,21 @@ On 2026-11-17 a GitHub bridge `recovery_status` read for the declared research c
 | `definitions/ENTERPRISE_VECTOR_NORM_ENDPOINT_REVERSE_GEODESIC_SEGMENT_20260817.md` | `f7d24f2b69d02fcd50e11cc02d0bb9e65a8b1d0f` |
 | `definitions/ENTERPRISE_VECTOR_RADIUS_DISCRETE_ROTATION_THEORY_20260817.md` | `7895835c8f7a4db88c1ef4bcdb18bf23a9ffb63c` |
 | `definitions/ENTERPRISE_VOID_ORIGIN_EXISTENCE_GEODESIC_20260817.md` | `0f09ce979281e8d7d41643c4c57f0f91aed68f23` |
+
+## Follow-on frozen executable-source discriminator (same Unit82, 2026-11-17)
+
+After the 47-file dated-document audit, an independent code-facing probe read **seven complete Git blob bodies** from the *same frozen historical commit*. This is another bounded group, not a recursive search of the entire `src/` or executable tree. Original Git blob IDs and source-line dispositions:
+
+| Frozen executable file | Original Git blob | Typed original call site / decision |
+|---|---|---|
+| `experiments/tool_discovery_native_geometry_of_numbers_minima_calculus_20260822.py` | `643b2bac659a445891dcb5588b647972977104e0` | Finite sector `sector_ball` and fixed-positive `groots_square`, lines 76–88, 116–137: positive-chart only, `KEEP` |
+| `experiments/tool_discovery_native_oriented_matroid_circuit_calculus_check.py` | `bce4453d740ac3c0c401843b732dc78c74056883` | `signed_circuits` lines 221–241 is graph-incidence orientation, not signed subtraction of N-BRC; `KEEP` |
+| `scripts/diagonal_quotient_normalization_check.py` | `46bb9613007c726df71de38737d2c0199343f8b0` | At lines 2–5 and 85–90, explicitly marks diagonal quotient as representation only, not primitive signed Cell identification; `KEEP` |
+| `scripts/check_x6_foundation_admission.py` | `530e7d0aba4dca20a8ce37baa4b39ca70e2111dd` | At lines 17–24, separately requires native signed axes and relative common-depth repair; `KEEP` |
+| `scripts/check_native_shell_grade_integer_allocation_foundation_audit.py` | `f5c9a6045571128281554706f3f31d88f1caf9a9` | Complete 75-line body inspected; no lexical LP011/LP019 candidate; no blame attribution |
+| `scripts/check_p000_first_shell_polyhedron_classification.py` | `e58b287ae65eaadd8a805b5ebac84535b2cb5211` | Complete 146-line P000 shell finite checker inspected; count uses `Counter`, not signed path cancellation |
+| `experiments/brc_dominant_degeneracy_quotient_check.py` | `33740d338fdc0459bb5ef07a9afc01892fae4752` | `maximum=max(value)` (line 24) is rational *positive path weight* maximum; `lower_count=hcount(value)-degeneracy` (line 104) removes dominant paths in a nonnegative count, not signed-cancelled native endpoint mass; `KEEP` |
+
+No scanned code site in this seven-file group substantiates the ledger's specified wrong signed-X6 dominant-axis selection or illegal natural-positive BRC cancellation. The explicit `hcount - degeneracy` witness is important: subtraction in an integer count formula is mathematically different from negative coefficients attached to native signed-axis route words. This second probe does not establish the absence of such callers in uninspected sources. The remainder of the mother task is the *actual* current signed-X6 argument-to-consumer dependency graph, any still-uninspected frozen historical `research/` / `src/` routes and independent Driver's `REQUEST_REVISION`.
+
+**Persistence status:** source inspection and the report are GitHub-author evidence. No local execution of these old modules was claimed; old frozen experiments remain unchanged. The separate authentic X6 Research Activity and Native semantic checkpoint are unchanged until current author/source authority is verified.
