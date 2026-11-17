@@ -1,0 +1,37 @@
+{
+  "schema": "PREFIX856_R6_EXACT_INTEGER_EVIDENCE_V1",
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "five named binary BRC scalar states U=0..31, no-op/one named bit flip, c_t=2^floor(t/2) and known S",
+  "quotient_identity": "q_t(m)=m/gcd(m,c_t); raw observation c_t(S+U) mod m is bijective to U mod q_t(m)",
+  "generalization": "for a,b>=1 and bounded m<=2^B, all primes dividing ab are eventually absent from q_t, uniformly in m",
+  "finite_checks": {
+    "raw_normalized_inverse_pairs": 262144,
+    "two_adic_saturation_m_t_pairs": 630,
+    "odd_only_game_states": 1944,
+    "odd_only_game_action_rows": 13608,
+    "winning_layers": [
+      32,
+      48
+    ],
+    "losing_states": 1896,
+    "all_losing_actions_witnessed": true
+  },
+  "p5_B4_late_threshold_heartbeat": 8,
+  "sharp_raw_modulus_saturation_example": {
+    "at_t7_m16_effective_q": 2,
+    "at_t8_m16_effective_q": 1
+  },
+  "p5_cold_start": {
+    "late_four_bit_feedback_possible": false,
+    "optimal_width_bits": 5,
+    "two_reading_moduli": [
+      17,
+      31
+    ],
+    "two_reading_terminal_collisions": 0,
+    "reverse_terminal_collisions": 32,
+    "known_state_tracking_modulus": 11
+  },
+  "scope": "Author-side exact typed named-source BRC observer; P000 and native X6 dynamics unchanged; no external physical bridge"
+}
