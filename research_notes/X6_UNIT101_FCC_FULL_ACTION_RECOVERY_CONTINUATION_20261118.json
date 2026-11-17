@@ -1,0 +1,105 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-18",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "task_lane": "TASK_RESEARCH",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_separate": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_science": {
+    "p000_version": "V5",
+    "p000_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "native_axes": 6,
+    "primitive_signed_directions": 12
+  },
+  "highest_author_verified_frontier": {
+    "unit": 101,
+    "status": "AUTHOR-PROVED / EXACT-INTEGER-EXECUTED / FROZEN-SOURCE-SCOPED / UNREVIEWED / NOT_ADMITTED",
+    "theorem": "Complete 24-element FCC six-unoriented-edge permutation faithfully identifies signed carrier action; one edge target has exact 2 positive/2 negative orientation ambiguity.",
+    "theorem_domain": "Derived 3D determinant-positive signed coordinate rotation group and six FCC carrier vectors; no P000 native 6-axis rotation promotion",
+    "checks": {
+      "rotations": 24,
+      "full_unsigned_actions": 24,
+      "full_signed_actions": 24,
+      "lookup_collisions": 0,
+      "edge_target_pairs": 36,
+      "sign_counts_per_pair": [
+        2,
+        2
+      ],
+      "compositions": 576,
+      "basis_equalities": 3456,
+      "python_modes": [
+        "normal",
+        "-O",
+        "-OO"
+      ],
+      "results_byte_equal": true
+    },
+    "artifacts": [
+      {
+        "path": "research_checks/X6_UNIT101_FCC_FULL_ACTION_SIGN_RECOVERABILITY_CHECK_20261118.py",
+        "commit": "1ff50bd898bbb70ad556778c94f0aa58f56fec05",
+        "git_blob_sha1": "9599e2d0ca4d1faf43eaa8c6e92539927c836775",
+        "sha256": "c3c41c218da54745fffcbdfbdc7756480bd94fb2f054b6ab3adeea072d3e9875",
+        "readback_verified": true
+      },
+      {
+        "path": "research_checks/X6_UNIT101_FCC_FULL_ACTION_SIGN_RECOVERABILITY_RESULTS_20261118.json",
+        "commit": "7a9561b359f3cd9e0221858324e66825a8a093a7",
+        "git_blob_sha1": "4bf2fe437ec234f69dbcf5704db21968331fa428",
+        "sha256": "6b5a5b6fb1630859d6d575df740843ef7ba159999716a36e57e94fcb3acee5b7",
+        "readback_verified": true
+      },
+      {
+        "path": "research_notes/X6_UNIT101_FCC_FULL_EDGE_ACTION_RECOVERABILITY_AND_LOCAL_ALIAS_20261118.md",
+        "commit": "56746e75f64c78aab7b7726f02d4b1334b0152d5",
+        "git_blob_sha1": "13f85e9fd4f5b1a2b0efff109a2755a88f3f30e7",
+        "readback_verified": true
+      }
+    ],
+    "checked_frozen_p000_files": 17,
+    "source_observation": "In frozen P000 original eact and separately constructed full-edge actions V13/V18, complete edge permutations are preserved; no confirmed caller feeding a projected single edge target into signed carrier update."
+  },
+  "previous_completed": {
+    "unit": 100,
+    "continuation_path": "research_notes/X6_UNIT100_FCC_CARRIER_ORIENTATION_CONTINUATION_20261118.json",
+    "meaning": "Unit100 single-edge signed data-loss witness retained; interpretation refined by Unit101 complete group-element recoverability"
+  },
+  "historical_identity": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "research_activity_id": "RA-5E3FE1E761E4963EC461A892"
+  },
+  "native_status": {
+    "request_id": "onhour-20261118-0106-x6-exact-current-cont-v1",
+    "terminal": "SUCCEEDED",
+    "phase": "TYPED_FRONTIER_REQUIRED",
+    "execution_authorized": false,
+    "claim_mutation_submitted": false,
+    "open_submitted": false,
+    "semantic_progress_submitted": false,
+    "last_claim_id_as_read": "MCP-579c8e23625448582b421831",
+    "last_claim_comment_id_as_read": 6921946977,
+    "fresh_authenticated_winning_claim_verified": false,
+    "owner_as_read": "taskbook/unassigned",
+    "read_snapshot_is_write_authority": false
+  },
+  "unresolved": [
+    "LP011 alleged historical wrong native signed argmax: exact callsite unresolved",
+    "LP019 alleged natural N-BRC positive multiplicity subtraction: exact callsite unresolved",
+    "28-LP remaining theorem-facing consumer and source:line dependency map",
+    "Native X6 typed continuation prepare and actual winning claim/run authorization",
+    "Independent Driver REQUEST_REVISION and review/admission"
+  ],
+  "do_not_repeat": [
+    "Units97-100 historical read sets and their existing certificates",
+    "Unit101 24-element 576-composition and 36-fiber sign exact checks",
+    "Original R063/Helly native benchmarks and previously saved results",
+    "Original continuation read requests, fenced/denied mutations, maintenance lane identity"
+  ],
+  "next_exact_action": "Classify any actual downstream derived FCC six-edge caller by whether it retains a complete element in the faithful 24-group or only a single edge image; in the latter case test sign lookup failure against exact source:line. Continue 28-LP/LP011/LP019 frozen consumer provenance. For native operation use existing own SID and only the current valid typed continuation/preparation contract; no claim from read projection.",
+  "continuation_state": "OPEN"
+}
