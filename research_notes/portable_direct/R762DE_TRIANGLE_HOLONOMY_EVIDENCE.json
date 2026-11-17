@@ -1,0 +1,66 @@
+{
+  "schema": "R762DE_EXACT_AUTHOR_CHECK_V1",
+  "status": "PASS",
+  "date": "2026-11-17",
+  "model": "SIGNED_X6_ORDERED_PAIR_AREA_DIAGNOSTIC_NOT_NATIVE_EVENT",
+  "pair_coordinates": 15,
+  "triangles": 20,
+  "permutation_triangle_rank_over_Q": 10,
+  "cyclic_rank_by_depth_0_to_5": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "signed_triangle_test_rows": 80,
+  "signed_triangle_rank_over_Q": 15,
+  "kernel_checks": [
+    {
+      "q": 2,
+      "gradients_tested": 32,
+      "signed_invisible": 32,
+      "signed_detected": 0
+    },
+    {
+      "q": 3,
+      "gradients_tested": 243,
+      "signed_invisible": 1,
+      "signed_detected": 242
+    },
+    {
+      "q": 4,
+      "gradients_tested": 1024,
+      "signed_invisible": 32,
+      "signed_detected": 992
+    },
+    {
+      "q": 5,
+      "gradients_tested": 3125,
+      "signed_invisible": 1,
+      "signed_detected": 3124
+    },
+    {
+      "q": 6,
+      "gradients_tested": 7776,
+      "signed_invisible": 32,
+      "signed_detected": 7744
+    },
+    {
+      "q": 7,
+      "gradients_tested": 16807,
+      "signed_invisible": 1,
+      "signed_detected": 16806
+    }
+  ],
+  "explicit_common_coarse_fibre": {
+    "q": 3,
+    "word_length": 180,
+    "difference_is_gradient": true,
+    "all_unsigned_triangle_differences_zero": true,
+    "after_flip_axis_1_triangle_012_difference": 1
+  },
+  "signed_path_covariance_words_checked": 1885,
+  "independent_review": "NOT_REVIEWED"
+}
