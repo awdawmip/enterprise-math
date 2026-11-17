@@ -1,0 +1,90 @@
+{
+  "schema": "R762CZ_MICROBRANCH_EVIDENCE_V1",
+  "domain": {
+    "p_q": "1..4, including non-coprime",
+    "h": "0..5",
+    "r": "0..h"
+  },
+  "tests": {
+    "weight_pairs": 16,
+    "window_cases": 336,
+    "integral_event_assertions": 2688,
+    "flow_overlap_layers": 320,
+    "explicit_path_decompositions": 78,
+    "ratio_assertions": 336
+  },
+  "examples": {
+    "p=2,q=4,h=5": {
+      "coarse": [
+        27,
+        81,
+        81,
+        243,
+        243,
+        243
+      ],
+      "micro": [
+        27,
+        162,
+        324,
+        1944,
+        3888,
+        7776
+      ]
+    },
+    "p=2,q=2,h=5": {
+      "coarse": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "micro": [
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024
+      ]
+    },
+    "p=1,q=2,h=5": {
+      "coarse": [
+        27,
+        81,
+        81,
+        243,
+        243,
+        243
+      ],
+      "micro": [
+        27,
+        81,
+        81,
+        243,
+        243,
+        243
+      ]
+    },
+    "p=4,q=4,h=5": {
+      "coarse": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "micro": [
+        32,
+        128,
+        512,
+        2048,
+        8192,
+        32768
+      ]
+    }
+  }
+}
