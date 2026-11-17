@@ -1,0 +1,72 @@
+# PREFIX-877 — Parity-shifted 2:1 and 1:2 sparse lattice collisions, with an exact union certificate
+
+Date: 2026-11-18 (Asia/Shanghai). Kind: independent portable auxiliary named-binary BRC observer research (scheduled R6 continuation). Frozen scientific input: `f42f2906d77f24085c123f3ccfe9667d41caa96d`. Principal dependency: PREFIX-874 near-diagonal difference collisions and PREFIX-876 short-lattice collision lifting and exact 3:1 union. Mathematical status: AUTHOR_PROVED / EXACT_INTEGER_CERTIFICATE / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED. No shared RS-X6-NATIVE-TIME-DYNAMICS CLAIM is asserted.
+
+## 1. Mathematical model and the new family
+
+Let `p=32`, `N=2^32`, `B=19`, `Q=2^19-1=524287`. An allowed *ordered* event is `(u,u)` or `(u,u xor 2^i)`, where `0<=u<N` and `0<=i<32`. A fixed pair of odd moduli `1<=q1,q2<=Q` observes `Phi(u,v)=(u mod q1, v mod q2)`. Complete recovery requires injectivity on this event set, including source labels, direction, unchanged events and the old/new order.
+
+Define `D` exactly as in PREFIX-876:
+- `{2^i:1<=i<19}`;
+- `{2^i+2^j:1<=j<i<19}`;
+- `{2^i-2^j:1<=j<i<=19}`.
+
+These three sets form a 307-element union. Let `Dstar=D union {2^19,2^20}` (309 elements). The previously counted **non-diagonal** excluded pairs are
+`A={(q1,q2): |q1-q2| in D}` and
+`G={(q1,q2): 3q1-q2 in Dstar, q1!=q2}`.
+The verified PREFIX-876 cardinality `|A union G|=163028070` is the baseline, not recomputed by enumerating the 68.7 billion ambient pairs.
+
+Define the new *odd parity-shifted* difference set
+`Eplus={1} union {2^i-1, 2^i+1:1<=i<=19}` (37 distinct positive odd values),
+`E=Eplus union {-e:e in Eplus}` (74 distinct signed odd values), and new **non-diagonal** pair families
+`C={(q1,q2): 2q1-q2 in E, q1!=q2}`,
+`Ct={(q1,q2): 2q2-q1 in E, q1!=q2}`,
+with the same positive odd modulus bounds.
+
+## 2. Theorem 877-A: every C or Ct pair collides
+
+**Theorem.** Every pair in `C union Ct` gives two distinct legal ordered events with identical fixed-port observations `Phi`. Thus every such pair is excluded from 19-bit complete recovery.
+
+**Proof.** For `C`, write `a=2q1`, `b=q2`, and `e=a-b`. If `e>0`, it is `1=2^0` or `2^i+2^0` or `2^i-2^0` for some `1<=i<=19`. Apply the *constructive* PREFIX-876 Theorem 876-A with multipliers `(k,l)=(2,1)`. Its explicit proof creates two valid events whose first coordinates differ by `2q1` and second coordinates by `q2`. Its range hypothesis is satisfied uniformly:
+`max(a,b)+2^(i+2) <= 2Q+2^21 < 2^32`.
+For `e<0`, reverse time, apply that same construction to the positive difference `q2-2q1` with the swapped port order, then reverse the two events' old/new coordinates back. This is legal because XOR-single-source events are symmetric under time reversal and the two observation coordinates exchange accordingly. For `Ct`, exchange the two ports and apply the preceding argument followed by time reversal. Each collision preserves the named single-toggle semantics. QED.
+
+An explicit short check for positive `e` (taking `a=2q1`, even) is: for `e=1`, events `(0,1)` and `(a,a)`; for `e=2^i+1`, events `(1,1+2^i)` and `(a+1,a)`; for `e=2^i-1`, events `(0,2^i)` and `(a,a+1)`. Their coordinate differences are respectively `(a,a-e)=(2q1,q2)`. The source bit toggled is visible in each event. These witnesses remain inside `[0,N)` for all allowed moduli. Negative differences and the mirrored family follow by the symmetries proved above.
+
+## 3. Theorem 877-B: exact cardinal and de-duplication
+
+**Theorem.** For the declared finite domain,
+```
+|C|=|Ct|=9,175,006                  (diagonal removed)
+|C intersect A|=|Ct intersect A|=19,116
+|C intersect G|=14,924; |Ct intersect G|=3,638
+|C intersect A intersect G|=2,162
+|Ct intersect A intersect G|=259
+|(C intersect Ct) outside (A union G)|=674
+|C outside (A union G)|=9,143,128
+|Ct outside (A union G)|=9,152,511
+|(C union Ct) outside (A union G)|=18,294,965
+|A union G union C union Ct|=181,323,035.
+```
+
+**Finite exhaustive arithmetic proof.** Distinct `e in E` determine disjoint straight lines `q2=2q1-e`. For each line, `q1` is an odd integer in
+`max(1,ceil((e+1)/2)) <= q1 <= min(Q,floor((Q+e)/2))`.
+Summing the exact floor/ceiling odd-integer counts for all 74 values gives `9,175,042` *including* 36 diagonal pairs, hence `|C|=9,175,006`. Port symmetry gives `|Ct|=|C|`.
+
+Each pairwise intersection is reduced to a single integer candidate per difference tuple:
+- `C intersect A`: with `q2=q1+s h`, `s=+-1`, `h in D`, then `q1=e+s h`;
+- `C intersect G`: with `d=3q1-q2 in Dstar`, then `q1=d-e`;
+- `Ct intersect G`: with `f=2q2-q1 in E`, then `q2=(3f+d)/5` (requires divisibility by 5);
+- `C intersect Ct`: if `e=2q1-q2`, `f=2q2-q1`, then `q1=(2e+f)/3`, `q2=(e+2f)/3` (requires integrality).
+
+For every finite tuple, check positivity, oddness, `<=Q`, exclusion of diagonals and the remaining membership predicates, with explicit de-duplication. This is an exhaustive computation over `|E|=74`, `|D|=307`, `|Dstar|=309`; no random pair sampling establishes a cardinality. The intersections of `C` and `Ct` outside the old union have cardinality 674. Inclusion-exclusion gives
+`9143128+9152511-674=18294965` new pairs and then
+`163028070+18294965=181323035` total distinct certified non-diagonal excluded pairs. QED.
+
+## 4. Reproducibility, evidence boundaries and next work
+
+`PREFIX877_R6_PARITY_LATTICE_2TO1_CHECK.py` implements (i) the exact line/floor-sum and intersection calculation, (ii) a separately implemented direct scan of all 74 signed lines over all 262,144 odd values on each port, and (iii) 216 explicit legal XOR event collision checks at endpoint/interior line representatives. It emits `PREFIX877_R6_PARITY_LATTICE_RESULTS.json`. The observed exact equality checks returned `ALL_EXACT_ASSERTIONS_PASSED` on Python 3 with arbitrary-precision integers, without floating arithmetic or external packages.
+
+The new family broadens the existing short-lattice collision certificates by using coefficient pairs with different parity (`2:1` and `1:2`), thus enabling differences containing the source bit `2^0`. The count covers the specified certificates, not every noninjective modulus pair. The previously established boundary `B_fix,odd(32) in {19,20}` remains open.
+
+Next discriminating work: generalize exact line-de-duplication to low-coefficient ratios `(k,l)`, especially `3:2` and `4:1`, while avoiding the quadratic ambient modulus square; then test whether the combined certificates eliminate complete arithmetic/gcd families or produce a genuine 19-bit survivor. Preserve this work as an auxiliary BRC observer result; no native X6 Cell/Link/Port event admissibility or shared-task authority follows from it.
