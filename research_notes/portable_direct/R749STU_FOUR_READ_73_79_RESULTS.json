@@ -1,0 +1,124 @@
+{
+  "unit": "R749STU",
+  "date": "2026-11-17",
+  "frozen_science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "status": "AUTHOR_EXACT_NOT_REVIEWED",
+  "candidates": [
+    73,
+    79
+  ],
+  "model": "Five distinct labeled sources, weights [1,1,2,3,6], auxiliary scalar observer",
+  "nuisance": "Two independently fixed real parameter pairs in [-2,2]^2 across observations",
+  "counts": {
+    "73": {
+      "C": 707343,
+      "T": 8931013
+    },
+    "79": {
+      "C": 1020943,
+      "T": 13914446
+    },
+    "85": {
+      "C": 1436968,
+      "T": 21025004
+    },
+    "91": {
+      "C": 1978664,
+      "T": 30933812
+    },
+    "97": {
+      "C": 2672553,
+      "T": 44459556
+    }
+  },
+  "three_read_collision": {
+    "E": "1",
+    "D_bracket": [
+      "-909/1000",
+      "-227/250"
+    ],
+    "third_residual_at_lo": "-285808956533718829371037284599568749942/2407031270075883588016120924888968193259703277",
+    "third_residual_at_hi": "485024370753626417026051447398878/476695740793968908390339941202433358357",
+    "interval_positive_bernstein_rational_certificates": {
+      "x1_minus_x0": {
+        "numerator_min_abs": "282190118584979641588861793030",
+        "denominator_min_abs": "281382954576642790418270299303"
+      },
+      "e_plus_2": {
+        "numerator_min_abs": "65223637380308391282095503876",
+        "denominator_min_abs": "1269855533632408387149878068635"
+      },
+      "two_minus_e": {
+        "numerator_min_abs": "5013713123010760039947533281616",
+        "denominator_min_abs": "1269855533632408387149878068635"
+      },
+      "d_plus_2": {
+        "numerator_min_abs": "925358911830504651907146477107",
+        "denominator_min_abs": "846570355754938924766585379090"
+      },
+      "two_minus_d": {
+        "numerator_min_abs": "2460094483340728844053685296432",
+        "denominator_min_abs": "846570355754938924766585379090"
+      }
+    },
+    "argument": "e(D),d(D) invert j=0,1 exactly; all five rational legality expressions positive on closed D interval; third residual changes sign; IVT"
+  },
+  "four_read_separator": {
+    "integer_coefficients": [
+      9261513,
+      -33843268,
+      40729637,
+      -16165583
+    ],
+    "rational_threshold_K": "146200",
+    "bernstein_boxes": {
+      "73": {
+        "degrees": [
+          1,
+          4
+        ],
+        "coefficients": [
+          "19608648790029862668639120888",
+          "18664742806129692359217073088",
+          "55532844424733753159041729352/3",
+          "19147233610104489898825981440",
+          "20573568025616113060518804600",
+          "20090956295533992443673210168",
+          "18974480322093643994596406720",
+          "55944351675543590578108393736/3",
+          "19111835818524860423386245120",
+          "20365604916029597087109775800"
+        ],
+        "min_coefficient": "55532844424733753159041729352/3",
+        "rigorous_margin": "6941605553091719144880216169/83158921894254424865255250"
+      },
+      "79": {
+        "degrees": [
+          1,
+          4
+        ],
+        "coefficients": [
+          "485716665711155336930559060120",
+          "488779670734793106280600767352",
+          "1471295351627247926726632258072/3",
+          "490673051562956949526282660680",
+          "489503520225142569933151519800",
+          "66343998071127222246484911864",
+          "69705164484224102357850382504",
+          "214966310404399856730318269464/3",
+          "72194861451789704562422766360",
+          "71323484863921829063412528600"
+        ],
+        "min_coefficient": "66343998071127222246484911864",
+        "rigorous_margin": "2764333252963634260270204661/34910953008644867536077750"
+      }
+    },
+    "strictly_positive_coefficients": 20,
+    "total_coefficients": 20,
+    "strict_uniform_margin": "722997167446021926834455947339144/4444935850061982688915244893275",
+    "raw_read_error_bound": "eta < 361498583723010963417227973669572/444493589451134118953507178242744893275"
+  },
+  "conclusion": "m_initial({73,79})=4",
+  "scope": "Auxiliary scalar observer, not native X6/BRC Port/Cell observer equivalence",
+  "next": "Typed provenance-preserving BRC readout, future-operation semantics and global unknown-q horizon"
+}
