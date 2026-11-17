@@ -1,6 +1,6 @@
 # EC49FRW — 原生 BRC q32/q34 独立折扣的精确双树相图
 
-日期 2026-11-18。冻结科学 pin：\`fc0f038e7bfd12c886b4d37f900bfb770c0f61ab\`。接续 EC49FRU [PR #2655](https://github.com/awdawmip/enterprise-math/pull/2655) 及 EC49FRV 的十段共同折扣 [PR #2659](https://github.com/awdawmip/enterprise-math/pull/2659) / 六段 [PR #2660](https://github.com/awdawmip/enterprise-math/pull/2660)。研究等级：AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED；独立 portable research，不建立 Task/CLAIM/Result/Review/Activity。
+日期 2026-11-18。冻结科学 pin：`fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`。接续 EC49FRU [PR #2655](https://github.com/awdawmip/enterprise-math/pull/2655) 及 EC49FRV 的十段共同折扣 [PR #2659](https://github.com/awdawmip/enterprise-math/pull/2659) / 六段 [PR #2660](https://github.com/awdawmip/enterprise-math/pull/2660)。研究等级：AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED；独立 portable research，不建立 Task/CLAIM/Result/Review/Activity。
 
 ## 一、数学问题与原生对象
 
@@ -50,7 +50,7 @@
 
 上述为**全体原生树**的 Bellman 精确证书，非仅在 T32/T34 中挑选最优。两条独立的冻结 94-family 数据解析/原生响应重建路径经索引映射后确认 228 个观察向量逐项相同；二者使用同一个整数 Bellman 递归实现，因此不宣称优化器相互独立。
 
-两棵 witness 树分别对 141 个状态路径逐个重放，核对叶节点单状态身份、各具名动作使用次数、最坏深度3和费用向量。完整原始冻结输入、程序、全部树 JSON、精确日志及 SHA256 清单保存在本轮自包含证据归档中。可运行复核入口 \`python code/EC49FRW_SHARP_SQUARE_CERTIFIER.py .\`，归档与主张的校验摘要见本 PR 的 JSON 证据索引。
+两棵 witness 树分别对 141 个状态路径逐个重放，核对叶节点单状态身份、各具名动作使用次数、最坏深度3和费用向量。完整原始冻结输入、程序、全部树 JSON、精确日志及 SHA256 清单保存在本轮自包含证据归档中。可运行复核入口 `python code/EC49FRW_SHARP_SQUARE_CERTIFIER.py .`，归档与主张的校验摘要见本 PR 的 JSON 证据索引。
 
 ## 四、由有限顶点证明整个实数二维区域
 
@@ -69,8 +69,8 @@
 ## 五、来源、范围、接续
 
 原始冻结数据的 SHA256：
-- \`frozen_original_master.txt\`: \`cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e\`
-- \`EC49FPG_PROFILE.csv\`: \`a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f\`
+- `frozen_original_master.txt`: `cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e`
+- `EC49FPG_PROFILE.csv`: `a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f`
 
 保留原始物理具名观察的响应/来源，没有在压缩为观察分割时丢弃价格身份；此证明为有限静态 BRC 辨识模型内部结果。它不更改 P000 的六维 Cell 世界、三维切片及离散结构残差保真要求，也不推广至动态、非均匀先验或不同根观察价格比。
 
