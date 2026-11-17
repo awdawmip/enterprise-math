@@ -58,7 +58,7 @@ The lower bound is already witnessed by noiseless valid responses, so it applies
 
 ## Exact finite evidence and reproducibility
 
-The accompanying `COHORTS_3_BUDGETS.json` transcribes the three small source-cohort coefficient dictionaries from the self-contained prior R5 frozen reproduction archive. The source's full-cohort-input SHA-256 is `a781cf89e534587009e207e51bbda2f411e4147746f7d6a0b72a1354e80f0d4d`. Full independent 101-budget table SHA-256 is `50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b`. The three-budget compact input itself is SHA-256 `92d667238b8dfc58b1315352b80c9f6b36236d8f6f7a894401151c546bc8e645`. Reconstruct all 256 exact counts per budget by eight subset-zeta passes.
+The accompanying `COHORTS_3_BUDGETS.json` transcribes the three small source-cohort coefficient dictionaries from the self-contained prior R5 frozen reproduction archive. The source's full-cohort-input SHA-256 is `a781cf89e534587009e207e51bbda2f411e4147746f7d6a0b72a1354e80f0d4d`. Full independent 101-budget table SHA-256 is `50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b`. The three-budget compact input itself is SHA-256 `efbbdad49f602b94eb593e3491827f0a4b1bf712f006d332174171888d22b1fb`. Reconstruct all 256 exact counts per budget by eight subset-zeta passes.
 
 The executed Python verifier:
 - reconstructed and cross-checked 768 integer counts against the existing 101-budget full table;
