@@ -1,0 +1,69 @@
+{
+  "schema": "ENTERPRISE_MATH_R762DA_EVIDENCE_V1",
+  "date": "2026-11-17",
+  "scope": "conditional positive finite-group N-BRC, fixed one-shot named-state sampling schedule",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "researcher_id": "EM-X6-3050F6",
+  "proof": "R762DA_SPARSE_PORT_SAMPLING_THEOREM.md",
+  "checker": "R762DA_VERIFY.js",
+  "arithmetic": "exact BigInt",
+  "author_check": {
+    "C3": {
+      "p_q_input_range": "1..6 normalized to coprime",
+      "max_h": 8,
+      "schedules": 18072,
+      "positive_joint_numerators": 669348,
+      "zero_joint_numerators": 2476044
+    },
+    "S3": {
+      "p_q_range": "1..3",
+      "max_h": 6,
+      "schedules": 1080,
+      "joint_numerators": 1235250
+    },
+    "example": {
+      "p": 1,
+      "q": 2,
+      "last_time": 6,
+      "two_probe_times": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "min_seeds": [
+        81,
+        243,
+        81,
+        243,
+        81
+      ]
+    },
+    "status": "PASS",
+    "joint_observer_noncomposition": {
+      "scheduleA": [
+        1,
+        6
+      ],
+      "seedsA": 81,
+      "scheduleB": [
+        3,
+        6
+      ],
+      "seedsB": 81,
+      "joint_union": [
+        1,
+        3,
+        6
+      ],
+      "joint_union_seeds": 243,
+      "meaning": "Two individually inexpensive pair-observation joint laws do not by themselves certify the three-time joint law."
+    }
+  },
+  "coverage_limit": "finite check only; general theorem proven algebraically",
+  "independent_review": "NOT_REVIEWED",
+  "native_signed_event_licence": "UNRESOLVED",
+  "next_question": "native TRIADIC_CLOSURE_E read-schedule legality and V17/V29/V39 signed transport"
+}
