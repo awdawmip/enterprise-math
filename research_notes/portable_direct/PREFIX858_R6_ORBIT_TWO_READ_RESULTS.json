@@ -1,0 +1,1077 @@
+{
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "scope": "Named binary BRC scalar; no-op/one-flip heartbeat, odd moduli, known baseline",
+  "regressions": {
+    "family": 52,
+    "four_bit": 93,
+    "small_odd_exclusion": 35,
+    "direct_p4_to_p8": 75
+  },
+  "family_cases": [
+    {
+      "k": 4,
+      "p": 7,
+      "q1": 15,
+      "q2_bits": 7,
+      "passed": true
+    },
+    {
+      "k": 4,
+      "p": 11,
+      "q1": 15,
+      "q2_bits": 11,
+      "passed": true
+    },
+    {
+      "k": 4,
+      "p": 19,
+      "q1": 15,
+      "q2_bits": 19,
+      "passed": true
+    },
+    {
+      "k": 4,
+      "p": 31,
+      "q1": 15,
+      "q2_bits": 31,
+      "passed": true
+    },
+    {
+      "k": 5,
+      "p": 9,
+      "q1": 31,
+      "q2_bits": 9,
+      "passed": true
+    },
+    {
+      "k": 5,
+      "p": 14,
+      "q1": 31,
+      "q2_bits": 14,
+      "passed": true
+    },
+    {
+      "k": 5,
+      "p": 24,
+      "q1": 31,
+      "q2_bits": 24,
+      "passed": true
+    },
+    {
+      "k": 5,
+      "p": 39,
+      "q1": 31,
+      "q2_bits": 39,
+      "passed": true
+    },
+    {
+      "k": 6,
+      "p": 11,
+      "q1": 63,
+      "q2_bits": 11,
+      "passed": true
+    },
+    {
+      "k": 6,
+      "p": 17,
+      "q1": 63,
+      "q2_bits": 17,
+      "passed": true
+    },
+    {
+      "k": 6,
+      "p": 29,
+      "q1": 63,
+      "q2_bits": 29,
+      "passed": true
+    },
+    {
+      "k": 6,
+      "p": 47,
+      "q1": 63,
+      "q2_bits": 47,
+      "passed": true
+    },
+    {
+      "k": 7,
+      "p": 13,
+      "q1": 127,
+      "q2_bits": 13,
+      "passed": true
+    },
+    {
+      "k": 7,
+      "p": 20,
+      "q1": 127,
+      "q2_bits": 20,
+      "passed": true
+    },
+    {
+      "k": 7,
+      "p": 34,
+      "q1": 127,
+      "q2_bits": 34,
+      "passed": true
+    },
+    {
+      "k": 7,
+      "p": 55,
+      "q1": 127,
+      "q2_bits": 55,
+      "passed": true
+    },
+    {
+      "k": 8,
+      "p": 15,
+      "q1": 255,
+      "q2_bits": 15,
+      "passed": true
+    },
+    {
+      "k": 8,
+      "p": 23,
+      "q1": 255,
+      "q2_bits": 23,
+      "passed": true
+    },
+    {
+      "k": 8,
+      "p": 39,
+      "q1": 255,
+      "q2_bits": 39,
+      "passed": true
+    },
+    {
+      "k": 8,
+      "p": 63,
+      "q1": 255,
+      "q2_bits": 63,
+      "passed": true
+    },
+    {
+      "k": 9,
+      "p": 17,
+      "q1": 511,
+      "q2_bits": 17,
+      "passed": true
+    },
+    {
+      "k": 9,
+      "p": 26,
+      "q1": 511,
+      "q2_bits": 26,
+      "passed": true
+    },
+    {
+      "k": 9,
+      "p": 44,
+      "q1": 511,
+      "q2_bits": 44,
+      "passed": true
+    },
+    {
+      "k": 9,
+      "p": 71,
+      "q1": 511,
+      "q2_bits": 71,
+      "passed": true
+    },
+    {
+      "k": 10,
+      "p": 19,
+      "q1": 1023,
+      "q2_bits": 19,
+      "passed": true
+    },
+    {
+      "k": 10,
+      "p": 29,
+      "q1": 1023,
+      "q2_bits": 29,
+      "passed": true
+    },
+    {
+      "k": 10,
+      "p": 49,
+      "q1": 1023,
+      "q2_bits": 49,
+      "passed": true
+    },
+    {
+      "k": 10,
+      "p": 79,
+      "q1": 1023,
+      "q2_bits": 79,
+      "passed": true
+    },
+    {
+      "k": 11,
+      "p": 21,
+      "q1": 2047,
+      "q2_bits": 21,
+      "passed": true
+    },
+    {
+      "k": 11,
+      "p": 32,
+      "q1": 2047,
+      "q2_bits": 32,
+      "passed": true
+    },
+    {
+      "k": 11,
+      "p": 54,
+      "q1": 2047,
+      "q2_bits": 54,
+      "passed": true
+    },
+    {
+      "k": 11,
+      "p": 87,
+      "q1": 2047,
+      "q2_bits": 87,
+      "passed": true
+    },
+    {
+      "k": 12,
+      "p": 23,
+      "q1": 4095,
+      "q2_bits": 23,
+      "passed": true
+    },
+    {
+      "k": 12,
+      "p": 35,
+      "q1": 4095,
+      "q2_bits": 35,
+      "passed": true
+    },
+    {
+      "k": 12,
+      "p": 59,
+      "q1": 4095,
+      "q2_bits": 59,
+      "passed": true
+    },
+    {
+      "k": 12,
+      "p": 95,
+      "q1": 4095,
+      "q2_bits": 95,
+      "passed": true
+    },
+    {
+      "k": 13,
+      "p": 25,
+      "q1": 8191,
+      "q2_bits": 25,
+      "passed": true
+    },
+    {
+      "k": 13,
+      "p": 38,
+      "q1": 8191,
+      "q2_bits": 38,
+      "passed": true
+    },
+    {
+      "k": 13,
+      "p": 64,
+      "q1": 8191,
+      "q2_bits": 64,
+      "passed": true
+    },
+    {
+      "k": 13,
+      "p": 103,
+      "q1": 8191,
+      "q2_bits": 103,
+      "passed": true
+    },
+    {
+      "k": 14,
+      "p": 27,
+      "q1": 16383,
+      "q2_bits": 27,
+      "passed": true
+    },
+    {
+      "k": 14,
+      "p": 41,
+      "q1": 16383,
+      "q2_bits": 41,
+      "passed": true
+    },
+    {
+      "k": 14,
+      "p": 69,
+      "q1": 16383,
+      "q2_bits": 69,
+      "passed": true
+    },
+    {
+      "k": 14,
+      "p": 111,
+      "q1": 16383,
+      "q2_bits": 111,
+      "passed": true
+    },
+    {
+      "k": 15,
+      "p": 29,
+      "q1": 32767,
+      "q2_bits": 29,
+      "passed": true
+    },
+    {
+      "k": 15,
+      "p": 44,
+      "q1": 32767,
+      "q2_bits": 44,
+      "passed": true
+    },
+    {
+      "k": 15,
+      "p": 74,
+      "q1": 32767,
+      "q2_bits": 74,
+      "passed": true
+    },
+    {
+      "k": 15,
+      "p": 119,
+      "q1": 32767,
+      "q2_bits": 119,
+      "passed": true
+    },
+    {
+      "k": 16,
+      "p": 31,
+      "q1": 65535,
+      "q2_bits": 31,
+      "passed": true
+    },
+    {
+      "k": 16,
+      "p": 47,
+      "q1": 65535,
+      "q2_bits": 47,
+      "passed": true
+    },
+    {
+      "k": 16,
+      "p": 79,
+      "q1": 65535,
+      "q2_bits": 79,
+      "passed": true
+    },
+    {
+      "k": 16,
+      "p": 127,
+      "q1": 65535,
+      "q2_bits": 127,
+      "passed": true
+    }
+  ],
+  "four_bit_p4_to_p96": [
+    {
+      "p": 4,
+      "succeeds": false
+    },
+    {
+      "p": 5,
+      "succeeds": false
+    },
+    {
+      "p": 6,
+      "succeeds": false
+    },
+    {
+      "p": 7,
+      "succeeds": true
+    },
+    {
+      "p": 8,
+      "succeeds": false
+    },
+    {
+      "p": 9,
+      "succeeds": false
+    },
+    {
+      "p": 10,
+      "succeeds": false
+    },
+    {
+      "p": 11,
+      "succeeds": true
+    },
+    {
+      "p": 12,
+      "succeeds": false
+    },
+    {
+      "p": 13,
+      "succeeds": false
+    },
+    {
+      "p": 14,
+      "succeeds": false
+    },
+    {
+      "p": 15,
+      "succeeds": true
+    },
+    {
+      "p": 16,
+      "succeeds": false
+    },
+    {
+      "p": 17,
+      "succeeds": false
+    },
+    {
+      "p": 18,
+      "succeeds": false
+    },
+    {
+      "p": 19,
+      "succeeds": true
+    },
+    {
+      "p": 20,
+      "succeeds": false
+    },
+    {
+      "p": 21,
+      "succeeds": false
+    },
+    {
+      "p": 22,
+      "succeeds": false
+    },
+    {
+      "p": 23,
+      "succeeds": true
+    },
+    {
+      "p": 24,
+      "succeeds": false
+    },
+    {
+      "p": 25,
+      "succeeds": false
+    },
+    {
+      "p": 26,
+      "succeeds": false
+    },
+    {
+      "p": 27,
+      "succeeds": true
+    },
+    {
+      "p": 28,
+      "succeeds": false
+    },
+    {
+      "p": 29,
+      "succeeds": false
+    },
+    {
+      "p": 30,
+      "succeeds": false
+    },
+    {
+      "p": 31,
+      "succeeds": true
+    },
+    {
+      "p": 32,
+      "succeeds": false
+    },
+    {
+      "p": 33,
+      "succeeds": false
+    },
+    {
+      "p": 34,
+      "succeeds": false
+    },
+    {
+      "p": 35,
+      "succeeds": true
+    },
+    {
+      "p": 36,
+      "succeeds": false
+    },
+    {
+      "p": 37,
+      "succeeds": false
+    },
+    {
+      "p": 38,
+      "succeeds": false
+    },
+    {
+      "p": 39,
+      "succeeds": true
+    },
+    {
+      "p": 40,
+      "succeeds": false
+    },
+    {
+      "p": 41,
+      "succeeds": false
+    },
+    {
+      "p": 42,
+      "succeeds": false
+    },
+    {
+      "p": 43,
+      "succeeds": true
+    },
+    {
+      "p": 44,
+      "succeeds": false
+    },
+    {
+      "p": 45,
+      "succeeds": false
+    },
+    {
+      "p": 46,
+      "succeeds": false
+    },
+    {
+      "p": 47,
+      "succeeds": true
+    },
+    {
+      "p": 48,
+      "succeeds": false
+    },
+    {
+      "p": 49,
+      "succeeds": false
+    },
+    {
+      "p": 50,
+      "succeeds": false
+    },
+    {
+      "p": 51,
+      "succeeds": true
+    },
+    {
+      "p": 52,
+      "succeeds": false
+    },
+    {
+      "p": 53,
+      "succeeds": false
+    },
+    {
+      "p": 54,
+      "succeeds": false
+    },
+    {
+      "p": 55,
+      "succeeds": true
+    },
+    {
+      "p": 56,
+      "succeeds": false
+    },
+    {
+      "p": 57,
+      "succeeds": false
+    },
+    {
+      "p": 58,
+      "succeeds": false
+    },
+    {
+      "p": 59,
+      "succeeds": true
+    },
+    {
+      "p": 60,
+      "succeeds": false
+    },
+    {
+      "p": 61,
+      "succeeds": false
+    },
+    {
+      "p": 62,
+      "succeeds": false
+    },
+    {
+      "p": 63,
+      "succeeds": true
+    },
+    {
+      "p": 64,
+      "succeeds": false
+    },
+    {
+      "p": 65,
+      "succeeds": false
+    },
+    {
+      "p": 66,
+      "succeeds": false
+    },
+    {
+      "p": 67,
+      "succeeds": true
+    },
+    {
+      "p": 68,
+      "succeeds": false
+    },
+    {
+      "p": 69,
+      "succeeds": false
+    },
+    {
+      "p": 70,
+      "succeeds": false
+    },
+    {
+      "p": 71,
+      "succeeds": true
+    },
+    {
+      "p": 72,
+      "succeeds": false
+    },
+    {
+      "p": 73,
+      "succeeds": false
+    },
+    {
+      "p": 74,
+      "succeeds": false
+    },
+    {
+      "p": 75,
+      "succeeds": true
+    },
+    {
+      "p": 76,
+      "succeeds": false
+    },
+    {
+      "p": 77,
+      "succeeds": false
+    },
+    {
+      "p": 78,
+      "succeeds": false
+    },
+    {
+      "p": 79,
+      "succeeds": true
+    },
+    {
+      "p": 80,
+      "succeeds": false
+    },
+    {
+      "p": 81,
+      "succeeds": false
+    },
+    {
+      "p": 82,
+      "succeeds": false
+    },
+    {
+      "p": 83,
+      "succeeds": true
+    },
+    {
+      "p": 84,
+      "succeeds": false
+    },
+    {
+      "p": 85,
+      "succeeds": false
+    },
+    {
+      "p": 86,
+      "succeeds": false
+    },
+    {
+      "p": 87,
+      "succeeds": true
+    },
+    {
+      "p": 88,
+      "succeeds": false
+    },
+    {
+      "p": 89,
+      "succeeds": false
+    },
+    {
+      "p": 90,
+      "succeeds": false
+    },
+    {
+      "p": 91,
+      "succeeds": true
+    },
+    {
+      "p": 92,
+      "succeeds": false
+    },
+    {
+      "p": 93,
+      "succeeds": false
+    },
+    {
+      "p": 94,
+      "succeeds": false
+    },
+    {
+      "p": 95,
+      "succeeds": true
+    },
+    {
+      "p": 96,
+      "succeeds": false
+    }
+  ],
+  "lower_bound_witnesses": [
+    {
+      "p": 7,
+      "moduli": [
+        {
+          "q": 3,
+          "r": 1,
+          "valid": false,
+          "witness": [
+            0,
+            1
+          ]
+        },
+        {
+          "q": 5,
+          "r": 2,
+          "valid": false,
+          "witness": [
+            0,
+            2
+          ]
+        },
+        {
+          "q": 7,
+          "r": 1,
+          "valid": false,
+          "witness": [
+            0,
+            1
+          ]
+        },
+        {
+          "q": 9,
+          "r": 1,
+          "valid": false,
+          "witness": [
+            0,
+            1
+          ]
+        },
+        {
+          "q": 11,
+          "r": 6,
+          "valid": false,
+          "witness": [
+            1,
+            5
+          ]
+        },
+        {
+          "q": 13,
+          "r": 10,
+          "valid": false,
+          "witness": [
+            2,
+            8
+          ]
+        },
+        {
+          "q": 15,
+          "r": 7,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "p": 11,
+      "moduli": [
+        {
+          "q": 3,
+          "r": 1,
+          "valid": false,
+          "witness": [
+            0,
+            1
+          ]
+        },
+        {
+          "q": 5,
+          "r": 2,
+          "valid": false,
+          "witness": [
+            0,
+            2
+          ]
+        },
+        {
+          "q": 7,
+          "r": 3,
+          "valid": false,
+          "witness": [
+            1,
+            2
+          ]
+        },
+        {
+          "q": 9,
+          "r": 4,
+          "valid": false,
+          "witness": [
+            0,
+            4
+          ]
+        },
+        {
+          "q": 11,
+          "r": 1,
+          "valid": false,
+          "witness": [
+            0,
+            1
+          ]
+        },
+        {
+          "q": 13,
+          "r": 6,
+          "valid": false,
+          "witness": [
+            0,
+            6
+          ]
+        },
+        {
+          "q": 15,
+          "r": 7,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "p": 15,
+      "moduli": [
+        {
+          "q": 3,
+          "r": 1,
+          "valid": false,
+          "witness": [
+            0,
+            1
+          ]
+        },
+        {
+          "q": 5,
+          "r": 2,
+          "valid": false,
+          "witness": [
+            0,
+            2
+          ]
+        },
+        {
+          "q": 7,
+          "r": 0,
+          "valid": false,
+          "witness": [
+            0,
+            0
+          ]
+        },
+        {
+          "q": 9,
+          "r": 7,
+          "valid": false,
+          "witness": [
+            0,
+            7
+          ]
+        },
+        {
+          "q": 11,
+          "r": 9,
+          "valid": false,
+          "witness": [
+            0,
+            9
+          ]
+        },
+        {
+          "q": 13,
+          "r": 7,
+          "valid": false,
+          "witness": [
+            0,
+            7
+          ]
+        },
+        {
+          "q": 15,
+          "r": 7,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "p": 19,
+      "moduli": [
+        {
+          "q": 3,
+          "r": 1,
+          "valid": false,
+          "witness": [
+            0,
+            1
+          ]
+        },
+        {
+          "q": 5,
+          "r": 2,
+          "valid": false,
+          "witness": [
+            0,
+            2
+          ]
+        },
+        {
+          "q": 7,
+          "r": 1,
+          "valid": false,
+          "witness": [
+            0,
+            1
+          ]
+        },
+        {
+          "q": 9,
+          "r": 1,
+          "valid": false,
+          "witness": [
+            0,
+            1
+          ]
+        },
+        {
+          "q": 11,
+          "r": 5,
+          "valid": false,
+          "witness": [
+            0,
+            5
+          ]
+        },
+        {
+          "q": 13,
+          "r": 10,
+          "valid": false,
+          "witness": [
+            0,
+            10
+          ]
+        },
+        {
+          "q": 15,
+          "r": 7,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "p": 23,
+      "moduli": [
+        {
+          "q": 3,
+          "r": 1,
+          "valid": false,
+          "witness": [
+            0,
+            1
+          ]
+        },
+        {
+          "q": 5,
+          "r": 2,
+          "valid": false,
+          "witness": [
+            0,
+            2
+          ]
+        },
+        {
+          "q": 7,
+          "r": 3,
+          "valid": false,
+          "witness": [
+            1,
+            2
+          ]
+        },
+        {
+          "q": 9,
+          "r": 4,
+          "valid": false,
+          "witness": [
+            0,
+            4
+          ]
+        },
+        {
+          "q": 11,
+          "r": 7,
+          "valid": false,
+          "witness": [
+            0,
+            7
+          ]
+        },
+        {
+          "q": 13,
+          "r": 6,
+          "valid": false,
+          "witness": [
+            0,
+            6
+          ]
+        },
+        {
+          "q": 15,
+          "r": 7,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    }
+  ]
+}
