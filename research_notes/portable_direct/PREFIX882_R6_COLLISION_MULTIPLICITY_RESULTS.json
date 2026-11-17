@@ -1,0 +1,175 @@
+{
+  "schema": "PREFIX882_R6_COLLISION_MULTIPLICITY_V1",
+  "exact_count_dp_tests": [
+    {
+      "p": 1,
+      "parameter_tuples": 18,
+      "mismatches": 0
+    },
+    {
+      "p": 2,
+      "parameter_tuples": 100,
+      "mismatches": 0
+    },
+    {
+      "p": 3,
+      "parameter_tuples": 392,
+      "mismatches": 0
+    },
+    {
+      "p": 4,
+      "parameter_tuples": 1296,
+      "mismatches": 0
+    },
+    {
+      "p": 5,
+      "parameter_tuples": 3872,
+      "mismatches": 0
+    },
+    {
+      "p": 6,
+      "parameter_tuples": 10816,
+      "mismatches": 0
+    }
+  ],
+  "unordered_pair_crosschecks": [
+    {
+      "p": 3,
+      "odd_modulus_max": 9,
+      "pairs_checked": 25,
+      "nonzero_collisions": 22,
+      "mismatches": 0
+    },
+    {
+      "p": 4,
+      "odd_modulus_max": 15,
+      "pairs_checked": 64,
+      "nonzero_collisions": 64,
+      "mismatches": 0
+    },
+    {
+      "p": 5,
+      "odd_modulus_max": 17,
+      "pairs_checked": 81,
+      "nonzero_collisions": 81,
+      "mismatches": 0
+    },
+    {
+      "p": 6,
+      "odd_modulus_max": 13,
+      "pairs_checked": 49,
+      "nonzero_collisions": 49,
+      "mismatches": 0
+    }
+  ],
+  "p32_example": {
+    "p": 32,
+    "q1": 524287,
+    "q2": 524285,
+    "event_count": 141733920768,
+    "disjoint_power_of_two_multiplier_families": [
+      {
+        "k": 1,
+        "a": 524287,
+        "b": 524285,
+        "difference": 2,
+        "number_of_collision_pairs": 2147221505
+      },
+      {
+        "k": 2,
+        "a": 1048574,
+        "b": 1048570,
+        "difference": 4,
+        "number_of_collision_pairs": 2146959362
+      },
+      {
+        "k": 4,
+        "a": 2097148,
+        "b": 2097140,
+        "difference": 8,
+        "number_of_collision_pairs": 2146435076
+      },
+      {
+        "k": 8,
+        "a": 4194296,
+        "b": 4194280,
+        "difference": 16,
+        "number_of_collision_pairs": 2145386504
+      },
+      {
+        "k": 16,
+        "a": 8388592,
+        "b": 8388560,
+        "difference": 32,
+        "number_of_collision_pairs": 2143289360
+      },
+      {
+        "k": 32,
+        "a": 16777184,
+        "b": 16777120,
+        "difference": 64,
+        "number_of_collision_pairs": 2139095072
+      },
+      {
+        "k": 64,
+        "a": 33554368,
+        "b": 33554240,
+        "difference": 128,
+        "number_of_collision_pairs": 2130706496
+      },
+      {
+        "k": 128,
+        "a": 67108736,
+        "b": 67108480,
+        "difference": 256,
+        "number_of_collision_pairs": 2113929344
+      },
+      {
+        "k": 256,
+        "a": 134217472,
+        "b": 134216960,
+        "difference": 512,
+        "number_of_collision_pairs": 2080375040
+      },
+      {
+        "k": 512,
+        "a": 268434944,
+        "b": 268433920,
+        "difference": 1024,
+        "number_of_collision_pairs": 2013266432
+      },
+      {
+        "k": 1024,
+        "a": 536869888,
+        "b": 536867840,
+        "difference": 2048,
+        "number_of_collision_pairs": 1879049216
+      },
+      {
+        "k": 2048,
+        "a": 1073739776,
+        "b": 1073735680,
+        "difference": 4096,
+        "number_of_collision_pairs": 1610614784
+      },
+      {
+        "k": 4096,
+        "a": 2147479552,
+        "b": 2147471360,
+        "difference": 8192,
+        "number_of_collision_pairs": 1073745920
+      },
+      {
+        "k": 8192,
+        "a": 4294959104,
+        "b": 4294942720,
+        "difference": 16384,
+        "number_of_collision_pairs": 8192
+      }
+    ],
+    "certified_collision_pairs_lower_bound": 25770082303,
+    "mean_alternative_events_lower_bound_numerator": 51540164606,
+    "mean_alternative_events_lower_bound_denominator": 141733920768
+  },
+  "status": "ALL_EXACT_ASSERTIONS_PASSED"
+}
