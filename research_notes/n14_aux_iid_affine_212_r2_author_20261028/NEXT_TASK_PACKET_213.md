@@ -1,0 +1,9 @@
+# Stage213 exact next research packet — dual candidate only
+
+Parent scope: external ternary IID N=14 history-sensitive randomized stopping under P=(3,1,20)/24, Q=(2,2,20)/24; not native P000-X6 dynamics. Stage212 is an author-level full-real theorem, UNREVIEWED / NOT_ADMITTED, right endpoint α212=3740051857643324945/10517860061584293888, V212=2098901961222753173/219122084616339456.
+
+**Verified dual-only inputs:** K213=36993328266365208/365083984886815; H213=326557453975807110989706851827603/3999898191421953578095588933632; new Q/C tie (2,0,1); terminal P/Q tie (14,0,0). The exact 680-state scan gives 1238 positive action gaps, minimum 3314488625691065/141944653323993672 and contact H213=H212+2α212(K213−K212). Primal Stage213 remains **not proved**.
+
+**Next executable question:** compute O(u,z)=(eP,eQ,tP,tQ) at all four deterministic coins at (2,0,1) and (14,0,0), with two methods: Fraction conditional suffix DP and an unmerged full ordered-history integer P/Q-mass DFS. Determine and justify any u*z interaction; solve the exact eP=eQ real balancing curve, coin feasibility, and tP versus tQ. Either prove a nonzero all-real Stage213 optimum interval with exact endpoint and fixed-support strict-right separation, or exhibit an exact rational obstruction. Keep path provenance and all four observations, not totals alone.
+
+Already complete (do not replay): Stage212 169564 ordered DFS visits, exact full-real proof, Stage213 first-switch dual scan. Continue at the highest verified frontier. Independent Driver review, native active-owner verification, Source CLAIM/Result and X6 transfer remain separate. Frozen input provenance: GLOBAL main@6b3e7a6520898c41e063db04e82b1d3c2c9c3a4b; EM main@d42136a33bab42ab25e6d4318774708be2544d62, original P000 blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc.

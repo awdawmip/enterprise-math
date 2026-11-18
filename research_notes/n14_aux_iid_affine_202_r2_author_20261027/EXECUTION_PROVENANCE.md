@@ -1,0 +1,13 @@
+# Execution provenance, 2026-10-27
+
+Mathematical author-side portable result Stage202 in external finite N14 IID helper. Global input snapshot main@f4ef844a208d4774467436397c4ee4b0481b7ba6; Enterprise Math main@d8b1a8272420500b67ddc04033ca9577f7c1f3f8; P000 original Git blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc. Consumed Stage201 PR #1571 head feb4b102a0d8796cb47723baf6024cb640314c4d.
+
+**Actually executed locally:**
+- verify_stage202.py, exact fractions.Fraction Bellman and an independently implemented unmerged ordered-prefix integer-weight P/Q DFS. Exact 680 count states, 1238 strict action gaps (min 16319029/1441073592). All 4 corner observers componentwise equal, DFS calls 98494/98494/96406/96406, 389800 total; B first arrivals 6, Z first arrivals 1, joint zero at each corner. Error equalization and legality, Stage201 endpoint contact, positive P-time dominance and Bellman equality checked with Fraction. Observed stdout: STAGE202_AUTHOR_EXACT_PASS 389800.
+- scan_stage203.py, exact Fraction directional dual scan from the Stage202 b=1, Z=Q deterministic chosen policy; returned STAGE203_DUAL_SCAN_PASS. Candidate K=L=17496/139; H=188497771183924373447/1903623110104449024; two tie states T=(13,6,4) Q/C and Z=(14,0,0) P/Q. 680 states, 1238 strictly positive gaps.
+
+**Published:** PROOF_STAGE202.md is complete author mathematical argument. verify_stage202.py is the actual executed source with its original output behavior (writes a certificate at /mnt/data/em_stage202/certificate202.json, which is workspace-specific and may need target path alteration in another executor). REPRO_STAGE202.py is a standalone consumable reference derived by mathematical parameter/tie substitution from the Stage201 reference verifier; GitHub blob identity proves stored bytes but not execution on GitHub. REPRO_STAGE203_DUAL.py is a similarly standalone source of the exact next dual scan. Published certificate202.json and certificate203_dual.json are rational evidence, not a formal theorem-prover admission. The combined execution-summary log records observed author-side outputs.
+
+**Authority:** At this run, native Enterprise Math MCP v0.6.11 em_status returned research_authority_granted=false, and em_control_tasks failed with CONTROL_QUOTA. Owner not confirmed; the math belongs to this author-side portable PR. No live CLAIM, native Source Result, independent Driver mathematical review or Foundation admission has been acquired.
+
+**Boundary:** The BRC positive rational branch carrier and exact full-history observer are used for the external finite IID model; there is no proved typed embedding/readout into P000 X6 native dynamics or three-dimensional slices.
