@@ -31,7 +31,7 @@ def input_for(D,x,y):
     actions=sorted((k,fam) for fam,k in sig.items())
     lines=["9 8",str(len(actions))]
     for k,fam in actions:lines.append(" ".join(map(str,(k,len(fam),*fam))))
-    return ("\\n".join(lines)+"\\n").encode(),len(actions)
+    return ("\n".join(lines)+"\n").encode(),len(actions)
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--solve",action="store_true")
@@ -46,7 +46,7 @@ def main():
     assert len({(r["x"],r["y"]) for r in rows})==20
     if a.partition_tsv:
         import csv
-        table=list(csv.DictReader(open(a.partition_tsv),delimiter="\\t"))
+        table=list(csv.DictReader(open(a.partition_tsv),delimiter="\t"))
         assert len(table)==2026 and sum(int(r["count"]) for r in table)==30876
         look={(int(r["representative_x"]),int(r["representative_y"])):r for r in table}
         for r in rows:
@@ -69,7 +69,7 @@ def main():
         assert r["exact_cost"]==8335 and r["exit_code"]==0
         if a.solve:
             result=subprocess.run(["./EXACT_NINE_NEW20"],cwd=P,input=inp,capture_output=True,check=True)
-            m=re.fullmatch(r"EXACT cost=(\\d+) states=(\\d+) actions=(\\d+) time=([\\d.]+)",result.stdout.decode().strip())
+            m=re.fullmatch(r"EXACT cost=(\d+) states=(\d+) actions=(\d+) time=([\d.]+)",result.stdout.decode().strip())
             assert m and list(map(int,m.group(1,2,3)))==[8335,r["memo_states"],nacts]
     assert checks==2020
     print("PASS_R5_NINE_NEW20",checks,"support_checks",len(rows),"exact_solver_logs",sum(r["class_size"] for r in rows),"covered_pairs")
