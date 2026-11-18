@@ -1,0 +1,104 @@
+{
+  "schema": "R278_EXACT_FRACTION_CERTIFICATE_V1",
+  "status": "PASS",
+  "number_witness_systems": 2,
+  "singletons_per_system": 2,
+  "joint_witnesses": [
+    {
+      "internal_port_loop": "0",
+      "baseline_and_both_singletons": [
+        "1",
+        "1",
+        "1"
+      ],
+      "both_edges_weight_1_4": "16/15",
+      "denominator_mixed_coefficient": "-1"
+    },
+    {
+      "internal_port_loop": "1/2",
+      "baseline_and_both_singletons": [
+        "1",
+        "1",
+        "1"
+      ],
+      "both_edges_weight_1_4": "8/7",
+      "denominator_mixed_coefficient": "-2"
+    }
+  ],
+  "three_port_models": [
+    {
+      "case": "symmetric_triangle",
+      "tests": 27,
+      "D": [
+        "1",
+        "-4/27",
+        "-4/27",
+        "-256/243",
+        "-4/27",
+        "-32/243",
+        "0",
+        "0"
+      ],
+      "N": [
+        "28/27",
+        "0",
+        "0",
+        "0",
+        "-32/243",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "case": "asymmetric_triangle",
+      "tests": 27,
+      "D": [
+        "1",
+        "-4212/28771",
+        "-3240/28771",
+        "-4320/28771",
+        "-3864/28771",
+        "-3024/28771",
+        "-5040/28771",
+        "-30240/28771"
+      ],
+      "N": [
+        "29988/28771",
+        "0",
+        "-2520/28771",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "case": "looped_chain",
+      "tests": 27,
+      "D": [
+        "1",
+        "-10400/102257",
+        "-12672/102257",
+        "0",
+        "-45760/306771",
+        "0",
+        "0",
+        "-137280/102257"
+      ],
+      "N": [
+        "115200/102257",
+        "0",
+        "0",
+        "0",
+        "-17160/102257",
+        "0",
+        "0",
+        "0"
+      ]
+    }
+  ],
+  "three_port_full_direct_checks": 81,
+  "arithmetic": "Python fractions.Fraction; determinant via permutation expansion; multiaffine coefficients via Boolean-subset Mobius inversion"
+}
