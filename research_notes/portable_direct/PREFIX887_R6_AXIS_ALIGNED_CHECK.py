@@ -91,6 +91,10 @@ def check():
     assert len(a) == 385
     assert (len(minus), len(plus), len(minus & plus)) == (304, 121, 40)
     assert excluded == 201702655
+    high_set = {q for q in a if q >= (1 << 18)}
+    high_m = 1 << 17
+    high_forced = high_m * high_m - (high_m - len(high_set)) ** 2
+    assert len(high_set) == 24 and high_forced == 6290880
     small_checks = 0
     for p in range(2, 9):
         for q in range(1, min((1 << p), 31), 2):
@@ -106,6 +110,9 @@ def check():
         'axis_forcing_ordered_pairs': excluded,
         'remaining_outside_axis_criterion': (m - len(a)) ** 2,
         'total_ordered_pairs': m * m,
+        'exact_19_bit_odd_moduli': high_m,
+        'exact_19_bit_axis_forcing_moduli': len(high_set),
+        'exact_19_bit_axis_forcing_ordered_pairs': high_forced,
         'bruteforce_parameter_checks': small_checks,
         'least_exponent_histogram': {str(k): v for k, v in sorted(least_h.items())},
         'set_members_sorted': sorted(a),
