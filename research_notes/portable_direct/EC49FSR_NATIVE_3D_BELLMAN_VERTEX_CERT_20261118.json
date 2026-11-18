@@ -1,0 +1,186 @@
+{
+  "schema": "EC49FSR_BRC16943_NATIVE_THREE_PRICE_VERTEX_CERT_V1",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_provenance": {
+    "original_profiles": 141,
+    "physical_named_observers": 228,
+    "configurations": 310,
+    "prior": "uniform",
+    "prior_refs": [
+      "EC49FSN PR2706@0842017a6bfdc83e7af59c6d2be0493dd53d58da",
+      "EC49FSQ PR2715@b38bf22508ff2822d469587760878fb7593f2c76"
+    ]
+  },
+  "domain": {
+    "a": [
+      "1/2",
+      "1"
+    ],
+    "b": [
+      "27/64",
+      "29/64"
+    ],
+    "z": [
+      "31/64",
+      "1/2"
+    ]
+  },
+  "cost_vectors": {
+    "direct_unsaturated": [
+      319,
+      18,
+      75,
+      141
+    ],
+    "direct_saturated": [
+      313,
+      141,
+      43,
+      24
+    ],
+    "swapped_saturated": [
+      311,
+      10,
+      141,
+      69
+    ]
+  },
+  "moving_boundary": "(32*b+117*z-6)/123",
+  "primary_method": "All-228 exact rational Bellman over original deterministic named response-profile masks; 12 vertices",
+  "primary_vertices": [
+    {
+      "kind": "unsaturated_lower",
+      "a": "1/2",
+      "b": "27/64",
+      "z": "31/64",
+      "exact": "3361/16",
+      "reached_subsets": 10702
+    },
+    {
+      "kind": "crossing",
+      "a": "1369/2624",
+      "b": "27/64",
+      "z": "31/64",
+      "exact": "275089/1312",
+      "reached_subsets": 10556
+    },
+    {
+      "kind": "swapped_base",
+      "a": "1/2",
+      "b": "27/64",
+      "z": "31/64",
+      "exact": "12983/64",
+      "reached_subsets": 10352
+    },
+    {
+      "kind": "unsaturated_lower",
+      "a": "1/2",
+      "b": "27/64",
+      "z": "1/2",
+      "exact": "13303/64",
+      "reached_subsets": 10689
+    },
+    {
+      "kind": "crossing",
+      "a": "22/41",
+      "b": "27/64",
+      "z": "1/2",
+      "exact": "543695/2624",
+      "reached_subsets": 10514
+    },
+    {
+      "kind": "swapped_base",
+      "a": "1/2",
+      "b": "27/64",
+      "z": "1/2",
+      "exact": "6457/32",
+      "reached_subsets": 10286
+    },
+    {
+      "kind": "unsaturated_lower",
+      "a": "1/2",
+      "b": "29/64",
+      "z": "31/64",
+      "exact": "6647/32",
+      "reached_subsets": 10544
+    },
+    {
+      "kind": "crossing",
+      "a": "4171/7872",
+      "b": "29/64",
+      "z": "31/64",
+      "exact": "135911/656",
+      "reached_subsets": 10526
+    },
+    {
+      "kind": "swapped_base",
+      "a": "1/2",
+      "b": "29/64",
+      "z": "31/64",
+      "exact": "12963/64",
+      "reached_subsets": 10330
+    },
+    {
+      "kind": "unsaturated_lower",
+      "a": "1/2",
+      "b": "29/64",
+      "z": "1/2",
+      "exact": "13153/64",
+      "reached_subsets": 10528
+    },
+    {
+      "kind": "crossing",
+      "a": "67/123",
+      "b": "29/64",
+      "z": "1/2",
+      "exact": "537161/2624",
+      "reached_subsets": 10432
+    },
+    {
+      "kind": "swapped_base",
+      "a": "1/2",
+      "b": "29/64",
+      "z": "1/2",
+      "exact": "6447/32",
+      "reached_subsets": 10263
+    }
+  ],
+  "independent_94_family_checks": [
+    {
+      "kind": "crossing",
+      "a": "1369/2624",
+      "b": "27/64",
+      "z": "31/64",
+      "value": "275089/1312",
+      "reached_subsets": 9845,
+      "status": "MATCH"
+    },
+    {
+      "kind": "swapped_base",
+      "a": "1/2",
+      "b": "29/64",
+      "z": "1/2",
+      "value": "6447/32",
+      "reached_subsets": 9535,
+      "status": "MATCH"
+    }
+  ],
+  "adjacent_point": {
+    "a": "1",
+    "b": "27/64",
+    "z": "33/64",
+    "actual_optimum": "9049/64",
+    "previous_plane": "9055/64",
+    "new_tree_vector": [
+      316,
+      141,
+      43,
+      30
+    ],
+    "difference": "3/32",
+    "complete_tree": "EC49FSR_ABOVE_HALF_NATIVE_CHALLENGER.json in accompanying independently archived evidence bundle"
+  },
+  "continuum_proof": "joint concavity of optimum + feasible affine witnesses on 8 vertices of P_low and 4 vertices of the swapped face + two saturated-observer lifts",
+  "status": "AUTHOR_PROVED / EXACT_PRIMARY_12_VERTICES / INDEPENDENT_2_VERTICES / NOT_REVIEWED",
+  "control": "portable research; no new authenticated CLAIM, Result, Review or Activity checkpoint"
+}
