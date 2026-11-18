@@ -115,3 +115,8 @@ assert count==1032192
 - The stronger obstruction makes the independent question more concrete: build and test p-row exactly n-regular ensembles genuinely far from the interval-translation orbit, or construct a single deterministic n-set with the requisite all-K low-tail certificate at the sharp length. A separate Source-authenticated Driver review of a frozen original Result remains a distinct authorization action.
 
 Original task identity: `RS-OAI7-028-C-20261007-6F2A81` / `TP2-96FAC49786245691AE19`. Parent objective: `OBJ-OAI7-RESEARCH-TRANSFER-20261007`. No claimed Native publication/acceptance or X6 transfer.
+
+
+## Subsequent threshold-multiplicity refinement (r343, 2026-11-19)
+
+At the OAI7 scale the threshold `h=floor((17/64)*n*u/p)` grows as a positive multiple of `log p`. The [r343 counting lemma](https://github.com/awdawmip/enterprise-math/blob/4d77356d854c26066f745ce1ee94c3257ca14ad8/research_notes/portable_direct/2026-11-19_oai7_driver_threshold_multiplicity_orbit_barrier_r343.md) exploits the need for at least `h+1` new hits at starts originally outside `K-W`, proving `V_C>=|G|-|K-W|-floor(u*r/(h+1))`. Accordingly a small-list-good p-row ensemble near the designated interval orbit must edit at least `(17/64-o(1))*n` elements in almost every row, a macroscopic fractional strengthening of the r342 general Lipschitz estimate. Both the original r342 exact theorem and its single-swap coefficient-sharpness witness remain valid.
