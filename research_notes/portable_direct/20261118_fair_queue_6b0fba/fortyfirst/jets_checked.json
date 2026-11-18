@@ -1,0 +1,480 @@
+{
+  "Rabin_vs_trial_division": [
+    [
+      2,
+      7,
+      254
+    ],
+    [
+      3,
+      5,
+      363
+    ],
+    [
+      5,
+      3,
+      155
+    ]
+  ],
+  "closed_orbits": {
+    "ambiguous_at_one_error": {
+      "observed": [
+        [],
+        [
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "true_first": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "true_second": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "block_weights": [
+      1,
+      2,
+      2,
+      3
+    ],
+    "degree_min_distance": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        2
+      ]
+    ],
+    "nodes": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        1
+      ]
+    ],
+    "p": 2,
+    "quadratic_orbit_jet_checks": 96
+  },
+  "known_Frobenius_family": {
+    "example": {
+      "C": [
+        0,
+        1,
+        1
+      ],
+      "Frobenius_power": 2,
+      "d": 3,
+      "effective_weights": [
+        1,
+        1,
+        2
+      ],
+      "minimum_block_distance": 1,
+      "p": 2,
+      "raw_depths": [
+        3,
+        3,
+        2
+      ]
+    },
+    "exhaustive_parameter_sets": 768
+  },
+  "known_support": {
+    "F3_sparse_difference": [
+      0,
+      2,
+      0,
+      1
+    ],
+    "exact_support_multiplicities_degree_10": [
+      [
+        2,
+        2
+      ]
+    ],
+    "exact_support_multiplicities_degree_16": [
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        2
+      ]
+    ],
+    "extra_jet_at_0": [
+      0,
+      2
+    ]
+  },
+  "minimum_resources": {
+    "depth_orders_of_Frobenius": [
+      0,
+      1,
+      2
+    ],
+    "factor_degrees": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "nodes": [
+      2,
+      3,
+      5
+    ],
+    "optimized_schedules": 150
+  },
+  "nonunit_C_minimum_resources": {
+    "p": [
+      2,
+      3
+    ],
+    "parameter_sets": 504,
+    "separate_optima_example": {
+      "C": [
+        1,
+        1
+      ],
+      "d": 3,
+      "erased_comparison_slots": 0,
+      "p": 2,
+      "peak_optimal_raw_schedule": [
+        2,
+        2
+      ],
+      "q": 1,
+      "total_optimal_raw_schedule": [
+        3,
+        0
+      ]
+    },
+    "tested_C_orders": [
+      0,
+      1,
+      2
+    ]
+  },
+  "original_base_field": [
+    {
+      "depth_vectors": 90,
+      "p": 2,
+      "queried_base_nodes": 2,
+      "up_to_monic_degree": 5
+    },
+    {
+      "depth_vectors": 99,
+      "p": 3,
+      "queried_base_nodes": 3,
+      "up_to_monic_degree": 3
+    },
+    {
+      "depth_vectors": 35,
+      "p": 5,
+      "queried_base_nodes": 3,
+      "up_to_monic_degree": 2
+    }
+  ],
+  "typed_scalar_replay": {
+    "aliased_after_truncation": [
+      2,
+      0,
+      1,
+      0,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      2
+    ],
+    "coefficient_order": "increasing powers of X",
+    "edge_cases": {
+      "altered_bezout_rejected": true,
+      "bad_multiplicity": "degree_mismatch",
+      "nonzero_constant": true,
+      "reducible_exact_product": "reducible_factor",
+      "under_sampled": "insufficient_depth",
+      "wrong_scalar": "wrong_leading_coefficient",
+      "zero_input": "invalid_input"
+    },
+    "factor_irreducibility_receipts": [
+      {
+        "bezout": [],
+        "factor": [
+          1,
+          1
+        ],
+        "ladder_residues": [
+          [
+            2
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "bezout": [
+          {
+            "A": [
+              1
+            ],
+            "B": [
+              0,
+              2
+            ],
+            "Frobenius_minus_X": [
+              0,
+              1
+            ],
+            "prime_divisor": 2
+          }
+        ],
+        "factor": [
+          1,
+          0,
+          1
+        ],
+        "ladder_residues": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    ],
+    "factor_list": [
+      [
+        [
+          1,
+          1
+        ],
+        6
+      ],
+      [
+        [
+          1,
+          0,
+          1
+        ],
+        2
+      ]
+    ],
+    "false_input": {
+      "accepted": false,
+      "node": 0,
+      "reason": "jet_mismatch",
+      "reports": [
+        {
+          "BRC_calls": 88,
+          "depth": 4,
+          "first_reduction": [
+            2,
+            3,
+            0,
+            2
+          ],
+          "last_reduction": [
+            1,
+            3,
+            0,
+            1
+          ],
+          "left": [
+            2,
+            0,
+            1,
+            0
+          ],
+          "node": 0,
+          "ordered_reductions_sha256": "ce2404d535e2e9148d1577586a1669eafecf813b423e23aeb3646cfb59a66762",
+          "right": [
+            2,
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "input": [
+      2,
+      0,
+      1,
+      1,
+      2,
+      2,
+      2,
+      1,
+      1,
+      0,
+      2
+    ],
+    "leading_coefficient": 2,
+    "p": 3,
+    "passing": {
+      "accepted": true,
+      "reason": "complete_factorization",
+      "reports": [
+        {
+          "BRC_calls": 88,
+          "depth": 4,
+          "first_reduction": [
+            2,
+            3,
+            0,
+            2
+          ],
+          "last_reduction": [
+            1,
+            3,
+            0,
+            1
+          ],
+          "left": [
+            2,
+            0,
+            1,
+            1
+          ],
+          "node": 0,
+          "ordered_reductions_sha256": "b575c0edcfeeeec285957a77a7ab069c2d24b1020380bcce8fbd01705c3d1cf8",
+          "right": [
+            2,
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "BRC_calls": 66,
+          "depth": 3,
+          "first_reduction": [
+            2,
+            3,
+            0,
+            2
+          ],
+          "last_reduction": [
+            4,
+            3,
+            1,
+            1
+          ],
+          "left": [
+            2,
+            1,
+            1
+          ],
+          "node": 1,
+          "ordered_reductions_sha256": "a7aea875758e5c70e2391f54092874ef395ecc02601f8523b8b4add35799cdc1",
+          "right": [
+            2,
+            1,
+            1
+          ]
+        },
+        {
+          "BRC_calls": 66,
+          "depth": 3,
+          "first_reduction": [
+            2,
+            3,
+            0,
+            2
+          ],
+          "last_reduction": [
+            0,
+            3,
+            0,
+            0
+          ],
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "node": 2,
+          "ordered_reductions_sha256": "068f04cef004c8ceea9854277c3b7e0efa942df8fec567be42d39ed1753c2aea",
+          "right": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "public_git": "e7b9fb5084f93a9b2dbc16225629b667fb7bf46c",
+    "schedule": [
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  }
+}
