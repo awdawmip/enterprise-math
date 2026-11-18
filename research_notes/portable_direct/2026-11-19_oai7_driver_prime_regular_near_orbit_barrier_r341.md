@@ -94,3 +94,8 @@ assert min(map(V,rows))>p**.75
 - Original published task: `RS-OAI7-028-C-20261007-6F2A81` / `TP2-96FAC49786245691AE19`; parent `OBJ-OAI7-RESEARCH-TRANSFER-20261007`. Neither this note nor its failed tail certificate completes the parent, and no Native Result/Source/Activity review authority is inferred.
 
 **Next discriminating question:** characterize regular p-row incidence designs far (at least Omega(sqrt p) row edits on a 1-o(1) fraction) from every *obstructed* interval-like translation orbit, and test whether a genuinely different design can simultaneously realize the sharp all-K certificate and deterministic equal-marginal ordering. A separately verified Native reviewer is still needed for official admission of any of these author-side results.
+
+
+## Later exact sharpening (r342, 2026-11-19)
+
+The preceding estimates with `2ur_t` and cutoff `D=(B-p^(3/4))/(2u)` remain correct as conservative bounds. The subsequent [r342 one-sided threshold-list edit lemma](https://github.com/awdawmip/enterprise-math/blob/b8790284f7e1ee102b5de27d2060004518e52912/research_notes/portable_direct/2026-11-19_oai7_driver_monotone_shift_edit_bound_r342.md) proves the sharper general inequality `|V_C(K;h)-V_W(K;h)|<=u*r_t` for equal-size shift sets. Accordingly, all r341 near-orbit assertions strengthen by replacing the cutoff with `D_sharp=(B-p^(3/4))/u=(1+o(1))*sqrt(p)` at the second-order OAI7 length. The r341 2-switch witness and its computed `q_c=1` are unchanged. This is an author-side mathematical correction/strengthening, with original author/contribution and Native review boundaries preserved.
