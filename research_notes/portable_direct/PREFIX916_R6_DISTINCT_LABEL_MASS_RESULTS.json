@@ -1,0 +1,39 @@
+{
+  "schema": "PREFIX916_R6_DISJOINT_COLLISION_MASS_V1",
+  "scientific_frozen_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": {
+    "p": 32,
+    "a": 321651,
+    "b": 440665,
+    "trajectory_types": "unordered distinct named XOR flip pairs with x<y and flip source i>j, positive terminal gap",
+    "index_order": "0 <= j < i < 32",
+    "positive_integer_k_ell": true
+  },
+  "method": "exact complete arithmetic sum of disjoint signed dyadic parameter fibers; no sampling",
+  "counting_statistics": {
+    "signed_parameter_identities": "264",
+    "positive_multiplicity_identities": "263",
+    "maximum_multiplicity_per_identity": "1073741824",
+    "distinct_source_labeled_collision_pairs": "196960748158",
+    "independent_terminal_first_count": "196960748158",
+    "independent_terminal_first_positive_identities": "263"
+  },
+  "verification": {
+    "small_domain_p": "2..7",
+    "small_observer_a_b": "odd 1..15 and <2^p",
+    "complete_small_observer_cases": 276,
+    "small_observer_mismatches": 0,
+    "independent_parameter_traversal": "terminal-gap first versus start-gap first",
+    "arithmetic": "64 bit signed for differences, 128 bit unsigned count accumulator, no floating point",
+    "compiler": "g++ -std=gnu++17 -O3 -Wall -Wextra",
+    "source_git_blob_sha1": "0d956f39c6755b7e4888205a851112c558ea2e12",
+    "source_sha256": "2db8a2a2003d8de763eaf7a7444eec9577f4cd9f1ccc253215982f975f7a424f",
+    "result": "PASS"
+  },
+  "boundaries": {
+    "modulus_pair_coverage_increment": 0,
+    "existing_certified_ordered_modulus_pairs": "7795676346",
+    "independent_math_review": false,
+    "native_x6_event_admission": false
+  }
+}
