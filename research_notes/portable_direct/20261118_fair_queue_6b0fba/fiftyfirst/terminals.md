@@ -1,0 +1,69 @@
+# 两端串接后的二阶谱读数：六个坐标都能从外部辨认
+
+**RS-1162-UNEQUAL-SUBDIVISION-BETA2-FINITE-STATE-CLOSURE。** 固定隐藏顶点数 $h$ 和总电阻 $R>0$，左右端口具名。只有两个端口可用：以后可以串接已知正电阻路径，并闭成一个环，读一次归一化 $\beta_2$。第 1 轮留下的六个连续坐标整体上不可再删。两条隐藏链在此语言中等价，当且仅当它们的六坐标相等。一套与未知链无关的 **120 个正整数电阻测试** 已足以区分全部不等价对。在每个固定 $h$ 层，连续状态所需的最小维数恰为 $\min(h,6)$。这些结论针对单次装入的封装段，不需要复制未知链、读取隐藏电势或指定任何内部边。[登记题书](https://github.com/awdawmip/enterprise-math/blob/7b32ae2ad9d1c13a13ff4668d1d218adda99390d/research_tasks/1162_UNEQUAL_SUBDIVISION_BETA2_FINITE_STATE_CLOSURE_20260909.md) · [第 1 轮的充分性及当时的开放问题](../beta2.md)
+
+## 读数合同与传递坐标
+
+一条有 $q=h+1$ 条边的路径 $A$ 按从左至右给定正电阻 $r_i$。令 $U(r)=\left(\begin{smallmatrix}1&r\\0&1\end{smallmatrix}\right)$，$L(t)=\left(\begin{smallmatrix}1&0\\ t&1\end{smallmatrix}\right)$，每步传递为 $L(t)U(r_i)$，在新到达的右端计一次质量。整段传递 $T_A$ 的最右因子对应最先走的边；先 $A$ 后 $B$ 得 $T_BT_A$。$t$ 是形式不定元。未计质量的边先执行电势增量 $r_i$ 乘通量，在新顶点再执行通量增量 $t$ 乘电势，因而矩阵逐步行列式恒为 1。
+
+段首项 $T_{A,0}=U(R)$。记 $A_s=[t^s]T_A$，以下六个坐标和已知 $q,R$ 足以表示所需各阶：
+$$
+ A_1=\begin{pmatrix}a&b\\q&d\end{pmatrix},\quad d=qR-a,\qquad
+ A_2=\begin{pmatrix}e&f\\g&Rg-\det A_1-e\end{pmatrix},\qquad
+ j=(A_3)_{21}.
+$$
+确有 $(A_1)_{21}=q$，因为单次选取的质量分别贡献 1。令 $[X,Y]=X_{11}Y_{22}+X_{22}Y_{11}-X_{12}Y_{21}-X_{21}Y_{12}$。把 $\det T_A=1$ 展到三阶即得 $\operatorname{tr} A_1=qR$、$\operatorname{tr}A_2=Rg-\det A_1$、$\operatorname{tr}A_3=Rj-[A_1,A_2]$。
+
+这六数 $(a,b,g,e,f,j)$ 与旧 Schur 数据 $P_1,P_2,\sigma=\mathbf1^TP_3\mathbf1$ 在给定 $q,R$ 时可双向换算。写 $T_A=\left(\begin{smallmatrix}u&v\\w&z\end{smallmatrix}\right)$；由两端的势和流以及 $\det T_A=1$，
+$$
+ K_{LL}=u/v,\qquad K_{LR}=-1/v,\qquad K_{RR}=z/v-t,\qquad
+ \mathbf1^TK\mathbf1=(\operatorname{tr}T_A-2)/v-t .
+$$
+减去 $t$ 是移除这段已在右端计入的质量。分母 $v(0)=R$。前两阶先由 $K_{LR}$ 还原 $v$，再由两对角还原 $u,z$，最后由行列式还原 $w=(uz-1)/v$ 至二阶。最后一式的三阶系数为 $j$ 加上仅依赖前两阶的量。故旧压缩包与新六元组有相同的观察等价类。固定 $h,R$ 时，$P_1$ 有一个已知收缩，取两自由数；$P_2$ 有三数，$\sigma$ 有一数。[旧路径的有限 Schur 端口](https://github.com/awdawmip/enterprise-math/blob/7b32ae2ad9d1c13a13ff4668d1d218adda99390d/research_notes/1162_unequal_subdivision_order2_finite_port_jet_20260908_b62d.md) · [旧串接公式](https://github.com/awdawmip/enterprise-math/blob/7b32ae2ad9d1c13a13ff4668d1d218adda99390d/research_notes/1162_series_path_all_order_port_composition_20260908_b62d.md)
+
+把已知路径 $B$（$m$ 边、阻值和 $S$）接到 $A$ 两端构成简单环。令 $c_k=[t^k](\operatorname{tr}(T_AT_B)-2)$。环 Laplacian 的移位行列式 $\det(L_{\rm ring}+tI)$ 为 $(\prod_i r_i^{-1})(\operatorname{tr}(T_AT_B)-2)$，乘积取整环。一个直接证明是将特征方程改写成上面的逐边势流方程并施加周期条件：每个特征值的重数等于传递矩阵在该值的 1-特征空间维数，因为环 Laplacian 对称；若维数为 2，此处 $\det(I-T)$ 至少有二重零。两式同度，最高项的 $\prod r_i$ 给出比例。由逆特征值的初等对称式，
+$$
+ c_1=(q+m)(R+S),\qquad
+ \beta_2=\frac8{(q+m)^2(R+S)^2}
+ \left[(c_2/c_1)^2-2c_3/c_1\right].
+$$
+于是相同 $q,R$ 的两个候选段可用已知比例把读数还原到 $F=c_2^2-2c_1c_3$。下述通用测试各使用七条已知外边，形成简单环。末节六个单独秩测试的未知段本身已有七条边，所成环也都简单。
+
+## 为什么任何不同的六元组都能分开
+
+给 $B$ 的相应坐标另记 $(u,v,x,w,y,z)$，次序对应 $(a,b,g,e,f,j)$。只在本节使用此记号。按次数相乘有
+$$
+\begin{aligned}
+ c_2&=(R+S)(g+x)-\det A_1-\det B_1+\operatorname{tr}(A_1B_1),\\
+ c_3&=(R+S)(j+z)-[A_1,A_2]-[B_1,B_2]
+             +\operatorname{tr}(A_2B_1)+\operatorname{tr}(A_1B_2).
+\end{aligned}
+$$
+取 $m=7$，在任意给定 $S>0$，合法补链的六坐标含一个开集。一个有理秩证书取 $S=27$、六个内部累积阻位 $(1,3,6,9,14,21)$，六传递坐标对这些位置的 Jacobian 行列式等于 $365184$。任意缩放 $S$ 只给各坐标乘非零幂，开集性质保持。下节给出确切有限检验和低维层的子式。
+
+假设 $A,\widetilde A$ 在所有测试的 $F$ 都相等，用 $\Delta$ 表示前者减后者。在上述开集上 $\Delta F$ 恒为零，故其作为外部六坐标的多项式各系数都为零。以下顺序逐次消去未知差：
+
+1. $c_2$ 不含 $w=(B_2)_{11}$。$\Delta c_3$ 的 $w$ 系数是 $\Delta(a-d)=2\Delta a$，故 $\Delta a=0$。
+2. 此时 $\Delta c_2=(R+S)\Delta g+(q+m)\Delta b=:D$，已与 $B$ 的六坐标无关。$c_2$ 的 $x$ 系数为 $R+S$，$\Delta c_3$ 的 $x$ 系数为 $\Delta b$，故 $\Delta F$ 的 $x$ 系数是 $2(R+S)^2\Delta g$，从而 $\Delta g=0$。
+3. $c_2$ 的 $v$ 系数为 $q+m$，$\Delta c_3$ 的 $v$ 系数在 $\Delta g=\Delta a=0$ 后为零。所得 $\Delta F$ 的 $v$ 系数等于 $2(q+m)^2\Delta b$，故 $A_1=\widetilde A_1$，两者的 $c_2$ 完全相同。
+4. 剩下
+   $$
+   (R+S)\Delta j+(2u-mS+a-d)\Delta e+(q+m)\Delta f=0 .
+   $$
+   先在固定 $S$ 开集中改变 $u$，得 $\Delta e=0$；再取两个不同的 $S$，得 $\Delta j=\Delta f=0$。
+
+反向若六元组相同，显示式给出任意补链的相同读数；依第一节双向换算及既有闭合律，有限次继续串接也相同。左端和右端全程具名；如果只许左右对称的补链，翻转未知路径就不可区分，以上证明所用的 $u$ 等自由度也可能消失。
+
+**120 个固定测试即完备。** 选补链的七个电阻 $s_i=1+k_i$，其中 $k_i\in\mathbb Z_{\ge0}$ 且 $\sum k_i\le3$。共有 $\binom{10}{3}=120$ 条补链。对两候选的同一补链，$\Delta F$ 对七个电阻总次数至多 3：$c_j$ 是整环电阻中 $j$ 次齐次式，$F$ 总次数为 4；纯外阻的四次部分只依赖未知段置零电阻后的 $L(t)^q$，同 $q$ 时严格抵消。对次数至多 3 的七元多项式，用 $\prod_i\binom{k_i}{s'_i}$（$\sum s'_i\le3$）作基，整数单形网格的求值矩阵按总度三角且对角为 1。因此网格上相同便对全部正实补链相同，再由上述开集论证恢复六元组。这里置零只为辨认多项式系数；120 条真实测试都严格正。没有断言 120 是探针数量的最小值。
+
+## 连续状态大小与适用层
+
+对 $h=1,\ldots,6$，取总阻 27 和 $(1,3,6,9,14,21)$ 的前 $h$ 个位置。上述六坐标的前 $h$ 项对 $h$ 个位置的 Jacobian 子式依次为
+$$
+ -1,\quad4,\quad-4,\quad48,\quad-10656,\quad365184 .
+$$
+每个位置只进入毗邻两条边的电阻，矩阵各项对单一位置至多二次，故每个 Jacobian 条目用两次精确有理求值的对称差商即可确认。这里使用逆函数定理论证模型维数，没有用电阻或谱参数的微扰导数充当运行时端口。
+
+$h>6$ 时，在右端形式上添加 $s=h-6$ 条零长边，令 $T\mapsto L(t)^sT$。在六坐标上 $g\mapsto g+sa$、$j\mapsto j+se$，其余四项不动，是可逆变换。将额外阻位移到原右端内侧、间隔取充分小的正数，总阻仍固定。原六参子式为多项式，靠近端点时保持非零，故真实严格正链也含六维可分开族。设一个状态编码到 $\mathbb R^k$ 且随有序内部阻位连续。在可分开的局部参数开集上它必须单射；由区域不变性，$k$ 不能小于 $\min(h,6)$。上界在 $h\ge6$ 取六坐标，在 $h<6$ 可存 $h$ 个阻位数，串接时用这些数计算六坐标，或在短链内直接合并已存的数。$h=0$ 无自由参数。满秩只需在一处开集成立；具有额外对称性的链可有较低的局部读数秩。这里计的是固定 $h,R$ 后的连续实维，离散标签、总阻、数值精度及任意不连续的实数编码不在此下界内。
+
+独立校验还用 $R=1$、六阻位 $(1,3,6,9,14,21)/27$，以六个实际外补链的 $\beta_2$ 自身计算有理 Jacobian；行列式为 $-1512681040853963720/3054632475346565685192903614224932699754941$。补链、所有子式及精确算术均列在脚本。对三条未知链逐一跑 120 个整数补链，每个完整环分别以传递法和中心化有效阻距计算 $\beta_2$，360 对结果全部相等；另直接从路径 Dirichlet Green 矩阵核对旧 $P_1,P_2,\sigma$ 的坐标换算。用 `python terminals_check.py` 重建回执。该商只解决端口封装语言；若下一次操作可以点名任意隐藏微边，第 1 轮的逐边结论仍然适用。[程序](terminals_check.py) · [有理证书与回执](terminals_checked.json)

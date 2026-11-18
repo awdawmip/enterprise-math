@@ -1,0 +1,2547 @@
+{
+  "exhaustive_raw_words_checked": 8166,
+  "large_algebraic_controls": {
+    "341": {
+      "every_integer_bias_passes": false,
+      "first_raw_failure": [
+        11,
+        31
+      ],
+      "histogram": {
+        "0": 77,
+        "165": 22,
+        "176": 22,
+        "198": 22,
+        "253": 66,
+        "275": 22,
+        "297": 22,
+        "330": 22,
+        "55": 22,
+        "66": 44
+      },
+      "uniform_residue": 0
+    },
+    "561": {
+      "every_integer_bias_passes": true,
+      "first_raw_failure": [
+        3,
+        187
+      ],
+      "histogram": {
+        "0": 561
+      },
+      "uniform_residue": 0
+    }
+  },
+  "plan": {
+    "control": "One fixed-distance preparation cannot stand for the remaining slices. An extension by E1 can distinguish previously reflected labelled states at the same N.",
+    "endpoints": "Exclude k=0,N from arithmetic interior; compare gcd progression and first k where N fails to divide coefficient. Compute classifications using independent trial division only after both sets of rows have been generated.",
+    "mix": "Check coeffwise gcd, unordered axis swap, uniform interior sum, integer-mixture fixed divisor, and known-budget reconstruction. Treat mixed initial laws as observers paid separately from dynamics.",
+    "prepare": "For each N>=2 and k=0,...,N set A=0, B=k*E1+(N-k)*E2, C=(N+1)*E3, D=(N+1)*E4; empty links; U21 original four labelled deposited IDs. Do not query prime labels, factors, residue tables or square shells.",
+    "read": "Full first A--B contact at proposal N with A stationary and side A paid at its original location. Retain positive branch count, total and dominant; use ratio to k=0 at same N. No retries or success conditioning.",
+    "tiers": [
+      [
+        2,
+        12
+      ],
+      [
+        13,
+        32
+      ]
+    ],
+    "version": "U27F09-two-axis-first-arrival-v1"
+  },
+  "plan_byte_sha256": "ef7e522c73bfc5a4462eb7541e6cdcbcb70a9033eb688f606d6d51552d16dd50",
+  "rows": [
+    {
+      "N": 2,
+      "coefficient_content": 2,
+      "first_nondivisible_k": null,
+      "gcd_profile": [
+        2
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 2,
+        "base_total": "1/451584",
+        "computed_states": 5,
+        "one_label_dominant": "1/903168",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 1,
+            "recovered_integer": 2
+          },
+          "2": {
+            "initial_weight_denominator": 2,
+            "recovered_integer": 4
+          }
+        }
+      },
+      "trial_division_prime": true,
+      "values": [
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "N": 3,
+      "coefficient_content": 3,
+      "first_nondivisible_k": null,
+      "gcd_profile": [
+        3,
+        3
+      ],
+      "integer_mixture_fixed_divisor": 6,
+      "root_residuals": [
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 4,
+        "base_total": "1/86704128",
+        "computed_states": 9,
+        "one_label_dominant": "1/346816512",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 2,
+            "recovered_integer": 6
+          },
+          "2": {
+            "initial_weight_denominator": 6,
+            "recovered_integer": 18
+          }
+        }
+      },
+      "trial_division_prime": true,
+      "values": [
+        1,
+        3,
+        3,
+        1
+      ]
+    },
+    {
+      "N": 4,
+      "coefficient_content": 2,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        4,
+        2,
+        2
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        2,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 8,
+        "base_total": "1/16647192576",
+        "computed_states": 14,
+        "one_label_dominant": "1/133177540608",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 3,
+            "recovered_integer": 14
+          },
+          "2": {
+            "initial_weight_denominator": 14,
+            "recovered_integer": 64
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        4,
+        6,
+        4,
+        1
+      ]
+    },
+    {
+      "N": 5,
+      "coefficient_content": 5,
+      "first_nondivisible_k": null,
+      "gcd_profile": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "integer_mixture_fixed_divisor": 30,
+      "root_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 16,
+        "base_total": "1/3196260974592",
+        "computed_states": 20,
+        "one_label_dominant": "1/51140175593472",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 4,
+            "recovered_integer": 30
+          },
+          "2": {
+            "initial_weight_denominator": 30,
+            "recovered_integer": 210
+          }
+        }
+      },
+      "trial_division_prime": true,
+      "values": [
+        1,
+        5,
+        10,
+        10,
+        5,
+        1
+      ]
+    },
+    {
+      "N": 6,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        6,
+        3,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        3,
+        2,
+        3,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 32,
+        "base_total": "1/613682107121664",
+        "computed_states": 27,
+        "one_label_dominant": "1/19637827427893248",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 5,
+            "recovered_integer": 62
+          },
+          "2": {
+            "initial_weight_denominator": 62,
+            "recovered_integer": 664
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        6,
+        15,
+        20,
+        15,
+        6,
+        1
+      ]
+    },
+    {
+      "N": 7,
+      "coefficient_content": 7,
+      "first_nondivisible_k": null,
+      "gcd_profile": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "integer_mixture_fixed_divisor": 42,
+      "root_residuals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 64,
+        "base_total": "1/117826964567359488",
+        "computed_states": 35,
+        "one_label_dominant": "1/7540925732311007232",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 6,
+            "recovered_integer": 126
+          },
+          "2": {
+            "initial_weight_denominator": 126,
+            "recovered_integer": 2058
+          }
+        }
+      },
+      "trial_division_prime": true,
+      "values": [
+        1,
+        7,
+        21,
+        35,
+        35,
+        21,
+        7,
+        1
+      ]
+    },
+    {
+      "N": 8,
+      "coefficient_content": 2,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        8,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        4,
+        0,
+        6,
+        0,
+        4,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 128,
+        "base_total": "1/22622777196933021696",
+        "computed_states": 44,
+        "one_label_dominant": "1/2895715481207426777088",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 7,
+            "recovered_integer": 254
+          },
+          "2": {
+            "initial_weight_denominator": 254,
+            "recovered_integer": 6304
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        8,
+        28,
+        56,
+        70,
+        56,
+        28,
+        8,
+        1
+      ]
+    },
+    {
+      "N": 9,
+      "coefficient_content": 3,
+      "first_nondivisible_k": 3,
+      "gcd_profile": [
+        9,
+        9,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "integer_mixture_fixed_divisor": 30,
+      "root_residuals": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        3,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 256,
+        "base_total": "1/4343573221811140165632",
+        "computed_states": 54,
+        "one_label_dominant": "1/1111954744783651882401792",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 8,
+            "recovered_integer": 510
+          },
+          "2": {
+            "initial_weight_denominator": 510,
+            "recovered_integer": 19170
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        9,
+        36,
+        84,
+        126,
+        126,
+        84,
+        36,
+        9,
+        1
+      ]
+    },
+    {
+      "N": 10,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        10,
+        5,
+        5,
+        5,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        5,
+        0,
+        10,
+        2,
+        10,
+        0,
+        5,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 512,
+        "base_total": "1/833966058587738911801344",
+        "computed_states": 65,
+        "one_label_dominant": "1/426990621996922322842288128",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 9,
+            "recovered_integer": 1022
+          },
+          "2": {
+            "initial_weight_denominator": 1022,
+            "recovered_integer": 58024
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        10,
+        45,
+        120,
+        210,
+        252,
+        210,
+        120,
+        45,
+        10,
+        1
+      ]
+    },
+    {
+      "N": 11,
+      "coefficient_content": 11,
+      "first_nondivisible_k": null,
+      "gcd_profile": [
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "integer_mixture_fixed_divisor": 66,
+      "root_residuals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 1024,
+        "base_total": "1/160121483248845871065858048",
+        "computed_states": 77,
+        "one_label_dominant": "1/163964398846818171971438641152",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 10,
+            "recovered_integer": 2046
+          },
+          "2": {
+            "initial_weight_denominator": 2046,
+            "recovered_integer": 175098
+          }
+        }
+      },
+      "trial_division_prime": true,
+      "values": [
+        1,
+        11,
+        55,
+        165,
+        330,
+        462,
+        462,
+        330,
+        165,
+        55,
+        11,
+        1
+      ]
+    },
+    {
+      "N": 12,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        12,
+        6,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        6,
+        4,
+        15,
+        0,
+        24,
+        0,
+        15,
+        4,
+        6,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 2048,
+        "base_total": "1/30743324783778407244644745216",
+        "computed_states": 90,
+        "one_label_dominant": "1/62962329157178178037032438202368",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 11,
+            "recovered_integer": 4094
+          },
+          "2": {
+            "initial_weight_denominator": 4094,
+            "recovered_integer": 527344
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        12,
+        66,
+        220,
+        495,
+        792,
+        924,
+        792,
+        495,
+        220,
+        66,
+        12,
+        1
+      ]
+    },
+    {
+      "N": 13,
+      "coefficient_content": 13,
+      "first_nondivisible_k": null,
+      "gcd_profile": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "integer_mixture_fixed_divisor": 2730,
+      "root_residuals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 4096,
+        "base_total": "1/5902718358485454190971791081472",
+        "computed_states": 104,
+        "one_label_dominant": "1/24177534396356420366220456269709312",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 12,
+            "recovered_integer": 8190
+          },
+          "2": {
+            "initial_weight_denominator": 8190,
+            "recovered_integer": 1586130
+          }
+        }
+      },
+      "trial_division_prime": true,
+      "values": [
+        1,
+        13,
+        78,
+        286,
+        715,
+        1287,
+        1716,
+        1716,
+        1287,
+        715,
+        286,
+        78,
+        13,
+        1
+      ]
+    },
+    {
+      "N": 14,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        14,
+        7,
+        7,
+        7,
+        7,
+        7,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        7,
+        0,
+        21,
+        0,
+        35,
+        2,
+        35,
+        0,
+        21,
+        0,
+        7,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 8192,
+        "base_total": "1/1133321924829207204666583887642624",
+        "computed_states": 119,
+        "one_label_dominant": "1/9284173208200865420628655207568375808",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 13,
+            "recovered_integer": 16382
+          },
+          "2": {
+            "initial_weight_denominator": 16382,
+            "recovered_integer": 4766584
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        14,
+        91,
+        364,
+        1001,
+        2002,
+        3003,
+        3432,
+        3003,
+        2002,
+        1001,
+        364,
+        91,
+        14,
+        1
+      ]
+    },
+    {
+      "N": 15,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 3,
+      "gcd_profile": [
+        15,
+        15,
+        5,
+        5,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 6,
+      "root_residuals": [
+        0,
+        0,
+        5,
+        0,
+        3,
+        10,
+        0,
+        0,
+        10,
+        3,
+        0,
+        5,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 16384,
+        "base_total": "1/217597809567207783295984106427383808",
+        "computed_states": 135,
+        "one_label_dominant": "1/3565122511949132321521403599706256310272",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 14,
+            "recovered_integer": 32766
+          },
+          "2": {
+            "initial_weight_denominator": 32766,
+            "recovered_integer": 14316138
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        15,
+        105,
+        455,
+        1365,
+        3003,
+        5005,
+        6435,
+        6435,
+        5005,
+        3003,
+        1365,
+        455,
+        105,
+        15,
+        1
+      ]
+    },
+    {
+      "N": 16,
+      "coefficient_content": 2,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        16,
+        8,
+        8,
+        4,
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        8,
+        0,
+        28,
+        0,
+        56,
+        0,
+        70,
+        0,
+        56,
+        0,
+        28,
+        0,
+        8,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 32768,
+        "base_total": "1/41778779436903894392828948434057691136",
+        "computed_states": 152,
+        "one_label_dominant": "1/1369007044588466811464218982287202423144448",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 15,
+            "recovered_integer": 65534
+          },
+          "2": {
+            "initial_weight_denominator": 65534,
+            "recovered_integer": 42981184
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        16,
+        120,
+        560,
+        1820,
+        4368,
+        8008,
+        11440,
+        12870,
+        11440,
+        8008,
+        4368,
+        1820,
+        560,
+        120,
+        16,
+        1
+      ]
+    },
+    {
+      "N": 17,
+      "coefficient_content": 17,
+      "first_nondivisible_k": null,
+      "gcd_profile": [
+        17,
+        17,
+        17,
+        17,
+        17,
+        17,
+        17,
+        17,
+        17,
+        17,
+        17,
+        17,
+        17,
+        17,
+        17,
+        17
+      ],
+      "integer_mixture_fixed_divisor": 510,
+      "root_residuals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 65536,
+        "base_total": "1/8021525651885547723423158099339076698112",
+        "computed_states": 170,
+        "one_label_dominant": "1/525698705121971255602260089198285730487468032",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 16,
+            "recovered_integer": 131070
+          },
+          "2": {
+            "initial_weight_denominator": 131070,
+            "recovered_integer": 129009090
+          }
+        }
+      },
+      "trial_division_prime": true,
+      "values": [
+        1,
+        17,
+        136,
+        680,
+        2380,
+        6188,
+        12376,
+        19448,
+        24310,
+        24310,
+        19448,
+        12376,
+        6188,
+        2380,
+        680,
+        136,
+        17,
+        1
+      ]
+    },
+    {
+      "N": 18,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        18,
+        9,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        9,
+        6,
+        36,
+        0,
+        96,
+        0,
+        126,
+        20,
+        126,
+        0,
+        96,
+        0,
+        36,
+        6,
+        9,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 131072,
+        "base_total": "1/1540132925162025162897246355073102726037504",
+        "computed_states": 189,
+        "one_label_dominant": "1/201868302766836962151267874252141720507187724288",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 17,
+            "recovered_integer": 262142
+          },
+          "2": {
+            "initial_weight_denominator": 262142,
+            "recovered_integer": 387158344
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        18,
+        153,
+        816,
+        3060,
+        8568,
+        18564,
+        31824,
+        43758,
+        48620,
+        43758,
+        31824,
+        18564,
+        8568,
+        3060,
+        816,
+        153,
+        18,
+        1
+      ]
+    },
+    {
+      "N": 19,
+      "coefficient_content": 19,
+      "first_nondivisible_k": null,
+      "gcd_profile": [
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19
+      ],
+      "integer_mixture_fixed_divisor": 798,
+      "root_residuals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 262144,
+        "base_total": "1/295705521631108831276271300174035723399200768",
+        "computed_states": 209,
+        "one_label_dominant": "1/77517428262465393466086863712822420674760086126592",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 18,
+            "recovered_integer": 524286
+          },
+          "2": {
+            "initial_weight_denominator": 524286,
+            "recovered_integer": 1161737178
+          }
+        }
+      },
+      "trial_division_prime": true,
+      "values": [
+        1,
+        19,
+        171,
+        969,
+        3876,
+        11628,
+        27132,
+        50388,
+        75582,
+        92378,
+        92378,
+        75582,
+        50388,
+        27132,
+        11628,
+        3876,
+        969,
+        171,
+        19,
+        1
+      ]
+    },
+    {
+      "N": 20,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        20,
+        10,
+        10,
+        5,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        10,
+        0,
+        45,
+        4,
+        120,
+        0,
+        210,
+        0,
+        256,
+        0,
+        210,
+        0,
+        120,
+        4,
+        45,
+        0,
+        10,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 524288,
+        "base_total": "1/56775460153172895605044089633414858892646547456",
+        "computed_states": 230,
+        "one_label_dominant": "1/29766692452786711090977355665723809539107873072611328",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 19,
+            "recovered_integer": 1048574
+          },
+          "2": {
+            "initial_weight_denominator": 1048574,
+            "recovered_integer": 3485735824
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        20,
+        190,
+        1140,
+        4845,
+        15504,
+        38760,
+        77520,
+        125970,
+        167960,
+        184756,
+        167960,
+        125970,
+        77520,
+        38760,
+        15504,
+        4845,
+        1140,
+        190,
+        20,
+        1
+      ]
+    },
+    {
+      "N": 21,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 3,
+      "gcd_profile": [
+        21,
+        21,
+        7,
+        7,
+        7,
+        7,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 330,
+      "root_residuals": [
+        0,
+        0,
+        7,
+        0,
+        0,
+        21,
+        3,
+        0,
+        35,
+        0,
+        0,
+        35,
+        0,
+        3,
+        21,
+        0,
+        0,
+        7,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 1048576,
+        "base_total": "1/10900888349409195956168465209615652907388137111552",
+        "computed_states": 252,
+        "one_label_dominant": "1/11430409901870097058935304575637942863017423259882749952",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 20,
+            "recovered_integer": 2097150
+          },
+          "2": {
+            "initial_weight_denominator": 2097150,
+            "recovered_integer": 10458256050
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        21,
+        210,
+        1330,
+        5985,
+        20349,
+        54264,
+        116280,
+        203490,
+        293930,
+        352716,
+        352716,
+        293930,
+        203490,
+        116280,
+        54264,
+        20349,
+        5985,
+        1330,
+        210,
+        21,
+        1
+      ]
+    },
+    {
+      "N": 22,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        22,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        11,
+        0,
+        55,
+        0,
+        165,
+        0,
+        330,
+        0,
+        462,
+        2,
+        462,
+        0,
+        330,
+        0,
+        165,
+        0,
+        55,
+        0,
+        11,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 2097152,
+        "base_total": "1/2092970563086565623584345320246205358218522325417984",
+        "computed_states": 275,
+        "one_label_dominant": "1/4389277402318117270631156957044970059398690531794975981568",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 21,
+            "recovered_integer": 4194302
+          },
+          "2": {
+            "initial_weight_denominator": 4194302,
+            "recovered_integer": 31376865304
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        22,
+        231,
+        1540,
+        7315,
+        26334,
+        74613,
+        170544,
+        319770,
+        497420,
+        646646,
+        705432,
+        646646,
+        497420,
+        319770,
+        170544,
+        74613,
+        26334,
+        7315,
+        1540,
+        231,
+        22,
+        1
+      ]
+    },
+    {
+      "N": 23,
+      "coefficient_content": 23,
+      "first_nondivisible_k": null,
+      "gcd_profile": [
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23
+      ],
+      "integer_mixture_fixed_divisor": 138,
+      "root_residuals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 4194304,
+        "base_total": "1/401850348112620599728194301487271428777956286480252928",
+        "computed_states": 299,
+        "one_label_dominant": "1/1685482522490157031922364271505268502809097164209270776922112",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 22,
+            "recovered_integer": 8388606
+          },
+          "2": {
+            "initial_weight_denominator": 8388606,
+            "recovered_integer": 94134790218
+          }
+        }
+      },
+      "trial_division_prime": true,
+      "values": [
+        1,
+        23,
+        253,
+        1771,
+        8855,
+        33649,
+        100947,
+        245157,
+        490314,
+        817190,
+        1144066,
+        1352078,
+        1352078,
+        1144066,
+        817190,
+        490314,
+        245157,
+        100947,
+        33649,
+        8855,
+        1771,
+        253,
+        23,
+        1
+      ]
+    },
+    {
+      "N": 24,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        24,
+        12,
+        4,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        12,
+        8,
+        66,
+        0,
+        244,
+        0,
+        495,
+        56,
+        792,
+        0,
+        988,
+        0,
+        792,
+        56,
+        495,
+        0,
+        244,
+        0,
+        66,
+        8,
+        12,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 8388608,
+        "base_total": "1/77155266837623155147813305885556114325367607004208562176",
+        "computed_states": 324,
+        "one_label_dominant": "1/647225288636220300258187880258023105078693311056359978338091008",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 23,
+            "recovered_integer": 16777214
+          },
+          "2": {
+            "initial_weight_denominator": 16777214,
+            "recovered_integer": 282412759264
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        24,
+        276,
+        2024,
+        10626,
+        42504,
+        134596,
+        346104,
+        735471,
+        1307504,
+        1961256,
+        2496144,
+        2704156,
+        2496144,
+        1961256,
+        1307504,
+        735471,
+        346104,
+        134596,
+        42504,
+        10626,
+        2024,
+        276,
+        24,
+        1
+      ]
+    },
+    {
+      "N": 25,
+      "coefficient_content": 5,
+      "first_nondivisible_k": 5,
+      "gcd_profile": [
+        25,
+        25,
+        25,
+        25,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "integer_mixture_fixed_divisor": 2730,
+      "root_residuals": [
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 16777216,
+        "base_total": "1/14813811232823645788380154730026773950470580544808043937792",
+        "computed_states": 350,
+        "one_label_dominant": "1/248534510836308595299144146019080872350218231445642231681826947072",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 24,
+            "recovered_integer": 33554430
+          },
+          "2": {
+            "initial_weight_denominator": 33554430,
+            "recovered_integer": 847255055010
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        25,
+        300,
+        2300,
+        12650,
+        53130,
+        177100,
+        480700,
+        1081575,
+        2042975,
+        3268760,
+        4457400,
+        5200300,
+        5200300,
+        4457400,
+        3268760,
+        2042975,
+        1081575,
+        480700,
+        177100,
+        53130,
+        12650,
+        2300,
+        300,
+        25,
+        1
+      ]
+    },
+    {
+      "N": 26,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        26,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        13,
+        0,
+        78,
+        0,
+        286,
+        0,
+        715,
+        0,
+        1287,
+        0,
+        1716,
+        2,
+        1716,
+        0,
+        1287,
+        0,
+        715,
+        0,
+        286,
+        0,
+        78,
+        0,
+        13,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 33554432,
+        "base_total": "1/2844251756702139991368989708165140598490351464603144436056064",
+        "computed_states": 377,
+        "one_label_dominant": "1/95437252161142500594871352071327054982483800875126616965821547675648",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 25,
+            "recovered_integer": 67108862
+          },
+          "2": {
+            "initial_weight_denominator": 67108862,
+            "recovered_integer": 2541798719464
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        26,
+        325,
+        2600,
+        14950,
+        65780,
+        230230,
+        657800,
+        1562275,
+        3124550,
+        5311735,
+        7726160,
+        9657700,
+        10400600,
+        9657700,
+        7726160,
+        5311735,
+        3124550,
+        1562275,
+        657800,
+        230230,
+        65780,
+        14950,
+        2600,
+        325,
+        26,
+        1
+      ]
+    },
+    {
+      "N": 27,
+      "coefficient_content": 3,
+      "first_nondivisible_k": 3,
+      "gcd_profile": [
+        27,
+        27,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "integer_mixture_fixed_divisor": 6,
+      "root_residuals": [
+        0,
+        0,
+        9,
+        0,
+        0,
+        36,
+        0,
+        0,
+        84,
+        0,
+        0,
+        126,
+        0,
+        0,
+        126,
+        0,
+        0,
+        84,
+        0,
+        0,
+        36,
+        0,
+        0,
+        9,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 67108864,
+        "base_total": "1/546096337286810878342846023967706994910147481203803731722764288",
+        "computed_states": 405,
+        "one_label_dominant": "1/36647904829878720228430599195389589113273779536048620914875474307448832",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 26,
+            "recovered_integer": 134217726
+          },
+          "2": {
+            "initial_weight_denominator": 134217726,
+            "recovered_integer": 7625463267258
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        27,
+        351,
+        2925,
+        17550,
+        80730,
+        296010,
+        888030,
+        2220075,
+        4686825,
+        8436285,
+        13037895,
+        17383860,
+        20058300,
+        20058300,
+        17383860,
+        13037895,
+        8436285,
+        4686825,
+        2220075,
+        888030,
+        296010,
+        80730,
+        17550,
+        2925,
+        351,
+        27,
+        1
+      ]
+    },
+    {
+      "N": 28,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        28,
+        14,
+        14,
+        7,
+        7,
+        7,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        14,
+        0,
+        91,
+        0,
+        364,
+        4,
+        1001,
+        0,
+        2002,
+        0,
+        3003,
+        0,
+        3436,
+        0,
+        3003,
+        0,
+        2002,
+        0,
+        1001,
+        4,
+        364,
+        0,
+        91,
+        0,
+        14,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 134217728,
+        "base_total": "1/104850496759067688641826436601799743022748316391130316490770743296",
+        "computed_states": 434,
+        "one_label_dominant": "1/14072795454673428567717350091029602219497131341842670431312182134060351488",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 27,
+            "recovered_integer": 268435454
+          },
+          "2": {
+            "initial_weight_denominator": 268435454,
+            "recovered_integer": 22876524019504
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        28,
+        378,
+        3276,
+        20475,
+        98280,
+        376740,
+        1184040,
+        3108105,
+        6906900,
+        13123110,
+        21474180,
+        30421755,
+        37442160,
+        40116600,
+        37442160,
+        30421755,
+        21474180,
+        13123110,
+        6906900,
+        3108105,
+        1184040,
+        376740,
+        98280,
+        20475,
+        3276,
+        378,
+        28,
+        1
+      ]
+    },
+    {
+      "N": 29,
+      "coefficient_content": 29,
+      "first_nondivisible_k": null,
+      "gcd_profile": [
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29
+      ],
+      "integer_mixture_fixed_divisor": 870,
+      "root_residuals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 268435456,
+        "base_total": "1/20131295377740996219230675827545550660367676747097020766227982712832",
+        "computed_states": 464,
+        "one_label_dominant": "1/5403953454594596570003462434955367252286898435267585445623877939479174971392",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 28,
+            "recovered_integer": 536870910
+          },
+          "2": {
+            "initial_weight_denominator": 536870910,
+            "recovered_integer": 68629840493970
+          }
+        }
+      },
+      "trial_division_prime": true,
+      "values": [
+        1,
+        29,
+        406,
+        3654,
+        23751,
+        118755,
+        475020,
+        1560780,
+        4292145,
+        10015005,
+        20030010,
+        34597290,
+        51895935,
+        67863915,
+        77558760,
+        77558760,
+        67863915,
+        51895935,
+        34597290,
+        20030010,
+        10015005,
+        4292145,
+        1560780,
+        475020,
+        118755,
+        23751,
+        3654,
+        406,
+        29,
+        1
+      ]
+    },
+    {
+      "N": 30,
+      "coefficient_content": 1,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        30,
+        15,
+        5,
+        5,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        15,
+        10,
+        105,
+        6,
+        495,
+        0,
+        1365,
+        120,
+        3015,
+        0,
+        5205,
+        0,
+        6435,
+        270,
+        6435,
+        0,
+        5205,
+        0,
+        3015,
+        120,
+        1365,
+        0,
+        495,
+        6,
+        105,
+        10,
+        15,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 536870912,
+        "base_total": "1/3865208712526271274092289758888745726790593935442627987115772680863744",
+        "computed_states": 495,
+        "one_label_dominant": "1/2075118126564325082881329575022861024878168999142752811119569128760003189014528",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 29,
+            "recovered_integer": 1073741822
+          },
+          "2": {
+            "initial_weight_denominator": 1073741822,
+            "recovered_integer": 205890058352824
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        30,
+        435,
+        4060,
+        27405,
+        142506,
+        593775,
+        2035800,
+        5852925,
+        14307150,
+        30045015,
+        54627300,
+        86493225,
+        119759850,
+        145422675,
+        155117520,
+        145422675,
+        119759850,
+        86493225,
+        54627300,
+        30045015,
+        14307150,
+        5852925,
+        2035800,
+        593775,
+        142506,
+        27405,
+        4060,
+        435,
+        30,
+        1
+      ]
+    },
+    {
+      "N": 31,
+      "coefficient_content": 31,
+      "first_nondivisible_k": null,
+      "gcd_profile": [
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31,
+        31
+      ],
+      "integer_mixture_fixed_divisor": 14322,
+      "root_residuals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 1073741824,
+        "base_total": "1/742120072805044084625719633706639179543794035604984573526228354725838848",
+        "computed_states": 527,
+        "one_label_dominant": "1/796845360600700831826430556808778633553216895670817079469914545443841224581578752",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 30,
+            "recovered_integer": 2147483646
+          },
+          "2": {
+            "initial_weight_denominator": 2147483646,
+            "recovered_integer": 617671248800298
+          }
+        }
+      },
+      "trial_division_prime": true,
+      "values": [
+        1,
+        31,
+        465,
+        4495,
+        31465,
+        169911,
+        736281,
+        2629575,
+        7888725,
+        20160075,
+        44352165,
+        84672315,
+        141120525,
+        206253075,
+        265182525,
+        300540195,
+        300540195,
+        265182525,
+        206253075,
+        141120525,
+        84672315,
+        44352165,
+        20160075,
+        7888725,
+        2629575,
+        736281,
+        169911,
+        31465,
+        4495,
+        465,
+        31,
+        1
+      ]
+    },
+    {
+      "N": 32,
+      "coefficient_content": 2,
+      "first_nondivisible_k": 2,
+      "gcd_profile": [
+        32,
+        16,
+        16,
+        8,
+        8,
+        8,
+        8,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "integer_mixture_fixed_divisor": 2,
+      "root_residuals": [
+        0,
+        16,
+        0,
+        120,
+        0,
+        560,
+        0,
+        1820,
+        0,
+        4368,
+        0,
+        8008,
+        0,
+        11440,
+        0,
+        12870,
+        0,
+        11440,
+        0,
+        8008,
+        0,
+        4368,
+        0,
+        1820,
+        0,
+        560,
+        0,
+        120,
+        0,
+        16,
+        0
+      ],
+      "source": {
+        "actual_terminal_receipts": 2,
+        "base_count": 2147483648,
+        "base_total": "1/142487053978568464248138169671674722472408454836157038117035844107361058816",
+        "computed_states": 560,
+        "one_label_dominant": "1/305988618470669119421349333814570995284435287937593758516447185450435030239326240768",
+        "positive_mixtures_replayed": {
+          "1": {
+            "initial_weight_denominator": 31,
+            "recovered_integer": 4294967294
+          },
+          "2": {
+            "initial_weight_denominator": 4294967294,
+            "recovered_integer": 1853015893884544
+          }
+        }
+      },
+      "trial_division_prime": false,
+      "values": [
+        1,
+        32,
+        496,
+        4960,
+        35960,
+        201376,
+        906192,
+        3365856,
+        10518300,
+        28048800,
+        64512240,
+        129024480,
+        225792840,
+        347373600,
+        471435600,
+        565722720,
+        601080390,
+        565722720,
+        471435600,
+        347373600,
+        225792840,
+        129024480,
+        64512240,
+        28048800,
+        10518300,
+        3365856,
+        906192,
+        201376,
+        35960,
+        4960,
+        496,
+        32,
+        1
+      ]
+    }
+  ],
+  "source_archive_sha256": "a450cc3e235ca3d37211d31b2d4eb41dd2d4ac28b77c73d18d1b6e3ce45cc9a7",
+  "source_brc_calls": {
+    "cwm_edge": 25359,
+    "cwm_propagate": 120343,
+    "cwm_recoalesce": 49102
+  },
+  "source_labels": 432,
+  "source_manifest_sha256": "e6a86c8ab44f674b126844358e893d893d0c58b6e16353c89660ff35adfafdb5",
+  "source_preparations": 558,
+  "verified_files": 76
+}
