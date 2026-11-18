@@ -1,0 +1,71 @@
+{
+  "task": "RS-FERMAT-RESIDUAL-MEMORY-20261004",
+  "domain": "Integer initial values. Congruences are certified quotients.",
+  "parameters": {
+    "r": "positive number of consecutive squarings",
+    "e": "2^r",
+    "N": "known readout modulus, N >= 2",
+    "p": "named prime",
+    "k": "positive precision"
+  },
+  "contracts": [
+    {
+      "id": "immediate",
+      "actions": [
+        "integer translation",
+        "square"
+      ],
+      "read": "x mod N including time zero",
+      "state": "x mod N"
+    },
+    {
+      "id": "delayed_unshifted",
+      "actions": [
+        "square only"
+      ],
+      "read": "x mod N after at least r squarings",
+      "state": "image x^(2^r) mod N; actual merged inputs have identical future states modulo N"
+    },
+    {
+      "id": "translated_block",
+      "actions": [
+        "translate by named h, square r times; repeat"
+      ],
+      "read": "only after a power block, x mod N",
+      "state": "coset of the translation-period subgroup in state_minimality.md",
+      "probes": "Separate copies of the same initial value for experiments. Fixed h values chosen in advance, adaptive h values may depend on earlier full modular outputs."
+    },
+    {
+      "id": "translated_valuation",
+      "actions": [
+        "translate by named h, square r times; repeat"
+      ],
+      "read": "min(k, v_p(output)) at the end of a block",
+      "state": "x modulo p^ceil(k/2^r)"
+    },
+    {
+      "id": "upgrade",
+      "actions": [
+        "square",
+        "add 1"
+      ],
+      "read": "first mod q, separate contract mod q^2",
+      "witness": {
+        "q": 5,
+        "inputs": [
+          2,
+          7
+        ],
+        "end_mod_5": [
+          0,
+          0
+        ],
+        "end_mod_25": [
+          5,
+          0
+        ]
+      }
+    }
+  ],
+  "joint_transport": "CRT requires known coprime moduli and the labelled joint residue tuple; unlimited precision, changing modulus, or division by the modulus are separate inputs."
+}

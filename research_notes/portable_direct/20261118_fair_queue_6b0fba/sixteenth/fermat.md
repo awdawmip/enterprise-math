@@ -1,0 +1,9 @@
+# 连续平方究竟保留多少可辨识的记忆
+
+任务 RS-FERMAT-RESIDUAL-MEMORY-20261004。以整数为状态，允许指定平移和平方，观察精度和读出时机都显式给定。一个容易复验的分离例是 \(x\mapsto(x+h)^{16}\)。模 \(17\) 时结果只有零与一，最坏需要 16 次试探才能识别 \(x\)；模 \(289\) 时，固定三个平移 \(0,1,17\) 足够且最优，若可看第一次读数再选试探则两次足够且最优。这是给同一初值独立施加试探的辨识定理。[冻结任务与来源](https://github.com/awdawmip/enterprise-math/blob/6bdc6edc2f7aae3eb815583c220e4da766464bd1/research_tasks/RS-FERMAT-RESIDUAL-MEMORY-20261004.md) · [早期输入和原件哈希](https://github.com/awdawmip/enterprise-math/tree/6bdc6edc2f7aae3eb815583c220e4da766464bd1/research_inputs/fermat_residual_20261004)
+
+- **最小状态、固定及自适应试探。** 所有奇素数、所有精度 \(k\ge2\)、所有正长度平方段都有精确的两试探自适应识别法。固定两个相差单位的探针遗漏 \((g-1)(g-2)\) 对有序初值，\(g=\gcd(2^r,p-1)\)，所以需要 2 或 3 个固定探针。模 \(2^k\) 有另外一个严格的区间 \(r+2<k\le2^r\)，在该区间内最小状态的最优固定/自适应次数是 4/3。一般合数的联合状态和试探预算均有 CRT 组合律。[最小性定理、构造和下界](state_minimality.md)
+- **碰撞机制。** 纯平方段会真实删除符号，也可吞掉非单位分支的高位；精确给出了所有素幂上的输出数和每种输出的前像数。若结尾只问截断赋值，最少保留的素数进制位数完全由 \(\lceil k/2^r\rceil\) 决定。仅知模 \(q\) 而打算返回模 \(q^2\) 时，需要带有来源的高位。[完整纤维、截断与升级边界](transport_classification.md) · [观察合同](observer_contracts.json)
+- **接口与复算。** 原问题的局部可逆结论在整数上直接证明。有限例把一次“下一段不平移时的输出”设为初始观察，并输入平移、平方段两种合法生成元，实际调用项目的部分操作商求稳定分划，与预测同余类逐对核对。组合安全工具另查纤维常量性；仿射 BRC 只复核指定平移的组合，平方非线性部分用整数模幂计算。通用八状态结果提供操作合法性与观察的区别；其几何载体没有用于本次数论定理。[原观察者任务](https://github.com/awdawmip/enterprise-math/blob/6bdc6edc2f7aae3eb815583c220e4da766464bd1/research_tasks/RS-GBRC-R1-OBSERVER-MEMORY_20260917.md) · [通用商的实现](https://github.com/awdawmip/enterprise-math/blob/6bdc6edc2f7aae3eb815583c220e4da766464bd1/src/enterprise_math/partial_operation_quotient.py)
+- **验证范围及计算成本。** 检查器穷尽 \(2\le N\le144\)、\(1\le r\le5\) 的 715 张完整平移观测表；另核对 24 张截断赋值表、110 个纯平方纤维直方图，以及 21 次仓库稳定分划。查询成本以每个平移与每个模乘另计，一个幂块需 \(r\) 次模平方；\(p^k\) 的读数携带至多 \(k\log_2 p\) 位。固定和自适应方案都假定所用模数精度已合法提供。对一般的一位奇素数域，固定试探有完整的仿射覆盖判据，而它的最小基数尚无统一闭式。运行 \(\texttt{python fermat_check.py --repo /path/to/enterprise-math --verify fermat_checked.json}\)。[检查器](fermat_check.py) · [整数结果](fermat_checked.json)
+
