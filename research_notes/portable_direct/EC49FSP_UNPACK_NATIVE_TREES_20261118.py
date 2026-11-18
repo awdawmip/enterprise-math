@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Unpack and verify six complete BRC16943 original named-observer tree witnesses.
+"""Unpack/verify six original BRC16943 named-observer tree witnesses.
 
-Run next to EC49FSP_* machine certificate and compressed tree data. This
-proves payload integrity/serialization and the exact stored witness counts;
-full native response-path replay and Bellman optimality require the frozen
-original raw observation files and the companion native verifier.
+Reads the machine certificate and compressed tree data from this GitHub folder.
+Checks compressed bytes, canonical tree hashes, all 141 distinct leaves and
+the path-use count vectors. To validate named response edges and global Bellman
+optimality, use the source-native checker with frozen original observations.
 """
 import base64,hashlib,json,zlib
 from collections import Counter
@@ -27,16 +27,22 @@ for orient,rows in C["phases"].items():
         serialized=json.dumps(t,sort_keys=True,separators=(",",":"),ensure_ascii=False)
         assert hashlib.sha256(serialized.encode()).hexdigest()==r["tree_sha256"]
         counts=Counter()
-        def traverse(node,n,seen):
+        def visit(node,used):
             if "leaf" in node:
-                assert isinstance(node["leaf"],int) and 0<=node["leaf"]<141
-                return
-            q=node["named_observer"];assert q not in seen and 0<=q<228
-            counts[q]+=n
-            for sub in node["children"].values():
-                traverse(sub,n+0,seen|{q})
-        # Full source-native per-profile replay is performed by native validator;
-        # syntax and sha/tuple pins are checked here without making that claim.
-        traverse(t,1,set())
-        print("FULL_TREE_PAYLOAD_PASS",key,len(serialized))
+                s=node["leaf"]
+                assert isinstance(s,int) and 0<=s<141
+                return {s}
+            q=node["named_observer"]
+            assert isinstance(q,int) and 0<=q<228 and q not in used
+            groups=[visit(sub,used|{q}) for sub in node["children"].values()]
+            assert len(groups)>1
+            leaves=set()
+            for g in groups:
+                assert not (leaves&g)
+                leaves|=g
+            counts[q]+=len(leaves)
+            return leaves
+        assert visit(t,set())==set(range(141))
+        assert (sum(counts.values()),counts[32],counts[34],counts[140])==tuple(r["witness"])
+        print("FULL_TREE_STRUCTURE_AND_COUNTS_PASS",key)
 print("ALL_SIX_LOSSLESS_TREES_PASS")
