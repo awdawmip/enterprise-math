@@ -1,0 +1,49 @@
+{
+  "schema": "PREFIX888_R6_EXACT_NAMED_XOR_AXIS_SPECTRUM_V1",
+  "p": 32,
+  "n": 4294967296,
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "full_19_bit_upper_bound_domain": {
+    "lower_odd": 1,
+    "upper_odd": 524287,
+    "moduli": 262144,
+    "forcing_moduli": 385,
+    "forcing_ordered_modulus_pairs": 201702655,
+    "sum_single_port_axis_pairs": 15386720337920,
+    "total_axis_collision_pairs_across_all_ordered_port_choices": 8067072832527400960,
+    "max_single_port_axis_pairs": 2267742732288,
+    "max_moduli": [
+      1
+    ]
+  },
+  "exact_19_bit_width_domain": {
+    "lower_odd": 262145,
+    "upper_odd": 524287,
+    "moduli": 131072,
+    "forcing_moduli": 24,
+    "forcing_ordered_modulus_pairs": 6290880,
+    "sum_single_port_axis_pairs": 287762808832,
+    "total_axis_collision_pairs_across_all_ordered_port_choices": 75435293758455808,
+    "max_single_port_axis_pairs": 30064771072,
+    "max_moduli": [
+      262145
+    ]
+  },
+  "single_port_examples": {
+    "1": 2267742732288,
+    "3": 1065151889408,
+    "5": 515396075520,
+    "262145": 30064771072,
+    "349525": 25769803776,
+    "524285": 0,
+    "524287": 27917287424
+  },
+  "validation": {
+    "direct_one_port_cases": 82,
+    "direct_complete_two_port_cases": 373,
+    "disagreements": 0,
+    "arithmetic": "exact integers only",
+    "external_deps": []
+  },
+  "classification": "AUTHOR_PROVED / FINITE_EXACT_CHECKED / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED"
+}
