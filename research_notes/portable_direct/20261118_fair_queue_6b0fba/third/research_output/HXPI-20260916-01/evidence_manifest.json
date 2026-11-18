@@ -1,0 +1,63 @@
+{
+  "task": "HXPI-20260916-01",
+  "publication": "TP2-8567245828F9BE60CCA8",
+  "scope": "独立科研资料；未执行正式审查。",
+  "sources": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "c0f816e2ab6be0145a3edd1a77488bddfd42a2f6",
+      "path": "research_tasks/HXPI-20260916-01.md",
+      "git_blob_sha1": "2d49f3c0b6ab13ef27bdf7dd23e3fc760458aba5"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "c0f816e2ab6be0145a3edd1a77488bddfd42a2f6",
+      "path": "research_task_records/HXPI-20260916-01/TP2-8567245828F9BE60CCA8.json",
+      "git_blob_sha1": "bc4e34cb7ca41db5e8058437ed268dbca2d6f7a3"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "12cb71806b655935d1c51861fa35d13a01c8ed2e",
+      "path": "research_notes/nollm_strict_hex_prime_pi_20260916.md",
+      "git_blob_sha1": "7a2c6bcf69b523adee4944eb40b5c21bc2312819"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "12cb71806b655935d1c51861fa35d13a01c8ed2e",
+      "path": "experiments/nollm_hex_prime_pi_20260916/CHECKPOINT.json",
+      "git_blob_sha1": "d853c6b84fc76ea6df9baabb72e4827333a454e7"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "12cb71806b655935d1c51861fa35d13a01c8ed2e",
+      "path": "experiments/nollm_strict_hex_expansion_20260916/RESULTS.json",
+      "git_blob_sha1": "8eb945d4b3e540c79fa38746f1c797d0436836b4"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "12cb71806b655935d1c51861fa35d13a01c8ed2e",
+      "path": "experiments/nollm_elegant_selection_20260916/verify.py",
+      "git_blob_sha1": "092c7be0fcf1b7fc3bd07e341d5f3cfda0e38c47"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "12cb71806b655935d1c51861fa35d13a01c8ed2e",
+      "path": "experiments/nollm_strict_hex_expansion_20260916/verify.py",
+      "git_blob_sha1": "026b13094e8cf8d5656d45cd7b69e0d1ff9cf895"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "12cb71806b655935d1c51861fa35d13a01c8ed2e",
+      "path": "experiments/nollm_hex_prime_pi_20260916/verify.py",
+      "git_blob_sha1": "f237ffd1940028996c1c62ece04d8cdd8bc26f11"
+    }
+  ],
+  "outputs": {
+    "verify.py": "068e7129a8fbbccb2093dff6621d63e3ec34bd3689f7832163eecfd29601901c",
+    "checked.json": "8dc8a7c22803bc588a955e67f76a9dd37fc73d2e98147fe9377212595eb0d528",
+    "audit.md": "60ceba8385882f07ba0c05d8cd82602641501ddf7fd8ee198b32a6913ae564d6",
+    "claims.json": "2f0b8d214ba245c1a78023e9f64fec74c7cfe8f9f6ce34ec866e4e428ad74f12"
+  },
+  "reproduce": "python verify.py > checked.json",
+  "residual_question": "哪些模乘操作保持双端口完美匹配？冻结来源的区域外标签素性分布仍未证明。"
+}

@@ -1,0 +1,46 @@
+## P000 Q30 的十五顶点无碰撞前缀
+
+**有限枚举定理。** 在十五个顶点、连通、简单、各点度数为 2 或 3 且至少有一个三度点的无标号图类 `U_BR(15)` 上，冻结的 Q30 匿名稳定包区分全部 **214,762** 个同构类。结合此前已审的十四顶点及以下前缀，首个碰撞若存在，至少需要十六个顶点。本次给出数学计算证书，项目独立审查状态另行登记。[任务书](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/research_tasks/P000_Q30_N15_FIRST_COLLISION_FRONTIER_20260917.md) · [十四顶点审查](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/driver_reviews/P000_Q30_N14_EVIDENCE_RECOVERY_DRIVER_REVIEW_20260917.md) · [该次原始证书](https://github.com/awdawmip/enterprise-math/blob/b90378c332e0dbf80aad0c09d363047abb2ee2f3/research_artifacts/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N14_COLLISION_FRONTIER/P000_Q30_RETURN_PROFILE_1WL_N14_EXACT_KERNEL_ORBIT_CERTIFICATE_V2.json)
+
+设 $h_v(\ell)$ 为经过 $v$ 的无向简单 $\ell$-圈数。以 $c_0(v)=(h_v(3),\ldots,h_v(15))$ 为初始色，以 $c_{t+1}(v)=(c_t(v),\{\!\{c_t(w):w\sim v\}\!\})$ 为递推。包的编码由初始不同色字典、十五轮签名字典及最终颜色多重集组成，各层按字典序重编号。新层字典保留旧颜色，因此可从最终多重集回推初始颜色多重集。初始多重集不同的图必有不同的稳定包。十五顶点域先分成 147,751 个初始多重集，仍有 97,019 张图落在大小至少为二的组里。对同组的全部图逐一比较十五轮的整数签名字典和最终多重集，结果全部不同。程序用有序映射比较整数对象，SHA256 用于锁定输入字节。圈的计算从圈上最小顶点出发、沿路径排除重复顶点，仅接受第二点编号小于末点的一向，故每个无向简单圈恰好计一次。[冻结的 root_profiles 和 stable_packet](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/research_checks/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_FIRST_COLLISION_FRONTIER_CHECK_20260901.py)
+
+令 $r$ 为三度点数，$s=15-r$。握手引理给出全部七个扇区。下表最后一列固定三度点的标签集合，数值同时来自连通图递推和代表元自同构轨道求和。
+
+| $r$ | 同构类数 | 落入非单例初始组的图数 | 稳定包重复数 | 固定标签连通图数 |
+|---:|---:|---:|---:|---:|
+| 2 | 50 | 0 | 0 | 191,480,889,600 |
+| 4 | 1,423 | 1,079 | 0 | 651,681,676,800 |
+| 6 | 13,987 | 10,236 | 0 | 2,197,681,340,400 |
+| 8 | 54,424 | 33,586 | 0 | 7,687,127,448,000 |
+| 10 | 86,577 | 38,731 | 0 | 28,311,322,888,800 |
+| 12 | 50,683 | 12,889 | 0 | 110,280,358,742,400 |
+| 14 | 7,618 | 498 | 0 | 454,465,199,588,400 |
+
+**覆盖推导。** 用 $F(a,b,c)$ 记固定标签和指定度数的简单图数，一、二、三度点分别有 $a,b,c$ 个，孤立点可直接删去。空度序列计 1。删去指定的最高度 $d$ 顶点，余下度数重数记作 $a',b',c'$。选 $i,j,k$ 个各度数的邻点且 $i+j+k=d$，则
+
+$$
+F(a,b,c)=\sum_{i+j+k=d}\binom{a'}i\binom{b'}j\binom{c'}k
+ F(a'-i+j,\ b'-j+k,\ c'-k).
+$$
+
+令 $T(r,s)=F(0,s,r)$，$C(r,s)$ 为其中连通者。$C(0,s)=(s-1)!/2$ 对 $s\ge3$ 成立，更小的 $s$ 取 0。指定一个三度点，按含它的连通分量的标签集合分解，对 $r>0$ 有
+
+$$
+C(r,s)=T(r,s)-
+\sum_{\substack{1\le i\le r,\ 0\le j\le s\\(i,j)\ne(r,s)}}
+\binom{r-1}{i-1}\binom sj C(i,j)T(r-i,s-j).
+$$
+
+独立从每张图的邻接与非邻接关系回溯自同构，初始颜色与度数只用来排除不可能的双射。对每个 $r$ 都得到
+
+$$
+\sum_{[G]\;\mathrm{listed}}\frac{r!s!}{|\operatorname{Aut}G|}=C(r,s).
+$$
+
+列出的图包互异，故彼此不同构，所列轨道互不相交。相等式排除缺失轨道。扇区只控制覆盖计数，包比较按根颜色组跨整个对象域执行。生成器额外给出的十五圈 $C_{15}$ 具有零个三度点，按定义排除。
+
+**尖锐轮数。** 在全域把同一轮匿名包相等的无序图对计数，第 0、1、2、3 轮依次有 207,592、4,522、26、0 对。因此区分全部十五点图所需的最小统一轮数恰为 3。一个还需要第三轮的六个三度点实例，按 graph6 写作 `N??CA?_CCOH_HGCc?X?` 与 `N??CA?_CCCL?EC@WOg?`。直接用冻结的 Python 字典序复算，两图在第 0、1、2 轮拥有完全相等的包。各图从第 0 至 3 轮的颜色类数都是 5、10、13、13，但第三轮旧色 3 的邻色多重集在前图是 $(1,7)$、在后图是 $(1,8)$，从而证明两图不同构。配套逐轮程序另存为 `collision_depth.cpp`。
+
+**任意尺度的可手验扇区。** 当 $r=2$，压缩二度链，核图只有两类。若两三度点间有三条路，设路长 $a,b,c$，则 $a+b+c=n+1$，至多一个路长为 1。三个无向简单圈的长度分别为 $a+b,a+c,b+c$。若两点各带一圈，设两圈长 $a,b\ge3$，桥链长 $c\ge1$，也有 $a+b+c=n+1$。从初始多重集即可求每种总圈数 $m_\ell=\ell^{-1}\sum_v h_v(\ell)$。总圈数 3 和 2 区分两种核。三路型从三个圈长与 $n+1$ 的差恢复各路长，双圈型由两圈长及其余长度恢复桥链。于是每个 $n$ 的 $r=2$ 扇区在初始轮已经可分。对 $n=15$，总长 16 的排序三路长恰有 20 组，双圈长度 $3\le a\le b$、$a+b\le15$ 恰有 30 组，给出首行的 50。
+
+**复算。** 三个同目录文件 `collision_certificate.json`、`collision_check.py` 和 `collision_check.cpp` 含生成参数、每扇区完整自同构阶频数、两种覆盖计算和精确包比较。获取 nauty 2.8.9 的发行源码，确认其 SHA256 为 `c97ab42bf48796a86a598bce3e9269047ca2b32c14fc23e07208a244fe52c4ee`。解包后在源码目录运行 `./configure` 和 `make geng`，在证书目录运行 `python3 collision_check.py --geng /absolute/path/to/geng`。底层命令 `geng -q -c -d2 -D3 15` 生成 214,763 行、4,295,260 字节 graph6 代表流，无压缩数据的 SHA256 为 `8d9861218ff765936a1d76dc80d797d4d4ec40939bf39c377635d0c6f4fbaca4`。同一份流也可用 `--g6 /absolute/path/to/g15.g6` 重放。此处最大已覆盖规模为 15，第 16 层是否有碰撞仍开放。[生成器发行源码](https://pallini.di.uniroma1.it/nauty2_8_9.tar.gz)

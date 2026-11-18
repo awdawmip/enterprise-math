@@ -1,0 +1,114 @@
+{
+  "task": "HXPI-20260916-01",
+  "source_pin": "12cb71806b655935d1c51861fa35d13a01c8ed2e",
+  "claims": [
+    {
+      "id": "C1",
+      "status": "DERIVATION_VERIFIED",
+      "quantifiers": "所有整数 s>=0",
+      "inputs_and_definitions": "轴坐标 q,r；h、H_s",
+      "claim": "L(s)=s²+s+1−2[s=1 mod 3]，s>=1 的壳按模三有三种系数",
+      "counterexample_or_boundary": "s=0 壳为1；s=1 新壳空。",
+      "evidence": [
+        "audit.md",
+        "checked.json#normal_coordinate_site_visits"
+      ]
+    },
+    {
+      "id": "C2",
+      "status": "DERIVATION_VERIFIED",
+      "quantifiers": "t>=1，素数 p|K",
+      "inputs_and_definitions": "m=4^t,x=2^t,K=m²−m+1",
+      "claim": "ord_p(x)=12；所有容量素因子为1 mod 12",
+      "counterexample_or_boundary": "m=64 容量合数；m=8 容量含3。",
+      "evidence": [
+        "audit.md",
+        "frozen:checkpoint.proved_derivations"
+      ]
+    },
+    {
+      "id": "C3",
+      "status": "DERIVATION_VERIFIED",
+      "quantifiers": "所有 m>=2",
+      "inputs_and_definitions": "W、A=mI-W、ell=(q+mr) mod K、h",
+      "claim": "核最短高度2m−1；H_{m−1}单射。除m=2 mod3外满射；例外仅缺±K/3",
+      "counterexample_or_boundary": "m=8 的像缺19,38，而 m=4 无遗漏。",
+      "evidence": [
+        "audit.md",
+        "checked.json#missing_classes_m8"
+      ]
+    },
+    {
+      "id": "C3b",
+      "status": "DERIVATION_VERIFIED",
+      "quantifiers": "所有 m=3a+1,a>=1",
+      "inputs_and_definitions": "旧周期、外层端口、ell、内边界",
+      "claim": "外层与内边界按ell双射；旧双端口构成单位差的完美匹配",
+      "counterexample_or_boundary": "m=4 有六个内边界顶点、三条配对边。",
+      "evidence": [
+        "audit.md",
+        "checked.json#port_matching_edges"
+      ]
+    },
+    {
+      "id": "C4",
+      "status": "DERIVATION_VERIFIED",
+      "quantifiers": "t>=1，h(q,r)=4^t",
+      "inputs_and_definitions": "Q、坐标gcd、双端口原身份",
+      "claim": "奇素因子 p|Q 皆为1 mod3，素Q必7 mod12，边界本原原身份数 (m−4)/2",
+      "counterexample_or_boundary": "m=4 边界本原身份为0。",
+      "evidence": [
+        "audit.md",
+        "frozen:checkpoint.local_checks"
+      ]
+    },
+    {
+      "id": "C4b",
+      "status": "FINITE_ONLY",
+      "quantifiers": "冻结源的5个给定尺度 m=256…65536",
+      "inputs_and_definitions": "原编码 n 与排出身份",
+      "claim": "原标签素数计数分别14,66,206,406,2427；本次重跑m=256",
+      "counterexample_or_boundary": "n=15029 为合数，Q=17971 为素数。",
+      "evidence": [
+        "audit.md",
+        "checked.json#original_prime_labels_m256"
+      ]
+    },
+    {
+      "id": "C5",
+      "status": "DERIVATION_VERIFIED",
+      "quantifiers": "整数 s→∞",
+      "inputs_and_definitions": "排除原点，V(s)，Möbius 反演，ζ(2)",
+      "claim": "内部本原密度趋于6/π²，误差项V−s²/ζ(2)=O(s log(2s))",
+      "counterexample_or_boundary": "边界本原比例趋于1/2。",
+      "evidence": [
+        "audit.md",
+        "frozen:checkpoint.finite_counts_m_K_visible_disk"
+      ]
+    },
+    {
+      "id": "C6",
+      "status": "CONDITIONAL",
+      "quantifiers": "在经典欧氏嵌入且正尺度 s→∞",
+      "inputs_and_definitions": "Q、判据 4Q≤s²、面积、共体积",
+      "claim": "圆/六边形的点数比趋于π/(2√3)",
+      "counterexample_or_boundary": "s=0 面积比未定义；A₂ 的欧氏读数不构成原生空间公理。",
+      "evidence": [
+        "audit.md",
+        "frozen:checkpoint.finite_counts_m_K_visible_disk"
+      ]
+    },
+    {
+      "id": "C7",
+      "status": "REJECTED",
+      "quantifiers": "尝试对任意m或任意原n推广",
+      "inputs_and_definitions": "K、ell、原标签、范数",
+      "claim": "H_{m−1} 对任意m满射；原标签素性等价于范数素性",
+      "counterexample_or_boundary": "缺类 m=8；m=256，15029/17971 素性相反。",
+      "evidence": [
+        "audit.md",
+        "checked.json#label_norm_opposite_primality_example"
+      ]
+    }
+  ]
+}
