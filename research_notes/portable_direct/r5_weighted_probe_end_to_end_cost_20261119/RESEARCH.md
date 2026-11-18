@@ -64,7 +64,7 @@ The complete 18-stage oracle sweep uses `56,132,568/6,237,528 = 2,338,857/259,89
 
 ## Evidence and exact verification
 
-`VERIFY_WEIGHTED_PROBES_AND_COST.py` is an independently authored Python 3 exact-integer enumerator using the three predecessor data files above; it reconstructs all 108 split components and enumerates every allowed probe for each three-daughter component. Reproduction on the frozen data returned:
+The GitHub-published `VERIFY_WEIGHTED_EXTENSION.py` uses the predecessor's pinned `VERIFY_ADAPTIVE_EXACT.py` integer support generator and independently checks the two-cut partition pattern over all 40 three-daughter classes and 101×18 actions. A standalone alternate full enumerator (`VERIFY_WEIGHTED_PROBES_AND_COST.py`) was also run locally and is preserved in the reproducibility ZIP alongside the exact predecessor data. Reproduction on the frozen data returned:
 
 `PASS_WEIGHTED_PROBES_AND_COST 40 219072 5/3 11/6 4/3 6236952 56132568 576 6237528`.
 
