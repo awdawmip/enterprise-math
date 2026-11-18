@@ -9,7 +9,6 @@
   },
   "checkpoints": [
     {
-      "event_id": "r5-20261118-1253-256-f0-global-5type-pareto",
       "em_sources": [
         {
           "commit": "56f2748e604ba995cd6eab1ced623b077361e89e",
@@ -31,8 +30,38 @@
           "verification_receipt_sha256": "18ad049c74f78df1100afc9cc5414bcf894728a2f63f1ffdc7ffc896b97b178a"
         }
       ],
+      "event_id": "r5-20261118-1253-256-f0-global-5type-pareto",
       "kb_sources": [
         "awdawmip/chatgpt-global-knowledge@979f3c18e2b180c1dc55b4f7f8444d7c879e735d:journal/enterprise-math/2026-11-18/20261118T125300+0800-r5-256-f0-global-type-pareto.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    },
+    {
+      "em_sources": [
+        {
+          "commit": "7be9d3e0ca4f7f53b7c303a9df2ae00e4ca100a8",
+          "path": "research_notes/portable_direct/r5_256_uniform_93_query_dominance_20261118/RESEARCH.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "c817639ab1e6437f6ea7469695e24bad83468bc229ce453a0b0701743e9f4a7c",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "a86630cc2d85946fe9580d7ef17dce255086a5f2",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/7be9d3e0ca4f7f53b7c303a9df2ae00e4ca100a8/research_notes/portable_direct/r5_256_uniform_93_query_dominance_20261118/RESEARCH.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r5-20261118-1345-github-immutable-proof-verified-01",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-F9B698056193A08D1AAC2A5B/readbacks/ba6138abca882ce4f7abaf0acc43fd5bd63c157f314e753d3016099fd834f114.json",
+          "verification_receipt_sha256": "ba6138abca882ce4f7abaf0acc43fd5bd63c157f314e753d3016099fd834f114"
+        }
+      ],
+      "event_id": "r5-20261118-1345-full256-uniform-93-query-domination",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@e63fa6db399fcaaff087062c21307c7cf8aaacd2:journal/enterprise-math/2026-11-18/20261118T134500+0800-r5-full256-uniform-93-budget-dominance.md"
       ],
       "repairs_event_id": null,
       "state": "EM_REPRESENTED"
