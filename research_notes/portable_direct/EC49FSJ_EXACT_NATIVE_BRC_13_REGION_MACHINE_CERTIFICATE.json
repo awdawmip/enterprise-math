@@ -1,0 +1,382 @@
+{
+  "schema": "EC49FSJ_NATIVE_BRC_13_REGION_RATIONAL_CERTIFICATE_V1",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_parent": "awdawmip/enterprise-math@b1687edf0341627ceb42e834c211ce153bf7af2b",
+  "model": "141 distinct named profiles/310 raw configurations; all 228 original physically named observations; uniform prior; complete deterministic adaptive identification trees",
+  "parameter_domain": {
+    "alpha": [
+      "3/8",
+      "7/16"
+    ],
+    "z": [
+      "0",
+      "1"
+    ],
+    "t": ">0",
+    "q32_q34_cost": "(1-alpha)*t",
+    "q140_cost": "(1-z)*t",
+    "all_other_cost": "t"
+  },
+  "cost_formula": "F(alpha,z)=141*V/t=min_{region}(U-Q*alpha-K*z)",
+  "regions": [
+    {
+      "U": 301,
+      "Q": 168,
+      "K": 15,
+      "area": "1/94976",
+      "tree_sha256": "f911afaf98f3fc04ba30d938c805440cb097106a1ad84abea1ba96c4da64391c"
+    },
+    {
+      "U": 303,
+      "Q": 173,
+      "K": 17,
+      "area": "2591/569856",
+      "tree_sha256": "c43c37dfca7f748b0e4acadcd69c8be5e8c5bdeb3a0515c6c7e8c796250042e2"
+    },
+    {
+      "U": 304,
+      "Q": 169,
+      "K": 32,
+      "area": "25/2688",
+      "tree_sha256": "df7cb044a0d2ac4a7bf6460b0b0311bbe352cfd1b695f1713a915b1e2e9b3ec1"
+    },
+    {
+      "U": 304,
+      "Q": 177,
+      "K": 8,
+      "area": "183/237440",
+      "tree_sha256": "644c3633b89a77c23db91bdcc18f79df68ae22726b3c79b38b64e5b497c31dfc"
+    },
+    {
+      "U": 305,
+      "Q": 173,
+      "K": 29,
+      "area": "1/384",
+      "tree_sha256": "99c8731a0e6499e70278318237d06576d3b347fb47e885b6467a2d82fd5541ec"
+    },
+    {
+      "U": 306,
+      "Q": 182,
+      "K": 10,
+      "area": "4833/949760",
+      "tree_sha256": "db669e0116a1816bbf53fed6cb1bc07a4549ef9665637433e05c059936ff9742"
+    },
+    {
+      "U": 309,
+      "Q": 151,
+      "K": 64,
+      "area": "1/3200",
+      "tree_sha256": "3c28f6149c7977a68131ec0b79bda05f18613fd714d2f5ec50087ca93308d898"
+    },
+    {
+      "U": 309,
+      "Q": 169,
+      "K": 46,
+      "area": "53/22400",
+      "tree_sha256": "3e018ff9aa85a1d18a666af0697b11e737b8c3291d301f4ea741346ce2fe3f28"
+    },
+    {
+      "U": 311,
+      "Q": 151,
+      "K": 69,
+      "area": "2053/1382400",
+      "tree_sha256": "fbdeccb86a78fa12a8561383acf90c63b6af4fb8ee93ceacf36b0537b18036ae"
+    },
+    {
+      "U": 311,
+      "Q": 169,
+      "K": 51,
+      "area": "9/12800",
+      "tree_sha256": "88c28bb0eeb80fad415443803637c3ef078a662006d740ae3604528cec0ec30f"
+    },
+    {
+      "U": 319,
+      "Q": 93,
+      "K": 141,
+      "area": "1883/165888",
+      "tree_sha256": "f6854068c15fc02323cf7584f2e39a81b720f7ca02cfc20a434f6a6d38652899"
+    },
+    {
+      "U": 308,
+      "Q": 66,
+      "K": 141,
+      "area": "673/46080",
+      "tree_sha256": "3fa16e77e9e99d21803d09255ad4630d22890ff9eb2ecce2d6985029653a7ac9"
+    },
+    {
+      "U": 314,
+      "Q": 81,
+      "K": 141,
+      "area": "97/10368",
+      "tree_sha256": "b847c78ffdf43fa7a1ff6a192d9eb9574fee0a06df2114d5dbd86f9388632cd9"
+    }
+  ],
+  "vertex_bellman": [
+    {
+      "alpha": "3/8",
+      "z": "0",
+      "value": "1901/8"
+    },
+    {
+      "alpha": "3/8",
+      "z": "3/56",
+      "value": "13283/56"
+    },
+    {
+      "alpha": "3/8",
+      "z": "1/16",
+      "value": "3793/16"
+    },
+    {
+      "alpha": "3/8",
+      "z": "1/6",
+      "value": "5647/24"
+    },
+    {
+      "alpha": "3/8",
+      "z": "5/14",
+      "value": "12835/56"
+    },
+    {
+      "alpha": "3/8",
+      "z": "3/8",
+      "value": "1827/8"
+    },
+    {
+      "alpha": "3/8",
+      "z": "2/5",
+      "value": "9071/40"
+    },
+    {
+      "alpha": "3/8",
+      "z": "77/192",
+      "value": "14509/64"
+    },
+    {
+      "alpha": "3/8",
+      "z": "1",
+      "value": "569/4"
+    },
+    {
+      "alpha": "20/53",
+      "z": "3/53",
+      "value": "12548/53"
+    },
+    {
+      "alpha": "2/5",
+      "z": "0",
+      "value": "1166/5"
+    },
+    {
+      "alpha": "2/5",
+      "z": "2/5",
+      "value": "223"
+    },
+    {
+      "alpha": "2/5",
+      "z": "31/72",
+      "value": "26507/120"
+    },
+    {
+      "alpha": "2/5",
+      "z": "1",
+      "value": "703/5"
+    },
+    {
+      "alpha": "5/12",
+      "z": "193/432",
+      "value": "31285/144"
+    },
+    {
+      "alpha": "5/12",
+      "z": "1",
+      "value": "557/4"
+    },
+    {
+      "alpha": "7/16",
+      "z": "0",
+      "value": "1811/8"
+    },
+    {
+      "alpha": "7/16",
+      "z": "15/112",
+      "value": "6301/28"
+    },
+    {
+      "alpha": "7/16",
+      "z": "1/6",
+      "value": "10775/48"
+    },
+    {
+      "alpha": "7/16",
+      "z": "1/4",
+      "value": "3553/16"
+    },
+    {
+      "alpha": "7/16",
+      "z": "5/14",
+      "value": "24487/112"
+    },
+    {
+      "alpha": "7/16",
+      "z": "2/5",
+      "value": "17333/80"
+    },
+    {
+      "alpha": "7/16",
+      "z": "7/16",
+      "value": "859/4"
+    },
+    {
+      "alpha": "7/16",
+      "z": "89/192",
+      "value": "13629/64"
+    },
+    {
+      "alpha": "7/16",
+      "z": "1",
+      "value": "2197/16"
+    }
+  ],
+  "independent_checks": {
+    "inherited_alpha_3_8_boundary": 9,
+    "new_alpha_7_16_boundary": 9,
+    "new_interior": 7,
+    "interior_points": [
+      {
+        "alpha": "20/53",
+        "z": "3/53",
+        "value": "12548/53"
+      },
+      {
+        "alpha": "2/5",
+        "z": "0",
+        "value": "1166/5"
+      },
+      {
+        "alpha": "2/5",
+        "z": "2/5",
+        "value": "223"
+      },
+      {
+        "alpha": "2/5",
+        "z": "31/72",
+        "value": "26507/120"
+      },
+      {
+        "alpha": "2/5",
+        "z": "1",
+        "value": "703/5"
+      },
+      {
+        "alpha": "5/12",
+        "z": "193/432",
+        "value": "31285/144"
+      },
+      {
+        "alpha": "5/12",
+        "z": "1",
+        "value": "557/4"
+      }
+    ],
+    "source": "two separate raw-family original-data decoders and exact 228-observer Bellman solvers"
+  },
+  "area_sum": "1/16",
+  "alpha_7_16_slice": [
+    {
+      "z": [
+        "0",
+        "15/112"
+      ],
+      "plane": [
+        306,
+        182,
+        10
+      ]
+    },
+    {
+      "z": [
+        "15/112",
+        "1/6"
+      ],
+      "plane": [
+        303,
+        173,
+        17
+      ]
+    },
+    {
+      "z": [
+        "1/6",
+        "1/4"
+      ],
+      "plane": [
+        305,
+        173,
+        29
+      ]
+    },
+    {
+      "z": [
+        "1/4",
+        "5/14"
+      ],
+      "plane": [
+        304,
+        169,
+        32
+      ]
+    },
+    {
+      "z": [
+        "5/14",
+        "2/5"
+      ],
+      "plane": [
+        309,
+        169,
+        46
+      ]
+    },
+    {
+      "z": [
+        "2/5",
+        "7/16"
+      ],
+      "plane": [
+        311,
+        169,
+        51
+      ]
+    },
+    {
+      "z": [
+        "7/16",
+        "89/192"
+      ],
+      "plane": [
+        311,
+        151,
+        69
+      ]
+    },
+    {
+      "z": [
+        "89/192",
+        "1"
+      ],
+      "plane": [
+        319,
+        93,
+        141
+      ]
+    }
+  ],
+  "frozen_source_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "witness_text": "EC49FSJ_THIRTEEN_NATIVE_TREES_JSON_ZLIB_BASE64.txt",
+  "proof_method": "Full native 141-profile replay => thirteen feasible affine upper bounds; exact all-228-observer Bellman at twenty-five rational clipped polygon vertices => matching lower bounds by joint concavity, proving every real interior; thirteen positive-area distinct gradients => menu lower bound.",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CROSSCHECKED_NOT_REVIEWED"
+}
