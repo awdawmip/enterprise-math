@@ -1,0 +1,122 @@
+{
+  "title": "PREFIX-890 exact disjoint collision spectrum",
+  "model": "p-bit states; named zero-or-single-XOR trajectories; positive odd q1,q2>1; ordered residue pair observer",
+  "diagonal_extremal_exact_small_checks": [
+    {
+      "p": 2,
+      "q": 3,
+      "C": 5
+    },
+    {
+      "p": 3,
+      "q": 7,
+      "C": 1
+    },
+    {
+      "p": 4,
+      "q": 15,
+      "C": 1
+    },
+    {
+      "p": 5,
+      "q": 31,
+      "C": 1
+    },
+    {
+      "p": 6,
+      "q": 63,
+      "C": 1
+    },
+    {
+      "p": 7,
+      "q": 127,
+      "C": 1
+    },
+    {
+      "p": 8,
+      "q": 255,
+      "C": 1
+    },
+    {
+      "p": 9,
+      "q": 511,
+      "C": 1
+    },
+    {
+      "p": 10,
+      "q": 1023,
+      "C": 1
+    }
+  ],
+  "diagonal_extremal_theorem": "for p>=3, q1=q2=2^p-1 implies C=1; p=2 implies C=5",
+  "small_parameter_exhaustive_cases": 543,
+  "small_p_range": [
+    2,
+    8
+  ],
+  "small_q_ranges": "odd 3..min(23,2^p-1), both ports",
+  "small_checks": "independent direct pair classification vs all four exact formulas, zero mismatches",
+  "large_case_C_source": "PREFIX-884 author-reported full C at p=32; residual subtraction is conditional on its declared values",
+  "large_cases": [
+    {
+      "ZZ": 0,
+      "ZF": 98785878008,
+      "FF_same_end": 27917287424,
+      "FF_same_start": 0,
+      "additive_lower_bound": 126703165432,
+      "q1": 524287,
+      "q2": 524285,
+      "inherited_C_from_PREFIX884": 1260570120266,
+      "FF_residual_derived": 1133866954834,
+      "new_bound_fraction": "126703165432/1260570120266"
+    },
+    {
+      "ZZ": 0,
+      "ZF": 10985826888,
+      "FF_same_end": 0,
+      "FF_same_start": 0,
+      "additive_lower_bound": 10985826888,
+      "q1": 500383,
+      "q2": 522777,
+      "inherited_C_from_PREFIX884": 61029441402,
+      "FF_residual_derived": 50043614514,
+      "new_bound_fraction": "10985826888/61029441402"
+    },
+    {
+      "ZZ": 0,
+      "ZF": 59734934756,
+      "FF_same_end": 0,
+      "FF_same_start": 0,
+      "additive_lower_bound": 59734934756,
+      "q1": 523001,
+      "q2": 523003,
+      "inherited_C_from_PREFIX884": 502527821442,
+      "FF_residual_derived": 442792886686,
+      "new_bound_fraction": "59734934756/502527821442"
+    },
+    {
+      "ZZ": 0,
+      "ZF": 103080329212,
+      "FF_same_end": 30064771072,
+      "FF_same_start": 27917287424,
+      "additive_lower_bound": 161062387708,
+      "q1": 262143,
+      "q2": 524287,
+      "inherited_C_from_PREFIX884": 1329274396737,
+      "FF_residual_derived": 1168212009029,
+      "new_bound_fraction": "161062387708/1329274396737"
+    },
+    {
+      "ZZ": 17590072119296,
+      "ZF": 0,
+      "FF_same_end": 27917287424,
+      "FF_same_start": 27917287424,
+      "additive_lower_bound": 17645906694144,
+      "q1": 524287,
+      "q2": 524287,
+      "inherited_C_from_PREFIX884": 568927306772480,
+      "FF_residual_derived": 551281400078336,
+      "new_bound_fraction": "17645906694144/568927306772480"
+    }
+  ]
+}
