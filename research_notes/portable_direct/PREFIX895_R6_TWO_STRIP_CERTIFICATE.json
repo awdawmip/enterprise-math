@@ -1,0 +1,107 @@
+{
+  "schema": "PREFIX895_R6_TWO_STRIP_CENSUS_CERTIFICATE_V1",
+  "date": "2026-11-18",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": {
+    "p": 32,
+    "N": 4294967296,
+    "transitions": "Z(x)=(x,x); F_i(x)=(x,x xor 2^i), i=0..31",
+    "observer": "(old mod q1,new mod q2)",
+    "modulus_domain": {
+      "min": 262145,
+      "max": 524287,
+      "step": 2,
+      "count": 131072
+    }
+  },
+  "first_port_strips": [
+    {
+      "min": 400011,
+      "max": 400521,
+      "step": 2,
+      "count": 256,
+      "first_success_counts": [
+        17591903,
+        383806,
+        3400,
+        15575260,
+        63
+      ]
+    },
+    {
+      "min": 480011,
+      "max": 480521,
+      "step": 2,
+      "count": 256,
+      "first_success_counts": [
+        15656695,
+        315440,
+        3716,
+        17577962,
+        619
+      ]
+    }
+  ],
+  "category_order": [
+    "zero_flip_endpoint",
+    "zero_zero_lcm",
+    "second_port_axis",
+    "zero_anchored_two_flip",
+    "general_two_flip_carry_dp"
+  ],
+  "verified_rows": 512,
+  "checked_ordered_pairs": 67108864,
+  "collision_positive_pairs": 67108864,
+  "unresolved_pairs": 0,
+  "full_scan_category_totals": [
+    33248598,
+    699246,
+    7116,
+    33153222,
+    682
+  ],
+  "verification": {
+    "integer_arithmetic": "C++17 uint64_t/int64_t, all products bounded by 2^64",
+    "witness_validation": "For EVERY counted input pair: distinctness, state range, source-index XOR, both modular observation equalities asserted",
+    "small_parameter_independent": "Python full transition hash vs separate modular search, p=2..7, odd q1/q2 3..min(2^p-1,31), 734 comparisons, 0 disagreements",
+    "complete_row_dump_sha256": "8d3fcf7d3d5d1b1b842166e03a37633e2861d8aa83f8b7d4b949634703f15dec",
+    "complete_row_dump_bytes": 32559,
+    "complete_row_dump_format": "PREFIX895_R6_TWO_STRIP_FULL_EXACT_V1 JSON from three losslessly concatenated index intervals",
+    "run_subranges": [
+      {
+        "end_exclusive": 256,
+        "start_inclusive": 0
+      },
+      {
+        "end_exclusive": 447,
+        "start_inclusive": 256
+      },
+      {
+        "end_exclusive": 512,
+        "start_inclusive": 447
+      }
+    ],
+    "reproduce": "g++ -O3 -std=c++17 PREFIX895_R6_MULTISTRIP_COMPLETE_CENSUS.cpp -o check && ./check 512 > full.json; use jq to inspect rows; optional split by [end_exclusive start_inclusive]",
+    "source_program": "PREFIX895_R6_MULTISTRIP_COMPLETE_CENSUS.cpp",
+    "crosscheck_program": "PREFIX895_R6_INDEPENDENT_SMALL_CHECK.py"
+  },
+  "overlap_free_union": {
+    "previous_source": "PREFIX894_R6_LCM_REVERSE_RESULTS.json",
+    "prior_sixteen_row_port_specials": 16,
+    "prior_axis_port_specials": 24,
+    "new_strips_port_specials": 512,
+    "all_distinct_port_specials": 552,
+    "port_special_row_or_column_pairs": 144398784,
+    "global_zz_positive_imported_prefix894": 209050784,
+    "zz_port_special_one_sided": 807588,
+    "zz_port_special_double": 3304,
+    "zz_outside_port_special": 207438912,
+    "certified_collision_positive_union": 351837696,
+    "strict19bit_total_ordered_pairs": 17179869184,
+    "unexcluded_by_this_union": 16828031488,
+    "old_prefix894_certified_union": 219318402,
+    "new_net_vs_prefix894": 132519294
+  },
+  "source_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_INDEPENDENTLY_REVIEWED_NOT_ADMITTED",
+  "scope_note": "This is a finite named-source BRC auxiliary observer, not the native 6D+time heartbeat evolution. Row/column and ZZ sets are deduplicated only against the stated PREFIX894 certificate; global earlier overlapping exclusions are not fully merged."
+}
