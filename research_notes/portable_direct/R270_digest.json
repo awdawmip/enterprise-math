@@ -1,0 +1,36 @@
+{
+  "schema": "R270_PORT_13ADIC_DIGEST_V1",
+  "date": "2026-11-18",
+  "frozen_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "p": 13,
+  "example": {
+    "w0": "1/5",
+    "w1": "33/100",
+    "r": "27/50",
+    "inputs_mod13": [
+      8,
+      8
+    ],
+    "stars": [
+      "50/13",
+      "100/13"
+    ],
+    "scaled_stars_mod13": [
+      11,
+      9
+    ]
+  },
+  "general_family": {
+    "N": "all integers >=1",
+    "P": "13^N",
+    "M": "100P+1",
+    "input_difference": "P/M",
+    "normalized_star_mod13": [
+      7,
+      1
+    ]
+  },
+  "local_test": "PASS N=1..8",
+  "local_full_json_sha256": "24a2518a15aeb1ba5f1ed73089c5df429fc9b44aa1788a090a19cfcecb02a193",
+  "status": "AUTHOR_PROVED / NOT_REVIEWED"
+}
