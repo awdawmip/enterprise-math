@@ -1,0 +1,320 @@
+{
+  "source_main": "b3a25442cd5ee1fafb037d2c2052f8fbb1da3ec1",
+  "previous_group_source": "840ed952c789c6479c8722f4ed6ab2523bf318dd",
+  "main_comparison": {
+    "commits": 5,
+    "changed_files": 61,
+    "taskbooks_runtime_or_control_changed": false
+  },
+  "checked_at": "2026-11-18T11:04:27.857843+00:00",
+  "issue": "https://github.com/awdawmip/enterprise-math/issues/240",
+  "raw_comment_count": 1598,
+  "recognized_events": 1426,
+  "previous_tail": 6976187879,
+  "last_comment_id": 6976445423,
+  "last_comment_created_utc": "2026-11-18T10:54:38Z",
+  "new_comments": [
+    {
+      "id": 6976445423,
+      "created_at": "2026-11-18T10:54:38Z",
+      "type": "HANDOFF",
+      "task": "RS-DISC-COMPAT-20261026-01"
+    }
+  ],
+  "method": "Verified the latest task and publication Git blobs against immutable V2 records, including the superseded P3R taskbook by its historical Git blob. Replayed authenticated GitHub envelopes with research_control_bootstrap.install, research_dispatch.events_from_github_comments, merged_definitions and reduce_definition. Selected-task and prerequisite state are independent; a READY child does not release its research dependencies. Coverage uses the exact task ID and registered parent objective in the five preceding selection files, excluding supplements without a newly selected task ID.",
+  "past_five_selected_task_rows_by_wave": [
+    8,
+    5,
+    4,
+    8,
+    4
+  ],
+  "selected": [
+    {
+      "task_id": "P3R-NORMAL-SURFACE-COKERNEL-PRUNING",
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "priority": "P2",
+      "publication_id": "TP2-9E91CE3693C89C8CFD4B",
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "claim_id": null,
+      "lease_until": null,
+      "last_progress_ref": "TP2-9E91CE3693C89C8CFD4B",
+      "last_progress_at": "2026-09-09T01:57:00+00:00",
+      "accepted_claims": 0,
+      "recognized_runtime_events": 0,
+      "dependencies": [],
+      "publication_history": [
+        {
+          "publication_id": "TP2-F7698D2C41EFB8B15CC0",
+          "record_path": "research_task_records/P3R-NORMAL-SURFACE-COKERNEL-PRUNING/TP2-F7698D2C41EFB8B15CC0.json",
+          "record_blob": "977986e87663115fc1afc236c06933440927c237",
+          "taskbook": "research_tasks/P3R-NORMAL-SURFACE-COKERNEL-PRUNING.md",
+          "taskbook_blob": "c76839a7a6692abc50805218cb2cddd482e5889b",
+          "published_at": "2026-09-09T01:39:00+00:00",
+          "priority": "P2",
+          "generation": 1,
+          "supersedes": null,
+          "dependencies": [],
+          "parent_objective": "POINCARE-BRC-RECOGNITION-20260909",
+          "parent_task_id": null,
+          "task_id": "P3R-NORMAL-SURFACE-COKERNEL-PRUNING",
+          "current_path_blob": "c53438e9294ed4b5229208c841afa42ebfe4d2b4",
+          "superseded_taskbook_retrieved_by_git_blob": true
+        },
+        {
+          "publication_id": "TP2-9E91CE3693C89C8CFD4B",
+          "record_path": "research_task_records/P3R-NORMAL-SURFACE-COKERNEL-PRUNING/TP2-9E91CE3693C89C8CFD4B.json",
+          "record_blob": "b317aca3bc6b4e209afbc702d63578305eed99ec",
+          "taskbook": "research_tasks/P3R-NORMAL-SURFACE-COKERNEL-PRUNING.md",
+          "taskbook_blob": "c53438e9294ed4b5229208c841afa42ebfe4d2b4",
+          "published_at": "2026-09-09T01:57:00+00:00",
+          "priority": "P2",
+          "generation": 2,
+          "supersedes": "TP2-F7698D2C41EFB8B15CC0",
+          "dependencies": [],
+          "parent_objective": "POINCARE-BRC-RECOGNITION-20260909",
+          "parent_task_id": null,
+          "task_id": "P3R-NORMAL-SURFACE-COKERNEL-PRUNING"
+        }
+      ],
+      "prior_five_same_task": [],
+      "prior_five_same_parent_objective": [],
+      "new_registration_since_previous_snapshot": false
+    },
+    {
+      "task_id": "RS-HODGE-H0Q-NONSPLIT-WEIL-INDEPENDENT-OBSTRUCTION-AUDIT",
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "priority": "P2",
+      "publication_id": "TP2-31692BDDB326C04B4D62",
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "claim_id": null,
+      "lease_until": null,
+      "last_progress_ref": "research_notes/HODGE_WEIL_BILATERAL_DEFORMATION_FRONTIER_20260919.md",
+      "last_progress_at": "2026-09-19",
+      "accepted_claims": 0,
+      "recognized_runtime_events": 0,
+      "dependencies": [
+        "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT"
+      ],
+      "publication_history": [
+        {
+          "publication_id": "TP2-31692BDDB326C04B4D62",
+          "record_path": "research_task_records/RS-HODGE-H0Q-NONSPLIT-WEIL-INDEPENDENT-OBSTRUCTION-AUDIT/TP2-31692BDDB326C04B4D62.json",
+          "record_blob": "c5a779504703960c4713dff875d430c3a0493eab",
+          "taskbook": "research_tasks/HODGE_H0Q_NONSPLIT_WEIL_INDEPENDENT_OBSTRUCTION_AUDIT_20260919.md",
+          "taskbook_blob": "d444caaef91a13f85633ef79aa529cb871d0ad70",
+          "published_at": "2026-09-19T18:36:00+08:00",
+          "priority": "P2",
+          "generation": 1,
+          "supersedes": null,
+          "dependencies": [
+            "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT"
+          ],
+          "parent_objective": "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM",
+          "parent_task_id": "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT",
+          "task_id": "RS-HODGE-H0Q-NONSPLIT-WEIL-INDEPENDENT-OBSTRUCTION-AUDIT"
+        }
+      ],
+      "prior_five_same_task": [],
+      "prior_five_same_parent_objective": [],
+      "new_registration_since_previous_snapshot": false
+    },
+    {
+      "task_id": "RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION",
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "priority": "P2",
+      "publication_id": "TP2-7D3C9A6C2E1409F1255C",
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "claim_id": null,
+      "lease_until": null,
+      "last_progress_ref": "research_notes/VIETE_X6_ROTATION_STATE_MACHINE_HANDOFF_20260909.md",
+      "last_progress_at": "2026-09-09T11:12:00+08:00",
+      "accepted_claims": 0,
+      "recognized_runtime_events": 0,
+      "dependencies": [
+        "RS-EM7D3C9A-1255-PATH-DAGGER-CATEGORY",
+        "RS-EM7D3C9A-1255-PATH-JET-ORDER3"
+      ],
+      "publication_history": [
+        {
+          "publication_id": "TP2-7D3C9A6C2E1409F1255C",
+          "record_path": "research_task_records/RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION/TP2-7D3C9A6C2E1409F1255C.json",
+          "record_blob": "55b338ccf95c3eb2341d0a35e785224341b1077c",
+          "taskbook": "research_tasks/EM7D3C9A_1255_GLOBAL_JET_COMPOSITION_20260909.md",
+          "taskbook_blob": "542486b53438dde295929f5680b4a63ad13002ed",
+          "published_at": "2026-09-09T03:13:00+00:00",
+          "priority": "P2",
+          "generation": 1,
+          "supersedes": null,
+          "dependencies": [
+            "RS-EM7D3C9A-1255-PATH-DAGGER-CATEGORY",
+            "RS-EM7D3C9A-1255-PATH-JET-ORDER3"
+          ],
+          "parent_objective": "EM-FREE-7D3C9A-ISSUE1255-VIETE-X6-ROTATION",
+          "parent_task_id": "RS-EM7D3C9A-1255-PATH-JET-ORDER3",
+          "task_id": "RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION"
+        }
+      ],
+      "prior_five_same_task": [],
+      "prior_five_same_parent_objective": [],
+      "new_registration_since_previous_snapshot": false
+    },
+    {
+      "task_id": "RTASK-RF-GUARDED-MOMENT-CLOSURE-20260927",
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "priority": "P2",
+      "publication_id": "TP2-136BC136B4C340E9867F",
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "claim_id": null,
+      "lease_until": null,
+      "last_progress_ref": "TP2-136BC136B4C340E9867F",
+      "last_progress_at": "2026-09-27T05:00:38+00:00",
+      "accepted_claims": 0,
+      "recognized_runtime_events": 0,
+      "dependencies": [],
+      "publication_history": [
+        {
+          "publication_id": "TP2-136BC136B4C340E9867F",
+          "record_path": "research_task_records/RTASK-RF-GUARDED-MOMENT-CLOSURE-20260927/TP2-136BC136B4C340E9867F.json",
+          "record_blob": "ef7ae82a151e494fd1cfcad5b681d7d4831f7cc2",
+          "taskbook": "research_tasks/RTASK-RF-GUARDED-MOMENT-CLOSURE-20260927.md",
+          "taskbook_blob": "c031cd8c64c87d2f2c75ec708089bfeae09b74c4",
+          "published_at": "2026-09-27T05:00:38+00:00",
+          "priority": "P2",
+          "generation": 1,
+          "supersedes": null,
+          "dependencies": [],
+          "parent_objective": "OBJ-RESIDUAL-FAITHFUL-DISCRETE-RELATIONS",
+          "parent_task_id": null,
+          "task_id": "RTASK-RF-GUARDED-MOMENT-CLOSURE-20260927"
+        }
+      ],
+      "prior_five_same_task": [],
+      "prior_five_same_parent_objective": [],
+      "new_registration_since_previous_snapshot": false
+    },
+    {
+      "task_id": "RS-CFD-CANCELLATION-GROUPS-20260910",
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "priority": "P2",
+      "publication_id": "TP2-907D9168B65C441FBB4A",
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "claim_id": null,
+      "lease_until": null,
+      "last_progress_ref": "TP2-907D9168B65C441FBB4A",
+      "last_progress_at": "2026-09-10T08:44:11.452544+00:00",
+      "accepted_claims": 0,
+      "recognized_runtime_events": 0,
+      "dependencies": [],
+      "publication_history": [
+        {
+          "publication_id": "TP2-907D9168B65C441FBB4A",
+          "record_path": "research_task_records/RS-CFD-CANCELLATION-GROUPS-20260910/TP2-907D9168B65C441FBB4A.json",
+          "record_blob": "eaf6503389f08fa3549c3a532b94501c27d220ec",
+          "taskbook": "research_tasks/RS-CFD-CANCELLATION-GROUPS-20260910.md",
+          "taskbook_blob": "99146a92b970b43eadd8ff4ece9f84cb6a66b461",
+          "published_at": "2026-09-10T08:44:11.452544+00:00",
+          "priority": "P2",
+          "generation": 1,
+          "supersedes": null,
+          "dependencies": [],
+          "parent_objective": "OBJ-CFD-TRUSTWORTHY-ACCELERATION-20260910",
+          "parent_task_id": null,
+          "task_id": "RS-CFD-CANCELLATION-GROUPS-20260910"
+        }
+      ],
+      "prior_five_same_task": [],
+      "prior_five_same_parent_objective": [],
+      "new_registration_since_previous_snapshot": false
+    },
+    {
+      "task_id": "RS-EMW59A-1159-SPECTRAL-ARITHMETIC",
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "priority": "P2",
+      "publication_id": "TP2-515CADA18098D43CAE3A",
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "claim_id": null,
+      "lease_until": null,
+      "last_progress_ref": "research_notes/EM_FREE_W59A_ISSUE1159_STATE_MACHINE_HANDOFF_20260909.md",
+      "last_progress_at": "2026-09-09T10:56:00+08:00",
+      "accepted_claims": 0,
+      "recognized_runtime_events": 0,
+      "dependencies": [],
+      "publication_history": [
+        {
+          "publication_id": "TP2-515CADA18098D43CAE3A",
+          "record_path": "research_task_records/RS-EMW59A-1159-SPECTRAL-ARITHMETIC/TP2-515CADA18098D43CAE3A.json",
+          "record_blob": "569f1292b4a6dbfef5917e39d99a5db269025fb4",
+          "taskbook": "research_tasks/EMW59A_1159_SPECTRAL_ARITHMETIC_20260909.md",
+          "taskbook_blob": "46f9fedfc293710a0722d62e1aa91537c6094514",
+          "published_at": "2026-09-09T03:04:00+00:00",
+          "priority": "P2",
+          "generation": 1,
+          "supersedes": null,
+          "dependencies": [],
+          "parent_objective": "EM-FREE-W59A-ISSUE1159-WALLIS-SINE-ROTATION",
+          "parent_task_id": null,
+          "task_id": "RS-EMW59A-1159-SPECTRAL-ARITHMETIC"
+        }
+      ],
+      "prior_five_same_task": [],
+      "prior_five_same_parent_objective": [
+        {
+          "wave": 3,
+          "task_id": "RS-EMW59A-1159-SPECTRAL-ZETA-JORDAN"
+        }
+      ],
+      "new_registration_since_previous_snapshot": false
+    }
+  ],
+  "dependency_status": [
+    {
+      "task_id": "RS-EM7D3C9A-1255-PATH-DAGGER-CATEGORY",
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "priority": "P2",
+      "publication_id": "TP2-7D3C9A1D4A6609F1255A",
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "claim_id": null,
+      "lease_until": null,
+      "last_progress_ref": "research_notes/VIETE_X6_ROTATION_STATE_MACHINE_HANDOFF_20260909.md",
+      "last_progress_at": "2026-09-09T11:09:00+08:00",
+      "accepted_claims": 0,
+      "recognized_runtime_events": 0
+    },
+    {
+      "task_id": "RS-EM7D3C9A-1255-PATH-JET-ORDER3",
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "priority": "P2",
+      "publication_id": "TP2-7D3C9A3E7F1109F1255B",
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "claim_id": null,
+      "lease_until": null,
+      "last_progress_ref": "research_notes/VIETE_X6_ROTATION_STATE_MACHINE_HANDOFF_20260909.md",
+      "last_progress_at": "2026-09-09T11:10:00+08:00",
+      "accepted_claims": 0,
+      "recognized_runtime_events": 0
+    },
+    {
+      "task_id": "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT",
+      "state": "DONE",
+      "dispatch_state": "COMPLETE",
+      "priority": "P2",
+      "publication_id": "TP2-05FAE6E393BAE7759DEC",
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "claim_id": null,
+      "lease_until": null,
+      "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/c3a79e03e7fde0bbcd5f10d71c718376e62f4cb2/research_result_records/RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT/RR-D0D2E8489B7EC4AE9AB4.json",
+      "last_progress_at": "2026-10-15T17:47:02+00:00",
+      "accepted_claims": 1,
+      "recognized_runtime_events": 3
+    }
+  ]
+}
