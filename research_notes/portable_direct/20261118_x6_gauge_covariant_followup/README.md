@@ -105,3 +105,22 @@ This ambiguity **persists for arbitrary finite and infinite fixed-axis readout h
 **Finite evidence.** The accompanying [named-link test](check_link_readout.py) checks all 384 two-twist inputs, all three detector axes, and for each axis all 8,192 five-step histories (8 initial signed words × 4^5 generator words). Each of the 64 six-read words has exactly two possible initial r-sectors. The [exact check summary](link_results.json) records these counts. The unbounded statement rests on the construction above, not on extrapolating from five steps.
 
 **Scientific consequence.** The minimal native bridge is now precise: obtain either (i) a native signed edge-continuity law at the detector's predecessor edge, or (ii) one invariant inter-event tag delta. The raw sign parity P still requires a separately defined absolute frame reference; the relational r does not. Whether such edge continuity is licensed in the full Cell/Link/Port TRIADIC_CLOSURE_E event is the remaining domain-specific question.
+
+
+## Appendix B — V39 based-loop readout: why two stored frames lose one link bit
+
+The prior fixed-port note constructs a specific V39 controller: three sequential source-driven packet choices, ABC for b_t=0 and ACB for b_t=1, where b_t=(y_t+1)/2. The frame increment for each 1 choice is the same 3-cycle g, so after the first, second and third packet
+
+    h1=g^(b0),  h2=g^(b0+b1),  h3=g^(b0+b1+b2),
+
+with all exponents understood modulo three. The previous parity receiver used **only h2,h3**, because h2 distinguishes the exact count b0+b1∈{0,1,2}, and h3-h2 recovers b2; thus the sum b0+b1+b2 and raw parity in a calibrated reference frame are known.
+
+**Theorem B1 (sharp two-versus-three frame distinction).** For the invariant-link target r in Appendix A under a fixed V5 generator, the pair (h2,h3) has six possible outputs on the eight signed input words. Four outputs each determine one r; the other two outputs each contain **two different r states**. In contrast, the three frame observations (h1,h2,h3) distinguish all eight signed words and therefore recover the entire r exactly. This result holds for all three detector axes and all four fixed V5 twists.
+
+Proof: h2 identifies n=b0+b1∈{0,1,2}; h3 then reveals b2∈{0,1}. When n=0, (b0,b1)=(0,0); when n=2, (b0,b1)=(1,1). Thus four output cells (two b2 choices for each of n=0,2) identify the full word. When n=1, (b0,b1) can be (0,1) or (1,0). These two alternatives have the same y0y1=-1 but *opposite* y1y2 and therefore different r_(j-2), proving the two ambiguous output cells. A first-frame snapshot gives b0=h1 exponent∈{0,1}. Then b1=n-b0 and b2=(exponent(h3)-n) mod3, so all three signs and the relation r are recovered. The proof does not assume a native self-triggering V39 event; it applies to the previously defined controlled packet interface.
+
+**Receiver limitation:** the two-frame ambiguity is exact for this specific accumulated-C3 packet language and observer, not a bound on all possible V39 encoders, BRC source histories or multi-channel instruments. It shows that a readout proven sufficient for raw *three-sign product* need not preserve the finer four-state relative-link invariant.
+
+The [V39 exact checker](check_v39_link.py) enumerates 3 detector axes × 4 fixed twists × 8 initial sign words. In each of twelve contexts it finds exactly 6 two-frame codewords (4 singletons and 2 doubletons) and 8 distinguishable three-frame codewords. Read the frame snapshots at **all three packet boundaries** to recover the two gauge-invariant link bits without a calibrated absolute sign frame when generator-edge continuity holds.
+
+Taken together, Appendix A and B identify two distinct dependencies for a genuinely native, reference-independent triadic sensor: (i) edge-sign continuity or one inter-event invariant delta, and (ii) retaining enough V39 intermediate packet-state information to recover both independent link signs.
