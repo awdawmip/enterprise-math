@@ -1,0 +1,597 @@
+{
+  "source_main": "5e79f9fc5e09fe53789512c75970fd3edd652207",
+  "source_main_url": "https://github.com/awdawmip/enterprise-math/tree/5e79f9fc5e09fe53789512c75970fd3edd652207",
+  "checked_at": "2026-11-18T16:04:41.289689+00:00",
+  "issue": {
+    "url": "https://github.com/awdawmip/enterprise-math/issues/240",
+    "raw_comments": 1608,
+    "recognized_events": 1436,
+    "latest_comment_id": 6982594383,
+    "latest_comment_time": "2026-11-18T15:10:51Z",
+    "latest_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6982594383",
+    "new_authenticated_events_since_previous": 0
+  },
+  "verification": {
+    "all_registry_rows": 518,
+    "research_rows": 474,
+    "method": "Every merged definition reduced at one clock by the functions resolved by official effective_states, with result-read snapshot and parent_task_id enrichment. Independent incremental re-reduction of leased rows atop wave nineteen agrees in eight fields on all 518 registered tasks.",
+    "bulk_reducer_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/tools/research_dispatch_core.py#L842",
+    "previous_snapshot": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_notes/portable_direct/20261118_fair_queue_6b0fba/nineteenth/fair_snapshot.json",
+    "source_compare_url": "https://github.com/awdawmip/enterprise-math/compare/169284c1bb7b2365abcf27d019513261656c281a...5e79f9fc5e09fe53789512c75970fd3edd652207",
+    "compared_commits": 31,
+    "changed_paths": 63,
+    "changed_activity_blobs_verified": 30,
+    "selected_taskbook_publication_result_or_reducer_changes": false,
+    "incremental_comparison": {
+      "rows": 518,
+      "fields": [
+        "kind",
+        "priority",
+        "state",
+        "dispatch_state",
+        "publication_id",
+        "claim_id",
+        "lease_until",
+        "event_authentication"
+      ],
+      "differences": 0,
+      "changed_since_previous": 0,
+      "independently_reduced": [
+        "RS-CFD-PRESSURE-GAMG-20260910",
+        "RS-X6-LEGACY-PLANE-RECONCILIATION",
+        "RS-X6-TRIADIC-CLOSURE-DYNAMICS"
+      ]
+    },
+    "research_state_and_dispatch_histogram": [
+      {
+        "state": "BACKLOG",
+        "dispatch_state": "DORMANT",
+        "count": 2
+      },
+      {
+        "state": "BLOCKED",
+        "dispatch_state": "BLOCKED",
+        "count": 34
+      },
+      {
+        "state": "BLOCKED",
+        "dispatch_state": "DORMANT",
+        "count": 9
+      },
+      {
+        "state": "CLAIMED",
+        "dispatch_state": "LEASED",
+        "count": 1
+      },
+      {
+        "state": "DONE",
+        "dispatch_state": "COMPLETE",
+        "count": 133
+      },
+      {
+        "state": "FROZEN_RETURN",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "count": 12
+      },
+      {
+        "state": "HANDOFF_READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "count": 64
+      },
+      {
+        "state": "IN_PROGRESS",
+        "dispatch_state": "LEASED",
+        "count": 2
+      },
+      {
+        "state": "READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "count": 210
+      },
+      {
+        "state": "SUPERSEDED",
+        "dispatch_state": "COMPLETE",
+        "count": 7
+      }
+    ],
+    "projection_sha256": "1d11f85cf4a85e14d615ab0d26f8ee11308c4eb230aa8637da7e6f66e310a3a5",
+    "projection_hash_format": "UTF-8 compact JSON rows sorted by task ID, each [task_id,...incremental_comparison.fields], absence null."
+  },
+  "coverage": {
+    "prior_wave_sizes": [
+      8,
+      5,
+      4,
+      8,
+      4,
+      6,
+      6,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "prior_direct_ids": 111,
+    "prior_registered_parents": 48,
+    "selected_ids": 6,
+    "selected_distinct_parents": 6,
+    "new_registered_parent_objectives": [
+      "LEGACY_CONTROL_CUTOVER_RS_P021_FOCUSING_DIRECTION",
+      "OBJ-EXTERNAL-GEOMETRY-BORSUK-R6-UPPER-BOUND-PRESSURE-20260902",
+      "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION",
+      "OBJ-R043-G0-STATIONARY-FUTURE-SUFFICIENCY-CLOSURE"
+    ],
+    "total_direct_ids": 117,
+    "total_registered_parents": 52,
+    "strict_ready_needs_dispatch": {
+      "all": {
+        "total": 210,
+        "P0": 0,
+        "P1": 11,
+        "P2": 199
+      },
+      "previous_directly_selected": {
+        "total": 93,
+        "P0": 0,
+        "P1": 10,
+        "P2": 83
+      },
+      "unselected_before_wave": {
+        "total": 117,
+        "P0": 0,
+        "P1": 1,
+        "P2": 116
+      },
+      "selected_this_wave": {
+        "total": 1,
+        "P0": 0,
+        "P1": 0,
+        "P2": 1
+      },
+      "unselected_after_wave": {
+        "total": 116,
+        "P0": 0,
+        "P1": 1,
+        "P2": 115
+      },
+      "unseen_parent_counts_before_wave": {
+        "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION": 1
+      }
+    },
+    "handoff_ready_needs_dispatch": {
+      "all": {
+        "total": 64,
+        "P0": 17,
+        "P1": 20,
+        "P2": 27
+      },
+      "previous_directly_selected": {
+        "total": 15,
+        "P0": 5,
+        "P1": 5,
+        "P2": 5
+      },
+      "unselected_before_wave": {
+        "total": 49,
+        "P0": 12,
+        "P1": 15,
+        "P2": 22
+      },
+      "selected_this_wave": {
+        "total": 2,
+        "P0": 0,
+        "P1": 1,
+        "P2": 1
+      },
+      "unselected_after_wave": {
+        "total": 47,
+        "P0": 12,
+        "P1": 14,
+        "P2": 21
+      },
+      "unseen_parent_counts_before_wave": {
+        "COHERENT_BRC_WORKING_EXTENSION": 1,
+        "OBJ-EXTERNAL-GEOMETRY-STRUCTURAL-TRANSFER-20260830": 1,
+        "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION": 1,
+        "OBJ-PRIME-FUSION-MACHINE-CHECKED-THEOREM-PACKAGE": 1,
+        "OBJ-R043-G0-STATIONARY-FUTURE-SUFFICIENCY-CLOSURE": 1
+      }
+    },
+    "frozen_return_needs_dispatch": {
+      "all": {
+        "total": 12,
+        "P0": 0,
+        "P1": 8,
+        "P2": 4
+      },
+      "previous_directly_selected": {
+        "total": 3,
+        "P0": 0,
+        "P1": 1,
+        "P2": 2
+      },
+      "unselected_before_wave": {
+        "total": 9,
+        "P0": 0,
+        "P1": 7,
+        "P2": 2
+      },
+      "selected_this_wave": {
+        "total": 3,
+        "P0": 0,
+        "P1": 3,
+        "P2": 0
+      },
+      "unselected_after_wave": {
+        "total": 6,
+        "P0": 0,
+        "P1": 4,
+        "P2": 2
+      },
+      "unseen_parent_counts_before_wave": {
+        "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY": 1,
+        "LEGACY_CONTROL_CUTOVER_RS_A3_A4_GENERATED_SUPPORT": 1,
+        "LEGACY_CONTROL_CUTOVER_RS_P021_FOCUSING_DIRECTION": 1,
+        "OBJ-EXTERNAL-GEOMETRY-BORSUK-R6-UPPER-BOUND-PRESSURE-20260902": 1,
+        "OBJ-R043-G0-STATIONARY-FUTURE-SUFFICIENCY-CLOSURE": 1
+      }
+    },
+    "counting_rule": "Unique direct local research selections, including explicitly conditional mathematics. Each state and lease is the public reducer projection; an independent scientific result, a review and a new registration have separate authorities.",
+    "strict_remaining_P1_evidence": {
+      "task_id": "RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT",
+      "current_projection": {
+        "task_id": "RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT",
+        "parent_objective_id": "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION",
+        "priority": "P1",
+        "state": "READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "claim_id": null,
+        "lease_until": null,
+        "publication_id": "TP2-6BF7197457B000A68E78",
+        "publication_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_task_records/RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT/TP2-6BF7197457B000A68E78.json",
+        "publication_blob": "0ae603ead7695c19e7a9fbb9073cb20b81e2214b",
+        "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_tasks/P11_CORE98_EXISTING_MAGMA_MIXED_BIT_20261016.md",
+        "taskbook_blob": "fa5a7f27a939eeb2bd25260e318b0b0fc8b553b0",
+        "taskbook_dependencies": [
+          "RR-C1F5BD75CF29E3970097"
+        ],
+        "publication_dependencies": [
+          "RR-C1F5BD75CF29E3970097"
+        ],
+        "projected_result_id": null,
+        "projected_review_status": null,
+        "last_server_comment_url": null
+      },
+      "native_tool_in_local_PATH": false,
+      "public_gate_details": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixteenth/fair_snapshot.json",
+      "boundary": "One controlled Magma invocation; neither a local executable nor a fresh final audited bundle/actor-specific controlled execution admission was established. This is a different registered task and curve from the P11 odd 3-division side study."
+    },
+    "frontier_and_side_reference": {
+      "this_wave_named_math_frontiers": 5,
+      "this_wave_distinct_side_reference": 1,
+      "side_reference_task_id": "RS-P11-FIXED-233-119-CERTIFIED-2-DESCENT-RANK",
+      "cumulative_unique_reference_ids": 117,
+      "registered_parents_by_reference": 52,
+      "cumulative_unique_ids_excluding_this_side_reference": 116,
+      "registered_parents_excluding_this_side_reference": 51,
+      "strict_p1_unselected": "RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT"
+    }
+  },
+  "selection_reason": "Four previously untouched registered parent objectives are represented, including one explicitly out-of-scope odd-division side study of a P11 curve. Of six local research topics, five follow a named mathematical frontier/interface of their associated registry row, and the P11 control row remains stopped on its formal two-descent work. Three historical frozen rows are used only for named, narrower finite mathematical directions. Two parents with precisely one previous direct selection contribute the prime-bin geometry and the strict X6 observer calculation. The only untouched strict P1 is RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT; it is a distinct controlled native call requiring a verified final bundle, certified cumulative preparation debit and current actor-specific runtime authority.",
+  "selected": [
+    {
+      "task_id": "RS-P021-FOCUSING-DIRECTION",
+      "parent_objective_id": "LEGACY_CONTROL_CUTOVER_RS_P021_FOCUSING_DIRECTION",
+      "priority": "P1",
+      "state": "FROZEN_RETURN",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "lease_until": null,
+      "publication_id": "TP2-B1E5DDBA1F327733882C",
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_task_records/RS-P021-FOCUSING-DIRECTION/TP2-B1E5DDBA1F327733882C.json",
+      "publication_blob": "d5f5863f522a312d457ebfd8d4842219d8385cca",
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_tasks/LEGACY_CONTROL_MIGRATION_RS_P021_FOCUSING_DIRECTION_20260902.md",
+      "taskbook_blob": "affe058f12180bd9fdd41a2e927caa2969879982",
+      "taskbook_dependencies": [
+        {
+          "target": "A2/P023 future-compatible quotient machinery",
+          "action": "CONSUME",
+          "satisfied": true
+        },
+        {
+          "target": "A4 correspondence/witness machinery",
+          "action": "CONSUME",
+          "satisfied": true
+        }
+      ],
+      "publication_dependencies": null,
+      "projected_result_id": "RR-06A45D203EB113C38A55",
+      "projected_review_status": "NOT_REVIEWED",
+      "last_server_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5564217587",
+      "prior_direct_selections_same_parent": 0,
+      "dependency_evidence": [
+        {
+          "kind": "published semantic prerequisite",
+          "published_entry": {
+            "target": "A2/P023 future-compatible quotient machinery",
+            "action": "CONSUME",
+            "satisfied": true
+          }
+        },
+        {
+          "kind": "published semantic prerequisite",
+          "published_entry": {
+            "target": "A4 correspondence/witness machinery",
+            "action": "CONSUME",
+            "satisfied": true
+          }
+        }
+      ],
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "research_entry": "Use a separately specified finite fine-witness carrier and explicit fiber capacities to study multiplicity transport. The archived Result closes the class-level common-order path count and provenance recurrence; it did not infer physical focusing. As an independent mathematical consequence this does not reopen the frozen registration.",
+      "source_scientific_evidence": [
+        "https://github.com/awdawmip/enterprise-math/pull/1362",
+        "https://github.com/awdawmip/enterprise-math/blob/01184202ae9c7e08de560fec0e571c3c7a3a096b/research_returns/P021_IDENTITY_MULTIPLICITY_PROVENANCE_TRANSPORT_RETURN_20260907.md",
+        "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5564217587"
+      ],
+      "formal_results_present_on_main": [],
+      "execution_records_on_main": []
+    },
+    {
+      "task_id": "RS-R043C7-ROOT-LOCAL-JX-REALIZABLE-COMPLETION-ORBIT-CLASSIFICATION",
+      "parent_objective_id": "OBJ-R043-G0-STATIONARY-FUTURE-SUFFICIENCY-CLOSURE",
+      "priority": "P1",
+      "state": "FROZEN_RETURN",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "lease_until": null,
+      "publication_id": "TP2-26BA767D9D669F1A7534",
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_task_records/RS-R043C7-ROOT-LOCAL-JX-REALIZABLE-COMPLETION-ORBIT-CLASSIFICATION/TP2-26BA767D9D669F1A7534.json",
+      "publication_blob": "d56ee99dcf22d36165cf26433ed11d2b4028b419",
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_tasks/R043C7_ROOT_LOCAL_JX_REALIZABLE_COMPLETION_ORBIT_CLASSIFICATION_20260828.md",
+      "taskbook_blob": "8a3109f5e20e48f8c629587e1dc78ad75003731f",
+      "taskbook_dependencies": [
+        "driver_reviews/R043C6_SINGLE_COMPONENT_ROOTED_SUCCESSOR_EXTENSION_RIGIDITY_DRIVER_REVIEW_20260828.md@main",
+        "research_result_records/RS-R043C6-SINGLE-COMPONENT-ROOTED-SUCCESSOR-EXTENSION-RIGIDITY/RR-8D9FB5AF4B6388F62765.json@main",
+        "research_returns/R043C6_SINGLE_COMPONENT_ROOTED_SUCCESSOR_EXTENSION_RIGIDITY_RETURN_20260827.md@main",
+        "driver_reviews/R043C5_OCTAHEDRAL_OPPOSITE_PAIR_GLOBAL_REALIZABILITY_DRIVER_REVIEW_20260827.md@main"
+      ],
+      "publication_dependencies": null,
+      "projected_result_id": "RR-B20ACEF05B1AB6604906",
+      "projected_review_status": "NOT_REVIEWED",
+      "last_server_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5488563653",
+      "prior_direct_selections_same_parent": 0,
+      "dependency_evidence": [
+        {
+          "ref": "driver_reviews/R043C6_SINGLE_COMPONENT_ROOTED_SUCCESSOR_EXTENSION_RIGIDITY_DRIVER_REVIEW_20260828.md@main",
+          "source_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/driver_reviews/R043C6_SINGLE_COMPONENT_ROOTED_SUCCESSOR_EXTENSION_RIGIDITY_DRIVER_REVIEW_20260828.md",
+          "present_at_pinned_main": true,
+          "blob_sha1": "ad80142c723baf2562e073cc4b73a0e88358f3bd"
+        },
+        {
+          "ref": "research_result_records/RS-R043C6-SINGLE-COMPONENT-ROOTED-SUCCESSOR-EXTENSION-RIGIDITY/RR-8D9FB5AF4B6388F62765.json@main",
+          "source_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_result_records/RS-R043C6-SINGLE-COMPONENT-ROOTED-SUCCESSOR-EXTENSION-RIGIDITY/RR-8D9FB5AF4B6388F62765.json",
+          "present_at_pinned_main": true,
+          "blob_sha1": "6aa018b27ef7048a49889c6c760cfaff8cc14a78"
+        },
+        {
+          "ref": "research_returns/R043C6_SINGLE_COMPONENT_ROOTED_SUCCESSOR_EXTENSION_RIGIDITY_RETURN_20260827.md@main",
+          "source_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_returns/R043C6_SINGLE_COMPONENT_ROOTED_SUCCESSOR_EXTENSION_RIGIDITY_RETURN_20260827.md",
+          "present_at_pinned_main": true,
+          "blob_sha1": "6a02cf96b209c7260eb1f79bb92d37a2e326d5a8"
+        },
+        {
+          "ref": "driver_reviews/R043C5_OCTAHEDRAL_OPPOSITE_PAIR_GLOBAL_REALIZABILITY_DRIVER_REVIEW_20260827.md@main",
+          "source_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/driver_reviews/R043C5_OCTAHEDRAL_OPPOSITE_PAIR_GLOBAL_REALIZABILITY_DRIVER_REVIEW_20260827.md",
+          "present_at_pinned_main": true,
+          "blob_sha1": "744fafe0a967545df93f1502b928c3a0fc3c43b5"
+        }
+      ],
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "research_entry": "The original root-shell orbit classification pins a reduced K_x problem on the 42/44-slot second shell, under the classified root-shell stabilizer. Examine only the pointed/colored port-gluing interface under the stated equivalence. A formally registered successor requires Driver review/acceptance; the independent mathematics does not change the claimed status of the original Result or assert raw observation sufficiency.",
+      "source_scientific_evidence": [
+        "https://github.com/awdawmip/enterprise-math/blob/d5faa8aa3f7f9153f716fcf0c5963b3f59586570/research_returns/R043C7_ROOT_LOCAL_JX_REALIZABLE_COMPLETION_ORBIT_CLASSIFICATION_RETURN_20260901.md",
+        "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5488563653"
+      ],
+      "formal_results_present_on_main": [],
+      "execution_records_on_main": []
+    },
+    {
+      "task_id": "RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE",
+      "parent_objective_id": "OBJ-EXTERNAL-GEOMETRY-BORSUK-R6-UPPER-BOUND-PRESSURE-20260902",
+      "priority": "P1",
+      "state": "FROZEN_RETURN",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "lease_until": null,
+      "publication_id": "TP2-75A6C3F81E2D094B67CF",
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_task_records/RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE/TP2-75A6C3F81E2D094B67CF.json",
+      "publication_blob": "1c0df15abbee12e385528c8ab72c7f5556f37621",
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_tasks/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_REVALIDATION_GEN2_20260902.md",
+      "taskbook_blob": "98d2c500a84d1b7dfe75327925567b8700dcb118",
+      "taskbook_dependencies": [
+        "RR-440E83B6F8C06F0808D8",
+        "DR-4C239DD3C0C251A78E45",
+        "RR-68BA014D54542DA7221C"
+      ],
+      "publication_dependencies": null,
+      "projected_result_id": "RR-E4CA978B5A377CE0506E",
+      "projected_review_status": "NOT_REVIEWED",
+      "last_server_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5769039237",
+      "prior_direct_selections_same_parent": 0,
+      "dependency_evidence": [
+        {
+          "ref": "RR-440E83B6F8C06F0808D8",
+          "source_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_result_records/RS-GEO7-BORSUK-6D-DIAMETER-PARTITION-NATIVE-BRIDGE/RR-440E83B6F8C06F0808D8.json",
+          "git_blob_sha1": "db92a29d230100d8cbd23b7d3bd3e1388e1b843b",
+          "linked_reviews": [
+            {
+              "review_id": "DR-4C239DD3C0C251A78E45",
+              "disposition": "ACCEPTED",
+              "url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_result_reviews/RR-440E83B6F8C06F0808D8/DR-4C239DD3C0C251A78E45.json"
+            }
+          ]
+        },
+        {
+          "ref": "DR-4C239DD3C0C251A78E45",
+          "source_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_result_reviews/RR-440E83B6F8C06F0808D8/DR-4C239DD3C0C251A78E45.json",
+          "git_blob_sha1": "6d093e61a4e497b5a33c5eb40b317735241b7f44",
+          "disposition": "ACCEPTED"
+        },
+        {
+          "ref": "RR-68BA014D54542DA7221C",
+          "source_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_result_records/RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE/RR-68BA014D54542DA7221C.json",
+          "git_blob_sha1": "c6d4806e9b5d353b54fbc42048aabd3279f7adc3",
+          "linked_reviews": []
+        }
+      ],
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "research_entry": "The frozen K33 result rules out merging whole Lassak atoms, and the 10/7 obstruction treats a specific center-fixed untruncated template. Examine exact restricted subconfigurations of split/reassigned vertices, allowing cuts not available under whole-atom coarsening. Conclusions at this finite template cannot give a universal Borsuk number or provide a branch registration. The previous Gen2 task was a current-policy no-mathematical-drift revalidation.",
+      "source_scientific_evidence": [
+        "https://github.com/awdawmip/enterprise-math/pull/1099",
+        "https://github.com/awdawmip/enterprise-math/blob/bb09f701efb3638fd6cef30ce984e34f754a6cb1/research_returns/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_RETURN_20260902.md",
+        "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5769039237"
+      ],
+      "formal_results_present_on_main": [
+        "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_result_records/RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE/RR-68BA014D54542DA7221C.json"
+      ],
+      "execution_records_on_main": [
+        "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_execution_records/RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE/ER-AA5C5560AFB93E34BF60.json"
+      ]
+    },
+    {
+      "task_id": "RS-P11-FIXED-233-119-CERTIFIED-2-DESCENT-RANK",
+      "parent_objective_id": "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION",
+      "priority": "P1",
+      "state": "HANDOFF_READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "lease_until": null,
+      "publication_id": "TP2-C50DB3029E7C4D680498",
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_task_records/RS-P11-FIXED-233-119-CERTIFIED-2-DESCENT-RANK/TP2-C50DB3029E7C4D680498.json",
+      "publication_blob": "52d411fd23c5328aaec5b973fa4d9d1150e68f70",
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_tasks/P11_FIXED_233_119_CERTIFIED_2_DESCENT_RANK_BUDGET_V2_20261016.md",
+      "taskbook_blob": "dbbfc189b7d4a005aac8d67cbb1e30a8dffa1518",
+      "taskbook_dependencies": [
+        "RR-C1F5BD75CF29E3970097"
+      ],
+      "publication_dependencies": [
+        "RR-C1F5BD75CF29E3970097"
+      ],
+      "projected_result_id": null,
+      "projected_review_status": null,
+      "last_server_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6206805737",
+      "prior_direct_selections_same_parent": 0,
+      "dependency_evidence": [
+        {
+          "ref": "RR-C1F5BD75CF29E3970097",
+          "source_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_result_records/RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC/RR-C1F5BD75CF29E3970097.json",
+          "git_blob_sha1": "0a681b61b006dd77e215bba736e308f48d836643",
+          "linked_reviews": [
+            {
+              "review_id": "DR-2F805343ED6728A5CD35",
+              "disposition": "ACCEPTED",
+              "url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_result_reviews/RR-C1F5BD75CF29E3970097/DR-2F805343ED6728A5CD35.json"
+            }
+          ]
+        }
+      ],
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "research_entry": "This ID is a subject-matter pointer only. The latest actual handoff stopped all same-publication mathematical work on the bounded two-descent certificate and retained owner custody. Wave twenty uses only the publicly specified curve y^2=x(x-233^2)(x-119^2) for a distinct portable odd three-division/affine-Frobenius question. No rank or 2-primary certificate, consent, budget change, controlled invocation, formal execution, or result acceptance follows. This is the first local coverage of its registered parent, reported separately from native progress.",
+      "source_scientific_evidence": [
+        "https://github.com/awdawmip/enterprise-math/blob/a4bc616941ea24b468321a9a9fef2abff73d047b/research_artifacts/mcp/RS-P11-FIXED-233-119-CERTIFIED-2-DESCENT-RANK/MCP-387e35a6a7d24e8cb2c44e361b9ce5b9/e61b5751d0e8fd837a98/_checkpoint.json",
+        "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6206805737"
+      ],
+      "formal_results_present_on_main": [],
+      "execution_records_on_main": [
+        "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_execution_records/RS-P11-FIXED-233-119-CERTIFIED-2-DESCENT-RANK/ER-F4770C8DBD11756650FA.json"
+      ]
+    },
+    {
+      "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL",
+      "parent_objective_id": "PROGRESSIVE_PLANE_PRIME_SEMIPRIME_COORDINATE_DISCOVERY",
+      "priority": "P2",
+      "state": "HANDOFF_READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "lease_until": null,
+      "publication_id": "TP2-D44C166C4C87CEC167E7",
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_task_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL/TP2-D44C166C4C87CEC167E7.json",
+      "publication_blob": "17725ca99b98262e822b8b86bcbba1273a30df2a",
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_tasks/PRIME_FACTOR_SEMIPRIME_SHELL_SECOND_ORDER_DENSITY_NULL_20260828.md",
+      "taskbook_blob": "2d3fac6df6bd26aba8a4695346898150882e95de",
+      "taskbook_dependencies": [
+        "research_tasks/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_20260827.md@main"
+      ],
+      "publication_dependencies": null,
+      "projected_result_id": "RR-9F084B92BE8261F3A8D7",
+      "projected_review_status": "NOT_REVIEWED",
+      "last_server_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5696801272",
+      "prior_direct_selections_same_parent": 1,
+      "dependency_evidence": [
+        {
+          "ref": "research_tasks/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_20260827.md@main",
+          "source_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_tasks/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_20260827.md",
+          "present_at_pinned_main": true,
+          "blob_sha1": "079343422a312abc99eebba5696c03538820b024"
+        }
+      ],
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "research_entry": "Use only the arithmetic geometry of the 32 public frozen bins and prime number theorem estimates for the deterministic population. The completed support/covariance audit found a degenerate null and left the two holdouts unopened; the new calculation is neither a stochastic redesign nor a claim for or against the untested residual.",
+      "source_scientific_evidence": [
+        "https://github.com/awdawmip/enterprise-math/blob/19d969b60b92eefee5464f1b3b91282dc8048c38/research_result_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL/RR-9F084B92BE8261F3A8D7.json",
+        "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5696801272"
+      ],
+      "formal_results_present_on_main": [
+        "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_result_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL/RR-9F084B92BE8261F3A8D7.json"
+      ],
+      "execution_records_on_main": [
+        "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_execution_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL/ER-6E7133A0CAAE69091AA7.json"
+      ]
+    },
+    {
+      "task_id": "RS-BRC-X6-OBSERVER-CLOSURE-20261003",
+      "parent_objective_id": "BRC-BASELINE-RESIDUAL-LAWS",
+      "priority": "P2",
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "lease_until": null,
+      "publication_id": "TP2-2311D81E085BE60EBAF7",
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_task_records/RS-BRC-X6-OBSERVER-CLOSURE-20261003/TP2-2311D81E085BE60EBAF7.json",
+      "publication_blob": "4285cf84e20345d5b316418a39bdeabd106a7bef",
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_tasks/RS-BRC-X6-OBSERVER-CLOSURE-20261003.md",
+      "taskbook_blob": "517ffa33875e2fa17d7a2ff1cbdd4e8419dcc0be",
+      "taskbook_dependencies": [],
+      "publication_dependencies": [],
+      "projected_result_id": null,
+      "projected_review_status": null,
+      "last_server_comment_url": null,
+      "prior_direct_selections_same_parent": 1,
+      "dependency_evidence": [],
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "research_entry": "The strict READY task can start independently. From the public specified X6 conditional finite carrier and x1 indicator observation, compute the rational pullback closure for a fixed transition and for arbitrary admissible generator words. Record any different sufficient dimensions and a separating initial distribution as the case requires. Earlier finite native-data regressions and coordinate-marginal counterexamples are inputs, not proofs of the new all-time closure.",
+      "source_scientific_evidence": [
+        "https://github.com/awdawmip/enterprise-math/blob/5e79f9fc5e09fe53789512c75970fd3edd652207/research_tasks/RS-BRC-X6-OBSERVER-CLOSURE-20261003.md"
+      ],
+      "formal_results_present_on_main": [],
+      "execution_records_on_main": []
+    }
+  ],
+  "subsequent_readback": {
+    "checked_at": "2026-11-18T16:08:27Z",
+    "main": "93cbeb9458708fc108c6af4bfcdfdc3b0f51fddc",
+    "compare_url": "https://github.com/awdawmip/enterprise-math/compare/5e79f9fc5e09fe53789512c75970fd3edd652207...93cbeb9458708fc108c6af4bfcdfdc3b0f51fddc",
+    "commits": 3,
+    "paths": 3,
+    "scope": "One unrelated R284U mathematical note, one non-authoritative activity record, one readback. No new registry, review, lease or other Issue event. The current issue tail remains 6982594383."
+  }
+}

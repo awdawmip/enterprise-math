@@ -64,3 +64,5 @@
 - [第十八轮六个父目标](eighteenth/README.md)涵盖随尺度增长的 Eisenstein 角模、真实三层干涉、Clausen 奇异系数，以及 A3 标记、有限模读出和二幂模回返。
 
 - [第十九轮六个父目标](nineteenth/README.md)　固定素因子数的两种邻接次序、完整 Ramanujan 块的替换能量，以及三扇区联合密度、Franel 一阶商、实际 Prym 范数壳和 FCC 纠错。
+
+- [第二十轮六个父目标](twentieth/README.md)　固定椭圆曲线的三进等分塔、半素数壳的严格排序和模 18 计数律，以及细见证、晶格腔室、透镜覆盖与有限观察。
