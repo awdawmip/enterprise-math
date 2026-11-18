@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/twentyfourth/horizon_protocol.json",
+    "ref": "fc6883e762d29e0edfd228c461000bf0f7217b95",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-twentyfour-20261118-14",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"id\": \"BRC-X6-long-13-W24-v1\",\n  \"states\": \"r0,...,r11,o as in RS-BRC-X6-LONG-HORIZON-20261003\",\n  \"a_b_d_and_initial_laws\": [\n    [\"drift\",\"1/2\",\"1/4\",\"0\",\"r0\",\"r1\"],\n    [\"opposite\",\"1/2\",\"1/4\",\"0\",\"r0\",\"r6\"],\n    [\"bipartite\",\"1/2\",\"1/2\",\"0\",\"r0\",\"r1\"],\n    [\"near_parity\",\"131071/262144\",\"131071/262144\",\"0\",\"even\",\"odd\"],\n    [\"slow_reset\",\"1/65536\",\"1/65536\",\"1/131072\",\"r0\",\"r6\"],\n    [\"near_shift\",\"65535/65536\",\"1/65536\",\"0\",\"r0\",\"r1\"],\n    [\"reset_drift\",\"1/4\",\"1/8\",\"1/2\",\"r0\",\"r1\"],\n    [\"old_anchor_control\",\"1/2\",\"0\",\"0\",\"r0\",\"o\"]\n  ],\n  \"even_odd\": \"uniform on the six ring nodes of the matching parity\",\n  \"n_inclusive\": [0,65536],\n  \"no_extension\": true,\n  \"train_inclusive\": [1,4096],\n  \"holdout_inclusive\": [4097,65536],\n  \"train_sensitivity_predefined\": [[1,256],[257,4096]],\n  \"target_for_candidate_scoring\": \"full endpoint TV at every integer n; ordinary least squares on log(y-P), raw absolute RMSE on each window, include every y>=1e-8; skip invalid or unidentified parameters; signed first-axis contrast scored separately\",\n  \"fixed_plateau\": \"period12 fitted by residue class arithmetic means; pure exponential and power fit with P=0, plateau+exp with P=0.5 fixed; exact analytic plateau from each case is a separate diagnostic\",\n  \"fit_floor\": 1e-8,\n  \"joint\": [[0,1,2],[3,4,5]],\n  \"scalar\": \"first raw coordinate (Bernoulli), for each probability law separately\",\n  \"exact_block\": 256,\n  \"spectrum_reference\": \"13x13 eigenvalues and exact short independent word/origin branching through n=24\",\n  \"direct\": \"binary64 full mu,nu and separately propagated signed delta through all 65537 times\",\n  \"low_frequency_comparison\": \"training and untouched holdout; parity sign, Fourier envelope and slow reset time scales fixed before run\"\n}\n",
+      "display_title": "horizon_protocol.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/fc6883e762d29e0edfd228c461000bf0f7217b95/research_notes/portable_direct/20261118_fair_queue_6b0fba/twentyfourth/horizon_protocol.json",
+      "encoding": "utf-8",
+      "sha": "75b2ab07852b0bb32935d1d9b1ffce107036fc23"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
