@@ -1,0 +1,136 @@
+{
+  "schema": "EM_R762DT_AUTHOR_CHECK_V1",
+  "date": "2026-11-18",
+  "status": "PASS",
+  "arithmetic": "exact F3 augmentation recurrence; independent numpy int64 cyclic monomial recurrence mod 3^12",
+  "review": "NOT_REVIEWED",
+  "proof": "all a>=1; exact augmentation support and nilpotence index Q=3^a",
+  "augmentation_cases": 120,
+  "augmentation_runs": [
+    {
+      "Q": 3,
+      "n_checked": "0..2",
+      "nilpotence_at_n_eq_Q": true
+    },
+    {
+      "Q": 9,
+      "n_checked": "0..8",
+      "nilpotence_at_n_eq_Q": true
+    },
+    {
+      "Q": 27,
+      "n_checked": "0..26",
+      "nilpotence_at_n_eq_Q": true
+    },
+    {
+      "Q": 81,
+      "n_checked": "0..80",
+      "nilpotence_at_n_eq_Q": true
+    }
+  ],
+  "monomial_runs": [
+    {
+      "Q": 9,
+      "n_checked": "1..30",
+      "modulus": 531441,
+      "formula_disagreements": 0,
+      "mass_checks": 30,
+      "boundary": [
+        {
+          "n": 8,
+          "v3": 0
+        },
+        {
+          "n": 9,
+          "v3": 1
+        },
+        {
+          "n": 11,
+          "v3": 1
+        },
+        {
+          "n": 12,
+          "v3": 2
+        },
+        {
+          "n": 14,
+          "v3": 2
+        },
+        {
+          "n": 15,
+          "v3": 3
+        }
+      ],
+      "final_vector_digest_sha256": "c0dcc331c733ad306f010afa936681e0a4834656f5efbde90f0019b69a336c22"
+    },
+    {
+      "Q": 27,
+      "n_checked": "1..85",
+      "modulus": 531441,
+      "formula_disagreements": 0,
+      "mass_checks": 85,
+      "boundary": [
+        {
+          "n": 26,
+          "v3": 0
+        },
+        {
+          "n": 27,
+          "v3": 1
+        },
+        {
+          "n": 35,
+          "v3": 1
+        },
+        {
+          "n": 36,
+          "v3": 2
+        },
+        {
+          "n": 44,
+          "v3": 2
+        },
+        {
+          "n": 45,
+          "v3": 3
+        }
+      ],
+      "final_vector_digest_sha256": "96e460e06077bdac25907d1651c1a3310259a36785fc51b11414f39334818059"
+    },
+    {
+      "Q": 81,
+      "n_checked": "1..147",
+      "modulus": 531441,
+      "formula_disagreements": 0,
+      "mass_checks": 147,
+      "boundary": [
+        {
+          "n": 80,
+          "v3": 0
+        },
+        {
+          "n": 81,
+          "v3": 1
+        },
+        {
+          "n": 107,
+          "v3": 1
+        },
+        {
+          "n": 108,
+          "v3": 2
+        },
+        {
+          "n": 134,
+          "v3": 2
+        },
+        {
+          "n": 135,
+          "v3": 3
+        }
+      ],
+      "final_vector_digest_sha256": "aceb8350c004b3315689e223572a111d23c8508d45376aefaf013a13d781b27d"
+    }
+  ],
+  "scope_note": "General three-adic content formula at all a>=2,n>=0 is a conjecture; finite monomial runs establish only listed exact input ranges. Signed native Port event permission unverified."
+}
