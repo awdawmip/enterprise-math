@@ -46,7 +46,7 @@ class ActivityError(ValueError):
 
 
 def encoded(value: Any) -> bytes:
-    return (json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode("utf-8")
+    return (json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True, allow_nan=False) + "\n").encode("utf-8")
 
 
 def digest(data: bytes) -> str:
@@ -250,6 +250,25 @@ def _source(source: Any, activity_id: str) -> tuple[dict[str, Any], tuple[str, b
     return accepted, (accepted["verification_receipt"], data)
 
 
+def _receipt_observation(data: bytes) -> Any:
+    """Parse the exact hashed receipt without ambiguous or non-JSON values."""
+    def unique_object(items: list[tuple[str, Any]]) -> dict[str, Any]:
+        value: dict[str, Any] = {}
+        for key, item in items:
+            if key in value:
+                raise ActivityError("duplicate JSON key in observation receipt")
+            value[key] = item
+        return value
+
+    def reject_constant(value: str) -> Any:
+        raise ActivityError("non-JSON numeric constant in observation receipt")
+
+    try:
+        return json.loads(data, object_pairs_hook=unique_object, parse_constant=reject_constant)
+    except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+        raise ActivityError("invalid observation receipt JSON") from exc
+
+
 def _verify_readback(activity_id: str, receipt_sha: str,
                      pin: tuple[str, str, str, str], data: bytes) -> dict[str, Any]:
     actual_sha = digest(data)
@@ -257,13 +276,13 @@ def _verify_readback(activity_id: str, receipt_sha: str,
         raise ActivityError("verification receipt bytes drift")
     repository, commit, path, source_sha = pin
     source = {"repository": repository, "commit": commit, "path": path, "sha256": source_sha}
-    observation = json.loads(data)
+    observation = _receipt_observation(data)
     verified = verify_observation(observation, source)
-    canonical_data = encoded(observation)
-    # Preserve the existing canonical receipt binding. Reuse a digest only for
-    # the exact bytes already hashed, never for a different JSON serialization.
-    canonical_sha = actual_sha if canonical_data == data else digest(canonical_data)
-    return _observed_source(source, verified, activity_id, canonical_sha)
+    # The receipt path and declared SHA identify these persisted bytes. New
+    # writes use encoded(), but a reader must not replace a genuine raw-byte
+    # identity with the hash of its own JSON re-encoding. All parsed source and
+    # verification fields still undergo the same full comparison below.
+    return _observed_source(source, verified, activity_id, actual_sha)
 
 
 def _checked_source(source: Any, activity_id: str, root: Path,
