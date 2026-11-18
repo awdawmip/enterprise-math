@@ -1,0 +1,124 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_DELTA_V1",
+  "status": "AUTHOR_SOURCE_VERIFIED_BOUNDED_UNREVIEWED_NOT_ADMITTED",
+  "date": "2026-11-18",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "base_ledger": {
+    "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger.json",
+    "blob": "dd320430dd8a107db0d1a5ba44e061aa150fa6f0",
+    "entries": 8,
+    "mutated": false
+  },
+  "prior_delta": {
+    "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit133_delta.json",
+    "blob": "012917774f46f42cb8795a07b7a300a16685dea4",
+    "entries": 6,
+    "mutated": false
+  },
+  "frozen_science": {
+    "p000": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "pre_rebase": "fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "source_scope": "12 complete frozen src/test bodies; 7 modules, 5 direct test imports, exact blob comparison to current main",
+  "claims": [
+    {
+      "id": "X6-CL-015",
+      "lp_tags": [
+        "LP-003",
+        "LP-005"
+      ],
+      "origin_kind": "FROZEN_PRE_REBASE_PACKAGE_TYPE_GUARD",
+      "old_source": {
+        "path": "src/enterprise_math/diagonal_quotient.py",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "blob": "3ac387c0103665943f13ba9e306a6167080c701d",
+        "lines": "26-48"
+      },
+      "old_statement": "Frozen quotient as_triple and diagonal_shift accepted isinstance(bool,int) with Boolean coordinate/shift values despite declared integer input types.",
+      "old_semantic_type": "DERIVED_RELATIVE_QUOTIENT_IMPLEMENTATION_INPUT_TYPE",
+      "status": "NO_CHANGE",
+      "corrected_statement": "Current source replaces those two integer guards with type(value) is int and type(k) is int. Preserves mathematically valid min-zero quotient and strict declared integer coordinates; does not promote quotient to native Cell identity.",
+      "current_evidence": {
+        "path": "src/enterprise_math/diagonal_quotient.py",
+        "blob": "a527e347e33d0a0039258a9b25f48b1f1466d149",
+        "lines": "26-48"
+      },
+      "experimental_evidence": {
+        "script": "research_checks/X6_UNIT134_FROZEN_DIAGONAL_BOOL_GUARD_CHECK_20261118.py",
+        "certificate": "research_checks/X6_UNIT134_FROZEN_DIAGONAL_BOOL_GUARD_RESULTS_20261118.json",
+        "model": "two exact source guards replicated; original package not imported",
+        "tuples": 125,
+        "frozen_accepted": 125,
+        "current_accepted": 27,
+        "bool_contaminated_excluded": 98,
+        "shifts": 625,
+        "frozen_shift_accepted": 625,
+        "current_shift_accepted": 81,
+        "modes": [
+          "normal",
+          "-O",
+          "-OO"
+        ],
+        "stdout_sha256": "25d3052b98653ba7d03d15b0b5db4ce37f41d497e609b457c85ddc18bdabe57b"
+      },
+      "downstream": [
+        "typed G1 derived quotient input",
+        "LP003/LP005 observer depth reconstruction"
+      ],
+      "repository_action": "CURRENT_CODE_CORRECTION_ALREADY_PRESENT; keep quotient vs native boundary; do not modify frozen source or rerun original benchmark"
+    },
+    {
+      "id": "X6-CL-016",
+      "lp_tags": [
+        "LP-011",
+        "LP-019"
+      ],
+      "origin_kind": "FROZEN_PACKAGE_TEST_TYPED_EXCLUSION",
+      "old_source": {
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "lines": "1-8,24-38,56-61"
+      },
+      "old_statement": "Lexical signed/cancellation/subtract candidates in a historical BRC-named implementation could be misattributed to LP019 natural N-BRC cancellation.",
+      "old_semantic_type": "POSITIVE_RATIONAL_RECURRENT_MASS_AND_MATRIX_LINEAR_ALGEBRA",
+      "status": "UNRESOLVED_PROVENANCE",
+      "corrected_statement": "Exact `_subtract` at lines56-61 subtracts Fraction-valued matrices; module explicitly excludes signed/amplitude cancellation. No verified natural N-BRC subtraction or signed-native dominance use occurs in this module and its selected direct test. The alleged distinct historical wrong caller remains unlocated.",
+      "current_evidence": {
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "lines": "1-8,56-61",
+        "direct_test": "tests/test_brc_weighted_recurrent.py",
+        "test_blob": "bc32a22ae6596c73f4947ebb239671ad31e099bd"
+      },
+      "other_scoped_exclusions": [
+        "src/enterprise_math/signed.py => P006 integer root not spatial signed axis",
+        "src/enterprise_math/brc_histogram.py => positive rational branch weight maxima",
+        "src/enterprise_math/precision_signed_holonomy.py => scalar quotient defect transport",
+        "src/enterprise_math/brc_weighted.py => signed weights rejected",
+        "src/enterprise_math/exact_arithmetic.py => integer division/root BRC trace"
+      ],
+      "downstream": [
+        "historical LP011 alleged native argmax",
+        "historical LP019 alleged natural N-BRC subtraction"
+      ],
+      "repository_action": "KEEP source-scoped negative result, do not assign unsupported fault or overwrite existing prior claims"
+    }
+  ],
+  "new_source_report": {
+    "path": "research_notes/X6_UNIT134_FROZEN_SRC_TYPED_IMPORTS_AND_BOOLEAN_COORDINATE_BOUNDARY_20261118.md",
+    "commit": "1a668f9e69cdf02fe2917c4cea1522e9d7d5cab2",
+    "blob": "f028c824e59cfd2e34d5d4db4daf86aa32dc77f8"
+  },
+  "review": "UNREVIEWED",
+  "admission": "NOT_ADMITTED",
+  "formal_task_closed": false,
+  "unresolved": [
+    "28-LP actual active consumer census still partial",
+    "Alleged LP011 signed-native bad argmax caller still unlocated",
+    "Alleged LP019 natural N-BRC positive subtraction caller still unlocated",
+    "Current native Source custody path check needs maintenance fix and fresh same-own-run validation; no Native semantic PROGRESS was sent"
+  ]
+}
