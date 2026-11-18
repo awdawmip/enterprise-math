@@ -52,9 +52,16 @@ def power(g,n):
     return out
 
 def midpoint_options(a,b):
-    if not (brc.shortest_event_count(sub(b,a))==2): raise AssertionError('triadic_assert_line_55')
-    if not (brc.shortest_path_multiplicity(sub(b,a))==2): raise AssertionError('triadic_assert_line_56')
-    return (ZERO, add(a,b))
+    # An L1=2, BRC=2 displacement has two distinct signed native unit steps.
+    d=sub(b,a)
+    if not (brc.shortest_event_count(d)==2): raise AssertionError('triadic_assert_line_55')
+    if not (brc.shortest_path_multiplicity(d)==2): raise AssertionError('triadic_assert_line_56')
+    steps=[unit(i,1 if v>0 else -1) for i,v in enumerate(d) if v]
+    mids=tuple(add(a,step) for step in steps)
+    # Preserve historical anchored triad branch 0 = ZERO for existing callers.
+    if ZERO in mids:
+        return (ZERO, mids[1] if mids[0]==ZERO else mids[0])
+    return mids
 
 # 20 selections x 8 sign patterns. Exactly one joint shortest branch
 # has a shared intermediate Cell, namely III at the pivot.
