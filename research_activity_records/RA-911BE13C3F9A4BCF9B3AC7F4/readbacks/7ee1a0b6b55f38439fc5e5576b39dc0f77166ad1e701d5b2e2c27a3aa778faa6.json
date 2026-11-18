@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/twelfth/README.md",
+    "ref": "50295814d7f4757e605c661d829c20bba5e9d23d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-twelve-20261118-2",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第十二轮：连续与离散 RH 能量的差、Wallis 相位区间及四个旁支\n\n从状态机的 211 项 READY / NEEDS_DISPATCH 中轮到六个不同父目标各一项，首次覆盖离散实验兼容性与二进阶碰撞文献归属。十二轮累计有实质推导或有源复算的任务为 69 项，分属 36 个登记父目标。本快照中尚未轮到 144 项，其中 P1 四项、P2 一百四十项。P1 的本轮结果有一个尚未正式验收的前置，以下单列其数学范围。[队列、前置与来源](fair_snapshot.json)\n\n| 分支 | 提取的结果及适用范围 |\n|---|---|\n| 合数道路 RH | 连续能量 $Q_a$ 和整数中点能量 $D_a$ 的差有严格符号。若 RH 成立，$Q_a-D_a=C_{\\rm cell}a^2+O(a^3)$，且 $C_{\\rm cell}\\le\\pi^2/72-1/3<0$。该系数由加权的切比雪夫误差平方表示，离散量继承连续量的零点重数斜率。完成函数的显式伽马修正恰在正参数 $a<1$ 有限。19 个论断逐项列出来源、条件与未决点。[推导](road.md) · [论断账本](claim_audit.json) · [复算](road_check.py) · [有限结果](road_checked.json) |\n| Wallis 首模 | 相位的归一化生成函数是一个乘积 Beta 分布的 Stieltjes 积分。固定 $m_0,\\ldots,m_{2n-1}$，支撑包含于 $[0,1]$ 的概率测度给出的上下端可由 Gauss 与 Gauss–Lobatto 求积精确达到。将其用于分辨率 $q=16$，取 $n=2,4,8$ 分别保证 32、67、137 个二进制绝对精度位。378 个系数由独立展开复算。[公式与余项](wallis.md) · [程序](wallis_check.py) · [有理区间](wallis_checked.json) |\n| 有限交换群与文献归属 | 两个奇素数上均匀单位的二进阶深度相同的概率为 $(4^m+2)/(3\\cdot2^{A+B})$，其中 $A=v_2(p-1), B=v_2(q-1), m=\\min(A,B)$。精确几何和已有文献。多组元素的计数可转成两个行向量生成同一循环子群的有序对数。强伪素数还受奇部约束，例如模 21 两种计数分别是 6 与 2。[文献原页与对应](literature.md) · [复算](literature_check.py) · [有限计数](literature_checked.json) |\n| 四设置二元联合分布 | 四个无偏设置的不同号概率组成 $p\\in[0,1]^4$。到设置独立局域模型的最小最坏设置总变差恰为 $\\frac14\\max_{v\\ {\\rm odd}}(1-\\lVert p-v\\rVert_1)_+$，其中 $v$ 遍历四位奇校验串。625 个有理点检验，280 个非局域点均构造了最近局域分布。实际 X6 仍缺生成观测联合分布的准备与读出规则。[证明与缺项](compatibility.md) · [15 项接口](compatibility_interfaces.json) · [复算](compatibility_check.py) · [结果](compatibility_checked.json) |\n| 整数输运 | 在周期迎风、Courant 数 $1/8$ 的整数量化模型中，若仅在 $e$ 个时间层向下丢弃格面余数，则所有未来时刻的任意单元误差、连续区间总量误差、单格面累计通量误差均至多 $e$ 个量子。一次截断的界可达到。要求精确重启时，已知均匀场及同一全局直方图仍可需要 $n\\log_2\\varphi-O(\\log n)$ 个额外位置比特。速度与峰值内存收益待实测。[比较定理与构造](residual.md) · [整数核验](residual_check.py) · [长时测试](residual_horizon_checked.json) |\n| P1 两操作交错 | 两项各有 $L$ 步的操作在第 $j$ 步取得共享资源并持有至末步，允许依次取得的交错数为 $2\\binom{L+j-1}{j-1}$。$L=5,j=2$ 时共 252 种交错，12 种满足时序，移动端点的地址复核使双成功数降至 9。四种资源关系共 1,008 个调度。T03 的来源轨迹可重放，其正式前置仍未验收。[模型与加权多项式](priority.md) · [复算](priority_check.py) · [结果](priority_checked.json) · [逐调度表](interleavings.json.gz) |\n\n两个方向可以共享有限矩与二次型的工具。Wallis 使用正矩来界定未知测度下的可能值；在 RH 路线上，周期三反例表明同一组 Fourier 功率可给出不同的固定起点能量。后续若在合数道路上采用矩截断，需要保留跨频率的相位项。无条件控制增长截断上的总道路能量仍是开放问题。\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/50295814d7f4757e605c661d829c20bba5e9d23d/research_notes/portable_direct/20261118_fair_queue_6b0fba/twelfth/README.md",
+      "encoding": "utf-8",
+      "sha": "739c100dc8d8cd476c70a4b217fc1fd31fc57556"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
