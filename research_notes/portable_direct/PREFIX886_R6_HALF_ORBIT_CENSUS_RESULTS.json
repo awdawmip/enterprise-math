@@ -1,0 +1,76 @@
+{
+  "schema": "PREFIX886_R6_HALF_ORBIT_EXACT_V1",
+  "date": "2026-11-18",
+  "source_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "p": 32,
+  "N": "4294967296",
+  "q_domain": "odd q1,q2 in [523001,524287]",
+  "method": "Single modular inverse per coprime pair; p positive signed-bit CRT representatives; J-complement doubles plus contribution; noncoprime zero-step formula",
+  "arithmetic": "exact signed and unsigned 64-bit integers; C++17 g++ -O2",
+  "tests": {
+    "total_pairs": 414736,
+    "coprime_pairs": 336462,
+    "coprime_odd_collision_parity_pairs": 59658,
+    "noncoprime_g_le63_pairs": 75616,
+    "noncoprime_g_ge65_pairs": 2658,
+    "noncoprime_high_odd_pairs": 2022,
+    "overall_odd_pairs": 61680,
+    "overall_even_pairs": 353056,
+    "coprime_max_center_fiber": 8,
+    "coprime_max_center_fiber_count": 54,
+    "coprime_first_max_pair": [
+      523007,
+      524027
+    ],
+    "histogram_all": {
+      "0": 341316,
+      "2": 60792,
+      "4": 11330,
+      "6": 562,
+      "8": 86,
+      "10": 6,
+      "8192": 32,
+      "8194": 64,
+      "8196": 64,
+      "8198": 64,
+      "8200": 64,
+      "8202": 64,
+      "8204": 63,
+      "8206": 64,
+      "8208": 64,
+      "8210": 64,
+      "8212": 37
+    }
+  },
+  "extremal_example": {
+    "q1": 523007,
+    "q2": 524027,
+    "r1": 278409,
+    "r2": 283015,
+    "plus_transitions": [
+      [
+        2,
+        1610093955,
+        1610093959
+      ],
+      [
+        10,
+        1610616962,
+        1610617986
+      ],
+      [
+        18,
+        1744506754,
+        1744768898
+      ],
+      [
+        28,
+        603828487,
+        872263943
+      ]
+    ],
+    "minus_obtained_by": "J(x)=4294967295-x at both endpoints"
+  },
+  "verification": "Local C++17 644^2 full enumeration; histogram and class totals match PREFIX-885 separately implemented generalized CRT result. Small p Python direct enumeration and explicit extremal XOR+residue witnesses checked. No independent external mathematical review.",
+  "status": "AUTHOR_PROVED_EXACT_DECLARED_FINITE_CHECKED_NOT_ADMITTED"
+}
