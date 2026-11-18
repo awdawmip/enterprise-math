@@ -1,0 +1,82 @@
+# 判别式 $[-3]$ 的 Weil 六维簇：整投影的两个最小倍数与三维可变形的完美复形
+
+在 H0M 固定的 $K=\mathbf Q(i)$、$\Lambda=\mathbf Z[i]^6$、$h=\operatorname{diag}(1,1,1,-1,-1,-3)$ 上，记 $A$ 为带此标记的极化 Weil 六维簇，$L=H^6(A,\mathbf Z)$，$W=\bigwedge_K^6 H^1(A,\mathbf Q)\subset L_{\mathbf Q}$。全周期域的复维数为九。令 $P$ 投影到 $W$ 并在五个混合嵌入块上为零。以下整算术结论适用于这个分量的每个纤维。
+
+1. $W_{\mathbf Z}=W\cap L$ 的杯积格为 $\langle-32,-32\rangle$。使 $dP$ 保持 $L$ 的最小正整数是 **32**。
+2. 要求 $dP|_{H^6}$ 由 Gaussian 整数标量同源的拉回作整数线性组合表示时，最小正整数为 **384**。
+3. 在原格正交分成三个 $(1,1)$ 曲面块的三维子域上，整个 $W_{\mathbf Z}$ 有两条显式整代数基。各有一个实际完美复形以该基向量为**全部** Chern 特征。对每个复形，其在九维 Weil 周期域中的一阶可提升切空间恰为此三维子域的切空间。在该子域内还有全阶局部解析延拓。
+
+### 输入与已有边界
+
+H0M 原返回冻结的是缺少产种对象的精确障碍。H0N 已用 $1+2i$ 的图像构造七个嵌入块上的**有理**投影，H0O 的既定 Fourier–Mukai 族具有种子守恒约束，H0P 的有限长度修改已在其指定的对角支撑族上得到负边界。前期对特殊纤维 32 个图像的特定锥族得到二维提升空间，另一条同维分裂极化路线在特殊域给出有理代数性。本稿使用其他对象，确定整系数、投影的最小倍数以及这些新对象的变形维数。原九方向种子与很一般纤维的代数性仍未建立。[H0M 模型](https://github.com/awdawmip/enterprise-math/blob/1c0a65c40add3ec5c10a0444f22e451baf4f9e64/research_artifacts/HODGE_H0M_WEIL_SIXFOLD/HODGE_H0M_WEIL_SIXFOLD_MODEL_SPEC.json) · [H0M 原返回](https://github.com/awdawmip/enterprise-math/blob/1c0a65c40add3ec5c10a0444f22e451baf4f9e64/research_returns/HODGE_H0M_WEIL_SIXFOLD_SEMIREGULARITY_OBSTRUCTION_CANCELLATION_RETURN_20260831.md) · [H0N 有理投影](https://github.com/awdawmip/enterprise-math/blob/775d1d9c646e0445fb2cf33a16db5fa29f4ff910/research_returns/HODGE_H0N_NONSPLIT_WEIL_EXCEPTIONAL_CH3_SEED_OBJECT_RETURN_20260902.md) · [H0O 至 H0R 路线](https://github.com/awdawmip/enterprise-math/blob/e7b9fb5084f93a9b2dbc16225629b667fb7bf46c/research_notes/HODGE_WEIL_BILATERAL_DEFORMATION_FRONTIER_20260919.md) · [H0P 结果及范围](https://github.com/awdawmip/enterprise-math/blob/c3a79e03e7fde0bbcd5f10d71c718376e62f4cb2/research_result_records/RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT/RR-D0D2E8489B7EC4AE9AB4.json)
+
+九月的两份 H0M 冻结结果均保留缺失种子的边界。协调记录还单独核对了 $\mathcal O_A^2$ 的无迹二阶障碍所在核维数为 $45$，其三次 Chern 特征为零。下文的范畴对象在指定乘积子域有非零三次类，其可提升性由整件对象的直接项检验。[主返回](https://github.com/awdawmip/enterprise-math/blob/9e1b1e5753b50636d8f5c5dd50c0150fe912af7d/research_result_records/RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION/RR-3B1EAD99AF17C6142931.json) · [并行返回](https://github.com/awdawmip/enterprise-math/blob/b662d3dcc34d00099db93893ad5c61ee869f08a4/research_result_records/RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION/RR-B1F69A473235F3871D5A.json) · [两返回的合并说明](https://github.com/awdawmip/enterprise-math/blob/9e1b1e5753b50636d8f5c5dd50c0150fe912af7d/research_notes/h0m_20260917_6a4f21/PARALLEL_PROGRESS_RECONCILIATION.md)
+
+题书所引 Markman 定理 1.5.1 处理六维分裂判别式 $[-1]$；两类之比 $3$ 在惰性素数 $3$ 有奇赋值，因此 $[-3]\ne[-1]$。另一所引预印本讨论特定 Hilbert 模六维簇内的曲线和可能的 CM 交点。本稿的特殊子域仅使用 Lefschetz 整 $(1,1)$ 定理和曲面的显式乘积。[Markman 定理 1.5.1](https://arxiv.org/abs/2502.03415v2) · [题书所引的 Weil 交点研究](https://arxiv.org/abs/2603.20268)
+
+### 整格与中维正交投影
+
+设 $J=[i]^*$ 在 $H^1$ 上作用。每个 Gaussian 坐标选整基 $x_j,y_j=Jx_j$，于是 $Jy_j=-x_j$。记
+$$
+ \Omega=\bigwedge_{j=1}^6(x_j+i y_j)=\alpha+i\beta .
+$$
+两个共轭行列式块由 $\Omega,\bar\Omega$ 生成。$\alpha,\beta$ 的标准外积基支持分别只含偶数、奇数个 $y_j$，每个非零系数都是 $\pm1$。因此 $W_{\mathbf Z}=\mathbf Z\alpha\oplus\mathbf Z\beta$，此子格饱和。将 $\Omega\bar\Omega$ 的因子排成六对，在 Gaussian 定向下得到 $64$ 倍体积。复定向在三个负嵌入坐标反向，故 $\int_A\Omega\bar\Omega=-64$。用 $\Omega^2=0$ 得
+$$
+ \int_A\alpha^2=\int_A\beta^2=-32,\qquad\int_A\alpha\beta=0 .
+$$
+杯积只把嵌入数为 $p$ 的块与 $6-p$ 的块相配，故
+$$
+ 32P(v)=-\Big(\int_A v\alpha\Big)\alpha-\Big(\int_A v\beta\Big)\beta .
+$$
+对 $\eta=x_1\wedge\cdots\wedge x_6$，右端恰为 $\alpha$。其本原性使 $32$ 同时成为充分且必要的倍数。
+
+### Gaussian 标量图像的精确整成本
+
+令 $D_j$ 为多项式算子 $[a+bi]^*|_{H^6}$ 的 $a^{6-j}b^j$ 系数。因此 $D_j$ 在六个外积因子中恰选 $j$ 个作用 $J$，再求和。它们在 $\eta$ 上具有非空且互不相交的支持，故线性无关。两个嵌入在 $H^1$ 的投影为 $(1\pm iJ)/2$。各自取六次外幂再相加，给出 $32P=D_0-D_2+D_4-D_6$。设 $G_{a,b}=[a+bi]^*|_{H^6}$，则
+$$
+ 384P=30G_{1,0}-120G_{0,1}
+       -10(G_{1,1}+G_{1,-1})+G_{1,2}+G_{1,-2}.
+$$
+逐个比较 $D_j$ 系数即可。标量同源的复合仍是标量同源，因此放开有限复合保留同一整数跨度。
+
+为证下界，置 $v(a,b)=(a^6,a^5b,\ldots,b^6)$，$w=(1,0,-1,0,1,0,-1)$。线性泛函 $\ell=(0,2,-5,0,5,-2,0)/120$ 满足
+$$
+ \ell(v(a,b))=\frac{ab(a-2b)(a-b)(a+b)(2a-b)}{120}\in\mathbf Z,
+ \qquad \ell(w)=\frac1{12}.
+$$
+分子的六个线性因子覆盖 $\mathbf P^1(\mathbf F_5)$ 全部点，同样覆盖 $\mathbf P^1(\mathbf F_3)$。二进部分若 $a,b$ 皆奇，则 $(a-b)(a+b)$ 被八整除；若 $a$ 偶 $b$ 奇，则 $a,a-2b$ 是相差 $2\bmod4$ 的两个偶数；对 $b$ 偶 $a$ 奇使用 $b,2a-b$，两个偶数的情形更直接。故分母 $8\cdot3\cdot5$ 可约。若 $dP$ 有所需整数表示，$32\mid d$，且 $(d/32)w$ 在这些 $v(a,b)$ 的整数跨度内，遂有 $12\mid d/32$。这也解释同一个有理投影的两个整性门槛。所有结论仅指定算子在 $H^6$ 上的作用。
+
+### 三维子域的两条原始整代数类
+
+按 $(e_1,e_4),(e_2,e_5),(e_3,e_6)$ 分组，每个块签名为 $(1,1)$，整格与极化均正交直和。相应的 $(1,1)$ 乘积周期域复维数为三，每个纤维实际是三件阿贝尔曲面 $S_1\times S_2\times S_3$。在每件曲面上，将该对坐标的行列式写成 $C_j+iB_j$，其中 $C_j,B_j$ 均是整 $(1,1)$ 类，且
+$$
+  \int_{S_j} C_j^2=\int_{S_j} B_j^2=-2,\qquad \int_{S_j} C_jB_j=0 .
+$$
+整 $(1,1)$ 定理给出线丛 $L_c$，使 $c_1(L_c)=c$，其中 $c=C_j$ 或 $B_j$。令 $o_j$ 为该曲面零点，取实际完美复形
+$$
+ F_c=L_c\oplus\mathcal O_{S_j}[1]\oplus\mathcal O_{o_j}.
+$$
+阿贝尔曲面的 Todd 类为 $1$，故 $\operatorname{ch}(\mathcal O_{o_j})=[o_j]$，而 $c^2=-2[o_j]$。于是 $\operatorname{ch}(F_c)=c$，零阶与四次上同调分量均严格消去。
+
+记外积为乘法。下列实部及虚部是整除子的四项带符号乘积，且张成 $W_{\mathbf Z}$：
+$$
+ \begin{aligned}
+ \alpha'&=C_1C_2C_3-C_1B_2B_3-B_1C_2B_3-B_1B_2C_3,\\
+ \beta'&=B_1C_2C_3+C_1B_2C_3+C_1C_2B_3-B_1B_2B_3 .
+ \end{aligned}
+$$
+它们是 $\prod_j(C_j+iB_j)$ 的实部和虚部。所用配对顺序与原顺序相差一个奇置换，故 $(\alpha',\beta')=(-\alpha,-\beta)$。将每个 $c$ 换为 $F_c$、每个负项整体移位 $[1]$，再取直和，得到两个实际完美复形 $\mathcal E_{\alpha'},\mathcal E_{\beta'}$，全 Chern 特征分别是 $\alpha',\beta'$。在该三维子域上，整代数对应 $-(\alpha'\boxtimes\alpha'+\beta'\boxtimes\beta')$ 实现 $32P$。
+
+### 判明这两件对象能沿哪些方向变形
+
+在乘积域内取小的可缩 Stein 邻域，各曲面有带零截面的光滑族。局部拓扑平凡性使每个 $c$ 在总空间中有整二类延拓。各纤维上它都是 $(1,1)$，因此在 $R^2\pi_*\mathcal O$ 中的截面为零。在 Stein 基地上 Leray 与 Cartan 定理 B 遂给出其在总空间 $H^2(\mathcal O)$ 中为零。指数列给出局部族上的线丛。可指定中心纤维的任一 $L_c$，因为相差的 $\operatorname{Pic}^0$ 元素可以沿光滑对偶阿贝尔族局部延拓。零截面的结构层也相对完美，因而上述外积、移位与直和可在全邻域进行。纤维上的复形由 GAGA 代数化。
+
+反方向取九维 Weil 域的任意一阶切向。每件 $\mathcal E$ 在中心纤维都含每个 $p_j^*L_{C_j}$ 的某个移位作为直接项：从含 $C_j$ 的项中取 $L_{C_j}$，其余两因子取 $\mathcal O[1]$。若整体可提升，一阶 Atiyah–Kodaira–Spencer 障碍为零，投到每个直接项的对角块，其线丛的障碍也为零。此论证允许候选提升任意混合这些直接项。
+
+将 $C_j$ 视为同调上的交替形，取同调 Hodge 滤过 $F_{\rm hom}\subset H_1(A,\mathbf C)$，以 $F_{\rm hom}\to\bar F_{\rm hom}$ 表示其一阶移动 $\dot F$。类 $C_j$ 保持 $(1,1)$ 的线性条件为
+$$
+ C_j(\dot F u,v)+C_j(u,\dot F v)=0\qquad (u,v\in F_{\rm hom}).
+$$
+当 $u$ 属第 $k\ne j$ 个块而 $v$ 属第 $j$ 个块时，第二项恒为零。$C_j$ 在第 $j$ 块非退化且为 $(1,1)$，故第一个条件迫使 $\dot F u$ 在第 $j$ 块的投影为零。遍历 $j$ 后只有块对角方向可能提升。在 $U(3,3)$ 的九维切空间中，这恰是三个 $U(1,1)$ 块的三维切空间。上段给出该子空间内的实际族，因此维数界为等号。结论针对上述可分解的完美对象，未限制同一上同调类的其他实现。
+
+**复算。** Python 3.10+ 标准库执行 <code>python weil_check.py</code>，输出对应 <code>weil_checked.json</code>。程序在 $H^6$ 的全部 $\binom{12}6=924$ 列上独立比较图像公式与杯积公式，检查模 $120$ 的全部 $14400$ 对输入、曲面的整交矩阵及四项乘积。参考点的线性化检查给出九个周期坐标中恰六个非对角项受约束。变形与代数性的依据见上文。

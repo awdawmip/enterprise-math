@@ -1,0 +1,131 @@
+{
+  "exhaustive_depths": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "ordered_subsequence_examples": [
+    {
+      "order": 1,
+      "length": 2,
+      "point": [
+        2,
+        3
+      ]
+    },
+    {
+      "order": 2,
+      "length": 4,
+      "point": [
+        7,
+        5
+      ]
+    },
+    {
+      "order": 3,
+      "length": 8,
+      "point": [
+        31,
+        43
+      ]
+    },
+    {
+      "order": 4,
+      "length": 16,
+      "point": [
+        1549,
+        1117
+      ]
+    },
+    {
+      "order": 5,
+      "length": 32,
+      "point": [
+        1528057,
+        2119033
+      ]
+    },
+    {
+      "order": 6,
+      "length": 64,
+      "point": [
+        3762690612913,
+        2713315804849
+      ]
+    },
+    {
+      "order": 7,
+      "length": 128,
+      "point": [
+        9016412933654107945213537,
+        12503510371692876309044833
+      ]
+    }
+  ],
+  "balanced_degree_two_example": {
+    "rank_basis": [
+      "AAABBB",
+      "AABABB",
+      "AABBAB",
+      "AABBBA",
+      "ABAABB",
+      "ABABAB"
+    ],
+    "moment_determinant": 206712,
+    "signed_changes": {
+      "ABABB": -1,
+      "BABAA": 1,
+      "ABBBA": 1,
+      "BAAAB": -1,
+      "BAABB": 1,
+      "ABBAA": -1,
+      "BABBA": -1,
+      "ABAAB": 1
+    },
+    "endpoint_moment_changes": {
+      "2": [
+        0,
+        -2,
+        -2,
+        -40,
+        -30,
+        -40
+      ],
+      "3": [
+        0,
+        2,
+        2,
+        40,
+        30,
+        40
+      ]
+    }
+  },
+  "exact_two_letter_outputs": {
+    "AB": [
+      2,
+      3
+    ],
+    "BA": [
+      3,
+      2
+    ],
+    "ABBA": [
+      7,
+      5
+    ],
+    "BAAB": [
+      5,
+      7
+    ]
+  }
+}
