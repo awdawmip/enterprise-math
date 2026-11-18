@@ -119,3 +119,12 @@ For general m, the large-p qualifier is essential: A_m grows with m and the fini
 This proves that positive-tail r307 coverage transfer admits sample exponents arbitrarily close to 1/2 with finitely many p-valued random coefficients and a larger, fixed-in-p signed-index budget. The r312 square-root-times-logarithm obstruction is specific to *zero-tail distinct-offset* certificates, so the two results coexist.
 
 Open questions: achieve n=O(sqrt(p) polylog p) at a bounded information cost and suitable index budget; preserve pairwise distinctness for every polynomial realization while retaining the requisite moments; and identify a typed native Gaussian-prime/X6 path carrier with the original signed/ordered provenance. No formal Native Result, Task closure or P000/Foundation admission is claimed. Authorship is source-exposed Driver derivation, not an independent review of the original researcher.
+
+
+## Independent finite arithmetic sanity check of the fourth-moment identity
+
+At p=7, n=6, K={0,1}, x=0, enumerate **all 7^4=2401** cubic coefficient tuples (U_0,U_1,U_2,U_3) and count hits among P(0),...,P(5). The exact hit-count frequencies for X=0,1,2,3,4,5,6 are
+\[
+ (313,792,720,440,120,12,4).
+\]
+Their sum is 2401; the computed fourth central moment is exactly 10140/2401, matching the binomial fourth-moment expression with rho=2/7 and mu=12/7. This checks the limited-independence moment computation on one fully enumerated finite example. It does not attempt the p>=2^70 quantitative transfer conditions; those are established analytically above.
