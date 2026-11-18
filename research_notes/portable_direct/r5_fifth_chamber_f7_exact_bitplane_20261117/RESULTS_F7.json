@@ -1,0 +1,60 @@
+{
+  "schema": "EM_R5_FIFTH_NOISE_ADAPTIVE_F7_EXACT_BITPLANE_V1",
+  "source_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "count_table_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "action_sha256": "e7af68961ab468ef8af90d6976a35435c71b8f27bacb0a67fd1d96dde0c182ac",
+  "population": 256,
+  "budgets": [
+    214,
+    314
+  ],
+  "noise_tau_min": "25845652773852463277015040000",
+  "noise_tau_max_exclusive": "58182461585441404127941754880",
+  "max_errors": 7,
+  "optimum": 7385,
+  "lower": {
+    "states": [
+      18,
+      24,
+      82,
+      34,
+      17
+    ],
+    "queries": 101,
+    "bellman_states": 32379,
+    "value": 7385
+  },
+  "upper": {
+    "queries": [
+      296,
+      223,
+      216,
+      215,
+      214
+    ],
+    "states": 256,
+    "bellman_memo": 17308349,
+    "decisions": 29792843,
+    "cost": 7385,
+    "elapsed_seconds": 129.87,
+    "rss_kib": 2898412
+  },
+  "regression_f6": {
+    "memo": 5539141,
+    "decisions": 9043443,
+    "cost": 6435,
+    "agrees_with_prior": true
+  },
+  "equivalence_tests": {
+    "seed": 20261117,
+    "transitions": 136000,
+    "f_range": [
+      0,
+      7
+    ],
+    "pass": true
+  },
+  "review": "NOT_REVIEWED",
+  "formal_claim": "UNCONFIRMED",
+  "next_question": "f=8 exact minimax and all-f bitplane generalization"
+}

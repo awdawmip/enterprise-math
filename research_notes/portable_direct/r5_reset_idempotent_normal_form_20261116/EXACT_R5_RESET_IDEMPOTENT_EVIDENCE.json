@@ -1,0 +1,67 @@
+{
+  "cross_absorption_defect": {
+    "defect_state": 0,
+    "m": 3,
+    "reset_0": [
+      0,
+      1,
+      1
+    ],
+    "reset_0_after_1": 1,
+    "reset_0_alone": 0,
+    "reset_1": [
+      2,
+      2,
+      2
+    ]
+  },
+  "exhaustive": [
+    {
+      "all_idempotent_pairs": 1,
+      "all_transformations_checked": 1,
+      "idempotent_maps": 1,
+      "m": 1,
+      "normalized_trimmed_pairs": 1,
+      "theoretical": 1
+    },
+    {
+      "all_idempotent_pairs": 9,
+      "all_transformations_checked": 4,
+      "idempotent_maps": 3,
+      "m": 2,
+      "normalized_trimmed_pairs": 7,
+      "theoretical": 7
+    },
+    {
+      "all_idempotent_pairs": 100,
+      "all_transformations_checked": 27,
+      "idempotent_maps": 10,
+      "m": 3,
+      "normalized_trimmed_pairs": 55,
+      "theoretical": 55
+    },
+    {
+      "all_idempotent_pairs": 1681,
+      "all_transformations_checked": 256,
+      "idempotent_maps": 41,
+      "m": 4,
+      "normalized_trimmed_pairs": 597,
+      "theoretical": 597
+    }
+  ],
+  "frozen_science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "limits": "Finite testing supports but does not replace the universal symbolic proof.",
+  "result": "PASS_R5_RESET_IDEMPOTENT_NORMAL_FORM",
+  "schema": "R5_RESET_IDEMPOTENT_NORMAL_FORM_CHECK_V1",
+  "source_labelled_physical_example": {
+    "all_words_including_empty": 2040,
+    "controller_nonidempotent_original": true,
+    "normal_form_idempotent": true,
+    "normalization_exponent": 720720,
+    "normalized_m": 16,
+    "original_m": 16,
+    "physical_k": 3,
+    "step_checks": 12304,
+    "word_length_max": 7
+  }
+}

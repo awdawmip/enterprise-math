@@ -1,0 +1,104 @@
+{
+  "schema": "EM_R5_F8_NEIGHBORHOOD_UNIFORMITY_AND_INTERNAL_THRESHOLD_V1",
+  "scientific_input_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "exact_table_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "f": 8,
+  "H0": [
+    18,
+    24,
+    82,
+    34,
+    17
+  ],
+  "tau_left": "25845652773852463277015040000",
+  "tau_right_exclusive": "58182461585441404127941754880",
+  "six_state_extension": {
+    "count": 251,
+    "for_all_tau": "8335",
+    "all_101_budgets": true,
+    "right_endpoint_cumulative_states": 29387425,
+    "right_endpoint_full_rows_sha256": "4378a6c3c9c7c6f3c83f4179cc816a6ef8caa984e38584201ea59cf7cf50b813",
+    "left_source_commit": "a08d1278c07e2d99f0620536531a69da633dbe45"
+  },
+  "one_exchange": {
+    "count": 1255,
+    "constant_count": 1253,
+    "scoped_parameter_domain": "real tau in [L,U)",
+    "lossless_cost_representation": {
+      "prior_source_commit": "8acd30cbf9312afde72d0da39cbf57107c14ad48",
+      "prior_source_path": "research_notes/portable_direct/r5_fifth_chamber_f8_five_state_one_exchange_20261117/RESULTS_COMPACT.json",
+      "base_order": "i=0..4 then h=0..255 excluding H0 ascending",
+      "base_values": "Decode per_neighbor_level_indices_zlib_base64 as indices into value_levels.",
+      "delta_after_threshold": [
+        {
+          "replace_index": 2,
+          "new_mask": 144,
+          "left_cost": 6328,
+          "right_cost": 6337
+        },
+        {
+          "replace_index": 2,
+          "new_mask": 208,
+          "left_cost": 6328,
+          "right_cost": 6337
+        }
+      ],
+      "delta_threshold_inclusive": "42621568083499305947627520000",
+      "formula": "For all tau in [L,U), cost equals base, except the two delta entries whose cost is 6337 when tau >= threshold; 6328 otherwise."
+    },
+    "complete_right_endpoint_histogram": {
+      "5671": 480,
+      "6302": 2,
+      "6310": 1,
+      "6316": 2,
+      "6322": 1,
+      "6328": 250,
+      "6337": 2,
+      "6455": 2,
+      "6727": 2,
+      "6735": 2,
+      "6744": 1,
+      "6752": 1,
+      "6756": 1,
+      "6758": 1,
+      "6799": 2,
+      "6816": 1,
+      "8309": 251,
+      "8326": 253
+    },
+    "min": 5671,
+    "max": 8326,
+    "distinct_values": 18,
+    "max_by_removed_mask": {
+      "17": 8326,
+      "18": 6455,
+      "24": 8309,
+      "34": 8326,
+      "82": 6758
+    },
+    "right_endpoint_cumulative_states": 33758805,
+    "right_endpoint_full_rows_sha256": "5afbb1e88b8a540b18896cd5a47e08b25cc479bb0a1720c70a80cc111ea1bcab"
+  },
+  "exceptions": {
+    "pair_center_gap_internal_thresholds": [
+      "39667188909509775772876800000",
+      "42621568083499305947627520000"
+    ],
+    "lower_threshold_cost_no_change": true,
+    "upper_threshold_cost_jump": 9,
+    "at_threshold_minus_1": 6328,
+    "at_threshold": 6337,
+    "discrete_observation_support_check": "Exact 101 query budgets; every pair among five hypothesis centers"
+  },
+  "original_full_256_bracket": {
+    "lower": 8335,
+    "upper": 8343,
+    "exact_status": "OPEN"
+  },
+  "author_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "control": {
+    "formal_claim": "NOT_CREATED_THIS_RUN",
+    "protected_activity_checkpoint": "PENDING_AUTHENTICATED_OWNER_ASSOCIATION",
+    "historical_activity": "RA-B1A5102AD1877F18B4C40118"
+  }
+}

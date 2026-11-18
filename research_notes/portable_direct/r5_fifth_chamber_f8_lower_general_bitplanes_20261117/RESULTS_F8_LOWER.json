@@ -1,0 +1,36 @@
+{
+  "schema": "EM_R5_FIFTH_CHAMBER_F8_LOWER_GENERAL_BITPLANES_V1",
+  "f": 8,
+  "lower": 8335,
+  "upper": 8343,
+  "noise_tau_min": "25845652773852463277015040000",
+  "noise_tau_max_exclusive": "58182461585441404127941754880",
+  "lower_five_masks": [
+    18,
+    24,
+    82,
+    34,
+    17
+  ],
+  "lower_queries_all_101": true,
+  "lower_bellman_states": 54719,
+  "unique_action_representatives": [
+    216,
+    223,
+    296,
+    214,
+    215,
+    221,
+    222
+  ],
+  "bitplane_theorem": "w=ceil(log2(f+2)); exact saturating lie counters for fixed response-language",
+  "general_tests": {
+    "f_min": 0,
+    "f_max": 20,
+    "random_seed": 20261117,
+    "tests": 10500,
+    "hypotheses_per_test": 256,
+    "status": "PASS_GENERAL_SATURATED_BITPLANES_F0_F20"
+  },
+  "proof_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED"
+}

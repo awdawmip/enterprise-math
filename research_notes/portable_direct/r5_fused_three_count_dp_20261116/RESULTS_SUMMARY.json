@@ -1,0 +1,50 @@
+{
+  "candidate_plans": [
+    [214,223,294],
+    [214,290,294],
+    [214,291,294]
+  ],
+  "examples": [
+    {
+      "checkpoints": [
+        {"k":214,"min_equal_updates_cumulative":255499,"operand_bits_cumulative":41059528,"transitions_considered_cumulative":335187},
+        {"k":223,"min_equal_updates_cumulative":279244,"operand_bits_cumulative":46866869,"transitions_considered_cumulative":366131},
+        {"k":290,"min_equal_updates_cumulative":433900,"operand_bits_cumulative":96111246,"transitions_considered_cumulative":585782},
+        {"k":291,"min_equal_updates_cumulative":435914,"operand_bits_cumulative":96924423,"transitions_considered_cumulative":588918},
+        {"k":294,"min_equal_updates_cumulative":441909,"operand_bits_cumulative":99391071,"transitions_considered_cumulative":598300}
+      ],
+      "effective_mask":0,"events":954,"fused_layers":293,
+      "fused_operand_bit_volume":99391071,"fused_transitions":598300,"max_budget":294,
+      "plans":[
+        {"fused_DP_transitions":598300,"fused_operand_bit_volume":99391071,"independent_DP_transitions":1299618,"independent_operand_bit_volume":187317468,"plan":[214,223,294],"raw_count_bits":311,"saved_transitions":701318},
+        {"fused_DP_transitions":598300,"fused_operand_bit_volume":99391071,"independent_DP_transitions":1519269,"independent_operand_bit_volume":236561845,"plan":[214,290,294],"raw_count_bits":310,"saved_transitions":920969},
+        {"fused_DP_transitions":598300,"fused_operand_bit_volume":99391071,"independent_DP_transitions":1522405,"independent_operand_bit_volume":237375022,"plan":[214,291,294],"raw_count_bits":298,"saved_transitions":924105}
+      ],
+      "pred_edges":4383
+    },
+    {
+      "checkpoints":[
+        {"k":214,"min_equal_updates_cumulative":259555,"operand_bits_cumulative":41588246,"transitions_considered_cumulative":340777},
+        {"k":223,"min_equal_updates_cumulative":283300,"operand_bits_cumulative":47413618,"transitions_considered_cumulative":371775},
+        {"k":290,"min_equal_updates_cumulative":437956,"operand_bits_cumulative":96769336,"transitions_considered_cumulative":591739},
+        {"k":291,"min_equal_updates_cumulative":439970,"operand_bits_cumulative":97584140,"transitions_considered_cumulative":594879},
+        {"k":294,"min_equal_updates_cumulative":445965,"operand_bits_cumulative":100055653,"transitions_considered_cumulative":604273}
+      ],
+      "effective_mask":255,"events":954,"fused_layers":293,
+      "fused_operand_bit_volume":100055653,"fused_transitions":604273,"max_budget":294,
+      "plans":[
+        {"fused_DP_transitions":604273,"fused_operand_bit_volume":100055653,"independent_DP_transitions":1316825,"independent_operand_bit_volume":189057517,"plan":[214,223,294],"raw_count_bits":319,"saved_transitions":712552},
+        {"fused_DP_transitions":604273,"fused_operand_bit_volume":100055653,"independent_DP_transitions":1536789,"independent_operand_bit_volume":238413235,"plan":[214,290,294],"raw_count_bits":317,"saved_transitions":932516},
+        {"fused_DP_transitions":604273,"fused_operand_bit_volume":100055653,"independent_DP_transitions":1539929,"independent_operand_bit_volume":239228039,"plan":[214,291,294],"raw_count_bits":305,"saved_transitions":935656}
+      ],
+      "pred_edges":4399
+    }
+  ],
+  "input_pin":"435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "meaning":"Full fused recurrence through K=294 is identical for all listed plans; proof is algebraic; two masks are exact finite checks, not exhaustive enumeration of all closure masks",
+  "scope":"derived indexed-event R2 integer nearest-center observer",
+  "status":"PASS_R5_FUSED_DP_EXACT",
+  "test_masks":[0,255],
+  "local_full_stdout_sha256":"bcb04954a2ba3b675ae66bc92b900c2dea0216f86ded935b5b1d1838433082a2",
+  "local_executed_program_sha256":"9b49f9cc06e7679789def95a2b98f5e561a90163041e18b5b1e6c90ce821cf48"
+}

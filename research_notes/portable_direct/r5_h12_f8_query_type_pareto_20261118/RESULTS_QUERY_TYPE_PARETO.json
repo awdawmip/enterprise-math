@@ -1,0 +1,68 @@
+{
+  "schema": "R5_H12_F8_QUERY_TYPE_PARETO_V1",
+  "frozen_source_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "H12": [
+    18,
+    24,
+    82,
+    34,
+    17,
+    0,
+    1,
+    2,
+    3,
+    144,
+    208,
+    255
+  ],
+  "f": 8,
+  "L": "25845652773852463277015040000",
+  "U_exclusive": "58182461585441404127941754880",
+  "witness_budget_ranges": [
+    {
+      "states": [
+        0,
+        1
+      ],
+      "first": 214,
+      "last": 221
+    },
+    {
+      "states": [
+        18,
+        82
+      ],
+      "first": 223,
+      "last": 290
+    },
+    {
+      "states": [
+        18,
+        34
+      ],
+      "first": 296,
+      "last": 312
+    }
+  ],
+  "three_action_right": {
+    "costs": [
+      216,
+      223,
+      296
+    ],
+    "minimax": 8343,
+    "states": 576895,
+    "stdout": "EXACT_RESTRICTED n=12 f=8 V=8343 states=576895 actions=3",
+    "support_text_sha256": "fca626cf9f99a4272dc2492b5ac103ae63aae85060542fbc2a2c1f063dac6f54"
+  },
+  "reused_four_budget_left_lower": 8343,
+  "reused_five_budget_right_upper": 8335,
+  "pareto": {
+    "m_le_2": "infinite",
+    "m_3_or_4": 8343,
+    "m_ge_5": 8335
+  },
+  "review": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "prior": "f4cd0ba590a979165f3360941c9a1651c1f5028c"
+}

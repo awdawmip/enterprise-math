@@ -1,0 +1,202 @@
+{
+  "schema": "R5_F8_TEN_EIGHT_FORCED_ROOT_PROFILE_V1",
+  "status": "PASS_R5_F8_10x2_FORCED_ROOT_EXACT",
+  "method": "exact integer Bellman V plus 101 forced-root actions; 2 independent exact support generators",
+  "source_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "H0": [
+    18,
+    24,
+    82,
+    34,
+    17
+  ],
+  "f": 8,
+  "L": "25845652773852463277015040000",
+  "U_exclusive": "58182461585441404127941754880",
+  "expected_all_101_left_formula": [
+    {
+      "from": 214,
+      "to": 214,
+      "base": 8334
+    },
+    {
+      "from": 215,
+      "to": 215,
+      "base": 8325
+    },
+    {
+      "from": 216,
+      "to": 221,
+      "base": 8119
+    },
+    {
+      "from": 222,
+      "to": 222,
+      "base": 8335
+    },
+    {
+      "from": 223,
+      "to": 290,
+      "base": 8112
+    },
+    {
+      "from": 291,
+      "to": 295,
+      "base": 8335
+    },
+    {
+      "from": 296,
+      "to": 312,
+      "base": 8039
+    },
+    {
+      "from": 313,
+      "to": 314,
+      "base": 8335
+    }
+  ],
+  "formula": "forced_cost(k)=k+base",
+  "U_minus_1_exceptions": [
+    {
+      "triples": [
+        [
+          0,
+          16,
+          32
+        ],
+        [
+          16,
+          144,
+          208
+        ]
+      ],
+      "k": 221,
+      "forced_cost": 8545,
+      "otherwise_forced_cost": 8340
+    }
+  ],
+  "cases": [
+    {
+      "added": [
+        0,
+        144,
+        208
+      ],
+      "memo_states_L": 955253,
+      "memo_states_U_minus_1": 2010006,
+      "root_optimum_L": 8335,
+      "root_optimum_U_minus_1": 8335
+    },
+    {
+      "added": [
+        0,
+        16,
+        32
+      ],
+      "memo_states_L": 592036,
+      "memo_states_U_minus_1": 958771,
+      "root_optimum_L": 8335,
+      "root_optimum_U_minus_1": 8335
+    },
+    {
+      "added": [
+        0,
+        48,
+        160
+      ],
+      "memo_states_L": 1510089,
+      "memo_states_U_minus_1": 1958521,
+      "root_optimum_L": 8335,
+      "root_optimum_U_minus_1": 8335
+    },
+    {
+      "added": [
+        0,
+        64,
+        128
+      ],
+      "memo_states_L": 330570,
+      "memo_states_U_minus_1": 668048,
+      "root_optimum_L": 8335,
+      "root_optimum_U_minus_1": 8335
+    },
+    {
+      "added": [
+        0,
+        96,
+        192
+      ],
+      "memo_states_L": 504084,
+      "memo_states_U_minus_1": 1379280,
+      "root_optimum_L": 8335,
+      "root_optimum_U_minus_1": 8335
+    },
+    {
+      "added": [
+        1,
+        144,
+        208
+      ],
+      "memo_states_L": 1318628,
+      "memo_states_U_minus_1": 2079672,
+      "root_optimum_L": 8335,
+      "root_optimum_U_minus_1": 8335
+    },
+    {
+      "added": [
+        16,
+        144,
+        208
+      ],
+      "memo_states_L": 869515,
+      "memo_states_U_minus_1": 2256637,
+      "root_optimum_L": 8335,
+      "root_optimum_U_minus_1": 8335
+    },
+    {
+      "added": [
+        144,
+        160,
+        208
+      ],
+      "memo_states_L": 450908,
+      "memo_states_U_minus_1": 777406,
+      "root_optimum_L": 8335,
+      "root_optimum_U_minus_1": 8335
+    },
+    {
+      "added": [
+        144,
+        208,
+        240
+      ],
+      "memo_states_L": 895042,
+      "memo_states_U_minus_1": 1831027,
+      "root_optimum_L": 8335,
+      "root_optimum_U_minus_1": 8335
+    },
+    {
+      "added": [
+        48,
+        144,
+        208
+      ],
+      "memo_states_L": 955253,
+      "memo_states_U_minus_1": 2010006,
+      "root_optimum_L": 8335,
+      "root_optimum_U_minus_1": 8335
+    }
+  ],
+  "support_family_crosschecks": 2020,
+  "forced_root_values": 2020,
+  "uniform_excluded_first_budgets": 77,
+  "uniform_remaining_budgets": [
+    "216-221",
+    "223-231",
+    "296-304"
+  ],
+  "source_readback": "author-side local reproducible exact finite computation",
+  "independent_review": "NOT_REVIEWED",
+  "formal_task_claim_created": false
+}

@@ -1,0 +1,74 @@
+{
+  "status": "PASS_R5_256_CHAMBERWISE_7_8_7_ACTION_CORES_ALL_F",
+  "science_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "noise_chamber": {
+    "L": "25845652773852463277015040000",
+    "P": "42621568083499305947627520000",
+    "Q": "45392032647559604256815185920",
+    "U_exclusive": "58182461585441404127941754880"
+  },
+  "phases": [
+    {
+      "interval": "[L,P)",
+      "budgets": [
+        214,
+        215,
+        216,
+        223,
+        294,
+        295,
+        296
+      ]
+    },
+    {
+      "interval": "[P,Q)",
+      "budgets": [
+        214,
+        215,
+        216,
+        217,
+        223,
+        294,
+        295,
+        296
+      ]
+    },
+    {
+      "interval": "[Q,U)",
+      "budgets": [
+        214,
+        215,
+        216,
+        217,
+        223,
+        295,
+        296
+      ]
+    }
+  ],
+  "checked_signatures": 18,
+  "independent_support_families": 1818,
+  "critical_witness_states": [
+    2,
+    18,
+    34,
+    50,
+    66,
+    82,
+    98,
+    114,
+    128,
+    144,
+    160,
+    176,
+    192,
+    208,
+    224,
+    240
+  ],
+  "k294_exact_center_spread": "45392032647559604256815185920",
+  "scope": "all integer f>=0, all 256 named scalar hypotheses, arbitrary adaptive queries, known real tau in fifth interval; core irreducibility only under single cheaper-query refinement",
+  "independent_review": "NOT_REVIEWED",
+  "reproducibility": "Run stored Python verifier with pinned source input to generate all 18 per-chamber dominance maps and witnesses"
+}

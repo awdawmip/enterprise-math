@@ -1,0 +1,123 @@
+{
+  "status": "PASS_R5_NONISOLATING_PAIR_BLOCK_FAMILY",
+  "date": "2026-11-15",
+  "frozen_science_input": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": "exact integer radius-2 indexed center cover, gaps=(3,2,2,3,(3,1)^m), cuts zero-based 0,3",
+  "validation": "Local standard-library exact brute-force all C(5+2m,3+m) center selections per mask for m=0..6; output values recorded below. GitHub checker additionally asserts every appended index appears in half of optima.",
+  "purpose": "Reproducible finite evidence; arbitrary-m theorem established by separate mathematical proof.",
+  "rows": [
+    {
+      "m": 0,
+      "n": 5,
+      "K": 3,
+      "J": 4,
+      "counts": [
+        1,
+        4,
+        4,
+        8
+      ],
+      "P_count": 0,
+      "Q_count": 1,
+      "rank_labeled_arc_count_joint": 14,
+      "rank_labeled_arc_count_union": 14
+    },
+    {
+      "m": 1,
+      "n": 7,
+      "K": 4,
+      "J": 5,
+      "counts": [
+        2,
+        8,
+        8,
+        16
+      ],
+      "P_count": 0,
+      "Q_count": 2,
+      "rank_labeled_arc_count_joint": 18,
+      "rank_labeled_arc_count_union": 18
+    },
+    {
+      "m": 2,
+      "n": 9,
+      "K": 5,
+      "J": 6,
+      "counts": [
+        4,
+        16,
+        16,
+        32
+      ],
+      "P_count": 0,
+      "Q_count": 4,
+      "rank_labeled_arc_count_joint": 22,
+      "rank_labeled_arc_count_union": 22
+    },
+    {
+      "m": 3,
+      "n": 11,
+      "K": 6,
+      "J": 7,
+      "counts": [
+        8,
+        32,
+        32,
+        64
+      ],
+      "P_count": 0,
+      "Q_count": 8,
+      "rank_labeled_arc_count_joint": 26,
+      "rank_labeled_arc_count_union": 26
+    },
+    {
+      "m": 4,
+      "n": 13,
+      "K": 7,
+      "J": 8,
+      "counts": [
+        16,
+        64,
+        64,
+        128
+      ],
+      "P_count": 0,
+      "Q_count": 16,
+      "rank_labeled_arc_count_joint": 30,
+      "rank_labeled_arc_count_union": 30
+    },
+    {
+      "m": 5,
+      "n": 15,
+      "K": 8,
+      "J": 9,
+      "counts": [
+        32,
+        128,
+        128,
+        256
+      ],
+      "P_count": 0,
+      "Q_count": 32,
+      "rank_labeled_arc_count_joint": 34,
+      "rank_labeled_arc_count_union": 34
+    },
+    {
+      "m": 6,
+      "n": 17,
+      "K": 9,
+      "J": 10,
+      "counts": [
+        64,
+        256,
+        256,
+        512
+      ],
+      "P_count": 0,
+      "Q_count": 64,
+      "rank_labeled_arc_count_joint": 38,
+      "rank_labeled_arc_count_union": 38
+    }
+  ],
+  "independent_review": "NOT_REVIEWED"
+}

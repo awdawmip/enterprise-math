@@ -1,0 +1,97 @@
+{
+  "status": "PASS_R5_FIXED_MIXED_FAULT_THREE_NOISE_CHAMBERS",
+  "frozen_science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": "954 frozen-event derived indexed-center integer observer; 256 masks, budgets 214..314",
+  "cohort_input_sha256": "a781cf89e534587009e207e51bbda2f411e4147746f7d6a0b72a1354e80f0d4d",
+  "independent_full_table_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "zeta_values_checked": 25856,
+  "unordered_pairs_checked_per_triple": 32640,
+  "triples": [
+    {
+      "q": [
+        214,
+        223,
+        294
+      ],
+      "cost": 731,
+      "minimax_gap_decimal": "76289178155959966960189440",
+      "saturating_pairs": 64
+    },
+    {
+      "q": [
+        214,
+        223,
+        295
+      ],
+      "cost": 732,
+      "minimax_gap_decimal": "3133722521542003559403356160",
+      "saturating_pairs": 64
+    },
+    {
+      "q": [
+        214,
+        223,
+        296
+      ],
+      "cost": 733,
+      "minimax_gap_decimal": "13883516118328421520506880000",
+      "saturating_pairs": 16
+    }
+  ],
+  "witnesses": [
+    {
+      "pair": [
+        16,
+        17
+      ],
+      "full_disagreement_support": [
+        214,
+        221
+      ]
+    },
+    {
+      "pair": [
+        16,
+        80
+      ],
+      "full_disagreement_support": [
+        223,
+        291
+      ]
+    },
+    {
+      "pair": [
+        16,
+        32
+      ],
+      "full_disagreement_support": [
+        294,
+        313
+      ]
+    }
+  ],
+  "intervals_tau_2eta": [
+    {
+      "lower_inclusive": "0",
+      "upper_exclusive": "76289178155959966960189440",
+      "cost_formula": "731*(e+2f+1)",
+      "unique_schedule": "(214,223,294), r copies of each"
+    },
+    {
+      "lower_inclusive": "76289178155959966960189440",
+      "upper_exclusive": "3133722521542003559403356160",
+      "cost_formula": "732*(e+2f+1)",
+      "unique_schedule": "(214,223,295), r copies of each"
+    },
+    {
+      "lower_inclusive": "3133722521542003559403356160",
+      "upper_exclusive": "13883516118328421520506880000",
+      "cost_formula": "733*(e+2f+1)",
+      "unique_schedule": "(214,223,296), r copies of each"
+    }
+  ],
+  "e_f_scope": "all nonnegative integers e,f; marked erasures and unmarked arbitrary replacements; uncorrupted real measurements |y-N_b(k)|≤eta",
+  "review": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "executed_program_stdout_status": "PASS_R5_FIXED_MIXED_FAULT_THREE_NOISE_CHAMBERS",
+  "independent_full_table_crosscheck": true
+}

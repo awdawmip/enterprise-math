@@ -1,0 +1,124 @@
+{
+  "status": "PASS_R5_K6_TEN_TAIL_EXACT_CORE",
+  "science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "k": 6,
+  "J": [
+    0,
+    1
+  ],
+  "slack": 2,
+  "core_rows": [
+    3,
+    5,
+    6,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "all_16_tail_candidates": 41,
+  "core_candidates": 21,
+  "minimum_states": 11,
+  "core_weighted_masks": [
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      7,
+      4
+    ],
+    [
+      8,
+      2
+    ],
+    [
+      16,
+      1
+    ],
+    [
+      32,
+      2
+    ],
+    [
+      33,
+      2
+    ],
+    [
+      57,
+      4
+    ],
+    [
+      64,
+      1
+    ],
+    [
+      128,
+      2
+    ],
+    [
+      192,
+      2
+    ],
+    [
+      202,
+      4
+    ],
+    [
+      256,
+      1
+    ],
+    [
+      320,
+      2
+    ],
+    [
+      324,
+      4
+    ],
+    [
+      340,
+      4
+    ],
+    [
+      512,
+      2
+    ],
+    [
+      768,
+      4
+    ],
+    [
+      928,
+      4
+    ]
+  ],
+  "drop_one_minima": {
+    "3": 10,
+    "5": 10,
+    "6": 10,
+    "9": 9,
+    "10": 10,
+    "11": 10,
+    "12": 10,
+    "13": 10,
+    "14": 10,
+    "15": 9
+  },
+  "verification": "exact integer DP on all 1024 subset masks; canonical source-table enumeration; no MILP"
+}

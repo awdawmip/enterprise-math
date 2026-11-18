@@ -1,0 +1,150 @@
+{
+  "status": "PASS_R5_GRAPH_COUPLED_SUFFIX_EXACT_ADVICE",
+  "frozen_science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": "one-dimensional indexed-center covering with extra shared suffix-compatibility X",
+  "exact_theorem": "kappa_a(X,2)=kappa_ab(X,2)=|X|+isolates(X); kappa_b(X,1)=2|X|; kappa_0(X,0)=5|X|",
+  "all_lengths_proof_depends_on": "inherited optimizer-product lemma + exhaustively checked 7-event core certificate",
+  "finite_coverage": "all 274 nonempty X at ell=0..3, Fibonacci ell=1..15, direct repair coverage Fibonacci ell=1..8",
+  "core_optimum_costs": [
+    5,
+    5,
+    5,
+    5
+  ],
+  "core_family_sizes": [
+    5,
+    12,
+    9,
+    17
+  ],
+  "exhaustive_languages": [
+    {
+      "ell": 0,
+      "nonempty_languages": 1,
+      "languages_with_isolates": 1,
+      "min_kappa_a_ab": 2,
+      "max_kappa_a_ab": 2
+    },
+    {
+      "ell": 1,
+      "nonempty_languages": 3,
+      "languages_with_isolates": 2,
+      "min_kappa_a_ab": 2,
+      "max_kappa_a_ab": 2
+    },
+    {
+      "ell": 2,
+      "nonempty_languages": 15,
+      "languages_with_isolates": 6,
+      "min_kappa_a_ab": 2,
+      "max_kappa_a_ab": 4
+    },
+    {
+      "ell": 3,
+      "nonempty_languages": 255,
+      "languages_with_isolates": 90,
+      "min_kappa_a_ab": 2,
+      "max_kappa_a_ab": 8
+    }
+  ],
+  "fibonacci_languages": [
+    {
+      "ell": 1,
+      "suffixes": 2,
+      "kappa_a_ab": 2,
+      "kappa_b": 4
+    },
+    {
+      "ell": 2,
+      "suffixes": 3,
+      "kappa_a_ab": 3,
+      "kappa_b": 6
+    },
+    {
+      "ell": 3,
+      "suffixes": 5,
+      "kappa_a_ab": 5,
+      "kappa_b": 10
+    },
+    {
+      "ell": 4,
+      "suffixes": 8,
+      "kappa_a_ab": 8,
+      "kappa_b": 16
+    },
+    {
+      "ell": 5,
+      "suffixes": 13,
+      "kappa_a_ab": 13,
+      "kappa_b": 26
+    },
+    {
+      "ell": 6,
+      "suffixes": 21,
+      "kappa_a_ab": 21,
+      "kappa_b": 42
+    },
+    {
+      "ell": 7,
+      "suffixes": 34,
+      "kappa_a_ab": 34,
+      "kappa_b": 68
+    },
+    {
+      "ell": 8,
+      "suffixes": 55,
+      "kappa_a_ab": 55,
+      "kappa_b": 110
+    },
+    {
+      "ell": 9,
+      "suffixes": 89,
+      "kappa_a_ab": 89,
+      "kappa_b": 178
+    },
+    {
+      "ell": 10,
+      "suffixes": 144,
+      "kappa_a_ab": 144,
+      "kappa_b": 288
+    },
+    {
+      "ell": 11,
+      "suffixes": 233,
+      "kappa_a_ab": 233,
+      "kappa_b": 466
+    },
+    {
+      "ell": 12,
+      "suffixes": 377,
+      "kappa_a_ab": 377,
+      "kappa_b": 754
+    },
+    {
+      "ell": 13,
+      "suffixes": 610,
+      "kappa_a_ab": 610,
+      "kappa_b": 1220
+    },
+    {
+      "ell": 14,
+      "suffixes": 987,
+      "kappa_a_ab": 987,
+      "kappa_b": 1974
+    },
+    {
+      "ell": 15,
+      "suffixes": 1597,
+      "kappa_a_ab": 1597,
+      "kappa_b": 3194
+    }
+  ],
+  "isolated_example": {
+    "ell": 3,
+    "X": [
+      "000",
+      "111"
+    ],
+    "kappa_a_ab": 4
+  }
+}

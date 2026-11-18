@@ -1,0 +1,198 @@
+{
+  "status": "PASS_R5_EIGHT_SWITCH_KERNEL_EXHAUSTIVE",
+  "science_input_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "events": 954,
+  "cuts_all": 28,
+  "effective_cut_ids": [
+    3,
+    8,
+    9,
+    10,
+    15,
+    17,
+    25,
+    27
+  ],
+  "baseline_arcs": 4383,
+  "added_arcs_per_enabled_bit": 2,
+  "all_enabled_arcs": 4399,
+  "configurations_checked": 256,
+  "minimum_arcs": 4383,
+  "maximum_arcs": 4399,
+  "initial_and_terminal_kernels_invariant": true,
+  "nearest_cut_pair_separations": [
+    {
+      "left": 3,
+      "right": 8,
+      "inter_cut_distance": 75,
+      "minimum_simultaneously_closed_span": 79
+    },
+    {
+      "left": 8,
+      "right": 9,
+      "inter_cut_distance": 5,
+      "minimum_simultaneously_closed_span": 9
+    },
+    {
+      "left": 9,
+      "right": 10,
+      "inter_cut_distance": 6,
+      "minimum_simultaneously_closed_span": 10
+    },
+    {
+      "left": 10,
+      "right": 15,
+      "inter_cut_distance": 82,
+      "minimum_simultaneously_closed_span": 86
+    },
+    {
+      "left": 15,
+      "right": 17,
+      "inter_cut_distance": 58,
+      "minimum_simultaneously_closed_span": 62
+    },
+    {
+      "left": 17,
+      "right": 25,
+      "inter_cut_distance": 230,
+      "minimum_simultaneously_closed_span": 234
+    },
+    {
+      "left": 25,
+      "right": 27,
+      "inter_cut_distance": 49,
+      "minimum_simultaneously_closed_span": 53
+    }
+  ],
+  "two_arc_switches": [
+    {
+      "effective_cut": 3,
+      "gap_index": 46,
+      "conditional_arcs": [
+        {
+          "from": 43,
+          "to": 47,
+          "cost": 5
+        },
+        {
+          "from": 46,
+          "to": 50,
+          "cost": 5
+        }
+      ]
+    },
+    {
+      "effective_cut": 8,
+      "gap_index": 110,
+      "conditional_arcs": [
+        {
+          "from": 107,
+          "to": 111,
+          "cost": 5
+        },
+        {
+          "from": 110,
+          "to": 114,
+          "cost": 5
+        }
+      ]
+    },
+    {
+      "effective_cut": 9,
+      "gap_index": 116,
+      "conditional_arcs": [
+        {
+          "from": 113,
+          "to": 117,
+          "cost": 5
+        },
+        {
+          "from": 116,
+          "to": 120,
+          "cost": 5
+        }
+      ]
+    },
+    {
+      "effective_cut": 10,
+      "gap_index": 123,
+      "conditional_arcs": [
+        {
+          "from": 120,
+          "to": 124,
+          "cost": 5
+        },
+        {
+          "from": 123,
+          "to": 127,
+          "cost": 5
+        }
+      ]
+    },
+    {
+      "effective_cut": 15,
+      "gap_index": 194,
+      "conditional_arcs": [
+        {
+          "from": 191,
+          "to": 195,
+          "cost": 5
+        },
+        {
+          "from": 194,
+          "to": 198,
+          "cost": 5
+        }
+      ]
+    },
+    {
+      "effective_cut": 17,
+      "gap_index": 245,
+      "conditional_arcs": [
+        {
+          "from": 242,
+          "to": 246,
+          "cost": 5
+        },
+        {
+          "from": 245,
+          "to": 249,
+          "cost": 5
+        }
+      ]
+    },
+    {
+      "effective_cut": 25,
+      "gap_index": 441,
+      "conditional_arcs": [
+        {
+          "from": 438,
+          "to": 442,
+          "cost": 5
+        },
+        {
+          "from": 441,
+          "to": 444,
+          "cost": 4
+        }
+      ]
+    },
+    {
+      "effective_cut": 27,
+      "gap_index": 482,
+      "conditional_arcs": [
+        {
+          "from": 479,
+          "to": 483,
+          "cost": 5
+        },
+        {
+          "from": 482,
+          "to": 485,
+          "cost": 4
+        }
+      ]
+    }
+  ],
+  "scope": "derived indexed-event radius-two predecessor graph only; no claim of DP solution locality or native X6 equivalence"
+}

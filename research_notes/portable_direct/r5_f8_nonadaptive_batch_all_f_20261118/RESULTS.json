@@ -1,0 +1,66 @@
+{
+  "schema": "R5_FIXED_BATCH_ALL_F_20261118",
+  "science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "frozen_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "verified_hypotheses": 256,
+  "verified_budgets": 101,
+  "verified_pairs": 32640,
+  "dual_pairs": [
+    [
+      16,
+      32
+    ],
+    [
+      0,
+      64
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      8
+    ]
+  ],
+  "dual_weights": [
+    296,
+    223,
+    213,
+    1,
+    2
+  ],
+  "upper_budgets": [
+    216,
+    223,
+    296
+  ],
+  "pair_separation_counts": {
+    "1": 2448,
+    "2": 12192,
+    "3": 18000
+  },
+  "formula": "735*(2*f+1), integer f>=0, L<=tau<U",
+  "f8_batch": 12495,
+  "f8_adaptive_known_bounds": [
+    8335,
+    8343
+  ],
+  "f8_savings_bounds": [
+    4152,
+    4160
+  ],
+  "validation": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "dual_tight_budgets": [
+    214,
+    215,
+    216,
+    223,
+    296
+  ],
+  "unique_optimal_batch_multiset": "exactly (2*f+1) copies of each 216,223,296; no other query budgets"
+}

@@ -1,0 +1,145 @@
+{
+  "status": "PASS_R5_K7_SINGLE_NAMED_SET_EXACT_17",
+  "frozen_scientific_input": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": {
+    "k": 7,
+    "slack": 2,
+    "control_set": [
+      0
+    ],
+    "q": "cyclic sum of adjacent 1-bit products",
+    "source_library_size": "35+q(r)"
+  },
+  "theorem": {
+    "static_minimum": 17,
+    "dynamic_minimum": 17
+  },
+  "upper_certificate": {
+    "centers": [
+      45,
+      46,
+      47,
+      55,
+      61,
+      85,
+      90,
+      91,
+      94,
+      95,
+      109,
+      118,
+      119,
+      122,
+      123,
+      126,
+      127
+    ],
+    "belief_hex": [
+      "00000000000000000000333300003333",
+      "00000000000000000000440400004000",
+      "0000000000000000000088080000c000",
+      "000000000000000000cc00c000c000c0",
+      "00000000000000003333300033003000",
+      "00000000003300330000000000330000",
+      "00000000050405040000000004040404",
+      "000000000e080a080000000008080808",
+      "00000000540040400000000040000000",
+      "00000000a80080800000000080000000",
+      "00003333000030000000300000003000",
+      "00510044004000000000000000000000",
+      "00e20088008000000000000000000000",
+      "05040400000000000400000000000000",
+      "0a080800000000000800000000000000",
+      "54004000400000004000000000000000",
+      "a8008000800000008000000000000000"
+    ],
+    "transitions": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        13,
+        14
+      ],
+      [
+        13,
+        14
+      ],
+      [
+        15,
+        16
+      ],
+      [
+        15,
+        16
+      ]
+    ],
+    "raw_mask_coverage": 128,
+    "source_membership_checks": 145,
+    "reset_image_membership_checks": 290
+  },
+  "lower_certificate": {
+    "all_source_centers": 128,
+    "undominated_centers": 57,
+    "excluded_cover_size_at_most": 16,
+    "exact_dfs_visited_states": 299008,
+    "exact_dfs_cache": {
+      "hits": 173369,
+      "misses": 299008
+    },
+    "arithmetic": "exact Python integers",
+    "pruning": "exact dominance and remaining-cardinality bound",
+    "branching": "every source center covering chosen uncovered mask"
+  },
+  "scope": "auxiliary genuine source-labelled cycle-of-triangles repair",
+  "review": "NOT_REVIEWED"
+}

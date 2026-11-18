@@ -1,0 +1,171 @@
+{
+  "status": "PASS_R5_HIGH_NOISE_ALL_EF_CERTIFICATES",
+  "scientific_input": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "scope": {
+    "budgets": [
+      214,
+      314
+    ],
+    "masks": 256,
+    "pairs": 32640,
+    "noise_parameter": "tau=2*eta",
+    "fault_multiplicity": "r=e+2*f+1 for all nonnegative e,f",
+    "cost": "sum of queried budget integers"
+  },
+  "exact_integer_counts": 25856,
+  "compared_with_independent_full_table": true,
+  "new_chambers": [
+    {
+      "tau_min_inclusive": "1744659037213380157479321600000",
+      "tau_max_exclusive": "1752576979999614335377735680000",
+      "budget_tuple": [
+        215,
+        218,
+        224,
+        298
+      ],
+      "cost_coefficient": 955,
+      "saturating_pair_count": 8,
+      "saturating_pairs": [
+        [
+          11,
+          14
+        ],
+        [
+          27,
+          30
+        ],
+        [
+          43,
+          46
+        ],
+        [
+          59,
+          62
+        ],
+        [
+          75,
+          78
+        ],
+        [
+          91,
+          94
+        ],
+        [
+          107,
+          110
+        ],
+        [
+          123,
+          126
+        ]
+      ],
+      "dual_witnesses": [
+        [
+          3,
+          4,
+          215
+        ],
+        [
+          4,
+          10,
+          218
+        ],
+        [
+          0,
+          64,
+          224
+        ],
+        [
+          16,
+          32,
+          298
+        ]
+      ],
+      "dual_checked_budgets": 101,
+      "exact_pairs_checked": 32640
+    },
+    {
+      "tau_min_inclusive": "1752576979999614335377735680000",
+      "tau_max_exclusive": "1882951873548292168718745600000",
+      "budget_tuple": [
+        217,
+        218,
+        224,
+        298
+      ],
+      "cost_coefficient": 957,
+      "saturating_pair_count": 8,
+      "saturating_pairs": [
+        [
+          11,
+          14
+        ],
+        [
+          27,
+          30
+        ],
+        [
+          43,
+          46
+        ],
+        [
+          59,
+          62
+        ],
+        [
+          75,
+          78
+        ],
+        [
+          91,
+          94
+        ],
+        [
+          107,
+          110
+        ],
+        [
+          123,
+          126
+        ]
+      ],
+      "dual_witnesses": [
+        [
+          11,
+          14,
+          217
+        ],
+        [
+          4,
+          10,
+          218
+        ],
+        [
+          0,
+          64,
+          224
+        ],
+        [
+          16,
+          32,
+          298
+        ]
+      ],
+      "dual_checked_budgets": 101,
+      "exact_pairs_checked": 32640
+    }
+  ],
+  "global_impossibility": {
+    "tau_min_inclusive": "1882951873548292168718745600000",
+    "pair": [
+      11,
+      14
+    ],
+    "max_gap": "1882951873548292168718745600000",
+    "max_gap_budgets": [
+      217
+    ]
+  },
+  "previous_nine_chamber_certificate_sha": "b369e8452f3a4f0e21167b30684629bb98f625c2"
+}

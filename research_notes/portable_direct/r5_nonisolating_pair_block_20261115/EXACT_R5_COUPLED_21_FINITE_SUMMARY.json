@@ -1,0 +1,114 @@
+{
+  "status": "PASS_R5_UNBOUNDED_COUPLED_21_BLOCKS",
+  "date": "2026-11-15",
+  "model": "integer indexed-center, radius=2, gap word (3,2,2,3,(2,1)^m), zero-based cuts 0 and 3",
+  "frozen_science_input": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "method": "Exhaustive integer enumeration of all C(n,K) candidate sets in each of four masks for m=1..6, plus independent complete 5-index prefix barrier checks",
+  "prefix_barrier_minimum_cost_q1_to_q5": [
+    null,
+    6,
+    4,
+    2,
+    0
+  ],
+  "prefix_barrier_confirmed_for_masks": [
+    "none",
+    "a",
+    "b",
+    "a+b"
+  ],
+  "rows": [
+    {
+      "m": 1,
+      "n": 7,
+      "K": 4,
+      "J": 5,
+      "optimizer_counts": [
+        5,
+        12,
+        9,
+        17
+      ],
+      "P_count": 0,
+      "Q_count": 1,
+      "joint_only_rank_arcs": 0
+    },
+    {
+      "m": 2,
+      "n": 9,
+      "K": 5,
+      "J": 6,
+      "optimizer_counts": [
+        10,
+        24,
+        18,
+        34
+      ],
+      "P_count": 0,
+      "Q_count": 2,
+      "joint_only_rank_arcs": 0
+    },
+    {
+      "m": 3,
+      "n": 11,
+      "K": 6,
+      "J": 7,
+      "optimizer_counts": [
+        20,
+        48,
+        36,
+        68
+      ],
+      "P_count": 0,
+      "Q_count": 4,
+      "joint_only_rank_arcs": 0
+    },
+    {
+      "m": 4,
+      "n": 13,
+      "K": 7,
+      "J": 8,
+      "optimizer_counts": [
+        40,
+        96,
+        72,
+        136
+      ],
+      "P_count": 0,
+      "Q_count": 8,
+      "joint_only_rank_arcs": 0
+    },
+    {
+      "m": 5,
+      "n": 15,
+      "K": 8,
+      "J": 9,
+      "optimizer_counts": [
+        80,
+        192,
+        144,
+        272
+      ],
+      "P_count": 0,
+      "Q_count": 16,
+      "joint_only_rank_arcs": 0
+    },
+    {
+      "m": 6,
+      "n": 17,
+      "K": 9,
+      "J": 10,
+      "optimizer_counts": [
+        160,
+        384,
+        288,
+        544
+      ],
+      "P_count": 0,
+      "Q_count": 32,
+      "joint_only_rank_arcs": 0
+    }
+  ],
+  "unbounded_proof": "COUPLED_21_UNBOUNDED_SWITCH_THEOREM.md; finite calculations are supporting evidence, not the all-m proof",
+  "independent_review": "NOT_REVIEWED"
+}

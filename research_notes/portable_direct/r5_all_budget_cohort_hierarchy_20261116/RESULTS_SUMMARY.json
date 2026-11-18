@@ -1,0 +1,243 @@
+{
+  "schema": "R5_ALL_BUDGET_COHORT_HIERARCHY_EXACT_V1",
+  "result": "PASS_R5_101_BUDGET_INTERACTION_HIERARCHY",
+  "date": "2026-11-16",
+  "scope": "frozen derived radius-two 954-event integer indexed-center observer; no native X6/BRC transfer",
+  "scientific_input_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "predecessor_code_commit": "9ff2c06f3e64b79dc12c80044f392a53fd649491",
+  "predecessor_code_path": "research_notes/portable_direct/r5_single_sweep_cohort_zeta_20261116/R5_PATH_REQUIREMENT_DP_20261116.py",
+  "source_python_git_blob": "df9142885bfa7d41bfb22014d3ab8db1141739b7",
+  "source_python_sha256": "0b70dcbf7c13184f333b2315a1c9777365eaf9d4cc22173318741fbe37733860",
+  "event_count": 954,
+  "original_gap_cuts": 28,
+  "effective_cut_ids": [
+    3,
+    8,
+    9,
+    10,
+    15,
+    17,
+    25,
+    27
+  ],
+  "permanent_arcs": 4383,
+  "conditional_arcs": 16,
+  "budgets": {
+    "from": 214,
+    "to": 314,
+    "count": 101
+  },
+  "closure_masks": 256,
+  "zeta_values_computed": 25856,
+  "independent_masks_compared": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    8,
+    15,
+    16,
+    17,
+    31,
+    32,
+    63,
+    64,
+    65,
+    85,
+    127,
+    128,
+    129,
+    170,
+    192,
+    223,
+    254,
+    255
+  ],
+  "independent_cost_count_pairs": 2424,
+  "independent_mismatches": 0,
+  "union_nonzero_cohort_masks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    8,
+    9,
+    10,
+    11,
+    16,
+    32,
+    48,
+    64,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    136,
+    137,
+    138,
+    139,
+    192
+  ],
+  "max_monomial_degree": 4,
+  "sole_degree_four_requirement_mask": 139,
+  "degree_intervals": [
+    {
+      "K": [
+        214,
+        219
+      ],
+      "degree": 4
+    },
+    {
+      "K": [
+        220,
+        220
+      ],
+      "degree": 3
+    },
+    {
+      "K": [
+        221,
+        221
+      ],
+      "degree": 2
+    },
+    {
+      "K": [
+        222,
+        222
+      ],
+      "degree": 1
+    },
+    {
+      "K": [
+        223,
+        290
+      ],
+      "degree": 2
+    },
+    {
+      "K": [
+        291,
+        291
+      ],
+      "degree": 1
+    },
+    {
+      "K": [
+        292,
+        292
+      ],
+      "degree": 0
+    },
+    {
+      "K": [
+        293,
+        293
+      ],
+      "degree": 1
+    },
+    {
+      "K": [
+        294,
+        313
+      ],
+      "degree": 2
+    },
+    {
+      "K": [
+        314,
+        314
+      ],
+      "degree": 1
+    }
+  ],
+  "positive_requirement_patterns": [
+    {
+      "K": [
+        214,
+        219
+      ],
+      "mask_count": 20
+    },
+    {
+      "K": [
+        220,
+        220
+      ],
+      "mask_count": 18
+    },
+    {
+      "K": [
+        221,
+        221
+      ],
+      "mask_count": 10
+    },
+    {
+      "K": [
+        222,
+        222
+      ],
+      "mask_count": 2
+    },
+    {
+      "K": [
+        223,
+        290
+      ],
+      "mask_count": 4
+    },
+    {
+      "K": [
+        291,
+        291
+      ],
+      "mask_count": 3
+    },
+    {
+      "K": [
+        292,
+        292
+      ],
+      "mask_count": 1
+    },
+    {
+      "K": [
+        293,
+        293
+      ],
+      "mask_count": 3
+    },
+    {
+      "K": [
+        294,
+        313
+      ],
+      "mask_count": 4
+    }
+  ],
+  "number_distinct_patterns": 9,
+  "local_generated_full_coefficient_output": {
+    "bytes": 32555,
+    "sha256": "a781cf89e534587009e207e51bbda2f411e4147746f7d6a0b72a1354e80f0d4d",
+    "regenerate_command": "python research_notes/portable_direct/r5_all_budget_cohort_hierarchy_20261116/VERIFY_R5_BUDGET_INTERACTION_HIERARCHY.py > exact_coefficients.json"
+  },
+  "separate_full_counts_local_output": {
+    "bytes": 1549048,
+    "scope": "reconstructed with the 24 selected independent masks checked; the 256-mask direct rerun did not finish",
+    "sha256": "0ab5b0f229785118d80a758c8f9dd330f47dec9d16e595dd4e8f30c7991e0615"
+  },
+  "sample_full_closed_counts": {
+    "K214": "4573020854769248525038387200000",
+    "K223": "209661782760358268989540757667840000",
+    "K294": "342162737216429487140162764800"
+  },
+  "review": "AUTHOR_PROVED/EXACT_FINITE_RECOMPUTABLE/NOT_REVIEWED"
+}

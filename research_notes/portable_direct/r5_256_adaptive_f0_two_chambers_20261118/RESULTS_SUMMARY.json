@@ -1,0 +1,113 @@
+{
+  "status": "PASS_R5_256_ADAPTIVE_F0_EXACT_TWO_CHAMBERS",
+  "timestamp_scope": "2026-11-18 Asia/Shanghai",
+  "science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "observer": {
+    "hypotheses": 256,
+    "budgets": "214..314",
+    "errors": 0,
+    "response": "closed radius tau/2 around each exact integer count"
+  },
+  "method": "exact 256-bit candidate masks; two-pointer maximal supports independently checked by swept closed interval endpoints; Bellman minimax with 101 actions and 3/4 remaining-query cap; reconstructed policy audited",
+  "endpoints": [
+    {
+      "chamber": "fifth",
+      "tau": "25845652773852463277015040000",
+      "optimal_cost": 735,
+      "first_actions": [
+        216,
+        223,
+        296
+      ],
+      "dp_states": 1056,
+      "transitions": 32862,
+      "policy_states": 97,
+      "root_support_counts": {
+        "216": 32,
+        "223": 4,
+        "296": 4
+      }
+    },
+    {
+      "chamber": "fifth",
+      "tau": "58182461585441404127941754879",
+      "optimal_cost": 735,
+      "first_actions": [
+        216,
+        223,
+        296
+      ],
+      "dp_states": 915,
+      "transitions": 29881,
+      "policy_states": 96,
+      "root_support_counts": {
+        "216": 31,
+        "223": 4,
+        "296": 4
+      }
+    },
+    {
+      "chamber": "near-critical",
+      "tau": "1876919155234970890319953920000",
+      "optimal_cost": 955,
+      "first_actions": [
+        215,
+        224,
+        298
+      ],
+      "dp_states": 2615,
+      "transitions": 127164,
+      "policy_states": 118,
+      "policy_budget_types": [
+        215,
+        216,
+        217,
+        218,
+        224,
+        298
+      ],
+      "root_support_counts": {
+        "215": 19,
+        "224": 4,
+        "298": 4
+      }
+    },
+    {
+      "chamber": "near-critical",
+      "tau": "1882951873548292168718745599999",
+      "optimal_cost": 955,
+      "first_actions": [
+        215,
+        224,
+        298
+      ],
+      "dp_states": 2615,
+      "transitions": 127164,
+      "policy_states": 118,
+      "policy_budget_types": [
+        215,
+        216,
+        217,
+        218,
+        224,
+        298
+      ],
+      "root_support_counts": {
+        "215": 19,
+        "224": 4,
+        "298": 4
+      }
+    }
+  ],
+  "proof_scope": "all real tau in [L,U) and [T,D), where integer counts allow right-last-integer endpoint and monotonicity fills intervals",
+  "prior_fixed_batch_f0": {
+    "fifth": 735,
+    "near_critical": 957
+  },
+  "new_adaptive_f0": {
+    "fifth": 735,
+    "near_critical": 955
+  },
+  "status_review": "NOT_REVIEWED"
+}

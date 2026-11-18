@@ -1,0 +1,99 @@
+{
+  "status": "PASS_R5_MIXED_DOMINATION_REDUCTION",
+  "frozen_science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "old_core_sizes": 5,
+  "new_core_sizes": [
+    5,
+    6
+  ],
+  "theorem": "all m>=2: kappa_a=2^(m-2)+gamma(Q_(m-2)), kappa_ab=2^(m-1)",
+  "finite_coverage": "exact exhaustive cube domination d=0..4, library witnesses; d=7 perfect code witness+lower bound",
+  "rows": [
+    {
+      "d": 0,
+      "m": 2,
+      "gamma": 1,
+      "kappa_a": 2,
+      "kappa_ab": 2,
+      "dominating_set": [
+        0
+      ],
+      "gamma_verification": "exhaustive all smaller subsets"
+    },
+    {
+      "d": 1,
+      "m": 3,
+      "gamma": 1,
+      "kappa_a": 3,
+      "kappa_ab": 4,
+      "dominating_set": [
+        0
+      ],
+      "gamma_verification": "exhaustive all smaller subsets"
+    },
+    {
+      "d": 2,
+      "m": 4,
+      "gamma": 2,
+      "kappa_a": 6,
+      "kappa_ab": 8,
+      "dominating_set": [
+        0,
+        1
+      ],
+      "gamma_verification": "exhaustive all smaller subsets"
+    },
+    {
+      "d": 3,
+      "m": 5,
+      "gamma": 2,
+      "kappa_a": 10,
+      "kappa_ab": 16,
+      "dominating_set": [
+        0,
+        7
+      ],
+      "gamma_verification": "exhaustive all smaller subsets"
+    },
+    {
+      "d": 4,
+      "m": 6,
+      "gamma": 4,
+      "kappa_a": 20,
+      "kappa_ab": 32,
+      "dominating_set": [
+        0,
+        1,
+        14,
+        15
+      ],
+      "gamma_verification": "exhaustive all smaller subsets"
+    },
+    {
+      "d": 7,
+      "m": 9,
+      "gamma": 16,
+      "kappa_a": 144,
+      "kappa_ab": 256,
+      "dominating_set": [
+        0,
+        7,
+        25,
+        30,
+        42,
+        45,
+        51,
+        52,
+        75,
+        76,
+        82,
+        85,
+        97,
+        102,
+        120,
+        127
+      ],
+      "gamma_verification": "perfect Hamming code + sphere-covering lower bound"
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "title": "R5 blind recourse and finite advice library",
+  "model": "derived one-dimensional indexed-center radius-2 observer",
+  "frozen_scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "source_lineage": "669c96f388bb2d84ef297e9a2ee09a5751c97353 product optimizer family; ab30d10a4103782605819685cea606bee33da3b3 distance spectrum",
+  "proof_scope": "all integers m >= 1 by full optimizer-family product lemma plus exhaustive 7-event core",
+  "local_exact_verification": {
+    "status_robust": "PASS_R5_BLIND_RECOURSE",
+    "coverage_robust": "m=1..6, four masks, all combinations(n,K), integer distances",
+    "executed_raw_json_sha256_robust": "12828afa84033af8500f2e5c93308c41e3d9a3c386a95ff2af8c1fb3232f3205",
+    "status_library": "PASS_EXACT_R5_RECOURSE_LIBRARY",
+    "coverage_library": "m=1..3, four masks, all candidate old-optimizer libraries in increasing cardinality",
+    "executed_raw_json_sha256_library": "3d5c094df3e1fa54ecbe72ed2168ec68145fe5ff59bbff13d531e999673caeaf",
+    "independent_review": "NOT_REVIEWED"
+  },
+  "rows": [
+    {
+      "m": 1,
+      "n": 7,
+      "K": 4,
+      "optimal_cost": 5,
+      "mask_results": [
+        {
+          "mask": 0,
+          "optimizer_count": 5,
+          "adaptive_max_new_min_old": 0,
+          "blind_min_old_max_new": 2,
+          "reverse_min_new_max_old": 2,
+          "blind_old_maximum_histogram": {
+            "2": 3,
+            "3": 2
+          }
+        },
+        {
+          "mask": 1,
+          "optimizer_count": 12,
+          "adaptive_max_new_min_old": 2,
+          "blind_min_old_max_new": 3,
+          "reverse_min_new_max_old": 2,
+          "blind_old_maximum_histogram": {
+            "3": 5
+          }
+        },
+        {
+          "mask": 2,
+          "optimizer_count": 9,
+          "adaptive_max_new_min_old": 1,
+          "blind_min_old_max_new": 2,
+          "reverse_min_new_max_old": 2,
+          "blind_old_maximum_histogram": {
+            "2": 1,
+            "3": 4
+          }
+        },
+        {
+          "mask": 3,
+          "optimizer_count": 17,
+          "adaptive_max_new_min_old": 2,
+          "blind_min_old_max_new": 3,
+          "reverse_min_new_max_old": 2,
+          "blind_old_maximum_histogram": {
+            "3": 5
+          }
+        }
+      ]
+    },
+    {
+      "m": 2,
+      "n": 9,
+      "K": 5,
+      "optimal_cost": 6,
+      "mask_results": [
+        {
+          "mask": 0,
+          "optimizer_count": 10,
+          "adaptive_max_new_min_old": 0,
+          "blind_min_old_max_new": 3,
+          "reverse_min_new_max_old": 3,
+          "blind_old_maximum_histogram": {
+            "3": 6,
+            "4": 4
+          }
+        },
+        {
+          "mask": 1,
+          "optimizer_count": 24,
+          "adaptive_max_new_min_old": 2,
+          "blind_min_old_max_new": 4,
+          "reverse_min_new_max_old": 3,
+          "blind_old_maximum_histogram": {
+            "4": 10
+          }
+        },
+        {
+          "mask": 2,
+          "optimizer_count": 18,
+          "adaptive_max_new_min_old": 1,
+          "blind_min_old_max_new": 3,
+          "reverse_min_new_max_old": 3,
+          "blind_old_maximum_histogram": {
+            "3": 2,
+            "4": 8
+          }
+        },
+        {
+          "mask": 3,
+          "optimizer_count": 34,
+          "adaptive_max_new_min_old": 2,
+          "blind_min_old_max_new": 4,
+          "reverse_min_new_max_old": 3,
+          "blind_old_maximum_histogram": {
+            "4": 10
+          }
+        }
+      ]
+    },
+    {
+      "m": 3,
+      "n": 11,
+      "K": 6,
+      "optimal_cost": 7,
+      "mask_results": [
+        {
+          "mask": 0,
+          "optimizer_count": 20,
+          "adaptive_max_new_min_old": 0,
+          "blind_min_old_max_new": 4,
+          "reverse_min_new_max_old": 4,
+          "blind_old_maximum_histogram": {
+            "4": 12,
+            "5": 8
+          }
+        },
+        {
+          "mask": 1,
+          "optimizer_count": 48,
+          "adaptive_max_new_min_old": 2,
+          "blind_min_old_max_new": 5,
+          "reverse_min_new_max_old": 4,
+          "blind_old_maximum_histogram": {
+            "5": 20
+          }
+        },
+        {
+          "mask": 2,
+          "optimizer_count": 36,
+          "adaptive_max_new_min_old": 1,
+          "blind_min_old_max_new": 4,
+          "reverse_min_new_max_old": 4,
+          "blind_old_maximum_histogram": {
+            "4": 4,
+            "5": 16
+          }
+        },
+        {
+          "mask": 3,
+          "optimizer_count": 68,
+          "adaptive_max_new_min_old": 2,
+          "blind_min_old_max_new": 5,
+          "reverse_min_new_max_old": 4,
+          "blind_old_maximum_histogram": {
+            "5": 20
+          }
+        }
+      ]
+    },
+    {
+      "m": 4,
+      "n": 13,
+      "K": 7,
+      "optimal_cost": 8,
+      "mask_results": [
+        {
+          "mask": 0,
+          "optimizer_count": 40,
+          "adaptive_max_new_min_old": 0,
+          "blind_min_old_max_new": 5,
+          "reverse_min_new_max_old": 5,
+          "blind_old_maximum_histogram": {
+            "5": 24,
+            "6": 16
+          }
+        },
+        {
+          "mask": 1,
+          "optimizer_count": 96,
+          "adaptive_max_new_min_old": 2,
+          "blind_min_old_max_new": 6,
+          "reverse_min_new_max_old": 5,
+          "blind_old_maximum_histogram": {
+            "6": 40
+          }
+        },
+        {
+          "mask": 2,
+          "optimizer_count": 72,
+          "adaptive_max_new_min_old": 1,
+          "blind_min_old_max_new": 5,
+          "reverse_min_new_max_old": 5,
+          "blind_old_maximum_histogram": {
+            "5": 8,
+            "6": 32
+          }
+        },
+        {
+          "mask": 3,
+          "optimizer_count": 136,
+          "adaptive_max_new_min_old": 2,
+          "blind_min_old_max_new": 6,
+          "reverse_min_new_max_old": 5,
+          "blind_old_maximum_histogram": {
+            "6": 40
+          }
+        }
+      ]
+    },
+    {
+      "m": 5,
+      "n": 15,
+      "K": 8,
+      "optimal_cost": 9,
+      "mask_results": [
+        {
+          "mask": 0,
+          "optimizer_count": 80,
+          "adaptive_max_new_min_old": 0,
+          "blind_min_old_max_new": 6,
+          "reverse_min_new_max_old": 6,
+          "blind_old_maximum_histogram": {
+            "6": 48,
+            "7": 32
+          }
+        },
+        {
+          "mask": 1,
+          "optimizer_count": 192,
+          "adaptive_max_new_min_old": 2,
+          "blind_min_old_max_new": 7,
+          "reverse_min_new_max_old": 6,
+          "blind_old_maximum_histogram": {
+            "7": 80
+          }
+        },
+        {
+          "mask": 2,
+          "optimizer_count": 144,
+          "adaptive_max_new_min_old": 1,
+          "blind_min_old_max_new": 6,
+          "reverse_min_new_max_old": 6,
+          "blind_old_maximum_histogram": {
+            "6": 16,
+            "7": 64
+          }
+        },
+        {
+          "mask": 3,
+          "optimizer_count": 272,
+          "adaptive_max_new_min_old": 2,
+          "blind_min_old_max_new": 7,
+          "reverse_min_new_max_old": 6,
+          "blind_old_maximum_histogram": {
+            "7": 80
+          }
+        }
+      ]
+    },
+    {
+      "m": 6,
+      "n": 17,
+      "K": 9,
+      "optimal_cost": 10,
+      "mask_results": [
+        {
+          "mask": 0,
+          "optimizer_count": 160,
+          "adaptive_max_new_min_old": 0,
+          "blind_min_old_max_new": 7,
+          "reverse_min_new_max_old": 7,
+          "blind_old_maximum_histogram": {
+            "7": 96,
+            "8": 64
+          }
+        },
+        {
+          "mask": 1,
+          "optimizer_count": 384,
+          "adaptive_max_new_min_old": 2,
+          "blind_min_old_max_new": 8,
+          "reverse_min_new_max_old": 7,
+          "blind_old_maximum_histogram": {
+            "8": 160
+          }
+        },
+        {
+          "mask": 2,
+          "optimizer_count": 288,
+          "adaptive_max_new_min_old": 1,
+          "blind_min_old_max_new": 7,
+          "reverse_min_new_max_old": 7,
+          "blind_old_maximum_histogram": {
+            "7": 32,
+            "8": 128
+          }
+        },
+        {
+          "mask": 3,
+          "optimizer_count": 544,
+          "adaptive_max_new_min_old": 2,
+          "blind_min_old_max_new": 8,
+          "reverse_min_new_max_old": 7,
+          "blind_old_maximum_histogram": {
+            "8": 160
+          }
+        }
+      ]
+    }
+  ],
+  "minimum_library_at_adaptive_radius": [
+    {
+      "m": 1,
+      "radius_by_mask": [
+        0,
+        2,
+        1,
+        2
+      ],
+      "minimum_sizes": [
+        5,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "m": 2,
+      "radius_by_mask": [
+        0,
+        2,
+        1,
+        2
+      ],
+      "minimum_sizes": [
+        10,
+        2,
+        4,
+        2
+      ]
+    },
+    {
+      "m": 3,
+      "radius_by_mask": [
+        0,
+        2,
+        1,
+        2
+      ],
+      "minimum_sizes": [
+        20,
+        4,
+        8,
+        4
+      ]
+    }
+  ],
+  "exact_all_m_b_only_radius_1_library_size": "2^m",
+  "generic_lower_bound": "ceil(2^(m-1) / sum_{j=0}^{min(m-1,r)} C(m-1,j))",
+  "next": "exact covering-code/library complexity of a and ab at repair radius 2"
+}

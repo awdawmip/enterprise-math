@@ -1,0 +1,161 @@
+{
+  "schema": "R5_K7_TWO_POSITIVE_SOURCE_CONTROLLER_EVIDENCE_V1",
+  "date": "2026-11-16",
+  "frozen_science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "scope": "auxiliary genuine-source 7-cycle, q(u)=sum consecutive products, slack2, positive Set on bits 0,1",
+  "upper_witness": {
+    "status": "PASS_R5_K7_TWO_RAISES_NINETEEN_UPPER",
+    "states": 19,
+    "raw_snapshots": 128,
+    "initial_feasible_pairs": 263,
+    "greatest_simulation_pairs": 202,
+    "pruning_rounds": 2,
+    "valid_initials": 128,
+    "idempotent_commuting": true,
+    "unbounded_horizon_verified_via_finite_greatest_fixed_point": true,
+    "centres": [
+      23,
+      31,
+      39,
+      43,
+      59,
+      90,
+      91,
+      108,
+      109,
+      110,
+      111,
+      116,
+      117,
+      118,
+      119,
+      124,
+      125,
+      126,
+      127
+    ],
+    "target_by_source": {
+      "23": [
+        23,
+        23
+      ],
+      "31": [
+        31,
+        31
+      ],
+      "39": [
+        39,
+        39
+      ],
+      "43": [
+        43,
+        43
+      ],
+      "59": [
+        59,
+        59
+      ],
+      "90": [
+        91,
+        90
+      ],
+      "91": [
+        91,
+        91
+      ],
+      "108": [
+        109,
+        110
+      ],
+      "109": [
+        109,
+        111
+      ],
+      "110": [
+        111,
+        110
+      ],
+      "111": [
+        111,
+        111
+      ],
+      "116": [
+        117,
+        118
+      ],
+      "117": [
+        117,
+        119
+      ],
+      "118": [
+        119,
+        118
+      ],
+      "119": [
+        119,
+        119
+      ],
+      "124": [
+        125,
+        126
+      ],
+      "125": [
+        125,
+        127
+      ],
+      "126": [
+        127,
+        126
+      ],
+      "127": [
+        127,
+        127
+      ]
+    }
+  },
+  "static_cover": {
+    "source_centres": 128,
+    "nondominated_centres": 57,
+    "raw_snapshots": 128,
+    "optimal_centres": 17,
+    "solver": "SciPy 1.17.0 HiGHS",
+    "termination": "OPTIMAL",
+    "reported_mip_gap": 0,
+    "witness": [
+      43,
+      47,
+      53,
+      59,
+      63,
+      75,
+      86,
+      87,
+      93,
+      94,
+      106,
+      109,
+      111,
+      118,
+      123,
+      125,
+      127
+    ]
+  },
+  "one_step_milp": {
+    "class": "distinct output centres from 57 nondominated source masks, unrestricted internal transition tables",
+    "binary_variables": 7375,
+    "constraints": 8381,
+    "nonzero_matrix_entries": 33041,
+    "bound": "sum source-centre indicators <= 18",
+    "solver": "SciPy 1.17.0 HiGHS",
+    "termination": "INFEASIBLE",
+    "backend_status": 8,
+    "scipy_status": 2,
+    "infeasibility_receipt": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+    "status_meaning": "numerical MILP result; no independently checked unsatisfiability certificate",
+    "general_controller_lower_scope": "At M=17, source-mask domination cannot introduce duplicates if static lower 17 is valid; hence numerical >=18 lower is applicable assuming solver infeasibility soundness.",
+    "remaining_unrestricted_cases": "18 states with repeated or dominated source labels"
+  },
+  "author_status": "AUTHOR_PROVED_UPPER / EXACT_FINITE_CHECKED / MILP_SOLVER_REPORTED_LOWER / NOT_REVIEWED",
+  "next_question": "Find or exclude a genuine-source 18-state controller allowing one repeated output source; obtain an independent finite certificate."
+}
