@@ -1,0 +1,59 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-19",
+  "status": "AUTHOR_EXACT_CURRENT_CONSUMER_AUDITED/UNREVIEWED/NOT_ADMITTED",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "claims": [
+    {
+      "id": "X6-UNIT147-CYCLO-U-RELATIVE-CONSUMER",
+      "target_lp": [
+        "LP022",
+        "LP026",
+        "LP028"
+      ],
+      "source_current": {
+        "commit": "main-current-observed-2026-11-19",
+        "path": "experiments/x6_cyclotomic_compatibility_20260910/verify.py",
+        "git_blob_sha1": "0d4ea1d29281236c80ae8502de7d75a5d76c39e9",
+        "lines": "33-36; 182+",
+        "actual_call": "six-coordinate matrix U and G; source's derived cyclotomic ideal-lattice semantics"
+      },
+      "native_type_source": {
+        "commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+        "path": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+        "git_blob_sha1": "b4d49a1bbcccad0521618c6d20f6dcfa242b420a",
+        "lines": "111,143-179,250-266"
+      },
+      "typed_result": "KEEP_DERIVED_CYCLOTOMIC_U; REJECT_QUOTIENT_DESCENT_ON_G6_REL_WITHOUT_COMMON_DEPTH; EXACT_ONE_STEP_TOMOGRAPHY_FOR_TRIPLES_CONTAINING_E0; KEEP_NATIVE_POSITIVE_NBRC_SEPARATE",
+      "proof": "U^r(1,..,1) = -e_(r-1) for r1..6, returning D at r7. U-invariant closure of diagonal shifts is all Z6; derived U does not descend to relative quotient. For z=can6(z)+hD, any post-U three-coordinate observer containing 0 reconstructs h exactly; exactly 10 of 20 triples distinguish each nonzero phase. Native BRC differs across phases [720,1,1,1,1,1,1,720] for diagonal generator.",
+      "verification": {
+        "proof_path": "research_notes/X6_UNIT147_CYCLOTOMIC_DIAGONAL_RESIDUAL_WAKE_20261119.md",
+        "proof_blob": "560a379c3b28f2915beff341f65ed99d540eb82f",
+        "checker_path": "research_checks/X6_UNIT147_CYCLOTOMIC_RELATIVE_DEPTH_OBSERVER_CHECK_20261119.py",
+        "checker_blob": "258c76889a85b4d781a0d03cabd30e0badfb653f",
+        "certificate_path": "research_checks/X6_UNIT147_CYCLOTOMIC_RELATIVE_DEPTH_OBSERVER_RESULTS_20261119.json",
+        "certificate_blob": "886707c5279ef631ca2a5e5dbc611eb44e78cd56",
+        "exact_three_mode_stdout_sha256": "06ecaa9ce9dfe1d8cf9df03f5e2437136fce4f8d0e4f54959caf78cf3164b724"
+      },
+      "scope": "new exact current consumer edge and conditional observer theorem; NOT all 28-LP corpus; original full executable not run"
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "LP011",
+      "historical_bad_caller": "UNRESOLVED_PROVENANCE",
+      "need": "frozen original commit:path:line with signed native argmax misuse, if existent"
+    },
+    {
+      "id": "LP019",
+      "historical_bad_caller": "UNRESOLVED_PROVENANCE",
+      "need": "frozen original commit:path:line with positive natural N-BRC subtraction misuse, if existent"
+    }
+  ],
+  "independent_driver_review": "PENDING",
+  "original_r063_benchmark": "UNCHANGED_UNRERUN",
+  "next_action": "Consume original Unit146 native PROGRESS terminal and Source event, then Unit147 semantic linkage under own fresh claim and run generation; continue uninspected original/current 28-LP exact source:line consumers."
+}
