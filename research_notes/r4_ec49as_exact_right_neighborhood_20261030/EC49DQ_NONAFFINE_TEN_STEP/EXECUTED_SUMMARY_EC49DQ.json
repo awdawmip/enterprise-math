@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "date": "2026-11-01",
+  "proof_class": "author_side_exact_constructive",
+  "source_script_git_blob_expected": "fd7590d71ea42afdb878a5e9b11c09b361985cc2",
+  "scope": {
+    "endpoint": [
+      -2,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "history_len": 10,
+    "channel_weights": "two arbitrary positive multiplicative + count",
+    "future_words": {
+      "h2": 4,
+      "h3": 15,
+      "h4": 56,
+      "h5": 210,
+      "cumulative_1_2": 5
+    },
+    "prime_moduli": [
+      1000003,
+      1000033
+    ],
+    "histories_checked": 54
+  },
+  "cases": [
+    {
+      "case": "I_first_two_multiplicative_distinct",
+      "x": [
+        2,
+        3,
+        5,
+        2,
+        4,
+        6
+      ],
+      "y": [
+        3,
+        5,
+        8,
+        7,
+        2,
+        11
+      ],
+      "gate": "-180",
+      "det18": "-34012224000000",
+      "rank_h2": 15,
+      "rank_h3": 18,
+      "rank_h4": 15,
+      "rank_h5": 18,
+      "rank_cumulative": 18
+    },
+    {
+      "case": "II_x1_x2_y1_y2_equal",
+      "x": [
+        2,
+        2,
+        1,
+        2,
+        4,
+        5
+      ],
+      "y": [
+        3,
+        3,
+        1,
+        4,
+        2,
+        7
+      ],
+      "H345": "-8",
+      "gate": "-1728",
+      "det18": "-26623333280885243904",
+      "rank_h2": 15,
+      "rank_h3": 18,
+      "rank_h4": 15,
+      "rank_h5": 18,
+      "rank_cumulative": 18
+    },
+    {
+      "case": "II_first_two_proportional",
+      "x": [
+        2,
+        3,
+        1,
+        2,
+        4,
+        5
+      ],
+      "y": [
+        4,
+        6,
+        1,
+        4,
+        2,
+        7
+      ],
+      "H345": "-8",
+      "gate": "-9216",
+      "det18": "-612709757329767363772416",
+      "rank_h2": 15,
+      "rank_h3": 18,
+      "rank_h4": 15,
+      "rank_h5": 18,
+      "rank_cumulative": 18
+    }
+  ],
+  "validation": "Exact integer Bareiss determinants and native signed-X6 history/future rebuild; two prime modular ranks on each case/window. Full witness vectors reproducibly printed by the published Python checker. This summary is a serialization of the observed local execution.",
+  "dependencies": [
+    "EC49DP native signed X6 witness generator at commit 0fa60548",
+    "EC49DO six/five historical feature future-observation lemma is still author-side and unreviewed"
+  ],
+  "next_unit": "EC49DR exact n=10 full-rank algebraic locus beyond I and II",
+  "admission": "PORTABLE_DRAFT_REGISTER_PENDING_UNREVIEWED_NOT_ADMITTED"
+}

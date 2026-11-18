@@ -1,0 +1,139 @@
+{
+  "schema": "EC49FDZ_MIXED_KEY_QUOTA_CENSUS_V1",
+  "date": "2026-11-08",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "type": "author-side exact integer DP and finite combinatorial proof",
+  "rank_only_genuinely_three_key_triples": 6734,
+  "later_key_count": 155,
+  "rank_feasible_two_key_sets": 124,
+  "arbitrary_per_window_mixing_rank_and_quota_feasible": 64,
+  "arbitrary_per_window_mixing_rank_and_quota_infeasible": 6670,
+  "late_quotas": {
+    "H4": 2,
+    "H5": 4,
+    "H6": 2,
+    "H7": 4,
+    "H8": 4,
+    "H9": 2
+  },
+  "minimum_literal_word_pool_size_over_6734_triples": {
+    "H5": 10,
+    "H7": 14,
+    "H8": 16
+  },
+  "rank_and_quota_test_equivalent_to_presence_of_16_and_32_at": [
+    "H4",
+    "H6",
+    "H9"
+  ],
+  "failure_partition": {
+    "H4": 360,
+    "H6": 154,
+    "H9": 104,
+    "H4,H6": 672,
+    "H4,H9": 1864,
+    "H6,H9": 484,
+    "H4,H6,H9": 3032
+  },
+  "surviving_family": {
+    "H4": [
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        4,
+        1,
+        1
+      ]
+    ],
+    "H5-H6": [
+      [
+        3,
+        4,
+        1
+      ],
+      [
+        5,
+        2,
+        2
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        2
+      ]
+    ],
+    "H7-H9": [
+      [
+        4,
+        6,
+        1
+      ],
+      [
+        5,
+        5,
+        1
+      ],
+      [
+        6,
+        4,
+        2
+      ],
+      [
+        7,
+        3,
+        1
+      ],
+      [
+        7,
+        3,
+        2
+      ],
+      [
+        8,
+        2,
+        1
+      ],
+      [
+        8,
+        2,
+        2
+      ],
+      [
+        8,
+        2,
+        3
+      ]
+    ]
+  },
+  "cartesian_family_count": 64,
+  "direct_literal_pool_checks": 57,
+  "independent_existing_full_witness_checks": {
+    "complete_systems": "128/128",
+    "exact_fraction_window_rank": "1024/1024",
+    "distinct_late_key_triples": 64
+  },
+  "three_stage_key_sets_exactly_equal_mixed_quota_survivors": true,
+  "full_native_prefix_93_edge_target": "UNRESOLVED",
+  "github_code_blob_sha": "7e5af975db294b0ad12d72968f2831145c0675cd",
+  "reproduction": "python EC49FDZ_MIXED_KEY_QUOTA_CENSUS.py",
+  "outputs": [
+    "EC49FDZ_MIXED_QUOTA_RESULT.json",
+    "EC49FDZ_MIXED_QUOTA_VALID_KEYS.json"
+  ],
+  "provenance": [
+    "EC49FDU@73c954d996082450c632f7150688ec1de0473375",
+    "EC49FDV@7e3b0450c17c4fe1b6e604b5749fb762d3eca63e",
+    "EC49FDY@cd72977b7b821e13c138b0b0e12d4502ea084567"
+  ],
+  "every_feasible_word_selection_necessarily_uses_A_B_B_C_C_C": true,
+  "rigidity_scope": "All 64 exact-three-key quota-feasible rank-only triples, all eligible complete literal words at H4..H9. H6 C words only support signatures 1,2,4,8, while the two-word rank-nine condition forces 16,32 from B.",
+  "fixed_early_and_same_late_key_triple_8_exact_prefix_optima_under_arbitrary_mixing": "4 cases 118, 4 cases 120 (prior EC49FDY HiGHS certificates and newly proved key rigidity)"
+}

@@ -1,0 +1,151 @@
+{
+  "schema": "EC49FDE_EXACT_ALTERNATIVE_BRC_LATE_KEY_CENSUS_V1",
+  "date": "2026-11-07",
+  "scientific_baseline_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_model_git_blob": "7e97065ac9a0ff70435b92ee2f4bd718c9bf1859",
+  "early_L": [
+    4,
+    2,
+    1
+  ],
+  "old_late_M": [
+    7,
+    3,
+    2
+  ],
+  "new_late_M": [
+    6,
+    4,
+    1
+  ],
+  "fixed_slots": {
+    "2:16": "fe",
+    "2:32": "ge",
+    "3:16": "feg",
+    "3:32": "gef"
+  },
+  "variable_slots": 20,
+  "fixed_edges": 16,
+  "witness_words": {
+    "4:1": "gefd",
+    "4:2": "fegd",
+    "4:4": "fegc",
+    "4:8": "gefc",
+    "5:16": "feggf",
+    "5:32": "geffg",
+    "6:1": "gefddd",
+    "6:2": "fegddd",
+    "6:4": "fegccc",
+    "6:8": "gefccc",
+    "7:1": "gefddgf",
+    "7:2": "fegddgf",
+    "7:4": "fegccfg",
+    "7:8": "gefccfg",
+    "8:1": "geffggfd",
+    "8:2": "feggffgd",
+    "8:4": "feggffgc",
+    "8:8": "geffggfc",
+    "9:16": "feggffgfg",
+    "9:32": "geffggffg"
+  },
+  "witness_prefix_union": 112,
+  "exact_new_key": {
+    "candidate_words": 4372,
+    "trie_nodes": 26705,
+    "optimal_new_edges": 96,
+    "exact_optimum": 112,
+    "inspected_pairs": 21972032,
+    "compatible_pairs": 5977571,
+    "peak_states": 1048576,
+    "raw_trie_sha256": "2b667a0a42786bcebccb53385b234b49b19ff956d83a7ff620f28285784feb2a",
+    "cpp_caps": {
+      "111": null,
+      "112": 112,
+      "300": 112
+    }
+  },
+  "key_census": [
+    {
+      "M": [
+        5,
+        5,
+        1
+      ],
+      "feasible": true,
+      "trie_nodes": 19963,
+      "optimum": 138,
+      "inspected_pairs": 10496028
+    },
+    {
+      "M": [
+        6,
+        4,
+        1
+      ],
+      "feasible": true,
+      "trie_nodes": 26705,
+      "optimum": 112,
+      "inspected_pairs": 21972032
+    },
+    {
+      "M": [
+        6,
+        5,
+        1
+      ],
+      "feasible": false,
+      "missing_labels": [
+        "9:16",
+        "9:32"
+      ]
+    },
+    {
+      "M": [
+        7,
+        3,
+        1
+      ],
+      "feasible": true,
+      "trie_nodes": 19963,
+      "optimum": 138,
+      "inspected_pairs": 18753410
+    },
+    {
+      "M": [
+        7,
+        3,
+        2
+      ],
+      "feasible": true,
+      "trie_nodes": 109973,
+      "optimum": 158,
+      "inspected_pairs": 76591210
+    },
+    {
+      "M": [
+        7,
+        4,
+        1
+      ],
+      "feasible": false,
+      "missing_labels": [
+        "9:16",
+        "9:32"
+      ]
+    },
+    {
+      "M": [
+        7,
+        5,
+        1
+      ],
+      "feasible": false,
+      "missing_labels": [
+        "9:16",
+        "9:32"
+      ]
+    }
+  ],
+  "local_executed_full_census_json_sha256": "9d7b9c21e2791ddfdc3d19a3940c63569b2ee5409ba988c9ac9927e75500b79a",
+  "status": "AUTHOR_SIDE_EXACT_FINITE_PROOF_UNREVIEWED_NO_NATIVE_CLAIM"
+}

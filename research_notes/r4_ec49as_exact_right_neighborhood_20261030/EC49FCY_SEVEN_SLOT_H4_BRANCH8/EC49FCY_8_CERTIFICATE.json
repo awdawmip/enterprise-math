@@ -1,0 +1,272 @@
+{
+  "schema": "EC49FCY_EIGHT_SEVEN_SLOT_AUTHOR_EXACT_CERTIFICATE_V1",
+  "date": "2026-11-07",
+  "status": "AUTHOR_COMPUTED_UNREVIEWED_NOT_ADMITTED",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_model_blob": "7e97065ac9a0ff70435b92ee2f4bd718c9bf1859",
+  "algorithm": "weighted signed native prefix trie labelled subset DP, exact integers",
+  "control_replays": [
+    {
+      "selected": [
+        "5:16",
+        "6:1",
+        "7:1",
+        "8:2",
+        "8:4",
+        "9:16"
+      ],
+      "nodes": 53165,
+      "fixed_edges": 122,
+      "added": 36,
+      "optimum": 158
+    },
+    {
+      "selected": [
+        "5:16",
+        "8:2",
+        "8:4"
+      ],
+      "nodes": 37872,
+      "fixed_edges": 151,
+      "added": 7,
+      "optimum": 158
+    },
+    {
+      "selected": [
+        "5:32",
+        "8:1",
+        "8:8"
+      ],
+      "nodes": 37872,
+      "fixed_edges": 151,
+      "added": 7,
+      "optimum": 158
+    }
+  ],
+  "rows": [
+    {
+      "branch": "A",
+      "H4": 1,
+      "slots": [
+        "4:1",
+        "5:16",
+        "6:1",
+        "7:1",
+        "8:2",
+        "8:4",
+        "9:16"
+      ],
+      "fixed_edges": 111,
+      "trie_nodes": 53165,
+      "variable_slots": 7,
+      "new_edges_optimal": 47,
+      "total_exact_optimum": 158,
+      "dp_transitions": 116269668,
+      "pool_sizes": [
+        12,
+        12,
+        30,
+        540,
+        3150,
+        1890,
+        1680
+      ]
+    },
+    {
+      "branch": "A",
+      "H4": 2,
+      "slots": [
+        "4:2",
+        "5:16",
+        "6:1",
+        "7:1",
+        "8:2",
+        "8:4",
+        "9:16"
+      ],
+      "fixed_edges": 118,
+      "trie_nodes": 53165,
+      "variable_slots": 7,
+      "new_edges_optimal": 40,
+      "total_exact_optimum": 158,
+      "dp_transitions": 116269668,
+      "pool_sizes": [
+        12,
+        12,
+        30,
+        540,
+        3150,
+        1890,
+        1680
+      ]
+    },
+    {
+      "branch": "A",
+      "H4": 4,
+      "slots": [
+        "4:4",
+        "5:16",
+        "6:1",
+        "7:1",
+        "8:2",
+        "8:4",
+        "9:16"
+      ],
+      "fixed_edges": 119,
+      "trie_nodes": 53165,
+      "variable_slots": 7,
+      "new_edges_optimal": 39,
+      "total_exact_optimum": 158,
+      "dp_transitions": 116269668,
+      "pool_sizes": [
+        12,
+        12,
+        30,
+        540,
+        3150,
+        1890,
+        1680
+      ]
+    },
+    {
+      "branch": "A",
+      "H4": 8,
+      "slots": [
+        "4:8",
+        "5:16",
+        "6:1",
+        "7:1",
+        "8:2",
+        "8:4",
+        "9:16"
+      ],
+      "fixed_edges": 119,
+      "trie_nodes": 53228,
+      "variable_slots": 7,
+      "new_edges_optimal": 39,
+      "total_exact_optimum": 158,
+      "dp_transitions": 116407449,
+      "pool_sizes": [
+        12,
+        12,
+        30,
+        540,
+        3150,
+        1890,
+        1680
+      ]
+    },
+    {
+      "branch": "B",
+      "H4": 1,
+      "slots": [
+        "4:1",
+        "5:32",
+        "6:1",
+        "7:1",
+        "8:1",
+        "8:8",
+        "9:32"
+      ],
+      "fixed_edges": 111,
+      "trie_nodes": 51878,
+      "variable_slots": 7,
+      "new_edges_optimal": 47,
+      "total_exact_optimum": 158,
+      "dp_transitions": 113454999,
+      "pool_sizes": [
+        12,
+        12,
+        30,
+        540,
+        3150,
+        1890,
+        1680
+      ]
+    },
+    {
+      "branch": "B",
+      "H4": 2,
+      "slots": [
+        "4:2",
+        "5:32",
+        "6:1",
+        "7:1",
+        "8:1",
+        "8:8",
+        "9:32"
+      ],
+      "fixed_edges": 119,
+      "trie_nodes": 51955,
+      "variable_slots": 7,
+      "new_edges_optimal": 39,
+      "total_exact_optimum": 158,
+      "dp_transitions": 113623398,
+      "pool_sizes": [
+        12,
+        12,
+        30,
+        540,
+        3150,
+        1890,
+        1680
+      ]
+    },
+    {
+      "branch": "B",
+      "H4": 4,
+      "slots": [
+        "4:4",
+        "5:32",
+        "6:1",
+        "7:1",
+        "8:1",
+        "8:8",
+        "9:32"
+      ],
+      "fixed_edges": 119,
+      "trie_nodes": 51973,
+      "variable_slots": 7,
+      "new_edges_optimal": 39,
+      "total_exact_optimum": 158,
+      "dp_transitions": 113662764,
+      "pool_sizes": [
+        12,
+        12,
+        30,
+        540,
+        3150,
+        1890,
+        1680
+      ]
+    },
+    {
+      "branch": "B",
+      "H4": 8,
+      "slots": [
+        "4:8",
+        "5:32",
+        "6:1",
+        "7:1",
+        "8:1",
+        "8:8",
+        "9:32"
+      ],
+      "fixed_edges": 118,
+      "trie_nodes": 51878,
+      "variable_slots": 7,
+      "new_edges_optimal": 40,
+      "total_exact_optimum": 158,
+      "dp_transitions": 113454999,
+      "pool_sizes": [
+        12,
+        12,
+        30,
+        540,
+        3150,
+        1890,
+        1680
+      ]
+    }
+  ]
+}

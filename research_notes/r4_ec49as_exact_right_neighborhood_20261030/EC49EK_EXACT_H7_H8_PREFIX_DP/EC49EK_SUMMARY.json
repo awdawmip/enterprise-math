@@ -1,0 +1,154 @@
+{
+  "h2_mandatory": {
+    "fiber": [
+      3,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "mandatory_words": [
+      "ce",
+      "de",
+      "ec",
+      "ed"
+    ],
+    "rank": 9,
+    "trie_cost": 28
+  },
+  "independent": {
+    "all_2_to_8_full_rank_and_brc_exact": true,
+    "cost_h2_to_h8": 62,
+    "distinct_positive_brc_monomial_fibers": 6,
+    "distinct_seam_transfer_types": 6,
+    "finite_independent_h3": {
+      "exact_best_h2_h3": 36,
+      "h3_total_nonempty_subsets": 12369,
+      "witness": [
+        [
+          4,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          "cef",
+          "def",
+          "ecf",
+          "edf"
+        ]
+      ]
+    },
+    "h2_to_h8_word_observations": 16,
+    "h7_h8_independent_seam_signature": [
+      {
+        "all_signature_matches": true,
+        "distinct_p_and_transfer_pairs": 264,
+        "h": 7
+      },
+      {
+        "all_signature_matches": true,
+        "distinct_p_and_transfer_pairs": 388,
+        "h": 8
+      }
+    ],
+    "history_realizations_count": 9,
+    "status": "PASS"
+  },
+  "method": "exhaustive returning words, exact rank type subsets, prefix-tree integer DP, matched exact all-horizon witness",
+  "next": "EC49EL general H>=9 analytic trie lower bound or full finite exact h9",
+  "results": [
+    {
+      "H": 7,
+      "achieving_schedule": {
+        "3": [
+          "feg",
+          "gef"
+        ],
+        "4": [
+          "fegf",
+          "geff"
+        ],
+        "5": [
+          "fegff",
+          "gefff"
+        ],
+        "6": [
+          "fegfff",
+          "geffff"
+        ],
+        "7": [
+          "fegffff",
+          "gefffff"
+        ]
+      },
+      "exact_Ueq": 58,
+      "fiber_count": 50,
+      "full_rank_fibers": 43,
+      "min_added_after_28": 30,
+      "word_count": 58947
+    },
+    {
+      "H": 8,
+      "achieving_schedule": {
+        "3": [
+          "feg",
+          "gef"
+        ],
+        "4": [
+          "fegf",
+          "geff"
+        ],
+        "5": [
+          "fegff",
+          "gefff"
+        ],
+        "6": [
+          "fegfff",
+          "geffff"
+        ],
+        "7": [
+          "fegffff",
+          "gefffff"
+        ],
+        "8": [
+          "fegfffff",
+          "geffffff"
+        ]
+      },
+      "exact_Ueq": 62,
+      "fiber_count": 70,
+      "full_rank_fibers": 62,
+      "min_added_after_28": 34,
+      "word_count": 340064
+    }
+  ],
+  "run_date": "2026-11-02",
+  "scientific_input_pins": {
+    "enterprise_math": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+    "global": "773d538180bfb49e24cffeb35c3ee75eb0628e2e"
+  },
+  "status": "AUTHOR_FINITE_EXHAUSTIVE_PROOF/EXACT_INTEGER_DP_PASS/UNREVIEWED/NOT_ADMITTED",
+  "unit": "EC49EK",
+  "witness_H8": [
+    "ce",
+    "de",
+    "ec",
+    "ed",
+    "feg",
+    "gef",
+    "fegf",
+    "geff",
+    "fegff",
+    "gefff",
+    "fegfff",
+    "geffff",
+    "fegffff",
+    "gefffff",
+    "fegfffff",
+    "geffffff"
+  ]
+}

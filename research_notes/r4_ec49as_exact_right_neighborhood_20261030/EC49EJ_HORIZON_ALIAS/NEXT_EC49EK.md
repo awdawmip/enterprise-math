@@ -1,0 +1,9 @@
+# EC49EK — Exact H=7 equal-positive-count cross-horizon trie optimum
+
+Parent: EC49EJ and EC49EI/EC49EH, existing Draft PR #1730. Preserve frozen scientific GLOBAL `773d538180bfb49e24cffeb35c3ee75eb0628e2e`, EM `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`, current behavioral rules, native six-axis signed operations, first-A/B seam atoms, strict-positive X/Y BRC, P000 and ACTIVE worldview.
+
+**Proved reusable facts.** In each fixed-horizon positive-count fiber, event count r>=1 requires precisely the four ce/ec/de/ed transfer types; r=0 has rank 9 exactly when f and g are both present, then F/G suffice. For fixed positive count p=(p1,p2,e,0,0,0), admissible horizons are p1+p2-1-r, r=0..min(p1-2e,p2); all carry identical positive monomial factors and native primitive length L=2(p1+p2+e)-2, while terminal seam observer/provenance differ.
+
+**Task:** solve exact U_eq(7), preserving base h=2 mandatory primitive trie and one full-rank equal-count fiber for h=3..7. Upper bound from the known two-word no-event nesting is 58. Find a genuine all-horizon native path witness below 58, or an exhaustive finite proof/zero-gap integer program that the bound is sharp. If efficient, extend to H=8. Validate complete return displacement, all selected positive counts, original signed primitives, nine observer rank, exact 9x9 minors, trie edge union, solver primal/dual gap and version. Maintain strict distinction between solver-supported finite optimum and analytic all-H result.
+
+**Additional quantitative question:** exact cost of per-fiber X/Y monomial caching versus unique signed-native trie edges and nonzero five-bucket observation columns; horizon labels/word identities cannot be dropped by monomial caching. Use complete source and actual execution receipts, deliver files to current research branch with remote readback. Honor current native owner/role boundaries; keep author-side result portable until independent admission.

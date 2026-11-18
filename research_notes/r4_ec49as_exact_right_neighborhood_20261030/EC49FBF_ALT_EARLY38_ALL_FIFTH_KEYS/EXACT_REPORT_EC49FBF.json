@@ -1,0 +1,232 @@
+{
+  "schema": "EC49FBF_ALT_EARLY38_ALL_FIFTH_KEYS_EXACT_V1",
+  "source_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "fixed_early": {
+    "2": [
+      "fe",
+      "ge"
+    ],
+    "3": [
+      "feg",
+      "gef"
+    ],
+    "4": [
+      "fegc",
+      "fegd",
+      "gefc",
+      "gefd"
+    ],
+    "5": [
+      "feggf",
+      "gefgf"
+    ]
+  },
+  "early_prefix_edges": 38,
+  "source_classes": "ordered native signed X6 operation words; nine-history observation signatures",
+  "rank_encoding": "four clauses per horizon; 16-bit OR mask 65535",
+  "rows": [
+    {
+      "fifth_key": [
+        5,
+        5,
+        1,
+        0,
+        0,
+        0
+      ],
+      "eligible_words": {
+        "H6": 120,
+        "H7": 840,
+        "H8": 1680,
+        "H9": 448
+      },
+      "native_trie_nodes": 19963,
+      "min_plus_pair_checks": 251342,
+      "exact_extra_edges": 107,
+      "exact_total_edges": 145
+    },
+    {
+      "fifth_key": [
+        6,
+        4,
+        1,
+        0,
+        0,
+        0
+      ],
+      "eligible_words": {
+        "H6": 240,
+        "H7": 1260,
+        "H8": 2240,
+        "H9": 560
+      },
+      "native_trie_nodes": 26705,
+      "min_plus_pair_checks": 424124,
+      "exact_extra_edges": 74,
+      "exact_total_edges": 112
+    },
+    {
+      "fifth_key": [
+        6,
+        5,
+        1,
+        0,
+        0,
+        0
+      ],
+      "eligible_words": {
+        "H6": 60,
+        "H7": 840,
+        "H8": 3360,
+        "H9": 5040
+      },
+      "native_trie_nodes": 59543,
+      "min_plus_pair_checks": 1065144,
+      "exact_extra_edges": 134,
+      "exact_total_edges": 172
+    },
+    {
+      "fifth_key": [
+        7,
+        3,
+        1,
+        0,
+        0,
+        0
+      ],
+      "eligible_words": {
+        "H6": 120,
+        "H7": 840,
+        "H8": 1680,
+        "H9": 448
+      },
+      "native_trie_nodes": 19963,
+      "min_plus_pair_checks": 313350,
+      "exact_extra_edges": 107,
+      "exact_total_edges": 145
+    },
+    {
+      "fifth_key": [
+        7,
+        3,
+        2,
+        0,
+        0,
+        0
+      ],
+      "eligible_words": {
+        "H6": 120,
+        "H7": 2520,
+        "H8": 10080,
+        "H9": 3360
+      },
+      "native_trie_nodes": 109973,
+      "min_plus_pair_checks": 617868,
+      "exact_extra_edges": 122,
+      "exact_total_edges": 160
+    },
+    {
+      "fifth_key": [
+        7,
+        4,
+        1,
+        0,
+        0,
+        0
+      ],
+      "eligible_words": {
+        "H6": 60,
+        "H7": 840,
+        "H8": 3360,
+        "H9": 5040
+      },
+      "native_trie_nodes": 59543,
+      "min_plus_pair_checks": 1557160,
+      "exact_extra_edges": 134,
+      "exact_total_edges": 172
+    },
+    {
+      "fifth_key": [
+        7,
+        5,
+        1,
+        0,
+        0,
+        0
+      ],
+      "eligible_words": {
+        "H6": 12,
+        "H7": 420,
+        "H8": 3360,
+        "H9": 10080
+      },
+      "native_trie_nodes": 96795,
+      "min_plus_pair_checks": 941160,
+      "exact_extra_edges": 158,
+      "exact_total_edges": 196
+    }
+  ],
+  "optimum": 112,
+  "unique_optimal_fifth_key": [
+    6,
+    4,
+    1,
+    0,
+    0,
+    0
+  ],
+  "explicit_witness": {
+    "2": [
+      "fe",
+      "ge"
+    ],
+    "3": [
+      "feg",
+      "gef"
+    ],
+    "4": [
+      "fegc",
+      "fegd",
+      "gefc",
+      "gefd"
+    ],
+    "5": [
+      "feggf",
+      "gefgf"
+    ],
+    "6": [
+      "fegccc",
+      "fegddd",
+      "gefccc",
+      "gefddd"
+    ],
+    "7": [
+      "fegccfg",
+      "fegddgf",
+      "gefccfg",
+      "gefddgf"
+    ],
+    "8": [
+      "feggfgfc",
+      "feggfgfd",
+      "gefgfgfc",
+      "gefgfgfd"
+    ],
+    "9": [
+      "feggfgfgf",
+      "gefgfgfgf"
+    ]
+  },
+  "cumulative_edges": {
+    "H2": 12,
+    "H3": 16,
+    "H4": 32,
+    "H5": 38,
+    "H6": 70,
+    "H7": 82,
+    "H8": 106,
+    "H9": 112
+  },
+  "independent_executed_native_js_and_python_dp": "MATCH_ALL_SEVEN_2026-11-05",
+  "admission": "AUTHOR_FINITE_EXACT_UNREVIEWED"
+}

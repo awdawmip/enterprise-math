@@ -1,0 +1,7 @@
+# EC49EXD reproduction and evidence scope
+
+Model and kernel: original predecessor `VERIFY_EC49ER.py`, stored without modification inside the GitHub research artifact `research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49ER_H6_LOW_CACHE_EXACT/EC49ER_COMPLETE_EVIDENCE.tar.gz.b64`. Decode base64, gunzip and extract `VERIFY_EC49ER.py` into the same local directory as `VERIFY_EC49EXD.py`.
+
+Run `python VERIFY_EC49EXD.py` (stdlib only, unbounded exact integer trie DP). It enumerates the complete H2..H7 finite native signed path language, verifies rank-nine signature fibers, tests all 101 later-fiber terminal bounds by optimistic free-prefix minimization, exactly computes 426 unique H5 prefix schedules, 196 H6 prefixes and the four final H7 free-prefix cases, and verifies the 72-edge witness. A complete run writes `EC49EXD_REPLAY_EXECUTED.json`. No use of classical pi, trigonometric or physical amplitude arithmetic is involved: BRC is a pair of symbolic positive-step monomials.
+
+The main theorem and full finite exhaustion counts were established in the author-side Python exact checker and an independent JavaScript checker. This publication includes the executable replay source and the provenance-preserving summary; the originally generated bulky per-case execution JSON and independent JavaScript transcript are not in this specific GitHub write, so the author-side status is not an independent Driver review or formal Result.

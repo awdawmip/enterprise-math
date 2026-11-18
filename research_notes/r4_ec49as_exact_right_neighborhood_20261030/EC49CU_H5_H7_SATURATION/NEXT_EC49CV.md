@@ -1,0 +1,9 @@
+# EC49CV — Next executable study: uniform constructive genuine-X6 BRC saturation
+
+Parent: EC49CU/EC49CS; previous new proof artifact: `research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49CU_H5_H7_SATURATION/README_EC49CU_H5_H7.md`. Portability: independent author research; formal owner/CLAIM pending. No re-execution of h5/h6/h7 needed.
+
+Exact question: For S'={a,b,c,d,e} and arbitrary integer h>=4, does genuine signed-X6 prefix length n=2h+8 attain all 18h^2+24h+12 cumulative additive BRC observer coordinates, or is there a first h for which an interior or boundary fiber fails? The universal **necessary** bound n_sat(h)>=2h+8 is already proved; the matching **sufficient** statement is proven only for h=4,5,6,7.
+
+First compute h=8 at n=24: there are 81 target fibers, exactly-h formal rank 3*(11*64+15*8+8)/2=1248, cumulative formal rank 18*64+24*8+12=1356. Preserve literal native six-coordinate paths, both positive weight instruments, exact path count, joint A/B adjacency DFA, full prefix+suffix observations, all target fibers, and nonzero integer/modular witnesses. Keep evidence of any underfull fiber and prove a real upper obstruction before claiming counterexample.
+
+Then seek an induction: construct rank-preserving native prefix embeddings from the h-level full-rank witnesses to every h+1 target while controlling the E1/E2 boundary crossings and the correlated BRC weights. Negative double-step or neutral E3 pairs are invertible in some fibers, but positive double-steps can change pending A/B tags; do not silently assume all shifts are rank preserving. Analyze the newly exposed extreme and corner fibers separately; a finite computation alone does not prove the universal formula. Report theorem scope, source pin, code, exact verifier, any failed subcases, and the next minimal mathematical obligation.

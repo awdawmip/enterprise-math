@@ -1,0 +1,90 @@
+{
+  "schema": "EC49FMJ_RADIUS3_600_999_EXACT_V1",
+  "date": "2026-11-12",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "total_three_key_replacements": 3709825,
+  "three_key_support_coverable": 38169,
+  "zero_based_feasible_range": [
+    600,
+    999
+  ],
+  "count": 400,
+  "minimum": 110,
+  "minimum_indices": [
+    865,
+    871
+  ],
+  "maximum": 168,
+  "first_step_root_counts": {
+    "3": 183,
+    "4": 217
+  },
+  "cost_histogram": {
+    "110": 2,
+    "114": 1,
+    "116": 2,
+    "118": 2,
+    "121": 1,
+    "122": 7,
+    "123": 3,
+    "124": 2,
+    "126": 5,
+    "130": 76,
+    "131": 1,
+    "132": 11,
+    "134": 1,
+    "137": 3,
+    "138": 183,
+    "139": 1,
+    "143": 1,
+    "144": 2,
+    "146": 4,
+    "152": 2,
+    "154": 3,
+    "160": 2,
+    "162": 5,
+    "166": 3,
+    "167": 18,
+    "168": 59
+  },
+  "compression": "400 uint8 exact optimal costs by ascending index 600..999; zlib compression then base64",
+  "zlib_base64": "eNqNkLsKhDAQRf/YYhFhxyXFbBAyFiupJJWkSOYznTwQtYh7Qoac5g65Md6Yf0iCBpCpaDSUnTR98jxxkTaBuJxx0Stt1Y4AoL7moRFJK/8PXxwnIq/OWs9e3sH5zTLbLAUfuEmHAnQ94hsHVICFl1yFJy7SJP1oqC1OtcWveWhxB6fE3bE=",
+  "zlib_sha256": "4b8cd895b227a01e69b6432df3b47ddd26557c60147ef2bdba4df9dfb07a58dd",
+  "raw_400_costs_sha256": "cbb479d4d6161571888a582fff9a543d628e6cc74761b8ab7425745d72647e32",
+  "raw_per_case_output_sha256": "d14cabd564049a1323b0cc5db2e64b5eab54b72ac4fd6bcb4f44feea8333e2bd",
+  "master_input_sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+  "index_min_key_ids": {
+    "865": [
+      0,
+      4,
+      5,
+      6,
+      7,
+      8,
+      36
+    ],
+    "871": [
+      0,
+      4,
+      5,
+      6,
+      7,
+      15,
+      36
+    ]
+  },
+  "independent_python_checks": {
+    "600": 167,
+    "865": 110,
+    "871": 110,
+    "999": 138
+  },
+  "original_cpp_checks": {
+    "600": 167,
+    "865": 110,
+    "871": 110,
+    "999": 138
+  },
+  "status": "AUTHOR_EXACT_FINITE_COMPUTATION; no matching formal CLAIM or independent review",
+  "next": "radius3 support-coverable indices 1000..38168; mother C_min(7)<=84"
+}

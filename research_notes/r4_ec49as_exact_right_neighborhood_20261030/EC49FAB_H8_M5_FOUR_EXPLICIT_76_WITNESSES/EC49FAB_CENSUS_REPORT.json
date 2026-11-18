@@ -1,0 +1,88 @@
+{
+  "census_correction": "previous EC49FAA 7900 unexcluded count omitted two exactly-78 EXZ cases; strict E<78 actually has 7898 unresolved before this run",
+  "date": "2026-11-04",
+  "files": [
+    {
+      "bytes": 11387,
+      "name": "fab_run_200_255.json",
+      "outcomes": {
+        "BOUND_PASS": 33
+      },
+      "records": 33,
+      "sha256": "7eeda065cca3dd90b69142de7be9640b0be7ff2bcec73b8f3f3e370ce2b943c4"
+    },
+    {
+      "bytes": 72095,
+      "name": "fab_run_255_600.jsonl",
+      "outcomes": {
+        "BOUND_PASS": 259,
+        "TIMEOUT": 4
+      },
+      "records": 263,
+      "sha256": "509ae277e1ec70cb953927bb7524ac4911a621d86447a927c656aaf7187d9226"
+    },
+    {
+      "bytes": 123549,
+      "name": "fab_run_600_1200.jsonl",
+      "outcomes": {
+        "BOUND_PASS": 444,
+        "TIMEOUT": 6
+      },
+      "records": 450,
+      "sha256": "e8530ced810cb51b15538e3a81503c2af9f03075667836ed6f6ad8b7bd12bf51"
+    },
+    {
+      "bytes": 209809,
+      "name": "fab_run_1200_2400.jsonl",
+      "outcomes": {
+        "BOUND_PASS": 756,
+        "PASS": 4
+      },
+      "records": 760,
+      "sha256": "94679ebacf47e0217b829fb0cf55748735f88d22309ec9c23efc22aee2bcf5e9"
+    }
+  ],
+  "found_76_ranks": [
+    1512,
+    1513,
+    2200,
+    2203
+  ],
+  "frozen_scientific_inputs": {
+    "enterprise_math": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+    "global": "773d538180bfb49e24cffeb35c3ee75eb0628e2e"
+  },
+  "new_global_proven_bounds": [
+    63,
+    76
+  ],
+  "notes": [
+    "Full 1506 source rows, input SHA256 and actual solver stdout/timeout are retained in run files.",
+    "4 E=76 results were explicitly reconstructed, primitive-path verified and rational rank-checked independently.",
+    "Current author-side computation is not an independent Driver review or native Result admission."
+  ],
+  "outcomes": {
+    "BOUND_PASS": 1492,
+    "PASS": 4,
+    "TIMEOUT": 10
+  },
+  "remaining_strict_lt76": "12356-(4282+166+10+1492+4)=6402",
+  "schema": "EC49FAB_NATIVE_X6_INTEGER_EXACT_CENSUS_V1",
+  "selected_rank_semantics": "ranked_exz.json sorted by total native operation words ascending, then B_EXY descending; excludes prior FAA ten ranks and rows with B_EXY>=78 and colors>22 in reported batches",
+  "selection_ranges": "[200,255), [255,600), [600,1200), [1200,2310) partial third interval completed up to 2309",
+  "solver": "EXACT_OR_MASK_DP.cpp g++ -O3 -std=c++17 cutoff E=78; finite exact integer trie OR-mask dynamic programming",
+  "source": "EC49EXY 12356 double-collision TSV (already reported Git Blob 61ffbcdba1679479fade3cfd052c2d9d6bbf30ce)",
+  "timeout_ranks": [
+    272,
+    273,
+    387,
+    517,
+    914,
+    915,
+    950,
+    951,
+    1002,
+    1003
+  ],
+  "total_new_unique_cases": 1506
+}

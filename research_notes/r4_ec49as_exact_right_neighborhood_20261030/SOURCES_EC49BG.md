@@ -1,0 +1,11 @@
+# EC49BG — Current source pins, method and reproducibility
+
+Research date: 2026-10-30. The immutable GLOBAL_KNOWLEDGE_V1 main snapshot is 85921ed2579d2f4329cda5c554edc1d47538d137: read canonical 00_BOOTSTRAP.md and OPERATING_MANUAL.md; ACTIVE 我眼中的世界.md; projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md and TASK_RESEARCH boot, P000_STARTUP and original P000_REALITY_FOUNDATION; MATH_RESEARCH_POLICY, BRC priority and EM activity-registration protocol. P000 retained and not modified.
+
+Enterprise Math canonical main 5e4de2f5a2d55d1fe7d0a558b69c5342fbdd8574: read AGENTS.md, p000_reality_foundation.json V5, current_control_authority, docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md and docs/PORTABLE_RESEARCH_PROTOCOL.md, native joint-observer preservation and weighted BRC substrate contracts. The auxiliary BRC carrier retains each hidden-label branch contribution exactly and NEVER identifies positive mass with signed phase, native coordinates or a future-operation-safe compression.
+
+Research predecessor is Draft PR #1730 branch research/r4-ec49as-20261030-exact-right-neighborhood at c72a02eed9cd8ba00127957dea09ac720c642b59. Direct inputs PROOF/VERIFY_EC49BD for first-action edge enumeration, EC49BE exact endpoint ceiling, EC49BF lawful algebraic F lower witness. This unit proves the previously unresolved entire real-eta upper bound.
+
+Published evidence: PROOF_EC49BG.md (full mathematical argument), VERIFY_EC49BG.py.gz.b64 (lossless compressed entire actually executed script, decoded SHA-256 bc547c17e3ce2a67e7fa246757de54fff58bfea2c8d4f4949fc33ab278811d12), EXACT_REPORT_EC49BG.json (complete check summary), NEXT_TASK_EC49BH.md and HANDOFF_EC49BG.md. Decode gzip/base64 then run with Python3 stdlib fractions and SymPy. Executed script passed and its generated JSON was independently re-executed with byte-for-byte local agreement before publication.
+
+Native em_status v0.6.11 read; context_manifest DIRECTED_RESEARCH authority_granted=false, active Owner query CONTROL_QUOTA. No native Research-Activity, CLAIM, Result or independent review is claimed. Classification AUTHOR_ANALYTIC_PROOF / EXACT_FRACTION_SYMPY_CHECK_PASS / PORTABLE_DRAFT / UNREVIEWED / NOT_ADMITTED.

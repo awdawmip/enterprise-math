@@ -1,0 +1,194 @@
+{
+  "schema": "EC49FDU_THREE_PHASE_RANK_V1",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "ec49fdt_parent": "7ca6e255a07f27b26971d9918f520c9851d35de3",
+  "allowed_keys": 155,
+  "rank_feasible_pairs": 124,
+  "feasible_triples": 23728,
+  "with_feasible_pair": 16994,
+  "genuinely_three": 6734,
+  "standalone_rank_interval_lengths": {
+    "0": 36,
+    "1": 38,
+    "2": 47,
+    "3": 24,
+    "4": 9,
+    "5": 1
+  },
+  "one_key_per_window_three_contiguous_blocks": 6730,
+  "exceptional_h4_two_key_triples": [
+    {
+      "keys": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          5,
+          0,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      "windows": [
+        4
+      ],
+      "masks_at_h4": [
+        32,
+        16,
+        0
+      ],
+      "individual_rank_windows": [
+        [],
+        [],
+        [
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "keys": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          5,
+          0,
+          2
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      "windows": [
+        4
+      ],
+      "masks_at_h4": [
+        32,
+        16,
+        0
+      ],
+      "individual_rank_windows": [
+        [],
+        [],
+        [
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "keys": [
+        [
+          4,
+          1,
+          2
+        ],
+        [
+          5,
+          0,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      "windows": [
+        4
+      ],
+      "masks_at_h4": [
+        32,
+        16,
+        0
+      ],
+      "individual_rank_windows": [
+        [],
+        [],
+        [
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "keys": [
+        [
+          4,
+          1,
+          2
+        ],
+        [
+          5,
+          0,
+          2
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      "windows": [
+        4
+      ],
+      "masks_at_h4": [
+        32,
+        16,
+        0
+      ],
+      "individual_rank_windows": [
+        [],
+        [],
+        [
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    }
+  ],
+  "valid_three_block_schedules_per_triple": {
+    "1": 2000,
+    "2": 2982,
+    "3": 792,
+    "4": 724,
+    "6": 232
+  },
+  "valid_schedule_switchpoint_occurrences": {
+    "(4, 5)": 108,
+    "(4, 6)": 918,
+    "(4, 7)": 1630,
+    "(4, 8)": 1300,
+    "(5, 6)": 1080,
+    "(5, 7)": 3192,
+    "(5, 8)": 2880,
+    "(6, 7)": 1120,
+    "(6, 8)": 1968,
+    "(7, 8)": 432
+  },
+  "complete_schedule_certificate_count": 6734,
+  "certificate_scope": "Rank-nine only, H4..H9. Individual keys in schedules witness rank support; per-window quotas, legal paths, total cache count with early paths and signed-native-prefix cost remain to be optimized."
+}

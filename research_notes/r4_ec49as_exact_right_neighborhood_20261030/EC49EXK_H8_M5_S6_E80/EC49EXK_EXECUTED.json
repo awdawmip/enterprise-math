@@ -1,0 +1,164 @@
+{
+  "status": "PASS",
+  "scope": "fixed h2,h3,h6,h7,h8 equal-key ladder, h4+h5 key=(4,2,1), mandatory T4/T2 signed-native words",
+  "H": 8,
+  "resources": {
+    "E": 80,
+    "M": 5,
+    "S": 6
+  },
+  "per_horizon": [
+    {
+      "h": 2,
+      "words": [
+        "ce",
+        "de",
+        "ec",
+        "ed"
+      ],
+      "key": [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "rank": 9,
+      "E_cumulative": 28
+    },
+    {
+      "h": 3,
+      "words": [
+        "feg",
+        "gef"
+      ],
+      "key": [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "rank": 9,
+      "E_cumulative": 42
+    },
+    {
+      "h": 4,
+      "words": [
+        "edfg",
+        "defg",
+        "gefc",
+        "fegc"
+      ],
+      "key": [
+        4,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "rank": 9,
+      "E_cumulative": 58
+    },
+    {
+      "h": 5,
+      "words": [
+        "fegfg",
+        "geffg"
+      ],
+      "key": [
+        4,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "rank": 9,
+      "E_cumulative": 64
+    },
+    {
+      "h": 6,
+      "words": [
+        "fegfff",
+        "geffff"
+      ],
+      "key": [
+        6,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "rank": 9,
+      "E_cumulative": 72
+    },
+    {
+      "h": 7,
+      "words": [
+        "fegffff",
+        "gefffff"
+      ],
+      "key": [
+        7,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "rank": 9,
+      "E_cumulative": 76
+    },
+    {
+      "h": 8,
+      "words": [
+        "fegfffff",
+        "geffffff"
+      ],
+      "key": [
+        8,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "rank": 9,
+      "E_cumulative": 80
+    }
+  ],
+  "baseline_E": 62,
+  "h4_candidate_counts": [
+    12,
+    12,
+    12,
+    12
+  ],
+  "h5_candidate_counts": [
+    12,
+    12
+  ],
+  "potential_combinations": 2985984,
+  "h4_combinations_exhausted": 20736,
+  "h4_combinations_pruned_by_monotonicity": 20555,
+  "h4_h5_pair_combinations_examined": 26064,
+  "fixed_template_min_extra": 18,
+  "fixed_template_min_E": 80,
+  "attaining_words_for_template": [
+    "edfg",
+    "defg",
+    "gefc",
+    "fegc",
+    "fegfg",
+    "geffg"
+  ],
+  "scientific_inputs": {
+    "global": "773d538180bfb49e24cffeb35c3ee75eb0628e2e",
+    "enterprise_math": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab"
+  }
+}

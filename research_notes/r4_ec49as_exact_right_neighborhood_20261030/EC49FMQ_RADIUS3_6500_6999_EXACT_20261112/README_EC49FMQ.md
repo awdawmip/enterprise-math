@@ -1,0 +1,21 @@
+# EC49FMQ — exact signed-X6 BRC seven-cache-key radius-three configurations #6500–6999
+
+**Date:** 2026-11-12. **Scientific input frozen pin:** `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`. Nine-state signed-native BRC, 178,850 lawful words, 94 complete keys, 24 first/last observation demands and the original deterministic radius-three ordering of 38,169 support-coverable seven-key configurations. A native prefix is the ordered sequence of signed spatial microsteps, not merely its six-dimensional endpoint.
+
+## Finite exact result
+
+For every coverable seven-key configuration `K_i` in **the entire consecutive index range 6500–6999**, let `C(K_i)` be the smallest number of distinct nonempty ordered signed-native prefixes of valid witnesses jointly covering all 24 demands. Using the complete native prefix trie and exact integer demand-subset DP gives **min C(K_i) = 102**, attained exactly at **index #6589**; maximum 138. Complete histogram and lossless 500-cost vector: [EXACT_VECTOR_EC49FMQ.json](EXACT_VECTOR_EC49FMQ.json). Histogram: 102×1, 108×1, 110×1, 112×2, 114×1, 116×57, 118×3, 120×1, 122×63, 126×3, 128×2, 130×12, 132×60, 136×2, 137×6, 138×285. 165 cases have three first-step roots, 335 have four.
+
+This extends the consecutive fully solved support-coverable radius-three range to **0–6999 (7,000 of 38,169)**. Its exact minimum remains **102**, attained at the earlier indices #32/#93 and now also #6589. The unrestricted seven-key mother problem separately retains a previously established legal **84-prefix** construction, so its global known upper bound stays `C_min(7) <= 84`.
+
+## Mathematical certificate and replay
+
+For a fixed seven-key configuration, insert all lawful words from its keys into one ordered signed-native prefix trie per first microstep. Mark each word terminal by the observation labels it can witness. At each vertex, exact integer dynamic programming computes the minimum charged nonempty prefixes for each attainable subset of demand labels. Combine children by mask union and integer addition, charge the current vertex once when its selected subtree is nonempty, and charge the artificial root zero. Trie-height induction proves exact optimality; upward mask closure gives costs for at-least coverage. A full feasible witness set allocates each demand label to a root, and each optimizing root allocation can be realized by lawful words. Different first-step roots have disjoint nonempty prefixes. Therefore exact root-mask minimization equals `C(K_i)`.
+
+The C++17 `-O3` solver was invoked on frozen input `./scan 6500 7500 < master_and_radius3_cases.txt`. The larger attempt **hit a local execution timeout after emitting the complete first 500 rows (indices 6500–6999)**; log ends with `PROGRESS 7000 / 7500`. This theorem covers **only those 500 complete rows**. Indices 7000 and above are not included. All 500 original rows were verified to be consecutive, complete and unique. Input catalogue SHA256: `cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e`. C++ source SHA256: `6ea17ff267f599c69967b420ebf1a8abe151e587e57b25f599f8ecdfb9f2ecac`. Complete 500-row SHA256: `90fef3a3f640646f84a347b075187972ebd181fe69a954a3678e052d9730a06c`. Uncompressed exact 500-byte cost-vector SHA256: `bd1f39e3d1192cbc7112160b2d7904db8fc8f28792f0e3e72af1ab1217928707`.
+
+The independent Python frozen-generator/native-prefix-trie DP re-solved #6500=138, #6589=102 and #6999=138. See [executed log](INDEPENDENT_PYTHON_LOG_EC49FMQ.txt) and [lossless-vector verifier](VERIFY_EC49FMQ.py). Full raw rows, C++ source, original native generator, case catalogue, input master and SHA256 manifest are preserved in the local evidence archive with the same fingerprints. Integer signed-native path semantics are preserved throughout.
+
+## Continuing open question
+
+**Next untouched index: 7000; 31,169 configurations remain.** Continue exact finite optimization, look for reuse of root-mask lower-bound certificates across configurations, and test new unrestricted seven-key constructions below the existing 84-prefix upper bound. The current finite proof is author-side research; formal CLAIM/Result and independent Driver mathematical admission require their own genuine current permissions/receipts. P000 and ACTIVE worldview remain unchanged.

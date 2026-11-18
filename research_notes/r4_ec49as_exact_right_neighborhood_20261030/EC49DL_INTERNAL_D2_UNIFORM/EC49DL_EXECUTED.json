@@ -1,0 +1,69 @@
+{
+  "id": "EC49DL",
+  "date": "2026-11-01",
+  "status": "PASS",
+  "scope": "author-side reference x=(2,3,1,2,3,4), y=(5,7,3,5,7,9), D=+2E1, native signed X6 and full seam-aware A/B",
+  "instrument_minor": 4200,
+  "observer_minors": {
+    "exact_h2": {
+      "size": 15,
+      "det": "533756191302432000000000000000",
+      "residues": {
+        "1000003": 956959,
+        "1000033": 400591
+      }
+    },
+    "exact_h3": {
+      "size": 18,
+      "det": "-86468502990993984000000000000000000000000",
+      "residues": {
+        "1000003": 678760,
+        "1000033": 816896
+      }
+    },
+    "cumulative_h2": {
+      "size": 18,
+      "det": "-242066299910400000000000000",
+      "residues": {
+        "1000003": 576892,
+        "1000033": 132249
+      }
+    }
+  },
+  "exhaustive_prefix": {
+    "n2": {
+      "paths": 1,
+      "feature_rankQ": 1,
+      "wx": 4,
+      "wy": 25
+    },
+    "n4": {
+      "paths": 64,
+      "feature_rankQ": 8,
+      "wx": 656,
+      "wy": 9800
+    },
+    "n6": {
+      "paths": 4665,
+      "feature_rankQ": 14,
+      "wx": 120360,
+      "wy": 4319625
+    }
+  },
+  "lift_tested_h": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "tested_primes": [
+    1000003,
+    1000033
+  ],
+  "report": "Executed local stdlib VERIFY_EC49DL.py PASS with frozen witness and native signed BRC independent crosscheck; analytic theorem all h and affine positive stratum, finite tests are implementation checks.",
+  "admission": "PORTABLE_DRAFT / REGISTER_PENDING / UNREVIEWED / NOT_ADMITTED"
+}

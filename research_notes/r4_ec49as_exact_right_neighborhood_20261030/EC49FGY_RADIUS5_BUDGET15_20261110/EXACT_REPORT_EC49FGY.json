@@ -1,0 +1,39 @@
+{
+  "schema": "EC49FGY_RADIUS5_EXACT_BUDGET11_TO15_V1",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "model": "original nine-state BRC / signed ordered X6 microstep prefixes",
+  "domain": "all five-label replacement positions with no original-key release, budget B in 11..15",
+  "profiles": [
+    {
+      "witness": "A",
+      "counts": {
+        "all_positions": 3524,
+        "pair_rejected": 1458,
+        "five_tested": 2066,
+        "five_rejected": 2066
+      },
+      "five_rejected_by_budget": {
+        "11": 1376,
+        "12": 13,
+        "13": 421,
+        "14": 214,
+        "15": 42
+      }
+    },
+    {
+      "witness": "B",
+      "counts": {
+        "all_positions": 3524,
+        "pair_rejected": 1484,
+        "five_tested": 2040,
+        "five_rejected": 2040
+      },
+      "five_rejected_by_budget": {
+        "11": 1376,
+        "13": 408,
+        "14": 214,
+        "15": 42
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# EC49DC — machine-checkable universal BRC observer saturation and robustness
+
+Parent: EC49DB author-side analytic proof (all h>=2), with 9 executable literal seed minors and universal signed-X6 gate lifts. This is PORTABLE_DRAFT / UNREVIEWED / NOT_ADMITTED, not Source-native Research-Activity/CLAIM/Result. Sources are pinned in README_EC49DB.md.
+
+Task: formalize (a) the six-feature future-safe quotient of the full A/B DFA for complete a,b,c,d,e words, (b) determinant row scaling under all signed prefix-gate insertions and neutral exact-depth lifts, and (c) the boundary determinant inherited from EC49DA. Seek an independent Lean or symbolic proof without fresh axioms replacing the goal. Bound generator runtime and certificate bit size as a function of h, distinguishing explicit path output O(h^3) symbols from compressed block generation and numeric BRC weight growth. Separately explore whether the theorem persists when the two positive weight vectors or the operation alphabet are perturbed; an exact small counterexample is an admissible discovery.
+
+Evidence: proof artifact with explicit assumptions, actual checker transcript, source/code version and shortest reproducible counterexample if present. Preserve full six-coordinate X6 displacement, all nine raw DFA states until the six-feature factorization is established, separate W0/W1/count BRC channels, ordered A/B labels, and exact versus cumulative depth distinction. Human mathematical review and actual Source-native admission remain independent obligations.

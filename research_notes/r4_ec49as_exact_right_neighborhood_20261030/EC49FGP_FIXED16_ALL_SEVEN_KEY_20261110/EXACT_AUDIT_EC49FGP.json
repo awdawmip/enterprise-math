@@ -1,0 +1,100 @@
+{
+  "schema": "EC49FGP_FIXED16_SEVEN_KEY_AUDIT_SUMMARY_V1",
+  "date": "2026-11-10",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "frozen_observer_blob": "7e97065ac9a0ff70435b92ee2f4bd718c9bf1859",
+  "witness_blob": "e65c1598ad9fa2680558046ed1e59d83806536b8",
+  "status": "AUTHOR_EXACT_FINITE_COMPUTATION__UNREVIEWED",
+  "statement": "For each of two exact frozen fixed-16 signed native X6 backgrounds A,B, all eight H7/H8-path completions of four original low signatures using at most seven complete raw keys have >=94 distinct native prefixes; original witnesses attain 94.",
+  "fixed_edges": 78,
+  "fixed_raw_keys": [
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      3,
+      0,
+      1
+    ],
+    [
+      3,
+      1,
+      1
+    ],
+    [
+      4,
+      2,
+      1
+    ],
+    [
+      5,
+      4,
+      1
+    ],
+    [
+      6,
+      4,
+      1
+    ]
+  ],
+  "legal_words_by_signature": {
+    "H7": {
+      "1": 5724,
+      "2": 6806,
+      "4": 5724,
+      "8": 6806
+    },
+    "H8": {
+      "1": 28063,
+      "2": 34777,
+      "4": 28063,
+      "8": 34777
+    }
+  },
+  "h8_distinct_complete_keys": 50,
+  "all_seventh_key_cases_per_profile": 50,
+  "profiles": {
+    "A": {
+      "no_better_than_94": true,
+      "at_most_15_new_H8_four_signature_prefix_sets": 0,
+      "all_50_cases_checked": true,
+      "original_complete_witness_cost": 94,
+      "original_complete_witness_keys": 7
+    },
+    "B": {
+      "no_better_than_94": true,
+      "sole_h8_exceptional_key": [
+        7,
+        3,
+        1
+      ],
+      "pair12_masks": 338,
+      "pair48_masks": 480,
+      "pair_comparisons": 162240,
+      "h8_four_signature_unions_at_most_15": 8,
+      "h7_completion_support_counts_per_union": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "h7_completion_support_on_exceptional_union": [
+        4
+      ],
+      "complete_8_word_completions": 0,
+      "all_50_cases_checked": true,
+      "original_complete_witness_cost": 94,
+      "original_complete_witness_keys": 7
+    }
+  },
+  "method": "Exhaustive nonnegative operation counts, DFA-accepted word permutations, exact signed-X6 ordered prefix masks, all H8 pair and cross-pair unions, complete H7 subset tests, independently cross-checked Cartesian alphabet enumeration for exceptional B case.",
+  "full_execution_report": "EXACT_REPORT_EC49FGP.json in separate downloadable author evidence archive; this is compact audit, not 50-case raw ledger.",
+  "limitations": "Exact only for the two specified fixed16 backgrounds and <=7 total raw complete keys; global seven-key classification remains open.",
+  "next": "Replace at least one of 16 background words and jointly optimize H7,H8 while preserving original demands, keys, signed-X6 prefixes."
+}

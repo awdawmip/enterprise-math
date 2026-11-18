@@ -1,0 +1,183 @@
+{
+  "cases": [
+    {
+      "atoms": {
+        "00": [
+          1,
+          1,
+          1
+        ],
+        "01": [
+          0,
+          0,
+          0
+        ],
+        "10": [
+          0,
+          0,
+          0
+        ],
+        "11": [
+          0,
+          0,
+          0
+        ]
+      },
+      "crt_product": 101,
+      "literal_paths_checked": 1,
+      "n": 0,
+      "native_bound": 1,
+      "native_count": 1,
+      "peak_pruned": 1,
+      "peak_unpruned": 1,
+      "primes": [
+        101
+      ]
+    },
+    {
+      "atoms": {
+        "00": [
+          24,
+          24,
+          12
+        ],
+        "01": [
+          0,
+          0,
+          0
+        ],
+        "10": [
+          0,
+          0,
+          0
+        ],
+        "11": [
+          0,
+          0,
+          0
+        ]
+      },
+      "crt_product": 101,
+      "literal_paths_checked": 12,
+      "n": 2,
+      "native_bound": 24,
+      "native_count": 12,
+      "peak_pruned": 12,
+      "peak_unpruned": 94,
+      "primes": [
+        101
+      ]
+    },
+    {
+      "atoms": {
+        "00": [
+          1488,
+          1488,
+          384
+        ],
+        "01": [
+          36,
+          36,
+          6
+        ],
+        "10": [
+          36,
+          36,
+          6
+        ],
+        "11": [
+          0,
+          0,
+          0
+        ]
+      },
+      "crt_product": 10403,
+      "literal_paths_checked": 396,
+      "n": 4,
+      "native_bound": 1560,
+      "native_count": 396,
+      "peak_pruned": 94,
+      "peak_unpruned": 1874,
+      "primes": [
+        101,
+        103
+      ]
+    },
+    {
+      "atoms": {
+        "00": [
+          139320,
+          139320,
+          18744
+        ],
+        "01": [
+          6480,
+          6480,
+          576
+        ],
+        "10": [
+          6480,
+          6480,
+          576
+        ],
+        "11": [
+          360,
+          360,
+          24
+        ]
+      },
+      "crt_product": 1113121,
+      "literal_paths_checked": 19920,
+      "n": 6,
+      "native_bound": 152640,
+      "native_count": 19920,
+      "peak_pruned": 480,
+      "peak_unpruned": 16022,
+      "primes": [
+        101,
+        103,
+        107
+      ]
+    },
+    {
+      "atoms": {
+        "00": [
+          16560120,
+          16560120,
+          1170120
+        ],
+        "01": [
+          1129320,
+          1129320,
+          53850
+        ],
+        "10": [
+          1129320,
+          1129320,
+          53850
+        ],
+        "11": [
+          102240,
+          102240,
+          3600
+        ]
+      },
+      "crt_product": 121330189,
+      "literal_paths_checked": null,
+      "n": 8,
+      "native_bound": 18921000,
+      "native_count": 1281420,
+      "peak_pruned": 1874,
+      "peak_unpruned": 82634,
+      "primes": [
+        101,
+        103,
+        107,
+        109
+      ]
+    }
+  ],
+  "native_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+  "schema": "EC49CA_CRT_EXACT_AUDIT_V1",
+  "scope": "finite exact X6 return paths, H=(id,(1 2)), DFA detects ordered substrings (+E1,+E2),(+E2,+E1)"
+}

@@ -1,0 +1,343 @@
+{
+  "schema": "EC49FFD_EXACT_SUPPORT_CENSUS_V1",
+  "date": "2026-11-09",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_code": "VERIFY_EC49FFD.py",
+  "author_side_local_python_result": "EXACT_PASS",
+  "verification": "original nine-state DFA multiset DP over all 294 horizon/key pairs; 0 formula mismatches; 15 interval-cover families",
+  "summary": {
+    "count_admissible_pairs": 294,
+    "distinct_full_keys": 164,
+    "strict_positive_pairs": 270,
+    "dfa_mismatches": 0,
+    "cached_dfa_count_states": 2380,
+    "templates": 15,
+    "key_inventories": 42048,
+    "signature_feasible": 27732,
+    "signature_infeasible": 14316
+  },
+  "by_horizon": [
+    {
+      "horizon": 2,
+      "all_low": 1,
+      "only_16": 1,
+      "only_32": 1,
+      "both_high": 0,
+      "zero": 0
+    },
+    {
+      "horizon": 3,
+      "all_low": 3,
+      "only_16": 1,
+      "only_32": 1,
+      "both_high": 1,
+      "zero": 1
+    },
+    {
+      "horizon": 4,
+      "all_low": 7,
+      "only_16": 2,
+      "only_32": 2,
+      "both_high": 2,
+      "zero": 0
+    },
+    {
+      "horizon": 5,
+      "all_low": 13,
+      "only_16": 2,
+      "only_32": 2,
+      "both_high": 4,
+      "zero": 1
+    },
+    {
+      "horizon": 6,
+      "all_low": 22,
+      "only_16": 3,
+      "only_32": 3,
+      "both_high": 6,
+      "zero": 0
+    },
+    {
+      "horizon": 7,
+      "all_low": 34,
+      "only_16": 3,
+      "only_32": 3,
+      "both_high": 9,
+      "zero": 1
+    },
+    {
+      "horizon": 8,
+      "all_low": 50,
+      "only_16": 4,
+      "only_32": 4,
+      "both_high": 12,
+      "zero": 0
+    },
+    {
+      "horizon": 9,
+      "all_low": 70,
+      "only_16": 4,
+      "only_32": 4,
+      "both_high": 16,
+      "zero": 1
+    }
+  ],
+  "five_key_22_path_family_census": [
+    {
+      "high_horizons": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "low_horizons": [
+        2,
+        8,
+        9
+      ],
+      "inventories": 432,
+      "signature_feasible": 0,
+      "signature_infeasible": 432
+    },
+    {
+      "high_horizons": [
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "low_horizons": [
+        2,
+        7,
+        9
+      ],
+      "inventories": 576,
+      "signature_feasible": 0,
+      "signature_infeasible": 576
+    },
+    {
+      "high_horizons": [
+        3,
+        4,
+        5,
+        6,
+        9
+      ],
+      "low_horizons": [
+        2,
+        7,
+        8
+      ],
+      "inventories": 768,
+      "signature_feasible": 432,
+      "signature_infeasible": 336
+    },
+    {
+      "high_horizons": [
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "low_horizons": [
+        2,
+        6,
+        9
+      ],
+      "inventories": 864,
+      "signature_feasible": 0,
+      "signature_infeasible": 864
+    },
+    {
+      "high_horizons": [
+        3,
+        4,
+        5,
+        7,
+        9
+      ],
+      "low_horizons": [
+        2,
+        6,
+        8
+      ],
+      "inventories": 1152,
+      "signature_feasible": 1152,
+      "signature_infeasible": 0
+    },
+    {
+      "high_horizons": [
+        3,
+        4,
+        5,
+        8,
+        9
+      ],
+      "low_horizons": [
+        2,
+        6,
+        7
+      ],
+      "inventories": 1536,
+      "signature_feasible": 960,
+      "signature_infeasible": 576
+    },
+    {
+      "high_horizons": [
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "low_horizons": [
+        2,
+        5,
+        9
+      ],
+      "inventories": 1296,
+      "signature_feasible": 0,
+      "signature_infeasible": 1296
+    },
+    {
+      "high_horizons": [
+        3,
+        4,
+        6,
+        7,
+        9
+      ],
+      "low_horizons": [
+        2,
+        5,
+        8
+      ],
+      "inventories": 1728,
+      "signature_feasible": 1728,
+      "signature_infeasible": 0
+    },
+    {
+      "high_horizons": [
+        3,
+        4,
+        6,
+        8,
+        9
+      ],
+      "low_horizons": [
+        2,
+        5,
+        7
+      ],
+      "inventories": 2304,
+      "signature_feasible": 2304,
+      "signature_infeasible": 0
+    },
+    {
+      "high_horizons": [
+        3,
+        4,
+        7,
+        8,
+        9
+      ],
+      "low_horizons": [
+        2,
+        5,
+        6
+      ],
+      "inventories": 3456,
+      "signature_feasible": 1956,
+      "signature_infeasible": 1500
+    },
+    {
+      "high_horizons": [
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "low_horizons": [
+        2,
+        4,
+        9
+      ],
+      "inventories": 2592,
+      "signature_feasible": 0,
+      "signature_infeasible": 2592
+    },
+    {
+      "high_horizons": [
+        3,
+        5,
+        6,
+        7,
+        9
+      ],
+      "low_horizons": [
+        2,
+        4,
+        8
+      ],
+      "inventories": 3456,
+      "signature_feasible": 3456,
+      "signature_infeasible": 0
+    },
+    {
+      "high_horizons": [
+        3,
+        5,
+        6,
+        8,
+        9
+      ],
+      "low_horizons": [
+        2,
+        4,
+        7
+      ],
+      "inventories": 4608,
+      "signature_feasible": 4608,
+      "signature_infeasible": 0
+    },
+    {
+      "high_horizons": [
+        3,
+        5,
+        7,
+        8,
+        9
+      ],
+      "low_horizons": [
+        2,
+        4,
+        6
+      ],
+      "inventories": 6912,
+      "signature_feasible": 6912,
+      "signature_infeasible": 0
+    },
+    {
+      "high_horizons": [
+        3,
+        6,
+        7,
+        8,
+        9
+      ],
+      "low_horizons": [
+        2,
+        4,
+        5
+      ],
+      "inventories": 10368,
+      "signature_feasible": 4224,
+      "signature_infeasible": 6144
+    }
+  ],
+  "proof_scope": "exact label reachability and signature feasibility only; not native-prefix edge optimum or formal Result"
+}

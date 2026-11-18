@@ -1,0 +1,147 @@
+{
+  "suffix_depth_certificates": [
+    {
+      "suffix_microsteps": 1,
+      "decoder_state_cases": 26,
+      "distinct_possible_demand_masks": 8,
+      "max_demands_at_one_prefix": 1,
+      "cover_lower_bound": 8
+    },
+    {
+      "suffix_microsteps": 2,
+      "decoder_state_cases": 18,
+      "distinct_possible_demand_masks": 8,
+      "max_demands_at_one_prefix": 1,
+      "cover_lower_bound": 8
+    },
+    {
+      "suffix_microsteps": 3,
+      "decoder_state_cases": 36,
+      "distinct_possible_demand_masks": 12,
+      "max_demands_at_one_prefix": 2,
+      "cover_lower_bound": 4
+    },
+    {
+      "suffix_microsteps": 4,
+      "decoder_state_cases": 21,
+      "distinct_possible_demand_masks": 18,
+      "max_demands_at_one_prefix": 2,
+      "cover_lower_bound": 4
+    },
+    {
+      "suffix_microsteps": 5,
+      "decoder_state_cases": 42,
+      "distinct_possible_demand_masks": 18,
+      "max_demands_at_one_prefix": 2,
+      "cover_lower_bound": 4
+    },
+    {
+      "suffix_microsteps": 6,
+      "decoder_state_cases": 24,
+      "distinct_possible_demand_masks": 18,
+      "max_demands_at_one_prefix": 2,
+      "cover_lower_bound": 4
+    },
+    {
+      "suffix_microsteps": 7,
+      "decoder_state_cases": 45,
+      "distinct_possible_demand_masks": 24,
+      "max_demands_at_one_prefix": 3,
+      "cover_lower_bound": 3
+    }
+  ],
+  "three_prefix_cover_at_L_minus_7": {
+    "unique_abstract_cover_masks": [
+      "00001010",
+      "01100100",
+      "10010001"
+    ],
+    "required_dfa_states": [
+      [
+        1
+      ],
+      [
+        4
+      ],
+      [
+        5
+      ]
+    ],
+    "forced_distinct_native_first_steps": 3
+  },
+  "analytic_lower_bound": "C_native >= 2L+28 >= 4h+40 for all integer h>=5",
+  "minimum_legal_L": "2h+6",
+  "schema": "EC49FFR_UNIVERSAL_ONE_KEY_ADJACENT_EXACT_V1",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "native_model_git_blob": "6350340fbe869f17b5a50bd1ba30640db44a3a99",
+  "exact_theorem": "For all integers h>=5, C_min_one_key(Hh,H(h+1))=4h+40",
+  "witness_audit_h": [
+    5,
+    64
+  ],
+  "witness_audit_cases": 60,
+  "witness_costs": {
+    "5": 60,
+    "6": 64,
+    "7": 68,
+    "8": 72,
+    "9": 76,
+    "10": 80,
+    "11": 84,
+    "12": 88,
+    "13": 92,
+    "14": 96,
+    "15": 100,
+    "16": 104,
+    "17": 108,
+    "18": 112,
+    "19": 116,
+    "20": 120,
+    "21": 124,
+    "22": 128,
+    "23": 132,
+    "24": 136,
+    "25": 140,
+    "26": 144,
+    "27": 148,
+    "28": 152,
+    "29": 156,
+    "30": 160,
+    "31": 164,
+    "32": 168,
+    "33": 172,
+    "34": 176,
+    "35": 180,
+    "36": 184,
+    "37": 188,
+    "38": 192,
+    "39": 196,
+    "40": 200,
+    "41": 204,
+    "42": 208,
+    "43": 212,
+    "44": 216,
+    "45": 220,
+    "46": 224,
+    "47": 228,
+    "48": 232,
+    "49": 236,
+    "50": 240,
+    "51": 244,
+    "52": 248,
+    "53": 252,
+    "54": 256,
+    "55": 260,
+    "56": 264,
+    "57": 268,
+    "58": 272,
+    "59": 276,
+    "60": 280,
+    "61": 284,
+    "62": 288,
+    "63": 292,
+    "64": 296
+  },
+  "scope": "Original nine-state BRC observer and ordered signed six-axis code; eight low-signature demands; one identical full key",
+  "admission_status": "AUTHOR_FINITE_SUFFIX_CERTIFICATE_AND_ANALYTIC_EXACT_THEOREM; DRIVER_PENDING"
+}

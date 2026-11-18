@@ -1,0 +1,9 @@
+# EC49DW — saturated lengths and ninth-residual test
+
+Scientific lineage: EC49DV follows EC49DU at immutable research commit 6040d0bba5a32096aff1bcdbb963a26051957043; frozen original inputs GLOBAL_KNOWLEDGE_V1 773d538180bfb49e24cffeb35c3ee75eb0628e2e and enterprise-math fc0f038e7bfd12c886b4d37f900bfb770c0f61ab. Preserve native signed X6 ordered paths, D=−2E₁, two strictly positive BRC-product channels, count, A/B seam, exact returning future alphabet and role/admission boundaries.
+
+Verified author-side EC49DV: at n=10, joint-neutral eight-feature historical rank H₈ can only be 8,16,23,24. The oblique/nonradial equal-core affine-collinear family has rank 23 at n=10 despite rank(G_C)=2, with a 23-path nonzero minor; at n=12 three new count families yield an exact 24×24 nonzero determinant and first full-24 attainment. Globally constant or proportional instrument degeneracies stay at most 16 at all even lengths. Independent mathematical review remains pending; future transfer reuses EC49DU's exact grammar factorization.
+
+**New discriminating unit:** Compare the *earliest genuine returning observer saturation* for original a–e, f-only and f+g alphabets in each parameter stratum. Determine whether a new native zero-displacement operation creates a ninth independently observable historical residual, using positive signed native-path populations, or prove an exact eight-feature descent certificate. Check seam, all six displacement coordinates, exact horizon and full BRC channels; keep finite computations separate from all-parameter proofs.
+
+Expected evidence: explicit word/parameter witness or exact span certificate, proof of lower length and future-horizon scope, executed checker with source/ref, precise next unresolved question and ordinary Draft handoff. No P000/ACTIVE modifications. Status: RESEARCH_QUESTION / PORTABLE_DRAFT / UNREVIEWED / NOT_ADMITTED.

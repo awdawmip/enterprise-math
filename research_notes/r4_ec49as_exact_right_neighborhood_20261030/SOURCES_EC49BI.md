@@ -1,0 +1,6 @@
+# EC49BI verified sources and scope
+- Predecessor: Enterprise Math draft PR #1730 head 85aa09ddb99c6bb3e4cb1b6e4807578a9f1acff0, PROOF_EC49BH.md / NEXT_TASK_EC49BI.md. Reuse the **declared two-signal observer**; do not rebrand as native signed BRC or independent review.
+- David Blackwell, "Equivalent Comparisons of Experiments", Annals of Mathematical Statistics 24(2), 265–272, June 1953; DOI 10.1214/aoms/1177729032.
+- M. Ali Khan, Haomiao Yu, Zhixiang Zhang, "A simple proof of Blackwell's theorem on the comparison of experiments for a general state space", Economics Letters 247 (February 2025), article 112146; DOI 10.1016/j.econlet.2024.112146.
+- Maxwell Rosenthal, "Prior-free Blackwell", Economic Theory Bulletin 14, article 4, published 17 March 2026; DOI 10.1007/s40505-026-00307-6. The article's distinct robust prior-free comparison is characterized by null-space inclusion; it does not establish our dynamic observer/port sufficiency claim.
+The specific 3-label Q(i) kernel, minimal repair and future-operation descent criterion are proven directly in PROOF_EC49BI.md. Literature background and new author-side auxiliary lemma are kept separate. No inferred physical realization of auxiliary phase operation.

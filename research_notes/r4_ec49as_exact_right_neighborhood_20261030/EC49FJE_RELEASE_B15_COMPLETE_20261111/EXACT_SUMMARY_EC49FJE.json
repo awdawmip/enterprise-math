@@ -1,0 +1,42 @@
+{
+  "schema": "EC49FJE_RELEASE_B15_EXACT_SUMMARY_V1",
+  "date": "2026-11-11",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "existing_witnesses": [
+    "A",
+    "B"
+  ],
+  "legal_catalog_words": 178850,
+  "legal_full_cache_keys": 94,
+  "replacement_labels": 6,
+  "unmodified_labels": 18,
+  "fixed_edges": 78,
+  "incremental_budget_for_93": 15,
+  "original_edges": 94,
+  "per_profile": {
+    "A": {
+      "released_positions": 1001,
+      "forced_original_seven_keys": 969,
+      "unrestricted_H8_4_H9_1": 26,
+      "unrestricted_H6_or_H7_quad_H9pair": 2,
+      "joint_key_prefix": 4,
+      "optimum": 94
+    },
+    "B": {
+      "released_positions": 1001,
+      "forced_original_seven_keys": 969,
+      "unrestricted_H8_4_H9_1": 26,
+      "unrestricted_H6_or_H7_quad_H9pair": 2,
+      "joint_key_prefix": 4,
+      "optimum": 94
+    }
+  },
+  "joint_key_candidates_per_case": 41,
+  "joint_key_dp_tests": 328,
+  "exact_cases": 2002,
+  "feasible_93": 0,
+  "DP_suffix_cost_histogram": "16 for all 969 forced-key cases of each profile; 16 for all 52 unrestricted five-label cases; >=16 for all four unrestricted six-label cases; 16 minimum for each of eight key-aware cases",
+  "result": "C_min(A; released key,B15)=C_min(B; released key,B15)=94 for every specified frozen six-label fixed-background subproblem.",
+  "status": "AUTHOR_EXACT_REPRODUCIBLE_UNREVIEWED",
+  "next": "released-key B17 and independent nonlocal construction search"
+}

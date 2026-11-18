@@ -1,0 +1,107 @@
+{
+  "schema": "EM_EC49FFX_EXACT_FINITE_REPORT_V1",
+  "date": "2026-11-09",
+  "status": "AUTHOR_SIDE_EXACT_COMPUTATION_UNREVIEWED",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "baseline_operation_words": [
+    "ce",
+    "de",
+    "ec",
+    "ed"
+  ],
+  "baseline_native_edges": 28,
+  "model": "nine-state original BRC DFA over native signed-X6 alphabet a,c,d,e,f,g; two windows H2/Hh, original low signatures 1,2,4,8, unrestricted positive complete BRC keys",
+  "theorem": "Exact O(h^4) arithmetic-state DP for every h>=3; C_min(H2,Hh)=4h+42 for every integer h in 14..30",
+  "costs": {
+    "3": 36,
+    "4": 44,
+    "5": 52,
+    "6": 59,
+    "7": 65,
+    "8": 71,
+    "9": 77,
+    "10": 82,
+    "11": 86,
+    "12": 90,
+    "13": 94,
+    "14": 98,
+    "15": 102,
+    "16": 106,
+    "17": 110,
+    "18": 114,
+    "19": 118,
+    "20": 122,
+    "21": 126,
+    "22": 130,
+    "23": 134,
+    "24": 138,
+    "25": 142,
+    "26": 146,
+    "27": 150,
+    "28": 154,
+    "29": 158,
+    "30": 162
+  },
+  "independent_python_checked_h": [
+    3,
+    6,
+    9,
+    11,
+    14,
+    20,
+    24,
+    30
+  ],
+  "independent_full_witness_checked_h": [
+    3,
+    6,
+    9,
+    11,
+    14,
+    15,
+    16,
+    20,
+    24,
+    30
+  ],
+  "native_two_key_witness_all_h": {
+    "start": 14,
+    "end": 30,
+    "keys": [
+      "(3,1,1)",
+      "(4,h-2,1)"
+    ],
+    "cost": "4h+42"
+  },
+  "count_only_integer_dp_candidates": {
+    "8": "125680",
+    "9": "625050",
+    "10": "3091460",
+    "11": "15233900",
+    "12": "74884944",
+    "13": "367524430",
+    "14": "1801977660",
+    "15": "8830239750",
+    "16": "43260477120",
+    "20": "24952444838400",
+    "24": "14478948619870896",
+    "30": "205177995658512067620"
+  },
+  "representative_run_metrics": {
+    "h14": {
+      "cost": 98,
+      "distinct_eval_states": 7556
+    },
+    "h30": {
+      "cost": 162,
+      "distinct_eval_states": 137348,
+      "cache_hits": 526517,
+      "max_rss_kib": 277632,
+      "local_inner_seconds_approx": 0.05
+    }
+  },
+  "method": "Exact min-plus DP with 16 distinct four-signature masks on observer/count DAG states (k,#e,#a,#f,q). Baseline-sensitive only at depths 0 and 1. Uses prior EC49FBS exact native prefix identity.",
+  "prior_original_reproduced": "H3..H13 exact minima 36,44,52,59,65,71,77,82,86,90,94",
+  "full_mother_problem": "Original separate frozen 24-label H2/H3 high-signature problem; <=5 keys and <=93 edges unresolved",
+  "source_review": "Unreviewed author finite proof; no formal EC49AS current publication or CLAIM; independent Driver admission pending"
+}

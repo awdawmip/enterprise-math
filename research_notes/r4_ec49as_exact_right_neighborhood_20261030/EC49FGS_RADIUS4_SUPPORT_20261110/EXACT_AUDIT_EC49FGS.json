@@ -1,0 +1,144 @@
+{
+  "schema": "EC49FGS_AUTHOR_EXACT_AUDIT_V1",
+  "date": "2026-11-10",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "input_repo": "awdawmip/enterprise-math",
+  "input_blob": "e65c1598ad9fa2680558046ed1e59d83806536b8",
+  "input_path": "research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FGJ_SEVEN_KEY_94_20261110/WITNESSES_EC49FGJ.json",
+  "computation": "complete 10626 position subsets per profile; exact integer support bitmask; independent direct X6-prefix union for every subset",
+  "execution_status": "EC49FGS_EXACT_PASS",
+  "h2h3_support": {
+    "H2/16": [
+      [
+        3,
+        0,
+        1
+      ]
+    ],
+    "H2/32": [
+      [
+        2,
+        1,
+        1
+      ]
+    ],
+    "H3/16": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        4,
+        0,
+        1
+      ]
+    ],
+    "H3/32": [
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        3,
+        1,
+        1
+      ]
+    ]
+  },
+  "released_full_key_classes_for_7566_eligible": {
+    "none": 5395,
+    "(2,1,1)": 974,
+    "(3,0,1)": 974,
+    "(3,1,1)": 99,
+    "(2,1,1)+(3,0,1)": 111,
+    "(2,1,1)+(3,1,1)": 6,
+    "(3,0,1)+(3,1,1)": 6,
+    "only_H8_seventh_key": 1
+  },
+  "profiles": [
+    {
+      "profile": "A",
+      "baseline_cost": 94,
+      "late_H8_H9_cost": 94,
+      "H8_cost": 72,
+      "H9_cost": 40,
+      "H8_H9_overlap": 18,
+      "four_label_sets": 10626,
+      "fixed_prefix_blocked": 3060,
+      "remaining_key_forcing_cases": 7565,
+      "unrestricted_H8_exception": 1,
+      "budget_histogram": {
+        "1": 2720,
+        "3": 1200,
+        "5": 240,
+        "7": 1379,
+        "9": 1020,
+        "10": 272,
+        "11": 312,
+        "12": 130,
+        "13": 34,
+        "14": 20,
+        "15": 120,
+        "17": 68,
+        "18": 32,
+        "19": 10,
+        "20": 8,
+        "21": 1,
+        "-1": 3060
+      },
+      "support_size_histogram": {
+        "1": 24,
+        "2": 14,
+        "3": 24,
+        "4": 14,
+        "6": 2,
+        "11": 4,
+        "12": 12
+      }
+    },
+    {
+      "profile": "B",
+      "baseline_cost": 94,
+      "late_H8_H9_cost": 94,
+      "H8_cost": 72,
+      "H9_cost": 40,
+      "H8_H9_overlap": 18,
+      "four_label_sets": 10626,
+      "fixed_prefix_blocked": 3060,
+      "remaining_key_forcing_cases": 7565,
+      "unrestricted_H8_exception": 1,
+      "budget_histogram": {
+        "1": 2720,
+        "3": 1200,
+        "5": 240,
+        "7": 1379,
+        "9": 1020,
+        "10": 272,
+        "11": 312,
+        "12": 130,
+        "13": 34,
+        "14": 20,
+        "15": 120,
+        "17": 68,
+        "18": 32,
+        "19": 10,
+        "20": 8,
+        "21": 1,
+        "-1": 3060
+      },
+      "support_size_histogram": {
+        "1": 24,
+        "2": 14,
+        "3": 24,
+        "4": 14,
+        "6": 2,
+        "11": 4,
+        "12": 12
+      }
+    }
+  ],
+  "proof_status": "AUTHOR_EXACT_FINITE;DRIVER_REVIEW_PENDING;NO_FORMAL_RESULT",
+  "next_question": "Exhaustively test 7565 forced-existing-key four-label changes for 93-edge covers, with the all-H8 exception handled by EC49FGM unrestricted fixed20 H8 bound."
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "EC49FIJ_RADIUS6_EXACT_SCREEN_V1",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "provenance": "A/B witness + 178850-word complete catalog, EC49FGW sibling, prior EC49FHH radius<=5 theorem",
+  "position_count_per_profile": 134596,
+  "h2_containing_position_count_per_profile": 59983,
+  "profiles": [
+    {
+      "profile": "A",
+      "counts": {
+        "fixed94": 18564,
+        "radius5_lift": 49427,
+        "released_input": 4084,
+        "released_reject": 2072,
+        "released_remain": 2012,
+        "fixed7_input": 62521,
+        "fixed7_reject": 22548,
+        "fixed7_remain": 39973
+      },
+      "remaining_total": 41985
+    },
+    {
+      "profile": "B",
+      "counts": {
+        "fixed94": 18564,
+        "radius5_lift": 49427,
+        "released_input": 4084,
+        "released_reject": 2072,
+        "released_remain": 2012,
+        "fixed7_input": 62521,
+        "fixed7_reject": 22548,
+        "fixed7_remain": 39973
+      },
+      "remaining_total": 41985
+    }
+  ],
+  "total_new_exclusions_per_profile": 74047,
+  "all_exclusions_per_profile": 92611,
+  "all_remaining_per_profile": 41985,
+  "verification": {
+    "run": "EC49FIJ_EXACT_PASS",
+    "candidate_words": 178850,
+    "integer_arithmetic": true,
+    "script_local_sha256": "6cb088c734ddbaed7a3fb1048032650419445ac3c799c6534d1654a437101365",
+    "local_full_report_sha256": "bead138784fae4500a71e27a0b63a0c06fc6ec0ed0fafa5a0bc1c11f0b6ee4dc"
+  },
+  "next_problem": "pairwise native-prefix union and six-demand trie DP for 39973 fixed-seven-key and 2012 released-key cases per profile"
+}

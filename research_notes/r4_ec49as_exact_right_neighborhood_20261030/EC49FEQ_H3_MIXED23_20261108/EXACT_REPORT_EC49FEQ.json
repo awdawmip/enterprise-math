@@ -1,0 +1,175 @@
+{
+  "schema": "EC49FEQ_H3_MIXED23_AUTHOR_EXACT_CENSUS_V1",
+  "date": "2026-11-08",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "scope": "H2 low quartet; H3 three-signature high mixed support; four late high-pair horizons; two late low quartets; at most five complete BRC keys; original signed native-X6 end and observer masks",
+  "type_B_late_high_horizon_option_counts": {
+    "H4": 2,
+    "H5": 4,
+    "H6": 6,
+    "H7": 9,
+    "H8": 12,
+    "H9": 16
+  },
+  "type_B_by_late_high": {
+    "4567": {
+      "all": 432,
+      "H3_available": 432,
+      "all_observer_masks_available": 0
+    },
+    "4568": {
+      "all": 576,
+      "H3_available": 576,
+      "all_observer_masks_available": 0
+    },
+    "4569": {
+      "all": 768,
+      "H3_available": 768,
+      "all_observer_masks_available": 432
+    },
+    "4578": {
+      "all": 864,
+      "H3_available": 864,
+      "all_observer_masks_available": 0
+    },
+    "4579": {
+      "all": 1152,
+      "H3_available": 1152,
+      "all_observer_masks_available": 1152
+    },
+    "4589": {
+      "all": 1536,
+      "H3_available": 1536,
+      "all_observer_masks_available": 960
+    },
+    "4678": {
+      "all": 1296,
+      "H3_available": 1296,
+      "all_observer_masks_available": 0
+    },
+    "4679": {
+      "all": 1728,
+      "H3_available": 1728,
+      "all_observer_masks_available": 1728
+    },
+    "4689": {
+      "all": 2304,
+      "H3_available": 2304,
+      "all_observer_masks_available": 2304
+    },
+    "4789": {
+      "all": 3456,
+      "H3_available": 3456,
+      "all_observer_masks_available": 1956
+    },
+    "5678": {
+      "all": 2592,
+      "H3_available": 648,
+      "all_observer_masks_available": 0
+    },
+    "5679": {
+      "all": 3456,
+      "H3_available": 864,
+      "all_observer_masks_available": 864
+    },
+    "5689": {
+      "all": 4608,
+      "H3_available": 1152,
+      "all_observer_masks_available": 1152
+    },
+    "5789": {
+      "all": 6912,
+      "H3_available": 1728,
+      "all_observer_masks_available": 1728
+    },
+    "6789": {
+      "all": 10368,
+      "H3_available": 0,
+      "all_observer_masks_available": 0
+    }
+  },
+  "type_B_total": 42048,
+  "type_B_H3_available": 18504,
+  "type_B_feasible": 12276,
+  "type_B_infeasible": 29772,
+  "type_C_total_by_exact_involution": 42048,
+  "type_C_feasible_by_exact_involution": 12276,
+  "total_two_types": 84096,
+  "feasible_two_types": 24552,
+  "independent_count_state_DFA_checked_horizon_full_key_pairs": 350,
+  "independent_count_state_DFA_all_equal_to_word_enumerator": true,
+  "explicit_witness": {
+    "native_prefix_cost": 99,
+    "total_words": 23,
+    "complete_keys": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        4,
+        4,
+        1
+      ],
+      [
+        5,
+        5,
+        1
+      ]
+    ],
+    "words_by_horizon": {
+      "2": [
+        "de",
+        "ed",
+        "ce",
+        "ec"
+      ],
+      "3": [
+        "deg",
+        "ecg",
+        "feg"
+      ],
+      "4": [
+        "fegg",
+        "gefg"
+      ],
+      "5": [
+        "degfg",
+        "feggd",
+        "feggc",
+        "ecgfg"
+      ],
+      "6": [
+        "feggfg",
+        "gefgfg"
+      ],
+      "7": [
+        "feggfgg",
+        "gefgfgg"
+      ],
+      "8": [
+        "gefgfggd",
+        "feggfggd",
+        "feggfggc",
+        "gefgfggc"
+      ],
+      "9": [
+        "feggfggfg",
+        "gefgfggfg"
+      ]
+    }
+  },
+  "not_proved": "Feasible inventories have not yet been filtered or optimized for native-prefix cost <=93; 99 is a verified witness, not optimum.",
+  "next_unit": "Exact per-depth prefix cover over 12276 feasible type-B inventories, then joint original signed-prefix ILP for surviving <=93 relaxations; type-C follows by involution."
+}

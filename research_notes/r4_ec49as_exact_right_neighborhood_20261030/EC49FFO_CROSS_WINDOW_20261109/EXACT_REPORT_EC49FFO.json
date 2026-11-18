@@ -1,0 +1,185 @@
+{
+  "schema": "EC49FFO_CROSS_WINDOW_EXACT_INTEGER_20261109",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_model_blob": "6350340fbe869f17b5a50bd1ba30640db44a3a99",
+  "status": "EXACT_INTEGER_TRIE_DP_PASS / AUTHOR_RESEARCH / NOT_ADMITTED",
+  "domain": {
+    "horizons": [
+      4,
+      5
+    ],
+    "sig_per_h": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "key_unrestricted": true,
+    "full_BRC_keys_per_h": {
+      "4": 7,
+      "5": 13
+    },
+    "candidate_words_per_h": {
+      "4": 176,
+      "5": 950
+    },
+    "signed_native_trie_nodes_including_root": 4903
+  },
+  "unrestricted_key_min_prefix_cost": 40,
+  "exhaustive_DP_witness_keys": [
+    [
+      3,
+      3,
+      1
+    ],
+    [
+      3,
+      4,
+      1
+    ],
+    [
+      4,
+      2,
+      1
+    ],
+    [
+      4,
+      3,
+      1
+    ]
+  ],
+  "exhaustive_DP_witness": [
+    [
+      5,
+      4,
+      [
+        4,
+        3,
+        1
+      ],
+      "fgecg"
+    ],
+    [
+      4,
+      4,
+      [
+        4,
+        2,
+        1
+      ],
+      "fgec"
+    ],
+    [
+      5,
+      2,
+      [
+        4,
+        3,
+        1
+      ],
+      "fgedg"
+    ],
+    [
+      4,
+      2,
+      [
+        4,
+        2,
+        1
+      ],
+      "fged"
+    ],
+    [
+      5,
+      8,
+      [
+        3,
+        4,
+        1
+      ],
+      "ggecg"
+    ],
+    [
+      4,
+      8,
+      [
+        3,
+        3,
+        1
+      ],
+      "ggec"
+    ],
+    [
+      5,
+      1,
+      [
+        3,
+        4,
+        1
+      ],
+      "ggedg"
+    ],
+    [
+      4,
+      1,
+      [
+        3,
+        3,
+        1
+      ],
+      "gged"
+    ]
+  ],
+  "two_key_matching_upper_certificate": {
+    "key_h4": [
+      4,
+      2,
+      1
+    ],
+    "key_h5": [
+      4,
+      3,
+      1
+    ],
+    "words_h4": [
+      "fegc",
+      "fegd",
+      "gfec",
+      "gfed"
+    ],
+    "words_h5": [
+      "fegcg",
+      "fegdg",
+      "gfecg",
+      "gfedg"
+    ],
+    "prefix_cost": 40
+  },
+  "analytic_ladder": {
+    "formula": "C_native(m)=38+8*m for each integer m>=1",
+    "horizons": "h=4+j, j=0,...,m",
+    "keys": "K_j=(4,2+j,1)",
+    "low_words": "fegc g^j; fegd g^j; gfec g^j; gfed g^j",
+    "extra_high_h5": [
+      "fegfg",
+      "gfefg"
+    ],
+    "checked_m_range": [
+      1,
+      32
+    ],
+    "case_m4": {
+      "horizons": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "keys": 5,
+      "paths": 22,
+      "cost": 70
+    }
+  },
+  "verification_scope": "Exact exhaustive key/word domain for two horizon eight-label problem, direct native X6/DFA model validation; analytic family plus exact m=1..32 witnesses. No claim of original mother quota satisfaction."
+}

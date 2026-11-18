@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "date": "2026-11-03",
+  "frozen_inputs": {
+    "global": "773d538180bfb49e24cffeb35c3ee75eb0628e2e",
+    "enterprise_math": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab"
+  },
+  "strong_lemma": "same-key distinct ordered native words imply LCP<=L-3",
+  "triple": {
+    "skeletons": 8,
+    "arrangements": 123147,
+    "bound_min": 60,
+    "bound_max": 111,
+    "excluded_E_lt_80": 106924,
+    "excluded_E_le_80": 103259,
+    "survivors_E_lt_80": 16223
+  },
+  "double": {
+    "skeletons": 32,
+    "arrangements": 1866362,
+    "bound_min": 54,
+    "bound_max": 113,
+    "excluded_E_lt_80": 1371817,
+    "excluded_E_le_80": 1274217,
+    "survivors_E_lt_80": 494545
+  },
+  "all": {
+    "skeletons": 40,
+    "arrangements": 1989509,
+    "excluded_E_lt_80": 1478741,
+    "excluded_E_le_80": 1377476,
+    "survivors_E_lt_80": 510768
+  },
+  "verification": {
+    "triple": "two independent implementations full histogram PASS",
+    "double_census": "Python and Node.js full per-skeleton counts PASS",
+    "double_bound": "C++ complete all 1866362 keys PASS, Python independently checks smallest 8 skeletons (13114 schedules) PASS",
+    "native_word_test": "141842 same-key pairs h=2..5 PASS"
+  },
+  "status_scope": "author-side finite integer evidence; no native admission; global E* still 63..80"
+}

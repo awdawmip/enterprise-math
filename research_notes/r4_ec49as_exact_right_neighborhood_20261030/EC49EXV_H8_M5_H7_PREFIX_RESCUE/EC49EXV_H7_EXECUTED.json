@@ -1,0 +1,191 @@
+{
+  "title": "EC49EXV signed-native H7 exact integer OR-mask threshold outputs",
+  "source_pin": "awdawmip/enterprise-math@7841d84e4bda19e8c11189ca5ba9de8de55ca2bd",
+  "executed_date": "2026-11-04 Asia/Shanghai",
+  "engine": "g++ -O3 -std=c++17 EC49EXJ EXACT_OR_MASK_DP.cpp, Python signed primitive trie generator",
+  "method": "h7 cutoff-76, 28 prepaid h2 edges, 22 observer colors; h8 2 disjoint paths each requiring 2 additional edges",
+  "result": "18/18 BOUND_PASS; 12 distinct byte-identical h7 inputs",
+  "note": "Compacted directly from executed local per-case solver output; source replay script provided; native admission unconfirmed.",
+  "cases": [
+    {
+      "index": 663,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "c1e572e33c03c5a4f7bab0a7a4ad72fd45fa339a3e812771283c42b90f91404e",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=1941664 conv=32142876",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 676,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "1585bb05bf9a51abd426daaca6473b142fda0cf00bbb7e0c144dde0bdc566aee",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2693168 conv=66993060",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 678,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "77b825ab3918848816fda93a0f8cf4d47407b2d0c61191df41b1505f218591d8",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2261584 conv=66379826",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 589,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "f097da02f73fbebf89b824bdaba6d9b265056a4ffd31023c23a95d6f0bcd273b",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2464832 conv=17749612",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 601,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "83e78b8b854db65cc262e7a41b6704f734db3c5d5d0caadf56d14070556dc9ea",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2236816 conv=32734580",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 661,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "1d6164d9e33b00e4547d4f686a768ed28326ce62ca9f0b99f8574548c90dbd65",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2236816 conv=32513180",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 674,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "e66e196bc6719d56660a2b4a92ca7ddc6c75c50b53a10e70dd56d73d31f99cd1",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2464832 conv=66167244",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 583,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "7f90e41847475b6d3b0f25091479a78e437199dd09af70f531a31be0cabdbbb5",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2693168 conv=9700004",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 592,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "9ebf976fb084a61293e83a0e8016848db822e28f6106096bccaea202e6fec90d",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2261584 conv=9532914",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 604,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "eb688aac328b9e1ea779157560138cdc2a3313981c1934c73d220474eba5c91e",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=1941664 conv=16609252",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 606,
+      "nodes": 2668,
+      "colors": 22,
+      "input_sha256": "08ef1f44e58044ef576a46817dd5bfd77b9805321ff0946dc1d5055c5fe22163",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2668 colors=22 largest_states=2031008 conv=31687190",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 652,
+      "nodes": 2668,
+      "colors": 22,
+      "input_sha256": "7e5b1af91e03aae02779933e7e4cba07fb3d78b30f8bd76653aba95512feea2b",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2668 colors=22 largest_states=2031008 conv=16120776",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 662,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "c1e572e33c03c5a4f7bab0a7a4ad72fd45fa339a3e812771283c42b90f91404e",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=1941664 conv=32142876",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 675,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "1585bb05bf9a51abd426daaca6473b142fda0cf00bbb7e0c144dde0bdc566aee",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2693168 conv=66993060",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 677,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "77b825ab3918848816fda93a0f8cf4d47407b2d0c61191df41b1505f218591d8",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2261584 conv=66379826",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 590,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "f097da02f73fbebf89b824bdaba6d9b265056a4ffd31023c23a95d6f0bcd273b",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2464832 conv=17749612",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 660,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "1d6164d9e33b00e4547d4f686a768ed28326ce62ca9f0b99f8574548c90dbd65",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2236816 conv=32513180",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    },
+    {
+      "index": 673,
+      "nodes": 2582,
+      "colors": 22,
+      "input_sha256": "e66e196bc6719d56660a2b4a92ca7ddc6c75c50b53a10e70dd56d73d31f99cd1",
+      "cutoff_h7": 76,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=76 nodes=2582 colors=22 largest_states=2464832 conv=66167244",
+      "h8_new_edge_bound": 4,
+      "status": "PASS_H7_GE76_THUS_H8_GE80"
+    }
+  ]
+}

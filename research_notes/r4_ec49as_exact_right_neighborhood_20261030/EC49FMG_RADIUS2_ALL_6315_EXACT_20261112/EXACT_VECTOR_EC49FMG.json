@@ -1,0 +1,65 @@
+{
+  "schema": "EC49FMG_EXACT_SEVEN_KEY_RADIUS_TWO_VECTOR_V1",
+  "date": "2026-11-12",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "enumeration": "for removed in combinations(sorted(BASE),2): for added in combinations(sorted(ALL94-BASE),2): include keyset iff its union of 24 demand support masks covers every demand",
+  "baseline_keys": [
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      3,
+      0,
+      1
+    ],
+    [
+      3,
+      1,
+      1
+    ],
+    [
+      4,
+      2,
+      1
+    ],
+    [
+      5,
+      3,
+      1
+    ],
+    [
+      5,
+      4,
+      1
+    ],
+    [
+      6,
+      4,
+      1
+    ]
+  ],
+  "total_radius_two": 78561,
+  "feasible": 6315,
+  "infeasible": 72246,
+  "index_range": [
+    0,
+    6315
+  ],
+  "cost_encoding": "zlib-compressed unsigned 8-bit integer costs, then base64; each of the 6315 original values is a byte",
+  "cost_bytes_sha256": "7a94b5b408a73e4be11405c238273e0313b829c0d0ddd4793028609b1851f248",
+  "costs_zlib_base64": "eNrtWN9v2joU/iev9nBVVVOEkIW8NEJpFDInIjQBDDgQ07T8aDZYQUo72nVVb2/FKh6u9rg/6tpJgGTbpS1kL1f7UHz82fHn42P3NEk+V0RURq6MqChz5HlRkIGcgvSfZCNQB9HoJ1ZEY1lHKoohIZmVnBY1pIVNq74nUalS2qHUpY0qdTrUoQxVh9uYhOjQBFIkQlFuyHKjN5C5XSEvv1kTsH0AmCj7Fdk1OHtjRyz8yZnI240VDHZVGwmkyEaURGAWJaWpaEZ3eP7QHSsNMNRE5VwsGiWz+WB0q1Z1yATH3eFMWgJIaQBJYGUh2VSQXopfIfoLNIGYoSQMFaCYrZNZrzpjvWzlMlXLVGwPxBBiyxtyIIEU2YiDWPMgu7+3bJWyEspIJyUjbiuTUV7bQURcaYi75q2d1gKzyUu75qEd885ueWanvLLL4FfrVLEXZpPn5w0ht54prD5/WkEQ9oUEUmQjtg/yluO2HZYvJJAiG7BjZir82iEwMQKu8seTKSaVKTN26SBx+0HmISpsey/MSHbb87bhwL3034P0wt37jd/4v4FAwWOvUj6UVOL5iwYUaIKme+c2EAgE8DTurUChyXqHMbW+G0uIXoWkRTgEIrISs0titUMSAUAiHh6SEq9DSSElnaBymVhEVlRiHtk1TBqtVnxz2tForsGKJfv2X9m5vdfu6xw0sXubE5zkuAgCLLAShPUCXAIkyVNITvkodBg5ZqRs1YOoB0C1QYcLgYrcT7FI6ODvlJtCixEvSZaRDB8a9l74+JBCset5rus5klc8LnkR2GTFUsnTeZ1N5OmmV7Ysr+4pqubZdq3Z9Nod6h2HNzOnlYJYFIuKIUU7flRrzmLvG9RfLBdCByz6oJ+Hcq3dn7PWPm91+wtJWAcdwJO4msi2AK4JfPJpbiW2dgzAHvfLxh8B1FntsKRXoyDWmu2baIRF+IhwbMtbRCOI17vjGySpVSfqhSpxThar3XgEIJ98HMxvelaEz4ei60PTZ2DT+KbtW/W63/JVDfkYW+223z0+9Ye8349XGC9qbfjCmCnppsNMs929Y8bushAzx8kwNJ73+JQjTwRbXUFRfwTfBBWZjo7K1K5ZM1S2jtmxP+MX6RzfW/XWhHiDL+RHePHpWsPvncVLjjG7nt3cLu7uHxZfFvPHxQIDChCmQS22S14BTmjfxlzXQLsJtHPN6E5md98s3AU906Wyj90pQPL7ynRyeYPppPfev5ze4pVaO6VqC5Hd32/BHOgDKGO3P8cW5gCxfS1hLOGoScJAZURndQ0ZyMDYtLCN6/jniKdJmIoTAAIUTEbLxqPI2BWgnSLj5PLi89f41eXP9RvN899lIpxhh6pj1xsCpI6qF7OLT2yOs9H4+uLeBWhk2oPe2SiIPGBlLSxxO6ACsmngAIidIPfHOqmC3Ikkqy47ClQm4WdhKLMRjJisbhhlo0ypXaeYEvpzRKuUEZORVWRFFE1t7Pvj6VVM3/ICH/GC9vZBfx/KVqs/Bzlfyqku/5tFxCg3bz4FDy/5SIRkhX8P17To47my6aP5pHF19zlg3owm09ureeyuVX/3fjS51M1qpdpgqwzqZDy9uPqL1bRmV2+ff8OVk659+hXT5nRIHtjeW8mDYH13MCh1U4H6LmrB4N0HfzIOgmAScHwIkuBbx73hgbu8vp1zR27v5//8C03MYuQ=",
+  "min_cost": 84,
+  "max_cost": 204,
+  "minimum_indices": [
+    5883
+  ],
+  "small_cost_indices": {
+    "2473": 86,
+    "4515": 86,
+    "5755": 90,
+    "5883": 84
+  },
+  "provenance": "Merged independently recomputed prior fixed index ranges 0..1419 and new exact integer trie-DP index ranges 1420..6314; see evidence bundle and pinned prior EC49FKZ/FMD/FME/FMF."
+}

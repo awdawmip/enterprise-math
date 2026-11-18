@@ -1,0 +1,97 @@
+{
+  "schema": "EC49FFT_H2_CROSSOVER_FINITE_EXACT_V1",
+  "date": "2026-11-09",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "model_blob": "6350340fbe869f17b5a50bd1ba30640db44a3a99",
+  "domain": "H2,Hh 3<=h<=8 signed native X6; 4 signatures each; unrestricted positive complete keys",
+  "rows": [
+    {
+      "h": 3,
+      "exact": 36,
+      "extension": 36,
+      "rerouting": 41,
+      "words_h": 30,
+      "nodes": 171
+    },
+    {
+      "h": 4,
+      "exact": 44,
+      "extension": 44,
+      "rerouting": 47,
+      "words_h": 176,
+      "nodes": 941
+    },
+    {
+      "h": 5,
+      "exact": 52,
+      "extension": 52,
+      "rerouting": 53,
+      "words_h": 950,
+      "nodes": 4903
+    },
+    {
+      "h": 6,
+      "exact": 59,
+      "extension": 60,
+      "rerouting": 59,
+      "words_h": 4932,
+      "nodes": 24955
+    },
+    {
+      "h": 7,
+      "exact": 65,
+      "extension": 68,
+      "rerouting": 65,
+      "words_h": 25060,
+      "nodes": 125245
+    },
+    {
+      "h": 8,
+      "exact": 71,
+      "extension": 76,
+      "rerouting": 71,
+      "words_h": 125680,
+      "nodes": 623045
+    }
+  ],
+  "H2_words": {
+    "signatures": [
+      4,
+      8,
+      2,
+      1
+    ],
+    "words": [
+      "ce",
+      "ec",
+      "ed",
+      "de"
+    ],
+    "key": [
+      3,
+      1,
+      1
+    ]
+  },
+  "Hh_key": "(3,h-1,1)",
+  "extension_words": [
+    "ce g^(h-2)",
+    "ec g^(h-2)",
+    "ed g^(h-2)",
+    "de g^(h-2)"
+  ],
+  "rerouting_words": [
+    "ce g^(h-2)",
+    "e g^(h-2) c",
+    "e g^(h-2) d",
+    "de g^(h-2)"
+  ],
+  "interval_h2_to_h5": {
+    "exact": 52,
+    "window_count": 4,
+    "demand_count": 16,
+    "key_count": 4
+  },
+  "verification": "UTF-8 VERIFY_EC49FFT.py; exact integer DP; direct signed-prefix recount; witness h3..h100",
+  "theorem_status": "AUTHOR_SIDE_FINITE_CERTIFICATE_AND_UNIVERSAL_UPPER_CONSTRUCTION"
+}

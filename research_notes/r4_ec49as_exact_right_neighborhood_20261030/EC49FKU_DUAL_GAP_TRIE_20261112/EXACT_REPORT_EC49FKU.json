@@ -1,0 +1,77 @@
+{
+  "schema": "EC49FKU_DUAL_GAP_TRIE_EXACT_REPORT_V1",
+  "date": "2026-11-12",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "checker": "VERIFY_EC49FKU.py",
+  "method": "exact_fraction_dual_gap_node_filter_and_subset_mask_trie_dp",
+  "runtime_status": "EC49FKU_TWO_SIX_KEY_CASES_93_EXCLUDED_EXACT_PASS",
+  "results": [
+    {
+      "case": 0,
+      "original_words": 4366,
+      "trie_nodes": 19962,
+      "lp_lower": "1105/12",
+      "budget": 93,
+      "dual_gap": "11/12",
+      "forbidden_nodes": 5231,
+      "surviving_words": 170,
+      "forced_singleton_demands": 6,
+      "components": [
+        {
+          "first_signed_step": "05",
+          "words": 109,
+          "observation_labels": 12,
+          "trie_nodes": 406,
+          "attainable_masks": 4096,
+          "min_prefixes": 49
+        },
+        {
+          "first_signed_step": "06",
+          "words": 61,
+          "observation_labels": 12,
+          "trie_nodes": 219,
+          "attainable_masks": 4096,
+          "min_prefixes": 49
+        }
+      ],
+      "filtered_minimum": 98,
+      "excludes_at_most_93": true
+    },
+    {
+      "case": 3,
+      "original_words": 4366,
+      "trie_nodes": 19962,
+      "lp_lower": "1105/12",
+      "budget": 93,
+      "dual_gap": "11/12",
+      "forbidden_nodes": 5231,
+      "surviving_words": 170,
+      "forced_singleton_demands": 6,
+      "components": [
+        {
+          "first_signed_step": "05",
+          "words": 61,
+          "observation_labels": 12,
+          "trie_nodes": 219,
+          "attainable_masks": 4096,
+          "min_prefixes": 49
+        },
+        {
+          "first_signed_step": "06",
+          "words": 109,
+          "observation_labels": 12,
+          "trie_nodes": 406,
+          "attainable_masks": 4096,
+          "min_prefixes": 49
+        }
+      ],
+      "filtered_minimum": 98,
+      "excludes_at_most_93": true
+    }
+  ],
+  "remaining_cases": [
+    1,
+    2
+  ],
+  "status": "author_side_exact_finite_computational_proof_unreviewed"
+}

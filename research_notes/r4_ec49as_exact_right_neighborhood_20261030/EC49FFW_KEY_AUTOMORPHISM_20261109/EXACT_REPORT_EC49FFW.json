@@ -1,0 +1,158 @@
+{
+  "schema": "EC49FFW_RESEARCH_REPORT_V1",
+  "date": "2026-11-09",
+  "frozen_scientific_input": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "immediate_source_commit": "de8f6306e63828368b972509a78ceea0b358401d",
+  "evidence": "Author analytic key-bijection and DFA involution, executed independent exact integer forward and backward DP; not independent mathematical admission.",
+  "theorems": [
+    "Positive complete cache key exists uniquely for an h-word iff #e=#a+1 and #c+#d+#g>=1, with (x,y,z)=(h+1-#g,#c+#d+#g,#e).",
+    "All-h unrestricted positive-key terminal signature candidate counts satisfy A_h(1)=A_h(4) and A_h(2)=A_h(8) by exact DFA involution (c d)(f g) and (state 2 3)(4 5)(6 7).",
+    "Word total N_h=[t^1]((4+t+t^-1)^h-(1+t+t^-1)^h); finite quota reachability recursion preserves all low-signature completions."
+  ],
+  "exact_counts": [
+    {
+      "h": 3,
+      "legal_operation_words": "45",
+      "low_signature_candidate_words": "30"
+    },
+    {
+      "h": 4,
+      "legal_operation_words": "288",
+      "low_signature_candidate_words": "176"
+    },
+    {
+      "h": 5,
+      "legal_operation_words": "1725",
+      "low_signature_candidate_words": "950"
+    },
+    {
+      "h": 6,
+      "legal_operation_words": "10098",
+      "low_signature_candidate_words": "4932"
+    },
+    {
+      "h": 7,
+      "legal_operation_words": "58590",
+      "low_signature_candidate_words": "25060"
+    },
+    {
+      "h": 8,
+      "legal_operation_words": "339048",
+      "low_signature_candidate_words": "125680"
+    },
+    {
+      "h": 9,
+      "legal_operation_words": "1961955",
+      "low_signature_candidate_words": "625050"
+    },
+    {
+      "h": 10,
+      "legal_operation_words": "11365650",
+      "low_signature_candidate_words": "3091460"
+    },
+    {
+      "h": 11,
+      "legal_operation_words": "65942250",
+      "low_signature_candidate_words": "15233900"
+    },
+    {
+      "h": 12,
+      "legal_operation_words": "383219928",
+      "low_signature_candidate_words": "74884944"
+    },
+    {
+      "h": 13,
+      "legal_operation_words": "2230675785",
+      "low_signature_candidate_words": "367524430"
+    },
+    {
+      "h": 14,
+      "legal_operation_words": "13004452230",
+      "low_signature_candidate_words": "1801977660"
+    },
+    {
+      "h": 16,
+      "legal_operation_words": "443832362496",
+      "low_signature_candidate_words": "43260477120"
+    },
+    {
+      "h": 20,
+      "legal_operation_words": "524194075207440",
+      "low_signature_candidate_words": "24952444838400"
+    },
+    {
+      "h": 24,
+      "legal_operation_words": "627937293575286360",
+      "low_signature_candidate_words": "14478948619870896"
+    },
+    {
+      "h": 28,
+      "legal_operation_words": "760171653948800604168",
+      "low_signature_candidate_words": "8463814826292407120"
+    },
+    {
+      "h": 32,
+      "legal_operation_words": "927724183306025493349536",
+      "low_signature_candidate_words": "4981943563654708671936"
+    }
+  ],
+  "exact_per_signature": {
+    "H10": {
+      "1": "668808",
+      "2": "876922",
+      "4": "668808",
+      "8": "876922"
+    },
+    "H11": {
+      "1": "3259420",
+      "2": "4357530",
+      "4": "3259420",
+      "8": "4357530"
+    },
+    "H14": {
+      "1": "377182130",
+      "2": "523806700",
+      "4": "377182130",
+      "8": "523806700"
+    },
+    "H32": {
+      "1": "1011285622625978343479",
+      "2": "1479686159201375992489",
+      "4": "1011285622625978343479",
+      "8": "1479686159201375992489"
+    }
+  },
+  "exact_split_prefix_visits": [
+    {
+      "h": 10,
+      "all": "33702386",
+      "viable": "9312276",
+      "filtered": "24390110"
+    },
+    {
+      "h": 11,
+      "all": "195620911",
+      "viable": "45944720",
+      "filtered": "149676191"
+    },
+    {
+      "h": 14,
+      "all": "38613203623",
+      "viable": "5448780918",
+      "filtered": "33164422705"
+    }
+  ],
+  "prefix_metric_scope": "operation-prefix visits counted per quota split; not distinct signed native X6 microstep prefixes, memory or measured runtime",
+  "independent_verification": "Fixed-key backward suffix DP and global forward weighted DFA transfer agree exactly at h=3..14, including four individual signatures. Global transfer extends to h=32 and checks coefficient formula.",
+  "prior_reference_crosscheck": {
+    "h9_candidate_words": 625050,
+    "h10_candidate_words": 3091460,
+    "source": "EC49FFV exact_multikey.cpp"
+  },
+  "remaining": [
+    "Test the validated filter in native signed X6 exact optimizer at H11; seek <=85 witness or >=86 certificate.",
+    "Test whether the involution yields cost-preserving mappings on a restricted native prefix class; no unrestricted claim is made.",
+    "Integrate original 22-demand H3 high signature demands and 5-key/93-edge budget after exact task control."
+  ],
+  "status": "AUTHOR_EXACT_COMBINATORIAL_PROOF_AND_INTEGER_CHECKS;UNREVIEWED;NO_CLAIM;NO_RESULT"
+}

@@ -1,0 +1,90 @@
+{
+  "result_id": "EC49FEK",
+  "date": "2026-11-08",
+  "status": "AUTHOR_FINITE_EXACT_LOWER_BOUND; UNREVIEWED; NOT_ADMITTED",
+  "scientific_input_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor": "EC49FEJ@64b2b4a34e33c849e937dbf46df90a70c5d58ef2",
+  "domain": "Original signed-native-X6 six-operation words, nine-state signature observer, full positive BRC key <=5, exactly 22 distinct words, either declared per-horizon high/low quota pattern",
+  "native_prefix_lower_bound": 94,
+  "prohibition_tested": "C_native <=93",
+  "families": {
+    "F8": {
+      "high": [
+        3,
+        4,
+        6,
+        8,
+        9
+      ],
+      "low": [
+        2,
+        5,
+        7
+      ],
+      "all_inventories": 2304,
+      "feasible": 2304,
+      "infeasible": 0,
+      "lower_ge94": 2304,
+      "minimum_partial_certified_lower_bound": 94,
+      "maximum_partial_certified_lower_bound": 107,
+      "lex_witness_min_cost": 106,
+      "lex_witness_max_cost": 276,
+      "words_rechecked": 50688
+    },
+    "F5": {
+      "high": [
+        3,
+        4,
+        5,
+        6,
+        9
+      ],
+      "low": [
+        2,
+        7,
+        8
+      ],
+      "all_inventories": 768,
+      "feasible": 432,
+      "infeasible": 336,
+      "lower_ge94": 432,
+      "minimum_partial_certified_lower_bound": 94,
+      "maximum_partial_certified_lower_bound": 103,
+      "lex_witness_min_cost": 171,
+      "lex_witness_max_cost": 272,
+      "words_rechecked": 9504
+    }
+  },
+  "combined_3_family_count_including_EC49FEJ": {
+    "inventories": 4800,
+    "quota_feasible": 4464,
+    "infeasible": 336,
+    "new_inventories": 3072,
+    "new_feasible_excluded_for_93": 2736
+  },
+  "early": {
+    "variants": 4,
+    "native_prefix_each": 42,
+    "union_free_native_prefixes": 54
+  },
+  "all_feasible_low_bounds": "42 + sum(depthwise exact set cover m_d), each stopped after >=94",
+  "arithmetics": "exact integer bitmask dynamic programming, exhaustive enumeration",
+  "independent_audit": {
+    "model": "SciPy HiGHS integer 0-1 cover",
+    "selected_depth_instances": 152,
+    "all_equal_to_bitmask_dp": true,
+    "native_constructed_systems": 2736,
+    "native_paths_checked": 60192
+  },
+  "evidence_archive": {
+    "filename": "EC49FEK_complete_evidence.tar.xz",
+    "sha256": "f38e30e972710180093530a842543d35e4599bc12e192e63858f214c25fd3f61",
+    "availability": "conversation attachment; complete original executed source, 3072 raw case records, native witness audit, sampled independent MILP audit"
+  },
+  "scope_limitations": [
+    "No claim for remaining 12 distinct five-high-horizon patterns",
+    "No exact optimum claimed for F8/F5 beyond cost >=94",
+    "No formal native CLAIM/Result/independent Driver admission"
+  ],
+  "next_task": "EC49FEL: partitionable exact depth-cover exploration for remaining quota patterns; MILP for cases not excluded by >=94."
+}

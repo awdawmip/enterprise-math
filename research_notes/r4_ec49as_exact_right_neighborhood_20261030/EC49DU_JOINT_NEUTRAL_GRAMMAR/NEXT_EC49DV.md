@@ -1,0 +1,11 @@
+# EC49DV — classify defective G_C strata for the eight-feature joint-neutral future observer
+
+Inherited scientific scope: EC49DU, original ordered native signed X6 history at D=−2E1, n=10, two positive-product BRC instruments and counts. Diagnostic future alphabet a,b,c,d,e,f=(+1,−1),g=(+2,−2); separate returning future words, A/B labels including history/future seam, strictly positive arbitrary weight parameters. Preserve original frozen scientific input pins GK 773d538180bfb49e24cffeb35c3ee75eb0628e2e and EM fc0f038e7bfd12c886b4d37f900bfb770c0f61ab.
+
+Already proved (author-side, not yet independently reviewed): at every horizon h≥2, rank actual future observer = rank historical 3-instrument 8-feature matrix H8; H8 reaches 24 exactly when C11's 11×3 BRC/count matrix G_C has rank three. Eight genuine histories with independent 8-feature rows exist in each of eleven patterns, 88 original paths checked and saved. Ten steps are shortest for 24. A new r residual distinguishes two strictly positive history populations formerly equivalent under the f-only future language.
+
+**Specific next question:** for every x,y>0 with rank(G_C)=1 or 2, find exact rank(H8) or a finite set of algebraic subcases giving it. Is rank(H8)=8*rank(G_C) on any family? Search for a strict inequality caused by patterns outside C11, including equal-weight, proportional-but-not-constant, and affinely collinear weight configurations. Derive symbolic rank conditions (minors of a finite rational/exponent matrix), and validate at least one exact counterexample or a complete stated parameter subfamily. Preserve all weights and ports; do not substitute an abstract 12-state witness for actual primitive paths.
+
+**Reproduction:** in the sibling EC49DU_JOINT_NEUTRAL_GRAMMAR folder, run node VERIFY_EC49DU.js to reconstruct 88 signed histories and exactly verify the 24×24 determinant, return-language spans and positive populations. For a new defective result extend this verifier by enumerating all valid n=10 count/state groups, not only the C11 groups. Distinguish finite checks from all-parameter algebraic proofs and keep native Research-Activity/CLAIM/Result/review separately typed.
+
+Status: RESEARCH_QUESTION / PORTABLE_DRAFT / UNREVIEWED / NOT_ADMITTED. No changes to P000 or ACTIVE worldview.

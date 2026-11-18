@@ -1,0 +1,4 @@
+# EC49BH source notes
+Blackwell, D. (1953), "Equivalent Comparisons of Experiments", Annals of Mathematical Statistics 24(2):265-272, DOI 10.1214/aoms/1177729032 (classical experiment comparison, not new discovery).
+Khan, M.A.; Yu, H.; Zhang, Z. (2025), "A simple proof of Blackwell's theorem on the comparison of experiments for a general state space", Economics Letters 247:112146, DOI 10.1016/j.econlet.2024.112146.
+Source exact predecessor: awdawmip/enterprise-math PR #1730 commit 6cd1ba2087cdc9ed501edfd8fa91605c096da501; PROOF_EC49BG.md, VERIFY_EC49BG.py.gz.b64. Current canonical global main ed94b9698b315ce9f4f560e7e7ceeb57f66116be and EM main 57bb1636fac5b18b7ea95d2ea9eea8c01fa41f9e. Present theorem's precise contribution is exact-budget causal simulation in the declared auxiliary model, not invention of Blackwell's general theory.

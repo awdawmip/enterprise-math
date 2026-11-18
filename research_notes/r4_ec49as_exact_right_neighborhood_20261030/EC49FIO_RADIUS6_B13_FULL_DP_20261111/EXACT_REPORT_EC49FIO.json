@@ -1,0 +1,52 @@
+{
+  "schema": "EC49FIO_RADIUS6_B13_EXACT_V1",
+  "date": "2026-11-11",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "witness_blob_sha1": "e65c1598ad9fa2680558046ed1e59d83806536b8",
+  "predecessor_head": "efaacd63b65f444439c02341c22dc95ec1bd62dc",
+  "author": "EM-DIRECT-4C5B06",
+  "activity_id": "RA-2A1465A1BA1C46B28EFE8242",
+  "input": {
+    "required_labels": 24,
+    "original_keys": 7,
+    "legal_words": 178850,
+    "fixed_key_words": 9838,
+    "trie_nodes": 42735,
+    "fixed_prefixes": 80,
+    "removed_original_prefixes": 14,
+    "budget_93": 13,
+    "positions_each": 2498
+  },
+  "output": {
+    "A": {
+      "positions": 2498,
+      "pair_excluded": 77,
+      "triple_new_excluded": 989,
+      "full_dp": 1432,
+      "full_dp_optimum_14": 1432,
+      "possible_93": 0
+    },
+    "B": {
+      "positions": 2498,
+      "pair_excluded": 154,
+      "triple_new_excluded": 912,
+      "full_dp": 1432,
+      "full_dp_optimum_14": 1432,
+      "possible_93": 0
+    }
+  },
+  "verification": {
+    "seeded_independent_toy_oracle_cases": 160,
+    "native_original_upperbound_cases": 4996,
+    "full_dp_chunks_each": [
+      300,
+      300,
+      300,
+      300,
+      232
+    ],
+    "complete_local_evidence_archive": "EC49FIO_B13_all_exact_evidence_20261111.tar.xz",
+    "complete_local_evidence_archive_sha256": "905d945a8c26c444cd6c4687d0e1f7ac93993d014f2e4ef924f8c8702daad736"
+  },
+  "status": "AUTHOR_FINITE_PROOF; MATHEMATICAL_ADMISSION_PENDING; NO_TASK_CLAIM"
+}

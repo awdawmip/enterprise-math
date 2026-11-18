@@ -1,0 +1,138 @@
+{
+  "exceptional": {
+    "analytic_optimum": "F(eta)",
+    "comparison": "F(1/2-epsilon)>=C-3*epsilon/32 (0<=epsilon<=1/200)",
+    "endpoint_at_eta_half": "351/2752",
+    "exact_fractional_purchase_budget": true,
+    "exact_symbolic_corner_sign_checks": 864,
+    "fiber_density_cross_product_identities": 5,
+    "isomorphic_exceptional_edges": 8
+  },
+  "final_theorem": "Hmax(eta)=[2752*eta^2+42*eta+1397-172*(1-2*eta)*sqrt(19-26*eta)]/[8256*(1+2*eta)] for all real 99/200<=eta<=1/2",
+  "fixed_inputs": {
+    "C1": "43/48",
+    "C2": "13/16",
+    "eta": "[99/200,1/2]",
+    "k": "177/172"
+  },
+  "geometry": {
+    "edges": 924,
+    "feasible_edges": 204,
+    "infeasible_edges": 720,
+    "vertices": 168
+  },
+  "model": "auxiliary positive probability BRC only",
+  "ordinary": {
+    "all_endpoint_constant_terms_equal_C": true,
+    "distinct_endpoint_polynomial_pairs": 17,
+    "exact_dual_lambda": "27/172 - epsilon/2",
+    "exact_endpoint_coefficient_classes": [
+      {
+        "K": "19/192",
+        "L": "0",
+        "endpoints": 12
+      },
+      {
+        "K": "7/64",
+        "L": "3/32",
+        "endpoints": 8
+      },
+      {
+        "K": "1/8",
+        "L": "0",
+        "endpoints": 2
+      },
+      {
+        "K": "25/192",
+        "L": "-1/32",
+        "endpoints": 8
+      },
+      {
+        "K": "7/48",
+        "L": "0",
+        "endpoints": 8
+      },
+      {
+        "K": "1/6",
+        "L": "0",
+        "endpoints": 4
+      },
+      {
+        "K": "11/64",
+        "L": "-7/96",
+        "endpoints": 8
+      },
+      {
+        "K": "37/192",
+        "L": "-7/96",
+        "endpoints": 8
+      },
+      {
+        "K": "19/96",
+        "L": "0",
+        "endpoints": 16
+      },
+      {
+        "K": "41/192",
+        "L": "-11/96",
+        "endpoints": 4
+      },
+      {
+        "K": "23/96",
+        "L": "0",
+        "endpoints": 12
+      },
+      {
+        "K": "13/48",
+        "L": "-1/8",
+        "endpoints": 8
+      },
+      {
+        "K": "7/24",
+        "L": "-1/6",
+        "endpoints": 4
+      },
+      {
+        "K": "7/24",
+        "L": "0",
+        "endpoints": 8
+      },
+      {
+        "K": "1/3",
+        "L": "-1/6",
+        "endpoints": 8
+      },
+      {
+        "K": "35/96",
+        "L": "0",
+        "endpoints": 36
+      },
+      {
+        "K": "13/32",
+        "L": "0",
+        "endpoints": 6
+      }
+    ],
+    "exact_equality_slope_endpoints": 12,
+    "fiber_quadratic_signs": {
+      "identically_zero": 452,
+      "nonnegative": 616,
+      "nonpositive": 212
+    },
+    "fiber_quadratics": 1280,
+    "minimum_loss_slope_at_epsilon_1_over_200": "19/192",
+    "minimum_loss_slope_at_zero": "19/192",
+    "ordinary_edges": 196,
+    "ordinary_loss_bound": "C - 19*epsilon/192",
+    "score_sign_corner_comparisons": 7680,
+    "unique_ordinary_endpoints": 160
+  },
+  "ordinary_equality_witness": {
+    "all_purchase_observation_only": true,
+    "exact_score": "351/2752-19*epsilon/192",
+    "first_cost": "43/48",
+    "second_cost": "13/16"
+  },
+  "result": "PASS",
+  "status": "AUTHOR_EXACT_FRACTION_SYMPY_CHECK_PASS_UNREVIEWED_NOT_ADMITTED"
+}

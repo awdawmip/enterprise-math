@@ -1,0 +1,323 @@
+{
+  "schema": "EC49FFP_EXACT_ONE_KEY_PARETO_V1",
+  "date": "2026-11-09",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_native_model_git_blob": "6350340fbe869f17b5a50bd1ba30640db44a3a99",
+  "demand": "one complete BRC key shared by all eight native-X6 words, signatures 1,2,4,8 in each of two adjacent horizons",
+  "status": "AUTHOR_EXACT_DP_PASS_INDEPENDENT_MILP_PASS_UNREVIEWED",
+  "groups": [
+    {
+      "h": [
+        3,
+        4
+      ],
+      "total_common_keys": 1,
+      "global_minimum": 56,
+      "rows": [
+        {
+          "key": [
+            4,
+            2,
+            1
+          ],
+          "cost": 56,
+          "word_counts": [
+            6,
+            48
+          ],
+          "trie_nodes": 361
+        }
+      ],
+      "witness": {
+        "key": [
+          4,
+          2,
+          1
+        ],
+        "h3": [
+          "ded",
+          "edd",
+          "cec",
+          "ecc"
+        ],
+        "h4": [
+          "degf",
+          "edgf",
+          "cefg",
+          "ecfg"
+        ]
+      }
+    },
+    {
+      "h": [
+        4,
+        5
+      ],
+      "total_common_keys": 3,
+      "global_minimum": 62,
+      "rows": [
+        {
+          "key": [
+            4,
+            3,
+            1
+          ],
+          "cost": 62,
+          "word_counts": [
+            24,
+            120
+          ],
+          "trie_nodes": 964
+        },
+        {
+          "key": [
+            5,
+            2,
+            1
+          ],
+          "cost": 62,
+          "word_counts": [
+            24,
+            120
+          ],
+          "trie_nodes": 964
+        },
+        {
+          "key": [
+            5,
+            3,
+            1
+          ],
+          "cost": 72,
+          "word_counts": [
+            8,
+            120
+          ],
+          "trie_nodes": 1041
+        }
+      ],
+      "witness": {
+        "key": [
+          4,
+          3,
+          1
+        ],
+        "h4": [
+          "gedd",
+          "edgd",
+          "cegc",
+          "gecc"
+        ],
+        "h5": [
+          "gedgf",
+          "edggf",
+          "cegfg",
+          "gecfg"
+        ]
+      }
+    },
+    {
+      "h": [
+        5,
+        6
+      ],
+      "total_common_keys": 7,
+      "global_minimum": 60,
+      "rows": [
+        {
+          "key": [
+            4,
+            4,
+            1
+          ],
+          "cost": 68,
+          "word_counts": [
+            60,
+            240
+          ],
+          "trie_nodes": 2074
+        },
+        {
+          "key": [
+            5,
+            3,
+            1
+          ],
+          "cost": 60,
+          "word_counts": [
+            120,
+            360
+          ],
+          "trie_nodes": 3121
+        },
+        {
+          "key": [
+            5,
+            4,
+            1
+          ],
+          "cost": 78,
+          "word_counts": [
+            40,
+            360
+          ],
+          "trie_nodes": 3121
+        },
+        {
+          "key": [
+            6,
+            2,
+            1
+          ],
+          "cost": 68,
+          "word_counts": [
+            60,
+            240
+          ],
+          "trie_nodes": 2074
+        },
+        {
+          "key": [
+            6,
+            2,
+            2
+          ],
+          "cost": 74,
+          "word_counts": [
+            60,
+            720
+          ],
+          "trie_nodes": 5837
+        },
+        {
+          "key": [
+            6,
+            3,
+            1
+          ],
+          "cost": 78,
+          "word_counts": [
+            40,
+            360
+          ],
+          "trie_nodes": 3121
+        },
+        {
+          "key": [
+            6,
+            4,
+            1
+          ],
+          "cost": 88,
+          "word_counts": [
+            10,
+            240
+          ],
+          "trie_nodes": 2321
+        }
+      ],
+      "witness": {
+        "key": [
+          5,
+          3,
+          1
+        ],
+        "h5": [
+          "gefdd",
+          "fgedd",
+          "fgecc",
+          "gefcc"
+        ],
+        "h6": [
+          "gefdgf",
+          "fgedgf",
+          "fgecfg",
+          "gefcfg"
+        ]
+      }
+    }
+  ],
+  "milp_independent_cases": [
+    {
+      "h": [
+        3,
+        4
+      ],
+      "key": [
+        4,
+        2,
+        1
+      ],
+      "opt": 56,
+      "status": 0,
+      "dual": 56,
+      "gap": 0
+    },
+    {
+      "h": [
+        4,
+        5
+      ],
+      "key": [
+        4,
+        3,
+        1
+      ],
+      "opt": 62,
+      "status": 0,
+      "dual": 62,
+      "gap": 0
+    },
+    {
+      "h": [
+        4,
+        5
+      ],
+      "key": [
+        5,
+        2,
+        1
+      ],
+      "opt": 62,
+      "status": 0,
+      "dual": 62,
+      "gap": 0
+    },
+    {
+      "h": [
+        4,
+        5
+      ],
+      "key": [
+        5,
+        3,
+        1
+      ],
+      "opt": 72,
+      "status": 0,
+      "dual": 72,
+      "gap": 0
+    },
+    {
+      "h": [
+        5,
+        6
+      ],
+      "key": [
+        5,
+        3,
+        1
+      ],
+      "opt": 60,
+      "status": 0,
+      "dual": 60,
+      "gap": 0
+    }
+  ],
+  "unrestricted_reference": {
+    "h4h5": 40,
+    "h5h6": 44,
+    "source": "EC49FFO signed native trie DP exact classification"
+  },
+  "next": "five-key-aware original mother quotas, multiple adjacent windows and additional observation demands"
+}

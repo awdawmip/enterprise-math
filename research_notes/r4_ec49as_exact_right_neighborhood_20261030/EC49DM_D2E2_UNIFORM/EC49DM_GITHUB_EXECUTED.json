@@ -1,0 +1,47 @@
+{
+  "schema": "EC49DM_AUTHOR_EXECUTION_SUMMARY_V1",
+  "date": "2026-11-01",
+  "global_main": "9bbf60485958d1b838ac447bd8322e2a135c0d64",
+  "em_main": "813d9a8c66c9facccbafd5492d439f1288ade1cd",
+  "previous_pr_head": "1183358c767fbf2a59e342a930cea2e53da433a3",
+  "result": "PASS",
+  "local_python_checkers": [
+    "VERIFY_EC49DM.py",
+    "VERIFY_EC49DM_EQ_BRANCH.py"
+  ],
+  "crosscheck": "SymPy 1.14.0 exact integer determinants of six independent 15/18 matrices",
+  "native_prefix_counts_n2_n4_n6": [
+    1,
+    64,
+    4665
+  ],
+  "native_feature_ranks": [
+    1,
+    8,
+    14
+  ],
+  "reference_gate_determinants": {
+    "split": "8820",
+    "equal_pair": "-54000"
+  },
+  "reference_full_observer_determinants": {
+    "split": [
+      "21799141946544538336320000000000",
+      "-7416068090214451942016064000000000000000000",
+      "-20761087568137655558400000000"
+    ],
+    "equal_pair": [
+      "-4591650240000000000000000000000000",
+      "-2268889351779600000000000000000000000000000000000000",
+      "-247949112960000000000000000000000"
+    ],
+    "constant": [
+      "1",
+      "-1",
+      "-1"
+    ]
+  },
+  "scope": "exact integer examples verified, general positive affine family from author-side analysis; not independent admission",
+  "native_authority": "research_authority_granted=false; current owner CONTROL_QUOTA",
+  "next": "EC49DN"
+}

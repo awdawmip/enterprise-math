@@ -1,0 +1,47 @@
+{
+  "unit": "EC49EXB",
+  "status": "PASS",
+  "date": "2026-11-03",
+  "executions": [
+    "python3 VERIFY_EC49EXB.py > EC49EXB_COMPACT_EXECUTED.json",
+    "node VERIFY_EC49EXB_INDEPENDENT.js > EC49EXB_INDEPENDENT_EXECUTED.json"
+  ],
+  "returning_words": [
+    8,
+    51,
+    304,
+    1770,
+    10224,
+    58947
+  ],
+  "T4_subset_rank_by_size": [
+    3,
+    5,
+    7,
+    9
+  ],
+  "eligible_keys_by_h": [
+    1,
+    3,
+    7,
+    13,
+    22,
+    34
+  ],
+  "schedules_examined": 204204,
+  "five_key_schedules": 26037,
+  "duplicate_pair_breakdown": {
+    "3,4": 9257,
+    "4,5": 6513,
+    "4,6": 1215,
+    "5,6": 4598,
+    "5,7": 1251,
+    "6,7": 3203
+  },
+  "early_repeat_exact_minimum_E": 80,
+  "early_repeat_count": 21583,
+  "late_repeat_count": 4454,
+  "primitive_prefixes_in_attaining_witness": 80,
+  "status_of_full_H7_M5_S4_optimum": "OPEN",
+  "role": "author-side only; no native claim/result/review"
+}

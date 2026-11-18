@@ -1,0 +1,174 @@
+{
+  "schema": "EC49FBT_UNPINNED_FULL_NINE_CONSTRUCTIVE_UPPER_BOUND_V1",
+  "date": "2026-11-05",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor": "434c6630154090dbce84df5a417c68903307f5e9",
+  "model": "frozen native signed six-axis and nine-state observer",
+  "L": [
+    4,
+    2,
+    1
+  ],
+  "M": [
+    7,
+    3,
+    2
+  ],
+  "schedule": "H2/H3 fixed, H4/H5=L, H6/H7/H8/H9=M; H8/H9 operation witnesses freely selected",
+  "native_union_edges": 159,
+  "comparison_pinned_H89_cost": 166,
+  "gap_closed_by_unpinning": 7,
+  "chosen": {
+    "2": [
+      {
+        "word": "fe",
+        "signature": 16
+      },
+      {
+        "word": "ge",
+        "signature": 32
+      }
+    ],
+    "3": [
+      {
+        "word": "feg",
+        "signature": 16
+      },
+      {
+        "word": "gef",
+        "signature": 32
+      }
+    ],
+    "4": [
+      {
+        "word": "defg",
+        "signature": 1
+      },
+      {
+        "word": "fegd",
+        "signature": 2
+      },
+      {
+        "word": "cefg",
+        "signature": 4
+      },
+      {
+        "word": "gefc",
+        "signature": 8
+      }
+    ],
+    "5": [
+      {
+        "word": "feggf",
+        "signature": 16
+      },
+      {
+        "word": "geffg",
+        "signature": 32
+      }
+    ],
+    "6": [
+      {
+        "word": "deedad",
+        "signature": 1
+      },
+      {
+        "word": "aeeddd",
+        "signature": 2
+      },
+      {
+        "word": "ceceac",
+        "signature": 4
+      },
+      {
+        "word": "aeeccc",
+        "signature": 8
+      }
+    ],
+    "7": [
+      {
+        "word": "deedagf",
+        "signature": 1
+      },
+      {
+        "word": "aeeddgf",
+        "signature": 2
+      },
+      {
+        "word": "ceceafg",
+        "signature": 4
+      },
+      {
+        "word": "aeeccfg",
+        "signature": 8
+      }
+    ],
+    "8": [
+      {
+        "word": "geffgaed",
+        "signature": 1
+      },
+      {
+        "word": "feggfead",
+        "signature": 2
+      },
+      {
+        "word": "feggfeac",
+        "signature": 4
+      },
+      {
+        "word": "geffgaec",
+        "signature": 8
+      }
+    ],
+    "9": [
+      {
+        "word": "feggfeafg",
+        "signature": 16
+      },
+      {
+        "word": "geffgaefg",
+        "signature": 32
+      }
+    ]
+  },
+  "claim_strength": "independently checked exact feasible construction / upper bound; unrestricted optimum unknown",
+  "search": {
+    "method": "multi-start marginal primitive-prefix gain with local replacements",
+    "rounds": 500,
+    "seed": 99,
+    "executable": "Python 3",
+    "coverage": "finite incumbent search, not an exhaustive global lower-bound solver"
+  },
+  "checker": {
+    "language": "Node.js",
+    "signed_endpoint": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "five_key_budget": 5,
+    "per_window_cumulative_edges": {
+      "2": 12,
+      "3": 16,
+      "4": 46,
+      "5": 52,
+      "6": 113,
+      "7": 125,
+      "8": 153,
+      "9": 159
+    },
+    "compressed_cost": {
+      "operation_edges": 57,
+      "weighted": 170,
+      "overlap_cf": 7,
+      "overlap_dg": 4,
+      "total": 159
+    },
+    "observations": "8 windows x four covering clauses"
+  },
+  "remaining": "Run compressed exact MILP over 16152 candidate words for this L/M schedule; compare unrestricted optimum with 159 and whole-family bound E<=93"
+}

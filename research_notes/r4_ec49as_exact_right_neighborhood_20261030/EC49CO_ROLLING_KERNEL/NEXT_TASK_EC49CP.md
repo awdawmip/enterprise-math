@@ -1,0 +1,7 @@
+# EC49CP — observer interface extensions for ephemeral BRC information
+
+Prerequisite: EC49CO all-h right-shift theorem. The joint next-window map T on Y_(h+1,n) has exactly 6-dimensional kernel, supported by the two displacement fibers (2,0),(0,2) times three typed channels. The current window projection is injective on that kernel. The actual primitive 6-step nonnegative path ensembles differ only in current single-operation readout, not in any future operation suffix of length ≥2 under the exact closed-return observer.
+
+Study which specific changes to the observation/operation interface restore these six dimensions: (1) allowing zero-operation epsilon readout, (2) observing intermediate native endpoint states during rather than after a full operation, (3) observing returns to a declared set of multiple displacement endpoints, (4) allowing arbitrary native signed two-step suffixes rather than S. Use the actual 12-channel native X6 BRC type and all four joint DFA labels; do not infer a physical-law claim. For each interface give explicit kernel/image formula or a minimal counterexample, true-path witness, independent exact verification, resource cost, and remaining question. Compare the Hankel derivative view but do not replace proof with literature analogy.
+
+Author-side research only until current native task and owner authority are positively established. Freeze science source pins and leave P000/ACTIVE worldview unchanged.

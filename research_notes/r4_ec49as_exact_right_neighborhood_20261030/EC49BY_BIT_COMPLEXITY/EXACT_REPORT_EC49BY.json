@@ -1,0 +1,175 @@
+{
+  "schema": "EC49BY_EXACT_INTEGER_AUDIT_V1",
+  "date": "2026-10-31",
+  "native_source_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+  "model": {
+    "axes": 6,
+    "H": [
+      "identity",
+      "axis_transposition_1_2"
+    ],
+    "w_plus": [
+      2,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "w_minus": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "DFA": "contains (+E1,+E2)",
+    "arithmetic": "integer exact"
+  },
+  "checks": [
+    {
+      "n": 0,
+      "total": [
+        1,
+        1,
+        1
+      ],
+      "states": 1,
+      "transitions": 0,
+      "atoms": {
+        "00": [
+          1,
+          1,
+          1
+        ]
+      },
+      "direct_exact_match": true
+    },
+    {
+      "n": 2,
+      "total": [
+        24,
+        24,
+        12
+      ],
+      "states": 94,
+      "transitions": 156,
+      "atoms": {
+        "00": [
+          24,
+          24,
+          12
+        ]
+      },
+      "direct_exact_match": true
+    },
+    {
+      "n": 4,
+      "total": [
+        1560,
+        1560,
+        396
+      ],
+      "states": 1874,
+      "transitions": 7044,
+      "atoms": {
+        "10": [
+          36,
+          36,
+          6
+        ],
+        "00": [
+          1488,
+          1488,
+          384
+        ],
+        "01": [
+          36,
+          36,
+          6
+        ]
+      },
+      "direct_exact_match": true
+    },
+    {
+      "n": 6,
+      "total": [
+        152640,
+        152640,
+        19920
+      ],
+      "states": 16022,
+      "transitions": 100716,
+      "atoms": {
+        "10": [
+          6480,
+          6480,
+          576
+        ],
+        "11": [
+          360,
+          360,
+          24
+        ],
+        "00": [
+          139320,
+          139320,
+          18744
+        ],
+        "01": [
+          6480,
+          6480,
+          576
+        ]
+      },
+      "direct_exact_match": true
+    },
+    {
+      "n": 8,
+      "total": [
+        18921000,
+        18921000,
+        1281420
+      ],
+      "states": 82634,
+      "transitions": 751764,
+      "atoms": {
+        "10": [
+          1129320,
+          1129320,
+          53850
+        ],
+        "11": [
+          102240,
+          102240,
+          3600
+        ],
+        "00": [
+          16560120,
+          16560120,
+          1170120
+        ],
+        "01": [
+          1129320,
+          1129320,
+          53850
+        ]
+      },
+      "direct_exact_match": null
+    }
+  ],
+  "native_checked_even_n_to": 18,
+  "n200": {
+    "computation": "integer recurrence only",
+    "weighted_numerator_bits": 789,
+    "unweighted_count_bits": 695
+  },
+  "scope": {
+    "direct_closed_enumeration_max_n": 6,
+    "DFA_DP_max_n": 8,
+    "finite_check_not_infinite_proof": true
+  },
+  "status": "AUTHOR_UNREVIEWED_NOT_ADMITTED",
+  "next": "EC49BZ"
+}

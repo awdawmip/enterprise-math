@@ -1,0 +1,134 @@
+{
+  "schema": "EC49FJU_VERIFIED_RADIUS7_SUMMARY_V1",
+  "date": "2026-11-11",
+  "frozen_scientific_input": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "profiles": [
+    "A",
+    "B"
+  ],
+  "selected_scope": "For each profile choose seven of its 24 original labeled words and fix other 17, whose raw full cache keys must already cover the original seven; replacement uses <=7 raw complete keys",
+  "all_seven_combinations_per_profile": 346104,
+  "retained_keys_seven_combinations_per_profile": 153408,
+  "released_key_seven_combinations_per_profile": 192696,
+  "legal_native_brc_words": 178850,
+  "all_complete_cache_keys": 94,
+  "complete_words_on_original_seven_keys_per_profile": 9838,
+  "per_profile": {
+    "retained_seven": 153408,
+    "original_cost": 94,
+    "solved_base": 9218,
+    "solved_singleton": 37950,
+    "solved_pair_3": 10632,
+    "solved_pair_5": 7920,
+    "solved_pair_7": 1260,
+    "total_exact_94_certificates": 66980,
+    "multilabel_unresolved": 86428
+  },
+  "both_profiles_exact_94_certificates": 133960,
+  "both_profiles_remaining_retained_seven_key_subproblems": 172856,
+  "by_budget_per_profile": {
+    "1": {
+      "singleton": 16940
+    },
+    "3": {
+      "singleton": 7128,
+      "pair": 10632
+    },
+    "5": {
+      "pair": 7920,
+      "unresolved": 2636
+    },
+    "7": {
+      "singleton": 8472,
+      "pair": 1260,
+      "unresolved": 2520
+    },
+    "9": {
+      "unresolved": 17424
+    },
+    "10": {
+      "singleton": 5410
+    },
+    "11": {
+      "unresolved": 15736
+    },
+    "12": {
+      "unresolved": 8020
+    },
+    "13": {
+      "unresolved": 8564
+    },
+    "14": {
+      "unresolved": 5890
+    },
+    "15": {
+      "unresolved": 4336
+    },
+    "16": {
+      "unresolved": 2212
+    },
+    "17": {
+      "unresolved": 4692
+    },
+    "18": {
+      "unresolved": 2274
+    },
+    "19": {
+      "unresolved": 3472
+    },
+    "20": {
+      "unresolved": 3004
+    },
+    "21": {
+      "unresolved": 1968
+    },
+    "22": {
+      "unresolved": 1702
+    },
+    "23": {
+      "unresolved": 698
+    },
+    "24": {
+      "unresolved": 496
+    },
+    "25": {
+      "unresolved": 378
+    },
+    "26": {
+      "unresolved": 54
+    },
+    "27": {
+      "unresolved": 148
+    },
+    "28": {
+      "unresolved": 110
+    },
+    "29": {
+      "unresolved": 46
+    },
+    "30": {
+      "unresolved": 30
+    },
+    "31": {
+      "unresolved": 12
+    },
+    "32": {
+      "unresolved": 6
+    },
+    "-1": {
+      "fixed_94": 9218
+    }
+  },
+  "actual_validation": {
+    "combined_python_program": "EC49FJU_EXACT_PASS 133960",
+    "independent_word_catalog_singleton_rechecks": 40,
+    "independent_word_pair_rechecks": 60,
+    "independent_profile_equal_budget_distribution": true
+  },
+  "admission_status": "author-side mathematically exact finite computation; independent Driver review pending",
+  "source_dependencies": [
+    "EC49FGW_RADIUS5_SCREEN.py",
+    "EC49FGJ_SEVEN_KEY_94_WITNESSES.json"
+  ],
+  "next_question": "Exact multi-label optimized seven-word replacements for the 86428 retained-key unresolved Q in each witness, followed by 192696 released-key Q in each witness and direct global 93-prefix search."
+}

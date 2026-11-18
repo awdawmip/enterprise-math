@@ -1,0 +1,90 @@
+{
+  "schema": "EC49FBS_LOSSLESS_NATIVE_TRIE_CERTIFICATE_V1",
+  "date": "2026-11-05",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor": "23c63afc9f878514cbd9b1637b844aa0e0db0745",
+  "domain": {
+    "root": [
+      "fe",
+      "ge",
+      "feg",
+      "gef"
+    ],
+    "L": [
+      4,
+      2,
+      1
+    ],
+    "M": [
+      7,
+      3,
+      2
+    ],
+    "observer": "EC49FBR frozen 9-state",
+    "signatures": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ]
+  },
+  "cases": {
+    "M641": {
+      "native_edges": 116,
+      "operation_prefixes": 29,
+      "operation_edges": 44,
+      "weighted_operation_edges": 124,
+      "collision_cf": 4,
+      "collision_dg": 4,
+      "cost": 116
+    },
+    "M732": {
+      "native_edges": 166,
+      "operation_prefixes": 42,
+      "operation_edges": 61,
+      "weighted_operation_edges": 178,
+      "collision_cf": 5,
+      "collision_dg": 7,
+      "cost": 166
+    }
+  },
+  "per_window_candidate_counts": {
+    "4": 48,
+    "5": 24,
+    "6": 120,
+    "7": 2520,
+    "8": 10080,
+    "9": 3360
+  },
+  "all_candidate_words_including_four_frozen_root": 16156,
+  "full_candidate_trie": {
+    "native_edges": 109972,
+    "operation_prefixes": 25359,
+    "operation_edges": 41438,
+    "weighted_operation_edges": 114378,
+    "collision_cf": 2203,
+    "collision_dg": 2203,
+    "cost": 109972
+  },
+  "compressed_model": {
+    "operation_edge_binary_variables": 41438,
+    "overlap_binary_variables": 4406,
+    "total_binary_variables": 45844,
+    "primitive_edge_baseline_variables": 109972,
+    "variable_reduction": 64128
+  },
+  "exhaustive_pair_verification": {
+    "domain": "H4(L)+H5(L)+H6(M732)",
+    "candidate_words": 192,
+    "unordered_pairs": 18336,
+    "failures": 0
+  },
+  "singleton_verification": {
+    "count": 16156,
+    "failures": 0
+  },
+  "verification": "Executed JavaScript V8 exact signed integer / string comparison on 2026-11-05",
+  "remaining": "Run compressed MILP for free H4-H9 with exact postsolve witness"
+}

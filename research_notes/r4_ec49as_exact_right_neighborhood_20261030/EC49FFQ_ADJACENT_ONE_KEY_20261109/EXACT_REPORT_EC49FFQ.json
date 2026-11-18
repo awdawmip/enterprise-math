@@ -1,0 +1,796 @@
+{
+  "schema": "EC49FFQ_FINITE_SIGNED_X6_TRIE_CENSUS_V1",
+  "date": "2026-11-09",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_native_model_git_blob_sha1": "6350340fbe869f17b5a50bd1ba30640db44a3a99",
+  "evidence": "Exact per-key integer trie DP; full candidate word counts reproducible via VERIFY_EC49FFQ.py; source input frozen; no independent admission",
+  "domain": "one complete key; four low readouts in each adjacent window",
+  "complete_key_cases": 76,
+  "universal_analytic_upper": "C_native<=4h+40, h>=5",
+  "upper_analytic_audit_h": "5..64",
+  "groups": [
+    {
+      "horizons": [
+        5,
+        6
+      ],
+      "complete_keys": 7,
+      "minimum": 60,
+      "minimizers": [
+        [
+          5,
+          3,
+          1
+        ]
+      ],
+      "rows": [
+        {
+          "key": [
+            4,
+            4,
+            1
+          ],
+          "cost": 68,
+          "trie_nodes": 2074
+        },
+        {
+          "key": [
+            5,
+            3,
+            1
+          ],
+          "cost": 60,
+          "trie_nodes": 3121
+        },
+        {
+          "key": [
+            5,
+            4,
+            1
+          ],
+          "cost": 78,
+          "trie_nodes": 3121
+        },
+        {
+          "key": [
+            6,
+            2,
+            1
+          ],
+          "cost": 68,
+          "trie_nodes": 2074
+        },
+        {
+          "key": [
+            6,
+            2,
+            2
+          ],
+          "cost": 74,
+          "trie_nodes": 5837
+        },
+        {
+          "key": [
+            6,
+            3,
+            1
+          ],
+          "cost": 78,
+          "trie_nodes": 3121
+        },
+        {
+          "key": [
+            6,
+            4,
+            1
+          ],
+          "cost": 88,
+          "trie_nodes": 2321
+        }
+      ]
+    },
+    {
+      "horizons": [
+        6,
+        7
+      ],
+      "complete_keys": 13,
+      "minimum": 64,
+      "minimizers": [
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          6,
+          3,
+          1
+        ]
+      ],
+      "rows": [
+        {
+          "key": [
+            4,
+            5,
+            1
+          ],
+          "cost": 74,
+          "trie_nodes": 3905
+        },
+        {
+          "key": [
+            5,
+            4,
+            1
+          ],
+          "cost": 64,
+          "trie_nodes": 7875
+        },
+        {
+          "key": [
+            5,
+            5,
+            1
+          ],
+          "cost": 84,
+          "trie_nodes": 7450
+        },
+        {
+          "key": [
+            6,
+            3,
+            1
+          ],
+          "cost": 64,
+          "trie_nodes": 7875
+        },
+        {
+          "key": [
+            6,
+            3,
+            2
+          ],
+          "cost": 80,
+          "trie_nodes": 20958
+        },
+        {
+          "key": [
+            6,
+            4,
+            1
+          ],
+          "cost": 76,
+          "trie_nodes": 11079
+        },
+        {
+          "key": [
+            6,
+            5,
+            1
+          ],
+          "cost": 94,
+          "trie_nodes": 7808
+        },
+        {
+          "key": [
+            7,
+            2,
+            1
+          ],
+          "cost": 74,
+          "trie_nodes": 3905
+        },
+        {
+          "key": [
+            7,
+            2,
+            2
+          ],
+          "cost": 80,
+          "trie_nodes": 20958
+        },
+        {
+          "key": [
+            7,
+            3,
+            1
+          ],
+          "cost": 84,
+          "trie_nodes": 7450
+        },
+        {
+          "key": [
+            7,
+            3,
+            2
+          ],
+          "cost": 90,
+          "trie_nodes": 22263
+        },
+        {
+          "key": [
+            7,
+            4,
+            1
+          ],
+          "cost": 94,
+          "trie_nodes": 7808
+        },
+        {
+          "key": [
+            7,
+            5,
+            1
+          ],
+          "cost": 104,
+          "trie_nodes": 4469
+        }
+      ]
+    },
+    {
+      "horizons": [
+        7,
+        8
+      ],
+      "complete_keys": 22,
+      "minimum": 68,
+      "minimizers": [
+        [
+          5,
+          5,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          7,
+          3,
+          1
+        ]
+      ],
+      "rows": [
+        {
+          "key": [
+            4,
+            6,
+            1
+          ],
+          "cost": 80,
+          "trie_nodes": 6707
+        },
+        {
+          "key": [
+            5,
+            5,
+            1
+          ],
+          "cost": 68,
+          "trie_nodes": 16991
+        },
+        {
+          "key": [
+            5,
+            6,
+            1
+          ],
+          "cost": 90,
+          "trie_nodes": 15414
+        },
+        {
+          "key": [
+            6,
+            4,
+            1
+          ],
+          "cost": 68,
+          "trie_nodes": 22749
+        },
+        {
+          "key": [
+            6,
+            4,
+            2
+          ],
+          "cost": 86,
+          "trie_nodes": 57945
+        },
+        {
+          "key": [
+            6,
+            5,
+            1
+          ],
+          "cost": 80,
+          "trie_nodes": 30498
+        },
+        {
+          "key": [
+            6,
+            6,
+            1
+          ],
+          "cost": 100,
+          "trie_nodes": 20629
+        },
+        {
+          "key": [
+            7,
+            3,
+            1
+          ],
+          "cost": 68,
+          "trie_nodes": 16991
+        },
+        {
+          "key": [
+            7,
+            3,
+            2
+          ],
+          "cost": 72,
+          "trie_nodes": 88537
+        },
+        {
+          "key": [
+            7,
+            4,
+            1
+          ],
+          "cost": 80,
+          "trie_nodes": 30498
+        },
+        {
+          "key": [
+            7,
+            4,
+            2
+          ],
+          "cost": 96,
+          "trie_nodes": 88097
+        },
+        {
+          "key": [
+            7,
+            5,
+            1
+          ],
+          "cost": 92,
+          "trie_nodes": 30609
+        },
+        {
+          "key": [
+            7,
+            6,
+            1
+          ],
+          "cost": 110,
+          "trie_nodes": 16740
+        },
+        {
+          "key": [
+            8,
+            2,
+            1
+          ],
+          "cost": 80,
+          "trie_nodes": 6707
+        },
+        {
+          "key": [
+            8,
+            2,
+            2
+          ],
+          "cost": 86,
+          "trie_nodes": 57945
+        },
+        {
+          "key": [
+            8,
+            2,
+            3
+          ],
+          "cost": 92,
+          "trie_nodes": 57789
+        },
+        {
+          "key": [
+            8,
+            3,
+            1
+          ],
+          "cost": 90,
+          "trie_nodes": 15414
+        },
+        {
+          "key": [
+            8,
+            3,
+            2
+          ],
+          "cost": 96,
+          "trie_nodes": 88097
+        },
+        {
+          "key": [
+            8,
+            4,
+            1
+          ],
+          "cost": 100,
+          "trie_nodes": 20629
+        },
+        {
+          "key": [
+            8,
+            4,
+            2
+          ],
+          "cost": 106,
+          "trie_nodes": 63163
+        },
+        {
+          "key": [
+            8,
+            5,
+            1
+          ],
+          "cost": 110,
+          "trie_nodes": 16740
+        },
+        {
+          "key": [
+            8,
+            6,
+            1
+          ],
+          "cost": 120,
+          "trie_nodes": 7801
+        }
+      ]
+    },
+    {
+      "horizons": [
+        8,
+        9
+      ],
+      "complete_keys": 34,
+      "minimum": 72,
+      "minimizers": [
+        [
+          5,
+          6,
+          1
+        ],
+        [
+          6,
+          5,
+          1
+        ],
+        [
+          7,
+          4,
+          1
+        ],
+        [
+          8,
+          3,
+          1
+        ]
+      ],
+      "rows": [
+        {
+          "key": [
+            4,
+            7,
+            1
+          ],
+          "cost": 86,
+          "trie_nodes": 10766
+        },
+        {
+          "key": [
+            5,
+            6,
+            1
+          ],
+          "cost": 72,
+          "trie_nodes": 32873
+        },
+        {
+          "key": [
+            5,
+            7,
+            1
+          ],
+          "cost": 96,
+          "trie_nodes": 28859
+        },
+        {
+          "key": [
+            6,
+            5,
+            1
+          ],
+          "cost": 72,
+          "trie_nodes": 55225
+        },
+        {
+          "key": [
+            6,
+            5,
+            2
+          ],
+          "cost": 92,
+          "trie_nodes": 135827
+        },
+        {
+          "key": [
+            6,
+            6,
+            1
+          ],
+          "cost": 84,
+          "trie_nodes": 71407
+        },
+        {
+          "key": [
+            6,
+            7,
+            1
+          ],
+          "cost": 106,
+          "trie_nodes": 46763
+        },
+        {
+          "key": [
+            7,
+            4,
+            1
+          ],
+          "cost": 72,
+          "trie_nodes": 55225
+        },
+        {
+          "key": [
+            7,
+            4,
+            2
+          ],
+          "cost": 76,
+          "trie_nodes": 280678
+        },
+        {
+          "key": [
+            7,
+            5,
+            1
+          ],
+          "cost": 84,
+          "trie_nodes": 94937
+        },
+        {
+          "key": [
+            7,
+            5,
+            2
+          ],
+          "cost": 102,
+          "trie_nodes": 265997
+        },
+        {
+          "key": [
+            7,
+            6,
+            1
+          ],
+          "cost": 96,
+          "trie_nodes": 92100
+        },
+        {
+          "key": [
+            7,
+            7,
+            1
+          ],
+          "cost": 116,
+          "trie_nodes": 48651
+        },
+        {
+          "key": [
+            8,
+            3,
+            1
+          ],
+          "cost": 72,
+          "trie_nodes": 32873
+        },
+        {
+          "key": [
+            8,
+            3,
+            2
+          ],
+          "cost": 76,
+          "trie_nodes": 280678
+        },
+        {
+          "key": [
+            8,
+            3,
+            3
+          ],
+          "cost": 98,
+          "trie_nodes": 261647
+        },
+        {
+          "key": [
+            8,
+            4,
+            1
+          ],
+          "cost": 84,
+          "trie_nodes": 71407
+        },
+        {
+          "key": [
+            8,
+            4,
+            2
+          ],
+          "cost": 88,
+          "trie_nodes": 400625
+        },
+        {
+          "key": [
+            8,
+            5,
+            1
+          ],
+          "cost": 96,
+          "trie_nodes": 92100
+        },
+        {
+          "key": [
+            8,
+            5,
+            2
+          ],
+          "cost": 112,
+          "trie_nodes": 275628
+        },
+        {
+          "key": [
+            8,
+            6,
+            1
+          ],
+          "cost": 108,
+          "trie_nodes": 72205
+        },
+        {
+          "key": [
+            8,
+            7,
+            1
+          ],
+          "cost": 126,
+          "trie_nodes": 32259
+        },
+        {
+          "key": [
+            9,
+            2,
+            1
+          ],
+          "cost": 86,
+          "trie_nodes": 10766
+        },
+        {
+          "key": [
+            9,
+            2,
+            2
+          ],
+          "cost": 92,
+          "trie_nodes": 135827
+        },
+        {
+          "key": [
+            9,
+            2,
+            3
+          ],
+          "cost": 98,
+          "trie_nodes": 261647
+        },
+        {
+          "key": [
+            9,
+            3,
+            1
+          ],
+          "cost": 96,
+          "trie_nodes": 28859
+        },
+        {
+          "key": [
+            9,
+            3,
+            2
+          ],
+          "cost": 102,
+          "trie_nodes": 265997
+        },
+        {
+          "key": [
+            9,
+            3,
+            3
+          ],
+          "cost": 108,
+          "trie_nodes": 274899
+        },
+        {
+          "key": [
+            9,
+            4,
+            1
+          ],
+          "cost": 106,
+          "trie_nodes": 46763
+        },
+        {
+          "key": [
+            9,
+            4,
+            2
+          ],
+          "cost": 112,
+          "trie_nodes": 275628
+        },
+        {
+          "key": [
+            9,
+            5,
+            1
+          ],
+          "cost": 116,
+          "trie_nodes": 48651
+        },
+        {
+          "key": [
+            9,
+            5,
+            2
+          ],
+          "cost": 122,
+          "trie_nodes": 150665
+        },
+        {
+          "key": [
+            9,
+            6,
+            1
+          ],
+          "cost": 126,
+          "trie_nodes": 32259
+        },
+        {
+          "key": [
+            9,
+            7,
+            1
+          ],
+          "cost": 136,
+          "trie_nodes": 12681
+        }
+      ]
+    }
+  ],
+  "status": "AUTHOR_EXACT_FINITE_PASS__DRIVER_PENDING"
+}

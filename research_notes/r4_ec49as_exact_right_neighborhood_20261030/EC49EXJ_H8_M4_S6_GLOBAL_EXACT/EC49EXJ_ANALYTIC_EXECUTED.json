@@ -1,0 +1,607 @@
+{
+  "status": "PASS",
+  "scope": "Exact key-family schedules H8/M4/S<=6, remaining fourth-key-by-h7 branch",
+  "frozen_model_input": "EC49EXI 7-operation signed native X6, symbolic positive-count BRC, exact T4/T2 key-fiber criterion",
+  "complete_key_sets": 14092,
+  "complete_schedules": 55493,
+  "residual_schedules": 26933,
+  "counts_by_first_fourth_key": {
+    "3": 0,
+    "4": 0,
+    "5": 117,
+    "6": 5970,
+    "7": 20846
+  },
+  "h7_observer_S4_and_h8_type": {
+    "H7S4=True,H8T2": 442,
+    "H7S4=True,H8T4": 481,
+    "H7S4=False,H8T2": 11140,
+    "H7S4=False,H8T4": 14870
+  },
+  "strong_H7S4_screened": 923,
+  "remaining_after_H7S4_screen": 26010,
+  "strict_lower_bound_by_H7S4_h8": {
+    "h8_T2": 96,
+    "h8_T4": 100
+  },
+  "other_prior_bound_h7_m4_s6": 72,
+  "notes": "H7 four-key S4 exact E7>=92 from EC49EW; terminal primitive prefix increments +4 (T2), +8 (T4) from EC49EXD/EXI; stronger bound valid if first 7 fibers are T4. For all other cases no E8>=90 conclusion is asserted.",
+  "sample_key_family_by_group": {
+    "phase / four_keys_by_h7 / first4 / 6 / h7_S4 / False / h8 / 2": {
+      "keys_by_horizon": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ]
+      ],
+      "types": [
+        4,
+        2,
+        2,
+        2,
+        4,
+        4,
+        2
+      ]
+    },
+    "phase / four_keys_by_h7 / first4 / 5 / h7_S4 / True / h8 / 2": {
+      "keys_by_horizon": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ]
+      ],
+      "types": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        2
+      ]
+    },
+    "phase / four_keys_by_h7 / first4 / 6 / h7_S4 / False / h8 / 4": {
+      "keys_by_horizon": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          5,
+          5,
+          1
+        ],
+        [
+          5,
+          5,
+          1
+        ],
+        [
+          5,
+          5,
+          1
+        ]
+      ],
+      "types": [
+        4,
+        2,
+        2,
+        2,
+        4,
+        4,
+        4
+      ]
+    },
+    "phase / four_keys_by_h7 / first4 / 5 / h7_S4 / True / h8 / 4": {
+      "keys_by_horizon": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      "types": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "phase / four_keys_by_h7 / first4 / 7 / h7_S4 / False / h8 / 2": {
+      "keys_by_horizon": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          3,
+          6,
+          1
+        ]
+      ],
+      "types": [
+        4,
+        2,
+        2,
+        4,
+        2,
+        4,
+        2
+      ]
+    },
+    "phase / four_keys_by_h7 / first4 / 7 / h7_S4 / False / h8 / 4": {
+      "keys_by_horizon": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ]
+      ],
+      "types": [
+        4,
+        2,
+        2,
+        4,
+        2,
+        4,
+        4
+      ]
+    },
+    "phase / four_keys_by_h7 / first4 / 7 / h7_S4 / True / h8 / 2": {
+      "keys_by_horizon": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          5,
+          3,
+          1
+        ],
+        [
+          5,
+          3,
+          1
+        ],
+        [
+          5,
+          3,
+          1
+        ],
+        [
+          3,
+          6,
+          1
+        ],
+        [
+          3,
+          6,
+          1
+        ]
+      ],
+      "types": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        2
+      ]
+    },
+    "phase / four_keys_by_h7 / first4 / 5 / h7_S4 / False / h8 / 2": {
+      "keys_by_horizon": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          4,
+          1,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          5,
+          4,
+          1
+        ]
+      ],
+      "types": [
+        4,
+        4,
+        2,
+        4,
+        4,
+        4,
+        2
+      ]
+    },
+    "phase / four_keys_by_h7 / first4 / 5 / h7_S4 / False / h8 / 4": {
+      "keys_by_horizon": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          4,
+          1,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      "types": [
+        4,
+        4,
+        2,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "phase / four_keys_by_h7 / first4 / 6 / h7_S4 / True / h8 / 2": {
+      "keys_by_horizon": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ],
+        [
+          4,
+          5,
+          1
+        ]
+      ],
+      "types": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        2
+      ]
+    },
+    "phase / four_keys_by_h7 / first4 / 6 / h7_S4 / True / h8 / 4": {
+      "keys_by_horizon": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          5,
+          5,
+          1
+        ],
+        [
+          5,
+          5,
+          1
+        ],
+        [
+          5,
+          5,
+          1
+        ]
+      ],
+      "types": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "phase / four_keys_by_h7 / first4 / 7 / h7_S4 / True / h8 / 4": {
+      "keys_by_horizon": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          5,
+          3,
+          1
+        ],
+        [
+          5,
+          3,
+          1
+        ],
+        [
+          5,
+          3,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          4,
+          6,
+          1
+        ]
+      ],
+      "types": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    }
+  }
+}

@@ -1,0 +1,388 @@
+{
+  "unit": "EC49EQ",
+  "status": "PASS",
+  "model": "native ordered signed six-axis operations, two positive BRC symbolic channels, 9x5 event observer",
+  "horizon_range": "2..5",
+  "word_counts": {
+    "2": 8,
+    "3": 51,
+    "4": 304,
+    "5": 1770
+  },
+  "full_rank_fibers": {
+    "2": 1,
+    "3": 4,
+    "4": 9,
+    "5": 17
+  },
+  "h3_h4_h5_q_positive_fibers": [
+    3,
+    7,
+    13
+  ],
+  "exhaustive_case_count": 281,
+  "case_classes": {
+    "M2_S6": {
+      "cases": 8,
+      "min_E": 64,
+      "p_at_min": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ]
+    },
+    "M4_S4": {
+      "cases": 251,
+      "min_E": 52,
+      "p_at_min": [
+        [
+          4,
+          1,
+          1
+        ],
+        [
+          5,
+          1,
+          1
+        ],
+        [
+          6,
+          1,
+          1
+        ]
+      ]
+    },
+    "M3_S4": {
+      "cases": 22,
+      "min_E": 64,
+      "p_at_min": [
+        [
+          4,
+          2,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ],
+        [
+          5,
+          2,
+          1
+        ]
+      ]
+    }
+  },
+  "witnesses": {
+    "50,3,6": {
+      "2": {
+        "p": [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "ce",
+          "de",
+          "ec",
+          "ed"
+        ]
+      },
+      "3": {
+        "p": [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "feg",
+          "gef"
+        ]
+      },
+      "4": {
+        "p": [
+          4,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "fegf",
+          "geff"
+        ]
+      },
+      "5": {
+        "p": [
+          5,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "fegff",
+          "gefff"
+        ]
+      }
+    },
+    "52,4,4": {
+      "2": {
+        "p": [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "ce",
+          "de",
+          "ec",
+          "ed"
+        ]
+      },
+      "3": {
+        "p": [
+          4,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "cef",
+          "def",
+          "ecf",
+          "edf"
+        ]
+      },
+      "4": {
+        "p": [
+          5,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "ceff",
+          "deff",
+          "ecff",
+          "edff"
+        ]
+      },
+      "5": {
+        "p": [
+          6,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "cefff",
+          "defff",
+          "ecfff",
+          "edfff"
+        ]
+      }
+    },
+    "64,2,6": {
+      "2": {
+        "p": [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "ce",
+          "de",
+          "ec",
+          "ed"
+        ]
+      },
+      "3": {
+        "p": [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "fge",
+          "gfe"
+        ]
+      },
+      "4": {
+        "p": [
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "ecgf",
+          "fgec",
+          "fged",
+          "gfed"
+        ]
+      },
+      "5": {
+        "p": [
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "fgefg",
+          "gfegf"
+        ]
+      }
+    },
+    "64,3,4": {
+      "2": {
+        "p": [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "ce",
+          "de",
+          "ec",
+          "ed"
+        ]
+      },
+      "3": {
+        "p": [
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "cec",
+          "ded",
+          "ecc",
+          "edd"
+        ]
+      },
+      "4": {
+        "p": [
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "cefg",
+          "degf",
+          "ecfg",
+          "edgf"
+        ]
+      },
+      "5": {
+        "p": [
+          5,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_Q": 9,
+        "words": [
+          "cefgf",
+          "degff",
+          "ecfgf",
+          "edgff"
+        ]
+      }
+    }
+  },
+  "complete_pareto": [
+    [
+      50,
+      3,
+      6
+    ],
+    [
+      52,
+      4,
+      4
+    ],
+    [
+      64,
+      2,
+      6
+    ],
+    [
+      64,
+      3,
+      4
+    ]
+  ],
+  "rank_method": "mod P=1000003, 3**9=19683<P (9x9 binary minor); witness ranks also checked over Q with Fraction",
+  "proof_basis": "Unique minimal full-rank essential signature set in every p fiber; native-prefix-trie OR-mask complete integer DP with already-paid H2 28 edges. S=4 iff all selected fibers are q-positive; S=6 iff any selected fiber is q-zero. M>=2. E>=50 from EC49EM and attaining EC49EP family.",
+  "next": "EC49ER: H=6 three-resource frontier, starting M=2 existence and S=4 Pareto with exact trie DP; cost accounting vs input/output resources.",
+  "raw_executed_sha256": "1ac693b3570c20880024d3fdf8439584a8ab91f4fbc3c3e7036e67be8a8de3f6",
+  "compressed_evidence_sha256": "c4ac43591a29460f838132836b82f5df0ee48fa2294d639e152929a89e337088"
+}
