@@ -1,0 +1,65 @@
+{
+  "schema": "R5_INTERIOR_TWO_BUDGET_THREE_PROBE_CERTIFICATE_V1",
+  "date": "2026-11-19",
+  "science_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "input_file": "EXACT_R5_ALL_101_BUDGETS.json",
+  "input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "family": "nine named state slots (18,24,82,34,17,x,144,208,y), x<y outside fixed H",
+  "pair_instances": 30876,
+  "query_budget_count": 101,
+  "noise_stages": 18,
+  "joint_endpoint_classes": 2563,
+  "whole_chamber_classes": 2711,
+  "endpoint_equivalent_but_whole_chamber_different_pairs": 620,
+  "budget_witness_counts": {
+    "214": 448,
+    "220": 172
+  },
+  "all_other_budget_witness_count": 0,
+  "first_stage_counts": {
+    "2": 172,
+    "3": 112,
+    "4": 224,
+    "8": 112
+  },
+  "probe_coverage": {
+    "220@2": 172,
+    "214@4": 336,
+    "214@8": 336
+  },
+  "minimal_fixed_probe_count": 3,
+  "example_minimal_probes": [
+    {
+      "k": 220,
+      "stage": 2,
+      "tau": "33469190642398873308364800000"
+    },
+    {
+      "k": 214,
+      "stage": 4,
+      "tau": "35645376700628923507015680000"
+    },
+    {
+      "k": 214,
+      "stage": 8,
+      "tau": "41430175083265765807226880000"
+    }
+  ],
+  "unique_minimal_budget_set": [
+    214,
+    220
+  ],
+  "independent_exact_integer_checks": {
+    "cross_daughter_pairs": 620,
+    "diameter_stages": 18,
+    "budgets": 101,
+    "paired_family_comparisons": 1127160,
+    "individual_support_families": 2254320,
+    "output": "PASS_ALL_620_PAIRS_X_18_STAGES_X_101_BUDGETS"
+  },
+  "original_18_stage_census_reproduced": true,
+  "source_reuse": "R5 full18 census research branch a661f387ef8819ef95a7121d4e73e6b677f64ee5",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "formal_claim": false,
+  "next_question": "Use exact interior 2-budget residual fingerprint to prioritize 1844 unsolved U-1 nine-state root classes and search for C8>8335"
+}
