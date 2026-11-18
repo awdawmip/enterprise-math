@@ -1,0 +1,43 @@
+{
+  "schema": "EM_R273_PORT_RESONANCE_EVIDENCE_DIGEST_V1",
+  "project": "Enterprise Math",
+  "research": "R273",
+  "date": "2026-11-18",
+  "status": "AUTHOR_PROVED / EXACT_RATIONAL_CHECK / NOT_REVIEWED",
+  "model": "WBRC-T30/T31 positive rational labelled visible Port, two permitted opposite directed edges",
+  "lineage": {
+    "predecessor_commit": "bafca0cfdb4a7814cc5d74534ff9ade753029b4a",
+    "frozen_science_commit": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+    "foundation_blob": "e7823e69fe8112663af2feeb3fc3207b73b2fabe"
+  },
+  "test": {
+    "method": "fractions.Fraction, no floats",
+    "prime": 13,
+    "t_range": [
+      1,
+      8
+    ],
+    "m_range": [
+      1,
+      6
+    ],
+    "exact_pairs": 48,
+    "additional_nonzero_baseline_woodbury_instances": 3,
+    "result": "PASS 48 WOODBURY 3"
+  },
+  "reproduced_full_json": {
+    "filename": "R273_verification.json",
+    "sha256": "a8db8beb33f971971ecb00598123451dfae2c5fa4bd53dfd379aa564d36d3499",
+    "generation": "python R273_two_edge_port_resonance_checker.py"
+  },
+  "proved": {
+    "mixed_cycle": "W=[[0,a],[b,0]], S_11=1/(1-ab), either edge alone leaves S_11=1",
+    "resonance": "for every t>=1, a=b=1/(1+13^t), v13(1-ab)=t",
+    "sharpness": "for every t,m>=1, modulus 13^(t+m) sufficient under certified determinant depth t; one digit less insufficient for explicit stable family"
+  },
+  "pending": [
+    "Independent review",
+    "Native activity association",
+    "R269-to-native-Port fibre descent"
+  ]
+}
