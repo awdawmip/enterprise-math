@@ -1,0 +1,211 @@
+{
+  "schema": "EC49FSP_NATIVE_BRC_SWAP_EDGE_EXACT_V1",
+  "status": "AUTHOR_PROVED / EXACT_PRIMARY_FINITE_EXHAUSTIVE / INDEPENDENT_PARTIAL / NOT_REVIEWED",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor": "EC49FSO PR #2708@b960bf6f1ed58fbc7eb7333183b38671f0330f1b",
+  "model": {
+    "configurations": 310,
+    "named_profiles": 141,
+    "named_observations": 228,
+    "prior": "uniform over the 141 named profiles",
+    "scope": "complete original-native deterministic adaptive named-response identification trees"
+  },
+  "definition": "F(a,b,z)=141V/t; q32,q34,q140 discounted by a,b,z; other 225 observers unit price",
+  "orientations": {
+    "direct": {
+      "a": "31/64",
+      "b": "27/64"
+    },
+    "swapped": {
+      "a": "27/64",
+      "b": "31/64"
+    }
+  },
+  "z_domain": [
+    "0",
+    "1/4"
+  ],
+  "phases": {
+    "direct": [
+      {
+        "interval": [
+          "0",
+          "1/6"
+        ],
+        "intercept": "7053/32",
+        "z_slope": "-4",
+        "witness": [
+          306,
+          141,
+          41,
+          4
+        ],
+        "tree_sha256": "ad7047debd6d04d3c076eef6d593b7de4d50879a671a439760d4d436210cc767"
+      },
+      {
+        "interval": [
+          "1/6",
+          "1/4"
+        ],
+        "intercept": "7085/32",
+        "z_slope": "-10",
+        "witness": [
+          307,
+          141,
+          41,
+          10
+        ],
+        "tree_sha256": "8b5e58dba1a6ecab2d645e18745e6ddf5a1346a661c33351b7c1f0418d26f16c"
+      }
+    ],
+    "swapped": [
+      {
+        "interval": [
+          "0",
+          "51/448"
+        ],
+        "intercept": "7053/32",
+        "z_slope": "-10",
+        "witness": [
+          306,
+          41,
+          141,
+          10
+        ],
+        "tree_sha256": "db669e0116a1816bbf53fed6cb1bc07a4549ef9665637433e05c059936ff9742"
+      },
+      {
+        "interval": [
+          "51/448",
+          "1/6"
+        ],
+        "intercept": "14157/64",
+        "z_slope": "-17",
+        "witness": [
+          303,
+          32,
+          141,
+          17
+        ],
+        "tree_sha256": "c43c37dfca7f748b0e4acadcd69c8be5e8c5bdeb3a0515c6c7e8c796250042e2"
+      },
+      {
+        "interval": [
+          "1/6",
+          "11/48"
+        ],
+        "intercept": "14285/64",
+        "z_slope": "-29",
+        "witness": [
+          305,
+          32,
+          141,
+          29
+        ],
+        "tree_sha256": "99c8731a0e6499e70278318237d06576d3b347fb47e885b6467a2d82fd5541ec"
+      },
+      {
+        "interval": [
+          "11/48",
+          "1/4"
+        ],
+        "intercept": "14329/64",
+        "z_slope": "-32",
+        "witness": [
+          304,
+          28,
+          141,
+          32
+        ],
+        "tree_sha256": "df7cb044a0d2ac4a7bf6460b0b0311bbe352cfd1b695f1713a915b1e2e9b3ec1"
+      }
+    ]
+  },
+  "bellman_all228_vertices": [
+    {
+      "z": "0",
+      "direct": "7053/32",
+      "swapped": "7053/32",
+      "difference": "0"
+    },
+    {
+      "z": "51/448",
+      "direct": "49269/224",
+      "swapped": "12279/56",
+      "difference": "153/224"
+    },
+    {
+      "z": "1/6",
+      "direct": "21095/96",
+      "swapped": "41927/192",
+      "difference": "263/192"
+    },
+    {
+      "z": "11/48",
+      "direct": "21035/96",
+      "swapped": "41579/192",
+      "difference": "491/192"
+    },
+    {
+      "z": "1/4",
+      "direct": "7005/32",
+      "swapped": "13817/64",
+      "difference": "193/64"
+    }
+  ],
+  "independent_decoder_checks": [
+    {
+      "orientation": "direct",
+      "z": "1/6",
+      "value": "21095/96",
+      "states": 10171
+    },
+    {
+      "orientation": "direct",
+      "z": "1/4",
+      "value": "7005/32",
+      "states": 10151
+    },
+    {
+      "orientation": "swapped",
+      "z": "51/448",
+      "value": "12279/56",
+      "states": 10146
+    },
+    {
+      "orientation": "swapped",
+      "z": "1/6",
+      "value": "41927/192",
+      "states": 10094
+    },
+    {
+      "orientation": "swapped",
+      "z": "11/48",
+      "value": "41579/192",
+      "states": 10018
+    },
+    {
+      "orientation": "swapped",
+      "z": "1/4",
+      "value": "13817/64",
+      "states": 9977
+    }
+  ],
+  "proof": "Unrestricted Bellman reaches each lower-envelope vertex; each feasible native tree gives an affine upper bound; the infimum of all such costs is concave, and so lies above chords of neighboring certified vertices. Each chord is realized by a named-tree witness, yielding exact equality on the full real interval.",
+  "discovery_note": {
+    "provisional_gap_z": "43/240",
+    "provisional_envelope": "209431/960",
+    "actual_bellman": "209287/960",
+    "improvement": "3/20"
+  },
+  "provenance": {
+    "researcher_id": "EM-DIRECT-8454C6",
+    "session_id": "MCP-44cfc4e6f2094f96861854ebefc77e84",
+    "activity_id": "RA-ED136F89271FD89288F3E58D",
+    "claim_authorized": false,
+    "canonical_admission": "NOT_REVIEWED"
+  },
+  "complete_archive_sha256": "1553fe56b4e86cffeda1b33ff771e95f728853bf9c1e5976c7e058278598bac2",
+  "complete_archive_filename": "EC49FSP_NATIVE_BRC_EXACT_PRICE_SWAP_CORNER_20261118.tar.xz",
+  "complete_archive_manifest_files": 31
+}
