@@ -1,0 +1,252 @@
+{
+  "schema": "EC49FTB_EXACT_BELLMAN_20_ANCHORS_V1",
+  "frozen_source_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_sha256": {
+    "frozen_original_master.txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE.csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "box": {
+    "a": [
+      "31/32",
+      "1"
+    ],
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "15/16",
+      "1"
+    ]
+  },
+  "D": [
+    {
+      "point": [
+        "31/32",
+        "7/16",
+        "15/16"
+      ],
+      "exact_bellman": "3989/32"
+    },
+    {
+      "point": [
+        "31/32",
+        "7/16",
+        "1079/1104"
+      ],
+      "exact_bellman": "89635/736"
+    },
+    {
+      "point": [
+        "31/32",
+        "7/16",
+        "1"
+      ],
+      "exact_bellman": "3795/32"
+    },
+    {
+      "point": [
+        "31/32",
+        "57/128",
+        "15/16"
+      ],
+      "exact_bellman": "1989/16"
+    },
+    {
+      "point": [
+        "31/32",
+        "57/128",
+        "1079/1104"
+      ],
+      "exact_bellman": "44691/368"
+    },
+    {
+      "point": [
+        "31/32",
+        "57/128",
+        "1"
+      ],
+      "exact_bellman": "473/4"
+    },
+    {
+      "point": [
+        "1",
+        "7/16",
+        "15/16"
+      ],
+      "exact_bellman": "481/4"
+    },
+    {
+      "point": [
+        "1",
+        "7/16",
+        "1"
+      ],
+      "exact_bellman": "463/4"
+    },
+    {
+      "point": [
+        "1",
+        "57/128",
+        "15/16"
+      ],
+      "exact_bellman": "3837/32"
+    },
+    {
+      "point": [
+        "1",
+        "57/128",
+        "1"
+      ],
+      "exact_bellman": "3693/32"
+    }
+  ],
+  "S": [
+    {
+      "point": [
+        "31/32",
+        "7/16",
+        "15/16"
+      ],
+      "exact_bellman": "2947/32"
+    },
+    {
+      "point": [
+        "31/32",
+        "7/16",
+        "809/832"
+      ],
+      "exact_bellman": "73287/832"
+    },
+    {
+      "point": [
+        "31/32",
+        "7/16",
+        "1"
+      ],
+      "exact_bellman": "1347/16"
+    },
+    {
+      "point": [
+        "31/32",
+        "57/128",
+        "15/16"
+      ],
+      "exact_bellman": "2945/32"
+    },
+    {
+      "point": [
+        "31/32",
+        "57/128",
+        "809/832"
+      ],
+      "exact_bellman": "73235/832"
+    },
+    {
+      "point": [
+        "31/32",
+        "57/128",
+        "1"
+      ],
+      "exact_bellman": "673/8"
+    },
+    {
+      "point": [
+        "1",
+        "7/16",
+        "15/16"
+      ],
+      "exact_bellman": "1403/16"
+    },
+    {
+      "point": [
+        "1",
+        "7/16",
+        "1"
+      ],
+      "exact_bellman": "161/2"
+    },
+    {
+      "point": [
+        "1",
+        "57/128",
+        "15/16"
+      ],
+      "exact_bellman": "701/8"
+    },
+    {
+      "point": [
+        "1",
+        "57/128",
+        "1"
+      ],
+      "exact_bellman": "1287/16"
+    }
+  ],
+  "witness_uses": {
+    "D0": [
+      348,
+      141,
+      44,
+      72
+    ],
+    "D1": [
+      367,
+      91,
+      44,
+      141
+    ],
+    "S0": [
+      340,
+      8,
+      141,
+      115
+    ],
+    "S1": [
+      343,
+      8,
+      118,
+      141
+    ]
+  },
+  "independent_raw94_anchors": [
+    {
+      "orientation": "D",
+      "point": [
+        "31/32",
+        "7/16",
+        "1"
+      ],
+      "result": "3795/32"
+    },
+    {
+      "orientation": "S",
+      "point": [
+        "1",
+        "57/128",
+        "15/16"
+      ],
+      "result": "701/8"
+    }
+  ],
+  "joint_vertex_count": 12,
+  "sharp_gap": {
+    "min": {
+      "value": "1033/32",
+      "point": [
+        "31/32",
+        "57/128",
+        "15/16"
+      ]
+    },
+    "max": {
+      "value": "141/4",
+      "point": [
+        "1",
+        "7/16",
+        "1"
+      ]
+    }
+  },
+  "notes": "All 20 values were computed with native unrestricted exact rational Bellman across 228 original named observers. Two were independently recomputed using decoded raw94 observation source. Full continuous result requires the four feasible trees plus Bellman concavity at subdivision vertices. Author-checked, not independent mathematical review."
+}
