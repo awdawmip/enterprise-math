@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/sieve.md",
+    "ref": "d5594c0ce188c80ed61041812dc848ed75ebad0c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "codex-math-fair-20261118-9",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "## P017　平方盆地首因子壳的精确窗口\n\n设 \\(k\\ge2\\)，\\(c=k+1\\)，\\(p\\le k\\) 为奇素数，\\(r=c-p\\)。记 \\(S_p(k)\\) 为开区间 \\((k^2,c^2)\\) 中最小素因子为 \\(p\\) 的全体整数。本节沿用 P017 的平方盆地与 P018 的首因子壳定义。项目已有 centered_cofactor_window 对全部整数余因子给出窗口；此处在奇素数壳中先筛去偶商，再在立方界内提取精确的单中心阈值。\n\n**命题（直接推导）。** 若 \\(p^3\\ge c^2\\)，令\n\\[\nL=\\left\\lfloor\\frac{(r-1)^2}{2p}\\right\\rfloor,\\qquad\nU=\\left\\lfloor\\frac{r^2-1}{2p}\\right\\rfloor .\n\\]\n则有精确枚举式\n\\[\nS_p(k)=\\bigl\\{p(c+r+2j):L\\le j\\le U,\\quad\nj\\in\\mathbb Z,\\quad c+r+2j\\ \\text{为素数}\\bigr\\}.\n\\]\n\n**推导。** 若 \\(n\\in S_p(k)\\)，商 \\(q=n/p\\) 为奇数，故可写成 \\(q=c+r+2j\\)。此时 \\(pq=c^2-r^2+2pj\\)。开区间的上端给出 \\(2pj\\le r^2-1\\)，下端给出 \\(2p(j+1)>(r-1)^2\\)，分别等价于 \\(j\\le U\\) 与 \\(j\\ge L\\)。反过来，这个窗口内 \\(j\\ge0\\)，故 \\(q\\ge p+2r>p\\)，又有 \\(q<c^2/p\\le p^2\\)。若 \\(q\\) 合成则它有一个小于 \\(p\\) 的素因子；若 \\(q\\) 为素数则 \\(pq\\) 的最小素因子恰为 \\(p\\)。\n\n**单中心推论。** 整数窗口恰为 \\(\\{0\\}\\) 的充要条件是 \\(r^2\\le2p\\)。该条件对奇素数自动保证 \\(c^2\\le p^3\\)：当 \\(p\\ge5\\) 时 \\(r<p\\)，所以 \\(c^2<4p^2\\le p^3\\)；当 \\(p=3\\) 时 \\(r\\le2\\)。因此在这一带，\\(S_p(k)\\) 非空当且仅当 \\(c+r\\) 为素数，非空时只含 \\(c^2-r^2\\)。这将项目 Stage-8 的充分条件 \\(p>r^2\\) 扩至 \\(r^2\\le2p\\)。\n\n在 \\(k=14,p=11,r=4\\) 时，旧条件未覆盖，单中心给出 \\(S_{11}(14)=\\{209\\}=\\{11\\cdot19\\}\\)。取 \\(k=10,p=7,r=4\\)，则 \\(L=0,U=1\\)，中心商 \\(15\\) 合成，后一格的商 \\(17\\) 为素数，得到 \\(S_7(10)=\\{119\\}\\)。此例给出越过窗口边界后必须保留偏移量的实际见证。\n\n**独立有限核验。** 对 \\(2\\le k\\le500\\)，以埃氏筛记录每个整数的最小素因子，逐个扫描开区间，另按窗口测试候选商的素性。满足 \\(p^3\\ge(k+1)^2\\) 的 20,153 个奇素数壳逐项相同，实际含 13,905 个壳元素。1,742 个壳落在单中心范围，其中 508 个超出旧条件，这 508 个中有 185 个非空。论证只定位上述合数壳，整个盆地剩余素数的正性仍是独立问题。\n\n本节基线固定在项目提交 7b32ae2ad9d1c13a13ff4668d1d218adda99390d。[P017 平方盆地与筛截断](../../docs/LEGENDRE_PRESSURE_TEST.zh-CN.md) · [首因子壳定义](../../src/enterprise_math/factor_precision.py) · [原整数余因子窗口](../../src/enterprise_math/p017_cofactor_window.py) · [原 Stage-8 条件](../../src/enterprise_math/prime_gap_slack.py) · [原单中心坐标](../../src/enterprise_math/centered_prime_radius.py)\n",
+      "display_title": "sieve.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/d5594c0ce188c80ed61041812dc848ed75ebad0c/research_notes/portable_direct/20261118_fair_queue_6b0fba/sieve.md",
+      "encoding": "utf-8",
+      "sha": "6b5eaecb9b4f7effee90d0f57eae2cf21e3d6abf"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

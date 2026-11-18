@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/rotation.md",
+    "ref": "d5594c0ce188c80ed61041812dc848ed75ebad0c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "codex-math-fair-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "## X6 旋转动力学：两段步词的精确拼接与三力事件的选择障碍\n\n任务 `RS-X6-NATIVE-ROTATION-DYNAMICS`，冻结发布 `TP2-6A1F9D8C2047E3B51C01`。11 月 16 日前沿给出一段带符号步词的共同框架轨道，举例说明独立压缩后再拼接会丢失轴对应。本节确定两段之间恰须保留的对应，并对一个对称的三力事件给出继步不可识别见证。下列是指定代数模型内的推导，尚待独立数学审阅。\n\n**载体与读数。** 取既有 Path-BRC 的具名有序原始步词，字母为六轴上的十二个方向，串联是有序拼接。共同带符号框架群为 $H=(C_2)^6\\rtimes A_6$，逐字母作用并保持符号的相对输运。观察是固定切口处完整联合步词的共同 $H$ 轨道。分支标签、权重、外部场和时钟若另有可见差异，应随同状态输运。下文计数的是框架观察下可分辨的类；计数型 BRC 读出另外按原具名分支重数求和。\n\n**接缝定理。** 给定两段各自的 $H$ 轨道和代表 $u,v$。精确恢复拼接后的共同轨道所需且足够的相对框架状态为双陪集\n$$\n H_u\\backslash H/H_v,\\qquad H_w=\\{h\\in H:hw=w\\}.\n$$\n固定前段为 $u$ 后，后段写成 $gv$；更换 $g$ 为 $agb$，其中 $a\\in H_u,b\\in H_v$，给出同一共同轨道。反过来，若带切口的 $u(gv)$ 和 $u(g'v)$ 同轨，将其对应的作用必须固定每个前段字母，进而 $g'\\in H_ugH_v$。这同时证明了足够性及对该观察的最小性。\n\n设 $u,v$ 各用 $k,l$ 个不同无符号轴，拼接时重合 $j$ 个，$\\max(0,k+l-6)\\le j\\le\\min(k,l)$，$d(s)=1+\\mathbf1_{s\\ge5}$。这一层有\n$$\n C_{k,l,j}=\\binom{k}{j}\\binom{l}{j}j! 2^j\\frac{d(k+l-j)}{d(k)d(l)}\n$$\n个共同轨道。推导：含 $s$ 个使用轴的步词逐轴固定其字母，故其稳定子大小为 $h_s=2^{6-s}(6-s)!d(s)/2$。固定前段，后段轨道的 $|H|/h_l$ 个具名步词均匀分布于所有 $l$ 元轴集（$A_6$ 在该集合族上传递）。交 $j$ 轴的比例为 $\\binom{k}{j}\\binom{6-k}{l-j}/\\binom6l$。每个共同轨道在固定前段的切片内有 $h_k/h_{k+l-j}$ 个后段。约分即得上式；两个因子分别说明正权单位分支数与合并后的观察类数。\n\n以两段各走三个不同轴的有序步词为例，按 $j=0,1,2,3$ 分层的类数依次为 $2,36,72,48$，具名后段数分别为 $48,432,432,48$。已执行对有序 Path-BRC 分支的精确检验：取前段 $(+1,+2,+3)$，列出后段所有 $6\\cdot5\\cdot4\\cdot 2^3=960$ 个带符号词，按前段稳定子的 24 种作用（对未用轴的偶置换及独立翻号）逐个划轨，得到上述两组整数。固定两段独立轨道后，如须识别全部 158 类，定长二进制接缝至少需 8 位；编号 158 类即可达到。正权质量仅在分支权重同样等变或实际被随框架输运时相应下降。\n\n串接第三段时，更新的左稳定子为 $H_u\\cap gH_vg^{-1}$，由整个累计前缀决定。仅存相邻两段的轨道读数会漏掉远端相互关系：$(+1,+2,+1)$ 与 $(+1,+2,+3)$ 的两个相邻二字轨道逐对相同，但两段端字母是否同轴不同。保留累计前缀代表、其稳定子及每次的相对双陪集，递归重建带切口的整段轨道。对绝对 Cell 地址或命名外部输入的读数，必须另携共同参考框架。\n\n**三力事件的选择障碍。** 假设某事件已由外部给出的合法性关系通过三力闭合检验，在当前观察中仅留下一个共同 Cell 锚点、标量时钟和三条不同轴上的无序等量带符号方向 $T=\\{a,b,c\\}$。以该 Cell 为相对锚点，并假定这个事件模型以及继步律对上述共同框架作用等变。则没有依赖此观察的等变确定性函数能够选出一个带符号原始继步。理由：$H_T$ 中有循环输运 $a\\mapsto b\\mapsto c\\mapsto a$ 且固定未用轴的带符号偶置换，因此六个参与轴方向均无法由全稳定子固定。其余每个轴允许独立翻号，故另外六个方向亦无共同不动点。标量时钟和锚点不打破这些对称。\n\n若下一步只能是三个参与方向中的一个，任何许可等变单值选择的状态增强至少须在这个观察上方有三个可区分状态（把任一增强状态用该三循环依次作用，选择出的三条方向不同）；标记一个参与方向足以达到这一下界。相同假设下，等变正权 BRC 在三方向上的权重必相等。这里没有把三步同时出现当作已通过 `TRIADIC_CLOSURE_E`，也未把步词长度认作心跳时长。物理续接所需的具体输入是一个有合法性见证的事件及其下一时刻观测；可据此检验分支标记、来向、局部场或具类型时钟中哪一项打破稳定子。\n\n[冻结任务书](https://github.com/awdawmip/enterprise-math/blob/9d09f6bc13b36a8d47d11b524fae4dd5254ac333/research_tasks/RS_X6_NATIVE_ROTATION_DYNAMICS_20260906.md) · [原有序 Path-BRC 框架作用](https://github.com/awdawmip/enterprise-math/blob/0e020615068df74e84d323325c1364029cc49641/research_artifacts/mcp/RS-X6-NATIVE-ROTATION-DYNAMICS/MCP-c618a61189764f23846a391a08518a1a/c1c9e1128e090ca4c3a7/X6_ORIENTED_TRIAD_SIGNED_C6_GROUP_AND_PATH_ACTION.md) · [11 月 16 日组合反例](https://github.com/awdawmip/enterprise-math/blob/9d09f6bc13b36a8d47d11b524fae4dd5254ac333/research_artifacts/mcp/RS-X6-NATIVE-ROTATION-DYNAMICS/MCP-c618a61189764f23846a391a08518a1a/0f0e002ae5e625394259/X6_SIGNED_WORD_ORBIT_SPLITTING_AND_CONCATENATION_20261116.md) · [P000 三力闭合谓词](https://github.com/awdawmip/enterprise-math/blob/a72226e2430ffa4786321ac86e7f0c599d5f0389/p000_reality_foundation.json)\n",
+      "display_title": "rotation.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/d5594c0ce188c80ed61041812dc848ed75ebad0c/research_notes/portable_direct/20261118_fair_queue_6b0fba/rotation.md",
+      "encoding": "utf-8",
+      "sha": "3cbfd0254c96fac732ab2f5227d6a08925dda67a"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

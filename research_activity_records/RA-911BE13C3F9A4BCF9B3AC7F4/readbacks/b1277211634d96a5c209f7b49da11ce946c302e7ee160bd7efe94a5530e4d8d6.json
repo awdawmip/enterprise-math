@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/deletion.md",
+    "ref": "d5594c0ce188c80ed61041812dc848ed75ebad0c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "codex-math-fair-20261118-6",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "## 固定六词路径表的精确相位直径\n\n积压任务 `RS-X6-DELETION-FIXED-TABLE-PHASE-RANGE`，发布 `TP2-D94CA0E6326E7518919F`。取有名 X/Y 正步的无放回删步核，相容塔贯穿所有深度。词序为 XXYY、XYXY、XYYX、YXXY、YXYX、YYXX。冻结表为 μ*=(1/4,1/12,1/4,1/12,1/12,1/4)。令 A 为极限面积（随机一对 X/Y 中 X 先于 Y 的频率），χ 为来源定义的正向、有理标签有限单位根观察，s=χ(1/2)=(1+i)/√2。以下是带推导的结果，限于本辅助观察。\n\n**定理。** 设 Z=Eχ(A)。μ* 全部相容延拓的切向读数 Re(conj(i s)Z) 恰充满 [−W/2,W/2]，其复读数集的整个直径亦等于\n\n    W=(2/7)[6√((4−√6−√2)/8)−1/√2]，\n    0.021728677752503435 < W < 0.021728677752503436。\n\n达到两端的是 Z₊=(1+6χ(7/12))/7、Z₋=(i+6χ(5/12))/7。全塔各有限词均需正概率时，可把两端的塔分别掺入任意小的既有全支撑 μ* 见证，其余量仍准确实现同一张表，所以上、下确界相同。\n\n**从完整层到外界。** 随机删除成一对求得 EA=1/2。两组不同名的 X/Y 作随机完美匹配，仅 XXYY 的两个匹配全成功，XYXY 的两个匹配中一个全成功，其余为零，因此 EA²=1/4+1/24=7/24。设 f(x)=Re(conj(i s)χ(x))，由冻结的有限单位根极限导数公式，f'''(x)=−(2α)³ Re(conj(s)χ(x))<0，α>0。令 P 为在 0 插值且在 b=7/12 同时匹配 f、f' 的二次多项式。Hermite 余项的符号由 f''' 与 x(x−b)² 决定，故 f≤P。ν₊=(δ₀+6δ_b)/7 具有指定的两矩，在 f=P 处达到上界；反射 ν₋ 在另一侧达到下界。有限单位根半角恒等式给出上面的根式。对真实塔作概率混合保留 μ*，故端点之间没有空隙。\n\n**六项约束确实取到等号。** 用一个含六 X、六 Y 的有序正步词当模板。记 cⱼ 为第 j 个 Y 之前的模板 X 数。对每个层深 N，各 N 个带名字的 X、Y 各自独立等权指派到本色的六个模板位置。按模板位置读出所有步，同色同位置均匀重命名。删去任何独立选定的具名子集仍服从同一机制。各色位置频率依大数律趋于 1/6，故其极限面积为 Σcⱼ/36。以下四种模板的面积全为 7/12；表中后六项是有序来源数，均以 6⁴ 为分母。\n\n| c | 塔的条件混合权 | XXYY | XYXY | XYYX | YXXY | YXYX | YYXX |\n|---|---:|---:|---:|---:|---:|---:|---:|\n| (0,0,3,6,6,6) | 1/12 | 387 | 108 | 18 | 522 | 72 | 189 |\n| (1,3,4,4,4,5) | 1/2 | 357 | 168 | 354 | 114 | 156 | 147 |\n| (1,4,4,4,4,4) | 1/4 | 411 | 60 | 450 | 90 | 120 | 165 |\n| (3,3,3,4,4,4) | 1/6 | 387 | 108 | 522 | 18 | 72 | 189 |\n\n四行归一混合为 (7/24,7/72,7/24,7/72,7/72,1/8)。再按 6/7 取此混合、1/7 取全 Y 后接全 X 的塔，六项逐个等于 μ*，面积律恰为 ν₊。反转模板与端点塔，六项在该反射下保持，面积变为 1−A，实现 ν₋。两矩松弛在此指定表的切向宽度上缺口为零。\n\n**为何其余方向也不会更宽。** 对任意同两矩面积律 ν，置 Kν(t)=E[(A−t)₊²]/2。函数 (x−t)₊² 的三阶分布导数为非负原子，由上面的二次 Hermite 余项（先以非负光滑核逼近，再取极限），K₊≤Kν≤K₋。记 L=K₋−K₊。A 的反射交换 ν₊、ν₋，且二者对 (A−t)² 有同一积分，故 L(t)=L(1−t)。任两面积律的读数在实投影 g 上之差至多 ∫ L|g'''|，这是把二次 Taylor 多项式积分消去后对三阶积分余项应用 Fubini 的结果。写 U=conj(s)χ(t)=a+i b'，则 a≥|b'|，反射点给共轭 U。每个单位复方向的两点三阶导数绝对值之和除以 (2α)³ 后具有形式\n\n    |a c+b' d|+|a c−b' d|=2 max(|ac|,|b'd|)≤2a，   c²+d²=1。\n\n结合 L 的对称性，任一方向的差都不超过 ∫L|f'''|=W。等号由上述两端塔在切向取得。\n\n**精确复核与对照。** 实际调用固定 `signed_brc.py` 的 `shortest_path_multiplicity((6,6,0,0,0,0))` 得 924 条带固定正轴方向的颜色词，所用 Git blob 为 `300a96e3dc24bf6fff73743037a0347a8bc83176`。在 Σc=21 的 51 种模板中用线性可行性寻找候选，再独立枚举四个证书模板各 6⁴ 组有序来源并用有理数核验六项和权重。手算每行也只需取两个 Y 列 a≤b，以重数 1（同列）或 2（异列）累加 (a²,2a(b−a),2a(6−b),(b−a)²,2(b−a)(6−b),(6−b)²)。根式的显示区间用网格 10⁻⁸⁰ 上的整数平方根逐级向外取整得到，增大网格分母可任意缩小包围。均匀表给 EA²=1/4，面积方差为零，切向宽度为零。既有 μ* 两塔的差 (1−ζ₁₂)³/8 正好沿 i s 方向给出正的内界；本定理使内外界吻合。其它给定表可用同一模板可行性检验，但其两矩外界是否可达取决于全部六项。\n\n[任务与冻结输入](https://github.com/awdawmip/enterprise-math/blob/7b32ae2ad9d1c13a13ff4668d1d218adda99390d/research_tasks/RS-X6-DELETION-FIXED-TABLE-PHASE-RANGE.md) · [已有同表见证](https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/witness3.md) · [有限单位根投影](https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/phase2.md) · [固定 BRC 内核](https://github.com/awdawmip/enterprise-math/blob/c4d450536bf71ed87fd74555295ec60485262f0a/experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py)\n",
+      "display_title": "deletion.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/d5594c0ce188c80ed61041812dc848ed75ebad0c/research_notes/portable_direct/20261118_fair_queue_6b0fba/deletion.md",
+      "encoding": "utf-8",
+      "sha": "6519f0314a32297fc8d4008cfe00ae4ae962622e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
