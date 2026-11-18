@@ -1,0 +1,148 @@
+{
+  "midpoint_crt_moduli_checked": 72,
+  "midpoint_mod_three": {
+    "limit": 100000,
+    "prime_factors_coprime_to_6": true,
+    "predicted": [
+      "1/2",
+      "1/4",
+      "1/4"
+    ],
+    "depth_prefix_counts": [
+      [
+        63659,
+        30440,
+        30404
+      ],
+      [
+        127577,
+        62294,
+        62261
+      ],
+      [
+        191724,
+        94020,
+        94064
+      ],
+      [
+        255431,
+        125817,
+        125895
+      ]
+    ]
+  },
+  "open_square": {
+    "max_center": 501,
+    "checked": 1742,
+    "occupied": 594
+  },
+  "direct_threshold_comparisons": 40,
+  "samples": [
+    {
+      "limit": 1000,
+      "left_candidates": 4589,
+      "left_occupied": 1401,
+      "center_candidates": 4440,
+      "center_occupied": 1353,
+      "discrepancy": 48,
+      "depth_cuts": [
+        "1/16",
+        "1/4",
+        "9/16",
+        "1"
+      ],
+      "depth_prefix_counts": [
+        300,
+        661,
+        1030,
+        1401
+      ]
+    },
+    {
+      "limit": 10000,
+      "left_candidates": 109806,
+      "left_occupied": 25411,
+      "center_candidates": 109060,
+      "center_occupied": 25230,
+      "discrepancy": 181,
+      "depth_cuts": [
+        "1/16",
+        "1/4",
+        "9/16",
+        "1"
+      ],
+      "depth_prefix_counts": [
+        6062,
+        12497,
+        18979,
+        25411
+      ]
+    },
+    {
+      "limit": 100000,
+      "left_candidates": 2750436,
+      "left_occupied": 507145,
+      "center_candidates": 2741692,
+      "center_occupied": 505640,
+      "discrepancy": 1505,
+      "depth_cuts": [
+        "1/16",
+        "1/4",
+        "9/16",
+        "1"
+      ],
+      "depth_prefix_counts": [
+        124503,
+        252133,
+        379809,
+        507145
+      ]
+    },
+    {
+      "limit": 1000000,
+      "left_candidates": 71769820,
+      "left_occupied": 10944394,
+      "center_candidates": 71703778,
+      "center_occupied": 10934295,
+      "discrepancy": 10099,
+      "depth_cuts": [
+        "1/16",
+        "1/4",
+        "9/16",
+        "1"
+      ],
+      "depth_prefix_counts": [
+        2718189,
+        5459763,
+        8200980,
+        10944394
+      ]
+    }
+  ],
+  "boundary": [
+    {
+      "Y": 128,
+      "sum_discrepancy": 1596,
+      "interior_radius_sum": 1626,
+      "endpoint_correction": -30,
+      "min_D": 2,
+      "max_D": 28
+    },
+    {
+      "Y": 512,
+      "sum_discrepancy": 16328,
+      "interior_radius_sum": 17057,
+      "endpoint_correction": -729,
+      "min_D": 9,
+      "max_D": 62
+    },
+    {
+      "Y": 2048,
+      "sum_discrepancy": 188930,
+      "interior_radius_sum": 191698,
+      "endpoint_correction": -2768,
+      "min_D": 26,
+      "max_D": 167
+    }
+  ]
+}
