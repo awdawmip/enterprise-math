@@ -1,0 +1,47 @@
+{
+  "schema": "A3_A4_GENERATED_SUPPORT_QUERY_TYPED_CERTIFICATE_V1",
+  "status": "PASS",
+  "task_id": "RS-A3-A4-GENERATED-SUPPORT",
+  "researcher_id": "EM-A3A4GS-4F7C21",
+  "claim_id": "chatgpt-a3a4gs-20260830-1930-4f7c21",
+  "execution_branch": "research/a3-a4-generated-support-quotient-interpolation-em-a3a4gs-4f7c21",
+  "execution_branch_base": "d1abe92d79c42b0b5e955607f179caba29b11fd6",
+  "theorem_owner": "bridge/a3-a4-generated-support-v3",
+  "owner_head": "bae63a2aacbccd8fa41be8e842ce4a1a148b4883",
+  "dependency_pins": {
+    "a3_a4_support_bridge_blob": "sha1:ee66d0f6d9846171ff732204d5337fb3c0087d75",
+    "relation_quotient_head": "4d6f66e01c797ebc66b08748bf9382302789c2e2",
+    "hidden_band_predicate_blob": "sha1:756bf3a9df5306ba82556e11c8f9b6e8737daeee",
+    "guard_quotient_module_blob": "sha1:4718a98dde4cc0374c3de3a7760e04f2be207d6f",
+    "two_guard_coset_blob": "sha1:9487fa4ce12c70e6b23f4d428d49923318cc3550",
+    "intrinsic_geometry_blob": "sha1:a1a8dc4d1ca53fde2ca00d9b944c1b8aa346a152",
+    "research_relay": "Issue #82"
+  },
+  "tool_reuse": {
+    "T6_OPERATION_SAFE_QUOTIENT": "REUSE_APPLIED",
+    "T8_RELATION_OBSERVABLE_SPECTRUM": "REUSE_APPLIED",
+    "A3_HIDDEN_BAND_PREDICATE": "REUSE_APPLIED_FROM_FROZEN_RELATION_QUOTIENT_HEAD",
+    "A3_GUARD_QUOTIENT_MODULE": "REUSE_APPLIED_FROM_FROZEN_RELATION_QUOTIENT_HEAD",
+    "P022_COMPATIBLE_INTRINSIC_GRAPH_DISTANCE": "REUSE_APPLIED_AS_POSITIVE_CONTROL"
+  },
+  "classified_boundary": {
+    "pairwise_rank_one": "For scalar hidden fiber z0+qZ and band |z|<=R, q=0 is exact; q>0 has a supported representative iff least_absolute_residue(z0,q)<=R, while unsupported representatives always exist on the full integer fiber. Therefore (R,residue) is an exact fiber-profile certificate, not a universal fine-state truth decoder.",
+    "universal_cross_support": "For A={0,1}, B={2,3} with unit capacities, W(K_A) has rank 2 and Smith factors (1,2), so Z^4/W(K_A) is Z^2 plus Z/2Z. One coarse relation scalar or one rank-one residue cannot encode universal fine cross-support.",
+    "same_coarse_opposite_truth": "Coarse totals (10,10) contain both (5,5,5,5), whose four radius-zero cross relations vanish, and (0,10,0,10), whose cross relations are (0,-10,10,0). Both have coarse cross relation zero.",
+    "p022_graph_interpolation": "For any connected undirected simple-graph shortest-step metric d, R_r ; R_s = R_(r+s) for all nonnegative integer r,s. A shortest path supplies the intermediate witness. This is a geometry-side positive control and does not identify the A3-generated relation metric with a P022 graph metric.",
+    "transfer_gate": "A3_GENERATED_RADIUS_METRIC_EQUALS_P022_INTRINSIC_GRAPH_DISTANCE must be proved for a specific geometry before graph geodesicity can be imported back into the A3->A4 bridge. Without that identification, the two theories remain composable but independent."
+  },
+  "checker": {
+    "path": "research_checks/A3_A4_GENERATED_SUPPORT_QUOTIENT_INTERPOLATION_CHECK_20260830.py",
+    "git_blob_sha1": "sha1:388593a440816b129b13ac0094030ef327a939f5",
+    "sha256": "sha256:fe22cf7698949461e80c1c3bf1c1884e989cb0dc4f79e49859aba4578fbf34e3",
+    "observed": "PASS checks=337072 a3=77175 rank1_band=8784 cancellation=10 graph=251103 connected_graphs=771 by_order={2: 1, 3: 4, 4: 38, 5: 728} representatives={'path6': 1296, 'cycle6': 576, 'grid3x3': 2025}"
+  },
+  "scope_boundary": {
+    "foundation_mutated": false,
+    "canonical_bridge_mutated": false,
+    "new_global_tool_claimed": false,
+    "p000_retyping": "All A3/A4 three-axis material is retained at research-slice strength under P000; no claim is made about the full 6D native spatial ontology.",
+    "driver_review_required": true
+  }
+}
