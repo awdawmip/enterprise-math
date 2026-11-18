@@ -1,0 +1,165 @@
+{
+  "schema": "PREFIX911_R6_EXACT_CENSUS_V1",
+  "date": "2026-11-19",
+  "frozen_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "domain": {
+    "p": 32,
+    "odd_modulus_start": 262145,
+    "odd_modulus_end": 524287,
+    "moduli_count": 131072,
+    "i_min": 1,
+    "i_max": 22,
+    "k_min": 9,
+    "k_max": 12
+  },
+  "predecessor": {
+    "name": "PREFIX910",
+    "source_commit": "762febb58bbe0f4691e132c9a5bd0ccf1670170d",
+    "certified_collision_pairs": 7784240442,
+    "regression_prior_oriented_new": 1785732,
+    "regression_prior_oriented_transpose_overlap": 8
+  },
+  "families": [
+    {
+      "k": 9,
+      "ell": 2,
+      "witnesses": 29127,
+      "oriented": 29127,
+      "predecessor_excluded": 9910
+    },
+    {
+      "k": 9,
+      "ell": 4,
+      "witnesses": 58254,
+      "oriented": 58254,
+      "predecessor_excluded": 27264
+    },
+    {
+      "k": 9,
+      "ell": 8,
+      "witnesses": 524287,
+      "oriented": 511544,
+      "predecessor_excluded": 269651
+    },
+    {
+      "k": 10,
+      "ell": 1,
+      "witnesses": 26216,
+      "oriented": 26216,
+      "predecessor_excluded": 20031
+    },
+    {
+      "k": 10,
+      "ell": 3,
+      "witnesses": 34952,
+      "oriented": 34952,
+      "predecessor_excluded": 16415
+    },
+    {
+      "k": 10,
+      "ell": 7,
+      "witnesses": 344528,
+      "oriented": 337038,
+      "predecessor_excluded": 165847
+    },
+    {
+      "k": 10,
+      "ell": 9,
+      "witnesses": 480596,
+      "oriented": 468945,
+      "predecessor_excluded": 247684
+    },
+    {
+      "k": 11,
+      "ell": 2,
+      "witnesses": 35748,
+      "oriented": 35748,
+      "predecessor_excluded": 19367
+    },
+    {
+      "k": 11,
+      "ell": 4,
+      "witnesses": 41704,
+      "oriented": 41704,
+      "predecessor_excluded": 20049
+    },
+    {
+      "k": 11,
+      "ell": 6,
+      "witnesses": 135038,
+      "oriented": 133052,
+      "predecessor_excluded": 52657
+    },
+    {
+      "k": 11,
+      "ell": 8,
+      "witnesses": 336619,
+      "oriented": 329171,
+      "predecessor_excluded": 164196
+    },
+    {
+      "k": 11,
+      "ell": 10,
+      "witnesses": 443261,
+      "oriented": 432537,
+      "predecessor_excluded": 228990
+    },
+    {
+      "k": 12,
+      "ell": 1,
+      "witnesses": 21846,
+      "oriented": 21846,
+      "predecessor_excluded": 12048
+    },
+    {
+      "k": 12,
+      "ell": 5,
+      "witnesses": 43690,
+      "oriented": 43690,
+      "predecessor_excluded": 21663
+    },
+    {
+      "k": 12,
+      "ell": 7,
+      "witnesses": 174762,
+      "oriented": 171641,
+      "predecessor_excluded": 74843
+    },
+    {
+      "k": 12,
+      "ell": 11,
+      "witnesses": 411088,
+      "oriented": 401158,
+      "predecessor_excluded": 211648
+    }
+  ],
+  "union": {
+    "unique_positive_pairs_after_predecessor": 1562215,
+    "positive_negative_transpose_overlap": 34,
+    "net_ordered_new": 3124396,
+    "certified_pairs": 7787364838,
+    "unclassified_pairs": 9392504346,
+    "total_pairs": 17179869184
+  },
+  "first_new_example": {
+    "a": 278061,
+    "b": 509757,
+    "k": 11,
+    "ell": 6,
+    "i": 7,
+    "s": 1,
+    "first_track": [
+      0,
+      128
+    ],
+    "second_track": [
+      3058671,
+      3058670
+    ]
+  },
+  "verification": {
+    "primary": "C++17 -O3 full classes and exact set de-duplication",
+    "independent": "Python3 modular progression opposite-endpoint solve and per-family recount",
+    "evidence_grade": "AUTHOR_PROVED / EXACT_FINITE_COMPUTED / INDEPENDENT_FAMILY_RECOUNT / NOT_INDEPENDENTLY_REVIEWED"
+  }
+}
