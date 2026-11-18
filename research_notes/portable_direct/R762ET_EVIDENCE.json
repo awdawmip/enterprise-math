@@ -1,0 +1,88 @@
+{
+  "schema": "R762ET_EXACT_TRANSIENT_PERIOD_CERTIFICATE_V1",
+  "model": "P=1+X+Z+XY+YZ+XYZ in Z[(Z/9Z)^3]",
+  "integer_arithmetic": "coefficients reduced mod 3^7=2187, sufficient for all f9(n)<=6 at n<=26",
+  "checked_n": [
+    0,
+    26
+  ],
+  "positions": 729,
+  "six_named_branches": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "lower_bound_sharp_and_augmentation_checks": 27,
+  "shadow_equal_8_26": true,
+  "shadow_8_sha256": "3f5db6486169453804d0fdda1218458a461679c73f691493e3508c8da6ab73a1",
+  "shadow_26_sha256": "3f5db6486169453804d0fdda1218458a461679c73f691493e3508c8da6ab73a1",
+  "shadow_7_sha256": "015860ec798826fb9fdc9af211eb6c335fe0becb96bbd9984e91fa78c4dbe465",
+  "shadow_25_sha256": "b6bd140d1e02cc38b9d0d8518d05f0b61cbe5cbdeb512ac7b60edd9b8851cba6",
+  "shadow_7_vs_25_witness_linear_index": 0,
+  "shadow_7_vs_25_value_pair": [
+    1,
+    0
+  ],
+  "supports_n7_n8_n9_n25_n26": [
+    108,
+    324,
+    27,
+    450,
+    324
+  ],
+  "supports_n9_to_n26": [
+    27,
+    162,
+    486,
+    717,
+    108,
+    324,
+    525,
+    522,
+    468,
+    18,
+    108,
+    324,
+    519,
+    360,
+    468,
+    237,
+    450,
+    324
+  ],
+  "period_18_unique_support_27_at_n9": true,
+  "global_theorem_dependencies": [
+    "R762ES recurrence proof for S9(n+18)=S9(n) at n>=9",
+    "R762ER exact Frobenius factorization for q=9h",
+    "R762ER all-horizon nonvanishing of normalized shadows"
+  ],
+  "independent_mathematical_review": "NOT_REVIEWED",
+  "result": "PASS"
+}
