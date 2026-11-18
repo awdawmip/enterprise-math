@@ -1,0 +1,72 @@
+## 三次 Gauss 和 · 一阶矩中惰性素数的精确校正
+
+**对每个实数 $X\ge1$，全体 primary 艾森斯坦素元与有理素数的两种求和之间，恰差一个普通素数计数：**
+$$
+\sum_{\substack{\varpi\ {\rm primary\ prime}\\N\varpi\le X}}G(\varpi)
+=\sum_{p\le X}\frac{S_p}{\sqrt p}
++\#\{q\le\sqrt X:q\ {\rm prime},\ q\equiv2\pmod3\}.
+$$
+冻结稿件已经给出分裂素数的逐对等式，且将惰性项估为 $O(\sqrt X)$。这里逐项求出每个惰性项为 $+1$。由固定模 3 的算术级数素数定理，右端最后一项本身渐近于 $\sqrt X/\log X$。这是两种求和口径之间的精确差；稿件的一阶矩误差允许大于这个量。
+
+### 分裂与惰性两项分别怎样计算
+
+令 $\omega^2+\omega+1=0$，$\mathcal O=\mathbf Z[\omega]$，$\mathrm e(x)=e^{2\pi i x}$。取 $\varpi\equiv1\bmod 3$，三次剩余符号 $\chi_\varpi$ 在非单位处补零。为保留加性特征，设
+$$
+G_h(\varpi)=(N\varpi)^{-1/2}\sum_{v\bmod\varpi}\chi_\varpi(v)\,
+ \mathrm e\!\left(h\operatorname{Tr}(v/\varpi)\right),\qquad
+S_p(h)=\sum_{x\bmod p}\mathrm e(hx^3/p),\quad h\in\mathbf Z .
+$$
+无下标时 $h=1$。
+
+若 $p\equiv1\pmod3$，写 $\varpi=A+B\omega,\ \bar\varpi=(A-B)-B\omega$。取 $\mathbf F_p$ 的整数代表 $v=x$，则 $\operatorname{Tr}(v/\varpi)=x(2A-B)/p$。加性系数 $T=2A-B$ 模 $\varpi$ 等于 $\bar\varpi$，非零。三次互反及共轭给
+$\chi_\varpi(\bar\varpi)=\chi_{\bar\varpi}(\varpi)=\overline{\chi_\varpi(\bar\varpi)}=1$。
+换元去掉 $T$。两种 primary 代表在整数上的三次符号互为共轭；$-1$ 是立方，故其两个 Gauss 和亦共轭。每个 $y\in\mathbf F_p$ 的立方根数是 $1+\chi_\varpi(y)+\overline{\chi_\varpi(y)}$，对零也成立。于是
+$$
+G_h(\varpi)+G_h(\bar\varpi)
+=\frac{S_p(h)-p\mathbf1_{p\mid h}}{\sqrt p}.
+$$
+下表保留两枚实际素元。用 $u=-A/B\bmod p$ 表示 $\omega$ 在 $\mathcal O/(\varpi)$ 中的像；$\bar u$ 是另一素元所给的像。两者并列使相位约定可以重算。
+
+| $p$ | $(A,B)$ | 共轭 $(A-B,-B)$ | $u,\bar u$ | $T\bmod p$ |
+|---:|---:|---:|---:|---:|
+| 7 | $(1,3)$ | $(-2,-3)$ | 2, 4 | 6 |
+| 13 | $(4,3)$ | $(1,-3)$ | 3, 9 | 5 |
+| 19 | $(-2,3)$ | $(-5,-3)$ | 7, 11 | 12 |
+| 31 | $(1,6)$ | $(-5,-6)$ | 5, 25 | 27 |
+
+若 $q\equiv2\pmod3$，唯一 primary 代表是 $-q$，范数 $q^2$。在 $\mathbf F_{q^2}$ 上，三次特征 $\chi$ 在 $\mathbf F_q^\times$ 上恒为一，因为 $3\nmid q-1$。故它在过原点的每条 $\mathbf F_q$ 直线的非零点上常值，记该值为 $\chi(L)$。全部 $q+1$ 条线满足 $\sum_L\chi(L)=0$。对迹零线 $L_0$ 的非零代表 $v_0$，有 $v_0^q=-v_0$，故 $v_0^2\in\mathbf F_q^\times$，$\chi(L_0)^2=1$ 强制 $\chi(L_0)=1$；这也覆盖特征二。迹零纤维的特征和为 $q-1$。每个非零迹纤维与每条非迹零线相交一次，故其特征和都为 $-1$。对这 $q$ 个迹箱作加性 Fourier 和，得到
+$$
+G_h(-q)=\mathbf1_{q\nmid h}.
+$$
+同一个 $q$ 在有理数域上，立方置换 $\mathbf F_q$，所以 $S_q(h)=q\mathbf1_{q\mid h}$。分歧素数 3 没有 primary 素元贡献，且 $x^3=x\bmod3$，相应有理修正也为零。
+
+### 任意整数倍频和权函数
+
+将以上各素数的等式相加，对任意有限支撑的范数权 $W$ 有
+$$
+\sum_{\varpi} W(N\varpi)G_h(\varpi)
+=\sum_p W(p)\frac{S_p(h)-p\mathbf1_{p\mid h}}{\sqrt p}
++\sum_{\substack{q\equiv2\ (3)\\q\nmid h}}W(q^2),
+$$
+右侧两个求和均取有理素数，左侧取 primary 素元。$h=0$ 时两端同时为零。选择锐截止 $W=\mathbf1_{[1,X]}$ 和 $h=1$ 得开头公式。例如 $X=121$ 包括 $2^2,5^2,11^2$，惰性差恰为 3；改 $h=30$ 后只剩 $11^2$，差为 1。
+
+另有一个可随 $X$ 变化的立方倍频结论。令 $A_h(X)=\sum_{N\varpi\le X}G_h(\varpi)$，取任意非零整数 $m$。若 $\varpi\nmid m$，换元 $v\mapsto m^3v$ 完全保持三次特征；若 $\varpi\mid m$，加性特征恒一，Gauss 和为零。所以
+$$
+A_{m^3}(X)-A_1(X)
+=-\!\!\sum_{\substack{\varpi\mid m\\N\varpi\le X}}G_1(\varpi),
+\qquad |A_{m^3}(X)-A_1(X)|\le2\,\omega_{\rm pf}(|m|),
+$$
+其中 $\omega_{\rm pf}$ 是不同有理素因子数。界使用非平凡乘性特征与非平凡加性特征的标准归一化 Gauss 和模长一，每个有理素数上方至多两枚 primary 素元。如果采用外部锐截止一阶矩，则任何满足 $\sup_m\omega_{\rm pf}(|m|)=o(X^{5/6}/\log X)$ 的非零立方倍频族共享它的首项。相反，取 $m=\prod_{p\le X}p$ 时 $A_{m^3}(X)=0$，给出无约束外推的明确边界。这里改变的是有理加性系数；固定或增长的角 Fourier 模是另一类观察。
+
+### 两个常数与证据等级
+
+稿件的解析输入是锐二分区间上的比较 $\sum_{X<N\varpi\le2X}(G(\varpi)-c_*N(\varpi)^{-1/6})=o(X^{5/6}/\log X)$，其中 $c_*=(2\pi)^{2/3}/(3\Gamma(2/3))$。在这个输入下，累加二分区间，再对素理想计数 $\sim y/\log y$ 分部求和，模型积分为
+$$
+c_*\int_2^X\frac{t^{-1/6}}{\log t}\,dt
+ \sim\frac65c_*\frac{X^{5/6}}{\log X}.
+$$
+$6/5$ 来自对 $t^{-1/6}$ 的积分。对有理素数采用稿件约定 $S_p/(2\sqrt p)$ 时，逐项配对给出恰为 $\frac12(A_1(X)-\#\{q\equiv2\ (3):q^2\le X\})$，故主项常数为 $(3/5)c_*$。从一般平滑权移到锐截止还需控制靠近边界的误差，该部分使用冻结稿件的解析比较。本文独立推出有限配对、惰性精确校正及倍频推论，没有重验建立该解析比较所需的色散、停止或去平滑估计。
+
+配套 `python gauss_check.py` 使用 Python 标准库，在分圆多项式商环内比较整数系数。对 $p\le257$ 的全部 25 个分裂素数做 225 个素数–倍频检查；对 $q\le103$ 的全部 14 个惰性素数直接枚举 $\mathbf F_{q^2}$ 并做 125 个检查；另对 3 做 5 个检查。参数 `--pairs` 输出全部原始代表、共轭代表及加性系数。本结果可供 E 分支在比较观察尺度时逐项扣除惰性贡献；相位保真编码及 B/C/D 的解析问题仍各有其输入。
+
+[冻结任务书](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/research_tasks/RS-OAI7-023-A-20261007-6F2A81.md) · [冻结稿件定义与两种计数](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/paper.tex) · [锐截止比较](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/perron.tex) · [E 分支已有观察尺度结果](https://github.com/awdawmip/enterprise-math/blob/240d5c51e4054d84c2b7813296a737fd12bc3326/research_artifacts/mcp/RS-OAI7-023-E-20261007-6F2A81/MCP-6634360390c64e0788a1307fbc6d5fcb/aa2da4b0c397b893217c/_checkpoint.json)。

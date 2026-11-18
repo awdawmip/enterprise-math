@@ -1,0 +1,119 @@
+{
+  "shared_observable": "raw full-integer road, fixed origin, c_a=1/zeta(1+a), midpoint B and raw Q",
+  "bindings": [
+    {
+      "task": "RH-ROAD-TAIL-20260909",
+      "publication": "TP2-DCE65A0EFCE8151C39BD",
+      "dependencies": [
+        "RH-ROAD-AUDIT-20260909",
+        "RH-ROAD-KERNEL-20260909"
+      ],
+      "deliverable": "moving-prefix upper and escaping-shell lower bounds"
+    },
+    {
+      "task": "RS-RH-COMPOSITE-ROAD-ESCAPING-TAIL",
+      "publication": "TP2-C026B13F6E5D1516A91C",
+      "dependencies": [
+        "RS-RH-COMPOSITE-ROAD-BASELINE-AUDIT"
+      ],
+      "deliverable": "moving-window reduction plus outward-rounded raw Green energies"
+    }
+  ],
+  "bounds": [
+    {
+      "ref": "(1)",
+      "scope": "all 0<a<1, x>=1",
+      "status": "unconditional",
+      "value": "|U_a(x)-a(psi(x)-x)| <= a^2 x (1+log(x)^2/2)"
+    },
+    {
+      "ref": "(3)",
+      "scope": "0<=lambda<1.6953672, a down to 0",
+      "status": "unconditional",
+      "value": "M=floor(exp(log(1/a)+lambda sqrt(log(1/a)))); D[1,M+1), Q[0,M] are o(a)"
+    },
+    {
+      "ref": "(5)",
+      "scope": "sufficiently large integer X, 0<a<1",
+      "status": "unconditional",
+      "value": "D[X,2X) >= a^2 [(1/(2 sqrt(5374))-a sqrt(X)(1+(log(2X))^2/2))_+^2 - 1/(12X)]"
+    },
+    {
+      "ref": "(6), sharpened via (7)",
+      "scope": "0<delta<2, a down to 0",
+      "status": "unconditional",
+      "value": "liminf D[ceil(a^(-delta)),infinity)/(a^2 log(1/a)) >= (2-delta)(2+gamma-log(4 pi))"
+    },
+    {
+      "ref": "(7)",
+      "scope": "0<delta<eta<2, a down to 0",
+      "status": "conditional dichotomy",
+      "value": "D[ceil(a^(-delta)),ceil(a^(-eta)))/(a^2 log(1/a)) -> (eta-delta)sum_{distinct rho}m_rho^2/|rho|^2 under RH; -> +infinity under its negation"
+    }
+  ],
+  "finite_protocol": {
+    "H": 128,
+    "zeta_cutoff": 4096,
+    "grid": "2^-80",
+    "atanh_max_exponent": 47,
+    "D_integer_range": [
+      1,
+      127
+    ],
+    "Q_real_range": [
+      0,
+      128
+    ],
+    "rows": [
+      {
+        "k": 4,
+        "c": [
+          "0.2176218376",
+          "0.2176232827"
+        ],
+        "D": [
+          "0.2024812297",
+          "0.2024879220"
+        ],
+        "raw_Q": [
+          "0.1678160444",
+          "0.1679712191"
+        ],
+        "weight_width_grid_units": 2
+      },
+      {
+        "k": 8,
+        "c": [
+          "0.1164648114",
+          "0.1164659822"
+        ],
+        "D": [
+          "0.0591276901",
+          "0.0591306577"
+        ],
+        "raw_Q": [
+          "0.0490081987",
+          "0.0490754432"
+        ],
+        "weight_width_grid_units": 2
+      },
+      {
+        "k": 16,
+        "c": [
+          "0.0603070101",
+          "0.0603075381"
+        ],
+        "D": [
+          "0.0160409584",
+          "0.0160416629"
+        ],
+        "raw_Q": [
+          "0.0133022620",
+          "0.0133179602"
+        ],
+        "weight_width_grid_units": 2
+      }
+    ]
+  },
+  "open": "unconditional O(a) upper bound on the remaining infinite tail"
+}
