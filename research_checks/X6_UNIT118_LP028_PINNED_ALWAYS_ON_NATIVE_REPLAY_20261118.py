@@ -84,6 +84,7 @@ def run(root: Path):
     for f in functions:
         if counters[f]!=EXPECTED_NATIVE_COMPARISONS:
             raise RuntimeError(f'actual native calls {f}={counters[f]}, expected {EXPECTED_NATIVE_COMPARISONS}')
+    validated_native_counts = dict(sorted(counters.items()))
     # Fault injection only in this independent module namespace. The pristine
     # original source and imported native kernel are not edited.
     old=mod.shortest_path_multiplicity
@@ -101,7 +102,7 @@ def run(root: Path):
       'original_source':ORIGINAL_REL,
       'original_blob':ORIGINAL_BLOB,
       'actual_guards_lifted':guards,
-      'actual_native_call_counts':dict(sorted(counters.items())),
+      'actual_native_call_counts':validated_native_counts,
       'fault_injection_rejected':mutation_rejected,
       'original_stdout_sha256':sha256(output.encode()).hexdigest(),
       'original_stdout_final_line':output.strip().splitlines()[-1],
