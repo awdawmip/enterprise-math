@@ -1,0 +1,252 @@
+{
+  "schema": "ENTERPRISE_MATH_NATIVE_BRC16943_EC49FSZ_3D_PRISM_EXACT_V1",
+  "date": "2026-11-18",
+  "scientific_source_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "named_profiles": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "model": {
+    "raw_configurations": 310,
+    "named_profiles": 141,
+    "physical_observers": 228,
+    "prior": "uniform",
+    "decision": "adaptive strict-splitting original physical-index query tree",
+    "normalization": "F=141V/t"
+  },
+  "region": {
+    "a": [
+      "1/2",
+      "133/246"
+    ],
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "1/2",
+      "21/32"
+    ]
+  },
+  "direct_plane": [
+    "319",
+    "18",
+    "75",
+    "141"
+  ],
+  "swapped_planes": [
+    [
+      "315",
+      "141",
+      "10",
+      "77"
+    ],
+    [
+      "323",
+      "89",
+      "12",
+      "141"
+    ]
+  ],
+  "switched_surface": "64z=8+52a-2b",
+  "sharp_gap": [
+    "441/128",
+    "161/16"
+  ],
+  "sharp_a": "133/246",
+  "witness_uses": {
+    "direct": [
+      319,
+      18,
+      75,
+      141
+    ],
+    "swapped_low_z": [
+      315,
+      10,
+      141,
+      77
+    ],
+    "swapped_high_z": [
+      323,
+      12,
+      89,
+      141
+    ]
+  },
+  "anchor_fields": [
+    "a",
+    "b",
+    "z",
+    "Bellman_F",
+    "memoized_subset_states"
+  ],
+  "oracle_anchors": {
+    "D": [
+      [
+        "1/2",
+        "7/16",
+        "1/2",
+        "3307/16",
+        10579
+      ],
+      [
+        "1/2",
+        "7/16",
+        "21/32",
+        "5909/32",
+        10014
+      ],
+      [
+        "1/2",
+        "57/128",
+        "1/2",
+        "26381/128",
+        10551
+      ],
+      [
+        "1/2",
+        "57/128",
+        "21/32",
+        "23561/128",
+        9960
+      ],
+      [
+        "133/246",
+        "7/16",
+        "1/2",
+        "135107/656",
+        10475
+      ],
+      [
+        "133/246",
+        "7/16",
+        "21/32",
+        "241309/1312",
+        9985
+      ],
+      [
+        "133/246",
+        "57/128",
+        "1/2",
+        "1077781/5248",
+        10444
+      ],
+      [
+        "133/246",
+        "57/128",
+        "21/32",
+        "962161/5248",
+        9949
+      ]
+    ],
+    "S": [
+      [
+        "1/2",
+        "7/16",
+        "1/2",
+        "1613/8",
+        10286
+      ],
+      [
+        "1/2",
+        "7/16",
+        "265/512",
+        "102539/512",
+        10202
+      ],
+      [
+        "1/2",
+        "7/16",
+        "21/32",
+        "5783/32",
+        9568
+      ],
+      [
+        "1/2",
+        "57/128",
+        "1/2",
+        "12899/64",
+        10286
+      ],
+      [
+        "1/2",
+        "57/128",
+        "2119/4096",
+        "820069/4096",
+        10197
+      ],
+      [
+        "1/2",
+        "57/128",
+        "21/32",
+        "1445/8",
+        9533
+      ],
+      [
+        "133/246",
+        "7/16",
+        "1/2",
+        "64253/328",
+        9966
+      ],
+      [
+        "133/246",
+        "7/16",
+        "34675/62976",
+        "12091177/62976",
+        9708
+      ],
+      [
+        "133/246",
+        "7/16",
+        "21/32",
+        "697069/3936",
+        9055
+      ],
+      [
+        "133/246",
+        "57/128",
+        "1/2",
+        "513819/2624",
+        9966
+      ],
+      [
+        "133/246",
+        "57/128",
+        "277277/503808",
+        "96699527/503808",
+        9707
+      ],
+      [
+        "133/246",
+        "57/128",
+        "21/32",
+        "174175/984",
+        9055
+      ]
+    ]
+  },
+  "independent_raw_94_family": [
+    {
+      "a": "133/246",
+      "b": "7/16",
+      "z": "34675/62976",
+      "value": "12091177/62976",
+      "memoized_states": 8998
+    },
+    {
+      "a": "133/246",
+      "b": "57/128",
+      "z": "277277/503808",
+      "value": "96699527/503808",
+      "memoized_states": 8992
+    }
+  ],
+  "exact_arithmetic": true,
+  "all_20_anchors_checked_native": true,
+  "three_full_named_profile_witnesses_replayed": true,
+  "proof_method": "pointwise-minimum concavity plus convex policy polyhedron vertex certificates and feasible native trees",
+  "status": "AUTHOR_PROVED_EXACT_PRIMARY_20_ANCHORS_INDEPENDENT_2_NOT_REVIEWED",
+  "next": "Extend the moving boundaries to a>133/246 or z<1/2 without assuming these affine menus remain optimal"
+}
