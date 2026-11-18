@@ -84,7 +84,7 @@ def selftest():
         for q1 in (3, 5, 7, 9, 11):
             for q2 in (3, 5, 7, 9, 11):
                 brute = len({(x % q1, x % q2) for x in range(n)}) < n
-                assert brute == (q1 // gcd(q1, q2)) * q2 < n
+                assert brute == ((q1 // gcd(q1, q2)) * q2 < n)
     assert len(S) == len(set(S)) == 16
     assert all(A <= s <= B and s % 2 for s in S)
 
