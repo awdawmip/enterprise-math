@@ -125,6 +125,5 @@ def main():
               'classification':'AUTHOR_PROVED / FINITE_EXACT_CHECKED / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED'}
     print(json.dumps(result,indent=2,ensure_ascii=False,sort_keys=True))
 
-
 if __name__=='__main__':
     main()
