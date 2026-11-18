@@ -1,0 +1,190 @@
+{
+  "schema": "R762DU_EXACT_AUTHOR_CHECK_V1",
+  "date": "2026-11-18",
+  "scope": "full three-area positive BRC endpoint coefficients modulo 3, Q=3,9,27,81",
+  "execution": "Node.js self-contained direct cyclic convolution; local run PASS. Companion JS implements the same recurrence and comparisons.",
+  "arithmetic": "integer residue arithmetic in Uint8Array/Uint16Array, no approximate comparisons",
+  "status": "PASS",
+  "local_digit_tables": [
+    {
+      "digit": 0,
+      "support": 1,
+      "plus": 1,
+      "minus": 0
+    },
+    {
+      "digit": 1,
+      "support": 6,
+      "plus": 6,
+      "minus": 0
+    },
+    {
+      "digit": 2,
+      "support": 18,
+      "plus": 6,
+      "minus": 12
+    }
+  ],
+  "total_exponent_checks": 124,
+  "total_coefficient_residue_visits": 44136684,
+  "total_digit_coefficient_comparisons": 569182,
+  "tests": [
+    {
+      "q": 3,
+      "checked_exponents": 4,
+      "cyclic_residue_visits": 108,
+      "digit_coefficient_comparisons": 108,
+      "aggregated_plus": 13,
+      "aggregated_minus": 12,
+      "samples": [
+        {
+          "n": 0,
+          "support": 1,
+          "plus": 1,
+          "minus": 0
+        },
+        {
+          "n": 1,
+          "support": 6,
+          "plus": 6,
+          "minus": 0
+        },
+        {
+          "n": 2,
+          "support": 18,
+          "plus": 6,
+          "minus": 12
+        },
+        {
+          "n": 3,
+          "support": 0,
+          "plus": 0,
+          "minus": 0
+        }
+      ]
+    },
+    {
+      "q": 9,
+      "checked_exponents": 10,
+      "cyclic_residue_visits": 7290,
+      "digit_coefficient_comparisons": 7290,
+      "aggregated_plus": 313,
+      "aggregated_minus": 312,
+      "samples": [
+        {
+          "n": 0,
+          "support": 1,
+          "plus": 1,
+          "minus": 0
+        },
+        {
+          "n": 1,
+          "support": 6,
+          "plus": 6,
+          "minus": 0
+        },
+        {
+          "n": 2,
+          "support": 18,
+          "plus": 6,
+          "minus": 12
+        },
+        {
+          "n": 8,
+          "support": 324,
+          "plus": 180,
+          "minus": 144
+        },
+        {
+          "n": 9,
+          "support": 0,
+          "plus": 0,
+          "minus": 0
+        }
+      ]
+    },
+    {
+      "q": 27,
+      "checked_exponents": 28,
+      "cyclic_residue_visits": 551124,
+      "digit_coefficient_comparisons": 551124,
+      "aggregated_plus": 7813,
+      "aggregated_minus": 7812,
+      "samples": [
+        {
+          "n": 0,
+          "support": 1,
+          "plus": 1,
+          "minus": 0
+        },
+        {
+          "n": 1,
+          "support": 6,
+          "plus": 6,
+          "minus": 0
+        },
+        {
+          "n": 2,
+          "support": 18,
+          "plus": 6,
+          "minus": 12
+        },
+        {
+          "n": 26,
+          "support": 5832,
+          "plus": 2808,
+          "minus": 3024
+        },
+        {
+          "n": 27,
+          "support": 0,
+          "plus": 0,
+          "minus": 0
+        }
+      ]
+    },
+    {
+      "q": 81,
+      "checked_exponents": 82,
+      "cyclic_residue_visits": 43578162,
+      "digit_coefficient_comparisons": 10660,
+      "aggregated_plus": 195313,
+      "aggregated_minus": 195312,
+      "samples": [
+        {
+          "n": 0,
+          "support": 1,
+          "plus": 1,
+          "minus": 0
+        },
+        {
+          "n": 1,
+          "support": 6,
+          "plus": 6,
+          "minus": 0
+        },
+        {
+          "n": 2,
+          "support": 18,
+          "plus": 6,
+          "minus": 12
+        },
+        {
+          "n": 80,
+          "support": 104976,
+          "plus": 53136,
+          "minus": 51840
+        },
+        {
+          "n": 81,
+          "support": 0,
+          "plus": 0,
+          "minus": 0
+        }
+      ]
+    }
+  ],
+  "mathematical_claim_scope": "finite author-side verification; universal theorem proved separately in R762DU_MONOMIAL_DIGIT_COEFFICIENT_THEOREM.md",
+  "independent_review": "NOT_REVIEWED",
+  "native_event_admission": "NOT_ASSERTED"
+}
