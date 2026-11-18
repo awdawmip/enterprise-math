@@ -36,7 +36,7 @@ An independent self-contained Fraction checker reproduces `dual_adjacent`, `dual
 - Exactly **3024** cases have four distinct positions; in this domain all reproduce equality between the two original source edge sets.
 - **801** other cases (one/two distinct positions or three collinear positions) are reported separately, not used in the theorem.
 
-All exact assertions pass in Python normal, `-O`, and `-OO`. All three compact JSON outputs have SHA256 `6e6304d68b82617a1d022f60ade65ce0433dc473fe757005e8706c7b731fd768` including newline. The full original historical executable is **not** imported or run; the relevant functions are manually source-equivalent replicas. Original R063 six-file/512-case native benchmark is not rerun.
+All exact assertions pass in Python normal, `-O`, and `-OO`. All three compact JSON outputs have SHA256 `497ebbf2f34f0d0b83e57cea58276a89cfba2944c4999e892520c89183d47801` including newline. The full original historical executable is **not** imported or run; the relevant functions are manually source-equivalent replicas. Original R063 six-file/512-case native benchmark is not rerun.
 
 Files: `research_checks/X6_UNIT140_DUPLICATE_DELAUNAY_DUAL_SOURCE_CONSUMER_CHECK_20261119.py`, `research_checks/X6_UNIT140_DUPLICATE_DELAUNAY_DUAL_RESULTS_20261119.json`.
 
