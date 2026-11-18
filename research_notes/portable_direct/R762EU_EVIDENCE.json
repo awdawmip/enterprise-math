@@ -1,0 +1,41 @@
+{
+  "schema": "R762EU_DIGITWISE_RANDOM_ACCESS_CERTIFICATE_V1",
+  "frozen_model": "P=1+X+Z+XY+YZ+XYZ, six named positive 3-coordinate BRC terminal observer",
+  "base_q9_states": 26,
+  "base_q9_bytes": 18954,
+  "local_kernel_bytes": 81,
+  "total_table_bytes": 19035,
+  "kernel_support_sizes": [
+    1,
+    6,
+    18
+  ],
+  "base_26_sha256": "02948ee5b53b5588e34a7047087a7812181c63e61170d7775182e989b30e72dd",
+  "kernel_sha256": "31b9d921f66de56eb94e1d09650ef79e90cc40d982c376f811100cd80e4a5473",
+  "q9_full_vector_checks": 26,
+  "q27_full_vector_checks": 83,
+  "full_vector_coordinates_checked": 1652643,
+  "q27_direct_modulus": "3^11",
+  "q27_horizon": [
+    0,
+    82
+  ],
+  "period_boundary_27": {
+    "equal_24_78": true,
+    "unequal_23_77": true
+  },
+  "random_point_ranges": [
+    27,
+    81,
+    243
+  ],
+  "random_point_checks": "5 points x 11 timestamps per q, with extended period checks where n>=8*h",
+  "large_timestamp_test": "10**12+271828",
+  "arithmetic": "integer original branch convolution mod 3^E; base-3 digit table mod 3; no floating point",
+  "depends_on": [
+    "R762ER Frobenius coefficientwise lift",
+    "R762ET sharp eventual q9 period 18 starting at 8"
+  ],
+  "independent_review": "NOT_REVIEWED",
+  "result": "PASS"
+}
