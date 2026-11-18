@@ -43,7 +43,7 @@ All witness tuples count (U,N32,N34,N140) uses across all 141 equally weighted s
 - Direct above threshold: (313,141,43,24), cost 4515/16 - 141a (first observed as exact Bellman optimal at a=1,z=1/2 in EC49FSQ-H).
 - Exchanged for all a: (311,10,141,69), cost 2177/8 - 141a (EC49FSN complete original-named q34-saturated tree).
 
-The first and third full trees are original EC49FSN immutable published lossless witnesses. The second cost vector comes from original full-228 Bellman tree recovery; full lossless JSON for that new tree has not yet been separately published. Its feasibility and exact native path-use vector are certified by the primary original-source solver, and the full-tree publication remains the next evidence strengthening action.
+The first and third complete original-named trees are EC49FSN losslessly published witnesses. The newly saturated second tree has now also been preserved losslessly in this PR as EC49FSQ_FULL_NATIVE_SATURATED_TREE_A133_246_20261118.json (canonical JSON SHA256 b510ceadbd10fa4b5970b5bdca71fa2d1e8e3e1cdc706d68c26705a16a6a7785, 4198 uncompressed bytes; zlib/base64 encoded). Actual primary solver replay identifies all 141 original named profiles, never repeats an observation along a path, has root q32, maximal depth 4 and exact tuple (313,141,43,24). The stored compressed payload was decompressed and byte-matched to the locally replayed tree.
 
 ## Exhaustive exact endpoints and independent recalc
 
@@ -73,6 +73,6 @@ Neither a floating-grid inference nor an assumed global simplification of the or
 
 ## Status and next frontier
 
-AUTHOR_PROVED / EXACT_PRIMARY_FINITE_EXHAUSTIVE_AT_LOAD_BEARING_VERTICES / INDEPENDENT_PARTIAL / NOT_REVIEWED. Complete original-native witness for the newly saturated phase is still to be published losslessly before advertising a full tree-replay evidence level for this new strategy.
+AUTHOR_PROVED / EXACT_PRIMARY_FINITE_EXHAUSTIVE_AT_LOAD_BEARING_VERTICES / INDEPENDENT_PARTIAL / NOT_REVIEWED. Full original-native tree witness is now losslessly published and byte-checked; the other two fixed-tree witnesses come from the immutable EC49FSN source.
 
-Next: recover and publish the original solver's exact full named-response tree for (313,141,43,24), verify it distinguishes all 141 states, then extend this z=1/2 rational breakpoint across a nearby b,z rectangle; determine how the saturation boundary becomes a polyhedral surface, preserving all original joint responses.
+Next: extend this sharp z=1/2 rational breakpoint across a nearby b,z rectangle using exact native Bellman polygon/polyhedron vertex certificates, determining how the saturation boundary becomes a polyhedral surface while preserving all original named responses.
