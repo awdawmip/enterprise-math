@@ -1,0 +1,40 @@
+{
+  "schema": "EM_R274_PORT_CYCLE_EVIDENCE_DIGEST_V1",
+  "date": "2026-11-18",
+  "status": "AUTHOR_PROVED / EXACT_INTEGER_AND_RATIONAL_CHECK / NOT_REVIEWED",
+  "model": "K distinct labelled visible Ports with a rational directed simple cycle; WBRC-T30/T31",
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "claims": {
+    "cycle": "For Q=product of K edge weights, Q<1, S_ii=1/(1-Q) at each port",
+    "strict_subsets": "Every strict subset of edges is acyclic; S_ii=1",
+    "amplification": "For all t>=1,K>=2, with each edge weight (1+13^t)^-1, v13(S_ii-1)=-(t+v13(K))"
+  },
+  "verification": {
+    "arithmetic": "exact integers / fractions.Fraction",
+    "t_range": [
+      1,
+      4
+    ],
+    "cycle_lengths": "2..40,169,2197",
+    "finite_valuation_cases": 164,
+    "full_matrix_identity_checks": 15,
+    "full_matrix_t_range": [
+      1,
+      3
+    ],
+    "full_matrix_K_range": [
+      2,
+      6
+    ],
+    "full_matrix_strict_edge_deletions": "checked all one-edge deletions per case",
+    "result": "PASS 164 matrix 15",
+    "complete_json_filename": "R274_verification.json",
+    "complete_json_sha256": "b90049a62c2c78e65b6e0e738bbd0d775e503313963f94e50f1f437982f2e0b9",
+    "reproduction": "python R274_cycle_length_resonance_checker.py"
+  },
+  "pending": [
+    "Independent mathematical review",
+    "Current native Research Activity association",
+    "Sequential observer fiber-constancy proof"
+  ]
+}
