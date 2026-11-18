@@ -86,3 +86,24 @@ r343 shows that at the OAI7 threshold any q=o(1) codebook must be far from a *de
 Thus the unexplored decisive property is the *additive all-fixed-K small-list tail* of a genuinely nonlinear relabeling sigma; ordinary incidence regularity, row separation and entropy are already achieved in this family. An arbitrary label permutation does not commute with the additive start x and is not known to preserve r307's V_C(K;h). Neither positive nor negative all-K attainment is asserted here. A useful next experiment is to evaluate V_(sigma(t+I_n))(K) across K families and random sigma, while retaining the exact row/position constraints.
 
 Provenance: r307 integrated tail transfer (baaaabaacaf8543f62a45a00cdfcf03e95389075), r329 phase threshold (f1f35331daf48fbbbe01d8cf0cd43342dff85c01), r330 existential codebook (67f57ab662493b6744df560c8358a293a08d1165), r339 p-row degree/entropy saturation (b7bd6de6e1381fd04b0b37c16a56f14cea3b92f2), r341 near orbit regular witness (df916dc0b6f453c9cc87df3f67c75d8e8e16ee9b), r342 sharp edit-Lipschitz (b8790284f7e1ee102b5de27d2060004518e52912), r343 threshold-multiplicity barrier (4d77356d854c26066f745ce1ee94c3257ca14ad8). Original Task RS-OAI7-028-C-20261007-6F2A81 / TP2-96FAC49786245691AE19, parent OBJ-OAI7-RESEARCH-TRANSFER-20261007. The actual Source runtime/CLAIM, independent Native reviewer and Activity association remain separate.
+
+
+## 5. Finite all-slope certificate at p=101 (separate from the asymptotic theorem)
+
+A deterministic Python 3 check of the nonlinear common-permutation construction at p=101, n=8, random.Random(20261119).shuffle(permutation) found 101 pairwise-distinct rows with every field symbol incident to exactly 8 rows. Exhaustively comparing each of the 101 rows against all 101*100 nonzero-slope, translated 8-term arithmetic progressions gives **minimum swap distance 3**. Rowwise minimum-distance multiplicities are 3:4 rows, 4:85 rows and 5:12 rows. This is a genuine finite exactly 8-regular, `H(H)=log 101`, equal-position-marginal design, all of whose rows are >=3 swaps from *every* arithmetic progression. It is not a check of the all-K tail.
+
+Python 3 reproducibility:
+```python
+import random
+p,n=101,8
+sigma=list(range(p))
+random.Random(20261119).shuffle(sigma)
+progressions=[sum(1<<((s+a*j)%p) for j in range(n))
+              for a in range(1,p) for s in range(p)]
+rows=[sum(1<<sigma[(t+j)%p] for j in range(n)) for t in range(p)]
+assert len(set(rows))==p
+assert all(sum((row>>v)&1 for row in rows)==n for v in range(p))
+d=[min(n-(row&ap).bit_count() for ap in progressions) for row in rows]
+assert min(d)==3
+assert {k:d.count(k) for k in set(d)}=={3:4,4:85,5:12}
+```
