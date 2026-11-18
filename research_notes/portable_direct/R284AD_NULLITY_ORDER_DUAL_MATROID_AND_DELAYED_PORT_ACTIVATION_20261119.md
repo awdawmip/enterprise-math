@@ -1,0 +1,100 @@
+# R284AD — Nullity-order dual-matroid certificate and delayed joint activation in stable positive Port observers
+
+Date: 2026-11-19. Status: **AUTHOR_PROVED / EXACT_RATIONAL_CHECK_PASSED / NOT_REVIEWED**.
+Continuation of R284AC (rank-defect edit lower bound), R284AB (feedback-robust Port embedding), and R284Y (complementary-minor coefficient rule). Frozen scientific pin: `43ec6098b1330ae86d0a7863be336c5d97f6ef34`; P000 read back at this exact pin. Current operational rules do not rebase scientific assumptions.
+
+**Typed scope.** This is an auxiliary named-Port determinant observer inside the existing X6 Heartbeat relational setting, not a new native spatial coordinate system. Edge identity, branch/provenance, independent edit parameters, full joint update set and future-observer scope remain explicit. It is an exact rational algebraic result, not a native physical-time or BRC–Shor numerical execution.
+
+## AD1 — Exact leading-order factorization
+
+Let `K` be a characteristic-zero field, `A∈K^{n×n}` have rank `r` with `1≤r<n`, and `s=n−r`. Give each rank-one edge update its own independent name:
+
+\[
+A(t)=A+\sum_{e=1}^m t_e u_e v_e^T,\qquad
+u_e=e_{a_e},\ v_e=e_{b_e}
+\]
+for individual core edges (more generally any fixed rank-one `u_ev_e^T`).
+
+Choose any full-rank left and right nullspace bases `L∈K^{s×n}` and `R∈K^{n×s}` satisfying `LA=0` and `AR=0`. Set
+\[
+F=[Lu_1|\cdots|Lu_m]\in K^{s\times m},
+\quad H=\begin{bmatrix}v_1^TR\\\vdots\\v_m^TR\end{bmatrix}\in K^{m\times s}.
+\]
+
+**Theorem AD1.** There is a nonzero, exactly computable scalar `κ=κ(A,L,R)` such that every determinant coefficient below total degree `s` vanishes and
+\[
+\boxed{[\det A(t)]_{s}
+=\kappa\det(F\,\operatorname{diag}(t_1,\ldots,t_m)\,H)
+=\kappa\sum_{\substack{I\subseteq[m]\\|I|=s}}
+\det(F_{:,I})\det(H_{I,:})\prod_{e\in I}t_e.}
+\]
+In particular, the first possible degree `s` is present precisely when some `s` original named edges are independent in **both** projected families. No cancellation across distinct independently named squarefree monomials is possible.
+
+**Proof and normalization.** Pick `r` rows and `r` columns of `A` with nonsingular cross-minor `B`. Let permutation matrices `P,Q` move those rows/columns first. Rank `r` gives
+\[
+PAQ=\begin{pmatrix} B&E\\D&DB^{-1}E\end{pmatrix}.
+\]
+Set
+\[
+L_0=[-DB^{-1},I_s]P,\qquad
+R_0=Q\begin{bmatrix}-B^{-1}E\\I_s\end{bmatrix},
+\qquad \kappa_0=\det(P)\det(Q)\det B\ne0.
+\]
+Invertible block elimination turns `A` into `diag(B,0_s)`. In the transformed pencil, the off-diagonal blocks are `O(t)` and the bottom-right block is `L_0(\sum t_eu_ev_e^T)R_0`. Its Schur-complement correction starts in total degree two. The leading degree-`s` term is consequently `κ₀ det(F₀ diag(t) H₀)`, and Cauchy–Binet gives the displayed named-subset sum. Changing either nullspace basis rescales the nonzero prefactor. Invertibility and size `s` also prove absence of lower-degree terms. QED.
+
+## AD2 — Two-matroid positive and negative certificates
+
+On the original named-edge set `E=[m]`, let the first represented linear matroid use independence of columns of `F`; let the second use independence of rows of `H`. **Theorem AD2:** `[\det A(t)]_s\ne0` iff these two matroids have a common independent set of cardinality `s`.
+
+By the *classical* matroid-intersection min–max theorem (not an invented project result),
+\[
+\boxed{\max_{I\ \mathrm{independent\ in\ both}}|I|
+=\min_{X\subseteq E}\{\operatorname{rank}(F_X)
++\operatorname{rank}(H_{E\setminus X,:})\}.}
+\]
+Thus a set `I` with both `s×s` projected determinants nonzero gives a **positive exact coefficient certificate**; a partition subset `X` with rank sum `<s` gives a **negative exact certificate** ruling out *all order-`s` terms*. Both certificates can be checked by rational elimination. Standard linear-matroid-intersection algorithms give polynomially many rank-oracle operations; computing the nullspace bases, ranks and witness coefficients also has polynomial exact rational bit complexity. This is a polynomial-time decision for the *leading possible degree*, **not** for full polynomial identity or arbitrary higher-degree activation.
+
+The negative certificate can be chosen using sparse support/rank structure if available, with exact ranks accounting for actual weight cancellations. Port labels and allowed future joint edits must remain recoverable; a missing degree-`s` response does not permit their deletion.
+
+External algorithmic reference: Edmonds' classical matroid intersection theorem and polynomial-time linear matroid intersection; see Agarwala, Alekseev and Vinciguerra, “Linear Matroid Intersection is in Catalytic Logspace,” 2025, https://arxiv.org/abs/2509.06435 . The original mathematical contribution here is the application of its primal/dual certificate to the named-Port nullity-order coefficient, not the intersection algorithm itself.
+
+## Counterexample — corank 1, first activation at degree 2
+
+Take `c=1/192` and a **strictly positive** core matrix
+\[
+C_0=c\begin{pmatrix}1&1&1\\1&2&1\\1&1&1\end{pmatrix},
+\qquad
+C(t_1,t_2)=C_0+t_1E_{21}+t_2E_{12},
+\qquad 0\le t_1,t_2\le c.
+\]
+The baseline has rank 2, nullity `s=1`, and a left/right null vector `(1,0,-1)`. The left nullspace projection kills `E_{21}`; the right projection kills `E_{12}`, so there is no common one-edge independent set. The dual partition `X={E_{21}}` has both projected ranks zero. Nevertheless, subtracting the third row from the first and second gives the **exact identity**
+\[
+\boxed{\det C(t_1,t_2)=-c\,t_1t_2}.
+\]
+Every single edge edit is invisible to this determinant; their combined effect restores nonsingularity. This disproves the false inference “absence of the order-`s` term implies determinant identically zero,” even for a strictly positive core.
+
+Embed it in the established R284AB four-group `P,A,B,Q` Port topology with `k=3`, `δ=1/768`, all feedback blocks `L=D=U=δJ_3`, `W_{AB}=C(t)`, and `W_{PA}=W_{BQ}=gI_3` with `g=1/16`. The internal feedback graph is strongly connected, all internal support entries are positive and every transition row sum is strictly below one throughout the parameter box. The prior Schur formula yields
+\[
+\det A_{\mathrm{Port}}(t)=(-1)^3 g^6\det C(t)=g^6 c\,t_1t_2.
+\]
+At `t_1=t_2=c`:
+\[
+\det C=-\frac1{7077888},\quad
+\det A_{\mathrm{Port}}=\frac1{118747255799808},\quad
+\operatorname{rank}A_{\mathrm{Port}}=9.
+\]
+At `(0,0),(c,0),(0,c)` the Port determinant is zero and the rank is 8. The support graph does not change: this is signed algebraic joint activation, not an absent edge.
+
+## Reproduction and evidence scope
+
+Companion exact checker: `research_notes/portable_direct/R284AD_dual_nullspace_matroid_checker.py`; output: `research_notes/portable_direct/R284AD_dual_nullspace_matroid_verification.json`. Python 3 + SymPy 1.14, deterministic seed `284019`, strictly exact rational/integer algebra, no floating-point calculation. It constructs 120 positive low-rank baselines (all `n=2..5`, `1≤r<n`, 12 seeded cases per pair), each with up to five independently named distinct cell edits; executes all 3,648 Boolean determinant evaluations, Möbius inversion to squarefree coefficients, 960 lower-degree-zero checks, 888 predicted leading-coefficient checks, and 120 independent primal/dual matroid-minmax comparisons. Results: 108 examples with nonzero leading part, 12 without, all checks PASS. The explicit stable positive Port counterexample is also checked on all four parameter corners for determinant, rank, Schur identity and substochastic row bounds.
+
+Mathematical universality follows from the written proof, not from this finite run. The finite program enumerates small matroid sets; it does not implement a general polynomial-time matroid-intersection solver. No native BRC dynamics or independent Review was conducted.
+
+## Unfinished frontier
+
+1. Develop a **recursive higher-degree exact certificate** when AD2 returns a negative leading-order rank partition: the Schur correction begins in degree two and can carry delayed path/loop interactions, as the counterexample proves.
+2. Compare full bit-cost (input representation, fraction growth, matrix preprocessing, rank-oracle calls, witness extraction and recovery) against R284Y matching-minor enumeration. No unmeasured speedup claimed.
+3. Determine precise sparsity/support assumptions under which dual partition ranks can be established graphically, and give counterexamples for unsound graph-only compression.
+
+**Provenance/authority:** original Researcher ID `EM-DIRECT-E6B1DD`, original session `MCP-8487128c846440d1952bfc6fa44aeb86`. Portable author proof; no formal CLAIM, Result promotion or independent Review. Activity association remains a separate CAS/receipt action, and no earlier 52 events are replayed.
