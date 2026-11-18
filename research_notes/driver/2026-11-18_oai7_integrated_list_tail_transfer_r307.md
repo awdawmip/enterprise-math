@@ -90,16 +90,16 @@ The integrated condition can also be established directly by a combinatorial or 
 
 ## Explicit fully dependent example satisfying the new theorem
 
-Fix `tau=1/4`, `delta=1/64`, `beta'=beta=1/2`, `eta=1/2`; choose `p=2^70`, `k=s=4096`, `Lambda=Z^k`, `G_{j,+}=G_{j,-}=Z/pZ`, `phi_{j,+}(v)=v_j mod p`, `phi_{j,-}(v)=-v_j mod p`. Set `T=p`. Let `Y=(V_1,...,V_k)` have independent uniform components in `{0,...,p-1}`, and let `A=Y`. Independently draw one uniform seed `U` in `{0,...,p-1}`; for `l=1,...,n=p`, set
+Fix `tau=1/4`, `delta=1/64`, `beta'=beta=1/2`, `eta=1/2`; choose any **prime** `p>=2^70`, `k=s=4096`, `Lambda=Z^k`, `G_{j,+}=G_{j,-}=Z/pZ`, `phi_{j,+}(v)=v_j mod p`, `phi_{j,-}(v)=-v_j mod p`. Set `T=p`. Let `Y=(V_1,...,V_k)` have independent uniform components in `{0,...,p-1}`, and let `A=Y`. Independently draw one uniform seed `U` in `{0,...,p-1}`; for `l=1,...,n=p`, set
 ```text
 t_l = (U+l-1) mod p       (representative 0,...,p-1),
 h_l = (t_l,...,t_l) in Lambda.
 ```
 Every `h_l` has the same uniform diagonal law, so all `Y+h_l` have the same distribution on the **full lattice**. Yet the samples are perfectly dependent, since the entire sequence is determined by `U`. For every signed coordinate, every `x` and every `K` of size `u_c`, exactly `u_c` of the `p` shifts hit `K`, whereas the list threshold is `(tau+delta)u_c<u_c`. Hence `L_{c,K}=empty` deterministically, `q_c=R_0=0`.
 
-For every signed subset `S` selecting distinct indices, `H(F_S(Y))=s log p`; the entire shared data vector `H` is in bijection with `U`, so `H(H)=log p`, with `epsilon=0,` `kappa=1/k=1/4096=eta delta beta'/16`. The logarithmic hypothesis holds because `log(128e)<(1/8)log(2^70)`. Every hypothesis above is therefore met, and the conclusion holds. The same precise experiment violates conditional iid sampling (given `A`), showing that the extension admits genuinely correlated sampling under a **single** shared information cost.
+For every signed subset `S` selecting distinct indices, `H(F_S(Y))=s log p`; the entire shared data vector `H` is in bijection with `U`, so `H(H)=log p`, with `epsilon=0,` `kappa=1/k=1/4096=eta delta beta'/16`. The logarithmic hypothesis holds because `log(128e)<(1/8)log(2^70)<=(1/8)log p`. Every hypothesis above is therefore met, and the conclusion holds. The same precise experiment violates conditional iid sampling (given `A`), showing that the extension admits genuinely correlated sampling under a **single** shared information cost.
 
-This example has terminal uniform marginals, so it illustrates the information-cost and dependence boundary; it does not claim a difficult covering instance or a feasible Gaussian-prime schedule. `p=2^70` is a cyclic group order, permissible in the finite-abelian theorem; no prime-modulus claim is made.
+This example has terminal uniform marginals, so it illustrates the information-cost and dependence boundary; it does not claim a difficult covering instance or a feasible Gaussian-prime schedule. Here `p` may be prime, so the fully dependent example is also valid with prime-order cyclic residue groups.
 
 ## Boundaries and next proof obligation
 
