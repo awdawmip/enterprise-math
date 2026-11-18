@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/thirtyfourth/pressure_plan.json",
+    "ref": "2c1540246d59ca8ffcb14bd113351fb25036715c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-thirtyfour-20261118-16",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"source_sha256\": \"e1f14eb7349a3bb4d4202c0d40e04dba6817f71df425ff21f0904ae11ee8784d\",\n  \"model\": \"pinned pilot.operator(n,True), pilot.inputs train/test, regional g; reference only in verification\",\n  \"grids\": [48, 96],\n  \"frames\": 12,\n  \"train_frames\": 4,\n  \"seed\": 1873401,\n  \"repetitions\": 5,\n  \"threads\": 1,\n  \"cases\": {\n    \"fixed\": \"A0\",\n    \"smooth\": \"A0 + 0.25*(j/11)^2 times a full-grid Dirichlet diffusion with coefficient 0.6+0.4*x at each face midpoint\",\n    \"jump\": \"A0 plus four fixed positive internal horizontal face increments with amplitudes a=[0,0,0,0,6,6,6,6,0,12,12,12], weights [1,1/2,3/4,1/4]; nodes floor((.26,.47),(.31,.53),(.68,.47),(.73,.53))*n, face from (i,j) to (i+1,j)\"\n  },\n  \"rhs\": \"held-out manufactured fields from pinned test sequence; multiply by actual operator; four pilot training fields are disjoint calibration diagnostics\",\n  \"methods\": [\"rebuild\", \"interval4\", \"trigger\", \"dst_cold\", \"dst_warm\"],\n  \"interval4\": \"factorize at frames 0,4,8; start old-factor direct solve and preconditioned CG as necessary, rtol=1e-8, then check true residual\",\n  \"trigger\": \"cached LU x0 and cached adjoint z; check true residual and goal bound. On failure use updated actual low-rank correction for jump, otherwise refactor actual matrix and recompute adjoint; after correction recheck both, fall back to rebuild if necessary\",\n  \"dst\": \"calibrate loosest candidate on fixed training fields with actual errors; same threshold for cold and warm, no held-out outcome fed to either; tolerances 1e-3,3e-4,1e-4,3e-5,1e-5,1e-6,1e-7\",\n  \"accuracy\": {\"qoi_abs\": 0.0001, \"true_residual_rel\": 0.001, \"zero_rhs_absolute_scale\": 1},\n  \"practical_win\": \"all heldout frames pass and median total time <= 0.8 times fastest other method that passes all frames of that size and regime\",\n  \"scope\": \"SciPy CPU, ordinary float64, no outward rounding; common verified snapshots separately timed; distinct stage timers and each shuffled repetition published; cumulative process RSS only\"\n}\n",
+      "display_title": "pressure_plan.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2c1540246d59ca8ffcb14bd113351fb25036715c/research_notes/portable_direct/20261118_fair_queue_6b0fba/thirtyfourth/pressure_plan.json",
+      "encoding": "utf-8",
+      "sha": "4e40d4c934ddfcdfc2f6d956b7a69dfe170b4e9e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

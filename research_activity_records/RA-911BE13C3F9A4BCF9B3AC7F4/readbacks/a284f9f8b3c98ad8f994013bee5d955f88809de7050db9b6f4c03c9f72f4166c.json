@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/thirtyfourth/README.md",
+    "ref": "2c1540246d59ca8ffcb14bd113351fb25036715c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-thirtyfour-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第三十四轮　Dedekind 和的平均候选数、三模波包与压力修复\n\n本轮推进两个父目标：在原有压力算例上检验算子变化后的分解复用，并按有限传播任务书的条件条款研究离散波包。独立的 Dedekind 和研究不占登记名额。按本轮状态截面，累计直接推进 176 项、覆盖 51 个父目标；计入两项历史旁引则为 178 项、53 个父目标。选取后余严格就绪 78 项、可交接 26 项、冻结返回 5 项。旧 P0 仍由原作者推进。[选题依据、前置条件与状态](fair_snapshot.json)\n\n### Dedekind 和的小数部分留下多少候选\n\n对每个模数 $n$，在单位 $a$ 中均匀抽取一项，用 $M(n)$ 表示满足 $12s(a,n)-12s(b,n)\\in\\mathbb Z$ 的单位 $b$ 的平均个数。将已知的分数部分纤维分类与三维除数估计结合，得到\n$$\n \\sum_{n\\le X} M(n)=\\frac6{\\pi^2}X\\log X+C X\n +\\zeta(1/2)^2\\prod_p(1-2p^{-3/2}+p^{-2})\\sqrt X\n +O_\\epsilon(X^{47/131+\\epsilon}).\n$$\n平方根项的系数严格为正。改变抽样，把 $n\\le X$ 的所有合法 $(n,a)$ 对等权，平均候选数的对数主项系数变为 $\\prod_p(1-2/[p(p+1)])$。这一差异源于后者按 $\\varphi(n)$ 给模数加权。对奇素数平方 $n=p^2$，还有一项可凭已有真等值分类逐项核算：小数部分相同而完整 Dedekind 和不同的有序对恰有 $4(p-1)$ 个。[两种平均、误差界与先行文献](dedekind.md)\n\n### 怎样从强度读数恢复一条离散传播律\n\n在奇模 $q$ 上指定 $E(k)=vk+bk^2\\pmod q$。若初值是单点脉冲，整部强度记录能确定的带参数只有 $d=\\gcd(b,q)$ 与 $v\\bmod d$。当 $b$ 可逆时，全部 $v$ 与全部可逆 $b$ 给出同一部记录。换用三个频率 $0,1,2$，制备已知且不对称的幅值，在 $t=1$ 读取全空间的一帧强度，就可唯一恢复 $v,b\\bmod q$。任意两模制备的全部强度只依赖一个带差，因此单次制备的最小频率数恰为三。对 $q=15$，精确分圆算术将 225 组参数逐组分开。若用两个 Fourier 读数控制各候选间的总变差下界，三模正幅比例 $1:\\varphi:\\varphi^2$ 可将该保证系数推至最优的 $1/4$，其中 $\\varphi=(1+\\sqrt5)/2$。对于已知三模制备 $(1,2,4)$，若每次只能取得一个独立的位置样本，在 $q\\ge5$、$0<\\delta\\le1/8$ 时要将最坏误判率压到 $\\delta$，所需样本数恰为 $\\Theta(q^2\\log(1/\\delta))$ 量级。\n\n点源的全部强度信息与给定频带的相干聚焦时间也有不同的算术判据。文中求出任意有限频谱支持的全部聚焦时空格，并给出合数模上任意一对频率可在首拍聚焦、四个频率却须等到第 35 拍的实例。实际物理时间、能量和仪器标定仍需独立输入。[可识别参数、聚焦格与观测边界](packet.md)\n\n### 局部改四个面可以修复，平滑的全域变化却可能更贵\n\n压力研究复用了原始 $48^2$、$96^2$ 网格、载荷和区域压差读数。用旧分解处理四个面的导纳突变，静态复用在每 12 帧中只有 5 帧同时通过真残差和目标量检查；加入四维更新后，全部 12 帧通过。全域平滑变化时，误差触发策略在 12 帧中重建 11 次；在 $96^2$ 主试验上，其总时间中位数是最快预设对照的 2.878 倍。实测包括主试验 1,800 次和补充对照 960 次逐帧评价，时间仅描述该机器和给定算例。\n\n另有一个 $4\\times4$ 网格的精确反例：旧伴随给出零目标误差估计，相对残差平方小于 $10^{-6}$，区域压差却偏离 $10101/270241$。文中给出单面漂移的精确误差公式和多面更新的可检界。[误差传播、原算例测量与反例](pressure.md)\n\n三篇均附确定性复算程序。压力程序可用本目录中的冻结测量记录核对所有表格；重测墙钟时间需笔记指定 SHA-256 的原始 35 件档案和相应数值库。[Dedekind 和](dedekind_check.py) · [波包](packet_check.py) · [压力结果](pressure_check.py) · [主试验原始读数](pressure_timings.json) · [补充对照原始读数](pressure_controls_timings.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2c1540246d59ca8ffcb14bd113351fb25036715c/research_notes/portable_direct/20261118_fair_queue_6b0fba/thirtyfourth/README.md",
+      "encoding": "utf-8",
+      "sha": "28be9f0c927cf12ca23821d1a894c74cd33bc64d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
