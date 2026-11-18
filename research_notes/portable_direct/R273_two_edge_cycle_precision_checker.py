@@ -6,6 +6,7 @@ No external packages, floats or randomized tests. Writes deterministic JSON.
 """
 from fractions import Fraction as F
 from hashlib import sha256
+from pathlib import Path
 import json
 
 
@@ -119,7 +120,7 @@ def main():
                 case_count=len(cells),two_port_count=len(pair),residue_sweep_count=len(sweep),
                 cases=cells,two_port_cases=pair,residue_sweep=sweep)
     data=json.dumps(result,sort_keys=True,separators=(',',':'),ensure_ascii=False)+'\n'
-    dest='/mnt/data/em_r273/R273_verification.json'
+    dest=str(Path(__file__).with_name('R273_verification.json'))
     with open(dest,'w',encoding='utf8') as f:f.write(data)
     print('R273 PASS',len(cells),'cycle cases',len(pair),'two-port cases',len(sweep),'13-adic residue checks')
     print('SHA256',sha256(data.encode('utf8')).hexdigest(),'bytes',len(data.encode('utf8')))
