@@ -72,6 +72,25 @@ def _read_pin(root: Path, row: dict[str, Any]) -> bytes:
     return raw
 
 
+def _check_canonical_original(root: Path, logical: str, raw: bytes, *, scientific: bool) -> None:
+    """Keep originals isolated without reserving a scientific filename forever.
+
+    A current, different scientific file is not the historical original. It is
+    never consumed by the pinned historical audit. Canonical ER/RR aliases and
+    byte-identical scientific originals remain forbidden.
+    """
+    canonical = root / logical
+    h._require(not canonical.is_symlink(), "canonical custody path contains a symlink: " + logical)
+    if not canonical.exists():
+        return
+    message = "custody originals must remain outside canonical logical paths: " + logical
+    h._require(scientific and canonical.is_file(), message)
+    resolved = h._path(root, logical)
+    h._require(resolved == root.resolve() / logical,
+               "canonical custody path contains a symlink or escape: " + logical)
+    h._require(resolved.read_bytes() != raw, message)
+
+
 def _mapping(root: Path, value: dict[str, Any], old: dict[str, Any]) -> tuple[dict[str, dict[str, Any]], dict[str, bytes]]:
     """Validate closed structure after the complete map bytes have matched MAP_PIN."""
     expected_keys = {"schema", "original_source_commit", "task_id", "publication_id", "historical_result_id",
@@ -106,7 +125,7 @@ def _mapping(root: Path, value: dict[str, Any], old: dict[str, Any]) -> tuple[di
         h._require(type(row["bytes"]) is int and row["bytes"] > 0, "custody byte length must be a positive integer")
         raw = _read_pin(root, {"path": row["physical_path"], "sha256": row["sha256"], "git_blob_sha1": row["git_blob_sha1"]})
         h._require(len(raw) == row["bytes"], "custody byte length drift")
-        h._require(not (root / logical).exists(), "custody originals must remain outside canonical logical paths")
+        _check_canonical_original(root, logical, raw, scientific=logical in logical_outputs)
         indexed[logical] = row
         frozen_bytes[logical] = raw
     h._require(set(indexed) == expected_paths, "custody mapping does not cover the exact original packet")

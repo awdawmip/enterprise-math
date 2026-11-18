@@ -5,6 +5,7 @@ from pathlib import Path
 import shutil
 import tempfile
 import unittest
+from datetime import datetime
 from unittest import mock
 
 from control_plane import research_historical_result_intake as h
@@ -218,6 +219,110 @@ class ExactSourceCustodyTests(unittest.TestCase):
         self.write('research_execution_records/RS-OTHER/alternate.json', er)
         with self.assertRaisesRegex(h.HistoricalIntakeError, 'cannot enter the canonical execution map'):
             h._science(self.root, self.target)
+
+    def test_distinct_current_science_coexists_without_changing_pinned_history(self):
+        for row in self.mapping['entries'][:4]:
+            path = self.root / row['logical_path']
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b'Current independent scientific fixture: ' + row['logical_path'].encode())
+        before = self.inventory()
+        old, outputs = h._science(self.root, self.target)
+        self.assertEqual(old, self.old)
+        for output in outputs:
+            self.assertEqual(output['sha256'], h.pin(self.root, output['path'])['sha256'])
+            self.assertNotEqual((self.root / output['logical_path']).read_bytes(),
+                                (self.root / output['path']).read_bytes())
+        self.assertEqual(before, self.inventory())
+        self.assertNotIn(c.EXECUTION, impl.execution_map(self.root))
+
+    def test_literal_canonical_scientific_original_is_still_rejected(self):
+        for row in self.mapping['entries'][:4]:
+            path = self.root / row['logical_path']
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((self.root / row['physical_path']).read_bytes())
+            with self.subTest(logical=row['logical_path']), self.assertRaisesRegex(
+                    h.HistoricalIntakeError, 'outside canonical logical paths'):
+                h._science(self.root, self.target)
+            path.unlink()
+
+    def test_canonical_control_path_is_rejected_even_with_different_bytes(self):
+        for row in self.mapping['entries'][-2:]:
+            path = self.root / row['logical_path']
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b'{"different_control_fixture":true}\n')
+            with self.subTest(logical=row['logical_path']), self.assertRaisesRegex(
+                    h.HistoricalIntakeError, 'outside canonical logical paths'):
+                h._science(self.root, self.target)
+            path.unlink()
+
+    def test_scientific_canonical_symlink_and_directory_are_not_independent_files(self):
+        row = self.mapping['entries'][2]
+        path = self.root / row['logical_path']
+        path.parent.mkdir(parents=True, exist_ok=True)
+        current = self.root / 'independent-current-science.txt'
+        current.write_bytes(b'Independent scientific fixture, not the custody original.')
+        for target in (current, self.root / 'nonexistent-current-science.txt'):
+            path.symlink_to(target)
+            with self.subTest(target=target.name), self.assertRaisesRegex(h.HistoricalIntakeError, 'symlink'):
+                h._science(self.root, self.target)
+            path.unlink()
+        path.mkdir()
+        with self.assertRaisesRegex(h.HistoricalIntakeError, 'outside canonical logical paths'):
+            h._science(self.root, self.target)
+
+    def test_scientific_parent_redirection_is_still_rejected(self):
+        row = self.mapping['entries'][2]
+        path = self.root / row['logical_path']
+        current = self.root / 'redirected-current-science'
+        current.mkdir()
+        (current / path.name).write_bytes(b'Independent scientific fixture.')
+        path.parent.symlink_to(current, target_is_directory=True)
+        with self.assertRaisesRegex(h.HistoricalIntakeError, 'symlink or escape'):
+            h._science(self.root, self.target)
+
+    def test_intake_and_native_dispatch_read_keep_history_and_no_execution_grant(self):
+        from tools import research_dispatch
+        from tools import research_result_records
+        intake = self.make_intake()
+        ledger = self.root / self.mapping['entries'][2]['logical_path']
+        ledger.parent.mkdir(parents=True, exist_ok=True)
+        ledger.write_bytes(b'{"current_science_fixture":"separate from historical custody"}\n')
+        before = self.inventory()
+        definition = {'task_id': c.TASK, 'publication_id': c.PUBLICATION, 'base_state': 'READY',
+                      'registration_source': 'IMMUTABLE_TASK_RECORD', 'kind': 'RESEARCH'}
+        # Only the synthetic historical receipt's authority fixture is mocked;
+        # native dispatch/facade/intake/custody dataflow is real and read-only.
+        with self.current(), mock.patch.object(h, '_authority'):
+            state = research_result_records.task_result_state(c.TASK, self.root, c.PUBLICATION)
+            reduced = research_dispatch.reduce_definition(definition, [], root=self.root,
+                now=datetime.fromisoformat(self.context['authorized_at']))
+        self.assertEqual(state['historical_intake_id'], intake['record']['intake_id'])
+        self.assertEqual(state['historical_authentication_status'], c.UNKNOWN)
+        self.assertFalse(state['execution_authorized'])
+        self.assertFalse(state['parent_completion_granted'])
+        self.assertFalse(state['historical_review_inherited'])
+        self.assertEqual(reduced['result_id'], intake['record']['intake_id'])
+        self.assertIsNone(reduced.get('claim_id'))
+        self.assertEqual(before, self.inventory())
+
+    def test_later_scientific_edits_do_not_rewrite_intake_or_review_provenance(self):
+        intake = self.make_intake()
+        review = self.make_review(intake)
+        ledger = self.root / self.mapping['entries'][2]['logical_path']
+        ledger.parent.mkdir(parents=True, exist_ok=True)
+        for version in (b'First independent current scientific fixture.',
+                        b'Corrected independent current scientific fixture.'):
+            ledger.write_bytes(version)
+            before = self.inventory()
+            with self.current(), mock.patch.object(h, '_authority'):
+                h.validate_intake(intake['record'], root=self.root)
+                h.validate_review(review['record'], root=self.root)
+            self.assertEqual(before, self.inventory())
+        self.assertEqual(intake['record']['scientific_record'], self.old)
+        self.assertEqual(intake['record']['historical_authentication_status'], c.UNKNOWN)
+        self.assertFalse(review['record']['parent_completion_granted'])
+        self.assertFalse(review['record']['working_truth_granted'])
+        self.assertFalse(review['record']['canonical_promotion_granted'])
 
     def test_readonly_view_has_only_verified_bytes_and_never_enters_execution_map(self):
         view = c._ScientificView({'logical.md': b'original'})
