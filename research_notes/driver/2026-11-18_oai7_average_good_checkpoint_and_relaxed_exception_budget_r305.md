@@ -4,7 +4,7 @@ Date: 2026-11-18. Status: Driver-authored mathematical proof, not independent Na
 
 ## Exact source and statement
 
-Source: \`openai/math@adc7f1241b42e322a6451854ab7e4b4c146bf78a\`, \`preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/coverage-transfer.tex\`, theorem \`thm:transfer\` (Git blob \`9deffea159476e7b2c6dfb115abd8d832f87569f\`). Retain that theorem's lattice, signed coordinate homomorphisms, randomly chosen signed subsets, variable \(A\), position \(Y=y(A)\), conditionally iid displacements \(h_1,\ldots,h_n\mid A=a\sim\nu_a\), common data \(\mathcal H=(h_1,\ldots,h_n)\), terminal point \(Z=Y+h_1\), and every entropy/sample-size/log inequality except its original \(\eta'\) bound.
+Source: `openai/math@adc7f1241b42e322a6451854ab7e4b4c146bf78a`, `preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/coverage-transfer.tex`, theorem `thm:transfer` (Git blob `9deffea159476e7b2c6dfb115abd8d832f87569f`). Retain that theorem's lattice, signed coordinate homomorphisms, randomly chosen signed subsets, variable \(A\), position \(Y=y(A)\), conditionally iid displacements \(h_1,\ldots,h_n\mid A=a\sim\nu_a\), common data \(\mathcal H=(h_1,\ldots,h_n)\), terminal point \(Z=Y+h_1\), and every entropy/sample-size/log inequality except its original \(\eta'\) bound.
 
 Define \(C(a,c)=1\) if the conditional terminal coordinate \(\phi_c(y(a)+h_1)\mid A=a\) fails \((\tau+4\delta,\beta')\)-coverage; otherwise \(C(a,c)=0\). In place of *every exact \(a\)* having at most an \(\eta'\) fraction of bad coordinates, require only
 
@@ -79,4 +79,21 @@ For the constant, \(\tau+\delta\le3/8+1/64=25/64\), so \(\delta/(\tau+\delta)\ge
 
 The external Gaussian-prime schedule proves coverage from **every** exact start; that existing stronger construction already supplies the pointwise hypothesis. A new scheme using (A) must verify the weighted-average bound separately from every fixed start at which the claimed conclusion is required. This result concerns the finite-abelian transfer interface and does not assert a native X6/Port/Link realization.
 
-All arguments are explicit; no \`sorry\`, \`admit\`, or custom target axiom.
+
+## Combined corollary with r304 dependent sampling
+
+The same weighted-average hypothesis (A) and relaxed exceptional budget (B) also extend the precise finite-\(n\) dependent-sampling theorem r304. Specifically, retain r304's equal one-time marginals \(\nu_a\), its supported-history minorization \(\mathcal L(h_\ell\mid A=a,h_1,\ldots,h_{\ell-1})\ge\rho\nu_a\), and the KL tests, for each signed coordinate size \(p\),
+
+\[
+b_p=(\tau+\delta)\lceil p^{1-\beta}\rceil/p,\qquad
+g_p=\rho(\tau+4\delta)(1-\delta)\lceil p^{1-\beta}\rceil/p,
+\]
+\[
+0<b_p<g_p<1,\qquad nD_{\mathrm{Ber}}(b_p\Vert g_p)\ge\log(100p/\delta).
+\]
+
+For a conditionally covered coordinate and exact \(A=a\), the recursive predictable-hit exponential-moment bound of r304 supplies \(\Pr(|\mathcal L_c|>p^{1-\beta'/2}\mid A=a)\le\delta/100\). At bad exact \(a\), bound it by \(1\). The argument above then proceeds unchanged. Thus rare bad checkpoints and history-dependent sampled displacements are simultaneously permitted, with the r304 KL sample bound and no additional shared-data entropy cost beyond the actual \(H(\mathcal H)\).
+
+This is a combination of the two fully specified abstract hypotheses; the original external schedule already uses conditional iid, corresponding to \(\rho=1\).
+
+All arguments are explicit; no `sorry`, `admit`, or custom target axiom.
