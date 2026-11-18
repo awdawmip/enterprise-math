@@ -1,0 +1,88 @@
+# PREFIX-900 — Complete 64-row named XOR two-flip collision census and exact symmetric coverage
+
+Date: 2026-11-18 (Asia/Shanghai). Lane: 进取数论研究6. Frozen science pin: f42f2906d77f24085c123f3ccfe9667d41caa96d (unchanged). Source frontier: PREFIX-897/898/899.
+
+Status: AUTHOR_PROVED / EXACT_FINITE_COMPUTED / TARGETED_INDEPENDENT_CROSSCHECK / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED.
+Native task authorization is separate; no shared X6 CLAIM is asserted by this record. New session registration r6-20261118-1713-prefix900-session-start was QUEUED at initial observation.
+
+## 1. Model and inherited certificate
+
+Set p=32, N=2^32, T=33N, Q={262145,262147,...,524287}, |Q|=131072.
+The named directed legal trajectories are Z_x=(x,x) and F^i_x=(x,x XOR 2^i) for 0<=x<N and 0<=i<32. Source name i, direction, endpoints and multiplicity are retained. Two-port observation: Phi_(a,b)(u,v)=(u mod a,v mod b). A collision means two distinct named trajectories have identical observations.
+
+The PREFIX-897 four-family collision-certified set E=P union H_U union ZZ union Y consists of P: ab<T; H_U: a in U or b in U for the inherited exact 552-member special set; ZZ: lcm(a,b)<N; Y: 33 ceil(N/a)>b or 33 ceil(N/b)>a. Its exact cardinality is |E|=7,567,620,214. PREFIX-898 added panel zero/flip certificates for a total of 7,574,587,634; PREFIX-899 completed two panel rows, raising that to 7,574,875,970. Define R={510001+194j: j=0,...,63} subset Q\U.
+
+## 2. Theorem 900-A: general two-flip existence is an exact finite CRT-bit interval decision
+
+Given flip trajectories F^i_x and F^j_y, let s_i=+1 if bit i of x is zero, -1 otherwise, and analogously s_j for y. Their observations coincide iff there is an integer k with
+
+    y=x+k*a,
+    k*a == s_i*2^i - s_j*2^j (mod b),
+    0<=x,y<2^p,
+    bit_i(x)=(1-s_i)/2, bit_j(y)=(1-s_j)/2,
+
+excluding k=0 and i=j simultaneously, which would be the identical named trajectory.
+
+Let g=gcd(a,b), m=b/g, K=floor((2^p-1)/a).
+For each (i,j,s_i,s_j), the modular equation has no solution if g does not divide delta=s_i*2^i-s_j*2^j; otherwise all solutions satisfy
+
+    k == (delta/g) * (a/g)^(-1) (mod m),   -K<=k<=K.
+
+For each such k, set d=ka, L=max(0,-d), U=min(2^p-1,2^p-1-d). The remaining exact existence condition is
+
+    #{x in [L,U]: bit_i(x)=b_i and bit_j(x+d)=b_j} > 0.
+
+This integer count is available using at most two translated intervals per period P=2^(max(i,j)+1). The higher bit fixes a half-period (translated when its source is x+d). If i=j, intersect the two half-period conditions. If i!=j, count the lower bit across these intervals using its exact prefix count
+
+    F_l(t)=floor(t/2^(l+1))*2^l + max(0,t mod 2^(l+1)-2^l).
+
+A shifted lower bit uses the offset reduced modulo its period. The accepted count in [L,U] is prefix(U+1)-prefix(L), where prefix splits full P-periods from the final partial period. When positive, binary search recovers a specific x, and y=x+ka, both endpoints and both modular observations are verified directly.
+
+Proof: XOR changes a state by +2^i or -2^i exactly according to the original source bit. Equal first-port residues force the start difference ka; equal second-port residues force the displayed congruence. The bit/range conditions are precisely the remaining legality conditions. Reduction by g and modular inverse enumerates all k; periodic prefix counting enumerates all possible x for each k without duplication. Thus the decision is necessary and sufficient, including a definitive negative when no candidate survives. QED.
+
+## 3. Theorem 900-B: all 64 rows are collision-complete
+
+All 64*131072=8,388,608 ordered (a,b) in R x Q were tested in disjoint priority order: old E; zero/flip endpoint collision (PREFIX-891); anchored flip/flip (PREFIX-899); otherwise general flip/flip by Theorem 900-A.
+
+| Classification | Exact pairs |
+|---|---:|
+| Old four-family E | 507,393 |
+| New zero/flip | 3,484,675 |
+| New anchored flip/flip | 4,396,091 |
+| New general flip/flip | 449 |
+| Unresolved | **0** |
+| Total | **8,388,608** |
+
+All general witnesses were reconstructed and their named XOR legality and two congruences checked. The 64-row per-class counts and sample witnesses are in PREFIX900_R6_64ROW_RESULTS.json; the exact classifier is PREFIX900_R6_64ROW_FF_COMPLETE.cpp, and the reproducibility/orchestration script is PREFIX900_R6_PANEL_REPRODUCE.py.
+
+Reversal swaps start/end of each legal named XOR trajectory and exchanges observer ports, giving a bijection on collision pairs. Thus Q x R is collision-complete as well. This symmetry is of the finite auxiliary observer, not a physical native time-reversal claim.
+
+## 4. Theorem 900-C: exact new symmetric coverage
+
+Among 8,388,608 row pairs, 507,393 already lie in E, hence 7,881,215 lie outside E. Exactly 64 of the 4,096 R x R pairs lie in E, namely the 64 diagonal pairs a=b; consequently 4,032 lie outside E. Inclusion-exclusion gives
+
+    |((R x Q) union (Q x R)) \ E|
+       =2*(8,388,608-507,393)-4,032
+       =15,758,398.
+
+The completed collision-certified union therefore contains exactly
+
+    |E union (R x Q) union (Q x R)|
+       =7,567,620,214+15,758,398
+       =**7,583,378,612**
+
+ordered modulus pairs. The new coverage relative to PREFIX-898 is 8,790,978, and relative to PREFIX-899 is 8,502,642. The complement of this explicit union within Q^2 has 9,596,490,572 pairs.
+
+PREFIX-898's ZF panel and PREFIX-899's first two complete rows are subsets of this now fully proven R x Q / Q x R coverage; the displayed additions do not double count them. Other independent historical certificates have not all been globally unioned into this exact family.
+
+## 5. Verification and scope
+
+C++17 integer-only classifier ran for all 64 rows. Each row classified exactly 131,072 b values, with zero unresolved. The first two rows exactly reproduce PREFIX-899: (510001: E 9041, ZF 66268, anchored FF 55759, general FF 4) and (510195: E 12738, ZF 29929, anchored FF 88402, general FF 3).
+
+An independently written Python implementation of bit-period interval counting agreed with naive enumeration on 2,200 seeded random small tests with p=1..10; Python also independently checked all 449 reconstructed general witnesses for range, names, start congruence and end congruence. The R x R E-membership and all union arithmetic were recomputed with exact Python integers. No floating-point error is present; random small tests supplement, rather than replace, the exhaustive finite run.
+
+All results are internal to a finite named-source BRC observation model. Native P000 (six-dimensional discrete Cell relationship space, independent time), the protected three-dimensional slice constraints and future-observer residual fidelity are unchanged. No claim is made that the two residue ports provide a full native X6 state or an information-preserving quotient under arbitrary later operations. No Result/Review/admission status is inferred from source publication.
+
+## 6. Next frontier
+
+The exact union leaves 9,596,490,572 candidate pairs outside these listed collision families. Test new non-panel rows with the now-complete general FF checker, or prove a parameter-uniform certificate; preserve any genuine injective case. The mother bound B_fix,odd(32) in {19,20} remains open.
