@@ -1,0 +1,98 @@
+{
+  "schema": "EM_R5_CONDITIONAL_OBSERVER_CERTIFICATE_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "frozen_source_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "frozen_integer_table_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "predecessor_witness_csv_sha256": "3d2706270c490433b7c6fab8a4b606b570e771c27e35aed37260969225bacc32",
+  "predecessor_three_probe_commit": "e0f69eab5b4831f4ae9e09f741cb0314402ffe9b",
+  "population": 30876,
+  "endpoint_classes": 2563,
+  "full_interval_classes": 2711,
+  "endpoint_split_classes": 108,
+  "unsplit_classes": 2455,
+  "witness_cross_daughter_pairs": 620,
+  "endpoint_conditioned_minimax_extra_probes": 2,
+  "unconditional_fixed_minimax_extra_probes": 3,
+  "classes": [
+    {
+      "budget": 220,
+      "daughters": 2,
+      "classes": 28,
+      "optimal_extra_probes": [
+        [
+          220,
+          2
+        ]
+      ]
+    },
+    {
+      "budget": 214,
+      "daughters": 2,
+      "classes": 40,
+      "optimal_extra_probes": [
+        [
+          214,
+          3
+        ]
+      ]
+    },
+    {
+      "budget": 214,
+      "daughters": 3,
+      "classes": 40,
+      "optimal_extra_probes": [
+        [
+          214,
+          4
+        ],
+        [
+          214,
+          8
+        ]
+      ]
+    }
+  ],
+  "instance_probe_distribution": {
+    "0": 30428,
+    "1": 256,
+    "2": 192
+  },
+  "uniform_instance_weighted_probe_total": 640,
+  "uniform_mean_exact": "160/7719",
+  "stage_taus": {
+    "2": "33469190642398873308364800000",
+    "3": "34543510342031429735546880000",
+    "4": "35645376700628923507015680000",
+    "8": "41430175083265765807226880000"
+  },
+  "lower_bound_witness": {
+    "endpoint_class_anchor_pair_instance": [
+      11,
+      132
+    ],
+    "members": 6,
+    "daughter_sizes": [
+      2,
+      2,
+      2
+    ],
+    "cross_daughter_pairs": 12,
+    "all_budgets_214_to_314_all_18_stages_no_one_probe": true
+  },
+  "local_validation": {
+    "result": "PASS_EXACT_CLASS_CONDITIONAL_0_1_2",
+    "all_census_classes_reproduced": true,
+    "source_onset_sha256": "ca175a4655b045d6427b9171c80198e548a8bc27f939a3b5e8f78a1c7f6b12bf",
+    "cached_support_family_calls": 11664,
+    "component_classes_checked": 108,
+    "example_all_101_budgets_18_stages_checked": true
+  },
+  "qualifications": [
+    "uses complete joint endpoint signatures as input",
+    "probes decide exact whole-interval scalar-observer equivalence only",
+    "not a Bellman strategy saving",
+    "no native-X6 descent claim",
+    "independent review absent"
+  ],
+  "next_question": "Apply conditional quotient for unsolved nine-state C8 > 8335 search with full preprocessing cost accounting"
+}
