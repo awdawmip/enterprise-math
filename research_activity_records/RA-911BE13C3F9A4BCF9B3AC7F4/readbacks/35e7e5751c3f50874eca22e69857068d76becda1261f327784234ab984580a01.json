@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/seventeenth/periods.md",
+    "ref": "5818949be7a1b04fc1a8be35ecb49d70ab26d401",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-seventeen-20261118-15",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 两个有限环读数的交叉结论：幂相等的精确人口与 Gauss 和的平凡分量\n\nFrobenius 宽度问题需要在循环群环中比较两个幂，Jacobi 构造在圆分商中计算生成元。二者的共同问题是选取哪个商后，等式对多少个输入成立。以下给出全环计数，尤其包括模特征整除宽度时的幂零元。[宽度与二项式种子](frobenius.md) · [Jacobi 和生成元](splitting.md)\n\n令 \\(R=p^a R_0,\\ p\\nmid R_0,\\ h=p^a,\\ A=\\mathbb F_p[T]/(T^R-1)\\)，\\(u,v\\) 是两个不同的正整数，\\(k=|u-v|,\\ n=\\min(u,v)\\)。对 \\(d|R_0\\) 写 \\(e_d=\\operatorname{ord}_d(p),\\ Q_d=p^{e_d}\\)，约定 \\(e_1=1\\)。则 \\(A\\) 中满足 \\(x^u=x^v\\) 的**元素个数**为\n\n\\[\n\\prod_{d\\mid R_0}\n\\left[\nQ_d^{\\,h-\\lceil h/n\\rceil}\n +\\gcd(k,Q_d-1)\\,Q_d^{\\,h-\\lceil h/p^{v_p(k)}\\rceil}\n\\right]^{\\varphi(d)/e_d}.\n\\]\n\n证明。因为 \\(T^R-1=(T^{R_0}-1)^h\\)，每个 \\(d\\) 阶根的 Frobenius 轨道产生一个局部因子 \\(E\\)，剩余域有 \\(Q_d\\) 个元素，极大理想 \\(\\mathfrak m\\) 的幂满足 \\(|\\mathfrak m^i|=Q_d^{h-i}\\)。非单位 \\(x\\) 满足 \\(1-x^k\\) 可逆，故方程等价于 \\(x^n=0\\)，给出第一项。单位由剩余域的非零元素与主单位组成：\\(Q_d-1\\) 阶的剩余域群通过 \\(s^{Q_d-1}=1\\) 的唯一 Hensel 提升进入 \\(E\\)，所以常数部分贡献 \\(\\gcd(k,Q_d-1)\\)。主单位上，与 \\(p\\) 互素的幂是双射；写其 \\(p\\) 部为 \\(p^j\\)，则 \\((1+y)^{p^j}=1+y^{p^j}\\)。主单位核对应 \\(\\mathfrak m^{\\lceil h/p^j\\rceil}\\)。轨道数为 \\(\\varphi(d)/e_d\\)，中国剩余定理给出乘积。\n\n特别地，令 \\(m=e_{R_0}\\)。全环恒等的充要条件是 \\(n\\ge h\\) 且 \\(h(p^m-1)\\mid k\\)。非单位中的均匀化参数给出第一条件；当 \\(h>1\\) 时，一阶主单位 \\(1+\\pi_E\\) 的精确阶为 \\(h\\)。本原 \\(R_0\\) 次根分量强制 \\(p^m-1\\mid k\\)，其余 \\(e_d|m\\)。例如 \\(p=2,R=6\\) 的环有 64 个元素，幂对 \\((1,4),(3,6),(1,7),(2,8)\\) 各自恰有 **8、21、39、64** 个解。这个计数选遍整个环；只取一参数种子 \\(X+t\\) 需要另算其分布。若用公开宽度做半素数分解且 \\(p|R\\)，直接求 \\(\\gcd(N,R)\\) 已能揭示共同因子，除非其值为整个 \\(N\\)。\n\n另一个分支中，\\(\\ell\\) 为异于特征的素数，\\(G(T)=\\sum_{x\\in\\mathbb F_\\ell}\\chi(x)T^x\\) 对非平凡 \\(q\\) 阶特征给出 \\(G(1)=0\\)。对每个非平凡 \\(\\ell\\) 次根 \\(\\xi^j\\)，换元给 \\(G(\\xi^j)=\\chi(j)^{-1} G(\\xi)\\)，故 \\(G(\\xi^j)^q=c\\)，常数 \\(c\\) 为 Jacobi 乘积。于是完整循环代数内的等式是\n\n\\[\n G(T)^q=c\\left(1-\\ell^{-1}\\Phi_\\ell(T)\\right)\n \\quad\\bmod (T^\\ell-1).\n\\]\n\n右侧括号在平凡分量取零，在所有其余分量取一；降到圆分商才成为单个标量。例取 \\(\\ell=13,\\ p=5,\\ q=2\\) 及二次特征，\\(c=13\\bmod5=3\\)，完整环中 \\(G(T)^2=3-\\Phi_{13}(T)\\)。这给出可在根或系数两种表示间直接核对的比较项。程序穷举六个小循环环与连续幂对，再以卷积独立核验这个系数恒等式。[复算程序](periods_check.py) · [结果](periods_checked.json)\n",
+      "display_title": "periods.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/5818949be7a1b04fc1a8be35ecb49d70ab26d401/research_notes/portable_direct/20261118_fair_queue_6b0fba/seventeenth/periods.md",
+      "encoding": "utf-8",
+      "sha": "25c434f0ed1d48bebc97ebfd94204343c02fb6b3"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
