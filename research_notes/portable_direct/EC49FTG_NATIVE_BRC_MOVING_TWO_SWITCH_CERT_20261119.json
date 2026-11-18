@@ -1,0 +1,303 @@
+{
+  "schema": "EC49FTG_NATIVE_BRC_MOVING_TWO_SWITCH_CERT_V1",
+  "date": "2026-11-19",
+  "research_status": "AUTHOR_PROVED_NOT_REVIEWED",
+  "frozen_scientific_source": "awdawmip/enterprise-math@fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent_pr": "https://github.com/awdawmip/enterprise-math/pull/2764",
+  "source_sha256": {
+    "frozen_original_master.txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE.csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "domain": {
+    "a": [
+      "3/4",
+      "49/64"
+    ],
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "3/4",
+      "13/16"
+    ]
+  },
+  "original_index_tree_usage": {
+    "Dmid": [
+      329,
+      36,
+      68,
+      141
+    ],
+    "D45": [
+      334,
+      141,
+      62,
+      45
+    ],
+    "Smain": [
+      333,
+      9,
+      105,
+      141
+    ],
+    "S105": [
+      332,
+      8,
+      141,
+      105
+    ]
+  },
+  "tree_sha256": {
+    "Dmid": "c15a95605f4de0249a1a47f68b198e5a3cf8ee021a7cc3bdf5b37780c1401067",
+    "D45": "112d20a08ae6f0871a45e578851f568b8b01d4954ae3d7ca598084eda68986f2",
+    "Smain": "8143466c26acc2ad3400e4823b81c4a3fd0188bfce07602142df059102c5ca48",
+    "S105": "b912b15034f4694dca3b44c33d8b6f1251f52e2696bb551a7ae7ae0d65d85a68"
+  },
+  "switching_sheets": [
+    "5 - 105*a + 6*b + 96*z = 0",
+    "-1 - 36*a + b + 36*z = 0"
+  ],
+  "region_vertex_counts": {
+    "Dmid": 10,
+    "D45": 6,
+    "Smain": 8,
+    "S105": 8
+  },
+  "joint_vertex_counts": {
+    "Dmid:Smain": 8,
+    "Dmid:S105": 10,
+    "D45:Smain": 0,
+    "D45:S105": 6
+  },
+  "anchors": [
+    {
+      "o": "D",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "3/4",
+      "expected": "333/2",
+      "bellman_states": 8073
+    },
+    {
+      "o": "D",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "13/16",
+      "expected": "2523/16",
+      "bellman_states": 7906
+    },
+    {
+      "o": "D",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "3/4",
+      "expected": "5311/32",
+      "bellman_states": 8065
+    },
+    {
+      "o": "D",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "13/16",
+      "expected": "5029/32",
+      "bellman_states": 7899
+    },
+    {
+      "o": "D",
+      "a": "91/120",
+      "b": "7/16",
+      "z": "3/4",
+      "expected": "831/5",
+      "bellman_states": 8032
+    },
+    {
+      "o": "D",
+      "a": "5099/6720",
+      "b": "57/128",
+      "z": "3/4",
+      "expected": "185531/1120",
+      "bellman_states": 8000
+    },
+    {
+      "o": "D",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "3/4",
+      "expected": "10571/64",
+      "bellman_states": 7984
+    },
+    {
+      "o": "D",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "4657/6144",
+      "expected": "337537/2048",
+      "bellman_states": 7975
+    },
+    {
+      "o": "D",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "13/16",
+      "expected": "1257/8",
+      "bellman_states": 7850
+    },
+    {
+      "o": "D",
+      "a": "49/64",
+      "b": "57/128",
+      "z": "3/4",
+      "expected": "2635/16",
+      "bellman_states": 7969
+    },
+    {
+      "o": "D",
+      "a": "49/64",
+      "b": "57/128",
+      "z": "2327/3072",
+      "expected": "168295/1024",
+      "bellman_states": 7969
+    },
+    {
+      "o": "D",
+      "a": "49/64",
+      "b": "57/128",
+      "z": "13/16",
+      "expected": "5011/32",
+      "bellman_states": 7844
+    },
+    {
+      "o": "S",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "3/4",
+      "expected": "144",
+      "bellman_states": 7202
+    },
+    {
+      "o": "S",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "49/64",
+      "expected": "9111/64",
+      "bellman_states": 7048
+    },
+    {
+      "o": "S",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "13/16",
+      "expected": "543/4",
+      "bellman_states": 6840
+    },
+    {
+      "o": "S",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "3/4",
+      "expected": "2303/16",
+      "bellman_states": 7191
+    },
+    {
+      "o": "S",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "3527/4608",
+      "expected": "218603/1536",
+      "bellman_states": 7048
+    },
+    {
+      "o": "S",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "13/16",
+      "expected": "17367/128",
+      "bellman_states": 6822
+    },
+    {
+      "o": "S",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "3/4",
+      "expected": "9075/64",
+      "bellman_states": 6997
+    },
+    {
+      "o": "S",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "25/32",
+      "expected": "8865/64",
+      "bellman_states": 6850
+    },
+    {
+      "o": "S",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "13/16",
+      "expected": "8583/64",
+      "bellman_states": 6810
+    },
+    {
+      "o": "S",
+      "a": "49/64",
+      "b": "57/128",
+      "z": "3/4",
+      "expected": "9071/64",
+      "bellman_states": 6997
+    },
+    {
+      "o": "S",
+      "a": "49/64",
+      "b": "57/128",
+      "z": "3599/4608",
+      "expected": "212699/1536",
+      "bellman_states": 6850
+    },
+    {
+      "o": "S",
+      "a": "49/64",
+      "b": "57/128",
+      "z": "13/16",
+      "expected": "17157/128",
+      "bellman_states": 6810
+    }
+  ],
+  "independent_raw94": [
+    {
+      "o": "D",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "4657/6144",
+      "value": "337537/2048"
+    },
+    {
+      "o": "S",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "25/32",
+      "value": "8865/64"
+    }
+  ],
+  "gap_min": {
+    "value": "2749/128",
+    "attained_at": [
+      "3/4",
+      "57/128",
+      "13/16"
+    ]
+  },
+  "gap_max": {
+    "value": "12213/512",
+    "attained_at": [
+      "49/64",
+      "7/16",
+      "4657/6144"
+    ]
+  },
+  "reproduction_archive": "EC49FTG_NATIVE_BRC_MOVING_TWO_SWITCH_COMPLETE_EVIDENCE_20261119.tar.xz",
+  "reproduction_archive_sha256": "4b61106ec8a6d34b68ff9136b1ddda16a132aecc43ccc1d4cb5e43a05a27ae89",
+  "validation": "Unrestricted exact-rational 228-observer Bellman at all 24 vertices; 2 independent raw94 native Bellman anchors; 4 complete original-index 141-profile tree replays. Subject to separate scientific review.",
+  "control": "Independent portable research only: no current native task CLAIM, formal Result/Review or Activity checkpoint asserted."
+}
