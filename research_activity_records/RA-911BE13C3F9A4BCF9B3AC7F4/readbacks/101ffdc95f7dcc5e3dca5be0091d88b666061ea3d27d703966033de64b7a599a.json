@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/fortyfirst/README.md",
+    "ref": "1b899dc4badd104b8b640d380717942ae8e5cc6a",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-fortyone-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第四十一轮　有限旋转的实守恒律、因式候选核验与返回干涉\n\n## 在有限环上，何时存在只在零点消失的守恒能量\n\n在 $G=\\mathbb Z/N$ 上选有限个旋转 $R(x,y)=(a_Rx-b_Ry,b_Rx+a_Ry)$，其中 $a_R^2+b_R^2=1\\pmod N$。要求实函数 $f$ 对每个旋转都精确保持 $f(x)+f(y)$。设 $L=\\gcd(N,\\{a_Rb_R\\}_R)$，则这些守恒律的最小共同正周期恰为 $L$。存在只在零点取零的非负守恒能量，当且仅当 $L=N$。等价地，对每个完整素幂 $p^e\\parallel N$，每个旋转至少有一个系数被 $p^e$ 整除。\n\n结论也控制近似守恒。记 $D_R f(x,y)=f(ax-by)+f(bx+ay)-f(x)-f(y)$，用均匀概率定义两个空间的 $L^2$ 范数，则\n$$\n\\operatorname{dist}(f,\\{\\text{共同守恒律}\\})^2\\le\\tfrac14\\sum_R\\|D_Rf\\|_2^2 .\n$$\n模 7 取单个 $a=b=2$ 即可达到等号。这一未编号问题来自历史 F7 的整数守恒方程；有限环允许逐频率分解并求出上式的最优常数。[分类、稳定性和阶数计数](finite_energy.md) · [复算](finite_energy_check.py) · [结果](finite_energy_checked.json)\n\n## 已给一个多项式因式分解，要读多少数据才足以核验\n\n对两个首一 $n$ 次多项式，差的次数小于 $n$。在已知不可约节点 $P_i$ 读取模 $P_i^{s_i}$ 的整块数据，给该块权重 $w_i=s_i\\deg P_i$。即使至多有 $u$ 块缺失、$v$ 块被任意篡改，仍能唯一恢复，当且仅当移去最大的 $u+2v$ 个权重后总和至少为 $n$。只问一个已给伪候选能否在保留的数据上完全相符，则相应门槛移去 $u+v$ 块。\n\n有已验公共因子 $C$ 和 Frobenius 幂 $p^b$ 时，若比较的多项式都具有 $C h^{p^b}$ 的形式，且 $h$ 首一、次数为 $d$，则节点的有效权恰为 $\\deg(P_i)\\max(0,\\lceil(s_i-v_{P_i}(C))/p^b\\rceil)$，门槛相应改为 $d$。稿中区分了取得候选、检验乘积、验证不可约性三种成本。[条件、反例与成本](jets.md) · [复算](jets_check.py) · [结果](jets_checked.json)\n\n## 用保留下来的振幅给事件概率作证\n\n在冻结的三端口模型中，用 $P_N(E)$ 表示实际工作寄存器给出的事件概率，$P_0(E)$ 为不同触发记录保持分开时的基准。逐步裁去振幅后，若保留末态在事件及其补集上的范数为 $a,b$，已核定的末态误差上界为 $\\eta$，实际概率 $x=P_N(E)$ 必须满足\n$$\na\\sqrt{x}+b\\sqrt{1-x}\\ \\ge\\ (1+a^2+b^2-\\eta^2)/2 .\n$$\n在只知道这三个数及真实末态已归一时，这是精确的几何范围；从中减去已算出的 $P_0(E)$ 就得到干涉修正区间。实测中，过严的存储预算会使区间退化为全范围。对固定的二值事件，限制传播到能抵达该事件的路径可把模 21 的计算推进至 128 拍。文中单列已有的首次碰撞判据与本轮新计算。[事件证书与成本](interference.md) · [复算](interference_check.py) · [结果](interference_checked.json)\n\n## 状态机轮转\n\n本轮选取两项未轮转登记任务，分别来自有限域分解与返回干涉两个父目标。累计直接研究 190 项、51 个父目标，另有两项早期旁引。截至 21:33:54 UTC，未轮转池余 66 项严格就绪、24 项待交接、5 项冻结返回。有限环守恒律单列为未编号旁支。[积压与租约来源](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/1b899dc4badd104b8b640d380717942ae8e5cc6a/research_notes/portable_direct/20261118_fair_queue_6b0fba/fortyfirst/README.md",
+      "encoding": "utf-8",
+      "sha": "f0d404d3c415e0f18bedecca598d13391c424c28"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
