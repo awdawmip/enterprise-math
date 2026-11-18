@@ -57,6 +57,94 @@ class ResearchActivityReadbackReuseTests(unittest.TestCase):
                 f'{activity.STORE}/{self.activity_id}.json', self.path().read_bytes()))
 
 
+    def test_legacy_github_fetch_summary_is_reported_as_debt_not_promoted(self):
+        pin = {key: self.source[key] for key in ("repository", "commit", "path", "sha256")}
+        readback = self.source["readback"]["result"]["structuredContent"]
+        legacy = {**pin, "publication_state": "EM_SOURCE_OBSERVED",
+                  "verification": {
+                      "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+                      "tool_name": "github_fetch",
+                      "git_blob_sha1": readback["sha"],
+                      "immutable_url": readback["display_url"],
+                      "server_signature_authenticated": False}}
+        record = activity.read(self.activity_id, self.root)
+        record["checkpoints"].append({
+            "event_id": "legacy-github-fetch", "em_sources": [legacy],
+            "kb_sources": [], "repairs_event_id": None, "state": "EM_REPRESENTED"})
+        self.path().write_bytes(activity.encoded(record))
+        events = activity._events(record, self.root)
+        self.assertEqual(list(events), ["legacy-github-fetch"])
+        audit = self.audit()
+        self.assertIn("legacy-github-fetch", audit["legacy_observation_debt_events"])
+        self.assertIn("legacy-github-fetch", audit["sync_debt_events"])
+        # A historical summary is not valid as a new authenticated observation.
+        untrusted = copy.deepcopy(self.source["readback"])
+        untrusted["tool_name"] = "github_fetch"
+        with self.assertRaises(activity.ActivityError):
+            activity.verify_observation(untrusted, self.source)
+
+    def test_sparse_git_blob_summary_without_sha256_remains_debt(self):
+        pin = {key: self.source[key] for key in ("repository", "commit", "path")}
+        readback = self.source["readback"]["result"]["structuredContent"]
+        sparse = {**pin, "publication_state": "EM_SOURCE_OBSERVED",
+                  "verification": {
+                      "kind": "OBSERVED_CONNECTOR_GIT_BLOB_READBACK",
+                      "tool_name": "github_fetch_file",
+                      "git_blob_sha1": readback["sha"],
+                      "immutable_url": readback["display_url"],
+                      "server_signature_authenticated": False}}
+        record = activity.read(self.activity_id, self.root)
+        record["checkpoints"].append({
+            "event_id": "sparse-blob-summary", "em_sources": [sparse],
+            "kb_sources": [], "repairs_event_id": None, "state": "EM_REPRESENTED"})
+        self.path().write_bytes(activity.encoded(record))
+        self.assertIn("sparse-blob-summary", activity._events(record, self.root))
+        audit = self.audit()
+        self.assertIn("sparse-blob-summary", audit["legacy_observation_debt_events"])
+        self.assertIn("sparse-blob-summary", audit["sync_debt_events"])
+        bad = copy.deepcopy(record)
+        bad["checkpoints"][-1]["em_sources"][0]["verification"]["immutable_url"] = "https://example.org/false"
+        with self.assertRaises(activity.ActivityError):
+            activity._events(bad, self.root)
+
+    def test_historical_repair_links_do_not_clear_debt_without_full_readback(self):
+        pin = {key: self.source[key] for key in ("repository", "commit", "path", "sha256")}
+        readback = self.source["readback"]["result"]["structuredContent"]
+        legacy = {**pin, "publication_state": "EM_SOURCE_OBSERVED",
+                  "verification": {
+                      "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+                      "tool_name": "github_fetch_file",
+                      "git_blob_sha1": readback["sha"],
+                      "immutable_url": readback["display_url"],
+                      "server_signature_authenticated": False}}
+        record = activity.read(self.activity_id, self.root)
+        record["checkpoints"] = [
+            {"event_id": "historical-debt", "em_sources": [copy.deepcopy(legacy)],
+             "kb_sources": [], "repairs_event_id": None, "state": "EM_REPRESENTED"},
+            {"event_id": "historical-repair-link", "em_sources": [copy.deepcopy(legacy)],
+             "kb_sources": [], "repairs_event_id": "historical-debt", "state": "EM_REPRESENTED"}]
+        self.path().write_bytes(activity.encoded(record))
+        self.assertEqual(len(activity._events(record, self.root)), 2)
+        before = self.audit()
+        self.assertEqual(set(before["legacy_observation_debt_events"]),
+                         {"historical-debt", "historical-repair-link"})
+        self.assertEqual(set(before["sync_debt_events"]),
+                         {"historical-debt", "historical-repair-link"})
+        bad = copy.deepcopy(record)
+        bad["checkpoints"][1]["repairs_event_id"] = "future-or-missing"
+        with self.assertRaisesRegex(activity.ActivityError, "earlier event"):
+            activity._events(bad, self.root)
+        # A genuinely observed new repair may clear only its exact named prior debt.
+        activity.checkpoint(self.activity_id, root=self.root,
+                            event_id="observed-repair", repairs_event_id="historical-debt",
+                            expected_sha256=activity.digest(self.path().read_bytes()),
+                            em_sources=[self.source])
+        after = self.audit()
+        self.assertEqual(after["legacy_observation_debt_events"],
+                         ["historical-repair-link"])
+        self.assertEqual(after["sync_debt_events"],
+                         ["historical-repair-link"])
+
     def test_same_path_size_and_mtime_cannot_hide_changed_receipt_bytes(self):
         record = self.checkpoint('first')
         self.audit()

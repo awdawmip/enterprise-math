@@ -262,6 +262,26 @@ def _checked_source(source: Any, activity_id: str, root: Path,
                     readbacks: dict[str, dict[str, Any]] | None = None) -> str:
     if not isinstance(source, dict):
         raise ActivityError("invalid stored source")
+    # Some already-published events contain sparse Git-blob summaries without
+    # a SHA256 input pin or a complete observation sidecar. Preserve the event
+    # as historical debt; never promote the summary to a verified readback.
+    verification = source.get("verification")
+    if (set(source) == {"repository", "commit", "path", "publication_state", "verification"}
+            and source.get("publication_state") == "EM_SOURCE_OBSERVED"
+            and isinstance(verification, dict)
+            and set(verification) == {"kind", "tool_name", "git_blob_sha1",
+                                     "immutable_url", "server_signature_authenticated"}
+            and (verification["kind"], verification["tool_name"])
+                == ("OBSERVED_CONNECTOR_GIT_BLOB_READBACK", "github_fetch_file")
+            and verification["server_signature_authenticated"] is False):
+        commit = _hex(source.get("commit"), 40, "legacy commit")
+        path = _relative(source.get("path"))
+        if (source.get("repository") != REPOSITORY or path.startswith(STORE + "/")
+                or verification["immutable_url"]
+                    != f"https://github.com/{REPOSITORY}/blob/{commit}/{path}"):
+            raise ActivityError("invalid sparse historical Git blob summary")
+        _hex(verification["git_blob_sha1"], 40, "legacy git blob")
+        return "LEGACY_EM_SOURCE_REPORTED"
     base, _ = _source(source, activity_id)
     if source.get("publication_state") == "VERIFY_EM_PUBLICATION":
         if source != base:
@@ -280,6 +300,8 @@ def _checked_source(source: Any, activity_id: str, root: Path,
                 or not isinstance(verification, dict) or not required <= verification.keys()
                 or verification.keys() - required - optional
                 or (verification["kind"], verification["tool_name"]) not in {
+                    # Historic GitHub.fetch summaries remain legacy debt, not verified readbacks.
+                    ("OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED", "github_fetch"),
                     ("OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED", "github_fetch_file"),
                     ("OBSERVED_MCP_GITHUB_API_STRUCTURE_AND_BYTES_VERIFIED", "em_mcp_github_contents")}
                 or verification["server_signature_authenticated"] is not False
@@ -329,8 +351,9 @@ def _events(record: Mapping[str, Any], root: Path) -> dict[str, dict[str, Any]]:
         if row.get("state") != status and not legacy_report:
             raise ActivityError("checkpoint state must be derived from actual source evidence")
         repair = row.get("repairs_event_id")
-        if repair is not None and (repair not in events or status != "EM_REPRESENTED"):
-            raise ActivityError("repair must reference an earlier event and provide verified EM source")
+        if repair is not None and (repair not in events or (status != "EM_REPRESENTED" and not legacy_report)):
+            # Preserve historically reported repair links without certifying observation.
+            raise ActivityError("repair must reference an earlier event and have a valid observed or legacy source")
         events[event_id] = row
     return events
 
@@ -435,8 +458,10 @@ def audit_observations(*, activity_id: str | None = None, boundary: str = "start
     if session_id is not None and session_id != record["session_id"]:
         raise ActivityError("activity belongs to a different or unknown original session")
     events = _events(record, root)
-    repaired = {x["repairs_event_id"] for x in events.values() if x["repairs_event_id"] is not None}
     legacy = _legacy_events(events)
+    repaired = {x["repairs_event_id"] for x in events.values()
+                if x["repairs_event_id"] is not None and x["event_id"] not in legacy}
+    # A legacy repair link records its provenance but cannot clear unobserved debt.
     debts = [x for x in events.values()
              if (x["state"] != "EM_REPRESENTED" or x["event_id"] in legacy)
              and x["event_id"] not in repaired]
