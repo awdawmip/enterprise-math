@@ -1,0 +1,162 @@
+{
+  "branches": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "evidence": "unbounded theorem proved by exact branch-word bijection, finite checks only as stated",
+  "observer": "u=(2x-n,n-2y,2z-n) mod q; canonical = min(sorted(u),sorted(-u))",
+  "orbit_count": "(C(q+2,3)+(q+1)/2)/2",
+  "outcomes": [
+    {
+      "arbitrary_orbit_input_all_time_phases": "PASS",
+      "direct_BRC_vs_reduced": "PASS",
+      "full_coefficient_checks": 1971,
+      "mass_conservation": "PASS",
+      "matrix_nonzero_entries": 18,
+      "matrix_weighted_branch_edges": 36,
+      "max_distinct_coefficient_values_seen": 4,
+      "n_inclusive": [
+        0,
+        72
+      ],
+      "orbit_state_count": 6,
+      "q": 3,
+      "raw_terminal_count": 27,
+      "rolling_checksum_mod_1000000007": 324967097
+    },
+    {
+      "arbitrary_orbit_input_all_time_phases": "PASS",
+      "direct_BRC_vs_reduced": "PASS",
+      "full_coefficient_checks": 66339,
+      "mass_conservation": "PASS",
+      "matrix_nonzero_entries": 405,
+      "matrix_weighted_branch_edges": 510,
+      "max_distinct_coefficient_values_seen": 35,
+      "n_inclusive": [
+        0,
+        90
+      ],
+      "orbit_state_count": 85,
+      "q": 9,
+      "raw_terminal_count": 729,
+      "rolling_checksum_mod_1000000007": 469716541
+    },
+    {
+      "arbitrary_orbit_input_all_time_phases": "PASS",
+      "direct_BRC_vs_reduced": "PASS",
+      "full_coefficient_checks": 255879,
+      "mass_conservation": "PASS",
+      "matrix_nonzero_entries": 10206,
+      "matrix_weighted_branch_edges": 11004,
+      "max_distinct_coefficient_values_seen": 58,
+      "n_inclusive": [
+        0,
+        12
+      ],
+      "orbit_state_count": 1834,
+      "q": 27,
+      "raw_terminal_count": 19683,
+      "rolling_checksum_mod_1000000007": 784721722
+    }
+  ],
+  "q9_fixed_named_branch_non_descent": {
+    "appended_branch": [
+      1,
+      0,
+      0
+    ],
+    "input_endpoints": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "n": 1,
+    "output_endpoints": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        1,
+        1
+      ]
+    ],
+    "output_orbits_equal": false
+  },
+  "q9_period_window_full_comparisons": 92583,
+  "q9_period_window_reduced_comparisons": 10795,
+  "q9_saving_exact": "81788/92583=644/729",
+  "review": "AUTHOR_PROVED / EXACT_INTEGER_CHECK_PASS / NOT_REVIEWED",
+  "schema": "R762FD_POSITIVE_BRC_S3_C2_STATIONARY_ORBIT_V1",
+  "scope": "all odd q and all n>=0; six positive named BRC branches",
+  "signed_centered_steps": [
+    [
+      -1,
+      1,
+      -1
+    ],
+    [
+      1,
+      1,
+      -1
+    ],
+    [
+      -1,
+      1,
+      1
+    ],
+    [
+      1,
+      -1,
+      -1
+    ],
+    [
+      -1,
+      -1,
+      1
+    ],
+    [
+      1,
+      -1,
+      1
+    ]
+  ],
+  "transition": "T[k,j] counts centered signed steps s with canonical(k-s)=j; T is independent of n"
+}
