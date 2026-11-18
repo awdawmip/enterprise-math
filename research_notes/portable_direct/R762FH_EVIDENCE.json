@@ -1,0 +1,262 @@
+{
+  "schema": "R762FH_MOVING_D6_ORBIT_EXACT_EVIDENCE_V1",
+  "proof_scope": "All odd q via Burnside; exhaustive q=3,9,27 listed time ranges",
+  "branch_steps": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "model": "Integral six-named-positive-branch convolution on Z[(Z/q)^3]; D chart is not native signed force cancellation",
+  "arithmetic": "Python arbitrary-precision exact integer; no float or modulus truncation",
+  "status": "PASS",
+  "total_exact_terminal_comparisons": 795852,
+  "source_local_verifier_sha256": "df29a8c47e40cdfa6e518b462183dc682791eed451ace28d89e9901885155eb4",
+  "cases": [
+    {
+      "q": 3,
+      "n_0_through": 45,
+      "terminal_count": 27,
+      "orbit_count": 6,
+      "orbit_size_histogram": {
+        "1": 1,
+        "2": 1,
+        "6": 4
+      },
+      "arithmetic_operations_per_step_full": 162,
+      "arithmetic_operations_per_step_orbit_unoptimized": 36,
+      "exact_checks": 1242,
+      "all_comparisons_exact": true,
+      "checkpoints": [
+        {
+          "n": 0,
+          "total": "1",
+          "max_coefficient": "1"
+        },
+        {
+          "n": 1,
+          "total": "6",
+          "max_coefficient": "1"
+        },
+        {
+          "n": 2,
+          "total": "36",
+          "max_coefficient": "6"
+        },
+        {
+          "n": 3,
+          "total": "216",
+          "max_coefficient": "15"
+        },
+        {
+          "n": 5,
+          "total": "7776",
+          "max_coefficient": "351"
+        },
+        {
+          "n": 8,
+          "total": "1679616",
+          "max_coefficient": "65610"
+        },
+        {
+          "n": 9,
+          "total": "10077696",
+          "max_coefficient": "378351"
+        },
+        {
+          "n": 12,
+          "total": "2176782336",
+          "max_coefficient": "80897130"
+        },
+        {
+          "n": 18,
+          "total": "101559956668416",
+          "max_coefficient": "3761680761306"
+        },
+        {
+          "n": 27,
+          "total": "1023490369077469249536",
+          "max_coefficient": "37907052683579690535"
+        },
+        {
+          "n": 45,
+          "total": "103945637534048876111514866313854976",
+          "max_coefficient": "3849838427187761344461508227768351"
+        }
+      ]
+    },
+    {
+      "q": 9,
+      "n_0_through": 90,
+      "terminal_count": 729,
+      "orbit_count": 85,
+      "orbit_size_histogram": {
+        "1": 1,
+        "2": 4,
+        "6": 40,
+        "12": 40
+      },
+      "arithmetic_operations_per_step_full": 4374,
+      "arithmetic_operations_per_step_orbit_unoptimized": 510,
+      "exact_checks": 66339,
+      "all_comparisons_exact": true,
+      "checkpoints": [
+        {
+          "n": 0,
+          "total": "1",
+          "max_coefficient": "1"
+        },
+        {
+          "n": 1,
+          "total": "6",
+          "max_coefficient": "1"
+        },
+        {
+          "n": 2,
+          "total": "36",
+          "max_coefficient": "6"
+        },
+        {
+          "n": 3,
+          "total": "216",
+          "max_coefficient": "15"
+        },
+        {
+          "n": 5,
+          "total": "7776",
+          "max_coefficient": "310"
+        },
+        {
+          "n": 8,
+          "total": "1679616",
+          "max_coefficient": "44730"
+        },
+        {
+          "n": 9,
+          "total": "10077696",
+          "max_coefficient": "195426"
+        },
+        {
+          "n": 12,
+          "total": "2176782336",
+          "max_coefficient": "32496156"
+        },
+        {
+          "n": 18,
+          "total": "101559956668416",
+          "max_coefficient": "842091058386"
+        },
+        {
+          "n": 27,
+          "total": "1023490369077469249536",
+          "max_coefficient": "4444441436832236820"
+        },
+        {
+          "n": 90,
+          "total": "10804695562359870518299193703899148848724015728610899282651377959960576",
+          "max_coefficient": "15320162264891388943610710198529763150867486178687685245191327283476"
+        }
+      ]
+    },
+    {
+      "q": 27,
+      "n_0_through": 36,
+      "terminal_count": 19683,
+      "orbit_count": 1834,
+      "orbit_size_histogram": {
+        "1": 1,
+        "2": 13,
+        "6": 364,
+        "12": 1456
+      },
+      "arithmetic_operations_per_step_full": 118098,
+      "arithmetic_operations_per_step_orbit_unoptimized": 11004,
+      "exact_checks": 728271,
+      "all_comparisons_exact": true,
+      "checkpoints": [
+        {
+          "n": 0,
+          "total": "1",
+          "max_coefficient": "1"
+        },
+        {
+          "n": 1,
+          "total": "6",
+          "max_coefficient": "1"
+        },
+        {
+          "n": 2,
+          "total": "36",
+          "max_coefficient": "6"
+        },
+        {
+          "n": 3,
+          "total": "216",
+          "max_coefficient": "15"
+        },
+        {
+          "n": 5,
+          "total": "7776",
+          "max_coefficient": "310"
+        },
+        {
+          "n": 8,
+          "total": "1679616",
+          "max_coefficient": "44730"
+        },
+        {
+          "n": 9,
+          "total": "10077696",
+          "max_coefficient": "195426"
+        },
+        {
+          "n": 12,
+          "total": "2176782336",
+          "max_coefficient": "32496156"
+        },
+        {
+          "n": 18,
+          "total": "101559956668416",
+          "max_coefficient": "842090474940"
+        },
+        {
+          "n": 27,
+          "total": "1023490369077469249536",
+          "max_coefficient": "4438467396322843500"
+        },
+        {
+          "n": 36,
+          "total": "10314424798490535546171949056",
+          "max_coefficient": "30862498453931119524941700"
+        }
+      ]
+    }
+  ],
+  "review": "AUTHOR_CHECKED_NOT_INDEPENDENTLY_REVIEWED"
+}
