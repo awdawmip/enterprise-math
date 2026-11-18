@@ -111,13 +111,18 @@
     "previous_progress_terminal": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED",
     "previous_progress_source": "3687d721a14865e01f063635ba4f086b2596dbc2",
     "original_exact_continuation_request_id": "onhour-20261118-1406-x6-own-cont-v1",
-    "original_exact_continuation_last_status": "QUEUED / error=null at last original-ID read; must consume terminal and revalidate winning owner before protected write",
-    "unit123_and_124_native_semantic_progress": "NOT_SUBMITTED; authorization not refreshed"
+    "original_exact_continuation_last_status": "SUCCEEDED / OWN_RECORDED_RUN_AVAILABLE on exact original-ID read; same SID/CLAIM/RUN returned, no new claim or dispatch",
+    "unit123_and_124_native_semantic_progress": "NOT_SUBMITTED; wait original resume terminal and current Source owner validation",
+    "original_resume_request_id": "onhour-20261118-1404-x6-own-run9586-unit123-124-resume-v1",
+    "original_resume_last_status": "RUNNING / error=null on original-ID read, protected Native authorizations pending; next turn reconcile same ID, no duplicate resume"
   },
   "activity": {
     "id": "RA-5E3FE1E761E4963EC461A892",
     "prior_entries": 136,
-    "unit124_checkpoint": "PENDING_SOURCE_ACTIVITY_CAS_WRITE"
+    "unit124_checkpoint": "EM_SOURCE_OBSERVED / VERIFIED original RA #137",
+    "source_commit": "2757a3b1821e1103e9e055aaf6872181b88de257",
+    "verified_blob": "b615d53833f4845955177e87ba36c58ef30176a8",
+    "entries": 137
   },
   "gaps": [
     "Consume original exact continuation request and verify own winning CLAIM/current authorization, then checkpoint Native Units123-124 without duplicating prior PROGRESS",
@@ -132,7 +137,7 @@
     "Unit124 already published triple scientific artifacts",
     "Any maintenance logical conversation identity, another actor's CLAIM, or prior unknown write"
   ],
-  "next_exact_action": "Read original onhour-20261118-1406-x6-own-cont-v1 receipt; if Source still validates own claim, reauthorize same own RUN and save Units123–124 Native PROGRESS after current schema check; then inspect a not-yet-audited actual current 28-LP consumer and source-line typing, without duplicating Units101–123.",
+  "next_exact_action": "Reconcile original same-session resume onhour-20261118-1404-x6-own-run9586-unit123-124-resume-v1, consume successful authorization and writer generation; checkpoint then submit Units123–124 Native semantic PROGRESS through original RUN if still winning; do not repeat Unit124 GitHub writes/Activity. Next inspect actual historical LP011/LP019 offender or additional 28-LP concrete current consumer.",
   "continuation_state": "OPEN",
   "review_status": "AUTHOR_UNREVIEWED_NOT_ADMITTED",
   "notifications_and_schedule": "unchanged"
