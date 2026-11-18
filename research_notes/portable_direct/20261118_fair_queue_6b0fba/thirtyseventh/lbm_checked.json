@@ -1,0 +1,483 @@
+{
+  "binary_collision_lattice": {
+    "all_binary_generating_systems": 186368,
+    "connected_graphs_by_edges": {
+      "1": {
+        "0": 1
+      },
+      "2": {
+        "1": 1
+      },
+      "3": {
+        "2": 3,
+        "3": 1
+      },
+      "5": {
+        "4": 125,
+        "5": 222,
+        "6": 205,
+        "7": 120,
+        "8": 45,
+        "9": 10,
+        "10": 1
+      }
+    },
+    "every_minimal_basis_size": 20,
+    "minimal_basis_count": 10125,
+    "pair_fiber_sizes": {
+      "1": 12,
+      "2": 8,
+      "3": 4,
+      "5": 1
+    },
+    "primitive_unordered_binary_moves": 30,
+    "star_tree_connectivity_checked": {
+      "2": {
+        "moment_fibers": 25,
+        "populations": 45
+      },
+      "3": {
+        "moment_fibers": 49,
+        "populations": 165
+      },
+      "4": {
+        "moment_fibers": 81,
+        "populations": 495
+      },
+      "5": {
+        "moment_fibers": 121,
+        "populations": 1287
+      },
+      "6": {
+        "moment_fibers": 169,
+        "populations": 3003
+      }
+    }
+  },
+  "checks": {
+    "periodic": {
+      "exact_global_wall_impulse": [
+        "0",
+        "0"
+      ],
+      "one_step_fp64_max_error_lt": "3e-15",
+      "variant_max_difference_at_19_lt": "3e-14"
+    },
+    "wall": {
+      "exact_global_wall_impulse": [
+        "-1/9000",
+        "-29/9000"
+      ],
+      "one_step_fp64_max_error_lt": "3e-15",
+      "variant_max_difference_at_19_lt": "3e-14"
+    }
+  },
+  "irregular_wall": {
+    "alternating_momenta_tested": 2,
+    "population_links": 117,
+    "sites": 13
+  },
+  "kernel_cases": {
+    "auto": {
+      "inplace": false,
+      "operation_counts_from_symbolic_rule": {
+        "adds": 44,
+        "divs": 1,
+        "fast_div": 0,
+        "fast_inv_sqrts": 0,
+        "fast_sqrts": 0,
+        "muls": 66,
+        "sqrts": 0
+      },
+      "source_offset_x_y_lane": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          3
+        ],
+        [
+          -1,
+          0,
+          4
+        ],
+        [
+          1,
+          -1,
+          5
+        ],
+        [
+          -1,
+          -1,
+          6
+        ],
+        [
+          1,
+          1,
+          7
+        ],
+        [
+          -1,
+          1,
+          8
+        ]
+      ]
+    },
+    "builtin_global_cse": {
+      "inplace": false,
+      "operation_counts_from_symbolic_rule": {
+        "adds": 43,
+        "divs": 1,
+        "fast_div": 0,
+        "fast_inv_sqrts": 0,
+        "fast_sqrts": 0,
+        "muls": 38,
+        "sqrts": 0
+      },
+      "source_offset_x_y_lane": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          3
+        ],
+        [
+          -1,
+          0,
+          4
+        ],
+        [
+          1,
+          -1,
+          5
+        ],
+        [
+          -1,
+          -1,
+          6
+        ],
+        [
+          1,
+          1,
+          7
+        ],
+        [
+          -1,
+          1,
+          8
+        ]
+      ]
+    },
+    "stream_only": {
+      "inplace": false,
+      "operation_counts_from_symbolic_rule": {
+        "adds": 0,
+        "divs": 0,
+        "fast_div": 0,
+        "fast_inv_sqrts": 0,
+        "fast_sqrts": 0,
+        "muls": 0,
+        "sqrts": 0
+      },
+      "source_offset_x_y_lane": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          3
+        ],
+        [
+          -1,
+          0,
+          4
+        ],
+        [
+          1,
+          -1,
+          5
+        ],
+        [
+          -1,
+          -1,
+          6
+        ],
+        [
+          1,
+          1,
+          7
+        ],
+        [
+          -1,
+          1,
+          8
+        ]
+      ]
+    }
+  },
+  "lbmpy": "2.1.1",
+  "moment_only_counterexample": {
+    "post_collision_delta": [
+      "1/2",
+      "0",
+      "0",
+      "-1/4",
+      "-1/4",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "pre_collision_delta": [
+      -2,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "omega": "5/4",
+  "periodic_character_modes": {
+    "10x11": [
+      [
+        0,
+        0,
+        0,
+        3
+      ],
+      [
+        5,
+        0,
+        55,
+        1
+      ]
+    ],
+    "1x1": [
+      [
+        0,
+        0,
+        0,
+        3
+      ]
+    ],
+    "1x6": [
+      [
+        0,
+        0,
+        0,
+        3
+      ],
+      [
+        0,
+        3,
+        3,
+        1
+      ]
+    ],
+    "2x2": [
+      [
+        0,
+        0,
+        0,
+        3
+      ],
+      [
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ]
+    ],
+    "3x4": [
+      [
+        0,
+        0,
+        0,
+        3
+      ],
+      [
+        0,
+        2,
+        6,
+        1
+      ]
+    ],
+    "4x3": [
+      [
+        0,
+        0,
+        0,
+        3
+      ],
+      [
+        2,
+        0,
+        6,
+        1
+      ]
+    ],
+    "4x4": [
+      [
+        0,
+        0,
+        0,
+        3
+      ],
+      [
+        0,
+        2,
+        2,
+        1
+      ],
+      [
+        2,
+        0,
+        2,
+        1
+      ]
+    ],
+    "5x6": [
+      [
+        0,
+        0,
+        0,
+        3
+      ],
+      [
+        0,
+        3,
+        15,
+        1
+      ]
+    ],
+    "7x8": [
+      [
+        0,
+        0,
+        0,
+        3
+      ],
+      [
+        0,
+        4,
+        28,
+        1
+      ]
+    ],
+    "8x9": [
+      [
+        0,
+        0,
+        0,
+        3
+      ],
+      [
+        4,
+        0,
+        36,
+        1
+      ]
+    ]
+  },
+  "pystencils": "2.1",
+  "stencil": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      -1
+    ],
+    [
+      -1,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      -1,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      -1,
+      -1
+    ],
+    [
+      1,
+      -1
+    ]
+  ],
+  "weights": [
+    "4/9",
+    "1/9",
+    "1/9",
+    "1/9",
+    "1/9",
+    "1/36",
+    "1/36",
+    "1/36",
+    "1/36"
+  ]
+}

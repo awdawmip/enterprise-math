@@ -1,0 +1,163 @@
+{
+  "affinity_for_timed_run": [
+    0
+  ],
+  "build": {
+    "auto": {
+      "compile_and_load_s_with_empty_run_cache": 3.351039380999282,
+      "construct_and_emit_s": 1.6504165020014625,
+      "emitted_c_sha256": "a1688c3b6a2153c51264d2d07299358abd5882b621752d7170ca77b3c6d8bd1c",
+      "emitted_c_utf8_bytes": 5387
+    },
+    "builtin_global_cse": {
+      "compile_and_load_s_with_empty_run_cache": 1.9838359959976515,
+      "construct_and_emit_s": 0.16296276199864224,
+      "emitted_c_sha256": "2b4df5d2fff4ee99f76f3fee83b362555823b1c1a3d529c032f2733fa2731fb7",
+      "emitted_c_utf8_bytes": 5253
+    },
+    "stream_only": {
+      "compile_and_load_s_with_empty_run_cache": 3.196356972999638,
+      "construct_and_emit_s": 0.16111438399821054,
+      "emitted_c_sha256": "472e24e40399c5df75986c4c9ee56dcafda43f829504fa2d9be1f56577b899c0",
+      "emitted_c_utf8_bytes": 2399
+    }
+  },
+  "cost_scope": "five shuffled timing groups, one CPU affinity; fixed input, periodic halo plus FP64 kernel; payload floor excludes cache, RFO and halo",
+  "cxx_compiler_available": "c++ (Debian 14.2.0-19) 14.2.0",
+  "floating_checks": {
+    "periodic": {
+      "exact_wall_impulse": [
+        "0",
+        "0"
+      ],
+      "measured_max_errors": {
+        "auto": 1.6653345369377348e-16,
+        "between_generated_variants_after_19": 2.220446049250313e-16,
+        "builtin_global_cse": 1.6653345369377348e-16
+      }
+    },
+    "wall": {
+      "exact_wall_impulse": [
+        "-1/9000",
+        "-29/9000"
+      ],
+      "measured_max_errors": {
+        "auto": 1.6653345369377348e-16,
+        "between_generated_variants_after_19": 2.7755575615628914e-16,
+        "builtin_global_cse": 1.6653345369377348e-16
+      }
+    }
+  },
+  "measurements": {
+    "96": {
+      "auto": {
+        "median_MLUPS": 43.062583258117954,
+        "median_effective_GBps_144_payload_bytes": 6.201011989168984,
+        "seconds_per_step_repetitions": [
+          0.00011688230006257072,
+          0.000215030833351193,
+          0.00020889806667886054,
+          0.00021401410000786806,
+          0.0008591043333581183
+        ]
+      },
+      "builtin_global_cse": {
+        "median_MLUPS": 71.64464995040183,
+        "median_effective_GBps_144_payload_bytes": 10.316829592857864,
+        "seconds_per_step_repetitions": [
+          0.00010880753349435205,
+          0.0001073941333743278,
+          0.00012863486675390352,
+          0.00015530706659774295,
+          0.00015823449987995749
+        ]
+      },
+      "stream_only": {
+        "median_MLUPS": 204.70826010097028,
+        "median_effective_GBps_144_payload_bytes": 29.477989454539717,
+        "seconds_per_step_repetitions": [
+          4.5020166726317254e-05,
+          4.072936668914432e-05,
+          5.340996673718716e-05,
+          0.0004353826998946412,
+          4.4175566533037154e-05
+        ]
+      }
+    },
+    "512": {
+      "auto": {
+        "median_MLUPS": 69.01531205426733,
+        "median_effective_GBps_144_payload_bytes": 9.938204935814495,
+        "seconds_per_step_repetitions": [
+          0.006616417000259389,
+          0.0032193182487390004,
+          0.0037983455003995914,
+          0.0032461975006299326,
+          0.004621957999916049
+        ]
+      },
+      "builtin_global_cse": {
+        "median_MLUPS": 60.87006596833136,
+        "median_effective_GBps_144_payload_bytes": 8.765289499439715,
+        "seconds_per_step_repetitions": [
+          0.004306615999666974,
+          0.00329507475180435,
+          0.00411420199998247,
+          0.008864810000886791,
+          0.007293382250281866
+        ]
+      },
+      "stream_only": {
+        "median_MLUPS": 106.6793092105664,
+        "median_effective_GBps_144_payload_bytes": 15.361820526321562,
+        "seconds_per_step_repetitions": [
+          0.0035436002490314422,
+          0.007271966000189423,
+          0.0022124287497717887,
+          0.0019166642505297204,
+          0.0024573087503085844
+        ]
+      }
+    },
+    "1536": {
+      "auto": {
+        "median_MLUPS": 39.89159437008964,
+        "median_effective_GBps_144_payload_bytes": 5.744389589292909,
+        "seconds_per_step_repetitions": [
+          0.06284954299917445,
+          0.06648708900320344,
+          0.03626964099385077,
+          0.059142685000551865,
+          0.03376762099651387
+        ]
+      },
+      "builtin_global_cse": {
+        "median_MLUPS": 56.696910676315824,
+        "median_effective_GBps_144_payload_bytes": 8.164355137389478,
+        "seconds_per_step_repetitions": [
+          0.041612426000938285,
+          0.03593358699436067,
+          0.10454169700096827,
+          0.03249389999837149,
+          0.06496625900035724
+        ]
+      },
+      "stream_only": {
+        "median_MLUPS": 69.21668570844953,
+        "median_effective_GBps_144_payload_bytes": 9.967202742016733,
+        "seconds_per_step_repetitions": [
+          0.06370183900435222,
+          0.02991419000318274,
+          0.04697745600424241,
+          0.03096880800148938,
+          0.034085653998772614
+        ]
+      }
+    }
+  },
+  "numpy": "2.5.5",
+  "peak_rss_KiB_linux": 454064,
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "sympy": "1.14.0"
+}
