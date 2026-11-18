@@ -1,0 +1,55 @@
+{
+  "schema": "PREFIX908_R6_LOW_BIT_MIXED_PARITY_EXACT_UNION_V1",
+  "date": "2026-11-18",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": {
+    "p": 32,
+    "N": 4294967296,
+    "strict_odd_19bit_moduli": [
+      262145,
+      524287
+    ],
+    "q_size": 131072,
+    "observer": "(start mod a, end mod b); retain named XOR sources"
+  },
+  "new_family": "2a-b=2^i+s, i=1..19, s=+1/-1; source j=0",
+  "prior_union": "C907 explicit exact union including E, panel, three gap sets and 3a-b=2^i +/- 2^j (18<=i<=22,1<=j<=17) with transposition",
+  "old_class_sizes": {
+    "old_gap_classes": 258,
+    "g905_gap_classes": 276,
+    "g906_gap_classes": 857,
+    "special_moduli": 552,
+    "panel_moduli": 192,
+    "D907_values": 169
+  },
+  "exact": {
+    "D908_values": 37,
+    "raw_oriented_pairs": 393214,
+    "analytic_raw_count": 393214,
+    "old_C906_oriented_overlap": 208655,
+    "additional_C907_oriented_overlap": 9,
+    "novel_oriented": 184550,
+    "raw_reverse_intersection": 6,
+    "novel_reverse_intersection": 0,
+    "new_distinct_ordered_pairs": 369100,
+    "prior_C907": 7778425088,
+    "certified_C908": 7778794188,
+    "uncovered_by_explicit_C908": 9401074996,
+    "witnesses_verified": 393214
+  },
+  "example": {
+    "a": 500001,
+    "b": 475713,
+    "k": 2,
+    "ell": 1,
+    "i": 19,
+    "j": 0,
+    "s": 1,
+    "start1": 1,
+    "end1": 524289,
+    "start2": 1000003,
+    "end2": 1000002
+  },
+  "status": "AUTHOR_PROVED / EXACT_INTEGER_FINITE_CHECKED / INDEPENDENT_PYTHON_RECOUNT / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED",
+  "limitation": "Certificate union only. Current P000 and frozen source unchanged. No native Task CLAIM or Result admission."
+}
