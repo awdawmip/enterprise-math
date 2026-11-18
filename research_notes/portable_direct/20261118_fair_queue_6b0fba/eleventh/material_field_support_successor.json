@@ -1,0 +1,241 @@
+{
+  "scope": "Declared comparison extensions only. A native joint successor is not supplied.",
+  "postcarry_same_input": {
+    "before_material_B": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "after_carry_B": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "after_bind_B": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "body_and_resource_move_port": 4,
+    "registered_word_port": 5,
+    "other_bound_records_at_B_after_carry": 0,
+    "body_moves_during_binding": 0
+  },
+  "counterfactuals": [
+    {
+      "selected": "a",
+      "removed": null,
+      "attached": true,
+      "support_after": {
+        "a": "spent",
+        "b": "ready"
+      },
+      "ready_for_same_source": false,
+      "material_position": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "id2_role": "bound_AB",
+      "field_successor": "UNKNOWN",
+      "mechanical_reaction": "UNKNOWN"
+    },
+    {
+      "selected": "a",
+      "removed": "a",
+      "attached": false,
+      "support_after": {
+        "a": "withdrawn",
+        "b": "ready"
+      },
+      "ready_for_same_source": false,
+      "material_position": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "id2_role": "held",
+      "field_successor": "UNKNOWN",
+      "mechanical_reaction": "UNKNOWN"
+    },
+    {
+      "selected": "a",
+      "removed": "b",
+      "attached": true,
+      "support_after": {
+        "a": "spent",
+        "b": "withdrawn"
+      },
+      "ready_for_same_source": false,
+      "material_position": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "id2_role": "bound_AB",
+      "field_successor": "UNKNOWN",
+      "mechanical_reaction": "UNKNOWN"
+    },
+    {
+      "selected": "b",
+      "removed": null,
+      "attached": true,
+      "support_after": {
+        "a": "ready",
+        "b": "spent"
+      },
+      "ready_for_same_source": false,
+      "material_position": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "id2_role": "bound_AB",
+      "field_successor": "UNKNOWN",
+      "mechanical_reaction": "UNKNOWN"
+    },
+    {
+      "selected": "b",
+      "removed": "a",
+      "attached": true,
+      "support_after": {
+        "a": "withdrawn",
+        "b": "spent"
+      },
+      "ready_for_same_source": false,
+      "material_position": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "id2_role": "bound_AB",
+      "field_successor": "UNKNOWN",
+      "mechanical_reaction": "UNKNOWN"
+    },
+    {
+      "selected": "b",
+      "removed": "b",
+      "attached": false,
+      "support_after": {
+        "a": "ready",
+        "b": "withdrawn"
+      },
+      "ready_for_same_source": false,
+      "material_position": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "id2_role": "held",
+      "field_successor": "UNKNOWN",
+      "mechanical_reaction": "UNKNOWN"
+    }
+  ],
+  "withdraw_before_move": [
+    {
+      "selected": "a",
+      "remove_a_before_move": "0",
+      "material_B_on_old_ACCEPT": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "material_B_on_old_REJECT": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "selected": "b",
+      "remove_a_before_move": "1/49",
+      "material_B_on_old_ACCEPT": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "material_B_on_old_REJECT": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "reuse_after_geometric_inverse": [
+    {
+      "selected": "a",
+      "refund_on_inverse": false,
+      "support_after_inverse": {
+        "a": "spent",
+        "b": "ready"
+      },
+      "can_same_source_reenter": false
+    },
+    {
+      "selected": "a",
+      "refund_on_inverse": true,
+      "support_after_inverse": {
+        "a": "ready",
+        "b": "ready"
+      },
+      "can_same_source_reenter": true
+    },
+    {
+      "selected": "b",
+      "refund_on_inverse": false,
+      "support_after_inverse": {
+        "a": "ready",
+        "b": "spent"
+      },
+      "can_same_source_reenter": false
+    },
+    {
+      "selected": "b",
+      "refund_on_inverse": true,
+      "support_after_inverse": {
+        "a": "ready",
+        "b": "ready"
+      },
+      "can_same_source_reenter": true
+    }
+  ]
+}

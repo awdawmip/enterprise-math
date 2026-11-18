@@ -1,0 +1,130 @@
+{
+  "task_id": "RS-CELL-U27F-02-NATIVE-TRIAD-20261012",
+  "public_fixture_sha256": {
+    "base_case": "e5c8f069391bf8acefefe52853ce70ae53e78180c4f33b693d66100f34ad3434",
+    "carry_Q": "acd915da997e0703ae72395e805126b29d841d47a68a435e75af379e40f76708"
+  },
+  "brc_blob": "3f205696709e847909958a153f8fe10d3f6b70f0",
+  "local_geometry": {
+    "before_material_B": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "after_carry_B": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "after_bind_B": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "body_and_resource_move_port": 4,
+    "registered_word_port": 5,
+    "other_bound_records_at_B_after_carry": 0,
+    "body_moves_during_binding": 0
+  },
+  "finite_CWM": {
+    "growth_ACCEPT": [
+      1,
+      "1/18816",
+      "1/18816"
+    ],
+    "growth_REJECT": [
+      1,
+      "1/392",
+      "1/392"
+    ],
+    "merged_label": [
+      2,
+      "1/384",
+      "1/392"
+    ],
+    "hypothetical_two_way_equal_split_of_ACCEPT": [
+      2,
+      "1/18816",
+      "1/37632"
+    ],
+    "singleton_margin_couplings": {
+      "old": 1,
+      "tied": 2,
+      "multiset": 4
+    },
+    "same_tape_response_maps": [
+      {
+        "response_on_ACCEPT_REJECT": [
+          false,
+          false
+        ],
+        "accept_CWM": [
+          0,
+          "0",
+          "0"
+        ],
+        "withdrawal_never_enables_old_reject": true
+      },
+      {
+        "response_on_ACCEPT_REJECT": [
+          false,
+          true
+        ],
+        "accept_CWM": [
+          1,
+          "48/49",
+          "48/49"
+        ],
+        "withdrawal_never_enables_old_reject": false
+      },
+      {
+        "response_on_ACCEPT_REJECT": [
+          true,
+          false
+        ],
+        "accept_CWM": [
+          1,
+          "1/49",
+          "1/49"
+        ],
+        "withdrawal_never_enables_old_reject": true
+      },
+      {
+        "response_on_ACCEPT_REJECT": [
+          true,
+          true
+        ],
+        "accept_CWM": [
+          2,
+          "1",
+          "48/49"
+        ],
+        "withdrawal_never_enables_old_reject": false
+      }
+    ],
+    "unordered_other_signed_ports_in_distinct_axis_candidate": 40,
+    "ordered_other_signed_ports_in_distinct_axis_candidate": 80
+  },
+  "conditional_decorations_checked": 6,
+  "named_before_move_controls": 2,
+  "conditioned_support_inverse_rules_checked": 4,
+  "frozen_source_replay": {
+    "archive_sha256": "a450cc3e235ca3d37211d31b2d4eb41dd2d4ac28b77c73d18d1b6e3ce45cc9a7",
+    "signed_transverse_directions": 8,
+    "growth_labels_with_two_live_singleton_branches": 8,
+    "geometric_material_inverses": 8,
+    "full_stable_ledger_inverses": 8,
+    "source_preparation_weight": "1/802816",
+    "source_inverse_accept_weight": "1/392",
+    "native_support_intervention_in_source": "NOT_DEFINED"
+  }
+}
