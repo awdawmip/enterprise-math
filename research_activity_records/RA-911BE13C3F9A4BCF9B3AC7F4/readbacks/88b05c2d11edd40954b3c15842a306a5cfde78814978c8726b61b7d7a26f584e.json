@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/thirtyninth/README.md",
+    "ref": "2674cea24e2bc66b374080548d9f7714f9f3d5b6",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-thirtynine-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第三十九轮　三轴读数的纠错界与循环入口的剩余类分布\n\n## 六个坐标需要读几次\n\n固定一个锚点，每次选三根有标签的轴和三个符号，报告带符号坐标的两个独立差值。在整数上，这与把选中三坐标同时平移至最小值为零等价。把等式写成带符号图。若图有 $b$ 个平衡连通分量（孤点计入）、$u$ 个不平衡连通分量，每个可行的模 $q$ 差值报告恰有 $q^b\\gcd(2,q)^u$ 个原像。偶模下共同加上 $q/2$ 始终无法区分。\n\n要恢复六个整数坐标，选对 **3 张**读数就够；任意丢失 1 张仍要能恢复，至少需 **4 张**；若有 1 张发生未知误读，至少需 **6 张**。这三个下界都能达到。模 2 时符号消失，完整的三张支持集合有 480 种；整数上从 80 种带相对符号的视图选择，则有 15360 个可恢复的三张组合。结论限于指定空间差值。[研究与最优纠错构造](frames.md) · [复算程序](frames_check.py) · [结果](frames_checked.json)\n\n## 全部入口可达，要多久才会等可能\n\n在一个有 3 个结点、4 条有向边的具名双回路模型中，固定左、右回路次数 $a,b$。每次走右环时，加上此前左环次数，再按 $q\\ge2$ 取余，作为入口状态。同通量历史恰可产生 $\\min(q,ab+1)$ 种入口，任何两种都能由同一个后续测试区分。\n\n若等权抽取具有该通量的所有回路字，模 $q$ 的入口重数由高斯二项式 $[{a+b\\atop a}]_X\\bmod(X^q-1)$ 给出。在 $a,b$ 可选时，首个让全部入口都可达的词长为 $\\lceil2\\sqrt{q-1}\\rceil$，而首个让它们全部等可能的词长为 $q$。后一层可行的切分恰为 $\\gcd(a,q)=1$。例如 $a=b=3,q=6$ 时六种入口的重数是 $(4,3,3,4,3,3)$。本轮列明了端口、来源、容量和允许操作；原生端口映射仍需独立来源。[推导与原始路径回放](cycle.md) · [复算程序](cycle_check.py) · [结果](cycle_checked.json)\n\n## 积压分布\n\n本轮推进一个交接任务和一个严格就绪任务，分属两个父目标。累计直接研究 186 项、51 个父目标，另有两项早期旁引。截至 21:14:20 UTC，尚未经轮转的任务有 70 项严格就绪、24 项等待交接、5 项冻结返回。70 项严格就绪中，有 52 项来自同一个 BRC 父目标。快照逐项列出了剩余 P0/P1 所需的原件、外部审阅或已经封闭的研究范围，便于后续轮转兼顾其他父目标。[状态机快照与源记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2674cea24e2bc66b374080548d9f7714f9f3d5b6/research_notes/portable_direct/20261118_fair_queue_6b0fba/thirtyninth/README.md",
+      "encoding": "utf-8",
+      "sha": "574f6a526e21127c760ef570edd2866ef6433e6d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
