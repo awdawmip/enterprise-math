@@ -1,0 +1,75 @@
+{
+  "schema": "ENTERPRISE_MATH_UNIT145_SOURCE_EXACT_OPT_GUARD_CERT_V1",
+  "unit": 145,
+  "source": {
+    "repository": "awdawmip/enterprise-math",
+    "path": "scripts/check_p000_first_shell_polyhedron_classification.py",
+    "frozen_science_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "source_blob_sha1": "e58b287ae65eaadd8a805b5ebac84535b2cb5211",
+    "lines": "61-67"
+  },
+  "scope": "ISOLATED_LITERAL_FUNCTION_REPLICA_ONLY; SOURCE_PROGRAM_NOT_EXECUTED; NO_NATIVE_BENCHMARK",
+  "cases": {
+    "valid_two_facets": {
+      "incident_facets": 2,
+      "normal": [
+        [
+          0,
+          1
+        ]
+      ],
+      "optimized": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "boundary_one_facet": {
+      "incident_facets": 1,
+      "normal": "AssertionError",
+      "optimized": [
+        [
+          0
+        ]
+      ]
+    },
+    "nonmanifold_three_facets": {
+      "incident_facets": 3,
+      "normal": "AssertionError",
+      "optimized": [
+        [
+          0,
+          1,
+          2
+        ]
+      ]
+    },
+    "missing_zero_facets": {
+      "incident_facets": 0,
+      "normal": "AssertionError",
+      "optimized": [
+        []
+      ]
+    }
+  },
+  "executions": [
+    {
+      "flags": "",
+      "exit_code": 0,
+      "stdout_inner_sha256": "caa700df12fdbbc869eb89d6ec16f20eb27d9968c369902cdae8f84c1a977f40"
+    },
+    {
+      "flags": "-O",
+      "exit_code": 0,
+      "stdout_inner_sha256": "c6662d6ed8253bbc378229aa8f10e7f51104c09c17e9b37eca87f32ab38e6837"
+    },
+    {
+      "flags": "-OO",
+      "exit_code": 0,
+      "stdout_inner_sha256": "c6662d6ed8253bbc378229aa8f10e7f51104c09c17e9b37eca87f32ab38e6837"
+    }
+  ],
+  "status": "AUTHOR_EXACT_SOURCE_BOUNDARY_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "release": false
+}
