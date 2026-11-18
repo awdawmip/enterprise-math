@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/eighteenth/phase_windows.md",
+    "ref": "a3d2f81dd56321f0a8d5f75bd853e4af10ea788e",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-eighteen-20261118-14",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 随尺度收窄的三次 Gauss 相角观察\n\n角模估计给出了一个能在真实 \\(G(\\pi)\\) 的**取值相角**上直接观测的推论。令 \\(S_k(X)=\\sum_{N\\pi\\le X}G(\\pi)^k\\)，\\(L=\\log X\\)。冻结径向输入给 \\(S_1=((6/5)c_*+o(1))X^{5/6}/L\\)，共轭成对故 \\(S_1\\) 为实数。[角频率统一界及输入条件](angular.md)\n\n写周期化的实高斯和它的三重旋转差为\n\\[\n W_\\delta(x)=\\sum_{j\\in\\mathbb Z}e^{-(x+2\\pi j)^2/(2\\delta^2)},\\qquad\n F_\\delta(x)=W_\\delta(x)-\\tfrac13\\sum_{r=0}^2 W_\\delta(x+2\\pi r/3).\n\\]\n这相当于比较一个窄相角窗口与三个等距窗口的平均。若 \\(0<\\epsilon<1/2\\)，对所有 \\(L^{-1/2+\\epsilon}\\le\\delta\\le1\\) 和所有中心角 \\(\\phi\\)，有\n\\[\n\\sum_{N\\pi\\le X} F_\\delta(\\arg G(\\pi)-\\phi)\n=\\frac{12}{5}c_*\\frac{\\delta e^{-\\delta^2/2}}{\\sqrt{2\\pi}}\n       \\cos\\phi\\,\\frac{X^{5/6}}{L}\n+o_\\epsilon\\!\\left(\\delta\\frac{X^{5/6}}L\\right).\n\\]\n误差对中心角给出一致的绝对界，故也涵盖 \\(\\cos\\phi=0\\)。式中是差分加权和，每个高斯窗口本身都有大的零次项，且还可能有未控制到此次主项尺度的三倍频率。\n\n证明。按 \\(W_\\delta(x)=\\sum a_ke^{ikx}\\) 的约定，一维高斯 Fourier 变换给 \\(a_k=\\delta e^{-\\delta^2k^2/2}/\\sqrt{2\\pi}\\)。三重旋转平均恰好保留 \\(3|k\\) 的项，因此 \\(F_\\delta\\) 只含 \\(3\\nmid k\\)。因 \\(0<\\delta\\le1\\)，有 \\(\\sum_k|a_k|\\ll1\\)。截断在 \\(K=\\lceil 2\\sqrt L/\\delta\\rceil\\)，被舍弃的绝对系数和由单调性和高斯尾积分控制为\n\\[\n \\sum_{|k|>K}|a_k|\n \\le\\frac{2e^{-(K\\delta)^2/2}}{\\sqrt{2\\pi}\\,K\\delta}\n \\ll X^{-2}.\n\\]\n素理想数 \\(\\ll X\\)，故这个误差可直接支付。范围内 \\(K=O(L^{1-\\epsilon})\\)，截断中所有 \\(3\\nmid k,\\ |k|>1\\) 的幂矩均满足前篇 (2) 的消去界，乘系数求和后总计 \\(O(X^{5/6}L^{-3/2}(1+\\log L)^C)\\)。相对于 \\(\\delta X^{5/6}/L\\)，这个比值一致趋零。仅余 \\(k=\\pm1\\) 的两项，恰为 \\(2a_1\\operatorname{Re}(e^{-i\\phi}S_1)\\)。代入径向渐近即得结论。若继续减小 \\(\\delta\\)，直接使用逐模上界将失去相对精度；频率间的平均误差是另一个问题。\n\n程序从 166 个主素元的实际 Gauss 相位直接在角坐标求和，再独立累加截断的 Fourier 展开，核对十二组宽度和中心角的绝对尾界。[复算程序](phase_windows_check.py) · [有限检查](phase_windows_checked.json)\n",
+      "display_title": "phase_windows.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a3d2f81dd56321f0a8d5f75bd853e4af10ea788e/research_notes/portable_direct/20261118_fair_queue_6b0fba/eighteenth/phase_windows.md",
+      "encoding": "utf-8",
+      "sha": "f8eea0b52d27ebc1b17c35635e7ff3c8a4b0e75e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
