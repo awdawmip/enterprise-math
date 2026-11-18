@@ -52,8 +52,8 @@ def power(g,n):
     return out
 
 def midpoint_options(a,b):
-    assert brc.shortest_event_count(sub(b,a))==2
-    assert brc.shortest_path_multiplicity(sub(b,a))==2
+    if not (brc.shortest_event_count(sub(b,a))==2): raise AssertionError('triadic_assert_line_55')
+    if not (brc.shortest_path_multiplicity(sub(b,a))==2): raise AssertionError('triadic_assert_line_56')
     return (ZERO, add(a,b))
 
 # 20 selections x 8 sign patterns. Exactly one joint shortest branch
@@ -62,11 +62,11 @@ closure_cases=0
 joint_branch_cases=0
 for S in combinations(range(N),3):
     q=q_triad(S)
-    assert power(q,6)==ID
+    if not (power(q,6)==ID): raise AssertionError('triadic_assert_line_65')
     for signs in product((-1,1), repeat=3):
         starts=[unit(i,s) for i,s in zip(S,signs)]
         targets=[act(q,a) for a in starts]
-        assert len({next(i for i,x in enumerate(t) if x) for t in targets})==3
+        if not (len({next(i for i,x in enumerate(t) if x) for t in targets})==3): raise AssertionError('triadic_assert_line_69')
         options=[midpoint_options(a,b) for a,b in zip(starts,targets)]
         common=[]
         for bits in product((0,1), repeat=3):
@@ -74,7 +74,7 @@ for S in combinations(range(N),3):
             if mids[0]==mids[1]==mids[2]:
                 common.append((bits,mids[0]))
             joint_branch_cases+=1
-        assert common==[((0,0,0),ZERO)]
+        if not (common==[((0,0,0),ZERO)]): raise AssertionError('triadic_assert_line_77')
         closure_cases+=1
 
 # Sign-coherent ordered triad has 6 labeled Q phases but only two unordered
@@ -84,11 +84,11 @@ ordered=[]; current=(unit(0),unit(1),unit(2))
 for _ in range(6):
     ordered.append(current)
     current=tuple(act(q,x) for x in current)
-assert current==ordered[0]
-assert len(set(ordered))==6
+if not (current==ordered[0]): raise AssertionError('triadic_assert_line_87')
+if not (len(set(ordered))==6): raise AssertionError('triadic_assert_line_88')
 unordered=[frozenset(x for x in st) for st in ordered]
-assert len(set(unordered))==2
-assert all(unordered[r]==unordered[r+2] for r in range(4))
+if not (len(set(unordered))==2): raise AssertionError('triadic_assert_line_90')
+if not (all(unordered[r]==unordered[r+2] for r in range(4))): raise AssertionError('triadic_assert_line_91')
 
 # Greedy existence criterion for decomposition into distinct-axis triads.
 def greedy_decompose(d):
@@ -126,7 +126,7 @@ for m in range(5):
         criterion=max(d, default=0)<=m
         brute=brute_possible(d)
         greedy=greedy_decompose(d) is not None
-        assert criterion==brute==greedy
+        if not (criterion==brute==greedy): raise AssertionError('triadic_assert_line_129')
         degree_cases+=1
 
 # Type-level decomposition polynomial coefficient by DP for d=(1,...,1), m=2.
@@ -143,7 +143,7 @@ def ordered_type_decomp_count(target,m):
                     nxt[t]=nxt.get(t,0)+count
         states=nxt
     return states.get(tuple(target),0)
-assert ordered_type_decomp_count((1,1,1,1,1,1),2)==20
+if not (ordered_type_decomp_count((1,1,1,1,1,1),2)==20): raise AssertionError('triadic_assert_line_146')
 
 # Fixed effective visible pair has 4 hidden axes x 2 hidden signs = 8 lifts.
 visible=(0,1)
@@ -155,8 +155,8 @@ for k in range(6):
         # O_01: +e0 -> +1, +e1 -> -1, all other ports hidden.
         readout=(1,-1,0)
         lifts.append((k,s,triad,readout))
-assert len(lifts)==8
-assert len({x[3] for x in lifts})==1
+if not (len(lifts)==8): raise AssertionError('triadic_assert_line_158')
+if not (len({x[3] for x in lifts})==1): raise AssertionError('triadic_assert_line_159')
 
 print('PASS_X6_TRIADIC_ATOMIC_SCATTER_V1')
 print('canonical_signed_triad_cases',closure_cases)
