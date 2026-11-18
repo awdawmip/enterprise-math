@@ -1,0 +1,98 @@
+{
+  "acyclic_graphs_checked": 815,
+  "bidirectional_graphs_checked": 422,
+  "cases_by_chain_lengths": {
+    "1x1": 3,
+    "1x2": 8,
+    "2x1": 8,
+    "2x2": 52,
+    "2x3": 304,
+    "3x2": 304,
+    "3x3": 136
+  },
+  "different_periods_phase_collision": {
+    "counts": [
+      [
+        0,
+        6
+      ],
+      [
+        6,
+        0
+      ]
+    ],
+    "future_words": [
+      [
+        "AAAAAA"
+      ],
+      [
+        "BBBBBB"
+      ]
+    ],
+    "k": 6,
+    "pA": 2,
+    "pB": 3
+  },
+  "domain": "acyclic cross-edge subsets: all sets for 1x1,1x2,2x1,2x2,2x3,3x2; up to 2 edges for 3x3",
+  "explicit_mixed_direction_case": {
+    "AB": [
+      [
+        2,
+        3
+      ]
+    ],
+    "BA": [
+      [
+        1,
+        3
+      ]
+    ],
+    "a": 4,
+    "b": 4,
+    "status": "PASS"
+  },
+  "k_level_supports_checked": 4933,
+  "limitation": "conditional two-chain event-poset model; not native triadic Cell-Link-Port permission or physical time",
+  "long_horizon_phase_collision": {
+    "AB": [
+      [
+        2,
+        1
+      ]
+    ],
+    "counts": [
+      [
+        12,
+        12
+      ],
+      [
+        24,
+        0
+      ]
+    ],
+    "k": 24,
+    "pA": 3,
+    "pB": 4
+  },
+  "model": "typed source-labelled BRC branch words with Boolean-support guarded append",
+  "period_pairs": [
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "result": "PASS",
+  "uniform_lcm_6_one_crosslink_oriented_edges_checked": 72
+}
