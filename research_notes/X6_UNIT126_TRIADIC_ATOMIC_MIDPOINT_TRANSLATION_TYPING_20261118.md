@@ -11,7 +11,7 @@ brc.shortest_event_count(sub(b,a)) == 2
 brc.shortest_path_multiplicity(sub(b,a)) == 2
 ```
 
-and returns `(ZERO, add(a,b))`. Those BRC kernels are imported at lines 9–15 from the actual six-axis `signed_brc.py` (Git blob `300a96e3dc24bf6fff73743037a0347a8bc83176` at frozen input `59538f585d037d09ef687b28715c4bc1a3f9fe03`). Call sites at **lines 67–70** supply signed unit vectors `a=s_i e_i`, `b=s_j e_j` for distinct axes in a triad. These source calls satisfy the extra condition below. Lines 71–78 test their common ZERO intermediate. Thus **all 480 three-pair cases for 160 signed triad types are correct** on their actually supplied inputs.
+and returns `(ZERO, add(a,b))`. Those BRC kernels are imported at lines 9–15 from the actual six-axis `signed_brc.py` (Git blob `300a96e3dc24bf6fff73743037a0347a8bc83176` at frozen input `59538f585d037d09ef687b28715c4bc1a3f9fe03`). Call sites at **lines 67–70** supply signed unit vectors `a=s_i e_i`, `b=s_j e_j` for distinct axes in a triad. These source calls satisfy the extra condition below. Lines 71–78 test their common ZERO intermediate. Thus **all 480 transported start-to-target caller pairs (160 signed triads, three original `q_triad`-mapped endpoints each) are correct** on the actually supplied inputs.
 
 ## Sharp all-input typing theorem
 
@@ -36,6 +36,8 @@ A domain-correct general implementation must compute intermediates from the two 
 ## Actual executable finite certificate and strength
 
 The new independent checker preserves the exact algebra of source lines 54–57 and the pinned native BRC formulas, and additionally computes the true primitive-step intermediate set directly. It was executed in CPython **normal, `-O`, `-OO`**; all three exit codes were zero, and the output bytes agreed (SHA256 `fb1c14f4752be309b43ff3a93c97efbb4b3c571f7acc31cea7013b2dceec40c8`).
+
+**Source-caller replay correction (same date):** The first immutable checker version replayed 480 distinct signed-unit start/start pairs, a valid anchored-domain test but not the exact source's start/transported-target pairs. The checked-in verifier was corrected by a guarded GitHub CAS to implement the original `q_triad` and `act` at source lines 43–47 and 35–41, then exercise the actual `zip(starts,targets)` from lines 67–70. All 480 actual caller pairs pass. The full 43,740-input census, numerical result JSON and normal/`-O`/`-OO` SHA256 remain byte-identical. Initial immutable version is preserved in GitHub history; corrected executable source is `research_checks/X6_UNIT126_TRANSLATED_TRIAD_MIDPOINT_CHECK_20261118.py` at commit `dfa616818ec2147592a662f2d198ddbb1bd0b964`, Git blob `48245f44ad9bc69e90a284f2eeaf4410d6eb8d7e`.
 
 It exhausts all `3^6=729` signed source anchors `a in {-1,0,1}^6` and all `15*4=60` two-distinct-axis signed displacements, giving **43,740 legal (a,b) ordered test pairs**. Among them **120** old-helper outputs are correct and **43,620** are wrong; the above iff criterion has **zero violations**. The same checker separately examines all **160 × 3 = 480 actually sourced signed-triad caller pairs**, with **zero errors**. The universal statement is proved symbolically; the finite census validates the exact tested domain.
 
