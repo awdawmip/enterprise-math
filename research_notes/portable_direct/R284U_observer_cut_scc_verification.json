@@ -1,0 +1,187 @@
+{
+  "arithmetic": "Python standard-library Fraction; exact Gaussian-elimination determinant",
+  "cancellation_control": {
+    "P": "-x/16",
+    "coefficient_x2": [
+      0,
+      1
+    ],
+    "exact_points": 5,
+    "graph_cycle_after_deleting_p": {
+      "model1": true,
+      "model2": true
+    }
+  },
+  "exhaustive_3port_graph_check": {
+    "all_exact_derivative_vs_deleted_observer_reachability": "PASS",
+    "baseline_edge_subsets_per_endpoint": 256,
+    "baseline_edge_weight": [
+      1,
+      16
+    ],
+    "cases": 2304,
+    "edit_endpoint_choices": 9,
+    "edit_test_weight": [
+      1,
+      8
+    ]
+  },
+  "graph_classification": "structural directed reachability after deleting observer p=0",
+  "positive_case": {
+    "cross_polynomial": "x/30",
+    "edits": [
+      "x:1->2",
+      "y:0->0"
+    ],
+    "exact_grid_points": 9,
+    "models": 2,
+    "ports": 3,
+    "sample_observations": [
+      {
+        "P": [
+          0,
+          1
+        ],
+        "x": [
+          0,
+          1
+        ],
+        "y": [
+          0,
+          1
+        ]
+      },
+      {
+        "P": [
+          0,
+          1
+        ],
+        "x": [
+          0,
+          1
+        ],
+        "y": [
+          1,
+          8
+        ]
+      },
+      {
+        "P": [
+          0,
+          1
+        ],
+        "x": [
+          0,
+          1
+        ],
+        "y": [
+          1,
+          16
+        ]
+      },
+      {
+        "P": [
+          1,
+          240
+        ],
+        "x": [
+          1,
+          8
+        ],
+        "y": [
+          0,
+          1
+        ]
+      },
+      {
+        "P": [
+          1,
+          240
+        ],
+        "x": [
+          1,
+          8
+        ],
+        "y": [
+          1,
+          8
+        ]
+      },
+      {
+        "P": [
+          1,
+          240
+        ],
+        "x": [
+          1,
+          8
+        ],
+        "y": [
+          1,
+          16
+        ]
+      },
+      {
+        "P": [
+          1,
+          480
+        ],
+        "x": [
+          1,
+          16
+        ],
+        "y": [
+          0,
+          1
+        ]
+      },
+      {
+        "P": [
+          1,
+          480
+        ],
+        "x": [
+          1,
+          16
+        ],
+        "y": [
+          1,
+          8
+        ]
+      },
+      {
+        "P": [
+          1,
+          480
+        ],
+        "x": [
+          1,
+          16
+        ],
+        "y": [
+          1,
+          16
+        ]
+      }
+    ],
+    "support_cycle_after_deleting_p": {
+      "x": false,
+      "y": false
+    }
+  },
+  "quadratic_obstruction_control": {
+    "P": "x/256-x^2/64",
+    "coefficient_x2": [
+      -1,
+      64
+    ],
+    "exact_points": 5,
+    "graph_cycle_after_deleting_p": {
+      "model1": false,
+      "model2": true
+    }
+  },
+  "result": "PASS",
+  "schema": "R284U_EXACT_FRACTION_VERIFICATION_V1",
+  "verification_scope": "finite, fully specified rational examples; general theorem separately proved in paper"
+}
