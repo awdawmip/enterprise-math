@@ -2,6 +2,8 @@
 
 Date: 2026-11-19. **AUTHOR_PROVED / EXACT_FRACTION_CHECK_PASSED / NOT_REVIEWED**. Frozen science pin `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. New direct predecessor R284W `research_notes/portable_direct/R284W_COMMON_KERNEL_MATCHING_PRESENT_DEGREE_CERTIFICATE_20261119.md` at commit `60720c2cc920f3710a880771f0a4d675272ab58a`; R284V's Hall complement theorem at `851060e73f9915e78e463f738c1c144962752c49`. This is the exact finite auxiliary BRC Port model of those notes, with no native X6 correspondence claimed.
 
+Publication provenance: Researcher `EM-DIRECT-E6B1DD`; original Sites Researcher session `MCP-8487128c846440d1952bfc6fa44aeb86` (read-only recovery confirmed role and open session). Published via independent GitHub portable research: no canonical Task CLAIM/RUN, Result, or Review authorization asserted. Exact executable: [Fraction checker](https://github.com/awdawmip/enterprise-math/blob/33abb9bf4623f209facb2c7a5ec085125b8d213a/research_notes/portable_direct/R284X_aligned_pencil_completeness.py); [PASS evidence](https://github.com/awdawmip/enterprise-math/blob/be42cfb54f8f5440af6af12f4ba321ba6221bb22/research_notes/portable_direct/R284X_aligned_pencil_verification.json).
+
 ## 1. A completeness theorem, not just a sufficient rank test
 
 Let `K` be any characteristic-zero field (in the Port applications, `K=Q`), and `A_0\in K^{k x k}`. For any vectors `u,v_1,...,v_m\in K^k`, consider the **aligned-row rank-one pencil**
