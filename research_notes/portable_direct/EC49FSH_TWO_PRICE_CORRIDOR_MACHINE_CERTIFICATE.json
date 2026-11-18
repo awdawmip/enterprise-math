@@ -1,0 +1,387 @@
+{
+  "schema": "EC49FSH_TWO_PRICE_NATIVE_BRC_CERTIFICATE_V1",
+  "date": "2026-11-18",
+  "frozen_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "scope": "141 named profiles from 310 raw configurations, all 228 original physically named observations and full response fibers; complete adaptive trees; uniform prior",
+  "parameters": {
+    "alpha": "[5/16,1/3] real",
+    "z": "[0,1] real",
+    "q32_q34_price": "(1-alpha)*t",
+    "q140_price": "(1-z)*t",
+    "other": "t>0",
+    "normalization": "F=141*V/t"
+  },
+  "theorem": "F(alpha,z)=min_i(U_i-(N32_i+N34_i)*alpha-N140_i*z)",
+  "strategies": [
+    {
+      "i": 1,
+      "U": 297,
+      "N32": 15,
+      "N34": 141,
+      "Q": 156,
+      "K": 13,
+      "root": 34,
+      "max_depth": 3,
+      "original_native_tree_file": "EC49FSG_RUNS/point_1_48.json",
+      "original_tree_file_sha256": "1a8b65fa22510b85021482508e34edb78c7b6c615d3065856f1cd34fbe794a81",
+      "all_141_states_replayed": true
+    },
+    {
+      "i": 2,
+      "U": 299,
+      "N32": 21,
+      "N34": 141,
+      "Q": 162,
+      "K": 15,
+      "root": 34,
+      "max_depth": 3,
+      "original_native_tree_file": "EC49FSG_RUNS/point_3_40.json",
+      "original_tree_file_sha256": "fe6be05cf72d7145e63a20b1706134e7cb6a4981a110e0bb50f641ebc8741bea",
+      "all_141_states_replayed": true
+    },
+    {
+      "i": 3,
+      "U": 298,
+      "N32": 17,
+      "N34": 141,
+      "Q": 158,
+      "K": 18,
+      "root": 34,
+      "max_depth": 3,
+      "original_native_tree_file": "EC49FSG_RUNS/point_1_6.json",
+      "original_tree_file_sha256": "5c3163be36b2b9f56eeb76568f8421160384928e60b51a888bdbade4c8576fea",
+      "all_141_states_replayed": true
+    },
+    {
+      "i": 4,
+      "U": 300,
+      "N32": 17,
+      "N34": 141,
+      "Q": 158,
+      "K": 30,
+      "root": 34,
+      "max_depth": 3,
+      "original_native_tree_file": "EC49FSG_RUNS/point_7_32.json",
+      "original_tree_file_sha256": "93266dd44b0ad2e9ae3fddf6a6f87d51f22e25867a02d2a857d804ed54728315",
+      "all_141_states_replayed": true
+    },
+    {
+      "i": 5,
+      "U": 302,
+      "N32": 22,
+      "N34": 141,
+      "Q": 163,
+      "K": 32,
+      "root": 34,
+      "max_depth": 3,
+      "original_native_tree_file": "EC49FSG_RUNS/point_5_16.json",
+      "original_tree_file_sha256": "40257fef483e58ee3ddc7e64d32221d13785027fecbaf2517f25da3ce0517923",
+      "all_141_states_replayed": true
+    },
+    {
+      "i": 6,
+      "U": 302,
+      "N32": 4,
+      "N34": 141,
+      "Q": 145,
+      "K": 50,
+      "root": 34,
+      "max_depth": 3,
+      "original_native_tree_file": "EC49FSG_RUNS/point_569_1744.json",
+      "original_tree_file_sha256": "a3fc6a5bb85a98cee0ea3260a14b2def1c6a95025f27c51779a0638feeecb707",
+      "all_141_states_replayed": true
+    },
+    {
+      "i": 7,
+      "U": 301,
+      "N32": 7,
+      "N34": 39,
+      "Q": 46,
+      "K": 141,
+      "root": 140,
+      "max_depth": 3,
+      "original_native_tree_file": "EC49FSG_RUNS/point_1_1.json",
+      "original_tree_file_sha256": "fb6d345440e87dcce41b3e94812bd7bf1eb24fb0aedcc97a0241663199fb3e55",
+      "all_141_states_replayed": true
+    }
+  ],
+  "polygons": [
+    {
+      "strategy": 1,
+      "area": "1/1536",
+      "vertices": [
+        [
+          "5/16",
+          "0"
+        ],
+        [
+          "1/3",
+          "0"
+        ],
+        [
+          "5/16",
+          "1/16"
+        ]
+      ]
+    },
+    {
+      "strategy": 2,
+      "area": "19/13824",
+      "vertices": [
+        [
+          "1/3",
+          "0"
+        ],
+        [
+          "1/3",
+          "1/9"
+        ],
+        [
+          "5/16",
+          "1/12"
+        ],
+        [
+          "5/16",
+          "1/16"
+        ]
+      ]
+    },
+    {
+      "strategy": 3,
+      "area": "5/3456",
+      "vertices": [
+        [
+          "1/3",
+          "1/9"
+        ],
+        [
+          "1/3",
+          "1/6"
+        ],
+        [
+          "5/16",
+          "1/6"
+        ],
+        [
+          "5/16",
+          "1/12"
+        ]
+      ]
+    },
+    {
+      "strategy": 4,
+      "area": "5/9216",
+      "vertices": [
+        [
+          "1/3",
+          "1/6"
+        ],
+        [
+          "5/16",
+          "7/32"
+        ],
+        [
+          "5/16",
+          "1/6"
+        ]
+      ]
+    },
+    {
+      "strategy": 5,
+      "area": "25/9216",
+      "vertices": [
+        [
+          "1/3",
+          "1/6"
+        ],
+        [
+          "1/3",
+          "1/3"
+        ],
+        [
+          "5/16",
+          "5/16"
+        ],
+        [
+          "5/16",
+          "7/32"
+        ]
+      ]
+    },
+    {
+      "strategy": 6,
+      "area": "19/52416",
+      "vertices": [
+        [
+          "1/3",
+          "1/3"
+        ],
+        [
+          "1/3",
+          "32/91"
+        ],
+        [
+          "5/16",
+          "479/1456"
+        ],
+        [
+          "5/16",
+          "5/16"
+        ]
+      ]
+    },
+    {
+      "strategy": 7,
+      "area": "1921/139776",
+      "vertices": [
+        [
+          "1/3",
+          "32/91"
+        ],
+        [
+          "1/3",
+          "1"
+        ],
+        [
+          "5/16",
+          "1"
+        ],
+        [
+          "5/16",
+          "479/1456"
+        ]
+      ]
+    }
+  ],
+  "vertices": [
+    {
+      "alpha": "5/16",
+      "z": "0",
+      "F": "993/4",
+      "primary_dp_states": 11633,
+      "independent_dp_states": 11155,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "5/16",
+      "z": "1/16",
+      "F": "3959/16",
+      "primary_dp_states": 11602,
+      "independent_dp_states": 11139,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "5/16",
+      "z": "1/12",
+      "F": "1977/8",
+      "primary_dp_states": 11601,
+      "independent_dp_states": 11139,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "5/16",
+      "z": "1/6",
+      "F": "1965/8",
+      "primary_dp_states": 11565,
+      "independent_dp_states": 11097,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "5/16",
+      "z": "7/32",
+      "F": "3905/16",
+      "primary_dp_states": 11519,
+      "independent_dp_states": 11061,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "5/16",
+      "z": "5/16",
+      "F": "3857/16",
+      "primary_dp_states": 11483,
+      "independent_dp_states": 10999,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "5/16",
+      "z": "479/1456",
+      "F": "349787/1456",
+      "primary_dp_states": 11476,
+      "independent_dp_states": 11000,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "5/16",
+      "z": "1",
+      "F": "1165/8",
+      "primary_dp_states": 9352,
+      "independent_dp_states": 8224,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "1/3",
+      "z": "0",
+      "F": "245",
+      "primary_dp_states": 11587,
+      "independent_dp_states": 11066,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "1/3",
+      "z": "1/9",
+      "F": "730/3",
+      "primary_dp_states": 11535,
+      "independent_dp_states": 11029,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "1/3",
+      "z": "1/6",
+      "F": "727/3",
+      "primary_dp_states": 11516,
+      "independent_dp_states": 11017,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "1/3",
+      "z": "1/3",
+      "F": "237",
+      "primary_dp_states": 11409,
+      "independent_dp_states": 10853,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "1/3",
+      "z": "32/91",
+      "F": "64451/273",
+      "primary_dp_states": 11385,
+      "independent_dp_states": 10868,
+      "both_exact_values_match": true
+    },
+    {
+      "alpha": "1/3",
+      "z": "1",
+      "F": "434/3",
+      "primary_dp_states": 9054,
+      "independent_dp_states": 7923,
+      "both_exact_values_match": true
+    }
+  ],
+  "region_area_sum": "1/48",
+  "expected_rectangle_area": "1/48",
+  "proof": "For each strategy polygon, all exact Bellman vertices equal the matching full-tree affine cost; pointwise minimum of all complete-tree affine costs is jointly concave, so vertex equality plus feasible replayed tree gives exact equality on the entire convex polygon. These seven cells cover the rectangle. Seven distinct gradient pairs on nonempty interiors imply minimum menu cardinality seven.",
+  "alpha_one_third_z_breakpoints": [
+    "0",
+    "1/9",
+    "1/6",
+    "1/3",
+    "32/91",
+    "1"
+  ],
+  "alpha_one_third_phases": 5,
+  "verified_at_local": "2026-11-18 Asia/Shanghai",
+  "evidence_status": "AUTHOR_PROVED_EXACT_FINITE_TWO_NATIVE_RECONSTRUCTIONS_NOT_INDEPENDENTLY_REVIEWED",
+  "researcher_activity_write": "NOT_PERFORMED",
+  "formal_claim": "NOT_ESTABLISHED",
+  "source_coverage_note": "Original frozen raw data and the seven witness JSON trees are preserved in the earlier EC49FSG complete self-contained evidence archive; this JSON indexes original tree bytes and exact checks."
+}

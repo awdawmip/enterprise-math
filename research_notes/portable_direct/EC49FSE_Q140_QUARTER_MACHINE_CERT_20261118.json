@@ -1,0 +1,106 @@
+{
+  "schema": "EC49FSE_EXACT_QUARTER_SLICE_CERTIFICATE_V1",
+  "input_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "model": "BRC16943/141 uniform named states/310 raw configurations/228 named native observers/complete deterministic adaptive trees",
+  "prices": {
+    "q32": "3/4",
+    "q34": "3/4",
+    "q140": "1-z",
+    "other": "1",
+    "z": "[0,1]"
+  },
+  "segments": [
+    [
+      "0",
+      "1/6",
+      "258",
+      16
+    ],
+    [
+      "1/6",
+      "1/4",
+      "260",
+      28
+    ],
+    [
+      "1/4",
+      "101/384",
+      "1057/4",
+      45
+    ],
+    [
+      "101/384",
+      "1",
+      "579/2",
+      141
+    ]
+  ],
+  "bellman_independent_endpoints": [
+    [
+      "0",
+      "258",
+      11437
+    ],
+    [
+      "1/6",
+      "766/3",
+      11383
+    ],
+    [
+      "1/4",
+      "253",
+      11301
+    ],
+    [
+      "101/384",
+      "32309/128",
+      11344
+    ],
+    [
+      "1",
+      "297/2",
+      8770
+    ]
+  ],
+  "witnesses": [
+    [
+      "1/14",
+      296,
+      11,
+      141,
+      16,
+      34,
+      3
+    ],
+    [
+      "21/94",
+      298,
+      11,
+      141,
+      28,
+      34,
+      3
+    ],
+    [
+      "59/226",
+      300,
+      2,
+      141,
+      45,
+      34,
+      3
+    ],
+    [
+      "1",
+      301,
+      7,
+      39,
+      141,
+      140,
+      3
+    ]
+  ],
+  "verification": "All 141 named-state paths on each tree replayed; five endpoints independent original-94-family all-228-observer Bellman check; exact rational arithmetic",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CROSSCHECKED_NOT_INDEPENDENTLY_REVIEWED",
+  "prior_pr": 2675
+}
