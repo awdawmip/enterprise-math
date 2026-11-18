@@ -1,10 +1,12 @@
-# PREFIX-903 — Fourth 64-row complete collision panel and exact 256-row symmetric union
+# PREFIX-904-A — Fourth 64-row complete collision panel and exact 256-row symmetric union
 
 Date: 2026-11-18 (Asia/Shanghai). Lane: 进取数论研究6; independent portable-direct auxiliary research.
 Science pin: \`f42f2906d77f24085c123f3ccfe9667d41caa96d\`, unchanged.
-Predecessors: PREFIX-897, PREFIX-900, PREFIX-901, PREFIX-902.
+Predecessors: PREFIX-897, PREFIX-900, PREFIX-901, PREFIX-902; parallel independent PREFIX-903 dyadic-gap result incorporated in PREFIX-904-B.
 Status: AUTHOR_PROVED / EXACT_FINITE_COMPUTED / EXISTING_BYTE_PINNED_CLASSIFIER_REUSED / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED.
 The shared RS-X6-NATIVE-TIME-DYNAMICS task has separate ownership and its native admission boundary remains unchanged.
+
+**Designation reconciliation:** This fourth-panel calculation was initially prepared under the local PREFIX-903 label before discovering the independently published PREFIX-903 dyadic-gap theorem. The fourth-panel result is now PREFIX-904-A. Its 7,630,612,196 count is relative to PREFIX-902 and *excludes* dyadic-gap certificates; the canonical combined PREFIX-904-B result (including dyadic-gap overlap removal) is **7,632,945,416**. The source filename is preserved as provenance rather than rewritten.
 
 ## Precisely stated auxiliary model
 
@@ -22,7 +24,7 @@ The already published PREFIX-902 symmetric union has size \(7,614,875,038\).
 
 Define the fourth panel \(B=\{510009+194j:0\le j<64\}\). Direct membership checks give \(B\cap U=\varnothing\) and \(B\cap P=\varnothing\).
 
-## Theorem 903-A — Complete fourth panel
+## Proposition 904-A — Complete fourth panel
 
 All \(64\cdot131072=8,388,608\) ordered pairs in \(B\times Q\) have a collision in the declared auxiliary model. Exhaustive, disjoint priority classification with the byte-pinned PREFIX-900 finite two-flip checker yields
 
@@ -39,7 +41,7 @@ Each of the 64 rows has exactly 131072 classified \(b\)'s. Every 389 general-fli
 
 The proof of finite completeness reuses the explicit exhaustive signed two-flip index, congruence and integer-bit-fiber counting argument established in PREFIX-900; the result is a computational theorem under that checker and the declared finite model. It is not a claim of independent review or native X6 event admission.
 
-## Theorem 903-B — Exact de-duplicated 256-row symmetric union
+## Proposition 904-B — Exact de-duplicated 256-row symmetric union
 
 The reversal map \((x,y)\mapsto(y,x)\) preserves legal named XOR flips and bijects collisions for \((a,b)\) with collisions for \((b,a)\). Hence panel \(B\times Q\) also certifies \(Q\times B\).
 
