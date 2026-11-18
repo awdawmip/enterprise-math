@@ -6,8 +6,8 @@ Evidence: AUTHOR_EXACT_NOT_REVIEWED. Portable independent scientific continuatio
 ## Exact predecessor and scientific scope
 
 Extend R749SUK, pinned at
-\`awdawmip/enterprise-math@0b292a4181f3729b2bda282cf35e6df2166531e5:research_notes/portable_direct/2026-11-18_R749SUK_UNIFORM_MAXIMIZER_DEFECT_AND_DIVISOR_FIBERS.md\`.
-Its frozen scientific WBRC-T30–T32 inputs are \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`.
+`awdawmip/enterprise-math@0b292a4181f3729b2bda282cf35e6df2166531e5:research_notes/portable_direct/2026-11-18_R749SUK_UNIFORM_MAXIMIZER_DEFECT_AND_DIVISOR_FIBERS.md`.
+Its frozen scientific WBRC-T30–T32 inputs are `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`.
 This note studies an auxiliary positive-rational, *labeled* two-Port feedback observer. The native Heartbeat World X6 Cell/Link/Port event and its triadic-force, source/resource and causality permissions remain distinct. No claim about native physical admission is made.
 
 For an integer M>=2 put
@@ -116,11 +116,11 @@ scales. The largest endpoint is T^2+O(T), so this explicitly constructed set of 
 
 ## Executable exact certificate (independent finite support)
 
-Companion \`R749SUL_NEAR_SQUARE_Q_CERT.cpp\` exhaustively computes the noncanonical optimum for every 2<=M<=5000 using integer congruences, not floating-point score comparisons. It orients u=max(u,v), loops over gcd(a,u)=1, enumerates all d with a*d congruent to 1 mod u and 1<=v=(a*d-1)/u<=u, and inserts each tuple at its exact maximum-entry bucket. The two u=1 configurations are added separately. A prefix maximum then yields the complete set of distinct optimal Q values for each M. Swapping u and v leaves tau and Q invariant, so the normalized orientation is complete for this proposition.
+Companion `R749SUL_NEAR_SQUARE_Q_CERT.cpp` exhaustively computes the noncanonical optimum for every 2<=M<=5000 using integer congruences, not floating-point score comparisons. It orients u=max(u,v), loops over gcd(a,u)=1, enumerates all d with a*d congruent to 1 mod u and 1<=v=(a*d-1)/u<=u, and inserts each tuple at its exact maximum-entry bucket. The two u=1 configurations are added separately. A prefix maximum then yields the complete set of distinct optimal Q values for each M. Swapping u and v leaves tau and Q invariant, so the normalized orientation is complete for this proposition.
 
-Local run: \`g++ -O2 -std=c++17 R749SUL_NEAR_SQUARE_Q_CERT.cpp -o cert && ./cert\`.
+Local run: `g++ -O2 -std=c++17 R749SUL_NEAR_SQUARE_Q_CERT.cpp -o cert && ./cert`.
 
-Result: \`PASS\`: 15,198,290 normalized/oriented candidate visits including canonical tuples; 271 window scales over t=32,...,70 all have optimal Q-set exactly {1}. Crosschecks reproduce R749SUJ at M=58 (T*=127890,Q=2) and M=93 (T*=579576,Q=2). Exact samples and the run scope are in \`R749SUL_NEAR_SQUARE_Q_RESULTS.json\`. The infinite theorem above rests on its written inequalities, not on extrapolation from 5000.
+Result: `PASS`: 15,198,290 normalized/oriented candidate visits including canonical tuples; 271 window scales over t=32,...,70 all have optimal Q-set exactly {1}. Crosschecks reproduce R749SUJ at M=58 (T*=127890,Q=2) and M=93 (T*=579576,Q=2). Exact samples and the run scope are in `R749SUL_NEAR_SQUARE_Q_RESULTS.json`. The infinite theorem above rests on its written inequalities, not on extrapolation from 5000.
 
 ## What this changes and remains open
 
