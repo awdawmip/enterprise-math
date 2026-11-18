@@ -1,0 +1,186 @@
+{
+  "status": "PASS",
+  "input_domain": {
+    "M_min": 1,
+    "M_max": 64
+  },
+  "tests": {
+    "independent_histogram_equalities": 64,
+    "totient_checks": 64,
+    "even_jumps": 64,
+    "direct_four_loop_late_deficit_checks": 57
+  },
+  "sample": {
+    "5": {
+      "positive_matrices": 28,
+      "tree_nodes": 39,
+      "distinct_thresholds": 8,
+      "late_start": 63,
+      "late_deficit": 2,
+      "late_jump_bins": 1,
+      "highest_thresholds": [
+        [
+          80,
+          2
+        ],
+        [
+          36,
+          2
+        ],
+        [
+          30,
+          6
+        ],
+        [
+          20,
+          4
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          10,
+          2
+        ]
+      ]
+    },
+    "10": {
+      "positive_matrices": 106,
+      "tree_nodes": 127,
+      "distinct_thresholds": 22,
+      "late_start": 501,
+      "late_deficit": 4,
+      "late_jump_bins": 2,
+      "highest_thresholds": [
+        [
+          810,
+          2
+        ],
+        [
+          576,
+          2
+        ],
+        [
+          392,
+          2
+        ],
+        [
+          350,
+          2
+        ],
+        [
+          252,
+          10
+        ],
+        [
+          210,
+          4
+        ]
+      ]
+    },
+    "16": {
+      "positive_matrices": 286,
+      "tree_nodes": 319,
+      "distinct_thresholds": 54,
+      "late_start": 2049,
+      "late_deficit": 6,
+      "late_jump_bins": 3,
+      "highest_thresholds": [
+        [
+          3600,
+          2
+        ],
+        [
+          2940,
+          2
+        ],
+        [
+          2366,
+          2
+        ],
+        [
+          1872,
+          6
+        ],
+        [
+          1815,
+          2
+        ],
+        [
+          1452,
+          2
+        ]
+      ]
+    },
+    "32": {
+      "positive_matrices": 1230,
+      "tree_nodes": 1295,
+      "distinct_thresholds": 216,
+      "late_start": 16385,
+      "late_deficit": 32,
+      "late_jump_bins": 11,
+      "highest_thresholds": [
+        [
+          30752,
+          2
+        ],
+        [
+          27900,
+          2
+        ],
+        [
+          25230,
+          2
+        ],
+        [
+          22736,
+          2
+        ],
+        [
+          20412,
+          2
+        ],
+        [
+          19488,
+          4
+        ]
+      ]
+    },
+    "64": {
+      "positive_matrices": 4910,
+      "tree_nodes": 5039,
+      "distinct_thresholds": 776,
+      "late_start": 131073,
+      "late_deficit": 90,
+      "late_jump_bins": 29,
+      "highest_thresholds": [
+        [
+          254016,
+          2
+        ],
+        [
+          242172,
+          2
+        ],
+        [
+          230702,
+          2
+        ],
+        [
+          219600,
+          2
+        ],
+        [
+          208860,
+          2
+        ],
+        [
+          198476,
+          2
+        ]
+      ]
+    }
+  },
+  "scope": "Exact integer arithmetic within JS Number safe integer range for M<=64; general theorem proved symbolically; no independent review."
+}
