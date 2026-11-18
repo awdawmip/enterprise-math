@@ -1,0 +1,247 @@
+{
+  "all_assertions": "PASS",
+  "different_count_short_horizon_alias": {
+    "M_h1": 1,
+    "M_h2": 2,
+    "a": 3,
+    "b": 3,
+    "first_distinguishing_horizon": 2,
+    "k": 2,
+    "periods": [
+      2,
+      2
+    ],
+    "phase_alias_count_pairs": [
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "result": "PASS"
+  },
+  "not_claimed": "native Cell/Link/Port TRIADIC_CLOSURE_E admission or physical time",
+  "period_one_H_bound_witness": {
+    "M_h0": 1,
+    "M_h1": 2,
+    "capacities": [
+      1,
+      1
+    ],
+    "k": 1,
+    "periods": [
+      1,
+      1
+    ],
+    "remaining_horizon": 1,
+    "result": "PASS"
+  },
+  "schema": "X6_CONDITIONAL_TYPED_BRC_HORIZON_CERTIFICATE_V1",
+  "scope": "finite source-labelled boolean BRC support under conditional deterministic partial port guard",
+  "sharp_H_minus_1_samples": [
+    {
+      "first_difference_at": 1,
+      "m": 2,
+      "selector_bits_before_after": [
+        0,
+        1
+      ],
+      "shared_future_prefix_through": 0,
+      "total_remaining_from_k2": 2
+    },
+    {
+      "first_difference_at": 3,
+      "m": 3,
+      "selector_bits_before_after": [
+        0,
+        1
+      ],
+      "shared_future_prefix_through": 2,
+      "total_remaining_from_k2": 4
+    },
+    {
+      "first_difference_at": 5,
+      "m": 4,
+      "selector_bits_before_after": [
+        0,
+        1
+      ],
+      "shared_future_prefix_through": 4,
+      "total_remaining_from_k2": 6
+    },
+    {
+      "first_difference_at": 7,
+      "m": 5,
+      "selector_bits_before_after": [
+        0,
+        1
+      ],
+      "shared_future_prefix_through": 6,
+      "total_remaining_from_k2": 8
+    },
+    {
+      "first_difference_at": 9,
+      "m": 6,
+      "selector_bits_before_after": [
+        0,
+        1
+      ],
+      "shared_future_prefix_through": 8,
+      "total_remaining_from_k2": 10
+    },
+    {
+      "first_difference_at": 11,
+      "m": 7,
+      "selector_bits_before_after": [
+        0,
+        1
+      ],
+      "shared_future_prefix_through": 10,
+      "total_remaining_from_k2": 12
+    },
+    {
+      "first_difference_at": 13,
+      "m": 8,
+      "selector_bits_before_after": [
+        0,
+        1
+      ],
+      "shared_future_prefix_through": 12,
+      "total_remaining_from_k2": 14
+    },
+    {
+      "first_difference_at": 15,
+      "m": 9,
+      "selector_bits_before_after": [
+        0,
+        1
+      ],
+      "shared_future_prefix_through": 14,
+      "total_remaining_from_k2": 16
+    }
+  ],
+  "small_exhaustive": {
+    "capacity_pairs": 9,
+    "controller_structures": 81,
+    "exact_comparison": "all reachable productive state pairs, all ranks, every horizon, two local phase pairs",
+    "model_cases": 729,
+    "models_with_full_completion": 351,
+    "rank_phase_profiles_with_late_distinction": 216,
+    "result": "PASS"
+  },
+  "unbounded_delay_samples": [
+    {
+      "capacity_each": 3,
+      "d": 0,
+      "extra_bits_at_k2_before_after": [
+        0,
+        1
+      ],
+      "first_distinguishing_horizon": 1,
+      "indistinguishable_through": 0
+    },
+    {
+      "capacity_each": 4,
+      "d": 1,
+      "extra_bits_at_k2_before_after": [
+        0,
+        1
+      ],
+      "first_distinguishing_horizon": 2,
+      "indistinguishable_through": 1
+    },
+    {
+      "capacity_each": 5,
+      "d": 2,
+      "extra_bits_at_k2_before_after": [
+        0,
+        1
+      ],
+      "first_distinguishing_horizon": 3,
+      "indistinguishable_through": 2
+    },
+    {
+      "capacity_each": 6,
+      "d": 3,
+      "extra_bits_at_k2_before_after": [
+        0,
+        1
+      ],
+      "first_distinguishing_horizon": 4,
+      "indistinguishable_through": 3
+    },
+    {
+      "capacity_each": 7,
+      "d": 4,
+      "extra_bits_at_k2_before_after": [
+        0,
+        1
+      ],
+      "first_distinguishing_horizon": 5,
+      "indistinguishable_through": 4
+    },
+    {
+      "capacity_each": 8,
+      "d": 5,
+      "extra_bits_at_k2_before_after": [
+        0,
+        1
+      ],
+      "first_distinguishing_horizon": 6,
+      "indistinguishable_through": 5
+    },
+    {
+      "capacity_each": 9,
+      "d": 6,
+      "extra_bits_at_k2_before_after": [
+        0,
+        1
+      ],
+      "first_distinguishing_horizon": 7,
+      "indistinguishable_through": 6
+    },
+    {
+      "capacity_each": 10,
+      "d": 7,
+      "extra_bits_at_k2_before_after": [
+        0,
+        1
+      ],
+      "first_distinguishing_horizon": 8,
+      "indistinguishable_through": 7
+    },
+    {
+      "capacity_each": 11,
+      "d": 8,
+      "extra_bits_at_k2_before_after": [
+        0,
+        1
+      ],
+      "first_distinguishing_horizon": 9,
+      "indistinguishable_through": 8
+    },
+    {
+      "capacity_each": 12,
+      "d": 9,
+      "extra_bits_at_k2_before_after": [
+        0,
+        1
+      ],
+      "first_distinguishing_horizon": 10,
+      "indistinguishable_through": 9
+    },
+    {
+      "capacity_each": 13,
+      "d": 10,
+      "extra_bits_at_k2_before_after": [
+        0,
+        1
+      ],
+      "first_distinguishing_horizon": 11,
+      "indistinguishable_through": 10
+    }
+  ]
+}
