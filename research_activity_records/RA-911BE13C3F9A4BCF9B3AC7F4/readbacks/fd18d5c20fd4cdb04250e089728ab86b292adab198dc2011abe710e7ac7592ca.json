@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/fiftyfourth/README.md",
+    "ref": "aefc66a09f2869b1ff5c370c5fc9ac989d70cf86",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-fiftyfour-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第五十四轮　六边形格的次近代表与稀疏圆分环的运算成本\n\n## 同一余类的第二个代表有多远\n\n令 $m=4^t$、$t\\ge1$，$K=m^2-m+1$。对整数点 $z=(q,r)$，取六边形高度 $h=\\max(|2q+r|,|q+2r|,|q-r|)$，平方范数 $Q=q^2+qr+r^2$。同一模 $K$ 读数 $q+mr$ 的代表中，唯一最低点位于 $h\\le m-1$。本轮证明，给定其高度 $h$，次近代表的高度恰为 **$2m-1-h$**。两者的差总是奇数。\n\n若按 $Q$ 排序，选出的最低点相同。把这个点旋转到 $2q+r=h$、$0\\le v=q+2r<h$ 的扇区，则第二小与最小平方范数之差是 $K-mh+v$。从这一个整数就能恢复 $h,v$，从而确定原点所在的六次旋转轨道。对坐标施加相同的连续扰动，保证所有最近周期中心仍唯一的阈值，在高度度量下是 $1/2$，在由 $Q$ 给出的欧氏度量下是 $1/(2\\sqrt K)$。达到阈值就可能并列。[定理、边界与生成函数](nearest.md) · [独立枚举](nearest_check.py) · [确切读数](nearest_checked.json)\n\n## 相消何时减少运算，缓存又能省下什么\n\n在 $\\mathbb Z[u]/(u^{256}+1)$ 的冻结三蝶形运算中，同时改变两个输入系数 $c,d$。乘以 $u^8$ 时，第 248 项跨过周期并变号，首个蝶形的两个输出系数成为 $c-d,c+d$。在 $[-8,8]^2$ 的 289 个输入中，源程序采用的五项成本之和可以取 246、252、253、255，相应个数是 1、16、48、224。同一套固定的加法次序对每个输入都能达到这个指标的最优值。\n\n若实际运算复用一个对参数顺序敏感的缓存，同一加法的两个合法次序仍可能产生不同费用。对指定的 64 个窗口统一排列参数，昂贵正整数加法的未命中由每个有序对一次改为每个无序对一次，恰少 28 次。六个输出多项式逐一相同。正文分别列出算术恒等式、缓存调用次数及单机实测时间。[运算及可达成本](sparse.md) · [复算程序](sparse_check.py) · [整数证据](sparse_checked.json) · [计时与费用实录](sparse_cost.json)\n\n本轮复访第 3 轮的六边形截面，首次推进稀疏圆分环成本任务。截至 2026-11-18 23:21:34 UTC，累计直接推进 212 个登记编号、51 个父目标。尚未轮到的严格就绪、待交接和冻结返回任务分别为 46、22 和 5 项。[状态机截止与覆盖明细](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/aefc66a09f2869b1ff5c370c5fc9ac989d70cf86/research_notes/portable_direct/20261118_fair_queue_6b0fba/fiftyfourth/README.md",
+      "encoding": "utf-8",
+      "sha": "b7bde194dd8f289f3fd0e905a3d37ef7dac88192"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
