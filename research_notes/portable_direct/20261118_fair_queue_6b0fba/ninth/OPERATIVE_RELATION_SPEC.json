@@ -1,0 +1,94 @@
+{
+  "task": "RS-CELL-U27F-01-OPERATIVE-CONTINUITY-20261012",
+  "scope": {
+    "inventory": 4,
+    "lambda": "1/48",
+    "preparation_thinning": "1/16",
+    "loss_thinning": "1/16",
+    "axes": 6,
+    "signed_ports": 12,
+    "grow_ports": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "actor": 1
+  },
+  "observations": [
+    {
+      "name": "strict",
+      "source_fields": [
+        "frame.body_cells",
+        "frame.bound",
+        "reference.paths.links"
+      ],
+      "test": "每侧按序行走，要求两侧会合。当前严格绑定的(边,侧,头,端口)多重集须与源词全部出现完全匹配。"
+    },
+    {
+      "name": "held",
+      "source_fields": [
+        "frame.held",
+        "frame.free",
+        "frame.bound"
+      ],
+      "test": "身份位置及分区，三类不交且并为0至3。单独不产生严格边、不触发D释放。"
+    },
+    {
+      "name": "pending",
+      "source_fields": [
+        "frame.label",
+        "frame.kind",
+        "frame.incidence",
+        "reference.paths",
+        "frame.held"
+      ],
+      "test": "待提交工作及其原有几何。不是新记录；保留交易类和终止标志。"
+    },
+    {
+      "name": "gap_bridge",
+      "status": "TRANSACTIONAL_OBSERVATION; USING_AS_CURRENT_EDGE_IS_MODEL_VARIANT",
+      "source_fields": [
+        "former FREE_NATIVE_HOP or previous stable BOUND occurrence",
+        "previous RESERVE_OR_DETACH for growth",
+        "current token 2 HELD",
+        "current directed missing slot",
+        "operative interruption bit"
+      ],
+      "test": "只在声明的单材料AB单割族比较；验明完整身份分区及剩余源字。成长回查真实投递及保留后的一步携带；逆收缩回查前帧同一身份曾实际绑定本槽并刚在原位置取下。停止后不得用旧提交。"
+    },
+    {
+      "name": "release_now",
+      "source_fields": [
+        "current modes",
+        "complete",
+        "source geometric toggle",
+        "stage_law"
+      ],
+      "test": "只有指定完整单字D边的当前允许提议有正损失权，delta=1/16时为1/784。"
+    },
+    {
+      "name": "future_write",
+      "source_fields": [
+        "original accepted edit",
+        "next event RELATION_COMMITTED on no-loss branch"
+      ],
+      "test": "读取ID2的完整BOUND槽，或FREE的实际Cell。"
+    }
+  ],
+  "exact_quotient": {
+    "domain_size": 32,
+    "per_direction": 4,
+    "all_directions": 18,
+    "class_sizes": {
+      "1": 16,
+      "8": 2
+    }
+  },
+  "source_archive_sha256": "a450cc3e235ca3d37211d31b2d4eb41dd2d4ac28b77c73d18d1b6e3ce45cc9a7",
+  "scope_boundary": "冻结 U27 有限条件模型。新的实际原生支援、损坏恢复、并发或全程无损均未推定。"
+}
