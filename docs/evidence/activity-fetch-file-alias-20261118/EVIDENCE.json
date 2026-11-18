@@ -71,6 +71,16 @@
   "backend_pr101_included": false,
   "captured_at_utc": "2026-11-18T16:01:44.855217+00:00",
   "change": "Accept exactly mcp__GitHub__fetch_file as the existing GitHub fetch_file connector format in full observations and historical summaries; preserve original labels and bytes. Existing MCP GitHub Contents verification is unchanged.",
+  "ci_shard_placement": {
+    "additional_test_file_removed": "tests/test_research_activity_connector_alias.py",
+    "all_seven_methods_preserved": true,
+    "existing_files_whose_shard_changed_with_new_file": 105,
+    "final_existing_file_shard_assignments_equal_baseline": true,
+    "final_test_module": "tests/test_research_activity_readback_reuse.py",
+    "new_test_class_ast_preserved": true,
+    "original_ci_workflow_timeout_minutes_for_shard6": 15,
+    "workflow_or_timeout_changes": false
+  },
   "diagnostic_counts_not_a_successful_audit": {
     "genuine_full_observation_with_serialization_binding_drift": 1,
     "older_summary_only_events": 15,
@@ -121,12 +131,17 @@
     "diff_check_passed": true,
     "errors": 0,
     "failed": 0,
+    "final_regression_module": "tests/test_research_activity_readback_reuse.py",
     "initial_partial_checkout_import_failures_resolved": "Materialized the complete exact Source checkout before the final 49-case suite; no test assertion or production dependency was changed.",
+    "installed_package_cases": 26,
+    "installed_package_passed": 26,
     "new_regressions": 7,
     "old_module_new_regressions_errors": 6,
     "old_module_new_regressions_exit": 1,
     "old_module_type_error_for_non_string_name": true,
+    "original_ci_job_6": "CANCELLED_AT_CONFIGURED_15_MINUTE_BUDGET; seven other unit shards passed, no assertion failures in completed job6 cases",
     "passed": 49,
-    "related_unittest_cases": 49
+    "related_unittest_cases": 49,
+    "workflow_or_timeout_changes": false
   }
 }
