@@ -1,0 +1,523 @@
+{
+  "directed_edge_order": [
+    "R>L",
+    "L>R",
+    "R>S",
+    "S>R"
+  ],
+  "finite_control": [
+    {
+      "distinct_word_transformations": 8,
+      "q": 2,
+      "reachable_and_inequivalent_observer_states": 4,
+      "single_target_suffix_tests": 8
+    },
+    {
+      "distinct_word_transformations": 27,
+      "q": 3,
+      "reachable_and_inequivalent_observer_states": 9,
+      "single_target_suffix_tests": 27
+    },
+    {
+      "distinct_word_transformations": 64,
+      "q": 4,
+      "reachable_and_inequivalent_observer_states": 16,
+      "single_target_suffix_tests": 64
+    },
+    {
+      "distinct_word_transformations": 125,
+      "q": 5,
+      "reachable_and_inequivalent_observer_states": 25,
+      "single_target_suffix_tests": 125
+    },
+    {
+      "distinct_word_transformations": 216,
+      "q": 6,
+      "reachable_and_inequivalent_observer_states": 36,
+      "single_target_suffix_tests": 216
+    },
+    {
+      "distinct_word_transformations": 343,
+      "q": 7,
+      "reachable_and_inequivalent_observer_states": 49,
+      "single_target_suffix_tests": 343
+    },
+    {
+      "distinct_word_transformations": 512,
+      "q": 8,
+      "reachable_and_inequivalent_observer_states": 64,
+      "single_target_suffix_tests": 512
+    },
+    {
+      "distinct_word_transformations": 729,
+      "q": 9,
+      "reachable_and_inequivalent_observer_states": 81,
+      "single_target_suffix_tests": 729
+    }
+  ],
+  "physical_replays": {
+    "boundary_split_checks": 20481,
+    "complete_petals": 18434,
+    "complete_words": 2047,
+    "cost_counts_for_full_binary_tree_words": {
+      "directed_return_edge_commits": 18434,
+      "entry_modular_additions": 9217,
+      "exact_A_increments": 9217,
+      "exact_B_increments": 9217,
+      "fixed_q_generic_entry_bits": 3,
+      "native_acquisition_calls": 0,
+      "one_probe_readout_bits": 1,
+      "per_counter_bits_at_length_at_most_10": 4,
+      "reconstructed_outgoing_flow_equalities": 73736,
+      "saved_raw_edge_receipts": 8,
+      "saved_raw_trace_words": 2,
+      "shared_root_capacity": 2,
+      "simulated_named_token_departure_checks": 36868,
+      "source_vertex_balance_equalities": 221208
+    },
+    "physical_edge_steps": 36868,
+    "q": 6,
+    "uncompressed_receipts": {
+      "AB": [
+        {
+          "completed_flux": [
+            0,
+            0
+          ],
+          "edge": "R>L",
+          "entry": 0,
+          "locations": [
+            "L",
+            "R"
+          ],
+          "per_token_flow": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "token": "alpha"
+        },
+        {
+          "completed_flux": [
+            1,
+            0
+          ],
+          "edge": "L>R",
+          "entry": 0,
+          "locations": [
+            "R",
+            "R"
+          ],
+          "per_token_flow": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "token": "alpha"
+        },
+        {
+          "completed_flux": [
+            1,
+            0
+          ],
+          "edge": "R>S",
+          "entry": 0,
+          "locations": [
+            "R",
+            "S"
+          ],
+          "per_token_flow": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ]
+          ],
+          "token": "beta"
+        },
+        {
+          "completed_flux": [
+            1,
+            1
+          ],
+          "edge": "S>R",
+          "entry": 1,
+          "locations": [
+            "R",
+            "R"
+          ],
+          "per_token_flow": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1
+            ]
+          ],
+          "token": "beta"
+        }
+      ],
+      "BA": [
+        {
+          "completed_flux": [
+            0,
+            0
+          ],
+          "edge": "R>S",
+          "entry": 0,
+          "locations": [
+            "R",
+            "S"
+          ],
+          "per_token_flow": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0
+            ]
+          ],
+          "token": "beta"
+        },
+        {
+          "completed_flux": [
+            0,
+            1
+          ],
+          "edge": "S>R",
+          "entry": 0,
+          "locations": [
+            "R",
+            "R"
+          ],
+          "per_token_flow": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1
+            ]
+          ],
+          "token": "beta"
+        },
+        {
+          "completed_flux": [
+            0,
+            1
+          ],
+          "edge": "R>L",
+          "entry": 0,
+          "locations": [
+            "L",
+            "R"
+          ],
+          "per_token_flow": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1
+            ]
+          ],
+          "token": "alpha"
+        },
+        {
+          "completed_flux": [
+            1,
+            1
+          ],
+          "edge": "L>R",
+          "entry": 0,
+          "locations": [
+            "R",
+            "R"
+          ],
+          "per_token_flow": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1
+            ]
+          ],
+          "token": "alpha"
+        }
+      ]
+    },
+    "word_and_final_state_sha256": "69352cabf9235d6d4086f33ecd69317bfecb4ce4f07741551469b32de5e73cda"
+  },
+  "q_first_full_support_first_uniform_number_uniform_at_q": [
+    [
+      2,
+      2,
+      2,
+      1
+    ],
+    [
+      3,
+      3,
+      3,
+      2
+    ],
+    [
+      4,
+      4,
+      4,
+      2
+    ],
+    [
+      5,
+      4,
+      5,
+      4
+    ],
+    [
+      6,
+      5,
+      6,
+      2
+    ],
+    [
+      7,
+      5,
+      7,
+      6
+    ],
+    [
+      8,
+      6,
+      8,
+      4
+    ],
+    [
+      9,
+      6,
+      9,
+      6
+    ],
+    [
+      10,
+      6,
+      10,
+      4
+    ],
+    [
+      11,
+      7,
+      11,
+      10
+    ],
+    [
+      12,
+      7,
+      12,
+      4
+    ],
+    [
+      13,
+      7,
+      13,
+      12
+    ],
+    [
+      14,
+      8,
+      14,
+      6
+    ],
+    [
+      15,
+      8,
+      15,
+      8
+    ],
+    [
+      16,
+      8,
+      16,
+      8
+    ],
+    [
+      17,
+      8,
+      17,
+      16
+    ],
+    [
+      18,
+      9,
+      18,
+      6
+    ],
+    [
+      19,
+      9,
+      19,
+      18
+    ],
+    [
+      20,
+      9,
+      20,
+      8
+    ],
+    [
+      21,
+      9,
+      21,
+      12
+    ],
+    [
+      22,
+      10,
+      22,
+      10
+    ],
+    [
+      23,
+      10,
+      23,
+      22
+    ],
+    [
+      24,
+      10,
+      24,
+      8
+    ]
+  ],
+  "source_strength": "external finite comparison; native port calls 0",
+  "window_version": "two_named_petals_boundary_entry_v1",
+  "word_distributions": {
+    "all_word_direct_replays_up_to_length_12": 8191,
+    "examples_a_b_q": {
+      "0,0,6": {
+        "least_period": 6,
+        "residue_counts": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "2,4,6": {
+        "least_period": 2,
+        "residue_counts": [
+          3,
+          2,
+          3,
+          2,
+          3,
+          2
+        ]
+      },
+      "3,3,6": {
+        "least_period": 3,
+        "residue_counts": [
+          4,
+          3,
+          3,
+          4,
+          3,
+          3
+        ]
+      },
+      "4,7,12": {
+        "least_period": 12,
+        "residue_counts": [
+          29,
+          27,
+          28,
+          27,
+          29,
+          26,
+          28,
+          27,
+          28,
+          27,
+          28,
+          26
+        ]
+      },
+      "5,7,6": {
+        "least_period": 1,
+        "residue_counts": [
+          132,
+          132,
+          132,
+          132,
+          132,
+          132
+        ]
+      }
+    },
+    "parameter_triples": 2873,
+    "ramanujan_parseval_triples": 420,
+    "range_a_b": [
+      0,
+      12
+    ],
+    "range_q": [
+      2,
+      18
+    ],
+    "uniform_distributions": 486
+  }
+}
