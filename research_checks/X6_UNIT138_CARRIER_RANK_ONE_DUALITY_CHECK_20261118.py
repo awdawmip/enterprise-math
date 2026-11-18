@@ -138,5 +138,4 @@ def main():
     data=(json.dumps(result,ensure_ascii=False,sort_keys=True,indent=2)+'\n').encode()
     print(data.decode(),end='')
 
-
 if __name__=='__main__':main()
