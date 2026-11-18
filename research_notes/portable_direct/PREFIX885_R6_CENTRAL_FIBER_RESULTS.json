@@ -1,0 +1,123 @@
+{
+  "schema": "PREFIX885_R6_RESULTS_V1",
+  "model": "p named binary sources; zero or one XOR source toggle; ordered two-port odd-residue observer",
+  "method": "generalized_CRT + exact Euclidean floor_sum bit count",
+  "tests": {
+    "floor_sum_bit_progression_random_checks": 2000,
+    "small_exhaustive_center_pairs": 409,
+    "small_direct_collision_parity_pairs": 247,
+    "large_direct_center_pairs": 9
+  },
+  "large_examples": [
+    {
+      "p": 32,
+      "q1": 524287,
+      "q2": 524285,
+      "gcd": 1,
+      "lcm": 274875809795,
+      "zero_center": 0,
+      "plus_center": 2,
+      "minus_center": 2,
+      "c_star": 4,
+      "collision_parity": 0
+    },
+    {
+      "p": 32,
+      "q1": 500383,
+      "q2": 522777,
+      "gcd": 1,
+      "lcm": 261588723591,
+      "zero_center": 0,
+      "plus_center": 0,
+      "minus_center": 0,
+      "c_star": 0,
+      "collision_parity": 0
+    },
+    {
+      "p": 32,
+      "q1": 523001,
+      "q2": 523003,
+      "gcd": 1,
+      "lcm": 273531092003,
+      "zero_center": 0,
+      "plus_center": 2,
+      "minus_center": 2,
+      "c_star": 4,
+      "collision_parity": 0
+    },
+    {
+      "p": 32,
+      "q1": 262143,
+      "q2": 524287,
+      "gcd": 1,
+      "lcm": 137438167041,
+      "zero_center": 0,
+      "plus_center": 1,
+      "minus_center": 1,
+      "c_star": 2,
+      "collision_parity": 1
+    },
+    {
+      "p": 32,
+      "q1": 524287,
+      "q2": 524287,
+      "gcd": 524287,
+      "lcm": 524287,
+      "zero_center": 8192,
+      "plus_center": 0,
+      "minus_center": 0,
+      "c_star": 8192,
+      "collision_parity": 0
+    },
+    {
+      "p": 32,
+      "q1": 262143,
+      "q2": 262143,
+      "gcd": 262143,
+      "lcm": 262143,
+      "zero_center": 16384,
+      "plus_center": 0,
+      "minus_center": 0,
+      "c_star": 16384,
+      "collision_parity": 0
+    },
+    {
+      "p": 32,
+      "q1": 524287,
+      "q2": 3,
+      "gcd": 1,
+      "lcm": 1572861,
+      "zero_center": 2730,
+      "plus_center": 43709,
+      "minus_center": 43709,
+      "c_star": 90148,
+      "collision_parity": 0
+    },
+    {
+      "p": 32,
+      "q1": 65535,
+      "q2": 32767,
+      "gcd": 1,
+      "lcm": 2147385345,
+      "zero_center": 2,
+      "plus_center": 34,
+      "minus_center": 34,
+      "c_star": 70,
+      "collision_parity": 1
+    },
+    {
+      "p": 32,
+      "q1": 524287,
+      "q2": 1,
+      "gcd": 1,
+      "lcm": 524287,
+      "zero_center": 8192,
+      "plus_center": 131072,
+      "minus_center": 131072,
+      "c_star": 270336,
+      "collision_parity": 0
+    }
+  ],
+  "status": "ALL_EXACT_ASSERTIONS_PASSED",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d"
+}
