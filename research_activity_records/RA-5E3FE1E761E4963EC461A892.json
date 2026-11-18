@@ -5876,6 +5876,67 @@
       ],
       "kb_sources": [],
       "notes": "Unit123: original R063 frozen positive two-coordinate sector_ball/residue (original Git blob 643b2bac...) has sharp first named-positive-step BRC prediction failure at radius R=m for every modulus m>=1. The two signed-native-embedded axial displacements (m,0),(0,m) have equal current mod-m residue, G=m²,L=m,N-BRC=1, while the same named +e_second operation gives N-BRC m+1 versus 1; R<m mod-m observation is injective. Static current-BRC ambiguity first occurs at R=m+1 (prior Unit116), so dynamic loss is one radius earlier, even after current G,L,B are included. Exact independent CPython normal/-O/-OO enumerated m=1..100, 262595 P_(m-1) points, 270549 P_m points, one augmented ambiguous fiber per m; output bytes SHA256 aa32b4b122d40c8dea4a74704b89d7a4520573f210324edbf902b883366324c9. Source proof, checker, JSON verified. This is author-side research only: no original R063 six-blob C3/C4 benchmark rerun; independent review NOT_ADMITTED. Original own run RUN-95866d78d35721116c362956 gen7 checkpoint rev7 saved; prior Units117–122 semantic progress request onhour-20261118-1310-x6-own-units117-122-native-progress-v1 QUEUED at last observation. Do not repeat already executed Unit118 integration, do not cross maintenance conversation."
+    },
+    {
+      "event_id": "onhour-20261118-1404-x6-unit124-triadic-block-vs-native-brc-v1",
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "b6ab9531b059c341d70a0f78abf474f308fd2654",
+          "path": "research_checks/X6_UNIT124_TRIADIC_BLOCK_VS_NATIVE_BRC_20261118.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "8919d7324be41164144ea188dcdede27db9757f5",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b6ab9531b059c341d70a0f78abf474f308fd2654/research_checks/X6_UNIT124_TRIADIC_BLOCK_VS_NATIVE_BRC_20261118.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "6d63e12bad1b71351b34be4c71214bb23ebb3d65",
+          "path": "research_checks/X6_UNIT124_TRIADIC_BLOCK_VS_NATIVE_BRC_RESULTS_20261118.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "b90f2451bde1beb7abc3c62e87e9568934e3a96e",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6d63e12bad1b71351b34be4c71214bb23ebb3d65/research_checks/X6_UNIT124_TRIADIC_BLOCK_VS_NATIVE_BRC_RESULTS_20261118.json",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "167ad1ca3506662a2977fa7b292c4d7919aeb9da",
+          "path": "research_notes/X6_UNIT124_TRIADIC_BLOCK_TO_SIGNED_NATIVE_BRC_EXACT_INTERFACE_20261118.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "f21cdb8d58f1b1d4b1d5d4114cea31f7884af0f5",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/167ad1ca3506662a2977fa7b292c4d7919aeb9da/research_notes/X6_UNIT124_TRIADIC_BLOCK_TO_SIGNED_NATIVE_BRC_EXACT_INTERFACE_20261118.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "21287a70abca56cb71fd2a4b0abce4a7b6165555",
+          "path": "research_notes/X6_UNIT124_TRIADIC_BLOCK_NATIVE_BRC_CONTINUATION_20261118.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "a58428f889c173ab00df0232eb857cdf7b26a6ee",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/21287a70abca56cb71fd2a4b0abce4a7b6165555/research_notes/X6_UNIT124_TRIADIC_BLOCK_NATIVE_BRC_CONTINUATION_20261118.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [],
+      "notes": "Unit124 real new mathematical unit: verified original current consumer experiments/x6_triadic_decomposition_brc_v2_20260906/check_triadic_decomposition_brc.py blob 5d0f2cb... (lines 8-16,19-35,91-95). For sign-coherent six-axis incidences D, total 3m, triad-type ordered count U(D), synthetic free 3!-microstep block expansion yields T(D)=6^m U(D) native shortest words among B(D)=(3m)!/prod D_i!. Proved T=B iff max D_i<=1, T/B <=1-sum D_i(D_i-1)/((3m)(3m-1)). Concrete m2 (2,2,2,0,0,0) has T=36 vs B=90 and m3 (3,3,3,0,0,0) T=216 vs B=1680; mixed-sign macro T=72 six-step words none shortest for native net displacement (0,2,2,0,0,0) whose shortest length4 N-BRC=6. Executed Python ordinary/-O/-OO with identical output SHA256 c1dd74b24bf7e11f3b16bea05323c54687b835731de920b8026c27f5e1d3ae7a, exact 1+20+141+580 degree vectors m0..3, independent m2 141 brute word checks. Four source artifacts verified immutable. Previous Units117-122 Native semantic PROGRESS original request onhour-20261118-1310-x6-own-units117-122-native-progress-v1 now SUCCEEDED/source 3687d721a14865e01f063635ba4f086b2596dbc2; exact own continuation onhour-20261118-1406-x6-own-cont-v1 remains QUEUED, so Unit123/124 Native semantic PROGRESS unsubmitted pending owner/claim fresh read. This Activity is author-SOURCE evidence and not Result/review/CLAIM; review UNREVIEWED / NOT_ADMITTED."
     }
   ],
   "mode": "TASK_RESEARCH",
