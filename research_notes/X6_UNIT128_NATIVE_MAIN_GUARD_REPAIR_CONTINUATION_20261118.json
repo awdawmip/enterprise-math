@@ -56,12 +56,12 @@
     "run_id": "RUN-95866d78d35721116c362956",
     "last_successful_original_resume_request_id": "onhour-20261118-1618-x6-own-run9586-unit126-resume-v1",
     "last_successful_resume": "SUCCEEDED / authorized=true / generation 9",
-    "native_execution_checkpoint_revision9": "SAVED / SHA256 a6eb97ff7b1ee50d57df2c1e0f457fcc074d4e9d2f050761e9a391aa08615fcd (Units1-127); Unit128 not yet added",
     "exact_continuation_request_id": "onhour-20261118-1701-x6-own-exact-continuation-v1",
-    "exact_continuation_last_observed": "QUEUED / error=null (original request must be reconciled, no duplicate)",
+    "exact_continuation_last_observed": "QUEUED / error=null, original request onhour-20261118-1701-x6-own-exact-continuation-v1; no duplicate",
     "native_semantic_progress_units126_127_request_id": "onhour-20261118-1707-x6-own-units126-127-native-progress-v1",
-    "native_semantic_progress_units126_127_last_observed": "RUNNING / error=null; exact Source publication not yet confirmed; do not submit again",
-    "native_semantic_progress_unit128": "PENDING; after previous original request reaches confirmed terminal and fresh Source owner check, then own-run Source publication, no duplicate effect"
+    "native_semantic_progress_units126_127_last_observed": "RUNNING / error=null, original request onhour-20261118-1707-x6-own-units126-127-native-progress-v1; no duplicate",
+    "native_semantic_progress_unit128": "PENDING; after previous original request reaches confirmed terminal and fresh Source owner check, then own-run Source publication, no duplicate effect",
+    "native_execution_checkpoint_revision10": "SAVED and native execution_get READBACK: generation 9, revision 10, checksum 992a863e2990aad3f5b80454339827a0beb4b164bb906b0cb845e3ed78310bc0; preserved all prior units and Unit128"
   },
   "unresolved": [
     "28-LP actual historical/current active downstream typed source:line dependency reachability",
@@ -74,7 +74,7 @@
     "Original R063 six-file/512-case author benchmark and Unit118 original source integration",
     "Queued unknown original requests, foreign session/CLAIM, maintenance logical conversation"
   ],
-  "next_exact_action": "First reconcile same-ID continuation onhour-20261118-1701-x6-own-exact-continuation-v1 and same-ID Units126–127 PROGRESS onhour-20261118-1707-x6-own-units126-127-native-progress-v1, no new overlapping progress. Preserve Unit128 in own run checkpoint with correct revision/generation under current Source authorization; then one Native semantic PROGRESS for Unit128 after earlier terminal. Continue nonoverlapping actual 28-LP source:line consumer graph, differentiate current effective repair from historical false blame.",
+  "next_exact_action": "Reconcile existing queued exact continuation request and original already-running Units126-127 Native PROGRESS without replay. Preserve Native checkpoint revision10 and GitHub Activity #142 Unit128. After original prior progress terminal and fresh owner authorization, issue one Unit128 semantic PROGRESS, then continue 28-LP exact current downstream consumer closure and original LP011/LP019 provenance; original R063 benchmark remains independent.",
   "continuation_state": "OPEN",
   "review_status": "AUTHOR_UNREVIEWED_NOT_ADMITTED",
   "notifications_and_schedule": "unchanged",
