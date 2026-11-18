@@ -64,7 +64,7 @@ For each positive-area clipped polygon P_i, the exhaustive Bellman result at **e
 
 ### New structural information and smallest remaining unit
 
-There are **four interior triple-junction vertices**, including (8/23,3/23) and (58/155,2/5). A very narrow but real phase (U,Q,K)=(311,151,69) has exact area 1/2380800; discrete grids can miss it. The corridor has eleven distinct 2D open strategy regions even though the alpha=1/3 and alpha=3/8 boundary slices have only five and eight open z intervals respectively. Thus slice-by-slice phase counts alone underreport the two-variable Pareto geometry.
+There are **four interior multi-phase junction vertices**: two triple intersections, at (21/62,5/14) and (58/155,2/5), and two **quadruple** intersections, at (8/23,3/23) and (5/14,5/14). This exact fourfold degeneracy is a new structural feature of the two-price problem. A very narrow but real phase (U,Q,K)=(311,151,69) has exact area 1/2380800; discrete grids can miss it. The corridor has eleven distinct 2D open strategy regions even though the alpha=1/3 and alpha=3/8 boundary slices have only five and eight open z intervals respectively. Thus slice-by-slice phase counts alone underreport the two-variable Pareto geometry.
 
 Next research: extend to the adjacent alpha corridor (3/8,1/2), and then relax equality of the q32 and q34 discounts in the full three-independent-price model. Preserve original joint fibers and prices; do not infer admission from this draft.
 
