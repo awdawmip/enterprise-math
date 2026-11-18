@@ -74,7 +74,7 @@ def main():
                 run=subprocess.run([str(solver)],input=make_input(table,rep,tau),
                                    text=True,capture_output=True,check=True,timeout=120)
                 got=dict(z.split("=") for z in run.stdout.split()[1:])
-                for key,col in (("cost",edge+"cost"),("states",edge+"states"),("actions",edge+"actions")):
+                for key,col in (("cost","Lcost" if edge=="L" else "Uminus1_cost"), ("states","Lstates" if edge=="L" else "Uminus1_states"), ("actions","Lactions" if edge=="L" else "Uminus1_actions")):
                     assert int(got[key])==int(row[col]),(rep,edge,key,got[key],row[col])
             print("PASS_CLASS",rep,flush=True)
     print("PASS_R5_ALL_53_CLASSES_249_CANDIDATES_106_ENDPOINTS",flush=True)
