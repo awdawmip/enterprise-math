@@ -1,0 +1,90 @@
+{
+  "schema": "EC49FSL_THREE_PRICE_SWAP_EXACT_BRC_COUNTEREXAMPLE_V1",
+  "date": "2026-11-18",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent_commit": "4e6e2c7263edaf2c9f8c46e20c39128b7547e530",
+  "model": {
+    "raw_configurations": 310,
+    "named_joint_profiles": 141,
+    "physical_named_observers": 228,
+    "prior": "uniform",
+    "full_adaptive_identification": true
+  },
+  "parameters": {
+    "q32": "(1-a)*t",
+    "q34": "(1-b)*t",
+    "q140": "(1-z)*t",
+    "others": "t",
+    "t": ">0"
+  },
+  "value": "F(a,b,z)=141*V(a,b,z)/t",
+  "points": [
+    {
+      "case": "A",
+      "a": "1/2",
+      "b": "7/16",
+      "z": "1/2",
+      "F": "3307/16",
+      "root": 140,
+      "U": 319,
+      "N32": 18,
+      "N34": 75,
+      "N140": 141,
+      "max_depth": 3,
+      "tree_sha256": "f6854068c15fc02323cf7584f2e39a81b720f7ca02cfc20a434f6a6d38652899",
+      "primary_states": 10579,
+      "independent_states": 9852
+    },
+    {
+      "case": "B",
+      "a": "7/16",
+      "b": "1/2",
+      "z": "1/2",
+      "F": "1613/8",
+      "root": 34,
+      "U": 311,
+      "N32": 10,
+      "N34": 141,
+      "N140": 69,
+      "max_depth": 3,
+      "tree_sha256": "fbdeccb86a78fa12a8561383acf90c63b6af4fb8ee93ceacf36b0537b18036ae",
+      "primary_states": 10286,
+      "independent_states": 9562
+    },
+    {
+      "case": "control_A",
+      "a": "1/2",
+      "b": "7/16",
+      "z": "0",
+      "F": "3481/16",
+      "root": 32,
+      "U": 306,
+      "N32": 141,
+      "N34": 41,
+      "N140": 0,
+      "max_depth": 4,
+      "tree_sha256": "8db8fd1bec30ad1b07186cab14dc71825804e916a69005d447d4495526db59ce",
+      "primary_states": 10767,
+      "independent_states": 10065
+    },
+    {
+      "case": "control_B",
+      "a": "7/16",
+      "b": "1/2",
+      "z": "0",
+      "F": "3481/16",
+      "root": 34,
+      "U": 306,
+      "N32": 41,
+      "N34": 141,
+      "N140": 0,
+      "max_depth": 4,
+      "tree_sha256": "723304c5c68eba42fe9ba6f5c5fa38c4a4258113bba40c87902254e9ac721fc5",
+      "primary_states": 10732,
+      "independent_states": 10037
+    }
+  ],
+  "nonzero_swap_difference": "81/16",
+  "proof": "Two independent exact all-228 Bellman solvers on independently decoded native responses and four replayed complete 141-profile decision trees; 4/4 agreement.",
+  "mathematical_status": "AUTHOR_PROVED_EXACT_FINITE_CROSSCHECKED_NOT_REVIEWED"
+}
