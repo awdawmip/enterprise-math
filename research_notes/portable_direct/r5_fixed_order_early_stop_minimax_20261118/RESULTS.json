@@ -1,0 +1,171 @@
+{
+  "pass": "R5_FIXED_ORDER_EARLYSTOP_MINIMAX_EQUAL_PREPAID",
+  "input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "hypotheses": 256,
+  "budget_types": 101,
+  "pairs": 32640,
+  "fifth": {
+    "real_tau_chamber": [
+      "25845652773852463277015040000",
+      "58182461585441404127941754880"
+    ],
+    "actions": [
+      216,
+      223,
+      296
+    ],
+    "witnesses": [
+      {
+        "pair": [
+          0,
+          1
+        ],
+        "only_selected_separator": 216
+      },
+      {
+        "pair": [
+          0,
+          64
+        ],
+        "only_selected_separator": 223
+      },
+      {
+        "pair": [
+          16,
+          32
+        ],
+        "only_selected_separator": 296
+      }
+    ],
+    "runs": [
+      {
+        "f": 0,
+        "queries": 3,
+        "worst_case_cost": 735,
+        "first_globally_decodable_prefix": 3,
+        "penultimate_ambiguous": {
+          "pair": [
+            0,
+            16
+          ],
+          "distance": 0,
+          "required": 1
+        }
+      },
+      {
+        "f": 1,
+        "queries": 9,
+        "worst_case_cost": 2205,
+        "first_globally_decodable_prefix": 9,
+        "penultimate_ambiguous": {
+          "pair": [
+            0,
+            16
+          ],
+          "distance": 2,
+          "required": 3
+        }
+      },
+      {
+        "f": 8,
+        "queries": 51,
+        "worst_case_cost": 12495,
+        "first_globally_decodable_prefix": 51,
+        "penultimate_ambiguous": {
+          "pair": [
+            0,
+            16
+          ],
+          "distance": 16,
+          "required": 17
+        }
+      }
+    ]
+  },
+  "critical": {
+    "real_tau_chamber": [
+      "1876919155234970890319953920000",
+      "1882951873548292168718745600000"
+    ],
+    "actions": [
+      217,
+      218,
+      224,
+      298
+    ],
+    "witnesses": [
+      {
+        "pair": [
+          11,
+          14
+        ],
+        "only_selected_separator": 217
+      },
+      {
+        "pair": [
+          4,
+          10
+        ],
+        "only_selected_separator": 218
+      },
+      {
+        "pair": [
+          0,
+          64
+        ],
+        "only_selected_separator": 224
+      },
+      {
+        "pair": [
+          16,
+          32
+        ],
+        "only_selected_separator": 298
+      }
+    ],
+    "runs": [
+      {
+        "f": 0,
+        "queries": 4,
+        "worst_case_cost": 957,
+        "first_globally_decodable_prefix": 4,
+        "penultimate_ambiguous": {
+          "pair": [
+            0,
+            16
+          ],
+          "distance": 0,
+          "required": 1
+        }
+      },
+      {
+        "f": 1,
+        "queries": 12,
+        "worst_case_cost": 2871,
+        "first_globally_decodable_prefix": 12,
+        "penultimate_ambiguous": {
+          "pair": [
+            0,
+            16
+          ],
+          "distance": 2,
+          "required": 3
+        }
+      },
+      {
+        "f": 8,
+        "queries": 68,
+        "worst_case_cost": 16269,
+        "first_globally_decodable_prefix": 68,
+        "penultimate_ambiguous": {
+          "pair": [
+            0,
+            16
+          ],
+          "distance": 16,
+          "required": 17
+        }
+      }
+    ]
+  }
+}
