@@ -1,0 +1,209 @@
+{
+  "schema": "EC49FSO_THREE_PRICE_NATIVE_PRISM_V1",
+  "frozen_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent": "PR #2706@0842017a6bfdc83e7af59c6d2be0493dd53d58da",
+  "native_model": {
+    "profiles": 141,
+    "observations": 228,
+    "original_configurations": 310,
+    "prior": "uniform over profiles",
+    "decision_trees": "unrestricted deterministic adaptive exact named-response"
+  },
+  "domain": {
+    "a": [
+      "31/64",
+      "33/64"
+    ],
+    "b": [
+      "27/64",
+      "29/64"
+    ],
+    "z": [
+      "0",
+      "51/448"
+    ]
+  },
+  "equations": {
+    "direct": "306 - 141a - 41b - 4z",
+    "swapped": "306 - 141a - 41b - 10z",
+    "swap_penalty": "6z"
+  },
+  "vertices": [
+    {
+      "a": "31/64",
+      "b": "27/64",
+      "z": "0",
+      "orientation": "direct",
+      "bellman_value": "7053/32"
+    },
+    {
+      "a": "31/64",
+      "b": "27/64",
+      "z": "0",
+      "orientation": "swapped",
+      "bellman_value": "7053/32"
+    },
+    {
+      "a": "31/64",
+      "b": "27/64",
+      "z": "51/448",
+      "orientation": "direct",
+      "bellman_value": "49269/224"
+    },
+    {
+      "a": "31/64",
+      "b": "27/64",
+      "z": "51/448",
+      "orientation": "swapped",
+      "bellman_value": "12279/56"
+    },
+    {
+      "a": "31/64",
+      "b": "29/64",
+      "z": "0",
+      "orientation": "direct",
+      "bellman_value": "1753/8"
+    },
+    {
+      "a": "31/64",
+      "b": "29/64",
+      "z": "0",
+      "orientation": "swapped",
+      "bellman_value": "1753/8"
+    },
+    {
+      "a": "31/64",
+      "b": "29/64",
+      "z": "51/448",
+      "orientation": "direct",
+      "bellman_value": "24491/112"
+    },
+    {
+      "a": "31/64",
+      "b": "29/64",
+      "z": "51/448",
+      "orientation": "swapped",
+      "bellman_value": "48829/224"
+    },
+    {
+      "a": "33/64",
+      "b": "27/64",
+      "z": "0",
+      "orientation": "direct",
+      "bellman_value": "216"
+    },
+    {
+      "a": "33/64",
+      "b": "27/64",
+      "z": "0",
+      "orientation": "swapped",
+      "bellman_value": "216"
+    },
+    {
+      "a": "33/64",
+      "b": "27/64",
+      "z": "51/448",
+      "orientation": "direct",
+      "bellman_value": "24141/112"
+    },
+    {
+      "a": "33/64",
+      "b": "27/64",
+      "z": "51/448",
+      "orientation": "swapped",
+      "bellman_value": "48129/224"
+    },
+    {
+      "a": "33/64",
+      "b": "29/64",
+      "z": "0",
+      "orientation": "direct",
+      "bellman_value": "6871/32"
+    },
+    {
+      "a": "33/64",
+      "b": "29/64",
+      "z": "0",
+      "orientation": "swapped",
+      "bellman_value": "6871/32"
+    },
+    {
+      "a": "33/64",
+      "b": "29/64",
+      "z": "51/448",
+      "orientation": "direct",
+      "bellman_value": "47995/224"
+    },
+    {
+      "a": "33/64",
+      "b": "29/64",
+      "z": "51/448",
+      "orientation": "swapped",
+      "bellman_value": "23921/112"
+    }
+  ],
+  "native_witnesses": {
+    "direct": {
+      "counts": [
+        306,
+        141,
+        41,
+        4
+      ],
+      "sha256": "ad7047debd6d04d3c076eef6d593b7de4d50879a671a439760d4d436210cc767"
+    },
+    "swapped": {
+      "counts": [
+        306,
+        41,
+        141,
+        10
+      ],
+      "sha256": "db669e0116a1816bbf53fed6cb1bc07a4549ef9665637433e05c059936ff9742"
+    },
+    "challenger": {
+      "counts": [
+        303,
+        32,
+        141,
+        17
+      ],
+      "sha256": "c43c37dfca7f748b0e4acadcd69c8be5e8c5bdeb3a0515c6c7e8c796250042e2"
+    }
+  },
+  "sharpness": {
+    "corner_a": "31/64",
+    "corner_b": "27/64",
+    "threshold": "51/448",
+    "challenger_cost_minus_swapped_plane": "51/64 - 7z",
+    "z_example": "1/8",
+    "challenger_value": "14021/64",
+    "old_plane_value": "7013/32",
+    "gap": "5/64"
+  },
+  "proof": "Unrestricted exact Bellman vertex equalities plus two feasible affine witnesses, jointly concave minimum of affine tree costs, and convex interpolation over the 3D prism.",
+  "independent_redecoded_checks": [
+    {
+      "a": "31/64",
+      "b": "27/64",
+      "z": "51/448",
+      "orientation": "direct",
+      "value": "49269/224"
+    },
+    {
+      "a": "31/64",
+      "b": "27/64",
+      "z": "51/448",
+      "orientation": "swapped",
+      "value": "12279/56"
+    },
+    {
+      "a": "31/64",
+      "b": "29/64",
+      "z": "0",
+      "orientation": "swapped",
+      "value": "1753/8"
+    }
+  ],
+  "author_status": "AUTHOR_PROVED / EXACT_PRIMARY_FINITE_EXHAUSTIVE / INDEPENDENT_PARTIAL / NOT_REVIEWED"
+}
