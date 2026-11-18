@@ -1,0 +1,106 @@
+# 固定零带下的短窗素数、缺失陪集与导子代价
+
+把外稿声称的全高度固定零带作为条件，可以求出每个或多数指定陪集在哪种宽度的区间内保证出现素数。商群有 $k$ 个元素时，固定模 $q$ 的粗充分二进区间尺度分别为 $(k\log(2q))^8$ 和 $(\sqrt{k}\log(2q))^8$。后者保证任意固定正比例的覆盖，常数随所需比例变化。对给定商群，可以再以实际导子和窗内被删素数替代显示模数。数域结论均保留所述前提。[任务书](https://github.com/awdawmip/enterprise-math/blob/e7b9fb5084f93a9b2dbc16225629b667fb7bf46c/research_tasks/RS-OAI7-003-E-20261007-6F2A81.md) · [冻结预印本定理及原量词](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex#L96-L120)
+
+## 域、角色与依赖
+
+记 $H_F(\theta)$ 为 $F=\mathbb Q(\sqrt{-3})$ 上每个本原有限阶 Hecke $L$ 函数在 $\Re s>\theta$ 无零。导子理想任意，虚部遍历实轴并含高度零。主角色在 $s=1$ 可有极点。取 $1/2\le\theta<1$，本任务指定 $\theta=7/8$。诱导角色仅多出有限 Euler 因子，其零点实部为零。$H_F(\theta)$ 蕴含全部 Dirichlet $L$ 函数的同一半平面结论 $H_{\mathbb Q}(\theta)$。
+
+对本原 Dirichlet 角色 $\chi$（导子 $f$），取 $\eta=\chi\circ N_{F/\mathbb Q}$，其本原导子整除 $f\mathcal O_F$。去掉整除 $3f$ 的素因子后，有 $L_F(s,\eta)=L(s,\chi)L(s,\chi\chi_{-3})$。分裂素数给相同线性因子的平方，惰性素数给 $1-\chi(p)^2p^{-2s}$ 的倒数。被删局部因子在 $\Re s>0$ 无零。$s=1$ 是可能发生极点抵消的唯一点；若某一本原化角色为主，则另一角色为 $\chi_{-3}$，且 $L(1,\chi_{-3})=\pi/(3\sqrt3)$。函数方程把非平凡零点限于闭带 $[1-\theta,\theta]$。当 $\theta=7/8$，区间 $1/2<\Re s\le7/8$ 仍开放，边界线上允许零点。经典无条件对数形无零区随导子、高度变窄，并须考虑可能的实例外零。[外稿逐因子转移](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex#L6702-L6778)
+
+对任意分圆域及其子域 $K/\mathbb Q$，其 Dedekind $\zeta_K$ 分解为本原 Dirichlet $L$ 函数，故确实得到同一条件零带。142 稿另外需要每个含 $\mu_{12}$ 的分圆域自身的**全部有限阶 Hecke 角色**有统一无零宽度。应用取 $K=\mathbb Q(\mu_{12r}),\,M=K(p^{1/r})$，还须控制 $\zeta_M$ 的非平凡 $M/K$ 角色因子。即使 $M/K$ 循环，$M/\mathbb Q$ 通常非阿贝尔。003 外稿主定理与 142 更宽域断言均未在此独立证明。[142 精确假设](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/10-analytic.tex#L5-L24) · [Kummer 扩域](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/10-analytic.tex#L96-L119)
+
+## 短窗的显式公式
+
+固定非负 $W\in C_c^\infty(0,1)$，$\mu=\int W>0$，$x\ge2,\ 1\le h\le x$，$D=x/h$。设 $G=(\mathbb Z/q)^\times/H$，其阶 $k$ 为子群指数。对 $\widehat G$ 中的 $\chi$，写 $\chi^*$ 为导子 $f_\chi\mid q$ 的本原化，$\delta_\chi$ 为主角色指示量。实际只需这些本原角色（包括 $\zeta$）的零带。定义
+
+$$
+ P_g=\sum_{\substack{x<p<x+h\\ p\nmid q,\ pH=g}}\log p\,W((p-x)/h),\quad
+ B=\|W\|_\infty\sum_{\substack{x<p<x+h\\p\mid q}}\log p,\quad
+ L_\chi=\log(2Df_\chi).
+$$
+
+对角色素数和 $S_\chi=\sum_g\chi(g)P_g$，有
+
+$$
+ |S_\chi-\delta_\chi \mu h|\ll_W x^\theta L_\chi+B. \tag{1}
+$$
+
+常数与 $f_\chi,q,x,h,\theta$ 无关。额外显示模数只通过角色本原导子和该窗内删掉的素数发生作用。
+
+令 $\Phi(s)=\int_0^\infty W((v-x)/h)v^{s-1}\,dv$。作 $v=x+ht$ 代换并对相位 $\log(1+t/D)$ 分部积分，由光滑紧支撑，对 $-1/4\le\sigma\le2$ 得
+
+$$
+ |\Phi(\sigma+i\gamma)|\ll_{A,W}h x^{\sigma-1}(1+|\gamma|/D)^{-A}. \tag{2}
+$$
+
+对 $-L'/L(s,\chi^*)$ 的 Mellin 积分移至 $-1/4$，在避开零的高度取极限。极点给 $\delta_\chi\mu h$，每个非平凡零点按重数给 $-\Phi(\rho)$。零点 $s=0$ 若存在只给 $O_W(h/x)$。新线上由函数方程、$\Re(1-s)=5/4$ 的绝对收敛及 Gamma 因子估计，积分为 $O_W(x^{-1/4}\log(2f_\chi D))$。标准单位高段 $j\le|\Im\rho|<j+1$ 的零点数为 $O(\log(f_\chi(2+j)))$，亦覆盖 $j=0$。故 (2) 的零点和至多 $O_W(hx^{\theta-1}D\log(2f_\chi D))$。经典 Chebyshev 界给 $\sum_{r\ge2,\,p^r\le2x}\log p\ll\sqrt x+x^{1/3}\log(2x)\ll\sqrt x$，故可删真素幂。本原和改用模 $q$ 的诱导角色时只须再付 $B$。此论证沿用经典平滑显式公式和零点计数。[Dirichlet 零点计数，Bennett 等](https://doi.org/10.1090/mcom/3599) · [外部来源中二进窗口的同类显式公式](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/10-analytic.tex#L24-L88)
+
+**只核到有限高度时。** 若只在 $|\Im\rho|\le T$ 排除了 $\Re\rho>\theta$，且 $T\ge D$，则 (1) 右侧需另加
+
+$$
+ O_{A,W}\big(x(1+T/D)^{1-A}\log(2f_\chi(T+2))\big),\qquad A>2 .
+$$
+
+对更高零点只取 $\Re\rho\le1$，将 (2) 按单位高段求和即得。若只知道高处无零，未覆盖的低零点须逐个保留。固定 $T$ 的核验对任意增长的 $x,D$ 并不给出 (1)。
+
+## 每类、缺失比例与一个实零的符号
+
+令 $L_1=k^{-1}\sum_\chi L_\chi$，$L_2=(k^{-1}\sum_\chi L_\chi^2)^{1/2}$。角色反演与 Parseval 分别给出
+
+$$
+ |P_g-\mu h/k|\ll_W x^\theta L_1+B,\qquad
+ \sum_g|P_g-\mu h/k|^2\ll_W (x^\theta L_2+B)^2. \tag{3}
+$$
+
+第二式由 $\sum_g|\cdot|^2=k^{-1}\sum_\chi|S_\chi-\delta_\chi\mu h|^2$ 得出。若有 $m$ 个未见素数的陪集，它们各贡献 $(\mu h/k)^2$，故
+
+$$
+ m/k\ll_W\min\!\left(1,\ k(x^\theta L_2+B)^2/h^2\right).
+$$
+
+每类有素数的充分条件为 $h>C_W k(x^\theta L_1+B)$；缺失比例至多 $\epsilon$ 的充分条件为 $h>C_W\sqrt{k/\epsilon}\,(x^\theta L_2+B)$。对 $K_H=\mathbb Q(\zeta_q)^H$，阿贝尔导子–判别式公式给 $k L_1=k\log(2D)+\log|\mathrm{Disc}(K_H)|$。全覆盖门槛可以使用真实域判别式；一个不落在窗内且不改变商的冗余素因子不会增加误差。[Washington，Introduction to Cyclotomic Fields](https://doi.org/10.1007/978-1-4612-1934-7)
+
+取 $h=x,\theta=7/8$，用 $B\le\|W\|_\infty\log q$、$L_2\le\log(2q)$ 得开头的两个尺度。若 $q=p$ 为奇素数、$H$ 为二次剩余，则 $k=2$，存在二次非剩余**素数** $\ell\ll(\log(2p))^8$，最小正非剩余也满足此界。经典 Ankeny 型方法在 GRH 下给平方对数；其他作者亦研究过商群与最小素数。这里八次相对于冻结稿采用 BIMS 给出的示例指数 32。该稿再用 Euler 判别与 Tonelli–Shanks 求平方根。此处不主张八次是文献首创。[Ankeny 1952](https://doi.org/10.2307/1969420) · [Lamzouri–Li–Soundararajan](https://arxiv.org/abs/1309.3595) · [BIMS 2017](https://doi.org/10.1145/3087604.3087620) · [冻结稿推论原文](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex#L320-L359)
+
+**允许一个例外实零。** 单独假设所用角色除一个非主实角色 $\xi$ 的一个简单实零 $\beta\in(\theta,1)$ 外满足条带。则 (3) 中各中心应换成
+
+$$
+ (\mu h-\xi(g)\Phi(\beta))/k,\qquad (x+h)^{\beta-1}\le\Phi(\beta)/(\mu h)\le x^{\beta-1}.
+$$
+
+因 $W\ge0$，对 $\xi(g)=-1$ 的半数陪集，原全类门槛仍保证各自出现素数。若应用于二次商，唯一非主角色为 Legendre 符号，因此一个这样的例外实零也不损害非剩余的八次上界。对 $\xi(g)=+1$ 的一半，保证性主项至少为 $\mu h(1-x^{\beta-1})/k$，统一沿用原门槛还缺该因子远离零的条件。普通经典无零区没有给出对其余所有零点所要求的固定带。
+
+固定 $F=\mathbb Q(\sqrt{-3})$ 的射类群商也可直接从 $H_F(\theta)$ 使用同一论证。改对素理想计数，角色参数改为 $\log(2D |D_F|N\mathfrak f_\chi)$，窗内删模素理想另计。单位高段零点数为 $O(\log(|D_F|N\mathfrak f_\chi)+2\log(2+j))$。素理想幂按有理素数上方至多两个素理想估计为 $O_W(\sqrt x)$。惰性素理想的范数为 $p^2$，若要求剩余次数一，再删此项也只付 $O_W(\sqrt x)$。这里的对象是指定射类的素理想。
+
+**多素数乘积覆盖。** 在二进窗归一化 $\nu(g)=P_g/\sum P_g$。当 $x^{1-\theta}>C_W\log(2q)$ 时，主角色给分母 $\gg_W x$，每个非平凡角色有 $|\widehat\nu(\chi)|\le \rho=C'_Wx^{\theta-1}\log(2q)$。有限商群中反演 $j$ 次卷积得
+
+$$
+ \nu^{*j}(g)\ge\frac{1-(k-1)\rho^j}{k}.
+$$
+
+所以 $\theta=7/8$ 时，只要 $x>C_W(k^{1/j}\log(2q))^8$，每个类都是 $j$ 个窗内素数之积，允许重复。特别地，在固定比例的单素覆盖尺度，两个素数的乘积已全覆盖。对任意真子群，只要 $\rho<1$，窗内素数像不可能全落在该子群，因为其消去子群中必有非平凡角色在全部支撑上恒为 1。故最小落在指定真子群以外的素数也为 $O_W((\log(2q))^8)$，常数独立于指数。模 17、开区间 $(27,54)$ 有七种素数像，49 个有序二素乘积覆盖全部 16 类。这是有限支撑恒等式的例子。
+
+## 一个可无条件试验的函数域
+
+固定有限域 $\mathbb F_Q$ 和非常数首一模 $R$，$d=\deg R$，令 $G'$ 为 $(\mathbb F_Q[T]/R)^\times$ 的阶 $k$ 商。记 $A_g(n)=n$ 乘以该陪集内次数恰为 $n\ge1$ 的首一不可约多项式数。Weil 的函数域 RH 给本原非主 Dirichlet $L$ 多项式的非平凡倒根模长 $\sqrt Q$。平凡倒根与诱导新增的 Euler 因子倒根模长为 1。非主 $L$ 多项式度数至多 $d-1$，因为次数至少 $d$ 的首一多项式等分剩余类。按其对数导数取系数，各倒根贡献其 $n$ 次幂的负值。主角色相应系数为 $Q^n-\sum_{P\mid R,\,\deg P\mid n}\deg P$，删项至多 $d$。删去真幂的总权至多 $\sum_{j\le n/2}Q^j\le2Q^{n/2}$。每个角色的素多项式偏差至多 $(d+2)Q^{n/2}$；反演和 Parseval 给
+
+$$
+ |A_g(n)-Q^n/k|\le(d+2)Q^{n/2},\qquad
+ \#\{g:A_g(n)=0\}/k\le k(d+2)^2Q^{-n}.
+$$
+
+当 $Q^{n/2}>k(d+2)$ 时每类在该次数有不可约多项式。另有容量下界，首一不可约至多 $Q^n/n$ 个，因此全覆盖必须 $Q^n\ge nk$。这条无条件函数域命题的平方根误差不能直接替入数域 (1)。以 $\mathbb F_2[T]$、$R=T^6+T+1$、全 63 类为例，次数 10、11、12 分别覆盖 55、62、63 类。程序列首一不可约并作多项式长除，核了三种不可约模、九个商及次数 1 至 13 的逐类和平方和界。[Rosen，Number Theory in Function Fields](https://doi.org/10.1007/978-1-4757-6046-0) · [有限复算](zero_strip_checked.json)
+
+## 可复算的具名观测与未决范围
+
+模 24 的整个单位群阶为 8 而群元素阶至多 2。程序穷尽其八个实角色，本原导子为 $1,3,4,8,8,12,24,24$。模 65 的平方类商阶 4，导子为 $1,5,13,65$。每个商在六组整数窗中枚举素数，以 $h^{10}(t(1-t))^5$、$t=(p-x)/h$ 作整数权，逐项验证有限 Fourier 反演与精确 Parseval。这组有限权只用于代数恒等式；解析命题使用上文的 $W$，并保留 $\log p$ 权。
+
+在冻结 BRC 运行时，程序对四个具名素数实际调用 brc_evaluate_division 保留商、余数与重构，调用 brc_evaluate_ln 核对千分尺度的上下界坍缩证明，分别登记每个来源的二次符号。模 5 的 $\{59,61\}$、$\{53,67\}$ 各有两个来源且符号和绝对值均为二；签名和为 $+2,-2$。这是绝对值观测丢失非剩余方向的反例。此处使用单位计数权。任意复角色的相位、复 Mellin 求积、全高度零点证书和一致误差控制仍缺类型化的原生接头。最小未决问题是为所用角色在未覆盖高度排除 $\theta<\Re\rho<1$ 的零点，或给出足够的带权尾界；更换边界为 $1/2$ 还要控制整个 $(1/2,\theta]$。[冻结 BRC 除法](https://github.com/awdawmip/enterprise-math/blob/d2984d1a0c5c8221ee103084dd3da68dd039dfaa/src/enterprise_math/exact_arithmetic.py) · [有限尺度自然对数](https://github.com/awdawmip/enterprise-math/blob/d2984d1a0c5c8221ee103084dd3da68dd039dfaa/src/enterprise_math/brc_logarithm.py)
+
+复算使用 Python 标准库及一份含以上运行时提交的公开 Git 仓库。在本目录运行以下命令即可逐字节核对。程序所检内容限于有限算术，并未验证数域的解析零带。[独立复算脚本](zero_strip_check.py) · [精确输出](zero_strip_checked.json)
+
+~~~sh
+python3 zero_strip_check.py --repo /path/to/enterprise-math > /tmp/zero_strip.json
+cmp /tmp/zero_strip.json zero_strip_checked.json
+~~~
