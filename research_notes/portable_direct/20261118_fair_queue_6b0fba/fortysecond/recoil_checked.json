@@ -1,0 +1,326 @@
+{
+  "example_P_E_ordered_fix_all_unordered_third_impulses": {
+    "0,-1": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "0,0": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "0,2": [
+      6,
+      0,
+      0,
+      1,
+      3,
+      4
+    ],
+    "0,4": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "0,42": [
+      12,
+      0,
+      0,
+      2,
+      6,
+      6
+    ],
+    "0,6": [
+      6,
+      2,
+      0,
+      2,
+      4,
+      3
+    ],
+    "1,1": [
+      3,
+      1,
+      0,
+      1,
+      2,
+      3
+    ],
+    "3,3": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "3,5": [
+      6,
+      0,
+      0,
+      1,
+      3,
+      4
+    ]
+  },
+  "finite_checks": {
+    "PE_tests_including_outside_and_negative": 13240,
+    "all_integer_triples_in_ball": 21879,
+    "distinct_impulse_fibers_tested": 18422,
+    "least_E_for_ambiguous_signed_A": 2,
+    "least_E_for_disconnected_shell": {
+      "E": 6,
+      "P": 0,
+      "unordered": [
+        [
+          -2,
+          1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          2
+        ]
+      ]
+    },
+    "max_square_budget": 300,
+    "maximum_labeled_size_observed": 24,
+    "nonempty_shells": 3032,
+    "two_contact_readout_tests": 21879
+  },
+  "mean_over_occupied_shells": [
+    {
+      "P": 0,
+      "cutoff_n_or_M": 100,
+      "occupied_shells": 36,
+      "sum_of_components": 66
+    },
+    {
+      "P": 0,
+      "cutoff_n_or_M": 1000,
+      "occupied_shells": 277,
+      "sum_of_components": 625
+    },
+    {
+      "P": 0,
+      "cutoff_n_or_M": 10000,
+      "occupied_shells": 2299,
+      "sum_of_components": 6106
+    },
+    {
+      "P": 0,
+      "cutoff_n_or_M": 100000,
+      "occupied_shells": 20091,
+      "sum_of_components": 60648
+    },
+    {
+      "P": 1,
+      "cutoff_n_or_M": 100,
+      "occupied_shells": 22,
+      "sum_of_components": 24
+    },
+    {
+      "P": 1,
+      "cutoff_n_or_M": 1000,
+      "occupied_shells": 173,
+      "sum_of_components": 213
+    },
+    {
+      "P": 1,
+      "cutoff_n_or_M": 10000,
+      "occupied_shells": 1469,
+      "sum_of_components": 2049
+    },
+    {
+      "P": 1,
+      "cutoff_n_or_M": 100000,
+      "occupied_shells": 12985,
+      "sum_of_components": 20263
+    }
+  ],
+  "native_BRC_events": 0,
+  "physical_measurements": 0,
+  "protocol": "three_named_equal_masses_integer_exchange_v1",
+  "shortest_release_witness": [
+    [
+      {
+        "changes_in_squared_budget": [
+          -1,
+          1,
+          0
+        ],
+        "environment_impulse": 0,
+        "input": [
+          1,
+          0,
+          -1
+        ],
+        "output": [
+          0,
+          1,
+          -1
+        ],
+        "setting": "A",
+        "total_P_E": [
+          0,
+          2
+        ],
+        "visible_impulses": [
+          -1,
+          1
+        ]
+      },
+      {
+        "changes_in_squared_budget": [
+          0,
+          0,
+          0
+        ],
+        "environment_impulse": 2,
+        "input": [
+          0,
+          1,
+          -1
+        ],
+        "output": [
+          0,
+          -1,
+          1
+        ],
+        "setting": "B",
+        "total_P_E": [
+          0,
+          2
+        ],
+        "visible_impulses": [
+          0,
+          -2
+        ]
+      }
+    ],
+    [
+      {
+        "changes_in_squared_budget": [
+          1,
+          -1,
+          0
+        ],
+        "environment_impulse": 0,
+        "input": [
+          0,
+          -1,
+          1
+        ],
+        "output": [
+          -1,
+          0,
+          1
+        ],
+        "setting": "A",
+        "total_P_E": [
+          0,
+          2
+        ],
+        "visible_impulses": [
+          -1,
+          1
+        ]
+      },
+      {
+        "changes_in_squared_budget": [
+          0,
+          1,
+          -1
+        ],
+        "environment_impulse": -1,
+        "input": [
+          -1,
+          0,
+          1
+        ],
+        "output": [
+          -1,
+          1,
+          0
+        ],
+        "setting": "B",
+        "total_P_E": [
+          0,
+          2
+        ],
+        "visible_impulses": [
+          0,
+          1
+        ]
+      }
+    ]
+  ],
+  "signed_coordinates": "external calibrated momentum units",
+  "unbounded_family_k_E_ordered_components": [
+    [
+      0,
+      2,
+      6,
+      1
+    ],
+    [
+      1,
+      14,
+      12,
+      2
+    ],
+    [
+      2,
+      98,
+      18,
+      3
+    ],
+    [
+      3,
+      686,
+      24,
+      4
+    ],
+    [
+      4,
+      4802,
+      30,
+      5
+    ],
+    [
+      5,
+      33614,
+      36,
+      6
+    ],
+    [
+      6,
+      235298,
+      42,
+      7
+    ],
+    [
+      7,
+      1647086,
+      48,
+      8
+    ],
+    [
+      8,
+      11529602,
+      54,
+      9
+    ]
+  ]
+}
