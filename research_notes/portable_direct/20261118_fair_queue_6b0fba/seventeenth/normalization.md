@@ -1,0 +1,64 @@
+# W59A 等单位三端口散射的边界方块与绝对尺度
+
+**在已给出完整 Cell 与 Port 规则的等单位原子散射子系统上，关系次序、每拍参加的三个力令牌、同一 Cell 闭合、边界到达拍数和 C12 相位，都不能固定 W59A 的尺度 $c$。** 从实际规则可以推出一个有限 Dirichlet 二次型：对具名端口历程作差、施加零边界，再读取三个同步令牌共同的测试值。它是事件历史的边界观察。原生一步后继是单值的；把该二次型再解释为双向空间跳跃生成器，需要另一条动力学输入。
+
+11 月 17 日交接已有结论是：在预先给定的连续时间带标记跳链上，$Q\mapsto cQ$ 保持跳转次序。其作者明确没有给那个跳链三力准入。本轮使用仓库另有来源的原子散射，推导可做和不可做的两种桥接。P000 固定六轴原生 Cell，时间另行定型；以下检验限于该冻结子系统、指定边界和观察。[P000](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/p000_reality_foundation.json) · [冻结任务](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/research_tasks/W59A-NATIVE-NORMALIZATION-CLOSURE-20260909.md) · [11 月 17 日交接](https://github.com/awdawmip/enterprise-math/blob/6480d36199c2b153e8c817ffdf28c935da66a6c4/research_artifacts/mcp/W59A-NATIVE-NORMALIZATION-CLOSURE-20260909/MCP-456b8f22a648400585024ffbcc1c2c94/f1e97490f913189dcdab/W59A_RATE_GAUGE_SOURCE_MARKED_20261117.md)
+
+## 一、实际的事件及可停止边界
+
+选一个 X6 原生 Cell 作局部枢轴 $o$，在其六条原生轴中选三个不同的轴，保留令牌 $t=0,1,2$、有序轴 $i_t$、自身的符号 $s_t$ 以及源、目标径向 Port。壳层令牌在 $o+d_t$，$d_t=s_te_{i_t}$。源内定义的有向宏后继把它送向 $o+d'_t$，其中 $d'_t=-s_te_{i_{t+1}}$（令牌下标循环）。每个令牌的两条最短两步路径中间 Cell 为 $o$ 或 $o+d_t+d'_t$。冻结的等单位原子事件要求三令牌同时到达同一个作用 Cell。三个外侧候选各有不同的双轴支撑，所以八个联合候选中恰有 $\mathrm{III}$ 合法。它依次作三条同步入射 $o+d_t\to o$ 和三条同步出射 $o\to o+d'_t$，保留令牌匹配；这是来源文献对 $\mathrm{TRIADIC\_CLOSURE\_E}$ 给出的受限实现。[原子事件规则](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/research_notes/X6_TRIADIC_ATOMIC_SCATTER_AND_BRC_CORRELATION_V1_20260906.md) · [有序 Port 更新的符号勘正](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/research_notes/X6_SIGNED_INTERNAL_Q_GAUGE_CORRECTION_V5_20260906.md)
+
+记 $R$ 为这项有序变换，$F(\mathrm{shell},h)=(\mathrm{closure},h)$，$F(\mathrm{closure},h)=(\mathrm{shell},Rh)$。全体 960 个有序有符号标架给 1,920 个带模态状态，分为 160 条长 12 的轨道。每圈 12 个关系层、36 个原始令牌发生。一圈中六个闭合层的空间位置都是 $o$，入出匹配能区分它们。以真实层计数 $r$ 记录串接历史，从指定壳态开始，在第 $M$ 层停止。对 $M=12$ 可以只钉住起始标架的首次回返；$M>12$ 时须保留圈数或事件序号，使开头与后来的访问可区分。这里用的是**事件历史的边界**；真实路径在 X6 的共同作用枢轴保持为 $o$，没有由此造出一条长 $M$ 的空间轴走廊。[C12 关系时钟](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/research_notes/X6_TRIADIC_INNER_C12_RELATION_CLOCK_V2_20260906.md) · [事件、路径来源与观察类型](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/research_notes/X6_UPPER_TYPED_EVENT_INTEGRATION_V1_20260906.md)
+
+## 二、带来源的转移方块
+
+在层 $r$ 上保留三个令牌截面点 $(r,t,\mathrm{Cell},\mathrm{Port})$；在闭合状态的 Port 字段保留入出配对。对第 $r$ 层的每个令牌实际发生建立一条有向关联边，记录源、目标、方向和入/出角色。令 $B$ 是这台有标号事件装置的边差算子，$D$ 是沿记录层的前向差 $Df(r)=f(r+1)-f(r)$。$P_V$ 把层测试函数复制给该层三个带来源截面点，$P_E$ 把层差值复制给该层三个发生。对所有 $f(0)=f(M)=0$，有逐发生相等的方块
+$$
+                B P_V f=P_E D f.                                      \tag{1}
+$$
+证明只用原始的每条定向边从 $r$ 层第 $t$ 个令牌进入 $r+1$ 层的同一令牌。原 Port 字典和三个发生全部可以继续查询。对非同步的令牌测试或指定来源查询要使用原装置。
+
+对于声明的非负发生权 $w_{r,t}$，从方块读取二次型，有
+$$
+ P_V^* B^*\operatorname{diag}(w) B P_V
+   =D^*\operatorname{diag}(A_r)D,qquad A_r=\sum_{t=0}^2w_{r,t}.       \tag{2}
+$$
+$*$ 指有限发生求和配对下的转置。符号来自有向差的两个端点，三个同步端口的质量仍逐源正加。令 $L_M$ 作用在 $1,\ldots,M-1$，主对角为 2，副对角为 $-1$。逐个关系层取单位权得到 $L_M$；三个令牌的**每次发生**各取单位权则得到 $3L_M$。两种计数均有直接的原始凭证。一般 $M\ge3$ 时，(2) 等于 $cL_M$ 当且仅当每层总权 $A_r=c$：由全部副对角先读出内部边权，再由首末对角读出两条边界权。$M=2$ 的单一对角读数仅规定 $A_0+A_1=2c$。
+
+(1) 也给动力学解释的界限。作用在带完整来源单点上的实际后继 $F$ 只有一个目标。对任何逐状态的确定性空间观察，此单点置于更新之后仍只给一个观察值。$M\ge4$ 的双向线性跳链在至少一处内点有两个不同的邻居目标，各正速率 $c$。因此在逐来源、逐步相容的意义下，该跳链不能由这条 $F$ 直接投影得到。在 (2) 里，$B^*$ 从现成关联记录对两个端点求和，没有另准入一条逆时事件。
+
+## 三、入射、出射两种层权的精确缩并
+
+从壳开始，在第 $2n$ 层壳处钉住第二个零边界，取 $n\ge2$。设每次入射总权为 $a>0$，每次出射总权为 $b>0$；这是便于检验的角色恒定观察，可单独赋权。壳测试值为 $x_j$，$x_0=x_n=0$，中间闭合层值为 $y_j$，$0\le j<n$。由 (2) 直接得到
+$$
+ E(x,y)=\sum_{j=0}^{n-1}\big[a(y_j-x_j)^2+b(x_{j+1}-y_j)^2\big].
+$$
+令 $s=a+b$。逐个消去 $y_j$，给出
+$$
+ y_j^*=\frac{a x_j+b x_{j+1}}s,\qquad
+ \min_y E=\gamma\, x^*L_nx,\qquad \gamma=\frac{ab}{a+b}.                \tag{3}
+$$
+所以**即使壳层完整的静态 Dirichlet 矩阵已知，入出层也未必等权**。固定 $\gamma$ 的整条可行曲线都能实现：以 $\theta=a/s\in(0,1)$ 表示，$a=\gamma/(1-\theta)$、$b=\gamma/\theta$。在一个相邻壳值已知且不同的测试上读中间值即可唯一确定 $\theta$，例如取局部 $(x_j,x_{j+1})=(1,0)$ 时直接读出 $y_j^*=\theta$。
+
+这种自由在未消元的有限谱中也能量化。设 $K$ 为 (2) 在这 $2n-1$ 个内部位置上的矩阵，则
+$$
+ \det(K-\lambda I)=(s-\lambda)(ab)^{n-1}
+    \det\!\left(L_n-\frac{\lambda(2s-\lambda)}{ab}I\right).           \tag{4}
+$$
+按闭合层和内部壳层分块，两个对角块分别为 $sI_n$、$sI_{n-1}$，联接块 $-C$ 满足 $C^*C=(a^2+b^2)I+ab\,\mathrm{Adj}_{n-1}$。消去闭合块即得 (4)，多项式恒等式包含 $\lambda=s$。$L_n$ 的各根皆在 $(0,4)$，可直接用路径差二次型及交错符号对称性得出。因此每个壳根 $u$ 对应一对分居 $s$ 两侧的根，满足 $\lambda(2s-\lambda)=abu$；$s$ 自身是唯一中位根。结合 $\gamma$ 和 $s$ 即可恢复无序对 $\{a,b\}$，若要辨别入、出次序仍需要定向来源。
+
+例如取 $(a,b)=(4,4)$ 和 $(3,6)$。二者都给 $\gamma=2$。把每层“单位响应除以历时”明确选为观察，取 $\tau_{\rm in}=1/a,\ \tau_{\rm out}=1/b$，宏步总历时也同为 $1/2$。中间定向插值分别为 $1/2,1/3$，完整矩阵的中位根分别为 8、9。在一条已准入的混合符号初态 $(+1,-2,+3)$ 上，两套标定有完全一样的 12 层顺序、36 个发生、所有原始令牌匹配和首次回返。履历里若另读入/出层的外部历时，两套自然分开。
+
+## 四、时间能选择什么尺度
+
+原时间规则先给事件依赖和关系次序。它允许在给定上下文中额外校准正历时 $\tau(e)$，串联相加、已认证独立的并联层取最大值。三个同步令牌组成一个关系层；冻结结果单列 $\tau_{\rm in},\tau_{\rm out}$，未给其外部刻度。[时间与临界路径的校准假设](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/research_notes/X6_NATIVE_TIME_DURATION_CRITICAL_PATH_V3_20260906.md) · [心跳世界时间契约](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.md)
+
+对任意整体重标定 $h>0$，给每个发生保留原令牌、Cell、Port、来源和时序号，另把所有标定时间戳 $T_r$ 送到 $hT_r$。一条层更新先把 $T_r$ 送到 $T_r+\tau_r$，随后缩放；逆顺序给 $hT_r+h\tau_r$，完全相同。串联、同步和已认证并联的最大值均与该方块交换。故在只读原始事件顺序的观察中，准许的**整体正标度群**为 $\mathbb Q_{>0}$（有理校准），在允许实值历时的模型中为 $\mathbb R_{>0}$。这是固定原事件记录的校准族之间的作用。已经用外部单位测定的非零历时会随重标定而改变。
+
+若以单位关系响应除以历时读率，$a,b,\gamma$ 均变为原来的 $1/h$ 倍。仅知十二拍一圈或三个令牌同拍，不选出 $h$。若只有**关系计数**的零边界观察，计量约定已经给出 $L_M$；若取三令牌发生计数，给出 $3L_M$；若取校准速率，则全部尺度 $c>0$ 可在该族内实现。三个观察的区别可由完整来源核对。对上述静态壳率，额外实测一个有单位的宏步历时，再规定一次单位响应的定义，可确定 $\gamma$；若还要复原两种有向层率，须另辨其有向比例，如 (3) 的一个中间值。
+
+对**确已指定**的 $cL_M$ 观察，W59A 各有限本征值乘 $c$，原正完成根乘 $\sqrt c$，这里不重算其精度证书。本轮完成了实际三元规则至事件历史 Dirichlet 观察的桥及其尺度分类。要将同一个矩阵提升为六轴空间切片的原生双向传递，还缺一条带合法空间边界、两个实际空间后继和带单位响应的来源规则。由这一受限事件源不能推出整个 P000 所有可能物理转移都有相同自由度。[W59A 原完成证书](https://github.com/awdawmip/enterprise-math/blob/5c78f2b1eaf71f4bc362d5dce0b375942bf8286d/research_notes/WALLIS_SINE_POSTERIOR_CERTIFICATES_20260909.md)
+
+## 复算
+
+运行 `python normalization_check.py --repo /path/to/enterprise-math`。程序先核对冻结源码 SHA-256，再调用实际 signed-X6 路径核的 `shortest_event_count`、`shortest_path_multiplicity` 和校正代码的 `R,F`。独立枚举具名中点得到 960 个标架、7,680 个联合候选、960 个合法宏散射。固定初态的一个 C12 周期有 36 个具名发生。随后逐令牌检查两端口记录在公共截面上拼合，核验 48 个零边界基测试的方块，以正权 BRC 分别累计有向关联的正负贡献，核对 36 组 Gram 矩阵。另由非零置换的有符号展开与独立的小阶三项递推核查 (4) 的 442 个整数特化，包含中位根。计算未输入经典角度、圆周常数或物理时长。[signed-X6 BRC](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py) · [校正标架内核](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/experiments/x6_cell_internal_state_v1_20260906/check_triadic_port_frame.py) · [正权 BRC](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/src/enterprise_math/brc_weighted.py)

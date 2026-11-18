@@ -1,0 +1,82 @@
+# 辅助素数的 Jacobi 和生成元与三次分裂的精确失败率
+
+任务 `RS-OAI7-142-A-20261007-6F2A81`。给定可核验的辅助素数，圆分代数的 Frobenius 本征向量可以显式消去。本节还计算以导数值的三主部区分三个根时，究竟有多少多项式留待其他方法处理。两处分别在模 $\ell$ 和模 $p$ 的乘法特征上使用经典 Jacobi 和。研究对象为普通有限域上的稠密多项式。[A 任务书](https://github.com/awdawmip/enterprise-math/blob/e7b9fb5084f93a9b2dbc16225629b667fb7bf46c/research_tasks/RS-OAI7-142-A-20261007-6F2A81.md) · [冻结稿 §1](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/01-table.tex#L97)
+
+## 给定辅助素数，在 $K$ 内直接计算满主部生成元
+
+**命题 1。** 设 $p>n\ge q$，$p,q$ 为素数。验证 $\ell$ 为素数、$\ell\notin\{2,3,p,q\}$、$\ell\equiv1\pmod{12q}$，且 $b=p^{(\ell-1)/q}\not\equiv1\pmod\ell$。设 $\zeta$ 为一个 $q$ 次本原单位根，$K=\mathbb F_p(\zeta)$，$d=\operatorname{ord}_q(p)$，$Q=p^d$，$s=v_q(Q-1)$。$q=2$ 时取 $\zeta=-1$。给 $a\in\mathbb F_\ell^*$ 定义 $i(a)\in\mathbb Z/q$ 为满足 $a^{(\ell-1)/q}=b^{i(a)}$ 的唯一指数，令 $\chi(a)=\zeta^{-i(a)d^{-1}}$，其中逆元取模 $q$。各乘法特征在零点均赋值 $0$。定义 $J(\alpha,\beta)=\sum_{x\in\mathbb F_\ell}\alpha(x)\beta(1-x)$，则
+
+$$
+ c=\chi(-1)\ell\prod_{j=1}^{q-2}J(\chi^j,\chi)\in K^*,\qquad
+ c^{(Q-1)/q}=\zeta,\qquad
+ \omega=c^{(Q-1)/q^s},\qquad \operatorname{ord}(\omega)=q^s .
+$$
+
+特别地，$q=2$ 的乘积为空，$\ell\equiv1\bmod4$ 给出 $c=\ell\bmod p$。直接模幂即可返回 $\omega_2$。这也可从二次互反律与输入的非剩余条件推出。
+
+**推导。** 在 $\overline K$ 中任选一个 $\ell$ 次本原单位根 $\xi$，写 $g(\alpha)=\sum_x\alpha(x)\xi^x$。若 $\alpha\beta$ 非平凡，把双重和按 $x+y=z$ 分组，$z=0$ 项消失，得到 $g(\alpha)g(\beta)=J(\alpha,\beta)g(\alpha\beta)$。对非平凡 $\chi$，在 $g(\chi)g(\chi^{-1})$ 中令 $x=ty$ 并先求 $y\ne0$ 的和，$t=-1$ 项给 $(\ell-1)\chi(-1)$，其余合计 $\chi(-1)$。因此 $g(\chi)g(\chi^{-1})=\chi(-1)\ell\ne0$。迭代得到 $g(\chi)^q=c$。由于 $i(p)=1$、$d\mid(q-1)$，有 $\chi(p^d)=\zeta^{-1}$，变量替换即给 $g(\chi)^Q=\zeta g(\chi)$。这推出全部等式，包括 $\omega^{q^{s-1}}=\zeta$。这些有限和恒等式在特征 $p\ne\ell$ 下直接成立。经典出处给出复系数形式及同一换元法。[Conrad, *Gauss and Jacobi sums on finite fields and Z/mZ*, §2](https://kconrad.math.uconn.edu/blurbs/gradnumthy/Gauss-Jacobi-sums.pdf)
+
+**输入与代价。** 奇 $q$ 用冻结稿的低次数递归分解 $\Phi_q$，取一个不可约因子获得 $K,\zeta$。随后枚举 $1,b,\dots,b^{q-1}$ 并按整数代表排序查表，花 $O(\ell\log\ell)$ 个模 $\ell$ 乘法和 $O(\ell\log q+q\log q)$ 次查表比较即可得到全部 $i(a)$。预存 $q$ 个 $\zeta$ 的幂后，所有 Jacobi 和共用 $O(q\ell)$ 次 $K$ 加法，另有 $O(q+\log Q)$ 次 $K$ 乘法及模 $q$ 的下标运算。一次求和只需一个累加器，存储包括 $O(\ell)$ 个模 $q$ 标签和 $O(q)$ 个域元素。定理中的 $\xi$ 仅用于推导。生成器省掉冻结 §1 中构造 $R_\ell=\mathbb F_p[T]/\Phi_\ell$ 的不变代数、张量积和求本征线三步，保留其对下游的「阶恰为 $q^s$」契约；给出的生成元可以与冻结稿选取的不同。各估计仍依赖 $\ell$ 的数值，$q$ 进赋值用反复除 $q$ 算出，辅助素数检验可试除到 $\sqrt\ell$。[冻结稿 §1 的递归接口](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/01-table.tex#L179)
+
+## 用结式预判导数能否给出实际因子
+
+**命题 2。** 设 $F$ 在 $\mathbb F_p$ 上首一、无重且完全分裂，次数 $N\ge2$，$\gcd(F,G)=1$。给定素数 $q\mid p-1$ 及满 $q$ 主部生成元 $\omega\in\mathbb F_p$，写 $p-1=q^s t$，$q\nmid t$，$h=\min(s,v_q(N))$，$R=\operatorname{Res}(F,G)$。若
+
+$$R^{(p-1)/q^h}\ne1,$$
+
+则在环 $\mathbb F_p[X]/F$ 中对 $z=G^t$ 逐位判等，至多 $sq$ 个多项式 gcd 就得到真因子。取 $G=F'$ 时，$R=(-1)^{N(N-1)/2}\operatorname{disc}(F)$ 可由系数计算。若所有根 $x$ 上的 $G(x)^t$ 均等于 $v$，则 $R^t=v^N$；$q^s$ 阶循环群的 $N$ 次幂在升至 $q^{s-h}$ 次方时等于 $1$，与前提相冲突。若已知各对数低 $k-1$ 位共同为 $e$，在第 $k$ 位对 $a=0,\ldots,q-1$ 计算
+$$\gcd\bigl(F,\ z^{q^{s-k}}-\omega^{(e+a q^{k-1})q^{s-k}}\bigr).$$
+遇到真因子即可返回；若某项为 $F$ 则更新公共低位。全部 $s$ 位通过正好等价于 $z$ 在所有根上常值。$h=0$ 时结式检验无强制作用。已有的逐位群对数是这里的原语，结式只用来保证某一位必分裂。[冻结稿 §2](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/02-finite-fields.tex#L66)
+
+给定任意 $R\in\mathbb F_p^*$，若结式检验没有触发，$R^t$ 在该主部内有 $N$ 次根。选 $y\in\mathbb F_p^*$ 使 $y^t$ 为此根，则 $D=R/y^N$ 满足 $D^t=1$。在根上指定一次 $yD$、其余均为 $y$，再作插值，即有同一结式且主部常值的 $G$。因此单靠 $R$ 对任意 $G$ 的强制判据已尽；$G=F'$ 的几何约束可以给出更精确的结论。
+
+## 三次多项式的必要充分条件与失败数
+
+**命题 3。** 取 $q=3$、$p\equiv1\pmod3$，$m=3^{v_3(p-1)}$，$t=(p-1)/m$，$H=\{a\in\mathbb F_p^*:a^t=1\}$。对三根相异的 $F$，任选顺序将根仿射变换成 $0,1,u$。以 $G=F'$、$\omega$ 与命题 2 的逐位 gcd 处理该多项式。所有位都无法区分根，当且仅当 $u\in H$ 且 $1-u\in H$。
+
+证明时，仿射变换给三个导数值同乘一个非零常数。归一化后的三个值依次为 $u,1-u,-u(1-u)$。$t$ 为偶数，其 $t$ 次方为 $A,B,AB$，三者全等正好是 $A=B=1$。这同时说明最终条件与根的排序无关。若 $p\equiv2\bmod3$，基域乘法群没有非平凡三主部，此导数测试在基域中无法进行区分。
+
+令 $C=|H\cap(1-H)|$。失败的首一全裂无重三次式恰有 $p(p-1)C/6$ 个，在所有 $\binom p3$ 个中占 $C/(p-2)$。事实上任选有序首两根，有 $p(p-1)$ 种选法，每个允许的 $u$ 唯一补出末根，每个三次式有六个排序。取 $\mathbb F_p^*$ 上阶为 $m$ 的**复值**特征 $\eta$，包括平凡特征在内均延拓为在零点取零。特征正交性给出准确的整数和与误差界
+
+$$
+m^2 C=\sum_{0\le i,j<m}J_p(\eta^i,\eta^j),\qquad
+|m^2 C-(p+1-3m)|\le(m-1)(m-2)\sqrt p .
+$$
+
+平凡对贡献 $p-2$，恰一项平凡的 $2(m-1)$ 对各贡献 $-1$。两项非平凡但积平凡的 $m-1$ 对各贡献 $-\eta^i(-1)=-1$。剩余 $(m-1)(m-2)$ 项各有绝对值 $\sqrt p$，由非平凡 Gauss 和的模为 $\sqrt p$ 和前述乘积公式得出。[Conrad，同文 §2 的 Theorems 2.2、2.4、2.6](https://kconrad.math.uconn.edu/blurbs/gradnumthy/Gauss-Jacobi-sums.pdf)
+
+因此在 $v_3(p-1)=1$ 的素数上，失败比例为 $1/9+O(p^{-1/2})$。每个满足该条件且 $p>16$ 的素数都有失败例，因为 $9C\ge p-8-2\sqrt p>0$。例如 $p=31$ 时，$u=2$ 对应的导数值 $2,-1,2$ 的十次幂全为 $1$。所以这种便宜的奇次分裂可以处理正比例输入，同时确实有无限多的特征需要其他方法（例如模 $9$ 余 $4$ 的素数，由算术级数素数定理）。$v_3(p-1)$ 随 $p$ 增长时保留带 $m$ 的误差界。
+
+| $p$ | 全部三次式 | 结式保证分裂 | 逐位实际分裂 | 全部位失败 | 第一位相同、较高位分裂 |
+|---:|---:|---:|---:|---:|---:|
+| 7 | 35 | 21 | 35 | 0 | 0 |
+| 13 | 286 | 234 | 286 | 0 | 0 |
+| 19 | 969 | 513 | 969 | 0 | 114 |
+| 31 | 4495 | 2790 | 4030 | 465 | 0 |
+
+$p=7$、根为 $0,1,3$ 时，$R=6$ 为立方，导数主部仍取 $2,4,1$，gcd 给 $X-3$。$p=19$、根为 $0,1,8$ 时，$\omega=4$、$s=2$，三值的六次方均为 $1$，二次方为 $7,11,1$；第二位才给 $X-8$。这些小特征示例用作代数诊断。冻结驱动在这些 $p$ 会走小特征分支。
+
+## 三次定向预解式覆盖全部例外
+
+**命题 4。** 设 $p>3$，$F$ 是 $\mathbb F_p$ 上首一全裂无重三次式，根和为 $S$，取 $\Delta^2=\operatorname{disc}F$。由 $\omega_2$ 可确定性求此平方根，例如使用 Tonelli–Shanks 的满二主部生成元版本。令 $K=\mathbb F_p(\zeta)$、$|K|=Q$，$\zeta$ 的阶为 $3$，$Q-1=3^s t$ 且 $3\nmid t$，由命题 1 供给 $K^*$ 满三主部生成元 $\omega$。在 $A=K[X]/F$ 中计算
+
+$$T_\pm=\frac12\left(3X-S\ \pm\ (\zeta-\zeta^2)\frac{\Delta}{F'(X)}\right).$$
+
+取第一个在 $A$ 中非零的 $T_\pm$ 记为 $T$，令 $Z=T^t$。则 $Z^3$ 是可直接从系数读出的 $K^*$ 标量，属于 $\langle\omega^3\rangle$。用标量逐位对数求 $0\le e<3^{s-1}$ 满足 $(\omega^3)^e=Z^3$（$s=1$ 则 $e=0$）。对每个 $j=0,1,2$，
+
+$$\gcd\left(F,Z-\omega^{e+j3^{s-1}}\right)$$
+
+都是基域中的首一次因子，且三者互异。取得一个真因子只需对上述三个值任选一个做一次提取 gcd；求 $1/F'$ 可用扩展欧几里得法，或在商环用 $(F')^{Q-2}$。标量对数至多逐位作 $3(s-1)$ 次等式测试。所需扩域次数为 $1$ 或 $2$。
+
+**推导。** 给三个根取循环次序 $(x,y,z)$ 使 $\Delta=(x-y)(x-z)(y-z)$。在 $x$ 点有 $\Delta/F'(x)=y-z$，在另外两点同理循环。因 $1+\zeta+\zeta^2=0$，$T_+(x)=x+\zeta y+\zeta^2 z=L$，另外两值为 $\zeta^2L,\zeta L$。交换符号就是反向定向，所得三值也同属一轨道。若两个方向同时为零，两个等式相减给 $(\zeta-\zeta^2)(y-z)=0$，与根相异矛盾。所选方向的三个值遂全非零。升 $t$ 次幂保持三值间的三阶比值，并使每个值落在 $\langle\omega\rangle$；因而 $Z^3$ 常值，提取 gcd 所用三个标量恰为它的三个三次根。每项 gcd 都只选中一个 $\mathbb F_p$ 根。即便 $\zeta\notin\mathbb F_p$，这些因子的系数仍在基域。若直接逐位扫描 $Z$，三值在低 $s-1$ 位完全相同，直至第 $s$ 位才分开。这里将经典 Lagrange 三次预解式写为商环内的显式元素，并把找因子的判等归约为标量对数与一次提取 gcd。
+
+## 整体依赖与复算范围
+
+- 输入为素数 $p$ 和非零稠密 $f\in\mathbb F_p[X]$。输出首项系数和所有首一不可约因子的重数。常数返回空因子表。对首一化的 $f$，$f'=0$ 时取 $p$ 次根并将递归重数乘 $p$；$1\ne g=\gcd(f,f')$ 且 $f'\ne0$ 时分解 $g,f/g$，按因子相加重数。
+- 对无重层，Berlekamp 不动代数的维数 $r$ 为不可约因子数。$r=1$ 即停止。按 $B=20+(n+1)(\lceil\log_2p\rceil+1)$，$p\le B^{200000}$ 时以非标量不动元扫描 $a\in\mathbb F_p$ 求 gcd。其余时取分离元，得到次数 $r$ 的全裂无重多项式，将其真因子通过代入与 gcd 拉回原输入。[冻结稿 §8](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/08-driver.tex#L83)
+- 在大特征分支，已验 $\ell_q$ 加上严格更低次数的 $\Phi_q$ 分解给出 $K_q,\zeta_q$，命题 1 给出满主部生成元。命题 2 命中的全裂输入与命题 4 所有三次全裂输入已经给出真因子。对其余全裂输入，完整算法仍调用冻结 §2 偶次定向分裂及 §3–7 的范数、除子运算和奇次分裂定理。因此完整正确性以这些外稿引理为条件；本文独立推导的范围是生成器、结式判据、三次失败分布与三次预解式的 gcd 接口。命题 4 另覆盖全部三次输入。尚待研究的是，能否在五次全裂输入上同样从系数构造定向评价量，控制所需扩域和 gcd 数量。[冻结稿 §7](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/07-odd-split.tex#L119)
+- 本文把 $\ell_q$ 作为算法输入，保持对 $E=\max(2,\max\ell_q)$ 数值的依赖。逐输入有效的小素数界及其 Hecke 假设由 B 线处理，整个驱动的位成本属 C 线。[142-B 前作](https://github.com/awdawmip/enterprise-math/blob/d0cc0c3c119d1afe7eb3dce00bdb023f19553e69/research_notes/portable_direct/20261118_fair_queue_6b0fba/fifth/hecke.md) · [142-C 任务书](https://github.com/awdawmip/enterprise-math/blob/e7b9fb5084f93a9b2dbc16225629b667fb7bf46c/research_tasks/RS-OAI7-142-C-20261007-6F2A81.md) · [冻结稿 §9](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/09-complexity.tex)
+
+用 `python3 splitting_check.py` 重建同目录 JSON。八组有效 $(p,q,\ell)$ 覆盖 $q=2,3,5,7$、$d=1,2$，脚本以长度 $\ell$ 的独立循环卷积重算 $g(\chi)^q\bmod\Phi_\ell$ 和 Frobenius 方向。例如 $(19,3,37)$ 有 $\zeta=7,J=17,c=2,\omega=4$，而 $(5,3,37)$ 在 $v^2=2$ 的二次扩域有 $\zeta=2+2v,c=4+3v$。小样例通过有界扫描选择 $\zeta$；一般性的算法使用已说明的低次数递归。对表中四个域，脚本逐多项式执行 gcd，以根列独立核对分类。对 $p\le2000$、$p\equiv1\bmod3$ 的全部 148 个素数，再逐一枚举归一化 $u$，核验必要充分条件及整数平方化的误差界。
+
+对 $p=5,7,11,13,17,19,31$ 的全部 6640 个首一全裂无重三次式，脚本另在真实商环中运算，以三次提取 gcd 逐项重建全部根。245 个输入的首选定向为零，改用另一符号后均成功。小域复核中的平方根与表生成元可枚举取得，此处检验的是独立的商环预解式步骤。

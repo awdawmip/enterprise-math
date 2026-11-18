@@ -1,0 +1,72 @@
+{
+  "actual_source_entrypoints": [
+    "R",
+    "F",
+    "shortest_event_count",
+    "shortest_path_multiplicity",
+    "cwm_edge",
+    "cwm_recoalesce"
+  ],
+  "equal_coarse_conductance_examples": [
+    {
+      "coarse_weight": 2,
+      "durations_in_external_twelfths": [
+        3,
+        3
+      ],
+      "in_out": [
+        4,
+        4
+      ],
+      "middle_eigenvalue": 8,
+      "pinned_interpolation_numerator_denominator": [
+        1,
+        2
+      ]
+    },
+    {
+      "coarse_weight": 2,
+      "durations_in_external_twelfths": [
+        4,
+        2
+      ],
+      "in_out": [
+        3,
+        6
+      ],
+      "middle_eigenvalue": 9,
+      "pinned_interpolation_numerator_denominator": [
+        1,
+        3
+      ]
+    }
+  ],
+  "native": {
+    "C12_orbits": 160,
+    "all_ordered_signed_frames": 960,
+    "atomic_accepted": 960,
+    "decorated_states": 1920,
+    "joint_branch_candidates": 7680
+  },
+  "observer_checks": {
+    "pinned_unit_tests": 48,
+    "signed_determinant_evaluations": 442,
+    "signed_three_port_grams": 36
+  },
+  "one_orbit": {
+    "initial_signed_ports": [
+      1,
+      -2,
+      3
+    ],
+    "ordered_primitive_occurrences": 36,
+    "relation_layers": 12,
+    "shared_action_cells_per_macrostep": 1
+  },
+  "source_commit": "c0f816e2ab6be0145a3edd1a77488bddfd42a2f6",
+  "source_sha256": {
+    "cwm": "4f3e356227a1c964d33a3ddae94922463ba28097a43b8d1b8f6cd9ca5615fc9f",
+    "frame": "34058e33af5d8e325e3804bdbcf92f06918d48817b3ba5f8ded02e34c337a964",
+    "signed_path": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4"
+  }
+}

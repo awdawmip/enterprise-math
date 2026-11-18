@@ -1,0 +1,134 @@
+{
+  "brc_sha256": "4f3e356227a1c964d33a3ddae94922463ba28097a43b8d1b8f6cd9ca5615fc9f",
+  "cycle_distinct_defect_images": {
+    "3": {
+      "all_anticorrelation_global_assignments": 0,
+      "frustrated_defect_images": 32
+    },
+    "4": {
+      "all_anticorrelation_global_assignments": 2,
+      "frustrated_defect_images": 128
+    },
+    "5": {
+      "all_anticorrelation_global_assignments": 0,
+      "frustrated_defect_images": 512
+    }
+  },
+  "external_witness": {
+    "baseline_minimax": "1/6",
+    "local_three_bit_string_probabilities": [
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4"
+    ],
+    "optimal_mismatch": "1/9",
+    "single_fault_global_histories": 144
+  },
+  "memory": {
+    "approximate_hidden_width_32_if_full_joint_TV_below": "1/(144*(5+sqrt(29)))",
+    "cut_state_counts": [
+      [
+        1,
+        4,
+        16,
+        48
+      ],
+      [
+        4,
+        16,
+        32,
+        48
+      ],
+      [
+        16,
+        32,
+        16,
+        8
+      ],
+      [
+        48,
+        48,
+        8,
+        1
+      ]
+    ],
+    "hidden_randomized_peak_orders": {
+      "32": 648,
+      "48": 72
+    },
+    "mixed_cut_unit_triangular_minor": 32,
+    "observable_profiles": [
+      {
+        "orders": 432,
+        "states": [
+          1,
+          4,
+          16,
+          32,
+          16,
+          8,
+          1
+        ]
+      },
+      {
+        "orders": 216,
+        "states": [
+          1,
+          4,
+          16,
+          32,
+          48,
+          8,
+          1
+        ]
+      },
+      {
+        "orders": 72,
+        "states": [
+          1,
+          4,
+          16,
+          48,
+          48,
+          8,
+          1
+        ]
+      }
+    ],
+    "row_cut_rectangle_max_size": 3
+  },
+  "native_verdict": "MISSING_COMPONENT",
+  "public_experimental_aggregate": {
+    "conditional_mismatch_sum_lower": "0.73",
+    "displayed_signed_scores": [
+      "23/25",
+      "93/100",
+      "9/10",
+      "9/10",
+      "89/100",
+      "91/100"
+    ],
+    "displayed_sum": "109/20",
+    "number_of_candidate_six_tuples": 1386,
+    "other_observer_threshold": 2,
+    "raw_events_analyzed": 0,
+    "reported_other_observer": "2.23(5)",
+    "rounded_error_count_candidates": {
+      "295": 123,
+      "296": 193,
+      "297": 275,
+      "298": 360,
+      "299": 435
+    },
+    "source": "Kirchmair et al., arXiv:0904.1655v2, Fig. 2, Eq. (2), Eq. (3), Methods (5)",
+    "three_decimal_last_column_error_count": 48,
+    "total_reported": "5.46(4)"
+  },
+  "static_assignments_by_failures": {
+    "1": 96,
+    "3": 320,
+    "5": 96
+  },
+  "task": "RS-DISC-COMPAT-20261026-03"
+}
