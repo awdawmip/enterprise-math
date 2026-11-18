@@ -1,0 +1,146 @@
+{
+  "source_sha256": {
+    "research_artifacts/CFD_SPECTRAL_HYBRID_292BCE_20260917/static_carrier_native_adapter.py": "c3a8975aaf60e858900146350909983546a86fd6bfe51388fc1c6217a587442b",
+    "research_checks/CFD_SPECTRAL_HYBRID_292BCE_20260917.py": "eaa378080453b967a47b820e2a66594b1eaec2398a9381e366c2cdbe65378856",
+    "research_artifacts/CFD_SPECTRAL_HYBRID_292BCE_20260917/summary.json": "5eaca57874aa5327b1aaed5a7aeb796133d3dea8fc5b0c62a3f3a203105f11c7",
+    "research_notes/CFD-B1F673/prior_3d/probe.py": "1d10429616026f13643f0ba1641acd8c23f3aecd1dc7c03b429f5e0c4381eb09"
+  },
+  "comparison_domain": "3D finite Fourier surrogate; k3=0, 3 velocity components",
+  "actual_seed": 926203,
+  "leading": {
+    "quadrant_seed_abs_upper": {
+      "1,1": "2.156e-3",
+      "1,-1": "2.013e-3",
+      "-1,1": "2.013e-3",
+      "-1,-1": "2.156e-3"
+    },
+    "mixed_frequencies_exact": 196,
+    "K7_corner_Eulerian": 2275172004,
+    "twelve_step_leading_ratios": {
+      "1": "1",
+      "4": "1",
+      "5": "20735/20736",
+      "7": "110495/110592",
+      "10": "213164875/214990848",
+      "13": "159332598425/165112971264"
+    }
+  },
+  "vertical_drift_operator_norm_upper": "5.664e-1",
+  "degree_12_plane_reference_total_l2_error_upper": "8.409e-41",
+  "continuous_galerkin_vertical_tail_upper": {
+    "3": "4.027e-8",
+    "5": "3.719e-13",
+    "8": "2.778e-21",
+    "13": "8.340e-36"
+  },
+  "true_RK4_vertical_tail_upper": {
+    "3": "4.183e-8",
+    "5": "3.864e-13",
+    "8": "2.888e-21",
+    "13": "8.675e-36"
+  },
+  "dense_float_vertical_tail_l2_intervals": {
+    "3": [
+      "2.268e-11",
+      "2.269e-11"
+    ],
+    "5": [
+      "6.277e-18",
+      "6.278e-18"
+    ],
+    "8": [
+      "1.156e-21",
+      "1.157e-21"
+    ],
+    "13": [
+      "4.634e-22",
+      "4.635e-22"
+    ]
+  },
+  "absolute_distance_from_exact_RK4_tail13_lower": "4.634e-22",
+  "original_fft_endpoint_l2_error_intervals": {
+    "6": [
+      "1.298e-17",
+      "1.299e-17"
+    ],
+    "12": [
+      "1.783e-17",
+      "1.784e-17"
+    ],
+    "24": [
+      "1.105e-17",
+      "1.106e-17"
+    ]
+  },
+  "source_static_plane_12step_analytic_error": [
+    "1.783e-17",
+    "1.784e-17"
+  ],
+  "static_plane_12step_max_abs_difference_from_dense": 1.5152185993940876e-20,
+  "static_plane_tail13_l2_interval": [
+    "1.828e-34",
+    "1.829e-34"
+  ],
+  "dense_fallback_replays": {
+    "48": {
+      "seed": 926211,
+      "lower_bound": 385,
+      "all_stage_inputs_rhs_equal": 48,
+      "endpoint_equal": true
+    },
+    "96": {
+      "seed": 926212,
+      "lower_bound": 385,
+      "all_stage_inputs_rhs_equal": 48,
+      "endpoint_equal": true
+    }
+  },
+  "frozen_stage_metrics": {
+    "stages": 48,
+    "offplane_is_zero": true,
+    "max_divergence_input_or_rhs": 2.1687846298528015e-19,
+    "max_conjugacy_input_or_rhs": 9.263427422397553e-19,
+    "energy_initial": 0.011553117583269698,
+    "energy_final": 0.011547573415933926,
+    "strict_decreases": 12
+  },
+  "line_analytic_controls": {
+    "heldout-oblique-line": {
+      "shell": 2,
+      "source_error_vs_exact_RK_l2_upper": "2.314e-17",
+      "rk_multiplier_error_vs_exp_upper": "1.025e-23"
+    },
+    "heldout-even-axis": {
+      "shell": 4,
+      "source_error_vs_exact_RK_l2_upper": "1.369e-17",
+      "rk_multiplier_error_vs_exp_upper": "3.277e-22"
+    }
+  },
+  "historical_routes": {
+    "heldout-oblique-line": {
+      "decision": "CERTIFIED_STATIC_CARRIER",
+      "carrier": 15,
+      "lower": 15
+    },
+    "heldout-even-axis": {
+      "decision": "CERTIFIED_STATIC_CARRIER",
+      "carrier": 7,
+      "lower": 7
+    },
+    "heldout-xy-plane-generators": {
+      "decision": "CERTIFIED_STATIC_CARRIER",
+      "carrier": 225,
+      "lower": 225
+    },
+    "heldout-random48-seed926211": {
+      "decision": "FALLBACK_DENSE",
+      "carrier": null,
+      "lower": 385
+    },
+    "heldout-random96-seed926212": {
+      "decision": "FALLBACK_DENSE",
+      "carrier": null,
+      "lower": 385
+    }
+  }
+}

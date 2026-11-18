@@ -1,0 +1,139 @@
+# 三平方壳与单个螺旋波对的可观测秩、Gram 谱和全模证书
+
+给定一个整数频率 $q$ 及其共轭波，在另一完整三平方壳上放任意固定手性的实场。两壳的混合残差能恢复除平行模外的全部输入；只读垂直于 $q$ 的输出，则可见维数恰为该平面上一条整数圆的点数。完整残差的平方奇异值也有闭式。在具体的 $3,4,5$ 族中，只改变 Fourier 相位，保持支撑、各模能量和增长上界相同，就能使冻结的全模收缩检验分别通过和失败。
+
+## 1. 冻结的观测量
+
+在归一化三维环面上取实、无散、零均值向量场，$\nu>0$，$B(u,v)=P((u\cdot\nabla)v)$，$P_k=I-kk^T/|k|^2$。参考轨迹的残差为 $R=(\partial_t-\nu\Delta)v+B(v,v)$，测量空间为 $Y=L^2([0,\infty);\dot H^{-1/2})$。同一输出 $k$、衰减率 $\lambda>0$ 的有序路径先在复向量中相加为 $A_{k,\lambda}$。本稿用到的零次时间多项式包有精确 Gram
+
+$$
+\|R\|_Y^2=\sum_{k\ne0}\frac1{|k|}\sum_{\lambda,\mu}
+  \frac{\operatorname{Re}\langle A_{k,\lambda},A_{k,\mu}\rangle}{\lambda+\mu}.
+\tag{1}
+$$
+
+源文对热参考采用右端非线性 $-B$，其残差整体变号后范数相同。对于含时间错率的参考，这里从上述完整方程左端重新构造各项。本轮补的是全输出残差和因果收缩之间的一项校准。原任务另含 A3 全套优化案例、有限字典之外的自适应及有序 MHD 适配。[任务书](https://github.com/awdawmip/enterprise-math/blob/2ad5368f6c5e6410c7a070bd64ae7404c4aa09b2/research_tasks/NS_BRC_CERTIFIED_REFERENCE_ENGINE_20260917.md) · [原热残差 Gram 及 A3 例 §4–5](https://github.com/awdawmip/enterprise-math/blob/2ad5368f6c5e6410c7a070bd64ae7404c4aa09b2/research_notes/ns-jitter-initial-data-certificate-20260909.md) · [原目标证书](https://github.com/awdawmip/enterprise-math/blob/2ad5368f6c5e6410c7a070bd64ae7404c4aa09b2/research_notes/ns-goal-primal-dual-certificate-20260910.md)
+
+## 2. 整数圆控制的秩及完整平方奇异谱
+
+令 $M\ge1$ 为整数，$S_M=\{p\in\mathbb Z^3:|p|^2=M\}$，$r_3(M)=\#S_M$。固定 $q\ne0$，$N=|q|^2$。变量输入占据 $S_M$ 的一个手性，curl 特征值 $\alpha=\sigma\sqrt M$；固定输入是支撑在 $\pm q$ 的非零实波对，特征值 $\beta=\tau\sqrt N$，$\sigma,\tau\in\{\pm1\}$。每个反足对提供一个自由复系数，实维恰为 $r_3(M)$。经典三平方定理给出空壳恰为 $M=4^a(8b+7)$。每个单壳都满足 $P(u\times\operatorname{curl}u)=0$，其热演化本身是全方程的解。这是既有的 Beltrami 消去机制。[原项目交接](https://github.com/awdawmip/enterprise-math/blob/2ad5368f6c5e6410c7a070bd64ae7404c4aa09b2/research_notes/ns_brc_program_handoff_20260917.md)
+
+将两个壳分别按热半群衰减，考察初始高壳系数到混合残差的实线性映射 $\mathcal T$（这里 $M$ 可以小于 $N$）。若 $\alpha=\beta$ 则 $\mathcal T=0$。以下假设 $\alpha\ne\beta$。取低波对正频率系数的长度为 $1$，输入范数取原高壳的空间 $L^2$，输出取 (1)。若其长度为 $c$，以下平方奇异值同乘 $|c|^2$。
+
+**单路径权。** 设 $k=p+q'\ne0$，$q'=\pm q$，夹角为 $\theta$。一条无序路径已包含两个对流次序。单位偏振的输出幅度平方及其时间 Gram 权依次为
+
+$$
+b(p,q')=\frac{(\alpha-\beta)^2\sin^2\theta}{4}
+       \left(1+\frac{(\alpha+\beta)^2}{|k|^2}\right),\qquad
+w(p,q')=\frac{b(p,q')}{2\nu(M+N)|k|}.
+\tag{2}
+$$
+
+对于共线输入，含 $k=0$ 的路径取零。事实上对称对流为 $(\alpha-\beta)P_k(u_p\times v_{q'})$。在非共线情形置 $n=(p\times q')/|p\times q'|$、$t_v=n\times\widehat v$，各选单位偏振 $(t_p+i\sigma n)/\sqrt2$ 与 $(t_{q'}+i\tau n)/\sqrt2$。其叉积投影为
+$\tfrac12\sin\theta\,[n-i(\alpha+\beta)t_k/|k|]$。偏振换规只乘单位复数。再积分 $e^{-2\nu(M+N)t}$ 即得 (2)。
+
+**秩定理。** 设 $q_0=q/\gcd(|q_1|,|q_2|,|q_3|)$，以及
+
+$$
+\mathcal C=\{k\in\mathbb Z^3\setminus\{0\}:k\cdot q=0,\ |k|^2=M-N\}.
+$$
+
+则
+
+$$
+\operatorname{rank}_{\mathbb R}\mathcal T
+=r_3(M)-2\,\mathbf1_{\{M=t^2|q_0|^2\text{ 对某整数 }t\ge1\}},\qquad
+\operatorname{rank}_{\mathbb R}(\mathcal T|_{\text{仅读 }q^\perp\text{ 输出}})=|\mathcal C|.
+\tag{3}
+$$
+
+要达到 $k$，高壳来源只可能是 $k-q$ 或 $k+q$。两者同时上壳当且仅当 $k\cdot q=0$ 且 $|k|^2=M-N$。对任一非平行 $p$，$p+q,p-q$ 不能同时在 $q^\perp$，故至少有一个输出仅含这一条路径，由 (2) 它非零。每个非平行输入的系数可从其独有输出恢复。平行整数点恰为 $\pm t q_0$。在共享输出上，两条路径的平面法向相差一个符号，(2) 的投影向量因此复共线；对每个 $\{\pm k\}\subset\mathcal C$，任一个来源已在该复直线上满射。不同反足输出对使用互不相交的高壳输入对，得到第二个秩。
+
+**谱分解。** 每个没有共享输出的反足输入对给出平方奇异值 $w(p,q)+w(p,-q)$，实重数二。若 $k\in\mathcal C$，两个来源 $p=k-q,\ p'=k+q$ 除共同的 $k$ 外，各有独有输出 $k-2q,\ k+2q$。二者长度相同，为 $\sqrt{M+3N}$，独有权同为 $w_s$；共享权同为 $w_c$，长度 $\sqrt{M-N}$。对每对 $\{\pm k\}$，适当重选输入相位后，这两个复坐标的 Gram 为
+
+$$
+w_s I_2+w_c\begin{pmatrix}1&1\\1&1\end{pmatrix}.
+\tag{4}
+$$
+
+故平方奇异值恰为 $w_s$、$w_s+2w_c$，各有两个实维。此处每个反足对均选 $k-q,k+q$ 为正向代表；共轭约束同时补出负频率。不同块的输出支撑不交，所列谱已穷尽。
+
+轴向 $q=(0,0,d)$、$d>0$ 时，$\mathcal C$ 的阶数在 $M>d^2$ 时为
+$r_2(M-d^2)=4\sum_{e\mid M-d^2}\chi_4(e)$，其它情形为零。在高度 $p_3=z$，输入数为 $r_2(M-z^2)$（约定 $r_2(0)=1$、负数取零）。因此整套谱能按高度和二平方因子和生成。例如 $M=25,d=3$ 时，完整秩 $28$、平面秩 $4$、核实维 $2$。$\nu=1$ 时共享块的平方奇异值为 $58\sqrt{13}/71825$ 及该数加 $2/85$，全壳中各重四。脚本给出其余各层的确切根式。
+
+## 3. 一个可精确开关的共同输出
+
+取 $\nu=1$，$p_-=(4,0,-3),p_+=(4,0,3),q=(0,0,3)$，并用长度 $\sqrt2$ 的正手性偏振
+
+$$
+h_- =(-3/5,i,-4/5),\quad h_+=(3/5,i,-4/5),\quad g=(1,i,0).
+$$
+
+写 $c=(3+4i)/5$，初态三个正向代表的系数分别为 $h_-,\,s c^2 h_+,\,c g$，$s=\pm1$，负频率取共轭。改变 $s$ 保持所有模的能量不变。令前一高壳波按 $e^{-(25+\delta)t}$ 衰减，其余两波的衰减率仍为 $25,9$，其中 $\delta>-25$。高壳的单壳自作用在每个时刻仍消去。在 $k=(4,0,0)$ 两条路径的裸向量同为 $(0,-8/5,-16i/5)$，因此完整系数为该向量乘
+
+$$
+c\,[e^{-(34+\delta)t}+s e^{-34t}].
+$$
+
+边带 $k=(4,0,\pm6)$ 各只有一条路径，其裸向量的长度平方为 $1856/325$。这三个输出均带有共轭频率。线性时间缺陷只在 $\pm p_-$ 出现。完整 Gram 正交分解如下。
+
+$$
+\begin{aligned}
+E_{\rm time}&=\frac{2\delta^2}{5(25+\delta)},\\
+E_{\rm mid}&=\frac{32}{5}
+ \left(\frac1{2(34+\delta)}+\frac1{68}+\frac{2s}{68+\delta}\right),\\
+E_{\rm tail}&=\frac{928}{325\sqrt{13}}
+  \left(\frac1{34+\delta}+\frac1{34}\right),\qquad
+\|R\|_Y^2=E_{\rm time}+E_{\rm mid}+E_{\rm tail}.
+\end{aligned}
+\tag{5}
+$$
+
+这里的尾部是半径 5 以外所有频率的确切贡献。有限输入的二次卷积输出已穷举，半径 $\sqrt{52}$ 以外恒为零。当 $s=-1$ 时，中项也可写为 $16\delta^2/[5\cdot34(34+\delta)(68+\delta)]$，显式保留了两种衰减率的负交叉项。
+
+| 相位 $s$，错率 $\delta$ | $E_{\rm time}$ | $E_{\rm mid}$ | $\sqrt{13}\,E_{\rm tail}$ |
+|---|---:|---:|---:|
+| $+1,0$ | $0$ | $32/85$ | $928/5525$ |
+| $-1,0$ | $0$ | $0$ | $928/5525$ |
+| $-1,1$ | $1/65$ | $8/205275$ | $32016/193375$ |
+
+特别地，半径 $5$ 的截断会在第二行读出零残差，完整残差仍为正。第三行在初时仍于中心频率完全相消，但两个时间率随后分离。
+
+## 4. 哪个相位通过既有全模检验
+
+对两个 $\delta=0$ 初态共同乘 $\epsilon=1/8$，取初始扰动为零。使用冻结的原始充分条件，$\nu=1$、$c_0=3/4$、$C_*=9503/1000$，
+
+$$
+\|w\|_X^2=\sup_{t\ge0}\left(\|w(t)\|_{\dot H^{1/2}}^2+
+  c_0\int_0^t\|w\|_{\dot H^{3/2}}^2\right),\quad
+L=\frac{e^{B_\infty}}{\sqrt{c_0}},\quad
+\alpha=L\,\frac{C_*}{\sqrt{2c_0}},\quad
+\eta=L\epsilon^2\sqrt{E_{\rm mid}+E_{\rm tail}} .
+$$
+
+选用源文式 (3) 的全模增长包络 $b(t)=\sum_p|p|(1/2+\sqrt{1+|p|})|\widehat v(p,t)|$。在两相位上，其积分同为
+
+$$
+B_\infty=\epsilon\sqrt2\left[\frac{4(1/2+\sqrt6)}5+\frac53\right].
+$$
+
+源文定理表明 $\eta+\alpha r^2\le r,\ 2\alpha r<1$ 即推出原 NS 解位于以参考轨迹为中心的 $X$ 球。这里的 $L,\alpha,\eta$ 是选定的显式上界。[原全模因果逆、增长包络与收缩定理 §§1–4](https://github.com/awdawmip/enterprise-math/blob/2ad5368f6c5e6410c7a070bd64ae7404c4aa09b2/research_notes/ns-causal-inverse-newton-basin-20260909.md)
+
+- 相消相位 $s=-1$ 取 $r=1/100$，有 $r-\eta-\alpha r^2>239/10^6$ 且 $2\alpha r<183/500$。据上述冻结定理，这个具体初态的完整解全程满足 $\|u-v\|_X\le1/100$。
+- 增强相位 $s=+1$ 满足 $4\alpha\eta>1.746$，所选原始上界的二次包容条件对任何 $r$ 都无解。缩小逆上界、改变参考、或利用一阶响应都可能改善该检验。两例的初态其实都与第二空间坐标无关。平移对称和局部唯一性使这一子空间闭合；第一、第三速度分量满足二维不可压 NS，其余分量满足以此二维速度输运的黏性标量方程。由二维全局正则性，两相位的解均全局光滑。增强相位由此给出选定证书失效而原解光滑的具体对照。
+
+这一步使用的是源文的全频分析定理。脚本检验本数据代入后的有理包围，不重证其格点常数 $C_*$。相消相位还容许真正三维的初值扰动。冻结齐次逆估计把任意光滑实、无散、零均值扰动 $d$ 的补充预算控制为 $e^{B_\infty}\|d\|_{\dot H^{1/2}}$。有理证书给出 $e^{B_\infty}<51/25$，所以 $\|d\|_{\dot H^{1/2}}\le10^{-4}$ 的整个邻域仍落入同一 $r=1/100$ 球。此时布置在平面外的扰动频率同样受控。
+
+## 5. 与原 A3 核的交叉校准及复算范围
+
+冻结 A3/FCC 数据的单位高低偏振取于 $(1,1,0),(1,0,1),(0,1,1)$ 及 $(2,-2,0)$，并补共轭。此时 $\alpha=\sqrt2,\beta=2\sqrt2$。按 (2) 独立枚举，12 个非零输出全部只有一条混合路径，平方半径 $6,10,14$ 各四个。代入 (1) 恢复原文式 (16) 的全部系数
+
+$$
+c_R=\frac{\sqrt6}{20}+\frac{7\sqrt{10}}{250}+\frac{3\sqrt{14}}{245}.
+$$
+
+本地复算用 Python 3 与 SymPy 1.14.0，执行 <code>python reference_check.py</code> 将结果写到标准输出。实现独立从两次有序对流、Leray 投影及真实共轭系数构造 (5)，按含 $1/(\lambda+\mu)$ 的完整 Gram 求和；另在 $M=25$ 上用有理实矩阵直接求两个秩，核对 60 条有序几何选择（每个选择已合并两个对流次序）及四次共享投影共线性，并检查 $1\le M\le64$、四种 $q$ 的 256 次格点碰撞计数。全模收缩的有理夹逼用整平方根和指数的 16 阶 Taylor 和，正尾由几何级数控制。[冻结 A3 数据及式 (16)](https://github.com/awdawmip/enterprise-math/blob/2ad5368f6c5e6410c7a070bd64ae7404c4aa09b2/research_notes/ns-jitter-initial-data-certificate-20260909.md)
+
+本稿覆盖原任务的一个可复用单元。A3 的机制校准只覆盖原始热残差；完整自适应参考引擎、全部 A3 优化验收和 MHD 的有序非线性仍是原任务的其余部分。
+
+[复算程序](reference_check.py) · [精确输出](reference_checked.json)

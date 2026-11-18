@@ -1,0 +1,210 @@
+{
+  "rank": {
+    "real_domain_dimension": 30,
+    "full_real_rank": 28,
+    "collision_plane_real_rank": 4,
+    "collision_plane_up_to_sign": [
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ]
+    ]
+  },
+  "spectrum": {
+    "raw_path_squared_norms_checked": 60,
+    "complex_collinearity_checks": 4,
+    "spectrum_for_unit_beam_by_latitude": [
+      {
+        "abs_z": 0,
+        "multiplicity": 12,
+        "eigenvalue": "49*sqrt(34)/19652"
+      },
+      {
+        "abs_z": 3,
+        "multiplicity": 4,
+        "eigenvalue": "58*sqrt(13)/71825"
+      },
+      {
+        "abs_z": 3,
+        "multiplicity": 4,
+        "eigenvalue": "58*sqrt(13)/71825 + 2/85"
+      },
+      {
+        "abs_z": 4,
+        "multiplicity": 8,
+        "eigenvalue": "549*sqrt(58)/2859400 + 333*sqrt(10)/85000"
+      },
+      {
+        "abs_z": 5,
+        "multiplicity": 2,
+        "eigenvalue": "0"
+      }
+    ]
+  },
+  "shell_counts_1_to_64": [
+    6,
+    12,
+    8,
+    6,
+    24,
+    24,
+    0,
+    12,
+    30,
+    24,
+    24,
+    8,
+    24,
+    48,
+    0,
+    6,
+    48,
+    36,
+    24,
+    24,
+    48,
+    24,
+    0,
+    24,
+    30,
+    72,
+    32,
+    0,
+    72,
+    48,
+    0,
+    12,
+    48,
+    48,
+    48,
+    30,
+    24,
+    72,
+    0,
+    24,
+    96,
+    48,
+    24,
+    24,
+    72,
+    48,
+    0,
+    8,
+    54,
+    84,
+    48,
+    24,
+    72,
+    96,
+    0,
+    48,
+    48,
+    24,
+    72,
+    0,
+    72,
+    96,
+    0,
+    6
+  ],
+  "collision_count_identities_checked": 256,
+  "A3_calibration": {
+    "nonzero_modes_by_radius_squared": {
+      "6": 4,
+      "10": 4,
+      "14": 4
+    },
+    "coefficient_of_sqrt_d": {
+      "6": "1/20",
+      "10": "7/250",
+      "14": "3/245"
+    }
+  },
+  "inherited_all_mode_test": {
+    "epsilon": "1/8",
+    "radius": "1/100",
+    "growth_exponent": [
+      "177937/250000",
+      "711749/1000000"
+    ],
+    "inverse_envelope": [
+      "2352761/1000000",
+      "1176381/500000"
+    ],
+    "alpha_envelope": [
+      "4563867/250000",
+      "18255469/1000000"
+    ],
+    "dark": {
+      "eta": [
+        "3967/500000",
+        "1587/200000"
+      ],
+      "four_alpha_eta": [
+        "9053/15625",
+        "579393/1000000"
+      ],
+      "initial_perturbation_Hhalf_radius": "1/10000",
+      "homogeneous_gain_strict_upper": "51/25",
+      "inclusion_margin_strict_lower": "239/1000000",
+      "Lipschitz_strict_upper": "183/500"
+    },
+    "bright": {
+      "eta": [
+        "2391/100000",
+        "23911/1000000"
+      ],
+      "four_alpha_eta": [
+        "1746021/1000000",
+        "873011/500000"
+      ]
+    }
+  },
+  "witness": [
+    {
+      "phase_sign": 1,
+      "wrong_rate_delta": 0,
+      "nonzero_frequencies": 6,
+      "nonzero_mode_rate_packets": 6,
+      "linear_time_Y2": "0",
+      "collision_plane_Y2": "32/85",
+      "tail_above_radius_5_Y2_times_sqrt13": "928/5525",
+      "gram_coefficients_of_inverse_radius": {
+        "16": "128/85",
+        "52": "1856/5525"
+      }
+    },
+    {
+      "phase_sign": -1,
+      "wrong_rate_delta": 0,
+      "nonzero_frequencies": 4,
+      "nonzero_mode_rate_packets": 4,
+      "linear_time_Y2": "0",
+      "collision_plane_Y2": "0",
+      "tail_above_radius_5_Y2_times_sqrt13": "928/5525",
+      "gram_coefficients_of_inverse_radius": {
+        "52": "1856/5525"
+      }
+    },
+    {
+      "phase_sign": -1,
+      "wrong_rate_delta": 1,
+      "nonzero_frequencies": 8,
+      "nonzero_mode_rate_packets": 10,
+      "linear_time_Y2": "1/65",
+      "collision_plane_Y2": "8/205275",
+      "tail_above_radius_5_Y2_times_sqrt13": "32016/193375",
+      "gram_coefficients_of_inverse_radius": {
+        "16": "32/205275",
+        "25": "1/13",
+        "52": "64032/193375"
+      }
+    }
+  ]
+}
