@@ -1,0 +1,64 @@
+# 三次 Gauss 和的素数卷积可以容纳哪些锐截止？
+
+任务 $\mathrm{RS\!-\!OAI7\!-\!023\!-\!C}$。在艾森斯坦整数 $\mathcal O=\mathbb Z[\omega]$ 中，素理想一律以模 $3$ 为 $1$ 的生成元表示，$N$ 为理想范数。两个同范数的分裂素理想仍是不同因子。下面给出两个层次的结果。精确地写成独立素数权时，单个部分乘积截止已经能产生至少 $F/(\log F)^2$ 阶的矩阵秩。若只需控制两处例外三次特征矩，则在冻结稿所用解析输入下，固定个重叠的锐乘积或比值截止都容许，并有严格幂节省。两条结论分别控制表示与估计。[冻结任务书](https://github.com/awdawmip/enterprise-math/blob/fa1e5b577c7ded8d693382bdb1d9a517f228a444/research_tasks/RS-OAI7-023-C-20261007-6F2A81.md) · [原稿的三次符号、平方自由性与筛](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/background-type1.tex)
+
+## 一、原分解何处真正发生停止
+
+令 $L=\log X,\ AB\asymp X,\ H=B^2/A$。冻结稿在普通高度 $T\ll X^{.01}$ 取 $s_0=.345$，高段 $X^{.01}\ll T\ll X^{1/6+\rho}$ 取 $s_0=1/3-2\kappa$，其中 $0<\xi<\kappa/10$。$R$ 是已指定素因子各自光滑分箱的**尺度之积**。当 $R\ge X^{s_0}$，将其余 $>X^\xi$ 的素因子展开成有界长有序元组，按尺度向量分组，整箱舍取。半素数修正也按两个角色的尺度分组。这样在 $B>X^{.40}$ 留下的 $\beta$ 是独立光滑素数卷积乘 $\mu^2(b)$。$V(N(ab)/X)$ 是外包络。若误换为按每个样本的实际部分乘积调整分组，精确独立性可能失效。
+
+当 $R<X^{s_0}$ 时才展开小素数 Möbius 积。普通段先在 $L^{C_r}$ 以上用代理乘积越过 $X^{.36}$，失败后在低侧越过 $X^{.38}$；高段单用 $X^{1/3-\kappa}$。若末箱下端为 $\ell$，其跨线条件为 $N(r)S(m_+)/\ell<Z\le N(r)S(m_+)$，低侧停时还须在已选侧检验高侧未过线。末箱有 $k$ 个已选、$l$ 个未选因子时，全部 $\binom{k+l}{k}$ 种选择有同一判定，乘其倒数便逐项恢复系数；随后 $b=rm_+$、$a=m_-u$ 独立。允许两侧共享素理想所增加的项按 $G(ab)$ 或 $\mu^2(ab)$ 各自为零。仅分别限制 $a,b$ 平方自由并不能推出它们互素。普通停止时 $N(b)\ll X^{.38+\xi+\kappa/4}<X^{.40}$，高段上界 $X^{1/3-\kappa+\xi+\kappa/4}<X^{.40}$。这些锐箱不能直接拿去作大 $B$ 的独立光滑输入。[固定尺度的分组](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/decomposition.tex#L148) · [代理停止与末箱权](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/decomposition.tex#L230)
+
+## 二、精确独立表示的秩下界
+
+取两个素数角色的有理范数分别为 $p\in[F,2F]$、$q\in[3F,4F]$，只用 $1\bmod 3$ 的有理素数，每个选一个上方素理想。对充分大的 $F$，存在阈值 $U\asymp F^2$，使矩阵 $(1_{pq\le U})_{p,q}$ 的复数秩满足
+$$
+ \operatorname{rank}\gg F/(\log F)^2.                                      \tag{1}
+$$
+固定模数 $3$ 的素数定理给出 $\gg F^2/(\log F)^2$ 对。将 $[3F^2,8F^2]$ 分成 $O(F)$ 个长度至多 $F/2$ 的区间；某区间 $(U-F/2,U]$ 至少含断言所需的对数。它们不共行或列，因为同一行或列上两个不同的积至少相差 $F$。把这些对按 $p_1<\cdots<p_n$ 排列，列按配对顺序 $q_j$ 放置。若 $i<j$，有 $p_iq_j\le p_jq_j\le U$；若 $i>j$，有 $p_iq_j\ge p_jq_j+q_j>U$。子矩阵为对角元 $1$ 的上三角矩阵。每个独立乘积权 $f(p)g(q)$ 的秩至多一，即使允许复权，亦至少需要 (1) 那么多项。可将两个角色限制在光滑权等于 $1$ 的区间，再固定第三个不相交角色 $N\pi_3\asymp F$，使 $pq\le U$ 成为真正的内部前缀。三角色支撑均平方自由且由分开的范数区间唯一辨认；亦可置 $B\asymp F^3,\ X\asymp B^2$。这里的下界针对原角色按积逐项重建，阈值由 $F$ 选择。
+
+## 三、锐截止的例外二阶矩
+
+**条件命题。** 采用冻结稿在 $\mathrm{prop{:}dual}$ 证明中使用的三次大筛及其非平方自由内变量延拓、普通 Hecke 特征大筛、完整和对偶变换与 Gram 行引理。固定正数 $c,\nu$（$0<\nu<1/2$）、角色数 $1\le k\le k_0$、不等式数 $s$ 和实矩阵 $D=(d_{ji})$；常数可依赖这些固定资料。取 $F_1\cdots F_k\asymp Y$、各角色素范数 $N\pi_i\asymp F_i$ 且 $N\pi_i\ge Y^c$。令 $w_i$ 满足原稿固定支撑及各固定阶导数为固定对数幂的界。可取任意实阈值 $h_j$，并允许每个角色的总高度 $|t_i|\le Y^{1/2-\nu}$。定义
+$$
+ \widetilde\beta(b)=\mu^2(b)
+ \sum_{\pi_1\cdots\pi_k=b}
+ \prod_{i=1}^k w_i(N\pi_i/F_i)(N\pi_i)^{it_i}
+ \prod_{j=1}^s
+ \mathbf1_{\{\sum_i d_{ji}\log(N\pi_i/F_i)\le h_j\}} .                      \tag{2}
+$$
+则存在 $\delta,\eta>0$，使 $N(v),N(e)\le Y^\delta$，互素平方自由主元 $p,q$ 的范数分别 $\asymp P,Q$ 时，在 $(\log_Y P,\log_Y Q)$ 距 $(1,0)$ 或 $(1/3,1/3)$ 的各坐标至多 $\delta$ 内，一致有
+$$
+ \sum_{p,q}\left|\sum_{(b,e)=1}\widetilde\beta(b)\chi_b(vpq^2)\right|^2
+ \ll Y^{7/3-\eta}.                                                         \tag{3}
+$$
+一个共同范数扭曲可并入每个 $t_i$，高度约束对并入后的值使用。可用 (2) 表示有限次前缀检验和失败检验（严格不等号也可用），允许检验之间共享角色。下述推导没有用冻结稿素数一阶矩的最终结论。[原例外矩与完整和对偶](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/dual.tex#L11)
+
+**分角色高度。** 先去掉 (2) 的锐截止，沿原例外矩证明作三处检查。
+
+1. 换掉 $\mu^2$ 及将素数卷积换成 $\Lambda/\log N$ 时，新增的重复素因子、素幂仍在同一稀疏集合上；分角色单位复相位不改变对应系数的除数界。原证明先以平方自由核的长度界控制第一配置，再以稀疏支撑及四次矩控制第二配置，两步对于这些相位均一致。
+2. 短 Möbius 卷积恒等式逐角色应用，在同一个角色的内因子上分配该角色的 $(N\cdot)^{it_i}$。独立光滑尺度的 Mellin 移位行间共同，截到 $Y^\epsilon$，故完整长和的总高度为 $Y^{\theta+o(1)}$ 以下（允许任意小幂损失），其中 $\theta=1/2-\nu$。当某一因子长度 $Y^{1+o(1)}$，它是完整和，其他因子平凡控制。第一配置导子 $Y^{1+o(1)}$，对偶长度 $J\le Y^{2\theta+o(1)}$，振幅为 $Y^{o(1)}\sqrt{Y/J}$。非平方自由内变量三次筛给 $Y^{1+o(1)}(Y+J+(YJ)^{2/3})$。第二配置导子至多 $Y^{2/3+o(1)}$，完整和逐行平凡对偶界为 $Y^{1/3+\theta+o(1)}$，共至多 $Y^{2/3+o(1)}$ 行。当 $\theta<1/6$ 时对偶长度上界趋于零，所有正整范数均在可忽略尾中。因此两个二阶矩的上指数分别至多
+$$
+ \max\{2,\;7/3-4\nu/3\},\qquad 7/3-2\nu.                                 \tag{4}
+$$
+可取任意足够小固定的分析损失小于上述正余量。当 $\theta=1/2$，(4) 两端都抵达 $7/3$；这精确定位了该长和论证的高度边界。
+3. 若无长度指数 $1$，原长值论证只用各个多项式的模、复制或删去某些因子后的除数界，以及作用在相同特征行上的 Gram 界。角色自带的相位独立于所在行，复制后仍是允许的系数。对偶长和的根数与导子相位亦仅乘整行。这就沿用原反证的紧致性，得到无门时 (3) 的一致正邻域与正幂节省；(4) 只量化完整和分支，整条定理的 $\eta$ 还受其它分支限制。[素幂与短卷积](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/dual.tex#L254) · [长和、重复因子的矩与 Gram 行](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/dual.tex#L331)
+
+**边界支撑和分离成本。** 全零的 $D$ 行若检验恒假则整个系数为零，若恒真则可删去。取 $0<\lambda<\min(c,1/2-\nu)/4,\ \Delta=Y^{-\lambda}$。对任一行 $j$，固定其余因子，挑一个 $d_{ji}\ne0$ 的素角色。若该行左边距 $h_j$ 至多 $\Delta$，这个素范数落在长度 $O_D(F_i\Delta)$ 的区间；整数端点再花 $O(1)$。每个范数至多两个素理想。其余角色共有 $O(Y/F_i)$ 种选择，故过渡带元组数
+$$
+ \ll_D Y(\Delta+F_i^{-1})\ll Y^{1-\lambda}.
+$$
+对有界个面取并。收集 $b$ 后其多重数和权均为 $Y^\epsilon$ 以下，从而误差系数平方和 $\ll_\epsilon Y^{1-\lambda+\epsilon}$。在第一配置固定 $q$，三次大筛给误差矩 $\ll_\epsilon Y^{7/3-\lambda+5\delta/3+\epsilon}$；在第二配置直接用导子 $\ll PQ$ 的普通大筛，界为 $Y^{7/3-\lambda+4\delta+\epsilon}$。固定 $v,e$ 是公共系数扭曲或删项。这里保留 $\mu^2(b)$ 方可在第一处直接用双端平方自由大筛。把邻域缩到 $\delta<\lambda/16$ 即足。
+
+对每行将半区间在可达的固定紧区间外截断，在对数坐标以宽 $\Delta$ 的 $C^\infty$ 单位质量核作卷积，截断的人工端点置于支撑外至少距离 $1$。所得光滑指示与锐指示只在上述带内不同，其傅里叶变换满足
+$$
+ |\widehat g_j(\tau)|\ll_M(1+|\tau|)^{-1}(1+\Delta|\tau|)^{-M}.
+$$
+常数在可达阈值上一致；远离支撑的检验恒真或恒假。于是每个积分 $L^1$ 成本 $O(1+\log Y)$，截到 $|\tau|\le Y^{2\lambda}$ 的尾可小于任意预定负幂。反演后第 $i$ 角色只增加 $\sum_j d_{ji}\tau_j$ 的高度，阈值的相位与特征行无关。此时总高度至多 $2Y^{1/2-\nu}$，可调用上一步以 $\nu/2$ 为余量；用 $L^2$ 三角不等式积分，平方后至多花 $O((1+\log Y)^{2s})$，缩小 $\eta$ 得 (3)。先前秩下界与此处的解析分离同时成立。
+
+## 四、接回色散所需的条件与复算
+
+取 $Y=B$。原色散中的两个极端都强迫 $B=X^{1/2+o(1)}$，且其小公因子 $f,l$ 在支撑的每个素因子范数均至少为 $X^c$ 时退化为 $1$。原 $|u|\le X^{.17}$ 加额外 $X^{\delta'}$ Mellin 移位，在极端处小于 $B^{.36}$，落入 (3)。因此若原始 $b$ 系数用 (2) 的有界个锐检验、取未加外扭时 $t_i=0$，大 $B$ 例外矩所需接口可用 (3) 替换；其余大导子频段原稿只用除数界。原低段 (SW) 的量词另需核实：对每个固定导子对数幂、范数高度对数幂、排除元范数 $X^{O(1)}$ 和每个 $D_0>0$，非主、无限参数平凡的三次 Hecke 特征和须 $\ll_{D_0}BL^{-D_0}$。在 (2) 的固定有界长正幂素因子族，只需固定其它角色，全部锐检验在某个可动的素范数上交成一个区间（含无约束或空集）。用原稿的素理想 SW 输入、分部求和与其余角色的除数计数即可，各个与其它角色相同或整除排除元的素理想仅 $O(L)$ 个。此处角色自带的高度亦可为固定对数幂。其素因子 $>L^{C_r}$ 对任意固定 $C_r$ 最终成立。原低高度校正另要求 $H\ge L^{C_g}$、$|u|\le L^{O(1)}$，对预定节省 $L^{-K}$ 后选足够大 $C_g,C_r$；原高度平均另有 $2T+|u_0|\le X^{.17}$ 与 $T\ge L^{C_t}$ 的假设。[色散命题与量词](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/dispersion.tex#L14) · [例外处的 $f=l=1$ 和高度](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/dispersion.tex#L385) · [系数 SW 证明](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/decomposition.tex#L428)
+
+附算以角色范数 $\{7,13,19,31\},\{13,19,31,37\},\{37,43,61\}$ 的全部分裂素理想为输入，锐条件为 $N\pi_1N\pi_2\le500,\ 2N\pi_2\le N\pi_3$。384 个有序元组有 144 个过线，其中 124 个平方自由，归并得 98 个 $b$。一条路径对归并后的 $b$ 用三次互反律在模 $p,q$ 的剩余域计算；另一路径固定中间角色，分别在端点素模上算三次符号后相乘。对 $q=1$ 的 16 行和 $q$ 为素理想的 150 个互素行，逐行在 $\mathbb Z[\omega]$ 一致，二阶矩分别为 268 和 20490；152 行非实，2 行为零。独立的 30 阶分裂素数上三角见证满足上述素数区间约束（取 $F=22000$），阈值为 $U=2250000000$。所有整数输入与精确算术见同目录 cubic_check.py、cubic_checked.json。
+
+(1) 的算术秩界和边界带计数独立于外稿的解析状态。(3) 使用冻结预印本的解析引理；有限符号计算仅检验分离、平方自由和相位。允许的固定门作用于 $b$ 的已标记素因子，覆盖不到同时依赖外变量 $a$ 的移动阈值，也没有给出裸两侧系数的精确多对数秩分解。全和在高度 $Y^{1/2}$ 时如何保住例外矩的幂节省仍开。
