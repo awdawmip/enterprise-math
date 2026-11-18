@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "version": "R749SUQ_V1",
+  "exact_integer_tests": {
+    "all_M_9999_to_25000": 15002,
+    "independent_large_window_trials": 6
+  },
+  "method": "full independent prefix sieve; separately trial every divisor for 6 scales",
+  "examples": {
+    "9999": {
+      "score": "979804019799",
+      "labeled_ties": 2,
+      "optimizing_factor_pairs": [
+        [
+          10000,
+          100,
+          100
+        ]
+      ],
+      "p": 9989,
+      "width": 11,
+      "divisor_tests": 99,
+      "mark_updates": 60
+    },
+    "10000": {
+      "score": "979804019799",
+      "labeled_ties": 2,
+      "optimizing_factor_pairs": [
+        [
+          10000,
+          100,
+          100
+        ]
+      ],
+      "p": 9989,
+      "width": 12,
+      "divisor_tests": 99,
+      "mark_updates": 61
+    },
+    "25000": {
+      "score": "15420641299674",
+      "labeled_ties": 4,
+      "optimizing_factor_pairs": [
+        [
+          25000,
+          125,
+          200
+        ]
+      ],
+      "p": 24989,
+      "width": 12,
+      "divisor_tests": 157,
+      "mark_updates": 63
+    },
+    "100000": {
+      "score": "993550256897434",
+      "labeled_ties": 4,
+      "optimizing_factor_pairs": [
+        [
+          99999,
+          271,
+          369
+        ]
+      ],
+      "p": 99989,
+      "width": 12,
+      "divisor_tests": 315,
+      "mark_updates": 76
+    },
+    "1000000": {
+      "score": "997998004001997999",
+      "labeled_ties": 2,
+      "optimizing_factor_pairs": [
+        [
+          1000000,
+          1000,
+          1000
+        ]
+      ],
+      "p": 999943,
+      "width": 58,
+      "divisor_tests": 999,
+      "mark_updates": 397
+    },
+    "100000000": {
+      "score": "999799980004000199979999",
+      "labeled_ties": 2,
+      "optimizing_factor_pairs": [
+        [
+          100000000,
+          10000,
+          10000
+        ]
+      ],
+      "p": 99999899,
+      "width": 102,
+      "divisor_tests": 9999,
+      "mark_updates": 1119
+    }
+  },
+  "scope": "finite tests; universal O(sqrt(M)) theorem is proven separately"
+}
