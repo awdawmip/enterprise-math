@@ -1,0 +1,53 @@
+{
+  "request_id": "balanced-dispatch-20261118-0714",
+  "observed_at": "2026-11-18T07:19:42.631495+00:00",
+  "source_sha": "3f9c16394ec721eeaaa6dca3876a196c86423fb8",
+  "events_sha256": "213c407de2248da8ddb6c79413617ff9dac3abe5144b61b9195d55b5f70e2ff8",
+  "server_comments": 1586,
+  "selected": "RS-X6-NATIVE-ROTATION-DYNAMICS",
+  "action": "CLAIM_NEW_OWNER",
+  "fair_selection": {
+    "atomic_global_quota": false,
+    "boundary": "NEW_RESEARCH_UNIT_ONLY",
+    "candidate_count": 252,
+    "candidate_pool_policy": "PREFER_OPEN_FRONTIERS_OVER_SAVED_WORK_V1",
+    "candidate_set_sha256": "7ea1e718521986152c064d008caa9985ec811dda784e49a0267f4ce043ba0369",
+    "degraded_history_reasons": [
+      "CANONICAL_CONTROL_OVERLAY:UNKNOWN_OVERLAY_START"
+    ],
+    "direction": "RS-X6-NATIVE-ROTATION-DYNAMICS",
+    "direction_basis": "EXACT_TASK_ID",
+    "effective_priority_weights": {
+      "P0": 160,
+      "P1": 7.5,
+      "P2": 5
+    },
+    "existing_work_candidates": 33,
+    "history_scope": "CURRENT_AUTHENTICATED_PUBLICATION_AND_LANE_REPLAY",
+    "method": "SEEDED_WEIGHTED_WAITING_ROTATION_V1",
+    "missing_history_tasks": 1,
+    "primary_candidates": 252,
+    "priority_credit": {
+      "P0": "940/63",
+      "P1": "-1072/105",
+      "P2": "-212/45",
+      "P3": "0"
+    },
+    "retry_policy": "REUSE_ORIGINAL_REQUEST_RECEIPT_AND_SEED",
+    "selected_successful_claims": 4,
+    "selected_task_weight": 0.27265707671957673,
+    "selected_waiting_days": 0.634,
+    "selection_at": "2026-11-18T07:14:18+00:00",
+    "selection_pool": "OPEN_OR_EXPLICIT_WORK",
+    "selection_seed": "41892a41773923b144d1e190e36b04ab52d124ed8cd03096283a732cccc40dbb",
+    "skipped_missing_publication": 0,
+    "successful_claims": 326,
+    "weights": {
+      "P0": 40,
+      "P1": 30,
+      "P2": 20,
+      "P3": 10
+    }
+  },
+  "frontier_commit": "9d09f6bc13b36a8d47d11b524fae4dd5254ac333"
+}
