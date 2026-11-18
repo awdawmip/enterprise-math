@@ -63,7 +63,7 @@ Required fields are `schema`, `conversation_id`, `request_id`, `operation`, `pay
 
 `conversation_id` is a stable client-declared logical ID, not platform attestation (1–160 characters; alphanumeric first, then alphanumeric or `:/_.-`). `request_id` uniquely identifies one logical operation (1–128 characters; alphanumeric first, then alphanumeric or `_.-`). The inbox verifies private repository/trusted actor, original immutable body, double-read fingerprint and durable idempotency. Do not edit submitted Issues or create duplicate mutation Issues. Initial requests must be unedited and under 24 hours old. Requests from multiple models/terminals have no fixed five-request admission ceiling; the existing single worker still serializes execution. Ordinary payload limit: 16 KiB; canonical envelope: 32 KiB.
 
-Request admission does not grant a Task CLAIM or execution authority. For a confirmed transient read wait, follow the service’s bounded retry on the original ID. If the receipt identifies an unresolved resource dependency, restore it and reconcile the original ID as directed. Reconcile uncertain writes before replay. A cancellation or refusal ends the affected automatic retry. Claim expiry grants no recovery authority.
+Request admission does not grant a Task CLAIM or execution authority. For a confirmed transient read wait (`WAITING_RESOURCE`), follow the service’s bounded retry on the original ID. If the receipt identifies an unresolved resource dependency, restore it and reconcile the original ID as directed. Reconcile uncertain writes before replay. A cancellation or refusal ends the affected automatic retry. Claim expiry grants no recovery authority.
 
 ## Readbacks and read-only operations
 

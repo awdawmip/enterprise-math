@@ -311,7 +311,7 @@ class BridgeConcurrencyContractTests(unittest.TestCase):
 
     def test_each_request_commit_has_an_independent_actions_concurrency_key(self):
         self.assertIn(
-            "group: chatgpt-control-dispatch-bridge-${{ github.sha }}",
+            "group: chatgpt-control-dispatch-bridge-${{ github.event_name }}-${{ github.sha }}",
             self.workflow,
         )
         self.assertNotIn("group: chatgpt-control-dispatch-bridge\n", self.workflow)
@@ -325,7 +325,10 @@ class BridgeConcurrencyContractTests(unittest.TestCase):
         self.assertIn("git reset --hard origin/main", self.workflow)
         self.assertIn("current_request_id", self.workflow)
         self.assertIn("LATEST_RECEIPT_SKIPPED", self.workflow)
-        self.assertIn('[[ "$current_request_id" == "$REQUEST_ID" ]]', self.workflow)
+        self.assertIn(
+            '[[ "$current_request_id" == "$REQUEST_ID" && "$current_request_commit" == "$REQUEST_SOURCE_COMMIT" ]]',
+            self.workflow,
+        )
 
     def test_request_id_is_path_safe_and_bounded(self):
         self.assertIn("^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$", self.workflow)
