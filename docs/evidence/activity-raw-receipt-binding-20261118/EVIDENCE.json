@@ -296,6 +296,22 @@
   "captured_at_utc": "2026-11-18T17:10:04.014410+00:00",
   "claim_or_result_mutations": false,
   "conclusion": "Original pinned sidecar and scientific-source bytes are consistent. The reader incorrectly substitutes the identity of a re-serialized object for the declared literal-byte identity. New writes remain canonical; persisted bytes are not rewritten.",
+  "concurrent_bridge_regression_compatibility": {
+    "ci_must_be_rerun_for_new_head": true,
+    "failed_ci_head": "04b2434d67bfc3f114c04cf934e7f69105c49c43",
+    "failed_job": 134993588306,
+    "failed_workflow_run": 44358532496,
+    "failures": [
+      "old concurrency-key literal omitted event_name",
+      "old request-only condition literal omitted the new source-commit CAS condition"
+    ],
+    "local_adversarial_cases": 16,
+    "local_adversarial_failures": 0,
+    "new_test_file_or_disabled_assertion": false,
+    "resolution": "Update the two existing exact contract assertions to require event_name plus commit isolation and both request ID and original request commit matching; no workflow, timeout, scheduling or runtime implementation change.",
+    "upstream_workflow_changed_by_this_repair": false,
+    "upstream_workflow_commit": "3097475290506e32677838dce0d24c72df57f28b"
+  },
   "concurrent_upstream_ci_compatibility": {
     "after_exit": 0,
     "before_exit": 1,
