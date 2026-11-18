@@ -46,7 +46,7 @@ The difference `D(z)=F_A(z)-F_B(z)` is exactly:
 | 1/2 – 265/512 | 593/16-64z | 81/16 | 63/16 |
 | 265/512 – 1 | 63/16 | 63/16 | 63/16 |
 
-Consequently, `D(z)=6z` initially; `D(1/2)=81/16`; `D(z)=113/16` on `[107/248,7/16]` and `D(z)=63/16` on `[265/512,1]`. All intervals join continuously. The endpoints of every affine difference segment are positive apart from `D(0)=0`; therefore the difference is strictly positive throughout `(0,1]`.
+Consequently, `D(z)=6z` initially; `D(1/2)=81/16`; `D(z)=113/16` on `[107/248,7/16]` and `D(z)=63/16` on `[265/512,1]`. All intervals join continuously. The endpoints of every affine difference segment are positive apart from `D(0)=0`; therefore the difference is strictly positive throughout `(0,1]`. A further exact extremum follows from the signed slopes of these same 13 pieces: **the maximum swap penalty over the entire [0,1] is exactly `121/16`, attained uniquely at `z=67/144`**. The zero-discount infimum over `(0,1]` is 0 and is not attained at positive z; after `z=265/512` the penalty is constantly `63/16`.
 
 ## Why this is a complete continuous theorem
 
