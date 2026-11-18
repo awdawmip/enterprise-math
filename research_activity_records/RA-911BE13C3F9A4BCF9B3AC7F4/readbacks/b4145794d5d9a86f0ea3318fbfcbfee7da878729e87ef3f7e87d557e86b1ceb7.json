@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/fortysixth/README.md",
+    "ref": "aa70186f6e402df5ccaf653d3484512514266b85",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-fortysix-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第四十六轮　双范数的平方因子、整数余量、等效原理与路径投影\n\n## 同样的两个范数，坐标剪切能让相关性变号\n\n取本原整数点 $(x,y)$，令 $N=x^2+y^2$、$C=x^2-xy+y^2$。在任一固定正面积、分段光滑的有界区域内放大取样。两个值同时平方自由的极限概率为\n$$\nJ=\\prod_p\\left(1-\\frac{2\\mathbf1_{p\\equiv1\\ (4)}+2\\mathbf1_{p\\equiv1\\ (3)}}{p(p+1)}\\right).\n$$\n式中概率以本原点为条件；整数向外取整给出 $0.855395415914\\le J\\le0.855395701047$。两个平方自由事件严格负相关，仅把第二个型的 $x$ 改为 $x+48y$，两个边际密度不变，相关性却严格变正。原因可在模 $13^2$ 下看见：两条原来分开的根线有一条相合，带来的增量超过所有其余共同分裂素数可能造成的损失。计数还给出两个平方部的联合分布、固定同余类的修正，以及整幺模坐标变换的密度极值。所有这些联合密度的闭包恰由三个互不相交的闭区间组成；仅素数 13 产生区间之间的两个间隙。[公式、筛法与局部见证](squarefree.md) · [复算](squarefree_check.py) · [结果](squarefree_checked.json)\n\n## 从两种合金的自由落体读数能推到哪些材料\n\nMICROSCOPE 在异质测试中比较 TiAlV 与 PtRh 合金，同质对照使用两件 PtRh。在一个按质量分数给元素响应加权、每种元素响应为正的模型中，异质比较只固定一个比值。给定它，新材料对的所有可达比值可从两个单纯形的极点求出；即使原两合金的响应精确相同，纯 Ti 与纯 Pt 的比仍可取任意正数。若再测 Al、V、Rh 相对同一 PtRh 的三个响应，五种元素的全部相对响应即可辨识。该项是实验设计，采用独立等绝对比值误差时最坏放大为 $11/9$。原实验的方向、统计误差与系统误差分别核对。[数据、锐界与实验设计](equivalence.md) · [复算](equivalence_check.py) · [结果](equivalence_checked.json)\n\n## 用模数代替整数，何时会错收六条边的标号\n\n六条整数边标号的总和为零，每条绝对值最多为 $H\\ge1$，读出对边和与星形边集的奇偶。若把奇偶单独保留，判断能否整数提升的最小安全模数为 $2H+1$；若要恢复全部整数余量，最小模数为 $4H+1$。若整个方程统一取模，奇数模数看不见二阶障碍，相应最小模数变成 $2H+2$ 和 $4H+2$。文中给出了误收数和临界比例。这是根据公开整数模型分出的未编号研究；原有 R1 执行的资源决定保留在其交接记录中。[截界、反例与极限](carrier.md) · [复算](carrier_check.py) · [结果](carrier_checked.json)\n\n## 投影后的高斯素数路径怎样丢失隐藏方向\n\n对有限可逆商图的整数平移提升，令 $H$ 为闭路净位移生成的格，$A$ 为可观测坐标的整数投影。在一个连通分量和固定顶点类型内，给定可达观测值后，隐藏位置形成 $H\\cap\\ker A$ 的陪集，其秩为 $\\operatorname{rank}H-\\operatorname{rank}(AH)$。该秩为正时，即使外部观察只落在一个有限分量，原路径仍可能到达无穷多个位置。若进一步要求一个完整周期分量的仿射高斯整数读数处处为素数，则 $AH=0$ 是必要条件。否则可从一个高斯素数 $\\pi$ 出发实现整条非恒定等差列，沿其下方有理素数的倍数取步，会再次被 $\\pi$ 整除并最终越过四个相伴元。该算术障碍与原生载体是否具备所需投影分别核对。[转移条件、例子与计数](paths.md) · [复算](paths_check.py) · [结果](paths_checked.json)\n\n## 状态机轮转\n\n正式登记研究取等效原理的组成响应与高斯素数路径投影。双范数的联合分布和整数边盒的模判据分别作为未编号数学进展。截至 2026-11-18 22:19:37 UTC，累计直接覆盖 51 个父目标的 200 个任务；计入早期两项间接引用为 53 个父目标的 202 项。未轮转部分仍有 58 项严格就绪、22 项待交接、5 项冻结。[调度来源与未轮转积压](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/aa70186f6e402df5ccaf653d3484512514266b85/research_notes/portable_direct/20261118_fair_queue_6b0fba/fortysixth/README.md",
+      "encoding": "utf-8",
+      "sha": "4e3c52fc8f7920c9bfe1ed1e8d5bc0f07712b13e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
