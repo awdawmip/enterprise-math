@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "model": "positive integer labeled two-Port unimodular threshold; not native X6 event",
+  "tested_M_range": [
+    6,
+    96
+  ],
+  "tested_matrix_instances": 360304,
+  "tested_noncanonical": 351386,
+  "top_j_certificates": 403,
+  "tested_square_minus_one_t_range": [
+    4,
+    40
+  ],
+  "samples": {
+    "6": {
+      "certified_j": 2,
+      "actual_canonical_before_intrusion": 3,
+      "best_noncanonical_threshold": 30
+    },
+    "15": {
+      "certified_j": 2,
+      "actual_canonical_before_intrusion": 3,
+      "best_noncanonical_threshold": 1815
+    },
+    "20": {
+      "certified_j": 3,
+      "actual_canonical_before_intrusion": 3,
+      "best_noncanonical_threshold": 4420
+    },
+    "24": {
+      "certified_j": 3,
+      "actual_canonical_before_intrusion": 3,
+      "best_noncanonical_threshold": 8664
+    },
+    "32": {
+      "certified_j": 4,
+      "actual_canonical_before_intrusion": 5,
+      "best_noncanonical_threshold": 19488
+    },
+    "64": {
+      "certified_j": 5,
+      "actual_canonical_before_intrusion": 6,
+      "best_noncanonical_threshold": 192576
+    },
+    "80": {
+      "certified_j": 6,
+      "actual_canonical_before_intrusion": 6,
+      "best_noncanonical_threshold": 403280
+    },
+    "96": {
+      "certified_j": 6,
+      "actual_canonical_before_intrusion": 8,
+      "best_noncanonical_threshold": 685995
+    }
+  },
+  "square_family_samples": [
+    {
+      "t": 4,
+      "M": 15,
+      "witness": 1815
+    },
+    {
+      "t": 5,
+      "M": 24,
+      "witness": 8664
+    },
+    {
+      "t": 6,
+      "M": 35,
+      "witness": 29435
+    },
+    {
+      "t": 10,
+      "M": 99,
+      "witness": 784179
+    },
+    {
+      "t": 20,
+      "M": 399,
+      "witness": 57312759
+    },
+    {
+      "t": 40,
+      "M": 1599,
+      "witness": 3886339119
+    }
+  ],
+  "exact_arithmetic": "JS Number integers safe over finite exhaustive domain; no numerical tolerance",
+  "limitations": "finite verification complements infinite parameter proof in paper"
+}
