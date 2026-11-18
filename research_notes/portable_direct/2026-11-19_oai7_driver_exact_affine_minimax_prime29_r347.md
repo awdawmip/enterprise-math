@@ -13,7 +13,7 @@ The minimum of (q(\mu)) over **all** distributions on the (inom{29}{5}=118755) 
 \boxed{q^*_{29,5,4,0}=\frac{2024467747}{3324255613}
        =0.6089988203924558\ldots}. \tag{347.1}
 ]
-An attaining distribution is uniform conditional on each of **14 specified affine orbits** of five-sets, with the exact orbit weights below. It uses more than the 29 equiprobable rows of r346; (347.1) is therefore a stronger feasible minimax result for unrestricted random codebooks, not a claim about optimal 29-row or entropy-\(\log29\) constructions. The selected orbits contain 10,962 distinct five-sets and yield Shannon entropy \(H(C)=12.799695400978694\) bits for the **unordered-set selection**, compared with r346's 29-row \(\log_2 29=4.857980995127572\) bits. This is an entropy/coverage tradeoff; no equal-coordinate ordered implementation is asserted for the r347 mixture. The earlier r345 finite universal bound (50/91) is sharpened to equality (347.1) for the unrestricted minimax problem.
+An attaining distribution is uniform conditional on each of **14 specified affine orbits** of five-sets, with the exact orbit weights below. It uses more than the 29 equiprobable rows of r346; (347.1) is therefore a stronger feasible minimax result for unrestricted random codebooks, not a claim about optimal 29-row or entropy-\(\log29\) constructions. The selected orbits contain 10,962 distinct five-sets and yield Shannon entropy \(H(C)=12.799695400978694\) bits for the **unordered-set selection**, compared with r346's 29-row \(\log_2 29=4.857980995127572\) bits. This is an entropy/coverage tradeoff. **The same entropy is achieved by an ordered shared-shift sequence with exactly uniform marginal distribution in each of the five positions and no auxiliary ordering seed:** the distribution is translation-invariant, and the deterministic translation-equivariant ordering described below is injective. The earlier r345 finite universal bound (50/91) is sharpened to equality (347.1) for the unrestricted minimax problem.
 
 ## Reduction to a 33-by-150 exact matrix
 
@@ -28,6 +28,10 @@ Order both orbit sets by their first appearance while scanning the *sorted trans
  \mathbf1\{|K_i-(C+t)|\le16\}.
 ]
 The threshold is exact: (V_C(K)>29^{3/4}) iff (V_C(K)\ge13) iff (|K-C|\le16). For any orbit mixture (w\ge0), (\sum_jw_j=1), its worst-test failure is (\max_i\sum_j A_{ij}w_j).
+
+### Deterministic equal-position ordering without additional entropy
+
+For each 5-set translation class, fix one representative `S` and any ordering `(s_1,...,s_5)` of its elements. Every set `C` in that class has a **unique** representation `C=S+t`: uniqueness follows because a nonzero translation of the prime group cannot fix a nonempty proper subset. Define its ordered vector `H(C)=(s_1+t,...,s_5+t)`. Then `H(C+t')=H(C)+t'` coordinatewise. The affine-invariant optimal law is in particular translation invariant, hence conditional on its translation class, `t` is uniform over all 29 shifts. Every coordinate `H_i` is therefore uniform over `F_29`. Recovery of the unordered set from `H` proves that the map `C→H` is injective, so the **joint Shannon entropy is unchanged**, `H(H)=H(C)=12.799695400978694` bits (logarithms base 2). No auxiliary random permutation is needed. This is a constructive finite result; native X6/Link/Port transport is a separate model.
 
 ## Exact rational primal and dual certificate
 
