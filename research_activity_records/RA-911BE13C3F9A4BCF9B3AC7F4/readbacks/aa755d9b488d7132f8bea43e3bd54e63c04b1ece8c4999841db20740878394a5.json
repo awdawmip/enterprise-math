@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/thirteenth/README.md",
+    "ref": "da669dd65667aca9e0ace0474c2cba89e615c758",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-thirteen-20261118-3",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第十三轮：特征七的三个 Prym 商、三次高斯和与四个有限模型\n\n截至取材时，状态机的 211 项严格就绪研究中，此前有 144 项尚未轮到。本轮选取六个不同父目标各一项，首次覆盖 X6 因子分层的有限群观察问题。累计 75 个任务、37 个父目标。本快照还余 138 项未选，其中 P1 三项、P2 一百三十五项。两个前置审计仍待正式验收。P11 的原生 Magma 请求和 m7 的指定一次性计算均无公开执行结果。[来源与就绪快照](fair_snapshot.json)\n\n## 两项算术结论\n\n**特征七的 Prym 四维簇。** 对指定 Prym 簇 $P$ 的极化核 $E[2]$，沿三条线作商得到三个几何上两两不同构的主极化阿贝尔四维簇。每个的最小有限定义域为 $\\mathbf F_{343}$。三者均不可分解，也都不在光滑亏格四曲线的 Jacobian 轨迹上。阻碍来自四阶自同构：在三个商上，两个特征值的余切重数为 $(3,1)$；在候选曲线上，强 Torelli 定理与超椭圆模型要求 $(2,2)$。论证另用积分 Tate 模识别哪些商间同构会提升至原簇。文内列出已用的上游几何输入。[推导](theta.md) · [有限域核验](theta_check.py) · [结果](theta_checked.json)\n\n**艾森斯坦整数上的三次高斯和。** 外稿强色散估计里的主项分别由正平方的非零立方频率、Type I 混合项及模型平方产生，三个贡献在同一规范化下以 $1,-2,1$ 相消。若移除支撑的粗糙性，所有系数可支撑在一个固定素理想 $\\pi$ 的倍数上，仍有要求的特征等分布，却给原校正平方留下至少常数乘 $\\mathcal Q/(N\\pi+1)^3$ 的量。另得到平方自由互素指示函数的极限 Gram 核\n\\[\n K(b,c)=\\rho_b\\rho_c\\sum_{d|(b,c)}(Nd)^{-1},\\qquad \\rho_b=\\prod_{\\pi|b}(1+1/N\\pi)^{-1}.\n\\]\n它把局部筛选的方差分解成各共同因子的平方和，给出允许小素因子时最佳单系数校正的主项。[逐项审计与反例](dispersion.md) · [复算程序](dispersion_check.py) · [结果](dispersion_checked.json)\n\n| 方向 | 本轮结果 |\n|---|---|\n| 循环群有向观测 | 宽度为 $R$ 的有限域三频族中，完整值直方图与所有低于 $R$ 阶的有向相关仍可能遗漏一个方向比特。一个固定两项滤波即可检出差别，第 $R$ 阶足以恢复。对两条平移轨道，无分支二元乘法电路的最小乘法深度为 $\\lceil\\log_2R\\rceil$。从冻结的无权 X6 种子产生这些反例仍待证明。[定理与边界](observer.md) · [复算](observer_check.py) · [结果](observer_checked.json) |\n| 有限尺度前缀 | 对平方尺度集 $A$，把同一规范有理中点归并，均匀小数部分下不同中点数的期望为 $\\sum_v\\varphi(v)/\\min_{a\\in A:\\, v\\mid a}a$，只对存在倍数的 $v$ 求和。$A=\\{1,\\ldots,L\\}$ 时为 $6L/\\pi^2+O(\\log L)$。两组各 48 个公开小整数上的前缀比较给出不同的净收益；这两个经验群体按根状态访问数计算的混合盈亏点是 $731/1115$。[公式与费用](prefix.md) · [程序](prefix_check.py) · [确定性账本](prefix_checked.json) · [九轮计时](prefix_timing.json) |\n| 加权提升 | 固定同一随机六轴包、保护种子和作用类质量观察，WL 与 WM 穷尽后给出同一修复帧集。预算为 1 时，三进制例中两边已证的帧数却为 0 与 $3^{17}$。对不同包，先有一个高层运输帧，才能用左包自对称核恢复整套运输。[定理与反例](weights.md) · [原接口交叉复算](weights_check.py) · [结果](weights_checked.json) |\n| P1 中断态审计 | 冻结的 24 个损伤态在任意 $0<\\delta\\le1$ 下，首个宏步的中断概率只有 19 种；恰在第二宏步首次中断的概率能区分全部 24 态。最小两态差在 $\\delta\\downarrow0$ 时为 $\\Theta(\\delta^2)$。复核范围限于原 U27，并披露对后继 T01–T04 的既有贡献。[全参数证书](priority.md) · [复算](priority_check.py) · [结果](priority_checked.json) · [接触范围](INDEPENDENCE_AND_EXPOSURE.json) |\n\n本轮的两个识别结果说明了不同类型的边界。三频循环族可用一个**定向**的高阶读数消除歧义；损伤态模型只需把读数从首步延伸至第二步。在这两个模型中，阶数和时间都能被单独计量，且有达到下界的实例。\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/da669dd65667aca9e0ace0474c2cba89e615c758/research_notes/portable_direct/20261118_fair_queue_6b0fba/thirteenth/README.md",
+      "encoding": "utf-8",
+      "sha": "739ab4ed5cee9a4d1c69c540abd5e05c8b51c679"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
