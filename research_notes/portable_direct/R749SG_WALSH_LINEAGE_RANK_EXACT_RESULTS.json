@@ -1,0 +1,28 @@
+{
+  "schema": "EM_R749SG_EXACT_FINITE_GRAPH_VERIFICATION_V1",
+  "date": "2026-11-12",
+  "status": "PASS",
+  "model": "960 signed directed edges / 120 unsigned supports / eight signed lifts",
+  "arithmetic": "Python integers; exact fixed rational conditional kernels: p=0,1/2,1",
+  "signed_vertices": 60,
+  "signed_directed_edges": 960,
+  "unsigned_directed_edges": 120,
+  "depth_two_paths_tested": 15360,
+  "depth_three_paths_tested": 512,
+  "p_half_depth_two_rank_histogram": {
+    "r3_rank8": 120,
+    "r2_rank4": 1680,
+    "r1_rank2": 5880,
+    "r0_rank1": 0
+  },
+  "p_zero_depth_two_rank_histogram": {
+    "r3_rank8": 0,
+    "r2_rank4": 0,
+    "r1_rank2": 7680,
+    "r0_rank1": 0
+  },
+  "p_one_forced_rows_tested": 120,
+  "native_event_permission": false,
+  "source": "R749SG_WALSH_LINEAGE_RANK_EXACT_CHECK.py",
+  "verification_basis": "An independently implemented signed graph vs sparse Walsh lineage formula; universal finite-horizon theorem proved separately by induction."
+}

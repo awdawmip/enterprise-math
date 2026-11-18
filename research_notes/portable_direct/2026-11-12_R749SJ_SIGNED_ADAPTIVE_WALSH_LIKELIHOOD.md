@@ -1,0 +1,83 @@
+# R749SJ — Exact signed-adaptive observation likelihoods and rational Walsh posterior filter
+
+Date: 2026-11-12 Asia/Shanghai. Direct mathematical continuation of R749SI, R749SG, R749SH on the original frozen R749 model `a72226e2430ffa4786321ac86e7f0c599d5f0389`. Current Researcher EM-DIRECT-F5DC4E; Activity RA-C90B76621B9191DE224257C3; no shared-task CLAIM asserted. Evidence class: author-side exact theorem plus independent finite rational checker, PR #2183 Draft.
+
+## 1. Typed model and allowed extension
+
+Use R749SF's exact 120 unsigned directed supports, with eight signed lifts and 960 signed states. A positive-probability fixed unsigned support path `omega=(e_0,...,e_m)` determines exact conditioned eight-state signed transition matrices `T_t`: a forced C1 completion copies two signs and BSC-transfers the third with correlation
+`theta=8p/(1+7p)`; a nonforced support step copies two and creates one independent fair sign. Only positive-probability transitions of the original kernel may be conditioned upon (for p=1 only forced steps).
+
+R749SF assumed the unsigned-support observation likelihood does not depend on hidden signs. Here permit a specified extra observation or *controller* at time t with nonnegative likelihood `ell_t(x_t)`, which may depend on the already observed unsigned-support history as public conditioning data and the **current** three hidden signs `x_t`. Its observed outcome contributes the path-likelihood factor `ell_t(X_t)`. The gate might implement a signed-state-sensitive choice of which support is selected, or an extra emission. For each conditioned word the allowed factors are fixed before hidden-state integration. The resulting model is an explicitly changed observation/controller model; it retains the same internal R749SF transition once the support sequence is specified.
+
+Let `mu` be any initial eight-lift prior, `S_t` an arbitrary signed-Walsh query mask on state `X_t`, and write `chi_S(x)=product_{i in S}x_i`. Assume the selected augmented observation has strictly positive probability under `mu`.
+
+## Theorem 1 — Exact fractional-linear source-Walsh posterior
+
+The augmented conditional joint parity expectation is
+
+```
+                 sum_x mu(x) E_x[ product_(t=0)^m ell_t(X_t) chi_(S_t)(X_t) ]
+E[product chi | augmented observations, omega] = ------------------------------------------------------
+                 sum_x mu(x) E_x[ product_(t=0)^m ell_t(X_t) ]
+```
+
+Both numerator and denominator are affine-linear functions of the eight initial prior masses and therefore affine-linear in the eight initial Walsh moments, with constant `mu_hat(empty)=1`. There exist exact coefficient arrays `N_W,D_W` indexed by the eight initial signed-axis masks such that
+
+```
+ E[ product chi | observations ] =
+    (sum_W N_W mu_hat(W)) / (sum_W D_W mu_hat(W)).
+```
+
+For rational p and rational gate values, every coefficient is rational. These arrays can be computed exactly by a backwards eight-Walsh-coordinate dynamic program, `O(64m)` arithmetic operations and eight rational working coordinates (if all gate arrays are given as eight-cell tables).
+
+**Proof.** Set `g_m(x)=ell_m(x)chi_(S_m)(x)`. In reverse order define
+`g_(t-1)(x)=ell_(t-1)(x)chi_(S_(t-1))(x) [T_t g_t](x)`.
+For the denominator use the identical recursion with all S empty. Because each T is a linear Markov operator, both final expressions are linear functionals of mu. On a signed three-cube, the eight Walsh characters form a complete basis; multiplying two Walsh expansions convolves masks by XOR and the forced/nonforced T pullbacks are exactly the monomial-or-zero character transport proved in R749SI. Each stage therefore requires at most 8×8 exact rational multiply-adds, followed by an O(8) transport. Conditioning divides numerator by a strictly positive denominator. Initial moments `mu_hat(W)` are the Walsh change of coordinates of the initial distribution. If every ell is hidden-sign independent, its factors cancel and the rule reduces to R749SI's `0` or `theta^k mu_hat(W)`.
+
+**Query sufficiency.** For any given finite family of augmented observations and signed-query products, it is sufficient to retain the union of initial Walsh coordinates with nonzero numerator or denominator coefficients, plus the known empty-mask normalization. This is a constructive observer-safe state carrier. We do not assert that this union is always minimal under nonlinear posterior-ratio equivalences: algebraic cancellation and dependence between particular ratios can compress it further.
+
+## Theorem 2 — Exact counterexample to source-blindness under signed-adaptive support selection
+
+Take A={0,1}, B={1,2}, so the old-only signed axis is 0. Let a controller choose between the forced support C_f=A△B={0,2} and **one fixed** legal nonforced support C_n, with
+
+```
+ Pr(choose C_f | X_0)= (2+X_0(0))/4,
+ Pr(choose C_n | X_0)= (2-X_0(0))/4.
+```
+
+The two probabilities sum to one for each initial sign, and lie in {1/4,3/4}. The ordinary R749SF signed transition conditional on the chosen unsigned support is then applied. Other legal unsigned choices are not part of this two-outcome controller. Let `m=E_mu[X_0(0)]` be any prior mean in [-1,1]. The forced choice has probability `(2+m)/4 >0` and the initial-sign posterior mean is
+
+```
+ E[X_0(0) | chosen C_f] = (1+2m)/(2+m).
+```
+
+In particular a uniform initial signed prior has m=0 and posterior mean 1/2. The new signed axis 0 after the forced BSC has conditional mean `theta/2`, or **4/9** when p=1/2. Thus an unsigned controller choice that depends on hidden signed source can convey source information, in sharp contrast with the original sign-blind homogeneous R749SF observation rule. This is a constructive changed-model counterexample, not a contradiction of R749SF within its hypotheses.
+
+**Proof.** P(X_0(0)=±1)=(1±m)/2; multiply by choice probabilities 3/4 and 1/4 respectively. Their sum is (2+m)/4 and their signed difference (1+2m)/4, yielding the ratio. The forced conditional transition independently BSC-multiplies the sign mean by theta.
+
+## Exact finite verification
+
+`R749SJ_ADAPTIVE_SIGNED_SELECTION_CHECK.py` uses standard-library fractions.Fraction. For every one of the 120 unsigned directed supports and each legal next support (eight candidates), tests p=0 and p=1/2, plus only the forced positive-probability next support at p=1, totaling 2040 conditioned single-step words. For each **individual candidate** support, the controller has that candidate and its complementary forced/nonforced alternative; no normalization across all seven nonforced candidates is presumed. Add two nonconstant sign-sensitive gates: an initial force-versus-nonforce support-choice likelihood and a later copied-axis emission likelihood `(2+Y_b)/4`. For all 8×8 two-time Walsh mask pairs and eight initial signed lifts, directly enumerate exact transition outcomes and compare with the independently constructed XOR-convolution and R749SI Walsh-backwards formula. This checks 2040×64×8 = **1,044,480 exact rational equalities**, all PASS. Five initial means and three p values separately check the conditional-posterior formula and the forced-output sign expectation.
+
+Actual checker stdout in `R749SJ_ADAPTIVE_SIGNED_SELECTION_RESULTS.json`:
+```
+{
+  "conditioned_two_gate_words": 2040,
+  "exact_joint_walsh_equalities": 1044480,
+  "forced_final_sign_p_half_at_uniform_prior": "4/9",
+  "native_event_permission": false,
+  "parameter_values": ["0","1/2","1"],
+  "signed_dependence_example": "posterior initial m = (1+2m)/(2+m)",
+  "signed_lifts_each": 8,
+  "status": "PASS",
+  "unsigned_directed_supports": 120
+}
+```
+
+The exact all-horizon assertion follows algebraically from the backwards Markov/Walsh recursion. This finite checker validates its one-step kernel, rational gate and Fourier-convolution constituents; it does not establish a physical Cell/Link/Port event license.
+
+## Research continuation
+
+1. Classify which adaptive support-selection policies preserve an eight-state sufficient filter when the policy sees past signed emissions; make hidden controller memory explicit when needed.
+2. For a declared posterior-query language, characterize the minimal **ratio-equivalence** initial moment carrier by simultaneous numerator/denominator linear forms (strictly sharper than the sufficient union above).
+3. Compare a concrete native V29/V39 three-force closure permissioned event against the R749SF/R749SJ typed sign-sensitive observation hypotheses before asserting an event-level realization.
