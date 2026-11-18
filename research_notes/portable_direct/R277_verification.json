@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "primes": [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17
+  ],
+  "t_range": [
+    1,
+    4
+  ],
+  "h_range": [
+    1,
+    4
+  ],
+  "unit_residues": "ALL_NONZERO",
+  "cases_by_prime": {
+    "2": 16,
+    "3": 32,
+    "5": 64,
+    "7": 96,
+    "11": 160,
+    "13": 192,
+    "17": 256
+  },
+  "cases_total": 816,
+  "source_note": "Python stdlib Fraction exact matrix determinant, p-adic valuation, row sums, and unit surjectivity; regenerate with R277_prime_unit_residue_checker.py"
+}
