@@ -1,0 +1,100 @@
+# 同一 Mellin 信号的极点能量与边界检验
+
+对冻结稿的逆 Mellin 信号，每个可见的 \(m\) 阶极点都会强制一个**临界加权均方下界**。同一直线上的不同高度按极点首系数的模平方相加；精确的通用系数是 \(\binom{2m-2}{m-1}\)。另一方面，实际 Eisenstein 主特征的 \(L\) 函数在 \(1\) 的极点使信号总 Mellin 矩的 Abel 极限为零，其首个对数矩却是可算的非零数。这两个判断分别检验零点与极点经过取倒数后的行为。
+
+任务 RS-OAI7-003-B。第八轮研究局部六次相位的可逆性，第十五轮研究同一特征行和高度的联合矩；这两项均未提供本文所需的两条全尺度幂次界。[冻结任务书](https://github.com/awdawmip/enterprise-math/blob/ff3a4a4f203e77db68631232ce85d89c595595f9/research_tasks/RS-OAI7-003-B-20261007-6F2A81.md) · [第八轮局部变换](https://github.com/awdawmip/enterprise-math/blob/ff3a4a4f203e77db68631232ce85d89c595595f9/research_notes/portable_direct/20261118_fair_queue_6b0fba/eighth/theta.md) · [第十五轮联合矩](https://github.com/awdawmip/enterprise-math/blob/ff3a4a4f203e77db68631232ce85d89c595595f9/research_notes/portable_direct/20261118_fair_queue_6b0fba/fifteenth/joint.md)
+
+## 1. 源判据的共同余量
+
+设 \(F=\mathbb Q(\sqrt{-3})\)，\(\eta\) 取遍本原有限阶 Hecke 特征，\(\beta_*\) 为 \(1/2\) 和此族中 \(1/2\le\Re\rho\le1\) 所有零点实部的上确界，排除极点。给定 \(1/2<\sigma_0<1\)，反设 \(\Delta=\beta_*-\sigma_0>0\)。写 \(a=5/6,\ C(s)=s+c\)，其中 \(c\) 为预先固定的实数。对每个目标固定同一有限删素集 \(S\)、同一全纯修正 \(H=H_\eta\)，满足 \(\sup_{\Re s>\sigma_0}|H-1|\le1/2\)。简记
+\[
+ D(s)=L_F^S(s,\eta),\quad A(s)=e^{(s-a)^2}H(s)/D(s),\quad
+ f(Z)=\frac1{2\pi i}\int_{(2)}Z^{s+c}A(s)\,ds .
+\]
+假定同一 \(J=J_\eta\) 对所有充分大的实 \(Z\) 同时满足
+\[
+ |J(Z)|\ll_\eta Z^{\sigma_0+c+\omega},\qquad
+ |J(Z)-f(Z)|\ll_\eta Z^{\beta_*+c-\sigma},
+ \quad 0<\omega<\Delta,\quad \sigma>0.                                      \tag{1}
+\]
+两正幂预先独立于 \(\eta\)，常数、起始尺度、\(H,S\) 可依赖目标。令 \(\epsilon_*=\min(\Delta-\omega,\sigma)\)、\(b=\beta_*-\epsilon_*\)。由三角不等式，\(f(Z)\ll_\eta Z^{b+c}\)，且 \(\sigma_0<b<\beta_*\)。把高端比较错放到 \(\sigma_0+c\)，会实质改变第二个假设。
+
+在 \(2\le\Re s\le B\) 上倒 Euler 积一致有界，高斯因子垂直衰减为 \(O_B(e^{-t^2})\)。由矩形移至任意固定 \(B>2\) 得 \(f(Z)=O_{\eta,B}(Z^{B+c})\)（\(0<Z\le1\)）。于是 \(\int_0^\infty f(Z)Z^{-s-c}dZ/Z\) 在 \(\Re s>b\) 的每个紧集局部一致绝对收敛；微分产生的每个固定 \(\log Z\) 幂亦可积。令 \(x=\log Z\)，\(e^{-(2+c)x}f(e^x)\) 是 \(A(2+it)\) 的逆 Fourier 变换，二者均 \(L^1\)，后者连续，故正变换逐点给回 \(A\)。恒等定理将此认同从 \(\Re s=2\) 延至 \(\Re s>1\)，再给 \(A\) 在 \(\Re s>b\) 的全纯延拓。\(H\) 不为零、高斯无零，每个删除因子 \(1-\eta(\mathfrak p)N\mathfrak p^{-s}\) 在 \(\Re s>0\) 无零（分歧局部取值为零时因子为 \(1\)），故 \(D\) 的零点不能被掩盖。由于 \(b\) 先于目标选定，必有某目标零点实部 \(>b\)，矛盾。这是源稿中的条件命题。[原定义、两条幂次与延拓证明](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex#L374)
+
+| 外稿应用 | \(c\) | 低端基线 \(\sigma_0+c\) | 稿件选取的幂 | 共同余量 |
+|---|---:|---:|---|---|
+| \(\sigma_0=11/12\) | \(-2/3\) | \(1/4\) | \(\omega=\Delta/2,\ \sigma=1/4800\) | \(\min(\Delta/2,1/4800)\) |
+| \(\sigma_0=7/8\) | \(-11/16\) | \(3/16\) | \(\omega=\Delta/2,\ \sigma=m_{\rm src}/2\) | \(\min(\Delta/2,m_{\rm src}/2)\) |
+
+第二阶段稿件先固定 \(m_{\rm src}=\tfrac14\min(m_{\rm high},m_w,m_z,m_P)>0\)，其后才针对目标选高度、外部导数阶和起始尺度。表中数值与参数次序依该稿陈述；符号 \(m_{\rm src}\) 与下面的极点重数无关。稿件由局部 Euler 乘积宣称公共小素截断可令 \(\sup|H_\eta-1|\le1/2\)；每一次应用中，物理和、归一化常数和逆 Mellin 积分必须采用同一份数据。此处未独立建立两阶段的算术估计。[主行归一化与非消失](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex#L5520) · [第一阶段的最终参数](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex#L6781) · [第二阶段的参数次序](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex#L16366)
+
+## 2. 极点能量下界及临界幂上的判据
+
+**命题。** 保留上述小 \(Z\) 控制及从绝对收敛侧定义的信号，暂不假设 (1)。固定 \(b>\sigma_0\)。若同一目标的 \(A\) 在有限多个互异的 \(\rho_j=b+i\gamma_j\) 处有同阶 \(m\ge1\) 极点，令 \(u_j=\lim_{s\to\rho_j}(s-\rho_j)^m A(s)\)。则
+\[
+ \liminf_{\delta\downarrow0}(2\delta)^{2m-1}
+ \int_1^\infty |f(Z)|^2 Z^{-2(b+c+\delta)}\,\frac{dZ}{Z}
+ \ \ge\ \binom{2m-2}{m-1}\sum_j |u_j|^2 .                                 \tag{2}
+\]
+可对递增有限极点集取上确界。对冻结稿的无零 \(H\)，\(m\) 就是 \(D\) 的零点重数，
+\[
+ u_j=e^{(\rho_j-a)^2}H(\rho_j)\frac{m!}{D^{(m)}(\rho_j)} .
+\]
+高斯在高度 \(\gamma_j\) 的模为 \(e^{(b-a)^2-\gamma_j^2}\)，对不同高度并不提供统一的正下界。
+
+**推导。** 若某个 \(\delta>0\) 的积分为无穷，所有更小的 \(\delta\) 也为无穷。其余情形下，令
+\(F_+(s)=\int_1^\infty f(Z)Z^{-s-c}dZ/Z\)。对任意 \(\Re s>b\)，取更小的正余量作加权 Cauchy–Schwarz，得到局部一致绝对收敛。负半轴 \(F_-(s)=\int_0^1 f(Z)Z^{-s-c}dZ/Z\) 是整函数。在绝对收敛一侧相认后，有 \(F_+=A-F_-\) 的亚纯延拓，所以 \(F_+\) 在 \(\rho_j\) 有相同主系数。在直线 \(b+\delta\) 上，对只取 \(x=\log Z\ge0\) 的函数用 Plancherel，(2) 的积分即为 \((2\pi)^{-1}\int_{\mathbb R}|F_+(b+\delta+it)|^2dt\)。在各 \(\gamma_j\) 的互不相交固定小区间中令 \(t=\gamma_j+\delta y\)。固定 \(y\) 时
+\(\delta^m F_+(b+\delta+i\gamma_j+i\delta y)\to u_j/(1+iy)^m\)。
+由非负性、Fatou 引理及
+\[
+ \frac{2^{2m-1}}{2\pi}\int_{\mathbb R}(1+y^2)^{-m}dy
+ =\binom{2m-2}{m-1}
+\]
+得证。这里不要求该直线实际达到全族最高零点，也不假设所有不同高度的极点存在统一间隔。
+
+例如若只知道临界幂 \(Z^{b+c}\)，对数因子仍能区分重数：
+\[
+ \limsup_{Z\to\infty}\frac{|f(Z)|}{Z^{b+c}(\log Z)^{m-1}}
+ \ \ge\ \frac{(\sum_j|u_j|^2)^{1/2}}{(m-1)!}.                              \tag{3}
+\]
+有限 limsup 时，用其加任意正误差支配尾部，再积分 \(x^{2m-2}e^{-2\delta x}\) 即得；无穷时自明。故在边界上 \(o(Z^{b+c})\) 已排除该处的简单极点；纯 \(O(Z^{b+c})\) 仍可容纳它。对两项观测可直接应用加权 \(L^2\) 三角不等式，\(\|f\|\le\|J\|+\|J-f\|\)，只需对两边共同定义的足够大 \(Z\) 积分，固定前段乘 (2) 的归一化后消失。
+
+若只给有界全纯 \(H\)，某处 \(D\) 零点重数 \(d\)、\(H\) 零点重数 \(h<d\)，则 (2) 应用重数 \(m=d-h\)，主系数改为 \(e^{(\rho-a)^2}[H^{(h)}(\rho)/h!]d!/D^{(d)}(\rho)\)。若 \(h\ge d\) 此处没有可见极点。这个局部判据精确说明冻结稿的全域非消失条件承担了什么。
+
+## 3. 真主特征在 \(s=1\) 的校准
+
+对 Eisenstein 域的主特征，\(D=\zeta_F^S\) 有简单极点，且
+\[
+ R_S=\operatorname{Res}_{s=1}\zeta_F^S(s)
+ =\frac{\pi}{3\sqrt3}\prod_{\mathfrak p\in S}(1-N\mathfrak p^{-1}).
+\]
+这是 \(\zeta_F(s)=\zeta(s)L(s,\chi_{-3})\)、\(L(1,\chi_{-3})=\int_0^1 dx/(1+x+x^2)=\pi/(3\sqrt3)\) 的直接结果。只从右侧取实数 \(\delta\downarrow0\)，已有两个分别定标的 Abel 极限
+\[
+ \lim_{\delta\downarrow0}\int_0^\infty f(Z) Z^{-1-c-\delta}\,\frac{dZ}Z=0,\qquad
+ \lim_{\delta\downarrow0}\int_0^\infty f(Z) Z^{-1-c-\delta}\log Z\,\frac{dZ}Z
+ =-\frac{e^{1/36}H(1)}{R_S}.                                                \tag{4}
+\]
+对每个 \(\delta>0\) 可在 \(\Re s>1\) 内移线至 \(1+\delta/2\) 以得大 \(Z\) 的可积支配，再依 Fourier 认同分别取得 \(A(1+\delta),-A'(1+\delta)\)。用 \(1/D(s)=(s-1)/R_S+O((s-1)^2)\) 即得极限。该校准无需 (1)，也未将 Abel 极限换作 \(\delta=0\) 处的绝对收敛积分。示例删去 \(2,3\) 上方两个素理想，范数分别为 \(4,3\)，第二个极限除以 \(H(1)\) 得 \(-6\sqrt3e^{1/36}/\pi\in[-3.401149645475,-3.401149645474]\)。正式应用应把其实际 \(S\) 代回。[原稿的 Eisenstein 分解与 \(s=1\) 情形](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex#L6746)
+
+## 4. 有 Dirichlet 系数的尖锐比较族
+
+固定 \(\sigma_0<b<2\)，取 \(q=97,\ h=\log q,\ H=1\)，用 \(D_b(s)=(1-q^{b-s})^m\) 作解析测试。它具有显式 Dirichlet 逆系数；\(q^b\) 的模大于一，不能作为有限阶 Hecke 特征的局部值。在 \(\Re s>b\) 展开几何级数，尤其适用于冻结的起始直线 \(\Re s=2\)。置 \(x=\log Z,\ \phi(x)=e^{(a-b)x-x^2/4}/(2\sqrt\pi)\)，得同一高斯核下的精确式
+\[
+ e^{-(b+c)x} f(e^x)=
+ \sum_{n\ge0}\binom{n+m-1}{m-1}\phi(x-nh).
+\]
+记 \(P(x)=\sum_{n\in\mathbb Z}\phi(x-nh)\)。\(P\) 严格为正、\(h\)-周期，其 Fourier 系数为 \(h^{-1}e^{(b-a+2\pi i k/h)^2}\)。每个 \(b+2\pi i k/h\) 是 \(m\) 重极点，主系数为 \(u_k=h^{-m}e^{(b-a+2\pi i k/h)^2}\)。
+
+若 \(m=1\)，归一化信号为 \(P(x)+O(e^{-x^2/8})\)（\(x\to+\infty\)）。当 \(m\ge2\)，在中心 \(n\approx x/h\) 展开权重多项式，高斯周期和的各个固定绝对矩有界，归一化信号为
+\(x^{m-1}P(x)/((m-1)!\,h^{m-1})+O((1+x)^{m-2})\)。
+将其代回 (2)，周期函数 \(P^2\) 在归一化指数平均中的贡献恰是周期均值（分周期或逐 Fourier 模积分），Parseval 给出
+\[
+ \lim_{\delta\downarrow0}(2\delta)^{2m-1}
+   \int_1^\infty |f(Z)|^2Z^{-2(b+c+\delta)}\,dZ/Z
+ =\binom{2m-2}{m-1}\sum_{k\in\mathbb Z}|u_k|^2 .
+\]
+因此 (2) 在容许上述比较模型的一般 Mellin–Plancherel 命题中系数最佳。在实际有限阶 Hecke 子族中是否仍最佳，尚未确定。设 \(m=1,\ \sigma_0=7/8,\ \beta_\infty=15/16,\ b_j=\beta_\infty-1/(32j)\)。各模型的零点上线为 \(b_j\)，其族上确界为 \(\beta_\infty\)。取 \(J_j=0\)，低界对共同 \(\omega=(\beta_\infty-\sigma_0)/2\) 成立，高界对 \(\sigma_j=\beta_\infty-b_j>0\) 成立。因 \(b_j\) 留在紧区间，周期高斯的绝对上界甚至可独立于 \(j\)，但 \(\inf_j\sigma_j=0\)，族内确有零点任意逼近上确界。这说明仅有各对象正幂仍不足。对单对象，若其零点实部上确界为 \(\theta_\eta>\sigma_0\)，目标专属余量 \(\epsilon_\eta>\beta_*-\theta_\eta\) 已够产生矛盾；等号只从延拓获得开半平面，是否在边界上检出还取决于 (2) 或 (3) 等额外信息。若改取 \(H=D_b\)，逆 Mellin 仅剩高斯，所有这些极点同时消失。
+
+复算程序在真实 \(F=\mathbb Q(\sqrt{-3})\) 的两个删素处，用分裂素因子 \((1-p^{-s})^2\)、惰性因子 \(1-p^{-2s}\) 构造倒 Euler 系数至范数 1024，与 \(\zeta(s)L(s,\chi_{-3})\) 的 Hurwitz zeta 计算在 \(s=4,6\) 比对；尾界取 \(\sum_{n>N}2\sqrt n\,n^{-s}\le 2N^{3/2-s}/(s-3/2)\)。对 \(q=97,b=15/16\) 的比较族，用物理格上高斯求和及 Fourier 级数对读 17 个相位、检验 60 个平移差分，并由实高斯自相关及谱平方和分别重建能量极限。\(m=1,2,3\) 的极限依次约为 \(0.05107628768,\ 0.00488114824,\ 0.00069970653\)。复算用 Python 3 与 python-flint 0.9.0，精确有理数和 256 位 Arb 球算术。两条算术估计在真实目标族上的成立性，仍须从冻结稿的各自尺度与共同掩码另行核查。
+
+[复算程序](mellin_check.py) · [区间及精确常数输出](mellin_checked.json)

@@ -1,0 +1,252 @@
+{
+  "source_pins": {
+    "research_checks/CFD_SPECTRAL_HYBRID_292BCE_20260917.py": "eaa378080453b967a47b820e2a66594b1eaec2398a9381e366c2cdbe65378856",
+    "research_artifacts/CFD_SPECTRAL_HYBRID_292BCE_20260917/static_carrier_native_adapter.py": "c3a8975aaf60e858900146350909983546a86fd6bfe51388fc1c6217a587442b",
+    "research_artifacts/CFD_SPECTRAL_HYBRID_292BCE_20260917/summary.json": "5eaca57874aa5327b1aaed5a7aeb796133d3dea8fc5b0c62a3f3a203105f11c7",
+    "research_artifacts/CFD_SPECTRAL_HYBRID_292BCE_20260917/raw_trials.csv": "cf9d8733633b3191d480534f0e63eb0873574446b87fc323cec51ba5377567f2",
+    "src/enterprise_math/_cell_slice_codec.py": "9eb64264a59e23402c51d8aa20ff9a21ff37dec5f8bd80a97da2f54bbb48a70b",
+    "src/enterprise_math/cell_address.py": "b0ec81867994146ad69e81f73c74cfe58071c361150a84749be7a852536f1329"
+  },
+  "exact": {
+    "distinguishing_depth_histogram": {
+      "1": 10692,
+      "2": 6808,
+      "3": 4028,
+      "4": 2160,
+      "5": 1012,
+      "6": 392,
+      "7": 108
+    },
+    "shells": {
+      "0": 1,
+      "1": 4,
+      "2": 4,
+      "4": 4,
+      "5": 8,
+      "8": 4,
+      "9": 4,
+      "10": 8,
+      "13": 8,
+      "16": 4,
+      "17": 8,
+      "18": 4,
+      "20": 8,
+      "25": 12,
+      "26": 8,
+      "29": 8,
+      "32": 4,
+      "34": 8,
+      "36": 4,
+      "37": 8,
+      "40": 8,
+      "41": 8,
+      "45": 8,
+      "49": 4,
+      "50": 12,
+      "52": 8,
+      "53": 8,
+      "58": 8,
+      "61": 8,
+      "65": 8,
+      "72": 4,
+      "74": 8,
+      "85": 8,
+      "98": 4
+    },
+    "retained_pairs": 28561,
+    "all_ordered_pairs": 50625,
+    "modular_pair_counts": {
+      "15": {
+        "accepted": 50625,
+        "false": 22064
+      },
+      "16": {
+        "accepted": 44521,
+        "false": 15960
+      },
+      "21": {
+        "accepted": 29241,
+        "false": 680
+      },
+      "22": {
+        "accepted": 28561,
+        "false": 0
+      },
+      "24": {
+        "accepted": 28561,
+        "false": 0
+      }
+    },
+    "least_scalar_grid": 22,
+    "cyclic_samples": 484,
+    "cyclic_pairs": 28561,
+    "optimal_lattices": 43,
+    "smith_first_invariant": {
+      "1": 20,
+      "2": 20,
+      "11": 2,
+      "22": 1
+    },
+    "nonzero_alias_witness": {
+      "16": {
+        "q": [
+          2,
+          1,
+          0
+        ],
+        "true_sum": [
+          9,
+          1,
+          0
+        ],
+        "wrapped": [
+          -7,
+          1,
+          0
+        ],
+        "projected_over_i": [
+          0,
+          0,
+          -1
+        ]
+      },
+      "21": {
+        "q": [
+          7,
+          1,
+          0
+        ],
+        "true_sum": [
+          14,
+          1,
+          0
+        ],
+        "wrapped": [
+          -7,
+          1,
+          0
+        ],
+        "projected_over_i": [
+          0,
+          0,
+          -1
+        ]
+      }
+    },
+    "projected_skew_lattice": {
+      "index": 483,
+      "minimum_projected_index": 483,
+      "optimal_projected_Hermite_forms": [
+        [
+          483,
+          22,
+          1
+        ],
+        [
+          483,
+          461,
+          1
+        ]
+      ],
+      "all_Hermite_forms_through_minimum": 192020,
+      "all_noncorner_nonzero_discrepancies_separated": 1844,
+      "mean_mode_projected_mixed_term": [
+        0,
+        0,
+        2
+      ],
+      "short_nonzero_lattice_vectors": [
+        [
+          -21,
+          -21
+        ],
+        [
+          21,
+          21
+        ]
+      ],
+      "accepted_ordered_pairs": 28563,
+      "spurious_ordered_pairs": [
+        [
+          [
+            -7,
+            -7
+          ],
+          [
+            -7,
+            -7
+          ],
+          [
+            7,
+            7
+          ]
+        ],
+        [
+          [
+            7,
+            7
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            -7,
+            -7
+          ]
+        ]
+      ],
+      "zero_projected_polynomial_coefficients_tested": 6,
+      "raw_over_i_with_vertical_unit_amplitude_at_positive_corner": [
+        7,
+        7,
+        0
+      ],
+      "pressure_over_i_defect_at_wrapped_negative_corner": -1
+    }
+  },
+  "finite_source_replay": {
+    "source_table": {
+      "summary_historical_serialization_sha256": "a4cc2577e762d931a63ebdd14261e9007269eba7c352e20584739f783ab42d63",
+      "csv_historical_crlf_sha256": "5526f5ac3c3430ccf72bfe2a5a75d908bd3a1c9fd5a536cd9f4fa1bdb4e72965",
+      "initial_signed": 4,
+      "rounds": 5,
+      "detector_pairs": 36398,
+      "carrier_size": 225,
+      "raw_trial_rows": 14,
+      "fft_historical_median": 0.06596605200002159,
+      "static_historical_median": 0.06252464700003202
+    },
+    "address_count": 225,
+    "source_half_storage_labels": 1800,
+    "source_signed_box": 3375,
+    "negative_third_axis_references": 1575,
+    "same_value_crossing": [
+      [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "invalid_address_rejections": 2,
+    "rhs_stages": 48,
+    "equal_stages": 48,
+    "byte_equal_stages": 48,
+    "stage_rhs_byte_equal_after_omitting_keep": 0,
+    "final_packed_byte_equal": true,
+    "final_equal": true,
+    "all_offplane_stage_entries_zero": true,
+    "retained_pressure_projector_columns_tested": 5400
+  }
+}
