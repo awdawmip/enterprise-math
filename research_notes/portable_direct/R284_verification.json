@@ -1,0 +1,36 @@
+{
+  "schema": "EM_R284_EXACT_PORT_GRID_CERTIFICATE_V1",
+  "date": "2026-11-18",
+  "source_frozen": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "predecessor_commit": "2f1fe5486edac9ffa88b52a562c33981785bd036",
+  "status": "PASS",
+  "arithmetic": "Python standard library fractions.Fraction; exact symbolic permutation determinants and matrix inverse",
+  "checker": "research_notes/portable_direct/R284_mixed_port_grid_checker.py",
+  "random_model_pairs": 72,
+  "random_seed": 28420261118,
+  "random_n": [
+    3,
+    4
+  ],
+  "random_m": [
+    1,
+    2,
+    3
+  ],
+  "random_pairs_each_case": 12,
+  "explicit_observer_checks": 20,
+  "pure_acyclic_grid_size": 4,
+  "mixed_grid_size": 6,
+  "p2_kappa_acyclic": 0,
+  "p2_kappa_one_cyclic": 1,
+  "p13_kappa_one_cyclic": 0,
+  "theorem_proof_kind": "symbolic determinant-cycle support plus tensor Lagrange interpolation",
+  "finite_coverage": "72 seeded model pairs check per-coordinate polynomial degree and absence of denominators in acyclic edit variables; 20 exact rational inverse/readout checks of two explicit witnesses; explicit p-adic node-loss checks",
+  "not_claimed": [
+    "all port graphs exhausted",
+    "independent mathematical review",
+    "native X6 provenance/operation map",
+    "minimal sampling cardinality",
+    "unbounded physical fidelity"
+  ]
+}
