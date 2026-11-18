@@ -1,0 +1,361 @@
+{
+  "projective_prime_count": 171,
+  "projective_depth": 8,
+  "primes_tested": "all 5<=p<1000 plus 1009,10007,10009,65537,100003",
+  "certified_first_failures": [
+    {
+      "depth": 1,
+      "absolute_fraction": [
+        6,
+        1
+      ],
+      "new_bad_primes": []
+    },
+    {
+      "depth": 2,
+      "absolute_fraction": [
+        37,
+        2
+      ],
+      "new_bad_primes": [
+        5,
+        7,
+        37
+      ]
+    },
+    {
+      "depth": 3,
+      "absolute_fraction": [
+        4119,
+        74
+      ],
+      "new_bad_primes": [
+        11,
+        13,
+        1373
+      ]
+    },
+    {
+      "depth": 4,
+      "absolute_fraction": [
+        16971637,
+        101602
+      ],
+      "new_bad_primes": [
+        19,
+        31,
+        599,
+        809,
+        823,
+        6197,
+        16971637
+      ]
+    },
+    {
+      "depth": 5,
+      "absolute_fraction": [
+        864140356278519,
+        1724352262474
+      ],
+      "new_bad_primes": [
+        17,
+        53,
+        73,
+        113,
+        643,
+        677,
+        727,
+        4027,
+        252341,
+        295037,
+        462401,
+        7274341,
+        10181887,
+        17073239
+      ]
+    }
+  ],
+  "tree_permutation_enumeration": [
+    {
+      "depth": 1,
+      "group_size": 2,
+      "fixed_leaf_counts": {
+        "0": 1,
+        "2": 1
+      },
+      "fraction_with_fixed_leaf": "1/2"
+    },
+    {
+      "depth": 2,
+      "group_size": 8,
+      "fixed_leaf_counts": {
+        "0": 5,
+        "2": 2,
+        "4": 1
+      },
+      "fraction_with_fixed_leaf": "3/8"
+    },
+    {
+      "depth": 3,
+      "group_size": 128,
+      "fixed_leaf_counts": {
+        "0": 89,
+        "2": 20,
+        "4": 14,
+        "6": 4,
+        "8": 1
+      },
+      "fraction_with_fixed_leaf": "39/128"
+    },
+    {
+      "depth": 4,
+      "group_size": 32768,
+      "fixed_leaf_counts": {
+        "0": 24305,
+        "2": 3560,
+        "4": 2892,
+        "6": 1272,
+        "8": 534,
+        "10": 152,
+        "12": 44,
+        "14": 8,
+        "16": 1
+      },
+      "fraction_with_fixed_leaf": "8463/32768"
+    }
+  ],
+  "exceptional_conjugacies": {
+    "5": {
+      "image_sizes": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "periodic": 3
+    },
+    "7": {
+      "image_sizes": [
+        4,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "periodic": 1
+    }
+  },
+  "lattes_37": [
+    {
+      "twist": 1,
+      "group_order": 50,
+      "image_order": 25,
+      "x_image_size": 13
+    },
+    {
+      "twist": 2,
+      "group_order": 26,
+      "image_order": 13,
+      "x_image_size": 7
+    }
+  ],
+  "examples": {
+    "5": {
+      "legendre6": 1,
+      "first_bad_through_depth8": 2,
+      "image_sizes": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "histogram_depth3": {
+        "0": 3,
+        "1": 2,
+        "4": 1
+      },
+      "periodic_points": 3
+    },
+    "7": {
+      "legendre6": -1,
+      "first_bad_through_depth8": 2,
+      "image_sizes": [
+        4,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "histogram_depth3": {
+        "0": 7,
+        "8": 1
+      },
+      "periodic_points": 1
+    },
+    "13": {
+      "legendre6": -1,
+      "first_bad_through_depth8": 3,
+      "image_sizes": [
+        7,
+        5,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "histogram_depth3": {
+        "0": 11,
+        "2": 1,
+        "6": 2
+      },
+      "periodic_points": 3
+    },
+    "37": {
+      "legendre6": -1,
+      "first_bad_through_depth8": 2,
+      "image_sizes": [
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19
+      ],
+      "histogram_depth3": {
+        "0": 19,
+        "2": 19
+      },
+      "periodic_points": 19
+    },
+    "1009": {
+      "legendre6": 1,
+      "first_bad_through_depth8": null,
+      "image_sizes": [
+        506,
+        378,
+        300,
+        254,
+        220,
+        194,
+        170,
+        151
+      ],
+      "histogram_depth3": {
+        "0": 710,
+        "2": 148,
+        "3": 2,
+        "4": 109,
+        "6": 28,
+        "8": 13
+      },
+      "periodic_points": 63
+    },
+    "10007": {
+      "legendre6": 1,
+      "first_bad_through_depth8": null,
+      "image_sizes": [
+        5005,
+        3737,
+        3023,
+        2557,
+        2233,
+        1993,
+        1809,
+        1655
+      ],
+      "histogram_depth3": {
+        "0": 6985,
+        "2": 1513,
+        "3": 2,
+        "4": 1114,
+        "6": 316,
+        "8": 78
+      },
+      "periodic_points": 135
+    },
+    "10009": {
+      "legendre6": 1,
+      "first_bad_through_depth8": null,
+      "image_sizes": [
+        5006,
+        3767,
+        3089,
+        2635,
+        2333,
+        2093,
+        1905,
+        1739
+      ],
+      "histogram_depth3": {
+        "0": 6921,
+        "2": 1622,
+        "4": 1101,
+        "5": 2,
+        "6": 280,
+        "8": 84
+      },
+      "periodic_points": 155
+    },
+    "65537": {
+      "legendre6": -1,
+      "first_bad_through_depth8": null,
+      "image_sizes": [
+        32769,
+        24561,
+        19969,
+        16979,
+        14865,
+        13239,
+        11957,
+        10897
+      ],
+      "histogram_depth3": {
+        "0": 45569,
+        "2": 10159,
+        "4": 7326,
+        "6": 1978,
+        "8": 506
+      },
+      "periodic_points": 731
+    },
+    "100003": {
+      "legendre6": 1,
+      "first_bad_through_depth8": null,
+      "image_sizes": [
+        50003,
+        37475,
+        30445,
+        25787,
+        22471,
+        19985,
+        18045,
+        16491
+      ],
+      "histogram_depth3": {
+        "0": 69559,
+        "2": 15515,
+        "3": 2,
+        "4": 11056,
+        "6": 3116,
+        "8": 756
+      },
+      "periodic_points": 75
+    }
+  }
+}
