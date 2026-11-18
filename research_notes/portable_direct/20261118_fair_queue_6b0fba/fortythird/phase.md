@@ -1,0 +1,81 @@
+# 三次 Gauss 和的真实角相位可由怎样的有限正核传递
+
+研究任务 RS-OAI7-023-E-20261007-6F2A81。取主 Eisenstein 素元的一对共轭来源，以角乘子及其逆为两个固定操作。对这个算术输入，有限保质量核的精确时间窗有尖锐的状态数界。无穷次操作可以用非负有理路权逐次实现，但须允许总质量增长，并在各个来源端读出复数。这两项资源要求都可由相位本身检验。
+
+## 1　一个可独立重建的素数输入
+
+记 \(\omega=e^{2\pi i/3},\ \xi=1+\omega,\ \pi=1+3\omega,\ \bar\pi=-2-3\omega,\ z=\pi/\sqrt7\)。二者均主且范数为 7。\(z^2=\pi/\bar\pi\) 在上方两个不同素理想的赋值分别为 \(1,-1\)，因而 \(z\) 不是单位根。由 \(z+z^{-1}=-1/\sqrt7\) 及 \(\mathbb Q(z^2)=\mathbb Q(\omega)\)，得 \(\mathbb Q(z)=\mathbb Q(\omega,\sqrt7)\)。其本原最小整系数多项式及全部根为
+\[
+ H(X)=7X^4+13X^2+7,\qquad z,\ \bar z,\ -z,\ -\bar z .
+\]
+
+依外稿的三次剩余符号和迹加性特征，以 \(g_\alpha=\sqrt7 G(\alpha)\) 记未归一和。对 \(\alpha=a+b\omega\)，商环中 \(\omega=-a/b\bmod7\)，把 \(t^2\bmod7\) 提升成对应的三次单位根 \(\chi_\alpha(t)\)，再求 \(\sum_{t=1}^6\chi_\alpha(t)\zeta_7^{(2a-b)t}\)。在 \(\mathbb Q(\omega)[U]/(\Phi_7)\) 中直接卷积给出
+\[
+ g_\pi^3=-7\pi,\qquad g_{\bar\pi}=\bar g_\pi,\qquad
+ g_\pi g_{\bar\pi}=7 .
+\]
+因此真实来源的单位读数是 \(G=G(\pi)\) 和 \(\bar G\)，并有 \(G^3=-z\)。角乘子是 \(z\)，每加一次角阶使 \(Gz^n\) 变为 \(Gz^{n+1}\)。这与重取另一个素数的 Gauss 和是不同操作。[外稿主文](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/paper.tex)；[角模与立方恒等式](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/angular.tex#L809)。
+
+## 2　保质量时的有限与无穷时窗
+
+令 \(P\) 为 \(d\) 态非负行随机矩阵，\(\alpha\) 为初始概率行向量，\(c\) 为固定复读数列。这里相同的操作每次都使用同一矩阵。若 \(y_n=\alpha P^nc=z^n\) 对 \(0\le n\le T\) 精确，则最小态数恰为 **\(T+1\)**，即使读数大小任意也成立。事实上有限随机矩阵的单位圆本征值均为单位根。这可由不可约对角块的 Perron–Frobenius 周期定理得到。若 \(d\le T\)，以 \(P\) 的特征多项式 \(\chi\) 线性组合已给的前 \(d+1\) 项，Cayley–Hamilton 给出 \(\chi(z)=0\)，矛盾。反向以 \(T+1\) 态确定性循环依次读出 \(1,z,\ldots,z^T\) 达界。对一个有限角指标集，仅要求一次计算或有限次复用时可用这种时钟。例如双向循环长 \(2M+1\)，令态读数为 \(z^{-M},\ldots,z^M\)，从指数零出发、最终净指数限于 \([-M,M]\)，双向字均读对；越出该范围可能混叠。
+
+若再要求 \(|c_j|\le1\)，单位圆上的平均值迫使全部正质量落在读数等于该平均值的态上。对两种初态分别要求 \(Gz^n,\bar G\bar z^n\)，同一 \(c\) 至少需 \(2(T+1)\) 态，双时钟达界。两组点无重合，因为 \(Gz^n=\bar G\bar z^m\) 立方即 \(z^{2+3(n+m)}=1\)。容许绝对误差 \(\eta<1\) 时，每个时刻至少有一态满足 \(\Re(\bar z^n c_j)\ge1-\eta\)。单态可覆盖的圆弧长度至多 \(2\arccos(1-\eta)\)。分离角严格大于此数的时间子集就是态数下界。整数递推 \(t_0=2,t_1=-1,\ t_k=-t_{k-1}-7t_{k-2}\) 给出 \(\Re z^k=t_k/(2\cdot7^{k/2})\)。由此在 \(0\le n\le80,\ \eta=10^{-3}\) 精确验证至少需要 **31 态**。
+
+不设读数上界，仍有含分母的误差门槛。设 \(P\) 为有理核，各行公分母之积为 \(D\)，则 \(D\chi\in\mathbb Z[X]\)。由共轭及非单位根性，
+\[
+ 1\le |\operatorname{Res}(H,D\chi)|=
+ 7^dD^4|\chi(z)|^2|\chi(-z)|^2.
+\]
+全部本征值模至多 1，故 \(|\chi(-z)|,\|\chi\|_1\le2^d\)。代入上述 Cayley–Hamilton 组合得
+\[
+ \max_{0\le n\le d}|y_n-z^n|\ \ge\ (4\sqrt7)^{-d}D^{-2}.
+\]
+例取两行 \((1/2,1/2),(1/3,2/3)\)，有 \(D=6,\ D\chi=6X^2-7X+1\)，结式 \(257769\)，通式下界 \(1/4032\)。
+
+无穷时间有两种尖锐的误差统计。对任意 \(c\)，存在正整数 \(q\) 与 \(b_0,\ldots,b_{q-1}\) 使 \(y_{mq+j}\to b_j\)。这是因为 \(P^n\) 有界，外围本征值半单，取各外围单位根阶数的公倍数即可。每个进程的 \(z^{mq+j}\) 都在圆上均匀分布，故
+\[
+ \lim_{M\to\infty}{1\over M}\sum_{n<M}|y_n-z^n|^2
+ =1+{1\over q}\sum_{j<q}|b_j|^2,\qquad
+ \limsup_{n\to\infty}|y_n-z^n|=1+\max_j|b_j|.
+\]
+两下界 1 可由零读数取得。另对 \(0<\eta<1\)，命中误差盘 \(|y_n-z^n|\le\eta\) 的自然密度存在且至多 **\(\arcsin(\eta)/\pi\)**。每个进程上取圆与以 \(b_j\) 为心的 \(\eta\) 圆盘的弧长比例，边界至多两点。在圆心模 \(\sqrt{1-\eta^2}\) 时弧长最大，常数读数即达界。
+
+## 3　保留来源的正有理实现及增长的必要性
+
+冻结的 CWM 接口可以沿正有理边串行传播并在同一个具名终点合并；其中 total 是各正路质量之和。公开的 recurrent_mass_power 返回非负有理矩阵幂，允许行和超过 1。下面把来源与端口一起作为终点标签，分别读取各 total，再作固定代数数线性求值。因而路权、合并、计数均可用原模块运行，外置读数需要保存来源的角与 \(G\)。合并时不得跨素元抹去共轭标签。[CWM 正权合流](https://github.com/awdawmip/enterprise-math/blob/e7b9fb5084f93a9b2dbc16225629b667fb7bf46c/src/enterprise_math/brc_weighted.py)；[正路矩阵幂](https://github.com/awdawmip/enterprise-math/blob/e7b9fb5084f93a9b2dbc16225629b667fb7bf46c/src/enterprise_math/brc_weighted_recurrent.py)。
+
+任给偶数 \(L\ge2\)，\(z^L\in\mathbb Q(\omega)\) 位于相邻六次单位根 \(\xi^s,\xi^{s+1}\) 的开扇区内。写
+\[
+ z^L=a\xi^s+b\xi^{s+1},\qquad
+ a,b\in\mathbb Q_{>0},\qquad 1<g=a+b\le2/\sqrt3.
+\]
+有理性来自在 \(1,\omega\) 基底中解二元线性方程；上界来自正六边形的内切圆。建 \(6L\) 个端口 \((i,j)\)，\(0\le i<L,\ j\bmod6\)，角读数 \(c_{ij}=z^i\xi^j\)。前行在内部以权 1 使 \(i\mapsto i+1\)；从 \(L-1\) 跨至 0 时，以权 \(a,b\) 使 \(j\mapsto j+s,j+s+1\)。后行对称地把层数减一，跨层时改用负的两个平移。同一读数逐行满足
+\[
+ W_+c=zc,\qquad W_-c=z^{-1}c .
+\]
+起点 \((0,0)\)，任意操作字的读数正是 \(z^{\# +-\# -}\)。对来源 \(\pi\) 再乘 \(G\)，对共轭来源取共轭并乘 \(\bar G\)。纯前行 \(n\) 步总质量 \(g^{\lfloor n/L\rfloor}\)。\(L=2\) 时 \(z^2=(5\xi^3+3\xi^4)/7\)，12 态即可实现两个操作；从零层先负后正产生 \(g^2\) 质量，先正后负只有 1，两种字读数均为 1。这给出保留角观测和保留全部路径状态之间的具体验证。
+
+对固定非负矩阵 \(W\) 及非负初态，任何无穷精确的 \(z^n\) 读数都使可达部分的谱半径 \(\rho>1\)。Cayley–Hamilton 迫使 \(z\) 为本征值；若 \(\rho\le1\)，前述不可约块的外围谱定理再次给出矛盾。总质量的 \(n\) 次根趋于 \(\rho\)：上界从矩阵范数得到，下界先沿一个正路进入谱半径最大的不可约块，再在该块用其严格正的 Perron 向量比较。上面的 \(L\) 族使每步指数 \(g^{1/L}\to1\)，故增长指数下确界 1 无法由有限正核取得。
+
+即使放宽质量，在**整个可达线性空间上**如要求两个非负矩阵互逆，仍无法无穷精确。令 \(V\) 为全部可达分布的实线性张成。若 \(W_\pm\) 互逆，则它们给出尖多面锥 \(V\cap\mathbb R_{\ge0}^d\) 的自同构，此锥张成 \(V\)。有限条极射线被置换，某个共同次幂便在各极射线上作正实数伸缩，故在 \(V\) 上的全部本征值均为正实数。精确相位需 \(z\) 为原作用在 \(V\) 上的本征值，而任何正整数 \(k\) 满足 \(z^k\) 为正实数都会迫使 \(z^k=1\)。矛盾。若改成允许负有理矩阵元的外部计算，最小维数为 4。乘 \(\pi\) 的矩阵 \(A=\left(\begin{smallmatrix}1&-3\\3&-2\end{smallmatrix}\right)\)，在 \(u+v\sqrt7\) 的列坐标上乘 \(z\) 用 \(\left(\begin{smallmatrix}0&A\\A/7&0\end{smallmatrix}\right)\)；下界来自 \(\deg H=4\)。
+
+## 4　状态数和质量增幅的构造上界
+
+还可在 \(2d\) 态同时运行正反操作，纯前行每步增长 \(\sqrt{g_d}=1+O(d^{-2})\)，且有无穷偶数 \(d\) 子列达 \(1+O(d^{-3})\)。设 \(r=z^2\)。对充分大的偶数 \(d\) 取圆内接中心对称 \(d\) 边形，顶点 \(u_j\in\mathbb Q(\omega)\) 与正 \(d\) 边形各对应顶点的角距 \(O(d^{-4})\)，且 \(u_0=1\)。做法是先用六次单位根旋转到 \(|\phi|\le\pi/6\)，将 \(\tan(\phi/2)/\sqrt3\) 舍入到分母 \(d^4\) 的最近有理数 \(t\)，再用 \((1+i\sqrt3 t)/(1-i\sqrt3 t)\) 和反向旋转。后半顶点直接取相反数。
+
+将每个 \(r^{\pm1}u_j\) 在其相邻两顶点的射线上作非负有理分解，令所有这些行的系数和最大值为 \(g_d\)。每行可在两相反顶点上各添相等的权，使行和同为 \(g_d\) 且读数不变。\(g_d>1\)，否则面积保持的旋转 \(r\) 把多边形送入自身，从而置换有限顶点，矛盾。两层分别读 \(u_j,zu_j\)。前行从偶到奇原样传递，从奇到偶乘 \(r\)；后行从奇到偶原样传递，从偶到奇乘 \(r^{-1}\)。全是正权或零权，逐行精确。任意混合字的每步质量增长至多 \(g_d\)。
+
+相邻顶点角宽 \(\Delta=O(1/d)\)，内切半径至少 \(\cos(\pi/d+O(d^{-4}))\)，得第一上界。对 \(\arg r/(2\pi)\) 的连分数逼近分母 \(m\) 取 \(d=2m\)，则 \(\arg r\) 距 \(2\pi\mathbb Z/d\) 为 \(O(d^{-2})\)。沿此无穷偶数子列，两种旋转后各顶点和相邻扇区端点之一相距 \(\delta=O(d^{-2})\)。系数和为 \(\cos(\Delta/2-\delta)/\cos(\Delta/2)=1+O(\Delta\delta)\)，即第二上界。此处只给构造代价，未求给定态数的最小增长率。
+
+## 5　接回素数平均时仍需的输入
+
+若 \(A_\ell(X)=\sum_{N\varpi\le X}G(\varpi)(\varpi/|\varpi|)^\ell\) 按主素元计，\(b=X^{5/6}/\log X\)，\(P(X)\) 为同范围素元数，则素数均值 \(C_\ell=A_\ell/P(X)\) 和偏差尺度 \(D_\ell=A_\ell/b\) 始终满足 \(D_\ell=(P(X)/b)C_\ell\)。旧返回在外稿一阶矩假设下给出 \(D_0\to(6/5)(2\pi)^{2/3}/(3\Gamma(2/3))\) 及对每个固定 \(\ell\ne0\) 的 \(D_\ell\to0\)。这些带条件的极限与以上范数 7 的精确恒等式有不同证据基础。若给每个具名终点的单位读数引入独立允许的绝对误差 \(\epsilon_\varpi\)，该素元末端总质量 \(M_\varpi\)，三角不等式给出偏差尺度上的最坏误差 \(\sum M_\varpi\epsilon_\varpi/b\)，容许同向复误差时取等。特别在单位总质量、均匀误差模型中，保留 \(o(1)\) 级偏差需要 \(\epsilon=o(X^{-1/6})\)，用到了 \(P(X)\sim X/\log X\)。本结果只承接所选算术来源和有标记的角乘操作；对全部素元的统一原生复读数、增长角阶外稿估计以及独立验证外稿解析主定理仍待研究。[登记任务](https://github.com/awdawmip/enterprise-math/blob/e7b9fb5084f93a9b2dbc16225629b667fb7bf46c/research_tasks/RS-OAI7-023-E-20261007-6F2A81.md)；[原返回与两尺度换算](https://github.com/awdawmip/enterprise-math/blob/240d5c51e4054d84c2b7813296a737fd12bc3326/research_artifacts/mcp/RS-OAI7-023-E-20261007-6F2A81/MCP-6634360390c64e0788a1307fbc6d5fcb/aa2da4b0c397b893217c/OAI7_023_OBSERVER_RESIDUAL_INTERFACE_20261118.md)；[第十八轮角模](../eighteenth/angular.md)；[同轮角窗](../eighteenth/phase_windows.md)；[第二十五轮分解范围](../twentyfifth/cubic.md)。
+
+## 复算
+
+在含固定 Git 提交 e7b9fb5084f93a9b2dbc16225629b667fb7bf46c 的公开项目副本上运行下列命令。程序用 Git 读取该提交的原始模块。两枚真实 Gauss 和以分圆域精确卷积检查。六个 \(L\) 值对两种来源合计复核 174 个操作字记录，同时比较质量、路径数、最大贡献及带符号角阶。两种实现共作 12 次原模块矩阵幂检查，并对六个有理多边形的 252 条旋转行逐项验算。多边形选点用浮点仅提议整数参数，凸性、圆上性、有理权与读数等式均用分数验算。有限检查范围与上文各一般证明可分别复核。[复算程序](phase_check.py)；[逐项结果](phase_checked.json)。
+
+~~~sh
+python3 phase_check.py --repo /path/to/enterprise-math
+~~~

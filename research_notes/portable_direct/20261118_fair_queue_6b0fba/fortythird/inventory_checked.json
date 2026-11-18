@@ -1,0 +1,841 @@
+{
+  "baseline_four_time_hitting": {
+    "episode_first_side": {
+      "4": [
+        {
+          "first_exit_by_t": "0",
+          "safe_reachable_states": 9,
+          "steps": 1
+        },
+        {
+          "first_exit_by_t": "0",
+          "safe_reachable_states": 41,
+          "steps": 2
+        },
+        {
+          "first_exit_by_t": "0",
+          "safe_reachable_states": 209,
+          "steps": 3
+        }
+      ],
+      "5": [
+        {
+          "first_exit_by_t": "0",
+          "safe_reachable_states": 9,
+          "steps": 1
+        },
+        {
+          "first_exit_by_t": "0",
+          "safe_reachable_states": 41,
+          "steps": 2
+        },
+        {
+          "first_exit_by_t": "23/5551472640",
+          "safe_reachable_states": 209,
+          "steps": 3
+        }
+      ],
+      "6": [
+        {
+          "first_exit_by_t": "11/221280",
+          "safe_reachable_states": 9,
+          "steps": 1
+        },
+        {
+          "first_exit_by_t": "4868039/48964838400",
+          "safe_reachable_states": 41,
+          "steps": 2
+        },
+        {
+          "first_exit_by_t": "11310028503887/75844576088064000",
+          "safe_reachable_states": 209,
+          "steps": 3
+        }
+      ]
+    },
+    "persistent_BC": {
+      "4": [
+        {
+          "first_exit_by_t": "0",
+          "safe_reachable_states": 9,
+          "steps": 1
+        },
+        {
+          "first_exit_by_t": "0",
+          "safe_reachable_states": 38,
+          "steps": 2
+        },
+        {
+          "first_exit_by_t": "0",
+          "safe_reachable_states": 120,
+          "steps": 3
+        }
+      ],
+      "5": [
+        {
+          "first_exit_by_t": "0",
+          "safe_reachable_states": 9,
+          "steps": 1
+        },
+        {
+          "first_exit_by_t": "0",
+          "safe_reachable_states": 38,
+          "steps": 2
+        },
+        {
+          "first_exit_by_t": "23/22205890560",
+          "safe_reachable_states": 120,
+          "steps": 3
+        }
+      ],
+      "6": [
+        {
+          "first_exit_by_t": "11/221280",
+          "safe_reachable_states": 9,
+          "steps": 1
+        },
+        {
+          "first_exit_by_t": "4868039/48964838400",
+          "safe_reachable_states": 38,
+          "steps": 2
+        },
+        {
+          "first_exit_by_t": "22620487362799/151689152176128000",
+          "safe_reachable_states": 120,
+          "steps": 3
+        }
+      ]
+    }
+  },
+  "clock": "committed macro proposals; episode stops on recapture; work costs count ledger frames",
+  "complete_repair_word": [
+    {
+      "B": 5,
+      "eligible_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "free_ids_at_final_depot": [
+        4
+      ],
+      "lengths_after": [
+        5,
+        3,
+        4
+      ],
+      "peak_in_use": 5,
+      "results": [
+        {
+          "delta": "0",
+          "first_loss": "0",
+          "survival": "1",
+          "work_mean": "13",
+          "work_second_moment": "169"
+        },
+        {
+          "delta": "1/256",
+          "first_loss": "56888710549312756288489007648531180719615841399809/47600180338599509412927818110749026071491854095876096",
+          "survival": "47543291628050196656639329103100494890772238254476287/47600180338599509412927818110749026071491854095876096",
+          "work_mean": "98613306171328610384216156505950787956433201673217/7589314467251197291602011816127076860888369594368",
+          "work_second_moment": "1281745597298536235897403746855630321126580326778137/7589314467251197291602011816127076860888369594368"
+        },
+        {
+          "delta": "1/1024",
+          "first_loss": "954826084289486609722231010715167796017198012910100205569/3194394028718548427658892787410993328764201113627991887314944",
+          "survival": "3193439202634258941049170556400278160968183915615081787109375/3194394028718548427658892787410993328764201113627991887314944",
+          "work_mean": "1655057928540248997209610131268379095843311640901987520513/127327568108998263219821938273716251943726128572544319488",
+          "work_second_moment": "21514799034219440876304393349866724699284572506973206156313/127327568108998263219821938273716251943726128572544319488"
+        },
+        {
+          "delta": "1/4096",
+          "first_loss": "16020967715688129997464881266335309008173416719624898852960288769/214372154435685160709174474460945263404944060603109454158921902063616",
+          "survival": "214356133467969472579177009579678928095935887186389829260068941774847/214372154435685160709174474460945263404944060603109454158921902063616",
+          "work_mean": "27769786643624370535482554930215208014889957619761390215434551297/2136202112919375405663808139956804681570313103905347717623185408",
+          "work_second_moment": "361003224507256098949273837842827075577777586218475788329624031257/2136202112919375405663808139956804681570313103905347717623185408"
+        }
+      ],
+      "word": [
+        [
+          "body",
+          0,
+          4,
+          true
+        ],
+        [
+          "body",
+          0,
+          5,
+          false
+        ],
+        [
+          "contact",
+          [
+            1,
+            2
+          ],
+          0
+        ]
+      ],
+      "word_mass_from_damaged": "1/799759027200",
+      "work_by_step": [
+        4,
+        4,
+        5
+      ]
+    },
+    {
+      "B": 6,
+      "eligible_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "free_ids_at_final_depot": [
+        4,
+        5
+      ],
+      "lengths_after": [
+        5,
+        3,
+        4
+      ],
+      "peak_in_use": 5,
+      "results": [
+        {
+          "delta": "0",
+          "first_loss": "0",
+          "survival": "1",
+          "work_mean": "15",
+          "work_second_moment": "225"
+        },
+        {
+          "delta": "1/256",
+          "first_loss": "10144267298550880955015030717424670957922228961618942792193/7489980530227768334774415607982221662463717650215633321721856",
+          "survival": "7479836262929217453819400577264796991505795421254014378929663/7489980530227768334774415607982221662463717650215633321721856",
+          "work_mean": "17902812177716276200581647583860808852363817185635245543937/1194193324334784492151533100762471566081587635557339496448",
+          "work_second_moment": "268487566656488262338798502561619546974884074141414432242461/1194193324334784492151533100762471566081587635557339496448"
+        },
+        {
+          "delta": "1/1024",
+          "first_loss": "2724364543923548958767136862909618670021865370144005253222694995969/8042305356251251107230123643448899647426104523563528116180804482105344",
+          "survival": "8039580991707327558271356506585990028756082658193384110927581787109375/8042305356251251107230123643448899647426104523563528116180804482105344",
+          "work_mean": "4807780291601008502128728149997375650964979949297121434027177101313/320563829569963771812425209002268002528145110154796241875829260288",
+          "work_second_moment": "72113037696280101734835214162101824514626823761309600577545680579613/320563829569963771812425209002268002528145110154796241875829260288"
+        },
+        {
+          "delta": "1/4096",
+          "first_loss": "731402205851175577873707890656956258874353034477170421443071570554844946433/8635359622386188166159292548662347158220262376345753659343260918403167426707456",
+          "survival": "8634628220180336990581418840771690201961388023311276488921817846832612581761023/8635359622386188166159292548662347158220262376345753659343260918403167426707456",
+          "work_mean": "1290715020618779499979993058492863654512299952693222529533999955282178154497/86050697767719508989948307444419116292851785478572959775024522863551971328",
+          "work_second_moment": "19360479218212813714855395361131339537258088202613493856818936170550640750621/86050697767719508989948307444419116292851785478572959775024522863551971328"
+        }
+      ],
+      "word": [
+        [
+          "body",
+          0,
+          4,
+          true
+        ],
+        [
+          "body",
+          0,
+          5,
+          false
+        ],
+        [
+          "contact",
+          [
+            1,
+            2
+          ],
+          0
+        ]
+      ],
+      "word_mass_from_damaged": "1/799759027200",
+      "work_by_step": [
+        5,
+        5,
+        5
+      ]
+    }
+  ],
+  "damaged_common_row": {
+    "B": [
+      5,
+      6
+    ],
+    "TV": "0",
+    "distinct_label_state_tag_atoms": 555
+  },
+  "data_processing": {
+    "difference_at_2": "241/2040201600",
+    "endpoint_support_2": [
+      38,
+      1466
+    ],
+    "mode_TV_1": "0",
+    "path_TV_2": "4868039/48964838400",
+    "state_TV_1": "11/221280",
+    "state_TV_2": "972451/9792967680"
+  },
+  "earliest_hit_positive_witnesses": [
+    {
+      "B": 4,
+      "final_length": 5,
+      "first_distinguishing_step": 3,
+      "gap": 1
+    },
+    {
+      "B": 4,
+      "final_length": 6,
+      "first_distinguishing_step": 1,
+      "gap": 2
+    },
+    {
+      "B": 5,
+      "final_length": 6,
+      "first_distinguishing_step": 1,
+      "gap": 1
+    },
+    {
+      "B": 5,
+      "final_length": 6,
+      "first_distinguishing_step": 1,
+      "gap": 2
+    },
+    {
+      "B": 6,
+      "final_length": 7,
+      "first_distinguishing_step": 4,
+      "gap": 1
+    },
+    {
+      "B": 6,
+      "final_length": 8,
+      "first_distinguishing_step": 2,
+      "gap": 2
+    },
+    {
+      "B": 7,
+      "final_length": 8,
+      "first_distinguishing_step": 2,
+      "gap": 1
+    },
+    {
+      "B": 7,
+      "final_length": 8,
+      "first_distinguishing_step": 2,
+      "gap": 2
+    },
+    {
+      "B": 8,
+      "final_length": 9,
+      "first_distinguishing_step": 5,
+      "gap": 1
+    },
+    {
+      "B": 8,
+      "final_length": 10,
+      "first_distinguishing_step": 3,
+      "gap": 2
+    },
+    {
+      "B": 9,
+      "final_length": 10,
+      "first_distinguishing_step": 3,
+      "gap": 1
+    },
+    {
+      "B": 9,
+      "final_length": 10,
+      "first_distinguishing_step": 3,
+      "gap": 2
+    },
+    {
+      "B": 10,
+      "final_length": 11,
+      "first_distinguishing_step": 6,
+      "gap": 1
+    },
+    {
+      "B": 10,
+      "final_length": 12,
+      "first_distinguishing_step": 4,
+      "gap": 2
+    },
+    {
+      "B": 11,
+      "final_length": 12,
+      "first_distinguishing_step": 4,
+      "gap": 1
+    },
+    {
+      "B": 11,
+      "final_length": 12,
+      "first_distinguishing_step": 4,
+      "gap": 2
+    },
+    {
+      "B": 12,
+      "final_length": 13,
+      "first_distinguishing_step": 7,
+      "gap": 1
+    },
+    {
+      "B": 12,
+      "final_length": 14,
+      "first_distinguishing_step": 5,
+      "gap": 2
+    },
+    {
+      "B": 13,
+      "final_length": 14,
+      "first_distinguishing_step": 5,
+      "gap": 1
+    },
+    {
+      "B": 13,
+      "final_length": 14,
+      "first_distinguishing_step": 5,
+      "gap": 2
+    },
+    {
+      "B": 14,
+      "final_length": 15,
+      "first_distinguishing_step": 8,
+      "gap": 1
+    },
+    {
+      "B": 14,
+      "final_length": 16,
+      "first_distinguishing_step": 6,
+      "gap": 2
+    },
+    {
+      "B": 15,
+      "final_length": 16,
+      "first_distinguishing_step": 6,
+      "gap": 1
+    },
+    {
+      "B": 15,
+      "final_length": 16,
+      "first_distinguishing_step": 6,
+      "gap": 2
+    },
+    {
+      "B": 16,
+      "final_length": 17,
+      "first_distinguishing_step": 9,
+      "gap": 1
+    },
+    {
+      "B": 16,
+      "final_length": 18,
+      "first_distinguishing_step": 7,
+      "gap": 2
+    }
+  ],
+  "evaluated_macro_rows": {
+    "episode_first_side": {
+      "4": 41,
+      "5": 41,
+      "6": 41
+    },
+    "persistent_BC": {
+      "4": 38,
+      "5": 38,
+      "6": 174
+    }
+  },
+  "executed_macro_transition_label_calls": {
+    "episode_first_side": {
+      "4": 17958,
+      "5": 17958,
+      "6": 17958
+    },
+    "persistent_BC": {
+      "4": 16644,
+      "5": 16644,
+      "6": 76212
+    }
+  },
+  "pair_growth_check": [
+    {
+      "growing_label_count": 96,
+      "links": 4,
+      "total_mass": "1/221280"
+    },
+    {
+      "growing_label_count": 72,
+      "links": 3,
+      "total_mass": "1/295040"
+    }
+  ],
+  "reachable_damaged_branch": [
+    {
+      "B": 4,
+      "branch_mass": "1/885120",
+      "exposure": [
+        {
+          "delta": "0",
+          "expected_executed_work": "1",
+          "loss": "0",
+          "survival": "1"
+        },
+        {
+          "delta": "1/256",
+          "expected_executed_work": "1",
+          "loss": "1/12544",
+          "survival": "12543/12544"
+        },
+        {
+          "delta": "1/1024",
+          "expected_executed_work": "1",
+          "loss": "1/50176",
+          "survival": "50175/50176"
+        },
+        {
+          "delta": "1/4096",
+          "expected_executed_work": "1",
+          "loss": "1/200704",
+          "survival": "200703/200704"
+        }
+      ],
+      "final_free_ids_at_new_depot": [
+        2
+      ],
+      "new_depot": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "new_length": 3,
+      "old_depot": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "old_length": 3,
+      "peak_bound_count": 3,
+      "peak_held_count": 0,
+      "prep_delivery_stages": [
+        4,
+        4,
+        5
+      ],
+      "prep_full_positive_mass": "1/802816",
+      "resource_trace": [
+        {
+          "bound": [
+            0,
+            1,
+            3
+          ],
+          "free": [
+            2
+          ],
+          "held": []
+        }
+      ],
+      "stages": [
+        "WAIT"
+      ],
+      "tag": "CAPACITY_WAIT",
+      "work": 1
+    },
+    {
+      "B": 5,
+      "branch_mass": "1/885120",
+      "exposure": [
+        {
+          "delta": "0",
+          "expected_executed_work": "4",
+          "loss": "0",
+          "survival": "1"
+        },
+        {
+          "delta": "1/256",
+          "expected_executed_work": "7894346679295/1973822685184",
+          "loss": "7894346679295/24759631762948096",
+          "survival": "24751737416268801/24759631762948096"
+        },
+        {
+          "delta": "1/1024",
+          "expected_executed_work": "505283501821951/126324651851776",
+          "loss": "505283501821951/6338465731314712576",
+          "survival": "6337960447812890625/6338465731314712576"
+        },
+        {
+          "delta": "1/4096",
+          "expected_executed_work": "32338869182283775/8084777718513664",
+          "loss": "32338869182283775/1622647227216566419456",
+          "survival": "1622614888347384135681/1622647227216566419456"
+        }
+      ],
+      "final_free_ids_at_new_depot": [],
+      "new_depot": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "new_length": 5,
+      "old_depot": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "old_length": 3,
+      "peak_bound_count": 5,
+      "peak_held_count": 2,
+      "prep_delivery_stages": [
+        4,
+        4,
+        5
+      ],
+      "prep_full_positive_mass": "1/802816",
+      "resource_trace": [
+        {
+          "bound": [
+            0,
+            1,
+            3
+          ],
+          "free": [],
+          "held": [
+            2,
+            4
+          ]
+        },
+        {
+          "bound": [
+            0,
+            1,
+            3
+          ],
+          "free": [],
+          "held": [
+            2,
+            4
+          ]
+        },
+        {
+          "bound": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "free": [],
+          "held": []
+        },
+        {
+          "bound": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "free": [],
+          "held": []
+        }
+      ],
+      "stages": [
+        "RESERVE_OR_DETACH",
+        "LOCAL_CARRY",
+        "RELATION_COMMITTED",
+        "STABLE_COMMIT"
+      ],
+      "tag": "ACCEPT",
+      "work": 4
+    },
+    {
+      "B": 6,
+      "branch_mass": "1/885120",
+      "exposure": [
+        {
+          "delta": "0",
+          "expected_executed_work": "5",
+          "loss": "0",
+          "survival": "1"
+        },
+        {
+          "delta": "1/256",
+          "expected_executed_work": "123778422161345281/24759631762948096",
+          "loss": "123778422161345281/310584820834420916224",
+          "survival": "310461042412259570943/310584820834420916224"
+        },
+        {
+          "delta": "1/1024",
+          "expected_executed_work": "31691065435231104001/6338465731314712576",
+          "loss": "31691065435231104001/318038856534447018213376",
+          "survival": "318007165469011787109375/318038856534447018213376"
+        },
+        {
+          "delta": "1/4096",
+          "expected_executed_work": "8113155288708466913281/1622647227216566419456",
+          "loss": "8113155288708466913281/325671789091273746650497024",
+          "survival": "325663675935985038183583743/325671789091273746650497024"
+        }
+      ],
+      "final_free_ids_at_new_depot": [
+        5
+      ],
+      "new_depot": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "new_length": 5,
+      "old_depot": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "old_length": 3,
+      "peak_bound_count": 5,
+      "peak_held_count": 2,
+      "prep_delivery_stages": [
+        4,
+        4,
+        5
+      ],
+      "prep_full_positive_mass": "1/802816",
+      "resource_trace": [
+        {
+          "bound": [
+            0,
+            1,
+            3
+          ],
+          "free": [
+            5
+          ],
+          "held": [
+            2,
+            4
+          ]
+        },
+        {
+          "bound": [
+            0,
+            1,
+            3
+          ],
+          "free": [
+            5
+          ],
+          "held": [
+            2,
+            4
+          ]
+        },
+        {
+          "bound": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "free": [
+            5
+          ],
+          "held": []
+        },
+        {
+          "bound": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "free": [
+            5
+          ],
+          "held": []
+        },
+        {
+          "bound": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "free": [
+            5
+          ],
+          "held": []
+        }
+      ],
+      "stages": [
+        "RESERVE_OR_DETACH",
+        "LOCAL_CARRY",
+        "RELATION_COMMITTED",
+        "FREE_NATIVE_HOP",
+        "STABLE_COMMIT"
+      ],
+      "tag": "ACCEPT",
+      "work": 5
+    }
+  ],
+  "resource_observer_scope": {
+    "first_loss": "first eligible release at a stage; other T05 events retain their own rules",
+    "macro": "canonical named words, modes, episode first lost side and completion; full successive states",
+    "stages": "ordered free/bound/held IDs, positions, working label and completed/pending incidence"
+  },
+  "source": {
+    "epsilon": "1/16",
+    "full_archive_sha256": "a450cc3e235ca3d37211d31b2d4eb41dd2d4ac28b77c73d18d1b6e3ce45cc9a7",
+    "labels_per_row": 438,
+    "lambda": "1/48",
+    "manifest_entries_verified": 76,
+    "manifest_sha256": "e6a86c8ab44f674b126844358e893d893d0c58b6e16353c89660ff35adfafdb5"
+  }
+}

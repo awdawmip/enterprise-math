@@ -1,0 +1,93 @@
+# 一个阶乘比的进位计数：最短递推的二阶与四阶分支
+
+固定素数 $p\ge5$，在 $0\le n<p^k$ 中等概率取整数。研究
+$$
+ A_n=\frac{(2n)!(3n)!}{(n!)^5},\qquad V_k=v_p(A_n),\qquad
+ F_k(u)=\sum_{0\le n<p^k}u^{v_p(A_n)}.
+$$
+**完整分布的最短常系数递推**（系数域为 $\mathbf Q(u)$）在 $p\equiv5\bmod6$ 时仅有二阶，在 $p\equiv1\bmod6$ 时恰为四阶。两者虽有相同形式的方差斜率，居中四阶累积量却能区分这两个素数类。下文还给出从低位全零的真实起点出发的精确均值、方差与带首项修正的局部极限定理。
+
+原 PCF 返回 §1 给出这个 $A_n$ 及整数递推，§6 已有模 $p$ 的 Lucas 分块律，由它也能直接数出零赋值项。此处只研究单项 $A_n$ 在完整数字区间内的赋值分布。普通中心极限定理和方差斜率已有更一般的先例：Legendre 公式给 $(p-1)V_k=5s_p(n)-s_p(2n)-s_p(3n)$，其中 $s_p$ 为数字和。将 Drmota–Krattenthaler 式 (2.4) 的协方差矩阵对 $(1,2,3)$ 及系数 $(5,-1,-1)$ 作二次型，立即得到每层方差 $19(p+1)/(12(p-1))$。以下从有限状态直接推导，重点为精确分布及局部修正。[原始系数与 Lucas 律，§§1、6](https://github.com/awdawmip/enterprise-math/blob/f629d868b01de948a6e8ed50287c317103d09425/research_returns/PRIME_COORD_FACTOR_BLIND_PADIC_GCD_BRIDGE_RETURN_20260827.md) · [Drmota–Krattenthaler，联合数字和极限定理及式 (2.4)](https://arxiv.org/pdf/1803.02178#page=3)
+
+## 一、四个数字状态及最短递推
+
+记 $x_0=0$，从低到高读独立均匀数字 $d_0,\ldots,d_{k-1}$，令 $x_{j+1}=(d_j+x_j)/p$，故 $x_j=\{n/p^j\}$。Legendre 公式逐层相减得
+$$
+ V_k=\sum_{j=1}^k f(x_j),\qquad f(x)=\lfloor2x\rfloor+\lfloor3x\rfloor.
+$$
+因 $3n<p^{k+1}$，没有额外的最高进位。用端点 $0,1/3,1/2,2/3,1$ 划分左闭右开的四区间 $I_s$；$f$ 在各区间的值依次为 $s=0,1,2,3$。其长度行向量为 $\pi^\top=(2,1,1,2)/6$。令 $\epsilon=1$ 或 $-1$ 分别对应 $p\equiv1$ 或 $5\bmod6$，$J_+=I$，$J_-$ 反转四个状态。单步数字数矩阵为
+$$
+ T=(p-\epsilon)\mathbf1\pi^\top+\epsilon J_\epsilon.                    \tag{1}
+$$
+对于任一内端点 $\beta$，从 $x\in I_s$ 出发落到 $[0,\beta)$ 的数字数为 $\lceil p\beta-x\rceil$。当 $p\equiv1\bmod6$ 时它等于 $(p-1)\beta+\mathbf1_{x<\beta}$；当 $p\equiv5\bmod6$ 时它等于 $(p+1)\beta-\mathbf1_{x\ge1-\beta}$。相邻端点相减即得 (1)，$x=0$ 也合法。矩阵 $P=T/p$ 为马尔可夫转移，$\pi^\top P=\pi^\top$。
+
+写 $D=\operatorname{diag}(1,u,u^2,u^3)$，$\Phi(u)=(2+u+u^2+2u^3)/6$。令 $e_0$ 为零状态的基向量，则 $F_k(u)=e_0^\top(TD)^k\mathbf1$，$F_0=1$。精确的二元生成函数为
+$$
+\sum_{k\ge0}F_k(u)t^k=
+\begin{cases}
+\displaystyle\frac{1-tu^3}{1-(p+1)\Phi(u)t+pu^3t^2},&p\equiv5\pmod6,\\[6pt]
+\displaystyle\frac{1}{(1-t)\bigl(1-(p-1)t\sum_{s=0}^3
+                \pi_s u^s/(1-tu^s)\bigr)},&p\equiv1\pmod6 .
+\end{cases}                                                              \tag{2}
+$$
+在反转支取 $h_s=u^{3-s}$，则 $TD\mathbf1=(p+1)\Phi\mathbf1-h$、$TDh=pu^3\mathbf1$。这给 $F_1=(p+1)\Phi-u^3$ 及 $F_{k+2}=(p+1)\Phi F_{k+1}-pu^3F_k$。分子唯一根 $t=u^{-3}$ 在 $\mathbf Q(u)$ 中不是分母根。恒等支把 $v=(I-tTD)^{-1}\mathbf1$ 的四个分量写为 $v_s=(1+t(p-1)\pi^\top Dv)/(1-tu^s)$，代回并取 $s=0$ 即得上式。清分母后分子为 $\prod_{s=1}^3(1-tu^s)$，分母在任一 $t=u^{-s}$ 处均不为零，且最高次系数为 $\det(TD)=pu^6$。这证明关于 $k$ 的最短递推阶恰为二、四；在 $u=1$ 等特殊数值处可降阶。
+
+从 (1) 直接读出 $k\ge1$ 时两端的项数。令 $b=\lfloor p/3\rfloor$，则
+$$
+ \#\{V_k=0\}=(b+1)^k,\qquad
+ \#\{V_k=3k\}=b(b+1)^{k-1}.
+$$
+第一式每一步均留在零状态；第二式第一步只有 $b$ 个数字可到状态 3，以后每步有 $b+1$ 个可留下。以 $p=5$ 为例，两端数分别为 $2^k$ 与 $2^{k-1}$，有限样本的端点质量并不对称。
+
+## 二、有限层矩与四阶累积量
+
+置 $r=1/p$、$g_s=s-3/2$、$X_j=f(x_j)$。有 $\pi^\top g=0,\ \pi^\top g^2=19/12,\ \pi^\top g^4=163/48$，这里幂逐坐标取。由 (1)，$Pg=rg$，$P(g^2-19/12)=\epsilon r(g^2-19/12)$。在初始状态 0 处得到
+$$
+ \mathbb EX_i=\tfrac32(1-r^i),\quad
+ w_i=\operatorname{Var}(X_i)=\tfrac{19}{12}+\tfrac23(\epsilon r)^i-\tfrac94r^{2i},
+ \quad\operatorname{Cov}(X_i,X_j)=r^{j-i}w_i\quad(i\le j).
+$$
+因此真实均值 $m_k$ 与方差 $v_k$ 为
+$$
+ m_k=\tfrac32\left(k-\frac{1-r^k}{p-1}\right),\qquad
+ v_k=\sum_{i=1}^k w_i\left(1+\frac{2(1-r^{k-i})}{p-1}\right)
+     =k\sigma_p^2+O_p(1),\qquad
+ \sigma_p^2=\frac{19(p+1)}{12(p-1)}.                                    \tag{3}
+$$
+
+令 $\kappa_4(V)=\mathbb E(V-\mathbb EV)^4-3\operatorname{Var}(V)^2$。则
+$$
+ \kappa_4(V_k)=kK_p+O_p(1),\qquad
+ K_p=-\frac{(p+1)[99p^2+(396-128\epsilon)p+99]}{24(p-1)^3}.             \tag{4}
+$$
+推导时在 $P$ 右乘 $\operatorname{diag}(e^{zg_s})$，记靠近 1 的简单特征值为 $e^{K(z)}$，$K(0)=0$；固定 $p$，其余特征值在 $z=0$ 的模均为 $r$。反转四态同时令 $z\mapsto-z$，故 $K$ 为偶解析函数；初态引入的有界项允许非零三阶累积量。令 $\phi(z)=\sum\pi_s e^{zg_s}$，$u_2=19/12,\ u_4=163/48$。反转支由二阶式得
+$$
+ e^{K(z)}+r e^{-K(z)}=(1+r)\phi(z).
+$$
+展开至四阶即得 $K''(0)=\sigma_p^2$ 与 $K^{(4)}(0)=(1+r)(u_4-3\sigma_p^4)/(1-r)$。恒等支由 (2) 的极点方程可写成
+$$
+ 1=\mathbb E\big[e^{-NK(z)}\phi(Nz)\big],\qquad
+ \Pr(N=h)=(1-r)r^{h-1},\quad h\ge1.
+$$
+若 $M_j=\mathbb E N^j$，则 $K''(0)=u_2M_2/M_1$，以及
+$$
+ K^{(4)}(0)=\frac{u_4M_4-6\sigma_p^2u_2 M_3+3\sigma_p^4M_2}{M_1}.
+$$
+代入几何分布的各阶矩并化简，得到 (4) 的另一支。有限矩阵的简单特征值分解给对数矩生成函数 $kK(z)$ 加一个在 0 附近一致解析有界的起点修正（这里对 $V_k-3k/2$ 取矩生成函数）。各阶求导合法，故 $K^{(4)}(0)$ 正是每层极限斜率。例如 $K_5=-2597/128$、$K_7=-3413/324$。
+
+## 三、格点的统一局部近似
+
+对任意整数 $m$，令 $x=(m-m_k)/\sqrt{v_k}$、$H_4(x)=x^4-6x^2+3$。固定 $p\ge5$，在 $k\to\infty$ 时有
+$$
+ \Pr(V_k=m)=\frac{e^{-x^2/2}}{\sqrt{2\pi v_k}}
+ \left(1+\frac{kK_p}{24v_k^2}H_4(x)\right)+O_p(k^{-2}),                \tag{5}
+$$
+余项为在所有整数 $m$ 上一致的绝对误差。特别地，$(V_k-m_k)/\sqrt{v_k}$ 收敛到标准正态。端点的指数小质量由 (2) 或端点公式给出，(5) 的绝对误差并不提供尾部的相对误差。
+
+为核格跨度，未居中的特征矩阵为 $P\operatorname{diag}(e^{is\theta})$。所有状态均与状态 0 双向连通，状态 0、1 都有正权自环（包括 $p=5$）。若谱半径等于 1，三角不等式的取等条件使每条正边的相位都等于同一单位复数乘起终点相位之比。两条自环遂要求 $1=e^{i\theta}$。因此在 $[-\pi,\pi]$ 离开 0 的任何紧集上，特征矩阵的幂一致指数衰减。
+
+在 0 附近，用上节的解析分解，对其特征函数取对数并减去精确均值项。二次项为 $-v_k\theta^2/2$，三阶系数为 $O_p(1)$，四次项为 $(kK_p+O_p(1))\theta^4/24$；余项为 $O_p(|\theta|^5+k|\theta|^6)$，因为主特征根的对数是偶函数。取小的固定邻域可用 $C_pe^{-c_p k\theta^2}$ 控制特征函数模，在 $|\theta|\le k^{-2/5}$ 上展开指数并作 Fourier 反演。四次项的高斯变换产生 $H_4$；未保留三次起点项的积分由 $\int|\theta|^3e^{-c_pk\theta^2}\,d\theta=O_p(k^{-2})$ 控制，其余展开误差更小。邻域剩余部分的高斯衰减及其外的谱隙使贡献均小于该阶。Fourier 相位的模为 1，故误差与 $m$ 无关。
+
+## 四、复算
+
+同目录 <code>python carries_check.py</code> 输出 <code>carries_checked.json</code>，仅用 Python 标准库。脚本从数字和独立计算八个素数的完整区间直方图，合计 641186 个 $(p,n)$，并对每个素数的 $0\le n\le100$ 再用实际阶乘大整数逐除 $p$ 核验。另以四状态整数计数逐层推至 $k=42$，检查每层均值、方差、两个端点、生成函数的系数恒等式，以及相邻层四阶累积量之差。八个素数在层 41 至 42 间的四阶增量与 (4) 的差，均由精确分数验证小于 $p^{-20}$；此数值核验独立于 (4)、(5) 的渐近推导。
