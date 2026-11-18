@@ -1,0 +1,110 @@
+{
+  "schema": "R762EI_INTEGRAL_NULL_QUOTIENT_Q81_Q243_V1",
+  "arithmetic": "exact uint8 Z/9 and F3 row/column elimination; all intermediates bounded <256",
+  "premise": "earlier author-proved R762ED kernel rank 8q-12 and R762EF full rational span, not independently reviewed",
+  "model": "P=1+X+Z+XY+YZ+XYZ; K_J=T(U_J)D(V_J); q=3^a",
+  "verification": "PASS",
+  "symbolic_q3_certificate": {
+    "q3_polynomial_basis_rank": 12,
+    "q3_family_rank": 12,
+    "five_point_carry_annihilator": [
+      [
+        [
+          0,
+          0,
+          1
+        ],
+        -1
+      ],
+      [
+        [
+          0,
+          2,
+          2
+        ],
+        1
+      ],
+      [
+        [
+          1,
+          0,
+          2
+        ],
+        1
+      ],
+      [
+        [
+          1,
+          2,
+          1
+        ],
+        1
+      ],
+      [
+        [
+          1,
+          2,
+          2
+        ],
+        1
+      ]
+    ],
+    "annihilator_pairs_with_family_columns": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "annihilator_pairs_with_carry": 1
+  },
+  "cases": [
+    {
+      "q": 81,
+      "sampled_rows": 1600,
+      "full_rows": 531441,
+      "columns": 648,
+      "mod9_unit_pivots": 320,
+      "mod9_exact_three_pivots": 316,
+      "sum_pivots": 636,
+      "global_kernel_rank_from_R762ED": 636,
+      "smith_valuation_ge_2_count": 0,
+      "conclusion": "K/I ~= (Z/3Z)^316",
+      "row_sample_sha256": "a1ae0ef726d9a2ab0c11734e47687a235c993eb34b3ec6221ae5688822827f28",
+      "sample_rule": "SHA256(\"R762EI:selection:v1:q=<q>:index=<counter>\") -> int mod q^3, first distinct rows"
+    },
+    {
+      "q": 243,
+      "sampled_rows": 3000,
+      "full_rows": 14348907,
+      "columns": 1944,
+      "mod9_unit_pivots": 968,
+      "mod9_exact_three_pivots": 964,
+      "sum_pivots": 1932,
+      "global_kernel_rank_from_R762ED": 1932,
+      "smith_valuation_ge_2_count": 0,
+      "conclusion": "K/I ~= (Z/3Z)^964",
+      "row_sample_sha256": "df6b750ae4d5015961afd6cb4cebfdebe16612d7e40289f9773476dcb520a11b",
+      "sample_rule": "SHA256(\"R762EI:selection:v1:q=<q>:index=<counter>\") -> int mod q^3, first distinct rows"
+    }
+  ]
+}
