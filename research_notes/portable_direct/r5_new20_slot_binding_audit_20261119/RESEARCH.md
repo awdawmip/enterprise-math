@@ -1,0 +1,35 @@
+# R5 NEW20 nine-slot historical input provenance: resolved (2026-11-19)
+
+**Evidence status:** AUTHOR_PROVED (slot-conjugacy lemma), EXACT_FINITE_CHECKED (20 source digests / 4040 support equalities / two sampled root solves), NOT_REVIEWED. Scope is the frozen nine-named-state scalar observation game, not an independent native X6 identity claim. Portable, unclaimed research continuation.
+
+## Immutable premises and precise discrepancy
+
+- Frozen scientific source commit: `435e77af0d180eac32bd1f9c4c464bc4010b7551`.
+- Frozen integer-center table: `EXACT_R5_ALL_101_BUDGETS.json`, SHA-256 `50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b`, 1,549,048 bytes.
+- Historical NEW20 result: `37e03bc916c6a3d4afb5dae037c288589bc0022f:research_notes/portable_direct/r5_nine_additional_20_classes_20261118/RESULTS_R5_NINE_NEW20.json`.
+- Historical post hoc verifier: same commit and directory, `VERIFY_R5_NINE_NEW20.py`. Its `input_for` encodes slots `(18,24,82,34,17,x,144,208,y)`. The historical 20 `input_sha256` fields disagree with this reconstruction. Prior audit documented this discrepancy at `4e5e8d2bd7dd12c9e9bb4e3924e032da68387a73:research_notes/portable_direct/r5_nine_next40_audit_20261118/RESEARCH.md`.
+- **Resolved:** every historical `input_sha256` is the exact digest of the same original response game serialized with slot order `(18,24,82,34,17,x,y,144,208)` (the two new states x and y adjacent, before 144 and 208). Restoring only this slot order reproduces **20/20** historical digests from the frozen table and exactly the same cheapest-per-identical-family action count recorded for each row. The original artifact is preserved unchanged.
+
+## Permutation-invariance theorem
+
+For any nine named states, any nonnegative diameter tau, and any error budget f, let the correct-response support family for a physical action k be the inclusion-maximal subsets of indices simultaneously compatible with a correct scalar response. Under a permutation pi of the nine slot indices, the reordered centers have support family `{pi(S): S in supports(k)}` at each k. The budget k and its physical cost are unchanged.
+
+For an error-counter vector e, denote its permuted vector by pi(e). The Bellman successor increments precisely counters outside the selected support, so `pi(T_S(e))=T_{pi(S)}(pi(e))`. The terminal condition (at most one live named state) is invariant. A finite-cost strategy tree for one representation relabels bijectively into a strategy tree with identical branch costs for the other. Thus `C_f(H; tau)` and every forced-root minimum are invariant under slot reordering. This proof preserves individual named counters; it is a representation isomorphism, not a merging of two distinct named states.
+
+In this particular case, positions 0,...,5 remain fixed; the original slot indices 6,7,8 become the documented indices 8,6,7 respectively (a three-cycle). The observation quotient class partition by complete support signatures is preserved because the same bijection applies to every candidate pair and physical action.
+
+## Executed reproducibility checks
+
+1. Parsed the original frozen 1,549,048-byte table and verified its SHA-256.
+2. Reconstructed each of the 20 recorded NEW20 exact solver stdin inputs using the historical order. Every one of the 20 recorded SHA-256 digests matches bit-for-bit. The documented-order reconstruction mismatches all 20, giving a discriminating diagnosis rather than just a same-cost computation.
+3. Crosschecked support conjugacy for 20 representatives x 101 physical budgets x two diameter endpoints L and U-1 = **4,040 exact integer family comparisons**, all passed. The theorem supplies the whole real diameter range, while those finite checks detect permutation mistakes.
+4. Recompiled `EXACT_NINE_V2.cpp` from the previous reproducible research archive and solved two historical cases in both slot orders. (69,162): original order `EXACT cost=8335 states=1351977 actions=10`, documented order `EXACT cost=8335 states=1351813 actions=10`. (69,178): original and documented both `EXACT cost=8335 states=1170779 actions=10`. The two historical memo counts are reproduced, and the differing count for the first case is attributable to order-dependent search/pruning work, not a cost difference.
+5. `VERIFY_NEW20_SLOT_BINDING.py` is a standalone reproduction script: `python VERIFY_NEW20_SLOT_BINDING.py EXACT_R5_ALL_101_BUDGETS.json RESULTS_R5_NINE_NEW20.json`. The second argument is the unchanged historical result file at its immutable commit. It passed with: `PASS_R5_NEW20_SLOT_BINDING: 20/20 source hashes, 4040 support families, no math rerun`. Script SHA-256: `39a41a3ee6d1376df0a9f6aed74dc282d3774f154b1a522cffb80d5053a83fb3`.
+
+## Scope, scientific status and continuation
+
+The original published NEW20 verifier's declared slot order is inconsistent with the historical `input_sha256` metadata. The 20 historical digests have now been explained exactly, and the underlying minimax game is invariant under this reorder. Only two of the 20 root solves were rerun in this audit; the other 18 exact root costs retain their original run provenance and `NOT_REVIEWED` status. The original source files and frozen science are unchanged.
+
+The existing historically reported coverage remains 110 of 2026 nine-state signature classes, 15,203 of 30,876 unordered pairs; the full 256-state f=8 bound remains `8335 <= C8* <= 8343`. The next discriminating problem is to seek a nine-state or larger joint-interference certificate strictly exceeding 8335, prioritizing rare classes; an independent mathematical review may separately audit the restored NEW20 inputs and the existing exact solver semantics. Do not re-run the 249 completed eight-state expansions merely to resolve this metadata issue.
+
+Author/provenance: R5 portable continuation, original activity `RA-F2257922D00B2FE4C4818DBD`, preserved researcher provenance `EM-DIRECT-4C3E47`; no new formal CLAIM/RUN or independent review.
