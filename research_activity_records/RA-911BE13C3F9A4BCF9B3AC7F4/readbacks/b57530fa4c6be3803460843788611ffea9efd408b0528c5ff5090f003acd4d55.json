@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/fiftyfirst/README.md",
+    "ref": "ffb57ccb5eaccb8e756df5ac45230111a8c7c133",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-fiftyone-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第五十一轮　乘法邻接谱、双端链的最小观测与接触路径的算术\n\n## 从换一个素因子的图读回素数个数\n\n取 $n\\le X$ 中恰有 $k$ 个素因子（计重）的整数，两个数若只差一次素因子替换就连边。去掉一个素因子，所得共同核 $g$ 给出大小为 $d=\\pi(X/g)$ 的完全子图。按 $g$ 从小到大，对应的大特征值在充分大的窗口中能精确读回这个素数计数。固定 $g$ 且 $k\\ge2$ 时，有\n$$\n\\lambda_g=d-1+\n\\frac{4\\big(\\sum_{p\\mid g}p\\big)\\log\\log X+\\kappa_g+o(1)}{d}.\n$$\n因而最终 $\\lceil\\lambda_g\\rceil=\\pi(X/g)$。偏移主因来自团外尚可接到团内的半素数点，常数 $\\kappa_g$ 则还计入与其它大团的相互作用。负端也有精确计数：最小可能值 $-k$ 在 $k=1,2,3,4$ 时首次出现的窗口分别为 $3,21,273,5187$。[谱定理、素数和与阈值](multiplicative.md) · [区间复算](multiplicative_check.py) · [精确输出](multiplicative_checked.json)\n\n## 只从两个端口接线，还能辨认隐藏电阻段的哪些差别\n\n第 1 轮已经构造了一个六坐标的状态，但留下一个问题：禁止接触任何内部顶点，只能在两个具名端口续接再闭环，是否还能删去坐标？现在得到完整判据。在总电阻 $R$ 和隐藏顶点数 $h$ 各自固定时，两段对所有允许的闭环读数 $\\beta_2$ 都不可区分，当且仅当原六坐标完全相同。描述该层所需的最小连续维数恰为 $\\min(h,6)$。给出的 120 个纯正整数电阻探针足以辨别全部可辨路径；探针数量的最小值仍未确定。[观测等价、维数与合法探针](terminals.md) · [双方法复算](terminals_check.py) · [读数](terminals_checked.json)\n\n## 先保留路径分组，还是先混合再判整除\n\n第 49 轮的有限接触模型给出两材料首达的带权路径。在总格距 $N$ 不变时，将其分到两根轴上为 $(k,N-k)$，相对单轴的首达质量恰为 $\\binom Nk$。保留 $1\\le k\\le m<N$ 的分组时，可以读到\n$$\n\\gcd_{1\\le k\\le m}\\binom Nk=\\frac{N}{\\gcd(N,\\operatorname{lcm}(1,\\ldots,m))}.\n$$\n若先用偏置 $t$ 混合再判整除，得到 $(t+1)^N-t^N-1$。对 $N=561$，每个整数 $t$ 都通过整除检验，原分组 $k=3$ 的余数却是 187。程序在冻结正权核上重放了 $2\\le N\\le32$ 的 558 个准备；大数对照用精确整数代数。[来源、系数内容与混合固定除子](bridge.md) · [复算](bridge_check.py) · [证据](bridge_checked.json)\n\n本轮直接推进两个父目标，其中双端链是对 50 轮前同一编号的复访，路径算术是首次推进的登记。乘法邻接谱沿历史 M2 关系另行研究。截至 2026-11-18 22:58:51 UTC，累计直接研究 209 个编号、51 个父目标，另有两项早期旁引。尚未轮到的严格就绪、交接及冻结返回任务分别为 49、22、5 项。[状态机截止、覆盖及复访口径](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/ffb57ccb5eaccb8e756df5ac45230111a8c7c133/research_notes/portable_direct/20261118_fair_queue_6b0fba/fiftyfirst/README.md",
+      "encoding": "utf-8",
+      "sha": "07fc236a6e6453e5f819c3fc671f3bf986586965"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
