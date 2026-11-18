@@ -106,7 +106,17 @@ def _mapping(root: Path, value: dict[str, Any], old: dict[str, Any]) -> tuple[di
         h._require(type(row["bytes"]) is int and row["bytes"] > 0, "custody byte length must be a positive integer")
         raw = _read_pin(root, {"path": row["physical_path"], "sha256": row["sha256"], "git_blob_sha1": row["git_blob_sha1"]})
         h._require(len(raw) == row["bytes"], "custody byte length drift")
-        h._require(not (root / logical).exists(), "custody originals must remain outside canonical logical paths")
+        # The historical original remains pinned to the noncanonical custody file.
+        # A later, byte-distinct current scientific file may legitimately reuse the
+        # same logical name. Reject actual aliases, symlink indirection, and
+        # non-file collisions rather than blocking unrelated current research.
+        canonical = root / logical
+        if canonical.exists() or canonical.is_symlink():
+            h._require(canonical.is_file() and not canonical.is_symlink()
+                       and canonical.resolve() == root.resolve() / logical,
+                       "custody canonical logical path is not a regular direct file")
+            h._require(canonical.stat().st_size != len(raw) or canonical.read_bytes() != raw,
+                       "custody originals must remain outside canonical logical paths")
         indexed[logical] = row
         frozen_bytes[logical] = raw
     h._require(set(indexed) == expected_paths, "custody mapping does not cover the exact original packet")
