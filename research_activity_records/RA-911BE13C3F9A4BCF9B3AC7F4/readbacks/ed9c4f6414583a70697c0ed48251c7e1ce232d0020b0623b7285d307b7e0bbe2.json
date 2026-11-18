@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/eighth/README.md",
+    "ref": "b093e8ab11d34957cc4b344c4a82ebe21ab43b72",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-eight-20261118-2",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第八组：Legendre 同余的跨分支求值与四个有限问题\n\n本轮选中五个任务，分别属于 Legendre 超同余、立方 theta 系数、传播核辨识、非交换回返及 Gregory–Machin 原子生成。状态机回放记录 1,598 条评论和 1,426 条可识别事件；五项在快照中都是 P2 待派。JT2 第二代有过领取和交接，第三代发布后尚无运行事件。八轮共推进 **46 个不同任务、33 个登记父目标**。以下为独立研究及复算，任务的领取与正式验收遵循各自登记记录。[状态快照及选取理由](queue.json) · [项目事件流](https://github.com/awdawmip/enterprise-math/issues/240)\n\n## 同一个数，把两条分支接在一起\n\nJT2 的第三代任务要求对所有素数 $p\\equiv13,19\\bmod24$ 求出一个显式剩余 $\\varepsilon_p$。9 月的 JT2 归约把它写成 $3[1-(g/p)(-6Q'_m(1/2))]$；稍后，D24 的评审用带权截断、Clausen 恒等式与 CM 符号求出括号内的乘积为 1。两处的 $g$ 是同一未除值，$g/p$ 在 CM 零值成立后才使用。核对两类素数的符号、分母与导数后，得到 **$\\varepsilon_p=0$**。令 $n=(p-1)/3$、$2t^2=1$、$P_n(1)=1$，即有\n$$\n9P_n(t)P_n'(t)\\equiv p\\left(2\\int_0^tP_n(x)^2\\,dx+3t\\right)\\pmod{p^2}.\n$$\n在两个最小素数 $13,19$，原式两边之差除以 $t p^2$ 后，模 $p$ 分别为 $2,11$。所以把同一公式直接提高到模 $p^3$ 在两类中都已有反例。另立的高一位 LIFT 命题有自己的校正项。[衔接推导、两个反例及 Hensel 根](legendre.md) · [程序](legendre_check.py) · [数值记录](legendre_checked.json)\n\n还可把平方积分换成较低阶 Legendre 值的线性和。这样在上述 CM 点计算 $P_n(t)/p\\bmod p$，只需一次模 $p$ 的三项递推和一个带权累加。对 $p=21157,21139$，分别预测出 $2729,3791$，从初值独立递推到模 $p^2$ 得到相同除值。[低阶公式与推导](legendre_primitive.md) · [逐系数与两条精度路线的复算](legendre_primitive_check.py)\n\n| 方向 | 提取的结果 | 证据 |\n|---|---|---|\n| 立方 theta 系数 | 固定好素理想、频率单位部与 $k=v_{\\mathfrak p}(s)\\in\\{0,1\\}$，仅需读取频率赋值模 6 的 $0,2,3,4$ 四类，即可精确恢复未混合的有限系数。截到 $6M+4$ 时，$4(M+1)$ 个标量观测达到维数下界。$k\\ge2$ 时正赋值系数全部不可见。 | [局部逆式、稳定性与反例](theta.md) · [114 个有限 Gauss 和复算](theta_check.py) |\n| 13 状态传播核 | 从指定初点 $r_0$ 观察单轴 $x_1$，三步恰好确定重置率及两个相反方向移动概率的无序对。增加相邻初点 $r_1$，两步可恢复有序参数。两方案的全时边缘数据对应的最优反演指数分别为 $1/3,1/2$。 | [辨识判据及删减、噪声见证](kernel.md) · [程序](kernel_check.py) · [数值记录](kernel_checked.json) |\n| 非交换回返 | 回返配对须同时满足内部向量反向及模标签一致。误差界中的总配对数可收紧到同一标签的最大配对数。在 $P=6,\\ P_{\\max}=2$ 的算例中，收紧后的平方界第一次低于 $1/4$。 | [推导](return.md) · [审计报告](AUDIT_REPORT.md) · [逐项命题](CLAIM_AUDIT.json) · [程序](return_check.py) · [记录](return_checked.json) |\n| 有理转角原子 | 用有向高斯素幂无重无漏地生成高度盒内的全体原子，保留单位扭转与每个素数的有符号赋值。两盒分别逐项核对 304,191 和 684,181 个原子。奇范数原子数超出不同自由方向数的主项为 $2\\log(1+\\sqrt2)H/\\pi^2$，余项 $O(H^{2/3})$。 | [构造、计数与复杂度](atoms.md) · [程序](atoms_check.py) · [两盒记录](atoms_checked.json) |\n\n## 各结果的适用边界\n\n立方 theta 的逆式在不同 $k$ 及单位相位仍可区分时成立，合并后的全局 Mellin 观测需要额外分离论证。传播核的时间阈值针对冻结的 13 状态族。非交换回返重放了原归档的 217 项算子检查，归档复算需自行提供指定源包；算子级回返、给定模数上的回返、实际反馈历史的可达性各需相应证据。原子生成的期望 $O(H^2)$ 是字运算计数，显式复制每个稀疏赋值条目另计。[theta](theta.md) · [传播核](kernel.md) · [回返](return.md) · [原子](atoms.md)\n\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/b093e8ab11d34957cc4b344c4a82ebe21ab43b72/research_notes/portable_direct/20261118_fair_queue_6b0fba/eighth/README.md",
+      "encoding": "utf-8",
+      "sha": "ddca143aa631379a4c54934b8c678decca2e1fc2"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

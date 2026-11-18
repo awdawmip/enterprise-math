@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/eleventh/README.md",
+    "ref": "b0f2118b8da17aef5b2f3704a52768bb073bebcf",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-eleven-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第十一轮：Gregory–Machin 的最优常数、费马进位与落点宽度\n\n本轮从严格就绪且尚未轮到的积压中选取六项，其中一项 P1、五项 P2，来自五个登记父目标。取材时均无活动领取、无显式任务前置。十一轮累计推进 63 项不同任务、34 个父目标；在本轮 211 项严格就绪快照中，尚有 150 项此前未轮到，其中 P1 五项、P2 一百四十五项。正式调度和验收状态以状态机为准。[队列与任务来源](fair_snapshot.json)\n\n## 固定支撑的 Gregory–Machin 公式\n\n恰用 $s\\ge2$ 个互异的本原斜率 $a_j/b_j\\in(0,1)$，要求某组非零整数系数使这些有理反正切的加权和到达对角端点 $\\pi/4\\pmod {2\\pi}$。把分母预算定义为 $B_{\\log}=\\sum_j\\log_2 b_j$，把收敛成本定义为 $\\mu=\\sum_j1/\\log_{10}(b_j/a_j)$。若 $m_s(B)$ 是 $B_{\\log}\\le B$ 下的最小成本，则\n$$\\lim_{B\\to\\infty}m_s(B)\\ln B=\\frac{\\ln10}{s-1}.$$\n下界从高斯整数的分裂素赋值矩阵提取短的奇扭转关系；上界用一串有理斜率逐级逼近前一端点的高次根，把每一级小误差也作为精确原子。上界可取所有系数为正、总角度恰为 $\\pi/4$。逼近临界包络的序列还必须使用最大位长为 $(s-1+o(1))\\log_2 B$ 的最短端点系数。十组构造以整数运算复核端点，极限由上下界证明。[定理与两端构造](machin.md) · [程序](machin_check.py) · [精确结果](machin_checked.json)\n\n## 费马平方链的最小高阶进位\n\n在奇素数 $p$ 的单位剩余类上写 $x=r+pA$。连续 $d\\ge1$ 次平方后取与 $r^{2^d}$ 同余的代表 $s$，则商坐标为 $G(A)=((r+pA)^{2^d}-s)/p$。在全体整数 $A$ 上，$G$ 模 $p^m$ 可以由仿射式表示，当且仅当\n$$m\\le1+v_p(2^d-1).$$\n更高精度下的最小次数由各阶有限差分的精确赋值给出。更换余数代表只作坐标平移，验证包括进位和借位。已知因子 641 的终点读数为 $F_5/641=44+197\\cdot641+16\\cdot641^2$，其中 $F_5=2^{32}+1$。任意未知费马因子的发现仍是另一问题。[全阶公式](fermat_lift.md) · [程序](fermat_lift_check.py) · [精确结果](fermat_lift_checked.json)\n\n## 有序模乘落点的奇数部分\n\n对公开模乘调度和指定工作终点，准备前缀若允许完全相同的后缀字到达终点，就能相加其完整有符号向量，同时保留后续矩阵的时间顺序。若模乘阶为 $r=2^vu$ 且 $u$ 为奇数，所有轨道终点同时达到峰值宽度 $u$ 的最早深度恰为 $v+2\\lceil\\log_2u\\rceil$。更短的深度也有逐目标、逐切口的闭式。模数 $2^n-1$、底数 2 的族可直接通过位下标构造父状态与两臂联合律，不需输入未知阶。对 $N=3^{k+1},a=4$ 的族，逐准备字保落点的有序线性表示在覆盖全部读出历史的一个切口需要超过 $N/6$ 个标量坐标。本结果限于指定表示。无限位深的相位字库构造成本单列。实际两轮核验保留了 61 个坐标及其正负端点。[宽度与秩](landing.md) · [后缀枚举](landing_check.py) · [后缀结果](landing_checked.json) · [原生有限核](landing_brc.py) · [联合律证据](landing_brc_checked.json)\n\n## 路径译码、有限预算与三元事件\n\n| 分支 | 本轮提取的结论 |\n|---|---|\n| 三阶路径译码 | 固定三轴帧的一次最短六边闭路，其六个二元决策用四个原始整数分量即可恢复，且四个最少。模 3、4 时均需六个原始分量；模 4 若允许线性混合，只需四个读数。模 2 的完整张量只分出八类，每类八词。[Smith 型与译码](path.md) · [复算](path_check.py) · [结果](path_checked.json) |\n| 有限预算下的记忆 | 五状态模型中，一比特记忆达到允许完整观察历史的最优存活率。最优修复把危险步分成长度相差至多一的各段。指定五步例的零记忆、一比特最优存活率为 $2263/4096$、$225/256$。320 组参数与独立策略求优一致。[最优值与极限](branch.md) · [复算](branch_check.py) · [结果](branch_checked.json) |\n| P1 三元事件来源 | 若两个边缘的每个观察箱各只含一条正路径，权 $w$ 两侧各出现 $m_w$ 次，则兼容配对数为 $\\prod_w m_w!$。冻结增长标签的两个路径权不同，因而两边缘都已知时配对唯一；撤去某项支援的另一边缘未知时，在规定的单调同源确定性模型内接受率恰可为 $0$ 或 $1/49$。两端都有保留既有读数的见证。[可识别性与反例](priority.md) · [复算](priority_check.py) · [结果](priority_checked.json) |\n\n后续问题包括支撑数也随预算变化时的最优常数，以及只保留聚合读出的算法能否越过逐准备字表示的秩下界。\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/b0f2118b8da17aef5b2f3704a52768bb073bebcf/research_notes/portable_direct/20261118_fair_queue_6b0fba/eleventh/README.md",
+      "encoding": "utf-8",
+      "sha": "0f67cd445231c7d125cdbabedd1ef73a52b7f392"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

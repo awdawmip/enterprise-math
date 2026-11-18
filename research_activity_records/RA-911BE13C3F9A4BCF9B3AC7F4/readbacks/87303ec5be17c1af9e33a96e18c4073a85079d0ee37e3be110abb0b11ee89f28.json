@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/ninth/README.md",
+    "ref": "a1e74b998b9ae2e30cde145c6dd20f308a3eae55",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-nine-20261118-2",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第九组：奇异提升、加权环流、跨尺度更新与两个局部搬运问题\n\n本轮从五个不同登记父目标各取一项，包括一项 P1 和四项 P2。取材时五项均为 READY 且 NEEDS_DISPATCH，无显式前置、活动租约或该任务的冻结结果。九轮累计推进 **51 个互异任务、33 个登记父目标**。前八轮后，全量重放的 518 个登记条目与增量计算在八项状态字段上逐项一致；211 个处于 READY 的待派科研任务中有 167 个此前未轮到。按这份快照扣除本轮五项，还余 **162 个**（7 个 P1、155 个 P2）。这是轮转统计；各项正式验收仍由状态机处理。[本轮队列](queue.json) · [全量与增量复核的积压基线](backlog_audit.json)\n\n## 模 25 完全相同，模 125 的因子数可以是 0、25 或 50\n\n令 $g=X^2+2$，在 $\\mathbf F_5$ 上不可约。对 $F_C=g^2+25C$，取 $C=X,0,-1$。三者模 25 完全相同，都有 25 对约化为 $(g,g)$ 的有序首一二次因子。再提高一位精度，这三项的因子对数依次变成 **0、25、50**。在剩余域 $\\mathbf F_5[X]/(g)$ 内，$-C$ 分别是非平方、零和非零平方。\n\n更一般地，在奇素数 $p$、首一模 $p$ 不可约因子 $g$ 的次数为 $d$ 且 $\\deg C<2d$ 时，$g^2+p^2C$ 在模 $p^3$ 的这类有序提升数是\n$$p^d\\big(1+\\chi_{\\mathbf F_{p^d}}(-C\\bmod g)\\big),\\qquad \\chi(0)=0.$$\n同一任务还给出了任意多个带标签首一因子的一步提升条件，以及 $X^2-p^a u$ 在奇素数和 $2$ 处的各层根和投影纤维。直接枚举核对 14,980 个投影纤维及超过 16,000 个多因子一步缺陷。[奇异根与因子提升](hensel.md) · [程序](hensel_check.py) · [核验记录](hensel_checked.json)\n\n若未来还允许改变根的目标值，可精确计算需要保存多少数位。对球 $a+p^s\\mathbf Z_p$、系数在 $\\mathbf Z_p$ 中、次数至多 $D$ 的多项式，模 $p^k$ 的值函数恰有 $p^E$ 个，其中\n$$E=\\sum_{j=0}^D\\big(k-sj-v_p(j!)\\big)_+.$$\nNewton 差分给出达到此界的独立坐标，也给出缩到子球的传递矩阵。例如模 5 约化为 $X^2$ 的首一二次式，在 $5\\mathbf Z_5$ 上模 125 有 125 个不同值函数，而固定零目标只有 16 种根集。[值函数的最小数据与点查询下界](newton_ball.md) · [标准库复算](newton_ball_check.py)\n\n| 分支 | 提取的定理或反例 | 推导与复算 |\n|---|---|---|\n| 六轴加权环流 | 方差精确等于 $C_1/N+C_2/N^2$。$C_1=0$ 当且仅当每轴指向每个等率组的带符号边权之和都为零。若有 $q$ 种速率，抵消空间维数为 $\\binom{6-q}{2}$；非零边权仍有 $C_2>0$。 | [研究笔记](circulation.md) · [程序](circulation_check.py) |\n| 非线性守恒更新的粗化 | 两点成块、各块无序状态已知时，最初两步粗均值轨迹足以判定全部未来粗读数是否相同。唯一永久不可分的不同细态为同一空间二周期图样的全体左右互换。更宽的块内，只留全部对称矩仍会缺失未来流出边界的位置。 | [研究笔记](scale.md) · [程序](scale_check.py) · [核验记录](scale_checked.json) |\n| Pachner $2\\to3$ 移动 | 四边形匹配方程的行码可作整系数局部传递。对实际闭剖分，固定外部曲面、允许的四边形类型和外部修复坐标后，同一边界可有 $k+1$ 种非负填充，闭曲面欧拉值取 $2(k-j)$，$0\\le j\\le k$。 | [研究笔记](pachner.md) · [Regina 复算](pachner_check.py) · [核验记录](pachner_checked.json) |\n| P1 搬运期间的有效联系 | 在冻结的正逆搬运前缀上，即使材料位置、旧头与库存一致，下一次提交也可能把同一记录绑定或释放。按实际下一写入及当前解绑探针分类，每个固定方向有 4 个可区分后继；合并八个方向的同值读出后恰有 18 类。 | [研究笔记](continuity.md) · [关系规格](OPERATIVE_RELATION_SPEC.json) · [前缀证明](PREFIX_CONTINUITY_PROOF.md) · [可执行判据](prefix_checker.py) · [核验记录](prefix_evidence.json) |\n\n加权环流的“接近抵消”也可以量化：一例六个互异速率从同一值分开，$C_1$ 的首个非零项为 $(363979/972)\\varepsilon^8$。这解释了窄范围测试为何可能把正的一阶方差误认成零。Pachner 例则显示，匹配方程的行码可被精确搬运，曲面的欧拉读出还要保存填充选择。两项分别在原加权选择律和一个合法的闭三维剖分上核对。[速率分裂](circulation.md) · [曲面填充](pachner.md)\n\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a1e74b998b9ae2e30cde145c6dd20f308a3eae55/research_notes/portable_direct/20261118_fair_queue_6b0fba/ninth/README.md",
+      "encoding": "utf-8",
+      "sha": "668e4d39493833574e27a187def9a3a37364802e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

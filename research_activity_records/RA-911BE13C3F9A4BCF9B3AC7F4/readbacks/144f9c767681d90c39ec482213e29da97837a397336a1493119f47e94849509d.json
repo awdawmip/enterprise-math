@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/seventh/README.md",
+    "ref": "22d194c9c9970b07a311fb0a57a10c11735c6e6b",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-seven-20261118-0",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第七组：进位窗的中心项、数位规则的周期反例与四个分支的精确界\n\n2026-11-18，从状态机中各取一个不同问题族。重放 #240 的 1,598 条评论、1,426 条识别事件，六项均为 P2、READY、NEEDS_DISPATCH，无登记前置或有效租约。此前六轮累计 35 个任务，本轮后累计 **41 个互异任务、30 个登记父目标**。五项属于首次覆盖的登记父目标，数位规则则属于先前未覆盖的 OAI7-155 子族。研究稿登记在独立研究活动中。可按快照里的任务书、发布记录和提交号逐项核验。[状态快照](queue.json) · [项目事件流](https://github.com/awdawmip/enterprise-math/issues/240)\n\n| 方向 | 本轮结论 | 可复算材料 |\n|---|---|---|\n| RH 计数中心与进位窗 | 截去小素数引入确定项 $B_y\\sim(3/2-2\\log2)y$。加回后，在 $y=\\lfloor N^\\theta\\rfloor,\\ 1/2<\\theta<2/3$ 有一致有界的块范数误差。未经校正的窗在所有固定 $1/2<\\theta<1$ 下均有无条件的幂次上极限下界。 | [研究笔记](carry.md) · [程序](carry_check.py) · [数值记录](carry_checked.json) |\n| 数位铺砌 | 在已有 $p$ 进仿射表示上，求出逐点解的零集填充数和跨列错配密度。构造可通过任意有限组斜率上所有截距检查的周期数组；给出排除全部 $p$ 幂周期所需斜率集的充要条件。 | [研究笔记](sudoku.md) · [有限词距离](word_rule_audit.md) · [程序](sudoku_check.py) |\n| 坐标图壳 | 在六维带号坐标图中，双相邻种子和三格弯角种子的前五个壳分别有 $2,22,122,462,1362$ 和 $3,31,163,591,1683$ 个顶点。求出任意半径的生成函数，区分跨层边数与其承载的最短路径数。 | [研究笔记](shell.md) · [多源 BFS 复算](shell_check.py) |\n| 三维不可压流体的螺旋交互 | 在同一输出上，用各热率的对角项统一控制完整热 Gram，当且仅当每个倍频段内权重倒数之和一致有界。给出满足实性、无散度和螺旋约束的同相初态。 | [研究笔记](jitter.md) · [程序](jitter_check.py) · [数值记录](jitter_checked.json) |\n| RP15 精度筛选 | 扫描前缀已出现的最小二乘残差给出可实现的拒绝下界。冻结的 98 个字段、385 个候选中，285 个提前拒绝，候选读行数由 4,758 降至 1,452，另需预读 995 个源行。 | [研究笔记](ridge.md) · [程序](ridge_check.py) · [宿主重放汇总](ridge_checked.json) |\n| 短寄存器多样本求阶 | 只观察原生前缀是否全零，碰撞概率给出阶的奇数部分的统计读出。在声明的奇部上界与独立重启条件下可解码，再用模运算认证精确阶。另有两个真阶不同而整个被观察前缀同分布的实例。 | [研究笔记](decoding.md) · [程序](decoding_check.py) · [数值记录](decoding_checked.json) |\n\n## 为什么截断进位窗需要校正\n\n计数中心 $\\gamma=2\\log 2-1$ 按同一个 $n$ 的全部分母得到；单个素数 $p$ 的进位沿时间走完一个周期，平均却是 $a_p=\\lfloor p/2\\rfloor/p$。删去 $p\\le y$ 的项时，时间平均的总额也随之删去：\n\n$$\nB_y=\\sum_{p\\le y}(a_p-\\gamma)\\log p,\\qquad\n\\left(\\sum_{N\\le n<2N}\\frac{|J(n)-H_y(n)-B_y|^2}{n^2}\\right)^{1/2}\n\\ll 1+\\sqrt{(y/N+y^3/N^2)\\log(2y)}.\n$$\n\n$B_y$ 在每个二进块内是常数，因此只测相邻整数的增量看不到它。对固定 $1/2<\\theta<1$，实轴 Mellin 估计还表明，裸窗在无穷多个块上的平方能量至少为常数倍 $N^{2\\theta-1}$。两路计算逐点核对四个二进块，并精确比较 4,660 个形式系数。原始 $J$ 的多对数平方能量上界仍开放。[完整推导和误差范围](carry.md)\n\n## 有限检查能推出什么\n\n数位规则中，若所选整数斜率集在 $\\mathbf Z_p$ 稠密，遇到周期 $p^k$ 的候选数组，就等价于测遍模 $p^k$ 的所有斜率。漏掉一个完整剩余类时，显式周期数组能在所有已测斜率、所有截距上过关。对真正满足整套规则的解，则任一非零竖直位移 $h$ 的错配密度恒为 $p^{-v_p(h)}(1-2/[p(p-1)])$。两项定量结论分别刻画了删去检查和保留检查的效果。[周期反例与错配公式](sudoku.md)\n\n六项结果使用不同的读出和检验范围。流体反例否定一个逐输出的无权估计，全系统的时间积分仍待控制。RP15 的公式可独立复算，冻结工作负载的实测重放另需任务指定归档。求阶的样本数以独立重启为前提，大奇部可能使统计解码费用很高；有些前缀甚至完全遮蔽奇部大小。[流体](jitter.md) · [精度](ridge.md) · [求阶](decoding.md)\n\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/22d194c9c9970b07a311fb0a57a10c11735c6e6b/research_notes/portable_direct/20261118_fair_queue_6b0fba/seventh/README.md",
+      "encoding": "utf-8",
+      "sha": "9962c5f0822a2c2943064dfb59d445501d36b735"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
