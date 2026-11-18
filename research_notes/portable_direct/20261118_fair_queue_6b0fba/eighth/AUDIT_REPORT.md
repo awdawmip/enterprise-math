@@ -1,0 +1,26 @@
+# 回返缺陷证书的复核记录
+
+对应任务 RS-SLOWSTRUCT-RETURN-DEFECT-AUDIT-20260930。已在临时目录重新运行冻结算子接口，并从两臂递推、直和范数、进位约束及归一化测量重新检查公式。原件为作者研究材料。本记录提供独立复算与数学复核，不承担项目正式准入。
+
+| 对象 | 审核结论 | 可以据此使用的结论 |
+|---|---|---|
+| 式 (1) 和协变返回 | SYMBOLIC_VALID / CORRECTED | 单位范数给 $2(L-R)$。协变矩阵仅需在有效源向量空间上为 $-I$。 |
+| 二进位无溢出、部分位查询、前缀定位 | SYMBOLIC_VALID / OPERATOR_INTERFACE_VERIFIED | 小字长全部有效滞后已复跑。新增非对称观察可识别左右臂颠倒。 |
+| 内部反回返推出完整地址对消去 | MODULAR_PREMISE_PENDING / NATIVE_HISTORY_PENDING | 须在相同历史上核实相同模标签。作为单独充分条件的内部反向已被反例否定。 |
+| 式 (2) 及实际尾地址 | SYMBOLIC_VALID / OPERATOR_INTERFACE_VERIFIED | 原接口仅检验内部残差的 Cauchy–Schwarz。新算例补了真实整数模标签分组的数学检查。 |
+| 式 (3)、(4) 与平方验收 | SYMBOLIC_VALID / CORRECTED | 同一后续完整仪器、可归一化父态和正尾质量。$\epsilon<1$ 的有效证书可自行推出父态非零。 |
+| 原生可达历史及模乘回返发现 | NATIVE_HISTORY_PENDING / MODULAR_PREMISE_PENDING | 仍需将诚实给出的 $(h,R)$ 经允许的实际字及模乘接口认证，计入发现、校验和尾部采样的成本。 |
+
+## 原件绑定和重演
+
+来源列明的完整归档为 95,202 字节，SHA-256 是 df9808c2bee3365d46e3f1c2b674245115cad457711c37a1c7ee1b2e88124e78。重查清单八个载荷的字节数、SHA-256 和 Git blob。复跑时内核自身再次核实 10,087 字节的 Git blob 4e6b3132580e3cd70a20a0d8bd4d28792b961afb。实际运行去掉耗时字段后的全量测试记录相等。解压后的 8,396,744 字节操作和使用收据逐字节相等，SHA-256 为 dac84f1a494483af2b746dd68328c8a44547487c0a505f31c6c453948c41b16b。
+
+原计数 217 由 43 个滞后上的五次检查、一次定位和一个大地址查询构成。五次分别是两个对称观察的配对和、无约束受限观察与普通观察的一致性、缺陷恒等式及零等价、所选不交对的内部残差界。四个基础算子的正交性以及逆序和错误接受溢出的负控还有各自断言。原来和此次重演均报告 195,599 次表达式请求、1,801 次实际核调用、158,446 次缓存命中、35,208 次单值连线和 144 次零连线。它们是重演同一实验的计数。
+
+原始百万地址项 $m=20,R=3,J=-1048573,\Delta_R=0$，未枚举地址。没有对这个实例核验 $c^3=1$。原定位例找到 $(0,3)$ 且配对缺陷为 2。当成循环加法时的 $J$ 从 7 变 8。反转整个非交换字在地址 7 使一个坐标从 $1/2$ 变为 $-1/2$。这两个负控直接对应丢失终端进位约束与颠倒字顺序。
+
+在新的 61 坐标接口核验中，一个非对称观察给 $J(R,A)=1,\ J(R,A^T)=0$，另有 105 个所有高位前缀与正滞后的对照。协变作用域和标签重数例均使用同一固定正图内核。新增 127 次实际核调用。公开组合检验另外核查了 502 个地址分割、2,547 个可能阶数的重数公式和边界反例。公开标准库计算与原生 BRC 执行在复算结果中分项记录。
+
+运行 python3 return_check.py 即可复算公开的整数计数与反例。持有冻结归档时，以 python3 return_check.py --archive /path/to/source.zip 复跑全部原件和新增算子接口试验。脚本核验哈希后才在临时目录调用原接口。随附 return_checked.json 是汇总，CLAIM_AUDIT.json 是命题审查矩阵，return.md 给出证明与修正公式。
+
+[冻结任务](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/research_tasks/RS-SLOWSTRUCT-RETURN-DEFECT-AUDIT-20260930.md) · [原执行前沿](https://github.com/awdawmip/enterprise-math/blob/e7555422469f19a3c5765212dc3f37f559c3477e/research_notes/direct_followups/20260929_slow_return_defect_frontier_6f6b1c93.json)

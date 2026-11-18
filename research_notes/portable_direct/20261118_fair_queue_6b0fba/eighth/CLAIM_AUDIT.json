@@ -1,0 +1,134 @@
+{
+  "task": "RS-SLOWSTRUCT-RETURN-DEFECT-AUDIT-20260930",
+  "report": "AUDIT_REPORT.md",
+  "proof": "return.md",
+  "checks": "return_checked.json",
+  "claims": [
+    {
+      "id": "eq1",
+      "claim": "单位范数内部反回返",
+      "status": [
+        "SYMBOLIC_VALID",
+        "OPERATOR_INTERFACE_VERIFIED"
+      ],
+      "basis": "0<R<L。逐对平方和；无模标签结论。"
+    },
+    {
+      "id": "orientation",
+      "claim": "有向内积及进位",
+      "status": [
+        "SYMBOLIC_VALID",
+        "OPERATOR_INTERFACE_VERIFIED"
+      ],
+      "basis": "大地址在转置侧，小地址在右；终端零进位。原两观察均对称，新增105个非对称前缀查询。"
+    },
+    {
+      "id": "covariance",
+      "claim": "协变正交矩阵必要条件",
+      "status": [
+        "CORRECTED",
+        "OPERATOR_INTERFACE_VERIFIED"
+      ],
+      "basis": "只需在有效源向量张成空间等于负恒等。"
+    },
+    {
+      "id": "internal_alone",
+      "claim": "内部回返单独足以消去完整标签",
+      "status": [
+        "REFUTED"
+      ],
+      "basis": "L=2,R=1,c=2模3；内部反向而标签不同。"
+    },
+    {
+      "id": "modular_alone",
+      "claim": "模回返单独足以消去",
+      "status": [
+        "REFUTED"
+      ],
+      "basis": "同一标签上的两个同向单位贡献相加。"
+    },
+    {
+      "id": "native_modular",
+      "claim": "原始百万地址实例的模回返",
+      "status": [
+        "MODULAR_PREMISE_PENDING"
+      ],
+      "basis": "内部缺陷零；原包没有实际模乘列认证。"
+    },
+    {
+      "id": "native_words",
+      "claim": "原始整套算例的原生反馈历史",
+      "status": [
+        "NATIVE_HISTORY_PENDING"
+      ],
+      "basis": "算子测试使用61坐标正交字，缺具体原生历史编译与可达性证书。"
+    },
+    {
+      "id": "prefix",
+      "claim": "高位前缀定位",
+      "status": [
+        "SYMBOLIC_VALID",
+        "OPERATOR_INTERFACE_VERIFIED"
+      ],
+      "basis": "可行域与[0,L-R)相交，正缺陷分解。一次总查询加至多m次受限查询。"
+    },
+    {
+      "id": "eq2",
+      "claim": "带模返回的差向量范数上界",
+      "status": [
+        "SYMBOLIC_VALID"
+      ],
+      "basis": "不交配对；同标签求和，不同标签直和。原217项中的同名检查仅属内部向量代数。"
+    },
+    {
+      "id": "group_bound",
+      "claim": "模标签重数及尾单现质量",
+      "status": [
+        "SYMBOLIC_VALID",
+        "OPERATOR_INTERFACE_VERIFIED"
+      ],
+      "basis": "按标签Cauchy–Schwarz；新增有理正交字实例的反馈可达性未核验，模幂用整数测试。"
+    },
+    {
+      "id": "tail",
+      "claim": "尾区间、尺度和碰撞参数",
+      "status": [
+        "SYMBOLIC_VALID"
+      ],
+      "basis": "使用实际地址和原尺度B/L；B=0不能归一化；碰撞参数改良须零缺陷且质量正。"
+    },
+    {
+      "id": "tail_relocate",
+      "claim": "非零缺陷时无条件把尾移至开头",
+      "status": [
+        "REFUTED"
+      ],
+      "basis": "L=4,R=3 两位均翻号，实际两项尾和为-2而头两项和为0。"
+    },
+    {
+      "id": "eq3",
+      "claim": "相同完整后续仪器的输出TV",
+      "status": [
+        "SYMBOLIC_VALID"
+      ],
+      "basis": "双方非零，仅保证整个输出分布；稀有条件分布不自动满足相同界。"
+    },
+    {
+      "id": "eq4",
+      "claim": "平方验收与父态存在",
+      "status": [
+        "SYMBOLIC_VALID",
+        "CORRECTED"
+      ],
+      "basis": "mu>0 只推出尾态非零。epsilon<1 时由验收推出完整场非零；epsilon=1 时需另证。"
+    },
+    {
+      "id": "admission",
+      "claim": "项目准入、实际同信息成本",
+      "status": [
+        "NATIVE_HISTORY_PENDING"
+      ],
+      "basis": "本审计未运行原生反馈历史上的新回返发现与端到端同信息成本比较。"
+    }
+  ]
+}

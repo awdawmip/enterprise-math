@@ -1,0 +1,43 @@
+{
+  "public_checks": {
+    "residue_multiplicity_checks": 2547,
+    "partitions": 502,
+    "zero_parent_equal_budget": true,
+    "rare_conditional_tv": "1"
+  },
+  "archive_replay": {
+    "archive_sha256": "df9808c2bee3365d46e3f1c2b674245115cad457711c37a1c7ee1b2e88124e78",
+    "manifest_payloads": 8,
+    "checks": 217,
+    "counts": {
+      "expression_requests": 195599,
+      "actual_BRC_kernel_calls": 1801,
+      "exact_expression_cache_hits": 158446,
+      "single_value_wiring": 35208,
+      "exact_zero_wiring": 144
+    },
+    "test_records_agree_except_wall_time": true,
+    "receipt_plain_bytes": 8396744,
+    "receipt_plain_sha256": "dac84f1a494483af2b746dd68328c8a44547487c0a505f31c6c453948c41b16b",
+    "extra_interface": {
+      "nonsymmetric_prefix_queries": 105,
+      "global_O_correction": true,
+      "new_typed_kernel_calls": 127,
+      "grouped_example": {
+        "L": 16,
+        "R": 6,
+        "B": 4,
+        "a": 12,
+        "P": 6,
+        "Pmax": 2,
+        "delta": "22424/160801",
+        "mu": "1/128",
+        "actual_tail_mass": "164001/20582528",
+        "true_error_squared": "1201/5145632",
+        "old_tv_bound_squared": "67272/160801",
+        "new_tv_bound_squared": "22424/160801",
+        "epsilon": "1/2"
+      }
+    }
+  }
+}
