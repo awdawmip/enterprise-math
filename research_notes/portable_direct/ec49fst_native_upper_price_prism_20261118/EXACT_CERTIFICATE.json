@@ -1,0 +1,252 @@
+{
+  "schema": "EC49FST_NATIVE_BRC16943_EXACT_UPPER_PRISM_CERT_V1",
+  "date": "2026-11-18",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_native_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "profiles_csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "population": {
+    "configurations": 310,
+    "named_profiles": 141,
+    "named_observations": 228,
+    "prior": "uniform named profiles",
+    "optimization": "all complete strict-splitting named native trees"
+  },
+  "domain": {
+    "a": [
+      "2/3",
+      "1"
+    ],
+    "b": [
+      "27/64",
+      "29/64"
+    ],
+    "z": [
+      "1/2",
+      "77/128"
+    ]
+  },
+  "exact_planes": {
+    "direct": "316-141a-43b-30z",
+    "swapped": "min(315-141a-10b-77z,318-141a-10b-82z)",
+    "swapped_phase_transition": "3/5",
+    "gap_min": "611/64",
+    "gap_max": "983/64"
+  },
+  "complete_tree_witness_vectors": {
+    "E": [
+      316,
+      141,
+      43,
+      30
+    ],
+    "H": [
+      315,
+      10,
+      141,
+      77
+    ],
+    "K": [
+      318,
+      10,
+      141,
+      82
+    ],
+    "J": [
+      324,
+      141,
+      58,
+      32
+    ]
+  },
+  "primary_bellman_anchors": [
+    {
+      "orientation": "direct",
+      "a": "2/3",
+      "b": "27/64",
+      "z": "1/2",
+      "exact": "12087/64",
+      "reached_subsets": 9315,
+      "solver_optimal_native_vector": [
+        313,
+        141,
+        43,
+        24
+      ]
+    },
+    {
+      "orientation": "direct",
+      "a": "2/3",
+      "b": "29/64",
+      "z": "1/2",
+      "exact": "12001/64",
+      "reached_subsets": 9042,
+      "solver_optimal_native_vector": [
+        313,
+        141,
+        43,
+        24
+      ]
+    },
+    {
+      "orientation": "direct",
+      "a": "2/3",
+      "b": "27/64",
+      "z": "77/128",
+      "exact": "2973/16",
+      "reached_subsets": 9076,
+      "solver_optimal_native_vector": [
+        316,
+        141,
+        43,
+        30
+      ]
+    },
+    {
+      "orientation": "direct",
+      "a": "2/3",
+      "b": "29/64",
+      "z": "77/128",
+      "exact": "5903/32",
+      "reached_subsets": 9021,
+      "solver_optimal_native_vector": [
+        324,
+        141,
+        58,
+        32
+      ]
+    },
+    {
+      "orientation": "swapped",
+      "a": "2/3",
+      "b": "27/64",
+      "z": "1/2",
+      "exact": "5705/32",
+      "reached_subsets": 8601,
+      "solver_optimal_native_vector": [
+        311,
+        141,
+        10,
+        69
+      ]
+    },
+    {
+      "orientation": "swapped",
+      "a": "2/3",
+      "b": "29/64",
+      "z": "1/2",
+      "exact": "5695/32",
+      "reached_subsets": 8578,
+      "solver_optimal_native_vector": [
+        311,
+        141,
+        10,
+        69
+      ]
+    },
+    {
+      "orientation": "swapped",
+      "a": "2/3",
+      "b": "27/64",
+      "z": "3/5",
+      "exact": "27293/160",
+      "reached_subsets": 8289,
+      "solver_optimal_native_vector": [
+        315,
+        141,
+        10,
+        77
+      ]
+    },
+    {
+      "orientation": "swapped",
+      "a": "2/3",
+      "b": "29/64",
+      "z": "3/5",
+      "exact": "27243/160",
+      "reached_subsets": 8283,
+      "solver_optimal_native_vector": [
+        315,
+        141,
+        10,
+        77
+      ]
+    },
+    {
+      "orientation": "swapped",
+      "a": "2/3",
+      "b": "27/64",
+      "z": "77/128",
+      "exact": "10909/64",
+      "reached_subsets": 8273,
+      "solver_optimal_native_vector": [
+        318,
+        141,
+        10,
+        82
+      ]
+    },
+    {
+      "orientation": "swapped",
+      "a": "2/3",
+      "b": "29/64",
+      "z": "77/128",
+      "exact": "10889/64",
+      "reached_subsets": 8268,
+      "solver_optimal_native_vector": [
+        318,
+        141,
+        10,
+        82
+      ]
+    }
+  ],
+  "independent_original_94_family": [
+    {
+      "orientation": "direct",
+      "a": "2/3",
+      "b": "29/64",
+      "z": "77/128",
+      "exact": "5903/32",
+      "reached_subsets": 8279,
+      "status": "MATCH"
+    },
+    {
+      "orientation": "swapped",
+      "a": "2/3",
+      "b": "27/64",
+      "z": "77/128",
+      "exact": "10909/64",
+      "reached_subsets": 7469,
+      "status": "MATCH"
+    }
+  ],
+  "beyond_edge": {
+    "a": "2/3",
+    "b": "29/64",
+    "z": "39/64",
+    "unrestricted_optimum": "5895/32",
+    "optimal_native_vector": [
+      324,
+      141,
+      58,
+      32
+    ],
+    "reached_subsets": 8996,
+    "improvement_over_old_direct_plane": "1/64",
+    "edge_tie": "77/128"
+  },
+  "new_tree_hashes": {
+    "J": {
+      "sha256": "b39bb04c46553f57e88fb811b566d7d7d5192d557025acdcc1db93ee1ebd351c",
+      "bytes": 4276
+    },
+    "K": {
+      "sha256": "646e14ff78c1103dc40ee5f4825b9386d14c0f2fad61b1feef0d31c1f687ae20",
+      "bytes": 4159
+    }
+  },
+  "claim_status": "AUTHOR_PROVED / EXACT_PRIMARY_10_ANCHORS / INDEPENDENT_2_ANCHORS / NOT_REVIEWED",
+  "notes": "Exact vertex-optimum plus feasible witnesses plus concavity; saturation lifts to all real a in [2/3,1]. Native Source Activity not written."
+}
