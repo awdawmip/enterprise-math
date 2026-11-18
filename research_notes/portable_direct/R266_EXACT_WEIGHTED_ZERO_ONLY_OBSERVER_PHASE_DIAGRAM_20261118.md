@@ -4,7 +4,7 @@ Date: 2026-11-18 (Asia/Shanghai). Status: **AUTHOR_PROVED / EXACT_FINITE_CERTIFI
 
 ## Immutable scientific inputs and scope
 
-Reuses R265 at commit \`4ed8378e61389385e4bb8848b605d4c58ee8517f\`, file \`research_notes/portable_direct/R265_OPTIMAL_SEQUENTIAL_ZERO_ONLY_OBSERVER_20261118.md\`; frozen science pin \`43ec6098b1330ae86d0a7863be336c5d97f6ef34\`.
+Reuses R265 at commit `4ed8378e61389385e4bb8848b605d4c58ee8517f`, file `research_notes/portable_direct/R265_OPTIMAL_SEQUENTIAL_ZERO_ONLY_OBSERVER_20261118.md`; frozen science pin `43ec6098b1330ae86d0a7863be336c5d97f6ef34`.
 
 The seven-source **auxiliary positive-rational scalar model** remains unchanged: \(s=67/169,\ J=1184397599,\ T=989553240,\ K=3805974000,\ p=13\). Its 63 labelled normalized integer sequences are \(q_{m,k}=(JT^k/K)h_{m,k}\) for \(k\ge3\). Modulo 13 each has period dividing 2184 by its exact integer monic characteristic recurrence and the 249 shifted-tap equalities.
 
@@ -68,11 +68,11 @@ The expectation is \(C_{\mathrm{phase}}(\alpha)/(1820+364\alpha)\). At \(\alpha=
 
 ## Exhaustive finite proof and reproducibility
 
-The self-contained standard-library checker \`R266_weighted_cost_phase_certificate.py\` rederives all 63 rational initial sequences with \`Fraction\`, computes the integer-scaled characteristic recurrence, checks **249 shifted period taps**, reproduces the six labelled support-equivalence classes and **2182 nonzero / 2 all-zero** phases, and enumerates all \(6!=720\) class permutations separately for each parameter family. Every truncated permutation defines an integer-affine cost \(a+b\theta\) or \(a+b\alpha\), obtained by counting the exact surviving phase set after each probe.
+The self-contained standard-library checker `R266_weighted_cost_phase_certificate.py` rederives all 63 rational initial sequences with `Fraction`, computes the integer-scaled characteristic recurrence, checks **249 shifted period taps**, reproduces the six labelled support-equivalence classes and **2182 nonzero / 2 all-zero** phases, and enumerates all \(6!=720\) class permutations separately for each parameter family. Every truncated permutation defines an integer-affine cost \(a+b\theta\) or \(a+b\alpha\), obtained by counting the exact surviving phase set after each probe.
 
 Deduplicated candidate affine functions number **333** for \(\theta\) and **209** for \(\alpha\). Their pointwise minimum is a piecewise affine function. The checker constructs the exact lower envelope using sorted slopes and rational pairwise line intersections, checking a representative rational point of each resulting interval against all candidate lines and separately checking specified rational boundary values. The minimum-envelope formulas are exactly the two displayed piecewise expressions. The algebraic fact that two affine lines can change order only at their unique rational intersection establishes validity on whole open intervals; equalities hold at the endpoints by direct substitution. A periodic monic recurrence with 249 matching shifted initial taps extends the support certificate to **every** \(k\ge3\), so both theorems hold for any number of repeated 2184-period workloads.
 
-Running \`python R266_weighted_cost_phase_certificate.py\` produces \`R266_verification.json\` and prints \`R266 PASS\`. It checks exact fractions and integer bitsets only. Coverage: both infinite-\(k\) claims conditional on the stated periodic auxiliary model, exact finite support/optimization certificates. Independent expert review and native typed BRC correspondence remain open.
+Running `python R266_weighted_cost_phase_certificate.py` produces `R266_verification.json` and prints `R266 PASS`. It checks exact fractions and integer bitsets only. Coverage: both infinite-\(k\) claims conditional on the stated periodic auxiliary model, exact finite support/optimization certificates. Independent expert review and native typed BRC correspondence remain open.
 
 ## Observation and future-operation boundary
 
