@@ -47,6 +47,18 @@ But `|1+ω|=1`, whereas
 
 for `q>=9` (indeed `0<π/q<=π/9<π/3`). Their positive L-th powers have different complex absolute values. This contradiction proves the theorem.
 
+## Stronger corollary: the minimal recurrence order grows with q
+
+Let `μ_q(T)` be the monic minimal polynomial over Q of the exact rational operator `m_(P_q):Q[G_q]->Q[G_q]`. For **every** q=3^a, a>=1,
+
+\[
+\boxed{T\big((T-3)^q-3^q\big)\mid\mu_q(T),\quad\deg\mu_q\ge q+1.}
+\]
+
+**Proof.** For each `t=0,...,q-1` the character `(X,Y,Z)=(ζ^t,1,1)` has eigenvalue `λ_t=3(1+ζ^t)`; these q eigenvalues are pairwise distinct and are precisely the q roots of `(T-3)^q-3^q`. Separately, the character `(X,Y,Z)=(ω,1,ω²)`, with `ω=ζ^(q/3)`, has eigenvalue `1+ω+ω²+ω+ω²+1=0`. The zero root is not among the `λ_t`, because q is odd and no q-th root is −1. Every eigenvalue is a root of `μ_q`, and group algebra multiplication is diagonalizable over C, proving the stated exact divisor and degree bound.
+
+In particular, a single recurrence with fixed order independent of q cannot annihilate the full family of terminal coefficient sequences; increasing q forces a growing exact rational spectral state. This explains why a higher-q repair must carry additional spectral classes, rather than only rescale the q=3 recurrence.
+
 ## Interpretation and next viable direction
 
 The q=3 proof works because every nonzero *nontrivial* eigenvalue is exactly 3 times a sixth root of unity. Starting at q=9, even the one-coordinate specializations `χ(X)=ζ` and `χ(X)=ω` already carry distinct nontrivial spectral magnitudes. A higher-q exact recurrence therefore needs an operator-valued or multi-spectral-class state rather than one scalar multiplier plus uniform S correction. This is a rigorous obstruction to **one specified renormalization ansatz**, not to the full three-coordinate all-horizon content conjecture.
