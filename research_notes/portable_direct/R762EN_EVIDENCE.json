@@ -1,0 +1,109 @@
+{
+  "schema": "R762EN_Q9_SCALAR_RETURN_HANKEL_CERTIFICATE_V1",
+  "date": "2026-11-18",
+  "task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "researcher_provenance": "EM-X6-3050F6",
+  "formal_source_authority_asserted": false,
+  "model": "P=1+X+Z+XY+YZ+XYZ in Z[(Z/9Z)^3], six separately named positive terminal BRC branches",
+  "predecessor": {
+    "pr": "https://github.com/awdawmip/enterprise-math/pull/2724",
+    "commit": "b21958c0178439717e77947be3cfee43570533a6",
+    "fact": "729 character spectrum: 127 distinct eigenvalues, 60 zero-eigenvalue occurrences, all other eigenvalues nonzero"
+  },
+  "general_theorem": "a_n=[1]P^n=(1/|G|) sum_lambda m_lambda lambda^n. Hankel H_r=V diag(m_lambda/|G|) V^T, det(H_r) nonzero integer, r=number of distinct eigenvalues.",
+  "q9_conclusion": {
+    "minimum_order_from_n0": 127,
+    "minimum_order_after_shift_n1": 126,
+    "minimal_polynomial_q9": "R762EM distinct eigenvalue product",
+    "shifted_minimal_polynomial": "mu_9(T)/T",
+    "scalar_observer_scope": "identity-endpoint full-time return traces only"
+  },
+  "simulation": {
+    "exact_arithmetic": "integer group-ring shifts modulo prime; modular field elimination; no floats",
+    "positions": 729,
+    "six_shifts": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "n_range": "0..319 inclusive",
+    "sample_count": 320,
+    "first_10_return_counts": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      6
+    ],
+    "BM_training_samples": 254,
+    "verification_samples": 320,
+    "results": [
+      {
+        "prime": 1000000007,
+        "hankel_127_det_mod_p": 744077255,
+        "hankel_128_det_mod_p": 0,
+        "shifted_hankel_126_det_mod_p": 898733877,
+        "shifted_hankel_127_det_mod_p": 0,
+        "BM_degree": 127,
+        "all_320_satisfy_recurrence": true,
+        "sha256_first_254_decimal_csv": "edeaf1a3f7404b2170dd42fa848c78e56ef0960686ef379bac333250b5eb8fe4"
+      },
+      {
+        "prime": 998244353,
+        "hankel_127_det_mod_p": 403897829,
+        "hankel_128_det_mod_p": 0,
+        "shifted_hankel_126_det_mod_p": 389987108,
+        "shifted_hankel_127_det_mod_p": 0,
+        "BM_degree": 127,
+        "all_320_satisfy_recurrence": true,
+        "sha256_first_254_decimal_csv": "790eb945fc9e3849c27a24d458ee6b35aaf0c15827470ca3797bb2762e857d21"
+      }
+    ]
+  },
+  "finite_certificate_inference": "Nonzero determinant modulo a prime implies corresponding determinant over Z is nonzero, giving independent lower bounds. Universal upper bound for q9 uses prior R762EM complete exact 729-character spectrum.",
+  "non_claims": [
+    "not formal Source progress/result/review",
+    "not signed X6 native TRIADIC_CLOSURE_E event permission",
+    "not branch/source-provenance preserving native quotient",
+    "not q>=27 exact recurrence order"
+  ],
+  "verification": "AUTHOR_EXACT_PASS",
+  "independent_review": "NOT_REVIEWED",
+  "next": [
+    "Recover monic q9 integer recurrence from 254 scalar trace entries and compare all 27 factors",
+    "Study three-adic coefficientwise nondivisibility using exact spectral data",
+    "Read genuine signed Cell/Link/Port native event license and V17/V29/V39 transport"
+  ]
+}
