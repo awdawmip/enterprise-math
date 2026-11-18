@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/thirtieth/README.md",
+    "ref": "b117254412dcfb3b1dd7774853f3e175f0aec42f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-thirty-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第三十轮　辅助素数的停止律、手性采样、闭路时钟与 Franel 端点\n\n这轮从三个不同父目标各取一项严格就绪任务。第四篇从经典 Franel 递推分出一个未编号问题，P022 的受控后继继续等待父任务释放。本轮复核 518 条登记后，累计直接推进 167 项、51 个父目标。计入两项历史旁引时为 169 项、53 个父目标。未轮转池有严格就绪 87 项、可交接 27 项、冻结返回 5 项；一项旧 P0 租约在本轮到期，已重列交接池。[选题、状态与租约快照](fair_snapshot.json)\n\n### 整张辅助素数表几次能找齐\n\n对每个素数 $q\\le n$，按升序检查 $1\\bmod12q$ 的素数，令 $J_q$ 为第一次使输入素数 $p$ 成为该候选模数下非 $q$ 次幂的尝试编号。在 $[X,2X)$ 的素数中均匀选取 $p$。只要 $n\\to\\infty$ 且 $n\\le X^\\theta$、固定 $0<\\theta<1/11$，对每个固定的整数 $r\\ge2$，\n$$\n \\Pr\\!\\left(\\max_{q\\le n}J_q\\le r\\right)\\longrightarrow \\frac1{\\zeta(r)} .\n$$\n例如，每一行在两次以内找到合格素数的联合概率趋于 $6/\\pi^2$，约为 60.79%。容许不同的行共用候选素数。若 $n$ 至多为 $\\log X$ 的固定幂，总尝试次数在 $\\pi(n)+\\sum_{q\\le n}1/q$ 附近呈正态涨落，尺度为 $\\sqrt{\\log\\log n}$。这些是输入素数上的分布；逐输入的分解成本还涉及实际找到的素数位长。[联合律、可证均值与位预算](auxiliary.md)\n\n### 一个有限网格能否证实没有额外手性锥\n\n在 $h(k)=\\sin(Ak)$ 的三维模型中，Smith 因子决定网格命中的零点数，而零点的符号还依赖相应的二进方向。两个 Smith 因子都为 $(1,2,2)$ 的模型，在 $2^3$ 网格上同有八个零点，采到的净荷却分别为 0 和 $+8$。对矩形 Fourier 带宽 $|k_i|\\le R_i$，在 $N_1\\times N_2\\times N_3$ 网格读取所有总阶不超过 $j$ 的导数，能确定整个符号的充要条件是\n$$ j\\ge\\sum_i\\left\\lfloor\\frac{2R_i}{N_i}\\right\\rfloor . $$\n在传播范围没有共同上界时，可构造两个四维 Dirac 算符，其 $5^4$ 网格上的五阶以内读数逐点相同，连续零点数却分别是 16 和 336。原生粒子的读出规则仍待建立。[有符号计数、最少平移与反例](chirality.md)\n\n### 六个标架何时达到所有允许的时刻\n\n冻结网络的两个具名环实现不同换位。给它们正整数串行时长 $a,b$，每个终点的可达时刻恰为 $\\langle2a,2b\\rangle$ 的两个平移之并。以 $g=\\gcd(a,b)$ 作为时长单位，将 $A=a/g,B=b/g$ 按递增次序排列。各端点最终应有的同余类中，最后一个仍缺少某个允许端点的时刻为\n$$\n \\begin{cases}\n 2AB+A+B,&A,B\\text{ 奇偶不同},\\\\\n AB+B-A,&A,B\\text{ 均奇且 }A\\ge3,\\\\\n B,&A=1,\\ B\\text{ 奇}.\n \\end{cases}\n$$\n$(2,3)$ 和 $(3,5)$ 都从第 18 拍起永久饱和，但前者每拍有六个标架，后者每拍只有与奇偶性相符的三个。冻结 V40 检查器第 72 行把终槽回查与正向复合直接相等，原断言可重复失败。两种约定互换两个三循环，时长公式不受影响。[时长集合、最后缺拍与来源复核](clock.md)\n\n### 素数端点为何会多消去一层\n\n令 $F_n=\\sum_k\\binom nk^3$，$G_0=0,G_1=1$，$G$ 满足与 $F$ 相同的三项递推。对素数 $p\\ge5$，$F$ 和 $G$ 在整行 $0\\le n<p$ 上分别满足正、负号的 $(-8)^n$ 反射。伴解端点满足\n$$\n G_{p-1}\\equiv\\frac7{48}pB_{p-3}\\pmod{p^2}.\n$$\n所以 $p^2\\mid G_{p-1}$ 恰在 $p=7$ 或 $p$ 为 Wolstenholme 素数时发生。更一般的奇数二项幂和每个允许的偶数阶系数也有同类公式。这个结果只涉及普通递推，并未给出 Hahn 边界的连接矩阵。[独立算术旁支、Bernoulli 系数与复算](franel_jet.md)\n\n四份程序和对应 JSON 均随稿保存。手性部分的精确矩阵复算使用 SymPy，其余三份使用 Python 标准库。\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/b117254412dcfb3b1dd7774853f3e175f0aec42f/research_notes/portable_direct/20261118_fair_queue_6b0fba/thirtieth/README.md",
+      "encoding": "utf-8",
+      "sha": "cc7e57451b636e16296699df1031b6baf8900973"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
