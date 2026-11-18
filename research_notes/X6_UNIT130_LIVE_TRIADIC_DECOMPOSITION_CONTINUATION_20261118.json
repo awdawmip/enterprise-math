@@ -1,0 +1,97 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-18",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "highest_author_frontier": {
+    "unit": 130,
+    "status": "AUTHOR-CURRENT-SOURCE-PATCH-EXECUTED / EXACT-INTEGER-VALIDATED / UNREVIEWED / NOT_ADMITTED",
+    "current_original_source": "experiments/x6_triadic_decomposition_brc_v2_20260906/check_triadic_decomposition_brc.py",
+    "prior_blob": "5d0f2cb88a0d4e437b5025e9050e3044f7831cd4",
+    "corrected_blob": "d2b4ce1c13f90e31ca1167ee1eea1ef49c24b95d",
+    "correction_commit": "2a80ba850f65bd39ccc4bfa18dc4767e73435f55",
+    "result": "Real full-module signed triadic decomposition BRC original tested in Python normal/-O/-OO; 14 mathematical bare asserts removed by -O/-OO, temporary formula_signed_ordered=0 mutation wrongly passed optimized original. Current real source 14 always-on validation guards; clean original stdout unchanged all modes, same mutation rejected all modes at guard_06.",
+    "execution": {
+      "python_modes": [
+        "normal",
+        "-O",
+        "-OO"
+      ],
+      "degree_vectors": 2493,
+      "signed_formula_states": 5444,
+      "two_triad_histories": 25600,
+      "original_clean_stdout_sha256": "c7c06070d738fe78128ef2683cfcebf04195658bf2793993bed90e0bd7489dbc",
+      "strict_regression_stdout_sha256": "4bba5b42e99a1e25e76fd24c1cabee458eb4f2a1bcce82bb0048c8837cc41989"
+    }
+  },
+  "immutable_artifacts": [
+    {
+      "path": "experiments/x6_triadic_decomposition_brc_v2_20260906/check_triadic_decomposition_brc.py",
+      "commit": "2a80ba850f65bd39ccc4bfa18dc4767e73435f55",
+      "blob": "d2b4ce1c13f90e31ca1167ee1eea1ef49c24b95d"
+    },
+    {
+      "path": "research_checks/X6_UNIT130_TRIADIC_DECOMPOSITION_ALWAYS_ON_NATIVE_REGRESSION_20261118.py",
+      "commit": "8d48fb4884f4b5839331b71e530af0ddf0b6e2d0",
+      "blob": "b9d855cd0ade7882f3a16b510e4c068a8d43596e"
+    },
+    {
+      "path": "research_checks/X6_UNIT130_TRIADIC_DECOMPOSITION_ALWAYS_ON_NATIVE_RESULTS_20261118.json",
+      "commit": "b00429a049859c0f48e0b2ecc402b72a58639b82",
+      "blob": "01d42d047dec446387554121d35896869ec2fb2a"
+    },
+    {
+      "path": "research_notes/X6_UNIT130_LIVE_TRIADIC_DECOMPOSITION_OPTIMIZATION_GUARD_REPAIR_20261118.md",
+      "commit": "061cc61e26c7639b20ff2d554fccd68b7a11f100",
+      "blob": "812b1ed0769303127aee452500708928fa5a1165"
+    }
+  ],
+  "previous_valid_frontier": {
+    "unit": 129,
+    "continuation": "research_notes/X6_UNIT129_LIVE_TRIAD_MIDPOINT_CONTINUATION_20261118.json",
+    "commit": "aa17ea90711b8169e627fb21cc1bc22fdee326e1",
+    "blob": "a2a290ea589721d8356e027e2f2f89782bbbc78b"
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "entries": 144,
+    "last_event": "onhour-20261118-173x-x6-unit130-live-triadic-decomp-always-on-native-v1",
+    "commit": "e8f0662df6c5891f3cd51ac44fb7f54ef6dae06f",
+    "blob": "aad869af1112d617a8d21dbd4a8ac108095dd751"
+  },
+  "own_control": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-3e221a50dc8818f914e228f6",
+    "run_id": "RUN-95866d78d35721116c362956",
+    "last_succeeded_resume": "onhour-20261118-1618-x6-own-run9586-unit126-resume-v1",
+    "last_succeeded_resume_scope": "historical only; current claim and writer generation require fresh native reauthorization",
+    "original_pending_native_progress_request_id": "onhour-20261118-1707-x6-own-units126-127-native-progress-v1",
+    "original_pending_native_progress_last_read": "QUEUED / error=null",
+    "original_exact_continuation_request_id": "onhour-20261118-1701-x6-own-exact-continuation-v1",
+    "original_exact_continuation_last_read": "SUCCEEDED / read-only Source snapshot; route verify liveness then prepare, not a write grant",
+    "native_semantic_progress_units128_130": "NOT_SUBMITTED while original pending request and current Source writer authorization unknown"
+  },
+  "gaps": [
+    "Reconcile original 1707 semantic PROGRESS by exact target_request_id; do not repeat original request or publish overlap.",
+    "Refresh current exact same-owner claim before any further native mutation; Source continuation projection is read-only and not execution authority.",
+    "28-LP exact typed active downstream source:line ledger beyond two corrected triadic consumers.",
+    "LP011 historical alleged signed argmax wrong-native caller and LP019 natural-positive-BRC subtraction exact frozen source:line remain UNRESOLVED_PROVENANCE.",
+    "Independent Driver revision and R063/Helly benchmark review Issue #2416."
+  ],
+  "do_not_repeat": [
+    "Units1-130 author source and tests and existing Native Source checkpoint artifacts.",
+    "Original R063 six-file 512-case author benchmark.",
+    "Original pending/rejected native requests and old identities.",
+    "Maintenance logical conversation/Researcher/Driver profile."
+  ],
+  "next_exact_action": "Preserve this checkpoint; source:line typed 28-LP consumer crosswalk for remaining current active executables; investigate exact pinned historical LP011/LP019 original operations. Reconcile original 1707 Source PROGRESS once, check own authorization on current Source, then publish eligible nonoverlapping semantic checkpoint for Unit128-130. Independent Driver retains review.",
+  "continuation_state": "OPEN",
+  "review_status": "AUTHOR_UNREVIEWED_NOT_ADMITTED",
+  "notifications_and_schedule": "unchanged"
+}
