@@ -1,0 +1,217 @@
+{
+  "arity": [
+    {
+      "binary": 5,
+      "minimal_full_arity": 3,
+      "primes": [
+        2,
+        3
+      ],
+      "ternary": 6,
+      "unary": 3,
+      "unit_count": 2
+    },
+    {
+      "binary": 9,
+      "minimal_full_arity": 3,
+      "primes": [
+        2,
+        5
+      ],
+      "ternary": 10,
+      "unary": 5,
+      "unit_count": 4
+    },
+    {
+      "binary": 13,
+      "minimal_full_arity": 3,
+      "primes": [
+        2,
+        7
+      ],
+      "ternary": 14,
+      "unary": 7,
+      "unit_count": 6
+    },
+    {
+      "binary": 15,
+      "minimal_full_arity": 2,
+      "primes": [
+        3,
+        5
+      ],
+      "ternary": 15,
+      "unary": 9,
+      "unit_count": 8
+    },
+    {
+      "binary": 21,
+      "minimal_full_arity": 2,
+      "primes": [
+        3,
+        7
+      ],
+      "ternary": 21,
+      "unary": 13,
+      "unit_count": 12
+    },
+    {
+      "binary": 33,
+      "minimal_full_arity": 2,
+      "primes": [
+        3,
+        11
+      ],
+      "ternary": 33,
+      "unary": 21,
+      "unit_count": 20
+    },
+    {
+      "binary": 35,
+      "minimal_full_arity": 2,
+      "primes": [
+        5,
+        7
+      ],
+      "ternary": 35,
+      "unary": 25,
+      "unit_count": 24
+    }
+  ],
+  "blocking": [
+    {
+      "all_smaller_boundary_sets_checked": 5005,
+      "dimension": 4,
+      "flats": 35,
+      "minimum": 7,
+      "prime": 2,
+      "projective_points": 15,
+      "promised_rank": 2
+    },
+    {
+      "all_smaller_boundary_sets_checked": 105,
+      "dimension": 4,
+      "flats": 15,
+      "minimum": 3,
+      "prime": 2,
+      "projective_points": 15,
+      "promised_rank": 3
+    },
+    {
+      "all_smaller_boundary_sets_checked": 286,
+      "dimension": 3,
+      "flats": 13,
+      "minimum": 4,
+      "prime": 3,
+      "projective_points": 13,
+      "promised_rank": 2
+    },
+    {
+      "all_smaller_boundary_sets_checked": 169911,
+      "dimension": 3,
+      "flats": 31,
+      "minimum": 6,
+      "prime": 5,
+      "projective_points": 31,
+      "promised_rank": 2
+    }
+  ],
+  "clean_core": [
+    {
+      "already_equal_to_core": 7,
+      "clean_queries": 9,
+      "dimension": 2,
+      "observable_cores": 7,
+      "primes": [
+        2,
+        3
+      ],
+      "submodules": 30
+    },
+    {
+      "already_equal_to_core": 18,
+      "clean_queries": 81,
+      "dimension": 2,
+      "observable_cores": 18,
+      "primes": [
+        3,
+        5
+      ],
+      "submodules": 48
+    },
+    {
+      "already_equal_to_core": 38,
+      "clean_queries": 625,
+      "dimension": 2,
+      "observable_cores": 38,
+      "primes": [
+        5,
+        7
+      ],
+      "submodules": 80
+    }
+  ],
+  "exact_randomized": [
+    {
+      "dimension": 2,
+      "one_sided_false_negative": "5/7",
+      "one_sided_lines": 7,
+      "public_n": 6,
+      "query_budget": 2,
+      "subsets": 21,
+      "two_sided_minimax_error": "5/12"
+    },
+    {
+      "dimension": 2,
+      "one_sided_false_negative": "7/10",
+      "one_sided_lines": 10,
+      "public_n": 15,
+      "query_budget": 3,
+      "subsets": 120,
+      "two_sided_minimax_error": "7/17"
+    }
+  ],
+  "examples": {
+    "full_kernel": [
+      [
+        0,
+        0
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        10,
+        5
+      ]
+    ],
+    "normalized_pair": [
+      [
+        1,
+        2
+      ],
+      [
+        11,
+        7
+      ]
+    ],
+    "public_parent_n": 15,
+    "small_field_mask_counterexample": {
+      "crt_ranks": [
+        2,
+        1
+      ],
+      "dimension": 4,
+      "primes": [
+        3,
+        5
+      ],
+      "visible_ranks": [
+        0,
+        0
+      ]
+    },
+    "unary_hits_including_zero": 1
+  }
+}
