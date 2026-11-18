@@ -13,7 +13,7 @@ The minimum of (q(\mu)) over **all** distributions on the (inom{29}{5}=118755) 
 \boxed{q^*_{29,5,4,0}=\frac{2024467747}{3324255613}
        =0.6089988203924558\ldots}. \tag{347.1}
 ]
-An attaining distribution is uniform conditional on each of **14 specified affine orbits** of five-sets, with the exact orbit weights below. It uses more than the 29 equiprobable rows of r346; (347.1) is therefore a stronger feasible minimax result for unrestricted random codebooks, not a claim about optimal 29-row or entropy-\(\log29\) constructions. The earlier r345 finite universal bound (50/91) is sharpened to equality (347.1) for the unrestricted minimax problem.
+An attaining distribution is uniform conditional on each of **14 specified affine orbits** of five-sets, with the exact orbit weights below. It uses more than the 29 equiprobable rows of r346; (347.1) is therefore a stronger feasible minimax result for unrestricted random codebooks, not a claim about optimal 29-row or entropy-\(\log29\) constructions. The selected orbits contain 10,962 distinct five-sets and yield Shannon entropy \(H(C)=12.799695400978694\) bits for the **unordered-set selection**, compared with r346's 29-row \(\log_2 29=4.857980995127572\) bits. This is an entropy/coverage tradeoff; no equal-coordinate ordered implementation is asserted for the r347 mixture. The earlier r345 finite universal bound (50/91) is sharpened to equality (347.1) for the unrestricted minimax problem.
 
 ## Reduction to a 33-by-150 exact matrix
 
