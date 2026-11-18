@@ -103,3 +103,12 @@ R762ED_EVIDENCE.json contains executable-check outputs and digest witnesses. Thi
 3. Obtain actual signed TRIADIC_CLOSURE_E Cell/Link/Port legality and V17/V29/V39 transport; test future-observer descent before interpreting any terminal distribution compression as native future-safe state compression.
 
 No P000 change, formal Result, review approval, or native event admission is asserted.
+
+## Corollary — exact rational rank of every positive BRC convolution power
+
+Let G=(Z/Q)^3 and let T_P be multiplication by the above P on the Q-vector space Q[G], represented in the Q^3-element group basis by its exact integer convolution matrix. For every integer n>=1,
+\[
+\boxed{\dim_{\mathbb Q}\ker(T_P^n)=8Q-12,\qquad
+\operatorname{rank}_{\mathbb Q}(T_P^n)=Q^3-8Q+12.}
+\]
+Indeed over the splitting field Q(zeta), discrete character diagonalization has eigenvalues lambda_{ijk}; powering does not change which of these are zero. Scalar extension preserves rank. Consequently ker(T_P^n)=ker(T_P) and im(T_P^n)=im(T_P) as rational subspaces for all positive n. This stable linear image is a property of the terminal positive BRC convolution operator; it does not supply a future-event licence or imply a safe reduction of native signed provenance.
