@@ -82,7 +82,7 @@ For `Q=111/4352`, the sufficient strict inequality is
 d > d_Q := 4 log[C_b/(Q sqrt(c_*))] = 18.08557231667795...
 ```
 
-For example `d=20` yields `limsup q_c <= 0.015805... < Q`. This finite additive shift is sufficient for eventual admissibility, whereas `w(p)->infinity` establishes the stronger `q_c->0`. Neither statement gives a finite-p certified cutoff without a separate explicit numerical threshold check.
+For example `d=20` yields `limsup q_c <= 0.0158043903380... < Q`. This finite additive shift is sufficient for eventual admissibility, whereas `w(p)->infinity` establishes the stronger `q_c->0`. Neither statement gives a finite-p certified cutoff without a separate explicit numerical threshold check.
 
 ## Provenance and unresolved questions
 
