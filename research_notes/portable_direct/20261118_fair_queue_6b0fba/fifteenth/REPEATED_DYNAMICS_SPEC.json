@@ -1,0 +1,17 @@
+{
+  "task_id":"RS-CELL-U27F-06-MULTICYCLE-LIFETIME-20261012",
+  "classification":"MODEL_VARIANT / fixed native square, two dynamic single-letter contacts and one persistent repair queue",
+  "required_input":"Two verified positive T05 outcome histories, original B=4. Formal T05 result acceptance is separate.",
+  "fixed_arms":{"AB":"ID0 at A, side 0, port 0, A mode","AD":"ID1 at A, side 0, port 2, A mode"},
+  "dynamic_arms":{"BC":"side 1 at C, port 3, D when present","CD":"side 0 at C, port 1, D when present"},
+  "initials":{"Q_tree":{"missing_order":["CD"],"head_phase":2,"assigned_ids":{"BC":3,"CD":2},"free_ID2":"A","bound_ID3":"BC"},"clean_Q_capture_full":{"missing_order":[],"assigned_ids":{"BC":2,"CD":3}}},
+  "noise":"0 <= delta <= 1; lambda=delta/49 per currently bound dynamic arm. A tick begins by selecting at most one of the up arms with marginal lambda each.",
+  "release_tick":"Detach precisely the bound ID at C. Enqueue its actual edge and ID. No current service progress or approval is erased; no service on this tick.",
+  "no_release_tick":"Idle if queue empty; otherwise serve the oldest released ID for one phase.",
+  "head_phases":["free at C, return to D","free at D, return to A","free at A, outbound to B","free at B, outbound to C","free at C, birth decision success 1/49 or stay","free at C with approval, reserve ID","held at C, commit the specified edge in D mode"],
+  "second_release":"The later ID waits free at C until first binding completes. The first job's phase and inventory are retained.",
+  "graph_observer":"At the end of every tick on the source-identified bound graph: disconnected iff both BC and CD absent.",
+  "time":"One explicit damage, service, denied-decision or idle tick; no physical-time calibration.",
+  "regeneration":"The same physically bound full state with the same assigned identities and no pending service. A generic success observation does not imply regeneration.",
+  "excluded":["full geometric motion or original 438-label scheduler","a proof for all T05 outcomes","T04 interleavings","native force attribution"]
+}

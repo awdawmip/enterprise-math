@@ -1,0 +1,227 @@
+{
+  "task_id": "RS-CELL-U27F-06-MULTICYCLE-LIFETIME-20261012",
+  "source_T05": {
+    "T05_Q_tree_assignment": {
+      "b": 3,
+      "d": 2
+    },
+    "T05_full_assignment": {
+      "b": 2,
+      "d": 3
+    },
+    "tree_free_ID2": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "tree_graph_edges": [
+      "(0, 1)",
+      "(0, 3)",
+      "(1, 2)"
+    ],
+    "full_graph_edges": [
+      "(0, 1)",
+      "(0, 3)",
+      "(1, 2)",
+      "(2, 3)"
+    ],
+    "tree_starts_at_phase": 2,
+    "public_full_capture_source_route": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "states_per_fixed_identified_assignment": 29,
+  "physical_branch_comparisons": 98,
+  "conditional_birth_probability": "1/49",
+  "ordinary_mean_no_extra_loss_service": 55,
+  "susceptible_edges_scheduling": "one at a time, lambda = delta/49 per currently up arm",
+  "zero_noise": {
+    "first_cut_mean": "infinite",
+    "eventual_connected_fraction": "1"
+  },
+  "parameters": {
+    "1/16": {
+      "lambda": "1/784",
+      "exact": {
+        "ordinary_one_repair_cut": "12765797654022762385/193205596554224730112",
+        "T05_Q_immediate_repair_cut": "20018693151409/314331262615552",
+        "full_initial_first_cut_mean": "85744979210009939913744/12765797654022762385",
+        "Q_initial_first_cut_mean": "80921572145802339394576/12765797654022762385",
+        "invariant_disconnected_fraction": "630688247382537208705/81371474777015554267529",
+        "invariant_connected_fraction": "80740786529633017058824/81371474777015554267529"
+      },
+      "display": {
+        "ordinary_one_repair_cut": 0.06607364321581614,
+        "T05_Q_immediate_repair_cut": 0.06368661196736639,
+        "full_initial_first_cut_mean": 6716.774112661104,
+        "Q_initial_first_cut_mean": 6338.93582985802,
+        "invariant_disconnected_fraction": 0.007750728976104086,
+        "invariant_connected_fraction": 0.9922492710238959
+      },
+      "total_time_to_actual_full_return": "81371474777015554267529/70732401168879171348984",
+      "down_reward_to_actual_full_return": "630688247382537208705/70732401168879171348984",
+      "stationary_coordinate_equations": 29,
+      "exact_PGF_checks": {
+        "1/2": {
+          "full": "742830723779961742465/229237724840905976530513809",
+          "T05_tree": "97220412778669122104363/76412574946968658843504603"
+        },
+        "9/10": {
+          "full": "1000672700338075457419454529/4266791301822184803421268826833",
+          "T05_tree": "43672766994421648899824011329/4266791301822184803421268826833"
+        },
+        "614656/614657": {
+          "full": "74372836338136539432367170907452669862400/75185614478039644473652250042735098773537",
+          "T05_tree": "24806184817630153715422313363001423799984/25061871492679881491217416680911699591179"
+        }
+      }
+    },
+    "1/256": {
+      "lambda": "1/12544",
+      "exact": {
+        "ordinary_one_repair_cut": "214272158175364186895526145/49058129698151521453449674752",
+        "T05_Q_immediate_repair_cut": "1312240746782853889/311773283159042424832",
+        "full_initial_first_cut_mean": "310380419418958110916453840007424/214272158175364186895526145",
+        "Q_initial_first_cut_mean": "309085354141746715880175481467136/214272158175364186895526145",
+        "invariant_disconnected_fraction": "10581453404740683709147674625/309047085896286967419954247700609",
+        "invariant_connected_fraction": "309036504442882226736245100025984/309047085896286967419954247700609"
+      },
+      "display": {
+        "ordinary_one_repair_cut": 0.004367719672432556,
+        "T05_Q_immediate_repair_cut": 0.004208958296511414,
+        "full_initial_first_cut_mean": 1448533.5942009657,
+        "Q_initial_first_cut_mean": 1442489.5738847493,
+        "invariant_disconnected_fraction": 3.423896838908137e-05,
+        "invariant_connected_fraction": 0.999965761031611
+      },
+      "total_time_to_actual_full_return": "309047085896286967419954247700609/306348674490730458375827620063104",
+      "down_reward_to_actual_full_return": "10581453404740683709147674625/306348674490730458375827620063104",
+      "stationary_coordinate_equations": 29,
+      "exact_PGF_checks": {
+        "1/2": {
+          "full": "12463189932430353231924393985/981094400821261905518721148524931329",
+          "T05_tree": "8678701658248115900346681869881/109010488980140211724302349836103481"
+        },
+        "9/10": {
+          "full": "16793575397979752920032453871769409/17812121054377106730543378773068945932353",
+          "T05_tree": "11473422195818506151868528459322726209/17812121054377106730543378773068945932353"
+        },
+        "157351936/157351937": {
+          "full": "5361521325838431890092302432394216394916296353348287856640/5410877859739385902429328909648456727369037574062655115777",
+          "T05_tree": "1787242422128662876565203783679857362701581054525867145984/1803625953246461967476442969882818909123012524687551705259"
+        }
+      }
+    },
+    "1/1024": {
+      "lambda": "1/50176",
+      "exact": {
+        "ordinary_one_repair_cut": "877678793006837403121777026049/801470456830686499936953564135424",
+        "T05_Q_immediate_repair_cut": "335937420538337307649/318343102889550124417024",
+        "full_initial_first_cut_mean": "20151329232086173983957329301088551936/877678793006837403121777026049",
+        "Q_initial_first_cut_mean": "20130110643239429421544578124059034624/877678793006837403121777026049",
+        "invariant_disconnected_fraction": "43341686569690794897283745439745/20129353368213788137982707442804474369",
+        "invariant_connected_fraction": "20129310026527218447187810159059034624/20129353368213788137982707442804474369"
+      },
+      "display": {
+        "ordinary_one_repair_cut": 0.001095085646048024,
+        "T05_Q_immediate_repair_cut": 0.0010552684116259669,
+        "full_initial_first_cut_mean": 22959799.635866545,
+        "Q_initial_first_cut_mean": 22935623.833721377,
+        "invariant_disconnected_fraction": 2.153158413828213e-06,
+        "invariant_connected_fraction": 0.9999978468415862
+      },
+      "total_time_to_actual_full_return": "20129353368213788137982707442804474369/20085271615409307373648771875000000000",
+      "down_reward_to_actual_full_return": "8668337313938158979456749087949/4017054323081861474729754375000000000",
+      "stationary_coordinate_equations": 29,
+      "exact_PGF_checks": {
+        "1/2": {
+          "full": "51049340447810966950265322332161/64285627908113514693051273952396877407233",
+          "T05_tree": "426525324479243668212256955663862443/21428542636037838231017091317465625802411"
+        },
+        "9/10": {
+          "full": "4402401655727318529074454801190521/74602547586481690545672508991614856794745",
+          "T05_tree": "12017649287126143413047825914050678393/74602547586481690545672508991614856794745"
+        },
+        "2517630976/2517630977": {
+          "full": "1439255224946882212884450824894053490875574489719466407862497968128/1452380664119975026891423260796183145846358129973775119403795499009",
+          "T05_tree": "479756348512832512404994717746424597471984508487190171857886833664/484126888039991675630474420265394381948786043324591706467931833003"
+        }
+      }
+    },
+    "1": {
+      "lambda": "1/49",
+      "exact": {
+        "ordinary_one_repair_cut": "755536516225/1342604858497",
+        "T05_Q_immediate_repair_cut": "304381729/559185697",
+        "full_initial_first_cut_mean": "139830216656403/1511073032450",
+        "Q_initial_first_cut_mean": "52010005310641/755536516225",
+        "invariant_disconnected_fraction": "37577514438535/88981978119224",
+        "invariant_connected_fraction": "51404463680689/88981978119224"
+      },
+      "display": {
+        "ordinary_one_repair_cut": 0.5627392984938228,
+        "T05_Q_immediate_repair_cut": 0.5443303193071478,
+        "full_initial_first_cut_mean": 92.53703405035776,
+        "Q_initial_first_cut_mean": 68.83850640404036,
+        "invariant_disconnected_fraction": 0.422304777133479,
+        "invariant_connected_fraction": 0.577695222866521
+      },
+      "total_time_to_actual_full_return": "11122747264903/1797896798208",
+      "down_reward_to_actual_full_return": "37577514438535/14383174385664",
+      "stationary_coordinate_equations": 29,
+      "exact_PGF_checks": {
+        "1/2": {
+          "full": "691327249705/881666980473651",
+          "T05_tree": "11743069142969/587777986982434"
+        },
+        "9/10": {
+          "full": "927581900253921441/23325424559074432967",
+          "T05_tree": "6809742846563240907/46650849118148865934"
+        },
+        "2401/2402": {
+          "full": "163784733717401204905/170128224362052224451",
+          "T05_tree": "36755877969537932723/37806272080456049878"
+        }
+      }
+    }
+  },
+  "original_source_replay": {
+    "archive_sha256": "a450cc3e235ca3d37211d31b2d4eb41dd2d4ac28b77c73d18d1b6e3ce45cc9a7",
+    "original_Q_interruption_matched": true,
+    "original_full_T05_endpoint_replayed": true,
+    "actual_T05_Q_endpoint_next_birth": "CD/side0/ID2",
+    "original_courier_and_binding_round_trips": 2,
+    "original_positive_eliminators_checked": [
+      "work_exposure.eliminate_transfers",
+      "release_flux.eliminate"
+    ],
+    "eliminated_connected_states": 15,
+    "delta_for_elimination": "1/256"
+  }
+}

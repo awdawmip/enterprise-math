@@ -1,0 +1,157 @@
+# 合数道路的锚定频率核、两条谱线识别与能量尾障碍
+
+任务 \(\mathrm{RS\!-\!RH\!-\!COMPOSITE\!-\!ROAD\!-\!ANCHORED\!-\!COHERENCE}\)，出版键 TP2-18F1587AE8A5F365AE29。其正式前置是 RS-RH-COMPOSITE-ROAD-BASELINE-AUDIT（TP2-139EE61FF11BE2292C79）。第十二轮对独立登记的 RH-ROAD-AUDIT-20260909 得到的逐格校正、固定起点与平移平均的区别，均作为有源推导沿用；前置任务的正式验收另行记录。本文各定理均无条件。[本任务](https://github.com/awdawmip/enterprise-math/blob/6f9abc50893bb8fde31627f5580af7ab92a6835b/research_tasks/RS-RH-COMPOSITE-ROAD-ANCHORED-COHERENCE_20260909.md) · [正式前置](https://github.com/awdawmip/enterprise-math/blob/6f9abc50893bb8fde31627f5580af7ab92a6835b/research_tasks/RS-RH-COMPOSITE-ROAD-BASELINE-AUDIT_20260909.md) · [原 Ramanujan 分解](https://github.com/awdawmip/enterprise-math/blob/bf181bfa6c4f1fdbe4ddf6352385c5f4b819cc53/research_notes/COMPOSITE_ROAD_RH_RAMANUJAN_PHASE_COHERENCE_20260906.md)
+
+设 $a>0$，$c=1/\zeta(1+a)$，$\gamma=1+c/2$，
+\[
+ R(n)=\sum_{d\mid n}\mu(d)d^{-a},\qquad
+ B_N=\sum_{n\le N}(R(n)-c)-\gamma,\qquad
+ D_a=\sum_{N\ge1}|B_N|^2/N^2 .
+\]
+$D_a$ 允许取无穷。对平方自由 $q\ge2$ 及既约 $r/q$，令 $z=\exp(2\pi i r/q)$、$b_q=c\mu(q)/\prod_{p\mid q}(p^{1+a}-1)$，其余 $b_q=0$。有 $c q^{-1-a}\le |b_q|\le q^{-1-a}$（平方自由 $q$）；上界由 $c=\prod_p(1-p^{-1-a})$ 直接消去给出。记 $c_q(n)$ 为 Ramanujan 和，$A_q(N)=\sum_{n\le N}c_q(n)$，$B_N^{(Q)}=-\gamma+\sum_{2\le q\le Q}b_q A_q(N)$。
+
+**主要结果。** 对 $0<a<1/2$，权重能量尾 $T_a(X)=\sum_{N>X}|B_N|^2/N^2$ 至少为常数乘 $X^{-1+a(1-2a)/(1+a)}(\log X)^{-(1-2a)/(1+a)}$；在 $a=1/2$ 至少为常数乘 $(\log X)/X$，均针对充分大的整数 $X$。这是原算术序列的锚定尾下界，有限总能量仍与之相容。另一侧 $a>1/2$，在全水平加权范数中可显式估计截去大分母的误差。若事先给定这一算术族和固定起点，两条有标签的素数谱功率还可稳定重建整个有限观察。
+
+## 1. 双截断及块间相干通道
+
+令 $h_N(z)=\sum_{n=1}^Nz^n=C_z(1-z^N)$，$C_z=z/(1-z)$，并设 $u_0(N)=1,\ d_0=-\gamma$。对每个既约频率取 $u_z=h_N(z),\ d_z=b_q$。于是固定 $M,Q$ 的精确式为
+\[
+ D_{M,Q}=\sum_{i,j}d_i\bar d_j\sum_{N=1}^M u_i(N)\overline{u_j(N)}/N^2 .
+\]
+常数行与列均计入，包括 $-\gamma$ 的两项混合项；这里的常数向量为 $1$，而零频几何和为 $h_N(1)=N$。固定有限频组，令 $L(t)=\sum_{n\ge1}e^{int}/n^2$。对 $z=e^{i\theta},w=e^{i\phi}$，该行列核在 $M\to\infty$ 时等于
+\[
+ K(z,w)=C_z\overline{C_w}\{\zeta(2)-L(\theta)-L(-\phi)+L(\theta-\phi)\},\qquad
+ K(z,0_{\rm const})=C_z\{\zeta(2)-L(\theta)\}.
+\]
+逐项绝对收敛。对角 $K(z,z)=x(\pi-x)/(2\sin^2x)$，$x=\theta/2\in(0,\pi)$，故在 $\theta\to0$ 时为 $\pi/|\theta|+O(1)$（角取最短代表）。
+
+为控制近零及近碰撞，令 $U=\min(2/|1-z|,2/|1-w|)$、$V=\max(\cdots)$。由 $|h_N(z)|\le\min(N,2/|1-z|)$，在 $U,V$ 分段求和得 $|K(z,w)|\le U(4+\log(V/U))$。若两角的圆周距离 $0<\eta\le1$，$d=\min(|1-z|,|1-w|)$，有
+\[
+ |K(z,w)-K(z,z)|\le 4\zeta(2)\eta/d^3+2\eta(4+\log(1/\eta))/d^2 .
+\]
+这是因为 $|C_w-C_z|\le\eta/d^2$，而 $\sum_{N\ge1}\min(2,N\eta)/N^2\le \eta(4+\log(1/\eta))$。两式各自显式保留到零频的距离。
+
+**有限频块的耦合证书。** 把任一有限块改写为 $v(N)=m_1+\sum_{z\ne1}m_z z^N$，其中道路整块有 $m_1=-\gamma+\sum_z b_qC_z$，$m_z=-b_q C_z$。分块时只能给一个块分配中心常数。另一个有限块写为 $\sum_w n_w w^N$，系数表缺项补零。令 $s_M=\sum_{N>M}N^{-2}$，则
+\[
+ \left|\sum_{N>M}\frac{v(N)\overline{w_{\rm block}(N)}}{N^2}
+       -s_M\sum_z m_z\bar n_z\right|
+ \le \frac{2}{(M+1)^2}\sum_{z\ne t}\frac{|m_z n_t|}{|1-z\bar t|}. \tag{1}
+\]
+部分求和将 $\sum_{N>M}(z\bar t)^N/N^2$ 夹在模 $2/[(M+1)^2|1-z\bar t|]$ 内。两个原频率支撑完全不交的块仍共享常数通道 $m_1\bar n_1s_M$。只保存各块对角能量可能漏掉这一阶为 $1/M$ 的项。分母均不超过 $Q$ 时，互异单位根间距至少 $4/Q^2$；这些常数在碰撞点则改由式 (1) 左侧的同频项精确处理。
+
+对完整 $q$-块，$\sum_{r} C_z=-\varphi(q)/2$（共轭两项相加为 $-1$，$z=-1$ 单项为 $-1/2$）。由 (1) 得到固定 $Q$ 的闭式水平尾系数
+\[
+ \lim_{M\to\infty}M\sum_{N>M}|B_N^{(Q)}|^2/N^2
+ =\left|-\gamma-\tfrac12\sum_{2\le q\le Q}b_q\varphi(q)\right|^2
+   +\tfrac1{12}\sum_{2\le q\le Q}|b_q|^2J_2(q), \tag{2}
+\]
+$J_2(q)=q^2\prod_{p\mid q}(1-p^{-2})$。这里用到已知的 $\sum_{(r,q)=1}|1-e^{2\pi ir/q}|^{-2}=J_2(q)/12$。例如对 $\sin(qx)$ 的乘积分解取二阶对数导数，令 $x\to0$ 先求出全部非零余数的和 $(q^2-1)/12$，再按既约分母反演即可。式 (2) 的极限固定了 $Q$；第 3 节独立处理真正算术尾。
+
+## 2. 从大分母尾返回固定起点
+
+**定理 1。** $H_M=\sum_{n\le M}1/n$。所有 $a>0$、$M,Q\ge1$ 都满足
+\[
+ \left(\sum_{N\le M}|B_N-B_N^{(Q)}|^2/N^2\right)^{1/2}
+ \le (1+1/a)\,Q^{-a}\sqrt M\,H_M. \tag{3}
+\]
+若 $s=a-1/2>0$，全水平的界为
+\[
+ \left(\sum_{N\ge1}|B_N-B_N^{(Q)}|^2/N^2\right)^{1/2}
+ \le \sqrt2(1+1/s)\zeta(3/2)\,Q^{-s}. \tag{4}
+\]
+两式都可用在能量平方根上，直接由三角不等式得出。
+
+**推导。** 除数恒等式给
+\[
+ A_q(N)=\sum_{d\mid q}d\mu(q/d)\lfloor N/d\rfloor
+       =-\sum_{d\mid q}d\mu(q/d)\{N/d\}\quad(q>1).
+\]
+有限水平用第一式，绝对值至多为 $N\sum_{d\mid q,d\le N}1$。由 $\sum_{k>y} k^{-1-a}\le(1+1/a)y^{-a}$ 对所有 $y>0$ 成立，得
+$\sum_{q>Q}|b_q A_q(N)|/N\le(1+1/a)Q^{-a}H_N$。这既给 (3)，也给每个有限水平绝对收敛，可先合并一个完整既约分母再取极限。其极限确为原生道路：代入第一式并交换绝对收敛的块，固定 $d$ 的系数由 $\sum_{d\mid q}b_q\mu(q/d)=\mu(d)/d^{1+a}$ 得出（此式计入 $b_1=c$；平方因子时两边均零）。采用第二式，$d\{N/d\}/N$ 的平方和至多为 $2d$，因为 $N<d$ 的每项为一，而 $d^2\sum_{N\ge d}N^{-2}\le d+1$。于是全水平尾范数至多为
+\[
+ \sqrt2\sum_{k\ge1}k^{-1-a}\sum_{d>Q/k}d^{-1-s}
+ \le\sqrt2(1+1/s)Q^{-s}\sum_{k\ge1}k^{-3/2}.
+\]
+此处在分母块内利用了既约根的有符号消去。对于 $a\le1/2$，(3) 仍给出增长截断的无条件充分归约。例如取
+$Q(M,a)=\lceil[(1+1/a)\sqrt M\,H_M/\sqrt a]^{1/a}\rceil$，则 $|\sqrt{D_{M,Q}}-\sqrt{\sum_{N\le M}|B_N|^2/N^2}|\le\sqrt a$。因而所余的统一估计恰可表为
+\[
+ \sup_{0<a\le a_0}\sup_{M\ge1}D_{M,Q(M,a)}/a<\infty . \tag{5}
+\]
+对固定 $a_0\le1/2$，(5) 与 $D_a=O(a)$（统一于此区间；若只关心 $a\downarrow0$，可相应缩小 $a_0$）互相推出，审计中的逐格公式再传递至连续 $Q_a=O(a)$。规定 $Q$ 随 $M,a$ 增长的代价很大；(3) 本身不提供 (5)。
+
+## 3. 真正算术序列的定量水平尾下界
+
+**定理 2。** 设 $0<a\le1/2$，$X$ 为正整数，令
+\[
+ L_a=(1-a)^{-1}+a^{-1},\quad K_a=8(1+L_a),\qquad
+ Q=\left\lfloor (c/(2K_a))^{1/(2+a)}X^{a/(2+a)}\right\rfloor .
+\]
+则
+\[
+ \frac1X\sum_{X<N\le2X}|B_N|^2
+ \ \ge\ \frac{c^2}{96\zeta(2)}
+       \sum_{2\le q\le Q}\frac{\mu(q)^2}{q^{2a}}. \tag{6}
+\]
+所以 $0<a<1/2$ 时 $T_a(X)\gg_a X^{-1+a(1-2a)/(2+a)}$，端点 $a=1/2$ 时 $T_a(X)\gg(\log X)/X$。特别地，对这些固定 $a$ 都有 $XT_a(X)\to\infty$。结论只排除了过快的水平尾衰减，允许有限总能量；该指数的最优性待定。
+
+**证明。** 记 $\widehat f_X(z)=X^{-1}\sum_{X<n\le2X}f(n)\bar z^n$。由除数和与 $c=\sum_d\mu(d)d^{-1-a}$ 得 $|B_n|\le L_a n^{1-a}+\gamma$。若 $z$ 为本原 $q$ 次根，
+\[
+ b_q=\sum_{q\mid d}\mu(d)d^{-1-a},\qquad
+ |\widehat{(R-c)}_X(z)-b_q|
+ \le [2/(1-a)+1/a+1]qX^{-a}.
+\]
+第一式由 Euler 乘积分解。对第二式，$d\le2X,q\mid d$ 的计数 $\lfloor2X/d\rfloor-\lfloor X/d\rfloor$ 距 $X/d$ 小于一；$q\nmid d$ 时几何和模至多 $1/\sin(\pi/q)\le q/2$。再用 $\sum_{d\le2X}d^{-a}\le(2X)^{1-a}/(1-a)$。漏去的 $d>2X$ 至多 $(2X)^{-a}/a$，常数 $c$ 的频率泄漏至多 $q/(2X)$。
+
+由差分 $R(n)-c=B_n-B_{n-1}$，离散移位只留下 $B_X,B_{2X}$ 两个边界。合计
+\[
+ |(1-\bar z)\widehat B_X(z)-b_q|\le K_a qX^{-a}.
+\]
+对 $q\le Q$ 的平方自由分母，右侧不超过 $|b_q|/2$。归一化窗口内各 Fourier 向量长为一，不同既约分数的圆周距至少 $Q^{-2}$，故 Gram 非对角模至多 $Q^2/(2X)$。向量个数至多 $Q^2$，谱范数至多 $1+Q^4/(2X)\le2$，因为 $Q\le X^{1/5}$。$Q<2$ 时 (6) 直接成立。有限分析算子范数平方等于这个 Gram 范数，因此均方下界为
+$\tfrac12\sum_z|\widehat B_X(z)|^2\ge\tfrac1{96}\sum_{q=2}^Q|b_q|^2J_2(q)$。由 $J_2(q)\ge q^2/\zeta(2)$ 得 (6)。平方自由整数在前 $Y$ 个正整数中至少占 $(2-\zeta(2))Y$（整数 $Y$，并集界）。于是右侧对 $a<1/2$ 至少按 $Q^{1-2a}$ 增长，对端点按 $\log Q$ 增长。最后 $T_a(X)$ 至少是该窗口均方的 $1/(4X)$ 倍。这个证明在实际锚定序列上提取各个频率，继而作带窗口误差的 Bessel 下界，未用平移平均等于锚定能量的假设。
+
+**定理 2 的加强。** 对整数 $X\ge512$，(6) 的同一右侧可以改用更大的渐近分母截断
+\[
+ Q'=\left\lfloor\left(\frac{cX^a}{2K_a(2+\log(2X))}\right)^{1/(1+a)}\right\rfloor .
+\]
+所以 $0<a<1/2$、充分大 $X$ 时，
+\[
+ T_a(X)\gg_a X^{-1+a(1-2a)/(1+a)}
+                   (\log X)^{-(1-2a)/(1+a)} . \tag{7}
+\]
+在 $a=1/2$ 的 $\log X/X$ 下界保留。
+
+为证此式，对前面除数 $d$ 的几何和逐模 $q$ 分组。取 $v(d)=1/|\sin(\pi rd/q)|$（$q\mid d$ 时取 $1$ 以控制整部误差）。一个完整周期内，非零剩余被 $r$ 置换。按距离 $j=\min(k,q-k)$ 配对，以 $\sin(\pi j/q)\ge2j/q$ 得 $\sum_{d\le q}v(d)\le q(2+\log q)$，故 $\sum_{d\le t}v(d)\le(t+q)(2+\log q)$。部分求和给出
+\[
+ \sum_{d\le Y}d^{-a}v(d)\le(2+\log q)\big[Y^{1-a}/(1-a)+q\big].
+\]
+取 $Y=2X$，结合上面的缺失除数、常数项和 $B$ 的两个端点。由于 $q\le Q'\le X^{1/3}\le X^{1-a}$，合计误差不超过 $K_a(2+\log(2X))X^{-a}$，从而再次不超过 $|b_q|/2$。为避免按频率总数放大泄漏，把圆周上从给定频率向左、向右分别按距离排序，每侧第 $j$ 个频率距该频率至少 $j/(Q')^2$（只取各方向半圆）。于是 Gram 非对角每行和至多
+\[
+ \frac{(Q')^2}{X} H_{(Q')^2}\le X^{-1/3}(1+\tfrac23\log X)\le1\qquad(X\ge512).
+\]
+以下与 (6) 相同。周期分组提高了增长截断的指数；其证明与原简单常数界、有限频率 (1) 分别成立。
+
+## 4. 两条带标签功率的稳定逆
+
+**定理 3。** 固定道路族、原点以及任意指定素数 $p<\ell$。令 $P_p=|b_p|^2,P_\ell=|b_\ell|^2$，$s=1+a$。则
+\[
+ T=\log(P_p/P_\ell)=2\log\frac{\ell^s-1}{p^s-1},\qquad
+ \log(\ell/p)<\frac{dT}{ds}<2\log(\ell/p).
+\]
+$T$ 将 $(1,\infty)$ 一一映到 $(2\log((\ell-1)/(p-1)),\infty)$。两个族内参数的误差满足
+\[
+ |a-a'|\le
+ \frac{|\log P_p-\log P'_p|+|\log P_\ell-\log P'_\ell|}{\log(\ell/p)} .
+\]
+若只有两个测量区间，将其对数作差后与可行范围相交，以上斜率界控制其逆像宽度。证明是对 $g(t)=t/(1-e^{-st})$ 求导。$1/2<g'(t)<1$ 分别来自 $\sinh(st)>st$ 与 $st>1-e^{-st}$；在 $t=\log p,\log\ell$ 间积分即得。
+
+一个给定的平方自由 $q>1$ 的功率在 $a\downarrow0$ 和 $a\to\infty$ 均趋零，中间严格为正且连续，故单条此类非零频谱功率没有全局唯一性。两条素数谱线恢复 $a$ 后，$\mu(q)$ 给出所有标准相位，固定起点与常数 $-\gamma$ 也确定，(3) 可按需重建任意有限水平的观察。若起点也允许平移，所有功率保持相同；固定 $a$ 时，以 $n=1$ 或 $n=2$ 作第一项，首个 $B$ 分别为 $-3c/2$ 与 $-2^{-a}-3c/2$，能量首项已分开。故这一定理精确限定了第十二轮一般周期相位反例在算术族内的使用范围。它给出参数的识别与误差界，统一能量估计 (5) 仍是一个解析问题。
+
+## 5. 复算
+
+同目录运行以下命令，Python 只用标准库。
+
+~~~sh
+python3 road_check.py --json road_checked.json
+~~~
+
+有限独立模型取 $a=1$ 且 Euler 积仅含 $2,3$，所以 $c=2/3$、周期为 6。在 $\mathbb Q(\exp(i\pi/3))$ 中直接计算到 $M=19$ 的全 Gram，与逐项原生质量求和的能量均为 $890815107534100193/487731383922182400$。删去中心或删去交叉项各自给出不同的有理数。常数通道为 $-7/6$，整周期均方为 $149/108$，与 (2) 精确一致。另验 4,320 个除数前缀，及 $a=1/2,X=2^{80},Q=4096$ 的解析证书：用 $c\ge1/3$ 和 $\zeta(2)\le2$，(6) 的均方下界向下截得 $0.00295167$；这里计算的是不等式右侧。同一 $X$ 用加强式可取 $Q'=131072$，程序逐项向下舍入后得到严格下界 $0.00417097$。道路质量的正性用于原算术质量；复数频率间的交叉项保留其相位与符号，不能把每一项当作正质量。[复算脚本](road_check.py) · [精确结果](road_checked.json)
