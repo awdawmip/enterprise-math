@@ -1,0 +1,108 @@
+# Eisenstein 重合旋转的有序表示、角分布与最少两两读出
+
+设 $\omega=e^{2\pi i/3}$，$\mathcal O=\mathbb Z[\omega]$，$K=\mathbb Q(\omega)$。只考虑保向重合旋转，把产生同一旋转格的六个单位倍数视为一行；各行有标签，可重复，可等于恒等行。记 $\Sigma(R)=[\mathcal O:\mathcal O\cap R\mathcal O]$。本文为未编号独立算术札记。冻结任务书 H4–H6 的受阻状态按原记录保留。Baake–Grimm 的 §2、命题 1 已给单行与多重重合子格的素因子分解，并按**互异交格**计数。在 $m=\prod_{p\equiv1(3)}p^{u_p}$ 上，后者精确是 $\prod_p(u_p+1)$。以下按**生成该指标的有序行元组**计数，容许不同元组有同一个交格；取实际旋转时计数再乘 $6^k$。所核项目输入和该论文均未见下述全部角矩或最少查询数；此为局部查重范围。Zeiner 亦讨论一般 CSL 的乘性计数；三维立方晶体三重结的指标乘积关系有独立先例，不能凭相近的二行公式主张优先权。[Zeiner，重合格乘性](https://doi.org/10.1088/1742-6596/226/1/012025) · [立方晶体三重结的指标组合律](https://journals.iucr.org/paper?buy=yes&cnor=hz0032) · [Baake–Grimm，2006](https://arxiv.org/abs/math/0511306) · [冻结任务书 H4–H6](https://github.com/awdawmip/enterprise-math/blob/f63e62fdffc813d94ff31e9d40146e52cb767ca8/research_tasks/NOLLM_EISENSTEIN_ROTATION_ATLAS_INTEGRATION_20260828.md#L105)
+
+## 1. 从相对指标恢复 Smith 群
+
+为每个分裂素数 $p\equiv1\pmod3$ 选分解 $p=\pi_p\bar\pi_p$。在 $\mathcal O$ 的唯一分解下，每行唯一给出有限支撑的整数列 $t_{i,p}$，模单位有 $R_i=\prod_p(\pi_p/\bar\pi_p)^{t_{i,p}}$，$\Sigma(R_i)=\prod_p p^{|t_{i,p}|}$。这是因为重合旋转恰为 $K^\times$ 中复绝对值为一者。共轭不动的素理想在比值中指数为零。加入锚 $R_0=1$，令
+$$
+ I=\bigcap_{i=0}^kR_i\mathcal O,\qquad
+ L=\operatorname{lcm}_{1\le i\le k}\Sigma(R_i),\qquad
+ J=\operatorname{lcm}_{0\le i<j\le k}\Sigma(R_i^{-1}R_j).
+$$
+则 $[\mathcal O:I]=J$，且加法商有完整的 Smith 分解
+$$
+ \mathcal O/I\simeq C_{J/L}\times C_L,\qquad J/L\mid L .
+$$
+具体地，令 $a_p=\max_i t_{i,p}, b_p=-\min_i t_{i,p}$。交理想在 $\pi,\bar\pi$ 两处的指数是 $a_p,b_p$，局部加法商就是 $C_{p^{a_p}}\times C_{p^{b_p}}$，因为分裂处的局部环为 $\mathbb Z_p$。两行相对指标的 $p$ 进赋值是 $|t_{i,p}-t_{j,p}|$；逐 $p$ 最大即 $a_p+b_p$，而 $\max(a_p,b_p)=v_p(L)$。这证明两式。对于恰两行 $n=\Sigma(R_1),m=\Sigma(R_2)$ 还成立 $J^2=nm\,\Sigma(R_1^{-1}R_2)$，因为三个直线上带锚点的两两距离之和恰等于直径的两倍。
+
+给定两行的可容许指标 $n,m$，共享素数记为 $S=\{p:p\mid\gcd(n,m)\}$。取任意反向子集 $T\subseteq S$，则
+$$
+ J=\operatorname{lcm}(n,m)\prod_{p\in T}p^{\min(v_p(n),v_p(m))}.
+$$
+所得 $2^{|S|}$ 个值两两不同，每个值均由 $2^{\omega(n)+\omega(m)-|S|}$ 个有序理想对给出。这里 $\omega(n)$ 表示不同素因子的个数；在格的定义中 $\omega$ 表示三次单位根。
+
+### 有限两两查询的最优性
+
+单行指标均已知。一个查询选两个不同的行 $i,j$ 并读出完整整数 $\Sigma(R_i^{-1}R_j)$。在该读出模型里，固定的查询图 $G$ 对**所有**与给定单行指标相容的行都能恢复 $J$，当且仅当对每个 $p$ 非空集 $V_p=\{i:v_p(\Sigma(R_i))>0\}$ 上的诱导图 $G[V_p]$ 连通。充分性来自已知 $|t_{i,p}|$ 后一条内部边能区分同号与反号，即相对指数等于两个绝对值之差的绝对值或其和。必要性可在所有符号为正的记录上证明：翻转某个孤立连通分量内全部 $p$ 符号，保持每个读数，原 $p$ 进直径却由最大绝对值变成两侧正最大值之和。故保证恢复最坏情形的**自适应**查询数也精确等于上述诱导连通要求下的最少边数。不同素数可复用同一条边，且传递只能沿两端皆属于 $V_p$ 的边。
+
+对给定部分读数，还可精确量化剩余不确定性。每个 $p$ 的各边同反号约束在每个环上乘积必须为 $+1$，且每条边须给许可的本地距离，包括仅一边或两边都不含 $p$ 时的固定值。各约束满足时，$G[V_p]$ 的每个分量有两种整体定向，故理想元组总数为 $\prod_p2^{c_p}$，其中 $c_p$ 为分量数。均匀取相容元组，在分量 $C$ 中将两侧最大绝对值排序为 $a_C\ge b_C\ge0$（空侧取零）。固定某个达到 $A=\max_C a_C$ 的分量 $C_*$ 令其大侧为正，另一整体定向给同样的直径分布。写 $B_0=\max_C b_C$，则 $v_p(J)=A+W_p$，并且
+$$
+ \Pr(W_p\le t)=
+ \begin{cases}
+ 0,&t<B_0,\\
+ 2^{-\#\{C\ne C_*:a_C>t\}},&t\ge B_0 .
+ \end{cases}
+$$
+大侧与小侧相等的 $C_*$ 可固定任一代表，公式不变。各素数独立。没有边、只有两行时即得到共享素数同向与反向各半的原特例。这是查询模型的最优性；实际已给复旋转或已分解理想时可直接读方向。
+
+## 2. 有序 $k$ 行的精确系数与主项
+
+记 $A_k(m)$ 为有序 $k$ 行联合指标恰为 $m$ 的方案数。它乘性且只支持分裂素数。对 $p\equiv1\pmod3,\ e\ge1$，
+$$
+ A_k(p^e)=(e+1)^{k+1}-2e^{k+1}+(e-1)^{k+1},\qquad A_k(1)=1 .
+$$
+这是直径壳计数。将带锚 $0,t_1,\ldots,t_k$ 同时平移到最小值零，直径至多 $e$ 的元组与 $[0,e]^{k+1}$ 中至少一个零坐标的整点双射，其数为 $(e+1)^{k+1}-e^{k+1}$，作一阶差分即得。也可直接固定一个局部交理想 $(\pi^a\bar\pi^b)$，$e=a+b>0$。若 $a,b>0$，有序行须同时取到两个端点，其数为 $(e+1)^k-2e^k+(e-1)^k$。若 $ab=0$，锚点已占另一端，方案数为 $(e+1)^k-e^k$。二行有 $A_2(p^e)=6e$，局部级数为 $(1+4z+z^2)/(1-z)^2$，$z=p^{-s}$。
+
+置 $\kappa=2^k-1,\ F_k(z)=1+\sum_{e\ge1}A_k(p^e)z^e$。定义
+$$
+ D_k(s)=\sum_{m\ge1}A_k(m)m^{-s}=\prod_{p\equiv1(3)}F_k(p^{-s})
+       =\zeta_K(s)^\kappa H_k(s).
+$$
+在 $\Re s>1/2$ 补偿乘积 $H_k$ 局部一致绝对收敛，因为分裂处的线性系数均为 $2\kappa$，惰性处从 $p^{-2s}$ 才开始。$H_k(1)>0$，在 $s=1$ 它是
+$$
+ (1-1/3)^\kappa
+ \prod_{p\equiv2(3)}(1-p^{-2})^\kappa
+ \prod_{p\equiv1(3)}(1-p^{-1})^{2\kappa}F_k(1/p).
+$$
+写 $r_K=\pi/(3\sqrt3)$。固定 $k\ge1$ 时，
+$$
+ \sum_{m\le X} A_k(m)\sim
+   \frac{r_K^\kappa H_k(1)}{(\kappa-1)!}\,X(\log X)^{\,2^k-2}.
+$$
+例如二行的首项为 $\tfrac12 r_K^3 H_2(1)X(\log X)^2$。传统的互异交格计数主项只线性增长。下节给出可兼用于角矩的余项证明。
+
+## 3. 角 Fourier 扭曲及一个正偏差
+
+行角在 $\mathbb R/(\pi/3)\mathbb Z$ 中取值。对 $\mathbf h=(h_1,\ldots,h_k)\in\mathbb Z^k$，令 $D_{\mathbf h}(s)$ 的每个元组带权 $\prod_i R_i^{6h_i}$，分母为 $J^s$。单位独立的理想角色为 $\lambda_j((\alpha))=(\alpha/\bar\alpha)^{6j}$。对 $h_S=\sum_{i\in S}h_i$ 有
+$$
+ D_{\mathbf h}(s)=H_{\mathbf h}(s)
+       \prod_{\varnothing\ne S\subseteq[k]} L_K(s,\lambda_{h_S}).
+$$
+在分裂素数 $p$ 的第一壳，非零坐标同取 $+1$ 或同取 $-1$，其指标集是任意非空 $S$，故两个 Euler 乘积的 $p^{-s}$ 项逐素数相符。所有局部系数绝对值至多上一节的 $A_k(p^e)$。乘上各 $L$ 局部因子的倒数（有限多项式）即可构造在 $\Re s>1/2$ 局部一致绝对收敛的 $H_{\mathbf h}$，在该区域不需要断言无零。于是极点阶至多
+$$
+ Z(\mathbf h)=\#\{\varnothing\ne S\subseteq[k]:h_S=0\}.
+$$
+
+所需的解析事实可以直接得到。理想范数至多 $u$ 的 $\lambda_j$ 和等于圆盘 $|z|\le\sqrt u$ 的非零 Eisenstein 格点上的 $e^{12ij\arg z}$ 和除以六。基本胞面积为 $\sqrt3/2$，圆周相交胞有 $O(\sqrt u+1)$ 个，内部每个胞的积分误差 $O_j(1/|z|)$，其总量 $O_j(\sqrt u+1)$。圆盘积分只在 $j=0$ 给出主项。因此
+$$
+ \sum_{N\mathfrak a\le u}\lambda_j(\mathfrak a)
+   =\mathbf1_{j=0}\,r_Ku+O_j(\sqrt u+1).
+$$
+分部求和将 $L_K(s,\lambda_j)$ 延拓至 $\Re s>1/2$，只有 $j=0$ 在 1 有简单极点；在固定竖带 $\Re s\ge3/4,\ |s-1|\ge1/8,\ \Re s\le2$ 有 $O_j(1+|\Im s|)$ 界。对 $j\ne0$，取素理想幂的 Euler 对数，利用 $3+4\cos v+\cos(2v)\ge0$ 得实 $\sigma>1$ 时
+$$
+ \zeta_K(\sigma)^3 |L_K(\sigma,\lambda_j)|^4
+                       |L_K(\sigma,\lambda_{2j})|\ge1.
+$$
+故 $L_K(1,\lambda_j)\ne0$。
+
+对固定的 $\mathbf h,k$，有 $\delta_k>0$ 使
+$$
+ \sum_{J\le X}\prod_i R_i^{6h_i}
+   =\operatorname*{Res}_{s=1}\!\left(D_{\mathbf h}(s)\frac{X^s}{s}\right)
+      +O_{\mathbf h,k}(X^{1-\delta_k}).
+$$
+这里的和按元组。为说明硬截断，将 $1_{u\le1}$ 换成在 $1<u<1+\eta$ 光滑下降到零的函数，取 $\eta=X^{-b},\ b=1/[16(\kappa+2)]$。其 Mellin 变换在 $3/4\le\sigma\le2,\ |t|\ge1$ 为 $O_A(|t|^{-1}(1+\eta|t|)^{-A})$，由导数支撑长度 $\eta$ 分部积分可得。转到 $3/4$ 线计 $O_{\mathbf h,k}(X^{3/4}\eta^{-(\kappa+1)})$。在 1 附近，平滑变换与 $1/s$ 只差 $[1,1+\eta]$ 上的积分，任意固定阶导数 $O_k(\eta)$，故留数误差 $O_{\mathbf h,k}(X\eta(1+\log X)^\kappa)$。原系数绝对值至多 $A_k(m)\ll_{k,\epsilon}m^\epsilon$（素幂系数至多固定次数多项式，再用标准除数界），去平滑误差 $O((X\eta+1)X^\epsilon)$。取 $\epsilon<b/2$ 得所称幂省。所有常数均只对固定模态使用。
+
+零频给上一节渐近。任何非零频率均有 $Z(\mathbf h)<\kappa$，故依 Weyl 判据，按 $J\le X$ 等权抽取的有序旋转元组在 $k$ 维角环面趋于 Haar 分布。实际 $k=2,\ a\ne0$ 的差频具有正的次主项，而同号频率无此项：
+$$
+ \sum_{J\le X}(R_1/R_2)^{6a}\sim c_a X,\qquad c_a>0,\qquad
+ \sum_{J\le X}(R_1R_2)^{6a}=O_a(X^{1-\delta_2}).
+$$
+证明正性时，对每个分裂 $p$ 写 $\xi=\lambda_a((\pi_p))$。加锚平移到最小坐标零，将 $-a,a$ 与第三个系数 $0$ 一起写在 $[0,e]^3$ 上；壳为两次差分，所以差频局部级数为
+$$
+ (1-z)^2\sum_{e\ge0}(e+1)|1+\xi+\cdots+\xi^e|^2 z^e>0\quad(0<z<1).
+$$
+分裂和惰性、分歧各处的校正均为正（$\lambda_{-a}=\bar\lambda_a$），绝对收敛令 $H_{(a,-a)}(1)>0$。于是 $c_a=r_K H_{(a,-a)}(1)|L_K(1,\lambda_a)|^2$。同号频率的三个非空子集和全非零。相对角偏差归一化后严格为正、量级为 $(\log X)^{-2}$。上述结果是算术角分布，与母问题中的原生平移相位、有限域仿射群和路径阶数没有识别关系。
+
+有限核验使用 Python 标准库。程序逐一计算 93 个三行算例的整格同余核，并以相对旋转的有理矩阵分母核对交格指标和 Smith 因子；覆盖分裂素数 7、13、指数 49 以及两素数并存。对 20 个分别具有 1 到 4 行、局部指数次数 1 到 5 的直径壳，直接枚举有符号幂，逐系数验证计数和角和的 Laurent 多项式。对四行的全部 64 张查询图，393 种相容记录的直径分布逐项满足有理闭式。角偏差的无穷渐近由第 3 节证明，有限复算对象均为整数或有理数。[复算脚本](eisenstein_check.py) · [核验结果](eisenstein_checked.json)
