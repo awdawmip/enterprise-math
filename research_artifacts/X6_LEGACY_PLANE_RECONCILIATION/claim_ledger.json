@@ -1,0 +1,220 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DRAFT_V1",
+  "status": "AUTHOR_PARTIAL / INCOMPLETE_CORPUS / SOURCE_PINNED / UNREVIEWED_NOT_ADMITTED",
+  "date": "2026-11-18",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "current_consumer_snapshot": "2026-11-18 main examined for indicated current blob values",
+  "coverage": {
+    "dispositions": 8,
+    "complete": false,
+    "inspected_pinned_historical_paths": [
+      "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
+      "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md",
+      "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
+      "definitions/ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md",
+      "experiments/tool_discovery_native_geometry_of_numbers_minima_calculus_20260822.py"
+    ],
+    "remaining": "Full pre-rebase declared corpus plus live 28-LP consumer source:line audit, distinct independent R063 review; no claim of exhaustive full-corpus coverage."
+  },
+  "claims": [
+    {
+      "id": "X6-CL-001",
+      "old_source": {
+        "path": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "blob": "546c8df08f1aaacaeca2b29d7f45d094ebe6299d",
+        "lines": "13-37"
+      },
+      "old_statement": "The native origin is the triple boundary-incidence vertex, not a Cell center.",
+      "old_semantic_type": "CLAIMED_NATIVE_CELL_IDENTITY",
+      "status": "SUPERSEDE",
+      "corrected_statement": "Signed native X6 selected anchor is an actual Cell; the triple-boundary vertex V_E survives only as carrier incidence.",
+      "current_evidence": {
+        "path": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
+        "blob": "b573b267a13eba31280703290d63279d367631eb",
+        "lines": "14-49"
+      },
+      "downstream": [
+        "R061 line-trace start incidence",
+        "R063 circle carrier"
+      ],
+      "repository_action": "CURRENT_RETYPE_ALREADY_PRESENT; retain immutable old provenance"
+    },
+    {
+      "id": "X6-CL-002",
+      "old_source": {
+        "path": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "blob": "546c8df08f1aaacaeca2b29d7f45d094ebe6299d",
+        "lines": "58-104"
+      },
+      "old_statement": "Three positive rays only and min-zero nonnegative triple are complete native coordinates.",
+      "old_semantic_type": "CLAIMED_NATIVE_AXIS_AND_POINT_SET",
+      "status": "SUPERSEDE",
+      "corrected_statement": "The native 3-axis slice is the signed Z³ affine subtorsor of the signed X6 Cell torsor; min-zero alone is a relative/carrier observer. A lossless chart also retains signed common depth.",
+      "current_evidence": {
+        "path": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
+        "blob": "b573b267a13eba31280703290d63279d367631eb",
+        "lines": "38-56"
+      },
+      "downstream": [
+        "legacy sector addresses",
+        "LP011 signed dominance",
+        "R061 arbitrary point gauge"
+      ],
+      "repository_action": "CURRENT_RETYPE_ALREADY_PRESENT; inspect still-active imported consumers only"
+    },
+    {
+      "id": "X6-CL-003",
+      "old_source": {
+        "path": "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "blob": "b631242db84c5bd3640e6dc554b19a1d04d464f3",
+        "lines": "73-104"
+      },
+      "old_statement": "Support-two positive component-trace T_ab is a primitive native line identity.",
+      "old_semantic_type": "CLAIMED_NATIVE_PRIMITIVE_LINE",
+      "status": "PRESERVE_PATH_BRC",
+      "corrected_statement": "Support-one native axis movement is primitive; positive two-axis traces remain composite signed native shortest-path families, with binomial(a+b,a) words.",
+      "current_evidence": {
+        "path": "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md",
+        "blob": "94f470618436e8a44b0de5c13df116ef5c3bdabc",
+        "lines": "14-39"
+      },
+      "downstream": [
+        "R061 path-valued operators",
+        "FCC carrier line presentation",
+        "LP019 path families"
+      ],
+      "repository_action": "CURRENT_RETYPE_ALREADY_PRESENT; preserve line-trace combinatorics with exact typing"
+    },
+    {
+      "id": "X6-CL-004",
+      "old_source": {
+        "path": "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "blob": "b631242db84c5bd3640e6dc554b19a1d04d464f3",
+        "lines": "161-183"
+      },
+      "old_statement": "The positive-sector N25 four-root word subtotal 72 may be described as the plane's native path mass.",
+      "old_semantic_type": "POSITIVE_SECTOR_PATH_SUBTOTAL_PRESENTED_AS_NATIVE",
+      "status": "PRESERVE_PATH_BRC",
+      "corrected_statement": "72 is exact only for one old positive sector; full three-axis signed G25 has 30 endpoints and N-BRC mass 846. Full six-axis shell is a different population.",
+      "current_evidence": {
+        "path": "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md",
+        "blob": "94f470618436e8a44b0de5c13df116ef5c3bdabc",
+        "lines": "29-55"
+      },
+      "downstream": [
+        "old shell count references",
+        "R063 square-norm roots",
+        "LP028 signed chart"
+      ],
+      "repository_action": "CURRENT_RETYPE_ALREADY_PRESENT; do not reintroduce 72 as signed shell mass"
+    },
+    {
+      "id": "X6-CL-005",
+      "old_source": {
+        "path": "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "blob": "58ccac6d8b88dcfd91a0a6017ca7b29187b4e7b0",
+        "lines": "257-287"
+      },
+      "old_statement": "The native directed length of (3,4,0) differs from the decoded reverse (1,0,4): squared values 25 and 17.",
+      "old_semantic_type": "CLAIMED_NATIVE_ASYMMETRIC_METRIC",
+      "status": "RECOMPUTE",
+      "corrected_statement": "Raw signed native reverse is (-3,-4,0), both squared distances are 25 and shortest N-BRC counts are 35. The 17 reverse gauge is relative/min-zero observer data.",
+      "current_evidence": {
+        "path": "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
+        "blob": "875e3b274e5be03c5872f782872065a0b96d14eb",
+        "lines": "14-118"
+      },
+      "downstream": [
+        "R061 directed segment spectrum",
+        "LP011 observer dominance",
+        "derived G1 quotient"
+      ],
+      "repository_action": "CURRENT_RETYPE_ALREADY_PRESENT; discriminate downstream native vs relative gauge"
+    },
+    {
+      "id": "X6-CL-006",
+      "old_source": {
+        "path": "definitions/ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "blob": "11f47f9d2d70439fdada6d59242790fdcf46929e",
+        "lines": "27-58"
+      },
+      "old_statement": "chi(a,b,c)=(a-c,b-c) has diagonal kernel Z(1,1,1) and min-zero quotient section.",
+      "old_semantic_type": "DERIVED_ENDPOINT_QUOTIENT",
+      "status": "PRESERVE_OBSERVER",
+      "corrected_statement": "The algebraic quotient and min-zero section are exact at relative/carrier observer strength; add integer common depth to recover raw native signed slice state.",
+      "current_evidence": {
+        "path": "definitions/ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md",
+        "blob": "175d2c0f00db8e94a263442dbdc77928c0dc9567",
+        "lines": "12-60"
+      },
+      "downstream": [
+        "R062 bridge",
+        "FCC relative coordinate consumer",
+        "LP026 common-depth adaptation"
+      ],
+      "repository_action": "CURRENT_RETYPE_ALREADY_PRESENT; retain quotient and avoid replacing native signed Cell identity"
+    },
+    {
+      "id": "X6-CL-007",
+      "old_source": {
+        "path": "experiments/tool_discovery_native_geometry_of_numbers_minima_calculus_20260822.py",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "blob": "643b2bac659a445891dcb5588b647972977104e0",
+        "lines": "136-149"
+      },
+      "old_statement": "The positive ordered two-axis root and binomial path fiber is a valid chart-local calculation.",
+      "old_semantic_type": "POSITIVE_SECTOR_ROOT_AND_PATH_FIBER",
+      "status": "PRESERVE_PATH_BRC",
+      "corrected_statement": "Explicitly lift roots to all distinct signed two-axis charts. For d=6 positive square N the labeled native endpoint/BRC correction is 108, for non-square N it is 0; full six-axis G25 shell has 7812 endpoints and BRC mass 2538954612 vs chart-supported 132/4212.",
+      "current_evidence": {
+        "path": "research_notes/X6_UNIT131_STRATIFIED_R063_CHART_TO_NATIVE_SHELL_20261118.md",
+        "commit": "f51f536c8b9149e8668c561b11e1662689bc4178",
+        "blob": "be00338a033ad11f145d9c60b1ae2d1896a7fb71",
+        "lines": "1-95"
+      },
+      "downstream": [
+        "LP028 signed PathSqrt actual current adapter",
+        "R063/Helly independent benchmark"
+      ],
+      "repository_action": "NEW_TYPED_EXTENSION_UNIT131; original R063 code and original benchmark unchanged"
+    },
+    {
+      "id": "X6-CL-008",
+      "old_source": {
+        "path": "historical alleged LP011 wrong-native argmax / LP019 positive-N-BRC subtraction caller",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "blob": null,
+        "lines": null
+      },
+      "old_statement": "Allegations in prior reconciliation without yet verified exact faulty historical file:line.",
+      "old_semantic_type": "UNRESOLVED_HISTORICAL_PROVENANCE",
+      "status": "UNRESOLVED_PROVENANCE",
+      "corrected_statement": "Keep exact source:line unknown; separately preserve source-proven optimized-assert validation bugs repaired by Units110/111 and actual current triadic consumer fixes 129/130.",
+      "current_evidence": {
+        "path": "research_notes/X6_UNIT111_LP019_ALWAYS_ON_ORIGINAL_NATIVE_MUTATION_20261118.md",
+        "commit": "e43a95dff2a7501f43130a80891b7815e86f07dc",
+        "blob": null,
+        "lines": null
+      },
+      "downstream": [
+        "LP011 historical alleged argmax",
+        "LP019 historical alleged subtraction"
+      ],
+      "repository_action": "Locate actual historical function and wrong call from immutable Source; do not infer from new tests"
+    }
+  ],
+  "review": "NOT_REVIEWED",
+  "admission": "NOT_ADMITTED",
+  "source_provenance_policy": "Historical pin remains immutable; current production Source at explicit displayed blob. Provenance with missing exact caller remains UNRESOLVED rather than invented.",
+  "next_exact_action": "Expand to actual current 28-LP consumer crosswalk by precise file:line, not by filename-only catalog. Verify alleged LP011/LP019 source if found; perform independent Driver review separately."
+}
