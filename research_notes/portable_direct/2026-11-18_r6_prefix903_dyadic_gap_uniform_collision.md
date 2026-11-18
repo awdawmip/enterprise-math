@@ -19,12 +19,12 @@ For any odd `a,b` in `Q`, if `|a-b|=2^h` for some integer `1<=h<=17`, then there
 
 *Constructive proof for `a=b+2^h`.* Put `t=2^(h-1)`, `i=h-1`, and `r=a mod (2t)`. Define
 \[
-x=\begin{cases}0,&r\ge t,t-r,&r<t,\end{cases}
-qquad y=x+a.
+x=\begin{cases}0,&r\ge t,\\t-r,&r<t.\end{cases}
+\qquad y=x+a.
 \]
 Because `a` is odd and `2t` is even, `r` is odd and nonzero. Hence `0<=x<t`, so bit `i` of `x` is zero, whereas `(x+a) mod 2t` lies in `[t,2t)`, so bit `i` of `y` is one. Thus the two admissible named trajectories
 \[
-F^i_x=(x,x+t),qquad F^i_y=(y,y-t)
+F^i_x=(x,x+t),\qquad F^i_y=(y,y-t)
 \]
 flip **the same named source** in opposite directions. Their respective starting points differ by `y-x=a`, and their ending points by
 \[
@@ -49,7 +49,7 @@ Define E as the **exact PREFIX-897** symmetric certified set:
 \[
 E=\{(a,b)\in Q^2:ab<33N \lor a\in U \lor b\in U
  \lor \mathrm{lcm}(a,b)<N
- \lor 33\lceil N/a\rceil>b \lor 33\lceil N/b\rceil>a},
+ \lor 33\lceil N/a\rceil>b \lor 33\lceil N/b\rceil>a\},
 \]
 where U is the 552-element special-modulus set (16 PREFIX-893 rows, 24 PREFIX-887 axis moduli and 512 PREFIX-895 rows), reproduced exactly in the attached program. Let P be the 192-element PREFIX-900/901/902 three-panel set, also specified in the program. The complete previously counted **explicit union** is `C_902=E union (P×Q) union (Q×P)`, with `|C_902|=7,614,875,038`.
 
