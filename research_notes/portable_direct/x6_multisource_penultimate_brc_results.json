@@ -1,0 +1,232 @@
+{
+  "all_assertions": "PASS",
+  "asserted": "For arbitrary d, M_H(o)<=max(1,t)*M_{H-1}(o); equality for all models when t<=1; ratio t sharp for t>=2",
+  "exhaustive": {
+    "capacity_vectors": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        1
+      ]
+    ],
+    "complete_model_phase_cases": 14580,
+    "controller_count": 729,
+    "language_class_cardinalities_compared": 172688,
+    "nonempty_model_phase_cases": 7195,
+    "observed_fibers_checked": 54048,
+    "period_vectors": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ]
+    ],
+    "result": "PASS"
+  },
+  "inherited": "R4 full-completion count/Port signatures; R5 sharp two-source H-1 stabilization",
+  "math_status": "author-proved; finite independently enumerated exact support/prefix checks",
+  "native_X6_attribution": "PENDING_REAL_TRIADIC_CLOSURE_E_AND_PORT_ADMISSION",
+  "schema": "X6_MULTI_SOURCE_PORT_H_MINUS_ONE_FIBERS_V1",
+  "setting": "typed labelled-branch Boolean BRC; deterministic partial Port guard; fixed terminal vector; productive finite source-prefix language",
+  "sharp_t_channel_witnesses": [
+    {
+      "M_h0": 1,
+      "M_h1": 2,
+      "bit_jump": 1,
+      "capacities": [
+        1,
+        1,
+        1
+      ],
+      "distinct_last_letters": [
+        "A",
+        "B"
+      ],
+      "horizon": 1,
+      "observer": [
+        0,
+        0,
+        1
+      ],
+      "periods": [
+        1,
+        1,
+        2
+      ],
+      "rank": 2,
+      "source_types": 3,
+      "unit_period_channels": 2
+    },
+    {
+      "M_h0": 1,
+      "M_h1": 3,
+      "bit_jump": 2,
+      "capacities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "distinct_last_letters": [
+        "A",
+        "B",
+        "C"
+      ],
+      "horizon": 1,
+      "observer": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "periods": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "rank": 3,
+      "source_types": 4,
+      "unit_period_channels": 3
+    },
+    {
+      "M_h0": 1,
+      "M_h1": 4,
+      "bit_jump": 2,
+      "capacities": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "distinct_last_letters": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "horizon": 1,
+      "observer": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "periods": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "rank": 4,
+      "source_types": 5,
+      "unit_period_channels": 4
+    },
+    {
+      "M_h0": 1,
+      "M_h1": 5,
+      "bit_jump": 3,
+      "capacities": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "distinct_last_letters": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "horizon": 1,
+      "observer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "periods": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "rank": 5,
+      "source_types": 6,
+      "unit_period_channels": 5
+    }
+  ],
+  "unit_transfer_boundary": {
+    "M_h0": 1,
+    "M_h1": 2,
+    "bit_jump": 1,
+    "capacities": [
+      1,
+      1,
+      1
+    ],
+    "distinct_last_letters": [
+      "A",
+      "B"
+    ],
+    "horizon": 1,
+    "observer": [
+      0,
+      0,
+      1
+    ],
+    "periods": [
+      1,
+      1,
+      2
+    ],
+    "rank": 2,
+    "source_types": 3,
+    "unit_period_channels": 2
+  }
+}
