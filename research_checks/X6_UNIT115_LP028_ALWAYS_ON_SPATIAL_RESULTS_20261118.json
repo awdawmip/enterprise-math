@@ -1,0 +1,104 @@
+{
+  "schema": "ENTERPRISE_MATH_X6_UNIT115_LP028_ALWAYS_ON_SOURCE_EXECUTION_CERTIFICATE_V1",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "source_baselines": {
+    "p000": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+  },
+  "source_path": "experiments/tool_discovery_native_geometry_of_numbers_minima_calculus_20260822.py",
+  "original_blob_sha1": "643b2bac659a445891dcb5588b647972977104e0",
+  "checker_path": "research_checks/X6_UNIT115_LP028_ALWAYS_ON_SPATIAL_ORIGINAL_SOURCE_CHECK_20261118.py",
+  "checker_git_blob_sha1": "a8acf74320691cdfad613ccc06fd9602f9ae3cd1",
+  "checker_sha256": "662daef6fa029d57fd668efb69e9ab052624470f09d2e6e10e38bc529e062799",
+  "source_guard": "original check_spatial has 7 Python assert, all removed by -O/-OO. A separately compiled AST lift converts these into always-on if/raise without editing source.",
+  "executed": {
+    "normal": {
+      "source_git_blob_sha1": "643b2bac659a445891dcb5588b647972977104e0",
+      "source_assert_guards_in_check_spatial": 7,
+      "always_on_residue_calls": 6194,
+      "all_original_internal_calls_valid_fixed_positive_chart": true,
+      "unmodified_original": {
+        "kind": "RETURN",
+        "rows": 19,
+        "sha256": "7e86e9e368032d8de24fd43461c8d71732f6d8bff86a7842d9d75308b6e188aa"
+      },
+      "opt_in_always_on": {
+        "kind": "RETURN",
+        "rows": 19,
+        "sha256": "7e86e9e368032d8de24fd43461c8d71732f6d8bff86a7842d9d75308b6e188aa"
+      },
+      "constant_residue_fault_always_on": {
+        "kind": "RAISED",
+        "exception": "RuntimeError"
+      },
+      "optimization": 0,
+      "original_residue_calls": 6194,
+      "constant_residue_fault_original": {
+        "kind": "RAISED",
+        "exception": "AssertionError"
+      },
+      "stdout_sha256": "417669d9922f502e38f6d40b17bb55adb361215ba3bffab8a70cec792a82eda0",
+      "exit_code": 0
+    },
+    "O": {
+      "source_git_blob_sha1": "643b2bac659a445891dcb5588b647972977104e0",
+      "source_assert_guards_in_check_spatial": 7,
+      "always_on_residue_calls": 6194,
+      "all_original_internal_calls_valid_fixed_positive_chart": true,
+      "unmodified_original": {
+        "kind": "RETURN",
+        "rows": 19,
+        "sha256": "7e86e9e368032d8de24fd43461c8d71732f6d8bff86a7842d9d75308b6e188aa"
+      },
+      "opt_in_always_on": {
+        "kind": "RETURN",
+        "rows": 19,
+        "sha256": "7e86e9e368032d8de24fd43461c8d71732f6d8bff86a7842d9d75308b6e188aa"
+      },
+      "constant_residue_fault_always_on": {
+        "kind": "RAISED",
+        "exception": "RuntimeError"
+      },
+      "optimization": 1,
+      "original_residue_calls": 228,
+      "constant_residue_fault_original": {
+        "kind": "RETURN",
+        "rows": 19,
+        "sha256": "33cd6c86829707a66ffd569e87ae0723a188babe7b2b6601a303166dce6c0b5b"
+      },
+      "stdout_sha256": "17632f51e629acdce3506a847b68eb2238fbe527176ce1da452bf3687258776a",
+      "exit_code": 0
+    },
+    "OO": {
+      "source_git_blob_sha1": "643b2bac659a445891dcb5588b647972977104e0",
+      "source_assert_guards_in_check_spatial": 7,
+      "always_on_residue_calls": 6194,
+      "all_original_internal_calls_valid_fixed_positive_chart": true,
+      "unmodified_original": {
+        "kind": "RETURN",
+        "rows": 19,
+        "sha256": "7e86e9e368032d8de24fd43461c8d71732f6d8bff86a7842d9d75308b6e188aa"
+      },
+      "opt_in_always_on": {
+        "kind": "RETURN",
+        "rows": 19,
+        "sha256": "7e86e9e368032d8de24fd43461c8d71732f6d8bff86a7842d9d75308b6e188aa"
+      },
+      "constant_residue_fault_always_on": {
+        "kind": "RAISED",
+        "exception": "RuntimeError"
+      },
+      "optimization": 2,
+      "original_residue_calls": 228,
+      "constant_residue_fault_original": {
+        "kind": "RETURN",
+        "rows": 19,
+        "sha256": "33cd6c86829707a66ffd569e87ae0723a188babe7b2b6601a303166dce6c0b5b"
+      },
+      "stdout_sha256": "72a064061217a9d0e2901c1cce3c4ce8048e595b6b9917db76bcef35ff95bd9f",
+      "exit_code": 0
+    }
+  },
+  "science_scope": "R063 original fixed-positive sector modular collision check only, not native R063/Helly C3/C4 benchmark",
+  "review_status": "UNREVIEWED/NOT_ADMITTED"
+}
