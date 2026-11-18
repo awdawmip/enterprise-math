@@ -1,0 +1,164 @@
+{
+  "id": "R749SUT_NEAR_SQUARE_ZERO_GAP_V1",
+  "status": "PASS",
+  "method": "pure exact Python integer arithmetic",
+  "near_square_oracle": {
+    "t_min": 11,
+    "t_max": 600,
+    "cases": 11713,
+    "minimum_fourfold_polynomial": "6125248"
+  },
+  "generic_gap_oracle": {
+    "B_min": 6,
+    "B_max": 2000,
+    "certified_factor_pairs_checked": 241
+  },
+  "samples": [
+    {
+      "t": 11,
+      "h": 0,
+      "M": "120",
+      "certified_by_simple_inequality": true,
+      "factor_pair": [
+        11,
+        11
+      ],
+      "oriented_tuple": [
+        "109",
+        "120",
+        "99",
+        "109"
+      ],
+      "tau": "1425720",
+      "strict_gap_polynomial_positive": true
+    },
+    {
+      "t": 11,
+      "h": 1,
+      "M": "131",
+      "certified_by_simple_inequality": true,
+      "factor_pair": [
+        11,
+        12
+      ],
+      "oriented_tuple": [
+        "120",
+        "131",
+        "109",
+        "119"
+      ],
+      "tau": "1870680",
+      "strict_gap_polynomial_positive": true
+    },
+    {
+      "t": 11,
+      "h": 2,
+      "M": "142",
+      "certified_by_simple_inequality": true,
+      "factor_pair": [
+        11,
+        13
+      ],
+      "oriented_tuple": [
+        "131",
+        "142",
+        "119",
+        "129"
+      ],
+      "tau": "2399658",
+      "strict_gap_polynomial_positive": true
+    },
+    {
+      "t": 11,
+      "h": 3,
+      "M": "153",
+      "certified_by_simple_inequality": true,
+      "factor_pair": [
+        11,
+        14
+      ],
+      "oriented_tuple": [
+        "142",
+        "153",
+        "129",
+        "139"
+      ],
+      "tau": "3019914",
+      "strict_gap_polynomial_positive": true
+    },
+    {
+      "t": 25,
+      "h": 5,
+      "M": "749",
+      "certified_by_simple_inequality": true,
+      "factor_pair": [
+        25,
+        30
+      ],
+      "oriented_tuple": [
+        "724",
+        "749",
+        "695",
+        "719"
+      ],
+      "tau": "389896444",
+      "strict_gap_polynomial_positive": true
+    },
+    {
+      "t": 100,
+      "h": 10,
+      "M": "10999",
+      "certified_by_simple_inequality": true,
+      "factor_pair": [
+        100,
+        110
+      ],
+      "oriented_tuple": [
+        "10899",
+        "10999",
+        "10790",
+        "10889"
+      ],
+      "tau": "1305352641789",
+      "strict_gap_polynomial_positive": true
+    },
+    {
+      "t": 1000,
+      "h": 30,
+      "M": "1029999",
+      "certified_by_simple_inequality": true,
+      "factor_pair": [
+        1000,
+        1030
+      ],
+      "oriented_tuple": [
+        "1028999",
+        "1029999",
+        "1027970",
+        "1028969"
+      ],
+      "tau": "1090571255383857969",
+      "strict_gap_polynomial_positive": true
+    },
+    {
+      "t": 1000000,
+      "h": 500,
+      "M": "1000499999999",
+      "certified_by_simple_inequality": true,
+      "factor_pair": [
+        1000000,
+        1000500
+      ],
+      "oriented_tuple": [
+        "1000498999999",
+        "1000499999999",
+        "1000497999500",
+        "1000498999499"
+      ],
+      "tau": "1001498747621997878503002500997999499",
+      "strict_gap_polynomial_positive": true
+    }
+  ],
+  "proof_status": "author proof; upstream universal Q=+1 classification is AUTHOR_EXACT_NOT_REVIEWED",
+  "scope": "Finite checks are not a proof of the infinite family; algebraic proof is in the note."
+}
