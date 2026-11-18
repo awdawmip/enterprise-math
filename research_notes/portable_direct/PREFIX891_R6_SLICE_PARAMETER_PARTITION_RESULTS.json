@@ -1,0 +1,84 @@
+{
+  "schema": "PREFIX891_R6_AXIS_ZF_THREE_SLICES_V1",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "p": 32,
+  "q1_slices": [
+    262145,
+    500383,
+    524287
+  ],
+  "q2_domain": "all odd q2 in [262145,524287]",
+  "axis_q_count": 24,
+  "axis_q_list": [
+    262145,
+    262657,
+    266305,
+    270805,
+    294903,
+    299593,
+    328965,
+    338613,
+    349525,
+    349867,
+    360437,
+    372827,
+    402905,
+    416179,
+    422733,
+    427445,
+    429325,
+    430185,
+    449829,
+    463419,
+    475107,
+    479349,
+    486737,
+    524287
+  ],
+  "rows": [
+    {
+      "q1": 262145,
+      "axis_q1": true,
+      "neither": 0,
+      "axis_only": 73587,
+      "zero_flip_only": 0,
+      "both": 57485,
+      "axis_union": 131072,
+      "ZF_total": 57485,
+      "union": 131072
+    },
+    {
+      "q1": 500383,
+      "axis_q1": false,
+      "neither": 64445,
+      "axis_only": 14,
+      "zero_flip_only": 66603,
+      "both": 10,
+      "axis_union": 24,
+      "ZF_total": 66613,
+      "union": 66627
+    },
+    {
+      "q1": 524287,
+      "axis_q1": true,
+      "neither": 0,
+      "axis_only": 82349,
+      "zero_flip_only": 0,
+      "both": 48723,
+      "axis_union": 131072,
+      "ZF_total": 48723,
+      "union": 131072
+    }
+  ],
+  "totals": {
+    "neither": 64445,
+    "axis_only": 155950,
+    "zero_flip_only": 66603,
+    "both": 106218,
+    "axis_union": 262168,
+    "ZF_total": 172821,
+    "union": 328771
+  },
+  "coverage": "exact exhaustive 393216 ordered modulus pairs; every pair classified into exactly one of four cases",
+  "math_status": "AUTHOR_EXACT_FINITE_CHECKED_NOT_INDEPENDENTLY_REVIEWED"
+}
