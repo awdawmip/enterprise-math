@@ -1,0 +1,1211 @@
+{
+  "activity_id": "RA-DD7D715E42D8874661313886",
+  "append_only_caution": "Current audit validates old stored observations before considering later repair links; a new repair event by itself cannot bypass the existing R246 serialization-binding failure. Do not overwrite that event or fabricate/canonicalize its old sidecar in place.",
+  "audit_still_blocked_by": [
+    {
+      "actual_sidecar_sha256": "91a877e4fc2e373d35f4f475ab4c133b90df6602920885a0083081da6cc55613",
+      "declared_sidecar_sha256": "91a877e4fc2e373d35f4f475ab4c133b90df6602920885a0083081da6cc55613",
+      "differences": [
+        {
+          "field": "verification_receipt",
+          "rebuilt": "research_activity_records/RA-DD7D715E42D8874661313886/readbacks/f1426e809e1c9384a70f375e43a39f9e1689d915f37cc59d484db8cf65a2b341.json",
+          "stored": "research_activity_records/RA-DD7D715E42D8874661313886/readbacks/91a877e4fc2e373d35f4f475ab4c133b90df6602920885a0083081da6cc55613.json"
+        },
+        {
+          "field": "verification_receipt_sha256",
+          "rebuilt": "f1426e809e1c9384a70f375e43a39f9e1689d915f37cc59d484db8cf65a2b341",
+          "stored": "91a877e4fc2e373d35f4f475ab4c133b90df6602920885a0083081da6cc55613"
+        }
+      ],
+      "error": "stored source/verification fields drift",
+      "event_id": "r1-r246-20261117-1700-interior-two-mode-error",
+      "full_observation_valid": true,
+      "path": "research_notes/portable_direct/R246_INTERIOR_TWO_MODE_ERROR_MAXIMUM_AND_RANK_ONE_CERTIFICATE_20261117.md",
+      "source_index": 0
+    }
+  ],
+  "classification": "DIAGNOSTIC_NOT_SUCCESSFUL_STRICT_AUDIT",
+  "entries": [
+    {
+      "commit": "9b817400bb9e3a4286ba68958ea9c1a6a95cf763",
+      "event_id": "r1-r240-20261117-kantorovich-amplitude",
+      "git_blob_sha1": "f8bf6f1de59a0fd0873e0292dc9644c32c3e135f",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9b817400bb9e3a4286ba68958ea9c1a6a95cf763/research_notes/portable_direct/R240_KANTOROVICH_PERRON_AMPLITUDE_AND_SHORTER_HORIZONS_20261117.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R240_KANTOROVICH_PERRON_AMPLITUDE_AND_SHORTER_HORIZONS_20261117.md",
+      "recorded_tool_name": "github_fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "29758b7d5b469dff97e00fea42e2472707b6c1bf2e7a3932e315d62b80db6a41",
+      "source_index": 0
+    },
+    {
+      "commit": "9b817400bb9e3a4286ba68958ea9c1a6a95cf763",
+      "event_id": "r1-r240-20261117-kantorovich-amplitude",
+      "git_blob_sha1": "526be70767af075f2493ee6392f1e597aee84e73",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9b817400bb9e3a4286ba68958ea9c1a6a95cf763/research_notes/portable_direct/R240_kantorovich_uniform_amplitude_check.py",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R240_kantorovich_uniform_amplitude_check.py",
+      "recorded_tool_name": "github_fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "7c1acc053e0c9260ca73052e06a8018e54d9d8e7e0aa38da7370326f9e155236",
+      "source_index": 1
+    },
+    {
+      "commit": "9b817400bb9e3a4286ba68958ea9c1a6a95cf763",
+      "event_id": "r1-r240-20261117-kantorovich-amplitude",
+      "git_blob_sha1": "c00e24fa159569a167b332a42a08d85e85e5d913",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9b817400bb9e3a4286ba68958ea9c1a6a95cf763/research_notes/portable_direct/R240_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R240_verification.json",
+      "recorded_tool_name": "github_fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "69b978dffd14f01652a6b327ce62310d6d5eaa549621c626cb6eef7d53ec895a",
+      "source_index": 2
+    },
+    {
+      "commit": "727b4b58a6072167f0864112e361d1e5be8cf1c9",
+      "event_id": "r1-r241-20261117-endpoint-coupled-1073-1449",
+      "git_blob_sha1": "4852561ea83da1781e0d46d9648d5a0b97440354",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/727b4b58a6072167f0864112e361d1e5be8cf1c9/research_notes/portable_direct/R241_ENDPOINT_COUPLED_SPECTRAL_RATIO_AND_SHORTER_HORIZONS_20261117.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R241_ENDPOINT_COUPLED_SPECTRAL_RATIO_AND_SHORTER_HORIZONS_20261117.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "91d259a404bf24de588a1c862d2ceadc859648cc382fd8fc13363f08d032fa14",
+      "source_index": 0
+    },
+    {
+      "commit": "727b4b58a6072167f0864112e361d1e5be8cf1c9",
+      "event_id": "r1-r241-20261117-endpoint-coupled-1073-1449",
+      "git_blob_sha1": "faf46482b9c459a10dae51d75ac0f3dd1788f24d",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/727b4b58a6072167f0864112e361d1e5be8cf1c9/research_notes/portable_direct/R241_endpoint_coupled_ratio_certificate.py",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R241_endpoint_coupled_ratio_certificate.py",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "827fc73f4020c14b429be0a32ed073c312dc0b950a660427701474d1b79d7627",
+      "source_index": 1
+    },
+    {
+      "commit": "727b4b58a6072167f0864112e361d1e5be8cf1c9",
+      "event_id": "r1-r241-20261117-endpoint-coupled-1073-1449",
+      "git_blob_sha1": "69fc6d4215916b1018f17f9f61e50a35ff24e5e6",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/727b4b58a6072167f0864112e361d1e5be8cf1c9/research_notes/portable_direct/R241_endpoint_coupled_ratio_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R241_endpoint_coupled_ratio_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "f48c1ac1ff1f2e3ad560d8ad0181dc208c3a6b4a87a765d1dfccf03cf9ae517b",
+      "source_index": 2
+    },
+    {
+      "commit": "6427030e552a22824a5fc5a9608826890650039b",
+      "event_id": "r1-r242-20261117-1400-exact-anchor-horizons",
+      "git_blob_sha1": "a376b298351d42f4db7229985e780b1c96c008d3",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6427030e552a22824a5fc5a9608826890650039b/research_notes/portable_direct/R242_EXACT_RATIONAL_ANCHOR_FIRST_HORIZONS_20261117.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R242_EXACT_RATIONAL_ANCHOR_FIRST_HORIZONS_20261117.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "8fda79db23bd483e7b51491e8978b4397aefdc2dee35ce03beab691a6c7ef23e",
+      "source_index": 0
+    },
+    {
+      "commit": "6427030e552a22824a5fc5a9608826890650039b",
+      "event_id": "r1-r242-20261117-1400-exact-anchor-horizons",
+      "git_blob_sha1": "c2a4f8adeedac7566a1bb170d32c6788bb5411b7",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6427030e552a22824a5fc5a9608826890650039b/research_notes/portable_direct/R242_exact_anchor_horizons.py",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R242_exact_anchor_horizons.py",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "8c470a21c06005ba4818bf03629752735c38438311379a1a81e493783e76b584",
+      "source_index": 1
+    },
+    {
+      "commit": "6427030e552a22824a5fc5a9608826890650039b",
+      "event_id": "r1-r242-20261117-1400-exact-anchor-horizons",
+      "git_blob_sha1": "0c51e62b18d075c03bd66c84638f23c82418acf0",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6427030e552a22824a5fc5a9608826890650039b/research_notes/portable_direct/R242_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R242_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "2694724b29528f1a8db7d14763389cf7686114a970934d27773cdc686f4147ed",
+      "source_index": 2
+    },
+    {
+      "commit": "ef38804fff510da663a49202e4cac8060f2082c8",
+      "event_id": "r1-r243-20261117-sharp-uniform-horizons",
+      "git_blob_sha1": "517008eb014a79796f429ecb10c0003f9c46175c",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/ef38804fff510da663a49202e4cac8060f2082c8/research_notes/portable_direct/R243_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R243_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "1065d71a553d0faaaf1b38a351b89b44259ca07643d907390a98c4c72ba42fb3",
+      "source_index": 0
+    },
+    {
+      "commit": "2a1ff5398e93eb8c1edb26ac8d2e7305b0ec4f22",
+      "event_id": "r1-r244-20261117-two-mode-uniform-tail",
+      "git_blob_sha1": "de6efe96aa25da937cdf057e19b3309ea4d1de51",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/2a1ff5398e93eb8c1edb26ac8d2e7305b0ec4f22/research_notes/portable_direct/R244_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R244_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "e548d4bff19ab6055e26b1be72fffd92ee82bb47dcd2857bfd8812de29c9c62b",
+      "source_index": 0
+    },
+    {
+      "commit": "92d3fa1170148918d195c219cdb47d1e41a8af22",
+      "event_id": "r1-r247-20261117-1800-sharp-two-mode-grid",
+      "git_blob_sha1": "93f7ce6248c0704843c81f85dacce13be426d9e2",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/92d3fa1170148918d195c219cdb47d1e41a8af22/research_notes/portable_direct/R247_SHARP_TWO_MODE_HORIZONS_ON_21_POINT_RATIONAL_GRID_20261117.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R247_SHARP_TWO_MODE_HORIZONS_ON_21_POINT_RATIONAL_GRID_20261117.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "282e129923f7cb3695243cee6719bcd17509c1218b728354f953584d054923ee",
+      "source_index": 0
+    },
+    {
+      "commit": "92d3fa1170148918d195c219cdb47d1e41a8af22",
+      "event_id": "r1-r247-20261117-1800-sharp-two-mode-grid",
+      "git_blob_sha1": "2a71e3467b1e73a4cbad8f9d727327b91b6c08a1",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/92d3fa1170148918d195c219cdb47d1e41a8af22/research_notes/portable_direct/R247_finite_grid_two_mode_cert.py",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R247_finite_grid_two_mode_cert.py",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "cee028677b3f6766413b4dd169b784b816d73673bbc693d8fd42cc93c0c6d929",
+      "source_index": 1
+    },
+    {
+      "commit": "92d3fa1170148918d195c219cdb47d1e41a8af22",
+      "event_id": "r1-r247-20261117-1800-sharp-two-mode-grid",
+      "git_blob_sha1": "1006293d2cba23ea3cb4632370ee639c4433ae32",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/92d3fa1170148918d195c219cdb47d1e41a8af22/research_notes/portable_direct/R247_verification_manifest.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R247_verification_manifest.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "f5ff474f7f271d92f204926c9efc576ff55b0ef1ae4e96337ef207b4b6964917",
+      "source_index": 2
+    },
+    {
+      "commit": "acb90adc07ec249069e3662140a8a53e794db615",
+      "event_id": "r1-r250-20261117-2100-spectral-order-229",
+      "git_blob_sha1": "16da4b0db65d6ce73c7d80d8f43c9fafdc11ecdc",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/acb90adc07ec249069e3662140a8a53e794db615/research_notes/portable_direct/R250_common_eigenvalue_certificate.py",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R250_common_eigenvalue_certificate.py",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "f666970c0403c6552813939854c5fcf59e6ad45488a56919b41b650d85cd07dd",
+      "source_index": 0
+    },
+    {
+      "commit": "acb90adc07ec249069e3662140a8a53e794db615",
+      "event_id": "r1-r250-20261117-2100-spectral-order-229",
+      "git_blob_sha1": "7e237316b101b990ca9da4e1f21ec6ff47a93886",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/acb90adc07ec249069e3662140a8a53e794db615/research_notes/portable_direct/R250_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R250_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "d276172d7413b67028d220217003169faae3343b11de43114fa53f8a6ad5fdfb",
+      "source_index": 1
+    },
+    {
+      "commit": "3836e783853c34397f87a7a0efe89f94b53c51fd",
+      "event_id": "r1-r251-20261117-2120-exact-minimal-generating-function",
+      "git_blob_sha1": "586547ba48135f8535d610873e8dd72ff38361b2",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/3836e783853c34397f87a7a0efe89f94b53c51fd/research_notes/portable_direct/R251_EXACT_MINIMAL_GENERATING_FUNCTION_20261117.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R251_EXACT_MINIMAL_GENERATING_FUNCTION_20261117.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "20a410d1b77ecbe48e97ea8f1159d5277c9c0d9fefff6244459cbe7cfccb473b",
+      "source_index": 0
+    },
+    {
+      "commit": "3836e783853c34397f87a7a0efe89f94b53c51fd",
+      "event_id": "r1-r251-20261117-2120-exact-minimal-generating-function",
+      "git_blob_sha1": "8fb6b187cbbd37913627d691399190809f334fbc",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/3836e783853c34397f87a7a0efe89f94b53c51fd/research_notes/portable_direct/R251_exact_minimal_gf.py",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R251_exact_minimal_gf.py",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "f400b0a8f95ec9df8f5eb5a217f3276840a68479b65d649ac040ccaeea82e2ae",
+      "source_index": 1
+    },
+    {
+      "commit": "3836e783853c34397f87a7a0efe89f94b53c51fd",
+      "event_id": "r1-r251-20261117-2120-exact-minimal-generating-function",
+      "git_blob_sha1": "1053da230814853fd57d491b136026c2e28e556d",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/3836e783853c34397f87a7a0efe89f94b53c51fd/research_notes/portable_direct/R251_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R251_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "e5dd5d5189f8c779d8ae8206ba4261fa126869bfc5a5b875d30c8431d89c22cf",
+      "source_index": 2
+    },
+    {
+      "commit": "99a43fbb68f9161d549a972a4a3506721e899c73",
+      "event_id": "r1-r252-20261117-2213-maskwise-binary-exact",
+      "git_blob_sha1": "7fc6266bd3da450960c93cace90bd3021ee5a007",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/99a43fbb68f9161d549a972a4a3506721e899c73/research_notes/portable_direct/R252_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R252_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "6de66e598d7c26063b8f64016adf75b09babda592a201ff5e2d518c369c3b236",
+      "source_index": 0
+    },
+    {
+      "commit": "d789f0e6907aa18a923830bd0036cf19d0d5ef3d",
+      "event_id": "r1-r259-20261118-23adic-period-finite-criterion",
+      "git_blob_sha1": "1af4d3d15d2e4de3425513cfd3a3f954d2493d79",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/d789f0e6907aa18a923830bd0036cf19d0d5ef3d/research_notes/portable_direct/R259_23adic_uniform_period_certificate.py",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R259_23adic_uniform_period_certificate.py",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "57e1d8601b202971fa3a6b280b87c6ed502ccaf4956bc63510a8a29715a05691",
+      "source_index": 0
+    },
+    {
+      "commit": "d789f0e6907aa18a923830bd0036cf19d0d5ef3d",
+      "event_id": "r1-r259-20261118-23adic-period-finite-criterion",
+      "git_blob_sha1": "61f73803d15e5f117c9cc566fcd3dfa6a6138442",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/d789f0e6907aa18a923830bd0036cf19d0d5ef3d/research_notes/portable_direct/R259_23adic_uniform_period_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R259_23adic_uniform_period_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "df77f87dadc1c95c6d541602c6994a0b244ef776f549932843bff5f9cb22f85e",
+      "source_index": 1
+    },
+    {
+      "commit": "ef9619d3ed267d595415c47e4cc167e1754243ad",
+      "event_id": "r1-r259c-20261118-0541-global-observability",
+      "git_blob_sha1": "87a06149f70d4ae73a1a2d666ef66ee305b5600b",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/ef9619d3ed267d595415c47e4cc167e1754243ad/research_notes/portable_direct/R259_exact_modular_observability.py",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R259_exact_modular_observability.py",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "0630a59d6ae90cfbfe48634a87357e9287cffe0081d9d929b81005f202e2dee2",
+      "source_index": 0
+    },
+    {
+      "commit": "ef9619d3ed267d595415c47e4cc167e1754243ad",
+      "event_id": "r1-r259c-20261118-0541-global-observability",
+      "git_blob_sha1": "973f16c74857cc656deca351f41132b0b64b911f",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/ef9619d3ed267d595415c47e4cc167e1754243ad/research_notes/portable_direct/R259_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R259_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "4672c9d7fbf2e055d94056178b2cdbbe81672eafd9435255a6e674323e134b4f",
+      "source_index": 1
+    },
+    {
+      "commit": "b529c7cdfe92556d2e06a5beb9c1ce92a7c9be3b",
+      "event_id": "r1-r261-prime-power-observer-20261118",
+      "git_blob_sha1": "389e77b87b50696fe2f3125089838b1bacc54860",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b529c7cdfe92556d2e06a5beb9c1ce92a7c9be3b/research_notes/portable_direct/R261_SHARP_PRIME_POWER_LABELLED_OBSERVER_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R261_SHARP_PRIME_POWER_LABELLED_OBSERVER_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "8ada58d29c6b85e006cda247fa817ad5c92b486c3a12bda1c7ebbd881c544cd8",
+      "source_index": 0
+    },
+    {
+      "commit": "b529c7cdfe92556d2e06a5beb9c1ce92a7c9be3b",
+      "event_id": "r1-r261-prime-power-observer-20261118",
+      "git_blob_sha1": "e5df46bd7867aaa9a4ea7f73f8fd5afafe51f526",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b529c7cdfe92556d2e06a5beb9c1ce92a7c9be3b/research_notes/portable_direct/R261_verification_digest.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R261_verification_digest.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "6bc89089405c657f2f061bb70d010a062012dbba293f4c5ca6fb8f628396e7b2",
+      "source_index": 1
+    },
+    {
+      "commit": "a21165ac0d4bc144a3d405a468c041b419fc2bd8",
+      "event_id": "r1-r262-r263-zero-observer-precision-reversal-20261118",
+      "git_blob_sha1": "4347d31ea33aeca33d71af92cefb07603c0f20f6",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/a21165ac0d4bc144a3d405a468c041b419fc2bd8/research_notes/portable_direct/R262_EXACT_MINIMAL_ZERO_ONLY_OBSERVERS_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R262_EXACT_MINIMAL_ZERO_ONLY_OBSERVERS_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "e40d26ca5fe6cf386a13b0ac5c4a640e488d314b10c81f3ca1121709c35b031d",
+      "source_index": 0
+    },
+    {
+      "commit": "a21165ac0d4bc144a3d405a468c041b419fc2bd8",
+      "event_id": "r1-r262-r263-zero-observer-precision-reversal-20261118",
+      "git_blob_sha1": "a69d8fca302774c3c0257bca3f82e3ea51b9d8a7",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/a21165ac0d4bc144a3d405a468c041b419fc2bd8/research_notes/portable_direct/R262_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R262_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "1479aa5022ac5ce2dad5ae96c445ae50926e031e7877edb4c435755e68adef4d",
+      "source_index": 1
+    },
+    {
+      "commit": "a21165ac0d4bc144a3d405a468c041b419fc2bd8",
+      "event_id": "r1-r262-r263-zero-observer-precision-reversal-20261118",
+      "git_blob_sha1": "289db2406c97991bf426e5cfa9e69a093bae67c4",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/a21165ac0d4bc144a3d405a468c041b419fc2bd8/research_notes/portable_direct/R263_ONE_MASK_PRECISION_REVERSAL_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R263_ONE_MASK_PRECISION_REVERSAL_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "237f3a908cdce260f85e115c66aa2f22b37db0e7e8d1e1b9750b0f198930808b",
+      "source_index": 2
+    },
+    {
+      "commit": "a21165ac0d4bc144a3d405a468c041b419fc2bd8",
+      "event_id": "r1-r262-r263-zero-observer-precision-reversal-20261118",
+      "git_blob_sha1": "9cf38c0cd7175fa20393bb62d8b139959cfe5b0a",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/a21165ac0d4bc144a3d405a468c041b419fc2bd8/research_notes/portable_direct/R263_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R263_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "f86433e3de296149e6b3b1945554b9b2a4253098a8af7c72d98d97133b61b964",
+      "source_index": 3
+    },
+    {
+      "commit": "152470fc7b184f94d64f01a559caa47ca89b26b2",
+      "event_id": "r1-r264-sixphase-13adic-20261118",
+      "git_blob_sha1": "e0ac5a4b897cd3339a0582263f9cbb6c2d40fe1a",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/152470fc7b184f94d64f01a559caa47ca89b26b2/research_notes/portable_direct/R264_SIX_PHASE_13ADIC_OBSERVER_FORMULA_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R264_SIX_PHASE_13ADIC_OBSERVER_FORMULA_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "64f1828e84b4a4bc539dd9b3774d8c6112a7189c7d282b425fd006ef784c66c8",
+      "source_index": 0
+    },
+    {
+      "commit": "152470fc7b184f94d64f01a559caa47ca89b26b2",
+      "event_id": "r1-r264-sixphase-13adic-20261118",
+      "git_blob_sha1": "677259e59a83ff095ca47e0cf3722af3d4644c8f",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/152470fc7b184f94d64f01a559caa47ca89b26b2/research_notes/portable_direct/R264_six_phase_mod169_certificate.py",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R264_six_phase_mod169_certificate.py",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "11838bdacc47c2677f5ae442ae3d57fb6d91c4d8423b8b1456de4ef5b50d9bb7",
+      "source_index": 1
+    },
+    {
+      "commit": "152470fc7b184f94d64f01a559caa47ca89b26b2",
+      "event_id": "r1-r264-sixphase-13adic-20261118",
+      "git_blob_sha1": "5dfc11ed1229573f945d6e181ee0765e2eefcfb6",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/152470fc7b184f94d64f01a559caa47ca89b26b2/research_notes/portable_direct/R264_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R264_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "d159aa9f1d241a76918619354c781f7fc795a9ced67eb2d04950c37564b3421f",
+      "source_index": 2
+    },
+    {
+      "commit": "4ed8378e61389385e4bb8848b605d4c58ee8517f",
+      "event_id": "r1-r265-optimal-sequential-observer-20261118",
+      "git_blob_sha1": "90e2b911230c69de7523a2bf8214306d800af016",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/4ed8378e61389385e4bb8848b605d4c58ee8517f/research_notes/portable_direct/R265_OPTIMAL_SEQUENTIAL_ZERO_ONLY_OBSERVER_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R265_OPTIMAL_SEQUENTIAL_ZERO_ONLY_OBSERVER_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "d2f92b09ba15c2d4b7d8b3305d3185061147e584b058ee3a915507eab8c7fafa",
+      "source_index": 0
+    },
+    {
+      "commit": "4ed8378e61389385e4bb8848b605d4c58ee8517f",
+      "event_id": "r1-r265-optimal-sequential-observer-20261118",
+      "git_blob_sha1": "1765cbb7ed4efd8e7647a90cf5fc5dcb247e7e0d",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/4ed8378e61389385e4bb8848b605d4c58ee8517f/research_notes/portable_direct/R265_optimal_sequential_observer.py",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R265_optimal_sequential_observer.py",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "a1123f3a1739de84883b4610b53e02108155c87ab1ff88a5c3877e053d27db89",
+      "source_index": 1
+    },
+    {
+      "commit": "4ed8378e61389385e4bb8848b605d4c58ee8517f",
+      "event_id": "r1-r265-optimal-sequential-observer-20261118",
+      "git_blob_sha1": "de9f165f8e143ffe42461ba9dfe01df8af8b31f5",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/4ed8378e61389385e4bb8848b605d4c58ee8517f/research_notes/portable_direct/R265_verification.json",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R265_verification.json",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": false,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "bda8600867bbd786ad71bbdcc3e9b23b186b46f5c3c99b0c9d84f2a96929608d",
+      "source_index": 2
+    },
+    {
+      "commit": "ea9d315ceaab0e29cc963de8c31b9b008388e5a5",
+      "event_id": "r1-20261118-recover-r281-portable-source",
+      "git_blob_sha1": "f5a9ca848fc68e54c718e7881f3a65d377c81c25",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/ea9d315ceaab0e29cc963de8c31b9b008388e5a5/research_notes/portable_direct/R281_MULTI_OUTPUT_PORT_VISIBILITY_AND_ADIC_CANCELLATION_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R281_MULTI_OUTPUT_PORT_VISIBILITY_AND_ADIC_CANCELLATION_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "6a9edd90c655942f7eb124fb4814e6073f546d1f6ed40f46a1f329b8f5caf7d4",
+      "source_index": 0
+    },
+    {
+      "commit": "ea9d315ceaab0e29cc963de8c31b9b008388e5a5",
+      "event_id": "r1-20261118-recover-r282-portable-source",
+      "git_blob_sha1": "246881841043e2400c9b1c26c97cd938cdac6de2",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/ea9d315ceaab0e29cc963de8c31b9b008388e5a5/research_notes/portable_direct/R282_FINITE_GRID_PORT_OBSERVER_EQUIVALENCE_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R282_FINITE_GRID_PORT_OBSERVER_EQUIVALENCE_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "2a8ff8b81aeaa74822cd07501a62476edfaa3a5f08463bef8212382f08e2b3ce",
+      "source_index": 0
+    },
+    {
+      "commit": "2f1fe5486edac9ffa88b52a562c33981785bd036",
+      "event_id": "r1-20261118-recover-r283-portable-source",
+      "git_blob_sha1": "eb19b39a7564552cd9c3b388262b5e2a3be5d20b",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/2f1fe5486edac9ffa88b52a562c33981785bd036/research_notes/portable_direct/R283_RESONANCE_STRATIFIED_PORT_GRID_CERTIFICATE_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R283_RESONANCE_STRATIFIED_PORT_GRID_CERTIFICATE_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "96518f94157b76a4f84f59903ae32b19e697297e18318845e78eee5c2d7612f4",
+      "source_index": 0
+    },
+    {
+      "commit": "c595fada9b7f3f5e7822cf6804c9e6be7eae307a",
+      "event_id": "r1-20261118-recover-r284-portable-source",
+      "git_blob_sha1": "d74e3d494e626d7fbaecdc7ab2ac13e34cf7bd20",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/c595fada9b7f3f5e7822cf6804c9e6be7eae307a/research_notes/portable_direct/R284_CYCLE_SUPPORT_MIXED_PORT_GRID_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R284_CYCLE_SUPPORT_MIXED_PORT_GRID_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "78cdd0a4765ebfe344f21fb8b7310b7c53b69cfc227bdbbd2be1603a72b4ec7b",
+      "source_index": 0
+    },
+    {
+      "commit": "340e33e20c1841f046e6f4fee8a431afe2f144e8",
+      "event_id": "r1-20261118-recover-r266-portable-source",
+      "git_blob_sha1": "a525311c79675fd1988c321bb5a25825784e7b7d",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/340e33e20c1841f046e6f4fee8a431afe2f144e8/research_notes/portable_direct/R266_EXACT_WEIGHTED_ZERO_ONLY_OBSERVER_PHASE_DIAGRAM_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R266_EXACT_WEIGHTED_ZERO_ONLY_OBSERVER_PHASE_DIAGRAM_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "402d49dfb29e2764c4bdbe8f16bcc0a0aee4c6faabbda0ef0b5e49b7d7222de0",
+      "source_index": 0
+    },
+    {
+      "commit": "740c770d02c19ad4b9ffcb1720a08536ad615446",
+      "event_id": "r1-20261118-recover-r267-portable-source",
+      "git_blob_sha1": "149b0b4e2dd1f47e653b26880725aa117306cdc7",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/740c770d02c19ad4b9ffcb1720a08536ad615446/research_notes/portable_direct/R267_EXACT_SIX_PRICE_CONE_AND_EIGHT_PLANE_ATLAS_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R267_EXACT_SIX_PRICE_CONE_AND_EIGHT_PLANE_ATLAS_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "4de5b019d287e44459db1d850910bf593f61a4652794f7f011faa94239404ab1",
+      "source_index": 0
+    },
+    {
+      "commit": "5ffd245c3d26e62b4584b16073002777b7b20b08",
+      "event_id": "r1-20261118-recover-r268-portable-source",
+      "git_blob_sha1": "0ca01500c9b5968a281ee709f31c8d9e48e90ca5",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/5ffd245c3d26e62b4584b16073002777b7b20b08/research_notes/portable_direct/R268_EXACT_RESIDUE_PROFILE_REFINEMENT_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R268_EXACT_RESIDUE_PROFILE_REFINEMENT_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "31251fe19da36b37d01d70577c822014d06c3553386719973efcee0a59eb49f4",
+      "source_index": 0
+    },
+    {
+      "commit": "5d54f69348795cb229dd568ed64e89e54c0d9f18",
+      "event_id": "r1-20261118-recover-r269-portable-source",
+      "git_blob_sha1": "afdf18c58befbd6785e8418f007cd891dd36ceb3",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/5d54f69348795cb229dd568ed64e89e54c0d9f18/research_notes/portable_direct/R269_EXACT_AFFINE_TIME_RESIDUE_ORBIT_CLOSURE_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R269_EXACT_AFFINE_TIME_RESIDUE_ORBIT_CLOSURE_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "cf31c5700439a636add5d0ce97c4b3f7064b504bef1af5a29bf3fbb223f9e448",
+      "source_index": 0
+    },
+    {
+      "commit": "5383c9477cf8b1d7d8026a8c5856b1b65cbd6928",
+      "event_id": "r1-20261118-recover-r270-portable-source",
+      "git_blob_sha1": "54d1c5ccd948a8655854bc2803c3278200aa09ce",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/5383c9477cf8b1d7d8026a8c5856b1b65cbd6928/research_notes/portable_direct/R270_BRC_PORT_13ADIC_RESONANCE_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R270_BRC_PORT_13ADIC_RESONANCE_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "170ccbc2e799ae79346ff63a91b702500b6f83939c7c9f8352effc42680a1730",
+      "source_index": 0
+    },
+    {
+      "commit": "5383c9477cf8b1d7d8026a8c5856b1b65cbd6928",
+      "event_id": "r1-20261118-recover-r270a-portable-source",
+      "git_blob_sha1": "ca1f43f7aa9db22c7925a758ec922cdb10254603",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/5383c9477cf8b1d7d8026a8c5856b1b65cbd6928/research_notes/portable_direct/R270A_MULTIPORT_ADJUGATE_13ADIC_CERTIFICATE_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R270A_MULTIPORT_ADJUGATE_13ADIC_CERTIFICATE_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "b731dd3a74acbf967a4ad926be7070822e7e1cbdfbb739f3bd516a0b82e21f35",
+      "source_index": 0
+    },
+    {
+      "commit": "bafca0cfdb4a7814cc5d74534ff9ade753029b4a",
+      "event_id": "r1-20261118-recover-r271-portable-source",
+      "git_blob_sha1": "b845a8ca1ec3b76fe7cff2fd7dba2fea8dae0329",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/bafca0cfdb4a7814cc5d74534ff9ade753029b4a/research_notes/portable_direct/R271_SMITH_SHARP_MULTIPORT_ADIC_PRECISION_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R271_SMITH_SHARP_MULTIPORT_ADIC_PRECISION_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "9756d30b7aab4d8b6548ca833dcb51367e8fab274689edcff49567e698b91ca6",
+      "source_index": 0
+    },
+    {
+      "commit": "bafca0cfdb4a7814cc5d74534ff9ade753029b4a",
+      "event_id": "r1-20261118-recover-r272-portable-source",
+      "git_blob_sha1": "50b3a1349f98cb5977b2bcb76812a4f61d1b99b2",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/bafca0cfdb4a7814cc5d74534ff9ade753029b4a/research_notes/portable_direct/R272_SPARSE_EDGE_PORT_PRECISION_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R272_SPARSE_EDGE_PORT_PRECISION_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "949c546353acaee812cc0793f67611dfa9743d4a584e8e6ada661d74ffe631c7",
+      "source_index": 0
+    },
+    {
+      "commit": "f9a93873f1b8d724519434a660f70c91971229b0",
+      "event_id": "r1-20261118-recover-r273-portable-source",
+      "git_blob_sha1": "267f4e6db85fda935b76d356aee8d235f888e234",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/f9a93873f1b8d724519434a660f70c91971229b0/research_notes/portable_direct/R273_TWO_EDGE_MIXED_CYCLE_PORT_RESONANCE_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R273_TWO_EDGE_MIXED_CYCLE_PORT_RESONANCE_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "b04ee0c4de0e6a640d3811040e304d9d2564cf88d12669a473f4478827df4753",
+      "source_index": 0
+    },
+    {
+      "commit": "f9a93873f1b8d724519434a660f70c91971229b0",
+      "event_id": "r1-20261118-recover-r274-portable-source",
+      "git_blob_sha1": "5788540a0b40bb120ad567413cfbb1bc2c995c48",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/f9a93873f1b8d724519434a660f70c91971229b0/research_notes/portable_direct/R274_K_CYCLE_RESIDUAL_13ADIC_AMPLIFICATION_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R274_K_CYCLE_RESIDUAL_13ADIC_AMPLIFICATION_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "5480112d8b5fe1f4bcb4ded965d136edc868c081137276a1bb0a95cf328bcec9",
+      "source_index": 0
+    },
+    {
+      "commit": "fae3d3cf66a7bc294f9c5a854764bb14ab174030",
+      "event_id": "r1-20261118-recover-r275-portable-source",
+      "git_blob_sha1": "e7ddc08a8f13bd66104ad5f2547c9a06966660c9",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/fae3d3cf66a7bc294f9c5a854764bb14ab174030/research_notes/portable_direct/R275_SHARED_PORT_CYCLE_COVER_AND_SCOPED_QUOTIENT_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R275_SHARED_PORT_CYCLE_COVER_AND_SCOPED_QUOTIENT_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "7058dcd5100e37fd6621c309caaf3d8c96ab2f87ac0370efa8279abeff54d969",
+      "source_index": 0
+    },
+    {
+      "commit": "fae3d3cf66a7bc294f9c5a854764bb14ab174030",
+      "event_id": "r1-20261118-recover-r276-portable-source",
+      "git_blob_sha1": "e1066301f29623e85a0a951da3edd4a1ab895611",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/fae3d3cf66a7bc294f9c5a854764bb14ab174030/research_notes/portable_direct/R276_SMALL_CROSSPORT_DEEP_13ADIC_CANCELLATION_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R276_SMALL_CROSSPORT_DEEP_13ADIC_CANCELLATION_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "233144eed02ce679cbb4dbe8db6f8b6e3722f3601df6b81908aa04afe91d2315",
+      "source_index": 0
+    },
+    {
+      "commit": "fae3d3cf66a7bc294f9c5a854764bb14ab174030",
+      "event_id": "r1-20261118-recover-r277-portable-source",
+      "git_blob_sha1": "073c8c3883741f493f9a50a6531e21aec2327058",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/fae3d3cf66a7bc294f9c5a854764bb14ab174030/research_notes/portable_direct/R277_PRIME_UNIFORM_UNIT_RESIDUE_CONTROLLABILITY_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R277_PRIME_UNIFORM_UNIT_RESIDUE_CONTROLLABILITY_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "bd564e019897b8ed19c4dfc70871469d140362c4ad8b4373f1f3d528ee1d0370",
+      "source_index": 0
+    },
+    {
+      "commit": "791d393652f54411d499b742c3def572676887a7",
+      "event_id": "r1-20261118-recover-r278-portable-source",
+      "git_blob_sha1": "29b16e3a77b75de76059c6bb1309bc83d4d02003",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/791d393652f54411d499b742c3def572676887a7/research_notes/portable_direct/R278_FIXED_EDGE_BRC_PORT_OBSERVER_CANONICAL_QUOTIENT_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R278_FIXED_EDGE_BRC_PORT_OBSERVER_CANONICAL_QUOTIENT_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "581fad1b8dabc33b2b0d4624dbd3878b26bd0506be699392c561f1724a87a8cb",
+      "source_index": 0
+    },
+    {
+      "commit": "791d393652f54411d499b742c3def572676887a7",
+      "event_id": "r1-20261118-recover-r279-portable-source",
+      "git_blob_sha1": "5501b14ce6879c3f5bb08f5165d4750b0ea82a4e",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/791d393652f54411d499b742c3def572676887a7/research_notes/portable_direct/R279_EXACT_K_EDIT_PORT_OBSERVER_HIERARCHY_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R279_EXACT_K_EDIT_PORT_OBSERVER_HIERARCHY_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "a705127b8ff2e61b1b924927070c5beede1c1057fe407714baf501552cc4a855",
+      "source_index": 0
+    },
+    {
+      "commit": "33fcdc666acd935b276e3b0f50789c2f3301193f",
+      "event_id": "r1-20261118-recover-r280-portable-source",
+      "git_blob_sha1": "18581a4400a7928ab3845a07e56146a4562226c5",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/33fcdc666acd935b276e3b0f50789c2f3301193f/research_notes/portable_direct/R280_EDIT_WORD_REACHABILITY_AND_PORT_VISIBILITY_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R280_EDIT_WORD_REACHABILITY_AND_PORT_VISIBILITY_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "6c36617dee5156134db1e1a46765492ef75344b6a2dee578b1fa13c300c1679d",
+      "source_index": 0
+    },
+    {
+      "commit": "a591973ed1bb75d8dd53acbbc92062252e10d7ed",
+      "event_id": "r1-20261118-recover-r248-portable-source",
+      "git_blob_sha1": "c018f4588899e6b9eb64508fb7a4ced29b76ab93",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/a591973ed1bb75d8dd53acbbc92062252e10d7ed/research_notes/portable_direct/R248_EXACT_GRID_TWO_MODE_SENSITIVITY_AND_TANGENT_CERTIFICATE_20261117.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R248_EXACT_GRID_TWO_MODE_SENSITIVITY_AND_TANGENT_CERTIFICATE_20261117.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "13d9a8b40291002a65bcc3527686144b487190516e7ae516cfbf3602b03553a9",
+      "source_index": 0
+    },
+    {
+      "commit": "3f6b8cbc03210a06f7783769e296e291ab2acfde",
+      "event_id": "r1-20261118-recover-r249-portable-source",
+      "git_blob_sha1": "aba47f9b7445273353e350904c2f5da5aeedf8fa",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/3f6b8cbc03210a06f7783769e296e291ab2acfde/research_notes/portable_direct/R249_GRID_SECOND_PARAMETER_DERIVATIVES_20261117.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R249_GRID_SECOND_PARAMETER_DERIVATIVES_20261117.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "125430f65b1edd55065a3a9f13bcd5e6c7e7472738d7b73262dfbbca9bf5787b",
+      "source_index": 0
+    },
+    {
+      "commit": "f56ec5905e8eb21ce9f83f29fe71c909e347161c",
+      "event_id": "r1-20261118-recover-r253-portable-source",
+      "git_blob_sha1": "4b56b8b3e76b4c5b5866424c02d704c73b4c1215",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/f56ec5905e8eb21ce9f83f29fe71c909e347161c/research_notes/portable_direct/R253_LABELLED_EXACT_OUTPUT_SIZE_OBSTRUCTION_20261117.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R253_LABELLED_EXACT_OUTPUT_SIZE_OBSTRUCTION_20261117.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "bad02ddce9502dc845f13e7cc6868c86ccdee7fe46b56b3e3c5f13197f0572c7",
+      "source_index": 0
+    },
+    {
+      "commit": "2e7621e7c9783c333f6d6c03c68a887ed4b0f932",
+      "event_id": "r1-20261118-recover-r253b-portable-source",
+      "git_blob_sha1": "5cc507ada02506001e41b00671ae7f632d6f9f25",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/2e7621e7c9783c333f6d6c03c68a887ed4b0f932/research_notes/portable_direct/R253B_TIGHT_BITS_AND_SCALED_INTEGER_EVALUATION_20261117.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R253B_TIGHT_BITS_AND_SCALED_INTEGER_EVALUATION_20261117.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "320a5ebea78b10beea76e87aa162cdfdf3b439f4c93af25c207e2cc65c1b5067",
+      "source_index": 0
+    },
+    {
+      "commit": "d97f5cb6d3cae6fc35107b605da809a2eb12e5dc",
+      "event_id": "r1-20261118-recover-r254-portable-source",
+      "git_blob_sha1": "90ff1b5b9d84ed69688afd559ace35ed7bd970c2",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/d97f5cb6d3cae6fc35107b605da809a2eb12e5dc/research_notes/portable_direct/R254_SHARP_63_MASK_COMMON_DENOMINATOR_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R254_SHARP_63_MASK_COMMON_DENOMINATOR_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "fa581e3a1eeb708c5643e1842a1aaa4fc3d98909563cce2cd10d2d417d421317",
+      "source_index": 0
+    },
+    {
+      "commit": "d97f5cb6d3cae6fc35107b605da809a2eb12e5dc",
+      "event_id": "r1-20261118-recover-r254a-portable-source",
+      "git_blob_sha1": "49785c1f99ccc92d0a883c1e46e47d7817a012a3",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/d97f5cb6d3cae6fc35107b605da809a2eb12e5dc/research_notes/portable_direct/R254A_21_POINT_MINIMAL_SPECTRAL_SCALING_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R254A_21_POINT_MINIMAL_SPECTRAL_SCALING_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "d906a1a71e8c4177cbe80fb5d6444d3ff2080a2a4d183ef7ba8587fec4946e44",
+      "source_index": 0
+    },
+    {
+      "commit": "6c12b514474d865d3fb8efb940a1b100b14d9208",
+      "event_id": "r1-20261118-recover-r255-portable-source",
+      "git_blob_sha1": "d0092224487b77ab621b35476299bbf0c6d4827d",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6c12b514474d865d3fb8efb940a1b100b14d9208/research_notes/portable_direct/R255_PADIC_SPECTRAL_SCALING_EXCEPTIONS_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R255_PADIC_SPECTRAL_SCALING_EXCEPTIONS_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "1115d67373bd041d11acc6322da595417ef42aadf8b4ce0318f3dc1fc4e27eca",
+      "source_index": 0
+    },
+    {
+      "commit": "6c12b514474d865d3fb8efb940a1b100b14d9208",
+      "event_id": "r1-20261118-recover-r255b-portable-source",
+      "git_blob_sha1": "8fcdacee94f295f26db8132176e94406a9845d27",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6c12b514474d865d3fb8efb940a1b100b14d9208/research_notes/portable_direct/R255B_COMPLETE_RATIONAL_SPECTRAL_SCALE_LAW_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R255B_COMPLETE_RATIONAL_SPECTRAL_SCALE_LAW_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "285f9690606213ad1ac23a495e68c5d18ee4a3eb6d3255837a61cc2c0017b902",
+      "source_index": 0
+    },
+    {
+      "commit": "c7b15b956ec9fb996c5b72eaae06bed14399e234",
+      "event_id": "r1-20261118-recover-r256-portable-source",
+      "git_blob_sha1": "96061805f633e2b23975cf69742644e1d0026f2a",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/c7b15b956ec9fb996c5b72eaae06bed14399e234/research_notes/portable_direct/R256_PERIODIC_13ADIC_DENOMINATOR_DROP_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R256_PERIODIC_13ADIC_DENOMINATOR_DROP_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "4214e6489e07b5ca31469189552d5e91374d44b424f23b22e95bf3c873244d86",
+      "source_index": 0
+    },
+    {
+      "commit": "8a0b721455f00e8c5e50ff08831c12fea01c86e4",
+      "event_id": "r1-20261118-recover-r257-portable-source",
+      "git_blob_sha1": "882f7f3424ab03cdb6642b004718ede3a050fe84",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/8a0b721455f00e8c5e50ff08831c12fea01c86e4/research_notes/portable_direct/R257_SHARP_DENOMINATOR_AT_23ADIC_EXCEPTION_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R257_SHARP_DENOMINATOR_AT_23ADIC_EXCEPTION_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "5ecebbe21c9795da63f4c07061ee83f099b9cc265baaf90766a27e0a6b376a03",
+      "source_index": 0
+    },
+    {
+      "commit": "8a0b721455f00e8c5e50ff08831c12fea01c86e4",
+      "event_id": "r1-20261118-recover-r258-portable-source",
+      "git_blob_sha1": "44a3b1603138ac366b4ecda619a6a793fd9e072e",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/8a0b721455f00e8c5e50ff08831c12fea01c86e4/research_notes/portable_direct/R258_SIMULTANEOUS_13_23_NO_DENOMINATOR_DIP_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R258_SIMULTANEOUS_13_23_NO_DENOMINATOR_DIP_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "01b978fd657bc19241ca0b2fb7e54884e2c2dfa2c5a71c6364a905f67e1242a1",
+      "source_index": 0
+    },
+    {
+      "commit": "6bbb4062b54094d2fdea30df1d31891659d9fdb1",
+      "event_id": "r1-20261118-recover-r260-portable-source",
+      "git_blob_sha1": "f50d29abe16ca4b3092f58153f7337f1624fc9d9",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6bbb4062b54094d2fdea30df1d31891659d9fdb1/research_notes/portable_direct/R260_LABELLED_MODULAR_OBSERVABLE_QUOTIENT_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R260_LABELLED_MODULAR_OBSERVABLE_QUOTIENT_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "59ff1545b8cb4b57c2b42f062825e929361d1d6172828bc815e5a6655885e875",
+      "source_index": 0
+    },
+    {
+      "commit": "6bbb4062b54094d2fdea30df1d31891659d9fdb1",
+      "event_id": "r1-20261118-recover-r260a-portable-source",
+      "git_blob_sha1": "7f72667de39ebd819d4c398d4c00003668e9992e",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6bbb4062b54094d2fdea30df1d31891659d9fdb1/research_notes/portable_direct/R260A_PRIME_SQUARE_OBSERVER_LIFT_OBSTRUCTION_20261118.md",
+      "missing": [
+        "verification_receipt",
+        "verification_receipt_sha256"
+      ],
+      "path": "research_notes/portable_direct/R260A_PRIME_SQUARE_OBSERVER_LIFT_OBSTRUCTION_20261118.md",
+      "recorded_tool_name": "mcp__GitHub__fetch_file",
+      "recover_event": true,
+      "repository": "awdawmip/enterprise-math",
+      "required_evidence": "Complete genuine connector observation of this exact immutable source; preserve old event and original session. Summary alone is not full readback.",
+      "sha256": "f82ea7333d3a54663d07316a4db4326b8dd310d9853163d64649fd619d64c734",
+      "source_index": 0
+    }
+  ],
+  "events": 52,
+  "no_record_or_sidecar_changes": true,
+  "record_git_blob_sha1": "534e1e5f4cfcbc089224f8eda5804b162421f2ed",
+  "recover_events": 33,
+  "schema": "EM_ACTIVITY_SOURCE_OBSERVATION_DEBT_MANIFEST_V1",
+  "source_commit": "1661c787563c65704a2ce55e4b63a7b4773ebd54",
+  "summary_only_events": 48,
+  "summary_only_sources": 69
+}
