@@ -1,0 +1,94 @@
+{
+  "schema": "X6_UNIT143_SCOPED_NSIA_TYPE_CERTIFICATE_V1",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "researcher_id": "EM-X6-FB6990",
+  "frozen_native_scientific_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "original_nsia_checker_blobs": {
+    "historical": "f5c9a6045571128281554706f3f31d88f1caf9a9",
+    "current": "f5c9a6045571128281554706f3f31d88f1caf9a9"
+  },
+  "new_checker": {
+    "path": "research_checks/X6_UNIT143_LEGACY_NSIA_NATIVE_SHELL_TYPE_CHECK_20261119.py",
+    "git_blob_sha1": "3f9eca95d24cd8f5da8e095b2b36749d9ccc8800",
+    "commit": "abbf2ac6be2c54cd85282db583572722ef01126e",
+    "local_executed_file_sha256": "9e81aead12d531070d9fc58ebfe74aa054b2ddb725e57e347f3fd13be7010ca7"
+  },
+  "execution": {
+    "language": "Python 3",
+    "modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "standard_output_sha256": "000fd887a914f27fc9efefebf26a5728446cb44712db202d27a849d8785090c6",
+    "matching_stdout_all_modes": true,
+    "proof_basis": "direct signed six-axis composition enumeration versus independent closed formulas",
+    "scope": "grades 1 through 8; integers exact; source-equivalent 3-positive/min-zero count; original August 2026 accepted checker not executed here",
+    "rows": [
+      {
+        "grade": 1,
+        "historical_three_ray_shell": 3,
+        "native_signed_x6_endpoints": 12,
+        "native_signed_x6_brc_mass": 12
+      },
+      {
+        "grade": 2,
+        "historical_three_ray_shell": 6,
+        "native_signed_x6_endpoints": 72,
+        "native_signed_x6_brc_mass": 132
+      },
+      {
+        "grade": 3,
+        "historical_three_ray_shell": 9,
+        "native_signed_x6_endpoints": 292,
+        "native_signed_x6_brc_mass": 1332
+      },
+      {
+        "grade": 4,
+        "historical_three_ray_shell": 12,
+        "native_signed_x6_endpoints": 912,
+        "native_signed_x6_brc_mass": 12372
+      },
+      {
+        "grade": 5,
+        "historical_three_ray_shell": 15,
+        "native_signed_x6_endpoints": 2364,
+        "native_signed_x6_brc_mass": 106452
+      },
+      {
+        "grade": 6,
+        "historical_three_ray_shell": 18,
+        "native_signed_x6_endpoints": 5336,
+        "native_signed_x6_brc_mass": 856212
+      },
+      {
+        "grade": 7,
+        "historical_three_ray_shell": 21,
+        "native_signed_x6_endpoints": 10836,
+        "native_signed_x6_brc_mass": 6505812
+      },
+      {
+        "grade": 8,
+        "historical_three_ray_shell": 24,
+        "native_signed_x6_endpoints": 20256,
+        "native_signed_x6_brc_mass": 47189652
+      }
+    ]
+  },
+  "formulas": {
+    "historical_shell_size": "|A_n| = 3n for n >= 1, A_n={a,b,c>=0:min(a,b,c)=0,a+b+c=n}",
+    "native_shell_size": "sum_{k=1..min(6,n)} 2^k C(6,k) C(n-1,k-1)",
+    "native_brc_mass": "sum_{k=1..min(6,n)} 2^k C(6,k) k! S(n,k), S(n,k) Stirling number of second kind"
+  },
+  "verdict": "AUTHOR_EXACT_FINITE_EXECUTED / HISTORICAL_NSIA_SHELL_NOT_FULL_SIGNED_X6_NATIVE_SHELL / UNREVIEWED / NOT_ADMITTED",
+  "replaced_accepted_results": false,
+  "original_r063_benchmark_executed": false,
+  "native_semantic_progress_published": false
+}
