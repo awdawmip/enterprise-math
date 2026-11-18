@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_R284AA_EXACT_VERIFICATION_V1",
+  "status": "PASS",
+  "arithmetic": "Python fractions.Fraction; exact Gaussian elimination",
+  "named_ports": {
+    "P": [
+      0,
+      1
+    ],
+    "A": [
+      2,
+      3
+    ],
+    "B": [
+      4,
+      5
+    ],
+    "Q": [
+      6,
+      7
+    ]
+  },
+  "base_gate": "1/8",
+  "gate_edit_box": "0<=x,y,u,v<=1/16",
+  "mixing_entry": "1/16",
+  "internal_loops": [
+    "1/16",
+    "1/32",
+    "1/24",
+    "1/20"
+  ],
+  "sample_checks": {
+    "3^4_exact_parameter_grid_and_independent_schur_inversion": 81,
+    "2^4_multiaffine_corners": 16,
+    "single_mixer_edit_16_corners": 16,
+    "observer_target_cofactor_16_pairs": 16
+  },
+  "baseline_complement_rank": 5,
+  "baseline_complement_det": "0",
+  "perfect_support_matching": true,
+  "right_kernel_intersection_stacked_rank": 6,
+  "left_kernel_intersection_stacked_rank": 6,
+  "mixer_edge_perturbation": {
+    "eta": "1/32",
+    "det_at_base": "1/2097152",
+    "closed_form": "g1*g2*h1*h2*eta/16"
+  },
+  "theorem_not_equivalent_to_finite_test": true,
+  "source_input": "R284Y (eb197ee78efb59a38657c0f9ae4fbf7ed0a8950c); R284Z (1df6634e10467fef49504c0455bd73402dd815ad)"
+}
