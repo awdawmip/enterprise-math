@@ -213,7 +213,7 @@ class ExactSourceCustodyTests(unittest.TestCase):
                    if row['logical_path'].endswith('/claim_ledger.json'))
         modern = self.root / row['logical_path']
         modern.parent.mkdir(parents=True, exist_ok=True)
-        content = b'{"schema":"X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DRAFT_V1","status":"UNREVIEWED"}\\n'
+        content = json.dumps({"schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DRAFT_V1", "status": "UNREVIEWED"}).encode() + bytes((10,))
         modern.write_bytes(content)
         original = (self.root / row['physical_path']).read_bytes()
         self.assertNotEqual(content, original)
