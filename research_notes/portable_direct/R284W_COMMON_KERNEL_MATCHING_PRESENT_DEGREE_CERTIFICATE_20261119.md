@@ -2,6 +2,8 @@
 
 Date: 2026-11-19. Status: **AUTHOR_PROVED / LOCAL_EXACT_FRACTION_CHECK_PASSED / NOT_REVIEWED**.
 
+Publication provenance: Researcher `EM-DIRECT-E6B1DD`; original Sites Researcher session `MCP-8487128c846440d1952bfc6fa44aeb86` (read-only recovery confirmed role and open session). Published via independent GitHub portable research: no canonical Task CLAIM/RUN, Result, or Review authorization asserted. Owner-inventory read `r1-20261119-0056-port-frontier-owners-read-v1` succeeded as an as-of snapshot with 2 LEASED tasks in its total inventory; it was not a Port Task ownership grant. Exact executable: [Fraction checker](https://github.com/awdawmip/enterprise-math/blob/63f63445b4712773615505243426bdc2ae996bf3/research_notes/portable_direct/R284W_common_kernel_certificate.py); [PASS evidence](https://github.com/awdawmip/enterprise-math/blob/bf91ca4278c4e2ea7b7eccd4f1f6533a46c57b1c/research_notes/portable_direct/R284W_common_kernel_verification.json).
+
 Scientific input remains frozen at `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Immediate mathematical source: R284V, `research_notes/portable_direct/R284V_OFFDIAGONAL_COFACTOR_HALL_CERTIFICATE_20261118.md` at immutable commit `851060e73f9915e78e463f738c1c144962752c49`. Also uses R281 relevance reduction, R284R finite product grids, R284S quadratic obstruction, R284T bordered-determinant comparison and R284U diagonal SCC criterion. This is **auxiliary named nonnegative-rational BRC Port linear algebra**, with no claimed native-X6 source or dynamic correspondence.
 
 ## 1. A rank certificate for a matching-present numerator
