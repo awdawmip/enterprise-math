@@ -1,0 +1,99 @@
+{
+  "schema": "R5_WEIGHTED_PROBE_AND_ACCOUNTING_V1",
+  "status": "AUTHOR_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "frozen_science_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "pinned_inputs_sha256": {
+    "EXACT_R5_ALL_101_BUDGETS.json": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+    "interior_distinguishing_budget_witnesses.csv": "3d2706270c490433b7c6fab8a4b606b570e771c27e35aed37260969225bacc32",
+    "stages_18.json": "effa71cba1dd2811acc4593944b4af096db791612c25d8825aa01c388af54164"
+  },
+  "domain": {
+    "instances": 30876,
+    "budgets": 101,
+    "stages": 18,
+    "endpoint_classes": 2563,
+    "whole_interval_classes": 2711,
+    "triple_classes": 40,
+    "triple_members": 192,
+    "cross_daughter_witnesses": 620,
+    "three_daughter_multiplicities": {
+      "1+1+1": 16,
+      "2+2+2": 24
+    }
+  },
+  "probe_partition": {
+    "all_40_triple_classes_have_same_partition_pattern": true,
+    "left": [
+      214,
+      4
+    ],
+    "right": [
+      214,
+      8
+    ],
+    "left_isolating_stages": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "right_isolating_stages": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "no_middle_isolation": true,
+    "all_101_budgets_18_stages_checked_per_triple_class": 72720,
+    "independent_full_verifier_cached_signatures": 219072,
+    "triple_anchor_digest_sha256": "202faf4fc45e4734db0872250d4b3e6daa41401a94a21c49b0f313c7d8bc4162",
+    "examples": [
+      [
+        11,
+        132
+      ],
+      [
+        11,
+        148
+      ],
+      [
+        11,
+        164
+      ],
+      [
+        11,
+        180
+      ]
+    ]
+  },
+  "weighted_optimal_expected": {
+    "formula": "2-max(p_left,p_right)",
+    "uniform": "5/3",
+    "middle_heavy_1_4_1": "11/6",
+    "left_heavy_4_1_1": "4/3",
+    "validity": "Endpoint class already known; exact indexed signature returned; correct classification for all possible daughters"
+  },
+  "specified_full_endpoint_acquisition_cost": {
+    "cost_unit": "one maximal indexed-support signature evaluation at one (budget,stage)",
+    "all_stages_all_budgets_all_instances": 56132568,
+    "two_endpoints_all_budgets_all_instances": 6236952,
+    "fixed_extra": 640,
+    "adaptive_expected_extra": 576,
+    "fixed_total": 6237592,
+    "adaptive_expected_total": 6237528,
+    "adaptive_saving_fraction_of_fixed_total": "8/779699",
+    "full_to_adaptive_signature_ratio": "2338857/259897",
+    "dictionary_building_storage_comparison_not_included": true,
+    "lookup_of_precomputed_identical_frozen_classes_requires_zero_new_signature_queries": true
+  },
+  "new_Bellman_cost_certificate": false,
+  "reproducibility": {
+    "primary_checker": "VERIFY_WEIGHTED_EXTENSION.py",
+    "dependency": "VERIFY_ADAPTIVE_EXACT.py",
+    "exact_stdout": "PASS_R5_WEIGHTED_EXTENSION 40 72720 5/3 11/6 6236952 56132568 6237528 8/779699"
+  }
+}
