@@ -1,0 +1,91 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-19",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "highest_author_frontier": {
+    "unit": 140,
+    "status": "AUTHOR_EXACT_PROOF / SOURCE_EQUIVALENT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "result": "For four distinct carrier labels at exactly three pairwise distinct noncollinear rational positions, one position appearing twice: unmodified source dual_edges returns K4 (6) but source delaunay_cell_edges(delaunay_cells) returns K3 (3), missing precisely three labelled edges. All 2736 such cases among 9^4 ordered 4-label assignments to [-1,1]^2 have this regression; all 3024 four-distinct-position cases satisfy equality, 801 other configurations outside these stated cases.",
+    "source_blob": "900e246b0dafaa35d2452191e3df508a2d15a389",
+    "stdout_sha256": "497ebbf2f34f0d0b83e57cea58276a89cfba2944c4999e892520c89183d47801",
+    "execution_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "original_historical_executable_rerun": false,
+    "original_R063_benchmark_rerun": false,
+    "artifacts": [
+      {
+        "path": "research_notes/X6_UNIT140_DUPLICATE_SITE_DELAUNAY_DUAL_EXACT_REGRESSION_20261119.md",
+        "source_commit": "72e2b90409c6e2dd55b56c727df9a34b3c75a283",
+        "git_blob_sha1": "25b30dd4789dfe5c51ec24ccf5440ca3a6f3c1f8"
+      },
+      {
+        "path": "research_checks/X6_UNIT140_DUPLICATE_DELAUNAY_DUAL_SOURCE_CONSUMER_CHECK_20261119.py",
+        "source_commit": "ccf4cd2265c41a70cb7857a16080254567208bce",
+        "git_blob_sha1": "cb7e075dcfa7f5e98a22f1890bf4b8f264d67777"
+      },
+      {
+        "path": "research_checks/X6_UNIT140_DUPLICATE_DELAUNAY_DUAL_RESULTS_20261119.json",
+        "source_commit": "6da8aa79aa94e50c2c8163b9b4be4f4c4ba8bfcd",
+        "git_blob_sha1": "a170501a54f1f8b203f1671eecd68f56d56f5e73"
+      }
+    ]
+  },
+  "prior_author_frontier": {
+    "unit": 139,
+    "proof_path": "research_notes/X6_UNIT139_COINCIDENT_CARRIER_SITE_LABEL_BLOWUP_20261119.md",
+    "proof_commit": "cfa3b3049f0e5d622d71efd0ac811de8bd8386d1",
+    "activity_at_unit139": 153,
+    "continuation_path": "research_notes/X6_UNIT139_COINCIDENT_LABEL_CARRIER_CONTINUATION_20261119.json"
+  },
+  "research_activity": {
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "checkpoint_count": 154,
+    "source_commit": "56c1952a4f46995fa6c90c037ec9e2c77454fd32",
+    "git_blob_sha1": "c731166467c437e2a220ce95742b2807310696bd",
+    "last_event_id": "onhour-20261119-0010-x6-unit140-duplicate-site-delaunay-dual-regression-v1",
+    "readback_verified": true
+  },
+  "original_owner_identity": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-b8227a0d104220b53b7de52f",
+    "run_id": "RUN-4cbf62205b9a5a0a5e914719",
+    "last_original_successful_resume_request": "onhour-20261118-2314-x6-own-run4cbf-after-unit138-resume-v1",
+    "last_authorized_generation": 3,
+    "write_lease": "Must recheck live claim / current Source at publication; old receipt is historic."
+  },
+  "native_semantic_progress": {
+    "highest_published_source_verified_unit": 137,
+    "unit138_original_request_id": "onhour-20261119-0006-x6-own-unit138-native-progress-v1",
+    "unit138_last_read_status": "RUNNING / error=null / SOURCE_PUBLICATION_CONTENTION",
+    "unit139": "NOT_SUBMITTED; SCIENCE_AND_ACTIVITY_SAVED",
+    "unit140": "NOT_SUBMITTED; SCIENCE_AND_ACTIVITY_SAVED",
+    "reason": "Existing Unit138 publication still in-flight; no overlapping publish with stale generation. Original request must reconcile or complete first."
+  },
+  "unresolved": [
+    "Full old 28-LP native downstream consumer coverage remains partial.",
+    "LP011 old exact wrong native-axis argmax caller not yet located.",
+    "LP019 old exact wrong positive natural N-BRC signed subtraction caller not yet located.",
+    "Independent Driver review REQUEST_REVISION; original R063 six-file/512-case benchmark remains separate.",
+    "Current live CLAIM and authorization must be fresh-revalidated before semantic PROGRESS Units139–140."
+  ],
+  "do_not_repeat": [
+    "Scientific Units1–140 proofs/checks with currently saved immutable Github evidence, especially Unit138 2300-case rank-one check and Unit139/140 coincidence tests.",
+    "Native semantic PROGRESS already Source confirmed through Unit137.",
+    "Original pending Unit138 request onhour-20261119-0006-x6-own-unit138-native-progress-v1; do not submit again.",
+    "Original R063 six-file/512-case native benchmark; driver review/admission; maintenance conversation identity."
+  ],
+  "next_exact_action": "First read original Unit138 Native PROGRESS request onhour-20261119-0006-x6-own-unit138-native-progress-v1 to terminal via em_control_result, or reconcile same original ID if ambiguous. Consume authenticated Source checkpoint. If same own CLAIM remains winning, reauthorize existing RUN-4cbf62205b9a5a0a5e914719 through normal owner-checked flow and publish one native semantic PROGRESS grouping saved GitHub Units139–140, using upload_ids=[] and accurate author-only status, then read back Source; otherwise use exact typed legal continuation without borrowing maintenance or another owner. Continue only genuinely new 28-LP source consumer evidence and old LP011/LP019 claimant provenance; preserve domain separation and independent Driver review.",
+  "continuation_state": "OPEN",
+  "review_status": "AUTHOR_UNREVIEWED_NOT_ADMITTED",
+  "scheduler_config_changed": false
+}
