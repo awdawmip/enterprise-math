@@ -61,7 +61,7 @@ C(p-min(n,p),u)/C(p,u) <= p^(-beta'/2).
 
 ## Sampling-scale corollary
 
-Hold `0<beta'< =beta<1` fixed, take `u=ceil(p^(1-beta))`, and let `n=c p^beta log p` for fixed `c>0` (rounded to an integer). Then `n=o(p)` and
+Hold `0<beta'<=beta<1` fixed, take `u=ceil(p^(1-beta))`, and let `n=c p^beta log p` for fixed `c>0` (rounded to an integer). Then `n=o(p)` and
 ```text
 R(p,n,u) = product_{j=0}^{n-1}(1-u/(p-j))
          = exp(-n u/p + o(log p))
