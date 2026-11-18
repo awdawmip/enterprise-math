@@ -1,0 +1,81 @@
+{
+  "schema": "EM_PREFIX914_SIGNED_DYADIC_PRIOR_UNION_OVERLAP_V1",
+  "research_date": "2026-11-19",
+  "frozen_scientific_input": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_predecessors": [
+    "research_notes/portable_direct/2026-11-19_r6_prefix912_mixed_ratio_noncoprime_12x12.md",
+    "research_notes/portable_direct/PREFIX912_R6_MIXED_12X12_CENSUS.cpp",
+    "research_notes/portable_direct/2026-11-19_r6_prefix913_signed_dyadic_two_flip_all_signs.md"
+  ],
+  "domain": {
+    "p": 32,
+    "moduli_from": 262145,
+    "moduli_to": 524287,
+    "moduli_step": 2,
+    "moduli_count": 131072,
+    "ordered_pairs": 17179869184
+  },
+  "family": {
+    "k": 3,
+    "ell": 1,
+    "i": [
+      2,
+      22
+    ],
+    "j": "1..i-1",
+    "eps": [
+      -1,
+      1
+    ],
+    "eta": [
+      -1,
+      1
+    ]
+  },
+  "exact_counts": {
+    "distinct_signed_D": 884,
+    "nonempty_signed_D": 86,
+    "raw_oriented": 3036491,
+    "raw_transpose_overlap": 362,
+    "raw_diagonal": 2,
+    "previous_baseline_members": 2963137,
+    "previous_mixed_only_members": 95,
+    "novel_oriented": 73259,
+    "novel_transpose_overlap": 0,
+    "novel_diagonal": 0,
+    "new_symmetric_ordered": 146518,
+    "previous_c912_symmetric_ordered": 7795529828,
+    "updated_c914_symmetric_ordered": 7795676346,
+    "remaining_not_in_explicit_certificate": 9384192838
+  },
+  "witness": {
+    "a": 321651,
+    "b": 440665,
+    "k": 3,
+    "ell": 1,
+    "i": 20,
+    "j": 19,
+    "eps": 1,
+    "eta": 1,
+    "D": 524288,
+    "first": [
+      83623,
+      1132199
+    ],
+    "second": [
+      1048576,
+      1572864
+    ],
+    "capacity_threshold": 141733920768,
+    "ab": 141740337915
+  },
+  "verification": {
+    "implementations": [
+      "C++17 first-port scan, source-defined old predicate",
+      "Python 3 independent second-port scan, reordered inherited families"
+    ],
+    "type": "complete exact finite integer enumeration",
+    "status": "both passed locally; counts and witness verified"
+  },
+  "interpretation": "Net new certified collisions vs explicit PREFIX912 sufficient union; not a proof about complement noncollision or mother-problem closure"
+}
