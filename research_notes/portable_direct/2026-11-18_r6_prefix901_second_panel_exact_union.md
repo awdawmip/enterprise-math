@@ -1,0 +1,102 @@
+# PREFIX-901 — The second complete 64-row BRC XOR panel and nontrivial cross-panel overlap
+
+Date: 2026-11-18 (Asia/Shanghai). Researcher-ID: EM-DIRECT-8A42B6 / TASK_RESEARCH; Activity RA-2EBCA87CB3F6736530738843. Research lane 进取数论研究6; independent BRC auxiliary, no shared X6 CLAIM. Frozen scientific pin f42f2906d77f24085c123f3ccfe9667d41caa96d. Continuation of PREFIX-900, with unchanged P000 and source observation semantics.
+
+Status: AUTHOR_PROVED / FULL_DECLARED_FINITE_DOMAIN_COMPUTED / WITNESSES_RECHECKED / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED.
+
+## Exact research objective
+
+Can the complete named zero/XOR-one-bit collision decision of PREFIX-900 be extended without counting the same modulus pairs twice, including collisions inside the intersection of two certified row/column panels?
+
+The finite model is p=32, N=2^32, Q={262145,262147,...,524287}, |Q|=131072. Each valid named trajectory is either (x,x) or (x,x XOR 2^i), with 0<=x<N and 0<=i<32. Two observations coincide when their first starts agree modulo a and their ends agree modulo b.
+
+Define the inherited symmetric four-family set E of PREFIX-897: capacity ab<33N, a or b in the original special U with |U|=552, zero/zero lcm(a,b)<N, or one-sided 33 ceil(N/a)>b or 33 ceil(N/b)>a. Its exact cardinality, retained from PREFIX-897, is |E|=7,567,620,214.
+
+PREFIX-900 proved every modulus pair in R0 x Q and Q x R0 collision-positive, where R0={510001+194j:0<=j<64}; its exactly de-duplicated union with E has 7,583,378,612 members.
+
+Define a new, disjoint panel
+
+    R1={510003+194j:0<=j<64}.
+
+All R1 elements are odd 19-bit members of Q and are outside U; R0 and R1 are disjoint. Let R=R0 union R1, so |R|=128.
+
+## Theorem 901-A: every pair in R1 x Q collides
+
+Using the previously proved complete general FF congruence-plus-bit-prefix theorem of PREFIX-900, enumerate all 64*131072=8,388,608 ordered pairs (a,b), a in R1, b in Q. Each pair is classified in a mutually exclusive order:
+
+1. Old E collision criterion;
+2. Zero/flip endpoint criterion;
+3. One flip/flip start anchored to zero using CRT;
+4. General flip/flip using exact periodic bit-intersection counting over all modular k.
+
+The exhaustive exact-integer results are:
+
+| Disjoint witness family | Pair count |
+|---|---:|
+| E | 506,797 |
+| Zero/flip outside E | 3,465,112 |
+| Anchored FF outside previous classes | 4,416,184 |
+| General FF outside previous classes | 515 |
+| Unresolved | 0 |
+| **Total** | **8,388,608** |
+
+The 515 general FF witnesses are reconstructed and checked with four direct invariants: source-bit index/range, distinct named trajectories, start residues modulo a, and endpoint residues modulo b. For each case, the exact CRT-prefix algorithm proves existence; none was returned as positive merely from a heuristic sample. Thus every pair in R1 x Q has a collision witness, and by reversing the named XOR trajectory every pair in Q x R1 has one too. QED.
+
+## Theorem 901-B: exact overlap for two 64-row panels
+
+A subtlety appears in cross-panel overlap. The old E predicate is NOT confined to the diagonal on R x R.
+
+An explicit exhaustive integer check over 128^2=16,384 pairs in R x R gives:
+
+- E in R0 x R0: 64 (the 64 diagonal pairs);
+- E in R1 x R1: 64;
+- E in R0 x R1: 27;
+- E in R1 x R0: 27;
+- **E in R x R: 64+64+27+27=182**.
+
+The 27 cross-panel E hits are all genuine zero/zero collisions satisfying lcm(a,b)<2^32, caused by shared odd factors. Their greatest common divisors range through such values as 63,65,69,87,233,279,631,737 and 825; no special U inclusion is used.
+
+Since E is symmetric, let M=|R|*|Q|=128*131072=16,777,216. Its row section has exactly
+
+    |E intersect (R x Q)|=507,393+506,797=1,014,190
+
+members. Every pair outside E in this row section now has a constructed collision. Time reversal certifies the corresponding column section. By set inclusion-exclusion, the truly new ordered pairs are exactly
+
+    2*(16,777,216-1,014,190) - (16,384-182)
+       = 31,509,850.
+
+Consequently,
+
+    |E union (R x Q) union (Q x R)|
+      = 7,567,620,214 + 31,509,850
+      = **7,599,130,064**.
+
+Compared against PREFIX-900's exactly defined union, this adds
+
+    **15,751,452 new ordered modulus pairs**,
+
+and leaves
+
+    131,072^2 - 7,599,130,064
+      = **9,580,739,120**
+
+outside this specific certificate family. These are exact cardinalities of declared sets; they do not assert all remaining combinations are injective or that the mother goal is resolved.
+
+Proof of the count: E is symmetric. All of R x Q and Q x R have been proved collision-positive. Their complements relative to E have a two-way overlap exactly (R x R) \ E. Its cardinality is |R|^2-182. Applying inclusion-exclusion yields the formula; all finite inputs and old family memberships are exact integer predicates. QED.
+
+## Reproducibility and evidence
+
+The finite run used the same tested C++17 algorithmic kernel as PREFIX-900, with no parameter shortcut for the new panel. Its invocations examined all 64 values a=510003+194j and all 131,072 second-port odd values for each. All 515 general witness records were independently rechecked for both exact modular observations and legal named XOR transitions. The last row sums to 131,072 like every other row.
+
+The 64-row compact count certificate is PREFIX901_R6_SECOND_PANEL_RESULTS.json. The independently callable Python orchestration and fresh overlap reconstruction is PREFIX901_R6_SECOND_PANEL_CHECK.py, using the immutable PREFIX900_R6_64ROW_FF_COMPLETE.cpp as its executable classifier. It verifies old E membership, pairwise-disjoint panel geometry, full 128-square E count, symmetric inclusion-exclusion, source constraints and all submitted witnesses. The complete expanded output is regenerable by running the Python script on the compiled C++ executable.
+
+Source files:
+- PREFIX900_R6_64ROW_FF_COMPLETE.cpp, immutable SHA commit 128f8db7f63db26422cb48affeb0715a1057f2cc.
+- PREFIX901_R6_SECOND_PANEL_CHECK.py, commit 1bfe2d3ae87d18e6f77fe7370e618f98aaa463fe.
+- PREFIX901_R6_SECOND_PANEL_RESULTS.json, commit f3237399a1daed4c88120e4f6b5f9be64a6d3e00.
+
+Scientific result category is author-proved exact finite-domain calculation and a reusable overlap theorem. Peer independent mathematical review and project admission are not claimed; the full X6 native source/state model and P000 six-dimensional space have not been reinterpreted by these two observation ports.
+
+## Next scientific frontier
+
+The two full panels contain 128 row moduli and both transposes. This provides a parametric panel-expansion tactic, but the remaining 9,580,739,120 modulus pairs require additional collision certificates or actual injective examples. Investigate a structural FF lemma uniform over moduli outside current panels, instead of accumulating arbitrary sample rows without a reduction toward the global proof. The unchanged parent question is B_fix,odd(32) in {19,20}.
