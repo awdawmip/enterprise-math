@@ -1,0 +1,93 @@
+{
+  "local_counts": {
+    "law_subset_pairs": 17700,
+    "listed_residues": 14584,
+    "positive_equalities": 1096
+  },
+  "correlated_holes": {
+    "p": 101,
+    "u": 11,
+    "nonempty_low_residues": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "true_hit_probability": "1",
+    "list_radius": 2,
+    "list_size": 5,
+    "distinct_list_messages": 101,
+    "list_event_uniform_mass": "5/101",
+    "event_KL_nats": 3.005682604407,
+    "MI_list_and_Y_nats": 4.615120516841,
+    "sharp_entropy_floor_nats": 0.047571918645,
+    "approaching_deficits_nats": [
+      0.115310846511,
+      0.050136083135,
+      0.047728904577,
+      0.047581717736
+    ]
+  },
+  "two_law_histogram": [
+    {
+      "n": 1,
+      "information_nats": 0.130812035941,
+      "ordered_entropy_nats": 0.69314718056,
+      "optimal_classification_error": "1/4"
+    },
+    {
+      "n": 2,
+      "information_nats": 0.23004012948,
+      "ordered_entropy_nats": 1.354710418718,
+      "optimal_classification_error": "1/4"
+    },
+    {
+      "n": 4,
+      "information_nats": 0.37345772234,
+      "ordered_entropy_nats": 2.622798300815,
+      "optimal_classification_error": "5/32"
+    },
+    {
+      "n": 8,
+      "information_nats": 0.534480874267,
+      "ordered_entropy_nats": 5.033162031217,
+      "optimal_classification_error": "289/4096"
+    },
+    {
+      "n": 16,
+      "information_nats": 0.650983937867,
+      "ordered_entropy_nats": 9.648346251768,
+      "optimal_classification_error": "2321945/134217728"
+    },
+    {
+      "n": 32,
+      "information_nats": 0.689774279431,
+      "ordered_entropy_nats": 18.684498907232,
+      "optimal_classification_error": "375167978518921/288230376151711744"
+    },
+    {
+      "n": 64,
+      "information_nats": 0.693121306957,
+      "ordered_entropy_nats": 36.682570562561,
+      "optimal_classification_error": "25457270184091781046642062995049/2658455991569831745807614120560689152"
+    }
+  ],
+  "valid_transfer": {
+    "p": "170141183460469231731687303715884105727",
+    "omitted_interval_size": "1152921504606846976",
+    "beta_prime": "1/2",
+    "beta": "3/4",
+    "delta": "1/64",
+    "tau": "1/4",
+    "law_MI_nats": 0,
+    "terminal_prob_each": "1/p",
+    "original_chernoff_at_one_trial": false
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "finite_sieves_by_two_routes": [
+    {
+      "r": 2,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "step": 1,
+      "width": 6,
+      "period": 44100,
+      "distinct_masks": 54,
+      "entirely_covered_residues": 0
+    },
+    {
+      "r": 2,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "step": 2,
+      "width": 6,
+      "period": 44100,
+      "distinct_masks": 55,
+      "entirely_covered_residues": 12
+    },
+    {
+      "r": 2,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "step": 4,
+      "width": 6,
+      "period": 44100,
+      "distinct_masks": 43,
+      "entirely_covered_residues": 11025
+    },
+    {
+      "r": 3,
+      "primes": [
+        2,
+        3,
+        5
+      ],
+      "step": 1,
+      "width": 6,
+      "period": 27000,
+      "distinct_masks": 42,
+      "entirely_covered_residues": 0
+    }
+  ],
+  "overlap_cost_cases": 3136,
+  "near_window_label_differences": 22740,
+  "natural_density_outward_bounds": [
+    {
+      "r": 2,
+      "cell_length": 2,
+      "cap_each": 0,
+      "prime_cutoff": 997,
+      "lower": "0.000072386331",
+      "upper": "0.000076801183"
+    },
+    {
+      "r": 2,
+      "cell_length": 2,
+      "cap_each": 1,
+      "prime_cutoff": 997,
+      "lower": "0.018118317964",
+      "upper": "0.018821469755"
+    },
+    {
+      "r": 2,
+      "cell_length": 2,
+      "cap_each": 2,
+      "prime_cutoff": 997,
+      "lower": "0.321877105346",
+      "upper": "0.324593082192"
+    },
+    {
+      "r": 3,
+      "cell_length": 2,
+      "cap_each": 0,
+      "prime_cutoff": 997,
+      "lower": "0.000000000109",
+      "upper": "0.000000000110"
+    },
+    {
+      "r": 3,
+      "cell_length": 2,
+      "cap_each": 1,
+      "prime_cutoff": 997,
+      "lower": "0.000020244712",
+      "upper": "0.000020251543"
+    },
+    {
+      "r": 3,
+      "cell_length": 2,
+      "cap_each": 2,
+      "prime_cutoff": 997,
+      "lower": "0.016115817615",
+      "upper": "0.016116636971"
+    }
+  ],
+  "p_divides_step": [
+    {
+      "r": 2,
+      "p": 2,
+      "step": 1,
+      "anchor_counts": {
+        "one_residue": 4
+      }
+    },
+    {
+      "r": 2,
+      "p": 2,
+      "step": 2,
+      "anchor_counts": {
+        "none": 2,
+        "one_residue": 2
+      }
+    },
+    {
+      "r": 2,
+      "p": 2,
+      "step": 4,
+      "anchor_counts": {
+        "none": 3,
+        "whole": 1
+      }
+    }
+  ]
+}
