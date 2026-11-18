@@ -1,0 +1,77 @@
+{
+  "schema": "PREFIX920_BINARY_RESIDUE_ORBIT_ROW_V1",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": {
+    "p": 32,
+    "N": 4294967296,
+    "odd_a_inclusive": [
+      262145,
+      524287
+    ],
+    "b_fixed": 440665,
+    "trajectory_labels": "Z_x, F_x^i retaining named source bit"
+  },
+  "small_full_bruteforce_cases": 255,
+  "exact_row_entries": 131072,
+  "counts": {
+    "coprime": 101438,
+    "coprime_both_signs": 10680,
+    "coprime_minus_any": 36731,
+    "coprime_minus_only": 26051,
+    "coprime_plus_any": 35833,
+    "coprime_plus_only": 25153,
+    "coprime_zero": 39554,
+    "noncoprime": 29634
+  },
+  "sum_mixed_mass_all_row": 361954708038288,
+  "sum_plus_mass_all_row": 175192787840598,
+  "sum_minus_mass_all_row": 186761920197690,
+  "maximum_row_mass": {
+    "a": 309593,
+    "b": 440665,
+    "mass": 67104018732
+  },
+  "examples": {
+    "both_signs": {
+      "a": 262147,
+      "b": 440665,
+      "mass": 7331234756,
+      "plus_fibers": 1,
+      "minus_fibers": 3
+    },
+    "plus_only": {
+      "a": 262149,
+      "b": 440665,
+      "mass": 8662387410,
+      "plus_fibers": 3
+    },
+    "coprime_zero": {
+      "a": 262151,
+      "b": 440665
+    },
+    "minus_only": {
+      "a": 262157,
+      "b": 440665,
+      "mass": 523315200,
+      "minus_fibers": 1
+    }
+  },
+  "anchor_prefix919": {
+    "a": 321651,
+    "b": 440665,
+    "total": 59007025662,
+    "plus_fibers": 0,
+    "minus_fibers": 17
+  },
+  "full_row_digest": {
+    "format": "ASCII lines: a,b,mass,plus_fibers,minus_fibers,plus_mass,minus_mass\\n; a ascending",
+    "sha256": "6b39ed2f950118dbd2c542c6d2a78de54fa98ca20a5f88613699228cf094977d"
+  },
+  "independent_checks": [
+    "swapped-port orbit for all row entries",
+    "independent i-indexed modular residue/bit-population recount for all row entries",
+    "direct ka scan for all first examples",
+    "complete trajectory fiber brute force p=2..8 for all odd moduli <=15",
+    "PREFIX919 frozen anchor regression"
+  ]
+}
