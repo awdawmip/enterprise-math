@@ -1,0 +1,104 @@
+{
+  "model": "three services, common late identity or doubling, at most one original endpoint read combined, 31250 equally likely inputs",
+  "general": {
+    "11": [
+      11119,
+      11292
+    ],
+    "12": [
+      9847,
+      9996
+    ],
+    "13": [
+      8721,
+      8721
+    ],
+    "14": [
+      7660,
+      7660
+    ]
+  },
+  "successive_savings": {
+    "11_to_12": [
+      1123,
+      1445
+    ],
+    "12_to_13": [
+      1126,
+      1275
+    ]
+  },
+  "twelve_nontrivial_affine_symmetry": {
+    "minimum": 9996,
+    "unlabeled_optima": 4000,
+    "affine_orbits": 1,
+    "stabilizer_order": 3
+  },
+  "twelve_involutive_symmetry": {
+    "bounds": [
+      9998,
+      10148
+    ],
+    "pure_C2_witness": {
+      "price": 10148,
+      "orbit_size": 6000
+    }
+  },
+  "twelve_klein_symmetry": {
+    "minimum": 10632,
+    "unlabeled_optima": 3000,
+    "affine_orbits": 1
+  },
+  "twelve_any_strict_improvement_on_incumbent": {
+    "affine_stabilizer_order": 1,
+    "minimum_number_of_changed_old_classes_lower_bound": 8,
+    "minimum_moved_histories_lower_bound": 11
+  },
+  "twelve_one_six_point_exception": {
+    "minimum": 10476,
+    "unlabeled_optima": 1440000,
+    "affine_orbits": 120
+  },
+  "twelve_incumbent_fixed_pair_of_thirteens_C3_invariant_nine_and_nine_unconstrained_tens": {
+    "minimum": 9996
+  },
+  "affine_optimal_table_transitions": {
+    "symmetric11_to_symmetric12_minimum_changed_histories": 62,
+    "symmetric12_to_global13_minimum_changed_histories": 67,
+    "symmetric12_to_global13_maximum_intact_classes": 1,
+    "symmetric12_to_global13_minimum_changed_histories_retaining_one_intact_class": 78
+  },
+  "single_split": {
+    "sharp_maximum_saving": 960,
+    "max_number_of_successive_splits_all_saving_960": 5,
+    "optimal_split_parent_count": 375,
+    "number_of_disjoint_optimal_parent_quintuples": 43200,
+    "compatible_optimal_first_budgets": [
+      62,
+      124
+    ],
+    "domain_of_classification": [
+      11,
+      124
+    ],
+    "coarse_eleven_any_fine_lower_bound": 10297,
+    "coarse_twelve_any_fine_lower_bound": 9067
+  },
+  "minimum_changed_old_classes_between_neighboring_optima": {
+    "13": [
+      10,
+      11
+    ],
+    "21-24": 5,
+    "25-30": 4,
+    "31": 2,
+    "32-40": 3,
+    "41-61": 2,
+    "62-124": 1
+  },
+  "previous_commit": "3ab984c7432f8e5d841eb2cf0523f46c0e607bb5",
+  "open": [
+    "Unrestricted R11 and R12",
+    "Whether an optimal thirteen and fourteen label table can share three entire old classes"
+  ]
+}
