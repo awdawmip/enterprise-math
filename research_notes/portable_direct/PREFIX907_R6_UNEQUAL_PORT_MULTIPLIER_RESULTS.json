@@ -1,0 +1,35 @@
+{
+  "schema": "PREFIX907_R6_UNEQUAL_ENDPOINT_MULTIPLIER_CERT_V1",
+  "date": "2026-11-18",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": {
+    "p": 32,
+    "N": 4294967296,
+    "Q_first": 262145,
+    "Q_last": 524287,
+    "Q_size": 131072
+  },
+  "constraint": "k=3,ell=1; 3*a-b=2^i +/- 2^j; 18<=i<=22;1<=j<=17; a,b strict 19-bit odd",
+  "total_unique_oriented_candidates": 2905419,
+  "oriented_not_in_PREFIX906": 1576800,
+  "intersection_with_reversed_oriented_new_set": 188,
+  "net_new_ordered_pairs": 3153412,
+  "prior_PREFIX906_union": 7775271676,
+  "certified_PREFIX907_union": 7778425088,
+  "complement_outside_explicit_union": 9401444096,
+  "previously_uncovered_concrete_witness": {
+    "a": 272007,
+    "b": 521109,
+    "k": 3,
+    "ell": 1,
+    "i": 18,
+    "j": 15,
+    "s": 1,
+    "x": 3179,
+    "y": 819200,
+    "first_end": 265323,
+    "second_end": 786432
+  },
+  "verification": "Exact independent Python enumeration and compiled C++17 all-candidate named-XOR witness+set membership checker, PASS",
+  "status": "AUTHOR_PROVED / FINITE_EXACT_CHECKED / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED"
+}
