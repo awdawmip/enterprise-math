@@ -1,0 +1,375 @@
+{
+  "ehrhart": {
+    "local_values_to_21": [
+      1,
+      16,
+      128,
+      688,
+      2809,
+      9376,
+      26856,
+      68256,
+      157641,
+      336688,
+      673816,
+      1276496,
+      2307409,
+      4005184,
+      6710512,
+      10898496,
+      17218161,
+      26540112,
+      40013392,
+      59132656,
+      85816841,
+      122500576
+    ],
+    "local_h_star": [
+      1,
+      7,
+      20,
+      28,
+      7,
+      1
+    ],
+    "limiting_local_fraction": "16/17",
+    "conditional_nonlocal_defect_tail": "(1-x)^8 for 0<x<1"
+  },
+  "table_enumeration": [
+    {
+      "q": 1,
+      "bob_settings": 2,
+      "nonlocal_row_histogram": {
+        "0": 16
+      },
+      "distinct_local_tables": 16,
+      "direct_subtable_comparison": true
+    },
+    {
+      "q": 2,
+      "bob_settings": 2,
+      "nonlocal_row_histogram": {
+        "0": 128,
+        "2": 8
+      },
+      "distinct_local_tables": 128,
+      "direct_subtable_comparison": true
+    },
+    {
+      "q": 3,
+      "bob_settings": 2,
+      "nonlocal_row_histogram": {
+        "0": 688,
+        "2": 64
+      },
+      "distinct_local_tables": 688,
+      "direct_subtable_comparison": true
+    },
+    {
+      "q": 4,
+      "bob_settings": 2,
+      "nonlocal_row_histogram": {
+        "0": 2809,
+        "2": 288,
+        "4": 8
+      },
+      "distinct_local_tables": 2809,
+      "direct_subtable_comparison": false
+    },
+    {
+      "q": 5,
+      "bob_settings": 2,
+      "nonlocal_row_histogram": {
+        "0": 9376,
+        "2": 960,
+        "4": 64
+      },
+      "distinct_local_tables": 9376,
+      "direct_subtable_comparison": false
+    },
+    {
+      "q": 2,
+      "bob_settings": 3,
+      "nonlocal_row_histogram": {
+        "0": 484,
+        "2": 96
+      },
+      "distinct_local_tables": 484,
+      "direct_subtable_comparison": true
+    },
+    {
+      "q": 3,
+      "bob_settings": 3,
+      "nonlocal_row_histogram": {
+        "0": 4640,
+        "2": 1344
+      },
+      "distinct_local_tables": 4640,
+      "direct_subtable_comparison": true
+    }
+  ],
+  "three_setting_example": {
+    "q": 6,
+    "alice_ones": [
+      3,
+      3
+    ],
+    "cols": [
+      [
+        3,
+        2,
+        3
+      ],
+      [
+        3,
+        3,
+        0
+      ],
+      [
+        3,
+        2,
+        1
+      ]
+    ],
+    "bad": 4,
+    "context_arrangements": [
+      [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    ]
+  },
+  "isotropic_pell_above": [
+    {
+      "q": 2,
+      "h": 1,
+      "u": 1,
+      "cell_counts": [
+        1,
+        0
+      ],
+      "norm": -1,
+      "minimum_bad_rows": 2
+    },
+    {
+      "q": 14,
+      "h": 7,
+      "u": 5,
+      "cell_counts": [
+        6,
+        1
+      ],
+      "norm": -1,
+      "minimum_bad_rows": 6
+    },
+    {
+      "q": 82,
+      "h": 41,
+      "u": 29,
+      "cell_counts": [
+        35,
+        6
+      ],
+      "norm": -1,
+      "minimum_bad_rows": 34
+    },
+    {
+      "q": 478,
+      "h": 239,
+      "u": 169,
+      "cell_counts": [
+        204,
+        35
+      ],
+      "norm": -1,
+      "minimum_bad_rows": 198
+    },
+    {
+      "q": 2786,
+      "h": 1393,
+      "u": 985,
+      "cell_counts": [
+        1189,
+        204
+      ],
+      "norm": -1,
+      "minimum_bad_rows": 1154
+    },
+    {
+      "q": 16238,
+      "h": 8119,
+      "u": 5741,
+      "cell_counts": [
+        6930,
+        1189
+      ],
+      "norm": -1,
+      "minimum_bad_rows": 6726
+    }
+  ],
+  "isotropic_pell_below": [
+    {
+      "q": 12,
+      "h": 6,
+      "u": 4,
+      "cell_counts": [
+        5,
+        1
+      ],
+      "norm": 4,
+      "minimum_bad_rows": 4
+    },
+    {
+      "q": 68,
+      "h": 34,
+      "u": 24,
+      "cell_counts": [
+        29,
+        5
+      ],
+      "norm": 4,
+      "minimum_bad_rows": 28
+    },
+    {
+      "q": 396,
+      "h": 198,
+      "u": 140,
+      "cell_counts": [
+        169,
+        29
+      ],
+      "norm": 4,
+      "minimum_bad_rows": 164
+    },
+    {
+      "q": 2308,
+      "h": 1154,
+      "u": 816,
+      "cell_counts": [
+        985,
+        169
+      ],
+      "norm": 4,
+      "minimum_bad_rows": 956
+    },
+    {
+      "q": 13452,
+      "h": 6726,
+      "u": 4756,
+      "cell_counts": [
+        5741,
+        985
+      ],
+      "norm": 4,
+      "minimum_bad_rows": 5572
+    },
+    {
+      "q": 78404,
+      "h": 39202,
+      "u": 27720,
+      "cell_counts": [
+        33461,
+        5741
+      ],
+      "norm": 4,
+      "minimum_bad_rows": 32476
+    }
+  ],
+  "ideal_uniform_null_tail_196_of_245": {
+    "numerator": 15614804993329555712168333928536695277839994471022620379091720520133564651135403790202184308826122213250799365548614911031252207128386473817669489,
+    "denominator": 399583814440447005616844445413525287135820562261116307309972090832047582568929999375399181192126972308457847183540047730617340886948900519205142528,
+    "rounded": 0.03907767139
+  }
+}

@@ -1,0 +1,361 @@
+{
+  "prefix_floor_comparisons": 22098,
+  "quarter_query": {
+    "bit_counts": {
+      "0": 785,
+      "1": 239
+    },
+    "cached_order_and_support_controls": [
+      {
+        "bit": 1,
+        "cost": {
+          "baby_keys": 3,
+          "giant_probes": 1,
+          "inverses": 2,
+          "modular_multiplications": 30
+        },
+        "factor": {
+          "status": "odd original order",
+          "two_exponent": 0
+        },
+        "precision": 24,
+        "probability_zero": [
+          "59/1024",
+          "15/256"
+        ]
+      },
+      {
+        "cost": {
+          "baby_keys": 2,
+          "giant_probes": 1,
+          "inverses": 2,
+          "modular_multiplications": 3
+        },
+        "unreachable": true
+      },
+      {
+        "bit": 1,
+        "cost": {
+          "baby_keys": 2,
+          "giant_probes": 2,
+          "inverses": 2,
+          "modular_multiplications": 7
+        },
+        "fair": true
+      }
+    ],
+    "deterministic_bit_tape_demo": {
+      "out": {
+        "bit": 0,
+        "cost": {
+          "baby_keys": 16,
+          "bit_algebraic_comparisons": 1,
+          "cutoff_integer_comparisons": 7,
+          "factor_gcds": 2,
+          "giant_probes": 18,
+          "inverses": 3,
+          "modular_multiplications": 87
+        },
+        "factor": {
+          "gcd_pair": [
+            23,
+            59
+          ],
+          "half_power": 530,
+          "status": "proper",
+          "two_exponent": 1
+        },
+        "giant_width": 16,
+        "possible_odd_return_witness": 319,
+        "tested_odd_candidates": 54
+      },
+      "random_bits_read": 9
+    },
+    "dyadic_threshold_undecided_cell_counts": {
+      "6": 46,
+      "8": 182,
+      "10": 258,
+      "12": 258
+    },
+    "expected_modmul_constant_plus_coefficient_times_cos_pi_4": [
+      45,
+      "2189/64"
+    ],
+    "factor_exit_probability": [
+      "153653371599684263/288230376151711744",
+      "614613486398737053/1152921504606846976"
+    ],
+    "full_search_cold_modmul": 87,
+    "grid_counts": {
+      "baby_keys": 16384,
+      "bit_algebraic_comparisons": 546,
+      "cutoff_integer_comparisons": 7476,
+      "factor_exits": 546,
+      "factor_gcds": 1092,
+      "giant_probes": 17736,
+      "inverses": 2770,
+      "modular_multiplications": 70856
+    },
+    "input": [
+      1357,
+      2,
+      22,
+      8,
+      64
+    ],
+    "probability_zero": [
+      "441883747751396007/576460752303423488",
+      "883767495502792015/1152921504606846976"
+    ],
+    "thresholds": {
+      "1/128": {
+        "bit": 0,
+        "cost": {
+          "baby_keys": 16,
+          "cutoff_integer_comparisons": 8,
+          "giant_probes": 16,
+          "inverses": 2,
+          "modular_multiplications": 45
+        },
+        "giant_width": 16,
+        "possible_odd_return_witness": null,
+        "tested_odd_candidates": 0
+      },
+      "1/2": {
+        "bit": 0,
+        "cost": {
+          "baby_keys": 16,
+          "bit_algebraic_comparisons": 1,
+          "cutoff_integer_comparisons": 7,
+          "factor_gcds": 2,
+          "giant_probes": 18,
+          "inverses": 3,
+          "modular_multiplications": 87
+        },
+        "factor": {
+          "gcd_pair": [
+            23,
+            59
+          ],
+          "half_power": 530,
+          "status": "proper",
+          "two_exponent": 1
+        },
+        "giant_width": 16,
+        "possible_odd_return_witness": 319,
+        "tested_odd_candidates": 128
+      },
+      "1/4": {
+        "bit": 0,
+        "cost": {
+          "baby_keys": 16,
+          "bit_algebraic_comparisons": 1,
+          "cutoff_integer_comparisons": 7,
+          "factor_gcds": 2,
+          "giant_probes": 18,
+          "inverses": 3,
+          "modular_multiplications": 87
+        },
+        "factor": {
+          "gcd_pair": [
+            23,
+            59
+          ],
+          "half_power": 530,
+          "status": "proper",
+          "two_exponent": 1
+        },
+        "giant_width": 16,
+        "possible_odd_return_witness": 319,
+        "tested_odd_candidates": 37
+      },
+      "127/128": {
+        "bit": 1,
+        "cost": {
+          "baby_keys": 16,
+          "cutoff_integer_comparisons": 8,
+          "giant_probes": 16,
+          "inverses": 2,
+          "modular_multiplications": 45
+        },
+        "giant_width": 16,
+        "possible_odd_return_witness": null,
+        "tested_odd_candidates": 0
+      },
+      "3/4": {
+        "bit": 0,
+        "cost": {
+          "baby_keys": 16,
+          "bit_algebraic_comparisons": 1,
+          "cutoff_integer_comparisons": 7,
+          "factor_gcds": 2,
+          "giant_probes": 18,
+          "inverses": 3,
+          "modular_multiplications": 87
+        },
+        "factor": {
+          "gcd_pair": [
+            23,
+            59
+          ],
+          "half_power": 530,
+          "status": "proper",
+          "two_exponent": 1
+        },
+        "giant_width": 16,
+        "possible_odd_return_witness": 319,
+        "tested_odd_candidates": 37
+      },
+      "7/8": {
+        "bit": 1,
+        "cost": {
+          "baby_keys": 16,
+          "cutoff_integer_comparisons": 8,
+          "giant_probes": 16,
+          "inverses": 2,
+          "modular_multiplications": 45
+        },
+        "giant_width": 16,
+        "possible_odd_return_witness": null,
+        "tested_odd_candidates": 0
+      }
+    },
+    "uniform_grid_midpoint_trials": 1024
+  },
+  "sharp_finite_minima": {
+    "16": [
+      "26603127937767831333/9444732965739290427392",
+      "53206255875535662667/18889465931478580854784"
+    ],
+    "32": [
+      "6269115146249477805/9444732965739290427392",
+      "12538230292498955611/18889465931478580854784"
+    ],
+    "64": [
+      "3089325319552024847/18889465931478580854784",
+      "193082832472001553/1180591620717411303424"
+    ],
+    "128": [
+      "769541158321065279/18889465931478580854784",
+      "12024080598766645/295147905179352825856"
+    ]
+  },
+  "work_joint_reference": {
+    "column_masses": [
+      "3/8",
+      "1/4",
+      "1/8",
+      "1/4"
+    ],
+    "full_success_mass": [
+      "2428067739950943438515/9444732965739290427392",
+      "1214033869975471719259/4722366482869645213696"
+    ],
+    "input": [
+      35,
+      2,
+      128
+    ],
+    "reference_first_return": 12,
+    "residues_mod_4": {
+      "1": [
+        "17/512",
+        "11/512",
+        "5/512",
+        "11/512"
+      ],
+      "11": [
+        "7/256",
+        "5/256",
+        "3/256",
+        "5/256"
+      ],
+      "16": [
+        "17/512",
+        "11/512",
+        "5/512",
+        "11/512"
+      ],
+      "18": [
+        "7/256",
+        "5/256",
+        "3/256",
+        "5/256"
+      ],
+      "2": [
+        "17/512",
+        "11/512",
+        "5/512",
+        "11/512"
+      ],
+      "22": [
+        "7/256",
+        "5/256",
+        "3/256",
+        "5/256"
+      ],
+      "23": [
+        "17/512",
+        "11/512",
+        "5/512",
+        "11/512"
+      ],
+      "29": [
+        "17/512",
+        "11/512",
+        "5/512",
+        "11/512"
+      ],
+      "32": [
+        "17/512",
+        "11/512",
+        "5/512",
+        "11/512"
+      ],
+      "4": [
+        "17/512",
+        "11/512",
+        "5/512",
+        "11/512"
+      ],
+      "8": [
+        "17/512",
+        "11/512",
+        "5/512",
+        "11/512"
+      ],
+      "9": [
+        "7/256",
+        "5/256",
+        "3/256",
+        "5/256"
+      ]
+    },
+    "success_mass_by_residue": [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "1078553592061273413379/9444732965739290427392",
+        "269638398015318353345/2361183241434822606848"
+      ],
+      [
+        "270960555828396611757/9444732965739290427392",
+        "135480277914198305879/4722366482869645213696"
+      ],
+      [
+        "1078553592061273413379/9444732965739290427392",
+        "269638398015318353345/2361183241434822606848"
+      ]
+    ],
+    "verified_frequency_list": [
+      10,
+      11,
+      53,
+      75,
+      117,
+      118
+    ]
+  }
+}
