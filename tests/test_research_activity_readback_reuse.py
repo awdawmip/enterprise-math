@@ -176,18 +176,84 @@ class ResearchActivityReadbackReuseTests(unittest.TestCase):
             self.assertEqual(verify.call_count, 1)
             self.assertEqual(sum(call.args[0] == raw for call in digest.call_args_list), 1)
 
-    def test_matching_actual_digest_does_not_relax_canonical_receipt_binding(self):
+    def test_raw_receipt_binding_keeps_actual_bytes_without_reencoding(self):
         record = self.checkpoint('first')
-        source = record['checkpoints'][0]['em_sources'][0]
-        original = self.root / source['verification_receipt']
-        raw = json.dumps(json.loads(original.read_bytes()), separators=(',', ':')).encode()
-        self.assertNotEqual(raw, original.read_bytes())
+        original_source = record['checkpoints'][0]['em_sources'][0]
+        original = (self.root / original_source['verification_receipt']).read_bytes()
+        observed = json.loads(original)
+        # Both common connector serialization styles and key ordering preserve
+        # the exact source observation, while retaining different physical IDs.
+        styles = [json.dumps(observed, separators=(',', ':')).encode(),
+                  json.dumps(observed, indent=4, sort_keys=False).encode(),
+                  json.dumps(dict(reversed(list(observed.items()))), ensure_ascii=False).encode()]
+        for raw in styles:
+            with self.subTest(raw_sha=activity.digest(raw)):
+                current = copy.deepcopy(record)
+                source = current['checkpoints'][0]['em_sources'][0]
+                self.assertNotEqual(raw, original)
+                sha = activity.digest(raw)
+                source['verification_receipt_sha256'] = sha
+                source['verification_receipt'] = f'{activity.STORE}/{self.activity_id}/readbacks/{sha}.json'
+                receipt = self.root / source['verification_receipt']
+                receipt.write_bytes(raw)
+                before = copy.deepcopy(current)
+                self.assertEqual(list(activity._events(current, self.root)), ['first'])
+                self.assertEqual(current, before)
+                self.assertEqual(receipt.read_bytes(), raw)
+                self.assertEqual((self.root / original_source['verification_receipt']).read_bytes(), original)
+
+    def test_raw_receipt_rejects_duplicate_json_keys_with_a_matching_outer_digest(self):
+        record = self.checkpoint('first')
+        original = activity.encoded(self.source['readback'])
+        variants = [original.replace(b'"tool_name": "github_fetch_file"',
+                                    b'"tool_name": "untrusted", "tool_name": "github_fetch_file"'),
+                    original.replace(b'"isError": false', b'"isError": true, "isError": false')]
+        for raw in variants:
+            with self.subTest(raw_sha=activity.digest(raw)):
+                self.assertNotEqual(raw, original)
+                current = copy.deepcopy(record)
+                source = current['checkpoints'][0]['em_sources'][0]
+                sha = activity.digest(raw)
+                source['verification_receipt_sha256'] = sha
+                source['verification_receipt'] = f'{activity.STORE}/{self.activity_id}/readbacks/{sha}.json'
+                (self.root / source['verification_receipt']).write_bytes(raw)
+                with self.assertRaisesRegex(activity.ActivityError, 'duplicate JSON key'):
+                    activity._events(current, self.root)
+
+    def test_raw_receipt_rejects_non_json_constants_with_a_matching_outer_digest(self):
+        record = self.checkpoint('first')
+        for constant in (float('nan'), float('inf'), -float('inf')):
+            with self.subTest(constant=str(constant)):
+                observed = copy.deepcopy(self.source['readback'])
+                observed['invalid_extra'] = constant
+                raw = (json.dumps(observed, ensure_ascii=False, indent=2, sort_keys=True) + '\n').encode()
+                current = copy.deepcopy(record)
+                source = current['checkpoints'][0]['em_sources'][0]
+                sha = activity.digest(raw)
+                source['verification_receipt_sha256'] = sha
+                source['verification_receipt'] = f'{activity.STORE}/{self.activity_id}/readbacks/{sha}.json'
+                (self.root / source['verification_receipt']).write_bytes(raw)
+                with self.assertRaisesRegex(activity.ActivityError, 'non-JSON numeric constant'):
+                    activity._events(current, self.root)
+
+    def test_new_writer_keeps_canonical_json_and_rejects_non_json_constants(self):
+        source, receipt = activity._source(self.source, self.activity_id)
+        self.assertEqual(receipt[1], activity.encoded(self.source['readback']))
+        self.assertEqual(source['verification_receipt_sha256'], activity.digest(receipt[1]))
+        invalid = copy.deepcopy(self.source)
+        invalid['readback']['invalid_extra'] = float('nan')
+        with self.assertRaises(ValueError):
+            activity._source(invalid, self.activity_id)
+
+    def test_raw_receipt_digest_is_computed_once_per_validation(self):
+        raw = json.dumps(self.source['readback'], separators=(',', ':')).encode()
         sha = activity.digest(raw)
-        source['verification_receipt_sha256'] = sha
-        source['verification_receipt'] = f'{activity.STORE}/{self.activity_id}/readbacks/{sha}.json'
-        (self.root / source['verification_receipt']).write_bytes(raw)
-        with self.assertRaisesRegex(activity.ActivityError, 'stored source/verification fields drift'):
-            activity._events(record, self.root)
+        pin = tuple(self.source[key] for key in ('repository', 'commit', 'path', 'sha256'))
+        with patch.object(activity, 'digest', wraps=activity.digest) as digest:
+            accepted = activity._verify_readback(self.activity_id, sha, pin, raw)
+        self.assertEqual(sum(call.args[0] == raw for call in digest.call_args_list), 1)
+        self.assertEqual(sum(call.args[0] == b'first synthetic source\n' for call in digest.call_args_list), 1)
+        self.assertEqual(accepted['verification_receipt_sha256'], sha)
 
     def test_new_call_detects_deleted_sidecar(self):
         record = self.checkpoint('first')

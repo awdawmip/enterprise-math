@@ -153,12 +153,20 @@ deletion remain visible. This is operation-local reuse, with no process-wide LRU
 or stored validation certificate. The memo retains source metadata, not raw
 observation bodies.
 
-Stored receipt validation retains the existing canonical JSON receipt binding.
-Reuse the actual-byte digest for canonical receipt bytes; if serialization
-differs, calculate that distinct canonical digest before the original full-field
-comparison. A matching outer digest never skips content/blob/repo/ref/path,
-session, history, write-lock or CAS checks, and does not admit a receipt that the
-previous canonical-binding validation rejected.
+New sidecars use canonical JSON. A persisted receipt's path and SHA-256 identify
+its actual stored bytes, including the original whitespace and key order. The
+reader verifies that byte binding, parses unambiguous JSON, and checks every
+source and verification field; it never substitutes a re-encoded JSON digest
+for the stored identity. Duplicate keys and non-JSON numeric constants are
+rejected. A matching outer digest never skips full content/blob/repo/ref/path,
+immutable URL, tool-format, session, history, write-lock or CAS checks. Existing
+records and sidecars are not rewritten to adopt a different serialization.
+
+新旁证文件仍使用规范 JSON。已有文件的路径和 SHA-256 绑定其原始存储字节，
+包括空白和键顺序。读取时先核对原字节，再拒绝重复键和非 JSON 数值常量，
+并完整核验来源及观察字段；不能用重新序列化后的摘要替换原文件身份。
+来源内容、Git blob、仓库／提交／路径、不可变 URL、工具格式、原会话、
+历史顺序、写锁和 CAS 检查保持不变，也不改写旧记录或旧旁证文件。
 
 ## Startup, final boundary, and owner visibility
 
