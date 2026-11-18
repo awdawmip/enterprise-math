@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/twentyfirst/finite_hcm.md",
+    "ref": "9c509d306cd086cac9e18f5a144444118b71dea7",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-twentyone-20261118-11",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# AP 有限可交换矩的首个区间内反例与 254 阶截点\n\n取原 AP 树余子式 $\\tau_m(t)=t^{m-1}q_m(t)$，$d=(m-1)(2m-3)$，把冻结的归一化矩写成\n$$\n u_a=\\frac{(-1)^a[t^a]q_m(t)}{\\binom da\\,q_m(0)}\\qquad(0\\le a\\le d).\n$$\n其中 $u_0=1$，$q_m(0)>0$。考察长度为 $s$ 的可交换二元随机向量，要求其前 $a$ 个坐标全为 $1$ 的概率等于 $u_a$，$0\\le a\\le s$。在 $11\\le m\\le16$ 中，要求长度 $d$ 的这种概率解释**首次在 $m=13$ 失效**。在 $m=13$ 固定后，逐次保留前 $s$ 阶矩时，能用 $s$ 个坐标实现的最大 $s$ **恰为 254**。[冻结矩定义与有限可交换判据](../sixteenth/bernstein.md) · [原 AP 割线与余子式](https://github.com/awdawmip/enterprise-math/blob/1559dad7422d9ebcd9579ffaa9e53030a0e9540f/research_returns/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_RETURN_20260903.md)\n\n### 从树多项式读出唯一候选分布\n\n记 $P_j^{(s)}$ 为 $s$ 个坐标中恰有 $j$ 个 $1$ 的质量。有限包含排除给出\n$$\n P_j^{(s)}=\\binom sj\\sum_{r=0}^{s-j}(-1)^r\\binom{s-j}r u_{j+r}\n          =\\binom sj(-1)^{s-j}\\Delta^{s-j}u_j .\n$$\n给定各阶矩，以上是唯一可能的质量。它们的和是 $1$。若各项非负，将 $P_j^{(s)}$ 均匀分配到所有重量为 $j$ 的二元字，就得到所求分布。对最高阶 $s=d$，整个数组由一次平移读出：\n$$\n \\sum_{j=0}^d P_j^{(d)}z^j=\\frac{q_m(1-z)}{q_m(0)}.\n$$\n\n| $m$ | $d$ | 严格正的质量数 | 为零的质量数 | 负质量下标 |\n|---:|---:|---:|---:|---:|\n| 11 | 190 | 191 | 0 | 无 |\n| 12 | 231 | 232 | 0 | 无 |\n| 13 | 276 | 276 | 0 | 255 |\n\n在 $m=13$，这个唯一负质量满足严格有理界\n$$\n       -2157<10^{335}P_{255}^{(276)}<-2156 .\n$$\n由此 $(-1)^{21}\\Delta^{21}u_{255}<0$。HCM0 单独检查起点 $j=0$ 的差分，该条件在 $m=13$ 仍成立，到 $m=18$ 才首次失效。上表刻画的是对全部起点的有限概率解释。物理区间内 $q_m$ 的非消失性另有独立结论。[HCM0 与物理区间结论](physical_flow.md)\n\n### 为什么截点恰好为 254\n\n删除一个坐标可直接传递有符号质量：\n$$\n P_j^{(s-1)}\n  =\\frac{(s-j)P_j^{(s)}+(j+1)P_{j+1}^{(s)}}{s}.\n$$\n这是对所删坐标等于 $0$ 或 $1$ 分别计数，也可直接在包含排除恒等式中验证。对 $m=13$，从 $s=276$ 逐层删除，$s=276,275,\\ldots,255$ 的每一层都恰有一个负数，且始终在 $j=255$。在 $s=255$，该质量就是 $u_{255}$ 本身。于是任何含前 255 阶指定矩的概率实现都会给“前 255 个坐标全为 1”赋负概率，在更长向量中也一样。到 $s=254$ 时，全部 255 项严格为正。相邻两阶的定量见证是\n$$\n -9764<10^{367}u_{255}<-9763,\\qquad\n 6805<10^{352}\\min_{0\\le j\\le254}P_j^{(254)}<6806 .\n$$\n据此可构造 254 位可交换分布，再删坐标实现每个更小的 $s$。\n\n### 逐行消分母的精确整数证书\n\n令 $n=m-1$，$w_i=(-1)^i\\binom ni$，原边权为\n$$\n c_{ij}(t)=w_iw_j\\sum_{k=0}^n\\frac{w_k t^k}{1+i+mj+m^2k}.\n$$\n删掉末个右顶点后，对每一保留的顶点取其全部原始邻边分母的最小公倍数 $D_v$；包含通向已删顶点、但仍对对角度数有贡献的边。用 $D_v$ 乘对应行，所得整数多项式矩阵的行列式为 $C\\tau_m$，$C=\\prod_vD_v>0$。对 $t=1,\\ldots,d+1$ 直接求整数行列式，除以 $t^n$ 后，以 $x=t-1$ 为变量作 Newton 前向差分插值，得到 $G(x)\\in\\mathbf Z[x]$。另用 $t=d+2,\\ldots,n(2m-1)+1$ 复核 $C\\tau_m(t)=t^nG(t-1)$。树余子式的构造给出原始次数上界 $n(2m-1)$，这些点合起来足以验证整个多项式恒等式。\n\n于是 $G(-1)=Cq_m(0)>0$，正负号完全由整数 $(-1)^j[x^j]G$ 给出。程序还用已知首端闭式独立核对 $G(-1)$，并将删除递推得到的 $u_{255}$ 与 $-[t^{255}]G(t-1)/(\\binom{276}{255}G(-1))$ 精确比较。整个计算无需浮点近似。用 Python 3 和 python-flint 0.9.0 执行 <code>python finite_hcm_check.py</code>。输出记录符号计数、关键分数的严格界和完整归一化有理系数向量的摘要。[复算程序](finite_hcm_check.py) · [确定性证书](finite_hcm_checked.json)\n",
+      "display_title": "finite_hcm.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9c509d306cd086cac9e18f5a144444118b71dea7/research_notes/portable_direct/20261118_fair_queue_6b0fba/twentyfirst/finite_hcm.md",
+      "encoding": "utf-8",
+      "sha": "4993c0d039dc7794cd533e7bf36d412244227dec"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
