@@ -1,0 +1,63 @@
+{
+  "schema": "X6_UNIT130_ALWAYS_ON_NATIVE_VALIDATION_V1",
+  "source_git_blob_sha1": "d2b4ce1c13f90e31ca1167ee1eea1ef49c24b95d",
+  "historical_source_blob": "5d0f2cb88a0d4e437b5025e9050e3044f7831cd4",
+  "current_source_commit": "2a80ba850f65bd39ccc4bfa18dc4767e73435f55",
+  "mathematical_conditions_always_on": 14,
+  "full_original_output_sha256": "c7c06070d738fe78128ef2683cfcebf04195658bf2793993bed90e0bd7489dbc",
+  "degree_vectors_checked": 2493,
+  "signed_formula_states_checked": 5444,
+  "atomic_signed_triad_types": 160,
+  "two_event_histories": 25600,
+  "original_source_modes": [
+    {
+      "mode": "normal",
+      "clean_exit": 0,
+      "mutation_exit": 1
+    },
+    {
+      "mode": "-O",
+      "clean_exit": 0,
+      "mutation_exit": 0,
+      "mutation_false_pass": true
+    },
+    {
+      "mode": "-OO",
+      "clean_exit": 0,
+      "mutation_exit": 0,
+      "mutation_false_pass": true
+    }
+  ],
+  "test_modes": [
+    {
+      "mode": "normal",
+      "clean_exit": 0,
+      "clean_stdout_sha256": "c7c06070d738fe78128ef2683cfcebf04195658bf2793993bed90e0bd7489dbc",
+      "mutation_exit": 1,
+      "mutation_rejected_at": "unit130_guard_06"
+    },
+    {
+      "mode": "-O",
+      "clean_exit": 0,
+      "clean_stdout_sha256": "c7c06070d738fe78128ef2683cfcebf04195658bf2793993bed90e0bd7489dbc",
+      "mutation_exit": 1,
+      "mutation_rejected_at": "unit130_guard_06"
+    },
+    {
+      "mode": "-OO",
+      "clean_exit": 0,
+      "clean_stdout_sha256": "c7c06070d738fe78128ef2683cfcebf04195658bf2793993bed90e0bd7489dbc",
+      "mutation_exit": 1,
+      "mutation_rejected_at": "unit130_guard_06"
+    }
+  ],
+  "verified_test_runner_modes": [
+    "normal",
+    "-O",
+    "-OO"
+  ],
+  "runner_stdout_sha256": "4bba5b42e99a1e25e76fd24c1cabee458eb4f2a1bcce82bb0048c8837cc41989",
+  "controlled_fault": "set formula_signed_ordered(d) return to 0 only in temporary copy; leave actual Source original frozen; strict check rejects at guard_06",
+  "scope": "real existing active signed triadic decomposition module, not original R063 C3/C4 benchmark",
+  "author_status": "EXECUTED_UNREVIEWED_NOT_ADMITTED"
+}
