@@ -78,3 +78,18 @@ Time reversal is an operation on the declared directed finite transition carrier
 Run Python3 PREFIX894_R6_LCM_REVERSE_COVERAGE.py in any Python3 standard-library environment. It emits a complete JSON certificate with all 25 small-g exact counts and checks. The static result file PREFIX894_R6_LCM_REVERSE_RESULTS.json holds the exact expected values and original immutable source path references. Upstream scientific frontier is PREFIX-893 at research_notes/portable_direct/2026-11-18_r6_prefix893_closed_16_row_ff_coverage.md and the two PREFIX893 JSON inputs at the same directory.
 
 Next: incorporate U_S and the ZZ block into a deduplicated exclusion manifest, then classify new q1 rows outside S and the ZZ domain with PREFIX-891 endpoint and PREFIX-893 general FF witness construction. The wider frozen objective B_fix,odd(32) in {19,20} remains unresolved. Only a canonical live claim may authorize changing a shared X6 time-dynamics run; independent science is source-preserved separately.
+
+
+## Corollary 894-D: combine the independently proved single-axis family
+
+PREFIX-887 gives an additional exact parameter family: if q1 or q2 lies in A_32={odd q in Q: q divides 2^h-1 or 2^h+1 for some integer 1<=h<32}, then the original named observer has an axis-aligned FF collision. A complete exact divisibility pass gives |A_32|=24 and S intersect A_32 is empty; the 24 values are listed in the JSON certificate. Two implementations (iterative modular doubling and direct integer divisibility of 2^h±1) agree.
+
+Let T=S union A_32, so |T|=40. Every pair with at least one port in T has a collision, using either PREFIX-893/894-A time reversal or PREFIX-887 axis witnesses. The two-port union now contains 2*40*131072-40^2=10484160 pairs.
+
+The number of ZZ-positive pairs touching T in the first port is 108342, and the T×T ZZ-positive intersection is 142; thus the ZZ-positive block with neither port in T has 209050784-(2*108342-142)=208834242 inputs.
+
+**The stronger, disjoint certified total is**
+
+   10484160 + 208834242 = 219318402
+
+ordered pairs, leaving at most 16960550782 unexcluded by THIS combined certificate. This supersedes the earlier U_S-only count as the latest PREFIX-894 coverage total. The 219318402 parameter pairs each have an explicit certificate construction or a cited earlier certified witness; global uniqueness/exhaustion of the remaining 19-bit domain is still the next science frontier. The project-native verification code and result JSON have been extended and read back at a new immutable Git commit.

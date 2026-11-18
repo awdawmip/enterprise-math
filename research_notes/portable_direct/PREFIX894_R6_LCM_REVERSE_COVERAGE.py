@@ -119,6 +119,31 @@ def main():
     assert (small_total, high_total, full_zz) == (100280938,108769846,209050784)
     assert (one, double, zz_outside_s) == (15250,22,209020306)
     assert (panel_union, combined) == (4194048,213214354)
+    # Independently certified axis-aligned collision family (PREFIX-887).
+    axis = [q for q in range(A, B + 1, 2)
+            if any(pow(2, h, q) in (1, q - 1) for h in range(1, 32))]
+    # A second, explicit integer-divisibility algorithm is a complete crosscheck.
+    direct_axis = [q for q in range(A, B + 1, 2)
+                   if any(((1 << h) - 1) % q == 0 or
+                          ((1 << h) + 1) % q == 0 for h in range(1, 32))]
+    assert axis == direct_axis and len(axis) == 24
+    assert not (set(axis) & set(S))
+    t_set = tuple(sorted(set(S) | set(axis)))
+    cross_t = sum(zz(s, q) for s in t_set for q in range(A, B + 1, 2))
+    double_t = sum(zz(s, v) for s in t_set for v in t_set)
+    axis_panel = 2 * len(t_set) * SIZE - len(t_set) ** 2
+    zz_outside_t = full_zz - (2 * cross_t - double_t)
+    stronger_union = axis_panel + zz_outside_t
+    assert (cross_t, double_t, axis_panel) == (108342, 142, 10484160)
+    assert (zz_outside_t, stronger_union) == (208834242, 219318402)
+    answer.update(axis_aligned_moduli=axis,
+                  combined_axis_and_predecessor_rows=len(t_set),
+                  combined_axis_and_predecessor_panel=axis_panel,
+                  combined_rows_zz_one_sided=cross_t,
+                  combined_rows_zz_double=double_t,
+                  zz_outside_combined_rows=zz_outside_t,
+                  stronger_proven_union=stronger_union,
+                  remaining_after_stronger_union=SIZE*SIZE-stronger_union)
     print(json.dumps(answer, indent=2, ensure_ascii=False))
 if __name__ == "__main__":
     main()
