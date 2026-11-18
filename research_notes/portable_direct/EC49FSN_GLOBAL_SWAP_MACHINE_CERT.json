@@ -1,0 +1,441 @@
+{
+  "schema": "EC49FSN_FULL_Z_SWAP_ALL228_EXACT_CERTIFICATE_V1",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "model": {
+    "raw_configurations": 310,
+    "named_joint_profiles": 141,
+    "physical_named_observers": 228,
+    "prior": "uniform",
+    "fully_adaptive_complete_identification": true
+  },
+  "definition": "F(a,b,z)=141 V/t; q32=(1-a)t, q34=(1-b)t, q140=(1-z)t, other observers=t, t>0",
+  "cases": {
+    "A": {
+      "a": "1/2",
+      "b": "7/16",
+      "phases": [
+        {
+          "z": [
+            "0",
+            "1/6"
+          ],
+          "counts": [
+            306,
+            141,
+            41,
+            4
+          ],
+          "tree_sha256": "ad7047debd6d04d3c076eef6d593b7de4d50879a671a439760d4d436210cc767",
+          "root": 32,
+          "max_depth": 4
+        },
+        {
+          "z": [
+            "1/6",
+            "1/3"
+          ],
+          "counts": [
+            307,
+            141,
+            41,
+            10
+          ],
+          "tree_sha256": "8b5e58dba1a6ecab2d645e18745e6ddf5a1346a661c33351b7c1f0418d26f16c",
+          "root": 32,
+          "max_depth": 4
+        },
+        {
+          "z": [
+            "1/3",
+            "11/32"
+          ],
+          "counts": [
+            309,
+            141,
+            41,
+            16
+          ],
+          "tree_sha256": "9c590fc942ace4c43f182ea1347b20f8168f4086f52f30a4138014593fd31c93",
+          "root": 32,
+          "max_depth": 4
+        },
+        {
+          "z": [
+            "11/32",
+            "107/248"
+          ],
+          "counts": [
+            313,
+            141,
+            47,
+            20
+          ],
+          "tree_sha256": "952387a26d9d82d5fbdda8cef3a428edce85d0d21c213b2cf2c0816f17177ce2",
+          "root": 32,
+          "max_depth": 4
+        },
+        {
+          "z": [
+            "107/248",
+            "67/144"
+          ],
+          "counts": [
+            311,
+            28,
+            141,
+            51
+          ],
+          "tree_sha256": "88c28bb0eeb80fad415443803637c3ef078a662006d740ae3604528cec0ec30f",
+          "root": 34,
+          "max_depth": 3
+        },
+        {
+          "z": [
+            "67/144",
+            "1"
+          ],
+          "counts": [
+            319,
+            18,
+            75,
+            141
+          ],
+          "tree_sha256": "f6854068c15fc02323cf7584f2e39a81b720f7ca02cfc20a434f6a6d38652899",
+          "root": 140,
+          "max_depth": 3
+        }
+      ],
+      "bellman_vertices": [
+        {
+          "z": "0",
+          "F": "3481/16"
+        },
+        {
+          "z": "1/6",
+          "F": "10411/48"
+        },
+        {
+          "z": "1/3",
+          "F": "10331/48"
+        },
+        {
+          "z": "11/32",
+          "F": "3441/16"
+        },
+        {
+          "z": "107/248",
+          "F": "105801/496"
+        },
+        {
+          "z": "67/144",
+          "F": "2539/12"
+        },
+        {
+          "z": "1",
+          "F": "2179/16"
+        }
+      ]
+    },
+    "B": {
+      "a": "7/16",
+      "b": "1/2",
+      "phases": [
+        {
+          "z": [
+            "0",
+            "15/112"
+          ],
+          "counts": [
+            306,
+            41,
+            141,
+            10
+          ],
+          "tree_sha256": "db669e0116a1816bbf53fed6cb1bc07a4549ef9665637433e05c059936ff9742",
+          "root": 34,
+          "max_depth": 4
+        },
+        {
+          "z": [
+            "15/112",
+            "1/6"
+          ],
+          "counts": [
+            303,
+            32,
+            141,
+            17
+          ],
+          "tree_sha256": "c43c37dfca7f748b0e4acadcd69c8be5e8c5bdeb3a0515c6c7e8c796250042e2",
+          "root": 34,
+          "max_depth": 3
+        },
+        {
+          "z": [
+            "1/6",
+            "1/4"
+          ],
+          "counts": [
+            305,
+            32,
+            141,
+            29
+          ],
+          "tree_sha256": "99c8731a0e6499e70278318237d06576d3b347fb47e885b6467a2d82fd5541ec",
+          "root": 34,
+          "max_depth": 3
+        },
+        {
+          "z": [
+            "1/4",
+            "5/14"
+          ],
+          "counts": [
+            304,
+            28,
+            141,
+            32
+          ],
+          "tree_sha256": "df7cb044a0d2ac4a7bf6460b0b0311bbe352cfd1b695f1713a915b1e2e9b3ec1",
+          "root": 34,
+          "max_depth": 3
+        },
+        {
+          "z": [
+            "5/14",
+            "2/5"
+          ],
+          "counts": [
+            309,
+            28,
+            141,
+            46
+          ],
+          "tree_sha256": "3e018ff9aa85a1d18a666af0697b11e737b8c3291d301f4ea741346ce2fe3f28",
+          "root": 34,
+          "max_depth": 3
+        },
+        {
+          "z": [
+            "2/5",
+            "7/16"
+          ],
+          "counts": [
+            311,
+            28,
+            141,
+            51
+          ],
+          "tree_sha256": "88c28bb0eeb80fad415443803637c3ef078a662006d740ae3604528cec0ec30f",
+          "root": 34,
+          "max_depth": 3
+        },
+        {
+          "z": [
+            "7/16",
+            "1/2"
+          ],
+          "counts": [
+            311,
+            10,
+            141,
+            69
+          ],
+          "tree_sha256": "fbdeccb86a78fa12a8561383acf90c63b6af4fb8ee93ceacf36b0537b18036ae",
+          "root": 34,
+          "max_depth": 3
+        },
+        {
+          "z": [
+            "1/2",
+            "265/512"
+          ],
+          "counts": [
+            315,
+            10,
+            141,
+            77
+          ],
+          "tree_sha256": "b3cd18295c21fe13127ba07d2bb5303e83b5d2e3b625c6346d91f4e94511ac43",
+          "root": 34,
+          "max_depth": 3
+        },
+        {
+          "z": [
+            "265/512",
+            "1"
+          ],
+          "counts": [
+            321,
+            12,
+            85,
+            141
+          ],
+          "tree_sha256": "b3030e6af75265bfd070f33c93553e1bbcd1758024703eeab10b7d2e309cdb89",
+          "root": 140,
+          "max_depth": 3
+        }
+      ],
+      "bellman_vertices": [
+        {
+          "z": "0",
+          "F": "3481/16"
+        },
+        {
+          "z": "15/112",
+          "F": "24217/112"
+        },
+        {
+          "z": "1/6",
+          "F": "647/3"
+        },
+        {
+          "z": "1/4",
+          "F": "853/4"
+        },
+        {
+          "z": "5/14",
+          "F": "5875/28"
+        },
+        {
+          "z": "2/5",
+          "F": "4157/20"
+        },
+        {
+          "z": "7/16",
+          "F": "3295/16"
+        },
+        {
+          "z": "1/2",
+          "F": "1613/8"
+        },
+        {
+          "z": "265/512",
+          "F": "102539/512"
+        },
+        {
+          "z": "1",
+          "F": "529/4"
+        }
+      ]
+    }
+  },
+  "difference_intervals": [
+    {
+      "z": [
+        "0",
+        "15/112"
+      ],
+      "D_left": "0",
+      "D_right": "45/56"
+    },
+    {
+      "z": [
+        "15/112",
+        "1/6"
+      ],
+      "D_left": "45/56",
+      "D_right": "59/48"
+    },
+    {
+      "z": [
+        "1/6",
+        "1/4"
+      ],
+      "D_left": "59/48",
+      "D_right": "45/16"
+    },
+    {
+      "z": [
+        "1/4",
+        "1/3"
+      ],
+      "D_left": "45/16",
+      "D_right": "223/48"
+    },
+    {
+      "z": [
+        "1/3",
+        "11/32"
+      ],
+      "D_left": "223/48",
+      "D_right": "77/16"
+    },
+    {
+      "z": [
+        "11/32",
+        "5/14"
+      ],
+      "D_left": "77/16",
+      "D_right": "557/112"
+    },
+    {
+      "z": [
+        "5/14",
+        "2/5"
+      ],
+      "D_left": "557/112",
+      "D_right": "487/80"
+    },
+    {
+      "z": [
+        "2/5",
+        "107/248"
+      ],
+      "D_left": "487/80",
+      "D_right": "113/16"
+    },
+    {
+      "z": [
+        "107/248",
+        "7/16"
+      ],
+      "D_left": "113/16",
+      "D_right": "113/16"
+    },
+    {
+      "z": [
+        "7/16",
+        "67/144"
+      ],
+      "D_left": "113/16",
+      "D_right": "121/16"
+    },
+    {
+      "z": [
+        "67/144",
+        "1/2"
+      ],
+      "D_left": "121/16",
+      "D_right": "81/16"
+    },
+    {
+      "z": [
+        "1/2",
+        "265/512"
+      ],
+      "D_left": "81/16",
+      "D_right": "63/16"
+    },
+    {
+      "z": [
+        "265/512",
+        "1"
+      ],
+      "D_left": "63/16",
+      "D_right": "63/16"
+    }
+  ],
+  "theorem": "For every real 0<z<=1, F(1/2,7/16,z)>F(7/16,1/2,z); at z=0 both equal 3481/16.",
+  "proof_principle": "Exact unrestricted Bellman optimum at each 7+10 rational affine phase boundary; saved full native tree attains each boundary chord; concavity of infimum of feasible affine tree costs yields equality for every real z between adjacent certified boundaries.",
+  "scope": {
+    "primary": "17/17 exact Bellman endpoints; 15/15 full named-state witnesses; 13/13 rational difference intervals",
+    "independent": "PARTIAL: local second original-family decoder at A z=0 and 1/6; inherited FSL2 independent z=0 and 1/32 for A/B",
+    "review": "NOT_REVIEWED"
+  },
+  "source_parent": {
+    "pr": 2704,
+    "commit": "d499d8db88bf509be290a29253a2f96f1e0a9774"
+  },
+  "tree_bundle": "EC49FSN_ALL_15_NATIVE_TREES_JSON_ZLIB_BASE64.txt"
+}
