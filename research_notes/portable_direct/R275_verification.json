@@ -1,0 +1,178 @@
+{
+  "status": "PASS",
+  "prime": 13,
+  "checked_t_range": [
+    1,
+    8
+  ],
+  "cases_per_t": 3,
+  "exact_independent_determinant_checks": 24,
+  "witness": {
+    "baseline": "16/13",
+    "after_edge_addition_A": "32/25",
+    "after_edge_addition_B": "4/3"
+  },
+  "cases": [
+    {
+      "t": 1,
+      "cases": {
+        "bouquet": {
+          "v13_determinant": 1,
+          "v13_star00": -1,
+          "mod13_normalized": 1
+        },
+        "fixed_cross": {
+          "v13_determinant": 0,
+          "v13_star00": 0,
+          "mod13_normalized": 6
+        },
+        "depth_t_cross": {
+          "v13_determinant": 1,
+          "v13_star00": -1,
+          "mod13_normalized": 10
+        }
+      }
+    },
+    {
+      "t": 2,
+      "cases": {
+        "bouquet": {
+          "v13_determinant": 2,
+          "v13_star00": -2,
+          "mod13_normalized": 1
+        },
+        "fixed_cross": {
+          "v13_determinant": 0,
+          "v13_star00": 0,
+          "mod13_normalized": 6
+        },
+        "depth_t_cross": {
+          "v13_determinant": 2,
+          "v13_star00": -2,
+          "mod13_normalized": 10
+        }
+      }
+    },
+    {
+      "t": 3,
+      "cases": {
+        "bouquet": {
+          "v13_determinant": 3,
+          "v13_star00": -3,
+          "mod13_normalized": 1
+        },
+        "fixed_cross": {
+          "v13_determinant": 0,
+          "v13_star00": 0,
+          "mod13_normalized": 6
+        },
+        "depth_t_cross": {
+          "v13_determinant": 3,
+          "v13_star00": -3,
+          "mod13_normalized": 10
+        }
+      }
+    },
+    {
+      "t": 4,
+      "cases": {
+        "bouquet": {
+          "v13_determinant": 4,
+          "v13_star00": -4,
+          "mod13_normalized": 1
+        },
+        "fixed_cross": {
+          "v13_determinant": 0,
+          "v13_star00": 0,
+          "mod13_normalized": 6
+        },
+        "depth_t_cross": {
+          "v13_determinant": 4,
+          "v13_star00": -4,
+          "mod13_normalized": 10
+        }
+      }
+    },
+    {
+      "t": 5,
+      "cases": {
+        "bouquet": {
+          "v13_determinant": 5,
+          "v13_star00": -5,
+          "mod13_normalized": 1
+        },
+        "fixed_cross": {
+          "v13_determinant": 0,
+          "v13_star00": 0,
+          "mod13_normalized": 6
+        },
+        "depth_t_cross": {
+          "v13_determinant": 5,
+          "v13_star00": -5,
+          "mod13_normalized": 10
+        }
+      }
+    },
+    {
+      "t": 6,
+      "cases": {
+        "bouquet": {
+          "v13_determinant": 6,
+          "v13_star00": -6,
+          "mod13_normalized": 1
+        },
+        "fixed_cross": {
+          "v13_determinant": 0,
+          "v13_star00": 0,
+          "mod13_normalized": 6
+        },
+        "depth_t_cross": {
+          "v13_determinant": 6,
+          "v13_star00": -6,
+          "mod13_normalized": 10
+        }
+      }
+    },
+    {
+      "t": 7,
+      "cases": {
+        "bouquet": {
+          "v13_determinant": 7,
+          "v13_star00": -7,
+          "mod13_normalized": 1
+        },
+        "fixed_cross": {
+          "v13_determinant": 0,
+          "v13_star00": 0,
+          "mod13_normalized": 6
+        },
+        "depth_t_cross": {
+          "v13_determinant": 7,
+          "v13_star00": -7,
+          "mod13_normalized": 10
+        }
+      }
+    },
+    {
+      "t": 8,
+      "cases": {
+        "bouquet": {
+          "v13_determinant": 8,
+          "v13_star00": -8,
+          "mod13_normalized": 1
+        },
+        "fixed_cross": {
+          "v13_determinant": 0,
+          "v13_star00": 0,
+          "mod13_normalized": 6
+        },
+        "depth_t_cross": {
+          "v13_determinant": 8,
+          "v13_star00": -8,
+          "mod13_normalized": 10
+        }
+      }
+    }
+  ],
+  "source_note": "Exact rational check by Python Fraction, independent determinant elimination; regeneration: python R275_shared_port_cycles_checker.py"
+}
