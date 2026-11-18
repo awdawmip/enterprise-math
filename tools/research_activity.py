@@ -32,6 +32,13 @@ MODES = ("TASK_RESEARCH", "FREE_AXIOM_DISCOVERY", "UNKNOWN_RESEARCH")
 NO_AUTHORITY = {name: False for name in (
     "task_registration", "claim", "review", "working_truth", "mathematical_acceptance"
 )}
+# Exact connector operation labels, not a wildcard or a source of authority.
+# Keep the observed label in summaries and receipt bytes; never normalize it.
+OBSERVATION_TOOL_KINDS = {
+    "github_fetch_file": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+    "mcp__GitHub__fetch_file": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+    "em_mcp_github_contents": "OBSERVED_MCP_GITHUB_API_STRUCTURE_AND_BYTES_VERIFIED",
+}
 
 
 class ActivityError(ValueError):
@@ -164,7 +171,8 @@ def register(*, root: Path = ROOT, **kwargs: Any) -> dict[str, Any]:
 
 def verify_observation(observation: Any, pin: Mapping[str, Any]) -> dict[str, Any]:
     """Check the full observed connector response, not a caller's success flag."""
-    if not isinstance(observation, dict) or observation.get("tool_name") not in {"github_fetch_file", "em_mcp_github_contents"}:
+    if (not isinstance(observation, dict) or not isinstance(observation.get("tool_name"), str)
+            or observation["tool_name"] not in OBSERVATION_TOOL_KINDS):
         raise ActivityError("VERIFY_EM_PUBLICATION: full github_fetch_file observation required")
     transport = observation["tool_name"]
     args = observation.get("arguments", {})
@@ -212,7 +220,7 @@ def verify_observation(observation: Any, pin: Mapping[str, Any]) -> dict[str, An
     for key, value in (("observation_id", observation_id), ("call_id", call_id)):
         if value is not None:
             _text(value, key)
-    return {"kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED" if transport == "github_fetch_file" else "OBSERVED_MCP_GITHUB_API_STRUCTURE_AND_BYTES_VERIFIED", "tool_name": transport,
+    return {"kind": OBSERVATION_TOOL_KINDS[transport], "tool_name": transport,
             "observation_id": observation_id, "call_id": call_id, "git_blob_sha1": git_blob,
             "immutable_url": url, "network_request_by_this_tool": False,
             "server_signature_authenticated": False}
@@ -279,9 +287,9 @@ def _checked_source(source: Any, activity_id: str, root: Path,
         if (source.get("publication_state") != "EM_SOURCE_OBSERVED"
                 or not isinstance(verification, dict) or not required <= verification.keys()
                 or verification.keys() - required - optional
-                or (verification["kind"], verification["tool_name"]) not in {
-                    ("OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED", "github_fetch_file"),
-                    ("OBSERVED_MCP_GITHUB_API_STRUCTURE_AND_BYTES_VERIFIED", "em_mcp_github_contents")}
+                or not isinstance(verification["tool_name"], str)
+                or verification["tool_name"] not in OBSERVATION_TOOL_KINDS
+                or verification["kind"] != OBSERVATION_TOOL_KINDS[verification["tool_name"]]
                 or verification["server_signature_authenticated"] is not False
                 or verification.get("network_request_by_this_tool", False) is not False
                 or verification["immutable_url"] != f"https://github.com/{base['repository']}/blob/{base['commit']}/{base['path']}"):
