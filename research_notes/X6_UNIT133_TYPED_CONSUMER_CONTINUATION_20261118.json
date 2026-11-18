@@ -1,0 +1,122 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-18",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "highest_author_frontier": {
+    "unit": 133,
+    "status": "AUTHOR-SOURCE-AUDITED / EXACT-INTEGER-EXECUTED / PARTIAL-CORPUS / UNREVIEWED / NOT_ADMITTED",
+    "result": "6 verified historical/current source-line consumer claim dispositions X6-CL-009 through 014 appended without overwriting original 8-entry ledger; three-mode executable integer certificate verified."
+  },
+  "verified_outputs": [
+    {
+      "path": "research_notes/X6_UNIT133_R061_R062_R063_TRIADIC_SOURCE_CONSUMER_CROSSWALK_20261118.md",
+      "commit": "8ce797d813141b4b4ca016252ae89004349c417e",
+      "blob": "4cc28192111ba16e950bcd57837c6daff4734468",
+      "readback_verified": true
+    },
+    {
+      "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit133_delta.json",
+      "commit": "aa88ce4ef6e5c4d9ab2adc58c0016ff029cec80e",
+      "blob": "012917774f46f42cb8795a07b7a300a16685dea4",
+      "readback_verified": true
+    },
+    {
+      "path": "research_checks/X6_UNIT133_CROSSWALK_INTEGER_WITNESSES_20261118.py",
+      "commit": "6ef062c2b22c8c71cbdea0f06ef3aa9e5e0598fb",
+      "blob": "566696568c0f1eb0ea21a8400eb356ef54654e73",
+      "readback_verified": true
+    },
+    {
+      "path": "research_checks/X6_UNIT133_CROSSWALK_INTEGER_WITNESSES_RESULTS_20261118.json",
+      "commit": "d2ffadb043db8f185bf552ae25ccda6682dfbdb0",
+      "blob": "a007a84dd2f758decf7296776500d5a813f9c0a2",
+      "readback_verified": true
+    }
+  ],
+  "validation": {
+    "python_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "stdout_sha256": "7c2992718503ae30e884c1e0bc9d8b380fb98d9b3694223e975d6489754d78d5",
+    "original_cert_match": true
+  },
+  "previous_frontier": {
+    "unit": 132,
+    "path": "research_notes/X6_UNIT132_CLAIM_LEDGER_SOURCE_CONTINUATION_20261118.json",
+    "commit": "919cd6838cc4a6a7a58d3fd3ba264e8a18e32d13"
+  },
+  "original_ledger": {
+    "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger.json",
+    "commit": "5c0b23c9c8aec48fb64f632936cb3eb44efb6d0a",
+    "blob": "dd320430dd8a107db0d1a5ba44e061aa150fa6f0",
+    "entry_count": 8,
+    "modified_in_unit133": false
+  },
+  "activity": {
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "entry_count": 147,
+    "commit": "599b95cb0ec65d40522e09e9433e5ea0905592d4",
+    "blob": "f2ac42cc50bbb3ebf39e3981d4ab0a5cbfe9a265"
+  },
+  "historic_owner": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-3e221a50dc8818f914e228f6",
+    "run_id": "RUN-95866d78d35721116c362956",
+    "generation": 9,
+    "revision": 10,
+    "current_authorization": "UNVERIFIED"
+  },
+  "control_requests": [
+    {
+      "id": "onhour-20261118-1707-x6-own-units126-127-native-progress-v1",
+      "terminal": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED",
+      "source_sha": "8d9653f5b52e1717b02eb286ff0f9a516f1a6003"
+    },
+    {
+      "id": "onhour-20261118-1800-x6-own-exact-cont-after-unit131-v1",
+      "terminal": "FAILED",
+      "error": "CANONICAL_REJECTED: custody originals must remain outside canonical logical paths"
+    },
+    {
+      "id": "onhour-20261118-1806-own-run9586-after-unit132-resume-v1",
+      "terminal": "FAILED",
+      "error": "CANONICAL_REJECTED: custody originals must remain outside canonical logical paths"
+    },
+    {
+      "id": "onhour-20261118-1858-x6-exact-continuation-read",
+      "terminal": "FAILED",
+      "error": "CANONICAL_REJECTED: custody originals must remain outside canonical logical paths"
+    }
+  ],
+  "native_progress_units128_133": "NOT_SUBMITTED_UNAUTHORIZED_PENDING_CURRENT_OWN_CLAIM",
+  "unresolved": [
+    "Full 28-LP downstream consumer corpus/source-line coverage still partial",
+    "Alleged historical LP011 signed argmax and LP019 positive subtraction exact original pre-rebase callsites remain unresolved provenance",
+    "Driver REQUEST_REVISION and independent R063 six-file original 512-case benchmark review via Issue #2416",
+    "Current native canonical custody originals path configuration/source check fails; original owner needs lawful fix and fresh authority readback"
+  ],
+  "next_action": "Continue exact bounded historical/current 28-LP consumer source-line audit without redoing completed units; resolve Source custody-originals canonical-path validation through approved owner path; verify own exact continuation and current claim before native PROGRESS for Units128–133. Preserve scheduled Research lane enabled and separate maintenance identity.",
+  "do_not_repeat": [
+    "Completed Units1–132 and new Unit133",
+    "original R063 512-case benchmark",
+    "original failed requests and foreign owner credentials",
+    "existing 8-entry ledger overwrite without authorized conflict reconciliation"
+  ],
+  "continuation_state": "OPEN",
+  "review_status": "AUTHOR_UNREVIEWED_NOT_ADMITTED",
+  "global_knowledge_main_read_ref": "7ced3ad587938df28e235f4402f50f2d3a0ed99d"
+}
