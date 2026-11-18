@@ -1,0 +1,144 @@
+{
+  "schema": "EM_PORTABLE_EXACT_CERT_V1",
+  "research_id": "R749SUU",
+  "date": "2026-11-18",
+  "model": "WBRC-T30–T32 auxiliary named two-Port Q=+1 integer observer",
+  "frozen_input": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:definitions/ENTERPRISE_BRC_RECURRENT_PORT_FOUNDATION_20260903.md",
+  "theorem": "For M=t^2, t>=3: unique unordered optimizer at n=t^2+1 iff t=r(r+1)+1 (r>=1) or t=2k^2 (k>=2); otherwise n=t^2.",
+  "evidence_status": "AUTHOR_EXACT_NOT_REVIEWED",
+  "validation": {
+    "method": "exact Python standard-library integer comparison of closed form against an exhaustive all-pair oracle and separately an endpoint-factor oracle",
+    "all_pairs_t_min": 3,
+    "all_pairs_t_max": 70,
+    "all_pairs_input_count": 68,
+    "endpoint_t_min": 3,
+    "endpoint_t_max": 2200,
+    "endpoint_input_count": 2198,
+    "zero_gap_count_through_2200": 78,
+    "odd_family_count_through_2200": 46,
+    "even_family_count_through_2200": 32,
+    "zero_gap_count_formula": "(isqrt(4*T-3)-1)//2 + isqrt(T//2)-1 (T>=3)",
+    "polynomial_differences_checked_t_min": 3,
+    "polynomial_differences_checked_t_max": 99,
+    "result": "PASS",
+    "witness_scope": "Verification is finite; proof in companion Markdown establishes all t>=3.",
+    "large_integer_encoding": "Exact decimal strings for values greater than 2^53-1"
+  },
+  "samples": [
+    {
+      "t": 3,
+      "M": 9,
+      "B": 10,
+      "x": 2,
+      "y": 5,
+      "n": 10,
+      "gap": 0,
+      "score": 252
+    },
+    {
+      "t": 4,
+      "M": 16,
+      "B": 17,
+      "x": 4,
+      "y": 4,
+      "n": 16,
+      "gap": 1,
+      "score": 1815
+    },
+    {
+      "t": 5,
+      "M": 25,
+      "B": 26,
+      "x": 5,
+      "y": 5,
+      "n": 25,
+      "gap": 1,
+      "score": 8664
+    },
+    {
+      "t": 7,
+      "M": 49,
+      "B": 50,
+      "x": 5,
+      "y": 10,
+      "n": 50,
+      "gap": 0,
+      "score": 84084
+    },
+    {
+      "t": 8,
+      "M": 64,
+      "B": 65,
+      "x": 5,
+      "y": 13,
+      "n": 65,
+      "gap": 0,
+      "score": 192576
+    },
+    {
+      "t": 13,
+      "M": 169,
+      "B": 170,
+      "x": 10,
+      "y": 17,
+      "n": 170,
+      "gap": 0,
+      "score": 4084392
+    },
+    {
+      "t": 18,
+      "M": 324,
+      "B": 325,
+      "x": 13,
+      "y": 25,
+      "n": 325,
+      "gap": 0,
+      "score": 30128436
+    },
+    {
+      "t": 21,
+      "M": 441,
+      "B": 442,
+      "x": 17,
+      "y": 26,
+      "n": 442,
+      "gap": 0,
+      "score": 77598360
+    },
+    {
+      "t": 70,
+      "M": 4900,
+      "B": 4901,
+      "x": 70,
+      "y": 70,
+      "n": 4900,
+      "gap": 1,
+      "score": 114240961659
+    },
+    {
+      "t": 200,
+      "M": 40000,
+      "B": 40001,
+      "x": 181,
+      "y": 221,
+      "n": 40001,
+      "gap": 0,
+      "score": 63358400040000
+    },
+    {
+      "t": 2200,
+      "M": 4840000,
+      "B": 4840001,
+      "x": 2200,
+      "y": 2200,
+      "n": 4840000,
+      "gap": 1,
+      "score": "113276784551401675599"
+    }
+  ],
+  "caveats": [
+    "Global nonstandard-optimum transfer for t>=11 relies on upstream unreviewed R749SUO sign classification.",
+    "No native-X6 event/time or triadic-closure interpretation is asserted.",
+    "No shared CLAIM, Result or independent review."
+  ]
+}
