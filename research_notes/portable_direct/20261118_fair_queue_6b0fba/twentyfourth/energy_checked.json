@@ -1,0 +1,78 @@
+{
+  "original_unchanged_replay": {
+    "verifier_sha256": "df49a8cd07f84375466ff9e003ac7c96044936e5b9e5b5a73cb62165bb1ae436",
+    "stdout_sha256": "0680ff7f9d2bd5d1ad4c7a4a9a8196d485ccf21c9a4ea4a3d7e83139e8ea4f5b",
+    "exit_code": 0,
+    "stdout_json": {
+      "prime_only_lower_squared": "549980544461335314637000615/22936449866115041739513080208",
+      "candidate_intervals": {
+        "10": [
+          "238598165411963/10000000000000000",
+          "238619925900129411963/10000010000000000000000"
+        ],
+        "60": [
+          "114871466661211/10000000000000000",
+          "6959420990178109399312101903847180047457/602740401800231854192793760000000000000000"
+        ],
+        "100": [
+          "25504305775939/2500000000000000",
+          "11628619870241667643730020973145155195649921435175868163847036878602819752945530563128684493/1131290803484048019172597846307354690462905457003828125281347287972504366821888000000000000000"
+        ]
+      },
+      "status": "EXACT_CHECK_PASS"
+    }
+  },
+  "independent_road": {
+    "thickness": 1,
+    "last_horizon": 36,
+    "exact_symbolic_identities": 35,
+    "profiled_energies": {
+      "2": {
+        "lower_floor_1e12": 0,
+        "upper_ceil_1e12": 0
+      },
+      "3": {
+        "lower_floor_1e12": 27966503842,
+        "upper_ceil_1e12": 27966503843
+      },
+      "8": {
+        "lower_floor_1e12": 272519954519,
+        "upper_ceil_1e12": 272519954520
+      },
+      "16": {
+        "lower_floor_1e12": 501076438523,
+        "upper_ceil_1e12": 501076438524
+      },
+      "32": {
+        "lower_floor_1e12": 712057130745,
+        "upper_ceil_1e12": 712057130746
+      },
+      "36": {
+        "lower_floor_1e12": 744727104687,
+        "upper_ceil_1e12": 744727104688
+      }
+    }
+  },
+  "sharp_synthetic_poles": [
+    {
+      "order": 1,
+      "coefficient_times_alpha": "1",
+      "critical_coefficient": "1"
+    },
+    {
+      "order": 2,
+      "coefficient_times_alpha": "1",
+      "critical_coefficient": "1/3"
+    },
+    {
+      "order": 3,
+      "coefficient_times_alpha": "1/4",
+      "critical_coefficient": "1/20"
+    },
+    {
+      "order": 4,
+      "coefficient_times_alpha": "1/36",
+      "critical_coefficient": "1/252"
+    }
+  ]
+}

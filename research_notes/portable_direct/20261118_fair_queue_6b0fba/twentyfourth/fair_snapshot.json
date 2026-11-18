@@ -1,0 +1,756 @@
+{
+  "source_main": "baa2e081153260c7659466b4fa186ff308a7b0d9",
+  "source_main_url": "https://github.com/awdawmip/enterprise-math/tree/baa2e081153260c7659466b4fa186ff308a7b0d9",
+  "checked_at": "2026-11-18T17:32:33.039276+00:00",
+  "issue": {
+    "url": "https://github.com/awdawmip/enterprise-math/issues/240",
+    "raw_comments": 1610,
+    "recognized_events": 1438,
+    "latest_comment_id": 6986136766,
+    "latest_comment_time": "2026-11-18T17:23:17Z",
+    "latest_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6986136766",
+    "new_authenticated_events_since_previous_late_readback": 0
+  },
+  "verification": {
+    "all_registry_rows": 518,
+    "research_rows": 474,
+    "method": "Independent 518-row one-clock bulk evaluation of the functions resolved by effective_states, with result-read snapshot and parent-task enrichment. Re-reduced every active lease as well as the recently expired triadic task separately, and compared all 518 rows to the preceding publication-time readback and the fresh full replay.",
+    "bulk_reducer_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/tools/research_dispatch_core.py#L842",
+    "previous_snapshot_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_notes/portable_direct/20261118_fair_queue_6b0fba/twentythird/fair_snapshot.json",
+    "previous_late_checked_at": "2026-11-18T17:25:16.435361+00:00",
+    "compared_from_main": "f8ebfc412b90b8a293970d4f4efcd5c53b87a6b9",
+    "source_compare_url": "https://github.com/awdawmip/enterprise-math/compare/f8ebfc412b90b8a293970d4f4efcd5c53b87a6b9...baa2e081153260c7659466b4fa186ff308a7b0d9",
+    "compared_commits": 6,
+    "changed_paths": 50,
+    "changed_blobs_verified": 50,
+    "changed_activity_paths": 19,
+    "selected_taskbook_publication_result_or_reducer_changes": false,
+    "incremental_comparison": {
+      "rows": 518,
+      "fields": [
+        "kind",
+        "priority",
+        "state",
+        "dispatch_state",
+        "publication_id",
+        "claim_id",
+        "lease_until",
+        "event_authentication"
+      ],
+      "differences": 0,
+      "changed_since_previous_late_replay": 0,
+      "independently_reduced": [
+        "RS-CFD-PRESSURE-GAMG-20260910",
+        "RS-X6-LEGACY-PLANE-RECONCILIATION",
+        "RS-X6-TRIADIC-CLOSURE-DYNAMICS"
+      ]
+    },
+    "research_state_and_dispatch_histogram": [
+      {
+        "state": "BACKLOG",
+        "dispatch_state": "DORMANT",
+        "count": 2
+      },
+      {
+        "state": "BLOCKED",
+        "dispatch_state": "BLOCKED",
+        "count": 34
+      },
+      {
+        "state": "BLOCKED",
+        "dispatch_state": "DORMANT",
+        "count": 9
+      },
+      {
+        "state": "DONE",
+        "dispatch_state": "COMPLETE",
+        "count": 133
+      },
+      {
+        "state": "FROZEN_RETURN",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "count": 12
+      },
+      {
+        "state": "HANDOFF_READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "count": 65
+      },
+      {
+        "state": "IN_PROGRESS",
+        "dispatch_state": "LEASED",
+        "count": 2
+      },
+      {
+        "state": "READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "count": 210
+      },
+      {
+        "state": "SUPERSEDED",
+        "dispatch_state": "COMPLETE",
+        "count": 7
+      }
+    ],
+    "projection_sha256": "f3ade3d1b5a865d185732aca44f269beaf17687fb242d91465ad1986ffb02d31",
+    "projection_hash_format": "UTF-8 compact JSON rows sorted by task ID, each [task_id,...incremental_comparison.fields], absence null."
+  },
+  "coverage": {
+    "prior_direct_ids": 135,
+    "prior_registered_parents": 53,
+    "selected_ids": 6,
+    "selected_distinct_parents": 6,
+    "new_registered_parent_objectives": [],
+    "total_direct_ids": 141,
+    "total_registered_parents": 53,
+    "cumulative_ids_excluding_two_prior_independent_side_references": 139,
+    "cumulative_parents_excluding_two_prior_independent_side_references": 51,
+    "current_wave_side_reference_count": 0,
+    "past_side_reference_ids": [
+      "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+      "RS-P11-FIXED-233-119-CERTIFIED-2-DESCENT-RANK"
+    ],
+    "counting_rule": "Distinct registered IDs selected for a local mathematical study, inclusive of explicitly separate side references only in the inclusive totals. A selected research frontier may be conditional or only one part of its registered delivery. No selection changes the official science or control state.",
+    "strict_ready_needs_dispatch": {
+      "all": {
+        "total": 210,
+        "P0": 0,
+        "P1": 11,
+        "P2": 199
+      },
+      "previous_directly_selected": {
+        "total": 100,
+        "P0": 0,
+        "P1": 10,
+        "P2": 90
+      },
+      "unselected_before_wave": {
+        "total": 110,
+        "P0": 0,
+        "P1": 1,
+        "P2": 109
+      },
+      "selected_this_wave": {
+        "total": 3,
+        "P0": 0,
+        "P1": 0,
+        "P2": 3
+      },
+      "unselected_after_wave": {
+        "total": 107,
+        "P0": 0,
+        "P1": 1,
+        "P2": 106
+      },
+      "unseen_parent_counts_before_wave": {}
+    },
+    "handoff_ready_needs_dispatch": {
+      "all": {
+        "total": 65,
+        "P0": 18,
+        "P1": 20,
+        "P2": 27
+      },
+      "previous_directly_selected": {
+        "total": 28,
+        "P0": 8,
+        "P1": 9,
+        "P2": 11
+      },
+      "unselected_before_wave": {
+        "total": 37,
+        "P0": 10,
+        "P1": 11,
+        "P2": 16
+      },
+      "selected_this_wave": {
+        "total": 3,
+        "P0": 1,
+        "P1": 1,
+        "P2": 1
+      },
+      "unselected_after_wave": {
+        "total": 34,
+        "P0": 9,
+        "P1": 10,
+        "P2": 15
+      },
+      "unseen_parent_counts_before_wave": {
+        "COHERENT_BRC_WORKING_EXTENSION": 1,
+        "OBJ-EXTERNAL-GEOMETRY-STRUCTURAL-TRANSFER-20260830": 1,
+        "OBJ-PRIME-FUSION-MACHINE-CHECKED-THEOREM-PACKAGE": 1
+      }
+    },
+    "frozen_return_needs_dispatch": {
+      "all": {
+        "total": 12,
+        "P0": 0,
+        "P1": 8,
+        "P2": 4
+      },
+      "previous_directly_selected": {
+        "total": 7,
+        "P0": 0,
+        "P1": 4,
+        "P2": 3
+      },
+      "unselected_before_wave": {
+        "total": 5,
+        "P0": 0,
+        "P1": 4,
+        "P2": 1
+      },
+      "selected_this_wave": {
+        "total": 0,
+        "P0": 0,
+        "P1": 0,
+        "P2": 0
+      },
+      "unselected_after_wave": {
+        "total": 5,
+        "P0": 0,
+        "P1": 4,
+        "P2": 1
+      },
+      "unseen_parent_counts_before_wave": {
+        "LEGACY_CONTROL_CUTOVER_RS_A3_A4_GENERATED_SUPPORT": 1
+      }
+    },
+    "strict_remaining_P1_evidence": {
+      "task": {
+        "task_id": "RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT",
+        "parent_objective_id": "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION",
+        "priority": "P1",
+        "state": "READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "claim_id": null,
+        "lease_until": null,
+        "event_authentication": "NO_RUNTIME_EVENT",
+        "publication_id": "TP2-6BF7197457B000A68E78",
+        "publication_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_task_records/RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT/TP2-6BF7197457B000A68E78.json",
+        "publication_blob": "0ae603ead7695c19e7a9fbb9073cb20b81e2214b",
+        "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_tasks/P11_CORE98_EXISTING_MAGMA_MIXED_BIT_20261016.md",
+        "taskbook_blob": "fa5a7f27a939eeb2bd25260e318b0b0fc8b553b0",
+        "taskbook_dependencies": [
+          "RR-C1F5BD75CF29E3970097"
+        ],
+        "publication_dependencies": [
+          "RR-C1F5BD75CF29E3970097"
+        ],
+        "projected_result_id": null,
+        "projected_review_status": null,
+        "last_server_comment_url": null
+      },
+      "scope": "The sole unselected strict P1 requests a controlled existing Magma program and single invocation. No native executable, fresh owner-controlled bundle or new admission is established.",
+      "gate_source_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixteenth/fair_snapshot.json"
+    }
+  },
+  "selection_reason": "Three strict READY and three unleased HANDOFF_READY tasks across six distinct registered parents. This round includes a P1 resource-classification parent with one previous selection, three parents with two each, a P0 AP determinant task with three and the Gaussian-prime information parent after two other rotations. Its original common-law input gives a different arithmetic problem from the previous two rounds. Separate the circulation extension from its already established original propositions. The zero-coverage parents in pools remain the GEO6 closed-parent gate, legacy A3/A4 review with successor registration required for a new geometric identification, F7 no-go and the explicitly Lean reconstruction task. The remaining strict P1 is the externally controlled one-run Magma task.",
+  "selected": [
+    {
+      "task_id": "RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION",
+      "parent_objective_id": "OBJ-N-COUPLED-ASYMMETRIC-SINGULARIZATION",
+      "priority": "P1",
+      "state": "HANDOFF_READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "lease_until": null,
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "publication_id": "TP2-C6F364B0E01C124DB7E9",
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_task_records/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/TP2-C6F364B0E01C124DB7E9.json",
+      "publication_blob": "3f0cfdcd5df13fa1bd8ff959e21947e702ba6e77",
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_tasks/RR133_COVERAGE_PROSPECTIVE_GEN2.md",
+      "taskbook_blob": "6011b8707d9bbf05bc245a3d22527ae798435638",
+      "taskbook_dependencies": [
+        "RR-1337737608BDE3D7E620",
+        "DR-1337737608BDE3D7E621",
+        "DR-8F31D7C26A905BE41D74"
+      ],
+      "publication_dependencies": [
+        "RR-1337737608BDE3D7E620",
+        "DR-1337737608BDE3D7E621",
+        "DR-8F31D7C26A905BE41D74"
+      ],
+      "projected_result_id": null,
+      "projected_review_status": null,
+      "last_server_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6188721125",
+      "formal_results_present_on_main": [],
+      "prior_direct_selections_same_parent": 1,
+      "dependency_evidence": [
+        {
+          "registered_reference": "RR-1337737608BDE3D7E620",
+          "frozen_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_result_records/RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY/RR-1337737608BDE3D7E620.json",
+          "current_blob": "c618fd689127b6b532ba47416c20fb61d28000ff",
+          "reviews_on_main": [
+            {
+              "id": "DR-1337737608BDE3D7E621",
+              "disposition": "ACCEPTED",
+              "url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_result_reviews/RR-1337737608BDE3D7E620/DR-1337737608BDE3D7E621.json"
+            }
+          ]
+        },
+        {
+          "registered_reference": "DR-1337737608BDE3D7E621",
+          "frozen_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_result_reviews/RR-1337737608BDE3D7E620/DR-1337737608BDE3D7E621.json",
+          "current_blob": "6210a153d048b2065e6156e2d953dc4ee6b937c3",
+          "disposition": "ACCEPTED"
+        },
+        {
+          "registered_reference": "DR-8F31D7C26A905BE41D74",
+          "frozen_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_result_reviews/RR-8F31D7C26A905BE41D73/DR-8F31D7C26A905BE41D74.json",
+          "current_blob": "8285691aa3ab70d25fec869e06ac9f2f47cf50bb",
+          "disposition": "ACCEPTED"
+        }
+      ],
+      "research_entry": "The accepted public-effective distributional result already includes fully public effective probabilistic generation, almost-sure termination in its class, and support enumeration under the specified effective branching. The prior same-task checkpoint treats a concrete finite-presentation observer. The remaining scientific question is the source-licensed effective terminal/readout inclusion or a precise alternative under the original public-resource restrictions.",
+      "source_scientific_evidence": [
+        "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6188721125",
+        "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_returns/N_COUPLED_PUBLIC_N_DISTRIBUTIONAL_NONEXTERNALIZABILITY_RETURN_20260904.md",
+        "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_notes/portable_direct/20261118_fair_queue_6b0fba/eighteenth/fitting.md"
+      ],
+      "projected_last_scientific_evidence": "https://github.com/awdawmip/enterprise-math/blob/810f0db365c0101788766fc65156d4346a291704/research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/293bfaa34fe7cf09cecd/_checkpoint.json",
+      "projected_result_reviews_on_main": []
+    },
+    {
+      "task_id": "RS-RH-COMPOSITE-ROAD-BASELINE-AUDIT",
+      "parent_objective_id": "OBJ-RH-COMPOSITE-ROAD-UNIFORM-ENERGY",
+      "priority": "P2",
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "lease_until": null,
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "publication_id": "TP2-139EE61FF11BE2292C79",
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_task_records/RS-RH-COMPOSITE-ROAD-BASELINE-AUDIT/TP2-139EE61FF11BE2292C79.json",
+      "publication_blob": "109dc1a847efe1a7d9a595d934b48bc98ee03a70",
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_tasks/RS-RH-COMPOSITE-ROAD-BASELINE-AUDIT_20260909.md",
+      "taskbook_blob": "0085aef36d9c3a9b952cf42684ed5a1a38abb075",
+      "taskbook_dependencies": [],
+      "publication_dependencies": [],
+      "projected_result_id": null,
+      "projected_review_status": null,
+      "last_server_comment_url": null,
+      "formal_results_present_on_main": [],
+      "prior_direct_selections_same_parent": 2,
+      "dependency_evidence": [],
+      "research_entry": "This is the separately registered strict baseline audit of the strong Nyman–Beurling/Burnol bridge and hypotheses behind the raw and completed energies. The historical finite coefficients are frozen. Prior local analyses studied discretization, energy tails and correlation; retain those results and check the remaining original analytic statements and quantifiers.",
+      "source_scientific_evidence": [
+        "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_notes/COMPOSITE_ROAD_RH_RESEARCHER_HANDOFF_20260909.md",
+        "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/artifacts/composite_road_rh/handoff_20260909/source_index.json",
+        "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_notes/portable_direct/20261118_fair_queue_6b0fba/twelfth/road.md",
+        "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_notes/portable_direct/20261118_fair_queue_6b0fba/fifteenth/road.md"
+      ],
+      "projected_last_scientific_evidence": null,
+      "projected_result_reviews_on_main": []
+    },
+    {
+      "task_id": "RS-BRC-X6-LONG-HORIZON-20261003",
+      "parent_objective_id": "BRC-BASELINE-RESIDUAL-LAWS",
+      "priority": "P2",
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "lease_until": null,
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "publication_id": "TP2-FF241F1A2D04C739A4CC",
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_task_records/RS-BRC-X6-LONG-HORIZON-20261003/TP2-FF241F1A2D04C739A4CC.json",
+      "publication_blob": "3fda9d844389d2a79acc2739a74de3d686873073",
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_tasks/RS-BRC-X6-LONG-HORIZON-20261003.md",
+      "taskbook_blob": "744b28c02736f59c225002deaaba6ac74afb5ddf",
+      "taskbook_dependencies": [],
+      "publication_dependencies": [],
+      "projected_result_id": null,
+      "projected_review_status": null,
+      "last_server_comment_url": null,
+      "formal_results_present_on_main": [],
+      "prior_direct_selections_same_parent": 2,
+      "dependency_evidence": [],
+      "research_entry": "The original question fixes six named native axes and a 13-state causal transition law, separate readout types, at most 24 predeclared rational parameter and initialization cases, and a held-out fitting window. Study which modes are observable, the exact finite state transition, and the resulting long-time residuals; dimension and the governing dynamics are not fit parameters.",
+      "source_scientific_evidence": [
+        "https://github.com/awdawmip/enterprise-math/blob/2c56c3618dcbe2d65ad4c34bf1839d350759ac90/research_tasks/BRC_BASELINE_RESIDUAL_EXPANDED_TYPES_20261002.md",
+        "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_tasks/RS-BRC-X6-LONG-HORIZON-20261003.md"
+      ],
+      "projected_last_scientific_evidence": null,
+      "projected_result_reviews_on_main": []
+    },
+    {
+      "task_id": "RS-X6-CIRCULATION-PAIR-INDEPENDENCE",
+      "parent_objective_id": "OBJ-X6-CRAIG-PATH-REFINEMENT",
+      "priority": "P2",
+      "state": "HANDOFF_READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "lease_until": null,
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "publication_id": "TP2-60C84C5B95B8161982D1",
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_task_records/RS-X6-CIRCULATION-PAIR-INDEPENDENCE/TP2-60C84C5B95B8161982D1.json",
+      "publication_blob": "bfc6063df6a98b672246636d338c856b11475656",
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_tasks/RS-X6-CIRCULATION-PAIR-INDEPENDENCE.md",
+      "taskbook_blob": "f6206d33de0062eedefcf9bdb64b80151f9610c0",
+      "taskbook_dependencies": [],
+      "publication_dependencies": [],
+      "projected_result_id": null,
+      "projected_review_status": null,
+      "last_server_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6964609768",
+      "formal_results_present_on_main": [],
+      "prior_direct_selections_same_parent": 2,
+      "dependency_evidence": [],
+      "research_entry": "The registered checkpoint already gives limit pair independence iff AB=0, separated-cycle finite independence, and Cov((NH_123)^2,(NH_345)^2)=(N-1)/(90N). Its named administrative remainder is formal Result/readback and independent review. The local study is a separately identified mathematical extension on the same named finite inventory and positive shuffle law; the three earlier conclusions remain prior work.",
+      "source_scientific_evidence": [
+        "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6964609768",
+        "https://github.com/awdawmip/enterprise-math/blob/2565d7618b5062dbbc49174fc30f7ddae2c2483d/research_notes/public_math_intake_20261116/craig_path_restriction/x6_projection3.md"
+      ],
+      "projected_last_scientific_evidence": "https://github.com/awdawmip/enterprise-math/blob/fb7797c2990782f5f0dec026e7010df63f9ff060/research_artifacts/mcp/RS-X6-CIRCULATION-PAIR-INDEPENDENCE/MCP-456b8f22a648400585024ffbcc1c2c94/ac1ddcab176e8af53f14/_checkpoint.json",
+      "projected_result_reviews_on_main": []
+    },
+    {
+      "task_id": "RS-PERFECT-PRIME-AP-GSTP-EXTERIOR-CONE-CERTIFICATE",
+      "parent_objective_id": "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M",
+      "priority": "P0",
+      "state": "HANDOFF_READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "lease_until": null,
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "publication_id": "TP2-C5D08271E39A4B6F215C",
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_task_records/RS-PERFECT-PRIME-AP-GSTP-EXTERIOR-CONE-CERTIFICATE/TP2-C5D08271E39A4B6F215C.json",
+      "publication_blob": "6f13b5f3ea7788dd27af1ad6ec218d9d3126c2ce",
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_tasks/PERFECT_PRIME_AP_GSTP_EXTERIOR_CONE_CERTIFICATE_20260830.md",
+      "taskbook_blob": "5e26dfa26a5f28ab51eceab22782b14e0dc6a408",
+      "taskbook_dependencies": [
+        "RR-4B168EE0BCE14D5C058A",
+        "DR-5D1B8E24C79A6F30B442",
+        "RR-33B5E1F81BCD9EEF1BD1"
+      ],
+      "publication_dependencies": null,
+      "projected_result_id": "RR-0BCEB5E65D4B34FB3462",
+      "projected_review_status": "NOT_REVIEWED",
+      "last_server_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5467674969",
+      "formal_results_present_on_main": [
+        "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_result_records/RS-PERFECT-PRIME-AP-GSTP-EXTERIOR-CONE-CERTIFICATE/RR-0BCEB5E65D4B34FB3462.json"
+      ],
+      "prior_direct_selections_same_parent": 3,
+      "dependency_evidence": [
+        {
+          "registered_reference": "RR-4B168EE0BCE14D5C058A",
+          "frozen_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_result_records/RS-PERFECT-PRIME-BETA-BERNSTEIN-PRIOR-ART-AUDIT/RR-4B168EE0BCE14D5C058A.json",
+          "current_blob": "56c86d803bdec64adef26b0a2ed64e21d9b99c29",
+          "reviews_on_main": [
+            {
+              "id": "DR-5D1B8E24C79A6F30B442",
+              "disposition": "ACCEPTED",
+              "url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_result_reviews/RR-4B168EE0BCE14D5C058A/DR-5D1B8E24C79A6F30B442.json"
+            }
+          ]
+        },
+        {
+          "registered_reference": "DR-5D1B8E24C79A6F30B442",
+          "frozen_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_result_reviews/RR-4B168EE0BCE14D5C058A/DR-5D1B8E24C79A6F30B442.json",
+          "current_blob": "27608982b959fb7727e6ac28d757ea8ea2fb82fa",
+          "disposition": "ACCEPTED"
+        },
+        {
+          "registered_reference": "RR-33B5E1F81BCD9EEF1BD1",
+          "frozen_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_result_records/RS-PERFECT-PRIME-BETA-BERNSTEIN-OSCILLATION-ORDER-MAP/RR-33B5E1F81BCD9EEF1BD1.json",
+          "current_blob": "caffb323850be40f8563c99f90e47cd252ed76bf",
+          "reviews_on_main": [
+            {
+              "id": "DR-7A3C1E9F42B6D0A85C11",
+              "disposition": "ACCEPTED",
+              "url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_result_reviews/RR-33B5E1F81BCD9EEF1BD1/DR-7A3C1E9F42B6D0A85C11.json"
+            }
+          ]
+        }
+      ],
+      "research_entry": "The #932 handoff isolates strict positivity of the proper minors of C_*−A_* in half-Pascal coordinates using the actual AP Christoffel data. A separate same-task main-branch return supplies an exact m=10 Sturm obstruction for actual GSTP. Wave twenty-one settled finite coefficient and non-recrossing questions on another operator/readout. Preserve these distinctions when analyzing the new minor statement.",
+      "source_scientific_evidence": [
+        "https://github.com/awdawmip/enterprise-math/pull/932",
+        "https://github.com/awdawmip/enterprise-math/pull/947",
+        "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5467674969",
+        "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_returns/PERFECT_PRIME_AP_GSTP_EXTERIOR_CONE_CERTIFICATE_RETURN_20260830.md",
+        "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_notes/portable_direct/20261118_fair_queue_6b0fba/twentyfirst/physical_flow.md"
+      ],
+      "projected_last_scientific_evidence": null,
+      "projected_result_reviews_on_main": [
+        {
+          "id": "DR-4E8A71C25D0F9B3A6182",
+          "disposition": "ACCEPTED",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_result_reviews/RR-0BCEB5E65D4B34FB3462/DR-4E8A71C25D0F9B3A6182.json"
+        }
+      ]
+    },
+    {
+      "task_id": "RS-OAI7-028-D-20261007-6F2A81",
+      "parent_objective_id": "OBJ-OAI7-RESEARCH-TRANSFER-20261007",
+      "priority": "P2",
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "lease_until": null,
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "publication_id": "TP2-0277428B6577AC2E614B",
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_task_records/RS-OAI7-028-D-20261007-6F2A81/TP2-0277428B6577AC2E614B.json",
+      "publication_blob": "be7fbc9288b04bc7c3e8ae453136355d3b0a7825",
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_tasks/RS-OAI7-028-D-20261007-6F2A81.md",
+      "taskbook_blob": "1c39dc7f555b347d7f73be3fbdf5593901923e21",
+      "taskbook_dependencies": [],
+      "publication_dependencies": [],
+      "projected_result_id": null,
+      "projected_review_status": null,
+      "last_server_comment_url": null,
+      "formal_results_present_on_main": [],
+      "prior_direct_selections_same_parent": 14,
+      "dependency_evidence": [],
+      "research_entry": "The frozen external paper already establishes its conditional-information telescope for a single terminal sampling law, nested residues, dyadically divisible block lengths, and independent prime/sign choices. Its one-batch cost is at least c/log T, and the terminal residue translation is charged twice. Separate any sharper robustness, constants or boundary examples from the original proof. The external Gaussian-prime statement has no automatic native interpretation.",
+      "source_scientific_evidence": [
+        "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/schedule.tex#L79",
+        "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/information.tex#L41",
+        "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/information.tex#L245",
+        "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/information.tex#L303",
+        "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/coverage-transfer.tex#L102",
+        "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_notes/chatgpt_direct/20261007_oai7_6f2a81/SOURCE_MAP.json"
+      ],
+      "projected_last_scientific_evidence": null,
+      "projected_result_reviews_on_main": []
+    }
+  ],
+  "prepublication_readback": {
+    "checked_at": "2026-11-18T17:41:20.672579+00:00",
+    "source_main": "9d975ff18bf625ca41fa63d0ce16140a928bbd7e",
+    "source_main_url": "https://github.com/awdawmip/enterprise-math/tree/9d975ff18bf625ca41fa63d0ce16140a928bbd7e",
+    "compare_url": "https://github.com/awdawmip/enterprise-math/compare/baa2e081153260c7659466b4fa186ff308a7b0d9...9d975ff18bf625ca41fa63d0ce16140a928bbd7e",
+    "new_commits": 1,
+    "changed_control_files": [
+      {
+        "path": "research_execution_records/RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION/ER-A522B3B469ACF1A8A1CF.json",
+        "verified_git_blob": "453fb7e08d6a133d832ead16288272ac23168ec6"
+      }
+    ],
+    "issue_comments": 1611,
+    "recognized_events": 1439,
+    "latest_comment_id": 6986452439,
+    "latest_comment_time": "2026-11-18T17:35:57Z",
+    "latest_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6986452439",
+    "event": "CLAIM",
+    "task_id": "RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION",
+    "method": "Official authenticated comment parser and reduce_definition, pinned 518-row effective_states base. Recomputed every previously live lease and every newly affected task. The before/after comparison covers all registry rows.",
+    "independently_reduced_tasks": [
+      "RS-CFD-PRESSURE-GAMG-20260910",
+      "RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION",
+      "RS-X6-LEGACY-PLANE-RECONCILIATION"
+    ],
+    "fields_compared": [
+      "kind",
+      "priority",
+      "state",
+      "dispatch_state",
+      "publication_id",
+      "claim_id",
+      "lease_until",
+      "event_authentication"
+    ],
+    "compared_rows": 518,
+    "field_differences": {
+      "RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION": {
+        "state": {
+          "before": "READY",
+          "after": "CLAIMED"
+        },
+        "dispatch_state": {
+          "before": "NEEDS_DISPATCH",
+          "after": "LEASED"
+        },
+        "claim_id": {
+          "before": null,
+          "after": "MCP-0aff0d0b39bca373d1254889"
+        },
+        "lease_until": {
+          "before": null,
+          "after": "2026-11-18T19:35:57+00:00"
+        },
+        "event_authentication": {
+          "before": "NO_RUNTIME_EVENT",
+          "after": "GITHUB_SERVER_COMMENT_ENVELOPE"
+        }
+      }
+    },
+    "projection_sha256": "81b47301faa827df30f6b88e2f6d2004ac1663432a30c701b7c066b7eecc947e",
+    "all_research_leases": 3,
+    "all_selected_states_and_leases_unchanged": true,
+    "pool_counts": {
+      "strict_ready_needs_dispatch": {
+        "all": {
+          "total": 209,
+          "P0": 0,
+          "P1": 11,
+          "P2": 198
+        },
+        "unselected_after_wave": {
+          "total": 107,
+          "P0": 0,
+          "P1": 1,
+          "P2": 106
+        }
+      },
+      "handoff_ready_needs_dispatch": {
+        "all": {
+          "total": 65,
+          "P0": 18,
+          "P1": 20,
+          "P2": 27
+        },
+        "unselected_after_wave": {
+          "total": 34,
+          "P0": 9,
+          "P1": 10,
+          "P2": 15
+        }
+      },
+      "frozen_return_needs_dispatch": {
+        "all": {
+          "total": 12,
+          "P0": 0,
+          "P1": 8,
+          "P2": 4
+        },
+        "unselected_after_wave": {
+          "total": 5,
+          "P0": 0,
+          "P1": 4,
+          "P2": 1
+        }
+      }
+    },
+    "denominator_effect": "The claimed P2 had already been selected in wave 6. Total strict READY decreases from 210 to 209. The three pools of unselected tasks remain 107, 34, 5."
+  },
+  "final_fixed_cutoff": {
+    "checked_at": "2026-11-18T17:49:02.142032+00:00",
+    "source_main": "fa1e5b577c7ded8d693382bdb1d9a517f228a444",
+    "source_main_url": "https://github.com/awdawmip/enterprise-math/tree/fa1e5b577c7ded8d693382bdb1d9a517f228a444",
+    "compare_url": "https://github.com/awdawmip/enterprise-math/compare/9d975ff18bf625ca41fa63d0ce16140a928bbd7e...fa1e5b577c7ded8d693382bdb1d9a517f228a444",
+    "input_commits_since_previous_readback": 4,
+    "first_three_commit_files": 89,
+    "first_three_science_note_files": 83,
+    "remaining_commit_changed_only_science_note_paths": 12,
+    "verified_execution_checkpoint_and_activity_blobs": [
+      {
+        "f": "research_activity_records/RA-D8569E373E3F7DF496CCCD05.json",
+        "sha": "67a8f8927be7acf836ba6367e8f063befaeac597"
+      },
+      {
+        "f": "research_activity_records/RA-D8569E373E3F7DF496CCCD05/readbacks/7ffd697f654f8045cc1d9b6bdac851211f46fe48cb7213ff703420e47493497f.json",
+        "sha": "487521e4962c8ac0a8ef9b5422728fc85790d5f2"
+      },
+      {
+        "f": "research_artifacts/mcp/RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION/MCP-6634360390c64e0788a1307fbc6d5fcb/f907c00ec4456d5ed62d/X6_GLOBAL_JET_TRUNCATED_COLLISION_20261119.md",
+        "sha": "8f06da8b0e60be6650ebe39ca4e9479fe81657af"
+      },
+      {
+        "f": "research_artifacts/mcp/RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION/MCP-6634360390c64e0788a1307fbc6d5fcb/f907c00ec4456d5ed62d/_checkpoint.json",
+        "sha": "32a3115d860a377d3081377921098a409452047d"
+      },
+      {
+        "f": "research_artifacts/mcp/RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION/MCP-6634360390c64e0788a1307fbc6d5fcb/f907c00ec4456d5ed62d/x6_global_jet_collision_check_20261119.py",
+        "sha": "6139a715e824c95e7711ad394a2f3de3b8aeb4a6"
+      },
+      {
+        "f": "research_artifacts/mcp/RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION/latest_checkpoint.json",
+        "sha": "c878e06bbeed39ec93b6e854776fbb11b45cce97"
+      }
+    ],
+    "changed_task_definitions_publication_releases_reducer_review_or_result_records": 0,
+    "issue_comments": 1612,
+    "recognized_events": 1440,
+    "latest_comment_id": 6986730490,
+    "latest_comment_time": "2026-11-18T17:47:16Z",
+    "latest_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6986730490",
+    "runtime_event": "HANDOFF",
+    "scope": "CONTINUATION",
+    "task_id": "RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION",
+    "checkpoint_url": "https://github.com/awdawmip/enterprise-math/blob/e4bfb5178067531e1af19222af08ce4aec26c7be/research_artifacts/mcp/RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION/MCP-6634360390c64e0788a1307fbc6d5fcb/f907c00ec4456d5ed62d/_checkpoint.json",
+    "independently_reduced_tasks": [
+      "RS-CFD-PRESSURE-GAMG-20260910",
+      "RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION",
+      "RS-X6-LEGACY-PLANE-RECONCILIATION"
+    ],
+    "fields_compared": [
+      "kind",
+      "priority",
+      "state",
+      "dispatch_state",
+      "publication_id",
+      "claim_id",
+      "lease_until",
+      "event_authentication"
+    ],
+    "compared_rows": 518,
+    "changed_rows": {
+      "RS-EM7D3C9A-1255-GLOBAL-JET-COMPOSITION": {
+        "state": {
+          "before": "CLAIMED",
+          "after": "HANDOFF_READY"
+        },
+        "dispatch_state": {
+          "before": "LEASED",
+          "after": "NEEDS_DISPATCH"
+        },
+        "claim_id": {
+          "before": "MCP-0aff0d0b39bca373d1254889",
+          "after": null
+        },
+        "lease_until": {
+          "before": "2026-11-18T19:35:57+00:00",
+          "after": null
+        }
+      }
+    },
+    "projection_sha256": "040b00134a353fe0a004018a484c3e9fc44ab2fba3c18b00d10a078ff8e6604c",
+    "all_research_leases": 2,
+    "all_selected_states_and_leases_unchanged": true,
+    "pool_counts": {
+      "strict_ready_needs_dispatch": {
+        "all": {
+          "total": 209,
+          "P0": 0,
+          "P1": 11,
+          "P2": 198
+        },
+        "unselected_after_wave": {
+          "total": 107,
+          "P0": 0,
+          "P1": 1,
+          "P2": 106
+        }
+      },
+      "handoff_ready_needs_dispatch": {
+        "all": {
+          "total": 66,
+          "P0": 18,
+          "P1": 20,
+          "P2": 28
+        },
+        "unselected_after_wave": {
+          "total": 34,
+          "P0": 9,
+          "P1": 10,
+          "P2": 15
+        }
+      },
+      "frozen_return_needs_dispatch": {
+        "all": {
+          "total": 12,
+          "P0": 0,
+          "P1": 8,
+          "P2": 4
+        },
+        "unselected_after_wave": {
+          "total": 5,
+          "P0": 0,
+          "P1": 4,
+          "P2": 1
+        }
+      }
+    },
+    "unselected_pool_explanation": "The only newly affected ID was already selected in wave 6. The three unselected pools therefore keep the counts 107, 34, 5."
+  }
+}

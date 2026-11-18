@@ -1,0 +1,387 @@
+{
+  "unit": "bits; a map p:r represents the exact sum of r*log2(p)",
+  "equality_cases": [
+    {
+      "m": 2,
+      "p": 13,
+      "word_length": 1,
+      "verified_path_positions": 74,
+      "marks": 4,
+      "information_examples": [
+        {
+          "weights": [
+            1,
+            1
+          ],
+          "H_s": {
+            "2": "1"
+          },
+          "checkpoint_information": {
+            "2": "2"
+          },
+          "terminal_information": {},
+          "loss": {
+            "2": "2"
+          }
+        },
+        {
+          "weights": [
+            1,
+            2
+          ],
+          "H_s": {
+            "2": "-2/3",
+            "3": "1"
+          },
+          "checkpoint_information": {
+            "2": "1/3",
+            "3": "1"
+          },
+          "terminal_information": {
+            "2": "5/3",
+            "3": "-1"
+          },
+          "loss": {
+            "2": "-4/3",
+            "3": "2"
+          }
+        }
+      ],
+      "four_marks": [
+        {
+          "v": 0,
+          "s": 0,
+          "o": 0,
+          "x": 3,
+          "op": 0,
+          "xp": 3,
+          "word": [
+            1
+          ]
+        },
+        {
+          "v": 0,
+          "s": 1,
+          "o": 0,
+          "x": 2,
+          "op": 0,
+          "xp": 3,
+          "word": [
+            2
+          ]
+        },
+        {
+          "v": 1,
+          "s": 0,
+          "o": 0,
+          "x": 5,
+          "op": 0,
+          "xp": 5,
+          "word": [
+            2
+          ]
+        },
+        {
+          "v": 1,
+          "s": 1,
+          "o": 0,
+          "x": 4,
+          "op": 0,
+          "xp": 5,
+          "word": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "m": 3,
+      "p": 17,
+      "word_length": 2,
+      "verified_path_positions": 180,
+      "marks": 9,
+      "information_examples": [
+        {
+          "weights": [
+            1,
+            1,
+            1
+          ],
+          "H_s": {
+            "3": "1"
+          },
+          "checkpoint_information": {
+            "3": "2"
+          },
+          "terminal_information": {},
+          "loss": {
+            "3": "2"
+          }
+        },
+        {
+          "weights": [
+            1,
+            2,
+            3
+          ],
+          "H_s": {
+            "2": "2/3",
+            "3": "1/2"
+          },
+          "checkpoint_information": {
+            "2": "2/3",
+            "3": "3/2"
+          },
+          "terminal_information": {
+            "2": "-2/3",
+            "3": "1/2"
+          },
+          "loss": {
+            "2": "4/3",
+            "3": "1"
+          }
+        }
+      ]
+    },
+    {
+      "m": 5,
+      "p": 37,
+      "word_length": 3,
+      "verified_path_positions": 973,
+      "marks": 25,
+      "information_examples": [
+        {
+          "weights": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "H_s": {
+            "5": "1"
+          },
+          "checkpoint_information": {
+            "5": "2"
+          },
+          "terminal_information": {},
+          "loss": {
+            "5": "2"
+          }
+        },
+        {
+          "weights": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "H_s": {
+            "2": "-2/3",
+            "3": "4/5",
+            "5": "2/3"
+          },
+          "checkpoint_information": {
+            "2": "-2/3",
+            "3": "4/5",
+            "5": "5/3"
+          },
+          "terminal_information": {
+            "2": "2/3",
+            "3": "-4/5",
+            "5": "1/3"
+          },
+          "loss": {
+            "2": "-4/3",
+            "3": "8/5",
+            "5": "4/3"
+          }
+        }
+      ]
+    },
+    {
+      "m": 8,
+      "p": 73,
+      "word_length": 3,
+      "verified_path_positions": 4718,
+      "marks": 64,
+      "information_examples": [
+        {
+          "weights": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "H_s": {
+            "2": "3"
+          },
+          "checkpoint_information": {
+            "2": "6"
+          },
+          "terminal_information": {},
+          "loss": {
+            "2": "6"
+          }
+        },
+        {
+          "weights": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "H_s": {
+            "2": "8/9",
+            "3": "7/4",
+            "5": "-5/36",
+            "7": "-7/36"
+          },
+          "checkpoint_information": {
+            "2": "35/9",
+            "3": "7/4",
+            "5": "-5/36",
+            "7": "-7/36"
+          },
+          "terminal_information": {
+            "2": "19/9",
+            "3": "-7/4",
+            "5": "5/36",
+            "7": "7/36"
+          },
+          "loss": {
+            "2": "16/9",
+            "3": "7/2",
+            "5": "-5/18",
+            "7": "-7/18"
+          }
+        }
+      ]
+    }
+  ],
+  "unit_step_binary": {
+    "p": 13,
+    "maximum_step": 1,
+    "verified_positions": 1503,
+    "marks": [
+      {
+        "s": 0,
+        "x": 9,
+        "xp": 9,
+        "o": 0,
+        "op": 0,
+        "word": [
+          1,
+          0
+        ]
+      },
+      {
+        "s": 1,
+        "x": 8,
+        "xp": 9,
+        "o": 0,
+        "op": 0,
+        "word": [
+          0,
+          1
+        ]
+      },
+      {
+        "s": 0,
+        "x": 11,
+        "xp": 11,
+        "o": 0,
+        "op": 0,
+        "word": [
+          0,
+          1
+        ]
+      },
+      {
+        "s": 1,
+        "x": 10,
+        "xp": 11,
+        "o": 0,
+        "op": 0,
+        "word": [
+          1,
+          0
+        ]
+      }
+    ],
+    "checkpoint_information": {
+      "2": "2"
+    },
+    "terminal_information": {},
+    "shift_entropy": {
+      "2": "1"
+    },
+    "loss": {
+      "2": "2"
+    }
+  },
+  "independent_uniform_offset": {
+    "span": 4,
+    "loss": {
+      "2": "-19/6",
+      "3": "-3/4",
+      "23": "23/24"
+    },
+    "shift_entropy": {
+      "2": "8/3",
+      "3": "1/8"
+    },
+    "exact_checkpoint_uncertainty": {
+      "2": "11/4"
+    },
+    "preoffset_time_information": {
+      "2": "3/4"
+    },
+    "start_information": {}
+  },
+  "nonsaturating_ledger_residual_terms": [
+    {
+      "2": "14/45",
+      "3": "9/5",
+      "5": "-7/9",
+      "7": "7/30",
+      "11": "-11/45",
+      "23": "-23/90"
+    },
+    {
+      "2": "2/15",
+      "3": "-3/10",
+      "5": "1/2",
+      "7": "7/30"
+    },
+    {
+      "2": "1/15",
+      "3": "7/6",
+      "5": "-1/9",
+      "7": "7/90",
+      "11": "-11/90",
+      "13": "-13/90"
+    },
+    {
+      "2": "-1/15",
+      "3": "2/15",
+      "5": "1/18"
+    },
+    {
+      "3": "-8/15",
+      "5": "-1/6",
+      "7": "-7/30",
+      "11": "11/45",
+      "23": "23/90"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "BRC-X6-long-13-W24-v1",
+  "states": "r0,...,r11,o as in RS-BRC-X6-LONG-HORIZON-20261003",
+  "a_b_d_and_initial_laws": [
+    ["drift","1/2","1/4","0","r0","r1"],
+    ["opposite","1/2","1/4","0","r0","r6"],
+    ["bipartite","1/2","1/2","0","r0","r1"],
+    ["near_parity","131071/262144","131071/262144","0","even","odd"],
+    ["slow_reset","1/65536","1/65536","1/131072","r0","r6"],
+    ["near_shift","65535/65536","1/65536","0","r0","r1"],
+    ["reset_drift","1/4","1/8","1/2","r0","r1"],
+    ["old_anchor_control","1/2","0","0","r0","o"]
+  ],
+  "even_odd": "uniform on the six ring nodes of the matching parity",
+  "n_inclusive": [0,65536],
+  "no_extension": true,
+  "train_inclusive": [1,4096],
+  "holdout_inclusive": [4097,65536],
+  "train_sensitivity_predefined": [[1,256],[257,4096]],
+  "target_for_candidate_scoring": "full endpoint TV at every integer n; ordinary least squares on log(y-P), raw absolute RMSE on each window, include every y>=1e-8; skip invalid or unidentified parameters; signed first-axis contrast scored separately",
+  "fixed_plateau": "period12 fitted by residue class arithmetic means; pure exponential and power fit with P=0, plateau+exp with P=0.5 fixed; exact analytic plateau from each case is a separate diagnostic",
+  "fit_floor": 1e-8,
+  "joint": [[0,1,2],[3,4,5]],
+  "scalar": "first raw coordinate (Bernoulli), for each probability law separately",
+  "exact_block": 256,
+  "spectrum_reference": "13x13 eigenvalues and exact short independent word/origin branching through n=24",
+  "direct": "binary64 full mu,nu and separately propagated signed delta through all 65537 times",
+  "low_frequency_comparison": "training and untouched holdout; parity sign, Fourier envelope and slow reset time scales fixed before run"
+}

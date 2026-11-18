@@ -1,0 +1,127 @@
+# 自由拟合背景的合数道路能量及其 Mellin 极点下界
+
+固定厚度 $a>0$，约定 $R_a(1)=1$，对每个 $n\ge2$ 取 $R_a(n)=\prod_{p\mid n}(1-p^{-a})$。S5 §6 给出的去背景有限能量 $V_a(X)$ 原本只作单向反证指标。下文证明 $V_a(X)\uparrow Q_a$，包括 $Q_a=\infty$。这使全部有限反证完备，并给出一个只由有限正整数质量和显式对数形成的单调积分。在这个积分中，若移位 ζ 商有未抵消的极点，其实部给出能量增长的幂次，极点重数给出对数次方。同一垂线上的多个极点有可相加的平方残数下界。
+
+## 一、原基线的更正和依赖
+
+任务为 RS-RH-COMPOSITE-ROAD-BASELINE-AUDIT，发布键 TP2-139EE61FF11BE2292C79。冻结研究带有 ANCHOR_EXPOSED 来源。有限验证器使用原候选及原算法重放，下面对去背景极限及极点的推导独立于该程序。带符号的离散校正及原有 $A(a)$ 临界点已见第十二轮；第十五轮得到锚定频块核、真正算术水平尾的下界，并证明在指定道路族和原点后两个素数谱功率可恢复厚度。本稿在 S5 §6 明示的完备性缺口处继续。[任务书](https://github.com/awdawmip/enterprise-math/blob/6f9abc50893bb8fde31627f5580af7ab92a6835b/research_tasks/RS-RH-COMPOSITE-ROAD-BASELINE-AUDIT_20260909.md) · [冻结来源索引](https://github.com/awdawmip/enterprise-math/blob/6f9abc50893bb8fde31627f5580af7ab92a6835b/artifacts/composite_road_rh/handoff_20260909/source_index.json) · [第十二轮](../twelfth/road.md) · [第十五轮](../fifteenth/road.md)
+
+设 $P_a(x)=\sum_{2\le n\le x}R_a(n)$，$c_a=1/\zeta(1+a)$，$v_a(x)=P_a(x)/x$。原始能量 $Q_a=\int_0^\infty|v_a-c_a|^2\,dx$ 无条件有扩展非负值。在 $s=1/2+it$ 置 $d\omega=dt/(2\pi |s|^2)$，$Z_a=\zeta(s)/\zeta(s+a)$，$C_a=\xi(s)/\xi(s+a)$，$J_a C_a=Z_a$。关键的依赖按下表传递。
+
+| 来源与强度 | 可用的结论和前提 |
+|---|---|
+| S0，精确有限算术 | Möbius 差分提取整数坐标，素数坐标的对偶向量给出全体素数的分离下界；三个指定的全整数候选各自通过相应严格上界。这个有限检验不含 ζ 零点断言。 |
+| Báez-Duarte、Burnol，经典定理 | 强 Nyman–Beurling 判据使用整数伸缩闭包。Burnol 的 $f_a(1/x)=c_a x-\sum_{n\le x}R_a(n)$；减去单位阶跃的改变量在道路 Hilbert 空间中。$a\ge1/2$ 时平方可积；RH 下其余 $a>0$ 也平方可积。平方可积时 Mellin–Plancherel 给出 $Q_a=\int\lvert 1-Z_a\rvert^2d\omega$；存在任一列 $a\downarrow0$ 使 $Q_a<\infty$ 即推出 RH。 |
+| S2、S3，RH 条件 | RH 下 $C_a$ 在右半平面 $\Re s>1/2$ 为 Schur 函数。$\Delta_a=\int\lvert 1-C_a\rvert^2d\omega\le U_{\rm comp}(a)=2(1-\xi(1)/\xi(1+a))$。Poisson 公式施于完成量。 |
+| S3 更正，变换本身无条件，能量比较需 RH | $A(a)=\lVert 1-J_a\rVert_{L^2(d\omega)}$。例如 $0\le a\le1/4$，$\lvert \partial_a J_a\rvert\ll (1+\lvert t\rvert)^{1/8}(1+\log(2+\lvert t\rvert))$，由有理因子、Stirling 与 digamma 估计得到。这个界的加权平方可积，所以 $A(a)=O(a)$。由 RH 下 $\lvert C_a\rvert\le1$ 得 $\lvert \sqrt{Q_a}-\sqrt{\Delta_a}\rvert\le A(a)$ 及 $Q_a-\Delta_a=O(a^{3/2})$。可用于有限反证的阈值为 $U_{\rm road}=(\sqrt{U_{\rm comp}}+A)^2$。 |
+| S3、S5，条件斜率和等价目标 | RH 下 $\lim Q_a/a=\sum_\lambda m_\lambda(1-\binom{2m_\lambda}{m_\lambda}/4^{m_\lambda})/(\lambda^2+1/4)$，$\lambda$ 遍历互异有符号高度，$m_\lambda$ 是重数。此值等于 $\xi'(1)/\xi(1)$ 当且仅当零点全为单根。修正桥接及 Burnol 的逆定理给出 $Q_a=O(a)\iff{\rm RH}$。 |
+| S5、S6，有限恒等式及极限顺序 | Green 核 $1/\max(u,v)-1/X$ 来自对累积指示函数积分。$[n,n+1)$ 内原差为 $B_n+c_a(1/2-u)$，$u=x-n,\ B_n=P_a(n)-c_a(n+1/2)$。其无权二次矩 $B_n^2+c_a^2/12$ 除以 $(n+1)^2,n^2$ 分别控制加权积分的两端；另加 $(0,1)$ 的 $c_a^2$。固定 $X$，各能量均为 $O_X(a^2)$。先让 $X\to\infty$ 再让 $a\downarrow0$，RH 下得到正的一阶斜率。 |
+| S7，平均方式的限制 | 固定厚度，每点的 Ramanujan 展开绝对收敛，平移平均消去不同频率的交叉项。一般序列的功率数据会失去固定起点信息；若限定在这一算术族并指定起点，第十五轮的双谱线逆定理仍适用。这个平均不能代替固定原点的统一 $O(a)$ 估计。 |
+
+经典文献及原结论可逐项查阅。[Báez-Duarte，Theorem 1.1](https://arxiv.org/abs/math/0202141) · [Burnol，§4](https://arxiv.org/abs/math/0202166) · [S3 修正](https://github.com/awdawmip/enterprise-math/blob/9d7c4c6eafc5479a6795a128fc0288fc893bed3c/research_notes/COMPOSITE_ROAD_RH_BOUNDARY_SLOPE_CLOSURE_20260906.md) · [S5 §§2–6](https://github.com/awdawmip/enterprise-math/blob/9d7c4c6eafc5479a6795a128fc0288fc893bed3c/research_notes/COMPOSITE_ROAD_RH_PURE_POSITIVE_ENERGY_20260906.md) · [S6](https://github.com/awdawmip/enterprise-math/blob/9d7c4c6eafc5479a6795a128fc0288fc893bed3c/research_notes/COMPOSITE_ROAD_RH_DISCRETE_L2_NONCOMMUTATION_20260906.md) · [S7](https://github.com/awdawmip/enterprise-math/blob/bf181bfa6c4f1fdbe4ddf6352385c5f4b819cc53/research_notes/COMPOSITE_ROAD_RH_RAMANUJAN_PHASE_COHERENCE_20260906.md)
+
+## 二、有限窗口自由背景的完备性
+
+**定理 1。** 设 $X>0$，定义
+$$
+ I_a(X)=\sum_{2\le n\le X}R_a(n)\log(X/n),\quad
+ V_a(X)=\min_{b\in\mathbb R}\int_0^X(v_a(x)-b)^2\,dx .
+$$
+唯一最优常数是 $b_X=I_a(X)/X$。有
+$$
+ V_a(X)=
+ \sum_{m,n=2}^{\lfloor X\rfloor}R_a(m)R_a(n)
+ \left(\frac1{\max(m,n)}-\frac1X\right)-\frac{I_a(X)^2}X
+ =\int_0^X\frac{W_a(x)^2}{x^2}\,dx,\qquad
+ W_a(x)=\sum_{2\le n\le x}R_a(n)(1-\log(x/n)).
+ \tag{1}
+$$
+特别地，对每一 $a>0$，
+$$
+ \sup_{N\in\mathbb Z_{>0}}V_a(N)=Q_a\quad\text{于 }[0,\infty].
+ \tag{2}
+$$
+
+证明。直接积分有 $\int_0^Xv_a=I_a(X)$，完成平方给出最优常数及 (1) 的有限和；保留任意固定常数 $b$ 的差额恰为 $X(b-b_X)^2$。对 $\int_0^Xv_a^2-I_a(X)^2/X$ 求导，几乎处处得到 $(v_a(X)-b_X)^2$，由绝对连续与初值零得 (1)。$I_a(x)$ 是拟合窗口内的累计积分，固定道路起点仍是零。
+
+由 $R_a(n)=\sum_{d\mid n}\mu(d)d^{-a}$，
+$$
+ \frac1X\sum_{n\le X}R_a(n)=
+ \sum_{d\le X}\mu(d)d^{-a}\frac{\lfloor X/d\rfloor}{X}
+ \longrightarrow \sum_{d\ge1}\frac{\mu(d)}{d^{1+a}}=c_a .
+$$
+这是由 $\sum d^{-1-a}<\infty$ 控制的逐项极限，删去 $n=1$ 无碍。因此 $v_a\to c_a$，从而 $b_X\to c_a$。一方面 $V_a(X)$ 单调且不超过真实背景能量的截断。另一方面对于任意 $Y<X$，取最优常数再限制到 $[0,Y]$，得 $V_a(X)\ge\int_0^Y(v_a-b_X)^2$。先使 $X\to\infty$，再令 $Y\to\infty$ 即得 (2)。这一步在无限能量时同样有效，省去了对拟合余项 $X(b_X-c_a)^2$ 的一致速率要求。若 $Q_a<\infty$，上述精确差额确实趋于零。
+
+**推论。** 结合基线，在 $a_j=2^{-j}$ 上，
+$$
+ {\rm RH}\ \Longleftrightarrow\
+ \exists C,j_0\ \forall j\ge j_0,\ \forall N\ge1:\ V_{a_j}(N)\le C a_j .
+$$
+每一个不等式的左端不需要输入 $\zeta(1+a_j)$，只需该有限窗口的道路质量。若 RH 为假，所有充分小厚度均有 $Q_a=\infty$，故对每个这样的 $a$ 存在有限整数 $N$ 使 $V_a(N)>U_{\rm road}(a)$。RH 下在 $0<a\le1/4$ 对所有 $N$ 都有相反的弱不等式。这给出了 S5 §6 自由拟合背景反证族的完备性。固定 $N$ 时 $0\le V_a(N)\le Q_{a,N}=O_N(a^2)$，仍然需要所有增长窗口；例如 $V_a(2)=0$，而同窗真实能量为 $2c_a^2$。
+
+## 三、未抵消极点强制的增长率
+
+对 $\Re s>1$ 将 (1) 中的 $W_a$ 作 Mellin 变换，绝对收敛给出
+$$
+ F_a(s)=\int_1^\infty W_a(x)x^{-s-1}\,dx
+ =\frac{s-1}{s^2}\left(\frac{\zeta(s)}{\zeta(s+a)}-1\right).
+ \tag{3}
+$$
+单个正整数的两项积分分别给出 $n^{-s}/s$ 和 $n^{-s}/s^2$；$\sum_{n\ge1}R_a(n)n^{-s}=\zeta(s)/\zeta(s+a)$。因子 $s-1$ 消去道路平均密度的极点。右侧给出后续使用的亚纯延拓。
+
+**定理 2。** 设 $s_j=\sigma+i\gamma_j$ 为 (3) 右端在同一垂线上、互异的有限多个 $k$ 阶极点，$k\ge1,\ \sigma\ge1/2$。记 $b_j=\lim_{s\to s_j}(s-s_j)^k F_a(s)$，$r=k-1$。若 $\alpha=2\sigma-1>0$，则
+$$
+ \limsup_{N\to\infty}\frac{V_a(N)}{N^\alpha(\log N)^{2r}}
+ \ \ge\ \frac{\sum_j|b_j|^2}{\alpha(r!)^2}.
+ \tag{4}
+$$
+若 $\sigma=1/2$，则
+$$
+ \limsup_{N\to\infty}\frac{V_a(N)}{(\log N)^{2r+1}}
+ \ \ge\ \frac{\sum_j|b_j|^2}{(2r+1)(r!)^2}.
+ \tag{5}
+$$
+这两条估计无须假定垂线右边没有其他极点，也无须对 ζ 作零点密度假设。
+
+证明。单调性使连续 $X$ 和整数 $N$ 的相应上极限相等。若该值为无穷，断言成立；否则记为 $L$。由 $dV_a=|W_a(x)|^2 dx/x^2$ 以及在二进区间上用 Cauchy–Schwarz，(3) 左端在 $\Re s>\sigma$ 绝对收敛且给出全纯函数（加任意固定次 $\log x$ 仍然收敛）。它在此与右端亚纯延拓一致。因此，若右方另有极点，上述有限 $L$ 已不可能。
+
+在 $L^2([1,\infty),dx)$ 中取 $\epsilon>0$ 和
+$$
+ h_\epsilon(x)=W_a(x)x^{-1-(\alpha+\epsilon)/2},\qquad
+ v_j(x)=(\log x)^r x^{-1/2-\epsilon/2+i\gamma_j}.
+$$
+其配对为 $\langle h_\epsilon,v_j\rangle=(-1)^r F_a^{(r)}(s_j+\epsilon)$。Gram 矩阵元为 $(2r)!/(\epsilon-i(\gamma_i-\gamma_j))^{2r+1}$。乘以 $\epsilon^{2r+1}/(2r)!$ 后，此有限矩阵趋于单位矩阵。由于
+$$
+ (-1)^rF_a^{(r)}(s_j+\epsilon)
+ \sim \frac{(2r)!}{r!}\,\frac{b_j}{\epsilon^{2r+1}},
+$$
+有限向量组的 Bessel 不等式 $\sum_j|\langle h_\epsilon,v_j\rangle|^2\le\|\operatorname{Gram}\|\,\|h_\epsilon\|^2$ 给出
+$$
+ \liminf_{\epsilon\downarrow0}
+ \epsilon^{2r+1}\int_1^\infty x^{-\alpha-\epsilon}\,dV_a(x)
+ \ \ge\ \frac{(2r)!}{(r!)^2}\sum_j|b_j|^2 .
+$$
+分部积分把左边被积量的积分变成 $(\alpha+\epsilon)\int_1^\infty V_a(x)x^{-1-\alpha-\epsilon}dx$。当 $\alpha>0$，用 $V_a(x)\le (L+o(1)) x^\alpha(\log x)^{2r}$ 得归一化上极限至多 $\alpha L(2r)!$；在 $\alpha=0$ 时用 $V_a(x)\le(L+o(1))(\log x)^{2r+1}$ 得上界 $L(2r+1)!$。比较即得 (4)、(5)。对于一般单一 Mellin 模态 $W(x)=x^{\sigma+i\gamma}(\log x)^r/r!$、$x\ge1$，首系数为一且相应等号成立。这说明仅凭该极点数据时常数尖锐；对实际道路的增长还可能有别的贡献。
+
+Burnol 推论 4.1 已指出：若 $f_a$ 平方可积，则 $\Re\rho\ge1/2+a$ 的 ζ 零点必须在 $\rho-a$ 处获得抵消。(4)、(5) 给出出现剩余极点时，有限自由背景能量增长率的定量下界。[Burnol，Corollary 4.1](https://arxiv.org/pdf/math/0202166)
+
+**应用于假设的离线零点。** 若 $\rho=\beta+i\gamma$ 是 $\beta>1/2$ 的 $k$ 重 ζ 零点，则对一切充分小的 $0<a<\beta-1/2$，$\zeta(\rho-a)\ne0$，因为零点孤立。此时 $s_j=\rho-a$ 及其共轭均是真正 $k$ 阶极点，
+$$
+ b_\rho(a)=
+ \frac{\rho-a-1}{(\rho-a)^2}\,
+ \frac{k!\,\zeta(\rho-a)}{\zeta^{(k)}(\rho)}
+ \sim (-a)^k\frac{\rho-1}{\rho^2}\quad (a\downarrow0).
+$$
+把这对极点代入 (4)，得到 $\alpha=2\beta-2a-1$ 的幂次下界，分子可取 $2|b_\rho(a)|^2$。若选端点 $a=\beta-1/2$，需要重新检查 $\zeta(\rho-a)$ 是否抵消；按 (3) 的**实际剩余阶数**使用 (5)。这里的上极限针对固定 $a$，没有给出首次越界的有效 $N$。当前最小未闭合问题仍是对全部细厚度与全部窗口同时控制 $V_a(N)/a$，或寻找实有的违反例。
+
+## 四、原验证器与独立检查
+
+冻结 stage2_verify.py 的 Git blob 为 c4fa278502fc86e8e0d04ad1541b44b74dc87fe7，SHA-256 为 df49a8cd07f84375466ff9e003ac7c96044936e5b9e5b5a73cb62165bb1ae436。原样运行退出码为零，输出 EXACT_CHECK_PASS，stdout 的 SHA-256 为 0680ff7f9d2bd5d1ad4c7a4a9a8196d485ccf21c9a4ea4a3d7e83139e8ea4f5b。全体素数坐标的平方误差下界为 $549980544461335314637000615/22936449866115041739513080208$。原 10、60、100 三组候选的上界依次严格小于 $239/10000,5/428,1/92$。逐项上下界均保存在结果文件中。[原 S0](https://github.com/awdawmip/chatgpt-global-knowledge/blob/bb649a26fd04db9bee3cf237b7c0d0311f99e7d2/journal/enterprise-math/2026-09-05/20260905T073134Z-composite-residue-rh-stage2-c4a91d.md) · [原样验证器](https://github.com/awdawmip/enterprise-math/blob/6f9abc50893bb8fde31627f5580af7ab92a6835b/research_handoffs/COMPOSITE_ROAD_RH_20260909/stage2_verify.py)
+
+独立复算使用 $a=1$ 的实际正整数质量 $R_1(n)=\varphi(n)/n$，分别由互素计数和素因子积生成。对 $2\le N\le36$ 全部 35 个窗口，在以素数对数为变元的有理多项式环中比较 (1) 两侧。单格上 $P_a(x)=P$ 恒定，$W_a(x)^2/x^2$ 的一个原函数为 $-(P^2+I_a(x)^2)/x$，因此不依赖数值积分。另用有理数的反双曲正切级数夹逼对数，得到 $0.744727104687\le V_1(36)\le0.744727104688$。这个厚度用于算术恒等式，S3 小厚度阈值没有用于本检验。另以 $k=1,2,3,4$ 的单模态符号核对 (4)、(5) 的常数、导数阶及 Gram 非对角的极限。
+
+复算命令如下，依赖 Python 3、SymPy 及含原验证器的冻结仓库。程序先核原件 SHA-256，再运行并核 stdout；独立算术检查直接从整数生成质量。[复算脚本](energy_check.py) · [原验证器输出及独立证书](energy_checked.json)
+
+~~~sh
+python energy_check.py --repo /path/to/enterprise-math
+~~~
