@@ -1,0 +1,79 @@
+{
+  "schema": "R762EJ_EXACT_EVIDENCE_V1",
+  "method": "complete_integer_annihilation_and_finite_field_rank",
+  "q_values": [
+    3,
+    9,
+    27
+  ],
+  "results": [
+    {
+      "q": 3,
+      "points": 27,
+      "stripe_generators": 12,
+      "independent_generators": 4,
+      "omitted_generators": [
+        "0:0",
+        "0:1",
+        "0:2",
+        "1:0",
+        "1:1",
+        "2:0",
+        "2:1",
+        "3:0"
+      ],
+      "rank_mod3_L": 8,
+      "rank_mod3_L_plus_minimal_B": 12,
+      "rank_mod3_L_plus_all_B": 12,
+      "relations_verified": 8,
+      "exact_integer_annihilations_verified": 12,
+      "basis_and_relations": "PASS"
+    },
+    {
+      "q": 9,
+      "points": 729,
+      "stripe_generators": 36,
+      "independent_generators": 28,
+      "omitted_generators": [
+        "0:0",
+        "0:1",
+        "0:2",
+        "1:0",
+        "1:1",
+        "2:0",
+        "2:1",
+        "3:0"
+      ],
+      "rank_mod3_L": 32,
+      "rank_mod3_L_plus_minimal_B": 60,
+      "rank_mod3_L_plus_all_B": 60,
+      "relations_verified": 8,
+      "exact_integer_annihilations_verified": 36,
+      "basis_and_relations": "PASS"
+    },
+    {
+      "q": 27,
+      "points": 19683,
+      "stripe_generators": 108,
+      "independent_generators": 100,
+      "omitted_generators": [
+        "0:0",
+        "0:1",
+        "0:2",
+        "1:0",
+        "1:1",
+        "2:0",
+        "2:1",
+        "3:0"
+      ],
+      "rank_mod3_L": 104,
+      "rank_mod3_L_plus_minimal_B": 204,
+      "rank_mod3_L_plus_all_B": 204,
+      "relations_verified": 8,
+      "exact_integer_annihilations_verified": 108,
+      "basis_and_relations": "PASS"
+    }
+  ],
+  "all_pass": true,
+  "note": "Finite checks; all-q claim proved in paper conditional on R762EI."
+}
