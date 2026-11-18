@@ -1,0 +1,93 @@
+{
+  "byte_order": "outer i, middle j, inner k ascending; one byte per first nonzero mod3 coefficient degree, or threshold",
+  "date": "2026-11-18",
+  "degree_table_sha256_a_ge_3": "5ca14894a53ab69bf1e686cb19c7b90bc4766c84a4daa40053cc9999b76b57cd",
+  "degree_table_sha256_a_ge_4": "8d13b295b1fe763782479f06c23b39945af328b72deef493edb85b4b8fe8bc0f",
+  "exact_arithmetic": "Lucas mod 3; every one of 27 coefficients independently crosschecked by direct Python integer binomial",
+  "exhaustive_domain": "all (i,j,k) in {0,...,26}^3 = 19683 triples",
+  "fraction_of_Q_cubed_a_ge_3": {
+    "2": "2/3",
+    "4": "16/81",
+    "6": "22/243",
+    "10": "16/729",
+    "12": "16/2187",
+    "at_least_18": "35/2187"
+  },
+  "fraction_of_Q_cubed_a_ge_4": {
+    "18": "70/6561",
+    "at_least_27": "35/6561"
+  },
+  "histogram_a_ge_3_at_degrees_2_4_6_10_12_or_at_least_18": {
+    "2": 13122,
+    "4": 3888,
+    "6": 1782,
+    "10": 432,
+    "12": 144,
+    "18": 315
+  },
+  "histogram_a_ge_4_at_degrees_2_4_6_10_12_18_or_at_least_27": {
+    "2": 13122,
+    "4": 3888,
+    "6": 1782,
+    "10": 432,
+    "12": 144,
+    "18": 210,
+    "27": 105
+  },
+  "lemma": "For m<27, the coefficient of pi^m modulo 3 depends only on (i,j,k) modulo 27, via Lucas. The expansion is in integer powers of pi.",
+  "mod9_deep_prefix_lift10_counts": {
+    "0": 9,
+    "18": 24
+  },
+  "mod9_prefix_counts": {
+    "2": 486,
+    "4": 144,
+    "6": 66,
+    "9": 33
+  },
+  "model": "P=1+X+Z+XY+YZ+XYZ over six named positive BRC branches, Q=3^a, pi=zeta_Q-1",
+  "next_question": "Classify the >=18 cases for a=3 with exact cyclotomic carry terms and the >=27 class for a>=4; separately relate to coefficient-content witnesses.",
+  "record": "R762EB_HIGHER_CYCLOTOMIC_STRATA",
+  "scientific_boundary": "Candidate BRC endpoint character spectrum only. No native signed Cell/Link/Port event license or independent review. a=2 exceptional due to v_pi(3)=6.",
+  "task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "valuation_threshold_a_ge_3": "v_pi(3)=2*3^(a-1)>=18; first nonzero reduced coefficient at m<18 gives exact v_pi=m",
+  "valuation_threshold_a_ge_4": "v_pi(3)=2*3^(a-1)>=54; first nonzero reduced coefficient at m<27 gives exact v_pi=m",
+  "verification": "PASS",
+  "witnesses_by_leading_degree_or_lower_bound": {
+    "2": [
+      0,
+      1,
+      1
+    ],
+    "4": [
+      0,
+      1,
+      3
+    ],
+    "6": [
+      0,
+      3,
+      3
+    ],
+    "10": [
+      0,
+      1,
+      9
+    ],
+    "12": [
+      0,
+      3,
+      9
+    ],
+    "18": [
+      0,
+      9,
+      9
+    ],
+    "27": [
+      0,
+      0,
+      0
+    ]
+  }
+}
