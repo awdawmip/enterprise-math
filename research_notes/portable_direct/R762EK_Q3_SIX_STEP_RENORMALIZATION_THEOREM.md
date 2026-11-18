@@ -34,7 +34,7 @@ v_3(c_3(r+6k))=6k+delta_r,quad
 (delta_1,dots,delta_6)=(0,0,1,2,3,4).} 	ag{2}
 ]
 
-An equivalent explicit form for `n>=2` is `v_3(c_3(n))=n-2+1_{n>=7,,n=1 (mod 6)}`. The expression in (2) also handles n=1 exactly. All integer coefficients have no common prime factor other than 3, because their total is `6^n`.
+An equivalent explicit form for `n>=2` is `v_3(c_3(n))=n-2+1_{n>=7,,n=1 (mod 6)}`. The expression in (2) also handles n=1 exactly. The content is exactly a power of 3; a parity argument after the valuation proof excludes the only other prime divisor, 2, of the total mass `6^n`.
 
 **Corollary (exact equal-seed positive BRC terminal simulation).** The smallest number of equally weighted deterministic initial seeds that reproduces the 27 terminal probabilities exactly is `M_3(n)=6^n/3^{v_3(c_3(n))}`. The claim is scoped to the specified terminal endpoint observer and does not identify all future-safe signed branch states.
 
@@ -80,6 +80,14 @@ A useful equivalent recurrence for all `n>=1` is
 oxed{P^{n+6}=3^6P^n+7cdot3^5cdot6^nS.} 	ag{3}
 ]
 
+**Rational minimal polynomial / short linear recurrence.** All seven distinct values `0,6,3,3ω,3ω²,−3ω,−3ω²` occur in the table. Consequently the exact minimal polynomial of multiplication by P on Q[G] is
+
+\[
+m(T)=T(T-6)(T-3)(T^4+9T^2+81).
+\]
+
+Thus `P^7−9P^6+27P^5−81P^4+243P^3−729P^2+1458P=0`, and multiplication by `P^n` yields the same finite integral linear recurrence at all later horizons.
+
 ## Exact content and a nondivisibility witness
 
 Direct expansion of the six fixed base powers gives
@@ -91,7 +99,9 @@ Direct expansion of the six fixed base powers gives
 
 For `r>=2` and `k>=1`, `v3(b_{r,k})>=r−1` because `v3(64^k−1)>=2`. The base content has valuation `r−2`; adding the constant vector `b_{r,k}S` cannot change its nonzero leading residue modulo `3^(r−1)`. For `k=0`, the identity is immediate. This gives `v3(c_3(r+6k))=6k+r−2` for `r=2..6`.
 
-For `r=1`, compare the coefficient at the identity group element with that at `Y`. The two coefficients of P are 1 and 0. Adding `b_{1,k}S` adds the same integer to both, preserving their difference 1. Thus the bracket in (1) is divisible by no factor 3, proving `v3(c_3(1+6k))=6k`. The n=0 case is the group identity. This proves (2), including the exceptional residue `n=1 mod 6` and the boundary n=1.
+For `r=1`, compare the coefficient at the identity group element with that at `Y`. The two coefficients of P are 1 and 0. Adding `b_{1,k}S` adds the same integer to both, preserving their difference 1. Thus the bracket in (1) is divisible by no factor 3, proving `v3(c_3(1+6k))=6k`. The n=0 case is the group identity. To certify that the **whole integer gcd** is the stated pure power of 3, consider parity. For each base r=1,...,6 the gcd of the 27 base coefficients is odd and their sum is the even number 6^r. Their parity pattern is therefore nonconstant: all-even would contradict the odd gcd; all-odd would make the sum of 27 coefficients odd. Adding b_(r,k) S changes every parity by the same bit and preserves nonconstancy, while 3^(6k) is odd. Thus no factor 2 divides all coefficients. Every common prime divides their total 6^(r+6k), so there are no other common primes. This proves the exact integer gcd as well as its 3-adic valuation.
+
+This proves (2), including the exceptional residue `n=1 mod 6` and the boundary n=1.
 
 ## Verification and exact scope
 
