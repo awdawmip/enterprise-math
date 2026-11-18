@@ -1,0 +1,229 @@
+{
+  "schema": "EC49FTE_SHARP_MIDDLE_SATURATION_CERT_V1",
+  "date": "2026-11-19",
+  "status": "AUTHOR_PROVED_NOT_REVIEWED",
+  "frozen_source_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "frozen_raw_sha256": {
+    "frozen_original_master.txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE.csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "profiles": 141,
+  "original_index_observers": 228,
+  "raw_configurations": 310,
+  "domain": {
+    "a": [
+      "3/4",
+      "4/5"
+    ],
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "1709/2080",
+      "1"
+    ]
+  },
+  "switch_sheet": "a=1-b/2",
+  "D_cost_planes": [
+    [
+      329,
+      36,
+      68,
+      141
+    ],
+    [
+      333,
+      40,
+      70,
+      141
+    ]
+  ],
+  "S_cost_plane": [
+    333,
+    105,
+    9,
+    141
+  ],
+  "cost_plane_format": "U-N32*a-N34*b-N140*z for D; U-N34*a-N32*b-N140*z for S",
+  "anchors": [
+    {
+      "orientation": "D",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "1709/2080",
+      "optimum": "325311/2080",
+      "bellman_states": 7898
+    },
+    {
+      "orientation": "D",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "1709/2080",
+      "optimum": "162103/1040",
+      "bellman_states": 7881
+    },
+    {
+      "orientation": "D",
+      "a": "199/256",
+      "b": "57/128",
+      "z": "1709/2080",
+      "optimum": "644317/4160",
+      "bellman_states": 7802
+    },
+    {
+      "orientation": "D",
+      "a": "25/32",
+      "b": "7/16",
+      "z": "1709/2080",
+      "optimum": "322971/2080",
+      "bellman_states": 7801
+    },
+    {
+      "orientation": "D",
+      "a": "4/5",
+      "b": "7/16",
+      "z": "1709/2080",
+      "optimum": "321411/2080",
+      "bellman_states": 7742
+    },
+    {
+      "orientation": "D",
+      "a": "4/5",
+      "b": "57/128",
+      "z": "1709/2080",
+      "optimum": "640547/4160",
+      "bellman_states": 7732
+    },
+    {
+      "orientation": "S",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "1709/2080",
+      "optimum": "279681/2080",
+      "bellman_states": 6813
+    },
+    {
+      "orientation": "S",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "1709/2080",
+      "optimum": "1118139/8320",
+      "bellman_states": 6813
+    },
+    {
+      "orientation": "S",
+      "a": "4/5",
+      "b": "7/16",
+      "z": "1709/2080",
+      "optimum": "268761/2080",
+      "bellman_states": 6717
+    },
+    {
+      "orientation": "S",
+      "a": "4/5",
+      "b": "57/128",
+      "z": "1709/2080",
+      "optimum": "1074459/8320",
+      "bellman_states": 6717
+    }
+  ],
+  "independent_raw94": [
+    {
+      "orientation": "D",
+      "a": "25/32",
+      "b": "7/16",
+      "z": "1709/2080",
+      "optimum": "322971/2080",
+      "states": 6847
+    },
+    {
+      "orientation": "S",
+      "a": "4/5",
+      "b": "7/16",
+      "z": "1709/2080",
+      "optimum": "268761/2080",
+      "states": 5301
+    }
+  ],
+  "witness_trees": [
+    {
+      "name": "Dmid",
+      "orientation": "D",
+      "counts": [
+        329,
+        36,
+        68,
+        141
+      ],
+      "sha256": "c15a95605f4de0249a1a47f68b198e5a3cf8ee021a7cc3bdf5b37780c1401067"
+    },
+    {
+      "name": "Dhi",
+      "orientation": "D",
+      "counts": [
+        333,
+        40,
+        70,
+        141
+      ],
+      "sha256": "3492835d7eb57ec608f03350fc5bf869cc4c0f0e7fe53638f4c8bf912c65a4db"
+    },
+    {
+      "name": "Smain",
+      "orientation": "S",
+      "counts": [
+        333,
+        9,
+        105,
+        141
+      ],
+      "sha256": "8143466c26acc2ad3400e4823b81c4a3fd0188bfce07602142df059102c5ca48"
+    },
+    {
+      "name": "Tnonsat",
+      "orientation": "S",
+      "counts": [
+        340,
+        8,
+        141,
+        115
+      ],
+      "sha256": "7498f30a273bd16776a05f843d932bdee754978d9769c89ad7c10f95b41b28d4"
+    }
+  ],
+  "sharpness": {
+    "uniform_z0": "1709/2080",
+    "corner": {
+      "a": "4/5",
+      "b": "7/16"
+    },
+    "challenger_minus_saturated": "26*(z-1709/2080)",
+    "q140_challenger_uses": 115
+  },
+  "gap": {
+    "min": {
+      "value": "2749/128",
+      "a": "3/4",
+      "b": "57/128"
+    },
+    "max": {
+      "value": "405/16",
+      "a": "4/5",
+      "b": "7/16"
+    }
+  },
+  "native_verification": {
+    "primary_exact": "10/10",
+    "independent_exact": "2/2",
+    "fully_replayed_original_trees": "4/4",
+    "named_profiles_each": 141
+  },
+  "provenance": {
+    "parent_pr": 2760,
+    "parent_commit": "94107fccdfce61e0e35c7cf1d052e6639ad92f38",
+    "scope": "portable independent; no formal Claim/Result/Review/Activity"
+  },
+  "evidence_archive": "EC49FTE_SHARP_MIDDLE_SATURATION_BRIDGE_FULL_EVIDENCE_20261119.tar.xz",
+  "evidence_archive_sha256": "57ae1a73ba7151e62be803b80f55f298673efa208e8cf0b31169ab39d7634128"
+}
