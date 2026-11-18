@@ -1,6 +1,12 @@
 name: chatgpt-control-dispatch-bridge
 
 on:
+  workflow_dispatch:
+    inputs:
+      original_request_commit:
+        description: 'Recover the current receiptless request by its last main file-change commit'
+        required: true
+        type: string
   pull_request:
     paths:
       - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
@@ -20,35 +26,37 @@ on:
       - 'research_driver_authority_compatibility.json'
 
 permissions:
-  contents: write
-  issues: read
+  contents: read
 
 # Every request-producing commit must get its own run. A fixed concurrency group
 # drops pending GitHub Actions runs when a newer request arrives.
 concurrency:
-  group: chatgpt-control-dispatch-bridge-${{ github.sha }}
+  group: chatgpt-control-dispatch-bridge-${{ github.event_name }}-${{ github.sha }}
   cancel-in-progress: false
 
+env:
+  REQUEST_PATH: control_plane/chatgpt_dispatch_request.json
+  RECEIPT_PATH: control_plane/chatgpt_dispatch_receipt.json
+  RECEIPT_DIR: control_plane/chatgpt_dispatch_receipts
+  STARTUP_PACKET_DIR: control_plane/chatgpt_startup_packets
+
 jobs:
-  canonical-dispatch:
+  inspect-request:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    env:
-      GH_TOKEN: ${{ github.token }}
-      REQUEST_PATH: control_plane/chatgpt_dispatch_request.json
-      RECEIPT_PATH: control_plane/chatgpt_dispatch_receipt.json
-      RECEIPT_DIR: control_plane/chatgpt_dispatch_receipts
-      STARTUP_PACKET_DIR: control_plane/chatgpt_startup_packets
-      PUSH_BEFORE: ${{ github.event.before }}
+    outputs:
+      execute: ${{ steps.request_change.outputs.execute }}
+      request_source_commit: ${{ steps.request_change.outputs.request_source_commit }}
+      request_id: ${{ steps.envelope.outputs.request_id }}
+      kind: ${{ steps.envelope.outputs.kind }}
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v7
-        with:
-          python-version: '3.12'
+          persist-credentials: false
 
       - name: Validate connector request
+        id: envelope
         shell: bash
         run: |
           set -euo pipefail
@@ -87,35 +95,83 @@ jobs:
             jq -e '.assigned_research_task | type == "object"' "$REQUEST_PATH" >/dev/null
             jq -e 'has("assigned_driver_task") | not' "$REQUEST_PATH" >/dev/null
           fi
-          echo "REQUEST_ID=$request_id" >> "$GITHUB_ENV"
-          echo "DISPATCH_KIND=$kind" >> "$GITHUB_ENV"
+          echo "request_id=$request_id" >> "$GITHUB_OUTPUT"
+          echo "kind=$kind" >> "$GITHUB_OUTPUT"
           echo "IMMUTABLE_RECEIPT_PATH=$RECEIPT_DIR/$request_id.json" >> "$GITHUB_ENV"
           echo "IMMUTABLE_STARTUP_PACKET_PATH=$STARTUP_PACKET_DIR/$request_id.json" >> "$GITHUB_ENV"
 
-      - name: Detect request-producing push
+      - name: Detect request authority
         id: request_change
-        if: github.event_name == 'push'
+        env:
+          PUSH_BEFORE: ${{ github.event.before }}
+          ORIGINAL_REQUEST_COMMIT: ${{ inputs.original_request_commit }}
         shell: bash
         run: |
           set -euo pipefail
-          before="$PUSH_BEFORE"
-          if [[ ! "$before" =~ ^[0-9a-f]{40}$ || "$before" == "0000000000000000000000000000000000000000" ]]; then
-            before="$(git rev-parse "${GITHUB_SHA}^1")"
+          execute=false
+          case "$GITHUB_EVENT_NAME" in
+            push)
+              before="$PUSH_BEFORE"
+              if [[ ! "$before" =~ ^[0-9a-f]{40}$ || "$before" == "0000000000000000000000000000000000000000" ]]; then
+                before="$(git rev-parse "${GITHUB_SHA}^1")"
+              fi
+              if git diff --quiet "$before" "$GITHUB_SHA" -- "$REQUEST_PATH"; then
+                echo "REQUEST_REPLAY_VALIDATION_ONLY"
+              else
+                rc=$?
+                [[ "$rc" == 1 ]] || exit "$rc"
+                execute=true
+              fi
+              ;;
+            workflow_dispatch)
+              [[ "$GITHUB_REF" == refs/heads/main && "$ORIGINAL_REQUEST_COMMIT" =~ ^[0-9a-f]{40}$ ]]
+              [[ "$ORIGINAL_REQUEST_COMMIT" == "$(git log -1 --first-parent --format=%H "$GITHUB_SHA" -- "$REQUEST_PATH")" ]]
+              if [[ -e "$IMMUTABLE_RECEIPT_PATH" && -e "$IMMUTABLE_STARTUP_PACKET_PATH" ]]; then
+                echo "READ_EXISTING_RECEIPT_AND_PACKET"
+              elif [[ -e "$IMMUTABLE_RECEIPT_PATH" || -e "$IMMUTABLE_STARTUP_PACKET_PATH" ]]; then
+                echo "INCOMPLETE_IMMUTABLE_PAIR"
+                exit 1
+              else
+                execute=true
+              fi
+              ;;
+            pull_request) echo "REQUEST_REPLAY_VALIDATION_ONLY" ;;
+            *) exit 1 ;;
+          esac
+          if [[ "$execute" == true ]]; then
+            request_source_commit="$(git log -1 --first-parent --format=%H "$GITHUB_SHA" -- "$REQUEST_PATH")"
+            [[ "$request_source_commit" =~ ^[0-9a-f]{40}$ ]]
+            echo "request_source_commit=$request_source_commit" >> "$GITHUB_OUTPUT"
           fi
-          if git diff --quiet "$before" "$GITHUB_SHA" -- "$REQUEST_PATH"; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            if [[ -e "$IMMUTABLE_RECEIPT_PATH" ]]; then
-              echo "persist=false" >> "$GITHUB_OUTPUT"
-              echo "REQUEST_REPLAY_VALIDATION_ONLY source_sha=$GITHUB_SHA range=$before..$GITHUB_SHA"
-            else
-              echo "persist=true" >> "$GITHUB_OUTPUT"
-              echo "REQUEST_REPLAY_MISSING_RECEIPT source_sha=$GITHUB_SHA range=$before..$GITHUB_SHA request_id=$REQUEST_ID"
-            fi
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            echo "persist=true" >> "$GITHUB_OUTPUT"
-            echo "REQUEST_PRODUCING_PUSH source_sha=$GITHUB_SHA range=$before..$GITHUB_SHA"
-          fi
+          echo "execute=$execute" >> "$GITHUB_OUTPUT"
+
+      - name: Check routing and packet fixtures
+        run: |
+          python -m unittest discover -s tests -p 'test_chatgpt_dispatch_bridge_replay_guard.py'
+          python -m unittest discover -s tests -p 'test_researcher_startup_packet*.py'
+
+  canonical-dispatch:
+    needs: inspect-request
+    if: needs.inspect-request.outputs.execute == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      issues: read
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REQUEST_ID: ${{ needs.inspect-request.outputs.request_id }}
+      DISPATCH_KIND: ${{ needs.inspect-request.outputs.kind }}
+      REQUEST_SOURCE_COMMIT: ${{ needs.inspect-request.outputs.request_source_commit }}
+      IMMUTABLE_RECEIPT_PATH: control_plane/chatgpt_dispatch_receipts/${{ needs.inspect-request.outputs.request_id }}.json
+      IMMUTABLE_STARTUP_PACKET_PATH: control_plane/chatgpt_startup_packets/${{ needs.inspect-request.outputs.request_id }}.json
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
 
       - name: Fetch authoritative Issue 240 comment stream
         shell: bash
@@ -191,6 +247,8 @@ jobs:
             --arg generated_at "$generated_at" \
             --arg repository "$GITHUB_REPOSITORY" \
             --arg source_sha "$GITHUB_SHA" \
+            --arg request_source_commit "$REQUEST_SOURCE_COMMIT" \
+            --arg event "$GITHUB_EVENT_NAME" \
             --arg kind "$DISPATCH_KIND" \
             --arg immutable_receipt_path "$IMMUTABLE_RECEIPT_PATH" \
             --arg snapshot_sha256 "sha256:$ISSUE240_SNAPSHOT_SHA256" \
@@ -204,6 +262,8 @@ jobs:
               generated_at: $generated_at,
               repository: $repository,
               source_sha: $source_sha,
+              request_source_commit: $request_source_commit,
+              explicit_receipt_recovery: ($event == "workflow_dispatch"),
               kind: $kind,
               immutable_receipt_path: $immutable_receipt_path,
               issue_240: {
@@ -231,7 +291,6 @@ jobs:
           cat /tmp/em-dispatch/startup-packet.json
 
       - name: Persist request receipt on main
-        if: github.event_name == 'push' && steps.request_change.outputs.persist == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -243,14 +302,18 @@ jobs:
             git reset --hard origin/main
 
             if [[ -e "$IMMUTABLE_RECEIPT_PATH" ]]; then
-              if jq -e \
+              if saved_source="$(jq -er \
                 --arg request_id "$REQUEST_ID" \
-                --arg source_sha "$GITHUB_SHA" \
-                '.request_id == $request_id and .source_sha == $source_sha' \
-                "$IMMUTABLE_RECEIPT_PATH" >/dev/null; then
+                --arg request_source "$REQUEST_SOURCE_COMMIT" \
+                --arg execution_source "$GITHUB_SHA" \
+                'select(.request_id == $request_id and
+                  (.request_source_commit == $request_source or
+                   (.request_source_commit == null and .source_sha == $execution_source)))
+                 | .source_sha | select(type == "string" and test("^[0-9a-f]{40}$"))' \
+                "$IMMUTABLE_RECEIPT_PATH")"; then
                 if [[ -e "$IMMUTABLE_STARTUP_PACKET_PATH" ]] && jq -e \
                   --arg request_id "$REQUEST_ID" \
-                  --arg source_sha "$GITHUB_SHA" \
+                  --arg source_sha "$saved_source" \
                   '.request_id == $request_id and .source_sha == $source_sha' \
                   "$IMMUTABLE_STARTUP_PACKET_PATH" >/dev/null; then
                   echo "IMMUTABLE_RECEIPT_AND_STARTUP_PACKET_ALREADY_PERSISTED receipt=$IMMUTABLE_RECEIPT_PATH packet=$IMMUTABLE_STARTUP_PACKET_PATH"
@@ -273,17 +336,16 @@ jobs:
             cp /tmp/em-dispatch/startup-packet.json "$IMMUTABLE_STARTUP_PACKET_PATH"
 
             current_request_id="$(jq -r '.request_id // empty' "$REQUEST_PATH")"
-            if [[ "$current_request_id" == "$REQUEST_ID" ]]; then
+            current_request_commit="$(git log -1 --first-parent --format=%H HEAD -- "$REQUEST_PATH")"
+            git add "$IMMUTABLE_RECEIPT_PATH" "$IMMUTABLE_STARTUP_PACKET_PATH"
+            if [[ "$current_request_id" == "$REQUEST_ID" && "$current_request_commit" == "$REQUEST_SOURCE_COMMIT" ]]; then
               cp /tmp/em-dispatch/receipt.json "$RECEIPT_PATH"
+              git add "$RECEIPT_PATH"
               echo "LATEST_RECEIPT_ELIGIBLE request_id=$REQUEST_ID"
             else
               echo "LATEST_RECEIPT_SKIPPED stale_request=$REQUEST_ID current_request=$current_request_id"
             fi
 
-            git add "$IMMUTABLE_RECEIPT_PATH" "$IMMUTABLE_STARTUP_PACKET_PATH"
-            if [[ "$current_request_id" == "$REQUEST_ID" ]]; then
-              git add "$RECEIPT_PATH"
-            fi
             git commit -m "control: record ChatGPT dispatch receipt and startup packet $REQUEST_ID"
             if git push origin HEAD:main; then
               echo "RECEIPT_AND_STARTUP_PACKET_PERSISTED attempt=$attempt receipt=$IMMUTABLE_RECEIPT_PATH packet=$IMMUTABLE_STARTUP_PACKET_PATH"

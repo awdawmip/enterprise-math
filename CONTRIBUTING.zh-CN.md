@@ -11,8 +11,8 @@
 | 当前工作 | 公开项目入口 |
 |---|---|
 | 研究推进与成果保全 | [现行研究协议](docs/PORTABLE_RESEARCH_PROTOCOL.md) |
-| 项目原生语义 | [P000](p000_reality_foundation.json) 及其声明的配套契约；研究时的[心跳世界](definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json) |
-| 候选冻结前的 FREE | [仅原始基底入口](definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md) |
+| FREE A 以外的项目原生语义 | [P000](p000_reality_foundation.json) 及其声明的配套契约；研究时的[心跳世界](definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json) |
+| 候选冻结前的 FREE（含 P000） | [A 阶段基础包](definitions/EM_FREE_A_FOUNDATION_STARTUP.json)与[原始基底入口](definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md) |
 | 正式任务或控制操作 | [架构与角色](docs/RESEARCH_ARCHITECTURE.md)、[现行控制优先级](control_plane/current_control_authority.json)、[运行状态机](docs/RESEARCH_RUNTIME_STATE_MACHINE.md)、[V2 发布协议](docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md) |
 | 研究身份与活动 | [角色身份](docs/RESEARCH_IDENTITY_PROTOCOL.md)、[活动持久化](docs/RESEARCH_ACTIVITY_PROTOCOL.md) |
 | BRC 残差拟合 | [原生 X6 语义对齐](research_notes/BRC_NATIVE_X6_SEMANTIC_ALIGNMENT_20261002_9D72AC.md) |
@@ -25,6 +25,8 @@
 ## 你不需要赞同整个理论
 
 最有价值的贡献完全可能是证明某个候选规则错误。
+
+遇到可复现的冲突，请给出前提、定义、适用域和最短的失败推导或实现。尚未查明原因时，保留该范围内的冲突供复核。P000 作为项目起点的变更由用户直接决定。派生物理模型提出的预测仍可按其声明的观测量和参数接受检验。[物理反证契约](docs/P016_PHYSICAL_FALSIFICATION_CONTRACT.zh-CN.md)
 
 可接受的贡献包括：
 

@@ -7,9 +7,9 @@ Purpose: current tool/protocol entrypoint without remote-preflight tax, historic
 
 `RESEARCH_HOT_PATH > REMOTE_PREFLIGHT`.
 
-For a selected TASK:
-
-`MAX_ROUTINE_SOURCE_READS_BEFORE_SUBSTANTIVE_WORK = 3`.
+For a selected TASK, the routine source-read target in
+[`research_context_budget.json`](../research_context_budget.json) is soft.
+Read the exact material needed for the work, reusing valid inputs.
 
 ## GitHub route
 
@@ -46,7 +46,7 @@ Common Surface is a lookup, not a default context dump.
 Phase A begins from:
 
 1. FREE role mechanics when needed;
-2. `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`;
+2. `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md` and the role-selected values in `definitions/EM_FREE_A_FOUNDATION_STARTUP.json`;
 3. only exact primitive definitions actually required.
 
 Do not preload the general current-result router, project-control context, or a suggested question/lens menu before candidate freeze.
@@ -85,7 +85,7 @@ A supplied current taskbook is the normal second TASK read. Use its frozen sourc
 
 Use diagnostics only when actual formal/test/tool work requires them.
 
-Do not poll CI.
+Do not poll CI routinely. Check a relevant run when the requested delivery or current verification depends on its outcome.
 
 Tool availability is evidence/mechanics support, not a FREE research-topic selector.
 

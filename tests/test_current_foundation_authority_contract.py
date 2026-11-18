@@ -83,7 +83,9 @@ def test_tool_surface_is_connector_first_and_exact_task_first():
     text = read("docs/EM_RESEARCH_TOOL_SURFACE.md")
     assert "CONNECTED_GITHUB_PLUGIN = PRIMARY_REMOTE_GITHUB_PATH" in text
     assert "chat/container networking" in text
-    assert "MAX_ROUTINE_SOURCE_READS_BEFORE_SUBSTANTIVE_WORK = 3" in text
+    assert "research_context_budget.json" in text
+    assert "is soft" in text
+    assert "MAX_ROUTINE_SOURCE_READS_BEFORE_SUBSTANTIVE_WORK" not in text
     assert "exact task entry" in text
     assert "first exact dependency required to begin" in text
     assert "Do not poll CI" in text

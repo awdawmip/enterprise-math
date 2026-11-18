@@ -8,6 +8,8 @@ Use the existing GitHub connector. The server runs the admitted Enterprise Math 
 
 This guide describes the EM_CHAT_CONTROL_V1 GitHub Issue bridge. Its keyless recovery_status does not apply to Sites em_site_control/recovery_status, which requires the caller's own service-issued capability. Where explicitly enabled, owner private custody recovers an existing profile through em_private_session_control/status and calls the native handler through use while keeping the key on the host. Keep each lane's actual session, contribution history and CLAIM/run. A public owner profile is not another researcher's identity, and changing transport or borrowing an older session must not bypass a refusal. Use the current Site's custody contract and profile-discovery response for its consumption route.
 
+For an existing operation, use the subject, transport and original request that own it. For new control work, use the caller’s existing Sites capability or this Issue bridge according to the operation actually advertised. The [Actions request-file bridge](CHATGPT_CONTROL_DISPATCH_BRIDGE.md) returns a dispatch selection and startup packet only. It creates no session, CLAIM or Result. Independent scientific files use the [Source preservation route](RESEARCH_CONSOLE_FALLBACK.md) within existing permissions.
+
 ## Bootstrap and envelope
 
 Establish or reuse a valid immutable main snapshot of
@@ -61,7 +63,7 @@ Required fields are `schema`, `conversation_id`, `request_id`, `operation`, `pay
 
 `conversation_id` is a stable client-declared logical ID, not platform attestation (1–160 characters; alphanumeric first, then alphanumeric or `:/_.-`). `request_id` uniquely identifies one logical operation (1–128 characters; alphanumeric first, then alphanumeric or `_.-`). The inbox verifies private repository/trusted actor, original immutable body, double-read fingerprint and durable idempotency. Do not edit submitted Issues or create duplicate mutation Issues. Initial requests must be unedited and under 24 hours old. Requests from multiple models/terminals have no fixed five-request admission ceiling; the existing single worker still serializes execution. Ordinary payload limit: 16 KiB; canonical envelope: 32 KiB.
 
-Request admission does not grant a Task CLAIM or execution authority. Existing Source owner/lease rules remain; a `WAITING_RESOURCE` job still needs explicit same-ID `reconcile` after resources recover. Claim expiry does not automatically resume that job.
+Request admission does not grant a Task CLAIM or execution authority. For a confirmed transient read wait, follow the service’s bounded retry on the original ID. If the receipt identifies an unresolved resource dependency, restore it and reconcile the original ID as directed. Reconcile uncertain writes before replay. A cancellation or refusal ends the affected automatic retry. Claim expiry grants no recovery authority.
 
 ## Readbacks and read-only operations
 
@@ -100,19 +102,19 @@ Normal chain: dispatch → session_start → prepare → claim (returned run is 
 | `open` | `claim_request_id` | Legacy claim-only compatibility; a combined claim receipt with run already supplies run_request_id |
 | `resume` | `run_request_id` | Successful same-session resume yields a new request ID/generation; stop using the old one |
 | `artifact_upload` | `upload_id`, `filename`, `part_index`, `content` | `final=false` default; final part must use true |
-| `publish_checkpoint` | `run_request_id`, `upload_request_ids`, `completed_units`, `current_unfinished_unit`, `next_action`, `do_not_repeat` | `release=false` default; true publishes CONTINUATION and releases. Keep false before freeze |
+| `publish_checkpoint` | `run_request_id`, `upload_request_ids` | Optional progress notes and state are described below. `release=false` default; true publishes CONTINUATION and releases. Keep false before freeze |
 | `freeze` | `run_request_id`, `publication_request_id`, `return_filename`, `metadata` | Publication must be the same run's successful publish_checkpoint |
 | `session_close` | `reason` | Pending requests, active claims or unresolved staged uploads must be resolved first; see the verified neutral-preservation route in 0.6.6 |
 
 Upload IDs and filenames are simple 1–96 character names (alphanumeric first, then alphanumeric or `_.-`, no slash). Parts start at zero and are contiguous up to index 128. Maximum 16000 UTF-8 bytes and 24000 JSON-escaped bytes per part, 1 MiB per file, 16 files/4 MiB per publication. Use a new request ID for each part; retain upload_id/filename. `upload_request_ids` lists the successful **final complete part request** for each file, not upload IDs or all part IDs. Uploading never executes code.
 
-Checkpoint `completed_units` and `do_not_repeat` are string arrays; `current_unfinished_unit` and `next_action` are nonempty strings. Describe the actual remaining envelope/review work when research is ready; do not invent completion. Use service-generated immutable blob URLs, not custom branch@commit-plus-path strings.
+The V2 checkpoint contract accepts optional `completed_units` and `do_not_repeat` string arrays, optional text or null for `current_unfinished_unit` and `next_action`, and optional `continuation_state` (`OPEN`, `COMPLETE`, `UNKNOWN`). Describe the author’s actual unit. A completed unit can have a null successor while formal Task or review status follows its own records. Existing complete V1 notes remain readable. Use the capabilities advertised by the actual service. Use service-generated immutable blob URLs, not custom branch@commit-plus-path strings.
 
 `freeze.metadata` has exactly seven explicit fields: `terminal_verdict`, `hard_target_disposition`, `unresolved_residue`, `method_harvest`, `independence_status`, `source_exposure_status`, `next_control_plane_recommendation`. They report the actual task-bounded verdict, hard-target disposition, remaining gaps, method outputs, independence, exposure and next control action. Native contracts validate values/types; there is **no default PASS**. Server derives the current ER/pin/write authorization. Only native admission, Source publication and complete readback permit frozen HANDOFF. Frozen Result still awaits independent Driver review.
 
 ## Existing-frontier continuation
 
-Read exact continuation/artifacts, classify completed/unfinished/conflicted/unknown units and preserve verified work. `continuation_prepare` currently supports a canonically released predecessor with **no live claim and NEEDS_DISPATCH**, not client-declared stale takeover. Required: `packet_request_id`, `reason`. If persisted checkpoint state is SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED, pass only those fields and preserve the native frontier. Otherwise provide `artifact_request_ids` and `frontier_notes` containing exactly the four checkpoint fields above; actual fully hashed artifacts must include authenticated last-progress evidence. Server inherits contributors. Then claim/open. A frozen Result awaiting review alone does not block research. Active owners, source restrictions and specialized lanes retain their actual authority checks.
+Read exact continuation/artifacts, classify completed/unfinished/conflicted/unknown units and preserve verified work. `continuation_prepare` currently supports a canonically released predecessor with **no live claim and NEEDS_DISPATCH**, not client-declared stale takeover. Required: `packet_request_id`, `reason`. If persisted checkpoint state is SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED, pass only those fields and preserve the native frontier. Otherwise provide `artifact_request_ids` and `frontier_notes` under the supported progress-note schema; actual fully hashed artifacts must include authenticated last-progress evidence. Server inherits contributors. Then claim/open. A frozen Result awaiting review alone does not block research. Active owners, source restrictions and specialized lanes retain their actual authority checks.
 
 ## Independent Driver
 

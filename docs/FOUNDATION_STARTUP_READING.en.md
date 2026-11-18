@@ -19,6 +19,17 @@ fidelity, joint-relation preservation and global Weighted-BRC typing. Ordinary
 links are not mandatory edges. Final Cell addressing and further exact
 spatial/time/tool details retain their actual conditional triggers.
 
+The ordinary profile copies the full Weighted-BRC commitments. Before a FREE
+researcher chooses a question, the projection copies the common branch types
+as individual source pointers, including the limits of the positive, signed
+and Boolean carriers. It also copies the question-first rule. The remaining
+specialized commitments are available in full when applicable. A previously
+unclassified commitment requires a mapping decision for the blind profile.
+Ordinary reads can still retrieve the full scientific source. Other mixed
+sources also contain lists of open directions or topic-specific candidate
+notes. The blind entry withholds these while preserving the root axioms,
+explicit joint-observer commitments and residual-fidelity tests.
+
 The packages are not new source authority. Each `normative_payload` group names
 its source `path`; its `values` map uses exact JSON pointers to copied whole
 values. Conditions, exceptions and nested fields remain present. Source
@@ -73,9 +84,11 @@ source read, and preserve actual exposure. Other independent work continues.
 Ordinary roles may use exact canonical sources at their required versions.
 
 For connector-only readers, the two output files are separate complete
-artifacts. Fetch the profile for the actual role at its required scientific
-version; do not fetch a mixed ordinary package and then ask the model to ignore
-parts already received. Read the current FREE role, anti-anchoring and primitive
+artifacts. Use the profile matching the role and required source blobs. For archived
+science, establish the selection before returning the package to a Phase-A
+researcher. The earlier free mapping exposed the complete commitment array.
+A current projection for those same five frozen blobs, or the current reader
+run with those exact inputs, delivers the role-safe selection. Read the current FREE role, anti-anchoring and primitive
 substrate separately. Those entry texts route B-specific inventories to the
 Phase-B reference rather than listing them inside Phase A.
 
@@ -107,7 +120,10 @@ is required. The booleans express the caller's actual problem/relevance
 judgment; the reader does not independently certify origin, clean context,
 mathematical truth or novelty.
 
-The first adapter supports exact definition sections and the positive-branch
+An exact lookup into the Weighted-BRC global substrate takes the stable
+commitment identifier (the part before the first colon) as its selector and
+returns that single full statement. This survives source-array reordering.
+The adapter also supports exact definition sections and the positive-branch
 tool symbols `CWMState`, `cwm_from_positive_weights` and
 `is_positive_path_realizable` in `src/enterprise_math/brc_weighted.py`. A tool
 selection includes its same-module static source dependencies, without the

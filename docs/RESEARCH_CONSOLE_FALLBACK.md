@@ -6,7 +6,7 @@
 
 - 已有准确、当前适用的完整正文，直接复用。中控台返回摘要、缺失、明显过旧或服务不可用时，只从 GitHub 补取**需要**的文件及相关证据；不默认每轮全仓扫描。
 - 普通 TASK 研究以 `p000_reality_foundation.json`、`definitions/EM_FOUNDATION_STARTUP.json`、`definitions/00_CURRENT_NATIVE_FOUNDATION.md`、准确任务书和实际数学依赖为来源。当前行为规则与冻结的科学输入分别固定。
-- **FREE Phase A** 以 `definitions/EM_FREE_A_FOUNDATION_STARTUP.json` 和 `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md` 为阶段入口；不预加载普通 `00_CURRENT_NATIVE_FOUNDATION.md`、已取得的下游成果和工具菜单。只有自己已形成问题且允许的相关定义或工具，才沿原 FREE 角色合同按需查找。Phase B 使用其原有对照程序。
+- **FREE Phase A** 以 `definitions/EM_FREE_A_FOUNDATION_STARTUP.json` 和 `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md` 为阶段入口；不预加载普通 `00_CURRENT_NATIVE_FOUNDATION.md`、已取得的下游成果和工具菜单。只有自己已形成问题且允许的相关定义或工具，才沿原 FREE 角色合同按需查找。遇到历史包时，在呈现给研究者之前复用同一冻结科学输入的角色过滤投影，或从这些输入重建选段。Phase B 使用其原有对照程序。
 - GitHub 文件内容、可核验来源、版本与实际依赖胜过缓存和摘要。仅有目录、commit 哈希或“已读”标签并不等于模型已经取得定义正文。
 
 ## 中控台永久丢失

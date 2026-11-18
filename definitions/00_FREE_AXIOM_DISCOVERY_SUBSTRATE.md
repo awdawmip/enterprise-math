@@ -111,7 +111,7 @@ A FREE researcher therefore starts with the following type discipline:
 - positive Weighted-BRC cannot replace signed/amplitude cancellation or reflection-odd orientation after positive recoalescence;
 - one deterministic positive path has `C=1`, `W=M`, `E=1`, `Delta=0`, so deterministic problems are not forced into a multiplicity interpretation;
 - canonical R023 Boolean support remains the base support semantics;
-- no general SCC / Perron-Frobenius / spectral-radius theorem is supplied by the one-state recurrent result.
+- each further result applies within its declared state, observer and operation scope.
 
 Anti-anchoring freeze:
 
@@ -121,7 +121,7 @@ Anti-anchoring freeze:
 
 `SELF_GENERATED_PROBLEM_FIRST -> DETAILED_THEOREM_OR_TOOL_LOOKUP_SECOND`.
 
-Do **not** show the detailed Weighted-BRC theorem IDs, prior successful arithmetic/selector/holonomy applications, or a menu of Weighted-BRC research directions before a FREE Phase-A question has independently arisen. If the question naturally contains the relevant branch structure, the exact definitions may be used without waiting for Phase B because their minimal type is now project substrate; detailed current-result comparison and tool-dedup remain Phase-B functions.
+The starting package copies the general typing commitments. Once a question independently arises, read the complete applicable statement, its conditions and the exact definitions or tools it requires. The full comparison catalog opens in Phase B after candidate freeze.
 
 ## Phase-A project commitments
 
@@ -244,8 +244,10 @@ Therefore during FREE Phase A:
 
 The generated package covers the five mandatory Source contracts; the former
 three-file shorthand was a locator summary, not permission to omit Heartbeat,
-residual fidelity or joint-preservation. A matching package may be reused while
-its actual scientific sources remain applicable. Its local role reader is
+residual fidelity or joint-preservation. Reuse a package with the same scientific inputs and the role-specific
+commitment selection. An older package that exposes the full commitment array
+can be reconstructed from its frozen sources with the current role reader before
+display. Its local role reader is
 `python tools/build_em_foundation_startup.py --read free_phase_a`; it returns
 classified content before the response reaches the model. The build report and
 the ordinary research package are maintenance/other-role surfaces.
@@ -271,7 +273,8 @@ Free innovation is therefore downstream of P000 and current universal type commi
 
 ## Authority
 
-For P000 content, `../p000_reality_foundation.json` controls.
+The Phase-A projection supplies the applicable P000 values before question
+formation. Their canonical authority is `../p000_reality_foundation.json`.
 
 For the minimal all-research Weighted-BRC substrate, `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json` controls.
 
