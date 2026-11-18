@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/fortyfifth/README.md",
+    "ref": "0c5585d232dd538e4b09067216aec8fdd494319a",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-fortyfive-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第四十五轮　图上的分块总量、可逆相遇读出与素理想补偿\n\n## 给定每块总量，边差还留下哪些整数关系\n\n设有限图有 $V$ 个顶点、$E$ 条定向边及 $c$ 个连通分量。在整数顶点标号上取定向边差 $D$，把每个顶点块的标号和都为零的格记为 $H$。令 $M_{bj}$ 为第 $b$ 块在第 $j$ 个连通分量中的顶点数。则\n$$\n\\mathbf Z^E/D(H)\\simeq \\mathbf Z^{E-V+c}\\oplus\\operatorname{coker} M .\n$$\n边差因连通分量上加常数而留下的整数关系，全部收进这个交计数矩阵。完全二部图按两边分块，若块大小为 $u,v$，扭结部分为 $\\mathbf Z/\\gcd(u,v)\\mathbf Z$。给定顶点总数 $N=kq+t$ 和 $k=\\operatorname{rank}M$（$0\\le t<k$），扭结子群的阶最多为 $q^{k-t}(q+1)^t$。当分块就是连通分量，且其大小至多相差一时达到；正文证明这也是取等的必要条件。[正规形、界与整数例](lattice.md) · [复算](lattice_check.py) · [结果](lattice_checked.json)\n\n## 只观察相遇，怎样可逆地记下一个差值\n\n在 $\\mathbf Z/m$ 上，源标签 $j$ 与参考标签 $a$ 的差值要写入接收者 $r$。任务要求每步只查询当前参考是否与源相遇，同时在结束时还原参考与辅助记录。在三通道上，若预定扫描且每次只作一次相遇翻位，完成写入并复原辅助位恰需三次比较。若有一个参考偏移不可访问，恰需四次；若有两个不可访问，则无法区分全部源标签。公开正权内核重放了实现，原世界归档的接触规则仍待取得。[协议、界与三态原例](recorder.md) · [复算](recorder_check.py) · [结果](recorder_checked.json)\n\n## 补偿窗口重叠时，必须按素理想的身份去重\n\n在冻结的算术和中，每个标定槽读取指定射线类中的素理想。原窗口两两不交；把窗口放到同一尺度后，两槽可能选中同一理想。此时分割格反演可以精确扣除重复项。分裂有理素数上方的两个共轭理想仍是两种不同输入；合并同范数项会改变碰撞概率。用模 36 的真实射线条件枚举，范数在 3500 与 7000 之间有五个合格素理想、三个不同范数。按理想身份可以填满四个互异槽，按范数去重会把可能性误算成零。一般角色及复数系数的结果单列推导。[局部因子、补偿与射线类条件](compensation.md) · [复算](compensation_check.py) · [结果](compensation_checked.json)\n\n## 状态机轮转\n\n正式登记研究分别取局部关系记录与 003-D 的算术补偿。累计直接研究 198 项、51 个父目标，另有两项早期旁引。截至 22:07:14 UTC，未轮转池余 60 项严格就绪、22 项待交接、5 项冻结返回。图差分格是从已冻结的 A3/A4 例子分出的整数问题。[登记与积压](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/0c5585d232dd538e4b09067216aec8fdd494319a/research_notes/portable_direct/20261118_fair_queue_6b0fba/fortyfifth/README.md",
+      "encoding": "utf-8",
+      "sha": "5dce2be47c829f02f1e60b35781752c198f8aebf"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
