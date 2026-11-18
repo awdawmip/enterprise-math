@@ -1,0 +1,58 @@
+{
+  "all_histories_bits": "3n",
+  "carrier": "source-port-labelled Boolean BRC, full six signed Cell coordinates and ordered triad-token occupancy",
+  "exact_all_histories_classes": "8^n",
+  "exhaustive_future_language_cases_checked": 13248,
+  "frame_family": {
+    "1": {
+      "classes_per_frame": 8,
+      "frames": 120,
+      "productive_classes_per_frame": 7
+    },
+    "2": {
+      "classes_per_frame": 64,
+      "frames": 120,
+      "productive_classes_per_frame": 49
+    }
+  },
+  "future_quotient_B_transition_checks": 51360,
+  "larger_single_frame": {
+    "3": {
+      "cases": 512,
+      "exact_future_language_cases": 512,
+      "frame": [
+        0,
+        1,
+        2
+      ],
+      "future_classes": 512,
+      "n": 3,
+      "productive_full_quota_classes": 343,
+      "productive_worst_case_bits": 9,
+      "quotient_B_steps_checked": 2304,
+      "worst_case_bits": 9
+    },
+    "4": {
+      "cases": 4096,
+      "exact_future_language_cases": 4096,
+      "frame": [
+        0,
+        1,
+        2
+      ],
+      "future_classes": 4096,
+      "n": 4,
+      "productive_full_quota_classes": 2401,
+      "productive_worst_case_bits": 12,
+      "quotient_B_steps_checked": 24576,
+      "worst_case_bits": 12
+    }
+  },
+  "limitation": "No native TRIADIC_CLOSURE_E admission or repeated relocation; not a physical or signed-amplitude certificate",
+  "model": "R8 conditional guarded one-shot triadic relocation; 4n sources in n independent separated gadgets",
+  "productive_history_bits": "ceil(n*log2(7))",
+  "productive_history_classes": "7^n",
+  "schema": "X6_TRIADIC_PORT_MULTIBIT_R9_V1",
+  "status": "PASS",
+  "witness_history_cases_checked": 13248
+}
