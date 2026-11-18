@@ -1,0 +1,326 @@
+{
+  "schema": "EC49FTI_BRC16943_2D_LOWZ_FAN_REMOTE_V1",
+  "date": "2026-11-19",
+  "status": "AUTHOR_PROVED_NOT_REVIEWED",
+  "source_pin": "awdawmip/enterprise-math@fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor": "https://github.com/awdawmip/enterprise-math/pull/2769",
+  "domain": {
+    "a": "3/4",
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "3/8",
+      "3/5"
+    ]
+  },
+  "usage": {
+    "D20": [
+      313,
+      141,
+      47,
+      20
+    ],
+    "D24": [
+      313,
+      141,
+      43,
+      24
+    ],
+    "D30": [
+      316,
+      141,
+      43,
+      30
+    ],
+    "S46": [
+      309,
+      28,
+      141,
+      46
+    ],
+    "S51": [
+      311,
+      28,
+      141,
+      51
+    ],
+    "S69": [
+      311,
+      10,
+      141,
+      69
+    ],
+    "S77": [
+      315,
+      10,
+      141,
+      77
+    ]
+  },
+  "phase_boundaries": [
+    "2/5",
+    "z=b",
+    "1/2"
+  ],
+  "anchor_fields": [
+    "orientation",
+    "b",
+    "z",
+    "exact_bellman",
+    "optimal_tree",
+    "states_reached"
+  ],
+  "unrestricted_native_228_observer_exact_rational_anchor_rows": [
+    [
+      "D",
+      "7/16",
+      "3/8",
+      "2867/16",
+      "D20",
+      8511
+    ],
+    [
+      "D",
+      "57/128",
+      "3/8",
+      "22889/128",
+      "D20",
+      8473
+    ],
+    [
+      "D",
+      "7/16",
+      "7/16",
+      "2847/16",
+      "D20",
+      8447
+    ],
+    [
+      "D",
+      "57/128",
+      "57/128",
+      "22709/128",
+      "D20",
+      8440
+    ],
+    [
+      "D",
+      "7/16",
+      "1/2",
+      "2823/16",
+      "D24",
+      8387
+    ],
+    [
+      "D",
+      "57/128",
+      "1/2",
+      "22541/128",
+      "D24",
+      8380
+    ],
+    [
+      "D",
+      "7/16",
+      "3/5",
+      "2775/16",
+      "D30",
+      8304
+    ],
+    [
+      "D",
+      "57/128",
+      "3/5",
+      "22157/128",
+      "D30",
+      8278
+    ],
+    [
+      "S",
+      "7/16",
+      "3/8",
+      "695/4",
+      "S46",
+      8240
+    ],
+    [
+      "S",
+      "57/128",
+      "3/8",
+      "5553/32",
+      "S46",
+      8229
+    ],
+    [
+      "S",
+      "7/16",
+      "2/5",
+      "863/5",
+      "S46",
+      8185
+    ],
+    [
+      "S",
+      "57/128",
+      "2/5",
+      "27581/160",
+      "S46",
+      8170
+    ],
+    [
+      "S",
+      "7/16",
+      "7/16",
+      "2731/16",
+      "S51",
+      8145
+    ],
+    [
+      "S",
+      "57/128",
+      "57/128",
+      "21769/128",
+      "S51",
+      8108
+    ],
+    [
+      "S",
+      "7/16",
+      "1/2",
+      "1331/8",
+      "S69",
+      8037
+    ],
+    [
+      "S",
+      "57/128",
+      "1/2",
+      "10643/64",
+      "S69",
+      8033
+    ],
+    [
+      "S",
+      "7/16",
+      "3/5",
+      "6347/40",
+      "S77",
+      7846
+    ],
+    [
+      "S",
+      "57/128",
+      "3/5",
+      "50751/320",
+      "S77",
+      7846
+    ]
+  ],
+  "independent_raw94_rows": [
+    [
+      "D",
+      "57/128",
+      "3/8"
+    ],
+    [
+      "S",
+      "57/128",
+      "2/5"
+    ],
+    [
+      "D",
+      "7/16",
+      "1/2"
+    ],
+    [
+      "S",
+      "7/16",
+      "3/5"
+    ]
+  ],
+  "proof_basis": "7 feasible full original-index native 141-profile trees; unrestricted 228-observer rational Bellman at each of the 18 convex-cell vertices; global Bellman concavity + affine feasible tree upper bound yields equality for every real point",
+  "gap_piecewise": [
+    [
+      "D20",
+      "S46",
+      "3/8<=z<=2/5",
+      "4-19b+26z"
+    ],
+    [
+      "D20",
+      "S51",
+      "2/5<=z<=b",
+      "2-19b+31z"
+    ],
+    [
+      "D24",
+      "S69",
+      "b<=z<=1/2",
+      "2-33b+45z"
+    ],
+    [
+      "D30",
+      "S77",
+      "1/2<=z<=3/5",
+      "1-33b+47z"
+    ]
+  ],
+  "gap_min": {
+    "value": "677/128",
+    "at": [
+      "57/128",
+      "3/8"
+    ]
+  },
+  "gap_max": {
+    "value": "1181/80",
+    "at": [
+      "7/16",
+      "3/5"
+    ]
+  },
+  "source_sha256": {
+    "frozen_original_master.txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE.csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "tree_sha256": {
+    "D20": "6212ac16796f3db37447c1961314aa813163826d63e179fb0aab92293747c035",
+    "D24": "b510ceadbd10fa4b5970b5bdca71fa2d1e8e3e1cdc706d68c26705a16a6a7785",
+    "D30": "0709c9e1a331259c9947d3aaf5c8ae1f7f7c8c2ed8541ff5a62a168624acdf69",
+    "S46": "38bb9c56c9f3ed2eff6e043f0eda4d7e44a365b052ac839c295d6fa345892a43",
+    "S51": "de04dddcedc96cf16dc294709314e487fa353c0363a74d74ac31f5ae0ced28d9",
+    "S69": "c8b0c187c74304090569fdb85a05121be36d6116fdee79a963b67304efcb7ea9",
+    "S77": "6d9d13e29fa2cdb63aeb94aa6a70b46380502f2a9d9f20927c5a07060e08eb75"
+  },
+  "archive": {
+    "filename": "EC49FTI_NATIVE_BRC_2D_LOW_Z_FAN_EVIDENCE_20261119.tar.xz",
+    "sha256": "b5b0b38f12ffb5bb8a675417a1400de9f2a8964226a1f65160044a99f2b255eb",
+    "manifest_file_count": 23,
+    "contains": [
+      "original 228-observer source",
+      "original 141-profile table",
+      "7 native complete trees",
+      "exact Bellman solver",
+      "independent raw94 decoder",
+      "runnable verifier",
+      "18 native Bellman logs",
+      "4 independent recomputations"
+    ]
+  },
+  "validation": {
+    "primary_bellman": "18/18, executed in three six-anchor batches",
+    "independent_raw94": "4/4",
+    "named_tree_replay": "7/7 x 141/141",
+    "archive_integrity": "23/23 SHA256 verified"
+  },
+  "control": {
+    "task_id": "RS-EC49AS",
+    "request_id": "emr4-fti-20261119-0453-read-task-01",
+    "result": "SUCCEEDED / NO_CANONICAL_PUBLICATION_DIRECTORY",
+    "source_snapshot": "5182f5cb492106d96312ffdfaefd3ad22cc91bf8",
+    "formal_claim": false,
+    "activity_checkpoint": false
+  }
+}
