@@ -48,7 +48,7 @@ For C, a label occurs in some nonzero word precisely when a walk from an initial
 
 Both singleton edits are observationally invisible; their joint cycle is visible. With `x_A=x_B=t`, the series is `1+t^2+t^4+...`.
 
-**A label first appears at `2m-1=3`.** Use 5 Ports, observer `r=0`, baseline edges `0->1, 2->0, 2->3, 4->1`, all with weight `1/8`; the only editable edges are `A:1->2`, `B:3->4`. The transfer graph has initial/terminal A, arcs `A->B` and `B->A`, and B is neither initial nor terminal. The *earliest* monomial containing B is `x_A^2 x_B), with strictly positive coefficient `1/4096` (ordered word A,B,A). No term containing B has total degree one or two. Thus the stated per-label `2m-1` bound is sharp for `m=2`.
+**A label first appears at `2m-1=3`.** Use 5 Ports, observer `r=0`, baseline edges `0->1, 2->0, 2->3, 4->1`, all with weight `1/8`; the only editable edges are `A:1->2`, `B:3->4`. The transfer graph has initial/terminal A, arcs `A->B` and `B->A`, and B is neither initial nor terminal. The *earliest* monomial containing B is `x_A^2 x_B`, with strictly positive coefficient `1/4096` (ordered word A,B,A). No term containing B has total degree one or two. Thus the stated per-label `2m-1` bound is sharp for `m=2`.
 
 **First jet is not a safe all-horizon quotient.** On Ports `0,1,2`, fix baseline `0->1=1/4`, `2->0=1/4`, `2->1=gamma` with `gamma in {0,1/4}`; observer is 0 and the only editable edge is `1->2` of weight x. Direct inversion gives
 
