@@ -1,0 +1,171 @@
+{
+  "schema": "R269_AFFINE_TIME_CERTIFICATE_DIGEST_V1",
+  "date": "2026-11-18",
+  "provenance": {
+    "frozen_science_commit": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+    "r268_commit": "5ffd245c3d26e62b4584b16073002777b7b20b08"
+  },
+  "model": {
+    "s": "67/169",
+    "modulus": 13,
+    "first_event": 3,
+    "masks": 63,
+    "period": 2184,
+    "recurrence_taps": 249,
+    "observed_original_distinct_profiles": 25
+  },
+  "counts": {
+    "time_only": 522,
+    "translation_only": 325,
+    "affine_time_union": 6474,
+    "affine_time_orbits": 13,
+    "time_only_equivalence_groups": 17
+  },
+  "flat_code_bits": {
+    "original": 5,
+    "time_only": 10,
+    "translation_only": 9,
+    "affine_time_union": 13
+  },
+  "orbit_digest": [
+    {
+      "rep": 0,
+      "original_profiles": [
+        0
+      ],
+      "derivative_period": 1,
+      "orbit_size": 13
+    },
+    {
+      "rep": 9,
+      "original_profiles": [
+        9,
+        14,
+        29,
+        41,
+        46,
+        61
+      ],
+      "derivative_period": 168,
+      "orbit_size": 2184
+    },
+    {
+      "rep": 10,
+      "original_profiles": [
+        10,
+        25,
+        30,
+        42,
+        57
+      ],
+      "derivative_period": 6,
+      "orbit_size": 78
+    },
+    {
+      "rep": 12,
+      "original_profiles": [
+        12,
+        44
+      ],
+      "derivative_period": 21,
+      "orbit_size": 273
+    },
+    {
+      "rep": 13,
+      "original_profiles": [
+        13
+      ],
+      "derivative_period": 12,
+      "orbit_size": 156
+    },
+    {
+      "rep": 15,
+      "original_profiles": [
+        15,
+        47
+      ],
+      "derivative_period": 28,
+      "orbit_size": 364
+    },
+    {
+      "rep": 24,
+      "original_profiles": [
+        24
+      ],
+      "derivative_period": 12,
+      "orbit_size": 156
+    },
+    {
+      "rep": 26,
+      "original_profiles": [
+        26
+      ],
+      "derivative_period": 26,
+      "orbit_size": 338
+    },
+    {
+      "rep": 27,
+      "original_profiles": [
+        27,
+        59
+      ],
+      "derivative_period": 168,
+      "orbit_size": 2184
+    },
+    {
+      "rep": 45,
+      "original_profiles": [
+        45
+      ],
+      "derivative_period": 12,
+      "orbit_size": 156
+    },
+    {
+      "rep": 56,
+      "original_profiles": [
+        56
+      ],
+      "derivative_period": 12,
+      "orbit_size": 156
+    },
+    {
+      "rep": 58,
+      "original_profiles": [
+        58
+      ],
+      "derivative_period": 26,
+      "orbit_size": 338
+    },
+    {
+      "rep": 62,
+      "original_profiles": [
+        62
+      ],
+      "derivative_period": 6,
+      "orbit_size": 78
+    }
+  ],
+  "witnesses": [
+    {
+      "lhs": 14,
+      "rhs": 9,
+      "shift": 56,
+      "constant": 0
+    },
+    {
+      "lhs": 57,
+      "rhs": 10,
+      "shift": 1,
+      "constant": 4
+    }
+  ],
+  "verification": {
+    "arithmetic": "exact Fraction plus integer residues",
+    "finite_coverage": "63x2184, recurrence induction; explicit 6474 transformed profiles and independent single-operation closures",
+    "local_reference_implementation": "/mnt/data/em_r269/R269_affine_time_orbits.py",
+    "local_full_json_sha256": "fc0749138a1fbb10f09bf577b629163f9bab2a4e5be95ab79eee2396180311f2",
+    "github_certificate": "R269_affine_time_closure_certificate.py",
+    "independent_review": "NOT_REVIEWED",
+    "native_typed_BRC_bridge": "NOT_ESTABLISHED"
+  }
+}
