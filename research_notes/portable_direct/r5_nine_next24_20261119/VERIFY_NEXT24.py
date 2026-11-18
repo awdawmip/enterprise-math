@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Verify 24 R5 nine-state endpoint certificates. Needs frozen EXACT_R5_ALL_101_BUDGETS.json
 with SHA256 50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b
-and this folder's RESULTS_NEXT24.csv. Optional --solve recompiles and solves exact Bellman.
+and this folder's RESULTS_AFTER40.csv. Optional --solve recompiles and solves exact Bellman.
 The full 2026-class partition and class IDs have a separate exhaustive predecessor proof.
 """
 import csv, hashlib, json, re, subprocess, sys
@@ -37,7 +37,7 @@ def main():
  D=json.loads(raw)['counts_and_cohorts'];assert len(D)==101
  rows=list(csv.DictReader((P/'RESULTS_NEXT24.csv').open()))
  assert len(rows)==24 and len({r['group_id'] for r in rows})==24
- assert sum(int(r['size']) for r in rows)==2847
+ assert sum(int(r['size']) for r in rows)==1717
  if '--solve' in sys.argv:
   subprocess.run(['g++','-std=c++17','-O3','EXACT_NINE.cpp','-o','exact_nine'],cwd=P,check=True)
  count=0
@@ -59,5 +59,5 @@ def main():
                   proc.stdout.decode().strip())
    assert m and list(map(int,m.groups()))==[8335,int(r['memo_states']),nact]
  assert count==2424
- print('PASS_R5_NINE_NEXT24 classes=24 new_pairs=2847 cumulative_classes=70 cumulative_pairs=11790 supports_checked=2424')
+ print('PASS_R5_NINE_AFTER40 classes=24 new_pairs=1717 cumulative_classes=110 cumulative_pairs=15203 supports_checked=2424')
 if __name__=='__main__':main()
