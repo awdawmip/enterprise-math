@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R284AF_delayed_chain_port_verification.json",
+    "ref": "75d32925ba0fc92c51cefdf44b1c30b503d83cd3",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-r1-20261119-r284af-evidence-source-observation",
+  "result": {
+    "structuredContent": {
+      "content": "{\n  \"additional_off_grid_core_det_checks\": 1,\n  \"arithmetic\": \"SymPy Rational exact Bareiss determinant and rank\",\n  \"core_det_checks\": 1092,\n  \"core_parameter_grid\": \"q=1..6; each named t_i in {0,c/2,c}\",\n  \"core_rank_checks\": 1092,\n  \"full_port_det_rank_stability_checks\": 14,\n  \"full_port_parameter_grid\": \"q=1..3; each named t_i in {0,c}\",\n  \"limitation\": \"finite exact checks for the published algebraic proof, no independent reviewer\",\n  \"schema\": \"R284AF_EXACT_CHAIN_VERIFICATION_V1\",\n  \"source\": \"R284AF_CORANK_ONE_ARBITRARILY_DELAYED_PORT_ACTIVATION_20261119.md\",\n  \"status\": \"PASS\",\n  \"witnesses\": [\n    {\n      \"baseline_rank\": 2,\n      \"c\": \"1/48\",\n      \"first_nonzero_total_degree\": 2,\n      \"full_port_det_factor\": \"(-1)^(3)*(1/16)^(2*3)*1/48*product(t_i)\",\n      \"full_rank\": 3,\n      \"fully_activated_core_det\": \"1/110592\",\n      \"q\": 2\n    },\n    {\n      \"baseline_rank\": 3,\n      \"c\": \"1/64\",\n      \"first_nonzero_total_degree\": 3,\n      \"full_port_det_factor\": \"(-1)^(4)*(1/16)^(2*4)*1/64*product(t_i)\",\n      \"full_rank\": 4,\n      \"fully_activated_core_det\": \"1/16777216\",\n      \"q\": 3\n    },\n    {\n      \"baseline_rank\": 5,\n      \"c\": \"1/96\",\n      \"first_nonzero_total_degree\": 5,\n      \"full_port_det_factor\": \"(-1)^(6)*(1/16)^(2*6)*1/96*product(t_i)\",\n      \"full_rank\": 6,\n      \"fully_activated_core_det\": \"1/782757789696\",\n      \"q\": 5\n    },\n    {\n      \"baseline_rank\": 6,\n      \"c\": \"1/112\",\n      \"first_nonzero_total_degree\": 6,\n      \"full_port_det_factor\": \"(-1)^(7)*(1/16)^(2*7)*1/112*product(t_i)\",\n      \"full_rank\": 7,\n      \"fully_activated_core_det\": \"1/221068140740608\",\n      \"q\": 6\n    }\n  ]\n}\n",
+      "display_title": "R284AF_delayed_chain_port_verification.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/75d32925ba0fc92c51cefdf44b1c30b503d83cd3/research_notes/portable_direct/R284AF_delayed_chain_port_verification.json",
+      "encoding": "utf-8",
+      "sha": "41b0cca7c2ac38b20b22669f88aeef06963802ee"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
