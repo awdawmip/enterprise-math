@@ -109,7 +109,8 @@
       "research_result_records.task_result_state",
       "same historical intake/custody validation"
     ],
-    "historical_custody_route_skipped": false
+    "historical_custody_route_skipped": false,
+    "generic_owner_inventory_affected": "Aggregate inventory/effective_states traverses X6 historical intake even when the caller seeks other tasks; the same mapping correction covers that path."
   },
   "repair": {
     "new_custody_blob": "3a58b6d98255344a7fe01e7a15fb0d4fd3e6a321",
@@ -132,13 +133,13 @@
     "historical_authentication_restored": false
   },
   "verification": {
-    "related_unittest_cases": 107,
+    "related_unittest_cases": 108,
     "failures": 0,
     "errors": 0,
     "skips": 0,
-    "custody_cases": 22,
-    "new_custody_cases": 7,
-    "selected_new_cases_failing_old_code": 3,
+    "custody_cases": 23,
+    "new_custody_cases": 8,
+    "selected_new_cases_failing_old_code": 4,
     "real_github_ledger_bytes_reproduced_old_error": true,
     "patched_real_bytes_reproduction_passed": true,
     "all_original_and_current_bytes_unchanged": true,
@@ -148,7 +149,8 @@
     "custody_intake_and_baseline_test_modules_match_inspected_source": true,
     "fixture_authority_note": "Synthetic historical GOV receipt authority is mocked only in existing local fixtures; native facade/dispatch/intake/custody dataflow and immutable byte guards run. This is not live authorization.",
     "full_current_corpus_or_live_same_run_resume_verified": false,
-    "r063_author_benchmark_rerun": false
+    "r063_author_benchmark_rerun": false,
+    "generic_inventory_covers_unrelated_tasks_without_execution_grant": true
   },
   "production": {
     "observed_version": "0.6.11",

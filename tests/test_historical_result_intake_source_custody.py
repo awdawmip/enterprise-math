@@ -324,6 +324,34 @@ class ExactSourceCustodyTests(unittest.TestCase):
         self.assertFalse(review['record']['working_truth_granted'])
         self.assertFalse(review['record']['canonical_promotion_granted'])
 
+    def test_generic_inventory_keeps_other_tasks_readable_with_current_x6_science(self):
+        from control_plane import research_continuation as continuation
+        from tools import research_dispatch_core
+        self.make_intake()
+        ledger = self.root / self.mapping['entries'][2]['logical_path']
+        ledger.parent.mkdir(parents=True, exist_ok=True)
+        ledger.write_bytes(b'{"current_science_fixture":"not a canonical historical alias"}\n')
+        source = 'a' * 40
+        self.write('EM_SNAPSHOT_READY.json', {'sha': source})
+        definitions = [
+            {'task_id': task, 'publication_id': publication, 'base_state': 'READY',
+             'registration_source': 'IMMUTABLE_TASK_RECORD', 'kind': 'RESEARCH'}
+            for task, publication in [(c.TASK, c.PUBLICATION), ('RS-UNRELATED-FIXTURE', 'TP2-OTHER')]
+        ]
+        before = self.inventory()
+        # Definitions and historical authority are isolated fixtures. The full
+        # inventory -> effective states -> Result/intake/custody chain is real.
+        with self.current(), mock.patch.object(h, '_authority'), \
+                mock.patch.object(research_dispatch_core, 'merged_definitions', return_value=definitions):
+            projection = continuation.inventory_projection(root=self.root, events=[],
+                now=datetime.fromisoformat(self.context['authorized_at']), source_commit=source)
+        rows = {row['task_id']: row for row in projection['tasks']}
+        self.assertEqual(set(rows), {c.TASK, 'RS-UNRELATED-FIXTURE'})
+        self.assertEqual(rows['RS-UNRELATED-FIXTURE']['dispatch_state'], 'NEEDS_DISPATCH')
+        self.assertFalse(projection['execution_authorized'])
+        self.assertTrue(all(row['continuation']['execution_authorized'] is False for row in rows.values()))
+        self.assertEqual(before, self.inventory())
+
     def test_readonly_view_has_only_verified_bytes_and_never_enters_execution_map(self):
         view = c._ScientificView({'logical.md': b'original'})
         original = view / 'logical.md'
