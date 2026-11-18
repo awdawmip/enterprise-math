@@ -1,0 +1,70 @@
+{
+  "unit": "R749STE",
+  "status": "PASS",
+  "evidence": "AUTHOR_EXACT_NOT_REVIEWED",
+  "source": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": "R749STD; Draft PR #2619@749399f2ced6038e5941706e3d144880260708d2",
+  "q": 602,
+  "p": 604,
+  "weights": [
+    1,
+    1,
+    2,
+    3,
+    6
+  ],
+  "reads": 5,
+  "first_four_collide_via_predecessor": true,
+  "fifth_separates_all_allowed_error_states": true,
+  "error_domain": "e,d,E,D in [-2,2]",
+  "counts": {
+    "602": {
+      "C": 19230175073,
+      "T": 1938941614326
+    },
+    "604": {
+      "C": 19548563534,
+      "T": 1977560635876
+    },
+    "608": {
+      "C": 20197991618,
+      "T": 2056723726251
+    }
+  },
+  "polynomial_total_degrees": {
+    "2": 3,
+    "3": 3,
+    "4": 3
+  },
+  "resultants_in_e_degrees": {
+    "P2_P3": 8,
+    "P2_P4": 8
+  },
+  "resultants_in_d_degrees": {
+    "P2_P3": 8,
+    "P2_P4": 8
+  },
+  "resultant_gcd_d": "423323687089090985675*d**3 + 15796777824010918651154066813847*d**2 + 129170853257881272927838990232198794302552*d - 347277839682257080791699086073347741353097647447892",
+  "resultant_gcd_e_primitive": "16278056426515699712159090150*e**3 + 54228513900306528066381452386060802891501*e**2 + 21708991091948839684547295711646570513730220444300627*e - 43121414327918657300328127559560288906063130382051023183745969474",
+  "exact_d_common_root_candidates": [
+    "-19230175073",
+    "-20197991618",
+    "894099074786485299705326337578/423323687089090985675"
+  ],
+  "exact_e_common_root_candidates": [
+    "-1938941614326",
+    "-2056723726251",
+    "10813151975078948797440159426145393125049/16278056426515699712159090150"
+  ],
+  "no_gcd_roots_in_closed_minus2_plus2": true,
+  "resultant_bit_sizes": {
+    "d23": 534,
+    "d24": 531,
+    "e23": 719,
+    "e24": 713
+  },
+  "proof_kernel": "SymPy exact QQ/ZZ polynomial resultants and Euclidean GCD; integer/rational only",
+  "pair_optimal_exact_read_count": 5,
+  "global_horizon_from_predecessor_bounds": "5 <= m_* <= 11, unchanged",
+  "next": "Seek five-read collisions for another cutoff pair or global upper bound below eleven; quantify finite-range noise separation."
+}
