@@ -1,0 +1,7 @@
+{
+  "input":"Finite transient states, specified absorbing repair/failure, rational macro probabilities, an ordered finite list of eligible-contact counts for each macro outcome",
+  "assumptions":"Each reached stage executes before testing. Conditional hazard h*t is in [0,1]. At the first accepted loss the history stops. The macro proposal and the conditional trials have the specified conditional law.",
+  "certificates":["First-step p=sum terminal failure weights","Second-step g=K_transient*p","Remove the power at zero from each difference; sign-uniform Bernstein coefficients on the parameter interval imply a strict separation","For a finite family the maximum vanishing order of nonidentical differences gives the asymptotic order of its minimum gap when every normalized difference has a nonzero leading coefficient"],
+  "source_application":{"N":18816,"parameter":"t=delta/49 in (0,1/49]","damage_states":24,"first_probability_values":19,"second_probability_values":24,"minimum_second_probability_gap_order":2},
+  "boundaries":["A single trajectory is a binary readout, not an identification experiment","No lumping claim at delta=0 from loss alone","Finite reflected B4 comparator only"]
+}

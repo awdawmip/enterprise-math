@@ -1,0 +1,303 @@
+{
+  "task": "RS-CELL-U27F-10-INDEPENDENT-AUDIT-20261012",
+  "pre_release_distribution": {
+    "0": "17816387/139602281",
+    "1": "17493797/139602281",
+    "2": "17493797/139602281",
+    "3": "17347919/139602281",
+    "4": "17493797/139602281",
+    "5": "17347919/139602281",
+    "6": "17347919/139602281",
+    "7": "17260746/139602281"
+  },
+  "risk_degree": [
+    6,
+    12
+  ],
+  "pre_release_Walsh_by_weight": [
+    "1",
+    "1/199",
+    "1/593",
+    "1/1183"
+  ],
+  "one_macro": {
+    "strict_pair_count": 271,
+    "leading_power_counts": {
+      "1": 269,
+      "2": 2
+    },
+    "identical_pairs": [
+      [
+        [
+          "C",
+          0
+        ],
+        [
+          "B",
+          0
+        ]
+      ],
+      [
+        [
+          "C",
+          2
+        ],
+        [
+          "C",
+          4
+        ]
+      ],
+      [
+        [
+          "C",
+          3
+        ],
+        [
+          "C",
+          5
+        ]
+      ],
+      [
+        [
+          "B",
+          1
+        ],
+        [
+          "B",
+          2
+        ]
+      ],
+      [
+        [
+          "B",
+          5
+        ],
+        [
+          "B",
+          6
+        ]
+      ]
+    ],
+    "smallest_abs_Bernstein_coefficient_before_common_normalization": "100396841/40353607"
+  },
+  "second_macro": {
+    "strict_pair_count": 276,
+    "leading_power_counts": {
+      "1": 274,
+      "2": 2
+    },
+    "identical_pairs": [],
+    "smallest_abs_Bernstein_coefficient_before_common_normalization": "1128740100451709184/11398895185373143"
+  },
+  "delta_zero_eventual_exposure": "90462203875/1899962848",
+  "four_oracles": {
+    "0": {
+      "exact_aggregate_targets_matched": 4,
+      "per_transient_state_marked_scalar_equations": 96,
+      "strong_quotient_block_sizes": [
+        [
+          8,
+          16
+        ],
+        [
+          8,
+          8,
+          8
+        ]
+      ],
+      "mean_work_rounded_8dp": "1575.15625000"
+    },
+    "1/256": {
+      "exact_aggregate_targets_matched": 4,
+      "per_transient_state_marked_scalar_equations": 96,
+      "strong_quotient_block_sizes": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "mean_work_rounded_8dp": "1327.27732621"
+    },
+    "1/1024": {
+      "exact_aggregate_targets_matched": 4,
+      "per_transient_state_marked_scalar_equations": 96,
+      "strong_quotient_block_sizes": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "mean_work_rounded_8dp": "1504.86840608"
+    },
+    "1/4096": {
+      "exact_aggregate_targets_matched": 4,
+      "per_transient_state_marked_scalar_equations": 96,
+      "strong_quotient_block_sizes": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "mean_work_rounded_8dp": "1556.97416749"
+    }
+  },
+  "frozen_source_comparison": {
+    "archive_sha256": "a450cc3e235ca3d37211d31b2d4eb41dd2d4ac28b77c73d18d1b6e3ce45cc9a7",
+    "source_pins": {
+      "NOTE.md": "4859daa4aee5963524a308f28e8787d9f00371a6e328022e1b92fdf8c948de85",
+      "work_exposure.py": "53da273a333ff11750d549be1409d5c2f4b5296850d354d57dbb91fd0e7424f3",
+      "check_u27.py": "33fed8fc95a32dc5d07b5da85b852ac29326a45a6d4ffc8d63f0f863ba7928de",
+      "CHECKPOINT.json": "fd27bbd8009c88836c14b948835b85590f08702ec85ba62839e93a344cbc5985",
+      "evidence/results.json": "15e42b310676846282b42d263fdfbe3241ed008f58d96de8e0358451cb944cb7"
+    },
+    "matched_all_archived_marked_rows": 96,
+    "recompiled_damaged_branches": 13384,
+    "recompiled_stage_count": 13816,
+    "intact_states": 32,
+    "damaged_states": 24
+  }
+}
