@@ -1,0 +1,56 @@
+# PREFIX-913 — All-sign unequal-multiplier, two-named-bit XOR collision theorem
+
+Date: 2026-11-19 (Asia/Shanghai). Lane: 进取数论研究6. Status: AUTHOR_PROVED / EXACT_FINITE_COMPUTED / TWO_INDEPENDENT_ENUMERATION_ORDERS / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED.
+
+**Frozen mathematical input:** \`f42f2906d77f24085c123f3ccfe9667d41caa96d\`. Latest directly checked predecessor: PREFIX-912 (\`2026-11-19_r6_prefix912_mixed_ratio_noncoprime_12x12.md\`). Current project and account norms are read at current main, outside the frozen science pin.
+
+## Model and new theorem
+
+Let \`N=2^p\`, \`Q={262145,262147,...,524287}\` for \`p=32\`. Keep each admissible named zero step \`Z_x=(x,x)\` and each named flip \`F_x^t=(x,x XOR 2^t)\` (\`0<=x<N\`, \`0<=t<p\`). At odd moduli \`a,b\` the auxiliary observation is \`Phi_(a,b)(u,v)=(u mod a,v mod b)\`; neither source labels nor full trajectories are replaced by the residue observer.
+
+**Theorem 913-A (signed dyadic, unrestricted multipliers).** Let positive integers \`a,b,k,ell\`, integers \`0<=j<i<p\` and signs \`eps,eta in {-1,+1}\` satisfy
+
+\[
+  k a-\ell b=\varepsilon\,2^i-\eta\,2^j. \tag{1}
+\]
+
+Set
+
+\[
+ r=\big(2^j\,{\bf1}_{\eta=-1}-ka\big)\bmod 2^{j+1},
+ \qquad x=2^i{\bf1}_{\varepsilon=-1}+r,\qquad y=x+ka,
+\]
+
+where \`r\` is chosen in \`[0,2^(j+1)-1]\`. If \`x,y<N\`, then the distinct named trajectories \`F_x^i\` and \`F_y^j\` collide under \`Phi_(a,b)\`. In particular a sufficient **uniform** headroom condition is \`2^(i+1)+ka<=N\`. The theorem allows either sign of the high bit, either sign of the low bit, \`k>ell\` or \`k<ell\`, and non-coprime \`k,ell\`.
+
+**Proof.** Because \`j<i\`, \`r<2^(j+1)<=2^i\`, so the \`i\`th bit of \`x\` is 0 for \`eps=1\`, 1 for \`eps=-1\`. Therefore \`x XOR 2^i=x+eps*2^i\`. Since \`2^i\` is divisible by \`2^(j+1)\`, the chosen residue forces bit \`j\` of \`y\` to be 0 for \`eta=1\`, 1 for \`eta=-1\`. Thus \`y XOR 2^j=y+eta*2^j\`. Both flips remain in the p-bit state space. Equation (1) gives \`y-x=ka\` and \`(y XOR 2^j)-(x XOR 2^i)=ka+eta*2^j-eps*2^i=ell*b\`, so both port residues match. \`ka>0\` makes the named trajectories distinct. Also \`x<2^(i+1)\`, hence the uniform headroom bound ensures \`y<N\`. QED.
+
+**Parity consequence.** For odd \`a,b\` and \`i>j>=1\`, the right side of (1) is even; hence \`k,ell\` have the same parity. For \`j=0, i>=1\` the right side is odd; hence \`k,ell\` have opposite parity. This unifies the earlier low-bit opposite-parity constructions (PREFIX-908–912) with a broader same-parity unequal-multiplier family. The theorem is for the stated auxiliary observer; it is not a native X6 event-coupling claim.
+
+## Exact new census: unequal endpoint multipliers (k,ell)=(3,1)
+
+Fix \`k=3\`, \`ell=1\`, \`2<=i<=22\`, \`1<=j<i\`, both signs in equation (1), and all 131072 strict-19-bit odd moduli in each port. Every candidate has automatic headroom (\`2^23+3*524287 < 2^32\`). Let \`D\` range over the **884 distinct signed dyadic differences** \`eps*2^i-eta*2^j\`. For a fixed \`D\`, each first-port modulus \`a\` has exactly one possible second-port modulus \`b=3a-D\`. Distinct D values cannot produce the same oriented (a,b), so the count is the exact sum of disjoint arithmetic-progression intervals:
+
+\[
+  \sum_D \#\{a\in Q:3a-D\in Q\}=3,036,491.
+\]
+
+Exactly 86 distinct D values contribute. Let A be this oriented set, and A^T its transpose. Direct exact set-membership checking gives \`|A intersect A^T|=362\` (including 2 diagonal ordered pairs), whence
+
+\[
+  |A\cup A^T|=2(3,036,491)-362=\boxed{6,072,620}.
+\]
+
+This is the exact size of **the new sufficient family itself**. It is **not** an asserted net addition to the PREFIX-912 cumulative certificate union \`7,795,529,828\`; the intersection of those two different sufficient certificates has not been computed.
+
+**Fully explicit witness.** Let \`a=271999, b=521085, k=3,ell=1,i=18,j=15,eps=+1,eta=-1\`. Then \`3a-b=294912=2^18+2^15\`. Taking \`x=3203\`, \`y=819200\` gives \`F_x^18=(3203,265347)\`, \`F_y^15=(819200,786432)\`. The start difference is \`815997=3a\`; the terminal difference \`521085=b\`. The candidate is beyond the prior global capacity inequality \`ab<33*2^32\` (\`ab=141734598915>141733920768\`), illustrating why the unequal-multiplier mechanism is relevant, without claiming absence from every other earlier certificate.
+
+## Verification scope and durable frontier
+
+The accompanying Python 3 standard-library program performs a full first-port interval scan, checks **each of the 3,036,491** legal bit-flip witnesses and both modular equations, and independently reconstructs the entire oriented family by scanning the second port first. It compares all 86 per-D counts and the ordered pair stream SHA-256; it also independently recounts the transpose intersection. Two streaming orders return the same hexadecimal digest: \`ecc7a4528338fecc2b0119c13eb2ee8958ce975ce50f62096d6f072fad7f5d3b\`.
+
+The exact result is in \`PREFIX913_R6_SIGNED_DYADIC_RESULTS.json\`; its \`per_D_counts\` enumerates all 86 nonempty D classes. Verification covers the stated finite parameter family, not every possible collision in Q^2. No formal proof checker or independent mathematical review was claimed.
+
+**Next unfinished question:** compute exact intersection of this family with the full PREFIX-912 sufficient union (requires its pinned membership implementation), then extend the signed-dyadic unequal-multiplier criterion across same-parity (k,ell) pairs and larger bit intervals. Determine whether this reduces the remaining 19-bit candidate complement and ultimately constrains \`B_fix,odd(32) in {19,20}\`. Keep named source provenance and the auxiliary/native semantics boundary intact.
+
+**Control boundary:** shared X6 current-owner query \`r6-20261119-0400-x6-owner-read-prefix913\` was queued/running at research publication stage; it conferred no CLAIM. This research is independently preservable auxiliary mathematics, not an authenticated X6 run. Prior recorded identity \`EM-DIRECT-084DAB / RA-EED2578644A9DC802DA9B686\` is provenance only pending current session/owner validation.
