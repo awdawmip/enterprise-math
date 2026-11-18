@@ -1,0 +1,424 @@
+{
+  "schema": "EC49FSQ_NATIVE_BRC_SATURATION_CONES_CERT_V1",
+  "date": "2026-11-18",
+  "status": "AUTHOR_PROVED / EXACT_PRIMARY_FINITE_EXHAUSTIVE_ON_NEW_ANCHORS / INDEPENDENT_PARTIAL / NOT_REVIEWED",
+  "science": {
+    "freeze_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+    "configurations": 310,
+    "named_profiles": 141,
+    "named_observers": 228,
+    "uniform_prior": true
+  },
+  "dependencies": [
+    {
+      "pr": 2712,
+      "commit": "d149ad2ae47eaf43b40e12a4491dc293bf59c0a2",
+      "paths": [
+        "research_notes/portable_direct/EC49FSP_TWO_PARAMETER_SWAP_WEDGE_MACHINE_CERT_20261118.json",
+        "research_notes/portable_direct/EC49FSP_NATIVE_BRC_PRICE_SWAP_CORNER_THEOREM_20261118.md"
+      ]
+    },
+    {
+      "pr": 2706,
+      "commit": "0842017a6bfdc83e7af59c6d2be0493dd53d58da",
+      "path": "research_notes/portable_direct/EC49FSN_GLOBAL_SWAP_MACHINE_CERT.json"
+    }
+  ],
+  "lemma": {
+    "condition": "At reference discount d0 on observation q, an optimal complete irredundant named tree tests q on all 141 named profile paths.",
+    "scope": "Any further real discount d in [d0,1] with all other prices fixed and nonnegative",
+    "conclusion": "F(d)=F(d0)-141*(d-d0)",
+    "proof": "All other irredundant trees have 0<=Nq<=141 and therefore cannot improve more than 141*(d-d0); the original saturated optimum reaches that reduction."
+  },
+  "regions": {
+    "R1": {
+      "a": [
+        "31/64",
+        "1"
+      ],
+      "b": [
+        "27/64",
+        "29/64"
+      ],
+      "z": [
+        "0",
+        "1/8"
+      ],
+      "direct_tuples": [
+        [
+          306,
+          141,
+          41,
+          4
+        ]
+      ],
+      "swapped_tuples": [
+        [
+          306,
+          41,
+          141,
+          10
+        ],
+        [
+          303,
+          32,
+          141,
+          17
+        ]
+      ],
+      "crossing": "z=(9*b-3)/7",
+      "difference": [
+        "6*z",
+        "3-9*b+13*z"
+      ]
+    },
+    "R2": {
+      "a": [
+        "31/64",
+        "1"
+      ],
+      "b": "27/64",
+      "z": [
+        "0",
+        "1/4"
+      ],
+      "direct_tuples": [
+        [
+          306,
+          141,
+          41,
+          4
+        ],
+        [
+          307,
+          141,
+          41,
+          10
+        ]
+      ],
+      "swapped_tuples": [
+        [
+          306,
+          41,
+          141,
+          10
+        ],
+        [
+          303,
+          32,
+          141,
+          17
+        ],
+        [
+          305,
+          32,
+          141,
+          29
+        ],
+        [
+          304,
+          28,
+          141,
+          32
+        ]
+      ],
+      "direct_breaks": [
+        "1/6"
+      ],
+      "swapped_breaks": [
+        "51/448",
+        "1/6",
+        "11/48"
+      ]
+    },
+    "R3": {
+      "a": [
+        "1/2",
+        "1"
+      ],
+      "b": "7/16",
+      "z": [
+        "0",
+        "107/248"
+      ],
+      "direct_tuples": [
+        [
+          306,
+          141,
+          41,
+          4
+        ],
+        [
+          307,
+          141,
+          41,
+          10
+        ],
+        [
+          309,
+          141,
+          41,
+          16
+        ],
+        [
+          313,
+          141,
+          47,
+          20
+        ]
+      ],
+      "swapped_tuples": [
+        [
+          306,
+          41,
+          141,
+          10
+        ],
+        [
+          303,
+          32,
+          141,
+          17
+        ],
+        [
+          305,
+          32,
+          141,
+          29
+        ],
+        [
+          304,
+          28,
+          141,
+          32
+        ],
+        [
+          309,
+          28,
+          141,
+          46
+        ],
+        [
+          311,
+          28,
+          141,
+          51
+        ]
+      ],
+      "direct_breaks": [
+        "1/6",
+        "1/3",
+        "11/32",
+        "107/248"
+      ],
+      "swapped_breaks": [
+        "15/112",
+        "1/6",
+        "1/4",
+        "5/14",
+        "2/5"
+      ]
+    }
+  },
+  "primary_native_bellman_new_points": [
+    {
+      "a": "1",
+      "b": "27/64",
+      "z": "0",
+      "orientation": "direct",
+      "value": "9453/64",
+      "states": 7110,
+      "root": 32,
+      "actual_uses": {
+        "q32": 141,
+        "q34": 41,
+        "q140": 0
+      },
+      "independent_raw94": null
+    },
+    {
+      "a": "1",
+      "b": "27/64",
+      "z": "0",
+      "orientation": "swapped",
+      "value": "9453/64",
+      "states": 7121,
+      "root": 34,
+      "actual_uses": {
+        "q32": 41,
+        "q34": 141,
+        "q140": 0
+      },
+      "independent_raw94": null
+    },
+    {
+      "a": "1",
+      "b": "27/64",
+      "z": "1/8",
+      "orientation": "direct",
+      "value": "9421/64",
+      "states": 7119,
+      "root": 32,
+      "actual_uses": {
+        "q32": 141,
+        "q34": 41,
+        "q140": 4
+      },
+      "independent_raw94": null
+    },
+    {
+      "a": "1",
+      "b": "27/64",
+      "z": "1/8",
+      "orientation": "swapped",
+      "value": "1171/8",
+      "states": 7062,
+      "root": 34,
+      "actual_uses": {
+        "q32": 32,
+        "q34": 141,
+        "q140": 17
+      },
+      "independent_raw94": {
+        "value": "1171/8",
+        "states": 6002
+      }
+    },
+    {
+      "a": "1",
+      "b": "27/64",
+      "z": "1/4",
+      "orientation": "direct",
+      "value": "9357/64",
+      "states": 6918,
+      "root": 32,
+      "actual_uses": {
+        "q32": 141,
+        "q34": 41,
+        "q140": 10
+      },
+      "independent_raw94": null
+    },
+    {
+      "a": "1",
+      "b": "27/64",
+      "z": "1/4",
+      "orientation": "swapped",
+      "value": "2291/16",
+      "states": 6861,
+      "root": 34,
+      "actual_uses": {
+        "q32": 28,
+        "q34": 141,
+        "q140": 32
+      },
+      "independent_raw94": {
+        "value": "2291/16",
+        "states": 5668
+      }
+    },
+    {
+      "a": "1",
+      "b": "29/64",
+      "z": "1/8",
+      "orientation": "direct",
+      "value": "9339/64",
+      "states": 6927,
+      "root": 32,
+      "actual_uses": {
+        "q32": 141,
+        "q34": 41,
+        "q140": 4
+      },
+      "independent_raw94": null
+    },
+    {
+      "a": "1",
+      "b": "29/64",
+      "z": "1/8",
+      "orientation": "swapped",
+      "value": "9291/64",
+      "states": 7016,
+      "root": 34,
+      "actual_uses": {
+        "q32": 41,
+        "q34": 141,
+        "q140": 10
+      },
+      "independent_raw94": null
+    },
+    {
+      "a": "1",
+      "b": "7/16",
+      "z": "1/3",
+      "orientation": "direct",
+      "value": "6947/48",
+      "states": 6869,
+      "root": 32,
+      "actual_uses": {
+        "q32": 141,
+        "q34": 41,
+        "q140": 13
+      },
+      "independent_raw94": null
+    },
+    {
+      "a": "1",
+      "b": "7/16",
+      "z": "1/3",
+      "orientation": "swapped",
+      "value": "1681/12",
+      "states": 6691,
+      "root": 34,
+      "actual_uses": {
+        "q32": 28,
+        "q34": 141,
+        "q140": 32
+      },
+      "independent_raw94": null
+    },
+    {
+      "a": "1",
+      "b": "7/16",
+      "z": "107/248",
+      "orientation": "direct",
+      "value": "70833/496",
+      "states": 6852,
+      "root": 32,
+      "actual_uses": {
+        "q32": 141,
+        "q34": 47,
+        "q140": 20
+      },
+      "independent_raw94": null
+    },
+    {
+      "a": "1",
+      "b": "7/16",
+      "z": "107/248",
+      "orientation": "swapped",
+      "value": "33665/248",
+      "states": 6643,
+      "root": 34,
+      "actual_uses": {
+        "q32": 28,
+        "q34": 141,
+        "q140": 51
+      },
+      "independent_raw94": null
+    }
+  ],
+  "crosscheck_summary": {
+    "primary_exact": "12/12",
+    "independent_raw_family_exact": "2/2 (a=1, b=27/64, swapped z=1/8 and 1/4)",
+    "all_reals": "saturation lemma relying on previously verified native Bellman base certificates and complete saturated trees"
+  },
+  "control": {
+    "researcher_id_historical": "EM-DIRECT-8454C6",
+    "activity_id": "RA-ED136F89271FD89288F3E58D",
+    "original_control_request": "r4-ec49fso-20261118-1332-own-current-continuation-01",
+    "original_terminal": "FAILED / CANONICAL_REJECTED: unknown current immutable task publication",
+    "formal_claim_created": false,
+    "independent_portable": true
+  }
+}
