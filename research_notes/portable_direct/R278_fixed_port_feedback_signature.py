@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """R278 exact finite rational certificate: determinant/cofactor probe signatures.
 
-Python >=3.9, stdlib only; all arithmetic is fractions.Fraction.
+Python >=3.10, stdlib only; all arithmetic is fractions.Fraction.
 """
 from fractions import Fraction as F
 from itertools import permutations, product
