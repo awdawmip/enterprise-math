@@ -1,0 +1,75 @@
+{
+  "schema": "R762CB_CONDITIONAL_RETURN_SPECTRA_V1",
+  "model": "X6 signed ordered three-Port, sign-only C3-covariant coherent closure/gate",
+  "source_dependency": "R762CA@7530269499c7f799e65cb20b50a0f5c698b4b1c7; R762BY/R762BV based-return laws",
+  "coherent_policies": 729,
+  "distinct_return_spectra": 90,
+  "class_size_distribution": {
+    "1": 9,
+    "2": 18,
+    "4": 9,
+    "6": 18,
+    "9": 6,
+    "12": 18,
+    "18": 9,
+    "36": 3
+  },
+  "same_spectrum_unordered_policy_pairs": 5013,
+  "return_count_matrix_m_0_2_3_4": [
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      3,
+      6,
+      9
+    ],
+    [
+      0,
+      6,
+      18,
+      36
+    ],
+    [
+      0,
+      21,
+      138,
+      369
+    ]
+  ],
+  "return_count_matrix_determinant": 324,
+  "single_probe_distinct_counts_m0": 9,
+  "single_probe_distinct_counts_m4": 30,
+  "two_probe_m0_m4_distinct_signatures": 90,
+  "sign_positive_gate_return_count_m0_to_8": [
+    8,
+    0,
+    36,
+    108,
+    846,
+    5418,
+    41580,
+    324576,
+    2664810
+  ],
+  "terminal_signature_min": 0,
+  "terminal_signature_max": 48,
+  "terminal_repair_bit_distribution": {
+    "0": 3,
+    "1": 1,
+    "2": 24,
+    "3": 100,
+    "4": 357,
+    "5": 221,
+    "6": 23
+  },
+  "closed_form": "N(m)=n0*[m=0]+n1*(3^m+3*(-1)^m)/4+n2*(6^m+4+5*(-2)^m)/10+n3*(9^m+5*3^m+9*(-1)^m+5*(-3)^m)/20",
+  "census_polynomial": "(1+u0+u3)^2(1+u0^3+3u1^3+3u2^3+u3^3)^2",
+  "checks": "exact integer enumeration of 729 policies; independent finite frame DP at m=0..8; exact determinant and pair injectivity",
+  "independent_review": "NOT_REVIEWED",
+  "native_TRIADIC_CLOSURE_E_licensing": "OPEN"
+}
