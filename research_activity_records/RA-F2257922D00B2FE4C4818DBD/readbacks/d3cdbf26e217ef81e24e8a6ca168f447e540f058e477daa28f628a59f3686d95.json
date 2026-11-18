@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_new20_slot_binding_audit_20261119/VERIFY_NEW20_SLOT_BINDING.py",
+    "ref": "bfd1423c9d0c6e6f229a2802e9ffed5e8c6e2344",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "call_id": null,
+  "observation_id": "r5-20261119-new20-slot-binding-immutable-source-2",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Reconcile R5 NEW20 historical SHA256 by a slot permutation.\nArgs: frozen-table.json historical-RESULTS_R5_NINE_NEW20.json.\nNo new claim of 20 Bellman replays is made by this test.\n\"\"\"\nimport hashlib, json, sys\nfrom pathlib import Path\nL=25845652773852463277015040000\nU=58182461585441404127941754880\nPIN='50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b'\n\ndef maximal(masks):\n s=set(masks)\n return tuple(sorted(m for m in s if not any(m!=v and m&v==m for v in s)))\n\ndef fam(c,tau):\n return maximal(sum(1<<i for i,v in enumerate(c) if a<=v<=a+tau) for a in c)\n\ndef stdin(D,H):\n seen={}\n for k in range(214,315):\n  signature=fam([int(D[str(k)]['counts'][h]) for h in H],U-1)\n  seen[signature]=min(k,seen.get(signature,k))\n actions=sorted((k,sig) for sig,k in seen.items())\n return ('\\n'.join(['9 8',str(len(actions))]+[' '.join(map(str,(k,len(sig),*sig))) for k,sig in actions])+'\\n').encode(),len(actions)\n\ndef main():\n raw=Path(sys.argv[1]).read_bytes()\n assert hashlib.sha256(raw).hexdigest()==PIN\n D=json.loads(raw)['counts_and_cohorts']\n runs=json.loads(Path(sys.argv[2]).read_bytes())['runs']\n assert len(runs)==20\n for row in runs:\n  x,y=row['x'],row['y']\n  historical=(18,24,82,34,17,x,y,144,208)\n  documentation=(18,24,82,34,17,x,144,208,y)\n  b,n=stdin(D,historical)\n  b2,n2=stdin(D,documentation)\n  assert hashlib.sha256(b).hexdigest()==row['input_sha256'],(x,y)\n  assert hashlib.sha256(b2).hexdigest()!=row['input_sha256'],(x,y)\n  assert n==n2==row['action_families'],(x,y)\n  for k in range(214,315):\n   c=[int(D[str(k)]['counts'][h]) for h in historical]\n   d=[int(D[str(k)]['counts'][h]) for h in documentation]\n   for tau in (L,U-1):\n    def perm(m):\n     index=lambda i: 8 if i==6 else 6 if i==7 else 7 if i==8 else i\n     return sum(1<<index(i) for i in range(9) if m&(1<<i))\n    assert tuple(sorted(map(perm,fam(c,tau))))==fam(d,tau),(x,y,k,tau)\n print('PASS_R5_NEW20_SLOT_BINDING: 20/20 source hashes, 4040 support families, no math rerun')\nif __name__=='__main__':main()\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/bfd1423c9d0c6e6f229a2802e9ffed5e8c6e2344/research_notes/portable_direct/r5_new20_slot_binding_audit_20261119/VERIFY_NEW20_SLOT_BINDING.py",
+      "encoding": "utf-8",
+      "sha": "333865255b526b2a186273e25daf1d4cc081750a"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
