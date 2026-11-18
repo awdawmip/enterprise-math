@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/fifth/protection_count.md",
+    "ref": "d0cc0c3c119d1afe7eb3dce00bdb023f19553e69",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-five-20261118-10",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 预先保护哪些指数：从一次最小删除推广到保护集计数\n\n固定有限非空整数集 $S$。观测给出带标签的等式 $a^x=a^y$，当元素阶为 $r$ 时恰对应 $r\\mid x-y$。实验开始前承诺保护的位置为 $P\\subseteq S$；随后允许删除任意未保护的位置。原任务指定一种保护集并求最低破坏代价。这里改问，**有多少个大小为 $j$ 的预定保护集，其最低破坏代价恰为 $e$**。两种计算使用同一个确定性攻击模型。[冻结模型和原最小删除公式](https://github.com/awdawmip/enterprise-math/blob/6b40284e808edb8bf74ff07ffa9efaf02bcfd021/research_notes/power_span_erasures_20260923_16243626C61A/REPORT.md) · [区间和两端条带的结果](protected.md)\n\n对固定 $r\\ge1,d\\ge1$，记 $E_{r,d}(P)$ 为在保留 $P$ 时，使阶 $r$ 与阶 $rd$ 的等式观察完全相同所需的最少删除数；做不到时取 $+\\infty$。按模 $r$ 将 $S$ 分成非空粗类 $c$，再将每个粗类按模 $rd$ 分成非空细类 $f$。令 $n_c,n_f$ 为类大小，$M_c=\\max_{f\\subset c}n_f$。下式的 $[x^j y^e]$ 恰为所求：\n\n$$G_{r,d}(x,y)=\\prod_c\\left[y^{n_c-M_c}+\n\\sum_{f\\subset c}\\big((1+x)^{n_f}-1\\big)y^{n_c-n_f}\\right].$$\n\n理由是每个粗类最终至多保留一个细类。若粗类内没有保护点，可保留任一最大细类，最低代价为 $n_c-M_c$。无论有多少个并列最大细类，这里只统计一个空保护选择。若有保护点，则它们必须全落在唯一细类 $f$；其非空子集给出 $((1+x)^{n_f}-1)$，此时整个 $f$ 都可保留。各粗类可独立选择，代价相加。恰有 $\\binom{|S|}{j}-[x^j]G_{r,d}(x,1)$ 个保护集使该项破坏不可能。\n\n**同时阻断一个阶的所有素数倍混淆。** 令 $A=\\max S-\\min S$，取素数集 $T=\\{2\\}\\cup\\{p:p\\le A/r\\}$。当 $p>A/r$，允许删除所有未保护点时仍能与 $pr$ 混淆的配置，恰需每个粗类至多一个保护点；这样的配置也可与 $2r$ 混淆。用 $H_d(x)=G_{r,d}(x,1)$，则大小为 $j$、仅凭保护点就排除所有素数倍混淆的保护集数为\n\n$$[x^j]\\sum_{d\\mid\\prod_{p\\in T}p}\\mu(d)H_d(x).$$\n\n这里 $H_1=(1+x)^{|S|}$。当删除数无上限时，存在保留 $P$ 的混淆方案等价于仅保留 $P$ 就有混淆。若干不同素数对应的条件同时成立，等价于每个粗类内保护点的两两差都被这些 $pr$ 整除，即都被 $r\\prod p$ 整除，所以可直接使用包含排除。该计数固定了一个 $r$；若要同时保护多个目标阶，仍须处理它们之间的相关性。\n\n例如 $S=\\{0,1,\\ldots,30\\}$、$r=5$，大小 $j=2,3,4,5,6$ 的保护集中，分别有 $26,745,10616,95103,569695$ 个能独立排除所有素数倍混淆。仅考虑 $5$ 与 $15$ 时，大小为 4 的保护集中恰有 6,594 个代价为 20、4,776 个代价为 21，其余 20,095 个无法破坏。最小的 $j=2$ 一档可手算：只有差恰为 5 的一对能阻断每个素数倍，正好 26 对。\n\n**有限预算的分叉。** 取 $r=1$、$S=\\{0,2,3\\}$、$P=\\{0\\}$，最多删除一个位置。删 3 能使阶 1 和 2 混淆，删 2 能使阶 1 和 3 混淆；要同时模 6 混淆却须删除两个位置。因此带预算的交事件不能用 $G_{r,6}$ 代替两个各自可选删除见证的事件。\n\n复算先按公式作多项式卷积，再独立枚举预定保护集与所有可保留子集。在四种支持及六个目标阶上，精确重现三个素数的全部代价分布和联合排除数。[标准库复算](protection_count_check.py)\n",
+      "display_title": "protection_count.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/d0cc0c3c119d1afe7eb3dce00bdb023f19553e69/research_notes/portable_direct/20261118_fair_queue_6b0fba/fifth/protection_count.md",
+      "encoding": "utf-8",
+      "sha": "225841276249074afaa9494c590f79d5e35028c2"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
