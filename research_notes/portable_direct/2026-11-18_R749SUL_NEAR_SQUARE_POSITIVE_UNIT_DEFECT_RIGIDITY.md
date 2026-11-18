@@ -114,6 +114,48 @@ The integer windows [t^2-1, t^2-1+floor(t/8)] are pairwise disjoint. Through t<=
 
 scales. The largest endpoint is T^2+O(T), so this explicitly constructed set of admissible M has natural density 1/16. Therefore the set of all M with forced Q=1 has lower natural density at least 1/16; no claim of an exact global density is made.
 
+
+## Strengthening — a quarter-root window and an asymptotic density bound
+
+The same argument proves the stronger finite-constant statement:
+
+**Corollary A.** For every integer t>=256 and 0<=delta<=floor(t/4), with M=t^2-1+delta, every labeled noncanonical maximizer has Q=+1.
+
+Indeed B=3delta+2t<=11t/4 and M>=t^2-1. For t>=256, elementary integer inequalities imply
+
+    B/M <= 1/64
+    u-1 >= t^2-2-11t/4 >= (63/64)t^2.
+
+Consequently Step B gives
+
+    S <= (11t/4)/(1-1/64) = (176/63)t,
+
+whereas Step C for Q outside {0,1} gives
+
+    S >= 2sqrt(2u-2) >= sqrt(63/8)t.
+
+The inequality (176/63)^2 < 63/8 follows exactly from
+8*176^2 = 247808 < 250047 = 63^3.
+This is a contradiction. Corollary A supplies an explicit density-1/8 subset of forced Q=1 scales.
+
+**Corollary B (stronger lower asymptotic density).** Let E be the set of M>=2 for which every labeled noncanonical global threshold maximizer has Q=+1. Then
+
+    lower_natural_density(E) >= (sqrt(2)-1)/3.
+
+Proof: for any fixed real alpha with 0<alpha<(2sqrt(2)-2)/3, consider integer t sufficiently large and all 0<=delta<=floor(alpha*t). Uniformly in this interval B/t<=2+3alpha<2sqrt(2), while
+
+    S/t <= (2+3alpha)/(1-B/M) = 2+3alpha+O_alpha(1/t),
+    2sqrt(2u-2)/t >= 2sqrt(2)*(1-O_alpha(1/t)).
+
+For all sufficiently large t (depending on alpha), these bounds are disjoint. Therefore every maximizer has Q=1 throughout the window. These disjoint integer windows contribute
+
+    sum_{t<=T}(floor(alpha*t)+1) = (alpha/2)T^2+O_alpha(T)
+
+to the first T^2+O_alpha(T) integer scales. The lower density of E is thus at least alpha/2 for every alpha<(2sqrt(2)-2)/3. Take the supremum over such alpha, obtaining (sqrt(2)-1)/3. QED.
+
+The constants 1/8 and (sqrt(2)-1)/3 refer to proven subsets / a lower density bound, not a classification of all positive-unit scales. The finite C++ certificate remains t=32..70; the strengthened unbounded assertions use the exact preceding analytic inequalities.
+
+
 ## Executable exact certificate (independent finite support)
 
 Companion `R749SUL_NEAR_SQUARE_Q_CERT.cpp` exhaustively computes the noncanonical optimum for every 2<=M<=5000 using integer congruences, not floating-point score comparisons. It orients u=max(u,v), loops over gcd(a,u)=1, enumerates all d with a*d congruent to 1 mod u and 1<=v=(a*d-1)/u<=u, and inserts each tuple at its exact maximum-entry bucket. The two u=1 configurations are added separately. A prefix maximum then yields the complete set of distinct optimal Q values for each M. Swapping u and v leaves tau and Q invariant, so the normalized orientation is complete for this proposition.
@@ -124,7 +166,7 @@ Result: `PASS`: 15,198,290 normalized/oriented candidate visits including canoni
 
 ## What this changes and remains open
 
-This proves infinitely many—and a positive density of—scales at which neither Q=2 nor any negative defect can attain the noncanonical global optimum, extending the universal finite observations of R749SUK with an unbounded theorem.
+This proves infinitely many—and a positive density of at least (sqrt(2)-1)/3 in the lower-density sense—scales at which neither Q=2 nor any negative defect can attain the noncanonical global optimum, extending the universal finite observations of R749SUK with an unbounded theorem.
 
 The missing global question is the Q-pattern on the complementary near-square gaps. In particular: can Q>=3 ever be optimal, or can the 1/16 density lower bound be raised via a stronger determinant-one competitor? A useful next step is to replace the fixed m=t^2-1 competitor with a source-preserving inverse-residue competitor at nearby u, then derive a larger guaranteed window.
 
