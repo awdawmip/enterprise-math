@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/thirtyseventh/README.md",
+    "ref": "f427a184bac5258d420b47fde9084f7ce3ba8049",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-thirtyseven-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第三十七轮　费马加法缺陷、整数碰撞与偏振读数\n\n## 一次模素数消去能提升到哪一层\n\n令 $C_p(x,y)=((x+y)^p-x^p-y^p)/p$，$p$ 为奇素数。原有报告给出 $p\\mid C_p(1,t)$ 的有限对数判据。本轮沿每个单位斜率把局部多项式化成“临界值加单位乘平方”，从而给出模任意 $p^n$ 的根数。超过所有有限临界值的赋值后，单位斜率的根数恰为\n\n$$\nK_p+2\\,\\mathbf 1_{p\\equiv1\\bmod3}\\,p^{\\lfloor n/2\\rfloor}.\n$$\n\n其中 $K_p$ 可以从有限个临界值计算。素数 59 的例子说明第一层可以相当误导：除 $t=-1$ 外的 12 个模 59 单位根没有一个能提升到模 $59^2$。素数 1093 则有两条永久二重分支，前四层单位根数依次为 18、2187、2187、2389299。若改数全部有序对，令 $H_n$ 为模 $p^n$ 均匀抽取的 $(x,y)$ 满足 $p^n\\mid C_p(x,y)$ 的概率，则 $p^{2n/p}H_n$ 沿 $n\\bmod p$ 的各类收敛到 $p$ 个两两不同的常数。该旁支取材于既有加法缺陷报告，单列为未编号数学研究。[推导](additive.md) · [复算程序](additive_check.py) · [逐层结果](additive_checked.json)\n\n## 哪些二粒子碰撞足以连接所有整数人口\n\n在九种速度 $(i,j)\\in\\{-1,0,1\\}^2$ 上，固定总粒子数及两个动量分量。两粒子可逆碰撞在全部这样的非负整数纤维上连通，当且仅当每个总速度下的无序速度对都在本类内连通。全部连通的规则子集共有 186368 个。最少需要 20 条无向规则，共有 10125 种最小选法。对周期长方形，若一步线性读数须经任意局部守恒碰撞与流运后只乘同一标量，除全局质量及两动量外，仅有偶周方向相应的棋盘交错动量，每拍反号。研究另以实际生成的 D2Q9 CPU 内核核查周期边界和反弹壁。[推导与实现对照](lbm.md) · [复算程序](lbm_check.py) · [确定性输出](lbm_checked.json) · [机器计时](lbm_cost.json)\n\n## 偏振读数中的精确混叠\n\n在给定色散模型 $k_\\pm(E)=E+(a\\pm b)E^2$ 中，群时差等于相位差对能量的导数，等权平均延迟则只依赖 $a$。若在两个不同基线 $L_1,L_2$ 上匹配同一源的各频道偏振，四次相位读数的比值可消去源角和仪器的常数偏角。若能量平方差生成 $g\\mathbb Z$ 且 $g>0$，则数据给出的 $b$ 的精确等价间隔为 $\\pi/(|L_2-L_1|g)$。同一模型加入指定的电子色散后，还能判断哪些螺旋度允许光子衰变。频带 Gauss 和、阈值与源角误差界均有复算；对实际天体的联合检验仍需要源谱、仪器标定和反应速率。[研究与适用条件](polarization.md) · [复算程序](polarization_check.py) · [结果](polarization_checked.json)\n\n## 队列轮转\n\n本轮推进两个不同父目标下此前未经轮转的 P2 任务。含前轮累计直接推进 182 项、51 个父目标；两项早期旁引单计。截至 20:55:13 UTC，在 518 条登记中，尚未经轮转的任务有 73 项严格就绪、25 项等待交接、5 项冻结返回。费马加法缺陷旁支单独编目。[队列来源、读取时点及租约](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/f427a184bac5258d420b47fde9084f7ce3ba8049/research_notes/portable_direct/20261118_fair_queue_6b0fba/thirtyseventh/README.md",
+      "encoding": "utf-8",
+      "sha": "5b72281585334ba6abf08f8a32711beeeb5c6dcc"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
