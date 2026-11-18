@@ -1,0 +1,110 @@
+{
+  "schema": "ENTERPRISE_MATH_UNIT148_SIGNED_NATIVE_RELATIVE_SCALAR_COLLISION_CERT_V1",
+  "date": "2026-11-19",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "researcher_id": "EM-X6-FB6990",
+  "status": "AUTHOR_EXACT_INTEGER_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "scientific_input_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "original_modules_executed": false,
+  "native_benchmark_executed": false,
+  "source_blobs": {
+    "signed_brc": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+    "native_torsor": "b4d49a1bbcccad0521618c6d20f6dcfa242b420a",
+    "historical_brc_bridge": "6ec0d73a19e28ec586c59a97d24f5798c9119771",
+    "current_brc_bridge": "97ab1403ab04b4fa80034625fb1b2e3ed115e59b"
+  },
+  "checker_path": "research_checks/X6_UNIT148_NATIVE_BRC_RELATIVE_GAUGE_SCALAR_COLLISION_CHECK_20261119.py",
+  "checker_blob_sha1": "e33c01208426b9d3ae1f51774fb327d902a9ad3e",
+  "checker_commit": "d3e24a136229bfd3ee96555c021ddfa969124067",
+  "execution": {
+    "environment": "CPython exact integer arithmetic",
+    "modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "stdout_sha256_all": "9beb4e4bb51cf31a899423308816f7c8c337539755a6ef9d3b6b51e9c269a43d",
+    "cases": "1<=a<=b<=64",
+    "pairs_checked": 2080,
+    "simultaneous_equal_pairs": 32,
+    "collision_a_range": [
+      1,
+      32
+    ],
+    "independent_small_grid_dp": "a<=8,b<=16",
+    "no_floating_point": true
+  },
+  "theorem": {
+    "domain": "all integers 1<=a<=b",
+    "signed_d": "(-a,-b,0,0,0,0)",
+    "minzero_relative_r": "(b-a,0,b,0,0,0)",
+    "G_r_minus_G_d": "b*(b-2*a)",
+    "N_r_minus_N_d": "b-2*a",
+    "B_d": "binom(a+b,a)",
+    "B_r": "binom(2*b-a,b-a)",
+    "full_three_scalar_equality_family": "b=2*a, all positive integer a",
+    "future_native_T0_plus_G_difference": "4*a",
+    "future_native_T0_plus_N_difference": 2
+  },
+  "smallest": {
+    "a": 1,
+    "b": 2,
+    "d": [
+      -1,
+      -2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "r": [
+      1,
+      0,
+      2,
+      0,
+      0,
+      0
+    ],
+    "initial_native_G_N_B": [
+      5,
+      3,
+      3
+    ],
+    "after_primitive_plus_e0": {
+      "d": [
+        0,
+        -2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "r": [
+        2,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "d_G_N_B": [
+        4,
+        2,
+        1
+      ],
+      "r_G_N_B": [
+        8,
+        4,
+        6
+      ]
+    }
+  },
+  "scope": "Current/old R062 native-vs-relative consumer classification, independent checker; original signed_brc.py and R063 original benchmark NOT run; LP011/LP019 exact alleged wrong caller still unresolved; independent Driver review pending"
+}
