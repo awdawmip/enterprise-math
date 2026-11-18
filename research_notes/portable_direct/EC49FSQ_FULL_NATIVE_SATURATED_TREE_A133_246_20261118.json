@@ -1,0 +1,34 @@
+{
+  "schema": "EC49FSQ_ORIGINAL_NATIVE_141_PROFILE_SATURATED_TREE_V1",
+  "source_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "kind": "FULL_LOSSLESS_ORIGINAL_NAMED_DECISION_TREE",
+  "parameters": {
+    "a": "133/246",
+    "b": "7/16",
+    "z": "1/2",
+    "price_unit": "t"
+  },
+  "tree_encoding": "base64(zlib(level=9,UTF-8 canonical JSON + newline))",
+  "canonical_json_encoding": "utf-8; sort_keys=true,separators=(',',':') plus newline",
+  "tree_uncompressed_bytes": 4198,
+  "tree_uncompressed_sha256": "b510ceadbd10fa4b5970b5bdca71fa2d1e8e3e1cdc706d68c26705a16a6a7785",
+  "tree_compressed_base64": "eNqVV8tuFEEMvPMZe+bQtvuZn0GBLAIpBClIXKL9d3Y8A11td4/CaSWrx49yuex9u3z59v356fX6cnl4u1CJ28/z9fHr5aGV28e7JW0WfMSU+yOicH/FVLspxs3CjI9ITeA8ptvd9PL44/r06efnX9fX39fXe0iNmF3EUPqXkjdfoYGlagqhW/KeFEE8VgskVZNaBPwUtUCWFHbXCRztrgGCkiwCFDRHwhybIoAZiYWpJYsShf0zjL9DOUQrMywVJyrwsG3FUAWckra4kgWcakH/QV9BNSQ0DRn1IXvGoDthi1dprnByhZOEWUzWkLIg6VgUeMuaaoN+EOdlTUe2S4hq897K2hsHfFgtD0r2cCTb9aaPZPDUZiH35kU/U9DPypb5iSzxRRzxdwvgEKdFR2ViTR5CGD5mB2EgNQmWKCe88x1vCA+5CEWxaSgKoYcc6YTs5+AU7p7CCvs2kPisgOIRgmxT7VQ/MJP+2UHrZEe17TkMZKo9rbHIQXrEyZp08i4Hi6vNiWcVUwxzwNbo1NOm5GKHJrGVkGP6kMJxLZ07ist2cJmL3ZHokUO2/ZirDMXgWqmfNkg27n1DLeW4BqxNGgXeUrTkLNT9DzgPMsxkQSSSNfmHrZFOsiXfXpzebPc3Vbu/M1kV42hVrIKKLbWIiks9/t9uwIa73cBhTYGB063NB27Q3Lb3A9MP0S+Q7IZhmoRXNreb2e0inl4D20L9J69LnRG3aGKziybZPeOOqTatpslczSc5jceB9H1yjEY9YS5SsJ5MN4pwSnMNHry5rzK/R7nJCndq9uoo64HFs+ZMq5o/04dzgV0Xg22jBH85zyJWngvTJIdh9GrtOngA2E76iASLZ5X7gcfxbtwf/a2KT8L6NTNIvHVWy/yrQQKqVwC3Df0BKVNa0IlaBfi8Ku+Cm7Y83EkbFTPuE9pSzcCTxQip3Ad/xwpOlaq7IA1VO2TYmbsJ/38oNjKsqrw8DDi4+csItCIzlKh/ULHEmM9qxNWqZ/Hx/3dZNoVk6ybdYSyoYaXXvXaV7Gfx3XdanbOcbx/+AHEGwgY=",
+  "tree_validation": {
+    "all_named_profiles": 141,
+    "correct_singleton_leaves": 141,
+    "root_named_observer": 32,
+    "maximum_depth": 4,
+    "observations_counted_over_all_profile_paths": {
+      "U": 313,
+      "q32": 141,
+      "q34": 43,
+      "q140": 24
+    },
+    "original_full228_bellman_value": "135107/656",
+    "independent_original94_decoder_bellman_value": "135107/656",
+    "primary_states": 10475,
+    "independent_states": 9726
+  },
+  "recovery": "python: json.loads(zlib.decompress(base64.b64decode(tree_compressed_base64))); check SHA256 of decompressed bytes including trailing newline; replay all 141 original named response profiles (frozen pin) through named_observer children to leaf.",
+  "status": "AUTHOR_PROVED / EXACT_NATIVE_TREE_REPLAY / INDEPENDENT_BELLMAN_CROSSCHECK / NOT_REVIEWED"
+}
