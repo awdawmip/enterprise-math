@@ -1,0 +1,153 @@
+{
+  "all_binary_swap_support_tests": 1024,
+  "counterexamples": {
+    "marginal_failure": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    ],
+    "separate_list_price": 0,
+    "true_witness_cost": [
+      3,
+      [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    ]
+  },
+  "larger_exact_fixture": {
+    "groups": [
+      [
+        6,
+        0,
+        3
+      ],
+      [
+        4,
+        0,
+        3
+      ]
+    ],
+    "hidden": 12,
+    "joint_witness": [
+      997,
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          7,
+          1
+        ]
+      ],
+      [
+        991,
+        993
+      ],
+      4
+    ],
+    "k": 4,
+    "measured_metadata": {
+      "J": 228,
+      "P": 49,
+      "Q": 103,
+      "price_comparisons": 83,
+      "price_scans": 42,
+      "profile_weight_bucket_probes": 154,
+      "witness_state_operations": 1556
+    },
+    "minima": [
+      992,
+      997,
+      997
+    ],
+    "proof": {
+      "J": 228,
+      "P": 49,
+      "Q": 103,
+      "admissible_prefixes": [
+        1,
+        22,
+        103,
+        103
+      ],
+      "price_scans_expected": 42,
+      "profile_weight_bucket_probes_bound": 154,
+      "raw_allocations": 35960,
+      "stage_units": 380,
+      "witness_state_operations_bound": 3108
+    },
+    "t6": false
+  },
+  "pre_expansion_refusal": [
+    {
+      "J": 183592,
+      "P": 65,
+      "Q": 35960,
+      "admissible_prefixes": [
+        1,
+        4,
+        16,
+        57,
+        163,
+        386,
+        794,
+        1471,
+        2517,
+        4048,
+        6196,
+        9109,
+        12951,
+        17902,
+        24158,
+        31900,
+        35960,
+        35960
+      ],
+      "price_scans_expected": 48,
+      "profile_weight_bucket_probes_bound": 164883,
+      "raw_allocations": 35960,
+      "stage_units": 219617,
+      "witness_state_operations_bound": 144
+    },
+    {}
+  ],
+  "scientific_BRC_operations": 0,
+  "small_allocations": 558,
+  "small_cases": 20,
+  "small_cases_sha256": "5df4257fcc05d547bb71f1ab11e946f950e82bf0eb914197a8e82e653750664b",
+  "small_fibres": 144,
+  "source_tool_sha256": "a5031cbd860dbb9195e02fa872dc1abbc10e2b27f47a397125749b8078474529"
+}

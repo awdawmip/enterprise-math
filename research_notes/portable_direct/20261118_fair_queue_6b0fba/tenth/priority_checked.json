@@ -1,0 +1,414 @@
+{
+  "abstract_MST_shells_checked": {
+    "4": 192,
+    "3": 88,
+    "2": 32,
+    "1": 8,
+    "0": 1
+  },
+  "task": "RS-CELL-U27F-03-INTERRUPTED-RECOVERY-20261012",
+  "input_sha256": {
+    "carry_Q": "acd915da997e0703ae72395e805126b29d841d47a68a435e75af379e40f76708",
+    "interrupted_after_carry": "31012bcbfa2cfb0bdfbbfa073616ac9244130e429a6f166f927968d2ad68847e"
+  },
+  "budget_by_transverse_port": [
+    {
+      "port": 4,
+      "minimum_records_without_CD": 5
+    },
+    {
+      "port": 5,
+      "minimum_records_without_CD": 5
+    },
+    {
+      "port": 6,
+      "minimum_records_without_CD": 5
+    },
+    {
+      "port": 7,
+      "minimum_records_without_CD": 5
+    },
+    {
+      "port": 8,
+      "minimum_records_without_CD": 5
+    },
+    {
+      "port": 9,
+      "minimum_records_without_CD": 5
+    },
+    {
+      "port": 10,
+      "minimum_records_without_CD": 5
+    },
+    {
+      "port": 11,
+      "minimum_records_without_CD": 5
+    }
+  ],
+  "five_stops": [
+    {
+      "stage": 1,
+      "kind": "FREE_NATIVE_HOP",
+      "routes": {
+        "forward": {
+          "actions_after_stop": [
+            "reserve_2",
+            "carry_B_and_2_forward",
+            "bind_2_to_AB",
+            "courier_3",
+            "courier_3",
+            "STABLE"
+          ],
+          "component_counts": [
+            2,
+            2,
+            3,
+            2,
+            2,
+            2,
+            2
+          ],
+          "final_free_ids": [
+            "3"
+          ],
+          "final_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        "reverse": {
+          "actions_after_stop": [
+            "reserve_3_at_C",
+            "fresh_birth_BC_side1",
+            "courier_2",
+            "STABLE"
+          ],
+          "component_counts": [
+            2,
+            2,
+            1,
+            1,
+            1
+          ],
+          "final_free_ids": [
+            "2"
+          ],
+          "final_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "stage": 2,
+      "kind": "RESERVE_OR_DETACH",
+      "routes": {
+        "forward": {
+          "actions_after_stop": [
+            "carry_B_and_2_forward",
+            "bind_2_to_AB",
+            "courier_3",
+            "courier_3",
+            "STABLE"
+          ],
+          "component_counts": [
+            2,
+            3,
+            2,
+            2,
+            2,
+            2
+          ],
+          "final_free_ids": [
+            "3"
+          ],
+          "final_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        "reverse": {
+          "actions_after_stop": [
+            "unreserve_2",
+            "reserve_3_at_C",
+            "fresh_birth_BC_side1",
+            "courier_2",
+            "STABLE"
+          ],
+          "component_counts": [
+            2,
+            2,
+            2,
+            1,
+            1,
+            1
+          ],
+          "final_free_ids": [
+            "2"
+          ],
+          "final_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "stage": 3,
+      "kind": "LOCAL_CARRY",
+      "routes": {
+        "forward": {
+          "actions_after_stop": [
+            "bind_2_to_AB",
+            "courier_3",
+            "courier_3",
+            "STABLE"
+          ],
+          "component_counts": [
+            3,
+            2,
+            2,
+            2,
+            2
+          ],
+          "final_free_ids": [
+            "3"
+          ],
+          "final_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        "reverse": {
+          "actions_after_stop": [
+            "carry_B_and_2_back",
+            "unreserve_2",
+            "reserve_3_at_C",
+            "fresh_birth_BC_side1",
+            "courier_2",
+            "STABLE"
+          ],
+          "component_counts": [
+            3,
+            2,
+            2,
+            2,
+            1,
+            1,
+            1
+          ],
+          "final_free_ids": [
+            "2"
+          ],
+          "final_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "stage": 4,
+      "kind": "RELATION_COMMITTED",
+      "routes": {
+        "forward": {
+          "actions_after_stop": [
+            "courier_3",
+            "courier_3",
+            "STABLE"
+          ],
+          "component_counts": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "final_free_ids": [
+            "3"
+          ],
+          "final_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        "reverse": {
+          "actions_after_stop": [
+            "detach_2_from_AB",
+            "carry_B_and_2_back",
+            "unreserve_2",
+            "reserve_3_at_C",
+            "fresh_birth_BC_side1",
+            "courier_2",
+            "STABLE"
+          ],
+          "component_counts": [
+            2,
+            3,
+            2,
+            2,
+            2,
+            1,
+            1,
+            1
+          ],
+          "final_free_ids": [
+            "2"
+          ],
+          "final_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "stage": 5,
+      "kind": "STABLE_COMMIT",
+      "routes": {
+        "forward": {
+          "actions_after_stop": [
+            "courier_3",
+            "courier_3",
+            "STABLE"
+          ],
+          "component_counts": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "final_free_ids": [
+            "3"
+          ],
+          "final_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        "reverse": {
+          "actions_after_stop": [
+            "detach_2_from_AB",
+            "carry_B_and_2_back",
+            "unreserve_2",
+            "reserve_3_at_C",
+            "fresh_birth_BC_side1",
+            "courier_2",
+            "STABLE"
+          ],
+          "component_counts": [
+            2,
+            3,
+            2,
+            2,
+            2,
+            1,
+            1,
+            1
+          ],
+          "final_free_ids": [
+            "2"
+          ],
+          "final_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "authorized_source_replay": {
+    "distinct_first_stop_snapshots": 1,
+    "distinct_forward_B_positions": 8,
+    "archive_sha256": "a450cc3e235ca3d37211d31b2d4eb41dd2d4ac28b77c73d18d1b6e3ce45cc9a7",
+    "loss_delta": "1/256",
+    "prep_weight": "1/802816",
+    "grow_weight": "1/18816",
+    "stage_hazard": "1/12544",
+    "BC_label_branch": "1/2352",
+    "source_stops": 40,
+    "completed_ledgers": 80,
+    "positive_birth_tests": 40,
+    "blocked_birth_tests": 40
+  }
+}

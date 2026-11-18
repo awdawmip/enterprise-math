@@ -1,0 +1,22 @@
+{
+  "title": "U27F-03 Q-family interrupted source",
+  "type": "object",
+  "required": ["kind", "body_cells", "free", "held", "bound", "modes", "lost_edge", "released_at", "released_token", "pending_reference", "automatic_cached_commit_permitted"],
+  "$defs": {
+    "cell": {"type":"array","items":{"type":"integer"},"minItems":6,"maxItems":6},
+    "positions": {"type":"object","propertyNames":{"pattern":"^[0-3]$"},"additionalProperties":{"$ref":"#/$defs/cell"}},
+    "bound_record": {"type":"object","required":["edge","side","cell","port"],"properties":{"edge":{"enum":[[0,1],[0,3]]},"side":{"enum":[0,1]},"cell":{"$ref":"#/$defs/cell"},"port":{"type":"integer","minimum":0,"maximum":11}}}
+  },
+  "properties": {
+    "kind":{"const":"INTERRUPTED_BY_FINAL_RELEASE"},
+    "body_cells":{"type":"array","items":{"$ref":"#/$defs/cell"},"minItems":4,"maxItems":4,"uniqueItems":true},
+    "free":{"$ref":"#/$defs/positions"}, "held":{"$ref":"#/$defs/positions"},
+    "bound":{"type":"object","propertyNames":{"pattern":"^[0-3]$"},"additionalProperties":{"$ref":"#/$defs/bound_record"}},
+    "modes":{"const":{"(0, 1)":"A","(0, 3)":"A"}},
+    "lost_edge":{"const":[2,3]},"released_token":{"const":3},"released_at":{"$ref":"#/$defs/cell"},
+    "pending_reference":{"type":"object","required":["paths","modes"]},
+    "automatic_cached_commit_permitted":{"const":false},
+    "label":{"type":"array","minItems":4,"maxItems":4,"prefixItems":[{"const":"body"},{"const":1},{"type":"integer","minimum":4,"maximum":11},{"const":true}]}
+  },
+  "description":"JSON Schema 2020-12 for the stopped data object. The public wrapper uses its data field. The executable checks the disjoint exhaustive ID partition, actual record heads, stopped CD geometry, the retained body label when needed, and stable endpoints. If an explicit grow label is absent at the first courier frame, only forward completion needs the separately retained direction."
+}
