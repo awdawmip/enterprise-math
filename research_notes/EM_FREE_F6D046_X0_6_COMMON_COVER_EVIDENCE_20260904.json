@@ -1,0 +1,157 @@
+{
+  "schema": "EM_FREE_F6D046_X0_6_COMMON_COVER_EVIDENCE_V1",
+  "status": "DERIVED_COMMON_COVER_EXACT_CENTRAL_HOLONOMY_OBSTRUCTION",
+  "date": "2026-09-04",
+  "researcher_id": "EM-FREE-F6D046",
+  "mode": "FREE_AXIOM_DISCOVERY",
+  "phase": "PHASE_B_CONTINUATION",
+  "research_unit": "EM-FREE-F6D046-R3-X0-6-COMMON-COVER-HOLONOMY",
+  "parent_candidate": "EM-FREE-F6D046-C1-ROTATIONAL-PERIOD-WRONSKIAN",
+  "blindness_status": "ANCHOR_EXPOSED",
+  "p000": {
+    "assumed": true,
+    "modified": false,
+    "claims": [
+      "REALITY_DIMENSION=7",
+      "ENTERPRISE_SPACE_DIMENSION=6",
+      "ENTERPRISE_TIME_DIMENSION=1",
+      "THREE_AXIS_MODEL_IS_ONLY_A_6D_SLICE",
+      "ROTATION_IS_PRIMARY"
+    ]
+  },
+  "objects": {
+    "signature4_period": "U4(x) = 2F1(1/4,3/4;1;x)",
+    "signature3_period": "U3(y) = 2F1(1/3,2/3;1;y)",
+    "common_curve": "X0(6) with Hauptmodul t",
+    "D": "t^2+12t+24",
+    "alpha4": "t(t+8)^3/(t^2+12t+24)^2",
+    "alpha3": "t(t+9)^2/(t+6)^3",
+    "cover_bidegree_projective": [4, 3],
+    "common_j": "(t+6)^3(t^3+18t^2+84t+24)^3/[t(t+8)^3(t+9)^2]",
+    "mixed_relation": "64(1+3x)^3 y(1-y)^3 = 27(1+8y)^3 x(1-x)^2"
+  },
+  "minimality": {
+    "orbifold_types": {
+      "signature4": ["infinity", "infinity", 2],
+      "signature3": ["infinity", "infinity", 3]
+    },
+    "orbifold_euler": {
+      "signature4": "-1/2",
+      "signature3": "-2/3"
+    },
+    "degree_equation": "3*d4 = 4*d3",
+    "minimal_positive_pair": [4, 3],
+    "realization": "Gamma0(2) intersection Gamma0(3) = Gamma0(6)"
+  },
+  "common_picard_fuchs": {
+    "equation": "H'' + (1/t+1/(t+8)+1/(t+9))H' + (t+6)/[t(t+8)(t+9)] H = 0",
+    "signature3_gauge": "U3(alpha3(t))=(t+6)H(t)/6",
+    "signature4_gauge": "U4(alpha4(t))=sqrt(D(t)/24) H(t)",
+    "period_ratio": "sqrt(3 D(t)/(2(t+6)^2))"
+  },
+  "central_character": {
+    "symbol": "chi_D",
+    "definition": "rank-one sign local system of sqrt(D)",
+    "branch_points": ["-6+2*sqrt(3)", "-6-2*sqrt(3)"],
+    "local_monodromy": "-1 around either branch point",
+    "projective_effect": "trivial",
+    "linear_effect": "nontrivial central -I twist",
+    "local_system_relations": [
+      "alpha4^* L4 = chi_D tensor L6",
+      "alpha3^* L3 = L6"
+    ]
+  },
+  "strict_linearization_cover": {
+    "equation": "s^2=t^2+12t+24",
+    "genus": 0,
+    "parameterization": {
+      "t": "-2(u^2+2u-5)/[(u-1)(u+1)]",
+      "s": "-2(u^2-4u+1)/[(u-1)(u+1)]"
+    },
+    "alpha4_u": "-(u^2+2u-5)(3u^2-2u+1)^3/(u^2-4u+1)^4",
+    "alpha3_u": "-(u^2+2u-5)(7u^2-4u+1)^2/[32(u^2-u+1)^3]",
+    "cover_bidegree": [8, 6],
+    "period_ratio": "-sqrt(6)(u^2-4u+1)/[4(u^2-u+1)]",
+    "minimality_scope": "minimal additional connected degree over the fixed X0(6) congruence span"
+  },
+  "clausen_layer": {
+    "Z4": "256t(t+8)^3(t+9)/D(t)^4",
+    "Z3": "108t(t+8)(t+9)^2/(t+6)^6",
+    "S": "H^2",
+    "F4": "D(t)S/24",
+    "F3": "(t+6)^2 S/36",
+    "rational_gauge": "F4 = [3D(t)/(2(t+6)^2)] F3",
+    "parity_law": "Sym^m(chi tensor L)=chi^m tensor Sym^m(L); even m erases chi, odd m retains chi"
+  },
+  "covector_pullback": {
+    "general_formula": "C=(Aq+B*kappa*Theta_t(q), B*kappa*q), kappa=Z/(t Z')",
+    "q4": "D/24",
+    "q3": "(t+6)^2/36",
+    "kappa4": "-(t+8)(t+9)D/[3(t^2+8t-8)(t^2+16t+72)]",
+    "kappa3": "-(t+6)(t+8)(t+9)/[2(t+12)(t^2+6t-18)]",
+    "basepoints": {
+      "t4_star": "2.9278697633423654310584907952199003187345517009393557227496100091445567593340859663301134274466147122327335042E-9",
+      "t3_star": "-0.0000026666620247022807203288984097927143160485650625688377041846679214738868113249936543174939078945401226187298061",
+      "a4_star": "2.60255089598631297344131212159692282959935130677592554946279483459104485149293574723715434233027023898E-9",
+      "a3_star": "-9.9999900000199999500001399995800013199957100142999513801679594121420801125710267443030519035754035568764E-7",
+      "signature4_common_row_C0": "0.31830989005545095495474782969009382742269222284678679250575447242765826886520717780747126419902524566487093828",
+      "signature4_common_row_C1": "7.6157731111287119062805655904894392725482568150189221188684089385728373294581152084211368033660780473431733505",
+      "signature4_S": "0.99999999951202170630804144083788287163176788514524187966335522736353947800892260672777898273945600931989275414",
+      "signature4_thetaS": "-4.8797829349352287989033776250561333471631278246595238685514316420960043453636441872376243337708140235862317268E-10",
+      "signature4_inverse_pi": "0.31830988618379067153776752674502872406891929148091289749533468811779359526845307018022760553250617191214568548",
+      "signature3_common_row_C0": "0.31830732395732054716089152692173410624403807966392566525389469750121360900790496716053764919846286872295038603",
+      "signature3_common_row_C1": "5.4467081167182647798391936275095677178727914338903665494130475810902287073762370884742346607810971803848483244",
+      "signature3_S": "1.0000004444438353922511778636143606478414276777922774244174649315228518636336675228641838539935108169151065812",
+      "signature3_thetaS": "4.4444400000084621041569429827545849439841923184635729902119454929095632891323487883609761122370394573208559309E-7",
+      "signature3_inverse_pi": "0.31830988618379067153776752674502872406891929148091289749533468811779359526845307018022760553250617191214568547",
+      "period_ratio_sample_residual": "1.94E-107",
+      "j_signature4_basepoint": "24591258496.000007828473143244147986221472351298170072272852344468495973689326054775472976071552703704065011888",
+      "j_signature3_basepoint": "-26999298.007262959230160973412806096191545920571306833010707437075985007984835509252962377153470550282247733130",
+      "inverse_pi_reference": "0.31830988618379067153776752674502872406891929148091289749533468811779359526845307018022760553250617191214568546"
+    }
+  },
+  "holonomy_no_go": {
+    "rank2_generators": [
+      [[1, 1], [0, 1]],
+      [[1, 0], [-6, 1]]
+    ],
+    "rank2_fixed_dual_dimension": 0,
+    "sym2_generators": [
+      [[1, 2, 1], [0, 1, 1], [0, 0, 1]],
+      [[1, 0, 0], [-6, 1, 0], [36, -12, 1]]
+    ],
+    "sym2_fixed_dual_dimension": 0,
+    "conclusion": "No nonzero path-independent global horizontal covector; distinct arithmetic fibers require path data."
+  },
+  "classification": [
+    "DERIVED_COMMON_COVER",
+    "EXACT_CENTRAL_HOLONOMY_OBSTRUCTION",
+    "PRIOR_ART_COMPATIBLE",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION"
+  ],
+  "tool_reuse": [
+    {
+      "match": "T9_HOLONOMY_COCOYCLE_GLUING / holonomy.precision_defect_transport",
+      "coverage_verdict": "REUSE_EXISTING_TOOL",
+      "reuse_resolution_state": "REUSE_APPLIED",
+      "application": "loop holonomy, strict-globalization no-go, path-dependence diagnosis",
+      "hard_boundary_checked": "nonzero holonomy does not itself choose a unique repaired global object"
+    },
+    {
+      "match": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "coverage_verdict": "REUSE_EXISTING_TOOL",
+      "reuse_resolution_state": "REUSE_APPLIED",
+      "application": "common fixed-covector spaces of explicit monodromy matrices",
+      "hard_boundary_checked": "absence of fixed vector does not import extra carrier structure"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "verification": {
+    "script": "scripts/verify_em_free_f6d046_x0_6_common_cover.py",
+    "output": "research_notes/EM_FREE_F6D046_X0_6_COMMON_COVER_VERIFICATION_20260904.json",
+    "all_passed": true,
+    "check_count": 37
+  },
+  "next": "Construct pairwise central characters for signatures 2,3,4 on a common X0(12) atlas and test the Cech 1-cocycle, simultaneous trivialization, and even/odd symmetric-power parity obstruction."
+}
