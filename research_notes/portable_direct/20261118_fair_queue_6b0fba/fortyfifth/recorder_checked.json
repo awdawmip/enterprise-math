@@ -1,0 +1,634 @@
+{
+  "actual_unit_cwm_propagations": {
+    "blind_final_not": 22363,
+    "blind_spot_known_controlled_turn": 42808,
+    "blind_spot_known_initial_turn": 6032,
+    "blind_spot_xor": 87408,
+    "inverse_blind_not": 54,
+    "inverse_local_xor": 162,
+    "inverse_receiver_or_hold": 162,
+    "inverse_reference_turn": 162,
+    "local_xor": 176227,
+    "mod_m_receiver_turn": 86615,
+    "quoted_three_channel_contact": 1837,
+    "receiver_hold": 88342,
+    "scheduled_reference_turn": 176227,
+    "swap_receiver_half_with_bit": 3584
+  },
+  "all_unit_frames": {
+    "2": 16,
+    "3": 108,
+    "4": 256,
+    "5": 1000,
+    "6": 864,
+    "7": 4116,
+    "8": 4096,
+    "9": 8748
+  },
+  "faults": {
+    "2": {
+      "conditional_success": "0",
+      "correct_records_after_two": 0,
+      "one_flip_flagged": 4,
+      "two_flip_clean_flag": 2,
+      "two_flip_trials": 2
+    },
+    "3": {
+      "conditional_success": "1/9",
+      "correct_records_after_two": 1,
+      "one_flip_flagged": 9,
+      "two_flip_clean_flag": 9,
+      "two_flip_trials": 9
+    },
+    "4": {
+      "conditional_success": "1/12",
+      "correct_records_after_two": 2,
+      "one_flip_flagged": 16,
+      "two_flip_clean_flag": 24,
+      "two_flip_trials": 24
+    },
+    "5": {
+      "conditional_success": "2/25",
+      "correct_records_after_two": 4,
+      "one_flip_flagged": 25,
+      "two_flip_clean_flag": 50,
+      "two_flip_trials": 50
+    },
+    "6": {
+      "conditional_success": "1/15",
+      "correct_records_after_two": 6,
+      "one_flip_flagged": 36,
+      "two_flip_clean_flag": 90,
+      "two_flip_trials": 90
+    },
+    "7": {
+      "conditional_success": "3/49",
+      "correct_records_after_two": 9,
+      "one_flip_flagged": 49,
+      "two_flip_clean_flag": 147,
+      "two_flip_trials": 147
+    },
+    "8": {
+      "conditional_success": "3/56",
+      "correct_records_after_two": 12,
+      "one_flip_flagged": 64,
+      "two_flip_clean_flag": 224,
+      "two_flip_trials": 224
+    },
+    "9": {
+      "conditional_success": "4/81",
+      "correct_records_after_two": 16,
+      "one_flip_flagged": 81,
+      "two_flip_clean_flag": 324,
+      "two_flip_trials": 324
+    },
+    "10": {
+      "conditional_success": "2/45",
+      "correct_records_after_two": 20,
+      "one_flip_flagged": 100,
+      "two_flip_clean_flag": 450,
+      "two_flip_trials": 450
+    },
+    "11": {
+      "conditional_success": "5/121",
+      "correct_records_after_two": 25,
+      "one_flip_flagged": 121,
+      "two_flip_clean_flag": 605,
+      "two_flip_trials": 605
+    }
+  },
+  "involution_conjugacy": {
+    "2": {
+      "clean_cyclic_translations": [
+        1
+      ],
+      "involutions": 3
+    },
+    "3": {
+      "clean_cyclic_translations": [],
+      "involutions": 15
+    },
+    "4": {
+      "clean_cyclic_translations": [
+        2
+      ],
+      "involutions": 105
+    },
+    "5": {
+      "clean_cyclic_translations": [],
+      "involutions": 945
+    }
+  },
+  "movement": {
+    "examples": {
+      "m12_step3": {
+        "blind": [
+          1,
+          2,
+          4,
+          5,
+          7,
+          8,
+          10,
+          11
+        ],
+        "reachable": [
+          0,
+          3,
+          6,
+          9
+        ]
+      },
+      "m3_step3": {
+        "blind": [
+          1,
+          2
+        ],
+        "reachable": [
+          0
+        ]
+      },
+      "m6_step3": {
+        "blind": [
+          1,
+          2,
+          4,
+          5
+        ],
+        "reachable": [
+          0,
+          3
+        ]
+      }
+    },
+    "two_start_windows_checked": 3731
+  },
+  "original_recorder_package_replayed": false,
+  "read_only": {
+    "2": {
+      "optimal_mean": "1",
+      "orders": 2,
+      "prior_weights": [
+        1,
+        2
+      ],
+      "uniform_mean": "1"
+    },
+    "3": {
+      "optimal_mean": "3/2",
+      "orders": 6,
+      "prior_weights": [
+        1,
+        2,
+        3
+      ],
+      "uniform_mean": "5/3"
+    },
+    "4": {
+      "optimal_mean": "19/10",
+      "orders": 24,
+      "prior_weights": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "uniform_mean": "9/4"
+    },
+    "5": {
+      "optimal_mean": "34/15",
+      "orders": 120,
+      "prior_weights": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "uniform_mean": "14/5"
+    },
+    "6": {
+      "optimal_mean": "55/21",
+      "orders": 720,
+      "prior_weights": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "uniform_mean": "10/3"
+    },
+    "7": {
+      "optimal_mean": "83/28",
+      "orders": 5040,
+      "prior_weights": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "uniform_mean": "27/7"
+    }
+  },
+  "source_pins": {
+    "research_notes/chatgpt_direct/20261011_EULER_RELATIONAL_RECORDING.md": "03cfdf23f8f1a6208b4ac4eb862a1b7ad3811d8b",
+    "src/enterprise_math/brc_logarithm.py": "4732e5fc381ce613d240c4381ccbef03c27a69c7",
+    "src/enterprise_math/brc_weighted.py": "3f205696709e847909958a153f8fe10d3f6b70f0",
+    "src/enterprise_math/exact_arithmetic.py": "35ea95b0916494b83a92386e3e313928362dd79e"
+  },
+  "target": "conditional local equality at a scheduled, movable reference",
+  "three_channel": {
+    "difference_bins": [
+      {
+        "count": 9,
+        "dominant": "8/93",
+        "total": "15/31"
+      },
+      {
+        "count": 9,
+        "dominant": "5/93",
+        "total": "8/31"
+      },
+      {
+        "count": 9,
+        "dominant": "13/279",
+        "total": "8/31"
+      }
+    ],
+    "expanded_frame_and_sheet_tests": 648,
+    "full_inputs": 54,
+    "original_channel_rows": [
+      {
+        "input": [
+          0,
+          0,
+          0
+        ],
+        "output": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "input": [
+          0,
+          0,
+          1
+        ],
+        "output": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "input": [
+          0,
+          0,
+          2
+        ],
+        "output": [
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "input": [
+          0,
+          1,
+          0
+        ],
+        "output": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "input": [
+          0,
+          1,
+          1
+        ],
+        "output": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "input": [
+          0,
+          1,
+          2
+        ],
+        "output": [
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "input": [
+          0,
+          2,
+          0
+        ],
+        "output": [
+          0,
+          2,
+          1
+        ]
+      },
+      {
+        "input": [
+          0,
+          2,
+          1
+        ],
+        "output": [
+          0,
+          2,
+          2
+        ]
+      },
+      {
+        "input": [
+          0,
+          2,
+          2
+        ],
+        "output": [
+          0,
+          2,
+          0
+        ]
+      },
+      {
+        "input": [
+          1,
+          0,
+          0
+        ],
+        "output": [
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "input": [
+          1,
+          0,
+          1
+        ],
+        "output": [
+          1,
+          0,
+          2
+        ]
+      },
+      {
+        "input": [
+          1,
+          0,
+          2
+        ],
+        "output": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "input": [
+          1,
+          1,
+          0
+        ],
+        "output": [
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "input": [
+          1,
+          1,
+          1
+        ],
+        "output": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "input": [
+          1,
+          1,
+          2
+        ],
+        "output": [
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "input": [
+          1,
+          2,
+          0
+        ],
+        "output": [
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "input": [
+          1,
+          2,
+          1
+        ],
+        "output": [
+          1,
+          2,
+          0
+        ]
+      },
+      {
+        "input": [
+          1,
+          2,
+          2
+        ],
+        "output": [
+          1,
+          2,
+          1
+        ]
+      },
+      {
+        "input": [
+          2,
+          0,
+          0
+        ],
+        "output": [
+          2,
+          0,
+          2
+        ]
+      },
+      {
+        "input": [
+          2,
+          0,
+          1
+        ],
+        "output": [
+          2,
+          0,
+          0
+        ]
+      },
+      {
+        "input": [
+          2,
+          0,
+          2
+        ],
+        "output": [
+          2,
+          0,
+          1
+        ]
+      },
+      {
+        "input": [
+          2,
+          1,
+          0
+        ],
+        "output": [
+          2,
+          1,
+          1
+        ]
+      },
+      {
+        "input": [
+          2,
+          1,
+          1
+        ],
+        "output": [
+          2,
+          1,
+          2
+        ]
+      },
+      {
+        "input": [
+          2,
+          1,
+          2
+        ],
+        "output": [
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "input": [
+          2,
+          2,
+          0
+        ],
+        "output": [
+          2,
+          2,
+          0
+        ]
+      },
+      {
+        "input": [
+          2,
+          2,
+          1
+        ],
+        "output": [
+          2,
+          2,
+          1
+        ]
+      },
+      {
+        "input": [
+          2,
+          2,
+          2
+        ],
+        "output": [
+          2,
+          2,
+          2
+        ]
+      }
+    ]
+  },
+  "unavailable_single_offset": {
+    "3": {
+      "tested_ready_inputs_across_both_gate_sets": 54,
+      "tests_with_receiver_recoding": 4,
+      "tests_with_write_only_receiver": 4
+    },
+    "4": {
+      "tested_ready_inputs_across_both_gate_sets": 128,
+      "tests_with_receiver_recoding": 5,
+      "tests_with_write_only_receiver": 6
+    },
+    "5": {
+      "tested_ready_inputs_across_both_gate_sets": 250,
+      "tests_with_receiver_recoding": 8,
+      "tests_with_write_only_receiver": 8
+    },
+    "6": {
+      "tested_ready_inputs_across_both_gate_sets": 432,
+      "tests_with_receiver_recoding": 9,
+      "tests_with_write_only_receiver": 10
+    },
+    "7": {
+      "tested_ready_inputs_across_both_gate_sets": 686,
+      "tests_with_receiver_recoding": 12,
+      "tests_with_write_only_receiver": 12
+    },
+    "8": {
+      "tested_ready_inputs_across_both_gate_sets": 1024,
+      "tests_with_receiver_recoding": 13,
+      "tests_with_write_only_receiver": 14
+    },
+    "9": {
+      "tested_ready_inputs_across_both_gate_sets": 1458,
+      "tests_with_receiver_recoding": 16,
+      "tests_with_write_only_receiver": 16
+    },
+    "10": {
+      "tested_ready_inputs_across_both_gate_sets": 2000,
+      "tests_with_receiver_recoding": 17,
+      "tests_with_write_only_receiver": 18
+    }
+  }
+}
