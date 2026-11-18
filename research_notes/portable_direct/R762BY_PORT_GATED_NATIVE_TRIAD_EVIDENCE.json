@@ -1,0 +1,180 @@
+{
+  "schema": "ENTERPRISE_MATH_R762BY_PORT_GATED_SIGNED_TRIAD_EVIDENCE_V1",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "publication_id": "TP2-8B7E13C5904A2D6F1142",
+  "frozen_p000": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "date": "2026-11-16",
+  "model": "Conditional signed Cell/Port/Link triad with 3 distinct native-axis force Ports and static Port eligibility J; no native permission asserted",
+  "observer": "positive integer BRC multiplicity pushforward to terminal ordered frame; source paths signed and ordered",
+  "validation": {
+    "language": "Python 3",
+    "method": "finite exact integer dynamic programming and full S6 symbolic label covariance; author-side executed successfully",
+    "m_range": [
+      0,
+      8
+    ],
+    "signed_states_per_fixed_cell_quantum": 960,
+    "native_axis_permutations": 720,
+    "covariance_transition_comparisons": 1555200,
+    "independent_review": "NOT_REVIEWED",
+    "native_event_permission": "NOT_ESTABLISHED"
+  },
+  "by_eligible_port_count": {
+    "0": {
+      "outdegree": 0,
+      "signed_edges": 0,
+      "based_return_m0_to_m8": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "terminal_order_count_m0_to_m8": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "unbounded_holonomy": "trivial",
+      "repair_bits": 0
+    },
+    "1": {
+      "outdegree": 3,
+      "signed_edges": 2880,
+      "based_return_m0_to_m8": [
+        1,
+        0,
+        3,
+        6,
+        21,
+        60,
+        183,
+        546,
+        1641
+      ],
+      "terminal_order_count_m0_to_m8": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "unbounded_holonomy": "trivial",
+      "repair_bits": 0,
+      "closed_form": "(3^m+3*(-1)^m)/4"
+    },
+    "2": {
+      "outdegree": 6,
+      "signed_edges": 5760,
+      "based_return_m0_to_m8": [
+        1,
+        0,
+        6,
+        18,
+        138,
+        762,
+        4698,
+        27930,
+        168090
+      ],
+      "terminal_order_count_m0_to_m8": [
+        1,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "unbounded_holonomy": "S2",
+      "repair_bits": 1
+    },
+    "3": {
+      "outdegree": 9,
+      "signed_edges": 8640,
+      "based_return_m0_to_m8": [
+        1,
+        0,
+        9,
+        36,
+        369,
+        2952,
+        26937,
+        239148,
+        2155617
+      ],
+      "terminal_order_count_m0_to_m8": [
+        1,
+        0,
+        1,
+        4,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "unbounded_holonomy": "S3",
+      "repair_bits": 3
+    }
+  },
+  "port_rotation_preserved_by_eligible_count": {
+    "0": true,
+    "1": false,
+    "2": false,
+    "3": true
+  },
+  "checked_witnesses": {
+    "k2_m3_swap": [
+      "123",
+      "423",
+      "413",
+      "213"
+    ],
+    "k3_m4_cycle_231": [
+      "123",
+      "423",
+      "421",
+      "431",
+      "231"
+    ],
+    "k3_m4_cycle_312": [
+      "123",
+      "423",
+      "413",
+      "412",
+      "312"
+    ],
+    "k3_m5_cycle_231": [
+      "123",
+      "423",
+      "523",
+      "521",
+      "531",
+      "231"
+    ]
+  },
+  "reproducibility": "Run R762BY_PORT_GATED_NATIVE_TRIAD_VERIFY.py [output.json] to recompute complete terminal-frame distributions, every legal three-to-five-event witness and all assertions through m=8; JSON produced by that program is more detailed.",
+  "scope": [
+    "The three-force closure predicate and Port-gated transitions are proposed model semantics, not confirmed Source-licensed native events.",
+    "The stated minimal repair index recovers terminal Port order given unordered base triad, not entire signed Cell/Link history.",
+    "No classical pi/trigonometric, amplitude, or Euclidean vector balance operation was used."
+  ],
+  "next_question": "Obtain actual signed TRIADIC_CLOSURE_E Cell/Port/Link permit predicate and V17/V29/V39 native event transducer; restrict transitions and compute source-safe BRC residual."
+}
