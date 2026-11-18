@@ -69,6 +69,5 @@ def main() -> None:
            "rows": rows, "verdict": "PASS_TYPED_NONIDENTITY_NO_OLD_RESULT_MUTATION"}
     print(json.dumps(out, sort_keys=True, separators=(",", ":")))
 
-
 if __name__ == "__main__":
     main()
