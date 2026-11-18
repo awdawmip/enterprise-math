@@ -1,0 +1,89 @@
+{
+  "schema": "ENTERPRISE_MATH_X6_UNIT144_SOURCE_TYPED_EXACT_CERTIFICATE_V1",
+  "research_role": "TASK_RESEARCH",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "date": "2026-11-19",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "source_script": {
+    "path": "scripts/check_p000_first_shell_polyhedron_classification.py",
+    "frozen_git_blob_sha1": "e58b287ae65eaadd8a805b5ebac84535b2cb5211",
+    "current_git_blob_sha1": "e58b287ae65eaadd8a805b5ebac84535b2cb5211"
+  },
+  "current_native_definition": {
+    "path": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+    "git_blob_sha1": "b4d49a1bbcccad0521618c6d20f6dcfa242b420a"
+  },
+  "checker": {
+    "path": "research_checks/X6_UNIT144_CARRIER_FCC_HCP_NATIVE_FIRST_SHELL_TYPE_CHECK_20261119.py",
+    "commit": "694b0346353ca1a975ad844e18249e521953500f",
+    "git_blob_sha1": "ee357cf3d1df7d427ba6c247ebeb296a75dc4071"
+  },
+  "execution": {
+    "normal": {
+      "exit_code": 0,
+      "stdout_sha256": "378b599517229cd9aeb5dc4ecbd1962a188e550c9195acca0b62fa200be3667f"
+    },
+    "python_O": {
+      "exit_code": 0,
+      "stdout_sha256": "378b599517229cd9aeb5dc4ecbd1962a188e550c9195acca0b62fa200be3667f"
+    },
+    "python_OO": {
+      "exit_code": 0,
+      "stdout_sha256": "378b599517229cd9aeb5dc4ecbd1962a188e550c9195acca0b62fa200be3667f"
+    },
+    "same_stdout_bytes_all_modes": true,
+    "original_production_script_executed_this_unit": false
+  },
+  "exact_result": {
+    "native": {
+      "endpoints": 12,
+      "pair_count": 66,
+      "component_norm_squared_hist": {
+        "2": 60,
+        "4": 6
+      },
+      "shortest_path_N_BRC_hist": {
+        "1": 6,
+        "2": 60
+      },
+      "primitive_step_L1_hist": {
+        "2": 66
+      },
+      "one_step_adjacent_first_shell_pairs": 0,
+      "opposite_pairs": 6,
+      "central_symmetry": true
+    },
+    "carrier": {
+      "FCC_C": {
+        "q_radius_squared": 12,
+        "pair_q_squared_hist": {
+          "12": 24,
+          "24": 12,
+          "36": 24,
+          "48": 6
+        },
+        "contact_pairs_at_q12": 24,
+        "opposite_pairs": 6,
+        "central_symmetry": true
+      },
+      "HCP_H": {
+        "q_radius_squared": 12,
+        "pair_q_squared_hist": {
+          "12": 24,
+          "24": 12,
+          "32": 3,
+          "36": 18,
+          "44": 6,
+          "48": 3
+        },
+        "contact_pairs_at_q12": 24,
+        "opposite_pairs": 3,
+        "central_symmetry": false
+      }
+    }
+  },
+  "claim_scope": "No label-bijection can preserve origin-normalized q=12*G pair distances on all 12 points; the carrier's q=12 contact graph is separately typed from native primitive transitions. No restriction on arbitrary non-isometric carrier atlas embeddings.",
+  "independent_review": "PENDING",
+  "admission": "NOT_ADMITTED"
+}
