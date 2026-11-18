@@ -1,0 +1,178 @@
+{
+  "schema": "EC49FSW_NATIVE_BRC_EXACT_SATURATED_PRICE_FAN_CERT_V1",
+  "date": "2026-11-18",
+  "source_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "input_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "profiles": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "origin": {
+    "prior_pr": 2728,
+    "earlier_verified_source_commit": "5ab96ebe3cfd1ee7df88c984b38b850971f7aa93"
+  },
+  "population": {
+    "original_configs": 310,
+    "named_profiles": 141,
+    "physical_queries": 228,
+    "uniform_named_profile_prior": true
+  },
+  "parameters": {
+    "a": "2/3",
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "1531/2304",
+      "1"
+    ],
+    "normalization": "F=141V/t"
+  },
+  "optimal_values": {
+    "direct": "307-75b-141z",
+    "swapped": "min(787/3-9b-141z,791/3-12b-141z)"
+  },
+  "complete_native_tree_use_vectors": {
+    "direct": [
+      319,
+      18,
+      75,
+      141
+    ],
+    "swapped_left": [
+      327,
+      9,
+      97,
+      141
+    ],
+    "swapped_right": [
+      325,
+      12,
+      92,
+      141
+    ]
+  },
+  "phase_boundary_b": "4/9",
+  "gap": {
+    "left": "134/3-66b",
+    "right": "130/3-63b",
+    "range": [
+      "5867/384",
+      "379/24"
+    ],
+    "constant_in_z": true
+  },
+  "vertices": [
+    {
+      "orientation": "D",
+      "a": "2/3",
+      "b": "7/16",
+      "z": "1531/2304",
+      "optimal_total_cost": "138619/768"
+    },
+    {
+      "orientation": "D",
+      "a": "2/3",
+      "b": "7/16",
+      "z": "1",
+      "optimal_total_cost": "2131/16"
+    },
+    {
+      "orientation": "D",
+      "a": "2/3",
+      "b": "4/9",
+      "z": "1531/2304",
+      "optimal_total_cost": "46073/256"
+    },
+    {
+      "orientation": "D",
+      "a": "2/3",
+      "b": "4/9",
+      "z": "1",
+      "optimal_total_cost": "398/3"
+    },
+    {
+      "orientation": "D",
+      "a": "2/3",
+      "b": "57/128",
+      "z": "1531/2304",
+      "optimal_total_cost": "138169/768"
+    },
+    {
+      "orientation": "D",
+      "a": "2/3",
+      "b": "57/128",
+      "z": "1",
+      "optimal_total_cost": "16973/128"
+    },
+    {
+      "orientation": "S",
+      "a": "2/3",
+      "b": "7/16",
+      "z": "1531/2304",
+      "optimal_total_cost": "126491/768"
+    },
+    {
+      "orientation": "S",
+      "a": "2/3",
+      "b": "7/16",
+      "z": "1",
+      "optimal_total_cost": "5635/48"
+    },
+    {
+      "orientation": "S",
+      "a": "2/3",
+      "b": "4/9",
+      "z": "1531/2304",
+      "optimal_total_cost": "126443/768"
+    },
+    {
+      "orientation": "S",
+      "a": "2/3",
+      "b": "4/9",
+      "z": "1",
+      "optimal_total_cost": "352/3"
+    },
+    {
+      "orientation": "S",
+      "a": "2/3",
+      "b": "57/128",
+      "z": "1531/2304",
+      "optimal_total_cost": "42145/256"
+    },
+    {
+      "orientation": "S",
+      "a": "2/3",
+      "b": "57/128",
+      "z": "1",
+      "optimal_total_cost": "11263/96"
+    }
+  ],
+  "independent_original_data_checks": [
+    {
+      "orientation": "D",
+      "b": "7/16",
+      "z": "2/3",
+      "value": "2883/16"
+    },
+    {
+      "orientation": "S",
+      "b": "4/9",
+      "z": "2/3",
+      "value": "493/3"
+    },
+    {
+      "orientation": "S",
+      "b": "57/128",
+      "z": "1",
+      "value": "11263/96"
+    }
+  ],
+  "local_full_archive": {
+    "filename": "EC49FSW_NATIVE_BRC_SATURATED_TWO_PRICE_FAN_EVIDENCE_20261118.tar.gz",
+    "sha256": "ac1c15e7dd787e1efd3ca8a9d94a4732f982f858e0192c9d806293004340851e",
+    "remote_git_blob_verified": false
+  },
+  "status": "AUTHOR_PROVED / EXACT_PRIMARY_12_VERTICES / INDEPENDENT_3_ANCHORS / NOT_REVIEWED",
+  "unresolved": "Extend b-z rectangle to genuine 3D a variation and classify any new policies"
+}
