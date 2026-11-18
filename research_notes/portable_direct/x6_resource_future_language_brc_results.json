@@ -1,0 +1,248 @@
+{
+  "alternating_port_family": {
+    "2": {
+      "complete_source_words": [
+        "ABAB",
+        "BABA"
+      ],
+      "complete_words": 2,
+      "equivalence_oracle": "all completed source-label suffix words",
+      "k2_states": [
+        {
+          "future_words": [
+            "BA"
+          ],
+          "state": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "future_words": [
+            "AB"
+          ],
+          "state": [
+            1,
+            1,
+            2
+          ]
+        }
+      ],
+      "max_distinct_count_vectors_by_rank": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "max_language_classes_by_rank": [
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "minimum_extra_bits_by_rank": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "productive_states": 9,
+      "resource_distinguished_observation_fibers": 1,
+      "uniform_extra_bits": 1
+    },
+    "3": {
+      "complete_words": 2,
+      "equivalence_oracle": "all completed source-label suffix words",
+      "max_distinct_count_vectors_by_rank": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "max_language_classes_by_rank": [
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
+      "minimum_extra_bits_by_rank": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "productive_states": 13,
+      "resource_distinguished_observation_fibers": 2,
+      "uniform_extra_bits": 1
+    },
+    "4": {
+      "complete_words": 2,
+      "equivalence_oracle": "all completed source-label suffix words",
+      "max_distinct_count_vectors_by_rank": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "max_language_classes_by_rank": [
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
+      "minimum_extra_bits_by_rank": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "productive_states": 17,
+      "resource_distinguished_observation_fibers": 3,
+      "uniform_extra_bits": 1
+    },
+    "5": {
+      "complete_words": 2,
+      "equivalence_oracle": "all completed source-label suffix words",
+      "max_distinct_count_vectors_by_rank": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "max_language_classes_by_rank": [
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
+      "minimum_extra_bits_by_rank": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "productive_states": 21,
+      "resource_distinguished_observation_fibers": 4,
+      "uniform_extra_bits": 1
+    }
+  },
+  "result": "PASS",
+  "sample_two_state_same_count_resource_split": {
+    "a": 2,
+    "b": 3,
+    "bits": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "counts_by_rank": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "periods": [
+      2,
+      2
+    ],
+    "transitions": [
+      [
+        0,
+        "B",
+        1
+      ],
+      [
+        1,
+        "A",
+        0
+      ],
+      [
+        1,
+        "B",
+        1
+      ]
+    ]
+  },
+  "schema": "X6_CONDITIONAL_RESOURCE_FUTURE_LANGUAGE_CHECK_V1",
+  "scope": "deterministic partial 2-state resource automata and the 3-state alternating family; not native Cell permission",
+  "signature_matches_full_word_languages": true,
+  "two_state_controllers_exhaustively_checked": 81,
+  "two_state_length_pairs": 9,
+  "two_state_models_checked": 2916,
+  "two_state_models_with_complete_trajectory": 1404,
+  "two_state_models_with_larger_class_count_than_count_only": 32,
+  "two_state_models_with_nontrivial_observation_fiber": 153,
+  "two_state_models_with_same_count_resource_split": 32,
+  "two_state_period_pairs": [
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ]
+}
