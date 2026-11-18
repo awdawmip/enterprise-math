@@ -109,3 +109,8 @@ Here $un^2=O(p^{3/2}\log^2p)$; the bounds are **uniform in $w$**. Average (7) ov
 The theorem applies to the **external finite-group list-tail abstraction**, not an actual bounded-step Gaussian-prime walk or typed native Heartbeat X6/Port/Link path. It does not add a formal Result/Review, independent reviewer status, owner CLAIM, Source/Activity association, Task completion or Foundation promotion. The universal sharp leading constant remains open; r315's upper schedule has coefficient 128, and r319's stronger lower coefficient only covers all-realizations-distinct schedules.
 
 Sources: r307 @ baaaabaacaf8543f62a45a00cdfcf03e95389075; r315 @ 91555075510068632a53f02a5b2e1731d4bcb44e; r318 @ f770d2b71bf6371679b37dc9686603fb85abec19; r319 @ d292f14db079dd59fe12b6ee2ce638afb6617723.
+
+
+## Later same-day linkage (r321; provenance-preserving)
+
+The one-half coefficient proved above remains a valid independent lower-bound lemma. The later r321 argument partitions **all** repeated-offset multiplicity classes and obtains the stronger universal coefficient $1/[4(1-b+b\log b)]\approx0.65403254$, previously known only under r319's distinct-offset hypothesis. Preserve the original r320 proof, its weaker bound, the original r312/r319 coefficient provenance and the distinction between a GitHub mathematics note and Native Result acceptance. Follow-up: [r321 exact multiplicity-class proof](https://github.com/awdawmip/enterprise-math/blob/3c411d17ca496dfcfcdb91082643597981f6b9d2/research_notes/driver/2026-11-18_oai7_arbitrary_repetitions_sharp_distinct_class_lower_coefficient_r321.md).
