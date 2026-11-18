@@ -1,0 +1,45 @@
+{
+  "schema": "X6_UNIT129_TRANSLATION_COVARIANT_NATIVE_MIDPOINT_EXECUTION_V1",
+  "date": "2026-11-18",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "frozen_scientific_input_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "unchanged_native_brc_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+  "previous_active_source_blob": "eb2036264f5b754988a5841ca1d83fab561aa49b",
+  "corrected_active_source_commit": "573a2560680d780ffffe5c21cbb5653d042a6b84",
+  "corrected_active_source_blob": "cf5bc031b90b26d82216925d2768583db4e10f57",
+  "checked_program": "research_checks/X6_UNIT129_TRANSLATION_COVARIANT_MIDPOINT_REGRESSION_20261118.py",
+  "full_original_module_stdouthash_sha256": "03f98b37a4dcf346cc3a7063206f84253a3b7c1a219f1892f7967cd55201c2a2",
+  "verified_python_modes": [
+    {
+      "mode": "normal",
+      "exit_code": 0,
+      "certificate_stdout_sha256": "e91721567b48069c5a9723300bb2c9de9d34211c8e9cdaa95692d7abc2ed7811"
+    },
+    {
+      "mode": "-O",
+      "exit_code": 0,
+      "certificate_stdout_sha256": "e91721567b48069c5a9723300bb2c9de9d34211c8e9cdaa95692d7abc2ed7811"
+    },
+    {
+      "mode": "-OO",
+      "exit_code": 0,
+      "certificate_stdout_sha256": "e91721567b48069c5a9723300bb2c9de9d34211c8e9cdaa95692d7abc2ed7811"
+    }
+  ],
+  "finite_domain": "a in {-1,0,1}^6; choose i<j; si,sj in {-1,+1}; b=a+si*ei+sj*ej",
+  "finite_case_counts": {
+    "legal_pairs": 43740,
+    "corrected_two_geodesic_midpoints": 43740,
+    "prior_raw_helper_correct": 120,
+    "prior_raw_helper_wrong": 43620,
+    "translation_covariance_checks": 43740,
+    "original_triads_20x8x3": 480,
+    "wrong_domain_rejection": 4,
+    "corrupted_native_brc_rejection": 1
+  },
+  "theorem_scope": "For any a,b in Z^6 with shortest_event_count(b-a)=2 and shortest_path_multiplicity(b-a)=2, the two geodesic midpoint cells are a+si ei and a+sj ej on the distinct support axes; the corrected function returns them. If ZERO is one midpoint it is ordered first to preserve original triad branch bits.",
+  "actual_input_model": "X6 signed discrete Cell displacement; not a two-dimensional native plane",
+  "acceptance": "AUTHOR_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "native_control": "Original Units126-127 publish request onhour-20261118-1707-x6-own-units126-127-native-progress-v1 was RUNNING when research began; this file is a GitHub author certificate, not that request's terminal Source publication."
+}
