@@ -19,14 +19,10 @@ This audit checks a legitimate current source consumer whose filename includes P
 
 ## 2. Proposition: exact native pair and N-BRC spectrum
 
-For any chosen native Cell anchor `c` define
-[
-  N_1(c)=\{c+e_i,c-e_i:1\le i\le 6\}\subset X6,
-  quad G(u-v)=\sum_{i=1}^6(u_i-v_i)^2,
-]
+For any chosen native Cell anchor `c` define `N_1(c)={c+e_i,c-e_i | i=1,...,6}` and `G(u-v)=sum_i(u_i-v_i)^2`,
 and the primitive coordinate path length `T(u-v)=sum_i |u_i-v_i|`. The source-defined N-BRC counts all ordered shortest signed-axis paths.
 
-**Theorem (all native anchors).** Among the (inom{12}{2}=66) unordered pairs in `N_1(c)`,
+**Theorem (all native anchors).** Among the 66 unordered pairs in `N_1(c)`,
 
 * exactly six opposite-axis pairs have `G=4`, `T=2`, and `N-BRC=1`;
 * the remaining sixty distinct-axis pairs have `G=2`, `T=2`, and `N-BRC=2`;
@@ -50,10 +46,7 @@ The old script's twelve sites all satisfy `Q_3(p)=12`. The following **complete 
 
 FCC_C has six antipodal pairs and is centrally symmetric about its carrier origin; HCP_H has only three antipodal pairs and is not centrally symmetric. Both have 24 carrier `Q_3=12` contact pairs. Their original carrier combinatorial conclusions remain valid on these exact typed inputs.
 
-**Metric-preserving identification obstruction.** Suppose a bijection from the twelve carrier sites to the twelve X6 first-shell endpoints preserved the origin and the two-point quadratic readout up to a single constant (lambda>0). Since every carrier site's radius is `Q_3(p)=12` and each signed native first-shell point has `G(e_i)=1`, the scale is forced to (lambda=12). Therefore all 66 carrier pair differences would need histogram
-[
-  \{Q_3(p-q)\} = \{24:60,48:6\}.
-]
+**Metric-preserving identification obstruction.** Suppose a bijection from the twelve carrier sites to the twelve X6 first-shell endpoints preserved the origin and the two-point quadratic readout up to a single constant (lambda>0). Since every carrier site's radius is `Q_3(p)=12` and each signed native first-shell point has `G(e_i)=1`, the scale is forced to (lambda=12). Therefore all 66 carrier pair differences would need the histogram `{24:60,48:6}`.
 Neither complete histogram above has this form. Thus **neither FCC_C nor HCP_H is a native-X6 first-shell isometry up to common normalization**. The HCP_H centered-reversal obstruction is an additional witness if a map is also required to intertwine sign reversal.
 
 This proves only the stated typed metric/primitive-action incompatibility. The FCC/HCP sites remain usable as **selected Euclidean carrier views**, for which a non-isometric, observer-tagged atlas representation may be useful; their 24 contact edges must not be substituted for X6 signed primitive coordinate edges or for native N-BRC.
