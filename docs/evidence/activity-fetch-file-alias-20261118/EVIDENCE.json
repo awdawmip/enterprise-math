@@ -1,0 +1,147 @@
+{
+  "accepted_tool_names": [
+    "github_fetch_file",
+    "mcp__GitHub__fetch_file",
+    "em_mcp_github_contents"
+  ],
+  "activity_or_sidecar_mutations": 0,
+  "actual_cli": {
+    "after": {
+      "exit": 1,
+      "stderr": "",
+      "stdout": {
+        "error": "stored source/verification fields drift",
+        "required_action": "REPAIR_ACTIVITY_EVIDENCE"
+      }
+    },
+    "argv": [
+      "python3",
+      "tools/research_activity.py",
+      "audit",
+      "--activity-id",
+      "RA-DD7D715E42D8874661313886",
+      "--session-id",
+      "MCP-8487128c846440d1952bfc6fa44aeb86",
+      "--no-new-semantic-progress"
+    ],
+    "before": {
+      "exit": 1,
+      "stderr": "",
+      "stdout": {
+        "error": "invalid legacy source summary",
+        "required_action": "REPAIR_ACTIVITY_EVIDENCE"
+      }
+    },
+    "mathematical_recomputation_performed": false,
+    "original_absolute_executable_recorded_only_in_local_process_receipt": true,
+    "registration_observation_supplied": false,
+    "strict_audit_pass": false
+  },
+  "actual_source_record": {
+    "activity_id": "RA-DD7D715E42D8874661313886",
+    "events": 52,
+    "git_blob_sha1": "534e1e5f4cfcbc089224f8eda5804b162421f2ed",
+    "record_unchanged": true,
+    "sha256": "47fc2205694a3f39bc512b73cc7aa9a289a9b61559644f1930a475fb1191fffc"
+  },
+  "additional_existing_blocker": [
+    {
+      "actual_sidecar_sha256": "91a877e4fc2e373d35f4f475ab4c133b90df6602920885a0083081da6cc55613",
+      "declared_sidecar_sha256": "91a877e4fc2e373d35f4f475ab4c133b90df6602920885a0083081da6cc55613",
+      "differences": [
+        {
+          "field": "verification_receipt",
+          "rebuilt": "research_activity_records/RA-DD7D715E42D8874661313886/readbacks/f1426e809e1c9384a70f375e43a39f9e1689d915f37cc59d484db8cf65a2b341.json",
+          "stored": "research_activity_records/RA-DD7D715E42D8874661313886/readbacks/91a877e4fc2e373d35f4f475ab4c133b90df6602920885a0083081da6cc55613.json"
+        },
+        {
+          "field": "verification_receipt_sha256",
+          "rebuilt": "f1426e809e1c9384a70f375e43a39f9e1689d915f37cc59d484db8cf65a2b341",
+          "stored": "91a877e4fc2e373d35f4f475ab4c133b90df6602920885a0083081da6cc55613"
+        }
+      ],
+      "error": "stored source/verification fields drift",
+      "event_id": "r1-r246-20261117-1700-interior-two-mode-error",
+      "full_observation_valid": true,
+      "path": "research_notes/portable_direct/R246_INTERIOR_TWO_MODE_ERROR_MAXIMUM_AND_RANK_ONE_CERTIFICATE_20261117.md",
+      "source_index": 0
+    }
+  ],
+  "all_existing_sidecar_bytes_unchanged": true,
+  "backend_pr101_included": false,
+  "captured_at_utc": "2026-11-18T16:01:44.855217+00:00",
+  "change": "Accept exactly mcp__GitHub__fetch_file as the existing GitHub fetch_file connector format in full observations and historical summaries; preserve original labels and bytes. Existing MCP GitHub Contents verification is unchanged.",
+  "ci_shard_placement": {
+    "additional_test_file_removed": "tests/test_research_activity_connector_alias.py",
+    "all_seven_methods_preserved": true,
+    "existing_files_whose_shard_changed_with_new_file": 105,
+    "final_existing_file_shard_assignments_equal_baseline": true,
+    "final_test_module": "tests/test_research_activity_readback_reuse.py",
+    "new_test_class_ast_preserved": true,
+    "original_ci_workflow_timeout_minutes_for_shard6": 15,
+    "workflow_or_timeout_changes": false
+  },
+  "diagnostic_counts_not_a_successful_audit": {
+    "genuine_full_observation_with_serialization_binding_drift": 1,
+    "older_summary_only_events": 15,
+    "recover_events": 33,
+    "source_observations_passing_all_stored_checks": 3,
+    "summary_only_events": 48,
+    "summary_only_sources": 69
+  },
+  "do_not_claim": "Alias compatibility does not establish a missing sidecar, canonical serialization binding, a successful complete audit, research acceptance, or execution authority.",
+  "existing_sidecars": [
+    {
+      "actual_sha256": "3a5dbbdb3960716635529a1b16e0e57c4623398989a805fc21fd6f604b5a1335",
+      "expected_sha256": "3a5dbbdb3960716635529a1b16e0e57c4623398989a805fc21fd6f604b5a1335",
+      "path": "research_activity_records/RA-DD7D715E42D8874661313886/readbacks/3a5dbbdb3960716635529a1b16e0e57c4623398989a805fc21fd6f604b5a1335.json",
+      "size": 7302
+    },
+    {
+      "actual_sha256": "9227a88c1fb4e33668e3afd1b29465a35cfa5ec02bca74ca50186187161f9b22",
+      "expected_sha256": "9227a88c1fb4e33668e3afd1b29465a35cfa5ec02bca74ca50186187161f9b22",
+      "path": "research_activity_records/RA-DD7D715E42D8874661313886/readbacks/9227a88c1fb4e33668e3afd1b29465a35cfa5ec02bca74ca50186187161f9b22.json",
+      "size": 6322
+    },
+    {
+      "actual_sha256": "f7781d3b296f7e3c91de5c1f66c4339775ebda48ba526dee21d30c7b6e72bf16",
+      "expected_sha256": "f7781d3b296f7e3c91de5c1f66c4339775ebda48ba526dee21d30c7b6e72bf16",
+      "path": "research_activity_records/RA-DD7D715E42D8874661313886/readbacks/f7781d3b296f7e3c91de5c1f66c4339775ebda48ba526dee21d30c7b6e72bf16.json",
+      "size": 8509
+    },
+    {
+      "actual_sha256": "91a877e4fc2e373d35f4f475ab4c133b90df6602920885a0083081da6cc55613",
+      "expected_sha256": "91a877e4fc2e373d35f4f475ab4c133b90df6602920885a0083081da6cc55613",
+      "path": "research_activity_records/RA-DD7D715E42D8874661313886/readbacks/91a877e4fc2e373d35f4f475ab4c133b90df6602920885a0083081da6cc55613.json",
+      "size": 7802
+    }
+  ],
+  "host_native_package_updated": false,
+  "native_authority_granted": false,
+  "new_research_claim_or_run": false,
+  "original_module_git_blob_sha1": "292787a26d2509a90eb5e8d21106d1ebdd397405",
+  "owner_evidence_manifest": "OBSERVATION_DEBT_MANIFEST.json",
+  "publication_state": "CANDIDATE_NOT_YET_PUBLISHED",
+  "research_identity_changed": false,
+  "scheduling_changes": false,
+  "schema": "EM_ACTIVITY_FETCH_FILE_ALIAS_REPAIR_EVIDENCE_V1",
+  "source_base_commit": "1661c787563c65704a2ce55e4b63a7b4773ebd54",
+  "source_pr2611_included": false,
+  "validation": {
+    "diff_check_passed": true,
+    "errors": 0,
+    "failed": 0,
+    "final_regression_module": "tests/test_research_activity_readback_reuse.py",
+    "initial_partial_checkout_import_failures_resolved": "Materialized the complete exact Source checkout before the final 49-case suite; no test assertion or production dependency was changed.",
+    "installed_package_cases": 26,
+    "installed_package_passed": 26,
+    "new_regressions": 7,
+    "old_module_new_regressions_errors": 6,
+    "old_module_new_regressions_exit": 1,
+    "old_module_type_error_for_non_string_name": true,
+    "original_ci_job_6": "CANCELLED_AT_CONFIGURED_15_MINUTE_BUDGET; seven other unit shards passed, no assertion failures in completed job6 cases",
+    "passed": 49,
+    "related_unittest_cases": 49,
+    "workflow_or_timeout_changes": false
+  }
+}
