@@ -64,3 +64,11 @@ At exact equality the underlying shifts form one fixed set \(W\); only their ord
 - New here: convolution cancellation, entropy-floor equality classification, near-equality stability and its conditional event-level consequence.
 
 GitHub scientific note only; no new CLAIM, Native Result, Source/Activity admission, independent formal review or Task/parent-objective completion is asserted.
+
+
+## Subsequent verified research links (2026-11-18; original r334 proof unchanged)
+
+- [r335: exact saturation witness and shift-set margin bound](https://github.com/awdawmip/enterprise-math/blob/591f90fd482c56a3070e865f75801ddb7dc0dfde/research_notes/portable_direct/2026-11-18_oai7_driver_entropy_rigidity_sharpness_and_hamming_margin_r335.md) constructs n+1 cyclic integer schedules with full equal position marginals, entropy deficit \(\log(1+1/n)\), and the r334 fixed-set mass bound attained as equality \(1/(n+1)\). This proves that weakening the stated \(o(1/n)\) rigidity regime to an unconditional \(o(1)\) regime would be invalid.
+- [r336: explicit worst-fixed-set failure and near-AP exclusion](https://github.com/awdawmip/enterprise-math/blob/e56f4a1ad63405c30c392a2c22c1f57cea194128/research_notes/portable_direct/2026-11-18_oai7_driver_sharp_entropy_lowtail_failure_ap_robustness_r336.md) uses the same full-integer-marginal witness at sharp second-order length and proves its r307 small-list tail \(q_c=1\) for a fixed interval K. This is a certificate-hypothesis failure, **not** a claim that its actual terminal marginals fail coverage. It also gives a quantified necessary exclusion of n-sets close to a fixed arithmetic progression.
+
+These are subsequent author-side contributions. The original r334 proof, attribution and independent Native review status are unchanged.
