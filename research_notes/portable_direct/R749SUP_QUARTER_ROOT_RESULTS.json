@@ -1,0 +1,70 @@
+{
+  "record": "R749SUP",
+  "status": "PASS",
+  "arithmetic": "exact integers only",
+  "finite_band": "9999..25000",
+  "tested_scales": 15002,
+  "score_and_labeled_ties_match": true,
+  "maximum_competitor_gap_M_minus_p": 25,
+  "maximum_observed_delta_minus_optimal_port_gap": 25,
+  "samples": {
+    "9999": {
+      "score": 979804019799,
+      "delta": 10,
+      "winners": [
+        [
+          10000,
+          100,
+          100
+        ]
+      ]
+    },
+    "10000": {
+      "score": 979804019799,
+      "delta": 11,
+      "winners": [
+        [
+          10000,
+          100,
+          100
+        ]
+      ]
+    },
+    "12000": {
+      "score": 1696037303779,
+      "delta": 1,
+      "winners": [
+        [
+          12000,
+          100,
+          120
+        ]
+      ]
+    },
+    "17000": {
+      "score": 4837001907738,
+      "delta": 1,
+      "winners": [
+        [
+          17000,
+          125,
+          136
+        ]
+      ]
+    },
+    "25000": {
+      "score": 15420641299674,
+      "delta": 11,
+      "winners": [
+        [
+          25000,
+          125,
+          200
+        ]
+      ]
+    }
+  },
+  "infinite_proof": "analytic closest-factor continuous envelope, derivative lower bound, and near-product witness",
+  "complexity": "O(M^(3/4)) arithmetic operations, O(1) working memory excluding winner output",
+  "not_reviewed": true
+}
