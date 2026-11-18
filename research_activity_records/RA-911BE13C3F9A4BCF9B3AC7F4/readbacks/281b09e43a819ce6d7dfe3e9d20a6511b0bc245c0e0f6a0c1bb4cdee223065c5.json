@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/twentieth/phase_lattice.md",
+    "ref": "4f5447d6c0301b01d6f73f58dabe05b6d8fabf87",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-twenty-20261118-17",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 同一个平移时相留下的模 18 计数律\n\n在 \\(X=3\\,000\\,000,\\ p=53\\) 的已曝光 PFSS2 箱中，原模型 B 对同一素数集合共用四个等概率循环平移。依壳宽 \\(1/100,3/1000,1/1000\\) 记三个计数为 \\((X_1,X_2,X_3)\\)。四个观测向量依次为\n\\[\n v_0=(57,16,4),\\quad v_1=(58,17,7),\\quad v_2=(57,19,6),\\quad v_3=(59,18,4).\n\\]\n它们的实协方差满秩，同时每个向量满足同一条整数同余。[原壳、窗口与平移约定](shells.md)\n\n**定理。** 上述四个联合读数生成的最小仿射整数格恰为\n\\[\n v_0+\\Lambda=\\{x\\in\\mathbb Z^3:7x_1+2x_2-3x_3\\equiv5\\bmod18\\}.\n\\]\n这是四种可能读数的格包；格内的其他点无需可达。对模数 \\(m\\ge1\\)，设 \\(g=\\gcd(18,m)\\)。所有取值与时相无关的线性读出 \\(u\\cdot x\\bmod m\\) 恰有 \\(g\\) 个系数向量，显式为\n\\[\n u=t\\,\\frac m g(7,2,-3)\\pmod m,\\qquad 0\\le t<g.\n\\]\n各常值是 \\(5t(m/g)\\bmod m\\)。此数含零读出。\n\n证明。以 \\(v_0\\) 为原点，差格 \\(\\Lambda\\) 的三个行生成元为\n\\[\n D=\\begin{pmatrix}1&1&3\\\\0&3&2\\\\2&2&0\\end{pmatrix}.\n\\]\n条目含 1，二阶子式含 2 和 3，且 \\(|\\det D|=18\\)。Smith 不变量因此是 \\(1,1,18\\)。与 \\((7,2,-3)\\) 取内积的三个差值依次为 \\(0,0,18\\)，而四个原值为 \\(419,419,419,437\\)。因系数互素，模 18 的线性映射满射；其核即这个指数 18 的差格。模 \\(m\\) 常值读出的系数群为 \\(\\operatorname{Hom}(\\mathbb Z^3/\\Lambda,\\mathbb Z/m)\\)，由循环商显式得到上式。\n\n联合相位约束是同余成立的输入。若三窗独立选择平移，64 个等概率组合中只有 9 个仍满足原同余；例如取第零、零、一相得到 \\((57,16,7)\\)，读数余 14。事实上笛卡尔积内可只改一个坐标，三个边缘差各自的 gcd 均为 1，故独立模型的差格为整个 \\(\\mathbb Z^3\\)。这与多接口细见证的问题共用“先确定许可接合，再取差格”的方法；那里的独立接口重配由其自己的模型授予。[细见证接合的差格与权限](focus.md)\n\n**协方差能测出什么。** 设 \\(d+1\\) 个仿射无关整数点等概率，\\(I\\) 是差格在 \\(\\mathbb Z^d\\) 中的指数。总体协方差 \\(\\Sigma\\) 与按分母 \\(d\\) 计算的样本协方差 \\(S\\) 分别满足\n\\[\n \\det\\Sigma=\\frac{I^2}{(d+1)^{d+1}},\\qquad\n \\det S=\\frac{I^2}{d^d(d+1)}.\n\\]\n这里 \\(d=3,I=18\\)，两值为 \\(81/64,3\\)。协方差满秩表示没有非零实线性读数恒定，正指数记录整点之间的同余。当指数相同，商群仍可不同：以原点和两组对角矩阵 \\(\\operatorname{diag}(1,1,4)\\)、\\(\\operatorname{diag}(1,2,2)\\) 各自的三个行作顶点，两组协方差行列式相同，模 2 常值探针数分别为 2、4。\n\n更一般地，令有限整数点 \\(v_i\\) 的概率 \\(p_i>0,\\ \\sum_i p_i=1\\)。写 \\(\\Delta_J\\) 为一组 \\(d+1\\) 个点的带方向单形行列式。则\n\\[\n \\det\\Sigma=\\sum_{|J|=d+1}\\!\\left(\\prod_{j\\in J}p_j\\right)\\Delta_J^2.\n\\]\n用列 \\((1,v_i)^t\\) 形成增广矩阵，其按 \\(p_i\\) 加权的 Gram 矩阵的 Schur 补是 \\(\\Sigma\\)；Cauchy–Binet 即给公式。满仿射秩时差格指数为 \\(\\gcd_J|\\Delta_J|\\)：固定一个基准点后这是最大子式的 gcd，换基准点的子式又是这些子式的带符号整数和。额外时相因此让协方差按概率累加体积平方，而可保留的同余仍由整数差格决定。\n\n复算器用 Legendre 筛递推直接计数负向回移的整数区间，复原四相向量，并穷举 \\(1\\le m\\le36\\) 的全部系数向量及全部 64 种独立重配。另以 108 组有理权重的整数点检验加权公式。此证书限于文首的真实带、箱和三种窗口。[独立复算](phase_lattice_check.py) · [精确数据](phase_lattice_checked.json)\n",
+      "display_title": "phase_lattice.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/4f5447d6c0301b01d6f73f58dabe05b6d8fabf87/research_notes/portable_direct/20261118_fair_queue_6b0fba/twentieth/phase_lattice.md",
+      "encoding": "utf-8",
+      "sha": "e1ff27a948074e8bc3dba9baf10fef7e0d5112df"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
