@@ -1,0 +1,235 @@
+{
+  "conditional_shards": {
+    "M_and_q_ranges": [
+      1,
+      6
+    ],
+    "examples": [
+      {
+        "M": 2,
+        "balanced_period_optimal_error": "3/4",
+        "fiber_size_histogram": {
+          "3": 4,
+          "6": 3
+        },
+        "h": 2,
+        "q": 6,
+        "u": 1,
+        "v": 1,
+        "zero_input_outputs": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "M": 5,
+        "balanced_period_optimal_error": "14/75",
+        "fiber_size_histogram": {
+          "1": 48,
+          "2": 12,
+          "3": 1
+        },
+        "h": 5,
+        "q": 5,
+        "u": 1,
+        "v": 2,
+        "zero_input_outputs": [
+          0,
+          1,
+          3
+        ]
+      },
+      {
+        "M": 5,
+        "balanced_period_optimal_error": "1/2",
+        "fiber_size_histogram": {
+          "2": 61
+        },
+        "h": 3,
+        "q": 6,
+        "u": 3,
+        "v": 0,
+        "zero_input_outputs": [
+          0,
+          3
+        ]
+      },
+      {
+        "M": 6,
+        "balanced_period_optimal_error": "11/108",
+        "fiber_size_histogram": {
+          "1": 80,
+          "2": 11
+        },
+        "h": 6,
+        "q": 6,
+        "u": 0,
+        "v": 2,
+        "zero_input_outputs": [
+          0,
+          2
+        ]
+      }
+    ],
+    "parameter_sets": 546
+  },
+  "controls": {
+    "noncanonical_wire_whitespace_rollback": true,
+    "public_v1_cli_return_codes": [
+      0,
+      2
+    ],
+    "rejected": [
+      "unknown frame",
+      "altered registered offset",
+      "receipt namespace",
+      "receipt digest",
+      "bool V1 version",
+      "spliced target",
+      "duplicate V2 field",
+      "duplicate receipt field",
+      "V1 version on V2 wire",
+      "V1 in old L1 sequence",
+      "unsupported E3 step"
+    ]
+  },
+  "coverage_manifest": {
+    "changed_in_local_study": [
+      "supported V2 research fixture to V1 envelope"
+    ],
+    "gated": [
+      "off-slice endpoints",
+      "frame drift",
+      "conflicting edge declarations"
+    ],
+    "unaffected": [
+      "signed scalar geometry",
+      "native full key",
+      "layer and clock semantics"
+    ],
+    "unavailable": [
+      "production cache configuration",
+      "production persisted backlog",
+      "full-X6 final codec"
+    ]
+  },
+  "edges_and_boundary": {
+    "canonical_ids_with_parallel": [
+      "physical-e01",
+      "physical-e12",
+      "physical-parallel"
+    ],
+    "decoded_boundary": [
+      0,
+      1,
+      2
+    ],
+    "initial_zero": {
+      "codec": "three_region_slice_v1",
+      "coordinates": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "frame": "X6_FIXED_E1_E2_CHART",
+      "schema": "EM_CELL_ADDRESS_V1",
+      "version": 1
+    },
+    "naive_alias_paths": 9,
+    "numeric_range_counterexample": [
+      -1,
+      0,
+      1
+    ],
+    "source_declarations": 6,
+    "two_step_path_weight_histogram": {
+      "1/4": 1,
+      "1/6": 1
+    }
+  },
+  "pinned_V2_fixture_summary_replayed": true,
+  "snapshot": {
+    "distinct_supported_spatial_keys": 9,
+    "source_keys": 729,
+    "spellings": {
+      "outside": 2160,
+      "supported": 27
+    },
+    "supported_legacy_to_target_sha256": "724ca6f113af507aeabb48c81323a9b8526d2280c4aff0a9079dd2fa73393c30"
+  },
+  "timeline": {
+    "counts": {
+      "enters": 18,
+      "exits": 27,
+      "inside": 63,
+      "outside": 8640
+    },
+    "events": 8748,
+    "per_source_clock": [
+      {
+        "inside": 9,
+        "outside": 720
+      },
+      {
+        "inside": 9,
+        "outside": 720
+      },
+      {
+        "inside": 9,
+        "outside": 720
+      },
+      {
+        "enters": 9,
+        "exits": 9,
+        "outside": 711
+      },
+      {
+        "inside": 9,
+        "outside": 720
+      },
+      {
+        "enters": 9,
+        "exits": 9,
+        "outside": 711
+      },
+      {
+        "inside": 9,
+        "outside": 720
+      },
+      {
+        "inside": 9,
+        "outside": 720
+      },
+      {
+        "inside": 9,
+        "outside": 720
+      },
+      {
+        "exits": 9,
+        "outside": 720
+      },
+      {
+        "outside": 729
+      },
+      {
+        "outside": 729
+      }
+    ],
+    "time_and_full_legacy_event_sha256": "56eb9f01a5b93bfc83a66ca471fce4b350cbb402939173e9401a3d3cefaa865b"
+  },
+  "typed_public_api_symbol_files": [
+    "src/enterprise_math/__init__.py",
+    "src/enterprise_math/cell_address.py",
+    "tests/test_cell_address_contract.py",
+    "tools/apply_coordinate_address_contract.py",
+    "tools/validate_cell_address.py"
+  ],
+  "upstream_git_commit": "d2984d1a0c5c8221ee103084dd3da68dd039dfaa"
+}

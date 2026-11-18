@@ -1,0 +1,396 @@
+{
+  "cell_s_r": [
+    3,
+    6
+  ],
+  "small_positive_shell_pairs_Z_below_30": [
+    [
+      7,
+      3
+    ],
+    [
+      17,
+      7
+    ],
+    [
+      71,
+      29
+    ]
+  ],
+  "forward_triangular_oracle_through_index": 20000,
+  "fixed_depths": [
+    {
+      "H": 1,
+      "modulus": 12,
+      "orbit_lengths": [
+        6,
+        6
+      ],
+      "accepted_ranks_per_orbit": [
+        3,
+        3
+      ],
+      "minimal_indicator_periods": [
+        2,
+        2
+      ],
+      "densities_by_seed": [
+        "1/2",
+        "1/2"
+      ],
+      "density_by_equal_hit_index": "1/2"
+    },
+    {
+      "H": 2,
+      "modulus": 12,
+      "orbit_lengths": [
+        6,
+        6
+      ],
+      "accepted_ranks_per_orbit": [
+        3,
+        2
+      ],
+      "minimal_indicator_periods": [
+        2,
+        6
+      ],
+      "densities_by_seed": [
+        "1/2",
+        "1/3"
+      ],
+      "density_by_equal_hit_index": "5/12"
+    },
+    {
+      "H": 3,
+      "modulus": 72,
+      "orbit_lengths": [
+        12,
+        12
+      ],
+      "accepted_ranks_per_orbit": [
+        6,
+        2
+      ],
+      "minimal_indicator_periods": [
+        2,
+        6
+      ],
+      "densities_by_seed": [
+        "1/2",
+        "1/6"
+      ],
+      "density_by_equal_hit_index": "1/3"
+    },
+    {
+      "H": 4,
+      "modulus": 72,
+      "orbit_lengths": [
+        12,
+        12
+      ],
+      "accepted_ranks_per_orbit": [
+        5,
+        2
+      ],
+      "minimal_indicator_periods": [
+        12,
+        6
+      ],
+      "densities_by_seed": [
+        "5/12",
+        "1/6"
+      ],
+      "density_by_equal_hit_index": "7/24"
+    },
+    {
+      "H": 5,
+      "modulus": 432,
+      "orbit_lengths": [
+        72,
+        72
+      ],
+      "accepted_ranks_per_orbit": [
+        30,
+        12
+      ],
+      "minimal_indicator_periods": [
+        12,
+        6
+      ],
+      "densities_by_seed": [
+        "5/12",
+        "1/6"
+      ],
+      "density_by_equal_hit_index": "7/24"
+    },
+    {
+      "H": 6,
+      "modulus": 432,
+      "orbit_lengths": [
+        72,
+        72
+      ],
+      "accepted_ranks_per_orbit": [
+        24,
+        9
+      ],
+      "minimal_indicator_periods": [
+        72,
+        72
+      ],
+      "densities_by_seed": [
+        "1/3",
+        "1/8"
+      ],
+      "density_by_equal_hit_index": "11/48"
+    },
+    {
+      "H": 7,
+      "modulus": 2592,
+      "orbit_lengths": [
+        432,
+        432
+      ],
+      "accepted_ranks_per_orbit": [
+        102,
+        48
+      ],
+      "minimal_indicator_periods": [
+        72,
+        72
+      ],
+      "densities_by_seed": [
+        "17/72",
+        "1/9"
+      ],
+      "density_by_equal_hit_index": "25/144"
+    },
+    {
+      "H": 8,
+      "modulus": 2592,
+      "orbit_lengths": [
+        432,
+        432
+      ],
+      "accepted_ranks_per_orbit": [
+        83,
+        39
+      ],
+      "minimal_indicator_periods": [
+        432,
+        432
+      ],
+      "densities_by_seed": [
+        "83/432",
+        "13/144"
+      ],
+      "density_by_equal_hit_index": "61/432"
+    },
+    {
+      "H": 9,
+      "modulus": 15552,
+      "orbit_lengths": [
+        2592,
+        2592
+      ],
+      "accepted_ranks_per_orbit": [
+        402,
+        192
+      ],
+      "minimal_indicator_periods": [
+        432,
+        432
+      ],
+      "densities_by_seed": [
+        "67/432",
+        "2/27"
+      ],
+      "density_by_equal_hit_index": "11/96"
+    }
+  ],
+  "exact_original_gate_checks": [
+    {
+      "seed_Y_Z": [
+        7,
+        3
+      ],
+      "max_rank_checked_from_zero": 667,
+      "first_rank_above_proved_height_by_depth": [
+        5,
+        5,
+        7,
+        7,
+        9,
+        9,
+        12,
+        12,
+        14
+      ],
+      "ranks_to_remove_from_periodic_word_by_depth": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "seed_Y_Z": [
+        17,
+        7
+      ],
+      "max_rank_checked_from_zero": 667,
+      "first_rank_above_proved_height_by_depth": [
+        4,
+        4,
+        7,
+        7,
+        9,
+        9,
+        11,
+        11,
+        14
+      ],
+      "ranks_to_remove_from_periodic_word_by_depth": [
+        [],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ]
+    }
+  ],
+  "backward_chains_by_target_index": {
+    "1": [
+      1
+    ],
+    "3": [
+      3,
+      1
+    ],
+    "14": [
+      14
+    ],
+    "34": [
+      34
+    ],
+    "143": [
+      143,
+      58,
+      23,
+      9
+    ]
+  },
+  "normalized_limit_coding": {
+    "r6_open_cells_after_switch_test": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "ordered_adjacent_transitions_checked": 22500
+  },
+  "full_matrix_period_certificate": {
+    "exponents_e_checked": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      64,
+      128,
+      256
+    ],
+    "seeds": 2,
+    "proper_prime_divisors_tested": [
+      2,
+      3
+    ]
+  }
+}

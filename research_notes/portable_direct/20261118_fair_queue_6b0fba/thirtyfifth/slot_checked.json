@@ -1,0 +1,617 @@
+{
+  "finite_ledger_word_crosscheck": "raw two-color signed tally and named slots vs compressed BRC",
+  "levels": [
+    {
+      "group_count_by_frame_fiber_size": {
+        "1": 1
+      },
+      "largest": 1,
+      "largest_with_last_pass": 1,
+      "length": 0,
+      "raw_words": 1,
+      "reachable_framed_states": 1,
+      "strict_words": 1
+    },
+    {
+      "group_count_by_frame_fiber_size": {
+        "1": 2
+      },
+      "largest": 1,
+      "largest_with_last_pass": 1,
+      "length": 1,
+      "raw_words": 2,
+      "reachable_framed_states": 2,
+      "strict_words": 2
+    },
+    {
+      "group_count_by_frame_fiber_size": {
+        "1": 2,
+        "2": 1
+      },
+      "largest": 2,
+      "largest_with_last_pass": 1,
+      "length": 2,
+      "raw_words": 4,
+      "reachable_framed_states": 4,
+      "strict_words": 4
+    },
+    {
+      "group_count_by_frame_fiber_size": {
+        "1": 1,
+        "2": 2
+      },
+      "largest": 2,
+      "largest_with_last_pass": 2,
+      "length": 3,
+      "raw_words": 8,
+      "reachable_framed_states": 5,
+      "strict_words": 7
+    },
+    {
+      "group_count_by_frame_fiber_size": {
+        "1": 2,
+        "2": 3
+      },
+      "largest": 2,
+      "largest_with_last_pass": 2,
+      "length": 4,
+      "raw_words": 16,
+      "reachable_framed_states": 8,
+      "strict_words": 14
+    },
+    {
+      "group_count_by_frame_fiber_size": {
+        "1": 3,
+        "2": 4
+      },
+      "largest": 2,
+      "largest_with_last_pass": 2,
+      "length": 5,
+      "raw_words": 32,
+      "reachable_framed_states": 11,
+      "strict_words": 28
+    },
+    {
+      "group_count_by_frame_fiber_size": {
+        "1": 5,
+        "2": 6
+      },
+      "largest": 2,
+      "largest_with_last_pass": 2,
+      "length": 6,
+      "raw_words": 64,
+      "reachable_framed_states": 17,
+      "strict_words": 56
+    },
+    {
+      "group_count_by_frame_fiber_size": {
+        "1": 7,
+        "2": 9
+      },
+      "largest": 2,
+      "largest_with_last_pass": 2,
+      "length": 7,
+      "raw_words": 128,
+      "reachable_framed_states": 25,
+      "strict_words": 103
+    },
+    {
+      "group_count_by_frame_fiber_size": {
+        "1": 9,
+        "2": 14
+      },
+      "largest": 2,
+      "largest_with_last_pass": 2,
+      "length": 8,
+      "raw_words": 256,
+      "reachable_framed_states": 37,
+      "strict_words": 206
+    },
+    {
+      "group_count_by_frame_fiber_size": {
+        "1": 10,
+        "2": 14,
+        "4": 1
+      },
+      "largest": 4,
+      "largest_with_last_pass": 2,
+      "length": 9,
+      "raw_words": 512,
+      "reachable_framed_states": 42,
+      "strict_words": 333
+    },
+    {
+      "group_count_by_frame_fiber_size": {
+        "1": 8,
+        "2": 18,
+        "6": 2
+      },
+      "largest": 6,
+      "largest_with_last_pass": 6,
+      "length": 10,
+      "raw_words": 1024,
+      "reachable_framed_states": 56,
+      "strict_words": 665
+    }
+  ],
+  "maximal_fiber_witnesses_at_9_10": {
+    "10_034_0": {
+      "012": {
+        "first_word": "AABAAABBBB",
+        "path_count": 2,
+        "winner_gaps": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          2,
+          1
+        ]
+      },
+      "021": {
+        "first_word": "AABAABBABB",
+        "path_count": 6,
+        "winner_gaps": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          5,
+          2,
+          5
+        ]
+      },
+      "102": {
+        "first_word": "AABBBBAAAB",
+        "path_count": 5,
+        "winner_gaps": [
+          1,
+          1,
+          1,
+          1,
+          4,
+          2,
+          2,
+          3,
+          2,
+          1
+        ]
+      },
+      "120": {
+        "first_word": "BAABBBAAAB",
+        "path_count": 7,
+        "winner_gaps": [
+          3,
+          5,
+          1,
+          1,
+          4,
+          2,
+          2,
+          3,
+          2,
+          1
+        ]
+      },
+      "201": {
+        "first_word": "BAAAABBABB",
+        "path_count": 10,
+        "winner_gaps": [
+          3,
+          5,
+          1,
+          1,
+          2,
+          2,
+          2,
+          5,
+          2,
+          5
+        ]
+      },
+      "210": {
+        "first_word": "BAAAAABBBB",
+        "path_count": 1,
+        "winner_gaps": [
+          3,
+          5,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          2,
+          1
+        ]
+      }
+    },
+    "10_034_2": {
+      "012": {
+        "first_word": "AABAAABBBA",
+        "path_count": 2,
+        "winner_gaps": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          2,
+          1
+        ]
+      },
+      "021": {
+        "first_word": "AABAABBABA",
+        "path_count": 4,
+        "winner_gaps": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          5,
+          2,
+          5
+        ]
+      },
+      "102": {
+        "first_word": "AABBBBAAAA",
+        "path_count": 5,
+        "winner_gaps": [
+          1,
+          1,
+          1,
+          1,
+          4,
+          2,
+          2,
+          3,
+          2,
+          1
+        ]
+      },
+      "120": {
+        "first_word": "BAABBBAAAA",
+        "path_count": 7,
+        "winner_gaps": [
+          3,
+          5,
+          1,
+          1,
+          4,
+          2,
+          2,
+          3,
+          2,
+          1
+        ]
+      },
+      "201": {
+        "first_word": "BAAAABBABA",
+        "path_count": 6,
+        "winner_gaps": [
+          3,
+          5,
+          1,
+          1,
+          2,
+          2,
+          2,
+          5,
+          2,
+          5
+        ]
+      },
+      "210": {
+        "first_word": "BAAAAABBBA",
+        "path_count": 1,
+        "winner_gaps": [
+          3,
+          5,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          2,
+          1
+        ]
+      }
+    },
+    "9_134_1": {
+      "012": {
+        "first_word": "AABAAABBB",
+        "path_count": 2,
+        "winner_gaps": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          2
+        ]
+      },
+      "102": {
+        "first_word": "AABBBBAAA",
+        "path_count": 5,
+        "winner_gaps": [
+          1,
+          1,
+          1,
+          1,
+          4,
+          2,
+          2,
+          3,
+          2
+        ]
+      },
+      "120": {
+        "first_word": "BAABBBAAA",
+        "path_count": 7,
+        "winner_gaps": [
+          3,
+          5,
+          1,
+          1,
+          4,
+          2,
+          2,
+          3,
+          2
+        ]
+      },
+      "210": {
+        "first_word": "BAAAAABBB",
+        "path_count": 1,
+        "winner_gaps": [
+          3,
+          5,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          2
+        ]
+      }
+    }
+  },
+  "paired_blocks": {
+    "015": {
+      "AB": {
+        "end": "034",
+        "path_and_gaps": [
+          [
+            "045",
+            2
+          ],
+          [
+            "034",
+            5
+          ]
+        ],
+        "slots": "021"
+      },
+      "BA": {
+        "end": "034",
+        "path_and_gaps": [
+          [
+            "045",
+            3
+          ],
+          [
+            "034",
+            5
+          ]
+        ],
+        "slots": "021"
+      }
+    },
+    "034": {
+      "AB": {
+        "end": "235",
+        "path_and_gaps": [
+          [
+            "023",
+            1
+          ],
+          [
+            "235",
+            1
+          ]
+        ],
+        "slots": "210"
+      },
+      "BA": {
+        "end": "235",
+        "path_and_gaps": [
+          [
+            "023",
+            1
+          ],
+          [
+            "235",
+            1
+          ]
+        ],
+        "slots": "210"
+      }
+    },
+    "235": {
+      "AB": {
+        "end": "015",
+        "path_and_gaps": [
+          [
+            "135",
+            2
+          ],
+          [
+            "015",
+            1
+          ]
+        ],
+        "slots": "102"
+      },
+      "BA": {
+        "end": "015",
+        "path_and_gaps": [
+          [
+            "135",
+            4
+          ],
+          [
+            "015",
+            1
+          ]
+        ],
+        "slots": "102"
+      }
+    },
+    "345": {
+      "AB": {
+        "end": "034",
+        "path_and_gaps": [
+          [
+            "134",
+            1
+          ],
+          [
+            "034",
+            1
+          ]
+        ],
+        "slots": "201"
+      },
+      "BA": {
+        "end": "034",
+        "path_and_gaps": [
+          [
+            "045",
+            3
+          ],
+          [
+            "034",
+            5
+          ]
+        ],
+        "slots": "021"
+      }
+    }
+  },
+  "raw_word_slices_tested": 2047,
+  "seed": {
+    "M": [
+      [
+        0,
+        0,
+        2,
+        2
+      ],
+      [
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "Rin": [
+      0,
+      0,
+      6,
+      3
+    ],
+    "Rout": [
+      7,
+      2,
+      0,
+      0
+    ],
+    "named_slots": [
+      0,
+      1,
+      2
+    ],
+    "triad": [
+      3,
+      4,
+      5
+    ]
+  },
+  "semantic_scope": "V30 local research transducer; supplied words; no autonomous inter-Cell scheduler",
+  "source_commit": "9bd555f38528adc18dc4fbda71bb5dff2d57fbd4",
+  "source_sha256": {
+    "experiments/x6_network_event_ledger_v29_20260906/check_event_order_holonomy.py": "184c5954d9211f8c2c1ee55972008d6b5b324b60e4c7c64a7ca3fef6046673d4",
+    "research_notes/X6_EVENT_ORDER_RELATIVE_HOLONOMY_OBSTRUCTION_V30_20260906.md": "fb63d8ed671ee846540085e4f51844f7313f04497368d4d4c654d6f7f6809a8f",
+    "research_notes/X6_PASSAGE_CONTINUITY_AND_NETWORK_BIAS_V28_20260906.md": "63c0bf6b46e7f8f3ebb5fa9409175c6c0c26965af83d7beaa37cd74acd6afdf1",
+    "src/enterprise_math/brc_weighted.py": "4f3e356227a1c964d33a3ddae94922463ba28097a43b8d1b8f6cd9ca5615fc9f"
+  },
+  "three_paired_blocks_from_034_slot_transport": "102",
+  "two_departure_readouts_from_full_balanced_034": {
+    "AA": {
+      "012": "20",
+      "021": "10",
+      "102": "21",
+      "120": "01",
+      "201": "12",
+      "210": "02"
+    },
+    "AB": {
+      "012": "20",
+      "021": "10",
+      "102": "21",
+      "120": "01",
+      "201": "12",
+      "210": "02"
+    },
+    "BA": {
+      "012": "20",
+      "021": "10",
+      "102": "21",
+      "120": "01",
+      "201": "12",
+      "210": "02"
+    },
+    "BB": {
+      "012": "20",
+      "021": "10",
+      "102": "21",
+      "120": "01",
+      "201": "12",
+      "210": "02"
+    }
+  },
+  "typed_events": [
+    "PASS(0,1)",
+    "PASS(1,0)"
+  ]
+}
