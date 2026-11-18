@@ -1,0 +1,282 @@
+{
+  "schema": "EC49FRZ2_NATIVE_BRC_COMPLETE_TWO_PRICE_SQUARE_V1",
+  "date": "2026-11-18",
+  "frozen_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "original_BRC_universe": {
+    "class_id": 16943,
+    "named_states": 141,
+    "original_configurations": 310,
+    "original_named_physical_observers": 228
+  },
+  "model": "Uniform prior over 141 named states. Prices q32=(1-a)t, q34=(1-b)t, others t, t>0, 0<=a,b<=1. F=141V/t.",
+  "formula": "Set M=max(a,b),m=min(a,b). On each listed m interval F=U-141M-(K-141)m.",
+  "regions": [
+    {
+      "m_interval": [
+        "0",
+        "1/4"
+      ],
+      "U": 296,
+      "K": 152,
+      "m_coefficient": 11,
+      "branch_a_ge_b": {
+        "root": 32,
+        "N32": 141,
+        "N34": 11,
+        "evidence_file": "evidence/witness_00.json"
+      },
+      "branch_b_ge_a": {
+        "root": 34,
+        "N32": 11,
+        "N34": 141,
+        "evidence_file": "evidence/sym_witness_00.json",
+        "sha256": "8237370f5a582890cac1e449ca56d3c098fe839a3a6d8055d71c9c6730d34aa6"
+      }
+    },
+    {
+      "m_interval": [
+        "1/4",
+        "1/3"
+      ],
+      "U": 297,
+      "K": 156,
+      "m_coefficient": 15,
+      "branch_a_ge_b": {
+        "root": 32,
+        "N32": 141,
+        "N34": 15,
+        "evidence_file": "evidence/witness_01.json"
+      },
+      "branch_b_ge_a": {
+        "root": 34,
+        "N32": 15,
+        "N34": 141,
+        "evidence_file": "evidence/sym_witness_01.json",
+        "sha256": "1fd385eaf91ec945ac24de006243a313dc5007c77fa2f58d1abdc30464f02ec1"
+      }
+    },
+    {
+      "m_interval": [
+        "1/3",
+        "2/5"
+      ],
+      "U": 304,
+      "K": 177,
+      "m_coefficient": 36,
+      "branch_a_ge_b": {
+        "root": 32,
+        "N32": 141,
+        "N34": 36,
+        "evidence_file": "evidence/witness_02.json"
+      },
+      "branch_b_ge_a": {
+        "root": 34,
+        "N32": 36,
+        "N34": 141,
+        "evidence_file": "evidence/sym_witness_02.json",
+        "sha256": "da22c4a15704ea409159359b37a8c26ffe49779371f3c94fe2f1f5759ae85d71"
+      }
+    },
+    {
+      "m_interval": [
+        "2/5",
+        "1/2"
+      ],
+      "U": 306,
+      "K": 182,
+      "m_coefficient": 41,
+      "branch_a_ge_b": {
+        "root": 32,
+        "N32": 141,
+        "N34": 41,
+        "evidence_file": "evidence/witness_03.json"
+      },
+      "branch_b_ge_a": {
+        "root": 34,
+        "N32": 41,
+        "N34": 141,
+        "evidence_file": "evidence/sym_witness_03.json",
+        "sha256": "efce9b74e5a415f6ced22da092dc2ddedb18d08b5d31a8aaaa3add2e34bd48a9"
+      }
+    },
+    {
+      "m_interval": [
+        "1/2",
+        "5/9"
+      ],
+      "U": 310,
+      "K": 190,
+      "m_coefficient": 49,
+      "branch_a_ge_b": {
+        "root": 32,
+        "N32": 141,
+        "N34": 49,
+        "evidence_file": "evidence/witness_04.json"
+      },
+      "branch_b_ge_a": {
+        "root": 34,
+        "N32": 49,
+        "N34": 141,
+        "evidence_file": "evidence/sym_witness_04.json",
+        "sha256": "5663e93b5a51daa4307e9258e44207e9828425739449f82a5000e43752abc1a1"
+      }
+    },
+    {
+      "m_interval": [
+        "5/9",
+        "3/5"
+      ],
+      "U": 315,
+      "K": 199,
+      "m_coefficient": 58,
+      "branch_a_ge_b": {
+        "root": 32,
+        "N32": 141,
+        "N34": 58,
+        "evidence_file": "evidence/witness_05.json"
+      },
+      "branch_b_ge_a": {
+        "root": 34,
+        "N32": 58,
+        "N34": 141,
+        "evidence_file": "evidence/sym_witness_05.json",
+        "sha256": "8f59447f4dfce59b4a03aee3e3b745b5a82f7f0f33f863497957a7df4b5e8878"
+      }
+    },
+    {
+      "m_interval": [
+        "3/5",
+        "2/3"
+      ],
+      "U": 321,
+      "K": 209,
+      "m_coefficient": 68,
+      "branch_a_ge_b": {
+        "root": 32,
+        "N32": 141,
+        "N34": 68,
+        "evidence_file": "evidence/witness_06.json"
+      },
+      "branch_b_ge_a": {
+        "root": 34,
+        "N32": 68,
+        "N34": 141,
+        "evidence_file": "evidence/sym_witness_06.json",
+        "sha256": "93650dec6214264ab6393ec526d14d15116f3f35e14930be1143d6c15a6eca5f"
+      }
+    },
+    {
+      "m_interval": [
+        "2/3",
+        "3/4"
+      ],
+      "U": 337,
+      "K": 233,
+      "m_coefficient": 92,
+      "branch_a_ge_b": {
+        "root": 32,
+        "N32": 141,
+        "N34": 92,
+        "evidence_file": "evidence/witness_07.json"
+      },
+      "branch_b_ge_a": {
+        "root": 34,
+        "N32": 92,
+        "N34": 141,
+        "evidence_file": "evidence/sym_witness_07.json",
+        "sha256": "6129c91d1560ec94933e19f6b83afb923578f6f4e75434049c79fc4c8b9d8bd6"
+      }
+    },
+    {
+      "m_interval": [
+        "3/4",
+        "4/5"
+      ],
+      "U": 343,
+      "K": 241,
+      "m_coefficient": 100,
+      "branch_a_ge_b": {
+        "root": 32,
+        "N32": 141,
+        "N34": 100,
+        "evidence_file": "evidence/witness_08.json"
+      },
+      "branch_b_ge_a": {
+        "root": 34,
+        "N32": 100,
+        "N34": 141,
+        "evidence_file": "evidence/sym_witness_08.json",
+        "sha256": "0629116f60b99901a0519b7b1bc67cc388545dab91d236f947bafcfe407b38de"
+      }
+    },
+    {
+      "m_interval": [
+        "4/5",
+        "1"
+      ],
+      "U": 355,
+      "K": 256,
+      "m_coefficient": 115,
+      "branch_a_ge_b": {
+        "root": 32,
+        "N32": 141,
+        "N34": 115,
+        "evidence_file": "evidence/witness_09.json"
+      },
+      "branch_b_ge_a": {
+        "root": 34,
+        "N32": 115,
+        "N34": 141,
+        "evidence_file": "evidence/sym_witness_09.json",
+        "sha256": "79f40eed3972f443274f90300870792d9eec16cdcb77b75e6c11f7c935b48a92"
+      }
+    }
+  ],
+  "proof": {
+    "lower_bound": "For any complete reduced native tree Q, Nq<=141 for a fixed q, because an observation cannot split the same path twice. Thus F(M,m)>=F(m,m)-141(M-m) using q32 when a>=b, symmetrically q34 when b>=a.",
+    "attainment": "Ten complete native q32-root diagonal-optimal witnesses and ten distinct q34-root diagonal-optimal witnesses, all counted on 141/141 original named state paths, attain the corresponding 141-use bound.",
+    "diagonal_foundation": "11 exact full 228-physical-query Bellman vertex results and ten full native diagonal line witnesses, with unrestricted Bellman concavity bridging each exact rational segment.",
+    "minimal_menu": "20 pairwise different optimal gradients across 20 nonempty open chambers, and 20 full witnesses attain them."
+  },
+  "verification": {
+    "native_full_tree_path_replay": "PASS 20/20 × 141/141 paths; max depth <= 4",
+    "full_diagonal_Bellman": "PASS 11/11 exact native vertices on separate successful prior full verification run",
+    "independent_off_diagonal_examples": [
+      {
+        "a": "3/4",
+        "b": "2/3",
+        "value": "2039/12"
+      },
+      {
+        "a": "2/3",
+        "b": "3/4",
+        "value": "2039/12"
+      },
+      {
+        "a": "1",
+        "b": "1/2",
+        "value": "289/2"
+      },
+      {
+        "a": "1",
+        "b": "0",
+        "value": "155"
+      },
+      {
+        "a": "9/10",
+        "b": "3/4",
+        "value": "2822/20"
+      }
+    ],
+    "additional_single_batch_reexecution": "Partially executed; complete eleven diagonal oracle evidence reused from prior run; no false claim of one new uninterrupted all-point batch.",
+    "math_review": "NOT_REVIEWED"
+  },
+  "evidence_archive": {
+    "name": "EC49FRZ2_NATIVE_BRC_COMPLETE_TWO_PRICE_UNIT_SQUARE_EVIDENCE_20261118.tar.xz",
+    "sha256": "635471c27afc11654efce4f7b79d150a28ad0cc88e04b68f6863aa5ac2c6b0b1",
+    "size_bytes": 211632,
+    "manifest_entries": 38,
+    "archive_reopened_integrity": "38/38 entries complete; 39 files including manifest"
+  },
+  "followup": "Explore third independently-priced original named BRC observer, nonuniform named-state prior and root-price perturbations beyond once-per-path saturation."
+}
