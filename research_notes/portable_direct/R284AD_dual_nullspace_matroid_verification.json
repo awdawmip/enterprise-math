@@ -1,0 +1,50 @@
+{
+  "arithmetic": "SymPy exact rational and integer Bareiss determinant, no floating point",
+  "counts": {
+    "checked_leading_coefficients": 888,
+    "delayed_higher_degree_cases": 0,
+    "generated_exact_rank_cases": 120,
+    "leading_nonzero_witness_cases": 108,
+    "leading_zero_cases": 12,
+    "matroid_max_min_equalities": 120,
+    "sampled_boolean_determinants": 3648,
+    "verified_lower_degree_zeros": 960
+  },
+  "delayed_random_examples": [],
+  "domain": "n=2..5, r=1..n-1, twelve fixed-seed positive full-rank factorizations per (n,r), m=min(5,n^2) distinct edited entries",
+  "no_native_heartbeat_or_BRC_run_claimed": true,
+  "positive_stable_port_witness": [
+    {
+      "core_det": "0",
+      "port_det": "0",
+      "port_rank": 8,
+      "t1": "0",
+      "t2": "0"
+    },
+    {
+      "core_det": "0",
+      "port_det": "0",
+      "port_rank": 8,
+      "t1": "0",
+      "t2": "1/192"
+    },
+    {
+      "core_det": "0",
+      "port_det": "0",
+      "port_rank": 8,
+      "t1": "1/192",
+      "t2": "0"
+    },
+    {
+      "core_det": "-1/7077888",
+      "port_det": "1/118747255799808",
+      "port_rank": 9,
+      "t1": "1/192",
+      "t2": "1/192"
+    }
+  ],
+  "schema": "R284AD_EXACT_DUAL_NULLSPACE_LEADING_CERTIFICATE_V1",
+  "seed": 284019,
+  "status": "PASS",
+  "theorem_status": "Mathematical proof separate from finite tests; common-basis min-max invokes classical matroid-intersection theorem"
+}
