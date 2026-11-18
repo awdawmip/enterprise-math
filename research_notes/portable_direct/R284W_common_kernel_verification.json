@@ -1,0 +1,41 @@
+{
+  "arithmetic": "Python Fraction, exact Gaussian elimination; seeded finite checker",
+  "broken_symmetry": {
+    "D2": "1-x/9-y/10-xy/360",
+    "N2": "1/10+x/360",
+    "P": "1/40-x/420+x^2/2520",
+    "delta": "1/40"
+  },
+  "cofactor_support": "two rows x two columns, all 4 entries nonzero, so perfect matching",
+  "exact_determinant_cofactor_node_checks": 36,
+  "hall_present_certificate_cases": 3,
+  "random_exact_observation_pair_comparisons": 796,
+  "random_matrix_cases": 480,
+  "random_matrix_certificate_cases": 199,
+  "right_nullvector": "(1,-1) in symmetric pair",
+  "schema": "EM_R284W_EXACT_CERTIFICATE_V1",
+  "scope": "Deterministic tested finite instances; general theorem proved separately",
+  "seed": 28423,
+  "status": "PASS",
+  "symmetric_pair": {
+    "D1": "1-x/7-y/8",
+    "D2": "1-x/9-y/10",
+    "N1": "1/8",
+    "N2": "1/10",
+    "P": "1/40+x/2520",
+    "model1": {
+      "c": "1/7",
+      "t": "1/8"
+    },
+    "model2": {
+      "c": "1/9",
+      "t": "1/10"
+    }
+  },
+  "tested_xy_nodes_per_pair": 9,
+  "witness_edits": {
+    "x": "2->3",
+    "y": "1->0"
+  },
+  "witness_observation": "F_01=(I-W)^-1[0,1]"
+}
