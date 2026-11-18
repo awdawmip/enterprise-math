@@ -93,9 +93,9 @@ if args.full:
     assert 0<=args.start<=args.stop<=12
     script=root/"native_code"/"EC49FSA_THREE_OBSERVER_SOLVER.py"
     for r in cert["primary_anchors"][args.start:args.stop]:
-        a,b,z=r["a"],r["b"],r["z"]
-        cmd=[sys.executable,str(script),"--a",a if r["o"]=="D" else b,
-             "--b",b if r["o"]=="D" else a,"--z",z]
+        ra,rb,rz=r["a"],r["b"],r["z"]
+        cmd=[sys.executable,str(script),"--a",ra if r["o"]=="D" else rb,
+             "--b",rb if r["o"]=="D" else ra,"--z",rz]
         cp=subprocess.run(cmd,capture_output=True,text=True,check=True,timeout=120)
         got=json.loads(cp.stdout)
         assert Q(got["numerator"],got["denominator"])==Q(r["expected"])
