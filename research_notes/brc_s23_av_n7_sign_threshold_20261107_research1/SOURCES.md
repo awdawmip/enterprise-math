@@ -1,0 +1,10 @@
+# SOURCES / provenance and verification scope
+
+- Frozen scientific input: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`.
+- Immediate previous valid frontier: `awdawmip/enterprise-math@7465d9f8d1cd01b03e7e1e435a35c3583bd06749:research_notes/brc_s23_av_arcsine_minimax_coefficient_20261107_r1/PROOF.md` (author-side, independent review pending).
+- Current project normative routing read: `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`; `docs/PORTABLE_RESEARCH_PROTOCOL.md`; `research_priorities/research_method.json`; Source P000 V5 and Heartbeat X6-time/joint-observer contracts. Current project main inspected `0894c7acb7b34f36e5897afa980f2fe25f5c4b52`.
+- Account routing: `awdawmip/chatgpt-global-knowledge@bcf4702a624abfe57d6588544e5d55a413ac5c6d`, entry files, global P000 V4 projection checked against `projects/enterprise-math/P000_REALITY_FOUNDATION.json` blob `770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc`, ACTIVE worldview, math/BRC/output/code policies and journal contract.
+- This proof uses only finite-alphabet total variation, likelihood ratios, multinomial expansion, the triangle inequality and integer-power comparison; no outside theorem beyond standard probability definitions is needed.
+- Local exact test: Python 3 standard library `Fraction` program `VERIFY.py`. Executed, nonempty stdout in `RUN_EVIDENCE.txt`. Finite exhaustive full ordered alphabet `n=1..7` and exact histogram consistency; integer sign checks `n=1..12`. Analytic all-`n` claims rely on the stated rational-word proof and integer inequalities.
+- BRC reuse: exact joint count `(k,ℓ,r)` carrier / signed event observer, `REUSE_APPLIED`; no X6-specific native spatial computation.
+- Repository GitHub authenticated actor: `awdawmip`, project `admin/push` permitted (connector read). Source native control `em_status` and `em_control_tasks` failed with `BACKEND_IDENTITY_OR_VERSION_MISMATCH`, `STATUS_DATABASE_UNAVAILABLE`, `operation_sent=false`. Hence live Owner, formal CLAIM and Research-Activity-ID not established. A draft GitHub proof is not Source Result/review.

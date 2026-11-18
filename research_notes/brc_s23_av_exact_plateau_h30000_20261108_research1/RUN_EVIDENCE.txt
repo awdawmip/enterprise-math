@@ -1,0 +1,41 @@
+Date: 2026-11-08 Asia/Shanghai
+Local compiler: g++ 14.2.0, -O3 -std=c++17
+Verifier: Python standard library Fraction and integer arithmetic
+Commands:
+  g++ -O3 -std=c++17 -o stream_gap_classes STREAM_GAP_CLASSES.cpp
+  ./stream_gap_classes 7000 > CLASS_H7000.csv
+  python VERIFY_CLASS_CERTIFICATES.py CLASS_H7000.csv
+  ./stream_gap_classes 10000 > CLASS_H10000.csv
+  python VERIFY_CLASS_CERTIFICATES.py CLASS_H10000.csv
+  ./stream_gap_classes 20000 > CLASS_H20000.csv
+  python VERIFY_CLASS_CERTIFICATES.py CLASS_H20000.csv
+  ./stream_gap_classes 30000 > CLASS_H30000.csv
+  python VERIFY_CLASS_CERTIFICATES.py CLASS_H30000.csv
+
+H=7000: STREAM_PASS M=24510501 C=33 seconds=1.44886
+  PASS_EXTERIOR 1284 38190
+  UNRESOLVED []
+  CLASS_DATA_SHA256 2aef3d6d6f687ae0ebed385e34653a822139f49c881d2a0dfaf7ce325643242d
+  PASS_S23_AV_STREAM_GAP_CLASS_ENDPOINT 7000 2455069
+  Existing Python certificate from prior immutable commit reports identical SHA.
+H=10000: STREAM_PASS M=50015001 C=39 seconds=3.1828
+  PASS_EXTERIOR 1833 54557
+  UNRESOLVED []
+  CLASS_DATA_SHA256 aa7d947b3709623c6dd458d9313307fba46d645e81edbc2707277213deb52cbb
+  PASS_S23_AV_STREAM_GAP_CLASS_ENDPOINT 10000 2455069
+H=20000: STREAM_PASS M=200030001 C=59 seconds=13.3584
+  PASS_EXTERIOR 3666 109114
+  UNRESOLVED []
+  CLASS_DATA_SHA256 21a2363035e1ba787d02f7785cacdecf3c488a8b01ec6ad5e655735454962972
+  PASS_S23_AV_STREAM_GAP_CLASS_ENDPOINT 20000 2455069
+H=30000: STREAM_PASS M=450045001 C=78 seconds=33.2337
+  PASS_EXTERIOR 5499 163671
+  UNRESOLVED []
+  CLASS_DATA_SHA256 610f04c716a9cf82173f340e813c38cfa0ca5ed5768a607885d0c543830a4193
+  PASS_S23_AV_STREAM_GAP_CLASS_ENDPOINT 30000 2455069
+  dominant (dv,dj)=(79,431): 434874286 bounded cells, witness (K,L)=(2074774,380295).
+  77 remaining displacement classes: maximum witness length 163728.
+
+Additional independent branch of work: exact rank/select and occupancy verifier extended H=7002..7005, all newly affected 14004,14006,14008,14010 bounded cells occupied, minimum count 1. The full H=30000 endpoint certificate supersedes the need to run all intermediate increments.
+Aborted explorations of larger H produced no complete certificate and are not included as results.
+Note: Source files above are normalized reproducible transcriptions of the executed local algorithms. This evidence records the numerical outputs from the executed local implementations. Independent reviewer should recompile and replay from this Git commit.

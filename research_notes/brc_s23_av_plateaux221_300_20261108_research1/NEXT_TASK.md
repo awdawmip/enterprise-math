@@ -1,0 +1,10 @@
+# Next research unit — S23/AV endpoint coverage after index 300
+
+Frozen scientific input remains `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Continue the two-point auxiliary threshold-cell capacity from author-side finite proof i=221–300, final exact endpoint `H_300=114102835, M_300=622887919`. The 80 per-endpoint rational integer certificates are in this directory. Independent review and native Owner/CLAIM remain separate.
+
+1. Test i=301 and further endpoints through the same exact predecessor checker; do not replay i<=300. A `PASS` expands the finite interval using the universal lower bound; a failed case must preserve `i`, exact `(v,j,z)` critical-cell bounds, narrow directions, witness budget, and strict comparison certificates.
+2. Seek a uniform-in-i cover using the Sturmian coding `e_i=floor(i alpha)-floor((i-1)alpha)` and finite-displacement parameterization. A finite success does not prove the infinite statement; look for a concrete subcase or an admissible counterexample.
+3. For complexity claims, count exact precision, generation of the narrow displacements, critical-cell partition, check operations, and output length. Reuse prior Foundation/BRC observer interfaces; do not replace the joint count carrier by an unproved quotient.
+4. In parallel, the separately authorized mother six-source ten-label lawful observation bridge remains open and should not inherit auxiliary capacity conclusions without an exact typed observation map.
+
+Repository runner: `python research_notes/brc_s23_av_plateaux221_300_20261108_research1/VERIFY_RANGE.py`; it imports the unchanged prior checker at `research_notes/brc_s23_av_plateau20_20261108_r1/VERIFY_PLATEAUX20_200.py`. Evidence in `RUN_EVIDENCE.txt` is actual local 80-row output from a transcribed equivalent checker.

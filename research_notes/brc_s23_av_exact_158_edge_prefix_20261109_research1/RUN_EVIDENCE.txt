@@ -1,0 +1,23 @@
+Execution: 2026-11-09 (Asia/Shanghai)
+Python 3 standard library, fractions.Fraction, collections.Counter.
+Command: python /mnt/data/em_research_20261109_edge/VERIFY_EDGE_PREFIX.py
+The GitHub VERIFY_EDGE_PREFIX.py content was assembled from the executed script.
+PASS_EXACT_158_EDGE_PREFIX K= 10000 terms=160
+  low/high= 7378 2622 sum= 10000
+  selected (low,high)= [(0, (92, 34)), (1, (93, 32)), (39, (95, 33)), (77, (94, 32)), (78, (93, 35))]
+  per_edge_minmax= 32 96
+  nonzero_edges= 158
+  alpha_bounds_width_lt_1e-20= True
+PASS_EXACT_158_EDGE_PREFIX K= 1000000 terms=160
+  low/high= 737796 262204 sum= 1000000
+  selected (low,high)= [(0, (9325, 3319)), (1, (9342, 3319)), (39, (9339, 3316)), (77, (9348, 3319)), (78, (9349, 3318))]
+  per_edge_minmax= 3316 9350
+  nonzero_edges= 158
+  alpha_bounds_width_lt_1e-20= True
+PASS_EXACT_158_EDGE_PREFIX K= 1000000000000 terms=160
+  low/high= 737795495431 262204504569 sum= 1000000000000
+  selected (low,high)= [(0, (9339183472, 3319044360)), (1, (9339183480, 3319044364)), (39, (9339183489, 3319044360)), (77, (9339183486, 3319044364)), (78, (9339183502, 3319044362))]
+  per_edge_minmax= 3319044356 9339183503
+  nonzero_edges= 158
+  alpha_bounds_width_lt_1e-20= True
+PASS_CERTIFIED_ALL_158_EDGE_COUNTS

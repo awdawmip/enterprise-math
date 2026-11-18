@@ -1,0 +1,5 @@
+# Next scientific step: n=3 S23 36-variable minimax LP
+
+Frozen source: `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. The **stronger** n=3 minimax reduction uses independent input and output S3 twirling. The resulting primal is a 4×10 row-stochastic orbit-mass matrix with 36 affine variables. It preserves minimax optimum exactly for unconditional ternary output TV loss; the pinned K_sep has continuous error f(α)≈0.237838693711015430.
+
+Optimize the primal over finite rational parameter witnesses (a,c)∈[1/2,7/8]^2. Use primal candidate error maximization and exact Bernstein/interval global certificate, or construct a finite-support dual least-favorable prior with signed TV witnesses. Preserve the distinct joint readout for the eventual original six-source/ten-label S23 transfer, which remains open. See PROOF_SEPARATE_SYMMETRY.md, VERIFY_36.py and RUN_EVIDENCE_36.txt in this directory. Native task ownership/CLAIM remains unconfirmed due to backend identity/version mismatch; this is author-side research.

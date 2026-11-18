@@ -1,0 +1,8 @@
+# Sources, exact checking and scope
+
+Frozen science: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34.
+Predecessor: research_notes/brc_s23_av_padded_strip_leading_coefficient_20261107_r1/PROOF.md @5dd610b667f39e732059b9e4194cca7037753f2c; earlier uniform-order theorem @1f70fb8850fc05be22b3fcf8070a14d5e39e2f30.
+Applicable rules read at global main@539b82af012e4d554a08efbb7a16cef85401123e and project main@2681633f56b866ce1f0ee2c45910ae9303054b5e: global bootstrap/manual and math/output/code/journal, P000 Heartbeat X6, joint observer preservation, project portable continuation and research method.
+Standard external mathematics: binomial factorial Stirling bounds, uniform entropy Taylor expansion, Bernoulli Bernstein concentration, Hoeffding (W. Hoeffding, JASA 58(301):13-30, 1963, DOI 10.1080/01621459.1963.10500830).
+Python 3 standard-library Fraction checks: complete 3^n ordered word laws vs count overlap and normalization at n=2,3,4,5 for six lawful rational pairs; rational exact fiber endpoints including z=1/4, a finite rational grid for the coefficient, and observable finite strip lengths at n=1000,20000. Finite checks do not certify the analytic all-real asymptotic theorem; see PROOF.md.
+Statistical scope: one shared unknown AV pair across n iid trials; full ordered ternary source and observed Y-count-only adaptive decoder. No native Heartbeat arithmetic run and no assertion of transfer to six-source ten-label mother experiment. Native control READ failed with BACKEND_IDENTITY_OR_VERSION_MISMATCH, operation_sent=false. GitHub identity awdawmip; proof author-side and independent review pending.

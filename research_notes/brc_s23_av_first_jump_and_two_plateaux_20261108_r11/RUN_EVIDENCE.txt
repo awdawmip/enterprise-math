@@ -1,0 +1,50 @@
+# Actual execution evidence — S23/AV first exact capacity jump
+
+2026-11-08 Asia/Shanghai. Frozen science: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`.
+Reproducible sources: `CHAIN_STREAM.cpp`, `VERIFY_PLATEAUX.py`, `PROOF.md` in this directory.
+Execution: local C++17 optimized binary and Python 3 standard library. All order and witness decisions use exact integers/rational bounds; elapsed time is diagnostic.
+
+## Commands and stdout
+
+```sh
+g++ -O3 -std=c++17 CHAIN_STREAM.cpp -o chain
+./chain 380805 > CHAIN380805.csv
+./chain 380806 > CHAIN380806.csv
+./chain 649492 > CHAIN649492.csv
+python VERIFY_PLATEAUX.py CHAIN380805.csv CHAIN380806.csv CHAIN649492.csv
+```
+
+```text
+CHAIN_PASS H=380805 M=72506795221 chains=194081265 classes=766 seconds=11.4325
+CHAIN_PASS H=380806 M=72507176028 chains=194081775 classes=766 seconds=11.4769
+CHAIN_PASS H=649492 M=210920903271 chains=331111635 classes=1293 seconds=19.1189
+
+PASS_RATIONAL_LOG_KEY_AND_EXACT_FIRST_ENTRY 153966341169532252075 153966341169532632370
+PASS_ENDPOINT 380805 M 72506795221 CHAINS 194081265 CLASSES 766 NONW_MAX 2077762 EXT 69800 2077557 ROW_SHA256 852119279b0e4beee786e3b2ee7631f179e36197006f1b51252567664f2155b3
+PASS_ENDPOINT 380806 M 72507176028 CHAINS 194081775 CLASSES 766 NONW_MAX 2077761 EXT 69800 2077562 ROW_SHA256 67c871242c90c8c50c462e63ab141447bf9f4679e6feda3419c2dd6c0cff470b
+PASS_ENDPOINT 649492 M 210920903271 CHAINS 331111635 CLASSES 1293 NONW_MAX 3543585 EXT 119049 3543432 ROW_SHA256 eb6e0a5720e51f2ee14e094c5377a1d5f78297d38aa47b3d79dd82e42d5cf512
+THEOREM_PLATEAU_1 510 380805 2455069
+THEOREM_FIRST_JUMP 380806 4530352
+THEOREM_PLATEAU_2 380806 649492 4530352
+PASS_S23_AV_TWO_PLATEAUX_FIRST_JUMP_CERTIFIED
+```
+
+These reports attest the executed three endpoint compressed enumerations and complete verified **class summaries**, not the individual expansion of 210,920,903,271 threshold points. Every class corresponds to all its points by the proved unimodular chain partition and exact count/coordinate extrema.
+
+## Source identity and certificate digests
+
+- SHA256 `CHAIN_STREAM.cpp`: `ee641dc2cfe8d4eaeaf8f0f4a11f939aa90fceab2634839d5abaa4ab17b165f3`.
+- SHA256 `VERIFY_PLATEAUX.py`: `bef2de285a88163461065cacb83a2eb83917a3291267ee67674a6eb89b2400c9`.
+- SHA256 `CHAIN380805.csv`: `80c00638e1175b2dc9fa73cdf41b26137733978839a03b5d6dd9b1cb93e62728`.
+- SHA256 `CHAIN380806.csv`: `23edd79902f524e615c52cd65fc247b5b765476d3de67fb876a945b103d0420d`.
+- SHA256 `CHAIN649492.csv`: `e3f4d7c18a121dcaeba45cdd8e70d191aa2c9e10d40f8433c90aee504e6ed7eb`.
+
+The three CSV tables are deterministic generated artifacts, each fully reconstructible by the published `CHAIN_STREAM.cpp`. They contain 766, 766, and 1293 rows respectively. The independent verifier checks all rows, counts and strict witness inequalities. The SHA256 values above bind the exact generated outputs; the `ROW_SHA256` field binds sorted rows `dv,dj,V,J,S,count` without the CSV header.
+
+## Regression: compressed chain stream versus direct threshold stream
+
+H=7000 and H=30000: exact **byte-for-byte identical** class-table CSVs to the previous exhaustive stream, including class coordinates, cardinalities, extrema and sort order.
+
+H=50000: new direct full stream enumerated `1,250,075,001` thresholds, 118 classes in 98.7829s; the compressed stream enumerated `25,370,715` chains in 1.38053s, resulting in byte-for-byte identical class CSV. This comparison is an implementation regression check, not a general wall-clock performance guarantee.
+
+This evidence supports the author-side mathematical claim in PROOF.md; independent mathematical review is pending.

@@ -1,0 +1,22 @@
+2026-11-09 — exact direct-arc validation of the near-rational risk theorem.
+
+Command: python VERIFY_NEAR_RATIONAL_RISK.py
+Actual stdout:
+PASS_INDEPENDENT_EXACT_DIRECT_ARC_RISK 128 R=(2theta-1)*(n-128)
+PASS_INDEPENDENT_EXACT_DIRECT_ARC_RISK 129 R=(2theta-1)*(n-128)
+PASS_INDEPENDENT_EXACT_DIRECT_ARC_RISK 130 R=(2theta-1)*(n-128)
+PASS_INDEPENDENT_EXACT_DIRECT_ARC_RISK 131 R=(2theta-1)*(n-128)
+PASS_INDEPENDENT_EXACT_DIRECT_ARC_RISK 200 R=(2theta-1)*(n-128)
+PASS_INDEPENDENT_EXACT_DIRECT_ARC_RISK 256 R=(2theta-1)*(n-128)
+PASS_INDEPENDENT_EXACT_DIRECT_ARC_RISK 400 R=(2theta-1)*(n-128)
+PASS_INDEPENDENT_EXACT_DIRECT_ARC_RISK 513 R=(2theta-1)*(n-128)
+PASS_INDEPENDENT_EXACT_DIRECT_ARC_RISK 1000 R=(2theta-1)*(n-128)
+PASS_INDEPENDENT_EXACT_DIRECT_ARC_RISK 2000 R=(2theta-1)*(n-128)
+PASS_NEAR_RATIONAL_AFFINE_RISK_LAW
+
+20 exact direct-circle comparisons, two rational endpoints, 10 integer n values in [128,2000].
+The direct verifier sorts the *actual finite phase points* and assigns every consecutive gap to its original historical arc independently of Farey neighbour event logic, then obtains exact rational R and checks R=(2theta-1)(n-128).
+For the irrational theta, the universal formula is established by the theorem in ADDENDUM_NEAR_RATIONAL.md; these finite comparisons are independent checks of its model and indices.
+
+Source Git blob from local run: use actual connector readback; local SHA256 fbea963403a6d869764a3989642df89071bfa24aecad5082221cde533132cee2.
+Log local SHA256 5e2328dac61a1c7ed46a7a158b0c1c55901bb664de9ca39b4384a1556c5f282e.

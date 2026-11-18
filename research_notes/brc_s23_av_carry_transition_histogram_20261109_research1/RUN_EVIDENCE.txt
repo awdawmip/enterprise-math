@@ -1,0 +1,23 @@
+Execution on 2026-11-09 with Python standard library; command:
+python em_inverse_carry_histogram_verify.py
+# Repository copy is VERIFY_HISTOGRAM.py (same algorithm and statements).
+PASS_EXACT_79_SYMBOL_CARRY_HISTOGRAM K= 10000 terms= 160
+  alpha_bounds_width_lt_1e-20= True
+  horizons_second_candidate= 390100
+  freq0,1,39,77,78= [126, 125, 128, 126, 128]
+  min/max_symbol_frequencies= 124 130
+  sum_frequencies= 10000 weighted_sum= 390100
+PASS_EXACT_79_SYMBOL_CARRY_HISTOGRAM K= 1000000 terms= 160
+  alpha_bounds_width_lt_1e-20= True
+  horizons_second_candidate= 39000705
+  freq0,1,39,77,78= [12644, 12661, 12655, 12667, 12667]
+  min/max_symbol_frequencies= 12641 12671
+  sum_frequencies= 1000000 weighted_sum= 39000705
+PASS_EXACT_79_SYMBOL_CARRY_HISTOGRAM K= 1000000000000 terms= 160
+  alpha_bounds_width_lt_1e-20= True
+  horizons_second_candidate= 39000000000995
+  freq0,1,39,77,78= [12658227832, 12658227844, 12658227849, 12658227850, 12658227864]
+  min/max_symbol_frequencies= 12658227832 12658227869
+  sum_frequencies= 1000000000000 weighted_sum= 39000000000995
+PASS_EXACT_79_STATE_TRANSITIONS K= 100000 q,low,high,edges,min,max= (46, 73780, 26220, 158, 330, 950)
+All certificate assertions passed.

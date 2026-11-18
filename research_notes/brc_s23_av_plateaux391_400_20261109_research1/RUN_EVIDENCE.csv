@@ -1,0 +1,18 @@
+# Actual complete endpoint tuples observed locally 2026-11-09 Asia/Shanghai.
+# Frozen scientific input: 43ec6098b1330ae86d0a7863be336c5d97f6ef34
+# Unmodified upstream checker Git blob: 261d7e22da0e62d667009cb50acfe77ac4e35c3f
+# Execution: 391 isolated PASS; 392-398 complete rows from a requested 392-400 batch stopped at its time limit; 399-400 isolated PASS.
+i,H,M,narrow,beta_bound,critical_cells,witnesses_used
+391,148713867,811715196,120,392,74154,50
+392,149094241,813790480,120,393,74477,50
+393,149474615,815865685,120,394,74802,52
+394,149854910,817940380,122,395,75495,52
+395,150235284,820015664,122,396,75822,53
+396,150615579,822090359,122,397,76150,52
+397,150995953,824165643,122,398,76478,51
+398,151376327,826240848,122,399,76806,50
+399,151756622,828315543,122,400,77135,50
+400,152136996,830390827,122,401,77467,50
+# Aggregate: count=10, sum_critical_cells=758786, max_critical_cells=77467, max_narrow=122
+# Audit: PASS_10_EXACT_ENDPOINT_AND_FLOOR_AUDIT; final H=152136996; final M=830390827
+# The requested 392-400 batch did not itself emit PASS_SEGMENT; don't present it as one successful process.

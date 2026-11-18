@@ -1,0 +1,8 @@
+# Sources and exact verification scope
+
+- Frozen science (unchanged): `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`.
+- Previous author-side frontier: Draft [Enterprise Math PR #1777](https://github.com/awdawmip/enterprise-math/pull/1777) at `8ef8ee1a2b19e692963ccec79b4ca70d0f8a7024`, including n=1000 three-hypothesis certificate and all-n fiber packing theorem.
+- Current control/rules read from canonical Global Knowledge `main@9f7faf96127788e9250e8fcd69c0aaabb30373ae` and Enterprise Math `main@94026836203f96307897126e930ee0066e268680`: bootstrap/manual, P000 and active worldview, TASK researcher routing, math/output/code policies, BRC observer discipline, `docs/RESEARCH_CONTINUATION_PROTOCOL.md`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, project research method.
+- External analytical tool: Wassily Hoeffding (1963), [Probability Inequalities for Sums of Bounded Random Variables](https://doi.org/10.1080/01621459.1963.10500830), JASA 58(301), pp.13–30. Applied only to independent Bernoulli observations in the separate analytic rate proof.
+- Executed code: local Python 3 standard library `Fraction`, `math.comb`, `Decimal`. No numerical optimization is part of the exact certificate. Five binomial sums are finite exact rational numbers; proof of universal reconstruction lower bound is the disjoint-event total-variation inequality.
+- Native Enterprise Math Sites status/tasks queries returned `BACKEND_IDENTITY_OR_VERSION_MISMATCH`, `operation_sent=false`; author-side GitHub publication does not constitute canonical CLAIM, Result or independent review. No access-permission bypass or credential storage.

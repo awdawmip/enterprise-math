@@ -1,0 +1,8 @@
+# Sources and validation scope
+
+- Frozen science: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34 (unchanged); auxiliary tagged AV model and original ten-label S23 source.
+- Predecessor in Draft PR #1777: awdawmip/enterprise-math@b2ce7a69d6784bc826a3ed9281e7bbb671599f8b / research_notes/brc_s23_av_n1000_sixstate_optimized_ml_20261106_r2/{PROOF.md,VERIFY.py}. Present result is the independent finite n=45 three-hypothesis theorem, not a rerun of the earlier n=1000 calculation.
+- Project norms read from main@55bf638af84d37e081fc112c4bc7272d06dd142c: AGENTS.md, p000_reality_foundation.json, definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json, definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json, docs/RESEARCH_CONTINUATION_PROTOCOL.md, docs/PORTABLE_RESEARCH_PROTOCOL.md and research_priorities/research_method.json. Current normative sources do not replace the task's frozen scientific pin.
+- Authorized account rules read from canonical awdawmip/chatgpt-global-knowledge@db695c900726debc0944a4e73c92fc217b9d030e: 00_BOOTSTRAP.md, OPERATING_MANUAL.md, mathematical evidence/temporal/code policies and BRC research routing.
+- All mathematical inputs and formulae required to check the new result appear in PROOF.md; only elementary total variation, multinomial counting and exact integer comparison are used. There is no claim of external literature priority.
+- Actual Python 3 standard-library execution: VERIFY.py; actual captured program stdout: RUN_EVIDENCE.txt. Mathematical status AUTHOR_ANALYTIC_PROOF / EXACT_INTEGER_EXECUTED / UNREVIEWED / NOT_ADMITTED.

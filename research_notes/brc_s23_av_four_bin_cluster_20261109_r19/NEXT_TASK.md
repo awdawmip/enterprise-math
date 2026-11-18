@@ -1,0 +1,7 @@
+# Next: derive and rank-select the next post-plateau arc event family
+
+Date: 2026-11-09. Frozen science stays `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Author-side research record; not a new immutable shared task.
+
+This r19 directory now proves: (1) positive-cluster risk/validity by four residue bins rather than scanning q; (2) 67 disjoint short-historical-arc transfers for source indices i=225..291, each adding `164*theta-43`; (3) 36 boundary-historical-arc insertions i=292..327, each leaving an intact delta competitor and producing zero Bayes-risk increment; (4) the exact first restored increment at i=328 (n=329). The corresponding certified risk is `R_theta(128,201)=-4971+18960*theta`.
+
+Continue with the smallest unresolved **different maximizer event**: classify new indices n>=330 until the next interval where the risk slope changes, using labeled historical arcs, numbers of competing delta-sized subarcs, and the crossing offset x. Prove an event rule for arbitrary histories with a finite collection of equal-length maximizers; identify how each new insertion decrements their multiplicity, when risk becomes sensitive again, and the exact next breakpoint. Compare an output-sensitive local-event generator with the existing Farey rank/select generator, including preprocessing, bit-length and certificate costs. Use the strict frozen S23 theta enclosure to verify exact order comparisons, and retain the auxiliary scalar-observer scope, P000, original provenance and independent review conditions.
