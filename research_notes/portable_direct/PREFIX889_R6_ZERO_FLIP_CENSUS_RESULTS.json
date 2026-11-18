@@ -1,0 +1,88 @@
+{
+  "classification": "AUTHOR_PROVED / FINITE_EXACT_CHECKED / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "p": 32,
+  "q2_domain": "all odd q2 in [262145,524287]",
+  "schema": "PREFIX889_R6_ZERO_FLIP_CENSUS_V1",
+  "slices": [
+    {
+      "coprime_pairs": 93311,
+      "examples": {
+        "262145": 0,
+        "500383": 0,
+        "523001": 2843443060,
+        "524285": 0,
+        "524287": 0
+      },
+      "max_zero_flip_collision_pairs": 107374886920,
+      "maximizers": [
+        262147
+      ],
+      "non_coprime_pairs": 37761,
+      "ordered_pairs": 131072,
+      "positive_zero_flip_pairs": 57485,
+      "q1": 262145,
+      "q2_lower_odd": 262145,
+      "q2_upper_odd": 524287,
+      "sum_zero_flip_collision_pairs": 555703572022728
+    },
+    {
+      "coprime_pairs": 118819,
+      "examples": {
+        "262145": 0,
+        "500383": 0,
+        "523001": 0,
+        "524285": 14095021418,
+        "524287": 3648524928
+      },
+      "max_zero_flip_collision_pairs": 52323403070,
+      "maximizers": [
+        369311,
+        434847,
+        467615
+      ],
+      "non_coprime_pairs": 12253,
+      "ordered_pairs": 131072,
+      "positive_zero_flip_pairs": 66613,
+      "q1": 500383,
+      "q2_lower_odd": 262145,
+      "q2_upper_odd": 524287,
+      "sum_zero_flip_collision_pairs": 372088134239682
+    },
+    {
+      "coprime_pairs": 131071,
+      "examples": {
+        "262145": 0,
+        "500383": 3648524928,
+        "523001": 0,
+        "524285": 98785878008,
+        "524287": 0
+      },
+      "max_zero_flip_collision_pairs": 98785878008,
+      "maximizers": [
+        524285
+      ],
+      "non_coprime_pairs": 1,
+      "ordered_pairs": 131072,
+      "positive_zero_flip_pairs": 48723,
+      "q1": 524287,
+      "q2_lower_odd": 262145,
+      "q2_upper_odd": 524287,
+      "sum_zero_flip_collision_pairs": 390331815239486
+    }
+  ],
+  "totals": {
+    "coprime_pairs": 343201,
+    "non_coprime_pairs": 50015,
+    "pairs": 393216,
+    "positive_zero_flip_pairs": 172821,
+    "sum_zero_flip_collision_pairs": 1318123521501896
+  },
+  "validation": {
+    "arithmetic": "exact integers; no external dependencies",
+    "medium_full_brute_parameter_triples": 9,
+    "reversal_symmetry_disagreements": 0,
+    "small_full_brute_disagreements": 0,
+    "small_full_brute_parameter_triples": 283
+  }
+}
