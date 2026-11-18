@@ -1,0 +1,183 @@
+{
+  "schema": "R762EU_AUTHOR_EVIDENCE_V1",
+  "date": "2026-11-18",
+  "scope": "frozen six named positive BRC terminal branches; not signed native",
+  "theorem_dependencies": [
+    "R762ER Frobenius lift (unreviewed)",
+    "R762ET eventual q9 period (unreviewed)"
+  ],
+  "verification": {
+    "status": "PASS",
+    "six_branch_source": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "kernel_support": [
+      1,
+      6,
+      18
+    ],
+    "kernel2_ones": 6,
+    "kernel2_twos": 12,
+    "exact_unwrapped_digit_checks": 14400,
+    "exact_q27_full_coefficient_checks": 1554957,
+    "big_integer_oracle_checks": 3710,
+    "full_support_sign_checks": 79,
+    "q9_shadow_support_0_to_25": [
+      1,
+      6,
+      18,
+      6,
+      36,
+      108,
+      18,
+      108,
+      324,
+      27,
+      162,
+      486,
+      717,
+      108,
+      324,
+      525,
+      522,
+      468,
+      18,
+      108,
+      324,
+      519,
+      360,
+      468,
+      237,
+      450
+    ],
+    "q27_samples": [
+      {
+        "n": 23,
+        "support": 1944,
+        "one": 1080,
+        "two": 864
+      },
+      {
+        "n": 24,
+        "support": 324,
+        "one": 180,
+        "two": 144
+      },
+      {
+        "n": 25,
+        "support": 1944,
+        "one": 1080,
+        "two": 864
+      },
+      {
+        "n": 26,
+        "support": 5832,
+        "one": 2808,
+        "two": 3024
+      },
+      {
+        "n": 27,
+        "support": 27,
+        "one": 0,
+        "two": 27
+      },
+      {
+        "n": 28,
+        "support": 162,
+        "one": 0,
+        "two": 162
+      },
+      {
+        "n": 30,
+        "support": 162,
+        "one": 0,
+        "two": 162
+      },
+      {
+        "n": 50,
+        "support": 9396,
+        "one": 4212,
+        "two": 5184
+      },
+      {
+        "n": 51,
+        "support": 468,
+        "one": 234,
+        "two": 234
+      },
+      {
+        "n": 54,
+        "support": 18,
+        "one": 6,
+        "two": 12
+      },
+      {
+        "n": 78,
+        "support": 324,
+        "one": 180,
+        "two": 144
+      }
+    ],
+    "q9_boundary": {
+      "S9_8_eq_S9_26": true,
+      "S9_7_neq_S9_25": true
+    },
+    "q9_rows": 26,
+    "each_row_trits": 729,
+    "row_bytes": 146,
+    "packed_bytes": 3796,
+    "arithmetic": "named-branch modular integer convolution, modulus 3^7 = 2187",
+    "q9_n_range": [
+      0,
+      26
+    ],
+    "q27_n_range": [
+      0,
+      78
+    ],
+    "dependencies": "R762ER normalized lift; R762ET exact eventual q9 period; both NOT_REVIEWED",
+    "scope": "complete 3-coordinate positive terminal BRC; not primitive signed Cell/Link/Port dynamics"
+  },
+  "pack_format": {
+    "row_count": 26,
+    "terminal_cells_per_row": 729,
+    "trits_per_byte": 5,
+    "bytes_per_row": 146,
+    "total_bytes": 3796,
+    "hex_length": 7592,
+    "endianness": "least-significant trit first in byte",
+    "row_alignment": true
+  },
+  "author_review": "AUTHOR_CHECKED_NOT_INDEPENDENT",
+  "formal_check": "NOT_PERFORMED",
+  "scientific_note": "R762EU_LUCAS_SHADOW_ORACLE_THEOREM.md"
+}
