@@ -1,0 +1,185 @@
+{
+  "schema": "EC49FTD_EXACT_NATIVE_RATIONAL_CERT_V1",
+  "status": "AUTHOR_PROVED_NOT_REVIEWED",
+  "date": "2026-11-19",
+  "frozen_source_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_sha256": {
+    "frozen_original_master.txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE.csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "box": {
+    "a": [
+      "2/3",
+      "3/4"
+    ],
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "49/64",
+      "1"
+    ]
+  },
+  "witness_tuples": {
+    "D1": [
+      319,
+      18,
+      75,
+      141
+    ],
+    "D2": [
+      326,
+      32,
+      68,
+      141
+    ],
+    "SQ": [
+      327,
+      9,
+      97,
+      141
+    ],
+    "SR": [
+      325,
+      12,
+      92,
+      141
+    ]
+  },
+  "witness_tree_sha256": {
+    "D1": "c610116426be1fe39da788d8e36f3629e9de02831f0f377d7548914d7cde0495",
+    "D2": "fa138a5158b6cb45ddb8271f86e4b43f59305360469cff27337c81f5d1b9a3d2",
+    "SQ": "66425d046a0332de7c98e042953200fed50c7340f993df48e3520ab51cd7b7bc",
+    "SR": "740b522ce31fac8332df0392b94bed9923e9821c1981c04899021e254ef97db3"
+  },
+  "anchor_source": "unrestricted exact rational Bellman over all 228 original observations, profile count 141",
+  "anchors": [
+    [
+      "D",
+      "2/3",
+      "7/16",
+      "10639/64"
+    ],
+    [
+      "D",
+      "2/3",
+      "57/128",
+      "21203/128"
+    ],
+    [
+      "D",
+      "23/32",
+      "7/16",
+      "10579/64"
+    ],
+    [
+      "D",
+      "185/256",
+      "57/128",
+      "10537/64"
+    ],
+    [
+      "D",
+      "3/4",
+      "7/16",
+      "10515/64"
+    ],
+    [
+      "D",
+      "3/4",
+      "57/128",
+      "10481/64"
+    ],
+    [
+      "S",
+      "2/3",
+      "7/16",
+      "28885/192"
+    ],
+    [
+      "S",
+      "2/3",
+      "4/9",
+      "28873/192"
+    ],
+    [
+      "S",
+      "2/3",
+      "57/128",
+      "28871/192"
+    ],
+    [
+      "S",
+      "427/640",
+      "57/128",
+      "48103/320"
+    ],
+    [
+      "S",
+      "3/4",
+      "7/16",
+      "9111/64"
+    ],
+    [
+      "S",
+      "3/4",
+      "57/128",
+      "18213/128"
+    ]
+  ],
+  "independent_raw94": [
+    {
+      "orientation": "D",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "49/64",
+      "result": "10515/64",
+      "dp_states": 7161
+    },
+    {
+      "orientation": "S",
+      "a": "2/3",
+      "b": "57/128",
+      "z": "49/64",
+      "result": "28871/192",
+      "dp_states": 6761
+    }
+  ],
+  "gap_extrema": {
+    "min": {
+      "value": "5867/384",
+      "a": "2/3",
+      "b": "57/128"
+    },
+    "max": {
+      "value": "351/16",
+      "a": "3/4",
+      "b": "7/16"
+    }
+  },
+  "sharpness": {
+    "at": {
+      "a": "3/4",
+      "b": "7/16"
+    },
+    "challenger_uses": [
+      332,
+      8,
+      141,
+      105
+    ],
+    "challenger_S_cost": "332-141a-8b-105z",
+    "saturated_S_cost": "327-97a-9b-141z",
+    "difference_at_fixed_a_b": "36(z-49/64)",
+    "exact_counterexample": {
+      "z": "3/4",
+      "actual_S": "144",
+      "saturated_tree_S": "2313/16",
+      "improvement": "9/16"
+    }
+  },
+  "source_exposure": "Inherits exposed EC49FTA/EC49FTC mathematical source; independent implementation check is not a blind independent reviewer",
+  "admission": "NOT_REVIEWED",
+  "official_task_claim": "NOT_ESTABLISHED"
+}
