@@ -1,0 +1,55 @@
+{
+  "schema": "PREFIX905_R6_TWO_POWER_GAP_CERTIFICATE_V1",
+  "recorded_date": "2026-11-18",
+  "scope": "Auxiliary named one-XOR-flip two-port observer; exact finite 19-bit odd modulus domain",
+  "frozen_scientific_input_reference": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "predecessor": {
+    "research": "PREFIX-904",
+    "certified_union": 7632945416,
+    "model": "p=32,n=2^32,named XOR trajectories"
+  },
+  "domain": {
+    "p": 32,
+    "N": 4294967296,
+    "q_min": 262145,
+    "q_max": 524287,
+    "q_step": 2,
+    "q_count": 131072,
+    "ordered_domain_size": 17179869184
+  },
+  "result": {
+    "non_dyadic_two_power_gap_values": 256,
+    "existing_dyadic_gap_values": 17,
+    "union_gap_values": 273,
+    "all_new_gap_ordered_pairs": 55705582,
+    "ascending_modulus_pairs_fully_checked_with_explicit_witnesses": 27852791,
+    "overlap_with_E": 24697804,
+    "overlap_with_symmetric_256_panel": 184006,
+    "overlap_E_and_panel": 2250,
+    "newly_collision_certified_ordered_pairs": 30826022,
+    "combined_certified_union": 7663771438,
+    "not_in_explicit_certified_union": 9516097746
+  },
+  "checkers": {
+    "C++17": "PREFIX905_R6_TWO_POWER_GAPS.cpp compiled with g++ -O3 -std=c++17 locally; all 27,852,791 ascending witnesses checked; per-gap CSV generated",
+    "Python NumPy": "Independent complete vectorized membership and inclusion-exclusion over all 256 gaps; per-gap agreement",
+    "JavaScript": "Independent complete enumeration of all ascending pairs, arithmetic and witnesses; per-gap agreement; CSV published from this run"
+  },
+  "artifacts": [
+    "2026-11-18_r6_prefix905_two_power_gap_uniform_collision.md",
+    "PREFIX905_R6_TWO_POWER_GAPS.cpp",
+    "PREFIX905_R6_INDEPENDENT_CHECK.py",
+    "PREFIX905_R6_TWO_POWER_GAPS_RESULTS.csv"
+  ],
+  "status": [
+    "AUTHOR_PROVED",
+    "EXACT_FINITE_COMPUTED",
+    "NOT_INDEPENDENTLY_REVIEWED",
+    "NOT_ADMITTED"
+  ],
+  "notes": [
+    "Full source identities remain distinct; collisions are only with respect to the two-port projection.",
+    "No shared Task CLAIM or Source Activity checkpoint is asserted by GitHub publication.",
+    "The 9,516,097,746 unclassified pairs remain open; no injectivity conclusion."
+  ]
+}
