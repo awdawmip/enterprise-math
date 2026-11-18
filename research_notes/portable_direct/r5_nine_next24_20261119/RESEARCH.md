@@ -1,4 +1,4 @@
-# R5 — Twenty-four further exact nine-state f=8 quotient classes (2026-11-19)
+# R5 — 24 fresh nine-state classes after the concurrent NEXT40 frontier (2026-11-19)
 
 **Status:** AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED. Scoped to the pinned integer-center scalar observation game; portable standalone research, not formal Task CLAIM/RUN, independent Review, or native X6 state equivalence.
 
@@ -9,21 +9,21 @@
 - Fixed seven named states: `H=(18,24,82,34,17,144,208)`. Additional pair `x<y` disjoint from H; independent ordered nine-slot counters `(18,24,82,34,17,x,144,208,y)`.
 - There are 101 physical query budgets `k=214,...,314`, with cost k. Correct scalar observation y satisfies `|y-N_h(k)|<=tau/2`. Up to eight arbitrary unmarked errors.
 - Fifth noise interval `L=25845652773852463277015040000 <= tau < U=58182461585441404127941754880`.
-- Predecessor: 26 exact U-1 quotient classes/5,383 pairs, at `047036218649faaef1f72ad0d81d509268aab405`; 20 further classes/3,560 pairs at `37e03bc916c6a3d4afb5dae037c288589bc0022f`. Their 46 completed classes were excluded from this run.
+- Predecessors: 26 classes/5,383 pairs at `047036218649faaef1f72ad0d81d509268aab405`; 20 classes/3,560 pairs at `37e03bc916c6a3d4afb5dae037c288589bc0022f`; and concurrently saved 40 classes/4,543 pairs at `4e5e8d2bd7dd12c9e9bb4e3924e032da68387a73`. Their 86 classes were all excluded from the fresh 24-class selection. The original `RESULTS_NEXT24.csv` on this branch independently reproduces 24 of those concurrent 40 classes and is retained as provenance rather than new coverage.
 
 ## New finite theorem
 
-For every unordered pair `x<y` in any of the **24 additional complete U-1 observation-signature classes** listed in `RESULTS_NEXT24.csv`, and every real `L<=tau<U`:
+For every unordered pair `x<y` in any of the **24 previously unsolved complete U-1 observation-signature classes** listed in `RESULTS_AFTER40.csv`, and every real `L<=tau<U`:
 
 ```
 C_8(H union {x,y}; tau) = 8335.
 ```
 
-These classes include 2,847 unordered pairs. Together with 46 predecessor classes, **70 of 2,026 classes and 11,790 of 30,876 pairs (38.19%)** now have exact f=8 certificates. **1,956 classes and 19,086 pairs** remain for this nine-state family. The full 256-state interval bound remains `8335 <= C_8^* <= 8343`.
+These 24 fresh classes include **1,717 unordered pairs**. Together with 86 preceding classes, the historically reported cumulative coverage becomes **110 of 2,026 classes and 15,203 of 30,876 pairs (49.24%)**. **1,916 classes and 15,673 pairs** remain. The predecessor NEXT40 audit identified a specific NEW20 input-hash discrepancy; cumulative original-input provenance should be rechecked before claiming independent replay of all predecessor runs. The full 256-state interval bound remains `8335 <= C_8^* <= 8343`.
 
 ## Exact proof and verification
 
-For any action, the correct-response support masks are all maximal center-rooted windows of width tau on its nine integer centers; each starting center gives one candidate and every maximal nonempty window is so represented. Classes are equal iff their complete ordered 101-action maximal-support signatures are identical. Enumerating all 30,876 pairs and sorting groups by smallest representative gives exactly 2,026 U-1 classes. The 24 group IDs in the CSV are zero-based indices in this partition, selected among *unsolved* classes by descending class size then increasing group ID.
+For any action, the correct-response support masks are all maximal center-rooted windows of width tau on its nine integer centers; each starting center gives one candidate and every maximal nonempty window is so represented. Classes are equal iff their complete ordered 101-action maximal-support signatures are identical. Enumerating all 30,876 pairs and sorting groups by smallest representative gives exactly 2,026 U-1 classes. The 24 fresh group IDs in `RESULTS_AFTER40.csv` are zero-based indices in this partition, selected among classes not in the preceding 86 by descending class size then increasing group ID. The original `RESULTS_NEXT24.csv` duplicates a subset of the concurrent NEXT40 result and is not counted twice.
 
 A separate doubled-observation-endpoint sweep checks that the window supports coincide with direct interval intersections for all 24 representatives and 101 actions: **2,424 exact integer crosschecks passed**.
 
@@ -39,10 +39,10 @@ The cheapest physical budget represents each identical full support family. A po
 
 ## Evidence and reproduction
 
-The CSV contains all 24 group IDs, representatives, class multiplicities, Bellman costs, memo counts, retained action-family counts and SHA-256 of exact stdin input for each minimax run. Source implementation `EXACT_NINE.cpp` is provided in the same folder. The original pinned table is intentionally reused rather than duplicated. Complete author-side bundle also contains `partition.py`, `partition_2026.json`, `solve_more.py`, `results_next.json`, `VERIFY_R5_NINE_NEXT24.py`, and SHA-256 manifest.
+`RESULTS_AFTER40.csv` contains the 24 new group IDs, representatives, class multiplicities, Bellman costs, memo counts, action-family counts and SHA-256 of exact stdin input. `RESULTS_NEXT24.csv` remains an independent reproduction of the previously saved 40-class batch. Source implementation `EXACT_NINE.cpp` is provided in the same folder. The original pinned table is intentionally reused rather than duplicated. Complete author-side bundle also contains `partition.py`, `partition_2026.json`, `solve_more.py`, `results_next.json`, `VERIFY_R5_NINE_NEXT24.py`, and SHA-256 manifest.
 
-Verification summary: `PASS_R5_NINE_NEXT24_CLASSES class_count=24 pairs=2847 cumulative_classes=70 cumulative_pairs=11790 support_crosschecks=2424`.
+Verification summary for fresh work: `PASS_R5_NINE_AFTER40 class_count=24 pairs=1717 cumulative_classes=110 cumulative_pairs=15203 support_crosschecks=2424`. Previous 24-class replication also passed 2,424 separate support checks.
 
 ## Next discriminating problem
 
-Search the remaining 1,956 classes using nine-state action-dominance or joint-interference invariants rather than brute-force class size alone. An exact nine-state U-1 value exceeding 8335 would improve the full-256 lower bound at that endpoint. An alternative path is a full-256 adaptive strategy of cost at most 8342. Keep observation-signature quotient separate from native X6 identity; independent mathematical Review remains NOT_REVIEWED.
+Search the remaining 1,916 classes using nine-state action-dominance or joint-interference invariants rather than brute-force class size alone. An exact nine-state U-1 value exceeding 8335 would improve the full-256 lower bound at that endpoint. An alternative path is a full-256 adaptive strategy of cost at most 8342. Keep observation-signature quotient separate from native X6 identity; independent mathematical Review remains NOT_REVIEWED.
