@@ -79,5 +79,4 @@ def main():
     }
     print(json.dumps(result,sort_keys=True,ensure_ascii=False,separators=(',',':')))
 
-
 if __name__=='__main__': main()
