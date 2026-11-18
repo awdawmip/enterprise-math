@@ -1,0 +1,10 @@
+# Exact Neumann Schur/port reduction (2026-11-18)
+Task: RS-CFD-PRESSURE-GAMG-20260910. Scope: finite weighted-graph pressure operator; exact algebraic and rational checks only.
+
+For an undirected graph Laplacian L with positive conductances, partition vertices into nonempty ports B and interiors I. Assume each connected component meets a port. Then L_II is SPD, and S=L_BB-L_BI L_II^{-1} L_IB is symmetric PSD. For any boundary pressure p_B, its unique harmonic interior extension is p_I=-L_II^{-1}L_IB p_B. This yields interior residual 0, boundary flux (L p)_B=S p_B, and energy min_{z_I}[p_B;z_I]^T L[p_B;z_I]=p_B^T S p_B. Because L 1=0, S 1_B=0. If the original graph is connected, ker S consists exactly of the constant port vectors. Thus exact elimination preserves the pure-Neumann gauge and port flux.
+
+Proof: The zero-port extension of any nonzero interior vector has strictly positive graph energy, giving positive definiteness of L_II. Completing the square in the quadratic energy gives the minimizer, Schur form and PSD. The full constant vector is harmonic, so its restriction belongs to ker S; zero Schur energy has a constant full extension if connected. Block multiplication gives the flux identity.
+
+Exact four-node path: edges (0,1),(1,2),(2,3) have conductances 2,3,5. B=(0,3), I=(1,2), L_II=[[5,-3],[-3,8]], det=31, S=(30/31)[[1,-1],[-1,1]]. The effective series conductance (1/2+1/3+1/5)^(-1) is 30/31. For p_0=7,p_3=1, the harmonic vector is (7,127/31,67/31,1), and all three edge fluxes are 180/31; the port residual is (180/31,-180/31).
+
+The separately staged exact Fraction checker verifies the finite instance. An OpenFOAM GAMG experiment on the identical operator, BCs and geometry, including setup/factor/solve/flux/storage costs and repeated solves, is required before an acceleration claim. This lemma supplies a gauge-preserving port interface and is not a GAMG benchmark. Earlier local Dirichlet feasibility numbers are historical, not independently recomputed this run.

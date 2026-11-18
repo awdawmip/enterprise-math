@@ -1,0 +1,36 @@
+{
+  "claim_id": "MCP-e2f95d16b511a8d6b8cd9a0c",
+  "completed_units": [
+    "Verified exact Schur port reduction for positive graph Laplacians, including Neumann constant-nullspace and port flux conservation",
+    "Exact Fraction checker for four-node weighted path, effective conductance 30/31 and edge flux 180/31"
+  ],
+  "contributor_ids": [
+    "EM-X6-C7A253"
+  ],
+  "current_unfinished_unit": "Matched OpenFOAM GAMG comparison including operator, gauge, setup/factorization, memory and repeated-solve timings; no validated total acceleration yet",
+  "do_not_repeat": [
+    "Completed graph-Laplacian Schur lemma and rational 4-node exact check",
+    "Historical unverified Dirichlet feasibility numbers are not new performance evidence"
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Recover or reconstruct the previous Dirichlet prototype and compare actual OpenFOAM GAMG on a single pinned pressure operator with same boundary conditions; include gauge/port flux and full cost accounting",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:520b859c1fef85a0af6f8b431f4742f692af2392",
+      "path": "research_artifacts/mcp/RS-CFD-PRESSURE-GAMG-20260910/MCP-6634360390c64e0788a1307fbc6d5fcb/6d8a6c11a3908bfda9ef/CFD_NEUMANN_SCHUR_EXACT_GAUGE_20261118.md",
+      "sha256": "sha256:c91a518329539cd4a2b87cd8534915509cbc05a84fa11783609adfe206282268"
+    },
+    {
+      "git_blob_sha1": "sha1:4d5c63af59fc0db36cbd77e5a0ef5e3c0b54a732",
+      "path": "research_artifacts/mcp/RS-CFD-PRESSURE-GAMG-20260910/MCP-6634360390c64e0788a1307fbc6d5fcb/6d8a6c11a3908bfda9ef/check_cfd_neumann_schur_20261118.py",
+      "sha256": "sha256:070d4e20cc9124aa518be7dd76a11bd68737477ae496de95e3e75ee9ec43dd44"
+    }
+  ],
+  "ownership_epoch": 6973769609,
+  "publication_id": "TP2-3ADF62AFCB2E4C2B5803",
+  "researcher_id": "EM-X6-C7A253",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-6634360390c64e0788a1307fbc6d5fcb",
+  "task_id": "RS-CFD-PRESSURE-GAMG-20260910",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
