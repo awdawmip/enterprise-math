@@ -6033,6 +6033,54 @@
       ],
       "kb_sources": [],
       "notes": "Unit126 source-lined true new X6 result: original current experiments/x6_triadic_atomic_scatter_v1_20260906/check_triadic_atomic_scatter.py blob d5f6dfcfd0dedbe46feae3bc1b227185af417c2f, midpoint_options lines54-57, live signed triad consumer lines67-78. Frozen signed_brc blob300a96e3dc24bf6fff73743037a0347a8bc83176. For raw a,b with L(b-a)=2 and Bmin(b-a)=2, two true native one-step midpoints are a+signed individual steps; original (ZERO,a+b) matches exactly iff ||a||1=||b||1=1. Concrete translated counterexample a=(1,0,1,0,0,0),b=(0,1,1,0,0,0) is invalid as old helper output. Executed local source-line-faithful independent Python normal/-O/-OO exit0, identical JSON stdout SHA256 fb1c14f4752be309b43ff3a93c97efbb4b3c571f7acc31cea7013b2dceec40c8: 43740 6D legal inputs, 120 correct, 43620 wrong, 0 iff violations; 480 actual source caller pairs all correct. Original full source not imported; R063 benchmark not rerun. Proof, checker, result GitHub files immutable and verified. Previous Native Units123-125 PROGRESS original request onhour-20261118-1540-x6-own-units123-125-native-progress-v1 SUCCEEDED SOURCE_CHECKPOINT_PUBLISHED source279d1f889449404257c497da9ae861664d97a75b; exact current own continuation original onhour-20261118-1604-x6-exact-own-cont-v1 SUCCEEDED OWN_RECORDED_RUN_AVAILABLE. Unit126 GitHub author result UNREVIEWED/NOT_ADMITTED; Native semantic PROGRESS separate. Retain own SID MCP-082892eb480e45dea6d4b9fcc0491034, CLAIM MCP-3e221a50dc8818f914e228f6, RUN RUN-95866d78d35721116c362956. No maintenance lane use."
+    },
+    {
+      "event_id": "onhour-20261118-162x-x6-unit126-actual-q-transport-replay-correction-v1",
+      "repairs_event_id": "onhour-20261118-1604-x6-unit126-native-triad-midpoint-typed-v1",
+      "state": "EM_REPRESENTED",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "dfa616818ec2147592a662f2d198ddbb1bd0b964",
+          "path": "research_checks/X6_UNIT126_TRANSLATED_TRIAD_MIDPOINT_CHECK_20261118.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "48245f44ad9bc69e90a284f2eeaf4410d6eb8d7e",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/dfa616818ec2147592a662f2d198ddbb1bd0b964/research_checks/X6_UNIT126_TRANSLATED_TRIAD_MIDPOINT_CHECK_20261118.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "ceb23f85383640d3ffb841cb979e492deb30d2c4",
+          "path": "research_notes/X6_UNIT126_TRIADIC_ATOMIC_MIDPOINT_TRANSLATION_TYPING_20261118.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "cb549042470ce964816b71a75b4af216bb85412e",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/ceb23f85383640d3ffb841cb979e492deb30d2c4/research_notes/X6_UNIT126_TRIADIC_ATOMIC_MIDPOINT_TRANSLATION_TYPING_20261118.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "15f51663e90f3cac5658bc723d486588623ff56f",
+          "path": "research_checks/X6_UNIT126_TRANSLATED_TRIAD_MIDPOINT_RESULTS_20261118.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "42eaa199d3c93a4a941ee65e76ee4080678e6d04",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/15f51663e90f3cac5658bc723d486588623ff56f/research_checks/X6_UNIT126_TRANSLATED_TRIAD_MIDPOINT_RESULTS_20261118.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [],
+      "notes": "Precise source-caller replay correction of Unit126 (not a new theorem): the initial 480-test sample compared distinct starts in all 160 signed triads; mathematically all were valid anchored unit pair tests, but original source lines67-70 use starts paired with q_triad transported targets. Current repaired checker implements exact source q_triad and act and exercises all 480 real caller pairs. CPython normal, -O, -OO all exit0 with same originally stored JSON SHA256 fb1c14f4752be309b43ff3a93c97efbb4b3c571f7acc31cea7013b2dceec40c8; 43740 full legal pair census unchanged; true 480 caller pairs all valid/correct. GitHub guarded updated checker at commit dfa6168 and report ceb23f8, exact files fetched and verified. Prior source commits and Activity #139 retained as historical immutable provenance. No R063 native benchmark rerun, no formal mathematical acceptance."
     }
   ],
   "mode": "TASK_RESEARCH",
