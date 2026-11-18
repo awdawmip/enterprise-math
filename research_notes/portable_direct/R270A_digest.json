@@ -1,0 +1,44 @@
+{
+  "schema": "R270A_TWO_PORT_ADJUGATE_DIGEST_V1",
+  "status": "AUTHOR_PROVED / NOT_REVIEWED",
+  "date": "2026-11-18",
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "p": 13,
+  "port_count": 2,
+  "coupling": "1/10",
+  "example": {
+    "w0": "1/5",
+    "w1": "33/100",
+    "r": "53/100",
+    "det": [
+      "13/50",
+      "13/100"
+    ],
+    "star11": [
+      "50/13",
+      "100/13"
+    ],
+    "star12": [
+      "5/13",
+      "10/13"
+    ]
+  },
+  "family": {
+    "N": "all positive integers",
+    "det": [
+      "2*13^N/(100*13^N+1)",
+      "13^N/(100*13^N+1)"
+    ],
+    "scaled_mod13_11": [
+      7,
+      1
+    ],
+    "scaled_mod13_12": [
+      2,
+      4
+    ]
+  },
+  "local_exact_checks": "PASS N=1..8",
+  "general_case": "symbolic adjugate proof",
+  "review": "NOT_REVIEWED"
+}
