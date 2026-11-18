@@ -1,0 +1,375 @@
+{
+  "archive": {
+    "doi": "10.17632/zhtdbbwr8d.1",
+    "sha256": "1be2060781ac6b1acf19ecda3db4ea8da1223ed03f3e0c301f06ce95eba1bc90",
+    "bytes": 302499
+  },
+  "case": "Open_pipe_flow_test/Mass_Flow_Rate",
+  "pressure_unit_keys": "0.01 bar",
+  "primary_training_hundredths": 20,
+  "posterior_common_ticks": [
+    0,
+    93
+  ],
+  "native_file_checks": {
+    "10": {
+      "CFD": "97563efea3e98adfb8ebea150e7ad752bd5fb81914bac91c6ae7d101b0101536",
+      "ROM": "d8945d3020d337ca43a80e12072dfff63fac83c06c1ff7db7c9a3b9f78322c27",
+      "identical_bytes": false,
+      "CFD_rows": 104,
+      "ROM_rows": 104
+    },
+    "15": {
+      "CFD": "defa66ec2484269a0b6c0dea09481320cd5f322bb8bd59dd355f3df7b78904ba",
+      "ROM": "eb26dfcdbed96ed5303c4060b82d945a8847374820ad19c417dcc76287b51e8b",
+      "identical_bytes": false,
+      "CFD_rows": 103,
+      "ROM_rows": 104
+    },
+    "20": {
+      "CFD": "853c31402754a83aac2f72e92ccf81d9176e849bfa1f27092f9abe564156b9c6",
+      "ROM": "86e37b54b2529b42d44ec28404143fa5493a5e65b996efa57f7e963f97431557",
+      "identical_bytes": false,
+      "CFD_rows": 101,
+      "ROM_rows": 104
+    },
+    "21": {
+      "CFD": "e029652fed979b24fb3f0fbca4155867d50959e6e64e7e3eac0c03f9155ec70d",
+      "ROM": "e029652fed979b24fb3f0fbca4155867d50959e6e64e7e3eac0c03f9155ec70d",
+      "identical_bytes": true,
+      "CFD_rows": 104,
+      "ROM_rows": 104
+    },
+    "23": {
+      "CFD": "4d87a95252154a765c456dd3d02271c5013497fcfc4936fed5e9f02d1df97360",
+      "ROM": "d22279a7f7867b0115f5d520714dc19d9d89dd67906bb20a697b0661ac1396b9",
+      "identical_bytes": false,
+      "CFD_rows": 104,
+      "ROM_rows": 104
+    }
+  },
+  "training_knots": {
+    "0.01": {
+      "number": 61,
+      "knots_in_tenths": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        43,
+        44,
+        45,
+        48,
+        49,
+        50,
+        51,
+        55,
+        58,
+        61,
+        64,
+        67,
+        70,
+        76,
+        77,
+        79,
+        80,
+        82,
+        83,
+        85,
+        100
+      ],
+      "exact_training_max": "72623/7500000"
+    },
+    "0.05": {
+      "number": 25,
+      "knots_in_tenths": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        21,
+        23,
+        26,
+        29,
+        32,
+        35,
+        38,
+        43,
+        46,
+        50,
+        55,
+        64,
+        76,
+        100
+      ],
+      "exact_training_max": "49641/1000000"
+    },
+    "0.10": {
+      "number": 17,
+      "knots_in_tenths": [
+        0,
+        1,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        24,
+        27,
+        31,
+        36,
+        42,
+        48,
+        56,
+        70,
+        100
+      ],
+      "exact_training_max": "60533/625000"
+    },
+    "0.25": {
+      "number": 11,
+      "knots_in_tenths": [
+        0,
+        1,
+        7,
+        12,
+        17,
+        23,
+        29,
+        36,
+        46,
+        61,
+        100
+      ],
+      "exact_training_max": "3132353/13000000"
+    },
+    "0.50": {
+      "number": 8,
+      "knots_in_tenths": [
+        0,
+        1,
+        11,
+        19,
+        27,
+        38,
+        54,
+        100
+      ],
+      "exact_training_max": "12384733/25000000"
+    }
+  },
+  "held_out_metrics": {
+    "10": {
+      "Galerkin_0_to_10": {
+        "max_abs_kg_s": 0.121178,
+        "relative_l2": 0.002656512111,
+        "index_of_max": 29
+      },
+      "Galerkin_0_to_9.3": {
+        "max_abs_kg_s": 0.121178,
+        "relative_l2": 0.002801113165,
+        "index_of_max": 29
+      },
+      "quadratic": {
+        "last_supported_tenth_s": 100,
+        "full_trace": {
+          "max_abs_kg_s": 0.6419196132,
+          "relative_l2": 0.014522146517,
+          "index_of_max": 91
+        },
+        "knots_0.10": {
+          "max_abs_kg_s": 0.5881670363,
+          "relative_l2": 0.013440486947,
+          "index_of_max": 79
+        },
+        "measured_compression_gap": 0.0648479628,
+        "certified_compression_bound": 0.0707106781
+      },
+      "seven_fourths": {
+        "last_supported_tenth_s": 100,
+        "full_trace": {
+          "max_abs_kg_s": 0.8794378532,
+          "relative_l2": 0.0233004012,
+          "index_of_max": 93
+        },
+        "knots_0.10": {
+          "max_abs_kg_s": 0.9174808639,
+          "relative_l2": 0.024367114278,
+          "index_of_max": 84
+        },
+        "measured_compression_gap": 0.0631889401,
+        "certified_compression_bound": 0.0672950096
+      }
+    },
+    "15": {
+      "Galerkin_0_to_10": {
+        "max_abs_kg_s": 0.088169,
+        "relative_l2": 0.001325520631,
+        "index_of_max": 43
+      },
+      "Galerkin_0_to_9.3": {
+        "max_abs_kg_s": 0.088169,
+        "relative_l2": 0.001389669008,
+        "index_of_max": 43
+      },
+      "quadratic": {
+        "last_supported_tenth_s": 100,
+        "full_trace": {
+          "max_abs_kg_s": 0.344525235,
+          "relative_l2": 0.005998641494,
+          "index_of_max": 91
+        },
+        "knots_0.10": {
+          "max_abs_kg_s": 0.310473967,
+          "relative_l2": 0.004990609695,
+          "index_of_max": 80
+        },
+        "measured_compression_gap": 0.0794164338,
+        "certified_compression_bound": 0.0866025404
+      },
+      "seven_fourths": {
+        "last_supported_tenth_s": 100,
+        "full_trace": {
+          "max_abs_kg_s": 0.501836671,
+          "relative_l2": 0.010962196517,
+          "index_of_max": 87
+        },
+        "knots_0.10": {
+          "max_abs_kg_s": 0.5690123005,
+          "relative_l2": 0.012052298366,
+          "index_of_max": 90
+        },
+        "measured_compression_gap": 0.0808089433,
+        "certified_compression_bound": 0.0848411284
+      }
+    },
+    "21": {
+      "Galerkin_0_to_10": {
+        "max_abs_kg_s": 0.0,
+        "relative_l2": 0.0,
+        "index_of_max": 0
+      },
+      "Galerkin_0_to_9.3": {
+        "max_abs_kg_s": 0.0,
+        "relative_l2": 0.0,
+        "index_of_max": 0
+      },
+      "quadratic": {
+        "last_supported_tenth_s": 97,
+        "full_trace": {
+          "max_abs_kg_s": 0.0866691495,
+          "relative_l2": 0.00125014499,
+          "index_of_max": 89
+        },
+        "knots_0.10": {
+          "max_abs_kg_s": 0.1604083527,
+          "relative_l2": 0.002410610146,
+          "index_of_max": 80
+        },
+        "measured_compression_gap": 0.0988484738,
+        "certified_compression_bound": 0.1024695077
+      },
+      "seven_fourths": {
+        "last_supported_tenth_s": 97,
+        "full_trace": {
+          "max_abs_kg_s": 0.1178778725,
+          "relative_l2": 0.001814435927,
+          "index_of_max": 50
+        },
+        "knots_0.10": {
+          "max_abs_kg_s": 0.1020895627,
+          "relative_l2": 0.001027616062,
+          "index_of_max": 47
+        },
+        "measured_compression_gap": 0.0959711049,
+        "certified_compression_bound": 0.1028272381
+      }
+    },
+    "23": {
+      "Galerkin_0_to_10": {
+        "max_abs_kg_s": 0.126888,
+        "relative_l2": 0.001429978984,
+        "index_of_max": 26
+      },
+      "Galerkin_0_to_9.3": {
+        "max_abs_kg_s": 0.126888,
+        "relative_l2": 0.001492474558,
+        "index_of_max": 26
+      },
+      "quadratic": {
+        "last_supported_tenth_s": 93,
+        "full_trace": {
+          "max_abs_kg_s": 0.2624457603,
+          "relative_l2": 0.004333781886,
+          "index_of_max": 41
+        },
+        "knots_0.10": {
+          "max_abs_kg_s": 0.3357336926,
+          "relative_l2": 0.005428952755,
+          "index_of_max": 36
+        },
+        "measured_compression_gap": 0.1012172126,
+        "certified_compression_bound": 0.1072380529
+      },
+      "seven_fourths": {
+        "last_supported_tenth_s": 94,
+        "full_trace": {
+          "max_abs_kg_s": 0.3351535364,
+          "relative_l2": 0.004640624013,
+          "index_of_max": 77
+        },
+        "knots_0.10": {
+          "max_abs_kg_s": 0.2992860657,
+          "relative_l2": 0.003802370325,
+          "index_of_max": 66
+        },
+        "measured_compression_gap": 0.1006667557,
+        "certified_compression_bound": 0.1083139715
+      }
+    }
+  }
+}
