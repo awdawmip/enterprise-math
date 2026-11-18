@@ -1,0 +1,140 @@
+{
+  "schema": "R762CF_CONDITIONAL_LOOP_RESIDUAL_EVIDENCE_V1",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "source_frozen_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "Conditional signed-X6 Cell/Port/Link loops, phase modulo q, B zero increment, L +1, T iff phase zero",
+  "validation": "Exact local Python integer assertions completed successfully for q=2..16; all 720 permutations of six native labels, 8 sign configurations and 3 cyclic rooted pairs checked for loop histogram equality at each q. General proof by explicit words in theorem.",
+  "universal_claims": {
+    "same_coarse_fiber_cardinality": "q",
+    "full_future_min_fixed_bits": "ceil(log2(q))",
+    "horizon_distinguishable_classes": "min(q,h+2)",
+    "horizon_min_fixed_bits": "ceil(log2(min(q,h+2)))",
+    "domain": "integer q>=2, h>=0"
+  },
+  "samples": [
+    {
+      "q": 2,
+      "constructed_phase_witnesses": 2,
+      "fixed_repair_bits": 1,
+      "witness_primitive_steps": 8,
+      "pairwise_future_distinctions": 2,
+      "finite_horizon_checked_through": 5
+    },
+    {
+      "q": 3,
+      "constructed_phase_witnesses": 3,
+      "fixed_repair_bits": 2,
+      "witness_primitive_steps": 12,
+      "pairwise_future_distinctions": 6,
+      "finite_horizon_checked_through": 6
+    },
+    {
+      "q": 4,
+      "constructed_phase_witnesses": 4,
+      "fixed_repair_bits": 2,
+      "witness_primitive_steps": 16,
+      "pairwise_future_distinctions": 12,
+      "finite_horizon_checked_through": 7
+    },
+    {
+      "q": 5,
+      "constructed_phase_witnesses": 5,
+      "fixed_repair_bits": 3,
+      "witness_primitive_steps": 20,
+      "pairwise_future_distinctions": 20,
+      "finite_horizon_checked_through": 8
+    },
+    {
+      "q": 6,
+      "constructed_phase_witnesses": 6,
+      "fixed_repair_bits": 3,
+      "witness_primitive_steps": 24,
+      "pairwise_future_distinctions": 30,
+      "finite_horizon_checked_through": 9
+    },
+    {
+      "q": 7,
+      "constructed_phase_witnesses": 7,
+      "fixed_repair_bits": 3,
+      "witness_primitive_steps": 28,
+      "pairwise_future_distinctions": 42,
+      "finite_horizon_checked_through": 10
+    },
+    {
+      "q": 8,
+      "constructed_phase_witnesses": 8,
+      "fixed_repair_bits": 3,
+      "witness_primitive_steps": 32,
+      "pairwise_future_distinctions": 56,
+      "finite_horizon_checked_through": 11
+    },
+    {
+      "q": 9,
+      "constructed_phase_witnesses": 9,
+      "fixed_repair_bits": 4,
+      "witness_primitive_steps": 36,
+      "pairwise_future_distinctions": 72,
+      "finite_horizon_checked_through": 12
+    },
+    {
+      "q": 10,
+      "constructed_phase_witnesses": 10,
+      "fixed_repair_bits": 4,
+      "witness_primitive_steps": 40,
+      "pairwise_future_distinctions": 90,
+      "finite_horizon_checked_through": 13
+    },
+    {
+      "q": 11,
+      "constructed_phase_witnesses": 11,
+      "fixed_repair_bits": 4,
+      "witness_primitive_steps": 44,
+      "pairwise_future_distinctions": 110,
+      "finite_horizon_checked_through": 14
+    },
+    {
+      "q": 12,
+      "constructed_phase_witnesses": 12,
+      "fixed_repair_bits": 4,
+      "witness_primitive_steps": 48,
+      "pairwise_future_distinctions": 132,
+      "finite_horizon_checked_through": 15
+    },
+    {
+      "q": 13,
+      "constructed_phase_witnesses": 13,
+      "fixed_repair_bits": 4,
+      "witness_primitive_steps": 52,
+      "pairwise_future_distinctions": 156,
+      "finite_horizon_checked_through": 16
+    },
+    {
+      "q": 14,
+      "constructed_phase_witnesses": 14,
+      "fixed_repair_bits": 4,
+      "witness_primitive_steps": 56,
+      "pairwise_future_distinctions": 182,
+      "finite_horizon_checked_through": 17
+    },
+    {
+      "q": 15,
+      "constructed_phase_witnesses": 15,
+      "fixed_repair_bits": 4,
+      "witness_primitive_steps": 60,
+      "pairwise_future_distinctions": 210,
+      "finite_horizon_checked_through": 18
+    },
+    {
+      "q": 16,
+      "constructed_phase_witnesses": 16,
+      "fixed_repair_bits": 4,
+      "witness_primitive_steps": 64,
+      "pairwise_future_distinctions": 240,
+      "finite_horizon_checked_through": 19
+    }
+  ],
+  "all_local_assertions_passed": true,
+  "independent_review": "NOT_REVIEWED",
+  "physical_native_event_licensing": "OPEN",
+  "security": "non-sensitive scientific content"
+}
