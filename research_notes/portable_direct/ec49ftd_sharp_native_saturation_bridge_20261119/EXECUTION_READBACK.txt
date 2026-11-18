@@ -1,0 +1,41 @@
+EC49FTD local execution record, 2026-11-19
+Scientific pin: fc0f038e7bfd12c886b4d37f900bfb770c0f61ab
+Source master SHA256: cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e
+Profile CSV SHA256: a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f
+
+Four saved complete native tree replays:
+D1 (319,18,75,141) 141 leaves PASS
+D2 (326,32,68,141) 141 leaves PASS
+SQ (327,9,97,141) 141 leaves PASS
+SR (325,12,92,141) 141 leaves PASS
+
+All 12 unrestricted native 228-query exact rational Bellman vertices at z=49/64:
+D 2/3 7/16 = 10639/64 PASS
+D 2/3 57/128 = 21203/128 PASS
+D 23/32 7/16 = 10579/64 PASS
+D 185/256 57/128 = 10537/64 PASS
+D 3/4 7/16 = 10515/64 PASS
+D 3/4 57/128 = 10481/64 PASS
+S 2/3 7/16 = 28885/192 PASS
+S 2/3 4/9 = 28873/192 PASS
+S 2/3 57/128 = 28871/192 PASS
+S 427/640 57/128 = 48103/320 PASS
+S 3/4 7/16 = 9111/64 PASS
+S 3/4 57/128 = 18213/128 PASS
+
+Independent raw 94-family observation decoding and separate exact Bellman:
+D 3/4 7/16 49/64 => 10515/64 (7161 states) PASS
+S 2/3 57/128 49/64 => 28871/192 (6761 states) PASS
+
+At (a,b,z)=(3/4,7/16,3/4), unrestricted S=144 with native path tuple
+(332,8,141,105); saturated SQ=2313/16; exact strict improvement=9/16.
+The native challenger tree was reconstructed and checked across all 141 paths.
+
+Eight joint subdivision vertices give gap min=5867/384 and max=351/16.
+Exact z=49/64 boundary tied to non-saturated challenger at (3/4,7/16).
+All calculations used exact integer-scaled rational Bellman, not floating point.
+
+Scientific status: author proof/experiment, not independently reviewed.
+Source access status: native Gateway em_status returned BACKEND_IDENTITY_CHECK_UNAVAILABLE
+with operation_sent=false; no formal Task/CLAIM/Activity record was authored.
+Files are independent portable research on a draft PR branch.
