@@ -99,9 +99,11 @@ for K in combinations(range(p),u):
         bad+=(V**4>p**3)
     hist[bad]+=1
 assert sum(hist.values())==comb(p,u)==23751
+expected={11:58,12:145,13:232,14:1131,15:1160,16:2581,
+          17:3335,18:3654,19:3712,20:3103,21:2726,
+          22:1218,23:580,24:116}
+assert dict(hist)==expected
 assert max(hist)==24 and hist[24]==116
-assert sum(hist.values())==sum([58,145,232,1131,1160,2581,
-                               3335,3654,3712,3103,2726,1218,580,116])
 print("max_bad_rows",max(hist),"worst_test_count",hist[24])
 
 # Constructive 5-edge-coloring of the simple regular bipartite incidence graph.
