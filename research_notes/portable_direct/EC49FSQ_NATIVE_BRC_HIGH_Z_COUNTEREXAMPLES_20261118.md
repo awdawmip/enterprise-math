@@ -27,7 +27,7 @@ Tree cost is U-a*N32-b*N34-z*N140 in direct orientation, and U-b*N32-a*N34-z*N14
 | 1 | Direct | 2103/16 | 463/4 | 251/16 | (348,141,44,72) |
 | 1 | Swapped | 427/4 | 161/2 | 105/4 | (340,8,141,115) |
 
-The primary exact rational dynamic program over the original all-228 named observation table recomputed all six values. Two new independent original 94-family decoder Bellman runs at z=1/2 reproduced 2259/16 (direct, 5480 reached subsets) and 1049/8 (swapped, 5075 reached subsets). Values and vectors are outputs of exact primary finite Bellman enumeration. The new optimal trees' full JSON bytes have not yet been separately published: this result is an exact-point comparison, not a new all-real phase certificate.
+The primary exact rational dynamic program over the original all-228 named observation table recomputed all six values. Two new independent original 94-family decoder Bellman runs at z=1/2 reproduced 2259/16 (direct, 5480 reached subsets) and 1049/8 (swapped, 5075 reached subsets). Values and vectors are outputs of exact primary finite Bellman enumeration. One original-named q32-saturated full tree with the vector (313,141,43,24) has now been published in the same PR as EC49FSQ_FULL_NATIVE_SATURATED_TREE_A133_246_20261118.json and is optimal at z=1/2,a=1 by saturation lifting. Other new high-z trees' full JSON bytes remain to be published; the six comparisons here are exact-point results, not a new all-real high-z phase certificate.
 
 ## New general structural lemma: free observation saturation
 
@@ -41,6 +41,6 @@ Thus in native BRC16943, where q32 and q34 each have verified legitimate origina
 
 Original frozen source primary solver: code/EC49FSA_THREE_OBSERVER_SOLVER.py, function solve(discounts,return_tree=False). The separately reconstructed 94-family/CSV decoder uses code/EC49FSA_FSB_INDEPENDENT_CHECK.py, function certify(discounts). At a=1,b=7/16, enumerate z=1/2,3/4,1; call both direct and swapped discount maps and compute old finite-menu minimum from the ten tuples above. All arithmetic is exact fractions. The local frozen-data runs and detailed results were recorded in EC49FSQ_HIGH_Z_PROBE.py, EC49FSQ_HIGH_Z_PROBE_CERT.json, EC49FSQ_HIGH_Z_RUNLOG.txt and EC49FSQ_HIGH_Z_INDEPENDENT.json; their complete six numeric rows and independent comparisons are reproduced above.
 
-Status: AUTHOR_PROVED general zero-price lemma; EXACT_PRIMARY_FINITE_EXHAUSTIVE for six specified native-BRC points; INDEPENDENT_PARTIAL 2/2 selected points; NOT_REVIEWED. No claim of a high-z continuous phase formula or complete new tree certificate.
+Status: AUTHOR_PROVED general zero-price lemma; EXACT_PRIMARY_FINITE_EXHAUSTIVE for six specified native-BRC points; INDEPENDENT_PARTIAL 2/2 selected points; NOT_REVIEWED. No claim of a high-z continuous phase formula; one q32-saturated full original tree is preserved in the companion EC49FSQ-T certificate, while the remaining new trees await lossless publication.
 
 Next: determine the actual lower-a saturation boundary for z>107/248 and enumerate the new exact price-affine tree phases with complete preserved native named-response trees. Start with z=1/2, a near 1/2; then map real-valued phase transitions without conflating menu failure and saturation failure.
