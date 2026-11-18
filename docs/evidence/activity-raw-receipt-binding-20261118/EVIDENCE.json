@@ -296,6 +296,20 @@
   "captured_at_utc": "2026-11-18T17:10:04.014410+00:00",
   "claim_or_result_mutations": false,
   "conclusion": "Original pinned sidecar and scientific-source bytes are consistent. The reader incorrectly substitutes the identity of a re-serialized object for the declared literal-byte identity. New writes remain canonical; persisted bytes are not rewritten.",
+  "concurrent_upstream_ci_compatibility": {
+    "after_exit": 0,
+    "before_exit": 1,
+    "bilingual_pairs": 143,
+    "dedicated_doc_cases": 4,
+    "failure": "test_admission_description_has_no_fixed_five_request_ceiling expected the WAITING_RESOURCE status name in concurrently updated Chat docs",
+    "resolution": "Preserve the latest upstream bounded-retry and original-ID reconciliation wording; add the exact state enum in both language paragraphs. No behavior, test assertion, workflow, timeout or scheduling change.",
+    "source_implementation_changed": false,
+    "upstream_doc_blobs": [
+      "dfc2b8662e375d64ed4157fb97a707c8c25d2261",
+      "24347db3d881384ceab8f7bf246695df232acad7"
+    ],
+    "upstream_main": "7c47c9f3b9fbd64cbc456c93bfd088b45d7e5a8a"
+  },
   "diagnosis": {
     "bytes_differ": true,
     "canonical_sha256": "f1426e809e1c9384a70f375e43a39f9e1689d915f37cc59d484db8cf65a2b341",

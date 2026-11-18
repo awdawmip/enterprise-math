@@ -8,6 +8,8 @@ Protocol: `EM_CHAT_CONTROL_V1` · English: [CHATGPT_ORDINARY_CONTROL.en.md](CHAT
 
 本文描述 `EM_CHAT_CONTROL_V1` GitHub Issue 桥。本文“无需先登记、无需 session_key”的 `recovery_status` 不适用于 Sites 的 `em_site_control/recovery_status`；Sites 要求自己的服务签发能力。已启用的 owner private custody 使用 `em_private_session_control/status` 找回原 profile，再以 `use` 代理原生调用，密钥留在宿主。使用自己的 lane session 与已有 CLAIM/run，不将公共 owner profile 当作其他研究者身份；不换 subject 或借旧 session 绕过拒绝。具体消费路线见 Sites 中控台的当前 private custody 合同和 profile 发现结果。两种传输按各自既有身份选择，GitHub 桥并非仅为 Sites 不可用时备用。
 
+已有操作用拥有该操作的身份、传输和原请求接续。新的控制操作按本人已有 Sites 能力或本 Issue 桥实际开放的操作执行。[Actions 请求文件桥](CHATGPT_CONTROL_DISPATCH_BRIDGE.md)只返回派发选择和启动包，不签发会话、CLAIM 或 Result。独立科研文件按现有权限走[Source 保存路径](RESEARCH_CONSOLE_FALLBACK.md)。
+
 ## 1. 准确入口与请求格式
 
 建立或复用 `awdawmip/chatgpt-global-knowledge` 当前有效的不可变 main 快照，在同一固定 SHA 读取或复用 `00_BOOTSTRAP.md`、`OPERATING_MANUAL.md` 和 `projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md`。按项目路由选择实际角色与当前动作。
@@ -39,7 +41,7 @@ Source 指 `awdawmip/enterprise-math`。研究需要其基础时，TASK、Driver
 
 创建后不要编辑 Issue 正文、标题或标签，也不要给同一逻辑操作新建重复 Issue。请求首次受理要求创建与更新时间一致且在 24 小时内。多个模型/终端可按需提交请求，不设固定五槽接纳上限；现有单 worker 仍串行执行。普通 payload 最多 16 KiB，规范 envelope 最多 32 KiB；长证据使用分片上传。
 
-接纳请求不等于取得 Task CLAIM 或执行授权。现有 Source owner/租约机制保持；`WAITING_RESOURCE` 作业仍需在资源恢复后显式对原 ID `reconcile`，不能把 CLAIM 过期当作作业自动恢复。
+接纳请求不等于取得 Task CLAIM 或执行授权。明确的临时只读等待（`WAITING_RESOURCE`）按服务的退避机制沿原 ID 续接。回执指出具体资源依赖时，修复后按指引对原 ID 协调。写入结果未知先对账，取消或拒绝时终止该动作的自动重试；租约届满本身不授予恢复权。
 
 ## 2. 回读及只读操作
 
@@ -80,13 +82,13 @@ QUEUED/RUNNING/POSTING/RECONCILE 时继续读原请求；OUTCOME_UNKNOWN 时发 
 | `open` | `claim_request_id` | 兼容旧 claim-only 回执；已有 run 不必再调 open。该请求 ID 可用作 run_request_id |
 | `resume` | `run_request_id` | 同会话恢复已有 claim/open/resume run；只对仍活跃的规范 owner 续租，成功后使用新 generation |
 | `artifact_upload` | `upload_id`, `filename`, `part_index`, `content` | `final=false` 默认；末片必须 true。只暂存文本，不执行上传程序 |
-| `publish_checkpoint` | `run_request_id`, `upload_request_ids`, `completed_units`, `current_unfinished_unit`, `next_action`, `do_not_repeat` | `release=false` 默认；成功发布后 PROGRESS；`release=true` 则在发布后交 CONTINUATION 并释放。**准备 freeze 时保持 false** |
+| `publish_checkpoint` | `run_request_id`, `upload_request_ids` | 进度备注和状态可选，见下文。 `release=false` 默认；成功发布后 PROGRESS；`release=true` 则在发布后交 CONTINUATION 并释放。**准备 freeze 时保持 false** |
 | `freeze` | `run_request_id`, `publication_request_id`, `return_filename`, `metadata` | publication_request_id 指向本 run 的成功 publish_checkpoint；return_filename 是其中自己的文件名 |
 | `session_close` | `reason` | 有待处理请求、活跃 CLAIM 或未解决的暂存上传时拒绝；先持久化/合法交接。已验证的中立保全见 0.6.6 路径 |
 
 上传的 `upload_id` 和 `filename` 为 1–96 字符简单名称（字母/数字开头，后用字母、数字、`_ . -`，无目录斜杠）。每个文件从 `part_index=0` 连续递增，最多索引 128；每片最多 16000 UTF-8 字节且 JSON 转义表示不超过 24000 字节，中文长文宜切小片。单文件最多 1 MiB，一次最多 16 文件、共 4 MiB。每片用新的请求 ID；相同文件各片沿用 upload_id/filename。`upload_request_ids` 填每个文件**最后一片 complete 成功请求**的 ID，不填 upload_id，也不填全部片 ID。
 
-checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current_unfinished_unit`、`next_action` 是非空字符串。如准备最终 Result，明确剩余的是正式封装/独立审查，不填假“全部完成”。证据发布后由服务返回完整 immutable blob URL；不采用“branch@commit + path”自定义串。
+V2 checkpoint 的可选备注包括字符串数组 `completed_units`、`do_not_repeat`，以及可省略或填 null 的 `current_unfinished_unit`、`next_action`。`continuation_state` 可填 `OPEN`、`COMPLETE` 或 `UNKNOWN`。作者按实际单元记录，单元已完成时后继可空；正式 Task 和审查状态仍由相应记录确定。已有完整 V1 备注继续可读，调用时按实际服务支持的合同执行。证据发布后由服务返回完整 immutable blob URL；不采用“branch@commit + path”自定义串。
 
 `freeze.metadata` **恰好七项，均由研究者根据真实证据明确填写**，由原生合同核验类型/取值；不能把测试样例 PASS 作为默认：
 
@@ -106,7 +108,7 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 
 先用 `continuation` 和允许的 `artifact` 核对已完成/未完/损坏/未知单元；不重做有效成果。`continuation_prepare` 当前只支持**已有规范释放、无 live claim、runtime.dispatch_state=NEEDS_DISPATCH** 的前任；不支持通过客户端自报失活抢占。
 
-必填 `packet_request_id`（成功 continuation）、`reason`。如果包已有 `persisted_checkpoint.state=SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED`，只传这两项，服务保存原 frontier，不接受覆盖。旧格式前沿还需 `artifact_request_ids`（已实际完整 hash 核验的 artifact 请求 ID 数组）及 `frontier_notes`（恰好 `completed_units`、`current_unfinished_unit`、`next_action`、`do_not_repeat`）；至少一个证据必须属于包内认证的 last progress，贡献来源由服务继承。准备成功后仍走 claim/open。受限来源、专用 lane 和活跃 owner 仍按实际授权处理；frozen Result 等待审核本身不阻止继续研究。
+必填 `packet_request_id`（成功 continuation）、`reason`。如果包已有 `persisted_checkpoint.state=SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED`，只传这两项，服务保存原 frontier，不接受覆盖。旧格式前沿还需 `artifact_request_ids`（已实际完整 hash 核验的 artifact 请求 ID 数组）及 `frontier_notes`（按服务支持的进度备注合同填写实际内容）；至少一个证据必须属于包内认证的 last progress，贡献来源由服务继承。准备成功后仍走 claim/open。受限来源、专用 lane 和活跃 owner 仍按实际授权处理；frozen Result 等待审核本身不阻止继续研究。
 
 ## 5. Driver 正式审查
 
