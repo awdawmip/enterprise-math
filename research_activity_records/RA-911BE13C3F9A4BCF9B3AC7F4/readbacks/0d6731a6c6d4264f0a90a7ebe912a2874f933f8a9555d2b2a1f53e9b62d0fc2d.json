@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/fiftyseventh/README.md",
+    "ref": "ecb7803121177471014b94f6044c91115cda95f6",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-fiftyseven-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第五十七轮　惰性半素数上的短向量与两路观察的环境记忆\n\n## 固定一张永久种子表以后，还会看见多少个短向量事件\n\n设 $N=pq$，其中 $p,q$ 是两个不同的素数，均属于模 7 的惰性剩余类 $3,5$。研究第 1 轮的六维整格 $M(N)$，记 $k=\\lfloor\\log_2N\\rfloor$。它的最短非零向量若短于 $N^{1/6}/(\\sqrt{42}\\,k^\\gamma)$，就把 $N$ 计入，$\\gamma>0$。每个素数只抽取一次局部好种子，以后所有含它的 $N$ 共用同一种子。\n\n在冻结的四个锁定以外，各素数独立均匀地选实际好种子。对几乎每张由此得到的永久表，$X\\le N<2X$ 中入选的惰性半素数个数满足\n$$\nB(X)\\sim\n\\frac{\\operatorname{vol}(B_6)}{18\\,\\zeta(6)\\,42^3}\\,\n\\frac{X\\log\\log X}{\\log X\\,(\\log_2 X)^{6\\gamma}} .\n$$\n这里 $B_6$ 是六维欧氏单位球，$\\log_2$ 是二进对数，其他对数为自然对数。常数中的 $1/\\zeta(6)$ 来自本原向量的密度，$1/2$ 来自正负向量的识别，$1/9$ 来自两个素因子的剩余类限制。固定同一张表，等价式对每个正的紧区间上的 $\\gamma$ 一致成立。区间中共享素因子的事件有相关性，证明利用每个局部种子最多能影响多少个半素数来控制波动。[实种子、计数定理与边界](balls.md) · [复算程序](balls_check.py) · [结果](balls_checked.json)\n\n## 两套环境记录具有相同的内积，何时还会给出不同出口\n\n在原两路 $I,W$ 运算中，各路的私有环境记录决定干涉图样。当环境只读一次，记录间的内积组成的 Gram 矩阵就足以计算相应读数。若让一路经过一次已知的二维旋转，再合流读两个出口，旋转后的跨路线内积还含有记录之间的有向面积。原记录张成实平面、旋转角正弦非零时，在允许读取全部输出的模型中，原 Gram 矩阵还缺一位共同的取向信息。\n\n具体地，把一组环境记录沿直线反射，全部原内积保持不变。在同一输入、同一回访旋转下，两组记录的正出口概率分别为 $1/2$ 和 $37/50$。两个端口标签分布的总变差是 $6/25$。这个例子让回访前后所需的信息可以在同一套运算上直接比较。[矩阵系数、来源与具体出口](gram.md) · [复算程序](gram_check.py) · [结果](gram_checked.json)\n\n截至 2026-11-18 23:48:03 UTC，按登记 ID 去重，已有 215 个任务获得直接研究，覆盖 51 个父方向。本轮首次推进环境 Gram 登记，回访第 1 轮的短球登记。严格就绪、待移交、冻结待复访三组中，尚未直接轮到的登记分别为 44、21、5 个。[状态机截止与计数](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/ecb7803121177471014b94f6044c91115cda95f6/research_notes/portable_direct/20261118_fair_queue_6b0fba/fiftyseventh/README.md",
+      "encoding": "utf-8",
+      "sha": "9f533837614b4fe0452b9e71b7fd627d8cfd5c18"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
