@@ -206,4 +206,4 @@ P11 的裸 publication 初始标记属于另一种情况：只有 Source 返回 
 
 已有实际研究成果时，及时保存 Source 并更新自己的既有 activity checkpoint；参照已读 activity 规则和 `tools/research_activity.py` 的 checkpoint／connector JSON CAS 合同记录真实来源。activity 记账、共享任务 CLAIM、Source semantic checkpoint 和 Result 分别回读，不能用作者分支保存代替其它实际未做的状态变更。
 
-保存、研究接续和后续方向不强制六项 gate；遗漏项如实标为 NOT_REVIEWED。形式化证明暂缓，Lean 不是普通推进或验收的默认要求；验证采用命题所需的可复查人工证明或复算。明确的只读资源等待在同一请求下以 5–300 秒退避自动续接，取消及拒绝不重放，未知写入先按原 ID 对账。
+保存、研究接续和后续方向不强制六项 gate；遗漏项如实标为 NOT_REVIEWED。形式化证明暂缓，Lean 不是普通推进或验收的默认要求；验证采用命题所需的可复查人工证明或复算。明确属于暂时只读资源等待的 `WAITING_RESOURCE` 在同一请求下以 5–300 秒退避自动续接，取消及拒绝不重放，未知写入先按原 ID 对账。
