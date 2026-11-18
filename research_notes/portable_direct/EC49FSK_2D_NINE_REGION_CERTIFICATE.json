@@ -1,0 +1,477 @@
+{
+  "schema": "EC49FSK_NATIVE_BRC_ALPHA_7_16_TO_15_32_EXACT_CORRIDOR_V1",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "domain": {
+    "alpha": [
+      "7/16",
+      "15/32"
+    ],
+    "z": [
+      "0",
+      "1"
+    ]
+  },
+  "model": {
+    "profiles": 141,
+    "raw_configurations": 310,
+    "original_named_observations": 228,
+    "prior": "uniform",
+    "strategy": "deterministic complete finite adaptive native named physical questions"
+  },
+  "prices": {
+    "q32": "(1-alpha)*t",
+    "q34": "(1-alpha)*t",
+    "q140": "(1-z)*t",
+    "other": "t>0"
+  },
+  "formula": "141V/t=min_(U,Q,K){U-Q*alpha-K*z}",
+  "regions": [
+    {
+      "plane": [
+        303,
+        173,
+        17
+      ],
+      "polygon": [
+        [
+          "25/54",
+          "1/6"
+        ],
+        [
+          "7/16",
+          "1/6"
+        ],
+        [
+          "7/16",
+          "15/112"
+        ]
+      ],
+      "area": "121/290304",
+      "witness": {
+        "file": "tree_303_173_17.json",
+        "sha256": "c43c37dfca7f748b0e4acadcd69c8be5e8c5bdeb3a0515c6c7e8c796250042e2",
+        "max_depth": 3,
+        "root": 34
+      }
+    },
+    {
+      "plane": [
+        304,
+        169,
+        32
+      ],
+      "polygon": [
+        [
+          "15/32",
+          "7/24"
+        ],
+        [
+          "15/32",
+          "5/14"
+        ],
+        [
+          "7/16",
+          "5/14"
+        ],
+        [
+          "7/16",
+          "1/4"
+        ]
+      ],
+      "area": "29/10752",
+      "witness": {
+        "file": "tree_304_169_32.json",
+        "sha256": "df7cb044a0d2ac4a7bf6460b0b0311bbe352cfd1b695f1713a915b1e2e9b3ec1",
+        "max_depth": 3,
+        "root": 34
+      }
+    },
+    {
+      "plane": [
+        305,
+        173,
+        29
+      ],
+      "polygon": [
+        [
+          "15/32",
+          "39/224"
+        ],
+        [
+          "15/32",
+          "7/24"
+        ],
+        [
+          "7/16",
+          "1/4"
+        ],
+        [
+          "7/16",
+          "1/6"
+        ],
+        [
+          "25/54",
+          "1/6"
+        ]
+      ],
+      "area": "3755/1161216",
+      "witness": {
+        "file": "tree_305_173_29.json",
+        "sha256": "99c8731a0e6499e70278318237d06576d3b347fb47e885b6467a2d82fd5541ec",
+        "max_depth": 3,
+        "root": 34
+      }
+    },
+    {
+      "plane": [
+        306,
+        182,
+        10
+      ],
+      "polygon": [
+        [
+          "7/16",
+          "0"
+        ],
+        [
+          "15/32",
+          "0"
+        ],
+        [
+          "15/32",
+          "1/6"
+        ],
+        [
+          "25/54",
+          "1/6"
+        ],
+        [
+          "7/16",
+          "15/112"
+        ]
+      ],
+      "area": "1391/290304",
+      "witness": {
+        "file": "tree_306_182_10.json",
+        "sha256": "db669e0116a1816bbf53fed6cb1bc07a4549ef9665637433e05c059936ff9742",
+        "max_depth": 4,
+        "root": 34
+      }
+    },
+    {
+      "plane": [
+        308,
+        182,
+        22
+      ],
+      "polygon": [
+        [
+          "15/32",
+          "1/6"
+        ],
+        [
+          "15/32",
+          "39/224"
+        ],
+        [
+          "25/54",
+          "1/6"
+        ]
+      ],
+      "area": "25/1161216",
+      "witness": {
+        "file": "tree_308_182_22.json",
+        "sha256": "f5887b55338951c0adeac6eb96b22ce5699565b84c0974c4b6069fbc4fb00bd1",
+        "max_depth": 4,
+        "root": 34
+      }
+    },
+    {
+      "plane": [
+        309,
+        169,
+        46
+      ],
+      "polygon": [
+        [
+          "15/32",
+          "5/14"
+        ],
+        [
+          "15/32",
+          "2/5"
+        ],
+        [
+          "7/16",
+          "2/5"
+        ],
+        [
+          "7/16",
+          "5/14"
+        ]
+      ],
+      "area": "3/2240",
+      "witness": {
+        "file": "tree_309_169_46.json",
+        "sha256": "3e018ff9aa85a1d18a666af0697b11e737b8c3291d301f4ea741346ce2fe3f28",
+        "max_depth": 3,
+        "root": 34
+      }
+    },
+    {
+      "plane": [
+        311,
+        151,
+        69
+      ],
+      "polygon": [
+        [
+          "15/32",
+          "15/32"
+        ],
+        [
+          "15/32",
+          "563/1152"
+        ],
+        [
+          "7/16",
+          "89/192"
+        ],
+        [
+          "7/16",
+          "7/16"
+        ]
+      ],
+      "area": "53/73728",
+      "witness": {
+        "file": "tree_311_151_69.json",
+        "sha256": "fbdeccb86a78fa12a8561383acf90c63b6af4fb8ee93ceacf36b0537b18036ae",
+        "max_depth": 3,
+        "root": 34
+      }
+    },
+    {
+      "plane": [
+        311,
+        169,
+        51
+      ],
+      "polygon": [
+        [
+          "15/32",
+          "2/5"
+        ],
+        [
+          "15/32",
+          "15/32"
+        ],
+        [
+          "7/16",
+          "7/16"
+        ],
+        [
+          "7/16",
+          "2/5"
+        ]
+      ],
+      "area": "17/10240",
+      "witness": {
+        "file": "tree_311_169_51.json",
+        "sha256": "88c28bb0eeb80fad415443803637c3ef078a662006d740ae3604528cec0ec30f",
+        "max_depth": 3,
+        "root": 34
+      }
+    },
+    {
+      "plane": [
+        319,
+        93,
+        141
+      ],
+      "polygon": [
+        [
+          "15/32",
+          "563/1152"
+        ],
+        [
+          "15/32",
+          "1"
+        ],
+        [
+          "7/16",
+          "1"
+        ],
+        [
+          "7/16",
+          "89/192"
+        ]
+      ],
+      "area": "1207/73728",
+      "witness": {
+        "file": "tree_319_93_141.json",
+        "sha256": "f6854068c15fc02323cf7584f2e39a81b720f7ca02cfc20a434f6a6d38652899",
+        "max_depth": 3,
+        "root": 140
+      }
+    }
+  ],
+  "vertices": [
+    {
+      "point": [
+        "7/16",
+        "0"
+      ],
+      "optimum": "1811/8"
+    },
+    {
+      "point": [
+        "7/16",
+        "15/112"
+      ],
+      "optimum": "6301/28"
+    },
+    {
+      "point": [
+        "7/16",
+        "1/6"
+      ],
+      "optimum": "10775/48"
+    },
+    {
+      "point": [
+        "7/16",
+        "1/4"
+      ],
+      "optimum": "3553/16"
+    },
+    {
+      "point": [
+        "7/16",
+        "5/14"
+      ],
+      "optimum": "24487/112"
+    },
+    {
+      "point": [
+        "7/16",
+        "2/5"
+      ],
+      "optimum": "17333/80"
+    },
+    {
+      "point": [
+        "7/16",
+        "7/16"
+      ],
+      "optimum": "859/4"
+    },
+    {
+      "point": [
+        "7/16",
+        "89/192"
+      ],
+      "optimum": "13629/64"
+    },
+    {
+      "point": [
+        "7/16",
+        "1"
+      ],
+      "optimum": "2197/16"
+    },
+    {
+      "point": [
+        "25/54",
+        "1/6"
+      ],
+      "optimum": "5942/27"
+    },
+    {
+      "point": [
+        "15/32",
+        "0"
+      ],
+      "optimum": "3531/16"
+    },
+    {
+      "point": [
+        "15/32",
+        "1/6"
+      ],
+      "optimum": "10513/48"
+    },
+    {
+      "point": [
+        "15/32",
+        "39/224"
+      ],
+      "optimum": "1532/7"
+    },
+    {
+      "point": [
+        "15/32",
+        "7/24"
+      ],
+      "optimum": "20683/96"
+    },
+    {
+      "point": [
+        "15/32",
+        "5/14"
+      ],
+      "optimum": "47791/224"
+    },
+    {
+      "point": [
+        "15/32",
+        "2/5"
+      ],
+      "optimum": "33821/160"
+    },
+    {
+      "point": [
+        "15/32",
+        "15/32"
+      ],
+      "optimum": "1663/8"
+    },
+    {
+      "point": [
+        "15/32",
+        "563/1152"
+      ],
+      "optimum": "79295/384"
+    },
+    {
+      "point": [
+        "15/32",
+        "1"
+      ],
+      "optimum": "4301/32"
+    }
+  ],
+  "validation": {
+    "primary_exact_Bellman_vertices": 19,
+    "independent_94_family_decoder_exact_Bellman_vertices": 19,
+    "all_values_match": true,
+    "native_original_all_228_named_observations": true,
+    "source_permutation_normalized": true,
+    "complete_tree_replay_count": 9,
+    "profiles_per_tree": 141,
+    "max_depth": 4,
+    "region_polygon_area": "1/32",
+    "tree_bundle": "EC49FSK_NINE_WITNESS_TREES_ZLIB_BASE64.txt",
+    "tree_bundle_uncompressed_sha256": "db98ccebc960362b099f554897c36dc09259ba77cd4014d85e1052b228b742db"
+  },
+  "provenance": {
+    "inherited_from": "PR #2691@54324197c6566c5e3ac17b530b0b744f2b473400",
+    "new_source_receipts": "EC49FSK_NATIVE_BRC_ALPHA_15_32 local full evidence 2026-11-18",
+    "native_task_lookup": "r4-ec49fsk-20261118-1034-task-read-01 SUCCEEDED / NO_CANONICAL_PUBLICATION_DIRECTORY",
+    "activity_written": false,
+    "formal_CLAIM": false,
+    "formal_Result": false,
+    "formal_Review": false
+  },
+  "status": "AUTHOR_PROVED / EXACT_FINITE_CROSSCHECKED / NOT_REVIEWED",
+  "next_question": "Classify alpha in [15/32,1/2], z in [0,1], including internal positive-area strategy regions and rational multicontact vertices"
+}
