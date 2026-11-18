@@ -51,7 +51,7 @@ For \(K_2\), enumerate the 36 ordered pairs of the six named branches. They prod
 
 Use the exact R762ER antecedent normalized lift. Every monomial of \(\iota_h(S_9(m))\) has each exponent divisible by \(h\). Every monomial of \(P^r\) has each exponent between 0 and \(r<h\). Consequently, the residue \((hi+u,hj+v,hk+w)\) can arise only from its indicated coarse triple and indicated fine triple; even modulo \(q=9h\), distinct blocks cannot overlap. The group-algebra product gives exactly (B). Apply the R762ET author-side periodicity \(S_9(m+18)=S_9(m)\) for \(m\ge8\), together with (A), to obtain (C).
 
-## New full-q support and sign-count formulas
+## Reuse of R762ER support law and new exact ternary residue histograms
 
 Let \(A_1(m)\), \(A_2(m)\) count residues 1 and 2, respectively, among the 729 entries of \(S_9(m)\). Define the *integer* products
 \[
@@ -68,6 +68,8 @@ The digit-product kernel has \(\sigma(r)\) nonzero coefficients; the imbalance b
 \#\{S_q(n)=1\}=\frac{A\sigma(r)+D\delta(r)}2,\qquad
 \#\{S_q(n)=2\}=\frac{A\sigma(r)-D\delta(r)}2.}\tag{E}
 \]
+**Novelty boundary:** Equation (D), the exact nonzero-support count, was already established in R762ER (Equation (4)); it is reproduced here as a consistency and bookkeeping identity, **not** as a new support theorem. The new refinements are the separate residue-1/residue-2 counts (E), the explicit digitwise coefficient oracle (A)–(C), its bounded 26-row encoding, and the direct per-coordinate verification against named-branch convolution.
+
 For unbounded \(m\), replace \(m\) by \(\rho(m)\). This determines both the exact support and ternary residue histogram for any three-power modulus using one 26-row table and the base-three digits of \(n\bmod h\). In particular, \(q=27,n=26\) has \(\#\operatorname{supp}=324\cdot18=5832\).
 
 ## Reproducible validation and material scope
