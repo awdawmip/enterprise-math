@@ -1,0 +1,94 @@
+# Franel 两个一阶商的仿射关系与中点短和
+
+设 $F_h=\sum_j\binom hj^3$。在原目标扇区取素数 $p=6k-1\equiv5,23\pmod{24}$，$n=2k-1$，$m=3k-1=(p-1)/2$。中点满足 $p\mid F_m$。当 $p\mid F_n$ 时，让 $M=F_m/p\bmod p$、$W_p=2^{-n}F_n/p\bmod p$。下文给出 $W_p$ 与 $M$ 的仿射关系。决定两者能否同时为零的偏移系数，可用一个整数多项式的常数项和导数计算。另得 $M$ 的至多 $(p+3)/8$ 项的二项式短和。本文中的 $C_p,U_p,W_p$ 均按 Franel 任务定义。
+
+## 冻结接口及既有一阶量
+
+PR 756 定义 $a_j=(-1)^j\binom{2j}j^3/64^j$、$S_p=\sum_{j=0}^m a_j$、$C_p=S_p/p\bmod p$、$U_p=\sum_{j=0}^m a_jH_j\bmod p$，其中 $H_j=\sum_{i=1}^j1/i$。其有限二项式展开给出 $2M=2C_p-3U_p$。同一冻结源的中点参数导数已经给出 $M=-3U_p/2$，故两式合起来还给 $C_p=0$。以下把 $2C_p-3U_p$ 直接视为 $2M$。冻结的 Whipple 桥则给出 $p\mid F_n\Longleftrightarrow P_p(1)=0$。原行逃逸还要求此前缺陷均已逃逸、当行复合几何成立，并要求 $v_p(F_{n+1})=0$；该相邻单位也由 $p\mid F_n$ 和 Franel 递推推出。PR 756 的旧返回仍待 Driver 验收。其正式后继发布以验收为前置，二阶后继还要求已经证实存在双深点。本节是独立的普通算术推导。[任务书](https://github.com/awdawmip/enterprise-math/blob/e7b9fb5084f93a9b2dbc16225629b667fb7bf46c/research_tasks/P022_COMPOSITE_FRANEL_EQUAL_DEPTH_ESCAPE_20260827.md) · [PR 756 返回](https://github.com/awdawmip/enterprise-math/blob/5d95eab7697a7fdd45259138f357519a2451f033/research_returns/P022_COMPOSITE_FRANEL_EQUAL_DEPTH_ESCAPE_RETURN_20260827.md) · [Driver 的待验收状态及后继条件](https://github.com/awdawmip/enterprise-math/blob/e7b9fb5084f93a9b2dbc16225629b667fb7bf46c/driver_reviews/portfolio/EM-DVR-E8DCE5/continuity_20261003/live_reviews.json) · [冻结中点导数](https://github.com/awdawmip/enterprise-math/blob/603ef1c72245612359f8b59cab7a492de21a9166/src/enterprise_math/p022_barlow_franel_midpoint_transversality.py) · [受迫尺度条件](https://github.com/awdawmip/enterprise-math/blob/603ef1c72245612359f8b59cab7a492de21a9166/src/enterprise_math/p022_barlow_forced_midpoint_scale_hasse.py)
+
+## 由整数伴随的导数计算偏移
+
+**命题 1。** 定义 $J_0(X)=0,J_1(X)=1$，
+$$
+J_{d+1}(X)=-[7(X-2d)^2+1]J_d(X)+8(X-2d+1)^4J_{d-1}(X).
+$$
+令 $D_d(X)=8^{d-1}\prod_{j=1}^{d-1}(X-2j-1)^2$（$d\ge1$）。另定义 $l_0=1,l_1=0$ 并按
+$$
+8(2d+1)^2l_{d+1}=(2d-1)^2l_{d-1}-(28d^2+1)l_d
+$$
+计算 $l_d\in\mathbb F_p$，只取 $d<m$。在上述目标扇区及 $p\mid F_n$ 条件下，
+$$
+\boxed{\quad
+2^n W_p=l_k M+\frac{F_{m-1}}{D_k(0)}\mathcal E_p\quad(\bmod p),\qquad
+\mathcal E_p=\frac{J_k(0)}p+J'_k(0)\pmod p .
+\quad} \tag{1}
+$$
+此时 $p\mid J_k(0)$，$l_k$ 与 $F_{m-1}/D_k(0)$ 均为单位。冻结的正整数半整数伴随 $K_d$ 恰给 $J_d(0)=(-1)^{d-1}K_d$；现在还要记录参数方向的一阶导数。$J_k(0)/p$ 只需把 $J_k(0)$ 算到模 $p^2$，$J'_k(0)$ 只需模 $p$。[冻结的半整数伴随](https://github.com/awdawmip/enterprise-math/blob/603ef1c72245612359f8b59cab7a492de21a9166/src/enterprise_math/p022_barlow_franel_half_integer_solution.py) · [冻结的三分之一负偏移桥](https://github.com/awdawmip/enterprise-math/blob/603ef1c72245612359f8b59cab7a492de21a9166/src/enterprise_math/p022_barlow_franel_third_index_minus_hasse.py)
+
+**推导。** 把经典递推 $(j+1)^2F_{j+1}=(7j^2+7j+2)F_j+8j^2F_{j-1}$ 中的 $j$ 换成 $(X-1)/2-d$。两组解 $L,G$ 分别取初值 $(L_0,L_1)=(1,0)$ 与 $(G_0,G_1)=(0,1)$，共同满足
+$$
+8(X-2d-1)^2Y_{d+1}=(X-2d+1)^2Y_{d-1}-[7(X-2d)^2+1]Y_d .
+$$
+清分母便有 $D_dG_d=J_d$，而 $L_d(0)=l_d$。在 $X=p$ 得到精确有理恒等式 $F_{m-d}=L_d(p)F_m+G_d(p)F_{m-1}$。每步传递行列式相差符号等于 $(X-2d+1)^2/[8(X-2d-1)^2]$，故到 $d<m$ 在 $X=0\bmod p$ 保持可逆。$F_0=1$ 排除递推的相邻双零，所以 $F_{m-1}$ 是单位。当 $p\mid F_{m-d}$ 时，第一行中 $G_d(0)=0\bmod p$，必有 $l_d\ne0$。最后对整数多项式作 $J_d(p)\equiv J_d(0)+pJ'_d(0)\bmod p^2$，除 $p$ 即得 (1)。这段推导对任意受迫中点及 $1\le d<m$ 的另一模 $p$ 零点均有效，原题专取 $d=k$。
+
+**首阶相容条件。** 在标量 Hasse 零点上，若 $p^2\mid J_k(0)+pJ'_k(0)$，两个一阶商同时为零或同时非零。若该整除失败，则双深分支立即排除；此时两商同时非零恰当 $M$ 避开 $0$ 和 $-F_{m-1}\mathcal E_p/(D_k(0)l_k)$ 这两个不同值。特别地，即使偏移为零，也仍需确定 $M$ 才能决定是否双深。原尺度恒等式中，两个商同时非零给出共同深度一，恰一个为零则深度不等。
+
+## 中点商的 Legendre 积分与短和
+
+**命题 2。** 对任意素数 $p\equiv5,7\pmod8$，置 $N=\lfloor(p-1)/4\rfloor$，则 $N$ 是奇数，且
+$$
+\begin{aligned}
+M&\equiv-3\cdot2^{m-1} I_N\pmod p,\qquad I_N=\int_0^1 P_N(x)^2\frac{dx}{x},\\
+M&\equiv 3\cdot2^{m+1}
+ \sum_{i=0}^{(N-1)/2}\frac{\binom{2i}i^2}{16^i}
+ \left(\frac1{8i+1}+\frac1{8i+3}\right)\pmod p .
+\end{aligned}\tag{2}
+$$
+$P_N$ 是通常的 Legendre 多项式；$I_N$ 为有理数，由下述有限展开可知分母与 $p$ 互素。该式把原 $m+1$ 项的三次二项式调和和换成约 $p/8$ 项的二次二项式和。
+
+**两个恒零变形。** 对终止函数 $G(b,c;d,e)={}_3F_2(-N,b,c;d,e;1)$，在 $(b,c;d,e)=(N+1,1/2;1,1)$ 处记偏导 $G_b,G_c,G_e$，且 $G_e=G_d$。Whipple 二次变换在 $z=-1$ 处终止，给出
+$$
+2^{-m}F_m=G(N+1-p/2,\,1/2+p/2;1,1).
+$$
+这是对 $m$ 偶、奇均成立的精确式，三个上参数是 $m+1,-m/2,(1-m)/2$ 的重排。下列两条函数恒等式在 $x=0$ 附近成立
+$$
+ G(N+1,1/2+x;1,1+2x)=0,\qquad
+ G(N+1+2x,1/2;1+x,1)=0 .
+$$
+第一式是对 $P_N(1-2t)$ 以对称 Beta 权 $(t(1-t))^{x-1/2}$ 在 $0<t<1$ 积分。第二式用固定对称权 $(t(1-t))^{-1/2}$ 对 $\ {}_2F_1(-N,N+1+2x;1+x;t)$ 积分；该多项式是 $P_N^{(x,x)}(1-2t)$ 的非零标量倍数。两次都由 $N$ 奇及 $t\mapsto1-t$ 得零。逐项积分是终止和，求导给 $G_c+2G_e=0$ 及 $2G_b+G_e=0$，故 $(G_c-G_b)/2=-3G_e/4$。在上述有限和中关于上参数作一阶 Taylor 展开即可在模 $p^2$ 使用这些有理恒等式，因 $N<p$、$2N+1<p$，基点各分母均为单位。[Whipple，DLMF 16.6.1](https://dlmf.nist.gov/16.6.E1) · [Jacobi 多项式，DLMF 18.5.7](https://dlmf.nist.gov/18.5.E7)
+
+令 $A_j=(-N)_j(N+1)_j(1/2)_j/(j!)^3$。由 $G_e=-\sum_j A_j H_j$ 和 $\sum_j A_j=0$，并利用 Clausen 恒等式 $\sum_j A_jz^j=P_N(\sqrt{1-z})^2$，有
+$$
+\sum_j A_jH_j=-\int_0^1\frac{P_N(\sqrt{1-z})^2}{1-z}\,dz=-2 I_N.
+$$
+这里 Clausen 取 $a=-N/2,\ b=(N+1)/2$，相应的高斯函数等于 $P_N(\sqrt{1-z})$，可由 Legendre 微分方程及 $z=0$ 的归一化验证。于是 $-3G_e/4=-3I_N/2$ 给出 (2) 第一行。[Clausen，DLMF 16.12.2](https://dlmf.nist.gov/16.12.E2)
+
+**缩短求和。** Christoffel–Darboux 公式取一端为零给出
+$$
+N P_{N-1}(0)P_N(x)/x=\sum_{h=0}^{N-1}(2h+1)P_h(x)P_h(0).
+$$
+由 Legendre 微分方程作一次分部积分，对偶 $h<N$，
+$$
+\int_0^1P_N(x)P_h(x)\,dx=\frac{P_N'(0)P_h(0)}{N(N+1)-h(h+1)},\qquad
+P_N'(0)=NP_{N-1}(0).
+$$
+乘积求和并用 $P_{2i}(0)=(-1)^i\binom{2i}i/4^i$，得到精确有理数
+$$
+ I_N=\sum_{i=0}^{(N-1)/2}\binom{2i}i^2 16^{-i}
+ \left(\frac1{N-2i}-\frac1{N+2i+1}\right).
+$$
+$N\equiv-1/4$ 或 $-3/4\bmod p$，故括号统一化为 $-4((8i+1)^{-1}+(8i+3)^{-1})$，两种情形只交换分母。正实积分 $I_N>0$，其模 $p$ 非零仍是另一个问题。[Christoffel–Darboux，DLMF 18.2.12](https://dlmf.nist.gov/18.2.E12)
+
+## 三分之一负偏移的一阶值与检验边界
+
+若要独立计算 (1) 左侧，沿用冻结 Whipple 精确式，取 $A_j^*=(1/3)_j^2(5/6)_j/(j!)^3$，$P=\sum_{j=0}^{k-1}A_j^*\in\mathbb Z_{(p)}$。则对所有 $p=6k-1\ge5$，
+$$
+2^{-n}F_n\equiv P+\frac p6\sum_{j=0}^{k-1} A_j^*
+ \sum_{i=0}^{j-1}\left(\frac1{i+1/3}-\frac1{i+5/6}\right)\pmod{p^2}.
+\tag{3}
+$$
+终止上参数为 $2k=1/3+p/3,\ 1/2-k=1/3-p/6,\ 1-k=5/6-p/6$，逐项展开乘积即得。故若 $P\equiv0\bmod p$，$W_p$ 等于有理基准值 $P/p$ 加上 (3) 的有限调和修正，两者都在模 $p$ 中取值。离开该零点集，应保留 (3) 的未除 $p$ 形式。
+
+非对角实例可核 (1) 的偏移。在 $p=29,m=14,d=2$ 时，$F_{12}/29\equiv7$、$F_{14}/29\equiv2$，$l_2=27$、偏移为 $11$，故 $7\equiv27\cdot2+11\pmod{29}$。此处 $J_2(0)/29=-1$，$J'_2(0)=28$，两部分都实际参与。原任务对 $p=29$ 取 $k=5$，此例只验证共同中点的一般传递式，仍然没有给出对角逃逸见证。
+
+同目录运行 `python3 franel_check.py` 可复算。对 $p<1500$ 的 123 个受迫中点素数逐一核对 (2) 与 PR 的两种中点商；在其中 60 个 $p\equiv5,23\bmod24$ 上核对 (3)。同一范围内按 $1\le d<m$ 遇到的 60 个非对角双零点逐一检验 (1)，用 $N=1,3,\ldots,19$ 的显式 Legendre 系数在有理数上独立复算 $I_N$。样本内没有对角标量 Hasse 零点，故不能从有限回归判定逃逸能否发生。剩余的精确问题是在真实 $p\mid J_k(0)$ 的目标素数上，能否约束短和 (2) 与 $\mathcal E_p$ 的相对值，使 (1) 所允许的同时非零或同时零情形之一发生或被排除。

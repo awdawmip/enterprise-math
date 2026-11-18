@@ -62,3 +62,5 @@
 - [第十七轮六个父目标](seventeenth/README.md)涵盖惰性素数的 Hecke 极限、三次分裂、特殊半素数、上下文记忆、质量加权误差与归一化，并给出完整循环代数上的幂相等计数。
 
 - [第十八轮六个父目标](eighteenth/README.md)涵盖随尺度增长的 Eisenstein 角模、真实三层干涉、Clausen 奇异系数，以及 A3 标记、有限模读出和二幂模回返。
+
+- [第十九轮六个父目标](nineteenth/README.md)　固定素因子数的两种邻接次序、完整 Ramanujan 块的替换能量，以及三扇区联合密度、Franel 一阶商、实际 Prym 范数壳和 FCC 纠错。

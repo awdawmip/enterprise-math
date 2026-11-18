@@ -1,0 +1,440 @@
+{
+ "STAR_indices_zero_based": [
+  [
+   0,
+   1,
+   2
+  ],
+  [
+   0,
+   3,
+   4
+  ],
+  [
+   1,
+   3,
+   5
+  ],
+  [
+   2,
+   4,
+   5
+  ]
+ ],
+ "allowed_futures": "static chart restrictions, named S4 relabeling, one block error/list decoding",
+ "axes": [
+  "AB",
+  "AC",
+  "AD",
+  "BC",
+  "BD",
+  "CD"
+ ],
+ "carrier": "anchored raw six signed coordinates; fixed static signed endpoint readout",
+ "entrypoint": "src/enterprise_math/brc_weighted_recurrent.py:recurrent_mass_power",
+ "finite": [
+  {
+   "joint_weight_distribution": {
+    "0/0": 1,
+    "2/3": 6,
+    "3/3": 4,
+    "3/4": 12,
+    "4/4": 3,
+    "4/5": 6
+   },
+   "messages": 32,
+   "minimum_four_block_messages": 6,
+   "q": 2,
+   "radius_one": {
+    "4": {
+     "ambient_words": 256,
+     "list_histogram": {
+      "0": 32,
+      "1": 32,
+      "2": 192
+     }
+    },
+    "5": {
+     "ambient_words": 1024,
+     "list_histogram": {
+      "0": 512,
+      "1": 512
+     }
+    }
+   },
+   "triangle_decodings_compared_to_direct_lists": 256
+  },
+  {
+   "joint_weight_distribution": {
+    "0/0": 1,
+    "2/3": 12,
+    "3/3": 8,
+    "3/4": 72,
+    "4/4": 18,
+    "4/5": 132
+   },
+   "messages": 243,
+   "minimum_four_block_messages": 12,
+   "q": 3,
+   "radius_one": {
+    "4": {
+     "ambient_words": 6561,
+     "list_histogram": {
+      "0": 1458,
+      "1": 2187,
+      "2": 2916
+     }
+    },
+    "5": {
+     "ambient_words": 59049,
+     "list_histogram": {
+      "0": 49086,
+      "1": 9963
+     }
+    }
+   },
+   "triangle_decodings_compared_to_direct_lists": 6561
+  }
+ ],
+ "integral_S4_relabelings_verified": 24,
+ "integral_minimal_witnesses": {
+  "AB": {
+   "ambiguous_received": [
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "valid_word": [
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     0
+    ]
+   ]
+  },
+  "AC": {
+   "ambiguous_received": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "valid_word": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  "AD": {
+   "ambiguous_received": [
+    [
+     -1,
+     -1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "valid_word": [
+    [
+     -1,
+     -1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     -1,
+     -1
+    ]
+   ]
+  },
+  "BC": {
+   "ambiguous_received": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "valid_word": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     -1,
+     -1
+    ]
+   ]
+  },
+  "BD": {
+   "ambiguous_received": [
+    [
+     0,
+     0
+    ],
+    [
+     -1,
+     -1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "valid_word": [
+    [
+     0,
+     0
+    ],
+    [
+     -1,
+     -1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  "CD": {
+   "ambiguous_received": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     -1,
+     -1
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "valid_word": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     -1,
+     -1
+    ],
+    [
+     -1,
+     -1
+    ],
+    [
+     1,
+     0
+    ]
+   ]
+  }
+ },
+ "kernel_sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26",
+ "opposite_pair_indices_zero_based": [
+  [
+   0,
+   5
+  ],
+  [
+   1,
+   4
+  ],
+  [
+   2,
+   3
+  ]
+ ],
+ "receipt": {
+  "complete_branch_ledger_sha256": "8dcccbc26896c3c7347d9d03332f7c4a596dc4d4b7737772b78876b428caeb7a",
+  "max_graph_vertices": 9,
+  "max_positive_branches": 6,
+  "positive_path_depth": 2,
+  "requests": 78076,
+  "signed_endpoints_example": [
+   [
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      2,
+      -1,
+      0
+     ]
+    ],
+    0,
+    0
+   ],
+   [
+    [
+     [
+      1,
+      1,
+      0
+     ],
+     [
+      2,
+      -1,
+      0
+     ]
+    ],
+    0,
+    0
+   ],
+   [
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     [
+      4,
+      -1,
+      0
+     ]
+    ],
+    0,
+    0
+   ]
+  ],
+  "typed_unique_kernel_calls": 552
+ },
+ "sum_scalar_q_le_20": {
+  "2": [
+   1
+  ],
+  "3": [
+   1,
+   2
+  ],
+  "6": [
+   1,
+   5
+  ]
+ }
+}

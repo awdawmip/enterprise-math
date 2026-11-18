@@ -1,0 +1,29 @@
+{
+  "task": "RH-ROAD-KERNEL-20260909",
+  "scope": "Finite rational frequency families, complete integer horizons, fixed start N=1. Independent research on the prepublished continuation.",
+  "definitions": {
+    "inner_product": "sum_{N>=1} f(N) conj(g(N))/N^2",
+    "original_nonzero_angle": "h_t(N)=sum_{n=1}^N exp(i n t)",
+    "normalized_nonzero_angle": "V_t(N)=1-exp(i N t), h_t=C_t V_t, C_t=exp(it)/(1-exp(it))",
+    "constant_channel": "N -> 1. Assign the shared constant exactly once when combining fields.",
+    "zero_angle": "h_0(N)=N has divergent infinite squared norm. V_0=V_{2pi}=0 in the interpolation model."
+  },
+  "exact": {
+    "finite": "sum_{N=1}^M h_t(N) conj(h_s(N))/N^2",
+    "infinite_nonzero": "C_t conj(C_s) [pi min(t,s)-ts/2 + i(Cl2(s)-Cl2(t)+Cl2(t-s))] for 0<t,s<2pi",
+    "real_bridge_residual": "pi(min(x,y)-u)(v-max(x,y))/(v-u) inside the same retained cell [u,v], zero across cells",
+    "phase_witness": "The squared norms of V_(pi/2)+i V_pi and V_(pi/2)-i V_pi differ in absolute value by 8 Catalan."
+  },
+  "bounds": {
+    "mesh": "For complex amplitudes, residual squared norm <= twice the real bridge residual Gram form. For real normalized amplitudes equality holds with factor one.",
+    "tail": "For distinct rational frequencies in turns with spacing delta and a merged coefficient vector b, absolute error from s_M sum |b|^2 is <= 3 sum |b|^2/(delta (M+1)^2); a singleton gives zero error.",
+    "coherent_tail": "For |t|<=pi, |sum_{n>M} exp(i n t)/n^2 - Psi(Mt)/M| <= pi/M^2, Psi(v)=integral_{1}^infinity exp(i v x)/x^2 dx.",
+    "future_port": "Use Cauchy-Schwarz with the residual norm for all future bounded linear tests. For the frequency tail matrix use the operator norm bound in road.md.",
+    "arithmetic_pair": "For fixed squarefree m and primes p<q coprime to m, distance squared of complete A_mp and A_mq blocks is phi(m)*(q-p)*log^+(p/(q-p))+O_m(q-p)."
+  },
+  "provenance_and_limits": {
+    "baseline": "The dilogarithm formula, diagonal, previous cutoff and fixed-Q tail are already in the wave-15 anchored coherence note.",
+    "observer": "T8 spectrum, T6 operation-safe quotient and the pre-existing spectral tail coupling interface, applied to complex phases.",
+    "unresolved": "A uniform RH-scale estimate after summing the entire arithmetic frequency family as road thickness tends to zero."
+  }
+}
