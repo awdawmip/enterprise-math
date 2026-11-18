@@ -1,0 +1,341 @@
+{
+  "schema": "EC49FTF_NATIVE_BRC_LOWER_SATURATION_FAN_CERT_V1",
+  "date": "2026-11-19",
+  "status": "AUTHOR_PROVED_NOT_REVIEWED",
+  "source_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_sha256": {
+    "frozen_original_master.txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE.csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "observation_model": {
+    "configurations": 310,
+    "named_profiles": 141,
+    "physical_original_index_observations": 228
+  },
+  "domain": {
+    "a": [
+      "3/4",
+      "4/5"
+    ],
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "13/16",
+      "1709/2080"
+    ]
+  },
+  "cost_format": "U - (q32 usage)*a - (q34 usage)*b - (q140 usage)*z in D; swap q32 and q34 discount placements in S",
+  "D_planes": {
+    "Dmid": [
+      329,
+      36,
+      68,
+      141
+    ],
+    "Dhi": [
+      333,
+      40,
+      70,
+      141
+    ]
+  },
+  "S_planes": {
+    "Smain": [
+      333,
+      105,
+      9,
+      141
+    ],
+    "T115": [
+      340,
+      141,
+      8,
+      115
+    ]
+  },
+  "original_index_witnesses": {
+    "Dmid": [
+      329,
+      36,
+      68,
+      141
+    ],
+    "Dhi": [
+      333,
+      40,
+      70,
+      141
+    ],
+    "Smain": [
+      333,
+      9,
+      105,
+      141
+    ],
+    "T115": [
+      340,
+      8,
+      141,
+      115
+    ]
+  },
+  "switches": [
+    "D: 2*a+b=2",
+    "S: 36*a=7+b+26*z"
+  ],
+  "cell_vertices": {
+    "Dmid": 8,
+    "Dhi": 8,
+    "Smain": 9,
+    "T115": 6
+  },
+  "unique_anchors": {
+    "D": 12,
+    "S": 11,
+    "total": 23
+  },
+  "bellman_anchors": [
+    {
+      "orientation": "D",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "13/16",
+      "optimum": "2523/16",
+      "bellman_states": 7906
+    },
+    {
+      "orientation": "D",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "1709/2080",
+      "optimum": "325311/2080",
+      "bellman_states": 7898
+    },
+    {
+      "orientation": "D",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "13/16",
+      "optimum": "5029/32",
+      "bellman_states": 7899
+    },
+    {
+      "orientation": "D",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "1709/2080",
+      "optimum": "162103/1040",
+      "bellman_states": 7881
+    },
+    {
+      "orientation": "D",
+      "a": "199/256",
+      "b": "57/128",
+      "z": "13/16",
+      "optimum": "9995/64",
+      "bellman_states": 7817
+    },
+    {
+      "orientation": "D",
+      "a": "199/256",
+      "b": "57/128",
+      "z": "1709/2080",
+      "optimum": "644317/4160",
+      "bellman_states": 7802
+    },
+    {
+      "orientation": "D",
+      "a": "25/32",
+      "b": "7/16",
+      "z": "13/16",
+      "optimum": "2505/16",
+      "bellman_states": 7825
+    },
+    {
+      "orientation": "D",
+      "a": "25/32",
+      "b": "7/16",
+      "z": "1709/2080",
+      "optimum": "322971/2080",
+      "bellman_states": 7801
+    },
+    {
+      "orientation": "D",
+      "a": "4/5",
+      "b": "7/16",
+      "z": "13/16",
+      "optimum": "2493/16",
+      "bellman_states": 7753
+    },
+    {
+      "orientation": "D",
+      "a": "4/5",
+      "b": "7/16",
+      "z": "1709/2080",
+      "optimum": "321411/2080",
+      "bellman_states": 7742
+    },
+    {
+      "orientation": "D",
+      "a": "4/5",
+      "b": "57/128",
+      "z": "13/16",
+      "optimum": "9937/64",
+      "bellman_states": 7743
+    },
+    {
+      "orientation": "D",
+      "a": "4/5",
+      "b": "57/128",
+      "z": "1709/2080",
+      "optimum": "640547/4160",
+      "bellman_states": 7732
+    },
+    {
+      "orientation": "S",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "13/16",
+      "optimum": "543/4",
+      "bellman_states": 6840
+    },
+    {
+      "orientation": "S",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "1709/2080",
+      "optimum": "279681/2080",
+      "bellman_states": 6813
+    },
+    {
+      "orientation": "S",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "13/16",
+      "optimum": "17367/128",
+      "bellman_states": 6822
+    },
+    {
+      "orientation": "S",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "1709/2080",
+      "optimum": "1118139/8320",
+      "bellman_states": 6813
+    },
+    {
+      "orientation": "S",
+      "a": "457/576",
+      "b": "7/16",
+      "z": "13/16",
+      "optimum": "25189/192",
+      "bellman_states": 6763
+    },
+    {
+      "orientation": "S",
+      "a": "1219/1536",
+      "b": "57/128",
+      "z": "13/16",
+      "optimum": "67123/512",
+      "bellman_states": 6763
+    },
+    {
+      "orientation": "S",
+      "a": "4/5",
+      "b": "7/16",
+      "z": "13/16",
+      "optimum": "10421/80",
+      "bellman_states": 6749
+    },
+    {
+      "orientation": "S",
+      "a": "4/5",
+      "b": "7/16",
+      "z": "1709/2080",
+      "optimum": "268761/2080",
+      "bellman_states": 6717
+    },
+    {
+      "orientation": "S",
+      "a": "4/5",
+      "b": "57/128",
+      "z": "13/16",
+      "optimum": "651/5",
+      "bellman_states": 6749
+    },
+    {
+      "orientation": "S",
+      "a": "4/5",
+      "b": "57/128",
+      "z": "13667/16640",
+      "optimum": "2149623/16640",
+      "bellman_states": 6717
+    },
+    {
+      "orientation": "S",
+      "a": "4/5",
+      "b": "57/128",
+      "z": "1709/2080",
+      "optimum": "1074459/8320",
+      "bellman_states": 6717
+    }
+  ],
+  "independent_checks": [
+    {
+      "orientation": "S",
+      "a": "4/5",
+      "b": "7/16",
+      "z": "13/16",
+      "value": "10421/80",
+      "implementation": "independent original raw 94-family reconstruction + separate unrestricted Bellman"
+    },
+    {
+      "orientation": "S",
+      "a": "457/576",
+      "b": "7/16",
+      "z": "13/16",
+      "value": "25189/192",
+      "implementation": "independent original raw 94-family reconstruction + separate unrestricted Bellman"
+    }
+  ],
+  "joint_gap_cells": [
+    {
+      "D": "Dmid",
+      "S": "Smain",
+      "vertices": 8,
+      "gap": "-4+69*a-59*b"
+    },
+    {
+      "D": "Dhi",
+      "S": "Smain",
+      "vertices": 9,
+      "gap": "65*a-61*b"
+    },
+    {
+      "D": "Dhi",
+      "S": "T115",
+      "vertices": 6,
+      "gap": "-7+101*a-62*b-26*z"
+    }
+  ],
+  "empty_cell": "Dmid/T115",
+  "gap_min": {
+    "value": "2749/128",
+    "a": "3/4",
+    "b": "57/128",
+    "z": "all in interval"
+  },
+  "gap_max": {
+    "value": "511/20",
+    "a": "4/5",
+    "b": "7/16",
+    "z": "13/16"
+  },
+  "proof": "unrestricted 228-observer exact Bellman at every vertex; concavity of pointwise infimum of feasible-tree affine costs plus feasible witness bounds; exact joint polytope vertex extrema",
+  "parent_pr": "https://github.com/awdawmip/enterprise-math/pull/2762",
+  "evidence_archive": "EC49FTF_NATIVE_BRC_LOWER_SATURATION_FAN_COMPLETE_EVIDENCE_20261119.tar.xz",
+  "evidence_archive_sha256": "ce89d517b36f2b93606df4732ebbd30e5f7b0207ce0db4f4bfe0bf0d3b946eed",
+  "control": "independent portable research; not a canonical CLAIM/Result/Review"
+}
