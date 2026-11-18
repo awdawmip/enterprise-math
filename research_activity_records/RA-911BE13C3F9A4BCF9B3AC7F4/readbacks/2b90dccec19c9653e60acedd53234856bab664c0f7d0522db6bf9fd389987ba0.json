@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/fourth/README.md",
+    "ref": "82555c4e618ab18f47c1ee6ad5226d7475e2a7e8",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-four-20261118-0",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 八项积压研究与一条新的幂剩余分支\n\n2026 年 11 月 18 日。按项目状态机回放 1,595 条评论中的 1,423 个事件。本组选取一项 P1、七项 P2，八项都处于就绪待派、尚无受理领取的状态。本组发布独立数学结果和复算材料。两份合数道路任务共用算术推导，各自的前置任务和验收条件列在队列记录中。另一次在线派发查询返回错误，选题依据为事件回放。[八项冻结任务与状态来源](queue.json) · [此前各组](../README.md)\n\n## 两种求和的精确差，以及从中分出的新问题\n\n对锐截止 $X$，全体 primary 艾森斯坦素元的归一化三次 Gauss 和，与有理素数上的 Kummer 和 $\\sum_{p\\le X}S_p/\\sqrt p$，**恰差**惰性素数计数 $\\#\\{q\\le\\sqrt X:q\\equiv2\\pmod3,\\ q\\text{ 为素数}\\}$。每个惰性素元的贡献均为 $+1$。另给出加性倍频、平滑权和随 $X$ 变化的立方倍频公式。计算各素元时保留了共轭代表与加性系数。[原任务的推导及边界](gauss.md) · [精确复算](gauss_check.py)\n\n把素模换为任意模数 $q$，单独考察倍频能恢复多少信息。对任意整数 $d\\ge1$，当 $a$ 遍历单位群 $U$、$h$ 遍历全部剩余类时，观测矩阵 $\\big(\\sum_x e_q(ahx^d)\\big)_{a,h}$ 的秩恰为 $[U:U^d]$。三次幂只许单位倍频时有另一条秩公式。例如模 14 的秩由 3 降至 0，模 819 则由 27 降至 12。这一分叉保留原题的加性特征，同时把跨素数的一阶平均换成固定模数的相关核。[局部乘积、模 9 例外与一般秩定理](kummer_kernel.md) · [直接纤维计数](kummer_kernel_check.py)\n\n## 两份合数道路任务合用同一条移动窗口估计\n\n对固定 $0<\\delta<\\eta<2$，取整数环带 $[a^{-\\delta},a^{-\\eta})$，以 $W_a$ 表示笔记定义的中点能量。在 RH 成立的情形，$W_a/(a^2\\log(1/a))$ 趋于 $(\\eta-\\delta)\\sum_{\\rho}m_\\rho^2/|\\rho|^2$，其中按不同非平凡零点求和；若 RH 为假，这个比值趋于无穷大。无条件还得到增长前缀的 $o(a)$ 上界及全尾的正下界；全尾的无条件 $O(a)$ 上界仍开放。第二份任务需保留原始 Green 能量的连续背景交叉项，正文给出三组有理区间和各误差来源。[证明、条件和文献](road.md) · [界的记录](road_bound_ledger.json) · [有理外包复算](road_check.py)\n\n## 其余五项的公式与证书\n\n| 方向 | 推进的数学问题 |\n|---|---|\n| 有限域上的 Prym 曲面 | 在原曲线 $C_{46}\\times C_{46}$ 上，显式组合 Frobenius 与自同构的图像，在 $\\mathbf F_{49}$ 上实现两个互补的有理秩一投影。两个曲面像均与指定的 $J(C_7)$ 同源，七次 Frobenius 交换它们，自然极化下它们不正交。在指定的图像组合中，产生秩一像所需的最大 Frobenius 指数最小恰为 4。到指定曲线 $C_7$ 的低双次数对应仍开放。[对应、范数方程与界](honda.md) · [精确代数及点数](honda_check.py) |\n| 首达观察与精度 | 在冻结模型中，普遍作用证书在 $R=k+2$ 首次失效，原初态的首达分布在 $R=k+3$ 才改变。对所有 $R\\ge k+3$，最早有差别的时刻恰为 $t=R+2k+2$，当拍新增命中质量为 $(R-k-2)/(2\\cdot4^t)$。[原模型与可达状态](heartbeat.md) · [504 行转移与 174 组首达复核](heartbeat_checked.json) |\n| 费马数终点前筛选 | 对两个中心平方余数，若去掉符号和二幂后奇部相同、校正指数却不同，就能提前证明候选与费马数互素。留出集 5,632 个候选中排除 43 个，较两种旧判据联合多排除 21 个。在线节省 49 次模平方；逐份独立验算证书需另计 174 次模平方。[判据、反例与成本](fermat_residual.md) · [独立验算](fermat_residual_certificate.py) |\n| 高斯整数的周期避障图 | 在 $\\gcd(x^2+y^2,65)=1$ 的格点上，临界步长恰为 $\\sqrt 2$。单位步时分量至多有 580 个顶点且可达；允许对角步后整个无限图连通。证据是有限商上的整数势和生成两个方向的实际绕行。研究对象是去掉 5、13 两种素障碍后的格点。[周期提升与步长定理](periodic.md) · [生成树证书](periodic_tree.txt) |\n| 两极点路径系统的消失阶 | 在三状态严格上三角模型中，对任意特征零域 $F$ 和 $ab(a-b)\\ne0$，非零输出的最高消失阶为 5 当且仅当 $a^2-ab+b^2$ 在 $F$ 中有平方根，其余为 4。原极点 $-1,-2$ 从 $\\mathbf Q$ 扩到 $\\mathbf Q(\\sqrt3)$ 恰多一阶，而使用所有列的截断矩阵在两种情形下都以维数 5 为最小。[系数域条件及见证](multiplicity.md) · [精确复算](multiplicity_check.py) |\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/82555c4e618ab18f47c1ee6ad5226d7475e2a7e8/research_notes/portable_direct/20261118_fair_queue_6b0fba/fourth/README.md",
+      "encoding": "utf-8",
+      "sha": "09ade643a8e9126b8c747392c76ef3aeebf95afb"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
