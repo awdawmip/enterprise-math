@@ -1,0 +1,282 @@
+{
+  "schema": "ENTERPRISE_MATH_EC49FSY_NATIVE_LOWER_PRICE_FAN_V1",
+  "date": "2026-11-18",
+  "author_status": "AUTHOR_PROVED;NOT_REVIEWED",
+  "frozen_input_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "prior_pr": 2738,
+  "prior_commit": "8437314e1d7bf0061b21734ffadc66d349092077",
+  "source_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "named_profiles": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "model": {
+    "configurations": 310,
+    "profiles": 141,
+    "physical_named_observations": 228,
+    "prior": "UNIFORM",
+    "tree": "COMPLETE_STRICT_SPLITTING"
+  },
+  "box": {
+    "a": [
+      "1/2",
+      "2/3"
+    ],
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "21/32",
+      "1"
+    ]
+  },
+  "three_plane_lower_slab": {
+    "z": [
+      "21/32",
+      "1531/2304"
+    ]
+  },
+  "direct": "319-18*a-75*b-141*z",
+  "swapped": "min(323-89*a-12*b-141*z,325-94*a-9*b-141*z,324-141*a-8*b-93*z)",
+  "policy_physical_vectors": {
+    "D": [
+      319,
+      18,
+      75,
+      141
+    ],
+    "C": [
+      323,
+      12,
+      89,
+      141
+    ],
+    "T": [
+      325,
+      9,
+      94,
+      141
+    ],
+    "N": [
+      324,
+      8,
+      141,
+      93
+    ]
+  },
+  "lower_slab_swapped_22_exact_bellman_vertices": [
+    [
+      "1/2",
+      "7/16",
+      "21/32",
+      "5783/32"
+    ],
+    [
+      "1/2",
+      "7/16",
+      "1531/2304",
+      "137899/768"
+    ],
+    [
+      "1/2",
+      "57/128",
+      "21/32",
+      "1445/8"
+    ],
+    [
+      "1/2",
+      "57/128",
+      "1531/2304",
+      "137827/768"
+    ],
+    [
+      "495/752",
+      "7/16",
+      "21/32",
+      "250619/1504"
+    ],
+    [
+      "3961/6016",
+      "57/128",
+      "21/32",
+      "1001823/6016"
+    ],
+    [
+      "137/208",
+      "7/16",
+      "21/32",
+      "69305/416"
+    ],
+    [
+      "1097/1664",
+      "57/128",
+      "21/32",
+      "276975/1664"
+    ],
+    [
+      "53/80",
+      "7/16",
+      "21/32",
+      "26569/160"
+    ],
+    [
+      "53/80",
+      "7/16",
+      "317/480",
+      "26507/160"
+    ],
+    [
+      "53/80",
+      "7/16",
+      "1531/2304",
+      "633959/3840"
+    ],
+    [
+      "1663/2496",
+      "7/16",
+      "1531/2304",
+      "548253/3328"
+    ],
+    [
+      "2/3",
+      "7/16",
+      "21/32",
+      "5295/32"
+    ],
+    [
+      "2/3",
+      "7/16",
+      "1531/2304",
+      "126491/768"
+    ],
+    [
+      "2/3",
+      "85/192",
+      "1531/2304",
+      "126455/768"
+    ],
+    [
+      "2/3",
+      "4/9",
+      "21/32",
+      "47639/288"
+    ],
+    [
+      "2/3",
+      "4/9",
+      "287/432",
+      "23711/144"
+    ],
+    [
+      "2/3",
+      "4/9",
+      "1531/2304",
+      "126443/768"
+    ],
+    [
+      "2/3",
+      "57/128",
+      "21/32",
+      "5293/32"
+    ],
+    [
+      "2/3",
+      "57/128",
+      "3061/4608",
+      "252917/1536"
+    ],
+    [
+      "2/3",
+      "57/128",
+      "12245/18432",
+      "337207/2048"
+    ],
+    [
+      "2/3",
+      "57/128",
+      "1531/2304",
+      "42145/256"
+    ]
+  ],
+  "lower_face_direct_4_exact_bellman_vertices": [
+    [
+      "1/2",
+      "7/16",
+      "21/32",
+      "5909/32"
+    ],
+    [
+      "1/2",
+      "57/128",
+      "21/32",
+      "23561/128"
+    ],
+    [
+      "2/3",
+      "7/16",
+      "21/32",
+      "5813/32"
+    ],
+    [
+      "2/3",
+      "57/128",
+      "21/32",
+      "23177/128"
+    ]
+  ],
+  "new_independent_raw_94family": [
+    [
+      "53/80",
+      "7/16",
+      "317/480",
+      "26507/160"
+    ],
+    [
+      "2/3",
+      "57/128",
+      "3061/4608",
+      "252917/1536"
+    ]
+  ],
+  "gap_sharp_bounds": [
+    "441/128",
+    "259/16"
+  ],
+  "gap_min_witness": [
+    "1/2",
+    "57/128",
+    "21/32"
+  ],
+  "gap_max_witness": [
+    "2/3",
+    "7/16",
+    "21/32"
+  ],
+  "lower_z_5_8_counterexample": {
+    "direct_2_3_7_16": [
+      "2977/16",
+      "2951/16",
+      "13/8",
+      "[316,141,43,30]"
+    ],
+    "swapped_2_3_57_128": [
+      "2693/16",
+      "5385/32",
+      "1/32",
+      "[322,12,141,87]"
+    ]
+  },
+  "full_archive": {
+    "filename": "EC49FSY_NATIVE_BRC_THREE_PRICE_LOWER_FAN_COMPLETE_EVIDENCE_20261118.tar.xz",
+    "sha256": "1fb630a87854623a436cc4484df4183dee4ed937a339d52c15ed13000d66d0e6",
+    "repository_publication": false
+  },
+  "tree_raw_sha256": {
+    "D": "f6854068c15fc02323cf7584f2e39a81b720f7ca02cfc20a434f6a6d38652899",
+    "C": "6f782b161be4e1585b942215fd0b7577ed5d25fc929328c75c478fe53af000e3",
+    "T": "7a9e008c522ab3e3688ab65f402984d13691921a819f9a565b409c832fe03e0e",
+    "N": "f128f56983098af96599b5b5f08c68a002c055d1f17acde24a0a114a265e6f50"
+  },
+  "actual_checks": "Native original 228-query exact Bellman in two batches at all 22 swapped vertices, four lower direct corners; independent original 94-family decode at 2 new vertices; five predecessor native tree replays over 141 paths; exact polyhedral arithmetic",
+  "next": "Determine the sharp lower-z boundary and fan for z<21/32; the three-plane policy is suboptimal at some z=5/8 inputs."
+}
