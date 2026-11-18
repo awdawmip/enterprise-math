@@ -77,14 +77,16 @@
         ]
       ]
     },
-    "execution": "Python source-line-faithful standalone checker ordinary/-O/-OO exit 0, identical JSON stdout SHA256 fb1c14f4752be309b43ff3a93c97efbb4b3c571f7acc31cea7013b2dceec40c8, 43740 legal pair tests, 120 old helper correct, 43620 incorrect, zero iff errors; all 480 actually sourced triad caller pair inputs correct.",
-    "scope_limit": "Full original 172-line module was not imported in execution; native BRC formulas faithfully mirrored exact pinned source. Original R063 512-case benchmark not rerun. This finds a missing declared helper typing/translation covariance for generalized downstream uses, not an erroneous current 480-pair caller."
+    "execution": "CPython normal/-O/-OO exit0 and identical SHA256 fb1c14f4752be309b43ff3a93c97efbb4b3c571f7acc31cea7013b2dceec40c8. The corrected verifier runs actual q_triad/act start-to-target source caller pair mapping (160 signed triad types * 3 == 480); all correct. Finite legal pair census 43740, 120 correct and 43620 off-domain wrong; zero iff errors. Initial checker tested 480 different anchored start/start pairs, with same valid result, then explicit CAS correction verified actual source caller pairs.",
+    "scope_limit": "Full original 172-line module was not imported in execution; native BRC formulas faithfully mirrored exact pinned source. Original R063 512-case benchmark not rerun. This finds a missing declared helper typing/translation covariance for generalized downstream uses, not an erroneous current 480-pair caller. Corrected GitHub checker source at main and immutable commit dfa616... exercises actual start-to-q-transport target pairs; previous version remains a preserved valid but narrower sample."
   },
   "immutable_artifacts": [
     {
       "path": "research_checks/X6_UNIT126_TRANSLATED_TRIAD_MIDPOINT_CHECK_20261118.py",
-      "source_commit": "9042d73f6f2a75ca5485af1b4b5ec5530f6f929c",
-      "git_blob_sha1": "db54f60c7355185cca511f822217af1a92108df9"
+      "source_commit": "dfa616818ec2147592a662f2d198ddbb1bd0b964",
+      "git_blob_sha1": "48245f44ad9bc69e90a284f2eeaf4410d6eb8d7e",
+      "previous_source_commit": "9042d73f6f2a75ca5485af1b4b5ec5530f6f929c",
+      "previous_git_blob_sha1": "db54f60c7355185cca511f822217af1a92108df9"
     },
     {
       "path": "research_checks/X6_UNIT126_TRANSLATED_TRIAD_MIDPOINT_RESULTS_20261118.json",
@@ -93,16 +95,19 @@
     },
     {
       "path": "research_notes/X6_UNIT126_TRIADIC_ATOMIC_MIDPOINT_TRANSLATION_TYPING_20261118.md",
-      "source_commit": "e00c7d7732f8b1ddac34f3ea600c2b296f16bf43",
-      "git_blob_sha1": "71b77836099844fa4b6e7f962de0dc2ebdd2c80e"
+      "source_commit": "ceb23f85383640d3ffb841cb979e492deb30d2c4",
+      "git_blob_sha1": "cb549042470ce964816b71a75b4af216bb85412e",
+      "previous_source_commit": "e00c7d7732f8b1ddac34f3ea600c2b296f16bf43",
+      "previous_git_blob_sha1": "71b77836099844fa4b6e7f962de0dc2ebdd2c80e"
     }
   ],
   "activity": {
     "id": "RA-5E3FE1E761E4963EC461A892",
-    "entries": 139,
+    "entries": 140,
     "event_id": "onhour-20261118-1604-x6-unit126-native-triad-midpoint-typed-v1",
-    "source_commit": "c013c30ebdf2161be24a61cec30ca049e094583f",
-    "verified_git_blob_sha1": "7776edecb979a008eca16db277e8907e29288995"
+    "source_commit": "df3c8d41bede1f4929e274c625b7a69bd1bc260e",
+    "verified_git_blob_sha1": "608f5665a401f68fbed57fd0a24193e16be2fb4b",
+    "corrective_event_id": "onhour-20261118-162x-x6-unit126-actual-q-transport-replay-correction-v1"
   },
   "own_control": {
     "researcher_id": "EM-X6-FB6990",
@@ -116,7 +121,7 @@
     "current_exact_continuation_terminal": "SUCCEEDED / OWN_RECORDED_RUN_AVAILABLE, as-of read only",
     "own_same_run_resume_request_id": "onhour-20261118-1618-x6-own-run9586-unit126-resume-v1",
     "own_same_run_resume_last_observed": "QUEUED / error=null, original ID must be reread; no duplicate resume",
-    "native_semantic_progress_unit126": "NOT_SUBMITTED; requires successful original own run resume and current writer CAS"
+    "native_semantic_progress_unit126": "NOT SUBMITTED as of corrected Activity #140; original own-run resume request still RUNNING, no duplicate."
   },
   "gaps": [
     "Unit126 source-backed author proof and Activity saved; complete Native semantic checkpoint when original same-run fresh resume reaches success, without duplicating earlier PROGRESS.",
@@ -129,7 +134,7 @@
     "Unit126 finite test unless changed exact hypotheses, original unverified/refused request mutations",
     "Any maintenance logical conversation, maintenance researcher or other active owner/CLAIM."
   ],
-  "next_exact_action": "Reconcile original onhour-20261118-1618-x6-own-run9586-unit126-resume-v1, then own-run checkpoint/Native semantic PROGRESS only on a successful current authorization; source-line audit a different real downstream helper/consumer in frozen/current input, with typed inputs and expected native operations. Retain Unit126 current correct anchored caller while restricting general-use signature. Independent Driver reviews R063 without rerun.",
+  "next_exact_action": "Reconcile original own-run resume onhour-20261118-1618-x6-own-run9586-unit126-resume-v1, submit own-run native semantic progress only after fresh success; continue source:line 28-LP actual consumer dependency audit and historical LP011/LP019 provenance, preserve source-typed repaired Unit126 theorem. Driver retains independent R063 benchmark review.",
   "continuation_state": "OPEN",
   "review_status": "AUTHOR_UNREVIEWED_NOT_ADMITTED",
   "notifications_and_schedule": "unchanged",
