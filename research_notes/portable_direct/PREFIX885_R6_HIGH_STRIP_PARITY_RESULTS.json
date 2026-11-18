@@ -1,0 +1,114 @@
+{
+  "schema": "PREFIX885_R6_HIGH_STRIP_EXHAUSTIVE_V1",
+  "p": 32,
+  "q_domain": "odd q in [523001,524287]",
+  "ordered_pairs": 414736,
+  "parity_by_gcd_class": {
+    "noncoprime_high_g": {
+      "total": 2658,
+      "even": 636,
+      "odd": 2022
+    },
+    "coprime": {
+      "total": 336462,
+      "even": 276804,
+      "odd": 59658
+    },
+    "noncoprime_low_g": {
+      "total": 75616,
+      "even": 75616
+    }
+  },
+  "central_multiplicity_distribution": {
+    "0": 341316,
+    "2": 60792,
+    "4": 11330,
+    "6": 562,
+    "8": 86,
+    "10": 6,
+    "8192": 32,
+    "8194": 64,
+    "8196": 64,
+    "8198": 64,
+    "8200": 64,
+    "8202": 64,
+    "8204": 63,
+    "8206": 64,
+    "8208": 64,
+    "8210": 64,
+    "8212": 37
+  },
+  "odd_parity_examples": [
+    {
+      "q1": 523001,
+      "q2": 523005,
+      "gcd": 1,
+      "c_star": 2,
+      "collision_parity": 1
+    },
+    {
+      "q1": 523001,
+      "q2": 523007,
+      "gcd": 1,
+      "c_star": 2,
+      "collision_parity": 1
+    },
+    {
+      "q1": 523001,
+      "q2": 523019,
+      "gcd": 1,
+      "c_star": 2,
+      "collision_parity": 1
+    },
+    {
+      "q1": 523001,
+      "q2": 523025,
+      "gcd": 1,
+      "c_star": 2,
+      "collision_parity": 1
+    },
+    {
+      "q1": 523001,
+      "q2": 523027,
+      "gcd": 1,
+      "c_star": 2,
+      "collision_parity": 1
+    },
+    {
+      "q1": 523001,
+      "q2": 523037,
+      "gcd": 1,
+      "c_star": 2,
+      "collision_parity": 1
+    },
+    {
+      "q1": 523001,
+      "q2": 523045,
+      "gcd": 1,
+      "c_star": 2,
+      "collision_parity": 1
+    },
+    {
+      "q1": 523001,
+      "q2": 523067,
+      "gcd": 1,
+      "c_star": 2,
+      "collision_parity": 1
+    },
+    {
+      "q1": 523001,
+      "q2": 523073,
+      "gcd": 1,
+      "c_star": 2,
+      "collision_parity": 1
+    },
+    {
+      "q1": 523001,
+      "q2": 523097,
+      "gcd": 1,
+      "c_star": 2,
+      "collision_parity": 1
+    }
+  ],
+  "notes": "Exact arithmetic; upper triangle weighted by 2 off diagonal. This scan classifies parity, not collision existence."
+}
