@@ -1,0 +1,64 @@
+# R5 — exact two-budget / three-probe certificate for all interior-only nine-state distinctions
+
+**Research date:** 2026-11-19. **Status:** AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED. **Original researcher provenance:** EM-DIRECT-4C3E47, Activity RA-F2257922D00B2FE4C4818DBD. **Scope:** frozen scalar-observer R5 game, not native X6 state identity. No CLAIM, RUN, Result, or independent review is asserted.
+
+## Frozen inputs and previous frontier
+
+Use frozen science commit `435e77af0d180eac32bd1f9c4c464bc4010b7551`, exact integer table `EXACT_R5_ALL_101_BUDGETS.json` (1,549,048 bytes, SHA-256 `50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b`). Its 101 query budgets are k=214,...,314. A nine-state instance has ordered slots `(18,24,82,34,17,x,144,208,y)`, where x<y lie outside H={18,24,82,34,17,144,208}. There are exactly 30,876 such instances.
+
+Noise diameter lies in `[L,U)` with L=25845652773852463277015040000, U=58182461585441404127941754880. The exact 17 internal change thresholds plus L are defined and computed by [the preceding exhaustive R5 census](https://github.com/awdawmip/enterprise-math/tree/a661f387ef8819ef95a7121d4e73e6b677f64ee5/research_notes/portable_direct/r5_full18_chamber_cross_quotient_20261119). The predecessor enumerates 2,563 joint-endpoint classes and 2,711 full-interval classes, with 620 pairs of *pair-instances* that agree at both endpoints but differ internally. **These are pairs of instances, not pairs of the nine named hypotheses.**
+
+For each instance T, budget k and diameter tau, let S(T,k,tau) be its ordered-slot maximal-support family. Call two instances `endpoint-equivalent` when they have identical S for all 101 budgets at L and at U-1. Equality throughout [L,U) is `whole-chamber equivalence`.
+
+## New finite theorem
+
+For **every pair of endpoint-equivalent nine-state instances** A,B in the defined 30,876-instance population, the following are equivalent:
+
+1. S(A,k,tau)=S(B,k,tau) for every real tau in [L,U) and every k in {214,...,314}.
+2. Their supports coincide at just **three fixed interior tests**:
+
+| Probe | Query budget k | Exact diameter tau | Stage index (L=0) |
+|---|---:|---:|---:|
+| P1 | 220 | 33469190642398873308364800000 | 2 |
+| P2 | 214 | 35645376700628923507015680000 | 4 |
+| P3 | 214 | 41430175083265765807226880000 | 8 |
+
+Moreover, the number **three is minimal** among any fixed budget/diameter observations of the 101 available budgets and the 18 exhaustive diameter stages. The set of budgets `{214,220}` is the **unique minimal budget set** that distinguishes all endpoint-equivalent but whole-chamber-inequivalent instances. Other 99 budgets do not distinguish any such pair at any stage.
+
+This is an exact relative observer-compression theorem: the input to this decision is **full endpoint signatures**, and the three tests are an additional distinguishing certificate. It does not claim that three tests replace the 101 physical queries in a minimax strategy or preserve future native BRC/X6 interactions.
+
+## Complete finite proof and numeric certificate
+
+All candidate subsets have at most nine named slots. At fixed (T,k,tau), a support is feasible iff the span of its exact integer centers is <=tau; its inclusion-maximal supports are precisely maximal closed windows rooted at an observed center. Change can occur only at a pairwise integer center distance. Across all 256 possible hypotheses and 101 budgets there are exactly 17 such distances strictly inside (L,U). Thus evaluating 18 stages completely characterizes every real tau in this interval.
+
+The complete reproducible C++ extension `R5_INTERIOR_DISTINGUISHING_BUDGETS.cpp` starts from the previously published 18-stage enumerator and uses its byte-exact onset table; it maintains original nine-slot identity and indexed query actions. It first intersects all 18 full support signatures to obtain 2,711 whole-chamber classes. For each of the 2,563 endpoint classes, it examines every unordered pair of its members belonging to different whole-chamber daughters: **exactly 620 pairs**, exhaustively, with no sampling.
+
+For each of those 620 pairs it compares every budget k=214,...,314 at each of the 18 stages (1,127,160 pair/query/stage tests). There are exactly two disjoint witness-budget families:
+
+| Witness budget | Number of pair-instance distinctions | First split stage distribution |
+|---|---:|---|
+| 220 | 172 | stage 2: 172 |
+| 214 | 448 | stage 3: 112; stage 4: 224; stage 8: 112 |
+| all other 99 budgets | 0 | none |
+
+Consequently budget 214 is necessary (448 distinctions inaccessible at budget 220), budget 220 is necessary (172 distinctions inaccessible at budget 214), and no other budget helps.
+
+At budget 214, each of stages 4 and 8 distinguishes exactly 336 of the 448 pairs, and their union distinguishes all 448; their intersection has exactly 224. At budget 220, stage 2 distinguishes all 172. Hence P1,P2,P3 distinguish all 620 pairs, giving sufficiency.
+
+**Minimality:** No single fixed probe can distinguish more than 336 pairs at budget 214, 172 at budget 220, or zero at all other budgets; a pair of probes using both budgets distinguishes at most 336+172=508<620. Any two probes using only budget 214 cannot distinguish the 172 budget-220-only pairs; any two using only budget 220 cannot distinguish the 448 others. Thus at least three fixed probes are required. The constructed triple attains this bound. Endpoint-equivalent pairs in the *same* final class already agree at every stage by definition, completing the biconditional.
+
+**Independent crosscheck:** A separate exact-integer Python verifier computes maximal supports by sweeping doubled right endpoints of every closed correct-response interval, independently from the C++ onset-matrix/center-window implementation. For all 620 distinct cross-daughter pairs and all 101 budgets and 18 stages it evaluated **1,127,160 paired families** (=2,254,320 individual support families), recovering the same 448/172 separation and 172/112/224/112 first-stage counts. Report: `PASS_ALL_620_PAIRS_X_18_STAGES_X_101_BUDGETS`. The original 30,876-instance full census was also locally rerun from the byte-verified frozen input and reproduced 1,460 / 2,563 / 2,711 partitions.
+
+## Reproduction, evidence and scope
+
+1. Reuse predecessor `BUILD_18_CHAMBER_INPUT.py` with the exact frozen input. It generates `onset_18.bin` (6,619,136 bytes; SHA-256 `ca175a4655b045d6427b9171c80198e548a8bc27f939a3b5e8f78a1c7f6b12bf`) and `ranks_18.bin`. No floating-point numerical decisions.
+2. Compile `g++ -O3 -std=c++17 R5_INTERIOR_DISTINGUISHING_BUDGETS.cpp -o r5splits`; run `./r5splits . > splitting_budget_report.log`. The program emits the 620 exact pair-instance witnesses in `interior_distinguishing_budget_witnesses.csv`, the relevant distinct budgets and the unique 2-budget covering set. Independent Python checks those 620 witnesses against exact original counts and thresholds.
+3. Evidence SHA-256: `R5_INTERIOR_DISTINGUISHING_BUDGETS.cpp=3a50edca10bcde83055bd5e6aca78b3b6b2804f9839f03c1c9d15a8c6929d7e6`; `VERIFY_INTERIOR_ALL_BUDGETS_INDEPENDENT.py=1ceb9c115d954821372c63f1ee3c373f13b490ed05b9a8ff2654d3a230c36ca5`; `interior_distinguishing_budget_witnesses.csv=3d2706270c490433b7c6fab8a4b606b570e771c27e35aed37260969225bacc32`; `INDEPENDENT_ALL_BUDGETS_RESULT.json=2654ed2d545bde3bc274640254c3474492d7002bd524ce110647a9110be63cae`.
+
+The hypothesis-slot masks and scalar observations are exact **within this finite observer model**. Native BRC/X6 observer safety remains a separate typed proof obligation. The earlier nine-state C8 certificates and complete-state bound 8335<=C8*<=8343 remain unchanged.
+
+## Next scientific problem
+
+Use the two-budget interior residual fingerprint to stratify remaining unsolved U-1 nine-state classes, prioritizing classes with genuinely distinct k214/k220 support transitions. Test whether this reduces candidate selection cost or yields a nine-state lower-bound certificate C8>8335. Conversely, a complete 256-state adaptive strategy of cost at most 8342 remains a valid independent direction. Preserve all existing published C8 results, frozen input pins, and NOT_REVIEWED status.
+
+**Project publication scope:** research branch only until main integration; independent portable research; no formal CLAIM/RUN or Reviewer action.
