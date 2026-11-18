@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/fortyeighth/README.md",
+    "ref": "638887598197bc816fd1fdee2bd2f82549cc327c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-fortyeight-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第四十八轮　半素数平方壳的筛、联合读数的代价与隐藏方向\n\n## 多少个余数能通过费马平方筛\n\n对异奇素数的乘积 $N$，费马法在尝试一个整数 $x$ 时，要判断 $x^2-N$ 是否为平方。原研究用模数 $6720=64\\cdot3\\cdot5\\cdot7$ 预筛。对 $N\\le10^7$ 的全部 **1,555,366** 个这样的半素数逐一计数，留下的余类数中位为 192，即通过率 $1/35$。其中有 497,140 个 $N$ 含因子 3、5 或 7，这一层的中位数为 288；其余 1,058,226 个的中位数为 144。\n\n固定该筛，将普查上界 $X$ 放大，随机半素数的平均通过率趋于 $3/128$；一旦 $X$ 充分大，中位通过数恰为 144。两个试探位置相距 $h$ 时，联合通过数也有精确公式。对满足 $p\\nmid Nh(h^2-4N)$ 的奇素数 $p$，它由一条椭圆曲线在 $\\mathbb F_p$ 的点数和至多两个平方根处的修正决定。素数幂上有些频率因整层提升而消失。即使局部通过率相同，真实周期也能不同，例如在模 64 下 $N\\equiv1,5\\pmod8$ 都只留下八个余类，最小周期却分别为 32、16。[两点计数、频谱与退化情形](fermat.md) · [局部复算](fermat_check.py) · [局部结果](fermat_checked.json) · [普查程序](fermat_census_check.py) · [全量分层](fermat_census_checked.json)\n\n## 两种测量共用一批准备时，至少改写多少\n\n把原 CHSH 的四对设置与 Peres–Mermin 的六个情境组合，共有 24 对设置。规定同一批正权行预存两套读数，而目标取两份已知表的乘积。对原参数 $\\eta=3/4$，单看两份表，它们到可实现读数的最小最坏总变差分别为 $1/8$、$1/6$。要求每个组合的整份联合读数都与目标接近，最小最坏总变差提高到 $1/4$。正文给出下界和可达到它的整数行。这个联合目标是从原表定义的模型测试，尚无相应的联合实验数据。[同批确定行的锐界](capsule.md) · [复算](capsule_check.py) · [结果](capsule_checked.json)\n\n## 正走与倒走的六环，什么记录能够区分\n\n六环的五个冻结模型从均匀位置出发，或者每步重新均匀取轴，或者沿指定方向以给定概率迈一步、其余时间重新取轴。仅比较固定时刻的端点分布，正向与反向互换不变。若保留相邻两步的带标签轴次序，一个有向读数的概率已经区分五个模型。整条路径有 $T$ 次转移时，分别数出正走和反走了几次，可保留五种假设的所有似然比。这个统计量恰有 $(T+1)(T+2)/2$ 个不能再合并的取值。即便如此，只有四次转移且五种模型等先验时，最优判别仍有 $9361/51840$ 的误判概率。[方向识别与充分统计量](kernel.md) · [复算](kernel_check.py) · [整数结果](kernel_checked.json)\n\n本轮沿两项登记推进联合模型审计与六环隐藏核识别。平方壳文章沿用旧筛的公开模数，另列作数论分叉。截至 2026-11-18 22:35:32 UTC，累计直接研究 204 个登记编号、51 个父目标，另有早期两项旁引；积压中尚未轮到的严格就绪、待交接、冻结返回任务分别为 54、22、5 项。[截止状态与覆盖口径](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/638887598197bc816fd1fdee2bd2f82549cc327c/research_notes/portable_direct/20261118_fair_queue_6b0fba/fortyeighth/README.md",
+      "encoding": "utf-8",
+      "sha": "6052254bd16bd5fb19123a74f7eb1543296b0f1f"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
