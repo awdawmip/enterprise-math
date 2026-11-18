@@ -84,3 +84,5 @@
 - [第二十八轮五个父目标](twentyeighth/README.md)　Mellin 极点的均方下界、旋转路径的两步记忆、乘积混叠的极小商格、交错迹的节点稳定性与三平方壳的最小探测构型。
 
 - [第二十九轮四个父目标与一条独立算术旁支](twentyninth/README.md)　六平方壳的谐 theta、中心扩张的最小辨识、三平方共振、Eulerian 数控制的谱轨迹及本原六边形壳的符号偏差。
+
+- [第三十轮三个父目标及独立 Franel 旁支](thirtieth/README.md)　增长素数表的 ζ 停止律、手性锥的 Smith 过滤、六标架的时长导子与素数端点的 Bernoulli 系数。
