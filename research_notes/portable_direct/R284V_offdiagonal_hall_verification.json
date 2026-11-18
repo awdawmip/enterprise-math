@@ -1,0 +1,46 @@
+{
+  "arithmetic": "Fraction exact determinants; exhaustive 3-port support enumeration",
+  "exhaustive_no_matching_cases": 14592,
+  "exhaustive_no_matching_implies_zero_cofactor_derivative": "PASS",
+  "exhaustive_support_cases": 20736,
+  "negative_control": {
+    "P": "1/20-13*x/80+x^2/64",
+    "added_baseline_edge": "0->1, weight 1/8",
+    "complement_minor_matching": true,
+    "quadratic_coefficient": [
+      1,
+      64
+    ]
+  },
+  "primary_example": {
+    "N1": "1/4",
+    "N2": "1/5",
+    "P": "1/20-3*x/80",
+    "a": 0,
+    "b": 2,
+    "edit": "x:1->2",
+    "matched_models": 2,
+    "no_matching_for_both": true,
+    "sample_nodes": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        16
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        4
+      ]
+    ]
+  },
+  "result": "PASS",
+  "schema": "R284V_EXACT_COFACTOR_HALL_VERIFICATION_V1",
+  "scope": "Finite exact instances support general Leibniz matching proof; no converse for matching-present inputs claimed"
+}
