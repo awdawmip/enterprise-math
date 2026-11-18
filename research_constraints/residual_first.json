@@ -21,17 +21,29 @@
     "physical_bridge_required": true,
     "strong_absolute_zero_goal_retained": true,
     "goal_used_as_proof_premise": false,
-    "changes_P000_or_worldview": false
+    "changes_P000_or_worldview": false,
+    "verified_counterexample_to_exact_claim_refutes_that_claim": true,
+    "minimum_number_of_methods_to_try": 0,
+    "repair_attempt_required_to_close_refuted_claim": false,
+    "followup_required_after_objective_complete": false
   },
-  "required_record": [
-    "residual_definition",
-    "provenance_kind",
-    "retained_correlations",
-    "observer_and_horizon",
-    "evolution_or_repair_attempt",
-    "counterexample_and_boundary",
-    "next_executable_question"
-  ],
+  "required_record": [],
   "research_goal_status": "GOAL_NOT_ACCEPTED_THEOREM",
-  "runtime_integration_claim": "METHOD_CONSTRAINT_AND_TESTED_REFERENCE_DECISION_ONLY"
+  "runtime_integration_claim": "METHOD_CONSTRAINT_AND_TESTED_REFERENCE_DECISION_ONLY",
+  "evidence_by_claim": {
+    "conclusion_depends_on_residual": [
+      "residual_definition",
+      "provenance_kind_or_unknown",
+      "relevant_observation_conditions"
+    ],
+    "verified_counterexample": [
+      "claim_and_satisfied_hypotheses",
+      "witness",
+      "scope_of_refutation"
+    ],
+    "lossy_compression": [
+      "declared_observer_and_future_operations",
+      "preservation_proof_or_explicit_error_bound"
+    ]
+  }
 }

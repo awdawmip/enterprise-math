@@ -25,6 +25,8 @@ This document separates:
 - experimental pressure on a parameter region;
 - failure to falsify the broad framework.
 
+P000 is the chosen premise for internal project derivations. In a concrete test, identify the additional model assumptions, mapping to observables and parameter region that produced the prediction. Preserve a reproducible derivation, implementation or mapping conflict at its actual scope, including unresolved causes. Report the affected claim for review. Changes to the root premise require a direct user decision.
+
 ## 2. Minimal physical realization record
 
 A physical Enterprise Math model should specify at least

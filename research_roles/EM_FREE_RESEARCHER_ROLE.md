@@ -55,9 +55,11 @@ Start from the smallest packet needed to know primitive commitments:
 7. the mandatory P000/Heartbeat/residual-fidelity/joint-preservation/Weighted-BRC commitments; further exact native-semantic details when actually required.
 
 `definitions/EM_FREE_A_FOUNDATION_STARTUP.json` is the generated Phase-A reading
-of those five Source foundation contracts. It preserves their actual normative
-values and source blobs; it does not replace this role or the anti-anchoring
-contract. Reuse a package at the required scientific input version. Read current
+of those five Source foundation contracts, including P000. It copies the
+required primitive values from the exact scientific source blobs. Read these
+through the Phase-A selection before question formation. For archived science,
+reuse a projection with the same source blobs and the current role selection,
+or reconstruct it from those frozen inputs before display. Read current
 behavioral/control rules separately; a current control update does not move a
 frozen discovery snapshot. A mixed ordinary package is not the Phase-A input.
 

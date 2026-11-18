@@ -10,8 +10,8 @@ Thank you for helping test the project.
 
 | Current work | Public project entry |
 |---|---|
-| Project-native semantics | [P000](p000_reality_foundation.json) and its declared companion contracts; [Heartbeat World](definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json) for research |
-| FREE before candidate freeze | [Primitive-only substrate](definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md) |
+| Project-native semantics outside FREE A | [P000](p000_reality_foundation.json) and its declared companion contracts; [Heartbeat World](definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json) for research |
+| FREE before candidate freeze, including P000 | [Phase-A foundation package](definitions/EM_FREE_A_FOUNDATION_STARTUP.json) and [primitive-only substrate](definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md) |
 | Formal task/control work | [Architecture and roles](docs/RESEARCH_ARCHITECTURE.md), [current control precedence](control_plane/current_control_authority.json), [runtime](docs/RESEARCH_RUNTIME_STATE_MACHINE.md), [V2 publication](docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md) |
 | Research advancement and preservation | [Current research protocol](docs/PORTABLE_RESEARCH_PROTOCOL.md) |
 | Research identity/activity | [Role identity](docs/RESEARCH_IDENTITY_PROTOCOL.md), [activity persistence](docs/RESEARCH_ACTIVITY_PROTOCOL.md) |
@@ -25,6 +25,8 @@ For a selected task, begin with the exact taskbook/current immutable publication
 ## You do not need to agree with the theory
 
 The most valuable contribution may be a proof that a proposed rule fails.
+
+Report a reproducible conflict with its assumptions, definitions, domain and the smallest failing derivation or implementation. An unresolved conflict remains open for review at that scope. Only a direct user instruction changes P000 as a project premise. A prediction derived from a physical model can still be tested against its stated observations and parameters. [Physical falsification contract](docs/P016_PHYSICAL_FALSIFICATION_CONTRACT.en.md)
 
 Accepted contribution types include:
 

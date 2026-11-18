@@ -1,0 +1,46 @@
+{
+  "schema": "X6_LEGACY_PLANE_CLAIM_LEDGER_DELTA_V1",
+  "unit": 142,
+  "parent_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "author": "EM-X6-FB6990",
+  "frozen_science_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_history_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "classification": "BOUNDED_THREE_FILE_SOURCE_AUDIT_UNREVIEWED_NOT_ADMITTED",
+  "entries": [
+    {
+      "claim": "LP011",
+      "original_path": "research_notes/BRC_DOMINANT_DEGENERACY_QUOTIENT_20260903.md",
+      "original_blob": "b5e20704c3cfaf095b9724685b1b274ca9c3b22e",
+      "lines": "25-94",
+      "observed_type": "POSITIVE_RATIONAL_BRANCH_WEIGHT_MAX_AND_DEGENERACY",
+      "source_expression": "M(H)=max{q:c_q>0}; d(H)=c_M",
+      "disposition": "NOT_THE_ALLEGED_NATIVE_SIGNED_AXIS_ARGMAX_CALLER",
+      "remaining_claim_provenance": "UNRESOLVED_PROVENANCE",
+      "status": "AUTHOR_SOURCE_AUDITED"
+    },
+    {
+      "claim": "LP019",
+      "original_path": "research_notes/BRC_WEIGHTED_LOG_SEMIRING_EXTENSION_20260902.md",
+      "original_blob": "cf862ffa2595ae5a7053e40f0f96cacf2fe9dcb8",
+      "lines": "196-240",
+      "observed_type": "NATURAL_BRC_POSITIVE_AND_SIGNED_WEIGHTED_SEMIRING_EXPLICITLY_DISTINCT",
+      "source_expression": "sigma(1+(-1))=0 but sigma(1) OR sigma(-1)=1",
+      "disposition": "EXPLICIT_NONNEGATIVE_VS_SIGNED_TYPE_SEPARATION_NO_BAD_NATIVE_SUBTRACTION",
+      "remaining_claim_provenance": "UNRESOLVED_PROVENANCE",
+      "status": "AUTHOR_SOURCE_AUDITED"
+    },
+    {
+      "claim": "LP019",
+      "original_path": "research_notes/BRC_FOUNDATION_RETROFIT_REGRESSION_20260902.md",
+      "original_blob": "d4d61c1343f9e0d1954e415c31a1628be561277b",
+      "lines": "311-395",
+      "observed_type": "POSITIVE_WEIGHT_AGGREGATION_LOSES_SIGNED_ORIENTATION_PROVENANCE",
+      "source_expression": "Omega2 paths=+1,-1; w=2,1/2; aggregate W=5/2 unchanged under reversal",
+      "disposition": "SOURCE_ACKNOWLEDGES_ORIENTATION_SIGN_LOSS_NOT_NATIVE_NBRC_CANCELLATION",
+      "remaining_claim_provenance": "UNRESOLVED_PROVENANCE",
+      "status": "AUTHOR_SOURCE_AUDITED"
+    }
+  ],
+  "no_full_corpus_absence_claim": true,
+  "downstream_action": "Continue exact frozen/current true native source:line caller tracing; do not rewrite historical claims or self-admit."
+}

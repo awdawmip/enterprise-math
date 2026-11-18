@@ -98,7 +98,7 @@ P000 不是下游当前成果，也不在 A 阶段隐藏。它是自由发现的
 - 正 Weighted-BRC 不能替代正向重合并后的有符号或振幅消去，以及反射奇向信息；
 - 一条确定性正路径满足 `C=1`、`W=M`、`E=1`、`Delta=0`，因此不强制把确定性问题解释成重数问题；
 - 规范 R023 布尔支持仍为基础支持语义；
-- 单状态回返结果不提供通用 SCC、Perron-Frobenius 或谱半径定理。
+- 进一步的结果按各自声明的状态、观察者与操作范围使用。
 
 反锚定固定要求：
 
@@ -108,7 +108,7 @@ P000 不是下游当前成果，也不在 A 阶段隐藏。它是自由发现的
 
 `SELF_GENERATED_PROBLEM_FIRST -> DETAILED_THEOREM_OR_TOOL_LOOKUP_SECOND`。
 
-FREE A 阶段问题独立产生前，**不得**展示详细 Weighted-BRC 定理 ID、此前成功的算术、选择器或 holonomy 应用，也不得展示 Weighted-BRC 研究方向菜单。若问题自然包含相关分支结构，可以不等待 B 阶段就使用精确定义，因为其最少类型已经成为项目基础；详细当前成果比较与工具去重仍属于 B 阶段功能。
+启动包读取通用类型承诺。独立形成问题之后，可读取与该问题相关的完整条款、适用条件及所需的精确定义或工具。候选冻结后，B 阶段再开放完整目录供比较和去重。
 
 ## A 阶段的项目承诺
 
@@ -214,7 +214,7 @@ B 阶段发现的碰撞不追溯成为 A 阶段前提。
 
 `USE = definitions/EM_FREE_A_FOUNDATION_STARTUP.json + definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md + CURRENT_FREE_ROLE_AND_ANTI_ANCHORING_RULES`。
 
-生成包覆盖五份必需 Source 合同；此前的三文件简写是定位摘要，不是省略心跳世界、残差保真或联合关系保留的许可。实际科学来源仍适用时，可以复用匹配的包。本地角色读取器为 `python tools/build_em_foundation_startup.py --read free_phase_a`；内容抵达模型之前已经完成分类。构建报告和普通研究包属于维护者或其他角色的界面。
+生成包覆盖五份必需 Source 合同；此前的三文件简写是定位摘要，不是省略心跳世界、残差保真或联合关系保留的许可。科学输入和按角色筛选的承诺都匹配时，可以复用。旧包若包含全部承诺，可由当前角色读取器按原冻结来源重新生成后再展示。本地角色读取器为 `python tools/build_em_foundation_startup.py --read free_phase_a`；内容抵达模型之前已经完成分类。构建报告和普通研究包属于维护者或其他角色的界面。
 
 包不可用时，选择匹配的有效角色适用包，或精确且获准的来源选择。不得用未过滤的混合来源倾倒来替代。两者都不可得时，保留该具体读取缺口，继续不依赖该缺口的工作，并如实记录暴露。
 
@@ -234,7 +234,7 @@ B 阶段发现的碰撞不追溯成为 A 阶段前提。
 
 ## 权威
 
-P000 内容由 `../p000_reality_foundation.json` 控制。
+选题前从 A 阶段投影读取适用的 P000 值。其规范来源为 `../p000_reality_foundation.json`。
 
 全部研究的最少 Weighted-BRC 基础由 `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json` 控制。
 

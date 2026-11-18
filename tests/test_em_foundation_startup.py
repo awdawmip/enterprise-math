@@ -50,7 +50,11 @@ class FoundationStartupTests(unittest.TestCase):
                 for row in package["normative_payload"]:
                     source = json.loads((startup.ROOT / row["path"]).read_text(encoding="utf-8"))
                     for pointer, value in row["values"].items():
-                        self.assertEqual(value, source[pointer[1:]])
+                        expected = source
+                        for component in pointer.lstrip("/").split("/"):
+                            key = component.replace("~1", "/").replace("~0", "~")
+                            expected = expected[int(key) if isinstance(expected, list) else key]
+                        self.assertEqual(value, expected)
                 for row in package["source_files"]:
                     self.assertEqual(row["blob"], startup.git_blob((startup.ROOT / row["path"]).read_bytes()))
 
@@ -86,14 +90,74 @@ class FoundationStartupTests(unittest.TestCase):
         self.assertIn("/theorem_ledger", report["documentary_pointers"][startup.WEIGHTED])
         self.assertFalse(free["conditional_lookup"]["candidate_freeze_required_for_this_lookup"])
 
-    def test_current_mandatory_commitments_are_never_shortened_for_phase_a(self):
+    def test_before_question_receives_primitives_and_never_the_success_catalog(self):
+        packages, _ = startup.build()
+        free = packages["free_phase_a"]
+        normal = packages["ordinary_research"]
+        self.assertEqual(free["source_files"], normal["source_files"])
+        typed = {row["path"]: row["values"] for row in free["normative_payload"]}
+        full = {row["path"]: row["values"] for row in normal["normative_payload"]}
+        self.assertEqual(typed[startup.HEARTBEAT], full[startup.HEARTBEAT])
+        for key in ("/axioms", "/typed_semantics", "/conflict_policy", "/machine_invariants", "/hard_errors"):
+            self.assertEqual(typed[startup.P000][key], full[startup.P000][key])
+        self.assertEqual(typed[startup.JOINT]["/canonical_statements_zh"],
+                         full[startup.JOINT]["/canonical_statements_zh"])
+        self.assertEqual(typed[startup.RESIDUAL]["/residual_classification"],
+                         full[startup.RESIDUAL]["/residual_classification"])
+        before = {v.partition(":")[0] for p, v in typed[startup.WEIGHTED].items() if p.startswith("/commitments/")}
+        self.assertEqual(before, startup.BEFORE_QUESTION)
+        self.assertTrue({"EXPLICIT_POSITIVE_RATIONAL_BRANCH_UNIVERSAL_CARRIER", "SIGNED_BOUNDARY",
+                         "CWM_SHARED_LOW_COST_SUMMARY", "DETERMINISTIC_DEGENERATION"} <= before)
+        self.assertGreater(len(full[startup.WEIGHTED]["/commitments"]), len(before))
+        entire_free = startup.encoded(free).decode()
+        for downstream in ("WBRC-T40", "WBRC-T41", "NEWTON_SPLIT_SELECTOR", "recurrent_port_foundation"):
+            self.assertNotIn(downstream, entire_free)
+        for deferred in startup.WHEN_QUESTION_RELEVANT:
+            self.assertNotIn(deferred, entire_free)
+        for agenda in ("quadratic-selector", "sixteen non-fcc coordinate selections",
+                       "derive native rotations beyond axis permutations", "rh research candidate"):
+            self.assertNotIn(agenda, entire_free.lower())
+        self.assertNotIn("/research_success/study", typed[startup.RESIDUAL])
+        self.assertTrue(typed[startup.RESIDUAL]["/research_success/exact_zero_cases_are_valid_results"])
+        self.assertTrue(typed[startup.P000]["/research_semantics/detailed_6d_geometry_remains_researchable"])
+        self.assertTrue(startup.BEFORE_QUESTION.isdisjoint(startup.WHEN_QUESTION_RELEVANT))
+
+    def test_new_unclassified_commitment_preserves_ordinary_use_without_phase_a_exposure(self):
         root = self.make_root()
         self.edit_json(root, startup.WEIGHTED, lambda value: value["commitments"].append(
-            "REQUIRED_TYPED_CONDITION_WITH_EXCEPTION_SENTINEL"))
-        packages, _ = startup.build(root)
-        for package in packages.values():
-            row = next(row for row in package["normative_payload"] if row["path"] == startup.WEIGHTED)
-            self.assertIn("REQUIRED_TYPED_CONDITION_WITH_EXCEPTION_SENTINEL", row["values"]["/commitments"])
+            "ADDED_CONDITION: undecided scope sentinel"))
+        full = startup.read_projection(root, "ordinary_research")
+        self.assertEqual(full["status"], "READY")
+        self.assertIn("undecided scope sentinel", json.dumps(full))
+        free = startup.read_projection(root, "free_phase_a")
+        self.assertEqual(free["code"], "UNCLASSIFIED_PHASE_A_COMMITMENT")
+        self.assertNotIn("sentinel", json.dumps(free))
+
+    def test_older_scientific_inputs_keep_their_actual_primitives(self):
+        root = self.make_root()
+        self.edit_json(root, startup.WEIGHTED, lambda value: value["commitments"].pop(2))
+        pins = {path: startup.git_blob(raw) for path, (raw, _) in startup.foundation_sources(root).items()}
+        free = startup.read_projection(root, "free_phase_a", pins)
+        self.assertEqual(free["status"], "READY")
+        self.assertNotIn("EXPLICIT_POSITIVE_RATIONAL_BRANCH_UNIVERSAL_CARRIER", json.dumps(free))
+        self.assertIn("CWM_SHARED_LOW_COST_SUMMARY", json.dumps(free))
+        self.assertNotIn("WBRC-T40", json.dumps(free))
+
+    def test_question_formed_can_read_one_full_applicable_commitment_before_freeze(self):
+        root = self.make_root()
+        self.edit_json(root, startup.WEIGHTED, lambda value: value["commitments"].reverse())
+        requested = "NEWTON_SPLIT_SELECTOR_STABILITY_IS_ORDER_TYPED"
+        request = self.request(path=startup.WEIGHTED, selector=requested)
+        self.assertEqual(startup.read_related(root, {**request, "question_formed": False})["status"], "NOT_TRIGGERED")
+        result = startup.read_related(root, request)
+        self.assertEqual(result["status"], "READY")
+        self.assertFalse(result["phase_transition"])
+        items = json.loads((root / startup.WEIGHTED).read_text())["commitments"]
+        self.assertEqual(result["text"], next(s for s in items if s.startswith(requested + ":")))
+        self.assertNotIn("WBRC-T40", result["text"])
+        free = startup.read_projection(root, "free_phase_a")
+        self.assertEqual(free["status"], "READY")
+        self.assertNotIn(requested, json.dumps(free))
 
     def test_unclassified_source_field_keeps_outputs_and_safe_error_has_no_catalog(self):
         root = self.make_root()
@@ -250,6 +314,13 @@ class FoundationStartupTests(unittest.TestCase):
         self.assertEqual(json.loads(output.getvalue())["status"], "UNAVAILABLE")
         self.assertNotIn("B_ONLY", output.getvalue())
 
+    def test_host_entry_routes_free_to_a_selected_package(self):
+        entry = (startup.ROOT / "AGENTS.md").read_text()
+        free_route = next(line for line in entry.splitlines() if line.startswith("- FREE before"))
+        self.assertIn(startup.OUTPUTS["free_phase_a"], free_route)
+        self.assertNotIn("(p000_reality_foundation.json)", free_route)
+        self.assertIn("[P000](p000_reality_foundation.json)", entry)
+
     def test_phase_a_entry_chain_routes_specific_comparison_catalogs_only_to_phase_b(self):
         paths = [
             "research_roles/EM_FREE_RESEARCHER_ROLE.md",
@@ -269,7 +340,7 @@ class FoundationStartupTests(unittest.TestCase):
         for path in paths:
             with self.subTest(path=path):
                 content = (startup.ROOT / path).read_text(encoding="utf-8")
-                for catalog in catalogs:
+                for catalog in (*catalogs, "WBRC-T40", "WBRC-T41", "arithmetic/selector/holonomy", "holonomy 应用"):
                     self.assertNotIn(catalog, content)
 
 

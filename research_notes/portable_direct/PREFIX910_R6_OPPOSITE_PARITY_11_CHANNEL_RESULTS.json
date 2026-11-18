@@ -1,0 +1,177 @@
+{
+  "schema": "PREFIX910_R6_OPPOSITE_PARITY_11_CHANNEL_EXACT_CERTIFICATE_V1",
+  "date": "2026-11-19",
+  "scientific_frozen_input": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "project_source_read": "53cc9a7836bf7f34e9dafbd621c1712026b5a2f6",
+  "model": {
+    "N": 4294967296,
+    "moduli": "all odd 262145..524287",
+    "num_moduli": 131072,
+    "legal_named_tracks": "Z_x=(x,x), F_x^i=(x,x XOR 2^i)",
+    "observer": "(start mod a, endpoint mod b)"
+  },
+  "scope": {
+    "i_min": 1,
+    "i_max": 22,
+    "s": [
+      -1,
+      1
+    ],
+    "k_ell": [
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        7,
+        2
+      ],
+      [
+        7,
+        4
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        8,
+        1
+      ],
+      [
+        8,
+        3
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        8,
+        7
+      ]
+    ]
+  },
+  "family_results": [
+    {
+      "k": 5,
+      "ell": 2,
+      "parameter_witnesses": 78643,
+      "distinct_oriented": 78643,
+      "outside_C909": 34493
+    },
+    {
+      "k": 5,
+      "ell": 4,
+      "parameter_witnesses": 812650,
+      "distinct_oriented": 792989,
+      "outside_C909": 408202
+    },
+    {
+      "k": 6,
+      "ell": 1,
+      "parameter_witnesses": 43690,
+      "distinct_oriented": 43690,
+      "outside_C909": 27887
+    },
+    {
+      "k": 6,
+      "ell": 5,
+      "parameter_witnesses": 716531,
+      "distinct_oriented": 699055,
+      "outside_C909": 364840
+    },
+    {
+      "k": 7,
+      "ell": 2,
+      "parameter_witnesses": 56174,
+      "distinct_oriented": 56174,
+      "outside_C909": 27775
+    },
+    {
+      "k": 7,
+      "ell": 4,
+      "parameter_witnesses": 271508,
+      "distinct_oriented": 266826,
+      "outside_C909": 116177
+    },
+    {
+      "k": 7,
+      "ell": 6,
+      "parameter_witnesses": 636632,
+      "distinct_oriented": 621029,
+      "outside_C909": 325427
+    },
+    {
+      "k": 8,
+      "ell": 1,
+      "parameter_witnesses": 32768,
+      "distinct_oriented": 32768,
+      "outside_C909": 9371
+    },
+    {
+      "k": 8,
+      "ell": 3,
+      "parameter_witnesses": 54613,
+      "distinct_oriented": 54613,
+      "outside_C909": 26551
+    },
+    {
+      "k": 8,
+      "ell": 5,
+      "parameter_witnesses": 327680,
+      "distinct_oriented": 321127,
+      "outside_C909": 149296
+    },
+    {
+      "k": 8,
+      "ell": 7,
+      "parameter_witnesses": 575775,
+      "distinct_oriented": 561732,
+      "outside_C909": 295775
+    }
+  ],
+  "prior_C909": 7780668986,
+  "predecessor_raw_R909": 1900472,
+  "distinct_positive_new": 1785732,
+  "positive_transpose_intersection": 8,
+  "net_additional_ordered": 3571456,
+  "certified_C910": 7784240442,
+  "not_in_explicit_cert_union": 9395628742,
+  "constructive_new_witness": {
+    "a": 296245,
+    "b": 478469,
+    "k": 5,
+    "ell": 2,
+    "i": 19,
+    "s": -1,
+    "track1": [
+      1,
+      524289
+    ],
+    "track2": [
+      1481226,
+      1481227
+    ],
+    "start_difference": 1481225,
+    "endpoint_difference": 956938
+  },
+  "checks": [
+    "Python 3 exact integer full enumeration run on 2026-11-19, PASS",
+    "independent Node.js 22 exact safe-integer full enumeration run on 2026-11-19, PASS",
+    "all candidate XOR tracks validated, integer arithmetic, complete parameter loops"
+  ],
+  "truth_status": "AUTHOR_PROVED / TWO_IMPLEMENTATION_FINITE_EXACT_CHECK / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED"
+}

@@ -16,7 +16,7 @@
 
 | 责任 | 每轮必须完成的动作 |
 | --- | --- |
-| Researcher | 先恢复本会话未完操作和已授权前沿，实际推进最小研究单元，持久化可核验证据及下一步；无已有工作时才领取新任务。 |
+| Researcher | 先恢复本会话未完操作和已授权前沿，实际推进最小研究单元，持久化可核验证据，有后继时记录下一步；无已有工作时才领取新任务。 |
 | Driver | 消费已冻结 Result 和精确审阅集合，依当前权限完成审阅、reference passes、synthesis、后继物化或范围闭合，并继续下一合法单元。 |
 | 控制维护 | 负责恢复编排、接口缺陷和任务运行状态。将阻断归到一个实际负责路径，修复或送达可执行接续包，并验证受影响路径到达下一真实状态。 |
 
@@ -87,7 +87,7 @@ Sites 用户先读 `em_sites_connection_status` 和 `em_status`。若当前 owne
 
 ## 可发现的接续包
 
-在现有授权 Source checkpoint、Result/review 或控制维护 handoff 中记录：母目标、Task/publication、输入/权威 pin、最高不可变前沿、已完成和不重做项、最小未完项、下一精确动作、逻辑 conversation_id、真实 session/claim/run、未落定 request_id 及原回执 Issue、支持问题及负责路径。不保存私有 key，也不建立第二套任务注册表。
+在现有授权 Source checkpoint、Result/review 或控制维护 handoff 中记录：母目标、Task/publication、输入/权威 pin、最高不可变前沿、已完成和不重做项、实际存在的未完项和已知下一动作、逻辑 conversation_id、真实 session/claim/run、未落定 request_id 及原回执 Issue、支持问题及负责路径。不保存私有 key，也不建立第二套任务注册表。
 
 新轮次必须先消费这些已有记录。刚完成一个语义单元，只要父目标仍开放且存在合法下一动作，就在同轮继续；不要求用户再发“继续”，不自行暂停定时任务。平台强制结束时由下一轮恢复，提示词不承诺永久存活的模型进程。
 

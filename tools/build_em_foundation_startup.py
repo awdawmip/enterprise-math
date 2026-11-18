@@ -19,8 +19,8 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = "em-foundation-startup-projection/v1"
-GENERATOR_VERSION = "1.0.0"
-MAPPING_VERSION = "2026-11-07.1"
+GENERATOR_VERSION = "1.1.0"
+MAPPING_VERSION = "2026-11-19.1"
 P000 = "p000_reality_foundation.json"
 HEARTBEAT = "definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json"
 RESIDUAL = "definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json"
@@ -115,6 +115,42 @@ SOURCE_SPECS = {
         """),
     },
 }
+
+# Role exposure follows the source's purpose and the primitive substrate router.
+# IDs are stable across array reordering. Each complete statement, including
+# caveats, stays available at its scientific revision after a relevant question.
+BEFORE_QUESTION = frozenset(_keys("""
+    BRANCHING_IS_TYPED
+    DECLARED_MULTIPLICITY_IS_NOT_DEFAULT_DISCARDABLE
+    EXPLICIT_POSITIVE_RATIONAL_BRANCH_UNIVERSAL_CARRIER
+    CWM_SHARED_LOW_COST_SUMMARY
+    LOG_IS_DERIVED
+    SIGNED_BOUNDARY
+    DETERMINISTIC_DEGENERATION
+    BOOLEAN_BASE_PRESERVED
+"""))
+WHEN_QUESTION_RELEVANT = frozenset(_keys("""
+    FINITE_RATIONAL_RECURRENCE_CERTIFIED
+    RECURRENT_GAUGE_LOCALIZATION
+    RECURRENT_LOOP_INVARIANTS_AVAILABLE
+    RATIONAL_GAUGE_HAS_INTEGER_COORDINATES
+    RECURRENT_PORT_COLLAPSE_IS_CONTEXT_TYPED
+    LENGTH_AND_MOMENT_OBSERVERS_REQUIRE_STRONGER_PORT_STATE
+    CRITICAL_DEGENERACY_IS_EXPLICIT_BRANCH_TYPED
+    CRITICAL_ORBIT_INVENTORY_IS_K_TYPED
+    CRITICAL_RATIO_JET_IS_EXPLICIT_BRANCH_TYPED
+    REDUCIBLE_CRITICAL_CHARACTERISTIC_JET_IS_CANONICAL
+    NEWTON_RECURSION_SCALE_AND_COEFFICIENTS_TYPED
+    NEWTON_TRANSLATED_REAL_ROOT_HANDOFF_IS_TYPED
+    NEWTON_SCALE_RESONANCE_AGGREGATES_BEFORE_ROOT_SELECTION
+    NEWTON_FULL_RESIDUAL_FIBER_QUOTIENT_IS_OBSERVER_TYPED
+    NEWTON_OBSERVER_LEASE_LATTICE_IS_TYPED
+    NEWTON_AFFINE_SCHEDULE_VALIDITY_IS_CONSTRUCTIBLE
+    NEWTON_SPLIT_SELECTOR_STABILITY_IS_ORDER_TYPED
+    NEWTON_NONSPLIT_QUADRATIC_SELECTOR_IS_DLR_TYPED
+    FEEDBACK_INTERACTION_IS_HIGHER_ORDER_TYPED
+    RECURRENT_SCOPE_BOUNDARY
+"""))
 
 # These are the explicit source edge semantics, not guesses from link names.
 MANDATORY_LOAD_POLICIES = {
@@ -230,7 +266,66 @@ def _coverage(sources: dict[str, tuple[bytes, dict[str, Any]]]) -> dict[str, Any
     return report
 
 
-def build(root: Path = ROOT) -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
+def _identified_commitments(value: dict[str, Any]) -> dict[str, tuple[str, str]]:
+    statements = value.get("commitments")
+    if not isinstance(statements, list):
+        raise ProjectionError("MAPPED_FIELD_TYPE_CHANGED", {"path": WEIGHTED, "pointer": "/commitments"})
+    result = {}
+    for index, statement in enumerate(statements):
+        if not isinstance(statement, str):
+            raise ProjectionError("MAPPED_FIELD_TYPE_CHANGED", {"path": WEIGHTED, "pointer": f"/commitments/{index}"})
+        identifier, separator, _ = statement.partition(":")
+        if not separator or not identifier or identifier in result:
+            raise ProjectionError("INVALID_COMMITMENT_IDENTIFIER", {"path": WEIGHTED, "pointer": f"/commitments/{index}"})
+        result[identifier] = (f"/commitments/{index}", statement)
+    return result
+
+
+def _free_weighted_values(value: dict[str, Any]) -> dict[str, Any]:
+    statements = _identified_commitments(value)
+    unknown = statements.keys() - BEFORE_QUESTION - WHEN_QUESTION_RELEVANT
+    if unknown:
+        raise ProjectionError("UNCLASSIFIED_PHASE_A_COMMITMENT", {"path": WEIGHTED, "ids": sorted(unknown)})
+    result = {"/" + key: value[key] for key in ("status", "scope", "authority", "purpose")}
+    result["/phase_a_anti_anchoring/rule"] = value["phase_a_anti_anchoring"]["rule"]
+    result.update(pair for identifier, pair in statements.items() if identifier in BEFORE_QUESTION)
+    return result
+
+
+def _free_payload(sources: dict[str, tuple[bytes, dict[str, Any]]],
+                  ordinary: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    # The axiom, observer rules and scientific pins are shared. A source may
+    # also contain an open-question list or a topic-specific status example.
+    omitted_children = {
+        P000: ("research_semantics", {"still_open", "allowed_research_scope"}),
+        RESIDUAL: ("research_success", {"study"}),
+    }
+    topic_note = "This constraint does not promote any RH research candidate to theorem or Foundation truth."
+    selected = []
+    for row in ordinary:
+        path = row["path"]
+        values = row["values"].copy()
+        if path == WEIGHTED:
+            values = _free_weighted_values(sources[path][1])
+        elif path in omitted_children:
+            field, omitted = omitted_children[path]
+            items = values.pop("/" + field)
+            if not isinstance(items, dict):
+                raise ProjectionError("MAPPED_FIELD_TYPE_CHANGED", {"path": path, "pointer": "/" + field})
+            for key, value in items.items():
+                if key not in omitted:
+                    pointer_key = key.replace("~", "~0").replace("/", "~1")
+                    values[f"/{field}/{pointer_key}"] = value
+        elif path == JOINT:
+            notes = values.pop("/anti_misread")
+            if not isinstance(notes, list) or not all(isinstance(note, str) for note in notes):
+                raise ProjectionError("MAPPED_FIELD_TYPE_CHANGED", {"path": path, "pointer": "/anti_misread"})
+            values.update({f"/anti_misread/{i}": note for i, note in enumerate(notes) if note != topic_note})
+        selected.append({"path": path, "values": values})
+    return selected
+
+
+def build(root: Path = ROOT, *, ordinary_only: bool = False) -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
     sources = foundation_sources(root)
     coverage = _coverage(sources)
     if not coverage["complete"]:
@@ -270,8 +365,12 @@ def build(root: Path = ROOT) -> tuple[dict[str, dict[str, Any]], dict[str, Any]]
         }],
         "fallback": "EXACT_CANONICAL_SOURCES_AT_REQUIRED_SCIENTIFIC_VERSIONS",
     }
+    if ordinary_only:
+        return {"ordinary_research": ordinary}, coverage
+
     free = {
         **common,
+        "normative_payload": _free_payload(sources, normative_payload),
         "coverage": {"profile": "free_phase_a", "complete": True},
         "conditional_lookup": {
             "condition": condition,
@@ -302,7 +401,7 @@ def read_projection(root: Path = ROOT, profile: str = "ordinary_research",
     if profile not in OUTPUTS:
         raise ProjectionError("UNKNOWN_READING_PROFILE")
     try:
-        expected = build(root)[0][profile]
+        expected = build(root, ordinary_only=(profile == "ordinary_research"))[0][profile]
         if scientific_blobs is not None and _source_blobs(expected) != scientific_blobs:
             raise ProjectionError("SCIENTIFIC_INPUT_MISMATCH")
         try:
@@ -422,7 +521,8 @@ def read_related(root: Path, request: dict[str, Any]) -> dict[str, Any]:
     path, selector = request.get("path"), request.get("selector")
     if not isinstance(path, str) or not isinstance(selector, str):
         return {"status": "UNAVAILABLE", "profile": "free_phase_a", "code": "INVALID_EXACT_SELECTOR"}
-    supported = ((path == RELATED_DEFINITION and selector in RELATED_HEADINGS)
+    supported = ((path == WEIGHTED and selector in BEFORE_QUESTION | WHEN_QUESTION_RELEVANT)
+                 or (path == RELATED_DEFINITION and selector in RELATED_HEADINGS)
                  or (path == RELATED_TOOL and selector in RELATED_TOOL_SYMBOLS))
     if not supported:
         return {"status": "UNAVAILABLE", "profile": "free_phase_a",
@@ -433,8 +533,18 @@ def read_related(root: Path, request: dict[str, Any]) -> dict[str, Any]:
         if request.get("source_blob") is not None and request["source_blob"] != git_blob(raw):
             raise ProjectionError("SCIENTIFIC_INPUT_MISMATCH")
         text = raw.decode("utf-8")
-        fragment = (_markdown_section(text, selector) if path == RELATED_DEFINITION
-                    else _python_fragment(text, selector))
+        if path == WEIGHTED:
+            value = json.loads(text)
+            if not isinstance(value, dict):
+                raise ProjectionError("EXPECTED_FOUNDATION_OBJECT")
+            match = _identified_commitments(value).get(selector)
+            if match is None:
+                raise ProjectionError("EXACT_SELECTOR_NOT_FOUND")
+            fragment = match[1]
+        elif path == RELATED_DEFINITION:
+            fragment = _markdown_section(text, selector)
+        else:
+            fragment = _python_fragment(text, selector)
     except (OSError, UnicodeError, ValueError, SyntaxError) as exc:
         return {"status": "UNAVAILABLE", "profile": "free_phase_a",
                 "code": exc.code if isinstance(exc, ProjectionError) else "EXACT_SOURCE_UNAVAILABLE"}

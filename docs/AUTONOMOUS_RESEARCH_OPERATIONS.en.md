@@ -16,7 +16,7 @@ Keep the existing schedules for the three Researcher jobs, one Driver job, and o
 
 | Responsibility | Required action in each run |
 | --- | --- |
-| Researcher | First recover this conversation's unfinished operations and authorized frontier, actually advance the smallest research unit, and persist verifiable evidence and the next step. Claim a new task only when there is no existing work. |
+| Researcher | First recover this conversation's unfinished operations and authorized frontier, actually advance the smallest research unit, and persist verifiable evidence with the next step when known. Claim a new task only when there is no existing work. |
 | Driver | Consume frozen Results and the exact review set. Under current authority, complete review, reference passes, synthesis, follow-up materialization, or scope closure, then continue to the next lawful unit. |
 | Control maintenance | Own recovery orchestration, interface defects, and task runtime state. Route each blocker to an actual responsible path, repair it or deliver an executable continuation packet, and verify that the affected path reaches its next real state. |
 
@@ -87,7 +87,7 @@ When the same denial signature has no state change, do not replay equivalent wri
 
 ## Discoverable continuation packets
 
-In an existing authorized Source checkpoint, Result/review, or control-maintenance handoff, record the parent objective, Task/publication, input/authority pins, highest immutable frontier, completed and no-repeat units, smallest unfinished unit, exact next action, logical conversation_id, real session/claim/run, unresolved request_id and original receipt Issue, support problem, and responsible path. Do not store private keys or establish a second task registry.
+In an existing authorized Source checkpoint, Result/review, or control-maintenance handoff, record the parent objective, Task/publication, input/authority pins, highest immutable frontier, completed and no-repeat units, smallest unfinished unit and next action when present, logical conversation_id, real session/claim/run, unresolved request_id and original receipt Issue, support problem, and responsible path. Do not store private keys or establish a second task registry.
 
 Each new run must consume these existing records first. After completing a semantic unit, continue within the same run whenever the parent objective remains open and a lawful next action exists. Do not require another user "continue" or suspend scheduled jobs unilaterally. If the platform forcibly ends execution, recover in the next run; prompts do not promise an immortal model process.
 
