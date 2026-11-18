@@ -1,0 +1,18 @@
+R29 — actual local execution (2026-11-10 Asia/Shanghai)
+
+COMMAND python /mnt/data/em_r29/VERIFY_R29.py --r27-events /mnt/data/em_r27/EVENTS_R27.tsv
+PASS 14298 j 25339 H 164 K 9 neighbor 9 owner 252 events 1280
+PASS 154021 j 168319 H 164 K 2 neighbor 2 owner 2291 events 384
+PASS 6318118 j 10899111 H 164 K 5 neighbor 5 owner 171406 events 768
+PASS_R29_FLOORSUM_EXACT_SUFFIX_AND_SEMICONVERGENT_BATCH_R27_CROSSCHECK
+
+COMMAND python /mnt/data/em_r29/VERIFY_R29.py
+PASS 14298 j 25339 H 164 K 9 neighbor 9 owner 252 events 1280
+PASS 154021 j 168319 H 164 K 2 neighbor 2 owner 2291 events 384
+PASS 6318118 j 10899111 H 164 K 5 neighbor 5 owner 171406 events 768
+PASS_R29_FLOORSUM_EXACT_SUFFIX_AND_SEMICONVERGENT_BATCH_STANDALONE
+
+One local time observation: elapsed=1.45 sec CPU=1.66 sec on this runtime; not a general benchmark.
+Local R27 EVENTS_R27.tsv SHA-256 cb51b2cd873d8fb86e5d7edd916e9a2b614dc76e4d8fc1837898d932a808723b. All 2432 event-index/coefficient comparisons passed.
+Source freeze 43ec6098b1330ae86d0a7863be336c5d97f6ef34.
+The separately published GitHub VERIFY_R29.py is a reduced reproducer, not the byte-identical full local verifier. Its successful remote storage does not by itself assert remote execution or independent mathematical review.
