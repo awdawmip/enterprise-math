@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/fiftythird/README.md",
+    "ref": "b615a11cc92680f3e75e5d6533762473c9c6d139",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-fiftythree-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第五十三轮　平方之间的半素数、有限环的单列观察与受控模乘\n\n## 平方区间里的单中心壳有多常见\n\n给定奇素数 $p$，令 $1\\le r\\le\\sqrt{2p}$、$c=p+r$。第 1 轮证明，开区间 $((c-1)^2,c^2)$ 中最小素因子为 $p$ 的壳只有一个可能成员 $c^2-r^2$，而它出现当且仅当 $p+2r$ 是素数。现在把这个逐壳条件沿真实素数求和。令 $A(X)$ 数出 $p\\le X$ 时所有非空壳，则\n$$\nA(X)=\\frac{4\\sqrt2}{3}\\frac{X^{3/2}}{\\log^2 X}\n \\left(1+\\frac{4}{3\\log X}+O\\big((\\log X)^{-2}\\big)\\right).\n$$\n在非空壳中等概率抽样，归一化的左素因子 $p/X$ 与深度 $r^2/(2p)$ 渐近独立，二者的联合分布函数为 $u^{3/2}\\sqrt v$（$0\\le u,v\\le1$）。中点 $c$ 的余数还会留下可测的偏差，例如 $c\\bmod 3$ 三类的极限质量依次为 $1/2,1/4,1/4$。截至 $X=10^6$，71,769,820 个候选壳中恰有 10,944,394 个非空。[平均、余数与短区间推导](shells.md) · [复算程序](shells_check.py) · [精确读数](shells_checked.json)\n\n## 只看追加一列后的标量，能区分多少个子模\n\n取 $R=\\mathbb Z/p^k\\mathbb Z$，$X$ 是 $R^s\\oplus R^t$ 中由已经选取的列生成的子模。原标量给出 $X$ 与目标模 $0\\oplus R^t$ 的交的长度。若所有单列都能用作独立的下一次测量，则除了已经包含整个目标模的状态要合并，其余 $X$ 都能由这些标量区分。记 $S_r$ 为 $R^r$ 的全部子模数，所需最小状态数在最坏矩阵上恰为 $S_{s+t}-S_s+1$。在 $\\mathbb F_3$、$s=1,t=2$ 的例子中可区分 27 个状态，要用预先固定的字典辨认全部状态，最少需要 11 根探针。正文还算出逐步选针能为高精度斜率识别省下多少次测量。[最小状态、探针定理与证明](modules.md) · [复算程序](modules_check.py) · [精确读数](modules_checked.json)\n\n## 模乘和受控旋转交错时，工作寄存器多保留了什么\n\n工作标签沿模 $N$ 的乘法轨道移动，记乘子 $a$ 的阶为 $r$，用 $d$ 个数据控制位和一个旗标。基础序列的振幅表按控制与工作拆开后，秩为 $\\min(r,2^d)$。追加一次旗标旋转、一次旗控模乘及一次低位控制的旗标旋转后，秩恰为 $\\min(r,2^d+1)$。在 $N=7,a=3,d=2$ 的六位原始编码上，秩从 4 增至 5。精确联合概率还区分了控制边际无法区分的乘子。正文分别列出原始工作标签所需位数、轨道压缩的预计算，以及有符号振幅如何由正权计算重建。[电路族、联合秩与样本](modular.md) · [复算程序](modular_check.py) · [精确读数](modular_checked.json)\n\n本轮复访第 15 轮的 R004，从就绪队列首次推进受控模幂的联合观察；平方壳是独立数论分叉。截至 2026-11-18 23:12:17 UTC，累计直接推进 211 个登记编号，覆盖 51 个父目标。尚未轮到的严格就绪、待交接和冻结返回任务分别为 47、22 和 5 项。[状态机截止与覆盖明细](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/b615a11cc92680f3e75e5d6533762473c9c6d139/research_notes/portable_direct/20261118_fair_queue_6b0fba/fiftythird/README.md",
+      "encoding": "utf-8",
+      "sha": "1f3e3ad86f4ad1a854264d509f81f779bb4de8be"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
