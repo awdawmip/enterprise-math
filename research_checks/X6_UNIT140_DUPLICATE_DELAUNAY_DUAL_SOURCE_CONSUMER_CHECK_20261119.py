@@ -143,7 +143,7 @@ def main():
           'source_blob':'900e246b0dafaa35d2452191e3df508a2d15a389',
           'coverage':'ordered 4-label configurations on 9-point grid [-1,1]^2',
           'total_cases':9**4,'counts':dict(sorted(counts.items())),'example':first,
-          'execution_scope':'source-exact replicas of 4 original functions; original full script not run',
+          'execution_scope':'source-equivalent replicas of seven original functions; original full script not run',
           'status':'UNREVIEWED_NOT_ADMITTED'}
     print(json.dumps(cert,sort_keys=True,separators=(',',':')))
 if __name__=='__main__':main()
