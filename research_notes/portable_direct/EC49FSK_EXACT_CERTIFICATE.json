@@ -1,0 +1,157 @@
+{
+  "schema": "EC49FSK_NATIVE_BRC_TWO_PRICE_EXACT_SLICE_V1",
+  "frozen_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "model": "141 named profiles / 310 configurations / 228 original named physical observations; uniform prior; complete adaptive decision trees",
+  "parameter": "alpha=15/32; z in [0,1]",
+  "costs": "q32=q34=(1-alpha)*t; q140=(1-z)*t; others=t>0",
+  "normalization": "F(z)=141*minimal_expected_cost/t",
+  "formula": "F(z)=U-Q*(15/32)-K*z on listed interval",
+  "phases": [
+    {
+      "z": [
+        "0",
+        "1/6"
+      ],
+      "U": 306,
+      "Q": 182,
+      "K": 10
+    },
+    {
+      "z": [
+        "1/6",
+        "39/224"
+      ],
+      "U": 308,
+      "Q": 182,
+      "K": 22
+    },
+    {
+      "z": [
+        "39/224",
+        "7/24"
+      ],
+      "U": 305,
+      "Q": 173,
+      "K": 29
+    },
+    {
+      "z": [
+        "7/24",
+        "5/14"
+      ],
+      "U": 304,
+      "Q": 169,
+      "K": 32
+    },
+    {
+      "z": [
+        "5/14",
+        "2/5"
+      ],
+      "U": 309,
+      "Q": 169,
+      "K": 46
+    },
+    {
+      "z": [
+        "2/5",
+        "15/32"
+      ],
+      "U": 311,
+      "Q": 169,
+      "K": 51
+    },
+    {
+      "z": [
+        "15/32",
+        "563/1152"
+      ],
+      "U": 311,
+      "Q": 151,
+      "K": 69
+    },
+    {
+      "z": [
+        "563/1152",
+        "1"
+      ],
+      "U": 319,
+      "Q": 93,
+      "K": 141
+    }
+  ],
+  "exact_vertices": [
+    [
+      "0",
+      "3531/16"
+    ],
+    [
+      "1/6",
+      "10513/48"
+    ],
+    [
+      "39/224",
+      "1532/7"
+    ],
+    [
+      "7/24",
+      "20683/96"
+    ],
+    [
+      "5/14",
+      "47791/224"
+    ],
+    [
+      "2/5",
+      "33821/160"
+    ],
+    [
+      "15/32",
+      "1663/8"
+    ],
+    [
+      "563/1152",
+      "79295/384"
+    ],
+    [
+      "1",
+      "4301/32"
+    ]
+  ],
+  "proof_logic": "Eight replayed complete trees are feasible upper bounds at each price. Integer Bellman exhaustion on original 228 questions gives equality at all nine endpoints. Concavity of the infimum of affine tree costs and the witness affine segment bound imply equality for every real z. Distinct open-interval K slopes force eight distinct fixed-tree cost vectors.",
+  "verification": {
+    "original_named_tree_replay": "8 of 8; 141 states each; max depth 4",
+    "primary_exact_Bellman": "9 of 9 vertex values computed and saved",
+    "independent_second_source": "4 of 9 exact vertices: z=0,1/6,39/224,7/24; fifth check interrupted by compute timeout",
+    "independent_remaining": "PENDING",
+    "math_review": "NOT_REVIEWED"
+  },
+  "source_files": [
+    {
+      "filename": "EC49FPG_PROFILE.csv",
+      "bytes": 1567435,
+      "sha256": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+    },
+    {
+      "filename": "frozen_original_master.txt",
+      "bytes": 9657670,
+      "sha256": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e"
+    }
+  ],
+  "lossless_witness_bundle": {
+    "path": "research_notes/portable_direct/EC49FSK_EIGHT_WITNESS_TREES_ZLIB_BASE64.txt",
+    "format": "zlib(json in UTF-8) then base64",
+    "raw_json_sha256": "679bfc1d861469e0c2719479554e132a63fdb3a6243ab8a9bc57e9d733ee69a4"
+  },
+  "predecessor": {
+    "github_commit": "54324197c6566c5e3ac17b530b0b744f2b473400",
+    "pr": 2691
+  },
+  "authorization": {
+    "scope": "INDEPENDENT_PORTABLE_RESEARCH_ONLY",
+    "formal_CLAIM": false,
+    "formal_Result": false,
+    "formal_Review": false,
+    "activity_checkpoint": false
+  }
+}
