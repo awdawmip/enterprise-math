@@ -206,8 +206,38 @@ class ExactSourceCustodyTests(unittest.TestCase):
             with self.subTest(action=action), self.assertRaisesRegex(h.HistoricalIntakeError, 'single exact secondary'):
                 c._mapping(self.root, mapping, self.old)
 
+    def test_current_distinct_scientific_ledger_reuses_logical_path_without_custody_alias(self):
+        # Regression: current X6 work has a new live claim_ledger.json at a
+        # logical path once present only in the exact historical custody map.
+        row = next(row for row in self.mapping['entries']
+                   if row['logical_path'].endswith('/claim_ledger.json'))
+        modern = self.root / row['logical_path']
+        modern.parent.mkdir(parents=True, exist_ok=True)
+        content = b'{"schema":"X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DRAFT_V1","status":"UNREVIEWED"}\\n'
+        modern.write_bytes(content)
+        original = (self.root / row['physical_path']).read_bytes()
+        self.assertNotEqual(content, original)
+        old, outputs = h._science(self.root, self.target)
+        self.assertEqual(old, self.old)
+        self.assertEqual(len(outputs), 4)
+        self.assertEqual(modern.read_bytes(), content)
+        self.assertEqual((self.root / row['physical_path']).read_bytes(), original)
+
+    def test_canonical_logical_symlink_or_directory_cannot_alias_custody(self):
+        row = next(row for row in self.mapping['entries']
+                   if row['logical_path'].endswith('/claim_ledger.json'))
+        canonical = self.root / row['logical_path']
+        canonical.parent.mkdir(parents=True, exist_ok=True)
+        canonical.symlink_to(self.root / row['physical_path'])
+        with self.assertRaisesRegex(h.HistoricalIntakeError, 'regular direct file'):
+            h._science(self.root, self.target)
+        canonical.unlink()
+        canonical.mkdir()
+        with self.assertRaisesRegex(h.HistoricalIntakeError, 'regular direct file'):
+            h._science(self.root, self.target)
+
     def test_canonical_raw_copy_or_alternate_er_alias_is_rejected(self):
-        for row in self.mapping['entries'][-2:]:
+        for row in self.mapping['entries']:
             path = self.root / row['logical_path']
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes((self.root / row['physical_path']).read_bytes())
