@@ -78,3 +78,30 @@ Pinned project inputs:
 - V29 ledger \`research_notes/X6_NETWORK_EVENT_LEDGER_AND_CONTRAST_TRANSDUCER_V29_20260906.md\`, blob \`6849ebd3fc776fb7da3b46627376490aba3dad99\`.
 - R762CA sign-only candidates \`research_artifacts/mcp/RS-X6-TRIADIC-CLOSURE-DYNAMICS/MCP-4b2d70a97f594366a7c94a0f8b45df38/1728fedbae5e7405844b/R762CA_COVARIANT_SIGN_GATE_CLASSIFICATION.md\`, blob \`c5c7e305a5c2a30b4e99754a7f1044154a7ccc9f\`.
 - Task frozen science \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json\` (its P000 ontology remains unchanged).
+
+
+## Appendix A — sharp invariant-link readout without an external sign reference
+
+The previous theorem reconstructs the **raw parity** P, which changes under a reference-frame sign flip. The genuine four-valued signed-Link sector r can be read more directly. For the same observations y0,y1,y2 and two consecutive generators a=a^(0), b=a^(1), put the *relative edge-change bit*
+
+    delta=a_(j-1) b_(j-1).
+
+Because the same signed-frame transformation multiplies a_(j-1) and b_(j-1) by the same endpoint signs, delta is **gauge invariant**.
+
+**Theorem A1 (sharp three-read relational recovery).**
+
+    r_(j-1)= y0 y1;
+    r_(j-2)= delta y1 y2;
+    r_j    =-delta y0 y2.                        (A.1)
+
+Proof: the first relation is y0=s_j, y1=a_(j-1)s_(j-1). For the second, substitute y2=b_(j-1)a_(j-2)s_(j-2), then cancel the two a_(j-2) factors in r_(j-2)=s_(j-2)a_(j-2)s_(j-1). The third follows from r0r1r2=-1. All three right-hand pair-products are signed-frame invariants (each y_t changes by the same detector-axis reference sign). Thus known delta recovers the entire four-state relational sector without any absolute sign reference.
+
+In particular, **it is sufficient that this single edge retains its sign from the first to second scattering**, a_(j-1)=b_(j-1), so delta=+1. The other two V5 generator edges may flip simultaneously while preserving product -1. Fixing all three generator edges is stronger than necessary.
+
+**Theorem A2 (exact ambiguity when the next generator is independently free).** For every possible three-read word y, precisely **two** initial r-sectors are compatible with the unrestricted four-by-four two-twist model. They have the same r_(j-1)=y0y1 and opposite values of the remaining two link signs. Among the 16 microscopic (s,a,b) cases for that y, eight give each sector. One binary readout of delta is therefore both necessary and sufficient for the full r-sector.
+
+This ambiguity **persists for arbitrary finite and infinite fixed-axis readout histories** if every later generator may independently be any V5 twist. The all-length claim is constructive. Choose either desired initial r compatible with r_(j-1)=y0y1. Set s_j=y0, choose the other two initial s signs, force a_(j-1)=y1/s_(j-1), then choose a_(j-2) to realize the desired r_(j-2), and use the product constraint to determine a_j. At each subsequent step t>=1, given current s^(t) and prescribed next detector sign y_(t+1), choose the fresh edge a^(t)_(j-1)=y_(t+1)/s^(t)_(j-1). One of the remaining edges may be chosen freely and the last is determined by their product -1. This extends the same readout history from **both** initial r sectors, however long the history is. The original source identities and signed branch words remain distinct, so the example is a fiber ambiguity, not a loss of source in the proof.
+
+**Finite evidence.** The accompanying [named-link test](check_link_readout.py) checks all 384 two-twist inputs, all three detector axes, and for each axis all 8,192 five-step histories (8 initial signed words × 4^5 generator words). Each of the 64 six-read words has exactly two possible initial r-sectors. The [exact check summary](link_results.json) records these counts. The unbounded statement rests on the construction above, not on extrapolating from five steps.
+
+**Scientific consequence.** The minimal native bridge is now precise: obtain either (i) a native signed edge-continuity law at the detector's predecessor edge, or (ii) one invariant inter-event tag delta. The raw sign parity P still requires a separately defined absolute frame reference; the relational r does not. Whether such edge continuity is licensed in the full Cell/Link/Port TRIADIC_CLOSURE_E event is the remaining domain-specific question.
