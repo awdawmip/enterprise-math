@@ -1,0 +1,89 @@
+{
+  "schema": "EC49FTC_EXACT_NATIVE_ZERO_PRICE_BELLMAN_V1",
+  "date": "2026-11-19",
+  "frozen_source_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "model": "141 named joint-response profiles and all 228 original physical observers; exact rational unrestricted Bellman",
+  "source_original_sha256": {
+    "frozen_original_master.txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE.csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "orientation": "D: q32=a, q34=b; S: q32=b, q34=a; both q140=z",
+  "anchors": [
+    {
+      "orientation": "D",
+      "a": "133/246",
+      "b": "7/16",
+      "z": "1",
+      "value": "88859/656",
+      "raw_integer": 266577,
+      "denominator": 1968,
+      "root": 140,
+      "states": 7837,
+      "uses": {
+        "U": 319,
+        "q32": 18,
+        "q34": 75,
+        "q140": 141
+      },
+      "independent_raw94": "88859/656"
+    },
+    {
+      "orientation": "S",
+      "a": "133/246",
+      "b": "7/16",
+      "z": "1",
+      "value": "63287/492",
+      "raw_integer": 253148,
+      "denominator": 1968,
+      "root": 140,
+      "states": 7364,
+      "uses": {
+        "U": 323,
+        "q32": 12,
+        "q34": 89,
+        "q140": 141
+      },
+      "independent_raw94": "63287/492"
+    },
+    {
+      "orientation": "D",
+      "a": "231/416",
+      "b": "7/16",
+      "z": "1",
+      "value": "3515/26",
+      "raw_integer": 56240,
+      "denominator": 416,
+      "root": 140,
+      "states": 7836,
+      "uses": {
+        "U": 319,
+        "q32": 18,
+        "q34": 75,
+        "q140": 141
+      },
+      "independent_raw94": null
+    },
+    {
+      "orientation": "S",
+      "a": "231/416",
+      "b": "7/16",
+      "z": "1",
+      "value": "52969/416",
+      "raw_integer": 52969,
+      "denominator": 416,
+      "root": 140,
+      "states": 7220,
+      "uses": {
+        "U": 323,
+        "q32": 12,
+        "q34": 89,
+        "q140": 141
+      },
+      "independent_raw94": null
+    }
+  ],
+  "primary_count": 4,
+  "independent_count": 2,
+  "source_pr": "https://github.com/awdawmip/enterprise-math/pull/2750",
+  "independent_review": "NOT_REVIEWED"
+}
