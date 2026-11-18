@@ -8,6 +8,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 CASES = {
     'eleven': ('eleven', 'replay', 'result'),
+    'ten': ('ten', 'replay', 'result'),
+    'bias_geometry': ('bias_geometry', 'replay', 'result'),
+    'weighted_upgrade': ('bias', 'upgrade', 'upgrade_result'),
     'native': ('native', 'replay', 'result'),
     'ties': ('eleven', 'tie', 'tie_result'),
     'neighbors': ('eleven_neighbors', 'replay', 'result'),
@@ -41,7 +44,7 @@ def main():
         directory, script, receipt = CASES[name]
         folder = ROOT/directory
         cmd = [sys.executable, '-B', str(folder/(script+'.py')), '--previous', str(selected.previous.resolve())]
-        if name in {'eleven', 'ties', 'gap', 'twelve_lower', 'cores', 'four', 'overlap', 'neighbors', 'four_cores'}:
+        if name in {'eleven', 'ties', 'gap', 'twelve_lower', 'cores', 'four', 'overlap', 'neighbors', 'four_cores', 'bias_geometry'}:
             cmd.extend(['--jobs', str(selected.jobs)])
         if name=='four_cores':
             cmd.append('--four-cores')
