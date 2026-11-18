@@ -1,0 +1,57 @@
+{
+  "schema": "ENTERPRISE_MATH_R284AB_FEEDBACK_CERTIFICATE_V1",
+  "status": "PASS",
+  "arithmetic": "exact Fraction elimination, rank, inverse; no floating point",
+  "internal_edges": {
+    "L": [
+      [
+        "1/16",
+        "1/32"
+      ],
+      [
+        "1/64",
+        "1/24"
+      ]
+    ],
+    "C": [
+      [
+        "1/16",
+        "1/16"
+      ],
+      [
+        "1/16",
+        "1/16"
+      ]
+    ],
+    "D": [
+      [
+        "1/32",
+        "1/48"
+      ],
+      [
+        "1/40",
+        "1/64"
+      ]
+    ],
+    "U": [
+      [
+        "1/20",
+        "1/36"
+      ],
+      [
+        "1/48",
+        "1/28"
+      ]
+    ]
+  },
+  "checks": {
+    "3^4_feedback_stable_ranks_schur_perfect_matching": 81,
+    "2^4_center_edit_rank_restore": 16
+  },
+  "full_matrix_common_right_kernel_stacked_rank": 6,
+  "full_matrix_common_left_kernel_stacked_rank": 6,
+  "base_internal_G_determinant": "14448047/17694720",
+  "base_full_complement_determinant": "0",
+  "perturbation_eta_1_32_baseline_determinant": "1/2097152",
+  "conclusion_scope": "auxiliary rational Port, not native BRC time evolution or physical residual"
+}
