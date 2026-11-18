@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/fortieth/README.md",
+    "ref": "66b748a3350f12c8ec6dec2e874b3bf694ff1c49",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-forty-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第四十轮　高斯整格的本原零向量、双向钟谱与涡旋能量\n\n## 一个六维高斯整格中有多少条各向同性直线\n\n设 $z\\in\\mathbf Z[i]^6$，取 $c=(1,1,1,-1,-1,-3)$、$Q(z)=\\sum c_j|z_j|^2$、$H(z)^2=\\sum |c_j||z_j|^2$。称坐标生成整个高斯整数环的向量为本原向量。高度 $H(z)\\le B$ 的本原零向量（$Q(z)=0$）满足\n\n$$\nN^*(B)\\sim \\frac{12960}{91\\pi^5} B^{10}.\n$$\n\n每条 $\\mathbf Q(i)$ 上的各向同性直线有四个等高的本原生成元，所以按本原高度计直线，首常数为 $3240/(91\\pi^5)$。推导先求各素数幂上每个右端的本原解数，再用高维二次型圆法和高斯理想的 Möbius 反演接到全局。闭球用光滑环带逼近。两条独立的整数计算在 $B=128$ 时都得到 549573120779023765920 个本原向量。这个格来自第十四轮的 Weil 六维分量；这里计数的是指定整格的点和线。[局部公式与全局推导](hermitian.md) · [复算程序](hermitian_check.py) · [逐层结果](hermitian_checked.json)\n\n## 哪些双向频率读数可以来自同一套钟\n\n对同一节点比较的两路正频率比 $P_e,A_e$，所声明的钟网协议能以一组正实节点参数同时解释全网，当且仅当每个有向环的两路带方向乘积各为 1。若边读数均为精确正有理数且相容，令 $r$ 为 $P_eA_e$ 在正有理数平方类群中张成的二元维数，则最小参数域为 $\\mathbf Q(\\sqrt{P_eA_e}:e\\in E)$，次数恰为 $2^r$。用公开锂离子实验表 I 的四个频率独立重算，归一频率积平方根与 1 的差为 $1.47448\\times10^{-9}$，与论文的 $(1.5\\pm2.3)\\times10^{-9}$ 相符。该单次实验与网络定理各有自己的标定前提。[原实验、协议与环路判据](clocks.md) · [复算程序](clocks_check.py) · [核验结果](clocks_checked.json)\n\n## 同一涡旋算例的网格比较\n\n在 Basilisk 的双涡旋不可压缩流算例上，以 $t=1$ 的全域动能为共同读数。两种自适应方法使用同一边界、求解器和输出时刻。比较以速度分量为目标的原有小波指标，以及用四个子单元合并时损失的动能作指标的方案。以均匀 512² 网格为数值参照，在相对动能误差不超过 0.1% 的实测组中，两种指标的最小累计叶单元数分别为 503038 和 180784。均匀 128² 在同一读数上也达到该阈值，且实测用时更少。稿中列出参考网格误差、每档容差和运行费用。[研究与实测](amr.md) · [运行脚本](amr_check.py) · [事件与指标](amr_events.h) · [数值结果](amr_checked.json) · [运行费用](amr_cost.json)\n\n## 状态机轮转\n\n本轮推进两个不同父目标下此前未经轮转的严格就绪任务。累计直接研究 188 项、51 个父目标，另有两项早期旁引。截至 21:26:19 UTC，未轮转池余 68 项严格就绪、24 项待交接、5 项冻结返回。高斯格计数单列为未编号数学旁支。[积压、父目标与租约来源](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/66b748a3350f12c8ec6dec2e874b3bf694ff1c49/research_notes/portable_direct/20261118_fair_queue_6b0fba/fortieth/README.md",
+      "encoding": "utf-8",
+      "sha": "408a51302c3366a987473bcfd200feeb67a890cd"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

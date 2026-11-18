@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/fortieth/amr_events.h",
+    "ref": "66b748a3350f12c8ec6dec2e874b3bf694ff1c49",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-forty-20261118-6",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "/* Added instrumentation for the published, cell-centred vortex test.\n   Program globals mode_id, max_level, and tau are inserted by amr_check.py.\n   0 = uniform grid, 1 = upstream velocity indicator, 2 = kinetic-loss indicator. */\n#include <time.h>\nstatic long calls, pre_leaves, post_leaves, refinements, coarsenings;\nstatic long p_cycles, pf_cycles, risk_parents, risk_leaf_clears;\nstatic double adapt_cpu, observable_cpu;\n\nstatic void predict_kinetic_loss (Point point, scalar score)\n{\n  const double area = sq(Delta);\n  const double vx = u.x[], vy = u.y[];\n  double variation = 0.;\n  foreach_child()\n    variation += sq(u.x[] - vx) + sq(u.y[] - vy);\n  double loss = area*variation/8.;\n  foreach_child()\n    score[] = loss;\n  risk_parents++;\n}\n\nevent adapt (i++)\n{\n  // The uniform controls get the same instrumentation outside adaptation.\n  calls++;\n  pre_leaves += grid->n;\n  p_cycles += mgp.i;\n  pf_cycles += mgpf.i;\n  astats st = {0};\n  clock_t ts = clock();\n  if (mode_id == 1)\n    st = adapt_wavelet ((scalar *){u}, (double[]){tau,tau}, max_level);\n  if (mode_id == 2) {\n    scalar score[];\n    foreach()\n      score[] = 0.;\n    risk_leaf_clears += grid->n;\n    score.refine = refine_injection;\n    score.prolongation = predict_kinetic_loss;\n    restriction ((scalar *){u});\n    st = adapt_wavelet ({score}, (double[]){tau}, max_level);\n  }\n  adapt_cpu += (double)(clock()-ts)/CLOCKS_PER_SEC;\n  post_leaves += grid->n;\n  refinements += st.nf;\n  coarsenings += st.nc;\n}\n\n// The original movie triggers every 0.2 and therefore constrains the dt schedule.\nevent observation_clock (t += 0.2; t <= 1.) {}\n\n// Same global observable and conservation diagnostics in all runs.\nevent finish (t = 1.)\n{\n  clock_t ts = clock();\n  double energy=0., mx=0., my=0., area=0., face_div_max=0., face_div_integral=0.;\n  foreach(reduction(+:energy) reduction(+:mx) reduction(+:my)\n          reduction(+:area) reduction(max:face_div_max) reduction(+:face_div_integral)) {\n    double da = sq(Delta);\n    energy += 0.5*da*(sq(u.x[])+sq(u.y[]));\n    mx += da*u.x[]; my += da*u.y[]; area += da;\n    double div = (uf.x[1]-uf.x[] + uf.y[0,1]-uf.y[])/Delta;\n    face_div_max = max(face_div_max,fabs(div));\n    face_div_integral += div*da;\n  }\n  double maxwall = 0.;\n  foreach_boundary(left,reduction(max:maxwall))\n    maxwall = max(maxwall,fabs(uf.x[]));\n  foreach_boundary(right,reduction(max:maxwall))\n    maxwall = max(maxwall,fabs(uf.x[1]));\n  foreach_boundary(bottom,reduction(max:maxwall))\n    maxwall = max(maxwall,fabs(uf.y[]));\n  foreach_boundary(top,reduction(max:maxwall))\n    maxwall = max(maxwall,fabs(uf.y[0,1]));\n  observable_cpu += (double)(clock()-ts)/CLOCKS_PER_SEC;\n  fprintf (stdout,\"RESULT %d %d %.17g %d %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %.6f %.6f\\n\",\n    mode_id,max_level,tau,i,t,energy,mx,my,area,face_div_max,face_div_integral,maxwall,\n    calls,(long)grid->n,pre_leaves,post_leaves,refinements,coarsenings,p_cycles,pf_cycles,\n    risk_parents,risk_leaf_clears,(long)depth(),adapt_cpu,observable_cpu);\n  return 1;\n}\n",
+      "display_title": "amr_events.h",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/66b748a3350f12c8ec6dec2e874b3bf694ff1c49/research_notes/portable_direct/20261118_fair_queue_6b0fba/fortieth/amr_events.h",
+      "encoding": "utf-8",
+      "sha": "fef819dde2b70f50d3dcea4d96e894a6a51afb9f"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
