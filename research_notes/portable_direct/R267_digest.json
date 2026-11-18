@@ -1,0 +1,108 @@
+{
+  "schema": "R267_EXACT_SIX_CLASS_PRICE_CONE_DIGEST_V1",
+  "date": "2026-11-18",
+  "frozen_scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "previous_proof_commit": "340e33e20c1841f046e6f4fee8a431afe2f144e8",
+  "model": "63 labelled sources, s=67/169, modulus 13, 2184-phase Boolean zero-only oracle",
+  "active_representatives": [
+    9,
+    10,
+    12,
+    13,
+    24,
+    26
+  ],
+  "all_zero_phases_per_period": 2,
+  "recurrence_shift_taps_verified": 249,
+  "paths_enumerated": 720,
+  "distinct_six_cost_vectors": 570,
+  "pareto_six_cost_vectors": 156,
+  "two_cost_projected_candidates": 116,
+  "two_cost_globally_active_planes": 8,
+  "two_cost_domain": "c9=x>=1,c26=y>=1,c10=c12=c13=c24=1",
+  "planes": [
+    [
+      16,
+      168,
+      2184
+    ],
+    [
+      16,
+      2184,
+      156
+    ],
+    [
+      160,
+      2184,
+      52
+    ],
+    [
+      196,
+      0,
+      2184
+    ],
+    [
+      208,
+      2184,
+      26
+    ],
+    [
+      2212,
+      0,
+      312
+    ],
+    [
+      2500,
+      0,
+      52
+    ],
+    [
+      2548,
+      0,
+      26
+    ]
+  ],
+  "strictly_optimal_witnesses": {
+    "16,168,2184": [
+      "21/20",
+      "41/40"
+    ],
+    "16,2184,156": [
+      "21/20",
+      "21/20"
+    ],
+    "160,2184,52": [
+      "21/20",
+      "7/5"
+    ],
+    "196,0,2184": [
+      "11/10",
+      "21/20"
+    ],
+    "208,2184,26": [
+      "21/20",
+      "37/20"
+    ],
+    "2212,0,312": [
+      "11/10",
+      "11/10"
+    ],
+    "2500,0,52": [
+      "11/10",
+      "23/20"
+    ],
+    "2548,0,26": [
+      "11/10",
+      "37/20"
+    ]
+  },
+  "exact_dual_certificates_verified": 116,
+  "exact_rational_grid_cases": 144,
+  "checks": "PASS exact source recurrence support, exact DP exhaustive paths, rational Farkas-style dual certificate per projected candidate, eight strict rational witnesses",
+  "local_full_evidence_sha256": {
+    "R267_verification.json": "2a7ecdf8063df060befc11b811dd2f2b71e6e6dd4b4b97b4fd11a8f012f06ab4",
+    "R267_atlas_certificate.json": "70d5421570d9e7e0fae6ea6d9c48830ae5746b1157c7e382eff9e211aef4bb0c"
+  },
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CERTIFICATE_NOT_REVIEWED",
+  "provenance_scope": "Independent portable direct research; no formal TASK CLAIM or native typed BRC equivalence"
+}
