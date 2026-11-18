@@ -1,0 +1,133 @@
+{
+  "all_zero_events_per_period": 2,
+  "auxiliary_parameter": "67/169",
+  "class9_cost_parameter": "theta>=1 multiplies probe cost for every one of the eight equivalent class-9 labels; all other active label classes cost 1",
+  "class9_pieces": [
+    {
+      "from_theta": "1",
+      "objective": "172+2184*theta",
+      "order": [
+        9,
+        26,
+        10,
+        13
+      ]
+    },
+    {
+      "from_theta": "169/168",
+      "objective": "2200+168*theta",
+      "order": [
+        26,
+        9,
+        10,
+        13
+      ]
+    },
+    {
+      "from_theta": "15/14",
+      "objective": "2380+0*theta",
+      "order": [
+        26,
+        12,
+        10,
+        13
+      ]
+    }
+  ],
+  "distinct_cost_affine_lines": {
+    "class9": 333,
+    "phase0": 209
+  },
+  "event_period": 2184,
+  "frozen_scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "k_start": 3,
+  "model": "Boolean nonzero original-label queries; 63 labels; 39 identically zero; 6 active profile classes; query cost positive; no event phase directly visible; all 2184 events must be correctly classified",
+  "permutations_checked_per_family": 720,
+  "phase0_pieces": [
+    {
+      "from_alpha": "1",
+      "objective": "1936+420*alpha",
+      "order": [
+        9,
+        26,
+        10,
+        13
+      ]
+    },
+    {
+      "from_alpha": "3/2",
+      "objective": "1972+396*alpha",
+      "order": [
+        26,
+        9,
+        10,
+        13
+      ]
+    },
+    {
+      "from_alpha": "5",
+      "objective": "1992+392*alpha",
+      "order": [
+        26,
+        10,
+        9,
+        13
+      ]
+    },
+    {
+      "from_alpha": "8",
+      "objective": "2216+364*alpha",
+      "order": [
+        10,
+        26,
+        9,
+        13
+      ]
+    }
+  ],
+  "phase0_total_population_weight": "1820+364*alpha",
+  "phase0_weight_parameter": "alpha>=1 multiplies weight of phase n=(k-3)%2184 with n%6=0; all other 1820 phases weight 1; each probe costs 1",
+  "prime": 13,
+  "schema": "EM_R266_WEIGHTED_SEQUENTIAL_OBSERVER_EXACT_ENVELOPES_V1",
+  "scope": "Auxiliary positive-rational scalar model and Boolean support oracle only. Does not reconstruct all labelled values or native typed BRC ports.",
+  "shifted_recurrence_taps_verified": 249,
+  "source_classes": [
+    [
+      9,
+      14,
+      27,
+      29,
+      41,
+      46,
+      59,
+      61
+    ],
+    [
+      10,
+      25,
+      30,
+      42,
+      57,
+      62
+    ],
+    [
+      12,
+      15,
+      44,
+      47
+    ],
+    [
+      13,
+      45
+    ],
+    [
+      24,
+      56
+    ],
+    [
+      26,
+      58
+    ]
+  ],
+  "verification": "PASS exact Fraction enumeration, recurrence periodicity, support grouping, 720 permutations per family, exact rational lower-envelope computation with independent sample/breakpoint checks"
+}
