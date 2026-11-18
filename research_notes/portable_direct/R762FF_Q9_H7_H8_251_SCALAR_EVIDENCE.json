@@ -1,0 +1,77 @@
+{
+  "schema": "R762FF_Q9_H7_H8_SCALAR_251_EXACT_EVIDENCE_V1",
+  "date_local": "2026-11-19",
+  "research_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "arithmetic": "GMP integer; full six-named BRC convolution on 729 terminal states",
+  "source_program": "research_notes/portable_direct/R762FF_Q9_H7_H8_251_RAW_CERT_TEST.cpp",
+  "window_definition": "s=N..N+250 (inclusive); 251 samples",
+  "baseline_exponent": "max(0,floor(s/3)-2)+L/3+h",
+  "strict_exponent": "max(0,floor(min(s,N+125)/3)-2)+L/3+h+57",
+  "modulus": "3^(max(0,floor((N+125)/3)-2)+L/3+h+57)",
+  "results": [
+    {
+      "h": 7,
+      "L": 13122,
+      "N": 26,
+      "b": 4374,
+      "max_modulus_trits": 4486,
+      "samples": 251,
+      "baseline_pass": 251,
+      "strict_pass": 0,
+      "strict_fail": 251,
+      "first_strict_fail_s": 26,
+      "first_baseline_fail_s": null,
+      "min_strict_margin": -57,
+      "min_baseline_margin": 0,
+      "baseline_margin_histogram": {
+        "0": 168,
+        "1": 37,
+        "2": 30,
+        "3": 13,
+        "4": 2,
+        "5": 1
+      },
+      "first_witness": {
+        "s": 26,
+        "v3_d": 4389,
+        "baseline_exponent": 4387,
+        "strict_exponent": 4444
+      },
+      "elapsed_wall_seconds_observed": 3.44
+    },
+    {
+      "h": 8,
+      "L": 39366,
+      "N": 27,
+      "b": 13122,
+      "max_modulus_trits": 13235,
+      "samples": 251,
+      "baseline_pass": 251,
+      "strict_pass": 0,
+      "strict_fail": 251,
+      "first_strict_fail_s": 27,
+      "first_baseline_fail_s": null,
+      "min_strict_margin": -57,
+      "min_baseline_margin": 0,
+      "baseline_margin_histogram": {
+        "0": 168,
+        "1": 38,
+        "2": 29,
+        "3": 13,
+        "4": 2,
+        "5": 1
+      },
+      "first_witness": {
+        "s": 27,
+        "v3_d": 13139,
+        "baseline_exponent": 13137,
+        "strict_exponent": 13194
+      },
+      "elapsed_wall_seconds_observed": 31.42
+    }
+  ],
+  "status": "AUTHOR_SIDE_EXACT_BRC_FINITE_CALCULATION_PASS",
+  "interpretation": "R762FE raw sufficient all-scalar vanishing criterion does not hold at the two tested (h,L,N). It does not invalidate its correctness or the separately established earlier full-vector period certificates.",
+  "review": "NOT_REVIEWED",
+  "next": "Joint 3-adic matrix-level reconstruction using 251 return moments rather than requiring each individual moment to contain 57 extra zero trits"
+}
