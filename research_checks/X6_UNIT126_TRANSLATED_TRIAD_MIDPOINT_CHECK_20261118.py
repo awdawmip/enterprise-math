@@ -46,13 +46,28 @@ def true_shortest_midpoints(a, b):
 def require(x, message):
     if not x: raise RuntimeError(message)
 
-# A strict existing-caller sample: all 160 source signed triad types and three pairs.
+# Exact original caller at lines 63-70: starts are mapped by a signed triad rotation.
+def q_triad(T):
+    i, j, k = T
+    g = list(range(1, N + 1))
+    g[i] = -(j + 1); g[j] = -(k + 1); g[k] = -(i + 1)
+    return tuple(g)
+
+def act(g, z):
+    out = [0] * N
+    for i, c in enumerate(z):
+        if c:
+            y = g[i]
+            out[abs(y) - 1] += (1 if y > 0 else -1) * c
+    return tuple(out)
+
 caller_pairs = 0
 for T in combinations(range(N), 3):
+    g = q_triad(T)
     for signs in product((-1, 1), repeat=3):
         starts = [unit(i, s) for i, s in zip(T, signs)]
-        for i, j in combinations(range(3), 2):
-            a, b = starts[i], starts[j]
+        targets = [act(g, a) for a in starts]
+        for a, b in zip(starts, targets):
             require(frozenset(midpoint_options_source(a, b)) ==
                     true_shortest_midpoints(a, b), "original caller mismatch")
             caller_pairs += 1
