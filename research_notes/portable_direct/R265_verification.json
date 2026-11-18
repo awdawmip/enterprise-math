@@ -1,0 +1,106 @@
+{
+  "schema": "EM_R265_OPTIMAL_SEQUENTIAL_ZERO_OBSERVER_V1",
+  "frozen_science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "input": {
+    "parameter": "67/169",
+    "prime": 13,
+    "k_start": 3,
+    "period": 2184,
+    "labels": 63
+  },
+  "exact_period_shifted_taps_verified": 249,
+  "active_label_count": 24,
+  "identically_zero_label_count": 39,
+  "distinct_nonzero_coverage_profiles": 6,
+  "equivalent_source_classes": [
+    [
+      9,
+      14,
+      27,
+      29,
+      41,
+      46,
+      59,
+      61
+    ],
+    [
+      10,
+      25,
+      30,
+      42,
+      57,
+      62
+    ],
+    [
+      12,
+      15,
+      44,
+      47
+    ],
+    [
+      13,
+      45
+    ],
+    [
+      24,
+      56
+    ],
+    [
+      26,
+      58
+    ]
+  ],
+  "representatives": [
+    9,
+    10,
+    12,
+    13,
+    24,
+    26
+  ],
+  "representative_nonzero_counts": {
+    "9": 2028,
+    "10": 1820,
+    "12": 1872,
+    "13": 1638,
+    "24": 1456,
+    "26": 2016
+  },
+  "all_nonzero_event_count": 2182,
+  "all_zero_event_count": 2,
+  "minimal_fixed_cover_size": 4,
+  "valid_four_label_covers": 384,
+  "globally_optimal_sequential_order": [
+    9,
+    26,
+    10,
+    13
+  ],
+  "optimal_total_reads_over_one_period": 2356,
+  "optimal_step_event_counts": [
+    2184,
+    156,
+    12,
+    4
+  ],
+  "optimal_mean_reads_numerator": 2356,
+  "optimal_mean_reads_denominator": 2184,
+  "original_R262_order": [
+    9,
+    10,
+    13,
+    26
+  ],
+  "original_order_total_reads": 2418,
+  "original_order_step_counts": [
+    2184,
+    156,
+    52,
+    26
+  ],
+  "DP_states_checked": 64,
+  "all_six_class_permutations_checked": 720,
+  "verification": "PASS: exact Fraction model, 249 taps, 2184 events, six cover classes, exhaustive small cover and 64-state DP with independent permutations",
+  "model_scope": "Boolean zero/nonzero label probes; no phase-index readout; uniform 2184-event workload; auxiliary scalar model only",
+  "mathematical_status": "AUTHOR_PROVED / EXACT_FINITE_VERIFICATION / NOT_REVIEWED"
+}
