@@ -1,0 +1,308 @@
+{
+  "schema": "EC49FSS_NATIVE_BRC16943_FULL_THREE_PRICE_PRISM_VERTEX_CERT_V1",
+  "date": "2026-11-18",
+  "frozen_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "primary_source": "EC49FSA_THREE_OBSERVER_SOLVER.py original 228 named physical observations",
+  "raw_sha256": {
+    "frozen_original_master_txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE_csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "population": {
+    "configurations": 310,
+    "named_profiles": 141,
+    "native_named_observers": 228,
+    "prior": "uniform named profiles"
+  },
+  "prism": {
+    "a": [
+      "1/2",
+      "1"
+    ],
+    "b": [
+      "27/64",
+      "29/64"
+    ],
+    "z": [
+      "1/2",
+      "9/16"
+    ]
+  },
+  "native_vectors": {
+    "A": [
+      319,
+      18,
+      75,
+      141
+    ],
+    "E": [
+      316,
+      141,
+      43,
+      30
+    ],
+    "H": [
+      315,
+      10,
+      141,
+      77
+    ],
+    "W": [
+      323,
+      12,
+      89,
+      141
+    ]
+  },
+  "two_phase_regions": {
+    "direct_A_vertices": 8,
+    "direct_E_vertices": 8,
+    "swap_H_vertices": 10,
+    "swap_W_vertices": 6
+  },
+  "vertex_count_by_orientation": {
+    "direct": 12,
+    "swapped": 12
+  },
+  "primary_exhaustive_bellman": [
+    {
+      "orientation": "direct",
+      "a": "1/2",
+      "b": "27/64",
+      "z": "1/2",
+      "exact": "13303/64",
+      "reached_subsets": 10689
+    },
+    {
+      "orientation": "direct",
+      "a": "1/2",
+      "b": "27/64",
+      "z": "9/16",
+      "exact": "12739/64",
+      "reached_subsets": 10463
+    },
+    {
+      "orientation": "direct",
+      "a": "1/2",
+      "b": "29/64",
+      "z": "1/2",
+      "exact": "13153/64",
+      "reached_subsets": 10528
+    },
+    {
+      "orientation": "direct",
+      "a": "1/2",
+      "b": "29/64",
+      "z": "9/16",
+      "exact": "12589/64",
+      "reached_subsets": 10342
+    },
+    {
+      "orientation": "direct",
+      "a": "22/41",
+      "b": "27/64",
+      "z": "1/2",
+      "exact": "543695/2624",
+      "reached_subsets": 10514
+    },
+    {
+      "orientation": "direct",
+      "a": "67/123",
+      "b": "29/64",
+      "z": "1/2",
+      "exact": "537161/2624",
+      "reached_subsets": 10432
+    },
+    {
+      "orientation": "direct",
+      "a": "389/656",
+      "b": "27/64",
+      "z": "9/16",
+      "exact": "517907/2624",
+      "reached_subsets": 10110
+    },
+    {
+      "orientation": "direct",
+      "a": "1183/1968",
+      "b": "29/64",
+      "z": "9/16",
+      "exact": "511373/2624",
+      "reached_subsets": 9959
+    },
+    {
+      "orientation": "direct",
+      "a": "1",
+      "b": "27/64",
+      "z": "1/2",
+      "exact": "9079/64",
+      "reached_subsets": 6817
+    },
+    {
+      "orientation": "direct",
+      "a": "1",
+      "b": "27/64",
+      "z": "9/16",
+      "exact": "8959/64",
+      "reached_subsets": 6696
+    },
+    {
+      "orientation": "direct",
+      "a": "1",
+      "b": "29/64",
+      "z": "1/2",
+      "exact": "8993/64",
+      "reached_subsets": 6753
+    },
+    {
+      "orientation": "direct",
+      "a": "1",
+      "b": "29/64",
+      "z": "9/16",
+      "exact": "8873/64",
+      "reached_subsets": 6648
+    },
+    {
+      "orientation": "swapped",
+      "a": "1/2",
+      "b": "27/64",
+      "z": "1/2",
+      "exact": "6457/32",
+      "reached_subsets": 10286
+    },
+    {
+      "orientation": "swapped",
+      "a": "1/2",
+      "b": "27/64",
+      "z": "1061/2048",
+      "exact": "410399/2048",
+      "reached_subsets": 10202
+    },
+    {
+      "orientation": "swapped",
+      "a": "1/2",
+      "b": "27/64",
+      "z": "9/16",
+      "exact": "1553/8",
+      "reached_subsets": 10027
+    },
+    {
+      "orientation": "swapped",
+      "a": "1/2",
+      "b": "29/64",
+      "z": "1/2",
+      "exact": "6447/32",
+      "reached_subsets": 10263
+    },
+    {
+      "orientation": "swapped",
+      "a": "1/2",
+      "b": "29/64",
+      "z": "1059/2048",
+      "exact": "409913/2048",
+      "reached_subsets": 10203
+    },
+    {
+      "orientation": "swapped",
+      "a": "1/2",
+      "b": "29/64",
+      "z": "9/16",
+      "exact": "775/4",
+      "reached_subsets": 10013
+    },
+    {
+      "orientation": "swapped",
+      "a": "71/128",
+      "b": "27/64",
+      "z": "9/16",
+      "exact": "24225/128",
+      "reached_subsets": 9421
+    },
+    {
+      "orientation": "swapped",
+      "a": "925/1664",
+      "b": "29/64",
+      "z": "9/16",
+      "exact": "314123/1664",
+      "reached_subsets": 9368
+    },
+    {
+      "orientation": "swapped",
+      "a": "1",
+      "b": "27/64",
+      "z": "1/2",
+      "exact": "4201/32",
+      "reached_subsets": 6583
+    },
+    {
+      "orientation": "swapped",
+      "a": "1",
+      "b": "27/64",
+      "z": "9/16",
+      "exact": "4047/32",
+      "reached_subsets": 6531
+    },
+    {
+      "orientation": "swapped",
+      "a": "1",
+      "b": "29/64",
+      "z": "1/2",
+      "exact": "4191/32",
+      "reached_subsets": 6583
+    },
+    {
+      "orientation": "swapped",
+      "a": "1",
+      "b": "29/64",
+      "z": "9/16",
+      "exact": "4037/32",
+      "reached_subsets": 6525
+    }
+  ],
+  "independent_94_family": [
+    {
+      "orientation": "direct",
+      "a": "389/656",
+      "b": "27/64",
+      "z": "9/16",
+      "exact": "517907/2624",
+      "reached_subsets": 9367
+    },
+    {
+      "orientation": "swapped",
+      "a": "71/128",
+      "b": "27/64",
+      "z": "9/16",
+      "exact": "24225/128",
+      "reached_subsets": 8680
+    },
+    {
+      "orientation": "swapped",
+      "a": "1/2",
+      "b": "29/64",
+      "z": "9/16",
+      "exact": "775/4",
+      "reached_subsets": 9280
+    },
+    {
+      "orientation": "swapped",
+      "a": "925/1664",
+      "b": "29/64",
+      "z": "9/16",
+      "exact": "314123/1664",
+      "reached_subsets": 8656
+    }
+  ],
+  "sharp_swap_gap": {
+    "lower_bound": "189/64",
+    "equality": {
+      "a": "1/2",
+      "b": "29/64",
+      "z": [
+        "1059/2048",
+        "9/16"
+      ]
+    }
+  },
+  "proof_method": "all-228 exact finite Bellman at complete vertices of four convex half-space cells plus feasible full 141-path named-tree costs and joint concavity",
+  "review": "NOT_REVIEWED",
+  "activity_checkpoint": "NOT_WRITTEN"
+}
