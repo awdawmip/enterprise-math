@@ -1,0 +1,45 @@
+{
+  "R063_original_benchmark_rerun": false,
+  "all_guard_checks_pass": true,
+  "counts": {
+    "rank_one": 152,
+    "rank_one_edges_are_sorted_neighbors": 152,
+    "rank_one_empty_delaunay": 152,
+    "rank_one_two_voronoi_edges": 152,
+    "rank_two": 2148,
+    "rank_two_one_delaunay_triangle": 2148,
+    "rank_two_three_voronoi_edges": 2148
+  },
+  "original_executable_imported": false,
+  "schema": "X6_UNIT138_BOUNDED_SOURCE_CONSUMER_DIAGNOSTIC_V1",
+  "scope": "all 2300 unordered triples of distinct sites from [-2,2]^2 Euclidean carrier, relevant functions exact source-derived replicas",
+  "source_git_blob_sha1": "900e246b0dafaa35d2452191e3df508a2d15a389",
+  "theorem_scope": "Three distinct collinear Euclidean sites: nearest-site Voronoi codim-1 edges are exactly consecutive collinear sites; original maximal-noncollinear-triple Delaunay routine has no cell; this is a rank-1 interface gap, not signed X6 native failure.",
+  "witness": {
+    "original_delaunay_cells": [],
+    "original_dual_edges": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "B",
+        "C"
+      ]
+    ],
+    "sites": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ]
+  }
+}
