@@ -52,7 +52,7 @@ For every fixed alpha>0, r313 provides, for all sufficiently large primes p, a s
 \]
 where m>=max(2,ceil(1/(4alpha))) is fixed independently of p. In combination with Theorem A, the infimum of attainable sampling exponents over these (varying but fixed-in-p) seed/index budgets is exactly **1/2**. This infimum statement does not assert attainment of n=O(sqrt(p)) or n=O(sqrt(p)log p) by one fixed seed budget.
 
-Theorem A uses the universal hypergeometric argument; the upper family is r313's distinct, already saved polynomial construction with positive q<=Q/2. There is no collision with the r312 sqrt(p)log p lower scale for deterministic q=0 distinct-offset certificates.
+Theorem A uses the universal hypergeometric argument; the upper family is r313's already saved polynomial construction with positive q<=Q/2 (sample offsets may repeat). There is no collision with the r312 sqrt(p)log p lower scale for deterministic q=0 distinct-offset certificates.
 
 ## Theorem C — optimal signed-index budget for t-wise uniform polynomial-type shared data
 
