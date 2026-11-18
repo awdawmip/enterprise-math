@@ -1,0 +1,263 @@
+{
+  "a3": {
+    "all_state_checks": 2040,
+    "large_action": [
+      1,
+      -1,
+      0,
+      0
+    ],
+    "marker": [
+      1,
+      -1,
+      0,
+      0
+    ],
+    "same_H_orbit": false,
+    "small_action": [
+      -1,
+      0,
+      1,
+      0
+    ]
+  },
+  "addresses": {
+    "canonical_chain": [
+      1,
+      "1/3"
+    ],
+    "distinct_parallel": [
+      2,
+      "2/3"
+    ],
+    "moving_local_payloads": [
+      [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "naive_chain": [
+      9,
+      "3"
+    ],
+    "stationary_local_payloads": [
+      [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "triple_chart_checks": 189
+  },
+  "all_partial_maps": [
+    {
+      "by_extensions": [
+        [
+          24,
+          1
+        ]
+      ],
+      "size": 0
+    },
+    {
+      "by_extensions": [
+        [
+          4,
+          36
+        ]
+      ],
+      "size": 1
+    },
+    {
+      "by_extensions": [
+        [
+          0,
+          144
+        ],
+        [
+          1,
+          288
+        ],
+        [
+          4,
+          18
+        ]
+      ],
+      "size": 2
+    },
+    {
+      "by_extensions": [
+        [
+          0,
+          1920
+        ],
+        [
+          1,
+          480
+        ]
+      ],
+      "size": 3
+    },
+    {
+      "by_extensions": [
+        [
+          0,
+          5040
+        ],
+        [
+          1,
+          360
+        ]
+      ],
+      "size": 4
+    },
+    {
+      "by_extensions": [
+        [
+          0,
+          4176
+        ],
+        [
+          1,
+          144
+        ]
+      ],
+      "size": 5
+    },
+    {
+      "by_extensions": [
+        [
+          0,
+          696
+        ],
+        [
+          1,
+          24
+        ]
+      ],
+      "size": 6
+    }
+  ],
+  "double_cosets": [
+    {
+      "common_stabilizer": 24,
+      "common_star": 4,
+      "cycles": 3,
+      "permutations": 24,
+      "relative_atlases": 1,
+      "representative": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "common_stabilizer": 4,
+      "common_star": 2,
+      "cycles": 2,
+      "permutations": 144,
+      "relative_atlases": 6,
+      "representative": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        4
+      ]
+    },
+    {
+      "common_stabilizer": 3,
+      "common_star": 1,
+      "cycles": 1,
+      "permutations": 192,
+      "relative_atlases": 8,
+      "representative": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        3
+      ]
+    },
+    {
+      "common_stabilizer": 24,
+      "common_star": 0,
+      "cycles": 3,
+      "permutations": 24,
+      "relative_atlases": 1,
+      "representative": [
+        0,
+        1,
+        3,
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "common_stabilizer": 4,
+      "common_star": 0,
+      "cycles": 2,
+      "permutations": 144,
+      "relative_atlases": 6,
+      "representative": [
+        0,
+        1,
+        3,
+        2,
+        5,
+        4
+      ]
+    },
+    {
+      "common_stabilizer": 3,
+      "common_star": 0,
+      "cycles": 1,
+      "permutations": 192,
+      "relative_atlases": 8,
+      "representative": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        2
+      ]
+    }
+  ],
+  "source_sha256": {
+    "EnterpriseMath/CellAddress/ThreeRegionSlice.lean": "2971ea97ba60f0a528a915c06152cb4aec9824fa85fae0bb88c0e76e4e921b02",
+    "scripts/check_a3_recursive_shell_alignment_tomography.py": "28f3000ea052b78b7b7ec3ba34c3d880ed98666b61eef2888d1890cd11e61b04",
+    "src/enterprise_math/_cell_slice_codec.py": "9eb64264a59e23402c51d8aa20ff9a21ff37dec5f8bd80a97da2f54bbb48a70b",
+    "src/enterprise_math/brc_weighted.py": "4f3e356227a1c964d33a3ddae94922463ba28097a43b8d1b8f6cd9ca5615fc9f",
+    "src/enterprise_math/cell_address.py": "b0ec81867994146ad69e81f73c74cfe58071c361150a84749be7a852536f1329"
+  }
+}
