@@ -1,0 +1,70 @@
+# X6 observer VII (R6): multi-source penultimate Port-language theorem and unit-transfer alias boundary
+
+**Date:** 2026-11-19 (Asia/Shanghai). **Status:** author-proved conditional finite event theorem; independent mathematical review pending. **Research line:** RS-X6-NATIVE-TIME-DYNAMICS / TP2-91D4A7C2F63805BE21A3. **Frozen science pin:** awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389 (P000). Behavioral rules read separately from current canonical main.
+
+## Inheritance and question
+
+R4 [exact source-language Port residual](2026-11-19_x6_resource_language_residual_exact_r4.md) provided the full-future count/Port language formula. R5 [sharp two-source future-horizon theorem](2026-11-19_x6_port_future_horizon_stabilization_r5.md) proved that for exactly two sources, lcm(p_A,p_B)>=2 makes complete future languages recoverable from productive H-1 prefix languages, where H is the remaining number of source events. This R6 derives the exact generalization to d>=2 source channels, establishes the best possible information loss at the final observation step, and supplies a three-source counterexample to merely testing the global lcm.
+
+## Exact scope and typed Boolean BRC carrier
+
+Fix d>=2 distinct source labels Sigma={x_1,...,x_d}, terminal quota vector a=(a_1,...,a_d) with a_i>=1, finite controller modes Q and a deterministic partial guarded transition on state s=(n,q). Event x_i increases exactly n_i by one, is blocked if n_i=a_i, and updates q; additional guards may depend on n and q. There are no silent events. Accepted terminal states have n=a and declared accepted q. Reached productive R_k^+ consists of states at total rank k=sum_i n_i with at least one accepted full completion. Every complete continuation C(s) has length H=sum_i a_i-k and Parikh vector a-n.
+
+The provenance-preserving Boolean BRC branch carrier records (ordered named-source word, controller mode). Projecting its support to (count vector, mode) commutes with named source append exactly for the declared deterministic partial guards. For this support/future-language observer the projection is therefore future-safe, but it does not collapse source multiplicity, signed amplitude, or native joint-force data.
+
+For productive s, set L_h(s) = {u: |u|<=h, some v gives uv in C(s)}. Observer O(n,q)=(k, n_1 mod p_1,...,n_d mod p_d), p_i>=1 the exact individual local periods; controller q and exact winding are hidden. At fixed k and observation fiber o, let D_h(o)={distinct L_h(s):s in R_k^+,O(s)=o}, M_h(o)=|D_h(o)|, M_h(k)=max_o M_h(o), and b_h(k)=ceil(log_2 M_h(k)) with b=0 when M=1. M_h counts exactly the distinct productive source-language classes that must remain separate for this declared horizon.
+
+## Theorem 1. Full-future multi-source phase/Port fibers
+
+Let N(n)=|{distinct nonempty C(n,q): (n,q) in R_k^+}|. Then
+
+    M_H(k) = max_rho sum_{n:sum(n)=k, n mod p = rho} N(n),
+
+with the sum taken over reached productive count vectors. Every full continuation from n has Parikh vector a-n. Since different n give different vectors, their nonempty full-language sets cannot be equal. At fixed n, the N(n) distinct productive controller languages remain. The phase observation partitions counts exactly by the vector residue rho, proving the sum formula. For d=2 with k fixed, this reduces to the prior congruence modulo lcm(p_1,p_2). For d>=3 the vector of residues cannot in general be replaced by the scalar lcm alone. QED.
+
+## Theorem 2. Universal sharp penultimate-horizon bound
+
+Suppose H>=1 and put t=|{i:p_i=1}|, c=max(1,t). Then, **in every observed fiber**,
+
+    M_{H-1}(o) <= M_H(o) <= c M_{H-1}(o).
+
+Consequently 0<=b_H(k)-b_{H-1}(k)<=ceil(log_2 c). In particular, if t<=1, then for *every* pair of productive states with the same O,
+
+    L_{H-1}(s)=L_{H-1}(s')  iff  C(s)=C(s'),
+
+and hence M_{H-1}(k)=M_H(k) and b_{H-1}(k)=b_H(k).
+
+**Proof.** Prefix truncation can only merge full-language classes, proving the lower inequality. Fix one nonempty common (H-1)-prefix-language class E inside one observed fiber, and choose a word u of length H-1 in its language. Such u exists because all states are productive and every completion has length H. For any (n,q) in E, after u the remaining quota is exactly one unit vector e_j. Thus
+
+    a-n = Parikh(u)+e_j, equivalently n=a-Parikh(u)-e_j.
+
+If two states in E yield the same final label j, they have equal exact count n. At *every* common productive H-1-prefix v the final label is uniquely determined by their identical remaining quota a-n-Parikh(v). Their complete languages are consequently identical, even if the modes q differ. If they yield different final labels i!=j, their count vectors differ by e_i-e_j. Because they have equal O and the changed coordinates differ by exactly 1, their individual periods in those two coordinates must both equal 1. Therefore E contains either one full-language class, or at most t classes when t>=2. Summing the full classes over penultimate prefix classes within each observed fiber proves M_H(o)<=c M_{H-1}(o). Taking maxima and applying ceil(log_2(c M)) <=ceil(log_2 M)+ceil(log_2 c) gives the bit bound. If t<=1, no two distinct full-language classes can remain merged at H-1, proving the iff and exact stabilization. QED.
+
+**Local alias refinement.** If same-O states share their L_{H-1} but have different complete languages, then their count vectors must differ by exactly e_i-e_j for *two* distinct period-one source channels. This is an exact necessary obstruction. Particular resource guards may make that obstruction unreachable.
+
+## Theorem 3. Optimality and a counterexample to scalar lcm
+
+For any integer t>=2, choose d=t+1, quotas a=(1,...,1), individual periods p=(1,...,1,2), and a one-mode deterministic Port allowing every capacity-respecting source append. At rank k=d-1, H=1, consider the t states in which exactly one of the first t source types is not yet complete and the last source is complete. They all have O=(d-1,0,...,0,1); their horizon-zero language is {epsilon}, while their t complete languages are the different singleton sets {x_i}. The last source-not-yet-complete state has a different residue and does not enter this observed fiber. Thus
+
+    M_0(o)=1, M_1(o)=t,
+    b_1(k)-b_0(k)=ceil(log_2 t).
+
+Both multiplicative and bit bounds are attained for arbitrary t. The smallest case t=2, d=3, p=(1,1,2), a=(1,1,1) has at k=2 the states n=(0,1,1) and n'=(1,0,1), which share O=(2,0,0,1) but require final A versus B. The *global* lcm equals 2, yet H-1=0 does **not** determine the full future. This refutes extending the two-source lcm criterion directly to three sources.
+
+Therefore the exact universal classification in the stated product-phase observer class is: **all finite controllers and quota vectors stabilize at H-1 iff at most one period p_i equals 1**. For a fixed controller with multiple period-one sources, early stabilization may still hold.
+
+## Reproducible typed-BRC verification
+
+- Executed source: [x6_multisource_penultimate_brc_verify.py](x6_multisource_penultimate_brc_verify.py). Python 3 standard library. SHA256 of executed source: 8afa61e5f8fbadcaa25959ff0f8315f0fc37aa4fb9dddb0d3f8ea5d7dd89948c.
+- Complete output: [x6_multisource_penultimate_brc_results.json](x6_multisource_penultimate_brc_results.json). SHA256: c60a32502f9ff5fc8ec4d989f3f1d3026af07197fbe6d7c480a59f7c4a275077. All assertions PASS.
+- Reproduction: python3 x6_multisource_penultimate_brc_verify.py > x6_multisource_penultimate_brc_results.json; python3 -m py_compile x6_multisource_penultimate_brc_verify.py.
+- Exhaustive finite domain: all 3^6=729 partial deterministic two-state Port controllers with three named event types (six controller/source choices each absent, next state 0, or next state 1); four capacities (1,1,1),(1,1,2),(1,2,1),(2,1,1); five period vectors (1,1,1),(1,1,2),(1,2,2),(2,3,1),(2,2,2). Total **14,580** controller/capacity/period cases; **7,195** cases have a complete root trace. At every rank/horizon: **54,048** nonempty observed fiber cases; **172,688** prefix-language cardinalities compared.
+- The code builds actual ordered source-word + mode branches and checks equality with the typed Boolean BRC (count,mode) supports at every rank; it independently enumerates accepted full words/productive prefix languages, compares hash-consed deterministic labelled future-trie signatures, confirms the complete-language count-vector sums, the exact unit-transfer implication, all penultimate bounds, and direct sharp witnesses t=2,3,4,5. The finite domain checks concrete cases; the above proofs establish the arbitrary finite controller and d theorems.
+
+## Native X6 boundary and next discriminating research
+
+Frozen P000 specifies six native signed Cell axes and a distinct typed time/order coordinate. A primitive stable nonzero force event satisfies TRIADIC_CLOSURE_E. Here A/B/C and higher labels stand for **hypothetical already-admitted** named event families with explicitly declared Port guards; their transition semantics have not been proved to be native Cell/Link/Port admission. These theorems concern conditional finite source-labelled Boolean reachability, not signed BRC cancellations or physical clock time.
+
+The new obstruction is the **unit-transfer lattice between two period-one source channels**, not a scalar global lcm. Next: locate a frozen-task-compatible *actual* native triadic event admission and named Port occupancy/release transition; map its complete source-observer fibers to the model. Check whether a pair of distinct physical-source updates can exchange one terminal source event while leaving the *native* observable invariant, and if so retain the predicted Port/source residual; if no such alias occurs, seek an exact observer/future-safe factorization certificate. Preserve native provenance and six-coordinate identity during the bridge construction.
+
+**Source/role provenance:** Earlier registration result research2-20261119-0113-native-self-register-v1 identifies historical Researcher EM-X6-214D9C, SID MCP-d467c19ce42d4d7fa65a3901db1cf6b2 and Activity RA-545183ADD4EF71C3E4698AEE. The read-only continuation request r2-20261119-0410-x6-continuation-read-v1 was initially QUEUED / CURRENT_CONTROL_FOLLOW_RETRY with EVENT_READ_CONTROL_BUSY; it requires original request-id reconciliation before any protected CLAIM, formal PROGRESS or Activity association. This GitHub scientific publication is separately verifiable and implies no formal Result acceptance or live owner lease.
