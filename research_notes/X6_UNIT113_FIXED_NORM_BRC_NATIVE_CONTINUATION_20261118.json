@@ -1,0 +1,86 @@
+{
+  "schema": "X6_UNIT113_SOURCE_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-18",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "lane": {
+    "role": "TASK_RESEARCH",
+    "conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+    "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "claim_id": "MCP-3e221a50dc8818f914e228f6",
+    "run_id": "RUN-95866d78d35721116c362956",
+    "writer_generation": 4,
+    "native_execution_checkpoint_revision": 5,
+    "native_checkpoint_sha256": "c7b144ea242bcf54098a845764093bc2eb6ef207a5f36e3bb2e04bf1050bce86"
+  },
+  "frozen_scientific_inputs": {
+    "P000_V5": "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "old_plane": "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "exact_task_book": "awdawmip/enterprise-math@0a2f4daa76d2c687a4d57030cfec946a2cf21006:research_tasks/RS_X6_LEGACY_PLANE_RECONCILIATION_20260905.md"
+  },
+  "previous_frontier": "awdawmip/enterprise-math@001ba6cbf0f341dd8afd00f2c36aee0056e5926c:research_notes/X6_UNIT111_LP019_FULL_ALWAYS_ON_CONTINUATION_20261118.json",
+  "completed_scientific_units_new": [
+    {
+      "unit": 112,
+      "claim": "N25 signed native shell 30 states injects to 30 distinct min-zero images, while positive minzero section has 9 and N-BRC 213; native BRC 846; naive BRC on all observer images 3699; 900 pairwise exact checks",
+      "source_sha256": "1946243a22506de4a34b4f118de0329cca8499dbb1b4fa9d59585959069f4163",
+      "result_sha256": "a0fbee481efe687703d2074b2f455af47909018d20164ac44ce7343c5144e219",
+      "evidence": [
+        "awdawmip/enterprise-math@cf0e8803d2d8e18de28a63cd4aa553cb8595a4d2:research_notes/X6_UNIT112_N25_RELATIVE_SHELL_INJECTION_VS_PATH_MASS_20261118.md",
+        "awdawmip/enterprise-math@11c5c80bb0a4c79ea0553e3d3ca63419d5395117:research_checks/X6_UNIT112_N25_SIGNED_SHELL_RELATIVE_OBSERVER_FIBER_CHECK_20261118.py",
+        "awdawmip/enterprise-math@f93788ef98a6228533fb20f84140590477f84be8:research_checks/X6_UNIT112_N25_SIGNED_SHELL_OBSERVER_INJECTION_RESULTS_20261118.json"
+      ]
+    },
+    {
+      "unit": 113,
+      "claim": "Universal fixed norm N and minzero observer q have at most 2 exact signed depths; every N congruent1 mod3 injective, N9 counterexample has same q and G but native BRC counts1 and30; one extra depth bit sharp",
+      "source_sha256": "af642e574c1ba1b8eefdc2034bd029e1eaccfd47222819dde713a27e280e6c3c",
+      "result_sha256": "20789773cdde2b60f312dbd998f1617a01619650e4a35045a0b57b7f08ea75fd",
+      "enumeration": "All signed triple coordinates [-10,10]^3, N=0..100, 9261 full cube states, 3576 observer fibers, normal/-O/-OO identical",
+      "evidence": [
+        "awdawmip/enterprise-math@7238adc442234c452c4a7e934aa318cdb4bc3f07:research_notes/X6_UNIT113_FIXED_NORM_OBSERVER_TWO_DEPTH_BRC_OBSTRUCTION_20261118.md",
+        "awdawmip/enterprise-math@a95072176b5478639964b738234a7c8dc9ebc651:research_checks/X6_UNIT113_FIXED_NORM_OBSERVER_DEPTH_FIBER_BRC_CHECK_20261118.py",
+        "awdawmip/enterprise-math@26e3ce1f053a7f4577449a271a197621ca9e4c10:research_checks/X6_UNIT113_FIXED_NORM_OBSERVER_DEPTH_FIBER_RESULTS_20261118.json"
+      ]
+    }
+  ],
+  "original_activity": {
+    "count": 127,
+    "source_commit": "bddfd68ddc85098cba85cafddf61fc96ae1edb94",
+    "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+    "verified_blob": "267a9b6055cd618160da6a279b7471f419027894"
+  },
+  "native_progress": {
+    "units_110_111": {
+      "request_id": "onhour-20261118-0821-x6-own-units110-111-native-progress-v1",
+      "state": "SUCCEEDED_SOURCE_CHECKPOINT_PUBLISHED",
+      "source_commit": "ec11de876db70d0e89aab912ff542bcd85ac8c2a"
+    },
+    "units_112_113": {
+      "request_id": "onhour-20261118-0852-x6-own-units112-113-native-progress-v1",
+      "state": "QUEUED_ON_LAST_OBSERVATION",
+      "action": "POLL_SAME_ORIGINAL_REQUEST_ID_NO_RESUBMIT"
+    }
+  },
+  "scientific_review": "UNREVIEWED_NOT_ADMITTED",
+  "result_freeze": "NOT_SUBMITTED",
+  "independent_driver": "EXISTING_REQUEST_REVISION_NOT_COMPLETED_HERE",
+  "unresolved": [
+    "Exact frozen historical LP011 native argmax and LP019 natural positive BRC subtraction wrong-caller locations still UNRESOLVED_PROVENANCE, avoid fabricated citations",
+    "Find exact active LP023/LP017 source file:line that improperly uses (rho,N) or minzero observer as native path multiplicity, if any",
+    "Finish actual typed downstream closure for remaining 28-LP claims and independent Driver review",
+    "Original R063/Helly C3/C4 benchmark not executed; existing Issue #2416 still OPEN and had no verified assignee"
+  ],
+  "do_not_repeat": [
+    "Original accepted R063 C3/C4 research or frozen benchmark; do not confuse distinct source checker",
+    "Units64-113 already published science and all original Research Activity 127 entries",
+    "Original native PROGRESS for Units102-111",
+    "Queued or unknown original writer request and maintenance lane identity",
+    "Existing P000 or world-view axioms and source-superseded old definitions"
+  ],
+  "next_precise_action": "First read original target_request_id onhour-20261118-0852-x6-own-units112-113-native-progress-v1 to terminal; if SUCCEEDED consume without repetition. Then source-audit active LP023/LP017 typed input/output sites at exact commit:path:line for native BRC misuse; if actual wrong consumer exists, implement minimally scoped optional source repair and execute original signed X6 regression. Independently route proven source evidence to Driver REQUEST_REVISION; preserve R063 Issue #2416 same-object original benchmark."
+}
