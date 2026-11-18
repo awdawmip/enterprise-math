@@ -1,0 +1,188 @@
+{
+  "schema": "EM_X6_UNIT127_FULL_NATIVE_REPLAY_V1",
+  "source_git_blobs": [
+    "d5f6dfcfd0dedbe46feae3bc1b227185af417c2f",
+    "300a96e3dc24bf6fff73743037a0347a8bc83176"
+  ],
+  "guard_nodes": 13,
+  "clean_output_sha256": "03f98b37a4dcf346cc3a7063206f84253a3b7c1a219f1892f7967cd55201c2a2",
+  "status": "AUTHOR_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "cases": [
+    {
+      "variant": "original",
+      "fault": false,
+      "mode": "normal",
+      "code": 0,
+      "native_counts": {
+        "<genexpr>": 16800,
+        "<module>": 1,
+        "_z6": 1440,
+        "shortest_event_count": 960,
+        "shortest_path_multiplicity": 480
+      },
+      "error": null,
+      "output_sha256": "03f98b37a4dcf346cc3a7063206f84253a3b7c1a219f1892f7967cd55201c2a2",
+      "reported_pass": true
+    },
+    {
+      "variant": "original",
+      "fault": false,
+      "mode": "O",
+      "code": 0,
+      "native_counts": {
+        "<module>": 1
+      },
+      "error": null,
+      "output_sha256": "03f98b37a4dcf346cc3a7063206f84253a3b7c1a219f1892f7967cd55201c2a2",
+      "reported_pass": true
+    },
+    {
+      "variant": "original",
+      "fault": false,
+      "mode": "OO",
+      "code": 0,
+      "native_counts": {
+        "<module>": 1
+      },
+      "error": null,
+      "output_sha256": "03f98b37a4dcf346cc3a7063206f84253a3b7c1a219f1892f7967cd55201c2a2",
+      "reported_pass": true
+    },
+    {
+      "variant": "strict",
+      "fault": false,
+      "mode": "normal",
+      "code": 0,
+      "native_counts": {
+        "<genexpr>": 16800,
+        "<module>": 1,
+        "_z6": 1440,
+        "shortest_event_count": 960,
+        "shortest_path_multiplicity": 480
+      },
+      "error": null,
+      "output_sha256": "03f98b37a4dcf346cc3a7063206f84253a3b7c1a219f1892f7967cd55201c2a2",
+      "reported_pass": true
+    },
+    {
+      "variant": "strict",
+      "fault": false,
+      "mode": "O",
+      "code": 0,
+      "native_counts": {
+        "<genexpr>": 16800,
+        "<module>": 1,
+        "_z6": 1440,
+        "shortest_event_count": 960,
+        "shortest_path_multiplicity": 480
+      },
+      "error": null,
+      "output_sha256": "03f98b37a4dcf346cc3a7063206f84253a3b7c1a219f1892f7967cd55201c2a2",
+      "reported_pass": true
+    },
+    {
+      "variant": "strict",
+      "fault": false,
+      "mode": "OO",
+      "code": 0,
+      "native_counts": {
+        "<genexpr>": 16800,
+        "<module>": 1,
+        "_z6": 1440,
+        "shortest_event_count": 960,
+        "shortest_path_multiplicity": 480
+      },
+      "error": null,
+      "output_sha256": "03f98b37a4dcf346cc3a7063206f84253a3b7c1a219f1892f7967cd55201c2a2",
+      "reported_pass": true
+    },
+    {
+      "variant": "original",
+      "fault": true,
+      "mode": "normal",
+      "code": 19,
+      "native_counts": {
+        "<genexpr>": 14,
+        "<module>": 1,
+        "_z6": 1,
+        "shortest_event_count": 1,
+        "shortest_path_multiplicity": 1
+      },
+      "error": "AssertionError:",
+      "output_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "reported_pass": false
+    },
+    {
+      "variant": "original",
+      "fault": true,
+      "mode": "O",
+      "code": 0,
+      "native_counts": {
+        "<module>": 1
+      },
+      "error": null,
+      "output_sha256": "03f98b37a4dcf346cc3a7063206f84253a3b7c1a219f1892f7967cd55201c2a2",
+      "reported_pass": true
+    },
+    {
+      "variant": "original",
+      "fault": true,
+      "mode": "OO",
+      "code": 0,
+      "native_counts": {
+        "<module>": 1
+      },
+      "error": null,
+      "output_sha256": "03f98b37a4dcf346cc3a7063206f84253a3b7c1a219f1892f7967cd55201c2a2",
+      "reported_pass": true
+    },
+    {
+      "variant": "strict",
+      "fault": true,
+      "mode": "normal",
+      "code": 19,
+      "native_counts": {
+        "<genexpr>": 14,
+        "<module>": 1,
+        "_z6": 1,
+        "shortest_event_count": 1,
+        "shortest_path_multiplicity": 1
+      },
+      "error": "AssertionError:guard_2",
+      "output_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "reported_pass": false
+    },
+    {
+      "variant": "strict",
+      "fault": true,
+      "mode": "O",
+      "code": 19,
+      "native_counts": {
+        "<genexpr>": 14,
+        "<module>": 1,
+        "_z6": 1,
+        "shortest_event_count": 1,
+        "shortest_path_multiplicity": 1
+      },
+      "error": "AssertionError:guard_2",
+      "output_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "reported_pass": false
+    },
+    {
+      "variant": "strict",
+      "fault": true,
+      "mode": "OO",
+      "code": 19,
+      "native_counts": {
+        "<genexpr>": 14,
+        "<module>": 1,
+        "_z6": 1,
+        "shortest_event_count": 1,
+        "shortest_path_multiplicity": 1
+      },
+      "error": "AssertionError:guard_2",
+      "output_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "reported_pass": false
+    }
+  ]
+}
