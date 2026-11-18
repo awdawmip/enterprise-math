@@ -1,0 +1,96 @@
+{
+  "schema": "PREFIX909_R6_J0_MIXED_MULTIPLIER_CENSUS_V1",
+  "date": "2026-11-18",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": {
+    "N": 4294967296,
+    "strict_odd_moduli": [
+      262145,
+      524287
+    ],
+    "count": 131072
+  },
+  "families": [
+    [
+      3,
+      2
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      3
+    ]
+  ],
+  "family_results": [
+    {
+      "k": 3,
+      "ell": 2,
+      "parameter_witnesses": 961191,
+      "unique_oriented_pairs": 939346,
+      "in_C908": 486556,
+      "outside_C908": 452790
+    },
+    {
+      "k": 4,
+      "ell": 1,
+      "parameter_witnesses": 65536,
+      "unique_oriented_pairs": 65536,
+      "in_C908": 34426,
+      "outside_C908": 31110
+    },
+    {
+      "k": 4,
+      "ell": 3,
+      "parameter_witnesses": 917500,
+      "unique_oriented_pairs": 895655,
+      "in_C908": 442133,
+      "outside_C908": 453522
+    }
+  ],
+  "old_class_sizes": [
+    258,
+    276,
+    857,
+    552,
+    192,
+    169,
+    37
+  ],
+  "exact": {
+    "raw_unique_oriented": 1900472,
+    "raw_reverse_intersection": 45,
+    "novel_unique_oriented": 937399,
+    "novel_reverse_intersection": 0,
+    "new_distinct_ordered_pairs": 1874798,
+    "certified_C908": 7778794188,
+    "certified_C909": 7780668986,
+    "explicit_complement": 9399200198
+  },
+  "sample_new_witness": {
+    "k": 3,
+    "ell": 2,
+    "a": 400003,
+    "b": 468933,
+    "i": 18,
+    "s": -1,
+    "tracks": [
+      [
+        1,
+        262145
+      ],
+      [
+        1200010,
+        1200011
+      ]
+    ],
+    "port_differences": [
+      1200009,
+      937866
+    ]
+  },
+  "verification": "Node.js exact integer census and independent Python stdlib integer recount both executed; agreement including three family counts and union.",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_COMPUTED / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED"
+}
