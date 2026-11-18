@@ -1,0 +1,208 @@
+{
+  "schema": "PREFIX903_R6_DYADIC_GAP_COLLISION_EXACT_V1",
+  "date": "2026-11-18",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": {
+    "p": 32,
+    "N": 4294967296,
+    "Q_min": 262145,
+    "Q_max": 524287,
+    "Q_step": 2,
+    "Q_count": 131072,
+    "trajectory": "zero step or one named XOR bit flip",
+    "observer": "(start mod a, end mod b)"
+  },
+  "pair_family": "ordered (a,b) in Q^2 with abs(a-b)=2^h, 1<=h<=17",
+  "prior_certificate": "PREFIX902 E union 192 symmetric rows",
+  "prior_certified_union": 7614875038,
+  "rows": [
+    {
+      "h": 1,
+      "gap": 2,
+      "all": 262142,
+      "E": 115454,
+      "panel": 512,
+      "overlap": 2,
+      "prior_union": 115964,
+      "new": 146178
+    },
+    {
+      "h": 2,
+      "gap": 4,
+      "all": 262140,
+      "E": 115456,
+      "panel": 640,
+      "overlap": 2,
+      "prior_union": 116094,
+      "new": 146046
+    },
+    {
+      "h": 3,
+      "gap": 8,
+      "all": 262136,
+      "E": 115464,
+      "panel": 768,
+      "overlap": 0,
+      "prior_union": 116232,
+      "new": 145904
+    },
+    {
+      "h": 4,
+      "gap": 16,
+      "all": 262128,
+      "E": 115472,
+      "panel": 768,
+      "overlap": 0,
+      "prior_union": 116240,
+      "new": 145888
+    },
+    {
+      "h": 5,
+      "gap": 32,
+      "all": 262112,
+      "E": 115488,
+      "panel": 768,
+      "overlap": 0,
+      "prior_union": 116256,
+      "new": 145856
+    },
+    {
+      "h": 6,
+      "gap": 64,
+      "all": 262080,
+      "E": 115544,
+      "panel": 768,
+      "overlap": 0,
+      "prior_union": 116312,
+      "new": 145768
+    },
+    {
+      "h": 7,
+      "gap": 128,
+      "all": 262016,
+      "E": 115642,
+      "panel": 768,
+      "overlap": 0,
+      "prior_union": 116410,
+      "new": 145606
+    },
+    {
+      "h": 8,
+      "gap": 256,
+      "all": 261888,
+      "E": 115836,
+      "panel": 768,
+      "overlap": 0,
+      "prior_union": 116604,
+      "new": 145284
+    },
+    {
+      "h": 9,
+      "gap": 512,
+      "all": 261632,
+      "E": 116216,
+      "panel": 768,
+      "overlap": 0,
+      "prior_union": 116984,
+      "new": 144648
+    },
+    {
+      "h": 10,
+      "gap": 1024,
+      "all": 261120,
+      "E": 115954,
+      "panel": 768,
+      "overlap": 0,
+      "prior_union": 116722,
+      "new": 144398
+    },
+    {
+      "h": 11,
+      "gap": 2048,
+      "all": 260096,
+      "E": 115456,
+      "panel": 768,
+      "overlap": 0,
+      "prior_union": 116224,
+      "new": 143872
+    },
+    {
+      "h": 12,
+      "gap": 4096,
+      "all": 258048,
+      "E": 114436,
+      "panel": 702,
+      "overlap": 0,
+      "prior_union": 115138,
+      "new": 142910
+    },
+    {
+      "h": 13,
+      "gap": 8192,
+      "all": 253952,
+      "E": 112392,
+      "panel": 576,
+      "overlap": 0,
+      "prior_union": 112968,
+      "new": 140984
+    },
+    {
+      "h": 14,
+      "gap": 16384,
+      "all": 245760,
+      "E": 108366,
+      "panel": 384,
+      "overlap": 0,
+      "prior_union": 108750,
+      "new": 137010
+    },
+    {
+      "h": 15,
+      "gap": 32768,
+      "all": 229376,
+      "E": 100442,
+      "panel": 384,
+      "overlap": 12,
+      "prior_union": 100814,
+      "new": 128562
+    },
+    {
+      "h": 16,
+      "gap": 65536,
+      "all": 196608,
+      "E": 84096,
+      "panel": 384,
+      "overlap": 0,
+      "prior_union": 84480,
+      "new": 112128
+    },
+    {
+      "h": 17,
+      "gap": 131072,
+      "all": 131072,
+      "E": 55018,
+      "panel": 384,
+      "overlap": 0,
+      "prior_union": 55402,
+      "new": 75670
+    }
+  ],
+  "totals": {
+    "all": 4194306,
+    "E": 1846732,
+    "panel": 10878,
+    "overlap": 16,
+    "prior_union": 1857594,
+    "new": 2336712
+  },
+  "new_cumulative_certified_union": 7617211750,
+  "remaining_outside_stated_union": 9562657434,
+  "verification": {
+    "exact_integer": true,
+    "positive_gap_pairs_directly_witness_checked": 2097153,
+    "reverse_orientations_proved_by_named_flip_time_reversal": true,
+    "count_membership_exhaustive": true,
+    "no_new_shared_claim": true
+  },
+  "scientific_status": "AUTHOR_PROVED/EXACT_FINITE_CHECKED/NOT_INDEPENDENTLY_REVIEWED/NOT_ADMITTED"
+}
