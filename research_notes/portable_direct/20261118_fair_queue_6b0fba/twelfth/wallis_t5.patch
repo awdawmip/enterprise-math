@@ -1,0 +1,15 @@
+--- a/src/enterprise_math/spectral_precision.py
++++ b/src/enterprise_math/spectral_precision.py
+@@ -17,6 +17,12 @@
+ from fractions import Fraction
+ from math import factorial
+ from typing import Sequence, TypeVar
++
++from .wallis_t5 import (
++    HighOrderSpectralCertificate,
++    dyadic_annihilation_weights,
++    high_order_spectral_certificate,
++)
+ 
+ T = TypeVar("T")
+ 

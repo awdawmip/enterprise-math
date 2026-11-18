@@ -1,0 +1,113 @@
+# 1159 内部首模的最优有限矩区间与全阶谱修正
+
+令 $q\ge2$，$a_q$ 为归一化 Dirichlet 问题的最小正特征根，$\tau$ 为内部级数 $S$ 的首个正零点。本文求 $\tau$ 的区间时只输入有限模态。新增结果有二。第一，识别出本任务单尺度相位的乘积 Beta 矩，将经典 Hausdorff 有限矩问题的主表示应用于这一相位，得到两端均可达的有理界、相位区间的精确宽度与可复算的位数。第二，给出缩放 RG 和中心阶乘在每个双指标上的正系数恒等式，以及紧集上的全阶余项。已有的多尺度消去、权重稳定性和单调定理在第三节统一核对。[冻结任务](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/research_tasks/EMW59A_1159_HIGH_ORDER_PRECISION_RG_20260909.md) · [有限谱基准](https://github.com/awdawmip/enterprise-math/blob/269b1cafac209e42d6770b0aae4a4d8d0a981f8a/research_notes/WALLIS_SINE_DISCRETE_ROTATION_SPECTRAL_PRECISION_THEOREMS_20260903.md) · [内部相位量子化](https://github.com/awdawmip/enterprise-math/blob/9e6e9abe813aa17a7eff1ee8278e2f0e9f73312c/research_notes/WALLIS_SINE_INTERNAL_PHASE_QUANTIZATION_EULER_PRODUCT_20260904.md)
+
+## 一、相位的矩表示与有限数据的最优区间
+
+沿用确切的 $a_{2q}=2-\sqrt{4-a_q}$，$a_2=2$，$\ell(a_q)=\tau^2/q^2$。本原相位的正规化为 $\ell(0)=0,\ell'(0)=1$。从 $u(4-u)\ell'(u)^2=4\ell(u)$ 求导得到 $u(4-u)\ell''+(2-u)\ell'=2$。因此
+$$
+ \ell(u)=\sum_{j\ge1}c_ju^j,\quad
+ c_j=\frac2{j^2\binom{2j}{j}},\quad
+ \frac{c_{j+1}}{c_j}=\frac{j^2}{2(j+1)(2j+1)}<\frac14.
+$$
+这给出冻结稿正项截断的严格双界：对 $0<u<4$，余项在零与 $c_{N+1}u^{N+1}/(1-u/4)$ 之间。取 $u=0$ 则余项恰为零。[单尺度原判据](https://github.com/awdawmip/enterprise-math/blob/fd07b3c9a4311e4aa401c790eb774e131d4ef054/research_notes/SINGLE_SCALE_FORMAL_PHASE_COMPLETION_CERTIFICATES_20260905.md)
+
+令 $X$ 为两个独立变量的乘积，第一变量均匀分布于 $[0,1]$，第二变量具有 $\operatorname{Beta}(1,\tfrac12)$ 分布，记乘积分布为 $\nu$。它在 $(0,1)$ 的每个开区间均有正质量。以 $m_k=\mathbb E X^k$，两组 Beta 矩的乘积给出
+$$
+ m_k=\frac{(1)_k}{(2)_k}\frac{(1)_k}{(3/2)_k}
+     =4^k c_{k+1},\qquad
+ F(z):=\frac{\ell(4z)}{4z}=\int_0^1\frac{d\nu(x)}{1-zx},\quad |z|<1 .
+$$
+最后一式也在 $z=0$ 连续取值。谱问题中只用 $z=a_q/4\in(0,1/2]$，且 $\tau^2=q^2a_qF(z)$。
+
+**有限矩最优定理。** 取 $n\ge1$。比较所有满足 $\operatorname{supp}\sigma\subseteq[0,1]$ 且具有给定矩 $m_0,\ldots,m_{2n-1}$ 的概率测度，允许原子测度。对这个比较类，在任一 $0<z<1$ 处，$F(z)$ 的可行范围恰为闭区间 $[G_n(z),L_n(z)]$。下、上端分别为这组矩的 $n$ 节点 Gauss 公式与含两端点的 $n+1$ 节点 Gauss–Lobatto 公式对 $x\mapsto(1-zx)^{-1}$ 的值。实际内部相位严格处在开区间内，随 $n$ 增长两端严格向内移动。这里的两个极端测度来自经典 Hausdorff 矩问题的下、上主表示（Gauss 与 Gauss–Lobatto 求积），下文给出本相位核的直接证明。若另要求支撑恰为整段，则端点仅是下确界、上确界：用实际全支撑测度与极端测度作任意小比例的凸混合即可逼近。
+
+令 $P_n$ 是 $\nu$ 的 $n$ 次首一正交多项式，$S_{n-1}$ 是 $x(1-x)d\nu$ 的 $n-1$ 次首一正交多项式，$S_0=1$。写 $A^*(z)=z^{\deg A}A(1/z)$。宽度精确为
+$$
+ L_n(z)-G_n(z)=
+ \frac{K_nz^{2n}}{P_n^*(z)(1-z)S_{n-1}^*(z)},\qquad
+ K_n=\int [P_n(x)^2+x(1-x)S_{n-1}(x)^2]\,d\nu(x)>0. \tag{1}
+$$
+$K_n$ 的被积式最高次抵消，只需到 $2n-1$ 次矩。构造两正交多项式也只需这些矩，所以全部系数都可用有理算术求得。例如 $K_1=2/9$，由 $P_2=x^2-52x/63+92/945$ 与 $S_1=x-20/49$ 代入 (1) 得 $K_2=23644/2083725$。
+
+**证明。** 两首一多项式的零点简单且在 $(0,1)$，可由正测度下的标准变号论证得到。对 Gauss 节点用 $P_n$ 作多项式除法，对 Lobatto 节点用 $x(x-1)S_{n-1}$ 作除法，再对余式作节点插值；正交性表明二者均积分精确到次数 $2n-1$。Gauss 节点的权为对应插值基函数平方的积分，故为正。Lobatto 内节点 $\xi$ 的正权可用 $x(1-x)(S_{n-1}(x)/(x-\xi))^2$ 检验，两端权分别用 $(1-x)S_{n-1}^2$ 与 $xS_{n-1}^2$ 检验。
+
+分别取 $D_-(x)=P_n(x)^2$ 和 $D_+(x)=x(x-1)S_{n-1}(x)^2$。多项式
+$$
+ H_\pm(x)=\frac{1-D_\pm(x)/D_\pm(1/z)}{1-zx}
+$$
+的次数至多 $2n-1$。在区间上 $H_-\le(1-zx)^{-1}\le H_+$，且仅在各自节点集上取等。积分即得界。两节点测度本身具有指定矩且分别取等，凸混合实现中间的每一个值。实际 $\nu$ 支撑无限，故不取等。增加下一对矩后，旧下端测度无法匹配 $\int P_n^2$，旧上端测度无法匹配 $\int x(1-x)S_{n-1}^2$。取等又强制节点集和权，故两端严格收缩。
+
+$G_n$ 分母为 $P_n^*$，分子次数至多 $n-1$。$L_n$ 分母可取 $(1-z)S_{n-1}^*$，因节点 0 的权给常数项，分子次数至多 $n$。两式在零点的前 $2n$ 个系数均为已知矩，相减通分后，分子只能是常数乘 $z^{2n}$。由上述插值余项在 $z=0$ 的首项得到常数恰为 $K_n$，即 (1)。
+
+还有不需计算正交多项式的速率界。置 $r=(1-\sqrt{1-z})/(1+\sqrt{1-z})$。由 Chebyshev 生成函数，
+$$
+ (1-zx)^{-1}=\frac{1+2\sum_{k\ge1} r^k T_k(2x-1)}{\sqrt{1-z}} .
+$$
+截至 $2n-1$ 项，两节点概率测度积分完全相等。用 $|T_k|\le1$ 估计两份尾项即得 $L_n-G_n\le4r^{2n}/[(1-r)\sqrt{1-z}]$。整个实际区间上 $r\le3-2\sqrt2$。这里的最优性限定于给定有限矩与支撑约束；额外相位信息仍可进一步收窄。
+
+## 二、实际目标的有限代数证书
+
+套入 $q\sqrt{a_qG_n(a_q/4)}<\tau<q\sqrt{a_qL_n(a_q/4)}$。二进分辨率的 $a_q$ 来自有限根式，无需最优求积节点的数值。若写 $P_n^*=\sum b_jz^j$，则 $G_n$ 的分子是 $P_n^*(\sum_{k<2n}m_kz^k)$ 截至 $n-1$ 次；$L_n$ 的分子同理，由其分母乘已知级数截到 $n$ 次得到。输出 $\tau^2$ 时甚至可以避免最后一次开方。
+
+| $q$ | $n$ | $\tau^2$ 精确开区间 |
+|---:|---:|---|
+| 2 | 1 | $(48/5,\ 32/3)$ |
+| 2 | 2 | $(2850/289,\ 17348/1755)$ |
+| 2 | 3 | $(1206086/122205,\ 4202806/425817)$ |
+
+在 $q=16$，对所有中间根式作 168 位向外有理舍入，$n=2,4,8$ 的 $\tau$ 区间宽度分别不超过 $2^{-32},2^{-67},2^{-137}$。$q=64,n=8$ 的记录为 $2^{-157}$，已计入根式舍入。这些位数直接由有理宽度判断。
+
+## 三、二进消去、符号与稳定性
+
+写 $T_q=q\sqrt{a_q}=2qS(\tau/(2q))$，$E f(q)=f(2q)$。$A_m=\prod_{r=1}^m(4^rE-I)/(4^r-1)$ 在 $q^{-2k}$ 上的乘数为 $\lambda_{m,k}=\prod_{r=1}^m(4^{r-k}-1)/(4^r-1)$。常数乘数为 1，正整 $k$ 中恰好 $1,\ldots,m$ 被消去。以节点 $4^{-j}$ 在 0 作 Lagrange 插值，得唯一的权
+$$
+ w_{m,j}=\frac{(-1)^{m-j}4^{j(j+1)/2}}{D_jD_{m-j}},\qquad
+ D_j=\prod_{i=1}^j(4^i-1),\quad D_0=1.
+$$
+权交错，所以绝对值和等于滤波多项式在 $-1$ 的绝对值，即 $\prod_{r=1}^m(4^r+1)/(4^r-1)$。前两项积 $17/9$，余项的对数和小于 $\sum_{r\ge3}(8/3)4^{-r}=1/18$。由 $e^{1/18}<18/17$，得各阶权范数严格小于 2。此处沿用了冻结分支已给出的稳定性结果。[权重原稿](https://github.com/awdawmip/enterprise-math/blob/9e6e9abe813aa17a7eff1ee8278e2f0e9f73312c/research_notes/DYADIC_ANNIHILATION_FILTER_UNIQUENESS_STABILITY_20260904.md)
+
+以 $t=(\tau/(2q))^2$，冻结的有限符号证据 $-268/405$ 给 $\tau<4$，故 $0<t<1$。展开内部 $S$，则 $\tau-A_m T_q$ 始于正项 $\tau |\lambda_{m,m+1}|t^{m+1}/(2m+3)!$，后续项交错；其中 $|\lambda_{m,m+1}|=4^{-m(m+1)/2}$。对 $k\ge m+1$，相邻响应绝对值之比为 $(1-4^{-k})/(1-4^{m-k})\le4/3$。乘上 $t/[(2k+2)(2k+3)]$ 得余项比小于 1，对 $t$ 求导后再乘 $(k+1)/k$ 仍小于 1。故误差为正且对 $t$ 严格增加。所有整数 $q\ge2$ 上 $A_m T_q$ 随 $q$ 严格递增；由 $A_{m+1}T_q-A_m T_q=\frac{4^{m+1}}{4^{m+1}-1}(A_mT_{2q}-A_mT_q)$，它也随 $m$ 严格递增。交错误差的首项给出完全显式的代数下端与有理宽度
+$$
+ 0<\tau-A_mT_q<
+ \frac{4(4/q^2)^{m+1}}{4^{m(m+1)/2}(2m+3)!}.
+$$
+当 $m=1$ 宽度为 $2/(15q^4)$，恢复旧入口。二进 $q$ 的全部样本均由根式生成。[单调格原稿](https://github.com/awdawmip/enterprise-math/blob/9e6e9abe813aa17a7eff1ee8278e2f0e9f73312c/research_notes/DYADIC_COMPLETION_PRECISION_LATTICE_20260904.md)
+
+## 四、缩放 RG 的紧集余项与逐系数核验
+
+置 $U(t)=2\sum_{k\ge1}(-1)^{k-1}t^k/(2k)!$，它是正规化相位 $\ell$ 在零附近的复合逆。原半群 $R_m(U(t))=U(m^2t)$ 给出精确关系
+$$
+ P_M(t)=R_M(t/M^2)=U(M^2\ell(t/M^2)),\qquad
+ P_{mM}(t)=R_m(P_M(t/m^2)).
+$$
+故 $U$ 是缩放算子的共同不动点。对不动点等式求导，线性化作用在 $t^jU'(t)$ 上的特征值为 $m^{-2(j-1)}$。这解释了二进消去所用的误差模态。[冻结 RG](https://github.com/awdawmip/enterprise-math/blob/b140675ff04e728a9a1b8d84b297156c98fdbd14/research_notes/SPECTRAL_SCALED_RG_FIXED_POINT_AND_ERROR_EIGENMODES_20260905.md)
+
+把 $\varepsilon=M^{-2}$ 作为独立复变量，$\Phi(t,\varepsilon)=\ell(\varepsilon t)/\varepsilon$ 在 $\varepsilon=0$ 延拓为 $t$。写 $U(\Phi)=\sum_{l\ge0}B_l(t)\varepsilon^l$。$B_0=U$，所有阶由有限的复合系数给出
+$$
+ B_l=\sum_{h=1}^{l}\frac{U^{(h)}(t)}{h!}
+  \sum_{\substack{i_1+\cdots+i_h=l\\i_j\ge1}}
+  \prod_{\nu=1}^{h}c_{i_\nu+1}t^{i_\nu+1}.
+$$
+特别地，$B_1=t^2 U'/12$，$B_2=t^3 U'/90+t^4 U''/288$。归一化有限行列式 $P_M'(t)$ 的修正分别为 $B_l'$。若需递推，令 $Q(y)=\ell(y)/y$，$C_{h,l}=[y^l](Q(y)-1)^h$。取 $C_{0,0}=1$，其余 $C_{0,l}=0$，则 $C_{h,l}=\sum_{i=1}^l c_{i+1}C_{h-1,l-i}$，上式内和即 $t^{l+h}C_{h,l}$。
+
+**显式余项。** 任意 $R>0$ 及 $0<r<4/R$，令 $D=1-rR/4$。在 $|t|\le R,|\varepsilon|\le r$ 上，由 $c_{j+1}\le4^{-j}$ 得 $|\Phi|\le R/D,\ |\partial_t\Phi|\le D^{-2}$，且 $|U'(w)|\le e^{|w|}$。由 Cauchy 系数界，对 $|\varepsilon|<r$ 有
+$$
+ \left|\partial_t U(\Phi)-\sum_{l=0}^{L}B_l'(t)\varepsilon^l\right|
+ \le D^{-2}e^{R/D}\frac{(|\varepsilon|/r)^{L+1}}{1-|\varepsilon|/r}. \tag{2}
+$$
+这一界可在任意固定紧圆盘上用于充分大的 $M$，无须从少数阶的符号推测余项。
+
+**独立系数公式。** 由有限中心阶乘展开，$[\varepsilon^l t^j]P'_M$ 的解析延拓系数为 $(-1)^{j+l}e_l(1^2,\ldots,j^2)/(2j+1)!$。具体取 $\sum_{j\ge0}(-1)^jt^j\prod_{k=1}^j(1-\varepsilon k^2)/(2j+1)!$。当 $|\varepsilon|\le r,|t|\le R,rR<4$ 时，其绝对值逐项上界之比趋于 $rR/4<1$，故可局部一致逐项计算。对 $\varepsilon=1/M^2$，第 $M$ 个因子截断此级数，得到冻结的有限行列式。由恒等定理，它与 $\partial_t U(\Phi)$ 的两个变量展开相同。另一方面，在 $U(\Phi)$ 中抽 $t^{j+1}\varepsilon^l$ 时只出现 $k=j+1-l$ 次的 $\Phi$。相较得到全正的有限恒等式
+$$
+ \boxed{e_l(1^2,\ldots,j^2)=
+ \frac{2(j+1)(2j+1)!}{(2j+2-2l)!}
+ [y^l]\left(\frac{\ell(y)}{y}\right)^{j+1-l},\qquad 0\le l\le j.} \tag{3}
+$$
+代码从两侧分别算到 $j=26$ 的全部 378 项，完全一致。
+
+## 工具与复算
+
+执行 <code>python wallis_check.py</code> 可复现 <code>wallis_checked.json</code>。检查包括 $m=0,\ldots,16$ 的滤波响应、$n=1,\ldots,10$ 的矩匹配和精确宽度、四种分辨率的向外有理区间与式 (3)。全部检查仅用整数与分数；开方由整数平方根上下夹取。有限检验辅助查错，一般阶证明见上文。
+
+<code>wallis_t5.py</code> 是既有 <code>precision.spectral_decimation_completion</code> 的配套模块。将它放到冻结源的 <code>src/enterprise_math/</code>，在仓库根应用 <code>wallis_t5.patch</code>，即从原 <code>enterprise_math.spectral_precision</code> 入口调用 <code>high_order_spectral_certificate(q,order,method,bits)</code>。输出给出有理区间、阶、精度、方法以及精确权重或已用矩数。本地按冻结版验证了原入口的五项自检和新入口。以上结论限于内部谱与相位的数学完备化。[既有 T5 子工具](https://github.com/awdawmip/enterprise-math/blob/9e6e9abe813aa17a7eff1ee8278e2f0e9f73312c/src/enterprise_math/spectral_precision.py)

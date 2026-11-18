@@ -1,0 +1,89 @@
+# 合数道路 RH 审计：连续与离散能量的带符号校正
+
+任务 RH-ROAD-AUDIT-20260909。本文从冻结的八份 9 月 6 日笔记、9 月 5 日余数证书和三份一手文献重建推导。最主要的增量是下文 (3) 的二阶离散校正及其严格符号。还给出伽马修正有界的准确参数区间，补足平移平均的收敛论证。假设 RH 的结论逐项标记。所有平方范数均为实数或复数的绝对值平方。[原任务书](https://github.com/awdawmip/enterprise-math/blob/06b3d5c6634e66d8d8ddb3afa89ec03e513ee8cd/research_tasks/RH-ROAD-AUDIT-20260909.md) · [逐项账本](claim_audit.json) · [复算](road_check.py) · [结果](road_checked.json)
+
+## 1. 离散校正与逃逸能量
+
+设 $a>0$，$R_a(n)=\prod_{p\mid n}(1-p^{-a})$，空积为一，$S_a(x)=\sum_{n\le x} R_a(n)$，$c=1/\zeta(1+a)$。采用包含首格的约定
+\[
+ E(x)=S_a(x)-cx-\mathbf1_{x\ge1},\quad Q_a=\int_0^\infty E(x)^2\,dx/x^2,\quad
+ B_N=S_a(N)-1-c(N+\tfrac12),\quad D_a=\sum_{N\ge1} B_N^2/N^2.
+\]
+记 $I_N=\int_0^1E(N+u)^2(N+u)^{-2}\,du$，$w_N(u)=N^{-2}-(N+u)^{-2}$。首格 $(0,1)$ 贡献 $c^2$。第 $N$ 格内 $E=B_N+c(1/2-u)$，故其无权二次矩为 $B_N^2+c^2/12$。以 $N^{-2}$ 计权并加回差额，当任一能量有限时，两者同时有限，且
+\[
+ Q_a-D_a=c^2(1+\zeta(2)/12)-\sum_{N\ge1}\int_0^1 E(N+u)^2w_N(u)\,du. \tag{1}
+\]
+有限求和的精确版本左侧积分上限为 $M+1$，右侧 $\zeta(2)$ 换成 $\sum_{N=1}^M N^{-2}$。两者同有限性由 $I_N$ 夹在无权二次矩分别除以 $(N+1)^2,N^2$ 之间得出。第一项 $N=1$ 满足 $E(1+u)=-c(1+u)$，其校正为 $4c^2/3$。因其余项非负，已经无条件得到严格定向的估计
+\[
+ D_a-Q_a\ \ge\ c^2\big(1/3-\zeta(2)/12\big)>0 \tag{2}
+\]
+（有限能量的参数）。所以原来的双向常数比较还可以给出方向。
+
+**二阶校正定理。** 假设 RH。令 $\psi(x)=\sum_{p^k\le x}\log p$，$F(N,u)=\psi(N)-N-u$，则
+\[
+ Q_a-D_a=C_{\rm cell}a^2+O(a^3),\qquad
+ C_{\rm cell}=1+\zeta(2)/12-\sum_{N\ge1}\int_0^1 F(N,u)^2 w_N(u)\,du
+ \ \le\ \zeta(2)/12-1/3<0 . \tag{3}
+\]
+系数是加权素数定理误差的收敛积分。这个渐近展开针对**两个能量之差**。在固定总能量的一阶项中，看不到它。
+
+证明。对 $n=p^k$，有 $|R_a(n)/a-\log p|\le a(\log p)^2/2$。若 $n$ 至少有两个不同素因子，在积中选其中两个，其余因子至多为一，得 $R_a(n)/a\le a\log^2 n$。加上 $c/a=1+O(a)$ 可得
+\[
+ |E(N+u)/a-F(N,u)|\ll aN\log^2(2N),\quad 0\le u\le1 .
+\]
+取 $X=\lfloor a^{-2}\rfloor$。因为 $0\le w_N\le2/N^3$，上述误差在 $N\le X$ 的加权平方和为 $O(a^2\log^5(2X))$。在每个二进段 $Y\le N<2Y$，RH 下 Brent–Platt–Trudgian 的均方素数定理给出 $\int_Y^{2Y}(\psi(x)-x)^2dx=O(Y^2)$，故 $F$ 的加权平方和为 $O(1/Y)$，误差的加权平方和为 $O(a^2\log^4(2Y))$。Cauchy 不等式逐段相加，混合项至多为常数乘 $a\sum_{Y=2^j}\log^2(2Y)/\sqrt Y=O(a)$。极限函数在 $N>X$ 的加权尾为 $O(1/X)$；实际函数的归一化尾至多为
+\[
+ \frac{2}{Xa^2}\left(D_a+\frac{c^2\zeta(2)}{12}\right)=O(a),
+\]
+其中仅在此尾界用到下节独立于 (3) 的 $D_a=O(a)$。代入 (1)，并使用 $c^2/a^2=1+O(a)$，得到 (3)。该额外逆幂权重可控制离散误差，去掉额外权重后的素数定理误差在 $L^2(dx/x^2)$ 中仍然发散。[Brent–Platt–Trudgian，定理 1 与 §4](https://arxiv.org/abs/2008.06140)
+
+**有限检查另式。** 写 $h_N=1/[N(N+1)]$，$\bar x_N=N(N+1)\log(1+1/N)$，$V_N=S_a(N)-1$。单格带权平方配方给出
+\[
+ I_N=h_N(V_N-c\bar x_N)^2+c^2\big[1-N(N+1)\log^2(1+1/N)\big].
+\]
+独立检查程序同时按单格积分和双重 Green 核求有限能量。有限原子质量为 $R_a(n)$（$n\ge2$），背景为 $-c\,dx$，核 $1/\max(x,y)-1/M$ 来自对两个累积指示函数作一次积分。与一个原子作连续交叉积分得 $\log(M/n)$，双背景积分得 $M$。允许背景密度自由变化时最小能量为原子对核能量减去 $(\sum_{2\le n\le M}R_a(n)\log(M/n))^2/M$。有限最小值超过下节有效阈值是充分反证条件。
+
+## 2. 从原始能量到完成函数，再回到离散斜率
+
+Báez-Duarte 定理 1.1 使用 $L^2(0,\infty)$ 及整数伸缩。Burnol 定义 $f_a(t)=\sum_n\mu(n)n^{-a}\{1/(nt)\}$。对固定 $x>0$，$n>x$ 的项绝对可和，拆出有限个整部即得 $f_a(1/x)=cx-S_a(x)$。Burnol 引理 4.1、4.2 分别给出 $a\ge1/2$ 时的无条件平方可积性、RH 下 $0<a<1/2$ 的平方可积性。定理 4.1 在 $f_a\in L^2$ 前提下识别临界线 Mellin 变换，定理 4.2 从一列 $a\downarrow0$ 的平方可积性推出 RH。于是算术 $Q_a$ 可先作为扩展非负积分定义，使用临界线范数公式时需带上可积性条件。[Báez-Duarte，定理 1.1](https://arxiv.org/abs/math/0202141) · [Burnol，§4](https://arxiv.org/abs/math/0202166)
+
+令 $s=1/2+it$，$d\omega=dt/[2\pi(1/4+t^2)]$，$Z_a=\zeta(s)/\zeta(s+a)$，$C_a=\xi(s)/\xi(s+a)$，$\Delta_a=\int|1-C_a|^2d\omega$。在上述 Mellin 前提下 $Q_a=\int|1-Z_a|^2d\omega$。RH 下 $\xi(1/2+z)$ 的配对典范乘积由 $1+z^2/\gamma^2$ 组成，各因子的模随 $\Re z>0$ 向右增大，故完成商为 Schur 函数。反之，若存在离临界线向右的零点，作一列 $a\downarrow0$ 的平移，所有充分小的移位分母零点无法被分子抵消（零点孤立）。同一论证适用于细二进尺度。Schur 的有限 Pick 核为 $(1-C(z)\overline{C(w)})/(z+\bar w)$，保留全体点及全纯性；取 $a\downarrow0$ 除以 $a$ 得到由 $1/(z-i\gamma)$ 生成的 Gram 核。该结论限于完成函数。
+
+设 $\lambda_1=\xi'(1)/\xi(1)=1+\gamma_E/2-\log(4\pi)/2$，$m$ 为**互异、有符号**零点高度的重数。Poisson 公式给出
+\[
+ \Delta_a=2(1-\xi(1)/\xi(1+a))-\int (1-|C_a|^2)d\omega .
+\]
+单个零簇的径向缺损经 $t=\gamma+au$ 缩放后为 $d(m)=m{2m\choose m}/4^m$，可将 $1-[u^2/(1+u^2)]^m$ 积分分部并用 beta 积分求出。总缺损由各簇缺损之和控制，每簇除以 $a$ 后可由 $m(a+1/2)/[(a+1/2)^2+\gamma^2]$ 控制（Cauchy 核卷积）。在 $0<a\le1/2$ 由可和的 $m/(1/4+\gamma^2)$ 统控。对有限簇取互不相交的邻域，各邻域总缺损至少为其单簇缺损；先取尺度极限，再耗尽所有簇，即得对应下界。配对乘积在 $s=1$ 的对数导数给 $\sum_\gamma m_\gamma/(1/4+\gamma^2)=2\lambda_1$。
+
+将 $Z_a$ 写成 $J_a C_a$，其中
+\[
+ J_a=\frac{(s+a)(s+a-1)}{s(s-1)}\,\pi^{-a/2}\frac{\Gamma((s+a)/2)}{\Gamma(s/2)},\qquad A(a)=\|1-J_a\|_{L^2(d\omega)} .
+\]
+在 $a>0$ 内，$A(a)$ **恰在 $0<a<1$ 有限**。Stirling 给出 $|J_a|\sim(|t|/(2\pi))^{a/2}$。当 $1/2\le a\le1$ 时，该模平方的相对余项一致为 $O(1/|t|)$；$\Re J_a$ 的加权尾在此区间一致可积，两条半轴积分合计得
+\[
+ A(a)^2=\frac{(2\pi)^{-a}}{\pi(1-a)}+O(1)\ (a\uparrow1),\qquad (1-a)A(a)^2\longrightarrow 1/(2\pi^2).
+\]
+在 $0\le a\le1/4$，$J_a$ 的一、二阶导数在 $|t|\ge1$ 分别由常数乘以 $(1+|t|)^{1/8}(1+\log(2+|t|))^k$ 控制，紧区间光滑。加权 $L^2$ Taylor 展开给出
+\[
+ A(a)=a\left\|1/s+1/(s-1)-(\log\pi)/2+\tfrac12\psi_\Gamma(s/2)\right\|_{L^2(d\omega)}+O(a^2).
+\]
+$\psi_\Gamma=\Gamma'/\Gamma$，范数因对数增长而严格为正。$a=1/2,t=0$ 时直接微分 $J_a$ 可免对零点取对数导数。由 $|C_a|\le1$ 得 $|\sqrt{Q_a}-\sqrt{\Delta_a}|\le A(a)$，故在 RH 下 $Q_a-\Delta_a=O(a^{3/2})$。有限反证的有效阈值为 $(\sqrt{2(1-\xi(1)/\xi(1+a))}+A(a))^2$，用在 $0<a<1$。若 RH 为假，Burnol 逆命题与单调收敛使所有充分细的二进尺度均存在违反阈值的有限截断。[Burnol](https://arxiv.org/abs/math/0202166)
+
+综上 RH 等价于 $Q_a=O(a)$，也等价于 $D_a=O(a)$。在 RH 下 (3) 将原始斜率精确传至离散能量：
+\[
+ \lim_{a\downarrow0}\frac{D_a}{a}=\lim_{a\downarrow0}\frac{Q_a}{a}
+ =\sum_\gamma\frac{m_\gamma(1-{2m_\gamma\choose m_\gamma}/4^{m_\gamma})}{1/4+\gamma^2}.
+\]
+其值等于 $\lambda_1$ 当且仅当所有非平凡零点皆简单。固定任意有限 $M$，其能量为 $O_M(a^2)$，这解释为何先固定截断再求导会漏掉整个一阶斜率。控制全部增长截断的无条件 $O(a)$ 上界仍是本路线的核心开放问题。
+
+## 3. 余数、相位与可独立沿用的结论
+
+令 $x=1/t$。在 $(0,1)$，未经归一化的有限线性组合 $\sum b_n\{x/n\}$ 是斜率 $\sigma=\sum b_n/n$ 的直线，其到目标的误差在这一段的平方范数为 $\sigma^2$。若收敛则 $\sigma\to0$，而 $\{x\}$ 有限范数，故可以减去 $\sigma\{x\}$。归一化坐标在第 $m$ 格成为 $r_n(m)=(m\bmod n)/n$，权为 $1/[m(m+1)]$。令 $y_0=0$，则 $L_n(y)=\sum_{d\mid n}\mu(n/d)(y_d-y_{d-1})$ 给出 $L_n(r_k)=-\delta_{nk}$（$n,k\ge2$），因为差分为 $1/k-\mathbf1_{k\mid d}$。$L_n(1)=\mu(n)$，所以成功逼近需要每个固定系数趋向 $-\mu(n)$。$L_6=2y_1-y_3-y_5+y_6$ 的对偶范数平方是 $92$。独立重跑冻结程序得到素数坐标统一平方误差下界 $549980544461335314637000615/22936449866115041739513080208$，而包含合数的 10、60、100 坐标截断中的三个指定候选均严格在此界以下。每个候选的无穷尾已计入。候选区间不声称最优。[公开冻结证书程序](https://github.com/awdawmip/enterprise-math/blob/06b3d5c6634e66d8d8ddb3afa89ec03e513ee8cd/research_handoffs/COMPOSITE_ROAD_RH_20260909/stage2_verify.py)
+
+在 $m\le M<n$，$r_n(m)=m/n$。由 $\sum_{d\le m}\mu(d)\lfloor m/d\rfloor=1$ 得有限前缀的精确表示 $1=mA_M-\sum_{2\le n\le M}\mu(n)r_n(m)$，其中 $A_M=\sum_{n\le M}\mu(n)/n$。经典 Mertens 形式的 RH 判据经 Abel 分部给出 $A_M=O_\epsilon(M^{-1/2+\epsilon})$ 的等价性。原校准泛函分部求和后的尖锐对偶范数 $C_M$ 趋于 $15/\pi^2$：写 $F(v)=vA_{\lfloor v\rfloor}$，在 $v=M/m$ 的网格上求平方跳跃能量。光滑部分由 $M^{-1}\int_1^{M/2}A_{\lfloor v\rfloor}^2dv=o(1)$ 控制（PNT）；细格逐个捕获 $\mu(k)$ 跳跃，由常数乘 $k^{-2}$ 统控。粗格中固定 $m$ 用 $\sum_{n\le x}\mu(n)=o(x)$，其余 $K<m<\sqrt M$ 用跳数不超过格长加一，总贡献 $O(1/K)+O(M^{-1/2})$。末端补入 $k=1$。
+
+$R_a(n)$ 的零点接触阶为不同素因子数 $\omega(n)$；二阶导数是 $(\Lambda*\Lambda)(n)-\Lambda(n)\log n$。中心化后拆整部得到 $S_a(x)-cx=O_a(x^{1-a})$（$0<a<1,\ x\ge1$），这保证 Mellin 余项在 $\Re s>1-a$ 绝对收敛。任何潜在非临界零点诱导的奇点 $\rho-a$ 都落在这条界线左侧。Brent–Platt–Trudgian 的二进段均方下界说明点态导数 $\psi(x)-x$ 的 $dx/x^2$ 能量无穷；其较强权重版本在 (3) 可积。原 Weil 平移二次型的正性仍无依据。
+
+Ramanujan 系数 $c\beta_a(q)=c\mu(q)/\prod_{p\mid q}(p^{1+a}-1)$ 来自素因子局部展开，固定 $n$ 时可逐素数作绝对收敛 Euler 乘积。为实际的算术序列补足 $B^2$ 极限，截断到 $p\le Y$ 的有限素数乘积 $R_{a,Y}$。有 $0\le R_{a,Y}-R_a\le1$，其均方上极限至多为其一阶平均的上极限，再由 $\lfloor X/p\rfloor/X\le1/p$ 控制在 $\sum_{p>Y}p^{-1-a}$ 内。局部 Fourier 系数在有限 CRT 周期上正交，故可将 $B^2$ 极限识别为所给展开。固定 $H$ 的平移和连续作用于 $B^2$，对非负对角能量用 Tonelli 交换 $H,q$。每个频率 $2x=2\pi r/q$ 的 $H^{-2}$ 加权响应为 $x(\pi-x)/(2\sin^2 x)$，来自 $\sum_{H\ge1}\sin^2(Hx)/H^2=x(\pi-x)/2$。既约频率的总响应 $O(q\log(2q))$，$|c\beta_a(q)|\le q^{-1-a}$，故对角总和对每个 $a>0$ 有限。最坏逐模响应的 $\sum_{(r,q)=1}\csc^2(\pi r/q)=J_2(q)/3$（$q>1$）可由全频余割平方和作 Möbius 反演得到。
+
+**相位反例。** 在周期三取实零均值序列 $f=(1,-1,0)$ 及其平移 $g=(-1,0,1)$。两者各 Fourier 功率和所有平移平均窗口二次量相同。以第一项为固定起点，$H=1,2,3\bmod3$ 时累积值分别为 $(1,0,0)$ 与 $(-1,-1,0)$。两个固定起点能量 $\sum_H|\sum_{h\le H}f(h)|^2/H^2$ 之差（后者减前者）恰为 $\sum_{j\ge0}(3j+2)^{-2}>0$。这证明一般周期序列上的相位丢失。若限制在特殊一参数道路 $a\mapsto R_a$ 上，功率能否以别的方式重建同一固定起点量，仍需族内反例或独立结构定理。由两个充分条件不同无法回答这个问题。

@@ -1,0 +1,138 @@
+{
+  "task_id": "RS-CELL-U27F-04-OVERLAP-CONFLICT-20261012",
+  "pins": {
+    "interrupted_after_carry": "31012bcbfa2cfb0bdfbbfa073616ac9244130e429a6f166f927968d2ad68847e",
+    "carry_Q": "acd915da997e0703ae72395e805126b29d841d47a68a435e75af379e40f76708",
+    "source_Q": "c2c12cc616c33d269b190345a950683cda5068215279fae2372cd6a115683790"
+  },
+  "schedules_per_case": 252,
+  "total_schedules": 1008,
+  "negative_control_schedules": 756,
+  "summary": {
+    "record": {
+      "outcomes": {
+        "DONE/INELIGIBLE": 21,
+        "DONE/STALE": 3,
+        "DONE/WAIT": 102,
+        "INELIGIBLE/DONE": 21,
+        "STALE/DONE": 3,
+        "WAIT/DONE": 102
+      },
+      "distinct_terminal_records": 6
+    },
+    "endpoint": {
+      "outcomes": {
+        "DONE/DONE": 9,
+        "DONE/STALE": 3,
+        "DONE/WAIT": 120,
+        "WAIT/DONE": 120
+      },
+      "distinct_terminal_records": 5,
+      "both_success_inversion_polynomial": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1
+      }
+    },
+    "one_grant": {
+      "outcomes": {
+        "DONE/INELIGIBLE": 6,
+        "DONE/STALE": 4,
+        "DONE/WAIT": 116,
+        "INELIGIBLE/DONE": 6,
+        "STALE/DONE": 4,
+        "WAIT/DONE": 116
+      },
+      "distinct_terminal_records": 6
+    },
+    "independent": {
+      "outcomes": {
+        "DONE/DONE": 252
+      },
+      "distinct_terminal_records": 1
+    }
+  },
+  "omitted_lock_controls": {
+    "record": {
+      "deleted_lock": "ID3",
+      "faults": {
+        "DOUBLE_ID3_RESERVATION": 120
+      },
+      "shortest_bad_prefix": "XXYY"
+    },
+    "endpoint": {
+      "deleted_lock": "B",
+      "faults": {
+        "STALE_BODY_TARGET": 120
+      },
+      "shortest_bad_prefix": "XXYYXYY"
+    },
+    "one_grant": {
+      "deleted_lock": "grant",
+      "faults": {
+        "DOUBLE_GRANT_USE": 200
+      },
+      "shortest_bad_prefix": "XXXYYXYY"
+    }
+  },
+  "q_weighting": {
+    "1/2": {
+      "all_CWM": [
+        252,
+        "109221651/33554432",
+        "1"
+      ],
+      "nonoverlap_CWM": [
+        12,
+        "66060351/33554432",
+        "1"
+      ],
+      "normalized_nonoverlap": "61681/101981"
+    },
+    "1": {
+      "all_CWM": [
+        252,
+        "252",
+        "1"
+      ],
+      "nonoverlap_CWM": [
+        12,
+        "12",
+        "1"
+      ],
+      "normalized_nonoverlap": "1/21"
+    },
+    "2": {
+      "all_CWM": [
+        252,
+        "109221651",
+        "33554432"
+      ],
+      "nonoverlap_CWM": [
+        12,
+        "66060351",
+        "33554432"
+      ],
+      "normalized_nonoverlap": "61681/101981"
+    }
+  },
+  "gaussian_polynomial_pairs_checked": 28,
+  "prerequisite_T03": {
+    "sha256": "e60aab979013bb8a9af2644ab1309955d02b0c565f76c7419121ea2c572511c6",
+    "matched_selected_stage_observations": 5
+  },
+  "source_replay": {
+    "released_after_stage": 3,
+    "source_preparation_weight": "1/802816",
+    "growth_weight": "1/18816",
+    "source_coordinate_courier_routes": 3,
+    "archive_sha256": "a450cc3e235ca3d37211d31b2d4eb41dd2d4ac28b77c73d18d1b6e3ce45cc9a7",
+    "stable_comparison_inventory_passed": true
+  }
+}

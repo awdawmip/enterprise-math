@@ -1,0 +1,239 @@
+{
+  "task_id": "RH-ROAD-AUDIT-20260909",
+  "scope": "Independent mathematical audit and conditional extension. No state-machine acceptance or proof of RH.",
+  "source_snapshot": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+  "primary_references": [
+    "https://arxiv.org/abs/math/0202141",
+    "https://arxiv.org/abs/math/0202166",
+    "https://arxiv.org/abs/2008.06140"
+  ],
+  "frozen_stage2_replay": {
+    "prime_only_lower_squared": "549980544461335314637000615/22936449866115041739513080208",
+    "candidate_intervals": {
+      "10": [
+        "238598165411963/10000000000000000",
+        "238619925900129411963/10000010000000000000000"
+      ],
+      "60": [
+        "114871466661211/10000000000000000",
+        "6959420990178109399312101903847180047457/602740401800231854192793760000000000000000"
+      ],
+      "100": [
+        "25504305775939/2500000000000000",
+        "11628619870241667643730020973145155195649921435175868163847036878602819752945530563128684493/1131290803484048019172597846307354690462905457003828125281347287972504366821888000000000000000"
+      ]
+    },
+    "status": "EXACT_CHECK_PASS"
+  },
+  "claims": [
+    {
+      "statement": "Strong Nyman–Beurling criterion with integer dilations",
+      "source_commit": "06b3d5c6634e66d8d8ddb3afa89ec03e513ee8cd",
+      "source_path": "research_handoffs/COMPOSITE_ROAD_RH_20260909/stage2_verify.py",
+      "source_blob": "c4fa278502fc86e8e0d04ad1541b44b74dc87fe7",
+      "source_sha256": "df49a8cd07f84375466ff9e003ac7c96044936e5b9e5b5a73cb62165bb1ae436",
+      "assumptions": "L²(0,∞), closure of the linear span of integer dilates, χ=1_(0,1].",
+      "proof_or_counterexample": "Báez-Duarte math/0202141, Thm 1.1.",
+      "status": "CLASSICAL_INPUT_VERIFIED",
+      "downstream_action": "Cite the theorem with the ambient space and closure."
+    },
+    {
+      "statement": "Zero-tail coordinate, coefficient rigidity, L6 obstruction",
+      "source_commit": "06b3d5c6634e66d8d8ddb3afa89ec03e513ee8cd",
+      "source_path": "research_handoffs/COMPOSITE_ROAD_RH_20260909/stage2_verify.py",
+      "source_blob": "c4fa278502fc86e8e0d04ad1541b44b74dc87fe7",
+      "source_sha256": "df49a8cd07f84375466ff9e003ac7c96044936e5b9e5b5a73cb62165bb1ae436",
+      "assumptions": "m,n≥1, extractor n≥2, y0=0; weights 1/[m(m+1)].",
+      "proof_or_counterexample": "Subtract the norm-controlled slope times {x}; integer differences are 1/k−1_{k|d}. Möbius inversion yields −δnk, and the L6 dual squared norm is 92.",
+      "status": "VERIFIED_DERIVATION",
+      "downstream_action": "Any successful sequence has coefficient limit −μ(n); deleting 6 costs at least 1/92."
+    },
+    {
+      "statement": "Prime-only uniform separation and three full integer candidates",
+      "source_commit": "06b3d5c6634e66d8d8ddb3afa89ec03e513ee8cd",
+      "source_path": "research_handoffs/COMPOSITE_ROAD_RH_20260909/stage2_verify.py",
+      "source_blob": "c4fa278502fc86e8e0d04ad1541b44b74dc87fe7",
+      "source_sha256": "df49a8cd07f84375466ff9e003ac7c96044936e5b9e5b5a73cb62165bb1ae436",
+      "assumptions": "Finite prime columns plus exact constraint for all primes beyond the test window. Infinite tail included in upper bounds.",
+      "proof_or_counterexample": "Frozen rational certificates rerun. Their rational upper bounds are strictly below the prime-only lower bound.",
+      "status": "VERIFIED_DERIVATION",
+      "downstream_action": "Keep three candidate upper bounds distinct from optima."
+    },
+    {
+      "statement": "Finite-horizon rank-one future port and calibration capacity",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_FUTURE_PORT_POSITIVE_DEFORMATION_20260906.md",
+      "source_blob": "1cccbd9ea99c31e14fab0112e4c2d48b5ed096e9",
+      "source_sha256": "94eed741f64c4849fbad099e5160fd89193adbb0ca0467c530b302563b750fcd",
+      "assumptions": "Finite positive M for the port. PNT for the limiting capacity.",
+      "proof_or_counterexample": "On prefix r_n(m)=m/n for n>M. Difference functionals recover all earlier columns. Summation by parts identifies the sharp squared norm; mesh jumps μ(k) give 15/π² (return §3).",
+      "status": "VERIFIED_DERIVATION",
+      "downstream_action": "Do not collapse the same coordinates on enlarged horizons."
+    },
+    {
+      "statement": "Square integrability of the positive arithmetic road and converse",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_FUTURE_PORT_POSITIVE_DEFORMATION_20260906.md",
+      "source_blob": "1cccbd9ea99c31e14fab0112e4c2d48b5ed096e9",
+      "source_sha256": "94eed741f64c4849fbad099e5160fd89193adbb0ca0467c530b302563b750fcd",
+      "assumptions": "a>0; unconditional L² for a≥1/2; also 0<a<1/2 under RH; a sequence tending to zero suffices for the converse.",
+      "proof_or_counterexample": "Finite floors plus an absolutely convergent tail identify f_a(1/x)=cx−S_a(x). Burnol math/0202166 §4, lemmas 4.1–4.3, theorems 4.1 and 4.2.",
+      "status": "CLASSICAL_INPUT_VERIFIED",
+      "downstream_action": "Use the critical-line Mellin identity only after L² membership has been established."
+    },
+    {
+      "statement": "The Chebyshev boundary derivative has infinite road energy",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_FUTURE_PORT_POSITIVE_DEFORMATION_20260906.md",
+      "source_blob": "1cccbd9ea99c31e14fab0112e4c2d48b5ed096e9",
+      "source_sha256": "94eed741f64c4849fbad099e5160fd89193adbb0ca0467c530b302563b750fcd",
+      "assumptions": "Pointwise derivative, x>0 fixed; saddle at infinity must be considered separately.",
+      "proof_or_counterexample": "Brent–Platt–Trudgian arXiv:2008.06140, Thm 1 and §4 (also off RH), dyadic shell lower bound X²/5374.",
+      "status": "CLASSICAL_INPUT_VERIFIED",
+      "downstream_action": "Do not interchange the derivative with the global road norm."
+    },
+    {
+      "statement": "Completed Schur, Pick and zero-Gram kernels",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_COMPLETED_SCHUR_PICK_20260906.md",
+      "source_blob": "728f1371c389a8b6a89a31a66765e837541faa24",
+      "source_sha256": "f32d29739f13aae4ea43859bfc0c814a56dc46720f6d19a587196c83e8505820",
+      "assumptions": "Forward direction assumes RH. Converse assumes holomorphic contractive quotients at a sequence a↓0 throughout the right half-plane.",
+      "proof_or_counterexample": "Modulus of paired xi product factors grows horizontally. Shifted off-line zeros would force accumulated numerator zeros. Logarithmic derivative of paired factors gives Gram sum.",
+      "status": "CONDITIONAL",
+      "downstream_action": "Use completed ratios. No positive raw Weil matrix follows."
+    },
+    {
+      "statement": "Positive road contact hierarchy and absolute penetration boundary",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_PENETRATION_JET_HIERARCHY_20260906.md",
+      "source_blob": "93e7cd0ea49cd66c22fd30bc523fae6f76c37ef2",
+      "source_sha256": "e4ab3bf66a3d2e2bb2a9e5b922ffab8b5ed7cf2cb699112815d38015c9401867",
+      "assumptions": "0<a<1 for the absolute tail bound; n>1 for first positive contact; Re s>1 for Dirichlet coefficient differentiation.",
+      "proof_or_counterexample": "Multiply local factors. Absolute divisor truncation gives |S_a−cx| ≪_a x^(1−a); shifted nontrivial zero β−a<1−a.",
+      "status": "VERIFIED_DERIVATION",
+      "downstream_action": "Use asymptotic cancellation to go farther; absolute control only covers stated half-plane."
+    },
+    {
+      "statement": "Local zero cluster has the multiplicity profile (iu/(1+iu))^m",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_BOUNDARY_LAYER_20260906.md",
+      "source_blob": "8e63931f37edfcd6c8c63b52ce2c2f4d6ba1debf",
+      "source_sha256": "67a1e23b08617a12d9b5ce79028d8169a3af9593421b5b14cce5da5fc3f2c3a0",
+      "assumptions": "For the road-norm interpretation assume RH; zero ordinates are distinct and signed.",
+      "proof_or_counterexample": "Factor ζ as a power times a local nonzero analytic function and rescale the horizontal shift.",
+      "status": "CONDITIONAL",
+      "downstream_action": "Finite-set lower limits survive individually."
+    },
+    {
+      "statement": "Completed defect slope passes through the full sum and yields raw slope",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_BOUNDARY_SLOPE_CLOSURE_20260906.md",
+      "source_blob": "91c5ece9f101d23d368db5fe8704f925e3508c8b",
+      "source_sha256": "b9e76603023bfcef338be6c4b3073b12adb95b89ef59971b27c3eb541f190d4f",
+      "assumptions": "RH; 0<a≤1/2 for the summable majorant; count multiplicities once for each distinct ordinate.",
+      "proof_or_counterexample": "Disjoint intervals give the finite lower bound; Cauchy convolution and the paired log derivative dominate the tail; Poisson identity and completion error finish.",
+      "status": "CONDITIONAL",
+      "downstream_action": "First-order slope equals λ1 exactly under simplicity within RH."
+    },
+    {
+      "statement": "Effective range of A(a), and the removable zero of J in log differentiation",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_BOUNDARY_SLOPE_CLOSURE_20260906.md",
+      "source_blob": "91c5ece9f101d23d368db5fe8704f925e3508c8b",
+      "source_sha256": "b9e76603023bfcef338be6c4b3073b12adb95b89ef59971b27c3eb541f190d4f",
+      "assumptions": "Positive real a. Near a=1/2,t=0 differentiate J itself.",
+      "proof_or_counterexample": "Uniform gamma ratio asymptotics give A finite exactly for a<1, (1−a)A²→1/(2π²), and A/a→a strictly positive derivative norm at zero.",
+      "status": "REPAIR_REQUIRED",
+      "downstream_action": "Keep the explicit U_road threshold finite only on 0<a<1."
+    },
+    {
+      "statement": "Finite Green energy and minimum over constant backgrounds",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_PURE_POSITIVE_ENERGY_20260906.md",
+      "source_blob": "962505f62c8b4a3367dc9a5dbc87865a094bd1f0",
+      "source_sha256": "228b12080487cc4a317b72dc0ad906b7a77230816682ca2940b4194a6b985672",
+      "assumptions": "M≥2, continuous background on (0,M), endpoint atoms have zero kernel weight.",
+      "proof_or_counterexample": "Integrate the product of two cumulative indicators; background integral is log(M/n), constant-density double integral is M.",
+      "status": "VERIFIED_DERIVATION",
+      "downstream_action": "Use monotone unminimized energies for completeness, minimized ones only for sufficient falsification."
+    },
+    {
+      "statement": "Raw/complete comparison and countable threshold",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_PURE_POSITIVE_ENERGY_20260906.md",
+      "source_blob": "962505f62c8b4a3367dc9a5dbc87865a094bd1f0",
+      "source_sha256": "228b12080487cc4a317b72dc0ad906b7a77230816682ca2940b4194a6b985672",
+      "assumptions": "RH in the Schur estimate, 0<a<1 for the finite threshold. Converse square integrability from countable inequalities has no RH hypothesis.",
+      "proof_or_counterexample": "Triangular norm inequality and |C|≤1 give an O(a) norm error. Reverse via Burnol 4.2.",
+      "status": "CONDITIONAL",
+      "downstream_action": "Use U_road for arithmetic Q; upper bound for the completed energy alone is insufficient."
+    },
+    {
+      "statement": "Exact weighted midpoint correction and its sign",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_DISCRETE_L2_NONCOMMUTATION_20260906.md",
+      "source_blob": "2c682f0d2f5c7a1bc161ce6bd33f59fa825efc17",
+      "source_sha256": "f1dfac769d591ef620ad1f07f09b1a8a37eff489e0aa29ed9983d8d758beda64",
+      "assumptions": "a>0, either energy finite for difference of the infinite series; finite truncation holds for every a.",
+      "proof_or_counterexample": "Q−D=c²(1+ζ(2)/12)−Σ∫E²w; the first cell alone costs 4c²/3. Finite integral stops at M+1.",
+      "status": "VERIFIED_DERIVATION",
+      "downstream_action": "Preserve the (0,1) term. At finite energy D exceeds Q by at least (1/3−ζ(2)/12)c²."
+    },
+    {
+      "statement": "Signed two-term difference Q−D=C_cell a²+O(a³); D shares the raw multiplicity slope",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_DISCRETE_L2_NONCOMMUTATION_20260906.md",
+      "source_blob": "2c682f0d2f5c7a1bc161ce6bd33f59fa825efc17",
+      "source_sha256": "f1dfac769d591ef620ad1f07f09b1a8a37eff489e0aa29ed9983d8d758beda64",
+      "assumptions": "RH; c=1/ζ(1+a).",
+      "proof_or_counterexample": "Use X=floor(a⁻²); BPT dyadic RH mean square controls the Taylor cross term. The unexpanded tail after extra inverse-power weighting is O(a). Return §1.",
+      "status": "CONDITIONAL",
+      "downstream_action": "Use C_cell for discretization, without interpreting it as the second coefficient of Q or D individually."
+    },
+    {
+      "statement": "Direct O(a) bound for the escaping unweighted infinite-horizon energy",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_DISCRETE_L2_NONCOMMUTATION_20260906.md",
+      "source_blob": "2c682f0d2f5c7a1bc161ce6bd33f59fa825efc17",
+      "source_sha256": "f1dfac769d591ef620ad1f07f09b1a8a37eff489e0aa29ed9983d8d758beda64",
+      "assumptions": "No assumption of RH or an equivalent estimate.",
+      "proof_or_counterexample": "Fixed horizons are O_M(a²). The controlled difference has an extra inverse power, unavailable in the full sum.",
+      "status": "UNRESOLVED",
+      "downstream_action": "Requires uniform cancellation across growing horizons."
+    },
+    {
+      "statement": "Identify the Ramanujan expansion with the actual arithmetic sequence in B²",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_RAMANUJAN_PHASE_COHERENCE_20260906.md",
+      "source_blob": "837b730839bca08bf0138db2e8ad7df226abb6fd",
+      "source_sha256": "be52f94468df318dfb0a4f52bcc8eb4466ae4a179f0adc3e684769fd363c6f5a",
+      "assumptions": "a>0. For each fixed n the Euler product converges absolutely.",
+      "proof_or_counterexample": "Finite-prime products approximate R_a in B² with squared error ≤Σ_{p>Y}p^(−1−a); use CRT then B² continuity. Square-summability by itself gives only an abstract limit.",
+      "status": "REPAIR_REQUIRED",
+      "downstream_action": "Use the prime truncation before replacing the sequence by its spectral expansion."
+    },
+    {
+      "statement": "Translation-averaged response and finite phase witness",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_RAMANUJAN_PHASE_COHERENCE_20260906.md",
+      "source_blob": "837b730839bca08bf0138db2e8ad7df226abb6fd",
+      "source_sha256": "be52f94468df318dfb0a4f52bcc8eb4466ae4a179f0adc3e684769fd363c6f5a",
+      "assumptions": "a>0 for the road summation; general real periodic sequences for the counterexample.",
+      "proof_or_counterexample": "The fixed-H B² operator is bounded, Tonelli applies to diagonal powers. The translates (1,−1,0) and (−1,0,1) give unequal fixed-origin energies while all modal powers match.",
+      "status": "VERIFIED_DERIVATION",
+      "downstream_action": "Retain phases on the full periodic class."
+    },
+    {
+      "statement": "Nonfactorization from powers on the restricted one-parameter road itself",
+      "source_commit": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+      "source_path": "research_notes/COMPOSITE_ROAD_RH_RAMANUJAN_PHASE_COHERENCE_20260906.md",
+      "source_blob": "837b730839bca08bf0138db2e8ad7df226abb6fd",
+      "source_sha256": "be52f94468df318dfb0a4f52bcc8eb4466ae4a179f0adc3e684769fd363c6f5a",
+      "assumptions": "Only the image of a↦R_a is admissible.",
+      "proof_or_counterexample": "The finite periodic example is outside this restricted family. Different sufficient conditions on two energies alone do not preclude reconstruction.",
+      "status": "UNRESOLVED",
+      "downstream_action": "Seek a family-specific witness or a rigorous statement about an enlarged observation class."
+    }
+  ]
+}

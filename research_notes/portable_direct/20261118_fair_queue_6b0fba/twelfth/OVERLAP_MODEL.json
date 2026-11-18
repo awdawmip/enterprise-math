@@ -1,0 +1,14 @@
+{
+  "task_id":"RS-CELL-U27F-04-OVERLAP-CONFLICT-20261012",
+  "precondition":"Q stop after LOCAL_CARRY with CD lost; T03 forward bind and reverse carry are checked directly",
+  "classification":"MODEL_VARIANT / bounded two-attempt scheduling",
+  "material_coordinate_domain":"signed integer native X6, 12 elementary ports",
+  "inventory":4,
+  "stages":["observe","atomically reserve declared keys after revalidation","native advance or no-op","commit with at most one remaining native hop","release keys"],
+  "arbitration":"logical multi-key mutual exclusion; attempted once; physical implementation and timing are not part of the model",
+  "shared_keys":{"record":["ID3"],"endpoint":["body B"],"one_grant":["one added single-use logical grant"],"independent":[]},
+  "observers":["ordered work stages","locations and roles","outcomes DONE, WAIT, STALE, INELIGIBLE","strict endpoint freshness at commit","number of grant uses"],
+  "schedule_weights":"optional q^I for I Y-before-X inversions; q>0 yields a declared positive finite comparison",
+  "faults":["double reservation","stale body target upon delivery","double grant use"],
+  "resources_excluded":["subsequent losses","automatic retries","distributed arbitration protocol"]
+}

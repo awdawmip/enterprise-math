@@ -1,0 +1,534 @@
+{
+  "capsule": "DC00-R0",
+  "release": "RS-DISC-COMPAT-20261026-00",
+  "readout": "R0",
+  "parameter_version": "theta0",
+  "physics_verdict": "MISSING_COMPONENT",
+  "training_data": null,
+  "holdout_data": null,
+  "source_catalog_sha256": "492db641569d98311a5b1ac8cdd4c836c926bde1a110c3d3958d02f7cfa0ee99",
+  "coverage": "00 interface inventory, synthetic conditional stress test, no child experiment",
+  "common_error_budget": "Bookkeeping by protocol; absent calibration makes the physical bound unknown",
+  "source_read_scope": "Frozen taskbooks, model documents and catalog used. Cataloged external papers/experiments not independently replayed or used as new raw data.",
+  "interfaces": [
+    {
+      "required_input": "源与两端设置、探测及无结果记录",
+      "target_prediction": "四个设置下完整二元联合频数及失败率",
+      "applicable_scale": "同一源、同一批次、已知探测窗",
+      "missing_or_failing_premise": "未给由源和受控设置生成联合输出及失效的核",
+      "minimum_revision": "先注册源、边界、联合测量核及无结果策略",
+      "data_source_or_required_data": "平台标定记录与独立留出事件；本轮无原始数据",
+      "next_discriminator": "用共同胶囊生成一次零参数留出预测",
+      "task_id": "RS-DISC-COMPAT-20261026-00",
+      "publication": "TP2-20EC0ABD05545665A8D3",
+      "title": "冻结可证伪模型与原生状态—观测桥",
+      "depends_on": [],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [],
+      "source_links": [],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": false,
+      "uncertainty_contract": "四行完整联合表的最大TV；检测效率、作废率、设置独立性、漂移及留出计数误差",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "作用对象、变换族和装置转动",
+      "target_prediction": "取向/速度改变下同一钟频比或腔频差",
+      "applicable_scale": "实验选取的旋转/boost及装置分辨率",
+      "missing_or_failing_premise": "没有原生变换和可实施方向操作的对应",
+      "minimum_revision": "给出实验操作到原生作用及读出的等变映射",
+      "data_source_or_required_data": "旋转腔、运动离子标定",
+      "next_discriminator": "同装置盲换两个取向",
+      "task_id": "RS-DISC-COMPAT-20261026-01",
+      "publication": "TP2-E26E6CC48C96AD3D9227",
+      "title": "连续对称性、有限方向与可观测因果结构",
+      "depends_on": [
+        0
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [
+        "BHS2006",
+        "CAVITY2015",
+        "DOPPLER2014"
+      ],
+      "source_links": [
+        "https://arxiv.org/abs/gr-qc/0605006v1",
+        "https://arxiv.org/abs/1412.6954v2",
+        "https://arxiv.org/abs/1409.7951v1"
+      ],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": true,
+      "uncertainty_contract": "腔频与钟的比值及其转向/速度相关系统误差",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "独立设置机制、共同源随机性与双端核",
+      "target_prediction": "四行联合律、CHSH与两侧干预边际",
+      "applicable_scale": "每次有效事件；固定源、设置发生器及两接收端",
+      "missing_or_failing_premise": "本地分解和设置独立未被原生更新导出",
+      "minimum_revision": "指定同一共同余量规则及干预核，先算四行",
+      "data_source_or_required_data": "两端事件就绪/光子 Bell 检验与计数协议",
+      "next_discriminator": "固定本端设置，主动切换另一端",
+      "task_id": "RS-DISC-COMPAT-20261026-02",
+      "publication": "TP2-24DA8436BF412A1D9AF0",
+      "title": "公共余量的 Bell/CHSH 关联与禁止可控超光速信号",
+      "depends_on": [
+        0
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [
+        "BELL1964",
+        "HENSEN2015",
+        "SHALM2015"
+      ],
+      "source_links": [
+        "https://journals.aps.org/ppf/abstract/10.1103/PhysicsPhysiqueFizika.1.195",
+        "https://arxiv.org/abs/1508.05949v1",
+        "https://arxiv.org/abs/1511.03189v2"
+      ],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": true,
+      "uncertainty_contract": "四个受控边际的TV、CHSH统计区间及探测/配对/时序系统误差",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "九个测量标签、六个上下文及顺序更新",
+      "target_prediction": "各上下文乘积和同标签操作等价残差",
+      "applicable_scale": "声明的兼容测量和实验扰动容差",
+      "missing_or_failing_premise": "缺上下文绑定、相容性和操作同一性",
+      "minimum_revision": "冻结同一标签重用及扰动控制",
+      "data_source_or_required_data": "离子/操作性情境性实验",
+      "next_discriminator": "交换可兼容测量顺序并核查边际",
+      "task_id": "RS-DISC-COMPAT-20261026-03",
+      "publication": "TP2-2D2350B14BB1252B07AD",
+      "title": "有限量子情境性与测量上下文的最小状态",
+      "depends_on": [
+        0
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [
+        "MERMIN1990",
+        "KIRCHMAIR2009",
+        "MAZUREK2016"
+      ],
+      "source_links": [
+        "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.65.3373",
+        "https://arxiv.org/abs/0904.1655v2",
+        "https://arxiv.org/abs/1505.06244v1"
+      ],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": true,
+      "uncertainty_contract": "上下文乘积见证误差、操作等价及顺序扰动界",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "准备、相位操作、合并及有/无路径设置",
+      "target_prediction": "干涉计数、组合读数及高阶干涉项",
+      "applicable_scale": "指定通路、探测窗、效率与暗计数",
+      "missing_or_failing_premise": "正权激活没有给相位到探测读数的映射",
+      "minimum_revision": "增加具有独立标定的带相位合并观察",
+      "data_source_or_required_data": "多缝设置及路径修正；PBR属条件理论",
+      "next_discriminator": "相同单路计数下比较两种合并准备",
+      "task_id": "RS-DISC-COMPAT-20261026-04",
+      "publication": "TP2-7B089A65C14F78C6BB04",
+      "title": "相位、干涉、Born 统计与组合测量",
+      "depends_on": [
+        0
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [
+        "SINHA2010",
+        "SAWANT2014",
+        "PBR2012"
+      ],
+      "source_links": [
+        "https://arxiv.org/abs/1007.4193v1",
+        "https://arxiv.org/abs/1308.2022v2",
+        "https://arxiv.org/abs/1111.3328v3"
+      ],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": true,
+      "uncertainty_contract": "干涉计数与信号归一化；暗计数、相位标定及非经典路径修正",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "有效3+1维粒子与谱、对称及局域前提",
+      "target_prediction": "手征谱、额外模和规范恒等式",
+      "applicable_scale": "选定低能窗及连续极限条件",
+      "missing_or_failing_premise": "缺粒子读出/更新生成元，倍增定理前提待审",
+      "minimum_revision": "补出低能生成元并逐项检验定理条件",
+      "data_source_or_required_data": "NN/GW/Lüscher理论含勘误；另需有效粒子谱",
+      "next_discriminator": "同一个生成元检查零点与手征性",
+      "task_id": "RS-DISC-COMPAT-20261026-05",
+      "publication": "TP2-4A47E497F6E826BBC2B5",
+      "title": "手征费米子、倍增与规范一致性",
+      "depends_on": [
+        0,
+        1,
+        9
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [
+        "NN1981",
+        "GW1982",
+        "LUSCHER1998",
+        "NN_ERRATUM1982"
+      ],
+      "source_links": [
+        "https://doi.org/10.1016/0550-3213(81)90361-8",
+        "https://journals.aps.org/prd/abstract/10.1103/PhysRevD.25.2649",
+        "https://arxiv.org/abs/hep-lat/9802011v1",
+        "https://doi.org/10.1016/0550-3213(82)90011-6"
+      ],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": false,
+      "uncertainty_contract": "有效谱误差、晶格/体积截断和能量窗；定理前提逐项判真",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "波包、路径、发射延迟、钟与能标",
+      "target_prediction": "到达时差的能量/取向依赖或其上界",
+      "applicable_scale": "指定能段、传播距离和源模型",
+      "missing_or_failing_premise": "本征时延与介质/传播项未能分离",
+      "minimum_revision": "固定源时延族并跨源检验同一传播系数",
+      "data_source_or_required_data": "瞬变源分能段到达时间",
+      "next_discriminator": "冻结源项后预报另一源或另一能段",
+      "task_id": "RS-DISC-COMPAT-20261026-06",
+      "publication": "TP2-E36E0016AE79173D20A1",
+      "title": "光子群速度、能量依赖与方向依赖",
+      "depends_on": [
+        0,
+        1,
+        8
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [
+        "LHAASO2024",
+        "FERMI2013",
+        "DISCAN2025"
+      ],
+      "source_links": [
+        "https://arxiv.org/abs/2402.06009v3",
+        "https://arxiv.org/abs/1305.3463v1",
+        "https://arxiv.org/abs/2508.00656v1"
+      ],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": false,
+      "uncertainty_contract": "以时间单位计的发射/传播延迟误差、能标误差及源间漂移",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "两偏振、电子/光子作用与守恒规则",
+      "target_prediction": "偏振旋转、衰变或反应阈值",
+      "applicable_scale": "指定波段和粒子反应通道",
+      "missing_or_failing_premise": "由相同原生参数到传播和反应的耦合未给",
+      "minimum_revision": "共享色散/反应参数，独立标定能标",
+      "data_source_or_required_data": "伽马暴偏振和高能光子阈值",
+      "next_discriminator": "在同一参数集上同时约束两类输出",
+      "task_id": "RS-DISC-COMPAT-20261026-07",
+      "publication": "TP2-554BCB843274D256141E",
+      "title": "偏振双折射、光子衰变与反应阈值",
+      "depends_on": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [
+        "POLARIZATION2013",
+        "LHAASO_THRESHOLD2022",
+        "PHOTON_ELECTRON2022"
+      ],
+      "source_links": [
+        "https://arxiv.org/abs/1303.4186v1",
+        "https://arxiv.org/abs/2106.12350v2",
+        "https://arxiv.org/abs/2210.14817v3"
+      ],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": false,
+      "uncertainty_contract": "以偏振角及反应阈值能量计的标定、背景与模型区间",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "本地钟、动量/能量及发射接收事件",
+      "target_prediction": "Doppler和引力红移读数及能量收支",
+      "applicable_scale": "指定钟、速度、位置及标定窗",
+      "missing_or_failing_premise": "心跳事件无统一物理钟秒/能量桥",
+      "minimum_revision": "分开标定运动与位势，在留出条件重用",
+      "data_source_or_required_data": "离子Doppler含勘误与高度差钟实验",
+      "next_discriminator": "静止/运动与不同高度分别对照",
+      "task_id": "RS-DISC-COMPAT-20261026-08",
+      "publication": "TP2-44BBF602DECE9BA1737B",
+      "title": "红移、Doppler、钟速与能量标定",
+      "depends_on": [
+        0
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [
+        "DOPPLER2014",
+        "CLOCK2022",
+        "DOPPLER_ERRATUM2015"
+      ],
+      "source_links": [
+        "https://arxiv.org/abs/1409.7951v1",
+        "https://arxiv.org/abs/2109.12238v1",
+        "https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.114.239902"
+      ],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": true,
+      "uncertainty_contract": "钟频比、位势差/速度与能量标定的不确定性",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "三维探测器移动、源几何、原生不可见自由度",
+      "target_prediction": "可观测维度、扭秤力矩与距离律",
+      "applicable_scale": "仪器几何及已标定距离窗",
+      "missing_or_failing_premise": "X6轴并不指明可实现的三维位移或物质耦合",
+      "minimum_revision": "给出保联合关系的读出与探测器耦合",
+      "data_source_or_required_data": "短程引力扭秤",
+      "next_discriminator": "固定源，移动同一探测器并盲测距离",
+      "task_id": "RS-DISC-COMPAT-20261026-09",
+      "publication": "TP2-19F1C6B42A5D2E1526A1",
+      "title": "原生六维到可观测三维的动力学及引力距离律",
+      "depends_on": [
+        0
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [
+        "LEE2020"
+      ],
+      "source_links": [
+        "https://arxiv.org/abs/2002.11761v1"
+      ],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": true,
+      "uncertainty_contract": "以扭矩、距离及源几何为单位的误差；耦合强度与范围相关",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "相同场、两种组成的物体及质量耦合",
+      "target_prediction": "差分加速度、普适耦合误差",
+      "applicable_scale": "指定组成、场强与实验频段",
+      "missing_or_failing_premise": "组分和内能的共同耦合未定",
+      "minimum_revision": "沿用同一引力桥预测两测试体读出",
+      "data_source_or_required_data": "MICROSCOPE等效原理；WW属理论前提",
+      "next_discriminator": "同场交换组成并比较差分",
+      "task_id": "RS-DISC-COMPAT-20261026-10",
+      "publication": "TP2-F9D000102333E5280184",
+      "title": "等效原理、通用耦合与涌现引力的条件障碍",
+      "depends_on": [
+        0,
+        8,
+        9
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [
+        "MICROSCOPE2022",
+        "WW1980",
+        "GW1708172017"
+      ],
+      "source_links": [
+        "https://arxiv.org/abs/2209.15487v1",
+        "https://collaborate.princeton.edu/en/publications/limits-on-massless-particles/",
+        "https://arxiv.org/abs/1710.05834v2"
+      ],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": false,
+      "uncertainty_contract": "差分加速度或Eötvös比及组成、环境和共同模误差",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "残差沿路累积、探测器带宽及环境噪声",
+      "target_prediction": "干涉两点交叉谱或成像清晰度",
+      "applicable_scale": "固定基线、频带和噪声传递",
+      "missing_or_failing_premise": "缺相关核、环境背景与接收端耦合",
+      "minimum_revision": "先用环境/空载标定，再固定相关核",
+      "data_source_or_required_data": "干涉及天文成像；两者对噪声结构依赖不同",
+      "next_discriminator": "改变基线检验预注册相关结构",
+      "task_id": "RS-DISC-COMPAT-20261026-11",
+      "publication": "TP2-AC7A287FDB83AF1D7CB1",
+      "title": "路径涨落、相干性及余量噪声的相关结构",
+      "depends_on": [
+        0,
+        4,
+        6
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [
+        "FOAM2015",
+        "HOLOMETER2017"
+      ],
+      "source_links": [
+        "https://arxiv.org/abs/1411.7262v5",
+        "https://arxiv.org/abs/1703.08503v2"
+      ],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": false,
+      "uncertainty_contract": "交叉功率谱密度或角分辨率的误差、相关噪声及带宽",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "两端接触、第三来源、载体及预算",
+      "target_prediction": "两端表观作用及含第三项的总预算",
+      "applicable_scale": "指定有限接触窗和可观测系统边界",
+      "missing_or_failing_premise": "第三项交换与仪器收支不可从边缘量恢复",
+      "minimum_revision": "保三源关联并做一次可标定反冲读出",
+      "data_source_or_required_data": "需本地源/接触的校准反冲账本",
+      "next_discriminator": "改变第三端耦合并核对同一总账",
+      "task_id": "RS-DISC-COMPAT-20261026-12",
+      "publication": "TP2-CC8B3469BCF5BE75B63B",
+      "title": "原生三元平衡到表观两力平衡的守恒闭合",
+      "depends_on": [
+        0
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [],
+      "source_links": [],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": true,
+      "uncertainty_contract": "第三项在内的动量/冲量预算，接触时窗与仪器遗漏上界",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "已得低能作用、容许低阶项、尺度和参数",
+      "target_prediction": "系数随尺度的界与必要对称性",
+      "applicable_scale": "已声明的低能窗及相互作用范围",
+      "missing_or_failing_premise": "缺有效作用与跨尺度误差控制",
+      "minimum_revision": "定一个可算模型，冻结保护结构与尺度流",
+      "data_source_or_required_data": "Collins条件分析及已校准的低能上界",
+      "next_discriminator": "同一机制在两尺度检验低阶项",
+      "task_id": "RS-DISC-COMPAT-20261026-13",
+      "publication": "TP2-0EAFC706FD9127FB1E4D",
+      "title": "尺度变化、辐射稳定性与参数保护",
+      "depends_on": [
+        0,
+        1,
+        5,
+        6,
+        7
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [
+        "COLLINS2004"
+      ],
+      "source_links": [
+        "https://arxiv.org/abs/gr-qc/0403053v4"
+      ],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "MISSING_COMPONENT",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": false,
+      "uncertainty_contract": "低能系数的尺度依赖、参数估计区间及理论截断余项",
+      "calibrated_numeric_budget": null
+    },
+    {
+      "required_input": "00–13的实际结果、同版参数和共享误差",
+      "target_prediction": "联合可行域、最小冲突子集或缺项清单",
+      "applicable_scale": "仅适用共用的参数域和可比数据窗",
+      "missing_or_failing_premise": "其余任务尚无本胶囊导出的共同预测",
+      "minimum_revision": "先比对定义、共享标定与协方差再合并",
+      "data_source_or_required_data": "前序实际回执和各自数据谱系",
+      "next_discriminator": "先求可行域交集；有共同似然再做联合统计",
+      "task_id": "RS-DISC-COMPAT-20261026-14",
+      "publication": "TP2-A3746291502658D0DD5E",
+      "title": "同模型同参数的联合兼容域与最小失败核心",
+      "depends_on": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "one_capsule": "DC00-R0",
+      "readout": "R0",
+      "parameter_version": "theta0",
+      "source_ids": [],
+      "source_links": [],
+      "evidence_status_scope": "00 common interface inventory only",
+      "audit_verdict": "EVIDENCE_UNRESOLVED",
+      "experiment_executed": false,
+      "successor_result": null,
+      "eligible_after_00_for_interface_audit": false,
+      "uncertainty_contract": "跨任务的共享参数、标定协方差和数据重用审计；不同量纲先经各读出归一",
+      "calibrated_numeric_budget": null
+    }
+  ]
+}
