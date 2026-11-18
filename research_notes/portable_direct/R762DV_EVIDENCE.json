@@ -1,0 +1,96 @@
+{
+  "schema": "R762DV_FIRST_LAYER_EXACT_AUTHOR_CHECK_V1",
+  "status": "PASS",
+  "date": "2026-11-18",
+  "arithmetic": "pure integer modulo 9 and 3 direct cyclic six-shift convolution",
+  "verification": "local Node.js R762DV_VERIFY.js, complete full-endpoint comparison at each Q<=n<Q+d",
+  "total_exponents": 40,
+  "total_coefficient_comparisons": 14528268,
+  "tests": [
+    {
+      "q": 3,
+      "d": 1,
+      "range": "Q<=n<Q+d",
+      "tested_exponents": 1,
+      "first_layer_coefficient_checks": 27,
+      "first_layer_nonzero_total": 27,
+      "samples": [
+        {
+          "n": 3,
+          "nonzero": 27,
+          "plus": 0,
+          "minus": 27
+        }
+      ]
+    },
+    {
+      "q": 9,
+      "d": 3,
+      "range": "Q<=n<Q+d",
+      "tested_exponents": 3,
+      "first_layer_coefficient_checks": 2187,
+      "first_layer_nonzero_total": 675,
+      "samples": [
+        {
+          "n": 9,
+          "nonzero": 27,
+          "plus": 0,
+          "minus": 27
+        },
+        {
+          "n": 11,
+          "nonzero": 486,
+          "plus": 324,
+          "minus": 162
+        }
+      ]
+    },
+    {
+      "q": 27,
+      "d": 9,
+      "range": "Q<=n<Q+d",
+      "tested_exponents": 9,
+      "first_layer_coefficient_checks": 177147,
+      "first_layer_nonzero_total": 16875,
+      "samples": [
+        {
+          "n": 27,
+          "nonzero": 27,
+          "plus": 0,
+          "minus": 27
+        },
+        {
+          "n": 35,
+          "nonzero": 8748,
+          "plus": 3888,
+          "minus": 4860
+        }
+      ]
+    },
+    {
+      "q": 81,
+      "d": 27,
+      "range": "Q<=n<Q+d",
+      "tested_exponents": 27,
+      "first_layer_coefficient_checks": 14348907,
+      "first_layer_nonzero_total": 421875,
+      "samples": [
+        {
+          "n": 81,
+          "nonzero": 27,
+          "plus": 0,
+          "minus": 27
+        },
+        {
+          "n": 107,
+          "nonzero": 157464,
+          "plus": 81648,
+          "minus": 75816
+        }
+      ]
+    }
+  ],
+  "proof_basis": "integer group-algebra Frobenius lift; q3 finite 27-state identity; R762DU digit kernel",
+  "independent_review": "NOT_REVIEWED",
+  "native_event_admission": "NOT_ASSERTED"
+}
