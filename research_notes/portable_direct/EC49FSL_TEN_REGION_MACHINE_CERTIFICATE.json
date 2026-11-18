@@ -1,0 +1,523 @@
+{
+  "schema": "EC49FSL_EXACT_NATIVE_BRC_TEN_REGION_CORRIDOR_V1",
+  "date": "2026-11-18",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "domain": {
+    "alpha": [
+      "15/32",
+      "1/2"
+    ],
+    "z": [
+      "0",
+      "1"
+    ]
+  },
+  "model": {
+    "named_profiles": 141,
+    "source_configurations": 310,
+    "physical_named_observations": 228,
+    "prior": "UNIFORM",
+    "full_joint_named_response_preservation": true,
+    "tree_class": "COMPLETE_DETERMINISTIC_ADAPTIVE_NATIVE_OBSERVER"
+  },
+  "prices": {
+    "q32_q34": "(1-alpha)*t",
+    "q140": "(1-z)*t",
+    "other": "t",
+    "t": ">0"
+  },
+  "optimal_value_formula": "141*V(alpha,z)/t = min_{region} (U-Q*alpha-K*z)",
+  "regions": [
+    {
+      "triple": [
+        304,
+        169,
+        32
+      ],
+      "area": "66679/60135936",
+      "vertices": [
+        [
+          "117/238",
+          "5/14"
+        ],
+        [
+          "15/32",
+          "5/14"
+        ],
+        [
+          "15/32",
+          "7/24"
+        ],
+        [
+          "23/47",
+          "15/47"
+        ]
+      ],
+      "witness": {
+        "filename": "tree_304_169_32.json",
+        "sha256": "df7cb044a0d2ac4a7bf6460b0b0311bbe352cfd1b695f1713a915b1e2e9b3ec1",
+        "root": 34,
+        "tree_carrier": "INHERITED_FSK_NINE_NATIVE_WITNESSES",
+        "max_depth": 4
+      }
+    },
+    {
+      "triple": [
+        305,
+        173,
+        29
+      ],
+      "area": "6577/2021376",
+      "vertices": [
+        [
+          "1/2",
+          "3/14"
+        ],
+        [
+          "1/2",
+          "1/4"
+        ],
+        [
+          "23/47",
+          "15/47"
+        ],
+        [
+          "15/32",
+          "7/24"
+        ],
+        [
+          "15/32",
+          "39/224"
+        ]
+      ],
+      "witness": {
+        "filename": "tree_305_173_29.json",
+        "sha256": "99c8731a0e6499e70278318237d06576d3b347fb47e885b6467a2d82fd5541ec",
+        "root": 34,
+        "tree_carrier": "INHERITED_FSK_NINE_NATIVE_WITNESSES",
+        "max_depth": 4
+      }
+    },
+    {
+      "triple": [
+        306,
+        182,
+        10
+      ],
+      "area": "1/192",
+      "vertices": [
+        [
+          "15/32",
+          "0"
+        ],
+        [
+          "1/2",
+          "0"
+        ],
+        [
+          "1/2",
+          "1/6"
+        ],
+        [
+          "15/32",
+          "1/6"
+        ]
+      ],
+      "witness": {
+        "filename": "tree_306_182_10.json",
+        "sha256": "db669e0116a1816bbf53fed6cb1bc07a4549ef9665637433e05c059936ff9742",
+        "root": 34,
+        "tree_carrier": "INHERITED_FSK_NINE_NATIVE_WITNESSES",
+        "max_depth": 4
+      }
+    },
+    {
+      "triple": [
+        309,
+        169,
+        46
+      ],
+      "area": "1039/799680",
+      "vertices": [
+        [
+          "1/2",
+          "11/30"
+        ],
+        [
+          "1/2",
+          "2/5"
+        ],
+        [
+          "15/32",
+          "2/5"
+        ],
+        [
+          "15/32",
+          "5/14"
+        ],
+        [
+          "117/238",
+          "5/14"
+        ]
+      ],
+      "witness": {
+        "filename": "tree_309_169_46.json",
+        "sha256": "3e018ff9aa85a1d18a666af0697b11e737b8c3291d301f4ea741346ce2fe3f28",
+        "root": 34,
+        "tree_carrier": "INHERITED_FSK_NINE_NATIVE_WITNESSES",
+        "max_depth": 4
+      }
+    },
+    {
+      "triple": [
+        311,
+        151,
+        69
+      ],
+      "area": "875/2138112",
+      "vertices": [
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "14/29",
+          "1/2"
+        ],
+        [
+          "15/32",
+          "563/1152"
+        ],
+        [
+          "15/32",
+          "15/32"
+        ]
+      ],
+      "witness": {
+        "filename": "tree_311_151_69.json",
+        "sha256": "fbdeccb86a78fa12a8561383acf90c63b6af4fb8ee93ceacf36b0537b18036ae",
+        "root": 34,
+        "tree_carrier": "INHERITED_FSK_NINE_NATIVE_WITNESSES",
+        "max_depth": 4
+      }
+    },
+    {
+      "triple": [
+        311,
+        169,
+        51
+      ],
+      "area": "27/10240",
+      "vertices": [
+        [
+          "1/2",
+          "2/5"
+        ],
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "15/32",
+          "15/32"
+        ],
+        [
+          "15/32",
+          "2/5"
+        ]
+      ],
+      "witness": {
+        "filename": "tree_311_169_51.json",
+        "sha256": "88c28bb0eeb80fad415443803637c3ef078a662006d740ae3604528cec0ec30f",
+        "root": 34,
+        "tree_carrier": "INHERITED_FSK_NINE_NATIVE_WITNESSES",
+        "max_depth": 4
+      }
+    },
+    {
+      "triple": [
+        319,
+        93,
+        141
+      ],
+      "area": "33289/2138112",
+      "vertices": [
+        [
+          "1/2",
+          "33/64"
+        ],
+        [
+          "1/2",
+          "1"
+        ],
+        [
+          "15/32",
+          "1"
+        ],
+        [
+          "15/32",
+          "563/1152"
+        ],
+        [
+          "14/29",
+          "1/2"
+        ]
+      ],
+      "witness": {
+        "filename": "tree_319_93_141.json",
+        "sha256": "f6854068c15fc02323cf7584f2e39a81b720f7ca02cfc20a434f6a6d38652899",
+        "root": 140,
+        "tree_carrier": "INHERITED_FSK_NINE_NATIVE_WITNESSES",
+        "max_depth": 4
+      }
+    },
+    {
+      "triple": [
+        308,
+        182,
+        22
+      ],
+      "area": "37/43008",
+      "vertices": [
+        [
+          "1/2",
+          "1/6"
+        ],
+        [
+          "1/2",
+          "3/14"
+        ],
+        [
+          "15/32",
+          "39/224"
+        ],
+        [
+          "15/32",
+          "1/6"
+        ]
+      ],
+      "witness": {
+        "filename": "tree_308_182_22.json",
+        "sha256": "f5887b55338951c0adeac6eb96b22ce5699565b84c0974c4b6069fbc4fb00bd1",
+        "root": 34,
+        "tree_carrier": "INHERITED_FSK_NINE_NATIVE_WITNESSES",
+        "max_depth": 4
+      }
+    },
+    {
+      "triple": [
+        312,
+        186,
+        31
+      ],
+      "area": "1033/1342320",
+      "vertices": [
+        [
+          "1/2",
+          "1/4"
+        ],
+        [
+          "1/2",
+          "11/30"
+        ],
+        [
+          "117/238",
+          "5/14"
+        ],
+        [
+          "23/47",
+          "15/47"
+        ]
+      ],
+      "witness": {
+        "filename": "tree_312_186_31.json",
+        "sha256": "ae39a3e261d3e31b9255e8b43c068062c1270a6ab1ebe5efdd6a7d6028ca7d88",
+        "root": 34,
+        "tree_carrier": "NEW_FSL_NATIVE_WITNESSES",
+        "max_depth": 4
+      }
+    },
+    {
+      "triple": [
+        315,
+        151,
+        77
+      ],
+      "area": "1/7424",
+      "vertices": [
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "33/64"
+        ],
+        [
+          "14/29",
+          "1/2"
+        ]
+      ],
+      "witness": {
+        "filename": "tree_315_151_77.json",
+        "sha256": "b3cd18295c21fe13127ba07d2bb5303e83b5d2e3b625c6346d91f4e94511ac43",
+        "root": 34,
+        "tree_carrier": "NEW_FSL_NATIVE_WITNESSES",
+        "max_depth": 4
+      }
+    }
+  ],
+  "vertices": [
+    {
+      "alpha": "15/32",
+      "z": "0",
+      "exact_bellman": "3531/16",
+      "independent_evidence": "PR2694 FSK 19/19 independent"
+    },
+    {
+      "alpha": "15/32",
+      "z": "1/6",
+      "exact_bellman": "10513/48",
+      "independent_evidence": "PR2694 FSK 19/19 independent"
+    },
+    {
+      "alpha": "15/32",
+      "z": "39/224",
+      "exact_bellman": "1532/7",
+      "independent_evidence": "PR2694 FSK 19/19 independent"
+    },
+    {
+      "alpha": "15/32",
+      "z": "7/24",
+      "exact_bellman": "20683/96",
+      "independent_evidence": "PR2694 FSK 19/19 independent"
+    },
+    {
+      "alpha": "15/32",
+      "z": "5/14",
+      "exact_bellman": "47791/224",
+      "independent_evidence": "PR2694 FSK 19/19 independent"
+    },
+    {
+      "alpha": "15/32",
+      "z": "2/5",
+      "exact_bellman": "33821/160",
+      "independent_evidence": "PR2694 FSK 19/19 independent"
+    },
+    {
+      "alpha": "15/32",
+      "z": "15/32",
+      "exact_bellman": "1663/8",
+      "independent_evidence": "PR2694 FSK 19/19 independent"
+    },
+    {
+      "alpha": "15/32",
+      "z": "563/1152",
+      "exact_bellman": "79295/384",
+      "independent_evidence": "PR2694 FSK 19/19 independent"
+    },
+    {
+      "alpha": "15/32",
+      "z": "1",
+      "exact_bellman": "4301/32",
+      "independent_evidence": "PR2694 FSK 19/19 independent"
+    },
+    {
+      "alpha": "14/29",
+      "z": "1/2",
+      "exact_bellman": "11809/58",
+      "independent_evidence": "new exact double-native-Bellman"
+    },
+    {
+      "alpha": "23/47",
+      "z": "15/47",
+      "exact_bellman": "9921/47",
+      "independent_evidence": "new exact double-native-Bellman"
+    },
+    {
+      "alpha": "117/238",
+      "z": "5/14",
+      "exact_bellman": "49859/238",
+      "independent_evidence": "new exact double-native-Bellman"
+    },
+    {
+      "alpha": "1/2",
+      "z": "0",
+      "exact_bellman": "215",
+      "independent_evidence": "new exact double-native-Bellman"
+    },
+    {
+      "alpha": "1/2",
+      "z": "1/6",
+      "exact_bellman": "640/3",
+      "independent_evidence": "new exact double-native-Bellman"
+    },
+    {
+      "alpha": "1/2",
+      "z": "3/14",
+      "exact_bellman": "1486/7",
+      "independent_evidence": "new exact double-native-Bellman"
+    },
+    {
+      "alpha": "1/2",
+      "z": "1/4",
+      "exact_bellman": "845/4",
+      "independent_evidence": "new exact double-native-Bellman"
+    },
+    {
+      "alpha": "1/2",
+      "z": "11/30",
+      "exact_bellman": "6229/30",
+      "independent_evidence": "new exact double-native-Bellman"
+    },
+    {
+      "alpha": "1/2",
+      "z": "2/5",
+      "exact_bellman": "2061/10",
+      "independent_evidence": "new exact double-native-Bellman"
+    },
+    {
+      "alpha": "1/2",
+      "z": "1/2",
+      "exact_bellman": "201",
+      "independent_evidence": "new exact double-native-Bellman"
+    },
+    {
+      "alpha": "1/2",
+      "z": "33/64",
+      "exact_bellman": "12787/64",
+      "independent_evidence": "new exact double-native-Bellman"
+    },
+    {
+      "alpha": "1/2",
+      "z": "1",
+      "exact_bellman": "263/2",
+      "independent_evidence": "new exact double-native-Bellman"
+    }
+  ],
+  "verification": {
+    "distinct_vertices": 21,
+    "independent_exact_bellman_from_FSK_PR2694": 9,
+    "independent_exact_bellman_new_full_7_16_to_half": 12,
+    "full_tree_replay_profile_paths_per_type": 141,
+    "phase_count": 10,
+    "area_sum_exact": "1/32",
+    "numeric_type": "exact_integer/rational",
+    "geometry": "exact rational half-plane clipping",
+    "logic": "joint concavity of infimum of affine costs plus vertex Bellman equality and feasible tree affine upper witnesses gives global optimum throughout each convex region"
+  },
+  "provenance": {
+    "upstream_FSK_PR": "https://github.com/awdawmip/enterprise-math/pull/2694",
+    "upstream_FSK_sha": "82af57b9426076619f91ba4b67bc865df2639f68",
+    "predecessor_FSJ_PR": "https://github.com/awdawmip/enterprise-math/pull/2691",
+    "independent_broader_source": "EC49FSK_2D_CERTIFICATE.json in self-contained local exact evidence",
+    "control_lookup": {
+      "request_id": "r4-ec49fsk-20261118-1101-task-read-01",
+      "status": "SUCCEEDED",
+      "task_status": "NO_CANONICAL_PUBLICATION_DIRECTORY",
+      "source_commit": "34ac9052d5acd8cadb0ea75bf30d4fe07e346e70"
+    }
+  },
+  "scientific_status": "AUTHOR_PROVED / EXACT_FINITE_CROSSCHECKED / NOT_REVIEWED",
+  "next_question": "Asymmetric q32,q34 independent discounts together with q140; find exact off-diagonal new Pareto planes or a certified neighborhood stability theorem."
+}

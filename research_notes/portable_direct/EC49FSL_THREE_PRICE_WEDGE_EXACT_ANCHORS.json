@@ -1,0 +1,145 @@
+{
+  "schema": "EC49FSL_EXACT_NATIVE_THREE_PRICE_SATURATED_WEDGE_V1",
+  "date": "2026-11-18",
+  "pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "domain": "a,b,z independent real discounts in [0,1] for named observers q32,q34,q140; all other named observations cost t>0",
+  "finite_native_model": {
+    "full_named_profiles": 141,
+    "source_configs": 310,
+    "named_original_observations": 228,
+    "uniform_prior": true
+  },
+  "three_price_wedge": {
+    "base_symmetric_alpha": [
+      "15/32",
+      "1/2"
+    ],
+    "base_z": [
+      "0",
+      "1"
+    ],
+    "root34_types": [
+      [
+        304,
+        169,
+        32
+      ],
+      [
+        305,
+        173,
+        29
+      ],
+      [
+        306,
+        182,
+        10
+      ],
+      [
+        308,
+        182,
+        22
+      ],
+      [
+        309,
+        169,
+        46
+      ],
+      [
+        311,
+        151,
+        69
+      ],
+      [
+        311,
+        169,
+        51
+      ],
+      [
+        312,
+        186,
+        31
+      ],
+      [
+        315,
+        151,
+        77
+      ]
+    ],
+    "root140_type": [
+      319,
+      93,
+      141
+    ],
+    "base_region_definition": "R34 = {(alpha,z): min over root34_types (U-Q*alpha-K*z) <= 319-93*alpha-141*z}",
+    "lift_domain": "For any (alpha,z) in R34 and b in [alpha,1], set a=alpha",
+    "global_optimum_formula": "H(a,b,z)=min over root34_types (U-(Q-141)*a-141*b-K*z)",
+    "proof": "For all complete nonredundant native trees N34<=141, so increasing discount b by D lowers global optimum by at most 141 D. At an exact symmetric optimal q34-root tree N34=141, so the feasible same tree attains this sharp lower bound. R34 has at least one such witness by the proven ten-plane full 2D theorem.",
+    "universal_lipschitz": "|H(a,b,z)-H(a',b',z')| <=141*(|a-a'|+|b-b'|+|z-z'|)"
+  },
+  "anchors": [
+    {
+      "a": "1/2",
+      "b": "15/32",
+      "z": "1/3",
+      "global_exact_value": "20455/96",
+      "U": 312,
+      "N32": 45,
+      "N34": 141,
+      "N140": 31,
+      "root_q": 34,
+      "max_depth": 4,
+      "witness_tree": "tree_312_186_31.json",
+      "sha256": "ae39a3e261d3e31b9255e8b43c068062c1270a6ab1ebe5efdd6a7d6028ca7d88",
+      "primary_bellman_states": 10623,
+      "independent_bellman_states": 9912,
+      "wedge_member": false
+    },
+    {
+      "a": "15/32",
+      "b": "1/2",
+      "z": "1/3",
+      "global_exact_value": "5033/24",
+      "U": 304,
+      "N32": 28,
+      "N34": 141,
+      "N140": 32,
+      "root_q": 34,
+      "max_depth": 3,
+      "witness_tree": "tree_304_169_32.json",
+      "sha256": "df7cb044a0d2ac4a7bf6460b0b0311bbe352cfd1b695f1713a915b1e2e9b3ec1",
+      "primary_bellman_states": 10504,
+      "independent_bellman_states": 9801,
+      "wedge_member": true,
+      "symmetric_base_exact": "20555/96",
+      "exact_drop": "141/32"
+    },
+    {
+      "a": "1/2",
+      "b": "7/16",
+      "z": "1/2",
+      "global_exact_value": "3307/16",
+      "U": 319,
+      "N32": 18,
+      "N34": 75,
+      "N140": 141,
+      "root_q": 140,
+      "max_depth": 3,
+      "witness_tree": "tree_319_93_141.json",
+      "sha256": "f6854068c15fc02323cf7584f2e39a81b720f7ca02cfc20a434f6a6d38652899",
+      "primary_bellman_states": 10579,
+      "independent_bellman_states": 9852,
+      "wedge_member": false
+    }
+  ],
+  "evidence": {
+    "primary": "EC49FSA_THREE_OBSERVER_SOLVER.py exact native original response Bellman",
+    "independent": "EC49FSA_FSB_INDEPENDENT_CHECK.py independently decoded original 228 observers",
+    "executed_at": "2026-11-18",
+    "complete_tree_replay": true,
+    "original_full_tree_carrier": "EC49FSK_NINE_WITNESS_TREES_ZLIB_BASE64.txt + EC49FSL_NEW_NATIVE_WITNESSES_ZLIB_BASE64.txt",
+    "three_anchor_execution_log": "Self-contained EC49FSL archive: logs/asy_run.log",
+    "source_frozen_pin_unchanged": true
+  },
+  "mathematical_state": "AUTHOR_PROVED / EXACT_FINITE_CROSSCHECKED (3/3 anchors) / NOT_REVIEWED",
+  "next": "3D off-diagonal Pareto search beyond the exactly certified q34-root-saturated wedge"
+}
