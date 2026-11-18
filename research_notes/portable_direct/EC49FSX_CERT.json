@@ -1,0 +1,188 @@
+{
+  "schema": "EM_EC49FSX_SHARP_NATIVE_THREE_PRICE_FAN_V1",
+  "date": "2026-11-18",
+  "frozen_source_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor": {
+    "pr": 2735,
+    "head": "feede7bcbbe280b1fa58a5cb377dd7dcfb1e3416"
+  },
+  "source_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "named_profile_csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "native_model": {
+    "configs": 310,
+    "named_profiles": 141,
+    "physical_queries": 228,
+    "uniform_prior": true,
+    "strict_splitting": true
+  },
+  "box": {
+    "a": [
+      "1/2",
+      "2/3"
+    ],
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "1531/2304",
+      "1"
+    ]
+  },
+  "theorem": {
+    "D": "319-18*a-75*b-141*z",
+    "S": "min(325-94*a-9*b-141*z,323-89*a-12*b-141*z)",
+    "switch": "5*a=2+3*b",
+    "gap_T": "-6+76*a-66*b",
+    "gap_C": "-4+71*a-63*b",
+    "sharp_gap_min": "441/128",
+    "sharp_gap_max": "379/24",
+    "low_edge_witness": "N_below-C=8*a-4 < 0 for a<1/2",
+    "high_edge_witness": "NS_up-T=-1+b-47*a+48*z < 0 at b=7/16,z=1531/2304,a>2/3"
+  },
+  "bellman_vertices": [
+    {
+      "orientation": "D",
+      "a": "1/2",
+      "b": "7/16",
+      "z": "1531/2304",
+      "value": "140923/768"
+    },
+    {
+      "orientation": "D",
+      "a": "1/2",
+      "b": "57/128",
+      "z": "1531/2304",
+      "value": "140473/768"
+    },
+    {
+      "orientation": "D",
+      "a": "2/3",
+      "b": "7/16",
+      "z": "1531/2304",
+      "value": "138619/768"
+    },
+    {
+      "orientation": "D",
+      "a": "2/3",
+      "b": "57/128",
+      "z": "1531/2304",
+      "value": "138169/768"
+    },
+    {
+      "orientation": "S",
+      "a": "1/2",
+      "b": "7/16",
+      "z": "1531/2304",
+      "value": "137899/768"
+    },
+    {
+      "orientation": "S",
+      "a": "1/2",
+      "b": "57/128",
+      "z": "1531/2304",
+      "value": "137827/768"
+    },
+    {
+      "orientation": "S",
+      "a": "2/3",
+      "b": "7/16",
+      "z": "1531/2304",
+      "value": "126491/768"
+    },
+    {
+      "orientation": "S",
+      "a": "2/3",
+      "b": "57/128",
+      "z": "1531/2304",
+      "value": "42145/256"
+    },
+    {
+      "orientation": "S",
+      "a": "53/80",
+      "b": "7/16",
+      "z": "1531/2304",
+      "value": "633959/3840"
+    },
+    {
+      "orientation": "S",
+      "a": "2/3",
+      "b": "4/9",
+      "z": "1531/2304",
+      "value": "126443/768"
+    }
+  ],
+  "independent_raw_family_values": [
+    {
+      "orientation": "S",
+      "a": "1/2",
+      "b": "7/16",
+      "z": "1531/2304",
+      "value": "137899/768"
+    },
+    {
+      "orientation": "S",
+      "a": "53/80",
+      "b": "7/16",
+      "z": "1531/2304",
+      "value": "633959/3840"
+    }
+  ],
+  "native_trees": {
+    "D": {
+      "vector": [
+        319,
+        18,
+        75,
+        141
+      ],
+      "sha256": "f6854068c15fc02323cf7584f2e39a81b720f7ca02cfc20a434f6a6d38652899"
+    },
+    "T": {
+      "vector": [
+        325,
+        9,
+        94,
+        141
+      ],
+      "sha256": "7a9e008c522ab3e3688ab65f402984d13691921a819f9a565b409c832fe03e0e"
+    },
+    "C": {
+      "vector": [
+        323,
+        12,
+        89,
+        141
+      ],
+      "sha256": "6f782b161be4e1585b942215fd0b7577ed5d25fc929328c75c478fe53af000e3"
+    },
+    "N_below": {
+      "vector": [
+        319,
+        12,
+        81,
+        141
+      ],
+      "sha256": "1cf0e74e8ab1747d783cf9c242e7658dd6553312be39362870da136f7a249958"
+    },
+    "NS_up": {
+      "vector": [
+        324,
+        8,
+        141,
+        93
+      ],
+      "sha256": "f128f56983098af96599b5b5f08c68a002c055d1f17acde24a0a114a265e6f50"
+    }
+  },
+  "full_local_evidence": {
+    "filename": "EC49FSX_NATIVE_BRC_SHARP_3D_SATURATION_FAN_EVIDENCE_20261118.tar.xz",
+    "sha256": "0b4090b1aca706c11598e95cd7e367b95b2f4f68f5454ad094c75c75ead68d6d",
+    "archive_remote_publication": false
+  },
+  "proof": "Six swapped polygon vertices and four direct rectangle vertices yield exact unrestricted 228-query Bellman values at z0; feasible-tree upper bounds plus joint concavity imply all (a,b); 141 q140 uses on every optimal witness path implies all z>=z0.",
+  "status": "AUTHOR_PROVED / EXACT_PRIMARY_10_VERTICES / INDEPENDENT_2_VERTICES / 5_FULL_NATIVE_TREES_REPLAYED / NOT_REVIEWED",
+  "next": "Find exact lower joint q140 saturation surface z*(a,b), including non-saturated competitors."
+}
