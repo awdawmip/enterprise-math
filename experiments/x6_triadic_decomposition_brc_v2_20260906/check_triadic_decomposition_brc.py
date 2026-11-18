@@ -12,8 +12,8 @@ SIGNED_TYPES=tuple(
     for S in TRIPLES
     for signs in product((-1,1),repeat=3)
 )
-assert len(TRIPLES)==20
-assert len(SIGNED_TYPES)==160
+if not (len(TRIPLES)==20): raise AssertionError("unit130_guard_01")
+if not (len(SIGNED_TYPES)==160): raise AssertionError("unit130_guard_02")
 
 
 def ordered_underlying_count(D):
@@ -44,7 +44,7 @@ def greedy_decompose(D):
     out=[]
     for remaining in range(m,0,-1):
         P=[i for i,d in enumerate(D) if d==remaining]
-        assert len(P)<=3
+        if not (len(P)<=3): raise AssertionError("unit130_guard_03")
         S=list(P)
         for i in sorted(range(6),key=lambda i:(-D[i],i)):
             if len(S)==3: break
@@ -74,8 +74,8 @@ for m in range(5):
     for D in product(range(m+1),repeat=6):
         if sum(D)!=3*m: continue
         criterion=(max(D,default=0)<=m)
-        assert (greedy_decompose(D) is not None)==criterion
-        assert brute_possible(tuple(D))==criterion
+        if not ((greedy_decompose(D) is not None)==criterion): raise AssertionError("unit130_guard_04")
+        if not (brute_possible(tuple(D))==criterion): raise AssertionError("unit130_guard_05")
         existence_checks+=1
 
 
@@ -96,13 +96,15 @@ def formula_signed_ordered(d):
 
 # Exhaustive signed ordered branch census for one and two triadic events.
 observed={signed_vector(t):1 for t in SIGNED_TYPES}
-for d,count in observed.items(): assert count==formula_signed_ordered(d)==1
+for d,count in observed.items():
+    if not (count==formula_signed_ordered(d)==1): raise AssertionError("unit130_guard_06")
 states=Counter()
 for a in SIGNED_TYPES:
     va=signed_vector(a)
     for b in SIGNED_TYPES:
         states[add(va,signed_vector(b))]+=1
-for d,count in states.items(): assert count==formula_signed_ordered(d)
+for d,count in states.items():
+    if not (count==formula_signed_ordered(d)): raise AssertionError("unit130_guard_07")
 signed_formula_checks=len(observed)+len(states)
 
 # If individual force quanta are labeled, a fixed ordered underlying type sequence
@@ -112,7 +114,7 @@ for d in list(states)[:500]:
     sign_and_labels=1
     for i in AXES:
         sign_and_labels*=comb(D[i],d[2*i])*factorial(d[2*i])*factorial(d[2*i+1])
-    assert sign_and_labels==__import__('math').prod(factorial(x) for x in D)
+    if not (sign_and_labels==__import__('math').prod(factorial(x) for x in D)): raise AssertionError("unit130_guard_08")
 
 # Unordered underlying triad decomposition counts via nondecreasing type recursion.
 def unordered_underlying_count(D):
@@ -129,10 +131,10 @@ def unordered_underlying_count(D):
                 ans+=rec(tuple(rr),k)
         return ans
     return rec(D,0)
-assert unordered_underlying_count((1,1,1,1,1,1))==10
-assert ordered_underlying_count((1,1,1,1,1,1))==20
-assert unordered_underlying_count((2,2,2,2,2,2))==85
-assert ordered_underlying_count((2,2,2,2,2,2))==1860
+if not (unordered_underlying_count((1,1,1,1,1,1))==10): raise AssertionError("unit130_guard_09")
+if not (ordered_underlying_count((1,1,1,1,1,1))==20): raise AssertionError("unit130_guard_10")
+if not (unordered_underlying_count((2,2,2,2,2,2))==85): raise AssertionError("unit130_guard_11")
+if not (ordered_underlying_count((2,2,2,2,2,2))==1860): raise AssertionError("unit130_guard_12")
 
 # Factorized signed-axis weights cannot distinguish decomposition branches with
 # the same signed degree vector: every branch uses exactly those token counts.
@@ -140,9 +142,9 @@ weights=tuple(range(2,14)) # exact positive integer dummy weights for 12 signed 
 for d in list(states)[:500]:
     common=1
     for j,n in enumerate(d): common*=weights[j]**n
-    assert common>0
+    if not (common>0): raise AssertionError("unit130_guard_13")
     # weighted ordered total therefore equals count * common factor
-    assert states[d]*common==formula_signed_ordered(d)*common
+    if not (states[d]*common==formula_signed_ordered(d)*common): raise AssertionError("unit130_guard_14")
 
 print('PASS_X6_TRIADIC_DECOMPOSITION_BRC_V2')
 print('atomic_unsigned_triad_types',len(TRIPLES))
