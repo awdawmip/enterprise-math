@@ -1,0 +1,41 @@
+{
+  "schema": "PREFIX906_R6_HIGH_SOURCE_SIGNED_GAPS_V1",
+  "date": "2026-11-18",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": {
+    "p": 32,
+    "N": 4294967296,
+    "Q_first": 262145,
+    "Q_last": 524287,
+    "Q_size": 131072
+  },
+  "gap_condition": "d even 2..262142; m*d=2^i +/- 2^j, odd 1<=m<=8191, 18<=i<=30, 1<=j<=17; exclude PREFIX903/904/905 gap classes",
+  "new_distinct_gap_types": 857,
+  "positive_gap_summary": {
+    "pairs": 79950454,
+    "E": 35590676,
+    "P": 189860,
+    "E_and_P": 5519,
+    "already_C905": 35775017,
+    "new_C905": 44175437
+  },
+  "ordered_new_pairs_relative_to_PREFIX905": 88350874,
+  "prior_PREFIX905_union": 7686920802,
+  "certified_906_union": 7775271676,
+  "complement_outside_explicit_union": 9404597508,
+  "first_new_witness": {
+    "a": 376529,
+    "b": 376455,
+    "m": 7085,
+    "i": 19,
+    "j": 1,
+    "sign": 1,
+    "x": 1,
+    "y": 2667707966,
+    "first_end": 524289,
+    "second_end": 2667707964
+  },
+  "local_full_rows_sha256": "3dc0d13a37e4ad37fc8ae5cea2d4189f6e79dc6b7a6ec96ee93e9ec3eac882c0",
+  "verification": "Executed exhaustive NumPy witness/overlap scan and independent exact C++17 all-parameter recount; all 79,950,454 positive-gap pairs checked",
+  "independent_review": "NOT_INDEPENDENTLY_REVIEWED"
+}
