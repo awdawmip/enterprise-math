@@ -1,0 +1,134 @@
+{
+  "cube_cutoff": 1,
+  "nu": "1/2",
+  "T": "1/8",
+  "spectral": {
+    "real_dimension": 52,
+    "parity_dimensions": [
+      24,
+      28
+    ],
+    "strain_offdiagonal_nonzeros": 232,
+    "squared_singular_polynomial_factors": [
+      [
+        "4*x - 1",
+        3
+      ],
+      [
+        "8*x - 1",
+        6
+      ],
+      [
+        "768*x**2 - 128*x + 1",
+        3
+      ],
+      [
+        "3072*x**3 - 1024*x**2 + 72*x - 1",
+        3
+      ]
+    ],
+    "uniform_viscous_threshold_for_X_squared": "1/8",
+    "endpoint_LDL": {
+      "support_trim": {
+        "upper_log_norm": "-1/6",
+        "positive_pivots": 52,
+        "matrix_nonzeros": 284
+      },
+      "full": {
+        "upper_log_norm": "-1/6",
+        "positive_pivots": 52,
+        "matrix_nonzeros": 588
+      },
+      "rounded": {
+        "upper_log_norm": "-1/6",
+        "positive_pivots": 52,
+        "matrix_nonzeros": 588
+      }
+    }
+  },
+  "orbit_X_Y_norms_squared": [
+    "3/2",
+    "3/4"
+  ],
+  "proof_Taylor_order": 20,
+  "Taylor_component_remainder_at_T": "1/3298534883328",
+  "cases": {
+    "support_trim": {
+      "slope_coordinates": [
+        "-1/2",
+        "0"
+      ],
+      "squared_defect_norms_support_round_time1_time2": [
+        "3/4",
+        "0",
+        "27/32",
+        "3/64"
+      ],
+      "uniform_bound_value_interval": [
+        "57200107/500000000",
+        "22880043/200000000"
+      ],
+      "actual_endpoint_error_interval": [
+        "95316613/1000000000",
+        "47658307/500000000"
+      ],
+      "endpoint_slack_interval": [
+        "19083601/1000000000",
+        "9541801/500000000"
+      ]
+    },
+    "full": {
+      "slope_coordinates": [
+        "-1/2",
+        "1"
+      ],
+      "squared_defect_norms_support_round_time1_time2": [
+        "0",
+        "0",
+        "99/32",
+        "9/64"
+      ],
+      "uniform_bound_value_interval": [
+        "6944697/500000000",
+        "2777879/200000000"
+      ],
+      "actual_endpoint_error_interval": [
+        "3268779/250000000",
+        "13075117/1000000000"
+      ],
+      "endpoint_slack_interval": [
+        "407139/500000000",
+        "814279/1000000000"
+      ],
+      "signed_defect_inner_product": "-15/32",
+      "coherent_scalar_propagation_interval": [
+        "13473917/1000000000",
+        "3369087/250000000"
+      ]
+    },
+    "rounded": {
+      "slope_coordinates": [
+        "-3/5",
+        "6/5"
+      ],
+      "squared_defect_norms_support_round_time1_time2": [
+        "0",
+        "9/200",
+        "891/200",
+        "729/2500"
+      ],
+      "uniform_bound_value_interval": [
+        "21483881/500000000",
+        "42967763/1000000000"
+      ],
+      "actual_endpoint_error_interval": [
+        "290267/7812500",
+        "37154177/1000000000"
+      ],
+      "endpoint_slack_interval": [
+        "2906793/500000000",
+        "5813587/1000000000"
+      ]
+    }
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "source_bindings": {
+    "primary_zip_sha256_verified": "261177ad99b11cb5bdd23dd37669db8426efc2148db170e9af715c1441af0506",
+    "seven_public_file_hashes_verified": {
+      "REPORT.zh-CN.md": "08dd1b08a05d6991d3051cabc3f80071d61d97fa9be7b32449ce9fb5fca491e3",
+      "THEOREMS.md": "58e24ea97366716c4155f513539306c8695206a49d720e8820b8ac632c01e204",
+      "SUMMARY.json": "779bb73f6d69cfe705d69c9c350003d792fd5e9ca2f73773f8c3af9a1be1bea2",
+      "MANIFEST.json": "d0a9c959957a1ada95fe09de15e608a9c41a25aab62973b42ad36872381bcd03",
+      "SOURCE_BINDINGS.json": "b3df98d16c57d70544205ac7a1f5dbd8d0f23ab88f2a3c7c936e95347b3042e3",
+      "run.py": "7765142879b0798998fbe3253da4fc751a0162d9b81206b4a584d0c0e336889b",
+      "collision.py": "5ccfde3031cdc0c6c73690d55d6527605769fb1850c7a63900348992bbde1cd2"
+    },
+    "primary_manifest_rows_verified": 120,
+    "bindings_verified_in_primary": 9,
+    "binding_only_in_parent": "inherited/MANIFEST.json",
+    "parent_zip_sha256_verified": "e290a2165763c99bcf714f34659fafd52706995567f72923ab499f261d9c8513",
+    "parent_manifest_rows_verified": 121
+  },
+  "archived_source_replay": {
+    "assertions_passed": 949,
+    "cost": {
+      "records": 71323,
+      "calls": {
+        "cwm_edge": 752,
+        "cwm_propagate": 18200,
+        "cwm_recoalesce": 34914,
+        "signed_observer": 17457,
+        "sign_swap": 3205
+      },
+      "peak_integer_bits": 21,
+      "scalar_operations": 17895,
+      "native_address_updates": 0
+    },
+    "six_fixtures_match_saved_cases_exactly": true
+  },
+  "independent_regrouping": {
+    "initial_visible_and_work": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      0,
+      1
+    ],
+    "retained_keys": "ordered record, six coordinates, final port, modular work",
+    "source_kernels": [
+      "collision.run",
+      "run.split_step",
+      "run.old.Arithmetic"
+    ],
+    "saved_record_tree_depths_replayed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "new_depth": 7,
+    "T3_coherent_vs_individually_squared": [
+      64,
+      32
+    ],
+    "new_source_replay_cost": {
+      "records": 266485,
+      "calls": {
+        "cwm_edge": 5968,
+        "cwm_recoalesce": 115286,
+        "signed_observer": 57643,
+        "cwm_propagate": 87588,
+        "sign_swap": 3700
+      },
+      "peak_integer_bits": 23,
+      "scalar_operations": 55990,
+      "native_address_updates": 1653
+    },
+    "rows": [
+      {
+        "N": 21,
+        "T": 1,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 9,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 35,
+        "T": 1,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 9,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 77,
+        "T": 1,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 9,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 21,
+        "T": 2,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 81,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 35,
+        "T": 2,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 81,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 77,
+        "T": 2,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 81,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 21,
+        "T": 3,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 729,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 35,
+        "T": 3,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 729,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 77,
+        "T": 3,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 729,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 21,
+        "T": 4,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 6561,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 35,
+        "T": 4,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 6561,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 77,
+        "T": 4,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 6561,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 21,
+        "T": 5,
+        "numerator_L1": 13056,
+        "numerator_absolute_bound": 13824,
+        "squared_mass_denominator_Q": 59049,
+        "face_excess_numerator_over_Q": 640
+      },
+      {
+        "N": 35,
+        "T": 5,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 59049,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 77,
+        "T": 5,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 59049,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 21,
+        "T": 6,
+        "numerator_L1": 161152,
+        "numerator_absolute_bound": 244224,
+        "squared_mass_denominator_Q": 531441,
+        "face_excess_numerator_over_Q": 8000
+      },
+      {
+        "N": 35,
+        "T": 6,
+        "numerator_L1": 66560,
+        "numerator_absolute_bound": 78592,
+        "squared_mass_denominator_Q": 531441,
+        "face_excess_numerator_over_Q": 3200
+      },
+      {
+        "N": 77,
+        "T": 6,
+        "numerator_L1": 0,
+        "numerator_absolute_bound": 0,
+        "squared_mass_denominator_Q": 531441,
+        "face_excess_numerator_over_Q": 0
+      },
+      {
+        "N": 21,
+        "T": 7,
+        "numerator_L1": 1828608,
+        "numerator_absolute_bound": 4920704,
+        "squared_mass_denominator_Q": 4782969,
+        "face_excess_numerator_over_Q": 90880
+      },
+      {
+        "N": 35,
+        "T": 7,
+        "numerator_L1": 955904,
+        "numerator_absolute_bound": 1953920,
+        "squared_mass_denominator_Q": 4782969,
+        "face_excess_numerator_over_Q": 40000
+      },
+      {
+        "N": 77,
+        "T": 7,
+        "numerator_L1": 623744,
+        "numerator_absolute_bound": 788608,
+        "squared_mass_denominator_Q": 4782969,
+        "face_excess_numerator_over_Q": 16000
+      }
+    ]
+  }
+}
