@@ -1,0 +1,142 @@
+{
+  "model": "three fair independent bits; predetermined source-separable choice of one ABC permutation per bit; last S3 V39 frame only for one-query theorem",
+  "word_frame_exponents": {
+    "ABC": 0,
+    "ACB": 1,
+    "BAC": 2,
+    "BCA": 0,
+    "CAB": 0,
+    "CBA": 2
+  },
+  "frames_tuple": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      2,
+      0,
+      1
+    ],
+    [
+      1,
+      2,
+      0
+    ]
+  ],
+  "universal_count_6_power_6": 46656,
+  "one_observation_correct_out_of_8_histogram": {
+    "4": 36008,
+    "7": 10648
+  },
+  "delta_classes_of_27": {
+    "4": 19,
+    "7": 8
+  },
+  "one_pass_rows": [
+    {
+      "bits": "000",
+      "parity": 0,
+      "frame_after_two_exponent": 0,
+      "frame_after_three_exponent": 0,
+      "independent_second_full_exponent": 0
+    },
+    {
+      "bits": "001",
+      "parity": 1,
+      "frame_after_two_exponent": 0,
+      "frame_after_three_exponent": 1,
+      "independent_second_full_exponent": 2
+    },
+    {
+      "bits": "010",
+      "parity": 1,
+      "frame_after_two_exponent": 1,
+      "frame_after_three_exponent": 1,
+      "independent_second_full_exponent": 1
+    },
+    {
+      "bits": "011",
+      "parity": 0,
+      "frame_after_two_exponent": 1,
+      "frame_after_three_exponent": 2,
+      "independent_second_full_exponent": 0
+    },
+    {
+      "bits": "100",
+      "parity": 1,
+      "frame_after_two_exponent": 1,
+      "frame_after_three_exponent": 1,
+      "independent_second_full_exponent": 1
+    },
+    {
+      "bits": "101",
+      "parity": 0,
+      "frame_after_two_exponent": 1,
+      "frame_after_three_exponent": 2,
+      "independent_second_full_exponent": 0
+    },
+    {
+      "bits": "110",
+      "parity": 0,
+      "frame_after_two_exponent": 2,
+      "frame_after_three_exponent": 2,
+      "independent_second_full_exponent": 2
+    },
+    {
+      "bits": "111",
+      "parity": 1,
+      "frame_after_two_exponent": 2,
+      "frame_after_three_exponent": 0,
+      "independent_second_full_exponent": 1
+    }
+  ],
+  "separate_full_runs_distinct_signatures": 6,
+  "adaptive_final_then_one_bit_rereads_out_of_8": 2,
+  "same_ledger_each_3_block_run": {
+    "A+": 3,
+    "A-": 3,
+    "B+": 3,
+    "B-": 3
+  },
+  "checkpoint_bounds_finite_check": {
+    "1": {
+      "minimum": 1,
+      "sufficient_checkpoint_sets": 1
+    },
+    "2": {
+      "minimum": 1,
+      "sufficient_checkpoint_sets": 2
+    },
+    "3": {
+      "minimum": 2,
+      "sufficient_checkpoint_sets": 3
+    },
+    "4": {
+      "minimum": 2,
+      "sufficient_checkpoint_sets": 5
+    },
+    "5": {
+      "minimum": 3,
+      "sufficient_checkpoint_sets": 8
+    },
+    "6": {
+      "minimum": 3,
+      "sufficient_checkpoint_sets": 13
+    },
+    "7": {
+      "minimum": 4,
+      "sufficient_checkpoint_sets": 21
+    },
+    "8": {
+      "minimum": 4,
+      "sufficient_checkpoint_sets": 34
+    },
+    "9": {
+      "minimum": 5,
+      "sufficient_checkpoint_sets": 55
+    }
+  },
+  "status": "PASS"
+}

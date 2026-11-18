@@ -1,0 +1,253 @@
+{
+  "status": "PASS",
+  "counts": {
+    "native_input_histories": 11520,
+    "identical_directional_histogram_checks": 11520
+  },
+  "three_input_strings_per_calibrated_context": 8,
+  "calibrated_contexts_with_7_of_8_one_frame_and_8_of_8_two_frames": 1440,
+  "three_sign_multiplicities": {
+    "---": 1440,
+    "--+": 1440,
+    "-+-": 1440,
+    "-++": 1440,
+    "+--": 1440,
+    "+-+": 1440,
+    "++-": 1440,
+    "+++": 1440
+  },
+  "common_directed_ring_ledger": {
+    "A+": 3,
+    "A-": 3,
+    "B+": 3,
+    "B-": 3
+  },
+  "net_current": [
+    0,
+    0
+  ],
+  "example_terminal_collision_resolved_at_second_checkpoint": [
+    {
+      "axes_zero_based": [
+        0,
+        1,
+        2
+      ],
+      "fixed_axis_zero_based": 0,
+      "axis_edge_twist": [
+        -1,
+        -1,
+        -1
+      ],
+      "signed_initial_tokens": [
+        1,
+        2,
+        -3
+      ],
+      "first_three_shell_radial_signs": [
+        1,
+        1,
+        1
+      ],
+      "words": [
+        "ACB",
+        "ACB",
+        "ACB"
+      ],
+      "h2_h3": [
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "h2_h3_exponents": [
+        2,
+        0
+      ],
+      "opposite_edge_calibration": -1,
+      "initial_sign_product": -1,
+      "decoded_sign_product": -1,
+      "ring_counts": {
+        "A+": 3,
+        "B-": 3,
+        "A-": 3,
+        "B+": 3
+      }
+    },
+    {
+      "axes_zero_based": [
+        0,
+        1,
+        2
+      ],
+      "fixed_axis_zero_based": 0,
+      "axis_edge_twist": [
+        -1,
+        -1,
+        -1
+      ],
+      "signed_initial_tokens": [
+        -1,
+        -2,
+        3
+      ],
+      "first_three_shell_radial_signs": [
+        -1,
+        -1,
+        -1
+      ],
+      "words": [
+        "ABC",
+        "ABC",
+        "ABC"
+      ],
+      "h2_h3": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "h2_h3_exponents": [
+        0,
+        0
+      ],
+      "opposite_edge_calibration": -1,
+      "initial_sign_product": 1,
+      "decoded_sign_product": 1,
+      "ring_counts": {
+        "A+": 3,
+        "B+": 3,
+        "B-": 3,
+        "A-": 3
+      }
+    }
+  ],
+  "example_calibration_necessity_even_with_all_port_times": [
+    {
+      "axes_zero_based": [
+        0,
+        1,
+        2
+      ],
+      "fixed_axis_zero_based": 0,
+      "axis_edge_twist": [
+        -1,
+        -1,
+        -1
+      ],
+      "signed_initial_tokens": [
+        1,
+        2,
+        -3
+      ],
+      "first_three_shell_radial_signs": [
+        1,
+        1,
+        1
+      ],
+      "words": [
+        "ACB",
+        "ACB",
+        "ACB"
+      ],
+      "h2_h3": [
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "h2_h3_exponents": [
+        2,
+        0
+      ],
+      "opposite_edge_calibration": -1,
+      "initial_sign_product": -1,
+      "decoded_sign_product": -1,
+      "ring_counts": {
+        "A+": 3,
+        "B-": 3,
+        "A-": 3,
+        "B+": 3
+      }
+    },
+    {
+      "axes_zero_based": [
+        0,
+        1,
+        2
+      ],
+      "fixed_axis_zero_based": 0,
+      "axis_edge_twist": [
+        1,
+        1,
+        -1
+      ],
+      "signed_initial_tokens": [
+        1,
+        -2,
+        -3
+      ],
+      "first_three_shell_radial_signs": [
+        1,
+        1,
+        1
+      ],
+      "words": [
+        "ACB",
+        "ACB",
+        "ACB"
+      ],
+      "h2_h3": [
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "h2_h3_exponents": [
+        2,
+        0
+      ],
+      "opposite_edge_calibration": 1,
+      "initial_sign_product": 1,
+      "decoded_sign_product": 1,
+      "ring_counts": {
+        "A+": 3,
+        "B-": 3,
+        "A-": 3,
+        "B+": 3
+      }
+    }
+  ],
+  "rows_sha256": "07d4c2857603a569e28a7054f73c81201fcb0feae3650f4d0fae4cfb17388cc5",
+  "source_blobs_checked_at_runtime": {
+    "experiments/x6_triadic_atomic_scatter_v1_20260906/check_triadic_atomic_scatter.py": "cf5bc031b90b26d82216925d2768583db4e10f57",
+    "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+    "experiments/x6_signed_internal_q_correction_v5_20260906/check_signed_internal_q_correction.py": "0104cf5cedd40831a94eec746394f977402ac36f"
+  },
+  "macros_commit": "ed0b15b4ba948a21150969478d8a6941db76b11f",
+  "scope": "Designed causal readout, V1/V5 at native source and V39 based-loop target; the physical signed three-force trigger has not been inferred."
+}

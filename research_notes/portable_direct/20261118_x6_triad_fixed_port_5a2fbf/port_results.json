@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "source_blobs": {
+    "experiments/x6_triadic_atomic_scatter_v1_20260906/check_triadic_atomic_scatter.py": "cf5bc031b90b26d82216925d2768583db4e10f57",
+    "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+    "experiments/x6_signed_internal_q_correction_v5_20260906/check_signed_internal_q_correction.py": "0104cf5cedd40831a94eec746394f977402ac36f"
+  },
+  "counts": {
+    "consecutive_window_output_fibres": 44640,
+    "fixed_port_histories": 11520,
+    "frames_with_twist": 3840,
+    "joint_midpoint_checks": 7680,
+    "one_period_mask_twist_checks": 256,
+    "phase_parity_checks": 23040,
+    "two_port_gauge_counterpairs": 11520
+  },
+  "canonical_example": {
+    "twist": [
+      -1,
+      -1,
+      -1
+    ],
+    "initial": [
+      1,
+      2,
+      3
+    ],
+    "conjugate_twist": [
+      1,
+      1,
+      -1
+    ],
+    "conjugate_initial": [
+      1,
+      -2,
+      3
+    ],
+    "one_port": [
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1
+    ]
+  },
+  "exact_consecutive_lengths_mod_6": [
+    3
+  ]
+}
