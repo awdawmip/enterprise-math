@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/third/collision_depth.md",
+    "ref": "93a6ad6547811dc56d1edace2a845487bd4cafca",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-third-20261118-6",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "## 十五顶点 Q30 的精确最小观测深度为三轮\n\n以经过顶点 \\(v\\) 的各长度无向简单圈数为 \\(c_0(v)\\)，定义\n\\[\nc_{d+1}(v)=\\big(c_d(v),\\{\\!\\{c_d(w):w\\sim v\\}\\!\\}\\big),\\qquad\nH_d(G)=\\{\\!\\{c_d(v):v\\in V(G)\\}\\!\\}.\n\\]\n在 15 顶点、连通、简单、度数均为 2 或 3 且至少一顶点度为 3 的全部 **214,762** 个同构类上，\\(G\\mapsto H_3(G)\\) 已经单射，\\(G\\mapsto H_2(G)\\) 恰有 **26 对**不同图具有相同读数。因而 **3 是该整个输入族的最小统一深度**，轮数从根的初始圈谱之后起算。\n\n|轮数|不同图读数|仍未区分的无序对|仍有同读数伙伴的图|最大同读数类|\n|---:|---:|---:|---:|---:|\n|0|147,751|207,592|97,019|64|\n|1|210,629|4,522|7,943|7|\n|2|214,736|26|52|2|\n|3|214,762|0|0|1|\n\n按三度顶点数 \\(r=2,4,6,8,10,12,14\\) 排列，对应各子族的最小统一深度依次为 **0、3、3、3、3、2、1**。第二轮余下 26 对分别有 0、4、11、9、2、0、0 对。未区分的无序对总数为 \\(\\sum_B |B|(|B|-1)/2\\)，其中 \\(B\\) 遍历这一轮的图读数桶。\n\n**下界的两图见证。** 图 6 编码分别为 `N??CA?_CCOH_HGCc?X?` 和 `N??CA?_CCCL?EC@WOg?`。见证脚本从每个根分别枚举圈并显式展开嵌套元组，不需要颜色编号。前三个直方图 \\(H_0,H_1,H_2\\) 完全相同，\\(H_3\\) 左右两侧各有 4 个顶点读数无法配对。第三轮的不同已证这两个图非同构；另以邻接约束回溯计得同构映射数 0。\n\n**跨图一致性。** 初始字典以完整整数圈谱为键。对尚未分开的父桶，下一层用同一个字典给该桶内每个图的每个顶点编码，键为完整旧色和有重数的邻色列表；两个不同图的颜色相等当且仅当其嵌套含义相等。取新色的第一分量可恢复旧色，于是不同父桶永远不能再合并，单元素桶可停止细化。此键比较基于整数逐项相等，省去重复运算并不丢失区分信息。十五顶点稳定观察器的精确全量、同构类覆盖和质量证书见原主笔记。\n\n**可复核数据。** 输入流由 nauty/geng 2.8.9 的 `geng -q -c -d2 -D3 15` 生成，共 214,763 行，SHA-256 为 `8d9861218ff765936a1d76dc80d797d4d4ec40939bf39c377635d0c6f4fbaca4`；排除唯一的纯十五圈。全域初次运行复用主程序以最小顶点枚举圈；另一个独立 C++ 程序以最大顶点枚举圈并自行解码输入，四层的所有计数完全一致。重放命令为 `g++ -O3 -std=c++17 collision_depth.cpp -o depth`、`./depth g15.g6` 和 `python collision_depth_witness.py`。本结果给出该图域与冻结初色下充分且必要的轮数，对更大顶点数的最小深度仍待检验。\n",
+      "display_title": "collision_depth.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/93a6ad6547811dc56d1edace2a845487bd4cafca/research_notes/portable_direct/20261118_fair_queue_6b0fba/third/collision_depth.md",
+      "encoding": "utf-8",
+      "sha": "c84551c9d825b9ad0846675b8a1693f635dfb4e2"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

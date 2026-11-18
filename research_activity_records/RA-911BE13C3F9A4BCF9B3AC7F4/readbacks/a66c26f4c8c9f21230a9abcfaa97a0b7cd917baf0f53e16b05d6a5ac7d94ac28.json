@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/third/README.md",
+    "ref": "93a6ad6547811dc56d1edace2a845487bd4cafca",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-third-20261118-0",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 四项九月积压的数学结果\n\n2026 年 11 月 18 日。四项课题发布于 9 月 9 日、16 日和 17 日。北京时间 17:51 回放状态机的 1,420 条已识别事件，四项均为就绪、待派，受理领取次数为零。选入一个 P1 和三个 P2，各研究一个前两组尚未处理的问题。以下是独立研究成果及复算材料，项目正式审查状态另由状态机记录。[四项任务、时间与来源](queue.json) · [前两组成果](../README.md)\n\n## 十五顶点图的碰撞界\n\n对每个顶点先数它位于多少个各给定长度的无向简单圈上，再用普通一维 Weisfeiler–Leman 颜色细化比较两图。在任务指定的连通简单图域（每点度数为 2 或 3，至少一个三度点）中，15 顶点恰有 **214,762 个同构类**。初始轮及随后三轮仍无法区分的无序图对依次为 **207,592、4,522、26、0**。所以三轮对这一层既充分又必要。七个度数扇区的轨道质量逐一等于独立递推出的有标号连通图数。与此前已审的范围合并，首个碰撞若存在，至少需要 16 个顶点。[穷举与覆盖推导](collision.md) · [最小轮数与一对边界例图](collision_depth.md) · [完整复算入口](collision_check.py)\n\n## 三项 Machin 公式的 21 位门槛\n\n允许所有互异的本原斜率 $0<a/b<1$。用 $B=\\sum\\operatorname{bitlen}(b)$ 计分母总位数，以 $\\mu=\\sum 1/\\log_{10}(b/a)$ 计解析成本。在 21 位以内，只有一个三项原子集能严格改善同预算的最佳双项解。它恰用 21 位，成本由双项的 $1.7226709\\ldots$ 降至 $1.6939423\\ldots$，零整圈的恒等式为\n\n$$20\\arctan(1/57)+12\\arctan(3/79)-5\\arctan(1/239)=\\pi/4.$$\n\n项目已有这个公式，本次枚举排除了其他全部素支撑上的竞争解。另对两类新出现的多素平面作精确普查，得到 178,779 个可达对角端点的电路，全部在位数和解析成本上受一个既有双项点支配。[推导、成本定义与边界](machin.md) · [整数复算与候选导出](machin_check.py)\n\n## 谱矩能读出哪些 ζ 零点\n\n对离散 Dirichlet 拉普拉斯矩阵，将其逆矩阵的 $n$ 次幂迹按分母作 Möbius 反演，得到原始谱系数和相应的 Dirichlet 级数 $D_n$。由谱矩的正 Jordan 系数可算出高度 $T_n$，保证在 $|\\operatorname{Im}z|\\ge T_n$ 的临界带内，每个非平凡 ζ 零点都成为 $D_n$ 的同重数极点。二至八阶可取 $T_n=14,16,18,20,22,24,25$。结合已发表的低高度零点验证，二阶覆盖全部非平凡零点。对三至八阶中的每一阶，RH 都等价于该阶的所有临界带极点位于临界线。这些等价判据保留了定位极点所需的数学困难。[谱矩公式与不消零定理](jordan.md) · [精确验证，依赖 SymPy](jordan_check.py)\n\n## 六边形边界和容量的公共素因子\n\n令 $m=4^t$、$K_t=m^2-m+1$。每层原来成对的外端口，在模 $K_t$ 的读数下对应于内边界的一组完美匹配。一般整数 $m\\ge2$ 的内六边形始终无碰撞，$m\\equiv2\\pmod3$ 时恰缺两个剩余类 $K/3,2K/3$。八个尺度合计核对 87,372 对端口。[六组声明审计与边界匹配](research_output/HXPI-20260916-01/audit.md) · [证据清单](research_output/HXPI-20260916-01/evidence_manifest.json)\n\n跨层看，若 $g=\\gcd(u,v)$，且 $u/g$ 与 $v/g$ 均与 6 互素，则 $\\gcd(K_u,K_v)=K_g$；其余情形为 1。阶与赋值提升还给出每个容量素数首次出现的位置及重数，解释了 13 怎样在第 1、5、7、13 层重现，又在第 26 层消失。[跨层定理与证明](hex_capacity.md) · [12,880 个最大公因数与 106,880 个赋值检查](hex_capacity_check.py)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/93a6ad6547811dc56d1edace2a845487bd4cafca/research_notes/portable_direct/20261118_fair_queue_6b0fba/third/README.md",
+      "encoding": "utf-8",
+      "sha": "17788cc7ee59f4c1a039362265ded29ea33603a3"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
