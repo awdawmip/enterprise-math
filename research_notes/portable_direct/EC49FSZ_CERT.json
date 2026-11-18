@@ -1,0 +1,211 @@
+{
+  "schema": "EC49FSZ_FROZEN_NATIVE_PRICE_SLICE_CERT_V1",
+  "status": "AUTHOR_PROVED_PRIMARY_EXACT_PARTIAL_INDEPENDENT_NOT_REVIEWED",
+  "frozen_input_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor_pr": "https://github.com/awdawmip/enterprise-math/pull/2741",
+  "model": {
+    "original_configurations": 310,
+    "named_profiles": 141,
+    "physical_observers": 228
+  },
+  "a": "2/3",
+  "b": "57/128",
+  "knots": [
+    "1/2",
+    "3/5",
+    "199/320",
+    "121/192",
+    "2065/3232",
+    "3061/4608",
+    "1"
+  ],
+  "native_Bellman_anchors": {
+    "D": [
+      {
+        "z": "1/2",
+        "value": "24045/128",
+        "native_DP_states": 9110
+      },
+      {
+        "z": "3/5",
+        "value": "23661/128",
+        "native_DP_states": 9052
+      },
+      {
+        "z": "199/320",
+        "value": "23577/128",
+        "native_DP_states": 9047
+      },
+      {
+        "z": "121/192",
+        "value": "70603/384",
+        "native_DP_states": 9047
+      },
+      {
+        "z": "2065/3232",
+        "value": "2372461/12928",
+        "native_DP_states": 9019
+      },
+      {
+        "z": "3061/4608",
+        "value": "276385/1536",
+        "native_DP_states": 8942
+      },
+      {
+        "z": "1",
+        "value": "16973/128",
+        "native_DP_states": 7645
+      }
+    ],
+    "S": [
+      {
+        "z": "1/2",
+        "value": "11395/64",
+        "native_DP_states": 8581
+      },
+      {
+        "z": "3/5",
+        "value": "54511/320",
+        "native_DP_states": 8284
+      },
+      {
+        "z": "199/320",
+        "value": "53937/320",
+        "native_DP_states": 8223
+      },
+      {
+        "z": "121/192",
+        "value": "10741/64",
+        "native_DP_states": 8175
+      },
+      {
+        "z": "2065/3232",
+        "value": "539801/3232",
+        "native_DP_states": 8163
+      },
+      {
+        "z": "3061/4608",
+        "value": "252917/1536",
+        "native_DP_states": 8110
+      },
+      {
+        "z": "1",
+        "value": "11263/96",
+        "native_DP_states": 6703
+      }
+    ]
+  },
+  "policy_vectors": {
+    "D": [
+      [
+        316,
+        141,
+        43,
+        30
+      ],
+      [
+        324,
+        141,
+        47,
+        40
+      ],
+      [
+        319,
+        18,
+        75,
+        141
+      ]
+    ],
+    "S": [
+      [
+        315,
+        10,
+        141,
+        77
+      ],
+      [
+        318,
+        10,
+        141,
+        82
+      ],
+      [
+        322,
+        12,
+        141,
+        87
+      ],
+      [
+        324,
+        8,
+        141,
+        93
+      ],
+      [
+        325,
+        12,
+        92,
+        141
+      ]
+    ]
+  },
+  "tree_witness_sha256": {
+    "EC49FSZ_TREES/D1.json": "e587fec7ae7c30de212f4a9ebb3b17f5e68e34de5b5e12a51a2480593a4fceb6",
+    "EC49FSZ_TREES/D2.json": "87ddbcda452734cd320a74b7661b8a5eb41c66cc6b189dc3839946385223f897",
+    "EC49FSZ_TREES/D3.json": "50876c394c8c3fb8cba8a8d6795e7c0f8ddd25c2a7e5b23b89e17d99cc029bcd",
+    "EC49FSZ_TREES/S0.json": "e912eba4fed89bee95bf6bd32757469d566e47f5e91894e850e2af8e253e809e",
+    "EC49FSZ_TREES/S1.json": "cf7667171ec0daa5d72bf8722102d0d52b93d093c3292ebe53abdd1e39c0e4e7",
+    "EC49FSZ_TREES/S2.json": "4891d5f1c36f86cd0ca028153ccd214166cab464deb043c5bc547e8deaee2b79",
+    "EC49FSZ_TREES/S3.json": "270a93064aea68e137b0c17a7a9467feb8ca7f5a2829bcf4cef1e526ac83a787",
+    "EC49FSZ_TREES/S4.json": "8ee46e10fbd1dd3e9ad521a55be1a2bf4d9c6b08ac4d6b7280e43f089e0e9b2a"
+  },
+  "tree_full_bytes_locator": "Companion conversation attachment EC49FSZ_NATIVE_BRC_COMPLETE_VERTICAL_SWEEP_EVIDENCE_20261118.tar.xz; these tree files are not uploaded as Git blobs",
+  "independent_raw94_checks": [
+    {
+      "orientation": "D",
+      "z": "199/320",
+      "value": "23577/128",
+      "independent_DP_states": 8299
+    },
+    {
+      "orientation": "S",
+      "z": "199/320",
+      "value": "53937/320",
+      "independent_DP_states": 7415
+    },
+    {
+      "orientation": "S",
+      "z": "121/192",
+      "value": "10741/64",
+      "independent_DP_states": 7333
+    },
+    {
+      "orientation": "D",
+      "z": "2065/3232",
+      "value": "2372461/12928",
+      "independent_DP_states": 8263
+    }
+  ],
+  "source_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "profiles_csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "breakpoints": {
+    "direct": [
+      "199/320",
+      "2065/3232"
+    ],
+    "swapped": [
+      "3/5",
+      "199/320",
+      "121/192",
+      "3061/4608"
+    ],
+    "simultaneous": "199/320"
+  },
+  "sharp_gap_min": "1255/128",
+  "sharp_gap_max": "213257/12928",
+  "plateau": "5867/384",
+  "proof": "The full native optimum is the infimum of affine tree costs (concave); exact unrestricted Bellman equality with feasible named physical trees at all 7 ordered knots bounds each intervening real interval by the same affine chord; this proves both global envelopes exactly.",
+  "scope": "all real z in [1/2,1] at exactly a=2/3,b=57/128; no independent formal mathematical acceptance"
+}
