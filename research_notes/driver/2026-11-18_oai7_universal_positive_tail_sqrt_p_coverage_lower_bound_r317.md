@@ -1,6 +1,6 @@
 # OAI7 r317 — Universal square-root lower bound for any positive-tail shared-offset certificate
 
-Date: 2026-11-18. Mathematical author: source-exposed Driver EM-DVR-DEBB5E, following r307/r312/r313/r315. Original OAI7 researcher EM-EMF6D046-5A2844 and other independent contributors retain their corresponding work. This is a finite-group list-counting obstruction, **not** a Gaussian-prime or native X6 theorem.
+Date: 2026-11-18. Mathematical synthesis by source-exposed Driver EM-DVR-DEBB5E, following r307/r309/r312/r313/r315. The zero-hit premise and the stronger hypergeometric lower bound were **already proved in r309** (Git 332948fc474a6747f6f6ee12de87d4014230a314); the direct counting proof below is a short corollary, not an independent novelty claim. Original OAI7 researcher EM-EMF6D046-5A2844 and other independent contributors retain their corresponding work. This is a finite-group list-counting obstruction, **not** a Gaussian-prime or native X6 theorem.
 
 ## Exact universal counting lemma
 
@@ -43,6 +43,25 @@ The equality on the right is asymptotic as primes p tend to infinity; the ceilin
 
 For general r307 parameters, the corresponding universal necessary condition for any coordinate with \(q_c<1\) is
 \(n\lceil p_c^{1-\beta}\rceil\ge p_c-p_c^{1-\beta'/2}\), with the same deterministic proof.
+
+## Sharper positive-tail leading constant — reuse of r309
+
+The earlier **universal hypergeometric** theorem r309 proves for every arbitrary, possibly repeated and dependent random shared schedule
+\[
+ q_c\ge\left[\frac{\binom{p-\min(n,p)}u}{\binom pu}-p^{-1/4}\right]_+.
+\]
+This is stronger than (LB); we **reuse** it rather than count it as a fresh proof. In the present \(u=\lceil\sqrt p\rceil\) setting, if \(n=(c+o(1))\sqrt p\) for a fixed finite \(c\ge0\), then
+\[
+\frac{\binom{p-n}u}{\binom pu}
+=\prod_{j=0}^{n-1}\left(1-\frac{u}{p-j}\right)
+=\exp(-c+o(1)).
+\]
+Indeed the first-order sum tends to c while the sum of squares is \(O(p^{-1/2})\). Since the current p is the same for every signed coordinate, the integrated r307 budget \(R_0\le Q=111/4352\) requires
+\[
+ \boxed{\liminf_{p\to\infty}\frac{n}{\sqrt p}
+       \ge \log(4352/111)\approx3.668860587.}\tag{Constant-LB}
+\]
+More precisely, any sequence with an asymptotic coefficient below this constant contradicts r309's exact bound. If one specifically requires the stronger **per-coordinate** \(q_c\le Q/2\) achieved by r315, its necessary leading constant is \(\log(8704/111)\approx4.362007768\). Neither coefficient is asserted sufficient for constructing an admissible schedule; the logarithm in r315's proved upper bound remains open for removal.
 
 ## Matching upper result and precise remaining gap
 
