@@ -1,0 +1,205 @@
+{
+  "classification": {
+    "h=1": "depth 3 for every residue",
+    "h>=2,residue in {0,2,3,4}": "depth 2 for every h",
+    "h>=2,residue=1": "depth 2 for 2<=h<=31; depth 1 for h>=32",
+    "h>=2,residue=5": "depth 2 for 2<=h<=1296; depth 1 for h>=1297"
+  },
+  "cutoff_family": "all q=b_r+6k, p=q+6h, six residues r, all integers k>=0, h>=1",
+  "expansion_variable": "x=1/(6j), simultaneous observation index j",
+  "fixed_nuisances": "e,d,E,D in [-2,2]",
+  "frozen_scientific_source": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "independent_integer_count_check": {
+    "n_max": 240,
+    "n_min": 29,
+    "residues": 6
+  },
+  "population": "five labeled sources (1,1,2,3,6)",
+  "proof": "Symbolic quasi-polynomial Laurent coefficients; all h three-jet family affine in D; h=2 box obstruction; h>=2 contraction to h=2; exact two-jet feasible interval; h=1 reuse R749STK",
+  "rows": [
+    {
+      "A": 54027,
+      "B": 118312,
+      "a1": "720*(D-d)",
+      "a2_after_d_eq_D": "4320*(e-E-h*(D-667/432))",
+      "all_three_jet_solutions": {
+        "E": "(-(34992*h+139968)*D+54027*h-118312)/69984",
+        "d": "D",
+        "e": "((34992*h-139968)*D-54027*h-118312)/69984"
+      },
+      "base_cutoff": 78,
+      "common_constant_jet": "455/36",
+      "h1_interior_three_jet_witness": {
+        "D": "-1",
+        "E": "110675/69984",
+        "d": "-1",
+        "e": "-67363/69984"
+      },
+      "h2_three_jet_necessary_LHS": 668840,
+      "h2_three_jet_necessary_RHS": 559872,
+      "h_ge_2_depth1_begin": null,
+      "h_ge_2_depth2_range": "all h>=2",
+      "h_ge_2_depth2_witness": {
+        "D": "667/432",
+        "E": "0",
+        "d": "667/432",
+        "e": "0"
+      },
+      "residue": 0
+    },
+    {
+      "A": 74412,
+      "B": 119707,
+      "a1": "720*(D-d)",
+      "a2_after_d_eq_D": "4320*(e-E-h*(D-689/324))",
+      "all_three_jet_solutions": {
+        "E": "(-(34992*h+139968)*D+74412*h-119707)/69984",
+        "d": "D",
+        "e": "((34992*h-139968)*D-74412*h-119707)/69984"
+      },
+      "base_cutoff": 73,
+      "common_constant_jet": "-295/36",
+      "h1_interior_three_jet_witness": {
+        "D": "-1",
+        "E": "129665/69984",
+        "d": "-1",
+        "e": "-89143/69984"
+      },
+      "h2_three_jet_necessary_LHS": 834710,
+      "h2_three_jet_necessary_RHS": 559872,
+      "h_ge_2_depth1_begin": 32,
+      "h_ge_2_depth2_range": "2<=h<=31",
+      "h_ge_2_depth2_witness": {
+        "D": "2",
+        "E": "h*(A-69984)/69984",
+        "d": "2",
+        "e": "-h*(A-69984)/69984"
+      },
+      "residue": 1
+    },
+    {
+      "A": 69363,
+      "B": 105532,
+      "a1": "720*(D-d)",
+      "a2_after_d_eq_D": "4320*(e-E-h*(D-2569/1296))",
+      "all_three_jet_solutions": {
+        "E": "(-(34992*h+139968)*D+69363*h-105532)/69984",
+        "d": "D",
+        "e": "((34992*h-139968)*D-69363*h-105532)/69984"
+      },
+      "base_cutoff": 74,
+      "common_constant_jet": "-25/36",
+      "h1_interior_three_jet_witness": {
+        "D": "-1",
+        "E": "138791/69984",
+        "d": "-1",
+        "e": "-69919/69984"
+      },
+      "h2_three_jet_necessary_LHS": 765968,
+      "h2_three_jet_necessary_RHS": 559872,
+      "h_ge_2_depth1_begin": null,
+      "h_ge_2_depth2_range": "all h>=2",
+      "h_ge_2_depth2_witness": {
+        "D": "2569/1296",
+        "E": "0",
+        "d": "2569/1296",
+        "e": "0"
+      },
+      "residue": 2
+    },
+    {
+      "A": 60588,
+      "B": 110455,
+      "a1": "720*(D-d)",
+      "a2_after_d_eq_D": "4320*(e-E-h*(D-187/108))",
+      "all_three_jet_solutions": {
+        "E": "(-(34992*h+139968)*D+60588*h-110455)/69984",
+        "d": "D",
+        "e": "((34992*h-139968)*D-60588*h-110455)/69984"
+      },
+      "base_cutoff": 75,
+      "common_constant_jet": "185/36",
+      "h1_interior_three_jet_witness": {
+        "D": "-1",
+        "E": "125093/69984",
+        "d": "-1",
+        "e": "-66067/69984"
+      },
+      "h2_three_jet_necessary_LHS": 705614,
+      "h2_three_jet_necessary_RHS": 559872,
+      "h_ge_2_depth1_begin": null,
+      "h_ge_2_depth2_range": "all h>=2",
+      "h_ge_2_depth2_witness": {
+        "D": "187/108",
+        "E": "0",
+        "d": "187/108",
+        "e": "0"
+      },
+      "residue": 3
+    },
+    {
+      "A": 62019,
+      "B": 127564,
+      "a1": "720*(D-d)",
+      "a2_after_d_eq_D": "4320*(e-E-h*(D-2297/1296))",
+      "all_three_jet_solutions": {
+        "E": "(-(34992*h+139968)*D+62019*h-127564)/69984",
+        "d": "D",
+        "e": "((34992*h-139968)*D-62019*h-127564)/69984"
+      },
+      "base_cutoff": 76,
+      "common_constant_jet": "-25/36",
+      "h1_interior_three_jet_witness": {
+        "D": "-1",
+        "E": "109415/69984",
+        "d": "-1",
+        "e": "-84607/69984"
+      },
+      "h2_three_jet_necessary_LHS": 751280,
+      "h2_three_jet_necessary_RHS": 559872,
+      "h_ge_2_depth1_begin": null,
+      "h_ge_2_depth2_range": "all h>=2",
+      "h_ge_2_depth2_witness": {
+        "D": "2297/1296",
+        "E": "0",
+        "d": "2297/1296",
+        "e": "0"
+      },
+      "residue": 4
+    },
+    {
+      "A": 70092,
+      "B": 132667,
+      "a1": "720*(D-d)",
+      "a2_after_d_eq_D": "4320*(e-E-h*(D-649/324))",
+      "all_three_jet_solutions": {
+        "E": "(-(34992*h+139968)*D+70092*h-132667)/69984",
+        "d": "D",
+        "e": "((34992*h-139968)*D-70092*h-132667)/69984"
+      },
+      "base_cutoff": 77,
+      "common_constant_jet": "-295/36",
+      "h1_interior_three_jet_witness": {
+        "D": "-1",
+        "E": "112385/69984",
+        "d": "-1",
+        "e": "-97783/69984"
+      },
+      "h2_three_jet_necessary_LHS": 826070,
+      "h2_three_jet_necessary_RHS": 559872,
+      "h_ge_2_depth1_begin": 1297,
+      "h_ge_2_depth2_range": "2<=h<=1296",
+      "h_ge_2_depth2_witness": {
+        "D": "2",
+        "E": "h*(A-69984)/69984",
+        "d": "2",
+        "e": "-h*(A-69984)/69984"
+      },
+      "residue": 5
+    }
+  ],
+  "source_dependency": "R749STK six-phase h=1 four-jet obstruction and three-jet witnesses",
+  "status": "AUTHOR_EXACT_NOT_REVIEWED",
+  "unit": "R749STL",
+  "unresolved": "finite-time/readout separation and native X6/BRC source-preserving Port transfer"
+}

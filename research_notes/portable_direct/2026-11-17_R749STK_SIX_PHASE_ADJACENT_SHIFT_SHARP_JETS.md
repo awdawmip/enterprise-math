@@ -1,0 +1,85 @@
+# R749STK — Six-phase sharp three-jet masking for adjacent six-step cutoffs
+
+Date: 2026-11-17. Evidence: **AUTHOR_EXACT_NOT_REVIEWED**. Frozen scientific source: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`. Continuation: R749STH, R749STI and R749STJ. This is an auxiliary five-labeled-source scalar observer theorem. No native X6/BRC Port/Cell transfer or mathematical independent review is claimed.
+
+## Statement and definitions
+
+Let the five *distinctly labeled* sources carry weights \((1,1,2,3,6)\), and define
+
+\[
+\Omega_n=\{k\in \mathbb Z_{\ge0}^5:k_1+k_2+2k_3+3k_4+6k_5\le n-1\},\qquad
+C_n=|\Omega_n|,\qquad T_n=\sum_{k\in\Omega_n}k_1.
+\]
+
+Set \(S(n)=18n^4+54n^3-345n^2+2070n-16315\) and
+\[
+Y_n(e,d)=n^3\frac{T_n+e}{C_n+d}-\frac{S(n)}{108},
+\qquad (e,d)\in[-2,2]^2.
+\]
+
+Each candidate holds its two nuisance parameters fixed through all its readings. Define \(b_0=78\) and \(b_r=72+r\) for \(1\le r\le5\). Given a residue \(r\in\{0,\ldots,5\}\) and any \(k\in\mathbb Z_{\ge0}\), compare \(q=b_r+6k\), \(p=q+6\), and the two observer tails
+\[
+\mathcal Y_q(j)=Y_{q+6j}(e,d),\qquad
+\mathcal Y_p(j)=Y_{p+6j}(E,D),\qquad j=0,1,\ldots.
+\]
+Expand their difference at \(x=(6j)^{-1}\to0^+\), with the same observation index \(j\):
+\[
+\mathcal Y_q(j)-\mathcal Y_p(j)=a_0+a_1x+a_2x^2+\cdots.
+\]
+
+**Theorem.** For every one of the six residues and every \(k\ge0\), the **maximal legal coincident asymptotic jet depth is exactly three**:
+1. There exist four *strictly interior rational* parameters \((e,d,E,D)\in(-2,2)^4\) for which \(a_0=a_1=a_2=a_3=0\).
+2. No parameters from the closed square product \([-2,2]^4\) also make \(a_4=0\).
+3. The explicit witnesses below have \(a_4>0\), so their first asymptotically visible future difference is of order \(j^{-4}\).
+
+This is a uniform statement over the infinite families \((b_r+6k,b_r+6(k+1))\), not a finite-time four-read separation theorem.
+
+## Exact certificate table
+
+For every row take \(d=D=-1\). All \(e,E\) are strictly between \(-2\) and \(2\).
+
+| \(r\) | \(b_r\) | witness \(e\) | witness \(E\) | first difference \(a_4\) | \(E_*\) forced by four-jet equality |
+|---:|---:|---:|---:|---:|---:|
+| 0 | 78 | \(-67363/69984\) | \(110675/69984\) | \(796100/3\) | \(236362375/108685152\) |
+| 1 | 73 | \(-89143/69984\) | \(129665/69984\) | \(2306200/9\) | \(263637145/108685152\) |
+| 2 | 74 | \(-69919/69984\) | \(138791/69984\) | \(1745180/9\) | \(262662283/108685152\) |
+| 3 | 75 | \(-66067/69984\) | \(125093/69984\) | \(865760/3\) | \(264395989/108685152\) |
+| 4 | 76 | \(-84607/69984\) | \(109415/69984\) | \(3774460/9\) | \(271831915/108685152\) |
+| 5 | 77 | \(-97783/69984\) | \(112385/69984\) | \(3631400/9\) | \(272581705/108685152\) |
+
+Every \(E_*>2\), already in the first row \(236362375>2(108685152)=217370304\). Thus the unique four-jet algebraic solution is illegal in all six rows. No inequality involving the other forced parameters is needed.
+
+## Proof from the exact generating functions
+
+The original integer enumeration yields
+\[
+\sum_{n\ge1} C_n z^{n-1}
+=\frac1{(1-z)^3(1-z^2)(1-z^3)(1-z^6)},\qquad
+\sum_{n\ge1} T_n z^{n-1}
+=\frac{z}{(1-z)^4(1-z^2)(1-z^3)(1-z^6)}.
+\]
+Multiplying each weight-factor numerator by \((1-z^6)/(1-z^w)\) converts these into \(Q_C(z)/(1-z^6)^6\) and \(Q_T(z)/(1-z^6)^7\) with explicitly constructed integer polynomials \(Q_C,Q_T\). Coefficient extraction in residue class \(r\) supplies rational quasi-polynomials \(c_r(n)\) (degree five) and \(t_r(n)\) (degree six), valid for all \(n\ge29\). The executable constructs these directly by finite convolution and falling-factorial coefficients, with a separate integer partition recurrence comparison on \(29\le n\le240\).
+
+For each residue substitute \(C_n=c_r(n)\), \(T_n=t_r(n)\) into \(Y_n\). Polynomial division at \(n=\infty\) cancels the four growing powers using \(S(n)/108\), leaving a rational Laurent series in \(n^{-1}\). Convert \(n=q+6j\) with the exact triangular substitution
+\[
+n^{-h}=x^h(1+qx)^{-h}
+=\sum_{m\ge h}\binom{-h}{m-h}q^{m-h}x^m,\qquad x=(6j)^{-1}.
+\]
+Consequently the coefficients \(a_1,\dots,a_4\) are affine-linear functions of \((e,d,E,D)\); nuisance-parameter products first appear at higher orders. Exact arithmetic gives, **for each of the six residues**, the same nonzero coefficient-matrix determinant
+\[
+\boxed{\det\left(\frac{\partial(a_1,a_2,a_3,a_4)}
+{\partial(e,d,E,D)}\right)=180295624949760000\ne0.}
+\]
+Thus the unconstrained four-jet equations have exactly one real solution. Its forced coordinate \(E_*\) is the table's last column and exceeds \(2\) in all cases: four-jet cancellation violates the declared error box.
+
+On the other hand, solving \(a_1=a_2=a_3=0\) together with \(D=-1\) gives the rational witnesses in the table, all with \(d=-1\); substitution checks their legal bounds and the displayed strictly positive fourth coefficient. This proves the base case \(k=0\).
+
+For a general \(k\ge0\), changing both cutoffs by \(6k\) is exactly changing the observation index \(j\) to \(j+k\). In the local variable \(x\), this acts as \(x\mapsto x/(1+6kx)\). Its coefficient transformation is triangular with unit diagonal. Therefore the vanishing of \(a_1,\ldots,a_m\) and the first nonzero coefficient at order \(m+1\) are invariant, and the base classification extends to every \(k\). QED.
+
+## Reproduction, scope, and next question
+
+Run \`python R749STK_SIX_PHASE_ADJACENT_JET_CERT.py\` using Python 3 and SymPy. The program reconstructs all six exact quasi-polynomial branches from the generating functions, independently checks their \(C_n,T_n\) values by integer dynamic programming over all integers \(n=29,\ldots,240\), solves each full four-equation system over the rationals, tests each three-equation interior witness, checks all six \(a_4>0\), and writes a detailed result JSON. Author-side run: **PASS**, six of six residues.
+
+The scientific input remains the original frozen five-source model; counting a labeled source separately from its equal-weight partner matters. This result measures the asymptotic observational information loss of a scalar quotient; an actual native BRC carrier still requires signed/provenance Port and future-operation semantics.
+
+New problem: classify the larger same-residue gaps \(p=q+6h\), \(h\ge2\), distinguishing legal jet depth as a function of \(h\), and derive a certified finite-noise threshold for detecting the first surviving \(j^{-4}\) difference.
