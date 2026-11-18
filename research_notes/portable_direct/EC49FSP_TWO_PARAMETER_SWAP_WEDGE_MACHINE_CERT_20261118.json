@@ -1,0 +1,187 @@
+{
+  "schema": "EC49FSP_NATIVE_BRC_TWO_PARAMETER_WEDGE_CERT_V1",
+  "status": "AUTHOR_PROVED / EXACT_PRIMARY_FINITE_EXHAUSTIVE / INDEPENDENT_PARTIAL / NOT_REVIEWED",
+  "science": {
+    "source_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+    "configs": 310,
+    "profiles": 141,
+    "named_observers": 228,
+    "prior": "uniform named profiles",
+    "parents": [
+      "EC49FSO PR #2708",
+      "EC49FSP PR #2712"
+    ]
+  },
+  "parameters": {
+    "a": "31/64",
+    "b_range": [
+      "27/64",
+      "29/64"
+    ],
+    "z_range": [
+      "0",
+      "1/8"
+    ],
+    "price_formula": "q32=(1-a)t, q34=(1-b)t, q140=(1-z)t, all else=t>0",
+    "F": "141*V/t"
+  },
+  "optimum": {
+    "direct": "306-141*(31/64)-41*b-4*z",
+    "swapped_planes": [
+      "306-141*(31/64)-41*b-10*z",
+      "303-141*(31/64)-32*b-17*z"
+    ],
+    "swapped": "min(swapped_planes)",
+    "swap_penalty": [
+      {
+        "region": "z<=(9*b-3)/7",
+        "value": "6*z"
+      },
+      {
+        "region": "z>=(9*b-3)/7",
+        "value": "3-9*b+13*z"
+      }
+    ],
+    "separating_segment": [
+      [
+        "27/64",
+        "51/448"
+      ],
+      [
+        "31/72",
+        "1/8"
+      ]
+    ]
+  },
+  "complete_trees": [
+    {
+      "orientation": "direct",
+      "tuple": [
+        306,
+        141,
+        41,
+        4
+      ],
+      "sha256": "ad7047debd6d04d3c076eef6d593b7de4d50879a671a439760d4d436210cc767"
+    },
+    {
+      "orientation": "swapped_P0",
+      "tuple": [
+        306,
+        41,
+        141,
+        10
+      ],
+      "sha256": "db669e0116a1816bbf53fed6cb1bc07a4549ef9665637433e05c059936ff9742"
+    },
+    {
+      "orientation": "swapped_P1",
+      "tuple": [
+        303,
+        32,
+        141,
+        17
+      ],
+      "sha256": "c43c37dfca7f748b0e4acadcd69c8be5e8c5bdeb3a0515c6c7e8c796250042e2"
+    }
+  ],
+  "exact_full228_bellman_polygon_vertices": [
+    {
+      "b": "27/64",
+      "z": "0",
+      "direct": "7053/32",
+      "swapped": "7053/32",
+      "swapped_plane": "P0",
+      "source": "previous native EC49FSO"
+    },
+    {
+      "b": "29/64",
+      "z": "0",
+      "direct": "1753/8",
+      "swapped": "1753/8",
+      "swapped_plane": "P0"
+    },
+    {
+      "b": "29/64",
+      "z": "1/8",
+      "direct": "1749/8",
+      "swapped": "1743/8",
+      "swapped_plane": "P0"
+    },
+    {
+      "b": "31/72",
+      "z": "1/8",
+      "direct": "126461/576",
+      "swapped": "126029/576",
+      "swapped_plane": "P0=P1"
+    },
+    {
+      "b": "27/64",
+      "z": "51/448",
+      "direct": "49269/224",
+      "swapped": "12279/56",
+      "swapped_plane": "P0=P1",
+      "source": "previous native EC49FSO"
+    },
+    {
+      "b": "27/64",
+      "z": "1/8",
+      "direct": "7037/32",
+      "swapped": "14021/64",
+      "swapped_plane": "P1"
+    }
+  ],
+  "independent_94_family_decoder": [
+    {
+      "orientation": "direct",
+      "b": "27/64",
+      "z": "1/8",
+      "value": "7037/32",
+      "reached_states": 10161
+    },
+    {
+      "orientation": "swapped",
+      "b": "27/64",
+      "z": "1/8",
+      "value": "14021/64",
+      "reached_states": 10143
+    },
+    {
+      "orientation": "direct",
+      "b": "31/72",
+      "z": "1/8",
+      "value": "126461/576",
+      "reached_states": 10153
+    },
+    {
+      "orientation": "swapped",
+      "b": "31/72",
+      "z": "1/8",
+      "value": "126029/576",
+      "reached_states": 10142
+    },
+    {
+      "orientation": "direct",
+      "b": "29/64",
+      "z": "1/8",
+      "value": "1749/8",
+      "reached_states": 10132
+    },
+    {
+      "orientation": "swapped",
+      "b": "29/64",
+      "z": "1/8",
+      "value": "1743/8",
+      "reached_states": 10078
+    }
+  ],
+  "proof": "Each complete original 228-observer named-response tree is globally feasible and has affine total cost, so unrestricted Bellman F is jointly concave. At all rectangle/polyhedral vertices unrestricted exact F matches the specified feasible tree plane. Concavity gives polygon-vertex convex-combination lower bounds; the matching complete tree is an equal upper bound. Equality follows for every real point of each convex polygon.",
+  "provenance": {
+    "identity": "historical EM-DIRECT-8454C6",
+    "sid": "MCP-44cfc4e6f2094f96861854ebefc77e84",
+    "activity": "RA-ED136F89271FD89288F3E58D",
+    "current_execution_authorized": false,
+    "formal_task": false,
+    "independent_portable": true
+  }
+}
