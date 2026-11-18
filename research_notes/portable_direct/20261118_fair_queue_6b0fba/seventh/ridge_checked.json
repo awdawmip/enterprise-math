@@ -1,0 +1,101 @@
+{
+  "projection_checks": {
+    "signed_vectors": 15376,
+    "exact_threshold_tie": true
+  },
+  "archive_replay": {
+    "machine": "x86_64",
+    "python": "3.12.14",
+    "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+    "setup_seconds": 4.977431008001076,
+    "micro": {
+      "fields": 98,
+      "candidate_tests": 385,
+      "baseline_perf": {
+        "unchanged_field_shortcuts": 28,
+        "candidate_row_visits": 4758,
+        "materialized_selected_rows": 780
+      },
+      "early_perf": {
+        "unchanged_field_shortcuts": 28,
+        "extra_source_rows": 995,
+        "candidate_row_visits": 1452,
+        "prefix_comparisons": 1380,
+        "skipped_rows": 3306,
+        "early_candidates": 285,
+        "materialized_selected_rows": 780
+      },
+      "ns_by_method": [
+        [
+          66400091,
+          62199037,
+          60783419,
+          60586033,
+          59340245
+        ],
+        [
+          36908683,
+          43652344,
+          34363776,
+          34418714,
+          34057693
+        ]
+      ],
+      "standalone_preparation_ns": [
+        4253141,
+        3604948,
+        3429363,
+        3472163,
+        3452147
+      ],
+      "max_prefix_rows": 44,
+      "max_measured_python_prefix_bytes": 3640
+    },
+    "inherited_safety": {
+      "fields": 256,
+      "invalid_constructors": 15,
+      "nonmonotone_actual_graph_calls": 5
+    },
+    "laws": [
+      {
+        "N": 21,
+        "reachable_branches": 8180,
+        "returned_rows": 36800,
+        "candidate_tests": 17728,
+        "reachable_leaves": 4090,
+        "complete_law_entries": 4096,
+        "baseline_visits": 53073,
+        "skipped": 24645
+      },
+      {
+        "N": 77,
+        "reachable_branches": 2046,
+        "returned_rows": 45762,
+        "candidate_tests": 5973,
+        "reachable_leaves": 1024,
+        "complete_law_entries": 1024,
+        "baseline_visits": 88749,
+        "skipped": 65343
+      }
+    ],
+    "audit": {
+      "prefix_audits": 21014,
+      "max_observed_aggregate_bits": 4107,
+      "independent_prefix_reconstructions": 285,
+      "stress_fields": 108,
+      "stress_fallbacks": 36,
+      "near_threshold_fields": 2
+    },
+    "until_factor_summary": {
+      "inherited_seeds": 3,
+      "new_seeds": 3,
+      "verified_pairs": 6,
+      "total_outputs": 10,
+      "sum_baseline_seconds": 1.6520352740008093,
+      "sum_prefix_seconds": 1.660917724000683,
+      "slower_prefix_pairs": 1,
+      "baseline_visits": 8589,
+      "skipped_visits": 5941
+    }
+  }
+}

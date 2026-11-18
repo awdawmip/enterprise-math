@@ -1,0 +1,164 @@
+# 截断进位窗的确定性偏移与校正后的平方函数
+
+任务 RH-BRC-CARRY-CLOSURE-20260909。V16 给出点态保留全部 $y<p\le n$ 的大素数窗 $H_y(n)$，V17 给出其精确时间增量。若每个二进块内固定 $y=\lfloor N^\theta\rfloor$，$1/2<\theta<2/3$，则该窗漏掉一个大小约为 $(3/2-2\log 2)y$ 的正偏移。**加回偏移后的窗口与原始 $J$ 相差有界块范数。未经校正的窗口在无穷多个二进块上必有至少常数倍 $N^{2\theta-1}$ 的平方能量。** 这个否定结论无条件成立，裸窗下界还可推至所有固定 $1/2<\theta<1$。原始 $J$ 的多对数估计仍开放。
+
+## 原件与归一化
+
+任务书和公开交接材料将 V11 商端口树、V13 有心递推及 V14 计数中心列为冻结前沿。V16 的常系数恒等式可用于对照实 Mellin 轴，V17 的奇素数半剩余类进位及移动端点增量可用于独立复算。本篇比较的是下文给出的点态大素数窗与原始计数中心平方函数。工具分支 437d4d595f1495d3a0486b3c06e9e2b14567db82 的五份公开源码已按提交读取，硬素数源码 blob 为 023dd13c0934b2bf49c1b4ab90d2b0fb992d3488。增量工具继续精确计算其声明的窗口。[公开任务书](https://github.com/awdawmip/enterprise-math/blob/29840e4bcf6fc68a07e3be7677913535b57749e7/research_tasks/RH_BRC_COUNT_CENTERED_CARRY_CLOSURE_20260909.md) · [冻结计数中心实现](https://github.com/awdawmip/enterprise-math/blob/437d4d595f1495d3a0486b3c06e9e2b14567db82/src/enterprise_math/brc_count_centered_carry.py) · [冻结大素数增量实现](https://github.com/awdawmip/enterprise-math/blob/437d4d595f1495d3a0486b3c06e9e2b14567db82/src/enterprise_math/brc_large_prime_hard_core.py)
+
+令 $n$ 跑遍整数 $[N,2N)$，$N=2^k$。本篇块范数保留原任务的分母与求和方式，
+
+$$
+\|F\|_N^2=\sum_{N\le n<2N}\frac{|F(n)|^2}{n^2}.
+$$
+
+置 $c_m(n)=\lfloor2n/m\rfloor-2\lfloor n/m\rfloor$，$\alpha_n=n^{-1}\sum_{m\le n}c_m(n)$，$\gamma=2\log2-1$。原始量与冻结截断分别为
+
+$$
+J(n)=\sum_{m\le n}(c_m(n)-\alpha_n)\Lambda(m),\qquad
+H_y(n)=\sum_{y<p\le n}(c_p(n)-\gamma)\log p .
+$$
+
+所有对 $p$ 的求和都取普通素数。每块先选好 $2\le y\le N$，块内随 $n$ 更新上端 $n$，因而包含 $N<p\le n$。当 $n=p$，$c_p(p)=0$，新进入的素数贡献 $-\gamma\log p$。冻结增量的端点校正与此相符。
+
+## 一　两种平均值及精确修正
+
+按 $n$ 遍历模 $p$ 的一个完整周期。奇素数的进位发生在余数 $(p+1)/2,\ldots,p-1$，而 $p=2$ 时在奇数发生。两种情形统一为
+
+$$
+a_p=p^{-1}\sum_{r=0}^{p-1}c_p(r)=\lfloor p/2\rfloor/p.
+$$
+
+定义块常数及零时间均值的小素数项
+
+$$
+B_y=\sum_{p\le y}(a_p-\gamma)\log p,\qquad
+L_y(n)=\sum_{p\le y}(c_p(n)-a_p)\log p.
+$$
+
+写 $\vartheta(y)=\sum_{p\le y}\log p$。由 PNT 及 $\sum_{p\le y}(\log p)/p=O(\log y)$ 得
+
+$$
+B_y=(\tfrac12-\gamma)\vartheta(y)
+       -\tfrac12\sum_{3\le p\le y}\frac{\log p}{p}
+    \sim c_0 y,\qquad c_0=\tfrac32-2\log2>0 .
+$$
+
+**精确分解。** 令 $\psi(n)=\sum_{m\le n}\Lambda(m)$，则
+
+$$
+J=H_y+B_y+L_y+P_2+D,\qquad
+P_2(n)=\sum_{\substack{p^j\le n\\j\ge2}}(c_{p^j}(n)-\gamma)\log p,\quad
+D(n)=(\gamma-\alpha_n)\psi(n).
+$$
+
+它只按普通素数、较高素数幂及中心变换逐项重排。原任务中的 $W(N)$ 就是 $\|J\|_N^2$。
+
+**无条件余项界。** 各 $q_p(n)=c_p(n)-a_p$ 的有限傅里叶展开只有 $h/p$，$1\le h<p$。这些频率跨素数互异，圆周间隔至少 $y^{-2}$。归一化使 $\sum_{h=1}^{p-1}|\widehat q_p(h)|^2=a_p(1-a_p)\le1/4$。经典加性大筛与 Chebyshev 界因此给出
+
+$$
+\|L_y\|_N^2\ll N^{-2}(N+y^2)\sum_{p\le y}(\log p)^2
+\ll (y/N+y^3/N^2)\log(2y).
+$$
+
+即便只用初等间距法，把几何级数的绝对值按间距分组求调和和，也可在 $y^2$ 项再付出 $O(\log y)$，仍足够处理每个固定 $\theta<2/3$。另外 $\sum_{j\ge2}\vartheta(n^{1/j})=O(\sqrt n)$，首项为 $O(\sqrt n)$，其余至多 $O(n^{1/3}\log n)$。计数中心误差可用初等双曲线法独立求出。写 $D_0(t)=\sum_{m\le t}\lfloor t/m\rfloor$。$n<m\le2n$ 的 $n$ 个位置各给出一，故 $n\alpha_n=D_0(2n)-2D_0(n)-n$。对 $u=\lfloor\sqrt t\rfloor$ 有 $D_0(t)=2\sum_{m\le u}\lfloor t/m\rfloor-u^2=t\log t+(2\gamma_E-1)t+O(\sqrt t)$，其中 $\gamma_E$ 为欧拉常数。代入即得 $\alpha_n-\gamma=O(n^{-1/2})$，又有 $\psi(n)=O(n)$。故 $\|P_2\|_N+\|D\|_N=O(1)$。综合得
+
+$$
+\boxed{\ \|J-(H_y+B_y)\|_N
+ \ll 1+\sqrt{(y/N+y^3/N^2)\log(2y)}.\ }
+$$
+
+对固定 $1/2<\theta<2/3$，取 $y=\lfloor N^\theta\rfloor$，右侧 $O(1)$，且 $\|L_y\|_N=o(1)$。这使 **校正窗** 与 $J$ 在有界平方能量或固定多对数平方能量两个问题上分别等价。在边界 $\theta=2/3$，本论证给出 $O(\sqrt{\log N})$ 的范数差，可用于固定多对数问题。
+
+单独衡量裸窗与原始量有更强的无条件结论。因为 $\sum_{N\le n<2N}n^{-2}=(2N)^{-1}+O(N^{-2})$，由三角不等式及其反向形式，
+
+$$
+\|J-H_y\|_N=\frac{|B_y|}{\sqrt{2N}}+O(1)
+             \sim \frac{c_0}{\sqrt2}N^{\theta-1/2}.
+$$
+
+以上 $+O(1)$ 对应 $\theta<2/3$。更一般地，对每个固定 $1/2<\theta<1$，框中公式右侧为 $O(1+N^{3\theta/2-1}\sqrt{\log N})=o(N^{\theta-1/2})$，所以 $\|J-H_y\|_N\sim c_0N^{\theta-1/2}/\sqrt2$ 在这一完整区间仍成立。
+
+块内 $B_y$ 的增量为零。故 V17 对相邻 $n$ 的精确证书仍成立，单独复核这些增量无法检测不同块的常数偏移。
+
+## 二　裸窗自身不能满足固定多对数上界
+
+**无条件下界。** 对每个固定 $1/2<\theta<1$ 及上述每块固定的 $y$，置 $g(s)=\int_1^2 t^{-s-1}\,dt$，$h(s)=(\int_1^2 t^{-2s}\,dt)^{1/2}$。则
+
+$$
+\limsup_{k\to\infty} \frac{\|H_{\lfloor N^\theta\rfloor}\|_N}{N^{\theta-1/2}}
+\ \ge\ c_0\frac{g(\theta)}{h(\theta)}>0,\qquad N=2^k .
+$$
+
+此处需要排除原始 $J$ 本身具有恰好抵消 $B_y$ 的正实幂偏移。用 Legendre 的阶乘恒等式，对整个原始窗精确求和得
+
+$$
+J(n)=\log {2n\choose n}-\psi(2n)+(1-\alpha_n)\psi(n).
+$$
+
+令 $E(x)=\psi(x)-x$，$a=1-\gamma$。Stirling 与上节的计数中心估计给出，对 $x\ge2$ 一致有
+
+$$
+J(\lfloor x\rfloor)=aE(x)-E(2x)+O(\sqrt x).
+$$
+
+从整数 $n$ 到 $x$ 的切换仅涉及有界位移和至多一个新的偶倍端点素数幂，其大小 $O(\log x)$。对 $\operatorname{Re}s>1$，
+
+$$
+\int_1^\infty E(x)x^{-s-1}\,dx=-\frac{\zeta'(s)}{s\zeta(s)}-\frac1{s-1}.
+$$
+
+因此 $J(\lfloor x\rfloor)$ 的 Mellin 积分亚纯延拓至 $\operatorname{Re}s>1/2$，在任何实 $s=\theta\in(1/2,1)$ 邻域解析。理由是上式的组合系数 $a-2^s$ 与从 $1$ 到 $2$ 的端段整函数均正则，$O(\sqrt x)$ 给出解析余项，并且 $\zeta(\theta)\ne0$。最后一点也可直接由交错 eta 函数在正实轴为正得出。
+
+为核对量化常数，设左侧上极限为 $L<\infty$（无穷时结论直接成立）。把 $H$、$J$ 按每个单位格 $[n,n+1)$ 延拓为常数，把 $B_y$ 按二进块延拓为常数。上节余项 $J-H-B$ 的 Mellin 积分在 $\operatorname{Re}s>\max(1/2,(3\theta-1)/2)$ 绝对收敛且解析，因为每块积分至多为其块范数乘 $O_s(N^{1/2-\operatorname{Re}s})$。这个实部阈值严格小于 $\theta$。对实 $s\downarrow\theta$，正偏移的实轴 Abel 极限为
+
+$$
+(s-\theta)\int_1^\infty B(x)x^{-s-1}\,dx
+=(s-\theta)g(s)\sum_{k\ge0} B_{\lfloor 2^{k\theta}\rfloor}2^{-ks}
+\ \longrightarrow\ c_0g(\theta)/\log 2 .
+$$
+
+有限个起始块可任意定义。另一方面，对 $H$ 每块使用 Cauchy–Schwarz，系数平方和的平方根为
+
+$$
+\left(\sum_{n=N}^{2N-1}
+   \left[n\int_n^{n+1}x^{-s-1}dx\right]^2\right)^{1/2}
+   =(h(s)+o(1))N^{1/2-s},
+$$
+
+误差对 $\theta$ 邻域的实 $s$ 一致。据此 $H$ 的积分在 $\operatorname{Re}s>\theta$ 绝对收敛，沿实轴将其乘 $s-\theta$ 后，绝对值上极限至多 $Lh(\theta)/\log2$。三项积分在 $\operatorname{Re}s>1$ 与原始 $J$ 的积分相等，解析延拓使它们在 $s>\theta$ 延续这一关系。$J$ 在实点 $\theta$ 正则，而 $B$ 的正实轴 Abel 极限须由 $H$ 抵消，故 $Lh(\theta)\ge c_0g(\theta)$。这排除了裸窗全尺度多对数上界，同时允许块间的真实算术振荡。
+
+**仅在 RH 下的加强。** 若假定 RH，经典 $\psi(x)-x=O(\sqrt x\log^2 x)$ 给 $\|J\|_N=O(\log^2 N)$。在整个 $1/2<\theta<1$ 上，第一节控制的余项仍为 $o(N^{\theta-1/2})$，反三角不等式给出完整渐近式
+
+$$
+\|H_y\|_N^2\sim \frac{c_0^2}{2}N^{2\theta-1}.
+$$
+
+无条件结论是上极限下界，此处的逐块渐近另用了 RH。原始 $W(N)$ 的多对数上界仍需对 $H_y+B_y$ 的带符号耦合和作算术估计。
+
+## 三　纯几何框架的任意秩障碍
+
+V17 证明框架最大特征值 $\gg N$，其余谱此前为数值诊断。令 $F_{nm}=n^{-1/2}(c_m(n)-\alpha_n)1_{m\le n}$，$N\le n<2N$。限制行列到 $\lceil4N/3\rceil,\ldots,2N-1$ 共 $L$ 个指标。在该窗口中，$m\le n$ 时 $1\le n/m<3/2$，所以 $c_m(n)=0$，此子矩阵**精确**等于 $-\operatorname{diag}(\alpha_n/\sqrt n)T_L$，其中 $T_{ij}=1_{j\le i}$。从 $n/2<m\le2n/3$ 的全进位区间得 $\alpha_n\ge1/6-1/n\ge1/12$（$n\ge12$）。
+
+$T_L$ 的奇异值降序为 $[2\sin((2j-1)\pi/(4L+2))]^{-1}$，可直接对其逆一阶差分矩阵的三对角平方对角化。由压缩及最小最大原理，$1\le j\le L$ 时有
+
+$$
+\lambda_j(FF^*)\ge\frac{(2L+1)^2}{288\pi^2N(2j-1)^2}.
+$$
+
+故去掉任意 $r<L$ 个线性方向后，最佳谱范数残差的平方仍至少为常数倍 $N/(r+1)^2$。纯几何地想把余部压到 $O(\log^A N)$，至少须去掉 $\gg\sqrt{N/\log^A N}$ 个方向。这是一侧下界，未给出匹配的上界；它也不限制特定的算术输入在这些方向上的投影大小。
+
+## 可复算证据及开放项
+
+本目录 carry_check.py 和 carry_checked.json 可用标准库复算，添加 --v17-src 指向冻结的公开源码目录即可同时运行原增量证书。程序在 97 个素数上核验整周期及 $n=p$ 端点，逐项对比 190 个位置的 4,660 个形式 $\log p$ 系数（常数和 $\gamma$ 系数分别比较），并调用冻结增量 190 次。另以整数除法核对外三角 53,417 个条目的进位都为零。
+
+下表为同一批二进块，$\theta=3/5$。$J$ 从素数幂逐项求和，再用二项式与 $\psi$ 独立计算；$H_y$ 从窗口素数逐项求和，再自块起点以 V17 的粗素因子增量逐点推进。四块中的最大绝对差低于 $2.7\times10^{-11}$。能量数值为浮点核查，渐近结论来自前两节的推导。
+
+| $N$ | $y$ | $B_y$ | $\|J\|_N^2$ | $\|H_y\|_N^2$ | $\|H_y+B_y\|_N^2$ | $\|J-H_y-B_y\|_N^2$ |
+|---:|---:|---:|---:|---:|---:|---:|
+| 32 | 8 | 0.124957 | 0.105544 | 0.138670 | 0.131630 | 0.083493 |
+| 128 | 18 | 0.720436 | 0.088909 | 0.165452 | 0.144639 | 0.059667 |
+| 512 | 42 | 2.664763 | 0.113791 | 0.195031 | 0.154286 | 0.046329 |
+| 2048 | 97 | 8.008941 | 0.087266 | 0.144975 | 0.100044 | 0.036168 |
+
+回到冻结的 $1/2<\theta<2/3$ 范围，原目标可继续写作 $\|H_{\lfloor N^\theta\rfloor}+B_{\lfloor N^\theta\rfloor}\|_N^2=O((\log N)^A)$。校正仅固定被截去的小素数时间均值，跨端口、跨素数的有符号波动仍是待解项。
