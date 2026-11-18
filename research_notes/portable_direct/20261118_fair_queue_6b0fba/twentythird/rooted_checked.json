@@ -1,0 +1,594 @@
+{
+  "induced_link_comparison": {
+    "9": {
+      "common_types": 2,
+      "compatible_subset_pairs": 32,
+      "participating_subsets": [
+        16,
+        4
+      ],
+      "sealed_examples": [
+        {
+          "FCC_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9
+          ],
+          "FCC_sealed": {
+            "newly_exposed": 0,
+            "occupied": 299,
+            "weights_root_then_ports": [
+              3,
+              7,
+              7,
+              8,
+              8,
+              7,
+              8,
+              8,
+              8,
+              8
+            ]
+          },
+          "FCC_to_HCP_local_indices": [
+            0,
+            3,
+            1,
+            4,
+            5,
+            2,
+            7,
+            6,
+            8
+          ],
+          "HCP_indices": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            7,
+            9,
+            10,
+            11
+          ],
+          "HCP_sealed": {
+            "newly_exposed": 0,
+            "occupied": 313,
+            "weights_root_then_ports": [
+              3,
+              7,
+              8,
+              8,
+              7,
+              8,
+              7,
+              8,
+              8,
+              8
+            ]
+          }
+        },
+        {
+          "FCC_indices": [
+            0,
+            1,
+            2,
+            4,
+            6,
+            7,
+            8,
+            10,
+            11
+          ],
+          "FCC_sealed": {
+            "newly_exposed": 0,
+            "occupied": 299,
+            "weights_root_then_ports": [
+              3,
+              8,
+              8,
+              9,
+              8,
+              9,
+              8,
+              9,
+              8,
+              8
+            ]
+          },
+          "FCC_to_HCP_local_indices": [
+            0,
+            5,
+            1,
+            3,
+            7,
+            2,
+            8,
+            4,
+            6
+          ],
+          "HCP_indices": [
+            0,
+            1,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "HCP_sealed": {
+            "newly_exposed": 0,
+            "occupied": 313,
+            "weights_root_then_ports": [
+              3,
+              8,
+              9,
+              8,
+              8,
+              8,
+              8,
+              8,
+              9,
+              9
+            ]
+          }
+        }
+      ]
+    },
+    "10": {
+      "common_types": 0,
+      "compatible_subset_pairs": 0,
+      "participating_subsets": [
+        0,
+        0
+      ],
+      "sealed_examples": []
+    },
+    "11": {
+      "common_types": 0,
+      "compatible_subset_pairs": 0,
+      "participating_subsets": [
+        0,
+        0
+      ],
+      "sealed_examples": []
+    },
+    "12": {
+      "common_types": 0,
+      "compatible_subset_pairs": 0,
+      "participating_subsets": [
+        0,
+        0
+      ],
+      "sealed_examples": []
+    }
+  },
+  "worlds": {
+    "FCC": {
+      "all_claws_center_then_leaves": [],
+      "claw_incidence_per_port": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "claws": 0,
+      "edges": 24,
+      "link_automorphisms": 48,
+      "local_partitions_checked": 4472,
+      "ports_lexicographic": [
+        [
+          -1,
+          -1,
+          0
+        ],
+        [
+          -1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          0,
+          1
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          0,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          0,
+          1,
+          -1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "subset_orbits": {
+        "9": 9,
+        "10": 4,
+        "11": 1,
+        "12": 1
+      },
+      "triangles": 8,
+      "two_deletion_orbits": [
+        {
+          "card_aut": 2,
+          "link_stabilizer_image": 2,
+          "missing_indices": [
+            10,
+            11
+          ],
+          "orbit_size": 24
+        },
+        {
+          "card_aut": 4,
+          "link_stabilizer_image": 4,
+          "missing_indices": [
+            9,
+            10
+          ],
+          "orbit_size": 12
+        },
+        {
+          "card_aut": 2,
+          "link_stabilizer_image": 2,
+          "missing_indices": [
+            7,
+            9
+          ],
+          "orbit_size": 24
+        },
+        {
+          "card_aut": 16,
+          "link_stabilizer_image": 8,
+          "missing_indices": [
+            5,
+            6
+          ],
+          "nonextending_index_permutation_on_sorted_survivors": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            6,
+            9,
+            8
+          ],
+          "orbit_size": 6,
+          "sealed": {
+            "newly_exposed": 0,
+            "occupied": 298,
+            "weights_root_then_ports": [
+              2,
+              8,
+              8,
+              8,
+              8,
+              7,
+              7,
+              8,
+              8,
+              8,
+              8
+            ]
+          }
+        }
+      ]
+    },
+    "HCP": {
+      "all_claws_center_then_leaves": [
+        [
+          1,
+          [
+            0,
+            2,
+            5
+          ]
+        ],
+        [
+          3,
+          [
+            0,
+            2,
+            9
+          ]
+        ],
+        [
+          5,
+          [
+            1,
+            4,
+            6
+          ]
+        ],
+        [
+          9,
+          [
+            3,
+            7,
+            8
+          ]
+        ],
+        [
+          10,
+          [
+            4,
+            6,
+            11
+          ]
+        ],
+        [
+          11,
+          [
+            7,
+            8,
+            10
+          ]
+        ]
+      ],
+      "claw_incidence_per_port": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "claws": 6,
+      "edges": 24,
+      "link_automorphisms": 12,
+      "local_partitions_checked": 4562,
+      "ports_lexicographic": [
+        [
+          -1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          -1,
+          0,
+          1
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          0,
+          -1,
+          -1
+        ],
+        [
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "subset_orbits": {
+        "9": 25,
+        "10": 10,
+        "11": 2,
+        "12": 1
+      },
+      "triangles": 8,
+      "two_deletion_orbits": [
+        {
+          "card_aut": 4,
+          "link_stabilizer_image": 4,
+          "missing_indices": [
+            10,
+            11
+          ],
+          "orbit_size": 3
+        },
+        {
+          "card_aut": 4,
+          "link_stabilizer_image": 4,
+          "missing_indices": [
+            9,
+            11
+          ],
+          "orbit_size": 3
+        },
+        {
+          "card_aut": 2,
+          "link_stabilizer_image": 2,
+          "missing_indices": [
+            9,
+            10
+          ],
+          "orbit_size": 6
+        },
+        {
+          "card_aut": 1,
+          "link_stabilizer_image": 1,
+          "missing_indices": [
+            8,
+            11
+          ],
+          "orbit_size": 12
+        },
+        {
+          "card_aut": 1,
+          "link_stabilizer_image": 1,
+          "missing_indices": [
+            8,
+            10
+          ],
+          "orbit_size": 12
+        },
+        {
+          "card_aut": 4,
+          "link_stabilizer_image": 4,
+          "missing_indices": [
+            7,
+            8
+          ],
+          "orbit_size": 3
+        },
+        {
+          "card_aut": 1,
+          "link_stabilizer_image": 1,
+          "missing_indices": [
+            6,
+            9
+          ],
+          "orbit_size": 12
+        },
+        {
+          "card_aut": 2,
+          "link_stabilizer_image": 2,
+          "missing_indices": [
+            6,
+            8
+          ],
+          "orbit_size": 6
+        },
+        {
+          "card_aut": 2,
+          "link_stabilizer_image": 2,
+          "missing_indices": [
+            6,
+            7
+          ],
+          "orbit_size": 6
+        },
+        {
+          "card_aut": 8,
+          "link_stabilizer_image": 4,
+          "missing_indices": [
+            5,
+            9
+          ],
+          "nonextending_index_permutation_on_sorted_survivors": [
+            0,
+            1,
+            2,
+            3,
+            6,
+            7,
+            4,
+            5,
+            9,
+            8
+          ],
+          "orbit_size": 3,
+          "sealed": {
+            "newly_exposed": 0,
+            "occupied": 312,
+            "weights_root_then_ports": [
+              2,
+              7,
+              8,
+              7,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
