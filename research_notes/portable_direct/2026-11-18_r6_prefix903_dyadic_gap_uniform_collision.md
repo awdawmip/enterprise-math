@@ -19,7 +19,7 @@ For any odd `a,b` in `Q`, if `|a-b|=2^h` for some integer `1<=h<=17`, then there
 
 *Constructive proof for `a=b+2^h`.* Put `t=2^(h-1)`, `i=h-1`, and `r=a mod (2t)`. Define
 \[
-x=\begin{cases}0,&r\ge t,\t-r,&r<t,\end{cases}
+x=\begin{cases}0,&r\ge t,t-r,&r<t,\end{cases}
 qquad y=x+a.
 \]
 Because `a` is odd and `2t` is even, `r` is odd and nonzero. Hence `0<=x<t`, so bit `i` of `x` is zero, whereas `(x+a) mod 2t` lies in `[t,2t)`, so bit `i` of `y` is one. Thus the two admissible named trajectories
@@ -47,7 +47,7 @@ pairs, every one of which has a named-XOR collision certificate.
 
 Define E as the **exact PREFIX-897** symmetric certified set:
 \[
-E=\{(a,b)\in Q^2:ab<33N \lor ain U \lor bin U
+E=\{(a,b)\in Q^2:ab<33N \lor a\in U \lor b\in U
  \lor \mathrm{lcm}(a,b)<N
  \lor 33\lceil N/a\rceil>b \lor 33\lceil N/b\rceil>a},
 \]
