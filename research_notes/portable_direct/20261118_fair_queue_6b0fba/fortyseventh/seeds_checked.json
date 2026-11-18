@@ -1,0 +1,272 @@
+{
+  "minimal_joint_repair": {
+    "entries": 6,
+    "left_holes": 1,
+    "minimum_joint_edits": 2,
+    "right_holes": 1
+  },
+  "noncoprime_counterexample": {
+    "D": 6,
+    "active_sizes": [
+      2,
+      2
+    ],
+    "periods": [
+      2,
+      2
+    ]
+  },
+  "noncoprime_images": [
+    {
+      "image_size": 2,
+      "periods": [
+        2,
+        2
+      ],
+      "residue_multiplicity": 2
+    },
+    {
+      "image_size": 12,
+      "periods": [
+        4,
+        6
+      ],
+      "residue_multiplicity": 2
+    },
+    {
+      "image_size": 36,
+      "periods": [
+        4,
+        6,
+        9
+      ],
+      "residue_multiplicity": 6
+    }
+  ],
+  "reduced_model": {
+    "bases_x_low": [
+      [
+        -5,
+        18
+      ],
+      [
+        9,
+        7
+      ]
+    ],
+    "histograms": [
+      {
+        "fault": "none",
+        "ordinary_c_multiplicity": 23,
+        "ordinary_histogram": {
+          "1": 782
+        },
+        "seed": 1,
+        "seed_c_multiplicity": 299,
+        "seed_histogram": {
+          "1": 10166
+        }
+      },
+      {
+        "fault": "a",
+        "ordinary_c_multiplicity": 23,
+        "ordinary_histogram": {
+          "0": 6,
+          "1": 770,
+          "2": 6
+        },
+        "seed": 1,
+        "seed_c_multiplicity": 299,
+        "seed_histogram": {
+          "0": 248,
+          "1": 9670,
+          "2": 248
+        }
+      },
+      {
+        "fault": "b",
+        "ordinary_c_multiplicity": 23,
+        "ordinary_histogram": {
+          "0": 17,
+          "1": 748,
+          "2": 17
+        },
+        "seed": 1,
+        "seed_c_multiplicity": 299,
+        "seed_histogram": {
+          "0": 51,
+          "1": 10064,
+          "2": 51
+        }
+      },
+      {
+        "fault": "ab",
+        "ordinary_c_multiplicity": 23,
+        "ordinary_histogram": {
+          "0": 23,
+          "1": 736,
+          "2": 23
+        },
+        "seed": 1,
+        "seed_c_multiplicity": 299,
+        "seed_histogram": {
+          "0": 299,
+          "1": 9568,
+          "2": 299
+        }
+      },
+      {
+        "fault": "none",
+        "ordinary_c_multiplicity": 31,
+        "ordinary_histogram": {
+          "1": 1767
+        },
+        "seed": 2,
+        "seed_c_multiplicity": 403,
+        "seed_histogram": {
+          "1": 22971
+        }
+      },
+      {
+        "fault": "a",
+        "ordinary_c_multiplicity": 31,
+        "ordinary_histogram": {
+          "0": 12,
+          "1": 1743,
+          "2": 12
+        },
+        "seed": 2,
+        "seed_c_multiplicity": 403,
+        "seed_histogram": {
+          "0": 327,
+          "1": 22317,
+          "2": 327
+        }
+      },
+      {
+        "fault": "b",
+        "ordinary_c_multiplicity": 31,
+        "ordinary_histogram": {
+          "0": 19,
+          "1": 1729,
+          "2": 19
+        },
+        "seed": 2,
+        "seed_c_multiplicity": 403,
+        "seed_histogram": {
+          "0": 76,
+          "1": 22819,
+          "2": 76
+        }
+      },
+      {
+        "fault": "ab",
+        "ordinary_c_multiplicity": 31,
+        "ordinary_histogram": {
+          "0": 31,
+          "1": 1705,
+          "2": 31
+        },
+        "seed": 2,
+        "seed_c_multiplicity": 403,
+        "seed_histogram": {
+          "0": 403,
+          "1": 22165,
+          "2": 403
+        }
+      }
+    ],
+    "horizontal_group": "Z/13",
+    "lambda_s": "(5*s+2) mod 13",
+    "rotation_cycles": [
+      2,
+      2,
+      3,
+      6
+    ],
+    "same_z_both_seeds": true,
+    "seed_a_b_low": [
+      [
+        2,
+        17,
+        23
+      ],
+      [
+        3,
+        19,
+        31
+      ]
+    ]
+  },
+  "semigroup_checks": [
+    {
+      "D_checked_through": 18,
+      "frobenius": 1,
+      "largest_impossible": 6,
+      "largest_impossible_with_background": 12,
+      "periods": [
+        2,
+        3
+      ],
+      "size_vector_comparisons": 123
+    },
+    {
+      "D_checked_through": 30,
+      "frobenius": 3,
+      "largest_impossible": 10,
+      "largest_impossible_with_background": 20,
+      "periods": [
+        2,
+        5
+      ],
+      "size_vector_comparisons": 343
+    },
+    {
+      "D_checked_through": 36,
+      "frobenius": 5,
+      "largest_impossible": 12,
+      "largest_impossible_with_background": 24,
+      "periods": [
+        3,
+        4
+      ],
+      "size_vector_comparisons": 519
+    },
+    {
+      "D_checked_through": 120,
+      "frobenius": 29,
+      "largest_impossible": 60,
+      "largest_impossible_with_background": 90,
+      "periods": [
+        2,
+        3,
+        5
+      ],
+      "size_vector_comparisons": 5640
+    },
+    {
+      "D_checked_through": 240,
+      "frobenius": 73,
+      "largest_impossible": 120,
+      "largest_impossible_with_background": 180,
+      "periods": [
+        3,
+        4,
+        5
+      ],
+      "size_vector_comparisons": 25690
+    }
+  ],
+  "shear_translations_checked": 29800,
+  "source_example": {
+    "D": 1982119441,
+    "feasible_size_vectors": 55056400,
+    "least_active_sizes": [
+      3,
+      4
+    ],
+    "minimal_labeled_region_pairs": 2407155169560690407160967163800,
+    "p": 211,
+    "sector_size": 44521
+  }
+}

@@ -1,0 +1,1883 @@
+{
+  "Q": 531441,
+  "T": 6,
+  "a": 2,
+  "comparison_original_event_tree": [
+    {
+      "eight_primitives": 127655,
+      "first_primitive": 18394,
+      "initial_atom_primitive": 2,
+      "nodes": 30,
+      "oracle_setup_primitives": 886,
+      "output_keys": [
+        [
+          [
+            0,
+            4,
+            2
+          ],
+          1
+        ],
+        [
+          [
+            0,
+            3,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            3,
+            0,
+            3
+          ],
+          0
+        ],
+        [
+          [
+            3,
+            0,
+            3
+          ],
+          0
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          2
+        ],
+        [
+          [
+            2,
+            3,
+            1
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            1,
+            3
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          1
+        ]
+      ],
+      "outputs": 8,
+      "rank_bits": 300,
+      "rank_expected_bits": "20971520/531441",
+      "rank_generation_primitive": 3344,
+      "rank_seed": 20263088
+    },
+    {
+      "eight_primitives": 96545,
+      "first_primitive": 13826,
+      "initial_atom_primitive": 2,
+      "nodes": 39,
+      "oracle_setup_primitives": 977,
+      "output_keys": [
+        [
+          [
+            0,
+            4,
+            2
+          ],
+          1
+        ],
+        [
+          [
+            4,
+            0,
+            2
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            1
+          ],
+          1
+        ],
+        [
+          [
+            3,
+            3,
+            0
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          0
+        ]
+      ],
+      "outputs": 8,
+      "rank_bits": 180,
+      "rank_expected_bits": "20971520/531441",
+      "rank_generation_primitive": 1988,
+      "rank_seed": 20264488
+    },
+    {
+      "eight_primitives": 66182,
+      "first_primitive": 33361,
+      "initial_atom_primitive": 2,
+      "nodes": 28,
+      "oracle_setup_primitives": 2214,
+      "output_keys": [
+        [
+          [
+            3,
+            3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            1
+          ],
+          0
+        ],
+        [
+          [
+            3,
+            1,
+            2
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          2
+        ],
+        [
+          [
+            0,
+            2,
+            4
+          ],
+          2
+        ],
+        [
+          [
+            3,
+            1,
+            2
+          ],
+          2
+        ],
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          1
+        ],
+        [
+          [
+            0,
+            2,
+            4
+          ],
+          2
+        ]
+      ],
+      "outputs": 8,
+      "rank_bits": 320,
+      "rank_expected_bits": "20971520/531441",
+      "rank_generation_primitive": 3530,
+      "rank_seed": 20268688
+    }
+  ],
+  "complete_law_certificates": [
+    {
+      "Gamma": "20044/19683",
+      "TV": "80576/531441",
+      "actual_max_likelihood_ratio_validation_only": "129/65",
+      "capped_retry_TV": {
+        "0": "80576/531441",
+        "1": "121971678272/847288609443",
+        "2": "184634262069205184/1350851717672992089",
+        "4": "423076483442215301747639166656/3433683820292512484657849089281"
+      },
+      "corrected_bits_breakdown": {
+        "class_filter": "14192/6561",
+        "initial_keep": "130912/177147",
+        "point_thinning": "357992/531441"
+      },
+      "correction_expected_bits": "1285818771317/34828517376",
+      "direct_ordered_visible_expected_bits": "112433/16384",
+      "entropy_baseline_visible_bits": {
+        "lower": 4893603,
+        "scale": 1000000,
+        "upper": 4893604
+      },
+      "entropy_record_visible_bits": {
+        "lower": 6411984,
+        "scale": 1000000,
+        "upper": 6411985
+      },
+      "entropy_target_bits": {
+        "lower": 4982080,
+        "scale": 1000000,
+        "upper": 4982081
+      },
+      "exact_visible_atoms_checked": 63,
+      "expected_uncached_point_requests": "31456/19683",
+      "finite_retry_full_laws_checked": 8,
+      "modulus": 21,
+      "positive_joint_atoms": 315,
+      "positive_keys": 63,
+      "proposal_baseline_joint_bits": "2185157/262144",
+      "rejected_mass_equals_surplus": true,
+      "scalar_M": 4,
+      "sharp_joint_ratio_validation_only": "169/49",
+      "surplus_numerator": 80576,
+      "theta": "1268/2187",
+      "tilted_capped_retry_TV": {
+        "0": "80576/531441",
+        "1": "9278568128/71902372977",
+        "2": "1068454955643584/9728175356669169",
+        "4": "14167940729737552781617856/178076956369766942117838321"
+      },
+      "tilted_proposal_bits": "1004737/131072",
+      "tilted_sampler_expected_bits": "2445584077181/139314069504",
+      "validation_point_stats": {
+        "native_address_updates": 3078,
+        "peak_integer_bits": 20,
+        "records": 50169,
+        "scalar_operations": 6387
+      }
+    },
+    {
+      "Gamma": "6632/19683",
+      "TV": "33280/531441",
+      "actual_max_likelihood_ratio_validation_only": "97/65",
+      "capped_retry_TV": {
+        "0": "33280/531441",
+        "1": "16578798080/282429536481",
+        "2": "8258910630330880/150094635296999121",
+        "4": "2049567451916839350920020480/42391158275216203514294433201"
+      },
+      "corrected_bits_breakdown": {
+        "class_filter": "0",
+        "initial_keep": "179680/531441",
+        "point_thinning": "152272/531441"
+      },
+      "correction_expected_bits": "1204791633781/69657034752",
+      "direct_ordered_visible_expected_bits": "224211/32768",
+      "entropy_baseline_visible_bits": {
+        "lower": 4893603,
+        "scale": 1000000,
+        "upper": 4893604
+      },
+      "entropy_record_visible_bits": {
+        "lower": 6411984,
+        "scale": 1000000,
+        "upper": 6411985
+      },
+      "entropy_target_bits": {
+        "lower": 4895535,
+        "scale": 1000000,
+        "upper": 4895536
+      },
+      "exact_visible_atoms_checked": 63,
+      "expected_uncached_point_requests": "13264/19683",
+      "finite_retry_full_laws_checked": 8,
+      "modulus": 35,
+      "positive_joint_atoms": 315,
+      "positive_keys": 63,
+      "proposal_baseline_joint_bits": "2185157/262144",
+      "rejected_mass_equals_surplus": true,
+      "scalar_M": 2,
+      "sharp_joint_ratio_validation_only": "2",
+      "surplus_numerator": 33280,
+      "theta": "6632/19683",
+      "tilted_capped_retry_TV": {
+        "0": "33280/531441",
+        "1": "606461440/11895243903",
+        "2": "11051546821120/266251244280849",
+        "4": "3669972570294698836480/133391524329324096806961"
+      },
+      "tilted_proposal_bits": "119551/16384",
+      "tilted_sampler_expected_bits": "1590817730549/139314069504",
+      "validation_point_stats": {
+        "native_address_updates": 3078,
+        "peak_integer_bits": 20,
+        "records": 45146,
+        "scalar_operations": 5318
+      }
+    },
+    {
+      "Gamma": "0",
+      "TV": "0",
+      "actual_max_likelihood_ratio_validation_only": "1",
+      "capped_retry_TV": {
+        "0": "0",
+        "1": "0",
+        "2": "0",
+        "4": "0"
+      },
+      "corrected_bits_breakdown": {
+        "class_filter": "0",
+        "initial_keep": "0",
+        "point_thinning": "0"
+      },
+      "correction_expected_bits": "2185157/262144",
+      "direct_ordered_visible_expected_bits": "454887/65536",
+      "entropy_baseline_visible_bits": {
+        "lower": 4893603,
+        "scale": 1000000,
+        "upper": 4893604
+      },
+      "entropy_record_visible_bits": {
+        "lower": 6411984,
+        "scale": 1000000,
+        "upper": 6411985
+      },
+      "entropy_target_bits": {
+        "lower": 4893603,
+        "scale": 1000000,
+        "upper": 4893604
+      },
+      "exact_visible_atoms_checked": 63,
+      "expected_uncached_point_requests": "0",
+      "finite_retry_full_laws_checked": 0,
+      "modulus": 77,
+      "positive_joint_atoms": 315,
+      "positive_keys": 63,
+      "proposal_baseline_joint_bits": "2185157/262144",
+      "rejected_mass_equals_surplus": true,
+      "scalar_M": 1,
+      "sharp_joint_ratio_validation_only": "1",
+      "surplus_numerator": 0,
+      "theta": "0",
+      "tilted_capped_retry_TV": {
+        "0": "0",
+        "1": "0",
+        "2": "0",
+        "4": "0"
+      },
+      "tilted_proposal_bits": "0",
+      "tilted_sampler_expected_bits": "2185157/262144",
+      "validation_point_stats": {
+        "native_address_updates": 3078,
+        "peak_integer_bits": 20,
+        "records": 33902,
+        "scalar_operations": 2827
+      }
+    }
+  ],
+  "production_demos": [
+    {
+      "after_all": {
+        "native_address_updates": 4624,
+        "peak_integer_bits": 35,
+        "records": 127950,
+        "scalar_operations": 19723
+      },
+      "after_eight": {
+        "native_address_updates": 3643,
+        "peak_integer_bits": 35,
+        "records": 100998,
+        "scalar_operations": 15563
+      },
+      "after_one": {
+        "native_address_updates": 93,
+        "peak_integer_bits": 21,
+        "records": 2989,
+        "scalar_operations": 460
+      },
+      "mode": "baseline-filter",
+      "n": 21,
+      "paid_point_cache_size": 15,
+      "prep": {
+        "native_address_updates": 0,
+        "peak_integer_bits": 20,
+        "records": 564,
+        "scalar_operations": 90
+      },
+      "retained_scalar_frequency_rows": 0,
+      "retry_limit": null,
+      "rng_and_request_counters": {
+        "baseline_trajectories": 55,
+        "certificate_bands_read": 92,
+        "fair_bits": 530,
+        "fixed_endpoint_paths": 360,
+        "initial_rewrites": 3,
+        "point_hits": 14,
+        "point_requests": 29
+      },
+      "sample_trace": [
+        [
+          [
+            3,
+            0,
+            3
+          ],
+          0,
+          [
+            3,
+            0,
+            3
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            4,
+            1,
+            1
+          ],
+          0,
+          [
+            4,
+            1,
+            1
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          1,
+          [
+            2,
+            2,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            4,
+            2,
+            0
+          ],
+          0,
+          [
+            4,
+            2,
+            0
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            1,
+            4,
+            1
+          ],
+          1,
+          [
+            4,
+            1,
+            1
+          ],
+          0,
+          35
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          0,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          2
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            0,
+            4,
+            2
+          ],
+          1,
+          [
+            0,
+            4,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          0,
+          [
+            2,
+            2,
+            2
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          1,
+          [
+            2,
+            1,
+            3
+          ],
+          2,
+          2
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          2,
+          [
+            1,
+            3,
+            2
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            2,
+            1,
+            3
+          ],
+          0,
+          [
+            2,
+            1,
+            3
+          ],
+          0,
+          0
+        ]
+      ],
+      "samples": 16,
+      "seed": 47
+    },
+    {
+      "after_all": {
+        "native_address_updates": 5231,
+        "peak_integer_bits": 35,
+        "records": 118431,
+        "scalar_operations": 17538
+      },
+      "after_eight": {
+        "native_address_updates": 3727,
+        "peak_integer_bits": 32,
+        "records": 73814,
+        "scalar_operations": 10683
+      },
+      "after_one": {
+        "native_address_updates": 2349,
+        "peak_integer_bits": 21,
+        "records": 39078,
+        "scalar_operations": 5540
+      },
+      "mode": "norm-tilt",
+      "n": 21,
+      "paid_point_cache_size": 13,
+      "prep": {
+        "native_address_updates": 2256,
+        "peak_integer_bits": 20,
+        "records": 36681,
+        "scalar_operations": 5170
+      },
+      "retained_scalar_frequency_rows": 48,
+      "retry_limit": null,
+      "rng_and_request_counters": {
+        "baseline_trajectories": 16,
+        "certificate_bands_read": 89,
+        "fair_bits": 305,
+        "fixed_endpoint_paths": 310,
+        "initial_rewrites": 3,
+        "point_hits": 14,
+        "point_requests": 27,
+        "tilted_trajectories": 15
+      },
+      "sample_trace": [
+        [
+          [
+            3,
+            0,
+            3
+          ],
+          0,
+          [
+            3,
+            0,
+            3
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            4,
+            1,
+            1
+          ],
+          0,
+          [
+            4,
+            1,
+            1
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          1,
+          [
+            2,
+            2,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            4,
+            2,
+            0
+          ],
+          0,
+          [
+            4,
+            2,
+            0
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            1,
+            4,
+            1
+          ],
+          1,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          5
+        ],
+        [
+          [
+            2,
+            3,
+            1
+          ],
+          1,
+          [
+            2,
+            3,
+            1
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          0,
+          [
+            2,
+            2,
+            2
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            0,
+            3,
+            3
+          ],
+          2,
+          [
+            0,
+            3,
+            3
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          0,
+          [
+            1,
+            3,
+            2
+          ],
+          2,
+          3
+        ],
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          0,
+          [
+            3,
+            2,
+            1
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            1,
+            0,
+            5
+          ],
+          2,
+          [
+            1,
+            0,
+            5
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            1
+          ],
+          1,
+          [
+            2,
+            3,
+            1
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          0,
+          [
+            2,
+            1,
+            3
+          ],
+          2,
+          7
+        ]
+      ],
+      "samples": 16,
+      "seed": 47
+    },
+    {
+      "after_all": {
+        "native_address_updates": 4623,
+        "peak_integer_bits": 37,
+        "records": 124321,
+        "scalar_operations": 19072
+      },
+      "after_eight": {
+        "native_address_updates": 749,
+        "peak_integer_bits": 32,
+        "records": 20392,
+        "scalar_operations": 3082
+      },
+      "after_one": {
+        "native_address_updates": 93,
+        "peak_integer_bits": 21,
+        "records": 3011,
+        "scalar_operations": 465
+      },
+      "mode": "baseline-filter",
+      "n": 35,
+      "paid_point_cache_size": 14,
+      "prep": {
+        "native_address_updates": 0,
+        "peak_integer_bits": 20,
+        "records": 587,
+        "scalar_operations": 95
+      },
+      "retained_scalar_frequency_rows": 0,
+      "retry_limit": null,
+      "rng_and_request_counters": {
+        "baseline_trajectories": 55,
+        "certificate_bands_read": 64,
+        "fair_bits": 483,
+        "fixed_endpoint_paths": 340,
+        "initial_rewrites": 2,
+        "point_hits": 6,
+        "point_requests": 20
+      },
+      "sample_trace": [
+        [
+          [
+            3,
+            0,
+            3
+          ],
+          0,
+          [
+            3,
+            0,
+            3
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            4,
+            1,
+            1
+          ],
+          0,
+          [
+            4,
+            1,
+            1
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          1,
+          [
+            2,
+            2,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            4,
+            2,
+            0
+          ],
+          0,
+          [
+            4,
+            2,
+            0
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            1,
+            4,
+            1
+          ],
+          1,
+          [
+            1,
+            4,
+            1
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            3,
+            1,
+            2
+          ],
+          0,
+          [
+            3,
+            1,
+            2
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            1
+          ],
+          0,
+          [
+            2,
+            3,
+            1
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            4,
+            2,
+            0
+          ],
+          0,
+          [
+            4,
+            2,
+            0
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            1,
+            1,
+            4
+          ],
+          2,
+          [
+            1,
+            1,
+            4
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          0,
+          [
+            2,
+            2,
+            2
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          [
+            4,
+            1,
+            1
+          ],
+          0,
+          31
+        ],
+        [
+          [
+            3,
+            0,
+            3
+          ],
+          2,
+          [
+            3,
+            0,
+            3
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          0,
+          [
+            2,
+            3,
+            1
+          ],
+          1,
+          8
+        ]
+      ],
+      "samples": 16,
+      "seed": 47
+    },
+    {
+      "after_all": {
+        "native_address_updates": 3127,
+        "peak_integer_bits": 32,
+        "records": 66402,
+        "scalar_operations": 9757
+      },
+      "after_eight": {
+        "native_address_updates": 2243,
+        "peak_integer_bits": 32,
+        "records": 44221,
+        "scalar_operations": 6446
+      },
+      "after_one": {
+        "native_address_updates": 1587,
+        "peak_integer_bits": 21,
+        "records": 26907,
+        "scalar_operations": 3829
+      },
+      "mode": "norm-tilt",
+      "n": 35,
+      "paid_point_cache_size": 7,
+      "prep": {
+        "native_address_updates": 1494,
+        "peak_integer_bits": 20,
+        "records": 24508,
+        "scalar_operations": 3459
+      },
+      "retained_scalar_frequency_rows": 32,
+      "retry_limit": null,
+      "rng_and_request_counters": {
+        "baseline_trajectories": 16,
+        "certificate_bands_read": 22,
+        "fair_bits": 165,
+        "fixed_endpoint_paths": 160,
+        "initial_rewrites": 1,
+        "point_requests": 7,
+        "tilted_trajectories": 1
+      },
+      "sample_trace": [
+        [
+          [
+            3,
+            0,
+            3
+          ],
+          0,
+          [
+            3,
+            0,
+            3
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            4,
+            1,
+            1
+          ],
+          0,
+          [
+            4,
+            1,
+            1
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          1,
+          [
+            2,
+            2,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            4,
+            2,
+            0
+          ],
+          0,
+          [
+            4,
+            2,
+            0
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            1,
+            4,
+            1
+          ],
+          1,
+          [
+            1,
+            4,
+            1
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            3,
+            1,
+            2
+          ],
+          0,
+          [
+            3,
+            1,
+            2
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            1
+          ],
+          0,
+          [
+            2,
+            3,
+            1
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            4,
+            2,
+            0
+          ],
+          0,
+          [
+            4,
+            2,
+            0
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            1,
+            1,
+            4
+          ],
+          2,
+          [
+            1,
+            1,
+            4
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          0,
+          [
+            2,
+            2,
+            2
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          1
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          1,
+          [
+            1,
+            2,
+            3
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            1,
+            4,
+            1
+          ],
+          1,
+          [
+            1,
+            4,
+            1
+          ],
+          1,
+          0
+        ]
+      ],
+      "samples": 16,
+      "seed": 47
+    },
+    {
+      "after_all": {
+        "native_address_updates": 999,
+        "peak_integer_bits": 30,
+        "records": 30893,
+        "scalar_operations": 4906
+      },
+      "after_eight": {
+        "native_address_updates": 540,
+        "peak_integer_bits": 30,
+        "records": 16475,
+        "scalar_operations": 2598
+      },
+      "after_one": {
+        "native_address_updates": 93,
+        "peak_integer_bits": 21,
+        "records": 3050,
+        "scalar_operations": 470
+      },
+      "mode": "baseline-filter",
+      "n": 77,
+      "paid_point_cache_size": 0,
+      "prep": {
+        "native_address_updates": 0,
+        "peak_integer_bits": 20,
+        "records": 630,
+        "scalar_operations": 100
+      },
+      "retained_scalar_frequency_rows": 0,
+      "retry_limit": null,
+      "rng_and_request_counters": {
+        "baseline_trajectories": 16,
+        "fair_bits": 126
+      },
+      "sample_trace": [
+        [
+          [
+            3,
+            0,
+            3
+          ],
+          0,
+          [
+            3,
+            0,
+            3
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            4,
+            1,
+            1
+          ],
+          0,
+          [
+            4,
+            1,
+            1
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          1,
+          [
+            2,
+            2,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            3,
+            0,
+            3
+          ],
+          0,
+          [
+            3,
+            0,
+            3
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          1,
+          [
+            2,
+            2,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          0,
+          [
+            2,
+            2,
+            2
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            0,
+            4
+          ],
+          2,
+          [
+            2,
+            0,
+            4
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          0,
+          [
+            3,
+            2,
+            1
+          ],
+          0,
+          0
+        ],
+        [
+          [
+            2,
+            4,
+            0
+          ],
+          1,
+          [
+            2,
+            4,
+            0
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          [
+            2,
+            2,
+            2
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          [
+            1,
+            3,
+            2
+          ],
+          1,
+          0
+        ],
+        [
+          [
+            2,
+            1,
+            3
+          ],
+          2,
+          [
+            2,
+            1,
+            3
+          ],
+          2,
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            1
+          ],
+          0,
+          [
+            2,
+            3,
+            1
+          ],
+          0,
+          0
+        ]
+      ],
+      "samples": 16,
+      "seed": 47
+    }
+  ],
+  "pure_baseline": {
+    "after_all": {
+      "native_address_updates": 999,
+      "peak_integer_bits": 30,
+      "records": 30344,
+      "scalar_operations": 4812
+    },
+    "after_eight": {
+      "native_address_updates": 540,
+      "peak_integer_bits": 30,
+      "records": 15917,
+      "scalar_operations": 2504
+    },
+    "cost": {
+      "baseline_trajectories": 16,
+      "fair_bits": 126
+    },
+    "prep": {
+      "native_address_updates": 0,
+      "peak_integer_bits": 20,
+      "records": 48,
+      "scalar_operations": 6
+    },
+    "samples": 16,
+    "seed": 47
+  },
+  "seed_role": "reproducible finite examples only",
+  "source_pins": {
+    "MANIFEST.json": "d0a9c959957a1ada95fe09de15e608a9c41a25aab62973b42ad36872381bcd03",
+    "SOURCE_BINDINGS.json": "b3df98d16c57d70544205ac7a1f5dbd8d0f23ab88f2a3c7c936e95347b3042e3",
+    "THEOREMS.md": "58e24ea97366716c4155f513539306c8695206a49d720e8820b8ac632c01e204",
+    "run.py": "7765142879b0798998fbe3253da4fc751a0162d9b81206b4a584d0c0e336889b"
+  },
+  "validation_only_record_replay_cost": {
+    "calls": {
+      "cwm_edge": 1475,
+      "cwm_propagate": 5976,
+      "cwm_recoalesce": 7392,
+      "signed_observer": 3696
+    },
+    "native_address_updates": 708,
+    "peak_integer_bits": 17,
+    "records": 18539,
+    "scalar_operations": 2988
+  }
+}
