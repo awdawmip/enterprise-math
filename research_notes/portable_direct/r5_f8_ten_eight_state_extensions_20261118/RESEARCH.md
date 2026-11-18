@@ -1,0 +1,38 @@
+# R5 — Ten exact eight-state extensions at eight arbitrary errors
+
+Date: 2026-11-18 (Asia/Shanghai). Status: AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED.
+
+## Frozen scientific scope
+
+Frozen source: awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551. The derived scalar observer contains 256 *named* hypotheses, 101 query budgets k=214..314, and integer centers N_h(k) from the unchanged 1,549,048-byte EXACT_R5_ALL_101_BUDGETS.json table. Its SHA-256 is 50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b. An intact real observation y under hypothesis h satisfies 2|y-N_h(k)| <= tau, and up to f=8 responses may be arbitrary, unmarked corruptions.
+
+Put L=25845652773852463277015040000 and U=58182461585441404127941754880. The theorem covers all real L <= tau < U. The five-state anchor H0=(18,24,82,34,17) has independently recorded exact eight-error value 8335 at L.
+
+## New finite theorem
+
+For each triple below, let H be H0 plus its three *distinct actual* named hypotheses:
+
+- (0,144,208), (0,16,32), (0,48,160), (0,64,128), (0,96,192)
+- (1,144,208), (16,144,208), (144,160,208), (144,208,240), (48,144,208)
+
+For each of these TEN eight-state populations and ALL real L <= tau < U, the exact adaptive minimax query cost against eight unmarked arbitrary errors is C_8(H;tau)=8335.
+
+These results go beyond prior six-state one-addition and seven-state two-addition finite certificates. They are selected eight-state constructions, not a census of all triples or a full-256 upper strategy. The previously established full-256 interval remains 8335 <= C*_8(tau) <= 8343.
+
+## Complete proof
+
+For each action k and current response, retain its set of hypotheses whose closed good-response interval contains that response. Every such support is contained in an inclusion-maximal support. If the adversary uses a containing support instead, every hypothesis accumulates no more mismatches; hence its remaining minimax difficulty is no smaller. For scalar intervals the maximal supports are exactly maximal sorted-center windows with span at most tau. Enumerate all 101 k and keep the cheapest k among identical complete support families.
+
+The exact state is eight counters e_i in {0,...,9}; 9 eliminates a named hypothesis. For maximal compatibility support S, update e_i to min(9,e_i + [i not in S]). If at most one counter is <=8, the value is zero; otherwise Bellman minimax is min over k of k plus max over S of the successor value. A query with a possible unchanged state cannot help against an adversary and is omitted. Every other successor increments a live counter, yielding finite exact recursion. The C++ implementation packs eight four-bit counters into a 64-bit integer and memoizes by full key equality. There are no heuristic cuts, numerical approximations or sampling assumptions.
+
+The Python verifier reconstructs support families by TWO independent exact-integer methods: sorted-center windows and sweeping all closed response endpoints and intervening open intervals. It checks 10 triples * 2 endpoints * 101 budgets = 2020 support-family equalities, then executes all 20 exact C++ Bellman roots. Every root is 8335. The complete per-case memo state counts and action-family numbers are in RESULTS_COMPACT.json.
+
+Adding hypotheses cannot reduce minimax cost, so the five-state anchor supplies C_8(H;L) >= 8335. The 20 exact calculations give C_8(H;L) = C_8(H;U-1) = 8335. Minimax cost is nondecreasing in tau, while all center gaps are integers and maximal support families are constant on [U-1,U). Therefore C_8(H;tau)=8335 throughout the entire real fifth chamber.
+
+## Reproduce and forward problem
+
+Run: python3 VERIFY_R5_EIGHT_SELECTED.py EXACT_R5_ALL_101_BUDGETS.json EXACT_EIGHT_SUBSET.cpp > FULL_RESULTS.json
+
+Requires Python 3 standard library and a C++17 compiler. The full frozen input belongs to the earlier R5 reproduction bundle; check its SHA-256 above before running. Exact status: PASS_R5_TEN_EIGHT_STATE_F8_BOTH_ENDPOINTS.
+
+Next: search a genuinely coupled eight-state triple extension with value greater than 8335 at the *left* endpoint, or use 9+ hypotheses to improve the full-256 lower bound. Independently refine the complete-256 upper strategy below 8343. This derived scalar study does not identify its observer classes with all native X6/P000 relational or provenance states, and has not passed independent mathematical review.
