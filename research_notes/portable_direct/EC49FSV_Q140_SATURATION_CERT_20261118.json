@@ -1,0 +1,207 @@
+{
+  "schema": "EM_BRC_EC49FSV_EXACT_1D_PRICE_SWEEP_CERT_V1",
+  "source_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "prev_pr": 2725,
+  "native_observations": 228,
+  "named_profiles": 141,
+  "original_configs": 310,
+  "model": {
+    "a": "2/3",
+    "b": "7/16",
+    "z": [
+      "5/8",
+      "1"
+    ],
+    "normalize": "F=141*V/t",
+    "direct": {
+      "q32": "a",
+      "q34": "b",
+      "q140": "z"
+    },
+    "swapped": {
+      "q32": "b",
+      "q34": "a",
+      "q140": "z"
+    }
+  },
+  "direct": {
+    "planes": [
+      {
+        "vector": [
+          316,
+          141,
+          43,
+          30
+        ],
+        "sha256": "ad3b3dd9d0b909c8a2b271eddef1793bc898e58da9e36afb5d58711db7f8ec0e",
+        "raw_bytes": 4239,
+        "region": "left endpoint tie"
+      },
+      {
+        "vector": [
+          324,
+          141,
+          47,
+          40
+        ],
+        "sha256": "d8e6ef896e7ad4252e13ee614b99b231c7bff57f5ca5691b871261ddc02c15bc",
+        "raw_bytes": 4405,
+        "region": [
+          "5/8",
+          "259/404"
+        ]
+      },
+      {
+        "vector": [
+          319,
+          18,
+          75,
+          141
+        ],
+        "sha256": "f6854068c15fc02323cf7584f2e39a81b720f7ca02cfc20a434f6a6d38652899",
+        "raw_bytes": 4229,
+        "region": [
+          "259/404",
+          "1"
+        ]
+      }
+    ],
+    "oracle_vertices": [
+      [
+        "5/8",
+        "2951/16"
+      ],
+      [
+        "71/111",
+        "326521/1776"
+      ],
+      [
+        "259/404",
+        "297011/1616"
+      ],
+      [
+        "1",
+        "2131/16"
+      ]
+    ]
+  },
+  "swapped": {
+    "planes": [
+      {
+        "vector": [
+          318,
+          10,
+          141,
+          82
+        ],
+        "sha256": "646e14ff78c1103dc40ee5f4825b9386d14c0f2fad61b1feef0d31c1f687ae20",
+        "raw_bytes": 4159,
+        "region": "left endpoint tie"
+      },
+      {
+        "vector": [
+          324,
+          8,
+          141,
+          93
+        ],
+        "sha256": "f128f56983098af96599b5b5f08c68a002c055d1f17acde24a0a114a265e6f50",
+        "raw_bytes": 4284,
+        "region": [
+          "5/8",
+          "1531/2304"
+        ]
+      },
+      {
+        "vector": [
+          327,
+          9,
+          97,
+          141
+        ],
+        "sha256": "8bbc01610444decb81275e7a50170b79110c032dfb9e8a450fb28fe5e1e5f396",
+        "raw_bytes": 4394,
+        "region": [
+          "1531/2304",
+          "1"
+        ]
+      }
+    ],
+    "oracle_vertices": [
+      [
+        "5/8",
+        "1347/8"
+      ],
+      [
+        "1861/2832",
+        "156125/944"
+      ],
+      [
+        "1531/2304",
+        "126491/768"
+      ],
+      [
+        "1",
+        "5635/48"
+      ]
+    ]
+  },
+  "exact_theorem": {
+    "D": [
+      "3351/16-40*z",
+      "4387/16-141*z"
+    ],
+    "S": [
+      "453/2-93*z",
+      "12403/48-141*z"
+    ],
+    "breakpoints": {
+      "D": "259/404",
+      "S": "1531/2304"
+    },
+    "gap": [
+      [
+        "5/8",
+        "259/404",
+        "-273/16+53*z"
+      ],
+      [
+        "259/404",
+        "1531/2304",
+        "763/16-48*z"
+      ],
+      [
+        "1531/2304",
+        "1",
+        "379/24"
+      ]
+    ],
+    "sharp_gap_min": "379/24",
+    "sharp_gap_max": "27335/1616"
+  },
+  "independent_rechecks": [
+    [
+      "direct",
+      "259/404",
+      "297011/1616"
+    ],
+    [
+      "swapped",
+      "1531/2304",
+      "126491/768"
+    ]
+  ],
+  "source_sha256": {
+    "master": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "profiles": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "full_trees_archive": {
+    "name": "EC49FSV_NATIVE_BRC_Q140_SATURATION_SWEEP_FULL_EVIDENCE_20261118.tar.xz",
+    "sha256": "0e95f7082427bba2d0155ffcd59942f259706c8eabc4a3402ac3476717b7e44a",
+    "bytes": 213188,
+    "members": 13,
+    "cert_sha256": "5d9a9b55e158809395b189dc26cb50bd8134ff94a328ec0a1b43be70a5e787e3"
+  },
+  "verified_scope": "Eight exact native Bellman vertices; six full-tree state replays; two independent raw-decoder exact values; concavity proves all real z in [5/8,1]",
+  "review": "AUTHOR_PROVED / EXACT_PRIMARY_8_ANCHORS / INDEPENDENT_2_ANCHORS / NOT_REVIEWED"
+}
