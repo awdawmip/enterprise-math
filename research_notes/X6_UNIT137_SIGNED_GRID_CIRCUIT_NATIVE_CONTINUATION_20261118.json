@@ -70,9 +70,11 @@
     "current_exact_continuation_request_id": "onhour-20261118-2200-x6-own-current-continuation-v1",
     "current_exact_continuation_status": "SUCCEEDED / OWN_RECORDED_RUN_REQUIRES_REAUTHORIZATION",
     "resume_request_id": "onhour-20261118-2200-x6-own-run4cbf-resume-v1",
-    "resume_status_at_save": "RUNNING / error=null; DO_NOT_REPEAT; read original receipt",
+    "resume_status_at_save": "SUCCEEDED / RUN_READY; run RUN-4cbf62205b9a5a0a5e914719 generation 2, authorized=true, same original Research SID and winning claim, source native receipt onhour-20261118-2200-x6-own-run4cbf-resume-v1",
     "claim_winning_at_last_exact_read": true,
-    "claimed_run_current_execution_authority": "PENDING RESUME; historical OPEN and get are not current write authority"
+    "claimed_run_current_execution_authority": "RUN_READY generation2 authenticated resume on original run; writer revalidates current Source and claim CAS",
+    "native_semantic_request_id": "onhour-20261118-2205-x6-own-units136-137-native-progress-v1",
+    "native_semantic_status_at_save": "RUNNING / error=null; not yet Source-published verified; DO_NOT_REPLAY; original request receipt first"
   },
   "pending": [
     "Native semantic PROGRESS of already GitHub-saved Unit136 and Unit137, only after current same-run resume success and no overlapping publication.",
@@ -85,7 +87,7 @@
     "Original known failed custody-path requests or known successful same-run semantic requests",
     "Any in-flight original resume/publish write, any maintenance lane or another owner identity"
   ],
-  "next_exact_action": "Read original onhour-20261118-2200-x6-own-run4cbf-resume-v1 final outcome; only if SUCCEEDED authorized and winner still own claim, publish Native semantic PROGRESS Units136–137 using upload_ids=[] and actual existing GitHub evidence, then verify Source. Continue highest-value uninspected actual LP consumer, not extra repetitive helper abstractions.",
+  "next_exact_action": "Read original onhour-20261118-2205-x6-own-units136-137-native-progress-v1 terminal receipt; if SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED and authenticated Source readback, consume Units136–137 without republishing. If still pending or unknown, reconcile only original request. Continue real unresolved 28-LP file:line source consumers without duplicate old mathematics.",
   "continuation_state": "OPEN",
   "review_status": "AUTHOR_UNREVIEWED_NOT_ADMITTED",
   "scheduler_config_changed": false
