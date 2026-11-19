@@ -1,0 +1,81 @@
+{
+  "schema": "R762GL_FIXED_NAMED_PORT_GATE_EVIDENCE_V1",
+  "status": "PASS_AUTHOR_SIDE_EQUIVALENT_LOCAL_INTEGER_CHECK",
+  "review": "NOT_REVIEWED",
+  "source_input": {
+    "p000": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+    "taskbook": "857280d1012943290d141d1317179c40ec3cbdf8",
+    "predecessor": "R762GK@4451b4a4320a9b739008f0f2051d83b99dacefab"
+  },
+  "candidate_model": "Z6 semidirect A6; T_(v,s)=(s H_v,g_v^s); fixed named Port edge 01; permit iff v incident to 01; no claim of native triadic license",
+  "exact_arithmetic": "integer addition and multiplication, ordered-word multiplicity",
+  "independent_crosscheck": "separate local direct full-word enumeration m=2,4,6,8 for omission 0 and 2; independent dynamic programming 0..10",
+  "symmetry": {
+    "stabilizer_of_edge_01": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        0,
+        3,
+        2
+      ]
+    ],
+    "omission_orbits": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  "return_counts": {
+    "omission_0": {
+      "0": 1,
+      "2": 2,
+      "4": 6,
+      "6": 20,
+      "8": 70,
+      "10": 252
+    },
+    "omission_1": {
+      "0": 1,
+      "2": 2,
+      "4": 6,
+      "6": 20,
+      "8": 70,
+      "10": 252
+    },
+    "omission_2": {
+      "0": 1,
+      "2": 4,
+      "4": 28,
+      "6": 232,
+      "8": 2092,
+      "10": 19888
+    },
+    "omission_3": {
+      "0": 1,
+      "2": 4,
+      "4": 28,
+      "6": 232,
+      "8": 2092,
+      "10": 19888
+    }
+  },
+  "nonzero_depth_returns": "provably 0 for all horizons; checked exact through m=10",
+  "uniform_allowed_letter_BRC_return_probability_m2": {
+    "omissions_0_1": "1/2",
+    "omissions_2_3": "1/4"
+  },
+  "theorem_scope": "all nonnegative integer horizons and all integer diagonal depths within fixed-edge gate; typed-gate equivariance theorem conditional on complete-state lift and transported weights",
+  "proof_status": "author-proved, not independently reviewed",
+  "reproducibility_note": "The published verifier implements the same exact dynamics; it is included for future reruns. Local equivalent script was run to generate/count these integers."
+}
