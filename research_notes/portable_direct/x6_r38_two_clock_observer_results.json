@@ -1,0 +1,175 @@
+{
+  "schema": "X6_R38_FINITE_OBSERVER_CERTIFICATE_V1",
+  "scope": "C12 OUTER finite phase and two formal chirality labels; readout and event models explicitly typed; no native TRIADIC_CLOSURE_E full-carrier claim",
+  "states": 24,
+  "verification": "EXHAUSTIVE_ALL_ORDERED_STATE_PAIRS_AND_PARTITION_FIXPOINT",
+  "cases": {
+    "fine_coarse": {
+      "observer": "coarse",
+      "actions": [
+        "T"
+      ],
+      "count": 12,
+      "bits": 4,
+      "partition_sizes": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "refinement_block_counts": [
+        6,
+        12
+      ],
+      "exhaustive_ordered_pairs": 576,
+      "chirality_identification_safe": true,
+      "gate_identification_safe": false,
+      "gate_witness": [
+        "T"
+      ],
+      "chirality_witness": null
+    },
+    "coarse_step_coarse": {
+      "observer": "coarse",
+      "actions": [
+        "U"
+      ],
+      "count": 6,
+      "bits": 3,
+      "partition_sizes": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "refinement_block_counts": [
+        6
+      ],
+      "exhaustive_ordered_pairs": 576,
+      "chirality_identification_safe": true,
+      "gate_identification_safe": true,
+      "gate_witness": null,
+      "chirality_witness": null
+    },
+    "fine_coarse_root6": {
+      "observer": "coarse_root6",
+      "actions": [
+        "T"
+      ],
+      "count": 12,
+      "bits": 4,
+      "partition_sizes": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "refinement_block_counts": [
+        6,
+        12
+      ],
+      "exhaustive_ordered_pairs": 576,
+      "chirality_identification_safe": true,
+      "gate_identification_safe": false,
+      "gate_witness": [
+        "T"
+      ],
+      "chirality_witness": null
+    },
+    "fine_coarse_root12": {
+      "observer": "coarse_root12",
+      "actions": [
+        "T"
+      ],
+      "count": 24,
+      "bits": 5,
+      "partition_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "refinement_block_counts": [
+        12,
+        24
+      ],
+      "exhaustive_ordered_pairs": 576,
+      "chirality_identification_safe": false,
+      "gate_identification_safe": false,
+      "gate_witness": [
+        "T"
+      ],
+      "chirality_witness": []
+    },
+    "coarse_step_root12": {
+      "observer": "coarse_root12",
+      "actions": [
+        "U"
+      ],
+      "count": 12,
+      "bits": 4,
+      "partition_sizes": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "refinement_block_counts": [
+        12
+      ],
+      "exhaustive_ordered_pairs": 576,
+      "chirality_identification_safe": false,
+      "gate_identification_safe": true,
+      "gate_witness": null,
+      "chirality_witness": []
+    }
+  },
+  "total_ordered_pair_checks": 2880,
+  "all_assertions": "PASS"
+}
