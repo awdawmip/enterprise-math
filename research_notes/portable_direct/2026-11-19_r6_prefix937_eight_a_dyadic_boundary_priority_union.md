@@ -1,0 +1,62 @@
+# PREFIX-937 — complete k=8 low-bit-boundary reduction and exact collision union
+
+2026-11-19 (Asia/Shanghai). Independent auxiliary named-XOR research, continuing PREFIX-936; frozen scientific input \`f42f2906d77f24085c123f3ccfe9667d41caa96d\` unchanged. Historical Researcher ID EM-DIRECT-58C410, SID MCP-31edc522830749ad8775ca012e02ef30. Status: AUTHOR_PROVED / TWO_INDEPENDENT_EXACT_COMPUTATIONS_AGREE / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED.
+
+## Exact dyadic theorem
+
+Let \`Q={262145,262147,...,524287}\`, \`N=2^32\`, and two named different-start trajectories \`F_0^i=(0,2^i)\`, \`F_(8a)^j=(8a,8a XOR 2^j)\`, where \`a,b in Q\`, \`0<=i,j<=18\`. Their double-port observations agree precisely when \`b | D8\`, where
+
+    D8(a,i,j) = (8a XOR 2^j)-2^i.
+
+For \`i,j>=3\`, bit shifting gives the **integer identity**
+
+    D8 = 4*D2(a,i-2,j-2),
+    D2(a,i-2,j-2) = (2a XOR 2^(j-2))-2^(i-2).
+
+Because \`b\` is odd, \`b|D8 iff b|D2\`. The reduced source indices \`i-2,j-2\` lie in \`1..16\` and hence are already inside the complete preceding W2 certificate. Therefore *relative to the preceding recorded union*, the only potentially new k=8 pairs have \`i<3 OR j<3\`. This is a complete reduction of the specified k=8 template. In particular, the 19²=361 source-index combinations reduce to precisely \`361-16²=105\` boundary combinations per a.
+
+For every boundary witness, \`8a>=2097160\` and \`8a<=4194296\`; flipping one bit and subtracting one source endpoint yields
+
+    0 < 1572872 <= D8 <= 4456439 < 17*262145 = 4456465.
+
+Thus any witness \`D8=t*b\` has \`1<=t<=16\`. Exhausting all boundary bit-index pairs, every a in Q and these t, using exact divisibility and odd-b constraints, gives an exhaustive census **for the specified source template**.
+
+## Exact census
+
+Scalar C++17 sweeps (a,j,i,t); separate NumPy vectorization sweeps (j,t) then all (i,a) for j<3 and i<3 otherwise. The independently generated sorted little-endian 64-bit ID sets agree byte for byte, including the previous-certificate priority-disjoint classifications.
+
+Boundary D8 raw witnesses: **4,327,839**; distinct D8 ordered modulus pairs: **4,043,794**, 32,350,352 bytes, SHA-256 \`95c6d52becc3ddbd3aad458a71f27ff1e5cfade43e37d8c5052c3e568d38ccb3\`.
+
+Raw counts by t=1..16:
+\`[0,0,0,32768,242487,753662,510242,393216,455115,661908,265117,688125,133589,154478,37132,0]\`.
+
+Priority-disjoint counts relative to B/Z/S/U/V/W2/W3/D4/W5/D6/W7:
+
+| Earlier source | D8 pairs |
+|---|---:|
+| B/Z/S | 2,105,460 |
+| U | 519 |
+| V | 7,727 |
+| W2 | 325,178 |
+| W3 | 431 |
+| D4 | 780,784 |
+| W5 | 556 |
+| D6 | 18 |
+| W7 | 138 |
+| **NEW** | **822,983** |
+
+Sum: 4,043,794. The new-only file is 6,583,864 bytes, SHA-256 \`22fdbbf140e67c355af46db0847aeae78ee465c2b2f130030a211811a675df47\`. The previously certified union 7,544,885,849 grows to **7,545,708,832**; the complement in Q² is **9,634,160,352**.
+
+First new ordered pair: \`(a,b)=(281709,503163)\` with i=0, j=18, t=5:
+
+    F_0^0=(0,1); F_(8a)^18=(2253672,2515816).
+    2253672 = 8*281709.
+    2515816 - 1 = 2515815 = 5*503163.
+
+Both traces have first-port residue 0 and terminal residue 1 modulo the corresponding port; the names and histories remain different. Source endpoints are inside N.
+
+## Scope and next work
+
+This is an explicit auxiliary finite two-port observer construction with exact full-parameter census **for the given k=8 low-bit boundary**, preserving history and bit labels. A pair still outside the listed certificates is not thereby certified injective. The mother question \`B_fix,odd(32) in {19,20}\` remains open. Native X6 execution ownership, BRC arithmetic, independent reviewer acceptance and semantic Activity are not inferred from source preservation.
+
+Next: consider k=9 odd core, or derive an odd-core-uniform certificate with proof and exact counting to avoid linear growth of parameter sweeps. Examine coverage saturation and actual remaining pairs, rather than summing overlapping raw witnesses.
