@@ -1,0 +1,297 @@
+{
+  "factor_box": [
+    "[P,21P/20]",
+    "[11P/10,23P/20]"
+  ],
+  "full_boxes": [
+    {
+      "16_equal_phase_bins": [
+        1,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "L_histogram": [
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          28
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "P": 1000,
+      "extremizers_p_q_phase28_L_start_shell": {
+        "longest": [
+          1013,
+          1123,
+          46441140,
+          4,
+          201,
+          [
+            105,
+            208
+          ]
+        ],
+        "shortest": [
+          1009,
+          1103,
+          239559890,
+          2,
+          120,
+          [
+            104,
+            207
+          ]
+        ]
+      },
+      "full_shell_multiplier_visits": 4185,
+      "ordered_rows_sha256": "b2183b800fa44412ed3c1585f0c334c8957684a38d4f8c8ec5fae76455aa1a61",
+      "pairs": 40,
+      "power_sums_L_1_4_6": [
+        120,
+        3900,
+        45372
+      ],
+      "prime_counts": [
+        8,
+        5
+      ]
+    },
+    {
+      "16_equal_phase_bins": [
+        59,
+        62,
+        52,
+        46,
+        64,
+        63,
+        55,
+        52,
+        52,
+        52,
+        60,
+        57,
+        56,
+        60,
+        52,
+        54
+      ],
+      "L_histogram": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          513
+        ],
+        [
+          4,
+          353
+        ],
+        [
+          5,
+          25
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "P": 5000,
+      "extremizers_p_q_phase28_L_start_shell": {
+        "longest": [
+          5021,
+          5743,
+          255038434,
+          7,
+          307,
+          [
+            307,
+            613
+          ]
+        ],
+        "shortest": [
+          5087,
+          5503,
+          244014494,
+          2,
+          323,
+          [
+            304,
+            607
+          ]
+        ]
+      },
+      "full_shell_multiplier_visits": 274646,
+      "ordered_rows_sha256": "cfca184e1b4dccbcc8f831badfcc38b1e08c04642cc557b881830f2f5ffe3255",
+      "pairs": 896,
+      "power_sums_L_1_4_6": [
+        3096,
+        152396,
+        2445980
+      ],
+      "prime_counts": [
+        28,
+        32
+      ]
+    },
+    {
+      "16_equal_phase_bins": [
+        617,
+        633,
+        603,
+        612,
+        588,
+        630,
+        598,
+        645,
+        597,
+        648,
+        591,
+        571,
+        601,
+        609,
+        639,
+        618
+      ],
+      "L_histogram": [
+        [
+          3,
+          2442
+        ],
+        [
+          4,
+          6690
+        ],
+        [
+          5,
+          588
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          62
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          10,
+          1
+        ]
+      ],
+      "P": 20000,
+      "extremizers_p_q_phase28_L_start_shell": {
+        "longest": [
+          20903,
+          22441,
+          262561851,
+          10,
+          777,
+          [
+            777,
+            1553
+          ]
+        ],
+        "shortest": [
+          20011,
+          22027,
+          33008421,
+          3,
+          791,
+          [
+            762,
+            1522
+          ]
+        ]
+      },
+      "full_shell_multiplier_visits": 7567451,
+      "ordered_rows_sha256": "1a5d2cdc74db1cd80ed9305a96724e65a59b3354acdb967de5c33b5f3df95275",
+      "pairs": 9800,
+      "power_sums_L_1_4_6": [
+        37608,
+        2519886,
+        52951662
+      ],
+      "prime_counts": [
+        98,
+        100
+      ]
+    }
+  ],
+  "larger_balanced_witnesses": {
+    "P": 134217728,
+    "candidate_pairs": 16384,
+    "full_scans": [
+      {
+        "L": 37,
+        "N": 19816049659873559,
+        "first_start": 270608,
+        "floor_phase_times_2pow42": 5557607453,
+        "p": 134218159,
+        "q": 147640601,
+        "shell": [
+          270608,
+          541214
+        ],
+        "type": "phase_near_zero"
+      },
+      {
+        "L": 9,
+        "N": 19816452317291183,
+        "first_start": 272140,
+        "floor_phase_times_2pow42": 2198567262549,
+        "p": 134219599,
+        "q": 147642017,
+        "shell": [
+          270609,
+          541217
+        ],
+        "type": "phase_near_middle"
+      },
+      {
+        "L": 62,
+        "N": 19815902852070863,
+        "first_start": 270607,
+        "floor_phase_times_2pow42": 4382471106726,
+        "p": 134217781,
+        "q": 147639923,
+        "shell": [
+          270607,
+          541212
+        ],
+        "type": "phase_near_one"
+      }
+    ],
+    "selection": "first 128 primes per interval; at each outer 1/128 phase bin maximize the first 1024-point run, break ties by (p,q); middle chosen nearest phase 1/2"
+  },
+  "score_threshold": "3/10",
+  "semiprime_sampling": "all named pairs with equal weight in each complete box"
+}
