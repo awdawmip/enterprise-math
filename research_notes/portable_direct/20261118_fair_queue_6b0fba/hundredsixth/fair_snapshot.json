@@ -1,0 +1,1042 @@
+{
+  "snapshot_status": "CONFIRMED_SELECTIONS_FIXED_CUTOFF",
+  "source_main": "663cdf3b8819b962cb89ec5a998ff49a910a7216",
+  "source_main_url": "https://github.com/awdawmip/enterprise-math/tree/663cdf3b8819b962cb89ec5a998ff49a910a7216",
+  "checked_at": "2026-11-19T07:15:55+00:00",
+  "verification": {
+    "bulk_reducer_url": "https://github.com/awdawmip/enterprise-math/blob/e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe/tools/research_dispatch_core.py#L842",
+    "all_registry_rows": 518,
+    "research_rows": 474,
+    "last_completed_independent_full_replay": {
+      "at": "2026-11-18T22:14:03+00:00",
+      "rows": 518,
+      "projection_sha256": "9ff776787fad969264dac828492a8baec2bf9ea1654d63beeec38a627deb5691",
+      "differences_from_wave105_terminal_projection": 5,
+      "known_newly_authenticated_changes_from_full_replay": {
+        "RS-CFD-AMR-BASILISK-20260910": {
+          "state": {
+            "before": "READY",
+            "after": "HANDOFF_READY"
+          },
+          "event_authentication": {
+            "before": "NO_RUNTIME_EVENT",
+            "after": "GITHUB_SERVER_COMMENT_ENVELOPE"
+          }
+        },
+        "RS-P000-Q30-N15-FIRST-COLLISION-FRONTIER": {
+          "state": {
+            "before": "READY",
+            "after": "IN_PROGRESS"
+          },
+          "dispatch_state": {
+            "before": "NEEDS_DISPATCH",
+            "after": "LEASED"
+          },
+          "claim_id": {
+            "before": null,
+            "after": "MCP-35ca100e6c9ea14f76a4f25c"
+          },
+          "lease_until": {
+            "before": null,
+            "after": "2026-11-19T07:37:32+00:00"
+          },
+          "event_authentication": {
+            "before": "NO_RUNTIME_EVENT",
+            "after": "GITHUB_SERVER_COMMENT_ENVELOPE"
+          }
+        },
+        "RS-X6-LEGACY-PLANE-RECONCILIATION": {
+          "lease_until": {
+            "before": "2026-11-18T23:24:10+00:00",
+            "after": "2026-11-19T08:30:36+00:00"
+          }
+        },
+        "RS-X6-NATIVE-TIME-DYNAMICS": {
+          "state": {
+            "before": "CLAIMED",
+            "after": "IN_PROGRESS"
+          },
+          "lease_until": {
+            "before": "2026-11-18T23:43:42+00:00",
+            "after": "2026-11-19T08:35:51+00:00"
+          }
+        },
+        "RS-X6-TRIADIC-CLOSURE-DYNAMICS": {
+          "state": {
+            "before": "CLAIMED",
+            "after": "HANDOFF_READY"
+          },
+          "dispatch_state": {
+            "before": "LEASED",
+            "after": "NEEDS_DISPATCH"
+          },
+          "claim_id": {
+            "before": "MCP-56365ac301d9f31c136495ea",
+            "after": null
+          },
+          "lease_until": {
+            "before": "2026-11-18T23:37:58+00:00",
+            "after": null
+          }
+        }
+      }
+    },
+    "method": "Carry forward the full authenticated official projection at the prior fixed cutoff across the exhaustive commit comparison. The 1620-comment historical authenticated event stream was reused across an exhaustive control-code and authority comparison. The official reducer reevaluated each selected task, any named prerequisite, every live lease, and every intervening registered execution event at both fixed reads. Compare all eight decision fields on all 518 rows. Hunting candidate files or an execution intent alone does not authorize a lease.",
+    "previous_snapshot_url": "https://github.com/awdawmip/enterprise-math/blob/e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredfifth/fair_snapshot.json",
+    "projection_hash_format": "UTF-8 compact JSON rows sorted by task ID, each [task_id,...incremental_comparison.fields], absence null.",
+    "incremental_comparison": {
+      "fields": [
+        "kind",
+        "priority",
+        "state",
+        "dispatch_state",
+        "publication_id",
+        "claim_id",
+        "lease_until",
+        "event_authentication"
+      ]
+    }
+  },
+  "initial_readback": {
+    "checked_at": "2026-11-19T07:15:55+00:00",
+    "source_main": "663cdf3b8819b962cb89ec5a998ff49a910a7216",
+    "source_main_url": "https://github.com/awdawmip/enterprise-math/tree/663cdf3b8819b962cb89ec5a998ff49a910a7216",
+    "compare_url": "https://github.com/awdawmip/enterprise-math/compare/a535cced17845de9b12857fd0ce2655dcf04ccd4...663cdf3b8819b962cb89ec5a998ff49a910a7216",
+    "additional_commits": 13,
+    "changed_path_classes": {
+      "research_activity_records": 12,
+      "research_checks": 2,
+      "research_notes": 15
+    },
+    "control_adjacent_blobs_verified": 12,
+    "raw_comments": 1642,
+    "recognized_events": 1470,
+    "latest_comment_id": 7001762559,
+    "latest_comment_time": "2026-11-19T06:35:51Z",
+    "latest_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-7001762559",
+    "all_live_leases_after": {
+      "RS-CFD-PRESSURE-GAMG-20260910": "2026-11-19T10:03:41+00:00",
+      "RS-P000-Q30-N15-FIRST-COLLISION-FRONTIER": "2026-11-19T07:37:32+00:00",
+      "RS-X6-LEGACY-PLANE-RECONCILIATION": "2026-11-19T08:30:36+00:00",
+      "RS-X6-NATIVE-TIME-DYNAMICS": "2026-11-19T08:35:51+00:00"
+    },
+    "registry_rows_compared": 518,
+    "research_registrations": 474,
+    "projection_fields": [
+      "kind",
+      "priority",
+      "state",
+      "dispatch_state",
+      "publication_id",
+      "claim_id",
+      "lease_until",
+      "event_authentication"
+    ],
+    "projection_sha256": "17ad69375c2c554712d342d70a57410f5015f29132e45a999e84e4237328fc65",
+    "changed_registered_fields": {},
+    "official_independent_reductions": [
+      "RH-ROAD-AUDIT-20260909",
+      "RH-ROAD-KERNEL-20260909",
+      "RS-BRC-SHOR-PROJECTED-ALLOCATION-CERTIFICATE-20261002",
+      "RS-BRC-SORT-SCALING-ROBUSTNESS-20261111",
+      "RS-CFD-AMR-BASILISK-20260910",
+      "RS-CFD-PRESSURE-GAMG-20260910",
+      "RS-CFD-SPECTRAL-HYBRID-20260910",
+      "RS-DISC-COMPAT-20261026-01",
+      "RS-EMF6D046-R106-TWO-ADIC-HERMITIAN-UNITARY",
+      "RS-EMF6D046-R107-PPAV-THETA-JACOBIAN",
+      "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+      "RS-EULER-RR-03-CALIBRATION-20261011",
+      "RS-GBRC-R1-TYPED-CARRIER",
+      "RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS",
+      "RS-HBW-RECORD-INTERFACE-AUDIT-20260929",
+      "RS-P000-Q30-N15-FIRST-COLLISION-FRONTIER",
+      "RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT",
+      "RS-PFSS-JUSTIFIED-NONDEGENERATE-NULL-MECHANISM",
+      "RS-R1160A-GREGORY-MACHIN-RATIONAL-ATOM-GENERATOR",
+      "RS-X6-LEGACY-PLANE-RECONCILIATION",
+      "RS-X6-NATIVE-TIME-DYNAMICS",
+      "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+      "RS-X6-UPPER-STRUCTURE-INTEGRATION",
+      "W59A-NATIVE-NORMALIZATION-CLOSURE-20260909"
+    ],
+    "pool_counts": {
+      "strict_ready_needs_dispatch": {
+        "all": {
+          "total": 207,
+          "P0": 0,
+          "P1": 10,
+          "P2": 197
+        },
+        "previously_selected": {
+          "total": 184,
+          "P0": 0,
+          "P1": 9,
+          "P2": 175
+        },
+        "unselected_before_wave": {
+          "total": 23,
+          "P0": 0,
+          "P1": 1,
+          "P2": 22
+        },
+        "service_visits_this_wave": {
+          "total": 3,
+          "P0": 0,
+          "P1": 0,
+          "P2": 3
+        },
+        "selected_this_wave": {
+          "total": 1,
+          "P0": 0,
+          "P1": 0,
+          "P2": 1
+        },
+        "return_visits_this_wave": {
+          "total": 2,
+          "P0": 0,
+          "P1": 0,
+          "P2": 2
+        },
+        "unselected_after_wave": {
+          "total": 22,
+          "P0": 0,
+          "P1": 1,
+          "P2": 21
+        },
+        "unselected_after_wave_by_parent": {
+          "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 19,
+          "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+          "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION": 1,
+          "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 1
+        }
+      },
+      "handoff_ready_needs_dispatch": {
+        "all": {
+          "total": 66,
+          "P0": 17,
+          "P1": 20,
+          "P2": 29
+        },
+        "previously_selected": {
+          "total": 49,
+          "P0": 9,
+          "P1": 17,
+          "P2": 23
+        },
+        "unselected_before_wave": {
+          "total": 17,
+          "P0": 8,
+          "P1": 3,
+          "P2": 6
+        },
+        "service_visits_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "selected_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "return_visits_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "unselected_after_wave": {
+          "total": 17,
+          "P0": 8,
+          "P1": 3,
+          "P2": 6
+        },
+        "unselected_after_wave_by_parent": {
+          "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY": 5,
+          "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 3,
+          "COHERENT_BRC_WORKING_EXTENSION": 1,
+          "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+          "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM": 1,
+          "OBJ-CFD-TRUSTWORTHY-ACCELERATION-20260910": 1,
+          "OBJ-EXTERNAL-GEOMETRY-STRUCTURAL-TRANSFER-20260830": 1,
+          "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 1,
+          "OBJ-OAI7-RESEARCH-TRANSFER-20261007": 1,
+          "OBJ-PRIME-FUSION-MACHINE-CHECKED-THEOREM-PACKAGE": 1,
+          "PO-X6-UPPER-STRUCTURE-20260906": 1
+        }
+      },
+      "frozen_return_needs_dispatch": {
+        "all": {
+          "total": 12,
+          "P0": 0,
+          "P1": 8,
+          "P2": 4
+        },
+        "previously_selected": {
+          "total": 7,
+          "P0": 0,
+          "P1": 4,
+          "P2": 3
+        },
+        "unselected_before_wave": {
+          "total": 5,
+          "P0": 0,
+          "P1": 4,
+          "P2": 1
+        },
+        "service_visits_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "selected_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "return_visits_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "unselected_after_wave": {
+          "total": 5,
+          "P0": 0,
+          "P1": 4,
+          "P2": 1
+        },
+        "unselected_after_wave_by_parent": {
+          "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 3,
+          "LEGACY_CONTROL_CUTOVER_RS_A3_A4_GENERATED_SUPPORT": 1,
+          "OBJ-SEMIPRIME-SQUARE-SHELL-FACTORIZATION": 1
+        }
+      }
+    },
+    "event_types_after_previous_wave": []
+  },
+  "prepublication_readback": {
+    "checked_at": "2026-11-19T07:24:03+00:00",
+    "source_main": "e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe",
+    "source_main_url": "https://github.com/awdawmip/enterprise-math/tree/e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe",
+    "compare_url": "https://github.com/awdawmip/enterprise-math/compare/663cdf3b8819b962cb89ec5a998ff49a910a7216...e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe",
+    "additional_commits": 10,
+    "changed_path_classes": {
+      "research_activity_records": 3,
+      "research_artifacts": 1,
+      "research_notes": 10
+    },
+    "control_adjacent_blobs_verified": 4,
+    "raw_comments": 1642,
+    "recognized_events": 1470,
+    "latest_comment_id": 7001762559,
+    "latest_comment_time": "2026-11-19T06:35:51Z",
+    "latest_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-7001762559",
+    "all_live_leases_after": {
+      "RS-CFD-PRESSURE-GAMG-20260910": "2026-11-19T10:03:41+00:00",
+      "RS-P000-Q30-N15-FIRST-COLLISION-FRONTIER": "2026-11-19T07:37:32+00:00",
+      "RS-X6-LEGACY-PLANE-RECONCILIATION": "2026-11-19T08:30:36+00:00",
+      "RS-X6-NATIVE-TIME-DYNAMICS": "2026-11-19T08:35:51+00:00"
+    },
+    "registry_rows_compared": 518,
+    "research_registrations": 474,
+    "projection_fields": [
+      "kind",
+      "priority",
+      "state",
+      "dispatch_state",
+      "publication_id",
+      "claim_id",
+      "lease_until",
+      "event_authentication"
+    ],
+    "projection_sha256": "17ad69375c2c554712d342d70a57410f5015f29132e45a999e84e4237328fc65",
+    "changed_registered_fields": {},
+    "official_independent_reductions": [
+      "RH-ROAD-AUDIT-20260909",
+      "RH-ROAD-KERNEL-20260909",
+      "RS-BRC-SHOR-PROJECTED-ALLOCATION-CERTIFICATE-20261002",
+      "RS-BRC-SORT-SCALING-ROBUSTNESS-20261111",
+      "RS-CFD-AMR-BASILISK-20260910",
+      "RS-CFD-PRESSURE-GAMG-20260910",
+      "RS-CFD-SPECTRAL-HYBRID-20260910",
+      "RS-DISC-COMPAT-20261026-01",
+      "RS-EMF6D046-R106-TWO-ADIC-HERMITIAN-UNITARY",
+      "RS-EMF6D046-R107-PPAV-THETA-JACOBIAN",
+      "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+      "RS-EULER-RR-03-CALIBRATION-20261011",
+      "RS-GBRC-R1-TYPED-CARRIER",
+      "RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS",
+      "RS-HBW-RECORD-INTERFACE-AUDIT-20260929",
+      "RS-P000-Q30-N15-FIRST-COLLISION-FRONTIER",
+      "RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT",
+      "RS-PFSS-JUSTIFIED-NONDEGENERATE-NULL-MECHANISM",
+      "RS-R1160A-GREGORY-MACHIN-RATIONAL-ATOM-GENERATOR",
+      "RS-X6-LEGACY-PLANE-RECONCILIATION",
+      "RS-X6-NATIVE-TIME-DYNAMICS",
+      "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+      "RS-X6-UPPER-STRUCTURE-INTEGRATION",
+      "W59A-NATIVE-NORMALIZATION-CLOSURE-20260909"
+    ],
+    "pool_counts": {
+      "strict_ready_needs_dispatch": {
+        "all": {
+          "total": 207,
+          "P0": 0,
+          "P1": 10,
+          "P2": 197
+        },
+        "previously_selected": {
+          "total": 184,
+          "P0": 0,
+          "P1": 9,
+          "P2": 175
+        },
+        "unselected_before_wave": {
+          "total": 23,
+          "P0": 0,
+          "P1": 1,
+          "P2": 22
+        },
+        "service_visits_this_wave": {
+          "total": 3,
+          "P0": 0,
+          "P1": 0,
+          "P2": 3
+        },
+        "selected_this_wave": {
+          "total": 1,
+          "P0": 0,
+          "P1": 0,
+          "P2": 1
+        },
+        "return_visits_this_wave": {
+          "total": 2,
+          "P0": 0,
+          "P1": 0,
+          "P2": 2
+        },
+        "unselected_after_wave": {
+          "total": 22,
+          "P0": 0,
+          "P1": 1,
+          "P2": 21
+        },
+        "unselected_after_wave_by_parent": {
+          "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 19,
+          "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+          "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION": 1,
+          "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 1
+        }
+      },
+      "handoff_ready_needs_dispatch": {
+        "all": {
+          "total": 66,
+          "P0": 17,
+          "P1": 20,
+          "P2": 29
+        },
+        "previously_selected": {
+          "total": 49,
+          "P0": 9,
+          "P1": 17,
+          "P2": 23
+        },
+        "unselected_before_wave": {
+          "total": 17,
+          "P0": 8,
+          "P1": 3,
+          "P2": 6
+        },
+        "service_visits_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "selected_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "return_visits_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "unselected_after_wave": {
+          "total": 17,
+          "P0": 8,
+          "P1": 3,
+          "P2": 6
+        },
+        "unselected_after_wave_by_parent": {
+          "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY": 5,
+          "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 3,
+          "COHERENT_BRC_WORKING_EXTENSION": 1,
+          "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+          "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM": 1,
+          "OBJ-CFD-TRUSTWORTHY-ACCELERATION-20260910": 1,
+          "OBJ-EXTERNAL-GEOMETRY-STRUCTURAL-TRANSFER-20260830": 1,
+          "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 1,
+          "OBJ-OAI7-RESEARCH-TRANSFER-20261007": 1,
+          "OBJ-PRIME-FUSION-MACHINE-CHECKED-THEOREM-PACKAGE": 1,
+          "PO-X6-UPPER-STRUCTURE-20260906": 1
+        }
+      },
+      "frozen_return_needs_dispatch": {
+        "all": {
+          "total": 12,
+          "P0": 0,
+          "P1": 8,
+          "P2": 4
+        },
+        "previously_selected": {
+          "total": 7,
+          "P0": 0,
+          "P1": 4,
+          "P2": 3
+        },
+        "unselected_before_wave": {
+          "total": 5,
+          "P0": 0,
+          "P1": 4,
+          "P2": 1
+        },
+        "service_visits_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "selected_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "return_visits_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "unselected_after_wave": {
+          "total": 5,
+          "P0": 0,
+          "P1": 4,
+          "P2": 1
+        },
+        "unselected_after_wave_by_parent": {
+          "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 3,
+          "LEGACY_CONTROL_CUTOVER_RS_A3_A4_GENERATED_SUPPORT": 1,
+          "OBJ-SEMIPRIME-SQUARE-SHELL-FACTORIZATION": 1
+        }
+      }
+    },
+    "event_types_after_initial": [],
+    "unselected_counts_after_wave": [
+      22,
+      17,
+      5
+    ],
+    "selected_states_and_leases_unchanged": true,
+    "new_comments": []
+  },
+  "coverage": {
+    "prior_registered_ids": 242,
+    "prior_registered_parents": 53,
+    "selection_visits": 3,
+    "selected_ids": 3,
+    "new_unique_ids_this_wave": 1,
+    "return_visits": 2,
+    "selected_distinct_parents": 3,
+    "total_direct_ids": 243,
+    "total_registered_parents": 53,
+    "cumulative_ids_excluding_two_prior_independent_side_references": 241,
+    "cumulative_parents_excluding_two_prior_independent_side_references": 51,
+    "past_side_reference_ids": [
+      "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+      "RS-P11-FIXED-233-119-CERTIFIED-2-DESCENT-RANK"
+    ],
+    "counting_rule": "Distinct registered IDs selected for a local mathematical study, inclusive of explicitly separate side references only in the inclusive totals. A selected research frontier may be conditional or only one part of its registered delivery. No selection changes the official science or control state.",
+    "current_wave_side_reference_count": 0,
+    "strict_ready_needs_dispatch": {
+      "all": {
+        "total": 207,
+        "P0": 0,
+        "P1": 10,
+        "P2": 197
+      },
+      "previously_selected": {
+        "total": 184,
+        "P0": 0,
+        "P1": 9,
+        "P2": 175
+      },
+      "unselected_before_wave": {
+        "total": 23,
+        "P0": 0,
+        "P1": 1,
+        "P2": 22
+      },
+      "service_visits_this_wave": {
+        "total": 3,
+        "P0": 0,
+        "P1": 0,
+        "P2": 3
+      },
+      "selected_this_wave": {
+        "total": 1,
+        "P0": 0,
+        "P1": 0,
+        "P2": 1
+      },
+      "return_visits_this_wave": {
+        "total": 2,
+        "P0": 0,
+        "P1": 0,
+        "P2": 2
+      },
+      "unselected_after_wave": {
+        "total": 22,
+        "P0": 0,
+        "P1": 1,
+        "P2": 21
+      },
+      "unselected_after_wave_by_parent": {
+        "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 19,
+        "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+        "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION": 1,
+        "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 1
+      }
+    },
+    "handoff_ready_needs_dispatch": {
+      "all": {
+        "total": 66,
+        "P0": 17,
+        "P1": 20,
+        "P2": 29
+      },
+      "previously_selected": {
+        "total": 49,
+        "P0": 9,
+        "P1": 17,
+        "P2": 23
+      },
+      "unselected_before_wave": {
+        "total": 17,
+        "P0": 8,
+        "P1": 3,
+        "P2": 6
+      },
+      "service_visits_this_wave": {
+        "total": 0,
+        "P0": 0,
+        "P1": 0,
+        "P2": 0
+      },
+      "selected_this_wave": {
+        "total": 0,
+        "P0": 0,
+        "P1": 0,
+        "P2": 0
+      },
+      "return_visits_this_wave": {
+        "total": 0,
+        "P0": 0,
+        "P1": 0,
+        "P2": 0
+      },
+      "unselected_after_wave": {
+        "total": 17,
+        "P0": 8,
+        "P1": 3,
+        "P2": 6
+      },
+      "unselected_after_wave_by_parent": {
+        "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY": 5,
+        "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 3,
+        "COHERENT_BRC_WORKING_EXTENSION": 1,
+        "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+        "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM": 1,
+        "OBJ-CFD-TRUSTWORTHY-ACCELERATION-20260910": 1,
+        "OBJ-EXTERNAL-GEOMETRY-STRUCTURAL-TRANSFER-20260830": 1,
+        "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 1,
+        "OBJ-OAI7-RESEARCH-TRANSFER-20261007": 1,
+        "OBJ-PRIME-FUSION-MACHINE-CHECKED-THEOREM-PACKAGE": 1,
+        "PO-X6-UPPER-STRUCTURE-20260906": 1
+      }
+    },
+    "frozen_return_needs_dispatch": {
+      "all": {
+        "total": 12,
+        "P0": 0,
+        "P1": 8,
+        "P2": 4
+      },
+      "previously_selected": {
+        "total": 7,
+        "P0": 0,
+        "P1": 4,
+        "P2": 3
+      },
+      "unselected_before_wave": {
+        "total": 5,
+        "P0": 0,
+        "P1": 4,
+        "P2": 1
+      },
+      "service_visits_this_wave": {
+        "total": 0,
+        "P0": 0,
+        "P1": 0,
+        "P2": 0
+      },
+      "selected_this_wave": {
+        "total": 0,
+        "P0": 0,
+        "P1": 0,
+        "P2": 0
+      },
+      "return_visits_this_wave": {
+        "total": 0,
+        "P0": 0,
+        "P1": 0,
+        "P2": 0
+      },
+      "unselected_after_wave": {
+        "total": 5,
+        "P0": 0,
+        "P1": 4,
+        "P2": 1
+      },
+      "unselected_after_wave_by_parent": {
+        "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 3,
+        "LEGACY_CONTROL_CUTOVER_RS_A3_A4_GENERATED_SUPPORT": 1,
+        "OBJ-SEMIPRIME-SQUARE-SHELL-FACTORIZATION": 1
+      }
+    },
+    "strict_remaining_P1_evidence": {
+      "task": {
+        "task_id": "RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT",
+        "parent_objective_id": "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION",
+        "priority": "P1",
+        "state": "READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "claim_id": null,
+        "lease_until": null,
+        "event_authentication": "NO_RUNTIME_EVENT",
+        "publication_id": "TP2-6BF7197457B000A68E78",
+        "publication_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_task_records/RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT/TP2-6BF7197457B000A68E78.json",
+        "publication_blob": "0ae603ead7695c19e7a9fbb9073cb20b81e2214b",
+        "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_tasks/P11_CORE98_EXISTING_MAGMA_MIXED_BIT_20261016.md",
+        "taskbook_blob": "fa5a7f27a939eeb2bd25260e318b0b0fc8b553b0",
+        "taskbook_dependencies": [
+          "RR-C1F5BD75CF29E3970097"
+        ],
+        "publication_dependencies": [
+          "RR-C1F5BD75CF29E3970097"
+        ],
+        "projected_result_id": null,
+        "projected_review_status": null,
+        "last_server_comment_url": null
+      },
+      "scope": "The sole unselected strict P1 requests a controlled existing Magma program and single invocation. No native executable, fresh owner-controlled bundle or new admission is established.",
+      "gate_source_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixteenth/fair_snapshot.json"
+    },
+    "never_selected_research_after_wave_by_parent": {
+      "strict": {
+        "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 19,
+        "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+        "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION": 1,
+        "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 1
+      },
+      "handoff": {
+        "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY": 5,
+        "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 3,
+        "COHERENT_BRC_WORKING_EXTENSION": 1,
+        "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+        "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM": 1,
+        "OBJ-CFD-TRUSTWORTHY-ACCELERATION-20260910": 1,
+        "OBJ-EXTERNAL-GEOMETRY-STRUCTURAL-TRANSFER-20260830": 1,
+        "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 1,
+        "OBJ-OAI7-RESEARCH-TRANSFER-20261007": 1,
+        "OBJ-PRIME-FUSION-MACHINE-CHECKED-THEOREM-PACKAGE": 1,
+        "PO-X6-UPPER-STRUCTURE-20260906": 1
+      },
+      "frozen": {
+        "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 3,
+        "LEGACY_CONTROL_CUTOVER_RS_A3_A4_GENERATED_SUPPORT": 1,
+        "OBJ-SEMIPRIME-SQUARE-SHELL-FACTORIZATION": 1
+      }
+    },
+    "registered_ids_including_two_prior_independent_references": 243
+  },
+  "selected": [
+    {
+      "task_id": "RS-BRC-SORT-SCALING-ROBUSTNESS-20261111",
+      "repeat_visit": true,
+      "parent_objective_id": "OBJ-BRC-UINT64-RESIDUAL-SORTING",
+      "prior_parent_service": 2,
+      "prior_parent_waves": [
+        1,
+        64
+      ],
+      "state": "READY",
+      "priority": "P2",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "publication_id": "TP2-EA4165D1BAD15EE8DDC3",
+      "claim_id": null,
+      "lease_until": null,
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe/research_tasks/RS-BRC-SORT-SCALING-ROBUSTNESS-20261111.md",
+      "dependencies": [],
+      "dependency_projections": {},
+      "scope": "For the actual uint64 adaptive sorting dispatcher and fixed versus scaled sampling protocols, quantify undetected corruption outside inspected positions and the cost/limits of stratified or independently chosen verification. Run the original C++ entry and true baseline on matched inputs.",
+      "verified_input": "Earlier waves1 and64 measured the original dispatcher and traced displacement. The new question concerns the genuine sampling locations across source seeds and the exact probability of missing corruption, with timing distinguished from the probability law.",
+      "sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/a535cced17845de9b12857fd0ce2655dcf04ccd4/research_tasks/RS-BRC-SORT-SCALING-ROBUSTNESS-20261111.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a535cced17845de9b12857fd0ce2655dcf04ccd4/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtyfourth/sort.md"
+      ],
+      "prior_parent_distinct_registered_ids": 1,
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe/research_task_records/RS-BRC-SORT-SCALING-ROBUSTNESS-20261111/TP2-EA4165D1BAD15EE8DDC3.json",
+      "taskbook_git_blob_sha1": "f134ac82f2050b29102480dd12cafddbe10c1c35",
+      "publication_git_blob_sha1": "a02fb04773e95a746e49842f54f837aed9c8f0a9",
+      "publication_dependencies": [],
+      "official_result_id": null
+    },
+    {
+      "task_id": "RH-ROAD-KERNEL-20260909",
+      "repeat_visit": true,
+      "parent_objective_id": "OBJ-RH-COMPOSITE-ROAD-20260905",
+      "prior_parent_service": 4,
+      "prior_parent_waves": [
+        4,
+        12,
+        19,
+        60
+      ],
+      "state": "READY",
+      "priority": "P2",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "publication_id": "TP2-097828AE2198D4FDA20D",
+      "claim_id": null,
+      "lease_until": null,
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe/research_tasks/RH-ROAD-KERNEL-20260909.md",
+      "dependencies": [
+        "RH-ROAD-AUDIT-20260909"
+      ],
+      "dependency_projections": {
+        "RH-ROAD-AUDIT-20260909": {
+          "state": "READY",
+          "dispatch_state": "NEEDS_DISPATCH",
+          "lease_until": null,
+          "publication_id": "TP2-95E13123DE19F70DA2DB",
+          "result_id": null,
+          "registered_result_files": []
+        }
+      },
+      "scope": "Translate the actual periodic Ramanujan block by every integer phase and study the anchored finite-horizon energy, its average and the extremal change when an initial jump crosses the anchor. Distinguish a one-block phase average from the completed or composite analytic object.",
+      "verified_input": "The named audit prerequisite has scientific evidence from wave12 but no accepted registered return. Waves19 and60 studied genuine finite double-frequency and unshifted block kernels. The wave92 escaping-tail paper was a different registered task and parent. These phase calculations use the original exact kernel and do not assert a converse RH implication.",
+      "sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/a535cced17845de9b12857fd0ce2655dcf04ccd4/research_tasks/RH-ROAD-KERNEL-20260909.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a535cced17845de9b12857fd0ce2655dcf04ccd4/research_tasks/RH-ROAD-AUDIT-20260909.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a535cced17845de9b12857fd0ce2655dcf04ccd4/research_notes/portable_direct/20261118_fair_queue_6b0fba/nineteenth/road_blocks.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a535cced17845de9b12857fd0ce2655dcf04ccd4/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtieth/road.md"
+      ],
+      "prior_parent_distinct_registered_ids": 3,
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe/research_task_records/RH-ROAD-KERNEL-20260909/TP2-097828AE2198D4FDA20D.json",
+      "taskbook_git_blob_sha1": "0ec3d924914026fc51e1bf9820f82a92377df07c",
+      "publication_git_blob_sha1": "3068366859c53271254cc911f3487a165f2ce84c",
+      "publication_dependencies": [
+        "RH-ROAD-AUDIT-20260909"
+      ],
+      "official_result_id": null,
+      "source_audit_dependency_final_projection": {
+        "state": "READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "publication_id": "TP2-95E13123DE19F70DA2DB",
+        "result_id": null,
+        "review_status": null,
+        "lease_until": null
+      }
+    },
+    {
+      "task_id": "RS-EULER-RR-03-CALIBRATION-20261011",
+      "repeat_visit": false,
+      "parent_objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
+      "prior_parent_service": 55,
+      "prior_parent_waves": [
+        1,
+        4,
+        5,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        25,
+        26,
+        29,
+        31,
+        33,
+        36,
+        39,
+        41,
+        43,
+        45,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54,
+        57,
+        60,
+        62,
+        63,
+        65,
+        66,
+        68,
+        69,
+        73,
+        75,
+        78,
+        80,
+        82,
+        85,
+        87,
+        88,
+        90,
+        92,
+        94,
+        96,
+        97,
+        100,
+        102,
+        103,
+        105
+      ],
+      "state": "READY",
+      "priority": "P2",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "publication_id": "TP2-CD9B72475DD42BB9E96D",
+      "claim_id": null,
+      "lease_until": null,
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe/research_tasks/RS-EULER-RR-03-CALIBRATION-20261011.md",
+      "dependencies": [],
+      "dependency_projections": {},
+      "scope": "For source-independent finite positive-weight preparations, compare the best attainable reference-receiver calibration under multi-trit relational gates and under arbitrary equivariant reversible updates, exhibiting a strict separation or exactly attaining construction. Count the finite preparation support and residual correlation.",
+      "verified_input": "This is the October 11 calibration registration with no predecessors. The October 12 calibration and reuse entries represent different contracts. Wave105 used this registration as a scientific reference for the error task, without serving it. The October 11 task expressly permits a source-scoped proof without the private archive; any native operations must be witnessed by the actual typed interface.",
+      "sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/a535cced17845de9b12857fd0ce2655dcf04ccd4/research_tasks/RS-EULER-RR-03-CALIBRATION-20261011.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a535cced17845de9b12857fd0ce2655dcf04ccd4/research_notes/chatgpt_direct/20261011_EULER_RELATIONAL_RECORDING.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a535cced17845de9b12857fd0ce2655dcf04ccd4/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredfifth/budget.md"
+      ],
+      "prior_parent_distinct_registered_ids": 52,
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe/research_task_records/RS-EULER-RR-03-CALIBRATION-20261011/TP2-CD9B72475DD42BB9E96D.json",
+      "taskbook_git_blob_sha1": "925f903096f9d7039a8c28b6903465499c1f9566",
+      "publication_git_blob_sha1": "e1e17bd0bec12ea718b34632222623d83caa4d75",
+      "publication_dependencies": [],
+      "official_result_id": null,
+      "genuine_first_visit": "Wave50 directly served RS-EULER-RR-20261012-05, not this October 11 calibration task. Wave105 selected RR11 and only examined this registration as a dependency."
+    }
+  ],
+  "remaining_gates": {
+    "older_physics": "R661 needs an admitted four-cell contact-port relation and autonomous timing; original time authority was claimed at #6992504859 and no result supplying that interface was posted. The remaining P000/GEO6/Hodge review gates have no new substantive authority.",
+    "older_arithmetic": "D25 #1559 still open (73 comments, last #6803845728), with original same-source H0/B0 p373 operator unprovided. PCF7 is a closure audit and both P11 and m7 require their own prior-controlled Magma provenance."
+  },
+  "priority_ingress": {
+    "strict_P1": "Original certified P11 Magma mixed-bit run remains restricted; its independent numerical or analytic side questions do not allocate any such execution.",
+    "native_time_lease": "Native Time was claimed by its own researcher in wave42. This wave has no claim for it.",
+    "triadic": "The new finite target-side notes by the original triadic owner do not supply the missing autonomous inter-Cell port/timing operation."
+  },
+  "unregistered_parallel_mathematics": {
+    "counted_ids": 0,
+    "counted_parents": 0,
+    "scopes": []
+  },
+  "cold_parent_admission_check": {
+    "preceding_source": "https://github.com/awdawmip/enterprise-math/blob/e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredfifth/fair_snapshot.json",
+    "check_scope": "The 24 tasks across 11 parents outside the four parents served in waves 40–44 were individually inspected against their native records. None offered a direct research unit with necessary inputs at that cutoff. The individual named sources are preserved in the preceding snapshot.",
+    "prior_counts_by_state": {
+      "strict_ready": 3,
+      "handoff_ready": 16,
+      "frozen_return": 5
+    },
+    "prior_checked_parents": 11,
+    "nearby_handoffs": {
+      "RS-GBRC-R1-TYPED-CARRIER": {
+        "state": "HANDOFF_READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/8437676dc45bbe7acecb2873664e31f55dff6823/research_artifacts/mcp/RS-GBRC-R1-TYPED-CARRIER/MCP-36b67cb54ee940659ef6549038a44580/f6adf775763b75c2f6d5/_checkpoint.json",
+        "scope": "Original resource continuation requires a genuine driver or owner assessment."
+      },
+      "RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS": {
+        "state": "HANDOFF_READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/f3fdc256c3563a5b1d18865a49dd156a24f48a49/research_artifacts/mcp/RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS/MCP-c618a61189764f23846a391a08518a1a/ab9b5f2e0dd72e021f71/_checkpoint.json",
+        "scope": "Closed selector synthesis and review; finite-ring independent mathematics has zero registered weight."
+      },
+      "RS-CFD-SPECTRAL-HYBRID-20260910": {
+        "state": "HANDOFF_READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/585bcf761e7bd87f45d6ff628b2569d5750432ff/research_artifacts/mcp/RS-CFD-SPECTRAL-HYBRID-20260910/MCP-0e6fcaa5c5a3425cbe4259abf1694b46/07ed4e44c39247e40c61/_checkpoint.json",
+        "scope": "The exact held-out A/B/C experiment must run on the pinned already-provisioned native host with matched call IDs and timing partitions. The required host was not evidenced in current accessible inputs."
+      }
+    },
+    "selection_basis": "Two distinct lower-service parents last visited in waves64 and60 receive repeat studies in genuine sampling and arithmetic phase averages. A third parent supplies one genuine first visit to the October 11 source-preserving calibration task. The case formerly cited merely as a dependency is charged only now. Non-BRC first-visit candidates in the unsettled pool still route to the existing Magma runs, in-place closure review, named-source reproducibility or a specific followup."
+  },
+  "fair_revisits": [
+    {
+      "previous_service_waves": [
+        1,
+        64
+      ],
+      "previous_service_count_for_this_parent": 2,
+      "previous_service_count_for_this_task": 2,
+      "task_id": "RS-BRC-SORT-SCALING-ROBUSTNESS-20261111",
+      "source": "https://github.com/awdawmip/enterprise-math/blob/a535cced17845de9b12857fd0ce2655dcf04ccd4/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtyfourth/sort.md",
+      "new_question": "For the actual uint64 adaptive sorting dispatcher and fixed versus scaled sampling protocols, quantify undetected corruption outside inspected positions and the cost/limits of stratified or independently chosen verification. Run the original C++ entry and true baseline on matched inputs.",
+      "unique_id_increment": 0
+    },
+    {
+      "previous_service_waves": [
+        19,
+        60
+      ],
+      "previous_service_count_for_this_parent": 4,
+      "previous_service_count_for_this_task": 2,
+      "task_id": "RH-ROAD-KERNEL-20260909",
+      "source": "https://github.com/awdawmip/enterprise-math/blob/a535cced17845de9b12857fd0ce2655dcf04ccd4/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtieth/road.md",
+      "new_question": "Translate the actual periodic Ramanujan block by every integer phase and study the anchored finite-horizon energy, its average and the extremal change when an initial jump crosses the anchor. Distinguish a one-block phase average from the completed or composite analytic object.",
+      "unique_id_increment": 0
+    }
+  ],
+  "dependency_interpretation": {
+    "RS-BRC-SORT-SCALING-ROBUSTNESS-20261111": "Earlier waves1 and64 measured the original dispatcher and traced displacement. The new question concerns the genuine sampling locations across source seeds and the exact probability of missing corruption, with timing distinguished from the probability law.",
+    "RH-ROAD-KERNEL-20260909": "The named audit prerequisite has scientific evidence from wave12 but no accepted registered return. Waves19 and60 studied genuine finite double-frequency and unshifted block kernels. The wave92 escaping-tail paper was a different registered task and parent. These phase calculations use the original exact kernel and do not assert a converse RH implication.",
+    "RS-EULER-RR-03-CALIBRATION-20261011": "This is the October 11 calibration registration with no predecessors. The October 12 calibration and reuse entries represent different contracts. Wave105 used this registration as a scientific reference for the error task, without serving it. The October 11 task expressly permits a source-scoped proof without the private archive; any native operations must be witnessed by the actual typed interface."
+  },
+  "cross_family_history": {
+    "road_kernel_parent_waves": [
+      4,
+      12,
+      19,
+      60
+    ],
+    "wave92_related_task": "RS-RH-COMPOSITE-ROAD-ESCAPING-TAIL",
+    "wave92_distinct_parent": "OBJ-RH-COMPOSITE-ROAD-UNIFORM-ENERGY"
+  }
+}
