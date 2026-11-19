@@ -1,0 +1,387 @@
+{
+  "description": "C82 exact certificates, symbolic checks, and finite-data consistency checks",
+  "scope_note": "These checks cover the named identities, rational certificates, and finite records. They do not constitute program verification of the analytic limit theorems.",
+  "started_utc": "2026-11-19T02:07:11.511371+00:00",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "numpy": "2.3.5",
+    "sympy": "1.14.0",
+    "python_optimization": 0
+  },
+  "execution_scope": {
+    "mode": "default",
+    "stored_inventory_checked": [
+      4,
+      16,
+      64,
+      256,
+      1024
+    ],
+    "finite_enumerations_recomputed": [
+      4,
+      16
+    ],
+    "stored_only_enumerations": [
+      64,
+      256,
+      1024
+    ],
+    "full_recalculation_command": "python verify.py --full"
+  },
+  "checks": [
+    {
+      "name": "exact_lattice_tail_constants",
+      "status": "passed",
+      "details": {
+        "program": "check_lattice_tail.py",
+        "returncode": 0,
+        "stdout": "I_3 = 23/60\nF_2(a) = 1 - (21/4)/(pi^2*a), a >= 1\nF_3(a) = 1 - (161/80)/(pi^2*a), a >= 1/2\nWith the same outer endpoints, collision probability is reduced by 7/30.",
+        "stderr": "",
+        "sha256": "1cf5625b78c17deabfd0c9dd5c794fa83120c0e927df04a884e4e4611f9ff858"
+      },
+      "elapsed_seconds": 0.030665
+    },
+    {
+      "name": "symbolic_jacobian_and_boundary_identities",
+      "status": "passed",
+      "details": {
+        "program": "fibers/check_jacobian.py",
+        "returncode": 0,
+        "stdout": "Jacobian, smooth factor, boundary identities and original constants verified.\nFactor denominator: 35*(7*A**4*d + 16)**4*(7*A**5*d + 16)**4",
+        "stderr": "",
+        "sha256": "69e89e5412dce73ab3e806afc3cdf67e762f480ba71974479a537c42c8ece88c"
+      },
+      "elapsed_seconds": 6.024267
+    },
+    {
+      "name": "rational_fiber_certificate_program",
+      "status": "passed",
+      "details": {
+        "program": "fibers/certify_fibers.py",
+        "returncode": 0,
+        "stdout": "{\n  \"boundary_fold\": {\n    \"d_1e12\": [\n      750764164324,\n      750764164325\n    ],\n    \"h_lower\": \"-670082147484705771050905526973196474671549982580431/185884357359747883670555619291565932529723783645287\",\n    \"h_upper\": \"-53606571798776461684072409905154219872322166014362331/14870748588779830693644440672161666656320733662965587\"\n  },\n  \"global_lobe_maxima\": [\n    {\n      \"side\": \"left\",\n      \"h\": \"1/5\",\n      \"A_1e12\": [\n        750097198508,\n        750097198509\n      ],\n      \"d_1e12\": [\n        817738789313,\n        817738789314\n      ],\n      \"G_1e12\": [\n        4944327611,\n        4944327612\n      ]\n    },\n    {\n      \"side\": \"right\",\n      \"h\": \"1/5\",\n      \"A_1e12\": [\n        1578529419714,\n        1578529419715\n      ],\n      \"d_1e12\": [\n        763371456520,\n        763371456521\n      ],\n      \"G_1e12\": [\n        16753914787,\n        16753914788\n      ]\n    }\n  ],\n  \"regular_count_examples\": [\n    {\n      \"h\": \"6\",\n      \"G\": \"1/10\",\n      \"count\": 1\n    },\n    {\n      \"h\": \"0\",\n      \"G\": \"1/10\",\n      \"count\": 2\n    },\n    {\n      \"h\": \"6\",\n      \"G\": \"1/10000\",\n      \"count\": 3\n    },\n    {\n      \"h\": \"0\",\n      \"G\": \"1/100\",\n      \"count\": 4\n    },\n    {\n      \"h\": \"0\",\n      \"G\": \"1/10000000000\",\n      \"count\": 5\n    },\n    {\n      \"h\": \"0\",\n      \"G\": \"1/10000\",\n      \"count\": 6\n    }\n  ]\n}",
+        "stderr": "",
+        "sha256": "8d3ad1eb0917343bdc9d6c7153e4524ba430829f4aae948c217ae5cc246c87bc"
+      },
+      "elapsed_seconds": 1.3e-05
+    },
+    {
+      "name": "rational_certificate_reproduction",
+      "status": "passed",
+      "details": {
+        "json_equal": true,
+        "byte_equal": true,
+        "sha256": "40614d1b9429d37be798c4f44866bb8198440430e9040183c045f214cc26cdab",
+        "regular_count_example_labels": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "scope": "Reproduced exact inequalities and interval certificates; root-count conclusions also use the analytic proof."
+      },
+      "elapsed_seconds": 0.000144
+    },
+    {
+      "name": "five_stock_inventory",
+      "status": "passed",
+      "details": {
+        "stocks": [
+          4,
+          16,
+          64,
+          256,
+          1024
+        ],
+        "sha256": "93a4698e23a7af81a8847ff88f207f4d9bb329c48cdcb3a6dd98fa60d9be6fdc",
+        "records": 5
+      },
+      "elapsed_seconds": 5e-06
+    },
+    {
+      "name": "binomial_catalogue_sizes",
+      "status": "passed",
+      "details": {
+        "counts": [
+          {
+            "c": 4,
+            "arrangements": 6
+          },
+          {
+            "c": 16,
+            "arrangements": 120
+          },
+          {
+            "c": 64,
+            "arrangements": 2016
+          },
+          {
+            "c": 256,
+            "arrangements": 32640
+          },
+          {
+            "c": 1024,
+            "arrangements": 523776
+          }
+        ],
+        "total_arrangements": 558558
+      },
+      "elapsed_seconds": 2.1e-05
+    },
+    {
+      "name": "critical_scale_L_one",
+      "status": "passed",
+      "details": {
+        "formula": "p* = 7/4 log2(c) + 1/2 log2(c/b) = 2 log2(c)",
+        "exact_rational_log_check": [
+          {
+            "c": 4,
+            "b": 2,
+            "p_star": "4",
+            "p": 4,
+            "L": 1
+          },
+          {
+            "c": 16,
+            "b": 4,
+            "p_star": "8",
+            "p": 8,
+            "L": 1
+          },
+          {
+            "c": 64,
+            "b": 8,
+            "p_star": "12",
+            "p": 12,
+            "L": 1
+          },
+          {
+            "c": 256,
+            "b": 16,
+            "p_star": "16",
+            "p": 16,
+            "L": 1
+          },
+          {
+            "c": 1024,
+            "b": 32,
+            "p_star": "20",
+            "p": 20,
+            "L": 1
+          }
+        ],
+        "interval_bits": 176
+      },
+      "elapsed_seconds": 0.000124
+    },
+    {
+      "name": "eight_origin_coverage",
+      "status": "passed",
+      "details": {
+        "origins_per_stock": 8,
+        "total_origin_records": 40,
+        "offsets_halves": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      },
+      "elapsed_seconds": 1.8e-05
+    },
+    {
+      "name": "triple_dominates_both_pairs",
+      "status": "passed",
+      "details": {
+        "records_checked": 40,
+        "pairwise_inequalities_checked": 80,
+        "singleton_count_ranges": [
+          {
+            "c": 4,
+            "pair_0_1": [
+              0,
+              0
+            ],
+            "pair_0_2": [
+              0,
+              0
+            ],
+            "triple": [
+              0,
+              0
+            ]
+          },
+          {
+            "c": 16,
+            "pair_0_1": [
+              0,
+              2
+            ],
+            "pair_0_2": [
+              0,
+              3
+            ],
+            "triple": [
+              4,
+              7
+            ]
+          },
+          {
+            "c": 64,
+            "pair_0_1": [
+              403,
+              435
+            ],
+            "pair_0_2": [
+              389,
+              417
+            ],
+            "triple": [
+              686,
+              712
+            ]
+          },
+          {
+            "c": 256,
+            "pair_0_1": [
+              9544,
+              9584
+            ],
+            "pair_0_2": [
+              10176,
+              10251
+            ],
+            "triple": [
+              11909,
+              11989
+            ]
+          },
+          {
+            "c": 1024,
+            "pair_0_1": [
+              169923,
+              169947
+            ],
+            "pair_0_2": [
+              179253,
+              179452
+            ],
+            "triple": [
+              196985,
+              197280
+            ]
+          }
+        ]
+      },
+      "elapsed_seconds": 0.000121
+    },
+    {
+      "name": "unused_origin_does_not_change_pair_count",
+      "status": "passed",
+      "details": {
+        "stocks_checked": 5,
+        "pair_groups_checked": 40
+      },
+      "elapsed_seconds": 7.6e-05
+    },
+    {
+      "name": "finite_recalculation_c_4",
+      "status": "passed",
+      "details": {
+        "c": 4,
+        "arrangements": 6,
+        "origins": 8,
+        "native_enclosures": 18,
+        "exact_json_record_equal": true
+      },
+      "elapsed_seconds": 0.028369
+    },
+    {
+      "name": "finite_recalculation_c_16",
+      "status": "passed",
+      "details": {
+        "c": 16,
+        "arrangements": 120,
+        "origins": 8,
+        "native_enclosures": 360,
+        "exact_json_record_equal": true
+      },
+      "elapsed_seconds": 0.539701
+    },
+    {
+      "name": "all_378_native_rational_enclosures",
+      "status": "passed",
+      "details": {
+        "exact_native_calls": 378,
+        "c_4": 18,
+        "c_16": 360,
+        "all_calls_returned_Fraction_values": true,
+        "all_378_interval_enclosure_assertions_executed": true,
+        "arrangements_recomputed_for_native_check": 126,
+        "scope": "All three physical readings for every arrangement at c=4 and c=16."
+      },
+      "elapsed_seconds": 0.000232
+    },
+    {
+      "name": "stored_finite_file_preserved",
+      "status": "passed",
+      "details": {
+        "sha256": "93a4698e23a7af81a8847ff88f207f4d9bb329c48cdcb3a6dd98fa60d9be6fdc",
+        "stored_file_changed": false,
+        "large_inventory_recomputed": false
+      },
+      "elapsed_seconds": 4.6e-05
+    }
+  ],
+  "elapsed_seconds": 7.123205,
+  "passed": 14,
+  "failed": 0,
+  "status": "passed",
+  "finished_utc": "2026-11-19T02:07:18.634242+00:00",
+  "input_program_sha256": {
+    "verify.py": "aad4dc2c3bf8a9a92a3e0b8a2cb16fc86410e4c3383a1455d0d3a20c60c35562",
+    "finite/three_readings.py": "b42fb32317019a9b0a1de8a063d0f293c90d5147331276a518defc493d073d7a",
+    "finite/critical_bins.py": "a6e3afd2affbe6728469b09f8ab1bf9e8367cda4fcefd3de89a2ede77d8cda34",
+    "finite/native.py": "2d0ea55c826fbb28f4bb3de39d12269d8f8e7ce624afb50873ea4de94dcec6fa"
+  }
+}
