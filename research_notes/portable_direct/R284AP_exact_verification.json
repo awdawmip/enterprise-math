@@ -1,0 +1,41 @@
+{
+  "schema": "R284AP_EXACT_VERIFICATION_V1",
+  "seed": 284016,
+  "method": "primewise exterior DP; integer independent Leibniz oracle",
+  "tested_instances": 87,
+  "exact_oracle_agreement": 87,
+  "total_modular_candidates": 4327,
+  "independent_final_basis_closure_checks": 7144,
+  "max_prime_count": 6,
+  "max_minor_bound_bits": 15,
+  "max_prime_product_bits": 15,
+  "instances_with_modular_degree_divergence": 52,
+  "examples": [
+    {
+      "case": "two-prime-needed",
+      "d": 1,
+      "witness": [0],
+      "primes": [2, 3],
+      "per_prime_d": [0, 1],
+      "minor_bound": 4
+    },
+    {
+      "case": "nilpotent-no-principal",
+      "d": 0,
+      "witness": null,
+      "primes": [2, 3],
+      "per_prime_d": [0, 0],
+      "minor_bound": 4
+    },
+    {
+      "case": "symmetric-positive",
+      "d": 2,
+      "witness": [0, 1],
+      "primes": [2, 3],
+      "per_prime_d": [2, 2],
+      "minor_bound": 4
+    }
+  ],
+  "general_theorem_status": "AUTHOR_PROVED_NOT_INDEPENDENTLY_REVIEWED",
+  "status": "PASS"
+}
