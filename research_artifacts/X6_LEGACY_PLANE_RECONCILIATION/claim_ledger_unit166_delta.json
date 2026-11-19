@@ -1,0 +1,55 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-19",
+  "unit": 166,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_UNREVIEWED_NOT_ADMITTED",
+  "source": {
+    "historical_producer": "src/enterprise_math/euler_native_bisector.py",
+    "historical_producer_blob": "f6e0162012af2ab10685076e0ff5c0e728ba1ec0",
+    "producer_lines": "117-118,185-193,231-234,277ff",
+    "historical_test_consumer": "tests/test_euler_native_bisector.py",
+    "historical_consumer_blob": "57eb499033b2432a3b5b325d711c50cf1719e4f0",
+    "test_lines": "15-30,42-52",
+    "related_prior_unit": "X6 Unit162 signed C12 candidate graph automorphism"
+  },
+  "finding": {
+    "model": "A(x1..x6)=(-x6,x1..x5); D=Z(1,...,1)",
+    "minimal_A_invariant_diagonal_killing_kernel": "M=ZD+2Z6={integer vectors with all coordinate parities equal}",
+    "index": 32,
+    "quotient": "(F2)^6 / F2(1,1,1,1,1,1) ≅ (F2)^5",
+    "native_rotor_order": 12,
+    "quotient_action_order": 6,
+    "universal_property": "Every additive A-equivariant quotient killing D factors through Z6/M",
+    "witness": "q(0)=q(d) but q(A0)!=q(Ad); B(0)=1 != B(d)=720",
+    "scope": "SIGNED_X6_COORDINATE_GRAPH_AND_DERIVED_ADDITIVE_OBSERVER_NOT_PHYSICAL_ROTATION"
+  },
+  "exact_check": {
+    "vectors": 15625,
+    "parity_classes": 32,
+    "python_modes": [
+      "python",
+      "python -O",
+      "python -OO"
+    ],
+    "failures": 0
+  },
+  "proof_path": "research_notes/X6_UNIT166_C12_DIAGONAL_EQUIVARIANT_QUOTIENT_20261119.md",
+  "checker_path": "research_checks/X6_UNIT166_C12_DIAGONAL_EQUIVARIANT_QUOTIENT_CHECK_20261119.py",
+  "certificate_path": "research_checks/X6_UNIT166_C12_DIAGONAL_EQUIVARIANT_QUOTIENT_RESULTS_20261119.json",
+  "unresolved": [
+    "LP011 exact alleged wrong native spatial argmax caller",
+    "LP019 exact alleged positive native BRC subtraction caller",
+    "Full 28-LP consumer coverage",
+    "Original Native Units162-164 result terminal; Unit165-166 native linkage",
+    "Units149-152 native source associations",
+    "Independent Driver Review"
+  ],
+  "original_request_preserved": "onhour-20261119-2208-x6-own-units162164-native-progress-v1",
+  "review": "NOT_REVIEWED",
+  "admission": "NOT_ADMITTED"
+}
