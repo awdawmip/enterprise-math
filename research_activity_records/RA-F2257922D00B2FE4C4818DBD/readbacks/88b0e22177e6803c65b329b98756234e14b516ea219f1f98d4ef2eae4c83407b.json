@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_fourteen_dominance_20261120/make_adj.py",
+    "ref": "c328562411f49bd9981d54b2eeb9b0220a66986c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261120-0239-fourteen-dominance-20159-v1-source-11",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Recreate exact 101x256x256 directed center-window adjacency from frozen R5 input.\"\"\"\nfrom pathlib import Path\nimport json,hashlib\nroot=Path(__file__).parent\nraw=(root/\"EXACT_R5_ALL_101_BUDGETS.json\").read_bytes()\nassert hashlib.sha256(raw).hexdigest()==\"50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b\"\nj=json.loads(raw)\ntau=int(json.loads((root/\"stages_18.json\").read_text())[\"U\"])-1\nassert tau==58182461585441404127941754879\nequal_tau=0\nwith (root/\"window_adj.bin\").open(\"wb\") as f:\n for k in range(214,315):\n  a=list(map(int,j[\"counts_and_cohorts\"][str(k)][\"counts\"]))\n  assert len(a)==256\n  for x in a:\n   equal_tau+=sum(y-x==tau for y in a)\n   f.write(bytes(0<=y-x<=tau for y in a))\nassert equal_tau==0\nassert (root/\"window_adj.bin\").stat().st_size==101*256*256\nprint(\"PASS_R5_FROZEN_ADJ\",101*256*256,\"CENTER_DIFF_EQUALS_TAU\",equal_tau)\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c328562411f49bd9981d54b2eeb9b0220a66986c/research_notes/portable_direct/r5_fourteen_dominance_20261120/make_adj.py",
+      "encoding": "utf-8",
+      "sha": "437bf6fcc326ef452865196d43ba508f1dd6904b"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
