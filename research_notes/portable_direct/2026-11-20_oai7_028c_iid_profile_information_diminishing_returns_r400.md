@@ -81,7 +81,7 @@ The bound is strict, and the discarded dependence is positive. The exact rationa
 
 ## Application to the pinned Gaussian coverage experiment
 
-At each **fixed exact start** in `schedule.tex`, let `A=A_{i+1}` be the random later checkpoint time, and `W_j\) the residue profile of the `j`th independent continuation displacement, conditional on `A`. The shared profile histogram `B_{n_i}` is defined before the independent signed-subset selection `S`. Since `F_S(Y)` is a deterministic function of `A` for fixed `S`, data processing yields
+At each **fixed exact start** in `schedule.tex`, let `A=A_{i+1}` be the random later checkpoint time, and `W_j` the residue profile of the `j`th independent continuation displacement, conditional on `A`. The shared profile histogram `B_{n_i}` is defined before the independent signed-subset selection `S`. Since `F_S(Y)` is a deterministic function of `A` for fixed `S`, data processing yields
 
 \[
 \mathbb E_S I(F_S(Y);B_{n_i})
