@@ -1,0 +1,598 @@
+{
+  "exact_decision_checks": [
+    {
+      "adaptive_optimum": 4,
+      "batch_cover_states": 8,
+      "batch_optimum": 4,
+      "binary": false,
+      "decision_masks": 75,
+      "distinct_tests": 15,
+      "domains": [
+        2,
+        2
+      ],
+      "exps": [
+        2
+      ],
+      "graphs": 16,
+      "p": 2,
+      "s": 2
+    },
+    {
+      "adaptive_optimum": 6,
+      "batch_cover_states": 38,
+      "batch_optimum": 6,
+      "binary": false,
+      "decision_masks": 1143,
+      "distinct_tests": 12,
+      "domains": [
+        1,
+        1
+      ],
+      "exps": [
+        1,
+        1
+      ],
+      "graphs": 16,
+      "p": 2,
+      "s": 2
+    },
+    {
+      "adaptive_optimum": 4,
+      "batch_cover_states": 11,
+      "batch_optimum": 4,
+      "binary": false,
+      "decision_masks": 196,
+      "distinct_tests": 12,
+      "domains": [
+        1,
+        1
+      ],
+      "exps": [
+        1
+      ],
+      "graphs": 9,
+      "p": 3,
+      "s": 2
+    },
+    {
+      "adaptive_optimum": 4,
+      "batch_cover_states": 39,
+      "batch_optimum": 6,
+      "binary": false,
+      "decision_masks": 31,
+      "distinct_tests": 9,
+      "domains": [
+        2
+      ],
+      "exps": [
+        2,
+        1
+      ],
+      "graphs": 8,
+      "p": 2,
+      "s": 1
+    },
+    {
+      "adaptive_optimum": 5,
+      "batch_cover_states": 397,
+      "batch_optimum": 12,
+      "binary": false,
+      "decision_masks": 63,
+      "distinct_tests": 19,
+      "domains": [
+        3
+      ],
+      "exps": [
+        3,
+        1
+      ],
+      "graphs": 16,
+      "p": 2,
+      "s": 1
+    },
+    {
+      "adaptive_optimum": 4,
+      "batch_cover_states": 210,
+      "batch_optimum": 6,
+      "binary": false,
+      "decision_masks": 25,
+      "distinct_tests": 12,
+      "domains": [
+        2
+      ],
+      "exps": [
+        2
+      ],
+      "graphs": 9,
+      "p": 3,
+      "s": 1
+    },
+    {
+      "adaptive_optimum": 4,
+      "batch_cover_states": 115,
+      "batch_optimum": 7,
+      "binary": true,
+      "decision_masks": 255,
+      "distinct_tests": 9,
+      "domains": [
+        2
+      ],
+      "exps": [
+        2,
+        1
+      ],
+      "graphs": 8,
+      "p": 2,
+      "s": 1
+    },
+    {
+      "adaptive_optimum": 7,
+      "batch_cover_states": 31087,
+      "batch_optimum": 9,
+      "binary": false,
+      "decision_masks": 2369,
+      "distinct_tests": 25,
+      "domains": [
+        1,
+        2
+      ],
+      "exps": [
+        2,
+        1
+      ],
+      "graphs": 32,
+      "p": 2,
+      "s": 2
+    },
+    {
+      "adaptive_optimum": 7,
+      "batch_cover_states": 212963,
+      "batch_optimum": 10,
+      "binary": true,
+      "decision_masks": 483465,
+      "distinct_tests": 25,
+      "domains": [
+        1,
+        2
+      ],
+      "exps": [
+        2,
+        1
+      ],
+      "graphs": 32,
+      "p": 2,
+      "s": 2
+    }
+  ],
+  "matrix_checks": [
+    {
+      "domains": [
+        2,
+        2
+      ],
+      "example": {
+        "A": [
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            1
+          ]
+        ],
+        "B": [
+          [
+            0,
+            1,
+            4,
+            0
+          ]
+        ],
+        "increment": 2,
+        "prior_delta": 0
+      },
+      "exps": [
+        2
+      ],
+      "graph_count": 16,
+      "p": 2,
+      "s": 2,
+      "smith_checks": 1024
+    },
+    {
+      "domains": [
+        1,
+        1
+      ],
+      "example": {
+        "A": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ]
+        ],
+        "B": [
+          [
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            2,
+            0
+          ]
+        ],
+        "increment": 1,
+        "prior_delta": 0
+      },
+      "exps": [
+        1,
+        1
+      ],
+      "graph_count": 16,
+      "p": 2,
+      "s": 2,
+      "smith_checks": 256
+    },
+    {
+      "domains": [
+        2,
+        2
+      ],
+      "example": {
+        "A": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ]
+        ],
+        "B": [
+          [
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            2,
+            0
+          ]
+        ],
+        "increment": 1,
+        "prior_delta": 1
+      },
+      "exps": [
+        2,
+        1
+      ],
+      "graph_count": 64,
+      "p": 2,
+      "s": 2,
+      "smith_checks": 910
+    },
+    {
+      "domains": [
+        2,
+        2
+      ],
+      "example": {
+        "A": [
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            2
+          ]
+        ],
+        "B": [
+          [
+            0,
+            1,
+            9,
+            6
+          ]
+        ],
+        "increment": 2,
+        "prior_delta": 0
+      },
+      "exps": [
+        2
+      ],
+      "graph_count": 81,
+      "p": 3,
+      "s": 2,
+      "smith_checks": 2035
+    },
+    {
+      "domains": [
+        2,
+        2
+      ],
+      "example": {
+        "A": [
+          [
+            1,
+            0,
+            0,
+            0,
+            3
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            3
+          ]
+        ],
+        "B": [
+          [
+            0,
+            0,
+            4,
+            0,
+            3
+          ],
+          [
+            0,
+            1,
+            0,
+            4,
+            1
+          ]
+        ],
+        "increment": 2,
+        "prior_delta": 0
+      },
+      "exps": [
+        2,
+        2
+      ],
+      "graph_count": 256,
+      "p": 2,
+      "s": 2,
+      "smith_checks": 649
+    },
+    {
+      "domains": [
+        1,
+        2
+      ],
+      "example": {
+        "A": [
+          [
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1
+          ]
+        ],
+        "B": [
+          [
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            2,
+            0
+          ]
+        ],
+        "increment": 1,
+        "prior_delta": 1
+      },
+      "exps": [
+        2,
+        1
+      ],
+      "graph_count": 32,
+      "p": 2,
+      "s": 2,
+      "smith_checks": 2048
+    }
+  ],
+  "rounds_and_depth": [
+    {
+      "children": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "costs": [
+        8,
+        4,
+        4,
+        4,
+        4
+      ],
+      "histogram": {
+        "1": 2,
+        "2": 6,
+        "3": 6,
+        "4": 2
+      },
+      "mean": "5/2"
+    },
+    {
+      "children": [
+        4,
+        4
+      ],
+      "costs": [
+        12,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "histogram": {
+        "1": 1,
+        "2": 2,
+        "3": 4,
+        "4": 4,
+        "5": 3,
+        "6": 2
+      },
+      "mean": "15/4"
+    },
+    {
+      "children": [
+        4,
+        2,
+        2
+      ],
+      "costs": [
+        12,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "histogram": {
+        "1": 1,
+        "2": 3,
+        "3": 5,
+        "4": 5,
+        "5": 2
+      },
+      "mean": "13/4"
+    },
+    {
+      "children": [
+        3,
+        3,
+        3
+      ],
+      "costs": [
+        18,
+        7,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "histogram": {
+        "1": 1,
+        "2": 4,
+        "3": 7,
+        "4": 8,
+        "5": 5,
+        "6": 2
+      },
+      "mean": "11/3"
+    },
+    {
+      "children": [
+        4,
+        4,
+        2
+      ],
+      "costs": [
+        24,
+        9,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "histogram": {
+        "1": 1,
+        "2": 3,
+        "3": 6,
+        "4": 8,
+        "5": 7,
+        "6": 5,
+        "7": 2
+      },
+      "mean": "17/4"
+    }
+  ],
+  "small_batch_bruteforce": [
+    {
+      "cache": 45,
+      "children": [
+        2,
+        2,
+        2
+      ],
+      "raw_minimax": [
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "cache": 75,
+      "children": [
+        3,
+        3
+      ],
+      "raw_minimax": [
+        6,
+        4,
+        4
+      ]
+    }
+  ]
+}
