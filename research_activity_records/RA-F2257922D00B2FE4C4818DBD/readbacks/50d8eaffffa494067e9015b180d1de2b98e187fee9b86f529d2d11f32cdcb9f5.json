@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_fourteen_dominance_20261120/CENSUS_14_SIGNATURES.cpp",
+    "ref": "c328562411f49bd9981d54b2eeb9b0220a66986c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261120-0239-fourteen-dominance-20159-v1-source-05",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "// Deterministic all-pairs exact priced-joint-support signature census.\n#define main previous_solver_main\n#include \"R5_FOURTEEN_F8_ONE.cpp\"\n#undef main\nint main(){\n ifstream fi(\"window_adj.bin\",ios::binary);vector<uint8_t>adj((size_t)Q*N*N);\n fi.read((char*)adj.data(),adj.size());if(fi.gcount()!=(streamsize)adj.size())return 2;\n bool used[N]={};for(int x:seed)used[x]=true;\n unordered_map<string,int>seen;vector<pair<int,int>> reps;vector<int> members;\n ofstream pairs(\"R5_14_29646_TO_CLASS.csv\");pairs<<\"u,v,signature_class\\n\";\n for(int u=0;u<N;u++)if(!used[u])for(int v=u+1;v<N;v++)if(!used[v]){\n  auto actions=signature(adj,u,v);string key;\n  for(auto&a:actions){key+=to_string(a.cost)+\":\";\n   for(int m:a.masks)key+=to_string(m)+\",\";\n   key+=\";\";}\n  int id;auto it=seen.find(key);\n  if(it==seen.end()){id=reps.size();seen.emplace(move(key),id);reps.push_back({u,v});members.push_back(0);}\n  else id=it->second;\n  members[id]++;pairs<<u<<\",\"<<v<<\",\"<<id<<\"\\n\";\n }\n ofstream out(\"R5_14_CLASS_REPS.csv\");out<<\"class,u,v,count\\n\";\n for(int id=0;id<reps.size();id++)out<<id<<\",\"<<reps[id].first<<\",\"<<reps[id].second<<\",\"<<members[id]<<\"\\n\";\n cout<<\"PAIRS=29646 CLASSES=\"<<reps.size()<<\" MAX=\"<<*max_element(members.begin(),members.end())<<\"\\n\";\n return reps.size()==1906?0:1;\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c328562411f49bd9981d54b2eeb9b0220a66986c/research_notes/portable_direct/r5_fourteen_dominance_20261120/CENSUS_14_SIGNATURES.cpp",
+      "encoding": "utf-8",
+      "sha": "1080dcc081d2863c4553be589e9801e5027a0860"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
