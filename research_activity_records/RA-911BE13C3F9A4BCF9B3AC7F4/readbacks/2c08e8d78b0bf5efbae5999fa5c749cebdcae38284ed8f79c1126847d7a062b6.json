@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredsixteenth/README.md",
+    "ref": "835fe505b89e63ea156eae22ec04c9d76826cca1",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-hundredsixteen-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第一百一十六轮　匿名返回读数要读多深才能重构一圈\n\n长为 $k$ 的圈上有 $m$ 个桥口，各接一个三角形。第 61 轮已把原邻接程序第 $t$ 轮的匿名读数化为长度 $2t-1$ 的全部圆形二元窗口，每个窗口按反读识别。这次研究何时能由这些窗口唯一恢复整圈，恢复按旋转和反射识别。[观测与原图之间的对应](../sixtyfirst/rings.md)\n\n**稀疏桥口。** 把相邻桥口间隔的步数列成一圈。对至少两个桥口，读数既要确定间距多重集，还要确定它们的循环顺序。设最大的两段为 $c\\le d$；按两端相距 $W$ 步计窗宽，确定全部间距所需的最小宽度恰为\n$$\n c-\\mathbf1_{d-c\\le1}.\n$$\n这里先允许所有整数窗宽；原程序取不小于该宽度的最小偶数 $W=2(t-1)$。例如对四个互异间距 $a<b<c<d$，有三种可能的循环顺序。当 $a,b$ 不相邻，已知间距后只须宽 $a+b$ 即可认出此顺序；在另外两种之间则要宽 $a+c$。若在长度 $k$ 的圈上等概率放置桥口，三桥口和四桥口所需的平均**轮数**分别渐近于 $5k/36$、$23k/144$。[精确纤维、最坏深度与稀疏平均](rings.md) · [复算程序](rings_check.py) · [有限分类](rings_checked.json)\n\n**稠密桥口。** 每个位置以概率 $1/2$ 独立设桥口时，最短可重构窗口的典型长度为 $2\\log_2 k+O_{\\mathsf P}(1)$。换回原邻接程序的时钟，所需读数轮数为 $\\log_2 k+O_{\\mathsf P}(1)$，期望为 $\\log_2 k+O(1)$。固定恰有 $\\lfloor k/2\\rfloor$ 个桥口仍成立。证明的上界要控制重叠窗口互为反读的情况，下界还须保证把四段换接后得到的确是不同手镯。定向拼接阈值和交错重复已有文献，本文给出该无向观测的误差界和原核检验。[概率界、先例与显式碰撞](random.md) · [复算程序](random_check.py) · [读数核验](random_checked.json)\n\n两篇共用 Q9 开放的分支图比较问题，合计一次登记回访。其余六轴装饰取冻结的共同值。截至 2026-11-19 09:42:47 UTC，累计直接研究 244 个登记任务，覆盖 51 个父方向。Q9 的稀疏和稠密重构合计一次直接回访。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 19、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/835fe505b89e63ea156eae22ec04c9d76826cca1/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredsixteenth/README.md",
+      "encoding": "utf-8",
+      "sha": "48f83ede8e2204f72c4906c4f15e1b5e5aba12ad"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
