@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/eightyninth/README.md",
+    "ref": "eab89eb2da704b720a81881fdb58bbdf234af1f2",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-eightynine-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第八十九轮　六轴游走的带标记首返与椭圆图像的双侧乘积\n\n**首次回到四维零投影时，还丢了多少位移。** 每步独立、等概率沿六个坐标轴之一走一正步或负步。奇、偶两组三个坐标分别去均值后，首次回到零的时刻记作 $T$。此时原坐标形如 $(a,b,a,b,a,b)$，令 $M=a-b$。若 $G$ 是四维投影从原点出发访问原点的期望总次数（含起点），则逃逸概率恰为 $1/G$。沿两边的大整数标记，\n$$\n \\Pr(T<\\infty,M=m)\\sim (3\\pi^2 G^2 |m|^3)^{-1}.\n$$\n给定 $T=n$，$M/\\sqrt n$ 趋于方差 $1/9$ 的中心正态；反向给定标记 $m$，$T/m^2$ 趋于形状 $3/2$、尺度 $9/2$ 的逆 Gamma 分布。因而在最终返回的路径上，隐藏位移的一阶绝对矩有限，二阶矩发散。复算由整数计数逐级剔除先前已返回的轨迹，并与原核的 14 个冻结时点比对。[首返核、两种极限与恢复窗口](green.md) · [精确回执](green_checked.json)\n\n**两条带高斯乘法的椭圆图像。** 在原指定的六维阿贝尔簇特殊纤维上，两条图像的第一个椭圆因子交于四个二挠点。把图像之一换成其环境理想后，四维态射空间与四维反向扩张空间有两个方向的 Yoneda 乘积。这两个乘积由同一标量配对控制：配对秩为三，左右各有一维根，两个目标的联合像只有一维。显式留数矩阵辨出了前次未定的三个方向。对原九维带极化的环境，任一相应两层锥的一阶可提升方向恰为同一二维平面。[四点配对与对象变形](yoneda.md) · [留数和切空间复算](yoneda_checked.json)\n\n截至 2026-11-19 04:58:38 UTC，累计直接研究 233 个登记任务，覆盖 51 个父方向。两个长期未访的父方向分别以位移首返和 Yoneda 配对获服务。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 30、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/eab89eb2da704b720a81881fdb58bbdf234af1f2/research_notes/portable_direct/20261118_fair_queue_6b0fba/eightyninth/README.md",
+      "encoding": "utf-8",
+      "sha": "94230401cc96e578a2a54c742082ae932aa88ad6"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
