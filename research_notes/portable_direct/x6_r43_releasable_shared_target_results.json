@@ -1,0 +1,155 @@
+{
+  "cases": [
+    {
+      "all_pairs_checked": 64,
+      "enabled_mask_is_future_congruence": false,
+      "future_language_classes": 7,
+      "one_step_enabled_masks": 5,
+      "partition_classes_by_refinement_depth": [
+        5,
+        7,
+        7
+      ],
+      "partition_stable_at_refinement": 3,
+      "port_count_per_source": 1,
+      "reachable_decorated_states": 8,
+      "successful_prefixes_by_length": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "successful_prefixes_total": 9
+    },
+    {
+      "all_pairs_checked": 225,
+      "enabled_mask_is_future_congruence": true,
+      "future_language_classes": 7,
+      "one_step_enabled_masks": 7,
+      "partition_classes_by_refinement_depth": [
+        7,
+        7
+      ],
+      "partition_stable_at_refinement": 2,
+      "port_count_per_source": 2,
+      "reachable_decorated_states": 15,
+      "successful_prefixes_by_length": [
+        1,
+        4,
+        8,
+        8,
+        2
+      ],
+      "successful_prefixes_total": 23
+    },
+    {
+      "all_pairs_checked": 576,
+      "enabled_mask_is_future_congruence": true,
+      "future_language_classes": 7,
+      "one_step_enabled_masks": 7,
+      "partition_classes_by_refinement_depth": [
+        7,
+        7
+      ],
+      "partition_stable_at_refinement": 2,
+      "port_count_per_source": 3,
+      "reachable_decorated_states": 24,
+      "successful_prefixes_by_length": [
+        1,
+        6,
+        18,
+        14,
+        2
+      ],
+      "successful_prefixes_total": 41
+    },
+    {
+      "all_pairs_checked": 1225,
+      "enabled_mask_is_future_congruence": true,
+      "future_language_classes": 7,
+      "one_step_enabled_masks": 7,
+      "partition_classes_by_refinement_depth": [
+        7,
+        7
+      ],
+      "partition_stable_at_refinement": 2,
+      "port_count_per_source": 4,
+      "reachable_decorated_states": 35,
+      "successful_prefixes_by_length": [
+        1,
+        8,
+        32,
+        20,
+        2
+      ],
+      "successful_prefixes_total": 63
+    },
+    {
+      "all_pairs_checked": 2304,
+      "enabled_mask_is_future_congruence": true,
+      "future_language_classes": 7,
+      "one_step_enabled_masks": 7,
+      "partition_classes_by_refinement_depth": [
+        7,
+        7
+      ],
+      "partition_stable_at_refinement": 2,
+      "port_count_per_source": 5,
+      "reachable_decorated_states": 48,
+      "successful_prefixes_by_length": [
+        1,
+        10,
+        50,
+        26,
+        2
+      ],
+      "successful_prefixes_total": 89
+    },
+    {
+      "all_pairs_checked": 3969,
+      "enabled_mask_is_future_congruence": true,
+      "future_language_classes": 7,
+      "one_step_enabled_masks": 7,
+      "partition_classes_by_refinement_depth": [
+        7,
+        7
+      ],
+      "partition_stable_at_refinement": 2,
+      "port_count_per_source": 6,
+      "reachable_decorated_states": 63,
+      "successful_prefixes_by_length": [
+        1,
+        12,
+        72,
+        32,
+        2
+      ],
+      "successful_prefixes_total": 119
+    }
+  ],
+  "closed_form": {
+    "enabled_masks": "5 if p=1; 7 if p>=2",
+    "future_language_classes": "7 for all p>=1",
+    "reachable_states": "(p+1)(p+3)",
+    "word_counts_by_length": [
+      "1",
+      "2p",
+      "2p^2",
+      "6p-4",
+      "2"
+    ]
+  },
+  "max_distinguishing_word_for_equal_one_step_masks_p1": [
+    "R",
+    "B0"
+  ],
+  "p_range": [
+    1,
+    6
+  ],
+  "schema": "X6_R43_TARGET_RELEASE_EXACT_CHECK_V1",
+  "scientific_status": "CONDITIONAL_FINITE_MODEL_THEOREM_WITH_EXACT_CHECK_NOT_REVIEWED",
+  "scope": "one-shot sources A/B, p named ports each, only port0 shares one target; R enabled iff occupied; clearing target restores the other source port0, never resets consumed sources",
+  "status": "PASS"
+}
