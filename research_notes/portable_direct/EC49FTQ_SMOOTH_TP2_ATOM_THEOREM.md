@@ -119,3 +119,30 @@ It supplies an exact independent witness to the same top-atom mechanism without 
 `EC49FTQ_SMOOTH_TP2_ATOM_VERIFY.py` (Python standard library) checks the exact inverse geometry, continuous density contributions, polynomial integral, C-infinity rational bound, and both strict reversals; `EC49FTQ_SMOOTH_TP2_ATOM_CERT.json` records a successful run. This check verifies the rational instances; the general theorem uses the proof above. Neither source proves independent acceptance of its inherited native Bellman parent.
 
 **Next:** characterize necessary/sufficient mixed-law stochastic order through its continuous tail and clipping-atom ratio, without assuming global TP2. Separately, keep the genuine native BRC optimal-tree phase below `z=11/16` as an open scientific unit. Do not infer formal Task CLAIM, Result, Review, Activity or canonical-main acceptance from this independent portable branch.
+
+
+## Sharp atom criterion for a constant continuous TP2 kernel
+
+This example yields an exact necessary-and-sufficient criterion on the high-gap stratum, not merely a counterexample. Let an interval of m-values have `L(m)<U` with L nondecreasing, U fixed, and a strictly positive **constant** continuous kernel `K(m,z)=c`, with an atom `B(m)≥0` at U. Define `T(m)=U-L(m)>0`. Then
+
+```
+Z | M=m is first-order stochastically nondecreasing in m
+       iff  R(m)=B(m)/T(m) is nondecreasing.
+```
+
+**Necessity:** the conditional probability of the top atom is
+`p(m)=B(m)/(cT(m)+B(m))=R(m)/(c+R(m))`. Stochastic increase requires that probability to be nondecreasing, because `P(Z<U|m)=1-p(m)` must be nonincreasing. Since `R/(c+R)` is strictly increasing, R must be nondecreasing.
+
+**Sufficiency:** the conditional law is a mixture of a uniform variable on `[L(m),U]` with probability `1-p(m)` and an atom at U with probability p(m). As m increases, the uniform component is stochastically increasing because L is nondecreasing, and the atom probability increases if R does. A common-uniform quantile coupling, or two consecutive one-dimensional mixture comparisons, gives the desired order.
+
+For the explicit smooth EC49FTQ witness, the rational integral bound implies at `p=23`
+
+```
+R(p)> [d_p/54*(1+1000/162)]/T(p) = 11537/78732,
+R(q)= [d_q/54]/T(q)=433/6804,
+R(p)-R(q)>22843/275562>0,
+```
+
+where `q=93/4`. Thus the top atom *decreases* between these ordered m-values. This proves failure of stochastic order even before choosing a particular threshold. The threshold `z0=719/960` above supplies an independently explicit rational CDF witness.
+
+The criterion is exact for the stated flat continuous kernel and fixed upper endpoint. It is not asserted as a criterion for arbitrary nonconstant TP2 kernels, where fiber shape and atom mass may interact.
