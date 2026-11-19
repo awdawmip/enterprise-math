@@ -1,151 +1,139 @@
 # EC49FUH — Reciprocal-mass coordinate and sharp first-count minimax boundary
 
-Date: 2026-11-20. Status: AUTHOR_PROVED / EXACT_FRACTION_CHECKED / PARENT_DEPENDENT / NOT_REVIEWED. Independent portable research; no current Task CLAIM, formal Result, Driver Review or Foundation admission is asserted.
+Date: 2026-11-20. Evidence: AUTHOR_PROVED / EXACT_FRACTION_CHECKED / PARENT_DEPENDENT / NOT_REVIEWED. Portable research, not a Task CLAIM, formal Result/Review or Foundation admission.
 
-Frozen scientific parent: BRC16943 Source `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`. Direct mathematical predecessor: EC49FUG, immutable source `cc3b206a70f7d69fd76c164d987b2a784b94144f:research_notes/portable_direct/EC49FUG_GLOBAL_FIRST_TRANSITION_N15.md` (PR #2827). All conclusions below are about the inherited clipped-price **auxiliary conditional observation model**, not a new assertion about native X6 dynamics or a reproof of frozen Bellman optimality.
+Frozen scientific input: BRC16943 Source \`fc0f038e7bfd12c886b4d37f900bfb770c0f61ab\`. Predecessor: EC49FUG, PR #2827, commit \`cc3b206a70f7d69fd76c164d987b2a784b94144f\`. All results are for the **inherited clipped-price conditional observation model**, not native X6 physical dynamics or a fresh Bellman optimality proof.
 
-## 1. Model and new exact coordinate
+## Definitions and exact affine-reciprocal coordinate
 
-Let
-[
- E=rac{1048576}{18958647},quad m=rac{1469}{64},quad
- L=rac{951}{1280},quad U=rac34,quad W=U-L.
-]
-For (0<x<1), an unknown **common** finite nuisance parameter (ele E), and conditionally independent trials, use the inherited probabilities
-[
- a=m(L+U)/2=rac{2807259}{163840},qquad
- c(x)=m(U-xW/2),
-]
-[
- p_e(x)=xrac{1-e c(x)}{1-e a},qquad
- q_e=rac{575(41217719e-2359296)}
-            {45529434409e-2630615040},qquad
+Fix
+\[
+ E=\frac{1048576}{18958647},\quad m=\frac{1469}{64},\quad
+ L=\frac{951}{1280},\quad U=\frac34,\quad W=U-L,\quad
+ a=\frac{m(L+U)}2=\frac{2807259}{163840}.
+\]
+For normalized detector width \(0<x<1\) and shared finite nuisance \(e\le E\), define
+\[
+ c(x)=m(U-xW/2),\qquad
+ p_e(x)=x\frac{1-e c(x)}{1-e a},
+\]
+\[
+ q_e=\frac{575(41217719e-2359296)}
+ {45529434409e-2630615040},\qquad
  r_e=p_e+q_e(1-p_e).
-]
-Under (H_-), the count (K) is (mathrm{Bin}(n,p_e)); under (H_+), it is (mathrm{Bin}(n,r_e)). Hypothesis priors are equal, randomized tests are permitted, and the same (e) is used under both hypotheses. In particular,
-[
- D_{n,1}(e,x)
- =Pr_{H_+,e}(Kge1)-Pr_{H_-,e}(Kge1)
- =(1-p_e)^n[1-(1-q_e)^n].
-]
+\]
+Conditional on \(e\), \(K\) has \(\mathrm{Bin}(n,p_e)\) under \(H_-\) and \(\mathrm{Bin}(n,r_e)\) under \(H_+\). Trials are conditionally independent, hypothesis priors equal, and \(e\) is common to both hypotheses. For the first-count test \(\phi=\mathbf 1_{\{K\ge1\}}\), the positive detection-probability difference is
+\[
+ D_{n,1}(e,x)=(1-p_e(x))^n[1-(1-q_e)^n].
+\]
 
-Define the reciprocal-mass coordinate
-[
- 	heta=rac1{1-ae}in(0,	heta_E],quad
- 	heta_E=rac1{1-aE},
- qquad eta=rac3{637}.
-]
-The following exact cancellation is the key new structural identity:
-[
- a(2630615040-575cdot2359296)
-       =45529434409-575cdot41217719
-       =21829245984.
-]
-Together with (acdot2630615040-45529434409=-456083905), this yields
-[
- oxed{1-p_e(x)=(1-x)(1-eta x+eta x	heta),}
-]
-[
- oxed{1-q_e=rac{21829245984}
-                       {45529434409-456083905,	heta}.}
-]
-The original rational nuisance family therefore becomes an affine conditional survival factor and a positive convex reciprocal-affine residual factor. These identities are exact transformations of the **same model**; no independent sampling of nuisance parameters or clipping-origin compression is introduced.
+Introduce the exact coordinate
+\[
+ \theta=(1-ae)^{-1}\in(0,\theta_E],\quad
+ \theta_E=(1-aE)^{-1},\quad\beta=3/637.
+\]
+The cancellation
+\[
+ a(2630615040-575\cdot2359296)
+ =45529434409-575\cdot41217719=21829245984
+\]
+and the identity \(a\cdot2630615040-45529434409=-456083905\) yield
+\[
+ \boxed{1-p_e(x)=(1-x)(1-\beta x+\beta x\theta)},
+\]
+\[
+ \boxed{u(\theta):=1-q_e=
+ \frac{21829245984}{45529434409-456083905\,\theta}}.
+\]
+These transformations preserve the original nuisance and clipping-probability information. The reciprocal affine expression is a useful exact conditional-mass coordinate, not a replacement native geometry.
 
-## 2. Universal endpoint-minimum theorem for the first-count rule
+## Theorem 1 — universal endpoint infimum for the first-count test
 
-**Theorem 1.** For every positive integer (n) and every real (0<x<1),
-[
- oxed{inf_{ele E}D_{n,1}(e,x)
-     =min{D_{n,1}(E,x),D_{n,1}(-infty,x)}.}
-]
-Here (-infty) denotes a limit of the original finite nuisance family, not an admitted finite parameter. In particular the first-count test (mathbf1_{{Kge1}}) has exact worst-case equal-prior risk
-[
- oxed{sup_{ele E}R_{n,1}(e,x)=
- 	frac12igl(1-min{D_{n,1}(E,x),D_{n,1}(-infty,x)}igr).}
-]
+For **every integer \(n\ge1\)** and **every real \(0<x<1\)**,
+\[
+ \boxed{\inf_{e\le E}D_{n,1}(e,x)
+ =\min\left(D_{n,1}(E,x),D_{n,1}(-\infty,x)\right).}
+\]
+The notation \(D_{n,1}(-\infty,x)\) means the exact limit as finite \(e\to-\infty\), not another admissible finite nuisance. Thus the exact worst-case equal-prior risk of this particular decision rule is
+\[
+ \boxed{\sup_{e\le E}R_{n,1}(e,x)=
+ \tfrac12\!\left[1-\min(D_{n,1}(E,x),D_{n,1}(-\infty,x))\right].}
+\]
 
-**Proof.** Write (u(	heta)=21829245984/(45529434409-456083905	heta)). On the compact closure (0le	hetale	heta_E), denominators are positive, (0<u<1), and (u'>0, u''>0) because the numerator is positive and the denominator is positive with strictly negative slope. Moreover
-[
- log D_{n,1}(	heta,x)
- =nlog(1-x)
-  +nlog(1-eta x+eta x	heta)
-  +log(1-u(	heta)^n).
-]
-The second term is strictly concave in (	heta). The function (g(u)=log(1-u^n)) on (0<u<1) is concave and strictly decreasing; (u(	heta)) is convex. Hence (gcirc u) is concave. Thus (log D_{n,1}) is strictly concave on ([0,	heta_E]). Every interior value is at least the smaller endpoint value (strictly greater when the endpoints tie). The two endpoints are (e=E) and the limit (e	o-infty). This proves the exact infimum, with no grid or asymptotic interchange. QED.
+**Proof.** On the closed auxiliary interval \(0\le\theta\le\theta_E\) the denominator of \(u(\theta)\) is positive and \(0<u<1\). Its slope coefficient is negative; consequently \(u'>0\), \(u''>0\). Moreover
+\[
+ \log D_{n,1}(\theta,x)
+ =n\log(1-x)+n\log(1-\beta x+\beta x\theta)
+ +\log(1-u(\theta)^n).
+\]
+The second term is concave, strictly so for \(x>0\). The scalar function \(g(v)=\log(1-v^n)\), \(0<v<1\), is concave and decreasing for all \(n\ge1\). Since \(u\) is convex, \(g\circ u\) is concave. Hence \(\log D_{n,1}\) is strictly concave in \(\theta\); its minimum on a compact interval is attained at an endpoint. The \(\theta=0\) endpoint is the original \(e\to-\infty\) limit, and \(\theta=\theta_E\) corresponds to \(e=E\). Positivity converts the log conclusion to the stated conclusion. QED.
 
-This theorem applies to the **particular first-count threshold**; it does not assert that every count threshold or every randomized test has endpoint-only worst nuisance.
+**Scope:** this endpoint-minimum theorem applies to \(\phi=\mathbf1_{\{K\ge1\}}\), not automatically to arbitrary threshold mixtures or full composite minimax risk.
 
-## 3. Sharp n=15 algebraic onset inside the endpoint first-count region
+## Theorem 2 — exact first failure boundary at n=15 within the first-count Bayes region
 
-The endpoint values simplify to
-[
- u_E=1-q_E=rac{4822040484}{8132285009},quad
- u_infty=rac{21829245984}{45529434409},quad
- eta=rac{E,mW/2}{1-Ea}=rac{141024}{1653649}.
-]
-They satisfy
-[
- D_{n,1}(E,x)=(1-x)^n(1+eta x)^n(1-u_E^n),quad
- D_{n,1}(-infty,x)=(1-x)^n(1-eta x)^n(1-u_infty^n).
-]
-Define the algebraic number
-[
- t_n=left(rac{1-u_E^n}{1-u_infty^n}ight)^{1/n},
- quad x_n=rac{1-t_n}{eta+eta t_n}.
-]
-For (n=15), (0<x_{15}<1). Since the ratio
-[
- rac{D_{15,1}(-infty,x)}{D_{15,1}(E,x)}
- =rac{1-u_infty^{15}}{1-u_E^{15}}
-  left(rac{1-eta x}{1+eta x}ight)^{15}
-]
-is strictly decreasing in (x), the exact signs are
-[
- x<x_{15}Rightarrow D_infty>D_E,qquad
- x=x_{15}Rightarrow D_infty=D_E,qquad
- x>x_{15}Rightarrow D_infty<D_E.
-]
-The exact Fraction certificate isolates the algebraic boundary without floating-point sign tests:
-[
- oxed{rac{2797}{10^7}<x_{15}<rac{2798}{10^7}},
- qquad x_{15}approx0.00027974730814845366453.
-]
+Put
+\[
+ u_E=\frac{4822040484}{8132285009},\qquad
+ u_\infty=\frac{21829245984}{45529434409},\qquad
+ \eta=\frac{141024}{1653649}.
+\]
+Then
+\[
+ D_{n,1}(E,x)=(1-x)^n(1+\eta x)^n(1-u_E^n),
+\]
+\[
+ D_{n,1}(-\infty,x)=(1-x)^n(1-\beta x)^n(1-u_\infty^n).
+\]
+Let
+\[
+ t_{15}=\left(\frac{1-u_E^{15}}{1-u_\infty^{15}}\right)^{1/15},
+ \qquad
+ \boxed{x_{15}=\frac{1-t_{15}}{\beta+\eta t_{15}}}.
+\]
+The ratio \(D_{15,1}(-\infty,x)/D_{15,1}(E,x)\) is strictly decreasing in \(x\), equals one exactly at \(x_{15}\), and is smaller than one for \(x>x_{15}\). Exact rational sign comparisons isolate
+\[
+ \boxed{\frac{2797}{10^7}<x_{15}<\frac{2798}{10^7}},
+ \quad x_{15}\approx0.00027974730814845366453.
+\]
 
-There is a second, independent boundary for which (Kge1) is the *unique endpoint Bayes rule*. At (e=E) the count likelihood ratio is strictly increasing in (k), the (k=0) signed mass is negative, and the (k=1) signed mass is positive precisely when
-[
- p_E(x)<b_{15}:=rac{q_E u_E^{14}}{1-u_E^{15}}.
-]
-Here (p_E(x)=(1512625x+141024x^2)/1653649) strictly increases from zero to one. Let (x_B) be the unique positive root of (p_E(x)=b_{15}). It obeys
-[
- oxed{rac{2956}{10^7}<x_B<rac{2957}{10^7}},
- qquad x_Bapprox0.00029564755490901301761.
-]
-In particular (x_{15}<x_B). The complete endpoint-first-count region is (0<x<x_B).
+The **different** endpoint Bayes threshold boundary is the unique positive solution \(x_B\) of
+\[
+ \frac{1512625x_B+141024x_B^2}{1653649}
+ = \frac{q_E u_E^{14}}{1-u_E^{15}},\qquad q_E=1-u_E.
+\]
+The binomial likelihood ratio is strictly increasing with count \(k\); the \(k=0\) signed mass is negative, and the \(k=1\) signed mass is positive exactly when \(p_E(x)<q_Eu_E^{14}/(1-u_E^{15})\). Hence the **unique** endpoint Bayes test is \(K\ge1\) for all \(0<x<x_B\), where
+\[
+ \boxed{\frac{2956}{10^7}<x_B<\frac{2957}{10^7}},
+ \quad x_B\approx0.00029564755490901301761.
+\]
+In particular \(x_{15}<x_B\).
 
-**Theorem 2 (sharp classification on this entire region).** For (n=15) and (0<x<x_B):
+**Sharp classification on the entire interval \(0<x<x_B\):**
+\[
+ \boxed{0<x\le x_{15}\quad\Longrightarrow\quad
+ R_{15}^{\mathrm{mm}}(x)=\frac{1-D_{15,1}(E,x)}2
+ \quad\text{and the endpoint Bayes test is minimax}.}
+\]
+\[
+ \boxed{x_{15}<x<x_B\quad\Longrightarrow\quad
+ R_{15}^{\mathrm{mm}}(x)>\frac{1-D_{15,1}(E,x)}2
+ \quad\text{and the unique endpoint Bayes test is NOT minimax}.}
+\]
 
-* (0<xle x_{15}): the unique endpoint Bayes rule (mathbf1_{{Kge1}}) is also composite minimax across **all** finite (ele E), with exact value ((1-D_{15,1}(E,x))/2).
-* (x_{15}<x<x_B): the same rule is uniquely endpoint Bayes but is **not** composite minimax; the actual composite minimax value is strictly greater than the endpoint Bayes risk.
+**Proof.** If \(x\le x_{15}\), Theorem 1 shows the endpoint Bayes test has its worst case at \(E\), attaining the universal endpoint Bayes lower bound. If \(x>x_{15}\), the limiting gap at \(-\infty\) is strictly smaller than at \(E\); by continuity some **finite negative** \(e\) also gives smaller \(D\) and therefore larger risk. All binary strings have positive probability under both endpoint hypotheses and \(0<x<x_B\), so any rule attaining the unique endpoint Bayes risk must coincide with its deterministic \(K\ge1\) rule at every string. This rule fails the composite bound. A composite minimax rule exists because the randomized test cube is compact and the pointwise supremum of continuous risks is lower semicontinuous. Consequently the actual minimax value must be **strictly** greater than the endpoint lower bound. QED.
 
-**Proof.** On the first region Theorem 1 gives (D_{15,1}(e,x)ge D_{15,1}(E,x)) for all nuisance parameters. The endpoint Bayes risk is a universal lower bound for the composite game, and the first-count test attains it.
+This exactly classifies the previously reported EC49FUG subinterval \([1/3500,29/100000]\) and expands it to its sharp algebraic onset within the full \(K\ge1\) endpoint Bayes region. It does not claim the whole width range \(0<x<1\) is solved.
 
-On the second region, (D_infty<D_E) and continuity supplies a sufficiently negative **finite** (e) with (D(e,x)<D(E,x)), so the unique endpoint Bayes test has larger composite risk. If a composite test attained the endpoint Bayes lower bound, it would have to equal that unique test at every binary observation (all endpoint elementary outcomes are strictly positive). The set of randomized tests on the finite binary observation space is compact, and the pointwise supremum of continuous risks is lower semicontinuous, so a minimax test exists. No such test can attain the endpoint lower bound, yielding strict inequality. QED.
+## Exact witness, verification and next question
 
-Thus the earlier EC49FUG rational witness interval ([1/3500,29/100000]) lies within a **complete and sharply delimited** first-count-region phase change. It was not the entire interval.
+At \(x=7/25000\), the endpoint Bayes rule is uniquely \(K\ge1\), while
+\[
+ \frac12\left[D_{15,1}(E,7/25000)
+               -D_{15,1}(-\infty,7/25000)\right]>0,
+\]
+with approximate value \(1.69823354863\times10^{-7}\). A sufficiently negative **finite** nuisance gives the needed strict failure.
 
-## 4. Exact witness and verification scope
+The accompanying standard-library Python Fraction script certifies the rational cancellation, sampled formula identities, the two rational algebraic-root brackets, and exact signed-mass witness comparisons. The universal real-domain concavity argument is the human proof above; the samples alone would not prove it. Scope is inherited conditional clipping; Bellman optimality is parent-dependent, and independent mathematical review is pending.
 
-At (x=7/25000) the endpoint Bayes test is uniquely (Kge1), while the negative-infinity limiting risk exceeds its endpoint risk by
-[
- rac12igl[D_{15,1}(E,7/25000)
-              -D_{15,1}(-infty,7/25000)igr]
- >0
- quad(	ext{approximately }1.69823354863	imes10^{-7}).
-]
-The limit is only used to establish the supremum and the existence of a finite nuisance witness, not as a new member of the parameter set.
-
-The accompanying Python standard-library `Fraction` verifier checks the reciprocal-coordinate cancellation, all positive-denominator preconditions, exact model identities across a set of rational test cases, exact rational isolation inequalities for both critical boundaries, and exact signed binomial mass inequalities at the rational witness. The universal log-concavity/endpoint theorem is proved analytically above; finite rational checks do not stand in for that proof. Author checked; no independent peer review or Lean proof. No Bellman or P000 promotion.
-
-## 5. Next unresolved scientific frontier
-
-The exact least-favorable **randomized** test and nuisance mixture when (x_{15}<x<x_B) remain unsolved. Theorem 1 is a sharp tool for the pure (Kge1) rule, not automatically for a randomized blend of thresholds (Kge1) and (Kge2). Analyze such mixtures with their full risk function and a genuine lower-bound saddlepoint before claiming sharp composite minimax values. Separately, classify later Bayes count-threshold regions and their first endpoint-minimax failures, retaining the shared nuisance, original clipping atom and explicit observer.
+**Next:** solve the sharp composite minimax randomized rule and least-favorable nuisance distribution for \(x_{15}<x<x_B\). Theorem 1 proves the minimum for a pure \(K\ge1\) test; a randomization at count 1 changes the risk and requires a separate full-nuisance certificate and saddlepoint lower bound.
