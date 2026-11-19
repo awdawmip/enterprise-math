@@ -1,0 +1,112 @@
+{
+  "schema": "PREFIX948_R6_RESONANCE_DETERMINANT_FULL_DOMAIN_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "date": "2026-11-20",
+  "scope": "auxiliary_named_XOR_two_port_observer; no native X6 or BRC dynamics claimed",
+  "input": {
+    "modulus_count": 131072,
+    "moduli": "odd a,b in [262145,524287]",
+    "source_bit_range": [
+      0,
+      18
+    ],
+    "cores": [
+      21,
+      23
+    ],
+    "quotients_max": [
+      42,
+      46
+    ]
+  },
+  "determinant_path": {
+    "schema": "PREFIX948_R6_DETERMINANT_INDEPENDENT_INTERSECTION_V1",
+    "source_k": 21,
+    "target_k": 23,
+    "range": [
+      262145,
+      524287
+    ],
+    "source_bits": [
+      0,
+      18
+    ],
+    "t_max": 42,
+    "T_max": 46,
+    "m_range": [
+      0,
+      6
+    ],
+    "nonres_candidates_examined": 150651076,
+    "nonres_valid_witness_patterns": 8711,
+    "nonres_unique_pairs": 6204,
+    "res_compatible_patterns": 722,
+    "res_nonzero_patterns": 0,
+    "res_valid_witness_patterns": 10541739,
+    "res_unique_pairs": 131071,
+    "both_subsets_pair_overlap": 1,
+    "distinct_diagonal": 131071,
+    "distinct_offdiagonal": 6203,
+    "intersection_unique_pairs": 137274,
+    "computed_full_domain": true,
+    "nonres_gap_witnesses": [
+      6,
+      644,
+      6513,
+      1314,
+      231,
+      3,
+      0
+    ],
+    "nonres_gap_unique_pairs": [
+      6,
+      443,
+      4725,
+      840,
+      190,
+      3,
+      0
+    ],
+    "nonres_diagonal_ids": [
+      262145
+    ]
+  },
+  "independent_direct_divisor_row_path": {
+    "schema": "PREFIX948_R6_DIRECT_DIVISOR_ROWS_V1",
+    "raw21": 19691842,
+    "raw23": 16675790,
+    "unique21": 15682891,
+    "unique23": 13041372,
+    "overlap": 137274,
+    "independent_computation": true
+  },
+  "exact_resonance_audit": {
+    "all_ones_unique_a_mod_2pow19": {
+      "21": 274627,
+      "23": 182361
+    },
+    "compatible_index_sign_pairs": 361,
+    "excluded_diagonal_modulus": 274627,
+    "nonzero_compatible_c": 0,
+    "resonant_diagonal_count": 131071,
+    "resonant_quotient_pairs": [
+      [
+        21,
+        23
+      ],
+      [
+        42,
+        46
+      ]
+    ],
+    "status": "ALL_EXACT_ASSERTIONS_PASSED"
+  },
+  "full_pair_id_encoding": "uint64 little endian sorted; id=((a-262145)/2)*131072+((b-262145)/2)",
+  "sorted_intersection_sha256": "54c35a06874167484f0028443be45d3b03e69bc3bdf0e64fc97cf371522f6223",
+  "sorted_intersection_bytes": 1098192,
+  "full_domain_algorithms_bytewise_identical": true,
+  "prior_prefix947a_intersection_sha256_same": true,
+  "new_certificate_coverage": 0,
+  "formal_review": false,
+  "admitted": false
+}
