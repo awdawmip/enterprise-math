@@ -282,3 +282,5 @@
 - [第一百二十七轮　Ramanujan 和的双起点、Weil 截断与稀疏周期识别](hundredtwentyseventh/README.md)　给出 Ramanujan 和能量的协方差变号位置、正边界响应的谱窗、两组密堆积的局部补全、幂指数的抗删取样，以及带谎报预算的三元记录成本。
 
 - [第一百二十八轮　原始谱矩的分母、粗筛余弦的整解码与 Machin 预算](hundredtwentyeighth/README.md)　求得粗筛余弦读数的整格、原始谱矩的联合最小公分母，给出 Gregory–Machin 预算、半素数邻接布局、正规曲面局部剪枝和有限时间标记的定量结论。
+
+- [第一百二十九轮　六阶矩的素数层、树余子式的局部根与稀疏圈复原](hundredtwentyninth/README.md)　求得稀疏圆环唯一复原的临界概率，排除六阶矩低费用碰撞中的整个17层，给出 AP 余子式的有理根分母筛，并推进特征七的二值对应与惰性 Clausen–Swisher 同余。

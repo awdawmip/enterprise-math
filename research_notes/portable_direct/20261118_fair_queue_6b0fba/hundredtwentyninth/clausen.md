@@ -1,0 +1,93 @@
+# 惰性 Clausen–Swisher 第三位归约到一个短整数系数
+
+对素数 $p\equiv17,23\pmod{24}$，设 $L=(p+1)/6$、$n=L-1$、$M=4L-1$。原题的第三位能由一个已具名整数的提升决定：
+$$
+ J_n=[x^n](1+x)^{2n+1}(1+2x)^n
+     =\sum_{k=0}^n2^{n-k}\binom nk\binom{2n+1}k.
+$$
+8 月 27 日回执的式 (A)、(AL) 已给出这个整数（记为 $\mathcal A_n$）及 $p\mid J_n$。本文求一个显式的 $Y_p\bmod p^2$，证明原有限等式等价于 **$J_n/p\equiv Y_p\pmod{p^2}$**，并给出失配时原第三位的准确系数。所有其余数据至多读到模 $p^2$。需保留模 $p^3$ 的单位项只剩这个整数中的 $L=(p+1)/6$ 项。第 18 轮的原权前缀有 $2L$ 个单位项，第 79、111 轮另以次数 $2L-1,4L-1$ 的普通 Legendre 值和有限域曲率作证。两类素数上新提升式是否恒成立仍待求值。[原任务与准入结果](https://github.com/awdawmip/enterprise-math/blob/e255b712f7a72a6ed08830afb6ad977277cd934f/research_tasks/ENTERPRISE_BRC_HALF_COUPLING_INERT_MINUS_FINITE_CLAUSEN_SWISHER_BRIDGE_V2_20260828.md) · [已知整数式 (A)、(AL)](https://github.com/awdawmip/enterprise-math/blob/fcde513e7e6305545c8fd646c8dc0afb39d52e16/research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_MINUS_UNIT_TAIL_BLOCK_CANCELLATION_BRIDGE_RETURN_20260827.md) · [短前缀](../eighteenth/clausen.md) · [Hermite 归约](../seventyninth/hermite.md) · [原奇异步与分块算法](../hundredeleventh/clausen.md)
+
+## 在原截止点内平方
+
+置 $z_0=1/2$、$D=z\,d/dz$；方括号 $[\,]_{\le M}$ 保留总次数不超过 $M$ 的项。原和为
+$$
+ W=\sum_{k=0}^{M}(6k+1)
+       \frac{(1/2)_k(1/3)_k(2/3)_k}{2^k(k!)^3}.
+$$
+以 $E$ 记原回执的 Swisher 和，则 $E\equiv-2p\bmod p^3$。两目标类上已有 $W\equiv-p\bmod p^2$；归一化的原奇异残差为 $B_p/p^2\equiv(W+p)/(108p^2)\bmod p$。以下都在 $\mathbb Z_{(p)}$ 运算。[原有限回执](https://github.com/awdawmip/enterprise-math/blob/fcde513e7e6305545c8fd646c8dc0afb39d52e16/research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_MINUS_FINITE_CLAUSEN_SWISHER_BRIDGE_RETURN_20260829.md) · [Swisher 定理 1.1 后式 (1)](https://arxiv.org/pdf/1504.01028#page=3) · [模 $p^2$ 定理与参数核对](../seventyninth/hermite.md)
+
+令 $b_k=(5/6)_k(2/3)_k/(k!)^2$。Clausen 平方式取上参 $1/6,1/3$，再用 Euler 变换，得有理形式幂级数恒等式
+$$
+ {}_3F_2(1/2,1/3,2/3;1,1;z)
+ ={}_2F_1(1/6,1/3;1;z)^2
+ =(1-z)\left(\sum_{k\ge0}b_kz^k\right)^2 .
+$$
+系数恒等以后才按 $M$ 截断。对 $1\le k\le M<p$，有 $b_k/b_{k-1}=(6k-1)(3k-1)/(18k^2)$。两个分子分别在 $k=L,2L$ 第一次、也是窗口内唯一一次给出 $p$，该因子的整数值都正是 $p$。定义有限多项式
+$$
+ G=\sum_{0\le k<L}b_kz^k,\quad H=\sum_{L\le k<2L}(b_k/p)z^k,\quad
+ I=\sum_{2L\le k\le M}(b_k/p^2)z^k,\quad K=G+pH .
+$$
+各系数均为 $p$ 整。由于 $\deg((1-z)K^2)\le 2(2L-1)+1=M$，这一整块能够在截断前原样相乘。取值于 $z_0$ 用下标 $0$ 表示。定义一个有限域数
+$$
+ Z=\left.[(1+6D)((1-z)GI)]_{\le M}\right|_{z=z_0}\pmod p .
+$$
+高块与 $pH$ 的乘积以及两个高块的乘积都已含 $p^3$。因而原和在原端点严格满足
+$$
+ W\equiv K_0\left(6(DK)_0-\frac52 K_0\right)+2p^2Z\pmod{p^3}.                 \tag{1}
+$$
+其中 $-\tfrac52=1-7z_0$ 来自微分 $1-z$。此式在交换乘法与取值时保留了高块的三角边界。[Euler 变换](https://dlmf.nist.gov/15.8.E1) · [Clausen 公式](https://dlmf.nist.gov/16.12.E2)
+
+这个整块截止也是尖的。如果提前一阶，$(1-z)K^2$ 在次数 $M$ 的最高项为 $-b_{2L-1}^2z^M$。因为 $v_p(b_{2L-1})=1$，$6M+1=4p-1$ 又是单位，故它在加权取值后恰含两个 $p$。在每个目标素数上，少算这一阶都会改变中间平方块的第三位。
+
+写 $a_i=2^{-i}b_i\bmod p$（$0\le i<L$）、$w_j=2^{-j}b_j/p^2\bmod p$（$2L\le j\le M$），$S_u=\sum_{0\le i\le u}a_i$、$T_u=\sum_{0\le i\le u}ia_i$，空前缀为零。对每个 $j$ 取 $u=\min(n,M-j),\,v=\min(n,M-j-1)$，则
+$$
+ Z=\sum_{j=2L}^M w_j
+ \left[(1+6j)S_u+6T_u-\tfrac12\{(7+6j)S_v+6T_v\}\right].                    \tag{2}
+$$
+特别在 $j=M$ 只有 $i=0$ 的无移位项留下。这样每个高块项只需查两个前缀。
+
+## 短整数的提升目标与准确误差
+
+模 $p$ 的 $G$ 是 $\vphantom{F}{}_2F_1(-n,n+3/2;1;z)$：第一上参同余 $-n$，第二上参同余 $-(2n+1)$。在特征零该终止多项式等于 $P_{2n+1}(\sqrt{1-z})/\sqrt{1-z}$，可将奇 Legendre 多项式写作 $tQ(1-t^2)$ 后代入其微分方程，初值 $Q(0)=1$。Sun 定理 4.5 在这两个素数类给出 $P_{2n+1}(\sqrt2/2)=0\bmod p$，故 $G_0=0\bmod p$。这个根是单根。$G$ 模 $p$ 的 Gauss 微分方程在 $z=1/2$ 的最高阶系数 $z(1-z)$ 可逆，若值和一阶导数都为零，则 Taylor 递推迫使次数不超过 $n<p$ 的各项全零，与 $G(0)=1$ 矛盾。于是 $d=6(DK)_0\bmod p^2$ 是单位，$V=K_0/p\bmod p^2$ 有定义。[原 CM 根值，定理 4.5](https://arxiv.org/abs/1104.2789)
+
+由 (1) 除以 $p$，原条件等价于 $1+dV+p(2Z-\tfrac52V^2)\equiv0\bmod p^2$。先解模 $p$ 的一次方程 $V\equiv-d^{-1}$，代入二次修正，得到唯一目标
+$$
+ V_*=-d^{-1}+p\,d^{-1}\left(\tfrac52d^{-2}-2Z\right)\pmod{p^2}.                \tag{3}
+$$
+已有 $W+p\equiv0\bmod p^2$ 保证真实 $V$ 与 $V_*$ 首位相同。
+
+令 $m=2n+1$、$c_k=2^{-k}\binom nk\binom mk$。对 $0\le k\le n$，置
+$$
+ h_k=\sum_{i=0}^{k-1}\left(\frac1{6(n-i)}+\frac1{3(m-i)}\right),\quad
+ s_k=\sum_{i=0}^{k-1}\left(\frac1{36(n-i)^2}+\frac1{9(m-i)^2}\right).
+$$
+记 $A=\sum_{k=0}^n c_kh_k\bmod p^2$、$B=\frac12\sum_{k=0}^n c_k(h_k^2-s_k)\bmod p$。在低块恰有 $5/6=-n+p/6$、$2/3=-m+p/3$，分母均为单位，将乘积逐项展开得到
+$$
+ G_0\equiv 2^{-n}J_n-pA+p^2B\pmod{p^3}.
+$$
+因此可仅用模 $p^2$ 及模 $p$ 的辅助数据写出
+$$
+ Y_p=2^n(V_*+A-pB-H_0)\pmod{p^2},\qquad
+ \boxed{\quad \frac{B_p}{p^2}\equiv
+    \frac{d}{108\,2^n}\,\frac{J_n/p-Y_p}{p}\pmod p .\quad}                    \tag{4}
+$$
+真实 $J_n/p-Y_p$ 被 $p$ 整除。证明是 $V-V_*=2^{-n}(J_n/p-Y_p)\bmod p^2$；两者的平方之差被 $p$ 整除，所以在 (1) 的最后一位只留下单位斜率 $d$。特别，(4) 的目标正是 $C_p=2W-E\equiv0\bmod p^3$；将 $J_n/p$ 的次位加一会改变公式给出的原残差 $d/(108\,2^n)\bmod p$。这个灵敏度是式 (4) 的性质，对真实整数的次位仍须算术求值。
+
+整数序列还可以从一个固定代数母函数单独获得。置 $P(x)=(1+x)^2(1+2x)$，$u=tP(u),\ u(0)=0$，则
+$$
+ \sum_{j\ge0}J_jt^j=\frac{1+u}{1-tP'(u)} .
+$$
+由 $J_j=[x^j](1+x)P(x)^j$，对右边取 $[t^j]$ 时作形式留数代换 $t=x/P(x)$，因子 $1-tP'(x)$ 正好约去。前七个数为 $1,5,34,253,1966,15674,127100$。这把仍需提升的整数指定为同一固定序列每个惰性素数对应的一项。
+
+## 精度、反例和复算
+
+求所有辅助量时可逐步更新 $2^{-k}b_k/p^{\mathbf1_{k\ge L}+\mathbf1_{k\ge2L}}$。相邻比的分母为 $36k^2$，两次过界时直接把等于 $p$ 的**整数因子**约成一，再作单位模逆；无须先生成模 $p^3$ 的中、高块输入。用一阶递推生成 $c_k$ 及调和前缀，(2)–(4) 的辅助部分共用 $O(p)$ 次模环运算、$O(p)$ 个至多两位的 $p$ 进字。主整数可按定义精确生成，或仅在 $k\le n$ 的二项式递推中保留模 $p^3$。此处缩短的是最高精度的算术输入；第 111 轮的快速分块仍有独立的复杂度优势。
+
+| $p$ | $n$ | $J_n/p\bmod p^2$ | $d\bmod p$ | $Z$ | 省略 $I$ 后误得的 $B_p/p^2$ |
+|---:|---:|---:|---:|---:|---:|
+| 17 | 2 | 2 | 9 | 16 | 6 |
+| 23 | 3 | 11 | 3 | 16 | 21 |
+| 41 | 6 | 1419 | 24 | 4 | 6 |
+| 311 | 51 | 59399 | 125 | 76 | 252 |
+
+程序逐个从原整数二项式计算 $W$，并从 Swisher 通项独算 $E$。对 $p=17,23,41,47$ 还在特征零逐项相乘后取确切次数窗，对照 (1)、(2) 的全部边界。$p\le1200$ 的 51 个目标素数中，$Y_p$ 均等于实算的 $J_n/p\bmod p^2$，而删去高块的做法在所有 51 个样例上都改变第三位。式 (4) 严格缩小了两目标类的待证提升；这些有限等式没有决定其对所有惰性素数的真值。[复算程序](clausen_check.py) · [原始结果](clausen_checked.json)
