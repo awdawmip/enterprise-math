@@ -1,0 +1,87 @@
+{
+  "schema": "R5_14_PREORDER_FRONTIER_EXACT_PARTIAL_V1",
+  "date": "2026-11-20",
+  "frozen_science_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "frozen_input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "W": [
+    0,
+    16,
+    32,
+    48,
+    1,
+    64,
+    17,
+    80,
+    18,
+    24,
+    34,
+    82
+  ],
+  "hypothesis_count": 256,
+  "physical_queries": {
+    "min": 214,
+    "max": 314,
+    "count": 101
+  },
+  "unflagged_errors": 8,
+  "pair_count": 29646,
+  "priced_joint_signatures": 1906,
+  "ordered_comparisons": 3632836,
+  "dominance_edges": 38127,
+  "strongly_connected_components": 1066,
+  "sink_components": 333,
+  "sink_signature_classes": 367,
+  "previous_certified": {
+    "references": 22,
+    "classes": 836,
+    "pairs": 20159
+  },
+  "new_exact_references": [
+    {
+      "class_id": 295,
+      "u": 19,
+      "v": 88,
+      "V8": 8335,
+      "visited_states": 5102830,
+      "independent_nibble_endpoint_dp": "MATCH"
+    },
+    {
+      "class_id": 354,
+      "u": 21,
+      "v": 85,
+      "V8": 8335,
+      "visited_states": 6099014,
+      "independent_nibble_endpoint_dp": "MATCH"
+    },
+    {
+      "class_id": 291,
+      "u": 19,
+      "v": 81,
+      "V8": 8335,
+      "visited_states": 5723293,
+      "independent_nibble_endpoint_dp": "NOT_COMPLETED"
+    }
+  ],
+  "new_certified": {
+    "references_total": 25,
+    "classes": 876,
+    "pairs": 21301
+  },
+  "newly_covered": {
+    "classes": 40,
+    "pairs": 1142
+  },
+  "remaining": {
+    "classes": 1030,
+    "pairs": 8345,
+    "full_f8_value": "UNRESOLVED"
+  },
+  "full256_bounds_unchanged": [
+    8335,
+    8343
+  ],
+  "math_status": "AUTHOR_PROVED_ORDER_REDUCTION_EXACT_FINITE_CENSUS_PARTIAL_INDEPENDENT_DP_NOT_REVIEWED",
+  "formal_claim_run": false,
+  "native_x6_transfer": false,
+  "observation": "Complete joint masks and physical prices; only W-fixed identity/extras swap allowed."
+}
