@@ -1,0 +1,107 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-19",
+  "status": "AUTHOR_SOURCE_EXACT_PROVED_EXHAUSTIVE_FINITE_CHECK_UNREVIEWED_NOT_ADMITTED",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "claims": [
+    {
+      "id": "X6-U149-R062-NATIVE-BRC-TO-DIAGONAL-CARRIER-CLASS-EXACT-PUSHFORWARD",
+      "target_lp": [
+        "LP019",
+        "LP026",
+        "LP028"
+      ],
+      "historic_source": {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "path": "definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
+        "blob": "6ec0d73a19e28ec586c59a97d24f5798c9119771",
+        "sections": "3-8",
+        "scope": "old fixed positive-sector path-formal/N-BRC/Boolean skeleton"
+      },
+      "current_consumer": {
+        "repository": "awdawmip/enterprise-math",
+        "ref": "main",
+        "path": "definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
+        "blob": "97ab1403ab04b4fa80034625fb1b2e3ed115e59b",
+        "sections": "1-5,7-8",
+        "scope": "signed X6 three-axis BRC and carrier-quotient type separation"
+      },
+      "frozen_native_kernel": {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+        "path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+        "blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+        "functions": [
+          "endpoint_multiplicity",
+          "shortest_path_multiplicity",
+          "return_multiplicity"
+        ]
+      },
+      "theorem": {
+        "domain": "signed Z6 native step words +/-e_i; derived diagonal D=(1,1,1,0,0,0); all L>=0 and z in Z6",
+        "observer": "pi_D:Z6->Z6/ZD derived carrier-class quotient",
+        "forward_law": "M_L([z]) = sum_{k in Z} E_L(z+kD)",
+        "zero_class_fiber_support": "3|k|<=L and k congruent L mod2",
+        "first_odd_native_observer_discrepancy": "L3 native_return=0, quotient_class_mass=12",
+        "first_even_discrepancy": "L6 native_return=19920, quotient_class_mass=20100, excess=180",
+        "all_odd_L_ge_3": "native return 0; quotient mass positive",
+        "all_even_L_ge_6": "strict positive nonzero-diagonal contribution"
+      },
+      "finite_check": {
+        "max_length": 8,
+        "independent_methods": [
+          "exact weak-composition factorial signed kernel mathematical replica",
+          "12-label signed-step dynamic programming"
+        ],
+        "certificate_path": "research_checks/X6_UNIT149_CARRIER_BRC_FIBER_RESULTS_20261119.json",
+        "certificate_blob": "de7f7f455653dd8d3acc6f192de17a93cb39e4ee",
+        "checker_path": "research_checks/X6_UNIT149_CARRIER_BRC_FIBER_CHECK_20261119.py",
+        "checker_blob": "1f2850b88af514d7b8a07d105929b1e982a135fb",
+        "stdout_sha256": "50977bc5674fd4c20ee36bf779f6d2587f6d56796da12fc660a5055a58761a9a",
+        "python_modes": [
+          "normal",
+          "-O",
+          "-OO"
+        ],
+        "original_R063_benchmark_executed": false
+      },
+      "proof": {
+        "path": "research_notes/X6_UNIT149_SIGNED_BRC_CARRIER_QUOTIENT_FIBER_AND_PARITY_20261119.md",
+        "blob": "6a5e764d0bf5ae733fc29ea8d118bb8d1572d771",
+        "commit": "328d3431ac023f951cb1ef2b0ec55eccf2aa18a2"
+      },
+      "classification": "PRESERVE_PATH_BRC_POSITIVE_R062_AT_CHART_SCOPE; PRESERVE_OBSERVER_SIGNED_NATIVE_ENDPOINT_MASS_BEFORE_CARRIER_QUOTIENT; DERIVED_CLASS_MASS_IS_FIBER_SUM",
+      "repository_action": "New typed consumer audit with exact aggregation and parity regression; no active semantic redefinition made; historical provenance unchanged",
+      "downstream": [
+        "R062 current BRC bridge",
+        "signed carrier quotient observer consumers",
+        "LP019/LP026/LP028 downstream consistency"
+      ],
+      "scope": "source-level positive R062-to-signed X6 reconciliation; excludes full FCC carrier embeddings, original R063 benchmark and full 28-LP coverage"
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "LP011",
+      "status": "UNRESOLVED_PROVENANCE",
+      "needed": "Actual frozen historical erroneous signed-argmax call at commit:path:line, if present"
+    },
+    {
+      "id": "LP019",
+      "status": "UNRESOLVED_PROVENANCE",
+      "needed": "Actual frozen historical erroneous natural-N-BRC subtraction call at commit:path:line, if present"
+    }
+  ],
+  "independent_driver_review": "PENDING",
+  "do_not_repeat": [
+    "Exact Unit149 theorem/checker/certificate",
+    "Units1–148 existing author science",
+    "Original R063 six-file benchmark"
+  ],
+  "next_exact_action": "Continue actual uninspected historical/current downstream source:line calls; preserve missing LP011/LP019 precise call evidence and independent Driver review."
+}
