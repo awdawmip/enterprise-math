@@ -1,4 +1,6 @@
-# OAI7 r358 — Exact 490-rank certificate and five-tree rigidity at critical uniform support
+# OAI7 r358 — Alternative modular rank witness and companion five-tree derivation
+
+**Parallel-result reconciliation (2026-11-19).** The canonical author-side [r358 Fourier rank and two-shape rigidity](https://github.com/awdawmip/enterprise-math/blob/e6a108eda7ce6c6566fd7893e73ba48d57e97093/research_notes/portable_direct/2026-11-19_oai7_driver_fourier_rank_and_two_shape_rigidity_r358.md) already proves full rank 490, using a *different* five-shape modular witness with determinant 47 mod 59. The canonical [r359 tree-cut certificate](https://github.com/awdawmip/enterprise-math/blob/12c7809e30111287c70430fdaae51bd402be626d/research_notes/portable_direct/2026-11-19_oai7_driver_tree_cut_congruence_r359.md) sharpens the same support-tree idea into a necessary-and-sufficient exact cut/congruence verifier. The note below supplies a separate five-shape witness (determinant **24 mod 59**) and a compatible proof, **not** a second novel r358/r359 result or an independent Native review. Both records share scientific context; preserve original research attribution.
 
 Date: 2026-11-19. Exact finite mathematical extension of the OAI7 minimax sampler line, in the existing shared RESEARCH_DRIVER context. This is author-side work and not an independent Native Result review.
 
