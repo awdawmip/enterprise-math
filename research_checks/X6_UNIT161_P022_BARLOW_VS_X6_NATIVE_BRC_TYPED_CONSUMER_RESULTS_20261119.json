@@ -1,0 +1,93 @@
+{
+  "schema": "X6_UNIT161_FROZEN_P022_NATIVE_BRC_TYPED_CONSUMER_CHECK_V1",
+  "date": "2026-11-19",
+  "historical_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "task": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "dimension": 6,
+  "methods": [
+    "native three-state per axis word DP",
+    "native Stirling surjection sum",
+    "native inclusion-exclusion exponential sum",
+    "P022 frozen layer-shell closed formula"
+  ],
+  "native_validation_radii": "0..16",
+  "barlow_all_patterns_length_1_to_4": 30,
+  "barlow_r2_totals": [
+    "84"
+  ],
+  "table": [
+    {
+      "r": 0,
+      "native": "1",
+      "fcc": "1",
+      "hcp": "1"
+    },
+    {
+      "r": 1,
+      "native": "12",
+      "fcc": "12",
+      "hcp": "12"
+    },
+    {
+      "r": 2,
+      "native": "132",
+      "fcc": "84",
+      "hcp": "84"
+    },
+    {
+      "r": 3,
+      "native": "1332",
+      "fcc": "420",
+      "hcp": "384"
+    },
+    {
+      "r": 4,
+      "native": "12372",
+      "fcc": "1812",
+      "hcp": "1524"
+    },
+    {
+      "r": 5,
+      "native": "106452",
+      "fcc": "7332",
+      "hcp": "5592"
+    },
+    {
+      "r": 6,
+      "native": "856212",
+      "fcc": "28884",
+      "hcp": "19812"
+    },
+    {
+      "r": 7,
+      "native": "6505812",
+      "fcc": "112740",
+      "hcp": "68808"
+    },
+    {
+      "r": 8,
+      "native": "47189652",
+      "fcc": "439572",
+      "hcp": "236628"
+    },
+    {
+      "r": 9,
+      "native": "329768532",
+      "fcc": "1718052",
+      "hcp": "809304"
+    },
+    {
+      "r": 10,
+      "native": "2237107092",
+      "fcc": "6739284",
+      "hcp": "2760420"
+    }
+  ],
+  "scope": "P022 derived periodic close-packed contact graph versus signed six-axis primitive native Cell adjacency; unrelated to original R063 benchmark",
+  "not_executed": [
+    "historical P022 pytest suite",
+    "original R063 six-file benchmark"
+  ],
+  "result": "PASS",
+  "review": "UNREVIEWED/NOT_ADMITTED"
+}
