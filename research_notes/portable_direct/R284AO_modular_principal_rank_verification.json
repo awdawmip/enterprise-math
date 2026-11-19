@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "unit": "R284AO",
+  "arithmetic": "exact integers, finite primes and modular echelon",
+  "random_seed": 284015,
+  "small_exhaustive_cases": 42,
+  "targeted_cases": 3,
+  "max_candidates": 41,
+  "max_primes_per_grade": 24,
+  "max_hadamard_bound_bits": 109,
+  "sample_nilpotent": {
+    "m": 2,
+    "k": 1,
+    "d": 0,
+    "witness": [],
+    "witness_det": null,
+    "basis_dims": [
+      1,
+      0
+    ],
+    "candidate_counts": [
+      1,
+      2
+    ],
+    "prime_counts": [
+      1,
+      1
+    ],
+    "max_prime": 2,
+    "max_bound_bits": 1,
+    "all_prime_products_exceed_bounds": true
+  },
+  "sample_highest_dimension": {
+    "m": 6,
+    "k": 3,
+    "d": 3,
+    "witness": [
+      1,
+      2,
+      5
+    ],
+    "witness_det": -144,
+    "basis_dims": [
+      1,
+      6,
+      9,
+      1
+    ],
+    "candidate_counts": [
+      1,
+      6,
+      15,
+      14
+    ],
+    "prime_counts": [
+      1,
+      15,
+      24,
+      7
+    ],
+    "max_prime": 89,
+    "max_bound_bits": 109,
+    "all_prime_products_exceed_bounds": true
+  },
+  "claim": "Deterministic exact principal degree via multi-prime state spans",
+  "review": "NOT_REVIEWED"
+}
