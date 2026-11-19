@@ -1,0 +1,223 @@
+{
+  "contract": "RS-EULER-RR-06-AUTONOMOUS-LATCH-20261011",
+  "source_kind": "pinned public boundary reconstruction, no private ZIP replay",
+  "arbitrary_permutations": [
+    {
+      "states": 1,
+      "permutations": 6,
+      "profiles": 2,
+      "mass_by_total_retention": {
+        "0": 4,
+        "1": 2
+      }
+    },
+    {
+      "states": 2,
+      "permutations": 720,
+      "profiles": 6,
+      "mass_by_total_retention": {
+        "0": 288,
+        "1": 288,
+        "2": 144
+      }
+    },
+    {
+      "states": 3,
+      "permutations": 362880,
+      "profiles": 20,
+      "mass_by_total_retention": {
+        "0": 86400,
+        "1": 129600,
+        "2": 103680,
+        "3": 43200
+      }
+    }
+  ],
+  "tagged_counter": {
+    "H_range": [
+      1,
+      9
+    ],
+    "M_range": [
+      1,
+      6
+    ],
+    "permutation_rows": 8505,
+    "fixed_source_schedules": 1134
+  },
+  "old_source_and_contacts": {
+    "public_core_modes": 384,
+    "single_round_jumps": {
+      "2": 192,
+      "1": 192
+    },
+    "H": 5,
+    "M": 2,
+    "ready_and_biased_branches": 6912,
+    "branches_by_capture_time": {
+      "1": 2304,
+      "0": 4608
+    },
+    "exact_agreement_by_calibration_offset": {
+      "0": 2304,
+      "1": 0,
+      "2": 0
+    },
+    "costs": {
+      "hold": 29952,
+      "old_source_commands": 110592,
+      "channel_contact": 10368
+    },
+    "final_mass": [
+      6912,
+      "1",
+      "1/6912"
+    ],
+    "example_columns": [
+      "tick",
+      "source_before_T",
+      "write",
+      "clock_after",
+      "time_tag",
+      "receiver"
+    ],
+    "example": [
+      [
+        0,
+        0,
+        false,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        true,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        0,
+        false,
+        1,
+        1,
+        1
+      ],
+      [
+        3,
+        1,
+        false,
+        2,
+        1,
+        1
+      ],
+      [
+        4,
+        0,
+        false,
+        2,
+        1,
+        1
+      ],
+      [
+        5,
+        2,
+        false,
+        3,
+        1,
+        1
+      ]
+    ]
+  },
+  "periodic_comparison": {
+    "channel_word": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      2,
+      1,
+      0,
+      1,
+      0,
+      1,
+      2
+    ],
+    "hits": [
+      5,
+      11
+    ],
+    "columns": [
+      "phase_test",
+      "required_H",
+      "controller_states",
+      "actual_window"
+    ],
+    "rows": [
+      [
+        "oriented_difference_2",
+        1,
+        1,
+        6
+      ],
+      [
+        "oriented_difference_2",
+        5,
+        1,
+        6
+      ],
+      [
+        "oriented_difference_2",
+        12,
+        2,
+        12
+      ],
+      [
+        "oriented_difference_2",
+        13,
+        3,
+        18
+      ],
+      [
+        "oriented_difference_2",
+        37,
+        7,
+        42
+      ],
+      [
+        "specified_whole_mode",
+        1,
+        1,
+        12
+      ],
+      [
+        "specified_whole_mode",
+        5,
+        1,
+        12
+      ],
+      [
+        "specified_whole_mode",
+        12,
+        1,
+        12
+      ],
+      [
+        "specified_whole_mode",
+        13,
+        2,
+        24
+      ],
+      [
+        "specified_whole_mode",
+        37,
+        4,
+        48
+      ]
+    ]
+  }
+}
