@@ -1,0 +1,212 @@
+{
+  "model": "CANDIDATE_SIGNED_K4_STAR_DIRECT_PRODUCT_LIFT",
+  "stars": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      3,
+      4
+    ],
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      2,
+      4,
+      5
+    ]
+  ],
+  "orientation": "positive 3-cycle in given STAR order, negative its inverse; left-composed",
+  "depth_change": "2a iff signed counts n0=n1=n2=n3=a",
+  "four_plus_cycle_type_counts": {
+    "33": 4,
+    "42": 16,
+    "51": 4
+  },
+  "full_dp_exact_m_0_to_8": [
+    {
+      "m": 0,
+      "states": 1,
+      "returns": {
+        "0": {
+          "joint_identity": 1,
+          "relative_only": 1
+        }
+      }
+    },
+    {
+      "m": 1,
+      "states": 8,
+      "returns": {}
+    },
+    {
+      "m": 2,
+      "states": 57,
+      "returns": {
+        "0": {
+          "joint_identity": 8,
+          "relative_only": 8
+        }
+      }
+    },
+    {
+      "m": 3,
+      "states": 400,
+      "returns": {}
+    },
+    {
+      "m": 4,
+      "states": 2617,
+      "returns": {
+        "0": {
+          "joint_identity": 120,
+          "relative_only": 168
+        },
+        "1": {
+          "joint_identity": 0,
+          "relative_only": 24
+        },
+        "-1": {
+          "joint_identity": 0,
+          "relative_only": 24
+        }
+      }
+    },
+    {
+      "m": 5,
+      "states": 15848,
+      "returns": {}
+    },
+    {
+      "m": 6,
+      "states": 74291,
+      "returns": {
+        "0": {
+          "joint_identity": 2192,
+          "relative_only": 5120
+        },
+        "1": {
+          "joint_identity": 0,
+          "relative_only": 1440
+        },
+        "-1": {
+          "joint_identity": 0,
+          "relative_only": 1440
+        }
+      }
+    },
+    {
+      "m": 7,
+      "states": 232576,
+      "returns": {}
+    },
+    {
+      "m": 8,
+      "states": 513774,
+      "returns": {
+        "0": {
+          "joint_identity": 44632,
+          "relative_only": 190120
+        },
+        "1": {
+          "joint_identity": 16,
+          "relative_only": 73920
+        },
+        "2": {
+          "joint_identity": 8,
+          "relative_only": 2520
+        },
+        "-2": {
+          "joint_identity": 8,
+          "relative_only": 2520
+        },
+        "-1": {
+          "joint_identity": 16,
+          "relative_only": 73920
+        }
+      }
+    }
+  ],
+  "length8_witness_a1": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      0,
+      -1
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      -1
+    ]
+  ],
+  "length8_witness_a2": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "positive_only_identity_counts_a1_a2_a3": [
+    0,
+    8,
+    2116
+  ],
+  "L(a)": "8 if abs(a)=1 else 4*abs(a) for abs(a)>=2",
+  "author_verification": "PASS",
+  "independent_review": "NOT_REVIEWED"
+}
