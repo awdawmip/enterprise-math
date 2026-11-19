@@ -1,0 +1,170 @@
+{
+  "examples": [
+    {
+      "case": "rectangle",
+      "cross_matrix": [
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "excess_limit": "7702/5577",
+      "fourth_limit": "73299/215600",
+      "periodic_eigenvalue_rational_brackets": [
+        [
+          "148716351/4194304",
+          "297432703/8388608"
+        ],
+        [
+          "527974649/8388608",
+          "263987325/4194304"
+        ]
+      ],
+      "rates": [
+        3,
+        1
+      ],
+      "variance": "39/140",
+      "word_rows": [
+        {
+          "N": 1,
+          "NH_fourth": "39/140",
+          "raw_axis_words": 720
+        },
+        {
+          "N": 2,
+          "NH_fourth": "3485843/11211200",
+          "raw_axis_words": 7484400
+        },
+        {
+          "N": 3,
+          "NH_fourth": "202417/630630",
+          "raw_axis_words": 137225088000
+        }
+      ]
+    },
+    {
+      "case": "path_laplacian",
+      "cross_matrix": [
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          -1,
+          2,
+          -1
+        ],
+        [
+          0,
+          -1,
+          1
+        ]
+      ],
+      "excess_limit": "87576/80275",
+      "fourth_limit": "304075/136857",
+      "periodic_eigenvalue_rational_brackets": [
+        [
+          "146707027/4194304",
+          "293414055/8388608"
+        ],
+        [
+          "477632525/8388608",
+          "238816263/4194304"
+        ]
+      ],
+      "rates": [
+        5,
+        2
+      ],
+      "variance": "325/441",
+      "word_rows": [
+        {
+          "N": 1,
+          "NH_fourth": "14860/8379",
+          "raw_axis_words": 720
+        },
+        {
+          "N": 2,
+          "NH_fourth": "40407485/20163598",
+          "raw_axis_words": 7484400
+        },
+        {
+          "N": 3,
+          "NH_fourth": "1696953970/816625719",
+          "raw_axis_words": 137225088000
+        }
+      ]
+    }
+  ],
+  "native_kernel_sha256": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4",
+  "rectangular_two_rate_checks": [
+    {
+      "N": 16,
+      "N_over_ratio": "1",
+      "critical_limit": "5/2",
+      "exact_excess": "2228798457807/1026303416320",
+      "fast_slow_ratio": "16",
+      "rounded_excess": 2.171675961,
+      "scaled_variance": "46592/28611"
+    },
+    {
+      "N": 256,
+      "N_over_ratio": "1",
+      "critical_limit": "5/2",
+      "exact_excess": "376027737327644404877089647/151649161907895907015720960",
+      "fast_slow_ratio": "256",
+      "rounded_excess": 2.479589947,
+      "scaled_variance": "2874540032/1456974891"
+    },
+    {
+      "N": 4096,
+      "N_over_ratio": "1",
+      "critical_limit": "5/2",
+      "exact_excess": "65028116774436260095077553759806206764731/26024486281037185672835169914833684398080",
+      "fast_slow_ratio": "4096",
+      "rounded_excess": 2.498728162,
+      "scaled_variance": "187695808643072/93928110604971"
+    },
+    {
+      "N": 4096,
+      "N_over_ratio": "4",
+      "critical_limit": "17/8",
+      "exact_excess": "573123489273519528292878324073945641/270176786446324478883594583228284928",
+      "fast_slow_ratio": "1024",
+      "rounded_excess": 2.121290644,
+      "scaled_variance": "733724278784/368116936875"
+    },
+    {
+      "N": 8192,
+      "N_over_ratio": "1/4",
+      "critical_limit": "4",
+      "exact_excess": "306583683511222347181764003249455178312707923931398143/76652257277631536888260591688885525130565350638747648",
+      "fast_slow_ratio": "32768",
+      "rounded_excess": 3.999669343,
+      "scaled_variance": "2305913380105355264/1153079841797586945"
+    },
+    {
+      "N": 4096,
+      "N_over_ratio": "64",
+      "critical_limit": "257/128",
+      "exact_excess": "362703778365548890852876917/185361694702102218576756736",
+      "fast_slow_ratio": "64",
+      "rounded_excess": 1.956735338,
+      "scaled_variance": "11362304/5995275"
+    }
+  ],
+  "task": "RS-X6-WEIGHTED-CIRCULATION-CANCELLATION"
+}

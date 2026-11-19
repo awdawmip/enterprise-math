@@ -1,0 +1,785 @@
+{
+  "actual_four_round_replay": [
+    {
+      "N": 3,
+      "extra_BRC_calls_for_terminal_and_order_audit": 5,
+      "full_terminal_label_checks": 1,
+      "g": 1,
+      "mark_cost": {},
+      "mark_evaluations_in_positive_branches": 0,
+      "marked_dp_BRC_calls_by_round": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "max_readout_probability_denominator_bits": 1,
+      "max_row_numerator_and_denominator_bits": [
+        1,
+        1
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 0,
+      "row_query_requests": 28,
+      "setup_calls": 1,
+      "terminal_words": 1,
+      "transition_plans": 8,
+      "verified_order": 1,
+      "witness": null
+    },
+    {
+      "N": 3,
+      "extra_BRC_calls_for_terminal_and_order_audit": 10,
+      "full_terminal_label_checks": 4,
+      "g": 2,
+      "mark_cost": {},
+      "mark_evaluations_in_positive_branches": 2,
+      "marked_dp_BRC_calls_by_round": [
+        12,
+        13,
+        14,
+        9
+      ],
+      "max_readout_probability_denominator_bits": 2,
+      "max_row_numerator_and_denominator_bits": [
+        1,
+        1
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 0,
+      "row_query_requests": 34,
+      "setup_calls": 0,
+      "terminal_words": 2,
+      "transition_plans": 8,
+      "verified_order": 2,
+      "witness": null
+    },
+    {
+      "N": 7,
+      "extra_BRC_calls_for_terminal_and_order_audit": 265,
+      "full_terminal_label_checks": 48,
+      "g": 2,
+      "mark_cost": {
+        "cache_hits": 6,
+        "column_adder_digit_replays": 0,
+        "column_host_bit_wiring_operations": 0,
+        "computed_columns": 0,
+        "forward_lookups": 6,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 12,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        34,
+        150,
+        582
+      ],
+      "max_readout_probability_denominator_bits": 105,
+      "max_row_numerator_and_denominator_bits": [
+        29,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 10,
+      "nonzero_feedback_applications": 127,
+      "row_query_requests": 360,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 78,
+      "verified_order": 3,
+      "witness": {
+        "all_masks": 8,
+        "blind_masks": 2,
+        "first_one_at_j": "1/32",
+        "independent_single_parent_given_minus": "1/5",
+        "j": 3,
+        "marked_mass": "9/320",
+        "nonzero_old_labels": {
+          "1": "1/40",
+          "2": "1/320",
+          "4": "1/320"
+        }
+      }
+    },
+    {
+      "N": 5,
+      "extra_BRC_calls_for_terminal_and_order_audit": 24,
+      "full_terminal_label_checks": 16,
+      "g": 2,
+      "mark_cost": {
+        "cache_hits": 2,
+        "column_adder_digit_replays": 0,
+        "column_host_bit_wiring_operations": 0,
+        "computed_columns": 0,
+        "forward_lookups": 2,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 6,
+      "marked_dp_BRC_calls_by_round": [
+        12,
+        13,
+        8,
+        28
+      ],
+      "max_readout_probability_denominator_bits": 2,
+      "max_row_numerator_and_denominator_bits": [
+        1,
+        2
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 2,
+      "row_query_requests": 86,
+      "setup_calls": 0,
+      "terminal_words": 4,
+      "transition_plans": 14,
+      "verified_order": 4,
+      "witness": null
+    },
+    {
+      "N": 11,
+      "extra_BRC_calls_for_terminal_and_order_audit": 351,
+      "full_terminal_label_checks": 80,
+      "g": 3,
+      "mark_cost": {
+        "cache_hits": 10,
+        "column_adder_digit_replays": 62,
+        "column_host_bit_wiring_operations": 671,
+        "computed_columns": 1,
+        "forward_lookups": 11,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 16,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        24,
+        174,
+        854
+      ],
+      "max_readout_probability_denominator_bits": 99,
+      "max_row_numerator_and_denominator_bits": [
+        28,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 6,
+      "nonzero_feedback_applications": 186,
+      "row_query_requests": 572,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 116,
+      "verified_order": 5,
+      "witness": {
+        "all_masks": 32,
+        "blind_masks": 6,
+        "first_one_at_j": "1/64",
+        "independent_single_parent_given_minus": "1/5",
+        "j": 4,
+        "marked_mass": "3/640",
+        "nonzero_old_labels": {
+          "1": "1/320",
+          "3": "1/640",
+          "4": "1/320",
+          "5": "1/640",
+          "9": "1/160"
+        }
+      }
+    },
+    {
+      "N": 21,
+      "extra_BRC_calls_for_terminal_and_order_audit": 144,
+      "full_terminal_label_checks": 96,
+      "g": 2,
+      "mark_cost": {
+        "cache_hits": 7,
+        "column_adder_digit_replays": 0,
+        "column_host_bit_wiring_operations": 0,
+        "computed_columns": 0,
+        "forward_lookups": 7,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 14,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        34,
+        150,
+        163
+      ],
+      "max_readout_probability_denominator_bits": 28,
+      "max_row_numerator_and_denominator_bits": [
+        29,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 4,
+      "nonzero_feedback_applications": 93,
+      "row_query_requests": 502,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 78,
+      "verified_order": 6,
+      "witness": {
+        "all_masks": 8,
+        "blind_masks": 2,
+        "first_one_at_j": "1/32",
+        "independent_single_parent_given_minus": "1/5",
+        "j": 3,
+        "marked_mass": "9/320",
+        "nonzero_old_labels": {
+          "1": "1/40",
+          "16": "1/320",
+          "4": "1/320"
+        }
+      }
+    },
+    {
+      "N": 29,
+      "extra_BRC_calls_for_terminal_and_order_audit": 373,
+      "full_terminal_label_checks": 112,
+      "g": 7,
+      "mark_cost": {
+        "cache_hits": 7,
+        "column_adder_digit_replays": 262,
+        "column_host_bit_wiring_operations": 2812,
+        "computed_columns": 2,
+        "forward_lookups": 9,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 16,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        24,
+        122,
+        1050
+      ],
+      "max_readout_probability_denominator_bits": 102,
+      "max_row_numerator_and_denominator_bits": [
+        28,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 6,
+      "nonzero_feedback_applications": 231,
+      "row_query_requests": 772,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 152,
+      "verified_order": 7,
+      "witness": {
+        "all_masks": 128,
+        "blind_masks": 32,
+        "first_one_at_j": "1/128",
+        "independent_single_parent_given_minus": "1/5",
+        "j": 4,
+        "marked_mass": "1/160",
+        "nonzero_old_labels": {
+          "1": "1/160",
+          "25": "1/1280",
+          "7": "1/1280"
+        }
+      }
+    },
+    {
+      "N": 17,
+      "extra_BRC_calls_for_terminal_and_order_audit": 72,
+      "full_terminal_label_checks": 64,
+      "g": 2,
+      "mark_cost": {
+        "cache_hits": 7,
+        "column_adder_digit_replays": 93,
+        "column_host_bit_wiring_operations": 996,
+        "computed_columns": 1,
+        "forward_lookups": 8,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 14,
+      "marked_dp_BRC_calls_by_round": [
+        12,
+        7,
+        26,
+        100
+      ],
+      "max_readout_probability_denominator_bits": 2,
+      "max_row_numerator_and_denominator_bits": [
+        1,
+        3
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 22,
+      "row_query_requests": 316,
+      "setup_calls": 0,
+      "terminal_words": 8,
+      "transition_plans": 44,
+      "verified_order": 8,
+      "witness": null
+    },
+    {
+      "N": 19,
+      "extra_BRC_calls_for_terminal_and_order_audit": 387,
+      "full_terminal_label_checks": 144,
+      "g": 4,
+      "mark_cost": {
+        "cache_hits": 8,
+        "column_adder_digit_replays": 216,
+        "column_host_bit_wiring_operations": 2307,
+        "computed_columns": 2,
+        "forward_lookups": 10,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 16,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        24,
+        96,
+        1094
+      ],
+      "max_readout_probability_denominator_bits": 103,
+      "max_row_numerator_and_denominator_bits": [
+        27,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 242,
+      "row_query_requests": 936,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 170,
+      "verified_order": 9,
+      "witness": null
+    },
+    {
+      "N": 11,
+      "extra_BRC_calls_for_terminal_and_order_audit": 184,
+      "full_terminal_label_checks": 160,
+      "g": 2,
+      "mark_cost": {
+        "cache_hits": 11,
+        "column_adder_digit_replays": 76,
+        "column_host_bit_wiring_operations": 826,
+        "computed_columns": 1,
+        "forward_lookups": 12,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 18,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        24,
+        174,
+        237
+      ],
+      "max_readout_probability_denominator_bits": 29,
+      "max_row_numerator_and_denominator_bits": [
+        28,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 131,
+      "row_query_requests": 796,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 116,
+      "verified_order": 10,
+      "witness": null
+    },
+    {
+      "N": 23,
+      "extra_BRC_calls_for_terminal_and_order_audit": 317,
+      "full_terminal_label_checks": 176,
+      "g": 2,
+      "mark_cost": {
+        "cache_hits": 11,
+        "column_adder_digit_replays": 269,
+        "column_host_bit_wiring_operations": 2894,
+        "computed_columns": 3,
+        "forward_lookups": 14,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 20,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        24,
+        96,
+        826
+      ],
+      "max_readout_probability_denominator_bits": 98,
+      "max_row_numerator_and_denominator_bits": [
+        27,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 218,
+      "row_query_requests": 1048,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 170,
+      "verified_order": 11,
+      "witness": null
+    },
+    {
+      "N": 13,
+      "extra_BRC_calls_for_terminal_and_order_audit": 184,
+      "full_terminal_label_checks": 192,
+      "g": 2,
+      "mark_cost": {
+        "cache_hits": 13,
+        "column_adder_digit_replays": 154,
+        "column_host_bit_wiring_operations": 1672,
+        "computed_columns": 2,
+        "forward_lookups": 15,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 22,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        34,
+        67,
+        266
+      ],
+      "max_readout_probability_denominator_bits": 2,
+      "max_row_numerator_and_denominator_bits": [
+        28,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 114,
+      "row_query_requests": 906,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 120,
+      "verified_order": 12,
+      "witness": null
+    },
+    {
+      "N": 53,
+      "extra_BRC_calls_for_terminal_and_order_audit": 323,
+      "full_terminal_label_checks": 208,
+      "g": 10,
+      "mark_cost": {
+        "cache_hits": 15,
+        "column_adder_digit_replays": 553,
+        "column_host_bit_wiring_operations": 5863,
+        "computed_columns": 3,
+        "forward_lookups": 18,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 24,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        24,
+        96,
+        710
+      ],
+      "max_readout_probability_denominator_bits": 98,
+      "max_row_numerator_and_denominator_bits": [
+        27,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 194,
+      "row_query_requests": 1144,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 170,
+      "verified_order": 13,
+      "witness": null
+    },
+    {
+      "N": 29,
+      "extra_BRC_calls_for_terminal_and_order_audit": 232,
+      "full_terminal_label_checks": 224,
+      "g": 4,
+      "mark_cost": {
+        "cache_hits": 16,
+        "column_adder_digit_replays": 392,
+        "column_host_bit_wiring_operations": 4184,
+        "computed_columns": 3,
+        "forward_lookups": 19,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 26,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        24,
+        122,
+        335
+      ],
+      "max_readout_probability_denominator_bits": 29,
+      "max_row_numerator_and_denominator_bits": [
+        28,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 149,
+      "row_query_requests": 1106,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 152,
+      "verified_order": 14,
+      "witness": null
+    },
+    {
+      "N": 31,
+      "extra_BRC_calls_for_terminal_and_order_audit": 253,
+      "full_terminal_label_checks": 240,
+      "g": 7,
+      "mark_cost": {
+        "cache_hits": 17,
+        "column_adder_digit_replays": 467,
+        "column_host_bit_wiring_operations": 5009,
+        "computed_columns": 4,
+        "forward_lookups": 21,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 28,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        24,
+        96,
+        442
+      ],
+      "max_readout_probability_denominator_bits": 76,
+      "max_row_numerator_and_denominator_bits": [
+        27,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 170,
+      "row_query_requests": 1240,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 170,
+      "verified_order": 15,
+      "witness": null
+    },
+    {
+      "N": 17,
+      "extra_BRC_calls_for_terminal_and_order_audit": 256,
+      "full_terminal_label_checks": 256,
+      "g": 3,
+      "mark_cost": {
+        "cache_hits": 18,
+        "column_adder_digit_replays": 371,
+        "column_host_bit_wiring_operations": 3983,
+        "computed_columns": 4,
+        "forward_lookups": 22,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 30,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        24,
+        96,
+        384
+      ],
+      "max_readout_probability_denominator_bits": 2,
+      "max_row_numerator_and_denominator_bits": [
+        27,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 158,
+      "row_query_requests": 1252,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 170,
+      "verified_order": 16,
+      "witness": null
+    },
+    {
+      "N": 103,
+      "extra_BRC_calls_for_terminal_and_order_audit": 256,
+      "full_terminal_label_checks": 272,
+      "g": 8,
+      "mark_cost": {
+        "cache_hits": 18,
+        "column_adder_digit_replays": 950,
+        "column_host_bit_wiring_operations": 10004,
+        "computed_columns": 4,
+        "forward_lookups": 22,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 30,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        24,
+        96,
+        384
+      ],
+      "max_readout_probability_denominator_bits": 2,
+      "max_row_numerator_and_denominator_bits": [
+        27,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 0,
+      "nonzero_feedback_applications": 158,
+      "row_query_requests": 1336,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 170,
+      "verified_order": 17,
+      "witness": null
+    }
+  ],
+  "additional_composite_family": [
+    {
+      "N": 63,
+      "extra_BRC_calls_for_terminal_and_order_audit": 265,
+      "full_terminal_label_checks": 48,
+      "g": 4,
+      "mark_cost": {
+        "cache_hits": 6,
+        "column_adder_digit_replays": 0,
+        "column_host_bit_wiring_operations": 0,
+        "computed_columns": 0,
+        "forward_lookups": 6,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 12,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        34,
+        150,
+        582
+      ],
+      "max_readout_probability_denominator_bits": 105,
+      "max_row_numerator_and_denominator_bits": [
+        29,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 10,
+      "nonzero_feedback_applications": 127,
+      "row_query_requests": 360,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 78,
+      "verified_order": 3,
+      "witness": {
+        "all_masks": 8,
+        "blind_masks": 2,
+        "first_one_at_j": "1/32",
+        "independent_single_parent_given_minus": "1/5",
+        "j": 3,
+        "marked_mass": "9/320",
+        "nonzero_old_labels": {
+          "1": "1/40",
+          "16": "1/320",
+          "4": "1/320"
+        }
+      }
+    },
+    {
+      "N": 215,
+      "extra_BRC_calls_for_terminal_and_order_audit": 265,
+      "full_terminal_label_checks": 48,
+      "g": 6,
+      "mark_cost": {
+        "cache_hits": 6,
+        "column_adder_digit_replays": 0,
+        "column_host_bit_wiring_operations": 0,
+        "computed_columns": 0,
+        "forward_lookups": 6,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 12,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        34,
+        150,
+        582
+      ],
+      "max_readout_probability_denominator_bits": 105,
+      "max_row_numerator_and_denominator_bits": [
+        29,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 10,
+      "nonzero_feedback_applications": 127,
+      "row_query_requests": 360,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 78,
+      "verified_order": 3,
+      "witness": {
+        "all_masks": 8,
+        "blind_masks": 2,
+        "first_one_at_j": "1/32",
+        "independent_single_parent_given_minus": "1/5",
+        "j": 3,
+        "marked_mass": "9/320",
+        "nonzero_old_labels": {
+          "1": "1/40",
+          "36": "1/320",
+          "6": "1/320"
+        }
+      }
+    },
+    {
+      "N": 511,
+      "extra_BRC_calls_for_terminal_and_order_audit": 265,
+      "full_terminal_label_checks": 48,
+      "g": 8,
+      "mark_cost": {
+        "cache_hits": 6,
+        "column_adder_digit_replays": 0,
+        "column_host_bit_wiring_operations": 0,
+        "computed_columns": 0,
+        "forward_lookups": 6,
+        "native_calls_inside_mark_lookup": 0
+      },
+      "mark_evaluations_in_positive_branches": 12,
+      "marked_dp_BRC_calls_by_round": [
+        6,
+        34,
+        150,
+        582
+      ],
+      "max_readout_probability_denominator_bits": 105,
+      "max_row_numerator_and_denominator_bits": [
+        29,
+        31
+      ],
+      "non_dyadic_marked_word_atoms": 10,
+      "nonzero_feedback_applications": 127,
+      "row_query_requests": 360,
+      "setup_calls": 0,
+      "terminal_words": 16,
+      "transition_plans": 78,
+      "verified_order": 3,
+      "witness": {
+        "all_masks": 8,
+        "blind_masks": 2,
+        "first_one_at_j": "1/32",
+        "independent_single_parent_given_minus": "1/5",
+        "j": 3,
+        "marked_mass": "9/320",
+        "nonzero_old_labels": {
+          "1": "1/40",
+          "64": "1/320",
+          "8": "1/320"
+        }
+      }
+    }
+  ],
+  "bank_BRC_calls": 243,
+  "bank_sha256": "79491e65feec104f2cdc9de510263efef749d8a1174f9cab4c20146a0171615c",
+  "extra_BRC_calls_for_rejection_controls": 0,
+  "independent_integer_tests": {
+    "address_windows": 255,
+    "phase_multipliers": {
+      "2": 81,
+      "6": 4,
+      "8": 166,
+      "9": 4
+    },
+    "schedule_period_pairs": 21865
+  },
+  "total_plans": 1906,
+  "typed_rejections": {
+    "boolean_coin": "ValueError",
+    "completed_history": "ValueError",
+    "empty_budget": "QueryBudgetExhausted",
+    "invalid_history": "ValueError",
+    "missing_word": "KeyError",
+    "nonunit_base": "ValueError",
+    "odd_width": "ValueError",
+    "omitted_mode": "ValueError",
+    "out_of_range": "ValueError",
+    "zero_parent_row": "ValueError"
+  },
+  "vendor_git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+}
