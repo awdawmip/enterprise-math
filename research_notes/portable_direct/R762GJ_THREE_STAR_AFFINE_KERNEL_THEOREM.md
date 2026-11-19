@@ -56,7 +56,20 @@ For each choice of **three** STARs, assign probability `1/6` to each of the six 
 | 12 | 3,192,108 | 3,816 | C_12(±2)=3; C_12(±6)=36 |
 | 14 | 53,099,136 | 153,860 | C_14(±2)=266; C_14(±6)=2,982 |
 
-All four three-STAR selections give these same exact counts throughout this declared finite horizon. The **first nonzero joint diagonal return** is at `m=10`, with `k=±3`, each supported by exactly 60 distinct source words. The resulting unconditional positive-BRC probability at ten events is `120/6^10=5/2519424`. **No unit-depth return exists at even lengths through 14** (and odd lengths are excluded by parity), so its minimum length is at least 16; algebraic existence for some finite length is established by the theorem. Its exact minimum remains open.
+All four three-STAR selections give these same exact counts throughout this declared finite horizon. The **first nonzero joint diagonal return** is at `m=10`, with `k=±3`, each supported by exactly 60 distinct source words. The resulting unconditional positive-BRC probability at ten events is `120/6^10=5/2519424`. **The exact shortest unit-depth joint return is 16 events for every three-STAR choice.** Exhaustive integer BRC results through length 14 exclude a unit-depth return there; odd lengths are excluded by the signed coordinate-sum parity invariant. Four independently evaluated length-16 witnesses below reach `(D,id)`—one for each choice. Their inverse words reach `(-D,id)`. This completes the lower and upper bounds for the unit-depth first hitting length.
+
+### Exact shortest unit-depth certificate (extension R762GJ-16)
+
+The following words use symbols `j+` and `j-` for the two signed candidate branches in the frozen moving-frame convention. Each word has exactly 16 factors, all drawn from its three listed STAR groups, and its **complete** product is `(D,id)`:
+
+| Retained STAR groups | Fully ordered 16-event unit-depth witness |
+|---|---|
+| `012` | `0+ 0+ 1+ 0- 2- 1+ 0- 2- 0+ 0+ 1+ 2- 1+ 0- 2- 1+` |
+| `013` | `0+ 1+ 0+ 3- 1- 0+ 1+ 3- 1+ 0+ 3- 0- 1- 0+ 1+ 3-` |
+| `023` | `0+ 0+ 2+ 3- 0- 3- 2- 3- 0- 2- 3+ 0+ 2+ 0+ 3+ 2+` |
+| `123` | `1+ 1+ 2+ 1- 3- 2+ 1- 3- 1+ 1+ 2+ 3- 2+ 1- 3- 2+` |
+
+For the `012` and `013` triples separately, a complete 8+8 meet-in-the-middle exact integer count (383,450 distinct half-states, `6^8=1,679,616` weighted half-words per subset) yields `C_16(1)=C_16(-1)=448` and `C_16(0)=905,476,354`. The other two choices have verified unit-depth witnesses; their full length-16 counts have **not** been recomputed in this extension. The original paper's all-four-subset complete count equality remains certified through length 14.
 
 The comparison with R762GI is instructive: **four STARs** admit a nonzero depth-four joint return after 8 events and a unit-depth return after 10; **three STARs** retain the same algebraic diagonal holonomy `Z`, but lose those short paths. Group generation and finite-horizon BRC path availability are therefore different invariants.
 
@@ -66,4 +79,4 @@ The comparison with R762GI is instructive: **four STARs** admit a nonzero depth-
 
 All results above concern the precisely specified signed semidirect **candidate** at the frozen source revision. The endpoint and orientation quotient used for this existence theorem is not a declaration that Cell/Port/Link state, path order, branch identity, signs, joint relation observers, history or common-depth repair may be erased in the future. P000 and the mandatory Joint Relation Observer Preservation rule are unchanged.
 
-**Open frontier:** find the exact shortest unit-depth three-STAR word; determine whether the four three-STAR BRC distributions remain equal at unbounded horizons; and, most importantly, compare the candidate rotations, signed forces and three-step composite transitions with the frozen **native** `TRIADIC_CLOSURE_E` Cell/Port/Link license predicate. For each admissible finite-memory relational gate, repeat the reachability test with full typed provenance instead of assuming that positive candidate BRC weight supplies native permission.
+**Open frontier:** derive the general minimal unit-depth-multiple length function `L(k)` and understand its BRC distribution; determine whether the four three-STAR BRC distributions remain equal at unbounded horizons; and, most importantly, compare the candidate rotations, signed forces and three-step composite transitions with the frozen **native** `TRIADIC_CLOSURE_E` Cell/Port/Link license predicate. For each admissible finite-memory relational gate, repeat the reachability test with full typed provenance instead of assuming that positive candidate BRC weight supplies native permission.
