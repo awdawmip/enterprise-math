@@ -1,0 +1,42 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "unit": 162,
+  "date": "2026-11-19",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "author": "EM-X6-FB6990",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "science_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED/EXACT_FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+  "source_edges": [
+    {
+      "producer": "src/enterprise_math/euler_native_bisector.py",
+      "producer_blob": "f6e0162012af2ab10685076e0ff5c0e728ba1ec0",
+      "producer_lines": "117-118,185-193,231-234,277-303",
+      "consumer": "tests/test_euler_native_bisector.py",
+      "consumer_blob": "57eb499033b2432a3b5b325d711c50cf1719e4f0",
+      "consumer_lines": "15-30,42-52",
+      "operator_type": "DERIVED_QRADIAL_2X2_C12_ROTATION_CHARACTER_NOT_X6_TRANSLATION_OR_NBRC"
+    }
+  ],
+  "finding": "Frozen C12 matrix consumer valid only as derived rotor; exact candidate signed-permutation A(x)=(-x6,x1,x2,x3,x4,x5) order12 regular on 12 signed axes, preserves native squared readout, signed adjacency and exact N-BRC. Cannot realize order12 inside S6 positive-axis permutation skeleton; no nonzero torsion translation C12→Z6. Candidate not approved physical rotation, no erroneous LP011/LP019 site found.",
+  "checks": {
+    "vectors": 15625,
+    "power_checks": 187500,
+    "edge_checks": 187500,
+    "scope": "[-2,2]^6 plus all-integer proof",
+    "original_python_tests_executed": false,
+    "r063_benchmark_rerun": false
+  },
+  "lp011_faulty_historical_caller": "UNRESOLVED_PROVENANCE",
+  "lp019_faulty_historical_caller": "UNRESOLVED_PROVENANCE",
+  "review": "UNREVIEWED/NOT_ADMITTED",
+  "prior_native": {
+    "units160161_request_id": "onhour-20261119-1920-x6-own-units160161-native-progress-v1",
+    "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "8c7b9d21e77ab40fb7db8b45f815c32f0c0878c1"
+  },
+  "next_action": "Resolve original current continuation request; verify same winning owner, then native link this verified author Unit162 if authorized. Independently pursue missing LP011/LP019 actual wrong caller and Unit149–152 semantic association without failed replay."
+}
