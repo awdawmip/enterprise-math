@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/x6_regenerative_port_brc_minimization_results_r21.json",
+    "ref": "31cb3535225f5bb1213fd134274e47e216b08f64",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "call_id": null,
+  "observation_id": "r2-x6-r21-catchup-20261119-results",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"X6_BRC_R21_EXACT_VERIFICATION_V1\",\n  \"status\": \"PASS\",\n  \"date\": \"2026-11-19\",\n  \"exhaustive_scope\": {\n    \"base_chart\": \"3 selected X6 positions on one signed primitive axis, other 5 relative coordinates 0\",\n    \"directed_edges\": 4,\n    \"edge_options_per_edge\": 5,\n    \"credit_caps\": [\n      1,\n      2\n    ],\n    \"source_counts\": [\n      1,\n      2\n    ],\n    \"all_patterns_per_cap_and_source\": 625,\n    \"configurations\": 2500,\n    \"stateOccurrences\": 28125\n  },\n  \"tests\": {\n    \"boolean_language_pair_equivalence_checks\": 498555,\n    \"stabilization_checks\": 2500,\n    \"maximum_refinement_round_observed\": 5,\n    \"nontrivial_early_fixed_points\": 2204\n  },\n  \"witnesses\": {\n    \"replenishment\": {\n      \"initial_positions\": [\n        0,\n        1\n      ],\n      \"initial_credit\": 0,\n      \"credit_cap\": 1,\n      \"successful_word\": [\n        \"B+\",\n        \"A+\"\n      ],\n      \"initial_R20_resource_feasible_path\": false,\n      \"first_A_move_event\": 2,\n      \"initial_A_plus_illegal\": true\n    },\n    \"resource_alias\": {\n      \"positions\": [\n        0\n      ],\n      \"credit_levels_merged\": [\n        1,\n        2\n      ],\n      \"credit_level_distinguished\": 0\n    },\n    \"sharpness\": {\n      \"line_sites\": 6,\n      \"starting_sites\": [\n        0,\n        1\n      ],\n      \"first_language_difference_at\": 5,\n      \"N\": 6\n    }\n  },\n  \"example\": [\n    {\n      \"cap\": 1,\n      \"n\": 2,\n      \"code\": 312,\n      \"classes\": 7,\n      \"states\": 12\n    }\n  ]\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/31cb3535225f5bb1213fd134274e47e216b08f64/research_notes/portable_direct/x6_regenerative_port_brc_minimization_results_r21.json",
+      "encoding": "utf-8",
+      "sha": "bcf2272f03618c950cfd1df77b5a5f5c2132cfaf"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
