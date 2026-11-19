@@ -158,3 +158,5 @@
 - [第六十五轮的首次命中、阈值反馈与 Frobenius](sixtyfifth/README.md)　两项登记与一条算术旁支。
 
 - [第六十六轮的幂等终端与模七运算](sixtysixth/README.md)　局部环上的可辨读数与实际运算核。
+
+- [第六十七轮的 Machin 公式与仪器转向](sixtyseventh/README.md)　低服务父方向的两个问题。

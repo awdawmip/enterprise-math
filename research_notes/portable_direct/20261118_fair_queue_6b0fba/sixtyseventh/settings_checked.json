@@ -1,0 +1,111 @@
+{
+  "external_mesh": [
+    {
+      "all_pairs": 1024,
+      "max_group_tv": "1/2",
+      "max_inverse_tv": "1/2",
+      "states": 2,
+      "subdivisions": 16
+    },
+    {
+      "all_pairs": 3600,
+      "max_group_tv": "1/2",
+      "max_inverse_tv": "1/2",
+      "states": 3,
+      "subdivisions": 20
+    },
+    {
+      "all_pairs": 3600,
+      "max_group_tv": "1/2",
+      "max_inverse_tv": "1/2",
+      "states": 5,
+      "subdivisions": 12
+    },
+    {
+      "all_pairs": 4096,
+      "max_group_tv": "1/2",
+      "max_inverse_tv": "1/2",
+      "states": 8,
+      "subdivisions": 8
+    }
+  ],
+  "finite_cycle": {
+    "N": 18000,
+    "anchor_order": 3,
+    "anchor_stride": 6000,
+    "checked_pairs": 2500,
+    "minimum_states": 9,
+    "witness": [
+      0,
+      6,
+      3
+    ]
+  },
+  "labelled_observer": {
+    "closed_formula_times_checked": 361,
+    "midpoint_port_tv": "1/2",
+    "midpoint_position_tv_known_uniform_tick": "4/9",
+    "midpoint_position_tv_t9": "0",
+    "position_classes_t1_to_t9": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      1
+    ]
+  },
+  "source_replay": {
+    "core_sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26",
+    "original_simulate_rows": [
+      {
+        "background_events": 6561,
+        "brc_units": 27,
+        "contact_role_pairs": 6,
+        "events_sha256": "181a935292fc851e53ee6c4f50961e77bca4b4daba1f8029a638805990568bfd",
+        "original_checks": 28,
+        "seed": [
+          0,
+          0,
+          1
+        ],
+        "states_sha256": "2372ee25cf2c8d619c7827db48d51659445d2cfb4c8aac1e7315897d85786a6a",
+        "transfers": 27
+      },
+      {
+        "background_events": 6561,
+        "brc_units": 27,
+        "contact_role_pairs": 6,
+        "events_sha256": "6a92bc263ba44a4e314c76fe2bd365df8962e861de8b7d02689af78eba06a826",
+        "original_checks": 28,
+        "seed": [
+          1,
+          1,
+          2
+        ],
+        "states_sha256": "2e46bb44a00249064fad5816b98842647b5867e591709e03601a3ffd1e97b772",
+        "transfers": 27
+      },
+      {
+        "background_events": 6561,
+        "brc_units": 27,
+        "contact_role_pairs": 6,
+        "events_sha256": "e84568c267a906985bb5ab14140f4344f0e7fa17d47dbc4be6cf222097072512",
+        "original_checks": 28,
+        "seed": [
+          2,
+          2,
+          0
+        ],
+        "states_sha256": "cabb246a2f5be37ed97f31b25e854ceb34edf72087bfce384d48f95afb0d6c9d",
+        "transfers": 27
+      }
+    ],
+    "post_axis_decoder_exact": true,
+    "source_sha256": "3aa56d0509634fd70f4ca6ef7aa787705462c0f3ef343073d117954706a15016",
+    "union_contact_role_pairs": 9
+  }
+}
