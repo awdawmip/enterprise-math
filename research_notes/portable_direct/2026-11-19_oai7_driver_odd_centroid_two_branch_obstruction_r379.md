@@ -120,6 +120,24 @@ for p, expected in [(3, 3), (5, 60), (7, 5670)]:
 
 Reproduced totals: p=3: 3/3; p=5: 60/125; p=7: 5670/16807 labeled residue trees. These numbers count graph skeletons with the obstructed centroid type, not feasible samplers. No extrapolation of these percentages to p=29 is claimed.
 
+## Exact count of obstructed labeled trees (Cayley / centroid decomposition)
+
+The structural pruning fraction has a closed form. For any odd \(p=2r+1\ge3\), exactly
+\[
+\boxed{B_p=\frac p2\binom{2r}{r}\,r^{\,2r-2}}
+\]
+of the \(p^{p-2}\) trees on a fixed labeled \(p\)-vertex residue set have degree-two centroid.
+
+Proof: choose the unique centroid (\(p\) choices); partition the other \(2r\) labeled vertices into two *unordered* \(r\)-element branches (\(\binom{2r}{r}/2\) choices); choose on each branch a labeled tree and the vertex attached to the centroid (\(r^{r-2}\cdot r=r^{r-1}\) choices, interpreted as \(1\) for \(r=1\)). Multiply. The centroid condition holds because both branches have size \(r\), and the decomposition is unique. This also independently proves the exact finite counts above.
+
+For \(p=29\), the fraction of **all labeled residue trees** excluded by the new centroid obstruction alone is
+\[
+\frac{B_{29}}{29^{27}}
+=\frac{\frac{29}{2}\binom{28}{14}\,14^{26}}{29^{27}}
+=0.12002593692573936\ldots .
+\]
+This is a combinatorial count of graph skeletons; it is not an OAI7 sampler feasibility probability and does not account for the fixed profile offsets or mass constraints.
+
 ## Scientific provenance / integration boundary
 
 r360 exact simultaneous cut-signature theorem:
