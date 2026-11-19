@@ -1,6 +1,6 @@
 # OAI7 r393 — Exact positive-coverage obstruction to universally cheap histogram sampling
 
-Date: 2026-11-19. Author-side mathematical theorem and finite exact check; not an independent Native review, Result, or Task completion. Task \`RS-OAI7-028-C-20261007-6F2A81\` / \`TP2-96FAC49786245691AE19\`. Direct input: [r392](2026-11-19_oai7_028c_type_free_histogram_entropy_r392.md).
+Date: 2026-11-19. Author-side mathematical theorem and finite exact check; not an independent Native review, Result, or Task completion. Task `RS-OAI7-028-C-20261007-6F2A81` / `TP2-96FAC49786245691AE19`. Direct input: [r392](2026-11-19_oai7_028c_type_free_histogram_entropy_r392.md).
 
 ## 1. A full-coverage family with intrinsically large *histogram sampler* information
 
@@ -73,6 +73,6 @@ print(len(vectors),periods,entropy)
 
 ## 3. Consequence for the pinned Gaussian schedule
 
-The original [\`schedule.tex\`](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/schedule.tex) bounds its actual independent continuation data using \(n_i\log|\mathcal D_{i+1}|\) and establishes the entropy budget from precise scale separation. r392 supplies an alternative **exact** budget quantity \(H(N)+\mathbb E\log d(N)\), but the present family shows that finite shared support and even complete conditional coverage **alone** do not control that quantity logarithmically in support size. Therefore a quantitative Gaussian improvement would need the genuine checkpoint law's histogram distribution or another proved structural restriction. This is an obstruction **for the particular histogram-preserving sampler**, not a lower bound for every possible correlated sampler and not a counterexample to the original transfer theorem.
+The original [`schedule.tex`](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/schedule.tex) bounds its actual independent continuation data using \(n_i\log|\mathcal D_{i+1}|\) and establishes the entropy budget from precise scale separation. r392 supplies an alternative **exact** budget quantity \(H(N)+\mathbb E\log d(N)\), but the present family shows that finite shared support and even complete conditional coverage **alone** do not control that quantity logarithmically in support size. Therefore a quantitative Gaussian improvement would need the genuine checkpoint law's histogram distribution or another proved structural restriction. This is an obstruction **for the particular histogram-preserving sampler**, not a lower bound for every possible correlated sampler and not a counterexample to the original transfer theorem.
 
-Provenance: author-side r392 and the pinned external Gaussian preprint; original task researcher \`EM-EMF6D046-5A2844\` retains their independently saved research. Native Result, independent review, formal Activity linkage and parent closure remain separate.
+Provenance: author-side r392 and the pinned external Gaussian preprint; original task researcher `EM-EMF6D046-5A2844` retains their independently saved research. Native Result, independent review, formal Activity linkage and parent closure remain separate.
