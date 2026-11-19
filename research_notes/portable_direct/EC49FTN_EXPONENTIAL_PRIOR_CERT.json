@@ -1,0 +1,100 @@
+{
+  "schema": "EC49FTN_EXPONENTIAL_PRIOR_ANALYTIC_CERT_V1",
+  "date": "2026-11-19",
+  "status": "AUTHOR_PROVED_AUTHOR_NUMERIC_CHECKED_PARENT_DEPENDENT_NOT_REVIEWED",
+  "frozen_scientific_input": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent_native_pr": 2774,
+  "parent_distribution_pr": 2783,
+  "domain": {
+    "a": [
+      "3/4",
+      "49/64"
+    ],
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "11/16",
+      "3/4"
+    ],
+    "lambda": "all real",
+    "mu": "all real"
+  },
+  "m_breakpoints": [
+    "11457/512",
+    "1461/64",
+    "1469/64",
+    "187/8"
+  ],
+  "joint_continuous_jacobian": "945/16",
+  "interior_conditional_tilt_kappa": "44*lambda/45+10*mu/9",
+  "upper_clipping_weight": "35*F_lambda(d)/(35*F_lambda(d)+32*F_{-kappa}(T))",
+  "d": "49/64-(740-m)/945",
+  "T": "3/4-(8*m+173)/480",
+  "proofs": [
+    "change-of-variables mixed joint law",
+    "uniform-in-m exponential conditional base density",
+    "strictly increasing upper clipping atom",
+    "all-real-parameter first-order conditional stochastic order",
+    "global clipping mass formula and positive lambda / negative mu strict derivative"
+  ],
+  "exact_rational_checks": [
+    "P_clip(0,0)=19/42",
+    "right-limit p(1469/64)=115/223",
+    "breakpoints and price rectangle area 1/8192"
+  ],
+  "numeric_regression": {
+    "independent_tilt_cases": [
+      [
+        0,
+        0
+      ],
+      [
+        8,
+        0
+      ],
+      [
+        -8,
+        4
+      ],
+      [
+        12,
+        -5
+      ],
+      [
+        3,
+        -2.64
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        -12,
+        -12
+      ]
+    ],
+    "conditional_quantile_checks": 67200,
+    "atom_strict_monotonicity_checks": 693,
+    "independent_integral_checks": 7,
+    "tolerance": 2e-10,
+    "example_P_clip_lambda12_muMinus5": 0.475745351976,
+    "numeric_semantics": "Python double arithmetic and Simpson quadrature; analytic proof is universal, finite tests are regression"
+  },
+  "verified_artifacts": {
+    "python_sha256": "30b2f76fc1efa25f3bfc553031e55c6ed58208edeb75e8a96b194161759a1100",
+    "python_git_blob": "121be8cf871a2d9c1f79f4bdecf5b9ba591db58a",
+    "log_sha256": "12d84951dfbe18c5c64ac8da5aa13d44519b915c7c0cda42f2aa145652cc2223",
+    "log_git_blob": "576ad4558f25ce4e34ddeff9c47a6672fc85b4fc"
+  },
+  "formal_claim": false,
+  "owner_mutation": false,
+  "activity_mutation": false,
+  "remaining": [
+    "characterize larger classes of smooth priors with stochastic order",
+    "construct exact counterexample outside stable class if possible",
+    "independent review of inherited native original-index Bellman parent",
+    "expand native Bellman parameter fan below z=11/16"
+  ]
+}
