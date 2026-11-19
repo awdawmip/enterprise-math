@@ -1,0 +1,98 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "unit": 167,
+  "date": "2026-11-20",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "author": "EM-X6-FB6990",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "claim": {
+    "id": "X6-U167-FCC-CHIRALITY-ROOTED-PATH-MASS-OBSERVER-RESIDUAL",
+    "target_lp": [
+      "LP003",
+      "LP019",
+      "LP026",
+      "LP028"
+    ],
+    "historical_type": "DERIVED_TETRAHEDRAL_FCC_CHIRALITY_K4_TWO_SHEET_ORIENTATION_COVER",
+    "disposition": "PRESERVE_CARRIER_AND_PATH_BRC_AS_DERIVED_NOT_NATIVE_X6",
+    "statement": "Across all 64 K4 six-edge-bit assignments and 8 cover roots, face XOR holonomy plus one root incidence bit when exactly two faces are odd determines complete cover rooted shortest-path endpoint-count and word-count profile. Two odd faces root on their shared edge: shells [(1,1),(3,3),(3,4),(1,4)]; root off shared edge: [(1,1),(3,3),(2,2),(2,4)]. A full labeled holonomy without root membership cannot determine the rooted profile.",
+    "novelty": "Root-conditioned derived shortest-word multiplicity profile and sharp 1-bit observer repair, rather than rediscovery of frozen code's cover connectivity or face holonomy classification",
+    "provenance_status": "FROZEN_SOURCE_AND_ACTUAL_TEST_CONSUMER_VERIFIED",
+    "legacy_wrong_lp011_caller": "UNRESOLVED_PROVENANCE",
+    "legacy_wrong_lp019_natural_NBRC_subtraction_caller": "UNRESOLVED_PROVENANCE",
+    "native_x6_transfer": "NOT_PROVED_NOT_CLAIMED"
+  },
+  "sources": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "src/enterprise_math/euler_fcc_chirality.py",
+      "git_blob_sha1": "6f8b147c094720c2749f620a40394c4d7b67a386",
+      "lines": "35-49,107-125,138-160,248-275",
+      "role": "original derived producer"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "src/enterprise_math/euler_fcc_chirality_connectivity.py",
+      "git_blob_sha1": "ddf9a06abd859f5cc9c109b76e1979147fbed399",
+      "lines": "33-85,113-159",
+      "role": "actual producer consumer"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "tests/test_euler_fcc_chirality_connectivity.py",
+      "git_blob_sha1": "794037b5d2f2a58b79b0054814d6e7a69b3fe7f1",
+      "lines": "28-93",
+      "role": "actual test importer"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "research_notes/X6_UNIT167_FCC_CHIRALITY_ROOTED_BRC_SOURCE_CONSUMER_AUDIT_20261120.md",
+      "source_commit": "3880afd1e4091f655c09fd84c1ab8fb67a5b60b7",
+      "git_blob_sha1": "ba78d444ba41cab9bf7fca1bc111a3fd479d7e93",
+      "sha256": "3171555ff898af5b03a8c3784d244802fe5a8d014025be17ba4839d052f02c89"
+    },
+    {
+      "path": "research_checks/X6_UNIT167_FCC_CHIRALITY_ROOTED_BRC_CHECK_20261120.py",
+      "source_commit": "c9134cb7e457f5aaaa12dcabdbefadab4c811721",
+      "git_blob_sha1": "60aaa1c239e35c73581f068f2111bbf379833b98",
+      "sha256": "82369d1192ab6bfb6899708a7674e3e50cb1702c2af9cbc5e9f1a9489875f9fd"
+    },
+    {
+      "path": "research_checks/X6_UNIT167_FCC_CHIRALITY_ROOTED_BRC_RESULTS_20261120.json",
+      "source_commit": "038c75588c41784987d194db96f3d6f212b7e78c",
+      "git_blob_sha1": "71c2bcc9adac10c26f237ae476150f1f09a393c7",
+      "sha256": "76141103ed07afc5f25a1bb9adc42f4c6b5837150518befc90c0d60c3cc0c61a"
+    }
+  ],
+  "finite_certificate": {
+    "rooted_instances": 512,
+    "edge_assignments": 64,
+    "gauges_per_assignment": 16,
+    "source_readback": true,
+    "independent_shortest_endpoint_word_checks": 3840,
+    "gauge_equivariant_rooted_checks": 8192,
+    "violations": 0,
+    "python_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "optimized_results_identical": true,
+    "original_R063_benchmark_rerun": false
+  },
+  "do_not_repeat": [
+    "Frozen Euler connectivity source theorem and original tests are preexisting; this unit does not claim originality for them",
+    "Previously proved Units1–166, previously executed original R063",
+    "Failed Unit149 Native request",
+    "Other owner or maintenance identity"
+  ],
+  "next_exact_action": "Consume original Units165–166 native publication terminal; bind Unit167 author evidence to original Research Activity with CAS and real readback; then authenticate Unit167 native semantic publication under own current authorized claim. Continue unresolved authentic 28-LP producer→consumer trace and obtain independent Driver review."
+}
