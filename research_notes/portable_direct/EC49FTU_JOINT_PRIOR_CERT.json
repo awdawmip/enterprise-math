@@ -1,0 +1,48 @@
+{
+  "schema": "EC49FTU_JOINT_CONTINUOUS_ATOM_SHARP_THRESHOLD_V1",
+  "status": "AUTHOR_PROVED_EXACT_RATIONAL_CHECKED_PARENT_DEPENDENT_NOT_REVIEWED",
+  "date": "2026-11-19",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent": "EC49FTT PR2799@d3cdbff82125e422b7de00eb26ad89689fe1a4b7",
+  "model": "external effective price prior conditional on unreviewed native Bellman author optimum",
+  "prior": "h_1,lambda=(1+a+b)*(1+a-a_c(b)) + lambda*(54*A1(t(b))*t(b)/delta(b))*psi((a-a_c(b))/delta(b))",
+  "smooth_bump": "psi=exp(-1/s^2)/integral_0^1 exp(-1/u^2)du for s>0; psi=0 otherwise",
+  "m_interval": [
+    "1469/64",
+    "187/8"
+  ],
+  "t_interval": [
+    "0",
+    "27/64"
+  ],
+  "K1": "(16/945)*(1+a(m,z)+b(m,z))*(11+32z)/35",
+  "changed_normalized_continuous_law": true,
+  "strict_TP2": true,
+  "A1": "t*(3296*t^2-1733760*t+261457875)/421954312500",
+  "B1": "(64*t-441)*(109568*t^2-196996464*t-24224009607)/35838544379904000",
+  "exact_FOSD_iff_lambda_range": "0 <= lambda <= 3011497578173713436500/1113761136900667642209",
+  "lambda_decimal": "2.703898958581007",
+  "lambda0": "171167905504400/63545784776721",
+  "lambda1_minus_lambda0": "998375751380971275021576456100/97084808639459423130625334129241",
+  "failure_lambda": 3,
+  "failure_m_early": "2939/128",
+  "failure_m_late": "735/32",
+  "ratio_early_minus_late": "1922825655930000265002959/1768321928463564335718115584",
+  "top_atom_probability_early_minus_late": "179422707606140184727956110208/1841092654109728505799184921900171",
+  "global_r2_positive_certificate": {
+    "Q_discriminant": "-441136886400",
+    "P_sum_positive_coefficients": "230739279113198538067167872",
+    "P_negative_constant_magnitude": "11591710449861527147026265625",
+    "domain": "0<t<27/64<1"
+  },
+  "fraction_integral_check_count": 107,
+  "strict_TP2_minor_check_count": 4,
+  "execution": {
+    "local_fraction_checker_exit": 0,
+    "source_script": "EC49FTU_JOINT_PRIOR_VERIFY.py",
+    "python_standard_library_only": true,
+    "native_BRC_rerun": false
+  },
+  "project_formal_review": false,
+  "next": "Determine Lambda(theta) for h_theta=(1+a+b)*(1+theta*(a-ac(b))), 0<=theta<=1; native z<11/16 phase separate"
+}
