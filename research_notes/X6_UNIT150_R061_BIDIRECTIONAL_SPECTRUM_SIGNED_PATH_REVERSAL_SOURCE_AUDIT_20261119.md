@@ -32,9 +32,9 @@ Proof of the count: a minimal word may contain no cancellable opposite-sign pair
 
 ## Exact finite regression
 
-A standalone independent recursive count `F(a,b,c)=sum_{i:a_i>0}F(a-e_i)`, `F(0,0,0)=1`, was compared with the pinned factorial/multinomial mathematical interface for **all 2,197 triples in [-6,6]^3**; reversal-symmetric square norm was simultaneously checked. Explicit ordered signed words and their reversal-inverse images were independently enumerated for **all 125 triples in [-2,2]^3**, plus the `(3,4,0)` 35-word witness. Each side's signed labels, endpoint displacement and order were retained. All checks passed.
+A standalone independent recursive count `F(a,b,c)=sum_{i:a_i>0}F(a-e_i)`, `F(0,0,0)=1`, was compared with the pinned factorial/multinomial mathematical interface for **all 2,197 triples in [-6,6]^3**; reversal-symmetric square norm was simultaneously checked. Explicit ordered signed words and their reversal-inverse images were independently enumerated for **all 125 triples in [-2,2]^3**, plus the `(3,4,0)` 35-word witness. Each side's signed labels, endpoint displacement and order were retained. In the corrected checker, these invariant checks execute through an explicit error-raising `require` function and remain active even when CPython strips `assert` statements under `-O` and `-OO`. The initial checker revision used `assert` and is superseded by the always-on check; historical revisions remain in Git. All checks passed.
 
-Executed under CPython normal, `-O`, and `-OO`; stdout SHA256 including final newline was `0313122ce05f7efc0e9c6831dfe1ac391540f2d1f281cd3ef69e84ad7677536e` in all modes. The frozen `signed_brc.py` module and historical R061 decoding program were **not** executed by this unit: the checker independently reproduces their stated mathematical relation; the original six-file R063 512-case native benchmark was **not** rerun.
+Executed under CPython normal, `-O`, and `-OO`; stdout SHA256 including final newline was `9c9a175d0589b08fd2da0f501b0ee34cd19acef42ea67178b300391ad62c26ae` in all modes. The frozen `signed_brc.py` module and historical R061 decoding program were **not** executed by this unit: the checker independently reproduces their stated mathematical relation; the original six-file R063 512-case native benchmark was **not** rerun.
 
 ## Claim-level disposition / unresolved work
 
