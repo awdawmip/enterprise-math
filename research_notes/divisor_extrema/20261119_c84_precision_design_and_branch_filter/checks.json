@@ -1,0 +1,189 @@
+{
+  "description": "C84 scoped reproducibility checks",
+  "mode": "quick",
+  "scope_note": "The analytic theorems are proved in the Markdown notes. Program checks cover only their explicit identities, named certificates and finite data.",
+  "triangle_certificate_available": true,
+  "pending_components": [],
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "numpy": "2.3.5",
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python_optimization": 0
+  },
+  "checks": [
+    {
+      "name": "finite/verify_one_dimensional.py",
+      "status": "passed",
+      "details": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "/mnt/data/C84/finite/verify_one_dimensional.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\n  \"scope\": \"Symbolic primitive and coefficient identities plus explicitly labelled numerical cross-checks; analytic shape classification and remainder bounds are in FINITE_FORMULA.md.\",\n  \"passed\": 22,\n  \"failed\": 0,\n  \"checks\": [\n    {\n      \"name\": \"rational_R0\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"rational_R1\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"rational_R2\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"rational_R3\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"squared_S0\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"squared_S2\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"Lm0\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"Lm2\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"Lp0\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"Lp2\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"atanh_A0\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"atanh_A1\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"atanh_A2\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"atanh_A3\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"triangle_parallelogram_combination\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"rational_kernel_reduction\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"endpoint_log_coefficient\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"endpoint_constant_coefficient\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"endpoint_half_power_coefficient\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"endpoint_next_log_coefficient\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"endpoint_next_constant_coefficient\",\n      \"status\": \"passed\",\n      \"arithmetic\": \"symbolic exact\"\n    },\n    {\n      \"name\": \"elementary_kernel_vs_direct_inner_integral\",\n      \"status\": \"passed\",\n      \"cases\": 16,\n      \"maximum_absolute_difference\": \"9.85287982728387002993247363250722279806434178e-47\",\n      \"arithmetic\": \"45-digit exploratory numerical cross-check, not an interval certificate\"\n    }\n  ]\n}",
+        "stderr": "",
+        "program_sha256": "fcab5f3450cbb221b9d42e5f06b86ca9b2254e4002be8115f58faaeccbcab911"
+      },
+      "elapsed_seconds": 0.969922
+    },
+    {
+      "name": "finite/verify_certificate.py",
+      "status": "passed",
+      "details": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "/mnt/data/C84/finite/verify_certificate.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\n  \"scope\": \"Exact elementary interval arithmetic checks and fresh coarse quadrature; the saved 2048-grid certificate was executed separately, not regenerated here.\",\n  \"passed\": 7,\n  \"failed\": 0,\n  \"checks\": [\n    {\n      \"name\": \"fraction_arithmetic\",\n      \"passed\": true,\n      \"rational_pairs\": 36\n    },\n    {\n      \"name\": \"integer_sqrt_bounds\",\n      \"passed\": true,\n      \"cases\": 5\n    },\n    {\n      \"name\": \"log_vs_independent_fraction_series\",\n      \"passed\": true,\n      \"cases\": 7,\n      \"fraction_terms\": 120\n    },\n    {\n      \"name\": \"atan_vs_independent_fraction_series\",\n      \"passed\": true,\n      \"cases\": 5,\n      \"fraction_terms\": 120\n    },\n    {\n      \"name\": \"second_derivative_rules\",\n      \"passed\": true,\n      \"exact_first\": \"101/17\",\n      \"exact_second\": \"-5330/289\"\n    },\n    {\n      \"name\": \"stored_exact_enclosure_and_outward_decimals\",\n      \"passed\": true,\n      \"grid_recomputed\": false\n    },\n    {\n      \"name\": \"fresh_coarse_certificate\",\n      \"passed\": true,\n      \"grid_per_branch\": 8,\n      \"fine_grid_recomputed\": false\n    }\n  ]\n}",
+        "stderr": "",
+        "program_sha256": "5c25622b7b003086cabfa5c320950dd2d90e1e6f71e68276af7d8a9c8ffabb31"
+      },
+      "elapsed_seconds": 0.305406
+    },
+    {
+      "name": "position/check_position.py",
+      "status": "passed",
+      "details": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "/mnt/data/C84/position/check_position.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\n  \"scope\": \"Exact identities and coefficients; analytic limit proof is in READING_POSITION.md\",\n  \"A_half\": \"23/30\",\n  \"A_quarter\": \"199/270\",\n  \"A_derivative\": \"(2*t - 1)*(4*t**2 - 10*t + 5)/(15*(t - 1)**3)\",\n  \"quarter_to_mid_low_success_ratio\": \"sqrt(3)/2\",\n  \"quarter_to_mid_high_local_ambiguity_ratio\": \"199/207\",\n  \"high_local_unique_gap_coefficient_over_pi2_a\": \"7/45\",\n  \"fixed_integer_times_second_fourier_coefficient\": \"m*r*(-m + n)/n\",\n  \"all_assertions_passed\": true\n}",
+        "stderr": "",
+        "program_sha256": "99f4b584ddbe00031ede922d7200b46a95ea4825977df16d9cdd0b1da2594003"
+      },
+      "elapsed_seconds": 0.557624
+    },
+    {
+      "name": "branches/verify_branch_identities.py",
+      "status": "passed",
+      "details": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "/mnt/data/C84/branches/verify_branch_identities.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\n  \"symbolic_identities\": [\n    \"q=-A*h_A\",\n    \"A*d_A(log G)=h-1/5\",\n    \"B1/G=-15h/4\",\n    \"B2/G=225(h^2-q)/16+15h/4\"\n  ],\n  \"boundary_series\": {\n    \"h\": \"-7*A**4*d/4 - A**4 - A**3 - A**2 - A + 4\",\n    \"q\": \"7*A**4*d + 4*A**4 + 3*A**3 + 2*A**2 + A\",\n    \"same_h_q_difference\": \"-21*A**4*d/4 + 21*A**4*dp/4\",\n    \"gap_A_exponent\": \"39/5\",\n    \"source_tail_exponent\": \"8/117\",\n    \"beta_tail_exponent\": \"4/39\"\n  },\n  \"root_boxes_checked\": 6,\n  \"q_gap_lower\": \"19529123851/250000000000\",\n  \"B2_gap_lower\": \"107973/12800000\",\n  \"source_mass_lower\": \"1/196875000000\",\n  \"exact_scale_sequences_checked\": 9,\n  \"assertions_passed\": true,\n  \"scope\": \"Identity and saved interval arithmetic; root isolation is recomputed by certify_six_branch_gap.py.\"\n}",
+        "stderr": "",
+        "program_sha256": "39b5ba3d0586e7ca9251932bde7ec0d7e564a7e7eac6de77454380b509d93f3b"
+      },
+      "elapsed_seconds": 0.624612
+    },
+    {
+      "name": "branches/verify_triangle_tail_series.py",
+      "status": "passed",
+      "details": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "/mnt/data/C84/branches/verify_triangle_tail_series.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"checks\": \"passed\", \"tail_integral\": {\"lower_numerator\": \"108563722819091893988818926482285\", \"upper_numerator\": \"108563722819091893988819770211511\", \"denominator\": \"5192296858534827628530496329220096\", \"decimal\": [\"0.0209086124651444939337524\", \"0.0209086124651444939337525\"]}, \"strict_outward_decimal_enclosure\": [\"0.020908612465144493933752\", \"0.020908612465144493933753\"]}",
+        "stderr": "",
+        "program_sha256": "39906f8f568eb4c17f06f90e9bb303de02fde68d43ef43a49c0ecd17a6ad3ce8"
+      },
+      "elapsed_seconds": 0.093509
+    },
+    {
+      "name": "six_branch_rectangle_corner_signs",
+      "status": "passed",
+      "details": {
+        "boxes": 6,
+        "fresh_exact_boundary_signs": 12,
+        "full_root_isolation_recomputed": false,
+        "scope": "Exact signs at saved rectangle box endpoints; monotonic branch classification is proved analytically."
+      },
+      "elapsed_seconds": 0.049185
+    },
+    {
+      "name": "saved_physical_position_results",
+      "status": "passed",
+      "details": {
+        "catalogue_arrangements": 34684,
+        "read_intervals": 138736,
+        "origin_precision_rows": 128,
+        "reversal_inventory": 256,
+        "low_p": 10,
+        "high_p": 20,
+        "physical_catalogues_recomputed": false,
+        "scope": "Saved finite counts, endpoint consistency and strict count reversal; no new full catalogue generation."
+      },
+      "elapsed_seconds": 0.00079
+    },
+    {
+      "name": "original_finite_evaluator_sources",
+      "status": "passed",
+      "details": {
+        "identical_original_evaluator_sha256": {
+          "position/critical_bins.py": "a6e3afd2affbe6728469b09f8ab1bf9e8367cda4fcefd3de89a2ede77d8cda34",
+          "position/native.py": "2d0ea55c826fbb28f4bb3de39d12269d8f8e7ce624afb50873ea4de94dcec6fa"
+        },
+        "source": "C82 immutable science commit 4628b5b87d2cf41a385228ad04bf163c06aa6586; reused by C83/C84."
+      },
+      "elapsed_seconds": 8.5e-05
+    },
+    {
+      "name": "triangle_constant_certificate",
+      "status": "passed",
+      "details": {
+        "ok": true,
+        "checks": 9,
+        "scope": "recorded sum, source digest and elementary intervals",
+        "kappa3": {
+          "lower_numerator": "7885980424949491007789513368675787",
+          "upper_numerator": "12348160804747695073580842215138126",
+          "denominator": "5192296858534827628530496329220096",
+          "decimal": [
+            "1.51878458412618037764986",
+            "2.37816926519723738900895"
+          ]
+        }
+      },
+      "elapsed_seconds": 0.002775
+    },
+    {
+      "name": "scientific_results_preserved",
+      "status": "passed",
+      "details": {
+        "scientific_json_files_unchanged": 7
+      },
+      "elapsed_seconds": 0.000161
+    }
+  ],
+  "passed": 10,
+  "failed": 0,
+  "elapsed_seconds": 2.606303,
+  "finished_utc": "2026-11-19T07:04:23.517934+00:00",
+  "input_sha256": {
+    "branches/certify_six_branch_gap.py": "08f3ab7a82091434446f3bdf65611daeaa650f9e7f4614ae57e13fd1b72fa2d8",
+    "branches/six_branch_gap_certificate.json": "6703f527c6559426dcb6785d9a608a046e34a88b2760cbd5768bc4f30dfd5398",
+    "branches/verify_branch_identities.py": "39b5ba3d0586e7ca9251932bde7ec0d7e564a7e7eac6de77454380b509d93f3b",
+    "branches/verify_triangle_tail_series.py": "39906f8f568eb4c17f06f90e9bb303de02fde68d43ef43a49c0ecd17a6ad3ce8",
+    "finite/certify_one_third.py": "7920307e4d1db7ee5e893a4c36c96db469f39acb5848b1c4a17d301a78a9662f",
+    "finite/check_shape_kernels.py": "71a23a312897059d67181aafca5258c444f9b3a25d85568cfbc79390ecdce946",
+    "finite/endpoint_exploration.py": "f748e53a7dcf1403d4ee097ffc8aef65247bb4062ad84137c637595dc8c3eb26",
+    "finite/endpoint_values.json": "0de4b862040cb39f922d7e8b74b4e86ce47523a209445de4a9868de5087d4e19",
+    "finite/explore_rectangle.py": "f9a56d45d426b703f9876d2792b81bc98d9d3c79d1a54e460efaf9c4c4dd5aff",
+    "finite/one_dimensional.py": "15df125751556a01e7ff4f7bb7b9c751187f8e184898b7809053b3b6af1178e1",
+    "finite/one_dimensional_values.json": "efef568c090cdb9e432d7c29bd9ad55e4e72f06ef213274b1547a8841e640241",
+    "finite/one_third_certificate.json": "1b08aeb2b730a09ba1a0c2e9220f6e02707753b805d4be5ccb34e58342052862",
+    "finite/verify_certificate.py": "5c25622b7b003086cabfa5c320950dd2d90e1e6f71e68276af7d8a9c8ffabb31",
+    "finite/verify_one_dimensional.py": "fcab5f3450cbb221b9d42e5f06b86ca9b2254e4002be8115f58faaeccbcab911",
+    "position/check_position.py": "99f4b584ddbe00031ede922d7200b46a95ea4825977df16d9cdd0b1da2594003",
+    "position/critical_bins.py": "a6e3afd2affbe6728469b09f8ab1bf9e8367cda4fcefd3de89a2ede77d8cda34",
+    "position/explore_global_tail.py": "0c294a1c65f2080bf6ca7af485802636f60098b88cb1280b729dd7bfd42144f4",
+    "position/global_tail_exploration.json": "3186961db5dd1183099a8aa1d6d553bf8280d1fac13fe7c6b993124b32aaa142",
+    "position/native.py": "2d0ea55c826fbb28f4bb3de39d12269d8f8e7ce624afb50873ea4de94dcec6fa",
+    "position/native_position_comparison.json": "207590a50478a6f12b6de7a95593efe0070350c13af6673a46ac0e6b44f9138c",
+    "position/native_reading_compare.py": "ad5ea7289780dda14b56a97fe018f801598e0e8b39ae2a79b89d8ed5936524d4",
+    "triangle/certificate.json": "ffd1fcd9dee6eef09cb64657c6003a526aa69f4c3aa8a439fd6e60ed75cc2156",
+    "triangle/certify_constant.py": "5abd803e6f952455ed0e138fac12ecc5f3c6b3594cfb357f4e0522b87e0033ed",
+    "triangle/explore_bounds.py": "39fce6369714e44f43350f918ab831a8126261501c242ed66f6e5ab7fd678f12",
+    "verify.py": "cd441cf5c0a2988b050894b172ab93286adb2bb9ed9992ce7496a093e7ae98dd"
+  },
+  "status": "passed"
+}

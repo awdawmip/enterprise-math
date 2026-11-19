@@ -1,0 +1,23 @@
+{
+  "symbolic_identities": [
+    "q=-A*h_A",
+    "A*d_A(log G)=h-1/5",
+    "B1/G=-15h/4",
+    "B2/G=225(h^2-q)/16+15h/4"
+  ],
+  "boundary_series": {
+    "h": "-7*A**4*d/4 - A**4 - A**3 - A**2 - A + 4",
+    "q": "7*A**4*d + 4*A**4 + 3*A**3 + 2*A**2 + A",
+    "same_h_q_difference": "-21*A**4*d/4 + 21*A**4*dp/4",
+    "gap_A_exponent": "39/5",
+    "source_tail_exponent": "8/117",
+    "beta_tail_exponent": "4/39"
+  },
+  "root_boxes_checked": 6,
+  "q_gap_lower": "19529123851/250000000000",
+  "B2_gap_lower": "107973/12800000",
+  "source_mass_lower": "1/196875000000",
+  "exact_scale_sequences_checked": 9,
+  "assertions_passed": true,
+  "scope": "Identity and saved interval arithmetic; root isolation is recomputed by certify_six_branch_gap.py."
+}

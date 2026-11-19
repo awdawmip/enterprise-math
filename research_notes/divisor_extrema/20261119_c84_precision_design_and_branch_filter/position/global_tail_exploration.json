@@ -1,0 +1,46 @@
+{
+  "status": "exploratory_not_certified",
+  "definition": "I_theta=E[s_critical^(1/10)]=integral(1-F_theta(t^20),dt)",
+  "samples": 50000,
+  "seed": 841903,
+  "theta": [
+    0.0,
+    0.125,
+    0.25,
+    0.375,
+    0.5
+  ],
+  "mean": [
+    0.9933453203584081,
+    0.9960268479097671,
+    0.9980817605713795,
+    0.9993727760884729,
+    0.9998941703544553
+  ],
+  "standard_error": [
+    0.0002635671269288259,
+    0.0002655357747024298,
+    0.0002676750419721714,
+    0.00026901780702393995,
+    0.00026946724300360336
+  ],
+  "paired_difference_from_midpoint": [
+    -0.006548849996061755,
+    -0.003867322444696946,
+    -0.0018124097830906215,
+    -0.0005213942659903282,
+    0.0
+  ],
+  "paired_difference_standard_error": [
+    0.000158408974895466,
+    0.00013293038135572184,
+    0.00010330627717870326,
+    6.294329934346619e-05,
+    0.0
+  ],
+  "average_primitive_candidates": 5.3361,
+  "maximum_primitive_candidates": 30590,
+  "maximum_integer_box_size": 104640,
+  "runtime_seconds": 6.279804399000568,
+  "scope": "Full-source asymptotic ordering is not proved by these samples. Haar shape and phase are coupled across designs; integer vector dependence is retained."
+}

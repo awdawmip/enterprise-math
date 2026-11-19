@@ -1,0 +1,46 @@
+{
+  "scope": "Exact elementary interval arithmetic checks and fresh coarse quadrature; the saved 2048-grid certificate was executed separately, not regenerated here.",
+  "passed": 7,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "fraction_arithmetic",
+      "passed": true,
+      "rational_pairs": 36
+    },
+    {
+      "name": "integer_sqrt_bounds",
+      "passed": true,
+      "cases": 5
+    },
+    {
+      "name": "log_vs_independent_fraction_series",
+      "passed": true,
+      "cases": 7,
+      "fraction_terms": 120
+    },
+    {
+      "name": "atan_vs_independent_fraction_series",
+      "passed": true,
+      "cases": 5,
+      "fraction_terms": 120
+    },
+    {
+      "name": "second_derivative_rules",
+      "passed": true,
+      "exact_first": "101/17",
+      "exact_second": "-5330/289"
+    },
+    {
+      "name": "stored_exact_enclosure_and_outward_decimals",
+      "passed": true,
+      "grid_recomputed": false
+    },
+    {
+      "name": "fresh_coarse_certificate",
+      "passed": true,
+      "grid_per_branch": 8,
+      "fine_grid_recomputed": false
+    }
+  ]
+}
