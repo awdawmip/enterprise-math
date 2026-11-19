@@ -198,3 +198,5 @@
 - [第八十五轮　两次记录分离时钟抖动与乘法壳的宽度](eightyfifth/README.md)　从十二周期与素因子支持读出辨识和带宽界。
 
 - [第八十六轮　分解度二的分圆种子与 Bernstein 系数升阶](eightysixth/README.md)　比较低密度极限与整区间正系数证书。
+
+- [第八十七轮　离散 Wallis 读数的最优精度与模倍增的辨识窗口](eightyseventh/README.md)　计算端口误差及最少转换次数。

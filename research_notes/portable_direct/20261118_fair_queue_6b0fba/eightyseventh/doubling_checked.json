@@ -1,0 +1,242 @@
+{
+  "finite_window_sweep": {
+    "moduli": [
+      1,
+      257
+    ],
+    "state_windows_checked": 298377,
+    "transition_counts": [
+      0,
+      8
+    ]
+  },
+  "independent_prefix": {
+    "columns": [
+      "tick",
+      "left",
+      "right",
+      "edge_hops_all_three_actions",
+      "shared_remaining"
+    ],
+    "rows": [
+      [
+        1,
+        2,
+        4,
+        4,
+        1610
+      ],
+      [
+        2,
+        4,
+        16,
+        6,
+        1601
+      ],
+      [
+        3,
+        8,
+        64,
+        10,
+        1588
+      ],
+      [
+        4,
+        16,
+        25,
+        8,
+        1577
+      ],
+      [
+        5,
+        32,
+        23,
+        8,
+        1566
+      ]
+    ],
+    "selected_action": {
+      "actor": 0,
+      "new": 32,
+      "old": 16,
+      "path": [
+        [
+          16,
+          2,
+          43
+        ],
+        [
+          43,
+          9,
+          34
+        ],
+        [
+          34,
+          10,
+          31
+        ],
+        [
+          31,
+          5,
+          32
+        ]
+      ],
+      "quotient": 0,
+      "subaction": 0,
+      "transfer_cost": 5
+    }
+  },
+  "native_orbit_observation_counts": [
+    {
+      "M": 15,
+      "counts_for_k_0_through_7": [
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "period": 4
+    },
+    {
+      "M": 21,
+      "counts_for_k_0_through_7": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "period": 6
+    },
+    {
+      "M": 35,
+      "counts_for_k_0_through_7": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "period": 12
+    },
+    {
+      "M": 77,
+      "counts_for_k_0_through_7": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "period": 30
+    },
+    {
+      "M": 143,
+      "counts_for_k_0_through_7": [
+        7,
+        14,
+        26,
+        41,
+        55,
+        60,
+        60,
+        60
+      ],
+      "period": 60
+    }
+  ],
+  "native_reference_sha256": {
+    "parent/parent_M5/vendor/brc_division_excerpt.py": "db9a41d7087e6e042f5330d39815dedd504a49fcb2db30048f0e3f55b8472bb4",
+    "parent/parent_M5/vendor/brc_weighted_recurrent.py": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26",
+    "parent/parent_M5/vendor/division.py": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9",
+    "parent/parent_M5/wave_compare.py": "fd2f6f73d3d0af1df9b4a2bf771b8574c06d03e9df5bd33310394967f5d2cfd2",
+    "parent/test_mod7_only.py": "b0fa9b4f9b96480d5cf409f15d5f7f07afc993b6ca57b74bce7811e93adb93c7",
+    "test_native_pointer.py": "09eae3e08308e3041416daaca5a951b7c632104bbe7fa21200b11d57b6b568e9"
+  },
+  "single_operation_ambiguity": {
+    "distinguishing_indices_zero_based": [
+      0,
+      1,
+      2
+    ],
+    "same_unsigned_axes": {
+      "2": {
+        "cost": 5,
+        "path": [
+          [
+            16,
+            2,
+            43
+          ],
+          [
+            43,
+            9,
+            34
+          ],
+          [
+            34,
+            10,
+            31
+          ],
+          [
+            31,
+            5,
+            32
+          ]
+        ],
+        "target": 32
+      },
+      "72": {
+        "cost": 5,
+        "path": [
+          [
+            16,
+            8,
+            70
+          ],
+          [
+            70,
+            3,
+            79
+          ],
+          [
+            79,
+            4,
+            73
+          ],
+          [
+            73,
+            5,
+            74
+          ]
+        ],
+        "target": 74
+      }
+    },
+    "units": [
+      2,
+      9,
+      16,
+      23,
+      30,
+      37,
+      51,
+      58,
+      65,
+      72
+    ]
+  }
+}
