@@ -1,0 +1,95 @@
+{
+  "schema": "ENTERPRISE_MATH_MAINTENANCE_VALIDATION_OBSERVATION_V1",
+  "scope": "Observed publication and existing coordinate contract workflow; no new authority",
+  "observed_at_utc": "2026-11-19T06:44:10Z",
+  "implementation_commit": "07553e8f14bd19773743c70af75f6eb870d78335",
+  "publication_readback": {
+    "files": 14,
+    "all_exact_content_and_blob_matches": true
+  },
+  "coordinate_workflow": {
+    "id": 135389843783,
+    "url": "https://github.com/awdawmip/enterprise-math/actions/runs/44473948182/job/135389843783",
+    "status": "completed",
+    "conclusion": "success",
+    "started_at": "2026-11-19T06:41:06Z",
+    "completed_at": "2026-11-19T06:42:18Z",
+    "baseline_commit": "366a7517c3baf91ade267c972833fe722902519c",
+    "tests_executed_each": 66,
+    "baseline_passed": 65,
+    "baseline_failed": 1,
+    "candidate_passed": 66,
+    "candidate_failed": 0,
+    "matched_explicit_migrations": 4,
+    "comparison_result": "NO_NEW_COORDINATE_REGRESSION"
+  },
+  "lean": {
+    "result": "COORDINATE_PUBLIC_INTERFACE_LEAN_PASSED",
+    "version": "4.33.0-rc2",
+    "commit": "d8b18978322de05a8f3dba51ef03cf5461676c17",
+    "modules": [
+      {
+        "path": "EnterpriseMath/CellAddress/ThreeRegionSlice.lean",
+        "sha256": "2971ea97ba60f0a528a915c06152cb4aec9824fa85fae0bb88c0e76e4e921b02"
+      },
+      {
+        "path": "EnterpriseMath/CellAddress/Contract.lean",
+        "sha256": "998c0e2b1de0f5ea573970f0639e86af4a7bb7a6c1ad9f4fe2352dfa6e25c0f2"
+      }
+    ],
+    "scope": "Existing registered coordinate proofs/public interface only"
+  },
+  "other_checks": [
+    {
+      "name": "heavy-regression",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "url": "https://github.com/awdawmip/enterprise-math/actions/runs/44473948089/job/135390145129"
+    },
+    {
+      "name": "unit-shard",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "url": "https://github.com/awdawmip/enterprise-math/actions/runs/44473948089/job/135390144611"
+    },
+    {
+      "name": "test",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/awdawmip/enterprise-math/actions/runs/44473948089/job/135390143624"
+    },
+    {
+      "name": "classify",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "url": "https://github.com/awdawmip/enterprise-math/actions/runs/44473948089/job/135389973691"
+    },
+    {
+      "name": "check",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "url": "https://github.com/awdawmip/enterprise-math/actions/runs/44473948121/job/135389949244"
+    },
+    {
+      "name": "check",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/awdawmip/enterprise-math/actions/runs/44473948122/job/135389843148"
+    }
+  ],
+  "whole_repository_ci_claim": "NOT_ESTABLISHED; general test workflow classify/unit/heavy jobs cancelled and aggregate failed",
+  "backend_business_validation": "NOT_PERFORMED; initial status returned BACKEND_IDENTITY_CHECK_UNAVAILABLE with operation_sent=false",
+  "log_evidence": [
+    "2026-11-19T06:41:28.9403988Z 1 failed, 65 passed in 4.58s",
+    "2026-11-19T06:42:01.8247540Z 66 passed in 32.74s",
+    "2026-11-19T06:42:01.8552685Z   \"status\": \"NO_NEW_COORDINATE_REGRESSION\",",
+    "2026-11-19T06:42:01.8553302Z   \"tests_executed_each\": 66,",
+    "2026-11-19T06:42:01.8553520Z   \"baseline_failures\": 1,",
+    "2026-11-19T06:42:01.8553713Z   \"candidate_failures\": 0,",
+    "2026-11-19T06:42:01.8553898Z   \"candidate_passed\": 66,",
+    "2026-11-19T06:42:01.8555238Z     \"matched_cases\": 4",
+    "2026-11-19T06:42:14.0470782Z \u001b[36;1mecho 'COORDINATE_PUBLIC_INTERFACE_LEAN_PASSED'\u001b[0m",
+    "2026-11-19T06:42:14.1140312Z Lean (version 4.33.0-rc2, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+    "2026-11-19T06:42:15.8132613Z COORDINATE_PUBLIC_INTERFACE_LEAN_PASSED"
+  ]
+}

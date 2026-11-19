@@ -1,6 +1,7 @@
 # Research-rule follow-up: implementation audit and validation
 
 Recorded: 2026-11-19T14:38:00+08:00
+Updated with live CI evidence: 2026-11-19T14:44:10+08:00
 Classification: maintenance evidence; no new research rules or mathematical claims.
 Initial Source snapshot: `b1efc6c805661ed7b476e6e730107da6043176ee`.
 
@@ -46,11 +47,21 @@ The fix maps only those four complete class/method identities from the fixed his
 | Activity observations | 37 existing/extended tests passed; [log](activity_tests.log). Actual connector envelope and sidecar round-trip passed. Twelve malformed variants were rejected. |
 | Coordinate comparator | Eight tests passed against the final staged file; [log](coordinate_comparison_tests.log). They test constructed XML, exact mapping and preserved rejection behavior. |
 | Historical 66-case execution | Reused only as dated CI evidence at `3097475`. The seven target test files have the same blobs at that candidate and the initial Source snapshot. The 66 mathematical tests were not rerun locally in this follow-up. |
-| Lean | The original failed job stopped before any subsequent Lean/lake step. No new Lean-kernel success is claimed by these checks. |
+| Lean at the initial local-validation boundary | The earlier failed job stopped before Lean/lake. The subsequent real CI acceptance is recorded below. |
 
 FREE A currently contains 45,494 characters / 45,926 UTF-8 bytes; the ordinary package contains 56,042 characters / 56,474 bytes. Both retain the same five pinned sources. P000 axioms, type semantics, conflict policy, invariants and hard errors are preserved. Eight general branch-type commitments are in the initial view; twenty detailed commitments use relevant-question-triggered lookup.
 
 These are source-size and executable-reader observations. They do not measure independent-question diversity, real model behavior, startup latency or end-to-end research efficiency. The reviewers inherited the audit context and were not clean blind research samples.
+
+## Subsequent live CI acceptance / 发布后的实际验收
+
+Implementation commit: [`07553e8f14bd19773743c70af75f6eb870d78335`](https://github.com/awdawmip/enterprise-math/commit/07553e8f14bd19773743c70af75f6eb870d78335). All 14 published files were read back completely and matched their submitted content and Git blob.
+
+The existing [coordinate contract and formal-check job](https://github.com/awdawmip/enterprise-math/actions/runs/44473948182/job/135389843783) completed with `success` at 2026-11-19 14:42:18 +08:00. Unlike the constructed local XML fixtures, this job actually ran both 66-case populations: baseline 65 pass / 1 historical failure; candidate **66 pass / 0 fail**; four explicit migrations matched and `NO_NEW_COORDINATE_REGRESSION` passed.
+
+The workflow then installed the pinned Lean 4.33.0-rc2 toolchain, compiled `EnterpriseMath/CellAddress/ThreeRegionSlice.lean` and `Contract.lean`, checked the existing proof-placeholder/axiom conditions, and emitted `COORDINATE_PUBLIC_INTERFACE_LEAN_PASSED`. The full binding, module hashes, times, selected original log lines and other check states are in [post_publication_verification.json](post_publication_verification.json).
+
+另一路全量测试的分类、分片及重型任务被取消，汇总检查失败；它没有形成全库 CI 全绿的回执。本轮通过的实际远端验收是上述坐标合同与已登记证明/公开接口检查。该成功解决了旧比较器造成的本次验收阻断。
 
 ## Scope of remaining verification
 
