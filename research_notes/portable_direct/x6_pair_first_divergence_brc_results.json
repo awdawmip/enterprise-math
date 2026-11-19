@@ -1,0 +1,43 @@
+{
+  "X6_new_classes_by_h_1_6": [
+    12,
+    72,
+    292,
+    912,
+    2364,
+    5336
+  ],
+  "schema": "EM_X6_R14B_FIRST_DIFFERENCE_TYPED_BRC_V1",
+  "scope": "conditional vacancy-only fully signed six-Port-source-labelled Boolean BRC support; no native physical admission",
+  "status": "PASS",
+  "tests": [
+    {
+      "dimension": 2,
+      "far_representatives": 3,
+      "first_difference_depth_histogram": {
+        "1": 98,
+        "2": 148,
+        "3": 102,
+        ">H": 3
+      },
+      "full_ball_class_count": 25,
+      "horizon": 3,
+      "near_vectors": 24,
+      "unordered_distinct_vector_pairs_tested": 351
+    },
+    {
+      "dimension": 6,
+      "far_representatives": 3,
+      "first_difference_depth_histogram": {
+        "1": 966,
+        "2": 2772,
+        ">H": 3
+      },
+      "full_ball_class_count": 85,
+      "horizon": 2,
+      "near_vectors": 84,
+      "unordered_distinct_vector_pairs_tested": 3741
+    }
+  ],
+  "theorem": "For distinct nonzero signed-unit-step relative displacements d,d2, minimum successful-language distinguishing word length equals min(||d||_1,||d2||_1)."
+}
