@@ -1,0 +1,99 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-19",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "current_normative_context": {
+    "global_bootstrap_blob": "e19673a56c3d8f6945537fa0580afc054d432ca5",
+    "global_manual_blob": "9f9fccf9d96022258a8593db3e6863b0495c0ae8",
+    "project_protocol_blob": "08e674246c20f768b6288bbc0df42324bd07fb75",
+    "autonomous_operations_blob": "c0a2f8f59aeb80563aee233e6a539de7fc9cc798",
+    "worldview_blob": "99238c3466eb0805748bae01fd1a20868a5a351e",
+    "type": "CURRENT_BEHAVIOR_NOT_FROZEN_SCIENTIFIC_PIN"
+  },
+  "latest_verified_native": {
+    "completed_through_including": 156,
+    "source_commit": "acb60247d92875a6bf14c6d6348250dbd76bd416",
+    "source_receipt_request_id": "onhour-20261119-1434-x6-own-units155156-native-progress-v1",
+    "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "checkpoint_path": "research_artifacts/mcp/RS-X6-LEGACY-PLANE-RECONCILIATION/MCP-082892eb480e45dea6d4b9fcc0491034/da4da3a7f0f108d56470/_checkpoint.json",
+    "exception": "Units149–152 native Source semantic association pending after Unit149 terminal failed request; do not represent all Units1–156 as continuous Native PROGRESS"
+  },
+  "author_frontier": {
+    "unit": 157,
+    "status": "AUTHOR_PROVED/FINITE_EXACT_EXECUTED/GITHUB_VERIFIED/UNREVIEWED/NOT_ADMITTED",
+    "claim": "A_p root shell count is endpoint cardinality, whereas weighted shortest root path total W_A(n,m)=sum disjoint supports binom(n,a)binom(n-a,b)T(m,a)T(m,b), native signed W_N=binom(2m,m)W_A. p5 m2: 240/630/3780; m4:2970/121590/8511300.",
+    "proof": {
+      "path": "research_notes/X6_UNIT157_AP_ROOT_SHELL_TO_SIGNED_NATIVE_BRC_WEIGHTED_COUNT_20261119.md",
+      "commit": "a5eb887be20834a3ac8251ea8b502f05f69d1d4e",
+      "blob": "211d5d6d5378c9fc54a66fd0ef295dfddfd9ceb4"
+    },
+    "checker": {
+      "path": "research_checks/X6_UNIT157_AP_ROOT_SHELL_BRC_EXACT_CHECK_20261119.py",
+      "commit": "97e122b263e75593033931ad6272a797e68bbbab",
+      "blob": "52f82548e9ca8a5f955412ffe6ee3c5e78317fa3"
+    },
+    "results": {
+      "path": "research_checks/X6_UNIT157_AP_ROOT_SHELL_BRC_EXACT_RESULTS_20261119.json",
+      "commit": "663cdf3b8819b962cb89ec5a998ff49a910a7216",
+      "blob": "48370fde75d1440a4c31cd899d1befdc98c2b347",
+      "local_stdout_sha256": "1cb87135af4532f0a22ee569a6a7429ef984f9bc3f240552975c896e48342dde"
+    },
+    "ledger": {
+      "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit157_delta.json",
+      "commit": "3a2fbf3b70c63e70666ab104e47bfa36a882062d",
+      "blob": "a62d0d1cf83a381783a6172dff1621368751608c"
+    },
+    "coverage": {
+      "shells": 25,
+      "exact_endpoints": 5881,
+      "original_R063_reexecuted": false,
+      "original_historical_tests_reexecuted": false
+    }
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "count": 172,
+    "unit157_event": "onhour-20261119-1500-x6-unit157-ap-shell-weighted-native-paths-v1",
+    "latest_commit": "3a9b159a1e09131ba22967d8c27c29bdd6005dab",
+    "latest_blob": "917a1e2c25eaad84221ae932f6b555e28c357f6b",
+    "readback_verified": true
+  },
+  "native_control": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-dedc91932641535d284fc171",
+    "run_id": "RUN-c92057890282aaaeec520881",
+    "generation_last_confirmed": 7,
+    "own_continuation_request_id": "onhour-20261119-1512-x6-own-exact-cont-post155156-v1",
+    "own_continuation_status": "SUCCEEDED/OWN_RECORDED_RUN_AVAILABLE; as-of observation no write authority",
+    "unit157_native_request_id": "onhour-20261119-1530-x6-own-unit157-weighted-shell-native-progress-v1",
+    "unit157_native_last_observed": "QUEUED/error=null",
+    "unit157_native_source_commit": null,
+    "unit149_original_failed_request_id": "onhour-20261119-1000-x6-own-unit149-native-progress-v1",
+    "unit149_error": "FAILED/GITHUB_PRIMARY_RATE_LIMIT"
+  },
+  "unresolved": [
+    "Unit157 original Native PROGRESS unknown final result; read same request until terminal and authenticate Source bytes",
+    "Units149–152 have saved author research and Activity records but require nonduplicative Native association; never replay terminal failed Unit149",
+    "Remaining 28-LP real downstream production callers; LP011/LP019 alleged faulty historical commit:path:line unresolved",
+    "Independent Driver review and admission pending"
+  ],
+  "do_not_repeat": [
+    "Units1–148,153–156 authenticated native progress",
+    "Units149–157 author proofs and tests; Activity172",
+    "Unit50 original six frozen R063 benchmark, 17 gates, 512 regression rows",
+    "Original terminal failed/unknown writes",
+    "Maintenance conversation or Driver authority"
+  ],
+  "next_exact_action": "Consume original onhour-20261119-1530-x6-own-unit157-weighted-shell-native-progress-v1 terminal and verify Source. Continue highest value remaining true downstream 28-LP production call path; if new canonical link can legitimately reference Unit149–152 authorship without duplicate effect, use fresh same-owner authorization and distinct association only.",
+  "continuation_state": "OPEN",
+  "review": "UNREVIEWED/NOT_ADMITTED",
+  "scheduler_modified": false,
+  "notification_settings_modified": false
+}
