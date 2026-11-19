@@ -37,7 +37,8 @@ class CheckpointHistoryTests(unittest.TestCase):
             "schema": "ENTERPRISE_MATH_SOURCE_BLOB_MANIFEST_V1",
             "source_commit": SOURCE, "blobs": self.blobs}))
 
-    def run_case(self, first_units, last_units, corrupt_prior=False):
+    def run_case(self, first_units, last_units, corrupt_prior=False,
+                 mismatched_prior_epoch=False):
         prefix = f"research_artifacts/mcp/{TASK}/{SESSION}"
         first_path = f"{prefix}/first/_checkpoint.json"
         last_path = f"{prefix}/last/_checkpoint.json"
@@ -46,6 +47,7 @@ class CheckpointHistoryTests(unittest.TestCase):
                   "researcher_id": AUTHOR}
         for path, units in ((first_path, first_units), (last_path, last_units)):
             self.write(path, {**fields,
+                "ownership_epoch": 999 if mismatched_prior_epoch and path == first_path else 101,
                 "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
                 "completed_units": units, "output_manifest": []})
         self.write(f"research_artifacts/mcp/{TASK}/latest_checkpoint.json", {
@@ -94,6 +96,13 @@ class CheckpointHistoryTests(unittest.TestCase):
                 self.assertEqual(SOURCE, prior[0]["source_artifact"]["source_commit"])
                 self.assertFalse(prior[0]["execution_authorized"])
                 self.assertFalse(result["execution_authorized"])
+
+    def test_mismatched_prior_ownership_epoch_is_not_promoted(self):
+        result = self.run_case(["U75", "U76"], ["U75"],
+                               mismatched_prior_epoch=True)
+        self.assertEqual("SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+                         result["state"])
+        self.assertEqual([], result["prior_authenticated_checkpoints"])
 
     def test_unauthorized_foreign_claim_is_not_promoted(self):
         result = self.run_case(["U75", "U76"], ["U75"], corrupt_prior=True)
