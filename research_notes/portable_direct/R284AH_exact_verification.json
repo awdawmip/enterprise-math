@@ -1,0 +1,102 @@
+{
+  "schema": "R284AH_EXACT_VERIFICATION_V1",
+  "date": "2026-11-19",
+  "status": "PASS",
+  "arithmetic": "Fraction / exact Bareiss, no floating-point",
+  "checks": {
+    "direct_sum_gap_family_sizes": 8,
+    "four_port_exact_polynomial_evaluations": 243,
+    "independent_permutation_det_crosschecks": 324,
+    "positive_core_and_15x15_port_evaluations": 4,
+    "q4_assignment_vs_exhaustive_packing": 4096,
+    "q4_earliest_degree_histogram": {
+      "0": 1104,
+      "1": 1452,
+      "2": 997,
+      "4": 543
+    },
+    "q4_exhaustive_support_graphs": 4096,
+    "q4_graphs_with_any_directed_cycle": 3553,
+    "q4_graphs_with_cancelled_maximal_minors": 327,
+    "q4_largest_degree_gap": 2,
+    "q4_odd_cycle_only_graphs": 675,
+    "q4_odd_cycle_sign_coherence_checks": 675,
+    "q4_scc_additivity_checks": 4096,
+    "q4_support_bound_checks": 4096,
+    "random_assignment_vs_exhaustive_packing": 108,
+    "signed_q5_q7_samples": 108
+  },
+  "examples": {
+    "positive_scc_exact_cancellation": {
+      "SCC_count": 1,
+      "characteristic_polynomial": "-t1*t2-t3*t4+t1*t2*t3*t4",
+      "det_at_zero": "0",
+      "first_degree": 2,
+      "graph_cycle_packing": 4,
+      "matrix": [
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ]
+      ]
+    },
+    "same_support_no_cancellation": {
+      "det_at_zero": "1",
+      "first_degree": 0,
+      "graph_cycle_packing": 4,
+      "matrix": [
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ]
+      ]
+    },
+    "unbounded_cancellation_gap": {
+      "cycle_packing": "4*b",
+      "first_degree": "2*b",
+      "form": "blockdiag(N0 repeated b times), b>=1",
+      "gap": "2*b",
+      "graph_bound": "0"
+    }
+  }
+}
