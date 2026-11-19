@@ -436,7 +436,86 @@
       "unconditional_probability": "120/60466176"
     },
     "unit_depth_length_lower_bound": 16,
-    "unit_depth_existence": "proved by normal kernel plus roots and sum-three witness, not bounded-search extrapolation"
+    "unit_depth_existence": "certified explicitly at length 16 by four complete signed moving-frame witnesses",
+    "unit_depth_length_exact": 16,
+    "length16_computed_subsets": [
+      "012",
+      "013"
+    ],
+    "length16_counts_for_both_012_and_013": {
+      "half_distinct_states": 383450,
+      "half_weight_total": 1679616,
+      "C_16_unit_each_sign": 448,
+      "C_16_zero": 905476354,
+      "complete_halfword_pairing": true
+    },
+    "length16_other_subsets": "023 and 123 complete unit-depth witnesses evaluated; full 16-event multiplicity not recomputed",
+    "length16_unit_witnesses": {
+      "123": {
+        "word": "1+ 1+ 2+ 1- 3- 2+ 1- 3- 1+ 1+ 2+ 3- 2+ 1- 3- 2+",
+        "complete_product": {
+          "translation": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "rotation_identity": true
+        },
+        "length": 16,
+        "validation": "full moving-frame multiplication PASS"
+      },
+      "012": {
+        "word": "0+ 0+ 1+ 0- 2- 1+ 0- 2- 0+ 0+ 1+ 2- 1+ 0- 2- 1+",
+        "complete_product": {
+          "translation": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "rotation_identity": true
+        },
+        "length": 16,
+        "validation": "full moving-frame multiplication PASS"
+      },
+      "013": {
+        "word": "0+ 1+ 0+ 3- 1- 0+ 1+ 3- 1+ 0+ 3- 0- 1- 0+ 1+ 3-",
+        "complete_product": {
+          "translation": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "rotation_identity": true
+        },
+        "length": 16,
+        "validation": "full moving-frame multiplication PASS"
+      },
+      "023": {
+        "word": "0+ 0+ 2+ 3- 0- 3- 2- 3- 0- 2- 3+ 0+ 2+ 0+ 3+ 2+",
+        "complete_product": {
+          "translation": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "rotation_identity": true
+        },
+        "length": 16,
+        "validation": "full moving-frame multiplication PASS"
+      }
+    }
   },
   "verification": {
     "method": "pure Python exact BFS and count-preserving half-word convolution",
