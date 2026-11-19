@@ -1,0 +1,79 @@
+# PREFIX-944 — Exact new collision certificates from k=15 and k=17
+
+Date: 2026-11-20. Enterprise Math R6, portable auxiliary named-XOR two-port observer. **Frozen scientific input**: \`f42f2906d77f24085c123f3ccfe9667d41caa96d\`, unchanged from PREFIX-943. Author-proved / exact finite computation / independently checked / not mathematically independently reviewed / not admitted. This is not a native X6 or BRC dynamical theorem.
+
+## The exact model and statement
+
+Put \`L=262145\`, \`H=524287\`, \`Q={L,L+2,...,H}\` with \`|Q|=131072\`, \`N=2^32\`. The named trajectory \`F_x^j=(x,x XOR 2^j)\` retains the origin and named source-bit index \`0<=j<=18\`. For ordered \`(a,b) in Q^2\` the observer is \`Phi_(a,b)(u,v)=(u mod a, v mod b)\`.
+
+For each positive core \`k\`, define \`W_k={(a,b) in Q^2 : there exist 0<=i,j<=18 and positive t such that (k*a XOR 2^j)-2^i=t*b}\`. Every W_k membership yields distinct legal histories \`F_0^i\` and \`F_(ka)^j\` with exactly equal observations. Proof: both starts are 0 modulo a, both final readings are 2^i modulo b, and ka>0. For k=15,17 all endpoints stay below N.
+
+The inherited prior certificate union through PREFIX-943, \`P13\`, has previously verified cardinality **7,564,526,880**. Define \`D15=W15\P13\`, \`P15=P13 union W15\`, \`D17=W17\P15\`, \`P17=P15 union W17\`. Exact full-domain results:
+
+| Quantity | k=15 | k=17 |
+|---|---:|---:|
+| Raw (a,b,i,j,t) witnesses | 20,708,178 | 19,318,164 |
+| Unique ordered modulus pairs in Wk | 16,762,415 | 15,136,736 |
+| Already covered by preceding union | 10,029,499 | 8,668,863 |
+| **New disjoint certificates** | **6,732,916** | **6,467,873** |
+| Cumulative certificate union | 7,571,259,796 | **7,577,727,669** |
+| Ordered pairs not covered by listed families | 9,608,609,388 | **9,602,141,515** |
+
+Net new increment **13,200,789**, out of \`131072^2=17,179,869,184\` ordered pairs. Certificate coverage after this round: 44.10818026517518%. The complement is unclassified by these certificates; it is not certified collision-free.
+
+## Exhaustive construction proof
+
+For every \`a in Q\` and \`(i,j) in {0,...,18}^2\`, compute \`D=(k*a XOR 2^j)-2^i\` in exact integers. If D>0 and D=t*b with b in Q, then necessarily
+\`max(1,ceil(D/H)) <= t <= floor(D/L)\`.
+Conversely, every t in that interval that divides D and yields an odd b in Q is a witness. Enumerating this entire interval, encoding \`id=((a-L)/2)*131072+(b-L)/2\` as uint64, and sorting/uniquing produces precisely Wk.
+
+The full predecessor union is tested via the exact historical BZS and V predicates, the frozen ordered-ID datasets U/W2/W3/D4/W5/D6/W7/D8/W9/D10, the regenerated W11, the SHA-verified W13, and for k17 also all W15. Each Wk pair goes into its *first* matching predecessor bucket, or NEW if there is none; those buckets are mutually exclusive and exhaustive. The set identities \`P15=P13 disjoint-union D15\` and \`P17=P15 disjoint-union D17\` prove the cumulative counts once the finite census is checked. The 7,564,526,880 input cardinality is inherited from PREFIX-943, not independently recounted in this run.
+
+### Disjoint priority buckets
+
+| First matching bucket | W15 | W17 |
+|---|---:|---:|
+| BZS | 8,248,399 | 7,440,349 |
+| U | 4,145 | 3,992 |
+| V | 34,179 | 30,326 |
+| W2 | 931,011 | 1,000,035 |
+| W3 | 330,945 | 185,410 |
+| D4 | 450 | 306 |
+| W5 | 371,824 | 1,647 |
+| D6 | 259 | 169 |
+| W7 | 69,383 | 788 |
+| D8 | 557 | 472 |
+| W9 | 34,038 | 886 |
+| D10 | 238 | 357 |
+| W11 | 2,174 | 1,438 |
+| W13 | 1,897 | 1,358 |
+| W15 | n/a | 1,330 |
+| **NEW** | **6,732,916** | **6,467,873** |
+| **Total** | **16,762,415** | **15,136,736** |
+
+### Explicit novel pair witnesses and composite direction
+
+- **k=15**: \`a=270615,b=523787,i=0,j=17,t=8\`. Legal histories \`(0,1)\` and \`(4059225,4190297)\` share the observation \`(0,1)\` because \`4190297-1=4190296=8*523787\`. This pair is absent from the entire P13 union, including previous k3 and k5 certificates. Consequently the composite 15a core is **nonredundant relative to those listed certificate families in this observer scope**. This is compatible with the project's joint-relation preservation constraint; no cross-observer universal conclusion is asserted.
+- **k=17**: \`a=272019,b=521095,i=2,j=16,t=9\`. Legal histories \`(0,4)\` and \`(4624323,4689859)\` both observe \`(0,4)\` because \`4689859-4=4689855=9*521095\`. Pair absent from P15.
+
+## Independent checks actually executed
+
+1. Primary GNU C++17 code (O3) enumerated every (a,i,j,t), sorted all pair IDs and compared the prior sets. Complete k15 raw/unique counts: 20,708,178 / 16,762,415; k17: 19,318,164 / 15,136,736.
+2. **Independent exact full candidate-set construction**: a separate C++17 program pre-sieved all allowed second-modulus pairs (b,t) into a compressed sparse row lookup \`D=t*b\`; for every (a,i,j) it calculated the XOR difference and looked up b by D, without the primary t-interval scanning algorithm. It independently obtained the same raw counts and compared every sorted uint64 ID for k15 and k17: **bytewise identical**. CSR edges: 2,749,821 for k15 and 3,113,350 for k17; status \`ALL_INDEPENDENT_FULL_DOMAIN_ASSERTIONS_PASSED\`. Both raw totals also match the earlier PREFIX-942 CRT/floor-sum independent method.
+3. A separate NumPy audit recomputed all BZS and V predicates and all predecessor membership on *every* primary sorted W15/W17 ID, independently matched the complete disjoint priority buckets and all NEW15/NEW17 IDs, and checked 1,001 evenly spaced witness pairs from each Wk. Status \`ALL_ASSERTIONS_PASSED\`. This NumPy audit is a priority/set-subtraction check rather than a third independent full candidate generation.
+4. Ten historical ID sets from \`PREFIX939_R6_full_reproduction_bundle.zip\` and the exact W13 from \`PREFIX943_R6_W13_full_prior_union_reproduction.zip\` were SHA-256 verified against the frozen manifests. No approximate arithmetic, sampled search or retargeted science pin.
+
+### Exact sorted-set checksums (little-endian uint64 IDs)
+
+- W15, 16,762,415 IDs: \`03f20dd609d1ceb997ee6fa25c0ecef34fc1626cf869ecd69dac340747fc4b03\`.
+- NEW15, 6,732,916 IDs: \`c40308845f45e0477a19f6ec1fc81355dfcd27545d20f23677f1038dc3b434e4\`.
+- W17, 15,136,736 IDs: \`c13cd4a065ec200fe542f4a5a3dfc7525f90efe2d885f08cea67265b52a9900d\`.
+- NEW17, 6,467,873 IDs: \`c8bdff39be9c81ba491cd03ba8f1be7af46800f5b88c71f3a884ab43146b36f0\`.
+
+The local full reproduction archive \`PREFIX944_R6_k15_k17_reproduction.zip\` is 93,439,351 bytes, SHA-256 \`256a353e494eafaba3153566cb68bb41640c1f577ddc558ce2cf95d24438fce9\`. It contains proof, both full-domain C++ sources, NumPy independent priority audit, result JSON, exact four W/NEW binary sets, run logs and SHA-256 manifest; the original frozen historical inputs remain in the previous archives and were not duplicated. Archive contents and manifest hashes were read back and verified.
+
+## Provenance, control and next scientific unit
+
+Original historical R6 Researcher \`EM-DIRECT-58C410\`, SID \`MCP-31edc522830749ad8775ca012e02ef30\`, Activity \`RA-25432C4AAE9BF66A907F5115\`. These labels preserve provenance; current claim, portable Activity association, formal Result, independent Review and admission have distinct authorizations. Shared X6 was not claimed or modified. Its fresh read request \`r6-20261120-prefix944-own-x6-owner-read-01\` initially returned QUEUED/WAIT_ORIGINAL; only its original receipt should be consumed subsequently.
+
+The mother question \`B_fix,odd(32) in {19,20}\` remains open. Next: use row-wise residues/bitmask methods to compute distinct Wk union without full global materialization, and isolate the precise retained joint relation responsible for new k15 certificates relative to W3 and W5. No native X6/BRC mapping is asserted without an explicit observer-preserving correspondence.
