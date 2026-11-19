@@ -31,8 +31,7 @@ $$
 以下以 $\ell$ 为指标的乘积均遍历 $m$ 的素因子。Ramanujan 的除数展开给出统一式
 $$
  a_m(x)=-\sum_{d\mid m}d\mu(m/d)\{x/d\},\qquad
- F_m=\mathcal D_mF_1,\quad \mathcal D_m=\prod_{\ell\mid m,\ \ell\ {
-m prime}}(\sqrt\ell\,T_{\log\ell}-I). \tag{4}
+ F_m=\mathcal D_mF_1,\quad \mathcal D_m=\prod_{\ell\mid m}(\sqrt\ell\,T_{\log\ell}-I). \tag{4}
 $$
 $m>1$ 时线性项因 $\sum_{d|m}\mu(d)=0$ 消失。每个因子的逆是算子范数收敛的 $\sum_{k\ge1}\ell^{-k/2}T_{-k\log\ell}$。若第 $\ell$ 项截于 $k=L_\ell$，从 $F_m$ 恢复 $F_1$ 的误差不超过 $\|F_1\|[\prod_{\ell|m}(1+\ell^{-L_\ell/2})-1]$，对任意同样的有限平移线性组合也成立，把右侧 $\|F_1\|$ 换成对应组合范数即可。
 

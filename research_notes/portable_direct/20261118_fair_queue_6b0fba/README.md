@@ -146,3 +146,5 @@
 - [第五十九轮的二进范数障碍与圆盘高斯能量](fiftyninth/README.md)　Prym 曲面的正交互补与有限点集的边界误差。
 
 - [第六十轮的 Ramanujan 和与重尾观测](sixtieth/README.md)　分母尺度在临界线上的谱，以及两个大跳相消时截断误差的首项。
+
+- [第六十一轮的整闭包与环图读数](sixtyfirst/README.md)　实圆分分量的全部 Smith 因子与可变中心环的局部路径信息。
