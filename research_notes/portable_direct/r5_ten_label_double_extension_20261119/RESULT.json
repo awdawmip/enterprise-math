@@ -1,0 +1,104 @@
+{
+  "schema": "R5_10_LABEL_DOUBLE_AUGMENTATION_COMPLETE_FINITE_V1",
+  "date": "2026-11-19",
+  "researcher_provenance": "EM-DIRECT-4C3E47",
+  "source_session": "MCP-17ade1f65d9f415885501f010e7d99bd",
+  "science_pin": "awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "science_input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "tau": "58182461585441404127941754879",
+  "source_k_min": 214,
+  "source_k_max": 314,
+  "base_labels": [
+    0,
+    16,
+    32,
+    48,
+    1,
+    64,
+    17,
+    80
+  ],
+  "pairs": 30628,
+  "signature_classes": 1490,
+  "theorem": "V0=733; for 1<=f<=8, V_f=733+947*f+I[unordered added pair in E]",
+  "E": [
+    [
+      18,
+      24
+    ],
+    [
+      19,
+      25
+    ],
+    [
+      22,
+      28
+    ],
+    [
+      23,
+      29
+    ]
+  ],
+  "cost_histograms": {
+    "0": {
+      "733": 30628
+    },
+    "1": {
+      "1680": 30624,
+      "1681": 4
+    },
+    "2": {
+      "2627": 30624,
+      "2628": 4
+    },
+    "3": {
+      "3574": 30624,
+      "3575": 4
+    },
+    "4": {
+      "4521": 30624,
+      "4522": 4
+    },
+    "5": {
+      "5468": 30624,
+      "5469": 4
+    },
+    "6": {
+      "6415": 30624,
+      "6416": 4
+    },
+    "7": {
+      "7362": 30624,
+      "7363": 4
+    },
+    "8": {
+      "8309": 30624,
+      "8310": 4
+    }
+  },
+  "verified_author_calculation": {
+    "all_pair_games_f0_to_f6": 30628,
+    "all_priced_signature_classes_f7_and_f8": 1490,
+    "unresolved_cases": 0,
+    "integer_centers": true,
+    "integer_counter_DP": true,
+    "existing_source_pin_verified": true,
+    "exact_full_csv_sha256": "b61c928c99dd0a7e6b5d81852f82ba701848e97b6c9a4430b6987d871782dad7"
+  },
+  "independent_doubled_endpoint_python": {
+    "distinct_named_pairs": 244,
+    "compared_values": 492,
+    "exception_pairs_verified_f0_f1_f2": 4,
+    "passed": true
+  },
+  "local_repro_zip_sha256": "25f8644b990e006d7ef284cc796a51305e7fb48674ccffff302cbf063870ee15",
+  "full_256_f8_prior_interval": [
+    8335,
+    8343
+  ],
+  "scope": "FROZEN_SCALAR_JOINT_OBSERVATIONS_FIXED_ENDPOINT_F0_TO_F8",
+  "review": "NOT_REVIEWED",
+  "claim": "NO_NEW_CLAIM_RUN",
+  "bridge": "NO_X6_PORT_OR_BRC_QUOTIENT_CLAIM",
+  "next": "Exact eleven-label extensions from four exceptional ten-label seeds, comparing the real joint union with H17's 8335 witness."
+}
