@@ -1,0 +1,95 @@
+{
+  "theorem_id": "R284AU",
+  "status": "PASS",
+  "arithmetic": "exact integer Bareiss + exact balanced integer extraction",
+  "seed": 28420261119,
+  "random_cases": 208,
+  "boundary_cases": 3,
+  "dimension_counts": {
+    "2": 40,
+    "3": 45,
+    "4": 45,
+    "5": 40,
+    "6": 24,
+    "7": 14
+  },
+  "tree_edges_checked": 637,
+  "scalar_oracle_queries": 5978,
+  "max_query_count": 88,
+  "max_L_bit_length": 32,
+  "max_integer_det_bound_bits": 233,
+  "boundary_results": [
+    {
+      "n": 2,
+      "M": 4,
+      "L_bit_length": 7,
+      "calls": 4,
+      "naive_query_bound": 4,
+      "max_det_bit_length_bound": 15,
+      "witness": {
+        "a_01": 2,
+        "a_10": 3,
+        "recovered_entries": 4
+      }
+    },
+    {
+      "n": 6,
+      "M": 1,
+      "L_bit_length": 17,
+      "calls": 62,
+      "naive_query_bound": 66,
+      "max_det_bit_length_bound": 109,
+      "witness": {
+        "a_01": 1,
+        "a_10": 1,
+        "recovered_entries": 36
+      }
+    },
+    {
+      "n": 3,
+      "M": 2,
+      "L_bit_length": 9,
+      "calls": 11,
+      "naive_query_bound": 12,
+      "max_det_bit_length_bound": 28,
+      "witness": {
+        "a_01": 2,
+        "a_10": 1,
+        "recovered_entries": 9
+      }
+    }
+  ],
+  "rational_bridge": {
+    "rational_denominator": 37,
+    "oracle_scaling_cases": 6
+  },
+  "sparse_boundary": {
+    "class": "2x2 upper-triangular with C21=0",
+    "pair": [
+      [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "E12_response": "identical for all diagonal variables and edit z",
+    "reverse_E21": "distinguishes beta"
+  },
+  "verification_scope": "208 pseudorandom strictly-positive integer cores of n=2..7 plus 3 exact boundary cores; scale is computed solely from n and known M; result checks A entries exactly",
+  "general_theorem_status": "AUTHOR_PROVED_NOT_INDEPENDENTLY_REVIEWED"
+}
