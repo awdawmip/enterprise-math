@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_twelve_pair_synergy_20261119/VERIFY_W_ENDPOINT.py",
+    "ref": "3cc19a1b5b6588a5d1e191615d130386db8bec27",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261119-2204-twelve-synergy-source-8",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Independently reconstruct W's seven priced maximal joint response support families.\"\"\"\nfrom pathlib import Path\nimport json,hashlib\np=Path(__file__).resolve().parent\nsrc=(p/\"EXACT_R5_ALL_101_BUDGETS.json\").read_bytes()\nassert hashlib.sha256(src).hexdigest()==\"50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b\"\ndata=json.loads(src)\ntau=int(json.loads((p/\"stages_18.json\").read_text())[\"U\"])-1\nW=(0,16,32,48,1,64,17,80,18,24,34,82)\nbest={}\nfor k in range(214,315):\n x=[int(data[\"counts_and_cohorts\"][str(k)][\"counts\"][i]) for i in W]\n endpoints=[2*v-tau for v in x]\n masks={sum(1<<j for j,v in enumerate(x) if abs(2*v-y)<=tau) for y in endpoints}\n family=tuple(sorted(m for m in masks if not any(m!=n and (m&n)==m for n in masks)))\n if family==(4095,):continue\n best[family]=min(k,best.get(family,k))\nactual=[f\"{k} {len(fam)} \"+\" \".join(map(str,fam)) for fam,k in sorted(best.items(),key=lambda x:x[1])]\nreference=[s for s in (p/\"W_ENDPOINT_FAMILIES.txt\").read_text().splitlines() if s and not s.startswith(\"#\")]\nassert actual==reference,(actual,reference)\nassert len(actual)==7\nprint(\"PASS_W_ENDPOINT_RECONSTRUCTION\",len(actual),\"actions\",len(W),\"labels\",len(range(214,315)),\"prices\")\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3cc19a1b5b6588a5d1e191615d130386db8bec27/research_notes/portable_direct/r5_twelve_pair_synergy_20261119/VERIFY_W_ENDPOINT.py",
+      "encoding": "utf-8",
+      "sha": "d6ef20ff1e98999c586b59f0b6ec7fc76bb4a18e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
