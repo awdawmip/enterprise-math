@@ -1,0 +1,132 @@
+{
+  "schema": "EM_X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "researcher": {
+    "researcher_id": "EM-X6-FB6990",
+    "sid": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-dedc91932641535d284fc171",
+    "run_id": "RUN-c92057890282aaaeec520881",
+    "last_observed_generation": 11,
+    "generation_is_fresh_legal_writer_authority": false
+  },
+  "highest_author_saved_unit": 168,
+  "highest_native_verified_unit": 166,
+  "unit167_immutable_prior": {
+    "note": "research_notes/X6_UNIT167_FCC_CHIRALITY_ROOTED_BRC_SOURCE_CONSUMER_AUDIT_20261120.md",
+    "commit": "3880afd1e4091f655c09fd84c1ab8fb67a5b60b7",
+    "activity_index": 183,
+    "do_not_repeat": true
+  },
+  "unit168_new": {
+    "proof": {
+      "commit": "eee67895060e60811756aee22dfe5750df631dcf",
+      "path": "research_notes/X6_UNIT168_FCC_K4_MINIMAL_STAR_OBSERVER_RECONSTRUCTION_20261120.md",
+      "blob": "17d993d56fa1613a97b7c27a7c661d17b204f1ab"
+    },
+    "checker": {
+      "commit": "38142c856070cbcc1acf8cbe0302f49b37b9e730",
+      "path": "research_checks/X6_UNIT168_FCC_K4_MINIMAL_STAR_RECONSTRUCTION_CHECK_20261120.py",
+      "blob": "1fc46f397f7a81444d70a8e5976269f2731ceb66"
+    },
+    "certificate": {
+      "commit": "9fedbcd06bac1a5508cbbe9071f481915169c2ed",
+      "path": "research_checks/X6_UNIT168_FCC_K4_MINIMAL_STAR_RECONSTRUCTION_RESULTS_20261120.json",
+      "blob": "a0c9059cc52421d51a8b3aa6d539a434e23b91ef"
+    },
+    "ledger": {
+      "commit": "db6fd7249314b06427310b9caa0b6208e19abe95",
+      "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit168_delta.json"
+    },
+    "result": "Minimal three of four established FCC/K4 STAR coordinate observers determine native Z6 displacement modulo global diagonal; no two triple observers can. Exactly 480/1140 abstract three-subset families connect all six coordinate axes.",
+    "finite": {
+      "families": 1140,
+      "raw_state_checks": 2916,
+      "violations": 0,
+      "python_modes": [
+        "normal",
+        "-O",
+        "-OO"
+      ]
+    },
+    "proof_scope": "SIGNED_NATIVE_X6_RELATIVE_COORDINATE_OBSERVERS_AND_FCC_K4_STAR_SUBATLAS_ONLY",
+    "status": "AUTHOR_PROVED_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED"
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "event": "onhour-20261120-0032-x6-unit168-three-star-observer-v1",
+    "immutable_commit": "b8b62ac70edf8c3843e75bec373f81c8c7e70354",
+    "git_blob": "0acaf9dcf1f56c80abdbf351635e4b59f586e937",
+    "count": 184,
+    "authenticated_tool_readback": true
+  },
+  "native_control": {
+    "prior_original_units162_164": {
+      "request_id": "onhour-20261119-2208-x6-own-units162164-native-progress-v1",
+      "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+      "source": "aad579fa1ade1a2e45762749cde76573f4065f56"
+    },
+    "prior_original_units165_166": {
+      "request_id": "onhour-20261120-0015-x6-own-units165166-native-progress-v1",
+      "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+      "source": "444837a09096d469c1e26d0c26d741ea2084f8fd",
+      "authenticated_readback": true
+    },
+    "prior_original_resume": {
+      "request_id": "onhour-20261120-0004-x6-own-run-c920-after164-resume-v1",
+      "status": "SUCCEEDED/RUN_READY",
+      "generation": 11
+    },
+    "latest_source_read": "onhour-20261120-0032-x6-own-continuation-read-v1",
+    "latest_source_read_status": "SUCCEEDED",
+    "inflight_continuation": "onhour-20261120-x6-own-cont-after165166-unit168-v1",
+    "inflight_last_seen": "RUNNING/WAIT_ORIGINAL",
+    "native_units167168": "NOT_SUBMITTED_IN_THIS_TURN; REQUIRE_FRESH_WINNING_CLAIM_AND_GENERATION",
+    "units149152_native_linkage": "PENDING; original refused/failed Unit149 request must not be replayed"
+  },
+  "new_source_inspection": {
+    "frozen_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "scoped_src_consumer_reads": 12,
+    "source_filenames": [
+      "diagonal_quotient.py",
+      "signed.py",
+      "precision_signed_holonomy.py",
+      "cyclic_rotation_refinement.py",
+      "euler_rotation_refinement.py",
+      "geometry.py",
+      "p022_hcp_geometry.py",
+      "relation_lattice.py",
+      "precision_vector_actuation.py",
+      "brc_weighted.py",
+      "brc_histogram.py",
+      "euler_fcc_chirality_connectivity.py"
+    ],
+    "preliminary_observation": "Examined source exact called operations, including signed carry/derived rotations/HCP geodesic and positive Weighted-BRC. No native signed-X6 bad spatial argmax or natural N-BRC positive subtraction established in this bounded sample; continue true producer-to-caller checks and retain type distinction.",
+    "source_only": "NOT_NEW_UNIT_NOT_ADMITTED"
+  },
+  "unresolved": [
+    "Original LP011 actual erroneous signed-X6 spatial argmax commit:path:line not found",
+    "Original LP019 actual erroneous positive N-BRC subtraction commit:path:line not found",
+    "28-LP full dynamic source→consumer coverage and owner/Driver REVIEW",
+    "Units149-152 native progress debt",
+    "Unit167-168 new native Source semantic PROGRESS, only if latest authorised owner/run and existing in-flight read terminal"
+  ],
+  "no_repeat": [
+    "R063 original native benchmark already completed",
+    "Prior Unit157 weighted P022 formula is existing source prior art; no novelty relabel",
+    "Unit167 original author note/checker/certificate and Activity183 are already immutable persisted",
+    "No new session, CLAIM, owner, or maintenance lane mutation",
+    "Do not repeat original ambiguous/failed writes or in-flight continuation"
+  ],
+  "next_exact_action": "Consume existing in-flight onhour-20261120-x6-own-cont-after165166-unit168-v1 by exact request ID. Verify own winning claim, status, current new generation and actual native write entitlement; then associate Unit167 and Unit168 as a distinct PROGRESS exactly once, if allowed, with their immutable Source proofs. Otherwise preserve author GitHub evidence and precise next permission correction. Continue frozen true producer→consumer LP011/LP019 provenance and full 28-LP terminal review scope.",
+  "review": "UNREVIEWED",
+  "admission": "NOT_ADMITTED",
+  "scheduler_modified": false,
+  "notifications_modified": false
+}
