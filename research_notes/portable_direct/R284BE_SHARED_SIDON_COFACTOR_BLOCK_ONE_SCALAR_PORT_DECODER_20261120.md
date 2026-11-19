@@ -108,7 +108,7 @@ Every division is exact and its denominator is positive. Hence all n² entries a
 
 The same explicit p yields A=O(n²), Q=O(n³), every e_j=O(n³), S=O(n⁴), and K=S+1=O(n⁴). Every diagonal control exponent is O(n³) and every star edit exponent is K+2a_i=O(n⁴). Every determinant monomial exponent is at most K+S−e_0−Q+A=O(n⁴). The coefficient norm bound gives log b=O(n log n+n log(H+1)+log(1+δ)).
 
-Thus each control and the single readout require O(n⁴ log b) bits. Standard exact integer/rational arithmetic, the Bareiss determinant, the O(n²) direct coefficient decoder and primality trial division all have polynomial bit complexity. This is a bit-complexity theorem, not a statement about the cost of physical actuation.
+Thus each control and the **ideal integer readout** require O(n⁴ log b) bits. With exact rational measurement error, this also bounds the readout's integer-part magnitude, but an arbitrary rational perturbation |ε|≤δ may have an arbitrarily large denominator; its full supplied representation length must be counted separately. The exact-rational decoder runs in time polynomial in the full actual rational input length. Standard exact integer/rational arithmetic, the Bareiss determinant, the O(n²) direct coefficient decoder and primality trial division have polynomial bit complexity. This is not a statement about physical actuator cost or the precision used to encode the measurement error.
 
 ## Exact author-side verification
 
