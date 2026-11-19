@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/eightyfirst/README.md",
+    "ref": "c66b3b88255ef522ba3e9a18d1d12f3c96fd5967",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-eightyone-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第八十一轮　有限群能看到哪些三维球，两条循环何时独立\n\n**三维整同调球。** 对 $n>1$、$(n,6)=1$，从 Seifert 纤维填充得到 $M_n=\\Sigma(2,3,n)$（容许反定向）。它的基本群映入 $\\mathrm{SL}_2(\\mathbf F_q)$ 的不可约迹数恰为\n$$\n\\frac{\\gcd(n,q-1)+\\gcd(n,q+1)-2}{2}\n  +\\mathbf1_{\\operatorname{char}\\mathbf F_q\\mid n}.\n$$\n对素数 $r\\ge5$，能见到非平凡表示的最小域有 $r$ 个元素，只有当 $r-1$ 是二的幂时才降到 $r-1$。给定任意有限群菜单，取大于菜单里所有群阶的素数 $r$，则菜单对 $M_r$ 和三维球面都只返回平凡同态。计算从九个实际剖分的签名重建群关系。迹多项式同时适用于有幂零元的局部环，剩余域和分歧指数相同的两个例子在第四层分别给出 147 和 0 个迹根。[填充、计数和分歧提升](brieskorn.md) · [逐剖分复算](brieskorn_checked.json)\n\n**六轴循环读数。** 从同一等权词读两条循环，若恰好共用一个有效轴，则有限库存下两读数独立，当且仅当共轴库存 $m=1$。判别来自平方读数的协方差。对其余四个有效轴各有一个名字的两条三角循环，给定首读数 $i$，次读数的分布恰为均匀分布与 $\\tfrac12(\\delta_i+\\delta_{m-i})$ 的混合，后者权重 $2/[(m+2)(m+3)]$。这样也能判断哪些对首读数的粗分组会彻底消去相关。程序逐词复核两循环的完整转移表；多个共轴时的有限独立分类仍开放。[条件分布与独立判据](shuffle.md) · [整词计数](shuffle_checked.json)\n\n截至 2026-11-19 03:56:01 UTC，累计直接研究 229 个登记任务，覆盖 51 个父方向。三维整同调球的有限群观测与六轴循环独立性各获一次原任务复访。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 34、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c66b3b88255ef522ba3e9a18d1d12f3c96fd5967/research_notes/portable_direct/20261118_fair_queue_6b0fba/eightyfirst/README.md",
+      "encoding": "utf-8",
+      "sha": "78143d7741287d38426fdd3131af17381a0da58a"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
