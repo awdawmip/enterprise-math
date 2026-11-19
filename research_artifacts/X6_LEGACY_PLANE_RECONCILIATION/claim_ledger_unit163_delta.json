@@ -1,0 +1,49 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "unit": 163,
+  "date": "2026-11-19",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "author": "EM-X6-FB6990",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "science_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED/EXACT_FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+  "source_edges": [
+    {
+      "producer": "src/enterprise_math/lattice_geometry.py",
+      "producer_blob": "825ee26c918a4d7007e280aeaa1d7b750cd46aba",
+      "producer_lines": "48-72",
+      "consumer": "tests/test_lattice_geometry.py",
+      "consumer_blob": "304ff8e769f93fa0e96a03c1ffe89960ea5dd622",
+      "consumer_lines": "19,157-178",
+      "type": "P022_Ap_COLLAPSED_INTEGER_RADIAL_TRIANGLE_CARRY_NOT_X6_NATIVE_POSITIVE_NBRC_SUBTRACTION"
+    }
+  ],
+  "finding": "The source max(0,direct-via) operates only on floor(sqrt(quadratic separation)) distances; all A_p triples obey carry in {0,1}, sharp original witness (-2,0,2),(-1,1,0),(0,2,-2). Not proof of LP019 erroneous positive BRC path count subtraction.",
+  "checks": {
+    "checked_triples": 621109,
+    "sharp_cases": 4560,
+    "counts": {
+      "A_1": {
+        "points": 5,
+        "triples": 125
+      },
+      "A_2": {
+        "points": 19,
+        "triples": 6859
+      },
+      "A_3": {
+        "points": 85,
+        "triples": 614125
+      }
+    },
+    "integer_exact": true,
+    "source_python_executed": false,
+    "r063_native_rerun": false
+  },
+  "lp011_faulty_historical_caller": "UNRESOLVED_PROVENANCE",
+  "lp019_faulty_historical_caller": "UNRESOLVED_PROVENANCE",
+  "review": "UNREVIEWED/NOT_ADMITTED",
+  "next_action": "Consume original continuation on same owner; preserve latest author Unit163 and link via lawful Source checkpoint; continue true 28-LP source consumer audit and native association debt 149-152."
+}
