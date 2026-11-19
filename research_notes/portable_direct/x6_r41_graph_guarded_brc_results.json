@@ -1,0 +1,487 @@
+{
+  "schema": "EM_X6_R41_GRAPH_GUARDED_BRC_EXACT_V1",
+  "status": "PASS",
+  "assumptions": "Permanent pairwise source exclusion G; each source carries a whole, positive, declared P000-closed triad; its three source-tagged ports are individually legal candidate transfers; static guards; disjoint moves commute; no target feedback or re-use.",
+  "observers": "Named future port event support, full current configuration, positive integer BRC serial path multiplicity, and ordered nonempty parallel batches separately typed.",
+  "graphs_exhausted_by_vertex_count": [
+    {
+      "vertices": 0,
+      "graphs_checked": 1,
+      "paths_checked": 1,
+      "conditional_failures": 0,
+      "minimum_future_classes": 1,
+      "maximum_future_classes": 1
+    },
+    {
+      "vertices": 1,
+      "graphs_checked": 1,
+      "paths_checked": 4,
+      "conditional_failures": 0,
+      "minimum_future_classes": 2,
+      "maximum_future_classes": 2
+    },
+    {
+      "vertices": 2,
+      "graphs_checked": 2,
+      "paths_checked": 32,
+      "conditional_failures": 0,
+      "minimum_future_classes": 2,
+      "maximum_future_classes": 4
+    },
+    {
+      "vertices": 3,
+      "graphs_checked": 8,
+      "paths_checked": 458,
+      "conditional_failures": 0,
+      "minimum_future_classes": 2,
+      "maximum_future_classes": 8
+    },
+    {
+      "vertices": 4,
+      "graphs_checked": 64,
+      "paths_checked": 11416,
+      "conditional_failures": 0,
+      "minimum_future_classes": 2,
+      "maximum_future_classes": 16
+    }
+  ],
+  "empty_graph_cases": [
+    {
+      "m": 0,
+      "decorated_configurations": 1,
+      "named_future_language_classes": 1,
+      "coarse_future_count_classes": 1,
+      "configurations_by_departures": [
+        1
+      ],
+      "serial_histories_by_departures": [
+        1
+      ],
+      "serialized_histories_total": 1,
+      "parallel_round_schedule_total": 1,
+      "rounds": [
+        {
+          "k": 0,
+          "rows": [
+            {
+              "rounds": 0,
+              "per_configuration": 1,
+              "total_for_k": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "m": 1,
+      "decorated_configurations": 4,
+      "named_future_language_classes": 2,
+      "coarse_future_count_classes": 2,
+      "configurations_by_departures": [
+        1,
+        3
+      ],
+      "serial_histories_by_departures": [
+        1,
+        3
+      ],
+      "serialized_histories_total": 4,
+      "parallel_round_schedule_total": 4,
+      "rounds": [
+        {
+          "k": 0,
+          "rows": [
+            {
+              "rounds": 0,
+              "per_configuration": 1,
+              "total_for_k": 1
+            }
+          ]
+        },
+        {
+          "k": 1,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "m": 2,
+      "decorated_configurations": 16,
+      "named_future_language_classes": 4,
+      "coarse_future_count_classes": 3,
+      "configurations_by_departures": [
+        1,
+        6,
+        9
+      ],
+      "serial_histories_by_departures": [
+        1,
+        6,
+        18
+      ],
+      "serialized_histories_total": 25,
+      "parallel_round_schedule_total": 34,
+      "rounds": [
+        {
+          "k": 0,
+          "rows": [
+            {
+              "rounds": 0,
+              "per_configuration": 1,
+              "total_for_k": 1
+            }
+          ]
+        },
+        {
+          "k": 1,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 6
+            }
+          ]
+        },
+        {
+          "k": 2,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 9
+            },
+            {
+              "rounds": 2,
+              "per_configuration": 2,
+              "total_for_k": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "m": 3,
+      "decorated_configurations": 64,
+      "named_future_language_classes": 8,
+      "coarse_future_count_classes": 4,
+      "configurations_by_departures": [
+        1,
+        9,
+        27,
+        27
+      ],
+      "serial_histories_by_departures": [
+        1,
+        9,
+        54,
+        162
+      ],
+      "serialized_histories_total": 226,
+      "parallel_round_schedule_total": 442,
+      "rounds": [
+        {
+          "k": 0,
+          "rows": [
+            {
+              "rounds": 0,
+              "per_configuration": 1,
+              "total_for_k": 1
+            }
+          ]
+        },
+        {
+          "k": 1,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 9
+            }
+          ]
+        },
+        {
+          "k": 2,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 27
+            },
+            {
+              "rounds": 2,
+              "per_configuration": 2,
+              "total_for_k": 54
+            }
+          ]
+        },
+        {
+          "k": 3,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 27
+            },
+            {
+              "rounds": 2,
+              "per_configuration": 6,
+              "total_for_k": 162
+            },
+            {
+              "rounds": 3,
+              "per_configuration": 6,
+              "total_for_k": 162
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "m": 4,
+      "decorated_configurations": 256,
+      "named_future_language_classes": 16,
+      "coarse_future_count_classes": 5,
+      "configurations_by_departures": [
+        1,
+        12,
+        54,
+        108,
+        81
+      ],
+      "serial_histories_by_departures": [
+        1,
+        12,
+        108,
+        648,
+        1944
+      ],
+      "serialized_histories_total": 2713,
+      "parallel_round_schedule_total": 7654,
+      "rounds": [
+        {
+          "k": 0,
+          "rows": [
+            {
+              "rounds": 0,
+              "per_configuration": 1,
+              "total_for_k": 1
+            }
+          ]
+        },
+        {
+          "k": 1,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 12
+            }
+          ]
+        },
+        {
+          "k": 2,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 54
+            },
+            {
+              "rounds": 2,
+              "per_configuration": 2,
+              "total_for_k": 108
+            }
+          ]
+        },
+        {
+          "k": 3,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 108
+            },
+            {
+              "rounds": 2,
+              "per_configuration": 6,
+              "total_for_k": 648
+            },
+            {
+              "rounds": 3,
+              "per_configuration": 6,
+              "total_for_k": 648
+            }
+          ]
+        },
+        {
+          "k": 4,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 81
+            },
+            {
+              "rounds": 2,
+              "per_configuration": 14,
+              "total_for_k": 1134
+            },
+            {
+              "rounds": 3,
+              "per_configuration": 36,
+              "total_for_k": 2916
+            },
+            {
+              "rounds": 4,
+              "per_configuration": 24,
+              "total_for_k": 1944
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "m": 5,
+      "decorated_configurations": 1024,
+      "named_future_language_classes": 32,
+      "coarse_future_count_classes": 6,
+      "configurations_by_departures": [
+        1,
+        15,
+        90,
+        270,
+        405,
+        243
+      ],
+      "serial_histories_by_departures": [
+        1,
+        15,
+        180,
+        1620,
+        9720,
+        29160
+      ],
+      "serialized_histories_total": 40696,
+      "parallel_round_schedule_total": 165634,
+      "rounds": [
+        {
+          "k": 0,
+          "rows": [
+            {
+              "rounds": 0,
+              "per_configuration": 1,
+              "total_for_k": 1
+            }
+          ]
+        },
+        {
+          "k": 1,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 15
+            }
+          ]
+        },
+        {
+          "k": 2,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 90
+            },
+            {
+              "rounds": 2,
+              "per_configuration": 2,
+              "total_for_k": 180
+            }
+          ]
+        },
+        {
+          "k": 3,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 270
+            },
+            {
+              "rounds": 2,
+              "per_configuration": 6,
+              "total_for_k": 1620
+            },
+            {
+              "rounds": 3,
+              "per_configuration": 6,
+              "total_for_k": 1620
+            }
+          ]
+        },
+        {
+          "k": 4,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 405
+            },
+            {
+              "rounds": 2,
+              "per_configuration": 14,
+              "total_for_k": 5670
+            },
+            {
+              "rounds": 3,
+              "per_configuration": 36,
+              "total_for_k": 14580
+            },
+            {
+              "rounds": 4,
+              "per_configuration": 24,
+              "total_for_k": 9720
+            }
+          ]
+        },
+        {
+          "k": 5,
+          "rows": [
+            {
+              "rounds": 1,
+              "per_configuration": 1,
+              "total_for_k": 243
+            },
+            {
+              "rounds": 2,
+              "per_configuration": 30,
+              "total_for_k": 7290
+            },
+            {
+              "rounds": 3,
+              "per_configuration": 150,
+              "total_for_k": 36450
+            },
+            {
+              "rounds": 4,
+              "per_configuration": 240,
+              "total_for_k": 58320
+            },
+            {
+              "rounds": 5,
+              "per_configuration": 120,
+              "total_for_k": 29160
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "verification": "Exact integer enumeration of all graph masks n<=4 with ordered serial histories; all empty graphs n<=5 and all surjective round assignments k<=5; independent symbolic proof handles arbitrary finite n."
+}
