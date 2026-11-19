@@ -1,0 +1,243 @@
+{
+  "schema": "X6_UNIT165_A3_INTEGRAL_LIFT_EXACT_FINITE_CERT_V1",
+  "frozen_comparison_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "domain": "n in {2,3}, m_i in {1,2,3}, antisymmetric independent z_ij in [-5,5]",
+  "algorithm": "Exhaust all antisymmetric arrays; among weighted-closed compare row-sum C mod M with independent pivot t mod m0 and gcd(m_i) divisibility of every Z_ij; construct and validate all satisfiable c",
+  "new_universal_criterion": "A closed antisymmetric integral Z admits integral totals c iff gcd(m_1,...,m_n) divides every Z_ij. For a lift c0 all lifts are c0 + t*(m/g), t integer; compatible grand totals have residue C0 mod M/g.",
+  "counts": {
+    "all_antisym_2": 99,
+    "all_antisym_3": 35937,
+    "closed_2": 99,
+    "closed_3": 1263,
+    "closed_not_integral_2": 14,
+    "closed_not_integral_3": 156,
+    "integral_2": 85,
+    "integral_3": 1107
+  },
+  "counterexample": {
+    "capacities": [
+      2,
+      2
+    ],
+    "field": [
+      [
+        0,
+        1
+      ],
+      [
+        -1,
+        0
+      ]
+    ],
+    "closed": true,
+    "integer_lift": false,
+    "coarsened_to_single_group": {
+      "capacities": [
+        4
+      ],
+      "field": [
+        [
+          0
+        ]
+      ],
+      "integer_lift": true
+    }
+  },
+  "sample_unliftable": [
+    {
+      "m": [
+        2,
+        2
+      ],
+      "z": [
+        [
+          0,
+          -5
+        ],
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "m": [
+        2,
+        2
+      ],
+      "z": [
+        [
+          0,
+          -3
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "m": [
+        2,
+        2
+      ],
+      "z": [
+        [
+          0,
+          -1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "m": [
+        2,
+        2
+      ],
+      "z": [
+        [
+          0,
+          1
+        ],
+        [
+          -1,
+          0
+        ]
+      ]
+    },
+    {
+      "m": [
+        2,
+        2
+      ],
+      "z": [
+        [
+          0,
+          3
+        ],
+        [
+          -3,
+          0
+        ]
+      ]
+    },
+    {
+      "m": [
+        2,
+        2
+      ],
+      "z": [
+        [
+          0,
+          5
+        ],
+        [
+          -5,
+          0
+        ]
+      ]
+    },
+    {
+      "m": [
+        3,
+        3
+      ],
+      "z": [
+        [
+          0,
+          -5
+        ],
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "m": [
+        3,
+        3
+      ],
+      "z": [
+        [
+          0,
+          -4
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "m": [
+        3,
+        3
+      ],
+      "z": [
+        [
+          0,
+          -2
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "m": [
+        3,
+        3
+      ],
+      "z": [
+        [
+          0,
+          -1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "m": [
+        3,
+        3
+      ],
+      "z": [
+        [
+          0,
+          1
+        ],
+        [
+          -1,
+          0
+        ]
+      ]
+    },
+    {
+      "m": [
+        3,
+        3
+      ],
+      "z": [
+        [
+          0,
+          2
+        ],
+        [
+          -2,
+          0
+        ]
+      ]
+    }
+  ],
+  "violations": 0,
+  "status": "PASS",
+  "no_original_native_R063_benchmark_execution": true
+}
