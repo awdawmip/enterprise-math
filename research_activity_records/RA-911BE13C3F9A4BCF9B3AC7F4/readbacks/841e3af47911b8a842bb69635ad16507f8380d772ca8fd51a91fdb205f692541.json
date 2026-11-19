@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredfourteenth/README.md",
+    "ref": "faf2f711614f3106255d6fc50907345b8e328e19",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-hundredfourteen-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第一百一十四轮　区分循环记忆与新输入，计算有限矩阵轨道的迹\n\n**从可读的三通道记录识别重复控制。** 在同一源上，循环重用 $m$ 个已准备的独立公平位，与每拍重新取得公平位，前 $m$ 拍的联合记录律完全相同，第 $m+1$ 拍首次分离。接收器若有独立、同律且非均匀的三元加性噪声，分离时刻仍然精确。记其非平凡 Fourier 系数的模为 $\\delta$。当 $m\\ge3$，在前 $m+1$ 拍内选一个相位字符作统计量，最大的均值差是 $(3\\sqrt3/8)\\max(\\delta\\,2^{2-m},\\delta^3)$；只读第 $1,m-1,m+1$ 拍即可实现第二项。在另加逐轮回放支路的协议下，噪声趋近均匀时达到给定误判率 $\\alpha$ 所需的独立重复对数为 $\\Theta(\\delta^{-4}\\log(1/\\alpha))$。这是该登记的首次直接推进。已复算公开门和权重，指定的私有执行包尚未重放。[观测时刻、判别成本与输入约定](reuse.md) · [复算程序](reuse_check.py) · [逐项分布](reuse_checked.json)\n\n**一族有精确素数密度的矩阵迹分布。** 在 $\\mathbf Z/p^e\\mathbf Z$ 上均匀取秩为 $r$ 的幂等矩阵 $B$，观察 $\\operatorname{tr}(CB)$。若 $C$ 是循环矩阵，原始字符和可以写成特征多项式的定次首一因子对之和。从第二位起，模 $p$ 不互素的因子对在同一提升纤维中全部抵消。取 $C$ 为 $X^4-X-1$ 的伴随矩阵、$r=2$，使观测在每一层都完全均匀的素数密度恰为 $7/12$。这是关于均匀端点模型的独立算术结论，计零登记。424,965 个小矩阵和 1,814 张迹分布表均已直接枚举。[轨道迹公式、提升与密度](orbit.md) · [复算程序](orbit_check.py) · [精确直方图核验](orbit_checked.json)\n\n截至 2026-11-19 09:29:37 UTC，累计直接研究 244 个登记任务，覆盖 51 个父方向。直接首访一项三通道记录任务，有限矩阵轨道的端点算术独立计零。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 19、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/faf2f711614f3106255d6fc50907345b8e328e19/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredfourteenth/README.md",
+      "encoding": "utf-8",
+      "sha": "20884a608537af3460965966a3a370e0b64d5053"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
