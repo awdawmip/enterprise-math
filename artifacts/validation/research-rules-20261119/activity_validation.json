@@ -1,0 +1,31 @@
+{
+  "basis": "actual immutable GitHub connector readback; local validator/sidecar test only",
+  "verified": {
+    "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+    "tool_name": "mcp__codex_apps__github_fetch_file",
+    "observation_id": "control-audit-20261119-current-delivery-policy-observed",
+    "call_id": null,
+    "git_blob_sha1": "f407a7922ba0e3e20ee50c945ff3f167224bf9d2",
+    "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b1efc6c805661ed7b476e6e730107da6043176ee/control_plane/research_delivery_policy.json",
+    "network_request_by_this_tool": false,
+    "server_signature_authenticated": false
+  },
+  "sidecar_state": "EM_SOURCE_OBSERVED",
+  "full_observation_roundtrip_equal": true,
+  "negative_cases_rejected": {
+    "wrong_repository": "connector observation repo/ref/path mismatch",
+    "wrong_commit": "connector observation repo/ref/path mismatch",
+    "wrong_path": "connector observation repo/ref/path mismatch",
+    "partial_read": "publication verification requires a full-file observation",
+    "changed_content": "connector content/blob/immutable URL does not match source pin",
+    "wrong_git_blob": "connector content/blob/immutable URL does not match source pin",
+    "mutable_url": "connector content/blob/immutable URL does not match source pin",
+    "error_response": "invalid connector result",
+    "unsupported_fetch": "VERIFY_EM_PUBLICATION: full github_fetch_file observation required",
+    "unsupported_fetch_blob": "VERIFY_EM_PUBLICATION: full github_fetch_file observation required",
+    "missing_observation_provenance": "an observation_id (local provenance) or original call_id is required",
+    "wrong_source_sha256": "connector content/blob/immutable URL does not match source pin"
+  },
+  "remote_activity_write_performed": false,
+  "runtime_backend_verified": false
+}

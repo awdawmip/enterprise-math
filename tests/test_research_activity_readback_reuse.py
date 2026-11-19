@@ -325,6 +325,8 @@ def source_observation(path, raw, tool=ALIAS):
 
 
 class ConnectorAliasTests(unittest.TestCase):
+    alias = ALIAS
+
     def setUp(self):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
@@ -334,7 +336,7 @@ class ConnectorAliasTests(unittest.TestCase):
         activity.register(root=self.root, activity_id=self.activity_id, mode="TASK_RESEARCH",
                           session_id=self.session, researcher_id="EM-TEST-1234")
         self.path = activity.record_path(self.activity_id, self.root)
-        self.source = source_observation("research_notes/synthetic.md", b"synthetic source\n")
+        self.source = source_observation("research_notes/synthetic.md", b"synthetic source\n", self.alias)
 
     def checkpoint(self):
         return activity.checkpoint(self.activity_id, event_id="original",
@@ -345,13 +347,13 @@ class ConnectorAliasTests(unittest.TestCase):
         return activity.audit_observations(activity_id=self.activity_id, session_id=self.session,
             root=self.root, new_semantic_progress=False,
             registration_source=source_observation(f"{activity.STORE}/{self.activity_id}.json",
-                                                   self.path.read_bytes()))
+                                                   self.path.read_bytes(), self.alias))
 
     def test_full_alias_observation_and_sidecar_preserve_the_actual_name_and_bytes(self):
         original_observation = activity.encoded(self.source["readback"])
         record = self.checkpoint()
         accepted = record["checkpoints"][0]["em_sources"][0]
-        self.assertEqual(accepted["verification"]["tool_name"], ALIAS)
+        self.assertEqual(accepted["verification"]["tool_name"], self.alias)
         self.assertEqual(accepted["verification"]["kind"], "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED")
         self.assertEqual((self.root / accepted["verification_receipt"]).read_bytes(), original_observation)
         before = self.path.read_bytes()
@@ -385,7 +387,8 @@ class ConnectorAliasTests(unittest.TestCase):
 
     def test_unrelated_and_near_match_names_are_rejected(self):
         for name in ("mcp__Other__fetch_file", "mcp__github__fetch_file", "mcp__GitHub__fetch",
-                     "github_fetch", ALIAS + "_unchecked", None, []):
+                     "mcp__codex_apps__github_fetch", "mcp__codex_apps__github_fetch_blob",
+                     "github_fetch", self.alias + "_unchecked", None, []):
             with self.subTest(tool=name):
                 observed = copy.deepcopy(self.source["readback"])
                 observed["tool_name"] = name
@@ -432,6 +435,10 @@ class ConnectorAliasTests(unittest.TestCase):
             activity.checkpoint(self.activity_id, event_id="next", expected_sha256="0" * 64,
                                 em_sources=[self.source], root=self.root)
         self.assertEqual(self.path.read_bytes(), before)
+
+
+class CodexAppsConnectorAliasTests(ConnectorAliasTests):
+    alias = "mcp__codex_apps__github_fetch_file"
 
 
 if __name__ == '__main__':

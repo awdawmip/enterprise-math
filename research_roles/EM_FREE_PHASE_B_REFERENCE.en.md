@@ -31,7 +31,14 @@ system or representation tool, use the relevant current sources:
 A coverage hit is not itself tool use. Resolve each relevant match with its
 actual state: `REUSE_APPLIED`, `REUSE_EXECUTED`, `COMPOSE_APPLIED`,
 `REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE`, `EXTEND_EXISTING_TOOL`,
-`CAPABILITY_GAP_CONFIRMED` or `NOT_APPLICABLE`.
+`CAPABILITY_GAP_CONFIRMED`, `ALTERNATIVE_APPROACH_CHOSEN` or `NOT_APPLICABLE`.
+
+Choose a useful independent alternative when it serves the question, including
+one with the same input/output capability; no capability gap or prior approval
+is required. Record the material comparison and what actually ran in the
+existing result. This comparison is required before novelty claims or
+shared-tool acceptance, not to start or continue unshared research. Choosing
+an alternative does not itself establish novelty.
 
 An unavailable execution environment for an adequate implementation is not a
 mathematical capability gap. Comparison and reuse resolution classify the

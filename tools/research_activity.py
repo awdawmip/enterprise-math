@@ -37,6 +37,7 @@ NO_AUTHORITY = {name: False for name in (
 OBSERVATION_TOOL_KINDS = {
     "github_fetch_file": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
     "mcp__GitHub__fetch_file": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+    "mcp__codex_apps__github_fetch_file": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
     "em_mcp_github_contents": "OBSERVED_MCP_GITHUB_API_STRUCTURE_AND_BYTES_VERIFIED",
 }
 

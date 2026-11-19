@@ -5,8 +5,9 @@ register a formal task, claim, Result, review, Working Truth, or mathematical
 acceptance. FREE registration requires no question and opens no research catalog.
 Formal task execution keeps its existing publication/claim/firewall gates.
 
-Activity is optional bookkeeping for independent derivation and source publication.
-Reuse an existing own Activity when useful; missing registration, an unfinished
+Activity provides the required visibility of research sessions; missing registration
+remains bookkeeping debt. It is not a prerequisite for independent derivation or
+source publication. Reuse an existing own Activity; missing registration, an unfinished
 index or an absent observation sidecar does not veto reading, mathematics or
 saving the actual scientific file. The lightweight `guard` reports association
 and debt separately. Run `audit` only when checking observation evidence; it
@@ -122,6 +123,14 @@ content, SHA-256, Git blob, repo/ref/path, and immutable URL. Its imported JSON 
 not server-signed or cryptographically authenticated, and the helper makes no
 network request. Missing observed publication remains `VERIFY_EM_PUBLICATION`.
 Use `em_sources:[]` for an actual KB-only checkpoint, not an invented EM pin.
+
+Preserve the actual full-file tool label: `github_fetch_file`,
+`mcp__GitHub__fetch_file`, or `mcp__codex_apps__github_fetch_file` for the supported
+connector response shape. These exact labels share the same checks; a generic
+`fetch` or `fetch_blob` response does not supply this repo/ref/path observation
+contract. The separate `em_mcp_github_contents` format also requires its complete
+matching raw GitHub Contents response. Existing observations keep their original
+labels and bytes.
 
 ```text
 python tools/research_activity.py checkpoint --activity-id <RA-id> --event-id <stable-progress-event-id> --expected-sha256 <current-record-byte-sha256> --source-json <payload.json>

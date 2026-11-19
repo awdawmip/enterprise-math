@@ -19,7 +19,9 @@ A 阶段已允许的“问题先形成，再按需精确查定义或工具”是
 - `research_method_inventory.json`；
 - 有可执行源码环境时，使用 `tools/enterprise_toolbox.py` 发现覆盖情况。
 
-覆盖命中本身不等于实际使用工具。为每个相关匹配记录真实状态：`REUSE_APPLIED`、`REUSE_EXECUTED`、`COMPOSE_APPLIED`、`REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE`、`EXTEND_EXISTING_TOOL`、`CAPABILITY_GAP_CONFIRMED` 或 `NOT_APPLICABLE`。
+覆盖命中本身不等于实际使用工具。为每个相关匹配记录真实状态：`REUSE_APPLIED`、`REUSE_EXECUTED`、`COMPOSE_APPLIED`、`REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE`、`EXTEND_EXISTING_TOOL`、`CAPABILITY_GAP_CONFIRMED`、`ALTERNATIVE_APPROACH_CHOSEN` 或 `NOT_APPLICABLE`。
+
+可为当前问题选择有价值的独立替代，包括输入输出能力相同的实现，无需先证明能力缺口或另行批准。在既有结果中记录实质比较和实际执行情况。比较要求适用于新颖性声明或共享工具接纳之前，不作为开始或继续独立研究的前提。选择替代方案本身不证明新颖性。
 
 已有实现能力足够而当前环境不能执行，不构成数学能力缺口。比较与复用判定用于分类已冻结的结果，不得改写此前表述来制造独立收敛。
 
