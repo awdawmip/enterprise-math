@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_twelve_pair_synergy_20261119/make_adj.py",
+    "ref": "3cc19a1b5b6588a5d1e191615d130386db8bec27",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261119-2204-twelve-synergy-source-5",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n# Exact binary window adjacency: 101 query prices × 256 sources × 256 targets.\n# Scientific input SHA256 pinned below. Integer operations only.\nimport json, hashlib\nfrom pathlib import Path\nroot=Path(__file__).resolve().parent\nsrc=(root/'EXACT_R5_ALL_101_BUDGETS.json').read_bytes()\nassert hashlib.sha256(src).hexdigest()==\"50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b\"\ndata=json.loads(src)\ntau=int(json.loads((root/'stages_18.json').read_text())['U'])-1\nwith (root/'window_adj.bin').open('wb') as out:\n for k in range(214,315):\n  a=list(map(int,data['counts_and_cohorts'][str(k)]['counts']))\n  assert len(a)==256\n  for x in a: out.write(bytes(0<=y-x<=tau for y in a))\nassert (root/'window_adj.bin').stat().st_size==101*256*256\nprint(\"EXACT_ADJ_READY\",101*256*256)\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3cc19a1b5b6588a5d1e191615d130386db8bec27/research_notes/portable_direct/r5_twelve_pair_synergy_20261119/make_adj.py",
+      "encoding": "utf-8",
+      "sha": "b9b243be57f75b73a1f25704c500486401b97e99"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
