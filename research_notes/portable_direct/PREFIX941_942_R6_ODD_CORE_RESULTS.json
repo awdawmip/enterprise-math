@@ -1,0 +1,210 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX941_942_ODD_CORE_FLOORSUM_CRT_V1",
+  "date": "2026-11-19",
+  "scope": "Auxiliary named XOR two-port observer; strict 19-bit odd moduli Q; finite exact computation. Not a native six-axis X6 result.",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "Q": {
+    "L": 262145,
+    "U": 524287,
+    "step": 2,
+    "count": 131072
+  },
+  "named_source_i_j": [
+    0,
+    18
+  ],
+  "result_by_k": {
+    "13": {
+      "raw": 16796156,
+      "unique": 12993739,
+      "raw_by_t": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        520071,
+        138631,
+        1860756,
+        256049,
+        2714012,
+        334399,
+        3503663,
+        309679,
+        2378264,
+        225604,
+        1713475,
+        160187,
+        1188106,
+        107924,
+        762609,
+        65074,
+        411643,
+        29409,
+        116601,
+        0
+      ],
+      "priority_disjoint": {
+        "BZS": 6526046,
+        "U": 2242,
+        "V": 25712,
+        "W2": 501872,
+        "W3": 104480,
+        "D4": 123,
+        "W5": 846,
+        "D6": 728,
+        "W7": 1268,
+        "D8": 168,
+        "W9": 1706,
+        "D10": 262,
+        "W11": 1394,
+        "NEW": 5826892
+      },
+      "prior_union": 7558699988,
+      "new_union": 7564526880,
+      "uncertified_pairs": 9615342304,
+      "first_new_witness": {
+        "a": 271267,
+        "b": 522505,
+        "i": 3,
+        "j": 17,
+        "t": 7,
+        "start": 3526471,
+        "endpoint": 3657543,
+        "zero_endpoint": 8
+      },
+      "all_sign_floor_sum_matches_scalar_raw_by_t": true,
+      "independent_CRT_full_sorted_pair_binary_equal": true
+    },
+    "15": {
+      "raw": 20708178,
+      "unique": 16762415,
+      "raw_by_t": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2497,
+        41502,
+        1466057,
+        214385,
+        1835786,
+        373919,
+        2427372,
+        293355,
+        5319496,
+        274167,
+        2153128,
+        304872,
+        1627616,
+        194278,
+        1797572,
+        113588,
+        850698,
+        113969,
+        692941,
+        47686,
+        454373,
+        21841,
+        87080,
+        0
+      ],
+      "priority_disjoint": {
+        "BZS": 8248399,
+        "U": 4145,
+        "V": 34179,
+        "W2": 931011,
+        "W3": 330945,
+        "D4": 450,
+        "W5": 371824,
+        "D6": 259,
+        "W7": 69383,
+        "D8": 557,
+        "W9": 34038,
+        "D10": 238,
+        "W11": 2174,
+        "W13": 1897,
+        "NEW": 6732916
+      },
+      "prior_union": 7564526880,
+      "new_union": 7571259796,
+      "uncertified_pairs": 9608609388,
+      "first_new_witness": {
+        "a": 270615,
+        "b": 523787,
+        "i": 0,
+        "j": 17,
+        "t": 8,
+        "start": 4059225,
+        "endpoint": 4190297,
+        "zero_endpoint": 1
+      },
+      "all_sign_floor_sum_matches_scalar_raw_by_t": true,
+      "independent_CRT_full_sorted_pair_binary_equal": true
+    }
+  },
+  "known_old_k11_rebuild": {
+    "raw": 16974425,
+    "unique": 13144330,
+    "matched_published_raw_by_t": true,
+    "published_w11_sha256": "8212f0472ebe72ae93db8a205c8631f5eb96abbe952588cc08a5eb4087aeecf5",
+    "reproduced_sha256": "8212f0472ebe72ae93db8a205c8631f5eb96abbe952588cc08a5eb4087aeecf5"
+  },
+  "two_new_families_net_new": 12559808,
+  "cumulative_union": 7571259796,
+  "remaining_not_certified": 9608609388,
+  "binary_artifacts": {
+    "W11.bin": {
+      "bytes": 105154640,
+      "sha256": "8212f0472ebe72ae93db8a205c8631f5eb96abbe952588cc08a5eb4087aeecf5"
+    },
+    "W13.bin": {
+      "bytes": 103949912,
+      "sha256": "cca46c6869592a231c694d2d221f91ace3ec8043873c29cfbc5a1a1029dd7adc"
+    },
+    "NEW13.bin": {
+      "bytes": 46615136,
+      "sha256": "7bf2c2654405ffe78029a3958c8679923f3f3a576fd9f30755b30c5cee355d37"
+    },
+    "W13_CRT.bin": {
+      "bytes": 103949912,
+      "sha256": "cca46c6869592a231c694d2d221f91ace3ec8043873c29cfbc5a1a1029dd7adc"
+    },
+    "W15.bin": {
+      "bytes": 134099320,
+      "sha256": "03f20dd609d1ceb997ee6fa25c0ecef34fc1626cf869ecd69dac340747fc4b03"
+    },
+    "NEW15.bin": {
+      "bytes": 53863328,
+      "sha256": "c40308845f45e0477a19f6ec1fc81355dfcd27545d20f23677f1038dc3b434e4"
+    },
+    "W15_CRT.bin": {
+      "bytes": 134099320,
+      "sha256": "03f20dd609d1ceb997ee6fa25c0ecef34fc1626cf869ecd69dac340747fc4b03"
+    }
+  },
+  "input_binary_sha256": {
+    "PREFIX928_R6_SORTED_PAIR_IDS.bin": "15534b09fa696b5cbeba46f7f644d75c2c3f99b719a88071150fa91357f22bad",
+    "W2.bin": "bceb588c6c3aee31ce627fadaa6d0d3ec56ea3f865ddea9d39daec13365e6150",
+    "W3.bin": "3f501ca25d0b8c55b284b621d26251f8be2c8c771ce294206f24b1daa10051a9",
+    "D4_sorted_cpp.bin": "d66d467d5c48d62f6bdb2cdf02a081830eba4a32f28447b10d8c425350bdb664",
+    "W5.bin": "ed2ff4c1961e29a619ccb404e834150028b4a689d5816ae03b2fa41fbc49de95",
+    "D6.bin": "718e94ea98ba2931760b473a04eaf38ef189b4444548d9160ab5d861d1fc9c60",
+    "W7.bin": "8405169b6adaf6409e2355c4d65e8616176b413e8605ed76a40c6f1cf2f77d77",
+    "D8.bin": "95c6d52becc3ddbd3aad458a71f27ff1e5cfade43e37d8c5052c3e568d38ccb3",
+    "W9.bin": "541318dc9a9f6c8d6941f38cf69cb5e873caa1dfb602d70ac5dad9f2fef11888",
+    "D10.bin": "afc6f12c3f7fb662f6934d1e4493cd16400c800309ff292388b60798a24e3827"
+  },
+  "verification": {
+    "raw_formula": "exact floor sums with all (i,j,t,epsilon) cells",
+    "distinct_binary": "independent direct scalar enumeration and CRT parametric enumeration, byte-identical",
+    "priority_union": "exact C++17 priority-disjoint set scan against ten predecessor binary families plus W11/W13 and closed BZS/V predicates",
+    "mathematical_review": "NOT_INDEPENDENTLY_REVIEWED",
+    "source_cli_audit": "NOT_RUN",
+    "project_admission": "NOT_ADMITTED",
+    "shared_claim": "NOT_ACQUIRED"
+  }
+}
