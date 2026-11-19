@@ -25,7 +25,7 @@ These are only $p$ integer congruences. They depend on the first-coordinate conn
 \[
 pN z_e=p\,s(e)-N\,c(e).
 \]
-For a singleton profile $y$, (c(e)=0) and $pNz_e=pn_y\equiv0\pmod p$. For a degree-two connector $x$, the endpoint atoms have $c(e_{x,a})=k_x$ and $c(e_{x,b})=p-k_x$, hence
+For a singleton profile $y$, $c(e)=0$ and $pNz_e=pn_y\equiv0\pmod p$. For a degree-two connector $x$, the endpoint atoms have $c(e_{x,a})=k_x$ and $c(e_{x,b})=p-k_x$, hence
 \[
 pNz_{x,a}\equiv-Nk_x,\qquad
 pNz_{x,b}\equiv+Nk_x\pmod p.
@@ -44,9 +44,9 @@ for some single $\beta_i\in G$. The actual center in the $i$-th coordinate is $r
 
 **Proof.** For each star edge, $k_x=1$. Define $H_i(v)=\#\{x:r+\delta_i(x)=v\}$ and $L_i(v)=\#\{x:b_x+\delta_i(x)=v\}$. Equation $A$ gives
 \[
-D_i(v):=L_i$v$-H_i$v$\equiv1\pmod p.
+D_i(v):=L_i(v)-H_i(v)\equiv1\pmod p.
 \]
-There are exactly $p-1$ connectors, so $-(p-1)\le D_i(v)\le p-1$. Therefore $D_i(v)\in\{1,1-p\}$. Also $\sum_vD_i(v)=0$, so **exactly one** residue $v_i$ has $D_i(v_i)=1-p$, and all other residues have value (1). At $v_i$, the only possible nonnegative counts with $L_i(v_i)-H_i(v_i)=1-p$ are $L_i(v_i)=0$ and $H_i(v_i)=p-1$. Thus every hub atom lands at the same $v_i$: $r+\delta_i(x)=v_i$ for all connectors, establishing $B$. QED.
+There are exactly $p-1$ connectors, so $-(p-1)\le D_i(v)\le p-1$. Therefore $D_i(v)\in\{1,1-p\}$. Also $\sum_vD_i(v)=0$, so **exactly one** residue $v_i$ has $D_i(v_i)=1-p$, and all other residues have value $1$. At $v_i$, the only possible nonnegative counts with $L_i(v_i)-H_i(v_i)=1-p$ are $L_i(v_i)=0$ and $H_i(v_i)=p-1$. Thus every hub atom lands at the same $v_i$: $r+\delta_i(x)=v_i$ for all connectors, establishing $B$. QED.
 
 **Corollary (all-coordinate no-go without a common edge gap).** If $d\ge2$, all $d$ coordinate marginals are exactly uniform, and the ordered shapes $W_x$ are pairwise inequivalent under common translation, then no such sharp-support, $p-1$-connector **star** law exists. Indeed $B$ in every coordinate makes every connector shape a common translate of any other, and $p-1\ge2$. The connector gaps $b_x-r$ in a star are generally **all different**, so this excludes a mixed-gap topology not covered by the fixed-step-cycle theorem r363. This theorem does not rule out non-star mixed-gap trees or degree-three-and-above profiles.
 
