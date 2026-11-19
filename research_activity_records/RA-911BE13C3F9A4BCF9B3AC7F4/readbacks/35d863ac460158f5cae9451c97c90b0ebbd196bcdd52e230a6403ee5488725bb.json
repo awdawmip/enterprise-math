@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtyfourth/README.md",
+    "ref": "3e6c000e827e213e4e298281269d0f1c16dc0385",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-sixtyfour-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第六十四轮　固定字母数的剪切词与三簇整数的抽样判据\n\n## 两种剪切各出现指定次数时，模矩阵可以多接近均匀\n\n上、下单位剪切分别记作 $U,V$。在所有含 $a$ 个 $U$ 和 $b$ 个 $V$ 的词中，作用矩阵总落在模 $m$ 特殊线性群的一个交换子群陪集上。令 $s=\\min(a,b)$。若各时刻两字母的赔率之比在固定倍数内变化，则存在 $c>0$，使得当 $s\\to\\infty$、$m\\le e^{cs}$ 时，词的条件分布与这个陪集均匀分布的全变差趋于零。这里用到 Selberg 同余谱隙。只靠初等矩阵消元与字长界，也足以覆盖 $m^2(\\log(2m)+\\log(2+s))=o(s)$ 的增长模数。\n\n边缘有不同的算术。若恰好只有两个 $U$，当且仅当 $b\\ge2m-2$ 时，支持首次达到其最大值\n$$\n\\sum_{d\\mid m}d\\varphi(d).\n$$\n例如素模 $p$ 只有 $p^2-p+1$ 个矩阵可达。逐个矩阵的权重还能在有限词长直接求出。[混合定理、有限计数与阈值](paths.md) · [复算程序](paths_check.py) · [精确结果](paths_checked.json)\n\n## 增加三十二次抽样何时最容易改变排序决策\n\n排序器用三个整数区间覆盖抽到的键，总宽度在预算内时通过。对三个相距足够远、各有 $W$ 个连续键的等权簇，以独立抽样计算原来的 32 个探针和追加至 64 个探针的判断。取源程序的 $W=4096$，两阶段通过概率首次达到一半的预算分别为 10,136 与 11,208。在预算 10,707，两阶段改判的概率约为 $62.45\\%$，在整个临界区内达到唯一最大值。\n\n程序另外重放原有的 60 个路由决定，用冻结生成器产生新的完整数组，并检查排序后的输出。计时表保留每个输入上十种方法的配对读数。上述几何概率来自精确计数，单次运行的耗时另有测量。[分布公式、适用范围与实测](sort.md) · [复算驱动](sort_check.py) · [确定性结果](sort_checked.json) · [逐次计时](sort_measured.csv)\n\n截至 2026-11-19 00:58:51 UTC，两项均为复访，累计直接推进 220 个登记任务，覆盖 51 个父方向。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 41、19、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3e6c000e827e213e4e298281269d0f1c16dc0385/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtyfourth/README.md",
+      "encoding": "utf-8",
+      "sha": "91d2c08bf0f23eb915a95d494109d5cb1b95cf53"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
