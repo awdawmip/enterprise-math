@@ -1,0 +1,29 @@
+{
+  "schema": "EC49FTX_REVERSE_TP2_MIXED_FOSD_V1",
+  "date": "2026-11-19",
+  "source_repository": "awdawmip/enterprise-math",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent": "EC49FTW PR2807@50b012f33f4e48f0f1357e6f0a164f10cd725414",
+  "model": "external price-prior observer of inherited Bellman optimum",
+  "joint_density_unnormalized": "1 - (1/1000)*(525a/8-231b/4-9/8)*(35a/32-b/16-5/96)",
+  "continuous_kernel": "(16/945)*(1-mz/1000)",
+  "continuous_log_cross_derivative": "-(1/1000)/(1-mz/1000)^2 < 0",
+  "FOSD": "proved on m in (1469/64,187/8)",
+  "atom_ratio_derivative": "d(B/A)/dm >0 by exact quartic polynomial P(t)>0",
+  "quartic_lower_bound": "159889532371621484270967/1024",
+  "continuous_upper_tail_log_m_derivative_lower": "62437/26352",
+  "global_density_lower": ">976/1000",
+  "clipped_and_continuous_integral_polynomial_check_nodes": 6,
+  "mixed_cdf_regression_pairs": 12,
+  "verification": {
+    "local_command": "python EC49FTX_REVERSE_TP2_FOSD_VERIFY.py",
+    "local_execution": "SUCCEEDED exit 0 on an equivalent locally validated standard-library Fraction program",
+    "remote_execution": "NOT_RUN_FROM_REMOTE_CHECKOUT",
+    "proof_coverage": "all real m in inherited high-gap open interval; dependent on frozen author Bellman optimum",
+    "independent_review": false
+  },
+  "native_bellman_rerun": false,
+  "research_identity": "historical researcher provenance only; fresh native execution capability not established",
+  "activity_association": "PENDING",
+  "status": "AUTHOR_PROVED_EXACT_FRACTION_VERIFIED_PARENT_DEPENDENT_NOT_REVIEWED"
+}
