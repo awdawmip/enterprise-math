@@ -1,0 +1,18 @@
+{
+  "schema": "X6_R34_GLOBAL_MARKOV_LANGUAGE_QUOTIENT_VERIFY_V1",
+  "observer": "fully labelled successful event words; no independent public-state readout",
+  "initial_public_state": 1,
+  "hidden_histories": 4,
+  "reachable_decorated_states": 12,
+  "initial_history_language_classes": 3,
+  "global_reachable_markov_language_classes": 5,
+  "classes": [
+    {"language": ["", "Q0;", "Q0;Q1;", "Q1;", "Q1;Q0;"], "decorated_states": [[3,1]]},
+    {"language": ["", "Q0;", "Q1;", "Q1;Q0;"], "decorated_states": [[1,1]]},
+    {"language": ["", "Q0;"], "decorated_states": [[1,5],[3,5]]},
+    {"language": ["", "Q1;"], "decorated_states": [[0,1],[2,1],[3,2]]},
+    {"language": [""], "decorated_states": [[0,5],[1,2],[1,6],[2,5],[3,6]]}
+  ],
+  "right_congruence_checked": true,
+  "pass": true
+}
