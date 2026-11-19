@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtyseventh/README.md",
+    "ref": "39617ee534a9488ec96445ecd7da9e7e9951c5da",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-sixtyseven-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第六十七轮　有理反正切公式的 24 位最优值与有限仪器的转向误差\n\n## 三个反正切何时能重新改善\n\n对三个互异的本原有理斜率 $0<a_j/b_j<1$，预算是分母二进制位长之和，质量指标是广义 Lehmer 量 $\\sum_j 1/\\log_{10}(b_j/a_j)$，越小越好。在预算至多 24 位的全体有理原子中，三项最优原子组唯一，其零卷绕公式为\n$$\n 16\\arctan(1/21)+3\\arctan(1/239)+4\\arctan(3/1042)=\\pi/4 .\n$$\n22、23 位时三项最优值仍约为 $1.693942344042$；24 位降至 $1.570340408965$。同一 24 位预算允许的双项式仍以约 $1.551482953201$ 领先。该三项式先前已落在两素数平面的枚举范围；此次从高斯整数赋值的秩二整格出发，排除了位预算内所有其它更优原子组。[全字母表定理与范围](machin.md) · [两个枚举算法](machin_check.py) · [精确证书](machin_checked.json)\n\n## 连续转向和离散编码能保住多少标签信息\n\n在有限个可制备且可区分的全状态上，用随设定连续变化的随机核连接恒等与非平凡置换。若往、返两步使用独立随机种子，则总有一个角度和一个起始状态，往返分布距初始点质量至少 $1/2$（全变差）；相邻置换之间的线性插值可以达到此界。用冻结 M2 更新实际运行三种具名制备共九拍，端口可完整读出这项差异；若均匀选择前九拍之一，只读带时标的终点位置，所见最坏误差为 $4/9$。\n\n若改问有限编码群 $C_N$ 的精确可逆实现，取 $N=ma$，并要求第 $a$ 格恰使指定的 $m$ 个全状态循环移位，则最少需要 $m\\prod_{p\\mid m}p^{v_p(a)}$ 个状态。真实转台的 18,000 个编码位置提供了可对照的分辨率；将此协议同实际频差联系起来所需的仪器标定仍缺失。[有限群、实际端口与测量边界](settings.md) · [源程序复算](settings_check.py) · [结果](settings_checked.json)\n\n截至 2026-11-19 01:28:59 UTC，累计直接研究 223 个登记任务，覆盖 51 个父方向。本轮首次推进仪器转向的有条件误差界，复访第 3 轮的有理反正切任务。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 39、18、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/39617ee534a9488ec96445ecd7da9e7e9951c5da/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtyseventh/README.md",
+      "encoding": "utf-8",
+      "sha": "bd9cb4b4303bf37fd9efb49771e8c6cc0a75d251"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
