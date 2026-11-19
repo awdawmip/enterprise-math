@@ -1,0 +1,84 @@
+{
+  "schema": "PREFIX938_R6_EXACT_FINITE_CENSUS_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_COMPUTED_NOT_REVIEWED_NOT_ADMITTED",
+  "date": "2026-11-19",
+  "frozen_scientific_input": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "prior_prefix": "PREFIX-937",
+  "researcher_provenance": "EM-DIRECT-58C410 (historical; current claim not acquired)",
+  "modulus_domain": {
+    "min": 262145,
+    "max": 524287,
+    "step": 2,
+    "count": 131072,
+    "ordered_pairs": 17179869184
+  },
+  "template": "D=(9*a XOR 2^j)-2^i = t*b; i,j=0..18; t=1..18",
+  "quotient_bound": {
+    "D_min_lower": 1835017,
+    "D_max_upper": 4980726,
+    "maximum_t": 18
+  },
+  "exact": {
+    "raw_witnesses": 19710115,
+    "unique_W9": 15456919,
+    "priority_disjoint": {
+      "BZS": 7658616,
+      "U": 3826,
+      "V": 31733,
+      "W2": 1094531,
+      "W3": 343507,
+      "D4": 322,
+      "W5": 558,
+      "D6": 293,
+      "W7": 615,
+      "D8": 64,
+      "NEW": 6322854
+    },
+    "prior_union": 7545708832,
+    "new_union": 7552031686,
+    "uncovered": 9627837498
+  },
+  "raw_t": [
+    0,
+    0,
+    0,
+    0,
+    1051528,
+    383510,
+    3455321,
+    462412,
+    6961608,
+    416510,
+    2964381,
+    412625,
+    1780129,
+    147723,
+    1363127,
+    63706,
+    247535,
+    0
+  ],
+  "raw_t_indexing": "raw_t indexed by t=1..18",
+  "binary": {
+    "encoding": "sorted little-endian uint64 pair IDs; id=((a-262145)/2)*131072+(b-262145)/2",
+    "W9_size_bytes": 123655352,
+    "W9_sha256": "541318dc9a9f6c8d6941f38cf69cb5e873caa1dfb602d70ac5dad9f2fef11888",
+    "NEW9_size_bytes": 50582832,
+    "NEW9_sha256": "991da6f684c2fd4dd8dc240b0f05fd8860e6378d254d975b3a26d7cec8779e41"
+  },
+  "first_new": {
+    "a": 273439,
+    "b": 518379,
+    "i": 7,
+    "j": 17,
+    "t": 5,
+    "ka": 2460951,
+    "endpoint": 2592023,
+    "zero_endpoint": 128
+  },
+  "validation": {
+    "Cxx": "full W9 census + priority-disjoint old-family set scan, outputs and digest verified locally",
+    "NumPy": "independent generation of full W9; sorted raw bytes compared to C++ by cmp and SHA-256",
+    "independent_priority_numpy": "not completed; partial prior process timed out; priority verified by C++ exact sorted membership scan"
+  }
+}

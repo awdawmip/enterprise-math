@@ -1,0 +1,52 @@
+# PREFIX-938 — exact k=9 named XOR collision census and priority-disjoint union
+
+2026-11-19. Independent auxiliary fixed 19-bit odd-modulus observer mathematics; scientific input frozen at \`f42f2906d77f24085c123f3ccfe9667d41caa96d\`. Historical provenance EM-DIRECT-58C410, SID MCP-31edc522830749ad8775ca012e02ef30; this paper is not a CLAIM or Result/Review admission. Author proof and exact computations; independent mathematical review pending.
+
+## Statement and collision theorem
+
+Let \`Q={262145,262147,...,524287}\` (\`|Q|=131072\`), \`N=2^32\`, and named histories \`F_x^i=(x, x XOR 2^i)\`, with both endpoints in \`[0,N)\`. The two-port observer is \`Phi_(a,b)(u,v)=(u mod a,v mod b)\`. Define \`W9\` as the set of ordered \`(a,b) in Q^2\` with \`0<=i,j<=18\` and positive \`t\` such that
+
+    (9*a XOR 2^j) - 2^i = t*b.
+
+Every W9 pair carries a legal named collision \`F_0^i=(0,2^i)\` and \`F_(9a)^j=(9a,9a XOR 2^j)\`. Their starting residues are both zero modulo \`a\`, and terminal residues coincide modulo \`b\`. Since \`9a>=2359305\` and \`9a<=4718583\`, XOR by at most \`2^18\` and subtracting \`2^i\` give \`1835017 <= D <=4980726\`. Hence \`D>0\` and \`t<=18\`, because \`19*262145=4980755>4980726\`. Exhausting all \`a\` in Q, \`i,j=0..18\` and \`t=1..18\` is a finite exhaustive proof **for W9**.
+
+Useful general parity lemma for odd \`k,a,b\`: let \`D=(ka XOR 2^j)-2^i=t b\`. Because \`ka\` and \`b\` are odd, \`t\` is odd exactly when \`i=0\` and \`j=0\` either both hold or both fail; if exactly one bit index is zero then \`t\` is even. This provides a lossless quotient filter across odd-core families.
+
+## Exact computation
+
+Compiled C++17 scans \`(a,j,i,t)\` and uses sorted uint64 identifiers. A distinct Python/NumPy implementation scans \`(j,t)\` across entire \`(i,a)\` arrays; both independently generated the same sorted **complete W9** byte file.
+
+* Raw \`(a,i,j,t)\` witnesses: **19,710,115**.
+* Deduplicated W9 ordered pairs: **15,456,919**.
+* W9 bytes 123,655,352; SHA-256 \`541318dc9a9f6c8d6941f38cf69cb5e873caa1dfb602d70ac5dad9f2fef11888\`.
+* By \`t=1..18\`: \`[0,0,0,0,1051528,383510,3455321,462412,6961608,416510,2964381,412625,1780129,147723,1363127,63706,247535,0]\`.
+
+Priority-disjoint earlier-set membership from the C++ exhaustive merge scan, in order:
+
+| Prior family | W9 pairs already covered |
+|---|---:|
+| B/Z/S | 7,658,616 |
+| U | 3,826 |
+| V | 31,733 |
+| W2 | 1,094,531 |
+| W3 | 343,507 |
+| D4 | 322 |
+| W5 | 558 |
+| D6 | 293 |
+| W7 | 615 |
+| D8 | 64 |
+| **New** | **6,322,854** |
+
+These numbers sum to 15,456,919. The NEW9 sorted file has 6,322,854 IDs (50,582,832 bytes), SHA-256 \`991da6f684c2fd4dd8dc240b0f05fd8860e6378d254d975b3a26d7cec8779e41\`. Thus the certified finite union increases from 7,545,708,832 to **7,552,031,686** and its complement is **9,627,837,498** in \`Q^2\`.
+
+First lexicographic new witness: \`a=273439,b=518379,i=7,j=17,t=5\`. Here \`9a=2460951\`, \`9a XOR 131072=2592023\`, \`2592023-128=2591895=5*518379\`. The two named histories \`(0,128)\` and \`(2460951,2592023)\` have equal observer values \`(0,128)\`.
+
+## Reproduction, provenance and limits
+
+Inputs from the previous verified PREFIX-936/937 standalone archive: \`PREFIX928_R6_SORTED_PAIR_IDS.bin\`, \`W2.bin\`, \`W3.bin\`, \`D4_sorted_cpp.bin\`, \`W5.bin\`, \`D6.bin\`, \`W7.bin\`, \`D8.bin\`. All are sorted little-endian uint64 pair IDs. Source programs \`PREFIX938_R6_NINE_A_EXACT_CPP.cpp\` and \`PREFIX938_R6_NINE_A_INDEPENDENT_NUMPY.py\` and JSON certificate live beside this note. The Python implementation independently verified the full W9 set, while the priority-disjoint overlap calculation was completed by the C++ program. A separate Python priority-overlap attempt exceeded its local execution limit, so it is not claimed as completed.
+
+This finite result is scoped to the auxiliary named observer and specified W9 template, preserving trace/bit provenance. Its complement is not certified injective. It does not solve the mother objective \`B_fix,odd(32) in {19,20}\`, and provides no native X6 task/CLAIM/admission status.
+
+## Next question
+
+Examine whether a uniform odd-core congruence/valuation filter or exact inclusion-exclusion across \`k=9,11,13,...\` can supplant one-by-one full Wk enumeration; compare real net new pair sets. Keep all prior science pins, Source Activity identities, unresolved review/admission state, and active X6 owner separately typed.
