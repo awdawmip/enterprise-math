@@ -1,48 +1,60 @@
 {
-  "suite": "X6_FIXED_LANE_TRUNCATED_GAP_TYPED_BOOLEAN_BRC",
-  "status": "PASS",
+  "checked_legal_graded_transitions": 2140,
+  "direct_vs_gap_language_checks": 804,
+  "general_theorem_status": "proved symbolically in accompanying note; finite suite is corroboration",
   "model": "Six-component signed integer positions; per-source native +axis0; labelled Boolean branch support; fixed lane partition and within-lane source order; vacant target",
   "runs": [
     {
+      "adjacent_edges": 0,
+      "configs_per_horizon": 1,
+      "gap_domain": [
+        0,
+        3
+      ],
+      "h5_classes": 1,
+      "horizons": [
+        0,
+        5
+      ],
       "lanes": [
         [
           0
         ]
       ],
-      "sources": 1,
-      "adjacent_edges": 0,
-      "gap_domain": [
-        0,
-        3
-      ],
-      "horizons": [
-        0,
-        5
-      ],
-      "configs_per_horizon": 1,
-      "h5_classes": 1
+      "sources": 1
     },
     {
-      "lanes": [
-        [
-          0,
-          1
-        ]
-      ],
-      "sources": 2,
       "adjacent_edges": 1,
+      "configs_per_horizon": 4,
       "gap_domain": [
         0,
         3
       ],
+      "h5_classes": 4,
       "horizons": [
         0,
         5
       ],
-      "configs_per_horizon": 4,
-      "h5_classes": 4
+      "lanes": [
+        [
+          0,
+          1
+        ]
+      ],
+      "sources": 2
     },
     {
+      "adjacent_edges": 2,
+      "configs_per_horizon": 16,
+      "gap_domain": [
+        0,
+        3
+      ],
+      "h5_classes": 16,
+      "horizons": [
+        0,
+        5
+      ],
       "lanes": [
         [
           0,
@@ -50,20 +62,20 @@
           2
         ]
       ],
-      "sources": 3,
-      "adjacent_edges": 2,
+      "sources": 3
+    },
+    {
+      "adjacent_edges": 3,
+      "configs_per_horizon": 64,
       "gap_domain": [
         0,
         3
       ],
+      "h5_classes": 64,
       "horizons": [
         0,
         5
       ],
-      "configs_per_horizon": 16,
-      "h5_classes": 16
-    },
-    {
       "lanes": [
         [
           0,
@@ -72,20 +84,20 @@
           3
         ]
       ],
-      "sources": 4,
-      "adjacent_edges": 3,
+      "sources": 4
+    },
+    {
+      "adjacent_edges": 2,
+      "configs_per_horizon": 16,
       "gap_domain": [
         0,
         3
       ],
+      "h5_classes": 16,
       "horizons": [
         0,
         5
       ],
-      "configs_per_horizon": 64,
-      "h5_classes": 64
-    },
-    {
       "lanes": [
         [
           0,
@@ -96,20 +108,20 @@
           3
         ]
       ],
-      "sources": 4,
+      "sources": 4
+    },
+    {
       "adjacent_edges": 2,
+      "configs_per_horizon": 16,
       "gap_domain": [
         0,
         3
       ],
+      "h5_classes": 16,
       "horizons": [
         0,
         5
       ],
-      "configs_per_horizon": 16,
-      "h5_classes": 16
-    },
-    {
       "lanes": [
         [
           0,
@@ -120,20 +132,20 @@
           3
         ]
       ],
-      "sources": 4,
+      "sources": 4
+    },
+    {
       "adjacent_edges": 2,
+      "configs_per_horizon": 16,
       "gap_domain": [
         0,
         3
       ],
+      "h5_classes": 16,
       "horizons": [
         0,
         5
       ],
-      "configs_per_horizon": 16,
-      "h5_classes": 16
-    },
-    {
       "lanes": [
         [
           0,
@@ -144,20 +156,20 @@
           3
         ]
       ],
-      "sources": 4,
-      "adjacent_edges": 2,
+      "sources": 4
+    },
+    {
+      "adjacent_edges": 0,
+      "configs_per_horizon": 1,
       "gap_domain": [
         0,
         3
       ],
+      "h5_classes": 1,
       "horizons": [
         0,
         5
       ],
-      "configs_per_horizon": 16,
-      "h5_classes": 16
-    },
-    {
       "lanes": [
         [
           0
@@ -172,24 +184,12 @@
           3
         ]
       ],
-      "sources": 4,
-      "adjacent_edges": 0,
-      "gap_domain": [
-        0,
-        3
-      ],
-      "horizons": [
-        0,
-        5
-      ],
-      "configs_per_horizon": 1,
-      "h5_classes": 1
+      "sources": 4
     }
   ],
   "state_horizon_configurations": 804,
-  "direct_vs_gap_language_checks": 804,
-  "checked_legal_graded_transitions": 2140,
+  "status": "PASS",
+  "suite": "X6_FIXED_LANE_TRUNCATED_GAP_TYPED_BOOLEAN_BRC",
   "total_labeled_branch_word_observations": 121355,
-  "unbounded_gap_horizon_counterexample": "two sources with gap h versus h+1 have identical L_h but distinct L_(h+1), witness rear^(h+1); all h>=0",
-  "general_theorem_status": "proved symbolically in accompanying note; finite suite is corroboration"
+  "unbounded_gap_horizon_counterexample": "two sources with gap h versus h+1 have identical L_h but distinct L_(h+1), witness rear^(h+1); all h>=0"
 }
