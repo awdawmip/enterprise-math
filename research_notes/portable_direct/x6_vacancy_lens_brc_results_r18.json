@@ -1,0 +1,102 @@
+{
+  "schema": "X6_LENS_VACANCY_BRC_RESULT_V1",
+  "status": "PASS",
+  "six_signed_directions": 12,
+  "case_r_min": 1,
+  "case_r_max": 7,
+  "model": "labelled nearest-neighbour vacancy moves on chart-relative Z^6, Boolean ordered source/Port support",
+  "formula_population": "N6(r)+N5(r)",
+  "formula_Nd": "sum(j=0..min(d,r), 2^j*C(d,j)*C(r,j))",
+  "cases": [
+    {
+      "r": 1,
+      "distinguishing_depth": 2,
+      "full_six_dim_population": 24,
+      "former_ball_population": 85,
+      "saved_sources": 61,
+      "verified_common_prefix": 1,
+      "final_event_P_legal": true,
+      "final_event_Q_legal": false,
+      "checked_L1_all_signed_events": {
+        "equal": true,
+        "legal_count": 222
+      }
+    },
+    {
+      "r": 2,
+      "distinguishing_depth": 3,
+      "full_six_dim_population": 146,
+      "former_ball_population": 377,
+      "saved_sources": 231,
+      "verified_common_prefix": 2,
+      "final_event_P_legal": true,
+      "final_event_Q_legal": false,
+      "checked_L1_all_signed_events": null
+    },
+    {
+      "r": 3,
+      "distinguishing_depth": 4,
+      "full_six_dim_population": 608,
+      "former_ball_population": 1289,
+      "saved_sources": 681,
+      "verified_common_prefix": 3,
+      "final_event_P_legal": true,
+      "final_event_Q_legal": false,
+      "checked_L1_all_signed_events": null
+    },
+    {
+      "r": 4,
+      "distinguishing_depth": 5,
+      "full_six_dim_population": 1970,
+      "former_ball_population": 3653,
+      "saved_sources": 1683,
+      "verified_common_prefix": 4,
+      "final_event_P_legal": true,
+      "final_event_Q_legal": false,
+      "checked_L1_all_signed_events": null
+    },
+    {
+      "r": 5,
+      "distinguishing_depth": 6,
+      "full_six_dim_population": 5336,
+      "former_ball_population": 8989,
+      "saved_sources": 3653,
+      "verified_common_prefix": 5,
+      "final_event_P_legal": true,
+      "final_event_Q_legal": false,
+      "checked_L1_all_signed_events": null
+    },
+    {
+      "r": 6,
+      "distinguishing_depth": 7,
+      "full_six_dim_population": 12642,
+      "former_ball_population": 19825,
+      "saved_sources": 7183,
+      "verified_common_prefix": 6,
+      "final_event_P_legal": true,
+      "final_event_Q_legal": false,
+      "checked_L1_all_signed_events": null
+    },
+    {
+      "r": 7,
+      "distinguishing_depth": 8,
+      "full_six_dim_population": 27008,
+      "former_ball_population": 40081,
+      "saved_sources": 13073,
+      "verified_common_prefix": 7,
+      "final_event_P_legal": true,
+      "final_event_Q_legal": false,
+      "checked_L1_all_signed_events": null
+    }
+  ],
+  "strict_same_depth_witness": {
+    "population": 4,
+    "distances": [
+      1,
+      1
+    ],
+    "L1_equal": true,
+    "L2_differs": true
+  },
+  "universal_proof_status": "mathematical proof in companion MD; checks are finite"
+}
