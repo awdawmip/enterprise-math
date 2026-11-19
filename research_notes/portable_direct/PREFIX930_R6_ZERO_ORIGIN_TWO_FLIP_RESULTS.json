@@ -1,0 +1,71 @@
+{
+  "schema": "PREFIX930_ZERO_ORIGIN_TWO_FLIP_EXACT_UNION_V1",
+  "date": "2026-11-19",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "AUXILIARY_NAMED_XOR_TWO_PORT",
+  "N": 4294967296,
+  "Q": {
+    "min": 262145,
+    "max": 524287,
+    "step": 2,
+    "count": 131072
+  },
+  "W": {
+    "definition": "b=abs((a XOR 2^j)-2^i), a,b in Q, 0<=i,j<=18",
+    "raw_witness_parameters": 35782672,
+    "unique_oriented_pairs": 29360142,
+    "sha256_sorted_uint64le": "b7d00da2269ac6d56ca1c612e9526a81a11aa8f47840db74780523a4e90ffba6",
+    "sorted_binary_size_bytes": 234881136
+  },
+  "prior": {
+    "PREFIX929_certified_union": 7505960064,
+    "PREFIX928_U_count": 5295478,
+    "PREFIX928_U_sha256": "15534b09fa696b5cbeba46f7f644d75c2c3f99b719a88071150fa91357f22bad"
+  },
+  "intersections": {
+    "BZS": 13072459,
+    "U_outside_BZS": 8689,
+    "V_outside_BZS_U": 61146,
+    "net_new": 16217848
+  },
+  "result": {
+    "new_union": 7522177912,
+    "complement": 9657691272,
+    "total": 17179869184
+  },
+  "explicit_new_witness": {
+    "a": 316609,
+    "b": 447679,
+    "i": 1,
+    "j": 17,
+    "traces": [
+      [
+        0,
+        2
+      ],
+      [
+        316609,
+        447681
+      ]
+    ],
+    "observations": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        2
+      ]
+    ]
+  },
+  "verification": {
+    "cpp": "actual exact enumerator with direct XOR remainder validation, sorted U merge",
+    "python": "actual independent NumPy vectorized integer enumerator, searchsorted",
+    "all_counts_agree": true,
+    "sorted_output_binary_identical": true,
+    "full_binary_byte_comparison": true,
+    "independent_review": "NOT_DONE",
+    "formal_admission": "NOT_ADMITTED"
+  }
+}
