@@ -1,0 +1,115 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-19",
+  "unit": 151,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "frozen_science_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "claims": [
+    {
+      "id": "X6-U151-HISTORIC-R061-TRIANGLE-OBSERVER-GAUGE",
+      "historical_source": {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "path": "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
+        "git_blob_sha1": "58ccac6d8b88dcfd91a0a6017ca7b29187b4e7b0",
+        "lines": "175-197,199-231,233-253"
+      },
+      "current_source": {
+        "repository": "awdawmip/enterprise-math",
+        "ref": "main",
+        "path": "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
+        "git_blob_sha1": "875e3b274e5be03c5872f782872065a0b96d14eb"
+      },
+      "historical_claim": "Native positive/min-zero triangle inequality under directed gauge",
+      "theorem": {
+        "domain": "Z^3 / Z(1,1,1) derived quotient",
+        "triangle": "F(x+y)<=F(x)+F(y) for F(z)=||can3(z)||_2",
+        "kernel": "ZD",
+        "sharp_reverse_ratio": "1/sqrt(2)<=F(-z)/F(z)<=sqrt(2) for z not in ZD",
+        "sharp_examples": [
+          "(0,0,b), b>0 gives sqrt(2)",
+          "(0,b,b), b>0 gives 1/sqrt(2)"
+        ],
+        "native_comparison": "G(z)=sum z_i^2 is reversal symmetric and not defined on quotient"
+      },
+      "finite_certificate": {
+        "vector_count": 343,
+        "ordered_pair_count": 117649,
+        "nonzero_class_vectors": 336,
+        "python_modes": [
+          "normal",
+          "-O",
+          "-OO"
+        ],
+        "stdout_sha256": "85f2138382b5612200b3b13094c49e10e5327563fa2b60d9bbb5b776105159b4",
+        "historical_script_executed": false,
+        "original_R063_benchmark_executed": false
+      },
+      "verified_artifacts": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "f6304d55f60420bfa4bfbc0b59a2b40b9dccd6bf",
+          "path": "research_notes/X6_UNIT151_R061_RELATIVE_TRIANGLE_GAUGE_SHARP_REVERSAL_AUDIT_20261119.md",
+          "git_blob_sha1": "76f49b2911de2de9165c3b0d80b47909a8e67dc8"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "817fc1e50f321bbdca9ae04649597ec57db1713d",
+          "path": "research_checks/X6_UNIT151_R061_RELATIVE_GAUGE_TRIANGLE_REVERSAL_CHECK_20261119.py",
+          "git_blob_sha1": "3440d20d183edb4ec633349bdbfa1c5ede837d2c"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "d180590e8c88b4662b0a5e8049624f1d564cb0dc",
+          "path": "research_checks/X6_UNIT151_R061_RELATIVE_GAUGE_TRIANGLE_REVERSAL_RESULTS_20261119.json",
+          "git_blob_sha1": "cfaf02727d15e2b4b4dc404e29a761f785485b2c"
+        }
+      ],
+      "disposition": [
+        "PRESERVE_OBSERVER",
+        "SUPERSEDE_AS_NATIVE",
+        "NO_CURRENT_PATCH_REQUIRED"
+      ],
+      "scope": "bounded precise historical R061 triangle formula; not full 28-LP audit",
+      "downstream": [
+        "historic R061 arbitrary-point directed observer",
+        "current retyped R061 observer gauge",
+        "derived diagonal displacement quotient"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "LP011",
+      "status": "UNRESOLVED_PROVENANCE",
+      "needed": "actual frozen historical signed argmax erroneous caller commit:path:line if any"
+    },
+    {
+      "id": "LP019",
+      "status": "UNRESOLVED_PROVENANCE",
+      "needed": "actual frozen historical N-BRC subtraction erroneous caller commit:path:line if any"
+    },
+    {
+      "id": "R063_NATIVE_BENCHMARK",
+      "status": "NOT_RERUN_THIS_UNIT"
+    }
+  ],
+  "native_control": {
+    "through_unit": 148,
+    "source_commit": "9e80d79f719d17053397f00f4eebdbafbfd5133f",
+    "unit149_original_request": "onhour-20261119-1000-x6-own-unit149-native-progress-v1",
+    "unit149_status": "FAILED",
+    "unit149_error": "GITHUB_PRIMARY_RATE_LIMIT",
+    "unit150_native": "NOT_SUBMITTED",
+    "unit151_native": "NOT_SUBMITTED",
+    "continuation_request": "onhour-20261119-1021-x6-own-cont-after-unit148-149-rate-v1",
+    "continuation_at_note": "QUEUED"
+  },
+  "review": "NOT_REVIEWED",
+  "admission": "NOT_ADMITTED",
+  "next_exact_action": "Consume original continuation receipt, verify present winning owner/RUN/generation, and resolve FAILED Unit149 through permitted current native contract without replay; link already-published author Units149-151 when authorized, continue concrete 28-LP source consumers."
+}
