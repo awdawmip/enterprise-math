@@ -1,0 +1,122 @@
+# Weil 紧窗中同时增宽低模与截断响应的谱代价
+
+在 $4/5\le L\le(\log5)/2$ 的原 Weil 形上，删除序号 $j\ge J$ 的正边界响应，再把误差限制到前 $m$ 个模态。两个奇偶扇区都满足：当 $J\to\infty$，这部分算子误差趋零**当且仅当 $m=o(J)$**。若 $m/J$ 趋于有限正常数，误差具有显式非零积分核；若 $m/J\to\infty$，误差范数趋于 $\pi/2$，超过任一固定阈值的独立方向数与 $\log(m/J)$ 成正比。固定八个低模时可忽略的响应，在逐渐增宽的低模空间上可以保留整段谱。
+
+本题的对象是 Li 半区间正响应在低模上的真实压缩 $P_mS_JP_m$。第16轮给出全窗的补块强制正性及固定低模估计；第63轮给出全响应尾范数、固定 $m$ 的各阶奇异值和逆补块回代；第101轮移动的是区间半径 $L$。本篇计算验证头宽和响应截断同步变化的误差。完整 Schur 证书另需保留素数平移、极点和补逆的交叉项。[登记任务](https://github.com/awdawmip/enterprise-math/blob/36c0fa4628b0d3112d8c920823a9057b98d31eea/research_tasks/RH_WEIL_L5_SCHUR_CERT_20260909.md) · [Li 原文 v2，§§2–3](https://rstation.ai/problems/riemann_hypothesis/papers/45/v2) · [第16轮](../sixteenth/weil.md) · [第63轮](../sixtythird/weil.md) · [第101轮](../hundredfirst/weil.md)
+
+## 一、原来的半格与过渡积分核
+
+以 $\epsilon=+1,-1$ 分别表偶、奇，写 $c_j=2j+1/2$，$s=L-x$。源响应为
+$$r_j(L-s)=\frac{e^{-c_js}+\epsilon e^{-c_j(2L-s)}}{\sqrt{1-\epsilon e^{-2c_jL}}},\qquad S_J=\sum_{j\ge J}r_j\otimes r_j .$$
+第 $q$ 个头模满足 $e_q(L-s)=b_q\cos(k_q s)$，其中 $k_q=(q+\tfrac12\mathbf1_{\rm odd})\pi/L$，$|b_q|=\sqrt{2/L}$，唯偶扇区 $q=0$ 有 $b_0=L^{-1/2}$。反射第二段再积分得
+$$
+ \langle e_q,r_j\rangle=b_q\sqrt{1-\epsilon e^{-2c_jL}}\,
+                         \frac{c_j}{c_j^2+k_q^2}.
+$$
+去掉列的固定符号 $\operatorname{sgn} b_q$ 是等距换基。令
+$$
+ \Delta=\frac{\pi}{2LJ},\quad B=(m-\tfrac12\mathbf1_{\rm even})\Delta,\quad
+ k(t,r)=\frac{1}{\sqrt\pi}\frac{t}{t^2+r^2}
+ \quad(t\ge1,\ 0<r<B).
+$$
+令 $A_B$ 具有核 $k(t,r)$，从 $L^2(0,B)$ 映到 $L^2(1,\infty)$，$K_B=A_B^*A_B$。其对称正核有闭式
+$$
+ K_B(r,s)=\frac1\pi\int_1^\infty
+       \frac{t^2\,dt}{(t^2+r^2)(t^2+s^2)}
+   =\frac{s\arctan s-r\arctan r}{\pi(s^2-r^2)}.                      \tag{1}
+$$
+对角值由连续延拓给出。
+
+**统一近似。** 将真算子 $G=P_mS_JP_m$ 以分片常数等距嵌入 $L^2(0,B)$，在正交余空间补零。则在整个原紧窗、任意 $J,m\ge1$ 上均有
+$$
+ \|G-K_B\|\le 13/J,\qquad
+ \|G-K_B\|_1\le\frac5J\left(2\sqrt{\operatorname{Tr}K_B}+\frac5J\right),
+ \qquad |\operatorname{Tr}G-\operatorname{Tr}K_B|\le 33/J.             \tag{2}
+$$
+符号 $\|\cdot\|_1$ 表迹范数。特别是 $B\to B_0\in(0,\infty)$ 时（将各核零延拓到正半轴），有迹范数收敛及逐个特征值收敛。若 $L$ 也改变，直接用实际的 $B$ 读 (1)–(2)。
+
+证明时把响应轴按 $[j/J,(j+1)/J)$ 剖分，采样于 $t_j=(j+1/4)/J$。奇头轴采于 $r_q=(q+1/2)\Delta$，格宽均为 $\Delta$；偶头轴采于 $q\Delta$，从零到 $\Delta/2$ 的首格仅半宽，余格各宽 $\Delta$。以单位化区间指示函数为基，源系数恰为 $\sqrt{|I_j||I_q|}$ 乘
+$\sqrt{1-\epsilon e^{-4LJt_j}}\,k(t_j,r_q)$。因此对应分片常数算子 $A^{\rm step}$ 的 Gram 算子严格等于嵌入的 $G$。首格宽度恰好解释偶常数模的归一。
+
+有 $\sqrt\pi|\nabla k|=1/(t^2+r^2)$。格内采样位移小于 $\sqrt2/J$，连接线段的纵坐标至少为1；原点到格点及线段内点的距离之比至多 $1+\sqrt2$。故未加镜像权的逐点误差至多 $9/(\sqrt\pi J(t^2+r^2))$。镜像因子至多 $\sqrt2$，与 1 的距离至多 $e^{-2LJt}$（用 $t_j\ge t/2$）。由
+$$
+ \int_1^\infty\!\int_0^\infty (t^2+r^2)^{-2}\,dr\,dt=\pi/8,\qquad
+ \int_0^\infty k(t,r)^2dr=1/(4t)
+$$
+得 $\|A^{\rm step}-A_B\|_{\rm HS}\le5/J$。这里两项分别至多 $9/(2J)$ 和 $e^{-2LJ}/\sqrt{16LJ}$。第63轮的尖范数给 $\|A^{\rm step}\|\le\sqrt{\pi/2}$，下节的全半轴比较给 $\|A_B\|\le\sqrt{\pi/2}$。展开两 Gram 之差即得前两界。单独估计迹时令 $D=A^{\rm step}-A_B$，第一次几何误差的绝对交项 $|\langle A_B,D\rangle_{\rm HS}|$ 至多 $13/(4J)$，用 $\int_1^\infty\int_0^\infty t(t^2+r^2)^{-2}dr\,dt=\pi/4$；另有镜像交项至多 $1/(8LJ)$。加上 $\|D\|_{\rm HS}^2$ 得 (2) 末界。所有积分可直接延至 $r=\infty$，故常数与 $m$ 无关。
+
+## 二、窄头、全半轴和精确迹
+
+设 $\operatorname{Ti}_2(B)=\int_0^B\arctan r\,dr/r$。由 (1) 的对角值
+$$
+ K_B(r,r)=\frac{\arctan(r)/r+1/(1+r^2)}{2\pi},\qquad
+ \operatorname{Tr}K_B=\frac{\operatorname{Ti}_2(B)+\arctan B}{2\pi}.     \tag{3}
+$$
+$B\downarrow0$ 时核一致趋于 $1/\pi$，故 $\|K_B\|\sim B/\pi$。对原算子即使 $m$ 固定也有相对估计
+$$
+ \|P_mS_JP_m\|=
+ \frac{m-\frac12\mathbf1_{\rm even}}{2LJ}
+       \left[1+O\big(J^{-1}+(m/J)^2\big)\right]\qquad(m=o(J)).
+$$
+因为源 Gram 各正条目都等于 $|b_q b_l|\sum_{j\ge J}c_j^{-2}$ 乘 $1+O((m/J)^2+e^{-4LJ})$，而该级数为 $1/(4J)+O(J^{-2})$。正秩一矩阵的范数及逐项比较给出结论。
+
+在 (1) 中把积分下限降至零，得到半 Carleman 核 $1/[2(r+s)]$；所加项是正 Gram 算子。换 $r=e^u$ 并在对数坐标等距化，半 Carleman 核成为 $c(u-v)=1/[4\cosh((u-v)/2)]$，其 Fourier 乘子为
+$$
+ \sigma(\xi)=\pi/(2\cosh(\pi\xi)).
+$$
+故 $K_B$ 的范数至多 $\pi/2$。对每个有限 $B>0$ 实际严格小于此值：$K_B$ 是非零正迹类算子，最大值由单位向量达到；将该向量零延拓后，乘子仅在单个零测点取到最大值。正核在全部 $r,s>0$ 均严格正，故 $\|K_B\|>0$ 并随 $B$ 严格增加（对旧正特征函数零延拓后加小量正的新段）。下节给出它趋于 $\pi/2$ 的速度。因而 (2) 还排除了 $m/J$ 不趋零而 $\|G\|\to0$ 的任一序列。[Carleman–Mellin 对角化的原窗口应用](../sixtythird/weil.md)
+
+由 $\operatorname{Ti}_2(B)=\frac\pi2\log B+\operatorname{Ti}_2(1/B)$ 与反正切恒等式，
+$$
+ \operatorname{Tr}K_B=\tfrac14\log B+\tfrac14+
+             \frac{1}{9\pi B^3}+O(B^{-5})\quad (B\to\infty).
+$$
+故原有限头的迹是 $\frac14\log B+\frac14+O(B^{-3}+J^{-1})$，适用于任意 $B\to\infty,\ J\to\infty$。这一常数来自真实的下限 $t=1$。
+
+## 三、超过指定阈值的方向数及前几个谱值
+
+若 $N(T;\lambda)$ 表正紧算子 $T$ 严格大于 $\lambda$ 的特征值个数（含重数），则对 $0<\lambda<\pi/2$，
+$$
+ \lim_{B\to\infty}\frac{N(K_B;\lambda)}{\log B}
+ =\frac1{\pi^2}\operatorname{arcosh}\frac{\pi}{2\lambda}.
+                                                                         \tag{4}
+$$
+在联合极限 $J\to\infty,\ m/J\to\infty$，真头 $G$ 满足完全相同的 (4)。它同时给出把指定压缩尾近似至算子误差 $\le\lambda$ 所需的最小秩的首项，由正紧算子的极小极大原理得到。
+
+为证 (4)，仅在此段取 $B>1,\ T=\log B$。删去 $r<1$ 的自块需 $O(1)$ 迹范数，因为其迹由 (3) 有界；两个交叉块的迹范数为 $O(\sqrt{1+T})$，这是因子两段的 Hilbert–Schmidt 范数之积。对高块 $1<r<B$ 补上 $0<t<1$ 的核需要 $O(1)$ 迹范数（正余项的对角至多 $1/(3\pi r^4)$）。所以替换为长 $T$ 的截卷积 $c$ 后，各固定正整数阶矩除以 $T$ 的误差趋于零。对 $n\ge2$，沿卷积闭路径先积基点，所得区间长为 $(T-\mathrm{span})_+$；其余 $n-1$ 个位移上的卷积指数可积，故
+$$
+ T^{-1}\operatorname{Tr}(c_{[0,T]})^n
+     \longrightarrow (2\pi)^{-1}\int_{\mathbb R}\sigma(\xi)^n\,d\xi .
+$$
+一次矩直接由对角值给出。对远离零的连续函数，用多项式逼近其除以自变量所得的连续函数，再用一次矩作误差控制。乘子在 $(0,\pi/2)$ 各水平集中无正测度，夹逼阈值指示函数即得 (4)。向有限源传递时用 (2) 的 $13/J$ 移动上下阈值。这是经典截卷积谱分布在原归一化下的应用。
+
+对固定 $j\ge1$，还能读出靠近上端的第 $j$ 个谱值（按降序）：
+$$
+ (\log B)^2\bigl(\tfrac{\pi}{2}-\lambda_j(K_B)\bigr)
+       \longrightarrow \frac{\pi^5 j^2}{4}.
+                                                                         \tag{5}
+$$
+对真 $G$，若 $B\to\infty$ 且 $(\log B)^2=o(J)$，(5) 亦成立。证明先在对数半 Carleman 窗上完成。长度 $T$ 的窗拉回到 $(0,1)$ 并对向量零延拓；其缩放亏损二次型的乘子是 $T^2(\sigma(0)-\sigma(\xi/T))$。它逐点趋于 $(\pi^3/4)\xi^2$，且夹在 $c_1\min(\xi^2,T^2)$ 和 $c_2\xi^2$ 之间，$c_1,c_2>0$。用前 $j$ 个 Dirichlet 正弦模及支配收敛给极小极大上界。反向取前 $j$ 个亏损特征向量；有界缩放能量使 $|\xi|>R$ 的 Fourier 平方尾在 $T\ge R$ 时一致为 $O(R^{-2})$，空间支撑固定，故可取强 $L^2$ 收敛子列。有限频段取极限再令 $R$ 增大，给出的下极限至少是零延拓极限函数的 Dirichlet 能量，极限的 $j$ 个向量仍正交。Dirichlet 特征值于是给 $\pi^5j^2/4$。
+
+最后取 $s=8\log T$。对 $K_B$ 的上界可删去 $r<e^{-s}$ 的输入和输出，自块迹为 $O(e^{-s})$，交叉范数 $O(e^{-s/2})$；剩余算子受长度 $T+s$ 的半 Carleman 窗控制。下界限制于 $r>e^s$，与长度 $T-s$ 的半 Carleman 窗相差至多 $O(e^{-3s})$ 的正迹。这两个误差均为 $o(T^{-2})$，且 $(T\pm s)/T\to1$，故 (5) 成立。
+
+## 四、双端真实响应的区间复算
+
+下表给定 $L=4/5$。有限头的区间直接由原 $\langle e_q,r_j\rangle$ 包含所有 $j\ge J$，列出的是 $\|P_mS_JP_m\|$。
+
+| $J$ | $m$ | 偶扇区 | 奇扇区 |
+|---:|---:|---:|---:|
+| 8 | 8 | [0.407723, 0.407724] | [0.421933, 0.421934] |
+| 32 | 32 | [0.413167, 0.413168] | [0.416637, 0.416638] |
+| 32 | 128 | [0.690296, 0.690297] | [0.690957, 0.690958] |
+| 64 | 8 | [0.072682, 0.072683] | [0.077406, 0.077407] |
+
+在同一端点，$m/J\to1,4$ 的两个过渡极限，由128格正核上下比较分别包在 $[0.413385,0.416428]$ 和 $[0.681941,0.697374]$；后者的精确迹落在 $[0.765327,0.765328]$。核的范数与迹在临界窗中已可分辨。回执另含 $L=(\log5)/2$ 的同组检查。
+
+计数误差独立于任何截断经验。有限源先逐项去掉已知列号反号。暂取镜像权为1，令 $a=J+1/4$ 与 $H(k)=\frac{k}{2}\Im\psi(a+ik/2)$。非对角 Gram 条目是 $|b_qb_l|[H(k_l)-H(k_q)]/(k_l^2-k_q^2)$，对角取导数极限。这来自把 $H(k)=k^2\sum_{j\ge J}(c_j^2+k^2)^{-1}$ 作部分分式。真实镜像权把整个正 Gram 算子夹在该算子乘 $1-e^{-2Lc_J}$ 与1（偶）或1与 $1+e^{-2Lc_J}$（奇）之间。以正向量逐行夹 Perron 根，使用浮点迭代只为选正向量，最后全部不等式用 128 位 Arb 球重算。另在每个有限样本的三个条目直接累加源级数512项，以 $\sum c_j^{-2}$ 的积分上下界包住无穷余尾；八个原始端口还从源实空间响应以2048个有界小区间独立积分。连续核沿两坐标单调递减，128格左右端点常值核给出上述严格包围。谱边和谱计数的极限由证明给出。
+
+在可导入 python-flint 的 Python 环境中执行以下命令。可加 `--li-source 原文.md` 对照原 v2 Markdown 的冻结摘要。这里得到截断正响应的误差与成本，原形的全头 Schur–Bernstein 证书仍保留自己的验收条件。[复算程序](weilwindow_check.py) · [全部区间与端点输出](weilwindow_checked.json)
+
+~~~sh
+python3 weilwindow_check.py | cmp - weilwindow_checked.json
+~~~
