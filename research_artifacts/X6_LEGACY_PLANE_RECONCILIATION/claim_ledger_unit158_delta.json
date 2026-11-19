@@ -1,0 +1,73 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "unit": 158,
+  "date": "2026-11-19",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "author": "EM-X6-FB6990",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "science_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "SOURCE_AUDITED/EXACT_FORMULA_CHECK_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+  "source_edges": [
+    {
+      "producer": "src/enterprise_math/p022_geodesic_multiplicity.py",
+      "blob": "46373050168d2430b6cb3952aa763f3081284632",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "symbols": [
+        "a_shell_total_geodesic_paths",
+        "a_geodesic_path_count",
+        "sc_geodesic_path_count"
+      ],
+      "producer_lines": [
+        62,
+        97,
+        171,
+        203
+      ],
+      "consumer": "tests/test_p022_geodesic_multiplicity.py",
+      "consumer_blob": "ef3da1a789186867c538b604da1b642bf6039591",
+      "consumer_lines": [
+        109,
+        130,
+        141
+      ],
+      "operator_type": "EXISTING_DERIVED_AP_ROOT_PATH_MULTIPLICITY_PRODUCER_TEST_CONSUMER"
+    },
+    {
+      "producer": "src/enterprise_math/lattice_geometry.py",
+      "blob": "825ee26c918a4d7007e280aeaa1d7b750cd46aba",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "symbols": [
+        "a_coordinator_shell_count"
+      ],
+      "producer_lines": [
+        75,
+        82
+      ],
+      "consumer": "tests/test_lattice_geometry.py",
+      "consumer_blob": "304ff8e769f93fa0e96a03c1ffe89960ea5dd622",
+      "operator_type": "DISTINCT_AP_ROOT_ENDPOINT_SHELL"
+    }
+  ],
+  "finding": "Existing P022 a_shell_total_geodesic_paths already equals Unit157 W_A via T(m,a)=a!S(m,a); existing P022 endpoint factorial counts imply binom(2m,m) typed standard-axis lift. Correct novelty classification: SOURCE_REUSE_AND_TYPE_BRIDGE, not new independent root-weighted-shell formula.",
+  "checked": {
+    "onto_stirling": 78,
+    "n_m_formula_pairs": 63,
+    "n_range": "2..8",
+    "m_range": "0..8",
+    "six_dim_new_radius": "5..8",
+    "stdout_sha256": "e55725ccf288f20fa449599c287406325dd41d91b86efb28bda7de60cd904ca1",
+    "original_p022_tests_rerun": false,
+    "original_r063_rerun": false
+  },
+  "native_status": {
+    "unit157_request": "onhour-20261119-1530-x6-own-unit157-weighted-shell-native-progress-v1",
+    "unit157_status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "c16945a91dbe0eb6be383a4db222d4b2d9b9a42b",
+    "event_id": 7002944633,
+    "unit149_terminal_failed": "GITHUB_PRIMARY_RATE_LIMIT",
+    "units149_152_association": "PENDING"
+  },
+  "next_action": "Trace actual remaining 28-LP production callers, validate requested observer types, report real LP011/LP019 commit:path:line or retain UNRESOLVED_PROVENANCE"
+}
