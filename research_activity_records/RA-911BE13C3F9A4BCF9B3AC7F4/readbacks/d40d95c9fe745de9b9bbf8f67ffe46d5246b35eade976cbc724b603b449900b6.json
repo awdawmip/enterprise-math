@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/seventyfourth/README.md",
+    "ref": "4cb5cbccfaa386790d82f99290135ad3135e1125",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-seventyfour-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第七十四轮　有限阿贝尔群映射的最优探针与交替响应的最短识别期\n\n## 读取一个数，要多少次才能确定整个映射\n\n设 $P=\\bigoplus_i C_{p^{a_i}}$、$G=\\bigoplus_j C_{p^{e_j}}$ 为已知有限阿贝尔 $p$ 群，$G\\ne0$。要辨认未知同态 $f:P\\to G$，一次可自由选 $u,v$，得到 $v-f(u)$ 的阶的以 $p$ 为底的对数。每次均从同一已校准历史试探。写 $r_h=\\#\\{i:a_i\\ge h\\}$、$d_h=\\#\\{j:e_j\\ge h\\}$，并令 $G[p^a]$ 表示被 $p^a$ 消去的子群。\n\n即使允许每次混合多个输入坐标，自适应辨认的最坏最少次数仍精确为\n$$\n    \\sum_{h\\ge1} r_h(p^{d_h}-1).\n$$\n只读取本次缺陷是否增长也足以取等。若所有探针都须一次选定，而每针能读完整标量，则最少需要 $(1-|G[p]|^{-1})\\sum_i |G[p^{a_i}]|$ 次。对于 $P=G=C_2\\oplus C_4$ 的 32 个不同同态，自适应需 7 次，一次性完整读数需 9 次，一次性二元读数需 10 次。三项均已穷举最坏情况。前两条一般公式的下界来自目标 $p$ 阶子群的直线分解和陪集覆盖，再由实际矩阵读数与逐层算法实现。[精确定理与适用的原始探针](probes.md) · [复算器](probes_check.py) · [结果](probes_checked.json)\n\n## 入、出两种交替响应在多少层后可以区分\n\n在 W59A 三令牌事件历史上附加整数边权 $a,b$，固定零边界，再问哪些模读数足以恢复这两个权。若只给各模数下的谐和势总数，单个偶长度实验保证恢复无序权对至少要 6 层；若还能按势数结果选择模数，读取可达的共同流，4 层已足。若再把指定的内部势与其有向流成对读取，2 层即可恢复有序权对。四层时只读势数，$(1,5)$ 和 $(2,3)$ 在全部模数下都给出同一答案。\n\n这份结果研究已声明的整数观察协议，绝对物理时长仍待独立标定。本文作为 W59A 的独立算术分支发表，不增加该任务的登记访问计数。[一般层权的 Smith 因子与有向流公式](clock.md) · [原事件复算](clock_check.py) · [结果](clock_checked.json)\n\n截至 2026-11-19 02:54:22 UTC，累计直接研究 226 个登记任务，覆盖 51 个父方向。本轮复访 R004 的实际目标缺陷探针，W59A 整数观察作为独立算术分支发表。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 37、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/4cb5cbccfaa386790d82f99290135ad3135e1125/research_notes/portable_direct/20261118_fair_queue_6b0fba/seventyfourth/README.md",
+      "encoding": "utf-8",
+      "sha": "20bfc7ac77711b57ac9d5b24eecc3656b6a8ce73"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
