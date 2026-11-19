@@ -1,0 +1,63 @@
+# X6 R14: finite-horizon signed Port interaction components and exact two-source information law
+
+Date: 2026-11-19 (Asia/Shanghai). Scientific status: **author-side conditional theorem with reproducible finite Boolean-BRC checks; NOT_REVIEWED**. Research task \`RS-X6-NATIVE-TIME-DYNAMICS\`, publication \`TP2-91D4A7C2F63805BE21A3\`. Preserves frozen science \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\` and P000: native X6 signed Cell torsor, 6 spatial axes/12 signed primitive directions, separately typed time and nonzero primitive triadic force closure. **This is not a proof of the native TRIADIC_CLOSURE_E transition permission**; it is an exact result in the explicitly declared occupancy-only candidate event model.
+
+## Problem and scope
+
+R13 proved a minimal finite-horizon clipped-gap state when each source moves only forward along a fixed axis and source lane/order do not change. Here all twelve signed axis directions can be attempted, source order can change, and the number of labelled sources is arbitrary.
+
+Fix a finite source set \`S={1,...,n}\` whose Cell positions \`p_s\` are distinct points in an affine torsor over \`Z^6\`. Coordinates are **signed relative displacement charts**, not final public nonnegative Cell addresses. Event alphabet \`(s,u)\`, with \`u in {+e_1,-e_1,...,+e_6,-e_6}\`, attempts to move exactly source \`s\` by one native axis step. In this **conditional** model the event is legal iff its target Cell is unoccupied. No diagonal primitive move, non-vacancy Link guard, signed amplitude or physical heartbeat interval is assumed. The Boolean BRC carrier retains every full source/Port/direction-labelled legal word of length at most \`h\`; call that exact prefix-closed language \`L_h(p)\`.
+
+Let \`d(p,q)=sum_{i=1}^6 |p_i-q_i|\` denote **minimum number of signed native-axis steps**, not an identification with the P000 component-squared geometric readout or an external Euclidean metric.
+
+## Theorem R14.1: two sources admit an exact minimal state
+
+For \`n=2\`, let \`Delta=p_2-p_1 !=0\`. Define
+\`\`\`
+tau_h(Delta) = Delta   if d(0,Delta)<=h,
+             = FAR     otherwise.
+\`\`\`
+Then \`L_h(Delta)=L_h(Delta')\` **if and only if** \`tau_h(Delta)=tau_h(Delta')\`.
+
+**Proof.** A collision at event number \`t<=h\` requires a total relative displacement correction equal to the original separation; \`t\` signed unit moves have step distance at most \`t\`. Therefore no two initially more than \`h\` steps apart can collide in the entire observation window: all words are legal and form the \`FAR\` class. Equal relative vectors yield equal languages by common-translation equivariance.
+
+For the reverse implication suppose two signatures differ. Select a visible vector \`v\` among the two with **smallest** step distance \`d<=h\`. Follow a shortest signed-axis path of \`d\` moves of **source 1 alone** towards source 2's initial Cell in the configuration with vector \`v\`. All proper prefixes are legal and the final step collides, hence this length-\`d\` word is forbidden there. In the other configuration, its source-2 vector has strictly larger step distance, or equal step distance but a *different vector*. It therefore cannot coincide with any target Cell on this shortest path (proper prefixes have distance below \`d\`, final target is \`v\`). The same word is fully legal there. This distinguishes any two unequal visible signatures. QED.
+
+**Exact bit law.** The admissible two-source signature classes are all \`Delta!=0\` with \`||Delta||_1<=h\`, plus one \`FAR\` class. Thus the number is the six-dimensional integer step-distance ball size
+\`\`\`
+C_2(h) = sum_{j=0}^{min(6,h)} 2^j * binom(6,j) * binom(h,j).
+b_2(h) = ceil(log2 C_2(h)).
+\`\`\`
+To count, choose \`j\` nonzero components, choose their signs, then choose positive magnitudes with sum at most \`h\`, which has \`binom(h,j)\` choices. The zero vector (which violates distinct-cell occupancy) is replaced in class count by \`FAR\`. Exact \`(h,C_2(h),b_2(h))\`: \`(0,1,0)\`, \`(1,13,4)\`, \`(2,85,7)\`, \`(3,377,9)\`, \`(4,1289,11)\`, \`(5,3653,12)\`, \`(6,8989,14)\`. This is a theorem for *all* X6 relative displacements, not a claim that the checker exhaustively listed them.
+
+## Theorem R14.2: n-source sufficient interaction-component signature
+
+At horizon \`h\`, construct graph \`G_h\` on source labels: join \`s,t\` iff \`d(p_s,p_t)<=h\`. For each connected component \`C\` retain (a) its complete source-label membership and (b) each six-component difference \`p_s-p_{min C}\` from its lowest-labelled anchor. **Discard translations between distinct connected components.** This canonical labelled representation is \`Sigma_h(p)\`.
+
+**Claim:** for all finite \`n\`, \`Sigma_h(p)=Sigma_h(q)\` implies \`L_h(p)=L_h(q)\`.
+
+**Proof.** A source-labelled event word uniquely determines the displacement of every source after each prefix. Two sources in distinct original components start at distance at least \`h+1\`; after at most \`h\` signed unit steps their Cell positions cannot coincide. Sources within a component have every initial pair difference reconstructible from its anchor-relative vectors, so whether a proposed next target collides with any same-component Cell is determined by \`Sigma_h\`. The other-component collision is always false. Induction over word length proves exact Boolean support equality. QED.
+
+For \`c\` components, the signature stores at most \`6(n-c)\` signed *coordinate values*, together with labelled component membership; unlike a full pairwise representation it omits every cross-component vector. An internal difference is bounded in step distance by \`(n-1)h\` along the component's spanning path. These are representation-size facts; binary bit costs and compression against all alternative sufficient representations remain unresolved for \`n>=3\`.
+
+## Theorem R14.3: deterministic graded update
+
+For \`h>=1\`, legality of action \`(s,u)\` is decidable from \`Sigma_h\`. Once it is legal, \`Sigma_{h-1}\` of the successor is a deterministic function of \`Sigma_h\` and the label. Namely: update the source's six-vector inside its currently known component, recompute all internal distances and the threshold-\`(h-1)\` connected subcomponents, and normalize each to its lowest-labelled anchor.
+
+**Proof.** Within each old component the exact relative positions are stored. An original intercomponent distance is at least \`h+1\` and decreases by at most one for a single event. It is therefore at least \`h\` after that event, still *strictly greater* than the new \`h-1\` threshold: components never merge on this graded horizon transition, though they may split. No missing intercomponent translation is needed to calculate the new signature. QED.
+
+The sufficient signature holds even when a source changes its prior transverse lane/order, but it is **not asserted globally minimal for n>=3**. Equivalence classes and minimum-state questions remain typed to full labelled future words.
+
+## Actual finite Boolean-BRC verification
+
+Files: \`x6_full_signed_interaction_graph_brc_verify.py\` and \`x6_full_signed_interaction_graph_brc_results.json\` in this directory. Run \`python3 research_notes/portable_direct/x6_full_signed_interaction_graph_brc_verify.py\`. The local run returned **PASS**, with complete permitted typed-word support constructed by labelled branch enumeration and actual Cell occupancy guard.
+
+- Pair sample: source 1 at zero and source 2 at all nonzero \`(x,y,0,0,0,0)\`, \`x,y in [-2,2]\`, plus \`(9,9,0,0,0,0)\`; 25 configurations, \`h=0,1,2,3\`, **369,172** cumulative legal-word observations. Independently checked **1,776** legal graded transitions. Sample signature/language class counts \`1,5,13,21\` respectively, limited by the selected input domain.
+- Three-source sample: all 120 ordered injections of three labelled sources into \`(-1,0),(0,0),(1,0),(0,1),(1,1),(-1,1)\` embedded in X6, \`h=0,1,2\`. **147,240** cumulative legal-word observations, **7,968** legal graded transitions. Observed signature and language class counts coincide (\`1,43,90\`), which does **not** prove universal n-source minimality.
+- Universal assertions are supported by the proofs above. Finite code does not establish any actual native signed Link/Port/triadic transition, any physical timing, or independent review.
+
+## Frontier and native admission test
+
+R14 supplies an explicit, future-safe multi-source state under **vacancy-only** permission. If a native move depends on \`TRIADIC_CLOSURE_E\`, Link incidence, Port occupancy, source history or other joint residual, two states with equal \`Sigma_h\` may still differ in native future permissions. These data cannot be dropped without a typed future-operation certificate. The next decisive test is an actual Source-pinned native \`TRIADIC_CLOSURE_E\` multi-Cell event with source, Port, Link, target, closure and ordered-event witness. Compare two admissible histories with equal \`Sigma_1\` and \`Sigma_2\` but distinct internal Link/Port state; establish whether the native label languages differ and, if so, the smallest typed memory repair. Preserve R11–R13 results and source authorship.
+
+**Control provenance:** Prior researcher \`EM-X6-214D9C\`; known Activity \`RA-545183ADD4EF71C3E4698AEE\`; original run \`RUN-0ae5e5a5f746550089b9fa11\`. A prior resume receipt was successful but is not automatically current authorization. Scientific GitHub preservation, portable Activity, native CLAIM/PROGRESS, Result and review are distinct effects.
