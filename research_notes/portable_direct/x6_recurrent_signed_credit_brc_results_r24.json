@@ -1,0 +1,358 @@
+{
+  "schema": "X6_R24_RECURRENT_SHARED_CREDIT_BOOLEAN_BRC_V1",
+  "model": "two signed Port moves per credit cycle, per-source grant cap u, one consumer cost q",
+  "checked_parameter_sets": 29,
+  "total_root_assignments": 270,
+  "total_memoized_labelled_states": 84642,
+  "total_explicit_witness_replays": 23582,
+  "all_pass": true,
+  "failures": [],
+  "notable": [
+    {
+      "u": 1,
+      "classes": 2,
+      "bit_minimum": 1,
+      "states_checked": 11344
+    },
+    {
+      "u": 2,
+      "classes": 12,
+      "bit_minimum": 4,
+      "states_checked": 13200
+    },
+    {
+      "u": 3,
+      "classes": 12,
+      "bit_minimum": 4,
+      "states_checked": 13200
+    },
+    {
+      "u": 4,
+      "classes": 16,
+      "bit_minimum": 4,
+      "states_checked": 13200
+    }
+  ],
+  "scope": "m=1..4,q=1..min(m+1,4),u=1..q; source/signed Port labels; conditional event controller only",
+  "cases": [
+    {
+      "m": 1,
+      "q": 1,
+      "u": 1,
+      "h": 3,
+      "classes": 2,
+      "bit_minimum": 1,
+      "states_checked": 10,
+      "signature_nodes": 9,
+      "assignments": 2
+    },
+    {
+      "m": 1,
+      "q": 2,
+      "u": 1,
+      "h": 5,
+      "classes": 1,
+      "bit_minimum": 0,
+      "states_checked": 18,
+      "signature_nodes": 10,
+      "assignments": 2
+    },
+    {
+      "m": 1,
+      "q": 2,
+      "u": 2,
+      "h": 5,
+      "classes": 2,
+      "bit_minimum": 1,
+      "states_checked": 18,
+      "signature_nodes": 15,
+      "assignments": 2
+    },
+    {
+      "m": 2,
+      "q": 1,
+      "u": 1,
+      "h": 3,
+      "classes": 4,
+      "bit_minimum": 2,
+      "states_checked": 36,
+      "signature_nodes": 15,
+      "assignments": 4
+    },
+    {
+      "m": 2,
+      "q": 2,
+      "u": 1,
+      "h": 5,
+      "classes": 2,
+      "bit_minimum": 1,
+      "states_checked": 100,
+      "signature_nodes": 26,
+      "assignments": 4
+    },
+    {
+      "m": 2,
+      "q": 2,
+      "u": 2,
+      "h": 5,
+      "classes": 4,
+      "bit_minimum": 2,
+      "states_checked": 100,
+      "signature_nodes": 31,
+      "assignments": 4
+    },
+    {
+      "m": 2,
+      "q": 3,
+      "u": 1,
+      "h": 7,
+      "classes": 1,
+      "bit_minimum": 0,
+      "states_checked": 192,
+      "signature_nodes": 25,
+      "assignments": 4
+    },
+    {
+      "m": 2,
+      "q": 3,
+      "u": 2,
+      "h": 7,
+      "classes": 2,
+      "bit_minimum": 1,
+      "states_checked": 196,
+      "signature_nodes": 42,
+      "assignments": 4
+    },
+    {
+      "m": 2,
+      "q": 3,
+      "u": 3,
+      "h": 7,
+      "classes": 4,
+      "bit_minimum": 2,
+      "states_checked": 196,
+      "signature_nodes": 47,
+      "assignments": 4
+    },
+    {
+      "m": 3,
+      "q": 1,
+      "u": 1,
+      "h": 3,
+      "classes": 8,
+      "bit_minimum": 3,
+      "states_checked": 112,
+      "signature_nodes": 24,
+      "assignments": 8
+    },
+    {
+      "m": 3,
+      "q": 2,
+      "u": 1,
+      "h": 5,
+      "classes": 5,
+      "bit_minimum": 3,
+      "states_checked": 440,
+      "signature_nodes": 55,
+      "assignments": 8
+    },
+    {
+      "m": 3,
+      "q": 2,
+      "u": 2,
+      "h": 5,
+      "classes": 8,
+      "bit_minimum": 3,
+      "states_checked": 440,
+      "signature_nodes": 62,
+      "assignments": 8
+    },
+    {
+      "m": 3,
+      "q": 3,
+      "u": 1,
+      "h": 7,
+      "classes": 2,
+      "bit_minimum": 1,
+      "states_checked": 1096,
+      "signature_nodes": 72,
+      "assignments": 8
+    },
+    {
+      "m": 3,
+      "q": 3,
+      "u": 2,
+      "h": 7,
+      "classes": 5,
+      "bit_minimum": 3,
+      "states_checked": 1120,
+      "signature_nodes": 106,
+      "assignments": 8
+    },
+    {
+      "m": 3,
+      "q": 3,
+      "u": 3,
+      "h": 7,
+      "classes": 8,
+      "bit_minimum": 3,
+      "states_checked": 1120,
+      "signature_nodes": 104,
+      "assignments": 8
+    },
+    {
+      "m": 3,
+      "q": 4,
+      "u": 1,
+      "h": 9,
+      "classes": 1,
+      "bit_minimum": 0,
+      "states_checked": 1952,
+      "signature_nodes": 61,
+      "assignments": 8
+    },
+    {
+      "m": 3,
+      "q": 4,
+      "u": 2,
+      "h": 9,
+      "classes": 5,
+      "bit_minimum": 3,
+      "states_checked": 2280,
+      "signature_nodes": 174,
+      "assignments": 8
+    },
+    {
+      "m": 3,
+      "q": 4,
+      "u": 3,
+      "h": 9,
+      "classes": 5,
+      "bit_minimum": 3,
+      "states_checked": 2280,
+      "signature_nodes": 160,
+      "assignments": 8
+    },
+    {
+      "m": 3,
+      "q": 4,
+      "u": 4,
+      "h": 9,
+      "classes": 8,
+      "bit_minimum": 3,
+      "states_checked": 2280,
+      "signature_nodes": 146,
+      "assignments": 8
+    },
+    {
+      "m": 4,
+      "q": 1,
+      "u": 1,
+      "h": 3,
+      "classes": 16,
+      "bit_minimum": 4,
+      "states_checked": 320,
+      "signature_nodes": 38,
+      "assignments": 16
+    },
+    {
+      "m": 4,
+      "q": 2,
+      "u": 1,
+      "h": 5,
+      "classes": 12,
+      "bit_minimum": 4,
+      "states_checked": 1680,
+      "signature_nodes": 113,
+      "assignments": 16
+    },
+    {
+      "m": 4,
+      "q": 2,
+      "u": 2,
+      "h": 5,
+      "classes": 16,
+      "bit_minimum": 4,
+      "states_checked": 1680,
+      "signature_nodes": 122,
+      "assignments": 16
+    },
+    {
+      "m": 4,
+      "q": 3,
+      "u": 1,
+      "h": 7,
+      "classes": 6,
+      "bit_minimum": 3,
+      "states_checked": 5280,
+      "signature_nodes": 179,
+      "assignments": 16
+    },
+    {
+      "m": 4,
+      "q": 3,
+      "u": 2,
+      "h": 7,
+      "classes": 12,
+      "bit_minimum": 4,
+      "states_checked": 5376,
+      "signature_nodes": 258,
+      "assignments": 16
+    },
+    {
+      "m": 4,
+      "q": 3,
+      "u": 3,
+      "h": 7,
+      "classes": 16,
+      "bit_minimum": 4,
+      "states_checked": 5376,
+      "signature_nodes": 229,
+      "assignments": 16
+    },
+    {
+      "m": 4,
+      "q": 4,
+      "u": 1,
+      "h": 9,
+      "classes": 2,
+      "bit_minimum": 1,
+      "states_checked": 11344,
+      "signature_nodes": 194,
+      "assignments": 16
+    },
+    {
+      "m": 4,
+      "q": 4,
+      "u": 2,
+      "h": 9,
+      "classes": 12,
+      "bit_minimum": 4,
+      "states_checked": 13200,
+      "signature_nodes": 483,
+      "assignments": 16
+    },
+    {
+      "m": 4,
+      "q": 4,
+      "u": 3,
+      "h": 9,
+      "classes": 12,
+      "bit_minimum": 4,
+      "states_checked": 13200,
+      "signature_nodes": 418,
+      "assignments": 16
+    },
+    {
+      "m": 4,
+      "q": 4,
+      "u": 4,
+      "h": 9,
+      "classes": 16,
+      "bit_minimum": 4,
+      "states_checked": 13200,
+      "signature_nodes": 341,
+      "assignments": 16
+    }
+  ]
+}
