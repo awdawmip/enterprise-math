@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R284BC_exact_verification.json",
+    "ref": "0248d4f1405184861735f55445f52b625e7cdcaa",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r1-20261120-r284bc-immutable-readback-3",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"R284BC_EXACT_VERIFICATION_V1\",\n  \"method\": \"integer Bareiss determinant + direct balanced-digit coefficient extraction\",\n  \"cases\": [\n    {\n      \"n\": 3,\n      \"H\": 2,\n      \"scope\": \"all 512 matrices in {1,2}^{3x3}\",\n      \"verified\": 512,\n      \"max_control_bits\": 7227,\n      \"max_output_bits\": 8211,\n      \"Q\": 91,\n      \"T\": 364,\n      \"base\": 973,\n      \"digest_sha256\": \"15f853267eea4d48973bf27eb3fffcae346ae4769baabc112ea5886a622912fb\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"n\": 3,\n      \"H\": 3,\n      \"scope\": \"16 seeded random matrices\",\n      \"verified\": 16,\n      \"max_control_bits\": 8133,\n      \"max_output_bits\": 9240,\n      \"Q\": 91,\n      \"T\": 364,\n      \"base\": 2305,\n      \"digest_sha256\": \"ea8642e7e89da3a259f2312e1afc232321cb6d8d802a02c634045971b18c98ba\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"n\": 4,\n      \"H\": 2,\n      \"scope\": \"8 seeded random matrices\",\n      \"verified\": 8,\n      \"max_control_bits\": 70391,\n      \"max_output_bits\": 80446,\n      \"Q\": 337,\n      \"T\": 1685,\n      \"base\": 15553,\n      \"digest_sha256\": \"8421a8aa9730091c2d8149cad19f7224f12c35a31484f3276c583f5a1bdd1fb3\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"n\": 4,\n      \"H\": 3,\n      \"scope\": \"8 seeded random matrices\",\n      \"verified\": 8,\n      \"max_control_bits\": 78783,\n      \"max_output_bits\": 90037,\n      \"Q\": 337,\n      \"T\": 1685,\n      \"base\": 49153,\n      \"digest_sha256\": \"0bc8c9590423e2004d81ad66f2ac7326add0d89fb91637c2066ca2d7ad046f15\",\n      \"status\": \"PASS\"\n    },\n    {\n      \"n\": 5,\n      \"H\": 2,\n      \"scope\": \"3 seeded random matrices\",\n      \"verified\": 3,\n      \"max_control_bits\": 392555,\n      \"max_output_bits\": 444530,\n      \"Q\": 901,\n      \"T\": 5406,\n      \"base\": 291601,\n      \"digest_sha256\": \"bb4d363b9a18af65dfaa715b854beffe220e54a05fdcd53a6061b906c5055b27\",\n      \"status\": \"PASS\"\n    }\n  ],\n  \"total_verified\": 547,\n  \"adversarial_noise\": {\n    \"n\": 3,\n    \"H\": 2,\n    \"delta\": 7000,\n    \"tested\": 96,\n    \"errors\": [\n      -7000,\n      7000\n    ],\n    \"max_noisy_output_bits\": 13087,\n    \"status\": \"PASS\"\n  },\n  \"status\": \"PASS\",\n  \"review\": \"AUTHOR_EXACT_FINITE_CHECK_NOT_INDEPENDENT_REVIEW\"\n}\n",
+      "display_title": "R284BC_exact_verification.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/0248d4f1405184861735f55445f52b625e7cdcaa/research_notes/portable_direct/R284BC_exact_verification.json",
+      "encoding": "utf-8",
+      "sha": "e203aca79d71a68e8d84edce5e56cf8b29164587"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
