@@ -1,0 +1,104 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-19",
+  "unit": 150,
+  "author": "EM-X6-FB6990",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "status": "AUTHOR_SOURCE_EXACT_PROVED_FINITE_EXACT_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "frozen_science_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "claims": [
+    {
+      "id": "X6-U150-R061-BIDIRECTIONAL-SIGNED-REVERSE-CONSUMER",
+      "old_semantic_type": "HISTORICAL_POSITIVE_MINZERO_CANONICAL_TRACE_AND_DIRECTED_GAUGE_CALLED_NATIVE",
+      "historical_source": {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "path": "definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md",
+        "git_blob_sha1": "da35c76869ff88e46e28e33ba5bc37c95374a15d",
+        "lines": "13-23,27-48,56-86",
+        "claims": "native no negative axes, inverse != canonical reverse, SPEC={5,sqrt(17)}, directional path counts 35 and 5"
+      },
+      "current_consumer": {
+        "repository": "awdawmip/enterprise-math",
+        "ref": "main",
+        "path": "definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md",
+        "git_blob_sha1": "358a4997157d7546d88e63ae8d32e95feebf9c08",
+        "lines": "8-30,32-49",
+        "source_status": "ALREADY_RETYPED_RELATIVE_OBSERVER_DIAGNOSTIC"
+      },
+      "frozen_native_kernel": {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+        "path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+        "git_blob_sha1": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+        "functions": [
+          "shortest_event_count",
+          "spatial_norm_squared",
+          "shortest_path_multiplicity"
+        ]
+      },
+      "theorem": "For every signed three-axis displacement d, I(s1,...,sN)=(-sN,...,-s1) bijects signed shortest words d and -d, giving equal native squared norms, minimal lengths, multinomial path counts. For nonzero d, tagged two-orientation word union has twice the one-direction count.",
+      "witness": {
+        "d": [
+          3,
+          4,
+          0
+        ],
+        "native_N": 7,
+        "native_G": 25,
+        "native_forward_words": 35,
+        "native_backward_words": 35,
+        "native_tagged_pair": 70,
+        "legacy_forward_observer_words": 35,
+        "legacy_independently_redecoded_reverse_observer_words": 5,
+        "legacy_observer_tagged_pair": 40
+      },
+      "disposition": [
+        "SUPERSEDE_AS_NATIVE",
+        "PRESERVE_OBSERVER",
+        "PRESERVE_PATH_BRC",
+        "NO_CURRENT_PATCH_REQUIRED"
+      ],
+      "finite_check": {
+        "count_recurrence_factorial_triples": 2197,
+        "count_explicit_involution_triples": 125,
+        "python_modes": [
+          "normal",
+          "-O",
+          "-OO"
+        ],
+        "stdout_sha256": "0313122ce05f7efc0e9c6831dfe1ac391540f2d1f281cd3ef69e84ad7677536e",
+        "historical_R061_decoder_executed": false,
+        "original_R063_512_case_benchmark_executed": false,
+        "proof_ref": "research_notes/X6_UNIT150_R061_BIDIRECTIONAL_SPECTRUM_SIGNED_PATH_REVERSAL_SOURCE_AUDIT_20261119.md@82935e4d18de45adbd5eef62eac066fadaba9a17",
+        "checker_ref": "research_checks/X6_UNIT150_R061_SIGNED_NATIVE_REVERSAL_CHECK_20261119.py@1960a70a86bc55ae4e3036aee97ca6059184dd6d",
+        "certificate_ref": "research_checks/X6_UNIT150_R061_SIGNED_NATIVE_REVERSAL_RESULTS_20261119.json@f42961687ab5aa27aaaf1f95eaf1450033b13833"
+      },
+      "downstream": [
+        "historical R061 bidirectional spectrum",
+        "current retyped R061 observer diagnostic",
+        "current signed BRC path reversal",
+        "old path-valued square-root consumer"
+      ],
+      "repository_action": "Current source already retyped; retain frozen historical source and document exact mismatch; do not claim source code bug or redo older regression",
+      "scope": "one previously uninspected actual historical/current R061 consumer with source:line and signed native word test; not full 28-LP coverage"
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "LP011",
+      "status": "UNRESOLVED_PROVENANCE",
+      "needed": "allegedly erroneous historical native signed-argmax caller at exact frozen commit:path:line if present"
+    },
+    {
+      "id": "LP019",
+      "status": "UNRESOLVED_PROVENANCE",
+      "needed": "allegedly erroneous historical natural-N-BRC subtraction caller at exact frozen commit:path:line if present"
+    }
+  ],
+  "independent_driver_review": "PENDING",
+  "next_exact_action": "Consume Unit147 successful Native PROGRESS; sequentially publish saved Units148,149 under current own winning claim and generation. Continue other genuine uninspected 28-LP source consumer and preserve historical LP011/LP019 missing original caller evidence."
+}
