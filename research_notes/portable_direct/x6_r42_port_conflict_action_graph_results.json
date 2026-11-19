@@ -1,0 +1,72 @@
+{
+  "schema": "EM_X6_R42_PORT_CONFLICT_BRC_V1",
+  "status": "PASS",
+  "graphs": 512,
+  "byCrossEdgeCount": {
+    "0": 1,
+    "1": 9,
+    "2": 36,
+    "3": 84,
+    "4": 126,
+    "5": 126,
+    "6": 84,
+    "7": 36,
+    "8": 9,
+    "9": 1
+  },
+  "futureNamedLanguageClassDistribution": {
+    "2": 1,
+    "4": 49,
+    "6": 216,
+    "7": 72,
+    "8": 174
+  },
+  "aggregate": {
+    "configurations": 5888,
+    "serialHistories": 8192
+  },
+  "cases": {
+    "noCross": {
+      "crossEdges": 0,
+      "configurationsBySize": [
+        1,
+        6,
+        9
+      ],
+      "serialHistoriesBySize": [
+        1,
+        6,
+        18
+      ],
+      "futureNamedLanguageClasses": 4
+    },
+    "oneCross": {
+      "crossEdges": 1,
+      "configurationsBySize": [
+        1,
+        6,
+        8
+      ],
+      "serialHistoriesBySize": [
+        1,
+        6,
+        16
+      ],
+      "futureNamedLanguageClasses": 6
+    },
+    "allCross": {
+      "crossEdges": 9,
+      "configurationsBySize": [
+        1,
+        6,
+        0
+      ],
+      "serialHistoriesBySize": [
+        1,
+        6,
+        0
+      ],
+      "futureNamedLanguageClasses": 2
+    }
+  }
+}
