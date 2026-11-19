@@ -1,0 +1,98 @@
+# 同一批幂碰撞能容纳多少个阶：最小识别范围的素数分段律
+
+在连续整数位置上，只保留幂值彼此是否相等。若要一次删除后仍有许多候选阶给出完全相同的带标号观测，这些阶共同拥有一个最小公倍数。本文求出这个最小公倍数对识别范围的限制。在第一段参数内，最坏情形有唯一的构造，由区间上半部最大的若干个素数决定。超过第一段后，素数的每个倍数均占用一个删除名额，给出新的分段渐近。
+
+## 1. 共同观测所需的整数极值
+
+原任务 RTASK-POWER-ROBUST-INTAKE-20260927 收纳 RA-POWER-REVIEW-16243626C61A 的旧报告。它把阶 $1,\ldots,H$ 分别作为目标标签，把 $r>H$ 归入一个超范围标签。超范围的不同阶仍可有不同的碰撞分划。观测中每个保留位置都有名字，删除发生在已知位置，幂读数精确。第 25 轮已按原书列出跨度与稀疏支撑的基线、三条反例和三个后继的适用条件。本稿复访其中的**连续满区间、多标签共同混淆**问题。登记记录中的基线独立审查与三个后继各自的验收仍以各自回执为准。[登记任务书](https://github.com/awdawmip/enterprise-math/blob/7397f9083560672c7070b23777c8e3af49e32e1a/research_tasks/RTASK-POWER-ROBUST-INTAKE-20260927.md) · [原报告](https://github.com/awdawmip/enterprise-math/blob/6b40284e808edb8bf74ff07ffa9efaf02bcfd021/research_notes/power_span_erasures_20260923_16243626C61A/REPORT.md) · [第 25 轮基线和共同删除公式](../twentyfifth/sparse.md)
+
+任给 $k\ge2$ 个代表不同标签的阶 $u_1,\ldots,u_k$，令 $h=\min u_i,\ L=\operatorname{lcm}(u_i)$。在任意连续 $n$ 个位置上，可以共同保留的最大点数恰为
+$$
+ h\lfloor n/L\rfloor+\min(h,n\bmod L).
+$$
+同一碰撞块中的差必被 $L$ 整除，各块模 $h$ 互异。由每整段和末段的点数界可得上式，保留模 $L$ 的前 $h$ 个相邻余类即取等。因此固定候选阶时，极限保留比例是 $h/L$。定义 $B_{H,k}$ 为所有允许候选组中最小的 $L/h$。以下问，给定整数预算 $Q\ge k$，第一次可能有 $B_{H,k}\le Q$ 的范围 $H$ 是多少？此问针对密度，原有限长度仍受上式的余数项影响。
+
+用 $b=2$ 表示允许一枚超范围标签的原口径，用 $b=1$ 表示所有候选阶皆在目标内的对照。记各自的最小范围为 $H_b(Q,k)$。对任意 $k$ 元子集 $A=\{a_1<\cdots<a_k\}\subseteq[1,Q]\cap\mathbb Z$，记 $L_A=\operatorname{lcm}(A)$。有精确反演
+$$
+ \boxed{\displaystyle H_b(Q,k)=\min_A L_A/a_b.} \tag{1}
+$$
+从一组真实候选阶出发，倒数分母 $d_i=L/u_i$ 都在 $[1,Q]$，它们的最小公倍数整除 $L$。若 $b=2$，第二大的阶已在 $H$ 内，给出 (1) 的下界；$b=1$ 则用最大阶。反之，取实际的整数阶 $L_A/a$。它们的最小公倍数为 $L_A/\gcd(A)$，与最小阶的比为 $a_k/\gcd(A)\le Q$。其中第 $b$ 大阶正好是 $L_A/a_b$。所以 (1) 可遍历所有集合，不必另设互素条件。**以下的缺额 $r=Q-k$ 是倒数分母集合中的缺额**，与原实验删去了多少个幂位置是两种不同的计数。
+
+## 2. 第一段的精确式及首次越界反例
+
+设 $Q\ge8$，$\Lambda_Q=\operatorname{lcm}(1,\ldots,Q)$，$P_1>P_2>\cdots$ 是不超过 $Q$ 的素数。若 $0\le r\le\pi(Q)-\pi(Q/2)$，则
+$$
+ \boxed{\displaystyle
+ H_b(Q,Q-r)=\frac{\Lambda_Q}{b\prod_{i=1}^rP_i},\qquad b=1,2.} \tag{2}
+$$
+删去最大的 $r$ 个素数是 (1) 唯一的最优集合方案。$r=0$ 回到第 25 轮的 $B_{H,k}=k$ 门槛。
+
+证明对每个素数 $p$，把 $v_p(L_A)<j\le v_p(\Lambda_Q)$ 的每个 $p^j$ 记为一个被删去的位置，赋予权 $p$。其余被删位置赋权 1。各位置互异，总权积正好等于 $\Lambda_Q/L_A$。$P_1,\ldots,P_r$ 各大于 $Q/2$，在区间内的唯一倍数是它本身。故这 $r$ 个最大的可能权各只能出现在唯一的素数位置；其余权都小于 $P_r$。若 $a_b=b$，总权乘积至多为 $\prod_{i\le r}P_i$，且唯一取等方案正是上面所述。该方案保留 1 和 2，故确实可行。
+
+若 $a_b>b$，至少删掉 1 或 2。对 $b=1$，删去的 1 权为 1，且 $a_1\le r+1$。对 $b=2$，其中一个删除权至多为 2，且 $a_2\le r+2$。由于上半区的素数皆奇，$r\le\lceil Q/4\rceil$，从而 $r+2<P_r$（$Q=8,9$ 也可直接看 5、7）。两种口径下均有 $a_b(\Lambda_Q/L_A)<b\prod_{i\le r}P_i$。这证明 (2) 及唯一性。有限情形 $2\le Q<8$ 可直接枚举，(2) 对其中所有满足 $k\ge2$ 的参数同样成立。唯一的并列是 $Q=3,r=1,b=2$，两组最优分母为 $\{1,2\}$ 和 $\{1,3\}$。
+
+取 $Q=8,k=6$，(2) 给 $H_2=12$。分母 $\{1,2,3,4,6,8\}$ 给阶 $24,12,8,6,4,3$，其中只有 24 超范围。在模 97 的乘法群中，按阶 $3,4,6,8,12,24$ 分别用底数 $35,22,36,64,6,43$。在同一组保留位置 $0,1,2,24,25,26$ 上，六个实验都给出三个带标号块 $\{0,24\},\{1,25\},\{2,26\}$，碰撞差的 gcd 均为 24。再少保留一个倒数分母时，已越过 (2) 的条件。$Q=8,k=5$ 若仍按删去 7、5、3 计算，会得到 4；实际 $H_2=6$，一组最优分母为 $1,2,3,4,6$。漏掉的成本来自 3 的倍数 6。若连 $2\le Q<8$ 也检验，越过相同上半区范围并盲目套用乘积的最早反例为 $Q=6,k=4$。此时预测 $H_2=2$，真正阈值为 3，分母 $\{1,2,3,6\}$ 取等。[冻结碰撞 gcd 代码](https://github.com/awdawmip/enterprise-math/blob/6b40284e808edb8bf74ff07ffa9efaf02bcfd021/src/enterprise_math/group_ring_sparse_identifiability.py)
+
+## 3. 大素数的倍数成本与任意缺额的整数包络
+
+在 $(\sqrt Q,Q]$ 中把素数从大到小排列，依次支付 $w_p=\lfloor Q/p\rfloor$，在下一次支付会使累计费用超过 $r$ 时停止。令 $G$ 为已选素数之积（可为空积），令
+$$
+ C_Q=\prod_{p\le\sqrt Q}p^{\lfloor\log Q/\log p\rfloor}.
+$$
+则对 $Q\ge8,\ 2\le k\le Q$ 均有
+$$
+ \frac{\Lambda_Q}{Q C_Q G}\ \le\ H_b(Q,k)\ \le\ \frac{\Lambda_Q}{bG}. \tag{3}
+$$
+大素数 $p$ 从 $L_A$ 中完全消失恰当其全部 $w_p$ 个倍数被删。不同大素数的倍数集合不相交，因为它们的乘积大于 $Q$。任何可行的 $m$ 个素数所获乘积至多是前 $m$ 项的乘积，所付费用至少是前 $m$ 项的费用。因此贪心前缀是这个大素数子问题的**整数最优解**。完整问题中，小素数最多再贡献因子 $C_Q$，而 $a_b\le Q$，这给左界。反过来，先删前缀素数的全部倍数，再任选剩余位置用完 $r$，只需保留 1、2（$k\ge2$ 保证可行）。得到右界。证明还给出了真实的候选阶集合，即取剩余分母的最小公倍数，再除以每个分母。
+
+写 $\vartheta(x)=\sum_{p\le x}\log p,\ \psi(x)=\log\operatorname{lcm}(1,\ldots,\lfloor x\rfloor)$。对大素数没有二次幂，故 $\log C_Q=\vartheta(\sqrt Q)+\psi(Q)-\vartheta(Q)\sim2\sqrt Q$。具体地，平方贡献 $\vartheta(\sqrt Q)$，三次以上的总贡献 $O(Q^{1/3}\log Q)$。所以 (3) 在对数尺度的一致误差为 $O(\sqrt Q)$。该界保留了小素幂的实际代价，未把整个极值精确等同于大素数前缀。
+
+## 4. 缺额为素数个数量级时的二项展开
+
+固定实数 $\lambda>0$，令 $r=\lfloor\lambda Q/\log Q\rfloor,\ k=Q-r$，并令 $Q\to\infty$。在 $0<y<1$ 上定义
+$$
+ F(y)=\int_y^1\!\lfloor1/t\rfloor\,dt,\qquad
+ J(y)=\int_y^1\!\lfloor1/t\rfloor\log t\,dt .
+$$
+$F$ 从 $+\infty$ 严格降到 0，故 $F(y)=\lambda$ 有唯一解。设 $j_+=\lceil1/y\rceil-1$，则两种口径同有
+$$
+ \boxed{\displaystyle \log H_b(Q,k)
+   =y Q-\frac{J(y)}{j_+}\frac Q{\log Q}
+       +O_\lambda\!\left(\frac Q{\log^2 Q}\right).} \tag{4}
+$$
+在 $1/(j+1)\le y\le1/j$ 上，$F(y)=\sum_{i=1}^j1/i-jy$。所以 $0<\lambda\le1/2$ 时 $y=1-\lambda$；接着 $1/2\le\lambda\le5/6$ 时 $y=(3/2-\lambda)/2$，随后各段依此类推。端点的二阶系数使用 $y$ 右侧的斜率大小。例 $\lambda=1/2$ 给 $y=1/2$、$j_+=1$、$-J(y)/j_+=(1-\log 2)/2$。
+
+证明在 $y$ 的一个固定紧邻域内，对 $zQ<p\le Q$ 的费用求和。权 $\lfloor Q/p\rfloor$ 在这里只分为固定多个常数区间。采用经典 de la Vallée Poussin 素数定理的误差项，在这些区间逐一以 $dx/\log x$ 代替素数计数，再一致展开 $1/\log(Qt)$，得到
+$$
+ C(z):=\sum_{zQ<p\le Q}\lfloor Q/p\rfloor=
+ \frac Q{\log Q}\left[F(z)-\frac{J(z)}{\log Q}
+                   +O_\lambda((\log Q)^{-2})\right].
+$$
+即使 $z$ 越过分段端点，积分权也保留两侧的正确值。先在固定 $y\pm\varepsilon$ 夹逼，可知第一个超预算的素数 $p_*$ 满足 $z_Q=p_*/Q\to y$。费用 $C(z_Q)$ 恰为已选前缀的总代价，与 $r$ 之差介于 0 和 $\lfloor1/z_Q\rfloor$ 之间。因此 $z_Q-y=O_\lambda(1/\log Q)$，再代回得
+$$
+ F(z_Q)=\lambda+\frac{J(y)}{\log Q}+O_\lambda((\log Q)^{-2}).
+$$
+$J(y)<0$，所以充分大时 $z_Q>y$，在同一右侧线性段内有 $F(z_Q)-F(y)=-j_+(z_Q-y)$。最后 $\log G=\vartheta(Q)-\vartheta(p_*)$，$\psi(Q)-\vartheta(Q)=O(\sqrt Q)$，相同的经典误差给 $\vartheta(p_*)=p_*+O_\lambda(Q/\log^2Q)$。代入 (3) 即得 (4)。这里固定 $\lambda$；随 $Q$ 靠近转折点时，要保留跨段的 $F$，不能把 (4) 的单侧斜率当成一致展开。[经典素数定理误差式 (13)](https://mathworld.wolfram.com/PrimeNumberTheorem.html#eqn13)
+
+**折点附近的统一读数。** 令 $L_0=\log Q$、$\lambda_Q=rL_0/Q$，允许 $\lambda_Q$ 在 $(0,\infty)$ 的任意固定紧子区间中变化。写 $y_Q=F^{-1}(\lambda_Q)$。上面的计数余项对该紧区间一致，$J$ 在对应 $y$ 区间内 Lipschitz 连续，$F^{-1}$ 的 Lipschitz 常数至多 1。因此越过任意折点也成立的是
+$$
+ \log H_b=Q F^{-1}\!\left(\lambda_Q+\frac{J(y_Q)}{L_0}\right)
+                +O(Q/L_0^2).
+$$
+取 $y_0=1/m$，$m\ge2$ 固定，$\lambda_0=F(y_0)$。若 $r=\lfloor\lambda_0Q/L_0+\mu Q/L_0^2\rfloor$，再记 $v=\mu+J(y_0)$，则
+$$
+ \log H_b=y_0Q+\frac Q{L_0}
+  \begin{cases}
+   -v/(m-1),&v<0,\\
+   0,&v=0,\\
+   -v/m,&v>0
+  \end{cases}
+  +O_{m,\mu}(Q/L_0^2).
+$$
+这说明两侧斜率的切换发生在 $\mu=-J(1/m)>0$。例如 $m=2$ 时，仅把第一项费用定在 $Q/(2\log Q)$ 尚未进入“一个素数占两个删除位置”的第二段；开始进入的费用比它多 $(1-\log 2)Q/(2\log^2Q)+O(Q/\log^3Q)$。该费用也可从 $\pi(Q)-\pi(Q/2)$ 用素数定理直接得到。
+
+## 5. 实际复算范围
+
+标准库程序直接比较 $2\le Q\le18$ 的 524,097 个倒数分母集合，又独立枚举小 $Q,H$ 的真正阶代表，双方所得的 648 个可行性判断全部相等。上半区公式及最优集合是否唯一核过 96 个阈值，整数包络核过 264 个阈值。在 $Q=10^5,10^6$ 的六个固定 $\lambda$ 上，回执给出贪心截点与二项展开的数值对照；数值栏是近似值。模 97 的六组示例采用冻结实现的 `labeled_collision_gcd` 复查，实际返回六个位置、三种取值、三个重复、gcd 为 24。默认复算以直接模幂再次核对全部分划。在已检出原仓的环境中可用 `python periods_check.py --native-src /path/to/enterprise-math/src` 加做源程序复验，两种模式生成同一回执。
+
+直接验证 (1) 可耗费 $\binom Qk$ 次集合计算。(2) 只需筛出上半区素数、取全区间 lcm；(3) 的证书用同一素数表加一次线性扫描。基础 Eratosthenes 筛需要 $O(Q\log\log Q)$ 次标记和 $O(Q)$ 存储；写出 $\Lambda_Q$ 或大整数乘积另计位运算，$\log\Lambda_Q\sim Q$。本文给出的数学最优值针对连续满区间的极限保留比例。指定少量稀疏采样位置、固定有限区间的最少标记数，仍须回到其各自的观测与成本条件。[复算脚本](periods_check.py) · [逐项结果](periods_checked.json)

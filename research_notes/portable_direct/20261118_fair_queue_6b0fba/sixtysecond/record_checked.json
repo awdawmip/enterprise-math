@@ -1,0 +1,376 @@
+{
+  "additive": {
+    "all_subgroups": [
+      {
+        "A_moduli": [
+          3,
+          3
+        ],
+        "strict_kernel_size_additive_size_multiplicity": [],
+        "subgroups_checked": 6
+      },
+      {
+        "A_moduli": [
+          9
+        ],
+        "strict_kernel_size_additive_size_multiplicity": [
+          [
+            3,
+            9,
+            1
+          ]
+        ],
+        "subgroups_checked": 3
+      },
+      {
+        "A_moduli": [
+          9,
+          3
+        ],
+        "strict_kernel_size_additive_size_multiplicity": [
+          [
+            3,
+            9,
+            1
+          ],
+          [
+            9,
+            27,
+            1
+          ]
+        ],
+        "subgroups_checked": 10
+      },
+      {
+        "A_moduli": [
+          8,
+          4
+        ],
+        "strict_kernel_size_additive_size_multiplicity": [
+          [
+            2,
+            4,
+            2
+          ],
+          [
+            2,
+            8,
+            1
+          ],
+          [
+            4,
+            8,
+            2
+          ],
+          [
+            4,
+            32,
+            1
+          ],
+          [
+            8,
+            32,
+            3
+          ],
+          [
+            16,
+            32,
+            3
+          ]
+        ],
+        "subgroups_checked": 22
+      },
+      {
+        "A_moduli": [
+          4,
+          4,
+          2
+        ],
+        "strict_kernel_size_additive_size_multiplicity": [
+          [
+            2,
+            4,
+            3
+          ],
+          [
+            4,
+            8,
+            6
+          ],
+          [
+            4,
+            16,
+            1
+          ],
+          [
+            8,
+            16,
+            6
+          ],
+          [
+            8,
+            32,
+            1
+          ],
+          [
+            16,
+            32,
+            3
+          ]
+        ],
+        "subgroups_checked": 54
+      },
+      {
+        "A_moduli": [
+          6,
+          6
+        ],
+        "strict_kernel_size_additive_size_multiplicity": [],
+        "subgroups_checked": 30
+      }
+    ],
+    "cyclic_deterministic_parameters": 2457
+  },
+  "cyclic_source": {
+    "all_divisors_h_all_u": true,
+    "depth_range": [
+      1,
+      4
+    ],
+    "endpoint_cosets_checked": 17961,
+    "examples": [
+      {
+        "h": 1,
+        "image_predecessors_history": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            9
+          ],
+          [
+            3,
+            3,
+            27
+          ],
+          [
+            3,
+            3,
+            81
+          ]
+        ],
+        "m": 3,
+        "u": 1
+      },
+      {
+        "h": 3,
+        "image_predecessors_history": [
+          [
+            3,
+            1,
+            1
+          ],
+          [
+            3,
+            1,
+            1
+          ],
+          [
+            3,
+            1,
+            1
+          ],
+          [
+            3,
+            1,
+            1
+          ]
+        ],
+        "m": 3,
+        "u": 1
+      },
+      {
+        "h": 9,
+        "image_predecessors_history": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            1,
+            3,
+            9
+          ],
+          [
+            1,
+            1,
+            9
+          ],
+          [
+            1,
+            1,
+            9
+          ]
+        ],
+        "m": 9,
+        "u": 3
+      },
+      {
+        "h": 4,
+        "image_predecessors_history": [
+          [
+            6,
+            6,
+            6
+          ],
+          [
+            3,
+            6,
+            36
+          ],
+          [
+            3,
+            3,
+            108
+          ],
+          [
+            3,
+            3,
+            324
+          ]
+        ],
+        "m": 12,
+        "u": 2
+      }
+    ],
+    "m_range": [
+      2,
+      16
+    ],
+    "parameter_layers": 1940
+  },
+  "online_codec_F2_cubed_shift_H_middle": [
+    {
+      "histories": 16,
+      "i": 1,
+      "indices_per_endpoint": 4,
+      "reachable_endpoints": 4
+    },
+    {
+      "histories": 32,
+      "i": 2,
+      "indices_per_endpoint": 8,
+      "reachable_endpoints": 4
+    },
+    {
+      "histories": 64,
+      "i": 3,
+      "indices_per_endpoint": 16,
+      "reachable_endpoints": 4
+    },
+    {
+      "histories": 128,
+      "i": 4,
+      "indices_per_endpoint": 32,
+      "reachable_endpoints": 4
+    },
+    {
+      "histories": 256,
+      "i": 5,
+      "indices_per_endpoint": 64,
+      "reachable_endpoints": 4
+    },
+    {
+      "histories": 512,
+      "i": 6,
+      "indices_per_endpoint": 128,
+      "reachable_endpoints": 4
+    }
+  ],
+  "online_codec_Z12_u2_H4": [
+    {
+      "histories": 36,
+      "i": 1,
+      "indices_per_endpoint": 6,
+      "reachable_endpoints": 6
+    },
+    {
+      "histories": 108,
+      "i": 2,
+      "indices_per_endpoint": 36,
+      "reachable_endpoints": 3
+    },
+    {
+      "histories": 324,
+      "i": 3,
+      "indices_per_endpoint": 108,
+      "reachable_endpoints": 3
+    },
+    {
+      "histories": 972,
+      "i": 4,
+      "indices_per_endpoint": 324,
+      "reachable_endpoints": 3
+    },
+    {
+      "histories": 2916,
+      "i": 5,
+      "indices_per_endpoint": 972,
+      "reachable_endpoints": 3
+    }
+  ],
+  "public_git_blobs": {
+    "research_notes/chatgpt_direct/20261011_EULER_RELATIONAL_RECORDING.md": "03cfdf23f8f1a6208b4ac4eb862a1b7ad3811d8b",
+    "research_tasks/RS-EULER-RECORDER-A04-RETENTION-RESET-20261012.md": "8c3c0a5e8f9f600969536be06591a3366e2cd37e",
+    "src/enterprise_math/brc_logarithm.py": "4732e5fc381ce613d240c4381ccbef03c27a69c7",
+    "src/enterprise_math/brc_weighted.py": "3f205696709e847909958a153f8fe10d3f6b70f0",
+    "src/enterprise_math/exact_arithmetic.py": "35ea95b0916494b83a92386e3e313928362dd79e"
+  },
+  "registers": {
+    "copy_port_error_words_lengths_one_to_five": 363,
+    "detached_label_histories_lengths_zero_to_four": 1089,
+    "frozen_positive_weight_core_only": true,
+    "minimal_extra_enabled_write": [
+      0,
+      1,
+      2
+    ],
+    "minimal_hidden_faults_then_correct_final_preparation": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "old_and_next_correct_counts_and_masses": {
+      "(False, False)": [
+        108,
+        "487/1098"
+      ],
+      "(False, True)": [
+        54,
+        "245/1098"
+      ],
+      "(True, False)": [
+        54,
+        "124/549"
+      ],
+      "(True, True)": [
+        27,
+        "59/549"
+      ]
+    },
+    "original_E_inputs": 27,
+    "prepared_old_new_reference_triples": 27,
+    "stale_inverse_source_example_relative_ready_error": 2,
+    "symbolic_fault_worlds": 243
+  }
+}
