@@ -1,0 +1,44 @@
+{
+  "schema": "R284AU_CALIBRATED_SCALAR_R1_VERIFICATION_V1",
+  "status": "PASS",
+  "date": "2026-11-19",
+  "scope": "Auxiliary calibrated strictly positive integer A=Q*C, exact determinant oracle; no floating-point",
+  "code_path": "research_notes/portable_direct/R284AU_scalar_port_reconstruction_checker.py",
+  "reproduce": "python3 R284AU_scalar_port_reconstruction_checker.py full-output.json",
+  "seed": 28420261119,
+  "construction": "12 tests in each dimension 2..6: all-ones rank1, positive outer-product rank1, and seeded random positive entries 1..6; independently one R284AR transpose-ambiguous 3x3; arbitrary oriented random trees",
+  "cases_total": 61,
+  "cases_by_n": {
+    "2": 12,
+    "3": 13,
+    "4": 12,
+    "5": 12,
+    "6": 12
+  },
+  "total_oracle_calls": 1643,
+  "total_calls_by_n": {
+    "2": 48,
+    "3": 143,
+    "4": 270,
+    "5": 470,
+    "6": 712
+  },
+  "maximum_T_bits": 51,
+  "maximum_determinant_response_bits": 256,
+  "assertions": [
+    "exact reconstructed matrix equality in every case",
+    "strict top-coefficient extraction error less than half",
+    "oracle call count within AU3 bound",
+    "singular/rank-one matrices and transpose-ambiguous core"
+  ],
+  "arithmetic": "Python arbitrary-precision integer Bareiss determinant and fractions.Fraction; no floats",
+  "review": "NOT_REVIEWED",
+  "unverified": [
+    "analog noise and precision",
+    "unknown calibration",
+    "independent review",
+    "real-open lower-bound numerical check",
+    "formal task recognition"
+  ],
+  "collision_note": "R284AU_exact_verification.json was already created independently at GitHub commit 3bcb0b31 (208 random cases and 3 boundaries). Preserved without overwrite. This file documents only the present 61-case checker."
+}
