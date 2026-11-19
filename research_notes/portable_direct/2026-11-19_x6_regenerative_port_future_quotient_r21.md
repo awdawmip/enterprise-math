@@ -1,0 +1,88 @@
+# X6 R21 — Finite regenerative-Port controller: exact future-language quotient and failure of static resource paths
+
+**Date:** 2026-11-19 (Asia/Shanghai). **Line:** RS-X6-NATIVE-TIME-DYNAMICS; historical task publication TP2-91D4A7C2F63805BE21A3. **Status:** conditional author-side theorem and finite exact verification, **NOT_REVIEWED / NOT_NATIVE_ADMITTED**. This is a portable, non-claiming scientific continuation. The historical Researcher EM-X6-214D9C and Activity RA-545183ADD4EF71C3E4698AEE are attribution references only: current live identity/owner authorization was not established because the native identity-check service returned BACKEND_IDENTITY_CHECK_UNAVAILABLE. No formal PROGRESS, CLAIM, Result or review is represented by this file.
+
+## Frozen and current inputs
+
+- Scientific P000 V5: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json\`, Git blob \`dc84bdae6595b5e237a2ad50d8b21916adb2e447\`. The six native spatial axes are distinct from the non-spatial time ordering, and a stable nonzero primitive carrier must respect \`TRIADIC_CLOSURE_E\`. A Port event is not automatically physical duration.
+- Frozen taskbook: \`research_tasks/RS_X6_NATIVE_TIME_DYNAMICS_20260906.md@f41c2690daba467ecbde99615a1337e67be46ffd\`. The physical C12 clock and the precision pro-state clock remain separately typed.
+- Immediate antecedent: [R20 consumable-credit vacancy theorem](2026-11-19_x6_guarded_consumable_resource_vacancy_r20.md), whose sharp path certificate requires **no replenishment**. The present result changes that guard hypothesis explicitly, without rewriting R20.
+- The account's ACTIVE P000/worldview and current research/portable protocols are rules for interpretation, not replacements for the frozen scientific pins.
+
+## Declared finite conditional event model
+
+Fix a finite set \`W\` of \`m\` Cell sites embedded in one chart of the signed six-axis affine X6 torsor; an allowed directed edge has displacement exactly one signed native axis. Fix \`n\le m\` distinct, labelled, individually intact closure-valid triadic carriers, placed injectively among those sites. Closure-validity is a **declared invariant of this conditional model**. This file does not assert that an arbitrary actual \`TRIADIC_CLOSURE_E\` update has been derived.
+
+A finite number \`q\` of shared resource coordinates has integer capacity \`C=(C_1,...,C_q)\`. Each directed Port \`e\` has a nonnegative integer cost vector \`c(e)\` and a nonnegative integer post-event grant vector \`g(e)\`. From state \`s=(p,r)\`, where \`p\` is the labelled placement and \`0\le r\le C\`, a source-labelled signed-Port event \`a=(source,+/-native-axis)\` is legal exactly when its corresponding edge exists, its destination is vacant, and \`r\ge c(e)\` componentwise. Its deterministic state update moves that intact carrier and sets
+
+\[
+r'_j=\min(C_j,r_j-c_j(e)+g_j(e)).
+\]
+
+No silent events, source-dependent Port guards, clock-dependent grants, unrecorded resources, or other hidden state are admitted in the theorem. Sources are neutral with respect to the edge guard. The observer records **successful, chronologically ordered source and signed-Port words**, not absolute Cell snapshots, failed attempts, physical duration, positive branch mass, or algebraic amplitude. A more informative observer (such as full edge coordinates) may refine the equivalence classes. Let \`L_h(s)\` be the complete Boolean-BRC support language of successful words of length at most \`h\`.
+
+## R21.1 — Constructive exact finite-horizon language quotient
+
+Let \`Q\` be the full finite labelled-placement/resource-state set and \`Sigma\` the fixed source/signed-Port alphabet. Define \`E_0=Q×Q\`. Recursively, \`s E_{h+1} t\` precisely when for **every** \`a in Sigma\` either both \`a\`-transitions are disabled, or both are enabled and their successor states satisfy \`delta(s,a) E_h delta(t,a)\`.
+
+**Theorem.** For every \`h\ge0\` and \`s,t in Q\`,
+
+\[
+s E_h t\quad\Longleftrightarrow\quad L_h(s)=L_h(t).
+\]
+
+**Proof.** For \`h=0\`, the language contains only the empty word for every state. Inductively, the \`a\`-prefixed successful words from \`s\` exist iff \`a\` is enabled; if enabled, their suffix family is exactly \`L_h(delta(s,a))\`. Since different first symbols lie in disjoint word fibers, equality of the two \`h+1\`-languages is equivalent to precisely the stated enabledness and successor-\`E_h\` conditions. QED.
+
+Consequently, if \`C_h\` denotes the number of distinct \`E_h\` classes **restricted to a declared initial observation fiber** \`F\subseteq Q\`, the exact minimum number of extra fixed-length bits required to answer every future legal-event-word query of horizon \`h\` on \`F\` is
+
+\[
+\boxed{b_h(F)=\lceil\log_2 C_h(F)\rceil.}
+\]
+
+This is a cardinality result for the stated Boolean future-language observer, not for reconstructing the original labelled arrangement under an independent full-state observer. The graded Markov update is well defined: on an enabled event, the \`E_h\` class determines the \`E_{h-1}\` successor class.
+
+## R21.2 — Uniform complete-future cutoff for *finite bounded* controllers
+
+There are at most
+
+\[
+\boxed{N=(m)_n\prod_{j=1}^q(C_j+1)},\qquad
+(m)_n=\frac{m!}{(m-n)!},
+\]
+
+states (exactly \`N\` in the declared full placement/resource carrier). The partitions \`E_h\` only refine. If \`E_h=E_{h+1}\` for some \`h\`, they are equal for every later depth because the refinement operator is deterministic. Every proper refinement creates at least one new class, and the initial partition has one class. Therefore at most \`N-1\` strict refinements can occur, and
+
+\[
+\boxed{E_{N-1}=E_N=E_\infty.}
+\]
+
+Here \`E_\infty\` is equality of successful **all-finite-length** source/Port word languages. Every distinguishable state pair has a shortest distinguishing word of length at most \`N-1\`. The final quotient \`Q/E_\infty\` is a future-faithful finite Markov carrier and needs exactly \`ceil(log_2 |Q/E_\infty|)\` bits for an arbitrary global initial class, or the corresponding restricted-fiber class count. The theorem is the finite deterministic partial-automaton argument; it does not assume an independently established native physical update.
+
+**Sharpness in the declared source/Port observer.** Set \`q=0\`, one labelled source and six collinear X6 sites \`0,e_1,...,5e_1\`; permit only rightward single-axis moves. There are \`N=6\` states. Starting at sites \`0\` and \`e_1\`, the successful \`(A,+e_1)\`-word families first differ on the fifth event, realizing \`N-1=5\`. This does not extend to observers that directly reveal the absolute starting coordinate.
+
+## R21.3 — Replenishment invalidates the R20 static-budget path certificate
+
+Take exactly three X6 sites \`0,e_1,2e_1\`. Initially A occupies \`0\`, B occupies \`e_1\`, and \`2e_1\` is empty. There is one global resource coordinate, cap 1, initial balance \`r=0\`. Only these edges exist:
+
+- \`e_1 -> 2e_1\`: cost 0, post-event grant 1.
+- \`0 -> e_1\`: cost 1, post-event grant 0.
+
+The word \`(B,+e_1),(A,+e_1)\` is fully successful: B moves to the vacancy, raising credit to 1; A then uses that credit to move at event 2. However, R20's **nonreplenishing** static-budget shortest-path test for A asks whether the path \`0->e_1->2e_1\` has total cost at most the *initial* budget 0. Its total cost is 1, so no such resource-feasible static path exists: the R20 distance would be infinite if its hypothesis were improperly reused. This is a precise failure of extending R20 beyond nonreplenishment, **not a counterexample to R20's stated theorem**.
+
+## R21.4 — Resource balance itself need not be minimal
+
+For two sites \`0,e_1\`, one source A initially at \`0\`, only the edge \`0->e_1\` (cost 1, grant 0), and resource cap 2, the starting resource balances 1 and 2 permit exactly the same successful source/Port words: the empty word and the single move. Both terminate spatially with no further edge. Balances 0 and 1 are distinguished by the one-event word. Thus the three raw resource levels yield only **two** language classes in this fixed-placement fiber. An exact future quotient can merge balances 1 and 2, but may not discard the distinction from balance 0.
+
+## Exact source-labelled Boolean-BRC verification
+
+Runnable verifier: [x6_regenerative_port_brc_minimization_verify_r21.js](x6_regenerative_port_brc_minimization_verify_r21.js); machine-readable results: [x6_regenerative_port_brc_minimization_results_r21.json](x6_regenerative_port_brc_minimization_results_r21.json). Run with \`node x6_regenerative_port_brc_minimization_verify_r21.js\`; the checker is dependency-free and uses exact integer states/sets rather than floating-point or amplitude arithmetic.
+
+Exhausted domain: the three collinear X6 Cell positions \`0,e_1,2e_1\`; four possible signed adjacency edges; each edge independently disabled or assigned one of four exact \`(cost,grant)\` pairs \`(0,0),(1,0),(0,1),(1,1)\`; capacities 1 and 2; one or two **distinct labelled** carriers; all corresponding labelled placements and starting resource levels. This is \`5^4×2×2=2,500\` distinct controller configurations, and \`28,125\` state occurrences across configurations. The exhaustive Boolean-BRC prefix-language builder independently compares equivalence with the partition recurrence for horizons 1 to 4, yielding **498,555 state-pair comparisons, all PASS**. Every controller is also checked for stabilization of refinement by the finite upper bound: **2,500 PASS**, maximum strict-refinement depth observed 5. The recharge counterexample, mergeable credit levels and the sharp six-site cutoff are independently asserted.
+
+The exhaustive domain does not include all six-dimensional Port graphs, arbitrary grant/cost magnitudes, arbitrary large capacities, native triadic closure guards, or unlimited resource counters. The universal finite-state statements above are established by the induction/refinement proof, not extrapolated from the finite tests.
+
+## Actual native transfer and still-open unit
+
+This controller is a **conditional** typed whole-triad transfer model. Actual native \`TRIADIC_CLOSURE_E\` and Cell/Link/Port admissibility must be read from an authorized, concrete update specification, checking frame and triadic stability, source-specific guards, capacity boundedness, grants and their ledger provenance, and which signed event labels are visible. A faithful native transfer requires an explicit state/event map preserving both enabledness and successor labels; without it, the R21 cutoff and quotient should not be promoted as native X6 dynamics. If the actual native controller has unbounded credit or unbounded reachable Cell population, the finite \`N-1\` cutoff is no longer automatic. If it has bounded but additional internal closure/phase state, enlarge \`Q\` by precisely those typed coordinates and recompute the quotient.
+
+**Next discriminating test:** obtain a current native \`TRIADIC_CLOSURE_E\` legal-event predicate and a two-migration resource trace; test whether its event eligibility is a function of \`(labelled placement, typed closure/frame, shared resource, retained path provenance)\`. If yes, compute its minimal Boolean-BRC quotient and first-hit certificate; if not, construct the smallest pair with the same projected state and different next legal event, and retain the missing residual. Formal task-state adoption, current-owner validation, Activity checkpoint and independent review remain separate pending operations.
