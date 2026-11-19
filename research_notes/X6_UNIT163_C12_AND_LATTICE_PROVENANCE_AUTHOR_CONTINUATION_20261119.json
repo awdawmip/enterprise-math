@@ -1,0 +1,141 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-19",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "latest_verified_native": {
+    "through_unit": 161,
+    "request_id": "onhour-20261119-1920-x6-own-units160161-native-progress-v1",
+    "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "8c7b9d21e77ab40fb7db8b45f815c32f0c0878c1",
+    "authenticated_readback": true,
+    "publication_id": "TP2-B4A441B23DA3159232C2",
+    "progress_event_comment_id": 7008423512
+  },
+  "author_frontier": {
+    "unit": 163,
+    "status": "AUTHOR_PROVED/EXACT_FINITE_EXECUTED/GITHUB_VERIFIED/UNREVIEWED/NOT_ADMITTED",
+    "new_units": [
+      {
+        "unit": 162,
+        "finding": "Existing frozen euler_native_bisector.py C12 Q(r)-rotor producer -> direct test consumer is derived 2×2 rotation-character, not native signed Cell translation. New exact signed-axis graph automorphism A(x)=(-x6,x1,x2,x3,x4,x5) yields order12 and regular 12 direction orbit, preserves native N-BRC, but is not in S6 positive-axis permutation skeleton and is not admitted physical rotation.",
+        "proof": "research_notes/X6_UNIT162_C12_ROTOR_SIGNED_AXIS_CYCLE_TYPED_BRIDGE_20261119.md",
+        "evidence": [
+          {
+            "path": "research_notes/X6_UNIT162_C12_ROTOR_SIGNED_AXIS_CYCLE_TYPED_BRIDGE_20261119.md",
+            "commit": "8b08c89218c6564f789e72db7a4b7c6fb54bc213",
+            "blob": "beec8f23a4021d738e5ea094cfcf265d3c529560"
+          },
+          {
+            "path": "research_checks/X6_UNIT162_C12_SIGNED_AXIS_CYCLE_CHECK_20261119.js",
+            "commit": "7eeec584e93665fe45e56dc4f66ea88907d6626a",
+            "blob": "f06f3e3e43eb233dea24fbd84ec83b27048d9cc9"
+          },
+          {
+            "path": "research_checks/X6_UNIT162_C12_SIGNED_AXIS_CYCLE_RESULTS_20261119.json",
+            "commit": "7341d2e39ddf38983c95196e51def2c56f012c2a",
+            "blob": "6d70da3be54addac62e44a37505ce59e4c18cfde"
+          },
+          {
+            "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit162_delta.json",
+            "commit": "2615a4b935e9759fd2e44f4c0f03331bdf74aae1",
+            "blob": "cc81254e32fe9bdf308e10fde38ac8bdb7935848"
+          }
+        ],
+        "checks": {
+          "states": 15625,
+          "power_checks": 187500,
+          "edge_checks": 187500,
+          "exact": "PASS",
+          "historical_Python_executed": false,
+          "original_R063_rerun": false
+        }
+      },
+      {
+        "unit": 163,
+        "finding": "Frozen lattice_geometry.a_triangle_carry -> test_lattice_geometry direct consumer subtracts floor-root radial distances, not positive N-BRC paths; exact all-A_p triangle carry in {0,1}, sharp original witness.",
+        "proof": "research_notes/X6_UNIT163_P022_TRIANGLE_CARRY_NON_NBRC_SUBTRACTION_AUDIT_20261119.md",
+        "evidence": [
+          {
+            "path": "research_notes/X6_UNIT163_P022_TRIANGLE_CARRY_NON_NBRC_SUBTRACTION_AUDIT_20261119.md",
+            "commit": "1e6a498cb0149514af696cf75b20732e72bf963c",
+            "blob": "9fe8a5dedab9dc2972f7265da2d3e68f4bdbeed4"
+          },
+          {
+            "path": "research_checks/X6_UNIT163_AP_TRIANGLE_CARRY_EXACT_CHECK_20261119.js",
+            "commit": "74f68529933b29cd81886746ac46f170b67cf393",
+            "blob": "72e7ea93efe5cb6a42aaba9b311a87f1f76dda67"
+          },
+          {
+            "path": "research_checks/X6_UNIT163_AP_TRIANGLE_CARRY_RESULTS_20261119.json",
+            "commit": "298bbcc5c04ec8d7b6c71ffc82369405a02c2e88",
+            "blob": "899c378e11f8ceaf71918a514b5c3e926d6534e4"
+          },
+          {
+            "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit163_delta.json",
+            "commit": "f6140677bf31931fad56840728e5c44abfdd0bfa",
+            "blob": "f4baf516612c9d94e1ebee14f30aedcb0f5fdcc8"
+          }
+        ],
+        "checks": {
+          "A1_points": 5,
+          "A2_points": 19,
+          "A3_points": 85,
+          "total_triples": 621109,
+          "sharp_cases": 4560,
+          "violations": 0,
+          "original_Python_executed": false,
+          "original_R063_rerun": false
+        }
+      }
+    ]
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "researcher_id": "EM-X6-FB6990",
+    "checkpoint_count": 178,
+    "commit": "ab3717d84b53ff1eded93a913c547adaafed0f80",
+    "blob": "8e4de135b9dcce204619d79af4d97bc06175ac6c",
+    "readback_verified": true
+  },
+  "native_control": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-dedc91932641535d284fc171",
+    "run_id": "RUN-c92057890282aaaeec520881",
+    "generation_last_authenticated": 9,
+    "highest_native_authenticated_unit": 161,
+    "original_same_lane_continuation_read_request_id": "onhour-20261119-1959-x6-own-continuation-read-v1",
+    "original_continuation_last_status": "WAITING_RESOURCE/GITHUB_RATE_LIMIT (nonterminal), no repeat",
+    "own_run_auth_last_verified": "em_execution_get prior generation9; historical read only",
+    "units162163_native_status": "NOT_SUBMITTED; do not claim authorized write or Source PROGRESS yet",
+    "units149152_semantic_debt": "PENDING",
+    "unit149_failed_request_id": "onhour-20261119-1000-x6-own-unit149-native-progress-v1",
+    "unit149_terminal": "FAILED/GITHUB_PRIMARY_RATE_LIMIT"
+  },
+  "unresolved": [
+    "Original current continuation request is still nonterminal due to transient GitHub rate limit; consume original request, not reissue.",
+    "Units162–163 GitHub/Activity saved, native semantic checkpoint not yet submitted. Original run historical authorization not itself present Source write authority.",
+    "Native Units149–152 semantic association pending; failed Unit149 original must not be replayed.",
+    "LP011 alleged incorrect native argmax and LP019 alleged positive BRC subtraction exact historical commit:path:line remain UNRESOLVED_PROVENANCE despite additional correct derived callers.",
+    "28-LP full production consumer audit and independent Driver Review/Result admission pending."
+  ],
+  "do_not_repeat": [
+    "Native Units1–148,153–161 verified complete, including original Unit50 R063 six-file 512-case native benchmark.",
+    "Unit149 failed original request; any pending/unknown Source write; no identity borrowing/maintenance lane.",
+    "Units162/163 author proofs, checkers, precise certificates and Activity177–178 verified in GitHub.",
+    "Unit157 A_p weighted shell already in historical P022; do not reclaim new theorem.",
+    "Do not label derived C12 rotor or P022 floor-root triangle carry as proven erroneous native LP011/LP019 operators."
+  ],
+  "next_exact_action": "On original continuation request onhour-20261119-1959-x6-own-continuation-read-v1, consume final receipt after transient wait. Verify current winning same-session Source CLAIM and lawful run generation. If authorized, publish one own Native PROGRESS referencing already GitHub-verified Unit162–163 evidence; do not reupload or invent review and reconcile original pending request. Independently link saved Units149–152 by lawful new operation after checking existing Source, without replaying failed Unit149. Then pursue actual wrong-source LP011/LP019 consumer location or preserve no-found attribution with corpus bounds. Continue parent scientific task without modifying cadence.",
+  "review": "UNREVIEWED/NOT_ADMITTED",
+  "continuation_state": "OPEN",
+  "scheduler_modified": false,
+  "notifications_modified": false
+}
