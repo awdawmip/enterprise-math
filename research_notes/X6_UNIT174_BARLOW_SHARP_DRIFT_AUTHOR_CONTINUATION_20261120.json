@@ -1,0 +1,97 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "source_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "historical_claim_id": "MCP-dedc91932641535d284fc171",
+  "historical_run_id": "RUN-c92057890282aaaeec520881",
+  "last_observed_generation": 13,
+  "historical_generation_not_authorized_for_new_writer": true,
+  "current_same_lane_private_write_authority": "UNCONFIRMED; no protected write attempted this round",
+  "existing_origin_receipts": [
+    {
+      "request_id": "onhour-20261120-0320-x6-own-unit171-native-progress-v1",
+      "operation": "publish_checkpoint",
+      "verified_status": "SUCCEEDED",
+      "native_source": "cf6e0c6cff2e81f416caf6c888f5384d41bfd078",
+      "meaning": "Native through Unit171 authenticated"
+    },
+    {
+      "request_id": "onhour-20261120-0456-x6-same-research-exact-cont-v1",
+      "operation": "continuation",
+      "verified_status": "SUCCEEDED",
+      "route": "VERIFY_LIVENESS_THEN_PREPARE_EXPLICIT_TAKEOVER",
+      "execution_authorized": false
+    },
+    {
+      "request_id": "onhour-20261120-0456-x6-unit173-checker-artifact-read-v1",
+      "operation": "artifact",
+      "verified_status": "SUCCEEDED",
+      "verification": "IMMUTABLE_API_BYTES_VERIFIED",
+      "native_writer_granted": false
+    }
+  ],
+  "highest_native_authenticated_unit": 171,
+  "author_frontier": {
+    "highest_author_unit": 174,
+    "unit_172_to_173": "GITHUB_AUTHOR_EVIDENCE_PRESENT / Native PROGRESS NOT SUBMITTED",
+    "unit_174": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "research_activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "activity_event_count": 191,
+    "activity_commit": "1160c4413ce5669ccfccb4c72e65fc2219c5d980",
+    "activity_blob": "f22eb0f862f8258f993f8558793234c3c925bd88",
+    "science": [
+      {
+        "path": "research_notes/X6_UNIT174_BARLOW_SHARP_DRIFT_BOUND_TRUE_PRODUCER_CONSUMER_20261120.md",
+        "commit": "ee967aea0c667a5cb04eb849def59b68bd244de7",
+        "blob": "6ac614bd5fddc3a078b571f45b9688667f744564"
+      },
+      {
+        "path": "research_checks/X6_UNIT174_SHARP_BARLOW_DRIFT_CHECK_20261120.py",
+        "commit": "c75af650235f8fc2d1888c1c432ce5ad4009dab8",
+        "blob": "f9f225459d917da2b978de4e8ab1d7d55f574972"
+      },
+      {
+        "path": "research_checks/X6_UNIT174_SHARP_BARLOW_DRIFT_RESULTS_20261120.json",
+        "commit": "e3190f22de34494386876d6ed0255fa3dddeb1e3",
+        "blob": "e36b8ed0a067b586a4f7189384ce0339df1811ee"
+      },
+      {
+        "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit174_delta.json",
+        "commit": "e4b2a2708914b111eb98b2851f58bc04c43cf65b",
+        "blob": "806e9671a6a35cb13612a2a86c8853f6a15e4ba3"
+      }
+    ]
+  },
+  "scientific_delta": {
+    "theorem": "Exact least C on every signed integer Barlow layer k is max_(0<=r<L)|L P_r-D r| and equals unchanged historical drift_deviation_bound(pattern).",
+    "source_callgraph": "Frozen p022_barlow_stacking.py:139-142 -> p022_barlow_precision.py:17-24,53-72 -> p022_barlow_growth.py:27-28,110; p022_barlow_growth.py:249-268 consumes stacking_prefix_imbalance directly.",
+    "verification": "2046 complete ±1 period words L<=10, 149518 near-layer tests, 16368 far-layer tests, zero mismatch, independent integer checker; all three Python optimization modes identical.",
+    "scope": "Derived periodic Barlow, not native X6 N-BRC and not the original R063 benchmark."
+  },
+  "missing_evidence": {
+    "native_progress": "Units172-174 Native semantic linkage needs fresh own authorized source claim/run/generation; Activity191 is GitHub Source evidence only.",
+    "older_native": "Units149-152 native historic association unresolved",
+    "LP011": "Alleged native sign-dominance wrong caller exact commit:path:line still UNRESOLVED_PROVENANCE",
+    "LP019": "Alleged positive N-BRC subtraction wrong caller exact commit:path:line still UNRESOLVED_PROVENANCE",
+    "producer_consumer": "28-LP genuine active downstream source coverage incomplete",
+    "independent_driver": "UNREVIEWED / NOT_ADMITTED",
+    "R063": "Original 17/17 and 512/512 completed, never reexecute without a new need"
+  },
+  "next_exact_control_action": "Do not replay originals. Read existing exact same-lane Source and prove current winning CLAIM and actual session capability before any resumed writer. If granted, once publish backed Units172-174 Native PROGRESS under correct generation and authenticate Source; else retain portable GitHub evidence and request owner-specific credential/config resolution without borrowing maintenance/D25 custody.",
+  "next_scientific_action": "Inspect a still-unaudited frozen actual active producer-to-production-consumer of native signed X6 or BRC, prioritizing exact LP011/LP019 historical allegedly wrong call sites, with direct commit:path:line and observer/operator type; preserve completed P022, K4 and R063 checks.",
+  "do_not_repeat": [
+    "Previously verified Units1-173 and Unit174 proof/checker/certificate/ledger/Activity191",
+    "Original R063 native 17/17 and 512/512 benchmark",
+    "Unknown or rejected Source writes, or maintenance lane identity",
+    "No extra scheduler or notification setting change"
+  ],
+  "final_status": "OPEN / AUTHOR_SCIENCE_GITHUB_VERIFIED / NATIVE_UNITS172-174_PENDING / INDEPENDENT_REVIEW_PENDING"
+}
