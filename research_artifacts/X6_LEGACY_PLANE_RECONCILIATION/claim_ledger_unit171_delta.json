@@ -1,0 +1,77 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-20",
+  "unit": 171,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "finding": {
+    "classification": "PRESERVE_DERIVED_K4_SOURCE_WITH_EXACT_LIFT; NO_UNIFORM_MULTIPLICATIVE_NATIVE_BRC_ESTIMATOR_FROM_C_L_Q",
+    "producer": {
+      "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "src/enterprise_math/tetrahedral_endpoint_sum.py",
+      "blob": "9f5098f7ba6995340406b39125b735cdba71fd4f",
+      "lines": "49-64,88-96,114-165"
+    },
+    "true_consumer": {
+      "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "tests/test_tetrahedral_endpoint_sum.py",
+      "blob": "d5cf7d4fa1405eca8245baa143334e282ee8fb26",
+      "lines": "4-20,36-72"
+    },
+    "theorem": "For every m>=1 the two K4 edge assignments xA=(-3m,-3m,0,0,3m,3m) and xB=(4m,m,m,-m,-m,-4m) have identical C=(0,0,0), L=12m, Q=36m^2 but native-comparator B(xB)/B(xA)>= (9/4)^m. Hence any positive estimate from (C,L,Q) needs multiplicative K>=(3/2)^m, so no uniform finite K works.",
+    "exact_ratio": "[((3m)!)^2 / ((4m)!(m!)^2)]^2",
+    "finite_witness": {
+      "m": 1,
+      "ba": 369600,
+      "bb": 831600,
+      "ratio": "9/4"
+    },
+    "type_boundary": "DERIVED_K4_EDGE_COORDINATES COMPARED TO FROZEN_SIGNED_NATIVE_X6_MULTINOMIAL ONLY UNDER_EXPLICIT_LABEL_BIJECTION; NOT_NATIVE_PHYSICAL_EQUIVALENCE",
+    "current_bad_call_evidence": "NONE_FOUND_IN_ACTUAL_FROZEN_K4_PRODUCER_TO_TEST_CONSUMER; SOURCE_ALREADY_PRESERVES_INTEGER_VERTEX_LIFT"
+  },
+  "independent_exact_check": {
+    "m_min": 1,
+    "m_max": 32,
+    "exact_pairs": 32,
+    "violations": 0,
+    "python_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "identical_json_bytes": true,
+    "checker_sha256": "af44847bb2e70e492d1b483b0358b6ec4ed35a9acb98ae2d017e2597cd551181",
+    "result_sha256": "67816e8596bc1457e27dfe598fe38d72b7922cafbf8c3b3bb6257ba77b57431a",
+    "original_R063_benchmark_reexecuted": false
+  },
+  "immutable_evidence": {
+    "proof": {
+      "commit": "20f08326302d7ba76195279b0c8b2a881857054b",
+      "path": "research_notes/X6_UNIT171_K4_BRC_UNBOUNDED_MULTIPLICATIVE_DISTORTION_20261120.md",
+      "blob": "0a396d5ed7e3f3d3d6766fb610e196cbcfef31d5"
+    },
+    "checker": {
+      "commit": "5c0790fd5221acff8a0ccb911736fdfcec287f59",
+      "path": "research_checks/X6_UNIT171_K4_BRC_APPROXIMATION_NO_UNIFORM_FACTOR_CHECK_20261120.py",
+      "blob": "067b244ab69b63d05d4b1ddd2f830736e260f6db"
+    },
+    "result": {
+      "commit": "d9469906f8111755f5bad6bd668de732e35d3c82",
+      "path": "research_checks/X6_UNIT171_K4_BRC_APPROXIMATION_NO_UNIFORM_FACTOR_RESULTS_20261120.json",
+      "blob": "63926816f78c2e6e90213bc700765aa608db9b05"
+    }
+  },
+  "remaining": [
+    "LP011 alleged historical wrong signed native argmax precise offending commit:path:line UNKNOWN",
+    "LP019 alleged historical wrong positive N-BRC subtraction precise offending commit:path:line UNKNOWN",
+    "Remaining true 28-LP production consumer coverage unfinished",
+    "Units149–152 historical Native source association outstanding",
+    "Independent Driver review and formal Result/admission outstanding"
+  ],
+  "originality_scope": "NEW_UNBOUNDED_MULTIPLICATIVE_DISTORTION_RELATIVE_TO_UNIT170_FIXED_COLLISION; KNOWN_K4_QUOTIENT_SOURCE_REUSED",
+  "next_exact_action": "Consume Unit170 Native original request ID onhour-20261120-0305-x6-own-unit170-native-progress-v1. After exact authenticated success and fresh own claim/run reauthorization, submit once Unit171 Native linkage. Continue actual 28-LP production caller audit without replaying R063 or inventing LP011/LP019."
+}
