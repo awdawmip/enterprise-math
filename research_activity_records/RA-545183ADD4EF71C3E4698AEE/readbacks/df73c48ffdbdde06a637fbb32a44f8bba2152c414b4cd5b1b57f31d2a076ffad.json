@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "path": "research_notes/portable_direct/x6_full_signed_interaction_graph_brc_results.json",
+    "ref": "4399fafa4a31a52e273645d603d7ef6d4265b86d"
+  },
+  "observation_id": "r2-x6-r14-20261119-results",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"algorithm\": \"enumerate all source-labelled legal event words, test equality of Boolean supports for same signature; independently check horizon-graded signature update on all legal typed moves in sampled configurations\",\n  \"pair_global_class_formula\": \"sum_{j=0}^min(6,h) 2^j * C(6,j) * C(h,j) = |{z in Z^6: ||z||_1 <= h}|\",\n  \"pair_sample_total_word_observations\": 369172,\n  \"pair_tests\": [\n    {\"h\": 0, \"sample_equivalence_classes\": 1, \"sample_states\": 25, \"theoretical_all_X6_classes\": 1, \"theoretical_min_bits\": 0},\n    {\"h\": 1, \"sample_equivalence_classes\": 5, \"sample_states\": 25, \"theoretical_all_X6_classes\": 13, \"theoretical_min_bits\": 4},\n    {\"h\": 2, \"sample_equivalence_classes\": 13, \"sample_states\": 25, \"theoretical_all_X6_classes\": 85, \"theoretical_min_bits\": 7},\n    {\"h\": 3, \"sample_equivalence_classes\": 21, \"sample_states\": 25, \"theoretical_all_X6_classes\": 377, \"theoretical_min_bits\": 9}\n  ],\n  \"result\": \"PASS\",\n  \"scope\": \"conditional occupancy-only six signed native-coordinate unit-step event system; complete source/axis/direction labelled Boolean future-word support; not TRIADIC_CLOSURE_E native admission\",\n  \"three_source_graded_transitions\": 7968,\n  \"three_source_tests\": [\n    {\"configurations\": 120, \"h\": 0, \"observed_language_classes\": 1, \"signature_classes\": 1},\n    {\"configurations\": 120, \"h\": 1, \"observed_language_classes\": 43, \"signature_classes\": 43},\n    {\"configurations\": 120, \"h\": 2, \"observed_language_classes\": 90, \"signature_classes\": 90}\n  ],\n  \"three_source_total_word_observations\": 147240,\n  \"two_source_graded_transitions\": 1776,\n  \"validation_limit\": \"full pair sample: b=(x,y,0,0,0,0), x,y=-2..2 excluding origin plus b=(9,9,0,0,0,0), horizon 0..3; all 120 ordered distinct 3-source configurations from 6 fixed points, horizon 0..2; symbolic proof handles arbitrary n and unbounded X6 displacements\"\n}\n",
+      "encoding": "utf-8",
+      "sha": "7ae49ef943a1e024fb5476941867890455f49dd8",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/4399fafa4a31a52e273645d603d7ef6d4265b86d/research_notes/portable_direct/x6_full_signed_interaction_graph_brc_results.json",
+      "display_title": "x6_full_signed_interaction_graph_brc_results.json"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
