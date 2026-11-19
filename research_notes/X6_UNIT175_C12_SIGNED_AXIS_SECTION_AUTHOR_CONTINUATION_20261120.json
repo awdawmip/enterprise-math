@@ -1,0 +1,96 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "previous_claim_id": "MCP-dedc91932641535d284fc171",
+  "current_claim_id": "MCP-e2bd88a10565daf08b1d46f5",
+  "claim_comment_id": 7024797719,
+  "run_id": "RUN-b2c1fe16e9806ecf043c89a0",
+  "last_verified_generation": 1,
+  "claim_receipt": {
+    "request_id": "onhour-20261120-0704-x6-own-claim-after-prep-v1",
+    "status": "SUCCEEDED",
+    "state": "RUN_READY",
+    "source": "0d25b944253b3b5def3c6050fd6ff7b7fecf6b8b",
+    "execution_authorized": true,
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034"
+  },
+  "original_prepare": {
+    "request_id": "onhour-20261120-0656-x6-own-typed-cont-prep-v1",
+    "status": "SUCCEEDED",
+    "claim_id": "MCP-e2bd88a10565daf08b1d46f5"
+  },
+  "native_authenticated_until_unit": 171,
+  "unit172_174_native_original": {
+    "request_id": "onhour-20261120-0714-x6-own-units172174-native-progress-v1",
+    "last_status": "RUNNING",
+    "error": null,
+    "result_terminal_confirmed": false,
+    "duplicate_submission_forbidden": true
+  },
+  "author_frontier": {
+    "highest_author_unit": 175,
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "activity_count": 192,
+    "activity_commit": "38af761ba1c3a97c3389213f3e7e5e1e87c41d37",
+    "unit175": {
+      "proof": {
+        "commit": "565c0ed293dfaeb00af7b9ecad520f5b6aa86598",
+        "path": "research_notes/X6_UNIT175_C12_SIGNED_AXIS_EQUIVARIANT_SECTION_SHARP_SUBGROUP_20261120.md",
+        "blob": "e82e7140a3313d62b5ece3628c6d39ecf3db6371"
+      },
+      "checker": {
+        "commit": "752867de3ab5556bd4cbebe8c40271103e0bb3a5",
+        "path": "experiments/x6_unit175_signed_axis_section_20261120/check_equivariant_section.py",
+        "blob": "81c5633d318ac40eeb489be69d4f3deb09333cf2"
+      },
+      "certificate": {
+        "commit": "5348e5e370d6743caa811bc6efa46ba4016a1d41",
+        "path": "experiments/x6_unit175_signed_axis_section_20261120/exact_results.json",
+        "blob": "18d71b5d0380822f4220b7e5b7be5d2a99f73a19"
+      },
+      "ledger": {
+        "commit": "4aee886ed7769082a6066b156731892fd1edcdf6",
+        "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit175_delta.json",
+        "blob": "a5d09a260e73f5820a57374de43c1e7bd336ce10"
+      },
+      "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED / NATIVE_PROGRESS_NOT_SUBMITTED"
+    }
+  },
+  "science": "C12 candidate signed six-axis A^6=-I, A^12=I; projection 12 signed->6 unsigned; all subgroup H_d d|12 equivariant section counts d1=0,d2=0,d3=0,d4=4,d6=0,d12=64. Existence iff subgroup odd order. Production importer finite_symmetry->equivariant_section and genuine generic tests, exact source/blob verified at frozen fd2... and current main. Distinguish abstract label action, not native physical rotation.",
+  "validation": {
+    "all_section_choices": 64,
+    "subgroups": 6,
+    "executed_equivariance_comparisons": 10752,
+    "violations": 0,
+    "check_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "three_mode_sha256": "b95130b8ff1640f11fd20a2d9a6b0a4bd7e6c6f2cfd563e9797c568e78d2d687"
+  },
+  "missing_evidence": {
+    "native": "Unit175 native linkage not yet submitted; first reconcile prior Unit172–174 Native original receipt; authorization must remain valid",
+    "historical": "LP011 original wrong-native argmax and LP019 original positive-N-BRC subtraction caller exact offending commit:path:line UNKNOWN",
+    "coverage": "28-LP full active producer-consumer coverage INCOMPLETE",
+    "old_units": "Unit149–152 native semantics association pending",
+    "review": "UNREVIEWED / NOT_ADMITTED"
+  },
+  "do_not_repeat": [
+    "Previously verified Units1–174, Activity191; Unit175 proof/checker/certificate/ledger/Activity192 are already GitHub-verified; no reupload or recompute",
+    "R063 original 17/17 and 512/512 benchmark complete; no rerun",
+    "Do not reissue onhour-20261120-0714-x6-own-units172174-native-progress-v1 while status queued/running/unknown",
+    "No maintenance lane, other Researcher identity or borrowed original custody"
+  ],
+  "next_exact_action": "Read original Units172–174 Native PROGRESS status by target_request_id; upon SUCCEEDED authenticate original Source checkpoint; only then if own currently winning CLAIM/RUN and generation fresh, submit exactly one Unit175 Native semantic PROGRESS referencing verified immutable GitHub materials and Activity192. Continue real original 28-LP producer->consumer provenance and LP011/LP019 exact faulty calls; preserve unreviewed status. At cutoff save, then lawful HANDOFF/release if actually required.",
+  "continuation_state": "OPEN"
+}
