@@ -1,0 +1,19 @@
+{
+  "tool_name": "mcp__GitHub__fetch_file",
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "path": "research_notes/portable_direct/x6_phase_coupled_link_brc_results_r32.json",
+    "ref": "15f5f5099705903441dde77134d71799a6cb60be"
+  },
+  "result": {
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"X6_R32_PHASE_COUPLED_LINK_BOOLEAN_BRC_CHECK_V1\",\n  \"model\": \"Deterministic labelled finite public controller, phase-dependent hidden-independent controls, one-use inert probes\",\n  \"method\": \"Exact enumeration of all successful labelled words, not sampled word equivalence; BFS of nonprobe control/phase graph\",\n  \"exhaustive\": {\n    \"n\": 1,\n    \"public_states\": 2,\n    \"one_public_action\": true,\n    \"partial_action_tables\": 729,\n    \"link_assignments\": 4,\n    \"initial_controller_choices\": 2,\n    \"configurations\": 5832,\n    \"max_h\": 6\n  },\n  \"seeded\": {\n    \"n\": 2,\n    \"public_states\": 2,\n    \"one_public_action\": true,\n    \"configurations\": 128,\n    \"seed\": 20261119,\n    \"prng\": \"LCG 1664525*x+1013904223 modulo 2^32\",\n    \"max_h\": 7\n  },\n  \"witnesses\": {\n    \"one_source\": {\n      \"d\": [\n        3\n      ],\n      \"first_distinguishing_depth\": 4,\n      \"class_counts\": [\n        1,\n        1,\n        1,\n        1,\n        2,\n        2,\n        2,\n        2\n      ],\n      \"witness\": [\n        \"P0+\",\n        \"P0-\",\n        \"A0\",\n        \"Q0\"\n      ]\n    },\n    \"two_source_joint_gate\": {\n      \"d\": [\n        5,\n        5\n      ],\n      \"first_distinguishing_depth\": 6,\n      \"class_counts\": [\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        4,\n        4\n      ],\n      \"witness_for_0\": [\n        \"P0+\",\n        \"P0-\",\n        \"P1+\",\n        \"P1-\",\n        \"A0\",\n        \"Q0\"\n      ]\n    }\n  },\n  \"hidden_pair_horizon_comparisons\": 47024,\n  \"all_checks\": \"PASS\",\n  \"status\": \"FINITE_EXACT_CHECK_ONLY; GENERAL_THEOREM_HAS_SEPARATE_SYMBOLIC_PROOF; NOT_INDEPENDENTLY_REVIEWED\",\n  \"frozen_p000\": \"a72226e2430ffa4786321ac86e7f0c599d5f0389\"\n}\n",
+      "encoding": "utf-8",
+      "sha": "c67d95f20705623fb0a9cb84a614cd345202b698",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/15f5f5099705903441dde77134d71799a6cb60be/research_notes/portable_direct/x6_phase_coupled_link_brc_results_r32.json",
+      "display_title": "x6_phase_coupled_link_brc_results_r32.json"
+    }
+  },
+  "observation_id": "r2-20261119-r32-source-observation-3",
+  "call_id": null
+}
