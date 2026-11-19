@@ -1,0 +1,139 @@
+{
+  "model": "semiprime prefix Hamilton, one-based prime ranks; zero-based positions",
+  "independent_exhaustive_prefix": {
+    "2": {
+      "complete_prefix_paths": 1,
+      "minimum_paths": 1,
+      "pareto": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "3": {
+      "complete_prefix_paths": 2,
+      "minimum_paths": 1,
+      "pareto": [
+        [
+          4,
+          16
+        ]
+      ]
+    },
+    "4": {
+      "complete_prefix_paths": 18,
+      "minimum_paths": 2,
+      "pareto": [
+        [
+          6,
+          67
+        ],
+        [
+          7,
+          66
+        ]
+      ]
+    },
+    "5": {
+      "complete_prefix_paths": 720,
+      "minimum_paths": 36,
+      "pareto": [
+        [
+          10,
+          198
+        ],
+        [
+          11,
+          196
+        ]
+      ]
+    }
+  },
+  "unrestricted_exact_cut_dynamic_program": [
+    {
+      "vertices": 6,
+      "all_orderings_min_total": 16,
+      "all_Hamilton_orderings_min_total": 16,
+      "prefix_Hamilton_min_total": 16
+    },
+    {
+      "vertices": 10,
+      "all_orderings_min_total": 64,
+      "all_Hamilton_orderings_min_total": 66,
+      "prefix_Hamilton_min_total": 66
+    },
+    {
+      "vertices": 15,
+      "all_orderings_min_total": 192,
+      "all_Hamilton_orderings_min_total": 196,
+      "prefix_Hamilton_min_total": 196
+    }
+  ],
+  "both_Pareto_frontiers_built_for_r_inclusive": [
+    4,
+    28
+  ],
+  "selected_upper_bounds_and_counts": [
+    {
+      "r": 4,
+      "vertices": 10,
+      "edges": 24,
+      "minimum": 66,
+      "original": 66,
+      "difference": 0,
+      "minimizer_count": 2,
+      "minimizer_count_bit_length": 2
+    },
+    {
+      "r": 5,
+      "vertices": 15,
+      "edges": 50,
+      "minimum": 196,
+      "original": 196,
+      "difference": 0,
+      "minimizer_count": 36,
+      "minimizer_count_bit_length": 6
+    },
+    {
+      "r": 10,
+      "vertices": 55,
+      "edges": 450,
+      "minimum": 5728,
+      "original": 5742,
+      "difference": 14,
+      "minimizer_count": 40452677959680000,
+      "minimizer_count_bit_length": 56
+    },
+    {
+      "r": 20,
+      "vertices": 210,
+      "edges": 3800,
+      "minimum": 172430,
+      "original": 172634,
+      "difference": 204,
+      "minimizer_count": 1102385296639415137821593251937099480521247569818561323014025223135726829351203028779940083400704000000000000000000000000000,
+      "minimizer_count_bit_length": 409
+    },
+    {
+      "r": 50,
+      "vertices": 1275,
+      "edges": 61250,
+      "minimum": 16130886,
+      "original": 16135210,
+      "difference": 4324,
+      "minimizer_count": null,
+      "minimizer_count_bit_length": 4230
+    },
+    {
+      "r": 100,
+      "vertices": 5050,
+      "edges": 495000,
+      "minimum": 508211146,
+      "original": 508249170,
+      "difference": 38024,
+      "minimizer_count": null,
+      "minimizer_count_bit_length": 22061
+    }
+  ]
+}
