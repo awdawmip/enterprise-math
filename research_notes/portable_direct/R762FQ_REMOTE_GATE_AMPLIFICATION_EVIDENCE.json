@@ -1,0 +1,202 @@
+{
+  "schema": "R762FQ_REMOTE_GATE_AMPLIFICATION_V1",
+  "status": "PASS",
+  "arithmetic": "exact integer and combinatorial checks only",
+  "coverage": "all tensor-legal states, m=1..6; recurrence h=0..3; independent known words m=1..3, h<=3",
+  "results": [
+    {
+      "m": 1,
+      "k": 3,
+      "legal_histories": 3,
+      "current_classes": 1,
+      "one_step_classes": 2,
+      "horizon_2_classes": 2,
+      "horizon_3_classes": 2,
+      "fiber_by_blocked_count": {
+        "0": {
+          "number_of_classes": 1,
+          "fiber_size": 2
+        },
+        "1": {
+          "number_of_classes": 1,
+          "fiber_size": 1
+        }
+      },
+      "minimal_one_step_bits": 1,
+      "full_provenance_bits": 2,
+      "independent_word_pair_checks": 9
+    },
+    {
+      "m": 2,
+      "k": 5,
+      "legal_histories": 9,
+      "current_classes": 1,
+      "one_step_classes": 4,
+      "horizon_2_classes": 4,
+      "horizon_3_classes": 4,
+      "fiber_by_blocked_count": {
+        "0": {
+          "number_of_classes": 1,
+          "fiber_size": 4
+        },
+        "1": {
+          "number_of_classes": 2,
+          "fiber_size": 2
+        },
+        "2": {
+          "number_of_classes": 1,
+          "fiber_size": 1
+        }
+      },
+      "minimal_one_step_bits": 2,
+      "full_provenance_bits": 4,
+      "independent_word_pair_checks": 81
+    },
+    {
+      "m": 3,
+      "k": 7,
+      "legal_histories": 27,
+      "current_classes": 1,
+      "one_step_classes": 8,
+      "horizon_2_classes": 8,
+      "horizon_3_classes": 8,
+      "fiber_by_blocked_count": {
+        "0": {
+          "number_of_classes": 1,
+          "fiber_size": 8
+        },
+        "1": {
+          "number_of_classes": 3,
+          "fiber_size": 4
+        },
+        "2": {
+          "number_of_classes": 3,
+          "fiber_size": 2
+        },
+        "3": {
+          "number_of_classes": 1,
+          "fiber_size": 1
+        }
+      },
+      "minimal_one_step_bits": 3,
+      "full_provenance_bits": 5,
+      "independent_word_pair_checks": 729
+    },
+    {
+      "m": 4,
+      "k": 9,
+      "legal_histories": 81,
+      "current_classes": 1,
+      "one_step_classes": 16,
+      "horizon_2_classes": 16,
+      "horizon_3_classes": 16,
+      "fiber_by_blocked_count": {
+        "0": {
+          "number_of_classes": 1,
+          "fiber_size": 16
+        },
+        "1": {
+          "number_of_classes": 4,
+          "fiber_size": 8
+        },
+        "2": {
+          "number_of_classes": 6,
+          "fiber_size": 4
+        },
+        "3": {
+          "number_of_classes": 4,
+          "fiber_size": 2
+        },
+        "4": {
+          "number_of_classes": 1,
+          "fiber_size": 1
+        }
+      },
+      "minimal_one_step_bits": 4,
+      "full_provenance_bits": 7,
+      "independent_word_pair_checks": 0
+    },
+    {
+      "m": 5,
+      "k": 11,
+      "legal_histories": 243,
+      "current_classes": 1,
+      "one_step_classes": 32,
+      "horizon_2_classes": 32,
+      "horizon_3_classes": 32,
+      "fiber_by_blocked_count": {
+        "0": {
+          "number_of_classes": 1,
+          "fiber_size": 32
+        },
+        "1": {
+          "number_of_classes": 5,
+          "fiber_size": 16
+        },
+        "2": {
+          "number_of_classes": 10,
+          "fiber_size": 8
+        },
+        "3": {
+          "number_of_classes": 10,
+          "fiber_size": 4
+        },
+        "4": {
+          "number_of_classes": 5,
+          "fiber_size": 2
+        },
+        "5": {
+          "number_of_classes": 1,
+          "fiber_size": 1
+        }
+      },
+      "minimal_one_step_bits": 5,
+      "full_provenance_bits": 8,
+      "independent_word_pair_checks": 0
+    },
+    {
+      "m": 6,
+      "k": 13,
+      "legal_histories": 729,
+      "current_classes": 1,
+      "one_step_classes": 64,
+      "horizon_2_classes": 64,
+      "horizon_3_classes": 64,
+      "fiber_by_blocked_count": {
+        "0": {
+          "number_of_classes": 1,
+          "fiber_size": 64
+        },
+        "1": {
+          "number_of_classes": 6,
+          "fiber_size": 32
+        },
+        "2": {
+          "number_of_classes": 15,
+          "fiber_size": 16
+        },
+        "3": {
+          "number_of_classes": 20,
+          "fiber_size": 8
+        },
+        "4": {
+          "number_of_classes": 15,
+          "fiber_size": 4
+        },
+        "5": {
+          "number_of_classes": 6,
+          "fiber_size": 2
+        },
+        "6": {
+          "number_of_classes": 1,
+          "fiber_size": 1
+        }
+      },
+      "minimal_one_step_bits": 6,
+      "full_provenance_bits": 10,
+      "independent_word_pair_checks": 0
+    }
+  ],
+  "general_theorem": "AUTHOR_PROVED_FOR_ALL_M>=1_AND_ALL_FINITE_H>=1",
+  "independent_review": "NOT_REVIEWED"
+}
