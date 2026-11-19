@@ -1,0 +1,63 @@
+{
+  "schema": "X6_UNIT173_P022_TYPED_CONSUMER_FINITE_CERT_V1",
+  "date": "2026-11-20",
+  "author_scope": "RESEARCHER_AUTHOR_FINITE_AUDIT_UNREVIEWED_NOT_ADMITTED",
+  "frozen_historical_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "producer": {
+    "path": "src/enterprise_math/p022_geodesic_multiplicity.py",
+    "frozen_blob": "46373050168d2430b6cb3952aa763f3081284632",
+    "current_blob_same": true
+  },
+  "consumer": {
+    "path": "tests/test_p022_geodesic_multiplicity.py",
+    "frozen_blob": "ef3da1a789186867c538b604da1b642bf6039591",
+    "current_blob_same": true
+  },
+  "independent_finite_execution": {
+    "runtime": "Python 3",
+    "optimization_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "case_count": 35,
+    "enumerated_endpoints": 1847,
+    "disagreements": 0,
+    "stdout_sha256": "2ed94e34d2c7f8e10d1f1e0fb7f46086202b6243cdb79e8f9d8970a27553d1fe",
+    "local_checker_sha256": "4a95d2c486cdf6e26e0e09608fdcb779c4612db268f0f9edfc406709b5667d8e",
+    "local_json_sha256": "2ed94e34d2c7f8e10d1f1e0fb7f46086202b6243cdb79e8f9d8970a27553d1fe",
+    "published_checker_blob": "bee02d88f1fb6b66df49b32ab4a695709a82352e",
+    "published_checker_note": "Published checker differs from local executed checker by a trailing newline, no source-semantic change. Do not equate their SHA256.",
+    "original_project_tests_rerun": false,
+    "original_R063_native_benchmark_rerun": false
+  },
+  "typed_shell_mass": {
+    "radius": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "derived_A3": [
+      1,
+      12,
+      84,
+      420,
+      1812,
+      7332
+    ],
+    "native_signed_SC6_combinatorial": [
+      1,
+      12,
+      132,
+      1332,
+      12372,
+      106452
+    ],
+    "first_difference_radius": 2
+  },
+  "source_judgment": "The examined producer and actual consumer count nonnegative graph shortest paths; no LP011 incorrect signed-native argmax nor LP019 positive N-BRC subtraction at these exact code paths. No broader nonexistence claim.",
+  "next": "Continue remaining 28-LP true producer-consumer frozen crosswalk; leave LP011/LP019 specific wrong caller UNKNOWN until commit:path:line."
+}
