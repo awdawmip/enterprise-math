@@ -1,0 +1,93 @@
+{
+  "schema": "R284BH_UNIVERSAL_FROZEN_DIAGONAL_PORT_GAUGE_V1",
+  "seed": 28420261120,
+  "exact_rational_observation_checks": 4320,
+  "families": [
+    {
+      "n": 2,
+      "frozen_coordinates_covered": 2,
+      "exact_observation_checks": 320
+    },
+    {
+      "n": 3,
+      "frozen_coordinates_covered": 3,
+      "exact_observation_checks": 480
+    },
+    {
+      "n": 4,
+      "frozen_coordinates_covered": 4,
+      "exact_observation_checks": 640
+    },
+    {
+      "n": 5,
+      "frozen_coordinates_covered": 5,
+      "exact_observation_checks": 800
+    },
+    {
+      "n": 6,
+      "frozen_coordinates_covered": 6,
+      "exact_observation_checks": 960
+    },
+    {
+      "n": 7,
+      "frozen_coordinates_covered": 7,
+      "exact_observation_checks": 1120
+    }
+  ],
+  "binary_3x3_admissible_pairs": 24,
+  "binary_3x3_exact_observation_checks": 5832,
+  "binary_witness_C": [
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "binary_witness_frozen_d0": [
+    [
+      1,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      1
+    ]
+  ],
+  "binary_witness_frozen_d1": [
+    [
+      2,
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "binary_witness_setting": "fixed d_j=0, all other d and z arbitrary",
+  "status": "PASS",
+  "scope": "Finite exact checks; general result follows from determinant-preserving row or column shears."
+}
