@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredtwelfth/README.md",
+    "ref": "c593a0af2a2a7fed746e26839c9647bbaddf4936",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-hundredtwelve-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第一百一十二轮　从三值记录辨认源在何时发生了改变\n\n首次直接研究 2026 年 10 月 12 日登记的有限接触取样任务。静止源时，两次接触槽都能正确写下同一个三值标签；若源在中间改变，读数可能是源从未取过的第三个值。第 78 轮已在另一份登记下分类这种正向错读，并求出一个锁存位的修复。这里反过来问：改变准备和接线后，可以从接收端读回多少时序信息？[既有正向分类](../seventyeighth/aperture.md)\n\n对有 $L\\ge2$ 个接收槽、只有一次源通道跳变的窗口，令 $h$ 为跳变前已经执行的槽数，允许 $h$ 有任意未知分布。若多种测量共用同一外生调度分布，读出固定接线的三值结果可以获得跳变切口的累积概率。每次只用一种已知准备时，恢复全部 $L$ 个独立累积概率最少需 $\\lceil L/2\\rceil$ 套设置；同一接线能区分并读取多种带标签准备时，最少需 $\\lceil L/3\\rceil$ 套接线。三通道本身看不到保持通道不动的源门，原文具体说明增加哪些可读的旧源字段才可区分它们。上述数字是关于恢复概率分布所需的不同设置数。[定理、可达设置及不可区分情形](capture.md) · [公开门重算](capture_check.py) · [精确轨迹和分组](capture_checked.json)\n\n截至 2026-11-19 09:00:23 UTC，累计直接研究 243 个登记任务，覆盖 51 个父方向。本轮首次轮到有限接触记录时刻任务，锁存与切口逆问题均按公开门复算。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 20、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c593a0af2a2a7fed746e26839c9647bbaddf4936/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredtwelfth/README.md",
+      "encoding": "utf-8",
+      "sha": "b1f52878f4d0a7e9fd64a3fe3b3b0b491c23a1d0"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
