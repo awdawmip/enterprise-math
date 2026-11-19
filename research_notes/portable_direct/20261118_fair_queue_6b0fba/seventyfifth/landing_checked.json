@@ -1,0 +1,2216 @@
+{
+  "BRC_core_sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26",
+  "source_feedback": "identity on the surviving all-zero history",
+  "two_addresses_are_not_a_nested_caller": {
+    "N": 199,
+    "base": 175,
+    "full_addresses": [
+      0,
+      9
+    ],
+    "prefix_addresses": [
+      0,
+      4
+    ],
+    "endpoints_full_equal": true,
+    "prefix_endpoints_equal": false
+  },
+  "theory_checks": {
+    "exact_nested_mass_comparisons": 1890,
+    "fixed_point_Hellinger_tests": 966,
+    "squared_Hellinger_intervals_times_1e12": [
+      [
+        32,
+        3,
+        1,
+        132178287,
+        132178288
+      ],
+      [
+        32,
+        3,
+        8,
+        242764266,
+        242764267
+      ],
+      [
+        512,
+        5,
+        1,
+        322003,
+        322004
+      ],
+      [
+        512,
+        5,
+        8,
+        652183,
+        652184
+      ],
+      [
+        2048,
+        1,
+        12,
+        127634,
+        127635
+      ]
+    ]
+  },
+  "native_stopped_runs": [
+    {
+      "N": 199,
+      "base": 175,
+      "public_q": 8,
+      "s": 1,
+      "n": 8,
+      "L": 16,
+      "width": 9,
+      "observed_cap": 4,
+      "seed": 77976,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32593,
+        "1": 16485,
+        "2": 8209,
+        "3": 505,
+        "4": 7744
+      },
+      "source_proposals": 123186,
+      "issued_moves": 61846,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          30,
+          2,
+          9,
+          7
+        ],
+        [
+          4,
+          30,
+          116,
+          4,
+          9,
+          9
+        ],
+        [
+          5,
+          116,
+          456,
+          8,
+          9,
+          9
+        ],
+        [
+          6,
+          456,
+          1822,
+          2,
+          9,
+          9
+        ],
+        [
+          7,
+          1822,
+          7284,
+          4,
+          9,
+          9
+        ],
+        [
+          8,
+          7284,
+          29128,
+          8,
+          9,
+          9
+        ]
+      ],
+      "cached_source_columns": 60,
+      "native_adder_cells_prepare": 25324,
+      "native_adder_cells_verify": 3603,
+      "inferred": 9,
+      "certified_order_and_optional_factor": [
+        9,
+        null
+      ]
+    },
+    {
+      "N": 199,
+      "base": 175,
+      "public_q": 8,
+      "s": 2,
+      "n": 8,
+      "L": 12,
+      "width": 5,
+      "observed_cap": 4,
+      "seed": 77977,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32773,
+        "1": 16489,
+        "2": 8198,
+        "3": 514,
+        "4": 7562
+      },
+      "source_proposals": 122649,
+      "issued_moves": 61423,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          30,
+          2,
+          9,
+          7
+        ],
+        [
+          4,
+          30,
+          116,
+          4,
+          9,
+          9
+        ]
+      ],
+      "cached_source_columns": 24,
+      "native_adder_cells_prepare": 10512,
+      "native_adder_cells_verify": 3603,
+      "inferred": 9,
+      "certified_order_and_optional_factor": [
+        9,
+        null
+      ]
+    },
+    {
+      "N": 199,
+      "base": 175,
+      "public_q": 8,
+      "s": 4,
+      "n": 8,
+      "L": 10,
+      "width": 3,
+      "observed_cap": 3,
+      "seed": 77979,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32783,
+        "1": 16498,
+        "2": 8299,
+        "3": 7956
+      },
+      "source_proposals": 114544,
+      "issued_moves": 57163,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ]
+      ],
+      "cached_source_columns": 7,
+      "native_adder_cells_prepare": 4606,
+      "native_adder_cells_verify": 0,
+      "inferred": null,
+      "certified_order_and_optional_factor": null
+    },
+    {
+      "N": 199,
+      "base": 125,
+      "public_q": 8,
+      "s": 1,
+      "n": 8,
+      "L": 16,
+      "width": 9,
+      "observed_cap": 4,
+      "seed": 77126,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32856,
+        "1": 16353,
+        "2": 8182,
+        "3": 1520,
+        "4": 6625
+      },
+      "source_proposals": 122688,
+      "issued_moves": 61566,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          26,
+          6,
+          11,
+          5
+        ],
+        [
+          4,
+          26,
+          94,
+          10,
+          11,
+          11
+        ],
+        [
+          5,
+          94,
+          374,
+          2,
+          11,
+          11
+        ],
+        [
+          6,
+          374,
+          1492,
+          4,
+          11,
+          11
+        ],
+        [
+          7,
+          1492,
+          5960,
+          8,
+          11,
+          11
+        ],
+        [
+          8,
+          5960,
+          23834,
+          6,
+          11,
+          11
+        ]
+      ],
+      "cached_source_columns": 70,
+      "native_adder_cells_prepare": 27864,
+      "native_adder_cells_verify": 3456,
+      "inferred": 11,
+      "certified_order_and_optional_factor": [
+        11,
+        null
+      ]
+    },
+    {
+      "N": 199,
+      "base": 125,
+      "public_q": 8,
+      "s": 2,
+      "n": 8,
+      "L": 12,
+      "width": 5,
+      "observed_cap": 4,
+      "seed": 77127,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32801,
+        "1": 16317,
+        "2": 8157,
+        "3": 1486,
+        "4": 6775
+      },
+      "source_proposals": 122950,
+      "issued_moves": 61265,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          26,
+          6,
+          11,
+          5
+        ],
+        [
+          4,
+          26,
+          94,
+          10,
+          11,
+          11
+        ]
+      ],
+      "cached_source_columns": 26,
+      "native_adder_cells_prepare": 10886,
+      "native_adder_cells_verify": 3456,
+      "inferred": 11,
+      "certified_order_and_optional_factor": [
+        11,
+        null
+      ]
+    },
+    {
+      "N": 199,
+      "base": 125,
+      "public_q": 8,
+      "s": 4,
+      "n": 8,
+      "L": 10,
+      "width": 3,
+      "observed_cap": 3,
+      "seed": 77129,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32712,
+        "1": 16359,
+        "2": 8220,
+        "3": 8245
+      },
+      "source_proposals": 114825,
+      "issued_moves": 57422,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ]
+      ],
+      "cached_source_columns": 7,
+      "native_adder_cells_prepare": 4535,
+      "native_adder_cells_verify": 0,
+      "inferred": null,
+      "certified_order_and_optional_factor": null
+    },
+    {
+      "N": 647,
+      "base": 300,
+      "public_q": 16,
+      "s": 1,
+      "n": 10,
+      "L": 20,
+      "width": 11,
+      "observed_cap": 5,
+      "seed": 80101,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32985,
+        "1": 16260,
+        "2": 8205,
+        "3": 4068,
+        "4": 126,
+        "5": 3892
+      },
+      "source_proposals": 126482,
+      "issued_moves": 63238,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          62,
+          2,
+          17,
+          15
+        ],
+        [
+          5,
+          62,
+          244,
+          4,
+          17,
+          17
+        ],
+        [
+          6,
+          244,
+          968,
+          8,
+          17,
+          17
+        ],
+        [
+          7,
+          968,
+          3856,
+          16,
+          17,
+          17
+        ],
+        [
+          8,
+          3856,
+          15422,
+          2,
+          17,
+          17
+        ],
+        [
+          9,
+          15422,
+          61684,
+          4,
+          17,
+          17
+        ],
+        [
+          10,
+          61684,
+          246728,
+          8,
+          17,
+          17
+        ]
+      ],
+      "cached_source_columns": 133,
+      "native_adder_cells_prepare": 75149,
+      "native_adder_cells_verify": 5060,
+      "inferred": 17,
+      "certified_order_and_optional_factor": [
+        17,
+        null
+      ]
+    },
+    {
+      "N": 647,
+      "base": 300,
+      "public_q": 16,
+      "s": 2,
+      "n": 10,
+      "L": 15,
+      "width": 6,
+      "observed_cap": 5,
+      "seed": 80102,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32749,
+        "1": 16380,
+        "2": 8373,
+        "3": 3996,
+        "4": 148,
+        "5": 3890
+      },
+      "source_proposals": 126802,
+      "issued_moves": 63365,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          62,
+          2,
+          17,
+          15
+        ],
+        [
+          5,
+          62,
+          244,
+          4,
+          17,
+          17
+        ]
+      ],
+      "cached_source_columns": 48,
+      "native_adder_cells_prepare": 27128,
+      "native_adder_cells_verify": 5060,
+      "inferred": 17,
+      "certified_order_and_optional_factor": [
+        17,
+        null
+      ]
+    },
+    {
+      "N": 647,
+      "base": 300,
+      "public_q": 16,
+      "s": 4,
+      "n": 10,
+      "L": 13,
+      "width": 4,
+      "observed_cap": 4,
+      "seed": 80104,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32976,
+        "1": 16287,
+        "2": 8128,
+        "3": 4029,
+        "4": 4116
+      },
+      "source_proposals": 122514,
+      "issued_moves": 61293,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ]
+      ],
+      "cached_source_columns": 15,
+      "native_adder_cells_prepare": 11245,
+      "native_adder_cells_verify": 0,
+      "inferred": null,
+      "certified_order_and_optional_factor": null
+    },
+    {
+      "N": 647,
+      "base": 104,
+      "public_q": 16,
+      "s": 1,
+      "n": 10,
+      "L": 20,
+      "width": 11,
+      "observed_cap": 5,
+      "seed": 76769,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32929,
+        "1": 16376,
+        "2": 8078,
+        "3": 4080,
+        "4": 399,
+        "5": 3674
+      },
+      "source_proposals": 126600,
+      "issued_moves": 63148,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          58,
+          6,
+          19,
+          13
+        ],
+        [
+          5,
+          58,
+          220,
+          12,
+          19,
+          19
+        ],
+        [
+          6,
+          220,
+          866,
+          14,
+          19,
+          19
+        ],
+        [
+          7,
+          866,
+          3454,
+          10,
+          19,
+          19
+        ],
+        [
+          8,
+          3454,
+          13798,
+          18,
+          19,
+          19
+        ],
+        [
+          9,
+          13798,
+          55190,
+          2,
+          19,
+          19
+        ],
+        [
+          10,
+          55190,
+          220756,
+          4,
+          19,
+          19
+        ]
+      ],
+      "cached_source_columns": 145,
+      "native_adder_cells_prepare": 75376,
+      "native_adder_cells_verify": 5477,
+      "inferred": 19,
+      "certified_order_and_optional_factor": [
+        19,
+        null
+      ]
+    },
+    {
+      "N": 647,
+      "base": 104,
+      "public_q": 16,
+      "s": 2,
+      "n": 10,
+      "L": 15,
+      "width": 6,
+      "observed_cap": 5,
+      "seed": 76770,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32626,
+        "1": 16467,
+        "2": 8302,
+        "3": 4054,
+        "4": 380,
+        "5": 3707
+      },
+      "source_proposals": 127117,
+      "issued_moves": 63738,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          58,
+          6,
+          19,
+          13
+        ],
+        [
+          5,
+          58,
+          220,
+          12,
+          19,
+          19
+        ]
+      ],
+      "cached_source_columns": 50,
+      "native_adder_cells_prepare": 26043,
+      "native_adder_cells_verify": 5477,
+      "inferred": 19,
+      "certified_order_and_optional_factor": [
+        19,
+        null
+      ]
+    },
+    {
+      "N": 647,
+      "base": 104,
+      "public_q": 16,
+      "s": 4,
+      "n": 10,
+      "L": 13,
+      "width": 4,
+      "observed_cap": 4,
+      "seed": 76772,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32581,
+        "1": 16604,
+        "2": 8170,
+        "3": 4119,
+        "4": 4062
+      },
+      "source_proposals": 123023,
+      "issued_moves": 61504,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ]
+      ],
+      "cached_source_columns": 15,
+      "native_adder_cells_prepare": 10394,
+      "native_adder_cells_verify": 0,
+      "inferred": null,
+      "certified_order_and_optional_factor": null
+    },
+    {
+      "N": 427351,
+      "base": 284799,
+      "public_q": 32,
+      "s": 1,
+      "n": 19,
+      "L": 38,
+      "width": 20,
+      "observed_cap": 6,
+      "seed": 4916584,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32806,
+        "1": 16332,
+        "2": 8183,
+        "3": 4117,
+        "4": 2010,
+        "5": 44,
+        "6": 2044
+      },
+      "source_proposals": 129065,
+      "issued_moves": 64169,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          32,
+          32,
+          32,
+          0
+        ],
+        [
+          5,
+          32,
+          126,
+          2,
+          33,
+          31
+        ],
+        [
+          6,
+          126,
+          500,
+          4,
+          33,
+          33
+        ],
+        [
+          7,
+          500,
+          1992,
+          8,
+          33,
+          33
+        ],
+        [
+          8,
+          1992,
+          7952,
+          16,
+          33,
+          33
+        ],
+        [
+          9,
+          7952,
+          31776,
+          32,
+          33,
+          33
+        ],
+        [
+          10,
+          31776,
+          127102,
+          2,
+          33,
+          33
+        ],
+        [
+          11,
+          127102,
+          508404,
+          4,
+          33,
+          33
+        ],
+        [
+          12,
+          508404,
+          2033608,
+          8,
+          33,
+          33
+        ],
+        [
+          13,
+          2033608,
+          8134416,
+          16,
+          33,
+          33
+        ],
+        [
+          14,
+          8134416,
+          32537632,
+          32,
+          33,
+          33
+        ],
+        [
+          15,
+          32537632,
+          130150526,
+          2,
+          33,
+          33
+        ],
+        [
+          16,
+          130150526,
+          520602100,
+          4,
+          33,
+          33
+        ],
+        [
+          17,
+          520602100,
+          2082408392,
+          8,
+          33,
+          33
+        ],
+        [
+          18,
+          2082408392,
+          8329633552,
+          16,
+          33,
+          33
+        ],
+        [
+          19,
+          8329633552,
+          33318534176,
+          32,
+          33,
+          33
+        ]
+      ],
+      "cached_source_columns": 525,
+      "native_adder_cells_prepare": 1038910,
+      "native_adder_cells_verify": 35810,
+      "inferred": 33,
+      "certified_order_and_optional_factor": [
+        33,
+        null
+      ]
+    },
+    {
+      "N": 427351,
+      "base": 284799,
+      "public_q": 32,
+      "s": 2,
+      "n": 19,
+      "L": 29,
+      "width": 11,
+      "observed_cap": 6,
+      "seed": 4916585,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 33020,
+        "1": 16237,
+        "2": 8166,
+        "3": 4092,
+        "4": 1987,
+        "5": 29,
+        "6": 2005
+      },
+      "source_proposals": 128499,
+      "issued_moves": 64199,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          32,
+          32,
+          32,
+          0
+        ],
+        [
+          5,
+          32,
+          126,
+          2,
+          33,
+          31
+        ],
+        [
+          6,
+          126,
+          500,
+          4,
+          33,
+          33
+        ],
+        [
+          7,
+          500,
+          1992,
+          8,
+          33,
+          33
+        ],
+        [
+          8,
+          1992,
+          7952,
+          16,
+          33,
+          33
+        ],
+        [
+          9,
+          7952,
+          31776,
+          32,
+          33,
+          33
+        ],
+        [
+          10,
+          31776,
+          127102,
+          2,
+          33,
+          33
+        ]
+      ],
+      "cached_source_columns": 228,
+      "native_adder_cells_prepare": 437778,
+      "native_adder_cells_verify": 35810,
+      "inferred": 33,
+      "certified_order_and_optional_factor": [
+        33,
+        null
+      ]
+    },
+    {
+      "N": 427351,
+      "base": 284799,
+      "public_q": 32,
+      "s": 4,
+      "n": 19,
+      "L": 24,
+      "width": 6,
+      "observed_cap": 6,
+      "seed": 4916587,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32456,
+        "1": 16491,
+        "2": 8341,
+        "3": 4128,
+        "4": 2021,
+        "5": 22,
+        "6": 2077
+      },
+      "source_proposals": 129672,
+      "issued_moves": 64655,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          32,
+          32,
+          32,
+          0
+        ],
+        [
+          5,
+          32,
+          126,
+          2,
+          33,
+          31
+        ]
+      ],
+      "cached_source_columns": 63,
+      "native_adder_cells_prepare": 143371,
+      "native_adder_cells_verify": 35810,
+      "inferred": 33,
+      "certified_order_and_optional_factor": [
+        33,
+        null
+      ]
+    },
+    {
+      "N": 427351,
+      "base": 30288,
+      "public_q": 32,
+      "s": 1,
+      "n": 19,
+      "L": 38,
+      "width": 20,
+      "observed_cap": 6,
+      "seed": 589897,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32668,
+        "1": 16298,
+        "2": 8310,
+        "3": 4103,
+        "4": 2079,
+        "5": 82,
+        "6": 1996
+      },
+      "source_proposals": 129469,
+      "issued_moves": 65018,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          32,
+          32,
+          32,
+          0
+        ],
+        [
+          5,
+          32,
+          122,
+          6,
+          35,
+          29
+        ],
+        [
+          6,
+          122,
+          476,
+          12,
+          35,
+          35
+        ],
+        [
+          7,
+          476,
+          1880,
+          24,
+          35,
+          35
+        ],
+        [
+          8,
+          1880,
+          7498,
+          22,
+          35,
+          35
+        ],
+        [
+          9,
+          7498,
+          29966,
+          26,
+          35,
+          35
+        ],
+        [
+          10,
+          29966,
+          119846,
+          18,
+          35,
+          35
+        ],
+        [
+          11,
+          119846,
+          479350,
+          34,
+          35,
+          35
+        ],
+        [
+          12,
+          479350,
+          1917398,
+          2,
+          35,
+          35
+        ],
+        [
+          13,
+          1917398,
+          7669588,
+          4,
+          35,
+          35
+        ],
+        [
+          14,
+          7669588,
+          30678344,
+          8,
+          35,
+          35
+        ],
+        [
+          15,
+          30678344,
+          122713360,
+          16,
+          35,
+          35
+        ],
+        [
+          16,
+          122713360,
+          490853408,
+          32,
+          35,
+          35
+        ],
+        [
+          17,
+          490853408,
+          1963413626,
+          6,
+          35,
+          35
+        ],
+        [
+          18,
+          1963413626,
+          7853654492,
+          12,
+          35,
+          35
+        ],
+        [
+          19,
+          7853654492,
+          31414617944,
+          24,
+          35,
+          35
+        ]
+      ],
+      "cached_source_columns": 553,
+      "native_adder_cells_prepare": 1048156,
+      "native_adder_cells_verify": 38086,
+      "inferred": 35,
+      "certified_order_and_optional_factor": [
+        35,
+        null
+      ]
+    },
+    {
+      "N": 427351,
+      "base": 30288,
+      "public_q": 32,
+      "s": 2,
+      "n": 19,
+      "L": 29,
+      "width": 11,
+      "observed_cap": 6,
+      "seed": 589898,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32698,
+        "1": 16352,
+        "2": 8336,
+        "3": 4000,
+        "4": 2111,
+        "5": 90,
+        "6": 1949
+      },
+      "source_proposals": 129199,
+      "issued_moves": 64651,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          32,
+          32,
+          32,
+          0
+        ],
+        [
+          5,
+          32,
+          122,
+          6,
+          35,
+          29
+        ],
+        [
+          6,
+          122,
+          476,
+          12,
+          35,
+          35
+        ],
+        [
+          7,
+          476,
+          1880,
+          24,
+          35,
+          35
+        ],
+        [
+          8,
+          1880,
+          7498,
+          22,
+          35,
+          35
+        ],
+        [
+          9,
+          7498,
+          29966,
+          26,
+          35,
+          35
+        ],
+        [
+          10,
+          29966,
+          119846,
+          18,
+          35,
+          35
+        ]
+      ],
+      "cached_source_columns": 238,
+      "native_adder_cells_prepare": 440411,
+      "native_adder_cells_verify": 38086,
+      "inferred": 35,
+      "certified_order_and_optional_factor": [
+        35,
+        null
+      ]
+    },
+    {
+      "N": 427351,
+      "base": 30288,
+      "public_q": 32,
+      "s": 4,
+      "n": 19,
+      "L": 24,
+      "width": 6,
+      "observed_cap": 6,
+      "seed": 589900,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32796,
+        "1": 16341,
+        "2": 8238,
+        "3": 4139,
+        "4": 2005,
+        "5": 113,
+        "6": 1904
+      },
+      "source_proposals": 128875,
+      "issued_moves": 64298,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          32,
+          32,
+          32,
+          0
+        ],
+        [
+          5,
+          32,
+          122,
+          6,
+          35,
+          29
+        ]
+      ],
+      "cached_source_columns": 63,
+      "native_adder_cells_prepare": 139577,
+      "native_adder_cells_verify": 38086,
+      "inferred": 35,
+      "certified_order_and_optional_factor": [
+        35,
+        null
+      ]
+    },
+    {
+      "N": 427351,
+      "base": 389548,
+      "public_q": 32,
+      "s": 1,
+      "n": 19,
+      "L": 38,
+      "width": 20,
+      "observed_cap": 6,
+      "seed": 6697317,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32886,
+        "1": 16436,
+        "2": 8215,
+        "3": 3977,
+        "4": 1990,
+        "5": 154,
+        "6": 1878
+      },
+      "source_proposals": 128453,
+      "issued_moves": 64280,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          32,
+          32,
+          32,
+          0
+        ],
+        [
+          5,
+          32,
+          118,
+          10,
+          37,
+          27
+        ],
+        [
+          6,
+          118,
+          452,
+          20,
+          37,
+          37
+        ],
+        [
+          7,
+          452,
+          1774,
+          34,
+          37,
+          37
+        ],
+        [
+          8,
+          1774,
+          7090,
+          6,
+          37,
+          37
+        ],
+        [
+          9,
+          7090,
+          28348,
+          12,
+          37,
+          37
+        ],
+        [
+          10,
+          28348,
+          113368,
+          24,
+          37,
+          37
+        ],
+        [
+          11,
+          113368,
+          453446,
+          26,
+          37,
+          37
+        ],
+        [
+          12,
+          453446,
+          1813762,
+          22,
+          37,
+          37
+        ],
+        [
+          13,
+          1813762,
+          7255018,
+          30,
+          37,
+          37
+        ],
+        [
+          14,
+          7255018,
+          29020058,
+          14,
+          37,
+          37
+        ],
+        [
+          15,
+          29020058,
+          116080204,
+          28,
+          37,
+          37
+        ],
+        [
+          16,
+          116080204,
+          464320798,
+          18,
+          37,
+          37
+        ],
+        [
+          17,
+          464320798,
+          1857283156,
+          36,
+          37,
+          37
+        ],
+        [
+          18,
+          1857283156,
+          7429132622,
+          2,
+          37,
+          37
+        ],
+        [
+          19,
+          7429132622,
+          29716530484,
+          4,
+          37,
+          37
+        ]
+      ],
+      "cached_source_columns": 581,
+      "native_adder_cells_prepare": 1151828,
+      "native_adder_cells_verify": 25417,
+      "inferred": 37,
+      "certified_order_and_optional_factor": [
+        37,
+        null
+      ]
+    },
+    {
+      "N": 427351,
+      "base": 389548,
+      "public_q": 32,
+      "s": 2,
+      "n": 19,
+      "L": 29,
+      "width": 11,
+      "observed_cap": 6,
+      "seed": 6697318,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32641,
+        "1": 16327,
+        "2": 8312,
+        "3": 4127,
+        "4": 2032,
+        "5": 176,
+        "6": 1921
+      },
+      "source_proposals": 129481,
+      "issued_moves": 64814,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          32,
+          32,
+          32,
+          0
+        ],
+        [
+          5,
+          32,
+          118,
+          10,
+          37,
+          27
+        ],
+        [
+          6,
+          118,
+          452,
+          20,
+          37,
+          37
+        ],
+        [
+          7,
+          452,
+          1774,
+          34,
+          37,
+          37
+        ],
+        [
+          8,
+          1774,
+          7090,
+          6,
+          37,
+          37
+        ],
+        [
+          9,
+          7090,
+          28348,
+          12,
+          37,
+          37
+        ],
+        [
+          10,
+          28348,
+          113368,
+          24,
+          37,
+          37
+        ]
+      ],
+      "cached_source_columns": 248,
+      "native_adder_cells_prepare": 467296,
+      "native_adder_cells_verify": 25417,
+      "inferred": 37,
+      "certified_order_and_optional_factor": [
+        37,
+        null
+      ]
+    },
+    {
+      "N": 427351,
+      "base": 389548,
+      "public_q": 32,
+      "s": 4,
+      "n": 19,
+      "L": 24,
+      "width": 6,
+      "observed_cap": 6,
+      "seed": 6697320,
+      "trials": 65536,
+      "stopped_calls": {
+        "0": 32797,
+        "1": 16435,
+        "2": 8218,
+        "3": 4022,
+        "4": 2069,
+        "5": 155,
+        "6": 1840
+      },
+      "source_proposals": 128724,
+      "issued_moves": 64559,
+      "all_plus_and_first_minus": [
+        [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          8,
+          8,
+          8,
+          0
+        ],
+        [
+          3,
+          8,
+          16,
+          16,
+          16,
+          0
+        ],
+        [
+          4,
+          16,
+          32,
+          32,
+          32,
+          0
+        ],
+        [
+          5,
+          32,
+          118,
+          10,
+          37,
+          27
+        ]
+      ],
+      "cached_source_columns": 63,
+      "native_adder_cells_prepare": 137102,
+      "native_adder_cells_verify": 25417,
+      "inferred": 37,
+      "certified_order_and_optional_factor": [
+        37,
+        null
+      ]
+    }
+  ]
+}
