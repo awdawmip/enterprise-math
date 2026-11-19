@@ -1,0 +1,142 @@
+{
+  "result": "PASS",
+  "claim": "Exhaustive finite alphabet examples only; probabilistic bound is symbolic Schwartz-Zippel union bound",
+  "model": "exact integer determinant diag(D)-C-sum(z_v E_{0v}), C entries 1..H",
+  "instrument_bound": "K=4*(n-1)*binom(H^(n*n),2); P(any collision)<=(n-1)*binom(H^(n*n),2)/(K+1)<1/4",
+  "trial_count": 6,
+  "total_candidates_checked": 86771,
+  "linearity_comparisons": 84,
+  "trials": [
+    {
+      "n": 2,
+      "H": 2,
+      "seed": 2842902,
+      "K": 480,
+      "candidate_count": 16,
+      "diagonal": [
+        219,
+        270
+      ],
+      "star": [
+        135
+      ],
+      "distinct_outputs": 16,
+      "collisions": 0,
+      "max_abs_output_bits": 16,
+      "first_collision": null,
+      "passed": true
+    },
+    {
+      "n": 3,
+      "H": 2,
+      "seed": 2842903,
+      "K": 1046528,
+      "candidate_count": 512,
+      "diagonal": [
+        777499,
+        339701,
+        110522
+      ],
+      "star": [
+        852052,
+        481059
+      ],
+      "distinct_outputs": 512,
+      "collisions": 0,
+      "max_abs_output_bits": 55,
+      "first_collision": null,
+      "passed": true
+    },
+    {
+      "n": 3,
+      "H": 2,
+      "seed": 2842904,
+      "K": 1046528,
+      "candidate_count": 512,
+      "diagonal": [
+        751034,
+        668359,
+        587507
+      ],
+      "star": [
+        718548,
+        28501
+      ],
+      "distinct_outputs": 512,
+      "collisions": 0,
+      "max_abs_output_bits": 59,
+      "first_collision": null,
+      "passed": true
+    },
+    {
+      "n": 3,
+      "H": 2,
+      "seed": 2842905,
+      "K": 1046528,
+      "candidate_count": 512,
+      "diagonal": [
+        881729,
+        348935,
+        334337
+      ],
+      "star": [
+        316792,
+        165326
+      ],
+      "distinct_outputs": 512,
+      "collisions": 0,
+      "max_abs_output_bits": 57,
+      "first_collision": null,
+      "passed": true
+    },
+    {
+      "n": 3,
+      "H": 3,
+      "seed": 2842906,
+      "K": 1549603224,
+      "candidate_count": 19683,
+      "diagonal": [
+        498191253,
+        1490990209,
+        970772824
+      ],
+      "star": [
+        1212997654,
+        492766640
+      ],
+      "distinct_outputs": 19683,
+      "collisions": 0,
+      "max_abs_output_bits": 90,
+      "first_collision": null,
+      "passed": true
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "seed": 2842907,
+      "K": 25769410560,
+      "candidate_count": 65536,
+      "diagonal": [
+        24238597379,
+        10553219080,
+        5266636837,
+        10586664819
+      ],
+      "star": [
+        12754543729,
+        17344892131,
+        22442331951
+      ],
+      "distinct_outputs": 65536,
+      "collisions": 0,
+      "max_abs_output_bits": 134,
+      "first_collision": null,
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Each random trial succeeds with proven probability, not certainty",
+    "Full alphabet lookup table is exponential in n^2 log H",
+    "Finite test does not independently prove injectivity of polynomial signatures"
+  ]
+}
