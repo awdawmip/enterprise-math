@@ -1,0 +1,38 @@
+{
+  "schema": "R284BK_CIRCULAR_REAL_NOISE_CHECK_V1",
+  "status": "PASS",
+  "cases": [
+    {
+      "n": 2,
+      "H": 2,
+      "matrices_exhausted": 16,
+      "p": 487,
+      "minimum_cyclic_gap": 1,
+      "tested_real_radius": "49/100",
+      "strict_gap_proof": "2*rho < min_gap",
+      "sha256_sorted_residues": "61cfa98c5cd4e42de9070d9765ef598c8dc9681e5842ac138abbd9b3a22f311c"
+    },
+    {
+      "n": 3,
+      "H": 2,
+      "matrices_exhausted": 512,
+      "p": 13604881,
+      "minimum_cyclic_gap": 10,
+      "tested_real_radius": "9/2",
+      "strict_gap_proof": "2*rho < min_gap",
+      "sha256_sorted_residues": "ec0fae4e94d13006cfc517f4a55616dfb2a05dedb6e74cd8ef796c5e52dad546"
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "matrices_exhausted": 65536,
+      "p": 335002337287,
+      "minimum_cyclic_gap": 79,
+      "tested_real_radius": "39/1",
+      "strict_gap_proof": "2*rho < min_gap",
+      "sha256_sorted_residues": "097ef2dd7dbca9186cc32aa3e2d046ad48f1c97221cfb970285e2bf4c4ba1e70"
+    }
+  ],
+  "verification": "finite exhaustive exact-gap check, rational radius",
+  "independent_review": "NOT_REVIEWED"
+}
