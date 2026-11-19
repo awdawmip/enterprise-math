@@ -1,0 +1,371 @@
+{
+  "dependencies": {
+    "python-flint": "0.9.0",
+    "precision_bits": 192
+  },
+  "scope": "finite original-road intervals, rational profile identities, finite certified zero checks",
+  "profiles": {
+    "all_rational_identities_for_m": [
+      1,
+      32
+    ],
+    "examples": [
+      {
+        "multiplicity": 1,
+        "tail_polynomial_ascending": [
+          "1/2"
+        ],
+        "mass": "1/2",
+        "first_moment": "1/4",
+        "exponential_moment": 1
+      },
+      {
+        "multiplicity": 2,
+        "tail_polynomial_ascending": [
+          "5/4",
+          "-3/2",
+          "1/2"
+        ],
+        "mass": "5/4",
+        "first_moment": "3/8",
+        "exponential_moment": 2
+      },
+      {
+        "multiplicity": 3,
+        "tail_polynomial_ascending": [
+          "33/16",
+          "-39/8",
+          "33/8",
+          "-5/4",
+          "1/8"
+        ],
+        "mass": "33/16",
+        "first_moment": "15/32",
+        "exponential_moment": 3
+      },
+      {
+        "multiplicity": 4,
+        "tail_polynomial_ascending": [
+          "93/32",
+          "-163/16",
+          "221/16",
+          "-65/8",
+          "109/48",
+          "-7/24",
+          "1/72"
+        ],
+        "mass": "93/32",
+        "first_moment": "35/64",
+        "exponential_moment": 4
+      },
+      {
+        "multiplicity": 5,
+        "tail_polynomial_ascending": [
+          "965/256",
+          "-2235/128",
+          "4165/128",
+          "-5435/192",
+          "1655/128",
+          "-623/192",
+          "257/576",
+          "-1/32",
+          "1/1152"
+        ],
+        "mass": "965/256",
+        "first_moment": "315/512",
+        "exponential_moment": 5
+      }
+    ]
+  },
+  "zero_and_constants": {
+    "first_zero_positive_ordinate": [
+      "14134725141734693/1000000000000000",
+      "7067362570867347/500000000000000"
+    ],
+    "counts_with_multiplicity_at_14_and_15": [
+      0,
+      1
+    ],
+    "fixed_local_Fourier_samples": [
+      {
+        "a": "2^-8",
+        "v": "-2",
+        "absolute_error_over_a": [
+          "25807380146609/1000000000000000",
+          "2580738014661/100000000000000"
+        ]
+      },
+      {
+        "a": "2^-8",
+        "v": "1/3",
+        "absolute_error_over_a": [
+          "1825057143479/200000000000000",
+          "2281321429349/250000000000000"
+        ]
+      },
+      {
+        "a": "2^-8",
+        "v": "1",
+        "absolute_error_over_a": [
+          "20405401454199/1000000000000000",
+          "102027007271/5000000000000"
+        ]
+      },
+      {
+        "a": "2^-16",
+        "v": "-2",
+        "absolute_error_over_a": [
+          "12898782552717/500000000000000",
+          "5159513021087/200000000000000"
+        ]
+      },
+      {
+        "a": "2^-16",
+        "v": "1/3",
+        "absolute_error_over_a": [
+          "9120820503189/1000000000000000",
+          "912082050319/100000000000000"
+        ]
+      },
+      {
+        "a": "2^-16",
+        "v": "1",
+        "absolute_error_over_a": [
+          "5098694285427/250000000000000",
+          "20394777141709/1000000000000000"
+        ]
+      },
+      {
+        "a": "2^-24",
+        "v": "-2",
+        "absolute_error_over_a": [
+          "25797526744671/1000000000000000",
+          "806172710771/31250000000000"
+        ]
+      },
+      {
+        "a": "2^-24",
+        "v": "1/3",
+        "absolute_error_over_a": [
+          "4560401532349/500000000000000",
+          "9120803064699/1000000000000000"
+        ]
+      },
+      {
+        "a": "2^-24",
+        "v": "1",
+        "absolute_error_over_a": [
+          "4078947134353/200000000000000",
+          "10197367835883/500000000000000"
+        ]
+      }
+    ],
+    "verified_height_input": "3000000000000",
+    "signed_high_zero_sum_upper_expression": [
+      "126176483/20000000000000000000",
+      "6308824151/1000000000000000000000"
+    ],
+    "coefficient_lower_expression": [
+      "23095708962966621/1000000000000000000",
+      "11547854481483311/500000000000000000"
+    ],
+    "TV_upper_expression": [
+      "27316001251/100000000000000000000",
+      "6829000313/25000000000000000000"
+    ]
+  },
+  "finite_raw_windows": [
+    {
+      "a": "1/8",
+      "scaled_window": [
+        "1/8",
+        "1/4"
+      ],
+      "integer_cutoffs_half_open": [
+        3,
+        8
+      ],
+      "c_a": [
+        "58232698435771/500000000000000",
+        "116465396871543/1000000000000000"
+      ],
+      "Green_positive_pairs": [
+        "3762582092317/125000000000000",
+        "30100656738537/1000000000000000"
+      ],
+      "Green_subtracted_cross": [
+        "4452867838077/50000000000000",
+        "89057356761541/1000000000000000"
+      ],
+      "Green_background": [
+        "67820943342229/1000000000000000",
+        "6782094334223/100000000000000"
+      ],
+      "actual_Q": [
+        "354569732769/40000000000000",
+        "4432121659613/500000000000000"
+      ],
+      "Q_over_a": [
+        "35456973276903/500000000000000",
+        "70913946553807/1000000000000000"
+      ],
+      "actual_midpoint_D_over_a": [
+        "22547105302437/250000000000000",
+        "90188421209749/1000000000000000"
+      ],
+      "cancellation_condition_ratio": [
+        "21093617/1000000",
+        "10546809/500000"
+      ],
+      "individual_weight_radius_upper": "2^-170",
+      "background_constant_radius_upper": "2^-170",
+      "total_Green_roundoff_radius_upper": "2^-130",
+      "actual_Q_cell_radius_upper": "2^-130",
+      "completion_used_in_finite_calculation": false
+    },
+    {
+      "a": "1/16",
+      "scaled_window": [
+        "1/8",
+        "1/4"
+      ],
+      "integer_cutoffs_half_open": [
+        8,
+        55
+      ],
+      "c_a": [
+        "1206145481537/20000000000000",
+        "60307274076851/1000000000000000"
+      ],
+      "Green_positive_pairs": [
+        "9218621633709/62500000000000",
+        "29499589227869/200000000000000"
+      ],
+      "Green_subtracted_cross": [
+        "316933146407607/1000000000000000",
+        "39616643300951/125000000000000"
+      ],
+      "Green_background": [
+        "85468731704639/500000000000000",
+        "170937463409279/1000000000000000"
+      ],
+      "actual_Q": [
+        "187782892627/125000000000000",
+        "1502263141017/1000000000000000"
+      ],
+      "Q_over_a": [
+        "24036210256257/1000000000000000",
+        "12018105128129/500000000000000"
+      ],
+      "actual_midpoint_D_over_a": [
+        "796907583587/31250000000000",
+        "5100208534957/200000000000000"
+      ],
+      "cancellation_condition_ratio": [
+        "10573523/25000",
+        "422940921/1000000"
+      ],
+      "individual_weight_radius_upper": "2^-170",
+      "background_constant_radius_upper": "2^-170",
+      "total_Green_roundoff_radius_upper": "2^-130",
+      "actual_Q_cell_radius_upper": "2^-130",
+      "completion_used_in_finite_calculation": false
+    },
+    {
+      "a": "1/32",
+      "scaled_window": [
+        "1/8",
+        "1/4"
+      ],
+      "integer_cutoffs_half_open": [
+        55,
+        2981
+      ],
+      "c_a": [
+        "30694160956587/1000000000000000",
+        "7673540239147/250000000000000"
+      ],
+      "Green_positive_pairs": [
+        "1372132731315157/500000000000000",
+        "548853092526063/200000000000000"
+      ],
+      "Green_subtracted_cross": [
+        "5500744254358943/1000000000000000",
+        "171898257948717/31250000000000"
+      ],
+      "Green_background": [
+        "689169204560343/250000000000000",
+        "2756676818241373/1000000000000000"
+      ],
+      "actual_Q": [
+        "198026512743/1000000000000000",
+        "24753314093/125000000000000"
+      ],
+      "Q_over_a": [
+        "6336848407793/1000000000000000",
+        "3168424203897/500000000000000"
+      ],
+      "actual_midpoint_D_over_a": [
+        "6335321012899/1000000000000000",
+        "63353210129/10000000000000"
+      ],
+      "cancellation_condition_ratio": [
+        "3472289639/62500",
+        "2222265369/40000"
+      ],
+      "individual_weight_radius_upper": "2^-170",
+      "background_constant_radius_upper": "2^-170",
+      "total_Green_roundoff_radius_upper": "2^-130",
+      "actual_Q_cell_radius_upper": "2^-130",
+      "completion_used_in_finite_calculation": false
+    },
+    {
+      "a": "1/16",
+      "scaled_window": [
+        "1/4",
+        "1/2"
+      ],
+      "integer_cutoffs_half_open": [
+        55,
+        2981
+      ],
+      "c_a": [
+        "1206145481537/20000000000000",
+        "60307274076851/1000000000000000"
+      ],
+      "Green_positive_pairs": [
+        "5296532468915963/500000000000000",
+        "10593064937831927/1000000000000000"
+      ],
+      "Green_subtracted_cross": [
+        "10617096353534837/500000000000000",
+        "849367708282787/40000000000000"
+      ],
+      "Green_background": [
+        "10641766339054249/1000000000000000",
+        "42567065356217/4000000000000"
+      ],
+      "actual_Q": [
+        "638569816501/1000000000000000",
+        "319284908251/500000000000000"
+      ],
+      "Q_over_a": [
+        "5108558532013/500000000000000",
+        "10217117064027/1000000000000000"
+      ],
+      "actual_midpoint_D_over_a": [
+        "1275763880697/125000000000000",
+        "10206111045577/1000000000000000"
+      ],
+      "cancellation_condition_ratio": [
+        "16626617359/250000",
+        "66506469437/1000000"
+      ],
+      "individual_weight_radius_upper": "2^-170",
+      "background_constant_radius_upper": "2^-170",
+      "total_Green_roundoff_radius_upper": "2^-130",
+      "actual_Q_cell_radius_upper": "2^-130",
+      "completion_used_in_finite_calculation": false
+    }
+  ]
+}
