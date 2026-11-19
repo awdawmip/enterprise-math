@@ -1,0 +1,134 @@
+{
+  "schema": "R284BD_PRIME_SIDON_EXACT_VERIFICATION_V1",
+  "precision": "exact signed Python integers, Bareiss determinant",
+  "weights_census_n_min": 3,
+  "weights_census_n_max": 69,
+  "matrix_reconstruction_count": 548,
+  "bounded_noise_count": 64,
+  "noise_bound": 7000,
+  "cases": [
+    {
+      "n": 3,
+      "H": 2,
+      "coverage": "exhaustive",
+      "count": 512,
+      "prime": 3,
+      "sidon_weights": [
+        0,
+        7,
+        13
+      ],
+      "max_target_exponent": 367,
+      "legacy_max_target_exponent": 827,
+      "max_actual_readout_bits": 3644,
+      "max_control_bits": 3177,
+      "legacy_max_control_bits": 7227,
+      "sha256_inputs_outputs": "d9360b4352356323ea7925bb94f5b1ad847719c59f4085970a52084c9d54bd79",
+      "status": "PASS"
+    },
+    {
+      "n": 3,
+      "H": 3,
+      "coverage": "fixed_seed",
+      "count": 16,
+      "prime": 3,
+      "sidon_weights": [
+        0,
+        7,
+        13
+      ],
+      "max_target_exponent": 367,
+      "legacy_max_target_exponent": 827,
+      "max_actual_readout_bits": 4102,
+      "max_control_bits": 3575,
+      "legacy_max_control_bits": 8133,
+      "sha256_inputs_outputs": "5ec580b6f54bff7ea233b37a74ed635816d1b37e2af0df500fabbbca69d27ae9",
+      "status": "PASS"
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "coverage": "fixed_seed",
+      "count": 8,
+      "prime": 5,
+      "sidon_weights": [
+        0,
+        11,
+        24,
+        34
+      ],
+      "max_target_exponent": 2364,
+      "legacy_max_target_exponent": 5777,
+      "max_actual_readout_bits": 32920,
+      "max_control_bits": 28616,
+      "legacy_max_control_bits": 70391,
+      "sha256_inputs_outputs": "d89f8a0b014fb3913c15d2136aef6073355aac5e2b17040bf2d3f8a2a864e82a",
+      "status": "PASS"
+    },
+    {
+      "n": 4,
+      "H": 3,
+      "coverage": "fixed_seed",
+      "count": 8,
+      "prime": 5,
+      "sidon_weights": [
+        0,
+        11,
+        24,
+        34
+      ],
+      "max_target_exponent": 2364,
+      "legacy_max_target_exponent": 5777,
+      "max_actual_readout_bits": 36845,
+      "max_control_bits": 32028,
+      "legacy_max_control_bits": 78783,
+      "sha256_inputs_outputs": "e66258603f51ab10050a670b604aec939107906cf9c4419f415c3402a7b7d1cb",
+      "status": "PASS"
+    },
+    {
+      "n": 5,
+      "H": 2,
+      "coverage": "fixed_seed",
+      "count": 3,
+      "prime": 5,
+      "sidon_weights": [
+        0,
+        11,
+        24,
+        34,
+        41
+      ],
+      "max_target_exponent": 5631,
+      "legacy_max_target_exponent": 24487,
+      "max_actual_readout_bits": 102225,
+      "max_control_bits": 89752,
+      "legacy_max_control_bits": 392555,
+      "sha256_inputs_outputs": "d629570cdd02585cd034a2cff91b101c6f98a32625979dd2520f8f89a1402ff9",
+      "status": "PASS"
+    },
+    {
+      "n": 6,
+      "H": 2,
+      "coverage": "fixed_seed",
+      "count": 1,
+      "prime": 7,
+      "sidon_weights": [
+        0,
+        15,
+        32,
+        44,
+        58,
+        74
+      ],
+      "max_target_exponent": 17504,
+      "legacy_max_target_exponent": 77659,
+      "max_actual_readout_bits": 395357,
+      "max_control_bits": 351787,
+      "legacy_max_control_bits": 1566042,
+      "sha256_inputs_outputs": "5ae3e996e3e5da828dd1be52c9a05b0531559bb2fd59e86ef469095a9b71c3c5",
+      "status": "PASS"
+    }
+  ],
+  "overall_status": "PASS",
+  "claim_limit": "finite tests corroborate algebraic theorem; no independent peer review"
+}
