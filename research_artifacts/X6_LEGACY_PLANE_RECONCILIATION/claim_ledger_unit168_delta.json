@@ -1,0 +1,131 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-20",
+  "unit": 168,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "actual_source": [
+    {
+      "path": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+      "blob": "b4d49a1bbcccad0521618c6d20f6dcfa242b420a",
+      "sections": "5,6,9",
+      "commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+      "source_type": "NATIVE_X6_THREE_AXIS_RELATIVE_COORDINATE_OBSERVER"
+    },
+    {
+      "path": "definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
+      "blob": "b0988c9fa0f2f7c3314784673cf21a2df2340ebe",
+      "sections": "3,6,7,15",
+      "commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+      "source_type": "ESTABLISHED_K4_STAR_CARRIER_SUBATLAS"
+    },
+    {
+      "path": "experiments/x6_centered_three_axis_slice_v19_20260905/check_centered_slice_rebase.py",
+      "blob": "406b1eea574ac3235c490dc362ce76d4b072458e",
+      "commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+      "source_type": "REAL_SINGLE_S_LABELED_OBSERVER_CHECKER"
+    }
+  ],
+  "claim": "For any 3-coordinate observer family, its exact kernel is Z^{c(G)}, where G joins all indices co-observed in a triple. Every 3/4 established K4 STAR family gives connected G and recovers native Z6 state modulo common diagonal; two triples never suffice. Of all 1140 families of 3 distinct triples from 20, exactly 480 connect 6 axes, 600 have 2 components, 60 have 3.",
+  "sharp_two_star_branches": {
+    "x": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "y": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "native_brc_x": 1,
+    "native_brc_y": 2
+  },
+  "full_four_star_depth": {
+    "x": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "y": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "native_brc_x": 1,
+    "native_brc_y": 720
+  },
+  "original_prior_art": "All 20 observers jointly determine z modulo diagonal already in frozen source. New scope is minimal cardinality among 4 established STAR observers and exact family connectivity classification.",
+  "author_files": [
+    {
+      "path": "research_notes/X6_UNIT168_FCC_K4_MINIMAL_STAR_OBSERVER_RECONSTRUCTION_20261120.md",
+      "commit": "eee67895060e60811756aee22dfe5750df631dcf",
+      "blob": "17d993d56fa1613a97b7c27a7c661d17b204f1ab",
+      "sha256": "fd4ed8e6ac95a2debf60da55e57159ede4e52cf070c1bbd811fc9baf57f3459c"
+    },
+    {
+      "path": "research_checks/X6_UNIT168_FCC_K4_MINIMAL_STAR_RECONSTRUCTION_CHECK_20261120.py",
+      "commit": "38142c856070cbcc1acf8cbe0302f49b37b9e730",
+      "blob": "1fc46f397f7a81444d70a8e5976269f2731ceb66",
+      "sha256": "1a5520ae643cdb74b01f073bfcee00b256970da15d40da959f1e56b426205016"
+    },
+    {
+      "path": "research_checks/X6_UNIT168_FCC_K4_MINIMAL_STAR_RECONSTRUCTION_RESULTS_20261120.json",
+      "commit": "9fedbcd06bac1a5508cbbe9071f481915169c2ed",
+      "blob": "a0c9059cc52421d51a8b3aa6d539a434e23b91ef",
+      "sha256": "658e7fb2ee075a14d50dc1a8af4c46ead8074a5941c3b4e5b42ae35f449a9395"
+    }
+  ],
+  "exact_checks": {
+    "all_three_family_combinations": 1140,
+    "raw_reconstructions": 2916,
+    "python_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "violations": 0,
+    "original_R063_rerun": false
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "event": "onhour-20261120-0032-x6-unit168-three-star-observer-v1",
+    "commit": "b8b62ac70edf8c3843e75bec373f81c8c7e70354",
+    "readback_pending": true
+  },
+  "disposition": "PRESERVE_FCC_STAR_OBSERVERS_AS_DERIVED_INFORMATION_PROJECTIONS_WITH_EXACT_CONNECTEDNESS_CERTIFICATE",
+  "LP011_erroneous_native_argmax_caller": "UNRESOLVED_PROVENANCE",
+  "LP019_erroneous_positive_BRC_subtraction_caller": "UNRESOLVED_PROVENANCE",
+  "review": "UNREVIEWED",
+  "admission": "NOT_ADMITTED",
+  "native_control": {
+    "native_through_unit": 164,
+    "native_unit165166_original_request": "onhour-20261120-0015-x6-own-units165166-native-progress-v1",
+    "last_status": "RUNNING/SOURCE_PUBLICATION_CONTENTION",
+    "unit167168_native": "NOT_SUBMITTED_BY_THIS_TURN",
+    "native_write_authority": "NOT_REVALIDATED_FOR_NEW_MUTATION"
+  },
+  "remaining": [
+    "Units149–152 exact Native Source associations",
+    "28-LP remaining actual producer-consumer typing",
+    "LP011 and LP019 alleged original bad source commit:path:line",
+    "Independent Driver Review and semantic admission"
+  ]
+}
