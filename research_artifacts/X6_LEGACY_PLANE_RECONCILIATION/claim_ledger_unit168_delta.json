@@ -108,7 +108,9 @@
     "id": "RA-5E3FE1E761E4963EC461A892",
     "event": "onhour-20261120-0032-x6-unit168-three-star-observer-v1",
     "commit": "b8b62ac70edf8c3843e75bec373f81c8c7e70354",
-    "readback_pending": true
+    "readback_pending": false,
+    "immutable_readback_verified": true,
+    "blob": "0acaf9dcf1f56c80abdbf351635e4b59f586e937"
   },
   "disposition": "PRESERVE_FCC_STAR_OBSERVERS_AS_DERIVED_INFORMATION_PROJECTIONS_WITH_EXACT_CONNECTEDNESS_CERTIFICATE",
   "LP011_erroneous_native_argmax_caller": "UNRESOLVED_PROVENANCE",
@@ -116,11 +118,15 @@
   "review": "UNREVIEWED",
   "admission": "NOT_ADMITTED",
   "native_control": {
-    "native_through_unit": 164,
+    "native_through_unit": 166,
     "native_unit165166_original_request": "onhour-20261120-0015-x6-own-units165166-native-progress-v1",
-    "last_status": "RUNNING/SOURCE_PUBLICATION_CONTENTION",
-    "unit167168_native": "NOT_SUBMITTED_BY_THIS_TURN",
-    "native_write_authority": "NOT_REVALIDATED_FOR_NEW_MUTATION"
+    "last_status": "Original Units165-166 SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED with authenticated_readback at Source 444837a09096d469c1e26d0c26d741ea2084f8fd",
+    "unit167168_native": "NOT_SUBMITTED / original own RUN resume onhour-20261120-x6-own-run-c920-after166-resume-v1 QUEUED",
+    "native_write_authority": "NOT_REVALIDATED_FOR_NEW_MUTATION",
+    "author_continuation": {
+      "path": "research_notes/X6_UNIT168_FCC_THREE_STAR_AUTHOR_CONTINUATION_20261120.json",
+      "commit": "986ffc2b21ef286be609261be851bdb41b5924b1"
+    }
   },
   "remaining": [
     "Units149–152 exact Native Source associations",
