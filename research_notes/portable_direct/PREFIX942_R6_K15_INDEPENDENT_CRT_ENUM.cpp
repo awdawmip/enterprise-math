@@ -1,7 +1,7 @@
 // Independent k=15 named XOR collision enumeration: solve the linear congruence
 // k*a-t*b = 2^i-sign*2^j before testing the named source-bit sign.
 // Scientific input pin f42f2906d77f24085c123f3ccfe9667d41caa96d.
-// g++ -std=c++17 -O3 PREFIX942_R6_K15_INDEPENDENT_CRT_ENUM.cpp -o crt
+// g++ -std=c++17 -O3 PREFIX941_R6_K13_INDEPENDENT_CRT_ENUM.cpp -o crt
 #include <algorithm>
 #include <cstdint>
 #include <fstream>
