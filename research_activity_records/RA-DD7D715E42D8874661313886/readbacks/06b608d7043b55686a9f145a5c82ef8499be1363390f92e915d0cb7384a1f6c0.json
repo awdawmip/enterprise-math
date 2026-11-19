@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R284AU_exact_verification.json",
+    "ref": "3bcb0b31055416f8050f389a69a1b8c6464ca7e3",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r1-20261119-r284au-immutable-readback-3",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"theorem_id\": \"R284AU\",\n  \"status\": \"PASS\",\n  \"arithmetic\": \"exact integer Bareiss + exact balanced integer extraction\",\n  \"seed\": 28420261119,\n  \"random_cases\": 208,\n  \"boundary_cases\": 3,\n  \"dimension_counts\": {\n    \"2\": 40,\n    \"3\": 45,\n    \"4\": 45,\n    \"5\": 40,\n    \"6\": 24,\n    \"7\": 14\n  },\n  \"tree_edges_checked\": 637,\n  \"scalar_oracle_queries\": 5978,\n  \"max_query_count\": 88,\n  \"max_L_bit_length\": 32,\n  \"max_integer_det_bound_bits\": 233,\n  \"boundary_results\": [\n    {\n      \"n\": 2,\n      \"M\": 4,\n      \"L_bit_length\": 7,\n      \"calls\": 4,\n      \"naive_query_bound\": 4,\n      \"max_det_bit_length_bound\": 15,\n      \"witness\": {\n        \"a_01\": 2,\n        \"a_10\": 3,\n        \"recovered_entries\": 4\n      }\n    },\n    {\n      \"n\": 6,\n      \"M\": 1,\n      \"L_bit_length\": 17,\n      \"calls\": 62,\n      \"naive_query_bound\": 66,\n      \"max_det_bit_length_bound\": 109,\n      \"witness\": {\n        \"a_01\": 1,\n        \"a_10\": 1,\n        \"recovered_entries\": 36\n      }\n    },\n    {\n      \"n\": 3,\n      \"M\": 2,\n      \"L_bit_length\": 9,\n      \"calls\": 11,\n      \"naive_query_bound\": 12,\n      \"max_det_bit_length_bound\": 28,\n      \"witness\": {\n        \"a_01\": 2,\n        \"a_10\": 1,\n        \"recovered_entries\": 9\n      }\n    }\n  ],\n  \"rational_bridge\": {\n    \"rational_denominator\": 37,\n    \"oracle_scaling_cases\": 6\n  },\n  \"sparse_boundary\": {\n    \"class\": \"2x2 upper-triangular with C21=0\",\n    \"pair\": [\n      [\n        [\n          1,\n          1\n        ],\n        [\n          0,\n          1\n        ]\n      ],\n      [\n        [\n          1,\n          2\n        ],\n        [\n          0,\n          1\n        ]\n      ]\n    ],\n    \"E12_response\": \"identical for all diagonal variables and edit z\",\n    \"reverse_E21\": \"distinguishes beta\"\n  },\n  \"verification_scope\": \"208 pseudorandom strictly-positive integer cores of n=2..7 plus 3 exact boundary cores; scale is computed solely from n and known M; result checks A entries exactly\",\n  \"general_theorem_status\": \"AUTHOR_PROVED_NOT_INDEPENDENTLY_REVIEWED\"\n}\n",
+      "display_title": "R284AU_exact_verification.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3bcb0b31055416f8050f389a69a1b8c6464ca7e3/research_notes/portable_direct/R284AU_exact_verification.json",
+      "encoding": "utf-8",
+      "sha": "c78ddb6c3500d218a2e5f9768a63a91be2b79f8a"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
