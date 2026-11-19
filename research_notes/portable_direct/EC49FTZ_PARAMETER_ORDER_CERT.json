@@ -1,0 +1,18 @@
+{
+  "schema": "EC49FTZ_SIGNED_PARAMETER_MONOTONICITY_V1",
+  "frozen_native_science": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "prior": "h_epsilon=1-epsilon*Mstar*Zstar",
+  "epsilon_domain": "(-infinity,1048576/18958647]",
+  "m_domain": "(1469/64,187/8)",
+  "P_min": "17372631/1048576",
+  "P_max": "18958647/1048576",
+  "new_finding": "for fixed m, epsilon1<epsilon2 implies law(Z|m,epsilon2) <_st law(Z|m,epsilon1)",
+  "joint_order": "m1<=m2 and epsilon1>=epsilon2 => law(m1,epsilon1) <=_st law(m2,epsilon2)",
+  "limit_epsilon_to_negative_infinity": "normalized p=Mstar*Zstar prior",
+  "uniform_TV_bound": "1/(1+s*17372631/1048576), epsilon=-s, s>=0",
+  "exact_fraction_assertions": 271,
+  "verification": "Fraction exact examples + symbolic proof in accompanying theorem; no all-real inference from grid",
+  "native_bellman_rerun": false,
+  "independent_review": false,
+  "status": "AUTHOR_PROVED_EXACT_FRACTION_CHECKED_PARENT_DEPENDENT_NOT_REVIEWED"
+}
