@@ -1,0 +1,104 @@
+{
+  "schema": "RIESEL_V4_COMPUTATION_MANIFEST_V1",
+  "recorded_utc": "2026-11-19T14:49:53.421441+00:00",
+  "researcher_id": "EM-DIRECT-970E1C",
+  "research_activity_id": "RA-D2EC212845B63844081F9A14",
+  "commands_in_workspace_root": [
+    [
+      "python",
+      "v4_phase_work/prepare_family.py"
+    ],
+    [
+      "g++",
+      "-O3",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "v4_phase_work/minimize_family.cpp",
+      "-o",
+      "v4_phase_work/minimize_family"
+    ],
+    [
+      "python",
+      "v4_phase_work/check_kernel.py"
+    ],
+    [
+      "v4_phase_work/minimize_family",
+      "v4_phase_work/family_M.bin",
+      "240"
+    ],
+    [
+      "v4_phase_work/minimize_family",
+      "v4_phase_work/family_3M.bin",
+      "240"
+    ],
+    [
+      "python",
+      "v4_phase_work/verify_family_results.py",
+      "--source-dir",
+      "vendor_src"
+    ]
+  ],
+  "stdout_redirection": {
+    "3": "v4_phase_work/minimum_M.json",
+    "4": "v4_phase_work/minimum_3M.json"
+  },
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "byteorder": "little",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "files_sha256": {
+    "prepare_family.py": "a993ec50897709b74e7d73e11c044efc836949fbaddcce737866a1fdf0013208",
+    "minimize_family.cpp": "69b711c15c79c4a7ea1ad3587031f1decdcbf1620ff9b59fa1c89dce84796409",
+    "check_kernel.py": "5157534394b8dc7b89bdf6c1e6764edd3339ed2db8e268a22f5d26e550927c04",
+    "verify_family_results.py": "46952f0cc6fe8a5c3dc82b5def760e37e665b8e9d269f6e0eaae0dae1626bee1",
+    "make_manifest.py": "2c5d263e64d77ea75d1f250d53c83fe5579fe4c098844295b23ed4d2cf6fa784",
+    "proof.md": "c07e7303b2c715f4bd6f371b44a2336e4d63ddf3ab774238d00e83c5240024e5",
+    "family_input.json": "6d1ca16163be0d3d7b4381289a324ee77edbd4b88f68a77b2ad39fec134dbf0b",
+    "kernel_checks.json": "34e48b6714f970606dafdf97f5197cb538e548ca47a78808fd3ff4f6317f1ea0",
+    "minimum_M.json": "d1f0efbb0ffb21d76b62cbf7b3f0f9acae2c07900666b188f62b210d8063f76c",
+    "minimum_3M.json": "d17be4f2830449a29a8041488692dda8c1cabf4c0fecc6b22f25442571deb0e8",
+    "verification.json": "b37262185aa24550483af778e0cba69a4b271b348860f7eb9c3792791bf127ec",
+    "new_table_unrestricted.json": "a85dea2dba36f07974eeef4e86894e9cb5a61522567e996bf9bbf2a89398c763",
+    "new_table_divisible3.json": "9bb25eecbcd724db18fd854dff8f062fa89237f53326fc23d84a424001dbff28"
+  },
+  "input_binary_sha256": {
+    "family_M.bin": "e36b3d992e8a7baa406ba8677c0899f3a69172a02a8ce39de0c3268da5164354",
+    "family_3M.bin": "e69681ae635c2cd2f2b5a833ab0f7307b8c521b2866a3139cdca01f41abfb0a5"
+  },
+  "input_binary_policy": "Reproducible intermediates; not required as permanent proof files.",
+  "class_count_basis": {
+    "shape_vector_count": 116121600,
+    "sign_count": 1048576,
+    "L": 3360,
+    "per_branch_count": 121762322841600
+  },
+  "results": [
+    {
+      "output": "minimum_M.json",
+      "odd_crt_modulus": "2794789825832388197218264652184290186627445374409052562",
+      "minimum": {
+        "root": "14045396488507675643169097338613110526031",
+        "a_code": 107831,
+        "b_code": 750459,
+        "translation": 28
+      },
+      "seconds_observed": 9.01616,
+      "root_classes_count_from_list_product": 121762322841600
+    },
+    {
+      "output": "minimum_3M.json",
+      "odd_crt_modulus": "8384369477497164591654793956552870559882336123227157686",
+      "minimum": {
+        "root": "65586338880747000465758243023957705202361",
+        "a_code": 183610,
+        "b_code": 152456,
+        "translation": 112
+      },
+      "seconds_observed": 9.00071,
+      "root_classes_count_from_list_product": 121762322841600
+    }
+  ],
+  "scope": "Complete explicitly defined F plus all translations and square-root signs, independently in each odd CRT modulus. Not all fixed-P covers.",
+  "review_status": "Author computation and verification; no independent project Review asserted."
+}
