@@ -1,0 +1,116 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-19",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "account_rule_snapshot": {
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "ref": "fdf872c128bf67ce813f8c624eb214f846850cbf",
+    "entry_bootstrap_blob": "e19673a56c3d8f6945537fa0580afc054d432ca5",
+    "entry_manual_blob": "9f9fccf9d96022258a8593db3e6863b0495c0ae8",
+    "behavioral_not_science_pin": true
+  },
+  "highest_author_frontier": {
+    "unit": 151,
+    "status": "AUTHOR_PROVED/FINITE_EXACT_EXECUTED/GITHUB_MAIN_BLOBS_READBACK/UNREVIEWED/NOT_ADMITTED",
+    "finding": "Historical R061 min-zero directed gauge triangle inequality is exact on derived quotient Q=Z3/Z(1,1,1), defining a separating asymmetric translation-invariant metric F; sharp reversal ratio F(-z)/F(z) in [1/sqrt2,sqrt2] for nonzero quotient classes, attained by explicit families. Signed native G(z)=sum z_i^2 remains symmetric and not descended.",
+    "source": "fd2bcff10ca6e147348b6c1236027fc0d2877df3:definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md lines175-197,199-231,233-253",
+    "compared_current": "main:definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md blob875e3b274e5be03c5872f782872065a0b96d14eb",
+    "verified_artifacts": [
+      {
+        "commit": "f6304d55f60420bfa4bfbc0b59a2b40b9dccd6bf",
+        "path": "research_notes/X6_UNIT151_R061_RELATIVE_TRIANGLE_GAUGE_SHARP_REVERSAL_AUDIT_20261119.md",
+        "blob": "76f49b2911de2de9165c3b0d80b47909a8e67dc8"
+      },
+      {
+        "commit": "817fc1e50f321bbdca9ae04649597ec57db1713d",
+        "path": "research_checks/X6_UNIT151_R061_RELATIVE_GAUGE_TRIANGLE_REVERSAL_CHECK_20261119.py",
+        "blob": "3440d20d183edb4ec633349bdbfa1c5ede837d2c"
+      },
+      {
+        "commit": "d180590e8c88b4662b0a5e8049624f1d564cb0dc",
+        "path": "research_checks/X6_UNIT151_R061_RELATIVE_GAUGE_TRIANGLE_REVERSAL_RESULTS_20261119.json",
+        "blob": "cfaf02727d15e2b4b4dc404e29a761f785485b2c"
+      },
+      {
+        "commit": "ca9a8ef0e2962f008d54df9cb4e602a61069b886",
+        "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit151_delta.json",
+        "blob": "4a0d4f15c5821f7c4f52bc4c12ad49500fa4991f"
+      }
+    ],
+    "test": {
+      "domain": "[-3,3]^3",
+      "vectors": 343,
+      "ordered_pairs": 117649,
+      "reversal_squared_ratio_min": "1/2",
+      "reversal_squared_ratio_max": "2",
+      "modes": [
+        "normal",
+        "-O",
+        "-OO"
+      ],
+      "stdout_sha256": "85f2138382b5612200b3b13094c49e10e5327563fa2b60d9bbb5b776105159b4",
+      "original_R063_native_benchmark_executed": false
+    }
+  },
+  "activity": {
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "checkpoint_count": 166,
+    "commit": "69b888c3bfa189109a7f415b11545bfc1ad1a34c",
+    "blob": "612311378aa0b84636095daa6e0b0183b099d2cf",
+    "event_id": "onhour-20261119-1026-x6-unit151-r061-relative-gauge-triangle-sharp-v1",
+    "readback_verified": true
+  },
+  "control": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-dedc91932641535d284fc171",
+    "run_id": "RUN-c92057890282aaaeec520881",
+    "last_successful_run_generation_observed": 5,
+    "native_semantic_checkpoint_confirmed_through_unit": 148,
+    "unit148": {
+      "request_id": "onhour-20261119-0918-x6-own-unit148-native-progress-v1",
+      "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+      "source_commit": "9e80d79f719d17053397f00f4eebdbafbfd5133f",
+      "event_comment_id": 6997044394
+    },
+    "unit149": {
+      "request_id": "onhour-20261119-1000-x6-own-unit149-native-progress-v1",
+      "status": "FAILED",
+      "error": "GITHUB_PRIMARY_RATE_LIMIT",
+      "source_publication_confirmed": false,
+      "replay_forbidden": true
+    },
+    "unit150": {
+      "status": "AUTHORED_GITHUB_NOT_NATIVE_PUBLISHED"
+    },
+    "unit151": {
+      "status": "AUTHORED_GITHUB_ACTIVITY_ASSOCIATED_NOT_NATIVE_PUBLISHED"
+    },
+    "exact_continuation": {
+      "request_id": "onhour-20261119-1021-x6-own-cont-after-unit148-149-rate-v1",
+      "last_observed": "QUEUED/error=null",
+      "must_consume_original": true
+    },
+    "writer_authority": "NOT_FRESHLY_CONFIRMED_FOR_ANOTHER_NATIVE_WRITE"
+  },
+  "evidence_debts": [
+    "Native semantic association of Units149–151 pending valid contract; preserve failed Unit149 original receipt without retrying the identical write.",
+    "28-LP broad historical/current downstream consumer coverage incomplete; LP011 signed argmax and LP019 natural N-BRC subtraction alleged faulty historic caller exact commit:path:line UNRESOLVED_PROVENANCE.",
+    "Independent Driver review/admission pending; original R063 six-file/512-case native benchmark not rerun."
+  ],
+  "do_not_repeat": [
+    "Published original Units1–148 Native Source and exact original Unit148 Source checkpoint",
+    "Already authored mathematics/checks Units149–151 and RA Activity166",
+    "FAILED Unit149 original write or any unknown/denied source publication, maintenance lane identity, independent Driver review or original R063 benchmark"
+  ],
+  "next_exact_action": "Consume original continuation request terminal. Verify live owner/claim/RUN/generation before any next native mutation. Resolve Unit149 original FAILED/GITHUB_PRIMARY_RATE_LIMIT through current permitted operations, without replay or alternate-channel disguise; then orderly semantic association of authored Units149,150,151 if authorized. Resume uninspected actual historical/current downstream 28-LP source:line audit. Keep schedule active.",
+  "continuation_state": "OPEN",
+  "scheduler_config_changed": false,
+  "independent_review": "UNREVIEWED/NOT_ADMITTED"
+}
