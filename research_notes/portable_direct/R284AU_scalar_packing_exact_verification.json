@@ -1,0 +1,61 @@
+{
+  "result": "PASS",
+  "method": "balanced radix exact integer determinant, Bareiss elimination; positive integer inputs; exact equality to source C",
+  "seed": 284021,
+  "test_counts_by_n": {
+    "2": 12,
+    "3": 16,
+    "4": 12,
+    "5": 7
+  },
+  "total_random_cases": 47,
+  "plus_fixed_example": 1,
+  "scalar_measurements_each": "n = 1 diagonal baseline + n-1 directed star edges",
+  "fixed_matrix": [
+    [
+      2,
+      1,
+      3
+    ],
+    [
+      4,
+      2,
+      1
+    ],
+    [
+      1,
+      3,
+      2
+    ]
+  ],
+  "fixed_example_metrics": {
+    "n": 3,
+    "H": 4,
+    "weights": [
+      1,
+      2,
+      3
+    ],
+    "W": 7,
+    "base_bits": 15,
+    "max_exponent": 27,
+    "F_bits": 378,
+    "nonzero_F_digits": 7,
+    "scalar_determinants": 3,
+    "max_observed_bits": 378
+  },
+  "per_n_max_observed_bits": {
+    "2": 110,
+    "3": 378,
+    "4": 1121,
+    "5": 2856
+  },
+  "max_weight_by_n": {
+    "2": 2,
+    "3": 3,
+    "4": 5,
+    "5": 8
+  },
+  "independent_review": "NOT_REVIEWED",
+  "scope_limit": "Finite tests do not prove arbitrary n; see proof for all-n theorem."
+}
