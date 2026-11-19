@@ -1,0 +1,113 @@
+{
+  "schema": "PREFIX929_R6_ROW_STRIPE_HIGHBAND_EXACT_UNION_V1",
+  "date": "2026-11-19",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": {
+    "p": 32,
+    "N": 4294967296,
+    "odd_moduli": {
+      "min": 262145,
+      "max": 524287,
+      "step": 2,
+      "count": 131072
+    },
+    "ordered_pairs_total": 17179869184,
+    "typed_traces": [
+      "Z_x=(x,x)",
+      "F_x^i=(x,x xor 2^i)"
+    ],
+    "scope": "AUXILIARY_TWO_PORT_OBSERVER"
+  },
+  "source_priors": {
+    "PREFIX922": "2026-11-19_r6_prefix922_91_wzero_late_order_full_rows.md",
+    "PREFIX923": "2026-11-19_r6_prefix923_sharp_bucket_capacity_and_highband_census.md",
+    "PREFIX920": "2026-11-19_r6_prefix920_dyadic_orbit_complete_row_noninjectivity.md",
+    "PREFIX921": "2026-11-19_r6_prefix921_mersenne_row_exact_minimizers.md",
+    "PREFIX928": {
+      "commit": "e31b888733e1ed8acd0322a46a4ee45375532ec8",
+      "sorted_binary_name": "PREFIX928_R6_SORTED_PAIR_IDS.bin",
+      "member_count": 5295478,
+      "sha256": "15534b09fa696b5cbeba46f7f644d75c2c3f99b719a88071150fa91357f22bad",
+      "pair_id_encoding": "uint64 LE; ((a-262145)/2)*131072+(b-262145)/2"
+    }
+  },
+  "full_rows": {
+    "D_count": 91,
+    "D_criterion": "no 2^d == +/-1 mod b for 1<=d<=31; some hit for 32<=d<=52",
+    "additional_11": [
+      262145,
+      321651,
+      440667,
+      440669,
+      524273,
+      524275,
+      524277,
+      524279,
+      524281,
+      524283,
+      524285
+    ],
+    "additional_2": [
+      440665,
+      524287
+    ],
+    "distinct_count": 104
+  },
+  "highband": {
+    "seed_formula": "262145+2*((77081*t+12345) mod 131072), 0<=t<1024",
+    "seed_count": 1024,
+    "first_moduli": "500001,500003,...,524287",
+    "first_moduli_count": 12144,
+    "time_reversed": true
+  },
+  "disjoint_parts": [
+    {
+      "name": "complete_second_rows",
+      "domain": 13631488,
+      "BZS_overlap": 6203042,
+      "U_overlap": 1678,
+      "new_over_BZS_U": 7426768
+    },
+    {
+      "name": "complete_first_columns_except_row_intersections",
+      "domain": 13620672,
+      "BZS_overlap": 6071390,
+      "U_overlap": 1709,
+      "new_over_BZS_U": 7547573
+    },
+    {
+      "name": "highband_forward_outside_stripes",
+      "domain": 12404898,
+      "BZS_overlap": 810190,
+      "U_overlap": 0,
+      "new_over_BZS_U": 11594708
+    },
+    {
+      "name": "highband_reversed_outside_stripes_and_forward",
+      "domain": 12396617,
+      "BZS_overlap": 810051,
+      "U_overlap": 0,
+      "new_over_BZS_U": 11586566
+    }
+  ],
+  "totals": {
+    "new_certificate_domain": 52053675,
+    "BZS_overlap": 13894673,
+    "U_overlap": 3387,
+    "BZS_and_U_are_disjoint": true,
+    "new_increment_over_PREFIX928": 38155615,
+    "previous_certified_union": 7467804449,
+    "new_certified_union": 7505960064,
+    "remaining_certificate_complement": 9673909120
+  },
+  "verification": {
+    "python": "NumPy exact int64 + gcd vectorization and searchsorted into hashed sorted U binary",
+    "cpp": "C++17 exact domain loops and separate single-pass scan over all 5,295,478 sorted IDs",
+    "all_four_parts_equal": true,
+    "bitwise_float_or_random_used": false,
+    "native_X6_equivalence_proven": false,
+    "independent_math_review": "NOT_DONE",
+    "formal_admission": "NOT_ADMITTED"
+  },
+  "next_problem": "Intersect remaining complement against other published generic double-flip certificate sets, preserving actual pair sources and typed witness semantics"
+}
