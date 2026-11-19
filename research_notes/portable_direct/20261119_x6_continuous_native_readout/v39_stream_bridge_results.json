@@ -1,0 +1,245 @@
+{
+  "schema": "X6_V39_REPEATABLE_ONE_QUERY_CODE_V1",
+  "status": "PASS",
+  "source_revision": "ef720decf4a35a276e509964250571a55421b9f8",
+  "r757_revision": "ed0b15b4ba948a21150969478d8a6941db76b11f",
+  "input_carrier": "Named signed samples at consecutive source-event indices; ordered actual directed based-ring paths",
+  "operation_semantics": "Exact V39 later-after-earlier composition; append one named ABC permutation without reset",
+  "observer_scope": "One absolute S3 frame query after the second completed macro, every completed window",
+  "retained_provenance": "All named sample leaves, source-event indices, macro order and directed ring support paths",
+  "controller_memory_scope": "One carried network phase bit plus two current source bits; stage/handshake/provenance separate",
+  "timing_scope": "Conditional paced/retained-window interface; no native clock synchronization or force permission inferred",
+  "counts": {
+    "signed_window_branches": 16,
+    "sign_reversal_checks": 16,
+    "two_window_compositions": 32,
+    "stateless_encoders": 1296,
+    "successful_stateless_encoders": 0,
+    "anti_periodic_source_stream_windows": 128,
+    "general_joint_relation_frame_classes": 5,
+    "single_source_joint_relation_frame_classes": 4
+  },
+  "source_index_gap_rejected": true,
+  "table": [
+    {
+      "initial_phase": 0,
+      "q": [
+        1,
+        1
+      ],
+      "word": "ABC",
+      "observed_frame": [
+        1,
+        2,
+        0
+      ],
+      "final_phase": 0
+    },
+    {
+      "initial_phase": 0,
+      "q": [
+        1,
+        -1
+      ],
+      "word": "ACB",
+      "observed_frame": [
+        2,
+        1,
+        0
+      ],
+      "final_phase": 1
+    },
+    {
+      "initial_phase": 0,
+      "q": [
+        -1,
+        1
+      ],
+      "word": "BCA",
+      "observed_frame": [
+        0,
+        2,
+        1
+      ],
+      "final_phase": 0
+    },
+    {
+      "initial_phase": 0,
+      "q": [
+        -1,
+        -1
+      ],
+      "word": "CAB",
+      "observed_frame": [
+        1,
+        0,
+        2
+      ],
+      "final_phase": 0
+    },
+    {
+      "initial_phase": 1,
+      "q": [
+        1,
+        1
+      ],
+      "word": "BAC",
+      "observed_frame": [
+        1,
+        2,
+        0
+      ],
+      "final_phase": 0
+    },
+    {
+      "initial_phase": 1,
+      "q": [
+        1,
+        -1
+      ],
+      "word": "CAB",
+      "observed_frame": [
+        2,
+        1,
+        0
+      ],
+      "final_phase": 1
+    },
+    {
+      "initial_phase": 1,
+      "q": [
+        -1,
+        1
+      ],
+      "word": "CBA",
+      "observed_frame": [
+        0,
+        2,
+        1
+      ],
+      "final_phase": 0
+    },
+    {
+      "initial_phase": 1,
+      "q": [
+        -1,
+        -1
+      ],
+      "word": "BCA",
+      "observed_frame": [
+        1,
+        0,
+        2
+      ],
+      "final_phase": 1
+    }
+  ],
+  "example_full_named_brc_branch": {
+    "window": "phase_0_word_(1, -1, 1)",
+    "named_reads": [
+      {
+        "name": "source_0",
+        "source_event": 0,
+        "sign": 1
+      },
+      {
+        "name": "source_1",
+        "source_event": 1,
+        "sign": -1
+      },
+      {
+        "name": "source_2",
+        "source_event": 2,
+        "sign": 1
+      }
+    ],
+    "initial_phase": 0,
+    "initial_frame": [
+      0,
+      1,
+      2
+    ],
+    "relation": [
+      -1,
+      -1
+    ],
+    "macro_word": "CAB",
+    "directed_history": [
+      {
+        "window": "phase_0_word_(1, -1, 1)",
+        "macro_position": 0,
+        "within_macro": 0,
+        "direction": "B-",
+        "based_support_path": [
+          "012",
+          "123",
+          "023",
+          "012"
+        ]
+      },
+      {
+        "window": "phase_0_word_(1, -1, 1)",
+        "macro_position": 0,
+        "within_macro": 1,
+        "direction": "A-",
+        "based_support_path": [
+          "012",
+          "023",
+          "013",
+          "012"
+        ]
+      },
+      {
+        "window": "phase_0_word_(1, -1, 1)",
+        "macro_position": 1,
+        "within_macro": 0,
+        "direction": "A+",
+        "based_support_path": [
+          "012",
+          "013",
+          "023",
+          "012"
+        ]
+      },
+      {
+        "window": "phase_0_word_(1, -1, 1)",
+        "macro_position": 2,
+        "within_macro": 0,
+        "direction": "B+",
+        "based_support_path": [
+          "012",
+          "023",
+          "123",
+          "012"
+        ]
+      }
+    ],
+    "frame_after_macros": [
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "decoded_relation": [
+      -1,
+      -1
+    ],
+    "final_phase": 0,
+    "current": [
+      0,
+      0
+    ]
+  },
+  "residual_certificate": "Zero decoder ambiguity at either carried phase; exact closure in two final phases; every stateless encoder has a repeated-constant-input collision"
+}

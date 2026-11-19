@@ -1,0 +1,5701 @@
+{
+  "schema": "X6_LOCAL_LAW_IDENTIFICATION_CHECK_V1",
+  "status": "PASS",
+  "source_revision": "ef720decf4a35a276e509964250571a55421b9f8",
+  "baseline_package_commit": "5806c80973d881009a755e8b5c922dab758a1032",
+  "brc_kernel_sha256": "83175b298bb8d18b43e2936043cf42f73efb476fa8b6581d4c9cdcd147af2ee0",
+  "entrypoint": "check_law_identification.py:run -> NamedTriadBRC.apply",
+  "input_carrier": "96 labelled hypotheses: four local laws, 24 sign/twist states with r != (---), fixed three source names and cyclic support",
+  "operation_semantics": "Two actual source-preserving III BRC scatterings using the chosen law; exact observation-fiber decision tree on their nine scalar signs",
+  "observer_and_future_scope": "Recover (initial r, fixed law) by adaptive queries of three fixed axes at shell times 0,1,2",
+  "residual_certificate": "Sharp 5/6 query values; structural gauge-normalization lower bound and exhaustive finite decision-tree optimum agree; shared sector unidentifiable because maps agree",
+  "counts": {
+    "five_query_protocol_inputs": 48,
+    "six_query_protocol_inputs": 96,
+    "static_gauge_covariance_cases": 768,
+    "shared_sector_complete_histories": 8
+  },
+  "two_reversible_laws": {
+    "family": [
+      "persistent",
+      "ingress"
+    ],
+    "input_leaves": 48,
+    "distinct_targets": 6,
+    "optimal_worst_case_queries": 5,
+    "dp_subproblems": 2383,
+    "maximum_checked_tree_leaf_depth": 5,
+    "query_model": "Any adaptive ordering of the nine raw sign coordinates, including noncausal order",
+    "one_axis_fibers": [
+      {
+        "axis": 0,
+        "read_words": 6,
+        "target_counts_per_fiber": [
+          2
+        ]
+      },
+      {
+        "axis": 1,
+        "read_words": 6,
+        "target_counts_per_fiber": [
+          2
+        ]
+      },
+      {
+        "axis": 2,
+        "read_words": 6,
+        "target_counts_per_fiber": [
+          2
+        ]
+      }
+    ]
+  },
+  "all_four_laws": {
+    "family": [
+      "persistent",
+      "ingress",
+      "egress",
+      "stationary"
+    ],
+    "input_leaves": 96,
+    "distinct_targets": 12,
+    "optimal_worst_case_queries": 6,
+    "dp_subproblems": 6167,
+    "maximum_checked_tree_leaf_depth": 6,
+    "query_model": "Any adaptive ordering of the nine raw sign coordinates, including noncausal order",
+    "one_axis_fibers": [
+      {
+        "axis": 0,
+        "read_words": 8,
+        "target_counts_per_fiber": [
+          2,
+          4
+        ]
+      },
+      {
+        "axis": 1,
+        "read_words": 8,
+        "target_counts_per_fiber": [
+          2,
+          4
+        ]
+      },
+      {
+        "axis": 2,
+        "read_words": 8,
+        "target_counts_per_fiber": [
+          2,
+          4
+        ]
+      }
+    ]
+  },
+  "coordinate_order": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "exact_observation_leaves": [
+    {
+      "law": "persistent",
+      "s": [
+        -1,
+        -1,
+        -1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        -1,
+        -1,
+        -1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        -1,
+        -1,
+        -1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        -1,
+        -1,
+        1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        -1,
+        -1,
+        1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        -1,
+        -1,
+        1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        -1,
+        1,
+        -1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        -1,
+        1,
+        -1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        -1,
+        1,
+        -1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        -1,
+        1,
+        1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        -1,
+        1,
+        1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        -1,
+        1,
+        1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        1,
+        -1,
+        -1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        1,
+        -1,
+        -1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        1,
+        -1,
+        -1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        1,
+        -1,
+        1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        1,
+        -1,
+        1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        1,
+        -1,
+        1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        1,
+        1,
+        -1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        1,
+        1,
+        -1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        1,
+        1,
+        -1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        1,
+        1,
+        -1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "persistent",
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        -1,
+        -1,
+        -1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        -1,
+        -1,
+        -1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        -1,
+        -1,
+        -1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        -1,
+        -1,
+        1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        -1,
+        -1,
+        1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        -1,
+        -1,
+        1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        -1,
+        1,
+        -1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        -1,
+        1,
+        -1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        -1,
+        1,
+        -1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        -1,
+        1,
+        1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        -1,
+        1,
+        1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        -1,
+        1,
+        1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        1,
+        -1,
+        -1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        1,
+        -1,
+        -1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        1,
+        -1,
+        -1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        1,
+        -1,
+        1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        1,
+        -1,
+        1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        1,
+        -1,
+        1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        1,
+        1,
+        -1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        1,
+        1,
+        -1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        1,
+        1,
+        -1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        1,
+        1,
+        -1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "ingress",
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        -1,
+        -1,
+        -1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        -1,
+        -1,
+        -1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        -1,
+        -1,
+        -1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        -1,
+        -1,
+        1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        -1,
+        -1,
+        1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        -1,
+        -1,
+        1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        -1,
+        1,
+        -1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        -1,
+        1,
+        -1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        -1,
+        1,
+        -1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        -1,
+        1,
+        1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        -1,
+        1,
+        1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        -1,
+        1,
+        1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        1,
+        -1,
+        -1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        1,
+        -1,
+        -1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        1,
+        -1,
+        -1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        1,
+        -1,
+        1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        1,
+        -1,
+        1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        -1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        1,
+        -1,
+        1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        1,
+        1,
+        -1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        1,
+        1,
+        -1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        1,
+        1,
+        -1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        1,
+        1,
+        -1,
+        1,
+        1,
+        1,
+        -1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "egress",
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        -1,
+        -1,
+        -1
+      ],
+      "query_values": [
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        -1,
+        -1,
+        -1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        -1,
+        -1,
+        -1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        -1,
+        -1,
+        -1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        -1,
+        -1,
+        1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        -1,
+        -1,
+        1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        -1,
+        -1,
+        1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        -1,
+        1,
+        -1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        -1,
+        1,
+        -1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        -1,
+        1,
+        -1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        -1,
+        1,
+        1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        -1,
+        1,
+        1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        -1,
+        1,
+        1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        1,
+        -1,
+        -1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        1,
+        -1,
+        -1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        1,
+        -1,
+        -1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        1,
+        -1,
+        1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        1,
+        -1,
+        1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        1,
+        -1,
+        1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        1,
+        1,
+        -1
+      ],
+      "a": [
+        -1,
+        -1,
+        -1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        1,
+        1,
+        -1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        1,
+        1,
+        -1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        1,
+        1,
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "a": [
+        -1,
+        1,
+        1
+      ],
+      "r": [
+        -1,
+        1,
+        1
+      ],
+      "r_after_one": [
+        -1,
+        1,
+        1
+      ],
+      "query_values": [
+        1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "a": [
+        1,
+        -1,
+        1
+      ],
+      "r": [
+        1,
+        -1,
+        1
+      ],
+      "r_after_one": [
+        1,
+        -1,
+        1
+      ],
+      "query_values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    },
+    {
+      "law": "stationary",
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "a": [
+        1,
+        1,
+        -1
+      ],
+      "r": [
+        1,
+        1,
+        -1
+      ],
+      "r_after_one": [
+        1,
+        1,
+        -1
+      ],
+      "query_values": [
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "generator_word": [
+        [
+          1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ],
+      "source_word": [
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ],
+        [
+          "source-0",
+          "source-1",
+          "source-2"
+        ]
+      ]
+    }
+  ]
+}

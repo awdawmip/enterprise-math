@@ -1,0 +1,83 @@
+{
+  "schema": "X6_INGRESS_FEEDBACK_NATIVE_REALIZATION_V1",
+  "status": "PASS_AUTHOR_CHECK",
+  "source_revision": "ef720decf4a35a276e509964250571a55421b9f8",
+  "source_git_blobs": {
+    "experiments/x6_signed_internal_q_correction_v5_20260906/check_signed_internal_q_correction.py": "0104cf5cedd40831a94eec746394f977402ac36f",
+    "experiments/x6_triadic_atomic_scatter_v1_20260906/check_triadic_atomic_scatter.py": "cf5bc031b90b26d82216925d2768583db4e10f57",
+    "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py": "300a96e3dc24bf6fff73743037a0347a8bc83176"
+  },
+  "prior_named_carrier_sha256": "83175b298bb8d18b43e2936043cf42f73efb476fa8b6581d4c9cdcd147af2ee0",
+  "entrypoint": "check_native_realization.py:run",
+  "carrier": "Three named unit tokens, retained signed ports and primitive III path history, embedded on X6 axes (0,2,5); two declared cyclic passage orientations",
+  "arithmetic_operation": "OrientedAtomicScatter via the prior named BRC token/path types; original V5 tokenwise kernel and original signed_brc midpoint kernel",
+  "observer_future_scope": "Exact finite-state reversal and all repeated ingress-feedback futures for the explicitly listed relation/port observers",
+  "history_policy": "Both forward and reverse path events retained; no timeline erasure and no physical time interval claim",
+  "counts": {
+    "token_index_transport_cases": 32,
+    "token_index_gauge_cases": 256,
+    "native_reversed_branch_checks": 384,
+    "path_reversal_states": 64,
+    "shell_closure_reversal_projections": 128,
+    "fixed_port_future_descent_cases": 96
+  },
+  "closure_memory_state_counts": {
+    "relation_future": 4,
+    "one_fixed_port_raw_future": 8,
+    "all_three_ports_next_two_shells": 32
+  },
+  "closure_memory_bits": {
+    "relation_future": 2,
+    "one_fixed_port_raw_future": 3,
+    "all_three_ports_next_two_shells": 5
+  },
+  "indexing_witness": {
+    "ingress_frame": [
+      1,
+      3,
+      -6
+    ],
+    "ingress_twist": [
+      -1,
+      -1,
+      -1
+    ],
+    "first_egress": [
+      -3,
+      -6,
+      1
+    ],
+    "correct_next_twist_in_token_order": [
+      1,
+      1,
+      -1
+    ],
+    "untransported_next_twist": [
+      -1,
+      1,
+      1
+    ],
+    "correct_second_egress": [
+      -6,
+      -1,
+      -3
+    ],
+    "untransported_second_egress": [
+      6,
+      -1,
+      3
+    ],
+    "naive_gauge_recomputed": [
+      1,
+      1,
+      -1
+    ],
+    "naive_gauge_transported": [
+      -1,
+      -1,
+      -1
+    ]
+  },
+  "native_permission": "A concrete covariant finite event-law extension is constructed. Selection of this law by actual TRIADIC_CLOSURE_E dynamics is not inferred from path admissibility alone.",
+  "residual_certificate": "Zero mismatch against the typed native kernels; exact observer fibers. The wrong-index witness is an implementation error, not a physical residual."
+}

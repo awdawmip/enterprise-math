@@ -1,0 +1,180 @@
+{
+  "schema": "X6_STREAMING_OBSERVER_MINIMALITY_CHECK_V1",
+  "status": "PASS",
+  "source_revision": "ef720decf4a35a276e509964250571a55421b9f8",
+  "baseline_package_commit": "5806c80973d881009a755e8b5c922dab758a1032",
+  "brc_kernel_sha256": "83175b298bb8d18b43e2936043cf42f73efb476fa8b6581d4c9cdcd147af2ee0",
+  "entrypoint": "check_streaming_state.py:run -> NamedTriadBRC.apply",
+  "input_carrier": "192 current signed/twisted named triad skeletons in a fixed X6 embedding; original sources and ordered III paths retained",
+  "operation_semantics": "Four declared source-derived local twist updates, each using an actual named III BRC scatter; repeated ingress feedback for sampling",
+  "observer_and_future_scope": "Fixed-axis raw signs, adjacent products, or current source-name/sign pairs; arbitrary finite known compositions of the four actions",
+  "residual_certificate": "Exact stable-fiber equality to 4-, 8-, and 48-state observers; explicit off-axis counterexample; no native permission or physical clock calibration inferred",
+  "counts": {
+    "internal_skeletons": 192,
+    "source_preserving_action_transitions": 768,
+    "retained_ingress_event_steps": 11520,
+    "gauge_fiber_checks": 2304,
+    "sampling_subset_cases": 192,
+    "stride_and_length_cases": 144
+  },
+  "observer_partitions": [
+    {
+      "axis": 0,
+      "observer": "raw_sign",
+      "stable_states": 8,
+      "fixed_width_bits": 3,
+      "skeletons_per_fiber": 24,
+      "partition_refinement_counts": [
+        2,
+        4,
+        8,
+        8
+      ]
+    },
+    {
+      "axis": 0,
+      "observer": "adjacent_product",
+      "stable_states": 4,
+      "fixed_width_bits": 2,
+      "skeletons_per_fiber": 48,
+      "partition_refinement_counts": [
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "axis": 0,
+      "observer": "named_raw_sign",
+      "stable_states": 48,
+      "fixed_width_bits": 6,
+      "skeletons_per_fiber": 4,
+      "partition_refinement_counts": [
+        6,
+        24,
+        48,
+        48
+      ]
+    },
+    {
+      "axis": 1,
+      "observer": "raw_sign",
+      "stable_states": 8,
+      "fixed_width_bits": 3,
+      "skeletons_per_fiber": 24,
+      "partition_refinement_counts": [
+        2,
+        4,
+        8,
+        8
+      ]
+    },
+    {
+      "axis": 1,
+      "observer": "adjacent_product",
+      "stable_states": 4,
+      "fixed_width_bits": 2,
+      "skeletons_per_fiber": 48,
+      "partition_refinement_counts": [
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "axis": 1,
+      "observer": "named_raw_sign",
+      "stable_states": 48,
+      "fixed_width_bits": 6,
+      "skeletons_per_fiber": 4,
+      "partition_refinement_counts": [
+        6,
+        24,
+        48,
+        48
+      ]
+    },
+    {
+      "axis": 2,
+      "observer": "raw_sign",
+      "stable_states": 8,
+      "fixed_width_bits": 3,
+      "skeletons_per_fiber": 24,
+      "partition_refinement_counts": [
+        2,
+        4,
+        8,
+        8
+      ]
+    },
+    {
+      "axis": 2,
+      "observer": "adjacent_product",
+      "stable_states": 4,
+      "fixed_width_bits": 2,
+      "skeletons_per_fiber": 48,
+      "partition_refinement_counts": [
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "axis": 2,
+      "observer": "named_raw_sign",
+      "stable_states": 48,
+      "fixed_width_bits": 6,
+      "skeletons_per_fiber": 4,
+      "partition_refinement_counts": [
+        6,
+        24,
+        48,
+        48
+      ]
+    }
+  ],
+  "sampling_theorem": {
+    "sufficient_and_necessary": "all three known event-offset residues modulo 3 are represented",
+    "equal_stride": "three samples suffice iff stride is not divisible by 3",
+    "proof_scope": "arbitrary finite or infinite sample sets by y[n]=(-1)^(n//3)*w[n%3]"
+  },
+  "off_axis_witness": {
+    "left": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        -1,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "right": [
+      [
+        1,
+        -1,
+        1
+      ],
+      [
+        1,
+        -1,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "fixed_axis": 0,
+    "distinguishing_axis": 1
+  },
+  "source_name_scope": "At each shell only the current source name at the fixed port is read; three future names recover the six assignments"
+}

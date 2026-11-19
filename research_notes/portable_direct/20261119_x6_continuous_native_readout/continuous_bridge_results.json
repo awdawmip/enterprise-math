@@ -1,0 +1,74 @@
+{
+  "schema": "X6_CONTINUOUS_SOURCE_TO_V39_BRIDGE_CHECK_V1",
+  "status": "PASS",
+  "source_revision": "ef720decf4a35a276e509964250571a55421b9f8",
+  "baseline_revision": "5806c80973d881009a755e8b5c922dab758a1032",
+  "input_carrier": "192 named signed/twisted triad skeletons in a declared Heartbeat X6 three-axis embedding",
+  "operation_semantics": "Actual NamedTriadBRC ingress-feedback scatters followed by source-indexed repeatable V39 macro composition",
+  "observer_scope": "Three fixed-port consecutive source-event samples; disjoint or one-event sliding accepted windows; carried network frame initialized once at identity",
+  "retained_provenance": "Full named source carrier, joint III paths and event order; actual sample source names/indices; every directed packet-ring occurrence",
+  "timing_scope": "Logical accepted-window interface; complete windows are retained and serialized; no physical clock synchronization assumed",
+  "residual_certificate": "Zero initial-window relation ambiguity, exact accumulated-frame carry, and eight source-sign/network boundary classes per fixed axis",
+  "counts": {
+    "named_source_events": 4800,
+    "full_named_inputs": 192,
+    "decoded_source_windows": 9216,
+    "source_to_network_sample_links": 27648,
+    "directed_ring_occurrences": 36864
+  },
+  "joint_sign_network_boundary_classes_per_axis": 8,
+  "example": {
+    "axis": 0,
+    "spacing": 1,
+    "named_initial_assignment": [
+      0,
+      1,
+      2
+    ],
+    "source_window_start": 3,
+    "reads": [
+      {
+        "name": "source-0:axis-0:event-3",
+        "event": 3,
+        "sign": 1
+      },
+      {
+        "name": "source-2:axis-0:event-4",
+        "event": 4,
+        "sign": 1
+      },
+      {
+        "name": "source-1:axis-0:event-5",
+        "event": 5,
+        "sign": -1
+      }
+    ],
+    "relation_at_window_start": [
+      -1,
+      1,
+      1
+    ],
+    "macro_word": "ACB",
+    "initial_network_frame": [
+      0,
+      1,
+      2
+    ],
+    "observed_frame": [
+      2,
+      1,
+      0
+    ],
+    "final_network_frame": [
+      2,
+      0,
+      1
+    ],
+    "source_relation_at_last_sample": [
+      1,
+      -1,
+      1
+    ],
+    "source_last_sign": -1
+  }
+}

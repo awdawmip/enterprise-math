@@ -1,0 +1,181 @@
+# X6 ingress feedback: native interface, path reversal and closure memory
+
+Date: 2026-11-19. Status: `AUTHOR_PROVED / EXACT_NATIVE_BRC_CHECK_PASS / NOT_INDEPENDENTLY_REVIEWED`.
+
+Source snapshot: `awdawmip/enterprise-math@ef720decf4a35a276e509964250571a55421b9f8`.
+
+Prior contribution: `research_notes/portable_direct/20261119_x6_native_relational_feedback/`, published at `5806c80973d881009a755e8b5c922dab758a1032`. This note adds an implementation contract and a reversal theorem. It does not repeat the four-law classification or grant a formal task, review or primitive-event permission.
+
+## 1. Typed native population
+
+Fix one native X6 Cell c, three selected distinct native axes, their signed references, and three named unit source tokens. The remaining three axes retain their ambient meaning. Let i modulo 3 index the selected axes. A current token occupying axis i has radial sign s_i. The active signed generator is
+
+    Q^o_a(e_i)=a_i e_(i+o),     o in {+1,-1},     product(a)=-1.
+
+The choice o declares one of the two oriented cycles on the same selected support. Token names are independent provenance labels; reversing the cycle does not exchange the actual source tokens or introduce a spatial reflection. In the one-orientation model o is fixed. The path-reversal result below explicitly uses the extension containing both orientations.
+
+An atomic III scatter follows, for each named source,
+
+    c+s_i e_i -> c -> c+a_i s_i e_(i+o).
+
+These are two primitive signed-axis steps of multiplicity one, selected jointly through the same c. A recorded scatter retains source names, source/target ports, the ordered primitive word, o and a. Signs remain attributes of unit positive branches, not negative branch weights. Ordered events are not calibrated physical heartbeat durations.
+
+The candidate ingress law is
+
+    T_o(s,a)=(u,b),
+    u_i=a_(i-o)s_(i-o),
+    b_i=-s_i s_(i+o).                                      (1)
+
+The source's V1R SHELL/CLOSURE carrier retains the ingress FRAME, so (1) has a finite implementation at that interface. It is a declared event-law extension compatible with the selected primitive paths and V5 covariance. Source path admissibility alone does not select it over the other update laws.
+
+## 2. The next twist must be transported into V5's next token order
+
+The V5 source function `twisted_step(t,alpha)` indexes alpha by **the current token's departure axis**. Write its input as
+
+    t_r=s_r E_(i_r),      r=0,1,2,
+
+where the ordered axis triple declares i_0 -> i_1 -> i_2 -> i_0. The source preserves token r and returns
+
+    t'_r=alpha_r s_r E_(i_(r+1)).
+
+The feedback value attached to the old edge i_r -> i_(r+1) is -s_r s_(r+1). But token r now departs from i_(r+1), so the alpha argument for the next source call is
+
+    beta_r=-s_(r+1)s_(r+2).                                (2)
+
+Equivalently, compute the physical edge map b from the ingress FRAME and look up b at each token's new axis. This is exactly the strategy used in the prior `check_native_embedding.py`.
+
+Thus the direct native interface is
+
+    (t,alpha) -> (twisted_step(t,alpha), rotate_left(alpha_state(t))).
+
+The rotation here transports edge labels; it does not reorder the named sources. In terms of P=s_0s_1s_2, beta_r=-P s_r. For output token signs u_r=alpha_r s_r and U=product(u)=-P, the inverse in this token interface is particularly simple:
+
+    s_r=U beta_r,       alpha_r=u_r s_r,
+    previous ordered axes = rotate_right(current ordered axes).  (3)
+
+### A concrete wrong-index witness
+
+Use the actual V5 signed-port notation and native axes 1,3,6:
+
+| Quantity | Correct edge transport | Untransported `alpha_state(t)` |
+|---|---|---|
+| Input frame t | (+E1,+E3,-E6) | same |
+| Active alpha | (-,-,-) | same |
+| First output | (-E3,-E6,+E1) | same |
+| Next alpha in token order | (+,+,-) | (-,+,+) |
+| Second output | (-E6,-E1,-E3) | (+E6,-E1,+E3) |
+
+Both proposed twist triples have product -1, so the V5 product check alone cannot detect this error. Under the static sign change E1 -> -E1, the untransported rule also fails outgoing-edge covariance. This is an implementation error with an exact counterexample, not a structural physical residual. The checker verifies (2) and its outgoing-edge gauge transport on all 32 sign/twist inputs and all 8 local sign frames.
+
+## 3. A gauge-covariant path-reversal involution
+
+Put P=s_0s_1s_2. On the two-orientation extension define
+
+    R(s,a,o) = (s,d,-o),       d_i=P s_i a_i.               (4)
+
+The edge d_i starts at i and ends at i-o. It must not be read as another coefficient on the original edge i -> i+o.
+
+**Theorem 1.** R is an involution, and
+
+    R T R = T^(-1).                                        (5)
+
+Every source branch used by T from x, followed by T from R(Tx), is the exact reversed III path of the first branch. Hence the forward event and its reverse retain the same named source, shared Cell and unit multiplicity.
+
+**Proof.** First product(d)=P^3 product(s) product(a)=-1, so (4) remains in the V5 twist family for the opposite orientation. Applying R again leaves s unchanged and multiplies each edge coefficient twice by P s_i; therefore R^2=id.
+
+Let T(s,a,o)=(u,b,o). Because product(a)=-1, product(u)=-P. At the reversed output state the active inverse-edge coefficient is
+
+    d'_i=product(u) u_i b_i
+         =(-P)(a_(i-o)s_(i-o))(-s_i s_(i+o))
+         =a_(i-o).                                       (6)
+
+Thus a named source that traveled from i-o to i with coefficient a_(i-o) now travels from i back to i-o with that same coefficient. Its radial sign returns exactly, since a_(i-o)^2=1. Its native branch word reverses from
+
+    (-s_(i-o)e_(i-o), a_(i-o)s_(i-o)e_i)
+
+to the reversed sequence of the two negated primitive steps. Both words pass through c.
+
+The second feedback coefficient under orientation -o is
+
+    -u_i u_(i-o) = P s_i a_i = d_i.
+
+So T R T x=R x, which, together with R^2=id, proves (5). This proof preserves token correspondence and the full joint III branch. QED.
+
+Under a static gauge epsilon_i, s_i maps to epsilon_i s_i and a_i to epsilon_i epsilon_(i+o)a_i. With E=product(epsilon), (4) gives
+
+    d_i -> E epsilon_(i+o)d_i
+         = epsilon_i epsilon_(i-o)d_i.
+
+That is precisely the gauge rule for the reversed edge, so R is gauge covariant.
+
+### What this reversal states
+
+Equation (5) is a strict symmetry of the explicitly declared finite event-law extension. The direct reversed path uses the opposite passage orientation. It does not assert that an externally fixed-o scheduler permits that opposite orientation. In the fixed-o state model, the prior T^6=id theorem still gives T^(-1)=T^5, which is five forward scatter events rather than one reversed primitive path.
+
+An actual reversed experiment appends a second event. The checker retains both events and verifies inverse branch words; it never erases the first event or identifies a spatial/internal return with a return to the same time-labelled history. The theorem does not infer an empirical time-reversal law from the finite construction.
+
+## 4. The two half phases require different reversal maps
+
+Let x denote the complete ingress internal state, and define the original two-phase structure
+
+    H:S(x) -> C(x),       H:C(x) -> S(Tx).                  (7)
+
+The correct half-phase involution is
+
+    R_H:S(x) -> S(Rx),
+    R_H:C(x) -> C(RTx).                                   (8)
+
+The closure state in (7) stores the original ingress x. Under reversal its ingress must become the original egress, with inverse active edges. That is why the closure map is R composed with T.
+
+**Theorem 2.** R_H^2=id and R_H H R_H=H^(-1).
+
+**Proof.** On SHELL, R_H^2=R^2=id; on CLOSURE it is (RT)^2=RTRT=T^(-1)T=id. Starting from S(x), the conjugated transition ends at C(RTRx)=C(T^(-1)x), which is H^(-1)S(x). Starting from C(x), it ends at S(RTRTx)=S(x), which is H^(-1)C(x). QED.
+
+Applying the same R to both phases would generally produce the wrong closure memory. The checker evaluates these two internal projections for both phases and every sign/twist state in each orientation. The prior named BRC paths remain the underlying event evidence.
+
+## 5. Closure memory depends on the required future observer
+
+This section fixes the Cell, selected support, orientation and initial source-to-axis assignment. Its population is the 32 sign/twist states (s,a). At physical closure all three sources occupy c; if neither the incoming path nor another record is accessible, that coincident position alone cannot determine the next output.
+
+For only the four-state relational observer, the prior descent r'_i=r_(i+o) requires four internal values. For one fixed port's complete raw-sign future, the sufficient retained pair is (r,s_j), with exact descent
+
+    r'_i=r_(i+o),       s'_j=s_j r_(j-o).
+
+Its eight values are distinguishable by three subsequent port signs. The companion minimal-state study proves the corresponding broader observer quotients, including named-source readout and mixed update languages.
+
+Here is a stronger native-output requirement with a sharp bound.
+
+**Theorem 3.** To reproduce all three raw radial signs at the next two shell releases under ingress feedback, a deterministic closure implementation needs at least 32 distinguishable accessible memory states. The retained pair (s,a) attains this bound. Thus the fixed-length cost is exactly five bits in this declared population, excluding separately known mode and support.
+
+**Proof.** Let u be the first release and v the second. The generator used for the second scatter is recovered directly by
+
+    b_i=v_(i+o)u_i.
+
+The ingress state is then recovered by the already proved inverse:
+
+    s_i=product(u)b_(i+o),       a_i=u_(i+o)s_i.
+
+Therefore the map (s,a) -> (u,v) is injective on all 32 states. If two inputs were assigned the same accessible closure memory, a deterministic release machine with no other input would give the same future outputs, contradicting injectivity. The full retained (s,a) supplies exactly 32 values and executes (1), attaining the bound. QED.
+
+This bound counts all memory accessible to the release operation, including the active twist. It is not an extra five-bit register on top of an already retained FRAME or BRC path. If the path remains readable, it may carry the required distinctions. No source name, phase or path history is deleted merely because a smaller observer quotient exists.
+
+## 6. Source and verification record
+
+Exact native sources at the pinned revision:
+
+- `research_notes/X6_CELL_TRIADIC_PORT_FRAME_INTERNAL_STATE_V1_20260906.md`, §§2–4: tokenwise FRAME and SHELL/CLOSURE interface.
+- `research_notes/X6_SIGNED_INTERNAL_Q_GAUGE_CORRECTION_V5_20260906.md`, §§2,5: current-departure indexing and four signed twists.
+- `experiments/x6_signed_internal_q_correction_v5_20260906/check_signed_internal_q_correction.py`, original `twisted_step`, `alpha_state`, `gauge_frame`, `gauge_alpha`.
+- `research_notes/X6_TRIADIC_ATOMIC_SCATTER_AND_BRC_CORRELATION_V1_20260906.md`, §§3–6: common-Cell III carrier.
+- `experiments/x6_triadic_atomic_scatter_v1_20260906/check_triadic_atomic_scatter.py`, original `midpoint_options`, which calls `experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py`.
+- `p000_reality_foundation.json`; `definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md`, §5.3; `definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json`; residual-fidelity and joint-observer-preservation companion contracts.
+
+The checker validates the exact Git blob identities of all three original programs and the SHA-256 of the prior named BRC extension before importing them. Run from any checkout/cache by passing its paths:
+
+```text
+python check_native_realization.py /path/to/enterprise-math /path/to/20261119_x6_native_relational_feedback
+```
+
+It writes `native_realization_results.json` next to the program. The tested raw anchor coordinates are internal signed X6 charts, not final Cell address serialization.
+
+The physical modeling question has become concrete: one may adopt the explicit ingress feedback as a candidate event law, with the proven state/path properties above. Establishing that actual intended TRIADIC_CLOSURE_E dynamics selects it requires a source-defined selection principle or discriminating event evidence; it is not supplied by III path incidence, the V5 product constraint, or an implementation passing its checks.
