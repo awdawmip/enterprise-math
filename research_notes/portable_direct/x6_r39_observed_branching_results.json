@@ -1,0 +1,101 @@
+{
+  "branch_counterexample": {
+    "graph_state_count": 6,
+    "p_language": [
+      [],
+      [
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "a",
+        "c"
+      ]
+    ],
+    "q_language": [
+      [],
+      [
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "a",
+        "c"
+      ]
+    ],
+    "strong_bisimulation": false
+  },
+  "cross_long_witness": {
+    "cutoff": 3,
+    "depth": 3,
+    "machine_a": {
+      "initial": 1,
+      "readouts": [
+        1,
+        1
+      ],
+      "transitions": [
+        1,
+        2,
+        0,
+        1
+      ]
+    },
+    "machine_b": {
+      "initial": 1,
+      "readouts": [
+        1,
+        1
+      ],
+      "transitions": [
+        2,
+        1,
+        0,
+        1
+      ]
+    },
+    "word": [
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  "cross_machine_pairs": 2196,
+  "cross_shortest_difference_depths": {
+    "0": 837,
+    "1": 1177,
+    "2": 58,
+    "3": 2
+  },
+  "equal_language_pairs": 2448,
+  "machines": 1024,
+  "maximum_cutoff": 5,
+  "model": {
+    "event_labels": 2,
+    "exact_observed_symbols": 4,
+    "finite_test": "all 1,024 two-state machines; all 4 ordered pairs per machine; 2,196 deterministically selected cross-machine pairs",
+    "states": "2, with destination readout 0/1",
+    "subset_support": "existential Boolean"
+  },
+  "result": "PASS",
+  "same_machine_pairs": 4096,
+  "shortest_difference_depths": {
+    "0": 1024,
+    "1": 624
+  }
+}
