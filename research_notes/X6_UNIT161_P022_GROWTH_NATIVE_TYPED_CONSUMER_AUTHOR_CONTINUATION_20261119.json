@@ -1,0 +1,102 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-19",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "latest_verified_native": {
+    "unit": 159,
+    "request_id": "onhour-20261119-1758-x6-own-unit159-native-progress-v1",
+    "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "688ee0f1f67b42419058f50cf7973e13a08f3c99",
+    "authenticated_readback": true
+  },
+  "author_frontier": {
+    "unit": 161,
+    "status": "AUTHOR_PROVED/EXACT_BIGINT_EXECUTED/GITHUB_VERIFIED/UNREVIEWED/NOT_ADMITTED",
+    "finding": "Frozen P022 barlow_growth.py producer -> test_p022_barlow_growth.py consumer is a correctly typed DERIVED contact-graph path shell, not native N-BRC. Radius1 counts 12 both graphs, radius2 Barlow84 for every periodic pattern vs native signed-X6 132. Native M6(r)=sum_j C(6,j)2^j j! S(r,j), growth6; pre-existing source P022 periodic Barlow growth<=4. No erroneous LP011/LP019 caller found.",
+    "evidence": [
+      {
+        "path": "research_notes/X6_UNIT161_FROZEN_P022_BARLOW_GROWTH_VS_NATIVE_X6_BRC_CONSUMER_AUDIT_20261119.md",
+        "commit": "2a927511d7ee1f53ad5304a292ecb80e4ec281af",
+        "blob": "da529edac6d0706b5350e430bce09c0a3c38c07e"
+      },
+      {
+        "path": "research_checks/X6_UNIT161_P022_BARLOW_VS_X6_NATIVE_BRC_TYPED_CONSUMER_CHECK_20261119.js",
+        "commit": "9f9d7a56a7407d5a024995ac1fe0d41f07716226",
+        "blob": "55cde9120cd6251aec0241b5482fdba6c9babc53"
+      },
+      {
+        "path": "research_checks/X6_UNIT161_P022_BARLOW_VS_X6_NATIVE_BRC_TYPED_CONSUMER_RESULTS_20261119.json",
+        "commit": "946a5588b2d8a0e2ebe30912af2f0a49fe9103c6",
+        "blob": "90f6d35baa9cc72e104a487b8352fa9ce2a987a9"
+      },
+      {
+        "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit161_delta.json",
+        "commit": "01d4a28704f6225915869959e964130f4cfc8769",
+        "blob": "47b2964d5e50c49a2a7ea9700f42fef8a87651ee"
+      }
+    ],
+    "checks": {
+      "native_L1_radii": "0..16",
+      "native_integer_methods": 3,
+      "derived_barlow_period_patterns": 30,
+      "barlow_radius_2": 84,
+      "native_radius_2": 132,
+      "executed_environment": "Enterprise Math tool V8 BigInt",
+      "historical_p022_tests_executed": false,
+      "original_r063_benchmark_rerun": false
+    }
+  },
+  "prior_unit160": {
+    "status": "AUTHOR_PROVED/EXACT_INTEGER_EXECUTED/GITHUB_VERIFIED/UNREVIEWED/NOT_ADMITTED",
+    "proof": "research_notes/X6_UNIT160_BARLOW_SELECTED_LAYER_OBSERVER_FIBER_CARDINALITY_20261119.md@c361cd51186f2f64ba64af9e432158963ad3c47d",
+    "checker": "research_checks/X6_UNIT160_BARLOW_SELECTED_LAYER_FIBER_CHECK_20261119.py@cbeae752edaecdecb3ef9b35819cb7881b0b0dbc",
+    "certificate": "research_checks/X6_UNIT160_BARLOW_SELECTED_LAYER_FIBER_RESULTS_20261119.json@59b6d51d3326f2ea5ed6dd62e03e52d955d49ee9"
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "checkpoint_count": 176,
+    "event_id": "onhour-20261119-1914-x6-unit161-p022-growth-native-typed-consumer-v1",
+    "source_commit": "dd8391cd60042a5a5e02025129f13a671619a4ef",
+    "blob": "5aabc81938495aea56d98eefa27670b1a30d7489",
+    "readback_verified": true
+  },
+  "native_control": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-dedc91932641535d284fc171",
+    "run_id": "RUN-c92057890282aaaeec520881",
+    "own_resume_request_id": "onhour-20261119-1909-x6-own-run-c920-after-unit159-resume-v1",
+    "own_resume_status": "SUCCEEDED/RUN_READY",
+    "generation_at_verified_resume": 9,
+    "lease_until_at_resume": "2026-11-19T13:14:33+00:00",
+    "own_continuation_request_id": "onhour-20261119-1905-x6-own-current-continuation-v1",
+    "own_continuation_last_status": "RUNNING/source-read-busy",
+    "native_units160161_request_id": "onhour-20261119-1920-x6-own-units160161-native-progress-v1",
+    "native_units160161_status_at_continuation_save": "QUEUED/error=null (not yet authenticated Source)",
+    "unit149_failed_request_id": "onhour-20261119-1000-x6-own-unit149-native-progress-v1",
+    "unit149_terminal": "FAILED/GITHUB_PRIMARY_RATE_LIMIT"
+  },
+  "unresolved": [
+    "Native Units160–161 original request pending until genuine SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED authenticated readback, never resubmit in flight.",
+    "Native semantic association of previously saved Units149–152 remains unresolved; original Unit149 failed request must not replay.",
+    "Precise historical alleged LP011 wrong-native argmax and LP019 positive count subtraction commit:path:line remain UNRESOLVED_PROVENANCE.",
+    "28-LP complete distinct actual production consumer audit and independent Driver review/admission pending."
+  ],
+  "do_not_repeat": [
+    "Successful native Units1–148,153–159 or already-saved proofs/checkers Unit160/161.",
+    "Original R063 six-file 512-case benchmark already PASS, not rerun.",
+    "Unit157 weighted A_p shell formula as new, previously existing historical P022.",
+    "Failed/unknown native mutation; role/identity from CONTROL_PLANE_MAINTENANCE."
+  ],
+  "next_exact_action": "Consume original onhour-20261119-1920-x6-own-units160161-native-progress-v1 terminal and Source readback; consume original own continuation request. If Source confirmed, preserve Unit161 association and extend a distinct actual 28-LP frozen production consumer edge rather than repeating P022 tests. Then lawfully fill native Units149–152 semantic linkage under current winning claim after checking existing Source, and preserve LP011/LP019 unresolved provenance and independent Driver review. Continue within current scheduled task; no extra task/scheduler.",
+  "review": "UNREVIEWED/NOT_ADMITTED",
+  "continuation_state": "OPEN",
+  "scheduler_modified": false,
+  "notifications_modified": false
+}
