@@ -238,3 +238,5 @@
 - [第一百零五轮　缺额 46 的晶格边界与十二拍读数的误差](hundredfifth/README.md)　原生邻接重建和正权源上尖锐的时间、通道联合误差。
 
 - [第一百零六轮　Ramanujan 相位能量、分层抽样与三通道校准](hundredsixth/README.md)　平移极值、固定样本的盲点与有限射影空间的最优成功率。
+
+- [第一百零七轮　谱矩零点与重合旋转的理想类](hundredseventh/README.md)　Jordan 谱矩约消判据与非主理想类约束下的多行分布。
