@@ -1,0 +1,78 @@
+{
+  "schema": "X6_LINK_PAIR_GUARD_BRC_R26_V1",
+  "date": "2026-11-19",
+  "model": "conditional six-axis signed-port intact-triad two-cell lanes, pairwise Link guards",
+  "scope": "all 75 labeled simple graphs n=1..4 and empty/star/path/complete graphs on n=5; exact deterministic Boolean successful-word language signatures for horizons 0..5; all fiber-size independence-polynomial identities checked",
+  "graphs_checked": 79,
+  "initial_state_horizon_signatures": 7356,
+  "pairwise_language_equivalence_comparisons": 59406,
+  "comparison_status": "PASS",
+  "five_vertex_cases": [
+    {
+      "graph": "empty",
+      "edge_count": 0,
+      "classes": 1
+    },
+    {
+      "graph": "star",
+      "edge_count": 4,
+      "classes": 16
+    },
+    {
+      "graph": "path",
+      "edge_count": 4,
+      "classes": 12
+    },
+    {
+      "graph": "complete",
+      "edge_count": 10,
+      "classes": 27
+    }
+  ],
+  "reference_table": [
+    {
+      "vertices": 2,
+      "empty": 1,
+      "star": 2,
+      "path": 2,
+      "complete": 2
+    },
+    {
+      "vertices": 3,
+      "empty": 1,
+      "star": 4,
+      "path": 4,
+      "complete": 5
+    },
+    {
+      "vertices": 4,
+      "empty": 1,
+      "star": 8,
+      "path": 7,
+      "complete": 12
+    },
+    {
+      "vertices": 5,
+      "empty": 1,
+      "star": 16,
+      "path": 12,
+      "complete": 27
+    },
+    {
+      "vertices": 6,
+      "empty": 1,
+      "star": 32,
+      "path": 21,
+      "complete": 58
+    },
+    {
+      "vertices": 7,
+      "empty": 1,
+      "star": 64,
+      "path": 37,
+      "complete": 121
+    }
+  ],
+  "admission": "CONDITIONAL_NOT_NATIVE_EVENT_ADMISSION",
+  "review": "NOT_REVIEWED"
+}
