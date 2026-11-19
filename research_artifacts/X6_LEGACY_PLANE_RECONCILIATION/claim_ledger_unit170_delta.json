@@ -1,0 +1,102 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-20",
+  "unit": 170,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "finding": {
+    "classification": "PRESERVE_DERIVED_K4_CODE_AND_EXACT_VERTEX_LIFT; REJECT_UNCERTIFIED_BRC_DESCENT",
+    "producer": {
+      "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "src/enterprise_math/tetrahedral_endpoint_sum.py",
+      "blob": "9f5098f7ba6995340406b39125b735cdba71fd4f",
+      "lines": "49-64,88-96,114-165"
+    },
+    "true_consumer": {
+      "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "tests/test_tetrahedral_endpoint_sum.py",
+      "blob": "d5cf7d4fa1405eca8245baa143334e282ee8fb26",
+      "lines": "4-20,24-29,36-72"
+    },
+    "claims": "Signless K4 edge-lattice quotient code C(x) fails to determine native-X6 BRC comparator B(x), even if L1 and quadratic readouts are retained, under fixed typed edge-label to signed-axis bijection.",
+    "witness": {
+      "xA": [
+        -3,
+        -3,
+        0,
+        0,
+        3,
+        3
+      ],
+      "xB": [
+        4,
+        1,
+        1,
+        -1,
+        -1,
+        -4
+      ],
+      "residual_code": [
+        0,
+        0,
+        0
+      ],
+      "L": 12,
+      "Q": 36,
+      "BxA": 369600,
+      "BxB": 831600,
+      "B_ratio": "9/4"
+    },
+    "unbounded_fiber": "δ(k,-k,0,0)=(0,k,k,-k,-k,0); C=0; B=(4k)!/(k!)^4 unbounded",
+    "exact_repair": "SOURCE_ALREADY_RETURNS_CANONICAL_DECOMPOSITION=(RESIDUAL_CODE, UNIQUE_ZERO_TOTAL_VERTEX_LIFT)",
+    "actual_current_bad_call_evidence": "NOT_FOUND_IN_THIS_PINNED_PRODUCER_TO_TEST_CONSUMER; NO_INVALID_CALL_ASSERTED",
+    "type_boundary": "DERIVED_K4_EDGE_COORDINATES_TO_FROZEN_NATIVE_X6_ENDPOINT_FORMULA_ONLY_UNDER_DECLARED_LABEL_BIJECTION; NOT_PHYSICAL_FCC=NATIVE_EQUIVALENCE"
+  },
+  "independent_exact_check": {
+    "sample_V0_vertices": 231,
+    "sample_E0_edges": 243,
+    "invariance_pairs": 56133,
+    "reconstruction_checks": 243,
+    "bounded_same_code_length_quadratic_BRC_collision_classes": 1,
+    "python_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "identical_json": true,
+    "violations": 0,
+    "checker_sha256": "4299b9df0ed3329985e2710c72966b9df8055e789f59c8d425b1b298777ef896",
+    "result_sha256": "202e12b0c2c93c810d64ef4c1438a0400ef3f423d2a59fd734c265f2c5b9caf7",
+    "original_R063_benchmark_reexecuted": false
+  },
+  "immutable_evidence": {
+    "proof": {
+      "path": "research_notes/X6_UNIT170_K4_ENDPOINT_SUM_RESIDUAL_NATIVE_BRC_NONFACTORING_20261120.md",
+      "commit": "a9c2bf4428688693b1157474802b465dfdea98bb",
+      "blob": "4d9fd376244ff6fbf48da80264315c46a2bf5d87"
+    },
+    "checker": {
+      "path": "research_checks/X6_UNIT170_K4_RESIDUAL_BRC_NONFACTORING_CHECK_20261120.py",
+      "commit": "051b4b977f14b2489f04823649547532120813d5",
+      "blob": "6df5c0d024f1ed18071b02667a20b7c4d1aea403"
+    },
+    "result": {
+      "path": "research_checks/X6_UNIT170_K4_RESIDUAL_BRC_NONFACTORING_RESULTS_20261120.json",
+      "commit": "265e8c131cb2da58b417e32d99350e5306e8be82",
+      "blob": "bce9df052a3e1bf0284a312bf8e5f848a2bcba87"
+    }
+  },
+  "remaining": [
+    "LP011 alleged wrong native argmax exact offending commit:path:line unknown",
+    "LP019 alleged positive N-BRC subtraction exact offending commit:path:line unknown",
+    "Remaining 28-LP actual consumer coverage not complete",
+    "Units149–152 old native semantic linkage requires own original contract/readback",
+    "Independent Driver review and formal Result/admission pending"
+  ],
+  "originality_scope": "NEW_EXACT_NONFACTORING_WITNESS_RELATIVE_TO_FROZEN_PRODUCER; SOURCE_QUOTIENT_CLASSIFICATION_REUSED_NOT_NEW",
+  "next_exact_action": "Extend frozen true producer-to-consumer scope; locate actual LP011/LP019 offending callers without fabricated attribution; do not rerun original R063. On Source readback, link Activity187 and Unit170 via valid own-run PROGRESS under current generation."
+}
