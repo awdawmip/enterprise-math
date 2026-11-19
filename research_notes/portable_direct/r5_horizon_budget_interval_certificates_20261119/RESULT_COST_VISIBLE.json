@@ -1,0 +1,33 @@
+{
+  "schema": "R5_COST_VISIBLE_ADAPTIVE_BRIDGE_V1",
+  "result": "PASS_R5_COST_VISIBLE",
+  "random_seed": 20261119,
+  "random_systems": 600,
+  "budget_comparisons": 3000,
+  "ordinary_wordwise_safe_but_cost_adaptive_unsafe": 585,
+  "example": {
+    "T": [
+      [
+        0,
+        1
+      ]
+    ],
+    "O": [
+      0,
+      0
+    ],
+    "cost": [
+      [
+        1,
+        2
+      ]
+    ],
+    "x": 0,
+    "Y": [
+      1
+    ],
+    "H": 2,
+    "B": 4
+  },
+  "method": "full policy-tree decision enumeration at H=2 vs independent wordwise cost-history criterion; exact integer/Boolean comparisons"
+}
