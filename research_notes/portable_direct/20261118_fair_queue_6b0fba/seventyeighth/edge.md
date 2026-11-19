@@ -1,0 +1,109 @@
+# 原计数中心进位能量逐窗读出 ζ 零点的最右实部
+
+令 \(\Theta=\sup_\rho\Re\rho\)，其中 \(\rho\) 遍历 Riemann ζ 函数的非平凡零点。令 \(d=2\Theta-1\)，故 \(0\le d\le1\)。原题使用自然对数，\(N\ge2\) 为整数，定义
+\[
+ c_m(n)=\lfloor2n/m\rfloor-2\lfloor n/m\rfloor,\quad
+ \alpha_n=n^{-1}\sum_{m\le n}c_m(n),\quad
+ J(n)=\sum_{m\le n}(c_m(n)-\alpha_n)\Lambda(m),\qquad
+ W(N)=\sum_{N\le n<2N}J(n)^2/n^2 .
+\]
+**定理一。** 对所有整数起点有 \(W(N)\ll N^d\)，并有全极限
+\[
+ \lim_{N\to\infty}\frac{\log(1+W(N))}{\log N}=2\Theta-1. \tag{1}
+\]
+若 \(\Theta>1/2\) 且有零点达到此上确界，则每个充分大的块均有 \(W(N)\asymp N^d\)。若没有零点达到上确界，则 \(W(N)=o(N^d)\)，同时 (1) 仍成立。若 \(\Theta=1/2\)，(1) 的指数是零，原块一致有界，二倍块平均常数见第五十二轮。这里不决定 \(\Theta\) 的值，也不决定右边界是否达到。
+
+原交接已给出多对数上界与 RH 的联系，第七轮研究截短素数窗，第五十二轮给出 RH 下的平均谱和与非 RH 分支的平均发散。本篇以原来的整数权对每个充分大的块给增长指数，并区分右边界未达与边界重数。Stechkin–Popov 已对 Chebyshev 余项发展了稀疏零点消去法，本文把它传到含计数中心的真进位读数，另给两点概率卷积的局部化证明。[原题](https://github.com/awdawmip/enterprise-math/blob/3f4d3f20031f51803d897914aa9bea28a4fadbf9/research_tasks/RH_BRC_COUNT_CENTERED_CARRY_CLOSURE_20260909.md) · [冻结交接](https://github.com/awdawmip/enterprise-math/blob/3f4d3f20031f51803d897914aa9bea28a4fadbf9/research_notes/RH_BRC_COUNT_CENTERED_CARRY_STATE_MACHINE_HANDOFF_20260909.md#L79) · [第七轮](../seventh/carry.md) · [第五十二轮](../fiftysecond/carry.md) · [Stechkin–Popov，§4，定理 7–8、式 (38.4)–(42.4)](https://doi.org/10.1070/RM1996v051n06ABEH003000)
+
+## 一、保留整数权的边界分解
+
+置 \(L=\log2,\ a=2-2L,\ E(x)=\psi(x)-x\)。由阶乘进位恒等式，
+\(J(n)=\log {2n\choose n}-\psi(2n)+(1-\alpha_n)\psi(n)\)。若 \(D(x)=\sum_{m\le x}\lfloor x/m\rfloor\)，则 \(n\alpha_n=D(2n)-2D(n)-n\)。取经典除数余项 \(O(x^{2/5})\)，结合 Stirling 公式、\(\psi(x)\ll x\)，以及在 \([n,n+1)\) 内 \(\psi(2x)\) 额外跳跃至多 \(\log(2n+1)\)，得
+\[
+ J(\lfloor x\rfloor)=aE(x)-E(2x)+O(x^{2/5})\qquad(x\ge2). \tag{2}
+\]
+在下列各式，\(\rho=\beta+i\gamma\) 按互异零点取一次，\(m_\rho\) 为重数。令 \(c_\rho=m_\rho(2^\rho-a)/\rho\)。由于 \(2^\beta>a\)，每个 \(c_\rho\ne0\)。显式公式在每个紧对数窗内以 \(L^2\) 意义给出
+\[
+ Y(u):=e^{-\Theta u}J(\lfloor e^u\rfloor)
+ =\sum_\rho c_\rho e^{-(\Theta-\beta)u+i\gamma u}
+       +O(e^{-(\Theta-2/5)u}),\qquad u\ge L. \tag{3}
+\]
+零点截断对称，跳点取半权不影响积分。负偶数零点与显式公式常数项在 (2) 的误差内。[冻结进位实现](https://github.com/awdawmip/enterprise-math/blob/437d4d595f1495d3a0486b3c06e9e2b14567db82/src/enterprise_math/brc_count_centered_carry.py) · [Huxley 的除数余项](https://doi.org/10.1112/S0024611503014485)
+
+一致截断只用单位频率箱中的零点计数。设 \(b_j=\sum_{j\le\gamma<j+1}|c_\rho|\ll\log(2+|j|)/(1+|j|)\)，计入重数。对任意 \(T\ge0\)，高斯 \(e^{-(u-T)^2}\) 下两个频率的内积绝对值为
+\[
+ \sqrt\pi\exp\left(- (s+s')T +\tfrac14(s+s')^2-\tfrac14(\gamma-\gamma')^2\right)
+ \le e\sqrt\pi e^{-(\gamma-\gamma')^2/4},\qquad s=\Theta-\beta,\ s'=\Theta-\beta'.
+\]
+分箱后的高斯矩阵行和有界，Schur 估计给出 \(|\gamma|>U\) 之尾在任一长 \(L\) 正向窗内的**平方**范数 \(\ll_L \log^2(2U)/U\)（\(U\ge2\)）。因此对称部分和的局部极限等于经典显式公式的几乎处处极限。先截断，再令起点 \(T\to\infty\)，其中有限个 \(\beta<\Theta\) 的项均衰减，得到
+\[
+ B(u)=\sum_{\Re\rho=\Theta} c_\rho e^{i\gamma u},\qquad
+ \|Y-B\|_{L^2(T,T+L)}=o(1). \tag{4}
+\]
+这里不能预设 \(\Theta-\beta\) 有统一正下界。若截到 \(U\)，有限个非边界项的范数至多 \(O_L(\log^2(2U)e^{-\Delta(U)T})\)，\(\Delta(U)\) 是这些项到边界的最小距离；没有此类项时记这一项为零。
+
+为把 (4) 换回原格，取 \(n=\lfloor e^u\rfloor\)，令 \(X_*(u)=e^{u/2}J(n)n^{-\Theta-1/2}\)。由 \(J(n)\ll n\)，有 \(X_*-Y=O(e^{-\Theta u})\)。逐格积分给出
+\[
+ V_\Theta(N):=\sum_{N\le n<2N}\frac{J(n)^2}{n^{1+2\Theta}}
+  =\int_{\log N}^{\log(2N)} |X_*(u)|^2du,\qquad
+ V_\Theta(N)\le N^{-d}W(N)\le2^d V_\Theta(N). \tag{5}
+\]
+在原式中对应的精确窗内权为 \((\lfloor Ne^v\rfloor/N)^d\)，可一致用 \(e^{dv}\) 代替，误差 \(O(N^{-1})\) 乘上有界的窗内能量。于是 (4) 证明了 (1) 的上界以及边界未达时的严格小量。
+
+## 二、任意短固定窗抽取一个非临界零点
+
+固定 \(\rho_*\) 满足 \(\beta_*=\Re\rho_*>1/2\)，任选 \(1/2<\sigma<\beta_*\) 和 \(H>0\)。构造 \(w\in C_c^\infty(0,H;\mathbf C)\)，使其 Laplace 矩 \(I(z)=\int_0^H w(v)e^{zv}dv\) 满足 \(I(\rho_*)=1\)，而对每个其他 \(\Re\rho>\sigma\) 的零点有 \(I(\rho)=0\)。
+
+经典 Ingham 密度估计给 \(N(\sigma,T)\ll T^{3(1-\sigma)/(2-\sigma)}\log^5 T\)，此处只需某个小于一的幂。分部求和得高零的 \(\sum 1/|\gamma-\gamma_*|\) 收敛。令 \(\lambda=\rho-\rho_*\)，对足够高的互异零点取 \(t_\lambda=\pi/|\Im\lambda|\)，使 \(\sum t_\lambda<H/4\)。每个两点概率
+\[
+ \mu_\lambda=\frac{e^{t_\lambda\Re\lambda}\delta_0+\delta_{t_\lambda}}
+                    {1+e^{t_\lambda\Re\lambda}}
+\]
+在 \(\lambda\) 的 Laplace 矩恰为零，两点相位相差 \(\pi\)；在零点参数 \(z=0\) 的矩为一。独立两点变量的和绝对收敛，其分布支撑在 \([0,H/4]\)。对任一指定 \(\lambda\)，分出对应的独立因子即证消去。与支撑在 \((H/4,H/2)\) 的光滑积分一函数卷积得 \(g\)。尚余有限个 \(\lambda_j\ne0\)，包括可能与 \(\rho_*\) 同高而实部不同者，令
+\[
+ w(v)=e^{-\rho_*v}\prod_j(1+\lambda_j^{-1}\partial_v)g(v).
+\]
+分部积分使变换乘上 \(\prod_j(1-z/\lambda_j)\)，故所有指定矩成立。重数已放入 \(c_\rho\)，消去一处只需一个零矩。此处 \(w\) 可取复值，取模后主项大小不随起点的相位旋转。[Stechkin–Popov 的紧支撑消元与零密度引理](https://www.mathnet.ru/links/da3f9b538a05557efb87b2d923fa2e71/rm1018_eng.pdf)
+
+用 \(w\) 测试 (2) 的显式公式。其余 \(\beta\le\sigma\) 的零点满足 \(|I(\beta+i\gamma)|\ll_{A,w}(1+|\gamma|)^{-A}\)，常数在 \(0\le\beta\le1\) 一致，故余和绝对收敛并有
+\[
+ \int_0^H J(\lfloor Ze^v\rfloor)w(v)\,dv
+   = c_{\rho_*} Z^{\rho_*}+O_{w,\sigma}(Z^\sigma),\qquad Z\ge2. \tag{6}
+\]
+所选零点仅改变 \(w\)、隐常数和生效门槛。取 \(H=L,\ Z=N\in\mathbf N\)，对 (6) 取绝对值。Cauchy–Schwarz 和
+\[
+ \int_0^L |J(\lfloor Ne^v\rfloor)|^2dv
+   =\sum_{N\le n<2N}J(n)^2\log(1+1/n)\le 2N W(N)
+\]
+给出每个充分大 \(N\) 上 \(W(N)\gg_{\rho_*}N^{2\beta_*-1}\)。当 \(\Theta>1/2\) 时，让固定零点的实部任意逼近 \(\Theta\) 即得全极限。若边界达到，直接取边界零点。若 \(\Theta=1/2\)，由 (5) 和 \(\log(1+W)\ge0\) 即得 (1)。这个证明没有假设能找出任何一个实际在临界线右方的零点。
+
+## 三、二倍块中两种能量的边界谱
+
+**定理二。** 以 \(\gamma\sim\gamma'\iff(\gamma-\gamma')L\in2\pi\mathbf Z\) 将边界零点的纵坐标分组，群集记作 \(C\)。下式两项分别按原分母和临界分母实际测量：
+\[
+ \begin{aligned}
+ M_{\rm raw}
+ &=\lim_{K\to\infty}\frac1K\sum_{k=0}^{K-1}2^{-kd}W(2^k)
+   =\sum_C\int_0^L e^{dv}
+       \left|\sum_{\gamma\in C}c_{\Theta+i\gamma} e^{i\gamma v}\right|^2dv,\\
+ M_\Theta
+ &=\lim_{K\to\infty}\frac1K\sum_{k=0}^{K-1}V_\Theta(2^k)
+   =L\sum_{\Re\rho=\Theta}|c_\rho|^2 .
+ \end{aligned} \tag{7}
+\]
+均值对起始块 \(k_0\ge0\) 一致。有限截断中，平均 \(e^{ikL(\gamma-\gamma')}\) 只保留同组项。临界分母对应的常权积分再消去同组内所有不同频率；在原分母的 \(e^{dv}\) 权下，这些项可能保留。由 (4) 的一致平方范数尾界和 Cauchy–Schwarz 可去截断。各组内频率相差 \(2\pi/L\) 的整数倍，所以组内级数在 \(L^2(0,L)\) 收敛，所有组的无权能量之和等于 \(M_\Theta\)；加权能量逐组介于无权量与其 \(2^d\) 倍之间。若边界非空且 \(d>0\)，则 \(M_\Theta<M_{\rm raw}<2^d M_\Theta\)。若 \(d=0\)，(7) 退到第五十二轮的谱和。这里没有使用纵坐标的线性无关性。
+
+还可直接读取单个边界系数。对每个固定实频 \(\omega\)，
+\[
+ \lim_{Z\to\infty}\frac1{\log Z}
+     \sum_{n\le Z}\frac{J(n)}{n^{1+\Theta+i\omega}}
+  =\begin{cases}c_{\Theta+i\omega},&\Theta+i\omega\text{ 是零点},\\
+                  0,&\text{其余}.\end{cases} \tag{8}
+\]
+在连续对数区间平均 \(Y(u)e^{-i\omega u}\)，(4) 与指数函数的正交性给出 (8)。逐整数格把复幂替为左端值的累积误差 \(O_\omega(\sum n^{-1-\Theta})=O_\omega(1)\)。因此全实频扫描保留重数和相位，单个二倍块均值只给 (7) 的群集信息。
+
+## 四、有限复算
+
+在本目录运行 `python edge_check.py --out edge_checked.json`。程序对 \(N=16,64,256,1024\) 的每个整数逐素底核对两种原进位公式的整系数，再以 48 位十进对数计算能量。例 \(W(1024)=0.1470725190803452\)。用测试参数 \(3/4\) 得 (5) 两项为 \(0.0038749799970454\) 与 \(0.0045960162212608\)；这个参数只用于校验权重。
+
+合成场设三组共轭边界频率（以每块整周计为 \(1,2,3/2\)），另置频率 \(5/4\) 的衰减项。按逐对积分和逐窗数值积分交叉核对，临界均值 \(0.0777211537081\)，原权均值 \(0.0925433671457\)，只留对角线则变为 \(0.0928898128769\)。另用支撑在一个二倍窗内的两点有理质量及同高差频的微分因子，精确核对 (6) 中目标矩为一、其他指定矩为零。合成频率只检验消元与混叠计算；有关真实 ζ 零点的断言来自上述定理。[复算脚本](edge_check.py) · [核验结果](edge_checked.json)
