@@ -1,0 +1,141 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX943_R6_K17_EXACT_UNION_V1",
+  "date": "2026-11-19",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "auxiliary fixed-19-bit odd-modulus named XOR two-port observer; not native X6",
+  "domain": {
+    "L": 262145,
+    "U": 524287,
+    "step": 2,
+    "size": 131072,
+    "i": [
+      0,
+      18
+    ],
+    "j": [
+      0,
+      18
+    ],
+    "k": 17,
+    "t": [
+      1,
+      34
+    ]
+  },
+  "raw_witnesses": 19318164,
+  "raw_by_t": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    309204,
+    84812,
+    1164234,
+    163170,
+    1756157,
+    219184,
+    2190844,
+    261201,
+    5325402,
+    245865,
+    1963633,
+    193523,
+    1537972,
+    150705,
+    1186338,
+    115049,
+    890994,
+    84804,
+    639317,
+    58928,
+    422444,
+    36480,
+    233524,
+    16867,
+    67513,
+    0
+  ],
+  "unique_W17_pairs": 15136736,
+  "priority_disjoint": {
+    "BZS": 7440349,
+    "U": 3992,
+    "V": 30326,
+    "W2": 1000035,
+    "W3": 185410,
+    "D4": 306,
+    "W5": 1647,
+    "D6": 169,
+    "W7": 788,
+    "D8": 472,
+    "W9": 886,
+    "D10": 357,
+    "W11": 1438,
+    "W13": 1358,
+    "W15": 1330,
+    "NEW17": 6467873
+  },
+  "prior_union": 7571259796,
+  "new_pairs": 6467873,
+  "new_union": 7577727669,
+  "remaining_uncertified": 9602141515,
+  "first_new_witness": {
+    "a": 272019,
+    "b": 521095,
+    "i": 2,
+    "j": 16,
+    "t": 9,
+    "start": 4624323,
+    "endpoint": 4689859,
+    "zero_endpoint": 4
+  },
+  "pair_encoding": "little-endian uint64 ID=((a-L)/2)*131072+((b-L)/2), ascending unique",
+  "files": {
+    "W17.bin": {
+      "count": 15136736,
+      "bytes": 121093888,
+      "sha256": "c13cd4a065ec200fe542f4a5a3dfc7525f90efe2d885f08cea67265b52a9900d"
+    },
+    "NEW17.bin": {
+      "count": 6467873,
+      "bytes": 51742984,
+      "sha256": "c8bdff39be9c81ba491cd03ba8f1be7af46800f5b88c71f3a884ab43146b36f0"
+    }
+  },
+  "prior_input_sha256": {
+    "PREFIX928_R6_SORTED_PAIR_IDS.bin": "15534b09fa696b5cbeba46f7f644d75c2c3f99b719a88071150fa91357f22bad",
+    "W2.bin": "bceb588c6c3aee31ce627fadaa6d0d3ec56ea3f865ddea9d39daec13365e6150",
+    "W3.bin": "3f501ca25d0b8c55b284b621d26251f8be2c8c771ce294206f24b1daa10051a9",
+    "D4_sorted_cpp.bin": "d66d467d5c48d62f6bdb2cdf02a081830eba4a32f28447b10d8c425350bdb664",
+    "W5.bin": "ed2ff4c1961e29a619ccb404e834150028b4a689d5816ae03b2fa41fbc49de95",
+    "D6.bin": "718e94ea98ba2931760b473a04eaf38ef189b4444548d9160ab5d861d1fc9c60",
+    "W7.bin": "8405169b6adaf6409e2355c4d65e8616176b413e8605ed76a40c6f1cf2f77d77",
+    "D8.bin": "95c6d52becc3ddbd3aad458a71f27ff1e5cfade43e37d8c5052c3e568d38ccb3",
+    "W9.bin": "541318dc9a9f6c8d6941f38cf69cb5e873caa1dfb602d70ac5dad9f2fef11888",
+    "D10.bin": "afc6f12c3f7fb662f6934d1e4493cd16400c800309ff292388b60798a24e3827",
+    "W11.bin": "8212f0472ebe72ae93db8a205c8631f5eb96abbe952588cc08a5eb4087aeecf5",
+    "W13.bin": "cca46c6869592a231c694d2d221f91ace3ec8043873c29cfbc5a1a1029dd7adc",
+    "W15.bin": "03f20dd609d1ceb997ee6fa25c0ecef34fc1626cf869ecd69dac340747fc4b03"
+  },
+  "verification": {
+    "direct_cpp": "full enumerator of (a,j,i,t), both endpoints integer checked",
+    "independent_crt_cpp": "direct arithmetic progression enumeration over (j,i,t,sign,h), W17 sorted pair output byte identical",
+    "independent_floor_sum": "exact integer floor-sum raw witness counts match per t, 15288 local brute-checked cells",
+    "independent_numpy_nonoverlap": "all NEW17 pairs tested against 13 preceding sorted sets plus BZS and V closed predicates, zero overlaps",
+    "independent_positive_priority_partition": "NOT_DONE",
+    "independent_mathematical_review": "NOT_REVIEWED",
+    "source_cli_audit": "NOT_RUN",
+    "project_admission": "NOT_ADMITTED",
+    "native_x6_embedding": "NOT_ESTABLISHED",
+    "shared_claim": "NOT_ACQUIRED"
+  },
+  "source_provenance": {
+    "historical_researcher": "EM-DIRECT-58C410",
+    "historical_sid": "MCP-31edc522830749ad8775ca012e02ef30",
+    "historical_activity": "RA-25432C4AAE9BF66A907F5115",
+    "new_activity_link": "PENDING_CURRENT_AUTHENTICATION"
+  }
+}
