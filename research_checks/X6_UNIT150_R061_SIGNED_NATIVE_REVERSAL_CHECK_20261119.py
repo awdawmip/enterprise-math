@@ -38,23 +38,27 @@ def step_words(z):
 def rev_inv(word):
     return tuple(-x for x in reversed(word))
 
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
+
 def run():
     triple_cases=0
     for z in itertools.product(range(-6,7),repeat=3):
         n=paths_count(*map(abs,z))
-        assert n==count_factorial(z)==paths_count(*map(abs,(-z[0],-z[1],-z[2])))
-        assert sum(x*x for x in z)==sum(x*x for x in (-z[0],-z[1],-z[2]))
+        require(n==count_factorial(z)==paths_count(*map(abs,(-z[0],-z[1],-z[2]))), "recurrence/multinomial/reversal mismatch")
+        require(sum(x*x for x in z)==sum(x*x for x in (-z[0],-z[1],-z[2])), "squared norm not reversal invariant")
         triple_cases+=1
     word_cases=0
     for z in itertools.product(range(-2,3),repeat=3):
         a=set(step_words(z));b=set(step_words(tuple(-x for x in z)))
-        assert len(a)==count_factorial(z) and {rev_inv(w) for w in a}==b
+        require(len(a)==count_factorial(z) and {rev_inv(w) for w in a}==b, "explicit word inverse mismatch")
         word_cases+=1
     d=(3,4,0)
     fwd=set(step_words(d)); backward=set(step_words(tuple(-x for x in d)))
-    assert len(fwd)==len(backward)==35
-    assert {rev_inv(w) for w in fwd}==backward
-    assert sum(x*x for x in d)==25
+    require(len(fwd)==len(backward)==35, "three-four count mismatch")
+    require({rev_inv(w) for w in fwd}==backward, "three-four involution mismatch")
+    require(sum(x*x for x in d)==25, "three-four norm mismatch")
     result={
       'schema':'X6_UNIT150_SIGNED_R061_REVERSAL_SOURCE_AUDIT_CERT_V1',
       'input_pin':'59538f585d037d09ef687b28715c4bc1a3f9fe03',
@@ -63,6 +67,7 @@ def run():
       'native_signed_3_4_0':{'native_norm_squared':25,'forward_shortest_words':35,'reverse_shortest_words':35,'orientation_tagged_union':70},
       'bounded_recurrence_factorial_cases':triple_cases,
       'bounded_explicit_word_reversal_cases':word_cases,
+      'always_on_validation':True,
       'first_nonzero_primitive':{'z':[1,0,0],'forward':1,'reverse':1},
       'historical_R061_original_program_executed':False,
       'original_R063_benchmark_executed':False,
