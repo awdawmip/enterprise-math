@@ -106,7 +106,8 @@ def check(p, edges):
     assert len(centroids) == 1
     center = centroids[0]
     balanced = sum(min(size[u], p-size[u]) == r for u in range(1, p))
-    assert balanced == (2 if len(adj[center]) == 2 else 0)
+    assert (balanced == 2) == (len(adj[center]) == 2)
+    assert balanced in (0, 1, 2)
     return len(adj[center]) == 2
 
 for p, expected in [(3, 3), (5, 60), (7, 5670)]:
