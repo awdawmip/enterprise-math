@@ -1,0 +1,78 @@
+{
+  "schema": "PREFIX924_R6_CAPACITY_ZEROZERO_UNION_V1",
+  "as_of_date": "2026-11-19",
+  "mode": "AUTHOR_PROVED_EXACT_FINITE_COMPUTED_NOT_REVIEWED",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "observer": "named zero-or-one XOR trace (x, x xor 2^i) or (x,x), observed at (start mod a,end mod b)",
+  "domain": {
+    "p": 32,
+    "N": 4294967296,
+    "modulus_min": 262145,
+    "modulus_max": 524287,
+    "step": 2,
+    "moduli_per_port": 131072,
+    "ordered_pairs": 17179869184
+  },
+  "criterion": {
+    "zerozero": "lcm(a,b) < 2^32",
+    "safe_capacity_threshold": "b >= max(33*ceil(2^32/a),ceil(2^32/floor(a/33)))",
+    "range": "b in strict-19-bit odd modulus domain",
+    "mobius": "for g|a, b=g*t, gcd(a/g,t)=1, t odd; sum mu(d) over divisors d of a/g"
+  },
+  "counts": {
+    "capacity_collision_pairs": 7365546244,
+    "capacity_safe_pairs": 9814322940,
+    "zerozero_collision_pairs": 209050784,
+    "zerozero_inside_capacity": 113701566,
+    "zerozero_outside_capacity": 95349218,
+    "capacity_or_zerozero_union": 7460895462,
+    "remaining_outside_union": 9718973722,
+    "zerozero_safe_diagonal": 73900,
+    "zerozero_safe_off_diagonal": 95275318
+  },
+  "cross_checks": {
+    "python_full_domain": "PASS",
+    "cpp_full_domain": "PASS",
+    "cpp_direct_gcd_distinct_a_rows": 128,
+    "direct_row_pair_checks": 16777216,
+    "raw_even_t_overcount_corrected": true,
+    "selected_rows": [
+      {
+        "a": 262145,
+        "lower": 540724,
+        "zerozero_all": 6657,
+        "zerozero_outside_capacity": 0
+      },
+      {
+        "a": 262147,
+        "lower": 540724,
+        "zerozero_all": 1,
+        "zerozero_outside_capacity": 0
+      },
+      {
+        "a": 321651,
+        "lower": 440649,
+        "zerozero_all": 8339,
+        "zerozero_outside_capacity": 1782
+      },
+      {
+        "a": 440665,
+        "lower": 321651,
+        "zerozero_all": 1405,
+        "zerozero_outside_capacity": 687
+      },
+      {
+        "a": 524287,
+        "lower": 270369,
+        "zerozero_all": 1,
+        "zerozero_outside_capacity": 1
+      }
+    ]
+  },
+  "scope": {
+    "increment_relative_to": "PREFIX-923 two-sided capacity-only collision certificate",
+    "global_dedup_against_all_prefix_collision_certificates": "NOT_PERFORMED",
+    "native_X6_or_theorem_admission": "NOT_ASSERTED"
+  },
+  "next_problem": "Intersect the capacity/zerozero union with existing signed-power and named-XOR certificates, then test residual strict-19-bit modulus pairs without duplication"
+}
