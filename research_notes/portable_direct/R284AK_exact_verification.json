@@ -1,0 +1,104 @@
+{
+  "arithmetic": "exact sympy Rational/Integer",
+  "complete_port_checks": 4,
+  "coverage": "k=2..5; all 2^(2k) principal subsets; 3 full block samples/k",
+  "cross_pair_coefficient_checks": 54,
+  "families": [
+    {
+      "corank_pencil": 1,
+      "degree_gap": 2,
+      "first_degree": 4,
+      "full_block_checks": 3,
+      "k": 2,
+      "m": 4,
+      "port_determinant_nonzero": true,
+      "port_matrix_order": 27,
+      "principal_nonzero_counts": {
+        "0": 1,
+        "1": 4,
+        "2": 4,
+        "3": 0,
+        "4": 0
+      },
+      "principal_order": 2,
+      "rank_C": 3,
+      "rank_lower_bound": 2
+    },
+    {
+      "corank_pencil": 2,
+      "degree_gap": 4,
+      "first_degree": 8,
+      "full_block_checks": 3,
+      "k": 3,
+      "m": 6,
+      "port_determinant_nonzero": true,
+      "port_matrix_order": 39,
+      "principal_nonzero_counts": {
+        "0": 1,
+        "1": 6,
+        "2": 9,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "principal_order": 2,
+      "rank_C": 4,
+      "rank_lower_bound": 4
+    },
+    {
+      "corank_pencil": 3,
+      "degree_gap": 6,
+      "first_degree": 12,
+      "full_block_checks": 3,
+      "k": 4,
+      "m": 8,
+      "port_determinant_nonzero": true,
+      "port_matrix_order": 51,
+      "principal_nonzero_counts": {
+        "0": 1,
+        "1": 8,
+        "2": 16,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0
+      },
+      "principal_order": 2,
+      "rank_C": 5,
+      "rank_lower_bound": 6
+    },
+    {
+      "corank_pencil": 4,
+      "degree_gap": 8,
+      "first_degree": 16,
+      "full_block_checks": 3,
+      "k": 5,
+      "m": 10,
+      "port_determinant_nonzero": true,
+      "port_matrix_order": 63,
+      "principal_nonzero_counts": {
+        "0": 1,
+        "1": 10,
+        "2": 25,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0
+      },
+      "principal_order": 2,
+      "rank_C": 6,
+      "rank_lower_bound": 8
+    }
+  ],
+  "full_block_determinants_checked": 12,
+  "independent_review": "NOT_REVIEWED",
+  "principal_minors_checked": 1360,
+  "result": "PASS"
+}
