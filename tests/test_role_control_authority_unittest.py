@@ -44,7 +44,7 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
         self.assertIn("Canonical live dispatch: `research_control_dispatch.py`", text)
         self.assertNotIn("tools/research_task_registry.py", text)
         self.assertIn("COVERAGE_LOOKUP != TOOL_USE", text)
-        self.assertIn("REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE", text)
+        self.assertIn("- treat environment execution unavailability as a new mathematical tool capability gap;", text)
         self.assertNotIn("Task registry: `research_task_registry.json`", text)
 
     def test_free_researcher_simulation_preserves_phase_a_blindness_then_v2_phase_b(self):

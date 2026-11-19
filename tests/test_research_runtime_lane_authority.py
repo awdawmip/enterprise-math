@@ -183,7 +183,7 @@ class RuntimeLaneAuthorityTests(unittest.TestCase):
     def test_terminal_cohort_synthesis_blocks_further_lane_execution(self):
         patches = self.base_patches(cohort_terminal=True)
         with patches[0], patches[1], patches[2], patches[3]:
-            with self.assertRaisesRegex(guard.RuntimeAuthorizationError, "terminal after exact two-pass synthesis"):
+            with self.assertRaisesRegex(guard.RuntimeAuthorizationError, "execution cohort is terminal after exact-set synthesis"):
                 guard.authorize_execution(runtime_state(scope=scope()), events=[])
 
     def test_caller_cannot_forge_different_lane_owner(self):

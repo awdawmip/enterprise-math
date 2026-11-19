@@ -37,7 +37,8 @@ class CheckpointHistoryTests(unittest.TestCase):
             "schema": "ENTERPRISE_MATH_SOURCE_BLOB_MANIFEST_V1",
             "source_commit": SOURCE, "blobs": self.blobs}))
 
-    def run_case(self, first_units, last_units, corrupt_prior=False):
+    def run_case(self, first_units, last_units, corrupt_prior=False,
+                 mismatched_prior_epoch=False):
         prefix = f"research_artifacts/mcp/{TASK}/{SESSION}"
         first_path = f"{prefix}/first/_checkpoint.json"
         last_path = f"{prefix}/last/_checkpoint.json"
@@ -46,6 +47,7 @@ class CheckpointHistoryTests(unittest.TestCase):
                   "researcher_id": AUTHOR}
         for path, units in ((first_path, first_units), (last_path, last_units)):
             self.write(path, {**fields,
+                "ownership_epoch": 999 if mismatched_prior_epoch and path == first_path else 101,
                 "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
                 "completed_units": units, "output_manifest": []})
         self.write(f"research_artifacts/mcp/{TASK}/latest_checkpoint.json", {
@@ -95,11 +97,88 @@ class CheckpointHistoryTests(unittest.TestCase):
                 self.assertFalse(prior[0]["execution_authorized"])
                 self.assertFalse(result["execution_authorized"])
 
+    def test_mismatched_prior_ownership_epoch_is_not_promoted(self):
+        result = self.run_case(["U75", "U76"], ["U75"],
+                               mismatched_prior_epoch=True)
+        self.assertEqual("SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+                         result["state"])
+        self.assertEqual([], result["prior_authenticated_checkpoints"])
+
     def test_unauthorized_foreign_claim_is_not_promoted(self):
         result = self.run_case(["U75", "U76"], ["U75"], corrupt_prior=True)
         self.assertEqual("SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED", result["state"])
         self.assertEqual([102], [p["original_progress_comment_id"]
                                  for p in result["prior_authenticated_checkpoints"]])
+
+
+    def test_prior_source_across_renewed_claim_and_ten_newer_progress(self):
+        """An old U75+76 Source remains separate and discoverable across legal epochs."""
+        prefix = f"research_artifacts/mcp/{TASK}/{SESSION}"
+        old_both = f"{prefix}/old-both/_checkpoint.json"
+        old_narrow = f"{prefix}/old-narrow/_checkpoint.json"
+        new_paths = [f"{prefix}/new-{i}/_checkpoint.json" for i in range(10)]
+
+        base = {"task_id": TASK, "publication_id": PUB,
+                "session_id": SESSION, "researcher_id": AUTHOR,
+                "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+                "output_manifest": []}
+        for path, units in ((old_both, ["U75", "U76"]), (old_narrow, ["U75"])):
+            self.write(path, {**base, "claim_id": CLAIM,
+                              "ownership_epoch": 101, "completed_units": units})
+        for i, path in enumerate(new_paths):
+            self.write(path, {**base, "claim_id": "claim-two",
+                              "ownership_epoch": 200,
+                              "completed_units": [f"new-{i}"]})
+        self.write(f"research_artifacts/mcp/{TASK}/latest_checkpoint.json", {
+            **base, "claim_id": "claim-two", "ownership_epoch": 200,
+            "authority_granted": False,
+            "schema": "ENTERPRISE_MATH_MCP_CHECKPOINT_POINTER_V1",
+            "checkpoint_path": new_paths[-1],
+            "checkpoint_sha256": continuation.artifact_pin(
+                self.root, new_paths[-1], SOURCE)["sha256"],
+            "created_at": "2026-11-17T01:35:00Z"})
+
+        def event(kind, at, cid, claim, path=None):
+            entry = {"schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+                     "event": kind, "task_id": TASK, "publication_id": PUB,
+                     "claim_id": claim, "researcher_id": AUTHOR,
+                     "session_id": SESSION, "at": at, "lease_minutes": 120,
+                     "_github": {"server_authenticated": True,
+                                 "control_authorized": True,
+                                 "comment_id": cid, "edited": False}}
+            if path is not None:
+                entry["progress_ref"] = (
+                    f"https://github.com/awdawmip/enterprise-math/blob/{'b' * 40}/{path}")
+            return entry
+
+        events = [
+            event("CLAIM", "2026-11-16T22:00:00Z", 101, CLAIM),
+            event("PROGRESS", "2026-11-16T22:32:53Z", 102, CLAIM, old_both),
+            event("PROGRESS", "2026-11-16T23:00:12Z", 103, CLAIM, old_narrow),
+            # The old PROGRESS lease expires at 01:00 UTC; no takeover of
+            # a live claim is simulated.
+            event("CLAIM", "2026-11-17T01:20:00Z", 200, "claim-two")]
+        for i, path in enumerate(new_paths):
+            events.append(event("PROGRESS", f"2026-11-17T01:{21 + i:02d}:00Z",
+                                201 + i, "claim-two", path))
+        with mock.patch.object(continuation, "_definition",
+                               return_value=self.definition), \
+             mock.patch.object(research_dispatch, "_event_authentication_filter",
+                               side_effect=lambda _definition, rows: (rows, [])), \
+             mock.patch.object(research_dispatch, "_filter_registered_events",
+                               side_effect=lambda _definition, rows, _root, result_state: (rows, [])):
+            result = continuation.checkpoint_frontier(
+                TASK, PUB, root=self.root, events=events, source_commit=SOURCE)
+
+        self.assertEqual("SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+                         result["state"])
+        self.assertEqual(["new-9"], result["checkpoint"]["completed_units"])
+        old = {row["original_progress_comment_id"]: row
+               for row in result["prior_authenticated_checkpoints"]}
+        self.assertEqual(["U75", "U76"], old[102]["completed_units"])
+        self.assertEqual(["U75"], old[103]["completed_units"])
+        self.assertTrue(result["prior_history_truncated"])
+        self.assertFalse(old[102]["execution_authorized"])
 
 
 if __name__ == "__main__":
