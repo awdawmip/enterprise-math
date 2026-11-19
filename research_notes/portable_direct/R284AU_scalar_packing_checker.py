@@ -119,7 +119,7 @@ def main():
             "max_weight_by_n":{str(n):max(weights3(n)) for n in (2,3,4,5)},
             "independent_review":"NOT_REVIEWED",
             "scope_limit":"Finite tests do not prove arbitrary n; see proof for all-n theorem."}
-    path=sys.argv[1] if len(sys.argv)>1 else 'R284AU_exact_verification.json'
+    path=sys.argv[1] if len(sys.argv)>1 else 'R284AU_scalar_packing_exact_verification.json'
     with open(path,'w',encoding='utf-8') as f:
         json.dump(result,f,indent=2,ensure_ascii=False);f.write('\n')
     print(json.dumps(result,ensure_ascii=False))
