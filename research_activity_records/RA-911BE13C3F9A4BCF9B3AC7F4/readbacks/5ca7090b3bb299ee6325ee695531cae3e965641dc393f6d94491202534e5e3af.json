@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtyfifth/README.md",
+    "ref": "27c1d8c21bde63cbf446d59376dc3711eb5ada7a",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-sixtyfive-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第六十五轮　二进格的首次命中、三元释放的反馈与 Legendre 同余\n\n## 高度相隔两层的 Legendre 值\n\n对素数 $p\\equiv13,19\\pmod {24}$，令 $n_r=(p^r-1)/3$、$2t^2=1$。对两个次数 $k=1,2$ 及每个 $r\\ge2$，有\n$$\n P_{kn_r}(t)\\equiv pP_{kn_{r-2}}(t)\\pmod {p^r}.\n$$\n正号可由曲线 $y^2=1-4x^3+8x^6$ 的两个对称性确定。在其雅可比簇的约化上，Frobenius 的平方等于乘以 $p$；曲线在 $\\mathbb F_{p^2}$ 上因此恰有 $p^2+1-4p$ 点。两条正则微分分别控制上述两个 Legendre 次数。$p=19,r=2$ 已给出模数不能统一提高一位的例子。这条算术分支起自第 8 轮的首层读数。[属二曲线、系数同余与精度边界](cartier.md) · [复算](cartier_check.py) · [结果](cartier_checked.json)\n\n## 二进格何时首次达到阈值\n\n冻结模型有一个剪切参数 $k$ 与 Smith 深度极差阈值 $R$。将每一步观察为上行、下行或停止，可把余数格的条件分布压缩成两个整数而保持完整的方向和首达律。写 $D=\\max(0,R-k-2)$。从约定初态，为预测后续具名方向与首次命中，恰需\n$$\n (D+1)(2R-1-D)-D(D+1)/2\n$$\n个活动状态。$R\\ge k+3$ 时，扰动使累计命中率增加，但充分迟的每个可命中时刻都比基线少。$k=1,R=4$ 时两种模型首次不同在第 8 拍；在第 8 至 24 拍的偶数拍差为正，从第 26 拍起每个偶数拍均为负。[状态数、谱界与符号证书](firsthit.md) · [冻结内核复算](firsthit_check.py) · [结果](firsthit_checked.json)\n\n## 单个材料结点能辨认反馈表的哪一项\n\n取原始保存件在第 3 拍库存为 $(2,3,4)$ 的结点。门只在相位 1 放行，每释放一组三元就应用反馈 $f$。一共有 $3^3=27$ 张三态反馈表，但在这份材料上只能读出 $f(1)$。三种可观测类别各含九张表。保存件记录两组三元分别在第 4 与第 6 拍释放，故选出 $f(1)=2$ 的那一类。结合第 63 轮的共享预算，可以进一步精确计数给库存加两个来源标签后，哪些匹配会留下相同释放时刻。[逐拍原件、反馈类与来源配对](feedback.md) · [复算](feedback_check.py) · [结果](feedback_checked.json)\n\n截至 2026-11-19 01:12:00 UTC，累计直接研究 221 个登记任务，覆盖 51 个父方向。本轮首次推进阈值释放反馈，复访第 4 轮的首次命中任务，属二曲线计为独立算术旁支。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 40、19、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/27c1d8c21bde63cbf446d59376dc3711eb5ada7a/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtyfifth/README.md",
+      "encoding": "utf-8",
+      "sha": "b681886e44da537ee4d7829cccb638e07758ebc9"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
