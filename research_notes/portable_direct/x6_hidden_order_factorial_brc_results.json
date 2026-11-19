@@ -1,0 +1,15 @@
+{
+  "conditional_model": "finite sources move one signed X6 axis step iff target vacant; exact source+Port word support; not native TRIADIC_CLOSURE_E permission",
+  "cumulative_legal_word_observations_h1_and_h2": 792022,
+  "domain": "all interior label permutations for k=1..5, endpoints fixed, positions 0..k+1 on native e1 within the full six-dimensional signed Cell chart",
+  "ordered_distinguishing_pair_witness_checks": 14864,
+  "result": "PASS",
+  "rows": [
+    {"h1_language_classes": 1, "h2_language_classes": 1, "h2_min_bits": 0, "interior_labels": 1, "states": 1},
+    {"h1_language_classes": 1, "h2_language_classes": 2, "h2_min_bits": 1, "interior_labels": 2, "states": 2},
+    {"h1_language_classes": 1, "h2_language_classes": 6, "h2_min_bits": 3, "interior_labels": 3, "states": 6},
+    {"h1_language_classes": 1, "h2_language_classes": 24, "h2_min_bits": 5, "interior_labels": 4, "states": 24},
+    {"h1_language_classes": 1, "h2_language_classes": 120, "h2_min_bits": 7, "interior_labels": 5, "states": 120}
+  ],
+  "universal_formula": "h1 classes=1; h2 classes=k!; horizon-2 distinguishing bits=ceil(log2(k!)) for all integers k>=1; symbolic proof independent of finite tests"
+}
