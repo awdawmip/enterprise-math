@@ -1,0 +1,105 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-19",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "latest_verified_native": {
+    "through_unit": 161,
+    "request_id": "onhour-20261119-1920-x6-own-units160161-native-progress-v1",
+    "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "8c7b9d21e77ab40fb7db8b45f815c32f0c0878c1"
+  },
+  "author_frontier": {
+    "unit": 165,
+    "status": "AUTHOR_PROVED/EXACT_FINITE_EXECUTED/GITHUB_VERIFIED/UNREVIEWED/NOT_ADMITTED",
+    "carry_forward_units": [
+      162,
+      163,
+      164
+    ],
+    "new_unit": {
+      "unit": 165,
+      "finding": "For an integer weighted-closed A3 relation field, an integral lift exists exactly iff gcd(capacities) divides every signed relation entry. Lifts form c0+t*(m/g), grand-total residue C0 mod M/g. Counterexample m=(2,2),Z01=1 is closed but nonintegrally realizable, and one-block coarsening erases its obstruction. Frozen producer/test read and source-typed; no bad native LP019 subtraction call proved.",
+      "evidence": [
+        {
+          "path": "research_notes/X6_UNIT165_WEIGHTED_RELATION_CLOSED_VS_INTEGRAL_LIFT_20261119.md",
+          "commit": "d4c0cf2cc55485b36c60eae3f6d4adfcf318f1e2",
+          "blob": "ab4c74cc059805b901bd2cce678defb3bed10bc8"
+        },
+        {
+          "path": "research_checks/X6_UNIT165_WEIGHTED_RELATION_INTEGRAL_LIFT_CHECK_20261119.py",
+          "commit": "c58a6769446a37f1d6a13534a612f3a3a76a3369",
+          "blob": "f6c950d2f1c045e448362c420fa6e2adeea3ba25"
+        },
+        {
+          "path": "research_checks/X6_UNIT165_WEIGHTED_RELATION_INTEGRAL_LIFT_RESULTS_20261119.json",
+          "commit": "8dcfa5ca7611e789c15c3d28232102b969c9a6ef",
+          "blob": "fffee48f96ca9ac2acf86f35bbd492471864faad"
+        },
+        {
+          "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit165_delta.json",
+          "commit": "29ed43d08e326244394614056a4297f7a6bd89d5",
+          "blob": "0a9b9aecc8f49d10bc226386606f5de0772c84ee"
+        }
+      ],
+      "checks": {
+        "total_arrays": 36036,
+        "closed": 1362,
+        "integrally_liftable": 1192,
+        "closed_not_liftable": 170,
+        "violations": 0,
+        "execution_modes": [
+          "python",
+          "python -O",
+          "python -OO"
+        ],
+        "original_R063_rerun": false
+      }
+    }
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "count": 180,
+    "commit": "e36941634bc99c39d3fd62197652003051d9ef8a",
+    "blob": "5792869ce24b08c3680977fc1f98d66e4f5a50b1",
+    "verified": true
+  },
+  "native_control": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-dedc91932641535d284fc171",
+    "run_id": "RUN-c92057890282aaaeec520881",
+    "last_authenticated_generation": 10,
+    "resume_request_id": "onhour-20261119-2111-x6-own-run-c920-after163-resume-v1",
+    "resume_status": "SUCCEEDED/RUN_READY",
+    "pending_progress_request_id": "onhour-20261119-2208-x6-own-units162164-native-progress-v1",
+    "pending_last_status": "RUNNING/error=null (at 14:01 UTC read)",
+    "unit165_native_status": "NOT_SUBMITTED",
+    "units149152_native_associations": "PENDING; old failed Unit149 request not replayed"
+  },
+  "unresolved": [
+    "Consume Units162-164 original Native PROGRESS terminal first",
+    "Publish Unit165 Native linkage only after current owner/RUN verification and no conflicting inflight operation",
+    "Units149-152 previously saved author sources lack semantic association",
+    "LP011/LP019 alleged historical wrong caller exact file:line unknown",
+    "28-LP downstream source coverage and independent Driver review pending"
+  ],
+  "do_not_repeat": [
+    "Units1-161 native published; Units162-165 author proofs and Activity180 verified",
+    "R063 benchmark already executed; Unit157 weighted shell formula already historically implemented by P022",
+    "Unit149 rejected original and original pending writes",
+    "Maintenance lane identity or other owner's session/claim"
+  ],
+  "next_exact_action": "Read onhour-20261119-2208-x6-own-units162164-native-progress-v1 original receipt to terminal. Check present own claim/run/generation/Source before a distinct lawful Native Unit165 checkpoint. Continue frozen 28-LP production caller/LP011/LP019 provenance; preserve source typing, review and independence.",
+  "continuation_state": "OPEN",
+  "review": "UNREVIEWED/NOT_ADMITTED",
+  "scheduler_modified": false,
+  "notifications_modified": false
+}
