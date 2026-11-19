@@ -1,0 +1,192 @@
+{
+  "schema": "R762GE_SIGNED_X6_REPAIR_EXACT_VERIFICATION_V1",
+  "science_scope": "signed unit-axis coordinate adjacency on a charted Z^6 Cell torsor, NOT an admitted TRIADIC_CLOSURE_E rule",
+  "method": "exact integer DP 12 signed steps; independent convex/triangle-inequality proof in companion note",
+  "max_checked_length": 8,
+  "star_subsets_checked_per_endpoint": 4,
+  "checks": [
+    "all reachable endpoints",
+    "all relative-depth fibers",
+    "parity/l1 reachability formula",
+    "optimal worst-fiber count floor(m/3)+1",
+    "sharp witness construction",
+    "4 triple-STAR reconstructions for each endpoint",
+    "p/m integer common-depth repair",
+    "total ordered source count 12**m"
+  ],
+  "rows": [
+    {
+      "m": 0,
+      "reachable_endpoints": 1,
+      "relative_classes": 1,
+      "max_depth_fiber": 1,
+      "sharp_witness_r": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "witness_depths": [
+        0
+      ],
+      "source_words": 1
+    },
+    {
+      "m": 1,
+      "reachable_endpoints": 12,
+      "relative_classes": 12,
+      "max_depth_fiber": 1,
+      "sharp_witness_r": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "witness_depths": [
+        0
+      ],
+      "source_words": 12
+    },
+    {
+      "m": 2,
+      "reachable_endpoints": 73,
+      "relative_classes": 73,
+      "max_depth_fiber": 1,
+      "sharp_witness_r": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "witness_depths": [
+        0
+      ],
+      "source_words": 144
+    },
+    {
+      "m": 3,
+      "reachable_endpoints": 304,
+      "relative_classes": 284,
+      "max_depth_fiber": 2,
+      "sharp_witness_r": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "witness_depths": [
+        -1,
+        0
+      ],
+      "source_words": 1728
+    },
+    {
+      "m": 4,
+      "reachable_endpoints": 985,
+      "relative_classes": 835,
+      "max_depth_fiber": 2,
+      "sharp_witness_r": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        2
+      ],
+      "witness_depths": [
+        -1,
+        0
+      ],
+      "source_words": 20736
+    },
+    {
+      "m": 5,
+      "reachable_endpoints": 2668,
+      "relative_classes": 2036,
+      "max_depth_fiber": 2,
+      "sharp_witness_r": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        3
+      ],
+      "witness_depths": [
+        -1,
+        0
+      ],
+      "source_words": 248832
+    },
+    {
+      "m": 6,
+      "reachable_endpoints": 6321,
+      "relative_classes": 4347,
+      "max_depth_fiber": 3,
+      "sharp_witness_r": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "witness_depths": [
+        -2,
+        -1,
+        0
+      ],
+      "source_words": 2985984
+    },
+    {
+      "m": 7,
+      "reachable_endpoints": 13504,
+      "relative_classes": 8408,
+      "max_depth_fiber": 3,
+      "sharp_witness_r": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        3
+      ],
+      "witness_depths": [
+        -2,
+        -1,
+        0
+      ],
+      "source_words": 35831808
+    },
+    {
+      "m": 8,
+      "reachable_endpoints": 26577,
+      "relative_classes": 15069,
+      "max_depth_fiber": 3,
+      "sharp_witness_r": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        4
+      ],
+      "witness_depths": [
+        -2,
+        -1,
+        0
+      ],
+      "source_words": 429981696
+    }
+  ],
+  "result": "PASS",
+  "independent_review": "NOT_REVIEWED"
+}
