@@ -1,0 +1,136 @@
+{
+  "schema": "R5_D14_SIX_NEW_BELLMAN_REFERENCES_V1",
+  "status": "AUTHOR_EXACT_FINITE_CHECKED_PARTIAL_INDEPENDENT_CROSSCHECK_NOT_REVIEWED",
+  "model": "FROZEN_R5_SCALAR_JOINT_INTERVAL_OBSERVER_EIGHT_UNFLAGGED_ERRORS",
+  "science_pin": "awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "integer_input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "seed_W": [
+    0,
+    16,
+    32,
+    48,
+    1,
+    64,
+    17,
+    80,
+    18,
+    24,
+    34,
+    82
+  ],
+  "physical_query_costs": {
+    "first": 214,
+    "last": 314,
+    "count": 101
+  },
+  "tau": "58182461585441404127941754879",
+  "error_budget": 8,
+  "prior_reference_commit": "9fd4c0449e731342e3343d8e634d9a98edd4cebf",
+  "new_roots": [
+    {
+      "class_id": 699,
+      "u": 50,
+      "v": 81,
+      "values": 8335,
+      "states": 3904167,
+      "gain_pairs": 83,
+      "gain_classes": 8
+    },
+    {
+      "class_id": 703,
+      "u": 50,
+      "v": 96,
+      "values": 8335,
+      "states": 3027474,
+      "gain_pairs": 83,
+      "gain_classes": 8
+    },
+    {
+      "class_id": 923,
+      "u": 66,
+      "v": 81,
+      "values": 8335,
+      "states": 3408257,
+      "gain_pairs": 83,
+      "gain_classes": 8
+    },
+    {
+      "class_id": 658,
+      "u": 49,
+      "v": 65,
+      "values": 8335,
+      "states": 2778921,
+      "gain_pairs": 81,
+      "gain_classes": 7
+    },
+    {
+      "class_id": 1091,
+      "u": 81,
+      "v": 96,
+      "values": 8335,
+      "states": 2455390,
+      "gain_pairs": 81,
+      "gain_classes": 7
+    },
+    {
+      "class_id": 1231,
+      "u": 96,
+      "v": 97,
+      "values": 8335,
+      "states": 2103657,
+      "gain_pairs": 81,
+      "gain_classes": 7
+    }
+  ],
+  "previous_coverage": {
+    "reference_classes": 52,
+    "signatures": 1220,
+    "named_pairs": 25896
+  },
+  "updated_coverage": {
+    "reference_classes": 58,
+    "signatures": 1265,
+    "named_pairs": 26388,
+    "unresolved_signatures": 641,
+    "unresolved_named_pairs": 3258,
+    "total_signatures": 1906,
+    "total_named_pairs": 29646
+  },
+  "dominance_edges": 38127,
+  "independent_nibble_checks": [
+    {
+      "pair": [
+        50,
+        81
+      ],
+      "value": 8335,
+      "states": 3904167,
+      "actions": 7
+    },
+    {
+      "pair": [
+        96,
+        97
+      ],
+      "value": 8335,
+      "states": 2103657,
+      "actions": 7
+    }
+  ],
+  "difficult_root_attempt": {
+    "pair": [
+      128,
+      144
+    ],
+    "state_cap": 9000000,
+    "result": "CAP_REACHED_NOT_RESOLVED"
+  },
+  "global_full_256_f8_bounds": [
+    8335,
+    8343
+  ],
+  "native_BRC_X6_transfer": "NOT_ASSERTED",
+  "formal_claim_run": false,
+  "independent_math_review": "NOT_REVIEWED",
+  "next_open": "Resolve difficult nine-action signatures, attempt V8>8335 using policy-level or branch-and-bound exact certificates"
+}
