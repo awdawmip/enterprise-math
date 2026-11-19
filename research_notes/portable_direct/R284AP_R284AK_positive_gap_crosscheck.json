@@ -1,0 +1,73 @@
+{
+  "schema": "R284AP_AK_CROSSCHECK_V1",
+  "source_model": "R284AK section 2 positive integer factors",
+  "generator": "For each k=2..5, a=(1,...,1) in Z^(k+1); b_j=a+e_j (j=1..k, e_j on last k coordinates); U=[a repeated k times;b_1,...,b_k], V=[b_1,...,b_k;a repeated k times]. Run R284AP assess(U,V) and verify_final_basis over each returned prime.",
+  "scope": "Exact finite recheck, not a new universal proof",
+  "cases": [
+    {
+      "k": 2,
+      "m": 4,
+      "factor_width": 3,
+      "principal_rank": 2,
+      "port_first_edit_degree": 4,
+      "witness": [
+        2,
+        3
+      ],
+      "num_primes": 5,
+      "prime_product_gt_bound": true,
+      "modular_candidates": 60,
+      "closure_checks": 120,
+      "elapsed_seconds": 0.0043
+    },
+    {
+      "k": 3,
+      "m": 6,
+      "factor_width": 4,
+      "principal_rank": 2,
+      "port_first_edit_degree": 8,
+      "witness": [
+        1,
+        4
+      ],
+      "num_primes": 7,
+      "prime_product_gt_bound": true,
+      "modular_candidates": 210,
+      "closure_checks": 504,
+      "elapsed_seconds": 0.0429
+    },
+    {
+      "k": 4,
+      "m": 8,
+      "factor_width": 5,
+      "principal_rank": 2,
+      "port_first_edit_degree": 12,
+      "witness": [
+        2,
+        5
+      ],
+      "num_primes": 9,
+      "prime_product_gt_bound": true,
+      "modular_candidates": 540,
+      "closure_checks": 1440,
+      "elapsed_seconds": 0.3501
+    },
+    {
+      "k": 5,
+      "m": 10,
+      "factor_width": 6,
+      "principal_rank": 2,
+      "port_first_edit_degree": 16,
+      "witness": [
+        1,
+        6
+      ],
+      "num_primes": 10,
+      "prime_product_gt_bound": true,
+      "modular_candidates": 1050,
+      "closure_checks": 3000,
+      "elapsed_seconds": 1.9012
+    }
+  ],
+  "status": "PASS"
+}
