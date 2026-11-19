@@ -1,0 +1,72 @@
+{
+  "schema": "X6_BRC_R21_EXACT_VERIFICATION_V1",
+  "status": "PASS",
+  "date": "2026-11-19",
+  "exhaustive_scope": {
+    "base_chart": "3 selected X6 positions on one signed primitive axis, other 5 relative coordinates 0",
+    "directed_edges": 4,
+    "edge_options_per_edge": 5,
+    "credit_caps": [
+      1,
+      2
+    ],
+    "source_counts": [
+      1,
+      2
+    ],
+    "all_patterns_per_cap_and_source": 625,
+    "configurations": 2500,
+    "stateOccurrences": 28125
+  },
+  "tests": {
+    "boolean_language_pair_equivalence_checks": 498555,
+    "stabilization_checks": 2500,
+    "maximum_refinement_round_observed": 5,
+    "nontrivial_early_fixed_points": 2204
+  },
+  "witnesses": {
+    "replenishment": {
+      "initial_positions": [
+        0,
+        1
+      ],
+      "initial_credit": 0,
+      "credit_cap": 1,
+      "successful_word": [
+        "B+",
+        "A+"
+      ],
+      "initial_R20_resource_feasible_path": false,
+      "first_A_move_event": 2,
+      "initial_A_plus_illegal": true
+    },
+    "resource_alias": {
+      "positions": [
+        0
+      ],
+      "credit_levels_merged": [
+        1,
+        2
+      ],
+      "credit_level_distinguished": 0
+    },
+    "sharpness": {
+      "line_sites": 6,
+      "starting_sites": [
+        0,
+        1
+      ],
+      "first_language_difference_at": 5,
+      "N": 6
+    }
+  },
+  "example": [
+    {
+      "cap": 1,
+      "n": 2,
+      "code": 312,
+      "classes": 7,
+      "states": 12
+    }
+  ]
+}
