@@ -1,0 +1,31 @@
+{
+  "schema": "EM_X6_R29_EXACT_BOOLEAN_BRC_CHECK_V1",
+  "domain": {
+    "sources": 2,
+    "one_use_gate_events": 2,
+    "parents": "all ordered acyclic edges (0->1 optional)",
+    "return_masks": "all 4 masks per gate",
+    "guard_masks": "all 4 masks per gate",
+    "hidden_histories": "all 4 initial bit assignments",
+    "word_horizons": "all 0..6 inclusive",
+    "observations": "successful fully source/signed-Port labelled words"
+  },
+  "controllers_checked": 512,
+  "language_equivalence_pair_checks": 21504,
+  "branch_join": {
+    "sources": 3,
+    "gates": 3,
+    "earliest_gate_depths": [
+      5,
+      5,
+      9
+    ],
+    "language_equivalence_pair_checks": 280
+  },
+  "reset_boundary": {
+    "frozen_predicted_A1_first_depth": 4,
+    "mutable_guard_actual_A1_reachable": false
+  },
+  "arithmetic": "exact integer and finite language set equality",
+  "result": "PASS"
+}
