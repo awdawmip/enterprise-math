@@ -1,0 +1,122 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-19",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "account_rules": {
+    "bootstrap_blob": "e19673a56c3d8f6945537fa0580afc054d432ca5",
+    "manual_blob": "9f9fccf9d96022258a8593db3e6863b0495c0ae8",
+    "p000_projection_blob": "c6d4d2d79b09537bdae55253baef9c28583e44dc",
+    "p000_canonical_blob_verified": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "behavioral_not_science_pin": true
+  },
+  "highest_author_frontier": {
+    "unit": 152,
+    "status": "AUTHOR_PROVED/EXACT_FINITE_EXECUTED/GITHUB_MAIN_BLOBS_READBACK/UNREVIEWED/NOT_ADMITTED",
+    "finding": "Exact native signed-X6 twelve-labelled-step skew-conjugate lift (w,h,v) for the 3-axis min-zero derived observer, precise quotient label-kernel fiber invariance and scalar nonreconstruction for finite depth residues",
+    "proof": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "732e40e9d237fd5adbeea45f436b456b074782e5",
+      "path": "research_notes/X6_UNIT152_SIGNED_MINZERO_LIFT_NATIVE_STEP_SKEW_CONJUGACY_20261119.md",
+      "blob": "4654506c136a20d3696b99fb5dc4f1960124dea4"
+    },
+    "checker": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "fb52378b546a24c869e92764c835f198ab09ead8",
+      "path": "research_checks/X6_UNIT152_SIGNED_MINZERO_LIFT_CONJUGACY_CHECK_20261119.py",
+      "blob": "94a1f1cb6c8b6f7fb5a276de23ee2d21b7160884"
+    },
+    "certificate": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "b7762ae6c3802f09ddaefb7632c51dcafbe5d5b1",
+      "path": "research_checks/X6_UNIT152_SIGNED_MINZERO_LIFT_CONJUGACY_RESULTS_20261119.json",
+      "blob": "173dfa90f47b552c63c78633942fc6d722a385d6"
+    },
+    "ledger": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "63713df7e2662243ca3d10b5e62edec72566111e",
+      "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit152_delta.json",
+      "blob": "dec844951fc4d78f2dc3ee5338f3c332fc4b6e4f"
+    },
+    "test": {
+      "domain": "[-2,2]^6",
+      "native_states": 15625,
+      "labelled_native_transitions": 187500,
+      "three_axis_labelled_words_len_0_to_6": 55987,
+      "quotient_dp_length": "0..8",
+      "normal_optimized_modes": [
+        "normal",
+        "-O",
+        "-OO"
+      ],
+      "stdout_sha256": "9152a625834d9f18148734b0369189f28ef4ba5c5569118fd8f00779ba7cf2fc",
+      "original_R063_six_file_benchmark_executed": false,
+      "native_original_module_imported": false
+    }
+  },
+  "activity": {
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "count": 167,
+    "commit": "abf304dbb3538d7281a3bb9e79b08a98fbb81e9f",
+    "blob": "3f531c8156bc232dab8f3c98f89968c05f4c6b4f",
+    "event_id": "onhour-20261119-1100-x6-unit152-minzero-signed-step-skew-v1",
+    "readback_verified": true
+  },
+  "control": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "old_claim_id": "MCP-dedc91932641535d284fc171",
+    "old_run_id": "RUN-c92057890282aaaeec520881",
+    "generation_last_observed": 5,
+    "native_semantic_through_unit": 148,
+    "unit148": {
+      "request_id": "onhour-20261119-0918-x6-own-unit148-native-progress-v1",
+      "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+      "source_commit": "9e80d79f719d17053397f00f4eebdbafbfd5133f"
+    },
+    "unit149": {
+      "request_id": "onhour-20261119-1000-x6-own-unit149-native-progress-v1",
+      "status": "FAILED/GITHUB_PRIMARY_RATE_LIMIT",
+      "replay": false
+    },
+    "original_continuation": {
+      "request_id": "onhour-20261119-1021-x6-own-cont-after-unit148-149-rate-v1",
+      "status": "SUCCEEDED/OWN_RECORDED_RUN_AVAILABLE",
+      "execution_granted": false
+    },
+    "new_original_resume": {
+      "request_id": "onhour-20261119-1106-x6-own-run-c920-unit152-resume-v1",
+      "last_read": "RUNNING / error=null",
+      "must_consume_original": true
+    },
+    "native_units_149_to_152": "NOT_PUBLISHED",
+    "fresh_writer_authority": "PENDING_OWN_RESUME_TERMINAL"
+  },
+  "corpus_notes": {
+    "r062_stage0_accepted_checker": "research/r062-stage0-brc-multipath-bridge:scripts/r062_stage0_validate_brc_multipath_bridge.py",
+    "r062_historical_owner_branch_blob": "48ba38a55969b32fab40bc33d066b10216a249d0",
+    "main_absence_interpretation": "BRANCH_REVIEWED_ORIGINAL_NOT_MISSING_EVIDENCE",
+    "historical_lp011_bad_caller": "UNRESOLVED_PROVENANCE",
+    "historical_lp019_bad_caller": "UNRESOLVED_PROVENANCE"
+  },
+  "evidence_debts": [
+    "Native semantic association Unit149–152; original failed Unit149 GITHUB_PRIMARY_RATE_LIMIT is terminal and cannot be blindly replayed.",
+    "Original own resume new request in flight, no authorization inferred from QUEUED/RUNNING; only original-ID result consumption.",
+    "28-LP full historic/current downstream consumer and exact LP011/LP019 caller source:line provenance unfinished.",
+    "Original separate R063 six-file 512-case benchmark and independent Driver review/admission pending."
+  ],
+  "do_not_repeat": [
+    "Units1-148 already Source-published Native PROGRESS; existing author science Units149-152 and corresponding Activity167.",
+    "Unit149 original FAILED write, any unknown/failed Source write or another live owner claim.",
+    "Existing six-file R063 benchmark, previously proven mathematics, maintenance lane identity and independent reviewer role."
+  ],
+  "next_exact_action": "Consume original onhour-20261119-1106-x6-own-run-c920-unit152-resume-v1 terminal; verify live owner claim and RUN generation from authenticated Source. Preserve FAILED Unit149, do not retry or disguise; perform only currently permitted Native association of existing Unit149–152 author evidence. Independently audit exact uninspected 28-LP historical/current native consumers with paths and lines; separately track original R063 benchmark and Driver review.",
+  "continuation_state": "OPEN",
+  "scheduler_modified": false,
+  "independence": "UNREVIEWED/NOT_ADMITTED"
+}
