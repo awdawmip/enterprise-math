@@ -248,3 +248,5 @@
 - [第一百一十轮　Machin 公式的变支撑成本与加权循环临界律](hundredtenth/README.md)　输入位预算的相变及六轴模型的联合分布。
 
 - [第一百一十一轮　素因子邻接、数值窗口谱与 Clausen 系数](hundredeleventh/README.md)　前缀最短平均长度、局部谱与奇异系数的快速求值。
+
+- [第一百一十二轮　有限次接触记录的是哪个时刻](hundredtwelfth/README.md)　现场重读、锁存与允许交错的精确分类。
