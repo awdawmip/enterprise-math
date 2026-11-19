@@ -256,3 +256,5 @@
 - [第一百一十四轮　循环记忆的识别与有限幂等轨道的迹分布](hundredfourteenth/README.md)　三时刻读数识别重用，在原型模数环上计算全轨道的迹。
 
 - [第一百一十五轮　等差表交叉的临界素数与局部根域](hundredfifteenth/README.md)　从原余子式提取临界提升及非临界 Newton 边。
+
+- [第一百一十六轮　匿名返回读数的稀疏与稠密重构](hundredsixteenth/README.md)　由圆形间距分类稀疏重构，从随机窗口的重复与镜像求典型读深。
