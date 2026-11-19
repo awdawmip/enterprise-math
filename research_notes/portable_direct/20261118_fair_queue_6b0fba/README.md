@@ -154,3 +154,5 @@
 - [第六十三轮的 Weil 边界、多源匹配与等分塔](sixtythird/README.md)　有限端口的谱余项、同时到达时的匹配容量与固定椭圆曲线的跨素数计数。
 
 - [第六十四轮的剪切路径与整数排序](sixtyfourth/README.md)　固定字母计数下的路径分布与三簇整数的抽样判据。
+
+- [第六十五轮的首次命中、阈值反馈与 Frobenius](sixtyfifth/README.md)　两项登记与一条算术旁支。

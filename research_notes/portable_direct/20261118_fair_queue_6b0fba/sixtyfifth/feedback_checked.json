@@ -1,0 +1,399 @@
+{
+  "all_masks": [
+    {
+      "gate": [],
+      "observable_classes": 1,
+      "tables_per_class": 27
+    },
+    {
+      "gate": [
+        0
+      ],
+      "observable_classes": 3,
+      "tables_per_class": 9
+    },
+    {
+      "gate": [
+        1
+      ],
+      "observable_classes": 3,
+      "tables_per_class": 9
+    },
+    {
+      "gate": [
+        0,
+        1
+      ],
+      "observable_classes": 9,
+      "tables_per_class": 3
+    },
+    {
+      "gate": [
+        2
+      ],
+      "observable_classes": 3,
+      "tables_per_class": 9
+    },
+    {
+      "gate": [
+        0,
+        2
+      ],
+      "observable_classes": 9,
+      "tables_per_class": 3
+    },
+    {
+      "gate": [
+        1,
+        2
+      ],
+      "observable_classes": 9,
+      "tables_per_class": 3
+    },
+    {
+      "gate": [
+        0,
+        1,
+        2
+      ],
+      "observable_classes": 27,
+      "tables_per_class": 1
+    }
+  ],
+  "archive_sha256": "c1b1d2d3c9ce952e922263b04537d849419832e6d6acde0060eb45e6de684335",
+  "archived_event_member_sha256": "fd8b1f61dcf11e1ab70f11ccafcee7865dc64d8f037f6a8177ee9de7f5de3ffe",
+  "archived_snapshot_member_sha256": "c2d2725eb9a80727f664da56c9fb4896e57b1f7f6f3dec1acfe5724573ba7683",
+  "core_sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26",
+  "delayed_observer": {
+    "cyclic_period_vs_binary_images": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        16
+      ],
+      [
+        5,
+        32
+      ],
+      [
+        6,
+        54
+      ],
+      [
+        7,
+        128
+      ],
+      [
+        8,
+        256
+      ],
+      [
+        9,
+        490
+      ],
+      [
+        10,
+        1024
+      ],
+      [
+        11,
+        2048
+      ]
+    ],
+    "finite_words": 729
+  },
+  "local_reference_target_count": 162,
+  "negative_controls": [
+    "double_spend",
+    "negative_alias",
+    "postphase_routing",
+    "unpaid_release",
+    "unsettled"
+  ],
+  "original_local_rows": [
+    {
+      "pending": [],
+      "phase": 0,
+      "q": [
+        2,
+        3,
+        4
+      ],
+      "time": 3,
+      "wall": []
+    },
+    {
+      "pending": [
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          2,
+          0,
+          3,
+          1
+        ]
+      ],
+      "phase": 2,
+      "q": [
+        1,
+        2,
+        3
+      ],
+      "time": 4,
+      "wall": []
+    },
+    {
+      "pending": [
+        [
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          1
+        ]
+      ],
+      "phase": 0,
+      "q": [
+        1,
+        2,
+        3
+      ],
+      "time": 5,
+      "wall": [
+        [
+          0,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "pending": [
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          3,
+          1
+        ]
+      ],
+      "phase": 2,
+      "q": [
+        0,
+        1,
+        2
+      ],
+      "time": 6,
+      "wall": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "pending": [
+        [
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          1
+        ]
+      ],
+      "phase": 0,
+      "q": [
+        0,
+        1,
+        2
+      ],
+      "time": 7,
+      "wall": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pending": [
+        [
+          2,
+          0,
+          1,
+          1
+        ]
+      ],
+      "phase": 1,
+      "q": [
+        0,
+        1,
+        2
+      ],
+      "time": 8,
+      "wall": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pending": [],
+      "phase": 2,
+      "q": [
+        0,
+        1,
+        2
+      ],
+      "time": 9,
+      "wall": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          0,
+          2
+        ]
+      ]
+    }
+  ],
+  "original_r10_sha256": "02c7f1bb20e567a6f652adaf600f9ac434894c79680375f78f727c56e5651af3",
+  "release_times_vs_table_count": [
+    [
+      [
+        4,
+        4
+      ],
+      9
+    ],
+    [
+      [
+        4,
+        5
+      ],
+      9
+    ],
+    [
+      [
+        4,
+        6
+      ],
+      9
+    ]
+  ],
+  "shared_public_BRC_calls": {
+    "parallel": 999
+  },
+  "two_source": {
+    "chronologies": 144,
+    "inventory": {
+      "A": [
+        1,
+        1,
+        2
+      ],
+      "B": [
+        1,
+        2,
+        2
+      ]
+    },
+    "ordered_by_type": {
+      "MM": 88,
+      "MP": 20,
+      "PM": 20,
+      "PP": 16
+    },
+    "unordered_by_mixed": {
+      "0": 8,
+      "1": 20,
+      "2": 44
+    }
+  },
+  "verified_snapshot_row_count": 7
+}
