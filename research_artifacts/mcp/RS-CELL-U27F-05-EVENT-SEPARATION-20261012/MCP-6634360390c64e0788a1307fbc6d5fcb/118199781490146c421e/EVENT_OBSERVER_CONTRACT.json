@@ -1,0 +1,113 @@
+{
+  "schema": "U27F05_EVENT_OBSERVER_CONTRACT_DRAFT_V1",
+  "task_id": "RS-CELL-U27F-05-EVENT-SEPARATION-20261012",
+  "author_id": "EM-X6-C7A253",
+  "status": "AUTHOR_DRAFT_EXACT_STATIC_CHECK_NOT_STOCHASTIC_VALIDATION",
+  "source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "e91d67d0d2a8bee62fc264c26e9deb2166a6af93",
+    "inputs": {
+      "base_case": {
+        "path": "research_inputs/U27F_20261012/fixtures/base_case.json",
+        "git_blob_sha1": "15ccb3ad4037d60193a9d9b06ff4865754b8e6ec"
+      },
+      "interrupted_after_carry": {
+        "path": "research_inputs/U27F_20261012/fixtures/interrupted_after_carry.json",
+        "git_blob_sha1": "e35281e64806f3dd9e1f2ad6520449c7bf0e2416"
+      },
+      "recorded_oracles": {
+        "path": "research_inputs/U27F_20261012/fixtures/recorded_oracles.json",
+        "git_blob_sha1": "0d20ce26e1d1c3f7e18a0e137014bd54af49f20f"
+      }
+    },
+    "original_code_archive_sha256": "a450cc3e235ca3d37211d31b2d4eb41dd2d4ac28b77c73d18d1b6e3ce45cc9a7",
+    "archive_available_for_replay": false
+  },
+  "observer_contract": {
+    "first_new_damage": {
+      "state": "REQUIRES_VERIFIED_TRANSITION_TAGS",
+      "event_kind": "TRANSITION_EVENT",
+      "absorbing": false
+    },
+    "first_strict_committed_prefix_loss": {
+      "state": "EXACT_STATIC_GRAPH_OBSERVER",
+      "carrier": "data.bound edge fields",
+      "event_kind": "PREFIX_EVENT_NOT_TERMINAL",
+      "absorbing": false
+    },
+    "first_effective_whole_loss": {
+      "state": "UNRESOLVED_F01_OPERATIVE_CONTACT",
+      "event_kind": "PREFIX_EVENT",
+      "absorbing": false
+    },
+    "final_repair": {
+      "state": "UNRESOLVED_F03_CONTINUATION",
+      "event_kind": "TERMINAL_EVENT",
+      "absorbing": true
+    },
+    "pending_reference_connectivity": {
+      "state": "REFERENCE_ONLY_NOT_OPERATIVE",
+      "carrier": "data.pending_reference.paths.links",
+      "event_kind": "DIAGNOSTIC_OBSERVER",
+      "absorbing": false
+    }
+  },
+  "exact_snapshot": {
+    "path": "research_inputs/U27F_20261012/fixtures/interrupted_after_carry.json",
+    "body_ids": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "bound_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "bound_components": [
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        2
+      ]
+    ],
+    "strict_committed_disconnected": true,
+    "pending_reference_extra_edge": [
+      2,
+      3
+    ],
+    "reference_augmented_connected": true,
+    "lost_edge": [
+      2,
+      3
+    ],
+    "incidence": "PENDING",
+    "held_token": 2,
+    "free_token": 3,
+    "reachability_at_delta_zero": "NOT_ESTABLISHED"
+  },
+  "delta_zero": {
+    "conditional_hazard_assumption": "All new damage events arise from per-eligible-step Bernoulli(delta) independent of unspecified other loss sources.",
+    "new_damage_before_repair_probability_if_assumption_holds": "0",
+    "strict_prefix_loss_probability": "NOT_ESTABLISHED",
+    "original_stop_model_recorded_repair_before_new_loss": "1",
+    "record_scope": "SAME_AUTHOR_HISTORICAL_U26_NOT_U27_CONTINUED"
+  },
+  "status_boundaries": [
+    "No BRC weights recomputed",
+    "No 56-state replay",
+    "No F01 operative rule or F03 successor frozen",
+    "No independent admission",
+    "Do not sum prefix and terminal marginal probabilities as absorbing outcomes"
+  ],
+  "next_action": "Obtain exact F01 predicate and F03 successor with source-verified inputs, then compute valid reachability and event-order BRC at delta=0."
+}
