@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredtwentyninth/README.md",
+    "ref": "4cf5d329ccf5addbbb4072c29fbb269fbc12381a",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "w129-summary",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第一百二十九轮　六阶矩的素数层、树余子式的局部根与稀疏圈复原\n\n本轮复访五个不同父方向。三项来自待移交登记，一项来自严格就绪池，一项沿冻结返回点名的剩余同余式推进。\n\n**六阶形状矩只剩两个最大素因子。** 对有限分母多重集，每出现一次 $d$ 支付 $d-1$。若每侧费用至多 2331，且零至六阶的 $H_j=\\sum(1-1/d)^j$ 均相同，则每个 17 的倍数在两侧重数相等。消去公共项后，剩余分母全都整除 $720\\,720$。结合此前求得的七光滑阈值，比 2332 更便宜的反例现在只可能有最大素因子 11 或 13。两套程序分别选择六个基准分母，将 58,754,841,635 种可付的单侧多重集压缩为 7,277,123 和 8,205,569 个尾部检验。[局部单射与费用界](seventeen.md) · [两套复算数据](seventeen_checked.json)\n\n**由根和的分母识别唯一局部根。** 令 $\\sigma_m$ 为原 AP–Christoffel 生成树余子式 $q_m$ 的根和。对 $p>2m^2$，$p$ 整除 $\\sigma_m$ 的既约分母，当且仅当 $q_m$ 有负整数 $p$ 进赋值的根。此根属于 $\\mathbf Q_p$，是单根，赋值恰为 $-1$，其余根的赋值均至少为 $-1/3$。若分母没有 $p$，全部根的赋值均至少为 $-1/2$。两个分数界都有原图实例取到。筛选只需原图最高三层的矩阵；有理根的存在性与实区间交叉仍是另外的问题。[最高三层、Newton 多边形与实例](vieta.md) · [精确算例](vieta_checked.json)\n\n**特征七的两条曲线不能有双次数 $(2,2)$ 的几何整对应。** 对指定的 $X=C_{46,7}$ 与 $Y=C_7$，令 $A=J(Y)$、$\\pi$ 为其 49 次 Frobenius、$s=\\pi+49/\\pi$。每个几何整同态 $u:J(X)\\to A$ 满足 $u u^\\dagger\\in(2,s)\\subset\\mathcal O_{\\mathbf Q(\\sqrt{417})}$；非零时其迹至少为 8。任何 $(2,3)$ 对应都必须诱导 $u u^\\dagger=[4]$，其存在性仍开。若规定同态为零且源侧次数为二，靶侧最低次数恰为四，文中给出了达到该界的曲线。[极化高度、对应与显式曲线](honda.md) · [Frobenius 与点数](honda_checked.json)\n\n**随机整数圈多宽的窗口才能读出次序。** 在长 $k$ 的圈上均匀标记 $m$ 处，令 $W_*$ 是由全部无向窗口唯一恢复标记位置所需的最小跨度，允许整体旋转或反读。当 $m\\to\\infty$ 且 $m^3/k\\to0$，只恢复间隙大小的门槛是 $(k/m)(\\log m+O_{\\mathsf P}(1))$。恢复循环次序还多出 $(k/2m)\\log\\log m$。写 $\\lambda=e^{-2x}$，有\n$$\n\\Pr\\!\\left(\\frac{mW_*}{k}-\\log m-\\tfrac12\\log\\log m\\le x\\right)\n\\longrightarrow e^{-2\\lambda}\\sum_{j\\ge0}\\frac{(2\\lambda)^j}{j!(j+1)!}.\n$$\n在 $x=0$ 时，极限成功率约为 0.3241054。带符号随机弦图同时给出失败时相容排列数的极限律。原邻接读数与 276 份窗口逐一对应。[阈值与纤维大小](gaps.md) · [有限穷举和概率值](gaps_checked.json)\n\n**Clausen–Swisher 第三位等价于一个短整数提升。** 对 $p\\equiv17,23\\pmod{24}$，令 $n=(p-5)/6$，取此前已知被 $p$ 整除的 $J_n=[x^n](1+x)^{2n+1}(1+2x)^n$。本轮给出显式 $Y_p$，原第三位消失当且仅当 $J_n/p\\equiv Y_p\\pmod{p^2}$。需保留模 $p^3$ 精度的单位项数由 $(p+1)/3$ 减至 $(p+1)/6$。在 $p\\le1200$ 的全部 51 个目标素数处，短提升均成立，删去高次边界项则全部失配。两类素数上统一求值仍开。[有限截止、等价式与失配系数](clausen.md) · [51 个目标素数的复算](clausen_checked.json)\n\n截至 2026-11-19 13:56:15 UTC，两次核对状态机的 518 项登记，其中 474 项属于研究。所选五项均为复访，累计直接研究 253 项登记、51 个父方向。尚未直接访问的登记中，严格就绪 11 项、待移交 17 项、冻结返回 5 项。本轮给近期连续推进的 Euler 父方向留出一个轮次。两次读取之间有一项外部租约续期，四项活动租约均在本轮五项之外。[初读、末读、入选依据与剩余门槛](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/4cf5d329ccf5addbbb4072c29fbb269fbc12381a/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredtwentyninth/README.md",
+      "encoding": "utf-8",
+      "sha": "b3295769ca5a74305f5063810712fdc8ab9a13dd"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
