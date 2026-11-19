@@ -1,0 +1,75 @@
+{
+  "schema": "PREFIX943_R6_W13_FULL_PRIOR_UNION_CERTIFICATE_V1",
+  "date": "2026-11-20",
+  "frozen_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "domain": {
+    "L": 262145,
+    "H": 524287,
+    "step": 2,
+    "Q_size": 131072,
+    "i": [
+      0,
+      18
+    ],
+    "j": [
+      0,
+      18
+    ],
+    "core_k": 13
+  },
+  "raw_W11": 16974425,
+  "unique_W11": 13144330,
+  "raw_W13": 16796156,
+  "unique_W13": 12993739,
+  "W11_inter_W13": 134197,
+  "priority": {
+    "BZS": 6526046,
+    "U": 2242,
+    "V": 25712,
+    "W2": 501872,
+    "W3": 104480,
+    "D4": 123,
+    "W5": 846,
+    "D6": 728,
+    "W7": 1268,
+    "D8": 168,
+    "W9": 1706,
+    "D10": 262,
+    "W11": 1394,
+    "NEW": 5826892
+  },
+  "previous_union": 7558699988,
+  "new": 5826892,
+  "new_union": 7564526880,
+  "uncovered": 9615342304,
+  "new_witness": {
+    "a": 271267,
+    "b": 522505,
+    "i": 3,
+    "j": 17,
+    "t": 7,
+    "start": 3526471,
+    "endpoint": 3657543,
+    "zero_endpoint": 8
+  },
+  "binary": {
+    "W13": {
+      "bytes": 103949912,
+      "sha256": "cca46c6869592a231c694d2d221f91ace3ec8043873c29cfbc5a1a1029dd7adc"
+    },
+    "NEW13": {
+      "bytes": 46615136,
+      "sha256": "7bf2c2654405ffe78029a3958c8679923f3f3a576fd9f30755b30c5cee355d37"
+    }
+  },
+  "crosscheck": {
+    "CPP": "FULL_ENUM_SORT_UNIQUE_AND_MERGE",
+    "Python": "INDEPENDENT_GENERATION_AND_NUMPY_SEARCHSORTED",
+    "W13_bytes_equal": true,
+    "NEW13_sha256_equal": true,
+    "priority_all_equal": true
+  },
+  "input_origin": "PREFIX939_R6_full_reproduction_bundle.zip/SHA256_MANIFEST.json",
+  "validation": "ALL_ASSERTIONS_PASSED",
+  "scientific_review": "NOT_INDEPENDENTLY_REVIEWED"
+}
