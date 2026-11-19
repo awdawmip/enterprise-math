@@ -1,0 +1,27 @@
+{
+  "schema": "X6_R33_FEEDBACK_PAIR_LANGUAGE_VERIFY_V1",
+  "seed": "0x33C0FFEE",
+  "model": "exact finite deterministic partial labelled success languages",
+  "toy": {
+    "history_count": 4,
+    "depths_checked": [0,1,2,3,4],
+    "classes_by_depth": [1,2,3,3,3],
+    "fibers": [[0,2],[1],[3]],
+    "witness": {"histories":[1,3],"word":["Q0","Q1"],"length":2},
+    "forever_equivalent_histories": [0,2],
+    "pair_depth_comparisons": 30,
+    "pass": true
+  },
+  "crosscheck": {
+    "controllers": 96,
+    "states_per_history": 3,
+    "labels": ["Q0","Q1"],
+    "history_pairs_checked": 576,
+    "direct_language_max_depth": 9,
+    "finiteWitnesses": 521,
+    "unreachablePairs": 55,
+    "maxWitness": 3,
+    "pass": true
+  },
+  "symbolic_claim": "pair-product BFS shortest mismatch; finite deterministic; N^2 distinction bound"
+}
