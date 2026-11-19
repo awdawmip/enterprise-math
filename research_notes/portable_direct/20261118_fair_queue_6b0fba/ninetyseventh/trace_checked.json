@@ -1,0 +1,330 @@
+{
+  "convention": "C=(A,H,K,D) in row order; all algebraic idempotents in the specified fiber have equal weight",
+  "literal_entrywise_tests": [
+    {
+      "p": 2,
+      "e": 1,
+      "all_instruments": true,
+      "rank_one_projections": 6,
+      "blind_tests": {
+        "Jordan": 6,
+        "irreducible": 2,
+        "scalar": 2,
+        "split": 6
+      },
+      "visible_tests": {
+        "point": 16
+      },
+      "additional_non_diagonal_named_endpoint_comparisons": 16
+    },
+    {
+      "p": 2,
+      "e": 2,
+      "all_instruments": true,
+      "rank_one_projections": 24,
+      "blind_tests": {
+        "Jordan": 108,
+        "irreducible": 36,
+        "scalar": 4,
+        "split": 108
+      },
+      "visible_tests": {
+        "point": 320,
+        "uniform": 192
+      },
+      "additional_non_diagonal_named_endpoint_comparisons": 264
+    },
+    {
+      "p": 2,
+      "e": 3,
+      "all_instruments": true,
+      "rank_one_projections": 96,
+      "blind_tests": {
+        "Jordan": 1752,
+        "irreducible": 584,
+        "scalar": 8,
+        "split": 1752
+      },
+      "visible_tests": {
+        "point": 5248,
+        "translated_product": 512,
+        "uniform": 6528
+      },
+      "additional_non_diagonal_named_endpoint_comparisons": 507
+    },
+    {
+      "p": 2,
+      "e": 4,
+      "all_instruments": false,
+      "rank_one_projections": 384,
+      "blind_tests": {
+        "Jordan": 80,
+        "irreducible": 30,
+        "scalar": 1,
+        "split": 59
+      },
+      "visible_tests": {
+        "point": 227,
+        "translated_product": 25,
+        "uniform": 428
+      },
+      "additional_non_diagonal_named_endpoint_comparisons": 680
+    },
+    {
+      "p": 3,
+      "e": 1,
+      "all_instruments": true,
+      "rank_one_projections": 12,
+      "blind_tests": {
+        "Jordan": 24,
+        "irreducible": 18,
+        "scalar": 3,
+        "split": 36
+      },
+      "visible_tests": {
+        "point": 81
+      },
+      "additional_non_diagonal_named_endpoint_comparisons": 70
+    },
+    {
+      "p": 3,
+      "e": 2,
+      "all_instruments": true,
+      "rank_one_projections": 108,
+      "blind_tests": {
+        "Jordan": 2016,
+        "irreducible": 1512,
+        "scalar": 9,
+        "split": 3024
+      },
+      "visible_tests": {
+        "point": 7290,
+        "uniform": 5832
+      },
+      "additional_non_diagonal_named_endpoint_comparisons": 336
+    },
+    {
+      "p": 3,
+      "e": 3,
+      "all_instruments": false,
+      "rank_one_projections": 972,
+      "blind_tests": {
+        "Jordan": 34,
+        "irreducible": 47,
+        "scalar": 1,
+        "split": 88
+      },
+      "visible_tests": {
+        "point": 198,
+        "translated_product": 17,
+        "uniform": 295
+      },
+      "additional_non_diagonal_named_endpoint_comparisons": 510
+    },
+    {
+      "p": 5,
+      "e": 1,
+      "all_instruments": true,
+      "rank_one_projections": 30,
+      "blind_tests": {
+        "Jordan": 120,
+        "irreducible": 200,
+        "scalar": 5,
+        "split": 300
+      },
+      "visible_tests": {
+        "point": 625
+      },
+      "additional_non_diagonal_named_endpoint_comparisons": 154
+    },
+    {
+      "p": 5,
+      "e": 2,
+      "all_instruments": false,
+      "rank_one_projections": 750,
+      "blind_tests": {
+        "Jordan": 34,
+        "irreducible": 56,
+        "scalar": 1,
+        "split": 79
+      },
+      "visible_tests": {
+        "point": 181,
+        "uniform": 159
+      },
+      "additional_non_diagonal_named_endpoint_comparisons": 340
+    },
+    {
+      "p": 7,
+      "e": 1,
+      "all_instruments": true,
+      "rank_one_projections": 56,
+      "blind_tests": {
+        "Jordan": 336,
+        "irreducible": 882,
+        "scalar": 7,
+        "split": 1176
+      },
+      "visible_tests": {
+        "point": 2401
+      },
+      "additional_non_diagonal_named_endpoint_comparisons": 164
+    }
+  ],
+  "blind_distributions_verified": 14546,
+  "known_endpoint_distributions_verified": 30575,
+  "binary_examples": [
+    {
+      "modulus": 8,
+      "b": 0,
+      "C": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "law": "irreducible",
+      "rank_one_histogram": {
+        "0": 12,
+        "1": 12,
+        "2": 12,
+        "3": 12,
+        "4": 12,
+        "5": 12,
+        "6": 12,
+        "7": 12
+      }
+    },
+    {
+      "modulus": 16,
+      "b": 0,
+      "C": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "law": "split",
+      "rank_one_histogram": {
+        "0": 48,
+        "1": 48,
+        "2": 16,
+        "3": 16,
+        "4": 24,
+        "5": 24,
+        "6": 16,
+        "7": 16,
+        "8": 32,
+        "9": 32,
+        "10": 16,
+        "11": 16,
+        "12": 24,
+        "13": 24,
+        "14": 16,
+        "15": 16
+      }
+    },
+    {
+      "modulus": 16,
+      "b": 0,
+      "C": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "law": "Jordan",
+      "rank_one_histogram": {
+        "0": 32,
+        "1": 16,
+        "2": 32,
+        "3": 16,
+        "4": 32,
+        "5": 16,
+        "6": 32,
+        "7": 16,
+        "8": 32,
+        "9": 16,
+        "10": 32,
+        "11": 16,
+        "12": 32,
+        "13": 16,
+        "14": 32,
+        "15": 16
+      }
+    },
+    {
+      "modulus": 16,
+      "b": 0,
+      "C": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "law": "irreducible",
+      "rank_one_histogram": {
+        "1": 48,
+        "3": 48,
+        "5": 48,
+        "7": 48,
+        "9": 48,
+        "11": 48,
+        "13": 48,
+        "15": 48
+      }
+    },
+    {
+      "modulus": 16,
+      "b": 1,
+      "C": [
+        1,
+        2,
+        2,
+        0
+      ],
+      "law": "translated_product",
+      "rank_one_histogram": {
+        "1": 8,
+        "5": 32,
+        "9": 8,
+        "13": 16
+      }
+    },
+    {
+      "modulus": 16,
+      "b": 1,
+      "C": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "law": "uniform",
+      "rank_one_histogram": {
+        "1": 8,
+        "3": 8,
+        "5": 8,
+        "7": 8,
+        "9": 8,
+        "11": 8,
+        "13": 8,
+        "15": 8
+      }
+    },
+    {
+      "modulus": 16,
+      "b": 2,
+      "C": [
+        1,
+        4,
+        4,
+        1
+      ],
+      "law": "point",
+      "rank_one_histogram": {
+        "1": 16
+      }
+    }
+  ]
+}
