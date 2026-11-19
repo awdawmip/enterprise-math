@@ -1,0 +1,69 @@
+# PREFIX-947 — Prime core 23: exact full-domain named-XOR census and prior-union subtraction
+
+**Research lane:** Enterprise Math R6. **Date:** 2026-11-20. **Frozen scientific input:** `f42f2906d77f24085c123f3ccfe9667d41caa96d`. **Proof status:** author-proved, finite-computation cross-checked, not independently mathematically reviewed or admitted. This is an auxiliary named-XOR two-port observer result, not an assertion of native X6 event equivalence or BRC physical dynamics.
+
+## Model and complete finite certificate theorem
+
+Let `L=262145`, `H=524287`, `C=131072`, `N=2^32`, and `Q={L,L+2,...,H}`. For source bit `j` define the **named** history `F_x^j=(x,x XOR 2^j)`, with `0<=j<=18`. A pair of odd moduli `(a,b) in Q^2` observes `Phi_(a,b)(u,v)=(u mod a,v mod b)`; source names and starts are retained as part of history.
+
+Define `W23={(a,b) in Q^2: exists 0<=i,j<=18 and positive integer t satisfying ((23*a XOR 2^j)-2^i)=t*b}`. Every member is a rigorous collision certificate: histories `F_0^i=(0,2^i)` and `F_(23a)^j=(23a,23a XOR 2^j)` have distinct starts (`23a>0`) but identical first residues (zero modulo `a`) and identical terminal residues (because their final-state difference equals `tb`). All endpoints lie in `[0,2^32)`: indeed `23H+2^18<2^32`. The construction is sufficient, not an exhaustive classification of all possible collision histories.
+
+For every allowed parameter, `D=(23a XOR 2^j)-2^i` obeys the conservative exact bounds
+
+```
+5,505,047 = 23*262145-524288 <= D
+D <= 23*524287+262143 = 12,320,744
+12,320,744 < 47*262145 = 12,320,815.
+```
+
+Consequently **all** possible positive quotients satisfy `1<=t<=46`. The algorithm computes the entire shorter interval `max(1,ceil(D/H))<=t<=floor(D/L)`, retains `D%t==0` and `b=D/t in Q`, then deduplicates by row-major ID `((a-L)/2)*C+(b-L)/2`. This gives exact finite coverage, without sampling or floating-point approximation.
+
+## Exact result and source provenance
+
+| Fully enumerated object | Exact count |
+| --- | ---: |
+| Raw parameter witnesses | 16,675,790 |
+| Distinct W23 ordered modulus pairs | 13,041,372 |
+| W23 pairs covered by the complete frozen earlier family union | 6,551,349 |
+| **NEW23 (W23 outside earlier families)** | **6,490,023** |
+| Frozen earlier family union through local PREFIX-946/W21 | 7,590,547,816 |
+| **Updated union after W23** | **7,597,037,839** |
+| Remaining complement relative to these sufficient certificate families | 9,582,831,345 |
+
+The prior-union and updated-union counts in the last three rows are explicitly **conditional on the previously verified local PREFIX-946/W21 input**. PREFIX-946 was held in the original private research conversation as an attachment after its GitHub publication request was denied by a platform safety check. This note does not replay that refused publication, claim a canonical W21 Source commit, or silently promote that source. Historical prior inputs through W19 are from existing frozen reproduction packages; all 16 sorted historical files, including locally preserved W21 and independently regenerated W11, are covered by the accompanying byte-count / SHA-256 manifest.
+
+The first NEW23 pair in ascending order is `(a,b)=(270531,523979)` with `i=0,j=16,t=12`. Exact calculation:
+
+```
+23*a=6,222,213
+23*a XOR 65,536 = 6,287,749
+6,287,749 - 1 = 6,287,748 = 12*523,979.
+```
+
+Thus `Phi_(a,b)(0,1)=Phi_(a,b)(6222213,6287749)=(0,1)`. Its absence from the frozen preceding certificate families was checked across the complete local input streams.
+
+## Rowwise and independent exact validation
+
+For each first-modulus row `a=L+2r`, a bitmap of `C` bits represents the set of candidate second moduli. Each admissible `(i,j,t)` sets the bit `c=(b-L)/2` exactly once in the set semantics; scanning rows and bits in order yields a globally sorted W23 ID stream using a **16,384-byte row bitmap**. Monotone cursors over each of 16 frozen sorted predecessor ID files remove previously covered bits. The exact frozen BZS and V predicates filter the remaining ID bits. This stream method was already established in PREFIX-946 and is **reused**, not presented as newly invented in this paper.
+
+Three actual C++17 implementations executed under GNU `-O3`:
+
+1. Primary rowwise candidate enumeration and streamed historical subtraction. Raw witnesses `16,675,790`, W23 unique `13,041,372`, existing overlap `6,551,349`, NEW23 `6,490,023`; elapsed **5.86 s**, peak process RSS **2,048 KiB**.
+2. Independent divisor/quotient-first CSR generator: creates all `4,203,811` `(D,b,t)` divisor edges before enumerating source bits. Its complete sorted W23 list matches **every** primary W23 ID; elapsed **1.15 s**, peak RSS **292,608 KiB**.
+3. Independent sorted-ID priority merge against historical files + exact frozen BZS/V predicates: all **6,490,023** NEW23 IDs match the primary output in full; elapsed **3.94 s**, peak RSS **2,048 KiB**. The two subtraction implementations share historical predicate *definitions*; they do not constitute independent mathematical admission.
+
+The independently regenerated W11 predecessor equals previous full counts: 16,974,425 raw and 13,144,330 unique pairs. Every historical file was processed as a strictly sorted ID stream. Measured timings are individual process timings and omit archive extraction, compilation, hashing, and packaging; they are not normalized total-cost comparisons.
+
+**Complete mutually exclusive priority partition of W23**, in order: `BZS=6503834, U=2865, V=25256, W2=2104, W3=1338, D4=705, W5=1291, D6=475, W7=1437, D8=190, W9=1202, D10=423, W11=1727, W13=1163, W15=1914, W17=1603, W19=1585, W21=2237, NEW=6490023`. Sum is exactly 13,041,372.
+
+Binary evidence format is little-endian sorted unsigned 64-bit pair IDs:
+
+- `PREFIX947_W23.bin`: **104,330,976 bytes**, SHA-256 `4c650f5b061082f12a59fad00fb627643c1f2d0ea90afe8d2fee4aa09ea2f1b4`.
+- `PREFIX947_NEW23.bin`: **51,920,184 bytes**, SHA-256 `4d2a37e89b2318d06cddc4727184cae9542e668a1303958cd8cf55624990aebb`.
+- Exact full local reproduction ZIP `PREFIX947_R6_k23_verified_reproduction.zip`, 13 files, SHA-256 `453c1439e2175eafa379d7f352ee2b229588e9250d7bc789a9fb669444f5577c`; includes C++17 source, complete binary outputs, predecessor SHA-256 manifest, run logs, and extended paper. The archive's CRC tests completed. This ZIP is available in this conversation's file artifacts; the GitHub text paper is not a claim that all binary bytes were uploaded as separate GitHub blobs.
+
+## Provenance / open problem
+
+Original R6 historical researcher `EM-DIRECT-58C410`, SID `MCP-31edc522830749ad8775ca012e02ef30`, Activity `RA-25432C4AAE9BF66A907F5115`. As last verified, the Activity has 18 source checkpoints through PREFIX-945. No new protected Activity, Task CLAIM, native PROGRESS, Result or independent Review is asserted here. The live shared X6 owner is distinct.
+
+Next scientific step: compare the unique joint-relation contributions of composite k=21 and prime k=23 without collapsing either to factor-only redundancy, and build a CRT/floor-sum sparse candidate generator that retains the exact rowwise output semantics. Mother question `B_fix,odd(32) in {19,20}` remains open; uncovered pairs have not been proved collision-free.
