@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/eightysixth/README.md",
+    "ref": "b5a796089e94975ed899662ebe0cef09c9c15d6b",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-eightysix-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第八十六轮　等差余子式的矩障碍与分圆短向量的局部密度\n\n**余子式从哪一阶起失去矩表示。** 把等差模型的一个树余子式归一化，从其系数提取候选幂矩。对每个 $4\\le m\\le21$，依次检验截断区间矩矩阵，首次失败的阶数分别为：$m=4$ 至 $6$ 为四阶，$7$ 至 $9$ 为八阶，$10$ 至 $12$ 为九阶，$13$ 至 $16$ 为十阶，$17$ 至 $21$ 又回到八阶。每个较短前缀都可由区间上的概率测度实现。换一个问题，在整个实区间上要求同一 Bernstein 表示的所有系数严格为正，$m=18,19,20,21$ 的最低次数恰为 **829、1428、2276、3432**。四个极小点均为代数无理数，格点相对极小点的位置决定最小系数的二阶振荡。[余子式、精确见证与升阶定理](hausdorff.md) · [矩复算](hankel_checked.json) · [升阶复算](hausdorff_checked.json)\n\n**分解度二的短向量种子。** 在 $\\mathbb Q(\\zeta_7)$ 中取 $p\\equiv-1\\pmod7$。对 $P\\mid p$ 的任意幂 $P^r$，用原六个幂基系数的欧氏长度截取见证。小窗中，两条非零见证投影到同一个有限域方向，当且仅当它们在实三次子域上已经共线。由此把坏种子比例化为带单位与非单位乘子的射影直线计数。对文中给定窗宽，坏比例为 $\\mathcal C\\kappa^6+O_\\kappa(p^{-1/6})$，误差对全部 $r\\ge0$ 一致，且同一素数上三个素理想的有限比例完全相等。原窗宽 $1/\\sqrt{42}$ 下，极限为正，目前上下界为 $8.74\\times10^{-10}$ 与 $3.252\\times10^{-5}$。[高度积分与误差](lines.md) · [原系数窗复算](lines_checked.json)\n\n截至 2026-11-19 04:37:17 UTC，累计直接研究 231 个登记任务，覆盖 51 个父方向。等差余子式与分解度二的分圆局部种子各获一次移交复访。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 32、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/b5a796089e94975ed899662ebe0cef09c9c15d6b/research_notes/portable_direct/20261118_fair_queue_6b0fba/eightysixth/README.md",
+      "encoding": "utf-8",
+      "sha": "0b301389921b9c54b2a5da41426d3f62a9bcb5d8"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
