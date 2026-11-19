@@ -4,7 +4,7 @@ Python 3 standard library only; integer determinants via Bareiss elimination.
 """
 import json, math, random, sys
 from fractions import Fraction
-from itertools import combinations
+from itertools import combinations, product
 
 def weights3(n):
     w=[]
@@ -107,12 +107,18 @@ def main():
             got,metrics=reconstruct(C)
             assert got==[[Fraction(x) for x in row] for row in C],(n,t,C,got)
             records.append(metrics)
+    exhaustive_cases=0
+    for vals in product((1,2), repeat=9):
+        C=[list(vals[3*i:3*i+3]) for i in range(3)]
+        got,_=reconstruct(C)
+        assert got==[[Fraction(x) for x in row] for row in C]
+        exhaustive_cases+=1
     example=[[2,1,3],[4,2,1],[1,3,2]]
     got,example_metrics=reconstruct(example)
     assert got==[[Fraction(x) for x in row] for row in example]
     result={"result":"PASS","method":"balanced radix exact integer determinant, Bareiss elimination; positive integer inputs; exact equality to source C",
             "seed":284021,"test_counts_by_n":{"2":12,"3":16,"4":12,"5":7},
-            "total_random_cases":len(records),"plus_fixed_example":1,
+            "total_random_cases":len(records),"exhaustive_binary_3x3_cases":exhaustive_cases,"plus_fixed_example":1,
             "scalar_measurements_each":"n = 1 diagonal baseline + n-1 directed star edges",
             "fixed_matrix":example,"fixed_example_metrics":example_metrics,
             "per_n_max_observed_bits":{str(n):max(x['max_observed_bits'] for x in records if x['n']==n) for n in (2,3,4,5)},
