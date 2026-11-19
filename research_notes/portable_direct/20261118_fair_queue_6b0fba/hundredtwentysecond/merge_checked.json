@@ -1,0 +1,373 @@
+{
+  "model": "Shared ordered vertical-column words, uniformly counted. No source prior assumed.",
+  "script_requirements": "Python standard library; original wave 74 probes_check.py, log_span.",
+  "all_subgroup_cross_checks": [
+    {
+      "prime": 2,
+      "ambient": [
+        1,
+        1,
+        1
+      ],
+      "all_subgroups": 16,
+      "distinct_time_laws": 4,
+      "without_replacement_subset_checks": 4096
+    },
+    {
+      "prime": 2,
+      "ambient": [
+        1,
+        2
+      ],
+      "all_subgroups": 8,
+      "distinct_time_laws": 6,
+      "without_replacement_subset_checks": 2048
+    },
+    {
+      "prime": 2,
+      "ambient": [
+        2,
+        2
+      ],
+      "all_subgroups": 15,
+      "distinct_time_laws": 6,
+      "without_replacement_subset_checks": 0
+    },
+    {
+      "prime": 2,
+      "ambient": [
+        1,
+        2,
+        3
+      ],
+      "all_subgroups": 81,
+      "distinct_time_laws": 23,
+      "without_replacement_subset_checks": 0
+    },
+    {
+      "prime": 3,
+      "ambient": [
+        1,
+        2
+      ],
+      "all_subgroups": 10,
+      "distinct_time_laws": 6,
+      "without_replacement_subset_checks": 0
+    },
+    {
+      "prime": 5,
+      "ambient": [
+        1,
+        1
+      ],
+      "all_subgroups": 8,
+      "distinct_time_laws": 3,
+      "without_replacement_subset_checks": 0
+    }
+  ],
+  "named_distinct_prefixes": {
+    "p": 2,
+    "ambient": [
+      2,
+      1
+    ],
+    "prefix_sizes": [
+      0,
+      1,
+      2
+    ],
+    "distinct_specific_prefixes": 37,
+    "exact_conditional_cdf_comparisons": 2152
+  },
+  "original_delta_checks": [
+    {
+      "p": 2,
+      "ring_exponent": 2,
+      "ambient": [
+        1,
+        2
+      ],
+      "difference_generators": [
+        [
+          1,
+          0
+        ]
+      ],
+      "cdf_polynomial": [
+        1,
+        -2,
+        0,
+        1
+      ],
+      "raw_histories": [
+        {
+          "t": 0,
+          "merged": 0,
+          "total": 1,
+          "merged_distinct": 0,
+          "total_distinct": 1
+        },
+        {
+          "t": 1,
+          "merged": 1,
+          "total": 8,
+          "merged_distinct": 1,
+          "total_distinct": 8
+        },
+        {
+          "t": 2,
+          "merged": 33,
+          "total": 64,
+          "merged_distinct": 32,
+          "total_distinct": 56
+        },
+        {
+          "t": 3,
+          "merged": 385,
+          "total": 512,
+          "merged_distinct": 288,
+          "total_distinct": 336
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "ring_exponent": 4,
+      "ambient": [
+        1,
+        2
+      ],
+      "difference_generators": [
+        [
+          0,
+          2
+        ]
+      ],
+      "cdf_polynomial": [
+        1,
+        0,
+        -2,
+        1
+      ],
+      "raw_histories": [
+        {
+          "t": 0,
+          "merged": 0,
+          "total": 1,
+          "merged_distinct": 0,
+          "total_distinct": 1
+        },
+        {
+          "t": 1,
+          "merged": 5,
+          "total": 8,
+          "merged_distinct": 5,
+          "total_distinct": 8
+        },
+        {
+          "t": 2,
+          "merged": 57,
+          "total": 64,
+          "merged_distinct": 52,
+          "total_distinct": 56
+        },
+        {
+          "t": 3,
+          "merged": 497,
+          "total": 512,
+          "merged_distinct": 336,
+          "total_distinct": 336
+        }
+      ]
+    },
+    {
+      "p": 3,
+      "ring_exponent": 2,
+      "ambient": [
+        1,
+        2
+      ],
+      "difference_generators": [
+        [
+          0,
+          3
+        ]
+      ],
+      "cdf_polynomial": [
+        1,
+        0,
+        -3,
+        2
+      ],
+      "raw_histories": [
+        {
+          "t": 0,
+          "merged": 0,
+          "total": 1,
+          "merged_distinct": 0,
+          "total_distinct": 1
+        },
+        {
+          "t": 1,
+          "merged": 20,
+          "total": 27,
+          "merged_distinct": 20,
+          "total_distinct": 27
+        },
+        {
+          "t": 2,
+          "merged": 704,
+          "total": 729,
+          "merged_distinct": 684,
+          "total_distinct": 702
+        }
+      ]
+    },
+    {
+      "p": 5,
+      "ring_exponent": 3,
+      "ambient": [
+        1,
+        1
+      ],
+      "difference_generators": [
+        [
+          1,
+          0
+        ]
+      ],
+      "cdf_polynomial": [
+        1,
+        -5,
+        4
+      ],
+      "raw_histories": [
+        {
+          "t": 0,
+          "merged": 0,
+          "total": 1,
+          "merged_distinct": 0,
+          "total_distinct": 1
+        },
+        {
+          "t": 1,
+          "merged": 4,
+          "total": 25,
+          "merged_distinct": 4,
+          "total_distinct": 25
+        },
+        {
+          "t": 2,
+          "merged": 504,
+          "total": 625,
+          "merged_distinct": 500,
+          "total_distinct": 600
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "ring_exponent": 3,
+      "ambient": [
+        3,
+        2,
+        1
+      ],
+      "difference_generators": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "cdf_polynomial": [
+        1,
+        -4,
+        -4,
+        22,
+        -9,
+        -6
+      ],
+      "raw_histories": [
+        {
+          "t": 0,
+          "merged": 0,
+          "total": 1,
+          "merged_distinct": 0,
+          "total_distinct": 1
+        },
+        {
+          "t": 1,
+          "merged": 0,
+          "total": 64,
+          "merged_distinct": 0,
+          "total_distinct": 64
+        },
+        {
+          "t": 2,
+          "merged": 216,
+          "total": 4096,
+          "merged_distinct": 216,
+          "total_distinct": 4032
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "ring_exponent": 3,
+      "ambient": [
+        3,
+        2,
+        1
+      ],
+      "difference_generators": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          4,
+          0,
+          0
+        ]
+      ],
+      "cdf_polynomial": [
+        1,
+        -4,
+        4,
+        -2,
+        7,
+        -6
+      ],
+      "raw_histories": [
+        {
+          "t": 0,
+          "merged": 0,
+          "total": 1,
+          "merged_distinct": 0,
+          "total_distinct": 1
+        },
+        {
+          "t": 1,
+          "merged": 0,
+          "total": 64,
+          "merged_distinct": 0,
+          "total_distinct": 64
+        },
+        {
+          "t": 2,
+          "merged": 984,
+          "total": 4096,
+          "merged_distinct": 984,
+          "total_distinct": 4032
+        }
+      ]
+    }
+  ]
+}

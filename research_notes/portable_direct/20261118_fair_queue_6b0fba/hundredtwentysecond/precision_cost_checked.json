@@ -1,0 +1,172 @@
+{
+  "audit": {
+    "by_cap": {
+      "10": {
+        "early": 54,
+        "tested": 69
+      },
+      "12": {
+        "tested": 69
+      },
+      "14": {
+        "tested": 5
+      },
+      "4": {
+        "early": 15,
+        "tested": 98
+      },
+      "6": {
+        "early": 52,
+        "tested": 73
+      },
+      "8": {
+        "early": 65,
+        "tested": 71
+      }
+    },
+    "counts": {
+      "activated": 33529,
+      "attempts": 385,
+      "base_setup_slots": 17910,
+      "bound_tests": 33715,
+      "built": 83763,
+      "dense_rows": 4758,
+      "dense_slots": 85644,
+      "early": 186,
+      "exact_reject": 101,
+      "fields": 98,
+      "index_fields": 74,
+      "index_rows": 995,
+      "nonraw_accept": 70,
+      "paid": 33529,
+      "returned_nonraw_rows": 935,
+      "returned_rows_shifted": 780,
+      "shortcut": 28,
+      "unread_at_early_decisions_sum": 720
+    },
+    "decisions_vs_W77": {
+      "old0_new0": 14,
+      "old0_new1": 10,
+      "old1_new0": 87,
+      "old1_new1": 176
+    },
+    "grouped": {
+      "dense_rows_saved": 3719,
+      "dot_event_products": 33529,
+      "early": 280,
+      "energy_bucket_visits": 4536,
+      "full_norm_slots_read": 18702,
+      "next_cap_insertions": 44912,
+      "parity_bucket_rejects_audit_only": 282,
+      "real_bucket_rejects": 276,
+      "slots_read_setup": 17910,
+      "two_group_prefix_rejects": 275,
+      "untested_lookahead_at_stop": 11383
+    },
+    "grouped_vs_W77": {
+      "old0_new0": 7,
+      "old0_new1": 17,
+      "old1_new1": 263
+    },
+    "maxima": {
+      "built_events": 3836,
+      "energy_buckets": 16,
+      "group_test_bits": 1003,
+      "integer_comparison_bits": 1004,
+      "lookahead_records": 784,
+      "queue_events": 607
+    },
+    "settlement": {
+      "nonraw_accept_fields": 70,
+      "nonraw_accept_future": 50234,
+      "nonraw_accept_unpaid": 0,
+      "raw_shortcut_fields": 28,
+      "raw_shortcut_future": 0,
+      "raw_shortcut_unpaid": 0
+    }
+  },
+  "native": {
+    "grouped_comparison": {
+      "true_unread_rejections": 280
+    },
+    "laws": {
+      "21": {
+        "branches": 8180,
+        "grouped_rejects": 13302,
+        "reachable_leaves": 4090,
+        "true_unread_rejections": 6476
+      },
+      "77": {
+        "branches": 2046,
+        "grouped_rejects": 4889,
+        "reachable_leaves": 1024,
+        "true_unread_rejections": 2753
+      }
+    },
+    "native_comparison": {
+      "true_unread_rejections": 186
+    },
+    "same_selector_calls": 1470,
+    "solves": [
+      {
+        "N": 143,
+        "grouped_rejects": 214,
+        "outputs": 3,
+        "seed": 2026092815500000,
+        "true_unread_rejections": 158
+      },
+      {
+        "N": 143,
+        "grouped_rejects": 280,
+        "outputs": 3,
+        "seed": 20261119122000,
+        "true_unread_rejections": 188
+      },
+      {
+        "N": 323,
+        "grouped_rejects": 120,
+        "outputs": 1,
+        "seed": 2026092815510000,
+        "true_unread_rejections": 76
+      },
+      {
+        "N": 323,
+        "grouped_rejects": 590,
+        "outputs": 5,
+        "seed": 20261119122001,
+        "true_unread_rejections": 372
+      },
+      {
+        "N": 391,
+        "grouped_rejects": 104,
+        "outputs": 1,
+        "seed": 2026092815520000,
+        "true_unread_rejections": 70
+      },
+      {
+        "N": 391,
+        "grouped_rejects": 1056,
+        "outputs": 9,
+        "seed": 20261119122002,
+        "true_unread_rejections": 680
+      }
+    ],
+    "streams": 98
+  },
+  "portable": {
+    "digit_cells": 44913,
+    "nonmonotone": [
+      "0",
+      "1/81226"
+    ],
+    "threshold_comparisons": 760
+  },
+  "source_pins": {
+    "rp14_budget/engine.py": "3b3306918b3a6daeb21f9fb9850d7db6d857d42282b44119d8f5411663ea3fcc",
+    "rp15_fused/PLAN.json": "b0fce9471c53b01c28094e865cc1dadfc1578321c44cfb4622c4c1e8d1f252a7",
+    "rp15_fused/engine.py": "606aa6d3c404f10b131af4c8c4f3faa5cbabf52b0651b452ead8f42887266836",
+    "rp15_fused/evidence/MICRO_REAL_FIELDS.json.gz": "38b3576349196874a18fc408dd06d411ea4aa003ce5606eb6457e094562b927f",
+    "rp15_fused/micro.py": "040f0bb32bc871328fde176439bf72e06d379b40d53d938d9f40a0a50c4c13ad",
+    "rp15_fused/run.py": "0e9b6cde04d2564ba5391f54fc3c85127eb424de0431bcc6bc6557c49c40f6e8"
+  }
+}
