@@ -95,7 +95,7 @@ def exterior_principal_rank(U,V,return_bases=False):
     assert sum(len(G.witnesses) for G in grades)<=expected
     result={"m":m,"factor_width":r,"principal_rank":max_rank,
             "witness_1based":[i+1 for i in witness],
-            "witness_det":determinant([[sum(U[a][z]*V[b][z] for z in range(r)) for b in witness] for a in witness]),
+            "witness_det":(determinant([[sum(U[a][z]*V[b][z] for z in range(r)) for b in witness] for a in witness]) if max_rank else None),
             "dimensions":[len(G.witnesses) for G in grades],"total_span_bound":expected,
             "candidate_states":candidates}
     if return_bases: return result,grades
