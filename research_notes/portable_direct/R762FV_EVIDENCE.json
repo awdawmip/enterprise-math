@@ -1,0 +1,78 @@
+{
+  "schema": "R762FV_EVIDENCE_V1",
+  "research_date": "2026-11-19",
+  "frozen_p000_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "task_frozen_commit": "857280d1012943290d141d1317179c40ec3cbdf8",
+  "antecedent": "R762FT-R762FU draft PR #2794@5e90f1f21f2f65297e0aebe656d31ce6b7506c2e",
+  "model": "20 unordered distinct-axis triads, two inverse 3-cycle orientations each, all 40 branches equiprobable, source words retained",
+  "method": "exact integer exhaustive traversal of S6 and 40 three-cycle generators; 40^3 direct ordered words and independent dynamic convolution",
+  "validation": "PASS",
+  "review": "NOT_REVIEWED",
+  "native_event_permission": "NOT_ESTABLISHED",
+  "permutation_count": 720,
+  "even_permutation_count": 360,
+  "rotation_generator_count": 40,
+  "conjugation_checks": 28800,
+  "convolution_depth_support": [
+    1,
+    40,
+    270,
+    360,
+    360
+  ],
+  "classes": [
+    {
+      "cycle_type": "1^6",
+      "elements": 1,
+      "min_factors": 0,
+      "paths_per_element_h3": 400,
+      "total_h3": 400
+    },
+    {
+      "cycle_type": "3,1^3",
+      "elements": 40,
+      "min_factors": 1,
+      "paths_per_element_h3": 306,
+      "total_h3": 12240
+    },
+    {
+      "cycle_type": "2^2,1^2",
+      "elements": 45,
+      "min_factors": 2,
+      "paths_per_element_h3": 224,
+      "total_h3": 10080
+    },
+    {
+      "cycle_type": "3^2",
+      "elements": 40,
+      "min_factors": 2,
+      "paths_per_element_h3": 114,
+      "total_h3": 4560
+    },
+    {
+      "cycle_type": "5,1",
+      "elements": 144,
+      "min_factors": 2,
+      "paths_per_element_h3": 175,
+      "total_h3": 25200
+    },
+    {
+      "cycle_type": "4,2",
+      "elements": 90,
+      "min_factors": 3,
+      "paths_per_element_h3": 128,
+      "total_h3": 11520
+    }
+  ],
+  "three_step_words": 64000,
+  "third_step_min_preimage_count": 114,
+  "minorization_epsilon": "513/800",
+  "contraction_per_three_steps": "287/800",
+  "exact_three_step_TV": "209/1800",
+  "independent_computations": [
+    "JavaScript exact dynamic-convolution versus 64,000 direct words: identical",
+    "Python independently enumerated 64,000 length-three words and matched all six class coefficients"
+  ],
+  "source_code": "R762FV_VERIFY.mjs",
+  "provenance_scope": "AUTHOR_PROVED/FINITE_EXACT; no native TRIADIC_CLOSURE_E mapping or formal Result/Review"
+}
