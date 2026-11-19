@@ -1,0 +1,138 @@
+{
+  "schema": "R284BG_INTERLEAVED_SIDON_PORT_CHECK_V1",
+  "status": "PASS",
+  "scope": "author-side exact finite tests, not independent review",
+  "arithmetic": "Python integer Bareiss determinant and Fraction noise",
+  "reconstruction_tests": 562,
+  "noise_tests": 128,
+  "census": [
+    {
+      "n": 3,
+      "unique_target_addresses": 10,
+      "observed_monomial_addresses": 12,
+      "status": "PASS"
+    },
+    {
+      "n": 4,
+      "unique_target_addresses": 19,
+      "observed_monomial_addresses": 28,
+      "status": "PASS"
+    },
+    {
+      "n": 5,
+      "unique_target_addresses": 31,
+      "observed_monomial_addresses": 64,
+      "status": "PASS"
+    },
+    {
+      "n": 6,
+      "unique_target_addresses": 46,
+      "observed_monomial_addresses": 144,
+      "status": "PASS"
+    },
+    {
+      "n": 7,
+      "unique_target_addresses": 64,
+      "observed_monomial_addresses": 314,
+      "status": "PASS"
+    },
+    {
+      "n": 8,
+      "unique_target_addresses": 85,
+      "observed_monomial_addresses": 668,
+      "status": "PASS"
+    },
+    {
+      "n": 9,
+      "unique_target_addresses": 109,
+      "observed_monomial_addresses": 1338,
+      "status": "PASS"
+    },
+    {
+      "n": 10,
+      "unique_target_addresses": 136,
+      "observed_monomial_addresses": 2456,
+      "status": "PASS"
+    },
+    {
+      "n": 11,
+      "unique_target_addresses": 166,
+      "observed_monomial_addresses": 4185,
+      "status": "PASS"
+    },
+    {
+      "n": 12,
+      "unique_target_addresses": 199,
+      "observed_monomial_addresses": 7035,
+      "status": "PASS"
+    }
+  ],
+  "cases": [
+    {
+      "n": 3,
+      "H": 2,
+      "count": 512,
+      "coverage": "exhaustive",
+      "max_control_bits_BG": 666,
+      "max_control_bits_BF": 1271,
+      "max_readout_bits_BG": 1807,
+      "sha256_inputs_outputs": "54f50629a2f0dba8196ae9cdf2b64de27703d0932f36fe3c44abbe1d0c442d01",
+      "status": "PASS"
+    },
+    {
+      "n": 3,
+      "H": 3,
+      "count": 20,
+      "coverage": "fixed_seed",
+      "max_control_bits_BG": 749,
+      "max_control_bits_BF": 1430,
+      "max_readout_bits_BG": 2034,
+      "sha256_inputs_outputs": "25a661d290979a23bce00a151edcedfc7fee6ac89bb9a215bdbbff2c795615d0",
+      "status": "PASS"
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "count": 18,
+      "coverage": "fixed_seed",
+      "max_control_bits_BG": 2396,
+      "max_control_bits_BF": 5765,
+      "max_readout_bits_BG": 8648,
+      "sha256_inputs_outputs": "9c22cbc896e4c3abfb6419f965b5169b28f8e9063c5817db8a0c673db564e997",
+      "status": "PASS"
+    },
+    {
+      "n": 4,
+      "H": 3,
+      "count": 8,
+      "coverage": "fixed_seed",
+      "max_control_bits_BG": 2681,
+      "max_control_bits_BF": 6453,
+      "max_readout_bits_BG": 9679,
+      "sha256_inputs_outputs": "ef24c5012dc66cb817a3de6f96c477337e82b703f5598fa909a7eadae37036bc",
+      "status": "PASS"
+    },
+    {
+      "n": 5,
+      "H": 2,
+      "count": 3,
+      "coverage": "fixed_seed",
+      "max_control_bits_BG": 3758,
+      "max_control_bits_BF": 11038,
+      "max_readout_bits_BG": 17065,
+      "sha256_inputs_outputs": "d6c8dd995ea0e09d696f47d96e11a62982696a2a5fea2a9bb044cf0bec88d1da",
+      "status": "PASS"
+    },
+    {
+      "n": 6,
+      "H": 2,
+      "count": 1,
+      "coverage": "fixed_seed",
+      "max_control_bits_BG": 8403,
+      "max_control_bits_BF": 28595,
+      "max_readout_bits_BG": 45422,
+      "sha256_inputs_outputs": "73ca96f56a8a2ad22729482bac28428a07c3ee8226fc2c6f2321a4d57541eb3a",
+      "status": "PASS"
+    }
+  ]
+}
