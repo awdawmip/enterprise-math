@@ -1,4 +1,4 @@
-# R284AU — Finite scalar Port identifiability by bounded-height coefficient packing
+# R284AU-PACK — Finite scalar Port identifiability by bounded-height coefficient packing
 
 Date: 2026-11-19. Status: AUTHOR_PROVED / EXACT_FINITE_CHECK_PASSED / NOT_REVIEWED.
 Lineage: R284AT (all-dimensional directed spanning-tree identifiability from *formal multivariate polynomial* readings); R284AS; R284AR.
@@ -72,7 +72,7 @@ Known-common-denominator rational corollary: if `C=A_0/L` for an **a priori know
 
 ## AU6. Verification, provenance and continuation
 
-Companions: `R284AU_scalar_packing_checker.py` and `R284AU_exact_verification.json`. Exact Python standard-library checker uses Bareiss integer determinants and balanced radix digits, then reconstructs full matrices and checks entry-by-entry. It passed 47 deterministic random positive-integer matrices (n=2:12; 3:16; 4:12; 5:7), plus one fixed n=3 example; the largest observed determinant bit length among these tests was 2856. These finite tests confirm the implementation on the declared sample, while AU2–AU4 prove the all-n theorem. Independent review remains NOT_REVIEWED.
+Companions: `R284AU_scalar_packing_checker.py` and `R284AU_scalar_packing_exact_verification.json` (separate from an existing, differently scoped `R284AU_exact_verification.json` file). Exact Python standard-library checker uses Bareiss integer determinants and balanced radix digits, then reconstructs full matrices and checks entry-by-entry. It passed 47 deterministic random positive-integer matrices (n=2:12; 3:16; 4:12; 5:7), plus one fixed n=3 example; the largest observed determinant bit length among these tests was 2856. These finite tests confirm the implementation on the declared sample, while AU2–AU4 prove the all-n theorem. Independent review remains NOT_REVIEWED.
 
 The previous R284AT uses formal coefficient access; R284AU is a new exact *finite scalar measurement realization* with explicit precision accounting. BRC/observer relevance: the signed joint/cofactor and named directed paths are preserved in balanced digits; these exact digits are a declared sufficient observer for the specific star-edit family. No transfer to unrestricted future Port operations or P000/X6 dynamics is asserted.
 
