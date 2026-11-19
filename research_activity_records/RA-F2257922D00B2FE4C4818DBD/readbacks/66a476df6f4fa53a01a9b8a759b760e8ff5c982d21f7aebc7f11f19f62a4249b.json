@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_thirteen_f6_plateau_20261119/REPRODUCE.md",
+    "ref": "9bda779f9ae0a4c2340d63eb8e16cc465392b896",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261119-2255-thirteen-f6-source-6",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# Reproduction and evidence scope\n\n1. Use the frozen `EXACT_R5_ALL_101_BUDGETS.json` (SHA-256 `50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b`), paired with `stages_18.json` from the original R5 scientific bundle. Frozen pin is `awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551`. No new science repin.\n2. Create `window_adj.bin` in query order k=214..314, then i=0..255, j=0..255; each byte is `int(0 <= N_j(k)-N_i(k) <= tau)` where `tau=int(stages[\"U\"])-1`. This creates exactly 6,619,136 bytes.\n3. Compile `g++ -O3 -std=c++17 R5_THIRTEEN_EXACT.cpp -o solve13`, and execute `./solve13 window_adj.bin 5000000 > R5_THIRTEEN_F0_F6_ALL244.csv 2> run.log`. The complete exact output has 245 lines: header and one row per original additional label.\n4. The validated full CSV has SHA-256 `9fd79fa85ea108c0b161508278a1d8084c5340ac86278462245935f8123a4761`. Its terminal stderr lines are `CLASSES 48` and `PROFILE 735,1685,2635,3585,4535,5485,6435, 244`. Avoid claiming the table is checked from the compact all-label cost-only CSV: that file omits class IDs deliberately.\n5. `python VERIFY_R5_THIRTEEN_F6_ENDPOINT_CLASSES.py` checks all 244 maximal support signatures independently from exact doubled left endpoints and also checks the full C++ CSV; it does not independently solve the f>=1 DP.\n\nPrevious lower certificate W=12 labels: `enterprise-math@3cc19a1b5b6588a5d1e191615d130386db8bec27`. All new conclusions are scalar, author-exact and NOT_REVIEWED. Unfinished: universal f7/f8 thirteen-label census.\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9bda779f9ae0a4c2340d63eb8e16cc465392b896/research_notes/portable_direct/r5_thirteen_f6_plateau_20261119/REPRODUCE.md",
+      "encoding": "utf-8",
+      "sha": "d97c8d9f89f44c877f4862822a2c163a5edbe3b3"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
