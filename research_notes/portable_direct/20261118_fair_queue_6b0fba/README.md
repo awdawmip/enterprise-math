@@ -258,3 +258,5 @@
 - [第一百一十五轮　等差表交叉的临界素数与局部根域](hundredfifteenth/README.md)　从原余子式提取临界提升及非临界 Newton 边。
 
 - [第一百一十六轮　匿名返回读数的稀疏与稠密重构](hundredsixteenth/README.md)　由圆形间距分类稀疏重构，从随机窗口的重复与镜像求典型读深。
+
+- [第一百一十七轮　七光滑六阶矩、反射支撑及六轴末帧](hundredseventeenth/README.md)　确定七光滑碰撞阈值，核验反射支撑与七进提升，并计算等账本的全部末帧。
