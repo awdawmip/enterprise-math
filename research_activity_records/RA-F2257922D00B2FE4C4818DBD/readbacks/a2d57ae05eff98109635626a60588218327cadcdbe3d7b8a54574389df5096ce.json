@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_eleven_exception_seed_plateau_20261119/MAKE_WINDOW_ADJ.py",
+    "ref": "e3f94af33d3eb08e9ce5a9d21481d23e9083e73d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261119-2035-eleven-source-4",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Rebuild exact 101 x 256 x 256 R5 scalar left-endpoint window adjacency.\nRequires byte-pinned EXACT_R5_ALL_101_BUDGETS.json in the working directory.\n\"\"\"\nimport json, hashlib\nfrom pathlib import Path\np=Path(\"EXACT_R5_ALL_101_BUDGETS.json\")\nraw=p.read_bytes()\nassert hashlib.sha256(raw).hexdigest()==\"50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b\"\ndata=json.loads(raw)\ntau=58182461585441404127941754879\nwith open(\"window_adj.bin\",\"wb\") as out:\n    for k in range(214,315):\n        ns=list(map(int,data[\"counts_and_cohorts\"][str(k)][\"counts\"]))\n        assert len(ns)==256\n        for x in ns:\n            out.write(bytes(0<=y-x<=tau for y in ns))\nassert Path(\"window_adj.bin\").stat().st_size==101*256*256\nassert hashlib.sha256(Path(\"window_adj.bin\").read_bytes()).hexdigest()==\"daad32bc5c4f1a11361f1389c0e95d2de349a4870f7c240179f44d02d2d282af\"\nprint(\"PASS_EXACT_WINDOW_ADJ\",101*256*256)\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/e3f94af33d3eb08e9ce5a9d21481d23e9083e73d/research_notes/portable_direct/r5_eleven_exception_seed_plateau_20261119/MAKE_WINDOW_ADJ.py",
+      "encoding": "utf-8",
+      "sha": "05fbaff6e8310d4d798a46f30d7972724dafd1a5"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
