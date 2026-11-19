@@ -1,0 +1,39 @@
+# R5: exact nine-hypothesis stability of the exceptional seed (17,80)
+
+Date: 2026-11-19, Asia/Shanghai. Researcher: EM-DIRECT-4C3E47; mode: independent portable TASK_RESEARCH. Evidence: AUTHOR_EXACT_FINITE_CHECKED / PARTIAL_INDEPENDENT_CROSSCHECK / NOT_REVIEWED. This is the frozen *scalar R5 observation game*, not a native X6/Port quotient, and makes no change to P000 or the ACTIVE worldview.
+
+## Frozen input and theorem
+
+Science pin: \`awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551\`. Input \`EXACT_R5_ALL_101_BUDGETS.json\`, SHA-256 \`50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b\`. Robust endpoint \`tau=58182461585441404127941754879\`, hypotheses 0..255, original physical query costs k=214..314, correctness intervals \`2|y-N_h(k)|<=tau\`, at most f unflagged arbitrary observation errors.
+
+Let H=(0,16,32,48,1,64), P=(17,80) and T={0,..,255}\(H∪P), |T|=248. The previous eight-label work proved by exact finite Bellman recursion that V_f(H∪P)=733+947f for f=0..8.
+
+**Theorem R5-TRI-1 (finite exact stability).** For every t in T and every integer 0<=f<=8, the nine-label exact optimal worst-case cost is
+\[
+V_f(H\cup P\cup\{t\})=733+947f.
+\]
+Thus all 248 nine-label games have V_8=8309. Adding one ninth original named hypothesis to the seed (17,80) does not increase its lower-bound certificate at this robust noise endpoint. The 256-label bound from independent earlier evidence remains 8335<=C_8*<=8343.
+
+**Theorem R5-TRI-2 (exact priced joint-signature quotient).** All 248 nine-label games fall into exactly 40 different price-aware maximal joint-support signatures. The class multiplicities are 16 classes of size 1, 4 of size 2, 8 of size 5, 8 of size 8 and 4 of size 30. See \`TRIPLE_CLASS_MAP.tsv\` for *all* named members and original class representatives; no source label is erased.
+
+## Proof and finite completeness
+
+For each physical query k, let I_i(k)=[N_i(k)-tau/2,N_i(k)+tau/2] and S_k(y)={i:y∈I_i(k)}. Any nonempty S_k(y) is contained in the support at the **largest left endpoint among intervals in S_k(y)**. Moving y to this endpoint preserves all original members, possibly adding others. Consequently the exact worst-case supports reduce to inclusion-maximal supports at the nine doubled endpoints 2N_i(k)-tau. The C++ solver equivalently uses exact integer inequalities 0<=N_j(k)-N_i(k)<=tau, with the precomputation hash-checked against the frozen source. The separate Python checker recomputes doubled endpoints without using that adjacency.
+
+For capped mismatches e_i∈{0,..,f+1}, a mask S induces e_i'=min(f+1,e_i+1_{i∉S}); live(e)={i:e_i<=f}. With V(e)=0 when |live(e)|<=1,
+\[
+V(e)=\min_{\text{progress }k}\{k+\max_{S\in\mathcal F_k}V(e^S)\}.
+\]
+If S⊆T, then e^S≥e^T componentwise. Larger mismatch counts cannot make the remaining identification problem harder, so masks included in others cannot be worst-case. An action admitting a support containing all live hypotheses yields an unchanged worst-case live state at positive price, hence may be omitted. Every remaining action strictly increases at least one live counter on every branch; finite acyclic recursion is exact. Price-aware duplicate support families induce identical successor states, so retaining only their cheapest k preserves the entire Bellman value. This proves signature-quotient exactness for every f.
+
+The computed signatures and assignment cover 248 distinct third labels with no missing or repeated label. The exact C++ solver evaluated f=0..8 for a member of every one of the 40 classes, obtaining uniformly (733,1680,2627,3574,4521,5468,6415,7362,8309). By the proved signature equality, these 40 certified results cover all 248 named nine-label games. The independent Python implementation reconstructed *all 248* 101-query joint-support families from doubled endpoints and performed all 120 Bellman computations for 40 classes at f0/f1/f2. No discrepancies occurred. Additional 60 C++ member checks through f8 agreed. The original execution's full audit table and frozen input are included in the accompanying reproducible local archive; original \`SHA256SUMS_TRIPLE.txt\` captures its 12 content files.
+
+## Reproduction
+
+The code \`TRIPLE_EXACT_SOLVER.cpp\` is the source for the exact f0..f8 solver. It expects \`window_adj.bin\`, generated from frozen input via the independently published \`MAKE_WINDOW_ADJ.py\` at \`awdawmip/enterprise-math@8918531323add63966eaa6a69eff15c0fb152183/research_notes/portable_direct/r5_pair_augmentation_20261119/\`. It accepts \`./solver 8 <third-label> <third-label>\`. To regenerate the 40-class certificate, run it for each representative listed in \`TRIPLE_CLASS_MAP.tsv\`; all outputs must equal the formula. \`RESULT.json\` contains the machine-readable claim and actual verification coverage.
+
+The observation compression is explicitly restricted to the priced scalar Bellman game; it preserves joint masks and the named-label map, and does not assert the native Port or signed-provenance information is redundant. The f3..f8 exact results are from the C++ solver, cross-checked independently only at f0..f2; no independent human review or formal Result admission occurred.
+
+Next problems: test other major eight-label seeds; test two or more labels added after (17,80) to seek genuinely higher joint lower bounds; compare enlarged witnesses against the existing 17-label 8335 certificate while retaining original residual/observer fibers.
+
+Previous immutable source: https://github.com/awdawmip/enterprise-math/tree/8918531323add63966eaa6a69eff15c0fb152183/research_notes/portable_direct/r5_pair_augmentation_20261119
