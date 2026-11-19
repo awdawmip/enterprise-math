@@ -15,7 +15,7 @@ Let V={0,...,m−1} be a finite labeled source set, m≥1. A finite hypergraph H
 
 Each i∈V carries a complete triadic source B_i in its own disjoint two-Cell lane, embedded in the signed X6 affine Cell torsor. The successful labeled events B_i^+ and B_i^− alternate, moving B_i by +E1 and −E1 respectively; all lanes are disjoint by distinct offsets along another existing signed axis. The first completed B_i return reveals a persistent typed link flag l_i=θ_i, where θ_i∈{0,1} is a conserved hidden internal history bit. Eligibility of B_i events is independent of θ. Each e∈F has a separate complete triadic one-use consumer A_e, which moves along its own signed-axis lane; its uniquely labeled event A_e^+ is enabled exactly when every i∈e has completed its first return, every such θ_i=1, and A_e has not been used. A_e neither changes source lanes, return flags, θ, nor other consumers. No failed attempt is in the observation alphabet.
 
-Initially all public Cell, phase, returned and consumer-used data agree. The observer L_h(θ) records every successful *fully labeled source/Port word of length at most h*, with its order and identity. It observes neither hidden θ nor link flags directly. No timing or precision-refinement coordinate is identified with the event count. Define S(θ)={i:θ_i=1}. For r≥0 define F_≤r={e∈F:|e|≤r} and the active hyperedge signature A_r(S)={e∈F_≤r:e⊆S}.
+Initially all public Cell, phase, returned and consumer-used data agree. The observer L_h(θ) records every successful *fully labeled source/Port word of length at most h*, with its order and identity. It observes neither hidden θ nor link flags directly. No timing or precision-refinement coordinate is identified with the event count. Define S(θ)={i:θ_i=1}. For any integer r (including r<0, when the family is empty) define F_≤r={e∈F:|e|≤r} and the active hyperedge signature A_r(S)={e∈F_≤r:e⊆S}.
 
 ## R27 theorem — Exact horizon filtration
 
@@ -23,7 +23,7 @@ For every h≥0, write r(h)=floor((h−1)/2). For all θ,η:
 
 **L_h(θ)=L_h(η) if and only if A_r(h)(S(θ))=A_r(h)(S(η)).**
 
-Every hyperedge e is first individually testable at exactly 2|e|+1 successful events by a word containing its one-use A_e^+; events with a larger guard arity cannot affect the horizon-h language. At the finite stability horizon h_* = 2 max_{e∈F}|e|+1 (with h_*=0 when F is empty), this filtration equals the full infinite-future initial-fiber quotient. For a fixed k-uniform hypergraph with at least one edge, all histories have equal languages for h≤2k and the full quotient first appears at h=2k+1.
+The shortest word containing the labeled consumer event A_e^+ has length exactly 2|e|+1. The truth of e⊆S may be inferable at shorter horizons from other, lower-arity hyperedges; the theorem precisely accounts for that redundancy through A_r(S). Edges with larger guard arity cannot directly occur within the horizon-h language. No later than the finite horizon h_* = 2 max_{e∈F}|e|+1 (h_*=0 when F is empty), this filtration equals the full infinite-future initial-fiber quotient. The actual stabilization horizon may be earlier when larger conjunctive guards are already determined by smaller guards. For a fixed k-uniform hypergraph with at least one edge, all histories have equal languages for h≤2k and the full quotient first appears at h=2k+1.
 
 **Necessity.** For any e={i_1,...,i_k}, the length-(2k+1) signed-Port word
 B_{i_1}^+ B_{i_1}^- ... B_{i_k}^+ B_{i_k}^- A_e^+
