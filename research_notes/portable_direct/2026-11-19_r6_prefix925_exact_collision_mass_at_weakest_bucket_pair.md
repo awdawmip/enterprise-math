@@ -45,7 +45,7 @@ N-A=515,898,033, tau_i(A)=79,
 weight=N-A+tau_i(A)=515,898,112.
 ```
 
-One explicit pair inside the fiber is `F_0^7=(0,128)` against `Z_A=(A,A)`. The start difference is `8131a), and the end difference is `12391b). Both endpoints lie in `[0,2^32)`.
+One explicit pair inside the fiber is `F_0^7=(0,128)` against `Z_A=(A,A)`. The start difference is `8131*a`, and the end difference is `12391*b`. Both endpoints lie in `[0,2^32)`.
 
 For two-flip pairs with distinct starts `x<y`, `A=y-x=k*a` and signs `eps,eta in {-1,+1}`, the complete source label identity is
 
