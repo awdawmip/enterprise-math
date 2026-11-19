@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/seventysixth/README.md",
+    "ref": "20f6cd80f09f36c54cdc65227c4a377275caa1bb",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-seventysix-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第七十六轮　二壳边界与复乘标记\n\n## 两个秩五周期读数能否辨认一个复乘点\n\n取 Legendre 椭圆族的纯对称四次，记 $x=\\lambda(\\tau)$、$e=E_2^*(\\tau)/\\vartheta_3(\\tau)^4$。既有归一化给出两项读数\n$$\n b=\\frac{1-3x-e}{1-x},\\qquad\n \\alpha=\\frac{e^2+(4x-2)e+7x^2-7x+1}{3(1-x)^2}.\n$$\n它们能分开**全部**带水平二标记的复乘点，包括不同判别式的点。特别地，$\\mathbf Q(\\alpha,b)=\\mathbf Q(\\lambda(\\tau))$。这是从矩形复乘点到全部标记的推广。消去 $e$ 会产生第二个代数根；大判别式时可把参数搬到主形，再用尖点附近的统一估计排除这个根。其余 20 个判别式用严格复区间逐一处理，197 个标记的 19,306 对都至少有一个坐标相异。\n\n这个推广需要留意复对数的相位。对给定的复乘参数 $\\tau_0$，从原来两条奇周期求导，先固定 $c=\\operatorname{Re}\\tau_0$ 并用 $\\pi i(\\tau-c)$ 作局部对数，才会在该点复原以上两项读数。采用其他实代数 $c$ 时，$B/C$ 为超越数。定理针对这里指定的分裂五维周期系统。[复乘定理、素位分裂与归一化](classfield.md) · [区间复算](classfield_check.py) · [结果](classfield_checked.json)\n\n## 只看带权前沿，能恢复多少隐藏邻接\n\n在面心立方（FCC）或六方密堆积（HCP）接触图中，设 $F$ 是一个未占分量与已占部分相邻的前沿，$G$ 是其诱导图，$w(y)$ 是 $y$ 的已占邻居数。可以直接从观察值计算总缺额\n$$\n D=\\sum_{y\\in F}\\bigl(12-w(y)-\\deg_G(y)\\bigr).\n$$\n当 $D\\le44$ 时，在各自的晶格内，前沿的每一个带权同构都唯一延拓到整个未占分量。由此，任一合法添加所暴露的新接触以及同一分量内的有限步后继都能恢复。先前所知范围为 $D<36$。在首次有歧义的 $D=36$，四面体与独立三点有相同缺额，但可见的共同邻居统计量已将它们分开。其余情形的有限部分核了 FCC 的 360 个、HCP 的 1,329 个模板，任意远隔的两块另由解析归约处理。$D=44$ 已出现原生坐标位置不同而有限接触图相同的腔室；最大可能阈值仍待确定。[重建定理与原生腔室见证](completion.md) · [精确图同构复算](completion_check.py) · [结果](completion_checked.json)\n\n截至 2026-11-19 03:17:50 UTC，累计直接研究 227 个登记任务，覆盖 51 个父方向。本轮分别复访复乘选择子和冻结后限定的二壳重建问题。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 36、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/20f6cd80f09f36c54cdc65227c4a377275caa1bb/research_notes/portable_direct/20261118_fair_queue_6b0fba/seventysixth/README.md",
+      "encoding": "utf-8",
+      "sha": "4bbbdeeaadc17df164f121cfbe4d5c106922e19c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
