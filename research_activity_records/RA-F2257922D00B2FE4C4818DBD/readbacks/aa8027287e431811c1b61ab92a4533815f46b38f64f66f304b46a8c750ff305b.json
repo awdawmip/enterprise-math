@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_twelve_pair_synergy_20261119/CHECK_W.cpp",
+    "ref": "3cc19a1b5b6588a5d1e191615d130386db8bec27",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261119-2204-twelve-synergy-source-7",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "// Independent exact Bellman calculation for W from W_ENDPOINT_FAMILIES.txt.\n// The family list must be independently checked against the frozen integer centers.\n#include <bits/stdc++.h>\nusing namespace std;\nconstexpr int K=12,F=8;\nstruct Act {int price;vector<int> masks;};\nstruct DP {\n array<uint64_t,K> p;unordered_map<uint64_t,int> cache;\n DP(){p[0]=1;for(int i=1;i<K;i++)p[i]=p[i-1]*(F+2);}\n int solve(uint64_t code,const vector<Act>&actions){\n  auto it=cache.find(code);if(it!=cache.end())return it->second;\n  uint64_t t=code;array<int,K>e{};int live=0;\n  for(int i=0;i<K;i++){e[i]=t%(F+2);t/=F+2;if(e[i]<=F)live|=1<<i;}\n  if(__builtin_popcount((unsigned)live)<=1)return 0;\n  int best=INT_MAX/8;\n  for(const auto&a:actions){\n   if(any_of(a.masks.begin(),a.masks.end(),\n     [&](int mask){return (mask&live)==live;}))continue;\n   int worst=0;\n   for(int mask:a.masks){\n    uint64_t next=code;\n    for(int j=0;j<K;j++)if(e[j]<=F && !(mask&(1<<j)))next+=p[j];\n    worst=max(worst,solve(next,actions));\n    if(a.price+worst>=best)break;\n   }\n   best=min(best,a.price+worst);\n  }\n  if(best>=INT_MAX/8)throw runtime_error(\"NO_PROGRESS\");\n  cache.emplace(code,best);\n  return best;\n }\n};\nint main(){\n ifstream in(\"W_ENDPOINT_FAMILIES.txt\");string line;vector<Act>a;\n while(getline(in,line)){\n  if(line.empty()||line[0]=='#')continue;\n  istringstream ss(line);Act x;int count,mask;\n  if(!(ss>>x.price>>count))throw runtime_error(\"bad family\");\n  while(count--){if(!(ss>>mask))throw runtime_error(\"truncated\");x.masks.push_back(mask);}\n  a.push_back(move(x));\n }\n if(a.size()!=7)throw runtime_error(\"wrong family count\");\n DP dp;int v=dp.solve(0,a);\n cout<<\"V8=\"<<v<<\" cached_states=\"<<dp.cache.size()<<\"\\n\";\n if(v!=8335 || dp.cache.size()!=2840397)return 2;\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3cc19a1b5b6588a5d1e191615d130386db8bec27/research_notes/portable_direct/r5_twelve_pair_synergy_20261119/CHECK_W.cpp",
+      "encoding": "utf-8",
+      "sha": "110e0221a35636acef8dd9480e01e05a35fd205d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
