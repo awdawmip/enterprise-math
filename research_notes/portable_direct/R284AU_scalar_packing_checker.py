@@ -55,9 +55,10 @@ def digits_balanced(value,base):
         position+=1
     return out
 
-def reconstruct(C):
+def reconstruct(C,H):
     n=len(C)
-    H=max(1,max(max(row) for row in C))
+    assert n>=2 and isinstance(H,int) and H>=1
+    assert all(1<=v<=H for row in C for v in row)
     w=weights3(n)
     W=1+sum(w)
     max_coeff=(1<<n)*math.factorial(n)*H**n
@@ -104,17 +105,17 @@ def main():
         for t in range(count):
             H=2+(t%3)
             C=[[rng.randint(1,H) for _ in range(n)] for __ in range(n)]
-            got,metrics=reconstruct(C)
+            got,metrics=reconstruct(C,H)
             assert got==[[Fraction(x) for x in row] for row in C],(n,t,C,got)
             records.append(metrics)
     exhaustive_cases=0
     for vals in product((1,2), repeat=9):
         C=[list(vals[3*i:3*i+3]) for i in range(3)]
-        got,_=reconstruct(C)
+        got,_=reconstruct(C,2)
         assert got==[[Fraction(x) for x in row] for row in C]
         exhaustive_cases+=1
     example=[[2,1,3],[4,2,1],[1,3,2]]
-    got,example_metrics=reconstruct(example)
+    got,example_metrics=reconstruct(example,4)
     assert got==[[Fraction(x) for x in row] for row in example]
     result={"result":"PASS","method":"balanced radix exact integer determinant, Bareiss elimination; positive integer inputs; exact equality to source C",
             "seed":284021,"test_counts_by_n":{"2":12,"3":16,"4":12,"5":7},
