@@ -127,20 +127,20 @@
     {
       "em_sources": [
         {
-          "repository": "awdawmip/enterprise-math",
           "commit": "2f95e44714101ddc740362fc7eee18fc3158b5fe",
           "path": "research_notes/portable_direct/R762GD_THREE_STAR_X6_RELATIVE_RECONSTRUCTION_AND_BRC_FIBRES.md",
-          "sha256": "05ca8f888655edf2d5517c378a7987cd74eeb4aada98c6d583de96e306a9b2ce",
           "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "05ca8f888655edf2d5517c378a7987cd74eeb4aada98c6d583de96e306a9b2ce",
           "verification": {
-            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
-            "tool_name": "mcp__GitHub__fetch_file",
             "call_id": null,
-            "observation_id": "emr3-20261119-2038-r762gd-proof-immutable-readback-v1",
             "git_blob_sha1": "65fe92f688e2bd9a242b8bc9065d3d474c87524c",
             "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/2f95e44714101ddc740362fc7eee18fc3158b5fe/research_notes/portable_direct/R762GD_THREE_STAR_X6_RELATIVE_RECONSTRUCTION_AND_BRC_FIBRES.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
             "network_request_by_this_tool": false,
-            "server_signature_authenticated": false
+            "observation_id": "emr3-20261119-2038-r762gd-proof-immutable-readback-v1",
+            "server_signature_authenticated": false,
+            "tool_name": "mcp__GitHub__fetch_file"
           },
           "verification_receipt": "research_activity_records/RA-6068F717D991DF54FBBDDEED/readbacks/d7518e77816d3e7a84075106df985353ff5a0765d17ca09585565a3946da5463.json",
           "verification_receipt_sha256": "d7518e77816d3e7a84075106df985353ff5a0765d17ca09585565a3946da5463"
@@ -148,6 +148,35 @@
       ],
       "event_id": "r762gd-three-star-relative-20261119-emr3-activity-01",
       "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    },
+    {
+      "em_sources": [
+        {
+          "commit": "7c33bc20db273f92f49c4aba51b6af46b891f0bf",
+          "path": "research_notes/portable_direct/R762GE_SIGNED_X6_FIXED_LENGTH_DEPTH_CAPACITY_THEOREM.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "6d75f18c0217a8cd30924ffc59375bad85e5753c56f0b0d286ae4267937af323",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "5802ed32d9cc36ccf2331aacf92f77832c827ffc",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/7c33bc20db273f92f49c4aba51b6af46b891f0bf/research_notes/portable_direct/R762GE_SIGNED_X6_FIXED_LENGTH_DEPTH_CAPACITY_THEOREM.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "emr3-20261119-2130-r762ge-proof-immutable-readback-v1",
+            "server_signature_authenticated": false,
+            "tool_name": "mcp__GitHub__fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-6068F717D991DF54FBBDDEED/readbacks/d80b864f895bca4c03ea1e6379b168bed8ec618a3988ebb3b70499d98107905a.json",
+          "verification_receipt_sha256": "d80b864f895bca4c03ea1e6379b168bed8ec618a3988ebb3b70499d98107905a"
+        }
+      ],
+      "event_id": "r762ge-depth-capacity-20261119-emr3-activity-01",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@49fa1b7433db64dc93a741634b4139048938ada0:journal/enterprise-math/2026-11-19/20261119T2137+0800-emr3-r762ge-signed-x6-depth-fibers.md"
+      ],
       "repairs_event_id": null,
       "state": "EM_REPRESENTED"
     }
