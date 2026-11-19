@@ -1,0 +1,347 @@
+{
+  "schema": "EC49FTH_NATIVE_43_USE_FAN_EXACT_RATIONAL_CERT_V1",
+  "date": "2026-11-19",
+  "status": "AUTHOR_PROVED_EXACT_PRIMARY_24_INDEPENDENT_RAW94_2_NOT_REVIEWED",
+  "source_repository": "awdawmip/enterprise-math",
+  "scientific_input_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor_pr": 2766,
+  "original_configurations": 310,
+  "profile_count": 141,
+  "original_query_count": 228,
+  "domain": {
+    "a": [
+      "3/4",
+      "49/64"
+    ],
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "11/16",
+      "3/4"
+    ]
+  },
+  "D_candidates": {
+    "Dmid": [
+      329,
+      36,
+      68,
+      141
+    ],
+    "D45": [
+      334,
+      141,
+      62,
+      45
+    ],
+    "D43": [
+      326,
+      141,
+      47,
+      43
+    ]
+  },
+  "S_candidates": {
+    "S105": [
+      332,
+      8,
+      141,
+      105
+    ]
+  },
+  "D_cell_vertex_counts": {
+    "Dmid": 6,
+    "D45": 12,
+    "D43": 6
+  },
+  "D_distinct_anchor_count": 16,
+  "S_box_corners": 8,
+  "total_exact_unrestricted_native_anchors": 24,
+  "switches": {
+    "Dmid_vs_D45": "96z = 105a - 6b - 5",
+    "D45_vs_D43": "15b + 2z = 8"
+  },
+  "gap": {
+    "min": {
+      "value": "1229/64",
+      "point": [
+        "3/4",
+        "57/128",
+        "11/16"
+      ],
+      "D": "10861/64",
+      "S": "301/2"
+    },
+    "max": {
+      "value": "187/8",
+      "point": [
+        "49/64",
+        "7/16",
+        "3/4"
+      ],
+      "D": "10571/64",
+      "S": "9075/64"
+    }
+  },
+  "source_sha256": {
+    "frozen_original_master_txt": "cd9a50799536d2b96230777b5392b1d742ceee896da05bb49aa097cf351e1d5e",
+    "EC49FPG_PROFILE_csv": "a61a3ee4d2f13f9d216f52cd3529c72d395c1250bfb1d7ae96a1adf5a6837c1f"
+  },
+  "tree_sha256": {
+    "D43": "6a0ff8f91f7c35a9dd0f1cbf6a563a7b18c314cf4211b3bd689988f96b260521",
+    "D45": "112d20a08ae6f0871a45e578851f568b8b01d4954ae3d7ca598084eda68986f2",
+    "Dmid": "c15a95605f4de0249a1a47f68b198e5a3cf8ee021a7cc3bdf5b37780c1401067",
+    "S105": "b912b15034f4694dca3b44c33d8b6f1251f52e2696bb551a7ae7ae0d65d85a68"
+  },
+  "full_native_path_replay": {
+    "trees": 4,
+    "profiles_each": 141,
+    "all_original_physical_queries": 228,
+    "status": "PASS"
+  },
+  "independent_raw94": [
+    {
+      "orientation": "D",
+      "point": [
+        "3/4",
+        "7/16",
+        "11/16"
+      ],
+      "value": "1361/8",
+      "status": "PASS"
+    },
+    {
+      "orientation": "S",
+      "point": [
+        "49/64",
+        "57/128",
+        "11/16"
+      ],
+      "value": "9491/64",
+      "status": "PASS"
+    }
+  ],
+  "bellman_anchors": [
+    {
+      "id": 0,
+      "orientation": "D",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "11/16",
+      "value": "1361/8",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 1,
+      "orientation": "D",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "23/32",
+      "value": "5401/32",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 2,
+      "orientation": "D",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "569/768",
+      "value": "42953/256",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 3,
+      "orientation": "D",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "3/4",
+      "value": "333/2",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 4,
+      "orientation": "D",
+      "a": "3/4",
+      "b": "53/120",
+      "z": "11/16",
+      "value": "40783/240",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 5,
+      "orientation": "D",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "11/16",
+      "value": "10861/64",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 6,
+      "orientation": "D",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "4549/6144",
+      "value": "342677/2048",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 7,
+      "orientation": "D",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "3/4",
+      "value": "5311/32",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 8,
+      "orientation": "D",
+      "a": "91/120",
+      "b": "7/16",
+      "z": "3/4",
+      "value": "831/5",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 9,
+      "orientation": "D",
+      "a": "5099/6720",
+      "b": "57/128",
+      "z": "3/4",
+      "value": "185531/1120",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 10,
+      "orientation": "D",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "11/16",
+      "value": "10747/64",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 11,
+      "orientation": "D",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "23/32",
+      "value": "10661/64",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 12,
+      "orientation": "D",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "3/4",
+      "value": "10571/64",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 13,
+      "orientation": "D",
+      "a": "49/64",
+      "b": "53/120",
+      "z": "11/16",
+      "value": "161017/960",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 14,
+      "orientation": "D",
+      "a": "49/64",
+      "b": "57/128",
+      "z": "11/16",
+      "value": "335/2",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 15,
+      "orientation": "D",
+      "a": "49/64",
+      "b": "57/128",
+      "z": "3/4",
+      "value": "2635/16",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 16,
+      "orientation": "S",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "11/16",
+      "value": "2409/16",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 17,
+      "orientation": "S",
+      "a": "3/4",
+      "b": "7/16",
+      "z": "3/4",
+      "value": "144",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 18,
+      "orientation": "S",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "11/16",
+      "value": "301/2",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 19,
+      "orientation": "S",
+      "a": "3/4",
+      "b": "57/128",
+      "z": "3/4",
+      "value": "2303/16",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 20,
+      "orientation": "S",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "11/16",
+      "value": "9495/64",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 21,
+      "orientation": "S",
+      "a": "49/64",
+      "b": "7/16",
+      "z": "3/4",
+      "value": "9075/64",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 22,
+      "orientation": "S",
+      "a": "49/64",
+      "b": "57/128",
+      "z": "11/16",
+      "value": "9491/64",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    },
+    {
+      "id": 23,
+      "orientation": "S",
+      "a": "49/64",
+      "b": "57/128",
+      "z": "3/4",
+      "value": "9071/64",
+      "status": "EXACT_ORIGINAL_228_BELLMAN_PASS"
+    }
+  ],
+  "proof_method": "Exact native feasible-tree path replay + unrestricted original-index integer-scaled Bellman at all cell vertices + joint concavity on convex candidate regions + rational sharp-gap enumeration",
+  "reproducer": "EC49FTH original runnable self-contained archive, including frozen source, four complete trees, native and independent solvers, EC49FTH_VERIFY.py, 24 executed Bellman result JSON and logs",
+  "formalized": false,
+  "independent_project_review": false
+}
