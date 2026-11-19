@@ -1,0 +1,8 @@
+# Reproduction (frozen scalar input)
+
+1. Use the exact frozen JSON bytes `EXACT_R5_ALL_101_BUDGETS.json` (SHA-256 `50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b`) and frozen `stages_18.json` from the 2026-11-19 R5 reproducibility ZIP. The robust `tau` is `U-1`. All integer comparisons are exact.
+2. Run `make_adj.py` to create `window_adj.bin` (101×256×256 bytes). Compile `SCAN12.cpp` with `g++ -O3 -std=c++17 SCAN12.cpp -o scan12`. Run `./scan12 0`, `./scan12 1 40000`, `./scan12 2 300000` and record the 30,135 pair rows for each f. Compare counts with RESULT.json; no -1 / state-cap rows permitted.
+3. Independent 12-label witness: `W_ENDPOINT_FAMILIES.txt` records the seven canonical action families for labels S plus 34,82. `CHECK_W.cpp` independently recomputes all eight-error Bellman states without the adjacency binary and prints `8335` with 2,840,397 memoized states. Check the families against exact doubled left endpoints of the frozen JSON.
+4. The separately delivered ZIP contains both the original full 30,135-row CSVs and full source/evidence, a Python independent verifier (79 f0 cases, 7 f1 and 7 f2) and individual f8 certificate outputs for all seven exceptional pairs.
+
+The existing prior source is branch-only research and this new branch is likewise independent portable source until formally integrated. Source publication is separate from Task/CLAIM/Result authority.
