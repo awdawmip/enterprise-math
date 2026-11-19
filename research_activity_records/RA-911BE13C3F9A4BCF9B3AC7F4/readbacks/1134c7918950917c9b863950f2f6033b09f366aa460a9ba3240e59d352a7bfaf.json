@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/ninetysixth/README.md",
+    "ref": "e3ff115a49edd975763fcfd1b729883352a9f8e5",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-ninetysix-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第九十六轮　高斯整数筛的双向绕行与非回退首返的四阶相位律\n\n**再筛掉一个分裂素数会不会把无限分量截断。** 在 $\\gcd(x^2+y^2,65)=1$ 的格点中连结距离至多 $\\sqrt2$ 的点。对任何另外的分裂素数 $p$，再去掉 $p\\mid x^2+y^2$ 的点，仍有同一起点可各走过横、纵一个完整的 $65p$ 周期。若一共添加 $s$ 个素数，$p_{\\min}>2(26s+12)^2$ 即足以保证同样的双向绕行。证明把底格的 $13\\times13$ 块与素理想格的最短向量结合。单素数命题剩下的 203 个小素数全部作了窄条路径检验，其中 17 在固定起点、横向每步前进一格的协议下，半宽 15 可达，14 不可达。对任一给定的加筛枚数上限，还可用有限分枝判定能否消掉全部绕行；是否存在某个有限筛能消掉全部绕行仍待解决。[格孔、原周期与有限判定](gaussian.md) · [块连接与窄条复算](gaussian_checked.json)\n\n**四次相位读数确定整个首返序列。** 在原任务指定的四顶点非回退比较场中，按已完成的返回次数读相位，任意真实正权初始准备都满足\n$$\n49z_{n+4}+14z_{n+3}-12z_{n+2}+2z_{n+1}+z_n=0 .\n$$\n四是预报全部未来相位的最小线性阶数。两份各有四条等权路径的准备可有相同的通道—符号边际、符号—来口边际及 $z_0,z_1,z_2$，到 $z_3$ 才分开。原边规则直接给出精确有理的条件率；该四维结果限于这个冻结场和相位观察。[从真实路径推导递推与分离见证](phase.md) · [正权路径及逐拍核验](phase_checked.json)\n\n截至 2026-11-19 05:50:06 UTC，累计直接研究 236 个登记任务，覆盖 51 个父方向。四顶点 Euler 条件率任务在本轮首次直接研究，高斯周期筛则首次回到第 4 轮研究过的同一登记项。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 27、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/e3ff115a49edd975763fcfd1b729883352a9f8e5/research_notes/portable_direct/20261118_fair_queue_6b0fba/ninetysixth/README.md",
+      "encoding": "utf-8",
+      "sha": "ffc3a42385315c6e5466b996b3a3ee34ecccaaf2"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
