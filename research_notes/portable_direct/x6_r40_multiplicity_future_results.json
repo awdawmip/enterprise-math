@@ -1,0 +1,28 @@
+{
+  "confirmatory_depth": 6,
+  "cutoff_for_two_plus_two_states": 3,
+  "equal_through_cutoff_and_confirmatory_depth": 11344,
+  "example": {
+    "equal_initial_and_one_step_counts": true,
+    "first_weight_difference": [
+      "a:0",
+      "b:0"
+    ],
+    "paths_p_ab": 2,
+    "paths_q_ab": 1,
+    "states": 6,
+    "support_equal_all_lengths": true
+  },
+  "first_difference_depths": {
+    "0": 209952,
+    "1": 184032,
+    "2": 14128,
+    "3": 448
+  },
+  "general_theorem_proof": "Symbolic rational reachable-row-span argument; finite testing does not prove arbitrary size",
+  "machines": 324,
+  "ordered_pairs": 419904,
+  "result": "PASS",
+  "rooted_states": 648,
+  "scope": "all pairs of 324 two-state, one-event, binary-readout, transition-weight 0/1/2 machines and both starts; observed alphabet (event, destination output); compare exact counts through depth 6"
+}
