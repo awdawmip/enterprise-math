@@ -1,0 +1,27 @@
+{
+  "schema": "EC49FTT_SHARP_SMOOTH_TP2_PRIOR_CERT_V1",
+  "status": "AUTHOR_PROVED_EXACT_FRACTION_CHECKED_PARENT_DEPENDENT_NOT_REVIEWED",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "external_pricing_parent": "EC49FTS PR2797@7dcff5e1e3713ac34f57484563ab6cdc57b9dd9a",
+  "m_interval": [
+    "1469/64",
+    "187/8"
+  ],
+  "t_max": "27/64",
+  "sharp_lambda": "171167905504400/63545784776721",
+  "sharp_lambda_decimal_reference": "2.693615416126",
+  "continuous_kernel": "K0(m,z)=16/945*(1+a(m,z)+b(m,z)); strictly TP2",
+  "prior": "h_lambda=1+a+b+lambda*f(b)*psi((a-ac(b))/d(b))",
+  "psi": "smooth positive-on-(0,1] flat bump normalized to integral 1 on [0,1]",
+  "ratio_identity": "r_lambda(m)=r0(m)+lambda*(187/8-m)",
+  "exact_fosd_parameter_set": "0<=lambda<=sharp_lambda",
+  "failure_witness_lambda": "3",
+  "failure_m_early": "2939/128",
+  "failure_m_late": "735/32",
+  "r_atom_ratio_early_minus_late": "729882893080403/622677793671859328",
+  "atom_probability_early_minus_late": "23356252578572896/221362331083011774627",
+  "fraction_r0_check_count": 64,
+  "strict_tp2_minor_check_count": 4,
+  "native_bellman_reexecuted": false,
+  "project_formal_review": false
+}
