@@ -1,0 +1,86 @@
+# 任意有限首层的球、逐向邻边和最短操作词
+
+同一组远处地址可以承载不同数量的最短操作历史。以正负单位步作用在 $\mathbb Z^2$，先选首层 $S=\{(0,0),(2,-2)\}$，再加入这条线段的中点。半径 $r\ge2$ 时，两者的闭球作为地址集合完全相同，半径 $r\ge3$ 时，从有标记种子出发的最短词数却分别为 $6\cdot2^r-4$ 和 $8\cdot2^r-4$。下面从任意非空有限首层给出球、壳、逐向边和最短词的精确生成函数，也确定这个指数主系数所读出的种子数据。
+
+原题以 $L_S(x)=1+r_S(x)$ 编层；本篇的下标 $r$ 是图距离 $\min_{s\in S}\|x-s\|_1$。六个具名轴及正负位移采用第7轮冻结的内部生成元图。$d=6$ 给其十二方向计数，$d=2$ 也可应用于已验证的两生成元切片。以下公式使用无边界的内部整数位移图、单位词权与具名起点。六栏非负地址的换码、旧固定中心平方半径25的30个端点与846个最短词沿用原件；原题仍留有 **UNRESOLVED_SEED_SELECTION**。第7轮对完整盒、相邻两点和缺角盒另有专式。[登记任务](https://github.com/awdawmip/enterprise-math/blob/c0f816e2ab6be0145a3edd1a77488bddfd42a2f6/research_tasks/RS-COORD-LAYER-SHELL-20260916.md) · [坐标合同](https://github.com/awdawmip/enterprise-math/blob/d2984d1a0c5c8221ee103084dd3da68dd039dfaa/coordinate_address_contract.json) · [原切片](https://github.com/awdawmip/enterprise-math/blob/d2984d1a0c5c8221ee103084dd3da68dd039dfaa/EnterpriseMath/CellAddress/ThreeRegionSlice.lean) · [第7轮](../seventh/shell.md)
+
+## 1. 逐坐标裁剪与最终球多项式
+
+取 $d\ge1$，以 $B=\prod_i[l_i,u_i]_{\mathbb Z}$ 为 $S$ 的最小坐标盒。将 $x$ 各坐标裁剪到盒内得到 $y$。对每个 $s\in S$，逐坐标有 $\|x-s\|_1=\|x-y\|_1+\|y-s\|_1$。所以 $r_S(x)=\|x-y\|_1+r_S(y)$，而且 $x$ 与 $y$ 的全部最近种子相同。记 $q_y=r_S(y)$、$D=\max_{y\in B}q_y$。轴 $i$ 在 $y_i=l_i$ 时允许朝负号出盒，在 $y_i=u_i$ 时允许朝正号出盒。以 $O_i(y)$ 记允许的符号集，$\nu_i=|O_i(y)|$；零跨度轴有两个符号。
+
+记 $V_r=\#\{r_S(x)=r\}$、$b_r=\#\{r_S(x)\le r\}$。在裁剪到 $y$ 的所有地址中，每个坐标可以停在 $y_i$，或沿一个允许符号外走正整数步。因此
+$$
+ V(z)=\sum_{r\ge0}V_r z^r
+ =\sum_{y\in B}z^{q_y}\prod_{i=1}^d
+ \left(1+\frac{\nu_i(y)z}{1-z}\right),\qquad
+ \sum_{r\ge0} b_rz^r=\frac{V(z)}{1-z}.                                      \tag{1}
+$$
+更具体地，$r\ge0$ 时
+$$
+ b_r=\sum_{\substack{y\in B\\q_y\le r}}\ \sum_{I\subseteq[d]}
+       \binom{r-q_y}{|I|}\prod_{i\in I}\nu_i(y).
+$$
+这是把正位移分配给选中的 $|I|$ 个坐标，允许剩余预算不用。故 $r\ge D$ 时闭球已经是一个次数 $d$ 的多项式，$V_r=b_r-b_{r-1}$ 从 $r\ge D+1$ 起是次数 $d-1$ 的多项式。
+
+写 $h_S(\varepsilon)=\max_{s\in S}\varepsilon\cdot s$，$H=\sum_{\varepsilon\in\{\pm1\}^d}h_S(\varepsilon)$。球多项式的前两项为
+$$
+ [r^d]b_r=\frac{2^d}{d!},\qquad
+ [r^{d-1}]b_r=\frac{2^{d-1}+H}{(d-1)!}.                                \tag{2}
+$$
+因此 $d\ge2$ 时 $[r^{d-1}]V_r=2^d/(d-1)!$、$[r^{d-2}]V_r=H/(d-2)!$。$d=1$ 时最终 $b_r=2r+1+u_1-l_1$，$V_r=2$。$H$ 也等于所有相反符号配对的宽度 $h_S(\varepsilon)+h_S(-\varepsilon)$ 的和，故平移首层会保留它。
+
+证明 (2) 可在 $z=1$ 直接取 (1) 的前两项。置 $\xi=1-z$，每因子是 $\nu_i/\xi+(1-\nu_i)$。首系数 $\sum_y\prod_i\nu_i=2^d$，这正按符号标记所有角点 $c_\varepsilon$，退化轴的两个符号仍分别计。次系数里，取一个常数项合计 $2^{d-1}\sum_i(u_i-l_i-1)$；再展开 $z^{q_y}$ 要减 $\sum_\varepsilon q_{c_\varepsilon}$。每角 $q_{c_\varepsilon}=\varepsilon\cdot c_\varepsilon-h_S(\varepsilon)$，而 $\sum_\varepsilon\varepsilon\cdot c_\varepsilon=2^{d-1}\sum_i(u_i-l_i)$。所以 $[\xi^{1-d}]V=H-d2^{d-1}$。取 $(1-z)^{-d-1}$ 与 $(1-z)^{-d}$ 的系数即得 (2)。
+
+## 2. 每个具名符号的外出边和同层边
+
+记 $C_{-i}(y,z)=\prod_{j\ne i}(1+\nu_j(y)z/(1-z))$；每一条边仍使用原端点和实际方向。以第 $r$ 壳为起点，朝 $\sigma e_i$、$\sigma\in\{\pm1\}$、到达第 $r+1$ 壳的边数，其普通生成函数为
+$$
+ E_i^\sigma(z)=\sum_{y\in B}z^{q_y}C_{-i}(y,z)\left[
+ \frac{\mathbf1_{\sigma\in O_i(y)}}{1-z}
+ +\mathbf1_{y+\sigma e_i\in B,\ q_{y+\sigma e_i}=q_y+1}\right].             \tag{3}
+$$
+一个穿过该侧盒面的轴向半直线自边界起每步都使距离增加一，给出第一项。盒内的一步只需比较两个裁剪点的 $q$，其余坐标的出盒量完全相抵。平行第 $i$ 轴的同层无向边，由同样的和只保留指示量 $\mathbf1_{y+e_i\in B,\ q_{y+e_i}=q_y}$ 得到；每条恰计一次。跨层边的逆向返回可逐边反转得到。三种邻边关系已用尽，因 $r_S$ 为一阶 Lipschitz。
+
+## 3. 具名最短词的有限指数展开与尖余项
+
+令 $W_r$ 为各有标记种子到第 $r$ 壳的长度 $r$ 操作词总数。同一端点可能由多个并列最近种子抵达。若端点的裁剪为 $y$，可选的起点恰为 $N_y=\{s\in S:\|s-y\|_1=q_y\}$；同一起点到同一端点的最短词是各轴按固定符号所走步数的所有交错。置 $a_i=|y_i-s_i|$、$P_a(t)=\sum_{j=0}^{a}t^j/j!$，并约定 $P_{-1}=0$。有
+$$
+ \sum_{r\ge0}W_r\,t^r/r!
+  =\sum_{y\in B}\sum_{s\in N_y}\prod_{i=1}^d
+   \left\{\frac{t^{a_i}}{a_i!}
+         +\nu_i(y)\big(e^t-P_{a_i}(t)\big)\right\}.                       \tag{4}
+$$
+坐标停在裁剪点时恰走 $a_i$ 步；沿允许方向出盒时恰有 $a_i+1,a_i+2,\ldots$ 步，符号由该射线固定。指数生成函数的乘法给每一有序交错。任何这样的词在每个中间时刻 $j$ 与全首层的距离也为 $j$，否则较短前缀连上其余动作会严格缩短终点距离。
+
+若要保留抵达第 $r+1$ 壳时的**末步**为 $\sigma e_i$，用 (4) 并将第 $i$ 因子换成
+$$
+ \mathbf1_{\sigma(y_i-s_i)>0}\frac{t^{a_i-1}}{(a_i-1)!}
+ +\mathbf1_{\sigma\in O_i(y)}(e^t-P_{a_i-1}(t)).
+                                                                            \tag{5}
+$$
+第一项仅在指示为真时取值。固定末步后再排列前 $r$ 步，给 $r![t^r]$ 所求词数。于是同一物理边可以有多条到达历史，(3)、(5) 的计数均有清楚的入口。
+
+(4) 总可写成 $\sum_{j=0}^d A_j(t)e^{jt}$，$A_j\in\mathbb Q[t]$、$\deg A_j\le D$。因此任意半径都可用有限项 $r^{\underline k}j^{r-k}$ 求值（$k\le r$、$0^0=1$）。在 $r>D$ 时，序列就是一个有限指数多项式，移位算子 $E$ 的递推因子可取 $\prod_{1\le j\le d,\,A_j\ne0}(E-j)^{1+\deg A_j}$。
+
+具体的首项和误差只用到宽度 $w=\max_i(u_i-l_i)$ 与符号暴露面：
+$$
+ C(S)=\sum_{\varepsilon\in\{\pm1\}^d}
+           \#\{s\in S:\varepsilon\cdot s=h_S(\varepsilon)\},
+ \qquad W_r=C(S)d^r+O_S\!\left((1+r)^{\max(0,w-1)}(d-1)^r\right)
+ \quad(d\ge2).                                                            \tag{6}
+$$
+$A_d=C(S)$，因为每轴都选 $e^t$ 时只剩各带符号盒角，而其最近种子恰是相应支撑面的所有种子。由 (5)，每个末步 $\sigma e_i$ 的 $d^r$ 首系数为 (6) 中限制 $\varepsilon_i=\sigma$ 的部分和。$A_{d-1}$ 只可能有一轴取多项式。若该轴为内点，其距离 $a_i\le w-1$；非退化边界的多项式是 $-P_{a_i-1}$；退化轴的多项式为 $-1$。其余指数至多 $d-2$，给 (6) 的误差。$d=1$ 时 $r>D$ 的 $W_r$ 恰为2。
+
+**宽度指数取到等号的量级。** 任意 $d\ge2,w\ge2$，取 $S=\{0,(w,w-2,0,\ldots,0)\}$。每一符号 $\varepsilon$ 的每个暴露种子在其正交象限内的全部 $d^r$ 个具名词均最短，因为对各 $s'$ 有 $\|x-s'\|_1\ge\varepsilon\cdot(x-s')\ge\varepsilon\cdot(x-s)$。重复只可能是同一具名种子某一轴没有出现，其总数为 $O_d((d-1)^r)$。再固定第一轴正、第二轴负、其余各一个符号。从原点起步，使第一轴恰走 $w-1$ 次，并使其余每根轴至少出现一次。直接算到另一个种子的距离亦为 $r$，而原点在该符号上落后2，没有计入暴露主项。这些新词的个数渐近于 $\binom r{w-1}(d-1)^{r-w+1}$，故此族 $W_r-C(S)d^r$ 确实达到 $r^{w-1}(d-1)^r$ 的量级。对零宽单种子，从两个符号象限计入同一缺轴词也会造成 $(d-1)^r$ 级误差。
+
+## 4. 同凸包、同远球、异词数与复算
+
+以本篇开头的两个首层作例子。坐标 $(u,v)=(x_1+x_2,x_1-x_2)$ 把 $\ell^1$ 距离变为 $\ell^\infty$ 距离，像中 $u,v$ 同奇偶。三个种子变为 $(0,0),(0,2),(0,4)$。$r\ge2$ 时下、上两个长为 $2r$ 的 $v$ 区间连在一起，已覆盖中间的整个方盒；取回同奇偶子格保持精确相等。故远处球和壳地址完全相同。两个首层的 $H$ 都等于4，但 $C=6$ 与 $C=8$，(4) 的完整指数生成函数分别为
+$$
+ 6e^{2t}-4e^t+2t^2,\qquad 8e^{2t}-4e^t-1 .
+$$
+故从 $r=3$ 起，每层词数相差 $2^{r+1}$。只观测球或凸包均无法还原这项有标记的历史统计。
+
+程序用独立的多源广度优先搜索逐边传播实际具名词，与 (1)、(3)–(5) 的有理多项式展开核对。对 $3\times3$ 中全部511个非空种子核对至 $r=5$；七个具名实例另逐方向核对外出边、同层边和末步词，含宽4的尖例及原六维相邻双种子、三格拐角。原拐角在 $r=4$ 有1683个地址、23990个词；抵达下一壳时最后一步为 $-e_1,+e_1$ 的词分别有15119、12496条。给定 $S$，暴力预计算盒内距离表需要 $O(d|B||S|)$ 次整数坐标运算；(1)、(4) 的有限和随盒体积增长，适用于跨度不太大的显式首层。对相距很远的稀疏输入仍须支付扫描空盒点的成本。一般无限首层和有边界的有限图需另行指定。本稿与程序均未给原任务添加全局种子或验收条件。[程序](shells_check.py) · [逐例方向数据和指数展开](shells_checked.json)
+
+运行方式为同目录执行 `python shells_check.py --out shells_checked.json`，仅用 Python 标准库。
