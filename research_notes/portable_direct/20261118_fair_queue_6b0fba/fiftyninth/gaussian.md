@@ -1,0 +1,104 @@
+# 三角格高斯能量的有限圆盘界与周长系数
+
+取面积为一的三角格 $A$，$k(x)=e^{-\pi|x|^2}$，$\Theta=\sum_{v\in A}k(v)$。对任意 $R\ge1$ 与圆盘 $B_R$ 内任意 $N\ge1$ 个互异点，计**有序异点对**，写 $E_R=N^{-1}\sum_{x\ne y}k(x-y)$。本篇证明
+
+$$
+ E_R\ \ge\ \frac{aN}{\pi R^2+2^{64}R}-(1-a). \tag{1}
+$$
+
+有两种可核的 $a$。取 $a=\Theta/2$ 时，使用冻结外稿在 $\alpha=1$ 的尖锐辅助函数及其无限符号结论。另一取值 $a=(1+(7-\sqrt{33})/8)/2$ 来自下文完全显式的三次多项式，在给定的三次自对偶类内最优。以 $R=2^{70},\ N\ge\pi R^2$ 为例，两者分别给出严格大于 $0.156725861361$ 和 $0.154066859572$ 的有限圆盘下界。分母中的 $2^{64}$ 是方便逐步核验的宽常数。保持第一种取值与分子形式，任一通用周长系数至少为 $0.591889704938$。
+
+登记题 RS-OAI7-090-C-20261007-6F2A81 考察中心圆盘密度、有限盘有序对与完全单调混合。11 月 16 日的原交接已有一般辅助函数的有限盘截断和显式尾界，尚待具体参数的零频值与正性半径。这里处理该缺口并计算真实三角格上的周长首项。[任务书](https://github.com/awdawmip/enterprise-math/blob/7b7c764dd19eacf090dfae3126a6ed819d9d640c/research_tasks/RS-OAI7-090-C-20261007-6F2A81.md) · [冻结交接](https://github.com/awdawmip/enterprise-math/blob/9444db8f3ef2f05096e57144eaf5aead3ccd6f28/research_artifacts/mcp/RS-OAI7-090-C-20261007-6F2A81/MCP-c618a61189764f23846a391a08518a1a/2a8c13aaa77f6cbcf734/_checkpoint.json) · [外稿的解析假设与傅里叶约定](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-atomic-certificate-for-triangular-lattice-universal-optimality-September-26-2026/build/main.tex#L79)
+
+## 一、在自对偶参数上求出两个原点值
+
+傅里叶核取 $e^{-2\pi i x\cdot\xi}$，于是 $\widehat k=k$。设 $f$ 是外稿该参数的实径向 Schwartz 辅助函数。它满足 $f\le k$、$\widehat f\ge0$、$f(v)=k(v)$ 对 $v\in A\setminus\{0\}$、$\widehat f(w)=0$ 对 $w\in A^*\setminus\{0\}$。注意在原格是与高斯接触，在对偶格则是消失。面积为一给 $A^*=JA$，$J$ 是四分之一转，径向性允许互换这两组半径。故 $k-\widehat f$ 也满足这四条，平均后
+$$
+ g=(f+k-\widehat f)/2,\qquad \widehat g=(\widehat f+k-f)/2,\qquad g+\widehat g=k .
+$$
+特别是 $g(v)=k(v)$ 与 $\widehat g(w)=0$ 在全部相应的非零格点分别成立。Poisson 求和给 $\widehat g(0)-g(0)=\Theta-1$，故
+$$
+ \widehat g(0)=a=\Theta/2,\qquad g(0)=1-a.
+$$
+因 $\widehat g\ge0$，傅里叶反演给 $g(x)\le g(0)$；于是
+$$
+ \widehat g(\xi)=k(\xi)-g(\xi)\ge a-\pi|\xi|^2. \tag{2}
+$$
+严格区间复算给 $0.579797633481<a<0.579797633482$。因此半径 $\sqrt{1/32}$ 内的 $\min\widehat g$ 在 $[0.481622863057,0.579797633482]$ 内；下端已足以计算 (1)。这里评估的是具体对称化函数。原稿未对称化的 $f(0)$ 并不由 Poisson 的差值单独决定。
+
+**独立三次证书。** 令 $t=2\pi|x|^2$，$L_n$ 为标准 Laguerre 多项式。$kL_n(t)$ 的平面傅里叶本征值为 $(-1)^n$，可将 $\sum L_n(t)s^n=(1-s)^{-1}\exp[-ts/(1-s)]$ 乘 $k$ 后逐项作高斯变换验证。若 $\widehat g=kP(t),\ g=k-\widehat g$ 且 $\deg P\le3$，本征分解迫使
+$$
+ P=\tfrac12+vL_1-uL_3 .
+$$
+在两端符号要求 $P\ge0$ 下，取 $r=(9+\sqrt{33})/2$。因为 $L_1(r)=L_3(r)=1-r$，$P(r)\ge0$ 即给 $2P(0)-1=2(v-u)\le 1/(r-1)$。取
+$$
+ u=\frac1{(r-1)(3r-8)},\qquad v=u+\frac1{2(r-1)},\qquad
+ P(t)=\frac u6(t-r)^2(t+2r-9).
+$$
+右式在 $t\ge0$ 非负，展开系数即为左述 Laguerre 组合。故 $a=P(0)$，$2a-1=(7-\sqrt{33})/8=0.156929669182\ldots$ 恰达到这个三次上界。(2) 仍成立。三角格第一壳 $t=4\pi/\sqrt3<r$，所以这个显式证书在该对偶壳取正值，确实留有间隙。下文的有限盘证明对两种 $g$ 完全相同。
+
+## 二、一个对所有有限点集有效的盘上估计
+
+令 $S=32$，$\operatorname{sinc}(t)=\sin(\pi t)/(\pi t)$（零处连续延拓），取
+$$
+ h(t)=\operatorname{sinc}^2(t)+\operatorname{sinc}^2(t-\tfrac12),\quad
+ H(x)=h(x_1/S)h(x_2/S),\quad K=H^4/\int H^4 .
+$$
+$H,K\ge0$，$\int K=1$。$\widehat{\operatorname{sinc}^2}$ 是帐篷函数 $(1-|\xi|)_+$，支撑为 $[-1,1]$，故 $\widehat H$ 支撑在 $[-1/S,1/S]^2$，$\widehat K$ 支撑在 $[-4/S,4/S]^2$。后一个方块的最大 $|\xi|^2$ 是 $1/32$。
+
+记 $\sigma_R$ 为圆周弧长测度，$c=2^{17}$。以下连续函数在整个闭盘上至少取一：
+$$
+ \Phi_R=\mathbf1_{B_R}*K+c\,\sigma_R*H. \tag{3}
+$$
+证明时写 $s=R-|x|\ge0$、$w=s/S$。第一项的亏损至多 $\int_{|y|\ge s}K(y)\,dy$。由 $\sin^2+\cos^2=1$，有 $h(t)\ge[\pi^2(1+|t|)^2]^{-1}$。从最近的圆周点各向取半单位弧长，可得一段总长一的弧，弧上 $|y-x|\le s+1$。故第二项至少为 $c/[100(w+33/32)^4]$。
+
+为估尾，$0\le h\le2$；在 $[0,1/2]$ 上两项各至少 $4/\pi^2$，故 $\int H^4>S^2/32$。当 $v=|x|/S\ge2$ 时，一坐标的绝对值除以 $S$ 至少为 $v/\sqrt2\ge1$，在该坐标 $h(t)\le5/(\pi^2t^2)$，于是 $H(x)\le3v^{-2}$。径向积分给 $w\ge2$ 时的亏损至多 $4096w^{-6}$。$w\le4$ 时用亏损至多一；$w\ge4$ 时用 $4096w^{-6}$。代入上段的有理常数，两段都由弧项补足。
+
+任意半径 $t$ 的盘截取圆周的总弧长不超过 $2\pi t$。当 $t<R$ 时这由圆心角至多 $2\arcsin(t/R)$ 得到，$t\ge R$ 时直接用全周。将距离分成 $|x-y|\le2S$ 与二倍环 $2^j S\le |x-y|\le2^{j+1}S$（$j\ge1$），上一段给
+$$
+ \|\sigma_R*H\|_\infty\le112S<2^{12},\qquad
+ \|\sigma_R*K\|_\infty\le128S+\frac{32\cdot3^4\cdot16}{127S}<2^{13}.
+$$
+对 $F=\mathbf1_{B_R}*K,\ D=c\sigma_R*H$，有 $F\le1$、$\|F\|_1=\pi R^2$、$\|D\|_\infty\le2^{29}$，由 $\int H=4S^2$ 得 $\|D\|_1\le2^{32}R$。又 $|\nabla F|\le\sigma_R*K$（对圆盘指标作分布导数），故 $\|\nabla F\|_2^2\le2^{16}R$。$D$ 的带宽给 $\|\nabla D\|_2^2\le(2\pi\sqrt2/S)^2\|D\|_2^2\le2^{61}R$。从而
+$$
+ \|\Phi_R\|_2^2\le\pi R^2+2^{62}R,\qquad
+ \|\nabla\Phi_R\|_2^2\le2^{63}R.
+$$
+
+写 $M(\xi)=\sum_x e^{2\pi i x\cdot\xi}$。在 $\widehat\Phi_R$ 的支撑内 $\pi|\xi|^2\le\pi/32<a/2$，故 (2) 给 $1/\widehat g\le1/a+2\pi|\xi|^2/a^2$。用 Plancherel 得
+$$
+ \int_{\mathrm{supp}\widehat\Phi_R}\frac{|\widehat\Phi_R|^2}{\widehat g}
+ \le\|\Phi_R\|_2^2/a+\|\nabla\Phi_R\|_2^2/(2\pi a^2)
+ \le(\pi R^2+2^{64}R)/a.
+$$
+由 $N\le\sum_x\Phi_R(x)=\int M\widehat\Phi_R$ 和加权 Cauchy–Schwarz，可下界 $\int|M|^2\widehat g=\sum_{x,y}g(x-y)$。除以 $N$ 并扣掉 $g(0)=1-a$，再用 $k\ge g$ 比较异点项，即得 (1)。全过程只用点集在这个圆盘中及其基数；即便小区域内包含很多点，也无需更改常数。
+
+## 三、真实三角格的周长损失
+
+令 $E_R(A+x_0)$ 表示平移三角格在原点圆盘中的同一每粒子能量，$N_R$ 为其盘内点数。记 $v\ne0$ 为格位移，$D_R(v)$ 是盘内 $x$ 满足 $x+v$ 在盘外的个数。将 $v=m w$ 写成本原格方向 $w$ 的正整数倍。平行于 $w$ 的格行间距为 $1/|w|$。一行内有 $n$ 个连续格点时，位移 $v$ 恰好损失 $\min(m,n)$ 个。距盘心不超过 $R$ 的格行至多 $2R|w|+1$ 条。当 $R\ge |v|/2$ 时，距盘心不超过 $\sqrt{R^2-|v|^2/4}$ 的每行弦长至少 $|v|$，这类行至少有 $2|w|\sqrt{R^2-|v|^2/4}-1$ 条。因此对一切 $R$ 和平移，
+$$
+ \left|D_R(v)-2R|v|\right|\le m+|v|^2.
+$$
+这里用 $R-\sqrt{R^2-|v|^2/4}\le |v|/2$；在 $R<|v|/2$ 时下界直接取零。令 $M_1=\sum_{v\ne0}|v|k(v)$、$D_A=\sum_{v\ne0}(m+|v|^2)k(v)$。逐位移计数给出
+$$
+ \left|N_R(\Theta-1-E_R)-2R M_1\right|\le D_A<0.344153580481. \tag{4}
+$$
+有界基本胞夹住半径只差其直径的圆盘，所以 $N_R=\pi R^2+O(R)$，误差对平移一致。因此
+$$
+ E_R(A+x_0)=\Theta-1-\frac{2M_1}{\pi R}+O(R^{-2}),\qquad
+ 0.109236393143<2M_1/\pi<0.109236393144 .
+$$
+若 (1) 对尖锐 $a=\Theta/2$ 能用 $\pi R^2+CR+o(R)$ 作普适分母，则 $C\ge2M_1/a>0.591889704938$。确实，每个 $R$ 上取基本胞中均匀平移，盘内点数的平均是 $\pi R^2$，故可选某一平移有 $N_R\ge\pi R^2$。将它代入 (1) 的拟议改进，与刚证的一致展开比较 $R^{-1}$ 系数即可。最优通用 $C$ 的数值仍开放。
+
+## 四、哪些混合可进入下极限
+
+对局部有限中心密度一的点集，$N_R/(\pi R^2)\to1$。完全单调非负势 $V(t)$ 在 $t>0$ 取有限值，经典 Bernstein–Widder 表示给 $V(t)=\int_{[0,\infty)}e^{-st}\,d\mu(s)$，其中 $\mu$ 为正测度。对每个 $N_R>0$ 的圆盘先有精确等式
+$$
+ \frac1{N_R}\sum_{x\ne y}V(|x-y|^2)
+ =\int_{[0,\infty)}\frac1{N_R}\sum_{x\ne y}e^{-s|x-y|^2}\,d\mu(s).
+$$
+任取 $R_n\to\infty$。若在 $\mu$-几乎处处的 $s>0$ 已有对应 $\alpha=s/\pi$ 的高斯下界，则正被积函数的 Fatou 引理允许把每一参数的下极限作共同下界，Tonelli 再将三角格位移求和移入。$s=0$ 时盘内值为 $N_R-1\to\infty$，格和也发散。对三角格本身，每个位移保留的点数比趋于一；先截取有限位移再取上确界即涵盖发散情形，收敛时全格和又逐点给上界。这是源中全参数结论的转移机制。(1) 的具体常数只使用 $\alpha=1$；一般正混合未在此得到统一的有限半径周长常数。混合中也无需假设各 $g_\alpha$ 可积成一个 Schwartz 函数。
+
+原程序以精确向外区间验证两个 $20\times20$ 块、参数多面体及 Bernstein 表。本轮已从固定字节用 `python -I verification/check_certificate.py` 重放，退出零且无输出。原稿关于无限修正级数的收敛、全域连续符号传播与锐接触的论证由原作者提供；有限程序的成功并不复证这些全域断言。本文的三次证书、周长损失 (4) 及有序对圆盘估计均有独立推导。现有资料未提供将平面势与盘密度运输到原生六轴时序的保真映射。[冻结核验器](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-atomic-certificate-for-triangular-lattice-universal-optimality-September-26-2026/verification/check_certificate.py) · [原稿傅里叶截断与正混合](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-atomic-certificate-for-triangular-lattice-universal-optimality-September-26-2026/build/main.tex#L402)
+
+`python gaussian_check.py` 只用标准库，以 Machin 反正切界、指数交错级数和整数平方根夹出表内常数。四个真实三角格盘做了 336 组位移计数；截去的高斯壳另有统一有理上界。可用 `--source-dir PATH` 同时核两份源文件的 SHA-256 并重放冻结 checker。[复算脚本](gaussian_check.py) · [整数与有理区间](gaussian_checked.json)
