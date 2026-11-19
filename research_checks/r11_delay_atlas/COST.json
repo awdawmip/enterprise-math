@@ -1,0 +1,150 @@
+{
+  "certification": {
+    "mutations": {
+      "cpu_seconds": 0.09583799999999999,
+      "peak_rss_kib": 13312,
+      "result": {
+        "controls_rejected": 8,
+        "negative_controls": [
+          {
+            "control": "delete_one_positive_pending_slot",
+            "rejection": "complete_field"
+          },
+          {
+            "control": "change_one_remaining_time",
+            "rejection": "complete_field"
+          },
+          {
+            "control": "omit_one_background_address",
+            "rejection": "model_site_count"
+          },
+          {
+            "control": "widen_gate",
+            "rejection": "model_gate"
+          },
+          {
+            "control": "claim_other_background_permitted_phase",
+            "rejection": "recovery_phase"
+          },
+          {
+            "control": "lose_cumulative_labelled_flux",
+            "rejection": "cumulative_flux"
+          },
+          {
+            "control": "different_full_states_same_locator",
+            "rejection": "complete_field"
+          },
+          {
+            "control": "mark_unexecuted_case_recovered",
+            "rejection": "executed_prefix"
+          }
+        ]
+      },
+      "stdout_bytes": 843,
+      "wall_seconds": 0.09613220799656119
+    },
+    "verify_archive": {
+      "cpu_seconds": 3.635666,
+      "peak_rss_kib": 23140,
+      "result": {
+        "all_b_entries_per_state": 5832,
+        "archived_full_snapshot_rows_checked": 11664,
+        "case_count": 144,
+        "classifications": {
+          "INPUT_UNAVAILABLE": 0,
+          "NEW_CYCLE": 0,
+          "NOT_RUN": 0,
+          "RECOVERED": 144,
+          "UNKNOWN_BUDGET": 0
+        },
+        "expanded_periodic_tail_transitions": 36480,
+        "explicit_prefix_states": 528,
+        "explicit_prefix_transitions": 384,
+        "full_states_checked": 37008,
+        "original_zip_bytes_checked": true,
+        "transitions_checked": 36864
+      },
+      "stdout_bytes": 421,
+      "wall_seconds": 3.6467255929965177
+    }
+  },
+  "contract_total_wall_seconds_including_full_comparisons_certificate_and_output": {
+    "reference": 403.1801072469898,
+    "repair": 19.41642993599089
+  },
+  "observed_max_pending_histogram_by_case": {
+    "32": 96,
+    "33": 48
+  },
+  "output": {
+    "bytes": 97968,
+    "case_rows": 144,
+    "fresh_buffered_write_only_seconds": 0.00013002999912714586,
+    "portable_ledger_construction_including_serialization_and_write_seconds": 0.47265426199737703,
+    "sha256": "4b886f4aecf4f66c471665dec1c1bb6f8d8d437fc79d666dd7216febb442c4c6"
+  },
+  "preparation": {
+    "auxiliary_build_indices_seconds": 2.1097002900205553e-05,
+    "auxiliary_rebuild_six_phase_seconds": 0.06969595400005346,
+    "material_and_adjacency_indices_deep_python_bytes": 3368,
+    "original_addresses": 5832,
+    "original_manifest_with_all_41_bound_members_verify_seconds": 0.03152946000045631,
+    "phase_fields_and_flows_deep_python_bytes": 319408
+  },
+  "reference": {
+    "brc_counts": {
+      "phase:brc_sum": 253,
+      "phase:verified_gap": 184,
+      "phase:zero_route": 474,
+      "reference:brc_sum": 1222944,
+      "reference:verified_gap": 884880,
+      "reference:zero_route": 2521008
+    },
+    "brc_max_bits": {
+      "phase": 6,
+      "reference": 18
+    },
+    "cases": 144,
+    "cpu_seconds": 397.83370698,
+    "operations": {
+      "exact_full_fields_and_all_labelled_increments": 36864,
+      "literal_ticks": 36864
+    },
+    "peak_rss_kib": 118808,
+    "setup_seconds": 0.14043904400023166,
+    "timed_phases": {
+      "kernel_and_source_observer_seconds": 395.6702255680648,
+      "whole_field_and_increment_verification_seconds": 1.0233839825814357
+    },
+    "wall_seconds": 398.9330657239989
+  },
+  "repair": {
+    "brc_counts": {
+      "phase:brc_sum": 253,
+      "phase:verified_gap": 184,
+      "phase:zero_route": 474,
+      "repair:brc_sum": 49728,
+      "repair:verified_gap": 5712,
+      "repair:zero_route": 30096
+    },
+    "brc_max_bits": {
+      "phase": 6,
+      "repair": 9
+    },
+    "cases": 144,
+    "cpu_seconds": 15.148207783,
+    "operations": {
+      "exact_full_fields_and_all_labelled_increments": 36864,
+      "recomputed_material_nodes": 1824
+    },
+    "peak_rss_kib": 118808,
+    "setup_seconds": 0.22108447000209708,
+    "timed_phases": {
+      "kernel_and_source_observer_seconds": 12.937453283040668,
+      "whole_field_and_increment_verification_seconds": 0.15703322818444576
+    },
+    "wall_seconds": 15.169388412999979
+  },
+  "schema": "R11_original_full_256_vs_positive_patch_v1",
+  "scope": "Separate processes and machine-dependent durations. Shared verification and output costs included once per compared route. Source import and phase building included in each source run. Buffered output does not measure fsync."
+}
