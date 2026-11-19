@@ -1,0 +1,97 @@
+{
+  "schema": "R284AI_EXACT_CHECK_V1",
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction; exact Gaussian elimination",
+  "finite_scope": "m=2..5 rational rank-one weights, Boolean pencils; m=2..3 ternary pencils/Port; principal minors m=2..4",
+  "checks": {
+    "pencil_exact": 2170,
+    "principal_minor_exact": 336,
+    "sign_involution": 152,
+    "rank_exact": 4,
+    "port_exact": 6
+  },
+  "cases": [
+    {
+      "m": 2,
+      "q": 4,
+      "rank_N": 3,
+      "corank": 1,
+      "nu": 2,
+      "cycle_packing": 4,
+      "gap": 2,
+      "weights_a": [
+        "1/2",
+        "2/3"
+      ],
+      "weights_b": [
+        "2/3",
+        "3/4"
+      ]
+    },
+    {
+      "m": 3,
+      "q": 6,
+      "rank_N": 4,
+      "corank": 2,
+      "nu": 4,
+      "cycle_packing": 6,
+      "gap": 4,
+      "weights_a": [
+        "1/2",
+        "2/3",
+        "3/4"
+      ],
+      "weights_b": [
+        "2/3",
+        "3/4",
+        "4/5"
+      ]
+    },
+    {
+      "m": 4,
+      "q": 8,
+      "rank_N": 5,
+      "corank": 3,
+      "nu": 6,
+      "cycle_packing": 8,
+      "gap": 6,
+      "weights_a": [
+        "1/2",
+        "2/3",
+        "3/4",
+        "4/5"
+      ],
+      "weights_b": [
+        "2/3",
+        "3/4",
+        "4/5",
+        "5/6"
+      ]
+    },
+    {
+      "m": 5,
+      "q": 10,
+      "rank_N": 6,
+      "corank": 4,
+      "nu": 8,
+      "cycle_packing": 10,
+      "gap": 8,
+      "weights_a": [
+        "1/2",
+        "2/3",
+        "3/4",
+        "4/5",
+        "5/6"
+      ],
+      "weights_b": [
+        "2/3",
+        "3/4",
+        "4/5",
+        "5/6",
+        "6/7"
+      ]
+    }
+  ],
+  "source_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "review": "NOT_REVIEWED"
+}
