@@ -1,0 +1,116 @@
+{
+  "schema": "R762GB_SIGNED_GATE_MARGINAL_AUDIT_V1",
+  "status": "PASS",
+  "precision": "INTEGER_EXACT",
+  "groups": [
+    {
+      "group": "S6-full",
+      "cycles": 40,
+      "signed_states": 320,
+      "group_order": 720,
+      "orbits": 4,
+      "orbit_sizes": [
+        40,
+        40,
+        120,
+        120
+      ],
+      "orbit_fibre_sizes_per_oriented_cycle": [
+        1,
+        1,
+        3,
+        3
+      ],
+      "nonempty_invariant_boolean_gates_exhausted": 15,
+      "all_masks_have_exact_uniform_oriented_marginal": true
+    },
+    {
+      "group": "K4-fixed-frame-S4",
+      "cycles": 8,
+      "signed_states": 64,
+      "group_order": 24,
+      "orbits": 4,
+      "orbit_sizes": [
+        8,
+        8,
+        24,
+        24
+      ],
+      "orbit_fibre_sizes_per_oriented_cycle": [
+        1,
+        1,
+        3,
+        3
+      ],
+      "nonempty_invariant_boolean_gates_exhausted": 15,
+      "all_masks_have_exact_uniform_oriented_marginal": true
+    },
+    {
+      "group": "K4-marked-three-STAR-S3",
+      "cycles": 6,
+      "signed_states": 48,
+      "group_order": 6,
+      "orbits": 8,
+      "orbit_sizes": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "orbit_fibre_sizes_per_oriented_cycle": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "nonempty_invariant_boolean_gates_exhausted": 255,
+      "all_masks_have_exact_uniform_oriented_marginal": true
+    }
+  ],
+  "frame_count": 30,
+  "frame_cycles_per_orientation": 6,
+  "marked_frame_count": 120,
+  "marked_cycles_per_orientation": 18,
+  "counterexample": {
+    "oriented_cycle": [
+      0,
+      1,
+      2
+    ],
+    "input_cell": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    "all_plus_output": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "one_output_sign_flipped": [
+      0,
+      -1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scope": "candidate signed permutation map, not proven native Cell/Link/Port permission"
+  },
+  "mathematical_scope": "fixed independent invariant one-step gates and weights on signed BRC labels; projection discards signs, retains g; repeated independent steps use same kernel",
+  "review": "NOT_REVIEWED"
+}
