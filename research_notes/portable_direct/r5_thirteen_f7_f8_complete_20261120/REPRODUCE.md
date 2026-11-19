@@ -1,0 +1,13 @@
+# Reproduction of the R5 13-label f7/f8 completion
+
+Scientific model and exact source pin: awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551. Frozen JSON EXACT_R5_ALL_101_BUDGETS.json, SHA256 50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b; accompanying stages_18.json. Use the full original prior reproduction package to obtain these files. The attached per-run reproduction package also includes them.
+
+1. Reconstruct exactly the 101×256×256 byte window adjacency with the predecessor make_adj.py. The byte at [k,h,j] is 1 iff 0<=N_j(k)-N_h(k)<=tau, tau=58182461585441404127941754879.
+2. Compile R5_THIRTEEN_F7_F8_SOLVER.cpp with g++ -O3 -std=c++17. Run it with ./solver window_adj.bin 18000000. It deduplicates all 244 input names to their 48 priced maximal-support classes, calculates f0 and exact f7/f8 for one representative per class, then prints all 244 names.
+3. Compare the resulting f7/f8 columns to ALL244_F0_F8.csv. The 48 class values must each be (7385,8335). Source per-class runs used the equivalent previous per-t r5_third13_solver.cpp with f7/f8 and an 18-million-state cap; this file presents a convenient all-class runner using the same recurrence. Existing exact f0..6 results are in the predecessor research directory.
+4. Independent check: use the preceding VERIFY_R5_THIRTEEN_F6_ENDPOINT_CLASSES.py with the frozen integer centers and the original complete class table; expected: 244 names, 48 classes. Its support reconstruction is independent of window_adj.bin. This check does not itself run the f>=1 Bellman search.
+5. The alternate 13-label C++ oracle uses nibble-packed counters (not the primary radix f+2) and action sets independently generated from doubled endpoints. For f=8 it gave t=2: 8335 (2,762,736 states, 7 action families), and t=178: 8335 (2,473,266 states, 8 action families).
+
+Proof of DP validity is in RESEARCH.md. The input-pin byte hash selects the fixed source, while exactness is justified by joint-support endpoint enumeration and finite Bellman recursion. The packed index satisfies (f+2)^13<=10^13<2^64 for f<=8.
+
+New local evidence files from the executed run include: R5_THIRTEEN_F0_F8_COMPLETE_ALL244.csv with original class IDs, R5_THIRTEEN_F0_F8_48_CLASS_CERTIFICATE.json with per-class local trace provenance, F7F8_CLASSES_*.json job outputs, test_t37.csv, test_t178.csv, and independent C++/Python oracle source. The published ALL244_F0_F8.csv omits the class column because CLASS48_CERTIFICATE.json and the reproduction solver supply its exact reconstruction. No new scientific input pin was introduced. NOT_REVIEWED; formal CLAIM/RUN not asserted.
