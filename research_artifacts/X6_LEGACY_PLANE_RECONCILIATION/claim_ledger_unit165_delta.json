@@ -1,0 +1,64 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "unit": 165,
+  "date": "2026-11-19",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "claims": [
+    {
+      "id": "X6-UNIT165-A3-WEIGHTED-CLOSED-INTEGRAL-LIFT",
+      "historical_producer": "src/enterprise_math/weighted_relation_field.py",
+      "historical_producer_blob": "e50bf991e4dc4280063556a7aad1028f9f9404ed",
+      "producer_lines": "71-82 weighted field; 85-110 closure predicate; 113-139 fixed-C integer recovery; 142-172 coarsening",
+      "historical_caller": "tests/test_weighted_relation_field.py",
+      "historical_caller_blob": "51748dfe340c385907c4f2218fa1ae5ae2260522",
+      "caller_lines": "23-39 generated-field closure/recovery; 40-88 coarsening and merge",
+      "source_type": "DERIVED_A3_SIGNED_INTEGER_RELATION_FIELD_NOT_NATIVE_NBRC",
+      "finding": "Weighted antisymmetry plus triangular closure has an integer-valued source c iff gcd(m_i) divides all field entries Z_ij; rows-inverse for specified C requires its modular congruences. Example m=(2,2),Z01=1 is closed but has no integer source. Coarsening to one group erases this integral-lift obstruction.",
+      "existing_implementation": "is_closed checks closure only; recover_totals checks C compatibility. No source claim that closedness alone verifies an integral lift was established; existing tests use generated integer fields.",
+      "native_path_count_subtraction_proved": false,
+      "lp011_wrong_argmax_proved": false,
+      "recommendation": "If a future consumer needs an actual integral A3 source rather than only rational closure, test gcd divisibility (or supplied-C recovery). Keep native path multiplicity distinguished from signed relation entries.",
+      "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_UNREVIEWED_NOT_ADMITTED"
+    }
+  ],
+  "author_evidence": [
+    {
+      "path": "research_notes/X6_UNIT165_WEIGHTED_RELATION_CLOSED_VS_INTEGRAL_LIFT_20261119.md",
+      "commit": "d4c0cf2cc55485b36c60eae3f6d4adfcf318f1e2",
+      "blob": "ab4c74cc059805b901bd2cce678defb3bed10bc8"
+    },
+    {
+      "path": "research_checks/X6_UNIT165_WEIGHTED_RELATION_INTEGRAL_LIFT_CHECK_20261119.py",
+      "commit": "c58a6769446a37f1d6a13534a612f3a3a76a3369",
+      "blob": "f6c950d2f1c045e448362c420fa6e2adeea3ba25"
+    },
+    {
+      "path": "research_checks/X6_UNIT165_WEIGHTED_RELATION_INTEGRAL_LIFT_RESULTS_20261119.json",
+      "commit": "8dcfa5ca7611e789c15c3d28232102b969c9a6ef",
+      "blob": "fffee48f96ca9ac2acf86f35bbd492471864faad"
+    }
+  ],
+  "bounded_validation": {
+    "all_arrays": 36036,
+    "weighted_closed": 1362,
+    "integrally_liftable": 1192,
+    "closed_not_integrally_liftable": 170,
+    "violations": 0,
+    "modes": [
+      "python",
+      "python -O",
+      "python -OO"
+    ],
+    "original_R063_rerun": false
+  },
+  "unresolved": [
+    "LP011 exact faulty native argmax commit:path:line",
+    "LP019 exact faulty native positive-BRC subtraction commit:path:line",
+    "remaining 28-LP production consumer coverage",
+    "Units149-152 Native source associations",
+    "independent Driver review and admission"
+  ],
+  "status": "AUTHOR_PARTIAL_UNREVIEWED_NOT_ADMITTED"
+}
