@@ -20,43 +20,44 @@
         "-O",
         "-OO"
       ],
-      "stdout_sha256": "0313122ce05f7efc0e9c6831dfe1ac391540f2d1f281cd3ef69e84ad7677536e",
+      "stdout_sha256": "9c9a175d0589b08fd2da0f501b0ee34cd19acef42ea67178b300391ad62c26ae",
       "historical_R061_decoder_executed": false,
-      "original_R063_benchmark_executed": false
+      "original_R063_benchmark_executed": false,
+      "always_on_validation": true
     },
     "verified_artifacts": [
       {
         "repository": "awdawmip/enterprise-math",
-        "commit": "82935e4d18de45adbd5eef62eac066fadaba9a17",
+        "commit": "a9a0010574599d95c7d1c113b64dbc294517dacb",
         "path": "research_notes/X6_UNIT150_R061_BIDIRECTIONAL_SPECTRUM_SIGNED_PATH_REVERSAL_SOURCE_AUDIT_20261119.md",
-        "blob": "7e27d93e8270c6e12aa0b2cce2ddc5649e1f8d16"
+        "blob": "18d09512318fc23e4240e40a8143e6a2b7c1a76d"
       },
       {
         "repository": "awdawmip/enterprise-math",
-        "commit": "1960a70a86bc55ae4e3036aee97ca6059184dd6d",
+        "commit": "2bd14f7f4039dc1412652c5939dc6167af267711",
         "path": "research_checks/X6_UNIT150_R061_SIGNED_NATIVE_REVERSAL_CHECK_20261119.py",
-        "blob": "b91f9fd67b8e2704aef466225b4ffcbdb89bd053"
+        "blob": "797d554211f47a67b17f4bcafe6837a22b79afc5"
       },
       {
         "repository": "awdawmip/enterprise-math",
-        "commit": "f42961687ab5aa27aaaf1f95eaf1450033b13833",
+        "commit": "e09eb9a723fd6245066a07086ce03c9e58b7e408",
         "path": "research_checks/X6_UNIT150_R061_SIGNED_NATIVE_REVERSAL_RESULTS_20261119.json",
-        "blob": "fc1f983fbecc2002110490486662b4d547e4594c"
+        "blob": "0e31b2d2bac6333beeb16d7a45b0d127889e277e"
       },
       {
         "repository": "awdawmip/enterprise-math",
-        "commit": "06478574ed82d6f6917a74276210215d466f1da0",
+        "commit": "d8fd68d28ce27d313e661faa203bf794aaa39a60",
         "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit150_delta.json",
-        "blob": "8bcc0c00f829f56efa8bc637f60217f5090d93e6"
+        "blob": "6150f74eaa38acd39aba365ed9ba11624bb80d4b"
       }
     ]
   },
   "research_activity": {
     "activity_id": "RA-5E3FE1E761E4963EC461A892",
-    "checkpoint_count": 164,
-    "commit": "8b65f17d832ed0b3f83833cf9630c35cb3681883",
-    "blob": "5f605aaa90815a48c0c01e5fcc8916dc0fb95245",
-    "event_id": "onhour-20261119-0910-x6-unit150-r061-bidirectional-native-reversal-v1",
+    "checkpoint_count": 165,
+    "commit": "7a861eec49c251d988a13f4ab9d64c60e0e174f2",
+    "blob": "68023027aa285d00f555c687e03ea1cd9198171f",
+    "event_id": "onhour-20261119-0928-x6-unit150-always-on-checker-repair-v1",
     "readback_verified": true
   },
   "native_controls": {
@@ -64,7 +65,7 @@
     "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
     "claim_id": "MCP-dedc91932641535d284fc171",
     "run_id": "RUN-c92057890282aaaeec520881",
-    "latest_successful_run_generation_before_pending_resume": 4,
+    "latest_successful_run_generation_before_pending_resume": 5,
     "source_published_through_unit": 147,
     "original_unit147_progress_request": "onhour-20261119-0800-x6-own-unit147-native-progress-v1",
     "unit147_progress_status": "SUCCEEDED / SOURCE_CHECKPOINT_PUBLISHED, canonical_publication_verified=true, authenticated_readback=true",
@@ -73,13 +74,14 @@
     "original_current_continuation_request": "onhour-20261119-0902-x6-own-cont-after147-v1",
     "current_continuation": "SUCCEEDED / OWN_RECORDED_RUN_REQUIRES_REAUTHORIZATION",
     "original_pending_resume_request": "onhour-20261119-0904-x6-own-post147-resume-v1",
-    "pending_resume_status_at_last_read": "RUNNING / error=null",
-    "unit148_native": "NOT_SUBMITTED",
+    "pending_resume_status_at_last_read": "SUCCEEDED / RUN_READY authorized=true, own generation5, Source HEARTBEAT comment6996512706",
+    "unit148_native": "SUBMITTED once onhour-20261119-0918-x6-own-unit148-native-progress-v1 / RUNNING error=null last read; original receipt must reconcile",
     "unit149_native": "NOT_SUBMITTED",
-    "unit150_native": "NOT_SUBMITTED"
+    "unit150_native": "NOT_SUBMITTED",
+    "unit148_pending_request": "onhour-20261119-0918-x6-own-unit148-native-progress-v1"
   },
   "evidence_debts": [
-    "Already saved Units148 and149 and new Unit150 are NOT Source-native semantically linked; first consume original current resume terminal and fresh writer generation before sequential native PROGRESS.",
+    "Unit148 Native PROGRESS already submitted once, original onhour-20261119-0918-x6-own-unit148-native-progress-v1 remained RUNNING/error=null; consume original receipt without duplicate. Unit149 and Unit150 are authored GitHub/Activity and Native semantic linkage pending.",
     "28-LP full downstream exact source line audit remains incomplete; historical LP011 signed-argmax caller and LP019 N-BRC subtraction caller UNRESOLVED_PROVENANCE.",
     "Original R063 six-file 512-case native benchmark not rerun; independent Driver review/admission pending."
   ],
@@ -89,7 +91,7 @@
     "Historical R061 source frozen claims and typed current rebase; original R063 benchmark.",
     "Any unknown/failed remote write or maintenance/other-owner identity; own original pending resume not duplicate."
   ],
-  "next_exact_action": "Read original resume onhour-20261119-0904-x6-own-post147-resume-v1 terminal. If SUCCEEDED/authorized, verify own current CLAIM, RUN and returned generation; publish Unit148 existing Source references alone as one PROGRESS (upload_ids=[]), read Source, then sequential Unit149 and Unit150 after prior termination and current authorization. If still in flight, preserve original request and pursue only independent uninspected source audit. Independently audit genuine remaining 28-LP consumers and LP011/LP019 provenance; no inference from search absence.",
+  "next_exact_action": "Consume original Unit148 progress request onhour-20261119-0918-x6-own-unit148-native-progress-v1. If Source-published, authenticate checkpoint/event and current own winning claim/RUN/generation, publish Unit149 alone then Unit150 once each under current writer authority and upload_ids=[], readback; preserve author UNREVIEWED/NOT_ADMITTED. If still in flight do not overlap. Continue remaining real historical/current 28-LP downstream with source lines; LP011/LP019 exact historical wrong caller remains unresolved.",
   "continuation_state": "OPEN",
   "scheduler_config_changed": false
 }
