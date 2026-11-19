@@ -91,8 +91,9 @@
     },
     "new_original_resume": {
       "request_id": "onhour-20261119-1106-x6-own-run-c920-unit152-resume-v1",
-      "last_read": "RUNNING / error=null",
-      "must_consume_original": true
+      "last_read": "LAST_DIRECT_RESULT_READ_FAILED: UPSTREAM_OUTCOME_UNKNOWN (operation_sent=true); earlier original receipt RUNNING/error=null",
+      "must_consume_original": true,
+      "reconcile": "em_control_reconcile(original_request_id) returned NOT_RECONCILABLE; no repeat or new resume/CLAIM/PROGRESS submitted"
     },
     "native_units_149_to_152": "NOT_PUBLISHED",
     "fresh_writer_authority": "PENDING_OWN_RESUME_TERMINAL"
@@ -108,14 +109,15 @@
     "Native semantic association Unit149–152; original failed Unit149 GITHUB_PRIMARY_RATE_LIMIT is terminal and cannot be blindly replayed.",
     "Original own resume new request in flight, no authorization inferred from QUEUED/RUNNING; only original-ID result consumption.",
     "28-LP full historic/current downstream consumer and exact LP011/LP019 caller source:line provenance unfinished.",
-    "Original separate R063 six-file 512-case benchmark and independent Driver review/admission pending."
+    "Original separate R063 six-file 512-case benchmark and independent Driver review/admission pending.",
+    "At latest original request status read gateway returned UPSTREAM_OUTCOME_UNKNOWN/operation_sent=true for onhour-20261119-1106-x6-own-run-c920-unit152-resume-v1; original reconcile returned NOT_RECONCILABLE. No terminal/Source proof; preserve original ID and do not reauthorize or publish while unknown."
   ],
   "do_not_repeat": [
     "Units1-148 already Source-published Native PROGRESS; existing author science Units149-152 and corresponding Activity167.",
     "Unit149 original FAILED write, any unknown/failed Source write or another live owner claim.",
     "Existing six-file R063 benchmark, previously proven mathematics, maintenance lane identity and independent reviewer role."
   ],
-  "next_exact_action": "Consume original onhour-20261119-1106-x6-own-run-c920-unit152-resume-v1 terminal; verify live owner claim and RUN generation from authenticated Source. Preserve FAILED Unit149, do not retry or disguise; perform only currently permitted Native association of existing Unit149–152 author evidence. Independently audit exact uninspected 28-LP historical/current native consumers with paths and lines; separately track original R063 benchmark and Driver review.",
+  "next_exact_action": "First read original onhour-20261119-1106-x6-own-run-c920-unit152-resume-v1 through native same-request result after gateway recovers; report terminal Source authorization/readback, never reissue ambiguous resume. If no native route, maintain saved author frontier and use live authorized source evidence, without fresh CLAIM. Unit149 FAILED request remains terminal and must not be replayed; continue source-exact LP011/LP019 audit and original R063 scope separately.",
   "continuation_state": "OPEN",
   "scheduler_modified": false,
   "independence": "UNREVIEWED/NOT_ADMITTED"
