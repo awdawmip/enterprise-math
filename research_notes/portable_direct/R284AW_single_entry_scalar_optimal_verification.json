@@ -1,0 +1,44 @@
+{
+  "research_unit": "R284AW",
+  "status": "PASS",
+  "seed": 2842719,
+  "exact_integer_reconstructions": 590,
+  "exhaustive_3x3_binary_matrices": 512,
+  "adaptive_lower_bound_test_readings": 75,
+  "query_counts_by_dimension": {
+    "2": 1,
+    "3": 2,
+    "4": 3,
+    "5": 4,
+    "6": 5
+  },
+  "max_diagonal_bits": 1393,
+  "max_query_bits": 11718,
+  "exemplar": {
+    "n": 2,
+    "H": 2,
+    "queries": 1,
+    "base_bits": 7,
+    "separator_shift": 12,
+    "max_diagonal_bits": 43,
+    "max_query_bits": 84,
+    "weights": [
+      1,
+      2
+    ],
+    "matrix": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "readings_sha256": "abe24a8b0e2820b959a2e8381365cbfbbb604ae1921267131d7c57d676add075"
+  },
+  "implementation": "Python standard library integer Bareiss; balanced signed radix",
+  "logical_scope": "finite testing; theorem proof supplied separately",
+  "independent_review": "NOT_REVIEWED"
+}
