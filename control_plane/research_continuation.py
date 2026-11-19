@@ -495,7 +495,7 @@ def checkpoint_frontier(task_id: str, publication_id: str, *, root: Path,
             if (event.get("event") != "PROGRESS"
                     or event.get("task_id") != task_id
                     or event.get("publication_id") != publication_id
-                    or event.get("claim_id") != pointer["claim_id"]):
+                    or event.get("researcher_id") != pointer["researcher_id"]):
                 continue
             source_ref = _fixed_source_candidate(
                 event.get("progress_ref"), "AUTHENTICATED_PRIOR_PROGRESS")
@@ -505,15 +505,25 @@ def checkpoint_frontier(task_id: str, publication_id: str, *, root: Path,
                     or source_ref["path"] == path):
                 continue
             recent_progress.append((index, event, source_ref))
+        # Bound work per recorded claim rather than hiding earlier
+        # same-session owner epochs behind recent unrelated progress.
+        per_claim = {}
+        for candidate in recent_progress:
+            per_claim.setdefault(candidate[1].get("claim_id"), []).append(candidate)
+        history_groups = list(per_claim.values())
+        history_truncated = (len(history_groups) > 16
+                             or any(len(group) > 4 for group in history_groups))
         prior_checkpoints = []
-        for index, event, source_ref in recent_progress[-8:]:
+        for index, event, source_ref in (
+                candidate for group in history_groups[-16:]
+                for candidate in group[-4:]):
             try:
                 earlier_state = research_runtime_reducer.reduce_task(
                     definition, filtered[:index + 1],
                     now=research_runtime_reducer.parse_time(event["at"]),
                     default_lease_minutes=120)
-                if (earlier_state.get("claim_id") != pointer["claim_id"]
-                        or earlier_state.get("ownership_epoch") != pointer["ownership_epoch"]
+                if (earlier_state.get("claim_id") != event.get("claim_id")
+                        or earlier_state.get("researcher_id") != pointer["researcher_id"]
                         or earlier_state.get("session_id") != pointer["session_id"]
                         or earlier_state.get("last_progress_ref") != event.get("progress_ref")
                         or earlier_state.get("last_progress_at") != event["at"]):
@@ -523,11 +533,16 @@ def checkpoint_frontier(task_id: str, publication_id: str, *, root: Path,
                 _require(earlier.get("schema") in {
                     "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
                     "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V2"}, "invalid earlier checkpoint schema")
-                for key in ("task_id", "publication_id", "claim_id",
-                            "ownership_epoch", "session_id", "researcher_id"):
+                for key in ("task_id", "publication_id", "session_id", "researcher_id"):
                     _require(earlier.get(key) is not None
                              and earlier.get(key) == pointer.get(key),
                              f"earlier checkpoint {key} binding differs")
+                for key in ("claim_id", "ownership_epoch"):
+                    _require(earlier.get(key) is not None
+                             and earlier.get(key) == earlier_state.get(key),
+                             f"earlier checkpoint historical {key} binding differs")
+                _require(earlier["claim_id"] == event.get("claim_id"),
+                         "earlier checkpoint claim differs from original PROGRESS")
                 earlier_pin = artifact_pin(root, earlier_path, source_commit)
                 for output in earlier.get("output_manifest", []):
                     _require(isinstance(output, dict) and _text(output.get("path")),
@@ -550,6 +565,7 @@ def checkpoint_frontier(task_id: str, publication_id: str, *, root: Path,
                 continue
         return {"state": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED", "checkpoint": checkpoint,
                 "source_artifacts": pins, "prior_authenticated_checkpoints": prior_checkpoints,
+                "prior_history_truncated": history_truncated,
                 "semantic_status": "AUTHOR_REPORTED_NOT_MATHEMATICAL_ACCEPTANCE",
                 "execution_authorized": False}
     except Exception as exc:
