@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_fourteen_dominance_20261120/VERIFY_DOMINANCE_ENDPOINT_INDEPENDENT.py",
+    "ref": "c328562411f49bd9981d54b2eeb9b0220a66986c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261120-0239-fourteen-dominance-20159-v1-source-10",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Independent exact doubled-endpoint vs recorded priced support dominance on 82 classes.\"\"\"\nfrom pathlib import Path\nimport csv,json,hashlib,random\nroot=Path(__file__).parent\nraw=(root/\"EXACT_R5_ALL_101_BUDGETS.json\").read_bytes()\nassert hashlib.sha256(raw).hexdigest()==\"50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b\"\ndata=json.loads(raw)\ntau=int(json.loads((root/\"stages_18.json\").read_text())[\"U\"])-1\ncenters={k:tuple(map(int,data[\"counts_and_cohorts\"][str(k)][\"counts\"])) for k in range(214,315)}\nW=(0,16,32,48,1,64,17,80,18,24,34,82)\nreps={int(r[\"class\"]):(int(r[\"u\"]),int(r[\"v\"])) for r in csv.DictReader(open(root/\"R5_14_CLASS_REPS.csv\"))}\nrows=list(csv.DictReader(open(root/\"R5_F8_DOMINANCE_COVERAGE_22.csv\")))\nbench=[int(r[\"class\"]) for r in csv.DictReader(open(root/\"BENCHMARKS_22.csv\"))]\nassert len(reps)==len(rows)==1906 and len(bench)==22\ndef actions(i):\n h=W+reps[i];minimal={}\n for k in centers:\n  x=[centers[k][name] for name in h]\n  eps=[2*v-tau for v in x]\n  m={sum(1<<j for j,y in enumerate(x) if abs(2*y-e)<=tau) for e in eps}\n  mx=tuple(sorted(s for s in m if not any(s!=t and (s&t)==s for t in m)))\n  if mx==(16383,):continue\n  minimal[mx]=min(k,minimal.get(mx,k))\n return [(price,m) for m,price in minimal.items()]\ndef swap(m):\n return (m&~(3<<12))|((m&(1<<12))<<1)|((m&(1<<13))>>1)\ndef dominant(A,B):\n return all(any(ca<=cb and all(any((ma&mb)==ma for mb in masks_b) for ma in masks_a)\n                for ca,masks_a in A) for cb,masks_b in B)\nR=random.Random(20261120)\ncovered=[int(r[\"class\"]) for r in rows if int(r[\"certified\"])]\nuncovered=[int(r[\"class\"]) for r in rows if not int(r[\"certified\"])]\nselected=sorted(set(bench+R.sample(covered,35)+R.sample(uncovered,25)))\nrefs={b:actions(b) for b in bench}\nfor i in selected:\n A=actions(i)\n expected=bool(int(rows[i][\"certified\"]))\n observed=any(dominant(A,refs[b]) or dominant(A,[(cost,tuple(swap(x) for x in masks)) for cost,masks in refs[b]]) for b in bench)\n assert observed==expected,(i,expected,observed)\nprint(\"PASS_INDEPENDENT_14_DOMINANCE_ENDPOINT\",len(selected),\"classes\",sum(int(rows[i][\"certified\"]) for i in selected),\"covered\")\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c328562411f49bd9981d54b2eeb9b0220a66986c/research_notes/portable_direct/r5_fourteen_dominance_20261120/VERIFY_DOMINANCE_ENDPOINT_INDEPENDENT.py",
+      "encoding": "utf-8",
+      "sha": "49728bc1be28a79a3b9ff050a41312e4d8ec5b05"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
