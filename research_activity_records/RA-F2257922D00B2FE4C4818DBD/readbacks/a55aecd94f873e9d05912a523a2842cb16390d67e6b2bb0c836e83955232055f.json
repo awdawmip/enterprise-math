@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_pair_augmentation_20261119/VERIFY_PAIR_ENDPOINT.py",
+    "ref": "8918531323add63966eaa6a69eff15c0fb152183",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261119-1840-pair-augmentation-source-5",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Independent doubled-endpoint verification for selected R5 pair augmentations.\nUsage after running the C++ census:\n python3 VERIFY_PAIR_ENDPOINT.py\nRequires the frozen EXACT_R5_ALL_101_BUDGETS.json, stages_18.json,\npair_signature_members.tsv, and pair_budget_results.tsv in this directory.\n\"\"\"\nimport json, random, functools, hashlib\nfrom pathlib import Path\nroot=Path(__file__).parent\nraw=(root/\"EXACT_R5_ALL_101_BUDGETS.json\").read_bytes()\nassert hashlib.sha256(raw).hexdigest()==\"50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b\"\ndata=json.loads(raw)\ntau=int(json.loads((root/\"stages_18.json\").read_text())[\"U\"])-1\ncenters=[tuple(map(int,data[\"counts_and_cohorts\"][str(k)][\"counts\"])) for k in range(214,315)]\nH=(0,16,32,48,1,64)\nbyid={}\nfor line in (root/\"pair_budget_results.tsv\").read_text().splitlines():\n if line.startswith(\"#\"):continue\n row=list(map(int,line.split()))\n byid[row[0]]=row\npairs={}\nfor line in (root/\"pair_signature_members.tsv\").read_text().splitlines():\n if line.startswith(\"#\"):continue\n u,v,ident=map(int,line.split())\n pairs[(u,v)]=byid[ident]\nassert len(pairs)==31125\n\ndef families(labels):\n classes={}\n for k,cs in enumerate(centers,214):\n  v=[cs[i] for i in labels]\n  # 2*y is a doubled left endpoint; this is independent of center windows\n  endpoints=[2*t-tau for t in v]\n  masks={sum(1<<j for j,z in enumerate(v) if abs(2*z-x)<=tau)\n         for x in endpoints}\n  fam=tuple(sorted(s for s in masks\n       if all(s==t or (s&t)!=s for t in masks)))\n  classes.setdefault(fam,k)\n return tuple(sorted((k,fam) for fam,k in classes.items() if fam!=(255,)))\n\ndef solve(acts,f):\n @functools.lru_cache(None)\n def visit(e):\n  live=sum(1<<i for i,x in enumerate(e) if x<=f)\n  if live.bit_count()<=1:return 0\n  opts=[]\n  for k,ss in acts:\n   if any((s&live)==live for s in ss):continue\n   nxt=[]\n   for s in ss:\n    ee=tuple(min(f+1,x+(1 if not(s&(1<<i)) else 0))\n             for i,x in enumerate(e))\n    nxt.append(visit(ee))\n   opts.append(k+max(nxt))\n  assert opts\n  return min(opts)\n return visit((0,)*8)\n\nrare=[pair for pair,v in pairs.items() if v[5]>1678]\nassert len(rare)==36\nrng=random.Random(20261119)\nchosen=set(rare+rng.sample(list(pairs),400))\nfor pair in chosen:\n acts=families(H+pair)\n assert solve(acts,0)==pairs[pair][4],(pair,\"f0\")\nfor pair in rare:\n acts=families(H+pair)\n assert solve(acts,1)==pairs[pair][5],(pair,\"f1\")\n assert solve(acts,2)==pairs[pair][6],(pair,\"f2\")\nprint(\"PASS_ENDPOINT_PAIR_CENSUS\",len(chosen),\"f0; rare f1/f2\",len(rare))\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/8918531323add63966eaa6a69eff15c0fb152183/research_notes/portable_direct/r5_pair_augmentation_20261119/VERIFY_PAIR_ENDPOINT.py",
+      "encoding": "utf-8",
+      "sha": "7d32f442c765bd78e89cdce11f46511b60e0df0f"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
