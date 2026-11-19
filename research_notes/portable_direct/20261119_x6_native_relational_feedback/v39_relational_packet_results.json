@@ -1,0 +1,1895 @@
+{
+  "schema": "X6_V39_RELATIONAL_PATH_BRC_CHECK_V1",
+  "source_revision": "ef720decf4a35a276e509964250571a55421b9f8",
+  "historical_R757_revision": "ed0b15b4ba948a21150969478d8a6941db76b11f",
+  "native_context": {
+    "world": "HEARTBEAT_WORLD_NATIVE_X6",
+    "cell_anchor": "fixed symbolic native Cell c",
+    "selected_oriented_support": "three distinct native axes 0->1->2->0",
+    "detector": "one fixed spatial axis j in the selected support",
+    "window": "three consecutive shell reads with known first shell",
+    "input_bridge": "prior fixed-port readout; common detector reference and delta=+1",
+    "scope": "readout-to-loop extension; raw native force state is retained by the upstream carrier"
+  },
+  "entrypoint": "check_v39_relational_packets.py:run",
+  "input_carrier": "Eight named signed-shell Path/BRC leaves; source-separable code is an outer finite parameter, not a physical probability.",
+  "operation_semantics": "Append source-defined ABC permutations, expand C as B-;A-, compose exact V39 frame actions, retain directed histories.",
+  "observer_and_future_scope": "Fixed-window adjacent-sign relation; at the new controller's completion, all V39 L_JH based-loop futures.",
+  "old_standard_frame_subsets": {
+    "1": {
+      "sufficient": false,
+      "output_count": 2,
+      "largest_relation_fiber": 4,
+      "witness": [
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              -1
+            ],
+            [
+              "shell_2",
+              -1
+            ]
+          ],
+          "relation": [
+            1,
+            1,
+            -1
+          ],
+          "packets": [
+            "ABC",
+            "ABC",
+            "ABC"
+          ]
+        },
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              -1
+            ],
+            [
+              "shell_2",
+              1
+            ]
+          ],
+          "relation": [
+            1,
+            -1,
+            1
+          ],
+          "packets": [
+            "ABC",
+            "ABC",
+            "ACB"
+          ]
+        },
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              1
+            ],
+            [
+              "shell_2",
+              -1
+            ]
+          ],
+          "relation": [
+            -1,
+            -1,
+            -1
+          ],
+          "packets": [
+            "ABC",
+            "ACB",
+            "ABC"
+          ]
+        },
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              1
+            ],
+            [
+              "shell_2",
+              1
+            ]
+          ],
+          "relation": [
+            -1,
+            1,
+            1
+          ],
+          "packets": [
+            "ABC",
+            "ACB",
+            "ACB"
+          ]
+        }
+      ]
+    },
+    "2": {
+      "sufficient": false,
+      "output_count": 3,
+      "largest_relation_fiber": 2,
+      "witness": [
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              -1
+            ],
+            [
+              "shell_2",
+              -1
+            ]
+          ],
+          "relation": [
+            1,
+            1,
+            -1
+          ],
+          "packets": [
+            "ABC",
+            "ABC",
+            "ABC"
+          ]
+        },
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              -1
+            ],
+            [
+              "shell_2",
+              1
+            ]
+          ],
+          "relation": [
+            1,
+            -1,
+            1
+          ],
+          "packets": [
+            "ABC",
+            "ABC",
+            "ACB"
+          ]
+        }
+      ]
+    },
+    "3": {
+      "sufficient": false,
+      "output_count": 3,
+      "largest_relation_fiber": 3,
+      "witness": [
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              -1
+            ],
+            [
+              "shell_2",
+              1
+            ]
+          ],
+          "relation": [
+            1,
+            -1,
+            1
+          ],
+          "packets": [
+            "ABC",
+            "ABC",
+            "ACB"
+          ]
+        },
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              1
+            ],
+            [
+              "shell_2",
+              -1
+            ]
+          ],
+          "relation": [
+            -1,
+            -1,
+            -1
+          ],
+          "packets": [
+            "ABC",
+            "ACB",
+            "ABC"
+          ]
+        },
+        {
+          "reads": [
+            [
+              "shell_0",
+              1
+            ],
+            [
+              "shell_1",
+              -1
+            ],
+            [
+              "shell_2",
+              -1
+            ]
+          ],
+          "relation": [
+            -1,
+            1,
+            1
+          ],
+          "packets": [
+            "ACB",
+            "ABC",
+            "ABC"
+          ]
+        }
+      ]
+    },
+    "12": {
+      "sufficient": false,
+      "output_count": 4,
+      "largest_relation_fiber": 2,
+      "witness": [
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              -1
+            ],
+            [
+              "shell_2",
+              -1
+            ]
+          ],
+          "relation": [
+            1,
+            1,
+            -1
+          ],
+          "packets": [
+            "ABC",
+            "ABC",
+            "ABC"
+          ]
+        },
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              -1
+            ],
+            [
+              "shell_2",
+              1
+            ]
+          ],
+          "relation": [
+            1,
+            -1,
+            1
+          ],
+          "packets": [
+            "ABC",
+            "ABC",
+            "ACB"
+          ]
+        }
+      ]
+    },
+    "13": {
+      "sufficient": false,
+      "output_count": 6,
+      "largest_relation_fiber": 2,
+      "witness": [
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              -1
+            ],
+            [
+              "shell_2",
+              1
+            ]
+          ],
+          "relation": [
+            1,
+            -1,
+            1
+          ],
+          "packets": [
+            "ABC",
+            "ABC",
+            "ACB"
+          ]
+        },
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              1
+            ],
+            [
+              "shell_2",
+              -1
+            ]
+          ],
+          "relation": [
+            -1,
+            -1,
+            -1
+          ],
+          "packets": [
+            "ABC",
+            "ACB",
+            "ABC"
+          ]
+        }
+      ]
+    },
+    "23": {
+      "sufficient": false,
+      "output_count": 6,
+      "largest_relation_fiber": 2,
+      "witness": [
+        {
+          "reads": [
+            [
+              "shell_0",
+              -1
+            ],
+            [
+              "shell_1",
+              1
+            ],
+            [
+              "shell_2",
+              -1
+            ]
+          ],
+          "relation": [
+            -1,
+            -1,
+            -1
+          ],
+          "packets": [
+            "ABC",
+            "ACB",
+            "ABC"
+          ]
+        },
+        {
+          "reads": [
+            [
+              "shell_0",
+              1
+            ],
+            [
+              "shell_1",
+              -1
+            ],
+            [
+              "shell_2",
+              -1
+            ]
+          ],
+          "relation": [
+            -1,
+            1,
+            1
+          ],
+          "packets": [
+            "ACB",
+            "ABC",
+            "ABC"
+          ]
+        }
+      ]
+    },
+    "123": {
+      "sufficient": true,
+      "output_count": 8,
+      "largest_relation_fiber": 1,
+      "witness": null
+    }
+  },
+  "all_source_separable_encoding_count": 46656,
+  "successful_encodings_by_frame_subset": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "12": 0,
+    "13": 0,
+    "23": 0,
+    "123": 10648
+  },
+  "new_controller_rows": [
+    {
+      "reads": [
+        [
+          "shell_0",
+          -1
+        ],
+        [
+          "shell_1",
+          -1
+        ],
+        [
+          "shell_2",
+          -1
+        ]
+      ],
+      "relation": [
+        1,
+        1,
+        -1
+      ],
+      "ordered_packets": [
+        "ABC",
+        "ABC"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "A+"
+        ],
+        [
+          0,
+          "B+"
+        ],
+        [
+          0,
+          "B-"
+        ],
+        [
+          0,
+          "A-"
+        ],
+        [
+          1,
+          "A+"
+        ],
+        [
+          1,
+          "B+"
+        ],
+        [
+          1,
+          "B-"
+        ],
+        [
+          1,
+          "A-"
+        ]
+      ],
+      "frame_snapshots": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "frame_indices_in_e_g_g2": [
+        0,
+        0
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          -1
+        ],
+        [
+          "shell_1",
+          -1
+        ],
+        [
+          "shell_2",
+          1
+        ]
+      ],
+      "relation": [
+        1,
+        -1,
+        1
+      ],
+      "ordered_packets": [
+        "ABC",
+        "ACB"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "A+"
+        ],
+        [
+          0,
+          "B+"
+        ],
+        [
+          0,
+          "B-"
+        ],
+        [
+          0,
+          "A-"
+        ],
+        [
+          1,
+          "A+"
+        ],
+        [
+          1,
+          "B-"
+        ],
+        [
+          1,
+          "A-"
+        ],
+        [
+          1,
+          "B+"
+        ]
+      ],
+      "frame_snapshots": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "frame_indices_in_e_g_g2": [
+        0,
+        1
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          -1
+        ],
+        [
+          "shell_1",
+          1
+        ],
+        [
+          "shell_2",
+          -1
+        ]
+      ],
+      "relation": [
+        -1,
+        -1,
+        -1
+      ],
+      "ordered_packets": [
+        "ACB",
+        "ACB"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "A+"
+        ],
+        [
+          0,
+          "B-"
+        ],
+        [
+          0,
+          "A-"
+        ],
+        [
+          0,
+          "B+"
+        ],
+        [
+          1,
+          "A+"
+        ],
+        [
+          1,
+          "B-"
+        ],
+        [
+          1,
+          "A-"
+        ],
+        [
+          1,
+          "B+"
+        ]
+      ],
+      "frame_snapshots": [
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          1,
+          2,
+          0
+        ]
+      ],
+      "frame_indices_in_e_g_g2": [
+        1,
+        2
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          -1
+        ],
+        [
+          "shell_1",
+          1
+        ],
+        [
+          "shell_2",
+          1
+        ]
+      ],
+      "relation": [
+        -1,
+        1,
+        1
+      ],
+      "ordered_packets": [
+        "ACB",
+        "ABC"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "A+"
+        ],
+        [
+          0,
+          "B-"
+        ],
+        [
+          0,
+          "A-"
+        ],
+        [
+          0,
+          "B+"
+        ],
+        [
+          1,
+          "A+"
+        ],
+        [
+          1,
+          "B+"
+        ],
+        [
+          1,
+          "B-"
+        ],
+        [
+          1,
+          "A-"
+        ]
+      ],
+      "frame_snapshots": [
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "frame_indices_in_e_g_g2": [
+        1,
+        1
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          1
+        ],
+        [
+          "shell_1",
+          -1
+        ],
+        [
+          "shell_2",
+          -1
+        ]
+      ],
+      "relation": [
+        -1,
+        1,
+        1
+      ],
+      "ordered_packets": [
+        "ACB",
+        "ABC"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "A+"
+        ],
+        [
+          0,
+          "B-"
+        ],
+        [
+          0,
+          "A-"
+        ],
+        [
+          0,
+          "B+"
+        ],
+        [
+          1,
+          "A+"
+        ],
+        [
+          1,
+          "B+"
+        ],
+        [
+          1,
+          "B-"
+        ],
+        [
+          1,
+          "A-"
+        ]
+      ],
+      "frame_snapshots": [
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "frame_indices_in_e_g_g2": [
+        1,
+        1
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          1
+        ],
+        [
+          "shell_1",
+          -1
+        ],
+        [
+          "shell_2",
+          1
+        ]
+      ],
+      "relation": [
+        -1,
+        -1,
+        -1
+      ],
+      "ordered_packets": [
+        "ACB",
+        "ACB"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "A+"
+        ],
+        [
+          0,
+          "B-"
+        ],
+        [
+          0,
+          "A-"
+        ],
+        [
+          0,
+          "B+"
+        ],
+        [
+          1,
+          "A+"
+        ],
+        [
+          1,
+          "B-"
+        ],
+        [
+          1,
+          "A-"
+        ],
+        [
+          1,
+          "B+"
+        ]
+      ],
+      "frame_snapshots": [
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          1,
+          2,
+          0
+        ]
+      ],
+      "frame_indices_in_e_g_g2": [
+        1,
+        2
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          1
+        ],
+        [
+          "shell_1",
+          1
+        ],
+        [
+          "shell_2",
+          -1
+        ]
+      ],
+      "relation": [
+        1,
+        -1,
+        1
+      ],
+      "ordered_packets": [
+        "ABC",
+        "ACB"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "A+"
+        ],
+        [
+          0,
+          "B+"
+        ],
+        [
+          0,
+          "B-"
+        ],
+        [
+          0,
+          "A-"
+        ],
+        [
+          1,
+          "A+"
+        ],
+        [
+          1,
+          "B-"
+        ],
+        [
+          1,
+          "A-"
+        ],
+        [
+          1,
+          "B+"
+        ]
+      ],
+      "frame_snapshots": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "frame_indices_in_e_g_g2": [
+        0,
+        1
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          1
+        ],
+        [
+          "shell_1",
+          1
+        ],
+        [
+          "shell_2",
+          1
+        ]
+      ],
+      "relation": [
+        1,
+        1,
+        -1
+      ],
+      "ordered_packets": [
+        "ABC",
+        "ABC"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "A+"
+        ],
+        [
+          0,
+          "B+"
+        ],
+        [
+          0,
+          "B-"
+        ],
+        [
+          0,
+          "A-"
+        ],
+        [
+          1,
+          "A+"
+        ],
+        [
+          1,
+          "B+"
+        ],
+        [
+          1,
+          "B-"
+        ],
+        [
+          1,
+          "A-"
+        ]
+      ],
+      "frame_snapshots": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "frame_indices_in_e_g_g2": [
+        0,
+        0
+      ]
+    }
+  ],
+  "single_block_controller_rows": [
+    {
+      "reads": [
+        [
+          "shell_0",
+          -1
+        ],
+        [
+          "shell_1",
+          -1
+        ],
+        [
+          "shell_2",
+          -1
+        ]
+      ],
+      "adjacent_products": [
+        1,
+        1
+      ],
+      "ordered_macros": [
+        "A",
+        "B",
+        "C"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "A+"
+        ],
+        [
+          1,
+          "B+"
+        ],
+        [
+          2,
+          "B-"
+        ],
+        [
+          2,
+          "A-"
+        ]
+      ],
+      "frame_after_each_macro": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "single_observation": [
+        1,
+        2,
+        0
+      ],
+      "final_current": [
+        0,
+        0
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          -1
+        ],
+        [
+          "shell_1",
+          -1
+        ],
+        [
+          "shell_2",
+          1
+        ]
+      ],
+      "adjacent_products": [
+        1,
+        -1
+      ],
+      "ordered_macros": [
+        "A",
+        "C",
+        "B"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "A+"
+        ],
+        [
+          1,
+          "B-"
+        ],
+        [
+          1,
+          "A-"
+        ],
+        [
+          2,
+          "B+"
+        ]
+      ],
+      "frame_after_each_macro": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "single_observation": [
+        2,
+        1,
+        0
+      ],
+      "final_current": [
+        0,
+        0
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          -1
+        ],
+        [
+          "shell_1",
+          1
+        ],
+        [
+          "shell_2",
+          -1
+        ]
+      ],
+      "adjacent_products": [
+        -1,
+        -1
+      ],
+      "ordered_macros": [
+        "B",
+        "C",
+        "A"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "B+"
+        ],
+        [
+          1,
+          "B-"
+        ],
+        [
+          1,
+          "A-"
+        ],
+        [
+          2,
+          "A+"
+        ]
+      ],
+      "frame_after_each_macro": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "single_observation": [
+        0,
+        2,
+        1
+      ],
+      "final_current": [
+        0,
+        0
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          -1
+        ],
+        [
+          "shell_1",
+          1
+        ],
+        [
+          "shell_2",
+          1
+        ]
+      ],
+      "adjacent_products": [
+        -1,
+        1
+      ],
+      "ordered_macros": [
+        "B",
+        "A",
+        "C"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "B+"
+        ],
+        [
+          1,
+          "A+"
+        ],
+        [
+          2,
+          "B-"
+        ],
+        [
+          2,
+          "A-"
+        ]
+      ],
+      "frame_after_each_macro": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          1,
+          2,
+          0
+        ]
+      ],
+      "single_observation": [
+        2,
+        0,
+        1
+      ],
+      "final_current": [
+        0,
+        0
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          1
+        ],
+        [
+          "shell_1",
+          -1
+        ],
+        [
+          "shell_2",
+          -1
+        ]
+      ],
+      "adjacent_products": [
+        -1,
+        1
+      ],
+      "ordered_macros": [
+        "B",
+        "A",
+        "C"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "B+"
+        ],
+        [
+          1,
+          "A+"
+        ],
+        [
+          2,
+          "B-"
+        ],
+        [
+          2,
+          "A-"
+        ]
+      ],
+      "frame_after_each_macro": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          1,
+          2,
+          0
+        ]
+      ],
+      "single_observation": [
+        2,
+        0,
+        1
+      ],
+      "final_current": [
+        0,
+        0
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          1
+        ],
+        [
+          "shell_1",
+          -1
+        ],
+        [
+          "shell_2",
+          1
+        ]
+      ],
+      "adjacent_products": [
+        -1,
+        -1
+      ],
+      "ordered_macros": [
+        "B",
+        "C",
+        "A"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "B+"
+        ],
+        [
+          1,
+          "B-"
+        ],
+        [
+          1,
+          "A-"
+        ],
+        [
+          2,
+          "A+"
+        ]
+      ],
+      "frame_after_each_macro": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "single_observation": [
+        0,
+        2,
+        1
+      ],
+      "final_current": [
+        0,
+        0
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          1
+        ],
+        [
+          "shell_1",
+          1
+        ],
+        [
+          "shell_2",
+          -1
+        ]
+      ],
+      "adjacent_products": [
+        1,
+        -1
+      ],
+      "ordered_macros": [
+        "A",
+        "C",
+        "B"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "A+"
+        ],
+        [
+          1,
+          "B-"
+        ],
+        [
+          1,
+          "A-"
+        ],
+        [
+          2,
+          "B+"
+        ]
+      ],
+      "frame_after_each_macro": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "single_observation": [
+        2,
+        1,
+        0
+      ],
+      "final_current": [
+        0,
+        0
+      ]
+    },
+    {
+      "reads": [
+        [
+          "shell_0",
+          1
+        ],
+        [
+          "shell_1",
+          1
+        ],
+        [
+          "shell_2",
+          1
+        ]
+      ],
+      "adjacent_products": [
+        1,
+        1
+      ],
+      "ordered_macros": [
+        "A",
+        "B",
+        "C"
+      ],
+      "source_dependencies": [
+        [
+          "shell_0",
+          "shell_1"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ],
+        [
+          "shell_0",
+          "shell_1",
+          "shell_2"
+        ]
+      ],
+      "full_directed_ring_history": [
+        [
+          0,
+          "A+"
+        ],
+        [
+          1,
+          "B+"
+        ],
+        [
+          2,
+          "B-"
+        ],
+        [
+          2,
+          "A-"
+        ]
+      ],
+      "frame_after_each_macro": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "single_observation": [
+        1,
+        2,
+        0
+      ],
+      "final_current": [
+        0,
+        0
+      ]
+    }
+  ],
+  "single_block_decoder": [
+    {
+      "second_macro_frame": [
+        1,
+        2,
+        0
+      ],
+      "adjacent_products": [
+        1,
+        1
+      ]
+    },
+    {
+      "second_macro_frame": [
+        2,
+        1,
+        0
+      ],
+      "adjacent_products": [
+        1,
+        -1
+      ]
+    },
+    {
+      "second_macro_frame": [
+        2,
+        0,
+        1
+      ],
+      "adjacent_products": [
+        -1,
+        1
+      ]
+    },
+    {
+      "second_macro_frame": [
+        0,
+        2,
+        1
+      ],
+      "adjacent_products": [
+        -1,
+        -1
+      ]
+    }
+  ],
+  "single_block_query_count": 1,
+  "single_block_query_location": "after the second completed based macro, before the last macro",
+  "single_block_source_memory_bits_without_internal_frame_queries": 2,
+  "single_block_directed_loop_histogram": {
+    "A+": 1,
+    "A-": 1,
+    "B+": 1,
+    "B-": 1
+  },
+  "new_controller_source_memory_bits": 1,
+  "new_controller_accumulated_xor_memory_bits": 0,
+  "new_controller_uses_known_window_schedule": true,
+  "all_sign_flip_checks": 8,
+  "all_S3_future_frame_checks": 48,
+  "output_relation_states": 4,
+  "residual_certificate": "Exact zero target ambiguity for both new packet-boundary frames; exact fiber witnesses for every old proper checkpoint subset. Physical event bridge remains an input condition.",
+  "status": "PASS"
+}

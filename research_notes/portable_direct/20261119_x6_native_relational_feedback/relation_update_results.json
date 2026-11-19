@@ -1,0 +1,221 @@
+{
+  "model": "V5 named three-axis observer within Heartbeat X6",
+  "status": "AUTHOR_EXACT_CHECK; native event permission unresolved",
+  "gauge_orbit_functions_examined": 256,
+  "cyclic_gauge_equivariant_deterministic_updates": 4,
+  "brc_carrier_correspondence": {
+    "joint_branch_candidates": 256,
+    "retained_two_event_histories": 128,
+    "only_common_cell_branch": "III",
+    "source_names_signs_generator_order_and_paths_preserved": true
+  },
+  "source_revision": "enterprise-math@ef720decf4a35a276e509964250571a55421b9f8",
+  "brc_extension_entrypoint": "NamedTriadBRC.apply",
+  "brc_input_carrier": "three named unit source tokens at signed X6 ports; joint III path history",
+  "brc_future_language": "V5 signed-cycle atomic III scatterings; explicit reference transports when declared",
+  "brc_observers": "fixed-axis radial signs, initial link triple, retained named branch history",
+  "residual_classification": "exact observer-fiber ambiguity; no numerical approximation or physics residual attribution",
+  "unrestricted_two_scatterings": {
+    "cases": 384,
+    "axes": [
+      {
+        "axis": 0,
+        "read_words": 8,
+        "microstates_per_read_word": 16,
+        "initial_relations_per_read_word": 2
+      },
+      {
+        "axis": 1,
+        "read_words": 8,
+        "microstates_per_read_word": 16,
+        "initial_relations_per_read_word": 2
+      },
+      {
+        "axis": 2,
+        "read_words": 8,
+        "microstates_per_read_word": 16,
+        "initial_relations_per_read_word": 2
+      }
+    ]
+  },
+  "update_classification": {
+    "persistent": {
+      "gauge_covariance_cases": 256,
+      "complete_three_read_recovery": true,
+      "axes": [
+        {
+          "axis": 0,
+          "three_read_words": 8,
+          "initial_relations_per_word": 1,
+          "six_read_words": 8
+        },
+        {
+          "axis": 1,
+          "three_read_words": 8,
+          "initial_relations_per_word": 1,
+          "six_read_words": 8
+        },
+        {
+          "axis": 2,
+          "three_read_words": 8,
+          "initial_relations_per_word": 1,
+          "six_read_words": 8
+        }
+      ]
+    },
+    "ingress_sector": {
+      "gauge_covariance_cases": 256,
+      "complete_three_read_recovery": true,
+      "axes": [
+        {
+          "axis": 0,
+          "three_read_words": 8,
+          "initial_relations_per_word": 1,
+          "six_read_words": 8
+        },
+        {
+          "axis": 1,
+          "three_read_words": 8,
+          "initial_relations_per_word": 1,
+          "six_read_words": 8
+        },
+        {
+          "axis": 2,
+          "three_read_words": 8,
+          "initial_relations_per_word": 1,
+          "six_read_words": 8
+        }
+      ]
+    },
+    "egress_sector": {
+      "gauge_covariance_cases": 256,
+      "complete_three_read_recovery": false,
+      "axes": [
+        {
+          "axis": 0,
+          "three_read_words": 4,
+          "initial_relations_per_word": 2,
+          "six_read_words": 4
+        },
+        {
+          "axis": 1,
+          "three_read_words": 4,
+          "initial_relations_per_word": 2,
+          "six_read_words": 4
+        },
+        {
+          "axis": 2,
+          "three_read_words": 4,
+          "initial_relations_per_word": 2,
+          "six_read_words": 4
+        }
+      ]
+    },
+    "stationary_relation": {
+      "gauge_covariance_cases": 256,
+      "complete_three_read_recovery": false,
+      "axes": [
+        {
+          "axis": 0,
+          "three_read_words": 4,
+          "initial_relations_per_word": 2,
+          "six_read_words": 4
+        },
+        {
+          "axis": 1,
+          "three_read_words": 4,
+          "initial_relations_per_word": 2,
+          "six_read_words": 4
+        },
+        {
+          "axis": 2,
+          "three_read_words": 4,
+          "initial_relations_per_word": 2,
+          "six_read_words": 4
+        }
+      ]
+    }
+  },
+  "cycle_classification": {
+    "persistent": {
+      "occupancy_twist_states": 32,
+      "image_states": 32,
+      "preimage_cardinalities": [
+        1
+      ],
+      "occupancy_twist_cycles": {
+        "2": 4,
+        "6": 4
+      },
+      "max_transient_length": 0,
+      "named_frame_inputs": 192,
+      "named_frame_periods_when_bijective": [
+        6
+      ],
+      "history_not_quotiented_as_periodic": true
+    },
+    "ingress_sector": {
+      "occupancy_twist_states": 32,
+      "image_states": 32,
+      "preimage_cardinalities": [
+        1
+      ],
+      "occupancy_twist_cycles": {
+        "2": 4,
+        "6": 4
+      },
+      "max_transient_length": 0,
+      "named_frame_inputs": 192,
+      "named_frame_periods_when_bijective": [
+        6
+      ],
+      "history_not_quotiented_as_periodic": true
+    },
+    "egress_sector": {
+      "occupancy_twist_states": 32,
+      "image_states": 8,
+      "preimage_cardinalities": [
+        4
+      ],
+      "occupancy_twist_cycles": {
+        "2": 4
+      },
+      "max_transient_length": 1,
+      "named_frame_inputs": 192,
+      "named_frame_periods_when_bijective": [],
+      "history_not_quotiented_as_periodic": true
+    },
+    "stationary_relation": {
+      "occupancy_twist_states": 32,
+      "image_states": 32,
+      "preimage_cardinalities": [
+        1
+      ],
+      "occupancy_twist_cycles": {
+        "2": 16
+      },
+      "max_transient_length": 0,
+      "named_frame_inputs": 192,
+      "named_frame_periods_when_bijective": [
+        6
+      ],
+      "history_not_quotiented_as_periodic": true
+    }
+  },
+  "temporal_transport": {
+    "transport_cases": 24576,
+    "same_time_generator_product_constraint": -1,
+    "temporal_reference_changes_require_explicit_k": true
+  },
+  "generator_only_relations": {
+    "nonempty_relations": 65535,
+    "readable_for_each_fixed_axis": [
+      510,
+      510,
+      510
+    ],
+    "readable_for_all_axes": 60,
+    "cyclic_readable_relations": 3,
+    "cyclic_readable_relations_are_diagonal": true
+  }
+}

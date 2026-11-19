@@ -1,0 +1,109 @@
+{
+  "schema": "X6_NATIVE_RELATIONAL_FEEDBACK_EMBEDDING_CHECK_V1",
+  "status": "PASS",
+  "source_revision": "ef720decf4a35a276e509964250571a55421b9f8",
+  "original_kernel_blobs": {
+    "experiments/x6_triadic_atomic_scatter_v1_20260906/check_triadic_atomic_scatter.py": "cf5bc031b90b26d82216925d2768583db4e10f57",
+    "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+    "experiments/x6_signed_internal_q_correction_v5_20260906/check_signed_internal_q_correction.py": "0104cf5cedd40831a94eec746394f977402ac36f"
+  },
+  "entrypoint": "check_native_embedding.py:check",
+  "input_carrier": "120 ordered selections of three distinct X6 axes; 8 signed named frames; 4 V5 twists",
+  "operation_semantics": "Original V5 tokenwise scatter, original signed-X6 shortest-path BRC midpoint operation, source-preserving feedback extension, R757/V39 packet composition",
+  "observer_and_future_scope": "Six macro-event finite-state reversal/return; initial r through first three shell reads and either two relational packet boundaries or one intermediate S3 frame of a completed ABC-permutation block",
+  "retained_provenance": "Named token slots, all six III scatter events, twist words, full directed ring words in both V39 controller variants",
+  "residual_certificate": "Exact zero discrepancies against original kernels and zero r ambiguity; no native permission or physical time calibration inferred",
+  "counts": {
+    "six_axis_embedded_inputs": 3840,
+    "original_v5_feedback_steps": 23040,
+    "original_brc_common_cell_checks": 7680,
+    "feedback_to_v39_four_state_recoveries": 11520,
+    "single_intermediate_frame_recoveries": 11520
+  },
+  "example": {
+    "axes": [
+      0,
+      1,
+      2
+    ],
+    "s": [
+      -1,
+      -1,
+      -1
+    ],
+    "initial_twist": [
+      -1,
+      1,
+      1
+    ],
+    "detector": 0,
+    "readout": [
+      -1,
+      -1,
+      1
+    ],
+    "r": [
+      -1,
+      1,
+      1
+    ],
+    "packet_words": [
+      "ABC",
+      "ACB"
+    ],
+    "frames": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        2,
+        0,
+        1
+      ]
+    ],
+    "single_block_macros": [
+      "A",
+      "C",
+      "B"
+    ],
+    "single_observed_frame": [
+      2,
+      1,
+      0
+    ],
+    "generator_history": [
+      [
+        -1,
+        1,
+        1
+      ],
+      [
+        -1,
+        -1,
+        -1
+      ],
+      [
+        1,
+        1,
+        -1
+      ],
+      [
+        -1,
+        1,
+        1
+      ],
+      [
+        -1,
+        -1,
+        -1
+      ],
+      [
+        1,
+        1,
+        -1
+      ]
+    ]
+  }
+}
