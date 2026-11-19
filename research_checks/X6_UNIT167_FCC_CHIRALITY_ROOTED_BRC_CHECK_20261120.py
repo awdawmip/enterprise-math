@@ -139,6 +139,5 @@ def main():
     }
     print(json.dumps(report, ensure_ascii=False, sort_keys=True, separators=(',', ':')))
 
-
 if __name__ == '__main__':
     main()
