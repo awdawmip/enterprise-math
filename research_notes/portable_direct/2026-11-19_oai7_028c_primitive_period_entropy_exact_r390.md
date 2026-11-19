@@ -13,7 +13,7 @@ Divide the count vector by \(g(N)\), make a canonical base word \(b(N)\) of leng
 **Theorem.** Every trial index \(\ell\) retains exactly the one-trial conditional law \(\nu_A\), and all empirical count and zero-tail statements of r388/r389 continue to hold. Let \(T(A)\) denote the full actual law type and \(N\) its systematic rounded counts. In the same logarithm base as Shannon entropy,
 \[
 \boxed{H(\mathcal H\mid T)
- =H(N\mid T)+\mathbb E[\log d(N)],}
+ =H(N\mid T)+\mathbb E[\log d(N)]}
 \]
 where \(H(\cdot\mid T)\) denotes the **averaged scalar conditional entropy**, and hence
 \[
