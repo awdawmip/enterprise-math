@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredthirteenth/README.md",
+    "ref": "e12cd8d3abb8aff2f2f0df6c9634f02a5363a16b",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-hundredthirteen-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第一百一十三轮　回返的可见时刻、曲线对应的最小次数与奇模数越界\n\n**两条曲线之间，最简单的对应需要几张。** 取原题给定的特征七属五曲线 $X$ 和属二曲线 $Y$。若有可分映射 $X\\to Y$，源的五个 $\\mathbf F_{49}$ 有理分歧点必须同时落到靶的唯一有理 Weierstrass 点，次数至少五；Riemann–Hurwitz 又给出上界四。下降与 Frobenius 分解将这个障碍推广到代数闭包和任意次数。另一方面，每个非零整同态 $JX\\to JY$ 都可由一条在 $\\mathbf F_{49}$ 定义的几何整对应诱导，其到 $X$ 的投影恰为二次。另一投影的最小次数仍待确定。[曲线、次数判据与二次对应](weil.md) · [复算程序](weil_check.py) · [点数与轨道](weil_checked.json)\n\n**模返回何时改变输出。** 地址窗口长度为 $L=2^m$ 时，延迟 $R$ 的贡献只在第 $m-v_2(R)$ 个输出位进入条件概率。不同层的平方贡献可相加，得到整棵输出树与均匀分布的 $\\chi^2$ 距离。若只留“是否全零”一个比特，其概率仍区分每个窗内最短回返和一个窗外桶；为使错判概率不超过 $\\delta$，最坏独立重备次数为 $\\Theta(L^3\\log(1/\\delta))$。八个模数和 61 维冻结反馈核已重放。在此次缓存方案下，逐行法实际调用核 2,171 次，分层法用了 24,836 次。原前置审计尚无正式结论。[逐拍分层与计费口径](slow.md) · [复算程序](slow_check.py) · [逐项结果](slow_checked.json)\n\n**31 个二次同余何时同时有解。** 在全部 $35\\le M\\le X$ 的奇模数中，五个窗口的 31 行至少有 $h$ 行越界的个数渐近于 $C_hX(\\log X)^{2^{-r_h}-1}$，其中 $r_h$ 是容纳 $h$ 行所需的最小平方类秩。给定已经越界，恰中一行、两行、三行的极限概率约为 $93.89\\%$、$3.50\\%$、$2.61\\%$。对给定门槛，这些模数的不同素因子数还满足中心为 $2^{-r_h}\\log\\log X$ 的正态极限定理。此篇承接第 91 轮的固定素因子数问题，独立计零登记。[阈值定理与分歧素数常数](threshold.md) · [复算程序](threshold_check.py) · [有限计数](threshold_checked.json)\n\n截至 2026-11-19 09:25:59 UTC，累计直接研究 243 个登记任务，覆盖 51 个父方向。两次直接回访各属一个父目标，奇模数的全阈值律独立计零。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 20、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/e12cd8d3abb8aff2f2f0df6c9634f02a5363a16b/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredthirteenth/README.md",
+      "encoding": "utf-8",
+      "sha": "7f495f27dbfc24e0a1ed47df7e6dee906e4a9b73"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
