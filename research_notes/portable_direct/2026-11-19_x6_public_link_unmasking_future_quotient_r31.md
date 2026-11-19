@@ -1,0 +1,63 @@
+# X6 R31 — Public-Link controller unmasking and exact re-exposure depth
+
+Status: CONDITIONAL_AUTHOR_PROOF / EXACT_FINITE_BOOLEAN_BRC_PASS / NOT_REVIEWED
+Date: 2026-11-19
+Task: RS-X6-NATIVE-TIME-DYNAMICS, publication TP2-91D4A7C2F63805BE21A3
+Researcher lineage: EM-X6-214D9C; original session MCP-d467c19ce42d4d7fa65a3901db1cf6b2
+Parent result: R30 monotone public Link feedback/hidden-provenance erasure.
+Frozen science input: awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json (P000 V5).
+Project research constraint: exact joint-observer/future-operation preservation. The following automata are explicitly conditional X6 labelled-lane models, **not** admitted native TRIADIC_CLOSURE_E executions.
+
+## 1. Model and precise observer
+
+Fix finite sets I={1,...,n} of named intact triad carriers and C of public controller states, with initial c0 in C. Every c has an observable public Link vector x(c) in {0,1}^n. A finite alphabet A of public control labels acts by deterministic partial transitions delta_a:C ⇀ C. Availability and effect of each public action are independent of the hidden constant provenance bits theta in {0,1}^n. Actions may enable, disable, reset or change several Link bits, and may cycle. They never alter the preparation phase or used-probe flag.
+
+For each i, the unique labelled signed-lane preparation steps P_i+ and then P_i- are each executable exactly once, advancing its phase 0→1→2 independently of C and other sources. Its unique one-use probe Q_i may be emitted only in phase 2, when unused, and when theta_i=1 OR x_i(c)=1. Preparations and Q_i leave C unchanged, and Q_i changes only its own used flag. No other events exist. A common public initial fiber has controller c0, all phases 0, all probes unused; theta alone varies.
+
+Let L_h(theta;c0) be the Boolean set of all successful, fully labelled words of length at most h from that fiber (including epsilon). Public controls, signed ports, sources and probe identities are distinguished in the alphabet. It is a Boolean-BRC future-path-support observer, not a probability, amplitude, physical-time duration or precision clock.
+
+Define the **public unmask distance**
+
+d_i(c0) = min{|w| : w is an executable A-only word from c0 to c with x_i(c)=0},
+
+with min(empty set)=infinity. Empty w is allowed, so if x_i(c0)=0 then d_i=0. The distance is computable by ordinary BFS in the finite public controller, including cycles and partial transitions.
+
+## 2. R31 exact finite-horizon quotient theorem
+
+For every h≥0 and every hidden histories theta,eta,
+
+**L_h(theta;c0) = L_h(eta;c0) if and only if
+theta_i=eta_i for each i with d_i(c0)+3≤h.**
+
+Consequently, setting K_h(c0)={i:d_i(c0)≤h-3},
+
+C_h(c0)=2^{|K_h(c0)|}, and b_h(c0)=|K_h(c0)| bits
+
+are respectively the exact count of distinct initial-history future-language fibers and the minimal fixed-length Boolean-BRC history storage. In the infinite future, the minimal retained bits are exactly those i with finite d_i(c0). If D=max{d_i:d_i<infinity}, the classifier has stabilized by h=D+3 (if there are no finite distances, it is already constant). The first depth distinguishing a pair of histories is min{d_i+3:theta_i≠eta_i}, with min(empty set)=infinity.
+
+**Necessity / sharp witness.** If theta_i≠eta_i and d_i+3≤h, orient the pair so theta_i=1, eta_i=0. Choose a shortest all-public word w reaching x_i=0 in d_i events, followed by P_i+ P_i- Q_i. Because the actions and preparations are independent, the length-(d_i+3) word is successful for theta and fails at Q_i under eta, with identical public state and source phase. No earlier witness is possible: a Q_i whose success depends on theta_i requires two preceding preparation events plus at least d_i public events to reach x_i=0.
+
+**Sufficiency.** Read any word of length at most h simultaneously in the theta and eta systems. Public-controller transitions and all preparations agree by construction. The first step at which one run could diverge must therefore be a Q_i whose guard depends on a differing theta_i; at that instant x_i=0. Its prefix has at least two preparation events and at least d_i public events. Hence its length is at least d_i+3>h whenever theta and eta agree on K_h. This is impossible. Inductively every successful word and its continuation agree in both systems; the Boolean languages coincide. As the independent bits on K_h are realized by all theta, their restriction gives precisely 2^{|K_h|} classes.
+
+The theorem certifies one precise future-observer quotient; it neither deletes full native source provenance nor proves the public controller actions are native X6 events.
+
+## 3. Re-exposure, arbitrary delay, and recovery of R30
+
+* Monotone R30 is recovered exactly: after fired broadcasts F, each already covered i has x_i permanently 1 and d_i=infinity; each uncovered i has x_i=0 and d_i=0. Thus R31 reduces to the R30 count 2^{n-|U(F)|} for h≥3.
+* If a public Link x_i initially equals 1 and a freely executable reset R_i makes it 0, then d_i=1. The hidden bit appears for the first time in a successful labelled word of length 4: R_i P_i+ P_i- Q_i. A rule that erased theta_i at broadcast time because the immediate guard was true would lose this future distinction.
+* A public chain c0 -a→ c1 -a→ ... -a→ cq with x_i(c_j)=1 for j<q and x_i(c_q)=0 has d_i=q, and its hidden bit is first observable at exactly h=q+3. Arbitrarily late exposure occurs with a *single-bit* probe guard; guard arity alone supplies no bounded observation depth.
+* If all controller states reachable from c0 keep x_i=1, then d_i=infinity and theta_i is rigorously dispensable for this declared future language, even if other histories elsewhere contain distinguishable copies.
+
+Information can therefore become invisible immediately after a public enabling action yet remain indispensable for unbounded future words when a later public action can unmask it. This describes *observation* at specified public fibers, not a reversal of an actually erased physical source record.
+
+## 4. Exact reproducible computation
+
+Files: x6_public_link_unmasking_brc_verify_r31.js and x6_public_link_unmasking_brc_results_r31.json. Node.js standard runtime, no external dependency. The script computes canonical unbounded-precision Boolean signatures for *all successful labelled words of length at most h*, using memoized deterministic transitions and structural interning of label/successor signatures (not hash equality), then compares every ordered hidden pair against BFS-derived K_h.
+
+Actual execution checked: 3944 controller/initial-fiber cases; 178892 distinct hidden-pair × horizon comparisons; exhaustive n=1,2, public-state count N=1,2, number of partial public actions m=0,1,2, all public Link assignments, all partial deterministic action tables and every initial state; plus 256 seeded larger N=3,n=3 controllers and 6 explicit unmasking chains q=0,...,5. Horizons h=0,...,6; result PASS, maximum 8 classes encountered. These finite checks supplement the above unrestricted finite-controller proof. Exact signature comparison uses labelled transition support, not pseudorandom approximate equality.
+
+## 5. Open native mapping and stronger task target
+
+Identify a frozen-P000-admissible **whole-triad** Cell/Link/Port update realizing public action a or R_i, including the exact three-force closure incidence, signed axis steps, internal relation source, and its observer label; prove or refute trace-preserving embedding at that actual native event signature. If public controls depend on theta, consume resources, alter preparation phases, or vary available probes, d_i+3 need not hold: construct the joint-state Boolean-BRC transition system and recompute the quotient. Then link its event-step order to periodic phase and to separate precision/refinement lineage, retaining task hard target's semiconjugacy/no-go requirement.
+
+P000 unchanged. NOT_REVIEWED; no formal Result/Task completion/physical clock admission.
