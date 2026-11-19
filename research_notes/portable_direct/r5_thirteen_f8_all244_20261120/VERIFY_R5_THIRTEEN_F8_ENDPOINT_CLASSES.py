@@ -42,5 +42,5 @@ for row in rows:
  assert tuple(int(row['f'+str(i)]) for i in range(9))==tuple(735+950*i for i in range(9))
 assert sorted(int(row['t']) for row in rows)==sorted(set(range(256))-set(W))
 assert len(found)==48
-assert Counter(frequency.values())=={1:20,2:8,4:8,28:4}
+assert Counter(frequency.values())=={1:20,2:8,4:8,8:8,28:4}
 print('PASS_R5_F8_INDEPENDENT_ENDPOINTS',len(rows),'LABELS',len(found),'CLASSES')
