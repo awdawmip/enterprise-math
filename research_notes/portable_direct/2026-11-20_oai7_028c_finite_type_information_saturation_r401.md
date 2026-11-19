@@ -63,6 +63,21 @@ E_S I(F_S(Y);V_i) - f_{m_i}(e_{i,n_i})
 ```
 This is a necessary feasibility test for that *information-budget route*, not a disproof of the original Gaussian coverage theorem or of alternative samplers/arguments. It supplements r400's upper certificates with a lower obstruction. In particular `H(V_i)` alone is not the obstruction: what matters for signed-residue coverage is `E_S I(F_S(Y);V_i)`, which may be much smaller. For a large, closely spaced family of `q_A`, the bound may be weak at the actual `n_i` even though asymptotic identification holds.
 
+**Important exact-schedule limitation (audited against pinned `schedule.tex`, Eq. coverage-data-cost).** At the *unchanged original* schedule, `kappa_i` is defined by `H(H_i)/(s_i L_*)`, and the original proof already establishes
+```text
+E_S I(F_S(Y);B_{n_i}) <= H(B_{n_i}) <= H(H_i)
+                         = kappa_i s_i L_* <= C_D n_i T^{r_{i+1}}.
+```
+Therefore the strict failure criterion immediately above **cannot trigger under the original schedule and its actual original kappa_i**. It is a discriminating test only for proposed **modified budgets, sample counts, displacement laws or schedules** not already covered by that Shannon-cost certificate. This scope is essential when interpreting r396–r401: an improved sufficient assumption need not improve a schedule whose stronger original assumption is already verified.
+
+A positive structural consequence does follow at the original exact start: combining this old Shannon-cost certificate with r401's saturation inequality forces
+```text
+E_S I(F_S(Y); V_i)
+    <= H(H_i) + f_{m_i}(e_{i,n_i})
+    <= C_D n_i T^{r_{i+1}} + f_{m_i}(e_{i,n_i}).
+```
+Thus, whenever the actual finite law types are identifiable from the allowed sample count, the exact law type itself cannot reveal much more *signed-residue information* than the original shared-data cost, up to the explicit classification-error term. This does not bound the full `H(V_i)` by the same amount.
+
 ## Exact finite check (r400's two-type model)
 
 Let `A=V` be uniform on two types, `W_j` Bernoulli with `q_0(1)=1/4`, `q_1(1)=3/4`. The exact affinity is `rho=sqrt(3)/2`. Thus `E_n=(1/2)(sqrt(3)/2)^n`. For each `n`, the full finite joint law is the pair of binomials:
