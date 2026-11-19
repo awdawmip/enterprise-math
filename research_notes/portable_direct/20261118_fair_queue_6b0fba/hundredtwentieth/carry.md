@@ -1,0 +1,128 @@
+# 原始进位能量中的平方素幂校准
+
+在 $N\le n<2N$ 的块内固定截断 $y$。只保留 $y<p\le n$ 的普通素数，并加回被删小素数的周期均值 $B_y$，仍会遗漏一个确定的平方能量。对 $y=\lfloor N^\theta\rfloor,\ 0<\theta<2/3$，
+$$
+\lim_{N\to\infty}\sum_{N\le n<2N}
+ \frac{|J(n)-H_y(n)-B_y|^2}{n^2}
+ = K_2^2\log2=0.002092802867495\ldots .
+$$
+在该窗再加 $K_2\sqrt n$ 后，残差的平方能量趋于零。两项结论均无条件。它们将原 von Mangoldt 读数与普通素数窗的差精确到 $o(1)$ 块范数。对每个固定 $A>0$，同轮的倒数频率估计又把这一结论推至 $2\le y\le N^{2/3}(\log N)^A$，[截断范围证明](aperture.md)。
+
+登记 RH-BRC-CARRY-CLOSURE-20260909 要求在原始整数权上控制所有二进块。第七轮已定位 $B_y$，校正后得到 $O(1)$ 的块范数差；第五十二轮求出了原能量在 RH 下的平均，第七十八轮确定逐块增长指数。本篇求遗漏素幂的校准系数及其与 ζ 零点谱的干涉。原始有符号平方函数的一致多对数上界仍开放。[任务书](https://github.com/awdawmip/enterprise-math/blob/3f4d3f20031f51803d897914aa9bea28a4fadbf9/research_tasks/RH_BRC_COUNT_CENTERED_CARRY_CLOSURE_20260909.md) · [V11–V17 交接与原量](https://github.com/awdawmip/enterprise-math/blob/3f4d3f20031f51803d897914aa9bea28a4fadbf9/research_notes/RH_BRC_COUNT_CENTERED_CARRY_STATE_MACHINE_HANDOFF_20260909.md#L79) · [第七轮](../seventh/carry.md) · [第五十二轮](../fiftysecond/carry.md) · [第七十八轮](../seventyeighth/edge.md)
+
+## 1. 唯一的平方根校准
+
+全篇用自然对数。记
+$$
+ c_m(n)=\lfloor 2n/m\rfloor-2\lfloor n/m\rfloor,\quad
+ \alpha_n=\frac1n\sum_{m\le n}c_m(n),\quad
+ \gamma=2\log2-1,\quad a_p=\lfloor p/2\rfloor/p .
+$$
+原始读数、截断读数和小素数周期均值分别为
+$$
+ J(n)=\sum_{m\le n}(c_m(n)-\alpha_n)\Lambda(m),\qquad
+ H_y(n)=\sum_{y<p\le n}(c_p(n)-\gamma)\log p,\qquad
+ B_y=\sum_{p\le y}(a_p-\gamma)\log p .
+$$
+这里 $p$ 仅取普通素数，$m=p^j$ 的权均为 $\log p$。写 $\|F\|_N^2=\sum_{N\le n<2N}|F(n)|^2/n^2$、$L_y=\sum_{p\le y}(c_p-a_p)\log p$，以及
+$$
+ D=(\gamma-\alpha_n)\psi(n),\qquad
+ P_j(n)=\sum_{p^j\le n}(c_{p^j}(n)-\gamma)\log p,\quad
+ X_b(n)=H_y(n)+B_y+b\sqrt n .
+$$
+按素数幂拆分给出逐点恒等式
+$$J-X_b=L_y+D+\sum_{j\ge2}P_j-b\sqrt n . \tag{1}$$
+对任意块内固定的整数 $y=y(N)\in[2,N]$，只要 $\|L_y\|_N=o(1)$，就有
+$$
+ \|J-X_b-(K_2-b)\sqrt n\|_N\to0,\qquad
+ \|J-X_b\|_N^2\to (K_2-b)^2\log2. \tag{2}
+$$
+因此 $b=K_2$ 是此单参数族中唯一使块误差趋零的值。此前的大筛给出的充分条件是 $(y/N+y^3/N^2)\log(2y)=o(1)$。原题的 $1/2<\theta<2/3$ 全部包括在内；更宽范围另见开头的链接。[冻结计数中心实现](https://github.com/awdawmip/enterprise-math/blob/437d4d595f1495d3a0486b3c06e9e2b14567db82/src/enterprise_math/brc_count_centered_carry.py) · [冻结大素数窗](https://github.com/awdawmip/enterprise-math/blob/437d4d595f1495d3a0486b3c06e9e2b14567db82/src/enterprise_math/brc_large_prime_hard_core.py)
+
+证明中的三个尺度可单独控制。除数和给 $n\alpha_n=\sum_{m\le2n}\lfloor2n/m\rfloor-2\sum_{m\le n}\lfloor n/m\rfloor-n$；经典除数余项可取 $O(n^{2/5})$，故 $D=O(n^{2/5})$。又 $\sum_{j\ge3}|P_j|\ll n^{1/3}\log n$。最后，令 $s=1/2$，进位的平方素幂对应的 $p$ 落于 $\sqrt n\,((h+1)^{-s},(h+1/2)^{-s}]$，$h\ge1$。原端点 $p^2=n$ 的进位为零。由素数定理在这些区间求和，得到
+$$
+ \frac{P_2(n)}{\sqrt n}\to K_2=
+ 1-\sqrt2+(\sqrt2-2)\zeta(1/2)-\gamma>0. \tag{3}
+$$
+先限 $p>\delta\sqrt n$，进位区间仅有限个；再令 $\delta\downarrow0$，Chebyshev 界控制其余素数。所有 $n\ge N$ 的点态小量在 $N\to\infty$ 时一致趋零，且 $\|\sqrt n\|_N^2\to\log 2$，从而得 (2)。常数的正号可由 $1/2$ 与 $1$ 两种 Gamma 分布的比较直接给出；所有高次素幂的常数、误差和移动层反例见[阶梯定理](ladder.md)。除数余项的来源为 [Huxley 的除数问题估计](https://doi.org/10.1112/S0024611503014485)。
+
+## 2. 原谱均值如何传到普通素数窗
+
+记 $W=\|J\|_N^2$，$W_b=\|X_b\|_N^2$。以下固定一个满足 (2) 的截断序列，$b$ 固定。RH 下第五十二轮给出的 $W$ 二进平均记作 $M$。令 $L=\log2,\ a_0=2-2L$。在 RH 下，按互异的正负纵坐标 $\tau$ 取 $\rho=1/2+i\tau$，重数 $m_\rho$，写 $c_\tau=m_\rho(2^\rho-a_0)/\rho$。则
+$$
+ \lim_{K\to\infty}\frac1K\sum_{k=1}^K W_b(2^k)
+     =L\sum_\tau |c_\tau|^2+(b-K_2)^2L=M+(b-K_2)^2L . \tag{4}
+$$
+若 RH 不成立，左侧趋于正无穷。这是双向分支结论，未假定零点简单。特别地，第五十二轮的全简单零点基准 $0.09694746724955\ldots$ 在普通素数单校准窗变成 $0.09904027011704\ldots$；二进平均等于这一精确基准（旧常数加 $K_2^2L$）等价于 RH 且所有非平凡零点简单。
+
+为说明 (4) 中的干涉项，令 $F_N=\sum_{N\le n<2N} J(n)n^{-3/2}$。由第五十二轮近平方可积的逐窗显式公式，RH 下 $\|J\|_N=O(1)$ 在所有整数起点均成立，且
+$$
+ F_N=f(\log N)+o(1),\qquad
+ f(t)=\sum_\tau c_\tau\,\frac{2^{i\tau}-1}{i\tau}\,e^{i\tau t}. \tag{5}
+$$
+确切地，将 $J(n)/\sqrt n$ 乘 $du=dx/x$ 在 $[n,n+1)$ 上积分，和 $J(n)n^{-3/2}$ 的差为 $O(|J(n)|n^{-5/2})$。原权下 $J(n)\ll n$ 即足以求和成 $o(1)$。整段积分给式 (5) 的频率因子。按单位箱的零点计数估计，系数绝对可和；$\zeta(1/2)\ne0$，没有常数频率。二进块的 Cesàro 平均中，$2^{i\tau}\ne1$ 的相位消失，$2^{i\tau}=1$ 的单块系数本身为零。因此 $F_{2^k}$ 均值为零。展开 (2) 的能量即得 (4)。RH 不成立时用第五十二轮的 $\frac1K\sum W\to\infty$；把各块看作一个 Hilbert 直和，(2) 给出的平方平均误差一致有界，反三角不等式推出同样发散。[逐窗显式公式及无 RH 分支](../fiftysecond/carry.md)
+
+还有不依赖 RH 的逐窗指数。取 $\Theta=\sup_\rho\Re\rho$，若 $\Theta>1/2$，第七十八轮的下界使 $\|J\|_N\to\infty$；由 (2) 可得 $W_b/W\to1$。若 $\Theta=1/2$，则 $W_b=O(1)$。故对上述截断，
+$$ \lim_{N\to\infty}\frac{\log(1+W_b(N))}{\log N}=2\Theta-1 . $$
+这一步沿用原全整数窗口的边界定理。[第七十八轮定理一](../seventyeighth/edge.md)
+
+## 3. 单校准的逐块能量差有两种符号
+
+以下假设 RH，块起点 $N$ 可取所有正整数。由 (2)、(5) 得
+$$
+ W_0(N)-W(N)=K_2^2 L-2K_2 f(\log N)+o(1).
+$$
+$f$ 是均值零的实一致几乎周期函数。对任何非零 Bohr 系数 $d_\tau$，有 $\sup f\ge |d_\tau|$ 及 $-\inf f\ge |d_\tau|$；例如对非负函数 $\sup f-f$ 的系数取绝对值，再用其均值。几乎周期性使极值可在任意远处逼近；$\log(N+1)-\log N\to0$ 与一致连续性再传回整数起点。
+
+取一个 $14.13<\tau<14.14$ 的零点。$a_0>0.60,\ \cos(\tau L)<-0.92$，因此
+$$
+ |d_\tau|\ge \frac{\sqrt{2+a_0^2-2\sqrt2\,a_0\cos(\tau L)}
+                         \sqrt{2-2\cos(\tau L)}}{\tau\sqrt{1/4+\tau^2}}
+  >0.0193 >K_2 L/2 .
+$$
+故 $\liminf_N(W_0-W)<0<\limsup_N(W_0-W)$。式 (4) 给出的正偏置只在平均意义上成立。式 (5) 未排除不同频率在单个二进起点序列上重合，所以这里的两种符号仅对全整数起点断言。
+
+为独立认证所用零点，只需证明区间内存在一个临界线零点。Riemann 的 theta 积分给出
+$$
+ \xi(\tfrac12+it)=\tfrac12-(t^2+\tfrac14)\int_0^\infty
+ e^{u/4}\sum_{\ell\ge1}e^{-\pi\ell^2e^u}\cos(tu/2)\,du .
+$$
+保留 $0\le u\le2,\ \ell=1,2$，在 4096 格上用复合 Simpson 公式。未乘 $t^2+1/4$ 时两截断误差之和至多 $4e^{1/2}e^{-9\pi}+(2/\pi)e^{-\pi e^2}$。截断被积函数在距 $[0,2]$ 不超过 $0.1$ 的复邻域模小于 1，可由 $\Re e^u\ge e^{-0.1}\cos(0.1)$、$|\cos(tu/2)|\le\cosh(0.707)$ 得出。故四阶导数不超过 $24\cdot10^4$，积分求积误差至多 $2(2/4096)^4(24\cdot10^4)/180$。乘回系数，全部分析误差小于 $10^{-7}$。程序另用有向十进区间计算每个采样值，结果在两端分别严格为正和负。检验只用区间中某个零点，不需要低零表与重数假设。[Riemann ξ 与 theta 积分的 Mellin 来源](https://dlmf.nist.gov/25.10)
+
+## 4. 原整数有限核验
+
+执行 <code>python -I carry_check.py --out carry_checked.json</code>。标准库程序以余数与真正的 $\binom{2n}{n}$ 素数赋值核对 $n=2,\dots,192$ 上的 13,974 项形式 $\log p$ 系数。随后分别用除数筛与二项系数的对数增量取得 $J$，按每个素数的进入、半周期与周期三个端点推进 $H_y$，再在每个块三个位置用原点态公式复核。$y=\lfloor N^{3/5}\rfloor$ 取精确整数根，故 $N=1024$ 时为 64。下表的平方范数是有限浮点计算，常数与 ξ 两端符号另有区间证书。
+
+| $N$ | $y$ | $\|J-H_y-B_y\|_N^2$ | $\|J-H_y-B_y-K_2\sqrt n\|_N^2$ |
+|---:|---:|---:|---:|
+| 256 | 27 | 0.055765 | 0.047619 |
+| 4096 | 147 | 0.025162 | 0.020602 |
+| 65536 | 776 | 0.012465 | 0.009073 |
+
+更深的素幂阶梯须逐层扣除真实低次贡献；普通素数采样噪声所允许的深度另由对应平方函数决定。[复算程序](carry_check.py) · [数值与区间证书](carry_checked.json) · [所有素幂层常数](ladder.md)
+
+## 5. 仅凭普通素数窗能否估出校准量
+
+固定 $0<\theta<2/3$，对 $2^k\le n<2^{k+1}$ 拼接 $C(n)=H_{y_k}(n)+B_{y_k}$，其中 $y_k=\lfloor2^{k\theta}\rfloor$；起始块允许 $y_k=1$。到任意整数终点 $X$，以最小二乘选择系数，
+$$
+ \widehat b_X=\arg\min_{b\in\mathbb R}\sum_{n\le X}
+       (C(n)+b\sqrt n)^2/n^2
+ =-\frac{\sum_{n\le X} C(n)n^{-3/2}}{h_X},\qquad
+ h_X=\sum_{n\le X}1/n .
+$$
+**反演定理。** RH 成立时 $\widehat b_X=K_2+O_\theta(1/\log X)$，且误差不能一致改成 $o(1/\log X)$。若 RH 不成立，$\widehat b_X$ 的上、下极限分别为 $+\infty$、$-\infty$，并且
+$$
+ \limsup_{X\to\infty}\frac{\log(1+(\pm\widehat b_X)_+)}{\log X}
+ =\Theta-\tfrac12 .
+$$
+因此，哪怕只对全部整数终点的上侧或下侧拟合系数证明一致有界，也会推出 RH。这里只使用普通素数和显式 $B_y$ 形成数据；拟合公式中没有原 $J$。
+
+证明时令 $A(X)=\sum_{n\le X}J(n)n^{-3/2}$。大筛在所取严格幂区间有幂次节省，除数余项和三次以上素幂也有幂次节省。平方素幂定量式为 $P_2=K_2\sqrt n+O(\sqrt n\,e^{-c\sqrt{\log n}})$，见[阶梯定理的式 (5)](ladder.md)。因而各二进块上 $J-C-K_2\sqrt n$ 的范数之和有限。Cauchy–Schwarz 对任一末端半块同样有效，得到
+$$ h_X(\widehat b_X-K_2)=c_\theta-A(X)+o(1) . \tag{6}$$
+在 RH 下，把第五十二轮显式公式从固定点积分至 $\log X$，原处的 $O(e^{-t/10})$ 可积。频率原函数系数 $\sum_\tau |c_\tau/\tau|<\infty$，故
+$$ A(X)=c+\sum_\tau\frac{c_\tau}{i\tau}e^{i\tau\log X}+o(1).$$
+离散项与这一积分的逐格差绝对可和，理由同 (5)。相应的连续一致几乎周期函数含有上节认证的非零频率；对任何常数，整数 $\log X$ 上的差均不能趋零。这给出上界与相应的尖锐性。
+
+若 $\Theta>1/2$，第七十八轮的 $W(N)\ll N^{2\Theta-1}$ 与 Cauchy–Schwarz 给出 $|A(X)|\ll X^{\Theta-1/2}$。为得两侧下界，固定 $0<\delta<\Theta-1/2$ 并取零点 $\beta+i\tau$ 满足 $\beta>\delta+1/2$。对 $\Re s$ 充分大，
+$$s\int_1^\infty A(x)x^{-s-1}\,dx=\sum_n J(n)n^{-3/2-s}.$$
+置 $z=s+1/2$，右端与 $\int_1^\infty J(\lfloor x\rfloor)x^{-z-1}dx$ 的差在 $\Re z>0$ 全纯，由 $J(n)\ll n$ 和单位格内差分可见。第七轮 Mellin 公式给出主项 $(a_0-2^z)(-\zeta'(z)/(z\zeta(z))-1/(z-1))$，另有在 $\Re z>1/2$ 全纯的余项。因而在上述非实零点对应处 $\beta-1/2+i\tau$ 有真极点；正实 $s$ 轴处处正则，包括 $z=1$ 的密度项消去。若 $A(x)\le Cx^\delta$ 最终成立，最终非负的 $Cx^\delta-A(x)$ 的 Mellin 变换在某些 $\Re s\ge\beta-1/2$ 不能保持积分收敛，却在该收敛横坐标对应的实点正则，与非负 Mellin 变换的 Landau 定理矛盾。该定理可由选取收敛半平面中的实点作 Taylor 展开、对非负矩逐项使用单调收敛推出。对 $Cx^\delta+A(x)$ 同理。由此 $A(X)/X^\delta$ 双侧无界；(6) 给出所述两侧指数。此反推需要全部整数终点，稀疏选取二的幂未在这里证明。[原 Mellin 延拓](../seventh/carry.md) · [原能量的无条件逐窗上界](../seventyeighth/edge.md)

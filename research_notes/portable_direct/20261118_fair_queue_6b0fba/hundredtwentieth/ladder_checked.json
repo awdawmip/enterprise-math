@@ -1,0 +1,211 @@
+{
+  "method": "Euler forward differences with certified integer radical and log bounds; layer samples use real prime logarithms.",
+  "euler_terms": 86,
+  "radical_decimal_places": 44,
+  "log_series_terms": 64,
+  "K_intervals": {
+    "2": {
+      "lower_numerator": 5494794189497077500,
+      "upper_numerator": 5494794189497077501,
+      "denominator": 100000000000000000000
+    },
+    "3": {
+      "lower_numerator": 7414801965874900259,
+      "upper_numerator": 7414801965874900260,
+      "denominator": 100000000000000000000
+    },
+    "4": {
+      "lower_numerator": 8389886838566364639,
+      "upper_numerator": 8389886838566364640,
+      "denominator": 100000000000000000000
+    },
+    "5": {
+      "lower_numerator": 8979537454942664557,
+      "upper_numerator": 8979537454942664558,
+      "denominator": 100000000000000000000
+    },
+    "6": {
+      "lower_numerator": 9374498566133151979,
+      "upper_numerator": 9374498566133151980,
+      "denominator": 100000000000000000000
+    },
+    "8": {
+      "lower_numerator": 9870244274483533464,
+      "upper_numerator": 9870244274483533465,
+      "denominator": 100000000000000000000
+    },
+    "12": {
+      "lower_numerator": 10368209116135521896,
+      "upper_numerator": 10368209116135521897,
+      "denominator": 100000000000000000000
+    },
+    "20": {
+      "lower_numerator": 10768140075594529471,
+      "upper_numerator": 10768140075594529472,
+      "denominator": 100000000000000000000
+    },
+    "40": {
+      "lower_numerator": 11068977937969271809,
+      "upper_numerator": 11068977937969271810,
+      "denominator": 100000000000000000000
+    },
+    "80": {
+      "lower_numerator": 11219678225279344872,
+      "upper_numerator": 11219678225279344873,
+      "denominator": 100000000000000000000
+    }
+  },
+  "carry_window_set_audit": {
+    "all_n": [
+      1,
+      384
+    ],
+    "all_j": [
+      2,
+      9
+    ],
+    "all_integer_bases_checked": 7992
+  },
+  "finite_layer_samples": [
+    {
+      "j": 2,
+      "n_exact": "262144",
+      "root": 512,
+      "number_of_carry_primes": 42,
+      "layer_over_root_approx": 0.0406389922
+    },
+    {
+      "j": 2,
+      "n_exact": "16777216",
+      "root": 4096,
+      "number_of_carry_primes": 243,
+      "layer_over_root_approx": 0.0375294846
+    },
+    {
+      "j": 2,
+      "n_exact": "1073741824",
+      "root": 32768,
+      "number_of_carry_primes": 1558,
+      "layer_over_root_approx": 0.0514804625
+    },
+    {
+      "j": 3,
+      "n_exact": "134217728",
+      "root": 512,
+      "number_of_carry_primes": 44,
+      "layer_over_root_approx": 0.0602547077
+    },
+    {
+      "j": 3,
+      "n_exact": "68719476736",
+      "root": 4096,
+      "number_of_carry_primes": 262,
+      "layer_over_root_approx": 0.0722579555
+    },
+    {
+      "j": 3,
+      "n_exact": "35184372088832",
+      "root": 32768,
+      "number_of_carry_primes": 1673,
+      "layer_over_root_approx": 0.0842452545
+    },
+    {
+      "j": 5,
+      "n_exact": "35184372088832",
+      "root": 512,
+      "number_of_carry_primes": 41,
+      "layer_over_root_approx": 0.0363075004
+    },
+    {
+      "j": 5,
+      "n_exact": "1152921504606846976",
+      "root": 4096,
+      "number_of_carry_primes": 271,
+      "layer_over_root_approx": 0.088667467
+    },
+    {
+      "j": 5,
+      "n_exact": "37778931862957161709568",
+      "root": 32768,
+      "number_of_carry_primes": 1671,
+      "layer_over_root_approx": 0.0853754926
+    },
+    {
+      "j": 8,
+      "n_exact": "4722366482869645213696",
+      "root": 512,
+      "number_of_carry_primes": 51,
+      "layer_over_root_approx": 0.1139224978
+    },
+    {
+      "j": 8,
+      "n_exact": "79228162514264337593543950336",
+      "root": 4096,
+      "number_of_carry_primes": 276,
+      "layer_over_root_approx": 0.1015804023
+    },
+    {
+      "j": 8,
+      "n_exact": "1329227995784915872903807060280344576",
+      "root": 32768,
+      "number_of_carry_primes": 1717,
+      "layer_over_root_approx": 0.0989672183
+    },
+    {
+      "j": 16,
+      "n_exact": "22300745198530623141535718272648361505980416",
+      "root": 512,
+      "number_of_carry_primes": 54,
+      "layer_over_root_approx": 0.1741754448
+    },
+    {
+      "j": 16,
+      "n_exact": "6277101735386680763835789423207666416102355444464034512896",
+      "root": 4096,
+      "number_of_carry_primes": 282,
+      "layer_over_root_approx": 0.1128120952
+    },
+    {
+      "j": 16,
+      "n_exact": "1766847064778384329583297500742918515827483896875618958121606201292619776",
+      "root": 32768,
+      "number_of_carry_primes": 1682,
+      "layer_over_root_approx": 0.0907046858
+    },
+    {
+      "j": 32,
+      "n_exact": "497323236409786642155382248146820840100456150797347717440463976893159497012533375533056",
+      "root": 512,
+      "number_of_carry_primes": 44,
+      "layer_over_root_approx": 0.0789334892
+    },
+    {
+      "j": 32,
+      "n_exact": "39402006196394479212279040100143613805079739270465446667948293404245721771497210611414266254884915640806627990306816",
+      "root": 4096,
+      "number_of_carry_primes": 284,
+      "layer_over_root_approx": 0.1151087032
+    },
+    {
+      "j": 32,
+      "n_exact": "3121748550315992231381597229793166305748598142664971150859156959625371738819765620120306103063491971159826931121406622895447975679288285306290176",
+      "root": 32768,
+      "number_of_carry_primes": 1717,
+      "layer_over_root_approx": 0.1023173935
+    }
+  ],
+  "j_growing_counterexample": {
+    "n": "2^j",
+    "prime": 2,
+    "carry": 0,
+    "layer_over_2": "-gamma*log(2)/2",
+    "tested_j": [
+      2,
+      3,
+      8,
+      32,
+      128,
+      512
+    ]
+  }
+}
