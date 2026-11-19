@@ -51,7 +51,7 @@ int main(int argc,char** argv){
   Witness w=scan(a,b);++count;
   if(w.type==0){if(raw_misses==0)first=a; ++raw_misses;}
  }
- std::cout<<b<<","<<count<<","<<raw_misses<<","<<first<<"\\n";
+ std::cout<<b<<","<<count<<","<<raw_misses<<","<<first<<"\n";
 }
 """
     with tempfile.TemporaryDirectory(prefix='prefix923c_') as d:
