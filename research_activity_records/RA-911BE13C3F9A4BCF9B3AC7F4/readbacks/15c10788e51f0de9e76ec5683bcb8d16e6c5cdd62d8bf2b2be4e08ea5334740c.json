@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/eightyeighth/README.md",
+    "ref": "2939fff562aeea7fbab0dd6edbd160213155b6f3",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-eightyeight-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第八十八轮　平移幂的唯一分圆例外与环形同源读数\n\n**循环多项式的分圆观察。** 在 $(\\mathbb Z/N)[X]/(X^R-1)$ 中，对 $F_t=(X+t)^N$ 记录每个 $d\\mid R$ 的分圆余式。这组观察能恢复所有不同的 $F_t$，唯一例外为 **$R=9$ 且 $18\\mid N$**。在例外处，只有三进分量上的两个平移类 $0,1\\bmod3$ 合并。限制 $t$ 为模 $N$ 的单位后，对所有宽度和模数都能恢复细状态。赋值提升、四个系数的二阶差分和混合分圆分量分别处理大素数与三进边界。复算用直接二项式和循环卷积两条路径，在 $N=78120,R=9$ 得 868 个单纤维和 868 个双纤维。[分类与例外差式](shifts.md) · [精确回执](shifts_checked.json)\n\n**环形同源查询。** $r$ 个具名槽按步长 $d$ 观察两槽是否同源，置 $g=\\gcd(r,d), m=r/g$。可实现的布尔记录恰有 $(2^m-m)^g$ 份。收缩相等边后，对每个环的色多项式作有限差分，就得到每份观察按来源块数细分的全部状态数。若收缩后有 $v$ 个顶点与 $h$ 条不同的不等边，则最坏情况下还需、且只需 $\\binom v2-h$ 次查询，即使允许自适应也一样。该分支直接在原正权计数与三子句编码上核验了封闭公式。[分区公式与下界](alias.md) · [原接口复算](alias_checked.json)\n\n截至 2026-11-19 04:52:04 UTC，累计直接研究 233 个登记任务，覆盖 51 个父方向。低频分圆审计回访全模数，并在同源计数的独立工作包完成一次首访。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 30、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2939fff562aeea7fbab0dd6edbd160213155b6f3/research_notes/portable_direct/20261118_fair_queue_6b0fba/eightyeighth/README.md",
+      "encoding": "utf-8",
+      "sha": "d9ae317461dbce96bb822e9a931ffed5923dd9ed"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
