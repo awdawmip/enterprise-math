@@ -1,0 +1,19 @@
+# X6 Unit163 — P022 integer radial triangle carry: verified producer–consumer and path-count type separation
+
+Date 2026-11-19. Task RS-X6-LEGACY-PLANE-RECONCILIATION (TP2-B4A441B23DA3159232C2), parent PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905. Existing author EM-X6-FB6990, research lane chatgpt-research-onhour-enterprise-math-20260923, session MCP-082892eb480e45dea6d4b9fcc0491034. Frozen scientific input 59538f585d037d09ef687b28715c4bc1a3f9fe03; historical comparison fd2bcff10ca6e147348b6c1236027fc0d2877df3. Status AUTHOR_PROVED / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED.
+
+## Exact previously uncovered frozen caller
+
+`src/enterprise_math/lattice_geometry.py` blob `825ee26c918a4d7007e280aeaa1d7b750cd46aba`: `a_quadratic_separation` lines48–55, `a_collapsed_radial_distance` 57–60, `a_triangle_carry` 62–72. At line72, `return max(0, direct - via)` operates on **nonnegative collapsed distance integers**, not on N-BRC positive path counts. Direct frozen test consumer `tests/test_lattice_geometry.py`, blob `304ff8e769f93fa0e96a03c1ffe89960ea5dd622`, imports the carry at line19, verifies its range and triangle bound at lines157–169 and a sharp witness at lines171–178. The source explicitly types this as P022 geometry with obsolete P019 terminology; a filename or “P019” history marker does not constitute LP019's alleged positive path-count subtraction.
+
+## Complete mathematical proof
+
+For p≥1 take A_p={x in Z^(p+1):∑x_i=0}. Define q(x,y)=½∑(x_i-y_i)^2, an integer since ∑(x_i-y_i)=0 implies ∑(x_i-y_i)^2≡0(mod2). Let d(x,y)=⌊√q(x,y)⌋ and c(x,y,z)=max(0,d(x,z)-d(x,y)-d(y,z)). The real quantity ρ(x,y)=√q(x,y) is a positive scalar multiple of Euclidean distance, so ρ(x,z)≤ρ(x,y)+ρ(y,z). Since for a,b≥0, ⌊a+b⌋≤⌊a⌋+⌊b⌋+1, we have d(x,z)≤d(x,y)+d(y,z)+1. Thus, for **every** p and every triple of A_p integer points, c∈{0,1}. No BRC path coefficient appears in c. The exact original test witness a=(-2,0,2), b=(-1,1,0), c=(0,2,-2) has d(a,b)=d(b,c)=1 and d(a,c)=3, so the bound 1 is optimal. This is a property of the P022 collapsed-radial observer rather than the P000 native signed-X6 component-square readout. The proof is in the declared derived A_p model; no promotion to native metric or physical geometry.
+
+## Exact independent execution
+
+A standalone integer checker enumerated all zero-sum coordinates with each component in [-2,2] for p=1,2,3 and **all ordered point triples** from each finite set. It computed q exactly as integers, the integer square root through comparisons, checked c∈{0,1}, identified positive sharp cases, and confirmed the source witness. Number of checked triples and per-p counts are recorded in the attached execution JSON. Finite checks are a regression certificate; the all-p proof above is analytic. The frozen historical Python tests and original R063 six-file benchmark were not rerun.
+
+## Typed provenance conclusion and next exact need
+
+`lattice_geometry.a_triangle_carry → test_lattice_geometry` is a real frozen consumer with an explicit subtraction, **but its operands are distance values, not N-BRC multiplicities**. Therefore it is NOT evidence for erroneous LP019 positive BRC subtraction. The earlier unresolved LP019 provenance remains unresolved, as does LP011 incorrect native argmax. Preserve source commit/path/blob and correct derived semantics rather than inventing historical faults. This genuinely extends the source-caller ledger, independently from Unit162's C12 rotor/axis action comparison, and does not repeat the accepted historical R063 benchmark. Next target remains an actually wrong historical operation with exact commit/path/line if one exists; verify against all source pins, avoid reverse inference from names. Native progress for this unit is separate from GitHub and Activity persistence.
