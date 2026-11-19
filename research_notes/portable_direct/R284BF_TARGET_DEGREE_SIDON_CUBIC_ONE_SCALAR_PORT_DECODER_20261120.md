@@ -19,13 +19,13 @@ Q=2A+1; e_j=Q+a_j; S=Σ_j e_j; K=S+1;
 d_j=b^{e_j}; z_i=b^{K+2a_i}  (1≤i<n).
 ```
 
-The same exact coefficient decoder as R284BE recovers all n² entries. Both the maximum exponent of a controlled parameter and every exponent occurring in the readout are **O(n³)**, and control/readout bit lengths are
+The same exact coefficient decoder as R284BE recovers all n² entries. Both the maximum exponent of a controlled parameter and every exponent occurring in the **ideal integer** readout are **O(n³)**, and control/ideal-integer-readout bit lengths are
 
 ```
 O(n³ · (n log n+n log(H+1)+log(1+δ)))
 ```
 
-when the single reading is an exact rational number perturbed by unknown |ε|≤δ, with δ≥0 specified in advance. In the noiseless case omit the last logarithmic term.
+when the single reading is an ideal integer followed by an exact rational perturbation |ε|≤δ, with δ≥0 specified in advance. In the noiseless case omit the last logarithmic term. For the perturbed rational readout, this bound concerns its integer-part magnitude, not the length of an arbitrary error denominator: exact rational errors bounded in magnitude may have arbitrarily large denominators, which count as part of the actual decoder input length.
 
 This strictly improves R284BE's sufficient O(n⁴) exponent and R284BD's O(n⁵) exponent while keeping the same single simultaneous star-Port read and direct polynomial-time reconstruction.
 
