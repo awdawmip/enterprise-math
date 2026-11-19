@@ -1,0 +1,22 @@
+{
+  "algorithm": "enumerate all source-labelled legal event words, test equality of Boolean supports for same signature; independently check horizon-graded signature update on all legal typed moves in sampled configurations",
+  "pair_global_class_formula": "sum_{j=0}^min(6,h) 2^j * C(6,j) * C(h,j) = |{z in Z^6: ||z||_1 <= h}|",
+  "pair_sample_total_word_observations": 369172,
+  "pair_tests": [
+    {"h": 0, "sample_equivalence_classes": 1, "sample_states": 25, "theoretical_all_X6_classes": 1, "theoretical_min_bits": 0},
+    {"h": 1, "sample_equivalence_classes": 5, "sample_states": 25, "theoretical_all_X6_classes": 13, "theoretical_min_bits": 4},
+    {"h": 2, "sample_equivalence_classes": 13, "sample_states": 25, "theoretical_all_X6_classes": 85, "theoretical_min_bits": 7},
+    {"h": 3, "sample_equivalence_classes": 21, "sample_states": 25, "theoretical_all_X6_classes": 377, "theoretical_min_bits": 9}
+  ],
+  "result": "PASS",
+  "scope": "conditional occupancy-only six signed native-coordinate unit-step event system; complete source/axis/direction labelled Boolean future-word support; not TRIADIC_CLOSURE_E native admission",
+  "three_source_graded_transitions": 7968,
+  "three_source_tests": [
+    {"configurations": 120, "h": 0, "observed_language_classes": 1, "signature_classes": 1},
+    {"configurations": 120, "h": 1, "observed_language_classes": 43, "signature_classes": 43},
+    {"configurations": 120, "h": 2, "observed_language_classes": 90, "signature_classes": 90}
+  ],
+  "three_source_total_word_observations": 147240,
+  "two_source_graded_transitions": 1776,
+  "validation_limit": "full pair sample: b=(x,y,0,0,0,0), x,y=-2..2 excluding origin plus b=(9,9,0,0,0,0), horizon 0..3; all 120 ordered distinct 3-source configurations from 6 fixed points, horizon 0..2; symbolic proof handles arbitrary n and unbounded X6 displacements"
+}
