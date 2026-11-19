@@ -1,0 +1,481 @@
+{
+  "adaptive_lower_bound_five_readings": [
+    [
+      0,
+      1,
+      2,
+      0,
+      2
+    ],
+    [
+      0,
+      1,
+      2,
+      0,
+      1
+    ]
+  ],
+  "adaptive_lower_bound_same_sector_sources": [
+    [
+      0,
+      0,
+      4,
+      3,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0
+    ]
+  ],
+  "best_single_words_through_four": [
+    {
+      "count_of_maximizers": 1,
+      "first_winning_word": "",
+      "max_transcripts": 9
+    },
+    {
+      "count_of_maximizers": 1,
+      "first_winning_word": "E",
+      "max_transcripts": 27
+    },
+    {
+      "count_of_maximizers": 2,
+      "first_winning_word": "TE",
+      "max_transcripts": 54
+    },
+    {
+      "count_of_maximizers": 3,
+      "first_winning_word": "TTE",
+      "max_transcripts": 108
+    },
+    {
+      "count_of_maximizers": 4,
+      "first_winning_word": "TTTE",
+      "max_transcripts": 216
+    }
+  ],
+  "compressed_old_atoms": 384,
+  "cwm_FT_count_total_dominant": {
+    "False": [
+      [
+        0,
+        "0",
+        "0"
+      ],
+      [
+        2,
+        "1",
+        "1/2"
+      ],
+      [
+        0,
+        "0",
+        "0"
+      ]
+    ],
+    "True": [
+      [
+        0,
+        "0",
+        "0"
+      ],
+      [
+        0,
+        "0",
+        "0"
+      ],
+      [
+        2,
+        "1",
+        "1/2"
+      ]
+    ]
+  },
+  "git_blobs": {
+    "research_notes/chatgpt_direct/20261010_EULER_CONTROLLER_RELATIONAL_MEMORY.md": "22a7d072e54f40c52a94e91dac7f68f63371436c",
+    "research_notes/chatgpt_direct/20261010_EULER_PASSIVE_SAMPLING_AND_NOISE.md": "bd80290c259cc60995069613a5f4b5f5b41a13d1",
+    "research_notes/chatgpt_direct/20261011_EULER_READOUT_BACKACTION.md": "5e00414f752d97d69cee9bf602fd6b5e50da4b05",
+    "research_notes/chatgpt_direct/20261011_EULER_RELATIONAL_RECORDING.md": "03cfdf23f8f1a6208b4ac4eb862a1b7ad3811d8b",
+    "research_tasks/RS-EULER-RR-20261012-07.md": "c3a45d6c6033f48136f532678db89cfe6c79428d",
+    "src/enterprise_math/brc_logarithm.py": "4732e5fc381ce613d240c4381ccbef03c27a69c7",
+    "src/enterprise_math/brc_weighted.py": "3f205696709e847909958a153f8fe10d3f6b70f0",
+    "src/enterprise_math/exact_arithmetic.py": "35ea95b0916494b83a92386e3e313928362dd79e",
+    "src/enterprise_math/operation_quotient.py": "758a65de02a434446936cd7e37b2ae604eade863",
+    "src/enterprise_math/partial_operation_quotient.py": "d1f86491ce07279c058a4c99f40cabb1f96da0de"
+  },
+  "joint_atoms": 3456,
+  "partitions": {
+    "0": {
+      "T": {
+        "final_fibers": {
+          "3": 108,
+          "15": 36
+        },
+        "stages": [
+          9,
+          18,
+          36,
+          72,
+          144
+        ]
+      },
+      "TF": {
+        "final_fibers": {
+          "1": 108,
+          "2": 108,
+          "5": 36,
+          "10": 36
+        },
+        "stages": [
+          9,
+          18,
+          72,
+          144,
+          288
+        ]
+      },
+      "TFE": {
+        "final_fibers": {
+          "1": 324,
+          "5": 108
+        },
+        "stages": [
+          9,
+          54,
+          108,
+          216,
+          432
+        ]
+      },
+      "TFEG": {
+        "final_fibers": {
+          "1": 648,
+          "2": 108
+        },
+        "stages": [
+          9,
+          108,
+          756
+        ]
+      },
+      "extension_experiment": {
+        "adaptive_minimum": 6,
+        "classes_per_initial_read": 84,
+        "distinct_adaptive_transcripts": 756,
+        "fixed_minimum": 7,
+        "fixed_word": "TTTTGGE",
+        "shorter_fixed_word_exists": false,
+        "shorter_source_word_histogram": {
+          "12": 2,
+          "16": 4,
+          "20": 24,
+          "24": 2
+        }
+      }
+    },
+    "1": {
+      "T": {
+        "final_fibers": {
+          "3": 108,
+          "15": 36
+        },
+        "stages": [
+          9,
+          18,
+          36,
+          72,
+          144
+        ]
+      },
+      "TF": {
+        "final_fibers": {
+          "1": 108,
+          "2": 108,
+          "5": 36,
+          "10": 36
+        },
+        "stages": [
+          9,
+          18,
+          72,
+          144,
+          288
+        ]
+      },
+      "TFE": {
+        "final_fibers": {
+          "1": 324,
+          "5": 108
+        },
+        "stages": [
+          9,
+          54,
+          108,
+          216,
+          432
+        ]
+      },
+      "TFEG": {
+        "final_fibers": {
+          "1": 648,
+          "2": 108
+        },
+        "stages": [
+          9,
+          108,
+          756
+        ]
+      },
+      "extension_experiment": {
+        "adaptive_minimum": 6,
+        "classes_per_initial_read": 84,
+        "distinct_adaptive_transcripts": 756,
+        "fixed_minimum": 7,
+        "fixed_word": "TTTTGGE",
+        "shorter_fixed_word_exists": false,
+        "shorter_source_word_histogram": {
+          "12": 2,
+          "16": 4,
+          "20": 24,
+          "24": 2
+        }
+      }
+    },
+    "2": {
+      "T": {
+        "final_fibers": {
+          "3": 108,
+          "15": 36
+        },
+        "stages": [
+          9,
+          18,
+          36,
+          72,
+          144
+        ]
+      },
+      "TF": {
+        "final_fibers": {
+          "1": 108,
+          "2": 108,
+          "5": 36,
+          "10": 36
+        },
+        "stages": [
+          9,
+          18,
+          72,
+          144,
+          288
+        ]
+      },
+      "TFE": {
+        "final_fibers": {
+          "1": 324,
+          "5": 108
+        },
+        "stages": [
+          9,
+          54,
+          108,
+          216,
+          432
+        ]
+      },
+      "TFEG": {
+        "final_fibers": {
+          "1": 648,
+          "2": 108
+        },
+        "stages": [
+          9,
+          108,
+          756
+        ]
+      },
+      "extension_experiment": {
+        "adaptive_minimum": 6,
+        "classes_per_initial_read": 84,
+        "distinct_adaptive_transcripts": 756,
+        "fixed_minimum": 7,
+        "fixed_word": "TTTTGGE",
+        "shorter_fixed_word_exists": false,
+        "shorter_source_word_histogram": {
+          "12": 2,
+          "16": 4,
+          "20": 24,
+          "24": 2
+        }
+      }
+    },
+    "3": {
+      "T": {
+        "final_fibers": {
+          "3": 108,
+          "15": 36
+        },
+        "stages": [
+          9,
+          18,
+          36,
+          72,
+          144
+        ]
+      },
+      "TF": {
+        "final_fibers": {
+          "1": 108,
+          "2": 108,
+          "5": 36,
+          "10": 36
+        },
+        "stages": [
+          9,
+          18,
+          72,
+          144,
+          288
+        ]
+      },
+      "TFE": {
+        "final_fibers": {
+          "1": 324,
+          "5": 108
+        },
+        "stages": [
+          9,
+          54,
+          108,
+          216,
+          432
+        ]
+      },
+      "TFEG": {
+        "final_fibers": {
+          "1": 648,
+          "2": 108
+        },
+        "stages": [
+          9,
+          108,
+          756
+        ]
+      },
+      "extension_experiment": {
+        "adaptive_minimum": 6,
+        "classes_per_initial_read": 84,
+        "distinct_adaptive_transcripts": 756,
+        "fixed_minimum": 7,
+        "fixed_word": "TTTTGGE",
+        "shorter_fixed_word_exists": false,
+        "shorter_source_word_histogram": {
+          "12": 2,
+          "16": 4,
+          "20": 24,
+          "24": 2
+        }
+      }
+    },
+    "mixed": {
+      "T": {
+        "final_fibers": {
+          "12": 108,
+          "60": 36
+        },
+        "stages": [
+          9,
+          18,
+          36,
+          72,
+          144
+        ]
+      },
+      "TF": {
+        "final_fibers": {
+          "4": 108,
+          "8": 108,
+          "20": 36,
+          "40": 36
+        },
+        "stages": [
+          9,
+          18,
+          72,
+          144,
+          288
+        ]
+      },
+      "TFE": {
+        "final_fibers": {
+          "4": 324,
+          "20": 108
+        },
+        "stages": [
+          9,
+          54,
+          108,
+          216,
+          432
+        ]
+      },
+      "TFEG": {
+        "final_fibers": {
+          "2": 1080,
+          "6": 216
+        },
+        "stages": [
+          9,
+          108,
+          1080,
+          1296
+        ]
+      },
+      "extension_experiment": {
+        "adaptive_minimum": 7,
+        "classes_per_initial_read": 144,
+        "distinct_adaptive_transcripts": 1296,
+        "fixed_minimum": 8,
+        "fixed_word": "TTTTGGGE",
+        "shorter_fixed_word_exists": false,
+        "shorter_source_word_histogram": {
+          "16": 4,
+          "32": 22,
+          "40": 38
+        }
+      }
+    }
+  },
+  "passive_prefix_counts": [
+    3,
+    6,
+    12,
+    24,
+    48
+  ],
+  "primitive_fused_comparisons_including_both_receiver_sheets": 27648,
+  "reachable_from_ready": 3456,
+  "ready_initial_transcripts": 144,
+  "ready_two_world_EFT_laws": [
+    [
+      "0",
+      "0",
+      "1"
+    ],
+    [
+      "0",
+      "1",
+      "0"
+    ]
+  ],
+  "registration": "RS-EULER-RR-20261012-07",
+  "source_diagnostic_G_outputs": [
+    1,
+    0
+  ],
+  "universal_single_word": "TTTTE"
+}

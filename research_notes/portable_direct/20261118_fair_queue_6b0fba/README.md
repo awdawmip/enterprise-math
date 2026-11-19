@@ -242,3 +242,5 @@
 - [第一百零七轮　谱矩零点与重合旋转的理想类](hundredseventh/README.md)　Jordan 谱矩约消判据与非主理想类约束下的多行分布。
 
 - [第一百零八轮　粗筛奇偶余弦与正规曲面](hundredeighth/README.md)　单奇素因子尺度的非消失，及正规曲面正性和整格筛的边界。
+
+- [第一百零九轮　反馈记录与抗删除周期识别](hundredninth/README.md)　有限可观察商及最小跨度上的稀疏采样。
