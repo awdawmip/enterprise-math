@@ -1,0 +1,73 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "unit": 160,
+  "date": "2026-11-19",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "author": "EM-X6-FB6990",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "science_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED/EXACT_INTEGER_EXECUTED/GITHUB_VERIFIED/UNREVIEWED/NOT_ADMITTED",
+  "source_edges": [
+    {
+      "producer": "src/enterprise_math/p022_barlow_stacking.py",
+      "blob": "cfa12c17671692d1fe0371b7d80e4cc019fbcf54",
+      "lines": "133-175,188ff",
+      "consumer": "tests/test_p022_barlow_stacking.py",
+      "consumer_blob": "e0b6e3c4df5db0db0f8d238d527df72a3e4ca510",
+      "consumer_lines": "102-135",
+      "operator_type": "DERIVED_BARLOW_CONTACT_GRAPH_SELECTED_LAYER_PREFIX_POLYNOMIAL_AND_GEODESIC"
+    },
+    {
+      "producer": "src/enterprise_math/p022_barlow_precision.py",
+      "blob": "34f351f55f25c115a872a9cbaf1a6dd7212089af",
+      "lines": "137-172",
+      "consumer": "tests/test_p022_barlow_precision.py",
+      "consumer_blob": "1bf1cfb09b0f16b1964dc9c62011f9cf85bd415e",
+      "consumer_lines": "56-125",
+      "operator_type": "EXISTING_PREFIX_IMBALANCE_SUFFICIENCY_AND_COMPLETE_TRAJECTORY_RECOVERY"
+    }
+  ],
+  "prior_art": "Existing P022 already proves delta determines a selected-layer coefficient observer and full trajectory recovers word. New exact finite-fiber cardinality and sharp extra-bit bound quantify residual order.",
+  "theorem": "For sign word length n, sampled prefix times t_j with increments d_j and block lengths L_j: F=2^(n-t_m) product binom(L_j,(L_j+d_j)/2), feasibility parity/range; observation-image size product(L_j+1); exact additional fixed bits ceil(log2 F).",
+  "evidence": [
+    {
+      "path": "research_notes/X6_UNIT160_BARLOW_SELECTED_LAYER_OBSERVER_FIBER_CARDINALITY_20261119.md",
+      "commit": "c361cd51186f2f64ba64af9e432158963ad3c47d",
+      "blob": "558ba86d5a30e9481bff2293dc326c88aae8b4b0"
+    },
+    {
+      "path": "research_checks/X6_UNIT160_BARLOW_SELECTED_LAYER_FIBER_CHECK_20261119.py",
+      "commit": "cbeae752edaecdecb3ef9b35819cb7881b0b0dbc",
+      "blob": "9368d21f30996308e743beaa71ceab5835d16d94",
+      "sha256": "b53e40e8f6b76f0156f4dd61b71dc2320fdb9d01e0bbf621d36fc6942eb0fa42"
+    },
+    {
+      "path": "research_checks/X6_UNIT160_BARLOW_SELECTED_LAYER_FIBER_RESULTS_20261119.json",
+      "commit": "59b6d51d3326f2ea5ed6dd62e03e52d955d49ee9",
+      "blob": "1ea7ec88abe531f2bd3c95824d7c2c953751c70f",
+      "sha256": "a43e4afe1e123d4064060710cd15e666ed643bd3a2ea9d21f397ce5aee680610"
+    }
+  ],
+  "checks": {
+    "word_selection": 349524,
+    "observed_fibers": 76095,
+    "n_range": "1..9",
+    "witness": "n=8,T=(2,5,8),delta=(0,1,0),F=18,bits=5",
+    "python_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "result_sha256": "a43e4afe1e123d4064060710cd15e666ed643bd3a2ea9d21f397ce5aee680610",
+    "historical_tests_executed": false,
+    "original_r063_rerun": false
+  },
+  "lp011_faulty_historical_caller": "UNRESOLVED_PROVENANCE",
+  "lp019_faulty_historical_caller": "UNRESOLVED_PROVENANCE",
+  "unit159_native_request": "onhour-20261119-1758-x6-own-unit159-native-progress-v1",
+  "unit159_native_status_at_last_read": "RUNNING",
+  "unit160_native_status": "NOT_SUBMITTED_WHILE_UNIT159_REQUEST_PENDING",
+  "next_action": "Reconcile original Unit159 native publication; with current winning claim/generation and no overlapping in-flight effects, associate Unit160 via one native semantic progress; continue exact 28-LP production types and LP011/LP019 provenance; independent Driver review separately."
+}
