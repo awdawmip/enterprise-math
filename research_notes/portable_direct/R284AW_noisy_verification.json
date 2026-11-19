@@ -1,0 +1,44 @@
+{
+  "theorem": "R284AW",
+  "status": "PASS",
+  "model": "Known common denominator Q=37 and known numerator height; noisy finite scalar determinant readings",
+  "absolute_error_bound": "1/(16*Q^n)",
+  "error_pattern": "alternating + and - maximum permitted error; each is exact Fraction",
+  "seed": 28420261119,
+  "total_cases": 61,
+  "by_dimension": {
+    "2": 12,
+    "3": 13,
+    "4": 12,
+    "5": 12,
+    "6": 12
+  },
+  "input_distributions": [
+    "strictly positive random integers 1..6",
+    "all ones singular rank-one",
+    "positive outer-product rank-one",
+    "R284AR transpose-ambiguous 3x3"
+  ],
+  "query_graph": "Random arbitrarily oriented spanning trees, one per case",
+  "exact_scalar_reads": 1330,
+  "max_query_count_formula": "3*binomial(n,2)+1",
+  "maximum_T_bits": 52,
+  "maximum_scaled_response_numerator_bits": 265,
+  "checks": [
+    "rounding inequality strict for every required single and signed difference coefficient",
+    "exact reconstruction of all 61 matrices",
+    "all query counts within distance-graded AV bound",
+    "fraction-free Bareiss core and exact rational measurement errors"
+  ],
+  "commands": "python3 R284AW_noisy_distance_graded_checker.py [full-output.json]",
+  "checker": "research_notes/portable_direct/R284AW_noisy_distance_graded_checker.py",
+  "independent_review": "NOT_REVIEWED",
+  "finite_test_scope": "61 selected finite matrices and one deterministic maximum-error sign schedule; AW2 theorem proves all bounded error sequences",
+  "not_claimed": [
+    "real physical apparatus",
+    "noise probability distribution",
+    "bounded diagonal actuator range",
+    "native X6 spatial transfer",
+    "formal proof acceptance"
+  ]
+}
