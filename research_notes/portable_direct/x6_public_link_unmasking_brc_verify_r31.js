@@ -2,7 +2,7 @@
 // Execute: node x6_public_link_unmasking_brc_verify_r31.js
 function runR31(){
   const counts={controllers:0,pair_horizon_checks:0,pass:true,largest_class_count:0,random_controllers:0,explicit_chains:0};
-  function check(n,N,m,links,trans,initial){
+  function check(n,N,m,links,trans,initial,maxH=6){
     const d=Array(n).fill(Infinity),seen=new Set([initial]),queue=[[initial,0]];
     for(let p=0;p<queue.length;p++){
       const [s,t]=queue[p];for(let i=0;i<n;i++)if(((links[s]>>i)&1)===0&&t<d[i])d[i]=t;
@@ -26,7 +26,7 @@ function runR31(){
       if(!intern.has(repr))intern.set(repr,nextId++);
       const id=intern.get(repr);memo.set(key,id);return id;
     }
-    for(let h=0;h<=6;h++){
+    for(let h=0;h<=maxH;h++){
       const vals=Array.from({length:1<<n},(_,theta)=>sign(theta,initial,0,0,h));
       const unique=new Set(vals).size;counts.largest_class_count=Math.max(unique,counts.largest_class_count);
       const expected=2**d.filter(v=>v+3<=h).length;
@@ -63,7 +63,7 @@ function runR31(){
   for(let q=0;q<=5;q++){
     const N=q+1,n=1,m=1,links=Array(N).fill(1);links[q]=0;
     const trans=Array.from({length:N},(_,s)=>s<q?s+1:-1);
-    check(n,N,m,links,trans,0);counts.explicit_chains++;
+    check(n,N,m,links,trans,0,Math.max(6,q+3));counts.explicit_chains++;
   }
   return counts;
 }
