@@ -1,0 +1,34 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-19",
+  "unit": 164,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "claims": [
+    {
+      "id": "X6-UNIT164-R061-STAGE3-SPECTRUM-FIBER",
+      "historical_caller": "definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md",
+      "historical_caller_blob": "da35c76869ff88e46e28e33ba5bc37c95374a15d",
+      "historical_lines": "§§4–5",
+      "historical_producer": "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
+      "historical_producer_blob": "58ccac6d8b88dcfd91a0a6017ca7b29187b4e7b0",
+      "historical_producer_lines": "19–58,170–221,233–289",
+      "old_statement": "unoriented multiset of two directed relative-gauge scalars and orientation-tagged path union",
+      "old_type": "DERIVED_RELATIVE_OBSERVER_PLUS_SEPARATE_PATH_FORMAL",
+      "current_type": "PRESERVE_OBSERVER + PRESERVE_PATH_BRC",
+      "finding": "fixed-sector unordered squared spectrum has exact one/two-element fibers (a,b) versus (a,a-b), distinct signed native squared-length and N-BRC on two-element fibers; this justifies retaining the source's orientation tags",
+      "repository_action": "CURRENT_RETYPING_ALREADY_PRESENT; preserve provenance; do not promote scalar-only spectrum as native squared norm or path-count proxy",
+      "wrong_lp011_lp019_caller_proven": false
+    }
+  ],
+  "status": "AUTHOR_PROVED_EXACT_CHECKED_UNREVIEWED_NOT_ADMITTED",
+  "bounded_validation": {
+    "limit_a": 128,
+    "states": 8384,
+    "fibers": 4224,
+    "singletons": 64,
+    "doubletons": 4160,
+    "violations": 0
+  }
+}
