@@ -1,0 +1,22 @@
+{
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "path": "research_notes/portable_direct/x6_fixed_lane_gap_brc_results.json",
+    "ref": "231477e53db051661da159ba11583ff7d9e3b4c6"
+  },
+  "observation_id": "r2-x6-r13-20261119-result",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"checked_legal_graded_transitions\": 2140,\n  \"direct_vs_gap_language_checks\": 804,\n  \"general_theorem_status\": \"proved symbolically in accompanying note; finite suite is corroboration\",\n  \"model\": \"Six-component signed integer positions; per-source native +axis0; labelled Boolean branch support; fixed lane partition and within-lane source order; vacant target\",\n  \"runs\": [\n    {\n      \"adjacent_edges\": 0,\n      \"configs_per_horizon\": 1,\n      \"gap_domain\": [\n        0,\n        3\n      ],\n      \"h5_classes\": 1,\n      \"horizons\": [\n        0,\n        5\n      ],\n      \"lanes\": [\n        [\n          0\n        ]\n      ],\n      \"sources\": 1\n    },\n    {\n      \"adjacent_edges\": 1,\n      \"configs_per_horizon\": 4,\n      \"gap_domain\": [\n        0,\n        3\n      ],\n      \"h5_classes\": 4,\n      \"horizons\": [\n        0,\n        5\n      ],\n      \"lanes\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"sources\": 2\n    },\n    {\n      \"adjacent_edges\": 2,\n      \"configs_per_horizon\": 16,\n      \"gap_domain\": [\n        0,\n        3\n      ],\n      \"h5_classes\": 16,\n      \"horizons\": [\n        0,\n        5\n      ],\n      \"lanes\": [\n        [\n          0,\n          1,\n          2\n        ]\n      ],\n      \"sources\": 3\n    },\n    {\n      \"adjacent_edges\": 3,\n      \"configs_per_horizon\": 64,\n      \"gap_domain\": [\n        0,\n        3\n      ],\n      \"h5_classes\": 64,\n      \"horizons\": [\n        0,\n        5\n      ],\n      \"lanes\": [\n        [\n          0,\n          1,\n          2,\n          3\n        ]\n      ],\n      \"sources\": 4\n    },\n    {\n      \"adjacent_edges\": 2,\n      \"configs_per_horizon\": 16,\n      \"gap_domain\": [\n        0,\n        3\n      ],\n      \"h5_classes\": 16,\n      \"horizons\": [\n        0,\n        5\n      ],\n      \"lanes\": [\n        [\n          0,\n          2\n        ],\n        [\n          1,\n          3\n        ]\n      ],\n      \"sources\": 4\n    },\n    {\n      \"adjacent_edges\": 2,\n      \"configs_per_horizon\": 16,\n      \"gap_domain\": [\n        0,\n        3\n      ],\n      \"h5_classes\": 16,\n      \"horizons\": [\n        0,\n        5\n      ],\n      \"lanes\": [\n        [\n          0,\n          1\n        ],\n        [\n          2,\n          3\n        ]\n      ],\n      \"sources\": 4\n    },\n    {\n      \"adjacent_edges\": 2,\n      \"configs_per_horizon\": 16,\n      \"gap_domain\": [\n        0,\n        3\n      ],\n      \"h5_classes\": 16,\n      \"horizons\": [\n        0,\n        5\n      ],\n      \"lanes\": [\n        [\n          0,\n          1,\n          2\n        ],\n        [\n          3\n        ]\n      ],\n      \"sources\": 4\n    },\n    {\n      \"adjacent_edges\": 0,\n      \"configs_per_horizon\": 1,\n      \"gap_domain\": [\n        0,\n        3\n      ],\n      \"h5_classes\": 1,\n      \"horizons\": [\n        0,\n        5\n      ],\n      \"lanes\": [\n        [\n          0\n        ],\n        [\n          1\n        ],\n        [\n          2\n        ],\n        [\n          3\n        ]\n      ],\n      \"sources\": 4\n    }\n  ],\n  \"state_horizon_configurations\": 804,\n  \"status\": \"PASS\",\n  \"suite\": \"X6_FIXED_LANE_TRUNCATED_GAP_TYPED_BOOLEAN_BRC\",\n  \"total_labeled_branch_word_observations\": 121355,\n  \"unbounded_gap_horizon_counterexample\": \"two sources with gap h versus h+1 have identical L_h but distinct L_(h+1), witness rear^(h+1); all h>=0\"\n}\n",
+      "encoding": "utf-8",
+      "sha": "d4d9b9ef5a5a73e951f4eff0678e84b0e09896b4",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/231477e53db051661da159ba11583ff7d9e3b4c6/research_notes/portable_direct/x6_fixed_lane_gap_brc_results.json"
+    }
+  },
+  "verification_scope": {
+    "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+    "server_signature_authenticated": false,
+    "network_request_by_this_tool": false
+  }
+}
