@@ -1,0 +1,90 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-20",
+  "unit": 174,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "classification": "KEEP_CORRECTLY_TYPED_DERIVED_BARLOW_PERIODIC_BOUND / SHARP_OPTIMAL_CONSTANT_PROVED / TRUE_FROZEN_PRODUCTION_IMPORTS / UNREVIEWED_NOT_ADMITTED",
+  "source_edges": [
+    {
+      "producer": "src/enterprise_math/p022_barlow_stacking.py",
+      "producer_blob": "cfa12c17671692d1fe0371b7d80e4cc019fbcf54",
+      "producer_lines": "114-142",
+      "consumer": "src/enterprise_math/p022_barlow_precision.py",
+      "consumer_blob": "34f351f55f25c115a872a9cbaf1a6dd7212089af",
+      "consumer_lines": "17-24,53-72"
+    },
+    {
+      "producer": "src/enterprise_math/p022_barlow_precision.py",
+      "producer_blob": "34f351f55f25c115a872a9cbaf1a6dd7212089af",
+      "producer_lines": "53-72",
+      "consumer": "src/enterprise_math/p022_barlow_growth.py",
+      "consumer_blob": "4185cafdb3e4ad4f55c58ff111747013e710af43",
+      "consumer_lines": "27-28,110"
+    },
+    {
+      "producer": "src/enterprise_math/p022_barlow_stacking.py",
+      "producer_blob": "cfa12c17671692d1fe0371b7d80e4cc019fbcf54",
+      "producer_lines": "139-142",
+      "consumer": "src/enterprise_math/p022_barlow_growth.py",
+      "consumer_blob": "4185cafdb3e4ad4f55c58ff111747013e710af43",
+      "consumer_lines": "28,249-268"
+    },
+    {
+      "producer": "src/enterprise_math/p022_barlow_growth.py",
+      "producer_blob": "4185cafdb3e4ad4f55c58ff111747013e710af43",
+      "producer_lines": "75-268",
+      "consumer": "tests/test_p022_barlow_growth.py",
+      "consumer_blob": "8e8418a87a1fbbdad9ba5ff03cbe532af0f6f224",
+      "consumer_lines": "3-13,26-166",
+      "scope": "ACTUAL_TEST_CONSUMER_WITHOUT_DIRECT_DRIFT_DEVIATION_TEST"
+    }
+  ],
+  "exact_result": "For nonempty periodic ±1 word of length L, signed drift D and prefixes P_r, min_C for all signed layer k of |L |δ_k|-|D||k|| equals max_(0<=r<L)|L P_r-D r| and exactly equals historical drift_deviation_bound(pattern); maximum is attained.",
+  "executed": {
+    "period_words": 2046,
+    "period_length_max": 10,
+    "short_signed_layer_checks": 149518,
+    "far_signed_layer_checks": 16368,
+    "violations": 0,
+    "zero_bound_words": 20,
+    "positive_bound_words": 2026,
+    "original_frozen_python_imported": false,
+    "original_R063_benchmark_rerun": false,
+    "python_normal_O_OO_identical": true
+  },
+  "evidence": [
+    {
+      "path": "research_notes/X6_UNIT174_BARLOW_SHARP_DRIFT_BOUND_TRUE_PRODUCER_CONSUMER_20261120.md",
+      "commit": "ee967aea0c667a5cb04eb849def59b68bd244de7",
+      "blob": "6ac614bd5fddc3a078b571f45b9688667f744564",
+      "readback": true
+    },
+    {
+      "path": "research_checks/X6_UNIT174_SHARP_BARLOW_DRIFT_CHECK_20261120.py",
+      "commit": "c75af650235f8fc2d1888c1c432ce5ad4009dab8",
+      "blob": "f9f225459d917da2b978de4e8ab1d7d55f574972",
+      "readback": true
+    },
+    {
+      "path": "research_checks/X6_UNIT174_SHARP_BARLOW_DRIFT_RESULTS_20261120.json",
+      "commit": "e3190f22de34494386876d6ed0255fa3dddeb1e3",
+      "blob": "e36b8ed0a067b586a4f7189384ce0339df1811ee",
+      "readback": true
+    }
+  ],
+  "historical_LP011_wrong_native_argmax": "UNRESOLVED_PROVENANCE",
+  "historical_LP019_wrong_positive_native_BRC_subtraction": "UNRESOLVED_PROVENANCE",
+  "distinct_boundary": "barlow derived shortest-path growth observation, not signed X6 physical-native metric or N-BRC path identity",
+  "pending": [
+    "28-LP actual upstream-to-active-downstream coverage incomplete",
+    "LP011/LP019 historical alleged invalid native callers require exact commit:path:line",
+    "Units172-174 protected Native semantic checkpoint needs authenticated same-lane current CLAIM/run",
+    "Units149-152 old Native association debt",
+    "Independent Driver mathematical review/admission"
+  ],
+  "status": "AUTHOR_PROVED / EXACT_INTEGER_FINITE_CHECK_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED"
+}
