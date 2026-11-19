@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/ninetyfirst/README.md",
+    "ref": "556f8a68f4c9a2abdfda5c59c590e579cc35c6d4",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-ninetyone-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第九十一轮　有限首层的格点壳与五个算术窗口的越界频谱\n\n**任意有限首层的格点及最短词。** 在 $\\mathbb Z^d$ 的有向单位步图里，把任意点逐坐标截到首层 $S$ 的最小包围盒上，得到 $y$。从原点位移 $x$ 到 $S$ 的最近步数正好是 $\\|x-y\\|_1+r_S(y)$。这给出所有半径的有限生成函数。若 $D$ 是盒内点到首层的最大距离，半径球的点数从 $r\\ge D$ 起恰为次数 $d$ 的多项式。半径球的前两项只依赖凸包；带起点、保留次序的最短词，其主增长系数还取决于正交象限的支撑面上究竟放了哪些种子。在二维只加一粒中间种子，就能使半径至少二的球逐点相同，而最短词主项从 $6\\cdot2^r$ 增到 $8\\cdot2^r$。[有限公式、误差与反例](shells.md) · [511 个首层的穷举](shells_checked.json)\n\n**五个素数窗口会漏出多少值。** 原五个奇扇区算术比较器共有 31 行平方判别。现在逐窗口计算越界对数及相应的单位输入数。在不分歧的素数上，至少出现一对带窗口标签的越界值；恰好只出现一对的素数密度为 $2^{-26}$，实际例为 $1599326581$。把同一算式扩展到有 $r$ 个不同好素因子的奇数模，令 $Q=2^r$，全部五窗同时无越界的极限概率为 $(Q-1)^{26}(Q-2)/Q^{27}$。半素数 $151\\cdot571=86221$ 已经达到全饱和，两个素因子各自仍有越界。答案来自四维二元关系码，可同时提取五个窗口的联合频谱。这篇是独立算术分叉；第 19 轮所引原生依赖审计已在其停止条件处结案。[联合分布、原像数与分歧边界](trisector.md) · [单位输入与模算术复算](trisector_checked.json)\n\n截至 2026-11-19 05:10:53 UTC，累计直接研究 234 个登记任务，覆盖 51 个父方向。参数化首层的壳计数获一次登记复访，五个窗口的越界频谱另作独立算术研究。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 29、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/556f8a68f4c9a2abdfda5c59c590e579cc35c6d4/research_notes/portable_direct/20261118_fair_queue_6b0fba/ninetyfirst/README.md",
+      "encoding": "utf-8",
+      "sha": "209d826573ebf2ed2d4d8961be499006d9be7266"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
