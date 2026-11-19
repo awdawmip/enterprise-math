@@ -1,0 +1,91 @@
+{
+  "schema": "R762FP_PARTIAL_TRIAD_OBSERVER_V1",
+  "status": "PASS",
+  "exact_regression": {
+    "unrestricted_all_simple_graphs_k": "1..4",
+    "graph_root_horizon_cases": 1105,
+    "history_signature_checks": 592449,
+    "comparison": "R762FO sharp class counts and uniform fibers"
+  },
+  "partial_legality": {
+    "sampled_hyperedge_tensors": 12,
+    "k": 3,
+    "graph_root_horizon_cases": 1152,
+    "independent_known_word_pair_comparisons": 26400,
+    "max_horizon": 3
+  },
+  "counterexample": {
+    "k": 3,
+    "legal_histories": [
+      [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      [
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          2,
+          2
+        ]
+      ]
+    ],
+    "root": "A1",
+    "graph_edge": "A2--A3",
+    "horizon_classes": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "horizon_fibers": [
+      [
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "result": "remote edge enable/disable distinguishes hidden histories from h=1"
+  },
+  "review": "AUTHOR_SIDE_EXACT_ENUMERATION; NOT_REVIEWED"
+}
