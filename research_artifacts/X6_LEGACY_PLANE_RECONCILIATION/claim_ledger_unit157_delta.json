@@ -1,0 +1,94 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "unit": 157,
+  "date": "2026-11-19",
+  "author": "EM-X6-FB6990",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "science_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED/FINITE_EXACT_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+  "source_edges": [
+    {
+      "producer": "src/enterprise_math/lattice_geometry.py",
+      "blob": "825ee26c918a4d7007e280aeaa1d7b750cd46aba",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "symbols": [
+        "a_graph_distance",
+        "a_coordinator_shell_count"
+      ],
+      "consumer": "tests/test_lattice_geometry.py",
+      "consumer_blob": "304ff8e769f93fa0e96a03c1ffe89960ea5dd622",
+      "operator_type": "DERIVED_A_P_ROOT_STEP_END_POINT_SHELL"
+    },
+    {
+      "producer": "src/enterprise_math/geometry.py",
+      "blob": "a1a8dc4d1ca53fde2ca00d9b944c1b8aa346a152",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "symbols": [
+        "l1_distance"
+      ],
+      "consumer": "tests/test_p012_geometry.py",
+      "consumer_blob": "e1a8988169f12d4294e29446fb1a8558c412c77b",
+      "operator_type": "SIGNED_STANDARD_AXIS_NATIVE_L1"
+    }
+  ],
+  "theorem": {
+    "population": "n=p+1>=2; m>=0; A_p zero-sum integer root-radius-m shell",
+    "root_weighted_shell": "sum_(x in S_m) B_A(x)",
+    "formula": "W_A(n,m)=sum_(a>=1,b>=1,a+b<=n) binom(n,a)binom(n-a,b) T(m,a)T(m,b), T(m,a)=sum_j (-1)^j binom(a,j)(a-j)^m; W_A(n,0)=1",
+    "native_lift": "W_N(n,m)=binom(2m,m)W_A(n,m)",
+    "representative": {
+      "n": 6,
+      "m": 2,
+      "shell_endpoints": 240,
+      "root_shortest_paths": 630,
+      "signed_native_shortest_paths": 3780
+    },
+    "type": "EXACT_INTEGER_GRADED_PATH_COUNT_BRIDGE_NOT_NATIVE_ROOT_PRIMITIVE"
+  },
+  "execution": {
+    "method": "two independent endpoint dynamic-programming recurrences plus surjection and frozen shell exact formulas",
+    "p_range": "1..5",
+    "m_range": "0..4",
+    "shells": 25,
+    "zero_sum_endpoints": 5881,
+    "all_passed": true,
+    "normal_O_OO_stdout_sha256": "1cb87135af4532f0a22ee569a6a7429ef984f9bc3f240552975c896e48342dde",
+    "original_historical_tests_run": false,
+    "R063_replayed": false
+  },
+  "artifacts": [
+    {
+      "path": "research_notes/X6_UNIT157_AP_ROOT_SHELL_TO_SIGNED_NATIVE_BRC_WEIGHTED_COUNT_20261119.md",
+      "commit": "a5eb887be20834a3ac8251ea8b502f05f69d1d4e",
+      "blob": "211d5d6d5378c9fc54a66fd0ef295dfddfd9ceb4"
+    },
+    {
+      "path": "research_checks/X6_UNIT157_AP_ROOT_SHELL_BRC_EXACT_CHECK_20261119.py",
+      "commit": "97e122b263e75593033931ad6272a797e68bbbab",
+      "blob": "52f82548e9ca8a5f955412ffe6ee3c5e78317fa3"
+    },
+    {
+      "path": "research_checks/X6_UNIT157_AP_ROOT_SHELL_BRC_EXACT_RESULTS_20261119.json",
+      "commit": "663cdf3b8819b962cb89ec5a998ff49a910a7216",
+      "blob": "48370fde75d1440a4c31cd899d1befdc98c2b347"
+    }
+  ],
+  "classification": "NEW_WEIGHTED_SHELL_CONSUMER_BRIDGE; no actual historical buggy caller established; endpoint shell counts remain correct",
+  "unresolved": [
+    "Locate true remaining 28-LP production consumers rather than infer from tests alone",
+    "LP011 and LP019 actual faulty commit:path:line remain UNRESOLVED_PROVENANCE",
+    "Units149-152 missing native semantic association; preserve original failed Unit149 request",
+    "Independent Driver review/admission"
+  ],
+  "do_not_repeat": [
+    "Unit156 per-endpoint shuffle factor",
+    "Unit50 original same-object R063 benchmark",
+    "Units155-156 original successful Native PROGRESS",
+    "Any old FAILED or UNKNOWN mutation",
+    "Maintenance/Driver identities"
+  ]
+}
