@@ -66,6 +66,10 @@ For an individual coefficient of the determinant expansion, the absolute value o
 
 Since p=O(n), A,R,Q,e_j,t_i=O(n²), while S=O(n³); the output degree is at most S (indeed all star terms sit below baseline top). The largest control exponent is max(Q+A,R+2A)=Q+A=5A+2, while BF used S_BF+1+2A=Ω(n³). The result is an improvement in **actuator precision**, not in the leading asymptotic exponent of the ideal output, and does not assert an information-theoretic lower bound outside the stated construction.
 
+## Architecture-relative optimality BG2
+
+Within this precise **interleaved quadratic-Sidon guard architecture** (distinct nonzero ordered differences of n nonnegative integer offsets with a_0=0, R=A+1, Q=4A+2 and e_j=Q+a_j), the O(n²) maximum input exponent has a matching Ω(n²) lower bound. There are n(n−1)/2 distinct positive differences among n offsets, all integers in [1,A], whence A≥n(n−1)/2. Since max_j e_j=Q+A=5A+2, the largest control exponent is at least (5/2)n(n−1)+2, and the explicit construction gives O(n²). Thus it is Θ(n²) **within the stated guard architecture**, with no claim of a lower bound over arbitrary one-read observers or alternative encodings.
+
 ## Exact author-side evidence
 
 The standalone companion Python checker uses exact Bareiss integer determinants and Fraction arithmetic. It performs 562 reconstructions (including all 512 positive binary 3×3 matrices), 128 bounded-noise trials at δ=7000, and a complete *monomial-to-target address census* for each 3≤n≤12. All checks PASS; they are author-side finite evidence, not independent review. Verification JSON contains per-size input/output hashes, control-bit comparisons and exact coverage.
