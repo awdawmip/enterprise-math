@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V7",
   "status": "ACTIVE",
-  "effective": "2026-08-25",
+  "effective": "2026-11-19",
   "authority_source": "research_role_policy.json",
   "research_architecture": "research_architecture.json",
   "runtime_state_machine": "research_runtime_state_machine.json",
@@ -48,11 +48,12 @@
     "free_candidate_allowed_states": [
       "AUDITED_AXIOM_CANDIDATE",
       "AUDITED_REPLACEMENT_CANDIDATE",
-      "EXACT_NEGATIVE_OBSTRUCTION"
+      "EXACT_NEGATIVE_OBSTRUCTION",
+      "DERIVED_NOT_AXIOM"
     ],
     "free_candidate_driver_intake_required_for_task_publication": false,
     "foundation_question_required_field": "origin_foundation_question_id",
-    "rule": "A free-discovery output cannot lose its candidate lifecycle by being repackaged as an ordinary taskbook. An audited free candidate may be published directly by a researcher, but raw Phase-A candidates remain non-dispatchable."
+    "rule": "A free-discovery output cannot lose its candidate lifecycle by being repackaged as an ordinary taskbook. An eligible audited free candidate, including a DERIVED_NOT_AXIOM result with valuable further work, may be published through the same existing role-authorized path. Preserve its actual classification and source evidence; publication grants no mathematical acceptance. Raw Phase-A candidates remain non-dispatchable."
   },
   "task_lineage_contract": {
     "required_for_new_taskbooks": true,

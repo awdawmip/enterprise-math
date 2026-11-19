@@ -134,9 +134,14 @@ After Phase-B audit, if the candidate is classified as one of:
 
 - `AUDITED_AXIOM_CANDIDATE`;
 - `AUDITED_REPLACEMENT_CANDIDATE`;
-- `EXACT_NEGATIVE_OBSTRUCTION`,
+- `EXACT_NEGATIVE_OBSTRUCTION`;
+- `DERIVED_NOT_AXIOM`,
 
 the free researcher may directly publish a task without Driver intake through the immutable V2 transaction.
+
+An audited derived result can support valuable further research without being
+relabelled as an axiom. Preserve its actual candidate ID, classification and
+source evidence; task publication does not assert novelty or accept its proof.
 
 Canonical publication surfaces:
 

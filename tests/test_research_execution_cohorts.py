@@ -111,6 +111,26 @@ class ExecutionCohortTests(unittest.TestCase):
             )
             self.assertTrue(any("at least two lanes" in item for item in cohorts.audit(root)))
 
+    def test_legacy_two_pass_flag_is_optional_boolean_metadata(self):
+        for flag in (None, False, True, "true"):
+            with self.subTest(flag=flag), tempfile.TemporaryDirectory() as td:
+                root = Path(td)
+                self.publication(root, "TP2-P1")
+                record = self.cohort([
+                    self.lane("a", "TP2-P1", "research_returns/parallel/EC-1/a/"),
+                    self.lane("b", "TP2-P1", "research_returns/parallel/EC-1/b/"),
+                ])
+                if flag is None:
+                    record.pop("two_reference_passes_required")
+                else:
+                    record["two_reference_passes_required"] = flag
+                write_json(root / "research_execution_cohorts" / "RS-T" / "EC-1.json", record)
+                errors = cohorts.audit(root)
+                if isinstance(flag, str):
+                    self.assertTrue(any("must be boolean" in error for error in errors))
+                else:
+                    self.assertEqual([], errors)
+
 
 if __name__ == "__main__":
     unittest.main()

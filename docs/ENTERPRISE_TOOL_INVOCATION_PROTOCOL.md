@@ -39,6 +39,10 @@ The router searches:
 
 These are available evidence sources, not a mandatory reading order. The source layer discovers executable source but does not execute it.
 
+Queries may use Chinese, English, or both. The router retains Chinese phrases and uses explicit mathematical retrieval aliases; these aliases are search hints, not assertions that two mathematical interfaces are equivalent. Unknown Chinese phrases remain searchable as exact phrases rather than being dropped or split into arbitrary character matches.
+
+The discovery response is `REUSE_CANDIDATE_FOUND` or `NO_CATALOG_MATCH`. A missing match describes this lookup only; it does not establish that a mathematical capability is absent. Either outcome permits a useful independent alternative under the current method policy. Final contribution and reuse classifications below require their own relevant evidence.
+
 ## 3. Coverage verdict is only the first decision
 
 Coverage resolves to:

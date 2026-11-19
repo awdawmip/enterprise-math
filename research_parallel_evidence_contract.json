@@ -14,11 +14,10 @@
     "NO_PARALLEL_EVIDENCE_OBJECT_IS_DELETED_OR_OVERWRITTEN_TO_OBTAIN_SINGLE_VALUE_CONTROL",
     "OPERATIONAL_DISPATCH_AUTHORITY_IS_DISTINCT_FROM_RESEARCH_EVIDENCE_MULTIPLICITY",
     "LATEST_TIMESTAMP_DOES_NOT_SYNTHESIZE_COMPETING_RESULTS",
-    "PARALLEL_EVIDENCE_SET_REQUIRES_TWO_LOGICALLY_DISTINCT_REFERENCE_PASSES_BEFORE_SYNTHESIS",
-    "REFERENCE_PASS_1_IS_SEMANTIC_AND_EVIDENCE_CROSSCHECK",
-    "REFERENCE_PASS_2_IS_ADVERSARIAL_AND_CONTROL_CROSSCHECK",
+    "REFERENCE_METHOD_COUNT_AND_ORDER_FOLLOW_ACTUAL_PROPOSITION_AND_EXPLICIT_TASK_REQUIREMENTS",
+    "ZERO_REFERENCES_ARE_NOT_PERFORMED_NOT_REVIEWED_OR_ACCEPTED",
     "REFERENCE_PASSES_MAY_SHARE_A_REVIEWER_ONLY_WHEN_SHARED_CONTEXT_IS_DISCLOSED",
-    "STRICT_INDEPENDENCE_MUST_BE_TASK_DECLARED_AND_CANNOT_BE_INFERRED_FROM_TWO_PASSES",
+    "STRICT_INDEPENDENCE_MUST_BE_TASK_DECLARED_AND_CANNOT_BE_INFERRED_FROM_PASS_COUNT_OR_NUMBER",
     "SYNTHESIS_MAY_KEEP_PARALLEL_MERGE_TO_NEW_GENERATION_SPLIT_TO_TYPED_TASKS_OR_RESELECT_OPERATIONAL_WITHOUT_REJECTING_EVIDENCE",
     "SYNTHESIS_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_STATUS_OR_CANONICAL_PROMOTION",
     "A_NEW_PARALLEL_RESULT_AFTER_SYNTHESIS_REOPENS_THE_EVIDENCE_SET_FOR_REFERENCE",
@@ -48,16 +47,16 @@
     "MIXED_PARALLEL_EVIDENCE"
   ],
   "reference_passes": {
-    "required_count": 2,
-    "pass_1_kind": "SEMANTIC_EVIDENCE_CROSSCHECK",
-    "pass_2_kind": "ADVERSARIAL_CONTROL_CROSSCHECK",
     "allowed_independence_status": [
       "CLEAN_INDEPENDENT_CONTEXT",
       "SHARED_CONTROL_CONTEXT_DISCLOSED",
       "NOT_INDEPENDENT",
       "NOT_APPLICABLE"
     ],
-    "rule": "Both passes reference the exact same evidence_set_sha256. A changed evidence set invalidates the old synthesis for current-state purposes without rewriting the historical passes."
+    "rule": "Every recorded pass pins the exact intake Result/publication evidence set and preserves findings, reviewer and independence disclosure. New synthesis writes list the complete current reference set without truncation. Zero references require reference_review_status=NOT_PERFORMED; otherwise status is RECORDED, which does not imply independent or sufficient review. Explicit task-level substantive checks still apply.",
+    "count_policy": "AS_NEEDED_NO_FIXED_MINIMUM_OR_MAXIMUM",
+    "pass_number": "Unique positive integer label within an intake; no ordering or method is implied.",
+    "pass_kind": "A nonempty method label describing the actual check; historical semantic and adversarial labels remain valid examples."
   },
   "synthesis_dispositions": [
     "KEEP_PARALLEL",
@@ -67,15 +66,17 @@
     "CLASSIFY_CONTRADICTION_AND_KEEP_ALL",
     "RETURN_FOR_MORE_RESEARCH"
   ],
-  "terminal_rule": "For a declared multi-result intake, task-terminal control requires a synthesis referencing both completed passes and the exact full result set. Individual results remain independently citable regardless of synthesis disposition.",
+  "terminal_rule": "Task-terminal control requires synthesis over the exact complete Result set, a valid terminal control disposition, and the existing per-Result review, independence, authorization and follow-up conditions. Reference count alone neither grants nor removes authority. Nonterminal synthesis, including RETURN_FOR_MORE_RESEARCH, may record zero, one or any useful number of references without claiming unperformed review. Individual Results remain independently citable.",
   "interaction_budget": {
     "ordinary_single_result_extra_writes": 0,
     "parallel_trigger": "ONLY_WHEN_MULTIPLICITY_ACTUALLY_EXISTS",
     "intake": "ONE_APPEND_ONLY_SEMANTIC_CHECKPOINT_RECORD",
-    "reference_passes": "TWO_APPEND_ONLY_REVIEW_RECORDS",
+    "reference_passes": "APPEND_ONLY_RECORDS_ONLY_FOR_REFERENCE_CHECKS_ACTUALLY_PERFORMED",
     "synthesis": "ONE_APPEND_ONLY_CONTROL_RECORD",
     "routine_ci_polling": false,
     "routine_scheduler_heartbeat": false
   },
-  "compatibility": "research_task_publication_resolutions.json may continue to expose a single operational_publication_id for runtime continuity. Fields named quarantined_publication_ids are legacy compatibility spelling only and must not mean rejection or deletion when the same IDs appear in retained_parallel_publication_ids."
+  "compatibility": "research_task_publication_resolutions.json may continue to expose a single operational_publication_id for runtime continuity. Fields named quarantined_publication_ids are legacy compatibility spelling only and must not mean rejection or deletion when the same IDs appear in retained_parallel_publication_ids. Historical two-pass records and pass_1_id/pass_2_id aliases remain readable without rewriting their bytes. New inline reference projections use the complete reference_pass_ids list and truthful reference_review_status; aliases do not impose a method sequence. Manual historical JSON records do not receive write-time completeness certification. Unknown or duplicate references remain invalid; a known strict subset cannot provide current synthesis authority.",
+  "writer": "research_parallel_evidence.py write-synthesis --record-file <candidate.json>",
+  "reference_snapshot_rule": "A synthesis is an immutable snapshot of its declared real reference IDs. Historical audit validates those references without claiming to reconstruct their original write-time universe. The public writer checks the complete current set before and after exclusive creation. A later reference leaves old bytes valid but makes that snapshot stale for current authority; append a new complete synthesis. Runtime selects by exact set, never timestamp, and rejects competing current snapshots. Publication resolutions must explicitly point to that current synthesis."
 }

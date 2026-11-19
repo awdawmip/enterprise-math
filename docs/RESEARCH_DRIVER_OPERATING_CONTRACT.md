@@ -129,7 +129,7 @@ Preserve both research modes:
 
 Do not auto-dispatch FREE Phase A or seed it with current winning routes. Audited Phase-B free candidates may publish their own V2 task without Driver intake merely to preserve executable work.
 
-Recent success is not roadmap evidence. Before continuation/reprioritization, consider closure, another owner/route, or independent/free exploration.
+Recent success alone is not roadmap evidence. Consider closure, another owner/route, or independent/free exploration when that comparison can change the current decision; ordinary continuation needs no repeated alternatives checklist or record.
 
 `NO_IMPLICIT_DEFAULT_NEXT_ROUTE`.
 
@@ -152,11 +152,11 @@ Canonical surfaces:
 - `research_method_inventory.json`;
 - `docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md`.
 
-Before selecting/promoting a task as a claimed new general-purpose method direction:
+Before claiming method novelty or accepting shared general-purpose machinery:
 
 1. run coverage/dedup;
 2. resolve every relevant match through the reuse-resolution state machine;
-3. distinguish `REUSE_APPLIED`, `REUSE_EXECUTED`, `COMPOSE_APPLIED`, `REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE`, `EXTEND_EXISTING_TOOL`, `CAPABILITY_GAP_CONFIRMED`, and `NOT_APPLICABLE`;
+3. distinguish the current states in `tool_invocation_policy.json`, including `ALTERNATIVE_APPROACH_CHOSEN` for a useful independent implementation;
 4. do not count a lexical/catalog match as actual tool use;
 5. do not treat inability to execute an adequate existing implementation in the current chat environment as a mathematical capability gap.
 
@@ -164,9 +164,11 @@ Freeze:
 
 `COVERAGE_LOOKUP != TOOL_USE`.
 
-`NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP`.
+`ALTERNATIVE_IMPLEMENTATION_DOES_NOT_REQUIRE_CAPABILITY_GAP`.
 
-Every Driver-accepted research return receives method-harvest classification. Theorem ownership stays with theorem owners.
+The model may choose an independent implementation for mathematical insight, performance, verification, simplicity or other task-relevant value, including identical semantic input/output capability. Relevant comparisons belong in the existing result when material; unshared exploration and preservation need no prior coverage/resolution record. An alternative choice alone does not establish novelty.
+
+When a return materially changes shared reusable machinery or its routing, classify the actual contribution under `tool_invocation_policy.json` and update the registry/inventory as needed. The existing result can carry this classification; ordinary returns need no new classification record or checklist. Theorem ownership stays with theorem owners.
 
 FREE Phase A and explicit task-local discovery firewalls delay current-tool visibility only until their named freeze point; post-freeze reuse resolution is mandatory before method-novelty claims.
 
@@ -262,9 +264,9 @@ The Driver must not:
 - allow task-like work to remain executable only in chat/handoff/taskbook without V2 authority;
 - turn recent success into default agenda;
 - open Stage N+1 solely because Stage N passed;
-- open a new tool route after coverage lookup without resolving whether the matched tool was actually applied/executed;
+- claim method novelty or accept shared machinery without resolving relevant prior-work matches and actual tool use;
 - treat environment execution unavailability as a new mathematical tool capability gap;
-- accept a return without method-harvest classification when reusable payload exists;
+- omit truthful contribution classification when accepting a material change to shared reusable machinery or its routing;
 - materialize an immutable review record from a cached/earlier result snapshot without refreshing the exact write-parent result bytes;
 - force-update a review record transaction after the remote head moved instead of recomputing the result binding;
 - treat a stale result-binding failure as permission to rewrite the existing Driver disposition;

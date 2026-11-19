@@ -149,8 +149,10 @@ def audit(root: Path = ROOT) -> list[str]:
                     if _prefixes_overlap(output_prefix, prior):
                         raise CohortError(f"lane output namespaces overlap: {output_prefix} / {prior}")
                 lane_prefixes.append(output_prefix)
-            if item.get("two_reference_passes_required") is not True:
-                raise CohortError("parallel cohort requires two_reference_passes_required=true")
+            # Historical cohorts stored this universal-policy flag. Keep their
+            # bytes readable without turning it into a new fixed method quota.
+            if "two_reference_passes_required" in item and type(item["two_reference_passes_required"]) is not bool:
+                raise CohortError("legacy two_reference_passes_required must be boolean")
             if item.get("synthesis_required") is not True:
                 raise CohortError("parallel cohort requires synthesis_required=true")
             if not isinstance(item.get("opened_by"), str) or not item["opened_by"].strip():

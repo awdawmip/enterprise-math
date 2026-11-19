@@ -62,7 +62,8 @@ class ActiveTurnContinuationLivenessTests(unittest.TestCase):
         self.assertFalse(data["continuation_lease"]["base_liveness_dependency"])
         self.assertFalse(data["blocked_subflow_semantics"]["blocked_subflow_is_parent_blocker"])
         self.assertEqual(0, data["loop_safety"]["max_identical_no_progress_retry_without_transition"])
-        self.assertTrue(data["stage_rule"]["stage_terminal_requires_same_turn_successor_gate_evaluation"])
+        self.assertFalse(data["stage_rule"]["stage_terminal_requires_same_turn_successor_gate_evaluation"])
+        self.assertEqual("NEW_FORMAL_CONTINUATION_TASK_PUBLICATION_ONLY", data["stage_rule"]["successor_gate_scope"])
         self.assertEqual("tools/active_turn_liveness.py", data["pre_final_guard"]["evaluator"])
 
     def test_soft_watchdog_is_progress_not_wall_clock_based(self):

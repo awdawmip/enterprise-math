@@ -207,7 +207,7 @@
   "review_authority_model": {
     "zero_source_reviews": "NO_OPERATIONAL_REVIEW_AUTHORITY / AWAITING_DRIVER_REVIEW",
     "one_source_review": "THE_SINGLE_IMMUTABLE_REVIEW_IS_OPERATIONAL_AUTHORITY",
-    "two_or_more_source_reviews": "EXACT_REVIEW_SET -> REVIEW_INTAKE -> REFERENCE_PASS_1 -> REFERENCE_PASS_2 -> REVIEW_SYNTHESIS",
+    "two_or_more_source_reviews": "EXACT_REVIEW_SET -> REVIEW_INTAKE -> AS_NEEDED_CROSSCHECKS -> REVIEW_SYNTHESIS",
     "source_review_ordering_authority": "NONE",
     "reviewed_at_latest_wins": false,
     "new_second_or_later_review_effect": "REOPEN_REVIEW_AUTHORITY; DO_NOT_MATERIALIZE_SOURCE_REVIEW_FOLLOWUP",
@@ -221,7 +221,7 @@
     "SECOND_OR_LATER_SOURCE_REVIEW_CANNOT_PUBLISH_ITS_OWN_SUCCESSOR_TASKSET",
     "LEGACY_EXEMPTION_IS_EXACT_FROZEN_SOURCE_REVIEW_ID_MEMBERSHIP_NOT_REVIEWED_AT",
     "NEW_REVIEW_CANNOT_BACKDATE_ITSELF_INTO_LEGACY_COMPATIBILITY",
-    "EVERY_GOVERNED_OPERATIONAL_REVIEW_AUTHORITY_REQUIRES_EXACTLY_ONE_OPERATIONAL_FOLLOWUP_PACKET",
+    "FOLLOWUP_IS_OPTIONAL_AND_HAS_AT_MOST_ONE_OPERATIONAL_PACKET_PER_REVIEW_AUTHORITY",
     "TASK_SET_PUBLISHED_REQUIRES_ONE_OR_MORE_IMMUTABLE_POST_AUTHORITY_TASK_PUBLICATIONS",
     "PARENT_OBJECTIVE_CLOSURE_REQUIRES_CURRENT_CANONICAL_PARENT_OBJECTIVE_HEAD_CLOSED",
     "TASK_SCOPE_CLOSURE_REQUIRES_ACCEPTED_PASS_OR_SUCCESS_TASK_WITH_LITERAL_OR_PINNED_EXPLICIT_DRIVER_SATISFACTION_OR_AUDIT_COMPLETE_WITH_LITERAL_SATISFIED_TARGET",
@@ -287,8 +287,8 @@
   },
   "anti_spam_and_successor_compatibility": {
     "existing_rule_preserved": "PASS_OR_DONE_IS_NOT_ITSELF_A_SUCCESSOR_TRIGGER",
-    "interpretation": "the operational review checkpoint must choose and materialize the next control action, but each CONTINUATION task must independently satisfy the existing successor_gate with a genuine information gap, discriminating outcomes, kill condition and alternative-route analysis; a concurrent already-materialized route should be pinned with SATISFIED_BY_EXISTING_CONTROL_ASSET instead of duplicated",
-    "parent_closed_behavior": "do not manufacture meaningless successors; use PARENT_OBJECTIVE_CLOSURE after canonical Objective closure"
+    "interpretation": "Follow-up planning and materialization are optional. Continuing the same task, preserving a frontier or reporting an actual review does not require a successor packet. When a new formal CONTINUATION task is published, it must satisfy the existing successor_gate with a genuine information gap, discriminating outcomes, kill condition and alternative-route analysis. If an optional follow-up uses an already-materialized route, pin it with SATISFIED_BY_EXISTING_CONTROL_ASSET instead of duplicating it.",
+    "parent_closed_behavior": "Do not manufacture successors. If recording PARENT_OBJECTIVE_CLOSURE, require actual canonical Objective closure."
   },
   "historical_compatibility": {
     "baseline": "research_driver_followup_legacy_reviews.json",

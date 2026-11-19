@@ -72,7 +72,7 @@ class ParallelEvidenceStateTests(unittest.TestCase):
                 "canonical_promotion_granted": False,
             }
             write_json(root / "research_parallel_intakes" / "RS-T" / "PI-1.json", intake)
-            self.assertEqual("AWAITING_REFERENCE_PASS_1", parallel.state("RS-T", "TP2-P1", root)["parallel_state"])
+            self.assertEqual("AWAITING_SYNTHESIS", parallel.state("RS-T", "TP2-P1", root)["parallel_state"])
 
             common = {
                 "schema": parallel.PASS_SCHEMA,
@@ -90,7 +90,7 @@ class ParallelEvidenceStateTests(unittest.TestCase):
             }
             pass1 = {**common, "pass_id": "RP1-1", "pass_number": 1, "pass_kind": parallel.PASS_KINDS[1]}
             write_json(root / "research_parallel_reference_passes" / "PI-1" / "RP1-1.json", pass1)
-            self.assertEqual("AWAITING_REFERENCE_PASS_2", parallel.state("RS-T", "TP2-P1", root)["parallel_state"])
+            self.assertEqual("AWAITING_SYNTHESIS", parallel.state("RS-T", "TP2-P1", root)["parallel_state"])
 
             pass2 = {**common, "pass_id": "RP2-1", "pass_number": 2, "pass_kind": parallel.PASS_KINDS[2]}
             write_json(root / "research_parallel_reference_passes" / "PI-1" / "RP2-1.json", pass2)

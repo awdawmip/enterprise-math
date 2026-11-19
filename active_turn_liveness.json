@@ -194,7 +194,8 @@
   ],
   "stage_rule": {
     "pass_is_not_successor_trigger": true,
-    "stage_terminal_requires_same_turn_successor_gate_evaluation": true,
+    "stage_terminal_requires_same_turn_successor_gate_evaluation": false,
+    "successor_gate_scope": "NEW_FORMAL_CONTINUATION_TASK_PUBLICATION_ONLY",
     "local_close_may_happen_without_successor": true,
     "if_parent_goal_open_after_local_close": "SELECT_NEXT_HIGHEST_LEVERAGE_EXECUTABLE_PORTFOLIO_ACTION_IN_SAME_TURN"
   },

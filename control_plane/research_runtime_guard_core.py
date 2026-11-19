@@ -94,7 +94,7 @@ def _lane_registration(
         raise RuntimeAuthorizationError(f"invalid execution lane scope: {exc}") from exc
     if cohort_state.get("terminal") is True:
         raise RuntimeAuthorizationError(
-            "execution cohort is terminal after exact two-pass synthesis"
+            "execution cohort is terminal after exact-set synthesis with resolved Result authority"
         )
     record = lane.get("publication_record")
     if not isinstance(record, dict):

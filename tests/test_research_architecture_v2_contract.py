@@ -126,6 +126,7 @@ def test_taskbook_contract_requires_origin_lineage_and_continuation_gate():
         "AUDITED_AXIOM_CANDIDATE",
         "AUDITED_REPLACEMENT_CANDIDATE",
         "EXACT_NEGATIVE_OBSTRUCTION",
+        "DERIVED_NOT_AXIOM",
     }
     lineage = contract["task_lineage_contract"]
     assert lineage["required_for_new_taskbooks"] is True

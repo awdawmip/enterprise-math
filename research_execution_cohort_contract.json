@@ -2,7 +2,7 @@
   "schema": "ENTERPRISE_MATH_PARALLEL_EXECUTION_COHORT_CONTRACT_V1",
   "status": "ACTIVE_CANONICAL_CANDIDATE",
   "effective": "2026-08-26",
-  "purpose": "Allow explicitly parallel research, replication, or audit executions for one task without weakening per-execution ownership. Ordinary tasks keep one default execution lane; parallelism is opt-in through an immutable cohort whose lanes write to disjoint output namespaces and later feed the parallel-evidence two-pass synthesis layer.",
+  "purpose": "Allow explicitly parallel research, replication, or audit executions for one task without weakening per-execution ownership. Ordinary tasks keep one default execution lane; parallelism is opt-in through an immutable cohort whose lanes write to disjoint output namespaces and later feed the parallel-evidence exact-set synthesis layer with references selected for the actual task.",
   "record_store": "research_execution_cohorts/<task-id>/<cohort-id>.json",
   "checker": "research_execution_cohorts.py",
   "parallel_evidence_contract": "research_parallel_evidence_contract.json",
@@ -19,7 +19,7 @@
     "ONE_LANE_CANNOT_OVERWRITE_ANOTHER_LANES_AUTHORIZED_OUTPUT_NAMESPACE",
     "LANE_RESULTS_REMAIN_SEPARATE_IMMUTABLE_RESULTS",
     "COHORT_COMPLETION_DOES_NOT_DELETE_OR_REJECT_ANY_LANE_RESULT",
-    "COHORT_RESULTS_FEED_PARALLEL_INTAKE_REFERENCE_PASS_1_REFERENCE_PASS_2_SYNTHESIS",
+    "COHORT_RESULTS_FEED_EXACT_PARALLEL_INTAKE_AND_SYNTHESIS_WITH_AS_NEEDED_REFERENCES",
     "COHORT_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_OR_CANONICAL_PROMOTION",
     "PARALLEL_EXECUTION_DOES_NOT_REQUIRE_PERIODIC_HEARTBEATS_OR_CI_POLLING"
   ],
@@ -31,7 +31,6 @@
     "opened_by",
     "opened_at",
     "lanes",
-    "two_reference_passes_required",
     "synthesis_required",
     "working_truth_granted",
     "canonical_promotion_granted"
@@ -57,7 +56,7 @@
     "rule": "cohort/lane identity is copied from the accepted claim into durable execution provenance and result records; it is never inferred from timestamps"
   },
   "output_namespace_rule": "Active lanes in the same task may not use equal, ancestor, or descendant output prefixes. Create a new lane-specific directory instead of sharing a mutable output location.",
-  "completion_rule": "A cohort may close execution lanes, but task-level terminalization remains a separate synthesis/control decision over the complete parallel evidence set.",
+  "completion_rule": "A cohort may close execution lanes, but task-level terminalization remains a separate synthesis/control decision over the complete parallel evidence set. Terminal synthesis also consumes the existing canonical per-Result review and follow-up authority and a valid terminal control disposition; a reference count or task_terminal self-report cannot replace these conditions.",
   "interaction_budget": {
     "ordinary_task_extra_writes": 0,
     "cohort_open": "one immutable cohort record only when parallel execution is intentionally requested",
@@ -65,5 +64,6 @@
     "periodic_heartbeat": false,
     "routine_ci_polling": false,
     "moving_main_chase": false
-  }
+  },
+  "legacy_compatibility": "The historical boolean two_reference_passes_required is retained as original policy metadata and accepted when present. It does not impose a universal method quota under the current reference policy; independently stated task-specific substantive review requirements still apply."
 }

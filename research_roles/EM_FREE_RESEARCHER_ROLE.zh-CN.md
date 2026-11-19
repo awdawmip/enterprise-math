@@ -120,9 +120,12 @@ A 阶段开始时，记录并固定 `FOUNDATION_SNAPSHOT_REF`，相关时同时�
 
 - `AUDITED_AXIOM_CANDIDATE`；
 - `AUDITED_REPLACEMENT_CANDIDATE`；
-- `EXACT_NEGATIVE_OBSTRUCTION`，
+- `EXACT_NEGATIVE_OBSTRUCTION`；
+- `DERIVED_NOT_AXIOM`，
 
 自由研究者可直接通过不可变 V2 事务发布任务，无需先经 Driver 接纳。
+
+已审计的派生结果可以支持有价值的后续研究，无需重新标为公理。保留真实候选 ID、分类和来源证据；任务发布不自动声明新颖性，也不构成证明接纳。
 
 规范发布界面：
 

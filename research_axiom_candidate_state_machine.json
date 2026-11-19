@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_AXIOM_CANDIDATE_STATE_MACHINE_V3",
   "status": "ACTIVE_CANONICAL_GOVERNANCE",
-  "effective": "2026-08-25",
+  "effective": "2026-11-19",
   "driver_id": "EM-DVR-K7Q4N8",
   "purpose": "Keep independent discovery, audit, task publication, Driver portfolio intake and canonical promotion as separate states so discovery can be preserved without making raw candidates Working Truth or orphan tasks.",
   "states": [
@@ -56,10 +56,11 @@
       "axiom_vs_derived_theorem",
       "implementation_carrier_artifact",
       "prior_art_or_external_analogue_when_novelty_matters",
-      "counterexample_or_small_model_pressure_test",
+      "claim_proportionate_validation_evidence",
       "semantic_layer_recheck",
       "relation_to_active_routes_only_after_phase_a_freeze"
     ],
+    "validation_method_policy": "Choose validation appropriate to the candidate and the strength of the stated claim; reuse applicable existing proofs, checks and certificates. Counterexample searches and small-model pressure tests are options when useful, not a fixed action quota. Preserve unresolved obligations in the existing candidate evidence; changing the method does not discharge them.",
     "allowed_terminal_classifications": [
       "FALSIFIED",
       "DUPLICATE_OR_ALREADY_KNOWN",
@@ -77,7 +78,8 @@
     "eligible_from": [
       "EXACT_NEGATIVE_OBSTRUCTION",
       "AUDITED_AXIOM_CANDIDATE",
-      "AUDITED_REPLACEMENT_CANDIDATE"
+      "AUDITED_REPLACEMENT_CANDIDATE",
+      "DERIVED_NOT_AXIOM"
     ],
     "publisher_roles": [
       "RESEARCHER",
@@ -98,6 +100,7 @@
       "research_value"
     ],
     "origin_may_be_relabelled_driver_roadmap": false,
+    "derived_result_rule": "An audited DERIVED_NOT_AXIOM result may preserve valuable further work through the same publication path. Retain its candidate ID, derived classification, source evidence and research value; publication does not assert novelty or mathematical acceptance.",
     "working_truth_after_transition": "NOT_AUTOMATIC",
     "publication_grants_foundation_status": false,
     "publication_grants_canonical_status": false
@@ -129,7 +132,8 @@
     "allowed_from": [
       "AUDITED_AXIOM_CANDIDATE",
       "AUDITED_REPLACEMENT_CANDIDATE",
-      "EXACT_NEGATIVE_OBSTRUCTION"
+      "EXACT_NEGATIVE_OBSTRUCTION",
+      "DERIVED_NOT_AXIOM"
     ],
     "route": "UNIFIED_REGISTERED_TASK_PUBLICATION",
     "publisher_may_be_researcher": true,

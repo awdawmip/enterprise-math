@@ -1,7 +1,7 @@
 # Enterprise Math Axiom Candidate Protocol
 
 Status: `ACTIVE / CANONICAL GOVERNANCE / V2`
-Date: `2026-08-22`
+Date: `2026-11-19`
 Driver-ID: `EM-DVR-K7Q4N8`
 Machine state machine: `research_axiom_candidate_state_machine.json`
 
@@ -44,11 +44,13 @@ Mandatory questions:
 2. Does the current foundation imply it, making it a theorem rather than an axiom?
 3. Does it depend on an implementation coordinate/carrier choice?
 4. Does it contradict a frozen current premise, and if so is that a genuine replacement candidate or a typing error?
-5. Does a small exact model/counterexample falsify it?
+5. What validation evidence supports the stated claim, and what obligations remain unresolved?
 6. Does relevant prior art reclassify novelty?
 7. Does it collide with an active route only after comparison, or was that route already part of discovery?
 
 Allowed Phase-B classifications are defined by the machine state.
+
+Choose validation methods in proportion to the candidate and the strength of the claim. Reuse applicable existing proofs, checks and certificates. Counterexample searches and small exact models are options when useful; they are not a universal action quota. Preserve unresolved obligations in the candidate evidence. Reuse does not turn discovery evidence into independent validation evidence.
 
 ## Driver intake
 
@@ -64,6 +66,8 @@ The Driver may:
 - open an explicit research task;
 - open a Foundation question.
 
+An audited `DERIVED_NOT_AXIOM` result with valuable further work may use the existing role-authorized task-publication path. It retains its candidate ID, derived classification and source evidence; it does not need to be relabelled as an axiom or a Driver roadmap. Publication eligibility does not assert novelty, accept a proof, or grant Foundation status.
+
 Only when the Driver explicitly freezes a task direction does `WORKING_TRUTH` become applicable.
 
 `AXIOM_CANDIDATE != WORKING_TRUTH`.
@@ -76,7 +80,7 @@ If an audited free candidate becomes a selected task, the taskbook must preserve
 
 - `origin_kind=FREE_AXIOM_CANDIDATE`;
 - `origin_candidate_id=<candidate_id>`;
-- `origin_candidate_state=<audited intake-eligible state>`.
+- `origin_candidate_state=<audited task-publication-eligible state>`.
 
 Do not relabel the same origin as `DRIVER_ROADMAP` merely because the Driver has now selected it.
 

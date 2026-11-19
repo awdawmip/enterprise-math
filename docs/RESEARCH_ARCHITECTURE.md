@@ -158,7 +158,7 @@ not open whole catalogs, comparison or dedup, or erase previous exposure.
 
 `DISCOVERY_IN_PROGRESS -> BLIND_CANDIDATE_FROZEN -> PHASE_B_AUDIT -> CLASSIFICATION`.
 
-From `AUDITED_AXIOM_CANDIDATE`, `AUDITED_REPLACEMENT_CANDIDATE`, or `EXACT_NEGATIVE_OBSTRUCTION`, a researcher may publish an immutable V2 task while preserving `origin_kind=FREE_AXIOM_CANDIDATE`, candidate ID/state and semantic lineage.
+From `AUDITED_AXIOM_CANDIDATE`, `AUDITED_REPLACEMENT_CANDIDATE`, `EXACT_NEGATIVE_OBSTRUCTION`, or audited `DERIVED_NOT_AXIOM`, a researcher may publish an immutable V2 task while preserving `origin_kind=FREE_AXIOM_CANDIDATE`, candidate ID/state and semantic lineage. A derived result retains its actual classification and research value; publication does not assert novelty or mathematical acceptance.
 
 Driver/Steward intake remains a separate later decision for portfolio rank, Working Truth, Foundation/replication and promotion.
 
@@ -188,9 +188,11 @@ explicit reuse resolution under `tool_invocation_policy.json`, including as appr
 - `REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE`;
 - `EXTEND_EXISTING_TOOL`;
 - `CAPABILITY_GAP_CONFIRMED`;
-- `NOT_APPLICABLE`.
+- `NOT_APPLICABLE`;
+- `ALTERNATIVE_APPROACH_CHOSEN`.
 
 Environment inability to execute an adequate existing implementation is not itself a mathematical capability gap.
+An independent alternative may have the same input/output capability and be chosen for mathematical insight, performance, verification, simplicity or other task value. It needs no capability gap or prior approval; assess any novelty claim from the actual contribution and comparison.
 
 FREE Phase A hides current project-tool vocabulary as a discovery prior; Phase B opens toolbox/method context for audit/dedup/reuse.
 
@@ -198,11 +200,11 @@ FREE Phase A hides current project-tool vocabulary as a discovery prior; Phase B
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
 
-A continuation requires a genuine new information gap, discriminating outcomes, kill condition, `parent_task_id`, and explicit consideration of closure/another owner/free exploration.
+Publishing a new formal `CONTINUATION` task requires the current task contract's information gap, discriminating outcomes, kill condition, `parent_task_id` and alternative-route fields. Continuing the same research, preserving an unfinished frontier or reporting an actual review does not require a successor or planning packet.
 
 Stage 2+ is continuation semantics; renaming does not reset lineage.
 
-`STAGE_TERMINAL_VERDICT -> SAME_TURN_SUCCESSOR_GATE_EVALUATION`.
+A stage verdict does not require a fixed successor-gate evaluation. Continue useful authorized work according to the actual parent objective; compare routes when the comparison changes the decision.
 
 ## 10. Scheduler / Foundation / portfolio
 

@@ -127,17 +127,9 @@ If one route closes while the parent objective remains open, the controller must
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER` remains binding.
 
-However:
+A stage verdict does not require a successor-gate evaluation, planning checklist or follow-up packet. Continue useful authorized work under the actual parent objective. Comparing routes is useful when it changes the decision, without a fixed method or record on every continuation.
 
-`STAGE_TERMINAL_VERDICT -> SAME_TURN_SUCCESSOR_GATE_EVALUATION`.
-
-The Driver must immediately decide one of:
-
-- continue the same task;
-- open a justified successor under the successor gate;
-- close the route and move to another selected portfolio action;
-- return to FREE exploration when that is the best information-producing move;
-- conclude the parent user objective if its actual completion criterion is met.
+The successor gate applies when publishing a new formal `CONTINUATION` task. Continuing the same task, saving an unfinished frontier and reporting an actual review retain their existing scopes. A local route may close without a successor; parent completion still follows its actual criterion.
 
 Do not stop merely after writing “no next Stage opened”.
 

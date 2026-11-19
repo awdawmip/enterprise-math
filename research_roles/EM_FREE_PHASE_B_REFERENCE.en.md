@@ -61,10 +61,20 @@ axiom-versus-derived-result classification. A comparison collision does not
 retroactively become a Phase-A premise. P000 remains the protected root
 premise during every comparison.
 
+## Validation proportional to the claim
+
+Select the checks that bear on the candidate and the strength of its stated
+claim. Reuse applicable existing proofs, checks and certificates. Counterexample
+searches and small-model pressure tests are useful options, not mandatory actions
+for every candidate. Keep unresolved obligations in the existing evidence; a
+method choice does not discharge them.
+
 ## Publication and promotion
 
 The current role and immutable V2 publication contract determine whether an
 audited candidate may be published as a task. Raw Phase-A candidates are not
 published tasks or Working Truth. Task publication, shared tool intake,
 independent replication, Working Truth and Foundation promotion retain their
-distinct evidence and role requirements.
+distinct evidence and role requirements. An audited `DERIVED_NOT_AXIOM` result
+may preserve valuable further work through that same publication path, with its
+actual candidate ID, derived classification and source evidence intact.

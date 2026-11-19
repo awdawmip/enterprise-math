@@ -76,7 +76,7 @@ class ParallelResultRuntimeTests(unittest.TestCase):
         )
         return evidence
 
-    def passes(self, root: Path, evidence: str):
+    def passes(self, root: Path, evidence: str, numbers=(1, 2)):
         common = {
             "schema": parallel.PASS_SCHEMA,
             "intake_id": "PI-1",
@@ -91,14 +91,16 @@ class ParallelResultRuntimeTests(unittest.TestCase):
             "working_truth_granted": False,
             "canonical_promotion_granted": False,
         }
-        write_json(
-            root / "research_parallel_reference_passes" / "PI-1" / "RP1-1.json",
-            {**common, "pass_id": "RP1-1", "pass_number": 1, "pass_kind": parallel.PASS_KINDS[1]},
-        )
-        write_json(
-            root / "research_parallel_reference_passes" / "PI-1" / "RP2-1.json",
-            {**common, "pass_id": "RP2-1", "pass_number": 2, "pass_kind": parallel.PASS_KINDS[2]},
-        )
+        pass_ids = []
+        for number in numbers:
+            pass_id = f"RP{number}-1"
+            write_json(
+                root / "research_parallel_reference_passes" / "PI-1" / f"{pass_id}.json",
+                {**common, "pass_id": pass_id, "pass_number": number,
+                 "pass_kind": parallel.PASS_KINDS.get(number, "REVIEW_CROSSCHECK")},
+            )
+            pass_ids.append(pass_id)
+        return pass_ids
 
     def setup_parallel(self, root: Path):
         self.publication(root)

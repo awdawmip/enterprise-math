@@ -141,7 +141,7 @@ FREE A 阶段只加载原始基础、实际需要的精确原始概念、受保�
 
 `DISCOVERY_IN_PROGRESS -> BLIND_CANDIDATE_FROZEN -> PHASE_B_AUDIT -> CLASSIFICATION`。
 
-从 `AUDITED_AXIOM_CANDIDATE`、`AUDITED_REPLACEMENT_CANDIDATE` 或 `EXACT_NEGATIVE_OBSTRUCTION` 状态出发，研究者可以发布不可变 V2 任务，同时保留 `origin_kind=FREE_AXIOM_CANDIDATE`、候选 ID/状态及语义谱系。
+从 `AUDITED_AXIOM_CANDIDATE`、`AUDITED_REPLACEMENT_CANDIDATE`、`EXACT_NEGATIVE_OBSTRUCTION` 或已审计的 `DERIVED_NOT_AXIOM` 状态出发，研究者可以发布不可变 V2 任务，同时保留 `origin_kind=FREE_AXIOM_CANDIDATE`、候选 ID/状态及语义谱系。派生成果保留实际分类与研究价值；发布本身不证明新颖性，也不构成数学接纳。
 
 Driver/Steward 接纳仍是后续独立决策，处理研究组合优先级、Working Truth、Foundation/复现及提升。
 
@@ -165,9 +165,12 @@ Working Truth 仅在 Driver 明确冻结，或精确任务语义明确授予执�
 - `REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE`；
 - `EXTEND_EXISTING_TOOL`；
 - `CAPABILITY_GAP_CONFIRMED`；
+- `ALTERNATIVE_APPROACH_CHOSEN`；
 - `NOT_APPLICABLE`。
 
 环境无法执行一个足够适用的既有实现，本身不构成数学能力缺口。
+
+独立实现可以具有相同输入输出能力；选用它不要求先证明能力缺口或获得审批。其贡献与新颖性依据实际证据判断。
 
 FREE A 阶段不把当前项目工具词汇作为发现先验；B 阶段为审计、去重和复用打开工具箱/方法上下文。
 
@@ -175,11 +178,11 @@ FREE A 阶段不把当前项目工具词汇作为发现先验；B 阶段为审�
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER`。
 
-接续需要真实的新信息缺口、可区分结果、终止条件、`parent_task_id`，并明确考虑关闭、转交其他 owner 或自由探索。
+发布新的正式 `CONTINUATION` 任务时，需要真实的新信息缺口、可区分结果、终止条件、`parent_task_id`，并明确考虑关闭、转交其他 owner 或自由探索。继续当前任务、保存材料或报告实际评审结果，不要求新增后继任务包或重复比较记录。
 
 Stage 2 及以后属于接续语义；重命名不重置谱系。
 
-`STAGE_TERMINAL_VERDICT -> SAME_TURN_SUCCESSOR_GATE_EVALUATION`。
+Stage 裁定本身不触发后继门禁。依据实际母目标继续有价值且已获授权的工作；仅在比较会影响决策时评估替代路径。局部路线可以结束，无须制造后继任务。
 
 ## 10. 调度器、Foundation 与研究组合
 

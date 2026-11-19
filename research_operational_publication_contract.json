@@ -14,7 +14,7 @@
     "NONSELECTED_PUBLICATION_IS_RETAINED_PARALLEL_EVIDENCE_NOT_REJECTED_EVIDENCE",
     "ALL_ACTIVE_UNSUPERSEDED_HEADS_MUST_REMAIN_IN_RETAINED_PARALLEL_PUBLICATION_IDS",
     "MULTIPLE_ACTIVE_HEADS_REQUIRE_EXPLICIT_OPERATIONAL_SELECTION",
-    "MULTIPLE_ACTIVE_HEADS_REQUIRE_TWO_PASS_PARALLEL_SYNTHESIS_BEFORE_OPERATIONAL_SELECTION_IS_ACCEPTED",
+    "MULTIPLE_ACTIVE_HEADS_REQUIRE_EXACT_SET_PARALLEL_SYNTHESIS_WITH_TRUTHFUL_ACTUAL_REFERENCE_STATUS",
     "LEGACY_CANONICAL_PUBLICATION_ID_IS_READ_COMPATIBILITY_ALIAS_FOR_OPERATIONAL_PUBLICATION_ID",
     "LEGACY_QUARANTINED_PUBLICATION_IDS_IS_READ_COMPATIBILITY_ALIAS_ONLY_AND_DOES_NOT_DEFINE_EVIDENCE_REJECTION",
     "OPERATIONAL_SELECTION_DOES_NOT_DELETE_REWRITE_OR_TERMINATE_OTHER_PUBLICATIONS",
@@ -36,7 +36,8 @@
   },
   "interaction_budget": {
     "single_head_extra_writes": 0,
-    "parallel_selection": "reuse the already-required parallel intake + two reference passes + synthesis; no extra research-time heartbeat or poll",
+    "parallel_selection": "Reuse the explicit parallel intake and exact-set synthesis with any references actually performed; no fixed reference count, method sequence, extra heartbeat or polling.",
     "routine_ci_polling": false
-  }
+  },
+  "current_reference_rule": "The selected synthesis must equal the exact-current reference snapshot returned for its immutable intake. Added references require a new complete synthesis and an explicit resolution update; old records remain historical evidence and are never selected by timestamp."
 }

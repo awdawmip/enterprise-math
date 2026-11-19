@@ -82,7 +82,7 @@ class CohortRuntimeTests(unittest.TestCase):
         self.assertEqual([], state["missing_lane_ids"])
         self.assertEqual(["RR-A", "RR-B"], state["result_ids"])
 
-    def test_exact_cohort_evidence_requires_both_reference_passes_before_synthesis(self):
+    def test_exact_cohort_evidence_uses_references_without_a_count_gate(self):
         self.add_result("RR-A", "route-a", "TP2-P1")
         self.add_result("RR-B", "route-b", "TP2-P2")
         pids = ["TP2-P1", "TP2-P2"]
@@ -102,25 +102,47 @@ class CohortRuntimeTests(unittest.TestCase):
             },
         )
         state = cohort_runtime.cohort_state(self.task_id, self.cohort_id, self.root)
-        self.assertEqual("AWAITING_REFERENCE_PASS_1", state["state"])
+        self.assertEqual("AWAITING_SYNTHESIS", state["state"])
+        self.assertEqual("NOT_PERFORMED", state["reference_review_status"])
         write_json(
             self.root / "research_parallel_reference_passes" / intake_id / "P1.json",
             {
                 "schema": parallel.PASS_SCHEMA,
                 "pass_id": "P1",
                 "intake_id": intake_id,
+                "task_id": self.task_id,
+                "publication_ids": pids,
+                "result_ids": rids,
+                "pass_kind": "EVIDENCE_CROSSCHECK",
+                "reviewer_id": "EM-DVR-ABC123",
+                "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+                "findings_summary": "both lane results retained",
+                "recommendation": "continue research",
+                "working_truth_granted": False,
+                "canonical_promotion_granted": False,
                 "pass_number": 1,
                 "evidence_set_sha256": digest,
             },
         )
         state = cohort_runtime.cohort_state(self.task_id, self.cohort_id, self.root)
-        self.assertEqual("AWAITING_REFERENCE_PASS_2", state["state"])
+        self.assertEqual("AWAITING_SYNTHESIS", state["state"])
+        self.assertEqual(1, state["reference_pass_count"])
         write_json(
             self.root / "research_parallel_reference_passes" / intake_id / "P2.json",
             {
                 "schema": parallel.PASS_SCHEMA,
                 "pass_id": "P2",
                 "intake_id": intake_id,
+                "task_id": self.task_id,
+                "publication_ids": pids,
+                "result_ids": rids,
+                "pass_kind": "EVIDENCE_CROSSCHECK",
+                "reviewer_id": "EM-DVR-ABC123",
+                "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+                "findings_summary": "both lane results retained",
+                "recommendation": "continue research",
+                "working_truth_granted": False,
+                "canonical_promotion_granted": False,
                 "pass_number": 2,
                 "evidence_set_sha256": digest,
             },
