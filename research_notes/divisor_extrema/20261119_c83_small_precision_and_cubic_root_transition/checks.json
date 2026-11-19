@@ -1,0 +1,272 @@
+{
+  "description": "C83 scoped reproducibility checks",
+  "scope_note": "The analytic theorems are proved in Markdown. These checks cover the named explicit identities, saved certificates and finite algorithms only.",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "numpy": "2.3.5",
+    "sympy": "1.14.0",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python_optimization": 0
+  },
+  "mode": "quick",
+  "execution_scope": {
+    "physical_cases_recomputed": [
+      [
+        8,
+        2,
+        7
+      ]
+    ],
+    "tail_grids_recomputed": [
+      8
+    ],
+    "random_samples_regenerated": 0,
+    "full_command": "python verify.py --full"
+  },
+  "checks": [
+    {
+      "name": "small_covolume_symbolic_identities",
+      "status": "passed",
+      "details": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "/mnt/data/C83/haar/check_small_asymptotics.py"
+        ],
+        "exit_code": 0,
+        "stdout": "All exact small-covolume algebra checks passed.\nF2(a) = a^3/pi^2 + O(a^4)\nF3(a) = kappa_3*a^(3/2) + O(a^3)\nkappa_3 lower bound = 8/15\nkappa_3 upper bound = 4/3 + 2*sqrt(3)*log(sqrt(3) + 2)/3 + pi\nupper bound decimal = 5.99561797952501927",
+        "stderr": "",
+        "program_sha256": "f18f8a6b2a730237ab843d6b64086e4a12c90aa582e0fec71d3fcb4c6420918b"
+      },
+      "elapsed_seconds": 0.729462
+    },
+    {
+      "name": "transition_curvature_and_slice_identities",
+      "status": "passed",
+      "details": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "/mnt/data/C83/critical/verify_transition.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\n  \"scope\": \"exact algebra and rational slice checks, not analytic proof verification\",\n  \"quadratic_expansion\": \"D^3*h_tt*v^2/(2*L*c) + D*h_nt*u*v/(L*c) + h_nn*u^2/(2*L*D*c)\",\n  \"finite_second_phase_scale\": \"L*c/D^3\",\n  \"slice_area_sum\": \"1\",\n  \"slice_area_square_sum\": \"3/8 + x^2*(1-x)^2/4\",\n  \"mean_slice_area_square_sum\": \"23/60\",\n  \"conditioned_rate_difference_coefficient_over_pi_squared_a\": \"21/256\",\n  \"mean_collision_coefficient_over_pi_squared_a\": \"161/80\",\n  \"real_phase_slice_area_integral\": \"1\",\n  \"real_phase_slice_square_integral\": \"23/60\",\n  \"all_assertions_passed\": true\n}",
+        "stderr": "",
+        "program_sha256": "135958a1ae19fd812d185360904817b49ea50b82b3318242354fbc1ef2fc1d77"
+      },
+      "elapsed_seconds": 0.580169
+    },
+    {
+      "name": "finite_direction_exact_inner_integrals",
+      "status": "passed",
+      "details": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "/mnt/data/C83/haar/finite_direction_integral.py"
+        ],
+        "exit_code": 0,
+        "stdout": "Exact inner-integral checks passed.",
+        "stderr": "",
+        "program_sha256": "c4959bdebad68f27c4f02288e2baeb87e81fb6ada04a838b8a7c69731d17d47c"
+      },
+      "elapsed_seconds": 0.076767
+    },
+    {
+      "name": "finite_direction_event_examples",
+      "status": "passed",
+      "details": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "/mnt/data/C83/haar/check_direction_events.py"
+        ],
+        "exit_code": 0,
+        "stdout": "{\n  \"checks\": \"exact finite direction-event identity\",\n  \"lattice_phase_cases\": 8000,\n  \"direction_histogram\": {\n    \"0\": 3282,\n    \"1\": 4625,\n    \"2\": 87,\n    \"3\": 6\n  },\n  \"arithmetic\": \"fractions.Fraction\",\n  \"statement_scope\": \"Finite examples; analytic proof is in HAAR_FINITE_INTERVAL.md.\"\n}",
+        "stderr": "",
+        "program_sha256": "4a0051fe1c07101c167d2d65d21347bb19c7fc8b7beed3e0a734e38680de3b58"
+      },
+      "elapsed_seconds": 0.142974
+    },
+    {
+      "name": "regenerated_exact_outputs_match",
+      "status": "passed",
+      "details": {
+        "byte_identical_outputs": [
+          "critical/transition_checks.json",
+          "haar/direction_event_checks.json"
+        ],
+        "exact_lattice_phase_cases": 8000,
+        "scope": "Exact finite examples and explicit identities; not the general analytic proof."
+      },
+      "elapsed_seconds": 0.000136
+    },
+    {
+      "name": "tail_certificate_exact_final_arithmetic",
+      "status": "passed",
+      "details": {
+        "stored_grid": 512,
+        "grid_512_recomputed": false,
+        "fresh_computations": [
+          "Machin pi enclosure",
+          "Gamma-based prefactor enclosure",
+          "twentieth-root inequalities",
+          "all final Fraction arithmetic"
+        ],
+        "A3_outward_interval": [
+          "0.73486",
+          "0.820351"
+        ],
+        "scope": "Reconstructed from stored 512-grid moment endpoints; does not independently regenerate those endpoints."
+      },
+      "elapsed_seconds": 0.00917
+    },
+    {
+      "name": "tail_fresh_coarse_grid_enclosure",
+      "status": "passed",
+      "details": {
+        "fresh_grid": 8,
+        "stored_grid": 512,
+        "coarse_interval_display": [
+          0.7883320763351671,
+          0.7926628559979191
+        ],
+        "stored_interval_inside_fresh_coarse_interval": true,
+        "scope": "Fresh small-grid enclosure and nesting consistency, not a 512-grid rerun."
+      },
+      "elapsed_seconds": 0.000979
+    },
+    {
+      "name": "finite_catalogue_scales_and_coverage",
+      "status": "passed",
+      "details": {
+        "settings": [
+          [
+            8,
+            2,
+            7
+          ],
+          [
+            64,
+            4,
+            13
+          ],
+          [
+            64,
+            16,
+            12
+          ],
+          [
+            512,
+            8,
+            19
+          ],
+          [
+            512,
+            32,
+            18
+          ]
+        ],
+        "arrangement_setting_rows": 265692,
+        "distinct_inventory_catalogue_rows": 132860,
+        "origin_records": 40,
+        "interval_bits": 176
+      },
+      "elapsed_seconds": 9e-05
+    },
+    {
+      "name": "finite_singleton_and_origin_relations",
+      "status": "passed",
+      "details": {
+        "origin_records_checked": 40,
+        "scope": "Saved finite counts and subset/measurement consistency."
+      },
+      "elapsed_seconds": 3.8e-05
+    },
+    {
+      "name": "finite_source_region_integer_counts",
+      "status": "passed",
+      "details": {
+        "fresh_exact_integer_region_counts": {
+          "8": 0,
+          "64": 76,
+          "512": 4467
+        },
+        "physical_readings_recomputed": false
+      },
+      "elapsed_seconds": 0.072656
+    },
+    {
+      "name": "native_rational_and_bins_c8",
+      "status": "passed",
+      "details": {
+        "recomputed_case": [
+          8,
+          2,
+          7
+        ],
+        "exact_record_equal": true,
+        "native_rational_calls_and_enclosure_assertions": 84,
+        "larger_physical_catalogues_recomputed": false
+      },
+      "elapsed_seconds": 0.062665
+    },
+    {
+      "name": "triangle_first_two_exact_row_search",
+      "status": "passed",
+      "details": {
+        "deterministic_dyadic_cases": 16,
+        "exact_full_brute_comparisons": 16,
+        "random_sampling_performed": false
+      },
+      "elapsed_seconds": 0.000225
+    },
+    {
+      "name": "stored_exploratory_sample_consistency",
+      "status": "passed",
+      "details": {
+        "stored_samples_checked": 1000000,
+        "samples_regenerated": 0,
+        "scope": "Output counts and arithmetic only; no certified error or confidence interval."
+      },
+      "elapsed_seconds": 2e-05
+    },
+    {
+      "name": "stored_outer_quadrature_arithmetic",
+      "status": "passed",
+      "details": {
+        "stored_rows": 3,
+        "quadrature_regenerated": false,
+        "scope": "Exploratory numerical agreement, not rigorous integral enclosures."
+      },
+      "elapsed_seconds": 8.1e-05
+    },
+    {
+      "name": "scientific_results_preserved",
+      "status": "passed",
+      "details": {
+        "scientific_json_files_unchanged": 6
+      },
+      "elapsed_seconds": 0.000117
+    }
+  ],
+  "passed": 15,
+  "failed": 0,
+  "elapsed_seconds": 1.689387,
+  "finished_utc": "2026-11-19T03:27:49.923026+00:00",
+  "input_sha256": {
+    "critical/transition_checks.json": "8935a54361c74a3c4e7579fa6bc2fc0c3dec8e05c5b4d630c431b7118636c462",
+    "critical/verify_transition.py": "135958a1ae19fd812d185360904817b49ea50b82b3318242354fbc1ef2fc1d77",
+    "finite/critical_bins.py": "a6e3afd2affbe6728469b09f8ab1bf9e8367cda4fcefd3de89a2ede77d8cda34",
+    "finite/native.py": "2d0ea55c826fbb28f4bb3de39d12269d8f8e7ce624afb50873ea4de94dcec6fa",
+    "finite/transition_readings.json": "d3edab6c7b5fa432a4d3d314e0511bfa1330462031d44d2b7162d1a7ab17e108",
+    "finite/transition_readings.py": "629671bd1b01bb4655882a6122b8dc6dd0c0f87493b928c5f45019c03d75956d",
+    "haar/check_direction_events.py": "4a0051fe1c07101c167d2d65d21347bb19c7fc8b7beed3e0a734e38680de3b58",
+    "haar/check_small_asymptotics.py": "f18f8a6b2a730237ab843d6b64086e4a12c90aa582e0fec71d3fcb4c6420918b",
+    "haar/direction_event_checks.json": "be698a2bee9f66f3a13401c0912957f0b28b03928514aa018e6c185e6773a507",
+    "haar/finite_direction_integral.py": "c4959bdebad68f27c4f02288e2baeb87e81fb6ada04a838b8a7c69731d17d47c",
+    "haar/quadrature_comparison.json": "4b2008194c9f9a00b41a1f88ca5e4fc156ad73c007c186885deb538dcf8e72a6",
+    "tail/certify_constant.py": "2e8235f67b02604cf26ae4e67e4e7f723cab661e18d753699d5c7f582f00a282",
+    "tail/constant_certificate.json": "02e878532bc66f18cb974af63f6a906a4557733df469820c2d0565faf7f7c0c1",
+    "tail/triangle_gap.py": "f950afb9f98db98f52e4857022255e19b288a83eb694ae56d1ea00a203e05e11",
+    "tail/triangle_gap_estimate.json": "660e275d35b6a68b8ad8e4c5fc28bb5a9cc3d7136d7b56f27e8b3e08a9da0674",
+    "verify.py": "89efa8de1c06740537b1b9ee373fcd943309e6d7f7a6afd694af802a90d40ec3"
+  },
+  "status": "passed"
+}
