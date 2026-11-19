@@ -114,3 +114,25 @@ This inserts only probability at the maximum `U`, and therefore preserves (indee
 - All statements concern **externally chosen price-prior postprocessing**. `a,b` are neither native X6 Cell coordinates nor a native two-dimensional plane. The P000/ACTIVE worldview, original 228-query native input and frozen science pin are unchanged.
 - Status: AUTHOR_PROVED / EXACT_RATIONAL_VERIFIED / PARENT_DEPENDENT / NOT_REVIEWED. This is not a new native Bellman run or a formal Task Result/Review.
 - **Next discriminating research:** classify whether full-support stochastic order persists under simultaneous `epsilon` and `m` variation (use the fixed-m MLR theorem from EC49FTZ and transitivity); seek sharp quantitative coupling/quantile sensitivity and general non-product priors with sign-changing continuous TP2. Separately retain the actual native `z<11/16` Bellman expansion as an open original-index computation.
+## Corollary 1: complete-support joint (m,epsilon) partial order
+
+For any interior `m<=m'` in `(m0,m3)` and any admissible `epsilon>=epsilon'`,
+[
+\boxed{Z\mid(m,\varepsilon)\preceq_{\rm st} Z\mid(m',\varepsilon').}
+]
+Indeed, for fixed `m` and `z<U` the price-tilt multiplier of the **base conditional law** is `1-epsilon*p_eff(z)` with `p_eff(z)=m*z`. In the high phase the top atom has `p_eff(U)=p_atom(m)>mU`. Thus `p_eff` is strictly increasing throughout each conditional support, including its discrete maximum if present. For `epsilon'<epsilon`, the normalized likelihood ratio of the smaller-epsilon law to the larger-epsilon law is strictly increasing as a function of `p_eff`:
+[
+\frac{d}{dp}\frac{1-\varepsilon' p}{1-\varepsilon p}
+=\frac{\varepsilon-\varepsilon'}{(1-\varepsilon p)^2}>0.
+]
+This proves the fixed-`m` MLR ordering even in the two low phases, where there is no clipped atom. First move epsilon downward at fixed `m`, then move `m` upward under the preceding full-support theorem. The one-sided convention at `m2` is the same as above. This extends EC49FTZ's joint result from `m>m2` to all `m0<m<m3`.
+
+## Corollary 2: uniform pure-P limit on the entire m support
+
+For `epsilon=-s`, `s≥0`, the unnormalized prior is `1+sP` for `P=M_*Z_*>0`. At every conditional fiber (including a possible top atom), the normalized law decomposes exactly as a convex mixture of its uniform-price-prior conditional law `mu_0` and its pure-P conditional law `mu_infty`. As `P≥P_min=17372631/1048576` everywhere on the original price rectangle, the same inherited EC49FTZ bound now holds **uniformly over both lower phases and the higher phase**:
+[
+\boxed{\sup_{m\in(m0,m3)}
+\|\mu_{-s,m}-\mu_{\infty,m}\|_{\rm TV}
+\le \frac{1}{1+s(17372631/1048576)}.}
+]
+The proof does not need TP2: each conditional fiber is an ordinary positive measure, and `C_1/C_0≥P_min` since `P≥P_min` pointwise. Thus this stronger scope follows from the same exact mixture identity without an additional approximation.
