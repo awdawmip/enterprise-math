@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_fourteen_dominance_20261120/R5_FOURTEEN_F8_ONE.cpp",
+    "ref": "c328562411f49bd9981d54b2eeb9b0220a66986c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261120-0239-fourteen-dominance-20159-v1-source-04",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "// Exact R5 14-label scalar Bellman minimax, f=8, frozen integer window adjacency.\n// Input SHA256: 50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b.\n#include <bits/stdc++.h>\nusing namespace std;\nconstexpr int N=256,Q=101,K=14,FULL=(1<<K)-1,f=8;\nconstexpr int seed[12]={0,16,32,48,1,64,17,80,18,24,34,82};\nstruct Act{int cost;vector<int> masks;};\nusing Sig=vector<Act>;\nvector<int> maxfam(vector<int> a){\n sort(a.begin(),a.end());a.erase(unique(a.begin(),a.end()),a.end());\n vector<int> r;\n for(int m:a){bool sub=false;for(int n:a)if(n!=m&&(m&n)==m){sub=true;break;}if(!sub)r.push_back(m);}\n return r;\n}\nSig signature(const vector<uint8_t>&adj,int u,int v){\n int h[K];copy(begin(seed),end(seed),h);h[12]=u;h[13]=v;\n map<vector<int>,int> chosen;\n for(int qi=0;qi<Q;qi++){\n  const uint8_t* a=adj.data()+(size_t)qi*N*N;vector<int> masks;\n  for(int i=0;i<K;i++){int m=0;for(int j=0;j<K;j++)if(a[h[i]*N+h[j]])m|=1<<j;masks.push_back(m);}\n  auto fam=maxfam(move(masks));if(fam.size()==1&&fam[0]==FULL)continue;\n  auto it=chosen.find(fam);if(it==chosen.end()||it->second>214+qi)chosen[fam]=214+qi;\n }\n Sig r;for(auto&[m,k]:chosen)r.push_back({k,m});\n sort(r.begin(),r.end(),[](auto&a,auto&b){return a.cost<b.cost;});\n return r;\n}\nstruct DP{\n uint64_t weights[K];unordered_map<uint64_t,int> memo;size_t visited=0,cap;\n DP(size_t limit):cap(limit){weights[0]=1;for(int i=1;i<K;i++)weights[i]=weights[i-1]*(f+2);memo.reserve(50000);}\n int rec(uint64_t state,const Sig&acts){\n  auto it=memo.find(state);if(it!=memo.end())return it->second;\n  int e[K],live=0;auto t=state;\n  for(int i=0;i<K;i++){e[i]=t%(f+2);t/=f+2;if(e[i]<=f)live|=1<<i;}\n  if(__builtin_popcount((unsigned)live)<=1)return 0;\n  if(++visited>cap)throw runtime_error(\"STATE_CAP\");\n  int best=INT_MAX/4;\n  for(auto&act:acts){\n   bool stall=false;for(int m:act.masks)if((m&live)==live){stall=true;break;}\n   if(stall)continue;\n   int worst=0;\n   for(int m:act.masks){\n    uint64_t next=state;\n    for(int i=0;i<K;i++)if(e[i]<f+1&&!(m&(1<<i)))next+=weights[i];\n    worst=max(worst,rec(next,acts));\n    if(act.cost+worst>=best)break;\n   }\n   best=min(best,act.cost+worst);\n  }\n  if(best==INT_MAX/4)throw runtime_error(\"NO_PROGRESS\");\n  memo.emplace(state,best);return best;\n }\n};\nint main(int argc,char**argv){\n if(argc<4){cerr<<\"USAGE: solver window_adj.bin u v [state_cap]\\n\";return 2;}\n ifstream in(argv[1],ios::binary);vector<uint8_t>adj((size_t)Q*N*N);\n in.read((char*)adj.data(),adj.size());if(!in||in.gcount()!=(streamsize)adj.size())return 3;\n int u=stoi(argv[2]),v=stoi(argv[3]);if(u==v)return 4;\n for(int x:seed)if(u==x||v==x)return 5;\n auto sig=signature(adj,u,v);DP d(argc>4?stoull(argv[4]):12000000);\n try{int val=d.rec(0,sig);cout<<\"PAIR=\"<<u<<\",\"<<v<<\" F8=\"<<val<<\" STATES=\"<<d.memo.size()<<\" ACTIONS=\"<<sig.size()<<\"\\n\";}\n catch(exception&e){cerr<<e.what()<<\"\\n\";return 6;}\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c328562411f49bd9981d54b2eeb9b0220a66986c/research_notes/portable_direct/r5_fourteen_dominance_20261120/R5_FOURTEEN_F8_ONE.cpp",
+      "encoding": "utf-8",
+      "sha": "54059c5178569f9616235d045134c413c86e25e7"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
