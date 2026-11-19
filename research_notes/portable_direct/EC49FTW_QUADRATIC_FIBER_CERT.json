@@ -1,0 +1,50 @@
+{
+  "schema": "EC49FTW_NONAFFINE_QUADRATIC_FIBER_V1",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent": "EC49FTV PR2805@9d75e96c7273bfcac61530d5401b0e5885cd4fd9",
+  "scope": "external price-prior postprocessing, NOT native Bellman dynamics",
+  "eta_domain": "[0,infinity)",
+  "lambda_domain": "[0,infinity)",
+  "FOSD_iff": "0<=lambda<=Lambda(eta)",
+  "Lambda_formula": "8750*(5242065851199447*eta^2+464097831859863824000*eta+8116152181126391808000000)/(19683*(15916473*eta+1157352560000)^2)",
+  "Lambda_eta0": "171167905504400/63545784776721",
+  "Lambda_eta1": "71020392486752778326455161250/26365413739132964780411825907",
+  "Lambda_eta4000": "5499602807444942796250/1834069395089379193227",
+  "Lambda_eta4020": "73401849399263932777553750/24467011112286345195097569",
+  "Lambda_limit_eta_infinity": "566272545654261250/61560189400614147",
+  "curvature_Bernstein_counts_eta_powers": [
+    {
+      "eta_power": 0,
+      "t_degree": 3,
+      "positive": 4,
+      "zero": 0
+    },
+    {
+      "eta_power": 1,
+      "t_degree": 6,
+      "positive": 7,
+      "zero": 0
+    },
+    {
+      "eta_power": 2,
+      "t_degree": 8,
+      "positive": 7,
+      "zero": 2
+    },
+    {
+      "eta_power": 3,
+      "t_degree": 9,
+      "positive": 6,
+      "zero": 4
+    }
+  ],
+  "curvature_all_eta_nonnegative": true,
+  "fixed_lambda3_critical_polynomial": "30908950173645923529*eta^2+1885376222457017973760000*eta-8077734137777523206400000000",
+  "lambda3_critical_eta_bracket": [
+    "4019",
+    "4020"
+  ],
+  "native_Bellman_rerun": false,
+  "independent_review": false,
+  "status": "AUTHOR_PROVED_EXACT_FRACTION_CHECKED_PARENT_DEPENDENT_NOT_REVIEWED"
+}
