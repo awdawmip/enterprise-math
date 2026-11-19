@@ -1,0 +1,108 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-19",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "latest_verified_native": {
+    "through_unit": 161,
+    "request_id": "onhour-20261119-1920-x6-own-units160161-native-progress-v1",
+    "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "8c7b9d21e77ab40fb7db8b45f815c32f0c0878c1",
+    "authenticated_readback": true
+  },
+  "author_frontier": {
+    "unit": 164,
+    "status": "AUTHOR_PROVED/EXACT_FINITE_EXECUTED/GITHUB_VERIFIED/UNREVIEWED/NOT_ADMITTED",
+    "carry_forward_units": [
+      162,
+      163
+    ],
+    "new_unit": {
+      "unit": 164,
+      "finding": "Actual historical R061 directed-gauge -> bidirectional-spectrum downstream caller, all fixed-sector unordered squared-spectrum fibers exactly {(a,b),(a,a-b)}. Doubleton gauge observers cannot infer signed native squared norm or N-BRC without one branch bit; original tagged path union is appropriate; no LP011/LP019 misimplementation proved.",
+      "proof": "research_notes/X6_UNIT164_R061_BIDIRECTIONAL_SPECTRUM_EXACT_FIBER_20261119.md",
+      "evidence": [
+        {
+          "path": "research_notes/X6_UNIT164_R061_BIDIRECTIONAL_SPECTRUM_EXACT_FIBER_20261119.md",
+          "commit": "6b2ae723c67f46a399bc9e6718f4d0f6088ee8d3",
+          "blob": "68c39fe3719dc76819cd991a470aa8cf05446caa"
+        },
+        {
+          "path": "research_checks/X6_UNIT164_R061_BIDIRECTIONAL_SPECTRUM_EXACT_FIBER_CHECK_20261119.py",
+          "commit": "ac58aeb8a3211b22919132dd37e26f0fc7d0eb3a",
+          "blob": "53a65150325bd4033d966cffc2f0ab71610e052e"
+        },
+        {
+          "path": "research_checks/X6_UNIT164_R061_BIDIRECTIONAL_SPECTRUM_EXACT_FIBER_RESULTS_20261119.json",
+          "commit": "0a44b1ba942688f6a627b2e32b89f45212e01602",
+          "blob": "24429e47d181b4fccf6c6f30d945df2a47bb97cb"
+        },
+        {
+          "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit164_delta.json",
+          "commit": "7d8d83c93c8f97e2b46c2fa4d5bfc4bc8426e97d",
+          "blob": "142b0bcffd47b7bfb5de8bf5f49c0d030143e2c5"
+        }
+      ],
+      "checks": {
+        "chart_states": 8384,
+        "distinct_spectra": 4224,
+        "singletons": 64,
+        "doubletons": 4160,
+        "violations": 0,
+        "exact": "PASS",
+        "original_R063_rerun": false
+      }
+    }
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "checkpoint_count": 179,
+    "commit": "c6994e0d634179a51f754b1c0a9ce24554f32862",
+    "blob": "14804a2ef9bf782ba466420a5eeb79166e0ea485",
+    "readback_verified": true
+  },
+  "native_control": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-dedc91932641535d284fc171",
+    "run_id": "RUN-c92057890282aaaeec520881",
+    "generation_last_authenticated": 9,
+    "highest_native_authenticated_unit": 161,
+    "own_continuation_previous_request_id": "onhour-20261119-1959-x6-own-continuation-read-v1",
+    "own_continuation_previous_terminal": "SUCCEEDED; consumed without repeat",
+    "own_continuation_current_request_id": "onhour-20261119-2108-x6-own-current-continuation-v1",
+    "own_continuation_current_terminal": "SUCCEEDED; OWN_RECORDED_RUN_REQUIRES_REAUTHORIZATION",
+    "own_run_resume_request_id": "onhour-20261119-2111-x6-own-run-c920-after163-resume-v1",
+    "own_run_resume_status": "RUNNING / error=null at last successful read; terminal now unknown because backend identity check unavailable (operation_sent=false), do not replay",
+    "unit162164_native_status": "NOT_SUBMITTED; no current generation established",
+    "units149152_semantic_debt": "PENDING",
+    "unit149_failed_request_id": "onhour-20261119-1000-x6-own-unit149-native-progress-v1",
+    "unit149_terminal": "FAILED/GITHUB_PRIMARY_RATE_LIMIT",
+    "backend_diagnostic": "2026-11-19 13:18 UTC: em_status and em_control_result returned BACKEND_IDENTITY_CHECK_UNAVAILABLE, operation_sent=false; local sites gateway configured, backend connectivity unverified; temporary bounded diagnostic only"
+  },
+  "unresolved": [
+    "Resume original request onhour-20261119-2111-x6-own-run-c920-after163-resume-v1 requires eventual terminal consumption; do not resubmit.",
+    "Units162–164 author GitHub + Activity written/readback, Native semantic checkpoint still unsubmitted pending own actual current RUN generation & owner CAS.",
+    "Units149–152 native semantic associations still pending, failed Unit149 original preserved.",
+    "LP011 wrong native argmax and LP019 N-BRC subtraction exact bad historical commit:path:line remain UNRESOLVED_PROVENANCE, not disproved by a list of correctly typed consumers.",
+    "28-LP full source-consumer coverage and independent Driver review/admission pending."
+  ],
+  "do_not_repeat": [
+    "Signed native proofs and original R063 six-file 512-case benchmark; Native Units1–148,153–161 already authenticated.",
+    "Unit157 A_p shell formula already exists in historical P022; preserve reuse attribution.",
+    "Units162–164 author proof/checker/certificate and Activity177–179 already verified in GitHub.",
+    "Failed Unit149 original, any pending/unknown Source write; no maintenance-lane or unrelated owner identities."
+  ],
+  "next_exact_action": "On restored original backend, consume exact run resume request onhour-20261119-2111-x6-own-run-c920-after163-resume-v1. If SUCCEEDED, validate own winning claim and fresh authorized generation, then submit one lawful Native PROGRESS checkpoint referencing already verified Units162–164 without reuploading or replaying unknown mutations. Reconcile original request before another write if outcome ambiguous. Later only lawful distinct operation may link saved Units149–152. Continue actual remaining 28-LP historical consumer audit and provenance search; no refreeze, admission, or original R063 benchmark rerun.",
+  "review": "UNREVIEWED/NOT_ADMITTED",
+  "continuation_state": "OPEN",
+  "scheduler_modified": false,
+  "notifications_modified": false
+}
