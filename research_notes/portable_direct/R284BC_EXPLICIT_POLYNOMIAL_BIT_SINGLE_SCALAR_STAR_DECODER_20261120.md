@@ -84,11 +84,11 @@ For exact reads choose b=2L+1, odd. The unique balanced radix expansion has each
 
 The signed contribution from positions below k has absolute magnitude < L*b^k/(b-1) < b^k/2; rounding therefore removes it, and the balanced residue returns c_k. This works for negative y.
 
-For a known error bound delta >= 0, choose any odd integer b > max(4L+4,4delta+4), for instance
+For a known error bound delta >= 0, choose any odd integer b > max(4L+4,4delta+4). A convenient stronger explicit choice is
 
     b = 4L + 2*ceil(4delta) + 9.
 
-All coefficients being extracted occur at exponents k>=1. The lower-place tail has absolute magnitude < b^k/4 and |epsilon| <= delta < b/4 <= b^k/4. Their sum has absolute magnitude < b^k/2, so the same nearest-quotient formula exactly returns c_k even with adversarial errors (interpreting floor exactly for rational readings). The script implements the integral delta/error case.
+Every extracted exponent k is positive. The lower-place tail has absolute magnitude < b^k/4. For the explicit b above, delta < b/8 <= b^k/8, so the combined perturbation has absolute magnitude < 3*b^k/8. This margin ensures the written integer half-up quotient formula also rounds correctly for any exact rational observed y+epsilon (the half-unit offset lost by floor(b^k/2) is at most 1/2). More generally for any b satisfying the weaker displayed lower bound, use the exact nearest-integer quotient floor((y+epsilon)/b^k + 1/2) to avoid odd-radix half-integer tie conventions. Balanced signed residues then return each c_k. The companion script tests the integral delta/error case and its exact quotient routine; rational-error recovery follows from the same strict margin.
 
 ## 5. End-to-end bit bounds and limits
 
