@@ -1,0 +1,100 @@
+{
+  "example": {
+    "cnf_clauses": 822,
+    "cnf_variables": 300,
+    "d": 3,
+    "exact_block_histogram": {
+      "3": 36,
+      "4": 108,
+      "5": 74,
+      "6": 16,
+      "7": 1
+    },
+    "extra_same_queries": 16,
+    "partitions": 235,
+    "pattern": "100010101010",
+    "quotient_components": [
+      2,
+      2,
+      3
+    ],
+    "r": 12,
+    "static_colours": 22999680
+  },
+  "missing_pair_witnesses": 7187,
+  "positive_histogram_calls_excluding_seed_baseline": {
+    "histogram_recoalesce": 39729,
+    "histogram_serial": 39729
+  },
+  "production_source_pins": [
+    {
+      "commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+      "git_blob_sha1": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+      "path": "src/enterprise_math/brc_histogram.py",
+      "repository": "awdawmip/enterprise-math"
+    },
+    {
+      "commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+      "git_blob_sha1": "2591640fe348da9cd7f293a957bea9ae92c82943",
+      "path": "src/enterprise_math/brc_rational_holonomy.py",
+      "repository": "awdawmip/enterprise-math"
+    },
+    {
+      "commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+      "git_blob_sha1": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+      "path": "src/enterprise_math/brc_weighted_recurrent.py",
+      "repository": "awdawmip/enterprise-math"
+    }
+  ],
+  "scale_runs": [
+    {
+      "d": 8,
+      "partition_count_bits": 145,
+      "pattern": "all different",
+      "positive_histogram_calls": {
+        "histogram_recoalesce": 3940,
+        "histogram_serial": 3940
+      },
+      "r": 48,
+      "reachable_block_counts": 47,
+      "sha256_decimal_partition_count": "a389c901780e6b558c2d7c5af11dcce7d057dde2a0ab63015117e5bfd3adb950",
+      "static_colour_bits": 267
+    },
+    {
+      "d": 1,
+      "partition_count_bits": 213,
+      "pattern": "all different",
+      "positive_histogram_calls": {
+        "histogram_recoalesce": 9459,
+        "histogram_serial": 9459
+      },
+      "r": 64,
+      "reachable_block_counts": 63,
+      "sha256_decimal_partition_count": "7dc77a46f7bcf64996d53dbe660fc10c4cb9d6e3f45c9ee1997d3bab8f613610",
+      "static_colour_bits": 383
+    },
+    {
+      "d": 20,
+      "partition_count_bits": 479,
+      "pattern": "all different",
+      "positive_histogram_calls": {
+        "histogram_recoalesce": 25684,
+        "histogram_serial": 25684
+      },
+      "r": 120,
+      "reachable_block_counts": 119,
+      "sha256_decimal_partition_count": "3c88c69c1c9b13a2ff3fdd07544b13f4b8c74050447a2199e31af02579ad0214",
+      "static_colour_bits": 828
+    }
+  ],
+  "seed_git_blob": "d9029ff47031580cc59cfd1e4502012d189a250f",
+  "seed_path": "research_notes/brc_alias_counting_bridge_20261028/VERIFY.py",
+  "source_commit": "e7b9fb5084f93a9b2dbc16225629b667fb7bf46c",
+  "verified_counts": {
+    "binary_patterns": 3076,
+    "cnf_primary_assignments": 50208,
+    "fully_enumerated_cnfs": 68,
+    "realized_patterns": 2344,
+    "rgs_observations": 35522
+  }
+}
