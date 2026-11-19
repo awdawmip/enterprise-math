@@ -1,10 +1,12 @@
-# R284BL — 17-bit modular star-Port scalar with certified ±3 noise correction (3×3 binary case)
+# R284BL-FX1 — 17-bit modular star-Port scalar with certified ±3 noise correction (3×3 binary case)
 
 Date: 2026-11-20 (Asia/Shanghai). Mode: independent portable TASK_RESEARCH, same declared auxiliary star-Port observer as R284BJ/R284BK. Mathematical status: EXACT_FINITE_CERTIFICATE_PASSED / NOT_REVIEWED. This file does not assert a live formal CLAIM or Result.
 
 ## Frozen lineage and exact statement
 
 Scientific source: R284BJ proof pinned at `ba9ac42ee03c61e34a057ede0d57561d0c418f6b:research_notes/portable_direct/R284BJ_FINITE_FIELD_INFORMATION_OPTIMAL_PORT_SCALAR_20261120.md`, with its declared n=3,H=2,δ=3 fixture p=13,604,881. P000 and native X6/BRC assertions are unchanged; this is an auxiliary finite arithmetic observer.
+
+**Distinct subseries ID R284BL-FX1 (separate from the existing R284BL extension-field Las Vegas theorem).** The latter changes read count/alphabet; this certificate improves the fixed three-dimensional one-base-field-symbol example.
 
 **Finite certified result.** For every C in `{1,2}^{3×3}`, take the field F_100003 and fixed controls
 
