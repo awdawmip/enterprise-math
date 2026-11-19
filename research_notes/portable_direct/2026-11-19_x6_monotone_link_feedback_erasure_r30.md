@@ -1,0 +1,51 @@
+# X6 R30 — Monotone Link feedback: exact future-language erasure and limits of eventual-reachability quotients
+
+Date: 2026-11-19 (Asia/Shanghai). Task: RS-X6-NATIVE-TIME-DYNAMICS / TP2-91D4A7C2F63805BE21A3. Research lineage: EM-X6-214D9C; Activity RA-545183ADD4EF71C3E4698AEE. Classification: CONDITIONAL_AUTHOR_PROOF / EXACT_FINITE_BOOLEAN_BRC_PASS / NOT_REVIEWED / NATIVE_TRIADIC_ADMISSION_PENDING.
+
+## Fixed science and interface
+
+This continues the conditional frozen-guard DAG theorem R29, at research_notes/portable_direct/2026-11-19_x6_frozen_guard_dag_future_quotient_r29.md. The taskbook science is fixed to awdawmip/enterprise-math@f41c2690daba467ecbde99615a1337e67be46ffd:research_tasks/RS_X6_NATIVE_TIME_DYNAMICS_20260906.md and its original P000 source pin awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json. Current account and project behavioral rules are independent, current-main reads.
+
+P000 fixes six discrete native signed spatial axes, an independent non-spatial time, intact three-force triadic primitive balance, and provenance-sensitive composite paths. Each local signed-axis lane below is a **partial six-dimensional model construction**, not a complete native three-dimensional slice or a native TRIADIC_CLOSURE_E execution claim. The following public Link update is explicitly a **conditional hypothesis**.
+
+## Controller and Boolean-BRC observer
+
+Fix any integers n,q >= 0. There are n named intact triad sources, each with a hidden constant provenance bit theta_i in {0,1}. Their distinct labelled permitted preparation events are T_i+ then T_i-, a signed-axis outward step and return on a disjoint lane. Each source has one distinct one-use probe Q_i, permitted precisely after its two preparations and while (theta_i = 1 OR x_i = 1). The public Link bit x_i initially equals 0.
+
+There are q distinct one-use public broadcast gates B_j, with arbitrary coverage sets J_j subseteq [n]. Their only effect is the *monotone* update x_i := x_i OR 1(i in J_j). They have no prerequisites, do not change theta or source phase, and are fully labelled. No other transition occurs. Probe execution, preparation, and broadcast execution are otherwise independent and have no resource conflicts.
+
+For any already-executed broadcast subset F subseteq [q], define U(F) = union of J_j over j in F. Compare the **same public fiber**: the fired-broadcast mask is F, all triads remain unprepared, and all probes unused. Hidden bits are the only differences. Future observation at event horizon h >= 0 is L_h^F(theta), the Boolean support of *all successful fully source-/signed-Port-/broadcast-/probe-labelled words of length at most h*, including the empty word; attempted failed events are not observations. Union combines alternative branches and fully labelled prefix concatenation composes sequential events. This is a typed Boolean-BRC path-support carrier with exact source and Port identity; no multiplicity, signed amplitude, phase cancellation, continuum clock, physical time or precision-refinement operation is inferred.
+
+## R30.1: Sharp full-future quotient after public monotone Link feedback
+
+**Theorem.** For all n,q,coverage sets,F,theta,eta,h as above,
+
+  L_h^F(theta) = L_h^F(eta)
+  iff [h <= 2] OR [theta_i = eta_i for every i not in U(F)].
+
+Hence the exact number of history equivalence classes C(F,h), and minimum fixed-length Boolean-BRC history bits b(F,h), are
+
+  if h <= 2: C = 1, b = 0;
+  if h >= 3: C = 2^(n - |U(F)|), b = n - |U(F)|.
+
+The equivalence classifier stabilizes at h=3 (including the infinite future). On a common public fiber, firing a broadcast removes exactly its **newly covered** hidden bits from the minimal sufficient future state. A sequence with U(F)=[n] erases *all* hidden-bit dependence from every future successful language.
+
+**Proof, necessity.** When h<=2 no Q_i can occur, since T_i+ and T_i- must appear before it. Every other event and its availability is independent of theta; hence all languages coincide. When h>=3, if i outside U(F) has theta_i!=eta_i, suppose theta_i=1 and eta_i=0. The length-three labelled word T_i+ T_i- Q_i with **no further B gate** is legal under theta. Along exactly this word the public x_i remains 0 under eta, making the final event illegal. Thus the two languages differ at h=3.
+
+**Proof, sufficiency.** Suppose theta and eta agree on every i outside U(F). Pair the two systems' states with the same source phases, probe completion flags, broadcast completion flags and Link bits after each common word. Every x_i with i in U(F) is forever 1 under both systems, since Link updates are monotone, so the guard theta_i OR x_i is true independent of the hidden bit. For i outside U(F) the hidden bit is equal, and public x_i evolves identically. Each preparation, probe and broadcast therefore has identical enablement, public output label, and successor public state. Induction on the word length is a label-preserving strong step simulation in both directions; all finite future languages are identical. The necessity witness distinguishes every distinct restriction of theta to [n]\U(F). Those restrictions have precisely 2^(n-|U(F)|) possibilities, so fixed-length optimal storage is n-|U(F)| bits. QED.
+
+**State and observation boundary.** The quotient is of the hidden initial histories *conditional on a specified public state*. Reachable intermediate Markov states still require the public broadcast mask, current Link bits, individual preparation phases and probe completion flags. Past witnessed source/Port events are not deleted, and this event-count theorem does not introduce a duration or a precision clock. Other observation alphabets require a new equivalence claim.
+
+## R30.2: Eventual reachability can hide arbitrarily many future-language bits
+
+Choose a single broadcast B_0 covering all n sources, but observe **before** B_0 fires. Every individual probe Q_i is eventually executable for every theta by B_0 T_i+ T_i- Q_i; all eventual reachable event-name sets are the same. Nonetheless, the pre-broadcast languages give 2^n distinct classes from h=3, as T_i+ T_i- Q_i is legal without B_0 precisely for theta_i=1. The map "full labelled future language -> eventual individually reachable event set" has fibers of size 2^n for arbitrary n.
+
+After B_0 actually occurs and with otherwise matched public phases and probe flags, all hidden histories share one identical future language; the quotient drops sharply from n hidden bits to zero. For partial cover U(F), exactly n-|U(F)| bits remain. Thus even a *monotone enabling*, non-resetting Link event defeats the shortcut of classifying histories only by eventual event support, while also providing an exact condition for legitimate history compression. R29's frozen conjunctive-DAG classifier cannot be replaced by eventual reachability in such dynamic-Link systems.
+
+## Reproducible finite calculation
+
+Companion source: research_notes/portable_direct/x6_monotone_link_brc_verify_r30.py; result: research_notes/portable_direct/x6_monotone_link_brc_results_r30.json. The checker recursively builds exact Boolean sets of full labelled words (not numeric probability masses or hashed approximations), with separate distinct signed-return/Port, probe and broadcast labels. It enumerates n=1..3, q=0..2, *all* ordered coverage families, *all* fired-subset masks, every ordered theta pair and horizons h=0..3. It asserts exact language equality iff the proved formula. Result from actual standard-library Python execution: PASS; 367 controller/fired-set configurations, 74,896 pair/horizon comparisons; 70 cases where the entire hidden bit vector was erased; maximum materialized finite language size 128. Exact finite coverage is not the proof for arbitrary n/h: the preceding simulation and distinguishing-witness proof establishes the general proposition. No independent review or native TRIADIC_CLOSURE_E simulation has occurred.
+
+## Next native research question
+
+Identify the smallest source-pinned admissible whole-triad Cell/Link/Port update whose public Link action can act as B_j, retaining its genuine signed Ports, source provenance and event observer. Verify or refute trace-preserving embedding of the conditional R30 controller. If a native update is consuming, resetting, frame-dependent or source-sensitive, compute the exact changed-language quotient in that actual event transition system rather than importing the R30 formula. The separate RS-X6 hard target remains: give typed semiconjugacy or a sharp no-go between physical event order, periodic phase, history/branch memory and precision/refinement lineage. No P000 change, formal Result/Review, TASK CLAIM or physical clock assertion follows from this result.
