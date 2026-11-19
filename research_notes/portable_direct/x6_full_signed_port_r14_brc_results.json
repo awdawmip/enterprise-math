@@ -1,0 +1,107 @@
+{
+  "X6_closed_form_counts_h_0_6": [
+    1,
+    13,
+    85,
+    377,
+    1289,
+    3653,
+    8989
+  ],
+  "factorial_alias_checks": [
+    {
+      "L1_classes": 1,
+      "L2_classes": 1,
+      "histories": 1,
+      "inner_labels": 1
+    },
+    {
+      "L1_classes": 1,
+      "L2_classes": 2,
+      "histories": 2,
+      "inner_labels": 2
+    },
+    {
+      "L1_classes": 1,
+      "L2_classes": 6,
+      "histories": 6,
+      "inner_labels": 3
+    },
+    {
+      "L1_classes": 1,
+      "L2_classes": 24,
+      "histories": 24,
+      "inner_labels": 4
+    },
+    {
+      "L1_classes": 1,
+      "L2_classes": 120,
+      "histories": 120,
+      "inner_labels": 5
+    }
+  ],
+  "result": "PASS",
+  "schema": "EM_X6_R14_EXACT_SIGNED_PORT_BRC_V1",
+  "scope": "Boolean support of successful labelled moves, vacancy-only full signed six-axis ports; no native TRIADIC_CLOSURE_E permission",
+  "theorem_factorial_alias": "q! same one-event languages but pairwise different two-event languages at all q>=1",
+  "theorem_two_body": "C6(h)=sum_(k=0..min(h,6)) 2^k binom(6,k)binom(h,k)",
+  "two_body_checks": [
+    {
+      "checked_displacements": 3,
+      "dimension": 2,
+      "distinct_languages": 1,
+      "expected_minimal_classes": 1,
+      "horizon": 0,
+      "max_support_words": 1
+    },
+    {
+      "checked_displacements": 7,
+      "dimension": 2,
+      "distinct_languages": 5,
+      "expected_minimal_classes": 5,
+      "horizon": 1,
+      "max_support_words": 9
+    },
+    {
+      "checked_displacements": 15,
+      "dimension": 2,
+      "distinct_languages": 13,
+      "expected_minimal_classes": 13,
+      "horizon": 2,
+      "max_support_words": 73
+    },
+    {
+      "checked_displacements": 27,
+      "dimension": 2,
+      "distinct_languages": 25,
+      "expected_minimal_classes": 25,
+      "horizon": 3,
+      "max_support_words": 585
+    },
+    {
+      "checked_displacements": 3,
+      "dimension": 6,
+      "distinct_languages": 1,
+      "expected_minimal_classes": 1,
+      "horizon": 0,
+      "max_support_words": 1
+    },
+    {
+      "checked_displacements": 15,
+      "dimension": 6,
+      "distinct_languages": 13,
+      "expected_minimal_classes": 13,
+      "horizon": 1,
+      "max_support_words": 25
+    },
+    {
+      "checked_displacements": 87,
+      "dimension": 6,
+      "distinct_languages": 85,
+      "expected_minimal_classes": 85,
+      "horizon": 2,
+      "max_support_words": 601
+    }
+  ],
+  "unbounded_proofs_not_inferred_from_finite_test": true
+}
