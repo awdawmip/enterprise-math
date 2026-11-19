@@ -1,0 +1,35 @@
+{
+  "schema": "R762FU_EXACT_EVIDENCE_V1",
+  "date": "2026-11-19",
+  "scope": "unordered triad T fixed across h steps; two equally weighted named rotation branches; signed BRC path provenance retained",
+  "counts": {
+    "S6_kernels": 14400,
+    "BRC_word_endpoint_checks": 28800,
+    "branch_orbit_minimality": 20,
+    "BigInt_dp_formula_depths": 65,
+    "explicit_branch_histories": 8191,
+    "explicit_depth_max": 12,
+    "DP_depth_max": 64
+  },
+  "examples": {
+    "h1": [
+      0,
+      1,
+      1
+    ],
+    "h2": [
+      2,
+      1,
+      1
+    ],
+    "h6": [
+      22,
+      21,
+      21
+    ]
+  },
+  "formula": "n_h(0)=(2^h+2*(-1)^h)/3; n_h(1)=n_h(2)=(2^h-(-1)^h)/3",
+  "branch_mass": "each length-h path has positive rational weight 2^(-h)",
+  "pass": true,
+  "status": "AUTHOR_PROVED / NOT_REVIEWED; conditional S6 candidate kernel, no native event admission"
+}
