@@ -160,3 +160,5 @@
 - [第六十六轮的幂等终端与模七运算](sixtysixth/README.md)　局部环上的可辨读数与实际运算核。
 
 - [第六十七轮的 Machin 公式与仪器转向](sixtyseventh/README.md)　低服务父方向的两个问题。
+
+- [第六十八轮的粗因子奇偶与偶返回周期](sixtyeighth/README.md)　平方自由余弦和的符号与原生反馈读数。
