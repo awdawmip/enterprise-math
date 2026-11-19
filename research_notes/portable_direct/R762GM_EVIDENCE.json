@@ -1,0 +1,154 @@
+{
+  "schema": "R762GM_MOVING_PORT_SIGNED_BRC_CERTIFICATE_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "candidate": "Semidirect signed STAR with moving named Port e=p(01)",
+  "arithmetic": "Exact integer DP with typed signed-word BRC branch multiplicity",
+  "verification": "Author side PASS: full state m=0..12, total 4^m, independent all-positive/all-negative 2^12 DFS each",
+  "m_values": [
+    {
+      "m": 0,
+      "full_states": 1,
+      "total_words": 1,
+      "return_counts": {
+        "0": 1
+      }
+    },
+    {
+      "m": 1,
+      "full_states": 4,
+      "total_words": 4,
+      "return_counts": {}
+    },
+    {
+      "m": 2,
+      "full_states": 13,
+      "total_words": 16,
+      "return_counts": {
+        "0": 4
+      }
+    },
+    {
+      "m": 3,
+      "full_states": 40,
+      "total_words": 64,
+      "return_counts": {}
+    },
+    {
+      "m": 4,
+      "full_states": 129,
+      "total_words": 256,
+      "return_counts": {
+        "0": 28
+      }
+    },
+    {
+      "m": 5,
+      "full_states": 420,
+      "total_words": 1024,
+      "return_counts": {}
+    },
+    {
+      "m": 6,
+      "full_states": 1313,
+      "total_words": 4096,
+      "return_counts": {
+        "0": 224
+      }
+    },
+    {
+      "m": 7,
+      "full_states": 4008,
+      "total_words": 16384,
+      "return_counts": {}
+    },
+    {
+      "m": 8,
+      "full_states": 12011,
+      "total_words": 65536,
+      "return_counts": {
+        "0": 1884
+      }
+    },
+    {
+      "m": 9,
+      "full_states": 35034,
+      "total_words": 262144,
+      "return_counts": {}
+    },
+    {
+      "m": 10,
+      "full_states": 98873,
+      "total_words": 1048576,
+      "return_counts": {
+        "0": 16256
+      }
+    },
+    {
+      "m": 11,
+      "full_states": 266990,
+      "total_words": 4194304,
+      "return_counts": {}
+    },
+    {
+      "m": 12,
+      "full_states": 686267,
+      "total_words": 16777216,
+      "return_counts": {
+        "0": 142616,
+        "6": 8,
+        "-6": 8
+      }
+    }
+  ],
+  "first_nonzero_m": 12,
+  "depth_positive": 6,
+  "depth_negative": -6,
+  "count_each_sign": 8,
+  "probability_nonzero_given_12": "16/16777216 = 1/1048576",
+  "witness_plus": [
+    0,
+    0,
+    0,
+    1,
+    2,
+    2,
+    2,
+    1,
+    3,
+    3,
+    3,
+    1
+  ],
+  "witness_minus": [
+    0,
+    0,
+    0,
+    1,
+    3,
+    3,
+    3,
+    1,
+    2,
+    2,
+    2,
+    1
+  ],
+  "ports_before_positive": [
+    "01",
+    "02",
+    "03",
+    "01",
+    "12",
+    "12",
+    "12",
+    "12",
+    "13",
+    "13",
+    "13",
+    "13"
+  ],
+  "scope": "Candidate named Port update, not an adopted native triadic license. Branch word provenance retained.",
+  "review": "NOT_REVIEWED",
+  "next": "Resolve actual native Cell/Port/Link license; unit-depth shortest loop for moving Port; future observer sufficiency"
+}
