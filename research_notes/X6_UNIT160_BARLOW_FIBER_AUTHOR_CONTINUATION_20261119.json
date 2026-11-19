@@ -1,0 +1,104 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-19",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "latest_verified_native": {
+    "unit": 158,
+    "request_id": "onhour-20261119-1600-x6-own-unit158-p022-prior-reuse-native-progress-v1",
+    "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "ea697be851e54586cb7ce48672e51a412f10482a",
+    "authenticated_readback": true,
+    "event_id": 7004053131
+  },
+  "author_frontier": {
+    "unit": 160,
+    "status": "AUTHOR_PROVED/EXACT_INTEGER_EXECUTED/GITHUB_VERIFIED/UNREVIEWED/NOT_ADMITTED",
+    "finding": "New sharp finite-fiber formula for any selected upward Barlow-prefix layer observation; extends existing P022 selected-imbalance sufficiency and full-trajectory recovery without presenting those prior results as novel. Exact F=2^(n-t_m)*product binom(L_j,(L_j+d_j)/2); image size product(L_j+1); minimal extra fixed bits ceil(log2 F). P022 derived Barlow contact observer not native signed X6 N-BRC. Under user task goal, LP011/LP019 alleged historical faulty call sites remain unresolved.",
+    "source_paths": [
+      {
+        "path": "research_notes/X6_UNIT160_BARLOW_SELECTED_LAYER_OBSERVER_FIBER_CARDINALITY_20261119.md",
+        "commit": "c361cd51186f2f64ba64af9e432158963ad3c47d",
+        "blob": "558ba86d5a30e9481bff2293dc326c88aae8b4b0"
+      },
+      {
+        "path": "research_checks/X6_UNIT160_BARLOW_SELECTED_LAYER_FIBER_CHECK_20261119.py",
+        "commit": "cbeae752edaecdecb3ef9b35819cb7881b0b0dbc",
+        "blob": "9368d21f30996308e743beaa71ceab5835d16d94",
+        "sha256": "b53e40e8f6b76f0156f4dd61b71dc2320fdb9d01e0bbf621d36fc6942eb0fa42"
+      },
+      {
+        "path": "research_checks/X6_UNIT160_BARLOW_SELECTED_LAYER_FIBER_RESULTS_20261119.json",
+        "commit": "59b6d51d3326f2ea5ed6dd62e03e52d955d49ee9",
+        "blob": "1ea7ec88abe531f2bd3c95824d7c2c953751c70f",
+        "sha256": "a43e4afe1e123d4064060710cd15e666ed643bd3a2ea9d21f397ce5aee680610"
+      },
+      {
+        "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit160_delta.json",
+        "commit": "19c7ef149f608c389dc5d8a90f61c8c276f30676",
+        "blob": "913197997e1aac0f70b168236af283852475b9a5"
+      }
+    ],
+    "checks": {
+      "n_range": "1..9",
+      "word_selection": 349524,
+      "distinct_observer_fibers": 76095,
+      "witness": "n8,T=(2,5,8),delta=(0,1,0),F18,5bits",
+      "python_modes": [
+        "normal",
+        "-O",
+        "-OO"
+      ],
+      "sha256": "a43e4afe1e123d4064060710cd15e666ed643bd3a2ea9d21f397ce5aee680610",
+      "historical_p022_tests_executed": false,
+      "original_r063_rerun": false
+    }
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "checkpoint_count": 175,
+    "event_id": "onhour-20261119-1756-x6-unit160-barlow-prefix-fiber-cardinality-v1",
+    "source_commit": "946c5b6106168838f6e686d07d50e3bffbbe2260",
+    "blob": "987126ed5e104185b4f51cdf72bcf9f707359ddc",
+    "readback_verified": true
+  },
+  "native_control": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-dedc91932641535d284fc171",
+    "run_id": "RUN-c92057890282aaaeec520881",
+    "generation_at_last_verified_resume": 8,
+    "run_revision_at_read": 0,
+    "unit159_resume_request": "onhour-20261119-1710-x6-own-run-c920-unit159-resume-v1",
+    "unit159_resume_status": "SUCCEEDED/RUN_READY",
+    "owner_lease_until_asof": "2026-11-19T11:19:21+00:00",
+    "unit159_native_progress_request": "onhour-20261119-1758-x6-own-unit159-native-progress-v1",
+    "unit159_native_status_last": "RUNNING/error=null",
+    "unit160_native_progress_request": null,
+    "unit160_native_published": false,
+    "unit149_failed_request_id": "onhour-20261119-1000-x6-own-unit149-native-progress-v1",
+    "unit149_terminal": "FAILED/GITHUB_PRIMARY_RATE_LIMIT"
+  },
+  "unresolved": [
+    "Consume original Unit159 native PROGRESS receipt to Source-authenticated terminal; do not resubmit while queued/running/unknown.",
+    "Native semantic linkage Units149–152 remains pending; Unit149 original terminal FAILED must not be replayed; use current contract & own winning claim for new rightful association only.",
+    "Full remaining 28-LP real production consumer coverage; precise LP011/LP019 alleged wrong historical commit:path:line unknown; independent Driver review/admission pending."
+  ],
+  "do_not_repeat": [
+    "Already successful native Units1–148,153–158.",
+    "Completed Unit159 and Unit160 author-side source/checker/certificate; each Activity already recorded.",
+    "Original Unit50 R063 six-file benchmark PASS; no need to rerun.",
+    "Historical P022 selected-layer sufficiency/full-trajectory recovery as novel.",
+    "Unknown/failed writes, maintenance lane subject or another owner's reviewer claim."
+  ],
+  "next_exact_action": "First read original onhour-20261119-1758-x6-own-unit159-native-progress-v1; when terminal and authenticated Source and owner/run still current, publish Unit160 through one lawful native progress or record exact reason blocked. Prioritize actual remaining frozen 28-LP production consumer edge, not unbounded auxiliary theorem generation. Keep LP011/LP019 evidence and independent Driver review distinct.",
+  "review": "UNREVIEWED/NOT_ADMITTED",
+  "continuation_state": "OPEN",
+  "scheduler_modified": false,
+  "notifications_modified": false
+}
