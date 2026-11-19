@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/riesel_structure_20261119/local_shapes.py",
+    "ref": "556523cdba69e26a98239a1c666c0b5d47d19381",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-RIESEL-STRUCTURE-20261119-SOURCE-1",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Exact radius-two phase surgery around the original square Riesel cover.\n\nUse u=(n-1)/2 for positive odd n. The domain is Z/3360 and each labelled\nprime contributes one residue class modulo its effective u-period. This\nscript exhausts every one- and two-coordinate change from the original.\n\"\"\"\nfrom __future__ import annotations\n\nfrom itertools import combinations\nimport json\nfrom math import lcm\nfrom pathlib import Path\n\n\ndef main():\n    directory = Path(__file__).resolve().parent\n    source = directory.with_name('riesel_mixed_20261119') / 'certificate.json'\n    rows = json.loads(source.read_text())['original']['rows']\n    periods = [r['order']//2 if r['order']%2==0 else r['order'] for r in rows]\n    phases = [((r['exponent_phase']-1)//2)%e if r['order']%2==0\n              else ((r['exponent_phase']-1)*pow(2,-1,e))%e\n              for r,e in zip(rows,periods)]\n    period=lcm(*periods)\n    full=(1<<period)-1\n    # One extra zero mask represents any root residue with no odd-index hit\n    # in that prime channel (for example a=0 modulo p).\n    masks=[[sum(1<<u for u in range(c,period,e)) for c in range(e)]+[0] for e in periods]\n    old=[m[c] for m,c in zip(masks,phases)]\n    def union(inds):\n        result=0\n        for i in inds: result |= old[i]\n        return result\n    assert union(range(len(rows)))==full\n    single=[]; pair=[]; total_candidates=0\n    for i in range(len(rows)):\n        holes=full^union(j for j in range(len(rows)) if j!=i)\n        assert holes\n        for c,mask in enumerate(masks[i]):\n            if c != phases[i] and mask&holes==holes:\n                single.append({'i':i,'p':rows[i]['p'],'phase':c})\n    for i,j in combinations(range(len(rows)),2):\n        holes=full^union(k for k in range(len(rows)) if k not in (i,j))\n        for ci,mi in enumerate(masks[i]):\n            if ci==phases[i]:continue\n            remaining=holes & ~mi\n            for cj,mj in enumerate(masks[j]):\n                if cj==phases[j]:continue\n                total_candidates += 1\n                if remaining & ~mj == 0:\n                    # The complete enumeration establishes that no valid\n                    # radius-two result makes an odd channel inactive.\n                    assert ci<periods[i] and cj<periods[j]\n                    new=list(phases);new[i]=ci;new[j]=cj\n                    pair.append({'indices':[i,j],'primes':[rows[i]['p'],rows[j]['p']],\n                                 'old_phases':[phases[i],phases[j]],'new_phases':[ci,cj],\n                                 'u_phases':new})\n    def canonical(vec):\n        return min(tuple((c+t)%e for c,e in zip(vec,periods)) for t in range(period))\n    candidates=[phases]+[x['u_phases'] for x in pair]\n    canon={canonical(v) for v in candidates}\n    result={'schema':'RIESEL_EXACT_LOCAL_PHASE_SURGERY_V1','researcher_id':'EM-DIRECT-970E1C',\n            'period':period,'primes':[r['p'] for r in rows], 'effective_periods':periods,\n            'original_u_phases':phases,\n            'inactive_odd_channel_included':True,\n            'single_change_population':sum(periods),'single_valid':single,\n            'single_active_only_population':sum(e-1 for e in periods),\n            'double_active_only_population':sum((periods[i]-1)*(periods[j]-1) for i,j in combinations(range(len(rows)),2)),\n            'double_change_population':total_candidates,'double_valid_count':len(pair),\n            'double_valid':pair,'translation_classes_in_radius2':len(canon),\n            'canonical_representatives':[list(v) for v in sorted(canon)]}\n    (directory / 'local_shapes_results.json').write_text(json.dumps(result,indent=2)+'\\n')\n    print(json.dumps({k:v for k,v in result.items() if k not in ('double_valid','canonical_representatives')},indent=2))\n    for row in pair: print(row['primes'],row['old_phases'],'->',row['new_phases'])\n\n\nif __name__=='__main__':main()\n",
+      "display_title": "local_shapes.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/556523cdba69e26a98239a1c666c0b5d47d19381/research_notes/portable_direct/riesel_structure_20261119/local_shapes.py",
+      "encoding": "utf-8",
+      "sha": "a12c6cbda66afeb577960d1faea19ff055c68f14"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}

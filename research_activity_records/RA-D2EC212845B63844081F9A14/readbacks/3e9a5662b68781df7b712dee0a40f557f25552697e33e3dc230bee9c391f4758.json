@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/riesel_structure_20261119/segmented_prime_divisor.cpp",
+    "ref": "556523cdba69e26a98239a1c666c0b5d47d19381",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-RIESEL-STRUCTURE-20261119-SOURCE-12",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "#include <algorithm>\n#include <chrono>\n#include <cstdint>\n#include <iostream>\n#include <limits>\n#include <string>\n#include <vector>\n\n// Read an exact positive integer N from stdin and exhaust all primes up to B.\n// The search stops at the first prime divisor, proving its minimality.\n// The declared bound fits uint32; all arithmetic is exact integer arithmetic.\nint main(int argc, char** argv) {\n    if (argc != 2) return 2;\n    const uint64_t bound = std::stoull(argv[1]);\n    if (bound < 2 || bound > std::numeric_limits<uint32_t>::max()) return 2;\n    std::string decimal;\n    if (!(std::cin >> decimal)) return 2;\n    std::vector<uint32_t> limbs(1, 0);\n    for (char c : decimal) {\n        if (c < '0' || c > '9') return 2;\n        uint64_t carry = c - '0';\n        for (uint32_t& limb : limbs) {\n            const uint64_t value = static_cast<uint64_t>(limb) * 10 + carry;\n            limb = static_cast<uint32_t>(value);\n            carry = value >> 32;\n        }\n        if (carry) limbs.push_back(static_cast<uint32_t>(carry));\n    }\n    if (limbs.size() == 1 && limbs[0] < 2) return 2;\n    auto remainder = [&](uint64_t p) {\n        uint64_t r = 0;\n        for (auto it = limbs.rbegin(); it != limbs.rend(); ++it)\n            r = ((r << 32) | *it) % p;\n        return r;\n    };\n    uint64_t root = 0;\n    while ((root + 1) * (root + 1) <= bound) ++root;\n    std::vector<uint8_t> small(root + 1, 1);\n    small[0] = small[1] = 0;\n    for (uint64_t p = 2; p <= root / p; ++p) {\n        if (small[p]) for (uint64_t j = p * p; j <= root; j += p) small[j] = 0;\n    }\n    std::vector<uint32_t> base;\n    for (uint64_t p = 2; p <= root; ++p) if (small[p]) base.push_back(p);\n    constexpr uint64_t segment_size = 1000000;\n    uint64_t count = 0, least = 0;\n    const auto start = std::chrono::steady_clock::now();\n    for (uint64_t lo = 2; lo <= bound && least == 0; lo += segment_size) {\n        const uint64_t hi = std::min(bound + 1, lo + segment_size);\n        std::vector<uint8_t> mark(hi - lo, 1);\n        for (uint64_t p : base) {\n            if (p * p >= hi) break;\n            const uint64_t first = std::max(p * p, ((lo + p - 1) / p) * p);\n            for (uint64_t j = first; j < hi; j += p) mark[j - lo] = 0;\n        }\n        for (uint64_t i = 0; i < mark.size(); ++i) {\n            if (!mark[i]) continue;\n            const uint64_t p = lo + i;\n            ++count;\n            if (remainder(p) == 0) { least = p; break; }\n        }\n    }\n    const double seconds = std::chrono::duration<double>(std::chrono::steady_clock::now()-start).count();\n    std::cout << \"{\\\"bound\\\":\" << bound << \",\\\"primes_checked\\\":\" << count\n              << \",\\\"least_prime_divisor\\\":\";\n    if (least) std::cout << least; else std::cout << \"null\";\n    std::cout << \",\\\"exhausted_bound\\\":\" << (least ? \"false\" : \"true\")\n              << \",\\\"seconds\\\":\" << seconds << \"}\\n\";\n}\n",
+      "display_title": "segmented_prime_divisor.cpp",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/556523cdba69e26a98239a1c666c0b5d47d19381/research_notes/portable_direct/riesel_structure_20261119/segmented_prime_divisor.cpp",
+      "encoding": "utf-8",
+      "sha": "613a629cc614be723352dea7a986e761ffc52f75"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
