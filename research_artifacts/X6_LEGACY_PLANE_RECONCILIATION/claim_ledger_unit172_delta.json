@@ -1,0 +1,152 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-20",
+  "unit": 172,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "classification": "DERIVED_K4_COVER_EXACT_GRAPH_GEODESIC_BRC; TRUE_PRODUCER_CONSUMER_VERIFIED; NO_LP011_LP019_FAULT_FOUND_AT_THIS_CALL",
+  "producer": {
+    "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "path": "src/enterprise_math/euler_fcc_chirality.py",
+    "blob": "6f8b147c094720c2749f620a40394c4d7b67a386",
+    "lines": "31-48,138-161,248-267"
+  },
+  "downstream_producer": {
+    "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "path": "src/enterprise_math/euler_fcc_chirality_connectivity.py",
+    "blob": "ddf9a06abd859f5cc9c109b76e1979147fbed399",
+    "lines": "33-40,43-61,68-100"
+  },
+  "true_test_consumer": {
+    "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "path": "tests/test_euler_fcc_chirality_connectivity.py",
+    "blob": "794037b5d2f2a58b79b0054814d6e7a69b3fe7f1",
+    "lines": "18-25,29-59,72-92"
+  },
+  "new_finding": {
+    "description": "All 64 F2^6 K4 chirality transition covers have exact positive derived-graph shortest-walk BRC pair spectra determined by four-face holonomy weight 0/2/4. The intermediate face-weight-2 class splits anchored source BRC rows into two four-source orbits; this residual is not captured by a scalar global connectivity or face-weight observation.",
+    "stratum_assignments": {
+      "0": 8,
+      "2": 48,
+      "4": 8
+    },
+    "pair_spectrum": {
+      "0": [
+        [
+          1,
+          1,
+          12
+        ],
+        [
+          "unreachable",
+          0,
+          16
+        ]
+      ],
+      "2": [
+        [
+          1,
+          1,
+          12
+        ],
+        [
+          2,
+          1,
+          8
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          3,
+          2,
+          4
+        ],
+        [
+          3,
+          4,
+          2
+        ]
+      ],
+      "4": [
+        [
+          1,
+          1,
+          12
+        ],
+        [
+          2,
+          2,
+          12
+        ],
+        [
+          3,
+          6,
+          4
+        ]
+      ]
+    },
+    "ordered_path_mass_including_identity": {
+      "0": 32,
+      "2": 88,
+      "4": 128
+    },
+    "proof": "Each edge belongs to two faces; face map onto even parity has gauge kernel of size8; gauge and S4 preserve shortest walks. Exhaustive eight-state representative BFS recurrence certifies 0/2/4 classes.",
+    "source_type": "DERIVED_SIGNED_CHIRALITY_COVER_K4_NOT_NATIVE_X6_CELL_BRC",
+    "lp011_subtraction_evidence": "NONE_IN_THIS_VERIFIED_CONSUMER; frozen cover_diameter max is derived finite graph distance, not native signed-axis argmax",
+    "lp019_subtraction_evidence": "NONE_IN_THIS_VERIFIED_CONSUMER; shortest-path counts are newly checked positive integer multiplicities, never subtracted as native masses"
+  },
+  "exact_execution": {
+    "independent_python_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "identical_python_json_bytes": true,
+    "python_script_sha256": "100a0e40002cd89bc209e718e104cc440cd836d8f77c84cb5aca6621db090140",
+    "python_result_sha256": "cdab6a4b14cbaa18b86d37c501cdd8cd4f6f2329cf3f916445ec7afde3d5b53d",
+    "v8_edge_assignments": 64,
+    "v8_gauge_assignments": 1024,
+    "v8_gauge_source_target_checks": 65536,
+    "violations": 0,
+    "original_R063_benchmark_reexecuted": false
+  },
+  "immutable_evidence": {
+    "proof": {
+      "path": "research_notes/X6_UNIT172_K4_CHIRALITY_COVER_GEODESIC_BRC_SOURCE_FIBERS_20261120.md",
+      "commit": "d31dcb212b64e43aed93f4575669cf2a60ce09c5",
+      "blob": "542aecdf0c47e35e21e9117b566c94961e24c14d"
+    },
+    "checker": {
+      "path": "research_checks/X6_UNIT172_K4_COVER_GEODESIC_BRC_CHECK_20261120.js",
+      "commit": "f7951137f9e36d5324a93f340dd8b6c47ea1982e",
+      "blob": "730ee8f03d2d7c92d24949edd760be9626a68685"
+    },
+    "certificate": {
+      "path": "research_checks/X6_UNIT172_K4_COVER_GEODESIC_BRC_RESULTS_20261120.json",
+      "commit": "5b97925d5b6a4a3eb69085fad30298cf6c8eed72",
+      "blob": "24c2ffc9fa0dab4e5c420d846a3c85a60ecfede5"
+    }
+  },
+  "still_pending": [
+    "LP011 exact erroneous historical native signed argmax commit:path:line UNKNOWN",
+    "LP019 exact historical improper subtraction of positive native N-BRC counts commit:path:line UNKNOWN",
+    "Remaining frozen 28-LP true production caller crosswalk incomplete",
+    "Units149-152 original native semantic association debt, do not repeat old writes",
+    "Native Unit172 progress requires fresh same-lane own winning CLAIM/RUN authorization; author GitHub publication alone is not formal progress",
+    "Independent Driver review / Result admission pending"
+  ],
+  "next_exact_action": "Read actual original research continuation receipt and current exact claim/source; next frozen not-yet-audited true producer-to-consumer chain. Only same original lane with authorized session/capability may resume/publish Native PROGRESS; no maintenance or owner-custody identity borrowing.",
+  "do_not_repeat": [
+    "Units1-171 completed author math and Source progress",
+    "original R063 six-file 17/17 and 512/512 native benchmark",
+    "wrong or unknown native requests",
+    "previously audited K4 tetrahedral_endpoint_sum consumer (Units170-171)"
+  ]
+}
