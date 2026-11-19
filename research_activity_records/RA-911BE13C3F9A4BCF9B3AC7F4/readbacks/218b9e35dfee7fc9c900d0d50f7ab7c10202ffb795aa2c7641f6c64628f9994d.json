@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/eightysecond/sieve.cpp",
+    "ref": "bc47be201113f0f5bf9a04b672fadf686a3531dc",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-eightytwo-20261118-10",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "// Classify affordable denominator multisets by exact finite residue tuples.\n#include <algorithm>\n#include <array>\n#include <cstdint>\n#include <iostream>\n#include <stdexcept>\n#include <unordered_map>\n#include <vector>\n\nusing Key = std::uint64_t;\nusing Residues = std::array<Key, 6>;\nusing Counts = std::vector<unsigned char>;\n\nclass BudgetLayer {\n    int budget{}, size{};\n    Key expected{};\n    Residues moduli{};\n    std::vector<int> denominators;\n    std::vector<Residues> columns;\n    std::vector<Key> keys, repeated;\n    std::unordered_map<Key, Counts> first_in_class;\n    Counts counts, ambiguous;\n    bool compare = false;\n\n    void record(const Residues& residues) {\n        Key key = 0;\n        for (int j = 0; j < 6; ++j)\n            key = key * moduli[j] + residues[j];\n        if (!compare) {\n            keys.push_back(key);\n            return;\n        }\n        if (!std::binary_search(repeated.begin(), repeated.end(), key)) return;\n        auto [it, inserted] = first_in_class.try_emplace(key, counts);\n        if (!inserted)\n            for (int i = 0; i < size; ++i)\n                if (it->second[i] != counts[i]) ambiguous[i] = 1;\n    }\n\n    void visit(int start, int remaining, const Residues& residues) {\n        record(residues);\n        for (int i = start; i < size && denominators[i]-1 <= remaining; ++i) {\n            Residues next;\n            for (int j = 0; j < 6; ++j) {\n                next[j] = residues[j] + columns[i][j];\n                if (next[j] >= moduli[j]) next[j] -= moduli[j];\n            }\n            ++counts[i];\n            visit(i, remaining - (denominators[i]-1), next);\n            --counts[i];\n        }\n    }\n\npublic:\n    void run() {\n        std::cin >> budget >> size >> expected;\n        for (Key& m : moduli) std::cin >> m;\n        denominators.resize(size);\n        columns.resize(size);\n        counts.resize(size);\n        ambiguous.resize(size);\n        for (int i = 0; i < size; ++i) {\n            std::cin >> denominators[i];\n            for (Key& a : columns[i]) std::cin >> a;\n            if (budget / (denominators[i]-1) > 255)\n                throw std::runtime_error(\"multiplicity exceeds encoding\");\n        }\n        keys.reserve(expected);\n        visit(0, budget, Residues{});\n        if (keys.size() != expected) throw std::runtime_error(\"partition count mismatch\");\n        std::sort(keys.begin(), keys.end());\n        Key distinct = 0;\n        for (std::size_t i = 0; i < keys.size();) {\n            std::size_t end = i+1;\n            while (end < keys.size() && keys[end] == keys[i]) ++end;\n            if (end-i > 1) repeated.push_back(keys[i]);\n            ++distinct;\n            i = end;\n        }\n        std::vector<Key>().swap(keys);\n        if (!repeated.empty()) {\n            compare = true;\n            visit(0, budget, Residues{});\n        }\n        std::cout << expected << \" \" << distinct << \" \" << repeated.size() << \"\\n\";\n        for (int i = 0; i < size; ++i)\n            if (ambiguous[i]) std::cout << denominators[i] << \" \";\n        std::cout << \"\\n\";\n    }\n};\n\nint main() {\n    BudgetLayer layer;\n    layer.run();\n}\n",
+      "display_title": "sieve.cpp",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/bc47be201113f0f5bf9a04b672fadf686a3531dc/research_notes/portable_direct/20261118_fair_queue_6b0fba/eightysecond/sieve.cpp",
+      "encoding": "utf-8",
+      "sha": "c039adc00f8f74fb23911c593abab343ffb980f7"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

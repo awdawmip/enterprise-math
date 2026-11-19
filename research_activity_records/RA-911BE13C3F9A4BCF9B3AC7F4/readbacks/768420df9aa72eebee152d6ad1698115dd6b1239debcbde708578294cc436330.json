@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/eightysecond/smooth5.md",
+    "ref": "bc47be201113f0f5bf9a04b672fadf686a3531dc",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-eightytwo-20261118-14",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 分母只含 2、3、5 时，六阶形状矩的精确阈值为 2332\n\n设 $T_6^{(5)}$ 是分母 $d=e+1$ 的素因子都不超过 5 时，使两份不同指数形状有同样 $H_0,\\ldots,H_6$ 的最小最大侧质量。允许重复分母，每个出现付 $d-1$。则\n$$\n T_6^{(5)}=2332 .\n$$\n更精确地，在 $d\\mid720$ 的整个整数核内，达到此值的消重后有符号差只有一组，计入换边则有两组。达到阈值的正侧和负侧可写为\n\n|分母|36|40|45|60|72|120|180|360|\n|---|---:|---:|---:|---:|---:|---:|---:|---:|\n|正侧重数减负侧重数|−1|5|−8|14|−14|8|−5|1|\n\n按表正侧质量为 2332，负侧为 2276。它也是原任务在 $L=360$ 给出的上界。新下界涵盖所有 5-光滑分母，无需预先给一个共同分母。若两侧各至多 2331，本轮全局分母定理迫使消重后每个 5-光滑分母都整除 $2^4 3^2 5=720$；所以只须证明 $720$ 格内没有更便宜的差。这个逻辑只在费用 2331 以下调用全局分母筛，达到 2332 的唯一性只对上述 $720$ 格断言。[全局分母定理](sieve.md) · [原任务的 $L=360$ 冻结结果](https://github.com/awdawmip/enterprise-math/blob/e7b9fb5084f93a9b2dbc16225629b667fb7bf46c/research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md)\n\n## 整数核和可穷尽的欧氏球\n\n令 $D=\\{d\\ge2:d\\mid720\\}$。它有 29 项。取七行整数矩阵 $A_{jd}=(720/d)^j$，$0\\le j\\le6$。Vandermonde 子式非零，故秩为 7，核的秩为 22。程序列出一组候选基 $K$（22 行），直接核对 $KA^{\\mathsf T}=0$。对 $K^{\\mathsf T}$ 作整数行交换与扩展 Euclid 幺模行运算，得 22 个主元全部为单位。这表明 $K$ 有整数右逆，故其行格在 $\\mathbb Z^{29}$ 中饱和；结合秩数即得整个整数核。选择短基只为加快枚举，正确性可用 Python 标准库独立核对。\n\n对有符号重数 $z$，取加权向量 $w_d=(d-1)z_d$。若两侧质量分别至多 $M$，则\n$$\n \\|w\\|_2^2\\le\\left(\\sum_{w_d>0} w_d\\right)^2+\n                 \\left(\\sum_{w_d<0}(-w_d)\\right)^2\\le2M^2 .\n$$\n因此可用 $M=2332$ 连同等号边界枚举。把加权基作有理 Gram–Schmidt 正交化，记正交平方长为 $B_i$，系数为 $\\mu_{ji}$。固定较高基的整数系数 $n_j$ 后，剩余平方预算为 $E$，则下一系数恰取满足\n$$\n B_i\\left(n_i+\\sum_{j>i}n_j\\mu_{ji}\\right)^2\\le E\n$$\n的所有整数。令和项为 $s/t$；用整数平方根 $\\lfloor\\sqrt{Et^2/B_i}\\rfloor$ 直接给两端，不依赖浮点评估。枚举得闭球中 **3,336 个非零向量**，以及零向量一个。逐个还原符号及真实左右质量，最小的较大侧质量恰为 2332，只有表中的两个方向达到。于是若全局仍有更便宜的碰撞，消重后其最大素因子只能是 **7、11、13 或 17**。[完整短基与复算](smooth5_check.py) · [逐层节点数及达界向量](smooth5_checked.json)\n",
+      "display_title": "smooth5.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/bc47be201113f0f5bf9a04b672fadf686a3531dc/research_notes/portable_direct/20261118_fair_queue_6b0fba/eightysecond/smooth5.md",
+      "encoding": "utf-8",
+      "sha": "e376b9590c5b7e677e7f3bc70b6d05aba3256d74"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
