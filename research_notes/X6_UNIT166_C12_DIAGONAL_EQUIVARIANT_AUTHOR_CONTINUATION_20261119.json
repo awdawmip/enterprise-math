@@ -32,9 +32,9 @@
       },
       {
         "path": "research_checks/X6_UNIT166_C12_DIAGONAL_EQUIVARIANT_QUOTIENT_CHECK_20261119.py",
-        "commit": "d7979e55917f8450f26bce12641b1a77ae97d383",
-        "git_blob_sha1": "4751c00ccb9e4a304f7f5c94d9aaa49e2902a9be",
-        "sha256": "2cf086dba723b5f10abf4f6a9727c9d5f4be93b1a8318f73c11016b83ee46857"
+        "commit": "d26286b5d332956f110888d2517fe450fc70dcd6",
+        "git_blob_sha1": "65ff7d1088ba04639e11a801158cfa648edfa82c",
+        "sha256": "873e50d5d06a327b3aafa971ef2860953d3975f26e81972783a07224d870047f"
       },
       {
         "path": "research_checks/X6_UNIT166_C12_DIAGONAL_EQUIVARIANT_QUOTIENT_RESULTS_20261119.json",
@@ -58,18 +58,21 @@
         "python -OO"
       ],
       "published_checker_exact_git_blob_executed": true,
-      "original_R063_rerun": false
+      "original_R063_rerun": false,
+      "optimization_safe_checks": "Runtime check() raises AssertionError in normal/-O/-OO; all three exact outputs identical"
     }
   },
   "activity": {
     "id": "RA-5E3FE1E761E4963EC461A892",
     "researcher_id": "EM-X6-FB6990",
     "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
-    "count": 181,
-    "commit": "9a43ed19441dc6ce4c089f12fb774448aaa7e72a",
-    "blob": "f87af302425620e0e03b7d599204b6ce73147093",
+    "count": 182,
+    "commit": "f3e13245b08a27e9cd617b988b2f77f6e8dd3334",
+    "blob": "067848e0a3f84e59f74cd9c1795ea028e934fd88",
     "verified": true,
-    "event_id": "onhour-20261119-2304-x6-unit166-c12-diagonal-equivariant-quotient-v1"
+    "event_id": "onhour-20261119-2304-x6-unit166-c12-diagonal-checker-optimized-modes-repair-v1",
+    "prior_event_id": "onhour-20261119-2304-x6-unit166-c12-diagonal-equivariant-quotient-v1",
+    "repair_kind": "SOURCE_CHECKER_OPTIMIZED_MODE_RUNTIME_GUARD_CORRECTION"
   },
   "native_control": {
     "researcher_id": "EM-X6-FB6990",
