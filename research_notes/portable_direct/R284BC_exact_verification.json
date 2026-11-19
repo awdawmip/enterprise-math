@@ -1,279 +1,86 @@
 {
   "schema": "R284BC_EXACT_VERIFICATION_V1",
-  "date": "2026-11-20",
-  "scope": "auxiliary 2x2 signed/nonnegative one-row star determinant; exact bounded-height scan",
-  "candidate_count": 16,
-  "signed": [
-    {
-      "K": 0,
-      "settings_examined": 1,
-      "max_distinct": 7,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 1,
-      "settings_examined": 27,
-      "max_distinct": 9,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 2,
-      "settings_examined": 125,
-      "max_distinct": 11,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 3,
-      "settings_examined": 343,
-      "max_distinct": 13,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 4,
-      "settings_examined": 729,
-      "max_distinct": 13,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 5,
-      "settings_examined": 1331,
-      "max_distinct": 14,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 6,
-      "settings_examined": 2197,
-      "max_distinct": 15,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 7,
-      "settings_examined": 3375,
-      "max_distinct": 15,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 8,
-      "settings_examined": 4913,
-      "max_distinct": 15,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 9,
-      "settings_examined": 6859,
-      "max_distinct": 16,
-      "injective_settings": 8,
-      "first_injective_witness": {
-        "d0": -9,
-        "d1": -4,
-        "z": -4,
-        "outputs": [
-          52,
-          53,
-          54,
-          56,
-          57,
-          58,
-          59,
-          61,
-          62,
-          63,
-          64,
-          66,
-          68,
-          69,
-          70,
-          72
-        ],
-        "min_gap": 1
-      }
-    }
-  ],
-  "nonnegative": [
-    {
-      "K": 0,
-      "settings_examined": 1,
-      "max_distinct": 7,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 1,
-      "settings_examined": 8,
-      "max_distinct": 8,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 2,
-      "settings_examined": 27,
-      "max_distinct": 9,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 3,
-      "settings_examined": 64,
-      "max_distinct": 9,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 4,
-      "settings_examined": 125,
-      "max_distinct": 11,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 5,
-      "settings_examined": 216,
-      "max_distinct": 13,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 6,
-      "settings_examined": 343,
-      "max_distinct": 14,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 7,
-      "settings_examined": 512,
-      "max_distinct": 14,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 8,
-      "settings_examined": 729,
-      "max_distinct": 15,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 9,
-      "settings_examined": 1000,
-      "max_distinct": 15,
-      "injective_settings": 0,
-      "first_injective_witness": null
-    },
-    {
-      "K": 10,
-      "settings_examined": 1331,
-      "max_distinct": 16,
-      "injective_settings": 2,
-      "first_injective_witness": {
-        "d0": 7,
-        "d1": 10,
-        "z": 10,
-        "outputs": [
-          16,
-          18,
-          21,
-          23,
-          24,
-          26,
-          28,
-          29,
-          30,
-          32,
-          33,
-          34,
-          36,
-          37,
-          42,
-          43
-        ],
-        "min_gap": 1
-      }
-    }
-  ],
-  "bound_examples": [
-    {
-      "n": 2,
-      "H": 2,
-      "prior_AY_integer_K_lower_bound": 0,
-      "BC_diameter_integer_K_lower_bound": 2,
-      "BC_delta_half_integer_K_lower_bound": 6
-    },
+  "method": "integer Bareiss determinant + direct balanced-digit coefficient extraction",
+  "cases": [
     {
       "n": 3,
       "H": 2,
-      "prior_AY_integer_K_lower_bound": 2,
-      "BC_diameter_integer_K_lower_bound": 4,
-      "BC_delta_half_integer_K_lower_bound": 6
-    },
-    {
-      "n": 4,
-      "H": 2,
-      "prior_AY_integer_K_lower_bound": 5,
-      "BC_diameter_integer_K_lower_bound": 7,
-      "BC_delta_half_integer_K_lower_bound": 10
-    },
-    {
-      "n": 8,
-      "H": 2,
-      "prior_AY_integer_K_lower_bound": 61,
-      "BC_diameter_integer_K_lower_bound": 91,
-      "BC_delta_half_integer_K_lower_bound": 100
-    },
-    {
-      "n": 16,
-      "H": 2,
-      "prior_AY_integer_K_lower_bound": 9227,
-      "BC_diameter_integer_K_lower_bound": 14764,
-      "BC_delta_half_integer_K_lower_bound": 15463
-    },
-    {
-      "n": 32,
-      "H": 2,
-      "prior_AY_integer_K_lower_bound": 328603591,
-      "BC_diameter_integer_K_lower_bound": 565667321,
-      "BC_delta_half_integer_K_lower_bound": 578457872
-    },
-    {
-      "n": 8,
-      "H": 3,
-      "prior_AY_integer_K_lower_bound": 1596,
-      "BC_diameter_integer_K_lower_bound": 3404,
-      "BC_delta_half_integer_K_lower_bound": 3759
-    },
-    {
-      "n": 16,
-      "H": 3,
-      "prior_AY_integer_K_lower_bound": 6061593,
-      "BC_diameter_integer_K_lower_bound": 14271995,
-      "BC_delta_half_integer_K_lower_bound": 14946977
+      "scope": "all 512 matrices in {1,2}^{3x3}",
+      "verified": 512,
+      "max_control_bits": 7227,
+      "max_output_bits": 8211,
+      "Q": 91,
+      "T": 364,
+      "base": 973,
+      "digest_sha256": "15f853267eea4d48973bf27eb3fffcae346ae4769baabc112ea5886a622912fb",
+      "status": "PASS"
     },
     {
       "n": 3,
       "H": 3,
-      "prior_AY_integer_K_lower_bound": 9,
-      "BC_diameter_integer_K_lower_bound": 21,
-      "BC_delta_half_integer_K_lower_bound": 31
+      "scope": "16 seeded random matrices",
+      "verified": 16,
+      "max_control_bits": 8133,
+      "max_output_bits": 9240,
+      "Q": 91,
+      "T": 364,
+      "base": 2305,
+      "digest_sha256": "ea8642e7e89da3a259f2312e1afc232321cb6d8d802a02c634045971b18c98ba",
+      "status": "PASS"
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "scope": "8 seeded random matrices",
+      "verified": 8,
+      "max_control_bits": 70391,
+      "max_output_bits": 80446,
+      "Q": 337,
+      "T": 1685,
+      "base": 15553,
+      "digest_sha256": "8421a8aa9730091c2d8149cad19f7224f12c35a31484f3276c583f5a1bdd1fb3",
+      "status": "PASS"
     },
     {
       "n": 4,
       "H": 3,
-      "prior_AY_integer_K_lower_bound": 28,
-      "BC_diameter_integer_K_lower_bound": 58,
-      "BC_delta_half_integer_K_lower_bound": 74
+      "scope": "8 seeded random matrices",
+      "verified": 8,
+      "max_control_bits": 78783,
+      "max_output_bits": 90037,
+      "Q": 337,
+      "T": 1685,
+      "base": 49153,
+      "digest_sha256": "0bc8c9590423e2004d81ad66f2ac7326add0d89fb91637c2066ca2d7ad046f15",
+      "status": "PASS"
+    },
+    {
+      "n": 5,
+      "H": 2,
+      "scope": "3 seeded random matrices",
+      "verified": 3,
+      "max_control_bits": 392555,
+      "max_output_bits": 444530,
+      "Q": 901,
+      "T": 5406,
+      "base": 291601,
+      "digest_sha256": "bb4d363b9a18af65dfaa715b854beffe220e54a05fdcd53a6061b906c5055b27",
+      "status": "PASS"
     }
   ],
-  "direct_diameter_checks": 12502,
+  "total_verified": 547,
+  "adversarial_noise": {
+    "n": 3,
+    "H": 2,
+    "delta": 7000,
+    "tested": 96,
+    "errors": [
+      -7000,
+      7000
+    ],
+    "max_noisy_output_bits": 13087,
+    "status": "PASS"
+  },
   "status": "PASS",
-  "independent_review": "NOT_REVIEWED",
-  "generator": "Results independently recomputed using exact integer JavaScript enumeration; companion Python checker implements identical full scans and bound assertions."
+  "review": "AUTHOR_EXACT_FINITE_CHECK_NOT_INDEPENDENT_REVIEW"
 }
