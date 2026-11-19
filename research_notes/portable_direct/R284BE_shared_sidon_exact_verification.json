@@ -1,0 +1,128 @@
+{
+  "schema": "R284BE_SHARED_SIDON_PORT_VALIDATION_V1",
+  "exact_arithmetic": "Python integers and rational fractions; Bareiss determinant",
+  "scope": "author-side finite tests; mathematical generality from separate proof",
+  "matrix_reconstruction_tests": 562,
+  "noise_tests": 128,
+  "address_census": [
+    {
+      "n": 3,
+      "unique_targets": 10,
+      "distinct_addresses": 12
+    },
+    {
+      "n": 4,
+      "unique_targets": 19,
+      "distinct_addresses": 28
+    },
+    {
+      "n": 5,
+      "unique_targets": 31,
+      "distinct_addresses": 64
+    },
+    {
+      "n": 6,
+      "unique_targets": 46,
+      "distinct_addresses": 144
+    },
+    {
+      "n": 7,
+      "unique_targets": 64,
+      "distinct_addresses": 314
+    },
+    {
+      "n": 8,
+      "unique_targets": 85,
+      "distinct_addresses": 668
+    },
+    {
+      "n": 9,
+      "unique_targets": 109,
+      "distinct_addresses": 1338
+    },
+    {
+      "n": 10,
+      "unique_targets": 136,
+      "distinct_addresses": 2493
+    },
+    {
+      "n": 11,
+      "unique_targets": 166,
+      "distinct_addresses": 4293
+    },
+    {
+      "n": 12,
+      "unique_targets": 199,
+      "distinct_addresses": 7368
+    }
+  ],
+  "cases": [
+    {
+      "n": 3,
+      "H": 2,
+      "count": 512,
+      "coverage": "exhaustive",
+      "exact_max_control_bits_new": 1658,
+      "exact_max_control_bits_old": 3177,
+      "max_actual_readout_bits": 2126,
+      "sha256_inputs_outputs": "1d9055c7c57d6e98862e0913630d281ad1fa1a2d6047157af29497f06e2b5d35",
+      "status": "PASS"
+    },
+    {
+      "n": 3,
+      "H": 3,
+      "count": 20,
+      "coverage": "seeded",
+      "exact_max_control_bits_new": 1866,
+      "exact_max_control_bits_old": 3575,
+      "max_actual_readout_bits": 2393,
+      "sha256_inputs_outputs": "4e2929047dad0a78f46e9b8328d0f1d5922095f0900dc9254ed4af1dc1f367d8",
+      "status": "PASS"
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "count": 18,
+      "coverage": "seeded",
+      "exact_max_control_bits_new": 9553,
+      "exact_max_control_bits_old": 28616,
+      "max_actual_readout_bits": 13857,
+      "sha256_inputs_outputs": "26bee62c412ee12ab1040a6a276e73106122c91a99ba2843bff4ce6faa36a0df",
+      "status": "PASS"
+    },
+    {
+      "n": 4,
+      "H": 3,
+      "count": 8,
+      "coverage": "seeded",
+      "exact_max_control_bits_new": 10692,
+      "exact_max_control_bits_old": 32028,
+      "max_actual_readout_bits": 15509,
+      "sha256_inputs_outputs": "a77bb5708cc7d6f846f9103669b570254f468029e9418d06a0d23a9ff2e841e3",
+      "status": "PASS"
+    },
+    {
+      "n": 5,
+      "H": 2,
+      "count": 3,
+      "coverage": "seeded",
+      "exact_max_control_bits_new": 22202,
+      "exact_max_control_bits_old": 89752,
+      "max_actual_readout_bits": 34675,
+      "sha256_inputs_outputs": "88de1d9e59959656c5f977c9397dece9d52a481a4373a8efa6962ac9d294a506",
+      "status": "PASS"
+    },
+    {
+      "n": 6,
+      "H": 2,
+      "count": 1,
+      "coverage": "seeded",
+      "exact_max_control_bits_new": 68709,
+      "exact_max_control_bits_old": 351787,
+      "max_actual_readout_bits": 112278,
+      "sha256_inputs_outputs": "e0e87fa5d0f4ea8439b12c0d6630e7cafcbf185f170431a7cb6bb5b43f42fb33",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}
