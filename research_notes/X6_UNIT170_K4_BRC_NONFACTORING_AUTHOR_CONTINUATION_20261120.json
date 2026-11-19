@@ -1,0 +1,104 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "source_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-dedc91932641535d284fc171",
+  "run_id": "RUN-c92057890282aaaeec520881",
+  "original_native_success": {
+    "request_id": "onhour-20261120-0115-x6-own-units167169-native-progress-v1",
+    "status": "SUCCEEDED",
+    "phase": "SOURCE_CHECKPOINT_PUBLISHED",
+    "authenticated_readback": true,
+    "source_commit": "d999af38fd9f7b3e79c92ce267104bbbd36ec676",
+    "checkpoint_path": "research_artifacts/mcp/RS-X6-LEGACY-PLANE-RECONCILIATION/MCP-082892eb480e45dea6d4b9fcc0491034/1fd12259ace30aa67fcc/_checkpoint.json",
+    "highest_authenticated_unit": 169
+  },
+  "exact_continuation_read": {
+    "request_id": "onhour-20261120-0205-x6-own-continuation-read-v1",
+    "status": "SUCCEEDED",
+    "asof_source": "36a697b3415c94ba31b88973a9abff32c87d5fbb",
+    "authority": "READ_ONLY_PROJECTION"
+  },
+  "resume": {
+    "request_id": "onhour-20261120-0215-x6-own-run-c920-after169-resume-v1",
+    "last_observed_status": "RUNNING",
+    "error": null,
+    "successful_generation": "UNKNOWN_AWAIT_ORIGINAL_TERMINAL",
+    "repeat_policy": "READ_SAME_REQUEST_ONLY"
+  },
+  "author_frontier": {
+    "highest_completed_unit": 170,
+    "highest_authenticated_native_unit": 169,
+    "unit170": {
+      "title": "K4 derived signless endpoint-sum residual does not determine signed-X6 shortest BRC even with L1 and quadratic length",
+      "proof": {
+        "path": "research_notes/X6_UNIT170_K4_ENDPOINT_SUM_RESIDUAL_NATIVE_BRC_NONFACTORING_20261120.md",
+        "commit": "a9c2bf4428688693b1157474802b465dfdea98bb",
+        "blob": "4d9fd376244ff6fbf48da80264315c46a2bf5d87"
+      },
+      "checker": {
+        "path": "research_checks/X6_UNIT170_K4_RESIDUAL_BRC_NONFACTORING_CHECK_20261120.py",
+        "commit": "051b4b977f14b2489f04823649547532120813d5",
+        "blob": "6df5c0d024f1ed18071b02667a20b7c4d1aea403",
+        "sha256": "4299b9df0ed3329985e2710c72966b9df8055e789f59c8d425b1b298777ef896"
+      },
+      "certificate": {
+        "path": "research_checks/X6_UNIT170_K4_RESIDUAL_BRC_NONFACTORING_RESULTS_20261120.json",
+        "commit": "265e8c131cb2da58b417e32d99350e5306e8be82",
+        "blob": "bce9df052a3e1bf0284a312bf8e5f848a2bcba87",
+        "sha256": "202e12b0c2c93c810d64ef4c1438a0400ef3f423d2a59fd734c265f2c5b9caf7"
+      },
+      "ledger": {
+        "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit170_delta.json",
+        "commit": "84dfe66de4648b544566094884089d07337159b4",
+        "blob": "ae3dce1d7b5fac605937efc8b6fe013c0638af4b"
+      },
+      "activity": {
+        "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+        "commit": "2e03135e22cc816cd0411acb19ae55fb6768a1d6",
+        "blob": "7d3db5326b16ef0dd410bc3b2a145f7db093dcc6",
+        "count": 187
+      },
+      "exact_experiment": {
+        "V0": 231,
+        "E0": 243,
+        "invariance_pairs": 56133,
+        "safe_lift_checks": 243,
+        "violations": 0,
+        "modes": [
+          "python",
+          "python -O",
+          "python -OO"
+        ]
+      },
+      "status": "AUTHOR_PROVED_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+      "native_progress": "NOT_YET_SUBMITTED_PENDING_EXISTING_RESUME_AUTHORIZATION"
+    }
+  },
+  "pending": {
+    "lp011": "precise historically alleged wrong signed native argmax consumer commit:path:line unknown; do not invent",
+    "lp019": "precise historically alleged wrong positive N-BRC subtraction consumer commit:path:line unknown; do not invent",
+    "remaining_28_LP": "not yet exhaustively audited at actual production caller level",
+    "old_149_152": "separate original native semantic linkage outstanding, original refused writes not reissued",
+    "driver": "independent review and formal Result/admission not completed",
+    "original_R063": "six-file 17/17 and 512/512 native benchmark already complete, do not rerun"
+  },
+  "current_research_action": "New actual frozen K4 module and tested consumer source audit complete. Next inspect not-yet-covered direct historical producer-to-consumer trace; continue LP011/LP019 exact provenance and avoid mis-typing derived arithmetic as native.",
+  "next_exact_control_action": "Consume original resume onhour-20261120-0215-x6-own-run-c920-after169-resume-v1; only after successful RUN_READY verified own CLAIM/generation submit once Unit170 native semantic PROGRESS with immutable GitHub evidence refs and Activity187; if result QUEUED/RUNNING only poll original ID, do not replay. Preserve outstanding Unit149–152.",
+  "do_not_repeat": [
+    "Units1–169 published author evidence and Source checkpoint as verified; no restaging Unit170 GitHub files",
+    "Original R063 six-file 17/17 + 512/512 experiment",
+    "Unit149 failed original onhour-20261119-1000-x6-own-unit149-native-progress-v1",
+    "Never adopt maintenance lane identity or fake independent Driver review"
+  ],
+  "original_output_qualification": "AUTHOR_EVIDENCE_NOT_DRIVER_REVIEW_NOT_FORMAL_RESULT_NOT_CANONICAL_MATH_ADMISSION",
+  "scheduler_and_notifications": "UNCHANGED"
+}
