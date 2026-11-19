@@ -1,0 +1,96 @@
+{
+  "schema": "X6_R37_LINEAR_AND_SUBSET_FUTURE_CERTIFICATE_V1",
+  "frozen_science": "P000 V5 @ a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "language_observer": "Boolean support of source/Port-named successful event words Q0,Q1; no independent state readout",
+  "deterministic_cutoff": "nA+nB-1",
+  "nondeterministic_cutoff": "reachable_nonempty_subsets_A + reachable_nonempty_subsets_B - 1; <= 2^nA + 2^nB - 3",
+  "deterministic_exhaustive_one_two_state": {
+    "automata": 85,
+    "compared_initial_pairs": 27556,
+    "distribution": {
+      "1": 19128,
+      "2": 4884,
+      "3": 160,
+      "equivalent": 3384
+    },
+    "maximum_witness_depth": 3,
+    "maximal_witness": {
+      "left": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "left_state": 1,
+      "right": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "right_state": 1,
+      "word": [
+        "Q0",
+        "Q1",
+        "Q0"
+      ]
+    }
+  },
+  "nondeterministic_exhaustive_two_state": {
+    "automata": 256,
+    "compared_initial_pairs": 262144,
+    "distribution": {
+      "1": 159744,
+      "2": 45328,
+      "3": 2624,
+      "4": 224,
+      "equivalent": 54224
+    },
+    "maximum_witness_depth": 4,
+    "maximal_witness": {
+      "left": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "left_state": 1,
+      "right": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "right_state": 1,
+      "word": [
+        "Q0",
+        "Q1",
+        "Q0",
+        "Q1"
+      ]
+    }
+  },
+  "checks": {
+    "all_small_DFA_pairs": true,
+    "all_two_state_NFA_pairs": true,
+    "all_shorter_horizons_agree_before_shortest_witness": true
+  },
+  "reviewed": "NOT_INDEPENDENTLY_REVIEWED",
+  "pass": true
+}
