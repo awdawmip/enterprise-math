@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_pair_augmentation_20261119/MAKE_WINDOW_ADJ.py",
+    "ref": "8918531323add63966eaa6a69eff15c0fb152183",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261119-1940-repair-immutable-source-0",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\nimport json, hashlib\nfrom pathlib import Path\n\nroot = Path(__file__).parent\nraw = (root / \"EXACT_R5_ALL_101_BUDGETS.json\").read_bytes()\nassert hashlib.sha256(raw).hexdigest() == \"50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b\"\nj = json.loads(raw)\nstages = json.loads((root / \"stages_18.json\").read_text())\ntau = int(stages[\"U\"]) - 1\nassert tau == 58182461585441404127941754879\nwith (root / \"window_adj.bin\").open(\"wb\") as f:\n    for k in range(214, 315):\n        counts = [int(v) for v in j[\"counts_and_cohorts\"][str(k)][\"counts\"]]\n        assert len(counts) == 256\n        for x in counts:\n            f.write(bytes(0 <= y - x <= tau for y in counts))\nassert (root / \"window_adj.bin\").stat().st_size == 101 * 256 * 256\nprint(\"WINDOW_ADJ_READY 6619136\")\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/8918531323add63966eaa6a69eff15c0fb152183/research_notes/portable_direct/r5_pair_augmentation_20261119/MAKE_WINDOW_ADJ.py",
+      "encoding": "utf-8",
+      "sha": "e9567ebe7bdb2e99008ec9687a0732ab3a7950eb"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
