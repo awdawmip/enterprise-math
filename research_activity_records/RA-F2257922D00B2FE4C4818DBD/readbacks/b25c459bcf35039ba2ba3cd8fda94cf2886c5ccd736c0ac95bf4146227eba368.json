@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_pair_augmentation_20261119/PAIR_BUDGET_DP.cpp",
+    "ref": "8918531323add63966eaa6a69eff15c0fb152183",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261119-1840-pair-augmentation-source-4",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#include <bits/stdc++.h>\nusing namespace std;\nstruct Act{int k;vector<int> masks;};\nstruct Sig{int id,u,v,mult,f0;vector<Act>acts;};\nvector<Sig> read_sigs(){\n vector<Sig> out;ifstream f(\"pair_signature_census.tsv\");string line;getline(f,line);\n while(getline(f,line)){\n  istringstream in(line);Sig q;int m;in>>q.id>>q.u>>q.v>>q.mult>>q.f0>>m;\n  for(int i=0;i<m;i++){\n   string s;in>>s;auto p=s.find(':');Act a;a.k=stoi(s.substr(0,p));\n   string t;stringstream qin(s.substr(p+1));\n   while(getline(qin,t,','))if(!t.empty())a.masks.push_back(stoi(t));\n   q.acts.push_back(a);\n  }out.push_back(q);\n }return out;\n}\nstruct DP{\n int f,base,powb[9],stamp=0;\n vector<int>value,version;\n DP(int x):f(x),base(x+2){\n  powb[0]=1;for(int i=1;i<=8;i++)powb[i]=powb[i-1]*base;\n  value.resize(powb[8]);version.resize(powb[8]);\n }\n int solve(int state,const vector<Act>&aa){\n  if(version[state]==stamp)return value[state];\n  int e[8],live=0,x=state;\n  for(int i=0;i<8;i++){e[i]=x%base;x/=base;if(e[i]<=f)live|=1<<i;}\n  if(__builtin_popcount((unsigned)live)<=1){\n   version[state]=stamp;return value[state]=0;\n  }\n  int best=1000000000;\n  for(auto&a:aa){\n   bool no_progress=false;\n   for(int s:a.masks)if((s&live)==live){no_progress=true;break;}\n   if(no_progress)continue;\n   int mx=0;\n   for(int s:a.masks){\n    int ns=state;\n    for(int i=0;i<8;i++)if(!(s&(1<<i))&&e[i]<f+1)ns+=powb[i];\n    mx=max(mx,solve(ns,aa));if(a.k+mx>=best)break;\n   }\n   best=min(best,a.k+mx);\n  }\n  if(best==1000000000){cerr<<\"NO PROGRESS\\n\";exit(3);}\n  version[state]=stamp;return value[state]=best;\n }\n int root(const vector<Act>&aa){++stamp;return solve(0,aa);}\n};\nint main(int argc,char**argv){\n int max_f=argc>1?stoi(argv[1]):5;\n int first=argc>2?stoi(argv[2]):0;\n auto all=read_sigs();\n int stop=argc>3?stoi(argv[3]):int(all.size());\n if(max_f<1||max_f>8||first<0||stop>int(all.size()))return 2;\n vector<unique_ptr<DP>>dp(max_f+1);\n for(int f=1;f<=max_f;f++)dp[f]=make_unique<DP>(f);\n ofstream out(\"pair_budget_results.tsv\",first?ios::app:ios::out);\n if(!first)out<<\"# id u v multiplicity f0 f1 ... fmax\\n\";\n for(int i=first;i<stop;i++){\n  auto&z=all[i];out<<z.id<<\" \"<<z.u<<\" \"<<z.v<<\" \"<<z.mult<<\" \"<<z.f0;\n  for(int f=1;f<=max_f;f++)out<<\" \"<<dp[f]->root(z.acts);\n  out<<\"\\n\";\n  if(i%100==0)out.flush();\n }\n cout<<\"BUDGET_DONE first=\"<<first<<\" stop=\"<<stop<<\" max_f=\"<<max_f<<\"\\n\";\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/8918531323add63966eaa6a69eff15c0fb152183/research_notes/portable_direct/r5_pair_augmentation_20261119/PAIR_BUDGET_DP.cpp",
+      "encoding": "utf-8",
+      "sha": "620c6c0d1e631de60757af93f5c04430e2ab5635"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
