@@ -1,0 +1,116 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX940_R6_K11_EXACT_CERTIFICATE_V1",
+  "date": "2026-11-19",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "auxiliary fixed-19-bit odd-modulus named XOR two-port observer; not native X6",
+  "Q": {
+    "minimum": 262145,
+    "maximum": 524287,
+    "step": 2,
+    "size": 131072
+  },
+  "K": 11,
+  "source_bits": {
+    "i_min": 0,
+    "i_max": 18,
+    "j_min": 0,
+    "j_max": 18
+  },
+  "t_scan": [
+    1,
+    22
+  ],
+  "prior_union": 7552811074,
+  "raw_witnesses": 16974425,
+  "unique_W11_pairs": 13144330,
+  "raw_by_t": [
+    0,
+    0,
+    0,
+    0,
+    4766,
+    75469,
+    1720886,
+    271076,
+    3059619,
+    388451,
+    4266964,
+    355465,
+    2648020,
+    243410,
+    1778629,
+    159369,
+    1113784,
+    93991,
+    588875,
+    41707,
+    163944,
+    0
+  ],
+  "priority_disjoint": {
+    "BZS": 6510937,
+    "U": 2356,
+    "V": 25991,
+    "W2": 711646,
+    "W3": 765,
+    "D4": 283,
+    "W5": 768,
+    "D6": 501,
+    "W7": 710,
+    "D8": 414,
+    "W9": 942,
+    "D10": 103,
+    "NEW": 5888914
+  },
+  "new_pairs": 5888914,
+  "union": 7558699988,
+  "uncertified_pairs": 9621169196,
+  "first_new_witness": {
+    "a": 272161,
+    "b": 520807,
+    "i": 0,
+    "j": 17,
+    "t": 6,
+    "start": 2993771,
+    "end": 3124843,
+    "zero_start": 0,
+    "zero_end": 1
+  },
+  "pair_file_encoding": "strictly increasing little-endian uint64 ID=((a-262145)/2)*131072+((b-262145)/2)",
+  "files": {
+    "W11.bin": {
+      "count": 13144330,
+      "bytes": 105154640,
+      "sha256": "8212f0472ebe72ae93db8a205c8631f5eb96abbe952588cc08a5eb4087aeecf5"
+    },
+    "NEW11.bin": {
+      "count": 5888914,
+      "bytes": 47111312,
+      "sha256": "b17896465cb38ca5b87e48f88ebaf7d709888a9d0ef343c1c056916fb6c03ad9"
+    }
+  },
+  "prior_input_sha256": {
+    "PREFIX928_R6_SORTED_PAIR_IDS.bin": "15534b09fa696b5cbeba46f7f644d75c2c3f99b719a88071150fa91357f22bad",
+    "W2.bin": "bceb588c6c3aee31ce627fadaa6d0d3ec56ea3f865ddea9d39daec13365e6150",
+    "W3.bin": "3f501ca25d0b8c55b284b621d26251f8be2c8c771ce294206f24b1daa10051a9",
+    "D4_sorted_cpp.bin": "d66d467d5c48d62f6bdb2cdf02a081830eba4a32f28447b10d8c425350bdb664",
+    "W5.bin": "ed2ff4c1961e29a619ccb404e834150028b4a689d5816ae03b2fa41fbc49de95",
+    "D6.bin": "718e94ea98ba2931760b473a04eaf38ef189b4444548d9160ab5d861d1fc9c60",
+    "W7.bin": "8405169b6adaf6409e2355c4d65e8616176b413e8605ed76a40c6f1cf2f77d77",
+    "D8.bin": "95c6d52becc3ddbd3aad458a71f27ff1e5cfade43e37d8c5052c3e568d38ccb3",
+    "W9.bin": "541318dc9a9f6c8d6941f38cf69cb5e873caa1dfb602d70ac5dad9f2fef11888",
+    "D10.bin": "afc6f12c3f7fb662f6934d1e4493cd16400c800309ff292388b60798a24e3827"
+  },
+  "verification": {
+    "cpp": "g++ -O3 -std=c++17; integer scalar a,j,i,t enumeration; linear priority merge",
+    "numpy": "numpy; vector-a j,i,t enumeration; sorted search side-by-side",
+    "matching_full_set_sha256": true,
+    "matching_new_set_sha256": true,
+    "matching_priority_counts": true,
+    "byte_equal_full_and_new": true,
+    "independent_source_CLI_audit": "NOT_RUN",
+    "independent_mathematical_review": "NOT_REVIEWED",
+    "project_admission": "NOT_ADMITTED",
+    "shared_X6_claim": "NOT_ACQUIRED"
+  }
+}
