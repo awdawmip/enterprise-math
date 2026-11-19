@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/riesel_families_20261119/checks/verify_winner_slices.py",
+    "ref": "a4d8c6a537a2f9c8c02beba4eae4b0c399fd7d52",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-RIESEL-V4-READBACK-01",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Independent arbitrary-precision bisect check of the two winning slices.\n\nThis uses a different minimization algorithm from the C++ two-pointer sweep.\nThe generated binary inputs are only reproducible working data.\n\"\"\"\nfrom bisect import bisect_left\nimport json\nfrom pathlib import Path\nimport struct\nimport sys\nfrom time import monotonic\n\n\ndef verify(directory: Path, suffix: str):\n    start = monotonic()\n    source = json.loads((directory / f'minimum_{suffix}.json').read_text())\n    winner = source['minimum']\n    data = (directory / f'family_{suffix}.bin').read_bytes()\n    assert data[:8] == b'RIESELV4'\n    low, middle, high, na, nb = struct.unpack_from('<QQQQQ', data, 8)\n    modulus = low + (middle << 64) + (high << 128)\n    assert modulus == int(source['modulus'])\n    shift = winner['translation']\n    scale = pow(2, -shift, modulus)\n    a, b = [], []\n    for i, (low, middle, high, code) in enumerate(struct.iter_unpack('<QQQQ', data[48:])):\n        value = (low + (middle << 64) + (high << 128)) * scale % modulus\n        (a if i < na else b).append(value)\n    del data\n    assert len(a) == na and len(b) == nb\n    by_parity = [sorted(v for v in b if v % 2 == parity) for parity in range(2)]\n    best = 2 * modulus\n    for x in a:\n        # Unwrapped sums must be odd.\n        opposite = by_parity[1 - x % 2]\n        if opposite:\n            candidate = x + opposite[0]\n            if candidate < modulus:\n                best = min(best, candidate)\n        # Wrapped sums must be even, since the modulus is odd.\n        same = by_parity[x % 2]\n        j = bisect_left(same, modulus - x)\n        if j < len(same):\n            best = min(best, x + same[j] - modulus)\n    assert best == int(winner['root'])\n    assert best == (a[winner['a_code']] + b[winner['b_code']]) % modulus\n    assert best % 2 == 1\n    if suffix == '3M':\n        assert best % 3 == 0\n    return {'branch': suffix, 'translation': shift, 'root': str(best),\n            'left_count': na, 'right_count': nb,\n            'algorithm': 'Python arbitrary-precision parity-separated binary search',\n            'matches_complete_CXX_sweep': True, 'seconds': monotonic() - start}\n\n\nif __name__ == '__main__':\n    directory = Path(sys.argv[1] if len(sys.argv) > 1 else 'v4_phase_work')\n    result = [verify(directory, suffix) for suffix in ['M', '3M']]\n    out = Path(__file__).with_name('winner_slice_verification.json')\n    out.write_text(json.dumps(result, indent=2) + '\\n')\n    print(json.dumps(result))\n",
+      "display_title": "verify_winner_slices.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a4d8c6a537a2f9c8c02beba4eae4b0c399fd7d52/research_notes/portable_direct/riesel_families_20261119/checks/verify_winner_slices.py",
+      "encoding": "utf-8",
+      "sha": "70792181141b5682945bb92d2d05a3f334de9c47"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}

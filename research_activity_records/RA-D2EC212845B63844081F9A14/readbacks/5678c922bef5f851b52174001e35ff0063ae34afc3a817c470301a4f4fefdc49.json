@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/riesel_families_20261119/phase/computation_manifest.json",
+    "ref": "a4d8c6a537a2f9c8c02beba4eae4b0c399fd7d52",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-RIESEL-V4-READBACK-13",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"RIESEL_V4_COMPUTATION_MANIFEST_V1\",\n  \"recorded_utc\": \"2026-11-19T14:49:53.421441+00:00\",\n  \"researcher_id\": \"EM-DIRECT-970E1C\",\n  \"research_activity_id\": \"RA-D2EC212845B63844081F9A14\",\n  \"commands_in_workspace_root\": [\n    [\n      \"python\",\n      \"v4_phase_work/prepare_family.py\"\n    ],\n    [\n      \"g++\",\n      \"-O3\",\n      \"-std=c++17\",\n      \"-Wall\",\n      \"-Wextra\",\n      \"v4_phase_work/minimize_family.cpp\",\n      \"-o\",\n      \"v4_phase_work/minimize_family\"\n    ],\n    [\n      \"python\",\n      \"v4_phase_work/check_kernel.py\"\n    ],\n    [\n      \"v4_phase_work/minimize_family\",\n      \"v4_phase_work/family_M.bin\",\n      \"240\"\n    ],\n    [\n      \"v4_phase_work/minimize_family\",\n      \"v4_phase_work/family_3M.bin\",\n      \"240\"\n    ],\n    [\n      \"python\",\n      \"v4_phase_work/verify_family_results.py\",\n      \"--source-dir\",\n      \"vendor_src\"\n    ]\n  ],\n  \"stdout_redirection\": {\n    \"3\": \"v4_phase_work/minimum_M.json\",\n    \"4\": \"v4_phase_work/minimum_3M.json\"\n  },\n  \"python_version\": \"3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]\",\n  \"byteorder\": \"little\",\n  \"platform\": \"Linux-6.18.57-x86_64-with-glibc2.41\",\n  \"compiler\": \"g++ (Debian 14.2.0-19) 14.2.0\",\n  \"files_sha256\": {\n    \"prepare_family.py\": \"a993ec50897709b74e7d73e11c044efc836949fbaddcce737866a1fdf0013208\",\n    \"minimize_family.cpp\": \"69b711c15c79c4a7ea1ad3587031f1decdcbf1620ff9b59fa1c89dce84796409\",\n    \"check_kernel.py\": \"5157534394b8dc7b89bdf6c1e6764edd3339ed2db8e268a22f5d26e550927c04\",\n    \"verify_family_results.py\": \"46952f0cc6fe8a5c3dc82b5def760e37e665b8e9d269f6e0eaae0dae1626bee1\",\n    \"make_manifest.py\": \"2c5d263e64d77ea75d1f250d53c83fe5579fe4c098844295b23ed4d2cf6fa784\",\n    \"proof.md\": \"c07e7303b2c715f4bd6f371b44a2336e4d63ddf3ab774238d00e83c5240024e5\",\n    \"family_input.json\": \"6d1ca16163be0d3d7b4381289a324ee77edbd4b88f68a77b2ad39fec134dbf0b\",\n    \"kernel_checks.json\": \"34e48b6714f970606dafdf97f5197cb538e548ca47a78808fd3ff4f6317f1ea0\",\n    \"minimum_M.json\": \"d1f0efbb0ffb21d76b62cbf7b3f0f9acae2c07900666b188f62b210d8063f76c\",\n    \"minimum_3M.json\": \"d17be4f2830449a29a8041488692dda8c1cabf4c0fecc6b22f25442571deb0e8\",\n    \"verification.json\": \"b37262185aa24550483af778e0cba69a4b271b348860f7eb9c3792791bf127ec\",\n    \"new_table_unrestricted.json\": \"a85dea2dba36f07974eeef4e86894e9cb5a61522567e996bf9bbf2a89398c763\",\n    \"new_table_divisible3.json\": \"9bb25eecbcd724db18fd854dff8f062fa89237f53326fc23d84a424001dbff28\"\n  },\n  \"input_binary_sha256\": {\n    \"family_M.bin\": \"e36b3d992e8a7baa406ba8677c0899f3a69172a02a8ce39de0c3268da5164354\",\n    \"family_3M.bin\": \"e69681ae635c2cd2f2b5a833ab0f7307b8c521b2866a3139cdca01f41abfb0a5\"\n  },\n  \"input_binary_policy\": \"Reproducible intermediates; not required as permanent proof files.\",\n  \"class_count_basis\": {\n    \"shape_vector_count\": 116121600,\n    \"sign_count\": 1048576,\n    \"L\": 3360,\n    \"per_branch_count\": 121762322841600\n  },\n  \"results\": [\n    {\n      \"output\": \"minimum_M.json\",\n      \"odd_crt_modulus\": \"2794789825832388197218264652184290186627445374409052562\",\n      \"minimum\": {\n        \"root\": \"14045396488507675643169097338613110526031\",\n        \"a_code\": 107831,\n        \"b_code\": 750459,\n        \"translation\": 28\n      },\n      \"seconds_observed\": 9.01616,\n      \"root_classes_count_from_list_product\": 121762322841600\n    },\n    {\n      \"output\": \"minimum_3M.json\",\n      \"odd_crt_modulus\": \"8384369477497164591654793956552870559882336123227157686\",\n      \"minimum\": {\n        \"root\": \"65586338880747000465758243023957705202361\",\n        \"a_code\": 183610,\n        \"b_code\": 152456,\n        \"translation\": 112\n      },\n      \"seconds_observed\": 9.00071,\n      \"root_classes_count_from_list_product\": 121762322841600\n    }\n  ],\n  \"scope\": \"Complete explicitly defined F plus all translations and square-root signs, independently in each odd CRT modulus. Not all fixed-P covers.\",\n  \"review_status\": \"Author computation and verification; no independent project Review asserted.\"\n}\n",
+      "display_title": "computation_manifest.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a4d8c6a537a2f9c8c02beba4eae4b0c399fd7d52/research_notes/portable_direct/riesel_families_20261119/phase/computation_manifest.json",
+      "encoding": "utf-8",
+      "sha": "8377dc4fcbebe943dde7328f12f3d8aaf10a44f2"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}

@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/riesel_families_20261119/phase/check_kernel.py",
+    "ref": "a4d8c6a537a2f9c8c02beba4eae4b0c399fd7d52",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-RIESEL-V4-READBACK-12",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Meaningful small-instance exact checks of the 192-bit minimizer.\n\nUses Python arbitrary precision and brute force, including shift provenance.\nThese checks are auxiliary; the proof of the full minimization is in proof.md.\n\"\"\"\nimport json\nfrom pathlib import Path\nimport random\nimport subprocess\nimport tempfile\n\nfrom prepare_family import write_binary\n\n\ndef main():\n    directory = Path(__file__).resolve().parent\n    rng = random.Random(9700)\n    widths = [8, 16, 32, 63, 64, 65, 127, 128, 129, 179, 180, 181, 187, 190]\n    count = 0\n    for width in widths:\n        for repetition in range(4):\n            modulus = (1 << (width-1)) + rng.getrandbits(width-1) | 1\n            left, right = [], []\n            for values in [left, right]:\n                while len(values) < 2*(2+repetition):\n                    v = rng.randrange(1, modulus)\n                    if v not in values and modulus-v not in values:\n                        values.extend([v, modulus-v])\n            with tempfile.TemporaryDirectory(dir=directory) as tempdir:\n                path = Path(tempdir)/'toy.bin'\n                write_binary(path, modulus, left, right)\n                result = json.loads(subprocess.check_output([str(directory/'minimize_family'), str(path), '17']))\n            expected_global = None\n            for t, answer in enumerate(result['minima']):\n                scale = pow(2, -t, modulus)\n                a = [v*scale % modulus for v in left]\n                b = [v*scale % modulus for v in right]\n                candidates = [(u+v) % modulus for u in a for v in b]\n                expected = min(v if v % 2 else v+modulus for v in candidates)\n                actual = int(answer['root'])\n                assert actual == expected\n                assert actual == (a[answer['a_code']] + b[answer['b_code']]) % modulus\n                assert answer['translation'] == t\n                expected_global = expected if expected_global is None else min(expected_global, expected)\n            assert int(result['minimum']['root']) == expected_global\n            count += 1\n    report = {'instances': count, 'shifts_each': 17, 'total_exact_bruteforce_comparisons': count*17,\n              'integer_widths': widths, 'rng_seed': 9700,\n              'all_minima_and_provenance_match': True}\n    (directory/'kernel_checks.json').write_text(json.dumps(report, indent=2)+'\\n')\n    print(json.dumps(report))\n\n\nif __name__ == '__main__':\n    main()\n",
+      "display_title": "check_kernel.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a4d8c6a537a2f9c8c02beba4eae4b0c399fd7d52/research_notes/portable_direct/riesel_families_20261119/phase/check_kernel.py",
+      "encoding": "utf-8",
+      "sha": "91aece90a72828bb49ce324ea72984f7b6aa78ee"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}

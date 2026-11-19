@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/riesel_families_20261119/phase/make_manifest.py",
+    "ref": "a4d8c6a537a2f9c8c02beba4eae4b0c399fd7d52",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-RIESEL-V4-READBACK-16",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Capture reproducible commands, source hashes, and observed result metadata.\"\"\"\nfrom datetime import datetime, timezone\nfrom hashlib import sha256\nimport json\nfrom pathlib import Path\nimport platform\nimport subprocess\nimport sys\n\nfrom prepare_family import DIRECTORY, ROOT, M, L, PRIMES\n\n\ndef main():\n    relative = DIRECTORY.relative_to(ROOT).as_posix()\n    names = [\n        'prepare_family.py', 'minimize_family.cpp', 'check_kernel.py',\n        'verify_family_results.py', 'make_manifest.py', 'proof.md',\n        'family_input.json', 'kernel_checks.json', 'minimum_M.json',\n        'minimum_3M.json', 'verification.json',\n        'new_table_unrestricted.json', 'new_table_divisible3.json',\n    ]\n    base = f'{relative}/'\n    compiled = base+'minimize_family'\n    commands = [\n        ['python',base+'prepare_family.py'],\n        ['g++','-O3','-std=c++17','-Wall','-Wextra',base+'minimize_family.cpp','-o',compiled],\n        ['python',base+'check_kernel.py'],\n        [compiled,base+'family_M.bin','240'],\n        [compiled,base+'family_3M.bin','240'],\n        ['python',base+'verify_family_results.py','--source-dir','vendor_src'],\n    ]\n    inp = json.loads((DIRECTORY/'family_input.json').read_text())\n    evidence = []\n    for name, factor in [('minimum_M.json',1),('minimum_3M.json',3)]:\n        result = json.loads((DIRECTORY/name).read_text())\n        count = result['left_count']*result['right_count']*result['shift_count']\n        assert count == inp['odd_root_classes_per_branch']\n        assert int(result['modulus']) == factor*M\n        evidence.append({'output':name,'odd_crt_modulus':str(2*factor*M),\n                         'minimum':result['minimum'],'seconds_observed':result['seconds'],\n                         'root_classes_count_from_list_product':count})\n    report = {\n        'schema':'RIESEL_V4_COMPUTATION_MANIFEST_V1',\n        'recorded_utc':datetime.now(timezone.utc).isoformat(),\n        'researcher_id':'EM-DIRECT-970E1C',\n        'research_activity_id':'RA-D2EC212845B63844081F9A14',\n        'commands_in_workspace_root':commands,\n        'stdout_redirection':{3:base+'minimum_M.json',4:base+'minimum_3M.json'},\n        'python_version':sys.version,'byteorder':sys.byteorder,\n        'platform':platform.platform(),\n        'compiler':subprocess.check_output(['g++','--version'],text=True).splitlines()[0],\n        'files_sha256':{name:sha256((DIRECTORY/name).read_bytes()).hexdigest() for name in names},\n        'input_binary_sha256':{name:sha256((DIRECTORY/name).read_bytes()).hexdigest()\n                               for name in ['family_M.bin','family_3M.bin']},\n        'input_binary_policy':'Reproducible intermediates; not required as permanent proof files.',\n        'class_count_basis':{'shape_vector_count':inp['distinct_translated_phase_vectors'],\n                             'sign_count':2**len(PRIMES),\n                             'L':L,'per_branch_count':inp['odd_root_classes_per_branch']},\n        'results':evidence,\n        'scope':'Complete explicitly defined F plus all translations and square-root signs, independently in each odd CRT modulus. Not all fixed-P covers.',\n        'review_status':'Author computation and verification; no independent project Review asserted.'\n    }\n    (DIRECTORY/'computation_manifest.json').write_text(json.dumps(report,indent=2)+'\\n')\n    print(json.dumps({'manifest':str(DIRECTORY/'computation_manifest.json'),'root_classes_per_branch':inp['odd_root_classes_per_branch'],'files_hashed':len(names)}))\n\n\nif __name__ == '__main__':\n    main()\n",
+      "display_title": "make_manifest.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a4d8c6a537a2f9c8c02beba4eae4b0c399fd7d52/research_notes/portable_direct/riesel_families_20261119/phase/make_manifest.py",
+      "encoding": "utf-8",
+      "sha": "11ccc7a1f6425bf02f0b20037d1b732f528e760b"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
