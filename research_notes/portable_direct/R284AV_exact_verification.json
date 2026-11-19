@@ -1,0 +1,84 @@
+{
+  "theorem_id": "R284AV",
+  "status": "PASS",
+  "seed": 28420261120,
+  "random_cases": 234,
+  "dimension_counts": {
+    "2": 40,
+    "3": 40,
+    "4": 45,
+    "5": 45,
+    "6": 30,
+    "7": 22,
+    "8": 12
+  },
+  "boundary_cases": 8,
+  "total_cases": 242,
+  "total_calls": 6938,
+  "tree_edges_checked": 835,
+  "non_tree_pair_witnesses_checked": 1397,
+  "max_calls": 85,
+  "max_universal_bound": 85,
+  "max_tree_distance": 7,
+  "sample_bound_vs_actual": [
+    {
+      "n": 3,
+      "query_count": 10,
+      "universal_bound": 10,
+      "non_tree_pairs": 1,
+      "max_distance": 2
+    },
+    {
+      "n": 3,
+      "query_count": 10,
+      "universal_bound": 10,
+      "non_tree_pairs": 1,
+      "max_distance": 2
+    },
+    {
+      "n": 4,
+      "query_count": 19,
+      "universal_bound": 19,
+      "non_tree_pairs": 3,
+      "max_distance": 3
+    },
+    {
+      "n": 4,
+      "query_count": 19,
+      "universal_bound": 19,
+      "non_tree_pairs": 3,
+      "max_distance": 2
+    },
+    {
+      "n": 6,
+      "query_count": 46,
+      "universal_bound": 46,
+      "non_tree_pairs": 10,
+      "max_distance": 5
+    },
+    {
+      "n": 6,
+      "query_count": 46,
+      "universal_bound": 46,
+      "non_tree_pairs": 10,
+      "max_distance": 2
+    },
+    {
+      "n": 8,
+      "query_count": 85,
+      "universal_bound": 85,
+      "non_tree_pairs": 21,
+      "max_distance": 7
+    },
+    {
+      "n": 8,
+      "query_count": 85,
+      "universal_bound": 85,
+      "non_tree_pairs": 21,
+      "max_distance": 2
+    }
+  ],
+  "arithmetic": "exact integer Bareiss, one-scale balanced extraction, exact named cofactor products, integer divisibility checks",
+  "verification_scope": "random strictly positive integer matrices n=2..8, independent rooted distance-graded non-tree pair schedule, mixed tree orientations, all-ones path/star boundary tests",
+  "general_theorem_status": "AUTHOR_PROVED_NOT_INDEPENDENTLY_REVIEWED"
+}
