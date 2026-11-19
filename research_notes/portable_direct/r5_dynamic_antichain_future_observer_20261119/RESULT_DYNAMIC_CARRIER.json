@@ -1,0 +1,75 @@
+{
+  "schema": "R5_DYNAMIC_ANTICHAIN_CARRIER_EXACT_FINITE_V1",
+  "map_tests": [
+    {
+      "n": 2,
+      "m": 2,
+      "maps": 256,
+      "nonempty_profiles": 15,
+      "monotone_maps": 36,
+      "formula_valid_maps": 36
+    },
+    {
+      "n": 3,
+      "m": 1,
+      "maps": 256,
+      "nonempty_profiles": 255,
+      "monotone_maps": 20,
+      "formula_valid_maps": 20
+    }
+  ],
+  "atom_refinement": {
+    "chain_length": 5,
+    "states": 3,
+    "state_set_choices": 30,
+    "families": 27000,
+    "clipping_windows_each": 15,
+    "family_window_checks": 405000
+  },
+  "gate_counterexample": {
+    "universe": [
+      0,
+      4
+    ],
+    "A1": [
+      0,
+      4
+    ],
+    "A2_left": [
+      0,
+      1
+    ],
+    "A2_right": [
+      3,
+      4
+    ],
+    "gate": [
+      0,
+      2
+    ],
+    "before": [
+      [
+        3
+      ],
+      [
+        3
+      ]
+    ],
+    "after": [
+      [
+        3
+      ],
+      [
+        1
+      ]
+    ]
+  },
+  "scope": "Finite Boolean incidence profiles and exact discrete closed interval families; not native X6 dynamics",
+  "verification": {
+    "command": "python3 VERIFY_DYNAMIC_CARRIER.py",
+    "local_result": "PASS_R5_DYNAMIC_CARRIER_MONOTONE_36_20_AND_REFINED_405000",
+    "origin": "Actual Python 3 execution in this run",
+    "review": "NOT_REVIEWED",
+    "scientific_input_recomputation": false
+  }
+}
