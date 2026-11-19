@@ -1,0 +1,98 @@
+{
+  "schema": "PREFIX934_FIVE_A_EXACT_CENSUS_V1",
+  "date": "2026-11-19",
+  "frozen_scientific_input": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "parent": "PREFIX-933",
+  "author_researcher_id": "EM-DIRECT-58C410",
+  "scope": {
+    "p": 32,
+    "min_modulus": 262145,
+    "max_modulus": 524287,
+    "odd_step": 2,
+    "source_bits": [
+      0,
+      18
+    ],
+    "k": 5,
+    "positive_quotients": [
+      1,
+      10
+    ],
+    "ordered_modulus_pairs": 17179869184
+  },
+  "W5": {
+    "raw": 19374132,
+    "unique": 15406809,
+    "raw_t": {
+      "1": 0,
+      "2": 0,
+      "3": 3154354,
+      "4": 720907,
+      "5": 10290908,
+      "6": 620423,
+      "7": 3516421,
+      "8": 229368,
+      "9": 841751,
+      "10": 0
+    },
+    "bytes": 123254472,
+    "sha256": "ed2ff4c1961e29a619ccb404e834150028b4a689d5816ae03b2fa41fbc49de95"
+  },
+  "priority_disjoint": {
+    "BZS": 7548662,
+    "U": 3229,
+    "V": 33831,
+    "W2": 1405996,
+    "W3": 214543,
+    "D4": 142,
+    "NEW": 6200406
+  },
+  "new": {
+    "unique": 6200406,
+    "bytes": 49603248,
+    "sha256": "d3857354c1016485dcf365d7769e84c2f1e6c9a27f7a3d9aa6d57a7258f81377",
+    "first": {
+      "a": 278817,
+      "b": 508375,
+      "i": 5,
+      "j": 17,
+      "t": 3,
+      "F0": [
+        0,
+        32
+      ],
+      "F5a": [
+        1394085,
+        1525157
+      ]
+    }
+  },
+  "prior_union": 7531649800,
+  "union": 7537850206,
+  "remaining_uncovered": 9642018978,
+  "input_sets": {
+    "U": {
+      "size": 5295478,
+      "sha256": "15534b09fa696b5cbeba46f7f644d75c2c3f99b719a88071150fa91357f22bad"
+    },
+    "W2": {
+      "size": 30211412
+    },
+    "W3": {
+      "size": 19413088
+    },
+    "D4": {
+      "size": 1793182,
+      "sha256": "d66d467d5c48d62f6bdb2cdf02a081830eba4a32f28447b10d8c425350bdb664"
+    }
+  },
+  "verification": {
+    "CXX17_exhaustive": "PASS",
+    "NUMPY_independent_exact": "PASS",
+    "W5_sorted_bytes_equal": true,
+    "NEW_sorted_bytes_equal": true,
+    "mathematical_independent_review": "NOT_REVIEWED",
+    "admission": "NOT_ADMITTED",
+    "source_activity_checkpoint": "PENDING_WRITE_AT_THIS_PAPER_COMMIT"
+  }
+}
