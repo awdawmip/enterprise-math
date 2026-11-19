@@ -1,0 +1,127 @@
+{
+  "schema": "R762GN_MOVING_PORT_ABSORPTION_CERTIFICATE_V1",
+  "candidate": "R762GM signed STAR semidirect with e=p(01)",
+  "arithmetic": "exact positive integer path multiplicities",
+  "A6_orientations": 360,
+  "reachable_from_id": 350,
+  "absorbing_port23_orientations": 60,
+  "nonabsorbing_reachable_SCC": 290,
+  "absorbing_SCC": 60,
+  "unreachable_orientations": 10,
+  "distance_to_absorption_histogram": {
+    "0": 60,
+    "1": 144,
+    "2": 144,
+    "3": 12
+  },
+  "max_hit_distance_any_orientation": 3,
+  "first_hit_from_id_distance": 3,
+  "survival": [
+    {
+      "m": 0,
+      "not_yet_absorbed_words": 1,
+      "total_words": 1,
+      "absorbed_words": 0
+    },
+    {
+      "m": 1,
+      "not_yet_absorbed_words": 4,
+      "total_words": 4,
+      "absorbed_words": 0
+    },
+    {
+      "m": 2,
+      "not_yet_absorbed_words": 16,
+      "total_words": 16,
+      "absorbed_words": 0
+    },
+    {
+      "m": 3,
+      "not_yet_absorbed_words": 60,
+      "total_words": 64,
+      "absorbed_words": 4
+    },
+    {
+      "m": 4,
+      "not_yet_absorbed_words": 220,
+      "total_words": 256,
+      "absorbed_words": 36
+    },
+    {
+      "m": 5,
+      "not_yet_absorbed_words": 800,
+      "total_words": 1024,
+      "absorbed_words": 224
+    },
+    {
+      "m": 6,
+      "not_yet_absorbed_words": 2900,
+      "total_words": 4096,
+      "absorbed_words": 1196
+    },
+    {
+      "m": 7,
+      "not_yet_absorbed_words": 10504,
+      "total_words": 16384,
+      "absorbed_words": 5880
+    },
+    {
+      "m": 8,
+      "not_yet_absorbed_words": 38036,
+      "total_words": 65536,
+      "absorbed_words": 27500
+    },
+    {
+      "m": 9,
+      "not_yet_absorbed_words": 137728,
+      "total_words": 262144,
+      "absorbed_words": 124416
+    },
+    {
+      "m": 10,
+      "not_yet_absorbed_words": 498672,
+      "total_words": 1048576,
+      "absorbed_words": 549904
+    },
+    {
+      "m": 11,
+      "not_yet_absorbed_words": 1805304,
+      "total_words": 4194304,
+      "absorbed_words": 2389000
+    },
+    {
+      "m": 12,
+      "not_yet_absorbed_words": 6534252,
+      "total_words": 16777216,
+      "absorbed_words": 10242964
+    },
+    {
+      "m": 13,
+      "not_yet_absorbed_words": 23644424,
+      "total_words": 67108864,
+      "absorbed_words": 43464440
+    },
+    {
+      "m": 14,
+      "not_yet_absorbed_words": 85532696,
+      "total_words": 268435456,
+      "absorbed_words": 182902760
+    },
+    {
+      "m": 15,
+      "not_yet_absorbed_words": 309311892,
+      "total_words": 1073741824,
+      "absorbed_words": 764429932
+    },
+    {
+      "m": 16,
+      "not_yet_absorbed_words": 1118196052,
+      "total_words": 4294967296,
+      "absorbed_words": 3176771244
+    }
+  ],
+  "uniform_4_branch_bound": "Pr(no absorption by m) <= (63/64)^floor(m/3)",
+  "review": "NOT_REVIEWED",
+  "native_license": "CANDIDATE_NOT_ADOPTED",
+  "status": "PASS"
+}
