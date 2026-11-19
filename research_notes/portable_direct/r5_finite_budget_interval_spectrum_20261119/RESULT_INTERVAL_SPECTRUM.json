@@ -1,0 +1,80 @@
+{
+  "schema": "R5_FINITE_HORIZON_BUDGET_INTERVAL_RESULT_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "unary_exhaustive": {
+    "models": 13824,
+    "budget_checks": 124416,
+    "states": 3,
+    "actions": 1,
+    "horizon": 5,
+    "label_bits": 2,
+    "cost_values": [
+      0,
+      1
+    ],
+    "component_histogram": {
+      "0": 5781,
+      "1": 8035,
+      "2": 8
+    },
+    "infinite_bad_models": 6312,
+    "max_components": 2
+  },
+  "two_action_sample": {
+    "seed": 20261119,
+    "models": 4096,
+    "budget_checks": 45056,
+    "states": 4,
+    "actions": 2,
+    "horizon": 4,
+    "label_bits": 2,
+    "cost_values": [
+      0,
+      1,
+      2
+    ]
+  },
+  "sharp_unary_example": {
+    "q": 2,
+    "d": 1,
+    "horizon": 8,
+    "bad_intervals": [
+      [
+        2,
+        2
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        12,
+        12
+      ],
+      [
+        14,
+        14
+      ],
+      [
+        16,
+        16
+      ]
+    ],
+    "permanently_safe_from": 17
+  },
+  "proof_scope": "BIS1-BIS3 mathematically proved for deterministic auxiliary positive-prefix finite-horizon model; not actual 256-state Bellman or adaptive Port-transfer",
+  "external_review": "NOT_REVIEWED"
+}
