@@ -1,0 +1,75 @@
+# R762GK — All-horizon equality of the four three-STAR signed BRC laws
+
+Research date: 2026-11-20 (Asia/Shanghai). Task \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\`, publication \`TP2-8B7E13C5904A2D6F1142\`. Frozen P000 \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json\`; frozen taskbook \`857280d1012943290d141d1317179c40ec3cbdf8\`. Scientific parent R762GJ, PR #2822, \`eeadd34ce522fb7b446c26400dd4a2b63d07a764\`. Author lineage: \`EM-X6-3050F6\`. Status: **author-proved; exact finite checks PASS; NOT_REVIEWED**. This is a semidirect signed-STAR **candidate**, not a native \`TRIADIC_CLOSURE_E\` license.
+
+## Definitions
+
+Let \`G=Z^6 ⋊ A6\` under \`(x,p)(y,q)=(x+p·y,pq)\`. Six axes are the unoriented edges of four tetrahedral vertices \`V={0,1,2,3}\`, in order \`[01,02,03,12,13,23]\`. The four STAR triples, in ascending opposite-endpoint order, are
+
+\`S_0=[01,02,03]\`, \`S_1=[01,12,13]\`, \`S_2=[02,12,23]\`, \`S_3=[03,13,23]\`.
+
+Put \`H_v=sum_{e in S_v}e_e\` and let \`g_v\` be the three-cycle on that ordered triple (fixing other axes). Two signed events per STAR are
+
+\`T_(v,s)=(s H_v, g_v^s)\`, \`s in {+1,-1}\`.
+
+As \`g_v H_v=H_v\`, these are true inverses: \`T_(v,-1)=T_(v,+1)^-1\`.
+
+Write \`D=(1,1,1,1,1,1)\`. For omitted vertex \`a\`, retain \`J_a=V\{a}\`; the alphabet contains six distinct signed events. Let \`C_(a,m)(k)\` count **fully ordered** length-\`m\` words over this alphabet with **full affine product** \`(kD,id)\`, retaining word multiplicity.
+
+## Main theorem (all integer horizons)
+
+For all omissions \`a,b in V\`, all \`m>=0\`, and every \`k in Z\`,
+
+\`C_(a,m)(k) = C_(b,m)(k) = C_(a,m)(-k)\`.
+
+Therefore the positive uniform BRC law (probability \`1/6\` for every signed event at each independent step) satisfies
+
+\`Pr_a[(X_m,P_m)=(kD,id)] = C_(a,m)(k)/6^m\`,
+
+**independent of the omitted STAR for every finite horizon and every depth k**. This resolves the all-horizon equality question left open in R762GJ.
+
+The result is stronger than diagonal return counts: for any two three-STAR subsets there is a **letter-by-letter bijection** of all ordered words, compatible with a full affine-state automorphism. It transports the complete endpoint distribution after the corresponding explicit change of axes and global sign.
+
+### Proof: exact Klein-four symmetry
+
+Let \`K={id,(01)(23),(02)(13),(03)(12)} < S4\` act on the tetrahedron vertices. Each \`q in K\` induces a six-edge axis permutation \`P_q\`. Direct inspection of the four ordered incident-edge triples gives the *same* cyclic orientation parity at every vertex:
+
+| \`q=[q(0),q(1),q(2),q(3)]\` | parity on \`S_0,S_1,S_2,S_3\` | \`eta(q)\` |
+|---|---|---|
+| \`[0,1,2,3]\` | \`+,+,+,+\` | +1 |
+| \`[1,0,3,2]\` | \`-,-,-,-\` | -1 |
+| \`[2,3,0,1]\` | \`+,+,+,+\` | +1 |
+| \`[3,2,1,0]\` | \`-,-,-,-\` | -1 |
+
+Thus, for every \`v\`, \`P_q H_v=H_(qv)\` and \`P_q g_v P_q^-1=g_(qv)^{eta(q)}\`.
+
+Define
+
+\`Phi_q(x,p)=(eta(q) P_q x, P_q p P_q^-1)\`.
+
+The scalar sign commutes with permutations, so \`Phi_q\` is a group automorphism of \`Z^6 ⋊ A6\`. It maps each signed generator **exactly** to a signed generator:
+
+\`Phi_q(T_(v,s))=T_(qv,eta(q)s)\`.
+
+Hence the letter substitution \`F_q(v,s)=(qv,eta(q)s)\` is a bijection of length-\`m\` ordered words from \`J_a\` to \`J_(q(a))\`, satisfying \`product(F_q(word))=Phi_q(product(word))\`.
+
+Because \`P_q D=D\`, it takes \`(kD,id)\` to \`(eta(q)kD,id)\`. The Klein group acts **regularly** on the four vertices: each pair \`a,b\` is connected by a unique \`q\`. Therefore \`C_(a,m)(k)=C_(b,m)(eta(q)k)\`.
+
+Independently, invert every letter and reverse the word order. Because the alphabet contains inverses, this is a bijection on length-\`m\` words within a fixed \`J_b\`, and it maps the full product \`g\` to \`g^-1\`. Thus \`C_(b,m)(k)=C_(b,m)(-k)\`. Combining these identities proves the claim for **all** \`m,k\`. QED.
+
+### Consequences and exact scope
+
+- The finite-horizon equalities through length 14 in R762GJ extend to all lengths without further brute-force enumeration. Its separately computed length-16 counts for \`J=012\` and \`013\` also extend to the other two three-STAR choices: **if the antecedent count is correct**, then \`C_16(0)=905,476,354\` and \`C_16(±1)=448\` for every omission. This new theorem proves cross-subset equality; it does not independently recalculate those numerical coefficients.
+- For every \`m\`, the finite Laurent polynomial \`Z_(a,m)(t)=sum_k C_(a,m)(k)t^k\` is independent of \`a\` and is invariant under \`t -> t^-1\`.
+- For nonuniform BRC weights, the same exact word-distribution transport holds **if the weights are transported by** \`F_q\`. Unrelated fixed label weights are not covered.
+- The bijection retains the entire ordered signed word and its branch multiplicity. Native Cell, Port, Link, joint relation and future observation gates inherit this equivalence **only if their typed state/actions are equivariant under the same map**. This is not an erasure certificate for joint provenance.
+
+## Exact author-side checks
+
+\`R762GK_VERIFY.py\` uses Python standard-library exact integer tuples and permutations. It checks the four local orientation parity tuples, all 32 generator conjugacies, all signed generator inverses, and **149,296** full-product word-automorphism comparisons (four omissions, lengths 0..5, four Klein maps). Separate complete direct counts at lengths \`m=2,4,6\` for each of the four three-STAR alphabets yield, at depth zero, \`6,66,876\` words, with no other diagonal depths. Results: **PASS**; independent review: **NOT_REVIEWED**.
+
+Finite tests certify the conventions and specified instances; the displayed automorphism/inverse-word bijections are the all-parameter proof. P000, the full six-axis Cell torsor and Joint Relation Observer Preservation constraints are unchanged.
+
+## Continuing problem
+
+Obtain the native signed \`TRIADIC_CLOSURE_E\` Cell/Port/Link licensing predicate with typed time/branch state. Compute the subgroup of \`K\` preserving that predicate, or produce a minimal gated word where one omitted STAR is distinguished. The full depth-return coefficients and shortest lengths \`L(k)\` outside the computed cases also remain research questions.
