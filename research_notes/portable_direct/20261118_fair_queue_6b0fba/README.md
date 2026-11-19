@@ -196,3 +196,5 @@
 - [第八十四轮　Catalan 尾项的临界偶阶与六次端口测量](eightyfourth/README.md)　给半素数平方壳选择截断阶数，用正整数补链恢复隐藏路径。
 
 - [第八十五轮　两次记录分离时钟抖动与乘法壳的宽度](eightyfifth/README.md)　从十二周期与素因子支持读出辨识和带宽界。
+
+- [第八十六轮　分解度二的分圆种子与 Bernstein 系数升阶](eightysixth/README.md)　比较低密度极限与整区间正系数证书。

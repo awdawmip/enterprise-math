@@ -1,0 +1,115 @@
+# 原等差余子式的矩障碍、正 Bernstein 表示的最小次数与格点振荡
+
+原等差余子式给出一列归一化候选矩。对 $4\le m\le21$，本文求出不能用 $[0,1]$ 上同一概率测度表示的最短前缀。首坏阶从 $m=16$ 的十阶降到 $m=17$ 的八阶。另对 $m=18,19,20,21$ 的四个严格正多项式，在整个原区间使用单一 Bernstein 基，首次全正的次数分别为 **829、1428、2276、3432**。这四个多项式的唯一全局极小点均为代数无理数，它们决定了高阶最小系数的二阶极限分布。
+
+令 $n=m-1$, $b=m^2$, $d=n(2m-3)$, $w_i=(-1)^i\binom ni$。原始输入是边权
+$$
+ W_{ij}(t)=w_iw_j\sum_{s=0}^{n}\frac{w_st^s}{1+i+mj+bs},
+ \qquad 0\le i,j\le n .
+$$
+在左右各有 $m$ 个顶点的二分图 Laplace 矩阵中，对角取相应的行和与列和，非对角块取 $-W,-W^{\mathsf T}$。删去最后一个右顶点的主余子式为 $t^n q_m(t)$，其中 $q_m(0)>0$，$\deg q_m=d$。下文一律归一化为 $Q(t)=q_m(t)/q_m(0)$。[冻结的割线表示](https://github.com/awdawmip/enterprise-math/blob/1559dad7422d9ebcd9579ffaa9e53030a0e9540f/research_returns/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_RETURN_20260903.md)
+
+原序列 $u_a=(-1)^a[t^a]Q(t)/\binom da$ 在 $m=3$ 的三阶矩障碍及其有限可交换延拓长度已有精确结果。完整有限二元可交换表示首次在 $m=13$ 失败。只要求从 $u_0$ 出发的全部交错差分严格正，即原问题的 HCM0，首次在 $m=18$ 失败。对实参数的 $q_m(t)>0$ 已分别用分段证书推到 $m=20,21$。第 44 轮的 Hankel 行列式对应一个预先给定的正 Beta 测度，与这里的余子式候选矩有不同输入。[第 16 轮](../sixteenth/bernstein.md) · [第 21 轮可交换性](../twentyfirst/finite_hcm.md) · [第 21 轮 HCM0 与实正性](../twentyfirst/physical_flow.md) · [第 44 轮 Beta 积分](../fortyfourth/moments.md) · [第 69 轮](../sixtyninth/galois.md)
+
+## 普通区间矩首次失效的阶数
+
+取 $u_a=(-1)^a[t^a]q_m(t)/(\binom da q_m(0))$，$d=(m-1)(2m-3)$。令 $s_*(m)$ 为 $u_0,\ldots,u_s$ 首次不能写成 $[0,1]$ 上同一概率测度的普通幂矩的阶数。精确有理数得到
+
+| $m$ | 3 | 4–6 | 7–9 | 10–12 | 13–16 | 17–21 |
+|---|---:|---:|---:|---:|---:|---:|
+| $s_*(m)$ | 3 | 4 | 8 | 9 | 10 | 8 |
+
+$m=2$ 时只有一次矩 $5/13$，可取该点的单位原子；$m=3$ 是第 16 轮的对照。$m=16$ 到 $17$ 的下降发生在真正的原系数上。表中每个偶数首坏阶都有一个实平方给出负读数；奇数首坏阶的见证为 $x$ 乘实平方，适用于非负半轴。例如 $m=4$ 时，$\Lambda(x^a)=u_a$ 给出
+$$
+\Lambda\!\left(x^2(5x-1)^2\right)=
+-\frac{1110580735658849412768402867410041}{2556706385779463653544475352582696800}.
+$$
+前三阶均可实现。这个问题与只查初始差分、有限个二元坐标的可交换性、提升次数后 Bernstein 系数的正性各有不同的量词。[第 16 轮的普通三阶及有限延拓结论](../sixteenth/bernstein.md) · [第 21 轮的有限可交换性](../twentyfirst/finite_hcm.md)
+
+**判据。** 记 $H_r(x^j)=(u_{i+k+j})_{0\le i,k\le r}$，线性延拓至任意多项式权。$s=2r$ 时检验 $A=H_r(1), B=H_{r-1}(x-x^2)$；$s=2r+1$ 时检验 $A=H_r(x), B=H_r(1-x)$。两矩阵同为半正定等价于该截断可表示，这是区间上非负多项式的 Markov–Lukács 平方分解与有限矩凸包对偶的直接应用。对表中每行，所有较小正阶的两个主行列式都严格为正；更小的同奇偶阶已经覆盖每个矩阵的首主子式，故由 Sylvester 判据给出严格可行。在首坏阶均有 $\det A<0<\det B$。将 $A$ 的右下角对其前一首主块作 Schur 补，即得上述负读数见证的一般有理构造。
+
+**只读系数前缀。** 任意 $m\ge2$ 都可用下法只求所需的 $s$ 阶。记 $n=m-1$，$w_j=(-1)^j\binom nj$，$c_{j,l}=n!/\prod_{r=1}^m(mj+m^2l+r)$。冻结割线型的两个自变量是次数至多 $n$ 的多项式（商掉共同常数）。在横坐标 $j$ 上，取 $m$ 个自由量 $g(j)-f(j)$，并给 $g$ 的非常数部分取基 $\binom{j}{k}$，$1\le k\le n$。组 $(j,l)$ 的列就是
+$$
+z_{jl}=\Big(e_j,\big(\tbinom{j+ml}{k}-\tbinom jk\big)_{1\le k\le n}\Big).
+$$
+其层矩阵为 $L_l=\sum_j w_jw_lc_{jl}z_{jl}z_{jl}^{\mathsf T}$。第零层后 $n$ 行恒零，将多项式矩阵 $\sum_l L_lt^l$ 的这 $n$ 行各除以 $t$，记结果 $N(t)$。坐标变换行列式是非零常数，冻结的 $q_m(0)>0$，故 $N_0=N(0)$ 可逆且 $q_m(t)/q_m(0)=\det(N_0^{-1}N(t))$。
+
+设 $R_i=N_0^{-1}N_i$、$G_0=I$、$G_k=-\sum_{i=1}^kG_{k-i}R_i$，并置 $c_0'=1$。Jacobi 导数恒等式给出
+$$
+k c_k'=\sum_{l=1}^k c_{k-l}'\sum_{i=1}^l i\,\operatorname{tr}(G_{l-i}R_i),\qquad
+u_k=(-1)^k c_k'/\binom dk .
+$$
+只用到第 $\min(n,s+1)$ 层。复算用有理矩阵，并对 $m=3,4$ 从原树余子式的全部插值节点独立核对。输出保留每个行列式的符号、绝对值所在的二次幂区间及矩前缀摘要。表外 $m$ 的首坏阶尚未分类。[冻结割线型 §2](https://github.com/awdawmip/enterprise-math/blob/1559dad7422d9ebcd9579ffaa9e53030a0e9540f/research_returns/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_RETURN_20260903.md) · [低端点公式](../sixteenth/bernstein.md) · [复算](hankel_check.py) · [有理证书](hankel_checked.json)
+
+## 单一区间上的最小全正次数
+
+对任意 $N\ge d$ 写
+$$
+ Q(t)=\sum_{k=0}^N\binom Nk\beta^{(N)}_k t^k(1-t)^{N-k},
+ \qquad M_N=\min_{0\le k\le N}\beta^{(N)}_k.
+$$
+取 $B(z)=(1+z)^dQ(z/(1+z))$，则 $\binom Nk\beta^{(N)}_k=[z^k](1+z)^{N-d}B(z)$。下表给出不切分原区间时的最小全正次数 $N_*$，也就是该齐次形式的最小正系数乘子指数加 $d$。末两栏为带符号最小值乘 $10^{16}$ 的向下取整，各自给出宽 $10^{-16}$ 的严包围。
+
+| $m$ | $d$ | $N_*$ | $N_*-d$ | $N_*-1$ 唯一负项下标 | $N_*$ 最小项下标 | $\lfloor10^{16} M_{N_*-1}\rfloor$ | $\lfloor10^{16} M_{N_*}\rfloor$ |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+|18|561|829|268|422|423|−5221379|2113155|
+|19|630|1428|798|633|634|−1321584|2603514|
+|20|703|2276|1573|891|892|−542910|1099901|
+|21|780|3432|2652|1201|1202|−942900|8503|
+
+经典升阶公式 $\beta_k^{(N+1)}=\frac{k}{N+1}\beta_{k-1}^{(N)}+(1-\frac{k}{N+1})\beta_k^{(N)}$ 保持端项，使 $M_N$ 不减。表中两个相邻阶数的严格符号遂决定整个次数轴。保持的是原多项式 $Q$。重新以 $N$ 次幂系数定义的归一化候选矩在 $a\le d$ 时为 $u_a\binom da/\binom Na$，故这项计算不能把原候选矩的可交换延拓上限提高。
+
+复算从 $W$ 重新生成齐次边，在奇数个单位根上求原树余子式，经逆 Fourier 变换恢复 $B$。全部行列式、卷积及严格号用 2048 位 Arb 复球或实球包围。端点另做有理数校验，每个极小项还用标量二项卷积独立重算。浮点近似仅用于提名最小项，随后才用互不交的严格包围验证它小于各个其它项。[原树换基公式](../twentyfirst/physical_flow.md) · [复算](hausdorff_check.py) · [严格数值证书](hausdorff_checked.json)
+
+## 极小点的算术
+
+四个 $Q'$ 在 $d-1$ 次 Bernstein 基中的系数为 $d(\beta_{k+1}^{(d)}-\beta_k^{(d)})$。每行均只有两次变号，两端为负。代入 $t=z/(1+z)$，再乘 $(1+z)^{d-1}$，Descartes 符号法则给出 $0<t<1$ 内至多两个根，含重数。每行在两对相邻的 $1/32$ 格点之间分别反号，因此两个根均为单根，前一个是极小点 $\theta$，后一个是极大点。严格区间求值确定 $Q(\theta)<Q(0),Q(1)$，故 $\theta$ 为唯一全局极小点。令 $\mu=Q(\theta)$，$C_\theta=\theta(1-\theta)Q''(\theta)/2$。表中两个格号 $j$ 表示开区间 $(j/32,(j+1)/32)$。
+
+| $m$ | 两根的格号 | $\lfloor10^9\theta\rfloor$ | $\lfloor10^{13}\mu\rfloor$ | $\lfloor10^{10}C_\theta\rfloor$ | 核验素数 $p$ | $[t^{d-1}]q'_m\bmod p$ |
+|---:|:---:|---:|---:|---:|---:|---:|
+|18|16, 25|514108694|3678334|2999941|5839|614|
+|19|14, 21|446535497|3025449|4260471|6863|2549|
+|20|12, 18|393740919|2455186|5523256|8069|4236|
+|21|11, 16|351548070|1972196|6704214|9277|2715|
+
+各素数都大于 $m^3$，所以原矩阵的全部分母都是 $p$ 进单位。直接在 $\mathbb F_p$ 插值原余子式，核实导数首项可逆，并得到
+$$
+ \gcd(\overline{q'_m},X^p-X)=1.
+$$
+因首项可逆，有理根必须为 $p$ 进整数，再约化即给 $\mathbb F_p$ 根，矛盾。因此在四个给定维数，两个临界点均为代数无理数。这一检验直接作用于导数，原 $q_m$ 的不可约性本身不足以推出该结论。[模素数原树计算](../sixtyninth/galois_check.py) · [导数证书](hausdorff_checked.json)
+
+## 二阶渐近及极限分布
+
+令 $Q$ 为任意固定次数的实多项式，设它在 $[0,1]$ 有唯一全局极小点 $\theta\in(0,1)$，$a=Q''(\theta)>0$。置 $W(x)=x(1-x)$，并定义
+$$
+ C=\tfrac12WQ'',\qquad
+ R=-C+\tfrac13 W(1-2x)Q'''+\tfrac18W^2Q^{(4)},\qquad
+ \delta=\frac{C'(\theta)}a,\qquad
+ D=R(\theta)-\frac{C'(\theta)^2}{2a}.
+$$
+写 $\|s\|=\min_{j\in\mathbb Z}|s-j|$，则
+$$
+ M_N=\mu-\frac{C(\theta)}N+
+      \frac{D+\tfrac a2\|N\theta+\delta\|^2}{N^2}+O_Q(N^{-3}).       \tag{1}
+$$
+
+**推导。** 单项式 $t^j$ 的第 $k$ 个 $N$ 次 Bernstein 系数是降阶乘 $(k)_{\underline j}/(N)_{\underline j}$。在 $x=k/N$ 上逐项展开。根 $0,\ldots,j-1$ 的第一、二基本对称和分别为 $\binom j2$ 和 $(j)_{\underline4}/8+(j)_{\underline3}/3$。代回并对所有固定单项式求和，给出一致展开
+$$
+ \beta^{(N)}_k=Q(x)-C(x)/N+R(x)/N^2+O_Q(N^{-3}).
+$$
+由于 $Q$ 有唯一极小点，最小系数的位置 $k/N$ 收敛到 $\theta$。在其邻域 $Q(x)\ge\mu+c(x-\theta)^2$，而 $C$ 为 Lipschitz 函数。与距 $\theta$ 最近的 $1/N$ 格点比较，得 $c|x-\theta|^2\le O_Q(|x-\theta|/N+N^{-2})$，即 $s=k-N\theta$ 有界。在所有有界 $s$ 上，二阶项是 $R(\theta)-sC'(\theta)+as^2/2$。配方后对整点取最小即得 (1)，即使两格几乎等距也保有同一余项界。
+
+对于上表四个原余子式，$N\theta+\delta$ 的小数部分等分布，因为每个非零整频的指数和都是首项有界、比值不为一的等比和，除以 $N$ 后趋零。故
+$$
+ Y_N=N^2(M_N-\mu+C(\theta)/N)
+$$
+的极限分布支撑为 $[D,D+a/8]$。累积分布函数在该开区间为 $2\sqrt{2(y-D)/a}$，两端以外分别为 $0,1$。特别地，$\liminf Y_N=D$、$\limsup Y_N=D+a/8$，二阶项确有振荡。例如 $m=18$ 时 $-4111643<10^9D<-4111642$，且 $300233<10^9 a/8<300234$。
+
+对基准下移的 $Q-\mu+\epsilon$，设 $N(\epsilon)$ 为全系数严格正的最小次数。由 (1)，每个固定 $\epsilon>0$ 都可达到。$Q-\mu$ 在内点为零且非常数，所以每个有限次数都至少有一个负系数，否则在内点取值为正。因此 $N(\epsilon)\to\infty$；将相邻两级的临界不等式代入 (1)，即有 $\epsilon N(\epsilon)\to C(\theta)$。这给出逼近接触零点时升阶代价的首项。对于尚未核算的 $m>21$，该渐近式须先核实极小点假设，极限分布另须证其无理性。
+
+**复算环境。** 两个 Python 入口均从冻结公式重建输入。Hankel 入口采用 python-flint 0.9.0 的精确有理矩阵；升阶入口另需 NumPy 并调用仓库中第 21 轮和第 69 轮的两个原树核验入口。在本目录运行下列命令可逐字比对两套证书。[Hankel 入口](hankel_check.py) · [Hankel 证书](hankel_checked.json) · [升阶与算术入口](hausdorff_check.py) · [升阶与算术证书](hausdorff_checked.json)
+
+```sh
+python hankel_check.py | cmp - hankel_checked.json
+python hausdorff_check.py | cmp - hausdorff_checked.json
+```

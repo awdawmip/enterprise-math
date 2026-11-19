@@ -1,0 +1,103 @@
+# 剩余次数二的短向量种子：实三次域的直线计数
+
+在冻结六轴模型中，取 $K=\mathbb Q(\zeta_7)$，$F=K^+$，在 $1,\zeta,\dots,\zeta^5$ 的系数上量原欧氏长度 $\|x\|=\sqrt{Q(x)}$。令 $p\equiv6\bmod7$ 为素数，$P\mid p$，$I=P^r$，$r\ge0$。商 $I/IP$ 的 $p+1$ 条非零对偶直线等权；每条种子指定一个核线。唯一中间层在核线上有非零见证 $x\in I$ 且 $\|x\|<\kappa(p^{2r+1})^{1/6}$ 时，称该种子坏，比例记 $d_{p,r}(\kappa)$。这是筛到好种子集**以前**的坏比例。永久表从好种子中抽取，其条件代价是 $1/(1-d_{p,r})$。
+
+**定理。** 令 $C_\Delta=49\sqrt7/27$。对固定 $0<\kappa\le C_\Delta^{-1/6}$，
+$$
+ d_{p,r}(\kappa)=\mathcal C\,\kappa^6+O_\kappa(p^{-1/6}),\qquad
+ \frac{7^{3/2}}{9216\pi^3}\ \le\ \mathcal C\
+ \le\frac{\pi^3}{12\zeta(6)}\left(1-\frac1{\sqrt{377}}\right). \tag{1}
+$$
+余项对全部 $r\ge0$ 一致。甚至固定 $p,r$ 后，三个素理想的坏比例也完全相同。常数 $\mathcal C$ 的有限积分见 (5)。原门槛 $\kappa_0=1/\sqrt{42}$ 在域内，真实坏比例极限介于 $8.74\times10^{-10}$ 与 $3.252\times10^{-5}$。按 $p\equiv6\bmod7$ 平均亦得同一比例，各素数可任取不同的 $r$。下文始终保留开球。
+
+九月 T4 已证末一非零层的每条有限域见证线恰删一个种子。第17轮计算的是 $f=6$ 时全 Hecke 轨道的端层极限，对 $f=2$ 只得一阶上界。第57轮在 $f=6$ 惰性半素数上统计同一永久表的全整数短球。这里用 $f=2$ 的实子域判别**哪些**原始整数向量重合，并把全层族同归一个可积的高度域。单位基本域与理想 Möbius 法有经典射影高度计数的先例；本文的高度取原六基短球内所有整数倍子的最短值。[冻结任务书](https://github.com/awdawmip/enterprise-math/blob/7b32ae2ad9d1c13a13ff4668d1d218adda99390d/research_tasks/X6CM_LOCAL_BAD_SEED_DECAY_GEN2_20260917.md) · [T1–T4](https://github.com/awdawmip/enterprise-math/blob/7abd6f9523e1f6edc4c714b93c9e81dde588633e/research_notes/x6_tunable_geometry_and_second_moment_barrier_20260911.md) · [11月交接](https://github.com/awdawmip/enterprise-math/blob/bd8eed4e44c89aa11286d92e1d38445714b9a994/research_artifacts/mcp/X6CM-LOCAL-BAD-SEED-DECAY-20260917/MCP-456b8f22a648400585024ffbcc1c2c94/ef8f24c2ea7a3d805af4/_checkpoint.json) · [第17轮](../seventeenth/local.md) · [第57轮](../fiftyseventh/balls.md) · [Schanuel, Heights in number fields](https://doi.org/10.24033/bsmf.1905)
+
+## 1. 局部投影何时认出一条全局直线
+
+设 $s=\zeta+\zeta^{-1}$，其多项式为 $s^3+s^2-2s-1$。由分圆整环 $\mathcal O_K=\mathbb Z[\zeta]$ 与 $\zeta^2=s\zeta-1$，有 $\mathcal O_K=\mathbb Z[s]\oplus\zeta\mathbb Z[s]$；取复共轭不变元即得 $\mathcal O_F=\mathbb Z[s]$。此三次幂基判别式为 $49$。Minkowski 理想类界 $3!\sqrt{49}/3^3=14/9<2$，所以 $\mathcal O_F$ 是主理想环。三处实嵌入对应 $\zeta\mapsto e^{2\pi i j/7}$，$j=1,2,3$。$\mathcal O_K$ 在 $\mathbb C^3$ 的实余体积为 $D_K=7^{5/2}/8$。
+
+$p$ 在 $F$ 完全分裂、在每个 $\mathfrak p=P\cap\mathcal O_F$ 上二次惰性。取 $\mathfrak p=(g)$，则 $P=g\mathcal O_K$，$|N_Fg|=p$。真实商可由 $x=g^rz\mapsto z\bmod P$ 识别成 $\mathbb F_{p^2}$，其标量仍取 $\mathbb F_p$。在三个嵌入处用 $c=g^r/p^{r/3}$ 表示乘法，$\prod_i|c_i|=1$。整点 $z$ 的半径条件恰为 $\|cz\|<R=\kappa p^{1/6}$。改变 $g^r$ 的单位代表只重排 $z$；原始见证与算子及种子可逐一还原。
+
+对 $z=a+b\zeta,\ w=a'+b'\zeta$ 设 $\Delta=ab'-ba'$。非零投影在同一模线恰当 $\mathfrak p\mid\Delta$。原傅里叶恒等式为 $2\sum_i|z_i|^2=7Q(z)-(\sum_j z_j^{\rm coeff})^2$；对任一三复嵌入向量亦成立，系数是其在原基的实坐标。用 $z\bar w-\bar z w=(\bar\zeta-\zeta)\Delta$，以及 $\prod_i|\zeta_i-\bar\zeta_i|=\sqrt7$，得到
+$$
+ |N_F\Delta|\le\frac8{\sqrt7}\prod_i|c_i z_i|\prod_i|c_i w_i|
+ \le C_\Delta\|cz\|^3\|cw\|^3. \tag{2}
+$$
+当两端都在开球中，(2) 给出 $|N_F\Delta|<C_\Delta R^6\le p$，即使 $\kappa=C_\Delta^{-1/6}$ 也成立。若 $\mathfrak p\mid\Delta$，则 $\Delta=0$。同时 $0\ne z\in P$ 将迫使 $p^2\le |N_Kz|\le(7/6)^3\|cz\|^6<(7/6)^3\kappa^6p<p^2$。故没有零投影自动杀掉所有种子。坏种子数恰等于含有 $\|cz\|<R$ 的整点 $z\ne0$ 的 $F$-直线数。三个 $P$ 间还有有限层的保距双射：对 $\sigma_j(\zeta)=\zeta^j$，映射 $x\mapsto\zeta^{j-1}\sigma_j(x)$ 将六基变为自身的排列，因为指数 $i\mapsto ji+j-1\bmod7$ 固定唯一缺失的 $6$。它将 $P^r/P^{r+1}$ 带到共轭商并保留全部 $\mathbb F_p$-直线。[原六坐标与理想范数界](https://github.com/awdawmip/enterprise-math/blob/7abd6f9523e1f6edc4c714b93c9e81dde588633e/research_notes/x6_cyclotomic_shape_control_and_index_gate_20260910.md)
+
+## 2. 严格的短向量高度与误差
+
+每条 $F$-直线恰可用一个 $\mathcal O_F$-本原对 $z=a+b\zeta$ 表示至一个单位，即 $(a,b)=\mathcal O_F$。线上所有整数点是 $tz$，$t\in\mathcal O_F$，由 Bézout 恒等式即得。因此计数检验
+$$
+ h_c(z)=\min_{0\ne t\in\mathcal O_F}\|tcz\|,
+$$
+保留了全部非单位乘子。
+
+令 $\rho=(\prod_i|z_i|)^{1/3}$，$v_i=\log(|z_i|/\rho)$。在 $\sum v_i=0$ 的平面，以 $(v_1,v_2)$ 为坐标，取绝对值单位对数格的居中半开基本平行四边形 $D$。可用 $s,s'=s^2-2$ 作生成元。两者范数为一，两个对数向量互为三循环、非零且和为零，故独立。为核对整格指数，将任一单位平衡到这两者张成的 $D$。三根分别在 $(6/5,5/4),(-1/2,-4/9),(-11/6,-9/5)$，故平衡后各绝对嵌入小于 $9/4$，$\operatorname{Tr}(u^2)\le15$。幂基迹阵为
+$$
+ \begin{pmatrix}3&-1&5\\-1&5&-4\\5&-4&13\end{pmatrix}.
+$$
+其逆矩阵对角为 $(1,2/7,2/7)$，只需测 $|a|\le3,\ |b|,|d|\le2$ 的 $a+bs+ds^2$。逐整数运算得迹 $3,5,6,10,13$ 的范数为 $\pm1$ 元个数为 $2,6,6,6,6$，每个均是 $\pm s^i(s')^j$，$|i|,|j|\le5$。这证明所给 $D$ 为完整单位基本域。绝对对数的核仅有 $\pm1$。
+
+设 $\Omega_c=\{z:v(z)\in D,\ h_c(z)<1,\ z_i\ne0\}$，$\Omega=\Omega_1$。可将 $c$ 按实单位平衡，使其对数也属于 $\overline D$，保留符号。在 $D$ 中，三个 $|z_i|$ 都与 $\rho$ 可比，故 $\|tcz\|\le\|cz\|$ 要求三个 $|\sigma_i(t)|$ 同时有固定上界。$\mathcal O_F$ 为三维离散格，从而取最小只需同一个有限乘子表。$\Omega_c$ 有界，其边界在球面上由平行四边形边、有限个椭球面及锥尖给出，容许按单位基本域半开选边。具体以 $v,\arg(z_1),\arg(z_2),\arg(z_3)$ 参数化，径向上界是有限个正的光滑径向函数的最大值；在各紧参数块上这些函数与一阶导数对 $c$ 一致有界。这给出统一有限片 Lipschitz 边界。乘 $c$ 的实雅可比为一；它将 $D$ 移到另一基本域，任意符号变化也包含在乘 $c$ 的同一变量代换内。集合 $\{\min_t\|tz\|<1\}$ 对所有单位不变，故
+$$
+ \operatorname{vol}(\Omega_c)=\operatorname{vol}(\Omega). \tag{3}
+$$
+
+对任一非零整理想 $\mathfrak a$，可选生成元使三嵌入绝对值都与 $(N\mathfrak a)^{1/3}$ 可比，常数和 $\mathfrak a$ 无关。依此基用格平行胞夹取内外边界层，在 $R\Omega_c$ 中满足 $a,b\in\mathfrak a$ 的非零整点数等于
+$$
+ \frac{R^6\operatorname{vol}(\Omega)}{D_K(N\mathfrak a)^2}
+ +O\!\left(1+\frac{R^5}{(N\mathfrak a)^{5/3}}\right).
+$$
+若有这样的非零点，则有一个非零坐标 $a$ 或 $b$ 的范数为 $O(R^3)$，被 $N\mathfrak a$ 整除。又有 $\#\{N\mathfrak a\le Y\}=O(Y)$，因为其平衡生成元在边长 $O(Y^{1/3})$ 的三维盒中。现按理想 Möbius 求和至 $O(R^3)$；误差总计 $O(R^5\zeta_F(5/3)+R^3)$，主项尾为 $O(R^3)$。每条线有两个符号本原代表，遂得
+$$
+ \#\mathrm{lines}(R,c)=\mathcal C R^6+O(R^5+1),
+ \qquad \mathcal C=\frac{\operatorname{vol}(\Omega)}{2D_K\zeta_F(2)}. \tag{4}
+$$
+除以 $p+1$ 给出 (1) 的一致余项。
+
+另有完全指定的五维紧积分。令 $z(v,\theta)_i=e^{v_i+i\theta_i}$，$m(v,\theta)=\min_{t\ne0}\|t z(v,\theta)\|$。在 $D$ 上仅需比较满足 $\operatorname{Tr}(t^2)\le21(9/4)^4$ 的整元，因为 $2\sum|tz_i|^2\le7Q(tz)\le7Q(z)\le14\sum|z_i|^2$ 且 $|z_i|\in[4/9,9/4]$。由三极坐标的雅可比 $3\rho^5\,d\rho\,dv_1\,dv_2\,d^3\theta$，
+$$
+ \mathcal C=\frac1{4D_K\zeta_F(2)}
+ \int_D\int_{[0,2\pi)^3} m(v,\theta)^{-6}\,d^3\theta\,dv_1\,dv_2. \tag{5}
+$$
+这里 $\zeta_F(2)=8\pi^6/7203$。取模 7 三阶偶特征 $\chi(3)=\omega$，有 $\zeta_F=\zeta L(\cdot,\chi)L(\cdot,\bar\chi)$。二次 Bernoulli 傅里叶公式给 $|L(2,\chi)|^2=\pi^4|B_{2,\chi}|^2/7^3$，其中 $B_{2,\chi}=(37+29\omega^2+25\omega)/7=(8-4\omega)/7$，平方模为 $16/7$。式 (5) 确定常数。下列数值区间使用解析夹界。
+
+## 3. 两个可检验的体积界
+
+只需在 $c=1$ 求界。若三处同时满足 $R/\sqrt8<|z_i|<R/\sqrt6$，即有 $Q(z)\le2\sum_i|z_i|^2<R^2$。这片环域内，两个同线的 $\mathcal O_F$-本原代表相差单位 $u$；各 $|\sigma_i(u)|<2/\sqrt3$，故正整数 $\operatorname{Tr}(u^2)<4$。由乘积一和 AM–GM，只能三个绝对值全等于一，$u=\pm1$。环域总体积是 $\pi^3 R^6/24^3$，应用同一理想容斥即得 (1) 左界。
+
+对上界，按 $\mathbb Z$-本原且模 $\pm$ 取球中方向，有 $P(R)=\pi^3 R^6/(12\zeta(6))+O(R^5+1)$。每条命中的 $F$-线至少包含一个这种方向。设 $S$ 是原幂基上乘 $s$ 的矩阵，即 $U+U^{-1}$。将同一球中同时出现的 $[z]$ 与 $[sz]$ 相连。$S$ 整可逆，$s^j\ne\pm1$ 对每个 $j\ne0$ 成立，故有限子图是若干条路，所有边都在同一 $F$-线内。椭球 $Q(z)+Q(sz)<R^2$ 中的每个 $\mathbb Z$-本原无向对给出一条不同的边。直接在原矩阵计算 $\det(I+S^\top S)=377$，故这些边至少贡献 $P(R)/\sqrt{377}+O(R^5+1)$ 的重复。由 (4) 得右界，严格改善只去正负和有理整数倍的原一阶估计。
+
+## 4. 全整数条件化中的贡献
+
+令 $\kappa=\kappa_0$，$d=\mathcal C/42^3$，$\alpha=\pi^3/(12\zeta(6)42^3)$。只计 $f=2$ 的真实条件费，定义乘法函数 $A_2$，其在 $p\equiv6\bmod7$ 的奇次幂 $p^{2r+1}$ 取 $(1+1/p)/(1-d_{p,r})$，其余素数幂取一。令 $\eta=d/[6(1-d)]$，则
+$$
+ \frac1X\sum_{n\le X}A_2(n)\sim
+ \frac{(\log X)^\eta}{\Gamma(1+\eta)}
+ \lim_{y\to\infty}\prod_{p\le y}
+ (1-1/p)^{1+\eta}\sum_{\nu\ge0}\frac{A_2(p^\nu)}{p^\nu}. \tag{6}
+$$
+素数系数为 $1+\mathbf1_{p\equiv6(7)}d/(1-d)+O(p^{-1/6})$；高次幂系数由冻结筛选比例统一有界。等差数列素数定理给 Wirsing 均值定理的素数对数加权假设，Mertens 公式和模 7 类的素数倒数和常数给所写有序 Euler 积正且收敛。式 (6) 计的是条件上界支付的算术因数。[Wirsing，乘法函数均值定理](https://doi.org/10.1007/BF02280301)
+
+对于全剩余度的原主项 $A_*$，沿用第17轮记号 $b=\mu_{X_6}\{\lambda_1<\kappa_0\}$。其平均值的对数增长指数，下端可由 $b/[3(1-b)]$ 提高到 $b/[3(1-b)]+\eta$，上端把原 $\alpha/[6(1-\alpha)]$ 一项换成严格较小的 $\eta$。两个素数类不交，旧证的平方自由截断乘积可分别插入各类的下限，较高幂平均贡献绝对可和。因此保留所有旧条件，充分窗口可用 $6\gamma>1+\beta+a+\theta'_U$，其中 $\theta'_U=\eta+2\alpha/[3(1-2\alpha)]+5\alpha/[3(1-5\alpha)]$。固定尺度的 $f=2$ 条件费有正指数；真实全整数几何不良率以及临界等号仍有额外的跨素数条件。[第17轮全指数预算、窗口及锁定](../seventeenth/conditioning.md)
+
+## 5. 精确复算
+
+以下给 $\kappa_0$ 下的实例，每列均以全部 $p+1$ 粒非零射影种子为分母。程序在真实原基枚举，再分别按 $F$ 比值与模 $P$ 标签归并，逐纤维比较。取 $p=N_F(n+s)=n^3-n^2-2n+1$ 素及 $g=n+\sigma_j(s)$，程序用 $p^r g^{-r}$ 的整矩阵各行范数给出枚举的完整系数盒。
+
+|$p$|$r$|短整点按正负配对|坏种子|
+|---:|---:|---:|---:|
+|77573|0|6|6|
+|77573|1|2|2|
+|606731|0|36|14|
+|606731|1|18|12|
+|2129791|3|94|46|
+|10599161|3|396|194|
+
+共核 39 个具名 $(p,r,P)$。底块首次非空的 $p$ 恰为 $74101$：$Q=1$ 的门槛是 $42^3<p$，六个单位轴分别占六条不同的 $F$-线。$p=13$ 的全部 14 粒种子在底块均无短见证。更一般地冻结理想范数界保证 $p\le6^6$ 时每一层深的 $f=2$ 块都无坏种子，这与 (1) 按大素数取极限相容。本次另重放上游两份精确检验，其结构化输出分别与原件相同，原四锁柱集概率仍为 $1/249704$。均匀极限、误差项与 (6) 取自上面的证明。[复算程序](lines_check.py) · [整数记录](lines_checked.json) · [四锁上游](https://github.com/awdawmip/enterprise-math/blob/7abd6f9523e1f6edc4c714b93c9e81dde588633e/experiments/x6_frozen_density_20260910/verify.py)
+
+~~~sh
+python lines_check.py --out /tmp/x6-lines.json
+cmp /tmp/x6-lines.json lines_checked.json
+~~~
