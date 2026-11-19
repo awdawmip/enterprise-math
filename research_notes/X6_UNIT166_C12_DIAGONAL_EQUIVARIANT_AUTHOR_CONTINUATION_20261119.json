@@ -1,0 +1,108 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-19",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "latest_verified_native": {
+    "through_unit": 161,
+    "source_commit": "8c7b9d21e77ab40fb7db8b45f815c32f0c0878c1",
+    "status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "request_id": "onhour-20261119-1920-x6-own-units160161-native-progress-v1"
+  },
+  "author_frontier": {
+    "unit": 166,
+    "status": "AUTHOR_PROVED/EXACT_FINITE_EXECUTED/GITHUB_VERIFIED/UNREVIEWED/NOT_ADMITTED",
+    "carried_forward": [
+      162,
+      163,
+      164,
+      165
+    ],
+    "finding": "For signed X6 C12 rotor A and common diagonal D=Z(1^6), the minimal A-invariant subgroup containing D is D+2Z^6; the universal additive equivariant quotient killing D is (F2)^5 with 32 classes; induced A order exactly 6, although full A order is 12. Raw diagonal observer q cannot support A. q(0)=q(d) but q(A0)!=q(Ad); N-BRC B(0)=1,B(d)=720.",
+    "evidence": [
+      {
+        "path": "research_notes/X6_UNIT166_C12_DIAGONAL_EQUIVARIANT_QUOTIENT_20261119.md",
+        "commit": "0f471c66527e8e50edd755449b16147a79e130a0",
+        "git_blob_sha1": "7dc6a759d29b29e7740109e1df055a513fe58a79"
+      },
+      {
+        "path": "research_checks/X6_UNIT166_C12_DIAGONAL_EQUIVARIANT_QUOTIENT_CHECK_20261119.py",
+        "commit": "d7979e55917f8450f26bce12641b1a77ae97d383",
+        "git_blob_sha1": "4751c00ccb9e4a304f7f5c94d9aaa49e2902a9be",
+        "sha256": "2cf086dba723b5f10abf4f6a9727c9d5f4be93b1a8318f73c11016b83ee46857"
+      },
+      {
+        "path": "research_checks/X6_UNIT166_C12_DIAGONAL_EQUIVARIANT_QUOTIENT_RESULTS_20261119.json",
+        "commit": "635c9172b0fd2f73dadddc71bc39dd73ea2e392a",
+        "git_blob_sha1": "ac6779cccfec9ff51f902f9b7f5154a32243fbf2",
+        "sha256": "8e5da8a4dde695c7ca478590d8b630335c4d32237d9f90b21307481e4c339506"
+      },
+      {
+        "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit166_delta.json",
+        "commit": "0e1ac6bc16adf0dbbea6a4ae9dd258eb0ac89760",
+        "git_blob_sha1": "b5f2a985559240aeb67ece7dc42ccf52bd1a22dc"
+      }
+    ],
+    "checks": {
+      "vectors": 15625,
+      "classes": 32,
+      "failures": 0,
+      "execution_modes": [
+        "python",
+        "python -O",
+        "python -OO"
+      ],
+      "published_checker_exact_git_blob_executed": true,
+      "original_R063_rerun": false
+    }
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "count": 181,
+    "commit": "9a43ed19441dc6ce4c089f12fb774448aaa7e72a",
+    "blob": "f87af302425620e0e03b7d599204b6ce73147093",
+    "verified": true,
+    "event_id": "onhour-20261119-2304-x6-unit166-c12-diagonal-equivariant-quotient-v1"
+  },
+  "native_control": {
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "claim_id": "MCP-dedc91932641535d284fc171",
+    "run_id": "RUN-c92057890282aaaeec520881",
+    "last_authenticated_generation": 10,
+    "resume_request_id": "onhour-20261119-2111-x6-own-run-c920-after163-resume-v1",
+    "resume_historical_status": "SUCCEEDED/RUN_READY",
+    "pending_progress_request_id": "onhour-20261119-2208-x6-own-units162164-native-progress-v1",
+    "pending_last_authoritative_status": "RUNNING/error=null with SOURCE_PUBLICATION_CONTENTION automatic_resume=true (first scoped receipt during this turn)",
+    "later_read_diagnostic": "BACKEND_IDENTITY_CHECK_UNAVAILABLE / operation_sent=false, original outcome remains uncertain",
+    "unit165_native_status": "NOT_SUBMITTED",
+    "unit166_native_status": "NOT_SUBMITTED",
+    "units149152_native_associations": "PENDING; old failed Unit149 request must not be replayed",
+    "source_claim_current_authority": "NOT_VERIFIED_FRESH_FOR_NEW_WRITES"
+  },
+  "unresolved": [
+    "Consume original Units162–164 PROGRESS request terminal via exact request_id, without resubmitting; transient backend status diagnostic does not close it.",
+    "After successful original terminal and fresh own winner/current generation, publish source-native semantic linkage for saved Units165–166 only through actual authorized path, then authenticate readback.",
+    "Units149–152 have previously saved author proofs but missing native semantic associations; preserve original failed Unit149 request.",
+    "LP011/LP019 alleged erroneous native call historical exact commit:path:line remains unverified; continue actual frozen production→consumer source audit.",
+    "Complete 28-LP production consumer coverage and independent Driver review separately from author."
+  ],
+  "do_not_repeat": [
+    "Units1–161 native Source and Units162–166 author-proved saved work; Activity181 currently verified.",
+    "R063 original six-blob 512-case benchmark; completed Unit157 P022 weighted shell formula.",
+    "Original RUN/CLAIM/failed or ambiguous mutation; maintenance lane and other Researcher identity.",
+    "Do not treat in-flight original Native as missing results, and do not claim Unit165–166 Native published."
+  ],
+  "next_exact_action": "Read original pending onhour-20261119-2208-x6-own-units162164-native-progress-v1 receipt/reconcile; if Source published, independently verify latest own CLAIM/RUN and current generation, then submit distinct legal native linkage for Unit165/166. Continue frozen-source 28-LP true wrong-consumer hunt; retain exact Unit166 proof and typed restoration/parity evidence. Independent Driver review still required.",
+  "continuation_state": "OPEN",
+  "review": "UNREVIEWED/NOT_ADMITTED",
+  "scheduler_modified": false,
+  "notifications_modified": false
+}
