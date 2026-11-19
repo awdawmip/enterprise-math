@@ -1,0 +1,144 @@
+{
+  "schema": "EM_PREFIX941_EXACT_SIGNED_BIT_FLOOR_SUM_CENSUS_V1",
+  "date": "2026-11-19",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "auxiliary named XOR two-port observer; odd k; witness tuples, not unique pairs",
+  "a_b_domain": {
+    "L": 262145,
+    "U": 524287,
+    "step": 2,
+    "size": 131072
+  },
+  "i_j_range": [
+    0,
+    18
+  ],
+  "t_indexing": "by_t[0] means t=1",
+  "cells_method": "odd-core k; modular inverse modulo 2t/g plus Euclidean floor sums",
+  "results": [
+    {
+      "k": 11,
+      "tmax": 22,
+      "raw_witnesses": 16974425,
+      "by_t": [
+        0,
+        0,
+        0,
+        0,
+        4766,
+        75469,
+        1720886,
+        271076,
+        3059619,
+        388451,
+        4266964,
+        355465,
+        2648020,
+        243410,
+        1778629,
+        159369,
+        1113784,
+        93991,
+        588875,
+        41707,
+        163944,
+        0
+      ]
+    },
+    {
+      "k": 13,
+      "tmax": 26,
+      "raw_witnesses": 16796156,
+      "by_t": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        520071,
+        138631,
+        1860756,
+        256049,
+        2714012,
+        334399,
+        3503663,
+        309679,
+        2378264,
+        225604,
+        1713475,
+        160187,
+        1188106,
+        107924,
+        762609,
+        65074,
+        411643,
+        29409,
+        116601,
+        0
+      ]
+    },
+    {
+      "k": 15,
+      "tmax": 30,
+      "raw_witnesses": 20708178,
+      "by_t": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2497,
+        41502,
+        1466057,
+        214385,
+        1835786,
+        373919,
+        2427372,
+        293355,
+        5319496,
+        274167,
+        2153128,
+        304872,
+        1627616,
+        194278,
+        1797572,
+        113588,
+        850698,
+        113969,
+        692941,
+        47686,
+        454373,
+        21841,
+        87080,
+        0
+      ]
+    }
+  ],
+  "executed_source_git_blobs": {
+    "python": "2e50a65f03b384a35ac00bf0b5f8efb03daa859a",
+    "cpp": "61cf28286c6af7bf11e6e3ba5f67bc4d603bba9d"
+  },
+  "executed_source_sha256": {
+    "python": "a2922f1dd7cb88a4edf8baec8eb808ed1803ebe790e7bd6bf58c6d75a9ba118e",
+    "cpp": "09aa15e7f30bec83c51276f33b2cd2cb969baabdfe7c8497b3e3035a37dbd2ed"
+  },
+  "verification": {
+    "full_cxx_by_t_matches_python": true,
+    "prefix940_k11_by_t_matches": true,
+    "small_case_test_count": 16,
+    "exact_integer": true,
+    "full_cpp_runtime_checked_k": [
+      11,
+      13,
+      15
+    ],
+    "independent_math_review": "NOT_REVIEWED",
+    "admission": "NOT_ADMITTED",
+    "claim": "NOT_ACQUIRED"
+  },
+  "prior_unique_pair_union": 7558699988,
+  "new_distinct_pair_count": "NOT_COMPUTED",
+  "future_question": "Compute exact distinct ordered-pair count and priority-disjoint old-family overlaps without scanning all candidate tuples"
+}
