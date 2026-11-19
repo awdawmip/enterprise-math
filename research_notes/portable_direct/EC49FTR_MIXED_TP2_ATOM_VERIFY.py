@@ -61,7 +61,7 @@ for i in range(1,100):
     assert poly_eval(dnum,m)/poly_eval(den,m)**2==d_r_pol(m)>0
     assert L(m)<U and A(m)>0 and B(m)>0
     mm=m+(M1-m)/7
-    for v,w in [(F(1,5),F(3,5)),(F(1,4),F(4,5))]:
+    for v,w in [(F(1,5),F(3,5)),(F(1,4),F(4,5)),(F(1,6),F(5,6)),(F(2,7),F(6,7))]:
         s=L(mm)+(U-L(mm))*v
         t=L(mm)+(U-L(mm))*w
         k=lambda xx,zz:c*h(am(xx,zz),bm(xx,zz))
