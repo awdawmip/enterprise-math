@@ -8,6 +8,7 @@ from __future__ import annotations
 from itertools import combinations
 from math import comb, gcd, lcm
 import json, random, time
+from pathlib import Path
 import sympy as sp
 
 
@@ -199,7 +200,7 @@ def run():
             'arithmetic':'Integer-primitive fraction-free span; exact SymPy rational factor-rank decomposition and independent determinant oracle',
             'random_seed':284014,'exhaustive_small_instances':tests,'subset_closure_checks':closure,
             'examples':examples,'review':'NOT_REVIEWED'}
-    with open('/mnt/data/R284AN_exact_verification.json','w') as f:json.dump(result,f,indent=2)
+    with open(Path(__file__).with_name('R284AN_exact_verification.json'),'w') as f:json.dump(result,f,indent=2)
     print(json.dumps(result,indent=2))
 
 
