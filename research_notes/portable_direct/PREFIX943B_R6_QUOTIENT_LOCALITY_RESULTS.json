@@ -1,0 +1,43 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX943B_QUOTIENT_LOCALITY_V1",
+  "date": "2026-11-19",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "AUXILIARY named XOR two-port; Q 131072 strict 19-bit odd modulus values; k=17; i,j 0..18",
+  "theorem": {
+    "general": "For all h>=0,b>=L>0, two parameter witnesses of the same ordered modulus pair satisfy |t-t'|<=floor((3*2^h-1)/L)",
+    "source_correction": "c=2^i-(1-2*bit_j(ka))*2^j in [1-2^h,2^(h+1)]",
+    "specialized": {
+      "h": 18,
+      "L": 262145,
+      "max_gap": 2
+    },
+    "union_formula": "sum |P_t| - sum |P_t intersection P_(t+1)| - sum |P_t intersection P_(t+2)| + sum |P_t intersection P_(t+1) intersection P_(t+2)|"
+  },
+  "full_census": {
+    "raw_parameter_witnesses": 19318164,
+    "unique_pair_t": 15137003,
+    "unique_pairs": 15136736,
+    "one_t": 15136473,
+    "two_adjacent": 257,
+    "two_gap_two": 2,
+    "three_consecutive": 4,
+    "violations": 0,
+    "within_t_repeated_witnesses": 4181161,
+    "cross_t_duplicate_occurrences": 267,
+    "pairs_with_multiple_t": 263
+  },
+  "verification": {
+    "direct_full_enumerator": "executed",
+    "independent_crt_full_enumerator": "executed",
+    "both_equal": true,
+    "source_cli_audit": "NOT_RUN",
+    "independent_mathematical_review": "NOT_REVIEWED",
+    "project_admission": "NOT_ADMITTED"
+  },
+  "relation": {
+    "predecessor": "PREFIX-943 exact W17 k17 census",
+    "cumulative_old_certified_union": 7577727669,
+    "change_to_union": "NO_CHANGE; multiplicity theorem refines counting not collision set",
+    "next": "Count within-t correction-class bitmask unions without materializing pair IDs"
+  }
+}
