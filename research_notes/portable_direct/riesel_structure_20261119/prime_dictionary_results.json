@@ -1,0 +1,390 @@
+{
+  "schema": "RIESEL_FINITE_PRIME_DICTIONARY_OBSTRUCTION_V1",
+  "researcher_id": "EM-DIRECT-970E1C",
+  "research_activity_id": "RA-D2EC212845B63844081F9A14",
+  "status": "AUTHOR_PROOF_AND_EXACT_FINITE_COMPUTATION",
+  "a": "690786768637635218740714348513373826260012289",
+  "k": "477186359724825768240320861820076855164658770856369847418841251726090427289501818431019521",
+  "project_arithmetic_source_commit": "b1efc6c805661ed7b476e6e730107da6043176ee",
+  "native_scope": "Internal exact integer registers at a fixed X6 anchor; n counts arithmetic updates.",
+  "brc_entrypoints": [
+    "EffectHistogram.from_terms",
+    "EffectHistogram.evaluate"
+  ],
+  "examples": {
+    "66": {
+      "n": 66,
+      "N": "35210138613235856015682871746284463457104387416753948776476540551743487392297461505242112093826870074612383743",
+      "minus_factor": "5933813159616323478538348861085773604818277547626201087",
+      "plus_factor": "5933813159616323478538348861085773604818277547626201089",
+      "algebraic_identity_checked": true,
+      "ordered_cpp_scan": {
+        "bound": 50000000,
+        "primes_checked": 2906448,
+        "least_prime_divisor": 48324739,
+        "exhausted_bound": false,
+        "seconds": 0.135598
+      },
+      "least_prime_divisor": 48324739,
+      "prime_proof": {
+        "p": 48324739,
+        "full_trial_division_bound": 6951
+      },
+      "order_certificate": {
+        "order": 16108246,
+        "factorization": [
+          [
+            2,
+            1
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            11,
+            2
+          ],
+          [
+            37,
+            1
+          ],
+          [
+            257,
+            1
+          ]
+        ],
+        "factor_prime_proofs": [
+          {
+            "p": 2,
+            "full_trial_division_bound": 1
+          },
+          {
+            "p": 7,
+            "full_trial_division_bound": 2
+          },
+          {
+            "p": 11,
+            "full_trial_division_bound": 3
+          },
+          {
+            "p": 37,
+            "full_trial_division_bound": 6
+          },
+          {
+            "p": 257,
+            "full_trial_division_bound": 16
+          }
+        ],
+        "pow_2_order_mod_p": 1,
+        "proper_order_test_residues": {
+          "2": 48324738,
+          "7": 29451713,
+          "11": 20553476,
+          "37": 23338179,
+          "257": 35954387
+        },
+        "zero_phase": 66
+      },
+      "factor_side": "minus_factor",
+      "python_crosscheck": {
+        "bound": 100000000,
+        "all_primes_count": 5761455,
+        "first_divisor_in_range": 48324739,
+        "index_if_found": 2906448
+      }
+    },
+    "282": {
+      "n": 282,
+      "N": "3708060387327422134866391900624715591308940128538482397265237972919168515298730842207139699360800685213777702239120721961556688997351152040583521452228738067992150227795574783",
+      "minus_factor": "1925632464238028506464184312467829623764268791373821768871992940061935326282633894166527",
+      "plus_factor": "1925632464238028506464184312467829623764268791373821768871992940061935326282633894166529",
+      "algebraic_identity_checked": true,
+      "ordered_cpp_scan": {
+        "bound": 4294967295,
+        "primes_checked": 93393712,
+        "least_prime_divisor": 1896714101,
+        "exhausted_bound": false,
+        "seconds": 7.29438
+      },
+      "least_prime_divisor": 1896714101,
+      "prime_proof": {
+        "p": 1896714101,
+        "full_trial_division_bound": 43551
+      },
+      "order_certificate": {
+        "order": 1896714100,
+        "factorization": [
+          [
+            2,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            103,
+            1
+          ],
+          [
+            107,
+            1
+          ],
+          [
+            1721,
+            1
+          ]
+        ],
+        "factor_prime_proofs": [
+          {
+            "p": 2,
+            "full_trial_division_bound": 1
+          },
+          {
+            "p": 5,
+            "full_trial_division_bound": 2
+          },
+          {
+            "p": 103,
+            "full_trial_division_bound": 10
+          },
+          {
+            "p": 107,
+            "full_trial_division_bound": 10
+          },
+          {
+            "p": 1721,
+            "full_trial_division_bound": 41
+          }
+        ],
+        "pow_2_order_mod_p": 1,
+        "proper_order_test_residues": {
+          "2": 1896714100,
+          "5": 1308924995,
+          "103": 1003413121,
+          "107": 88372231,
+          "1721": 205137662
+        },
+        "zero_phase": 282
+      },
+      "factor_side": "plus_factor",
+      "python_crosscheck": {
+        "bound": 100000000,
+        "all_primes_count": 5761455,
+        "first_divisor_in_range": null,
+        "index_if_found": null
+      }
+    }
+  },
+  "necessary_maximum_prime_in_any_full_cover": 1896714101,
+  "finite_bound_scope": "A full finite prime cover, if one exists, must contain a prime at least 1896714101. This is a proved finite lower bound, not unboundedness of least prime divisors.",
+  "patch": {
+    "new_prime": 1896714101,
+    "new_order": 1896714100,
+    "new_zero_phase": 282,
+    "old_period": 6720,
+    "old_hole_count": 1152,
+    "gcd_periods": 20,
+    "joint_period": 637295937600,
+    "old_period_refinement_factor": 94835705,
+    "new_channel_hits": 336,
+    "newly_filled_old_holes": 176,
+    "new_hits_already_covered": 160,
+    "old_holes_lifted_to_joint_period": 109250732160,
+    "remaining_holes": 109250731984,
+    "compatible_old_hole_classes": [
+      2,
+      42,
+      62,
+      102,
+      182,
+      222,
+      242,
+      282,
+      342,
+      362,
+      402,
+      422,
+      462,
+      482,
+      522,
+      602,
+      642,
+      662,
+      702,
+      762,
+      782,
+      822,
+      842,
+      882,
+      902,
+      942,
+      1022,
+      1062,
+      1082,
+      1122,
+      1182,
+      1202,
+      1242,
+      1262,
+      1302,
+      1322,
+      1362,
+      1442,
+      1482,
+      1502,
+      1542,
+      1602,
+      1622,
+      1662,
+      1682,
+      1722,
+      1742,
+      1782,
+      1862,
+      1902,
+      1922,
+      1962,
+      2022,
+      2042,
+      2082,
+      2102,
+      2142,
+      2162,
+      2202,
+      2282,
+      2322,
+      2342,
+      2382,
+      2442,
+      2462,
+      2502,
+      2522,
+      2562,
+      2582,
+      2622,
+      2702,
+      2742,
+      2762,
+      2802,
+      2862,
+      2882,
+      2922,
+      2942,
+      2982,
+      3002,
+      3042,
+      3122,
+      3162,
+      3182,
+      3222,
+      3282,
+      3302,
+      3342,
+      3362,
+      3402,
+      3422,
+      3462,
+      3542,
+      3582,
+      3602,
+      3642,
+      3702,
+      3722,
+      3762,
+      3782,
+      3822,
+      3842,
+      3882,
+      3962,
+      4002,
+      4022,
+      4062,
+      4122,
+      4142,
+      4182,
+      4202,
+      4242,
+      4262,
+      4302,
+      4382,
+      4422,
+      4442,
+      4482,
+      4542,
+      4562,
+      4602,
+      4622,
+      4662,
+      4682,
+      4722,
+      4802,
+      4842,
+      4862,
+      4902,
+      4962,
+      4982,
+      5022,
+      5042,
+      5082,
+      5102,
+      5142,
+      5222,
+      5262,
+      5282,
+      5322,
+      5382,
+      5402,
+      5442,
+      5462,
+      5502,
+      5522,
+      5562,
+      5642,
+      5682,
+      5702,
+      5742,
+      5802,
+      5822,
+      5862,
+      5882,
+      5922,
+      5942,
+      5982,
+      6062,
+      6102,
+      6122,
+      6162,
+      6222,
+      6242,
+      6282,
+      6302,
+      6342,
+      6362,
+      6402,
+      6482,
+      6522,
+      6542,
+      6582,
+      6642,
+      6662,
+      6702
+    ],
+    "count_proof": "For each old class h, the two congruences have one intersection mod lcm iff h=282 mod gcd. Other old classes have no intersection.",
+    "observer_witness": {
+      "first_n": 282,
+      "second_n": 7002,
+      "all_old_labelled_residues_equal": true,
+      "new_prime_residue_first": 0,
+      "new_prime_residue_second": 1014442074
+    },
+    "labelled_future_phase_states": {
+      "before": 6720,
+      "after": 637295937600,
+      "fixed_bits_before": 13,
+      "fixed_bits_after": 40,
+      "scope": "Exact whole labelled divisor traces under every future shift; each active one-zero-phase channel forces congruence modulo its true order."
+    }
+  }
+}
