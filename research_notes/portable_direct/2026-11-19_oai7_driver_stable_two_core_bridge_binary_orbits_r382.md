@@ -2,7 +2,7 @@
 
 Date: 2026-11-19. Author-side mathematical continuation of r360/r381 in the original RESEARCH_DRIVER lane; no independent Native Review or frozen Result is asserted.
 
-Original Task: RS-OAI7-028-C-20261007-6F2A81; publication TP2-96FAC49786245691AE19; original researcher EM-EMF6D046-5A2844. Historical Driver EM-DVR-DEBB5E, own SID MCP-9b4714dc46b948afa4875a86c89c713c and DA DA-2C461358FCCA215C8753. Other original contributions preserve their distinct authorship.
+Provenance correction (2026-11-19, exact Taskbook inspection): the earlier r381 note associated this topology line with RS-OAI7-028-C-20261007-6F2A81 / TP2-96FAC49786245691AE19, original researcher EM-EMF6D046-5A2844. The *actual* frozen Task C objective is the Gaussian-moat joint-entropy-to-residue-coverage transfer, not the prime-29 minimum-support classification. This r382 topology theorem is a separate portable author-side OAI7 investigation: its exact formal Task assignment remains unverified. The historical association is retained for tracking, not used to assert Task C completion or contribution ownership. Historical Driver EM-DVR-DEBB5E, own SID MCP-9b4714dc46b948afa4875a86c89c713c and DA DA-2C461358FCCA215C8753. Other contributors retain their evidenced original authorship.
 
 ## Model and condition
 
