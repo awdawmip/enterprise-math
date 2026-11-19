@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/x6_r42_port_conflict_action_graph_verify.js",
+    "ref": "009845e47cfc4902a43580e5dd40e303ae29b030",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r2-20261120-r42-own-2",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "// R42: exact named-Port BRC action conflict graph enumeration; Node.js >=18\n// Declared conditional whole-triad transfer; not verified native inter-Cell dynamics.\nfunction r42Verify(){\n const pop=x=>{let n=0;while(x){n++;x&=x-1;}return n};\n const distribution={}, cases={}, byEdgeCount={}, aggregate={configurations:0,serialHistories:0};\n function test(mask){\n   let adj=Array(6).fill(0);\n   for(let i=0;i<6;i++)for(let j=i+1;j<6;j++)if(Math.floor(i/3)===Math.floor(j/3)){adj[i]|=1<<j;adj[j]|=1<<i;}\n   for(let i=0;i<3;i++)for(let j=0;j<3;j++)if(mask&(1<<(3*i+j))){adj[i]|=1<<(j+3);adj[j+3]|=1<<i;}\n   const enabled=done=>{let v=0;for(let i=0;i<6;i++)if(!(done&(1<<i))&&!(adj[i]&done))v|=1<<i;return v};\n   const independent=done=>{for(let i=0;i<6;i++)if((done&(1<<i))&&(adj[i]&done))return false;return true};\n   let configs=[0,0,0],hist=[0,0,0],classes=new Set();\n   for(let done=0;done<64;done++)if(independent(done)){\n      const k=pop(done);if(k>2)throw Error(\"source cannot fire twice\");\n      configs[k]++;let e=enabled(done);classes.add(e);\n      for(let i=0;i<6;i++)if(e&(1<<i))if(enabled(done|(1<<i))!==(e&~(1<<i)&~adj[i]))throw Error(\"Markov quotient mismatch\");\n   }\n   function dfs(done,k){hist[k]++;let e=enabled(done);for(let i=0;i<6;i++)if(e&(1<<i))dfs(done|(1<<i),k+1);}\n   dfs(0,0);\n   const e=pop(mask);\n   if(configs.join(\",\")!==[1,6,9-e].join(\",\")||hist.join(\",\")!==[1,6,2*(9-e)].join(\",\"))throw Error(\"count mismatch\");\n   return {crossEdges:e,configurationsBySize:configs,serialHistoriesBySize:hist,futureNamedLanguageClasses:classes.size};\n }\n for(let mask=0;mask<512;mask++){\n   let d=test(mask),n=d.futureNamedLanguageClasses;\n   distribution[n]=(distribution[n]||0)+1;\n   byEdgeCount[d.crossEdges]=(byEdgeCount[d.crossEdges]||0)+1;\n   aggregate.configurations+=d.configurationsBySize.reduce((a,b)=>a+b,0);\n   aggregate.serialHistories+=d.serialHistoriesBySize.reduce((a,b)=>a+b,0);\n   if(mask===0)cases.noCross=d;\n   if(mask===1)cases.oneCross=d;\n   if(mask===511)cases.allCross=d;\n }\n if(aggregate.configurations!==5888||aggregate.serialHistories!==8192||cases.oneCross.futureNamedLanguageClasses!==6)throw Error(\"aggregate check\");\n return {schema:\"EM_X6_R42_PORT_CONFLICT_BRC_V1\",status:\"PASS\",graphs:512,byCrossEdgeCount:byEdgeCount,futureNamedLanguageClassDistribution:distribution,aggregate,cases};\n}\nprocess.stdout.write(JSON.stringify(r42Verify(),null,2)+\"\\n\");\n",
+      "display_title": "x6_r42_port_conflict_action_graph_verify.js",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/009845e47cfc4902a43580e5dd40e303ae29b030/research_notes/portable_direct/x6_r42_port_conflict_action_graph_verify.js",
+      "encoding": "utf-8",
+      "sha": "c3684f9e1b298a0a6fbb9477a66db4d932d86178"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
