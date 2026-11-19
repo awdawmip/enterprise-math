@@ -1,0 +1,62 @@
+{
+  "schema": "PREFIX947A_R6_ADJACENT_CORE_GAP_CENSUS_V1",
+  "date": "2026-11-20",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "theorem": "For common a,b in strict 19-bit odd Q and source bits i,j,I,J in 0..18, whenever k and k+2 have positive quotient witnesses t,T respectively, 0<=T-t<=6.",
+  "proof_bounds": {
+    "delta_min": -262141,
+    "delta_max": 1835005,
+    "b_min": 262145,
+    "seven_b_min": 1835015
+  },
+  "finite_domains": {
+    "core_first": 21,
+    "core_second": 23,
+    "moduli_count_each_port": 131072,
+    "source_bits_max": 18
+  },
+  "W21_intersect_W23": 137274,
+  "NEW21_intersect_W23": 2237,
+  "new_21_over_P19": 6504313,
+  "new_23_over_P19": 6492260,
+  "distinct_union_increment_over_P19": 12994336,
+  "cross_core_witness_combinations": 10550450,
+  "multi_witness_common_pairs": 132972,
+  "gap_combinations": [
+    6,
+    644,
+    10548252,
+    1314,
+    231,
+    3,
+    0
+  ],
+  "gap_pairs_at_least_one": [
+    6,
+    443,
+    135795,
+    840,
+    190,
+    3,
+    0
+  ],
+  "W21_W23_intersection": {
+    "pairs": 137274,
+    "bytes": 1098192,
+    "sha256": "54c35a06874167484f0028443be45d3b03e69bc3bdf0e64fc97cf371522f6223"
+  },
+  "NEW21_W23_intersection": {
+    "pairs": 2237,
+    "bytes": 17896,
+    "sha256": "95fec135f28b0ec4986e5ebd3352ee70b06197bf0efc055071c7f6b48ba07e8c"
+  },
+  "local_reproduction_zip": {
+    "filename": "PREFIX947A_R6_twin_core_gap_reproduction.zip",
+    "size_bytes": 492788,
+    "sha256": "318fbceb322e94184a376db7ae24de847b043e4a4250540a4709e4bb03aa93b6",
+    "count": 8,
+    "zip_integrity": "PASSED"
+  },
+  "previous_dependency": "PREFIX946 LOCAL_VERIFIED but GitHub prior paper publication was SAFETY_REJECTED; not retried nor fallback replicated",
+  "independent_math_review": "NOT_COMPLETED"
+}
