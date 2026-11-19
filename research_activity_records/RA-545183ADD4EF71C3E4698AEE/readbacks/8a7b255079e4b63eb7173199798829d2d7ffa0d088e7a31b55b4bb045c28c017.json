@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/x6_native_future_transfer_results_r36.json",
+    "ref": "87c6a4356c5cf2e1503923bb62e768490d6b56ac",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "call_id": null,
+  "observation_id": "r2-20261120-r36-native-transfer-observation-3",
+  "result": {
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"X6_R36_FINITE_FUTURE_TRANSFER_EXACT_CHECK_V1\",\n  \"method\": \"exact deterministic partial labelled-success trace recursion and pair-BFS; no approximations\",\n  \"source_model\": \"P000 V5 frozen; R35 conditional triadic completions\",\n  \"alphabet\": [\n    \"Q0\",\n    \"Q1\"\n  ],\n  \"automata\": 85,\n  \"alphabet_size\": 2,\n  \"state_counts\": [\n    1,\n    2\n  ],\n  \"state_pair_instances\": 27556,\n  \"shortest_distinguishing_word_distribution\": {\n    \"1\": 19128,\n    \"2\": 4884,\n    \"3\": 160,\n    \"4\": 0,\n    \"equivalent\": 3384\n  },\n  \"max_witness_length_observed\": 3,\n  \"maximal_witness_example\": {\n    \"left\": [\n      [\n        -1,\n        0\n      ],\n      [\n        0,\n        -1\n      ]\n    ],\n    \"left_state\": 1,\n    \"right\": [\n      [\n        -1,\n        1\n      ],\n      [\n        0,\n        -1\n      ]\n    ],\n    \"right_state\": 1,\n    \"shortest_word\": [\n      \"Q0\",\n      \"Q1\",\n      \"Q0\"\n    ]\n  },\n  \"cutoff_verified\": \"nA*nB (<=4 for all enumerated pairs)\",\n  \"r35_cross_model_comparison\": [\n    {\n      \"theta\": 0,\n      \"agree_through_depth_1\": true,\n      \"equal_full_future\": true,\n      \"different_at_Q0Q1\": false\n    },\n    {\n      \"theta\": 1,\n      \"agree_through_depth_1\": true,\n      \"equal_full_future\": false,\n      \"different_at_Q0Q1\": true\n    },\n    {\n      \"theta\": 2,\n      \"agree_through_depth_1\": true,\n      \"equal_full_future\": true,\n      \"different_at_Q0Q1\": false\n    },\n    {\n      \"theta\": 3,\n      \"agree_through_depth_1\": true,\n      \"equal_full_future\": true,\n      \"different_at_Q0Q1\": false\n    }\n  ],\n  \"noninjective_bisimulation_relation_example\": {\n    \"left_states\": 2,\n    \"right_states\": 1,\n    \"left_transition_rows\": [\n      [\n        -1,\n        -1\n      ],\n      [\n        -1,\n        -1\n      ]\n    ],\n    \"right_transition_rows\": [\n      [\n        -1,\n        -1\n      ]\n    ],\n    \"valid_relation\": [\n      [\n        0,\n        0\n      ],\n      [\n        1,\n        0\n      ]\n    ],\n    \"both_left_states_share_single_right_state\": true\n  },\n  \"assertions\": {\n    \"exhaustive_all_partial_two_label_machines_with_one_or_two_states\": true,\n    \"agreement_through_product_bound_iff_full_language_equality\": true,\n    \"pair_BFS_shortest_witness_certified\": true,\n    \"exact_R35_first_split_at_two_events\": true,\n    \"noninjective_state_mapping_allowed\": true\n  },\n  \"pass\": true,\n  \"review\": \"NOT_INDEPENDENTLY_REVIEWED\",\n  \"scope\": \"finite deterministic partial systems with fully named successful-event trace observer; conditional candidate triads are not established native event admission\"\n}\n",
+      "display_title": "x6_native_future_transfer_results_r36.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/87c6a4356c5cf2e1503923bb62e768490d6b56ac/research_notes/portable_direct/x6_native_future_transfer_results_r36.json",
+      "encoding": "utf-8",
+      "sha": "a37c568b5548ee237da6a03b40d272e1d1c67062"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
