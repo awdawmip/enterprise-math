@@ -1,0 +1,65 @@
+# X6 R18 — Vacancy-depth first-distinction bound and population-optimal adjacent label-swap lens
+
+Date: 2026-11-19, Asia/Shanghai. Task: RS-X6-NATIVE-TIME-DYNAMICS, publication TP2-91D4A7C2F63805BE21A3. Author-side conditional mathematical result; independent review: NOT_REVIEWED.
+
+Scientific input: original frozen P000 V5 at `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json`. Current GLOBAL_KNOWLEDGE_V1 P000 V4 and ACTIVE worldview are operating interpretation only, not a change of the frozen source. Model and provenance follow R16 [two-event blocker tomography] and R17 [fully occupied X6 ball delayed label visibility], 2026-11-19. No native TRIADIC_CLOSURE_E dynamics is claimed.
+
+## Exact declared model
+
+The carrier is the chart-relative integer lattice `Z^6` with six native spatial axes and the **twelve** signed unit Port directions `D={±e_1,...,±e_6}`. This is six spatial dimensions; event order is a separate time coordinate. All sources have unique visible labels. An action `(label, v)`, `v in D`, succeeds exactly when the translated target Cell is vacant, and moves only that labelled source. `L_h(X)` is the Boolean-BRC support of all successful fully labelled ordered action words of length at most `h` (including the empty word). It records success/failure by language membership, not a blocker oracle.
+
+For a finite occupied set `S⊂Z^6`, let `V=Z^6\S` and define the initial vacancy depth
+`d_S(z)=min_{w in V} ||z-w||_1` for `z in S`. Here the integer hop norm `||·||_1` is the shortest **signed-axis event-hop count**; it is not the native enterprise squared geometric norm. Take two distinct occupied Cells `a,b` and two configurations `P,Q` with the exact same occupied Cell set and all other source locations fixed, while the two labels A and B at a,b are transposed. Put `δ(P,Q)=min{h≥1:L_h(P)≠L_h(Q)}`.
+
+## Theorem R18.1 — First possible movement equals the vacancy depth
+
+For every finite occupied set S and occupied Cell z, the first successful action of the source *initially* at z, along any successful labelled event word, occurs no earlier than event `d_S(z)`. A word exists attaining exactly that event number.
+
+**Proof.** Before the labelled source at z first moves, its first successful destination must be an adjacent vacant Cell. A vacancy at a Cell of lattice distance d-1 from any original vacancy requires at least one swap per step of vacancy transport. More generally, after k successful moves every newly vacant Cell has some initial vacancy at graph distance ≤k: one move can create a vacancy only adjacent to the previous vacant destination. The occupied source at z thus cannot move before k+1≥d_S(z). Conversely select a shortest path `z=z_0,z_1,...,z_d=w` from z to an initially vacant Cell w. All `z_0,...,z_{d-1}` are occupied, by minimality of d. Move the labels at `z_{d-1},z_{d-2},...,z_1` in that order into the vacancy created by the preceding move, and then move the original label from `z_0` to `z_1`. This is a legal word of d events. QED.
+
+## Theorem R18.2 — Label-swap observation lower bound and strict-depth equality
+
+For the configurations P,Q defined above,
+`δ(P,Q) ≥ min(d_S(a),d_S(b))`.
+
+If `d_S(a)≠d_S(b)`, the inequality is exact:
+`δ(P,Q)=min(d_S(a),d_S(b))`.
+
+**Proof.** For every word shorter than the minimum depth, neither exchanged label can execute a successful event in either configuration, by R18.1. All other labelled sources and the occupied Cell set agree. Induction over word prefixes shows exactly equal legal labelled futures through that depth. If, say, `d_S(a)=d<d_S(b)`, choose the d-event vacancy-geodesic word ending with the label A that is at a in P. Its first d−1 actions exclude both A and B: the geodesic cannot go through b, since any occurrence of b on the geodesic would give `d_S(b)<d_S(a)`. The prefix is common. In P the final A-move succeeds. In Q label A initially sits at b; by R18.1 no move of that label could succeed by event d<d_S(b), so the final event fails. Symmetric reasoning covers `d_S(b)<d_S(a)`. QED.
+
+Equal depths require an extra source/Port observation: a four-source X6 row at `0,e_1,2e_1,3e_1`, exchanging the labels at `e_1,2e_1`, has `d_S(a)=d_S(b)=1` but identical `L_1`. The two-event word moving A along `+e_2` then the source at `0` along `+e_1` distinguishes. This reuses the predecessor R16 sharpness witness and shows why depth equality alone is not an exact classification theorem.
+
+## Theorem R18.3 — Minimum-population delayed lens for an adjacent swap
+
+Write `B_r(z)={x in Z^6:||x-z||_1≤r}`, fix `a=0,b=e_1`, and let
+`S_r=B_r(0)∪B_r(e_1)`, for each integer `r≥1`. Fill every Cell of S_r with a uniquely labelled source and swap only the labels A at 0 and B at e_1 between P_r and Q_r. Then
+`δ(P_r,Q_r)=r+1`.
+
+The exact population is
+`|S_r|=N_6(r)+N_5(r)`,
+where
+`N_d(r)=sum_{j=0}^{min(d,r)} 2^j binom(d,j) binom(r,j)`.
+
+Moreover, **among all occupied configurations with these two prescribed adjacent Cells in which neither of the two initially placed labels has any successful move in any word of length at most r**, S_r has the minimum possible population. Thus the count is a sharp extremum for the stated *two-label immobility certificate*, not an unproved minimum over every conceivable language-aliasing strategy.
+
+**Proof of delay.** Every Cell within r hops of each swapped location is initially occupied. R18.1 implies neither swapped source can move in any successful word of length ≤r. R18.2 yields `L_r(P_r)=L_r(Q_r)`. The first vacant Cell on the positive e1 ray is `(r+2)e_1`. Perform r successive moves of the unchanged labelled sources originally at `(r+1)e_1,r e_1,...,2e_1`, each by `+e_1`, in that order. This produces a vacancy at `2e_1`, with the prefix legal from P_r and Q_r. At event r+1 the action `(B,+e_1)` succeeds from P_r because B is at e1 and the target is vacant. In Q_r, B is at 0 and its target e1 is still occupied by A, so the action fails. This proves equality.
+
+**Proof of minimum population.** R18.1 implies that absence of either initially swapped label in any successful word of length ≤r is **equivalent** to `d_S(a)>r` and `d_S(b)>r`, hence to `B_r(a)∪B_r(b)⊆S`. Consequently every such S contains at least `|S_r|` cells, and S_r attains equality.
+
+**Exact count.** The ordinary integer-lattice ball formula N_d(r) follows by choosing j nonzero coordinate positions, two signs per chosen position, and positive integer magnitudes summing to at most r. For a unit shift, the new points in `B_r(e_1)\B_r(0)` necessarily have first coordinate k≥1 and satisfy `k+sum_{i=2}^6|x_i|=r+1`. The remaining five coordinates have hop norm at most r, and each such five-tuple determines exactly one k. The number of new points is `N_5(r)`; adding `|B_r(0)|=N_6(r)` proves the formula. QED.
+
+This lens reduces the required population compared with the R17 ball `B_{r+1}(0)` while preserving distinguishing depth `r+1`. Both families have sixth-power leading growth, so the new gain is a sharp finite-population construction, not a change of asymptotic exponent.
+
+## Exact finite verification and scope
+
+Executable checker: `research_notes/portable_direct/x6_vacancy_lens_brc_verify_r18.js` (Node.js; no external packages). Result: `research_notes/portable_direct/x6_vacancy_lens_brc_results_r18.json`. It generates the **full six-coordinate** occupied lens rather than a lower-dimensional proxy, enumerates all 12 signed primitive directions for the small all-one-event test at r=1, verifies the exact population formula and signed-axis geometry for r=1,...,7, and executes the complete distinguishing word in both labelled states, checking that only P accepts the final event. It also enumerates all 12-direction one-event permissions for the four-source equal-depth strictness witness. All checks PASS. The universal shorter-word exclusion and minimum population statements are proved symbolically above; they are not advertised as full exponential language enumeration for large r.
+
+Selected exact populations: `r=1:24 vs prior B_2:85`, `r=2:146 vs B_3:377`, `r=3:608 vs B_4:1289`, `r=6:12642 vs B_7:19825`, `r=7:27008 vs B_8:40081`.
+
+## Relation to P000, time and remaining native problem
+
+All moves here are **conditional Cell-vacancy single-axis events**; the six signed axes remain spatial, and chronological event count is an observer on the separate time ordering, not time's physical duration. The argument does not supply a verified `TRIADIC_CLOSURE_E` stable-force triad or an admitted native signed Link/Port resource transition. A transfer must first specify a native event predicate, a source-preserving observation map, and a simulation of the vacancy-release word under triadic and causal-time guards. It must verify which source and link resources remain present, rather than naming a port by analogy.
+
+Next scientific question: evaluate whether the actual native triadic controller admits the consecutive vacancy-release path in the lens, and if it forbids any of the r prefix moves, derive the earliest reachable release depth in that **actual** controller. A useful exact partial result would be a guarded simulation theorem with a precise failure boundary, not wholesale promotion of this conditional event model.
+
+Prior material credited: R16 two-event blocker readout and R17 dense-ball delayed visibility; this note narrows population cost and proves the new universal vacancy-depth law. Mathematical review remains NOT_REVIEWED.
