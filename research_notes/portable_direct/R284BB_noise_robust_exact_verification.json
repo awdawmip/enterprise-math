@@ -1,0 +1,51 @@
+{
+  "schema": "EM_R284BB_EXACT_VERIFICATION_V1",
+  "status": "PASS",
+  "date": "2026-11-19",
+  "scope": "3x3, H=2, simultaneous row-zero star controls, exact integer determinants",
+  "assumptions": {
+    "positive_entries": true,
+    "all_candidates_exhausted": true,
+    "noise_model": "adversarial additive real |epsilon| <= delta",
+    "delta_demo": 7000
+  },
+  "number_of_candidates": 512,
+  "determinant_coefficient_exact_checks": 2560,
+  "random_ray": {
+    "seed": 28417,
+    "X": [
+      7340,
+      6572,
+      5070,
+      7899,
+      352
+    ],
+    "scale": 100,
+    "distinct_outputs": 512,
+    "min_gap": 14595,
+    "max_control": 789900
+  },
+  "deterministic_encoding": {
+    "B": 28004,
+    "controls_as_powers": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "distinct_outputs": 512,
+    "min_gap": 784224015,
+    "max_control_bits": 237,
+    "max_output_bits": 267
+  },
+  "general_proof": "In markdown, by nonconstant coefficient recovery and integer-polynomial separation; finite tests do not prove general statement.",
+  "review": "NOT_REVIEWED",
+  "source_lineage": [
+    "R284AT",
+    "R284AX",
+    "R284AZ",
+    "R284BA"
+  ],
+  "checker": "R284BB_noise_robust_star_checker.py"
+}
