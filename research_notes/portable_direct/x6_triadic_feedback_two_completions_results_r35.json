@@ -1,0 +1,93 @@
+{
+  "schema": "X6_R35_TWO_DYNAMIC_COMPLETIONS_EXACT_LANGUAGE_CHECK_V1",
+  "frozen_input": "p000_reality_foundation.json@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "source_model": "R33/R34 two-source one-use probe family",
+  "observer": "full ordered named successful event words",
+  "labels": [
+    "Q0",
+    "Q1"
+  ],
+  "histories": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "models": {
+    "RESET": {
+      "initial_languages": [
+        [
+          "",
+          "Q1;"
+        ],
+        [
+          "",
+          "Q0;",
+          "Q1;",
+          "Q1;Q0;"
+        ],
+        [
+          "",
+          "Q1;"
+        ],
+        [
+          "",
+          "Q0;",
+          "Q0;Q1;",
+          "Q1;",
+          "Q1;Q0;"
+        ]
+      ],
+      "initial_language_classes_by_depth": [
+        1,
+        2,
+        3
+      ],
+      "reachable_decorated_states": 12,
+      "global_markov_language_classes": 5
+    },
+    "INERT": {
+      "initial_languages": [
+        [
+          "",
+          "Q1;"
+        ],
+        [
+          "",
+          "Q0;",
+          "Q0;Q1;",
+          "Q1;",
+          "Q1;Q0;"
+        ],
+        [
+          "",
+          "Q1;"
+        ],
+        [
+          "",
+          "Q0;",
+          "Q0;Q1;",
+          "Q1;",
+          "Q1;Q0;"
+        ]
+      ],
+      "initial_language_classes_by_depth": [
+        1,
+        2,
+        2
+      ],
+      "reachable_decorated_states": 12,
+      "global_markov_language_classes": 4
+    }
+  },
+  "assertions": {
+    "identical_initial_one_step_success_languages": true,
+    "reset_initial_class_counts": true,
+    "inert_initial_class_counts": true,
+    "reset_global_classes": true,
+    "inert_global_classes": true,
+    "distinguishing_Q0Q1_for_theta_01_vs_11_only_in_reset": true
+  },
+  "pass": true,
+  "scope": "exhaustive four hidden histories, all reachable phases, finite word languages length <=2; symbolic P000 compatibility is conditional, not native admission"
+}
