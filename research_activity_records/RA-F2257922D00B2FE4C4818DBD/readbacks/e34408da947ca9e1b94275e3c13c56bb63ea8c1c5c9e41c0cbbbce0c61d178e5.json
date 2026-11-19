@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_thirteen_f6_plateau_20261119/VERIFY_R5_THIRTEEN_F6_ENDPOINT_CLASSES.py",
+    "ref": "9bda779f9ae0a4c2340d63eb8e16cc465392b896",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261119-2255-thirteen-f6-source-5",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Independent R5 13-label 244-way exact interval support and CSV check.\nReconstructs from frozen integer centers, not C++ binary adjacency.\nDoes not independently recompute f>=1 Bellman DP.\n\"\"\"\nimport hashlib,json,csv,collections\nfrom pathlib import Path\nr=Path(__file__).parent\nraw=(r/\"EXACT_R5_ALL_101_BUDGETS.json\").read_bytes()\nassert hashlib.sha256(raw).hexdigest()==\"50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b\"\nobj=json.loads(raw)\ntau=int(json.loads((r/\"stages_18.json\").read_text())[\"U\"])-1\ncenters={k:tuple(map(int,obj[\"counts_and_cohorts\"][str(k)][\"counts\"])) for k in range(214,315)}\nW=(0,16,32,48,1,64,17,80,18,24,34,82)\nrows=list(csv.DictReader((r/\"R5_THIRTEEN_F0_F6_ALL244.csv\").open()))\nassert len(rows)==244\nclasses={}\nfor row in rows:\n t=int(row[\"t\"]);h=W+(t,)\n assert t not in W\n priced={}\n for k,cc in centers.items():\n  a=[cc[i] for i in h]\n  masks={sum(1<<j for j,w in enumerate(a) if abs(2*w-(2*v-tau))<=tau) for v in a}\n  fam=tuple(sorted(m for m in masks if not any(m!=v and (m&v)==m for v in masks)))\n  if fam==(8191,):continue\n  priced[fam]=min(k,priced.get(fam,k))\n signature=tuple(sorted((cost,fam) for fam,cost in priced.items()))\n clazz=classes.setdefault(signature,len(classes))\n assert clazz==int(row[\"class\"]), (t,clazz,row[\"class\"])\n assert tuple(int(row[\"f\"+str(i)]) for i in range(7))==(735,1685,2635,3585,4535,5485,6435)\nassert len(classes)==48\nhist=collections.Counter()\nfor s,cls in classes.items():\n hist[cls]=sum(1 for t in rows if int(t[\"class\"])==cls)\nassert dict(collections.Counter(hist.values()))=={1:20,2:8,4:8,8:8,28:4}\nprint(\"PASS_R5_THIRTEEN_244_INDEPENDENT_ENDPOINT_SIGNATURES\",len(rows),len(classes))\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9bda779f9ae0a4c2340d63eb8e16cc465392b896/research_notes/portable_direct/r5_thirteen_f6_plateau_20261119/VERIFY_R5_THIRTEEN_F6_ENDPOINT_CLASSES.py",
+      "encoding": "utf-8",
+      "sha": "08fae34b2476bcba02242cbccf1ea609886a1fbb"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
