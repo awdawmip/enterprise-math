@@ -1,0 +1,1293 @@
+{
+  "snapshot_status": "CONFIRMED_SELECTIONS_FIXED_CUTOFF",
+  "source_main": "1b23fd7aa7c71059bac1927871e1bf63733f0462",
+  "source_main_url": "https://github.com/awdawmip/enterprise-math/tree/1b23fd7aa7c71059bac1927871e1bf63733f0462",
+  "checked_at": "2026-11-19T12:36:50+00:00",
+  "verification": {
+    "bulk_reducer_url": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/tools/research_dispatch_core.py#L842",
+    "all_registry_rows": 518,
+    "research_rows": 474,
+    "last_completed_independent_full_replay": {
+      "at": "2026-11-19T11:39:16+00:00",
+      "rows": 518,
+      "projection_sha256": "9106db8f46e4f49498ca7281debbc4d0cd10adda758bb10b804f4f906ac0fd7d",
+      "differences_from_wave125_terminal_projection": 3,
+      "known_newly_authenticated_changes_from_full_replay": {
+        "RS-X6-LEGACY-PLANE-RECONCILIATION": {
+          "lease_until": {
+            "before": "2026-11-19T13:14:33+00:00",
+            "after": "2026-11-19T13:58:22+00:00"
+          }
+        },
+        "RS-X6-NATIVE-TIME-DYNAMICS": {
+          "lease_until": {
+            "before": "2026-11-19T13:32:58+00:00",
+            "after": "2026-11-19T14:29:22+00:00"
+          }
+        },
+        "RS-X6-TRIADIC-CLOSURE-DYNAMICS": {
+          "lease_until": {
+            "before": "2026-11-19T12:50:41+00:00",
+            "after": "2026-11-19T13:48:42+00:00"
+          }
+        }
+      },
+      "source_main": "cf71507945469bd0fcde172408c05fda85aafad7",
+      "raw_comments": 1658,
+      "authenticated_events": 1486,
+      "full_replay_method": "All 1658 raw comments were authenticated with the sampled code. Independently reduce every merged definition using the official effective_states reducer, and compare its eight projection fields against the incremental reconstruction for every row."
+    },
+    "method": "Carry forward the full authenticated official projection at the prior fixed cutoff across the exhaustive commit comparison. The 1620-comment historical authenticated event stream was reused across an exhaustive control-code and authority comparison. The official reducer reevaluated each selected task, any named prerequisite, every live lease, and every intervening registered execution event at both fixed reads. Compare all eight decision fields on all 518 rows. Hunting candidate files or an execution intent alone does not authorize a lease.",
+    "previous_snapshot_url": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredtwentyfifth/fair_snapshot.json",
+    "projection_hash_format": "UTF-8 compact JSON rows sorted by task ID, each [task_id,...incremental_comparison.fields], absence null.",
+    "incremental_comparison": {
+      "fields": [
+        "kind",
+        "priority",
+        "state",
+        "dispatch_state",
+        "publication_id",
+        "claim_id",
+        "lease_until",
+        "event_authentication"
+      ]
+    },
+    "previous_snapshot_relative_path": "../hundredtwentyfifth/fair_snapshot.json",
+    "previous_snapshot_sha256": "8587b910d2c2d49d617623bfe4a2d82dc46421dbd2c1b827d8c986af5c29a6c6"
+  },
+  "initial_readback": {
+    "checked_at": "2026-11-19T12:36:50+00:00",
+    "source_main": "1b23fd7aa7c71059bac1927871e1bf63733f0462",
+    "source_main_url": "https://github.com/awdawmip/enterprise-math/tree/1b23fd7aa7c71059bac1927871e1bf63733f0462",
+    "compare_url": "https://github.com/awdawmip/enterprise-math/compare/a89c87d2df583213e057cadfe77db32c6d8f8df8...1b23fd7aa7c71059bac1927871e1bf63733f0462",
+    "additional_commits": 4,
+    "changed_path_classes": {
+      "research_activity_records": 9,
+      "research_notes": 18
+    },
+    "control_adjacent_blobs_verified": 9,
+    "raw_comments": 1661,
+    "recognized_events": 1489,
+    "latest_comment_id": 7009136068,
+    "latest_comment_time": "2026-11-19T12:29:22Z",
+    "latest_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-7009136068",
+    "all_live_leases_after": {
+      "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028": "2026-11-19T13:06:58+00:00",
+      "RS-X6-LEGACY-PLANE-RECONCILIATION": "2026-11-19T13:58:22+00:00",
+      "RS-X6-NATIVE-TIME-DYNAMICS": "2026-11-19T14:29:22+00:00",
+      "RS-X6-TRIADIC-CLOSURE-DYNAMICS": "2026-11-19T13:48:42+00:00"
+    },
+    "registry_rows_compared": 518,
+    "research_registrations": 474,
+    "projection_fields": [
+      "kind",
+      "priority",
+      "state",
+      "dispatch_state",
+      "publication_id",
+      "claim_id",
+      "lease_until",
+      "event_authentication"
+    ],
+    "projection_sha256": "fb7d2f75f06fd181dad6514aba1274281b8cf2fe2a6730161600f2b1b138bcf1",
+    "changed_registered_fields": {},
+    "official_independent_reductions": [
+      "HXPI-20260916-01",
+      "RS-1162-UNEQUAL-SUBDIVISION-BETA2-FINITE-STATE-CLOSURE",
+      "RS-1195-RANK5-SELECTOR-GALOIS-CLASSFIELD",
+      "RS-A3-A4-GENERATED-SUPPORT",
+      "RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION",
+      "RS-BRC-BASELINE-RESIDUAL-20261002",
+      "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028",
+      "RS-BRC-SHOR-PROJECTED-ALLOCATION-CERTIFICATE-20261002",
+      "RS-CBRC-F7-RANK-TWO-BALANCED-MIXING-EXISTENCE-AND-SELECTOR-CLASSIFICATION",
+      "RS-CFD-AMR-BASILISK-20260910",
+      "RS-CFD-SPECTRAL-HYBRID-20260910",
+      "RS-COORD-LAYER-SHELL-20260916",
+      "RS-DISC-COMPAT-20261026-01",
+      "RS-EMF6D046-R106-TWO-ADIC-HERMITIAN-UNITARY",
+      "RS-EMF6D046-R107-PPAV-THETA-JACOBIAN",
+      "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+      "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+      "RS-EULER-RECORDER-A01-LOCAL-GENERATION-20261012",
+      "RS-EULER-RECORDER-A03-CALIBRATION-REUSE-20261012",
+      "RS-EULER-RR-01-LOCAL-COUPLING-20261011",
+      "RS-EULER-RR-02-ACTIVE-SOURCE-20261011",
+      "RS-EULER-RR-03-CALIBRATION-20261011",
+      "RS-EULER-RR-04-INDEPENDENT-AUDIT-20261011",
+      "RS-EULER-RR-05-REUSE-RESOURCE-20261011",
+      "RS-EULER-RR-06-AUTONOMOUS-LATCH-20261011",
+      "RS-EULER-RR-08-MULTIRECORDER-20261011",
+      "RS-EULER-RR-09-NATIVE-BRIDGE-20261011",
+      "RS-EULER-RR-10-FORMAL-CORE-20261011",
+      "RS-EULER-RR-11-ERROR-BUDGET-20261011",
+      "RS-EULER-RR-12-INTEGRATION-20261011",
+      "RS-EULER-RR-20261012-01",
+      "RS-EULER-RR-20261012-04",
+      "RS-EULER-RR-20261012-09",
+      "RS-EULER-RR-20261012-10",
+      "RS-EULER-RR-20261012-11",
+      "RS-EULER-RR-20261012-12",
+      "RS-GBRC-R1-TYPED-CARRIER",
+      "RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS",
+      "RS-HBW-RECORD-INTERFACE-AUDIT-20260929",
+      "RS-HBW-WEIGHTED-STABILIZER-IMAGE-KERNEL-20260927",
+      "RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3",
+      "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT",
+      "RS-HODGE-H0Q-NONSPLIT-WEIL-INDEPENDENT-OBSTRUCTION-AUDIT",
+      "RS-NS-BRC-JITTER-ACTION-SUMMABILITY-20260917",
+      "RS-OAI7-023-A-20261007-6F2A81",
+      "RS-OAI7-028-B-20261007-6F2A81",
+      "RS-OAI7-090-A-20261007-6F2A81",
+      "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+      "RS-P000-PHILOSOPHY-FIRST-FORWARD-XOR-ALL-N-INDEPENDENCE",
+      "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N14-COLLISION-FRONTIER",
+      "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-ITERATED-REFINEMENT-FRONTIER",
+      "RS-P000-PHILOSOPHY-FIRST-ROTATION-LAW-EXTENSION-CLAUSE-NONCANONICITY",
+      "RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE",
+      "RS-P000-Q30-N15-FIRST-COLLISION-FRONTIER",
+      "RS-P021-FOCUSING-DIRECTION",
+      "RS-P022-OBSERVATION-HISTORY",
+      "RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT",
+      "RS-PARITY-M7-ORIGINAL-TRACE-COMPACT-7-8-EXACT-CERTIFICATE",
+      "RS-PERFECT-PRIME-BETA-BERNSTEIN-OSCILLATION-ORDER-MAP",
+      "RS-PERFECT-PRIME-BETA-BERNSTEIN-PRINCIPAL-ANGLE-EXTERIOR-POWER",
+      "RS-PERFECT-PRIME-BETA-BERNSTEIN-PRIOR-ART-AUDIT",
+      "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF",
+      "RS-PFSS-JUSTIFIED-NONDEGENERATE-NULL-MECHANISM",
+      "RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY",
+      "RS-PRIME-COORD-FACTOR-BLIND-BENCHMARK-SUITE",
+      "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+      "RS-PRIME-COORD-FACTOR-HIDDEN-FACTOR-SEPARATION-SPECTRUM",
+      "RS-PRIME-COORD-FACTOR-PCF7-POST-REOPEN-CLOSURE-AUDIT",
+      "RS-PRIME-COORD-FACTOR-VALUATION-WALL-COMPLEXITY-COMPRESSION-BOUNDARY",
+      "RS-PRIME-FUSION-F2-LEAN-RECONSTRUCTION-DUAL-PRIME-FORMALIZATION",
+      "RS-QFT-MASS-WEIGHTED-APPROX-CERT-20260927",
+      "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+      "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
+      "RS-R1160A-GREGORY-MACHIN-RATIONAL-ATOM-GENERATOR",
+      "RS-SEMIPRIME-SQUARE-SHELL-RESIDUAL-PRIORITY-PRIOR-ART-AUDIT",
+      "RS-X6-CELL-CHANNEL-INTERNAL-STATE",
+      "RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW",
+      "RS-X6-LEGACY-PLANE-RECONCILIATION",
+      "RS-X6-NATIVE-ROTATION-DYNAMICS",
+      "RS-X6-NATIVE-TIME-DYNAMICS",
+      "RS-X6-NONFCC-SLICE-REALIZATION",
+      "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+      "RS-X6-UPPER-STRUCTURE-INTEGRATION",
+      "RTASK-POWER-ROBUST-INTAKE-20260927",
+      "RTASK-RF-GUARDED-MOMENT-CLOSURE-20260927",
+      "W59A-NATIVE-NORMALIZATION-CLOSURE-20260909"
+    ],
+    "pool_counts": {
+      "strict_ready_needs_dispatch": {
+        "all": {
+          "total": 205,
+          "P0": 0,
+          "P1": 9,
+          "P2": 196
+        },
+        "previously_selected": {
+          "total": 191,
+          "P0": 0,
+          "P1": 8,
+          "P2": 183
+        },
+        "unselected_before_wave": {
+          "total": 14,
+          "P0": 0,
+          "P1": 1,
+          "P2": 13
+        },
+        "service_visits_this_wave": {
+          "total": 3,
+          "P0": 0,
+          "P1": 0,
+          "P2": 3
+        },
+        "selected_this_wave": {
+          "total": 1,
+          "P0": 0,
+          "P1": 0,
+          "P2": 1
+        },
+        "return_visits_this_wave": {
+          "total": 2,
+          "P0": 0,
+          "P1": 0,
+          "P2": 2
+        },
+        "unselected_after_wave": {
+          "total": 13,
+          "P0": 0,
+          "P1": 1,
+          "P2": 12
+        },
+        "unselected_after_wave_by_parent": {
+          "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 10,
+          "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+          "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION": 1,
+          "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 1
+        }
+      },
+      "handoff_ready_needs_dispatch": {
+        "all": {
+          "total": 68,
+          "P0": 16,
+          "P1": 22,
+          "P2": 30
+        },
+        "previously_selected": {
+          "total": 51,
+          "P0": 8,
+          "P1": 19,
+          "P2": 24
+        },
+        "unselected_before_wave": {
+          "total": 17,
+          "P0": 8,
+          "P1": 3,
+          "P2": 6
+        },
+        "service_visits_this_wave": {
+          "total": 2,
+          "P0": 0,
+          "P1": 1,
+          "P2": 1
+        },
+        "selected_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "return_visits_this_wave": {
+          "total": 2,
+          "P0": 0,
+          "P1": 1,
+          "P2": 1
+        },
+        "unselected_after_wave": {
+          "total": 17,
+          "P0": 8,
+          "P1": 3,
+          "P2": 6
+        },
+        "unselected_after_wave_by_parent": {
+          "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY": 5,
+          "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 3,
+          "COHERENT_BRC_WORKING_EXTENSION": 1,
+          "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+          "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM": 1,
+          "OBJ-CFD-TRUSTWORTHY-ACCELERATION-20260910": 1,
+          "OBJ-EXTERNAL-GEOMETRY-STRUCTURAL-TRANSFER-20260830": 1,
+          "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 1,
+          "OBJ-OAI7-RESEARCH-TRANSFER-20261007": 1,
+          "OBJ-PRIME-FUSION-MACHINE-CHECKED-THEOREM-PACKAGE": 1,
+          "PO-X6-UPPER-STRUCTURE-20260906": 1
+        }
+      },
+      "frozen_return_needs_dispatch": {
+        "all": {
+          "total": 12,
+          "P0": 0,
+          "P1": 8,
+          "P2": 4
+        },
+        "previously_selected": {
+          "total": 7,
+          "P0": 0,
+          "P1": 4,
+          "P2": 3
+        },
+        "unselected_before_wave": {
+          "total": 5,
+          "P0": 0,
+          "P1": 4,
+          "P2": 1
+        },
+        "service_visits_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "selected_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "return_visits_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "unselected_after_wave": {
+          "total": 5,
+          "P0": 0,
+          "P1": 4,
+          "P2": 1
+        },
+        "unselected_after_wave_by_parent": {
+          "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 3,
+          "LEGACY_CONTROL_CUTOVER_RS_A3_A4_GENERATED_SUPPORT": 1,
+          "OBJ-SEMIPRIME-SQUARE-SHELL-FACTORIZATION": 1
+        }
+      }
+    },
+    "event_types_after_previous_wave": []
+  },
+  "prepublication_readback": {
+    "checked_at": "2026-11-19T12:47:36+00:00",
+    "source_main": "97afc2fbd8925362dd8e17099ce6aab602812a30",
+    "source_main_url": "https://github.com/awdawmip/enterprise-math/tree/97afc2fbd8925362dd8e17099ce6aab602812a30",
+    "compare_url": "https://github.com/awdawmip/enterprise-math/compare/1b23fd7aa7c71059bac1927871e1bf63733f0462...97afc2fbd8925362dd8e17099ce6aab602812a30",
+    "additional_commits": 1,
+    "changed_path_classes": {
+      "research_artifacts": 2
+    },
+    "control_adjacent_blobs_verified": 2,
+    "raw_comments": 1662,
+    "recognized_events": 1490,
+    "latest_comment_id": 7009514701,
+    "latest_comment_time": "2026-11-19T12:45:53Z",
+    "latest_comment_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-7009514701",
+    "all_live_leases_after": {
+      "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028": "2026-11-19T13:06:58+00:00",
+      "RS-X6-LEGACY-PLANE-RECONCILIATION": "2026-11-19T13:58:22+00:00",
+      "RS-X6-NATIVE-TIME-DYNAMICS": "2026-11-19T14:29:22+00:00",
+      "RS-X6-TRIADIC-CLOSURE-DYNAMICS": "2026-11-19T14:45:53+00:00"
+    },
+    "registry_rows_compared": 518,
+    "research_registrations": 474,
+    "projection_fields": [
+      "kind",
+      "priority",
+      "state",
+      "dispatch_state",
+      "publication_id",
+      "claim_id",
+      "lease_until",
+      "event_authentication"
+    ],
+    "projection_sha256": "fb0cffb5974a7b7a368d0856ac76b8be1459cb91cb6193e827dee0700c85890a",
+    "changed_registered_fields": {
+      "RS-X6-TRIADIC-CLOSURE-DYNAMICS": {
+        "lease_until": {
+          "before": "2026-11-19T13:48:42+00:00",
+          "after": "2026-11-19T14:45:53+00:00"
+        }
+      }
+    },
+    "official_independent_reductions": [
+      "HXPI-20260916-01",
+      "RS-1162-UNEQUAL-SUBDIVISION-BETA2-FINITE-STATE-CLOSURE",
+      "RS-1195-RANK5-SELECTOR-GALOIS-CLASSFIELD",
+      "RS-A3-A4-GENERATED-SUPPORT",
+      "RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION",
+      "RS-BRC-BASELINE-RESIDUAL-20261002",
+      "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028",
+      "RS-BRC-SHOR-PROJECTED-ALLOCATION-CERTIFICATE-20261002",
+      "RS-CBRC-F7-RANK-TWO-BALANCED-MIXING-EXISTENCE-AND-SELECTOR-CLASSIFICATION",
+      "RS-CFD-AMR-BASILISK-20260910",
+      "RS-CFD-SPECTRAL-HYBRID-20260910",
+      "RS-COORD-LAYER-SHELL-20260916",
+      "RS-DISC-COMPAT-20261026-01",
+      "RS-EMF6D046-R106-TWO-ADIC-HERMITIAN-UNITARY",
+      "RS-EMF6D046-R107-PPAV-THETA-JACOBIAN",
+      "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+      "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+      "RS-EULER-RECORDER-A01-LOCAL-GENERATION-20261012",
+      "RS-EULER-RECORDER-A03-CALIBRATION-REUSE-20261012",
+      "RS-EULER-RR-01-LOCAL-COUPLING-20261011",
+      "RS-EULER-RR-02-ACTIVE-SOURCE-20261011",
+      "RS-EULER-RR-03-CALIBRATION-20261011",
+      "RS-EULER-RR-04-INDEPENDENT-AUDIT-20261011",
+      "RS-EULER-RR-05-REUSE-RESOURCE-20261011",
+      "RS-EULER-RR-06-AUTONOMOUS-LATCH-20261011",
+      "RS-EULER-RR-08-MULTIRECORDER-20261011",
+      "RS-EULER-RR-09-NATIVE-BRIDGE-20261011",
+      "RS-EULER-RR-10-FORMAL-CORE-20261011",
+      "RS-EULER-RR-11-ERROR-BUDGET-20261011",
+      "RS-EULER-RR-12-INTEGRATION-20261011",
+      "RS-EULER-RR-20261012-01",
+      "RS-EULER-RR-20261012-04",
+      "RS-EULER-RR-20261012-09",
+      "RS-EULER-RR-20261012-10",
+      "RS-EULER-RR-20261012-11",
+      "RS-EULER-RR-20261012-12",
+      "RS-GBRC-R1-TYPED-CARRIER",
+      "RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS",
+      "RS-HBW-RECORD-INTERFACE-AUDIT-20260929",
+      "RS-HBW-WEIGHTED-STABILIZER-IMAGE-KERNEL-20260927",
+      "RS-HBW-WL-WM-RECONCILE-20260927",
+      "RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3",
+      "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT",
+      "RS-HODGE-H0Q-NONSPLIT-WEIL-INDEPENDENT-OBSTRUCTION-AUDIT",
+      "RS-NS-BRC-JITTER-ACTION-SUMMABILITY-20260917",
+      "RS-OAI7-023-A-20261007-6F2A81",
+      "RS-OAI7-028-B-20261007-6F2A81",
+      "RS-OAI7-090-A-20261007-6F2A81",
+      "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+      "RS-P000-PHILOSOPHY-FIRST-FORWARD-XOR-ALL-N-INDEPENDENCE",
+      "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N14-COLLISION-FRONTIER",
+      "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-ITERATED-REFINEMENT-FRONTIER",
+      "RS-P000-PHILOSOPHY-FIRST-ROTATION-LAW-EXTENSION-CLAUSE-NONCANONICITY",
+      "RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE",
+      "RS-P000-Q30-N15-FIRST-COLLISION-FRONTIER",
+      "RS-P021-FOCUSING-DIRECTION",
+      "RS-P022-OBSERVATION-HISTORY",
+      "RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT",
+      "RS-PARITY-M7-ORIGINAL-TRACE-COMPACT-7-8-EXACT-CERTIFICATE",
+      "RS-PERFECT-PRIME-BETA-BERNSTEIN-OSCILLATION-ORDER-MAP",
+      "RS-PERFECT-PRIME-BETA-BERNSTEIN-PRINCIPAL-ANGLE-EXTERIOR-POWER",
+      "RS-PERFECT-PRIME-BETA-BERNSTEIN-PRIOR-ART-AUDIT",
+      "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF",
+      "RS-PFSS-JUSTIFIED-NONDEGENERATE-NULL-MECHANISM",
+      "RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY",
+      "RS-PRIME-COORD-FACTOR-BLIND-BENCHMARK-SUITE",
+      "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+      "RS-PRIME-COORD-FACTOR-HIDDEN-FACTOR-SEPARATION-SPECTRUM",
+      "RS-PRIME-COORD-FACTOR-PCF7-POST-REOPEN-CLOSURE-AUDIT",
+      "RS-PRIME-COORD-FACTOR-VALUATION-WALL-COMPLEXITY-COMPRESSION-BOUNDARY",
+      "RS-PRIME-FUSION-F2-LEAN-RECONSTRUCTION-DUAL-PRIME-FORMALIZATION",
+      "RS-QFT-MASS-WEIGHTED-APPROX-CERT-20260927",
+      "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+      "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
+      "RS-R1160A-GREGORY-MACHIN-RATIONAL-ATOM-GENERATOR",
+      "RS-SEMIPRIME-SQUARE-SHELL-RESIDUAL-PRIORITY-PRIOR-ART-AUDIT",
+      "RS-X6-CELL-CHANNEL-INTERNAL-STATE",
+      "RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW",
+      "RS-X6-LEGACY-PLANE-RECONCILIATION",
+      "RS-X6-NATIVE-ROTATION-DYNAMICS",
+      "RS-X6-NATIVE-TIME-DYNAMICS",
+      "RS-X6-NONFCC-SLICE-REALIZATION",
+      "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+      "RS-X6-UPPER-STRUCTURE-INTEGRATION",
+      "RTASK-POWER-ROBUST-INTAKE-20260927",
+      "RTASK-RF-GUARDED-MOMENT-CLOSURE-20260927",
+      "W59A-NATIVE-NORMALIZATION-CLOSURE-20260909"
+    ],
+    "pool_counts": {
+      "strict_ready_needs_dispatch": {
+        "all": {
+          "total": 205,
+          "P0": 0,
+          "P1": 9,
+          "P2": 196
+        },
+        "previously_selected": {
+          "total": 191,
+          "P0": 0,
+          "P1": 8,
+          "P2": 183
+        },
+        "unselected_before_wave": {
+          "total": 14,
+          "P0": 0,
+          "P1": 1,
+          "P2": 13
+        },
+        "service_visits_this_wave": {
+          "total": 3,
+          "P0": 0,
+          "P1": 0,
+          "P2": 3
+        },
+        "selected_this_wave": {
+          "total": 1,
+          "P0": 0,
+          "P1": 0,
+          "P2": 1
+        },
+        "return_visits_this_wave": {
+          "total": 2,
+          "P0": 0,
+          "P1": 0,
+          "P2": 2
+        },
+        "unselected_after_wave": {
+          "total": 13,
+          "P0": 0,
+          "P1": 1,
+          "P2": 12
+        },
+        "unselected_after_wave_by_parent": {
+          "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 10,
+          "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+          "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION": 1,
+          "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 1
+        }
+      },
+      "handoff_ready_needs_dispatch": {
+        "all": {
+          "total": 68,
+          "P0": 16,
+          "P1": 22,
+          "P2": 30
+        },
+        "previously_selected": {
+          "total": 51,
+          "P0": 8,
+          "P1": 19,
+          "P2": 24
+        },
+        "unselected_before_wave": {
+          "total": 17,
+          "P0": 8,
+          "P1": 3,
+          "P2": 6
+        },
+        "service_visits_this_wave": {
+          "total": 2,
+          "P0": 0,
+          "P1": 1,
+          "P2": 1
+        },
+        "selected_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "return_visits_this_wave": {
+          "total": 2,
+          "P0": 0,
+          "P1": 1,
+          "P2": 1
+        },
+        "unselected_after_wave": {
+          "total": 17,
+          "P0": 8,
+          "P1": 3,
+          "P2": 6
+        },
+        "unselected_after_wave_by_parent": {
+          "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY": 5,
+          "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 3,
+          "COHERENT_BRC_WORKING_EXTENSION": 1,
+          "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+          "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM": 1,
+          "OBJ-CFD-TRUSTWORTHY-ACCELERATION-20260910": 1,
+          "OBJ-EXTERNAL-GEOMETRY-STRUCTURAL-TRANSFER-20260830": 1,
+          "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 1,
+          "OBJ-OAI7-RESEARCH-TRANSFER-20261007": 1,
+          "OBJ-PRIME-FUSION-MACHINE-CHECKED-THEOREM-PACKAGE": 1,
+          "PO-X6-UPPER-STRUCTURE-20260906": 1
+        }
+      },
+      "frozen_return_needs_dispatch": {
+        "all": {
+          "total": 12,
+          "P0": 0,
+          "P1": 8,
+          "P2": 4
+        },
+        "previously_selected": {
+          "total": 7,
+          "P0": 0,
+          "P1": 4,
+          "P2": 3
+        },
+        "unselected_before_wave": {
+          "total": 5,
+          "P0": 0,
+          "P1": 4,
+          "P2": 1
+        },
+        "service_visits_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "selected_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "return_visits_this_wave": {
+          "total": 0,
+          "P0": 0,
+          "P1": 0,
+          "P2": 0
+        },
+        "unselected_after_wave": {
+          "total": 5,
+          "P0": 0,
+          "P1": 4,
+          "P2": 1
+        },
+        "unselected_after_wave_by_parent": {
+          "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 3,
+          "LEGACY_CONTROL_CUTOVER_RS_A3_A4_GENERATED_SUPPORT": 1,
+          "OBJ-SEMIPRIME-SQUARE-SHELL-FACTORIZATION": 1
+        }
+      }
+    },
+    "event_types_after_initial": [
+      "PROGRESS"
+    ],
+    "unselected_counts_after_wave": [
+      13,
+      17,
+      5
+    ],
+    "selected_states_and_leases_unchanged": true,
+    "new_comments": [
+      {
+        "comment_id": 7009514701,
+        "event": "PROGRESS",
+        "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+        "event_time": "2026-11-19T12:45:53Z",
+        "source": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-7009514701"
+      }
+    ]
+  },
+  "coverage": {
+    "prior_registered_ids": 252,
+    "prior_registered_parents": 53,
+    "selection_visits": 5,
+    "selected_ids": 5,
+    "new_unique_ids_this_wave": 1,
+    "return_visits": 4,
+    "selected_distinct_parents": 5,
+    "total_direct_ids": 253,
+    "total_registered_parents": 53,
+    "cumulative_ids_excluding_two_prior_independent_side_references": 251,
+    "cumulative_parents_excluding_two_prior_independent_side_references": 51,
+    "past_side_reference_ids": [
+      "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+      "RS-P11-FIXED-233-119-CERTIFIED-2-DESCENT-RANK"
+    ],
+    "counting_rule": "Distinct registered IDs selected for a local mathematical study, inclusive of explicitly separate side references only in the inclusive totals. A selected research frontier may be conditional or only one part of its registered delivery. No selection changes the official science or control state.",
+    "current_wave_side_reference_count": 0,
+    "strict_ready_needs_dispatch": {
+      "all": {
+        "total": 205,
+        "P0": 0,
+        "P1": 9,
+        "P2": 196
+      },
+      "previously_selected": {
+        "total": 191,
+        "P0": 0,
+        "P1": 8,
+        "P2": 183
+      },
+      "unselected_before_wave": {
+        "total": 14,
+        "P0": 0,
+        "P1": 1,
+        "P2": 13
+      },
+      "service_visits_this_wave": {
+        "total": 3,
+        "P0": 0,
+        "P1": 0,
+        "P2": 3
+      },
+      "selected_this_wave": {
+        "total": 1,
+        "P0": 0,
+        "P1": 0,
+        "P2": 1
+      },
+      "return_visits_this_wave": {
+        "total": 2,
+        "P0": 0,
+        "P1": 0,
+        "P2": 2
+      },
+      "unselected_after_wave": {
+        "total": 13,
+        "P0": 0,
+        "P1": 1,
+        "P2": 12
+      },
+      "unselected_after_wave_by_parent": {
+        "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 10,
+        "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+        "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION": 1,
+        "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 1
+      }
+    },
+    "handoff_ready_needs_dispatch": {
+      "all": {
+        "total": 68,
+        "P0": 16,
+        "P1": 22,
+        "P2": 30
+      },
+      "previously_selected": {
+        "total": 51,
+        "P0": 8,
+        "P1": 19,
+        "P2": 24
+      },
+      "unselected_before_wave": {
+        "total": 17,
+        "P0": 8,
+        "P1": 3,
+        "P2": 6
+      },
+      "service_visits_this_wave": {
+        "total": 2,
+        "P0": 0,
+        "P1": 1,
+        "P2": 1
+      },
+      "selected_this_wave": {
+        "total": 0,
+        "P0": 0,
+        "P1": 0,
+        "P2": 0
+      },
+      "return_visits_this_wave": {
+        "total": 2,
+        "P0": 0,
+        "P1": 1,
+        "P2": 1
+      },
+      "unselected_after_wave": {
+        "total": 17,
+        "P0": 8,
+        "P1": 3,
+        "P2": 6
+      },
+      "unselected_after_wave_by_parent": {
+        "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY": 5,
+        "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 3,
+        "COHERENT_BRC_WORKING_EXTENSION": 1,
+        "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+        "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM": 1,
+        "OBJ-CFD-TRUSTWORTHY-ACCELERATION-20260910": 1,
+        "OBJ-EXTERNAL-GEOMETRY-STRUCTURAL-TRANSFER-20260830": 1,
+        "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 1,
+        "OBJ-OAI7-RESEARCH-TRANSFER-20261007": 1,
+        "OBJ-PRIME-FUSION-MACHINE-CHECKED-THEOREM-PACKAGE": 1,
+        "PO-X6-UPPER-STRUCTURE-20260906": 1
+      }
+    },
+    "frozen_return_needs_dispatch": {
+      "all": {
+        "total": 12,
+        "P0": 0,
+        "P1": 8,
+        "P2": 4
+      },
+      "previously_selected": {
+        "total": 7,
+        "P0": 0,
+        "P1": 4,
+        "P2": 3
+      },
+      "unselected_before_wave": {
+        "total": 5,
+        "P0": 0,
+        "P1": 4,
+        "P2": 1
+      },
+      "service_visits_this_wave": {
+        "total": 0,
+        "P0": 0,
+        "P1": 0,
+        "P2": 0
+      },
+      "selected_this_wave": {
+        "total": 0,
+        "P0": 0,
+        "P1": 0,
+        "P2": 0
+      },
+      "return_visits_this_wave": {
+        "total": 0,
+        "P0": 0,
+        "P1": 0,
+        "P2": 0
+      },
+      "unselected_after_wave": {
+        "total": 5,
+        "P0": 0,
+        "P1": 4,
+        "P2": 1
+      },
+      "unselected_after_wave_by_parent": {
+        "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 3,
+        "LEGACY_CONTROL_CUTOVER_RS_A3_A4_GENERATED_SUPPORT": 1,
+        "OBJ-SEMIPRIME-SQUARE-SHELL-FACTORIZATION": 1
+      }
+    },
+    "strict_remaining_P1_evidence": {
+      "task": {
+        "task_id": "RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT",
+        "parent_objective_id": "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION",
+        "priority": "P1",
+        "state": "READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "claim_id": null,
+        "lease_until": null,
+        "event_authentication": "NO_RUNTIME_EVENT",
+        "publication_id": "TP2-6BF7197457B000A68E78",
+        "publication_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_task_records/RS-P11-CORE98-EXISTING-MAGMA-MIXED-BIT/TP2-6BF7197457B000A68E78.json",
+        "publication_blob": "0ae603ead7695c19e7a9fbb9073cb20b81e2214b",
+        "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_tasks/P11_CORE98_EXISTING_MAGMA_MIXED_BIT_20261016.md",
+        "taskbook_blob": "fa5a7f27a939eeb2bd25260e318b0b0fc8b553b0",
+        "taskbook_dependencies": [
+          "RR-C1F5BD75CF29E3970097"
+        ],
+        "publication_dependencies": [
+          "RR-C1F5BD75CF29E3970097"
+        ],
+        "projected_result_id": null,
+        "projected_review_status": null,
+        "last_server_comment_url": null
+      },
+      "scope": "The sole unselected strict P1 requests a controlled existing Magma program and single invocation. No native executable, fresh owner-controlled bundle or new admission is established.",
+      "gate_source_url": "https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixteenth/fair_snapshot.json"
+    },
+    "never_selected_research_after_wave_by_parent": {
+      "strict": {
+        "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 10,
+        "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+        "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION": 1,
+        "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 1
+      },
+      "handoff": {
+        "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY": 5,
+        "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M": 3,
+        "COHERENT_BRC_WORKING_EXTENSION": 1,
+        "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 1,
+        "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM": 1,
+        "OBJ-CFD-TRUSTWORTHY-ACCELERATION-20260910": 1,
+        "OBJ-EXTERNAL-GEOMETRY-STRUCTURAL-TRANSFER-20260830": 1,
+        "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS": 1,
+        "OBJ-OAI7-RESEARCH-TRANSFER-20261007": 1,
+        "OBJ-PRIME-FUSION-MACHINE-CHECKED-THEOREM-PACKAGE": 1,
+        "PO-X6-UPPER-STRUCTURE-20260906": 1
+      },
+      "frozen": {
+        "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION": 3,
+        "LEGACY_CONTROL_CUTOVER_RS_A3_A4_GENERATED_SUPPORT": 1,
+        "OBJ-SEMIPRIME-SQUARE-SHELL-FACTORIZATION": 1
+      }
+    },
+    "registered_ids_including_two_prior_independent_references": 253
+  },
+  "selected": [
+    {
+      "task_id": "RS-EULER-RECORDER-A03-CALIBRATION-REUSE-20261012",
+      "repeat_visit": false,
+      "parent_objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
+      "prior_parent_service": 65,
+      "prior_parent_waves": [
+        1,
+        4,
+        5,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        25,
+        26,
+        29,
+        31,
+        33,
+        36,
+        39,
+        41,
+        43,
+        45,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54,
+        57,
+        60,
+        62,
+        63,
+        65,
+        66,
+        68,
+        69,
+        73,
+        75,
+        78,
+        80,
+        82,
+        85,
+        87,
+        88,
+        90,
+        92,
+        94,
+        96,
+        97,
+        100,
+        102,
+        103,
+        105,
+        106,
+        108,
+        109,
+        112,
+        114,
+        118,
+        122,
+        123,
+        124,
+        125
+      ],
+      "state": "READY",
+      "priority": "P2",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "publication_id": "TP2-19C450642E6017128561",
+      "claim_id": null,
+      "lease_until": null,
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_tasks/RS-EULER-RECORDER-A03-CALIBRATION-REUSE-20261012.md",
+      "dependencies": [],
+      "dependency_projections": {},
+      "scope": "How nearly can a finite reversible preparer calibrate a fresh stream of offsets while returning its complete initial memory law and all the calibrated records? Determine exact finite dimension bounds, optimal labelled law, strict-correctness variant, repeated batches and the unknown first/second stopping time.",
+      "verified_input": "The A03 taskbook permits the public ternary E map as a conditional scientific input. A01 is a later source check, not an execution prerequisite. The new approximate catalytic optimum is measured in total variation of the full joint law on memory and all detached readouts. The 122 exact no-catalysis and radix-permutation baseline are explicit prior work. Actual public positive-weight execution and missing original private bundle are distinguished.",
+      "sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_tasks/RS-EULER-RECORDER-A03-CALIBRATION-REUSE-20261012.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/chatgpt_direct/20261011_EULER_RELATIONAL_RECORDING.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredtwentysecond/calibration.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/fiftieth/calibration.md"
+      ],
+      "prior_parent_distinct_registered_ids": 61,
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_task_records/RS-EULER-RECORDER-A03-CALIBRATION-REUSE-20261012/TP2-19C450642E6017128561.json",
+      "taskbook_git_blob_sha1": "7dc8fa38f2131d21ef03ea4c305bedda2fbb9cb8",
+      "publication_git_blob_sha1": "30f66823c47edb41f4836ec3f9ffd23a355ddd75",
+      "publication_dependencies": [],
+      "official_result_id": null
+    },
+    {
+      "task_id": "RS-HODGE-H0Q-NONSPLIT-WEIL-INDEPENDENT-OBSTRUCTION-AUDIT",
+      "repeat_visit": true,
+      "parent_objective_id": "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM",
+      "prior_parent_service": 3,
+      "prior_parent_waves": [
+        6,
+        14,
+        89
+      ],
+      "state": "READY",
+      "priority": "P2",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "publication_id": "TP2-31692BDDB326C04B4D62",
+      "claim_id": null,
+      "lease_until": null,
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_tasks/HODGE_H0Q_NONSPLIT_WEIL_INDEPENDENT_OBSTRUCTION_AUDIT_20260919.md",
+      "dependencies": [
+        "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT"
+      ],
+      "dependency_projections": {
+        "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT": {
+          "state": "DONE",
+          "dispatch_state": "COMPLETE",
+          "lease_until": null,
+          "publication_id": "TP2-05FAE6E393BAE7759DEC",
+          "result_id": "RR-D0D2E8489B7EC4AE9AB4",
+          "registered_result_files": [
+            "RR-D0D2E8489B7EC4AE9AB4"
+          ]
+        }
+      },
+      "scope": "Reconstruct the integral image of all 64 actual Gaussian graph classes on the exceptional special fibre, its intersection with the Weil plane and the minimal number of graphs representing each reachable pure class. Compare the ambient deformation obstruction of the lowest-weight expressions.",
+      "verified_input": "The H0Q source explicitly requests independent reconstruction of special-fibre graph and projector identities. The H0P dependency is formally DONE/COMPLETE; this visit studies this named subproblem and neither accepts the full H0Q audit nor transports the special-fibre cycle to a very general point.",
+      "sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_tasks/HODGE_H0Q_NONSPLIT_WEIL_INDEPENDENT_OBSTRUCTION_AUDIT_20260919.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/HODGE_WEIL_BILATERAL_DEFORMATION_FRONTIER_20260919.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/eightyninth/yoneda.md"
+      ],
+      "prior_parent_distinct_registered_ids": 2,
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_task_records/RS-HODGE-H0Q-NONSPLIT-WEIL-INDEPENDENT-OBSTRUCTION-AUDIT/TP2-31692BDDB326C04B4D62.json",
+      "taskbook_git_blob_sha1": "d444caaef91a13f85633ef79aa529cb871d0ad70",
+      "publication_git_blob_sha1": "c5a779504703960c4713dff875d430c3a0493eab",
+      "publication_dependencies": [
+        "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT"
+      ],
+      "official_result_id": null
+    },
+    {
+      "task_id": "RS-HBW-WEIGHTED-STABILIZER-IMAGE-KERNEL-20260927",
+      "repeat_visit": true,
+      "parent_objective_id": "PO-HBW-WEIGHTED-REPAIR-20260927",
+      "prior_parent_service": 6,
+      "prior_parent_waves": [
+        4,
+        13,
+        16,
+        22,
+        65,
+        98
+      ],
+      "state": "READY",
+      "priority": "P2",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "publication_id": "TP2-C593366399C0E3EF6EB6",
+      "claim_id": null,
+      "lease_until": null,
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_tasks/RS-HBW-WEIGHTED-STABILIZER-IMAGE-KERNEL-20260927.md",
+      "dependencies": [
+        "RS-HBW-WL-WM-RECONCILE-20260927"
+      ],
+      "dependency_projections": {
+        "RS-HBW-WL-WM-RECONCILE-20260927": {
+          "state": "READY",
+          "dispatch_state": "NEEDS_DISPATCH",
+          "lease_until": null,
+          "publication_id": "TP2-E06E64EA9A7F37145AC3",
+          "result_id": null,
+          "registered_result_files": []
+        }
+      },
+      "scope": "For integral companion-matrix anchors, compute the exact projective scalar symmetry conditions at every prime-power level, the full orbit stabilizer core, and the order of the true permutation image. Test separate weighted futures with the archived WM and WL programs.",
+      "verified_input": "The task calls for the image and kernel on a labelled weighted family. Earlier small stabilizers and projectively faithful one-bit models are comparison results; the exact scalar equations, full congruence-level action and two native tool checks under the frozen future interfaces are the new unit.",
+      "sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_tasks/RS-HBW-WEIGHTED-STABILIZER-IMAGE-KERNEL-20260927.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/ninetyeighth/stabilizers.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixteenth/stabilizer.md"
+      ],
+      "prior_parent_distinct_registered_ids": 4,
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_task_records/RS-HBW-WEIGHTED-STABILIZER-IMAGE-KERNEL-20260927/TP2-C593366399C0E3EF6EB6.json",
+      "taskbook_git_blob_sha1": "680125637111a3a7596af5ecbe578802b8b91a9f",
+      "publication_git_blob_sha1": "f3d3548371897f29b2e25e677b5aad74d415b678",
+      "publication_dependencies": [
+        "RS-HBW-WL-WM-RECONCILE-20260927"
+      ],
+      "official_result_id": null
+    },
+    {
+      "task_id": "RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY",
+      "repeat_visit": true,
+      "parent_objective_id": "PROGRESSIVE_PLANE_PRIME_SEMIPRIME_COORDINATE_DISCOVERY",
+      "prior_parent_service": 5,
+      "prior_parent_waves": [
+        2,
+        20,
+        23,
+        70,
+        102
+      ],
+      "state": "HANDOFF_READY",
+      "priority": "P2",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "publication_id": "TP2-38717785C4ADF3A12A49",
+      "claim_id": null,
+      "lease_until": null,
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_tasks/PFSSV_FINITE_WINDOW_NULL_IDENTIFIABILITY_20260908.md",
+      "dependencies": [
+        "RELATIONAL_AXIS_CONVENTION.md@main"
+      ],
+      "dependency_projections": {},
+      "scope": "For several named rows in the published semiprime incidence window, characterize which intersections of null events are determined by low-order marginals on the original fixed-cardinality slices. Compute exact budgets for perturbing this joint observable.",
+      "verified_input": "The author-side handoff licenses an explicitly synthetic identifiability comparison against the true frozen finite window. This is a multivariate extension of the single-row data of wave102. Results concern identifiability under constrained finite laws, not new sampling of primes, any original blind validation, or formal acceptance.",
+      "sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_tasks/PFSSV_FINITE_WINDOW_NULL_IDENTIFIABILITY_20260908.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredsecond/pfss.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/twentythird/null_window.md"
+      ],
+      "prior_parent_distinct_registered_ids": 3,
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_task_records/RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY/TP2-38717785C4ADF3A12A49.json",
+      "taskbook_git_blob_sha1": "7a96af089d96b37a559fa5c564f7ce5d3a5444ef",
+      "publication_git_blob_sha1": "8a2a6196dd8bbb814bf1e24433e380ac0e3d39aa",
+      "publication_dependencies": [
+        "RELATIONAL_AXIS_CONVENTION.md@main"
+      ],
+      "official_result_id": "RR-4760E87D1D3AD2F6AFFA"
+    },
+    {
+      "task_id": "RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION",
+      "repeat_visit": true,
+      "parent_objective_id": "OBJ-A3-RECURSIVE-SHELL-ALIGNMENT-AND-BULK-OBSERVATION",
+      "prior_parent_service": 3,
+      "prior_parent_waves": [
+        18,
+        73,
+        104
+      ],
+      "state": "HANDOFF_READY",
+      "priority": "P1",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "publication_id": "TP2-D2D715EB36415B0CA0C5",
+      "claim_id": null,
+      "lease_until": null,
+      "taskbook_url": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_tasks/A3_SHELL_PARTIAL_MOVE_SCALE_COHERENCE_REVISION_V2_20260828.md",
+      "dependencies": [],
+      "dependency_projections": {},
+      "scope": "Determine the limiting distribution of the true and primitive integer shells on their modular images, with the probability that the original marked partial gate fails and an explicit comparison between neighboring windows.",
+      "verified_input": "The handoff remains available with the original Driver request for revision. Uniform physical-shell counting uses the actual four named coordinates, a step beyond finite-image reachability in wave104. Its conditional calculations do not dispose of the existing Driver request.",
+      "sources": [
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_tasks/A3_SHELL_PARTIAL_MOVE_SCALE_COHERENCE_REVISION_V2_20260828.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredfourth/shell.md",
+        "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/seventythird/frame.md"
+      ],
+      "prior_parent_distinct_registered_ids": 1,
+      "publication_url": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_task_records/RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION/TP2-D2D715EB36415B0CA0C5.json",
+      "taskbook_git_blob_sha1": "d4eb9373ac8304f9310205e55918e88ff0ab5af3",
+      "publication_git_blob_sha1": "6ede89fe61b17898a6e5e36c48222aaa7550e8fd",
+      "publication_dependencies": [],
+      "official_result_id": "RR-9FF7F84F01C577774649"
+    }
+  ],
+  "remaining_gates": {
+    "older_physics": "R661 needs an admitted four-cell contact-port relation and autonomous timing; original time authority was claimed at #6992504859 and no result supplying that interface was posted. The remaining P000/GEO6/Hodge review gates have no new substantive authority.",
+    "older_arithmetic": "D25 #1559 still open (73 comments, last #6803845728), with original same-source H0/B0 p373 operator unprovided. PCF7 is a closure audit and both P11 and m7 require their own prior-controlled Magma provenance."
+  },
+  "priority_ingress": {
+    "strict_P1": "Original certified P11 Magma mixed-bit run remains restricted; its independent numerical or analytic side questions do not allocate any such execution.",
+    "native_time_lease": "Native Time was claimed by its own researcher in wave42. This wave has no claim for it.",
+    "triadic": "The new finite target-side notes by the original triadic owner do not supply the missing autonomous inter-Cell port/timing operation."
+  },
+  "unregistered_parallel_mathematics": {
+    "counted_ids": 0,
+    "counted_parents": 0,
+    "scopes": []
+  },
+  "cold_parent_admission_check": {
+    "preceding_source": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredtwentyfifth/fair_snapshot.json",
+    "check_scope": "The 24 tasks across 11 parents outside the four parents served in waves 40–44 were individually inspected against their native records. None offered a direct research unit with necessary inputs at that cutoff. The individual named sources are preserved in the preceding snapshot.",
+    "prior_counts_by_state": {
+      "strict_ready": 3,
+      "handoff_ready": 16,
+      "frozen_return": 5
+    },
+    "prior_checked_parents": 11,
+    "nearby_handoffs": {
+      "RS-GBRC-R1-TYPED-CARRIER": {
+        "state": "HANDOFF_READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/8437676dc45bbe7acecb2873664e31f55dff6823/research_artifacts/mcp/RS-GBRC-R1-TYPED-CARRIER/MCP-36b67cb54ee940659ef6549038a44580/f6adf775763b75c2f6d5/_checkpoint.json",
+        "scope": "Original resource continuation requires a genuine driver or owner assessment."
+      },
+      "RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS": {
+        "state": "HANDOFF_READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/f3fdc256c3563a5b1d18865a49dd156a24f48a49/research_artifacts/mcp/RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS/MCP-c618a61189764f23846a391a08518a1a/ab9b5f2e0dd72e021f71/_checkpoint.json",
+        "scope": "Closed selector synthesis and review; finite-ring independent mathematics has zero registered weight."
+      },
+      "RS-CFD-SPECTRAL-HYBRID-20260910": {
+        "state": "HANDOFF_READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/585bcf761e7bd87f45d6ff628b2569d5750432ff/research_artifacts/mcp/RS-CFD-SPECTRAL-HYBRID-20260910/MCP-0e6fcaa5c5a3425cbe4259abf1694b46/07ed4e44c39247e40c61/_checkpoint.json",
+        "scope": "The exact held-out A/B/C experiment must run on the pinned already-provisioned native host with matched call IDs and timing partitions. The required host was not evidenced in current accessible inputs."
+      }
+    },
+    "selection_basis": "One strictly eligible, previously unserved calibration-resource contract has matching public mathematics. Four different low-frequency parents, whose last direct visits were 89, 98, 102 and 104 respectively, supply genuinely different original inputs. The three strict non-Euler gates, remaining high-priority handoffs and frozen responses were checked at both heads."
+  },
+  "fair_revisits": [
+    {
+      "previous_service_waves": [
+        6,
+        89
+      ],
+      "previous_service_count_for_this_parent": 3,
+      "previous_service_count_for_this_task": 2,
+      "task_id": "RS-HODGE-H0Q-NONSPLIT-WEIL-INDEPENDENT-OBSTRUCTION-AUDIT",
+      "source": "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/eightyninth/yoneda.md",
+      "new_question": "Reconstruct the integral image of all 64 actual Gaussian graph classes on the exceptional special fibre, its intersection with the Weil plane and the minimal number of graphs representing each reachable pure class. Compare the ambient deformation obstruction of the lowest-weight expressions.",
+      "unique_id_increment": 0
+    },
+    {
+      "previous_service_waves": [
+        16,
+        98
+      ],
+      "previous_service_count_for_this_parent": 6,
+      "previous_service_count_for_this_task": 2,
+      "task_id": "RS-HBW-WEIGHTED-STABILIZER-IMAGE-KERNEL-20260927",
+      "source": "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixteenth/stabilizer.md",
+      "new_question": "For integral companion-matrix anchors, compute the exact projective scalar symmetry conditions at every prime-power level, the full orbit stabilizer core, and the order of the true permutation image. Test separate weighted futures with the archived WM and WL programs.",
+      "unique_id_increment": 0
+    },
+    {
+      "previous_service_waves": [
+        23,
+        102
+      ],
+      "previous_service_count_for_this_parent": 5,
+      "previous_service_count_for_this_task": 2,
+      "task_id": "RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY",
+      "source": "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/twentythird/null_window.md",
+      "new_question": "For several named rows in the published semiprime incidence window, characterize which intersections of null events are determined by low-order marginals on the original fixed-cardinality slices. Compute exact budgets for perturbing this joint observable.",
+      "unique_id_increment": 0
+    },
+    {
+      "previous_service_waves": [
+        18,
+        73,
+        104
+      ],
+      "previous_service_count_for_this_parent": 3,
+      "previous_service_count_for_this_task": 3,
+      "task_id": "RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION",
+      "source": "https://github.com/awdawmip/enterprise-math/blob/a89c87d2df583213e057cadfe77db32c6d8f8df8/research_notes/portable_direct/20261118_fair_queue_6b0fba/seventythird/frame.md",
+      "new_question": "Determine the limiting distribution of the true and primitive integer shells on their modular images, with the probability that the original marked partial gate fails and an explicit comparison between neighboring windows.",
+      "unique_id_increment": 0
+    }
+  ],
+  "dependency_interpretation": {
+    "RS-EULER-RECORDER-A03-CALIBRATION-REUSE-20261012": "The A03 taskbook permits the public ternary E map as a conditional scientific input. A01 is a later source check, not an execution prerequisite. The new approximate catalytic optimum is measured in total variation of the full joint law on memory and all detached readouts. The 122 exact no-catalysis and radix-permutation baseline are explicit prior work. Actual public positive-weight execution and missing original private bundle are distinguished.",
+    "RS-HODGE-H0Q-NONSPLIT-WEIL-INDEPENDENT-OBSTRUCTION-AUDIT": "The H0Q source explicitly requests independent reconstruction of special-fibre graph and projector identities. The H0P dependency is formally DONE/COMPLETE; this visit studies this named subproblem and neither accepts the full H0Q audit nor transports the special-fibre cycle to a very general point.",
+    "RS-HBW-WEIGHTED-STABILIZER-IMAGE-KERNEL-20260927": "The task calls for the image and kernel on a labelled weighted family. Earlier small stabilizers and projectively faithful one-bit models are comparison results; the exact scalar equations, full congruence-level action and two native tool checks under the frozen future interfaces are the new unit.",
+    "RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY": "The author-side handoff licenses an explicitly synthetic identifiability comparison against the true frozen finite window. This is a multivariate extension of the single-row data of wave102. Results concern identifiability under constrained finite laws, not new sampling of primes, any original blind validation, or formal acceptance.",
+    "RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION": "The handoff remains available with the original Driver request for revision. Uniform physical-shell counting uses the actual four named coordinates, a step beyond finite-image reachability in wave104. Its conditional calculations do not dispose of the existing Driver request."
+  },
+  "admission_readback_for_this_wave": {
+    "prior_never_served_pools": [
+      14,
+      17,
+      5
+    ],
+    "official_selected_at_both_samples": true,
+    "first_visit": "A03 has no blocking execution prerequisite. Its particular conditional-source dependency A01 is distinct from the October 12 RR03 already studied. The actual public positive weighted write and all original reference/readout correlations are verified; original S01/S06 binary execution and independent formal acceptance remain unclaimed.",
+    "cold_non_euler_first_visits": "The untouched P11 mixed-bit Magma run, the exact original m7 trace and the reopened PCF7 Driver audit each retain their earlier gate. The remaining handoffs and frozen results still require their named scientific inputs or designated review. No selected task was held under an external lease.",
+    "H0P_official_prerequisite": {
+      "state": "DONE",
+      "dispatch_state": "COMPLETE",
+      "result_id": "RR-D0D2E8489B7EC4AE9AB4",
+      "review_status": "ACCEPTED"
+    },
+    "A01_conditional_source": {
+      "state": "READY",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "result_id": null,
+      "review_status": null
+    },
+    "A3_driver": "DR-6611672696529B69BDA5 REQUEST_REVISION, nonterminal; mathematical extension only.",
+    "five_distinct_parents": true,
+    "science_files": [
+      "catalyst.md",
+      "weilgrid.md",
+      "companion.md",
+      "jointnull.md",
+      "shell_law.md"
+    ],
+    "covered_outside_leases_at_cutoff": [
+      "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028",
+      "RS-X6-LEGACY-PLANE-RECONCILIATION",
+      "RS-X6-NATIVE-TIME-DYNAMICS",
+      "RS-X6-TRIADIC-CLOSURE-DYNAMICS"
+    ],
+    "original_owner_progress": {
+      "task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+      "case": "R762GD",
+      "source": "https://github.com/awdawmip/enterprise-math/blob/97afc2fbd8925362dd8e17099ce6aab602812a30/research_artifacts/mcp/RS-X6-TRIADIC-CLOSURE-DYNAMICS/MCP-4b2d70a97f594366a7c94a0f8b45df38/2927caadb2038b545f24/_checkpoint.json",
+      "new_mathematics": "Three K4 STAR min-zero coordinate observers recover all six original relative coordinates, and 20 complementary signed endpoint doubletons remain. The owner marks the exact legal event predicate and future separation as unfinished.",
+      "unchanged_admission": "This is a genuine update to an already occupied, previously visited task, with no new unserved registered mathematical entrance here."
+    },
+    "priority_resolution": "The frozen H0Q taskbook header gives P1; the current publication/reducer field assigns P2 at both cutoffs. The selected effective P1 is the A3 revision handoff."
+  }
+}
