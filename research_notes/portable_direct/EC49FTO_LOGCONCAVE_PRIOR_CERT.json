@@ -1,0 +1,59 @@
+{
+  "schema": "EC49FTO_POSITIVE_LOGCONCAVE_PRIOR_AUTHOR_CERT_V1",
+  "date": "2026-11-19",
+  "status": "AUTHOR_PROVED_EXACT_FRACTION_REGRESSION_PARENT_DEPENDENT_NOT_REVIEWED",
+  "source_repository": "awdawmip/enterprise-math",
+  "frozen_native_input": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "native_parent_pr": 2774,
+  "price_distribution_parent_pr": 2783,
+  "immediate_parent_pr": 2786,
+  "domain": {
+    "a": [
+      "3/4",
+      "49/64"
+    ],
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "11/16",
+      "3/4"
+    ],
+    "prior": "independent strictly positive continuous log-concave densities f(a),g(b)"
+  },
+  "theorem": "For all interior m<m', conditional Z|M=m is first-order stochastically dominated by conditional Z|M=m', including rightmost z=3/4 clipping atom. Conditional versions are one-sided at m1,m2.",
+  "proof_components": [
+    "concavity finite-difference -> TP2 continuous fiber kernel",
+    "monotone lower and upper z-support endpoints",
+    "boundary atom ratio B/I strictly increasing under product log-concavity",
+    "transitivity and covariance of increasing observables"
+  ],
+  "exact_example": {
+    "f": "a",
+    "g": "b",
+    "both_logconcave": true,
+    "not_exponential_tilts": true,
+    "clipping_probability": "109942873/241690050"
+  },
+  "validation": {
+    "arithmetic": "Python fractions.Fraction (exact rational)",
+    "conditional_m_points": 30,
+    "thresholds": 31,
+    "ordered_pairs": 435,
+    "exact_CDF_comparisons": 13485,
+    "native_bellman_rerun": false,
+    "formal_review": false
+  },
+  "formal": {
+    "task_publication": false,
+    "claim": false,
+    "result": false,
+    "review": false,
+    "activity": false
+  },
+  "next": [
+    "Weaken product log-concavity through exact TP2 plus boundary compatibility",
+    "Native BRC16943 Bellman new phase below z=11/16"
+  ]
+}
