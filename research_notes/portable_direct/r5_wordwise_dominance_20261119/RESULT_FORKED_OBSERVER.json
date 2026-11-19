@@ -1,0 +1,29 @@
+{
+  "schema": "EM_R5_FORKED_OBSERVER_CHECK_V1",
+  "result": "PASS",
+  "complete_n3": {
+    "checks": 52488,
+    "fixed_witness_yes": 26157,
+    "fixed_witness_no": 26331,
+    "wordwise_safe_but_fork_unsafe": 1500
+  },
+  "explicit_n5": {
+    "initial_x": 0,
+    "initial_Y": [
+      1,
+      2
+    ],
+    "fork_words": [
+      "a",
+      "b"
+    ],
+    "fork_size": 2,
+    "joint_query": {
+      "a": 1,
+      "b": 1
+    },
+    "joint_query_before": true,
+    "joint_query_after": false
+  },
+  "inference": "bounded <=|Y| fork failures certify no common future witness; finite-Y necessity from intersection argument"
+}
