@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "path": "research_notes/portable_direct/x6_hidden_order_factorial_brc_verify.py",
+    "ref": "91ee2ff68cca66566b473788a3bcf07fb09724df"
+  },
+  "observation_id": "r2-x6-r15-20261119-code",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"All labelled future words h<=2 in the conditional signed-X6 vacancy model.\"\"\"\nfrom itertools import permutations\nfrom math import factorial\nimport json\n\ndef cell(x): return (x,0,0,0,0,0)\ndef move(pos,event):\n    s,axis,sign=event\n    x=list(pos[s]);x[axis]+=sign;target=tuple(x)\n    if target in pos:return None\n    new=list(pos);new[s]=target\n    return tuple(new)\ndef language(pos,h):\n    alphabet=[(s,a,d) for s in range(len(pos)) for a in range(6) for d in (-1,1)]\n    out={()};level=[(pos,())]\n    for _ in range(h):\n        nxt=[]\n        for p,w in level:\n            for event in alphabet:\n                q=move(p,event)\n                if q is not None:\n                    w1=w+(event,);out.add(w1);nxt.append((q,w1))\n        level=nxt\n    return frozenset(out)\ndef build(k,order):\n    ps=[None]*(k+2)\n    ps[0]=cell(0);ps[k+1]=cell(k+1)\n    for i,label in enumerate(order,1):ps[label]=cell(i)\n    return tuple(ps)\ndef witness(k,first,second):\n    a=(0,)+first+(k+1,)\n    b=(0,)+second+(k+1,)\n    pred={a[i]:a[i-1] for i in range(1,k+1)}\n    pred2={b[i]:b[i-1] for i in range(1,k+1)}\n    s=next(i for i in range(1,k+1) if pred[i]!=pred2[i])\n    t=pred[s]\n    return ((s,1,1),(t,0,1))\ndef run():\n    rows=[];word_count=0;checks=0\n    for k in range(1,6):\n        orders=list(permutations(range(1,k+1)))\n        L1=[];L2=[]\n        for order in orders:\n            ps=build(k,order)\n            a=language(ps,1);b=language(ps,2)\n            L1.append(a);L2.append(b);word_count+=len(a)+len(b)\n        assert len(set(L1))==1\n        assert len(set(L2))==factorial(k)\n        for i,p in enumerate(orders):\n            for j,q in enumerate(orders):\n                if i==j:continue\n                w=witness(k,p,q)\n                assert w in L2[i] and w not in L2[j],(k,p,q,w)\n                checks+=1\n        rows.append({\"interior_labels\":k,\"states\":factorial(k),\n                     \"h1_language_classes\":len(set(L1)),\n                     \"h2_language_classes\":len(set(L2)),\n                     \"h2_min_bits\":(factorial(k)-1).bit_length()})\n    out={\n        \"result\":\"PASS\",\n        \"conditional_model\":\"finite sources move one signed X6 axis step iff target vacant; exact source+Port word support; not native TRIADIC_CLOSURE_E permission\",\n        \"domain\":\"all interior label permutations for k=1..5, endpoints fixed, positions 0..k+1 on native e1 within the full six-dimensional signed Cell chart\",\n        \"rows\":rows,\n        \"cumulative_legal_word_observations_h1_and_h2\":word_count,\n        \"ordered_distinguishing_pair_witness_checks\":checks,\n        \"universal_formula\":\"h1 classes=1; h2 classes=k!; horizon-2 distinguishing bits=ceil(log2(k!)) for all integers k>=1; symbolic proof independent of finite tests\"}\n    print(json.dumps(out,sort_keys=True,indent=2))\nif __name__==\"__main__\":run()\n",
+      "encoding": "utf-8",
+      "sha": "e46b5d9ae755c68450831735023a8f3becc6311d",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/91ee2ff68cca66566b473788a3bcf07fb09724df/research_notes/portable_direct/x6_hidden_order_factorial_brc_verify.py",
+      "display_title": "x6_hidden_order_factorial_brc_verify.py"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
