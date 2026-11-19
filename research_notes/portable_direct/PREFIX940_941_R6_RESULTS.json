@@ -1,0 +1,101 @@
+{
+  "schema": "PREFIX940_941_R6_K11_K12_FINITE_CENSUS_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_COMPUTED_NOT_REVIEWED_NOT_ADMITTED",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "date": "2026-11-19",
+  "model": "AUXILIARY_NAMED_XOR_TWO_PORT_OBSERVER",
+  "historical_researcher": "EM-DIRECT-58C410",
+  "historical_activity": "RA-25432C4AAE9BF66A907F5115",
+  "Q": {
+    "min": 262145,
+    "max": 524287,
+    "step": 2,
+    "size": 131072,
+    "ordered_pair_count": 17179869184
+  },
+  "prior_union": 7552811074,
+  "K11": {
+    "bit_combination_count": 361,
+    "quotient_t_max": 22,
+    "raw_witnesses": 16974425,
+    "unique_W11": 13144330,
+    "priority_disjoint": {
+      "BZS": 6510937,
+      "U": 2356,
+      "V": 25991,
+      "W2": 711646,
+      "W3": 765,
+      "D4": 283,
+      "W5": 768,
+      "D6": 501,
+      "W7": 710,
+      "D8": 414,
+      "W9": 942,
+      "D10": 103,
+      "NEW": 5888914
+    },
+    "union": 7558699988,
+    "first_new": {
+      "a": 272161,
+      "b": 520807,
+      "i": 0,
+      "j": 17,
+      "t": 6,
+      "start": 2993771,
+      "endpoint": 3124843,
+      "zero_endpoint": 1
+    }
+  },
+  "K12": {
+    "total_bit_combinations": 361,
+    "interior_exactly_covered_by_W3": 289,
+    "low_bit_boundary_combinations": 72,
+    "quotient_t_max": 24,
+    "raw_boundary_witnesses": 3719345,
+    "unique_D12": 3522575,
+    "priority_disjoint": {
+      "BZS": 1815500,
+      "U": 642,
+      "V": 6440,
+      "W2": 22382,
+      "W3": 520,
+      "D4": 58200,
+      "W5": 302,
+      "D6": 739631,
+      "W7": 369,
+      "D8": 9,
+      "W9": 185,
+      "D10": 10,
+      "W11": 213,
+      "NEW": 878172
+    },
+    "union": 7559578160,
+    "first_new": {
+      "a": 276843,
+      "b": 512037,
+      "i": 0,
+      "j": 18,
+      "t": 7,
+      "start": 3322116,
+      "endpoint": 3584260,
+      "zero_endpoint": 1
+    }
+  },
+  "final_union": 7559578160,
+  "uncategorized_by_named_certificates": 9620291024,
+  "sha256_sorted_ids": {
+    "W11": "8212f0472ebe72ae93db8a205c8631f5eb96abbe952588cc08a5eb4087aeecf5",
+    "NEW11": "b17896465cb38ca5b87e48f88ebaf7d709888a9d0ef343c1c056916fb6c03ad9",
+    "D12": "8674cab718a62897ac2189499a4c060508a9ab759ca5ed5ea5e531ea8ea90b64",
+    "NEW12": "a0e3bca93ac8fbf3eb97c1850a3190a40b55e7f80f1b889ffd523da48eb38581"
+  },
+  "independent_verification": {
+    "cpp_vs_numpy_quotients_equal": true,
+    "cpp_vs_numpy_priority_partitions_equal": true,
+    "cpp_vs_numpy_complete_binary_equal": true
+  },
+  "source_cli_audit": "NOT_RUN",
+  "review": "NOT_REVIEWED",
+  "admission": "NOT_ADMITTED",
+  "native_X6_transfer": false
+}
