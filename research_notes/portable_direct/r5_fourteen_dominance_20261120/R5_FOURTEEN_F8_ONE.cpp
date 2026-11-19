@@ -1,93 +1,63 @@
-// Exact C++17 R5 13-label scalar Bellman census, f=7..8.
-// Input window_adj.bin: 101*256*256 bytes, [0<=N_j(k)-N_i(k)<=tau].
-// Scientific SHA-256 50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b
+// Exact R5 14-label scalar Bellman minimax, f=8, frozen integer window adjacency.
+// Input SHA256: 50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b.
 #include <bits/stdc++.h>
 using namespace std;
-constexpr int N=256,Q=101,K=14,FULL=(1<<K)-1;
+constexpr int N=256,Q=101,K=14,FULL=(1<<K)-1,f=8;
 constexpr int seed[12]={0,16,32,48,1,64,17,80,18,24,34,82};
-struct Act {int cost; vector<int> masks;};
+struct Act{int cost;vector<int> masks;};
 using Sig=vector<Act>;
-vector<int> maxfam(vector<int>a){
- sort(a.begin(),a.end());a.erase(unique(a.begin(),a.end()),a.end());vector<int>r;
- for(int m:a){bool dominated=false;for(int n:a)if(m!=n&&(m&n)==m){dominated=true;break;}if(!dominated)r.push_back(m);}
+vector<int> maxfam(vector<int> a){
+ sort(a.begin(),a.end());a.erase(unique(a.begin(),a.end()),a.end());
+ vector<int> r;
+ for(int m:a){bool sub=false;for(int n:a)if(n!=m&&(m&n)==m){sub=true;break;}if(!sub)r.push_back(m);}
  return r;
 }
-Sig signature(const vector<uint8_t>&adj,int t,int u){
- int h[K];copy(begin(seed),end(seed),h);h[12]=t;h[13]=u;map<vector<int>,int> p;
+Sig signature(const vector<uint8_t>&adj,int u,int v){
+ int h[K];copy(begin(seed),end(seed),h);h[12]=u;h[13]=v;
+ map<vector<int>,int> chosen;
  for(int qi=0;qi<Q;qi++){
-  const uint8_t* data=adj.data()+(size_t)qi*N*N;vector<int>masks;
-  for(int i=0;i<K;i++){int m=0;for(int j=0;j<K;j++)if(data[h[i]*N+h[j]])m|=1<<j;masks.push_back(m);}
+  const uint8_t* a=adj.data()+(size_t)qi*N*N;vector<int> masks;
+  for(int i=0;i<K;i++){int m=0;for(int j=0;j<K;j++)if(a[h[i]*N+h[j]])m|=1<<j;masks.push_back(m);}
   auto fam=maxfam(move(masks));if(fam.size()==1&&fam[0]==FULL)continue;
-  if(!p.count(fam))p[fam]=214+qi;
+  auto it=chosen.find(fam);if(it==chosen.end()||it->second>214+qi)chosen[fam]=214+qi;
  }
- Sig a;for(const auto&[m,c]:p)a.push_back({c,m});
- sort(a.begin(),a.end(),[](const Act&a,const Act&b){return a.cost<b.cost;});return a;
+ Sig r;for(auto&[m,k]:chosen)r.push_back({k,m});
+ sort(r.begin(),r.end(),[](auto&a,auto&b){return a.cost<b.cost;});
+ return r;
 }
-string key(const Sig&s){
- string z;for(const auto&a:s){z+=to_string(a.cost);z+=':';for(int m:a.masks){z+=to_string(m);z+=',';}z+=';';}return z;
-}
-int fzero(const Sig&s){
- int d[1<<K]={};
- for(int live=1;live<=FULL;live++){
-  if(__builtin_popcount((unsigned)live)<=1)continue;int best=INT_MAX/4;
-  for(const auto&a:s){
-   int worst=0;bool skip=false;
-   for(int m:a.masks){int q=live&m;if(q==live){skip=true;break;}worst=max(worst,d[q]);}
-   if(!skip)best=min(best,a.cost+worst);
-  }
-  if(best==INT_MAX/4)throw runtime_error("NO_PROGRESS");
-  d[live]=best;
- }
- return d[FULL];
-}
-struct DP {
- int f,b;uint64_t W[K];unordered_map<uint64_t,int>M;size_t calls=0,cap;
- DP(int ff,size_t limit):f(ff),b(ff+2),cap(limit){
-  W[0]=1;for(int i=1;i<K;i++)W[i]=W[i-1]*b;M.reserve(50000);
- }
- int rec(uint64_t idx,const Sig&a){
-  auto it=M.find(idx);if(it!=M.end())return it->second;
-  uint64_t y=idx;int e[K],live=0;
-  for(int i=0;i<K;i++){e[i]=y%b;y/=b;if(e[i]<=f)live|=1<<i;}
+struct DP{
+ uint64_t weights[K];unordered_map<uint64_t,int> memo;size_t visited=0,cap;
+ DP(size_t limit):cap(limit){weights[0]=1;for(int i=1;i<K;i++)weights[i]=weights[i-1]*(f+2);memo.reserve(50000);}
+ int rec(uint64_t state,const Sig&acts){
+  auto it=memo.find(state);if(it!=memo.end())return it->second;
+  int e[K],live=0;auto t=state;
+  for(int i=0;i<K;i++){e[i]=t%(f+2);t/=f+2;if(e[i]<=f)live|=1<<i;}
   if(__builtin_popcount((unsigned)live)<=1)return 0;
-  if(++calls>cap)throw runtime_error("STATE_CAP_REACHED");
+  if(++visited>cap)throw runtime_error("STATE_CAP");
   int best=INT_MAX/4;
-  for(const auto&act:a){
-   bool stall=false;for(int s:act.masks)if((s&live)==live){stall=true;break;}
+  for(auto&act:acts){
+   bool stall=false;for(int m:act.masks)if((m&live)==live){stall=true;break;}
    if(stall)continue;
    int worst=0;
-   for(int s:act.masks){
-    uint64_t next=idx;
-    for(int i=0;i<K;i++)if(!(s&(1<<i))&&e[i]<f+1)next+=W[i];
-    worst=max(worst,rec(next,a));if(act.cost+worst>=best)break;
+   for(int m:act.masks){
+    uint64_t next=state;
+    for(int i=0;i<K;i++)if(e[i]<f+1&&!(m&(1<<i)))next+=weights[i];
+    worst=max(worst,rec(next,acts));
+    if(act.cost+worst>=best)break;
    }
    best=min(best,act.cost+worst);
   }
   if(best==INT_MAX/4)throw runtime_error("NO_PROGRESS");
-  M.emplace(idx,best);return best;
+  memo.emplace(state,best);return best;
  }
 };
 int main(int argc,char**argv){
- if(argc<2){cerr<<"Usage: program window_adj.bin [cap]\n";return 2;}
- ifstream fi(argv[1],ios::binary);vector<uint8_t>adj((size_t)Q*N*N);
- fi.read((char*)adj.data(),adj.size());
- if(!fi||fi.gcount()!=(streamsize)adj.size())return 3;
- size_t cap=argc>2?stoull(argv[2]):18000000;
- map<string,pair<vector<int>,int>>cache;map<string,int>hist;
- cout<<"t,class,f0,f7,f8\n";
- bool used[N]={};for(int x:seed)used[x]=true;
- for(int t=0;t<N;t++)if(!used[t]){
-  int u=stoi(argv[3]);auto s=signature(adj,t,u);auto k=key(s);auto it=cache.find(k);
-  vector<int>val;int cls;
-  if(it==cache.end()){
-   val.push_back(fzero(s));
-   for(int f=7;f<=8;f++){DP solver(f,cap);val.push_back(solver.rec(0,s));}
-   cls=cache.size();cache.emplace(move(k),make_pair(val,cls));
-  }else{val=it->second.first;cls=it->second.second;}
-  cout<<t<<","<<cls;for(int v:val)cout<<","<<v;cout<<"\n";
-  string pr;for(int v:val){pr+=to_string(v)+",";}hist[pr]++;
- }
- cerr<<"CLASSES "<<cache.size()<<"\n";
- for(auto&[v,n]:hist)cerr<<"PROFILE "<<v<<" "<<n<<"\n";
- return 0;
+ if(argc<4){cerr<<"USAGE: solver window_adj.bin u v [state_cap]\n";return 2;}
+ ifstream in(argv[1],ios::binary);vector<uint8_t>adj((size_t)Q*N*N);
+ in.read((char*)adj.data(),adj.size());if(!in||in.gcount()!=(streamsize)adj.size())return 3;
+ int u=stoi(argv[2]),v=stoi(argv[3]);if(u==v)return 4;
+ for(int x:seed)if(u==x||v==x)return 5;
+ auto sig=signature(adj,u,v);DP d(argc>4?stoull(argv[4]):12000000);
+ try{int val=d.rec(0,sig);cout<<"PAIR="<<u<<","<<v<<" F8="<<val<<" STATES="<<d.memo.size()<<" ACTIONS="<<sig.size()<<"\n";}
+ catch(exception&e){cerr<<e.what()<<"\n";return 6;}
 }
