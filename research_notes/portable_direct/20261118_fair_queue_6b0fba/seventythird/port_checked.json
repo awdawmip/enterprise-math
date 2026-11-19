@@ -1,0 +1,949 @@
+{
+  "source_receipts": {
+    "unrestricted_source_words": 255,
+    "individual_source_edge_transitions": 3076,
+    "rejected_example": {
+      "N": 4,
+      "m": 2,
+      "attempt": "AB",
+      "accepted": "A",
+      "phase_after": 1,
+      "B_status": "refused with all coordinates unchanged"
+    },
+    "boundary_pair": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        1
+      ]
+    ],
+    "boundary_codes": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "optional_first_A_probe": [
+      0,
+      1
+    ]
+  },
+  "cases": [
+    {
+      "N": 4,
+      "m": 2,
+      "common_word_prepared_raw_states": 96,
+      "arithmetic_classes": 9,
+      "joint_partition_sizes": [
+        4,
+        12,
+        21,
+        27
+      ],
+      "greatest_minimum_macro_length": 3,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            1,
+            1,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            0,
+            2,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "BUB",
+        "terminal_obs": [
+          [
+            false,
+            0
+          ],
+          [
+            true,
+            0
+          ]
+        ]
+      },
+      "micro": {
+        "states": 192,
+        "observable_classes": 54,
+        "classes_when_pair_probe_is_allowed_while_busy": 108,
+        "greatest_minimum_accepted_or_rejected_prefix_steps": 4
+      }
+    },
+    {
+      "N": 8,
+      "m": 2,
+      "common_word_prepared_raw_states": 384,
+      "arithmetic_classes": 33,
+      "joint_partition_sizes": [
+        4,
+        12,
+        27,
+        66,
+        93,
+        99
+      ],
+      "greatest_minimum_macro_length": 5,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            3,
+            2,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            1,
+            6,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "BUBBB",
+        "terminal_obs": [
+          [
+            false,
+            0
+          ],
+          [
+            true,
+            0
+          ]
+        ]
+      },
+      "micro": {
+        "states": 768,
+        "observable_classes": 198,
+        "classes_when_pair_probe_is_allowed_while_busy": 396,
+        "greatest_minimum_accepted_or_rejected_prefix_steps": 7
+      }
+    },
+    {
+      "N": 8,
+      "m": 4,
+      "common_word_prepared_raw_states": 384,
+      "arithmetic_classes": 17,
+      "joint_partition_sizes": [
+        4,
+        12,
+        21,
+        39,
+        48,
+        51
+      ],
+      "greatest_minimum_macro_length": 5,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            2,
+            4,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            1,
+            6,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "BUBBB",
+        "terminal_obs": [
+          [
+            true,
+            0
+          ],
+          [
+            false,
+            0
+          ]
+        ]
+      },
+      "micro": {
+        "states": 1536,
+        "observable_classes": 204,
+        "classes_when_pair_probe_is_allowed_while_busy": 408,
+        "greatest_minimum_accepted_or_rejected_prefix_steps": 10
+      }
+    },
+    {
+      "N": 9,
+      "m": 3,
+      "common_word_prepared_raw_states": 486,
+      "arithmetic_classes": 28,
+      "joint_partition_sizes": [
+        4,
+        20,
+        48,
+        108,
+        138,
+        156,
+        162,
+        168
+      ],
+      "greatest_minimum_macro_length": 7,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            2,
+            3,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            1,
+            6,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "BUBBBBB",
+        "terminal_obs": [
+          [
+            false,
+            0
+          ],
+          [
+            true,
+            0
+          ]
+        ]
+      },
+      "micro": {
+        "states": 1458,
+        "observable_classes": 504,
+        "classes_when_pair_probe_is_allowed_while_busy": 504,
+        "greatest_minimum_accepted_or_rejected_prefix_steps": 11
+      }
+    },
+    {
+      "N": 16,
+      "m": 4,
+      "common_word_prepared_raw_states": 1536,
+      "arithmetic_classes": 65,
+      "joint_partition_sizes": [
+        4,
+        12,
+        27,
+        66,
+        129,
+        159,
+        171,
+        183,
+        189,
+        195
+      ],
+      "greatest_minimum_macro_length": 9,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            3,
+            4,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            1,
+            12,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "BUBBBBBBB",
+        "terminal_obs": [
+          [
+            false,
+            0
+          ],
+          [
+            true,
+            0
+          ]
+        ]
+      },
+      "micro": null
+    },
+    {
+      "N": 25,
+      "m": 5,
+      "common_word_prepared_raw_states": 3750,
+      "arithmetic_classes": 126,
+      "joint_partition_sizes": [
+        4,
+        20,
+        48,
+        132,
+        240,
+        288,
+        354,
+        444,
+        534,
+        624,
+        714,
+        756
+      ],
+      "greatest_minimum_macro_length": 11,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            2,
+            15,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            1,
+            20,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "BUBBBBBBBBB",
+        "terminal_obs": [
+          [
+            false,
+            0
+          ],
+          [
+            true,
+            0
+          ]
+        ]
+      },
+      "micro": null
+    },
+    {
+      "N": 27,
+      "m": 9,
+      "common_word_prepared_raw_states": 4374,
+      "arithmetic_classes": 82,
+      "joint_partition_sizes": [
+        4,
+        20,
+        48,
+        108,
+        150,
+        204,
+        258,
+        288,
+        306,
+        324,
+        354,
+        372,
+        390,
+        408,
+        426,
+        444,
+        462,
+        480,
+        486,
+        492
+      ],
+      "greatest_minimum_macro_length": 19,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            2,
+            9,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            1,
+            18,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "BUBBBBBBBBBBBBBBBBB",
+        "terminal_obs": [
+          [
+            false,
+            0
+          ],
+          [
+            true,
+            0
+          ]
+        ]
+      },
+      "micro": null
+    },
+    {
+      "N": 6,
+      "m": 2,
+      "common_word_prepared_raw_states": 216,
+      "arithmetic_classes": 28,
+      "joint_partition_sizes": [
+        4,
+        12,
+        27,
+        66,
+        81,
+        84
+      ],
+      "greatest_minimum_macro_length": 5,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            5,
+            2,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            1,
+            4,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "UBBBB",
+        "terminal_obs": [
+          [
+            true,
+            0
+          ],
+          [
+            false,
+            0
+          ]
+        ]
+      },
+      "micro": {
+        "states": 432,
+        "observable_classes": 168,
+        "classes_when_pair_probe_is_allowed_while_busy": 336,
+        "greatest_minimum_accepted_or_rejected_prefix_steps": 7
+      }
+    },
+    {
+      "N": 6,
+      "m": 3,
+      "common_word_prepared_raw_states": 216,
+      "arithmetic_classes": 17,
+      "joint_partition_sizes": [
+        4,
+        20,
+        42,
+        72,
+        90,
+        102
+      ],
+      "greatest_minimum_macro_length": 5,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            2,
+            2,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            1,
+            4,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "BBBBB",
+        "terminal_obs": [
+          [
+            true,
+            0
+          ],
+          [
+            false,
+            0
+          ]
+        ]
+      },
+      "micro": {
+        "states": 648,
+        "observable_classes": 306,
+        "classes_when_pair_probe_is_allowed_while_busy": 306,
+        "greatest_minimum_accepted_or_rejected_prefix_steps": 8
+      }
+    },
+    {
+      "N": 12,
+      "m": 4,
+      "common_word_prepared_raw_states": 864,
+      "arithmetic_classes": 64,
+      "joint_partition_sizes": [
+        4,
+        12,
+        27,
+        72,
+        108,
+        138,
+        156,
+        174,
+        189,
+        192
+      ],
+      "greatest_minimum_macro_length": 9,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            5,
+            4,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            1,
+            8,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "UBBBBBBBB",
+        "terminal_obs": [
+          [
+            false,
+            0
+          ],
+          [
+            true,
+            0
+          ]
+        ]
+      },
+      "micro": null
+    },
+    {
+      "N": 12,
+      "m": 6,
+      "common_word_prepared_raw_states": 864,
+      "arithmetic_classes": 33,
+      "joint_partition_sizes": [
+        4,
+        12,
+        21,
+        42,
+        60,
+        81,
+        93,
+        99
+      ],
+      "greatest_minimum_macro_length": 7,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            2,
+            6,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            1,
+            9,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "BUBBBBB",
+        "terminal_obs": [
+          [
+            true,
+            0
+          ],
+          [
+            false,
+            0
+          ]
+        ]
+      },
+      "micro": null
+    },
+    {
+      "N": 18,
+      "m": 6,
+      "common_word_prepared_raw_states": 1944,
+      "arithmetic_classes": 82,
+      "joint_partition_sizes": [
+        4,
+        12,
+        27,
+        72,
+        117,
+        156,
+        183,
+        204,
+        213,
+        222,
+        231,
+        240,
+        243,
+        246
+      ],
+      "greatest_minimum_macro_length": 13,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            5,
+            6,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            1,
+            12,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "BUBBBBBBBBBBB",
+        "terminal_obs": [
+          [
+            false,
+            0
+          ],
+          [
+            true,
+            0
+          ]
+        ]
+      },
+      "micro": null
+    },
+    {
+      "N": 4,
+      "m": 1,
+      "common_word_prepared_raw_states": 96,
+      "arithmetic_classes": 16,
+      "joint_partition_sizes": [
+        4,
+        20,
+        54,
+        96
+      ],
+      "greatest_minimum_macro_length": 3,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            0,
+            2,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            0,
+            1,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "UUB",
+        "terminal_obs": [
+          [
+            true,
+            0
+          ],
+          [
+            false,
+            0
+          ]
+        ]
+      },
+      "micro": {
+        "states": 96,
+        "observable_classes": 96,
+        "classes_when_pair_probe_is_allowed_while_busy": 96,
+        "greatest_minimum_accepted_or_rejected_prefix_steps": 3
+      }
+    },
+    {
+      "N": 4,
+      "m": 4,
+      "common_word_prepared_raw_states": 96,
+      "arithmetic_classes": 8,
+      "joint_partition_sizes": [
+        4,
+        12,
+        18,
+        24
+      ],
+      "greatest_minimum_macro_length": 3,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            1,
+            1,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            0,
+            1,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "BBB",
+        "terminal_obs": [
+          [
+            true,
+            0
+          ],
+          [
+            false,
+            0
+          ]
+        ]
+      },
+      "micro": {
+        "states": 384,
+        "observable_classes": 96,
+        "classes_when_pair_probe_is_allowed_while_busy": 192,
+        "greatest_minimum_accepted_or_rejected_prefix_steps": 6
+      }
+    },
+    {
+      "N": 12,
+      "m": 12,
+      "common_word_prepared_raw_states": 864,
+      "arithmetic_classes": 29,
+      "joint_partition_sizes": [
+        4,
+        12,
+        18,
+        27,
+        36,
+        45,
+        54,
+        63,
+        69,
+        75,
+        81,
+        87
+      ],
+      "greatest_minimum_macro_length": 11,
+      "attaining_pair_and_word": {
+        "states": [
+          [
+            1,
+            1,
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          [
+            0,
+            1,
+            [
+              0,
+              1,
+              2
+            ]
+          ]
+        ],
+        "word": "BBBBBBBBBBB",
+        "terminal_obs": [
+          [
+            true,
+            0
+          ],
+          [
+            false,
+            0
+          ]
+        ]
+      },
+      "micro": null
+    }
+  ],
+  "all_pair_distances": [
+    {
+      "N": 4,
+      "m": 2,
+      "costs": [
+        {
+          "U_cost": 1,
+          "pair_count": 120,
+          "distinct_pairs": 110,
+          "maximum": 3
+        },
+        {
+          "U_cost": 2,
+          "pair_count": 120,
+          "distinct_pairs": 110,
+          "maximum": 3
+        }
+      ]
+    },
+    {
+      "N": 6,
+      "m": 2,
+      "costs": [
+        {
+          "U_cost": 1,
+          "pair_count": 630,
+          "distinct_pairs": 594,
+          "maximum": 5
+        },
+        {
+          "U_cost": 2,
+          "pair_count": 630,
+          "distinct_pairs": 594,
+          "maximum": 6
+        }
+      ]
+    },
+    {
+      "N": 6,
+      "m": 3,
+      "costs": [
+        {
+          "U_cost": 1,
+          "pair_count": 630,
+          "distinct_pairs": 590,
+          "maximum": 5
+        },
+        {
+          "U_cost": 3,
+          "pair_count": 630,
+          "distinct_pairs": 590,
+          "maximum": 6
+        }
+      ]
+    },
+    {
+      "N": 8,
+      "m": 4,
+      "costs": [
+        {
+          "U_cost": 1,
+          "pair_count": 2016,
+          "distinct_pairs": 1774,
+          "maximum": 5
+        },
+        {
+          "U_cost": 4,
+          "pair_count": 2016,
+          "distinct_pairs": 1774,
+          "maximum": 7
+        }
+      ]
+    },
+    {
+      "N": 9,
+      "m": 3,
+      "costs": [
+        {
+          "U_cost": 1,
+          "pair_count": 3240,
+          "distinct_pairs": 3033,
+          "maximum": 7
+        },
+        {
+          "U_cost": 3,
+          "pair_count": 3240,
+          "distinct_pairs": 3033,
+          "maximum": 9
+        }
+      ]
+    }
+  ]
+}
