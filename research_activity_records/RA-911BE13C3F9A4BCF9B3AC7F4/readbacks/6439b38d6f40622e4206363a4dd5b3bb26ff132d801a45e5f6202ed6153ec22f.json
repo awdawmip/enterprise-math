@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtysecond/README.md",
+    "ref": "20f373a05b8e44d64388c49398f860f103681738",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-sixtytwo-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第六十二轮　多个周期共用一份观测，以及可逆复位所需的记录\n\n## 什么时候一份观测可以同时兼容很多个周期\n\n对同一组带标号的整数位置，只观察哪些位置给出相同的幂。若几个候选阶的最小值为 $h$，最小公倍数为 $L$，第 25 轮的结果说明：在一段越来越长的连续位置中，共同删除后仍让所有候选相容的最大保留比例趋于 $h/L$。现在固定分母上限 $Q$，问需要多大的周期辨识范围 $H$，才能让 $k=Q-r$ 个不同输出标签达到至少 $1/Q$ 的保留比例。\n\n令 $L_Q=\\operatorname{lcm}(1,\\ldots,Q)$。当 $Q\\ge8$，且 $r$ 不超过 $(Q/2,Q]$ 中的素数个数时，按从大到小取其中 $r$ 个素数 $P_1,\\ldots,P_r$。如果所有候选都要在 $H$ 以内，所需的最小 $H$ 为 $L_Q/\\prod P_i$；若准许所有超范围的周期共用一个额外输出标签，所需的最小 $H$ 恰好减半。例如 $Q=12,r=2$ 时，两个门槛分别是 360 和 180。超出这个删除区间，论文给出反例和随 $Q$ 增长时的阈值。[阈值、反例与渐近公式](periods.md) · [程序](periods_check.py) · [结果](periods_checked.json)\n\n## 同一源的旧记录最少需要多少个环境状态\n\n在已有的三值记录门中，写入旧源后若源已变化，直接逆写会把旧值与新值之差留在记录里。保留一份能区分历史的信息，才能把记录恢复到准备态并允许再次使用。本文先在原符号门上逐事件检验，再让源在有限交换群 $G$ 中演化，每步允许 $x'\\in ux+J$，其中 $u$ 是自同态，$J$ 是子群。\n\n记 $A=G\\times J^N$ 为所有 $N$ 步历史的群，$F:A\\to G$ 取终点。若原读数未在别处存档，任给可达终点，都恰有 $|\\ker F|$ 段旧历史。允许任意有限标签时，这就是保持可逆性所需的最小辅助状态数。若标签必须按群加法更新，则还要考虑核中的阶 $p$ 元素在历史群中能被 $p$ 连除几次。例如模 9 的确定性更新 $x\\mapsto3x$：任意标签只需 3 个状态，加性标签至少需 9 个。文中给出任意有限交换群的精确公式。原作者执行包的公开下载位置仍未核实，本轮的逐事件复核依据已发表的符号关系。[保持与复位、群公式及原始来源](record.md) · [程序](record_check.py) · [结果](record_checked.json)\n\n截至 2026-11-19 00:35:40 UTC，直接研究累计覆盖 219 个登记任务、51 个父方向。严格就绪、待移交、冻结待复访三组中，尚未直接推进的登记分别为 42、19、5 个。本轮首次推进记录器的保持与复位任务，复访第 25 轮的稀疏周期辨识。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/20f373a05b8e44d64388c49398f860f103681738/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtysecond/README.md",
+      "encoding": "utf-8",
+      "sha": "f98134a57c72cf0037ebd6fdcfe7ed6a94739148"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
