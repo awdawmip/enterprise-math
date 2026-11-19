@@ -1,0 +1,64 @@
+{
+  "schema": "R762FO_X6_GRAPH_HORIZON_OBSERVER_V1",
+  "source_model": "R762FN typed (sigma,tau) matching",
+  "update": "swaps entire B/C partner pairs between graph-adjacent A slots; logical candidate only",
+  "observer": "Q_root after any known <=h swap word",
+  "exhaustive_k": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "all_simple_graphs": true,
+  "all_roots": true,
+  "horizons": "0<=h<k",
+  "graph_instances": 75,
+  "graph_root_horizon_cases": 1105,
+  "exact_history_case_comparisons": 592449,
+  "proven_formula": "number_of_classes=(k!/(k-r)!)^2; uniform_fiber=((k-r)!)^2; r=|ball_G(root,h)|",
+  "recovery_horizon": "second-largest extended graph distance from root for k>=2",
+  "example": {
+    "k": 4,
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "root": 1,
+    "by_h": [
+      {
+        "h": 0,
+        "r": 1,
+        "classes": 16,
+        "fiber": 36,
+        "bits": 4
+      },
+      {
+        "h": 1,
+        "r": 2,
+        "classes": 144,
+        "fiber": 4,
+        "bits": 8
+      },
+      {
+        "h": 2,
+        "r": 3,
+        "classes": 576,
+        "fiber": 1,
+        "bits": 10
+      }
+    ],
+    "witness": "sigma=1234 vs sigma'=1243, tau=1234; indistinguishable at h=1, distinct after swaps (2,3),(1,2)"
+  },
+  "status": "PASS",
+  "review": "AUTHOR_SIDE_EXACT_ENUMERATION; NOT_REVIEWED"
+}
