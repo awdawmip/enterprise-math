@@ -1,0 +1,95 @@
+# X6 R13: exact horizon-graded minimal joint Port state on fixed single-axis lanes
+
+Date: 2026-11-19 (Asia/Shanghai). Status: **author-side proved conditional theorem with independent finite typed-Boolean-BRC support checks; NOT_REVIEWED**. Research line `RS-X6-NATIVE-TIME-DYNAMICS`, canonical publication `TP2-91D4A7C2F63805BE21A3`. Historical registered research author associated with the existing scheduled X6 line: `EM-X6-214D9C`, `RA-545183ADD4EF71C3E4698AEE`; the present document alone does not prove a fresh native CLAIM/PROGRESS.
+
+## Sources and fixed scientific boundaries
+
+Frozen source input is `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389` (P000; six native signed spatial axes, time as ordered change rather than another spatial axis; stable primitive forces require genuine triadic closure). Current behavioral rules were read separately and do **not** modify this frozen science. This mathematical model is an explicitly conditional vacancy/Port event subsystem; it does not establish the native `TRIADIC_CLOSURE_E` permission or physical event duration.
+
+Scientific predecessor:
+- R11: two independently mobile sources and exact future collision signature, `research_notes/portable_direct/2026-11-19_x6_two_mobile_port_relative_future_cone_r11.md` at `3efaaffb393591f3ae0a8975c742c039c4a56f7a`.
+- R12: multi-source blocker-identity aliases and an arbitrarily large horizon-1/horizon-2 compression gap, `research_notes/portable_direct/2026-11-19_x6_three_mobile_blocker_alias_nonminimal_pairwise_r12.md` at `3c6b30ce25ac9f8f41ba3c3d63632e4b15b05453`.
+
+The new issue: characterize a **strictly smaller, exact joint state** than all pairwise displacement records, when all source triads can independently move along one specified native signed axis and transverse lane/order information is fixed.
+
+## Conditional finite-source / unbounded-displacement model
+
+Take a finite set S of n distinguishable source labels. Each source occupies a unique six-component signed integer Cell position (x,t), where x is its coordinate along one chosen native axis and t is a fixed **five-component transverse coordinate tuple**. Only one labelled native step per event is offered: source s may advance x by +1 if and only if the target Cell is unoccupied. Branches carry the exact source and Port label (s,+axis0); no branch weights, amplitudes, native physical forces or clock increments are inferred.
+
+Fix the partition of S into m nonempty transverse lanes and, in every lane, the strict left-to-right source ordering. For an adjacent ordered pair (i,j) in the same lane, i behind j, let the **vacancy gap**
+
+    g_(i,j) = x_j - x_i - 1 ∈ Z_>=0.
+
+There are E = n-m such adjacent lane edges. Other source distances are sums of adjacent gaps plus source count; cross-lane sources never collide under this fixed movement restriction. Let `g` denote the E-vector of exact adjacent gaps.
+
+For a source-labelled event word w and its prefix of length t, define N_s(t)=the number of occurrences of source s in that prefix. Let `L_h(g)` be the Boolean BRC *support* of all legal source/Port-labelled words of length at most h, including the empty word. No two words of different source provenance are collapsed.
+
+## Theorem R13.1 — prefix-feasibility certificate
+
+A labelled word w is legal **if and only if**, for each prefix length 0<=t<=|w| and each adjacent ordered pair (i,j) (i behind j),
+
+    N_i(t) - N_j(t) <= g_(i,j).
+
+Proof: after this prefix, the two successive sources have separation
+`x_j(t)-x_i(t)-1 = g_(i,j)+N_j(t)-N_i(t)`.
+An attempted unit step into an occupied Cell makes exactly one affected adjacent gap equal -1; all remaining gaps are nonnegative. Conversely, if all adjacent gaps remain nonnegative, every move lands at an unoccupied Cell: the source order in each lane cannot change by a legal unit advance, and different lanes have distinct transverse coordinates. Therefore testing every prefix of these E inequalities is both necessary and sufficient. This also supplies an exact Boolean-support BRC kernel: a branch is kept iff every typed gap constraint remains satisfied.
+
+## Theorem R13.2 — minimal finite-horizon joint state
+
+For every integer h>=0 define the **h-clipped adjacent-gap state**
+
+    sigma_h(g) = ( min(g_e,h) : e ranges over adjacent lane edges ).
+
+For any two states g,g' with the *same fixed lane partition and source order*,
+
+    L_h(g) = L_h(g')    IF AND ONLY IF    sigma_h(g) = sigma_h(g').
+
+This is an exact minimal sufficient invariant for preserving all labelled future event words up to h steps on this observation fiber. It requires E bounded-range gap values, not n(n-1)/2 pairwise displacements. The result remains valid for h=0 and E=0 (the signature is then empty).
+
+**Sufficiency.** For every word of length <=h and every prefix, the integer `N_i(t)-N_j(t)` is at most h. If `g_e>=h` the inequality in R13.1 cannot fail for such a word; if `g_e<h` the exact number `g_e` is stored by `sigma_h`. Equality of all clipped gaps therefore gives identical legality of every source-labelled word.
+
+**Necessity.** Suppose `min(g_e,h) < min(g'_e,h)` for one edge e=(i,j). Put r=g_e+1. Then r<=h. The word consisting of r consecutive moves of source i is illegal from g (the rth move meets j) but legal from g', because `g'_e>=r`, and moving i only increases the gap to its own possible follower and cannot affect any other ahead edge. Thus `L_h(g) != L_h(g')`. The argument is symmetric if the opposite clipped gap is smaller. This proves both directions without needing the identities of distant nonadjacent blockers.
+
+The injectivity claim is **within the declared fixed lane-order fiber**; it is not claimed for states whose lane membership/order differ. In particular, R12's horizon-1 blocker-identity alias occurs across different lane partitions and therefore does not contradict this theorem.
+
+## Corollary R13.3 — exact information cost for a bounded gap family
+
+Suppose each of the E independent adjacent gaps may vary freely over integers 0,..,G. Then there are exactly
+
+    C_h(n,m,G) = (min(G,h)+1)^(n-m)
+
+distinct horizon-h future languages, because the clipped coordinates vary independently and R13.2 is both necessary and sufficient. Consequently the minimal *worst-case fixed-length* additional code for these gap histories is
+
+    b_h(n,m,G) = ceil( (n-m) log_2(min(G,h)+1) ).
+
+For n=m (one source in each distinct lane), C_h=1 and b_h=0. When h=1, each adjacent edge contributes one binary blocked/unblocked bit; later horizons reveal more of the exact gap.
+
+For unbounded displacement, **no finite horizon H determines the unrestricted full future language uniformly**: with just two sources on one lane, gaps H and H+1 have the same `L_H`, yet the word rear^(H+1) is illegal in the first and legal in the second. Thus the unbounded-gap obstruction already exists in a two-source conditional X6 subsystem, independent of a growing number of sources.
+
+## Corollary R13.4 — horizon-graded Markov update
+
+For a legal step of label s, an adjacent gap e=(i,j) changes by the typed incidence
+
+    delta_e(s) = +1 if s=j; -1 if s=i; 0 otherwise.
+
+For h>=1, its legality is decidable from `sigma_h(g)`: a rear source i can advance across adjacent edge e=(i,j) precisely if `sigma_h(g)_e>0`, and the rightmost source in each lane can always advance. After the move the exact `sigma_(h-1)` is computed using only the old clipped state:
+
+    sigma_(h-1)(g + delta(s))
+      = ( min(h-1, sigma_h(g)_e + delta_e(s)) )_e.
+
+Every displayed component is nonnegative on a legal step. For any old component below h, the stored value is exact; for any saturated component h, a one-step decrement cannot take it below h-1. Hence the expression is well-defined independently of the unsaved full gap vector, and the family of `sigma_h` defines a rigorous horizon-graded future-safe Markov quotient. This is a specific, computable answer to R12's request for a compact joint state, under its stated fixed-lane restriction.
+
+## Typed Boolean-BRC verification (actual finite coverage)
+
+Reproduction: `python3 research_notes/portable_direct/x6_fixed_lane_gap_brc_verify.py`. Its exact output: `research_notes/portable_direct/x6_fixed_lane_gap_brc_results.json`.
+
+The checker carries complete labelled event words, a full tuple of signed six-dimensional source positions and actual vacancy-guarded append operations. An independent adjacent-gap kernel verifies the prefix certificate, and the program compares full Boolean support of words (not just counts) for horizons h=0,...,5. It enumerates all independent gap values 0,1,2,3 across eight fixed lane/order patterns with n<=4; validates the exact quotient classes versus `(min(G,h)+1)^E`, and tests all enabled graded state updates. All **804 state×horizon comparisons** and **2,140 legal graded transition checks** pass; the enumeration additionally observes **121,355 cumulative labelled legal words** across those comparisons (repeated across instances, not claimed distinct). Checker uses integer Cell tuples and Boolean source support, no classical physical propagator or phase/amplitude surrogate. The universal statement is proved above; finite checks corroborate its selected domain.
+
+## What remains unresolved
+
+1. **Variable lane/order observers.** Find a minimal joint signature when source membership, order or Port direction itself changes. R12 supplies an exact counterexample to naively retaining all pairwise one-step blockers.
+2. **Native permission.** Establish the actual `TRIADIC_CLOSURE_E` force and Port resource gate for source movement. Present vacancy-guarded moves are abstract legal transitions, not an asserted native physical event.
+3. **Typed richer BRC.** The Boolean-support quotient is future-safe only for successful labelled event language under this operator. It is not automatically a quotient for blocker identity in rejected attempts, amplitudes/sign cancellation, force balance or physical timing.
+4. **Time typing.** Couple source event-order traces to native rotation/triadic state updates without identifying refinement stage, local return phase or event count with measured physical duration.
+
+Scientific preservation is independent of formal review, CLAIM and native PROGRESS. Any Activity record must be associated by true original Researcher/Activity and latest CAS, and must not be backfilled by name similarity.
