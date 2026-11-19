@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/seventyseventh/README.md",
+    "ref": "c2f8f0b6c0c476d6c3af6781ea04ab556be8f496",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-seventyseven-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第七十七轮　原格上分裂极化的代价与十八维整数场的提前拒绝\n\n## 同一个范数为什么会有两种极化成本\n\n取 $\\mathbf Z[i]^6$ 上的形式 $H=\\operatorname{diag}(1,1,1,-1,-1,-3)$。本原向量 $u$ 给出带号范数 $n=u^*Hu\\ne0$，其直线确定六维特殊子域。在子域内的很一般点上，求与原 $\\mathbf Q(i)$ 作用相容的整分裂极化，其最小 Euler 特征记为 $S$。把 $Hu$ 的内容理想写成 $(t)$，其中 $t=1$ 或 $3$；令 $a=|n|/t$，则\n$$\n S=S_t(a)=\\min\\left\\{(3/t)AB^5:\\ A,B\\in\\mathbf Z_{>0}, A\\equiv tB\\pmod a,\\ (3/t)AB\\text{ 为有理 Gaussian 范数}\\right\\}.\n$$\n设 $s=2^{\\max(v_2(a)-1,0)}3^{v_3(a)}$，有精确下降式 $S_t(a)=s^6S_t(a/s)$。它给出可实现的极端情形：对每个 $h\\ge0$，格中都有两条**同带号范数** $-3\\cdot2^h$ 的本原直线，最小 $S$ 却相差 $6561$ 倍，极化映射的最小度相差 $6561^2$ 倍。第 14 轮只算了两条标准直线的成本。这里取任意本原定号直线；原 H0R 九维族的对象延拓仍缺前提，这篇独立算术结果计零项登记服务。[整性、下降与极值族](polar.md) · [矩阵复算](polar_check.py) · [结果](polar_checked.json)\n\n## 只看分量的位宽，能否安全地跳过一次候选扫描\n\nRP15 依次把真实工作场的每一行截成不同有效位数 $K$，按全场方向误差决定是否接受。若 $B$ 是一行的最大位宽，$b$ 是分量位宽，则 $B-b\\ge K$ 的非零分量必被截掉。把这些分量的加权能量预先汇总为 $Z_K$，总能量为 $A$，真实平方方向损失 $\\gamma^2$ 满足 $A\\gamma^2\\ge Z_K$。再按分量的二进赋值给出存活比例的有理区间，对该区间求最小二乘，可得到更强的判断。\n\n98 个原始工作场共尝试 385 个候选，其中 287 次不合格。位宽条件在读取候选行之前识别了 259 次，赋值区间识别了 263 次。较便宜的位宽条件已接入原执行程序。两棵完整概率树与原结果相同，六对求因子运行也都给出相同轨迹，机时三对缩短、三对增加。[公式、相同摘要的反例与运行比较](valuation.md) · [复算程序](valuation_check.py) · [确定性结果](valuation_checked.json) · [实际机时](valuation_measured.json)\n\n截至 2026-11-19 03:20:52 UTC，累计直接研究 227 个登记任务，覆盖 51 个父方向。本轮复访 RP15 原工作场提前拒绝，Hodge 特殊子域的整极化算术独立发表。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 36、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c2f8f0b6c0c476d6c3af6781ea04ab556be8f496/research_notes/portable_direct/20261118_fair_queue_6b0fba/seventyseventh/README.md",
+      "encoding": "utf-8",
+      "sha": "f1a7f823f2662c9df774af4939a6cf2feb28c02b"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
