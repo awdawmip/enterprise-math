@@ -1,0 +1,92 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "source_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-dedc91932641535d284fc171",
+  "run_id": "RUN-c92057890282aaaeec520881",
+  "resume": {
+    "request_id": "onhour-20261120-x6-own-run-c920-after166-resume-v1",
+    "status": "SUCCEEDED",
+    "phase": "RUN_READY",
+    "generation_at_success": 12,
+    "scope": "ONLY_AUTHORITATIVE_AT_ITS_SOURCE_OBSERVED_TIME_RECHECK_FOR_LATER_WRITES"
+  },
+  "progress": {
+    "request_id": "onhour-20261120-0115-x6-own-units167169-native-progress-v1",
+    "last_observed_status": "QUEUED",
+    "terminal_source_authentication": "PENDING",
+    "generation": 12,
+    "upload_ids": [],
+    "repeat_policy": "READ_ORIGINAL_RESULT_ONLY_DO_NOT_REPLAY"
+  },
+  "native_prior_verified": [
+    {
+      "request_id": "onhour-20261119-2208-x6-own-units162164-native-progress-v1",
+      "status": "SUCCEEDED_SOURCE_CHECKPOINT_PUBLISHED",
+      "source_commit": "aad579fa1ade1a2e45762749cde76573f4065f56"
+    },
+    {
+      "request_id": "onhour-20261120-0015-x6-own-units165166-native-progress-v1",
+      "status": "SUCCEEDED_SOURCE_CHECKPOINT_PUBLISHED",
+      "source_commit": "444837a09096d469c1e26d0c26d741ea2084f8fd"
+    }
+  ],
+  "author_frontier": {
+    "highest_completed_unit": 169,
+    "highest_prior_native_verified_unit": 166,
+    "unit167": {
+      "proof": "research_notes/X6_UNIT167_FCC_CHIRALITY_ROOTED_BRC_SOURCE_CONSUMER_AUDIT_20261120.md",
+      "commit": "3880afd1e4091f655c09fd84c1ab8fb67a5b60b7"
+    },
+    "unit168": {
+      "proof": "research_notes/X6_UNIT168_FCC_K4_MINIMAL_STAR_OBSERVER_RECONSTRUCTION_20261120.md",
+      "commit": "eee67895060e60811756aee22dfe5750df631dcf",
+      "prior_art_repair": "V10 full all-20 and existing 4 STAR gluing excluded from novelty"
+    },
+    "unit169": {
+      "proof": {
+        "commit": "e702ba5c61bfd7db5669df90405008c59517d096",
+        "path": "research_notes/X6_UNIT169_TWO_TIME_STAR_DYNAMIC_DEPTH_RECONSTRUCTION_20261120.md"
+      },
+      "checker": {
+        "commit": "10d685a68045e247d34da3ab136852bcf546594f",
+        "path": "research_checks/X6_UNIT169_TWO_TIME_STAR_DYNAMIC_DEPTH_CHECK_20261120.py",
+        "sha256": "b8b6856e4084b8bf33f61f281e5999f6a10183538150e232d42f23f3ead082f6"
+      },
+      "certificate": {
+        "commit": "5ab28c99c60e9efa37c0c166db6abdecf3456f76",
+        "path": "research_checks/X6_UNIT169_TWO_TIME_STAR_DYNAMIC_DEPTH_RESULTS_20261120.json",
+        "sha256": "2f34876dfb099ed7d23257a7a2999f20ed6839756d374a7835350616933fa114"
+      },
+      "ledger": {
+        "commit": "3e621e3c759e1828e5e60e1ed9034e689239e869",
+        "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit169_delta.json"
+      },
+      "activity": {
+        "commit": "793bc10fe2b3ab72f6603a60111cf156b98e11d7",
+        "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+        "count": 186
+      },
+      "proof_summary": "3 of 4 initial STAR tuple determines r=can6(z); one extra S at time A^k recovers z iff A^k d not constant on S, 26 of 48 scenarios; 750000 exact dynamic checks, 406250 successful restorations, zero failures; N-BRC endpoint multiplicity retained",
+      "status": "AUTHOR_PROVED_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED"
+    }
+  },
+  "pending": {
+    "lp011": "exact original bad signed-X6 argmax consumer commit:path:line unknown",
+    "lp019": "exact original wrongful positive N-BRC subtraction consumer commit:path:line unknown",
+    "remaining_28_lp": "full actual production consumer audit incomplete",
+    "old_149_152": "native semantic link missing or not yet separately confirmed by original readback",
+    "driver": "independent mathematical review and Result admission pending",
+    "original_R063": "full native benchmark already author-executed; not to repeat"
+  },
+  "next_exact_action": "Read original native publish request onhour-20261120-0115-x6-own-units167169-native-progress-v1 until terminal and independently authenticate Source. If result unknown, reconcile original ID. Then continue shortest actual unresolved frozen 28-LP production-to-consumer chain; do not invent bad LP011/LP019 source. Preserve original RA and prior art, no new dispatch while own valid claim.",
+  "scheduler_and_notifications": "UNCHANGED"
+}
