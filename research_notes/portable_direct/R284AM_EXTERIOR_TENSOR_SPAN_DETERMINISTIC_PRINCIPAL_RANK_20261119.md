@@ -64,7 +64,7 @@ Companion script: R284AM_exterior_span_principal_rank_checker.py. Companion outp
 - 105 further signed integer-factor pairs checked against full principal-minor enumeration, including a nilpotent rank-one example with d(C)=0.
 - R284AL cancellation example: d=2, witness S={1,2}, principal determinant +1.
 - R284AK strict-positive nonsymmetric rank-gap constructions k=2,3,4: d=2, witnesses with exact determinants -2,-3,-4 respectively, and every higher grade has zero reachable span.
-- Separate m=64,r=3 strictly positive-factor instance: d=3, witness determinant -2825554320, 1,136 candidate states, total ambient span bound 20. This last case has no exhaustive subset enumeration.
+- Separate m=64,r=3 strictly positive-factor instance: d=3, witness determinant -8605076592, 1,136 candidate states, total ambient span bound 20. This last case has no exhaustive subset enumeration.
 
 All completed local exact tests PASS. Finite computation validates implementation and selected examples; the general theorem follows from (AM1a)–(AM1c). Independent mathematical review: NOT_REVIEWED.
 
