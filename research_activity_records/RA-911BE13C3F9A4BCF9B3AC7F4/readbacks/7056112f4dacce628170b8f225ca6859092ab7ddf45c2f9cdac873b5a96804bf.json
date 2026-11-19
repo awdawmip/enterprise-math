@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtysixth/README.md",
+    "ref": "4ef603dea0af6137bb5e4f67be75ff0ac80bd594",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-sixtysix-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第六十六轮　能从模矩阵端点预测哪些读数，以及模七传播的实际成本\n\n## 有限环上的同一端点还允许多少个矩阵\n\n设被观察的具名矩阵 $B$ 满足 $B^2=B$。对模 $p^e$ 的同一端点，若已从观测恢复出 $B\\bmod p^b$、$1\\le b\\le e$，其模 $p$ 秩为 $r$、矩阵阶数为 $d$，就恰有\n$$\np^{2r(d-r)(e-b)}\n$$\n个矩阵与全部现有数据相容。在与已知投影相适配的基中，这些提升可由两个任取的非对角矩形块参数化。由此还可以判定给定的下一读数 $\\operatorname{tr}(CB)$ 是否在所有提升上取同一值，并在块对角测量下求出每个可能读数的准确频数。\n\n例如模 8 已知 $B\\bmod2$ 是投影到第一坐标的二阶矩阵。共有 16 个提升；其中 12 个的左上元为 1，另 4 个为 5。全部 4,096 个测量矩阵 $C$ 中，恰好 128 个能从该端点给出确定的迹。本文处理已经生成的幂等终端，原母题的一般计算资源界仍开放。[逐端点判据、频数公式与资源边界](terminal.md) · [复算](terminal_check.py) · [结果](terminal_checked.json)\n\n## 模七传播中，少做除法能否节省总时间\n\n把因子更新接入原程序实际决定下一胞的位置，比较原表查找、逐项替换、先消公共因子及缓存已算有向边四种实现。原波的 252 个事件包括 48 次注入、204 次三元发送；612 次目标查询涉及 258 条不同的有向边。三种因子实现的整数除法次数分别为 612、114、48。四路均得到原始六份波输出的相同校验值。\n\n端到端计时保留同一输入的五轮配对结果。三种因子方案分别在五轮中各有两轮快于原表，运算次数的下降未在这组测量中表现出稳定的总用时优势。[原传播、运算量与测量](hotpath.md) · [复算驱动](hotpath_check.py) · [确定性结果](hotpath_checked.json) · [逐次计时](hotpath_measured.csv)\n\n截至 2026-11-19 01:18:30 UTC，累计直接研究 222 个登记任务，覆盖 51 个父方向。本轮首次推进模七的实际运算成本，复访第 24 轮的幂等矩阵终端。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 39、19、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/4ef603dea0af6137bb5e4f67be75ff0ac80bd594/research_notes/portable_direct/20261118_fair_queue_6b0fba/sixtysixth/README.md",
+      "encoding": "utf-8",
+      "sha": "82d3f0ea9db99ceb4858d465430e94b171672c2d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
