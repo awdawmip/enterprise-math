@@ -22,7 +22,7 @@ def primitive(m,z):
 def A(m): return primitive(m,U)-primitive(m,L(m))
 def B(m):
     left=X(m); right=F(49,64); bc=bclip(m)
-    return ((1+bc)*(right-left)+(right*right-left*right*0+right*right-left*left)/2)/54
+    return ((1+bc)*(right-left)+(right*right-left*left)/2)/54
 def N(m,t): return primitive(m,t)-primitive(m,L(m))
 def r(m): return B(m)/A(m)
 
