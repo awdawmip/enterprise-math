@@ -1,0 +1,125 @@
+{
+  "status": "PASS",
+  "checker": "R284AN_intrinsic_rank_fraction_free_checker.py",
+  "arithmetic": "Integer-primitive fraction-free span; exact SymPy rational factor-rank decomposition and independent determinant oracle",
+  "random_seed": 284014,
+  "exhaustive_small_instances": 63,
+  "subset_closure_checks": 1377,
+  "examples": [
+    {
+      "status": "PASS",
+      "m": 12,
+      "input_factor_width": 8,
+      "intrinsic_rank": 2,
+      "original_ambient": 12870,
+      "compressed_ambient": 6,
+      "principal_rank": 2,
+      "witness_1based": [
+        1,
+        2
+      ],
+      "witness_det": "-126000",
+      "basis_dimensions": [
+        1,
+        4,
+        1
+      ],
+      "candidate_states": 50,
+      "max_intermediate_bits": 23,
+      "integer_row_reductions": 74,
+      "span_elapsed_seconds": 0.00096,
+      "higher_grade_zero_trace": true
+    },
+    {
+      "status": "PASS",
+      "m": 24,
+      "input_factor_width": 8,
+      "intrinsic_rank": 2,
+      "original_ambient": 12870,
+      "compressed_ambient": 6,
+      "principal_rank": 2,
+      "witness_1based": [
+        1,
+        2
+      ],
+      "witness_det": "350784",
+      "basis_dimensions": [
+        1,
+        4,
+        1
+      ],
+      "candidate_states": 110,
+      "max_intermediate_bits": 22,
+      "integer_row_reductions": 165,
+      "span_elapsed_seconds": 0.000758,
+      "higher_grade_zero_trace": true
+    },
+    {
+      "status": "PASS",
+      "m": 32,
+      "input_factor_width": 10,
+      "intrinsic_rank": 2,
+      "original_ambient": 184756,
+      "compressed_ambient": 6,
+      "principal_rank": 2,
+      "witness_1based": [
+        1,
+        2
+      ],
+      "witness_det": "89100",
+      "basis_dimensions": [
+        1,
+        4,
+        1
+      ],
+      "candidate_states": 150,
+      "max_intermediate_bits": 25,
+      "integer_row_reductions": 224,
+      "span_elapsed_seconds": 0.001649,
+      "higher_grade_zero_trace": true
+    },
+    {
+      "status": "PASS",
+      "m": 5,
+      "input_factor_width": 3,
+      "intrinsic_rank": 1,
+      "original_ambient": 20,
+      "compressed_ambient": 2,
+      "principal_rank": 1,
+      "witness_1based": [
+        1
+      ],
+      "witness_det": "6",
+      "basis_dimensions": [
+        1,
+        1
+      ],
+      "candidate_states": 5,
+      "max_intermediate_bits": 6,
+      "integer_row_reductions": 4,
+      "span_elapsed_seconds": 0.000039,
+      "higher_grade_zero_trace": true
+    },
+    {
+      "status": "PASS",
+      "m": 2,
+      "input_factor_width": 1,
+      "intrinsic_rank": 1,
+      "original_ambient": 2,
+      "compressed_ambient": 2,
+      "principal_rank": 0,
+      "witness_1based": [],
+      "witness_det": null,
+      "basis_dimensions": [
+        1,
+        0
+      ],
+      "candidate_states": 2,
+      "max_intermediate_bits": 1,
+      "integer_row_reductions": 0,
+      "span_elapsed_seconds": 0.000012,
+      "higher_grade_zero_trace": true
+    }
+  ],
+  "review": "NOT_REVIEWED"
+}
