@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_eleven_exception_seed_plateau_20261119/VERIFY_ENDPOINT.py",
+    "ref": "e3f94af33d3eb08e9ce5a9d21481d23e9083e73d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261119-2035-eleven-source-5",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Independent exact doubled-endpoint f0 census / twelve f1 checks.\nThis verifier reads the raw byte-pinned counts, not window_adj.bin.\n\"\"\"\nimport json,hashlib,functools\nfrom pathlib import Path\np=Path(\"EXACT_R5_ALL_101_BUDGETS.json\");raw=p.read_bytes()\nassert hashlib.sha256(raw).hexdigest()==\"50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b\"\ndata=json.loads(raw)\ncounts={k:[int(x) for x in data[\"counts_and_cohorts\"][str(k)][\"counts\"]] for k in range(214,315)}\ntau=58182461585441404127941754879\nseed=(0,16,32,48,1,64,17,80,18,24)\nfull=(1<<11)-1\ndef actions(t):\n    labels=seed+(t,); d={}\n    for k,allvals in counts.items():\n        v=[allvals[h] for h in labels]\n        endpoints=[2*z-tau for z in v]\n        candidates={sum(1<<j for j,z in enumerate(v) if abs(2*z-x)<=tau) for x in endpoints}\n        fam=tuple(sorted(m for m in candidates if all(m==n or m&n!=m for n in candidates)))\n        if fam!=(full,): d.setdefault(fam,k)\n    return sorted((k,masks) for masks,k in d.items())\ndef f0(actions):\n    values=[0]*(full+1)\n    for mask in range(1,full+1):\n        if mask.bit_count()<=1:continue\n        opts=[k+max(values[mask&m] for m in fam) for k,fam in actions\n              if all(mask&m!=mask for m in fam)]\n        assert opts\n        values[mask]=min(opts)\n    return values[full]\ndef f1(actions):\n    @functools.lru_cache(None)\n    def solve(e):\n        live=sum((1<<j) for j,v in enumerate(e) if v<=1)\n        if live.bit_count()<=1:return 0\n        best=10**9\n        for k,fam in actions:\n            if any((m&live)==live for m in fam):continue\n            worst=0\n            for m in fam:\n                nxt=tuple(min(2,v+(not (m>>j&1))) for j,v in enumerate(e))\n                worst=max(worst,solve(nxt))\n                if k+worst>=best:break\n            best=min(best,k+worst)\n        assert best<10**9\n        return best\n    return solve((0,)*11)\nselected={2,3,5,7,9,10,14,35,40,82,95,100}\nall_labels=[t for t in range(256) if t not in seed]\nassert len(all_labels)==246\nfor t in all_labels:\n    acts=actions(t)\n    assert f0(acts)==733,(\"f0\",t)\n    if t in selected:assert f1(acts)==1681,(\"f1\",t)\nprint(\"PASS_ELEVEN_INDEPENDENT_F0\",len(all_labels),\"F1\",len(selected))\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/e3f94af33d3eb08e9ce5a9d21481d23e9083e73d/research_notes/portable_direct/r5_eleven_exception_seed_plateau_20261119/VERIFY_ENDPOINT.py",
+      "encoding": "utf-8",
+      "sha": "555b7d8e52449ec72479789ea4d5054ff9060306"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
