@@ -1,0 +1,82 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-20",
+  "unit": 175,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "classification": "PRESERVE_TYPED_FINITE_SYMMETRY_TOOL_AND_EQUIVARIANT_SECTION_PRODUCTION_IMPORT; SIGNLOSS_NOT_G_EQUIVARIANTLY_REVERSIBLE; UNREVIEWED_NOT_ADMITTED",
+  "historical_actual_producer_consumer": [
+    {
+      "producer": {
+        "path": "src/enterprise_math/finite_symmetry.py",
+        "blob": "ae96a32cb6b6fdd974bd9f44fb28a1b643c9b8a2",
+        "lines": "42-74,103-136"
+      },
+      "consumer": {
+        "path": "src/enterprise_math/equivariant_section.py",
+        "blob": "0257fb7eaa95b2f88e772636d3ae2068d9ce42c0",
+        "lines": "30,112-134,138-201"
+      },
+      "kind": "REAL_PRODUCTION_IMPORT"
+    },
+    {
+      "producer": {
+        "path": "src/enterprise_math/equivariant_section.py",
+        "blob": "0257fb7eaa95b2f88e772636d3ae2068d9ce42c0",
+        "lines": "138-201"
+      },
+      "consumer": {
+        "path": "tests/test_equivariant_section.py",
+        "blob": "bdc3c76070182698b39f7dea38f2312b9f9c07b6",
+        "lines": "3-7,13-111"
+      },
+      "kind": "ACTUAL_GENERIC_TEST_CONSUMER_NOT_SPECIFIC_X6_INSTANTIATION"
+    }
+  ],
+  "exact_theorem": "For H_d=<A^d>, d|12, signed-axis E->unoriented axis B, A^6=-I and A^12=I, number of H-equivariant sections d=1:0,2:0,3:0,4:4,6:0,12:64; iff H has odd order. Not asserting physical native rotation.",
+  "verification": {
+    "tested_choice_maps": 64,
+    "subgroup_count": 6,
+    "executed_equivariance_comparisons": 10752,
+    "violations": 0,
+    "python_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "three_mode_json_sha256": "b95130b8ff1640f11fd20a2d9a6b0a4bd7e6c6f2cfd563e9797c568e78d2d687",
+    "certificate_canonical_sha256": "4d66b4a5c755bf08726f9aed057a230f1b0c5b49b415172a6f841fe855a7af97",
+    "original_R063_benchmark_rerun": false
+  },
+  "evidence": [
+    {
+      "path": "research_notes/X6_UNIT175_C12_SIGNED_AXIS_EQUIVARIANT_SECTION_SHARP_SUBGROUP_20261120.md",
+      "commit": "565c0ed293dfaeb00af7b9ecad520f5b6aa86598",
+      "blob": "e82e7140a3313d62b5ece3628c6d39ecf3db6371"
+    },
+    {
+      "path": "experiments/x6_unit175_signed_axis_section_20261120/check_equivariant_section.py",
+      "commit": "752867de3ab5556bd4cbebe8c40271103e0bb3a5",
+      "blob": "81c5633d318ac40eeb489be69d4f3deb09333cf2"
+    },
+    {
+      "path": "experiments/x6_unit175_signed_axis_section_20261120/exact_results.json",
+      "commit": "5348e5e370d6743caa811bc6efa46ba4016a1d41",
+      "blob": "18d71b5d0380822f4220b7e5b7be5d2a99f73a19"
+    }
+  ],
+  "lp011_bad_native_argmax": "UNRESOLVED_PROVENANCE",
+  "lp019_bad_positive_native_BRC_subtraction": "UNRESOLVED_PROVENANCE",
+  "current_generic_tool_bug": "NOT_FOUND",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_EXECUTED_GITHUB_VERIFIED_UNREVIEWED_NOT_ADMITTED",
+  "remaining": [
+    "28-LP active producer-consumer corpus incomplete",
+    "Original LP011/LP019 offending commit:path:line unverified",
+    "Units149–152 original Native semantics association",
+    "Independent Driver review/admission pending",
+    "Unit175 Native semantic association requires newest authorized own run and authenticated Source readback"
+  ]
+}
