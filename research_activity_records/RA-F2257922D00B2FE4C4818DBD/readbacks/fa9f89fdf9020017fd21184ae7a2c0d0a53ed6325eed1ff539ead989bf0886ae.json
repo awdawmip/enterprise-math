@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_d14_twenty_extra_references_20261120/CERTIFY_52_REFS.cpp",
+    "ref": "9fd4c0449e731342e3343d8e634d9a98edd4cebf",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261120-0600-d14-52-refs-25896-pairs-v1-source-4",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "// Verify exact R5 D14 coverage from immutable predecessor C++ code.\n// Copy R5_FOURTEEN_F8_ONE.cpp from the pinned prior source into this directory.\n#define main previous_solver_main\n#include \"R5_FOURTEEN_F8_ONE.cpp\"\n#undef main\nbool action_dominates(const Act&a,const Act&b){\n if(a.cost>b.cost)return false;\n for(int x:a.masks){bool ok=false;\n  for(int y:b.masks)if((x&y)==x){ok=true;break;}\n  if(!ok)return false;\n }return true;\n}\nbool pre(const Sig&a,const Sig&b){\n for(const Act&bb:b){bool ok=false;\n  for(const Act&aa:a)if(action_dominates(aa,bb)){ok=true;break;}\n  if(!ok)return false;\n }return true;\n}\nint swap_extras(int x){int a=(x>>12)&1,b=(x>>13)&1;\n return (x&~(3<<12))|(a<<13)|(b<<12);\n}\nint main(){\n ifstream fi(\"window_adj.bin\",ios::binary);\n vector<uint8_t>adj((size_t)Q*N*N);\n fi.read((char*)adj.data(),adj.size());\n if(fi.gcount()!=(streamsize)adj.size())return 2;\n ifstream in(\"R5_14_CLASS_REPS.csv\");\n string line;getline(in,line);\n vector<int> multiplicity; vector<Sig>sigs,swaps;\n while(getline(in,line)){\n  replace(line.begin(),line.end(),',',' ');istringstream row(line);\n  int id,u,v,n;row>>id>>u>>v>>n;\n  if(id!=(int)sigs.size())return 3;\n  multiplicity.push_back(n);\n  sigs.push_back(signature(adj,u,v));swaps.push_back(sigs.back());\n  for(auto&a:swaps.back())for(int&m:a.masks)m=swap_extras(m);\n }\n if(sigs.size()!=1906)return 4;\n const vector<int> refs={\n  0,1,2,10,709,1281,1362,1905,206,1048,1199,1205,616,601,929,935,\n  15,693,220,610,846,1278,295,354,291,3,368,360,1090,842,232,668,\n  452,436,28,440,24,23,451,606,226,25,618,617,271,277,284,1421,\n  891,430,674,1504\n };\n if(refs.size()!=52)return 5;\n int nc=0,np=0;\n ofstream out(\"CERTIFIED_52_CLASSES.csv\");out<<\"class,members,certified,dominated_reference\\n\";\n for(int i=0;i<(int)sigs.size();i++){\n  int found=-1;\n  for(int r:refs)if(pre(sigs[i],sigs[r])||pre(sigs[i],swaps[r])){found=r;break;}\n  if(found>=0){nc++;np+=multiplicity[i];}\n  out<<i<<\",\"<<multiplicity[i]<<\",\"<<(found>=0)<<\",\"<<found<<\"\\n\";\n }\n cout<<\"D14_52 CERTIFIED_CLASSES=\"<<nc<<\" CERTIFIED_PAIRS=\"<<np\n     <<\" UNRESOLVED_CLASSES=\"<<1906-nc\n     <<\" UNRESOLVED_PAIRS=\"<<29646-np<<\"\\n\";\n return (nc==1220&&np==25896)?0:6;\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9fd4c0449e731342e3343d8e634d9a98edd4cebf/research_notes/portable_direct/r5_d14_twenty_extra_references_20261120/CERTIFY_52_REFS.cpp",
+      "encoding": "utf-8",
+      "sha": "a9520d66fcc4c6cd52bab92291bcc85319cca883"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
