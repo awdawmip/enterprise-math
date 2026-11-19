@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/seventyfifth/README.md",
+    "ref": "bdae99d339961e024ba24361004403fd2bfbb9d5",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-seventyfive-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第七十五轮　首个非零位与端口容量\n\n## 同一份短寄存器样本，保留哪一位最有用\n\n令 $q=2^k$，模乘阶的奇部为 $d=q+u$，其中 $u$ 是 $1$ 到 $U$ 之间的奇数。观察前 $t$ 位全零、下一位首次为 1 的概率恰为\n$$\n \\frac{\\operatorname{dist}(2^t,d\\mathbf Z)}{2\\cdot4^t}.\n$$\n所以第 $k+1$ 拍的首一概率是 $u/(2q^2)$。对 $3\\le U\\le\\sqrt q$、$q\\ge16$，若目标是对每个候选都将误判率控制在 $0<\\delta\\le1/8$，保留首一位置所需独立样本数为 $\\Theta(q^2 U\\log(1/\\delta))$。仅读预选宽度的一个“全零”布尔值则需 $\\Theta(q^3\\log(1/\\delta))$，即使允许按先前样本调整宽度。两种方法都只需最多 $k+1$ 拍，首一方法可早停时每份恰读 $2-1/q$ 拍（期望）。这些是指定输出的统计辨识界；直接对公开底数做算术另有代价。原始模乘的 21 组配置共重放了 1,376,256 份停机样本。[多候选定理、截断信息与真实复算](landing.md) · [程序](landing_check.py) · [结果](landing_checked.json)\n\n## 只增加一个泊位约束，哪一拍开始变\n\nR10 存档的结点 $111$ 在第 3 拍有三类库存 $(2,3,4)$，三张端口票的原延迟为 $1,2,3$。只限制第三端口最多同时挂一张在途票，原来的第 4、6 拍释放变成第 4、9 拍。第 12 拍两条路径又达到相同的完整材料状态，所以单看终态会漏掉一次真实的发射延后。\n\n一般地，设全部组已就绪，$C$ 是泊位数、$\\Delta$ 是占位延迟，成功释放后隔 $h$ 拍才能再发，未发时门每 $n$ 拍重开。初始无在途，令 $T_1$ 为首次释放时刻，则第 $i$ 组在\n$$\n T_i=T_1+(i-1)h+n\\left\\lfloor\\frac{i-1}{C}\\right\\rfloor\n            \\max\\!\\left(0,\\left\\lceil\\frac{\\Delta-Ch}{n}\\right\\rceil\\right)\n$$\n释放。原资料只记录未加容量时的事件。受限路径已用同一结点、同一付款次序和原函数逐拍复算；稿中还给出任意到货与初始在途队列下的精确递推。[首个冲突与最小在途状态](queue.md) · [程序](queue_check.py) · [结果](queue_checked.json)\n\n截至 2026-11-19 03:12:03 UTC，累计直接研究 227 个登记任务，覆盖 51 个父方向。本轮首次推进单端口在途竞争，复访短寄存器奇阶辨识。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 36、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/bdae99d339961e024ba24361004403fd2bfbb9d5/research_notes/portable_direct/20261118_fair_queue_6b0fba/seventyfifth/README.md",
+      "encoding": "utf-8",
+      "sha": "b8e3ffee8425263855365897b144611657677613"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
