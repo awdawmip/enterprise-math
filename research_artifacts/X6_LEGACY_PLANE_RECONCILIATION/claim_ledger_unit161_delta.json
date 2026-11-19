@@ -1,0 +1,72 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "unit": 161,
+  "date": "2026-11-19",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "author": "EM-X6-FB6990",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "science_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED/EXACT_BIGINT_EXECUTED/GITHUB_VERIFIED/UNREVIEWED/NOT_ADMITTED",
+  "source_edges": [
+    {
+      "producer": "src/enterprise_math/p022_barlow_growth.py",
+      "producer_blob": "4185cafdb3e4ad4f55c58ff111747013e710af43",
+      "producer_lines": "75-128,159-174",
+      "consumer": "tests/test_p022_barlow_growth.py",
+      "consumer_blob": "8e8418a87a1fbbdad9ba5ff03cbe532af0f6f224",
+      "consumer_lines": "3-13,26-63,66-87",
+      "helper": "src/enterprise_math/p022_barlow_stacking.py",
+      "helper_blob": "cfa12c17671692d1fe0371b7d80e4cc019fbcf54",
+      "helper_lines": "75-130,188-224",
+      "operator_type": "DERIVED_P022_PERIODIC_BARLOW_CONTACT_GRAPH_SHORTEST_PATH_SHELL_NOT_NATIVE_X6_NBRC"
+    }
+  ],
+  "native_frozen_source": {
+    "path": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+    "commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+    "blob": "b4d49a1bbcccad0521618c6d20f6dcfa242b420a",
+    "type": "SIX_SIGNED_PRIMITIVE_CELL_ADJACENCY_AND_NATIVE_NBRC"
+  },
+  "finding": "All 12 contacts at r=1 coincide in path count; at r=2, P022 periodic Barlow contact graph shell has 84 shortest paths for every stacking while native signed-X6 shortest-axis shell has 132; native growth rate 6 vs source P022 periodic Barlow rate<=4. Frozen p022_barlow_growth direct test consumes P022-only same-object paths, no demonstrated invalid native import. Native M6(r)=sum_j C(6,j)2^j j!S(r,j)=sum_k(-1)^(6-k)C(6,k)2^k k^r.",
+  "evidence": [
+    {
+      "path": "research_notes/X6_UNIT161_FROZEN_P022_BARLOW_GROWTH_VS_NATIVE_X6_BRC_CONSUMER_AUDIT_20261119.md",
+      "commit": "2a927511d7ee1f53ad5304a292ecb80e4ec281af",
+      "blob": "da529edac6d0706b5350e430bce09c0a3c38c07e"
+    },
+    {
+      "path": "research_checks/X6_UNIT161_P022_BARLOW_VS_X6_NATIVE_BRC_TYPED_CONSUMER_CHECK_20261119.js",
+      "commit": "9f9d7a56a7407d5a024995ac1fe0d41f07716226",
+      "blob": "55cde9120cd6251aec0241b5482fdba6c9babc53"
+    },
+    {
+      "path": "research_checks/X6_UNIT161_P022_BARLOW_VS_X6_NATIVE_BRC_TYPED_CONSUMER_RESULTS_20261119.json",
+      "commit": "946a5588b2d8a0e2ebe30912af2f0a49fe9103c6",
+      "blob": "90f6d35baa9cc72e104a487b8352fa9ce2a987a9"
+    }
+  ],
+  "checks": {
+    "native_methods": 3,
+    "native_radii": "0..16",
+    "barlow_patterns_r2": 30,
+    "barlow_r2_total": 84,
+    "native_r2_total": 132,
+    "mode": "V8_BIGINT_IN_PROCESS",
+    "r063_native_benchmark_rerun": false,
+    "p022_original_pytest_rerun": false
+  },
+  "lp011_faulty_historical_caller": "UNRESOLVED_PROVENANCE",
+  "lp019_faulty_historical_caller": "UNRESOLVED_PROVENANCE",
+  "native_control": {
+    "unit159_request": "onhour-20261119-1758-x6-own-unit159-native-progress-v1",
+    "unit159_status": "SUCCEEDED/SOURCE_CHECKPOINT_PUBLISHED",
+    "unit159_source": "688ee0f1f67b42419058f50cf7973e13a08f3c99",
+    "unit160_native": "NOT_SUBMITTED_AT_AUTHOR_CHECKPOINT",
+    "continuation_original": "onhour-20261119-1905-x6-own-current-continuation-v1",
+    "resume_original": "onhour-20261119-1909-x6-own-run-c920-after-unit159-resume-v1"
+  },
+  "next_action": "Consume original own pending continuation/resume; when live owner and generation authorized, publish preexisting Unit160 and Unit161 native progress, then inspect next exact frozen 28-LP consumer; no replay Unit149 failed; independent Driver review separate."
+}
