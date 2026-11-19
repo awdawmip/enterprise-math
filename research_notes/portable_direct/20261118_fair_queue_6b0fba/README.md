@@ -280,3 +280,5 @@
 - [第一百二十六轮　Weil 整格、半素数窗口的联合矩与跨精度对称性](hundredtwentysixth/README.md)　给出高斯图像的整 Weil 子格、66 行半素数窗口的三个联合矩阈值、伴随锚的跨精度分岔、整壳的共振分布，以及三元校准器复用的最优误差。
 
 - [第一百二十七轮　Ramanujan 和的双起点、Weil 截断与稀疏周期识别](hundredtwentyseventh/README.md)　给出 Ramanujan 和能量的协方差变号位置、正边界响应的谱窗、两组密堆积的局部补全、幂指数的抗删取样，以及带谎报预算的三元记录成本。
+
+- [第一百二十八轮　原始谱矩的分母、粗筛余弦的整解码与 Machin 预算](hundredtwentyeighth/README.md)　求得粗筛余弦读数的整格、原始谱矩的联合最小公分母，给出 Gregory–Machin 预算、半素数邻接布局、正规曲面局部剪枝和有限时间标记的定量结论。
