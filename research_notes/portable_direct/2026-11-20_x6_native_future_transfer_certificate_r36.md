@@ -4,7 +4,7 @@ Status: CONDITIONAL_AUTHOR_PROOF / EXHAUSTIVE_FINITE_CHECK_PASS / NOT_INDEPENDEN
 Date: 2026-11-20 (Asia/Shanghai)
 Task: RS-X6-NATIVE-TIME-DYNAMICS
 Source lineage: EM-X6-214D9C, SID MCP-d467c19ce42d4d7fa65a3901db1cf6b2, prior Activity RA-545183ADD4EF71C3E4698AEE.
-Frozen science: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json\` (V5); P000 triadic arity and observer-preservation companion.
+Frozen science: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json` (V5); P000 triadic arity and observer-preservation companion.
 Immediate inputs: R34 global Markov future-language quotient; R35 two one-step-identical dynamic completions.
 Claim scope: finite, **deterministic, partial, labelled** operational dynamics, with the complete order of successful, source/Port-named event labels observed. There is no independent instantaneous public-Link readout. No physical-duration or pro-state precision-clock identification.
 
@@ -70,8 +70,8 @@ The P000 source fixes six signed spatial Cell axes and primitive triadic closure
 **Next discriminating unit:** locate an admitted whole-triad successor law at the task's frozen pin. If present, construct an exact labelled transition table and run the R36 relation/shortest-counterexample test, preserving X6 Cell, force triple, ordered Port/source, frame and Link states. If absent, explicitly maintain the two R35 completions as conditional alternatives and separately investigate a certified phase/refinement clock map; do not promote one arbitrary completion to native law.
 
 Artifacts:
-- \`research_notes/portable_direct/2026-11-20_x6_native_future_transfer_certificate_r36.md\` (this argument)
-- \`research_notes/portable_direct/x6_native_future_transfer_verify_r36.js\` (self-contained exact finite checker)
-- \`research_notes/portable_direct/x6_native_future_transfer_results_r36.json\` (complete summary and witnesses)
+- `research_notes/portable_direct/2026-11-20_x6_native_future_transfer_certificate_r36.md` (this argument)
+- `research_notes/portable_direct/x6_native_future_transfer_verify_r36.js` (self-contained exact finite checker)
+- `research_notes/portable_direct/x6_native_future_transfer_results_r36.json` (complete summary and witnesses)
 
 Source and evidence classification: CONDITIONAL_AUTHOR_PROOF; exact finite software check for the stated family; native event-admission NOT_ESTABLISHED; independent mathematical Review NOT_DONE.
