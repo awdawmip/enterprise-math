@@ -9,8 +9,10 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from control_plane import research_task_records_impl as core
+from control_plane import research_task_semantic_integrity_fault_isolation as semantic_isolation
 from tools import research_task_records as records
 from tools import research_taskbook
 
@@ -31,6 +33,12 @@ class FreeDerivedTaskPublicationTests(unittest.TestCase):
         # Exercise the strict immutable-record contract, independently of any
         # global bootstrap's operational/quarantine audit wrapper.
         self.audit = getattr(records, "strict_audit", records.audit)
+
+    def audit_local_fixture(self):
+        # These temporary publication fixtures have no production quarantine manifest.
+        # Exercise the strict record audit while preserving live bootstrap behavior.
+        with patch.object(semantic_isolation, "open_quarantines", return_value={}):
+            return self.audit(self.root)
 
     def write_book(self, state="DERIVED_NOT_AXIOM", *, body=None, **changes):
         meta = {
@@ -85,7 +93,7 @@ class FreeDerivedTaskPublicationTests(unittest.TestCase):
                 meta = self.prepare(role)
                 record = self.build(meta, role)
                 saved = self.save(record)
-                self.assertEqual([], self.audit(self.root))
+                self.assertEqual([], self.audit_local_fixture())
                 self.assertEqual("FREE_AXIOM_CANDIDATE", record["origin_kind"])
                 self.assertEqual("LOCAL-CANDIDATE-DERIVED", record["origin_candidate_id"])
                 self.assertEqual("DERIVED_NOT_AXIOM", record["origin_candidate_state"])
@@ -156,14 +164,14 @@ class FreeDerivedTaskPublicationTests(unittest.TestCase):
         record = self.build(self.prepare())
         path = self.save(record)
         self.book.write_text(self.book.read_text() + "\nChanged premise.\n")
-        self.assertTrue(any("taskbook blob drift" in error for error in self.audit(self.root)))
+        self.assertTrue(any("taskbook blob drift" in error for error in self.audit_local_fixture()))
         self.write_book()
         self.prepare()
         for field in ("working_truth_granted", "canonical_promotion_granted"):
             changed = dict(record, **{field: True})
             path.write_text(json.dumps(changed))
             with self.subTest(field=field):
-                self.assertTrue(any("cannot grant" in error for error in self.audit(self.root)))
+                self.assertTrue(any("cannot grant" in error for error in self.audit_local_fixture()))
 
     def test_old_contract_reproduces_the_original_hold_with_the_same_validator(self):
         old = copy.deepcopy(self.contract)
