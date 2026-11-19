@@ -1,0 +1,121 @@
+{
+  "schema": "X6_R36_FINITE_FUTURE_TRANSFER_EXACT_CHECK_V1",
+  "method": "exact deterministic partial labelled-success trace recursion and pair-BFS; no approximations",
+  "source_model": "P000 V5 frozen; R35 conditional triadic completions",
+  "alphabet": [
+    "Q0",
+    "Q1"
+  ],
+  "automata": 85,
+  "alphabet_size": 2,
+  "state_counts": [
+    1,
+    2
+  ],
+  "state_pair_instances": 27556,
+  "shortest_distinguishing_word_distribution": {
+    "1": 19128,
+    "2": 4884,
+    "3": 160,
+    "4": 0,
+    "equivalent": 3384
+  },
+  "max_witness_length_observed": 3,
+  "maximal_witness_example": {
+    "left": [
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        -1
+      ]
+    ],
+    "left_state": 1,
+    "right": [
+      [
+        -1,
+        1
+      ],
+      [
+        0,
+        -1
+      ]
+    ],
+    "right_state": 1,
+    "shortest_word": [
+      "Q0",
+      "Q1",
+      "Q0"
+    ]
+  },
+  "cutoff_verified": "nA*nB (<=4 for all enumerated pairs)",
+  "r35_cross_model_comparison": [
+    {
+      "theta": 0,
+      "agree_through_depth_1": true,
+      "equal_full_future": true,
+      "different_at_Q0Q1": false
+    },
+    {
+      "theta": 1,
+      "agree_through_depth_1": true,
+      "equal_full_future": false,
+      "different_at_Q0Q1": true
+    },
+    {
+      "theta": 2,
+      "agree_through_depth_1": true,
+      "equal_full_future": true,
+      "different_at_Q0Q1": false
+    },
+    {
+      "theta": 3,
+      "agree_through_depth_1": true,
+      "equal_full_future": true,
+      "different_at_Q0Q1": false
+    }
+  ],
+  "noninjective_bisimulation_relation_example": {
+    "left_states": 2,
+    "right_states": 1,
+    "left_transition_rows": [
+      [
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1
+      ]
+    ],
+    "right_transition_rows": [
+      [
+        -1,
+        -1
+      ]
+    ],
+    "valid_relation": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "both_left_states_share_single_right_state": true
+  },
+  "assertions": {
+    "exhaustive_all_partial_two_label_machines_with_one_or_two_states": true,
+    "agreement_through_product_bound_iff_full_language_equality": true,
+    "pair_BFS_shortest_witness_certified": true,
+    "exact_R35_first_split_at_two_events": true,
+    "noninjective_state_mapping_allowed": true
+  },
+  "pass": true,
+  "review": "NOT_INDEPENDENTLY_REVIEWED",
+  "scope": "finite deterministic partial systems with fully named successful-event trace observer; conditional candidate triads are not established native event admission"
+}
