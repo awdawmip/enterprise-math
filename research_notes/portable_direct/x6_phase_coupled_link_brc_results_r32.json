@@ -1,0 +1,77 @@
+{
+  "schema": "X6_R32_PHASE_COUPLED_LINK_BOOLEAN_BRC_CHECK_V1",
+  "model": "Deterministic labelled finite public controller, phase-dependent hidden-independent controls, one-use inert probes",
+  "method": "Exact enumeration of all successful labelled words, not sampled word equivalence; BFS of nonprobe control/phase graph",
+  "exhaustive": {
+    "n": 1,
+    "public_states": 2,
+    "one_public_action": true,
+    "partial_action_tables": 729,
+    "link_assignments": 4,
+    "initial_controller_choices": 2,
+    "configurations": 5832,
+    "max_h": 6
+  },
+  "seeded": {
+    "n": 2,
+    "public_states": 2,
+    "one_public_action": true,
+    "configurations": 128,
+    "seed": 20261119,
+    "prng": "LCG 1664525*x+1013904223 modulo 2^32",
+    "max_h": 7
+  },
+  "witnesses": {
+    "one_source": {
+      "d": [
+        3
+      ],
+      "first_distinguishing_depth": 4,
+      "class_counts": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "witness": [
+        "P0+",
+        "P0-",
+        "A0",
+        "Q0"
+      ]
+    },
+    "two_source_joint_gate": {
+      "d": [
+        5,
+        5
+      ],
+      "first_distinguishing_depth": 6,
+      "class_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        4
+      ],
+      "witness_for_0": [
+        "P0+",
+        "P0-",
+        "P1+",
+        "P1-",
+        "A0",
+        "Q0"
+      ]
+    }
+  },
+  "hidden_pair_horizon_comparisons": 47024,
+  "all_checks": "PASS",
+  "status": "FINITE_EXACT_CHECK_ONLY; GENERAL_THEOREM_HAS_SEPARATE_SYMBOLIC_PROOF; NOT_INDEPENDENTLY_REVIEWED",
+  "frozen_p000": "a72226e2430ffa4786321ac86e7f0c599d5f0389"
+}
