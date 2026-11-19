@@ -1,0 +1,170 @@
+{
+  "research_id": "R762FN",
+  "date": "2026-11-19",
+  "arithmetic": "exact finite integer counts; no floating-point state updates",
+  "candidate_model": "k distinctly named A/B/C positive native X6 legs per axis; one of each axis in each typed triad",
+  "k_range": [
+    1,
+    5
+  ],
+  "verified_histories": 15017,
+  "results": [
+    {
+      "k": 1,
+      "source_histories": 1,
+      "full_memory_bits": 0,
+      "horizons": [
+        {
+          "queried_a_tokens": 0,
+          "distinct_transcripts": 1,
+          "histories_per_transcript": 1,
+          "sharp_fixed_length_bits": 0
+        },
+        {
+          "queried_a_tokens": 1,
+          "distinct_transcripts": 1,
+          "histories_per_transcript": 1,
+          "sharp_fixed_length_bits": 0
+        }
+      ]
+    },
+    {
+      "k": 2,
+      "source_histories": 4,
+      "full_memory_bits": 2,
+      "horizons": [
+        {
+          "queried_a_tokens": 0,
+          "distinct_transcripts": 1,
+          "histories_per_transcript": 4,
+          "sharp_fixed_length_bits": 0
+        },
+        {
+          "queried_a_tokens": 1,
+          "distinct_transcripts": 4,
+          "histories_per_transcript": 1,
+          "sharp_fixed_length_bits": 2
+        },
+        {
+          "queried_a_tokens": 2,
+          "distinct_transcripts": 4,
+          "histories_per_transcript": 1,
+          "sharp_fixed_length_bits": 2
+        }
+      ]
+    },
+    {
+      "k": 3,
+      "source_histories": 36,
+      "full_memory_bits": 6,
+      "horizons": [
+        {
+          "queried_a_tokens": 0,
+          "distinct_transcripts": 1,
+          "histories_per_transcript": 36,
+          "sharp_fixed_length_bits": 0
+        },
+        {
+          "queried_a_tokens": 1,
+          "distinct_transcripts": 9,
+          "histories_per_transcript": 4,
+          "sharp_fixed_length_bits": 4
+        },
+        {
+          "queried_a_tokens": 2,
+          "distinct_transcripts": 36,
+          "histories_per_transcript": 1,
+          "sharp_fixed_length_bits": 6
+        },
+        {
+          "queried_a_tokens": 3,
+          "distinct_transcripts": 36,
+          "histories_per_transcript": 1,
+          "sharp_fixed_length_bits": 6
+        }
+      ]
+    },
+    {
+      "k": 4,
+      "source_histories": 576,
+      "full_memory_bits": 10,
+      "horizons": [
+        {
+          "queried_a_tokens": 0,
+          "distinct_transcripts": 1,
+          "histories_per_transcript": 576,
+          "sharp_fixed_length_bits": 0
+        },
+        {
+          "queried_a_tokens": 1,
+          "distinct_transcripts": 16,
+          "histories_per_transcript": 36,
+          "sharp_fixed_length_bits": 4
+        },
+        {
+          "queried_a_tokens": 2,
+          "distinct_transcripts": 144,
+          "histories_per_transcript": 4,
+          "sharp_fixed_length_bits": 8
+        },
+        {
+          "queried_a_tokens": 3,
+          "distinct_transcripts": 576,
+          "histories_per_transcript": 1,
+          "sharp_fixed_length_bits": 10
+        },
+        {
+          "queried_a_tokens": 4,
+          "distinct_transcripts": 576,
+          "histories_per_transcript": 1,
+          "sharp_fixed_length_bits": 10
+        }
+      ]
+    },
+    {
+      "k": 5,
+      "source_histories": 14400,
+      "full_memory_bits": 14,
+      "horizons": [
+        {
+          "queried_a_tokens": 0,
+          "distinct_transcripts": 1,
+          "histories_per_transcript": 14400,
+          "sharp_fixed_length_bits": 0
+        },
+        {
+          "queried_a_tokens": 1,
+          "distinct_transcripts": 25,
+          "histories_per_transcript": 576,
+          "sharp_fixed_length_bits": 5
+        },
+        {
+          "queried_a_tokens": 2,
+          "distinct_transcripts": 400,
+          "histories_per_transcript": 36,
+          "sharp_fixed_length_bits": 9
+        },
+        {
+          "queried_a_tokens": 3,
+          "distinct_transcripts": 3600,
+          "histories_per_transcript": 4,
+          "sharp_fixed_length_bits": 12
+        },
+        {
+          "queried_a_tokens": 4,
+          "distinct_transcripts": 14400,
+          "histories_per_transcript": 1,
+          "sharp_fixed_length_bits": 14
+        },
+        {
+          "queried_a_tokens": 5,
+          "distinct_transcripts": 14400,
+          "histories_per_transcript": 1,
+          "sharp_fixed_length_bits": 14
+        }
+      ]
+    }
+  ],
+  "status": "PASS",
+  "limitation": "Finite checker supports, but does not substitute for, the symbolic all-k proof."
+}
