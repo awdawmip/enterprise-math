@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/seventieth/README.md",
+    "ref": "9a73819f077d5386e1703bc16a5ab10891cc4889",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-seventy-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第七十轮　空计数的十五阶门槛与可同步的连续殆素数簇\n\n## 匹配多少个地址，才能强迫一个窗口有时为空\n\n对已曝光的半素数窗口，余 29 的 69 个地址有 29 个占用，目标行包含其中 17 址。令 $C$ 为这 17 址中的占用数。假设任取至多 $t$ 个地址的联合律都与分层均匀抽取相同，且各层占用总数固定。允许联合律将纤维中的某些配置赋为零。\n\n$t=14$ 时仍能让 $C$ 永远为正。到 $t=15$，边际数据已强迫\n$$\n\\Pr(C=0)=\\frac{27010}{1891206119}+\\Pr(C=16)+16\\Pr(C=17).\n$$\n常数项恰是可达下界。$t=16$ 时空计数概率仍有一个非平凡区间，$t=17$ 才唯一确定为 $48100/3233352397$。给定 $C$，在行内和行外分别均匀抽取，可以把每个达到界的单变量概率律提升到全部 2016 个共享地址。这个阈值刻画已声明的合成对照。[离散矩定理与各阶区间](marginals.md) · [标准库复算](marginals_check.py) · [精确证书](marginals_checked.json)\n\n## 自然数序中的长簇能指定共同因子\n\n按重数计素因子，记作 $\\Omega$。固定 $k\\ge2$ 时，按数值排列的 $\\Omega(n)=k$ 层中，相邻两项共享因子的比例趋于零。现在固定 $\\Omega(D)=k-1$ 和任意长度 $L$，却能找到无穷多段连续 $L$ 项，全部形如 $Dp_1,\\ldots,Dp_L$，其中 $p_i$ 为不同素数，任意两项的最大公因数都恰为 $D$。每段首尾距离有一个只依赖 $D,L$ 的上界。\n\n用有界素数簇定理产生候选素数，在同余类中为每个夹在中间的非候选整数指定足够多的素因子，就能保证它进入不了目标层。还可选定一套素数间隔和同一列起点；对每一个固定 $D$，沿这列起点走得足够远后，整段乘以 $D$ 都在相应的 $\\Omega$ 层保持连续。例如 $55813,55817,55819$ 本身是三个连续素数，各自乘以 2 或 3 后，也分别是半素数数值序中的三个连续项。反过来固定至少含两项的一串素数，所有保持相邻的乘数 $D$ 的奇数部分只取有限多个值；对每个这样的奇数部分，可能的二次幂指数构成首段或全体非负整数。[构造、同步范围与有限例](adjacency.md) · [程序](adjacency_check.py) · [逐项结果](adjacency_checked.json)\n\n截至 2026-11-19 01:55:48 UTC，累计直接研究 224 个登记任务，覆盖 51 个父方向。本轮复访第 2 轮的共享地址随机机制和第 19 轮的乘法邻接，乘法邻接的原提交仍处于冻结状态。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 38、18、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9a73819f077d5386e1703bc16a5ab10891cc4889/research_notes/portable_direct/20261118_fair_queue_6b0fba/seventieth/README.md",
+      "encoding": "utf-8",
+      "sha": "3ea43e9f96cf72886c60b27cd09b173fef22346b"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
