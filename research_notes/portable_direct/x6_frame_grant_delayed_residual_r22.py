@@ -73,6 +73,9 @@ def verify():
                     words = language(theta, k, h)
                     memo[(theta, h)] = words
                     counts['language_checks'] += 1
+                    for w in words:
+                        assert independent_oracle(w, theta, k)
+                        counts['oracle_checks'] += 1
                     for length in range(h+1):
                         for w in itertools.product(alphabet, repeat=length):
                             assert (w in words) == independent_oracle(w, theta, k)
