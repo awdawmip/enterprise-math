@@ -1,0 +1,68 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "unit": 159,
+  "date": "2026-11-19",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "author": "EM-X6-FB6990",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "science_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_SOURCE_AUDITED/EXACT_INTEGER_CHECK_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+  "source_edges": [
+    {
+      "producer": "src/enterprise_math/_triaxial_directional_defect_core.py",
+      "producer_blob": "5261da8b9e7848ac5cce935f81d7e7e0381b210b",
+      "lines": "24-31,70-106,331-357",
+      "consumer": "src/enterprise_math/triaxial_directional_defect.py",
+      "consumer_blob": "570088fb2a8dc1a19ada303d55ea1cb93718a0c7",
+      "consumer_lines": "198-216",
+      "test_consumer": "tests/test_triaxial_directional_defect_integration.py",
+      "test_blob": "c92da7c8d87a7c0efae477151323435d2ff0f8ec",
+      "test_lines": "23-50,76-82",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "operator_type": "DERIVED_Z2_SIGNED_DIFFERENCE_KERNEL_EXPOSED_VERTEX_LINEAR_FUNCTIONAL_NOT_NATIVE_SIGNED_AXIS_DOMINANCE_OR_POSITIVE_N_BRC_SUBTRACTION"
+    }
+  ],
+  "independent_integer_check": {
+    "primitive_seed_count": 132,
+    "trace_masks": 8,
+    "nonzero_signed_endpoints": 6,
+    "exposed_q": [
+      1,
+      2
+    ],
+    "exposed_vertex": [
+      2,
+      3
+    ],
+    "family_kernel_positions": 12,
+    "native_common_depth_witness": "carrier same [0,0], native G 0 versus3, N-BRC 1 versus6",
+    "python_normal_O_OO_sha256": "55bc66fd8d8e316f320ae2ec9a4d02bba26dd8ea67ba885f7599749b39e3e6ca",
+    "status": "PASS"
+  },
+  "artifacts": [
+    {
+      "path": "research_notes/X6_UNIT159_TRIAXIAL_EXPOSED_KERNEL_SIGNED_TRACE_CALLGRAPH_AUDIT_20261119.md",
+      "commit": "ecefdf32edf1885c7d284a744fdc846edc7649b6",
+      "blob": "ca81a8fd71bc0aae0ec9c32e1b4146a320fb8b4f",
+      "verified": true
+    },
+    {
+      "path": "research_checks/X6_UNIT159_TRIAXIAL_CARRIER_SIGNED_TRACE_EXPOSED_CHECK_20261119.py",
+      "commit": "cd5a22d342f8a0b3edc8b38a35f0d55ba7bf4f11",
+      "blob": "64b50ec952bb5d8e8c1fe6b042dd2d1f33785a1a",
+      "verified": true
+    },
+    {
+      "path": "research_checks/X6_UNIT159_TRIAXIAL_CARRIER_SIGNED_TRACE_EXPOSED_RESULTS_20261119.json",
+      "commit": "cbb906589964ec650b407ee4ecceada1257e213d",
+      "blob": "3ae89ef56f21eb9dfc9f83c11a59afbd49a3db59",
+      "verified": true
+    }
+  ],
+  "lp011_faulty_historical_caller": "UNRESOLVED_PROVENANCE",
+  "lp019_faulty_historical_caller": "UNRESOLVED_PROVENANCE",
+  "scope": "THREE_FROZEN_SOURCE_FILES_AND_THEIR_PRODUCER_WRAPPER_TEST_CALLGRAPH",
+  "next_action": "Audit distinct actual downstream callers with exact frozen source:line; retain typed distinctions and open missing Native Units149–152 association and independent Driver review."
+}
