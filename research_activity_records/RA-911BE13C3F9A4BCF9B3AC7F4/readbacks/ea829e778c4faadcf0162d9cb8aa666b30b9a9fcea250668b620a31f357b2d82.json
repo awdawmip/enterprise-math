@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredth/README.md",
+    "ref": "16a5a00ef136201ca0c946774b84e173edde9f45",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-hundred-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第一百轮　椭圆点的最小约化指数与可逆读取的保持时间\n\n**局部密度怎样合成一个素数筛。** 对 P11 固定曲线 $E:y^2=x(x-233^2)(x-119^2)$ 及原有理点 $H=(194089,69872040)$，其约化在好素数处生成的子群指数 $I_p$ 至少为 2。每个有限奇素数集上，“二进指数最小且这些奇素数均不整除 $I_p$”都有精确自然密度。二进条件本身占 $3/8$，奇素数各自的通过率为 $s_q=1-(q^3-q-1)/(q|\\mathrm{GL}_2(\\mathbf F_q)|)$。将各项相乘还须对 $\\{3,11,19\\}$ 和 $\\{17,233\\}$ 分别作二次特征修正。全素数的 Haar 质量落在 $[0.282951614877,\\,0.282951897830]$，它给实际 $I_p=2$ 的自然上密度界。要得到等号，仍须控制大素因子尾。本题按独立算术进展计。[局部指数、有限筛与尾界](index.md) · [原曲线上的复算](index_checked.json)\n\n**可逆读取要用多少个隐藏状态保持一次已捕获的值。** 当比较源与参考固定、两者不同，且只从校准的准备标签启动时，连续 $H$ 拍保持所读值至少需要 $H$ 个隐藏状态；采用冻结的加法接触门可以达到。进一步，给定 $S$ 个可用准备标签，各标签能够保证的连续正确拍数 $l_1,\\ldots,l_S$ 恰可取所有满足 $\\sum_i l_i\\le S$ 的非负整数向量。因此若准备标签等概率，平均保持拍数至多为一。在指定的等待与夹持协议中，同时识别 $M$ 个等待时刻并保持 $H$ 拍，最少需要 $MH$ 个状态。运行真实旧源的公开参考模型还验证了 6,912 条支路；使用旧源周期相位时，成本取决于哪些相位可观察。[条件范围、达到下界的协议与原边界轨道](latch.md) · [有限置换与真实边界的复算](latch_checked.json)\n\n截至 2026-11-19 06:21:06 UTC，累计直接研究 238 个登记任务，覆盖 51 个父方向。自主记录器为首次直接研究，椭圆点的约化指数筛作为独立算术分支计零项。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 25、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/16a5a00ef136201ca0c946774b84e173edde9f45/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredth/README.md",
+      "encoding": "utf-8",
+      "sha": "566be80c6930e56b78c0de3d7b552b30977b9835"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
