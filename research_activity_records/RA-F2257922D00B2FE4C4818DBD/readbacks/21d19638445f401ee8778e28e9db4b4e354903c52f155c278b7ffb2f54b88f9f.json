@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_fourteen_dominance_20261120/INDEPENDENT_ORACLE_14.cpp",
+    "ref": "c328562411f49bd9981d54b2eeb9b0220a66986c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261120-0239-fourteen-dominance-20159-v1-source-09",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "// Independent 4-bit-per-label exact f8 observer Bellman; action list made by Python left endpoints.\n#include <vector>\n#include <string>\n#include <cstdint>\n#include <iostream>\n#include <fstream>\n#include <unordered_map>\n#include <algorithm>\n#include <cstdlib>\nusing namespace std;\nstruct Act{int cost;vector<unsigned> masks;};\nint n,f;vector<Act> acts;unordered_map<uint64_t,int> memo;\nint value(uint64_t state){\n int live=0;\n for(int h=0;h<n;h++)live+=(((state>>(h*4))&15)<=f);\n if(live<=1)return 0;\n auto it=memo.find(state);if(it!=memo.end())return it->second;\n int best=INT32_MAX/2;\n for(auto&act:acts){\n  if(act.cost>=best)continue;\n  bool stall=false;int worst=0;\n  for(unsigned mask:act.masks){\n   uint64_t next=state;\n   for(int h=0;h<n;h++){\n    int e=(state>>(4*h))&15;\n    if(e<=f&&!(mask>>h&1))next+=uint64_t(1)<<(4*h);\n   }\n   if(next==state){stall=true;break;}\n   worst=max(worst,value(next));\n   if(worst+act.cost>=best)break;\n  }\n  if(!stall)best=min(best,act.cost+worst);\n }\n if(best==INT32_MAX/2)throw runtime_error(\"NO_PROGRESS\");\n memo.emplace(state,best);return best;\n}\nint main(int argc,char**argv){\n if(argc<3)return 2;ifstream in(argv[1]);int count;in>>n>>count;f=atoi(argv[2]);\n if(n!=14||f!=8)return 3;\n for(int i=0;i<count;i++){\n  Act a;int count_masks;in>>a.cost>>count_masks;\n  for(int j=0;j<count_masks;j++){unsigned m;in>>m;a.masks.push_back(m);}\n  acts.push_back(move(a));\n }\n int v=value(0);\n cout<<\"EXACT_NIBBLE n=\"<<n<<\" f=\"<<f<<\" V=\"<<v<<\" states=\"<<memo.size()<<\" actions=\"<<count<<\"\\n\";\n return 0;\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c328562411f49bd9981d54b2eeb9b0220a66986c/research_notes/portable_direct/r5_fourteen_dominance_20261120/INDEPENDENT_ORACLE_14.cpp",
+      "encoding": "utf-8",
+      "sha": "4bf8e46d785767117ab747b135ce7496d4563cf5"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
