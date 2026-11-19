@@ -1,0 +1,77 @@
+# PREFIX-935 — k=6 low-bit boundary census under exact 2-adic reduction
+
+**2026-11-19 (Asia/Shanghai).** Auxiliary named-XOR two-port research, 进取数论研究6. Frozen scientific pin `f42f2906d77f24085c123f3ccfe9667d41caa96d`. Predecessor PREFIX-934 (paper `8a68ba6f01b8c19a6e8b3ea2c538a57eee18427a`), Researcher `EM-DIRECT-58C410` under original SID `MCP-31edc522830749ad8775ca012e02ef30`. Status AUTHOR_PROVED / TWO_INDEPENDENT_EXACT_ENUMERATORS_AGREE / NOT_INDEPENDENTLY_REVIEWED / NOT_ADMITTED.
+
+## Exact construction and complete boundary reduction
+
+As before `N=2^32`, `Q={262145,262147,...,524287}`, `|Q|=131072`; the source-labeled trajectories are `F_x^i=(x,x XOR 2^i)` and `Z_x=(x,x)`. The two-port readout is `Phi_(a,b)(u,v)=(u mod a,v mod b)`.
+
+For `k=6=2*3`, any i,j≥1 satisfies the PREFIX-934 2-adic identity
+
+    (6a XOR 2^j)-2^i = 2*((3a XOR 2^(j-1))-2^(i-1)).
+
+Because b is odd, divisibility by b is equivalent to divisibility by the reduced k=3 difference. That complete lower-index family was already included in W3 at PREFIX-932. Thus **relative to the prior certified union**, every potentially new W6 pair must come from the low-bit boundary `i=0 OR j=0`. This is a complete mathematical reduction for the specified k=6 template, not a heuristic pruning step.
+
+Define D6 as the set of ordered `(a,b)∈Q²` admitting `0≤i,j≤18`, `min(i,j)=0`, and a positive integer t satisfying
+
+    (6*a XOR 2^j) - 2^i = t*b.
+
+For each such parameter, the two *distinct named* traces `F_0^i=(0,2^i)` and `F_(6a)^j=(6a,6a XOR 2^j)` give a legal collision under `Phi_(a,b)`.
+
+## Finite domain and exact quotient bound
+
+For all a∈Q, `6a≤3,145,722`; XOR by one bit ≤2^18 increases the endpoint by at most 262,144, so `6a XOR 2^j≤3,407,866`. Since `2^i≥1`, `0<D≤3,407,865<13*262145`. Therefore **t∈{1,...,12} exhausts all possible quotients**. The boundary consists of 37 (i,j) bit combinations per a (19 with j=0, plus 18 with j≥1,i=0). All endpoints lie in `[0,N)`.
+
+The exact low-bit valuation filter from PREFIX-934 yields: if exactly one of i,j equals zero, D is odd, hence t must be odd; when i=j=0, `D=6a` and because a,b odd `v2(t)=1` (equivalently t≡2 mod4). The C++ implementation checks this invariant on every retained witness. It is a structural checker, not an alternative proof of the count.
+
+## Complete exact census and priority-disjoint net coverage
+
+Two distinct exact implementations agree: C++17 scalar sweep over a, boundary i/j and t, and NumPy vectorization over all odd a for fixed j, i, t; each reconstitutes the old certificate flags and applies a sorted-set membership test. They produce byte-identical sorted little-endian uint64 pair IDs using `id=((a-262145)/2)*131072+(b-262145)/2`.
+
+**D6 raw witnesses: 1,827,924. Distinct D6 pairs: 1,771,013.** The sorted D6 file has SHA-256 `718e94ea98ba2931760b473a04eaf38ef189b4444548d9160ab5d861d1fc9c60`.
+
+| t | raw witnesses |
+|---|---:|
+| 1 | 0 |
+| 2 | 0 |
+| 3 | 29,124 |
+| 4 | 0 |
+| 5 | 637,899 |
+| 6 | 131,072 |
+| 7 | 555,500 |
+| 8 | 0 |
+| 9 | 398,074 |
+| 10 | 8,738 |
+| 11 | 67,517 |
+| 12 | 0 |
+
+Priority-disjoint count against B/Z/S/U/V/W2/W3/D4/W5, in precisely that order:
+
+| Certificate class | Count |
+|---|---:|
+| B/Z/S | 952,813 |
+| U | 280 |
+| V | 3,115 |
+| W2 | 21,638 |
+| W3 | 145 |
+| D4 | 0 |
+| W5 | 54 |
+| **new outside all** | **792,968** |
+
+These numbers sum to 1,771,013. This proves the exact certified union increment `7,537,850,206 + 792,968 = 7,538,643,174`; the unclassified complement with respect to these certificate families is `9,641,226,010` out of `17,179,869,184` ordered modulus pairs. The sorted 792,968 new-only IDs have SHA-256 `d35aea32ca618b232d81fcbade86c42112f6d7541571d6ab66f0a020a8ecd6aa`.
+
+The lexicographically first new pair is `(a,b)=(271731,521617)`, with `i=16,j=0,t=3`:
+
+    F_0^16=(0,65536)
+    F_(6a)^0=(1630386,1630387)
+    1630387 - 65536 = 1564851 = 3*521617.
+
+Thus the first residues are both 0 mod 271731, and the endpoint residues coincide mod 521617. This pair is outside the previously specified certificate union.
+
+## Reproduction and provenance
+
+Reuse frozen original `U` (5,295,478 members, SHA-256 `15534b09fa696b5cbeba46f7f644d75c2c3f99b719a88071150fa91357f22bad`), W2/W3 regenerated from PREFIX-932, D4 from PREFIX-933, and W5 regenerated from PREFIX-934 (`15,406,809` sorted pairs, SHA-256 `ed2ff4c1961e29a619ccb404e834150028b4a689d5816ae03b2fa41fbc49de95`). The code enumerates exact integers, validates endpoint residues and low-bit valuation, and compares complete list bytes with independent vectorization.
+
+This is an **auxiliary** finite observer collision construction preserving source types and start history. It does not collapse X6 native Cell state, supersede P000, upgrade a mathematical proof to independent review, or conclude the open mother problem `B_fix,odd(32)∈{19,20}`.
+
+**Next:** compare odd-core k=7 and even k=8 (dyadic boundary relative to k=1) by exact priority-disjoint certificates, prioritizing actual information gain and reused frozen source IDs. Preserve existing Reviewer/CLAIM boundaries.
