@@ -1,0 +1,90 @@
+{
+  "as_of": "2026-11-19T07:24:55+00:00",
+  "researcher_id": "EM-DIRECT-970E1C",
+  "activity_id": "RA-D2EC212845B63844081F9A14",
+  "current_event": "riesel-mixed-20261119-v2",
+  "science_commit": "e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe",
+  "science_full_file_readbacks_matched": 6,
+  "current_event_state": "EM_REPRESENTED",
+  "current_helper_source_commit": "ef720decf4a35a276e509964250571a55421b9f8",
+  "current_helper_blob": "802471dcc297650435ae3fa7b0a37a882004f67a",
+  "legacy_event": "riesel-residual-20261119-v1",
+  "legacy_state": "VERIFY_EM_PUBLICATION",
+  "legacy_observations_commit": "7a7a20a6eefe93299adce082d9216374dbe870bd",
+  "legacy_actual_tool_label_supported_now": true,
+  "legacy_remaining_issue": "Percent-encoded Unicode display URL does not match the native helper literal unencoded path; content SHA256 and Git blob match. Original observations preserved unchanged.",
+  "repair_attempt": {
+    "source_commit": "ef720decf4a35a276e509964250571a55421b9f8",
+    "helper_blob": "802471dcc297650435ae3fa7b0a37a882004f67a",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "continuation_support/tools/research_activity.py",
+      "--root",
+      "continuation_support/staging",
+      "checkpoint",
+      "--activity-id",
+      "RA-D2EC212845B63844081F9A14",
+      "--event-id",
+      "riesel-residual-20261119-v1-readback-repair",
+      "--repairs-event-id",
+      "riesel-residual-20261119-v1",
+      "--expected-sha256",
+      "8a79fb77c6d12c50d214ead254a53248de4693371600c7c6832aeec5a6e24c1e",
+      "--source-json",
+      "continuation_support/repair_source_payload.json"
+    ],
+    "returncode": 1,
+    "stdout": "{\"error\": \"connector content/blob/immutable URL does not match source pin\", \"required_action\": \"REPAIR_ACTIVITY_EVIDENCE\"}\n",
+    "stderr": "",
+    "staged_record_unchanged": true,
+    "shared_record_modified": false
+  },
+  "compatibility_report": {
+    "helper_blob": "802471dcc297650435ae3fa7b0a37a882004f67a",
+    "record_sha256": "8a79fb77c6d12c50d214ead254a53248de4693371600c7c6832aeec5a6e24c1e",
+    "observations": [
+      {
+        "path": "research_notes/portable_direct/riesel_residual_20261119/研究记录.md",
+        "result": "FAIL",
+        "error": "connector content/blob/immutable URL does not match source pin",
+        "sha256_matches": true,
+        "blob_matches": true,
+        "expected_url": "https://github.com/awdawmip/enterprise-math/blob/171fe8f85b89597e24cb4513ddf17419212ff9ca/research_notes/portable_direct/riesel_residual_20261119/研究记录.md",
+        "actual_url": "https://github.com/awdawmip/enterprise-math/blob/171fe8f85b89597e24cb4513ddf17419212ff9ca/research_notes/portable_direct/riesel_residual_20261119/%E7%A0%94%E7%A9%B6%E8%AE%B0%E5%BD%95.md"
+      },
+      {
+        "path": "research_notes/portable_direct/riesel_residual_20261119/verify.py",
+        "result": "PASS",
+        "verification": {
+          "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+          "tool_name": "mcp__codex_apps__github_fetch_file",
+          "observation_id": "local-riesel-source-readback-1",
+          "call_id": null,
+          "git_blob_sha1": "bf1059fbecdf80d9ae93e5cc652f2d8c1b7d309f",
+          "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/171fe8f85b89597e24cb4513ddf17419212ff9ca/research_notes/portable_direct/riesel_residual_20261119/verify.py",
+          "network_request_by_this_tool": false,
+          "server_signature_authenticated": false
+        }
+      },
+      {
+        "path": "research_notes/portable_direct/riesel_residual_20261119/results.json",
+        "result": "PASS",
+        "verification": {
+          "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+          "tool_name": "mcp__codex_apps__github_fetch_file",
+          "observation_id": "local-riesel-source-readback-2",
+          "call_id": null,
+          "git_blob_sha1": "054b0807d5b50af7b31d9591af0251c61b21d9ea",
+          "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/171fe8f85b89597e24cb4513ddf17419212ff9ca/research_notes/portable_direct/riesel_residual_20261119/results.json",
+          "network_request_by_this_tool": false,
+          "server_signature_authenticated": false
+        }
+      }
+    ],
+    "checkpoint_exit_code": 1,
+    "record_mutation": false
+  },
+  "next_legacy_action": "After an authorized native URL-equivalence fix, consume preserved original observations and append a repair event for the same activity; no science republication or new identity needed.",
+  "scientific_status": "Author proofs and exact finite computations; not independent project Review or formal checker execution.",
+  "library_file_id": "libfile_492da3dfbe0c81918e140f34bcfe2d0e"
+}
