@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "path": "research_notes/portable_direct/x6_pair_first_divergence_brc_verify.py",
+    "ref": "2630861765f272c77272ce07bd8b157b22bf363e"
+  },
+  "observation_id": "r2-x6-20261119-r14b-first-depth-code",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"First distinguishing word depth for signed-X6 two-source Boolean BRC languages.\"\"\"\nimport json\nfrom collections import Counter\nfrom itertools import combinations\nfrom x6_full_signed_port_r14_brc_verify import grid_ball, two_language, norm, lattice_ball_count\n\ndef verify_dim(d,H):\n    near=list(grid_ball(d,H))\n    far=[(H+1,)+(0,)*(d-1),(0,H+1)+(0,)*(d-2), (-(H+2),)+(0,)*(d-1)]\n    states=near+far\n    languages={x:[two_language(x,h) for h in range(H+1)] for x in states}\n    counts=Counter()\n    for x,y in combinations(states,2):\n        actual=next((h for h in range(H+1) if languages[x][h]!=languages[y][h]),None)\n        predicted=min(norm(x),norm(y)) if (x!=y and min(norm(x),norm(y))<=H) else None\n        assert actual==predicted,(d,H,x,y,actual,predicted)\n        counts[str(actual) if actual is not None else '>H']+=1\n    return {'dimension':d,'horizon':H,'near_vectors':len(near),'far_representatives':len(far),\n            'unordered_distinct_vector_pairs_tested':sum(counts.values()),\n            'first_difference_depth_histogram':dict(sorted(counts.items())),\n            'full_ball_class_count':lattice_ball_count(d,H)}\n\ndef main():\n    result={'schema':'EM_X6_R14B_FIRST_DIFFERENCE_TYPED_BRC_V1','status':'PASS',\n    'theorem':'For distinct nonzero signed-unit-step relative displacements d,d2, minimum successful-language distinguishing word length equals min(||d||_1,||d2||_1).',\n    'tests':[verify_dim(2,3),verify_dim(6,2)],\n    'X6_new_classes_by_h_1_6':[lattice_ball_count(6,h)-lattice_ball_count(6,h-1) for h in range(1,7)],\n    'scope':'conditional vacancy-only fully signed six-Port-source-labelled Boolean BRC support; no native physical admission'}\n    print(json.dumps(result,indent=2,sort_keys=True))\nif __name__=='__main__':main()\n",
+      "encoding": "utf-8",
+      "sha": "f480488c1e428c290920546f270ecd5a59470bf3",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2630861765f272c77272ce07bd8b157b22bf363e/research_notes/portable_direct/x6_pair_first_divergence_brc_verify.py",
+      "display_title": "x6_pair_first_divergence_brc_verify.py"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
