@@ -1,0 +1,122 @@
+{
+  "schema": "R284BF_TARGET_ONLY_GUARD_VALIDATION_V1",
+  "exact_arithmetic": "unbounded Python ints, Fraction, Bareiss determinant",
+  "matrix_reconstructions": 562,
+  "bounded_noise_reconstructions": 128,
+  "target_address_census": [
+    {
+      "n": 3,
+      "target_count": 10,
+      "address_count": 12
+    },
+    {
+      "n": 4,
+      "target_count": 19,
+      "address_count": 28
+    },
+    {
+      "n": 5,
+      "target_count": 31,
+      "address_count": 64
+    },
+    {
+      "n": 6,
+      "target_count": 46,
+      "address_count": 144
+    },
+    {
+      "n": 7,
+      "target_count": 64,
+      "address_count": 314
+    },
+    {
+      "n": 8,
+      "target_count": 85,
+      "address_count": 668
+    },
+    {
+      "n": 9,
+      "target_count": 109,
+      "address_count": 1338
+    },
+    {
+      "n": 10,
+      "target_count": 136,
+      "address_count": 2489
+    },
+    {
+      "n": 11,
+      "target_count": 166,
+      "address_count": 4244
+    },
+    {
+      "n": 12,
+      "target_count": 199,
+      "address_count": 7135
+    }
+  ],
+  "cases": [
+    {
+      "n": 3,
+      "H": 2,
+      "count": 512,
+      "coverage": "exhaustive",
+      "max_control_bits": 1271,
+      "max_readout_bits": 1610,
+      "sha256_inputs_outputs": "8073fe2e4378d0f5eae4eafc24f60bf9cc454afe8cf4e9f8e468e1319c8cbbe9",
+      "status": "PASS"
+    },
+    {
+      "n": 3,
+      "H": 3,
+      "count": 20,
+      "coverage": "seeded",
+      "max_control_bits": 1430,
+      "max_readout_bits": 1812,
+      "sha256_inputs_outputs": "d28678235d9c0ec54cb8433468ed2ec83fe32dea472206cb30a69c7a45045033",
+      "status": "PASS"
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "count": 18,
+      "coverage": "seeded",
+      "max_control_bits": 5765,
+      "max_readout_bits": 8175,
+      "sha256_inputs_outputs": "ca467bcb5e04d1e9089385e5b665b827aa47458f97c5133388af17efbc33cea7",
+      "status": "PASS"
+    },
+    {
+      "n": 4,
+      "H": 3,
+      "count": 8,
+      "coverage": "seeded",
+      "max_control_bits": 6453,
+      "max_readout_bits": 9150,
+      "sha256_inputs_outputs": "2c4c5e02acdfe0a9a5466661b0ab4144c87db5d8541b8b7e2f49e8f3ebf890ea",
+      "status": "PASS"
+    },
+    {
+      "n": 5,
+      "H": 2,
+      "count": 3,
+      "coverage": "seeded",
+      "max_control_bits": 11038,
+      "max_readout_bits": 16812,
+      "sha256_inputs_outputs": "522aef6c09fcd15a1134901149eccd10dca3bc19a076364703227ac821c4f644",
+      "status": "PASS"
+    },
+    {
+      "n": 6,
+      "H": 2,
+      "count": 1,
+      "coverage": "seeded",
+      "max_control_bits": 28595,
+      "max_readout_bits": 45422,
+      "sha256_inputs_outputs": "db51eb04002a72015d6fc8369417a97d49426b692d338dd1ca908790d51f9c71",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "scope": "finite validation, not independent review"
+}
