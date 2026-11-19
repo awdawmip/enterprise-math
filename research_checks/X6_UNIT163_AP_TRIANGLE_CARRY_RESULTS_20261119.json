@@ -1,0 +1,50 @@
+{
+  "schema": "X6_UNIT163_LATTICE_INTEGER_RADIAL_CARRY_AUDIT_V1",
+  "date": "2026-11-19",
+  "historical_source": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "domain": "A_p, p=1,2,3; each coordinate integer [-2,2], zero sum; ordered triples",
+  "counts": {
+    "A_1": {
+      "points": 5,
+      "triples": 125
+    },
+    "A_2": {
+      "points": 19,
+      "triples": 6859
+    },
+    "A_3": {
+      "points": 85,
+      "triples": 614125
+    }
+  },
+  "checked_triples": 621109,
+  "sharp_triples": 4560,
+  "violations": 0,
+  "witness": {
+    "a": [
+      -2,
+      0,
+      2
+    ],
+    "b": [
+      -1,
+      1,
+      0
+    ],
+    "c": [
+      0,
+      2,
+      -2
+    ],
+    "radii": [
+      1,
+      1,
+      3,
+      1
+    ]
+  },
+  "integer_operations_only": true,
+  "proof_scope": "ALL A_p INTEGER LATTICES BY SCALED_EUCLIDEAN_TRIANGLE_PLUS_FLOOR",
+  "execution": "actual V8 isolate run",
+  "status": "PASS"
+}
