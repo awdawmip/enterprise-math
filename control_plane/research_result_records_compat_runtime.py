@@ -617,10 +617,10 @@ def _single_result_state(
 
 
 def _parallel_synthesis(intake_id: str, evidence_set_sha256: str, root: Path) -> dict[str, Any] | None:
-    for item in _parallel.syntheses(root).values():
-        if item.get("intake_id") == intake_id and item.get("evidence_set_sha256") == evidence_set_sha256:
-            return item
-    return None
+    intake = _parallel.intakes(root).get(intake_id)
+    if intake is None or intake.get("evidence_set_sha256") != evidence_set_sha256:
+        return None
+    return _parallel.intake_state(intake, root)["synthesis"]
 
 
 def task_result_state(
@@ -641,6 +641,12 @@ def task_result_state(
     result_ids = list(parallel.get("result_ids") or [])
     intake_id = parallel.get("intake_id")
     evidence_hash = parallel.get("evidence_set_sha256")
+    reference_state = {
+        "reference_pass_ids": list(parallel.get("reference_pass_ids") or []),
+        "reference_pass_count": parallel.get("reference_pass_count", 0),
+        "reference_review_status": parallel.get("reference_review_status", "NOT_PERFORMED"),
+        "stale_synthesis_ids": list(parallel.get("stale_synthesis_ids") or []),
+    }
     synthetic_result = {
         "result_id": intake_id or f"PARALLEL-{task_id}",
         "task_id": task_id,
@@ -664,6 +670,7 @@ def task_result_state(
             "parallel_result_ids": result_ids,
             "parallel_intake_id": intake_id,
             "evidence_set_sha256": evidence_hash,
+            **reference_state,
         }
 
     synthesis = (
@@ -681,6 +688,7 @@ def task_result_state(
             "parallel_result_ids": result_ids,
             "parallel_intake_id": intake_id,
             "evidence_set_sha256": evidence_hash,
+            **reference_state,
         }
 
     synth_result = {
@@ -701,6 +709,7 @@ def task_result_state(
             "parallel_result_ids": result_ids,
             "parallel_intake_id": intake_id,
             "evidence_set_sha256": evidence_hash,
+            **reference_state,
         }
 
     if phase == "PARALLEL_SYNTHESIS_TERMINAL":
@@ -715,6 +724,7 @@ def task_result_state(
                 "parallel_result_ids": result_ids,
                 "parallel_intake_id": intake_id,
                 "evidence_set_sha256": evidence_hash,
+                **reference_state,
             }
         return {
             "state": "TERMINAL",
@@ -728,6 +738,7 @@ def task_result_state(
             "parallel_result_ids": result_ids,
             "parallel_intake_id": intake_id,
             "evidence_set_sha256": evidence_hash,
+            **reference_state,
         }
 
     raise ResultRecordError(f"unknown parallel result state: {phase}")

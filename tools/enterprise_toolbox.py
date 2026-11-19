@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Search the Enterprise Math shared toolbox before inventing new machinery.
+"""Discover Enterprise Math tools and methods for relevant comparison and reuse.
 
 This router is deliberately lightweight. It reads the curated tool-family registry,
 the base harvested method inventory plus dated addenda, and (when available) the
@@ -24,7 +24,40 @@ METHOD_INVENTORY_PATH = ROOT / "research_method_inventory.json"
 METHOD_INVENTORY_ADDENDA_ROOT = ROOT / "research_method_inventory_addenda"
 SOURCE_ROOT = ROOT / "src" / "enterprise_math"
 
-TOKEN_RE = re.compile(r"[A-Za-z0-9_+.-]+")
+TOKEN_RE = re.compile(r"[A-Za-z0-9_+.-]+|[\u3400-\u4dbf\u4e00-\u9fff]+")
+# Retrieval aliases, not mathematical equivalences. Retain unknown Chinese runs
+# intact; do not manufacture shared single-character or n-gram matches.
+TERM_ALIASES: dict[str, tuple[str, ...]] = {
+    "观察量": ("observable",), "觀察量": ("observable",),
+    "观察": ("observer",), "觀察": ("observer",),
+    "残差": ("residual",), "殘差": ("residual",),
+    "保持": ("preservation",),
+    "分支": ("branch",),
+    "计数": ("count",), "計數": ("count",),
+    "枚举": ("enumeration",), "枚舉": ("enumeration",),
+    "碰撞": ("collision",),
+    "纤维": ("fiber",), "纖維": ("fiber",),
+    "容量": ("capacity",),
+    "取商": ("quotient",), "商空间": ("quotient",), "商空間": ("quotient",),
+    "投影": ("projection",),
+    "精度": ("precision",),
+    "细化": ("refinement",), "細化": ("refinement",),
+    "对称": ("symmetry",), "對稱": ("symmetry",),
+    "轨道": ("orbit",), "軌道": ("orbit",),
+    "稳定子": ("stabilizer",), "穩定子": ("stabilizer",),
+    "等变": ("equivariant",), "等變": ("equivariant",),
+    "关系": ("relation",), "關係": ("relation",),
+    "约束": ("constraint",), "約束": ("constraint",),
+    "证书": ("certificate",), "證書": ("certificate",),
+    "胶合": ("gluing",), "膠合": ("gluing",),
+    "路径": ("path",), "路徑": ("path",),
+    "闭合": ("closure",), "閉合": ("closure",),
+    "能量": ("energy",),
+    "电阻": ("resistance",), "電阻": ("resistance",),
+    "幂等": ("idempotent",), "冪等": ("idempotent",),
+    "热带": ("tropical",), "熱帶": ("tropical",),
+}
+TERM_ALIAS_RE = re.compile("|".join(re.escape(term) for term in sorted(TERM_ALIASES, key=len, reverse=True)))
 SYNONYMS: dict[str, tuple[str, ...]] = {
     "count": ("count", "enumeration", "cardinality", "scale", "shell", "valuation"),
     "growth": ("growth", "scale", "shell", "difference", "enumeration"),
@@ -73,6 +106,8 @@ def load_method_inventory() -> dict[str, Any]:
 
 def _tokens(text: str) -> set[str]:
     base = {token.lower() for token in TOKEN_RE.findall(text.replace("/", " "))}
+    for match in TERM_ALIAS_RE.finditer(text):
+        base.update(TERM_ALIASES[match.group()])
     expanded = set(base)
     for token in tuple(base):
         expanded.update(SYNONYMS.get(token, ()))
@@ -88,6 +123,7 @@ def _record_text(record: dict[str, Any]) -> str:
         record.get("scope", ""),
         record.get("hard_boundary", ""),
         record.get("note", ""),
+        " ".join(record.get("aliases", [])),
         " ".join(record.get("triggers", [])),
         " ".join(record.get("capabilities", [])),
         " ".join(record.get("api", [])),
@@ -184,12 +220,19 @@ def coverage(query: str) -> dict[str, Any]:
     tools = tool_suggestions(query)
     methods = method_suggestions(query)
     modules = module_suggestions(query)
+    choices = (
+        "Choose reuse, composition, extension, an independent alternative "
+        "(ALTERNATIVE_APPROACH_CHOSEN), or inapplicability for the task. "
+        "An alternative may have identical input/output capability; no capability gap is required. "
+        "Compare relevant prior work before novelty claims or shared-tool acceptance, "
+        "and report what actually ran."
+    )
     if tools or methods or modules:
         verdict = "REUSE_CANDIDATE_FOUND"
-        rule = "Inspect semantic preconditions and hard boundaries before deciding REUSE / COMPOSE / EXTEND_EXISTING_TOOL."
+        rule = "Inspect the candidate interfaces and applicable boundaries. " + choices
     else:
-        verdict = "CAPABILITY_GAP_CANDIDATE_NOT_CONFIRMED"
-        rule = "No lexical/semantic catalog match was found. Confirm the exact missing input/output capability before creating a new tool family."
+        verdict = "NO_CATALOG_MATCH"
+        rule = "This lookup found no catalog match; it does not establish a mathematical capability gap. " + choices
     return {
         "query": query,
         "verdict": verdict,
@@ -226,7 +269,7 @@ def main(argv: Iterable[str] | None = None) -> int:
     method.add_argument("query", nargs="+")
     modules = sub.add_parser("modules", help="search current executable source without importing it")
     modules.add_argument("query", nargs="+")
-    cov = sub.add_parser("coverage", help="run the full reuse-before-invention coverage lookup")
+    cov = sub.add_parser("coverage", help="search current tools and methods for relevant comparison")
     cov.add_argument("query", nargs="+")
 
     args = parser.parse_args(list(argv) if argv is not None else None)

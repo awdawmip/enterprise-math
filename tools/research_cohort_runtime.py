@@ -4,8 +4,9 @@
 A cohort is execution-complete only after every declared lane has produced at
 least one immutable result. Until then, a result from one lane must not close the
 whole task or suppress sibling-lane execution. Once all lanes have evidence, the
-exact current cohort result set must traverse parallel intake -> reference pass 1
--> reference pass 2 -> synthesis before the cohort can be terminal.
+exact current cohort result set requires an explicit synthesis. Reference methods
+and count follow the actual proposition/task, while terminality still requires
+the existing Result review and follow-up authority for every lane result.
 
 Cohort records remain immutable historical control objects even after terminal
 synthesis. Runtime terminality is therefore *derived*: when every ACTIVE cohort
@@ -117,36 +118,39 @@ def _parallel_phase(
             "intake_id": None,
             "synthesis": None,
         }
-    rows = parallel.reference_passes(root).get(intake["intake_id"], [])
-    by_number = {row.get("pass_number"): row for row in rows}
-    if 1 not in by_number:
-        phase = "AWAITING_REFERENCE_PASS_1"
-        synthesis = None
-    elif 2 not in by_number:
-        phase = "AWAITING_REFERENCE_PASS_2"
-        synthesis = None
-    else:
-        synthesis = next(
-            (
-                item
-                for item in parallel.syntheses(root).values()
-                if item.get("intake_id") == intake["intake_id"]
-                and item.get("evidence_set_sha256") == evidence_hash
-            ),
-            None,
-        )
-        if synthesis is None:
-            phase = "AWAITING_SYNTHESIS"
-        elif synthesis.get("task_terminal") is True:
-            phase = "PARALLEL_SYNTHESIS_TERMINAL"
+    evidence_state = parallel.intake_state(intake, root)
+    phase = evidence_state["parallel_state"]
+    synthesis = evidence_state["synthesis"]
+    authority_state: dict[str, Any] = {}
+    if phase == "PARALLEL_SYNTHESIS_TERMINAL":
+        if synthesis.get("terminal_control_disposition") not in research_result_records.TERMINAL_DISPOSITIONS:
+            phase = "TERMINAL_SYNTHESIS_MISSING_CONTROL_DISPOSITION"
         else:
-            phase = "PARALLEL_SYNTHESIS_NONTERMINAL"
+            evidence, authorities, pending, followup_pending = research_result_records._parallel_review_authority(result_ids, root)
+            authority_state = {
+                "result_review_authority": evidence,
+                "result_operational_review_authority": authorities,
+            }
+            if pending:
+                phase = "AWAITING_RESULT_REVIEW_AUTHORITY"
+                authority_state["pending_result_review_ids"] = pending
+            elif followup_pending:
+                phase = "AWAITING_RESULT_REVIEW_FOLLOWUP"
+                authority_state["pending_result_followup_ids"] = followup_pending
+            elif any(authority.get("driver_followup_state") == research_result_records._followup_impl.RESULT_CONTINUATION_STATE
+                     for authority in authorities.values()):
+                phase = research_result_records._followup_impl.RESULT_CONTINUATION_STATE
     return {
         "state": phase,
         "terminal": phase == "PARALLEL_SYNTHESIS_TERMINAL",
         "evidence_set_sha256": evidence_hash,
         "intake_id": intake["intake_id"],
         "synthesis": synthesis,
+        "reference_pass_ids": evidence_state["reference_pass_ids"],
+        "reference_pass_count": evidence_state["reference_pass_count"],
+        "reference_review_status": evidence_state["reference_review_status"],
+        "stale_synthesis_ids": evidence_state["stale_synthesis_ids"],
+        **authority_state,
     }
 
 
@@ -217,11 +221,13 @@ def cohort_state(
         ),
         "next_control_action": {
             "AWAITING_PARALLEL_INTAKE": "CREATE_EXACT_COHORT_PARALLEL_INTAKE",
-            "AWAITING_REFERENCE_PASS_1": "REFERENCE_PASS_1",
-            "AWAITING_REFERENCE_PASS_2": "REFERENCE_PASS_2",
             "AWAITING_SYNTHESIS": "SYNTHESIZE_EXACT_COHORT_EVIDENCE",
             "PARALLEL_SYNTHESIS_NONTERMINAL": "FOLLOW_SYNTHESIS_NONTERMINAL_DISPOSITION",
             "PARALLEL_SYNTHESIS_TERMINAL": "COHORT_CAN_CLOSE_AFTER_TERMINAL_CONTROL_DISPOSITION",
+            "AWAITING_RESULT_REVIEW_AUTHORITY": "RESOLVE_RESULT_REVIEW_AUTHORITY",
+            "AWAITING_RESULT_REVIEW_FOLLOWUP": "COMPLETE_RESULT_REVIEW_FOLLOWUP",
+            "TERMINAL_SYNTHESIS_MISSING_CONTROL_DISPOSITION": "RESOLVE_TERMINAL_CONTROL_DISPOSITION",
+            research_result_records._followup_impl.RESULT_CONTINUATION_STATE: "CONTINUE_INCOMPLETE_RESULT",
         }.get(phase["state"], "FAIL_CLOSED"),
     }
 

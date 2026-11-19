@@ -112,6 +112,7 @@ def _normalized_resolution(
     row: dict[str, Any],
     head_ids: set[str],
     syntheses: dict[str, dict[str, Any]],
+    root: Path = ROOT,
 ) -> dict[str, Any]:
     operational = row.get("operational_publication_id")
     legacy_canonical = row.get("canonical_publication_id")
@@ -169,7 +170,7 @@ def _normalized_resolution(
     if len(head_ids) > 1:
         if not isinstance(synthesis_id, str) or not synthesis_id:
             raise OperationalPublicationError(
-                f"{task_id}: multiple active heads require parallel_synthesis_id after two reference passes"
+                f"{task_id}: multiple active heads require exact-set parallel_synthesis_id"
             )
         synthesis = syntheses.get(synthesis_id)
         if synthesis is None:
@@ -184,8 +185,24 @@ def _normalized_resolution(
         if synthesis.get("operational_publication_id") != operational:
             raise OperationalPublicationError(f"{task_id}: synthesis operational selection disagrees with resolution")
         pass_ids = synthesis.get("reference_pass_ids")
-        if not isinstance(pass_ids, list) or len(pass_ids) != 2 or len(set(pass_ids)) != 2:
-            raise OperationalPublicationError(f"{task_id}: synthesis must reference exactly two distinct reference passes")
+        if (not isinstance(pass_ids, list)
+                or any(not isinstance(pid, str) or not pid for pid in pass_ids)
+                or len(set(pass_ids)) != len(pass_ids)):
+            raise OperationalPublicationError(f"{task_id}: synthesis reference_pass_ids must be distinct nonempty IDs")
+        expected_status = "RECORDED" if pass_ids else "NOT_PERFORMED"
+        if not pass_ids or "reference_review_status" in synthesis:
+            if synthesis.get("reference_review_status") != expected_status:
+                raise OperationalPublicationError(f"{task_id}: synthesis reference_review_status must be {expected_status}")
+        import research_parallel_evidence as parallel
+        intake = parallel.intakes(root).get(synthesis.get("intake_id"))
+        if intake is None:
+            raise OperationalPublicationError(f"{task_id}: synthesis lacks its immutable parallel intake")
+        try:
+            current = parallel.intake_state(intake, root)["synthesis"]
+        except parallel.ParallelEvidenceError as exc:
+            raise OperationalPublicationError(f"{task_id}: invalid parallel synthesis: {exc}") from exc
+        if current is None or current.get("synthesis_id") != synthesis_id:
+            raise OperationalPublicationError(f"{task_id}: operational selection requires synthesis over the current reference snapshot")
     elif synthesis_id is not None:
         synthesis = syntheses.get(str(synthesis_id))
         if synthesis is None:
@@ -221,7 +238,7 @@ def selection(task_id: str, root: Path = ROOT) -> dict[str, Any] | None:
         raise OperationalPublicationError(
             f"{task_id}: multiple active publication heads require explicit operational selection; retained={sorted(head_ids)}"
         )
-    normalized = _normalized_resolution(task_id, row, head_ids, synthesis_map(root))
+    normalized = _normalized_resolution(task_id, row, head_ids, synthesis_map(root), root)
     operational = normalized["operational_publication_id"]
     return {
         "task_id": task_id,
