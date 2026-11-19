@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/seventythird/README.md",
+    "ref": "9698e3fb833b39f4ce5e85ff0d2c76a0b3f0c443",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-seventythree-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第七十三轮　数位乘积的高精度误差、单标记的分辨率与受限端口\n\n## 固定数位以后，排序还会影响哪些位\n\n令 $A_n=\\sum_{k=0}^n\\binom nk^R$，以 $D(n)=\\prod_i A_{b_i}$ 表示沿 $n$ 的 $p$ 进数位 $b_i$ 相乘的预测值。固定奇素数 $p$、$R\\ge2$ 和 $s\\ge1$，只用 $A_b$ 不被 $p$ 整除的数位。即使每种数位的个数都预先指定，只要 0 和 1 各占固定正比例，在所有排序中等权取样，仍有\n$$\n \\Pr\\{A_n\\equiv D(n)\\pmod{p^s}\\}\\longrightarrow\n p^{-\\max(0,s-1-v_p(R))}.\n$$\n修正量趋于相应主单位子群的均匀分布。对于经典立方 Franel 数，在模 27 时正确率趋于 $1/3$，模 243 时趋于 $1/27$；每个好词在模 9 时都正确。这项工作承接未编号的数位分支。[有限记忆、固定次数的混合与整数等值](franel.md) · [原始二项式复算](franel_check.py) · [结果](franel_checked.json)\n\n## 一个整数标记识别多少个框架\n\n在和为零的四整数坐标上，置换按其符号作用。要选到一个模 $q$ 后仍能分辨全部 24 个框架的标记，最小模数是 4。如果要使半径 $r\\ge2$ 内的每一枚原来可分辨的本原标记都可分辨，最小模数恰是 $2r+1$。模 6 有 120 枚可分辨标记，尽管模 2、模 3 各自一枚也没有：两个局部稳定子可以相交于恒等。结论使用具名坐标读数。[计数式与真实尺度的检验](frame.md) · [程序](frame_check.py) · [结果](frame_checked.json)\n\n## 一步更新和整批更新的可观察状态\n\n首次研究的端口商固定了操作字母、拒绝规则及探针开放时刻。对于模 $p^e$、批长 $p^j$（$0<j<e$），批次边界读取算术零值时，最小可区分状态数是 $1+p^{2e-j}$。联合读来源配对时，奇批乘 6、偶批乘 3；偶批若再开放内部配对读数，则原先三类可分成六类。模 4、批长 2 的例子在边界有 27 个联合状态，任意两个可区分边界状态都有长度至多 3 的宏操作词来区分。[一般复合模数的商及最短词公式](port.md) · [原操作复算](port_check.py) · [结果](port_checked.json)\n\n截至 2026-11-19 02:21:03 UTC，累计直接研究 226 个登记任务，覆盖 51 个父方向。本轮首次推进受限端口商，复访第 18 轮的 A₃ 框架；Franel 数位分支独立发表，登记计数为零。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 37、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9698e3fb833b39f4ce5e85ff0d2c76a0b3f0c443/research_notes/portable_direct/20261118_fair_queue_6b0fba/seventythird/README.md",
+      "encoding": "utf-8",
+      "sha": "52e98c47cd75c89e7a845d67df658fd9296c0bce"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
