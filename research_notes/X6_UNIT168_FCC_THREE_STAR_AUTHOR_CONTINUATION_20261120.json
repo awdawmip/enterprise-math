@@ -88,7 +88,11 @@
     "inflight_continuation": "onhour-20261120-x6-own-cont-after165166-unit168-v1",
     "inflight_last_seen": "RUNNING/WAIT_ORIGINAL",
     "native_units167168": "NOT_SUBMITTED_IN_THIS_TURN; REQUIRE_FRESH_WINNING_CLAIM_AND_GENERATION",
-    "units149152_native_linkage": "PENDING; original refused/failed Unit149 request must not be replayed"
+    "units149152_native_linkage": "PENDING; original refused/failed Unit149 request must not be replayed",
+    "fresh_resume_original_request": "onhour-20261120-x6-own-run-c920-after166-resume-v1",
+    "fresh_resume_last_seen": "QUEUED / error=null / original-ID receipt pending",
+    "fresh_resume_not_authorized_until_terminal": true,
+    "inflight_continuation_last_terminal": "onhour-20261120-x6-own-cont-after165166-unit168-v1 SUCCEEDED/OWN_RECORDED_RUN_AVAILABLE / execution_authorized=false"
   },
   "new_source_inspection": {
     "frozen_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
@@ -124,7 +128,7 @@
     "No new session, CLAIM, owner, or maintenance lane mutation",
     "Do not repeat original ambiguous/failed writes or in-flight continuation"
   ],
-  "next_exact_action": "Consume existing in-flight onhour-20261120-x6-own-cont-after165166-unit168-v1 by exact request ID. Verify own winning claim, status, current new generation and actual native write entitlement; then associate Unit167 and Unit168 as a distinct PROGRESS exactly once, if allowed, with their immutable Source proofs. Otherwise preserve author GitHub evidence and precise next permission correction. Continue frozen true producer→consumer LP011/LP019 provenance and full 28-LP terminal review scope.",
+  "next_exact_action": "First consume original pending onhour-20261120-x6-own-run-c920-after166-resume-v1; no replay or new identity. If SUCCEEDED/RUN_READY with fresh own generation and live winning claim, submit exactly one distinct native semantic PROGRESS for already saved Units167–168 with exact GitHub/Activity refs, then read original terminal Source. Otherwise retain durable Unit168 author frontier. Continue 28-LP true LP011/LP019 source-caller evidence.",
   "review": "UNREVIEWED",
   "admission": "NOT_ADMITTED",
   "scheduler_modified": false,
