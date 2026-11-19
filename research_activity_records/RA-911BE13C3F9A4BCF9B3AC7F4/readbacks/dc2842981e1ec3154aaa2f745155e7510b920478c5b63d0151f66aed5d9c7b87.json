@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredeleventh/README.md",
+    "ref": "dc7e961859279b2cd8dba6200ab52db63cf040f6",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-hundredeleven-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第一百一十一轮　半素数前缀的边长、整数窗口谱与 Clausen 奇异系数\n\n将前 $r$ 个素数构成的全部半素数排成一条路，每步只替换一个素因子，并要求旧窗口始终是新窗口的前缀。原登记分别关心遗漏边的平均伸长与最大伸长。本轮求得两个目标的精确共同边界。令 $T_j=j(j+1)/2$，$C_r^*$ 为最小边长总和。对 $r\\ge4$，两种最优权衡恰为 $(T_{r-1},C_r^*+r-3)$、$(T_{r-1}+1,C_r^*)$。若所有窗口必须沿同一条无限路径，按每条遗漏边计的最小渐近最坏超额为 $1/12$。[精确定理与达到界的路径](adjacency.md) · [穷举](adjacency_check.py) · [整数数据](adjacency_checked.json)\n\n从同一个替换规则另行分叉，将窗口改成 $n\\le X,\\ \\Omega(n)=k$，考察整个邻接矩阵的谱。第 51 轮已能从大特征值读回素数计数；本轮求出不同公共因子团对同一特征向量的有符号读数，并确定谱矩阶数向 1 移动时的总极限。设 $s\\downarrow0,\\ \\tau=\\lim s\\log X,\\ \\alpha=\\lim\\min(1,\\log(1/s)/\\log\\log X)$，$V$ 为顶点数、$P=\\pi(X)$。归一化绝对谱矩 $(P/V)\\sum|\\lambda/P|^{1+s}$ 趋于 $\\alpha^{k-1}+(2k-1)e^{-\\tau}$。此项单独发表。[谱矩过渡与特征向量](spectrum.md) · [复算](spectrum_check.py) · [数值读数与整数证书](spectrum_checked.json)\n\nClausen 超几何递推在 $H=(p-1)/2$ 附近的截断系数出现额外的素因子。对 $p>7,\\ p\\equiv5\\bmod6$，$a_{H-1}$ 平常被 $p$ 整除恰好一次，只有 $p=29,83$ 时恰好两次。相邻的 $a_{H-2}$ 在全部许可的 $p\\ge17$ 都恰有一次；$a_{H-3}$ 在 $p\\ge23$ 的异常素数则是 $149,71987$。它们由固定有理数的分子筛出，再用原递推确证。推广到长约 $p/6$ 的全部许可偏移，其中至多 $O(p^{2/3})$ 个位置会多含一层。单个素数可用软 $O(\\sqrt p)$ 次模环运算求得原奇异等式两臂；同时求所有 $p\\le X$ 的结果，可用共用矩阵的余数树在软 $O(X)$ 位运算内完成。两臂的第三位是否在原两个余类上恒等，仍待解决。[估值、例外与算法](clausen.md) · [复算程序](clausen_check.py) · [原递推对照](clausen_checked.json)\n\n截至 2026-11-19 08:49:16 UTC，累计直接研究 242 个登记任务，覆盖 51 个父方向。两项从冻结返回列明的数学问题复访，数值窗口图谱作为独立算术发表。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 21、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/dc7e961859279b2cd8dba6200ab52db63cf040f6/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredeleventh/README.md",
+      "encoding": "utf-8",
+      "sha": "c76351b042e2f8f79d2d9af540530bdbd9a34eb1"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
