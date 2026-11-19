@@ -1,0 +1,2459 @@
+{
+  "coordinate_order": "axis-major, + then - in named edge arrays",
+  "coordinate_words": [
+    {
+      "axes": [
+        3,
+        5,
+        0,
+        0,
+        0,
+        0
+      ],
+      "numbers_of_first_height_endpoints": [
+        1,
+        4,
+        8,
+        12,
+        12
+      ],
+      "words_by_length": [
+        1,
+        12,
+        144,
+        1728,
+        20736
+      ]
+    },
+    {
+      "axes": [
+        5,
+        12,
+        0,
+        0,
+        0,
+        0
+      ],
+      "numbers_of_first_height_endpoints": [
+        1,
+        4,
+        8,
+        12,
+        16
+      ],
+      "words_by_length": [
+        1,
+        12,
+        144,
+        1728,
+        20736
+      ]
+    },
+    {
+      "axes": [
+        7,
+        6,
+        0,
+        0,
+        0,
+        0
+      ],
+      "numbers_of_first_height_endpoints": [
+        1,
+        4,
+        8,
+        12,
+        16
+      ],
+      "words_by_length": [
+        1,
+        12,
+        144,
+        1728,
+        20736
+      ]
+    },
+    {
+      "axes": [
+        7,
+        -7,
+        6,
+        0,
+        0,
+        0
+      ],
+      "numbers_of_first_height_endpoints": [
+        1,
+        4,
+        8,
+        12,
+        16
+      ],
+      "words_by_length": [
+        1,
+        12,
+        144,
+        1728,
+        20736
+      ]
+    },
+    {
+      "axes": [
+        1,
+        -2,
+        3,
+        -4,
+        5,
+        -7
+      ],
+      "numbers_of_first_height_endpoints": [
+        1,
+        12,
+        14,
+        14,
+        14
+      ],
+      "words_by_length": [
+        1,
+        12,
+        144,
+        1728,
+        20736
+      ]
+    },
+    {
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "numbers_of_first_height_endpoints": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "words_by_length": [
+        1,
+        12,
+        144,
+        1728,
+        20736
+      ]
+    }
+  ],
+  "cost": "standard library integer checks; no physical runtime extrapolation",
+  "edges": "[inward,flat,outward] per translation orbit of the starting vertex",
+  "examples": [
+    {
+      "all_early_named_edge_rows": [
+        {
+          "distance": 0,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              1,
+              0
+            ],
+            "3": [
+              0,
+              0,
+              1
+            ],
+            "5": [
+              0,
+              0,
+              1
+            ]
+          },
+          "size": 1
+        },
+        {
+          "distance": 1,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              4,
+              0
+            ],
+            "3": [
+              1,
+              0,
+              3
+            ],
+            "5": [
+              1,
+              0,
+              3
+            ]
+          },
+          "size": 4
+        },
+        {
+          "distance": 2,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              8,
+              0
+            ],
+            "3": [
+              3,
+              0,
+              5
+            ],
+            "5": [
+              3,
+              0,
+              5
+            ]
+          },
+          "size": 8
+        },
+        {
+          "distance": 3,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              12,
+              0
+            ],
+            "3": [
+              5,
+              0,
+              7
+            ],
+            "5": [
+              5,
+              0,
+              7
+            ]
+          },
+          "size": 12
+        },
+        {
+          "distance": 4,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              12,
+              0
+            ],
+            "3": [
+              7,
+              0,
+              5
+            ],
+            "5": [
+              7,
+              0,
+              5
+            ]
+          },
+          "size": 12
+        }
+      ],
+      "all_formulae_safe_radius": 5,
+      "axes": [
+        3,
+        5,
+        0,
+        0,
+        0,
+        0
+      ],
+      "delta": [
+        0,
+        4,
+        8,
+        2,
+        6
+      ],
+      "eventual_named_edges_in_flat_out": [
+        [
+          5,
+          0,
+          5
+        ],
+        [
+          5,
+          0,
+          5
+        ],
+        [
+          5,
+          0,
+          5
+        ],
+        [
+          5,
+          0,
+          5
+        ],
+        [
+          0,
+          10,
+          0
+        ],
+        [
+          0,
+          10,
+          0
+        ],
+        [
+          0,
+          10,
+          0
+        ],
+        [
+          0,
+          10,
+          0
+        ],
+        [
+          0,
+          10,
+          0
+        ],
+        [
+          0,
+          10,
+          0
+        ],
+        [
+          0,
+          10,
+          0
+        ],
+        [
+          0,
+          10,
+          0
+        ]
+      ],
+      "exact_first_persistent_cardinality_radius": 5,
+      "exact_first_persistent_named_edge_radius": 5,
+      "exceptional_nonnegative_heights": [
+        1,
+        4
+      ],
+      "first_uniform_height": 5,
+      "minimal_length": [
+        0,
+        2,
+        1,
+        1,
+        3
+      ],
+      "positive_jump": {
+        "0": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "3": [
+          1,
+          1,
+          -1,
+          1,
+          1
+        ],
+        "5": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "radius_sample_size_words_first_plus_axis_in_flat_out": {
+        "0": [
+          1,
+          1,
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "1": [
+          4,
+          4,
+          [
+            1,
+            0,
+            3
+          ]
+        ],
+        "2": [
+          8,
+          12,
+          [
+            3,
+            0,
+            5
+          ]
+        ],
+        "3": [
+          12,
+          28,
+          [
+            5,
+            0,
+            7
+          ]
+        ],
+        "4": [
+          12,
+          60,
+          [
+            7,
+            0,
+            5
+          ]
+        ],
+        "5": [
+          10,
+          72,
+          [
+            5,
+            0,
+            5
+          ]
+        ],
+        "6": [
+          10,
+          126,
+          [
+            5,
+            0,
+            5
+          ]
+        ]
+      },
+      "semigroup_genus": 2,
+      "thresholds": [
+        0,
+        6,
+        -3,
+        3,
+        9
+      ],
+      "word_exponential_base": 1,
+      "word_polynomial_degree": 4,
+      "word_polynomials_in_binomial_basis": [
+        [
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "all_early_named_edge_rows": [
+        {
+          "distance": 0,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              1,
+              0
+            ],
+            "12": [
+              0,
+              0,
+              1
+            ],
+            "5": [
+              0,
+              0,
+              1
+            ]
+          },
+          "size": 1
+        },
+        {
+          "distance": 1,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              4,
+              0
+            ],
+            "12": [
+              1,
+              0,
+              3
+            ],
+            "5": [
+              1,
+              0,
+              3
+            ]
+          },
+          "size": 4
+        },
+        {
+          "distance": 2,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              8,
+              0
+            ],
+            "12": [
+              3,
+              0,
+              5
+            ],
+            "5": [
+              3,
+              0,
+              5
+            ]
+          },
+          "size": 8
+        },
+        {
+          "distance": 3,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              12,
+              0
+            ],
+            "12": [
+              5,
+              0,
+              7
+            ],
+            "5": [
+              5,
+              0,
+              7
+            ]
+          },
+          "size": 12
+        },
+        {
+          "distance": 4,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              16,
+              0
+            ],
+            "12": [
+              7,
+              0,
+              9
+            ],
+            "5": [
+              7,
+              0,
+              9
+            ]
+          },
+          "size": 16
+        },
+        {
+          "distance": 5,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              20,
+              0
+            ],
+            "12": [
+              9,
+              0,
+              11
+            ],
+            "5": [
+              9,
+              0,
+              11
+            ]
+          },
+          "size": 20
+        },
+        {
+          "distance": 6,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              24,
+              0
+            ],
+            "12": [
+              11,
+              0,
+              13
+            ],
+            "5": [
+              11,
+              0,
+              13
+            ]
+          },
+          "size": 24
+        },
+        {
+          "distance": 7,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              28,
+              0
+            ],
+            "12": [
+              13,
+              0,
+              15
+            ],
+            "5": [
+              13,
+              0,
+              15
+            ]
+          },
+          "size": 28
+        },
+        {
+          "distance": 8,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              32,
+              0
+            ],
+            "12": [
+              15,
+              5,
+              12
+            ],
+            "5": [
+              15,
+              6,
+              11
+            ]
+          },
+          "size": 32
+        }
+      ],
+      "all_formulae_safe_radius": 9,
+      "axes": [
+        5,
+        12,
+        0,
+        0,
+        0,
+        0
+      ],
+      "delta": [
+        0,
+        35,
+        34,
+        21,
+        56,
+        7,
+        42,
+        17,
+        28,
+        51,
+        14,
+        49
+      ],
+      "eventual_named_edges_in_flat_out": [
+        [
+          11,
+          2,
+          11
+        ],
+        [
+          11,
+          2,
+          11
+        ],
+        [
+          12,
+          0,
+          12
+        ],
+        [
+          12,
+          0,
+          12
+        ],
+        [
+          0,
+          24,
+          0
+        ],
+        [
+          0,
+          24,
+          0
+        ],
+        [
+          0,
+          24,
+          0
+        ],
+        [
+          0,
+          24,
+          0
+        ],
+        [
+          0,
+          24,
+          0
+        ],
+        [
+          0,
+          24,
+          0
+        ],
+        [
+          0,
+          24,
+          0
+        ],
+        [
+          0,
+          24,
+          0
+        ]
+      ],
+      "exact_first_persistent_cardinality_radius": 9,
+      "exact_first_persistent_named_edge_radius": 9,
+      "exceptional_nonnegative_heights": [
+        1,
+        3,
+        4,
+        6,
+        8,
+        11,
+        13,
+        16,
+        18,
+        23,
+        28
+      ],
+      "first_uniform_height": 29,
+      "minimal_length": [
+        0,
+        5,
+        2,
+        3,
+        8,
+        1,
+        6,
+        1,
+        4,
+        3,
+        2,
+        7
+      ],
+      "positive_jump": {
+        "0": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "12": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "5": [
+          1,
+          1,
+          -1,
+          1,
+          0,
+          1,
+          1,
+          -1,
+          1,
+          -1,
+          1,
+          1
+        ]
+      },
+      "radius_sample_size_words_first_plus_axis_in_flat_out": {
+        "0": [
+          1,
+          1,
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "1": [
+          4,
+          4,
+          [
+            1,
+            0,
+            3
+          ]
+        ],
+        "2": [
+          8,
+          12,
+          [
+            3,
+            0,
+            5
+          ]
+        ],
+        "3": [
+          12,
+          28,
+          [
+            5,
+            0,
+            7
+          ]
+        ],
+        "4": [
+          16,
+          60,
+          [
+            7,
+            0,
+            9
+          ]
+        ],
+        "5": [
+          20,
+          124,
+          [
+            9,
+            0,
+            11
+          ]
+        ],
+        "9": [
+          24,
+          1280,
+          [
+            11,
+            2,
+            11
+          ]
+        ],
+        "10": [
+          24,
+          2376,
+          [
+            11,
+            2,
+            11
+          ]
+        ]
+      },
+      "semigroup_genus": 24,
+      "thresholds": [
+        0,
+        25,
+        -10,
+        15,
+        40,
+        5,
+        30,
+        -5,
+        20,
+        -15,
+        10,
+        35
+      ],
+      "word_exponential_base": 1,
+      "word_polynomial_degree": 8,
+      "word_polynomials_in_binomial_basis": [
+        [
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "all_early_named_edge_rows": [
+        {
+          "distance": 0,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              1,
+              0
+            ],
+            "6": [
+              0,
+              0,
+              1
+            ],
+            "7": [
+              0,
+              0,
+              1
+            ]
+          },
+          "size": 1
+        },
+        {
+          "distance": 1,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              4,
+              0
+            ],
+            "6": [
+              1,
+              0,
+              3
+            ],
+            "7": [
+              1,
+              0,
+              3
+            ]
+          },
+          "size": 4
+        },
+        {
+          "distance": 2,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              8,
+              0
+            ],
+            "6": [
+              3,
+              0,
+              5
+            ],
+            "7": [
+              3,
+              0,
+              5
+            ]
+          },
+          "size": 8
+        },
+        {
+          "distance": 3,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              12,
+              0
+            ],
+            "6": [
+              5,
+              0,
+              7
+            ],
+            "7": [
+              5,
+              0,
+              7
+            ]
+          },
+          "size": 12
+        },
+        {
+          "distance": 4,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              16,
+              0
+            ],
+            "6": [
+              7,
+              0,
+              9
+            ],
+            "7": [
+              7,
+              0,
+              9
+            ]
+          },
+          "size": 16
+        },
+        {
+          "distance": 5,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              20,
+              0
+            ],
+            "6": [
+              9,
+              0,
+              11
+            ],
+            "7": [
+              9,
+              0,
+              11
+            ]
+          },
+          "size": 20
+        },
+        {
+          "distance": 6,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              24,
+              0
+            ],
+            "6": [
+              11,
+              7,
+              6
+            ],
+            "7": [
+              11,
+              6,
+              7
+            ]
+          },
+          "size": 24
+        }
+      ],
+      "all_formulae_safe_radius": 7,
+      "axes": [
+        7,
+        6,
+        0,
+        0,
+        0,
+        0
+      ],
+      "delta": [
+        0,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "eventual_named_edges_in_flat_out": [
+        [
+          7,
+          0,
+          7
+        ],
+        [
+          7,
+          0,
+          7
+        ],
+        [
+          6,
+          2,
+          6
+        ],
+        [
+          6,
+          2,
+          6
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ]
+      ],
+      "exact_first_persistent_cardinality_radius": 7,
+      "exact_first_persistent_named_edge_radius": 7,
+      "exceptional_nonnegative_heights": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        15,
+        16,
+        17,
+        22,
+        23,
+        29
+      ],
+      "first_uniform_height": 30,
+      "minimal_length": [
+        0,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "positive_jump": {
+        "0": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "6": [
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "7": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "radius_sample_size_words_first_plus_axis_in_flat_out": {
+        "0": [
+          1,
+          1,
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "1": [
+          4,
+          4,
+          [
+            1,
+            0,
+            3
+          ]
+        ],
+        "2": [
+          8,
+          12,
+          [
+            3,
+            0,
+            5
+          ]
+        ],
+        "3": [
+          12,
+          28,
+          [
+            5,
+            0,
+            7
+          ]
+        ],
+        "4": [
+          16,
+          60,
+          [
+            7,
+            0,
+            9
+          ]
+        ],
+        "5": [
+          20,
+          124,
+          [
+            9,
+            0,
+            11
+          ]
+        ],
+        "7": [
+          14,
+          254,
+          [
+            7,
+            0,
+            7
+          ]
+        ],
+        "8": [
+          14,
+          494,
+          [
+            7,
+            0,
+            7
+          ]
+        ]
+      },
+      "semigroup_genus": 0,
+      "thresholds": [
+        0,
+        36,
+        30,
+        24,
+        18,
+        12,
+        6
+      ],
+      "word_exponential_base": 1,
+      "word_polynomial_degree": 6,
+      "word_polynomials_in_binomial_basis": [
+        [
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "all_early_named_edge_rows": [
+        {
+          "distance": 0,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              1,
+              0
+            ],
+            "6": [
+              0,
+              0,
+              1
+            ],
+            "7": [
+              0,
+              0,
+              1
+            ]
+          },
+          "size": 1
+        },
+        {
+          "distance": 1,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              4,
+              0
+            ],
+            "6": [
+              1,
+              0,
+              3
+            ],
+            "7": [
+              1,
+              0,
+              3
+            ]
+          },
+          "size": 4
+        },
+        {
+          "distance": 2,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              8,
+              0
+            ],
+            "6": [
+              3,
+              0,
+              5
+            ],
+            "7": [
+              3,
+              0,
+              5
+            ]
+          },
+          "size": 8
+        },
+        {
+          "distance": 3,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              12,
+              0
+            ],
+            "6": [
+              5,
+              0,
+              7
+            ],
+            "7": [
+              5,
+              0,
+              7
+            ]
+          },
+          "size": 12
+        },
+        {
+          "distance": 4,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              16,
+              0
+            ],
+            "6": [
+              7,
+              0,
+              9
+            ],
+            "7": [
+              7,
+              0,
+              9
+            ]
+          },
+          "size": 16
+        },
+        {
+          "distance": 5,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              20,
+              0
+            ],
+            "6": [
+              9,
+              0,
+              11
+            ],
+            "7": [
+              9,
+              0,
+              11
+            ]
+          },
+          "size": 20
+        },
+        {
+          "distance": 6,
+          "in_flat_out_by_abs_height": {
+            "0": [
+              0,
+              24,
+              0
+            ],
+            "6": [
+              11,
+              7,
+              6
+            ],
+            "7": [
+              11,
+              6,
+              7
+            ]
+          },
+          "size": 24
+        }
+      ],
+      "all_formulae_safe_radius": 7,
+      "axes": [
+        7,
+        -7,
+        6,
+        0,
+        0,
+        0
+      ],
+      "delta": [
+        0,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "eventual_named_edges_in_flat_out": [
+        [
+          7,
+          0,
+          7
+        ],
+        [
+          7,
+          0,
+          7
+        ],
+        [
+          7,
+          0,
+          7
+        ],
+        [
+          7,
+          0,
+          7
+        ],
+        [
+          6,
+          2,
+          6
+        ],
+        [
+          6,
+          2,
+          6
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ]
+      ],
+      "exact_first_persistent_cardinality_radius": 7,
+      "exact_first_persistent_named_edge_radius": 7,
+      "exceptional_nonnegative_heights": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        15,
+        16,
+        17,
+        22,
+        23,
+        29
+      ],
+      "first_uniform_height": 30,
+      "minimal_length": [
+        0,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "positive_jump": {
+        "-7": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "0": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "6": [
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "7": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "radius_sample_size_words_first_plus_axis_in_flat_out": {
+        "0": [
+          1,
+          1,
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "1": [
+          4,
+          6,
+          [
+            1,
+            0,
+            3
+          ]
+        ],
+        "2": [
+          8,
+          26,
+          [
+            3,
+            0,
+            5
+          ]
+        ],
+        "3": [
+          12,
+          90,
+          [
+            5,
+            0,
+            7
+          ]
+        ],
+        "4": [
+          16,
+          290,
+          [
+            7,
+            0,
+            9
+          ]
+        ],
+        "5": [
+          20,
+          906,
+          [
+            9,
+            0,
+            11
+          ]
+        ],
+        "7": [
+          14,
+          4372,
+          [
+            7,
+            0,
+            7
+          ]
+        ],
+        "8": [
+          14,
+          13088,
+          [
+            7,
+            0,
+            7
+          ]
+        ]
+      },
+      "semigroup_genus": 0,
+      "thresholds": [
+        0,
+        36,
+        30,
+        24,
+        18,
+        12,
+        6
+      ],
+      "word_exponential_base": 2,
+      "word_polynomial_degree": 6,
+      "word_polynomials_in_binomial_basis": [
+        [
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "all_early_named_edge_rows": [
+        {
+          "distance": 0,
+          "in_flat_out_by_abs_height": {
+            "1": [
+              0,
+              0,
+              1
+            ],
+            "2": [
+              0,
+              0,
+              1
+            ],
+            "3": [
+              0,
+              0,
+              1
+            ],
+            "4": [
+              0,
+              0,
+              1
+            ],
+            "5": [
+              0,
+              0,
+              1
+            ],
+            "7": [
+              0,
+              0,
+              1
+            ]
+          },
+          "size": 1
+        },
+        {
+          "distance": 1,
+          "in_flat_out_by_abs_height": {
+            "1": [
+              1,
+              8,
+              3
+            ],
+            "2": [
+              1,
+              9,
+              2
+            ],
+            "3": [
+              1,
+              8,
+              3
+            ],
+            "4": [
+              1,
+              7,
+              4
+            ],
+            "5": [
+              1,
+              6,
+              5
+            ],
+            "7": [
+              1,
+              4,
+              7
+            ]
+          },
+          "size": 12
+        },
+        {
+          "distance": 2,
+          "in_flat_out_by_abs_height": {
+            "1": [
+              3,
+              8,
+              3
+            ],
+            "2": [
+              2,
+              10,
+              2
+            ],
+            "3": [
+              3,
+              8,
+              3
+            ],
+            "4": [
+              4,
+              6,
+              4
+            ],
+            "5": [
+              5,
+              4,
+              5
+            ],
+            "7": [
+              7,
+              0,
+              7
+            ]
+          },
+          "size": 14
+        }
+      ],
+      "all_formulae_safe_radius": 3,
+      "axes": [
+        1,
+        -2,
+        3,
+        -4,
+        5,
+        -7
+      ],
+      "delta": [
+        0,
+        6,
+        5,
+        4,
+        3,
+        2,
+        8
+      ],
+      "eventual_named_edges_in_flat_out": [
+        [
+          3,
+          8,
+          3
+        ],
+        [
+          3,
+          8,
+          3
+        ],
+        [
+          2,
+          10,
+          2
+        ],
+        [
+          2,
+          10,
+          2
+        ],
+        [
+          3,
+          8,
+          3
+        ],
+        [
+          3,
+          8,
+          3
+        ],
+        [
+          4,
+          6,
+          4
+        ],
+        [
+          4,
+          6,
+          4
+        ],
+        [
+          5,
+          4,
+          5
+        ],
+        [
+          5,
+          4,
+          5
+        ],
+        [
+          7,
+          0,
+          7
+        ],
+        [
+          7,
+          0,
+          7
+        ]
+      ],
+      "exact_first_persistent_cardinality_radius": 2,
+      "exact_first_persistent_named_edge_radius": 2,
+      "exceptional_nonnegative_heights": [],
+      "first_uniform_height": 0,
+      "minimal_length": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "positive_jump": {
+        "-2": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          -1
+        ],
+        "-4": [
+          0,
+          -1,
+          -1,
+          0,
+          -1,
+          0,
+          -1
+        ],
+        "-7": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "1": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          -1
+        ],
+        "3": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "5": [
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "radius_sample_size_words_first_plus_axis_in_flat_out": {
+        "0": [
+          1,
+          1,
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "1": [
+          12,
+          12,
+          [
+            1,
+            8,
+            3
+          ]
+        ],
+        "2": [
+          14,
+          48,
+          [
+            3,
+            8,
+            3
+          ]
+        ],
+        "3": [
+          14,
+          118,
+          [
+            3,
+            8,
+            3
+          ]
+        ],
+        "4": [
+          14,
+          240,
+          [
+            3,
+            8,
+            3
+          ]
+        ],
+        "5": [
+          14,
+          432,
+          [
+            3,
+            8,
+            3
+          ]
+        ]
+      },
+      "semigroup_genus": 1,
+      "thresholds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        -1
+      ],
+      "word_exponential_base": 1,
+      "word_polynomial_degree": 4,
+      "word_polynomials_in_binomial_basis": [
+        [
+          1
+        ],
+        [
+          0,
+          1,
+          3,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          5,
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "all_early_named_edge_rows": [
+        {
+          "distance": 0,
+          "in_flat_out_by_abs_height": {
+            "1": [
+              0,
+              0,
+              1
+            ]
+          },
+          "size": 1
+        }
+      ],
+      "all_formulae_safe_radius": 1,
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "delta": [
+        0
+      ],
+      "eventual_named_edges_in_flat_out": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "exact_first_persistent_cardinality_radius": 1,
+      "exact_first_persistent_named_edge_radius": 1,
+      "exceptional_nonnegative_heights": [],
+      "first_uniform_height": 0,
+      "minimal_length": [
+        0
+      ],
+      "positive_jump": {
+        "1": [
+          1
+        ]
+      },
+      "radius_sample_size_words_first_plus_axis_in_flat_out": {
+        "0": [
+          1,
+          1,
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "1": [
+          2,
+          12,
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "2": [
+          2,
+          72,
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "3": [
+          2,
+          432,
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "4": [
+          2,
+          2592,
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "5": [
+          2,
+          15552,
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      },
+      "semigroup_genus": 0,
+      "thresholds": [
+        0
+      ],
+      "word_exponential_base": 6,
+      "word_polynomial_degree": 0,
+      "word_polynomials_in_binomial_basis": [
+        [
+          1
+        ]
+      ]
+    }
+  ],
+  "finite_magnitude_test": {
+    "exact_extremizers": {
+      "1": [
+        [
+          1
+        ]
+      ],
+      "2": [
+        [
+          1,
+          2
+        ]
+      ],
+      "3": [
+        [
+          2,
+          3
+        ]
+      ],
+      "4": [
+        [
+          3,
+          4
+        ]
+      ],
+      "5": [
+        [
+          4,
+          5
+        ]
+      ],
+      "6": [
+        [
+          5,
+          6
+        ]
+      ],
+      "7": [
+        [
+          6,
+          7
+        ]
+      ],
+      "8": [
+        [
+          7,
+          8
+        ]
+      ],
+      "9": [
+        [
+          8,
+          9
+        ]
+      ],
+      "10": [
+        [
+          9,
+          10
+        ]
+      ]
+    },
+    "highest_height_threshold_by_A": {
+      "1": 0,
+      "2": 0,
+      "3": 2,
+      "4": 6,
+      "5": 12,
+      "6": 20,
+      "7": 30,
+      "8": 42,
+      "9": 56,
+      "10": 72
+    },
+    "signed_duplicate_extremal_examples_through_A": 64,
+    "six_axis_distinct_magnitude_sets": 807
+  }
+}
