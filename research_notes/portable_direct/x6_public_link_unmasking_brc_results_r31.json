@@ -1,0 +1,14 @@
+{
+  "schema": "EM_X6_R31_EXACT_FINITE_CHECK_V1",
+  "date": "2026-11-19",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "scientific_status": "CONDITIONAL_AUTHOR_PROOF_NOT_REVIEWED",
+  "finite_coverage": "Exhaustive n=1..2,N=1..2,m=0..2 all public Link assignments, partial deterministic controllers, initial states; 256 seeded n=N=3 controllers; 6 explicit chains q=0..5; h=0..6.",
+  "proof_scope": "All finite deterministic public controllers satisfying model independent-transition assumptions, any n,h.",
+  "controllers": 3944,
+  "pair_horizon_checks": 178892,
+  "pass": true,
+  "largest_class_count": 8,
+  "random_controllers": 256,
+  "explicit_chains": 6
+}
