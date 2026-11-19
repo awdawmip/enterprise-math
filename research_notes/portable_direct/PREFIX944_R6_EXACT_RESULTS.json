@@ -1,0 +1,125 @@
+{
+  "schema": "PREFIX944_R6_W15_W17_EXACT_PRIOR_UNION_V1",
+  "date": "2026-11-20",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "auxiliary_named_xor_two_port",
+  "domain": {
+    "modulus_min": 262145,
+    "modulus_max": 524287,
+    "step": 2,
+    "modulus_count": 131072,
+    "i": [
+      0,
+      18
+    ],
+    "j": [
+      0,
+      18
+    ],
+    "endpoint_bound_exclusive": 4294967296
+  },
+  "predecessor": {
+    "prefix": "PREFIX943",
+    "union": 7564526880,
+    "source_pin_inherited": true
+  },
+  "k15": {
+    "raw_witnesses": 20708178,
+    "unique_pairs": 16762415,
+    "prior_overlap": 10029499,
+    "priority_counts": {
+      "BZS": 8248399,
+      "U": 4145,
+      "V": 34179,
+      "W2": 931011,
+      "W3": 330945,
+      "D4": 450,
+      "W5": 371824,
+      "D6": 259,
+      "W7": 69383,
+      "D8": 557,
+      "W9": 34038,
+      "D10": 238,
+      "W11": 2174,
+      "W13": 1897,
+      "NEW": 6732916
+    },
+    "net_new": 6732916,
+    "union": 7571259796,
+    "outside": 9608609388,
+    "first_new_witness": {
+      "a": 270615,
+      "b": 523787,
+      "i": 0,
+      "j": 17,
+      "t": 8,
+      "start": 4059225,
+      "endpoint": 4190297,
+      "zero_endpoint": 1
+    },
+    "W15_sha256": "03f20dd609d1ceb997ee6fa25c0ecef34fc1626cf869ecd69dac340747fc4b03",
+    "NEW15_sha256": "c40308845f45e0477a19f6ec1fc81355dfcd27545d20f23677f1038dc3b434e4"
+  },
+  "k17": {
+    "raw_witnesses": 19318164,
+    "unique_pairs": 15136736,
+    "prior_overlap": 8668863,
+    "priority_counts": {
+      "BZS": 7440349,
+      "U": 3992,
+      "V": 30326,
+      "W2": 1000035,
+      "W3": 185410,
+      "D4": 306,
+      "W5": 1647,
+      "D6": 169,
+      "W7": 788,
+      "D8": 472,
+      "W9": 886,
+      "D10": 357,
+      "W11": 1438,
+      "W13": 1358,
+      "W15": 1330,
+      "NEW": 6467873
+    },
+    "net_new": 6467873,
+    "union": 7577727669,
+    "outside": 9602141515,
+    "first_new_witness": {
+      "a": 272019,
+      "b": 521095,
+      "i": 2,
+      "j": 16,
+      "t": 9,
+      "start": 4624323,
+      "endpoint": 4689859,
+      "zero_endpoint": 4
+    },
+    "W17_sha256": "c13cd4a065ec200fe542f4a5a3dfc7525f90efe2d885f08cea67265b52a9900d",
+    "NEW17_sha256": "c8bdff39be9c81ba491cd03ba8f1be7af46800f5b88c71f3a884ab43146b36f0"
+  },
+  "combined": {
+    "added": 13200789,
+    "union": 7577727669,
+    "outside": 9602141515,
+    "total": 17179869184,
+    "coverage_percentage": 44.10818026517518
+  },
+  "verification": {
+    "primary": "GNU C++17 exhaustive full domain and sorted pair IDs",
+    "independent_candidate": "separate divisor-first compressed sparse row C++17 full sorted bytewise equality",
+    "independent_priority": "NumPy full-domain BZS V and all predecessor membership first-match NEW ID bytewise equality",
+    "prior_independent_raw": "PREFIX942 CRT/floor-sum exact result",
+    "independent_samples_each_k": 1001,
+    "source_inputs": "historical frozen SHA256 manifests verified",
+    "status": "ALL_EXACT_ASSERTIONS_PASSED"
+  },
+  "full_reproduction_archive": {
+    "filename": "PREFIX944_R6_k15_k17_reproduction.zip",
+    "bytes": 93439351,
+    "sha256": "256a353e494eafaba3153566cb68bb41640c1f577ddc558ce2cf95d24438fce9",
+    "historical_inputs": "referenced by checksums but not duplicated"
+  },
+  "scientific_review": "NOT_INDEPENDENTLY_MATHEMATICALLY_REVIEWED",
+  "admission": "NOT_ADMITTED"
+}
