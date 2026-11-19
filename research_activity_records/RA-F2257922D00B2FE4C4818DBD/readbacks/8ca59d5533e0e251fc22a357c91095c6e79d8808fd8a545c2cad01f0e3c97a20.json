@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_eleven_exception_seed_plateau_20261119/REPRODUCE.md",
+    "ref": "e3f94af33d3eb08e9ce5a9d21481d23e9083e73d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261119-2035-eleven-source-6",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# R5 11-label exact verification / reproduction\n\nFrozen scalar input: `EXACT_R5_ALL_101_BUDGETS.json`, SHA256 `50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b`, frozen science `awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551`.\n\nComplete local evidence archive: `EnterpriseMath_R5_Eleven_246_50Class_20261119.zip`, SHA256 `e9f3cd8d2d7f5ac043401bbecf43d4ee9725268d71ed2641adf658400381ce86`. The archive contains the full 246-row CSV, all 50 class logs, original frozen input, two C++ source files, independent Python verifier, SHA manifest and reproduction helper. This GitHub branch contains the theorem, outcome manifest and runnable source, but is not a formal Result.\n\nPlace the exact input JSON next to the scripts:\n\n```bash\npython3 MAKE_WINDOW_ADJ.py\ng++ -O3 -std=c++17 EXACT_SOLVER.cpp -o exact11\n./exact11 6 5000000 > full_f0_f6.csv\nfor class in $(seq 0 49); do\n    ./exact11 8 5000000 \"$class\" > \"class${class}.csv\"\ndone\npython3 VERIFY_ENDPOINT.py\n```\n\nClass-filtered output uses -2 for other classes: retain only rows whose class ID matches the selected class. All fifty classes must finish without UNFINISHED or STATE_CAP_REACHED. Every one of 246 original labels must have f0..f8 values (733,1681,2628,3575,4522,5469,6416,7363,8310). Rebuilt adjacency SHA256: `daad32bc5c4f1a11361f1389c0e95d2de349a4870f7c240179f44d02d2d282af`. Independent verification output: `PASS_ELEVEN_INDEPENDENT_F0 246 F1 12`.\n\nThe f2..f8 values have exact C++ author checks, not independent Python replication or human review. The 10-label precursor is in preserved local evidence; its own remote Source publication is unverified. The stronger old 256-label interval remains 8335..8343, and the result is scalar-only, not a native X6/Port/BRC semantic compression.\n\nNext test simultaneous addition of two labels to the ten-label seed, and the true joint support union with the 17-label lower-bound witness.\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/e3f94af33d3eb08e9ce5a9d21481d23e9083e73d/research_notes/portable_direct/r5_eleven_exception_seed_plateau_20261119/REPRODUCE.md",
+      "encoding": "utf-8",
+      "sha": "70983e493bb32439f8ee6b8ab7234a3f8afeb722"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
