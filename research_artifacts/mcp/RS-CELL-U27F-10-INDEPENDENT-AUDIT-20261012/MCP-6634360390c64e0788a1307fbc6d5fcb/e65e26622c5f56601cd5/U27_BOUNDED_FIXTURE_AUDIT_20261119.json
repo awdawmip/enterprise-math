@@ -1,0 +1,109 @@
+{
+  "schema": "U27_BOUNDED_FIXTURE_AUDIT_V1",
+  "record_date": "2026-11-19",
+  "task_id": "RS-CELL-U27F-10-INDEPENDENT-AUDIT-20261012",
+  "input": {
+    "repository": "awdawmip/enterprise-math",
+    "source_commit": "68452be67a2bfdd02b6010c116fdc2f022848611",
+    "files": [
+      {
+        "path": "research_inputs/U27F_20261012/fixtures/base_case.json",
+        "git_blob_sha1": "15ccb3ad4037d60193a9d9b06ff4865754b8e6ec"
+      },
+      {
+        "path": "research_inputs/U27F_20261012/fixtures/interrupted_after_carry.json",
+        "git_blob_sha1": "e35281e64806f3dd9e1f2ad6520449c7bf0e2416"
+      },
+      {
+        "path": "research_inputs/U27F_20261012/fixtures/order_observer.json",
+        "git_blob_sha1": "6488b8fc713986a5fff66a86233118e34a5b3052"
+      }
+    ],
+    "full_archive_sha256": "a450cc3e235ca3d37211d31b2d4eb41dd2d4ac28b77c73d18d1b6e3ce45cc9a7",
+    "full_archive_status": "NOT_OBTAINED"
+  },
+  "check_results": {
+    "first_loss_is_edge_of_full_graph": true,
+    "damaged_graph_equals_full_minus_first_loss": true,
+    "after_carry_loss_is_distinct_from_first_loss": true,
+    "after_carry_loss_existed_in_first_damaged_graph": true,
+    "four_tokens_partitioned_without_duplication": true,
+    "body_B_moved_one_E3_from_base": true,
+    "held_token_at_current_B": true,
+    "freed_token_matches_released_position": true,
+    "release_position_matches_body_C": true,
+    "pending_reference_cells_match_snapshot": true,
+    "pending_path_length_matches_body_count": true,
+    "pending_not_committed": true,
+    "survival_record_is_783_over_784": true,
+    "observer_mean_difference_is_1_over_784": true
+  },
+  "observations": {
+    "first_missing_edge": [
+      1,
+      2
+    ],
+    "post_carry_lost_edge": [
+      2,
+      3
+    ],
+    "port_partition": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "after_local_carry": {
+      "incidence": "PENDING",
+      "automatic_cached_commit_permitted": false,
+      "body_B": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "held_token_2": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "released_token_3_location": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "two_observer_means": {
+      "early_loss_mean_work": "1567/784",
+      "late_loss_mean_work": "2",
+      "difference_late_minus_early": "1/784",
+      "same_survival": "783/784"
+    }
+  },
+  "evidence_scope": "CHECKS_AGAINST_PUBLISHED_FROZEN_FIXTURE_BYTES; not original code or causal model verification",
+  "review_disposition": "NOT_REVIEWED",
+  "independence_and_exposure": {
+    "reviewer_independence": "UNDETERMINED",
+    "contribution": "bounded fixture validation and arithmetic only",
+    "source_exposure": [
+      "taskbook",
+      "task package",
+      "three published fixtures"
+    ],
+    "original_proof_and_code_archive_examined": false
+  },
+  "pending": [
+    "Acquire original archive and verify SHA256 and code/NOTE/evidence content",
+    "Validate exact 56-state distribution and stop event semantics against original code",
+    "Inspect first-release sampling, work-counting and order observer joint distribution",
+    "Formal independent review after attribution checks"
+  ]
+}
