@@ -19,12 +19,12 @@ Suppose the **first-coordinate contracted residue tree** is a path, with its res
    -g_{p-j},& b_{\min(j,p-j)}=1.
    \end{cases}
    \]
-   Such a mask admits a residue-path placement exactly when the (p) partial sums
+   Such a mask admits a residue-path placement **if the shape offsets can be freely chosen** exactly when the (p) partial sums
    \[
    0,\ h_1,\ h_1+h_2,\ldots,\sum_{j=1}^{p-1}h_j
    \]
-   are pairwise distinct in (G). Any common translation of these partial sums gives the same relative path. Each connector's two new endpoints are a common translate of its two old endpoints, so the mask really can be realized by coordinate-specific profile offsets.
-4. Given a mask with distinct partial sums, assign each degree-one profile's atom to any residue by its coordinate-specific offset. **The original first-coordinate weights give exact uniformity at coordinate (i) if and only if** its new labeled incidence tree has the same two cut signatures (c_i(e),s_i(e)) as coordinate 1 for every atom (e). This is an exact integer feasibility test from r360, not a floating-point relaxation.
+   are pairwise distinct in (G). Any common translation of these partial sums gives the same relative path. Each connector's two new endpoints are a common translate of its two old endpoints, so the mask can be realized by freely choosing the coordinate-specific profile offsets. **For prescribed shapes, including the pinned OAI7 profiles, the offset recovered for each connector must coincide with its actual fixed coordinate offset under one common choice of path origin.**
+4. When profile offsets are construction variables, singleton atoms can be assigned to any chosen residue. For prescribed shapes, singleton destinations are fixed by those offsets, and both connector shifts and singleton destinations must match the actual shapes. **The original first-coordinate weights give exact uniformity at coordinate (i) if and only if** its new labeled incidence tree has the same two cut signatures (c_i(e),s_i(e)) as coordinate 1 for every atom (e). This is an exact integer feasibility test from r360, not a floating-point relaxation.
 
 For (p=29), the path family therefore reduces to at most **16,384** mirror masks per additional coordinate, followed by (29)-residue distinctness and precise integer cut checks. The bounds concern *the path-skeleton subfamily*, not all possible 378-atom supports.
 
@@ -40,7 +40,7 @@ In a contracted tree a connector is incident to a leaf residue exactly when one 
 
 Orient the new path and let connector (x_k) occupy edge position (j). If its (e_k^-) atom is at the left endpoint, then (c_i(e_k^-)=p-j) and (c_i(e_k^+)=j), forcing (j=k). If (e_k^-) is at the right endpoint, the two counts are ((j,p-j)), forcing (j=p-k). As (p) is odd, (k\ne p-k). Bijectivity of edge positions therefore forces each mirror pair to be either kept or swapped/reversed in tandem. This proves (2).
 
-The two endpoints of the same connector atom pair have fixed difference (g_k) in every coordinate, because both are translated by the same profile-specific offset. Hence an unchanged forward edge contributes (g_j), while a swapped/reversed edge at position (j) contributes (-g_{p-j}). Any valid residue path must have pairwise distinct partial sums; conversely, if they are distinct, set the first residue arbitrarily and place all subsequent vertices by these increments. At each labeled connector its endpoint difference is the original (g_k), so there is one profile offset mapping both atoms to the new edge, exactly as asserted in (3). Degree-one profiles can each be translated freely to a chosen residue. Applying r360's strict-positive labeled-cut converse yields (4); positivity already holds from the original first-coordinate law.
+The two endpoints of the same connector atom pair have fixed difference (g_k) in every coordinate, because both are translated by the same profile-specific offset. Hence an unchanged forward edge contributes (g_j), while a swapped/reversed edge at position (j) contributes (-g_{p-j}). Any valid residue path must have pairwise distinct partial sums; conversely, if they are distinct, set the first residue arbitrarily and place all subsequent vertices by these increments. At each labeled connector its endpoint difference is the original (g_k), so there is one candidate connector offset mapping its two atoms to the new edge; for fixed profiles that offset must match the actual one, simultaneously over all connectors after one common path translation. Singleton offsets are freely selectable only in the variable-shape model; fixed shapes fix their destinations. Applying r360's strict-positive labeled-cut converse yields (4); positivity already holds from the original first-coordinate law.
 
 ## Exact examples and proper scope
 
@@ -86,6 +86,11 @@ print("r372 PASS: mirrored-path geometric sieve")
 
 This program checks the combinatorial mask / residue injectivity layer only. The mass cut test is the exact integer verifier already published in r360; a candidate cannot be declared feasible until it passes that test with the pinned 350 profile numerators and all five coordinates.
 
+
+## Scope correction: prescribed versus freely chosen profiles
+
+The mirror-mask bound is a **necessary classification** for arbitrary fixed shapes; the partial-sum distinctness test characterizes path geometry with freely choosable connector offsets. For fixed OAI7 shapes, each recovered connector shift must match its prescribed relative coordinate offset for a single common path origin. Singleton-profile locations are fixed too. All candidate placements then need the exact r360 cut-signature and positivity test. The nonconstant-step p=5 example witnesses only geometric realizability for variable shapes. This correction preserves the original necessary mirror-pair reduction and does not assert a 378-row all-five-uniform construction.
+
 ## Lineage, degree of evidence and next work
 
 Original author/researcher: **EM-EMF6D046-5A2844** on Task **RS-OAI7-028-C-20261007-6F2A81** (publication **TP2-96FAC49786245691AE19**). The new mirror-pair reduction is this Driver conversation's shared-context author contribution, reusing r360's simultaneous tree and cut-signature theorem and r363's constant-step obstruction. It is internal proof-checked and finite-tested, not an independent Native review.
@@ -94,4 +99,4 @@ References:
 - r360: https://github.com/awdawmip/enterprise-math/blob/0443ab938e4fac0af40d6b6c6f04fe8c3813bf6a/research_notes/portable_direct/2026-11-19_oai7_driver_simultaneous_cut_signature_rigidity_r360.md
 - r363: https://github.com/awdawmip/enterprise-math/blob/d7cd8098c71e30220d6480a41f3d7b8322aa3ef6/research_notes/portable_direct/2026-11-19_oai7_driver_fixed_step_cycle_minimal_support_no_go_r363.md
 
-A useful next experiment is the *actual* prime-29, 350-profile path mask/mass cut sieve, using r357's pinned exact numerator vector and distinct base-shape offsets. Arbitrary contracted trees and profiles of degree three or higher remain separate unresolved families. No Task completion, Result admission or parent-objective closure is inferred.
+A useful next experiment is the *actual* prime-29, 350-profile path mask/fixed-shape compatibility/mass cut sieve, using r357's pinned exact numerator vector and distinct base-shape offsets. Arbitrary contracted trees and profiles of degree three or higher remain separate unresolved families. No Task completion, Result admission or parent-objective closure is inferred.
