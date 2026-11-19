@@ -1,0 +1,86 @@
+{
+  "schema": "PREFIX932_TRIPLE_A_EXACT_CENSUS_V1",
+  "date": "2026-11-19",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": {
+    "p": 32,
+    "a_b_odd_min": 262145,
+    "a_b_odd_max": 524287,
+    "count_per_port": 131072,
+    "i_range": [
+      0,
+      18
+    ],
+    "j_range": [
+      0,
+      18
+    ],
+    "k": 3,
+    "quotient_t": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "W2_reproduced": {
+    "raw": 36787554,
+    "unique": 30211412,
+    "sha256": "bceb588c6c3aee31ce627fadaa6d0d3ec56ea3f865ddea9d39daec13365e6150"
+  },
+  "W3": {
+    "raw": 24319678,
+    "raw_t": [
+      87381,
+      830136,
+      20112264,
+      764599,
+      2525298,
+      0
+    ],
+    "unique": 19413088,
+    "sorted_uint64_le_bytes": 155304704,
+    "sha256": "3f501ca25d0b8c55b284b621d26251f8be2c8c771ce294206f24b1daa10051a9"
+  },
+  "partition": {
+    "BZS": 8752594,
+    "U_outside_BZS": 6617,
+    "V_outside_BZS_U": 42286,
+    "W2_outside_BZS_U_V": 2342742,
+    "new_outside_PREFIX931": 8268849
+  },
+  "previous_union": 7522555296,
+  "new_union": 7530824145,
+  "certificate_complement": 9649045039,
+  "universe": 17179869184,
+  "first_new": {
+    "a": 272007,
+    "b": 521109,
+    "i": 15,
+    "j": 18,
+    "t": 1,
+    "F0": [
+      0,
+      32768
+    ],
+    "F3a": [
+      816021,
+      553877
+    ],
+    "observed": [
+      0,
+      32768
+    ]
+  },
+  "validation": {
+    "cpp_scalar_integer": "COMPLETED",
+    "numpy_vectorized": "COMPLETED",
+    "W2_anchor_digest_matched": true,
+    "W3_sorted_binary_byte_equal": true,
+    "counts_equal": true,
+    "review": "NOT_REVIEWED",
+    "admission": "NOT_ADMITTED"
+  }
+}
