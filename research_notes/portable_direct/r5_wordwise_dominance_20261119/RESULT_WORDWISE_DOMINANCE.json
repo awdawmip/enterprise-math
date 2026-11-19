@@ -1,0 +1,62 @@
+{
+  "schema": "EM_R5_WORDWISE_DOMINANCE_FINITE_CHECK_V1",
+  "scope": "FINITE_DETERMINISTIC_RESPONSE_AUTOMATA_AND_EXISTENTIAL_MASK_QUERIES",
+  "theoretical_bfs_state_bound": "N*2^N",
+  "n3_complete": {
+    "n": 3,
+    "actions": 2,
+    "observation_bits": 1,
+    "exhaustive_configs": 52488,
+    "safe_cases": 27657,
+    "unsafe_cases": 24831,
+    "unsafe_shortest_word_length_gt_one": 4848,
+    "max_bfs_states_seen": 18,
+    "max_transformation_monoid_size": 24
+  },
+  "n4_deterministic_sweep": {
+    "n": 4,
+    "actions": 2,
+    "observation_bits": 2,
+    "deterministic_instances": 128,
+    "input_checks": 3584,
+    "safe_cases": 972,
+    "unsafe_cases": 2612,
+    "max_monoid_size": 116
+  },
+  "n5_counterexample": {
+    "n": 5,
+    "actions": 2,
+    "labels": [
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "transitions_a": [
+      3,
+      4,
+      3,
+      3,
+      4
+    ],
+    "transitions_b": [
+      3,
+      3,
+      4,
+      3,
+      4
+    ],
+    "initial_x": 0,
+    "initial_Y": [
+      1,
+      2
+    ],
+    "full_set_redundant": true,
+    "each_fixed_witness_inadequate": true,
+    "reachable_pair_states": 2,
+    "transformation_monoid_size": 3
+  },
+  "independent_checker": "BFS_PAIR_PRODUCT_VS_COMPLETE_TRANSFORMATION_MONOID",
+  "result": "PASS"
+}
