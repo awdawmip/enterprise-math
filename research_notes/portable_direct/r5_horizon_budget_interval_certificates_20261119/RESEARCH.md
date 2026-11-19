@@ -4,6 +4,8 @@ Date: 2026-11-19. Status: **AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED*
 
 ## Frozen science and provenance
 
+**Research priority correction (current canonical-main readback, 2026-11-19):** BIS1–BIS3 already published the interval-union theorem, exact tail threshold and sharp unary holes at immutable commits 5bbb1bfe4997bc80159cadbb800fcd388d7d3655 and 19f4fc516d90cb74322b732623d50c69c1f4af55. HBC1–HBC4 here are an **independent replication and explicit boundary/transition presentation**, not priority claims. The new result in this branch is RESEARCH_COST_VISIBLE.md (CVA1–CVA4), which treats policies observing cumulative cost at each decision point and proves a distinct cost-visible equivalence and unary rigidity.
+
 Continuation: BS1–BS4 at commit aea9c4b067520428a3489040690b1f5cb1d96a12, path research_notes/portable_direct/r5_budget_spectrum_20261119/RESEARCH.md.
 
 Ancestor frozen scientific commit: 435e77af0d180eac32bd1f9c4c464bc4010b7551.
