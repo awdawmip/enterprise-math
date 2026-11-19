@@ -1,0 +1,244 @@
+{
+  "actual_code": {
+    "extra_probes_disjoint_and_full_output_checked_each": true,
+    "new_fixed_4096_width": [
+      {
+        "accepted_full_cover_too_wide": 0,
+        "all_keys_fit": 0,
+        "banks_and_sorted_outputs": 192,
+        "both_pass": 0,
+        "first_pass": 5,
+        "n": 16386,
+        "switched_after_extra_probes": 5
+      },
+      {
+        "accepted_full_cover_too_wide": 1,
+        "all_keys_fit": 0,
+        "banks_and_sorted_outputs": 192,
+        "both_pass": 1,
+        "first_pass": 39,
+        "n": 18432,
+        "switched_after_extra_probes": 38
+      },
+      {
+        "accepted_full_cover_too_wide": 3,
+        "all_keys_fit": 0,
+        "banks_and_sorted_outputs": 192,
+        "both_pass": 3,
+        "first_pass": 92,
+        "n": 20272,
+        "switched_after_extra_probes": 89
+      },
+      {
+        "accepted_full_cover_too_wide": 11,
+        "all_keys_fit": 0,
+        "banks_and_sorted_outputs": 192,
+        "both_pass": 11,
+        "first_pass": 131,
+        "n": 20800,
+        "switched_after_extra_probes": 120
+      },
+      {
+        "accepted_full_cover_too_wide": 18,
+        "all_keys_fit": 0,
+        "banks_and_sorted_outputs": 192,
+        "both_pass": 18,
+        "first_pass": 148,
+        "n": 21414,
+        "switched_after_extra_probes": 130
+      },
+      {
+        "accepted_full_cover_too_wide": 66,
+        "all_keys_fit": 0,
+        "banks_and_sorted_outputs": 192,
+        "both_pass": 66,
+        "first_pass": 175,
+        "n": 22000,
+        "switched_after_extra_probes": 109
+      },
+      {
+        "accepted_full_cover_too_wide": 88,
+        "all_keys_fit": 0,
+        "banks_and_sorted_outputs": 192,
+        "both_pass": 88,
+        "first_pass": 182,
+        "n": 22416,
+        "switched_after_extra_probes": 94
+      },
+      {
+        "accepted_full_cover_too_wide": 157,
+        "all_keys_fit": 0,
+        "banks_and_sorted_outputs": 192,
+        "both_pass": 157,
+        "first_pass": 188,
+        "n": 23200,
+        "switched_after_extra_probes": 31
+      },
+      {
+        "accepted_full_cover_too_wide": 192,
+        "all_keys_fit": 0,
+        "banks_and_sorted_outputs": 192,
+        "both_pass": 192,
+        "first_pass": 192,
+        "n": 24000,
+        "switched_after_extra_probes": 0
+      },
+      {
+        "accepted_full_cover_too_wide": 78,
+        "all_keys_fit": 114,
+        "banks_and_sorted_outputs": 192,
+        "both_pass": 192,
+        "first_pass": 192,
+        "n": 24574,
+        "switched_after_extra_probes": 0
+      },
+      {
+        "accepted_full_cover_too_wide": 0,
+        "all_keys_fit": 192,
+        "banks_and_sorted_outputs": 192,
+        "both_pass": 192,
+        "first_pass": 192,
+        "n": 24576,
+        "switched_after_extra_probes": 0
+      }
+    ],
+    "original_decisions_replayed": 60
+  },
+  "critical": {
+    "checked_budgets_inclusive": [
+      8192,
+      12288
+    ],
+    "maximum_switch": 624525896496,
+    "maximum_switch_budgets": [
+      10707
+    ],
+    "models": [
+      {
+        "budget": 8193,
+        "extra_probes_switch": 21485735595,
+        "full_cover_pass": 0,
+        "n": 16386,
+        "sample_pass_full_cover_fails": 1510485,
+        "stage32_pass": 21487246080,
+        "stage64_pass": 1510485
+      },
+      {
+        "budget": 9216,
+        "extra_probes_switch": 151985770447,
+        "full_cover_pass": 0,
+        "n": 18432,
+        "sample_pass_full_cover_fails": 408786786,
+        "stage32_pass": 152394557234,
+        "stage64_pass": 408786786
+      },
+      {
+        "budget": 10136,
+        "extra_probes_switch": 477662976897,
+        "full_cover_pass": 0,
+        "n": 20272,
+        "sample_pass_full_cover_fails": 22429518914,
+        "stage32_pass": 500092495811,
+        "stage64_pass": 22429518914
+      },
+      {
+        "budget": 10400,
+        "extra_probes_switch": 573301870744,
+        "full_cover_pass": 0,
+        "n": 20800,
+        "sample_pass_full_cover_fails": 57725468480,
+        "stage32_pass": 631027339224,
+        "stage64_pass": 57725468480
+      },
+      {
+        "budget": 10707,
+        "extra_probes_switch": 624525896496,
+        "full_cover_pass": 0,
+        "n": 21414,
+        "sample_pass_full_cover_fails": 151318623485,
+        "stage32_pass": 775844519982,
+        "stage64_pass": 151318623485
+      },
+      {
+        "budget": 11000,
+        "extra_probes_switch": 562553448631,
+        "full_cover_pass": 0,
+        "n": 22000,
+        "sample_pass_full_cover_fails": 324481940559,
+        "stage32_pass": 887035389191,
+        "stage64_pass": 324481940559
+      },
+      {
+        "budget": 11208,
+        "extra_probes_switch": 441673935705,
+        "full_cover_pass": 0,
+        "n": 22416,
+        "sample_pass_full_cover_fails": 500454569725,
+        "stage32_pass": 942128505430,
+        "stage64_pass": 500454569725
+      },
+      {
+        "budget": 11600,
+        "extra_probes_switch": 141643446177,
+        "full_cover_pass": 0,
+        "n": 23200,
+        "sample_pass_full_cover_fails": 850302444867,
+        "stage32_pass": 991945891044,
+        "stage64_pass": 850302444867
+      },
+      {
+        "budget": 12000,
+        "extra_probes_switch": 3962547965,
+        "full_cover_pass": 0,
+        "n": 24000,
+        "sample_pass_full_cover_fails": 995944276566,
+        "stage32_pass": 999906824532,
+        "stage64_pass": 995944276566
+      },
+      {
+        "budget": 12287,
+        "extra_probes_switch": 0,
+        "full_cover_pass": 582143414795,
+        "n": 24574,
+        "sample_pass_full_cover_fails": 417856585204,
+        "stage32_pass": 999999999999,
+        "stage64_pass": 999999999999
+      },
+      {
+        "budget": 12288,
+        "extra_probes_switch": 0,
+        "full_cover_pass": 1000000000000,
+        "n": 24576,
+        "sample_pass_full_cover_fails": 0,
+        "stage32_pass": 1000000000000,
+        "stage64_pass": 1000000000000
+      }
+    ],
+    "pass_percentile_first_budget": {
+      "32": {
+        "5": 8594,
+        "25": 9549,
+        "50": 10136,
+        "75": 10649,
+        "95": 11247
+      },
+      "64": {
+        "5": 10358,
+        "25": 10893,
+        "50": 11208,
+        "75": 11476,
+        "95": 11780
+      }
+    },
+    "probability_encoding": "floor(10^12 times exact probability)"
+  },
+  "exact_small_cases": 144,
+  "frozen_sha256": {
+    "bench.cpp": "9e2e98e3460b5fc1b4317a5b29bbad0de9c18b39f6dfcb67bf21a518965f7471",
+    "holdout.cpp": "13b797dcc29e85af16973bb3566d657c5e9b885c50ce72d19ccaf8d4933a2597",
+    "holdout_diag.csv": "9d59e043ac0d5202c2daf802f0e8b6f6a7c866b11d1e1b15913e7000baec424a",
+    "phase5/build.py": "8a282114f9ddc5ed52cb33e1fb19c533778e7287ec2bfe62d8044fbac4ecdad3",
+    "phase5/probe.hpp": "f2e9186856ccc583890c13f140cea1aa61e142805de245133f95902faaa2843c",
+    "phase6/child.hpp": "33081d93895a7c774889208ee0aaeea56e657cf7dcfee76bfa3cdbd0dffe562b"
+  }
+}
