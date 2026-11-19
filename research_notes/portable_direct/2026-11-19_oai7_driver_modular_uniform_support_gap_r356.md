@@ -34,6 +34,17 @@ p-1\le\sum_x(|A_x|-1)\le\sum_x(k_x-1)
 \]
 which proves (1). Parallel edges or coinciding first-coordinate symbols can only strengthen the inequality.
 
+### Generalized divisor form and sharpness of the universal combinatorial constant
+
+For arbitrary positive integers \(N,p\), remove the coprimality hypothesis and set \(g=\gcd(N,p)\). Exactly the same component argument shows that every connected component \(B\) must have \(|B|\) divisible by \(p/g\), so there are at most \(g\) components. The constructed graph therefore has at least \(p-g\) edges, and every such fiber-to-output law satisfies
+
+\[
+\boxed{|\operatorname{supp}(H)|\ge m+p-\gcd(N,p).}
+\tag{1'}
+\]
+
+The integer \(p-g\) cannot be increased as a *universal* lower-bound term using only these assumptions: for \(m=N=1\), \(X\) is constant and a uniform \(p\)-point \(H_1\) has exactly \(p=m+p-1\) atoms. In (2), allowing \(r=N\bmod p=0\) gives a valid non-strict bound for arbitrary \(N,p\).
+
 ### Proof of strict quantitative entropy gap
 
 Within each fiber (x), choose a modal ordered atom (h_x) with maximal conditional probability q_x. Define (Y=h_X), a deterministic function of (X). The first-coordinate law of (Y) has probabilities (k_a/N) with nonnegative integers (k_a) summing to (N), because each (p_x\in N^{-1}\mathbb Z).
