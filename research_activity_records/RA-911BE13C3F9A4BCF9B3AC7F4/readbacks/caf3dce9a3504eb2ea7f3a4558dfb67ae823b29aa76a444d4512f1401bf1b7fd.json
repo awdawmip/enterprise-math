@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredninth/README.md",
+    "ref": "0f10e3500f39066e2d829052bcc6c1f540fec74f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "fair-hundrednine-20261118-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 第一百零九轮　抗删除周期识别的最少采样数与反馈记录的最短辨识\n\n给定标号幂，单从哪些幂彼此相等来识别阶 $r\\le H$；更大的阶统一记作超范围。设计者先选采样位置，随后对手可再删 $e$ 个位置，删除的标号已知。第十轮给出了单洞与部分多洞构造。现在得到 $H/3<e\\le H/2$ 整段的最少采样数。写 $H=2e+c$、$0\\le c<e$，最小跨度是 $A=H+e$。当 $c\\le2$，全部位置都必需；当 $c=3t+d\\ge3$、$0\\le d\\le2$，能预先省去的位置最多恰为 $2t-\\mathbf1_{d\\ne2}$。两个显式区间达到上界。例 $H=59,e=20$，80 个位置只需采 69 个。证明把必要条件化为模 $r$ 与模 $pr$ 两种标号相等模式的最小删除代价，把充分条件化为等差链上的不交配对；2,145 组参数和 233,090 个目标阶另有整数复算。该子任务的登记前置仍待正式验收。[最优定理与布局](power.md) · [复算程序](power_check.py) · [核验数字](power_checked.json)\n\n首次研究的反馈任务问，一份记录开始控制后续源动作时，预测未来读数须保存多少信息。对冻结的三动作字母表，从实际可达的 3,456 个状态出发，最小充分划分恰有 432 类。从同一未知初态连续作四次源步进，再作一次记录写入，所得读数足以辨类。允许每次看完读数再选动作，最坏情形也至少要五步。若已知记录起初就绪，则只需辨 144 类、四步。扩充一个已列明的诊断动作后，自适应有严格优势。未知守恒标签时，自适应与预先固定动作串各需 7、8 步；标签已知时各需 6、7 步。[模型、充分条件和下界](feedback.md) · [公开源接口复算](feedback_check.py) · [全部分组及读数](feedback_checked.json)\n\n截至 2026-11-19 07:59:01 UTC，累计直接研究 242 个登记任务，覆盖 51 个父方向。首次轮到记录反馈任务，另复访第十轮的抗删除周期识别。严格就绪、待移交、冻结待复访中，尚未直接轮到的登记分别有 21、17、5 个。[状态机截止与轮转记录](fair_snapshot.json)\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/0f10e3500f39066e2d829052bcc6c1f540fec74f/research_notes/portable_direct/20261118_fair_queue_6b0fba/hundredninth/README.md",
+      "encoding": "utf-8",
+      "sha": "650cc40757c68d49266ee305d355bbb0638c5e4f"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
