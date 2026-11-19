@@ -1,0 +1,426 @@
+{
+  "archive_sha256": "6995c9e842ed391d1363d5ec8ca0ac8d58f1c5abbc78f94c7908f54fc1e46f6c",
+  "common": {
+    "cache_theory": {
+      "LRU_misses": {
+        "128": 528,
+        "168": 498,
+        "169": 498,
+        "192": 450,
+        "257": 276,
+        "258": 258,
+        "32": 576
+      },
+      "distinct_edges": 258,
+      "minimum_LRU_slots_no_recomputation": 258,
+      "minimum_offline_slots_bypass_permitted": 168,
+      "minimum_offline_slots_mandatory_insert": 169,
+      "requests": 612,
+      "source_cells": 43,
+      "stack_distance_multiplicity": [
+        [
+          1,
+          15
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          58,
+          6
+        ],
+        [
+          70,
+          12
+        ],
+        [
+          72,
+          12
+        ],
+        [
+          76,
+          12
+        ],
+        [
+          124,
+          6
+        ],
+        [
+          138,
+          12
+        ],
+        [
+          142,
+          6
+        ],
+        [
+          143,
+          12
+        ],
+        [
+          181,
+          1
+        ],
+        [
+          183,
+          2
+        ],
+        [
+          185,
+          45
+        ],
+        [
+          199,
+          1
+        ],
+        [
+          201,
+          2
+        ],
+        [
+          203,
+          171
+        ],
+        [
+          257,
+          18
+        ]
+      ]
+    },
+    "cold_atlas_arithmetic": {
+      "max_bits": {
+        "prime_generation": 11
+      },
+      "operations": {
+        "prime_generation:brc_division": 3059,
+        "prime_generation:brc_product": 3058
+      }
+    },
+    "event_kind_counts": {
+      "reservoir_release": 48,
+      "triadic_dispatch": 204
+    },
+    "final_stats": {
+      "activated_cells": 0,
+      "changed_contact_cells": 729,
+      "collision_buckets": 0,
+      "edge_unit_transfers": 0,
+      "ever_activated_cells": 169,
+      "heartbeat": 24,
+      "internal_units": 348,
+      "micro_rounds": 0,
+      "raw_payload_bits": 3147,
+      "residual_cells": 151,
+      "residual_units": 420,
+      "source_release": 0,
+      "source_remaining": 0,
+      "topplings": 0,
+      "transfer_batches": 0
+    },
+    "independent_commit_checks": {
+      "individual_signed_target_fields": 3672,
+      "original_negative_controls": 4,
+      "synchronous_dispatch_commits": 18,
+      "target_batches": 612,
+      "unit_transfers": 1044
+    },
+    "semantic_output_sha256": {
+      "BRC_LEDGER": "fd4ac18df4ead7eb4a08eb611edd497f5ca23bbdc7bac2ed9da1350d4f5ef722",
+      "COUNTS": "8d1ec1bd26053e7fbe56cdcb5fa7e003b1c33d4e18aa03e152daaa82e07cec15",
+      "EVENTS": "6478bf2591687573876ee31aa2fe2d31c7a53e25b30eec82b404bbc2610b84f3",
+      "FULL_STATES": "924c7d6e4ef8d3554a81f033443fddafa9dfe34e14808fc629ab130727292846",
+      "RAW_STORE": "3d292eb87fd03baf503811fe77e31ea86da21ecab428a1f1f345977739d80986",
+      "STATS": "9c3a5bae7d1b2c8340eaa904e2719cdca7db9d5065c3cdf50b8de2113af2b3ea"
+    },
+    "store_reads": 26810,
+    "store_writes": 733,
+    "stored_cell_code_bits_max": 34,
+    "wave_arithmetic": {
+      "max_bits": {
+        "audit": 10,
+        "codec_setup": 34,
+        "injection": 10,
+        "simulation": 8,
+        "world_setup": 10
+      },
+      "operations": {
+        "audit:brc_sum": 5815,
+        "audit:zero_route": 16571,
+        "codec_setup:brc_division": 9908,
+        "codec_setup:brc_product": 3652,
+        "codec_setup:unit_route": 728,
+        "injection:brc_sum": 141,
+        "injection:verified_gap": 48,
+        "injection:zero_route": 195,
+        "simulation:brc_division": 17700,
+        "simulation:brc_product": 48,
+        "simulation:brc_sum": 1258,
+        "simulation:unit_route": 156,
+        "simulation:verified_gap": 780,
+        "simulation:zero_route": 3158,
+        "world_setup:brc_sum": 5,
+        "world_setup:zero_route": 1
+      }
+    }
+  },
+  "modes": {
+    "cancel": {
+      "all_output_bytes_raw_and_written": {
+        "ADDRESS_LEDGER": [
+          29542,
+          2029
+        ],
+        "ATLAS": [
+          77345,
+          77345
+        ],
+        "ATLAS_LEDGER": [
+          312332,
+          23538
+        ],
+        "BRC_LEDGER": [
+          2534988,
+          88623
+        ],
+        "COUNTS": [
+          546,
+          546
+        ],
+        "EVENTS": [
+          47835,
+          2535
+        ],
+        "FULL_STATES": [
+          2052220,
+          107237
+        ],
+        "RAW_STORE": [
+          62573,
+          2011
+        ],
+        "STATS": [
+          7655,
+          7655
+        ]
+      },
+      "largest_queried_address_bits": 21,
+      "route_arithmetic": {
+        "max_bits": {
+          "factor_setup": 10,
+          "online_factor": 21
+        },
+        "operations": {
+          "factor_setup:brc_product": 6,
+          "online_factor:brc_division": 114,
+          "online_factor:brc_product": 444,
+          "online_factor:unit_route": 54
+        }
+      },
+      "route_counts": {
+        "code_lookup": 43,
+        "computed_edges": 612,
+        "factor_fields_assembled": 258,
+        "final_id_lookup": 612,
+        "requests": 612,
+        "row_builds": 43,
+        "row_hits": 569
+      }
+    },
+    "memo": {
+      "all_output_bytes_raw_and_written": {
+        "ADDRESS_LEDGER": [
+          12695,
+          1767
+        ],
+        "ATLAS": [
+          77345,
+          77345
+        ],
+        "ATLAS_LEDGER": [
+          312332,
+          23538
+        ],
+        "BRC_LEDGER": [
+          2534988,
+          88623
+        ],
+        "COUNTS": [
+          546,
+          546
+        ],
+        "EVENTS": [
+          47835,
+          2535
+        ],
+        "FULL_STATES": [
+          2052220,
+          107237
+        ],
+        "RAW_STORE": [
+          62573,
+          2011
+        ],
+        "STATS": [
+          7655,
+          7655
+        ]
+      },
+      "largest_queried_address_bits": 21,
+      "route_arithmetic": {
+        "max_bits": {
+          "factor_setup": 10,
+          "online_factor": 21
+        },
+        "operations": {
+          "factor_setup:brc_product": 6,
+          "online_factor:brc_division": 48,
+          "online_factor:brc_product": 204,
+          "online_factor:unit_route": 6
+        }
+      },
+      "route_counts": {
+        "code_lookup": 43,
+        "computed_edges": 258,
+        "edge_hits": 354,
+        "factor_fields_assembled": 258,
+        "final_id_lookup": 258,
+        "requests": 612,
+        "row_builds": 43,
+        "row_hits": 215
+      }
+    },
+    "replace": {
+      "all_output_bytes_raw_and_written": {
+        "ADDRESS_LEDGER": [
+          59928,
+          2934
+        ],
+        "ATLAS": [
+          77345,
+          77345
+        ],
+        "ATLAS_LEDGER": [
+          312332,
+          23538
+        ],
+        "BRC_LEDGER": [
+          2534988,
+          88623
+        ],
+        "COUNTS": [
+          546,
+          546
+        ],
+        "EVENTS": [
+          47835,
+          2535
+        ],
+        "FULL_STATES": [
+          2052220,
+          107237
+        ],
+        "RAW_STORE": [
+          62573,
+          2011
+        ],
+        "STATS": [
+          7655,
+          7655
+        ]
+      },
+      "largest_queried_address_bits": 21,
+      "route_arithmetic": {
+        "max_bits": {
+          "factor_setup": 10,
+          "online_factor": 21
+        },
+        "operations": {
+          "factor_setup:brc_product": 6,
+          "online_factor:brc_division": 612,
+          "online_factor:brc_product": 480,
+          "online_factor:unit_route": 132
+        }
+      },
+      "route_counts": {
+        "code_lookup": 43,
+        "computed_edges": 612,
+        "factor_fields_assembled": 258,
+        "final_id_lookup": 612,
+        "requests": 612,
+        "row_builds": 43,
+        "row_hits": 569
+      }
+    },
+    "table": {
+      "all_output_bytes_raw_and_written": {
+        "ADDRESS_LEDGER": [
+          3,
+          23
+        ],
+        "ATLAS": [
+          77345,
+          77345
+        ],
+        "ATLAS_LEDGER": [
+          312332,
+          23538
+        ],
+        "BRC_LEDGER": [
+          2534988,
+          88623
+        ],
+        "COUNTS": [
+          546,
+          546
+        ],
+        "EVENTS": [
+          47835,
+          2535
+        ],
+        "FULL_STATES": [
+          2052220,
+          107237
+        ],
+        "RAW_STORE": [
+          62573,
+          2011
+        ],
+        "STATS": [
+          7655,
+          7655
+        ]
+      },
+      "largest_queried_address_bits": null,
+      "route_arithmetic": {
+        "max_bits": {},
+        "operations": {}
+      },
+      "route_counts": {
+        "precomputed_destination_rows": 8748,
+        "requests": 612
+      }
+    }
+  },
+  "negative_out_of_wave_tests_per_factor_mode": [
+    "stale epoch rejected",
+    "same endpoint recomputed after invalidation",
+    "negative Cell and invalid port rejected"
+  ],
+  "source": {
+    "manifest_members": 47,
+    "original_outputs": {
+      "BRC_LEDGER": "fd4ac18df4ead7eb4a08eb611edd497f5ca23bbdc7bac2ed9da1350d4f5ef722",
+      "COUNTS": "8d1ec1bd26053e7fbe56cdcb5fa7e003b1c33d4e18aa03e152daaa82e07cec15",
+      "EVENTS": "6478bf2591687573876ee31aa2fe2d31c7a53e25b30eec82b404bbc2610b84f3",
+      "FULL_STATES": "924c7d6e4ef8d3554a81f033443fddafa9dfe34e14808fc629ab130727292846",
+      "RAW_STORE": "3d292eb87fd03baf503811fe77e31ea86da21ecab428a1f1f345977739d80986",
+      "STATS": "9c3a5bae7d1b2c8340eaa904e2719cdca7db9d5065c3cdf50b8de2113af2b3ea"
+    },
+    "zip_members": 48
+  }
+}

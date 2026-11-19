@@ -1,0 +1,75 @@
+# 具名幂等矩阵的端点纤维及其迹读数分布
+
+设 $N\ge2$、$d\ge1$。终态为具名基下的 $B^2=B\in M_d(\mathbb Z/N)$，实际端口均读取同一个 $B$，给出 $Y_j=L_jI+G_jB$。第 24 轮已经求得这组端口在全矩阵库上一致可逆的条件。这里针对**每个具体端点**求原像数，判定下一个具名读数 $\operatorname{tr}(CB)$ 能否完全确定，并在等权数原像时求它的完整分布。例如模 8、已知 $B\bmod2=E_{11}$ 时，16 个相容二阶矩阵中，第一对角元分别在 12 个、4 个矩阵上取 $1,5$。
+
+$L_j,G_j$、标签和后续仪器 $C$ 均须由接口实际给定。本篇求全代数纤维上的判据。生成过程只到达其中一部分时，充分性仍成立，必要性须在真实可达子集上复核。[原上下端点](https://github.com/awdawmip/enterprise-math/blob/e7b9fb5084f93a9b2dbc16225629b667fb7bf46c/research_tasks/R059D_STAGE_N_BRC_PURE_ALGEBRA_COUPLED_COMPLEMENTARY_COLLAPSE_20260816.md) · [许可矩阵及观测](https://github.com/awdawmip/enterprise-math/blob/e7b9fb5084f93a9b2dbc16225629b667fb7bf46c/research_tasks/N_COUPLED_ASYMMETRIC_SINGULARIZATION_PRIMITIVE_20260830.md) · [第 24 轮](../twentyfourth/terminal.md) · [Gen2 任务书](https://github.com/awdawmip/enterprise-math/blob/baa2e081153260c7659466b4fa186ff308a7b0d9/research_tasks/RR133_COVERAGE_PROSPECTIVE_GEN2.md)
+
+## 一、每个端点的原像
+
+令 $g=\gcd(N,G_1,\dots,G_k)$、$M=N/g$。用 Bézout 系数组合各 $Y_j-L_jI$ 得 $gB\bmod N$，除 $g$ 得 $B_0=B\bmod M$。对任意声称的端口，若该组合不可逐项整除、回代任一端口不符或 $B_0^2\ne B_0\bmod M$，则无原像。其余情形均可提升。$M=1$ 表示没有读到任何矩阵位。
+
+取 $p^e\parallel N$，$b=v_p(M)$。若 $1\le b\le e$，设 $r=\operatorname{rank}_{\mathbf F_p}(B_0\bmod p)$，$s=d-r$。**该局部纤维的基数为**
+$$
+ \boxed{p^{\,2rs(e-b)}.} \tag{1}
+$$
+在局部环 $\mathbb Z/p^b$，投影的像与核是互补自由直和项。选其基使 $B_0=\operatorname{diag}(I_r,0_s)$，将基矩阵提升到 $\mathbb Z/p^e$（行列式仍为单位）。在此基记 $P=\operatorname{diag}(I_r,0_s)$。每个提升的像是图 $(v,Yv)$，核是图 $(Xw,w)$，因为投影到相应坐标的约化为同构，故它在局部环上也是同构。$Y$ 是 $s\times r$、$X$ 是 $r\times s$，元素独立取遍理想 $p^b$。任意两图都互补，因 $I-XY$ 可逆。换成 $Z=(I-XY)^{-1}X$，反解为 $X=(I+ZY)^{-1}Z$，故 $Y,Z$ 也可独立自由取值。沿核投影到像的矩阵为
+$$
+ B=\begin{pmatrix}I+ZY&-Z\\Y+YZY&-YZ\end{pmatrix}. \tag{2}
+$$
+这给 (1) 的无重无漏参数化。若 $r=0,d$，唯一原像依次为 $0,I$；若 $b=e$，给定的 $B_0$ 已是整份矩阵。证明包含 $p=2$。
+
+也可直接补读两交叉块 $U=B_{12}, V=B_{21}$。取 $F(T)=\sum_{n\ge1}\mathrm{Cat}_{n-1}T^n$，其中 Catalan 数给 $F=T+F^2$。这里只需保留 $2bn<e$ 的项。对任意 $U,V$ 在相应 $p^b$ 矩阵理想中，有
+$$
+ B=\begin{pmatrix} I-F(UV)&U\\ V&F(VU)\end{pmatrix}. \tag{3}
+$$
+代回平方即得自身，交块恒等式来自 $(UV)^nU=U(VU)^n$。参数个数已等于 (1)，故覆盖所有提升。适配基中，补充 $2rs(e-b)$ 个 $p$ 进数位恰够，达到由原像数给出的最坏情形信息下界。两对角块自动保留 $\min(e,2b)$ 位；若 $0<r<d$ 且 $2b<e$，取相应一对 $U,V$ 矩阵单位的 $p^b$ 倍数即可使某一对角元的第 $2b$ 位变化（数位从零计）。
+
+若 $b=0$，整个 $p^e$ 分量不可见。秩 $r$ 的原像数此时为
+$$
+ \boxed{{d\brack r}_p\,p^{(2e-1)r(d-r)}.} \tag{4}
+$$
+模 $p$ 有 $ {d\brack r}_p$ 个像，对每个像有 $p^{r(d-r)}$ 个互补核。再乘从第一位到 $e$ 位的 (1) 即得。完全盲时须对所有秩求和，全模 $N$ 再按 CRT 相乘。例如 $N=8,d=2$ 完全盲时三个秩贡献 $1,96,1$；若读到 $E_{11}\bmod2$ 则只剩 16 个。计数定理使用素幂分量，下面的解码判据仅输入公开的 $N$。
+
+## 二、后续具名测量的精确精度
+
+在 $0<r<d$、$b\ge1$ 的适配基，同步换基后的仪器记为 $C=\bigl(\begin{smallmatrix}A&H\\K&D\end{smallmatrix}\bigr)$。置 $T(V)=VA-DV$；$\nu$ 取全部矩阵元的最小 $p$ 赋值，对线性映射取其矩阵单位基中的全部系数，零的赋值取 $\infty$。全纤维的 $z=\operatorname{tr}(CB)$ 恒同的最大精度恰为
+$$
+ \boxed{h_*=\min\{e,\ b+\nu(H),\ b+\nu(K),\ 2b+\nu(T)\}.} \tag{5}
+$$
+从 (2) 得到
+$$
+ z=\operatorname{tr}(A)+\operatorname{tr}(HY)+
+       \operatorname{tr}\big[(YA-DY+YHY-K)Z\big]. \tag{6}
+$$
+单独取 $Y$ 或 $Z$ 的矩阵单位倍数，给出两个线性条件。若二者在某精度 $h\le e$ 均消失，含 $H$ 的三次项也消失；再令 $Y,Z$ 各单取一个矩阵单位的 $p^b$ 倍数，恰逐个检验 $p^{2b}T$ 的全部系数。
+
+完全确定要求两交叉块模 $p^{e-b}$ 消失，且当 $e>2b$ 时 $A,D$ 模 $p^{e-2b}$ 为同一个标量矩阵。后者等价于 $VA=DV$ 对全部矩阵单位 $V$ 成立，逐行列比较先消去非对角元，再令两边任意一对对角元相等。$r=0,d$ 或 $b=e$ 时所有仪器都可测。$b=0$ 时常值必为零（可取 $B=0$）；测试 $E_{ii}$ 及 $E_{ii}+E_{ij}$，得完全确定的充要条件是 $C=0$。对 $N=8, B\bmod2=E_{11}$，$8^4=4096$ 个二阶仪器恰有 128 个能给确定读数。
+
+**只用公开模数的判据。** 置 $\ell=\lceil\log_2 N\rceil$、$N_{\rm dark}=N/\gcd(N,M^\ell)$、$N'=N/N_{\rm dark}$。这是全盲分量与其余分量的互素分解，仅需模幂和 gcd。先在 $N_{\rm dark}$ 上要求 $C=0$。在模 $N'$ 处，任选 $B_0$ 的整提升，反复令 $X\leftarrow3X^2-2X^3$ 得幂等矩阵 $P$，置 $Q=I-P$。该多项式保持模 $M$ 的读数，并将 $X^2-X$ 的整除精度平方。因 $N'\mid M^\ell$，至多 $\lceil\log_2\ell\rceil$ 次便足够。盲部另取零就给每个合法码一个完整原像。可见部分的充要条件为
+$$
+ M\,PCQ=M\,QCP=0,\qquad
+ M^2\bigl(YPCP-QCQY\bigr)=0,\quad
+ Y=Q E_{ij}P\quad(1\le i,j\le d) . \tag{7}
+$$
+各式均在模 $N'$ 中。$QE_{ij}P$ 生成像到核的全部矩阵块，将 (7) 局部化便得 (5) 的恒定条件，秩端点也自动满足。成立时，在可见部分取 $\operatorname{tr}(CP)$，与盲部的 0 作 CRT 合并。最多需要 $d^2$ 项混合块检验。
+
+只判**某个给定端点的矩阵是否唯一**，则须有 $N_{\rm dark}=1$。取 $v=\gcd(g,M)$，$h_0=\gcd(M,\text{全部 }B_0\text{ 元})$、$h_1=\gcd(M,\text{全部 }(I-B_0)\text{ 元})$，还须且只须 $v\mid(h_0h_1)^\ell$。恰在 $p\mid v$ 的可见分量上仍缺少高位，而 (1) 等于 1 的条件正是 $p\mid h_0h_1$。唯一时，上面构造的 $P$ 即为真实具名矩阵。
+
+## 三、迹读数的全阶分布
+
+本节概率表示给定端点后，**全部代数原像的等权计数**。在 (6) 给定均匀 $Y$ 时，令 $K_Y=YA-DY+YHY-K$、$h_Y=\min(e,b+\nu(K_Y))$。$Z$ 独立均匀，$Z\mapsto\operatorname{tr}(K_YZ)$ 的像为整个 $p^{h_Y}$ 理想，故条件分布是在 $\operatorname{tr}(A)+\operatorname{tr}(HY)\bmod p^{h_Y}$ 指定的剩余类上均匀。对 $Y$ 平均就给任意 $C$ 的完整直方图。
+
+若 $H=K=0$，可完全免去矩阵枚举。当 $k=e-2b>0$，置 $t=(z-\operatorname{tr}A)/p^{2b}\in\mathbb Z/p^k$。约去两个 $p^b$ 后，它是两个独立均匀矩阵变量的双线性配对 $\operatorname{tr}(T(V)W)$。令 $\alpha_i$ 为 $T$ 的 $rs$ 个 Smith 对角元的 $p$ 赋值，截到 $k$（零元记 $k$）。对导子 $p^l$ 的任一加性特征，先对 $W$ 求平均，只在 $T(V)=0\bmod p^l$ 时留下 1。故该 Fourier 系数为
+$$
+ \gamma_l=\frac{|\ker(T\bmod p^l)|}{p^{lrs}}
+   =p^{-\sum_{i=1}^{rs}(l-\alpha_i)_+}.
+$$
+按导子分组反演，得到每个剩余类的精确概率
+$$
+ \boxed{\Pr(t=t_0)=p^{-k}\sum_{l=0}^k c_{p^l}(t_0)\gamma_l .} \tag{8}
+$$
+其中 $c_1=1$；$l\ge1$ 的 Ramanujan 和在 $p^l\mid t_0$ 时为 $\varphi(p^l)$，在 $v_p(t_0)=l-1$ 时为 $-p^{l-1}$，其余为零。若 $k\le0$，整个块对角读数已经恒定。
+
+$r=s=1$ 且 $A-D$ 为单位时，$t$ 服从两个独立均匀剩余的乘积律。每个 $t_0\ne0$，取 $u=v_p(t_0)<k$，其单点概率为 $(u+1)(1-1/p)p^{-k}$，零的概率为 $[1+k(1-1/p)]p^{-k}$。前式按第一因子的 $0,\ldots,u$ 各赋值层求和，后式由总质量补齐。取 $C=E_{11}$、$e=3,b=1$，$B_{11}=1$ 的概率就是 $(2p-1)/p^2$，其它 $1+p^2t_0$ 的单点概率都是 $(p-1)/p^2$，包括 $p=2$。
+
+程序在 11 个模数上逐项枚举二阶幂等矩阵，又在模 $2,3,4$ 枚举全部三阶幂等矩阵，核对真实原像数和逐码唯一性。对具名仪器直接枚举测量直方图以比较 (5)–(8)，含两种不同 Smith 赋值及非平凡核。运行同目录的 terminal_check.py 可重建整数证书。若源程序给出不同先验、只产生部分幂等矩阵或另附来源标签，实际读数须按其联合终端及后续核解释。本结果限定为从已生成的具名端点解码；母任务的一般资源覆盖、逃逸机制以及产生非平凡选择子的复杂度仍是不同的开放问题。[实际交接及范围](https://github.com/awdawmip/enterprise-math/blob/810f0db365c0101788766fc65156d4346a291704/research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/293bfaa34fe7cf09cecd/_checkpoint.json) · [复算程序](terminal_check.py) · [整数证书](terminal_checked.json)
