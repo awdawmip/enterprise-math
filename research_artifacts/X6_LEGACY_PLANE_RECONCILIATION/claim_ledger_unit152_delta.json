@@ -1,0 +1,84 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-19",
+  "unit": 152,
+  "author": "EM-X6-FB6990",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "frozen_science_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED_FINITE_EXACT_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "claims": [
+    {
+      "id": "X6-U152-THREE-AXIS-MINZERO-NATIVE-STEP-SKEW",
+      "historical_source": {
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "path": "definitions/ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md",
+        "blob": "11f47f9d2d70439fdada6d59242790fdcf46929e",
+        "sections": "2-8",
+        "type": "DERIVED_DISPLACEMENT_MIN_ZERO_SECTION"
+      },
+      "current_source": {
+        "commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+        "path": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+        "blob": "b4d49a1bbcccad0521618c6d20f6dcfa242b420a",
+        "sections": "2-4",
+        "type": "SIGNED_NATIVE_X6_SPATIAL_CELL_TORSOR"
+      },
+      "old_statement": "Derived min-zero section of Z3/Z(1,1,1), with no primitive Cell identification",
+      "new_statement": "Exact lossless affine skew-step lift Phi(z)=(minzero3(z), integer common depth, untouched last3) conjugates each of twelve signed native step labels; quotient transition is well-defined when label kernel depends only on quotient",
+      "proof": "research_notes/X6_UNIT152_SIGNED_MINZERO_LIFT_NATIVE_STEP_SKEW_CONJUGACY_20261119.md@732e40e9d237fd5adbeea45f436b456b074782e5",
+      "proof_blob": "4654506c136a20d3696b99fb5dc4f1960124dea4",
+      "checker": "research_checks/X6_UNIT152_SIGNED_MINZERO_LIFT_CONJUGACY_CHECK_20261119.py@fb52378b546a24c869e92764c835f198ab09ead8",
+      "checker_blob": "94a1f1cb6c8b6f7fb5a276de23ee2d21b7160884",
+      "certificate": "research_checks/X6_UNIT152_SIGNED_MINZERO_LIFT_CONJUGACY_RESULTS_20261119.json@b7762ae6c3802f09ddaefb7632c51dcafbe5d5b1",
+      "certificate_blob": "173dfa90f47b552c63c78633942fc6d722a385d6",
+      "finite_domain": "15625 raw signed states [-2,2]^6 and 187500 labelled transitions; 55987 three-axis signed words length 0..6; quotient/native BRC 0..8",
+      "stdout_sha256": "9152a625834d9f18148734b0369189f28ef4ba5c5569118fd8f00779ba7cf2fc",
+      "disposition": [
+        "PRESERVE_NATIVE",
+        "PRESERVE_OBSERVER",
+        "PRESERVE_PATH_BRC",
+        "NO_CURRENT_PATCH_REQUIRED"
+      ],
+      "downstream": [
+        "derived 3-axis min-zero observer step consumers",
+        "R062 native Path-formal / N-BRC and Boolean shadows",
+        "LP019 observer multiplicity aggregation",
+        "LP011 signed axis selection source-check pending"
+      ],
+      "scope": "Exact native labelled signed steps and observer-skew reconstruction only; historic R063 512-case six-file benchmark not run; no assertion of historical wrong caller"
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "LP011",
+      "status": "UNRESOLVED_PROVENANCE",
+      "needed": "original frozen wrong-native signed argmax caller exact commit:path:line if any"
+    },
+    {
+      "id": "LP019",
+      "status": "UNRESOLVED_PROVENANCE",
+      "needed": "original frozen wrong-native natural N-BRC subtraction caller exact commit:path:line if any"
+    },
+    {
+      "id": "R063_NATIVE_BENCHMARK",
+      "status": "NOT_RERUN"
+    }
+  ],
+  "native_control": {
+    "confirmed_through_unit": 148,
+    "source_commit": "9e80d79f719d17053397f00f4eebdbafbfd5133f",
+    "unit149_original_failed_request": "onhour-20261119-1000-x6-own-unit149-native-progress-v1",
+    "unit149_original_error": "GITHUB_PRIMARY_RATE_LIMIT",
+    "continuation_original_request": "onhour-20261119-1021-x6-own-cont-after-unit148-149-rate-v1",
+    "continuation_status": "SUCCEEDED/OWN_RECORDED_RUN_AVAILABLE",
+    "run": "RUN-c92057890282aaaeec520881",
+    "last_authorized_generation_observed": 5,
+    "new_native_progress": "NOT_SUBMITTED_THIS_UNIT"
+  },
+  "next_exact_action": "Preserve original failed Unit149 native write and continue source-exact unresolved 28-LP caller audits; native Unit149–152 semantic linkage only through valid current writer authorization without replay of failed or unknown operation.",
+  "independent_review": "PENDING",
+  "admission": "NOT_ADMITTED"
+}
