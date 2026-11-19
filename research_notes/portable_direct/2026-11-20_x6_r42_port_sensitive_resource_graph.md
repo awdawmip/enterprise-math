@@ -1,0 +1,59 @@
+# X6 R42 — Port-sensitive shared-target conflict, exact BRC histories and minimal future memory
+
+Date: 2026-11-20 (Asia/Shanghai). Task: RS-X6-NATIVE-TIME-DYNAMICS. Author-side research status: CONDITIONAL_AUTHOR_PROOF / EXACT_EXHAUSTIVE_BRC_CHECK_PASS / NOT_REVIEWED.
+
+## Provenance and model
+
+The scientific input is the immutable P000 V5 at `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json`, plus `definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md`, `definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`, and the mandatory Joint Relation Observer Preservation V2 at that frozen commit. Continue R41 static source-conflict graphs and the 2026-11-18 conditionally guarded whole-triad relocation model. The actual physical admissibility and response of inter-Cell `TRIADIC_CLOSURE_E` transfers is not yet established.
+
+Let `A` be a finite set of individually named source/Port actions (v,r), each an atomic candidate transfer of a complete 3-force frame. Each source's three actions form a K3 clique, so a source can fire at most once. Add arbitrary undirected cross-source edges representing shared target, Link, Port or another one-shot resource. Call the resulting static action conflict graph H. A legal serial word is any ordering of a set of pairwise nonconflicting action vertices. Executing an action permanently disables itself and its neighbors, without new actions or reset. This is a typed, positive integer BRC path-branch carrier, preserving source/Port/order/provenance; no classical phase operator or physical heartbeat duration is used.
+
+## Theorem A: complete action-graph BRC lift of R41
+
+Let `i_k(H)` be the number of independent k-action subsets. The number of configurations with k fired events (forget serial order, retain selected source and Port) equals `i_k(H)`; the number of successful serial BRC histories equals `k! i_k(H)`:
+
+```
+K_H(x)=I_H(x)=sum_{k>=0} i_k(H)x^k;
+C_{H,k}=i_k(H),     H_{H,k}=k! i_k(H).
+```
+
+Proof: If two chosen actions conflict, the first disables the second, so they cannot both execute. Conversely every permutation of an independent subset is legal because no chosen action disables another. Exactly k! orders map to each configuration. QED.
+
+R41's source-level conflict graph G is the special case obtained by replacing each source v with its K3 of actions and every edge vw with a complete K3,3 cross-source conflict. An independent set in the blown-up H is uniquely an independent source set in G together with three Port choices per selected source. Consequently `I_H(x)=I_G(3x)`. The port-level representation is strictly richer because some cross edges may be absent.
+
+## Theorem B: exact future-language Markov quotient
+
+For a fired independent action set I, let `E(I)=A\N_H[I]`, the enabled named Port actions. Then two reachable configurations I,J have identical full future named-successful-word languages iff `E(I)=E(J)`. Moreover an allowed event a updates the quotient by
+
+```
+E -> E \ N_H[a].
+```
+
+Proof: If the enabled masks differ, the single event word a in their symmetric difference distinguishes the languages. If they agree, every first event is legal on both sides. The same action removes the same closed neighborhood from both enabled masks; induct on future length. Hence E is a deterministic, transition-closed, minimal quotient for this declared observer. The full current target occupancy and original branch history are different, stronger observers and may require a larger state. QED.
+
+## Exact X6 Cell shared-target witness
+
+Use a chosen anchor Cell c in the affine X6 Cell torsor, not a global spatial origin. Put two source triads at `c_A=c-e_1` and `c_B=c-e_2`. Their ordered equal-unit signed three-axis frames are `F_A=(+E_1,+E_3,+E_4)` and `F_B=(+E_2,+E_5,+E_6)`, with the declared P000 equal-quantum `TRIADIC_CLOSURE_E` frame type. Candidate actions A0 (+e1) and B0 (+e2) both target Cell c. A1,A2 target c-e1+e3 and c-e1+e4, B1,B2 target c-e2+e5 and c-e2+e6. These four are distinct from each other and c.
+
+If candidate target occupancy must be empty, source one-shot consumption and that shared target induce precisely one cross-edge A0—B0 in H; all other cross-source options commute. The graph has two internal K3s and that one extra edge. Its exact configuration polynomial and serial count polynomial are
+
+```
+K_H(x)=1+6x+8x^2,  H_H(x)=1+6x+16x^2;
+15 configurations, 23 serialized histories.
+```
+
+The only two-vertex source-level conflict graphs would give `1+6x+9x^2` (no edge) or `1+6x` (edge), so source-level graphs are an insufficient observer of this Port-sensitive shared-target law.
+
+Future named Port language has exactly SIX classes: initial all six actions; after A0 only B1/B2; after A1/A2 all three B ports; after B0 only A1/A2; after B1/B2 all three A ports; and all terminal configurations (no enabled action). Therefore recording only which of A and B has departed (four source-occupation possibilities) is insufficient; after A departs a Port/resource bit is needed to distinguish whether B0 remains executable. The full current Port configuration distinguishes all 15 states. Spatial coordinates realize the candidate collision, but native physical transfer admissibility remains an open bridge.
+
+## Exact finite exhaustive experiment
+
+For two sources with three labeled Port actions each, all internal K3 conflicts are fixed. There are nine possible cross-source Port conflicts. Exhaust all `2^9=512` cross-edge masks, and for each mask enumerate all 64 possible action masks, count every legal configuration, recursively enumerate all successful serial event words, and check the enabled-mask transition congruence. If e cross edges are present then `C_{H,0}=1`, `C_{H,1}=6`, `C_{H,2}=9-e`; serial counts are `1,6,2(9-e)`. These formulas are proved by identifying the 9 possible cross-Port pairs and removing exactly the e forbidden ones.
+
+Checker results: **512 of 512 graphs PASS**; sum of all graph-instance configurations = 5888; sum of all serialized histories = 8192. Future-language-class distribution (class count -> number of graphs): 2->1, 4->49, 6->216, 7->72, 8->174. The one-cross-edge witness has 15 configurations, 23 histories and 6 future classes; no cross-edge case has 16, 25 and 4; all nine cross edges gives 7, 7 and 2. General graph theorem strength rests on the proofs; finite exhaustive validation is exactly the declared two-source universe.
+
+To reproduce: `node x6_r42_port_conflict_action_graph_verify.js > x6_r42_port_conflict_action_graph_results.json`.
+
+## Outstanding native bridge / next test
+
+Port-specific conflict masks can change under target release, Link reset, rotation or source re-enabling; those mechanisms require an actual state-dependent successor and often a larger Markov repair. The next discriminating test is one target-release event that re-enables an action disabled by a previous occupant, followed by a future-language pair test. Keep six-dimensional Cell, three-force atomicity, named Port, signed orientation, branch provenance and physical event/precision clock typing intact. This is a conditional, author-proved research note, not a verified physical native law, accepted Result, Review or Foundation.
