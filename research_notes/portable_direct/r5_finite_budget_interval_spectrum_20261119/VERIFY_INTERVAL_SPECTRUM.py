@@ -28,7 +28,7 @@ def bad_intervals(trans, cost, label, x, Y, horizon):
         original, best = one_word(w, trans, cost, label, x, Y)
         if best is None or best > original:
             raw.append((original, None if best is None else best-1))
-    raw.sort(key=lambda p: (p[0], float('inf') if p[1] is None else p[1]))
+    raw.sort(key=lambda p: (p[0], p[1] is None, 0 if p[1] is None else p[1]))
     merged=[]
     for lo, hi in raw:
         if merged and (merged[-1][1] is None or lo <= merged[-1][1]+1):
