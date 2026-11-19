@@ -1,0 +1,95 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-19",
+  "unit": 154,
+  "author": "EM-X6-FB6990",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "claim": {
+    "id": "X6-CL-009",
+    "old_semantic_type": "FINITE_PARTIAL_OPERATOR_AND_RELATIVE_OBSERVER",
+    "old_statement": "Historical P023 partial-operation compiler preserves named operation definedness as part of future observation.",
+    "disposition": "PRESERVE_OBSERVER",
+    "corrected_statement": "For cube [-R,R]^3 with partial signed native ±e_i moves and min-zero observer, exact number of horizon-h observer classes equals (2R+1)^3-[2(R-h)]^3 for 0<=h<=R; native state separation needs exactly R steps in the worst case. Domain truncation, not intrinsic P000 physics, causes extra observability.",
+    "downstream": [
+      "R062 relative/quotient bridge",
+      "LP026 common-depth observer",
+      "28-LP finite simulation caller typing"
+    ],
+    "repository_action": "RETAIN_HISTORICAL_PARTIAL_OPERATION_INTERFACE_AND_EXPLICIT_FINITE_DOMAIN; NO_UNSUPPORTED_NATIVE_PROMOTION"
+  },
+  "frozen_source_pins": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "tests/test_partial_operation_quotient.py",
+      "git_blob_sha1": "0a36a62a8676df260b6d1dec18923545603c4202",
+      "lines": "99-168",
+      "role": "actual historical regression tests for partial definedness and observation"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "src/enterprise_math/partial_operation_quotient.py",
+      "git_blob_sha1": "d1f86491ce07279c058a4c99f40cabb1f96da0de",
+      "lines": "127-196,271-315",
+      "role": "partial operation descend, future refinement and horizon interface"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "src/enterprise_math/operation_quotient.py",
+      "git_blob_sha1": "758a65de02a434446936cd7e37b2ae604eade863",
+      "lines": "172-185",
+      "role": "shared word enumerator; historical import dependency"
+    }
+  ],
+  "new_artifacts": [
+    {
+      "path": "research_notes/X6_UNIT154_FINITE_SIGNED_MINZERO_PARTIAL_QUOTIENT_SHARP_HORIZON_20261119.md",
+      "source_commit": "dd81687538f10a27a9c37394401fc609c8f39e0c",
+      "git_blob_sha1": "23035fadc80ec633b3b7eee02ea5f3dbb4add1d4"
+    },
+    {
+      "path": "research_checks/X6_UNIT154_FINITE_MINZERO_PARTIAL_QUOTIENT_CHECK_20261119.py",
+      "source_commit": "e1e24df3d00e2a50a53c81b213c06a621578e4b4",
+      "git_blob_sha1": "141ee065cc7d4fc654ceec38178ffc8f92b19444"
+    },
+    {
+      "path": "research_checks/X6_UNIT154_FINITE_MINZERO_PARTIAL_QUOTIENT_RESULTS_20261119.json",
+      "source_commit": "6644a2780a0a19c6f350cc8c6e564f8f64e34e4a",
+      "git_blob_sha1": "e52ddaa81a79c01d2b3ac240c06cb1b6b5da27dd"
+    }
+  ],
+  "finite_experiment": {
+    "radii": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "mode": "INDEPENDENT_EXACT_INTEGER_STANDALONE",
+    "normal_optimized_identical": true,
+    "stdout_sha256": "faa025fcff50e1d3461822a3009cd0de970fb49bcbbbf3d8ee3a7087666bd80d",
+    "historical_code_executed": false
+  },
+  "unresolved": [
+    "LP011 alleged historical signed-X6 spatial argmax caller commit:path:line",
+    "LP019 alleged positive natural N-BRC subtraction caller commit:path:line",
+    "Remaining 28-LP actual downstream provenance",
+    "Units149–152 Native semantic associations",
+    "Independent Driver review and any separately required original R063 corroboration"
+  ],
+  "do_not_repeat": [
+    "Native Source Units1–148 and Unit153",
+    "Original FAILED Unit149 request GITHUB_PRIMARY_RATE_LIMIT",
+    "Existing authored Units149–152 and Activity168",
+    "Original R063 Unit50 actual six-source 17-gate/512-row author execution",
+    "Maintenance/Driver roles and frozen P000 source"
+  ]
+}
