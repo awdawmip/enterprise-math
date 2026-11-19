@@ -1,0 +1,108 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-19",
+  "unit": 155,
+  "author": "EM-X6-FB6990",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_SOURCE_EXACT_MATHEMATICAL_PROOF_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "inspected": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "src/enterprise_math/brc_newton_fiber_quotient.py",
+      "git_blob_sha1": "f9db29609e74b8f2a7202a1f626a138eb716fa29",
+      "lines": "24-115,118-161,164-187",
+      "role": "actual rational Taylor coefficient fiber sums, scale-one edge observer and signed rational transfer"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "tests/test_brc_newton_fiber_quotient_foundation.py",
+      "git_blob_sha1": "2fc8a1dcee7710d3f3f2654a1cd9e19d51ea9cc1",
+      "lines": "23-51,62-82",
+      "role": "actual original frozen test calls: source labels, two transfers, signed/negative coefficients, edge projection"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "src/enterprise_math/brc_newton_recursion.py",
+      "role": "RationalValuationScale dependency; selected exact constructor lines read"
+    }
+  ],
+  "claims": [
+    {
+      "id": "X6-CL-008",
+      "lp_id": "LP019",
+      "tested_population": "two frozen historical source:consumer files plus the directly read scale dependency",
+      "disposition": "VALID_TYPED_RATIONAL_COEFFICIENT_CANCELLATION_NOT_NATIVE_NBRC_SUBTRACTION",
+      "witness": "S(e0-e1)=0 for signed Q^6; in N^6 S(x)=0 implies x=0, while S(e0)=S(e1)",
+      "unresolved": "alleged historical erroneous positive N-BRC subtraction actual commit:path:line remains unknown"
+    },
+    {
+      "id": "X6-CL-002",
+      "lp_id": "LP011",
+      "disposition": "NEGATIVE_SCOPED_ATTESTATION",
+      "witness": "fiber coordinates are rational Newton residual scales and Taylor degrees, no spatial signed-axis argmax in selected source/test",
+      "unresolved": "historical alleged native spatial argmax actual commit:path:line remains unknown"
+    },
+    {
+      "id": "X6-CL-009",
+      "lp_id": "LP026",
+      "disposition": "PRESERVE_OBSERVER_TYPE",
+      "witness": "rank S=4, kernel dim2; rank edge E=2, kernel dim4; positive label coalescence and edge-only positive hidden C are distinct from signed cancellation",
+      "scope": "frozen WBRC Newton/Taylor observer, not native signed Cell distance"
+    }
+  ],
+  "exact_finite": {
+    "positive_states": 729,
+    "signed_states": 729,
+    "full_signatures": 225,
+    "edge_signatures": 25,
+    "full_equal_ordered_pairs": 3249,
+    "edge_equal_ordered_pairs": 29241,
+    "exact_transfer_checks": 1458,
+    "modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ],
+    "exit_code": 0,
+    "stdout_sha256": "62c270b79d58eefddfef10aa74f5fd69acc149bd20174222c4928d2effe08445",
+    "original_historical_module_executed": false
+  },
+  "new_artifacts": [
+    {
+      "path": "research_notes/X6_UNIT155_NEWTON_FIBER_SIGNED_COEFFICIENT_VS_NATIVE_NBRC_20261119.md",
+      "commit": "db5fa75fd42c2bbebc911bb2795e20d376f46249",
+      "git_blob_sha1": "552ee1dfd622f355d236b70ff4c36d9c45ddcabb"
+    },
+    {
+      "path": "research_checks/X6_UNIT155_NEWTON_FIBER_TYPED_SOURCE_OBSERVER_CHECK_20261119.py",
+      "commit": "0db2fbb92a51fdfc21f98d40d3c6efaf7420de86",
+      "git_blob_sha1": "0d4373e024c99cf543f61fa3d8bb90cd9d00c5fc"
+    },
+    {
+      "path": "research_checks/X6_UNIT155_NEWTON_FIBER_TYPED_SOURCE_OBSERVER_RESULTS_20261119.json",
+      "commit": "52eeb4e758e3f1938c59e1f1b3a47259281ed798",
+      "git_blob_sha1": "74e4d16b6983a3b56f7125b12528ef6c57a4424d"
+    }
+  ],
+  "do_not_repeat": [
+    "Unit50 original R063 six frozen blob benchmark and its 17 gates/512 rows",
+    "Native published Units1-148 and Unit153/154",
+    "FAILED Unit149 original Native PROGRESS",
+    "Already saved author Units149–154, Activity169",
+    "Independence/Driver reviews"
+  ],
+  "remaining": [
+    "LP011/LP019 unknown exact faulty native caller source:line",
+    "remaining 28-LP true downstream caller coverage",
+    "Unit149-152 Native linkage",
+    "Unit155 native publication after own fresh-authorized writer",
+    "Independent Driver review"
+  ]
+}
