@@ -1,0 +1,25 @@
+{
+  "schema": "R5_HORIZON_BUDGET_INTERVAL_CERTIFICATES_V1",
+  "result": "PASS_R5_HORIZON_INTERVALS",
+  "random_seed": 20261119,
+  "independent_random_systems": 1800,
+  "independent_per_budget_comparisons": 25263,
+  "raw_nonempty_bad_windows": 24199,
+  "merged_bad_interval_components": 1493,
+  "systems_with_permanent_bad_tail": 1246,
+  "sharp_family_instances": 324,
+  "sharp_family_per_budget_checks": 14364,
+  "family_parameter_range": {
+    "q": [
+      2,
+      9
+    ],
+    "d": "1 <= d < q",
+    "h": [
+      0,
+      8
+    ]
+  },
+  "method": "exact integer and bitmask arithmetic, direct word-budget check vs interval-union certificate",
+  "correctness_basis": "symbolic proof of the interval theorem and sharp switching family; randomized tests are validation, not proof of universal quantified statements"
+}
