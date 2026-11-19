@@ -1,0 +1,56 @@
+{
+  "schema": "R284BJ_EXACT_MODULAR_PORT_CHECK_V1",
+  "status": "PASS",
+  "fixtures": [
+    {
+      "n": 3,
+      "H": 2,
+      "integer_noise_delta": 3,
+      "seed": 20261120,
+      "p": 13604881,
+      "field_bits": 24,
+      "cardinality_lower_bound_bits": 9,
+      "diagonal_controls": [
+        7439572,
+        9813316,
+        8709660
+      ],
+      "directed_star_controls": [
+        6485830,
+        4926789
+      ],
+      "matrices_exhausted": 512,
+      "minimum_cyclic_residue_gap": 10,
+      "necessary_gap_for_error_balls": 7,
+      "all_error_balls_disjoint": true,
+      "sorted_residues_sha256": "ec0fae4e94d13006cfc517f4a55616dfb2a05dedb6e74cd8ef796c5e52dad546"
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "integer_noise_delta": 3,
+      "seed": 20261120,
+      "p": 335002337287,
+      "field_bits": 39,
+      "cardinality_lower_bound_bits": 16,
+      "diagonal_controls": [
+        319732110420,
+        212683070699,
+        228230550173,
+        236050292593
+      ],
+      "directed_star_controls": [
+        168046028075,
+        203869282678,
+        184049123331
+      ],
+      "matrices_exhausted": 65536,
+      "minimum_cyclic_residue_gap": 79,
+      "necessary_gap_for_error_balls": 7,
+      "all_error_balls_disjoint": true,
+      "sorted_residues_sha256": "097ef2dd7dbca9186cc32aa3e2d046ad48f1c97221cfb970285e2bf4c4ba1e70"
+    }
+  ],
+  "coverage_statement": "Every C in {1,2}^{3x3} and {1,2}^{4x4}, for each listed fixed control tuple; exact modular arithmetic",
+  "independent_review": "NOT_REVIEWED"
+}
