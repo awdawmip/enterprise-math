@@ -1,0 +1,102 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "source_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-dedc91932641535d284fc171",
+  "run_id": "RUN-c92057890282aaaeec520881",
+  "latest_verified_writer_generation": 13,
+  "original_resume": {
+    "request_id": "onhour-20261120-0215-x6-own-run-c920-after169-resume-v1",
+    "status": "SUCCEEDED",
+    "phase": "RUN_READY",
+    "successful_generation": 13
+  },
+  "own_exact_continuation": {
+    "request_id": "onhour-20261120-0303-x6-own-continuation-v1",
+    "status": "SUCCEEDED",
+    "phase": "OWN_RECORDED_RUN_AVAILABLE",
+    "authority": "READ_ONLY_PROJECTION"
+  },
+  "original_native_unit170": {
+    "request_id": "onhour-20261120-0305-x6-own-unit170-native-progress-v1",
+    "status": "SUCCEEDED",
+    "phase": "SOURCE_CHECKPOINT_PUBLISHED",
+    "source_commit": "26377c58fff20a9d2562afbe18494e56e57fb613",
+    "path": "research_artifacts/mcp/RS-X6-LEGACY-PLANE-RECONCILIATION/MCP-082892eb480e45dea6d4b9fcc0491034/3397cec8e9efb9bc8d3f/_checkpoint.json",
+    "blob": "68194ab7850959958c65e1a0491baf9312db4c44",
+    "canonical_publication_verified": true,
+    "authenticated_readback": true,
+    "highest_authenticated_native_unit": 170
+  },
+  "unit171_native": {
+    "request_id": "onhour-20261120-0320-x6-own-unit171-native-progress-v1",
+    "last_observed": "QUEUED",
+    "repeat_policy": "READ_SAME_REQUEST_ONLY",
+    "source_publication": "PENDING_ORIGINAL_TERMINAL"
+  },
+  "author_frontier": {
+    "highest_completed_unit": 171,
+    "highest_authenticated_native_unit": 170,
+    "activity_count": 188,
+    "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "theorem": "For all positive integer m, source-defined K4 edge labels x_A=(-3m,-3m,0,0,3m,3m) and x_B=(4m,m,m,-m,-m,-4m) agree at C=(0,0,0), native-comparator L=12m and Q=36m², but B(x_B)/B(x_A) >= (9/4)^m. Hence no (C,L,Q)-only estimator has uniformly bounded multiplicative factor K over E0; factor >=(3/2)^m needed.",
+    "exact_integer_execution": "m=1..32, 32 passed, two independent BRC combinatorial computations, CPython normal/-O/-OO identical, violations=0",
+    "type_limit": "K4 derived edge lattice comparator under declared six-label bijection, not a native physical K4 identification",
+    "files": {
+      "proof": {
+        "commit": "20f08326302d7ba76195279b0c8b2a881857054b",
+        "path": "research_notes/X6_UNIT171_K4_BRC_UNBOUNDED_MULTIPLICATIVE_DISTORTION_20261120.md",
+        "blob": "0a396d5ed7e3f3d3d6766fb610e196cbcfef31d5"
+      },
+      "checker": {
+        "commit": "5c0790fd5221acff8a0ccb911736fdfcec287f59",
+        "path": "research_checks/X6_UNIT171_K4_BRC_APPROXIMATION_NO_UNIFORM_FACTOR_CHECK_20261120.py",
+        "blob": "067b244ab69b63d05d4b1ddd2f830736e260f6db",
+        "sha256": "af44847bb2e70e492d1b483b0358b6ec4ed35a9acb98ae2d017e2597cd551181"
+      },
+      "certificate": {
+        "commit": "d9469906f8111755f5bad6bd668de732e35d3c82",
+        "path": "research_checks/X6_UNIT171_K4_BRC_APPROXIMATION_NO_UNIFORM_FACTOR_RESULTS_20261120.json",
+        "blob": "63926816f78c2e6e90213bc700765aa608db9b05",
+        "sha256": "67816e8596bc1457e27dfe598fe38d72b7922cafbf8c3b3bb6257ba77b57431a"
+      },
+      "ledger": {
+        "commit": "2461f54c10779d63a3f9178cc43ae4a6ef140d54",
+        "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit171_delta.json",
+        "blob": "d30be8fb1720bbb3e60b1786ef12a34460424f44"
+      },
+      "activity": {
+        "commit": "a272123e2a4574b8c7d1ea5a3cd5feb0a151e6d1",
+        "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+        "blob": "937de54ae633acb0d3e6b780e53ae74acff56fd0"
+      }
+    }
+  },
+  "pending": {
+    "lp011": "Claimed historical wrong native signed argmax requires exact originating commit:path:line; not found in audited true consumers",
+    "lp019": "Claimed historical invalid subtraction of positive N-BRC multiplicities requires exact originating commit:path:line; not found in audited true consumers",
+    "remaining_28_LP": "Incomplete true source-to-production consumer coverage",
+    "old_149_152": "Historical native semantic association unresolved under original request/owner contract; do not reissue failed writes",
+    "driver": "Independent Driver review and formal Result/admission pending",
+    "original_R063": "Original native benchmark already complete; must not replay"
+  },
+  "next_exact_control_action": "Read original onhour-20261120-0320-x6-own-unit171-native-progress-v1 terminal with em_control_result; if successful authenticate Source checkpoint and correct native frontier; if RUNNING/QUEUED preserve original ID and do not resubmit. Reauthorize same own claim/run only as required for next protected operation.",
+  "next_scientific_action": "Investigate a not-yet-covered real frozen producer-to-production consumer chain for 28-LP; locate exact historical faulty signed argmax or positive native N-BRC subtraction without conflating typed derived arithmetic; do not repeat Unit170 or original R063.",
+  "do_not_repeat": [
+    "All Units1–170 native Source progress, including new Unit170 Source 26377c58fff20a9d2562afbe18494e56e57fb613.",
+    "Unit171 mathematical proof/checker/certificate/ledger and Activity188 already committed/read back.",
+    "Original R063 native 17/17 and 512/512 benchmark.",
+    "Unknown/failed original write requests or maintenance lane IDs."
+  ],
+  "independent_review": "UNREVIEWED",
+  "admission": "NOT_ADMITTED",
+  "scheduler_and_notifications": "UNCHANGED"
+}
