@@ -1,0 +1,104 @@
+{
+  "adaptive_upper_bound": "independent gate symmetry recurrence L(m,h,r)=L(m-1,h-1,r)+L(m-1,h-1,r-1), bases 1",
+  "attempt_budget_range": "0..m+1",
+  "block_budget_range": "1..m+1",
+  "cross_policy_signatures": "2^m for h>=1,r>=1",
+  "fixed_order_history_checks": 54126,
+  "limitations": [
+    "candidate three-axis named-source positive BRC model",
+    "no certified signed native Cell/Link/Port action",
+    "finite enumerations do not substitute for all-m proof"
+  ],
+  "m_range": [
+    1,
+    6
+  ],
+  "mode": "EXACT_INTEGER_EXHAUSTIVE",
+  "regime_checks": 166,
+  "result": "PASS",
+  "sample_cases": [
+    {
+      "attempt_budget": 3,
+      "bits": 3,
+      "block_budget": 2,
+      "distinct_transcripts": 7,
+      "fiber_size_histogram": {
+        "6": 2,
+        "9": 1,
+        "12": 3,
+        "24": 1
+      },
+      "history_total": 81,
+      "m": 4
+    },
+    {
+      "attempt_budget": 6,
+      "bits": 3,
+      "block_budget": 1,
+      "distinct_transcripts": 7,
+      "fiber_size_histogram": {
+        "32": 1,
+        "48": 1,
+        "64": 1,
+        "72": 1,
+        "108": 1,
+        "162": 1,
+        "243": 1
+      },
+      "history_total": 729,
+      "m": 6
+    },
+    {
+      "attempt_budget": 6,
+      "bits": 5,
+      "block_budget": 2,
+      "distinct_transcripts": 22,
+      "fiber_size_histogram": {
+        "16": 5,
+        "24": 4,
+        "32": 6,
+        "36": 3,
+        "54": 2,
+        "64": 1,
+        "81": 1
+      },
+      "history_total": 729,
+      "m": 6
+    },
+    {
+      "attempt_budget": 6,
+      "bits": 6,
+      "block_budget": 3,
+      "distinct_transcripts": 42,
+      "fiber_size_histogram": {
+        "8": 10,
+        "12": 6,
+        "16": 15,
+        "18": 3,
+        "27": 1,
+        "32": 6,
+        "64": 1
+      },
+      "history_total": 729,
+      "m": 6
+    },
+    {
+      "attempt_budget": 6,
+      "bits": 6,
+      "block_budget": 6,
+      "distinct_transcripts": 64,
+      "fiber_size_histogram": {
+        "1": 1,
+        "2": 6,
+        "4": 15,
+        "8": 20,
+        "16": 15,
+        "32": 6,
+        "64": 1
+      },
+      "history_total": 729,
+      "m": 6
+    }
+  ],
+  "schema": "EM_R762FS_EXACT_ENUM_V1"
+}
