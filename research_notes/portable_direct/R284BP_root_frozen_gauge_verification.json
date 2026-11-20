@@ -1,0 +1,275 @@
+{
+  "schema": "R284BP_ROOT_FROZEN_EXACT_V1",
+  "arithmetic": "exact Python integers",
+  "signature": "all Boolean-cube values of adj(B)v and F(x,0); determines all coefficient polynomials in x; z linear",
+  "tests": [
+    {
+      "n": 3,
+      "H": 2,
+      "t": -2,
+      "total": 512,
+      "unique_signatures": 512,
+      "collision_example": null
+    },
+    {
+      "n": 3,
+      "H": 2,
+      "t": -1,
+      "total": 512,
+      "unique_signatures": 497,
+      "collision_example": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            1,
+            2
+          ],
+          [
+            2,
+            1,
+            2
+          ],
+          [
+            2,
+            1,
+            2
+          ]
+        ]
+      ]
+    },
+    {
+      "n": 3,
+      "H": 2,
+      "t": 0,
+      "total": 512,
+      "unique_signatures": 482,
+      "collision_example": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            1,
+            2
+          ],
+          [
+            1,
+            1,
+            2
+          ],
+          [
+            1,
+            1,
+            2
+          ]
+        ]
+      ]
+    },
+    {
+      "n": 3,
+      "H": 2,
+      "t": 4,
+      "total": 512,
+      "unique_signatures": 497,
+      "collision_example": [
+        [
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            2
+          ],
+          [
+            2,
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            1,
+            2
+          ],
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "n": 3,
+      "H": 2,
+      "t": 5,
+      "total": 512,
+      "unique_signatures": 512,
+      "collision_example": null
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "t": -2,
+      "total": 65536,
+      "unique_signatures": 65536,
+      "collision_example": null
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "t": 0,
+      "total": 65536,
+      "unique_signatures": 64094,
+      "collision_example": [
+        [
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            1,
+            1,
+            2
+          ],
+          [
+            1,
+            1,
+            1,
+            2
+          ],
+          [
+            1,
+            1,
+            1,
+            2
+          ],
+          [
+            1,
+            1,
+            1,
+            2
+          ]
+        ]
+      ]
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "t": 5,
+      "total": 65536,
+      "unique_signatures": 65536,
+      "collision_example": null
+    }
+  ],
+  "witnesses": [
+    {
+      "n": 3,
+      "H": 2,
+      "t": -1,
+      "identity": true
+    },
+    {
+      "n": 3,
+      "H": 3,
+      "t": 9,
+      "identity": true
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "t": 0,
+      "identity": true
+    },
+    {
+      "n": 4,
+      "H": 2,
+      "t": 4,
+      "identity": true
+    },
+    {
+      "n": 5,
+      "H": 4,
+      "t": -11,
+      "identity": true
+    },
+    {
+      "n": 5,
+      "H": 4,
+      "t": 16,
+      "identity": true
+    },
+    {
+      "n": 6,
+      "H": 3,
+      "t": 9,
+      "identity": true
+    }
+  ],
+  "unbounded_proof": "separate algebraic rank-one gauge theorem",
+  "review": "NOT_REVIEWED"
+}
