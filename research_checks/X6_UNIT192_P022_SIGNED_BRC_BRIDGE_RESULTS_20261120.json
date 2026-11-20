@@ -1,0 +1,126 @@
+{
+  "schema": "X6_UNIT192_P022_BRIDGE_EXACT_CERTIFICATE_V1",
+  "date": "2026-11-20",
+  "model": "six signed primitive axes Z^6 and separate P022 SC_6 graph-isomorphic walk",
+  "frozen_science_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_source_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "shell_radius_range": [
+    0,
+    6
+  ],
+  "endpoint_recurrence_vs_factorial": 8989,
+  "midpoint_interval_layers_checked": 20158,
+  "midpoint_instances_enumerated": 61737,
+  "recurrence_cache_states": 8988,
+  "shells": [
+    {
+      "radius": 0,
+      "endpoints": 1,
+      "shortest_path_mass": "1",
+      "all_length_n_primitive_words": "1"
+    },
+    {
+      "radius": 1,
+      "endpoints": 12,
+      "shortest_path_mass": "12",
+      "all_length_n_primitive_words": "12"
+    },
+    {
+      "radius": 2,
+      "endpoints": 72,
+      "shortest_path_mass": "132",
+      "all_length_n_primitive_words": "144"
+    },
+    {
+      "radius": 3,
+      "endpoints": 292,
+      "shortest_path_mass": "1332",
+      "all_length_n_primitive_words": "1728"
+    },
+    {
+      "radius": 4,
+      "endpoints": 912,
+      "shortest_path_mass": "12372",
+      "all_length_n_primitive_words": "20736"
+    },
+    {
+      "radius": 5,
+      "endpoints": 2364,
+      "shortest_path_mass": "106452",
+      "all_length_n_primitive_words": "248832"
+    },
+    {
+      "radius": 6,
+      "endpoints": 5336,
+      "shortest_path_mass": "856212",
+      "all_length_n_primitive_words": "2985984"
+    }
+  ],
+  "example_z_2_1_1": {
+    "interval_profile": [
+      1,
+      3,
+      4,
+      3,
+      1
+    ],
+    "layer2_weighted_path_mass": "12",
+    "shortest_paths": "12"
+  },
+  "unbounded_family_first_ten": [
+    {
+      "m": 1,
+      "layer_m_sites": 2,
+      "layer_m_path_mass": "2"
+    },
+    {
+      "m": 2,
+      "layer_m_sites": 3,
+      "layer_m_path_mass": "6"
+    },
+    {
+      "m": 3,
+      "layer_m_sites": 4,
+      "layer_m_path_mass": "20"
+    },
+    {
+      "m": 4,
+      "layer_m_sites": 5,
+      "layer_m_path_mass": "70"
+    },
+    {
+      "m": 5,
+      "layer_m_sites": 6,
+      "layer_m_path_mass": "252"
+    },
+    {
+      "m": 6,
+      "layer_m_sites": 7,
+      "layer_m_path_mass": "924"
+    },
+    {
+      "m": 7,
+      "layer_m_sites": 8,
+      "layer_m_path_mass": "3432"
+    },
+    {
+      "m": 8,
+      "layer_m_sites": 9,
+      "layer_m_path_mass": "12870"
+    },
+    {
+      "m": 9,
+      "layer_m_sites": 10,
+      "layer_m_path_mass": "48620"
+    },
+    {
+      "m": 10,
+      "layer_m_sites": 11,
+      "layer_m_path_mass": "184756"
+    }
+  ],
+  "violations": 0,
+  "original_p022_test_rerun": false,
+  "original_R063_benchmark_rerun": false,
+  "verification": "Executed independently in V8 with exact BigInt recurrence, midpoint enumeration, integer polynomial expansion and Stirling-shell formula; historical Python module not imported."
+}
