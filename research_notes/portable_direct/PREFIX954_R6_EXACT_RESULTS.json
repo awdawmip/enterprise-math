@@ -1,0 +1,54 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX954_EXACT_TOP_BIT_MOMENT_V1",
+  "date": "2026-11-20",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "AUXILIARY_NAMED_XOR_TWO_PORT_OBSERVER",
+  "proof_scope": "p>=4; Qp odd a=2^(p-1)+1,...,2^p-1; odd 1<=k,l<2^(p-1)",
+  "exact_algorithm": "bit_(p-1)=0 parity intervals over floor(s*a/H); Euclidean floor sums for lower-bit prefixes; interval intersection for top-top; PREFIX-953 dyadic inverse same-bit terms; PREFIX-952 source exceptions",
+  "complexity": "O((k+l)*p^2) Euclidean arithmetic iterations; O(k+l) intervals; not a general bit-complexity or all-core uniform bound",
+  "checks": {
+    "exhaustive_small_widths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "ordered_core_pairs_direct_high_moments": 5456,
+    "ordered_core_pairs_direct_original_xor_witness_equation": 5456,
+    "selected_width_9_pairs": 81,
+    "top_interval_exact_vs_literal_indicator": true,
+    "source_arithmetic": "exact integers",
+    "q19": {
+      "p": 19,
+      "H": 262144,
+      "N": 131072,
+      "k": 21,
+      "l": 23,
+      "top_zero_runs_k": 10,
+      "top_zero_runs_l": 11,
+      "lower_k_top_l": 532848,
+      "top_k_lower_l": 530485,
+      "top_k_top_l": 29848,
+      "lower_lower_prefix953": 9448558,
+      "ordinary_source_pair_product": 10541739,
+      "special_named_source_pair_adjustment": 62,
+      "full_named_witness_second_moment": 10541801,
+      "matches_independent_direct_scan": true,
+      "reverse_core_symmetry": true
+    },
+    "local_single_run_seconds": {
+      "sweep_three_top_terms": 0.00160519,
+      "direct_bits_131072_rows": 0.305842307,
+      "full_compressed_moment": 0.001858796
+    },
+    "timing_scope": "One local run, excludes startup and all publication/verification overhead; no general speedup factor asserted"
+  },
+  "scientific_status": "AUTHOR_PROVED_FINITE_CHECKS_NOT_INDEPENDENTLY_REVIEWED",
+  "nonclaim": [
+    "No new distinct ordered modulus pair union coverage",
+    "No CLAIM/Result/Review admission",
+    "No native X6 or physical BRC transfer without typed bridge"
+  ],
+  "open_question": "Direct CRT/determinant count of 6203 non-diagonal W21 intersection W23 pairs without materializing W21 or W23"
+}
