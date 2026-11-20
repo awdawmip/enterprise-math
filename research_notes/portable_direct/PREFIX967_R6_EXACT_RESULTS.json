@@ -1,0 +1,103 @@
+{
+  "schema": "PREFIX967_R6_EXACT_TARGET_SIDE_PARITY_CERTIFICATE_V1",
+  "date": "2026-11-21",
+  "status": "AUTHOR_PROOF_EXACT_INTEGER_VERIFIED_NOT_REVIEWED",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "domain": "auxiliary named two-core XOR integer observer; p>=4, odd k with k+2<2^(p-1), strict odd moduli Qp, m=1,3,5, off diagonal a!=b",
+  "theorems": [
+    "Target-side XOR sign: s=2*bit_j(tb+2^i)-1 is necessary and sufficient when x=tb+2^i-s*2^j",
+    "For odd k,a,b,m: c%2=(1-t)%2, C%2=(1-t-m)%2; every t determines a unique (even,odd)/(odd,even) residual pair orientation",
+    "Exact quotient division test count for each odd m: k*(3p-4)*(3p^2-11p+18), half of previous two-orientation count"
+  ],
+  "independent_original_XOR_crosschecks": {
+    "p_range": [
+      4,
+      7
+    ],
+    "k_rule": "all odd k>=1 with k+2<2^(p-1)",
+    "m_values": [
+      1,
+      3,
+      5
+    ],
+    "case_count": 168,
+    "by_p": {
+      "4": {
+        "cases": 9,
+        "pair_counts_sum": 23,
+        "named_histories_sum": 48
+      },
+      "5": {
+        "cases": 21,
+        "pair_counts_sum": 122,
+        "named_histories_sum": 210
+      },
+      "6": {
+        "cases": 45,
+        "pair_counts_sum": 575,
+        "named_histories_sum": 1007
+      },
+      "7": {
+        "cases": 93,
+        "pair_counts_sum": 1915,
+        "named_histories_sum": 3233
+      }
+    },
+    "full_case_list_reproduced_by_script": "PREFIX967_R6_TARGET_BIT_QUOTIENT.py writes PREFIX967_R6_EXACT_RESULTS.json on execution",
+    "serialized_full_cases_sha256": "27f3fbd31520397fd4ad341107e8a20f75c431da754395aa808f9abfddeb594f"
+  },
+  "bit_involution_checks": {
+    "y_min": 1,
+    "y_max": 255,
+    "j_min": 0,
+    "j_max": 8,
+    "tests": 2295,
+    "all_passed": true
+  },
+  "q19_k21": {
+    "p": 19,
+    "k": 21,
+    "dictionary_distinct_values": 499,
+    "odd_values": 53,
+    "even_values": 446,
+    "fixed_t_residual_pairs": 23638,
+    "t_range": [
+      1,
+      42
+    ],
+    "divisibility_tests_per_gap": 992796,
+    "previous_tests_per_gap": 1985592,
+    "results": [
+      {
+        "m": 1,
+        "distinct_ordered_pairs": 442,
+        "named_histories": 614,
+        "arithmetic_candidates": 1419,
+        "slot_sign_predicates": 3866,
+        "named_tuple_sha256": "ccbccc30c4171a809f7270ce59f0b72b368839e93ffeeed8df9ba1045720da71"
+      },
+      {
+        "m": 3,
+        "distinct_ordered_pairs": 839,
+        "named_histories": 1286,
+        "arithmetic_candidates": 2825,
+        "slot_sign_predicates": 7695,
+        "named_tuple_sha256": "1360a9ca274b357d0b87058d35ef6ccd059d0c5aef995e4d93b0d1363e1aaae3"
+      },
+      {
+        "m": 5,
+        "distinct_ordered_pairs": 3,
+        "named_histories": 3,
+        "arithmetic_candidates": 15,
+        "slot_sign_predicates": 35,
+        "named_tuple_sha256": "c429ef59749f36ef295b4ac9171fb5171ab3a706beaa270563728d4962649c1b"
+      }
+    ]
+  },
+  "interpretation": "Exactly half the candidate divisions, not established end-to-end runtime gain; complete named multiplicity preserved; no native X6/BRC authority or independent review.",
+  "source_paths": [
+    "research_notes/portable_direct/2026-11-21_r6_prefix967_target_side_bit_parity_directed.md",
+    "research_notes/portable_direct/PREFIX967_R6_TARGET_BIT_QUOTIENT.py",
+    "research_notes/portable_direct/2026-11-20_r6_prefix966_odd_gap_exact_named_inversion.md"
+  ]
+}
