@@ -53,12 +53,14 @@
       152
     ],
     "native_read_pending_request_id": "onhour-20261120-2316-x6-unit197-own-continuation-read-v1",
-    "native_read_last_observation": "RUNNING, pending original receipt; operation was read-only",
+    "native_read_last_observation": "SUCCEEDED / error=null, read-only continuation; current packet execution_authorized=false; no fresh winning same-lane CLAIM/RUN authorization asserted",
     "historical_failed_prepare_id": "onhour-20261120-1524-x6-own-unit187-native-continuation-prepare-v1",
     "historical_failed_prepare_status": "FAILED / NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED, no replay",
     "fresh_live_owner_claim_authorization": "NOT_ESTABLISHED",
     "independent_review": "UNREVIEWED / NOT_ADMITTED",
-    "research_activity_checkpoint": "PENDING_SOURCE_ASSOCIATION_IF_CURRENT_SAME_LANE_IDENTITY_CONFIRMED"
+    "research_activity_checkpoint": "PENDING_SOURCE_ASSOCIATION_IF_CURRENT_SAME_LANE_IDENTITY_CONFIRMED",
+    "native_read_observed_at": "2026-11-20T15:13:42.938923+00:00",
+    "native_read_original_reconciled": true
   },
   "do_not_repeat": [
     "Unit194 shortest and Unit195 all-even unweighted bridge",
@@ -73,6 +75,6 @@
     "LP011/LP019 offending original commit:path:line",
     "Real frozen temporal or stateful signed-X6 production consumer"
   ],
-  "next_exact_action": "Read original unit197 continuation receipt by target_request_id only, not new request; inspect actual frozen state/time-sensitive consumer and apply exact rank/shuffle obstruction; authenticate current same-lane winning native claim/run before privileged checkpoint; finish Source Activity when matching current research session is verified.",
+  "next_exact_action": "Consume original Unit197 read-only terminal receipt (SUCCEEDED / error=null; no reissue); seek actual frozen time-sensitive signed-X6 consumer/source and LP011/LP019 commit:path:line; complete Activity association if the current actual Research lane is authenticated and Native semantic units 175–197 only after current winning claim/run.",
   "continuation_state": "OPEN"
 }
