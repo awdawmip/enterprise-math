@@ -57,7 +57,7 @@ The exact symmetric Gram matrix C is:
 2 4 2 0 0 4
 2 2 8 3 4 5
 3 0 3 6 2 4
-4 0 4 2 6
+4 0 4 2 6 2
 5 4 5 4 2 10
 ~~~
 
