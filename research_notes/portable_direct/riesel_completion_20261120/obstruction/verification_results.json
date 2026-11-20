@@ -1,0 +1,180 @@
+{
+  "schema": "RIESEL_EXACT_GRAPH_AND_CRT_PHASE_VERIFIED_V5",
+  "researcher_id": "EM-DIRECT-970E1C",
+  "activity_id": "RA-D2EC212845B63844081F9A14",
+  "all_assertions_passed": true,
+  "backend": "gmp",
+  "exact_dictionary_range": [
+    1,
+    513
+  ],
+  "exact_dictionary_rows_recomputed": 513,
+  "independent_gmp_algorithm": "A^q from scratch; saturation by all proper divisors",
+  "independent_python_periods": [
+    1,
+    2,
+    3,
+    16,
+    64,
+    257,
+    271,
+    277
+  ],
+  "all_active_periods_prime": true,
+  "active_period_count": 37,
+  "all_active_phase_supports_verified_without_factorization": true,
+  "baseline_window": {
+    "pairs_checked": 131841,
+    "edges": 30,
+    "matching_size": 25,
+    "vertex_cover_size": 25,
+    "maximum_pairwise_coprime_size": 489,
+    "minimum_prime_cover_size": 489,
+    "two_independent_graph_constructions_agree": true
+  },
+  "translated_window": {
+    "pairs_checked": 131841,
+    "edges": 11,
+    "matching_size": 3,
+    "vertex_cover_size": 3,
+    "maximum_pairwise_coprime_size": 511,
+    "minimum_prime_cover_size": 511,
+    "two_independent_graph_constructions_agree": true
+  },
+  "translated_offset": "36336993984980188772089880815813258699155881359803388560850767447862968334159792609944272211396",
+  "translated_offset_modulus": "146266413424575531435269908369072263123439934189570168571845136115405321012000687137989335177453",
+  "minimum_deleted_vertices": [
+    88,
+    146,
+    514
+  ],
+  "maximum_pairwise_coprime_size_over_all_514_term_translates": 511,
+  "universal_two_vertex_candidate_count": 1028,
+  "universal_two_vertex_blocking_periods": [
+    271,
+    277
+  ],
+  "analytic_phase_interval_exclusion_verified": true,
+  "old_twenty_channels": [
+    {
+      "p": 7,
+      "relative_order": 1,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 17,
+      "relative_order": 2,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 31,
+      "relative_order": 1,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 41,
+      "relative_order": 1,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 71,
+      "relative_order": 1,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 97,
+      "relative_order": 4,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 113,
+      "relative_order": 1,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 127,
+      "relative_order": 1,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 151,
+      "relative_order": 1,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 241,
+      "relative_order": 2,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 257,
+      "relative_order": 4,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 281,
+      "relative_order": 1,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 337,
+      "relative_order": 1,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 641,
+      "relative_order": 16,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 673,
+      "relative_order": 4,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 1321,
+      "relative_order": 1,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 14449,
+      "relative_order": 1,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 29191,
+      "relative_order": 1,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 65537,
+      "relative_order": 8,
+      "entire_cycle_nonzero": true
+    },
+    {
+      "p": 6700417,
+      "relative_order": 16,
+      "entire_cycle_nonzero": true
+    }
+  ],
+  "all_selected_terms_composite": "a^2 * 2^(66+S*i)-1 = (a*2^(33+S*i/2)-1)*(a*2^(33+S*i/2)+1)",
+  "fixed_X6_anchor": "unchanged; one arithmetic internal register",
+  "native_BRC": "positive singleton x -> 4*x+3; exact modular sampled projections",
+  "native_projected_updates_verified": 982,
+  "any_full_cover_minimum_new_primes": 511,
+  "if_retaining_old_twenty_minimum_total": 531,
+  "scope": "Exact finite-window and translated-window-family optima; no claim about full-cover existence or nonexistence.",
+  "verification_status": "AUTHOR_EXACT_RECOMPUTATION_NOT_INDEPENDENT_PROJECT_REVIEW",
+  "elapsed_seconds": 84.35895788900962,
+  "project_source_commit": "b1efc6c805661ed7b476e6e730107da6043176ee",
+  "project_source_blobs": {
+    "brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+    "brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+    "brc_rational_holonomy.py": "2591640fe348da9cd7f293a957bea9ae92c82943",
+    "brc_weighted_recurrent.py": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+  },
+  "native_source_blob_pins_verified": true,
+  "pin_provenance": "research_notes/portable_direct/riesel_mixed_20261119/results.json",
+  "method": "SHA-1 of Git blob header and exact file bytes",
+  "source_pin_verification_amendment": "Native source pins checked separately after the complete 513-packet, 263682-pair graph and native-projection run; arithmetic evidence and source bytes unchanged."
+}

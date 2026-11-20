@@ -1,0 +1,51 @@
+{
+  "schema": "RIESEL_V5_THEORY_COMPUTATION_MANIFEST_V1",
+  "recorded_at_utc": "2026-11-20T01:58:12.420731+00:00",
+  "researcher_id": "EM-DIRECT-970E1C",
+  "research_activity_id": "RA-D2EC212845B63844081F9A14",
+  "command_from_workspace_root": [
+    "python",
+    "v5_theory_work/verify_theory.py",
+    "--source-dir",
+    "vendor_src"
+  ],
+  "observed_exit_code": 0,
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "files_sha256": {
+    "proof.md": "403df5a206440eec66d1ad8ca0ec7ce5e37f6890ff0e24ebd5dc8bc96475b57d",
+    "verify_theory.py": "d6172e392fa1d77e0d49767779e3526c376b5313161ed3d8995c3f954aeabdbe",
+    "results.json": "1394cb9c4031070fa06bcfdaf747bc6c49cbd586fce1d6115d43e52a8ee056d0"
+  },
+  "native_source_commit": "b1efc6c805661ed7b476e6e730107da6043176ee",
+  "native_source_blobs": {
+    "brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+    "brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+    "brc_rational_holonomy.py": "2591640fe348da9cd7f293a957bea9ae92c82943",
+    "brc_weighted_recurrent.py": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+  },
+  "source_blob_pins_verified_before_import": true,
+  "validated_claims": {
+    "exact_tau_509203": 6,
+    "coprime_exponents": [
+      1,
+      3,
+      4,
+      11,
+      15,
+      19
+    ],
+    "pairwise_gcd_checks": 15,
+    "whole_prime_cover_period": 24,
+    "all_positive_exponent_factors_proper": true,
+    "riesel_boolean_triangles_tau": [
+      2,
+      1
+    ],
+    "general_nu_1_example_tau": 3,
+    "bounded_search_demonstrations": 5,
+    "native_arithmetic_steps": 24
+  },
+  "proof_scope": "Universal claims rely on proof.md; finite instances validate certificates and implementation.",
+  "review_status": "Author proof and deterministic verification; not an independent project Review.",
+  "remote_mutations_by_this_agent": false
+}
