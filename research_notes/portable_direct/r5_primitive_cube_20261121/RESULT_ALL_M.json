@@ -1,0 +1,45 @@
+{
+  "schema": "R5_PRIMITIVE_CUBE_ALL_FIXED_M_V1",
+  "frozen_input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "model": "Frozen R5; all positive fixed m; omega=(-1+sqrt(-3))/2",
+  "universal_rational_identities": {
+    "overlap": "sum_{m>=1}Hh,m(omega)z^m = z(2+z+2z^3)/((1-z^3)^3(1+z^3))",
+    "Q": "sum_{m>=1}Q_m z^m = z[-657+(216+I)z+(216-I)z^2-1737z^3+(873+I)z^4+(216-I)z^5-1080z^6]/((1-z^3)^3(1+z^3)); I=sqrt(-3)"
+  },
+  "classes": [
+    {
+      "m": "3k+1",
+      "k": "k>=0",
+      "pole_order": 32,
+      "cost_degree_N": 31,
+      "leading_factor": "(k+1)*A3/31!*(2,-1,-1)_{N mod3}"
+    },
+    {
+      "m": "3k+2",
+      "k": "k>=0",
+      "pole_order": 31,
+      "cost_degree_N": 30,
+      "Q": "(216+i sqrt(3))*floor((k+2)^2/4) + (873+i sqrt(3))*b(k-1), b(-1)=0"
+    },
+    {
+      "m": "3k+3",
+      "k": "k>=0",
+      "pole_order": 31,
+      "cost_degree_N": 30,
+      "Q": "(216-i sqrt(3))*binomial(k+2,2)"
+    }
+  ],
+  "a3_definition": "1/(3^32 * product_{j=0}^{31}(219+3j))",
+  "noncancellation": "Real(Q_{3k+2})>0; Real(Q_{3k+3})>0 for k>=0",
+  "threshold_subperiod": "Q_{3k+2}(t) numerator at t=-1 is -657: genuine primitive period2 in k (mod6 in m)",
+  "verified": {
+    "algebra": "SymPy Q(sqrt(-3)) exact rational function reduction to zero",
+    "both_universal_identities": "PASS",
+    "projection_coefficients_per_class": 12,
+    "predecessor_cubic_m2_m3": "PASS",
+    "checks_no_floats": true,
+    "status": "LOCAL_VALIDATED_REMOTE_SOURCE_PUBLISHED_NOT_REVIEWED"
+  },
+  "scope": "Primitive q=omega and omega^2 components only, not global full cost F_m(N) asymptotic or native physics",
+  "next": "Primitive fifth-root first nonzero orders, then minimal joint cost and threshold residual carrier"
+}
