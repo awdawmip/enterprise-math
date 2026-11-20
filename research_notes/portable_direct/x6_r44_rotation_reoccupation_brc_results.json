@@ -1,0 +1,267 @@
+{
+  "schema": "X6_R44_ROTATION_REOCCUPATION_BRC_EXACT_V1",
+  "status": "PASS",
+  "scientific_scope": "conditional one-shot whole-triad Port transfers, public clearing R, and once-only provenance-sensitive candidate rotation T; positive named-word BRC",
+  "p_range": [
+    1,
+    8
+  ],
+  "assertions": "exact closed counts; R43 sublanguage; exhaustive successful suffix words; independent future-language partition; 3-Port same-mask witness T B0",
+  "closed_forms": {
+    "reachable_states": "2p^2+8p+5",
+    "BRC_serial_words_total": "4p^2+16p-3",
+    "prefix_counts": [
+      "1",
+      "2p",
+      "2p^2+2(p-1)",
+      "2p^2+4p-2",
+      "4p",
+      "4p-2",
+      "2"
+    ],
+    "complete_future_language_classes": "11 for p=1, 13 for p>=2",
+    "enabled_masks": "7 for p=1, 9 for p>=2"
+  },
+  "cases": [
+    {
+      "ports": 1,
+      "reachable_states": 15,
+      "successful_prefix_counts": [
+        1,
+        2,
+        2,
+        4,
+        4,
+        2,
+        2
+      ],
+      "total_serial_BRC_words": 17,
+      "one_step_enabled_masks": 7,
+      "complete_future_language_classes": 11,
+      "refinement_class_counts": [
+        7,
+        11,
+        11
+      ],
+      "ordered_state_pairs_checked": 225,
+      "original_R43_no_rotation_prefix_counts": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "pass": true
+    },
+    {
+      "ports": 2,
+      "reachable_states": 29,
+      "successful_prefix_counts": [
+        1,
+        4,
+        10,
+        14,
+        8,
+        6,
+        2
+      ],
+      "total_serial_BRC_words": 45,
+      "one_step_enabled_masks": 9,
+      "complete_future_language_classes": 13,
+      "refinement_class_counts": [
+        9,
+        13,
+        13
+      ],
+      "ordered_state_pairs_checked": 841,
+      "original_R43_no_rotation_prefix_counts": [
+        1,
+        4,
+        8,
+        8,
+        2
+      ],
+      "pass": true
+    },
+    {
+      "ports": 3,
+      "reachable_states": 47,
+      "successful_prefix_counts": [
+        1,
+        6,
+        22,
+        28,
+        12,
+        10,
+        2
+      ],
+      "total_serial_BRC_words": 81,
+      "one_step_enabled_masks": 9,
+      "complete_future_language_classes": 13,
+      "refinement_class_counts": [
+        9,
+        13,
+        13
+      ],
+      "ordered_state_pairs_checked": 2209,
+      "original_R43_no_rotation_prefix_counts": [
+        1,
+        6,
+        18,
+        14,
+        2
+      ],
+      "pass": true
+    },
+    {
+      "ports": 4,
+      "reachable_states": 69,
+      "successful_prefix_counts": [
+        1,
+        8,
+        38,
+        46,
+        16,
+        14,
+        2
+      ],
+      "total_serial_BRC_words": 125,
+      "one_step_enabled_masks": 9,
+      "complete_future_language_classes": 13,
+      "refinement_class_counts": [
+        9,
+        13,
+        13
+      ],
+      "ordered_state_pairs_checked": 4761,
+      "original_R43_no_rotation_prefix_counts": [
+        1,
+        8,
+        32,
+        20,
+        2
+      ],
+      "pass": true
+    },
+    {
+      "ports": 5,
+      "reachable_states": 95,
+      "successful_prefix_counts": [
+        1,
+        10,
+        58,
+        68,
+        20,
+        18,
+        2
+      ],
+      "total_serial_BRC_words": 177,
+      "one_step_enabled_masks": 9,
+      "complete_future_language_classes": 13,
+      "refinement_class_counts": [
+        9,
+        13,
+        13
+      ],
+      "ordered_state_pairs_checked": 9025,
+      "original_R43_no_rotation_prefix_counts": [
+        1,
+        10,
+        50,
+        26,
+        2
+      ],
+      "pass": true
+    },
+    {
+      "ports": 6,
+      "reachable_states": 125,
+      "successful_prefix_counts": [
+        1,
+        12,
+        82,
+        94,
+        24,
+        22,
+        2
+      ],
+      "total_serial_BRC_words": 237,
+      "one_step_enabled_masks": 9,
+      "complete_future_language_classes": 13,
+      "refinement_class_counts": [
+        9,
+        13,
+        13
+      ],
+      "ordered_state_pairs_checked": 15625,
+      "original_R43_no_rotation_prefix_counts": [
+        1,
+        12,
+        72,
+        32,
+        2
+      ],
+      "pass": true
+    },
+    {
+      "ports": 7,
+      "reachable_states": 159,
+      "successful_prefix_counts": [
+        1,
+        14,
+        110,
+        124,
+        28,
+        26,
+        2
+      ],
+      "total_serial_BRC_words": 305,
+      "one_step_enabled_masks": 9,
+      "complete_future_language_classes": 13,
+      "refinement_class_counts": [
+        9,
+        13,
+        13
+      ],
+      "ordered_state_pairs_checked": 25281,
+      "original_R43_no_rotation_prefix_counts": [
+        1,
+        14,
+        98,
+        38,
+        2
+      ],
+      "pass": true
+    },
+    {
+      "ports": 8,
+      "reachable_states": 197,
+      "successful_prefix_counts": [
+        1,
+        16,
+        142,
+        158,
+        32,
+        30,
+        2
+      ],
+      "total_serial_BRC_words": 381,
+      "one_step_enabled_masks": 9,
+      "complete_future_language_classes": 13,
+      "refinement_class_counts": [
+        9,
+        13,
+        13
+      ],
+      "ordered_state_pairs_checked": 38809,
+      "original_R43_no_rotation_prefix_counts": [
+        1,
+        16,
+        128,
+        44,
+        2
+      ],
+      "pass": true
+    }
+  ]
+}
