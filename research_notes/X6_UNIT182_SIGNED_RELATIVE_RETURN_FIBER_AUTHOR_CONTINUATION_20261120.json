@@ -1,0 +1,126 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "historical_researcher_id": "EM-X6-FB6990",
+  "historical_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "historical_claim_id": "MCP-e2bd88a10565daf08b1d46f5",
+  "historical_run_id": "RUN-b2c1fe16e9806ecf043c89a0",
+  "historical_generation_only": 2,
+  "current_protected_writer_authorization_verified": false,
+  "highest_author_frontier": 182,
+  "status": "AUTHOR_PROVED / EXACT_INTEGER_DP_CHECKED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+  "latest_unit": {
+    "unit": 182,
+    "theorem": "R_M(a)=sum_{h in Z} S_M(a+h*1) for signed length-M paths and derived can6, with S_M full-native endpoint counts. Zero-observer return first diverges from native true zero-return at M=6.",
+    "exact_values": {
+      "M6_native_return": 19920,
+      "M6_relative_return": 21360,
+      "M6_nonzero_diagonal_extra_witnesses": 1440,
+      "M8_native_return": 1281420,
+      "M8_relative_return": 1523340,
+      "M8_extra": 241920,
+      "all_length_comparisons": 81510,
+      "largest_endpoint_population": 26577
+    },
+    "general_lower_bound": "For every k>=1, R_{6k}(0)-S_{6k}(0) >= 2*(6k)!/(k!)^6, with equality at k=1.",
+    "model_scope": "signed native six-axis nearest-coordinate-step graph, observer projection can6 to relative min-zero, exact integer length M; no native R063 benchmark execution",
+    "proof": {
+      "path": "research_notes/X6_UNIT182_SIGNED_RELATIVE_RETURN_FIRST_DIAGONAL_LEAK_20261120.md",
+      "commit": "3bbafd0adda7b80061d452c98b56abb85c006cb7",
+      "blob": "55a5733da261c548fd64560af9787f4b33cf08fd",
+      "sha256": "bfcc5439e52f5e621a0550c207205db9cf6081e8717505910946fdde63c9ab9b",
+      "readback_verified": true
+    },
+    "checker": {
+      "path": "research_checks/X6_UNIT182_RELATIVE_SIGNED_RETURN_FIBER_CHECK_20261120.py",
+      "commit": "a659bf87155b5bbeaacf65e9a5f97c91101f71b9",
+      "blob": "75520554cbd1469366a7d19f8a279cac98df3f95",
+      "sha256": "f83cce3096928c2c8e5c575788ea28dab05a5b819cfd8fcd44551c343ef4e578",
+      "readback_verified": true
+    },
+    "certificate": {
+      "path": "research_checks/X6_UNIT182_RELATIVE_SIGNED_RETURN_FIBER_RESULTS_20261120.json",
+      "commit": "1afa1aab4f4b30711fbe809fbccb47062521fa32",
+      "blob": "9161c63a4065f7184402e15b531a2b2a487f1e9c",
+      "sha256": "07236422223b2cc1d4fe3bd967bdee9ad121d92d85a3f7911843523c3d2c0e1e",
+      "readback_verified": true
+    }
+  },
+  "prior_consumed": {
+    "unit180": "research_notes/X6_UNIT180_FROZEN_ALL312_TEST_DIRECT_CONSUMER_CENSUS_20261120.md",
+    "unit181": "research_notes/X6_UNIT181_FROZEN_AUGUST60_HISTORICAL_LP011_LP019_AUDIT_20261120.md",
+    "unit181_continuation": "research_notes/X6_UNIT181_FROZEN_AUGUST60_AUTHOR_CONTINUATION_20261120.json",
+    "historical_original_R063_experiment": "NOT_RERUN",
+    "supplemental_unit180_test24_note": "research_notes/X6_UNIT180_FROZEN_TEST24_TRUE_CONSUMER_SCOPE_20261120.md; exact semantic subset and corrected to respect already-completed 312/312 original census"
+  },
+  "research_activity": {
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "latest_event": "onhour-20261120-1230-x6-unit182-signed-observer-return-fiber-v1",
+    "event_count_after_append": 201,
+    "commit": "52f965e000b82f27f6e015ba25a87b44a7af296d",
+    "blob": "27b9185b0a3d134d954ee4eb73d1b7ba6659d7af",
+    "verification_sidecar": "research_activity_records/RA-5E3FE1E761E4963EC461A892/readbacks/b951f78832758b17f9d1fdec9e2fdcb7b3c03fbbe5c48c1e982c50990da16df9.json",
+    "old_events_preserved": true
+  },
+  "native_control": {
+    "last_authenticated_scientific_unit": 174,
+    "source_commit": "71aa6b7f812c1a6dd746f9c21d31d3f1828d88ae",
+    "author_units_pending_native_semantic_progress": [
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182
+    ],
+    "old_author_units_historical_association_pending": [
+      149,
+      150,
+      151,
+      152
+    ],
+    "known_historical_request_ids": {
+      "resume": "onhour-20261120-0812-x6-own-run-after174-resume-v1",
+      "continuation": "onhour-20261120-1058-x6-exact-task-cont-v1",
+      "recovery": "onhour-20261120-1201-x6-own-recovery-read-v1"
+    },
+    "gateway_diagnostic": {
+      "observed_at_utc": "2026-11-20T04:46:02Z",
+      "em_sites_connection_status": "CONFIGURED_NOT_LIVE_VERIFIED; owner matches but Sites private role labels different from this logical Research lane",
+      "em_status_failure": "BACKEND_IDENTITY_CHECK_UNAVAILABLE",
+      "operation_sent": false,
+      "not_equivalent_to_expired_claim_or_no_dispatch": true
+    },
+    "fresh_same_lane_claim_and_run_authority": "NOT_VERIFIED",
+    "unit182_native_progress": "NOT_SUBMITTED",
+    "release_or_handoff": "NOT_ATTEMPTED_WITHOUT_NATIVE_WINNING_OWNER"
+  },
+  "unresolved": {
+    "lp011_original_faulty_native_argmax": "UNRESOLVED_PROVENANCE",
+    "lp019_original_faulty_positive_N_BRC_subtraction": "UNRESOLVED_PROVENANCE",
+    "source_provenance": "Identify actual historic commit:path:line for alleged LP011/LP019 native misuse if exists; verify typed runtime consumer before patching",
+    "native_R063_benchmark": "Reuse previous actual executed evidence; preserve original target and support issue if environment unavailable",
+    "native_association": "Units149–152 historic and Units175–182 current author, only after live same-lane native credentials/authorization",
+    "independent_driver_review": "UNREVIEWED / NOT_ADMITTED"
+  },
+  "do_not_repeat": [
+    "Old native original R063 benchmark when no changed scientific condition or authorized real rerun",
+    "Source complete 312/312 frozen Python-test census Unit180",
+    "Unit181 complete frozen August-dated 60 sources",
+    "Unit179 110 experiment Python source inventory and Unit178 225 production Python source inventory",
+    "Unit170–181 author proofs, experiments and published source checks",
+    "Old unknown, rejected or pending native mutations; only consume original receipts",
+    "Borrowed Sites-private or maintenance lane credentials, registration or CLAIM"
+  ],
+  "next_exact_action": "Use current same-lane exact original recovery/receipt and Source current owner/authorization (gateway em_status currently BACKEND_IDENTITY_CHECK_UNAVAILABLE, operation_sent=false), then once authorized publish missing Native semantic checkpoints for Units175–182 and read back; maintain previous requests exactly. Scientific follow-on: use signed all-length BRC + common-depth fiber law to classify finite future operation/language observers that descend through can6 versus ones that require signed common-depth repair, with actual source consumer evidence; investigate LP011/019 bad caller only at concrete commit:path:line. Keep Driver review separate.",
+  "continuation_state": "OPEN"
+}
