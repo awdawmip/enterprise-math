@@ -1,0 +1,134 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-20",
+  "unit": 177,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+  "historical_source": [
+    {
+      "path": "definitions/ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md",
+      "blob": "11f47f9d2d70439fdada6d59242790fdcf46929e",
+      "lines": "64-88,103-124",
+      "role": "historical derived R061 relative observer"
+    },
+    {
+      "path": "src/enterprise_math/diagonal_quotient.py",
+      "blob": "3ac387c0103665943f13ba9e306a6167080c701d",
+      "lines": "1-15,44-48",
+      "role": "real historical implementation; downstream production importer not verified"
+    }
+  ],
+  "native_foundation": [
+    {
+      "path": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+      "commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+      "blob": "b4d49a1bbcccad0521618c6d20f6dcfa242b420a"
+    },
+    {
+      "path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+      "commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+      "blob": "300a96e3dc24bf6fff73743037a0347a8bc83176"
+    }
+  ],
+  "current_main_retyped_sources": [
+    {
+      "path": "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
+      "blob": "875e3b274e5be03c5872f782872065a0b96d14eb"
+    },
+    {
+      "path": "definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md",
+      "blob": "358a4997157d7546d88e63ae8d32e95feebf9c08"
+    }
+  ],
+  "claim_id": "X6-CL-UNIT177-R061-OBSERVER-AUGMENTED-NATIVE-BRC",
+  "old_semantic_type": "DERIVED_R061_DIAGONAL_RELATIVE_OBSERVER_SECTION",
+  "old_statement": "A_D=min-zero section of Z^3/Z(1,1,1) correctly represents derived relative displacements; no unrestricted native BRC sufficiency follows",
+  "current_status": [
+    "PRESERVE_OBSERVER",
+    "PRESERVE_PATH_BRC"
+  ],
+  "corrected_statement": "On signed native Cell slice, (can3(z), L_native(z), Q_native(z)) does not determine or uniformly multiplicatively approximate native shortest-path BRC. Raw signed displacement or a proved sufficient path-typed repair is required.",
+  "exact_theorem": {
+    "family_a": "(-3m,-3m,0)",
+    "family_b": "(m,m,4m)",
+    "m_domain": "m positive integer",
+    "equal_observation": "can3=(0,0,3m), L=6m, Q=18m^2",
+    "brc_a": "(6m)! / ((3m)!)^2",
+    "brc_b": "(6m)! / ((m!)^2 * (4m)!)",
+    "ratio": "((3m)!)^2/((m!)^2 (4m)!) >= (3/2)^m",
+    "ratio_step": "R(m+1)/R(m) - 3/2 = 3m(115m^3+166m^2+71m+8)/[8(m+1)(2m+1)(4m+1)(4m+3)] >= 0",
+    "consequence": "No finite state-independent multiplicative K approximation using only augmented observer output"
+  },
+  "witness": {
+    "m": 1,
+    "a": [
+      -3,
+      -3,
+      0
+    ],
+    "b": [
+      1,
+      1,
+      4
+    ],
+    "can": [
+      0,
+      0,
+      3
+    ],
+    "L": 6,
+    "Q": 18,
+    "brc_a": 20,
+    "brc_b": 30
+  },
+  "finite_validation": {
+    "m_checked": [
+      1,
+      64
+    ],
+    "signed_box": [
+      -4,
+      4
+    ],
+    "points": 729,
+    "signature_buckets": 683,
+    "buckets_with_brc_collision": 6,
+    "validations": 1779,
+    "violations": 0,
+    "python_normal_O_OO_same_sha256": "dead3b168de465eebe6c22c1a3f96a0b18fa4ce92a8b6da2b4a68c2ef9371175",
+    "native_R063_rerun": false
+  },
+  "evidence": [
+    {
+      "path": "research_notes/X6_UNIT177_R061_MINZERO_NATIVE_BRC_UNBOUNDED_FIBER_DISTORTION_20261120.md",
+      "commit": "d0810c2c4a358ebd0c1265bb1ac4f2074d09689f",
+      "blob": "8d7014d1069f6ce0af2e4b980e3864e9b6839200"
+    },
+    {
+      "path": "research_checks/X6_UNIT177_R061_MINZERO_NATIVE_BRC_LOSS_CHECK_20261120.py",
+      "commit": "8f368364f80f69f6e6c7f28d6639dc88f0602982",
+      "blob": "3c96dc21f386ea3a2fd2b761a435f0fe18d11fec"
+    },
+    {
+      "path": "research_checks/X6_UNIT177_R061_MINZERO_NATIVE_BRC_LOSS_RESULTS_20261120.json",
+      "commit": "c69754f8856e57c6d692c4cd7a13fb3d4079ae76",
+      "blob": "0cfa3647f9d00f6b2f5e0334ae01aa4c50c600d6"
+    }
+  ],
+  "lp011_offender": "UNRESOLVED_PROVENANCE",
+  "lp019_offender": "UNRESOLVED_PROVENANCE",
+  "scope": "SIGNED_NATIVE_CELL_SLICE_VS_DERIVED_R061_OBSERVER; NOT_NATIVE_PHYSICAL_ROTATION_OR_NEW_FOUNDATION",
+  "native_semantic_status": "NOT_SUBMITTED",
+  "independent_review": "UNREVIEWED / NOT_ADMITTED",
+  "remaining": [
+    "Native semantic linkage Units175-177 under same-lane authority",
+    "Historical Units149-152 native semantic association",
+    "Full frozen 28-LP real producer-consumer and LP011/LP019 exact source:line audit",
+    "Independent Driver review/admission"
+  ],
+  "original_pending_control_read": "onhour-20261120-0907-x6-exact-cont-read-v1"
+}
