@@ -72,7 +72,14 @@
     "this_run_recovery_read": "onhour-20261120-2055-x6-own-recovery-read-v1; verified metadata-only own SID; not proof of platform identity or live winner",
     "current_native_protected_writes_submitted": false,
     "native_result_frozen": false,
-    "independent_review": "UNREVIEWED / NOT_ADMITTED"
+    "independent_review": "UNREVIEWED / NOT_ADMITTED",
+    "latest_read_only_request": {
+      "request_id": "onhour-20261120-2055-x6-unit195-postscience-current-cont-read-v1",
+      "operation": "continuation",
+      "last_observed_status": "RUNNING",
+      "original_request_only": true,
+      "next_action": "em_control_result same target_request_id; consume terminal without resending read or write; no current writer authority inferred"
+    }
   },
   "unresolved": {
     "LP011": "alleged historic wrong-native signed argmax original commit:path:line and typed caller unknown",
