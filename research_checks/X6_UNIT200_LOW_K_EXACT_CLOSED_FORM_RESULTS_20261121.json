@@ -1,0 +1,54 @@
+{
+  "schema": "X6_UNIT200_LOW_K_CLOSED_FORM_EXACT_V1",
+  "source_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "source_blob_sha1": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+  "frozen_source_sha256": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4",
+  "source_test_caller": "experiments/x6_signed_native_spatial_v16_20260905/check_signed_brc.py#L56-L63",
+  "consumer_exact_cases": 15,
+  "weight_profiles": 3,
+  "exact_comparisons": 45,
+  "mismatches": 0,
+  "K_domain": [
+    0,
+    1,
+    2
+  ],
+  "odd_gap_cases_per_consumer": 6,
+  "consumer_repeats": 7,
+  "samples_per_repeat": 100,
+  "method": "Python time.perf_counter_ns; 7 batches x 100 full 15-call suites; independent exact results",
+  "results": {
+    "original": {
+      "median_ns_per_15_call_sweep": 1606566,
+      "samples_ns_per_sweep": [
+        1606566,
+        1676592,
+        1559173,
+        1615296,
+        1604444,
+        1583676,
+        1653014
+      ]
+    },
+    "low_k_closed_form": {
+      "median_ns_per_15_call_sweep": 449623,
+      "samples_ns_per_sweep": [
+        396115,
+        449327,
+        515177,
+        449623,
+        421303,
+        490112,
+        517454
+      ]
+    }
+  },
+  "original_method": "frozen signed_brc.endpoint_weight at immutable source",
+  "new_method": "Unit200 exact coefficient closed form specialized to K<=2",
+  "source_modified": false,
+  "r063_original_benchmark_rerun": false,
+  "reproduction_command": "PINNED_SOURCE_FILE=<frozen-source-file> python research_checks/X6_UNIT200_LOW_K_EXACT_CLOSED_FORM_20261121.py (or run from a checkout containing pinned git commit)",
+  "status": "AUTHOR_EXACT_SOURCE_PYTHON_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "full_local_crossover_data": "Execution-local X6_UNIT200_ACTUAL_CALLER_CROSSOVER_RESULTS_20261121.json; not this GitHub summary",
+  "claim_scope": "Original frozen regression-test caller, not an established production workload"
+}
