@@ -1,0 +1,263 @@
+{
+  "schema": "X6_R66_D5_EXACT_BRC_BRANCH_MINIMAX_CERTIFICATE_V1",
+  "date": "2026-11-21",
+  "conditional_model": "named positive AB successes; repeated A identity; independently reset B choices; known strictly positive normalized branch weights; common unknown additive channel bias; high-degree histogram target",
+  "D": 5,
+  "p_domain": "integers p>=5",
+  "status": "PASS_AUTHOR_EXACT_INTEGER_VALIDATION",
+  "finite_completeness_argument": "For any improvement below osc=30, even z_t and z_1=0 entail z_2..z_5 in [-28,28] step 2; inverse integer matrix numerator divisible by 120 iff a is integer. Exactly the 29^4 z-grid is exhausted. Every feasible histogram difference needs population q(a)=max(positive mass,negative mass).",
+  "inverse_enumeration": {
+    "program": "x6_r66_d5_inverse_certificate.cpp",
+    "total_even_z_grid": 707281,
+    "nonzero_osc_less_30_tested": 221550,
+    "integral_nonzero_candidates": 116,
+    "oscillations": [
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28
+    ],
+    "minimum_required_population": [
+      26,
+      52,
+      78,
+      104,
+      130,
+      156,
+      182,
+      208,
+      234,
+      260,
+      286,
+      11,
+      63,
+      64
+    ],
+    "integral_candidate_counts": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      58,
+      18,
+      18
+    ]
+  },
+  "forward_crosscheck": {
+    "program": "x6_r66_d5_forward_crosscheck.cpp",
+    "integer_vector_grid": "[-26,26]^4",
+    "vectors_tested": 7890481,
+    "nonzero_population_feasible_at_most_26": 1440270,
+    "p_values": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "minimum_oscillation": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      2
+    ],
+    "minimizer_ties": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      4,
+      4,
+      4,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      8,
+      8,
+      8,
+      2
+    ]
+  },
+  "named_brc_check": {
+    "program": "x6_r66_d5_brc_named_check.py",
+    "relations_all_p1_to3": 530,
+    "exact_named_observations_at_t1_to3": 1590,
+    "status": "PASS"
+  },
+  "witnesses": [
+    {
+      "p": 5,
+      "a2_to_a5": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "c0_to_c5": [
+        4,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "cp0_to_c5": [
+        5,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "delta_m1_to_m5": [
+        2,
+        4,
+        8,
+        16,
+        32
+      ],
+      "oscillation": 30
+    },
+    {
+      "p": 11,
+      "a2_to_a5": [
+        -6,
+        9,
+        -5,
+        1
+      ],
+      "c0_to_c5": [
+        1,
+        0,
+        0,
+        9,
+        0,
+        1
+      ],
+      "cp0_to_c5": [
+        0,
+        0,
+        6,
+        0,
+        5,
+        0
+      ],
+      "delta_m1_to_m5": [
+        0,
+        2,
+        0,
+        -22,
+        0
+      ],
+      "oscillation": 24
+    },
+    {
+      "p": 26,
+      "a2_to_a5": [
+        20,
+        -15,
+        6,
+        -1
+      ],
+      "c0_to_c5": [
+        0,
+        0,
+        20,
+        0,
+        6,
+        0
+      ],
+      "cp0_to_c5": [
+        10,
+        0,
+        0,
+        15,
+        0,
+        1
+      ],
+      "delta_m1_to_m5": [
+        14,
+        16,
+        14,
+        16,
+        14
+      ],
+      "oscillation": 2
+    }
+  ],
+  "theorem": {
+    "p5_to10": "15/2",
+    "p11_to25": "6",
+    "p26_and_above": "1/2",
+    "tail_proof": "R65 all-D plateau onset"
+  },
+  "native_triadic_cell_link_port_embedding": "UNVERIFIED",
+  "scholarly_review": "NOT_INDEPENDENTLY_REVIEWED",
+  "sources": [
+    "R61 repeated-A positive-BRC star count",
+    "R62 truncated integer lattice",
+    "R63 unknown common bias",
+    "R64 bias minimax oscillation/4",
+    "R65 all-D half-radius plateau @60e554e6b93c773f1d315fe6de8106ab4ad796fd"
+  ]
+}
