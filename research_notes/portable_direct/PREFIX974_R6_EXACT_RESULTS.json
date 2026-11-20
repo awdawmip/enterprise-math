@@ -1,0 +1,89 @@
+{
+  "schema": "PREFIX974_AFFINE_PORT_BRC_V1",
+  "frozen_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "test_scope": {
+    "affine_all_c_x_p4_to_p9": 85872,
+    "independent_raw_xor_cases_p4_to_p8": 357,
+    "p19_k21_gaps": [
+      1,
+      3,
+      5
+    ]
+  },
+  "counterexample": {
+    "p": 4,
+    "residual": 6,
+    "x_evenfree_odd_1": 9,
+    "x_evenfree_odd_2": 11,
+    "common_port_mask": 2,
+    "x9_source": [
+      3,
+      1,
+      1
+    ],
+    "x11_source": [
+      2,
+      1,
+      -1
+    ]
+  },
+  "q19": [
+    {
+      "candidate_count": 1420,
+      "nondiagonal": 1419,
+      "named": 614,
+      "pair_count": 442,
+      "equal_port": 22,
+      "next_cyclic": 55,
+      "zero_mass": 977,
+      "weight_histogram": {
+        "0": 977,
+        "1": 311,
+        "2": 115,
+        "4": 14,
+        "8": 1,
+        "9": 1
+      },
+      "distinct_joint_port_masks": 370,
+      "m": 1,
+      "named_sha256_reference": "ccbccc30c4171a809f7270ce59f0b72b368839e93ffeeed8df9ba1045720da71"
+    },
+    {
+      "candidate_count": 2826,
+      "nondiagonal": 2825,
+      "named": 1286,
+      "pair_count": 839,
+      "equal_port": 34,
+      "next_cyclic": 74,
+      "zero_mass": 1986,
+      "weight_histogram": {
+        "0": 1986,
+        "1": 501,
+        "2": 285,
+        "4": 52,
+        "7": 1
+      },
+      "distinct_joint_port_masks": 641,
+      "m": 3,
+      "named_sha256_reference": "1360a9ca274b357d0b87058d35ef6ccd059d0c5aef995e4d93b0d1363e1aaae3"
+    },
+    {
+      "candidate_count": 15,
+      "nondiagonal": 15,
+      "named": 3,
+      "pair_count": 3,
+      "equal_port": 0,
+      "next_cyclic": 1,
+      "zero_mass": 12,
+      "weight_histogram": {
+        "0": 12,
+        "1": 3
+      },
+      "distinct_joint_port_masks": 12,
+      "m": 5,
+      "named_sha256_reference": "c429ef59749f36ef295b4ac9171fb5171ab3a706beaa270563728d4962649c1b"
+    }
+  ],
+  "status": "AUTHOR_PROOF_EXACT_INTEGER_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+  "scope": "auxiliary named XOR observer; positive BRC port relation counts only"
+}
