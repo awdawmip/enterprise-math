@@ -1,0 +1,19 @@
+{
+  "tool_name": "mcp__GitHub__fetch_file",
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "ref": "cb65f8b45fe4b2607ab393591051087f247bc2c7",
+    "path": "research_notes/portable_direct/EC49FUN_GENERAL_N_VERIFY.py"
+  },
+  "result": {
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"EC49FUN exact rational checks for arbitrary-n local minimax, examples, and garbling obstruction.\nNo full phase-audit or native price revalidation is claimed.\n\"\"\"\nfrom fractions import Fraction as Q\nfrom math import comb\n\nBETA=Q(3,637)\nETA=Q(141024,1653649)\nC=21829245984\nH=45529434409\nB=456083905\nTHETA_E=Q(31597745,1653649)\nU_E=Q(4822040484,8132285009)\nU_I=Q(C,H)\n\ndef u(theta): return Q(C)/(H-B*theta)\ndef t(theta,x): return (1-x)*(1-BETA*x+BETA*x*theta)\ndef d1(theta,x,n): return t(theta,x)**n*(1-u(theta)**n)\ndef delta(n):\n    m=U_I**n*Q(B,H)\n    return min(Q(1),m/(BETA*(1+m)),(1-U_E)*U_E**(n-1))/2\n\ndef likelihood_one_ratio_is_bayes(theta,x,n):\n    T=t(theta,x); U=u(theta)\n    return U**(n-1)*(1-U*T)>(1-T)\n\ndef binprob(k, n, hit):\n    return comb(n,k)*hit**k*(1-hit)**(n-k)\n\ndef endpoint_risk(x,n):\n    T=t(THETA_E,x)\n    return sum(min(binprob(k,n,1-T),binprob(k,n,1-U_E*T)) for k in range(n+1))/2\n\ndef allone_lower(x,n):\n    T=t(THETA_E,x)\n    p=1-T\n    return min((1-U_E**n)*p**n,(1-U_E*T)**n-U_E**n*p**n)/2\n\nassert u(THETA_E)==U_E\nassert t(THETA_E,Q(1,100))==(1-Q(1,100))*(1+ETA*Q(1,100))\nassert 0<U_I<U_E<1\nfor n in [1,2,3,5,15,17,50]:\n    d=delta(n)\n    assert 0<d<Q(1)\n    assert likelihood_one_ratio_is_bayes(THETA_E,d,n)\n    for x in [Q(0), d/2, d]:\n        # endpoint really least favorable at these sampled rational values;\n        # global claim uses exact symbolic inequality shown in the proof.\n        vals=[d1(THETA_E*Q(j,10),x,n) for j in range(11)]\n        assert min(vals)==vals[-1]\n        formula=(1-t(THETA_E,x)**n*(1-U_E**n))/2\n        assert endpoint_risk(x,n)==formula\n        assert formula >= U_E**n/2\n    for x in [Q(1,10000),Q(1,10),Q(1,2),Q(1)]:\n        assert endpoint_risk(x,n) >= U_E**n/2+allone_lower(x,n)\n        assert allone_lower(x,n)>0\n    print(f'n={n} delta={float(d):.12g}; V0={float(U_E**n/2):.12g}; slope={float(n*(1-ETA)*(1-U_E**n)/2):.12g}')\n# Exact all-count overlap identity for the endpoint Bernoulli Z-channel.\n# Here the full strings are exchangeable, so binomial count masses suffice.\nfor n in [1,2,3,4,5]:\n    for x in [Q(0),Q(1,50),Q(1,2),Q(1)]:\n        T=t(THETA_E,x); p=1-T; q=1-U_E*T\n        a=[binprob(k,n,p) for k in range(n+1)]\n        plus=[binprob(k,n,q) for k in range(n+1)]\n        comp=[(plus[k]-U_E**n*a[k])/(1-U_E**n) for k in range(n+1)]\n        assert all(b>=0 for b in comp)\n        assert sum(comp)==1\n        omega=sum(min(a[k],comp[k]) for k in range(n+1))\n        assert endpoint_risk(x,n)==(U_E**n+(1-U_E**n)*omega)/2\n# A nuisance-independent single-bit garbling from width x to y would\n# require T(theta,y)/T(theta,x) to be constant in theta; its derivative is positive.\nfor x,y in [(Q(0),Q(1,100)),(Q(1,100),Q(1,5)),(Q(1,5),Q(9,10))]:\n    def ratio(theta): return t(theta,y)/t(theta,x)\n    assert ratio(THETA_E)>ratio(Q(0))\n    # expression derived from quotient rule, checked at two theta values.\n    for theta in [Q(0),THETA_E]:\n        expected=Q(1-y,1-x)*BETA*(y-x)/(1-BETA*x+BETA*x*theta)**2\n        assert expected>0\nprint('PASS: 7 arbitrary-n cases, endpoint excess bounds, and nuisance-common garbling obstruction')\n",
+      "encoding": "utf-8",
+      "sha": "ee6094aa50483c1dcab90f2090e206ef78ff92c0",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/cb65f8b45fe4b2607ab393591051087f247bc2c7/research_notes/portable_direct/EC49FUN_GENERAL_N_VERIFY.py",
+      "display_title": "EC49FUN_GENERAL_N_VERIFY.py"
+    }
+  },
+  "observation_id": "r4-ec49fun-20261120-1033-immutable-observation-2",
+  "call_id": null
+}
