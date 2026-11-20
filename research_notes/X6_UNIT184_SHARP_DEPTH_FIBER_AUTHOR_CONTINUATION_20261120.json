@@ -1,0 +1,117 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "historical_researcher_id": "EM-X6-FB6990",
+  "historical_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "historical_claim_id": "MCP-e2bd88a10565daf08b1d46f5",
+  "historical_run_id": "RUN-b2c1fe16e9806ecf043c89a0",
+  "highest_author_frontier": 184,
+  "latest_unit": {
+    "unit": 184,
+    "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+    "claims": [
+      "For each fixed signed X6 path horizon M and relative endpoint a, reachable integer native depth lifts form a parity-filtered convex integer interval.",
+      "The exact maximal lift count over relative terminal observers is floor(M/3)+1, attained for every integer M>=0; the minimum universal fixed-length repair label uses ceil(log2(floor(M/3)+1)) bits.",
+      "A sourced A3 six unit-capacity weighted relation producer yields Z_ij=z_i-z_j and row-maximum a_i=max_j Z_ij; its existing grand-total consumer recovers native z when supplied C=sum a+6h. The adapter to X6 is new, not a preexisting production call."
+    ],
+    "checks": {
+      "tested_horizons": "M=0..10",
+      "reachable_endpoint_cases": 184690,
+      "relative_fiber_cases": 97306,
+      "violations": 0,
+      "M10_native_BRC_multiplicities": [
+        16800,
+        226800,
+        151200,
+        4200
+      ],
+      "original_R063_rerun": false
+    },
+    "proof": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/X6_UNIT184_SHARP_FINITE_HORIZON_NATIVE_DEPTH_BITS_AND_RELATION_FIELD_RECOVERY_20261120.md",
+      "source_commit": "21e5101b667e97220d42ab2538f88310fc632d84",
+      "git_blob_sha1": "7113aa28f0837210d05e474d4224535f20f59343",
+      "sha256": "9fb594b15742bea420c06e89f19c96daa50369eb5430dab53eae49f344e8d418",
+      "readback_verified": true
+    },
+    "checker": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_checks/X6_UNIT184_FINITE_HORIZON_DEPTH_FIBER_CHECK_20261120.py",
+      "source_commit": "88d1012e734d5b00aa90bde599b4c2a8ab4557c7",
+      "git_blob_sha1": "699791db7d6b515e59239e908a4eef909a309343",
+      "sha256": "132bd625e527964bd594882e401a23385bbd860b887f35eca326fbe96eaba05d",
+      "readback_verified": true
+    },
+    "certificate": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_checks/X6_UNIT184_FINITE_HORIZON_DEPTH_FIBER_RESULTS_20261120.json",
+      "source_commit": "523c84905325341301a658264db46a62ff5da589",
+      "git_blob_sha1": "301e304cd2b50973e3125148972d0d73c3a3cbdb",
+      "sha256": "a5552e6529baebf0dc79c1894b8a5b41ddef0dd767186d4e26df94e063ba964a",
+      "readback_verified": true
+    }
+  },
+  "research_activity": {
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "event_id": "onhour-20261120-1400-x6-unit184-sharp-depth-bits-v1",
+    "count": 203,
+    "commit": "8104e20c047681aba1cee84d8f28ce0e022e6194",
+    "git_blob_sha1": "ab4fadfff9643fdff0a59d3e58bcad5e475e197e",
+    "previous_events_preserved": true,
+    "readback_pending": true
+  },
+  "native_control": {
+    "last_authenticated_scientific_unit": 174,
+    "source": "71aa6b7f812c1a6dd746f9c21d31d3f1828d88ae",
+    "native_author_units_pending": [
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184
+    ],
+    "historical_units_pending": [
+      149,
+      150,
+      151,
+      152
+    ],
+    "original_resume_id": "onhour-20261120-0812-x6-own-run-after174-resume-v1",
+    "original_resume_historical_outcome": "SUCCEEDED / RUN_READY at 2026-11-20T00:20:55Z only",
+    "own_recovery_read": "em_site_control recovery_status / actual original SID MCP-082892eb480e45dea6d4b9fcc0491034 / succeeded, metadata_only true",
+    "this_run_exact_read_request_id": "onhour-20261120-1402-x6-current-exact-cont-read-v1",
+    "this_run_exact_read_outcome": "SUCCEEDED as of 2026-11-20T06:08:03Z; Source drift during read, requires fresh authority; runtime NEEDS_DISPATCH, claim_id null, no active owner, last claim expired 2026-11-20T02:18Z",
+    "current_protected_writer_authorization_verified": false,
+    "release_handoff": "NOT_ATTEMPTED_WITHOUT_CURRENT_WINNING_OWNER",
+    "formal_review": "UNREVIEWED / NOT_ADMITTED"
+  },
+  "unresolved": {
+    "mother_objective": "28-LP real producer/consumer repair and legacy spatial foundation reconciliation still open",
+    "LP011": "UNRESOLVED_PROVENANCE; exact offending commit:path:line and typed downstream consumer required",
+    "LP019": "UNRESOLVED_PROVENANCE; exact offending commit:path:line and typed downstream consumer required",
+    "native_progress": "Unit175-184, plus historical 149-152; current own session claim/run authorization required",
+    "independent_driver_review": "UNREVIEWED / NOT_ADMITTED",
+    "scientific": "Test whether the terminal rank repair can be updated as new primitive signed step arrives, and derive its exact source-compatible update; do not mistake an A3 source formula for a preexisting X6 adapter."
+  },
+  "do_not_repeat": [
+    "Native R063 original benchmark already completed 17/17 acceptance and 512/512 regression",
+    "Prior Units1-183 and their exact proofs/checkers, especially Unit180 all312 tests, Unit181 frozen60 documents",
+    "No duplicate original pending/rejected native requests",
+    "No maintenance-lane identity, owner custody or other Sites profile reuse"
+  ],
+  "next_exact_action": "Read Unit184 immutable proof, checker, certificate and this continuation. For current Native control, consume exact read result and reauthorize the real same-lane Research SID via current owner/CLAIM/CAS and correct typed route only when legal; then publish already-sourced Units175-184 semantic association once and authenticate Source. Continue Unit185 rank-update scientific question and unresolved real 28-LP typed provenance. Source activity and GitHub publication are independent from Native PROGRESS.",
+  "continuation_state": "OPEN"
+}
