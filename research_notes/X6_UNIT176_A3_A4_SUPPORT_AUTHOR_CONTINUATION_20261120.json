@@ -1,0 +1,87 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "current_claim_id": "MCP-e2bd88a10565daf08b1d46f5",
+  "claim_comment_id": 7024797719,
+  "run_id": "RUN-b2c1fe16e9806ecf043c89a0",
+  "last_verified_generation": 1,
+  "author_frontier": {
+    "highest_author_unit": 176,
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "activity_count": 193,
+    "activity_commit": "d852c6ebfe3f6ac0e22be1668c1e36dd053582b7",
+    "unit176": {
+      "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+      "proof": {
+        "commit": "7010adb82f9ef9d88dcb7df9ab0f29c485a4b64f",
+        "path": "research_notes/X6_UNIT176_A3_A4_COARSE_SUPPORT_EXACT_RESIDUAL_FIBER_20261120.md",
+        "blob": "3f855ec4953593d0de455c880940879a7d8a4cf1"
+      },
+      "checker": {
+        "commit": "3e21aae50bfdc4cba2bfbe8df1989a45ebabb370",
+        "path": "research_checks/X6_UNIT176_A3_A4_COARSE_SUPPORT_FIBER_CHECK_20261120.py",
+        "blob": "172d3df299dcc01bfedb0ca0bd76d24c699f7e83"
+      },
+      "certificate": {
+        "commit": "ec5b248dc009503a31476169bd8335863d475d1c",
+        "path": "research_checks/X6_UNIT176_A3_A4_COARSE_SUPPORT_FIBER_RESULTS_20261120.json",
+        "blob": "22e7cdbad166459b0311c4cca79f0be2464186d0"
+      },
+      "ledger": {
+        "commit": "ff1dda20dd9a4eb9c854c6c43bd74208146c995e",
+        "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit176_delta.json",
+        "blob": "9672f4275adde668b94674ec144101be04912831"
+      }
+    }
+  },
+  "native_authenticated_until_unit": 174,
+  "unit172_174_native_original": {
+    "request_id": "onhour-20261120-0714-x6-own-units172174-native-progress-v1",
+    "status": "SUCCEEDED",
+    "source_commit": "71aa6b7f812c1a6dd746f9c21d31d3f1828d88ae",
+    "canonical_publication_verified": true,
+    "authenticated_readback": true,
+    "duplicate_submission_forbidden": true
+  },
+  "current_exact_continuation_read": {
+    "request_id": "onhour-20261120-0800-x6-exact-cont-read-v1",
+    "status": "SUCCEEDED",
+    "error": null,
+    "control_source_sha": "9bb040ea5a0910ccb18c970b6186845ee400955f",
+    "live_write_authority_granted_by_read": false
+  },
+  "unit175_native": "NOT_SUBMITTED; immutable Unit175 proof/checker/certificate Activity192 already verified by prior turn",
+  "unit176_native": "NOT_SUBMITTED; author GitHub evidence and Activity193 fully read back",
+  "validation": {
+    "total_states": 50625,
+    "total_radius_cases": 202500,
+    "coarse_only_cases": 47964,
+    "violations": 0,
+    "normal_O_OO_identical": true,
+    "original_R063_benchmark_rerun": false
+  },
+  "science": "A3 weighted relation Z_ij=m_j*c_i-m_i*c_j, A4 fine support iff -r+beta<=mu<=r-alpha where mu=CU/MU-CV/MV, alpha/beta are signed centered cross-pair maxima. Coarse support iff |mu|<=r. Same complete coarse capacities, totals and relation can hide unbounded fine support defects. Derivative typed bridge only.",
+  "missing_evidence": {
+    "native": "Units175-176 remain without native Source PROGRESS; verify fresh own valid CLAIM/RUN and current generation before one subsequent semantic checkpoint, no duplication",
+    "historical": "LP011 alleged invalid native argmax and LP019 alleged subtracting positive N-BRC require original offending commit:path:line",
+    "coverage": "28-LP full producer->consumer audit incomplete",
+    "old_units": "Units149-152 native semantics association pending",
+    "review": "UNREVIEWED / NOT_ADMITTED"
+  },
+  "do_not_repeat": [
+    "Native Units1-174 already recorded; Unit175+176 authorship files/Activity are immutable and read back; no reupload/recompute",
+    "Original R063 17/17,512/512 benchmark completed; do not repeat",
+    "No repeat of onhour-20261120-0714-x6-own-units172174-native-progress-v1; no maintenance or other Researcher identity"
+  ],
+  "next_exact_action": "Check current same-lane winning CLAIM, session and RUN generation; if authorized once publish native semantic PROGRESS for Unit175+176 referencing existing verified GitHub proof/checker/certificates and Activities192-193; consume original receipt and authenticated Source after. Continue 28-LP accurate uninspected frozen producer-consumer call lines and LP011/LP019 historical allegations; preserve UNREVIEWED/NOT_ADMITTED.",
+  "continuation_state": "OPEN"
+}
