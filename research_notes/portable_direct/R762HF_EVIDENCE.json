@@ -1,0 +1,84 @@
+{
+  "schema": "R762HF_EXACT_FINITE_SIGNED_FIBRES_V1",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "publication_id": "TP2-8B7E13C5904A2D6F1142",
+  "source_frozen": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "prior": "R762HE PR #2865@b539f214746af9bd40694f45f7b1198d093f25f6",
+  "model": "candidate Johnson J(6,2) eight unsigned outgoing named Ports per step, two signed Cell-shift branches per transition",
+  "rows": [
+    {
+      "m": 0,
+      "U": 1,
+      "H": 1,
+      "F": 1,
+      "Z": 1,
+      "hist": {
+        "1": 1
+      }
+    },
+    {
+      "m": 2,
+      "U": 8,
+      "H": 8,
+      "F": 8,
+      "Z": 16,
+      "hist": {
+        "2": 8
+      }
+    },
+    {
+      "m": 4,
+      "U": 288,
+      "H": 168,
+      "F": 168,
+      "Z": 624,
+      "hist": {
+        "2": 48,
+        "4": 96,
+        "6": 24
+      }
+    },
+    {
+      "m": 6,
+      "U": 17536,
+      "H": 4960,
+      "F": 4960,
+      "Z": 34688,
+      "hist": {
+        "2": 240,
+        "4": 1584,
+        "6": 864,
+        "8": 1320,
+        "12": 864,
+        "20": 88
+      }
+    },
+    {
+      "m": 8,
+      "U": 1118720,
+      "H": 177536,
+      "F": 177536,
+      "Z": 2413424,
+      "hist": {
+        "4": 9600,
+        "6": 19200,
+        "8": 33120,
+        "10": 7200,
+        "12": 47808,
+        "16": 18936,
+        "18": 7632,
+        "20": 4224,
+        "24": 23136,
+        "36": 2112,
+        "40": 4224,
+        "70": 344
+      }
+    }
+  ],
+  "finite_exhaustive_claim": "All ordered unsigned words of lengths 0,2,4,6,8 from Port 01; every admissible signed assignment for every parity-zero Port-return word",
+  "proof_all_length": "Z_m = constant term of (K(z)^m)[P*,P*] over Laurent polynomial semiring; K[P,Q]=z^(h_S)+z^(-h_S) for adjacent P,Q",
+  "runtime": "Local g++ C++17 -O3, assertions all PASS",
+  "review": "NOT_REVIEWED",
+  "native_primitive_admission": "UNRESOLVED",
+  "pending": "All-even-m parity saturation or minimal counterexample; typed primitive event permission; Activity and formal Progress requires current authorization"
+}
