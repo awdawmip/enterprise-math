@@ -1,0 +1,149 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "historical_researcher_id": "EM-X6-FB6990",
+  "historical_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "historical_claim_id": "MCP-e2bd88a10565daf08b1d46f5",
+  "historical_run_id": "RUN-b2c1fe16e9806ecf043c89a0",
+  "historical_generation_only": 2,
+  "current_protected_writer_authorization_verified": false,
+  "highest_author_frontier": 188,
+  "latest_unit": {
+    "unit": 188,
+    "status": "AUTHOR_PROVED / EXACT_BIGINT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+    "theorem": "Partition six named signed native X6 axes into k groups A with primitive event multiplicities r_A=|A|, and frozen source weighted capacities m'_A=sum_{i in A}m_i. The genuine weighted-field source coarsens as W_AB=sum_{i in A,j in B}Z_ij=m'_B C_A-m'_A C_B. Exact native signed BRC pushforward has Laurent generating function (sum_A r_A(y_A+y_A^{-1}))^n for ordered length-n primitive words; the grouped-field mass is its sum over all compatible coarse endpoints. The full coarse-field kernel rank over Z is 7-k; source grand total plus 6-k intra-group integer coordinates reconstructs full native endpoint. Source capacities m'_A are not primitive event multiplicities r_A.",
+    "explicit_counterexamples": [
+      "For unit original capacities, group sizes 2 and 4, n=3, coarse zero field contains 192 native signed words; full fine zero field has 0.",
+      "For m=(1,2,1,2,1,2), group A={1,2}: source group capacity m'_A=3 but actual one-step primitive word multiplicity is 2."
+    ],
+    "source_reuse": {
+      "genuine_frozen_producer": "src/enterprise_math/weighted_relation_field.py @ fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "actual_genuine_consumer": "coarsen_weighted_relation_field / merge_weighted_relation_field / recover_totals_from_weighted_field / split_two_block_totals_from_internal_relation",
+      "actual_test": "tests/test_weighted_relation_field.py @ fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "science_basis": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md @ 59538f585d037d09ef687b28715c4bc1a3f9fe03",
+      "novelty_boundary": "New exact X6 signed BRC aggregation theorem and explicit source-typed adapter. Existing Unit176/182/187 results consumed. Actual source functions inspected but test checker used source-equivalent independent formulas, not a direct production import."
+    },
+    "proof": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/X6_UNIT188_FROZEN_COARSEN_SIGNED_BRC_PUSHFORWARD_20261120.md",
+      "source_commit": "e9079f9c101870832a6f746ddf7cdcada5e49d62",
+      "git_blob_sha1": "77f4f51ea100142b4ed87288dc5ed4caa09f583c",
+      "sha256": "db3f461a1ae4707d031e21a0da2ea999bb2b84e16728126bbf95d6361d421c2f",
+      "readback_verified": true
+    },
+    "checker": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_checks/X6_UNIT188_FROZEN_COARSEN_BRC_PUSHFORWARD_CHECK_20261120.js",
+      "source_commit": "8fb069a8bbffbe0b5cb63a0e57ed4e4fd03fd4df",
+      "git_blob_sha1": "d3e6761b129511b3f142fc993442a8473963683c",
+      "sha256": "03438d1f35d8eb5504ab692f67fd9b8c8839012a4dcbbaa377ba43c3f9be6d78",
+      "readback_verified": true
+    },
+    "certificate": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_checks/X6_UNIT188_FROZEN_COARSEN_BRC_PUSHFORWARD_RESULTS_20261120.json",
+      "source_commit": "0a35bc952908aa2d2dd16982b0f0b36aa4ee553c",
+      "git_blob_sha1": "b906cdd0757d4c0c26c66bd8a925bdcf740cd7d9",
+      "sha256": "4514e9183693e11dde42938deb36ed20aa41c18faad72fbedce80b81771c5821",
+      "readback_verified": true
+    },
+    "source_ledger": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit188_delta.json",
+      "source_commit": "3e46d075e9964846b219c41b5714f8e5edf376fb",
+      "git_blob_sha1": "ff075686661ebf7e54f77686b8937202cdca5a36",
+      "sha256": "78ee86d0f77480113ccc3252006f13958ec1e4f9e74e0deb8cb7a325a299a180",
+      "readback_verified": true
+    },
+    "checks": {
+      "capacities": 3,
+      "partitions": 6,
+      "lengths": "0..6",
+      "coarse_field_exact_mass_comparisons": 30619,
+      "grouped_endpoint_states": 34032,
+      "source_equivalent_coarsen_comparisons": 186552,
+      "source_equivalent_grand_total_recovery": 186552,
+      "native_endpoint_states_at_length6": 6321,
+      "violations": 0,
+      "arithmetic": "JavaScript BigInt exact DP, two grouping routes",
+      "original_R063_benchmark_reexecuted": false
+    },
+    "formal_review": "UNREVIEWED / NOT_ADMITTED"
+  },
+  "prior_consumed": {
+    "unit187": "research_notes/X6_UNIT187_WEIGHTED_FIELD_EXACT_HORIZON_FIBER_20261120.md@42f83e3b5f50d756a0def2c777e83a1f740892e8",
+    "unit186": "research_notes/X6_UNIT186_EXACT_AFFINE_DEPTH_FIBER_INVERSION_20261120.md@2f3e5368023afc96f2f1cd0e4f2651e2a74eb163",
+    "unit180_181": "312 frozen tests and 60 archived notes already audited",
+    "unit176_185": "Author proofs, executable checks and source links already persisted, consumed as appropriate",
+    "original_R063": "research_notes/X6_R063_ORIGINAL_SIX_BLOB_NATIVE_REPLAY_20261116_0631_REPORT.md@0494585a4542a722d836c8e781d935ab9ca6ca96; 17/17 acceptance and 512/512 regression verified previously, not rerun"
+  },
+  "research_activity": {
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "event_id": "onhour-20261120-1531-x6-unit188-frozen-coarsen-brc-v1",
+    "event_count": 207,
+    "record_path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+    "source_commit": "c9cb2c15074e4ce00085b60234c7e2b1d9a28cc4",
+    "git_blob_sha1": "eebecd5cc65145be604b16b9f6a1461a532a4d2d",
+    "readback_verified": true,
+    "previous_events_preserved": true,
+    "source_readback_sidecars_written_and_verified": 4,
+    "source_semantic_authority": "Source Activity is bookkeeping, not Native semantic PROGRESS or formal Result"
+  },
+  "native_control": {
+    "last_authenticated_scientific_unit": 174,
+    "last_confirmed_source_commit": "71aa6b7f812c1a6dd746f9c21d31d3f1828d88ae",
+    "author_units_pending_native_semantic_progress": [
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188
+    ],
+    "old_author_units_historical_association_pending": [
+      149,
+      150,
+      151,
+      152
+    ],
+    "original_own_resume_request_id": "onhour-20261120-0812-x6-own-run-after174-resume-v1",
+    "original_own_resume_outcome": "SUCCEEDED/RUN_READY as observed 2026-11-20T00:20:55Z; historical, not fresh auth",
+    "latest_consumed_continuation_request_id": "onhour-20261120-1402-x6-current-exact-cont-read-v1",
+    "latest_consumed_continuation_outcome": "SUCCEEDED/TYPED_FRONTIER_REQUIRED historical read-only; source drift was recorded",
+    "fresh_same_lane_recovery_status": "NOT_VERIFIED_THIS_TURN; original exact requests not repeated",
+    "current_valid_private_writing_capability": "NOT_VERIFIED_FOR_THIS_TRUE_LANE",
+    "unit188_native_progress": "NOT_SUBMITTED",
+    "handoff_or_release": "NOT_ATTEMPTED_WITHOUT_VERIFIED_CURRENT_WINNING_OWNER",
+    "independent_driver_review": "UNREVIEWED / NOT_ADMITTED"
+  },
+  "unresolved": {
+    "LP011_historical_bad_native_argmax": "UNRESOLVED_PROVENANCE; exact offending commit:path:line and genuine typed consumer missing",
+    "LP019_historical_bad_positive_N_BRC_subtraction": "UNRESOLVED_PROVENANCE; exact offending commit:path:line and genuine typed consumer missing",
+    "native_semantic_association": "Old Units149-152 and author Units175-188 require valid current same-lane writer authorization",
+    "independent_driver_review": "UNREVIEWED / NOT_ADMITTED",
+    "scientific": "Use the frozen binary merge discarded scalar with an exact finite signed six-axis horizon; decide whether scalar suffices to restore a split and which path-provenance or intra-group relations remain necessary for future BRC operations. Retain precise loss witness. Check current task status before any privileged operation."
+  },
+  "do_not_repeat": [
+    "Original R063 native six-file benchmark already accepted with 17/17 and 512/512",
+    "Units1-187 published author mathematics/checker/checkpoints, Activity events and original known/unknown writes",
+    "Historical frozen 312 tests and 60 archival notes",
+    "Do not send writes using maintenance conversation_id or another Sites owner private profile"
+  ],
+  "next_exact_action": "Continue genuine frozen merge/discarded relation consumer; derive exact finite-horizon branch-provenance repair and discriminating minimal witness. Reconcile original same-lane Native requests by exact ID; only after fresh winning CLAIM/RUN check, attach pending author Units175-188 via one legitimate semantic publication with Source readback. Do not replay pending/failed mutations, do not dispatch around selector, do not modify schedule.",
+  "continuation_state": "OPEN"
+}
