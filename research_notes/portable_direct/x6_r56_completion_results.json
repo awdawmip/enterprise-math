@@ -1,0 +1,73 @@
+{
+  "schema": "X6_R56_GLOBAL_PORT_RADIUS_COMPLETION_V1",
+  "status": "PASS",
+  "scope": "conditional R44 positive named whole-triad BRC four-word observer; 23/100<=P<=1/4; rational sample checks, not independent review",
+  "named_polynomial_checks": 48,
+  "rational_q5_witnesses": [
+    {
+      "P": "101251/440000",
+      "s_5": "73/100",
+      "t_5": "5329/40000",
+      "eta": "94309/880000",
+      "residuals": [
+        "7/20",
+        "2/25",
+        "111909/220000",
+        "111909/220000"
+      ]
+    },
+    {
+      "P": "10152859/44000000",
+      "s_5": "731/1000",
+      "t_5": "534361/4000000",
+      "eta": "9549581/88000000",
+      "residuals": [
+        "69/200",
+        "19/250",
+        "11221581/22000000",
+        "11221581/22000000"
+      ]
+    },
+    {
+      "P": "26011/110000",
+      "s_5": "37/50",
+      "t_5": "1369/10000",
+      "eta": "26549/220000",
+      "residuals": [
+        "3/10",
+        "1/25",
+        "28749/55000",
+        "28749/55000"
+      ]
+    },
+    {
+      "P": "171/704",
+      "s_5": "3/4",
+      "t_5": "9/64",
+      "eta": "189/1408",
+      "residuals": [
+        "1/4",
+        "0",
+        "189/352",
+        "189/352"
+      ]
+    },
+    {
+      "P": "6859/27500",
+      "s_5": "19/25",
+      "t_5": "361/2500",
+      "eta": "8131/55000",
+      "residuals": [
+        "1/5",
+        "-1/25",
+        "7581/13750",
+        "7581/13750"
+      ]
+    }
+  ],
+  "exact_bound_checks": "PASS",
+  "theorem": "eta_crit(P)=2*sqrt(11P/19)-3/4+21P/38 on 23/100<=P<=1/4",
+  "other_port_proof": "q=1,2,3 and q>=8: contrast; q=6,7: positivity+residual contradictions; universal proof in manuscript",
+  "native_admission": "NOT_PROVED",
+  "independent_review": "NOT_REVIEWED"
+}
