@@ -1,0 +1,106 @@
+{
+  "schema": "R5_QI_N20_EVEN_T_GENERATOR_EXACT_V1",
+  "scientific_pin": {
+    "input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+    "predecessor_commit": "c1c16fe7df182411aa6985ef87ba53af3db4c300",
+    "model": "256 hypotheses, 101 prices 214..314; even thresholds m=2k"
+  },
+  "jet_order_in_s": 3,
+  "z_max": 96,
+  "generator": {
+    "numerator_coeff_ascending": [
+      {
+        "re": 0,
+        "im": 0
+      },
+      {
+        "re": 48482836880,
+        "im": -353679803
+      },
+      {
+        "re": 61597687970,
+        "im": -70268012604
+      },
+      {
+        "re": -98009801000,
+        "im": -123425946724
+      },
+      {
+        "re": -210955786886,
+        "im": 107859493748
+      },
+      {
+        "re": -1474163328,
+        "im": 299237536078
+      },
+      {
+        "re": 241786872358,
+        "im": 44049730764
+      },
+      {
+        "re": 80918962488,
+        "im": -184532034052
+      },
+      {
+        "re": -92380070722,
+        "im": -90839040004
+      },
+      {
+        "re": -20860776480,
+        "im": -123703595
+      }
+    ],
+    "denominator": "(1-t^2)^5*(1-i*t)^2",
+    "t": "t=z^2; m=2k"
+  },
+  "primitive_pole": {
+    "at": "t=-i",
+    "double_pole_coefficient": -71390,
+    "simple_pole_coefficient": {
+      "re": 1442320,
+      "im": -49940
+    },
+    "min_quasiperiod_in_k": 4,
+    "min_quasiperiod_in_even_m": 8
+  },
+  "checks": {
+    "prior_exact_gaussian_DP_m": [
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24
+    ],
+    "prior_regression": "PASS",
+    "determining_coefficients": 44,
+    "extra_held_out_coefficients": 5,
+    "common_denominator": "(1-t^4)^11",
+    "numerator_degree_bound": 43,
+    "polynomial_identity": "(1-t^4)^11*G=P(t)*(1-t^2)^6*(1-i*t)^9*(1+i*t)^11",
+    "symbolic_rational_identity": "PASS"
+  },
+  "new_generator_samples": {
+    "m26": {
+      "re": 615763508448,
+      "im": -5158246125
+    },
+    "m28": {
+      "re": 626726172000,
+      "im": 62591784560
+    }
+  },
+  "scope": "q=±i contribution N^20 at fixed even m; NOT global F_m(N) asymptotic, not X6 physical phase",
+  "status": "AUTHOR_SYMBOLIC_DERIVATION_EXACT_RATIONAL_CHECKED_NOT_REVIEWED",
+  "unresolved": [
+    "Independent reviewer review",
+    "Other q root first nonzero orders",
+    "Native control activity association requires real R5 session capability"
+  ]
+}
