@@ -1,0 +1,72 @@
+# X6 R60 — Positive-BRC tomography beyond matching collision networks: a three-Port trace obstruction and a complete finite motif observer
+
+Date: 2026-11-20 (Asia/Shanghai). Line: RS-X6-NATIVE-TIME-DYNAMICS. Scientific status: CONDITIONAL_AUTHOR_PROOF / EXACT_FINITE_AUTHOR_CHECK_PASS / NOT_INDEPENDENTLY_REVIEWED. This is portable independent research, not a native CLAIM, Result, review or Foundation promotion.
+
+## Provenance, hypotheses and typed boundary
+
+Continues R59 \`2026-11-20_x6_r59_matching_cycle_trace_tomography.md\` (file source commit \`95ccba00c8e4d4743202d6cbfb431a0fb3338271\`), itself following R57/R58. Scientific base remains the R59 frozen P000 V5 pin \`a72226e2430ffa4786321ac86e7f0c599d5f0389\`. Current account/global/project rules were read separately and do not alter that pin. P000's six native spatial axes, independent time, triadic primitive balance and three-dimensional slice conditions remain unchanged.
+
+Fix known integer p>=1, common named Port set I={0,...,p-1}, sources A and B, fixed strictly positive Port-independent event weights u,v, and an arbitrary blocked directed incidence relation C subset I x I. Define the permitted full-source AB positive-BRC branch table S_(ij)=1 if (i,j) is not blocked and 0 otherwise. Every successful AB branch has mass uv; failed branches contribute no positive mass. Independent reset trials share exactly the same incidence S and stable simultaneous Port naming. Cross-trial equalities and inequalities of Port labels are explicit **additional observer hypotheses**, not a proven native X6 interface. All products below are sums/counts of explicitly permitted named positive BRC branches, not amplitudes, signed cancellation, continuum evolution or physical heartbeat ticks.
+
+R59's permutation-matching hypothesis (one blocked pair in every row and column) is now **removed**. For arbitrary blocked C, trace-chain masses M_k=(uv)^k tr(S^k) remain well-defined positive-branch closed-word counts, but their structural completeness changes.
+
+## R60.1: minimal three-Port counterexample against all closed-chain trace observations
+
+Take p=3, with rows i and columns j in order 0,1,2, and two allowed-success tables
+
+\`\`\`
+S_A = [ [1,0,0], [1,0,1], [1,1,1] ]
+S_B = [ [0,1,0], [1,1,0], [1,1,1] ]
+\`\`\`
+
+The corresponding blocked-edge sets are
+C_A={(0,1),(0,2),(1,1)};
+C_B={(0,0),(0,2),(1,2)}.
+
+Each blocked relation has three edges and the same separate-side blocked out-degree and in-degree multisets {0,1,2}. Both success tables have the same positive closed-branch trace sequence beginning L_1=2, L_2=4, L_3=5. Their exact characteristic polynomial is \`lambda^3 - 2 lambda^2 + 1\`; by the ordinary finite **bookkeeping identity** for powers of these exact 0/1 branch tables (equivalently Newton identities / Cayley–Hamilton on these finite integer count arrays), their L_k agree for **every integer k>=1**. This auxiliary count-array identity is not used as a physical propagation law.
+
+Nevertheless the blocked graphs are not related by any simultaneous relabelling of I: each graph has exactly one blocked loop. In C_A its unique loop vertex is 1 with blocked out-degree 1; in C_B the unique loop vertex is 0 with blocked out-degree 2. This property is invariant under simultaneous renaming.
+
+Thus even **all positive-BRC closed-chain traces**, the blocked-edge total, and the separate in/out degree multisets fail to reconstruct general collision geometry. This is an information-loss witness within the stated model, not a native X6 residual-energy claim.
+
+It is minimal in p for these declared observations: exhaustive exact finite enumeration of 2 (p=1) and 16 (p=2) possible binary success tables found no pair with identical edge total, separate in/out degree multisets and first p trace counts in different simultaneous-renaming orbits. For p=2, Cayley–Hamilton likewise makes the first two traces sufficient for later traces; the minimality claim is a proved finite exhaustive scope, not a general asymptotic assertion.
+
+## R60.2: a two-trial positive witness separating the counterexample
+
+Define r_i=sum_j S_(ij), the number of successful AB choices in row i. Use two reset AB trials: the first is (i,j) with arbitrary j; the second is (i,i), constrained by equality of both trials' first-source Port and by equality of the second trial's two Port labels. Total positive BRC mass is
+
+\`\`\`
+Q(S)=(uv)^2 sum_i r_i S_(ii).
+\`\`\`
+
+The named branches yield Q(S_A)=4(uv)^2 and Q(S_B)=5(uv)^2. This 1*(uv)^2 gap is the precise information lost under trace-only compression. The observation uses only successful AB branches and cross-trial Port relations; it never requires positive mass from a blocked event.
+
+## R60.3: full finite orbit reconstruction from positive motifs
+
+For any directed 0/1 success template F on p abstract Port labels, let m(F) be its number of successful ordered pairs. Use m(F) independent reset AB trials constrained so that each template vertex corresponds to one of p pairwise distinct actual Port labels, the **same** assignment for A and B, and each template edge (i,j) samples success at (phi(i),phi(j)). Define the normalized positive-only motif mass
+
+\`\`\`
+H_F(S) = sum_(phi in Sym(I)) product_((i,j) in E(F)) S_(phi(i),phi(j)).
+\`\`\`
+
+The actual positive-BRC mass is (uv)^m(F) H_F(S); for an empty edge set the product equals 1. For every p, every two 0/1 success relations F,S with the **same** edge count m, we have
+
+\`\`\`
+H_F(S) > 0   iff   F and S are isomorphic under one simultaneous relabelling.
+\`\`\`
+
+Proof: every summand is 0 or 1. A positive summand gives a bijection phi which sends the m success edges of F into the m success edges of S. Equal finite cardinalities force equality of the two edge sets, hence a simultaneous conjugation of the full relation. Conversely an isomorphism supplies a positive summand. No sign cancellation, graph-spectrum inference, absent-edge probe or analytical approximation enters this proof.
+
+Consequently the family {H_F(S) : F ranges over p-vertex directed success tables with exactly m edges} is a complete simultaneous-Port-relabelling invariant for arbitrary C. A single table-dependent template F=S gives a positive self-witness, while comparison with another table S' of equal m yields zero exactly when the two are nonisomorphic. It is a **finite upper-bound observer** requiring at most m<=p^2 independent successful AB trials; no optimality of trial budget or feasible native reset is claimed. A compact equivalent generating object is the degree-m part of the positive orbit polynomial \`sum_phi product_(i,j) (1+x_ij S_(phi(i),phi(j)))\`: its top-degree monomials enumerate the simultaneous-renaming orbit.
+
+The edge count m itself is measured by T=Z(AB)=m uv once u,v are known (or inferred using U=pu,V=pv when p is independently known). Unlike the permutation-matching R59 model, arbitrary C does not determine p from U,V,T alone without additional parameters/observations; R60 assumes p known or separately identifiable.
+
+## Author check and reproduction
+
+Companion source: \`research_notes/portable_direct/x6_r60_positive_brc_graph_probe_verify.py\`; result JSON: \`research_notes/portable_direct/x6_r60_positive_brc_graph_probe_results.json\`. Integer-only branch arithmetic, no external numerical or classical comparison. Exhaustively enumerate p=1,2,3 all 2^(p^2) allowed-success arrays (2,16,512), compute positive chain counts, separate degree profiles and simultaneous relabelling orbits; test every pair of orbit representatives with equal number of success edges against the positive motif indicator. For p=3 there are 104 simultaneous-renaming orbits and the trace/degree signature has colliding orbits. The explicit matrices above have the claimed trace prefix and Q masses. The general p motif statement is proved by finite set inclusion/cardinality and does not rely on the finite test. No independent proof review, native reset admission or physical empirical test performed.
+
+## Next problem and admission boundary
+
+(1) Determine a **smaller complete positive-BRC motif family** for structured collision networks, potentially bounded-degree Cell/Link incidence, with stated trial/port-equality cost; a sharp counterexample to any proposed compression is valuable. (2) For the frozen P000 native \`TRIADIC_CLOSURE_E\` whole-triad events, explicitly test the existence of faithful Cell/Link/Port-to-source branch maps, repeatable same-incidence reset and a physically admissible cross-trial equality predicate. Preserve origin and order; failure of this map limits the interpretation, not the exact conditional combinatorics.
+
+Control observation: native read request \`r2-20261120-2110-x6-latest-cont-v1\` returned SUCCEEDED; its snapshot showed no live owner and \`execution_authorized=false\`, with typed continuation needed for formal action. Its source changed between admission and completed read, so any protected future write needs a fresh own authorization. The historical Researcher \`EM-X6-214D9C\` and Activity \`RA-545183ADD4EF71C3E4698AEE\` are preserved as predecessor provenance, not proof that the current tool subject owns their private execution capability. No CLAIM, PROGRESS, Activity overwrite or formal admission in this publication.
