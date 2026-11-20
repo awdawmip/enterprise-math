@@ -1,0 +1,97 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-20",
+  "unit": 176,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "actual_frozen_source_chain": [
+    {
+      "path": "src/enterprise_math/weighted_relation_field.py",
+      "blob": "e50bf991e4dc4280063556a7aad1028f9f9404ed",
+      "role": "producer"
+    },
+    {
+      "path": "src/enterprise_math/a3_a4_support_bridge.py",
+      "blob": "ee66d0f6d9846171ff732204d5337fb3c0087d75",
+      "lines": "29-35,155-201",
+      "role": "real production consumer"
+    },
+    {
+      "path": "tests/test_a3_a4_support_bridge.py",
+      "blob": "dd0c64af456c26ddfb51e4e0c7b74c9314c44728",
+      "lines": "52-61",
+      "role": "genuine existing test consumer"
+    }
+  ],
+  "new_exact_theorem": "Let mu=CU/MU-CV/MV and delta_ij=Zij/(mi*mj); alpha=max(delta_ij-mu),beta=max(mu-delta_ij). For r>=0 coarse iff |mu|<=r; all fine iff -r+beta<=mu<=r-alpha. Fixed coarse capacities/totals/field do not decide fine support.",
+  "witness": {
+    "m": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "c": [
+      "t",
+      "-t",
+      0,
+      0
+    ],
+    "U": [
+      0,
+      1
+    ],
+    "V": [
+      2,
+      3
+    ],
+    "r": "any nonnegative integer",
+    "t": "r+1",
+    "coarse_totals": [
+      0,
+      0
+    ],
+    "coarse_field": 0,
+    "fine_field_cross": "[[t,t],[-t,-t]]"
+  },
+  "validation": {
+    "states": 50625,
+    "radius_cases": 202500,
+    "coarse_true_fine_false": 47964,
+    "coarse_true": 145416,
+    "fine_true": 97452,
+    "violations": 0,
+    "normal_O_OO_identical": true
+  },
+  "lp011_offender": "UNRESOLVED_PROVENANCE",
+  "lp019_offender": "UNRESOLVED_PROVENANCE",
+  "scope": "DERIVED_A3_A4_RELATION_SUPPORT_ONLY_NOT_NATIVE_X6_BRC",
+  "evidence": [
+    {
+      "path": "research_notes/X6_UNIT176_A3_A4_COARSE_SUPPORT_EXACT_RESIDUAL_FIBER_20261120.md",
+      "commit": "7010adb82f9ef9d88dcb7df9ab0f29c485a4b64f",
+      "blob": "3f855ec4953593d0de455c880940879a7d8a4cf1"
+    },
+    {
+      "path": "research_checks/X6_UNIT176_A3_A4_COARSE_SUPPORT_FIBER_CHECK_20261120.py",
+      "commit": "3e21aae50bfdc4cba2bfbe8df1989a45ebabb370",
+      "blob": "172d3df299dcc01bfedb0ca0bd76d24c699f7e83"
+    },
+    {
+      "path": "research_checks/X6_UNIT176_A3_A4_COARSE_SUPPORT_FIBER_RESULTS_20261120.json",
+      "commit": "ec5b248dc009503a31476169bd8335863d475d1c",
+      "blob": "22e7cdbad166459b0311c4cca79f0be2464186d0"
+    }
+  ],
+  "remaining": [
+    "Unit175+176 native association",
+    "Units149-152 native semantic association",
+    "28-LP uninspected real consumers",
+    "LP011/LP019 exact offending historical source",
+    "independent Driver review"
+  ]
+}
