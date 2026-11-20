@@ -1,0 +1,46 @@
+{
+  "schema": "X6_UNIT183_RELATIVE_PRIMITIVE_TRACE_CHECK_V1",
+  "arithmetic": "exact signed integers, deterministic exhaustive finite cases",
+  "frozen_science_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "model": "Z^6, +/-e_i, can6, h=min(z)",
+  "canonical_box": "min(a)=0, each a_i in {0,1,2}",
+  "box_states": 665,
+  "observed_successor_pairs": 7980,
+  "depth_translation_tests": 23940,
+  "nonzero_depth_moves": 1650,
+  "trace_limit": 4,
+  "initial_depths": [
+    -2,
+    3
+  ],
+  "traces_checked": 45242,
+  "trace_steps_checked": 45240,
+  "positive_diagonal_cycle": {
+    "length": 6,
+    "relative_returns": true,
+    "native_common_depth_increment": 1
+  },
+  "absolute_sign_selector_counterexample": {
+    "z0": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "z1": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "from_same_relative_zero": true,
+    "successors_unequal": true
+  },
+  "violations": 0,
+  "scope": "Finite tests corroborate a separately written universal integer proof; no native R063 benchmark or original runtime executed",
+  "conclusion": "SOURCE_AUTHOR_EXACT_CHECKED_NOT_INDEPENDENTLY_REVIEWED"
+}
