@@ -1,0 +1,24 @@
+{
+  "schema": "EM_R284BN_EXACT_3_VERTEX_GRAPH_CHECK_V1",
+  "date": "2026-11-20",
+  "arithmetic": "exact integer polynomial coefficient dictionaries",
+  "checker": "research_notes/portable_direct/R284BN_connected_three_vertex_port_checker.py",
+  "predecessor_checker": "research_notes/portable_direct/R284BM_connected_port_graph_checker.py",
+  "results": {
+    "H=2": {
+      "oriented_trees": 12,
+      "matrices_per_tree": 512,
+      "checked_signatures": 6144,
+      "all_injective": true
+    },
+    "H=3": {
+      "oriented_trees": 12,
+      "matrices_per_tree": 19683,
+      "checked_signatures": 236196,
+      "all_injective": true
+    }
+  },
+  "status": "PASS",
+  "scope": "All n=3 oriented spanning trees; complete C populations for H=2,3 only. General positive rational n=3 case author-proved algebraically.",
+  "review": "NOT_REVIEWED"
+}
