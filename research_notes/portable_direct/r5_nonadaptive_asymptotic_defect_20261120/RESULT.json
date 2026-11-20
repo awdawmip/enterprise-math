@@ -1,0 +1,99 @@
+{
+  "schema": "EM_R5_NONADAPTIVE_RARE_WITNESS_ASYMPTOTIC_AUTHOR_VALIDATION_V1",
+  "date": "2026-11-20",
+  "status": "AUTHOR_SYMBOLIC_PROOF_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "input": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+    "file": "EXACT_R5_ALL_101_BUDGETS.json",
+    "sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+    "frozen_input_archive_bytes_verified": true
+  },
+  "validation": {
+    "method": "independent five-bit coverage-mask exact integer DP, not predecessor rational factoring",
+    "m": 1,
+    "N_start": 0,
+    "N_end": 1800,
+    "unique_valid_cost_735": true,
+    "previous_m1_coefficients_D425_to_D430_match": true,
+    "original_five_minimal_witness_sets_match": true,
+    "laurent_factors_product_degree_6_exact": true,
+    "finite_samples": {
+      "735": {
+        "U": 768,
+        "valid": 1,
+        "defect": 767,
+        "smallest_witness_failure": 547
+      },
+      "1160": {
+        "U": 38442,
+        "valid": 0,
+        "defect": 38442,
+        "smallest_witness_failure": 16694
+      },
+      "1162": {
+        "U": 40676,
+        "valid": 1,
+        "defect": 40675,
+        "smallest_witness_failure": 17378
+      },
+      "1165": {
+        "U": 44361,
+        "valid": 18,
+        "defect": 44343,
+        "smallest_witness_failure": 18606
+      },
+      "1500": {
+        "U": 4953405,
+        "valid": 724532,
+        "defect": 4228873,
+        "smallest_witness_failure": 2771965
+      },
+      "1800": {
+        "U": 109153327,
+        "valid": 20205401,
+        "defect": 88947926,
+        "smallest_witness_failure": 67485223
+      }
+    }
+  },
+  "theorem_constants": {
+    "total_price_count": 101,
+    "cardinalities": [
+      5,
+      7,
+      7,
+      68,
+      17
+    ],
+    "S1": 26664,
+    "S2": 7125146,
+    "S4": 526642516946,
+    "S6": 40586436142782380,
+    "smallest_witness_price_sum": 1080,
+    "complement_price_sum": 25584,
+    "complement_price_product": "prod(219..314)",
+    "leading_failure_coefficient": "binom(m+4,5)/(95!*prod(219..314))",
+    "next_failure_coefficient": "(12792*binom(m+4,5)-1080*binom(m+4,6))/(94!*prod(219..314))",
+    "examples": {
+      "m1": {
+        "B": 1,
+        "C": 0,
+        "N94_numerator": 12792
+      },
+      "m2": {
+        "B": 6,
+        "C": 1,
+        "N94_numerator": 75672
+      },
+      "m3": {
+        "B": 21,
+        "C": 7,
+        "N94_numerator": 261072
+      }
+    }
+  },
+  "scope": "fixed integer m>=1, D->infinity; scalar nonadaptive unordered query multisets; no native X6 or BRC transfer",
+  "review": "NOT_REVIEWED",
+  "next_question": "N^93 contribution from the two overlapping seven-label witnesses and their intersections"
+}
