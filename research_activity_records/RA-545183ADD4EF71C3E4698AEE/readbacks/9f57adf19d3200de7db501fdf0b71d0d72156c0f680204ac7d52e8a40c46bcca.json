@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/x6_r55_post_rho_global_radius_results.json",
+    "ref": "e435ad7c56750f4c3c86814ea8b4592e16c0d192",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r2-x6-r55-20261120-3",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"X6_R55_POST_RHO_GLOBAL_PORT_AMBIGUITY_V1\",\n  \"status\": \"PASS\",\n  \"theorem_scope\": \"R44 conditional named whole-triad positive-BRC four-word observer, true p=4, S=1, rho<=P<=23/100; shared unknown bias and per-channel absolute error\",\n  \"rho\": \"(7601-100*sqrt(5497))/882\",\n  \"sigma\": \"(6821-95*sqrt(4873))/882\",\n  \"upper_P\": \"23/100\",\n  \"radius_regime_I\": \"sqrt((16P-3)/5)/4 for rho<=P<=sigma\",\n  \"radius_regime_II\": \"2*sqrt(11P/19)-3/4+21P/38 for sigma<=P<=23/100\",\n  \"named_branch_polynomial_checks\": 32,\n  \"rational_parameter_witnesses\": 8,\n  \"exact_root_sign_brackets\": {\n    \"rho\": [\n      \"21181/100000\",\n      \"21183/100000\"\n    ],\n    \"sigma\": [\n      \"21467/100000\",\n      \"21469/100000\"\n    ]\n  },\n  \"finite_rival_bounds_checked_per_sample\": [\n    2,\n    3,\n    6,\n    7,\n    8,\n    20,\n    100\n  ],\n  \"symbolic_coverage\": \"Proof in accompanying markdown handles all real P in closed interval, all positive competing weights and every integer q !=4; this finite test does not replace the proof\",\n  \"independent_review\": \"NOT_REVIEWED\",\n  \"native_p000_R_T_admission\": \"UNPROVED_CONDITIONAL_GRAMMAR\"\n}\n",
+      "display_title": "x6_r55_post_rho_global_radius_results.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/e435ad7c56750f4c3c86814ea8b4592e16c0d192/research_notes/portable_direct/x6_r55_post_rho_global_radius_results.json",
+      "encoding": "utf-8",
+      "sha": "5951cd24dc59ceecdc02b9709d728926082c4f42"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
