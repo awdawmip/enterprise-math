@@ -1,0 +1,74 @@
+{
+  "schema": "X6_UNIT188_COARSEN_NATIVE_BRC_PUSHFORWARD_CHECK_V1",
+  "scientific_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_source_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "counts": {
+    "capacity_vectors": 3,
+    "partitions": 6,
+    "horizons": 7,
+    "coarse_field_fibers": 30619,
+    "grouped_endpoint_states": 34032,
+    "production_coarsen_checks": 186552,
+    "source_total_recovery_checks": 186552,
+    "grouped_vs_native_disagreements": 0,
+    "coarsen_source_disagreements": 0,
+    "total_mass_violations": 0,
+    "maximum_native_states": 6321
+  },
+  "explicit_witness": {
+    "M": 3,
+    "capacities": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "partition": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "coarse_capacities": [
+      2,
+      4
+    ],
+    "primitive_group_multiplicities": [
+      2,
+      4
+    ],
+    "coarse_field": "0",
+    "coarse_zero_field_native_path_count": "192",
+    "full_fine_zero_field_native_path_count": "0",
+    "coarse_zero_field_lifts": [
+      [
+        1,
+        2
+      ],
+      [
+        -1,
+        -2
+      ]
+    ],
+    "paths_per_lift": "96"
+  },
+  "nonuniform_capacity_vs_branch_multiplicity": {
+    "native_group_A_plus_paths": "2",
+    "incorrect_using_coarse_capacity": "3",
+    "actual_group_multiplicity": 2,
+    "coarse_capacity": 3
+  },
+  "primitive_event_model": "12 directed signed unit axes on chosen X6 Cell chart",
+  "original_R063_benchmark_rerun": false,
+  "real_frozen_production_module_directly_imported": false,
+  "author_check_status": "FINITE_EXACT_BIGINT_DP_CROSSCHECK; NOT_INDEPENDENT_REVIEW",
+  "violations": 0
+}
