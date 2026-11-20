@@ -1,0 +1,61 @@
+{
+  "schema": "PREFIX951_DIAGONAL_CORE_SATURATION_Q19_V1",
+  "small_bruteforce": {
+    "bit_widths": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "odd_core_range": "1..(2^(bits+1)-1)",
+    "test_cases": 504,
+    "max_bit_width": 8,
+    "all_direct_i_j_positive_quotient_tests_match": true,
+    "rescue_case_bits7_core63_a65": 4030
+  },
+  "Q19": {
+    "all_odd_core_max": 8191,
+    "core_count": 4096,
+    "exception_count": 2051,
+    "universally_covered_diagonal_pairs": 129021,
+    "at_most_one_core_missing_per_diagonal": true,
+    "exception_values_first_16": [
+      262201,
+      262207,
+      262217,
+      262277,
+      262315,
+      262333,
+      262363,
+      262451,
+      262483,
+      262543,
+      262655,
+      262657,
+      262801,
+      262877,
+      262887,
+      262899
+    ],
+    "exception_values_last_16": [
+      521577,
+      521817,
+      521967,
+      522097,
+      522175,
+      522255,
+      522257,
+      522303,
+      522401,
+      522481,
+      522483,
+      523111,
+      523561,
+      523611,
+      523901,
+      524287
+    ]
+  }
+}
