@@ -30,7 +30,7 @@ The different native Cell displacements have **identical augmented relative obse
 They are in one diagonal class because `B_m-A_m=4md`; no quotient is being asserted on native Cell identity. Their native signed BRC counts are
 
 \[
-B(A_m)=\frac{(6m)!}{((3m)!)^2},\q\quad
+B(A_m)=\frac{(6m)!}{((3m)!)^2},\qquad
 B(B_m)=\frac{(6m)!}{(m!)^2(4m)!}.
 \]
 
@@ -55,8 +55,8 @@ Subtracting `3/2` leaves
 
 \[
 \frac{3m(115m^3+166m^2+71m+8)}
-{8(m+1)(2m+1)(4m+1)(4m+3)}ge0
-\q\quad(m\ge0).
+{8(m+1)(2m+1)(4m+1)(4m+3)}\ge0
+\qquad(m\ge0).
 \]
 
 Thus `R_{m+1}>=3R_m/2` and induction proves the claimed bound, with `R_1=3/2`. All formulas are exact integer/rational identities. The leading exponential growth rate is `729/256` by Stirling, but the elementary lower bound suffices for the no-uniform-approximation theorem.
