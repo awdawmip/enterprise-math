@@ -1,0 +1,33 @@
+{
+  "schema": "EM_R284BO_DIRECTED_PATH_COEFFICIENT_CHECK_V1",
+  "date": "2026-11-20",
+  "arithmetic": "exact integer polynomial coefficients / integer product signatures",
+  "checker": "research_notes/portable_direct/R284BO_directed_path_coefficient_checker.py",
+  "dependency": "research_notes/portable_direct/R284BM_connected_port_graph_checker.py",
+  "coefficient_checks": {
+    "2": {
+      "matrices_tested": 16,
+      "path_coefficients_checked": 16,
+      "all_match": true
+    },
+    "3": {
+      "matrices_tested": 512,
+      "path_coefficients_checked": 1536,
+      "all_match": true
+    },
+    "4": {
+      "matrices_tested": 72,
+      "path_coefficients_checked": 432,
+      "all_match": true
+    },
+    "5": {
+      "matrices_tested": 12,
+      "path_coefficients_checked": 120,
+      "all_match": true
+    }
+  },
+  "n4_H2_recovery_signatures": 65536,
+  "status": "PASS",
+  "review": "NOT_REVIEWED",
+  "scope": "Exact identity checks complete for n2,n3 binary; seeded n4/n5 examples; n4 binary full recovery signature distinct. General proof is by unique Leibniz term."
+}
