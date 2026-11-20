@@ -1,0 +1,15 @@
+# X6CM two-prime actual short-ball overlap benchmark (exploratory, 2026-11-20)
+
+Task context: X6CM-SHORT-BALL-OVERLAP-GROWTH-20260917 / TP2-7BA79BDB4A90F0E9D88D. Original X6CM checkpoint13 and frozen 4 seed locks/composite semantics remain unchanged. Researcher contribution is separate from the original author's identity. Status: NOT_REVIEWED; this is not the conditioned-good-seed global theorem.
+
+Let distinct primes p,q satisfy p mod 7, q mod 7 in {3,5}, let N=pq, k=floor(log2(N)), gamma=3/8, R=N^(1/6)/(sqrt(42)*k^gamma), B=floor(R^2), and suppose 2B < min(p,q). W_B consists of actual nonzero primitive integral v in Z^6 with Q(v)=sum(v_i^2)<=B, identified by +/- with original vector and both reductions retained. Let t=|W_B|. In the AUXILIARY MODEL choose independent uniform nonzero projective dual functionals at each of the first-level six-dimensional F_p and F_q blocks, NOT the geometrically conditioned seed subsets.
+
+Theorem: all distinct W_B classes remain distinct projective lines modulo p and q, and their local reductions are nonzero. For r in {p,q} define a_r=(r^5-1)/(r^6-1), b_r=(r^4-1)/(r^6-1). Then marginal P(E_v)=a_p a_q, pair P(E_v&E_w)=b_p b_q, exact first moment mu=t*a_p*a_q and pair sum S2=t*(t-1)/2*b_p*b_q. Bonferroni: mu-S2 <= P(union of E_v) <= mu.
+
+Proof: For primitive v,w of squared length <=B, every 2x2 minor is integer with |minor|<=||v||||w||<=B<r. Mod-r dependence would force all minors zero, hence rational proportionality and v=+/-w, contrary to different classes. Nonzero coordinates persist since sqrt(B)<r. Counting projective dual hyperplanes killing s independent vectors in F_r^6 gives (r^(6-s)-1)/(r^6-1), for s=1,2. Independent prime choices finish.
+
+For balanced p,q -> infinity within these congruence classes, R->infinity, t ~ pi^3*R^6/(12*zeta(6)) by primitive Z^6 Euclidean ball counting and sign quotient. Then mu ~ pi^3/(12*zeta(6)*42^3) * k^(-9/4) and S2/mu ~ mu/2 ->0, so P(union)/mu ->1 IN THIS AUXILIARY FULL-PROJECTIVE FIRST-LEVEL MODEL. The actual geometrically conditioned G_p/G_q, mixed prime-power layers and full frozen X6 observer are open, and this auxiliary sharpness is NOT a global overlap no-go.
+
+Standalone exact-integer Python regression (locally run, available in original workspace /mnt/data/em_backlog_20261120/check_x6cm_two_prime_shortball.py; sha256 5cdc3ed2ebbeb70df3d954e03a3e193e2da43379049854bc22f1fd952d7df3ca) enumerated primitive signed witnesses and checked pair rank mod both primes: (p,q,k,B,t,pair_checks,S2/mu)=(100019,100049,33,3,116,6670,5.7460921224e-9),(500029,500041,37,9,2056,2112540,4.1094246610e-9),(1000037,1000039,39,15,9728,0,4.8631303951e-9). The third pair rank follows from the proven minor bound, not 47 million pair enumeration. Exact fractions are in local result JSON sha256 213c83a60081de6de9c155d005efed2f3a0906cd03749648b11b4c651504e5f1.
+
+Next discrimination: count actual observer-safe incidence within conditioned G_p,G_q and CRT-mixed higher levels while retaining provenance and four seed locks. Stage only: NO CLAIM, no source publication, no review.
