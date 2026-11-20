@@ -1,0 +1,274 @@
+{
+  "schema": "X6_TIME_DISJOINT_GUARDED_SOURCE_TRACE_CERT_V1",
+  "model": "m disjoint independent one-shot sources, 3 labeled ports/source; q_i=-1 unused or 0,1,2 chosen port; no physical admissibility claim",
+  "arithmetic": "exact Python integers; no floating-point tests",
+  "formulae": {
+    "configuration_layer": "binomial(m,k)*3^k",
+    "ordered_prefix_layer": "binomial(m,k)*3^k*k!",
+    "configuration_total": "4^m",
+    "future_equivalence_classes": "2^m",
+    "history_classes": "sum_{k=0}^m binomial(m,k)*3^k*k!"
+  },
+  "dp_rows": [
+    {
+      "m": 1,
+      "config_counts": [
+        1,
+        3
+      ],
+      "trace_counts": [
+        1,
+        3
+      ],
+      "total_configs": 4,
+      "total_traces": 4,
+      "future_state_classes": 2,
+      "future_bits": 1,
+      "current_port_classes": 4,
+      "port_bits": 2,
+      "history_bits": 2
+    },
+    {
+      "m": 2,
+      "config_counts": [
+        1,
+        6,
+        9
+      ],
+      "trace_counts": [
+        1,
+        6,
+        18
+      ],
+      "total_configs": 16,
+      "total_traces": 25,
+      "future_state_classes": 4,
+      "future_bits": 2,
+      "current_port_classes": 16,
+      "port_bits": 4,
+      "history_bits": 5
+    },
+    {
+      "m": 3,
+      "config_counts": [
+        1,
+        9,
+        27,
+        27
+      ],
+      "trace_counts": [
+        1,
+        9,
+        54,
+        162
+      ],
+      "total_configs": 64,
+      "total_traces": 226,
+      "future_state_classes": 8,
+      "future_bits": 3,
+      "current_port_classes": 64,
+      "port_bits": 6,
+      "history_bits": 8
+    },
+    {
+      "m": 4,
+      "config_counts": [
+        1,
+        12,
+        54,
+        108,
+        81
+      ],
+      "trace_counts": [
+        1,
+        12,
+        108,
+        648,
+        1944
+      ],
+      "total_configs": 256,
+      "total_traces": 2713,
+      "future_state_classes": 16,
+      "future_bits": 4,
+      "current_port_classes": 256,
+      "port_bits": 8,
+      "history_bits": 12
+    },
+    {
+      "m": 5,
+      "config_counts": [
+        1,
+        15,
+        90,
+        270,
+        405,
+        243
+      ],
+      "trace_counts": [
+        1,
+        15,
+        180,
+        1620,
+        9720,
+        29160
+      ],
+      "total_configs": 1024,
+      "total_traces": 40696,
+      "future_state_classes": 32,
+      "future_bits": 5,
+      "current_port_classes": 1024,
+      "port_bits": 10,
+      "history_bits": 16
+    },
+    {
+      "m": 6,
+      "config_counts": [
+        1,
+        18,
+        135,
+        540,
+        1215,
+        1458,
+        729
+      ],
+      "trace_counts": [
+        1,
+        18,
+        270,
+        3240,
+        29160,
+        174960,
+        524880
+      ],
+      "total_configs": 4096,
+      "total_traces": 732529,
+      "future_state_classes": 64,
+      "future_bits": 6,
+      "current_port_classes": 4096,
+      "port_bits": 12,
+      "history_bits": 20
+    },
+    {
+      "m": 7,
+      "config_counts": [
+        1,
+        21,
+        189,
+        945,
+        2835,
+        5103,
+        5103,
+        2187
+      ],
+      "trace_counts": [
+        1,
+        21,
+        378,
+        5670,
+        68040,
+        612360,
+        3674160,
+        11022480
+      ],
+      "total_configs": 16384,
+      "total_traces": 15383110,
+      "future_state_classes": 128,
+      "future_bits": 7,
+      "current_port_classes": 16384,
+      "port_bits": 14,
+      "history_bits": 24
+    },
+    {
+      "m": 8,
+      "config_counts": [
+        1,
+        24,
+        252,
+        1512,
+        5670,
+        13608,
+        20412,
+        17496,
+        6561
+      ],
+      "trace_counts": [
+        1,
+        24,
+        504,
+        9072,
+        136080,
+        1632960,
+        14696640,
+        88179840,
+        264539520
+      ],
+      "total_configs": 65536,
+      "total_traces": 369194641,
+      "future_state_classes": 256,
+      "future_bits": 8,
+      "current_port_classes": 65536,
+      "port_bits": 16,
+      "history_bits": 29
+    }
+  ],
+  "independent_DFS_rows": [
+    {
+      "m": 1,
+      "enumerated_ordered_prefixes": 4,
+      "distinct_configurations": 4,
+      "future_signatures": 2
+    },
+    {
+      "m": 2,
+      "enumerated_ordered_prefixes": 25,
+      "distinct_configurations": 16,
+      "future_signatures": 4
+    },
+    {
+      "m": 3,
+      "enumerated_ordered_prefixes": 226,
+      "distinct_configurations": 64,
+      "future_signatures": 8
+    },
+    {
+      "m": 4,
+      "enumerated_ordered_prefixes": 2713,
+      "distinct_configurations": 256,
+      "future_signatures": 16
+    },
+    {
+      "m": 5,
+      "enumerated_ordered_prefixes": 40696,
+      "distinct_configurations": 1024,
+      "future_signatures": 32
+    }
+  ],
+  "m2_witness": {
+    "trace_A": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "trace_B": [
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "same_configuration": [
+      0,
+      1
+    ],
+    "different_order": true
+  },
+  "mismatch_count": 0
+}
