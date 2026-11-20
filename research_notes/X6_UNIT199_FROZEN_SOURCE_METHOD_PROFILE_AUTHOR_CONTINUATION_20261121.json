@@ -1,0 +1,102 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "historical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "latest_author_unit": 199,
+  "latest_author_status": "AUTHOR_SOURCE_AUDITED / EXACT_SOURCE_PYTHON_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+  "latest_evidence": {
+    "unit198_consumed": "research_notes/X6_UNIT198_PINNED_WEIGHTED_BRC_COEFFICIENT_DP_20261121.md@a9765091f6c9b938a8e96a0f2ea6e1fcb9e8d47d",
+    "unit199_proof_source_audit": {
+      "commit": "a6b3f43a6de2dd6c7672eccdbb6a7a8bbac8766d",
+      "path": "research_notes/X6_UNIT199_FROZEN_SIGNED_BRC_CONSUMER_AND_RUNTIME_AUDIT_20261121.md",
+      "blob": "88caac6cb18053dba7f92ce9b529e2e53d4c4a60"
+    },
+    "unit199_reproducer": {
+      "commit": "151b02e822aee7559c16015e1b34c022cc7bdf8c",
+      "path": "research_checks/X6_UNIT199_PINNED_WEIGHTED_BRC_METHOD_PROFILE_REPRO_20261121.py",
+      "blob": "07e00ef23bdb8386f30b37fd8bd19e55c2323ac1"
+    },
+    "unit199_summary_certificate": {
+      "commit": "9f481cdbd4047dbfa4a255d8a5f72ba6213def73",
+      "path": "research_checks/X6_UNIT199_PINNED_WEIGHTED_BRC_METHOD_PROFILE_RESULTS_20261121.json",
+      "blob": "d379cdbef2978ae37cdb507d49e59ebb2787cd65"
+    },
+    "actual_executed_local_full_certificate_sha256": "953ce5192dbe4395ecab9cacc50a7bc6358fd3f62211214eaad8c88db50fc563",
+    "frozen_source": {
+      "path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+      "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+      "sha256": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4"
+    },
+    "observations": {
+      "confirmed_frozen_test_consumer": "experiments/x6_signed_native_spatial_v16_20260905/check_signed_brc.py:6-9,56-63",
+      "workflow": " .github/workflows/x6-signed-spatial-v16.yml:20-24",
+      "bounded_negative_paths": [
+        "src/enterprise_math/p022_geodesic_multiplicity.py",
+        "src/enterprise_math/p022_barlow_growth.py",
+        "src/enterprise_math/p022_barlow_stacking.py",
+        "src/enterprise_math/p022_barlow_precision.py",
+        "tests/test_p022_geodesic_multiplicity.py"
+      ],
+      "actual_production_caller": "NOT_ESTABLISHED_IN_INSPECTED_SCOPE",
+      "measurements": {
+        "exact_cases": 16,
+        "per_method_timed_calls": 48,
+        "exact_disagreements": 0,
+        "K": [
+          4,
+          8,
+          12,
+          16
+        ],
+        "min_observed_ratio": 9.83,
+        "max_observed_ratio": 347.831
+      }
+    },
+    "R063_native_benchmark_rerun": false,
+    "frozen_producer_updated": false
+  },
+  "control": {
+    "historical_researcher_id": "EM-X6-FB6990",
+    "historical_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "historical_claim_id": "MCP-e2bd88a10565daf08b1d46f5",
+    "historical_run_id": "RUN-b2c1fe16e9806ecf043c89a0",
+    "last_confirmed_authenticated_native_unit": 174,
+    "native_pending_semantic_units": "175-199",
+    "older_pending_units": [
+      149,
+      150,
+      151,
+      152
+    ],
+    "original_native_read_request_id": "onhour-20261121-0106-x6-current-continuation-read-v1",
+    "original_native_read_outcome_at_last_observation": "QUEUED; read original ID until terminal; no replay",
+    "historical_failed_prepare_id": "onhour-20261120-1524-x6-own-unit187-native-continuation-prepare-v1",
+    "historical_failed_prepare_status": "FAILED/NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED; preserved",
+    "current_same_lane_winning_claim_authority": "NOT_ESTABLISHED",
+    "research_activity_checkpoint": "PENDING_NEW_UNIT199_CAS; previous Activity217 immutable readback at 529a968cc4142e4a1f54e544f5e5353957f91c50",
+    "independent_review": "UNREVIEWED/NOT_ADMITTED"
+  },
+  "evidence_debt": [
+    "Native semantic links Units175-199",
+    "Historical semantic links Units149-152",
+    "LP011/LP019 offending original commit:path:line",
+    "Real original signed_brc.endpoint_weight production caller and observed K distribution",
+    "Unmodified native benchmark acceptance for production consumer if found",
+    "Independent Driver review"
+  ],
+  "do_not_repeat": [
+    "R063 original six-file native benchmark (already completed)",
+    "Unit198 exact coefficient proof/checker 3112 cases",
+    "Unit199 16-case original Python profile and source-local call chain",
+    "Any unknown or rejected native write; no maintenance-lane identity reuse"
+  ],
+  "next_exact_action": "Reconcile onhour-20261121-0106-x6-current-continuation-read-v1 by its original request ID; continue frozen producer-consumer callsite/source search and LP011/LP019 original offending site, honoring actual source scope. If genuine production workload is found, record commit:path:line/K and validation metric before any replacement benchmark; authorize Native PROGRESS only with exact same-lane winning claim/run, keeping author Activity separate.",
+  "continuation_state": "OPEN"
+}
