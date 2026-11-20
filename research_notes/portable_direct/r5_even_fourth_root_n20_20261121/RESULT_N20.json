@@ -1,0 +1,196 @@
+{
+  "schema": "ENTERPRISE_MATH_R5_QI_N20_EXACT_V1",
+  "status": "AUTHOR_SYMBOLIC_PROOF_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "source_pin": "awdawmip/enterprise-math:EXACT_R5_ALL_101_BUDGETS.json#sha256=50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "local_validation": [
+    "12 even m exact Gaussian DP",
+    "independent direct full tuples m=2 and 4 for all 4 local event polynomials",
+    "independent free-factor log-derivative validation",
+    "12 D and 4 E regression against predecessor"
+  ],
+  "model_scope": "q=+i and q=-i root pair only; fixed even m, polynomial N^20 term; other poles excluded",
+  "definition": "F_m^(±i)(N) = 2A*Re(i^(-N)*(D*N^22/22!+E*N^21/21!+T*N^20/20!)) + O_m(N^19), A=1/(2^48*Q4)",
+  "quasiperiod": "T_m eventually quasipolynomial in even m with period dividing 8; no mod 16 needed at N^20, minimal period not yet determined",
+  "results": [
+    {
+      "m": 2,
+      "D": {
+        "re": 656,
+        "im": -2
+      },
+      "E": {
+        "re": 8033772,
+        "im": -41336
+      },
+      "T": {
+        "re": 48482836880,
+        "im": -353679803
+      }
+    },
+    {
+      "m": 4,
+      "D": {
+        "re": 872,
+        "im": 440
+      },
+      "E": {
+        "re": 10499400,
+        "im": 4893440
+      },
+      "T": {
+        "re": 62305047576,
+        "im": 26697661156
+      }
+    },
+    {
+      "m": 6,
+      "D": {
+        "re": 2184,
+        "im": -4
+      },
+      "E": {
+        "re": 24850360,
+        "im": -106296
+      },
+      "T": {
+        "re": 139491897968,
+        "im": -937930390
+      }
+    },
+    {
+      "m": 8,
+      "D": {
+        "re": 2616,
+        "im": 1320
+      },
+      "E": {
+        "re": 29228392,
+        "im": 12966960
+      },
+      "T": {
+        "re": 161213561320,
+        "im": 62200887820
+      }
+    },
+    {
+      "m": 10,
+      "D": {
+        "re": 4584,
+        "im": -6
+      },
+      "E": {
+        "re": 48179076,
+        "im": -198400
+      },
+      "T": {
+        "re": 250809507200,
+        "im": -1708202337
+      }
+    },
+    {
+      "m": 12,
+      "D": {
+        "re": 5232,
+        "im": 2640
+      },
+      "E": {
+        "re": 53915408,
+        "im": 22507200
+      },
+      "T": {
+        "re": 275603223472,
+        "im": 93146912664
+      }
+    },
+    {
+      "m": 14,
+      "D": {
+        "re": 7856,
+        "im": -8
+      },
+      "E": {
+        "re": 75749232,
+        "im": -322928
+      },
+      "T": {
+        "re": 364816103520,
+        "im": -2614103020
+      }
+    },
+    {
+      "m": 16,
+      "D": {
+        "re": 8720,
+        "im": 4400
+      },
+      "E": {
+        "re": 82290640,
+        "im": 31800800
+      },
+      "T": {
+        "re": 388967996240,
+        "im": 110700698600
+      }
+    },
+    {
+      "m": 18,
+      "D": {
+        "re": 12000,
+        "im": -10
+      },
+      "E": {
+        "re": 105290140,
+        "im": -483400
+      },
+      "T": {
+        "re": 468491838960,
+        "im": -3564664775
+      }
+    },
+    {
+      "m": 20,
+      "D": {
+        "re": 13080,
+        "im": 6600
+      },
+      "E": {
+        "re": 112082520,
+        "im": 39134400
+      },
+      "T": {
+        "re": 489385674440,
+        "im": 110556536860
+      }
+    },
+    {
+      "m": 22,
+      "D": {
+        "re": 17016,
+        "im": -12
+      },
+      "E": {
+        "re": 134531112,
+        "im": -685096
+      },
+      "T": {
+        "re": 553414980560,
+        "im": -4458507778
+      }
+    },
+    {
+      "m": 24,
+      "D": {
+        "re": 18312,
+        "im": 9240
+      },
+      "E": {
+        "re": 141021240,
+        "im": 42794640
+      },
+      "T": {
+        "re": 569545763896,
+        "im": 92936448916
+      }
+    }
+  ]
+}
