@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""R50 exact conditional BRC path-count and correlated error certificates.
+"""R50 exact conditional BRC path-count and corrected correlated-error certificates.
+
+R51 erratum: original R50.2 norm and R50.3 radius disproved; corrected below.
+See 2026-11-20_x6_r51_r50_contrast_norm_erratum.md.
 
 References R44 named whole-triad transition grammar, R47 root mass identities.
 State updates use named Port branches; Fraction is only the exact coefficient ring.
@@ -70,7 +73,7 @@ def contrast(q, z):
 def norm(q):
     c = C(q)
     # coefficient L1 norm in (x,y,d,h), exact correlated-error envelope.
-    return 1 + c + abs(Q(c, q)-1) + c*(1-Q(1,q)) if q >= 2 else Q(2)
+    return Q(2*q*(q-1)) if q >= 2 else Q(2)
 
 
 def paired_error_feasible(z, target, eta):
@@ -83,7 +86,7 @@ def certified_eta(p, alpha, beta):
     S, P = alpha+beta, alpha*beta
     if p == 1:
         return P/Q(2)
-    return min(S/Q(4*(p+1)), C(p)*P/Q(2))
+    return min(S/Q(8*(p+1)), C(p)*P/Q(2))
 
 
 def tests():
@@ -136,7 +139,7 @@ def tests():
       'rival_port_contrast_exclusions':rivals,
       'candidate_q_test_range':'1..40; universal q exclusion follows symbolic proof',
       'arithmetic':'R44 named-branch positive BRC carrier; exact Fraction coefficient ring',
-      'correlated_error_contrast_norm':'q=1:2; q=2:3; q>=3:2(q^2-q-1)',
+      'correlated_error_contrast_norm':'q=1:2; q>=2:2*q*(q-1)',
       'example':{'p':3,'alpha':1,'beta':2,'root':list(map(str,(x,y,d,h))),
                  'eta':str(eta),'upper_bound_on_any_q_ge_2':str(qcap),
                  'integer_q_ge_2_must_be_at_most':int(qcap)},
