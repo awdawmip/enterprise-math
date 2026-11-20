@@ -1,0 +1,1152 @@
+{
+  "schema": "X6_UNIT178_FROZEN_TOP_LEVEL_PYTHON_SOURCE_MANIFEST_V1",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "historical_git_tree_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "native_scientific_input_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "git_tree_truncated": false,
+  "scope": "ONLY blobs matching ^src/enterprise_math/[^/]+\\.py$ in the pinned historical tree; excludes tests, experiments, nested packages, dynamic or external users",
+  "source_files_count": 225,
+  "audit_method": "Historical GitHub connected tree enumeration and per-Git-blob textual import/call inspection performed in this author session; content-match negative is static and scoped, not a runtime or callgraph proof",
+  "audit_observation": {
+    "target_module": "src/enterprise_math/diagonal_quotient.py",
+    "target_blob": "3ac387c0103665943f13ba9e306a6167080c701d",
+    "target_names": [
+      "diagonal_quotient",
+      "canonical_min_zero",
+      "diagonal_chart",
+      "same_diagonal_class",
+      "compose_canonical",
+      "inverse_canonical"
+    ],
+    "direct_named_other_production_module_call_found": false,
+    "incident": "one transient fetch disconnect for admissible_support.py recovered by exact GitHub fetch_file; unverified modules=0"
+  },
+  "entries": [
+    {
+      "path": "src/enterprise_math/__init__.py",
+      "git_blob_sha1": "1b137d84d8f73b00b7c93a458fdc9af73406b045",
+      "size_bytes": 10492
+    },
+    {
+      "path": "src/enterprise_math/_triaxial_directional_defect_core.py",
+      "git_blob_sha1": "5261da8b9e7848ac5cce935f81d7e7e0381b210b",
+      "size_bytes": 12558
+    },
+    {
+      "path": "src/enterprise_math/a3_a4_support_bridge.py",
+      "git_blob_sha1": "ee66d0f6d9846171ff732204d5337fb3c0087d75",
+      "size_bytes": 7081
+    },
+    {
+      "path": "src/enterprise_math/action_language_precision.py",
+      "git_blob_sha1": "2d6da2f5a1b8b5bbbd2cb44cedbd382fcc194cec",
+      "size_bytes": 11799
+    },
+    {
+      "path": "src/enterprise_math/adaptive_precision.py",
+      "git_blob_sha1": "4a392431b908308a1b521f3aa08117a749f371ed",
+      "size_bytes": 13012
+    },
+    {
+      "path": "src/enterprise_math/adjoint_boundary_precision.py",
+      "git_blob_sha1": "a1e73b6d97f116cbb1127d1ba08a47a061318897",
+      "size_bytes": 11617
+    },
+    {
+      "path": "src/enterprise_math/admissible_support.py",
+      "git_blob_sha1": "15bba318c362b9acaeb9bff7c79b95715837c17d",
+      "size_bytes": 4193
+    },
+    {
+      "path": "src/enterprise_math/alexander_descent.py",
+      "git_blob_sha1": "e48d51a062faa94dfdb6b9dce64ea7d76c7ea95e",
+      "size_bytes": 7852
+    },
+    {
+      "path": "src/enterprise_math/box_collapse.py",
+      "git_blob_sha1": "2274339b8b320dd35277b16e20dc817af319fa33",
+      "size_bytes": 10281
+    },
+    {
+      "path": "src/enterprise_math/box_conflict_repair.py",
+      "git_blob_sha1": "f6f7f20b1d183518535eb354c61e5120f7d35390",
+      "size_bytes": 7326
+    },
+    {
+      "path": "src/enterprise_math/box_future_signature.py",
+      "git_blob_sha1": "ffbf819116463b6562bbab7ae8c93a757781a308",
+      "size_bytes": 4717
+    },
+    {
+      "path": "src/enterprise_math/brc_critical_degeneracy.py",
+      "git_blob_sha1": "8abc2ed4608bd222d16b6453e4f48f7b80566653",
+      "size_bytes": 20437
+    },
+    {
+      "path": "src/enterprise_math/brc_critical_orbits.py",
+      "git_blob_sha1": "3a9df1911c45ace0e64fdc150acdc783abbc3a53",
+      "size_bytes": 5474
+    },
+    {
+      "path": "src/enterprise_math/brc_critical_ratio_jet.py",
+      "git_blob_sha1": "c4716fa4fbec2960858ce4f7b231d4486372c653",
+      "size_bytes": 13355
+    },
+    {
+      "path": "src/enterprise_math/brc_feedback.py",
+      "git_blob_sha1": "48c871114586a75d5f144528ff334a8e580f3d94",
+      "size_bytes": 14269
+    },
+    {
+      "path": "src/enterprise_math/brc_histogram.py",
+      "git_blob_sha1": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+      "size_bytes": 8138
+    },
+    {
+      "path": "src/enterprise_math/brc_logarithm.py",
+      "git_blob_sha1": "4732e5fc381ce613d240c4381ccbef03c27a69c7",
+      "size_bytes": 19252
+    },
+    {
+      "path": "src/enterprise_math/brc_moment_transfer.py",
+      "git_blob_sha1": "33dded95dad6cd6926de9a2eb065ceac51d852a6",
+      "size_bytes": 8842
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_fiber_quotient.py",
+      "git_blob_sha1": "f9db29609e74b8f2a7202a1f626a138eb716fa29",
+      "size_bytes": 7093
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_handoff.py",
+      "git_blob_sha1": "92dbddfd756562da7de31b480b4099cfde5e42ed",
+      "size_bytes": 17055
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_observer_lattice.py",
+      "git_blob_sha1": "3bfb8c345d772fbe2871a3fd79b08b4ad730b350",
+      "size_bytes": 12835
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_quadratic_selector.py",
+      "git_blob_sha1": "9a2bff3e8026f2fe68680994d74082883461c84b",
+      "size_bytes": 8035
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_recursion.py",
+      "git_blob_sha1": "2762e581b2fff3b83ef49b71dc3ba6a30e20fc1b",
+      "size_bytes": 18027
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_schedule_strata.py",
+      "git_blob_sha1": "adbb64bbb72c4ada89e234536192bf49edf600ae",
+      "size_bytes": 14546
+    },
+    {
+      "path": "src/enterprise_math/brc_newton_selector_chambers.py",
+      "git_blob_sha1": "d87b065fa8ce2699df080d9a9cb4d27f7bac9d29",
+      "size_bytes": 10149
+    },
+    {
+      "path": "src/enterprise_math/brc_rational_holonomy.py",
+      "git_blob_sha1": "2591640fe348da9cd7f293a957bea9ae92c82943",
+      "size_bytes": 9864
+    },
+    {
+      "path": "src/enterprise_math/brc_recurrent_invariants.py",
+      "git_blob_sha1": "da43bdeb328dc25718b19bb336c3e9ddbdefb1ba",
+      "size_bytes": 9611
+    },
+    {
+      "path": "src/enterprise_math/brc_recurrent_ports.py",
+      "git_blob_sha1": "24a7fd37e274c067eaf560036f51fae80baa1644",
+      "size_bytes": 7032
+    },
+    {
+      "path": "src/enterprise_math/brc_reducible_critical_jet.py",
+      "git_blob_sha1": "90ec5debd3d784309f47e1819bc8a71e2c586396",
+      "size_bytes": 19470
+    },
+    {
+      "path": "src/enterprise_math/brc_weighted.py",
+      "git_blob_sha1": "3f205696709e847909958a153f8fe10d3f6b70f0",
+      "size_bytes": 9635
+    },
+    {
+      "path": "src/enterprise_math/brc_weighted_recurrent.py",
+      "git_blob_sha1": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+      "size_bytes": 10087
+    },
+    {
+      "path": "src/enterprise_math/c3_chiral_complex_structure.py",
+      "git_blob_sha1": "fce9cfb5c9a8a376848cbfad902c34bd05d61882",
+      "size_bytes": 4291
+    },
+    {
+      "path": "src/enterprise_math/causal_boundary.py",
+      "git_blob_sha1": "94a3c2eea692b28fc2909d252109098f862dc10b",
+      "size_bytes": 6494
+    },
+    {
+      "path": "src/enterprise_math/centered_prime_radius.py",
+      "git_blob_sha1": "7529d8951ee67ae7588e83b770798302c6d4fcc6",
+      "size_bytes": 6674
+    },
+    {
+      "path": "src/enterprise_math/clearance_horizon_precision.py",
+      "git_blob_sha1": "eaf494daab9cb3d8ae389e914606f247cb2248f4",
+      "size_bytes": 10521
+    },
+    {
+      "path": "src/enterprise_math/clearance_precision.py",
+      "git_blob_sha1": "12a0471041c211b4d80ec6bc147c12420be6b5da",
+      "size_bytes": 4933
+    },
+    {
+      "path": "src/enterprise_math/collapse_contact.py",
+      "git_blob_sha1": "407871a6ab1bdb306a71854ddb3103506a4f1ace",
+      "size_bytes": 5163
+    },
+    {
+      "path": "src/enterprise_math/collapse_incidence.py",
+      "git_blob_sha1": "7af320f5a0c0bde90ba227f0eded044786e84060",
+      "size_bytes": 5723
+    },
+    {
+      "path": "src/enterprise_math/collapse_interaction_layer.py",
+      "git_blob_sha1": "65154b2a31f91d1b30af3e39895eaf66bffd3be6",
+      "size_bytes": 3391
+    },
+    {
+      "path": "src/enterprise_math/collapse_response.py",
+      "git_blob_sha1": "5b1464cbd8b9866455d6598ebf6c8c564214117e",
+      "size_bytes": 6622
+    },
+    {
+      "path": "src/enterprise_math/collision_gap_dynamics.py",
+      "git_blob_sha1": "26a18dbde95dd71c3c0c9da7a0d3aaf13fc58df6",
+      "size_bytes": 5218
+    },
+    {
+      "path": "src/enterprise_math/collision_phase_diagram.py",
+      "git_blob_sha1": "2bd0cc97fa51bca5cf976cc2e5ff5cdc3cb1e630",
+      "size_bytes": 10806
+    },
+    {
+      "path": "src/enterprise_math/collision_tick_window.py",
+      "git_blob_sha1": "2b93ad96df2c9977e4745916a7146f8280ae7ad1",
+      "size_bytes": 4582
+    },
+    {
+      "path": "src/enterprise_math/collision_trajectory_threshold.py",
+      "git_blob_sha1": "f1eb453b163086e9b51c96552b5c6777433e38fe",
+      "size_bytes": 4610
+    },
+    {
+      "path": "src/enterprise_math/collision_trigger_policy.py",
+      "git_blob_sha1": "99702adebb6daca121337dd91003f35477e36290",
+      "size_bytes": 5213
+    },
+    {
+      "path": "src/enterprise_math/common_collapse.py",
+      "git_blob_sha1": "dffc3d412d9e7b298cc8305dbf375fbaa5ac62a1",
+      "size_bytes": 4322
+    },
+    {
+      "path": "src/enterprise_math/composition_safe_collapse.py",
+      "git_blob_sha1": "384d166f642fb65c53fc7f2431f43dc99880693a",
+      "size_bytes": 8804
+    },
+    {
+      "path": "src/enterprise_math/conflict_future_signature.py",
+      "git_blob_sha1": "c58f8254bd2c06a90696dfab9346f261c3311538",
+      "size_bytes": 4711
+    },
+    {
+      "path": "src/enterprise_math/core.py",
+      "git_blob_sha1": "cdb8ace10e4cc8bba13b70f4da306313efb24819",
+      "size_bytes": 2176
+    },
+    {
+      "path": "src/enterprise_math/critical_grid.py",
+      "git_blob_sha1": "a39d1f02395ea5673cf0da51481d4014e09cc231",
+      "size_bytes": 7707
+    },
+    {
+      "path": "src/enterprise_math/cutoff_pairing.py",
+      "git_blob_sha1": "5f239dc341d34ba5bfaad13708567dc52e806e05",
+      "size_bytes": 9693
+    },
+    {
+      "path": "src/enterprise_math/cyclic_rotation_refinement.py",
+      "git_blob_sha1": "35cd330b3a44705f12d793ba1660490793f19c50",
+      "size_bytes": 10287
+    },
+    {
+      "path": "src/enterprise_math/diagonal_quotient.py",
+      "git_blob_sha1": "3ac387c0103665943f13ba9e306a6167080c701d",
+      "size_bytes": 3226
+    },
+    {
+      "path": "src/enterprise_math/difference_response.py",
+      "git_blob_sha1": "2d795216d40ae3ca7f99d9b7ff22dea5d90806c9",
+      "size_bytes": 9088
+    },
+    {
+      "path": "src/enterprise_math/discrete_laplacian_chip_firing.py",
+      "git_blob_sha1": "f7b6cd7429f78fa09432735862dead05133e84ac",
+      "size_bytes": 15033
+    },
+    {
+      "path": "src/enterprise_math/discrete_morse_collapse.py",
+      "git_blob_sha1": "95784c8d4d1cd6fa181262459034afb87c183826",
+      "size_bytes": 27096
+    },
+    {
+      "path": "src/enterprise_math/division.py",
+      "git_blob_sha1": "bf0b1a6b6aeccc94578d11509c5bcd12ff930cb5",
+      "size_bytes": 1849
+    },
+    {
+      "path": "src/enterprise_math/engineering_collision.py",
+      "git_blob_sha1": "8f74005717c5d9337db78259100dc35609514f8b",
+      "size_bytes": 9714
+    },
+    {
+      "path": "src/enterprise_math/equivariant_section.py",
+      "git_blob_sha1": "0257fb7eaa95b2f88e772636d3ae2068d9ce42c0",
+      "size_bytes": 11706
+    },
+    {
+      "path": "src/enterprise_math/euler_cayley_spinor.py",
+      "git_blob_sha1": "17155fb6c73ddf9fb8da3e79c9e55f4ea3d0b00b",
+      "size_bytes": 9166
+    },
+    {
+      "path": "src/enterprise_math/euler_cell_polygon_pi.py",
+      "git_blob_sha1": "5454331feb086c311e206804c17d4a6b24e4c57c",
+      "size_bytes": 12348
+    },
+    {
+      "path": "src/enterprise_math/euler_character_completion.py",
+      "git_blob_sha1": "f2f31048d26c1e779adecb031c4f435d3fa8b0de",
+      "size_bytes": 11542
+    },
+    {
+      "path": "src/enterprise_math/euler_dyadic_cayley_bridge.py",
+      "git_blob_sha1": "ffc146aef5c1cb2785a896c9998e9203517a3e09",
+      "size_bytes": 7971
+    },
+    {
+      "path": "src/enterprise_math/euler_fcc_chirality.py",
+      "git_blob_sha1": "6f8b147c094720c2749f620a40394c4d7b67a386",
+      "size_bytes": 17397
+    },
+    {
+      "path": "src/enterprise_math/euler_fcc_chirality_connectivity.py",
+      "git_blob_sha1": "ddf9a06abd859f5cc9c109b76e1979147fbed399",
+      "size_bytes": 6123
+    },
+    {
+      "path": "src/enterprise_math/euler_native_bisector.py",
+      "git_blob_sha1": "f6e0162012af2ab10685076e0ff5c0e728ba1ec0",
+      "size_bytes": 10557
+    },
+    {
+      "path": "src/enterprise_math/euler_rotation_refinement.py",
+      "git_blob_sha1": "55e12f7ffb68a5b241f5d6323f5fde118de2716a",
+      "size_bytes": 11142
+    },
+    {
+      "path": "src/enterprise_math/exact_arithmetic.py",
+      "git_blob_sha1": "35ea95b0916494b83a92386e3e313928362dd79e",
+      "size_bytes": 11908
+    },
+    {
+      "path": "src/enterprise_math/extremum_future_signature.py",
+      "git_blob_sha1": "6faed7479a249fddae541d62f708934a25692567",
+      "size_bytes": 9515
+    },
+    {
+      "path": "src/enterprise_math/factor_precision.py",
+      "git_blob_sha1": "12f4f2e69f20d5d69d12dcdcd0c25479a7643c5d",
+      "size_bytes": 8612
+    },
+    {
+      "path": "src/enterprise_math/finite_symmetry.py",
+      "git_blob_sha1": "ae96a32cb6b6fdd974bd9f44fb28a1b643c9b8a2",
+      "size_bytes": 10073
+    },
+    {
+      "path": "src/enterprise_math/geometry.py",
+      "git_blob_sha1": "a1a8dc4d1ca53fde2ca00d9b944c1b8aa346a152",
+      "size_bytes": 4888
+    },
+    {
+      "path": "src/enterprise_math/graded_precision.py",
+      "git_blob_sha1": "e217d94ad96709097697cf1d27a8ab811c9058bc",
+      "size_bytes": 12717
+    },
+    {
+      "path": "src/enterprise_math/lattice_geometry.py",
+      "git_blob_sha1": "825ee26c918a4d7007e280aeaa1d7b750cd46aba",
+      "size_bytes": 6877
+    },
+    {
+      "path": "src/enterprise_math/lattice_guard_precision.py",
+      "git_blob_sha1": "758f4458cc49db7d346ad95b95949f9ac0406898",
+      "size_bytes": 14984
+    },
+    {
+      "path": "src/enterprise_math/legendre.py",
+      "git_blob_sha1": "e49f9d3286fb7b34653778429e0ced0cebf5389f",
+      "size_bytes": 9619
+    },
+    {
+      "path": "src/enterprise_math/material_adjoint.py",
+      "git_blob_sha1": "3a1962b6fe9e62ada6675143e17c3e6ff0fe2fe0",
+      "size_bytes": 3438
+    },
+    {
+      "path": "src/enterprise_math/material_alias_stability.py",
+      "git_blob_sha1": "60edd5ce6babae600464412d2e40a8fb64d2567c",
+      "size_bytes": 7103
+    },
+    {
+      "path": "src/enterprise_math/material_anisotropy_2d.py",
+      "git_blob_sha1": "a60dd88785415b8011c89c6e6a069a04712c1d9a",
+      "size_bytes": 9066
+    },
+    {
+      "path": "src/enterprise_math/material_anisotropy_visibility_2d.py",
+      "git_blob_sha1": "bb1b84538ce8f35b74c7845a345b5e3dbc100f74",
+      "size_bytes": 4381
+    },
+    {
+      "path": "src/enterprise_math/material_basis.py",
+      "git_blob_sha1": "21780edf974aeb2b40a3b1675e1d91a97395c2ba",
+      "size_bytes": 4763
+    },
+    {
+      "path": "src/enterprise_math/material_boundary_shell_growth.py",
+      "git_blob_sha1": "5b6740b55cb2eb9db326e6abdd1831da37ddfacc",
+      "size_bytes": 4123
+    },
+    {
+      "path": "src/enterprise_math/material_clearance_spectrum.py",
+      "git_blob_sha1": "f63fcf6bbdc7085fc0c36fb73b29ac7eecd5bf61",
+      "size_bytes": 7375
+    },
+    {
+      "path": "src/enterprise_math/material_collapse_layer.py",
+      "git_blob_sha1": "04ab25f2243b29162b8e2fc39d377999ce5a5dfc",
+      "size_bytes": 2737
+    },
+    {
+      "path": "src/enterprise_math/material_collapse_world_1d.py",
+      "git_blob_sha1": "1d6f6596ce29cd1c61e2e0a921e1aaeefcb8dfee",
+      "size_bytes": 7420
+    },
+    {
+      "path": "src/enterprise_math/material_composition.py",
+      "git_blob_sha1": "06eed6c072cc836cbb1a19c69ef0e63ecce5efe3",
+      "size_bytes": 3875
+    },
+    {
+      "path": "src/enterprise_math/material_contact.py",
+      "git_blob_sha1": "3c98d88f78d38da60493c1a11b05e22897f42499",
+      "size_bytes": 2433
+    },
+    {
+      "path": "src/enterprise_math/material_contact_history.py",
+      "git_blob_sha1": "b37b1fb268490f30a7eb0701cecba5ad448ef4a2",
+      "size_bytes": 3294
+    },
+    {
+      "path": "src/enterprise_math/material_cycle.py",
+      "git_blob_sha1": "aaebc3f08664f481f87842903ada70663948099d",
+      "size_bytes": 4384
+    },
+    {
+      "path": "src/enterprise_math/material_effective_layer_1d.py",
+      "git_blob_sha1": "c6b29d6c2d86b2ab38cb1147326bbbbe150b542f",
+      "size_bytes": 5706
+    },
+    {
+      "path": "src/enterprise_math/material_effective_layer_nd.py",
+      "git_blob_sha1": "0b7feedd58ec4e82255022656c70edfb506b34d8",
+      "size_bytes": 4469
+    },
+    {
+      "path": "src/enterprise_math/material_empirical_action_protocol.py",
+      "git_blob_sha1": "776af219b92327540a4dd05a297a29697637748f",
+      "size_bytes": 7950
+    },
+    {
+      "path": "src/enterprise_math/material_empirical_protocol_completion.py",
+      "git_blob_sha1": "e9f5f4acb67317402e53c78c7ec89c4f364ee57e",
+      "size_bytes": 4770
+    },
+    {
+      "path": "src/enterprise_math/material_empirical_protocol_coverage.py",
+      "git_blob_sha1": "d58ab4a9808733ac13561b4c084a93655aca7b8d",
+      "size_bytes": 3457
+    },
+    {
+      "path": "src/enterprise_math/material_engine.py",
+      "git_blob_sha1": "dd009c473ab1df208d8fe7ce67fda38d09e5e79e",
+      "size_bytes": 1940
+    },
+    {
+      "path": "src/enterprise_math/material_extinction_bound.py",
+      "git_blob_sha1": "2889269a6d5a4a8250cd5a831be365c0cb785749",
+      "size_bytes": 3759
+    },
+    {
+      "path": "src/enterprise_math/material_extinction_theorem.py",
+      "git_blob_sha1": "6d14dcdca76b09e61116ca2277fc7f57ea8911ff",
+      "size_bytes": 5477
+    },
+    {
+      "path": "src/enterprise_math/material_fit.py",
+      "git_blob_sha1": "20853f4ae8e393a5eed8a1501ffc3e94e5d803fd",
+      "size_bytes": 9376
+    },
+    {
+      "path": "src/enterprise_math/material_future_precision.py",
+      "git_blob_sha1": "d75d5c985087efbcdb3dd7f96adf8a96e4afd349",
+      "size_bytes": 10725
+    },
+    {
+      "path": "src/enterprise_math/material_future_quotient.py",
+      "git_blob_sha1": "33dc6ce1b3367174d85abdaf0fadc6ed9de9d9dc",
+      "size_bytes": 3486
+    },
+    {
+      "path": "src/enterprise_math/material_hysteresis.py",
+      "git_blob_sha1": "c02f964cf7feb4b65a5ed38e83303c8d8a66dcd4",
+      "size_bytes": 3907
+    },
+    {
+      "path": "src/enterprise_math/material_impulse_accounting.py",
+      "git_blob_sha1": "0553ae508373cad35b3bc40fc41e5a8e0fcddba1",
+      "size_bytes": 7239
+    },
+    {
+      "path": "src/enterprise_math/material_impulse_tick_order.py",
+      "git_blob_sha1": "3c30ced9c1d74f43bcdcb0dbcc091b32abe004bf",
+      "size_bytes": 5993
+    },
+    {
+      "path": "src/enterprise_math/material_impulse_wall_world_1d.py",
+      "git_blob_sha1": "109e9ab5cda576b24804f9182bc9d63a63537838",
+      "size_bytes": 8954
+    },
+    {
+      "path": "src/enterprise_math/material_impulse_world_1d.py",
+      "git_blob_sha1": "e0585b1c19c1ba7c09f0cc0031557b477aa93be1",
+      "size_bytes": 9023
+    },
+    {
+      "path": "src/enterprise_math/material_invariants.py",
+      "git_blob_sha1": "6cc8503cd3a894b8790de6200151fe0c4ee81245",
+      "size_bytes": 8759
+    },
+    {
+      "path": "src/enterprise_math/material_irreversibility.py",
+      "git_blob_sha1": "19578e5f2154f123b5be356241a4dee7e84215ed",
+      "size_bytes": 3379
+    },
+    {
+      "path": "src/enterprise_math/material_iteration.py",
+      "git_blob_sha1": "56ecff12cc9c1699509bdfcb20191179ee3a4d51",
+      "size_bytes": 5815
+    },
+    {
+      "path": "src/enterprise_math/material_kinematic_coupling.py",
+      "git_blob_sha1": "ca4975f54f8e62993ddcf5f2af3d5cbe6c5387b3",
+      "size_bytes": 5350
+    },
+    {
+      "path": "src/enterprise_math/material_kinematic_coupling_2d.py",
+      "git_blob_sha1": "f94a72aa66984f5803832350655ad65c46571902",
+      "size_bytes": 9265
+    },
+    {
+      "path": "src/enterprise_math/material_kinematic_response_spectrum.py",
+      "git_blob_sha1": "7e267d5c0c2fc9692fa7505e5d5e20c07fed00b3",
+      "size_bytes": 8169
+    },
+    {
+      "path": "src/enterprise_math/material_layered_kinematics.py",
+      "git_blob_sha1": "db956299a4fbfd8613be1542566453154d1bec20",
+      "size_bytes": 5030
+    },
+    {
+      "path": "src/enterprise_math/material_lifted_state.py",
+      "git_blob_sha1": "d77b768945ca6306ea9d8e54a6a00d6c8417ec74",
+      "size_bytes": 5600
+    },
+    {
+      "path": "src/enterprise_math/material_loop_geometry.py",
+      "git_blob_sha1": "563a75929839d91dda3230b27fe57fd766f0dc50",
+      "size_bytes": 3197
+    },
+    {
+      "path": "src/enterprise_math/material_loop_identity.py",
+      "git_blob_sha1": "0d391c02b66f4c3602a4c124bc7fb58bd399a05f",
+      "size_bytes": 3005
+    },
+    {
+      "path": "src/enterprise_math/material_measurement.py",
+      "git_blob_sha1": "6706e068567fa8db95463a66a13353a72cad2548",
+      "size_bytes": 3932
+    },
+    {
+      "path": "src/enterprise_math/material_measurement_area_refinement.py",
+      "git_blob_sha1": "766e196d2683fd17c77e9ec4dd393f1e1a4aca5a",
+      "size_bytes": 9992
+    },
+    {
+      "path": "src/enterprise_math/material_measurement_calibration.py",
+      "git_blob_sha1": "6b938e94dd970be9b15144f2754be47cf0430250",
+      "size_bytes": 7603
+    },
+    {
+      "path": "src/enterprise_math/material_measurement_refinement_variation.py",
+      "git_blob_sha1": "7d154c4af7c40ae8e66b4432b8b2193d776888fb",
+      "size_bytes": 8181
+    },
+    {
+      "path": "src/enterprise_math/material_motion_world_1d.py",
+      "git_blob_sha1": "7d2638b45e213f6c1d611d9b3c9300dd4456a2e2",
+      "size_bytes": 6440
+    },
+    {
+      "path": "src/enterprise_math/material_oscillator.py",
+      "git_blob_sha1": "3722fe2c0d154325ea2f074e9420ed86ded2473e",
+      "size_bytes": 9488
+    },
+    {
+      "path": "src/enterprise_math/material_p023_adapter.py",
+      "git_blob_sha1": "23d111314cfbd98a21b1a1f6a0d40b7b408055cc",
+      "size_bytes": 5740
+    },
+    {
+      "path": "src/enterprise_math/material_pair_impulse_1d.py",
+      "git_blob_sha1": "35a5165766a61cfb219b778408cd1dfd77a95c49",
+      "size_bytes": 11468
+    },
+    {
+      "path": "src/enterprise_math/material_peak_memory.py",
+      "git_blob_sha1": "8afced7596480b28f7134a92ed1e61c6a4195f7b",
+      "size_bytes": 7631
+    },
+    {
+      "path": "src/enterprise_math/material_peak_profile.py",
+      "git_blob_sha1": "051fc23245e1d6cc8d823ce71efc09277806cd6b",
+      "size_bytes": 2942
+    },
+    {
+      "path": "src/enterprise_math/material_peak_wave.py",
+      "git_blob_sha1": "003228730619f3da343ad8dc598bdc38be2185c0",
+      "size_bytes": 5102
+    },
+    {
+      "path": "src/enterprise_math/material_phase_closed_form.py",
+      "git_blob_sha1": "5487e72380c935cabdf2413d7e0d3fa25daa3338",
+      "size_bytes": 6443
+    },
+    {
+      "path": "src/enterprise_math/material_phase_saturation.py",
+      "git_blob_sha1": "dfcb29266e3dcd2c772d7ce5e4faeacb9043e22f",
+      "size_bytes": 5830
+    },
+    {
+      "path": "src/enterprise_math/material_phase_spectrum.py",
+      "git_blob_sha1": "f0476c99eeaa9b790d665b2e99c4e6028df47262",
+      "size_bytes": 6604
+    },
+    {
+      "path": "src/enterprise_math/material_phase_stability.py",
+      "git_blob_sha1": "ac6b58f82d7ae5f71f3d97889f00d869b91341e5",
+      "size_bytes": 5316
+    },
+    {
+      "path": "src/enterprise_math/material_precision_compatibility.py",
+      "git_blob_sha1": "06d780cb3769c8dc819373c882fedaa7e464bd7d",
+      "size_bytes": 3576
+    },
+    {
+      "path": "src/enterprise_math/material_program.py",
+      "git_blob_sha1": "a55e77b6edb67e92a45cc97783c4f76a040de3b6",
+      "size_bytes": 5951
+    },
+    {
+      "path": "src/enterprise_math/material_projection.py",
+      "git_blob_sha1": "ec2f5dee9230da68153dab72964ceae726b051ee",
+      "size_bytes": 4786
+    },
+    {
+      "path": "src/enterprise_math/material_projection_schedule.py",
+      "git_blob_sha1": "498e493ceeb6e01df8006b9ee63541659b037a3b",
+      "size_bytes": 3420
+    },
+    {
+      "path": "src/enterprise_math/material_rebound_threshold.py",
+      "git_blob_sha1": "06d97c9508cfe0d48378285c729c964834ae6422",
+      "size_bytes": 3738
+    },
+    {
+      "path": "src/enterprise_math/material_recurrence_invariant.py",
+      "git_blob_sha1": "e6b388c81100d973a20f2ce1aa647aa5a541eb9e",
+      "size_bytes": 3513
+    },
+    {
+      "path": "src/enterprise_math/material_recurrence_plateau.py",
+      "git_blob_sha1": "4a41b8603b42d565131c842bf9d7501fbe50c1a7",
+      "size_bytes": 3174
+    },
+    {
+      "path": "src/enterprise_math/material_recurrence_policy.py",
+      "git_blob_sha1": "d8b31b8a767faef9c2d033f4ce26439d9d6821b3",
+      "size_bytes": 4581
+    },
+    {
+      "path": "src/enterprise_math/material_response.py",
+      "git_blob_sha1": "cf630b887297b7e63c81b5688b2b1838aabdf3fb",
+      "size_bytes": 6770
+    },
+    {
+      "path": "src/enterprise_math/material_response_aliasing.py",
+      "git_blob_sha1": "cbbf1f6ddb99b98f715a4dd553962d97dab1f43e",
+      "size_bytes": 6453
+    },
+    {
+      "path": "src/enterprise_math/material_reversibility.py",
+      "git_blob_sha1": "6990d7db69e746ad470b57838a4732a1ec29bcef",
+      "size_bytes": 3175
+    },
+    {
+      "path": "src/enterprise_math/material_runtime.py",
+      "git_blob_sha1": "2a6844082d9ef6372cd9bb716dc1aa6d48cfa423",
+      "size_bytes": 6538
+    },
+    {
+      "path": "src/enterprise_math/material_runtime_codegen.py",
+      "git_blob_sha1": "e2ffaf33eb6559093c2267eaa8dd29ba936de2c4",
+      "size_bytes": 2565
+    },
+    {
+      "path": "src/enterprise_math/material_runtime_compressed.py",
+      "git_blob_sha1": "4691e918b5da03b785082c5ee65e7ed175d82538",
+      "size_bytes": 4372
+    },
+    {
+      "path": "src/enterprise_math/material_scale.py",
+      "git_blob_sha1": "3b15d7001d3a58b875b6b0d20e38ecc95b6e509c",
+      "size_bytes": 8388
+    },
+    {
+      "path": "src/enterprise_math/material_scale_phase_diagram.py",
+      "git_blob_sha1": "5f5c5b094808581f8735e150c4d03408a893a241",
+      "size_bytes": 6905
+    },
+    {
+      "path": "src/enterprise_math/material_scale_response.py",
+      "git_blob_sha1": "10c8a2fb9e9e418aa61f9e59b948957de47f11ba",
+      "size_bytes": 3288
+    },
+    {
+      "path": "src/enterprise_math/material_stress_strain_hysteresis.py",
+      "git_blob_sha1": "975b2fafc7c3cdc4cfb124c04538884f611a423a",
+      "size_bytes": 6842
+    },
+    {
+      "path": "src/enterprise_math/material_validation.py",
+      "git_blob_sha1": "60ff9459b66393997a69acfa27544b6f0ac39788",
+      "size_bytes": 10617
+    },
+    {
+      "path": "src/enterprise_math/material_word_quotient.py",
+      "git_blob_sha1": "3d87c304ad2562f4d14af295f37ff8394bd7ed66",
+      "size_bytes": 3305
+    },
+    {
+      "path": "src/enterprise_math/material_zero_return_causes.py",
+      "git_blob_sha1": "b8e8c9c2b862c380ae661141d6386167ba2c7cd2",
+      "size_bytes": 5568
+    },
+    {
+      "path": "src/enterprise_math/motion_action_constraints.py",
+      "git_blob_sha1": "d614472202445caf88f671022841dab0d43a2ff2",
+      "size_bytes": 10001
+    },
+    {
+      "path": "src/enterprise_math/motion_collapse.py",
+      "git_blob_sha1": "0f168dc6794385d388ca4d9abd5196e9ed5aa742",
+      "size_bytes": 8808
+    },
+    {
+      "path": "src/enterprise_math/motion_history.py",
+      "git_blob_sha1": "3946f98b9c4c7bd22a30c1a4722e87ee998be3d8",
+      "size_bytes": 4825
+    },
+    {
+      "path": "src/enterprise_math/multiscale_collapse.py",
+      "git_blob_sha1": "e55251034edfcfa7c2dad941aa964f1ac58fafe1",
+      "size_bytes": 7416
+    },
+    {
+      "path": "src/enterprise_math/native_trisector_coupled_closure.py",
+      "git_blob_sha1": "01dc2fae89147947dec50a7fba7e17c90e570fcd",
+      "size_bytes": 11526
+    },
+    {
+      "path": "src/enterprise_math/nonly_valuation_wall_gcd.py",
+      "git_blob_sha1": "419c24f5db80ffd69067012aa14e5992e36f2acc",
+      "size_bytes": 11866
+    },
+    {
+      "path": "src/enterprise_math/operation_quotient.py",
+      "git_blob_sha1": "758a65de02a434446936cd7e37b2ae604eade863",
+      "size_bytes": 7233
+    },
+    {
+      "path": "src/enterprise_math/p017_cofactor_separation.py",
+      "git_blob_sha1": "d4d0b189228e0a7c2b292eee395865fd8b2556c4",
+      "size_bytes": 3905
+    },
+    {
+      "path": "src/enterprise_math/p017_cofactor_window.py",
+      "git_blob_sha1": "420f273b19c71d8396b150a788a4403d4e7efdf0",
+      "size_bytes": 8752
+    },
+    {
+      "path": "src/enterprise_math/p017_high_band.py",
+      "git_blob_sha1": "6d55c551b2396dad7c10ecb808c8aa489b456d4f",
+      "size_bytes": 18189
+    },
+    {
+      "path": "src/enterprise_math/p017_high_band_envelope.py",
+      "git_blob_sha1": "ba8c7c042d741b26f8cbc0adaba846ef62464e0f",
+      "size_bytes": 5447
+    },
+    {
+      "path": "src/enterprise_math/p017_lower_band.py",
+      "git_blob_sha1": "94218208faf0243c500ed62d3ceea65d2349be18",
+      "size_bytes": 6025
+    },
+    {
+      "path": "src/enterprise_math/p017_mirror.py",
+      "git_blob_sha1": "317e76e7dd1abbffcc62f4596b6367e2f016d66a",
+      "size_bytes": 3660
+    },
+    {
+      "path": "src/enterprise_math/p017_mirror_certificate.py",
+      "git_blob_sha1": "0479d42786c2819f38d30cc0b4fb603e7e9c15c4",
+      "size_bytes": 3868
+    },
+    {
+      "path": "src/enterprise_math/p017_mirror_cross.py",
+      "git_blob_sha1": "70d98c3b1dd46fc14b18b2496b53eb1f7f552ca2",
+      "size_bytes": 5060
+    },
+    {
+      "path": "src/enterprise_math/p017_mirror_crt.py",
+      "git_blob_sha1": "fccc7c576d9bbe556611227991a3df5e15c9c1cc",
+      "size_bytes": 12238
+    },
+    {
+      "path": "src/enterprise_math/p017_mirror_directional.py",
+      "git_blob_sha1": "dbfffbb7e2991abb68e0323368132dcfa6fba490",
+      "size_bytes": 10055
+    },
+    {
+      "path": "src/enterprise_math/p017_mirror_incidence.py",
+      "git_blob_sha1": "dc7e59d0d2967557229fb6f37f5a6e79c990ac24",
+      "size_bytes": 4316
+    },
+    {
+      "path": "src/enterprise_math/p017_precision_horizon.py",
+      "git_blob_sha1": "0564c6eb6a3bb86ff57201dbd25c3919f549f21e",
+      "size_bytes": 8488
+    },
+    {
+      "path": "src/enterprise_math/p017_rough_recursion.py",
+      "git_blob_sha1": "881e39429f0760e2ce9f6a44ad661cbf3dab6eee",
+      "size_bytes": 10055
+    },
+    {
+      "path": "src/enterprise_math/p017_support_closure.py",
+      "git_blob_sha1": "1c11ba659322ff37423721a4ba37ac49b676e152",
+      "size_bytes": 4878
+    },
+    {
+      "path": "src/enterprise_math/p018_channel_coalescence.py",
+      "git_blob_sha1": "bd9576f57a860fa64b99a16a69452251ec80dfff",
+      "size_bytes": 11708
+    },
+    {
+      "path": "src/enterprise_math/p018_p023_power_free_action_basis.py",
+      "git_blob_sha1": "86e7152dd34a7bf1e7100329f77a7936a03c5ed2",
+      "size_bytes": 5749
+    },
+    {
+      "path": "src/enterprise_math/p018_power_basin.py",
+      "git_blob_sha1": "3d3780c94c254d3fbbdeb678543e3520de29dd2b",
+      "size_bytes": 4558
+    },
+    {
+      "path": "src/enterprise_math/p018_power_coalescence.py",
+      "git_blob_sha1": "e1c35f77a65073d2cdcef79fdd03a89af0879a75",
+      "size_bytes": 16189
+    },
+    {
+      "path": "src/enterprise_math/p018_root_state_carry.py",
+      "git_blob_sha1": "9736ddee270ade190f8dafdce54220175efb8973",
+      "size_bytes": 6408
+    },
+    {
+      "path": "src/enterprise_math/p018_root_state_decomposition.py",
+      "git_blob_sha1": "498fe71512c657a629b59e209617878d2f2e1498",
+      "size_bytes": 7769
+    },
+    {
+      "path": "src/enterprise_math/p022_barlow_growth.py",
+      "git_blob_sha1": "4185cafdb3e4ad4f55c58ff111747013e710af43",
+      "size_bytes": 9897
+    },
+    {
+      "path": "src/enterprise_math/p022_barlow_precision.py",
+      "git_blob_sha1": "34f351f55f25c115a872a9cbaf1a6dd7212089af",
+      "size_bytes": 7486
+    },
+    {
+      "path": "src/enterprise_math/p022_barlow_stacking.py",
+      "git_blob_sha1": "cfa12c17671692d1fe0371b7d80e4cc019fbcf54",
+      "size_bytes": 10221
+    },
+    {
+      "path": "src/enterprise_math/p022_geodesic_multiplicity.py",
+      "git_blob_sha1": "46373050168d2430b6cb3952aa763f3081284632",
+      "size_bytes": 9081
+    },
+    {
+      "path": "src/enterprise_math/p022_hcp_geometry.py",
+      "git_blob_sha1": "1ce3be53742302272eb56b7f9e5d1453dcd70111",
+      "size_bytes": 13322
+    },
+    {
+      "path": "src/enterprise_math/p023_borrow_cocycle.py",
+      "git_blob_sha1": "76b65c3d847434b4dcf67bcccc49843ce24d221d",
+      "size_bytes": 2533
+    },
+    {
+      "path": "src/enterprise_math/p023_interior_precision.py",
+      "git_blob_sha1": "8956d24c29ba727b6d7dd31b0aa4f9728d5c6c83",
+      "size_bytes": 4867
+    },
+    {
+      "path": "src/enterprise_math/p023_minimal_repair.py",
+      "git_blob_sha1": "9a7ed1d3d72909226442d9795180c9f0957dd418",
+      "size_bytes": 3380
+    },
+    {
+      "path": "src/enterprise_math/p023_precision_compatibility.py",
+      "git_blob_sha1": "0f774ef0fd13e7904b079d462893de7153db7743",
+      "size_bytes": 3079
+    },
+    {
+      "path": "src/enterprise_math/p023_reductive_borrow.py",
+      "git_blob_sha1": "97d8e9a5c2007a7c7f6827e2612752ee813e09bf",
+      "size_bytes": 2423
+    },
+    {
+      "path": "src/enterprise_math/p023_safe_precision_interior.py",
+      "git_blob_sha1": "3e143187154652afd8ce7c62b4b83e63ee6bbd14",
+      "size_bytes": 9379
+    },
+    {
+      "path": "src/enterprise_math/p023_selector_semigroup.py",
+      "git_blob_sha1": "8ddf3a6600d2c595b93c65603239c5e90ab39624",
+      "size_bytes": 6315
+    },
+    {
+      "path": "src/enterprise_math/paired_pell_shell.py",
+      "git_blob_sha1": "0c33adfb6af3e379d67dcd3cc763535b08ac6f95",
+      "size_bytes": 4647
+    },
+    {
+      "path": "src/enterprise_math/partial_operation_quotient.py",
+      "git_blob_sha1": "d1f86491ce07279c058a4c99f40cabb1f96da0de",
+      "size_bytes": 12587
+    },
+    {
+      "path": "src/enterprise_math/precision.py",
+      "git_blob_sha1": "0f028d00b2126b7a3b13bcfb8db627fc542af195",
+      "size_bytes": 11558
+    },
+    {
+      "path": "src/enterprise_math/precision_holonomy.py",
+      "git_blob_sha1": "b07b66e60cb887633691b8a3f7c2b2543dae41bb",
+      "size_bytes": 5334
+    },
+    {
+      "path": "src/enterprise_math/precision_horizon_saturation.py",
+      "git_blob_sha1": "88a5289e8fd4bb17ef8e8487adee38bb9047d516",
+      "size_bytes": 7635
+    },
+    {
+      "path": "src/enterprise_math/precision_hysteresis.py",
+      "git_blob_sha1": "708e73cba354722c48cc44703f30de50afc87f12",
+      "size_bytes": 10484
+    },
+    {
+      "path": "src/enterprise_math/precision_locked_actuation.py",
+      "git_blob_sha1": "6fa706be96771d5eab18741c4c85f04c184bb7a5",
+      "size_bytes": 12607
+    },
+    {
+      "path": "src/enterprise_math/precision_proof.py",
+      "git_blob_sha1": "9d7c2bb3ac3f8672cad18e139c3307533c5eb216",
+      "size_bytes": 13042
+    },
+    {
+      "path": "src/enterprise_math/precision_radix.py",
+      "git_blob_sha1": "7a41d3da2729a4855595587eb03111ed16f358ac",
+      "size_bytes": 4899
+    },
+    {
+      "path": "src/enterprise_math/precision_signed_holonomy.py",
+      "git_blob_sha1": "74dde113b454f83237fca5483343b51111f5c55d",
+      "size_bytes": 5343
+    },
+    {
+      "path": "src/enterprise_math/precision_system.py",
+      "git_blob_sha1": "57aecf7c21de522a79ca053df4b622216aae9d8c",
+      "size_bytes": 10985
+    },
+    {
+      "path": "src/enterprise_math/precision_task_observable.py",
+      "git_blob_sha1": "c7fc5011c53e4ce80b611594fd4f2c9480ce4154",
+      "size_bytes": 8239
+    },
+    {
+      "path": "src/enterprise_math/precision_vector_actuation.py",
+      "git_blob_sha1": "e1751fac2ba08ed4aaea8b552fbdadffe0d510a0",
+      "size_bytes": 12387
+    },
+    {
+      "path": "src/enterprise_math/predictive_quotient.py",
+      "git_blob_sha1": "f27d9ddf908f5b07051acfaf0c69f359d499b98b",
+      "size_bytes": 11347
+    },
+    {
+      "path": "src/enterprise_math/prime_gap_slack.py",
+      "git_blob_sha1": "9f4a619bbc6fb24e86aa5ffa6d344f8ff17406af",
+      "size_bytes": 6173
+    },
+    {
+      "path": "src/enterprise_math/prime_toolkit.py",
+      "git_blob_sha1": "2c1797f084bde6a9d05e538c8bac20e1a054017a",
+      "size_bytes": 14833
+    },
+    {
+      "path": "src/enterprise_math/quotient_basin.py",
+      "git_blob_sha1": "03be17e0ae4de7c87695e2df9031e09c3ef97ec3",
+      "size_bytes": 9678
+    },
+    {
+      "path": "src/enterprise_math/r005a_sieve_quotients.py",
+      "git_blob_sha1": "5ba39ca71e1f36ebd3719d272c17583f3f7a0a3f",
+      "size_bytes": 8925
+    },
+    {
+      "path": "src/enterprise_math/relation_future_powerset.py",
+      "git_blob_sha1": "7947f1a4400c8c674001597dd41256d9cd3ff477",
+      "size_bytes": 9535
+    },
+    {
+      "path": "src/enterprise_math/relation_lattice.py",
+      "git_blob_sha1": "a10f636594879973e7b019975d9cdb99f749f330",
+      "size_bytes": 4787
+    },
+    {
+      "path": "src/enterprise_math/relation_observable_composition.py",
+      "git_blob_sha1": "b7b7be69ecfe9c4b61ae0a694f0ff6c61483c025",
+      "size_bytes": 6626
+    },
+    {
+      "path": "src/enterprise_math/relation_observable_signature.py",
+      "git_blob_sha1": "abed242730b1736f8e277b14e808a10015a653df",
+      "size_bytes": 10277
+    },
+    {
+      "path": "src/enterprise_math/relation_scale.py",
+      "git_blob_sha1": "dfcb946719f79caebccca2bd04f82bb56211d5ba",
+      "size_bytes": 3338
+    },
+    {
+      "path": "src/enterprise_math/relational_spectrum.py",
+      "git_blob_sha1": "f56244021d938dab945bf7e7bebdd2387d1d8923",
+      "size_bytes": 5622
+    },
+    {
+      "path": "src/enterprise_math/safe_operation_algebra.py",
+      "git_blob_sha1": "1df77cc34f2f52c8a8620b8235ac438a1b37ef1c",
+      "size_bytes": 9041
+    },
+    {
+      "path": "src/enterprise_math/scale_algebra.py",
+      "git_blob_sha1": "7685628f8b62fd4d0df95a04465acbfb90effc32",
+      "size_bytes": 2069
+    },
+    {
+      "path": "src/enterprise_math/scale_motion_constraints.py",
+      "git_blob_sha1": "ae01d1f3c99c5d37d4548b47b5a5cd0a1b60b0a8",
+      "size_bytes": 6766
+    },
+    {
+      "path": "src/enterprise_math/scale_tunneling_1d.py",
+      "git_blob_sha1": "3c85283843459e601e0b6d9fc3ad5a22c95ce08d",
+      "size_bytes": 6615
+    },
+    {
+      "path": "src/enterprise_math/signed.py",
+      "git_blob_sha1": "46386899c59483a9d83f8fe23387dbf8d20e18ec",
+      "size_bytes": 2214
+    },
+    {
+      "path": "src/enterprise_math/state_pair.py",
+      "git_blob_sha1": "1ea53954f4fdf60eb01aa8ec4e600eeda1853bc5",
+      "size_bytes": 5944
+    },
+    {
+      "path": "src/enterprise_math/tetrahedral_endpoint_sum.py",
+      "git_blob_sha1": "9f5098f7ba6995340406b39125b735cdba71fd4f",
+      "size_bytes": 7471
+    },
+    {
+      "path": "src/enterprise_math/triaxial_directional_defect.py",
+      "git_blob_sha1": "570088fb2a8dc1a19ada303d55ea1cb93718a0c7",
+      "size_bytes": 8833
+    },
+    {
+      "path": "src/enterprise_math/tunneling_phase_diagram.py",
+      "git_blob_sha1": "8aa718036d66e8ca664c7d8b52116b05098990de",
+      "size_bytes": 6234
+    },
+    {
+      "path": "src/enterprise_math/typed_scale.py",
+      "git_blob_sha1": "db4d7e74963dffeeab92d08bb28e85d0f8935883",
+      "size_bytes": 1480
+    },
+    {
+      "path": "src/enterprise_math/weighted_relation_field.py",
+      "git_blob_sha1": "e50bf991e4dc4280063556a7aad1028f9f9404ed",
+      "size_bytes": 9141
+    }
+  ]
+}
