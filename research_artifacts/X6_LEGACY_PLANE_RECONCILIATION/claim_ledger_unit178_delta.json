@@ -1,0 +1,62 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "date": "2026-11-20",
+  "unit": 178,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "author_status": "AUTHOR_SOURCE_AUDIT / FULL_TOP_LEVEL_PRODUCTION_STATIC_SOURCE_READ / UNREVIEWED / NOT_ADMITTED",
+  "claim_id": "X6-CL-UNIT178-FROZEN-R061-DIAGONAL-PRODUCTION-DIRECT-CALLER-ABSENCE",
+  "source_scope": {
+    "frozen_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+    "regex": "^src/enterprise_math/[^/]+\\.py$",
+    "count": 225,
+    "nontruncated_tree": true,
+    "all_225_git_blobs_content_read": true,
+    "failed_unrecovered": 0
+  },
+  "observations": {
+    "derived_operator": {
+      "path": "src/enterprise_math/diagonal_quotient.py",
+      "blob": "3ac387c0103665943f13ba9e306a6167080c701d",
+      "typed_boundary_lines": "1-15",
+      "minzero_lines": "44-48",
+      "chart_lines": "57-65",
+      "other_peer_top_level_production_direct_named_import_or_call_found": 0,
+      "peer_count": 224,
+      "status": "PRESERVE_OBSERVER; NO_DIRECT_FROZEN_TOP_LEVEL_PY_CONSUMER_FOUND"
+    },
+    "positive_weighted_brc": {
+      "path": "src/enterprise_math/brc_weighted.py",
+      "blob": "3f205696709e847909958a153f8fe10d3f6b70f0",
+      "positive_type_lines": "1-10,38-68",
+      "recoalesce_lines": "85-95",
+      "propagate_lines": "98-106",
+      "weight_summary_lines": "109-114",
+      "actual_consumer1": {
+        "path": "src/enterprise_math/__init__.py",
+        "blob": "1b137d84d8f73b00b7c93a458fdc9af73406b045",
+        "lines": "51-71",
+        "kind": "PRODUCTION_REEXPORT"
+      },
+      "actual_consumer2": {
+        "path": "tests/test_brc_weighted_foundation_tool.py",
+        "kind": "TEST_CALLS_PRODUCTION_FUNCTIONS"
+      },
+      "status": "PRESERVE_POSITIVE_WEIGHTED_BRC; NOT_SIGNED_NATIVE_BRC_ARGMAX_OR_SUBTRACTION"
+    }
+  },
+  "limitations": [
+    "Textual direct source-reference absence cannot rule out dynamic or indirect execution",
+    "Only top-level production .py modules; tests/experiments/nested/external and the remaining 28-LP corpus are not closed",
+    "No new native R063 benchmark or runtime proof; no independent review"
+  ],
+  "lp011_offender": "UNRESOLVED_PROVENANCE",
+  "lp019_offender": "UNRESOLVED_PROVENANCE",
+  "original_source_unit177": "research_notes/X6_UNIT177_R061_MINZERO_NATIVE_BRC_UNBOUNDED_FIBER_DISTORTION_20261120.md@d0810c2c4a358ebd0c1265bb1ac4f2074d09689f",
+  "native_semantic_status": "NOT_SUBMITTED",
+  "independent_review": "UNREVIEWED / NOT_ADMITTED",
+  "next_exact_action": "Use exact immutable frozen historical tree and 225-file manifest to inspect nested modules, actual tests/experiments and dynamic import edges if relevant; finish 28-LP real production consumer crosswalk and only attribute LP011/019 on exact offending commit:path:line. Retain original own Research claim/run/control receipts and Native Units175-178 pending same-lane writer authorization."
+}
