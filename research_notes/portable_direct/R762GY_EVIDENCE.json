@@ -1,0 +1,166 @@
+{
+  "schema": "R762GY_EXACT_FINITE_EVIDENCE_V1",
+  "date": "2026-11-20",
+  "research_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "publication_id": "TP2-8B7E13C5904A2D6F1142",
+  "frozen_science_taskbook": "awdawmip/enterprise-math@857280d1012943290d141d1317179c40ec3cbdf8",
+  "frozen_p000": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "prior_model_source": "awdawmip/enterprise-math@ffd6cdc5ee6ed64bb65490efd1e58fe9bce954f9:research_notes/portable_direct/R762GX_S4_EQUIVARIANT_TRIADIC_PORT_CHIRALITY.md",
+  "model": "K4_STAR_ENDPOINT_CHOICE_SIGNED_CHIRAL_CANDIDATE; model-internal not native admissibility",
+  "branch_semantics": "At each step choose one of two current Port endpoints as active and one of two signed composite STAR events; orientation chi is fixed in the chosen reference frame; time increases by 1; four distinct ordered positive BRC source branches",
+  "states": "6 named Port edges x 2 chirality states; Cell in affine X6 chart, separately typed event order",
+  "phase_classes": [
+    [
+      "01",
+      "23"
+    ],
+    [
+      "02",
+      "13"
+    ],
+    [
+      "03",
+      "12"
+    ]
+  ],
+  "phase_rule": "phase(t+1)=(phase(t)+chi) mod 3, chi in {+1,-1}",
+  "all_length_port_return": "N_port(m)=1 at m=0; N_port(m)=4^m/2 for m>0 and 3|m; zero otherwise",
+  "all_length_joint_support": "N_cell_port(m)>0 iff 6|m (m nonnegative), counting the empty word at 0",
+  "coefficient_formula": "N_cell_port(m)=[z0^0 z1^0 z2^0 z3^0](M_chi(z)^m)[01,01], M[e,e'] = sum_{v in e, successor(e,v,chi)=e'}(z_v+z_v^-1)",
+  "six_step_independent_enumeration": {
+    "port_endpoint_words": 32,
+    "balanced_signed_activity_histogram": {
+      "6": 2,
+      "2+2+2": 6
+    },
+    "joint_zero_count": "2*C(6,3)+6*2^3=88"
+  },
+  "finite_validation": {
+    "phase_transition_cases": 24,
+    "S4_signed_X6_covariance_cases": 1152,
+    "exact_DP_lengths": "0..12 inclusive",
+    "each_chirality_checked": true,
+    "arithmetic": "exact integer Number, max 4^12=16777216<2^53",
+    "source_checker": "research_notes/portable_direct/R762GY_CHECK.js",
+    "author_check": "PASS",
+    "independent_review": "NOT_REVIEWED"
+  },
+  "counts": [
+    {
+      "m": 0,
+      "port": 1,
+      "cell": 1,
+      "joint": 1,
+      "total": 1,
+      "stateCount": 1
+    },
+    {
+      "m": 1,
+      "port": 0,
+      "cell": 0,
+      "joint": 0,
+      "total": 4,
+      "stateCount": 4
+    },
+    {
+      "m": 2,
+      "port": 0,
+      "cell": 4,
+      "joint": 0,
+      "total": 16,
+      "stateCount": 14
+    },
+    {
+      "m": 3,
+      "port": 32,
+      "cell": 0,
+      "joint": 0,
+      "total": 64,
+      "stateCount": 48
+    },
+    {
+      "m": 4,
+      "port": 0,
+      "cell": 20,
+      "joint": 0,
+      "total": 256,
+      "stateCount": 146
+    },
+    {
+      "m": 5,
+      "port": 0,
+      "cell": 0,
+      "joint": 0,
+      "total": 1024,
+      "stateCount": 380
+    },
+    {
+      "m": 6,
+      "port": 2048,
+      "cell": 136,
+      "joint": 88,
+      "total": 4096,
+      "stateCount": 870
+    },
+    {
+      "m": 7,
+      "port": 0,
+      "cell": 0,
+      "joint": 0,
+      "total": 16384,
+      "stateCount": 1744
+    },
+    {
+      "m": 8,
+      "port": 0,
+      "cell": 1148,
+      "joint": 0,
+      "total": 65536,
+      "stateCount": 3102
+    },
+    {
+      "m": 9,
+      "port": 131072,
+      "cell": 0,
+      "joint": 0,
+      "total": 262144,
+      "stateCount": 5064
+    },
+    {
+      "m": 10,
+      "port": 0,
+      "cell": 10872,
+      "joint": 0,
+      "total": 1048576,
+      "stateCount": 7762
+    },
+    {
+      "m": 11,
+      "port": 0,
+      "cell": 0,
+      "joint": 0,
+      "total": 4194304,
+      "stateCount": 11420
+    },
+    {
+      "m": 12,
+      "port": 8388608,
+      "cell": 114104,
+      "joint": 61160,
+      "total": 16777216,
+      "stateCount": 16190
+    }
+  ],
+  "source_provenance": {
+    "historical_researcher": "EM-X6-3050F6",
+    "historical_session": "MCP-4b2d70a97f594366a7c94a0f8b45df38",
+    "native_observation_at": "2026-11-20T08:21:34.628122+00:00",
+    "native_execution_authorized": false,
+    "native_progress_submitted": false
+  },
+  "unresolved": [
+    "Test actual frozen TRIADIC_CLOSURE_E Cell/Link/Port primitive-event permissions for this candidate extension",
+    "Determine whether the orientation residual is already a native Link coordinate",
+    "Extend exact BRC return generating function to asymptotics without losing source multiplicity"
+  ]
+}
