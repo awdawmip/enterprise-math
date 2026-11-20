@@ -1,0 +1,102 @@
+{
+  "schema": "X6_UNIT197_TEMPORAL_SHUFFLE_EXACT_V1",
+  "unit": 197,
+  "claim_status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_UNREVIEWED_NOT_ADMITTED",
+  "profiles": [
+    {
+      "profile": "unit",
+      "n": 0,
+      "balanced_endpoints": 1,
+      "H": "1"
+    },
+    {
+      "profile": "unit",
+      "n": 1,
+      "balanced_endpoints": 31,
+      "H": "89"
+    },
+    {
+      "profile": "unit",
+      "n": 2,
+      "balanced_endpoints": 271,
+      "H": "42541"
+    },
+    {
+      "profile": "unit",
+      "n": 3,
+      "balanced_endpoints": 1281,
+      "H": "62759750"
+    },
+    {
+      "profile": "nonuniform",
+      "n": 0,
+      "balanced_endpoints": 1,
+      "H": "1"
+    },
+    {
+      "profile": "nonuniform",
+      "n": 1,
+      "balanced_endpoints": 31,
+      "H": "89"
+    },
+    {
+      "profile": "nonuniform",
+      "n": 2,
+      "balanced_endpoints": 271,
+      "H": "42541"
+    },
+    {
+      "profile": "nonuniform",
+      "n": 3,
+      "balanced_endpoints": 1281,
+      "H": "62759750"
+    }
+  ],
+  "matched_endpoint_layer_pairs": 3168,
+  "violations": 0,
+  "source_comparison": "pinned signed_brc endpoint_weight formula, independently reimplemented",
+  "counterexample": {
+    "u_slot_1": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "u_slot_2": [
+      2,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "v_slot_1": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "v_slot_2": [
+      1,
+      1,
+      1,
+      2,
+      1,
+      1
+    ],
+    "offdiagonal_M": {
+      "1,3": 3,
+      "1,4": 4,
+      "2,3": 3,
+      "2,4": 5
+    },
+    "minor": 3,
+    "balanced_zero_weight": 15
+  },
+  "original_R063_native_benchmark_rerun": false,
+  "native_original_module_imported": false
+}
