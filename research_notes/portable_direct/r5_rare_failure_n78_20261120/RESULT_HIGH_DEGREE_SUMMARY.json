@@ -1,0 +1,39 @@
+{
+  "schema": "R5_RARE_FAILURE_HIGH_DEGREE_N48_SUMMARY_V1",
+  "frozen_source_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "status": "AUTHOR_SYMBOLIC_PROOF / EXACT_FRACTION_VERIFIED / NOT_REVIEWED",
+  "theorem": "fixed m>=1: F_m(N)=sum_{j=0}^{47} B_(95-j)(m)*N^(95-j)/((95-j)! prod(219..314)) + O_m(N^47)",
+  "coefficients": "nine-event finite convolution formula in HIGH_DEGREE_48_THEOREM.md",
+  "validation": {
+    "full_48_coefficients_check_m": [
+      1,
+      2,
+      3
+    ],
+    "first_21_coefficients_check_m": [
+      5,
+      8,
+      17
+    ],
+    "original_N78_predecessor_coefficients_match": true,
+    "local_brute_S4_checks_m": [
+      1,
+      2,
+      3
+    ],
+    "exact_arithmetic": "integer and rational",
+    "native_BRC_interface_executed": false,
+    "source_pair_census_recomputed": false
+  },
+  "first_nonpolynomial_residual": {
+    "m": 1,
+    "degree": 47,
+    "period": 2,
+    "coefficient": "(-1)^N * C/47!",
+    "C": "547/6886847218442731416754144974940692743548218234549509353739972585145517635660102012751405864458735115110278273580065095680000000000000",
+    "provenance": "q=-1 root of unity pole of order 48 from G0 and G2, same positive leading sign"
+  },
+  "full_generated_result_name": "RESULT_HIGH_DEGREE.json",
+  "reproduce": "python VERIFY_N78.py && python VERIFY_HIGH_DEGREE.py after supplying SHA-pinned EXACT_R5_ALL_101_BUDGETS.json",
+  "next": "derive complete quasi-polynomial including period-resolved root-of-unity terms or prove compressed parity-corrected algorithm"
+}
