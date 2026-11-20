@@ -1,0 +1,115 @@
+{
+  "Q19_candidate_count": 3435973837,
+  "Q19_total_ordered_pairs": 17179869184,
+  "claim": "For m=5, candidate domain 2v-5u>=1 has exactly (N^2-(-1)^p)/5 odd ordered pairs, N=2^(p-2); named residual parity opposite.",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "per_width": [
+    {
+      "candidate_pairs": 3,
+      "core_count": 3,
+      "counts": {
+        "named_gap5": 2
+      },
+      "example": [
+        4,
+        3,
+        13,
+        9,
+        3,
+        8,
+        3,
+        2,
+        0,
+        3
+      ],
+      "full_pair_domain": 16,
+      "p": 4
+    },
+    {
+      "candidate_pairs": 13,
+      "core_count": 7,
+      "counts": {
+        "named_gap5": 3
+      },
+      "example": [
+        5,
+        9,
+        31,
+        19,
+        13,
+        18,
+        4,
+        4,
+        0,
+        1
+      ],
+      "full_pair_domain": 64,
+      "p": 5
+    },
+    {
+      "candidate_pairs": 51,
+      "core_count": 15,
+      "counts": {
+        "named_gap5": 22
+      },
+      "example": [
+        6,
+        3,
+        53,
+        37,
+        3,
+        8,
+        5,
+        4,
+        0,
+        5
+      ],
+      "full_pair_domain": 256,
+      "p": 6
+    },
+    {
+      "candidate_pairs": 205,
+      "core_count": 31,
+      "counts": {
+        "named_gap5": 45
+      },
+      "example": [
+        7,
+        3,
+        111,
+        67,
+        4,
+        9,
+        6,
+        0,
+        4,
+        6
+      ],
+      "full_pair_domain": 1024,
+      "p": 7
+    },
+    {
+      "candidate_pairs": 819,
+      "core_count": 63,
+      "counts": {
+        "named_gap5": 144
+      },
+      "example": [
+        8,
+        3,
+        213,
+        149,
+        3,
+        8,
+        7,
+        6,
+        0,
+        7
+      ],
+      "full_pair_domain": 4096,
+      "p": 8
+    }
+  ],
+  "status": "AUTHOR_PROOF_PLUS_FINITE_ORIGINAL_EQUATION_CHECK;NOT_REVIEWED",
+  "verification": "p=4..8 full Qp^2 and odd k,k+2<H, all source indices and quotients directly from XOR"
+}
