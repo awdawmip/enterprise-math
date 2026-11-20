@@ -1,0 +1,34 @@
+{
+  "schema": "X6_SOURCE_LEDGER_DELTA_V1",
+  "unit": 189,
+  "parent": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "science_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "actual_frozen_source_consumer": "src/enterprise_math/weighted_relation_field.py:merge_weighted_relation_field / split_two_block_totals_from_internal_relation / recover_totals_from_weighted_field",
+  "source_test": "tests/test_weighted_relation_field.py",
+  "statement": "W=coarsened weighted relation field and delta=discarded internal relation exactly determine original full fine field; with n exact BRC endpoint multiplicity distribution is recoverable; provenance of individual ordered paths remains lost",
+  "minimal_repair": "One independent integer relation coordinate delta to lift W to full fine field (algebraic rank); separately path history not recoverable from endpoint carrier",
+  "finite_witness": {
+    "one_step": "e_l and e_r share W; delta=m_r and -m_l",
+    "two_step": "e_l+e_r is endpoint of ordered words lr and rl, native BRC=2; W,delta,n collide"
+  },
+  "exact_checked": {
+    "capacity_vectors": 3,
+    "pairs_per_vector": 15,
+    "horizons": 6,
+    "native_dp_endpoints_checked_against_independent_factorial_brc": 4043,
+    "direct_source_coarsen_operations": 181935,
+    "exact_source_formula_field_reconstructions": 181935,
+    "exact_source_grand_total_reconstructions": 181935,
+    "original_field_fiber_vs_coarse_field_plus_scalar_brc_mass_checks": 169905,
+    "coarse_field_support_compares": 169905,
+    "full_native_12n_mass_checks": 6,
+    "primitive_one_step_missing_scalar_witnesses": 45,
+    "ordered_branch_history_nonrecoverability_witnesses": 45,
+    "violations": 0
+  },
+  "original_R063_reexecuted": false,
+  "author_status": "AUTHOR_PROVED / EXACT_FINITE_BIGINT_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_progress": "NOT_SUBMITTED"
+}
