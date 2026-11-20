@@ -1,0 +1,72 @@
+{
+  "schema": "X6_UNIT189_FROZEN_BINARY_MERGE_SCALAR_REPAIR_BRC_CHECK_V1",
+  "frozen_science_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_source_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "capacity_vectors": [
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      2,
+      1,
+      2,
+      1,
+      2
+    ],
+    [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  ],
+  "lengths": "0..5",
+  "counts": {
+    "capacity_vectors": 3,
+    "pairs_per_vector": 15,
+    "horizons": 6,
+    "native_dp_endpoints_checked_against_independent_factorial_brc": 4043,
+    "direct_source_coarsen_operations": 181935,
+    "exact_source_formula_field_reconstructions": 181935,
+    "exact_source_grand_total_reconstructions": 181935,
+    "original_field_fiber_vs_coarse_field_plus_scalar_brc_mass_checks": 169905,
+    "coarse_field_support_compares": 169905,
+    "full_native_12n_mass_checks": 6,
+    "primitive_one_step_missing_scalar_witnesses": 45,
+    "ordered_branch_history_nonrecoverability_witnesses": 45,
+    "violations": 0
+  },
+  "witness_one_step": {
+    "source_capacities": [
+      1,
+      2,
+      1,
+      2,
+      1,
+      2
+    ],
+    "left_index": 0,
+    "right_index": 1,
+    "coarse_field_equal_for_e_left_and_e_right": true,
+    "discarded_scalar_e_left": 2,
+    "discarded_scalar_e_right": -1
+  },
+  "witness_two_step": {
+    "endpoint": "e_left+e_right",
+    "two_named_ordered_words": true,
+    "brc_multiplicity": 2,
+    "coarse_field_and_discarded_scalar_equal": true
+  },
+  "actual_frozen_module_imported": false,
+  "original_native_R063_benchmark_rerun": false,
+  "independent_driver_review": false,
+  "violations": 0
+}
