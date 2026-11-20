@@ -76,9 +76,11 @@
     "latest_read_only_request": {
       "request_id": "onhour-20261120-2055-x6-unit195-postscience-current-cont-read-v1",
       "operation": "continuation",
-      "last_observed_status": "RUNNING",
+      "last_observed_status": "RUNNING (last conclusive receipt); subsequent same-request result transport returned UPSTREAM_OUTCOME_UNKNOWN / operation_sent=true",
       "original_request_only": true,
-      "next_action": "em_control_result same target_request_id; consume terminal without resending read or write; no current writer authority inferred"
+      "next_action": "Re-read original onhour-20261120-2055-x6-unit195-postscience-current-cont-read-v1 via em_control_result/reconciliation; consume original terminal only; do not issue a new continuation or claim based on this uncertainty.",
+      "result_transport_error": "UPSTREAM_OUTCOME_UNKNOWN",
+      "result_transport_operation_sent": true
     }
   },
   "unresolved": {
