@@ -1,0 +1,67 @@
+{
+  "schema": "X6_UNIT190_FOREST_REPAIR_EXACT_CHECK_V1",
+  "model": "signed_native_X6_path_count_and_frozen_A3_weighted_field",
+  "frozen_signed_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_source_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "capacity_sets": [
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      2,
+      1,
+      2,
+      1,
+      2
+    ],
+    [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13
+    ]
+  ],
+  "partitions": 203,
+  "horizons": [
+    {
+      "n": 0,
+      "endpoints": 1,
+      "mass": "1"
+    },
+    {
+      "n": 1,
+      "endpoints": 12,
+      "mass": "12"
+    },
+    {
+      "n": 2,
+      "endpoints": 73,
+      "mass": "144"
+    },
+    {
+      "n": 3,
+      "endpoints": 304,
+      "mass": "1728"
+    },
+    {
+      "n": 4,
+      "endpoints": 985,
+      "mass": "20736"
+    }
+  ],
+  "source_coarsening_comparisons": 837375,
+  "forest_inversion_comparisons": 837375,
+  "star_vs_chain_comparisons": 837375,
+  "all_fine_field_brc_mass_comparisons": 802865,
+  "deleted_edge_independence_witnesses": 1632,
+  "violations": 0,
+  "claim_scope": "source-equivalent independent BigInt finite execution, not actual frozen code import or R063 benchmark"
+}
