@@ -1,0 +1,18 @@
+{
+  "tool_name": "mcp__GitHub__fetch_file",
+  "observation_id": "x6-unit189-20261120-claim_ledger_unit189_delta.json",
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "ref": "2bbbeb50a77586182270f6ae8f236d377e186933",
+    "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit189_delta.json"
+  },
+  "result": {
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"X6_SOURCE_LEDGER_DELTA_V1\",\n  \"unit\": 189,\n  \"parent\": \"PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905\",\n  \"task\": \"RS-X6-LEGACY-PLANE-RECONCILIATION\",\n  \"science_pin\": \"59538f585d037d09ef687b28715c4bc1a3f9fe03\",\n  \"historical_pin\": \"fd2bcff10ca6e147348b6c1236027fc0d2877df3\",\n  \"actual_frozen_source_consumer\": \"src/enterprise_math/weighted_relation_field.py:merge_weighted_relation_field / split_two_block_totals_from_internal_relation / recover_totals_from_weighted_field\",\n  \"source_test\": \"tests/test_weighted_relation_field.py\",\n  \"statement\": \"W=coarsened weighted relation field and delta=discarded internal relation exactly determine original full fine field; with n exact BRC endpoint multiplicity distribution is recoverable; provenance of individual ordered paths remains lost\",\n  \"minimal_repair\": \"One independent integer relation coordinate delta to lift W to full fine field (algebraic rank); separately path history not recoverable from endpoint carrier\",\n  \"finite_witness\": {\n    \"one_step\": \"e_l and e_r share W; delta=m_r and -m_l\",\n    \"two_step\": \"e_l+e_r is endpoint of ordered words lr and rl, native BRC=2; W,delta,n collide\"\n  },\n  \"exact_checked\": {\n    \"capacity_vectors\": 3,\n    \"pairs_per_vector\": 15,\n    \"horizons\": 6,\n    \"native_dp_endpoints_checked_against_independent_factorial_brc\": 4043,\n    \"direct_source_coarsen_operations\": 181935,\n    \"exact_source_formula_field_reconstructions\": 181935,\n    \"exact_source_grand_total_reconstructions\": 181935,\n    \"original_field_fiber_vs_coarse_field_plus_scalar_brc_mass_checks\": 169905,\n    \"coarse_field_support_compares\": 169905,\n    \"full_native_12n_mass_checks\": 6,\n    \"primitive_one_step_missing_scalar_witnesses\": 45,\n    \"ordered_branch_history_nonrecoverability_witnesses\": 45,\n    \"violations\": 0\n  },\n  \"original_R063_reexecuted\": false,\n  \"author_status\": \"AUTHOR_PROVED / EXACT_FINITE_BIGINT_EXECUTED / UNREVIEWED / NOT_ADMITTED\",\n  \"native_progress\": \"NOT_SUBMITTED\"\n}\n",
+      "encoding": "utf-8",
+      "sha": "1f30bd1f0d1a2ecaba1a0c029468cdfa567df194",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2bbbeb50a77586182270f6ae8f236d377e186933/research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit189_delta.json",
+      "display_title": "claim_ledger_unit189_delta.json"
+    }
+  }
+}
