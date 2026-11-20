@@ -2,11 +2,22 @@
 
 日期：2026-11-20（UTC+08:00）  
 状态：**工程设计与评测协议草案；不是已部署能力或科研规则**。  
+
+## 当前执行入口：Nollm 探索开发
+
+用户已将任务扩展为可用原型开发，主执行入口是 [Nollm PR #7](https://github.com/awdawmip/Nollm/pull/7) 及其 [任务书](https://github.com/awdawmip/Nollm/blob/experiment/enterprise-math-memory-20261120/docs/project/tasks/NOLLM_ENTERPRISE_MATH_MEMORY_EXPERIMENT_20261120.md)／[Codex 提示词](https://github.com/awdawmip/Nollm/blob/experiment/enterprise-math-memory-20261120/docs/project/tasks/NOLLM_ENTERPRISE_MATH_MEMORY_CODEX_PROMPT_20261120.md)。通用记忆组织和原生导航在 Nollm 开发，进取数论提供真实材料、领域适配及跨线复用验收。
+
+当前任务是内部可信试验组件，用户明确要求不写防御性代码，不做无谓验证或哈希。交付包含可运行代码、真实模型使用、跨会话取回和局部修订，并比较实际收益与成本。本包保留为设计历史、来源和可选比较参考；其全模式计划、盲测基础设施和 38 项声明检查不作为新任务的开发或交付门槛。具体实施范围和验收以新任务书为准。
+
+本次已交付任务与提示词，原型开发及真实效果试验尚待执行。该 EM 草案不另行派发一套重复的主任务。
+
+## 原方案的用途与范围
+
 用途：使已有成果更容易被找到、正确使用和跨线组合，降低重复阅读与重复建立背景的成本，同时保留自主研究和 FREE A 的来源边界。
 
 本交付提供可评审的架构、模式定义、验收案例与评测配置检查器。模式效果须由实际实验报告；配置检查通过不表示任何记忆模式已经提高科研能力。生产入口、定时配置、数学定义与正式任务状态不在本草案中修改。
 
-## 0. Nollm 集成假设的理解校准（2026-11-20 补充）
+## 0. Nollm 集成假设的理解校准（同日早期参考）
 
 对 Nollm 内部架构和具体适配的规划，先恢复、校准其设计意图与实际实现的对应关系。新增 [理解自举任务](UNDERSTANDING_BOOTSTRAP_TASK.md) 复用现有缩影报告和原始架构来源，明确设计演变、选择理由、竞争解释、实现差异与理解挑战。
 

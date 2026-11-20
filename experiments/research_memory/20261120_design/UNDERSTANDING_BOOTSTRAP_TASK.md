@@ -3,6 +3,8 @@
 日期：2026-11-20（UTC+08:00）。  
 状态：**理解恢复任务草案与已核来源说明**。本文件补充 Enterprise Math 研究记忆提案；不是 Nollm 的新规范或已执行任务回执。
 
+**任务范围已扩展。** 2026-11-20 用户要求在理解之后继续探索开发，交付可供进取数论真实模型使用的外部研究记忆。当前主执行入口为 [Nollm PR #7](https://github.com/awdawmip/Nollm/pull/7) 的 [开发任务书](https://github.com/awdawmip/Nollm/blob/experiment/enterprise-math-memory-20261120/docs/project/tasks/NOLLM_ENTERPRISE_MATH_MEMORY_EXPERIMENT_20261120.md) 和 [Codex 提示词](https://github.com/awdawmip/Nollm/blob/experiment/enterprise-math-memory-20261120/docs/project/tasks/NOLLM_ENTERPRISE_MATH_MEMORY_CODEX_PROMPT_20261120.md)。本文件保留为理解、设计演变和已核来源参考；下文“仅交付理解”“当前不修改 Nollm”是此前阶段范围，不再限制新任务。理解挑战与多路比较按需使用，不是开始开发的前置。新任务明确内部试验、不写防御性代码或无谓验证/哈希，并以实际可用原型和真实试验作为交付。
+
 ## 1. 目标和当前定位
 
 在规划 Nollm 架构变动或 Enterprise Math 适配之前，使执行者能从原始依据说明：项目要解决什么、关键机制为何如此设计、哪些调整已经明确发生、当前实现做了什么，以及两者的具体差异。
