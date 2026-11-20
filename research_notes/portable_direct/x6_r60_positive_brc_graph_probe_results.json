@@ -1,0 +1,116 @@
+{
+  "schema": "ENTERPRISE_MATH_X6_R60_POSITIVE_BRC_GRAPH_TOMOGRAPHY_V1",
+  "status": "PASS",
+  "arithmetic": "integer positive branch counts",
+  "sizes": [
+    {
+      "p": 1,
+      "labelled_graphs": 2,
+      "simultaneous_relabel_orbits": 2,
+      "signature_collisions": 0,
+      "first_collision_found": false
+    },
+    {
+      "p": 2,
+      "labelled_graphs": 16,
+      "simultaneous_relabel_orbits": 10,
+      "signature_collisions": 0,
+      "first_collision_found": false
+    },
+    {
+      "p": 3,
+      "labelled_graphs": 512,
+      "simultaneous_relabel_orbits": 104,
+      "signature_collisions": 36,
+      "first_collision_found": true
+    }
+  ],
+  "witness": {
+    "p": 3,
+    "success_A": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "success_B": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "blocked_edges_A": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "blocked_edges_B": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "forbidden_edge_count": 3,
+    "trace_prefix": [
+      2,
+      4,
+      5
+    ],
+    "characteristic_polynomial": "lambda^3-2lambda^2+1",
+    "blocked_out_degree_sorted": [
+      0,
+      1,
+      2
+    ],
+    "blocked_in_degree_sorted": [
+      0,
+      1,
+      2
+    ],
+    "marked_positive_two_trial_A": 4,
+    "marked_positive_two_trial_B": 5,
+    "spanning_pattern_mass_on_A_positive": true,
+    "spanning_pattern_mass_on_B_zero": true
+  },
+  "model": "conditional typed positive-BRC 0/1 success events with stable simultaneous Port labels across reset replicates; no physical/native time claim",
+  "verification": "p=1..3 exhaustive labelled binary relation enumeration and orbit class tests; symbolic general proof of positive template completeness"
+}
