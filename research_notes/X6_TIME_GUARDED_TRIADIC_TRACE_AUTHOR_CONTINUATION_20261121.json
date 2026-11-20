@@ -1,0 +1,78 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "historical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "canonical_fair_selection_receipt": "onhour-20261121-0306-x6-canonical-fair-dispatch-v1",
+  "current_owner_claim_receipt": "onhour-20261121-0315-own-research-selected-time-claim-v1",
+  "owner_claim_source_status": "SUCCEEDED / authorized true / CLAIM MCP-369991930c5b4fddf26dbefa / observed owner lease until 2026-11-20T21:25:05Z",
+  "current_researcher_id": "EM-X6-FB6990",
+  "original_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "current_claim_id": "MCP-369991930c5b4fddf26dbefa",
+  "current_run_id": "RUN-d653f1346f38369bc27f5fc5",
+  "observed_run_generation": 1,
+  "frozen_taskbook": "awdawmip/enterprise-math@f41c2690daba467ecbde99615a1337e67be46ffd:research_tasks/RS_X6_NATIVE_TIME_DYNAMICS_20260906.md",
+  "frozen_scientific_input_pins": [
+    "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+    "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:research_notes/VIETE_PHASE_REFINEMENT_VS_PRECISION_PROSTATE_CLOCK_20260905.md"
+  ],
+  "previous_authored_time_frontier": "awdawmip/enterprise-math@f41c2690daba467ecbde99615a1337e67be46ffd:research_artifacts/mcp/RS-X6-NATIVE-TIME-DYNAMICS/MCP-456b8f22a648400585024ffbcc1c2c94/5a04daccb6795e494dbc/X6_TIME_GUARDED_TRIADIC_RESOURCE_CONFLICT_20261118.md",
+  "new_scientific_result": {
+    "title": "Guarded triadic exact chronology and sharp observer-specific Markov information bounds",
+    "status": "AUTHOR_PROVED / EXACT_INTEGER_EXECUTED / GITHUB_IMMUTABLE_READBACK / UNREVIEWED / NOT_ADMITTED",
+    "theorem": "At m disjoint one-shot triadic sources with 3 labeled ports each: configuration count C(m,k)=binomial(m,k)3^k; ordered trace count H(m,k)=k!C(m,k); exact future legality quotient 2^m; port-provenance 4^m; full-history N_m=sum_k H(m,k).",
+    "proof": {
+      "commit": "7b83f17a9a8d31cbf7ec8465086d4485c454a876",
+      "path": "research_notes/X6_TIME_GUARDED_TRIADIC_TRACE_COUNTS_AND_MARKOV_QUOTIENT_20261121.md",
+      "sha256": "8401477746061f5ebc8aad56dbabab2f8de3421c7c4de84ade65d6b175167ffb"
+    },
+    "checker": {
+      "commit": "8019fbdbcfe4d438e1d4fbbb8f9e216f18dee4c9",
+      "path": "research_checks/X6_TIME_GUARDED_TRIADIC_TRACE_COUNTER_20261121.py",
+      "sha256": "ccfb2534b79a61a4019a1e2ad887b7aae0fdaba9abee3aac5a23c7488d325adc"
+    },
+    "certificate": {
+      "commit": "cb4256211c0a09598b0c4f5ce20c07382eb39448",
+      "path": "research_checks/X6_TIME_GUARDED_TRIADIC_TRACE_RESULTS_20261121.json",
+      "sha256": "0786000c24769f807cc55bd3477de0673ca0572837a4ce092cab222b9922c230"
+    },
+    "certificate_scope": "DP over all configurations m=1..8, independent DFS over every ordered prefix m=1..5, exact integer arithmetic, mismatches=0",
+    "activity": {
+      "id": "RA-5E3FE1E761E4963EC461A892",
+      "checkpoint_event": "onhour-20261121-0340-x6-time-guarded-trace-chronology-v1",
+      "commit": "56d71f1548ad63f4e0c957a6506c0c5d8d1dcff5",
+      "total_events": 221
+    }
+  },
+  "control_pending": {
+    "request_id": "onhour-20261121-0345-time-guarded-triadic-trace-progress-v1",
+    "operation": "publish_checkpoint",
+    "status_at_last_read": "QUEUED",
+    "behavior": "Consume original request receipt; do not resubmit; do not assert semantic Native PROGRESS until terminal/authenticated Source readback"
+  },
+  "prior_distinct_line": {
+    "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+    "last_author_unit_seen_in_source_activity": 201,
+    "original_activity_event": "onhour-20261121-0319-x6-unit201-pinned-225-file-source-audit-v1",
+    "preservation": "Source verified; not repeated or reclassified as new native time task Result",
+    "native_semantic_history_pending": "Units175-201, historical149-152; verify exact current Source before any separate protected write"
+  },
+  "evidence_debt": [
+    "Actual P000-compatible admitted triadic Cell/Link/Port event with environmental response and rotation law",
+    "Native Time conditional unit semantic checkpoint request terminal readback",
+    "Independent mathematical review and Result decision",
+    "Separate X6 legacy LP011/LP019 source and semantic debts remain on original task"
+  ],
+  "do_not_repeat": [
+    "Frozen prior 2026-11-18 guarded triadic resource conflict theorem",
+    "Current m=1..8 DP and m=1..5 DFS exact checks",
+    "X6 legacy Unit201 source sweep and previously completed Units 1-200",
+    "R063 spatial native six-file benchmark",
+    "Maintenance lane session or another author's claim; unknown write request replay"
+  ],
+  "next_exact_action": "Read original publish_checkpoint request onhour-20261121-0345-time-guarded-triadic-trace-progress-v1 until terminal, reconcile only if outcome unknown. Then test a single coupled environmental/rotation event law where spatially commuting different-source triads may have noncommuting environment updates, and establish exact criterion for the 2m-bit q quotient to preserve downstream observer dynamics; preserve candidate-vs-admitted typing.",
+  "continuation_state": "OPEN"
+}
