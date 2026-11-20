@@ -1,0 +1,78 @@
+{
+  "schema": "X6_CLAIM_LEVEL_RECONCILIATION_LEDGER_DELTA_V1",
+  "unit": 179,
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "claim_id": "X6-CL-UNIT179-FROZEN-EXPERIMENT-PY-SCOPE-AND-OPTIMIZED-ASSERT-EVIDENCE-BOUNDARY",
+  "author_status": "AUTHOR_SOURCE_AUDIT / FROZEN_EXPERIMENT_110_BLOBS_READ / PYTHON_OPTIMIZATION_MICROPROBE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "coverage": {
+    "frozen_experiment_python": 110,
+    "top_level": 93,
+    "nested": 17,
+    "all_content_fetched": true,
+    "fetch_failures": 0,
+    "explicit_R061_named_direct_reference_hits": 0,
+    "prior_unit178_top_level_production": 225,
+    "unscanned_frozen_tests_python": 312
+  },
+  "native_experiment_positive_controls": [
+    {
+      "caller": "experiments/x6_signed_native_spatial_v16_20260905/check_signed_brc.py",
+      "caller_blob": "eadc2640e190165020a60a707ac5a14c497036a0",
+      "line": 6,
+      "callee": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+      "callee_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+      "meaning": "signed native 12-direction BRC experimental checker; not R061"
+    },
+    {
+      "caller": "experiments/x6_signed_native_spatial_v16_20260905/check_x6_signed.py",
+      "caller_blob": "275f327b603a9b07f8f6c0948347e75028d3a38a",
+      "line": 6,
+      "callee": "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py",
+      "callee_blob": "ac32f6d82a91db99297e587cf63b0df95cece514",
+      "meaning": "native full signed displacement plus derived relative observer; not diagonal_quotient.py import"
+    },
+    {
+      "caller": "experiments/x6_native_coordinate_completion_v7_20260905/check_x6_coordinate.py",
+      "caller_blob": "e72e12d2578b544a8ed10bb55a41cea1d28b60b1",
+      "line": 18,
+      "callee": "experiments/x6_native_coordinate_completion_v7_20260905/x6_coordinate.py",
+      "callee_blob": "ef66285d8ae81569cbbd3195b3e38daae37944ef",
+      "meaning": "derived min-zero quotient model, no native promotion"
+    }
+  ],
+  "assert_gates": [
+    {
+      "file": "experiments/x6_signed_native_spatial_v16_20260905/check_signed_brc.py",
+      "blob": "eadc2640e190165020a60a707ac5a14c497036a0",
+      "assert_statement_lines": 13,
+      "pass_print_line": 64
+    },
+    {
+      "file": "experiments/x6_signed_native_spatial_v16_20260905/check_x6_signed.py",
+      "blob": "275f327b603a9b07f8f6c0948347e75028d3a38a",
+      "assert_statement_lines": 26,
+      "pass_print_line": 129
+    },
+    {
+      "file": "experiments/x6_native_coordinate_completion_v7_20260905/check_x6_coordinate.py",
+      "blob": "e72e12d2578b544a8ed10bb55a41cea1d28b60b1",
+      "assert_statement_lines": 30,
+      "pass_print_line": 156
+    }
+  ],
+  "limitations": [
+    "No actual execution of original R063 or these pinned experiment checkers in this unit",
+    "Direct named textual matches only; dynamic imports/eval/external code not ruled out",
+    "No full frozen 312-test corpus scanned in this unit",
+    "No proof LP011/LP019 original alleged offender exists",
+    "Unreviewed, not admitted, no Native PROGRESS claimed"
+  ],
+  "lp011_offender": "UNRESOLVED_PROVENANCE",
+  "lp019_offender": "UNRESOLVED_PROVENANCE",
+  "native_semantic": "Unit175–179 NOT_SUBMITTED current same-lane author writer authority unverified",
+  "next_exact_action": "Inspect remaining 312 pinned frozen tests for actual imports/calls. Distinguish local relative observers and native signed BRC; join exact source references with the 28-LP claim list and preserve original R063 benchmark."
+}
