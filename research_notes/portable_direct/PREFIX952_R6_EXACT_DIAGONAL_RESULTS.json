@@ -1,0 +1,72 @@
+{
+  "schema": "PREFIX952_R6_EXACT_DIAGONAL_RESULTS_V1",
+  "date": "2026-11-20",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "auxiliary named-XOR two-port diagonal",
+  "domain": {
+    "p": 19,
+    "modulus_min": 262145,
+    "modulus_max": 524287,
+    "modulus_step": 2,
+    "odd_moduli": 131072,
+    "odd_core_min": 1,
+    "odd_core_max": 8191,
+    "odd_cores": 4096,
+    "total_configurations": 536870912,
+    "state_bound_exclusive": 4294967296
+  },
+  "theorem": "w(k,a) = 19 - popcount((k*a) mod 2^19) + 2*[a=262145]*[k>=3]",
+  "total_named_source_pair_witnesses": 4831509378,
+  "base_zero_bit_witnesses": 4831501188,
+  "smallest_modulus_extra_witnesses": 8190,
+  "sum_top_zero_moduli_across_cores": 268098436,
+  "zero_witness_configurations": 2051,
+  "min_witnesses": 0,
+  "max_witnesses": 18,
+  "first_max_core": 3,
+  "first_max_modulus": 262145,
+  "histogram_witness_counts_0_to_20": [
+    2051,
+    36888,
+    313067,
+    1672848,
+    6273853,
+    17550161,
+    38030573,
+    65205329,
+    89635646,
+    99573331,
+    89596342,
+    65145281,
+    38007559,
+    17544795,
+    6260479,
+    1669917,
+    313829,
+    36906,
+    2057,
+    0,
+    0
+  ],
+  "adjacent_core_regression": {
+    "k": 21,
+    "K": 23,
+    "rank_one_diagonal_named_witness_combinations": 10541739,
+    "diagonal_pairs_with_positive_zero_bit_witnesses_for_both": 131071
+  },
+  "independent_validation": {
+    "cpp_full_configurations": 536870912,
+    "python_floor_sum_odd_cores": 4096,
+    "python_original_equation_small_parameter_cases": 126,
+    "all_assertions_passed": true,
+    "exact_integer_only": true
+  },
+  "local_evidence_sha256": {
+    "cpp": "4b254656215b486f8c40169699c60d7749e516b12aa8b2e27156ac6bd0c62a43",
+    "python": "4288057c76005eb5452c9af307f25e52a63e6a72a6c5716b1243a8c233ae5b31",
+    "per_core_csv": "faaee2c99539eea2a59589b5949f4f57022df39d657f5d5b80f8b88d245d6996",
+    "cpp_results": "4fd5f38cfb0ff65dbf384affd4b221d74f337360d36659fdea963573adb243eb",
+    "python_results": "d8ce598ba271a830c362923234c7e7136b2d6342633bd8aee24a0ec5dc2df6b2"
+  },
+  "scope": "author-proved; exact finite census; no new distinct-pair union; no independent review/admission; Activity relation pending"
+}
