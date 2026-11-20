@@ -1,4 +1,4 @@
-# PREFIX-956 — Dyadic source-gap sieve and directional rigidity for adjacent odd cores
+# PREFIX-956D — Dyadic source-gap sieve and directional rigidity for adjacent odd cores
 
 Date: 2026-11-20. Frozen scientific input inherited without rebasing: f42f2906d77f24085c123f3ccfe9667d41caa96d. Direct predecessor: PREFIX-955, with immutable off-diagonal certificate SHA-256 1caec71f97ddb97c60c8506629f65651f0f3030b3526aeca30195948ee0cff75. Model: auxiliary named XOR observer, not native X6/BRC/Heartbeat rotation. Status: author proof plus independently checked finite computation; mathematical Review and activity association not claimed.
 
@@ -91,3 +91,4 @@ The all-positive direction for m=4 is an **exact finite observation** for cores 
 Next discriminating direction: derive a CRT/floor-sum count of the m=2 band directly from the congruence Delta=2(a-b), with signed source footprints and actual bit predicates, and compare complete preprocessing and enumeration costs. Do not re-enumerate the existing 6203 pairs as if they were new certification, and retain the unique double-gap history. Mother objective B_fix,odd(32) in {19,20} remains open.
 
 Historical R6 source attribution: EM-DIRECT-58C410 / MCP-31edc522830749ad8775ca012e02ef30 / RA-25432C4AAE9BF66A907F5115; these source labels alone do not prove current private authority, active CLAIM, reviewer independence, or activity write permission. Control read r6-20261120-1436-x6-control-read-01 was queued with EVENT_READ_CONTROL_BUSY during this work. Portable research Source publication is separate from native shared-task execution.
+\n## Publication namespace clarification\n\nThis is the dyadic-gap branch of the R6 research. During publication a different existing PREFIX956_R6_EXACT_RESULTS.json (named-witness multiplicity research) was observed on main. It remains unchanged. This note's exact statistics are stored separately at research_notes/portable_direct/PREFIX956D_R6_DYADIC_EXACT_RESULTS.json; its code filenames retain the earlier PREFIX956 dyadic stem. This namespace clarification changes no mathematical claim.\n
