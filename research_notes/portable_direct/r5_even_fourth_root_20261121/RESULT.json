@@ -1,0 +1,84 @@
+{
+  "schema": "R5_EVEN_FOURTH_ROOT_EVIDENCE_V1",
+  "date": "2026-11-21",
+  "scope": "fixed even m>=2; primitive q=+i/-i local poles of frozen nonadaptive R5 failure generating function",
+  "frozen_input": "EXACT_R5_ALL_101_BUDGETS.json",
+  "frozen_input_sha256_inherited": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "scientific_source_predecessor": "awdawmip/enterprise-math@88a695e252c32418aa3e5f1340c8039b80494c3b:research_notes/portable_direct/r5_overlap_period4_sign_20261120/FOURTH_ROOT_LEMMA.md",
+  "theorem": "D_{4t+2}=(t+1)(436t+656-2i); D_{4t+4}=(t+1)(t+2)(436+220i); q=i has pole order23 with leading A D_m where A=1/(2^48 Q4)",
+  "generating_function_even": "((656-2i)z^2+(872+440i)z^4+(216+2i)z^6)/(1-z^4)^3",
+  "verification": {
+    "symbolic": {
+      "method": "SymPy exact rational identity",
+      "status": "PASS"
+    },
+    "independent": {
+      "method": "Z[i] integer dynamic programming",
+      "even_m_min": 2,
+      "even_m_max": 20,
+      "even_m_step": 2,
+      "status": "PASS"
+    },
+    "overlap": {
+      "method": "independent eight-dimensional direct enumeration vs bounded-state DP",
+      "m_min": 1,
+      "m_max": 4,
+      "status": "PASS"
+    },
+    "previous_32640_pair_certificate": "inherited; not rerun",
+    "independent_review": "NOT_REVIEWED"
+  },
+  "D_samples": [
+    {
+      "m": 2,
+      "re": 656,
+      "im": -2
+    },
+    {
+      "m": 4,
+      "re": 872,
+      "im": 440
+    },
+    {
+      "m": 6,
+      "re": 2184,
+      "im": -4
+    },
+    {
+      "m": 8,
+      "re": 2616,
+      "im": 1320
+    },
+    {
+      "m": 10,
+      "re": 4584,
+      "im": -6
+    },
+    {
+      "m": 12,
+      "re": 5232,
+      "im": 2640
+    },
+    {
+      "m": 14,
+      "re": 7856,
+      "im": -8
+    },
+    {
+      "m": 16,
+      "re": 8720,
+      "im": 4400
+    },
+    {
+      "m": 18,
+      "re": 12000,
+      "im": -10
+    },
+    {
+      "m": 20,
+      "re": 13080,
+      "im": 6600
+    }
+  ],
+  "next_question": "Find next fourth-root Laurent coefficient and cross-unit-root period/precision tradeoffs; do not identify scalar model with X6/BRC native geometry."
+}
