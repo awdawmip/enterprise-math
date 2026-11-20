@@ -1,0 +1,71 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_RESEARCH_EVIDENCE_V1",
+  "unit": "R762GX",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "publication_id": "TP2-8B7E13C5904A2D6F1142",
+  "frozen_science": {
+    "taskbook": "awdawmip/enterprise-math@857280d1012943290d141d1317179c40ec3cbdf8:research_tasks/RS_X6_TRIADIC_CLOSURE_DYNAMICS_20260906.md",
+    "p000_source": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389"
+  },
+  "model": "K4-STAR six signed native X6 axes; auxiliary four vertex indices; full S4 carrier relabeling; candidate closure and typed Port/Link/event-order dynamics",
+  "exact_checks": {
+    "S4_size": 24,
+    "directed_incident_port_pairs": 12,
+    "orientation_fiber": 2,
+    "oriented_port_states": 24,
+    "signed_transition_inputs": 48,
+    "covariance_cases": 1152,
+    "stabilizer_obstruction_instances": 24,
+    "three_step_port_cycles": 24,
+    "full_S4_orbit_size": 24,
+    "fixed_vertex_signed_return_counts_m0_to10": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 20,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0
+    },
+    "sign_words_m6": 64,
+    "spatial_port_returns_m6": 20,
+    "conditional_probability_m6": "5/16",
+    "witness": {
+      "input_port": [
+        0,
+        1
+      ],
+      "v": 0,
+      "s": 1,
+      "cell_increment": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "chi_plus_next_port": [
+        0,
+        2
+      ],
+      "chi_minus_next_port": [
+        0,
+        3
+      ],
+      "later_v2_eligible_only_from": "chi_plus"
+    }
+  },
+  "theorem_status": "AUTHOR_PROVED_MODEL_INTERNAL",
+  "review_status": "NOT_REVIEWED",
+  "finite_checker_status": "PASS",
+  "checker_runtime": "GitHub stored JS source evaluated in V8 with Node assert/console shims; equivalent Python combinatorics crosschecked",
+  "proof_boundary": "No assertion that this proposed closure/transport/time clock is the unique or officially admitted primitive TRIADIC_CLOSURE_E law",
+  "publication_status": "GITHUB_DRAFT_CANDIDATE_PENDING_REMOTE_FINAL_READBACK",
+  "next_problem": "Native closure-admissibility and genuine Cell/Link/Port/time predicate; test whether the one-bit chirality is already encoded in canonical Link or rotation state"
+}
