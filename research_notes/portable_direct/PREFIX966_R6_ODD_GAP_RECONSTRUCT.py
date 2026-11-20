@@ -112,11 +112,11 @@ def main():
                 direct=direct_odd_gap(p,k,m)
                 assert got==direct,(p,k,m,len(got),len(direct),list((got-direct).items())[:4])
                 small.append({'p':p,'k':k,'m':m,'pairs':len(got),'named':sum(got.values())})
-    outputs=[]
+    outputs=[]; timings={}
     for m in (1,3,5):
         t0=perf_counter();pair,d=invert_odd_gap(19,21,m)
         d.pop('small_named_value_witnesses')
-        d['elapsed_seconds']=round(perf_counter()-t0,4)
+        timings[m]=round(perf_counter()-t0,4)
         outputs.append(d)
     expected={1:(442,614),3:(839,1286),5:(3,3)}
     for obj in outputs:assert (obj['distinct_ordered_pairs'],obj['named_joint_histories'])==expected[obj['m']],obj
@@ -130,5 +130,5 @@ def main():
         'q19_k21_results':outputs,
         'limitations':'No formal independent review; numerical auxiliary observer does not assert X6/BRC admissibility. Existing P957/958 results are used only as comparison counts; algorithm generates candidates independently.'}
     with open('PREFIX966_R6_EXACT_RESULTS.json','w') as f:json.dump(output,f,indent=2,ensure_ascii=False);f.write('\n')
-    print(json.dumps({'small_checks':len(small),'q19':outputs},indent=2))
+    print(json.dumps({'small_checks':len(small),'q19':outputs,'timings_seconds':timings},indent=2))
 if __name__=='__main__': main()
