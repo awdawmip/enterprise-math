@@ -1,0 +1,32 @@
+# X6 Unit181 — exact frozen August source-corpus test for LP011/LP019 historical attribution
+
+**Date:** 2026-11-20. **Mother objective:** `PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905`; Task `RS-X6-LEGACY-PLANE-RECONCILIATION`, publication `TP2-B4A441B23DA3159232C2`. **Frozen science:** `59538f585d037d09ef687b28715c4bc1a3f9fe03`. **Historical comparator:** `fd2bcff10ca6e147348b6c1236027fc0d2877df3`. **Status:** AUTHOR_SOURCE_AUDIT / UNREVIEWED / NOT_ADMITTED.
+
+## New, exact finite historical-corpus observation
+
+After Unit180 closed the frozen 312-root-Python-test source-census, this follow-on separately retrieved **all 37 root-level `research_notes/*.md` whose filename contains `202608`** and **all 23 root-level `definitions/*.(md|json)` whose filename contains `202608`** from the same immutable historical Git tree (5,014 entries, `truncated=false`). The 60 exact blobs were fetched through the connected GitHub blob reader, with **60 successful reads and zero failures**. Every path/blob SHA/size is recorded at the independently verified manifest:
+
+`research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/unit181_frozen_august60_source_manifest.json` @ `c2aec8c89ad2b501756c03ce16328ff276b75a71` (Git blob `f135d0c74be754bada9df4b2b4bdbd72c42822d1`).
+
+A case-insensitive static line scan checked exact literals `213`, `846`, short nine-address phrasing, `argmax` / `M=max`, and BRC/count subtraction, cancellation or signed-language patterns. It produced **12 lexical candidate lines in 11 files**. Most were unrelated headings and model-boundary disclaimers, and **no exact literal `213` or `846`** occurred in this 60-file named historical population.
+
+## Four load-bearing historical passages and their types
+
+| Frozen original source | Exact line | Observed content and type |
+|---|---:|---|
+| `research_notes/DIAGONAL_GAUGE_DERIVED_DISPLACEMENT_THEOREM_PACKAGE_20260826.md` | 75 | `M=max(A,B,C)` computes the inverse on a min-zero *relative quotient* |
+| `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md` | 241 | `M=max(A,B,C)` in historical quotient-representative inverse |
+| `definitions/ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md` | 144 | `M=max(A,B,C)` on normalized carrier tuple |
+| `definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md` | 33 | Explicit statement that historical BRC does not retain signed/amplitude cancellation |
+
+These exact passages were already correctly classified as observer-layer operations in the earlier 28-LP crosswalk; Unit181's **new information** is the **complete closed August-dated subcorpus scope**, not discovery of the max formula or mathematical correction anew.
+
+LP011's specific purported *wrong native signed-axis argmax caller* and LP019's specific purported *subtraction of positive native N-BRC path counts* were **not identified in this declared 60-file source population**. This leaves their original `commit:path:line` as `UNRESOLVED_PROVENANCE` rather than attaching the alleged error to a correctly typed quotient or an explicit no-signed-cancellation statement.
+
+### Reusable scope and open scientific target
+
+The manifest is a reproducible map of source bytes, not a runtime execution or complete history proof. It covers only filename-selected August 2026 material in `research_notes` and `definitions` at the single frozen Git revision. An exact author's claim can originate in an unselected file, another revision, a script, an external note or a nonliteral rendering; dynamic native consumers require actual call and object-type evidence.
+
+Unit180's **312/312** frozen Python-test named-reference census, Unit179's **110/110** experiment Python census and Unit178's **225/225** production Python census remain intact. The native R063 benchmark is reused unchanged, not run again.
+
+**Next precise action:** search exact unresolved LP011/LP019 author claim provenance beyond the closed August subcorpus and map actual native consumer callsites, with original commit/path/line and concrete operation type. Units149–152 historic semantic source associations and Units175–181 current author Native PROGRESS require the appropriate original Research lane authorization and independent Driver review. **No Native PROGRESS, independent review, new Task, P000 modification or Foundation admission occurred in this unit.**
