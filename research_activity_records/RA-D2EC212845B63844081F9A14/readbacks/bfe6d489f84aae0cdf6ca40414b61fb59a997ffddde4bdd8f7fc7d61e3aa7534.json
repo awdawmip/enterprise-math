@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/riesel_completion_20261120/shapes/proof.md",
+    "ref": "1c261f58cd5d469d25838b45f97623787628e23e",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-RIESEL-V5-SCI-026-OBSERVED",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 固定二十通道中的第二个不交覆盖族\n\n研究身份：EM-DIRECT-970E1C；Activity：RA-D2EC212845B63844081F9A14。\n\n## 1. 问题与结论\n\n沿用第四轮指定的二十个素数 P、奇指数 n=2u+1 的周期 e_p、相位 c_p，及由模 5 / 模 7 坐标置换、两对通道交换、整体平移构成的覆盖族 C。第四轮证明了 |C|=116121600，并只在 C 内作了根的最小化。\n\n本轮证明这个限定确有必要：存在与 C 不交、等势的另一个有效覆盖族 iota(C)。这不是所有固定 P 覆盖的分类，也不改变上一轮在 C 内的最小值。\n\n## 2. 一个能区分两族的联合相位不变量\n\n在未平移的第四轮族中，p=7 与 p=241 的相位固定为 2 mod 3 与 9 mod 12。因此\n\ndelta(c) = c_241 - c_7 mod 3 = 1。\n\n所有允许的分块置换和成对交换都不改变这两个相位；整体平移给两者加上同一 t，所以 delta 在 C 上恒为 1。单通道的命中密度并不记录这个相对相位。\n\n## 3. 翻转模 3 坐标\n\nL=3360=3·1120。取 b=1121，则 b=1 mod 1120、b=-1 mod 3，而且 gcd(b,L)=1、b²=1 mod L。\n\n令 iota(u)=bu mod L，并对每个通道取新相位 c'_p=bc_p mod e_p。因为每个 e_p 都整除 L，u 命中旧相位当且仅当 iota(u) 命中新相位。因此 iota 把覆盖变成覆盖，且为可逆变换。\n\n另一方面 delta(iota(c))=-delta(c)=2 mod 3。所以 C∩iota(C)=空集，两个族的并集有 232243200 个相位向量。每个相位向量对应 2^20 个不同的奇根 CRT 类，因此此并集有 243524645683200 个模 2M 的奇根类。\n\n平方兼容性保持：已有一个相位对应的根余数 r_p 时，将相位从 c 改为 c'，取 r'_p=r_p·2^(c-c') mod p，便有 r'_p²·2^(2c'+1)=1 mod p。各素数互异，故可用中国剩余定理实现全部新相位。\n\n这里 iota 只是有限同余覆盖域的置换。它一般不与 u→u+1 的原始一步推进交换，不能称为原未来动力学的保真商。\n\n## 4. 一个明确的第二族实例\n\n按 P=[7,17,31,41,71,97,113,127,151,241,257,281,337,641,673,1321,14449,29191,65537,6700417] 的顺序，相位为\n\n    [0,2,4,3,5,23,13,2,7,5,4,15,10,24,11,1,7,25,0,8]。\n\n相应奇根为\n\n    a=2677736146274011479898953406428513219251084697533384865。\n\n全部 3360 个 u 类都被命中，delta=2。该向量经 iota 逆变换及平移 t=56 可回到第四轮未平移族；所有这样的 t 正好是 56+240j，0≤j<14。这个实例由整数规划寻找，但正确性完全由独立整数运算核验，不依赖求解器最优或不可行状态。\n\n于是 k=a² 的所有奇指数项有 P 中的真因子；所有偶指数项具有 (a2^(n/2)-1)(a2^(n/2)+1) 的非平凡分解。故 k 是 Riesel 数。\n\n## 5. 原生载体与复算\n\n固定任意 X6 锚点，内部整数状态 x_n=a²2^n-1；一步推进 x→2x+1 由固定版本的单权、单项正 BRC 载体执行。模 p 通道由原生 euclidean_digits 读取。verify_outer_cover.py 对各通道完整周期闭合、唯一零相位、全部奇指数覆盖、平方 CRT 根和两族不变量分别作精确核验。指数只是算术序号，通道也不增加空间轴。\n\n在仓库根目录运行：\n\n    python research_notes/portable_direct/riesel_completion_20261120/shapes/verify_outer_cover.py --source-dir vendor_src\n\n依赖第四轮 phase/prepare_family.py 和此前固定源版本，不需要 SciPy。find_outer_cover.py 只是可选的候选发现程序，需要 NumPy 和 SciPy。\n",
+      "display_title": "proof.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/1c261f58cd5d469d25838b45f97623787628e23e/research_notes/portable_direct/riesel_completion_20261120/shapes/proof.md",
+      "encoding": "utf-8",
+      "sha": "5cd43f40b9936db21d639155f9fa250e00523d4b"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}

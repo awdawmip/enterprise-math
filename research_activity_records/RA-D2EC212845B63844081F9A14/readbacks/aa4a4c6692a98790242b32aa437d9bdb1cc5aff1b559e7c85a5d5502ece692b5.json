@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/riesel_completion_20261120/obstruction/period_packets_verify.cpp",
+    "ref": "1c261f58cd5d469d25838b45f97623787628e23e",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-RIESEL-V5-SCI-016-OBSERVED",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "// Independent exact recomputation: take A as an argument, recompute A^q by\n// mpz_pow_ui, and saturate against ALL proper divisors (not only q/r).\n// Build: g++ -O2 -std=c++17 period_packets_verify.cpp -lgmpxx -lgmp -o period_packets_verify\n// Args: A, stride S, maximum q.\n#include <gmpxx.h>\n#include <iostream>\n#include <string>\n\nstatic mpz_class power_mod(const mpz_class& n, const mpz_class& modulus) {\n    mpz_class b = 2, out;\n    mpz_powm(out.get_mpz_t(), b.get_mpz_t(), n.get_mpz_t(), modulus.get_mpz_t());\n    return out;\n}\n\nint main(int argc, char** argv) {\n    if (argc != 4) return 2;\n    const mpz_class A(argv[1]), S(argv[2]);\n    const unsigned long bound = std::stoul(argv[3]);\n    if (A < 2 || S < 1 || bound < 1) return 2;\n    for (unsigned long q = 1; q <= bound; ++q) {\n        mpz_class C, residue, G, H, divisor;\n        mpz_pow_ui(C.get_mpz_t(), A.get_mpz_t(), q);\n        C -= 1;\n        residue = power_mod(S*q, C)-1;\n        mpz_gcd(G.get_mpz_t(), C.get_mpz_t(), residue.get_mpz_t());\n        H = G;\n        for (unsigned long d = 1; d < q; ++d) {\n            if (q % d) continue;\n            while (H > 1) {\n                residue = power_mod(S*d, H)-1;\n                mpz_gcd(divisor.get_mpz_t(), H.get_mpz_t(), residue.get_mpz_t());\n                if (divisor == 1) break;\n                H /= divisor;\n            }\n        }\n        std::cout << q << ' ' << G << ' ' << H << '\\n';\n        if (q % 64 == 0) std::cerr << \"exact packets verified through \" << q << std::endl;\n    }\n}\n",
+      "display_title": "period_packets_verify.cpp",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/1c261f58cd5d469d25838b45f97623787628e23e/research_notes/portable_direct/riesel_completion_20261120/obstruction/period_packets_verify.cpp",
+      "encoding": "utf-8",
+      "sha": "eefd7b85eba07a54c5ec16d3cd79e2bbb04f8621"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}

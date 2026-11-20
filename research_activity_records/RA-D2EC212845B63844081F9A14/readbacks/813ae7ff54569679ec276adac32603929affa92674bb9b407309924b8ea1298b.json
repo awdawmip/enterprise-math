@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/riesel_completion_20261120/obstruction/verify_source_pins.py",
+    "ref": "1c261f58cd5d469d25838b45f97623787628e23e",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-RIESEL-V5-SCI-023-OBSERVED",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Verify the native BRC source files against the inherited Git blob IDs.\"\"\"\nfrom __future__ import annotations\n\nimport argparse\nimport hashlib\nimport json\nfrom pathlib import Path\n\nPROJECT_SOURCE_COMMIT = 'b1efc6c805661ed7b476e6e730107da6043176ee'\nPROJECT_SOURCE_BLOBS = {\n    'brc_transport.py': 'be1debe367263931bd5e93fd750be3ed54624fe1',\n    'brc_histogram.py': '9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1',\n    'brc_rational_holonomy.py': '2591640fe348da9cd7f293a957bea9ae92c82943',\n    'brc_weighted_recurrent.py': '4e6b3132580e3cd70a20a0d8bd4d28792b961afb',\n}\n\n\ndef verify_native_source_pins(source_dir):\n    actual = {}\n    for name, expected in PROJECT_SOURCE_BLOBS.items():\n        data = (Path(source_dir)/'enterprise_math'/name).read_bytes()\n        actual[name] = hashlib.sha1(b'blob '+str(len(data)).encode()+b'\\0'+data).hexdigest()\n        assert actual[name] == expected, (name, actual[name], expected)\n    return {\n        'project_source_commit': PROJECT_SOURCE_COMMIT,\n        'project_source_blobs': actual,\n        'native_source_blob_pins_verified': True,\n        'pin_provenance': 'research_notes/portable_direct/riesel_mixed_20261119/results.json',\n        'method': 'SHA-1 of Git blob header and exact file bytes',\n    }\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser(description=__doc__)\n    parser.add_argument('--source-dir', type=Path, default=Path(__file__).resolve().parent.parent/'vendor_src')\n    parser.add_argument('--output', type=Path, default=Path(__file__).resolve().parent/'native_source_verification.json')\n    args = parser.parse_args()\n    result = verify_native_source_pins(args.source_dir)\n    args.output.write_text(json.dumps(result, indent=2)+'\\n')\n    print(json.dumps(result))\n",
+      "display_title": "verify_source_pins.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/1c261f58cd5d469d25838b45f97623787628e23e/research_notes/portable_direct/riesel_completion_20261120/obstruction/verify_source_pins.py",
+      "encoding": "utf-8",
+      "sha": "998f72b916b560cc1835ab09133c250955cea083"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
