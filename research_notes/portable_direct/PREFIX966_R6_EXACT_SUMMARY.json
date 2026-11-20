@@ -17,8 +17,8 @@
     "independent_raw_original_xor_comparison": "p=4..7; all odd k with k+2<2^(p-1); m=1,3,5",
     "exhaustive_parameter_cases": 168,
     "small_cases_canonical_json_sha256": "27f3fbd31520397fd4ad341107e8a20f75c431da754395aa808f9abfddeb594f",
-    "source_code_git_blob_sha": "187d40e409496caa35f3e1eab27389c15591d33c",
-    "source_code_local_sha256": "c6b382f612121f93c74b85708310d8ad0f2953e5e10f6bb5fa8b3df3282862d6"
+    "source_code_git_blob_sha": "64084d8b775185be45a6e479ebca0afc140e5bd1",
+    "source_code_local_sha256": "ba8f3950df029c6e962034bb168e71724d178dcb4feddfe4b17c20af8064b49f"
   },
   "q19_k21": {
     "numeric_dictionary_values": 499,
@@ -60,9 +60,11 @@
   },
   "exact_reproduction": {
     "code": "research_notes/portable_direct/PREFIX966_R6_ODD_GAP_RECONSTRUCT.py",
-    "full_result_file_sha256": "9ffb39afc7a5344a20212ef17671eb5a55dff7313393d78e9dbb523cd8954826",
+    "full_result_file_sha256": "c3e5aaa80871a4a6b9c514ae953063a8ab58e800f4eca8837aa4099969ee902d",
     "full_named_csv_regenerated": true,
-    "tuple_hash_definition": "sorted a,b,t,T,i,j,I,J data lines newline-separated with final newline; omit CSV header"
+    "tuple_hash_definition": "sorted a,b,t,T,i,j,I,J data lines newline-separated with final newline; omit CSV header",
+    "output_dir": "The script writes reproducibility files to the current working directory (no hardcoded host path).",
+    "code_portability_fix_commit": "5d20de110c1d0ac57d1290bd4d4082952adfd43a"
   },
   "limitations": "No independent mathematical review; algorithm bound in k not polynomial in p for exponentially growing k; local runtime not a cross-algorithm benchmark.",
   "next_question": "combine odd-gap quotient inversion with even-gap divisor/resonance and retain source-faithful BRC observers"
