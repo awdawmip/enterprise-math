@@ -1,0 +1,348 @@
+{
+  "schema": "X6_R67_D6_FULL_COMMON_BIAS_BRC_MINIMAX_CERTIFICATE_V1",
+  "date": "2026-11-21",
+  "scope": "Conditional strictly-positive named AB branches with same A Port and independent B resets, normalized moments t=1..6, arbitrary single common channel offset and abs error eta; target c2..c6; all integer p>=6",
+  "frozen_p000": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "provenance": "R61-R66 portable author line. Exact native Task owner / current session permission not asserted; no native CLAIM or PROGRESS.",
+  "status": "AUTHOR_PROOF_TWO_EXHAUSTIVE_INTEGER_CERTIFICATES_POSITIVE_NAMED_BRANCH_CHECK_PASS_NOT_INDEPENDENTLY_REVIEWED",
+  "statement": {
+    "ranges": [
+      {
+        "p_min": 6,
+        "p_max": 20,
+        "eta_numerator": 31,
+        "eta_denominator": 2
+      },
+      {
+        "p_min": 21,
+        "p_max": 40,
+        "eta_numerator": 15,
+        "eta_denominator": 1
+      },
+      {
+        "p_min": 41,
+        "p_max": 56,
+        "eta_numerator": 12,
+        "eta_denominator": 1
+      },
+      {
+        "p_min": 57,
+        "p_max": null,
+        "eta_numerator": 1,
+        "eta_denominator": 2
+      }
+    ],
+    "p_transition": [
+      21,
+      41,
+      57
+    ]
+  },
+  "proof": {
+    "population_feasibility": "q(a)=max(sum(max(a_d,0)),sum(max(-a_d,0))) <= p, d=2..6",
+    "bias_quotient": "eta_pair = (max(0,z2..z6)-min(0,z2..z6))/4",
+    "z_t": "sum_{d=2}^6 a_d*(d^t-d), z1=0",
+    "even_bound": "Each z_t even. The feasible degree-2 baseline has osc=62. Strict improvers lie in z2..z6=[-60,60] step 2, precisely 61^5 points.",
+    "M": [
+      [
+        2,
+        6,
+        12,
+        20,
+        30
+      ],
+      [
+        6,
+        24,
+        60,
+        120,
+        210
+      ],
+      [
+        14,
+        78,
+        252,
+        620,
+        1290
+      ],
+      [
+        30,
+        240,
+        1020,
+        3120,
+        7770
+      ],
+      [
+        62,
+        726,
+        4092,
+        15620,
+        46650
+      ]
+    ],
+    "M_det": 24883200,
+    "integer_inverse_denominator": 720,
+    "N_rows": [
+      [
+        10530,
+        -6915,
+        2055,
+        -285,
+        15
+      ],
+      [
+        -10160,
+        7440,
+        -2420,
+        360,
+        -20
+      ],
+      [
+        5940,
+        -4605,
+        1605,
+        -255,
+        15
+      ],
+      [
+        -1944,
+        1560,
+        -570,
+        96,
+        -6
+      ],
+      [
+        274,
+        -225,
+        85,
+        -15,
+        1
+      ]
+    ],
+    "inverse_integrality": "N*z entries all divisible by 720 iff a integer; executable verifies M*N=720*I."
+  },
+  "inverse": {
+    "program": "x6_r67_d6_inverse_certificate.cpp",
+    "grid_total": 844596301,
+    "osc_less_62_nonzero": 158503680,
+    "integral_nonzero": 338,
+    "oscillation": [
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36,
+      38,
+      40,
+      42,
+      44,
+      46,
+      48,
+      50,
+      52,
+      54,
+      56,
+      58,
+      60
+    ],
+    "min_population": [
+      57,
+      114,
+      171,
+      228,
+      285,
+      342,
+      399,
+      456,
+      513,
+      570,
+      627,
+      684,
+      741,
+      798,
+      855,
+      912,
+      969,
+      1026,
+      1083,
+      1140,
+      1197,
+      1254,
+      1311,
+      41,
+      642,
+      699,
+      756,
+      813,
+      870,
+      21
+    ],
+    "integral_candidate_counts": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      52,
+      6,
+      6,
+      6,
+      6,
+      6,
+      210
+    ]
+  },
+  "forward": {
+    "program": "x6_r67_d6_forward_crosscheck.cpp",
+    "grid_total": 20113571875,
+    "nonzero_feasible_q_le_57": 1320729482,
+    "search": "all a in [-57,57]^5, q(a)<=57",
+    "population_range": "6..57",
+    "minimum_osc_transitions": [
+      {
+        "p": 6,
+        "osc": 62
+      },
+      {
+        "p": 21,
+        "osc": 60
+      },
+      {
+        "p": 41,
+        "osc": 48
+      },
+      {
+        "p": 57,
+        "osc": 2
+      }
+    ]
+  },
+  "witnesses": [
+    {
+      "p": 6,
+      "a": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "moments": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "osc": 62,
+      "q": 1
+    },
+    {
+      "p": 21,
+      "a": [
+        -1,
+        -14,
+        14,
+        -6,
+        1
+      ],
+      "moments": [
+        -12,
+        -20,
+        -24,
+        -20,
+        -72,
+        -20
+      ],
+      "osc": 60,
+      "q": 21
+    },
+    {
+      "p": 41,
+      "a": [
+        -29,
+        -6,
+        13,
+        -6,
+        1
+      ],
+      "moments": [
+        -48,
+        -76,
+        -96,
+        -76,
+        -48,
+        -76
+      ],
+      "osc": 48,
+      "q": 41
+    },
+    {
+      "p": 57,
+      "a": [
+        -35,
+        35,
+        -21,
+        7,
+        -1
+      ],
+      "moments": [
+        -20,
+        -22,
+        -20,
+        -22,
+        -20,
+        -22
+      ],
+      "osc": 2,
+      "q": 57
+    }
+  ],
+  "named_positive_BRC": {
+    "program": "x6_r67_d6_named_positive_brc.py",
+    "source_weights": [
+      "2/3",
+      "3/5"
+    ],
+    "test": "Four witness pairs, each 6 t-depths, named port tuples, exact Fraction mass",
+    "result": "PASS",
+    "native_TRIADIC_CLOSURE_E_embedded": false
+  },
+  "unresolved": [
+    "Native P000 whole-triad to named BRC repeat/reset bridge",
+    "Independent proof review/Result admission",
+    "Current original-session Activity association authorization"
+  ]
+}
