@@ -1,0 +1,47 @@
+{
+  "schema": "R5_F92_EXACT_AUTHOR_CHECK_V1",
+  "status": "AUTHOR_SYMBOLIC_PROOF_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "frozen_source": {
+    "commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+    "filename": "EXACT_R5_ALL_101_BUDGETS.json",
+    "sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b"
+  },
+  "overlap_generating_function": "(2+13z+24z^2+20z^3+6z^4)/((1-z)^9(1+z)^3)",
+  "samples": {
+    "1": {
+      "K": 2,
+      "B92": "1593895029161864/4601"
+    },
+    "2": {
+      "K": 25,
+      "B92": "9175214653050012/4601"
+    },
+    "3": {
+      "K": 150,
+      "B92": "30798716479143024/4601"
+    },
+    "8": {
+      "K": 31864,
+      "B92": "937181084492422968/4601"
+    },
+    "17": {
+      "K": 4519218,
+      "B92": "15928680991390397208/4601"
+    }
+  },
+  "verification": {
+    "source_sha256_matched": true,
+    "intersection_direct_m": "1..20",
+    "intersection_parity_gf_m": "1..50 (local full verifier)",
+    "moments_full_vector_m": [
+      1,
+      2,
+      3,
+      8,
+      17
+    ],
+    "integer_and_rational_arithmetic": true,
+    "independent_review": false
+  },
+  "next_problem": "N^91 coefficient via first cost moment of 8-price intersections and fourth moments of 5-price failure; adaptive f=8 separate."
+}
