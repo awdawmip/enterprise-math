@@ -1,0 +1,34 @@
+{
+  "schema": "X6_R55_POST_RHO_GLOBAL_PORT_AMBIGUITY_V1",
+  "status": "PASS",
+  "theorem_scope": "R44 conditional named whole-triad positive-BRC four-word observer, true p=4, S=1, rho<=P<=23/100; shared unknown bias and per-channel absolute error",
+  "rho": "(7601-100*sqrt(5497))/882",
+  "sigma": "(6821-95*sqrt(4873))/882",
+  "upper_P": "23/100",
+  "radius_regime_I": "sqrt((16P-3)/5)/4 for rho<=P<=sigma",
+  "radius_regime_II": "2*sqrt(11P/19)-3/4+21P/38 for sigma<=P<=23/100",
+  "named_branch_polynomial_checks": 32,
+  "rational_parameter_witnesses": 8,
+  "exact_root_sign_brackets": {
+    "rho": [
+      "21181/100000",
+      "21183/100000"
+    ],
+    "sigma": [
+      "21467/100000",
+      "21469/100000"
+    ]
+  },
+  "finite_rival_bounds_checked_per_sample": [
+    2,
+    3,
+    6,
+    7,
+    8,
+    20,
+    100
+  ],
+  "symbolic_coverage": "Proof in accompanying markdown handles all real P in closed interval, all positive competing weights and every integer q !=4; this finite test does not replace the proof",
+  "independent_review": "NOT_REVIEWED",
+  "native_p000_R_T_admission": "UNPROVED_CONDITIONAL_GRAMMAR"
+}
