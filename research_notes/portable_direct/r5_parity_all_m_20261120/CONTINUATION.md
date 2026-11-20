@@ -1,0 +1,7 @@
+# R5 continuation: leading period-2 residual at every fixed m
+
+- Current independent math unit: exact order N^47 parity pole for all fixed m>=1, explicit positive C_m, and the q=1 polynomial coefficient B47 via the same nine-event finite moment formula. Proof: RESEARCH.md.
+- Frozen scientific input: EXACT_R5_ALL_101_BUDGETS.json SHA256 50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b, recovered locally from prior archive and matched. Upstream verified author note: enterprise-math@00fc3f2d975c2ab02bf90cc27f015500d47b1b13 research_notes/portable_direct/r5_rare_failure_n78_20261120/HIGH_DEGREE_48_THEOREM.md.
+- Evidence: symbolic proof; signed polynomial dynamic programming m=1..120; direct local enumeration m=1..5; upstream coefficient expansion j=48 evaluated for m=1,2,3. Independent review NOT_REVIEWED. Full original separation-pair census not repeated; no native BRC/X6 equivalence claimed.
+- Next concrete problem: q=-1 subleading Laurent term and N^46 parity coefficient, then lower root-of-unity period layers and possible minimal residual codec. Frozen adaptive eight-error bound 8335<=C8*<=8343 remains unchanged.
+- Provenance and control: historical EM-DIRECT-4C3E47 is not current identity authorization. Current owner read request r5-20261120-2140-owner-observe-01 must be consumed/reconciled by that exact ID; no duplicate dispatch. Activity association only after real same-session authorization. This standalone GitHub branch publication is neither formal CLAIM/RUN nor canonical Result/review.
