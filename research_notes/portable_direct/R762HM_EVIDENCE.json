@@ -1,0 +1,100 @@
+{
+  "schema": "R762HM_EXACT_AUTHOR_CERTIFICATE_V1",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "publication_id": "TP2-8B7E13C5904A2D6F1142",
+  "provenance": {
+    "researcher_id": "EM-X6-3050F6",
+    "frozen_science_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+    "previous_results": [
+      "R762HG@f19346110bdca4c9aa237ed766fedc612210293c",
+      "R762HJ@2cc5ef6fb10f1d30d70738e9b6ddb9c563e3aa23",
+      "R762HK@0778045cdbe977bf86e1d3f7557162e1ed6b33d8",
+      "R762HL@93f9d22b00d463537f3bb38af5ea697db8ddbe76"
+    ]
+  },
+  "scope": "SIGNED_COMPOSITE_PORT_CANDIDATE_NOT_PRIMITIVE_TRIADIC_CLOSURE_E",
+  "statement": "For every parity-even named closed Port history of m<=12, at most one contiguous alternating-sign flip interval suffices for six-axis zero Cell. R762HK 14-event witness proves sharp failure at m=14.",
+  "compiler": "g++ -O3 -std=c++17 -Wall -Wextra -pedantic",
+  "run_command": "./r762hm",
+  "arithmetic": "exact integer bit masks; six 8-bit lanes biased 64 with min value >=52 and max <=76; separate signed six-int sampled checker",
+  "verification": "EXHAUSTIVE_ALL_ORDERED_PAIRS_IN_EACH_MATCHED_MIDDLE_PORT_PARITY_BUCKET",
+  "results": [
+    {
+      "n": 1,
+      "m": 2,
+      "halves": 8,
+      "parity_return": 8,
+      "zero_block_histories": 8,
+      "one_block_only_histories": 0,
+      "one_block_existence_witnesses": 8,
+      "independent_samples": 8,
+      "failures": 0
+    },
+    {
+      "n": 2,
+      "m": 4,
+      "halves": 64,
+      "parity_return": 168,
+      "zero_block_histories": 168,
+      "one_block_only_histories": 0,
+      "one_block_existence_witnesses": 168,
+      "independent_samples": 32,
+      "failures": 0
+    },
+    {
+      "n": 3,
+      "m": 6,
+      "halves": 512,
+      "parity_return": 4960,
+      "zero_block_histories": 4960,
+      "one_block_only_histories": 0,
+      "one_block_existence_witnesses": 4960,
+      "independent_samples": 32,
+      "failures": 0
+    },
+    {
+      "n": 4,
+      "m": 8,
+      "halves": 4096,
+      "parity_return": 177536,
+      "zero_block_histories": 176264,
+      "one_block_only_histories": 1272,
+      "one_block_existence_witnesses": 177536,
+      "independent_samples": 34,
+      "failures": 0
+    },
+    {
+      "n": 5,
+      "m": 10,
+      "halves": 32768,
+      "parity_return": 7289184,
+      "zero_block_histories": 6978624,
+      "one_block_only_histories": 310560,
+      "one_block_existence_witnesses": 7289184,
+      "independent_samples": 143,
+      "failures": 0
+    },
+    {
+      "n": 6,
+      "m": 12,
+      "halves": 262144,
+      "parity_return": 333869824,
+      "zero_block_histories": 295483696,
+      "one_block_only_histories": 38386128,
+      "one_block_existence_witnesses": 333869824,
+      "independent_samples": 5126,
+      "failures": 0
+    }
+  ],
+  "local_execution_outcome": "PASS",
+  "timing_observation": "25.52 seconds elapsed in executed local build; hardware/context dependent and not an algorithmic complexity theorem",
+  "review_status": "NOT_REVIEWED",
+  "native_progress": "NOT_ASSERTED_BY_THIS_EVIDENCE",
+  "limitations": [
+    "No primitive TRIADIC_CLOSURE_E authorization inferred",
+    "No conclusion for m>=14 beyond reused explicit witness",
+    "No all-length parity-even signability proved",
+    "Independent sample checker compares two implementations but is not independent mathematical review"
+  ],
+  "next": "Try general parity even signability theorem or shortest unsignable Port witness; derive native typed force/Cell/Link/Port/time/rotation permission."
+}
