@@ -1,0 +1,71 @@
+{
+  "schema": "R284CH_PARAMETRIC_EVENT_INDEX_EXACT_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CERTIFIED_NOT_REVIEWED",
+  "source": {
+    "repo": "awdawmip/enterprise-math",
+    "frozen_research_note_commit": "92fbdc24e623fc311911bbbcb8f292cc3d72229d",
+    "frozen_research_note_path": "research_notes/portable_direct/R284CG_MODULAR_FIBER_SIGNATURE_STABILITY_20261121.md"
+  },
+  "model": {
+    "p": 17179869143,
+    "d": [
+      1120832,
+      6,
+      13,
+      1651128
+    ],
+    "z": [
+      0,
+      390139,
+      394465,
+      1497639
+    ],
+    "selected_lower_positions": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6
+    ]
+  },
+  "frozen_codeword_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "codewords_verified": 65536,
+  "radius_values_tested_rho2": [
+    0,
+    59,
+    1182
+  ],
+  "codeword_lookup_tests": 196608,
+  "boundary_lookup_tests": 384,
+  "events": 128,
+  "distinct_event_positions": 128,
+  "minimum_circular_raw_boundary_gap": 4226124,
+  "minimum_distance_raw_event_to_origin": 23581912,
+  "maximum_event_cell_overlap": 4,
+  "event_cell_overlap_histogram": {
+    "0": 14,
+    "1": 43,
+    "2": 46,
+    "3": 21,
+    "4": 4
+  },
+  "distinct_cell_signatures": 115,
+  "zero_signature_cells": 14,
+  "codeword_realized_signatures": 114,
+  "word_signature_count_histogram": {
+    "1": 23178,
+    "2": 23094,
+    "3": 16964,
+    "4": 2300
+  },
+  "signature_space_for_max_four": 679121,
+  "signature_rank_bits": 20,
+  "packed_index_bytes": 976,
+  "packed_index_sha256": "af2d3ec14228af03eb9658a3301c732e3025d69f007e7e971da404f80c5fb155",
+  "proof_scope": "The event-order argument proves correctness for all real circle observations and all real radii 0<=rho<1183/2. The finite program certifies exact endpoints, rank sizes and codeword statistics.",
+  "checker": "research_notes/portable_direct/R284CH_parametric_event_index_checker.py",
+  "full_packed_index_reconstruction": "Running the checker regenerates all 976 bytes and prints packed_index_hex together with this digest.",
+  "independent_review": "NOT_REVIEWED",
+  "current_execution_identity": "Not established by prior provenance; portable unclaimed scientific save."
+}
