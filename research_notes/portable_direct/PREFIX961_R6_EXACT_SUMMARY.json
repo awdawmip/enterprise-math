@@ -1,0 +1,92 @@
+{
+  "schema": "EM_R6_PREFIX961_EXACT_ENDPOINT_SIEVE_V1",
+  "status": "AUTHOR_PROOF_PLUS_FINITE_EXACT_CHECK;NOT_REVIEWED",
+  "date": "2026-11-20",
+  "frozen_scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "Auxiliary named XOR, p>=4, H=2^(p-1), odd a,b in (H,2H), positive odd k with k+2<H, t,T>=1, a!=b",
+  "theorems": [
+    "m=6 implies v-3u>=H/2+2 with a=H+v,b=H+u; exact triangular count using R=H/4,q=floor((R-3)/3): (q+1)*(R-2)-3*q*(q+1)/2 when q>=0, otherwise 0",
+    "m=6 forces c>=H+9,C<=-8,s=-1,max(i,j)=p-1,S=+1,J>I,J>=4; c!=2H forces J=p-1",
+    "no m=6 at p<=5; endpoint attained at p=6"
+  ],
+  "verification_program": "research_notes/portable_direct/PREFIX961_R6_GAP6_TRIANGLE_VERIFIER.py",
+  "run": "python3 PREFIX961_R6_GAP6_TRIANGLE_VERIFIER.py",
+  "finite_results": [
+    {
+      "p": 4,
+      "triangle_pairs": 0,
+      "pair_domain": "full",
+      "core_count": 3,
+      "named_gap6": 0,
+      "c_eq_2H": 0,
+      "c_neq_2H": 0
+    },
+    {
+      "p": 5,
+      "triangle_pairs": 2,
+      "pair_domain": "full",
+      "core_count": 7,
+      "named_gap6": 0,
+      "c_eq_2H": 0,
+      "c_neq_2H": 0
+    },
+    {
+      "p": 6,
+      "triangle_pairs": 9,
+      "pair_domain": "full",
+      "core_count": 15,
+      "named_gap6": 2,
+      "c_eq_2H": 2,
+      "c_neq_2H": 0
+    },
+    {
+      "p": 7,
+      "triangle_pairs": 40,
+      "pair_domain": "full",
+      "core_count": 31,
+      "named_gap6": 4,
+      "c_eq_2H": 2,
+      "c_neq_2H": 2
+    },
+    {
+      "p": 8,
+      "triangle_pairs": 165,
+      "pair_domain": "full",
+      "core_count": 63,
+      "named_gap6": 10,
+      "c_eq_2H": 5,
+      "c_neq_2H": 5
+    },
+    {
+      "p": 9,
+      "triangle_pairs": 672,
+      "pair_domain": "triangle_only_theorem_reduction",
+      "core_count": 127,
+      "named_gap6": 37,
+      "c_eq_2H": 22,
+      "c_neq_2H": 15
+    }
+  ],
+  "p19_exact_numeric_sieve": {
+    "H": 262144,
+    "q_size": 131072,
+    "possible_pair_count": 715816960,
+    "total_ordered_pairs": 17179869184,
+    "eligible_fraction": 0.04166603088378906,
+    "not_a_witness_count": true
+  },
+  "sharp_example": {
+    "p": 6,
+    "k": 5,
+    "a": 59,
+    "b": 33,
+    "t": 7,
+    "T": 13,
+    "i": 5,
+    "j": 5,
+    "I": 4,
+    "J": 5
+  },
+  "claim_boundary": "Auxiliary integer XOR observer only; no native P000/X6/BRC transfer, no formal Task Claim, no independent Review",
+  "next": "Bound and classify m=5 and apply source-index filter to odd-divisor fibers preserving named multiplicity"
+}
