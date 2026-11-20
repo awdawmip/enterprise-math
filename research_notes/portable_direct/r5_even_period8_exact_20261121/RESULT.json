@@ -1,0 +1,108 @@
+{
+  "schema": "R5_EVEN_FOURTH_ROOT_N21_PERIOD8_EXACT_V1",
+  "timestamp_local": "2026-11-21",
+  "scope": "Frozen R5 scalar nonadaptive model, q=±i component, all fixed even m>=2",
+  "theorem": "sum_{k>=0} E_{2k} t^k = R(t)/(1-t^2)^4 + 110/(1-i*t), E0=0",
+  "R_complex_gaussian_coefficients": [
+    [
+      -110,
+      0
+    ],
+    [
+      8033772,
+      -41446
+    ],
+    [
+      10499950,
+      4893440
+    ],
+    [
+      -7284728,
+      59598
+    ],
+    [
+      -12770418,
+      -6606800
+    ],
+    [
+      -3019732,
+      -22442
+    ],
+    [
+      -110,
+      0
+    ],
+    [
+      0,
+      -110
+    ]
+  ],
+  "minimal_quasiperiod_m": 8,
+  "quasipolynomial_normal_form": "E_{2k}=P_3(k)+(-1)^k Q_3(k)+110*i^k",
+  "homogeneous_recurrence": "a_k-4a_{k-2}+6a_{k-4}-4a_{k-6}+a_{k-8}=0, k>=8, a_k=E_{2k}-110i^k",
+  "verified_E_m": {
+    "2": [
+      8033772,
+      -41336
+    ],
+    "4": [
+      10499400,
+      4893440
+    ],
+    "6": [
+      24850360,
+      -106296
+    ],
+    "8": [
+      29228392,
+      12966960
+    ],
+    "10": [
+      48179076,
+      -198400
+    ],
+    "12": [
+      53915408,
+      22507200
+    ],
+    "14": [
+      75749232,
+      -322928
+    ],
+    "16": [
+      82290640,
+      31800800
+    ],
+    "18": [
+      105290140,
+      -483400
+    ],
+    "20": [
+      112082520,
+      39134400
+    ],
+    "22": [
+      134531112,
+      -685096
+    ],
+    "24": [
+      141021240,
+      42794640
+    ]
+  },
+  "validation": {
+    "symbolic": "PASS; rational function identity over Q(i)(z) using second-order q d/dq jets",
+    "dp": "PASS; independent count-graded Gaussian-integer first/factorial second moments for even m=2..24; Fraction arithmetic",
+    "predecessor_source": "awdawmip/enterprise-math@00b1b5756dd6c1a102b42ae3a7b2b2cb4f333e82:research_notes/portable_direct/r5_even_fourth_root_n21_20261121/RESEARCH.md",
+    "frozen_original_sha256_provenance_only": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+    "not_performed": [
+      "new frozen input re-hash",
+      "full 32640 hypothesis pair enumeration",
+      "independent mathematical review",
+      "formal proof checker"
+    ]
+  },
+  "researcher_provenance": "EM-DIRECT-4C3E47 historical; original managed SID MCP-17ade1f65d9f415885501f010e7d99bd metadata recovery verified; native claim authority not inferred",
+  "review_status": "NOT_REVIEWED",
+  "next": "Compute N20 q=±i Laurent coefficient and test exact m parameter period, retaining overlap contributions"
+}
