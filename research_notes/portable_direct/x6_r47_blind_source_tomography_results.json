@@ -1,0 +1,67 @@
+{
+  "schema": "X6_R47_ROOT_OBSERVER_CHECK_V1",
+  "status": "PASS",
+  "verification": "Direct weighted propagation over R44 graph; independent local Python Fraction check p=1..40",
+  "js_cases": 150,
+  "python_exact_cases": 200,
+  "js_p_range": [
+    1,
+    30
+  ],
+  "python_p_range": [
+    1,
+    40
+  ],
+  "js_weight_pairs": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      7,
+      11
+    ]
+  ],
+  "verified_formulas": [
+    "F=p*(alpha+beta)",
+    "FT=(p-1)*(alpha+beta)",
+    "FF=2*(p*p-1)*alpha*beta",
+    "FRF=2*p*alpha*beta"
+  ],
+  "sharp_p1_depth_three": {
+    "weights_A": [
+      1,
+      3
+    ],
+    "weights_B": [
+      2,
+      2
+    ],
+    "all_words_length_le_2_equal": true,
+    "FRF_A": 6,
+    "FRF_B": 8
+  },
+  "example": {
+    "p": 3,
+    "alpha": 1,
+    "beta": 2,
+    "F": 9,
+    "FT": 6,
+    "FF": 32,
+    "FRF": 12
+  },
+  "scientific_scope": "conditional R44 release/rotation model, exact positive source-blind FRT observer",
+  "native_event_admission": false
+}
