@@ -1,0 +1,78 @@
+{
+  "schema": "X6_TIME_REACHABLE_DIAMOND_CERT_SUMMARY_V1",
+  "scope": "independent local Python exact exhaustive enumeration 2026-11-21, m=1..5, all q and each ordering of selected distinct source-port events",
+  "translation": "F_(i,r)(e)=e+3i+r+1",
+  "affine": "F_(i,r)(e)=(i+1)e+r+1",
+  "rows": [
+    {
+      "m": 1,
+      "configurations": 4,
+      "ordered_prefixes": 4,
+      "translation_unsafe": 0,
+      "affine_unsafe": 0,
+      "cross_source_affine_noncommuting_pairs": 0
+    },
+    {
+      "m": 2,
+      "configurations": 16,
+      "ordered_prefixes": 25,
+      "translation_unsafe": 0,
+      "affine_unsafe": 9,
+      "cross_source_affine_noncommuting_pairs": 9
+    },
+    {
+      "m": 3,
+      "configurations": 64,
+      "ordered_prefixes": 226,
+      "translation_unsafe": 0,
+      "affine_unsafe": 53,
+      "cross_source_affine_noncommuting_pairs": 26
+    },
+    {
+      "m": 4,
+      "configurations": 256,
+      "ordered_prefixes": 2713,
+      "translation_unsafe": 0,
+      "affine_unsafe": 239,
+      "cross_source_affine_noncommuting_pairs": 51
+    },
+    {
+      "m": 5,
+      "configurations": 1024,
+      "ordered_prefixes": 40696,
+      "translation_unsafe": 0,
+      "affine_unsafe": 1003,
+      "cross_source_affine_noncommuting_pairs": 86
+    }
+  ],
+  "witness": {
+    "first": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "env_first": 2,
+    "second": [
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "env_second": 1,
+    "same_q": [
+      0,
+      1
+    ]
+  },
+  "mismatch_count": 0,
+  "reproduction": "python3 research_checks/X6_TIME_REACHABLE_DIAMOND_CHECK_20261121.py (emits full row-level results)"
+}
