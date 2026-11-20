@@ -1,0 +1,84 @@
+{
+  "schema": "EM_R5_FIXED_M_N91_EXACT_V1",
+  "scientific_status": "AUTHOR_SYMBOLIC_PROOF_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "date": "2026-11-20",
+  "frozen_source": {
+    "repo": "awdawmip/enterprise-math",
+    "commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+    "path": "EXACT_R5_ALL_101_BUDGETS.json",
+    "sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+    "local_archive_hash_match": true
+  },
+  "predecessor": {
+    "commit": "6a45267ca86a54d8fe2eb7d6854e3be7b924a86e",
+    "path": "research_notes/portable_direct/r5_rare_failure_fourth_order_20261120/RESEARCH.md"
+  },
+  "novel_generating_function": "3*z*(2172+12528*z+28819*z^2+31570*z^3+17665*z^4+3909*z^5)/((1-z)^10*(1+z)^4)",
+  "overlap_count_gf": "(2+13*z+24*z^2+20*z^3+6*z^4)/((1-z)^9*(1+z)^3)",
+  "asymptotic": "F_m(N)=...+B91(m)*N^91/(91!*prod(219..314))+O_m(N^90), fixed integer m>=1, N->infinity",
+  "B91_components": "B5(five-price fourth local moment)+B7(two seven-price second local moments)-J*(E*K_m/2-Z_m)",
+  "samples": {
+    "1": {
+      "K": "2",
+      "Z": "0",
+      "B91_5": "196602135894686387/180",
+      "B91_7": "71907833207642289/9202",
+      "B91_8": "-265385268720",
+      "B91_total": "910818345468291342997/828180"
+    },
+    "2": {
+      "K": "25",
+      "Z": "6516",
+      "B91_5": "123799897554435953/20",
+      "B91_7": "278948598344555568/4601",
+      "B91_8": "-3247934924520",
+      "B91_total": "574883425643096600713/92020"
+    },
+    "3": {
+      "K": "150",
+      "Z": "76680",
+      "B91_5": "408963844259259283/20",
+      "B91_7": "1216803834623939562/4601",
+      "B91_8": "-19087423383600",
+      "B91_total": "1904222299429571880323/92020"
+    },
+    "8": {
+      "K": "31864",
+      "Z": "55930737",
+      "B91_5": "2853947415682211079/5",
+      "B91_7": "98535699538337668464/4601",
+      "B91_8": "-3632579918433180",
+      "B91_total": "13540123056221986210899/23005"
+    },
+    "17": {
+      "K": "4519218",
+      "Z": "18021539646",
+      "B91_5": "161356561955304004887/20",
+      "B91_7": "10106975765752483486869/9202",
+      "B91_8": "-407777552255244600",
+      "B91_total": "805947608855350953261777/92020"
+    }
+  },
+  "validation": {
+    "finite_overlap_raw_grouped_m": "1..17",
+    "rational_coefficient_vs_grouped_m": "1..60",
+    "local_5price_0to4_moments_m": [
+      1,
+      2,
+      3,
+      8,
+      17
+    ],
+    "local_7price_0to2_moments_m": [
+      1,
+      2,
+      3,
+      8,
+      17
+    ],
+    "sympy_rational_function_identity": "PASS",
+    "hash_of_frozen_input": "MATCH",
+    "independent_mathematical_review": false
+  },
+  "next": "N^90 coefficient; second intersection cost moment; alternatively adaptive f=8 bound improvement."
+}
