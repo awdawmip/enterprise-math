@@ -1,0 +1,59 @@
+{
+  "schema": "R5_MIXED_ERASURE_RIGIDITY_V1",
+  "date": "2026-11-20",
+  "status": "AUTHOR_EXACT_FINITE_CHECKED_SYMBOLIC_PROOF_NOT_REVIEWED",
+  "pin": "awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "frozen_input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "tau": "58182461585441404127941754879",
+  "h": 256,
+  "k": 101,
+  "pairs": 32640,
+  "patterns": 53,
+  "minimal_patterns": 5,
+  "dual_weights": [
+    72,
+    72,
+    72,
+    223,
+    296
+  ],
+  "zero_dual_slack_prices": [
+    216,
+    223,
+    296
+  ],
+  "unit_dual_slack_prices": [
+    217,
+    224,
+    297
+  ],
+  "mixed_fault_theorem": "C_NA(f,e;256)=735*(2*f+e+1) for integers f,e>=0",
+  "unique_minimizer": "exactly 2*f+e+1 copies each of 216,223,296",
+  "second_best": "735*(2*f+e+1)+1 with exactly 3 replacements 216->217 / 223->224 / 296->297",
+  "anytime_query_cycle": [
+    216,
+    223,
+    296
+  ],
+  "examples": [
+    {
+      "f": 8,
+      "e": 0,
+      "cost": 12495
+    },
+    {
+      "f": 8,
+      "e": 1,
+      "cost": 13230
+    },
+    {
+      "f": 8,
+      "e": 2,
+      "cost": 13965
+    }
+  ],
+  "original_adaptive_interval": "8335..8343 (prior, not independently rerun)",
+  "remote_old_input_pin": "NOT_RESOLVED_AT_OLD_PATH_THIS_RUN",
+  "formal_claim": false,
+  "review": "NOT_REVIEWED"
+}
