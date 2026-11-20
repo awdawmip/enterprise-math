@@ -1,0 +1,40 @@
+{
+  "schema": "EC49FTL_EXACT_BRC_RIDGE_LAW_CERT_V1",
+  "date": "2026-11-19",
+  "status": "AUTHOR_PROVED_EXACT_FRACTION_PARENT_DEPENDENT_NOT_REVIEWED",
+  "source_repository": "awdawmip/enterprise-math",
+  "frozen_science_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent_prs": [
+    2774,
+    2776
+  ],
+  "parent_heads": [
+    "999bf1069403306b3813e0e390dae4435d7b4b8c",
+    "c8a24ab9f007c8d6348f45c60e9806c2fbfe238e"
+  ],
+  "price_design": "independent uniform a in [3/4,49/64], b in [7/16,57/128]; optimize z in [11/16,3/4]",
+  "normalized_ridge": "X*=min(35u-v,56/3), z*=569/768+X*/2048, u,v iid U[0,1]",
+  "cdf_x": [
+    "x<-1:0",
+    "-1<=x<=0:(x+1)^2/70",
+    "0<=x<56/3:(x+1/2)/35",
+    "x>=56/3:1"
+  ],
+  "p_boundary": "19/42",
+  "p_interior": "23/42",
+  "conditional_p_boundary": "(217-384b)/105",
+  "moments": {
+    "E_zstar": "964373/1290240",
+    "Var_zstar": "654049/69363302400",
+    "E_max_gap": "494813/21504",
+    "Var_max_gap": "60097/1204224",
+    "E_gap_at_z_top": "154009/6720",
+    "E_opt_gain_vs_top": "3307/35840",
+    "E_opt_gain_vs_uniform_z": "107530427/61931520"
+  },
+  "verification": "pure Python stdlib Fraction polynomial quadrature; independent clipped-distribution moment cross-check; full rational assertions",
+  "native_228_bellman": "inherited, not rerun",
+  "independent_review": false,
+  "formal_claim": false,
+  "unresolved": "piecewise distribution of M and native Bellman outside current box"
+}
