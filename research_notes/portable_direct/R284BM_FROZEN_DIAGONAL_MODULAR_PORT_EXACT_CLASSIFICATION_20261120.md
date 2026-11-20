@@ -35,6 +35,25 @@ If every \(v_k-v_0=0\), either this can never be constant or it is constant at e
 
 Its checked union of obstruction values is precisely the two boxed sets. For root \(j=0\), zero pairs have a difference independent of all four free controls for every \(t\); for each leaf, exactly 256 unordered pairs have such a difference, with ten distinct integer-affine forms \(u_0+tv_0\), explicitly listed in the companion JSON. The exact enumeration uses every binary matrix in lexicographic order and compares two independent 3×3 determinant expansions for the final fixtures. If \(|Q|\le6\) is a fixed integer independent of the free controls, the two radius-three cyclic error balls overlap under every prime modulus, so the claimed uniform recovery is impossible.
 
+### Explicit small witnesses for every forbidden integer freeze
+
+The following 9-digit words are the **row-major** entries of \(C\) and \(C'\) (each digit 1 or 2). Every displayed \(F_C-F_{C'}\) is an exact polynomial identity **before** freezing any controls.
+
+| Frozen index and excluded \(t\) | \(C\) | \(C'\) | Exact response difference |
+|---|---|---|---|
+| \(j=0,\ t=-1\) | \`111211211\` | \`112212212\` | \(d_1(d_0+1)\) |
+| \(j=0,\ t=0\) | \`111111111\` | \`112112112\` | \(d_0d_1\) |
+| \(j=0,\ t=1\) | \`111111111\` | \`111112112\` | \(d_1(d_0-1)\) |
+| \(j=0,\ t=2\) | \`111112112\` | \`112111111\` | \(-d_1(d_0-2)\) |
+| \(j=0,\ t=3\) | \`111212212\` | \`112211211\` | \(-d_1(d_0-3)\) |
+| \(j=0,\ t=4\) | \`211212212\` | \`212211211\` | \(-d_1(d_0-4)\) |
+| \(j=1\) | \`111121111\` | \`112121111\` | \(d_1-1\) |
+| \(j=1\) | \`111211121\` | \`112211121\` | \(d_1+3\) |
+| \(j=2\) | \`111111112\` | \`121111112\` | \(d_2-1\) |
+| \(j=2\) | \`111112211\` | \`121112211\` | \(d_2+3\) |
+
+For each root forbidden \(t\), the corresponding difference vanishes identically. For either leaf, the two differences \(t-1\) and \(t+3\) have absolute values at most six on the integer intervals \([-5,7]\) and \([-9,3]\), respectively, whose union is exactly \([-9,7]\). Thus these ten elementary witness identities establish the **entire necessity** without computation; the exhaustive certificate is needed for the converse (no additional integer obstructions).
+
 ### Proof, sufficiency direction
 
 If \(t\) avoids the classified obstruction set, then for every \(C\ne C'\) and every integer \(c\in[-6,6]\), the polynomial \(Q(t,x)-c\) is nonzero over \(\mathbb Z[x]\). Choose a prime \(p\) larger than every absolute coefficient of these finitely many polynomials, larger than seven, and with
