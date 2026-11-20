@@ -1,0 +1,170 @@
+{
+  "schema": "X6_UNIT199_FROZEN_SOURCE_METHOD_BENCHMARK_SUMMARY_V1",
+  "date": "2026-11-21",
+  "source_repository": "awdawmip/enterprise-math",
+  "frozen_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "source_path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+  "source_blob_sha1": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+  "source_sha256": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4",
+  "compared_algorithms": [
+    "actual pinned Python signed_brc.endpoint_weight",
+    "Unit198 Fraction coefficient DP"
+  ],
+  "cases": 16,
+  "all_exact_equal": true,
+  "repeats": 3,
+  "original_timed_calls": 48,
+  "dp_timed_calls": 48,
+  "summarization": "median wall-clock per-call in nanoseconds; performance is host/profile-specific",
+  "local_full_result_sha256": "953ce5192dbe4395ecab9cacc50a7bc6358fd3f62211214eaad8c88db50fc563",
+  "local_full_result_includes_all_timing_samples": true,
+  "local_full_result_location": "execution-local /mnt/data/x6_unit199/X6_UNIT199_PINNED_WEIGHTED_BRC_METHOD_PROFILE_RESULTS_20261121.json (not a GitHub publication)",
+  "r063_native_benchmark_rerun": false,
+  "source_file_modified": false,
+  "results": [
+    {
+      "profile": "equal_integer",
+      "endpoint": "zero",
+      "K": 4,
+      "original_median_ns": 2523561,
+      "coefficient_median_ns": 169089,
+      "ratio": 14.924,
+      "exact_value_sha256": "85c13252e6ff22f7011d7be2d665166e54ac685a5c94219052d7e0c5009cb959"
+    },
+    {
+      "profile": "equal_integer",
+      "endpoint": "zero",
+      "K": 8,
+      "original_median_ns": 23272998,
+      "coefficient_median_ns": 366569,
+      "ratio": 63.489,
+      "exact_value_sha256": "2fefd4ddeb03d74473f1b26217a99a05cb1e34b44c2106e9da05293f128c65fa"
+    },
+    {
+      "profile": "equal_integer",
+      "endpoint": "zero",
+      "K": 12,
+      "original_median_ns": 133511365,
+      "coefficient_median_ns": 623057,
+      "ratio": 214.284,
+      "exact_value_sha256": "432f0fd711dcb4229a1bf703cc8aa34c73ee34b9693df4dac3e5bc761f570562"
+    },
+    {
+      "profile": "equal_integer",
+      "endpoint": "zero",
+      "K": 16,
+      "original_median_ns": 382303541,
+      "coefficient_median_ns": 1099107,
+      "ratio": 347.831,
+      "exact_value_sha256": "91cdc1e60580babfc2b276614ead2e2a8030ef94fa3bef45998af64ffc8c98c2"
+    },
+    {
+      "profile": "equal_integer",
+      "endpoint": "mixed",
+      "K": 4,
+      "original_median_ns": 2105707,
+      "coefficient_median_ns": 160847,
+      "ratio": 13.091,
+      "exact_value_sha256": "17016cefb7b4ec76198cbfe74970d66dfb64ffa0eed772558a3f90c0bd68356d"
+    },
+    {
+      "profile": "equal_integer",
+      "endpoint": "mixed",
+      "K": 8,
+      "original_median_ns": 24028359,
+      "coefficient_median_ns": 356845,
+      "ratio": 67.336,
+      "exact_value_sha256": "ef304ea0c5300e483eeb88710f531817beacdf4086e1e7eab911fd22badf5513"
+    },
+    {
+      "profile": "equal_integer",
+      "endpoint": "mixed",
+      "K": 12,
+      "original_median_ns": 114878070,
+      "coefficient_median_ns": 649175,
+      "ratio": 176.96,
+      "exact_value_sha256": "e6c1616993252909555707428c51a0a8b4a062b2a0f17136b185a02686340ceb"
+    },
+    {
+      "profile": "equal_integer",
+      "endpoint": "mixed",
+      "K": 16,
+      "original_median_ns": 381531116,
+      "coefficient_median_ns": 1159365,
+      "ratio": 329.086,
+      "exact_value_sha256": "46d3554d8dbb38b9175e09b678c4a44a2e7af55e59070d92238ced6365d945df"
+    },
+    {
+      "profile": "nonuniform_rational",
+      "endpoint": "zero",
+      "K": 4,
+      "original_median_ns": 2275306,
+      "coefficient_median_ns": 153425,
+      "ratio": 14.83,
+      "exact_value_sha256": "e353cc0ee4e345e00539f5970f613e6755203fd9e7a49d967f983cd5be79a2a4"
+    },
+    {
+      "profile": "nonuniform_rational",
+      "endpoint": "zero",
+      "K": 8,
+      "original_median_ns": 23643242,
+      "coefficient_median_ns": 429441,
+      "ratio": 55.056,
+      "exact_value_sha256": "3ecc7001a148eaffb60184268959278e7e0823abd4de936ae7ae57db1a556863"
+    },
+    {
+      "profile": "nonuniform_rational",
+      "endpoint": "zero",
+      "K": 12,
+      "original_median_ns": 110818089,
+      "coefficient_median_ns": 725727,
+      "ratio": 152.699,
+      "exact_value_sha256": "b9620a554eafbc62d943f2361403fb9600d9d3847c7474c26e0cb2301010b530"
+    },
+    {
+      "profile": "nonuniform_rational",
+      "endpoint": "zero",
+      "K": 16,
+      "original_median_ns": 404000351,
+      "coefficient_median_ns": 1528988,
+      "ratio": 264.227,
+      "exact_value_sha256": "9c198382772310125f5baa250b3f5b475f525bc988db2fb03ac7c1a54d9f0138"
+    },
+    {
+      "profile": "nonuniform_rational",
+      "endpoint": "mixed",
+      "K": 4,
+      "original_median_ns": 2252312,
+      "coefficient_median_ns": 229137,
+      "ratio": 9.83,
+      "exact_value_sha256": "cb920e7ad43197e709e7508ba91f6b5d123a99334f69cf65d9b85bea70852df7"
+    },
+    {
+      "profile": "nonuniform_rational",
+      "endpoint": "mixed",
+      "K": 8,
+      "original_median_ns": 23784410,
+      "coefficient_median_ns": 382742,
+      "ratio": 62.142,
+      "exact_value_sha256": "5a15f96d4b3aa4785c7093dfe19f7bfc594b4606fb57fed4041d1572619caa9f"
+    },
+    {
+      "profile": "nonuniform_rational",
+      "endpoint": "mixed",
+      "K": 12,
+      "original_median_ns": 122679068,
+      "coefficient_median_ns": 771244,
+      "ratio": 159.066,
+      "exact_value_sha256": "697d13e3dd20b4b56444dd9599494016a81723a52e2e8eb38706f3ffd02eba31"
+    },
+    {
+      "profile": "nonuniform_rational",
+      "endpoint": "mixed",
+      "K": 16,
+      "original_median_ns": 428587999,
+      "coefficient_median_ns": 1406179,
+      "ratio": 304.789,
+      "exact_value_sha256": "c5820125fc3f8f8ee57c976cbd295fcc8607084e49c2b024898c4a6fea031529"
+    }
+  ]
+}
