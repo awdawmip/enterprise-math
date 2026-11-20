@@ -1,0 +1,56 @@
+# R5: exact nonadaptive robust-observation minimax for all 256 names
+
+**Date:** 2026-11-20 (Asia/Shanghai). **State:** AUTHOR_EXACT_FINITE_CHECKED + SYMBOLIC_ALL_F_PROOF / NOT_REVIEWED. **Scope:** Frozen scalar interval-observer game; NOT an adaptive-game theorem nor a native X6/BRC transfer.
+
+## Frozen problem and theorem
+
+Science remains pinned to `awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551`. Exact input `EXACT_R5_ALL_101_BUDGETS.json` has SHA-256 `50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b`; `stages_18.json` fixes `tau=58182461585441404127941754879`. There are 256 named hypotheses, and 101 physical actions priced `k=214,...,314`. A correct observation at action `k` under name `h` lies in the *closed* interval `I_h(k)=[N_h(k)-tau/2,N_h(k)+tau/2]`. A total of at most `f` observations may be arbitrarily corrupted without flags.
+
+A nonadaptive design fixes its entire *multiset* of action occurrences in advance, allowing repeated uses (each separately priced and separately corruptible). Let `C_f^NA` be the minimum total physical cost of a worst-case-decodable nonadaptive design. Then for **every integer f>=0**:
+
+```text
+C_f^NA(256 names) = 735*(2*f+1).
+optimal schedule: use each of k=216, k=223 and k=296 exactly 2*f+1 times.
+```
+
+At f=8 the precise nonadaptive optimum is **12495** (51 queries). The prior *adaptive* f8 full-256 interval [8335,8343] remains unchanged, giving a certified adaptivity saving of **at least 12495-8343=4152**, and nonadaptive/adaptive cost ratio at least `12495/8343`. The theorem does not compute a new adaptive Bellman root.
+
+If using each physical budget at most once (a different restricted model), the nonadaptive optimum is 735 for f=0, 2214 for f=1, 3914 for f=2, and the task is impossible for all f>=3.
+
+## Pairwise exact reduction
+
+For distinct names `h,j`, their correct-response intervals at k are disjoint **iff** `|N_h(k)-N_j(k)| > tau`. Write `D_hj={k: this holds}`. Given a fixed multiset with multiplicities x_k, two hypotheses can share a transcript within f arbitrary errors of each **iff** `sum_{k in D_hj} x_k <= 2f`: choose a response in the intersection for every nonseparating occurrence and split the separating occurrences into two groups of at most f, selecting in each group a response compatible with one of the names. Conversely every separating occurrence must be an error for at least one of the two names; more than 2f such occurrences excludes a common transcript. Therefore the necessary and sufficient nonadaptive robust-decoding constraints are:
+
+```text
+for every unordered pair h<j, sum(x_k for k in D_hj) >= m := 2f+1.
+```
+
+This is exact for real-valued closed intervals and unflagged adversarial response errors. The proof makes no probabilistic assumption.
+
+## Frozen finite certificate (32,640 pairs; five minimal price sets)
+
+Exact integer enumeration of all 32,640 name pairs and all 101 budgets yields exactly **53 distinct** sets `D_hj`. Their subset-minimal antichain has exactly **five** members:
+
+| Witness pair | Its complete D_hj |
+| --- | --- |
+| (9,12) | 214..218 |
+| (1,2) | {214} union 216..221 |
+| (2,8) | 215..221 |
+| (0,64) | 223..290 |
+| (16,32) | 296..312 |
+
+Every other `D_hj` contains at least one of these five sets. Thus these five inequalities suffice to certify the full 256-name game.
+
+For any action k, assign the five witness inequalities dual weights `(72,72,72,223,296)`. The total dual weight of witness sets containing k is at most its physical price k: within 216..218 the load is 216; at 214,215,219..221 it is at most 144; within 223..290 it is 223; within 296..312 it is 296; elsewhere zero. Summing their five `>=m` constraints yields a lower bound `(72+72+72+223+296)m=735m` on every possible nonadaptive design's cost. The triple `(216,223,296)` intersects *every* one of the five witness sets; as each other pair's D contains one of them, repeating the triple m times separates every pair on at least m observations at cost exactly `(216+223+296)m=735m`. This matches the lower bound and completes the all-f theorem. The finite assertions (precisely 53 D patterns, their five minimal members and complete coverage, all 101 dual price inequalities) are machine-checked from the exact frozen bytes by the supplied verifier.
+
+On the three-price zero-error schedule, 2,448 name pairs are separated at exactly one of the three costs, 12,192 at two and 18,000 at all three, accounting for all 32,640 unordered pairs.
+
+## Distinct-budget theorem
+
+The five constraints occupy disjoint price regions: early `214..221`, middle `223..290`, late `296..312`. For f=1 (`m=3`), the cheapest early feasible 3-action set is `{216,217,218}`, price 651; any 4 early actions cost at least 862. Add the three cheapest middle (223..225; cost 672) and late (296..298; cost 891): total **2214**. For f=2 (`m=5`), the (9,12) witness forces all 214..218, and the next two witnesses jointly force one additional action among 219..221 (cheapest 219); early cost 1299, middle 223..227 costs 1125 and late 296..300 costs 1490, total **3914**. For f>=3 (`m>=7`), pair (9,12) has only five different separating budgets; at-most-once measurement is impossible irrespective of other actions. The verifier also exhausts all 2^8 early subsets to independently check the low-budget minima.
+
+## Verification / evidence / unfinished scope
+
+The exact frozen input SHA, 256 names, 101 physical budgets, all 32,640 pair checks, 53 distinct separation sets, five minimal witnesses, 101 dual inequalities and universal three-query separator were checked using arbitrary-size integers. The support-free proof above extends the finite certificate to all integers `f>=0`; f-specific examples are not mistaken for a finite sweep over f. The attached reproducibility bundle includes the original frozen input and source code with a SHA-256 manifest. Code and the result summary are preserved alongside this note, with immutable readback after publication.
+
+**Limits:** This is independent *scalar* nonadaptive research; it does not alter the full adaptive f8 interval [8335,8343], does not claim a new 14-label f8 exact Bellman value, does not infer heartbeat dynamics, and is **NOT_REVIEWED**. The meaningful next step is a certified finite-round adaptive policy below 8343 or a fourteen-label lower bound above 8335, preserving complete joint supports, branch/name provenance and the original frozen science pin.
