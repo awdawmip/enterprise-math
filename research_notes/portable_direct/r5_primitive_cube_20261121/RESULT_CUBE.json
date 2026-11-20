@@ -1,0 +1,66 @@
+{
+  "schema": "R5_PRIMITIVE_CUBE_LEADING_V1",
+  "frozen_input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "root": "omega^3=1; omega!=1; omega^2+omega+1=0",
+  "total_nonempty_inclusion_exclusion_subsets": 31,
+  "cube_pole_order_unique_S0": 32,
+  "max_other_event_cube_pole_order": 31,
+  "E0_residue_count_mod3": [
+    32,
+    32,
+    32
+  ],
+  "P3": "311659259507416313870421069230123101337585974204093938678149712288153600000000",
+  "A3": "1/(3^32 * P3)",
+  "H0_at_cubic_root": "H0_m(omega)=k+1 if m=3k+1; otherwise zero",
+  "m_3k_plus_1": {
+    "primitive_pole_order": 32,
+    "leading_degree_in_N": 31,
+    "periodic_factor_N_mod3": [
+      2,
+      -1,
+      -1
+    ],
+    "scale": "(k+1)*A3/31!"
+  },
+  "m2": {
+    "primitive_pole_order": 31,
+    "leading_degree_in_N": 30,
+    "Q_over_A3": {
+      "a": 217,
+      "b_omega": 2
+    },
+    "periodic_factor_N_mod3": [
+      432,
+      -213,
+      -219
+    ],
+    "scale": "A3/30!"
+  },
+  "m3": {
+    "primitive_pole_order": 31,
+    "leading_degree_in_N": 30,
+    "Q_over_A3": {
+      "a": 215,
+      "b_omega": -2
+    },
+    "periodic_factor_N_mod3": [
+      432,
+      -219,
+      -213
+    ],
+    "scale": "A3/30!"
+  },
+  "verification": {
+    "all_event_intersections": 31,
+    "H0_DP_thresholds": "1..120",
+    "independent_compositions": "1..4",
+    "overlap_m2": 256,
+    "overlap_m3": 6561,
+    "number_type": "Z[omega] exact integer pair",
+    "status": "PASS"
+  },
+  "scope": "Primitive third-root contribution only; complete F_m includes all other roots",
+  "mathematical_status": "AUTHOR_EXACT_PROOF_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "future_question": "General Q_m for m mod3 =0 or2; fifth root first effective orders; minimal joint observer"
+}
