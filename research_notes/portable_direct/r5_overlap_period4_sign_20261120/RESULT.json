@@ -1,0 +1,121 @@
+{
+  "schema": "R5_PARITY_OVERLAP_PERIOD4_EXACT_CHECK_V1",
+  "model": "Frozen scalar nonadaptive R5; query prices 214..314; fixed m>=1",
+  "frozen_input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "predecessor": "enterprise-math@09a29d7cec879527988f091c3aaca8543013ae97:research_notes/portable_direct/r5_parity_n46_20261120/RESEARCH.md",
+  "h_generating_function": "z*(1+2*z^2)*(2+z+2*z^2)/((1-z^2)^5*(1+z^2))",
+  "K_over_C1_generating_function": "8*z*(844733+351287*z+8090*z^2-34448*z^3-1022181*z^4-373965*z^5-185538*z^6)/(547*(1-z^2)^5*(1+z^2))",
+  "K_m_sign_change_first_negative_by_mod4": {
+    "0": 100,
+    "1": 49,
+    "2": 102,
+    "3": 47
+  },
+  "K_m_first_negative": 47,
+  "K_m_negative_for_every_m_ge": 100,
+  "checks_executed_locally": [
+    "eight-index enumeration m=1..4",
+    "signed truncated-state DP m=1..19",
+    "previous local moment formula m=1..19",
+    "period-four quasipolynomial m=1..1000"
+  ],
+  "samples": [
+    {
+      "m": 1,
+      "h_m": 2,
+      "numerator_547_K_m_over_C1": 6757864
+    },
+    {
+      "m": 2,
+      "h_m": 1,
+      "numerator_547_K_m_over_C1": 2810296
+    },
+    {
+      "m": 3,
+      "h_m": 14,
+      "numerator_547_K_m_over_C1": 27096176
+    },
+    {
+      "m": 5,
+      "h_m": 50,
+      "numerator_547_K_m_over_C1": 66417936
+    },
+    {
+      "m": 8,
+      "h_m": 46,
+      "numerator_547_K_m_over_C1": 52448800
+    },
+    {
+      "m": 17,
+      "h_m": 2310,
+      "numerator_547_K_m_over_C1": 824701320
+    },
+    {
+      "m": 43,
+      "h_m": 67804,
+      "numerator_547_K_m_over_C1": 1222119536
+    },
+    {
+      "m": 46,
+      "h_m": 21814,
+      "numerator_547_K_m_over_C1": 3522352960
+    },
+    {
+      "m": 47,
+      "h_m": 94900,
+      "numerator_547_K_m_over_C1": -238435200
+    },
+    {
+      "m": 48,
+      "h_m": 25636,
+      "numerator_547_K_m_over_C1": 3833103040
+    },
+    {
+      "m": 49,
+      "h_m": 111150,
+      "numerator_547_K_m_over_C1": -1287756600
+    },
+    {
+      "m": 50,
+      "h_m": 29939,
+      "numerator_547_K_m_over_C1": 4144994360
+    },
+    {
+      "m": 96,
+      "h_m": 369800,
+      "numerator_547_K_m_over_C1": 2010070400
+    },
+    {
+      "m": 98,
+      "h_m": 400725,
+      "numerator_547_K_m_over_C1": 945756600
+    },
+    {
+      "m": 99,
+      "h_m": 1668550,
+      "numerator_547_K_m_over_C1": -204057453200
+    },
+    {
+      "m": 100,
+      "h_m": 433550,
+      "numerator_547_K_m_over_C1": -259136800
+    },
+    {
+      "m": 101,
+      "h_m": 1803802,
+      "numerator_547_K_m_over_C1": -224576844336
+    },
+    {
+      "m": 102,
+      "h_m": 468351,
+      "numerator_547_K_m_over_C1": -1613224704
+    },
+    {
+      "m": 103,
+      "h_m": 1947114,
+      "numerator_547_K_m_over_C1": -246551495424
+    }
+  ],
+  "proof_status": "AUTHOR_SYMBOLIC_PROOF / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "next_problem": "N^45 parity correction, ±i unit-root first contribution and minimum sufficient residue encoding"
+}
