@@ -3,6 +3,7 @@
 from fractions import Fraction
 from itertools import product
 import json
+from pathlib import Path
 
 WEIGHTS = (50, 1, 1, 1)
 D = 4
@@ -77,7 +78,7 @@ out = {
  'proof_status':'finite_exact_checks_plus_analytic_reduction; not independent review',
  'computation_status':'PASS'
 }
-with open('/mnt/data/x6_r70_weighted_cone_d4_results.json','w',encoding='utf-8') as f:
+with Path(__file__).with_name('x6_r70_weighted_cone_d4_results.json').open('w',encoding='utf-8') as f:
     json.dump(out,f,ensure_ascii=False,indent=2)
     f.write('\n')
 print(json.dumps({'finite_counts':[(r['p'],r['feasible_vectors'],r['optimum'],len(r['witnesses'])) for r in rows], 'plateau':'PASS','status':'PASS'},indent=2))
