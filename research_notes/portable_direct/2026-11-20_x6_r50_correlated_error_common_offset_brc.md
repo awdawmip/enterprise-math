@@ -1,3 +1,5 @@
+> **2026-11-20 R51 ERRATUM / CORRECTION.** R50.2's claimed contrast \(\ell^1\) coefficient norm is false (the h coefficient has the wrong sign); R50.3's stated Port-identifiability radius has an exact positive-weight counterexample. **Do not use R50.2's old norm or R50.3's radius.** The corrected universal bound, proof and executable witness are in [X6 R51](2026-11-20_x6_r51_r50_contrast_norm_erratum.md). R50.1's residual-range common-offset criterion and R50.4's finite-candidate bound remain unaffected. Earlier immutable R50 versions remain retained for provenance.
+
 # X6 R50 — Correlated bounded readout error and offset-invariant BRC tomography
 
 Date: 2026-11-20 (Asia/Shanghai). Line: RS-X6-NATIVE-TIME-DYNAMICS / independently publishable portable research. Predecessor: R44–R49. Status: CONDITIONAL_AUTHOR_PROOF / EXACT_NAMED_BRC_FINITE_CHECK / NOT_INDEPENDENTLY_REVIEWED.
