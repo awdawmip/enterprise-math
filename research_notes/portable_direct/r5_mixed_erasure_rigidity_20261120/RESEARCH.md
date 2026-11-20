@@ -1,0 +1,63 @@
+# R5: Mixed replacement errors / visible erasures — exact minimax, rigidity, and second-best schedules
+
+**Date:** 2026-11-20. **Status:** AUTHOR_EXACT_FINITE_CHECKED / SYMBOLIC_PROOF / NOT_REVIEWED.  
+**Scope:** Frozen R5 scalar closed-interval observation game; fixed nonadaptive sequence; repeated paid queries. This is a mathematical extension of the existing nonadaptive result, not a replacement for frozen R5 input, a native X6/BRC theorem, or an adaptive f8 improvement.
+
+## Frozen science and exact finite premises
+
+Scientific input pin: awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551. The archived EXACT_R5_ALL_101_BUDGETS.json bytes had SHA-256 **50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b**, independently confirmed here; stages_18.json fixes tau=58182461585441404127941754879. This run used the byte-identical input in the attached earlier R5 reproducibility bundle. The historical input path at that old commit could not be fetched with the current GitHub connector, so its remote location was not newly verified. The local handoff ZIP contains the full byte-identical frozen input and this run's checker.
+
+There are 256 named hypotheses h=0,...,255, and 101 physical queries k=214,...,314, each costing k. For hypothesis h, an uncorrupted response to query k belongs to the closed interval I_h(k)=[N_h(k)-tau/2,N_h(k)+tau/2]. The query sequence is fixed in advance, repetitions are individually paid, and every physical occurrence is a separate possible fault slot.
+
+**New mixed-fault variant:** at most f unflagged arbitrary replacement errors and at most e distinctly flagged erasures, on disjoint occurrences; prices of erased queries are still charged. For the original model, put e=0. Flagged erasures are an explicit new observer type, not a reinterpretation of unflagged replacement errors.
+
+Exact integer recomputation of all C(256,2)=32640 pairs yields 53 query separation sets. Five inclusion-minimal sets are:
+1. S1={214,215,216,217,218}, witnessed by (9,12);
+2. S2={214,216,217,218,219,220,221}, witnessed by (1,2);
+3. S3={215,216,217,218,219,220,221}, witnessed by (2,8);
+4. S4={223,...,290}, witnessed by (0,64);
+5. S5={296,...,312}, witnessed by (16,32).
+
+For every other named pair, its separation set contains at least one entire Si. No joint-support information was discarded outside this exact nonadaptive-observer equivalence: these are exhaustive supports under the stated fixed-query decoder.
+
+## Theorem 1 — exact minimax for simultaneous errors and flagged erasures
+
+For all integers f,e >= 0 let m=2f+e+1. The optimal nonadaptive total query cost is
+
+**C_NA(f,e;256) = 735 m.**
+
+The **unique unordered optimal query multiset** consists of exactly m copies each of prices 216, 223, 296; order is arbitrary.
+
+**Proof, pair-separation criterion.** Define D(h,j) as the query prices with |N_h(k)-N_j(k)|>tau, i.e. the correct closed intervals are disjoint. A fixed multiset Q uniquely decodes under the stated mixed faults if and only if each pair has at least m occurrences in D(h,j). Sufficiency: after at most e erasures, 2f+1 separating occurrences survive, so a common transcript would require more than 2f total unflagged errors across the two candidates. Necessity: with s<=2f+e separating occurrences, erase max(0,s-2f) of them; split the remaining at most 2f occurrences into groups of at most f, letting one or the other hypothesis be erroneous at each; use a common correct value on every nonseparating occurrence. One transcript is then compatible with both named hypotheses.
+
+By the five minimal sets, it suffices to impose A_i(Q)=sum_{k in Si} x_k >= m for i=1,...,5, where x_k is the count of query price k. Assign dual weights w=(72,72,72,223,296). For all k=214,...,314 the exact finite check confirms sigma(k)=k-sum_i w_i 1[k in Si]>=0. Therefore
+
+cost(Q)=sum_k sigma(k)x_k + sum_i w_i A_i(Q) >= (sum_i w_i)m = 735m.
+
+Setting x_216=x_223=x_296=m satisfies every constraint with equality and costs 735m. The only query prices with sigma(k)=0 are 216, 223, 296, so equality forces every other x_k=0. The five A_i=m equalities then force all three multiplicities to equal m. This establishes uniqueness.
+
+## Theorem 2 — exact second-best cost and complete classification
+
+For every m>=1, the second-smallest feasible total cost is **735m+1**. Exactly **three** unordered multisets achieve it: take the unique optimum and replace a single 216 with 217, or a single 223 with 224, or a single 296 with 297.
+
+Proof: the exact identity
+
+**cost(Q)-735m = sum_k sigma(k)x_k + sum_i w_i(A_i(Q)-m)**
+
+has only nonnegative integer terms. A cost excess of 1 is too small to create any positive A_i-m because min(w_i)=72. Hence each A_i=m, while the only strictly positive sigma values equal to 1 occur at k=217,224,297. Exactly one such off-triple occurrence is present; the five witness equalities force the corresponding one-query replacement. Each listed replacement is feasible and costs exactly 1 more.
+
+For any excess Delta>=0, the same identity yields a quantitative nonadaptive stability bound: at most Delta occurrences can use prices outside {216,223,296}, and A_i(Q)-m <= floor(Delta/w_i). These are exact finite-price inequalities.
+
+## Corollary — simultaneous budget-optimal periodic stream
+
+The infinite fixed sequence 216,223,296,216,223,296,... has, after m complete cycles, cost 735m and corrects every mixed fault budget satisfying 2f+e<=m-1. For each particular f,e the prefix with m=2f+e+1 is individually cost-optimal. This is an *anytime prefix property* of the fixed scalar observer; it does not claim a model-independent online stopping rule.
+
+Examples: (f,e)=(8,0): m=17, 51 queries, cost 12495; (8,1): m=18, 54 queries, cost 13230; (8,2): m=19, 57 queries, cost 13965.
+
+## Verification, provenance and next problem
+
+The independently written Python verifier re-enumerated 32640 exact pairs from the archived frozen centers, confirmed 53 separation masks, five minimal masks, coverage of all pairs, 101 dual-price inequalities, the unique zero-slack triple, the only three unit-slack prices, and three second-best witnesses for m=1,2,17. It uses integers and strictly >tau for disjoint closed intervals. These finite checks plus the symbolic proof establish the result for all nonnegative integer f,e.
+
+Locally verified source bundle: EnterpriseMath_R5_Mixed_Errors_Erasures_Rigidity_20261120.zip, containing full frozen input, byte-identical deterministic gzip+base64 mirror, stage pin, full verifier, result JSON, proof and run log. This branch is **durable evidence, not integrated main, formal RESULT or independent Review**. Current review status: NOT_REVIEWED.
+
+The original full-256 *adaptive* f=8 bounds previously reported as 8335<=C_8^*<=8343 were not independently recalculated this turn. The new theorem does not narrow that interval, solve a new fourteen-label Bellman root, or promote the scalar model to native heartbeat/X6/BRC. The next high-value step is to produce and independently check an adaptive decision tree with worst-case cost <=8342, or a fourteen-label exact lower-bound certificate >8335 while retaining complete named joint supports. Any native transfer requires its own typed observer-preservation bridge.
