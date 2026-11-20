@@ -1,0 +1,122 @@
+{
+  "schema": "R5_NONADAPTIVE_LOW_EXCESS_212_V1",
+  "date": "2026-11-20",
+  "science_pin": "awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "frozen_input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "assumptions": "256 named hypotheses, exact closed interval scalar readout, 101 physical query prices, repeatable nonadaptive queries, at most f arbitrary unflagged errors and e flagged erasures",
+  "m": "2*f+e+1",
+  "D": "integer 0..212",
+  "exact_count": "[q^D] Gaussian(m+2,2;q)*Gaussian(m+67,67;q)*Gaussian(m+16,16;q)",
+  "allowed_query_price_blocks": [
+    [
+      216,
+      217,
+      218
+    ],
+    {
+      "from": 223,
+      "to": 290
+    },
+    {
+      "from": 296,
+      "to": 312
+    }
+  ],
+  "count_per_block": "exactly m",
+  "first_outside_block_design": {
+    "excess": 213,
+    "substitute": "one 216 by both 214 and 215",
+    "conditions": "m>=1"
+  },
+  "examples": {
+    "1": {
+      "D0_to_D15": [
+        1,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        24,
+        27,
+        30,
+        33,
+        36,
+        39,
+        42,
+        45
+      ],
+      "D212": "0"
+    },
+    "2": {
+      "D0_to_D15": [
+        1,
+        3,
+        9,
+        18,
+        35,
+        57,
+        91,
+        132,
+        189,
+        255,
+        341,
+        438,
+        559,
+        693,
+        855,
+        1032
+      ],
+      "D212": "0"
+    },
+    "3": {
+      "D0_to_D15": [
+        1,
+        3,
+        9,
+        21,
+        44,
+        83,
+        148,
+        246,
+        393,
+        602,
+        893,
+        1286,
+        1810,
+        2489,
+        3362,
+        4463
+      ],
+      "D212": "357502"
+    },
+    "17": {
+      "D0_to_D15": [
+        1,
+        3,
+        9,
+        21,
+        47,
+        95,
+        186,
+        344,
+        620,
+        1078,
+        1835,
+        3045,
+        4967,
+        7947,
+        12534,
+        19470
+      ],
+      "D212": "6876144151080613225"
+    }
+  },
+  "proof_scope": "symbolic all-m theorem conditional on predecessor fully enumerated five exact minimal separation-set certificate",
+  "verification": "author integer DP plus independent short direct enumeration; original predecessor verifier passes frozen SHA and 32640 pair scans",
+  "review": "NOT_REVIEWED",
+  "formal_claim_run": "NOT_CREATED",
+  "native_X6_transfer": "NOT_ESTABLISHED"
+}
