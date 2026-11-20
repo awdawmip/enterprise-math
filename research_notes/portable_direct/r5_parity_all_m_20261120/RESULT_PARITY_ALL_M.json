@@ -1,0 +1,117 @@
+{
+  "schema": "R5_PARITY_LEADING_ALL_M_V1",
+  "frozen_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "frozen_input_verified_if_local": true,
+  "samples": [
+    {
+      "m": 1,
+      "a": 1,
+      "b": 1,
+      "C_over_C1": "1"
+    },
+    {
+      "m": 2,
+      "a": 2,
+      "b": 0,
+      "C_over_C1": "214/547"
+    },
+    {
+      "m": 3,
+      "a": 5,
+      "b": 4,
+      "C_over_C1": "2295/547"
+    },
+    {
+      "m": 4,
+      "a": 8,
+      "b": 0,
+      "C_over_C1": "856/547"
+    },
+    {
+      "m": 5,
+      "a": 14,
+      "b": 10,
+      "C_over_C1": "5898/547"
+    },
+    {
+      "m": 8,
+      "a": 40,
+      "b": 0,
+      "C_over_C1": "4280/547"
+    },
+    {
+      "m": 17,
+      "a": 285,
+      "b": 165,
+      "C_over_C1": "103095/547"
+    },
+    {
+      "m": 32,
+      "a": 1632,
+      "b": 0,
+      "C_over_C1": "174624/547"
+    },
+    {
+      "m": 120,
+      "a": 75640,
+      "b": 0,
+      "C_over_C1": "8093480/547"
+    }
+  ],
+  "events": [
+    {
+      "event": "G0",
+      "free": 96,
+      "even_free": 48
+    },
+    {
+      "event": "G1",
+      "free": 94,
+      "even_free": 47
+    },
+    {
+      "event": "G2",
+      "free": 94,
+      "even_free": 48
+    },
+    {
+      "event": "-Gh",
+      "free": 93,
+      "even_free": 47
+    },
+    {
+      "event": "G4",
+      "free": 84,
+      "even_free": 42
+    },
+    {
+      "event": "-G04",
+      "free": 79,
+      "even_free": 39
+    },
+    {
+      "event": "-G14",
+      "free": 77,
+      "even_free": 38
+    },
+    {
+      "event": "-G24",
+      "free": 77,
+      "even_free": 39
+    },
+    {
+      "event": "+Gh4",
+      "free": 76,
+      "even_free": 38
+    },
+    {
+      "event": "A3",
+      "free": 33,
+      "even_free": 17
+    }
+  ],
+  "test_m_1_to_120": true,
+  "direct_m_1_to_5": true,
+  "independent_review": "NOT_REVIEWED",
+  "verification_scope": "Closed forms vs signed polynomial DP for m=1..120, independent direct sum for m=1..5; frozen 1,549,048-byte input matched SHA256 in local evidence package. General theorem is a symbolic proof, not extrapolation."
+}
