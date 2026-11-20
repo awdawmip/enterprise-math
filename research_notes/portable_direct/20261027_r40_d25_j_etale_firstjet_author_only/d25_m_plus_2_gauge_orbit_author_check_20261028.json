@@ -1,0 +1,162 @@
+{
+  "complete_for_declared_finite_domains": true,
+  "finite_exact_checks": [
+    {
+      "directed_generator_actions": 1024,
+      "group_generators": [
+        "adjacent V transvections both orientations",
+        "two W transvections"
+      ],
+      "m": 2,
+      "n_states": 256,
+      "orbit_count": 16,
+      "orbit_size_histograms": {
+        "0": {
+          "1": 1,
+          "6": 1,
+          "9": 1
+        },
+        "1": {
+          "9": 2,
+          "18": 3,
+          "36": 2
+        },
+        "2": {
+          "6": 2,
+          "12": 1,
+          "18": 2,
+          "36": 1
+        }
+      },
+      "orbits_by_rank_X": {
+        "0": 3,
+        "1": 7,
+        "2": 6
+      },
+      "q": 2,
+      "status": "PASS_EXHAUSTIVE"
+    },
+    {
+      "directed_generator_actions": 24576,
+      "group_generators": [
+        "adjacent V transvections both orientations",
+        "two W transvections"
+      ],
+      "m": 3,
+      "n_states": 4096,
+      "orbit_count": 20,
+      "orbit_size_histograms": {
+        "0": {
+          "1": 1,
+          "21": 1,
+          "42": 1
+        },
+        "1": {
+          "21": 1,
+          "63": 1,
+          "84": 1,
+          "126": 2,
+          "168": 1,
+          "252": 1,
+          "504": 1
+        },
+        "2": {
+          "42": 1,
+          "126": 1,
+          "168": 1,
+          "252": 2,
+          "336": 1,
+          "504": 3
+        }
+      },
+      "orbits_by_rank_X": {
+        "0": 3,
+        "1": 8,
+        "2": 9
+      },
+      "q": 2,
+      "status": "PASS_EXHAUSTIVE"
+    },
+    {
+      "directed_generator_actions": 524288,
+      "group_generators": [
+        "adjacent V transvections both orientations",
+        "two W transvections"
+      ],
+      "m": 4,
+      "n_states": 65536,
+      "orbit_count": 21,
+      "orbit_size_histograms": {
+        "0": {
+          "1": 1,
+          "45": 1,
+          "210": 1
+        },
+        "1": {
+          "45": 1,
+          "315": 1,
+          "360": 1,
+          "630": 1,
+          "720": 1,
+          "1890": 1,
+          "2520": 1,
+          "5040": 1
+        },
+        "2": {
+          "210": 1,
+          "1260": 1,
+          "1890": 1,
+          "2520": 1,
+          "3360": 1,
+          "5040": 1,
+          "6720": 1,
+          "7560": 1,
+          "10080": 1,
+          "15120": 1
+        }
+      },
+      "orbits_by_rank_X": {
+        "0": 3,
+        "1": 8,
+        "2": 10
+      },
+      "q": 2,
+      "status": "PASS_EXHAUSTIVE"
+    },
+    {
+      "directed_generator_actions": 39366,
+      "m": 2,
+      "n_states": 6561,
+      "orbit_count": 24,
+      "orbits_by_rank_X": {
+        "0": 3,
+        "1": 9,
+        "2": 12
+      },
+      "q": 3,
+      "status": "PASS_EXHAUSTIVE"
+    },
+    {
+      "directed_generator_actions": 4251528,
+      "m": 3,
+      "n_states": 531441,
+      "orbit_count": 29,
+      "orbits_by_rank_X": {
+        "0": 3,
+        "1": 10,
+        "2": 16
+      },
+      "q": 3,
+      "status": "PASS_EXHAUSTIVE"
+    }
+  ],
+  "gauge_group": "GL_m(F_q) x GL_2(F_q)",
+  "independent_review": false,
+  "native_h0_b0_experiment": false,
+  "observable": "K=[B,A] represented by ordered maps X:F_q^2->F_q^m, Y:F_q^m->F_q^2",
+  "predicted_orbits": "q^2+3q+6 (m=2); q^2+4q+8 (m=3); q^2+4q+9 (m>=4)",
+  "source_checkpoint": false,
+  "theorem_scope": "A=diag(a*I_m,b*I_2), a!=b, finite field F_q, m>=2",
+  "universal_formula_proof_location": "D25_BLOCK_M_PLUS_TWO_ALLRANK_GAUGE_STABILIZATION_20261028.md",
+  "universal_formula_proven_by_this_checker": false
+}

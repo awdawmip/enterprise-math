@@ -1,0 +1,131 @@
+{
+  "schema": "D25_BLOCK_M_PLUS_ONE_GAUGE_PLATEAU_AUTHOR_CHECK_SUMMARY_V1",
+  "date": "2026-10-28",
+  "result": "PASS",
+  "evidence_level": "AUTHOR_EXACT_CHECKED_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "script_git_blob_sha1": "872cccec68144a5da06b122e3039bc8bf02d7cbe",
+  "local_full_json_git_blob_sha1": "a234a33df5e354166fd3b8437523dd898219a622",
+  "full_json_stored_in_branch": false,
+  "reproducibility": "Run the published standard-library checker to regenerate the complete JSON with every orbit label and cardinality.",
+  "finite_cases": 12,
+  "total_states": 158516,
+  "generator_transitions": 1076762,
+  "direct_block_matrix_checks": 480,
+  "cases": [
+    [
+      1,
+      3,
+      9,
+      9,
+      5
+    ],
+    [
+      1,
+      5,
+      25,
+      25,
+      7
+    ],
+    [
+      1,
+      7,
+      49,
+      49,
+      9
+    ],
+    [
+      1,
+      11,
+      121,
+      121,
+      13
+    ],
+    [
+      2,
+      3,
+      81,
+      243,
+      6
+    ],
+    [
+      2,
+      5,
+      625,
+      1875,
+      8
+    ],
+    [
+      2,
+      7,
+      2401,
+      7203,
+      10
+    ],
+    [
+      2,
+      11,
+      14641,
+      43923,
+      14
+    ],
+    [
+      3,
+      3,
+      729,
+      5103,
+      6
+    ],
+    [
+      3,
+      5,
+      15625,
+      109375,
+      8
+    ],
+    [
+      3,
+      7,
+      117649,
+      823543,
+      10
+    ],
+    [
+      4,
+      3,
+      6561,
+      85293,
+      6
+    ]
+  ],
+  "case_columns": [
+    "m",
+    "p",
+    "state_count",
+    "generator_checks",
+    "orbits"
+  ],
+  "all_field_theorem_proof": "D25_BLOCK_M_PLUS_ONE_RANK_INDEPENDENT_GAUGE_PLATEAU_20261028.md",
+  "p373_conditional_predictions": {
+    "m2": {
+      "jet_population": "19356878641",
+      "source_fiber_per_jet": "7220115733093",
+      "full_gauge_orbits": 376,
+      "scalar_max_effective_gauge_orbits": "52034621"
+    },
+    "m3": {
+      "jet_population": "2693103168443689",
+      "source_fiber_per_jet": "52130071199257068815346649",
+      "full_gauge_orbits": 376,
+      "scalar_max_effective_gauge_orbits": "7239524646355"
+    },
+    "m4": {
+      "jet_population": "374688750722402006881",
+      "source_fiber_per_jet": "52366089149382037791632551418044746512864053",
+      "full_gauge_orbits": 376,
+      "scalar_max_effective_gauge_orbits": "1007227824522586041"
+    }
+  },
+  "native_h0_b0_run": false,
+  "source_claim": false,
+  "independent_reviewer": false
+}
