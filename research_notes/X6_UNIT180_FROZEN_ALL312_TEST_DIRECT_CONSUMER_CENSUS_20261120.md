@@ -6,7 +6,7 @@
 
 ## Exact source and reproducible finite scope
 
-The immutable historical Git tree, returned with `truncated=false` and 5,014 entries, contains precisely **312** Git blobs satisfying the anchored path selector `^tests/.*\\.py$`.
+The immutable historical Git tree, returned with `truncated=false` and 5,014 entries, contains precisely **312** Git blobs satisfying the anchored path selector `^tests/.*\.py$`.
 
 Unit179 already read the first **31** basename-targeted Python test blobs and reported no direct textual uses of six named R061 quotient APIs. Unit180 read the **other 281** complete frozen Git blobs through the connected authenticated GitHub `fetch_blob` operation, in 18 bounded ordered batches: seventeen 16-file batches plus the final 9-file batch. **281/281 reads succeeded, 0 failed**, and the following case-insensitive line-level search returned **0 candidate lines in the new 281**:
 
