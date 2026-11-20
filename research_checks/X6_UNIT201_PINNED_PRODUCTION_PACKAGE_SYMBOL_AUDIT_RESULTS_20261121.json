@@ -1,0 +1,77 @@
+{
+  "schema": "X6_PINNED_PRODUCTION_PACKAGE_SYMBOL_AUDIT_CERTIFICATE_V1",
+  "date": "2026-11-21",
+  "status": "AUTHOR_SOURCE_AUDIT / UNREVIEWED / NOT_ADMITTED",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "researcher_id": "EM-X6-FB6990",
+  "historical_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "frozen_scientific_input_commit": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "source_population": {
+    "root": "src/enterprise_math/",
+    "suffix": ".py",
+    "tree_recursive": true,
+    "git_tree_truncated": false,
+    "tree_entries_all_paths": 5014,
+    "python_files_repo_total": 929,
+    "python_files_package_expected": 225,
+    "python_files_package_fetched": 225,
+    "failed_fetches": 0,
+    "narrowed_subset_first": 38,
+    "remaining_disjoint_batch_count": 16,
+    "remaining_batch_sizes": [
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      7
+    ],
+    "full_source_bodies_read": true
+  },
+  "match_expression": "\\b(endpoint_weight|endpoint_multiplicity|positive_path_multiplicity|relative_endpoint_multiplicity|LP011|LP019|argmax|signed_brc|Spatial6|Coord6)\\b",
+  "match_flags": "i",
+  "matching_files": 0,
+  "matching_lines": 0,
+  "verification": "Source body fetch and exact JS lexical scan at immutable ref; no code-search-index absence inference",
+  "positive_reference": {
+    "producer": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+    "producer_lines": "56-76",
+    "test_consumer": "experiments/x6_signed_native_spatial_v16_20260905/check_signed_brc.py",
+    "test_consumer_lines": "6-9,56-63",
+    "production_consumer": "NOT_ESTABLISHED"
+  },
+  "limits": [
+    "No extrapolation to 704 other .py files or 5014 Git tree entries",
+    "No assertion about dynamic imports or files beyond scoped src package",
+    "No historical LP011/LP019 wrong-caller attribution without true immutable commit:path:line",
+    "No native CLAIM, PROGRESS, original R063 rerun, independent Driver review, Result acceptance"
+  ],
+  "proof_note": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "b1046b1d621cf3b586f382aff5cbbf039109088c",
+    "path": "research_notes/X6_UNIT201_PINNED_PRODUCTION_PACKAGE_DIRECT_SYMBOL_AUDIT_20261121.md",
+    "git_blob_sha1": "fab5e588f0172fad8bad05b9c2f84a4c72dd2bcc",
+    "sha256": "e78cbd00810ab11a85e6534abde3f7f908591b3975ebe64ff73a34745e5abb97"
+  },
+  "selected_current_dispatch": {
+    "request_id": "onhour-20261121-0306-x6-canonical-fair-dispatch-v1",
+    "status": "SUCCEEDED",
+    "action": "CLAIM_NEW_OWNER",
+    "selected_task": "RS-X6-NATIVE-TIME-DYNAMICS",
+    "selected_task_continuation_id": "onhour-20261121-0309-x6-native-time-selected-cont-v1",
+    "selected_continuation": "SUCCEEDED",
+    "protected_claim_authority": "NOT_OBTAINED"
+  },
+  "native_semantic_status": "Legacy task Units175-201 pending, older Units149-152 pending"
+}
