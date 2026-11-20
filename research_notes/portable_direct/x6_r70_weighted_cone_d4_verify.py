@@ -49,7 +49,9 @@ assert moment_differences(a_half) == (0,2,0,2)
 assert moment_differences(a_plateau) == (0,12,12,12)
 assert (q(a_half), pair_radius(a_half)) == (11,Fraction(1,2))
 assert (q(a_plateau), pair_radius(a_plateau)) == (39,Fraction(2,17))
-assert all((3*c)%1 == 0 for c in moment_differences(a_half))
+for C in range(1,37):
+    inverse_a = (3*C, Fraction(-4*C,3), Fraction(C,4))
+    assert all(x.denominator == 1 for x in inverse_a) == (C % 12 == 0)
 
 # Exhaustive arithmetic sanity check at the two analytically protected transitions.
 for p, expected in [(11,Fraction(1,2)), (12,Fraction(1,2)), (13,Fraction(1,2))]:
