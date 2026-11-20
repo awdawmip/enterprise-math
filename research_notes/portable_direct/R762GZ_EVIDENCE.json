@@ -1,0 +1,34 @@
+{
+  "schema": "R762GZ_POSITIVE_BRC_THREE_BLOCK_EVIDENCE_V1",
+  "model": "R762GY_K4_SIGNED_STAR_ENDPOINT_CHOICE_CANDIDATE",
+  "interface": "POSITIVE_BRC_SERIAL_RECOALESCENCE_ON_NAMED_PORT_OCCURRENCE_HISTOGRAM",
+  "signs": "TERMINAL_INDEPENDENT_SIGN_REFINEMENT_NOT_SIGNED_BRC_MASS",
+  "observer": "FULL_SIGNED_X6_CELL_AND_NAMED_PORT_01_AT_FIXED_EVENT_LENGTH",
+  "source_provenance": "ORDERED_MULTIPLICITY_RETAINED; PER_WORD_ORDER_NOT_RECONSTRUCTED",
+  "future_gate_scope": "PORT_AND_NEW_INDEPENDENT_SIGN; NO_LINK_OR_HISTORY_DEPENDENT_GATES",
+  "frozen_science": "taskbook@857280d1012943290d141d1317179c40ec3cbdf8;P000@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "three_block_entries": [
+    [
+      {"0300":1,"1101":1,"1110":1,"3000":1},
+      {"0102":1,"0210":1,"1020":1,"2001":1}
+    ],
+    [
+      {"0120":1,"0201":1,"1002":1,"2010":1},
+      {"0003":1,"0030":1,"0111":1,"1011":1}
+    ]
+  ],
+  "direct_signed_dp_checked_through_m": 12,
+  "three_event_block_checked_through_m": 36,
+  "counts": [
+    {"m":0,"port_endpoint_source_words":1,"joint_x6_cell_port_positive_brc_paths":1,"whole_signed_source_population":1,"state_histogram_terms":2},
+    {"m":6,"port_endpoint_source_words":32,"joint_x6_cell_port_positive_brc_paths":88,"whole_signed_source_population":4096,"state_histogram_terms":104},
+    {"m":12,"port_endpoint_source_words":2048,"joint_x6_cell_port_positive_brc_paths":61160,"whole_signed_source_population":16777216,"state_histogram_terms":980},
+    {"m":18,"port_endpoint_source_words":131072,"joint_x6_cell_port_positive_brc_paths":96403768,"whole_signed_source_population":68719476736,"state_histogram_terms":3488},
+    {"m":24,"port_endpoint_source_words":8388608,"joint_x6_cell_port_positive_brc_paths":211907632744,"whole_signed_source_population":281474976710656,"state_histogram_terms":8492},
+    {"m":30,"port_endpoint_source_words":536870912,"joint_x6_cell_port_positive_brc_paths":544635063751488,"whole_signed_source_population":1152921504606846976,"state_histogram_terms":16856},
+    {"m":36,"port_endpoint_source_words":34359738368,"joint_x6_cell_port_positive_brc_paths":1532744178320344712,"whole_signed_source_population":4722366482869645213696,"state_histogram_terms":29444}
+  ],
+  "author_checker": "PASS",
+  "independent_review": "NOT_REVIEWED",
+  "verification_scope": "Author exact positive-BRC operator through 36 events; independently derived direct signed Port/vertex DP through 12 events for both chiralities. No formal proof checker; no native TRIADIC_CLOSURE_E gate verified."
+}
