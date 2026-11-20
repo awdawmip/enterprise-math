@@ -1,0 +1,52 @@
+{
+  "schema": "EC49FTK_NATIVE_BRC_GEOMETRIC_POSTPROCESS_CERT_V1",
+  "date": "2026-11-19",
+  "status": "AUTHOR_PROVED_CONDITIONAL_PARENT_AUTHOR_PROVED_NOT_REVIEWED",
+  "parent_pr": 2774,
+  "parent_commit": "999bf1069403306b3813e0e390dae4435d7b4b8c",
+  "frozen_science_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "domain": {
+    "a": [
+      "3/4",
+      "49/64"
+    ],
+    "b": [
+      "7/16",
+      "57/128"
+    ],
+    "z": [
+      "11/16",
+      "3/4"
+    ]
+  },
+  "relative_switch_order_lower_bound": "17/768",
+  "b_cutoff_D43": "53/120",
+  "a_cutoff_Dmid": "(77+6*b)/105",
+  "phase_volumes": {
+    "D43": "1/983040",
+    "D45": "66581/10569646080",
+    "Dmid": "3307/10569646080"
+  },
+  "phase_volume_fractions": {
+    "D43": "2/15",
+    "D45": "66581/80640",
+    "Dmid": "3307/80640"
+  },
+  "domain_volume": "1/131072",
+  "gap_z_maximizer": "min(3/4,(105*a-6*b-5)/96)",
+  "gap_max_low_a": "(525*a-462*b-9)/8",
+  "gap_max_high_a": "47-54*b",
+  "average_gap": "1317531013/61931520",
+  "average_gap_baseline": "2725/128",
+  "average_gap_correction_D43": "-1/360",
+  "average_gap_correction_Dmid": "-152191/12386304",
+  "test_coverage": {
+    "phase_grid_exact": 4913,
+    "ridge_pairs_exact": 289,
+    "continuous_proof": "analytic rational inequalities and integrals",
+    "native_228_bellman": "not rerun"
+  },
+  "independent_review": false,
+  "formal_task_claim": false,
+  "unresolved": "Native Bellman transition outside current box; Activity linkage to original session not checked"
+}
