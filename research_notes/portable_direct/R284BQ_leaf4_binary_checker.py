@@ -118,7 +118,7 @@ def run():
             witnesses[str(t)]=[''.join(map(str,x)) for x in equal_witness]
         if constant_witness:
             C,D,k=constant_witness
-            nonconstant_gap[str(t)]={'C':''.join(map(str,C)),'D':''.join(map(str(D))),'signed_gap':k}
+            nonconstant_gap[str(t)]={'C':''.join(map(str,C)),'D':''.join(map(str,D)),'signed_gap':k}
     assert len(witnesses)==8 and set(witnesses)==set(map(str,range(-3,5)))
     assert set(nonconstant_gap)==set(map(str,range(-3,2)))
 
