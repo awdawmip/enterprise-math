@@ -38,7 +38,7 @@ Within \(m\in\{0,\ldots,6\}\) and \(1\le t\le 2k\), \(d=0\) is possible precisel
 \[
  c=kr,\quad C=(k+2)r,\quad a=(m/2)b+r\qquad (r\in\mathbb Z).
 \]
-These equations, modulus range, non-diagonality and the original XOR bit checks enumerate all resonant named witnesses. For every odd \(k\ge3\), the \(m=4\) resonant case is empty: since \(c=2^i\pm2^j\ge1-H\), \(r>(-H)/k\), and \(a=2b+r>2H+2-H/k>2H-1\). For \(m=2\), non-diagonality requires \(r\ne0\). The finite \(p=19,k=21\) residual enumeration finds only \(r=0\), so both resonant branches contribute zero non-diagonal witnesses in the Q19 instance.
+These equations, modulus range, non-diagonality and the original XOR bit checks enumerate all resonant named witnesses. Enumerate each integer \(r\) for which \(kr\) and \((k+2)r\) occur in the signed source-residual dictionary, then the odd \(b\) for which \(a=(m/2)b+r\) is an odd modulus in \(Q_p\), excluding \(a=b\). In the exactly checked \(p=19,k=21\) instance the residual dictionary permits only \(r=0\). This makes \(m=2\) diagonal, while \(m=4\) yields \(a=2b\notin Q_p\), so both resonant branches contribute zero non-diagonal named witnesses in that instance. No universal empty-resonance assertion for other parameters is needed.
 
 ## Complete Q19, k=21, k+2=23 exact enumeration
 
