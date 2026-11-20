@@ -1,0 +1,191 @@
+{
+  "schema": "ENTERPRISE_MATH_R762HJ_EXACT_AUTHOR_EVIDENCE_V1",
+  "date": "2026-11-21",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "publication_id": "TP2-8B7E13C5904A2D6F1142",
+  "researcher_provenance": "EM-X6-3050F6",
+  "frozen_science_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "COMPOSITE_SIGNED_SIX_AXIS_PORT_WALK_CANDIDATE_NOT_PRIMITIVE_TRIADIC_CLOSURE_E",
+  "theorem_HJ1": "For even length closed Port walks, alternate-sign three-support sum equals negative alternate-sign retained-axis sum",
+  "theorem_HJ2": "One contiguous flip of the alternating sign word solves all six Cell balances iff some exact prefix difference equals half the full alternating displacement",
+  "census": {
+    "columns": [
+      "m",
+      "closed_unsigned",
+      "incidence_even",
+      "alternating",
+      "HI2",
+      "alternating_and_HI2",
+      "alternating_or_HI2",
+      "one_interval_flip"
+    ],
+    "rows": [
+      [
+        2,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      [
+        4,
+        288,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168
+      ],
+      [
+        6,
+        17536,
+        4960,
+        4960,
+        4864,
+        4864,
+        4960,
+        4960
+      ],
+      [
+        8,
+        1118720,
+        177536,
+        176264,
+        162368,
+        161288,
+        177344,
+        177536
+      ]
+    ],
+    "scope": "Exhaustive enumeration of 8^m labelled choices with closure P_m=P_0=01, even m from 2 to 8",
+    "integer_arithmetic": true
+  },
+  "witness": {
+    "m": 18,
+    "ports": [
+      "01",
+      "15",
+      "12",
+      "25",
+      "24",
+      "14",
+      "45",
+      "04",
+      "05",
+      "03",
+      "05",
+      "03",
+      "04",
+      "24",
+      "23",
+      "25",
+      "35",
+      "05",
+      "01"
+    ],
+    "supports": [
+      "015",
+      "125",
+      "125",
+      "245",
+      "124",
+      "145",
+      "045",
+      "045",
+      "035",
+      "035",
+      "035",
+      "034",
+      "024",
+      "234",
+      "235",
+      "235",
+      "035",
+      "015"
+    ],
+    "six_axis_incidence": [
+      10,
+      6,
+      8,
+      8,
+      8,
+      14
+    ],
+    "alternating_displacement": [
+      2,
+      0,
+      0,
+      0,
+      -2,
+      0
+    ],
+    "required_single_block_prefix_difference": [
+      1,
+      0,
+      0,
+      0,
+      -1,
+      0
+    ],
+    "exact_nonempty_intervals_checked": 171,
+    "one_block_solutions": 0,
+    "two_disjoint_singleton_flip_intervals_zero_based": [
+      [
+        0,
+        1
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "zero_cell_example_signs": [
+      -1,
+      -1,
+      1,
+      -1,
+      1,
+      1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1
+    ],
+    "zero_cell_example_sum": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "total_distinct_signed_zero_cell_completions": 652,
+    "count_algorithm": "All 2^18 sign bitmasks, retaining temporal occurrence multiplicities"
+  },
+  "local_validation": {
+    "tools": [
+      "g++ -O3 -std=c++17 /tmp/alt_port_block.cpp -o /tmp/alt_port_block && /tmp/alt_port_block",
+      "python /tmp/check_witness.py"
+    ],
+    "outputs": "Census rows match; witness half-prefix interval search zero, explicit 2-block signing zero, 652 signed solutions",
+    "environment": "Author-side container exact integer computations; independent remote CI not run",
+    "review": "NOT_REVIEWED"
+  },
+  "unresolved": [
+    "Parity-even sufficiency for all legal closed Port histories remains open",
+    "Minimum flip-block complexity and shortest one-block failure were not exhaustively established",
+    "Native P000 TRIADIC_CLOSURE_E Cell/Link/Port/time/rotation admissibility remains open"
+  ]
+}
