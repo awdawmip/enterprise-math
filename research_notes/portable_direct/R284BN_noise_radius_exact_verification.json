@@ -1,0 +1,266 @@
+{
+  "indices": [
+    {
+      "all_radius_bad_t": "[-1,4]",
+      "frozen_index": 0,
+      "isolated_c_minmax": [
+        0,
+        0
+      ],
+      "isolated_distinct_t_c": 6,
+      "isolated_integer_t": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "isolated_pairs": 304,
+      "universal_forms": [],
+      "universal_pairs": 0,
+      "witnesses": {
+        "isolated:-1,0": [
+          "111211211",
+          "112212212"
+        ],
+        "isolated:0,0": [
+          "111111111",
+          "112112112"
+        ],
+        "isolated:1,0": [
+          "111111111",
+          "111112112"
+        ],
+        "isolated:2,0": [
+          "111112112",
+          "112111111"
+        ],
+        "isolated:3,0": [
+          "111212212",
+          "112211211"
+        ],
+        "isolated:4,0": [
+          "211212212",
+          "212211211"
+        ]
+      }
+    },
+    {
+      "all_radius_bad_t": "[-m-3, max(4,m+1)]",
+      "frozen_index": 1,
+      "isolated_c_minmax": [
+        -16,
+        6
+      ],
+      "isolated_distinct_t_c": 68,
+      "isolated_integer_t": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "isolated_pairs": 1824,
+      "universal_forms": [
+        {
+          "a": -3,
+          "b": 2,
+          "pair_count": 16
+        },
+        {
+          "a": -2,
+          "b": 2,
+          "pair_count": 32
+        },
+        {
+          "a": -1,
+          "b": 1,
+          "pair_count": 16
+        },
+        {
+          "a": -1,
+          "b": 2,
+          "pair_count": 16
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "pair_count": 48
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "pair_count": 48
+        },
+        {
+          "a": 1,
+          "b": 1,
+          "pair_count": 32
+        },
+        {
+          "a": 2,
+          "b": 1,
+          "pair_count": 16
+        },
+        {
+          "a": 2,
+          "b": 2,
+          "pair_count": 16
+        },
+        {
+          "a": 3,
+          "b": 1,
+          "pair_count": 16
+        }
+      ],
+      "universal_pairs": 256,
+      "witnesses": {
+        "isolated:2,0": [
+          "111111121",
+          "111111212"
+        ],
+        "isolated:3,0": [
+          "111121121",
+          "111121212"
+        ],
+        "isolated:4,0": [
+          "111222121",
+          "111222212"
+        ],
+        "universal:-1,1": [
+          "111121111",
+          "112121111"
+        ],
+        "universal:0,1": [
+          "111111111",
+          "112111111"
+        ],
+        "universal:1,1": [
+          "111111121",
+          "112111121"
+        ],
+        "universal:2,1": [
+          "111221121",
+          "112221121"
+        ],
+        "universal:3,1": [
+          "111211121",
+          "112211121"
+        ]
+      }
+    },
+    {
+      "all_radius_bad_t": "[-m-3, max(4,m+1)]",
+      "frozen_index": 2,
+      "isolated_c_minmax": [
+        -16,
+        6
+      ],
+      "isolated_distinct_t_c": 68,
+      "isolated_integer_t": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "isolated_pairs": 1824,
+      "universal_forms": [
+        {
+          "a": -3,
+          "b": 2,
+          "pair_count": 16
+        },
+        {
+          "a": -2,
+          "b": 2,
+          "pair_count": 32
+        },
+        {
+          "a": -1,
+          "b": 1,
+          "pair_count": 16
+        },
+        {
+          "a": -1,
+          "b": 2,
+          "pair_count": 16
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "pair_count": 48
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "pair_count": 48
+        },
+        {
+          "a": 1,
+          "b": 1,
+          "pair_count": 32
+        },
+        {
+          "a": 2,
+          "b": 1,
+          "pair_count": 16
+        },
+        {
+          "a": 2,
+          "b": 2,
+          "pair_count": 16
+        },
+        {
+          "a": 3,
+          "b": 1,
+          "pair_count": 16
+        }
+      ],
+      "universal_pairs": 256,
+      "witnesses": {
+        "isolated:2,0": [
+          "111111112",
+          "111221112"
+        ],
+        "isolated:3,0": [
+          "111112112",
+          "111221112"
+        ],
+        "isolated:4,0": [
+          "111112222",
+          "111221222"
+        ],
+        "universal:-1,1": [
+          "111111112",
+          "121111112"
+        ],
+        "universal:0,1": [
+          "111111111",
+          "121111111"
+        ],
+        "universal:1,1": [
+          "111111211",
+          "121111211"
+        ],
+        "universal:2,1": [
+          "111112212",
+          "121112212"
+        ],
+        "universal:3,1": [
+          "111112211",
+          "121112211"
+        ]
+      }
+    }
+  ],
+  "m": "floor(2*rho)",
+  "population": "{1,2}^{3x3}",
+  "population_size": 512,
+  "real_error_radius": "rho >= 0; circular metric mod freely chosen prime",
+  "schema": "R284BN_ALL_NOISE_RADIUS_FROZEN_DIAGONAL_CERTIFICATE_V1",
+  "unordered_pairs_per_index": 130816
+}
