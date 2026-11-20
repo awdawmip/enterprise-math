@@ -1,0 +1,52 @@
+{
+  "schema": "R5_ALL_EXCESS_RATIONAL_FINITE_CROSSCHECK_V1",
+  "input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "symbolic_claim": "All m=2f+e+1≥1 and all D≥0, coefficient of rational function E_m M_m L_m U_O at q^(735m+D)",
+  "scope": "nonadaptive original scalar interval observer, 256 hypotheses, 101 query budgets",
+  "samples": {
+    "1": {
+      "all_501_coefficients_computed": true,
+      "early_independent_equality": true,
+      "one_excursion_425_coefficients_match": true,
+      "coefficients_425_430": {
+        "425": "0",
+        "426": "0",
+        "427": "1",
+        "428": "4",
+        "429": "9",
+        "430": "18"
+      }
+    },
+    "2": {
+      "all_501_coefficients_computed": true,
+      "early_independent_equality": true,
+      "one_excursion_425_coefficients_match": true,
+      "coefficients_425_430": {
+        "425": "216888",
+        "426": "207790",
+        "427": "198837",
+        "428": "190052",
+        "429": "181419",
+        "430": "172969"
+      }
+    },
+    "3": {
+      "all_501_coefficients_computed": true,
+      "early_independent_equality": true,
+      "one_excursion_425_coefficients_match": true,
+      "coefficients_425_430": {
+        "425": "129310911",
+        "426": "127722790",
+        "427": "126111289",
+        "428": "124477063",
+        "429": "122821650",
+        "430": "121145725"
+      }
+    }
+  },
+  "sample_scope": "m=1,2,3; D=0..500; independently enumerate three overlapping early constraints, agreement with 425 formula through D=425",
+  "theorem_status": "AUTHOR_SYMBOLIC_PROOF / EXACT_FINITE_CHECKED",
+  "independent_review": "NOT_REVIEWED",
+  "formal_task": "Not claimed in this turn",
+  "next": "Obtain exact leading subdominant cost-spectrum terms, or improve adaptive eight-error bound separately"
+}
