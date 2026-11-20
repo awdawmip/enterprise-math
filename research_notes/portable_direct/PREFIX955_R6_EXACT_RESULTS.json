@@ -1,0 +1,139 @@
+{
+  "schema": "PREFIX955_R6_Q19_EXACT_GAP_CENSUS_V1",
+  "scientific_input_commit": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "auxiliary named XOR two-port observer",
+  "p": 19,
+  "moduli": {
+    "first": 262145,
+    "last": 524287,
+    "step": 2,
+    "count": 131072
+  },
+  "cores": [
+    21,
+    23
+  ],
+  "quotient_gap_domain": [
+    0,
+    6
+  ],
+  "nonresonant": {
+    "raw_named_witnesses_by_gap": [
+      6,
+      644,
+      6513,
+      1314,
+      231,
+      3,
+      0
+    ],
+    "distinct_pairs_by_gap": [
+      6,
+      443,
+      4725,
+      840,
+      190,
+      3,
+      0
+    ],
+    "offdiagonal_pairs_by_gap": [
+      6,
+      442,
+      4724,
+      839,
+      190,
+      3,
+      0
+    ],
+    "distinct_pairs": 6204,
+    "offdiagonal_distinct_pairs": 6203,
+    "diagonal_distinct_pairs": 1,
+    "unique_gap_offdiagonal_pairs": 6202,
+    "multiple_gap_offdiagonal_pairs": 1,
+    "multiple_gap_offdiagonal_example": {
+      "a": 278529,
+      "b": 290817,
+      "gaps": [
+        1,
+        2
+      ],
+      "witnesses": [
+        {
+          "m": 1,
+          "core21": [
+            21,
+            12,
+            18
+          ],
+          "core23": [
+            22,
+            13,
+            0
+          ]
+        },
+        {
+          "m": 2,
+          "core21": [
+            20,
+            15,
+            0
+          ],
+          "core23": [
+            22,
+            13,
+            0
+          ]
+        }
+      ]
+    },
+    "single_diagonal_multi_gap": {
+      "a": 262145,
+      "b": 262145,
+      "gaps": [
+        1,
+        2,
+        3
+      ]
+    },
+    "pair_mask_histogram": {
+      "1": 6,
+      "2": 441,
+      "4": 4723,
+      "6": 1,
+      "8": 839,
+      "14": 1,
+      "16": 190,
+      "32": 3
+    },
+    "a_less_b": 2563,
+    "a_greater_b": 3640
+  },
+  "reconstructed_full_intersection": {
+    "pairs": 137274,
+    "bytes": 1098192,
+    "sha256": "54c35a06874167484f0028443be45d3b03e69bc3bdf0e64fc97cf371522f6223"
+  },
+  "offdiagonal_binary": {
+    "pairs": 6203,
+    "bytes": 49624,
+    "sha256": "1caec71f97ddb97c60c8506629f65651f0f3030b3526aeca30195948ee0cff75"
+  },
+  "independent_direct_original_equation_verification": "PASSED",
+  "sharpened_general_theorem": {
+    "fixed_core_moduli_positive_quotients_maximum": 3,
+    "range": "p>=3, positive k, odd a,b in Qp",
+    "sharp_example": {
+      "p": 4,
+      "k": 3,
+      "a": 13,
+      "b": 9,
+      "t": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "verification_status": "AUTHOR_PROOF_AND_TWO_FINITE_CHECKS; INDEPENDENT_REVIEW_PENDING",
+  "source_activity_status": "NOT_YET_ASSOCIATED"
+}
