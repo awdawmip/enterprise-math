@@ -1,0 +1,463 @@
+{
+  "schema": "enterprise-math.global-minimum-finite-riesel-cover.v1",
+  "researcher_id": "EM-DIRECT-970E1C",
+  "research_activity_id": "RA-D2EC212845B63844081F9A14",
+  "status": "author finite exhaustive verification; not independent project Review",
+  "external_theorem": "Any t arithmetic progressions covering 2^t consecutive integers cover all integers (Crittenden-Vanden Eynden).",
+  "order_bound_lemma": "In an inclusion-minimal s-prime covering, every base-2 order is at most 2^(s-1).",
+  "maximum_cover_size_under_test": 5,
+  "maximum_relevant_order": 16,
+  "finite_window_length": 32,
+  "factorizations": [
+    {
+      "d": 1,
+      "value": 1,
+      "factorization": {}
+    },
+    {
+      "d": 2,
+      "value": 3,
+      "factorization": {
+        "3": 1
+      }
+    },
+    {
+      "d": 3,
+      "value": 7,
+      "factorization": {
+        "7": 1
+      }
+    },
+    {
+      "d": 4,
+      "value": 15,
+      "factorization": {
+        "3": 1,
+        "5": 1
+      }
+    },
+    {
+      "d": 5,
+      "value": 31,
+      "factorization": {
+        "31": 1
+      }
+    },
+    {
+      "d": 6,
+      "value": 63,
+      "factorization": {
+        "3": 2,
+        "7": 1
+      }
+    },
+    {
+      "d": 7,
+      "value": 127,
+      "factorization": {
+        "127": 1
+      }
+    },
+    {
+      "d": 8,
+      "value": 255,
+      "factorization": {
+        "3": 1,
+        "5": 1,
+        "17": 1
+      }
+    },
+    {
+      "d": 9,
+      "value": 511,
+      "factorization": {
+        "7": 1,
+        "73": 1
+      }
+    },
+    {
+      "d": 10,
+      "value": 1023,
+      "factorization": {
+        "3": 1,
+        "11": 1,
+        "31": 1
+      }
+    },
+    {
+      "d": 11,
+      "value": 2047,
+      "factorization": {
+        "23": 1,
+        "89": 1
+      }
+    },
+    {
+      "d": 12,
+      "value": 4095,
+      "factorization": {
+        "3": 2,
+        "5": 1,
+        "7": 1,
+        "13": 1
+      }
+    },
+    {
+      "d": 13,
+      "value": 8191,
+      "factorization": {
+        "8191": 1
+      }
+    },
+    {
+      "d": 14,
+      "value": 16383,
+      "factorization": {
+        "3": 1,
+        "43": 1,
+        "127": 1
+      }
+    },
+    {
+      "d": 15,
+      "value": 32767,
+      "factorization": {
+        "7": 1,
+        "31": 1,
+        "151": 1
+      }
+    },
+    {
+      "d": 16,
+      "value": 65535,
+      "factorization": {
+        "3": 1,
+        "5": 1,
+        "17": 1,
+        "257": 1
+      }
+    }
+  ],
+  "prime_order_dictionary": [
+    {
+      "order": 2,
+      "primes": [
+        3
+      ],
+      "capacity": 1
+    },
+    {
+      "order": 3,
+      "primes": [
+        7
+      ],
+      "capacity": 1
+    },
+    {
+      "order": 4,
+      "primes": [
+        5
+      ],
+      "capacity": 1
+    },
+    {
+      "order": 5,
+      "primes": [
+        31
+      ],
+      "capacity": 1
+    },
+    {
+      "order": 7,
+      "primes": [
+        127
+      ],
+      "capacity": 1
+    },
+    {
+      "order": 8,
+      "primes": [
+        17
+      ],
+      "capacity": 1
+    },
+    {
+      "order": 9,
+      "primes": [
+        73
+      ],
+      "capacity": 1
+    },
+    {
+      "order": 10,
+      "primes": [
+        11
+      ],
+      "capacity": 1
+    },
+    {
+      "order": 11,
+      "primes": [
+        23,
+        89
+      ],
+      "capacity": 2
+    },
+    {
+      "order": 12,
+      "primes": [
+        13
+      ],
+      "capacity": 1
+    },
+    {
+      "order": 13,
+      "primes": [
+        8191
+      ],
+      "capacity": 1
+    },
+    {
+      "order": 14,
+      "primes": [
+        43
+      ],
+      "capacity": 1
+    },
+    {
+      "order": 15,
+      "primes": [
+        151
+      ],
+      "capacity": 1
+    },
+    {
+      "order": 16,
+      "primes": [
+        257
+      ],
+      "capacity": 1
+    }
+  ],
+  "phase_masks_hex": {
+    "2": [
+      "0x55555555",
+      "0xaaaaaaaa"
+    ],
+    "3": [
+      "0x49249249",
+      "0x92492492",
+      "0x24924924"
+    ],
+    "4": [
+      "0x11111111",
+      "0x22222222",
+      "0x44444444",
+      "0x88888888"
+    ],
+    "5": [
+      "0x42108421",
+      "0x84210842",
+      "0x8421084",
+      "0x10842108",
+      "0x21084210"
+    ],
+    "7": [
+      "0x10204081",
+      "0x20408102",
+      "0x40810204",
+      "0x81020408",
+      "0x2040810",
+      "0x4081020",
+      "0x8102040"
+    ],
+    "8": [
+      "0x1010101",
+      "0x2020202",
+      "0x4040404",
+      "0x8080808",
+      "0x10101010",
+      "0x20202020",
+      "0x40404040",
+      "0x80808080"
+    ],
+    "9": [
+      "0x8040201",
+      "0x10080402",
+      "0x20100804",
+      "0x40201008",
+      "0x80402010",
+      "0x804020",
+      "0x1008040",
+      "0x2010080",
+      "0x4020100"
+    ],
+    "10": [
+      "0x40100401",
+      "0x80200802",
+      "0x401004",
+      "0x802008",
+      "0x1004010",
+      "0x2008020",
+      "0x4010040",
+      "0x8020080",
+      "0x10040100",
+      "0x20080200"
+    ],
+    "11": [
+      "0x400801",
+      "0x801002",
+      "0x1002004",
+      "0x2004008",
+      "0x4008010",
+      "0x8010020",
+      "0x10020040",
+      "0x20040080",
+      "0x40080100",
+      "0x80100200",
+      "0x200400"
+    ],
+    "12": [
+      "0x1001001",
+      "0x2002002",
+      "0x4004004",
+      "0x8008008",
+      "0x10010010",
+      "0x20020020",
+      "0x40040040",
+      "0x80080080",
+      "0x100100",
+      "0x200200",
+      "0x400400",
+      "0x800800"
+    ],
+    "13": [
+      "0x4002001",
+      "0x8004002",
+      "0x10008004",
+      "0x20010008",
+      "0x40020010",
+      "0x80040020",
+      "0x80040",
+      "0x100080",
+      "0x200100",
+      "0x400200",
+      "0x800400",
+      "0x1000800",
+      "0x2001000"
+    ],
+    "14": [
+      "0x10004001",
+      "0x20008002",
+      "0x40010004",
+      "0x80020008",
+      "0x40010",
+      "0x80020",
+      "0x100040",
+      "0x200080",
+      "0x400100",
+      "0x800200",
+      "0x1000400",
+      "0x2000800",
+      "0x4001000",
+      "0x8002000"
+    ],
+    "15": [
+      "0x40008001",
+      "0x80010002",
+      "0x20004",
+      "0x40008",
+      "0x80010",
+      "0x100020",
+      "0x200040",
+      "0x400080",
+      "0x800100",
+      "0x1000200",
+      "0x2000400",
+      "0x4000800",
+      "0x8001000",
+      "0x10002000",
+      "0x20004000"
+    ],
+    "16": [
+      "0x10001",
+      "0x20002",
+      "0x40004",
+      "0x80008",
+      "0x100010",
+      "0x200020",
+      "0x400040",
+      "0x800080",
+      "0x1000100",
+      "0x2000200",
+      "0x4000400",
+      "0x8000800",
+      "0x10001000",
+      "0x20002000",
+      "0x40004000",
+      "0x80008000"
+    ]
+  },
+  "exhaustive_search": {
+    "found": false,
+    "witness": null,
+    "stats": {
+      "calls": 284781,
+      "no_slots": 257400,
+      "exhausted_states": 27381
+    },
+    "calls_by_depth": [
+      1,
+      14,
+      183,
+      2223,
+      24960,
+      257400
+    ],
+    "method": "unpruned integer first-uncovered-bit DFS with exact order multiplicities; no memoization or coverage-capacity pruning"
+  },
+  "six_prime_witness": {
+    "k": 509203,
+    "rows": [
+      {
+        "q": 3,
+        "ord2": 2,
+        "phase_n": 0
+      },
+      {
+        "q": 5,
+        "ord2": 4,
+        "phase_n": 1
+      },
+      {
+        "q": 7,
+        "ord2": 3,
+        "phase_n": 2
+      },
+      {
+        "q": 13,
+        "ord2": 12,
+        "phase_n": 7
+      },
+      {
+        "q": 17,
+        "ord2": 8,
+        "phase_n": 7
+      },
+      {
+        "q": 241,
+        "ord2": 24,
+        "phase_n": 3
+      }
+    ],
+    "full_period": 24,
+    "proper_divisors": true
+  },
+  "conclusion": "Every finite prime divisibility cover of k*2^n-1 for positive odd k uses at least six primes, and k=509203 attains six.",
+  "not_claimed": [
+    "smallest Riesel coefficient",
+    "every Riesel number has a finite prime cover",
+    "literature priority",
+    "independent project Review"
+  ]
+}
