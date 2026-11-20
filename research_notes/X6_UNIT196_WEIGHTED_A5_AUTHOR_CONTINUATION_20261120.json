@@ -1,0 +1,87 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "historical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "lane_identity": "Historical SID and other lane references are provenance, not proof of current live Research conversation ownership or platform identity",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "latest_author_unit": 196,
+  "latest_author_status": "AUTHOR_PROVED / EXACT_PINNED_PYTHON_EXECUTED / GITHUB_IMMUTABLE_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+  "science": {
+    "result": "For positive rational native step weights u_i,v_i and balanced z, E_{2n}^{u,v}(z)=C(2n,n)L_n^{u,v}(z), A_n^{u,v}(z)=sum_{k=0}^n C(n,k)(-c)^{n-k}E_{2k}^{u,v}(z)/C(2k,k), c=sum_i u_i v_i, with lazy labeled A5 zero-pairs retained; pair edge weights factor u_i*v_j.",
+    "domain": "n>=0, z in Z^6 with sum z_i=0, all u_i>0 and v_i>0 rational",
+    "native_source": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+    "native_function": "endpoint_weight",
+    "frozen_producer_git_blob_sha1": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+    "artifact_refs": [
+      {
+        "path": "research_notes/X6_UNIT196_WEIGHTED_SIGNED_LAZY_A5_BINOMIAL_BRIDGE_20261120.md",
+        "commit": "353b4a4cf2ccb2b7e9e6d50fc736cf8e8a742791",
+        "git_blob_sha1": "c4e0ee16571be3ad643b6e8f129feb289980992e"
+      },
+      {
+        "path": "research_checks/X6_UNIT196_WEIGHTED_LAZY_A5_INVERSION_CHECK_20261120.py",
+        "commit": "d9543e1ed2bb2e736fd6f179d36df5972b932a89",
+        "git_blob_sha1": "3b780c7c6a5ddd8037a32554321c3fc0dc7902e3"
+      },
+      {
+        "path": "research_checks/X6_UNIT196_WEIGHTED_LAZY_A5_INVERSION_RESULTS_20261120.json",
+        "commit": "adab6c3ea08e1b30461c2b9cb65e794846905b03",
+        "git_blob_sha1": "e3b5c97d0dadecaba5d8d986d2ff43e374128c94",
+        "sha256": "42e4db2be86eae56cd8bd39aef425421fd45cbd877f5acb41ee276131bfc8bc0"
+      }
+    ]
+  },
+  "validation": {
+    "executed_frozen_producer": true,
+    "positive_rational_profiles": 3,
+    "endpoint_layer_exact_comparisons": 9003,
+    "independent_native_DP_endpoint_comparisons": 1887,
+    "violations": 0,
+    "normal_O_OO_same_result": true,
+    "original_native_R063_six_file_benchmark_rerun": false
+  },
+  "control": {
+    "historical_researcher_id": "EM-X6-FB6990",
+    "historical_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "historical_claim_id": "MCP-e2bd88a10565daf08b1d46f5",
+    "historical_run_id": "RUN-b2c1fe16e9806ecf043c89a0",
+    "last_confirmed_authenticated_native_unit": 174,
+    "native_pending_semantic_units": "175-196",
+    "older_pending_units": [
+      149,
+      150,
+      151,
+      152
+    ],
+    "original_unknown_read_request_id": "onhour-20261120-2055-x6-unit195-postscience-current-cont-read-v1",
+    "original_unknown_read_reconciled": "SUCCEEDED / error=null, read-only; execution_authorized=false, Source drift",
+    "historical_failed_prepare_id": "onhour-20261120-1524-x6-own-unit187-native-continuation-prepare-v1",
+    "historical_failed_prepare_result": "FAILED / NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED, not replayed",
+    "native_protected_progress_this_turn": "NOT_SUBMITTED",
+    "fresh_live_owner_claim_authorization": "NOT_ESTABLISHED",
+    "independent_review": "UNREVIEWED / NOT_ADMITTED"
+  },
+  "frozen_consumer_audit": {
+    "checked": [
+      "experiments/x6_signed_native_spatial_v16_20260905/check_signed_brc.py",
+      "experiments/x6_signed_native_spatial_v16_20260905/check_x6_signed.py",
+      "tests/test_p022_geodesic_multiplicity.py"
+    ],
+    "result": "No direct P022 shortest-A5 and signed-X6 all-walk cross-call in these exact consumer files; no global absence inference",
+    "historical_LP011": "Original alleged wrong signed argmax commit:path:line not verified",
+    "historical_LP019": "Original alleged invalid positive N-BRC subtraction commit:path:line not verified"
+  },
+  "do_not_repeat": [
+    "Unit194 shortest and Unit195 unweighted arbitrary-even-length bridge",
+    "Unit196 exact weighted source proof/check",
+    "R063 native six-file benchmark previously 17/17, 512/512",
+    "Failed or unknown protected mutations; never borrow maintenance lane identity"
+  ],
+  "next_exact_action": "Trace an actual frozen state/time-sensitive consumer of endpoint_weight or A5 counts and identify original LP011/LP019 offending commit:path:line if present; test which time/provenance statistics are needed beyond factorized paired weights. Reauthenticate true same-lane owner and protected RUN before any Native semantic association; follow original receipts.",
+  "continuation_state": "OPEN"
+}
