@@ -1,0 +1,73 @@
+{
+  "schema": "PREFIX972_SOURCE_GCD_JOIN_V1",
+  "q19": [
+    {
+      "m": 1,
+      "num_pairs": 442,
+      "named_histories": 614,
+      "hash": "ccbccc30c4171a809f7270ce59f0b72b368839e93ffeeed8df9ba1045720da71",
+      "baseline": {
+        "bucket_entries": 10479,
+        "pair_naive": 992796,
+        "modular_bucket_probe": 10479,
+        "joined_pairs": 132661,
+        "arithmetic_pairs": 1419,
+        "slot_checks": 3866
+      },
+      "gcd_source_join": {
+        "bucket_entries": 10479,
+        "gcd_filtered_numeric_c_probes": 7653,
+        "joined_pairs": 132661,
+        "arithmetic_pairs": 1419
+      }
+    },
+    {
+      "m": 3,
+      "num_pairs": 839,
+      "named_histories": 1286,
+      "hash": "1360a9ca274b357d0b87058d35ef6ccd059d0c5aef995e4d93b0d1363e1aaae3",
+      "baseline": {
+        "bucket_entries": 10479,
+        "pair_naive": 992796,
+        "modular_bucket_probe": 10479,
+        "joined_pairs": 134077,
+        "arithmetic_pairs": 2825,
+        "slot_checks": 7695
+      },
+      "gcd_source_join": {
+        "bucket_entries": 10479,
+        "gcd_filtered_numeric_c_probes": 7653,
+        "joined_pairs": 134077,
+        "arithmetic_pairs": 2825
+      }
+    },
+    {
+      "m": 5,
+      "num_pairs": 3,
+      "named_histories": 3,
+      "hash": "c429ef59749f36ef295b4ac9171fb5171ab3a706beaa270563728d4962649c1b",
+      "baseline": {
+        "bucket_entries": 10479,
+        "pair_naive": 992796,
+        "modular_bucket_probe": 10479,
+        "joined_pairs": 24996,
+        "arithmetic_pairs": 15,
+        "slot_checks": 35
+      },
+      "gcd_source_join": {
+        "bucket_entries": 10479,
+        "gcd_filtered_numeric_c_probes": 7653,
+        "joined_pairs": 24996,
+        "arithmetic_pairs": 15
+      }
+    }
+  ],
+  "raw_xor_small_cases": 168,
+  "benchmark": {
+    "repeats_each": 12,
+    "baseline_median_s": 0.07525212249999669,
+    "source_gcd_join_median_s": 0.07162630399999159,
+    "measurement": "Local CPython, 12 alternating whole-triplet runs including source-fiber construction, bucket building, named restoration and XOR checks"
+  },
+  "status": "AUTHOR_PROOF_EXACT_INTEGER_VERIFIED_NOT_REVIEWED"
+}
