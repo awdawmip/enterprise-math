@@ -1,0 +1,77 @@
+{
+  "schema": "X6_TIME_S6_FRAME_OBSERVER_FINITE_CERT_V1",
+  "date": "2026-11-21",
+  "frames": 720,
+  "cases": [
+    {
+      "case": "no_local_events",
+      "group_size": 1,
+      "orbit_size": 0,
+      "classes": 1,
+      "bits": 0,
+      "each_fiber": 720
+    },
+    {
+      "case": "single_port_identity",
+      "group_size": 1,
+      "orbit_size": 1,
+      "classes": 6,
+      "bits": 3,
+      "each_fiber": 120
+    },
+    {
+      "case": "three_ports_identity",
+      "group_size": 1,
+      "orbit_size": 3,
+      "classes": 120,
+      "bits": 7,
+      "each_fiber": 6
+    },
+    {
+      "case": "single_port_swap01",
+      "group_size": 2,
+      "orbit_size": 2,
+      "classes": 30,
+      "bits": 5,
+      "each_fiber": 24
+    },
+    {
+      "case": "single_port_two_swaps",
+      "group_size": 4,
+      "orbit_size": 2,
+      "classes": 30,
+      "bits": 5,
+      "each_fiber": 24
+    },
+    {
+      "case": "single_port_cycle6",
+      "group_size": 6,
+      "orbit_size": 6,
+      "classes": 720,
+      "bits": 10,
+      "each_fiber": 1
+    },
+    {
+      "case": "all_ports_identity",
+      "group_size": 1,
+      "orbit_size": 6,
+      "classes": 720,
+      "bits": 10,
+      "each_fiber": 1
+    }
+  ],
+  "diamonds": [
+    {
+      "generator": "swap01",
+      "checked": 8640,
+      "nonzero": 2880
+    },
+    {
+      "generator": "cycle6",
+      "checked": 8640,
+      "nonzero": 8640
+    }
+  ],
+  "all_exact_assertions_pass": true,
+  "observer": "unbounded-future full signed Cell coordinate with declared frame operations and local signed native step alphabet"
+}
