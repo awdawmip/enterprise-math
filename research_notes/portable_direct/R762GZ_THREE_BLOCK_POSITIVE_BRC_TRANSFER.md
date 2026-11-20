@@ -49,9 +49,7 @@ U_(k+2)=S U_(k+1)-D U_k,
 
 where S=a^3+b^3+c^3+d^3+abc+abd+acd+bcd and D=(ab-cd)(ac-bd)(ad-bc).
 
-**Proof.** The two-by-two characteristic identity T^2-(tr T)T+(det T)I=0 follows by direct multiplication. For the three factors A,B,C, determinant multiplicativity yields det(T)=(ab-cd)(ab-cd? No: see correction below).
-
-**Checked factorization:** det(A)=ad-bc; det(B)=ab-cd; det(C)=ac-bd, hence det(T)=(ad-bc)(ab-cd)(ac-bd), which equals D. Multiplication by T^k and taking the (0,0) entry gives the stated recurrence; tr(T) equals S by its displayed entries. The minus sign is *formal polynomial algebra*, NOT a negative weighted BRC branch. For executable counts the companion checker uses only nonnegative occurrence-histogram serial/recoalescence and never evaluates signed-BRC mass.
+**Proof.** The two-by-two characteristic identity T^2-(tr T)T+(det T)I=0 follows by direct multiplication. For the three factors A,B,C, determinant multiplicativity gives det(A)=ad-bc, det(B)=ab-cd and det(C)=ac-bd, hence det(T)=(ad-bc)(ab-cd)(ac-bd)=D. Multiplication by T^k and taking the (0,0) entry gives the stated recurrence; tr(T) equals S by its displayed entries. The minus sign is *formal polynomial algebra*, NOT a negative weighted BRC branch. For executable counts the companion checker uses only nonnegative occurrence-histogram serial/recoalescence and never evaluates signed-BRC mass.
 
 ## Exact results and reproduction
 
