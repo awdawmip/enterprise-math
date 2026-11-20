@@ -1,0 +1,111 @@
+{
+  "schema": "R5_EVEN_FOURTH_ROOT_N21_V1",
+  "date": "2026-11-21",
+  "model": "frozen nonadaptive scalar query model",
+  "scope": "primitive fourth roots q=±i only; fixed even m>=2",
+  "input_provenance": {
+    "frozen_sha256_inherited": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+    "frozen_input_rehashed_this_turn": false,
+    "separator_certificate_recomputed_this_turn": false
+  },
+  "status": "AUTHOR_SYMBOLIC_PROOF / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "verification": {
+    "exact_gaussian_integer_dp_m": [
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20
+    ],
+    "independent_full_tuple_enumeration_m": [
+      2,
+      4
+    ],
+    "upstream_D_m_regression": "PASS",
+    "exact_local_expansion_constants": "PASS",
+    "independent_external_review": false
+  },
+  "cases": [
+    {
+      "m": 2,
+      "D_real": 656,
+      "D_imag": -2,
+      "E_real": 8033772,
+      "E_imag": -41336
+    },
+    {
+      "m": 4,
+      "D_real": 872,
+      "D_imag": 440,
+      "E_real": 10499400,
+      "E_imag": 4893440
+    },
+    {
+      "m": 6,
+      "D_real": 2184,
+      "D_imag": -4,
+      "E_real": 24850360,
+      "E_imag": -106296
+    },
+    {
+      "m": 8,
+      "D_real": 2616,
+      "D_imag": 1320,
+      "E_real": 29228392,
+      "E_imag": 12966960
+    },
+    {
+      "m": 10,
+      "D_real": 4584,
+      "D_imag": -6,
+      "E_real": 48179076,
+      "E_imag": -198400
+    },
+    {
+      "m": 12,
+      "D_real": 5232,
+      "D_imag": 2640,
+      "E_real": 53915408,
+      "E_imag": 22507200
+    },
+    {
+      "m": 14,
+      "D_real": 7856,
+      "D_imag": -8,
+      "E_real": 75749232,
+      "E_imag": -322928
+    },
+    {
+      "m": 16,
+      "D_real": 8720,
+      "D_imag": 4400,
+      "E_real": 82290640,
+      "E_imag": 31800800
+    },
+    {
+      "m": 18,
+      "D_real": 12000,
+      "D_imag": -10,
+      "E_real": 105290140,
+      "E_imag": -483400
+    },
+    {
+      "m": 20,
+      "D_real": 13080,
+      "D_imag": 6600,
+      "E_real": 112082520,
+      "E_imag": 39134400
+    }
+  ],
+  "next_questions": [
+    "Simplify E_m threshold-generating rational function and test minimal quasiperiod",
+    "Compute primitive fourth-root N^20 coefficient and competing higher root orders"
+  ],
+  "formal_claim_created": false,
+  "review": "NOT_REVIEWED"
+}
