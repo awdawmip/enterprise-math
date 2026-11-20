@@ -115,7 +115,7 @@ void check_witness() {
     }
     assert(solutions==652);
     cout<<"witness_m18: parity_even=1, one_block=0, two_blocks=1, signed_completions="
-        <<solutions<<"\\n";
+        <<solutions<<"\n";
 }
 int main() {
     int n=0;
@@ -144,8 +144,8 @@ int main() {
         cout<<"m="<<m<<" closed="<<c.closed<<" parity="<<c.even
             <<" alternate="<<c.alt<<" HI2="<<c.hi2
             <<" HI2_and_alt="<<c.both<<" HI2_or_alt="<<c.any
-            <<" one_block="<<c.block<<"\\n";
+            <<" one_block="<<c.block<<"\n";
     }
     check_witness();
-    cout<<"PASS R762HJ exact census and witness\\n";
+    cout<<"PASS R762HJ exact census and witness\n";
 }
