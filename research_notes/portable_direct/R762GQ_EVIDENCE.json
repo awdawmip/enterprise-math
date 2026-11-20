@@ -1,0 +1,88 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_EXACT_BRC_EVIDENCE_V1",
+  "result_id": "R762GQ",
+  "research_date": "2026-11-20",
+  "status": "AUTHOR_EXACT_COMPUTATION_PASS_NOT_REVIEWED",
+  "source_scope": {
+    "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+    "publication_id": "TP2-8B7E13C5904A2D6F1142",
+    "frozen_taskbook_commit": "857280d1012943290d141d1317179c40ec3cbdf8",
+    "frozen_p000_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+    "previous_source": "R762GP@49549533d24f883d91c9fc117d27c40d9b608a81"
+  },
+  "candidate": "signed moving-Port K4 STAR orientation automaton; four equiprobable named signed branches; tau first entry p(01)=23",
+  "coverage": {
+    "permutations_even": 360,
+    "reachable": 350,
+    "transient": 290,
+    "absorbing": 60,
+    "source_counts_integer_through_step": 600,
+    "maximum_eight_step_survivors": 39652,
+    "eight_step_denominator": 65536,
+    "sharp_q": "9913/16384",
+    "survival_by_step": {
+      "0": {
+        "count": "1",
+        "total": "1"
+      },
+      "8": {
+        "count": "38036",
+        "total": "65536"
+      },
+      "12": {
+        "count": "6534252",
+        "total": "16777216"
+      },
+      "16": {
+        "count": "1118196052",
+        "total": "4294967296"
+      }
+    }
+  },
+  "exact_moment_bounds": {
+    "horizon": 600,
+    "mean_low": "sum(m=0..599) S_m",
+    "mean_upper": "mean_low + 8*S_600/(1-q)",
+    "second_low": "sum(m=0..599) (2*m+1)*S_m",
+    "second_upper": "second_low + S_600*((16*600+64)/(1-q)+128*q/(1-q)^2)",
+    "variance_low": "second_low - mean_upper^2",
+    "variance_upper": "second_upper - mean_low^2",
+    "q": "9913/16384",
+    "all_terms": "exact Fraction integers"
+  },
+  "verified_outward_decimal_intervals": {
+    "mean": [
+      "12.93946845281426419721",
+      "12.93946845281426419722"
+    ],
+    "second_moment": [
+      "263.58902488422540237226",
+      "263.58902488422540237227"
+    ],
+    "variance": [
+      "96.15918104284983428470",
+      "96.15918104284983428471"
+    ]
+  },
+  "tail_upper_approx": {
+    "mean": "9.0021177646168004829e-27",
+    "second": "1.1095205438518220233e-23"
+  },
+  "local_execution": {
+    "command": "python /mnt/data/R762GQ_CHECK.py",
+    "result": "PASS",
+    "environment": "Python 3 standard library",
+    "note": "Local check was executed and exact rational inequalities asserted; independent third-party mathematical review not performed."
+  },
+  "artifacts": [
+    "research_notes/portable_direct/R762GQ_MOVING_PORT_ABSORPTION_VARIANCE.md",
+    "research_notes/portable_direct/R762GQ_CHECK.py"
+  ],
+  "status_limits": {
+    "native_TRADIC_CLOSURE_E_admission": false,
+    "full_cell_return_recomputed": false,
+    "shared_result_published": false,
+    "independent_review": "NOT_REVIEWED"
+  },
+  "next": "Compare frozen original TRIADIC_CLOSURE_E Cell/Port/Link permission with moving-Port orientation arcs before any native transfer."
+}
