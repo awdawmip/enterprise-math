@@ -14,7 +14,7 @@ Fix the previously derived **candidate static frame action**, not a proved physi
 \Sigma=\{\pm e_1,\ldots,\pm e_6\},\qquad
 H=(C_2)^6\rtimes A_6,\quad |H|=23040.
 \]
-Let \(E\) be a **finite candidate event alphabet** with injective primitive representation \(c:E\hookrightarrow\Sigma^3\); each event encodes an ordered three-step word. The eligibility of any element of \(E\) for P000's native nonzero three-force closure \(E_{\mathrm{closure}}\) is an *input to be established*, not an axiom introduced here. For an event word \(w=a_1\cdots a_n\), put \(c(w)=c(a_1)\cdots c(a_n)\). If a native event carries extra source, Cell, branch, or time data, these must be preserved in the admissibility machine or encoded into an injective observer before a claim of full native-state preservation.
+Let \(E\) be a **finite candidate event alphabet** with injective primitive representation \(c:E\hookrightarrow\Sigma^3\); each event is given a chosen ordered three-letter **record code**, not automatically three successive native displacements. P000's simultaneous three-force closure must not be identified with a three-step path merely because both use three labels. The eligibility of any element of \(E\) for P000's native nonzero three-force closure \(E_{\mathrm{closure}}\) is an *input to be established*, not an axiom introduced here. For an event word \(w=a_1\cdots a_n\), put \(c(w)=c(a_1)\cdots c(a_n)\). If a native event carries extra source, Cell, branch, or time data, these must be preserved in the admissibility machine or encoded into an injective observer before a claim of full native-state preservation.
 
 Let \(L\subseteq E^*\) be a regular language of *allowed completed event trajectories*, represented by a DFA \(\mathcal A=(Q,E,\delta,q_0,F)\). Such a DFA is a conditional finite-state **representation** of typed closure/composition/Cell/time constraints. We do not claim native P000 legality is automatically finite-state. Fix a prescribed suffix \(s\in E^*\), and define the actually appendable prefixes
 \[
@@ -68,13 +68,13 @@ A violating pair of one-event prefixes already certifies failure. If \(E\) is \(
 
 ## Explicit algebraic checks (candidate triples, NOT asserted P000-legal triads)
 
-Put \(a=(e_1,e_2,e_3)\), \(b=(e_4,e_2,e_3)\), and \(c=(-e_4,e_2,e_3)\), with fixed suffix \(s=a\).
+Put \(a=(e_1,e_2,e_3)\), \(b=(e_4,e_2,e_3)\), and \(d=(-e_4,e_2,e_3)\), with fixed suffix \(s=a\).
 The \(H\)-stabilizer of \(a\) has exactly \(3\cdot 2^3=24\) elements: an even permutation of the three unused axes, and arbitrary flips on them.
 
 - If the candidate alphabet is \(E_1=\{a\}\) and \(L=E_1^*\), the orbit observer \(u\mapsto[c(us)]_H\) is injective for all prefix lengths despite \(|K_s|=24\). Every stabilizer fixes the only permitted event.
-- For \(E_2=\{a,b,c\}\) and \(L=E_2^*\), the element that flips the sign of axis 4 fixes \(s=a\) and maps \(b\leftrightarrow c\). Hence the distinct allowed prefixes \(b,c\) give a concrete counterexample: \([c(bs)]_H=[c(cs)]_H\).
+- For \(E_2=\{a,b,d\}\) and \(L=E_2^*\), the element that flips the sign of axis 4 fixes \(s=a\) and maps \(b\leftrightarrow d\). Hence the distinct allowed prefixes \(b,d\) give a concrete counterexample: \([c(bs)]_H=[c(cs)]_H\).
 
-A direct exact enumeration of all 360 even unsigned permutations and 64 sign choices verified \(|H|=23040\), \(|K_s|=24\), absence of one-event collisions in \(E_1\), and the explicit \(b,c\) collision in \(E_2\). These finite checks illustrate the theorem; the graph-equivalence proof applies to arbitrary finite DFAs and word lengths.
+A direct exact enumeration of all 360 even unsigned permutations and 64 sign choices verified \(|H|=23040\), \(|K_s|=24\), absence of one-event collisions in \(E_1\), and the explicit \(b,d\) collision in \(E_2\). These finite checks illustrate the theorem; the graph-equivalence proof applies to arbitrary finite DFAs and word lengths.
 
 ## Integration and remaining native input
 
