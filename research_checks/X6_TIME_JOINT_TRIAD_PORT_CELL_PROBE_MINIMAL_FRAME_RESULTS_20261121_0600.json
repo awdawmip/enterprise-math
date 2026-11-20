@@ -1,0 +1,173 @@
+{
+  "schema": "X6_TIME_JOINT_PORT_CELL_FRAME_CERT_V1",
+  "date": "2026-11-21",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "task_frozen_pin": "f41c2690daba467ecbde99615a1337e67be46ffd",
+  "p000_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "observer_scope": "ONE_CONDITIONAL_MARKED_SIGNED_TRIAD_ALL_LOCAL_PORT_QUERIES_PLUS_P000_SIGNED_CELL_STEPS_AFTER_H_ROTATIONS",
+  "input": {
+    "permutations": 720,
+    "r_values": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "k_values": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "groups": [
+      "identity",
+      "swap01",
+      "cycle012",
+      "cycle6"
+    ]
+  },
+  "state_counts": [
+    {
+      "r": 0,
+      "states_by_k": [
+        20,
+        60,
+        156,
+        336,
+        576,
+        720,
+        720
+      ],
+      "bits_by_k": [
+        5,
+        6,
+        8,
+        9,
+        10,
+        10,
+        10
+      ]
+    },
+    {
+      "r": 1,
+      "states_by_k": [
+        60,
+        140,
+        276,
+        456,
+        624,
+        720,
+        720
+      ],
+      "bits_by_k": [
+        6,
+        8,
+        9,
+        9,
+        10,
+        10,
+        10
+      ]
+    },
+    {
+      "r": 2,
+      "states_by_k": [
+        60,
+        140,
+        276,
+        456,
+        624,
+        720,
+        720
+      ],
+      "bits_by_k": [
+        6,
+        8,
+        9,
+        9,
+        10,
+        10,
+        10
+      ]
+    },
+    {
+      "r": 3,
+      "states_by_k": [
+        20,
+        60,
+        156,
+        336,
+        576,
+        720,
+        720
+      ],
+      "bits_by_k": [
+        5,
+        6,
+        8,
+        9,
+        10,
+        10,
+        10
+      ]
+    }
+  ],
+  "subgroup_checks": [
+    {
+      "group": "identity",
+      "group_size": 1,
+      "orbit_size": 1,
+      "states_by_r": [
+        60,
+        140,
+        140,
+        60
+      ]
+    },
+    {
+      "group": "swap01",
+      "group_size": 2,
+      "orbit_size": 2,
+      "states_by_r": [
+        156,
+        276,
+        276,
+        156
+      ]
+    },
+    {
+      "group": "cycle012",
+      "group_size": 3,
+      "orbit_size": 3,
+      "states_by_r": [
+        336,
+        456,
+        456,
+        336
+      ]
+    },
+    {
+      "group": "cycle6",
+      "group_size": 6,
+      "orbit_size": 6,
+      "states_by_r": [
+        720,
+        720,
+        720,
+        720
+      ]
+    }
+  ],
+  "checked": "independent exhaustive local Python permutation enumeration, multinomial/falling-factorial identity, all subgroup transition signatures and explicit equal-port/different-cell witnesses",
+  "mismatches": 0,
+  "source_checker": "research_checks/X6_TIME_JOINT_TRIAD_PORT_CELL_PROBE_MINIMAL_FRAME_CHECK_20261121_0600.py",
+  "author_note": "research_notes/X6_TIME_JOINT_TRIAD_PORT_CELL_PROBE_MINIMAL_FRAME_20261121_0600.md",
+  "claims_not_made": [
+    "P000_TRIADIC_CLOSURE_E_ADMITTED",
+    "R063_NATIVE_BENCHMARK_EXECUTED",
+    "INDEPENDENT_DRIVER_REVIEW_OR_RESULT_ADMISSION"
+  ]
+}
