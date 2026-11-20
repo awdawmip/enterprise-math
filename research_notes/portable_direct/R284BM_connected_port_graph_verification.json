@@ -1,0 +1,17 @@
+{
+  "schema": "EM_R284BM_EXACT_POLYNOMIAL_CHECK_V1",
+  "date": "2026-11-20",
+  "proof_status": "AUTHOR_PROVED_NOT_REVIEWED",
+  "arithmetic": "exact integer polynomial coefficients",
+  "checker": "research_notes/portable_direct/R284BM_connected_port_graph_checker.py",
+  "tests": {
+    "n2_all_E_with_cardinality_below_n_minus_1": 1,
+    "n3_all_E_with_cardinality_below_n_minus_1": 7,
+    "n4_all_E_with_cardinality_below_n_minus_1": 79,
+    "n2_H2_full_star_polynomial_distinct": 16,
+    "n3_H2_full_star_polynomial_distinct": 512
+  },
+  "status": "PASS",
+  "scope": "Exhausts directed editable-position subsets with fewer than n-1 edges for n=2,3,4; verifies all binary C for full-star n=2,3. General theorem is algebraic, not computationally extrapolated.",
+  "input_frozen_source": "R284BJ@ba9ac42ee03c61e34a057ede0d57561d0c418f6b; R284BL-FX1@42cd735e6fe3e806079e94616a14e821da4c4d76"
+}
