@@ -1,0 +1,504 @@
+{
+  "schema": "EM_MEMORY_COMPARISON_PLAN_V1",
+  "status": "PROPOSAL_NOT_DEPLOYED",
+  "date": "2026-11-20",
+  "purpose": "Compare memory mechanisms on correct reuse, assumption fidelity, discovery and total cost without turning the evaluation into a research workflow requirement.",
+  "artifact_classification": "PUBLIC_ENGINEERING_SPECIFICATION",
+  "this_delivery": {
+    "executed": "Synthetic manifest/trace contract validation only.",
+    "not_executed": [
+      "Live model comparison",
+      "Retrieval quality benchmark",
+      "Nollm placement or navigation experiment",
+      "Training",
+      "Production integration"
+    ],
+    "synthetic_fixtures": "Public development examples, not blind evaluation cases."
+  },
+  "source_basis": {
+    "enterprise_math": {
+      "repository": "awdawmip/enterprise-math",
+      "visibility": "public",
+      "commit": "51a81b442e95717ec941e9acd2382c37d2c07cdb",
+      "paths": [
+        "docs/RESEARCH_LIBRARY.md",
+        "tools/enterprise_toolbox.py",
+        "research_progress_map.json",
+        "docs/FOUNDATION_STARTUP_READING.en.md"
+      ]
+    },
+    "nollm": {
+      "repository": "awdawmip/Nollm",
+      "visibility": "public",
+      "branch": "experiment/repository-memory",
+      "commit": "cf10ab849c2b32132de01328061d172377729161",
+      "paths": [
+        "lab/nollm-lab/repository_memory/PROJECT_MINIATURE_DESIGN.md",
+        "docs/architecture/NOLLM_FIRST_PRINCIPLES_AND_ANTI_DRIFT_20260711.md"
+      ]
+    },
+    "authority": "The proposal and this validator grant no research identity, control permission, theorem acceptance or change to mandatory project premises."
+  },
+  "storage": {
+    "public": [
+      "Generic evaluation code and schemas",
+      "Synthetic development fixtures",
+      "Already-public scientific sources at immutable versions",
+      "Redacted aggregate reports after leakage review"
+    ],
+    "restricted": [
+      "Account-private knowledge and conversations",
+      "Unreleased evaluation prompts and adjudication rubrics",
+      "Reference answers and source-selection labels",
+      "Private training examples and API responses",
+      "Per-run credentials and access tokens"
+    ],
+    "rule": "Do not copy restricted material into public Enterprise Math or Nollm repositories, including branches, PRs, CI logs, artifacts, issues and Git history.",
+    "holdout_service": "Separate evaluation principal and artifact permissions. A directory or branch named hidden is not isolation. If the executor can read the full private GLOBAL_KNOWLEDGE repository, placing answers in another directory there is not sufficient. The research executor, retriever, placement builder and training job must lack actual access to withheld answers.",
+    "public_contamination": "Public historical cases are retrospective/development cases unless access and prior exposure are explicitly controlled. Unknown parametric exposure remains unknown.",
+    "export": "Export only the public schema, synthetic fixtures and reviewed aggregates. A source URL is a locator, not permission to disclose its contents."
+  },
+  "modes": [
+    {
+      "id": "M0_CURRENT",
+      "name": "Current compliant entry and lookup",
+      "representation": "Existing sources and current router",
+      "retrieval": "Existing exact reads and toolbox path",
+      "status": "NOT_RUN",
+      "eligible_tracks": [
+        "TASK",
+        "INFORMED",
+        "FREE_A",
+        "UPDATE_REPLAY"
+      ],
+      "control": "Keep current mandatory premises, stage rules and source versions.",
+      "planned_use": "BASELINE_TO_RUN"
+    },
+    {
+      "id": "M1_LONG_CONTEXT",
+      "name": "Bounded long context",
+      "representation": "Frozen eligible source passages",
+      "retrieval": "Predeclared packing order without test-answer routing",
+      "status": "NOT_RUN",
+      "eligible_tracks": [
+        "TASK",
+        "INFORMED",
+        "UPDATE_REPLAY"
+      ],
+      "control": "Record omitted material. Do not describe a packed subset as the full corpus. Any exact-source fallback is charged and logged.",
+      "planned_use": "TO_RUN"
+    },
+    {
+      "id": "M2_FLAT_LEXICAL",
+      "name": "Flat result records with lexical retrieval",
+      "representation": "Common normalized result records",
+      "retrieval": "Exact symbol/keyword/BM25 candidate selection",
+      "status": "NOT_RUN",
+      "eligible_tracks": [
+        "TASK",
+        "INFORMED",
+        "UPDATE_REPLAY"
+      ],
+      "control": "Returns result-level hypotheses, status and source IDs. In a pure navigation comparison, any common frozen relation facts are also available as flat text; only graph traversal is absent.",
+      "planned_use": "TO_RUN"
+    },
+    {
+      "id": "M3_HYBRID",
+      "name": "Dense and lexical retrieval",
+      "representation": "Same records as M2",
+      "retrieval": "Frozen embedding model plus lexical retrieval; declared merge/reranking",
+      "status": "NOT_RUN",
+      "eligible_tracks": [
+        "TASK",
+        "INFORMED",
+        "UPDATE_REPLAY"
+      ],
+      "control": "Dense-only and lexical-only ablations use the same source pool. Include embedding/index update costs.",
+      "planned_use": "TO_RUN"
+    },
+    {
+      "id": "M4_TYPED_RELATIONS",
+      "name": "Typed relation retrieval",
+      "representation": "Same records plus separately recorded candidate/confirmed relations",
+      "retrieval": "Declared graph traversal and candidate selection",
+      "status": "NOT_RUN",
+      "eligible_tracks": [
+        "TASK",
+        "INFORMED",
+        "UPDATE_REPLAY"
+      ],
+      "control": "Analogy is not implication. Keep mappings, unmatched hypotheses, source pins and relation status; candidate analogy edges are not transitively promoted. A navigation-only comparison must expose equivalent frozen relation facts to flat and vector comparators. New human/model-derived relation facts are a separate content/organization intervention, including construction and maintenance cost.",
+      "planned_use": "TO_RUN"
+    },
+    {
+      "id": "M5_NOLLM_NATIVE",
+      "name": "Nollm native field navigation",
+      "representation": "Same independent statements and evidence; LLM-authored placement",
+      "retrieval": "Surface observation, selected physical entry, native bounded propagation, Access evidence resolution",
+      "status": "NOT_RUN",
+      "eligible_tracks": [
+        "TASK",
+        "INFORMED",
+        "UPDATE_REPLAY"
+      ],
+      "control": "Build placement without heldout questions/answers. No keyword/object-index oracle before an allegedly native entry. Count semantic formation, placement and navigation costs. Mandatory foundation loading is distinct from a native selection followed by Access source resolution. Extra direct result retrieval is fallback even if named direct rather than fallback; native-only returned claims need full native/Access or mandatory-baseline source reads.",
+      "planned_use": "TO_RUN"
+    },
+    {
+      "id": "M6_TRAINED_HELPER",
+      "name": "Trained premise selector or reranker",
+      "representation": "Same records as its untrained comparator",
+      "retrieval": "Frozen trained helper ranks or maps candidates; same main reasoning model",
+      "status": "NOT_RUN",
+      "eligible_tracks": [
+        "TASK",
+        "INFORMED",
+        "UPDATE_REPLAY"
+      ],
+      "control": "Record training sources, cutoff and families. Compare to the same untrained helper. Training/inference costs included; does not update the main model.",
+      "planned_use": "DEFER_UNTIL_DIAGNOSED"
+    }
+  ],
+  "optional_variants": [
+    {
+      "id": "M2_FREE_A_VIEW",
+      "parent": "M2_FLAT_LEXICAL",
+      "description": "A FREE_A eligible lexical view over the authorized mandatory foundation and precise definitions/conditions/tools. Exact supporting material is exposed only after a related independently formed question; no whole-result candidate menu before freezing.",
+      "status": "NOT_RUN",
+      "eligible_tracks": [
+        "FREE_A"
+      ],
+      "control": "Both index construction and ranking exclude the declared withheld nonmandatory result set. Pair with M0_CURRENT under the identical source identities/versions, exposure profile and fixed helper configuration. The backend name does not determine whether a view is stage-compliant."
+    },
+    {
+      "id": "M5_HYBRID_FALLBACK",
+      "parent": "M5_NOLLM_NATIVE",
+      "description": "Native navigation followed by permitted direct retrieval when needed. Report native-only and total supported results separately.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "M6_REASONING_ASSISTANT",
+      "parent": "M6_TRAINED_HELPER",
+      "description": "A helper that additionally reasons. Treat added reasoning compute as a separate intervention; do not attribute its benefit solely to memory.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "FREE_A_ADAPTER_CHECK",
+      "parent": "M0_CURRENT",
+      "description": "Test stage-aware projection and question-first exact definition lookup. Full-result memory modes do not become blind merely by hiding their prompt contents.",
+      "status": "NOT_RUN"
+    }
+  ],
+  "controlled_axes": [
+    {
+      "axis": "representation",
+      "hold_fixed": [
+        "Eligible source snapshot",
+        "Main model revision",
+        "Retrieval procedure",
+        "Resource envelope",
+        "Helper configuration"
+      ],
+      "change": "Raw passages versus source-faithful result records; compare the same underlying information. M0 raw-source entry versus a card-based system is normally a representation/full-system comparison, not an isolated retriever swap."
+    },
+    {
+      "axis": "retrieval",
+      "hold_fixed": [
+        "Result records",
+        "Eligible corpus",
+        "Main model revision",
+        "Exposure profile",
+        "Helper configuration",
+        "Semantic facts and equivalent relation materials"
+      ],
+      "change": "Lexical, dense/hybrid, typed relations, native Nollm navigation. M4 may not receive extra relational facts that the other arms lack when the claim is navigation-only. If relations add information, label it separately as representation/organization or complete-system evaluation."
+    },
+    {
+      "axis": "learned_helper",
+      "hold_fixed": [
+        "Retrieved candidate pool",
+        "Main model revision",
+        "Output contract",
+        "Exposure profile"
+      ],
+      "change": "No helper, untrained helper, trained helper; track all extra inference."
+    },
+    {
+      "axis": "workflow",
+      "hold_fixed": [
+        "Task sample",
+        "Knowledge cutoff",
+        "Authority rules"
+      ],
+      "change": "Task research, informed synthesis, relative-blind FREE A and update replay are separate tracks, not a single aggregate leaderboard."
+    }
+  ],
+  "track_rules": {
+    "TASK": "Use task-frozen scientific inputs and stage-permitted supporting knowledge.",
+    "INFORMED": "Result recommendations and cross-line candidates are allowed and their exposure is logged.",
+    "FREE_A": "Retain the authorized mandatory foundation, including prior results it explicitly contains. After an independently formed relevant question, exact necessary definitions/conditions/tools may be consulted before freezing. Whole-result menus and comparison/dedup remain outside this track. The helper field trained_on_project_results refers to the declared withheld NONMANDATORY result set, not knowledge already authorized in the mandatory foundation. M2_FREE_A_VIEW is an eligible optional view when its source pool and build exclude the withheld result set and all source-bearing outputs honor the question-first stage restriction.",
+    "UPDATE_REPLAY": "Replay additions, corrections, retractions and source changes in event order; no future snapshot is available early.",
+    "unknown_exposure": "Unknown training or session exposure cannot be relabelled as a certified blind run. It may remain a useful informed or exposure-unknown observation."
+  },
+  "test_families": [
+    {
+      "id": "F1_EXACT",
+      "purpose": "Exact source and theorem lookup",
+      "cases": [
+        "Native terminology",
+        "Formula or symbol query",
+        "Chinese/English alias",
+        "Different notation for same declared object"
+      ]
+    },
+    {
+      "id": "F2_TRANSFER",
+      "purpose": "Useful cross-line reuse",
+      "cases": [
+        "Known admissible application",
+        "Candidate needing a missing bridge condition",
+        "Several valid proof routes",
+        "Same words but incompatible model"
+      ]
+    },
+    {
+      "id": "F3_CONDITIONS",
+      "purpose": "Assumption and status fidelity",
+      "cases": [
+        "Finite versus infinite carrier",
+        "Positive versus signed/Boolean weights",
+        "Adaptive versus nonadaptive query",
+        "Independent slot errors versus correlated event failure",
+        "Draft versus reviewed result",
+        "Conditional model versus native event law"
+      ]
+    },
+    {
+      "id": "F4_UNANSWERABLE",
+      "purpose": "Responsible incompleteness",
+      "cases": [
+        "Required premise absent",
+        "Artifact missing",
+        "No applicable result",
+        "Contradictory evidence needs scope alignment"
+      ]
+    },
+    {
+      "id": "F5_UPDATES",
+      "purpose": "Incremental memory correctness",
+      "cases": [
+        "New source",
+        "Strengthened result",
+        "Corrected claim",
+        "Retracted claim",
+        "Dependency changed",
+        "Old source remains valid only historically"
+      ]
+    },
+    {
+      "id": "F6_CONTINUITY",
+      "purpose": "Resume without unnecessary rereading",
+      "cases": [
+        "Persistent scientific frontier",
+        "Changed dependency after warm cache",
+        "Session interruption",
+        "Record-only identity fields must not become live authority"
+      ]
+    },
+    {
+      "id": "F7_DISCOVERY",
+      "purpose": "Exploration and direction quality",
+      "cases": [
+        "Relative-blind FREE A with allowed exact lookup",
+        "Informed synthesis",
+        "New or low-visibility directions",
+        "Useful negative result",
+        "Hotspot and near-duplicate suggestions"
+      ]
+    }
+  ],
+  "sampling": {
+    "units": "Research/dependency families, not randomly shuffled paragraphs or near-duplicate theorem restatements.",
+    "temporal_split": "Pin knowledge available before each replay cutoff. Reference outcomes and later corrections are withheld from build, retrieval, placement, training and solving.",
+    "family_split": "Keep near-duplicates and shared proof-dependency families on one side of train/development/test. Also evaluate genuinely new premises.",
+    "views": [
+      "Retrospective public development set",
+      "Restricted future or newly authored heldout set",
+      "Adversarial contract sentinels",
+      "Longitudinal update stream"
+    ],
+    "freeze": "Freeze manifests, modes, model versions, prompts, permitted tools, budgets and grading rules before heldout runs.",
+    "labels": "Support multiple valid dependencies/proofs. Reference labels are evidence for adjudication, not the sole permitted research route.",
+    "sequential_testing": "Pilot data sets the task-specific non-inferiority margins and required sample size. Freeze them before confirmatory testing; use a prespecified stopping rule and preserve unsuccessful runs."
+  },
+  "execution": {
+    "shared_controls": [
+      "Same exact main-model revision when claiming memory-only benefit",
+      "Same mandatory foundation and task source versions",
+      "Same eligible information pool",
+      "Same task tool permissions",
+      "Paired task assignment and randomized mode order",
+      "New isolated sessions for first-answer tests",
+      "Compare the actual eligible source identity/version/kind/role/classification manifest, not only a snapshot label",
+      "For memory_only, fix the complete helper configuration and exposure profile; helper changes use learned_helper with a frozen candidate pool",
+      "For navigation-only claims, freeze all semantic facts including relation material across flat/vector/graph arms"
+    ],
+    "cold_warm": [
+      "Cold: new executor/session, first eligible index load, no answer cache",
+      "Warm: persistent index/cache with declared previous exposures",
+      "Update: warm state after a declared source change"
+    ],
+    "runtime_isolation": "Restrict network and repository views to the frozen allowed corpus for historical replay; evaluator-only storage is inaccessible to the research process. Validate actual access, not just a caller-supplied boolean.",
+    "failures": "Keep timeout, budget exhaustion, unavailable dependency and abstention as explicit outcomes. Do not silently drop failed runs.",
+    "fallback": "Allow the same declared direct-source fallback opportunity across comparison arms; report whether success came from native memory, fallback or both.",
+    "comparison_semantics": {
+      "memory_only": "A content-representation or navigation intervention with fixed main model, helper, eligible sources, resource envelope and exposure profile. It does not by itself establish pure retrieval causality; identify which representation/navigation axis changes.",
+      "learned_helper": "A separate comparison of helper capability under the same allowed sources, main model, exposure and candidate_pool_id. Freeze the candidate artifact as well as its identifier before running.",
+      "full_system": "M0 raw-source workflow versus a card/graph system may change representation and organization together. Report these factors and total build/maintenance costs; do not attribute all benefit to a retriever."
+    },
+    "declared_exposure_channels": "Audit read, title_preview, preview, error_output, tool_output and source_exposure, including each source_id/source_ids and exposed_to principal. Reject unknown source-bearing event types rather than treating them as no exposure. Undeclared runtime content requires a separate instrumentation/access audit.",
+    "native_trace": "Record native_select with selection_id and selected source IDs, then a full read via native/access_after_native with that selection_id. Separate mandatory-baseline reads from additional direct or fallback result lookup. A title preview alone does not support a full returned scientific claim."
+  },
+  "measures": {
+    "correct_reuse": [
+      "Recall of necessary/valid alternative premises within actual reading budget",
+      "Verified useful reuse in the resulting research step",
+      "Rate and severity of wrong hypothesis/model/quantifier/status transfer",
+      "Correct abstention and missing-premise detection"
+    ],
+    "evidence": [
+      "Exact source resolution at the declared version",
+      "Completeness of load-bearing conditions",
+      "Correction propagation and stale-result rate",
+      "Native evidence contribution versus fallback contribution"
+    ],
+    "exploration": [
+      "Distinct problem structures after expert blinded reading",
+      "Feasibility and substantive novelty relative to allowed knowledge",
+      "Duplicate/hotspot concentration",
+      "Useful alternatives and negative results",
+      "No lexical-distance-only creativity score"
+    ],
+    "resource": [
+      "Visible input/output tokens",
+      "Provider-reported billed tokens, cache and reasoning usage when available",
+      "Main and helper model cost",
+      "End-to-end wall latency and p50/p95 by task class",
+      "Tool/CPU/GPU time and storage",
+      "Index/embedding/placement/training build cost",
+      "Incremental maintenance cost per source update and affected dependency",
+      "Retries and discarded work"
+    ],
+    "aggregation": "Report paired per-family uncertainty intervals and task-class results. Report quality-cost/latency frontiers. Do not force a single winner across heterogeneous tracks.",
+    "unknowns": "Unreported billing or internal compute remains unknown; visible-token counts cannot be converted into a proved total-cost saving.",
+    "total_cost": "Report build + incremental maintenance + all inference/tool costs. If amortizing build/training costs, publish workload horizon and also unamortized totals.",
+    "scaling": "Measure at multiple frozen corpus sizes and update batches. Include relation candidate generation counts; do not assume all-pairs connections or logarithmic navigation costs."
+  },
+  "acceptance": [
+    {
+      "stage": "A0_CONTRACT",
+      "gates": [
+        "Public output contains no restricted material",
+        "Heldout answers are outside research/build/train principals",
+        "Immutable source IDs and actual status are preserved",
+        "Relative-blind track rejects result menus and result-trained recommenders",
+        "Native and fallback contributions are attributed accurately"
+      ],
+      "threshold": "Zero observed violations on the explicit mechanical/sentinel cases. This does not prove absence of all natural-language errors or actual isolation until runtime access tests pass.",
+      "effect": "Eligibility for a restricted experiment only."
+    },
+    {
+      "stage": "A1_QUALITY",
+      "gates": [
+        "No unacceptable increase in serious assumption or source errors",
+        "Required evidence can be recovered",
+        "Unknown cases are handled without invented transfer"
+      ],
+      "threshold": "Prespecified task-specific non-inferiority margins and paired family-level uncertainty. Every curated critical incompatibility sentinel must be correctly handled.",
+      "effect": "Quality qualification for the tested scope."
+    },
+    {
+      "stage": "A2_VALUE",
+      "gates": [
+        "A reproducible improvement in correct reuse, total cost or latency at acceptable quality",
+        "Update and maintenance costs are included",
+        "No concealed oracle or fallback benefit"
+      ],
+      "threshold": "A meaningful Pareto improvement or a declared benefit for a task class; no arbitrary universal savings percentage.",
+      "effect": "Choose modes by actual workload; retain the baseline where it wins."
+    },
+    {
+      "stage": "A3_EXPLORATION",
+      "gates": [
+        "Allowed foundation and source exposure are preserved",
+        "No material unexplained collapse into existing hotspots",
+        "Informed synthesis yields useful candidate connections"
+      ],
+      "threshold": "Blinded expert assessment with structural, not merely textual, diversity; report uncertainty and adjudication disagreements.",
+      "effect": "Separate decisions for informed exploration and relative-blind FREE A."
+    },
+    {
+      "stage": "A4_INTEGRATION",
+      "gates": [
+        "Memory failure leaves direct scientific work usable",
+        "Updates invalidate only affected views while preserving history",
+        "Default changes follow project deployment and source rules"
+      ],
+      "threshold": "Measured limited-scope shadow use followed by a deliberate adoption decision.",
+      "effect": "No automatic policy or production change from a benchmark score."
+    }
+  ],
+  "comparator_record": {
+    "required": [
+      "run_id",
+      "mode_id",
+      "track",
+      "sample_id",
+      "case_family_id",
+      "split",
+      "main_model_revision",
+      "cutoff_at",
+      "source_snapshot_id",
+      "index_build_id",
+      "resource_envelope_id",
+      "artifact_classification",
+      "sources",
+      "events",
+      "helper",
+      "isolation",
+      "attribution",
+      "cost",
+      "build",
+      "split_manifest",
+      "exposure_profile"
+    ],
+    "note": "The supplied Python checker validates this proposed declaration contract against synthetic examples. It is not an evaluator, access-control mechanism, theorem checker or live benchmark.",
+    "field_notes": {
+      "helper.trained_on_project_results": "Exposure to the declared withheld NONMANDATORY result set. Mandatory inherited foundation may already contain earlier results and remains allowed. A boolean declaration is not proof of actual training exposure.",
+      "attribution": "Mandatory baseline loading, native selection plus Access resolution, and extra direct/fallback retrieval are distinct. Every observed extra direct/fallback source is declared as fallback. Native-only returned claims need a full native/Access or mandatory-baseline read, not only a preview.",
+      "sources": "Each eligible source has id, identity/locator, immutable version, kind, knowledge_role, classification and available_at. A matching source_snapshot_id cannot excuse differing source manifests.",
+      "exposure_profile": "Declares stage, mandatory_source_ids and allowed lookup conditions; FREE_A also identifies the withheld_nonmandatory_result_set_id. A comparison fixes the whole profile as well as prior_result_exposure. FREE_A baseline kinds are foundation and current_governance only; task_input remains valid for TASK but is not a FREE_A baseline, build source or exposure shortcut.",
+      "build.used_withheld_results_for_index_or_ranking": "Must be explicitly false for FREE_A, including M2_FREE_A_VIEW. Precise supporting material can be indexed only within the eligible view; exposure still needs a previously formed related question.",
+      "events": "Source-bearing visible outputs use source_id/source_ids and a recognized exposure type. Unknown source-bearing events and unsupported source aliases are rejected; declarations do not reveal content that is never logged.",
+      "helper": "memory_only fixes the full helper object. learned_helper may vary it but requires the same frozen candidate_pool_id and all other shared source/model/exposure controls."
+    }
+  },
+  "references": [
+    {
+      "url": "https://arxiv.org/abs/2306.15626",
+      "use": "Premise selection, hard negatives and generalization to previously unused premises; not a requirement to formalize all project research."
+    },
+    {
+      "url": "https://proceedings.mlr.press/v267/gutierrez25a.html",
+      "use": "Evaluate associative retrieval and direct factual retrieval separately; graph structure is not an automatic improvement."
+    },
+    {
+      "url": "https://arxiv.org/abs/2403.10131",
+      "use": "Training use of retrieved evidence and distractor rejection; not evidence of improved original project mathematics."
+    },
+    {
+      "url": "https://aclanthology.org/2024.tacl-1.9/",
+      "use": "Evidence placement in long context is an empirical issue; older-model findings are not a current-model score."
+    }
+  ]
+}
