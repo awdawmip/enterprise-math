@@ -1,0 +1,230 @@
+{
+  "schema": "X6_R70_WEIGHTED_CONE_D4_CERTIFICATE_V1",
+  "frozen_p000_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "weights": [
+    50,
+    1,
+    1,
+    1
+  ],
+  "target": "recover high degree histogram c2,c3,c4 with one unknown shared bias",
+  "radius_definition": "0.5*max_ij abs(z_i-z_j)/(w_i+w_j), z_t=sum_d a_d*(d**t-d)",
+  "finite_domain": "all nonzero integer (a2,a3,a4) with max(sum positive, abs(sum negative)) <=p, p=4..10",
+  "finite_checks": [
+    {
+      "p": 4,
+      "feasible_vectors": 308,
+      "optimum": "3",
+      "witnesses": [
+        [
+          -3,
+          4,
+          -1
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          3,
+          -4,
+          1
+        ]
+      ],
+      "witness_q": [
+        4,
+        1,
+        1,
+        4
+      ]
+    },
+    {
+      "p": 5,
+      "feasible_vectors": 560,
+      "optimum": "2",
+      "witnesses": [
+        [
+          -4,
+          4,
+          -1
+        ],
+        [
+          4,
+          -4,
+          1
+        ]
+      ],
+      "witness_q": [
+        5,
+        5
+      ]
+    },
+    {
+      "p": 6,
+      "feasible_vectors": 922,
+      "optimum": "3/2",
+      "witnesses": [
+        [
+          -6,
+          1,
+          0
+        ],
+        [
+          6,
+          -1,
+          0
+        ]
+      ],
+      "witness_q": [
+        6,
+        6
+      ]
+    },
+    {
+      "p": 7,
+      "feasible_vectors": 1414,
+      "optimum": "3/2",
+      "witnesses": [
+        [
+          -6,
+          1,
+          0
+        ],
+        [
+          6,
+          -1,
+          0
+        ]
+      ],
+      "witness_q": [
+        6,
+        6
+      ]
+    },
+    {
+      "p": 8,
+      "feasible_vectors": 2056,
+      "optimum": "3/2",
+      "witnesses": [
+        [
+          -6,
+          1,
+          0
+        ],
+        [
+          6,
+          -1,
+          0
+        ]
+      ],
+      "witness_q": [
+        6,
+        6
+      ]
+    },
+    {
+      "p": 9,
+      "feasible_vectors": 2868,
+      "optimum": "3/2",
+      "witnesses": [
+        [
+          -6,
+          1,
+          0
+        ],
+        [
+          6,
+          -1,
+          0
+        ]
+      ],
+      "witness_q": [
+        6,
+        6
+      ]
+    },
+    {
+      "p": 10,
+      "feasible_vectors": 3870,
+      "optimum": "3/2",
+      "witnesses": [
+        [
+          -6,
+          1,
+          0
+        ],
+        [
+          6,
+          -1,
+          0
+        ]
+      ],
+      "witness_q": [
+        6,
+        6
+      ]
+    }
+  ],
+  "analytic_staircase": [
+    {
+      "p": "4",
+      "radius": "3"
+    },
+    {
+      "p": "5",
+      "radius": "2"
+    },
+    {
+      "p": "6..10",
+      "radius": "3/2"
+    },
+    {
+      "p": "11..38",
+      "radius": "1/2"
+    },
+    {
+      "p": "39..infinity",
+      "radius": "2/17"
+    }
+  ],
+  "analytic_witnesses": [
+    {
+      "a": [
+        10,
+        -5,
+        1
+      ],
+      "q": 11,
+      "z": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "eta": "1/2"
+    },
+    {
+      "a": [
+        36,
+        -16,
+        3
+      ],
+      "q": 39,
+      "z": [
+        0,
+        12,
+        12,
+        12
+      ],
+      "eta": "2/17"
+    }
+  ],
+  "proof_status": "finite_exact_checks_plus_analytic_reduction; not independent review",
+  "computation_status": "PASS"
+}
