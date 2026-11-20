@@ -1,0 +1,260 @@
+{
+  "M_tested": "0..9",
+  "by_horizon": [
+    {
+      "M": 0,
+      "margins": {
+        "(0, 0)": 12
+      },
+      "relative_states": 1,
+      "transitions_checked": 12
+    },
+    {
+      "M": 1,
+      "margins": {
+        "(0, 0)": 144
+      },
+      "relative_states": 12,
+      "transitions_checked": 144
+    },
+    {
+      "M": 2,
+      "margins": {
+        "(0, 0)": 756,
+        "(0, 1)": 60,
+        "(1, 0)": 60
+      },
+      "relative_states": 73,
+      "transitions_checked": 876
+    },
+    {
+      "M": 3,
+      "margins": {
+        "(0, 0)": 2568,
+        "(0, 1)": 420,
+        "(1, 0)": 420
+      },
+      "relative_states": 284,
+      "transitions_checked": 3408
+    },
+    {
+      "M": 4,
+      "margins": {
+        "(0, 0)": 6756,
+        "(0, 1)": 1632,
+        "(1, 0)": 1632
+      },
+      "relative_states": 835,
+      "transitions_checked": 10020
+    },
+    {
+      "M": 5,
+      "margins": {
+        "(0, 0)": 15468,
+        "(0, 1)": 4272,
+        "(1, 0)": 4272,
+        "(1, 1)": 420
+      },
+      "relative_states": 2036,
+      "transitions_checked": 24432
+    },
+    {
+      "M": 6,
+      "margins": {
+        "(0, 0)": 31380,
+        "(0, 1)": 9612,
+        "(1, 0)": 9612,
+        "(1, 1)": 1560
+      },
+      "relative_states": 4347,
+      "transitions_checked": 52164
+    },
+    {
+      "M": 7,
+      "margins": {
+        "(0, 0)": 57972,
+        "(0, 1)": 19572,
+        "(1, 0)": 19572,
+        "(1, 1)": 3780
+      },
+      "relative_states": 8408,
+      "transitions_checked": 100896
+    },
+    {
+      "M": 8,
+      "margins": {
+        "(0, 0)": 101064,
+        "(0, 1)": 35412,
+        "(1, 0)": 35412,
+        "(1, 1)": 8940
+      },
+      "relative_states": 15069,
+      "transitions_checked": 180828
+    },
+    {
+      "M": 9,
+      "margins": {
+        "(0, 0)": 166152,
+        "(0, 1)": 60624,
+        "(1, 0)": 60624,
+        "(1, 1)": 17640
+      },
+      "relative_states": 25420,
+      "transitions_checked": 305040
+    }
+  ],
+  "margin_counts": {
+    "(0, 0)": 382272,
+    "(0, 1)": 131604,
+    "(1, 0)": 131604,
+    "(1, 1)": 32340
+  },
+  "rank_cases": 1192620,
+  "schema": "X6_UNIT185_STREAM_RANK_EXACT_CHECK_V1",
+  "source": "independent signed X6 integer graph",
+  "status": "FINITE_DIAGNOSTIC_NOT_GLOBAL_PROOF",
+  "transition_cases": 677820,
+  "violations": 0,
+  "witnesses": {
+    "(0, 0)": {
+      "M": 0,
+      "a": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "carry": 0,
+      "new_depths": [
+        0
+      ],
+      "next_a": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "old_depths": [
+        0
+      ],
+      "v": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "(0, 1)": {
+      "M": 2,
+      "a": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "carry": 0,
+      "new_depths": [
+        -1,
+        0
+      ],
+      "next_a": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "old_depths": [
+        -1
+      ],
+      "v": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "(1, 0)": {
+      "M": 2,
+      "a": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "carry": 0,
+      "new_depths": [
+        -1,
+        0
+      ],
+      "next_a": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "old_depths": [
+        0
+      ],
+      "v": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "(1, 1)": {
+      "M": 5,
+      "a": [
+        2,
+        1,
+        0,
+        1,
+        3,
+        0
+      ],
+      "carry": 0,
+      "new_depths": [
+        -2,
+        -1,
+        0
+      ],
+      "next_a": [
+        2,
+        1,
+        0,
+        1,
+        2,
+        0
+      ],
+      "old_depths": [
+        -1
+      ],
+      "v": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ]
+    }
+  }
+}
