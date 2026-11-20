@@ -1,0 +1,118 @@
+{
+  "schema": "PREFIX971_R6_EXACT_EVIDENCE_V1",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "assumptions": {
+    "p": 19,
+    "k": 21,
+    "other_core": 23,
+    "strict_odd_moduli": true,
+    "distinct_moduli": true,
+    "t_min": 1,
+    "t_max": 42,
+    "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "validation": {
+    "small_domain": {
+      "p_min": 4,
+      "p_max": 7,
+      "eligible_odd_core_configurations": 56,
+      "gap_cases": 392,
+      "comparison": "complete named tuple multiset from raw XOR enumeration",
+      "outcome": "all match"
+    },
+    "q19_independent": {
+      "method": "GNU C++ original XOR target dictionary; enumerate every Q19 odd first modulus",
+      "first_moduli_count": 131072,
+      "uses_residual_join": false,
+      "seven_csv_digests_match": true,
+      "compile": "g++ -O3 -std=c++17",
+      "one_local_run_elapsed_seconds": 5.55
+    },
+    "integer_arithmetic": true
+  },
+  "q19": {
+    "total_named_histories": 8649,
+    "distinct_non_diagonal_ordered_pairs": 6203,
+    "overlap": [
+      {
+        "m": [
+          1,
+          2
+        ],
+        "a": 278529,
+        "b": 290817
+      }
+    ],
+    "resonant_r_by_m": {
+      "2": [
+        0
+      ],
+      "4": [
+        0
+      ]
+    },
+    "cache_unique_keys": 129,
+    "cache_total_insertions": 31989,
+    "by_gap": [
+      {
+        "m": 0,
+        "ordered_pairs": 6,
+        "named_histories": 6,
+        "interval_candidates": 10,
+        "sha256": "2e726efbb2d3232c1c7b441af19f038c40148dc8a24b356ccdc4f9f9aeba8605"
+      },
+      {
+        "m": 1,
+        "ordered_pairs": 442,
+        "named_histories": 614,
+        "interval_candidates": 1420,
+        "sha256": "ccbccc30c4171a809f7270ce59f0b72b368839e93ffeeed8df9ba1045720da71"
+      },
+      {
+        "m": 2,
+        "ordered_pairs": 4724,
+        "named_histories": 6509,
+        "interval_candidates": 12640,
+        "sha256": "6ceb12fffda02b91e8acd19726fefa4e75dba39f45122c3f87d9ff35aef7395e"
+      },
+      {
+        "m": 3,
+        "ordered_pairs": 839,
+        "named_histories": 1286,
+        "interval_candidates": 2826,
+        "sha256": "1360a9ca274b357d0b87058d35ef6ccd059d0c5aef995e4d93b0d1363e1aaae3"
+      },
+      {
+        "m": 4,
+        "ordered_pairs": 190,
+        "named_histories": 231,
+        "interval_candidates": 810,
+        "sha256": "42eaf49ffebb55ddcc8be1294c665dd2e32a627b842fda74bf705504d77dcfce"
+      },
+      {
+        "m": 5,
+        "ordered_pairs": 3,
+        "named_histories": 3,
+        "interval_candidates": 15,
+        "sha256": "c429ef59749f36ef295b4ac9171fb5171ab3a706beaa270563728d4962649c1b"
+      },
+      {
+        "m": 6,
+        "ordered_pairs": 0,
+        "named_histories": 0,
+        "interval_candidates": 1,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "notes": "SHA256 is over sorted lines a,b,t,T,i,j,I,J plus newline. Python run uses complete named multiset; independent C++ writes original XOR CSV. Runtime figures are implementation-local, not a same-language comparative benchmark.",
+  "status": "AUTHOR_PROOF_EXACT_INTEGER_VERIFIED_NOT_REVIEWED"
+}
