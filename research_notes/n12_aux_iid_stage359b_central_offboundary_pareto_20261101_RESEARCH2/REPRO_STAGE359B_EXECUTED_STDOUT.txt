@@ -1,0 +1,13 @@
+STAGE359B_CENTRAL_NONZERO_R0_PARETO_MONOTONE_DIRECTION_EXACT_PASS
+domain x in [23/100,119/500], y in (29/50,3/5]
+residual_signs --+- extreme_bounds -603/500000 -72807/312500000 2297/500000 -707807/312500000
+audit_signs ++-- ---+
+db_dy 3*y*(2-3*y)/16 uniform_lower 9/400
+dc_dy 3*y*(18-25*y)/256 uniform_lower 27/1280
+rational_witness_rule N>200/(y-29/50), m=floor(N*x), Q=(m/N,29/50)
+guaranteed_strict_gains b_gain>3*(y-29/50)/400 c_gain>39*(y-29/50)/6400
+exact_witness_point p (Fraction(231, 1000), Fraction(3, 5)) q (Fraction(231, 1000), Fraction(29, 50))
+p_error 20166327/4000000000 q_error 18132327/4000000000 error_gain 1017/2000000
+p_cost 8646736149/256000000000 q_cost 8531736149/256000000000 cost_gain 23/51200
+point_b_cap 299/50000 point_r0 -5805891/1250000000
+status PORTABLE_AUTHOR_THEOREM / EXACT_FRACTION_EXECUTED / UNREVIEWED / NOT_ADMITTED

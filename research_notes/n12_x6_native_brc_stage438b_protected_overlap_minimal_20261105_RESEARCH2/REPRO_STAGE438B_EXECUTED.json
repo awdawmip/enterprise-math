@@ -1,0 +1,146 @@
+{
+  "marker": "STAGE438B_PROTECTED_OVERLAP_EXACT_QUOTIENT_PASS",
+  "model": "native_X6_12_signed_directions_positive_unit_BRC_K",
+  "tests": [
+    {
+      "kind": "exhaustive_initial_three_symbols_all_twelve_append",
+      "m": 5,
+      "n": 3,
+      "pP": 1,
+      "rP": 1,
+      "pQ": 1,
+      "rQ": 0,
+      "initialHistories": 6561,
+      "observerFibers": 6012,
+      "nontrivialFibers": 531,
+      "checkedHistories": 1080,
+      "distinctFutureClassesInNontrivialFibers": 1026,
+      "futureWordsPerHistory": 137
+    },
+    {
+      "kind": "exhaustive_initial_three_symbols_all_twelve_append",
+      "m": 6,
+      "n": 3,
+      "pP": 1,
+      "rP": 0,
+      "pQ": 1,
+      "rQ": 0,
+      "initialHistories": 19683,
+      "observerFibers": 15426,
+      "nontrivialFibers": 3483,
+      "checkedHistories": 7740,
+      "distinctFutureClassesInNontrivialFibers": 6633,
+      "futureWordsPerHistory": 5
+    },
+    {
+      "kind": "exhaustive_initial_three_symbols_all_twelve_append",
+      "m": 5,
+      "n": 3,
+      "pP": 0,
+      "rP": 1,
+      "pQ": 1,
+      "rQ": 0,
+      "initialHistories": 6561,
+      "observerFibers": 6012,
+      "nontrivialFibers": 531,
+      "checkedHistories": 1080,
+      "distinctFutureClassesInNontrivialFibers": 711,
+      "futureWordsPerHistory": 38
+    },
+    {
+      "kind": "exhaustive_initial_three_symbols_all_twelve_append",
+      "m": 5,
+      "n": 3,
+      "pP": 1,
+      "rP": 0,
+      "pQ": 1,
+      "rQ": 1,
+      "initialHistories": 6561,
+      "observerFibers": 6012,
+      "nontrivialFibers": 531,
+      "checkedHistories": 1080,
+      "distinctFutureClassesInNontrivialFibers": 1080,
+      "futureWordsPerHistory": 137
+    },
+    {
+      "kind": "exhaustive_initial_three_symbols_all_twelve_append",
+      "m": 6,
+      "n": 3,
+      "pP": 1,
+      "rP": 1,
+      "pQ": 1,
+      "rQ": 1,
+      "initialHistories": 512,
+      "observerFibers": 408,
+      "nontrivialFibers": 88,
+      "checkedHistories": 192,
+      "distinctFutureClassesInNontrivialFibers": 192,
+      "futureWordsPerHistory": 5741
+    }
+  ],
+  "parameterFamilies": 42,
+  "oneAppendTransitionFamilies": 18,
+  "compressionWitness": {
+    "m": 7,
+    "n": 4,
+    "budgets": {
+      "pP": 0,
+      "rP": 1,
+      "pQ": 1,
+      "rQ": 0
+    },
+    "PdefectPositions": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "Q": "cccc",
+    "histories": 5,
+    "corridorStates": 2,
+    "exactFutureClasses": 1
+  },
+  "oneAppendWitness": {
+    "m": 7,
+    "n": 4,
+    "budgets": {
+      "pP": 0,
+      "rP": 1,
+      "pQ": 1,
+      "rQ": 1
+    },
+    "PdefectPositions": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "Q": "cccc",
+    "histories": 5,
+    "exactFutureClasses": 3
+  },
+  "matchingWitness": {
+    "m": 7,
+    "n": 4,
+    "budgets": {
+      "pP": 0,
+      "rP": 1,
+      "pQ": 1,
+      "rQ": 0
+    },
+    "PdefectPositions": [
+      2,
+      3,
+      4
+    ],
+    "Q": "aaaa",
+    "histories": 3,
+    "exactFutureClasses": 2,
+    "populations": [
+      2,
+      1
+    ]
+  }
+}

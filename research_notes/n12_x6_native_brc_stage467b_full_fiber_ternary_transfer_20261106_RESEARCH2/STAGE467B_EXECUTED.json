@@ -1,0 +1,146 @@
+{
+  "stage": "467B",
+  "scope": "ternary A/B/C native signed-X6 original histories; Q-only future POP and APPEND>=1",
+  "verification": {
+    "fibers_tested": 200,
+    "parameter_cases": 1259,
+    "classes_checked": 2246,
+    "history_pairs_future_checked": 1151,
+    "max_fiber_population": 6,
+    "with_population_gt_one": 319,
+    "splitting_fibers": 815,
+    "all_assertions": "PASS",
+    "examples": [
+      {
+        "m": 3,
+        "n": 4,
+        "hq": 0,
+        "fiber_population": 2,
+        "classes": 1,
+        "class_masses": [
+          2
+        ],
+        "states": 3
+      },
+      {
+        "m": 3,
+        "n": 4,
+        "hq": 1,
+        "fiber_population": 2,
+        "classes": 2,
+        "class_masses": [
+          1,
+          1
+        ],
+        "states": 6
+      },
+      {
+        "m": 3,
+        "n": 4,
+        "hq": 2,
+        "fiber_population": 2,
+        "classes": 2,
+        "class_masses": [
+          1,
+          1
+        ],
+        "states": 9
+      },
+      {
+        "m": 3,
+        "n": 4,
+        "hq": 3,
+        "fiber_population": 2,
+        "classes": 2,
+        "class_masses": [
+          1,
+          1
+        ],
+        "states": 7
+      },
+      {
+        "m": 3,
+        "n": 4,
+        "hq": 4,
+        "fiber_population": 2,
+        "classes": 2,
+        "class_masses": [
+          1,
+          1
+        ],
+        "states": 7
+      }
+    ]
+  },
+  "larger_exact_without_history_or_class_enumeration": [
+    {
+      "m": 41,
+      "n": 49,
+      "Q_pop_budget": 18,
+      "classes": 7636,
+      "original_population": 22614134400,
+      "hidden_states": 494,
+      "suffix_states": 13134,
+      "rank_population_checks": [
+        {
+          "rank": 0,
+          "population": 1801800
+        },
+        {
+          "rank": 3818,
+          "population": 2522520
+        },
+        {
+          "rank": 7635,
+          "population": 630630
+        }
+      ]
+    },
+    {
+      "m": 61,
+      "n": 81,
+      "Q_pop_budget": 27,
+      "classes": 65532,
+      "original_population": 537179206441132800,
+      "hidden_states": 782,
+      "suffix_states": 26226,
+      "rank_population_checks": [
+        {
+          "rank": 0,
+          "population": 42657906376800
+        },
+        {
+          "rank": 32766,
+          "population": 45939283790400
+        },
+        {
+          "rank": 65531,
+          "population": 878850700
+        }
+      ]
+    },
+    {
+      "m": 81,
+      "n": 121,
+      "Q_pop_budget": 50,
+      "classes": 534222840,
+      "original_population": 76072914304576841039448060,
+      "hidden_states": 2220,
+      "suffix_states": 154162,
+      "rank_population_checks": [
+        {
+          "rank": 0,
+          "population": 1802031190366286880
+        },
+        {
+          "rank": 267111420,
+          "population": 3003385317277144800
+        },
+        {
+          "rank": 534222839,
+          "population": 50356110752640
+        }
+      ]
+    }
+  ]
+}

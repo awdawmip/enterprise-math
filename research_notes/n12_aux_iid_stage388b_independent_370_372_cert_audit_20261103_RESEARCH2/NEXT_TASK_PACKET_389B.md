@@ -1,0 +1,7 @@
+# Stage389-B continuation — independent Stage368/Stage369 upstream audit
+
+Research2 Draft PR #1736. Frozen science: Global main@bf84bd7c61a2444b59b1da96be57df0e9ae47e53; EM main@2af3fc484eb11060b69e0afc1b562bcaf5ad1419; original P000 V5 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Apply latest current normative rules separately.
+
+Verified Stage388-B frontier: Independent Fraction/Horner complete-real audit of Stage370 (R lower cover 1191 leaves, y-low 1662, y-high 95) and Stage372 (left x 4200, right x 51): 7199 exact closed leaves, zero unresolved. The two full CSV SHA256 values match original Stage370/372 source, with exact gaps and comparator feasibility checked. No native Result/Driver acceptance or observer-preserving native P000 X6 transfer.
+
+Next discriminating action: independently reconstruct Stage368-B's full [0,1]^2 604-leaf strict b enclosure and Stage369-B's R 1191 plus S 113 (1304) source-left cost exclusions from frozen original 16-label Bernoulli model. Check all dyadic closed boundaries, source-swap symmetry, root/reference budget, aggregate area and original CSV digests; find an exact failing box or the earliest unsupported dependency if any check fails. Publish runnable exact code, complete proof, actual executed evidence and follow-up unit in this PR with immutable commit readback. Keep Source TASK/CLAIM and reviewer authority distinct from branch persistence. X6 six axes, 3D slice third coordinate, paths and future observations remain a separate bridge obligation.

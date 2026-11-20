@@ -1,0 +1,33 @@
+# Stage424-B — Exact remaining-Euler/J/K transfer and multi-source sharpness
+
+2026-11-04. Parent: Stage423-B at f381a1830cef3fb20827dc517f2f83d03490a214. Draft PR #1736. AUTHOR_SIDE_PROOF / EXACT_INTEGER_EXECUTED / UNREVIEWED / NOT_ADMITTED.
+
+Frozen science: global bf84bd7c61a2444b59b1da96be57df0e9ae47e53, EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419, P000 Git blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Current norms were separately consulted on current canonical main. This is an ordered-path observer over all twelve signed directions of native X6; no physical-time dynamic or P000 promotion is asserted.
+
+## Theorem 424.1: exact typed remaining-Euler pair DP
+
+Fix two first letters from D={+E1,-E1,...,+E6,-E6}, two nonnegative directed adjacency matrices J_P,J_Q of total mass n-1, both six-component chart-relative endpoints, absolute aligned-position match target K, and a terminal category h determined by at most the last (ellP,ellQ) direction labels. Admissible ordered path pairs begin with the given first letters, use exactly the specified directed-edge multisets, end at the prescribed X6 vectors, and exhibit K aligned equal letters.
+
+**Claim:** dynamic programming over (lastP,lastQ,remaining_JP,remaining_JQ,mismatch,tailP,tailQ) gives exact counts of admissible ordered word pairs by h-category, with transition weight **one per directed edge type** rather than its remaining multiplicity. The endpoints are determined by each first letter together with the multiset of edge *target* letters, permitting an exact six-vector precheck.
+
+**Proof.** With its first letter fixed, a word determines exactly one sequence of outgoing edge-type choices (the adjacent successive letters). Conversely, any complete legal traversal of each typed-edge multiset reconstructs exactly one word. Therefore every ordered pair of words corresponds bijectively to one complete paired traversal. Multiplying a transition by the number of indistinguishable copies of its directed edge would spuriously permute equal edges, so type choices must have weight one. Both endpoint sums are obtained by summing the first direction and every used edge destination, independent of traversal order. For two equal-length paths the newly appended letters x,y add [x=y] to K, equivalently [x!=y] to mismatch. Mismatch is monotone and may be pruned when exceeding n-K. Capped suffixes update deterministically and exactly determine terminal h. Remaining edge counts, current last letters, mismatch and capped tails determine all legal transitions and terminal categories; induction on remaining edge mass validates memoization and count aggregation. QED.
+
+For m=12 fixed native directions, a coarse total-state bound is m^(ellP+ellQ+2) (n+1)^(2m²+1), with at most m² typed next-edge pairs per state. Integer class counts use O(n log m) bits at most; input conversion, matrix preprocessing, exact arithmetic, state keys and output reconstruction must also be paid. The state bound is polynomial in numerical n for fixed m and tail caps, but this is not polynomial in the **binary encoding length** O(m² log(n+1)). The special F_n class-size formula is cheaper than the general DP when the symbolic family is already the input.
+
+## Corollary 424.2: full observable F_n transfer
+
+With A=+E1, B=-E1, the Stage411 F_n input for n>=11 has firstP=firstQ=A; J_P(AA,AB,BA)=(n-3,1,1), J_Q(AA,AB,BA)=(n-5,2,2); all other edges zero; endpointP=(n-2,0,0,0,0,0), endpointQ=(n-4,0,0,0,0,0); K=n-1. The edge counts imply one isolated internal B in P and two separated internal Bs in Q. Because K=n-1, P's B coincides with exactly one of Q's B positions. Hence the admissible word pairs are exactly F_n.
+
+The terminal key is the Stage422 partition's B-capped type, protected-P last-six/last-six type and fixed-P/Q-last-seven type. The code independently constructs every F_n pair from r,s,i, recomputes full directed J, six-vector endpoints and K, and matches each terminal category count to the DP and the Stage423 closed multiset. Executed for every n=11..100: **304080 pairs, 297990 DP states, 368056 typed state transitions**. All 90 n have 24 categories and exactly (n-3)(n-4) word pairs; class population multiset equals ((n-8)(n-9) once, 2(n-8) once, n-7 six times, n-8 twice, 1 fourteen times). n=11: 56 pairs/285 DP states/308 transitions; n=16: 156/625/732; n=30: 702/1577/1922; n=100: 9312/6337/7872. A separate X6 three-direction test involving +E1,-E1,+E2 and directed edges AC,CA,AB,BA at K=3 produces exactly two ordered path pairs.
+
+For the exact program and range n=11..100, state counts happen to satisfy 68n-463; transitions satisfy 85n-628 for n=12..100, with n=11 transition count 308. These are finite observations and a candidate for Stage425-B symbolic proof. Theorem 424.1 is a mathematical bijection argument valid for declared finite inputs. Identifying the 24 output *categories* as the minimal **all-future equivalence quotient** continues to depend on the author-side, unreviewed Stage422 argument.
+
+## Lemma 424.3: simultaneous sharpness of the Stage423 k-source bound
+
+For every k>=2 let the anchor original word be AA and all k-1 nonanchor original words be AB, where A=+E1, B=-E1. Allow one joint nonanchor inverse-pair deletion with arity vector (0,2,...,2): it leaves the anchor untouched and deletes each nonanchor's terminal inverse pair AB. With no independent POP, d_0=0, t_j=0, d_j=2 for all j>=1. Thus d_j=d_0+t_j+max(0,b_(e,j)-b_(e,0))=2 holds **simultaneously** for every nonanchor source. This proves joint sharpness of the positive-part correction under the specified deletion-incidence hypergraph. Fixed hypergraphs that forbid that event may have sharper inequalities.
+
+## Costs, provenance and next question
+
+The Node.js checker stores nonnegative integer counts as BigInt; 12 native symbols are typed, while this path family has only three nonzero edge types per source. The full end-to-end output includes a separate explicit-word cross-check, so it is not a speed benchmark for the DP. For the already-defined family with binary n, its closed 24 class formulas cost a constant number of O(log n)-bit additions/multiplications (schoolbook O((log n)^2) bit cost); reading explicit length-n word inputs costs Omega(n). The exact executed JSON is stored with this proof; the remote program source can be executed directly with Node.js.
+
+Next Stage425-B: prove or refute the measured linear cache-state/transition formulas with a symbolic normal form, generalize K to unequal-length/source-alignment observers, and optimize the deletion bound for restricted k-source incidence. Retain the separate native CLAIM/Result/Driver permission and independent-review standards.

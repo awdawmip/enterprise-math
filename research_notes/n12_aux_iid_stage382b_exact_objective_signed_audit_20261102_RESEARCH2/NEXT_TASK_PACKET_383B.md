@@ -1,0 +1,7 @@
+# Stage383-B — independent load-bearing audit
+
+Parent Stage382-B: signed 31/32-label cost audit, exact conditional algebraic objective bracket 0.095407556068<T_candidate<0.095407556069, exact original-model feasible pair with 0.095407556128<T_witness<0.095407556129. Scripts and proof beside this file on the existing Research2 PR #1736.
+
+Scientific pins unchanged: GLOBAL bf84bd7c61a2444b59b1da96be57df0e9ae47e53; EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419; original P000 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Apply currently read normative rules separately.
+
+First independent question: Is Stage380-B's active-budget/wedge lemma correct including every closed-box boundary and one-sided nonsmooth point for the **original** 16-label four-residual objective? Give a rigorous full continuous-domain proof of the load-bearing perturbation or an exact rational counterexample (all 16 audits/four residuals and true budget) with its first invalid condition. Next independently audit Stage379-B's global localization. Do not transfer auxiliary conclusions to P000 X6 without a typed three-dimensional-slice embedding, third coordinate, observer and future-operation certificate. Existing authorship is exposed context; mathematical admission and canonical Source result remain pending.

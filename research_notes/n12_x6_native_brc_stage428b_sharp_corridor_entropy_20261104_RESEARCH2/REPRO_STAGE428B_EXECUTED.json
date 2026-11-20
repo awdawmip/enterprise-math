@@ -1,0 +1,53 @@
+{
+  "marker": "STAGE428B_SHARP_CORRIDOR_ENTROPY_PASS",
+  "execution": "Actually executed locally on Node.js v22.16.0; no assertions failed; reported results from full Node.js stdout",
+  "scientific_source_pins": {
+    "global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+    "em": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "p000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488"
+  },
+  "sharp_asymmetric_profile": {
+    "n": [
+      1,
+      128
+    ],
+    "L": [
+      1,
+      7,
+      31
+    ],
+    "profiles_checked": 384,
+    "width": 2,
+    "all_strictly_distinguishable": true
+  },
+  "trace_entropy": {
+    "b": [
+      1,
+      10
+    ],
+    "L": [
+      1,
+      3,
+      7
+    ],
+    "enumerated_histories": 6138,
+    "all_initial_observers_equal_per_fiber": true,
+    "all_distinct_future_traces": true,
+    "max_distinct_carriers_per_fiber": 1024,
+    "minimum_information_bits_at_b10": 10
+  },
+  "boundary_update": {
+    "words_per_source": 121,
+    "pairs": 14641,
+    "initial_alphabet": [
+      "D0",
+      "D1",
+      "D2"
+    ],
+    "future_append_alphabet_count": 12,
+    "legal_transitions_checked": 2503804,
+    "boundary_comparisons": 2232956,
+    "all_equal_to_direct_K": true
+  },
+  "scope": "Finite exact checks; mathematical all-parameter claims supported by symbolic proof, not by finite extrapolation. Original complete stdout is available in the author execution environment; this JSON records verified observed summary counts."
+}

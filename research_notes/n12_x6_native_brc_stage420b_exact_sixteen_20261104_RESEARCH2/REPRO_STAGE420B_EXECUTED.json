@@ -1,0 +1,184 @@
+{
+  "marker": "STAGE420B_PARAMETRIC_EXACT_SIXTEEN_CLASS_PASS",
+  "model": "Native signed-X6 (12 APP directions per source), 2 Q POP and 2 paired CANCEL; full integer O=(length, z, directed J, absolute K)",
+  "frozen_science": {
+    "global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+    "enterprise_math": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "p000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488"
+  },
+  "parameter_count_check": {
+    "n_min": 11,
+    "n_max": 40,
+    "histories_checked": 16760,
+    "n11": 56,
+    "n16": 156,
+    "classes": 16,
+    "n16_class_sizes": [
+      72,
+      18,
+      10,
+      10,
+      10,
+      9,
+      10,
+      9,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "signature_groups_by_raw_suffix_index": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      5,
+      12,
+      13
+    ],
+    [
+      6,
+      14,
+      20
+    ],
+    [
+      7,
+      15,
+      21
+    ],
+    [
+      8,
+      16,
+      22
+    ],
+    [
+      9,
+      17
+    ],
+    [
+      10,
+      18,
+      24
+    ],
+    [
+      11,
+      19
+    ],
+    [
+      23
+    ],
+    [
+      25
+    ],
+    [
+      26
+    ],
+    [
+      27
+    ],
+    [
+      28
+    ],
+    [
+      29
+    ],
+    [
+      30
+    ],
+    [
+      31
+    ]
+  ],
+  "new_groups_4_to_7": {
+    "n11_representative_indices": [
+      [
+        8,
+        16,
+        22
+      ],
+      [
+        9,
+        17
+      ],
+      [
+        10,
+        18,
+        24
+      ],
+      [
+        11,
+        19
+      ]
+    ],
+    "n11_pair_bfs_3_APP_full_two_destructive_budgets_4_directions": [
+      {
+        "pair": [
+          8,
+          16
+        ],
+        "visited_exact_pair_states": 13977
+      },
+      {
+        "pair": [
+          8,
+          22
+        ],
+        "visited_exact_pair_states": 13977
+      },
+      {
+        "pair": [
+          16,
+          22
+        ],
+        "visited_exact_pair_states": 13977
+      },
+      {
+        "pair": [
+          9,
+          17
+        ],
+        "visited_exact_pair_states": 14745
+      },
+      {
+        "pair": [
+          10,
+          18
+        ],
+        "visited_exact_pair_states": 13977
+      },
+      {
+        "pair": [
+          10,
+          24
+        ],
+        "visited_exact_pair_states": 13977
+      },
+      {
+        "pair": [
+          18,
+          24
+        ],
+        "visited_exact_pair_states": 13977
+      },
+      {
+        "pair": [
+          11,
+          19
+        ],
+        "visited_exact_pair_states": 27033
+      }
+    ],
+    "full_12x12_one_APP_pair_equalities_checked": 1152
+  },
+  "method_note": "Finite exact BFS is a cross-check. Universal all-direction/all-finite-future equivalence follows from deletion-frontier arguments in the proof; lower bound from three explicit traces with distinct signatures and front-padding invariance.",
+  "proof_status": "AUTHOR_SIDE_COMPLETE / INDEPENDENT_REVIEW_PENDING / NATIVE_RESULT_PENDING"
+}

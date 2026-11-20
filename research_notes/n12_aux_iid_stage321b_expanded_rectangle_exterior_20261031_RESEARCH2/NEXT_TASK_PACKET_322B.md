@@ -1,0 +1,11 @@
+# Stage322-B — improve global Pareto germ and locate first genuine branch switch
+
+**Author/task status:** Research2 portable author continuation, UNREVIEWED / NOT_ADMITTED. The current task has no native Source CLAIM or independent review.
+
+**Fixed model and source:** two positive-mass hidden sources, eight permanently locked Bernoulli rates, three future F/H visits; public G=(W,Y), tagged (S,J,G). Keep Stage307 unique algebraic public optimum, Stage315 central MAP reset, Stage316 exact two-block infimal convolution, and Stage321 full square certificate from PR #1736. P000 is a locked internal native ontology; the Bernoulli model is an external typed auxiliary.
+
+**Highest author-side certified frontier:** 0<=epsilon<=31/5,000,000. Exact formula F3(Pmin+epsilon)=33/1024+c(x*,y*)+c(x_epsilon,y_epsilon); precisely two eight-real-rate optima for positive epsilon, with all slack in one outer block. Stage321 novel exterior d-d*>1/50000 off B=[.23,.24]×[.55,.56] (282 dyadic leaves); rational derivative/curvature certificate on R'=[.23055,.23157]×[.555,.556], with -42<C3''<-37. The certificate was executed and logged. It is unpublished mathematical admission, not a formal Source Result.
+
+**Smallest next discriminating unit:** Improve exact exterior gap beyond 1/50000, and enlarge y range or partition R' into smaller rational subrectangles to reduce interval arithmetic dependency. Extend the strict complete-eight-real-rate Pareto formula to a concrete rational delta>31/5,000,000, OR find the earliest strict competing branch and verify all tagged and public probability atoms. Continue toward Stage314's known algebraic competitor but distinguish current certificate boundary from actual first optimizer switch.
+
+**Evidence and acceptance:** mathematical proof, independent exact Fraction runnable checker with actual log, explicit model/quantifiers/source pins, one immutable GitHub scientific checkpoint + remote readback. Exact P000-native six-axis paths, full three-coordinate slice, triadic closure, ordered time and registered six-field Cell address are separate preservation-map obligations.

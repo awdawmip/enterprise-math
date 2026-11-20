@@ -1,0 +1,33 @@
+{
+  "marker": "STAGE418B_B_CAPPED_CLASS1_PASS",
+  "D": 12,
+  "pops": 2,
+  "cancels": 2,
+  "model": "Full O=(lengths, X6 signed endpoints, directed J for each source, absolute aligned K); enabledness on every operation",
+  "class1": {
+    "n11_histories": 8,
+    "n11_raw_keys": 4,
+    "n16_histories": 18,
+    "n40_histories": 66,
+    "population_formula": "2*(n-7) for n>=11",
+    "guard": "P ends A^4; Q ends B A^4",
+    "all_n_checked": "11<=n<=40",
+    "total_histories_checked": 1110
+  },
+  "finite_check": {
+    "oneAPP_full12": 10243,
+    "twoAPP_full12_with_at_most_one_POP_and_one_CANCEL": 395573,
+    "twoAPP_four_letters_full_budgets": 47491,
+    "threeAPP_two_letters_full_budgets": 27455,
+    "statement": "Every legal/denied prefix in these finite trace families on all four group1 representatives agrees; unbounded claim follows separately from proof"
+  },
+  "previous_upper_bound": 29,
+  "new_upper_bound": 26,
+  "previous_lower_bound": 16,
+  "scientific_pins": {
+    "global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+    "em": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "p000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488"
+  },
+  "status": "AUTHOR_SIDE_PROOF_UNREVIEWED_NOT_ADMITTED"
+}

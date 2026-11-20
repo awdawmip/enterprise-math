@@ -1,0 +1,98 @@
+{
+  "kind": "FAITHFUL_EXECUTED_SUMMARY_OF_LOCAL_STAGE469B_EXECUTED_JSON",
+  "date": "2026-11-06",
+  "script_sha256_executed": "6cf288a21fb965681dd53de990e2f45deaba788ba2cd7cc31e7a28a0e433e500",
+  "full_local_json_sha256": "7978c7330b73638eff25ddfaec8837a74ebf5a40bec1751817244f7c9a79fe96",
+  "configs": [
+    {
+      "m": 2,
+      "n": 3,
+      "h": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "m": 3,
+      "n": 5,
+      "h": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "m": 4,
+      "n": 6,
+      "h": [
+        0,
+        1,
+        2,
+        4,
+        6
+      ]
+    }
+  ],
+  "initial_observer_fibers": 5866,
+  "original_histories_once_per_length_configuration": 7317,
+  "exact_mass_rank_unrank_assertions": 36045,
+  "same_key_full_future_comparisons": 486,
+  "different_key_future_comparisons": 6769,
+  "visited_paired_future_states": 465444,
+  "all_assertions_passed": true,
+  "new_witnesses": {
+    "Q_m": {
+      "m": 3,
+      "n": 5,
+      "h": 0,
+      "P": "ABB",
+      "Q1": "AACAA",
+      "Q2": "ACAAA",
+      "trace": [
+        "POP_P",
+        "APPEND_P(A)"
+      ]
+    },
+    "Q_m+1": {
+      "m": 3,
+      "n": 5,
+      "h": 0,
+      "P": "AAA",
+      "Q1": "ABACA",
+      "Q2": "ACABA",
+      "trace": [
+        "APPEND_P(B)"
+      ]
+    }
+  },
+  "closed_forms": [
+    {
+      "m": 100,
+      "n": 205,
+      "h": 0,
+      "new_coordinate": "Q_m",
+      "restricted_family_total": "100891344545564193334812497256",
+      "classes": 2,
+      "class_masses": [
+        "50445672272782096667406248628",
+        "50445672272782096667406248628"
+      ]
+    },
+    {
+      "m": 101,
+      "n": 205,
+      "h": 0,
+      "new_coordinate": "Q_m+1",
+      "restricted_family_total": "100891344545564193334812497256",
+      "classes": 2,
+      "class_masses": [
+        "50445672272782096667406248628",
+        "50445672272782096667406248628"
+      ]
+    }
+  ],
+  "evidence_scope": "Exact enumeration over named finite domains; closed-form binomial families are special restricted subsets, not an unrestricted-fiber census; no optimized large DP implementation executed."
+}

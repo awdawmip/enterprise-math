@@ -1,0 +1,73 @@
+{
+  "status": "EXECUTED_AUTHOR_SIDE",
+  "source": "REPRO_STAGE490B.py",
+  "source_sha256": "88887420a1633855c61ca022fb646419905b6359edc75c7712a799429664bd08",
+  "full_executed_json_sha256": "3a154681bcfc13a3dfe3dfed41b3017d9e19569686f80ae4fc324086d45f7bf8",
+  "local_identity": "GitHub awdawmip; native backend identity mismatch",
+  "adjacent_identity": {
+    "checks": 36864,
+    "nonzero_interactions": 30976
+  },
+  "fibers": [
+    {
+      "u": 2,
+      "histories": 16,
+      "fibers": 13,
+      "equivalent_quad_pairs": 0
+    },
+    {
+      "u": 3,
+      "histories": 64,
+      "fibers": 46,
+      "equivalent_quad_pairs": 0
+    },
+    {
+      "u": 4,
+      "histories": 256,
+      "fibers": 148,
+      "equivalent_quad_pairs": 0
+    },
+    {
+      "u": 6,
+      "histories": 4096,
+      "fibers": 1202,
+      "equivalent_quad_pairs": 720
+    }
+  ],
+  "paired_tree": {
+    "tested_h": [
+      "AAAABA",
+      "AAABAA"
+    ],
+    "coupled_states": 4394,
+    "all_twelve_signed_parameters": true,
+    "all_legal_q_pop_append_two_set": true
+  },
+  "signed_euler": {
+    "s": 22,
+    "alphabet_size": 12,
+    "raw": 39916800,
+    "classes": 990,
+    "mass_per_class": 40320,
+    "dp_states_per_mode": 14160,
+    "recursive_transitions_per_mode": 22528,
+    "single_run_dense": {
+      "seconds": 0.130541,
+      "peak_bytes": 18414098
+    },
+    "single_run_active": {
+      "seconds": 0.091092,
+      "peak_bytes": 5494976
+    },
+    "single_run_row": {
+      "seconds": 0.125683,
+      "peak_bytes": 4613904
+    }
+  },
+  "small_oracle": {
+    "raw_enumerated": 120,
+    "classes": 20,
+    "mass_per_class": 6,
+    "all_20_rank_unrank_passed_each_of_three_modes": true
+  }
+}

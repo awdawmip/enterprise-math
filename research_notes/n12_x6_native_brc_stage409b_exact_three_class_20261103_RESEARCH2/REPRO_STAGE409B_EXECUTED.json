@@ -1,0 +1,99 @@
+{
+  "exact_quotient": {
+    "class_sizes": {
+      "1": 4,
+      "2": 3,
+      "3": 3
+    },
+    "classes": {
+      "1": [
+        "AAAABABA",
+        "AAABAABA",
+        "AABAAABA",
+        "ABAAAABA"
+      ],
+      "2": [
+        "AAABABAA",
+        "AABAABAA",
+        "ABAAABAA"
+      ],
+      "3": [
+        "AABABAAA",
+        "ABAABAAA",
+        "ABABAAAA"
+      ]
+    },
+    "q": 3,
+    "raw_suffix4_states": 5
+  },
+  "finite_three_symbol_crosschecks": {
+    "APP_alphabet": [
+      "A",
+      "B",
+      "C"
+    ],
+    "operation_depth": 4,
+    "pairs": 12,
+    "transitions": 13704,
+    "visited_states": 10068
+  },
+  "independent_bruteforce": {
+    "suffix4_counts": {
+      "AAAA": 1,
+      "AABA": 3,
+      "ABAA": 3,
+      "BAAA": 2,
+      "BABA": 1
+    },
+    "words": [
+      "AAAABABA",
+      "AAABAABA",
+      "AAABABAA",
+      "AABAAABA",
+      "AABAABAA",
+      "AABABAAA",
+      "ABAAAABA",
+      "ABAAABAA",
+      "ABAABAAA",
+      "ABABAAAA"
+    ]
+  },
+  "input": {
+    "J_Q": {
+      "AA": 3,
+      "AB": 2,
+      "BA": 2
+    },
+    "K": 6,
+    "P": "AAAAAAAA",
+    "Z_Q": "4E1",
+    "m": 8,
+    "native_alphabet": "12 signed X6 directions"
+  },
+  "native_brc_integer_recurrence": {
+    "P_8E1": [
+      1,
+      256
+    ],
+    "Q_4E1": [
+      20608,
+      479808
+    ]
+  },
+  "separation": {
+    "class1_POP": "different J after Q POP",
+    "class2_vs3": "POP_Q, APP(B,B), CANCEL yields different J_Q"
+  },
+  "status": "STAGE409B_EULER_K_THREE_CLASS_PASS",
+  "transfer": {
+    "peak_distinct_states": 16,
+    "suffix4_counts": {
+      "AAAA": 1,
+      "AABA": 3,
+      "ABAA": 3,
+      "BAAA": 2,
+      "BABA": 1
+    },
+    "total_fiber": 10
+  }
+}

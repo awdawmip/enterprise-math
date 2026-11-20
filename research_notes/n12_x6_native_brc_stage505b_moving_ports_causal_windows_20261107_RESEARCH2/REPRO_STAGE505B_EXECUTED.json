@@ -1,0 +1,34 @@
+{
+  "counters": {
+    "future_prefixes": 2330,
+    "monoid_checks": 700,
+    "paired_histories": 3,
+    "random_cases": 32,
+    "random_transitions": 160,
+    "short_one_step": 32790,
+    "short_words": 3279,
+    "short_wrong_radius_checks": 4
+  },
+  "scope": "Full 12-direction exact (n,D6,E144) observer; operation alphabet three directions in exhaustive path-tree and twelve in random tests; Python integers exact.",
+  "status": "PASS_EXACT_INTEGER",
+  "undersized_window_counterexample": {
+    "D_after_left": [56,1,0,0,0,0],
+    "D_after_right": [56,1,0,0,0,0],
+    "J": [],
+    "R": [5],
+    "different_after_depth_2": true,
+    "equal_before": true,
+    "equal_through_depth_1": true,
+    "input_length": 60,
+    "one_step_paths_checked": 4,
+    "ordered_edge_differences": [[0,55,54],[2,0,1],[12,0,1],[14,1,0]],
+    "radius_wrong": 0,
+    "step_trace": [["POP"],["SET",5,2]],
+    "swap_start_index": 50
+  },
+  "witnesses": [
+    {"J":[2],"R":[3,30],"explicit_tokens":17,"full_future_prefix_checks":1110,"h":3,"hidden_swap_start":28,"n":80},
+    {"J":[2],"R":[7,55],"explicit_tokens":21,"full_future_prefix_checks":1110,"h":3,"hidden_swap_start":36,"n":100},
+    {"J":[2],"R":[7,250],"explicit_tokens":18,"full_future_prefix_checks":110,"h":2,"hidden_swap_start":238,"n":500}
+  ]
+}

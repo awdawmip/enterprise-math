@@ -1,0 +1,54 @@
+{
+  "R_zero_check_cases": 18,
+  "finite_collision_pairs": 360,
+  "finite_domain_words": 109375,
+  "finite_future_nodes": 2520,
+  "future_tree_nodes_checked": 15530,
+  "illustrative_traces": [
+    {
+      "R": 3,
+      "S": [
+        2,
+        3
+      ],
+      "first_divergence": 1,
+      "h": 1,
+      "operations": [
+        "DELK3"
+      ],
+      "q": 0
+    },
+    {
+      "R": 4,
+      "S": [
+        2,
+        4
+      ],
+      "first_divergence": 2,
+      "h": 2,
+      "operations": [
+        "DELK4",
+        "DELK4"
+      ],
+      "q": 1
+    },
+    {
+      "R": 2,
+      "S": [
+        3,
+        5
+      ],
+      "first_divergence": 3,
+      "h": 3,
+      "operations": [
+        "POP",
+        "DELK5",
+        "DELK5"
+      ],
+      "q": 5
+    }
+  ],
+  "sharpness_constructs": 63,
+  "status": "PASS",
+  "witness_families_checked": 144
+}

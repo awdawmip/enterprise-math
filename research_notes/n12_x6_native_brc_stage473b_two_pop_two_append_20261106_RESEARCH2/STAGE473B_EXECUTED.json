@@ -1,0 +1,170 @@
+{
+  "stage": "473-B",
+  "scope": "ternary original directions in signed X6; all 12 future APPEND directions",
+  "small_dp": {
+    "classes": 2955,
+    "fibers": 490,
+    "suffix_states": 13011,
+    "max_class_mass": 2,
+    "configs": 14
+  },
+  "strict_witnesses": [
+    {
+      "name": "Q_m_plus_2",
+      "m": 6,
+      "n": 14,
+      "P1": "AAAAAA",
+      "Q1": "AAAAAAABAACAAA",
+      "P2": "AAAAAA",
+      "Q2": "AAAAAAACAABAAA",
+      "same_phi_and_R469": true,
+      "witness_path": [
+        "APPEND_P_0",
+        "APPEND_P_2"
+      ],
+      "initial_K": 6,
+      "final_K": [
+        8,
+        7
+      ]
+    },
+    {
+      "name": "P_m_minus_2",
+      "m": 11,
+      "n": 13,
+      "P1": "AAACAAAABAA",
+      "Q1": "AAAAAAAAAAAAA",
+      "P2": "AAABAAAACAA",
+      "Q2": "AAAAAAAAAAAAA",
+      "same_phi_and_R469": true,
+      "witness_path": [
+        "POP_P",
+        "POP_P"
+      ],
+      "initial_K": 9,
+      "final_K": [
+        7,
+        7
+      ]
+    },
+    {
+      "name": "Q_m_minus_1",
+      "m": 6,
+      "n": 13,
+      "P1": "AAAAAA",
+      "Q1": "AAAABAAACAAAA",
+      "P2": "AAAAAA",
+      "Q2": "AAAACAAABAAAA",
+      "same_phi_and_R469": true,
+      "witness_path": [
+        "POP_P",
+        "POP_P",
+        "APPEND_P_2"
+      ],
+      "initial_K": 5,
+      "final_K": [
+        5,
+        4
+      ]
+    }
+  ],
+  "future_audit": [
+    {
+      "distinct_pairs": 18,
+      "future_states": 6287,
+      "configs": 6,
+      "equal_pairs": 1
+    },
+    [
+      {
+        "m": 4,
+        "n": 5,
+        "t": 5,
+        "equal": false,
+        "states": 2,
+        "path": [
+          "POP_P"
+        ]
+      },
+      {
+        "m": 4,
+        "n": 5,
+        "t": 5,
+        "equal": false,
+        "states": 2,
+        "path": [
+          "POP_P"
+        ]
+      },
+      {
+        "m": 4,
+        "n": 5,
+        "t": 5,
+        "equal": false,
+        "states": 27,
+        "path": [
+          "POP_P",
+          "POP_P"
+        ]
+      },
+      {
+        "m": 4,
+        "n": 5,
+        "t": 4,
+        "equal": false,
+        "states": 2,
+        "path": [
+          "POP_P"
+        ]
+      },
+      {
+        "m": 4,
+        "n": 5,
+        "t": 4,
+        "equal": false,
+        "states": 2,
+        "path": [
+          "POP_P"
+        ]
+      }
+    ]
+  ],
+  "large": [
+    {
+      "t": 34,
+      "support": 281600,
+      "population": 11154643500,
+      "prefix_states": 53,
+      "suffix_states": 2649
+    },
+    {
+      "t": 35,
+      "support": 281600,
+      "population": 11154643500,
+      "prefix_states": 40,
+      "suffix_states": 2612
+    },
+    {
+      "t": 36,
+      "support": 281600,
+      "population": 11154643500,
+      "prefix_states": 76,
+      "suffix_states": 4736
+    },
+    {
+      "t": 37,
+      "support": 281600,
+      "population": 11154643500,
+      "prefix_states": 148,
+      "suffix_states": 8544
+    },
+    {
+      "t": 56,
+      "support": 16,
+      "population": 11154643500,
+      "prefix_states": 16,
+      "suffix_states": 16
+    }
+  ],
+  "success": true
+}

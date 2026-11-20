@@ -1,0 +1,247 @@
+{
+  "schema": "EM_STAGE488B_EXECUTED_SUMMARY_V1",
+  "date": "2026-11-07",
+  "author_side_status": "EXACT_INTEGER_EXECUTED_UNREVIEWED",
+  "frozen_science": {
+    "GLOBAL": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+    "EM": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "P000_BLOB": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488"
+  },
+  "source_blob_sha": "78666e30bc25074d98b17d8eceff755962bfa6fc",
+  "cases": [
+    [
+      "ABGH",
+      0,
+      6,
+      8,
+      16,
+      8
+    ],
+    [
+      "ABGH",
+      1,
+      8,
+      8,
+      16,
+      8
+    ],
+    [
+      "ABGH",
+      2,
+      8,
+      8,
+      16,
+      8
+    ],
+    [
+      "ABGH",
+      8,
+      8,
+      8,
+      16,
+      8
+    ],
+    [
+      "ABGH",
+      11,
+      8,
+      8,
+      16,
+      8
+    ],
+    [
+      "ABGHI",
+      0,
+      4,
+      4,
+      25,
+      9
+    ],
+    [
+      "ABGHI",
+      1,
+      4,
+      4,
+      25,
+      9
+    ],
+    [
+      "ABGHI",
+      2,
+      4,
+      4,
+      25,
+      9
+    ],
+    [
+      "ABGHI",
+      8,
+      4,
+      4,
+      25,
+      9
+    ],
+    [
+      "ABGHI",
+      11,
+      4,
+      4,
+      25,
+      9
+    ],
+    [
+      "ABCGHI",
+      0,
+      2,
+      2,
+      36,
+      10
+    ],
+    [
+      "ABCGHI",
+      1,
+      2,
+      2,
+      36,
+      10
+    ],
+    [
+      "ABCGHI",
+      2,
+      2,
+      2,
+      36,
+      10
+    ],
+    [
+      "ABCGHI",
+      8,
+      2,
+      2,
+      36,
+      10
+    ],
+    [
+      "ABCGHI",
+      11,
+      2,
+      2,
+      36,
+      10
+    ],
+    [
+      "ABGH",
+      0,
+      1177,
+      13755,
+      16,
+      10
+    ],
+    [
+      "ABGH",
+      5,
+      4323,
+      13755,
+      16,
+      10
+    ],
+    [
+      "ABGH",
+      11,
+      4323,
+      13755,
+      16,
+      10
+    ],
+    [
+      "ABGH",
+      20,
+      6288,
+      13755,
+      16,
+      10
+    ],
+    [
+      "ABGH",
+      26,
+      13755,
+      13755,
+      16,
+      10
+    ]
+  ],
+  "case_fields": [
+    "alphabet",
+    "h",
+    "classes",
+    "raw_mass",
+    "dense_component_count",
+    "sparse_component_count"
+  ],
+  "input_seeds": [
+    {
+      "alphabet": "ABGH",
+      "k": 2,
+      "u": 2,
+      "T": "ABGABA",
+      "W": "GH",
+      "H": "BA"
+    },
+    {
+      "alphabet": "ABGHI",
+      "k": 2,
+      "u": 2,
+      "T": "ABGABA",
+      "W": "HI",
+      "H": "GB"
+    },
+    {
+      "alphabet": "ABCGHI",
+      "k": 2,
+      "u": 2,
+      "T": "ABGCIA",
+      "W": "HI",
+      "H": "GB"
+    },
+    {
+      "alphabet": "ABGH",
+      "k": 6,
+      "u": 5,
+      "T": "AABGAABGAABGAA",
+      "W": "ABGHAB",
+      "H": "HAGBA"
+    }
+  ],
+  "seven_repeat_growing_medians": {
+    "h26": {
+      "dense": {
+        "time_s": 0.013735,
+        "peak_bytes": 447736
+      },
+      "sparse": {
+        "time_s": 0.014364,
+        "peak_bytes": 414912
+      }
+    }
+  },
+  "edit": {
+    "T": "ABGABA",
+    "W": "GH",
+    "H1": "AB",
+    "H2": "BA",
+    "j_one_based": 10,
+    "z": "I",
+    "difference": {
+      "AA": -1,
+      "BA": 1,
+      "IA": -1,
+      "IB": 1
+    }
+  },
+  "coverage": "20 paired dense/sparse configurations. Independent exact full word oracle for 15 k=u=2 configurations, complete key rank/unrank; growing case 5 budgets and sample rank/unrank; 7 repeated runtime/memory measurements.",
+  "assertions": "PASS",
+  "full_executed_json_sha256": "0aab2019ec56ac6dc904bdf4a047ec27d2bc26022c1370cc84254e098716282a",
+  "full_executed_json_compressed_base64_blob": "e7cea722d628d5f8e82477a261c321481768fb31",
+  "full_executed_json_decode": "base64.b64decode(text) -> gzip.decompress -> 26069 UTF-8 bytes; SHA256 0aab2019ec56ac6dc904bdf4a047ec27d2bc26022c1370cc84254e098716282a",
+  "executed_program_sha256": "0af88a22ac5872a5e21e128e901d84f4157e5c8b038defbf621e9160255b5da9"
+}

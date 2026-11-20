@@ -1,0 +1,11 @@
+# Stage357-B — Classify the outer feasible r0=0 components
+
+Parent: Enterprise Math external 16-source-subset Bernoulli/BRC observer; Research2 portable author series. Stage355-B author frontier fc0bc5ab283798e3fb520e276b5c66c154eb9550 supplies independently checked global TV floor b>=3779/10^6 and strict exclusion |r3|<=1/2000 for E<=11/5000 with 67/73-leaf certificates. Stage356-B supplies a NEW independent all-budget strict b,c Pareto exclusion on r0=0 with 229/1000<=x<=233/1000 except selected r0=r1 zero qstar; left side strictly dominated by qstar, right side by an arbitrarily small rational step (1,37).
+
+Frozen canonical inputs: GLOBAL_KNOWLEDGE_V1 main@301e34842658e23e49724e5dd846a9952258ba50, Enterprise Math main@96dbd541e2c8f4f873aaf4ee37a42cf6af0f3278, P000 V5 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Prior activity still REGISTER_PENDING, native em_status research_authority_granted=false, active owner query CONTROL_QUOTA. No formal CLAIM or independent admission.
+
+Definitions MUST remain: w=(1,3,3,1), m=(61,21,9,9), B_k(z)=z^k(1-z)^(3-k), r_k=(4B_k(x)+B_k(y))/5-m_k/160, b=(5/32)sum w_k |r_k|, D3(a,z)=(1/2)sum w_k |B_k(a)-B_k(z)|, c=(63D3(1/4,x)+D3(3/4,x)+9D3(1/4,y)+7D3(3/4,y))/256. Keep all 16 TV subset comparisons and four independent audit channels.
+
+First question: on r0=0, isolate with exact algebraic/Bernstein certificates all components of b<=299/50000 outside the central slab x in [229/1000,233/1000]. Does an explicit, perhaps budget-dependent point on the right r1=0 arc dominate each outer component? If not, provide a certified strict rational/algebraic counterexample. Retain the exceptional qstar and do not infer a globally exact post-cusp optimizer from a partial stratum exclusion.
+
+Deliver actual complete proof/counterexample, exact checker, executed stdout, source/owner status and new next question. Save on the continuing author PR, read back remote bytes, capture account journal. Do not resubmit already proved Stage355/356; do not bypass prior platform-denied Stage352 material. No P000 X6/third coordinate/triadic/time/final Cell transfer is established by this auxiliary model.

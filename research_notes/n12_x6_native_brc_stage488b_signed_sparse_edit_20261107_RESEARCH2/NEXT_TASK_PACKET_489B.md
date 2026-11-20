@@ -1,0 +1,9 @@
+# Stage489-B — Interior edit under interleaved POP/APPEND, and full d=12 cost audit
+
+Parent: Stage488-B signed sparse edge theorem and strict Q_SET witness, PR #1736. Frozen science: GLOBAL main bf84bd7c61a2444b59b1da96be57df0e9ae47e53, EM main 2af3fc484eb11060b69e0afc1b562bcaf5ad1419; P000 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Current normative records remain separately refreshed.
+
+**Question A (future operations).** Keep P=T and Q=TWAHA, initial complete six-component signed displacement, all 144 directed edge counts, K and original-word provenance. Specify one guarded interior Q_SET(j,z), optionally before or after POP/APPEND, with exact absolute/current indexing and operation-budget rules. On small fibers (k=u=2; source alphabet ABGH plus I available as edit) compare all legal future observers for same Stage486 key. Construct a minimal typed local-neighborhood/cursor repair or find a counterexample. The immediate single-edit triple is sufficient only for the stated j>|P| one-step experiment; determine the interleaving extension separately.
+
+**Question B (algorithm and actual costs).** Implement exact d=12 initial all-direction observer with source support varied from s=5 toward all 144 directed pairs; benchmark build cost, edge-vector transitions, Euler memoization, key rank/unrank, memory and integer bit length. Compare (1) dense d² tuples, (2) sparse active-pair tuples, (3) keyed/trie maps on identical fibers. Explain any total-cost benefit including input encoding and validation, without requiring a particular machine to begin reasoning.
+
+**Evidence and receipt.** Deliver exact statements and proof/counterexample, executable standard-library reproduction, real execution output/coverage, limits and next question; save to this same PR branch, verify content/Blob. New formal Native Result requires valid session/owner CLAIM. Preserve Driver independence. No credential upload or permission widening.

@@ -1,0 +1,117 @@
+{
+  "status": "ALL_ASSERTIONS_PASSED",
+  "repair_key": "(W,H[-1]) for Q POP<=1, APPEND<=1",
+  "strict_witness": {
+    "k": 1,
+    "u": 3,
+    "P": "AAAA",
+    "W": "B",
+    "H1": "BAC",
+    "H2": "CAB",
+    "Q1": "AAAABABACA",
+    "Q2": "AAAABACABA",
+    "theta_before": [
+      3,
+      2,
+      1,
+      2,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "Q_POP1_after_edges_1": [
+      3,
+      2,
+      1,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "Q_POP1_after_edges_2": [
+      3,
+      2,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  "small_brute": [
+    {
+      "k": 1,
+      "u": 1,
+      "fibers": 6,
+      "class_mass_checks": 9
+    },
+    {
+      "k": 1,
+      "u": 2,
+      "fibers": 18,
+      "class_mass_checks": 27
+    },
+    {
+      "k": 2,
+      "u": 1,
+      "fibers": 18,
+      "class_mass_checks": 27
+    },
+    {
+      "k": 2,
+      "u": 2,
+      "fibers": 28,
+      "class_mass_checks": 81
+    },
+    {
+      "k": 1,
+      "u": 3,
+      "fibers": 45,
+      "class_mass_checks": 75
+    },
+    {
+      "k": 3,
+      "u": 1,
+      "fibers": 45,
+      "class_mass_checks": 81
+    },
+    {
+      "k": 2,
+      "u": 3,
+      "fibers": 84,
+      "class_mass_checks": 225
+    },
+    {
+      "k": 3,
+      "u": 2,
+      "fibers": 84,
+      "class_mass_checks": 243
+    }
+  ],
+  "large": {
+    "k": 24,
+    "u": 18,
+    "theta": [
+      54,
+      8,
+      2,
+      2,
+      2,
+      10,
+      8,
+      4,
+      3
+    ],
+    "classes": 11077827340,
+    "population": 29751344474760,
+    "supported_types": 16233,
+    "old_classes": 5331124131
+  },
+  "arithmetic": "exact integers, predecessor directed Euler count reused"
+}

@@ -1,0 +1,9 @@
+# Stage346-B — next sharp global interval or a rigorous competing source assignment
+
+Source: portable author Stage345-B proof/checker/certificate, scoped to four-parameter, three-visit, fully source-tagged Bernoulli/BRC model. **UNREVIEWED / NOT_ADMITTED**, no canonical Source CLAIM or Driver review inferred. Freeze normative GLOBAL_KNOWLEDGE_V1 and Enterprise Math main once at the next round; preserve P000 V5 / ACTIVE worldview and typed observer boundary.
+
+Established author frontier: for every real `E∈[0,3/2500]`, under `b(q1)+b(q2)≤2β*+E`, the unique optimal source assignments (up to swap) are `(q*,q_E)`; source Stage345-B exact 424-leaf Bernstein enclosure `Q=501/100000`, `R=[2237/10000,47/200]×[531/1000,313/500]`; all 16 source-tag signs, r3 nonnegative/corner branches and strict φ''<0 were checked. Do not rerun the same completed E range as a purported new result.
+
+First discriminating question: prove the same statement for all real `0≤E≤7/5000=0.0014` or produce a concrete exact rational pair that satisfies the new public budget and has strictly smaller audit T than `(q*,q_E)`. Test a new exact Q slightly greater than `β_U+7/5000` and derive a complete Bernstein quadtree enclosure; check all newly entered r3=0/r0=0/r1=0 strata. If uniform constant-b descent fails, isolate its exact algebraic boundary, don't silently keep old sign assumptions. Re-derive a valid curvature rectangle of the surviving r1=0 arc (possibly approaching the tagged cusp).
+
+Evidence: exact continuum inequalities, reproducible code + actual stdout + complete certificate (or exact rational counterexample), source/author/version pin and explicit mathematical trust level. Preserve GitHub immutable branch/PR evidence and current main controls. Native Source Result/review requires actual new authority and receipts; never assume it from GitHub write. P000 X6 transport remains separate.

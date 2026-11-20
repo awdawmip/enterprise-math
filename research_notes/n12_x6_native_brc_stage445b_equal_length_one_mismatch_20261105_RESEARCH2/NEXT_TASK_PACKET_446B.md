@@ -1,0 +1,7 @@
+# Stage446-B: exact one-mismatch support with unequal initial lengths and asymmetric POP budgets
+
+Parent Stage445-B; frozen scientific inputs: GLOBAL bf84bd7c61a2444b59b1da96be57df0e9ae47e53; EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419; P000 bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Read current normative rules separately.
+
+The Stage445-B result establishes, for equal lengths L and defect populations (k,k+1) with K=L-1 and equal POP budgets p, that exact future equivalence equals the two original source suffixes of length p+1, regardless of the APPEND budgets. A two-DP O(L^2) exact integer algorithm counts distinct classes, per-class source population, and two-level ranking. Reproducible full 12-direction future verification covered four small cases; author proof awaits independent review.
+
+Next discriminating question: for m,n=5..10, unequal lengths or unequal POP budgets pP,pQ in 0..2, and APPEND rP,rQ in 0..2, enumerate admissible binary nonadjacent-defect histories with K=min(m,n)-1. Compute exact Stage439-B R and test a bounded mismatch-marker/boundary/capacity summary. For an invalid merger retain a shortest labelled POP/APPEND future witness and its complete six-vector/J/K observations. Construct a repaired output language carrier that counts Boolean support and exact integer source populations without enumerating every original pair; provide source ranks, full bit-complexity and reconstruction. Preserve all existing native-X6, BRC, scientific pin, ownership and review constraints.

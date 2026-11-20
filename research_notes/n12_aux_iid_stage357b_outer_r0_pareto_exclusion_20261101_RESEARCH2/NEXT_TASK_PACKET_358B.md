@@ -1,0 +1,9 @@
+# Stage358-B — Off-boundary chambers following r0=0 Pareto exclusion
+
+Parent: same source-labeled two-source cubic Bernoulli/BRC auxiliary observer. Research2 portable-author continuation after Stage357-B. Preserve frozen global and EM pins and actual role/owner status from `PROOF_STAGE357B.md`; acquire a new verified snapshot for the next run. Do not duplicate Stage355–357 proofs or claim native admission.
+
+**Verified author-scoped frontier:** Stage357-B constructs a continuous-domain exact rational interval proof with 71 terminal cells and explicit rational strict `b,c` dominators for all `r0=0`, `b<=299/50000`, `x∉(229/1000,233/1000)`. Stage356 independently (author-scoped and unreviewed) excludes the central `r0=0` slab except `q*`. Stage353–354 characterize post-cusp optimal splitting only inside the right `r1=0` arc; these results do not prove all-chamber globality.
+
+**Next exact question:** On the full square with `b<=299/50000`, do off-`r0=0` sign chambers contain Pareto-efficient points outside the right `r1=0` arc or `q*`? First derive a complete finite list of residual sign chambers adjacent to the feasible region; use all 16 TV subset comparisons and all four audit channels. Prove per-cell strict domination using rational witnesses/tangent cones or supply a rational competitor to the current post-cusp candidate. A finite search without a continuum certificate is exploratory only.
+
+**Completion evidence:** exact model and pins, proof/counterexample with quantifiers, deterministic rational checker, executed stdout and necessary certificates, limits, provenance, next hard subproblem. Save to author PR with remote readback, then journal. Registered Source results and independent Driver admission require separate current authority. P000 native X6, time, triadic closure, third slice coordinate and final Cell transfer remain separate work.

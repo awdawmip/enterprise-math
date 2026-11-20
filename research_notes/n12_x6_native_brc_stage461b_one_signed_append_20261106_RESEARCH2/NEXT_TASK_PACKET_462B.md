@@ -1,0 +1,8 @@
+# Stage462-B — Two P APPENDs, both sources two POPs
+Date: 2026-11-06. Parent Stage461-B; author-side future research unit, no formal Task owner claimed.
+
+Frozen inputs retained: global bf84bd7c61a2444b59b1da96be57df0e9ae47e53; Enterprise Math 2af3fc484eb11060b69e0afc1b562bcaf5ad1419; original P000 bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Behavioral rules follow the current normative context.
+
+Stage461-B proved the exact seven-or-fewer-bit key for (pP,pQ,rP,rQ)=(2,2,1,0) and (2,2,1,1): original P tail m-2,m-1 and Q positions m-1,m,m+1,n-2,n-1, index-clipped, deduplicated and fixed endpoint A omitted. Both Q APPEND budgets yield identical equivalence partitions. Positive BRC transfer computes support, exact class masses, rank/unrank without a raw-history or supported-class list.
+
+**Concrete next action:** Set rP=2, rQ=0, preserve both POP budgets 2, test all 12 signed direction choices and interleavings. Determine whether Q_{m+2} is newly probed, and identify any extra original-vs-appended boundary or cancellation case. Test n=m+1, m+2, POP-to-empty and hidden-Q gaps. Independently enumerate full labeled future observation trees on small fibers before asserting an iff; produce the first strict witness for a failed key. Then set rQ=1 and repeat. If exact classification works, build a variable-visible-window integer grouped mass/support/rank automaton and calculate worst-case preprocessing, bit complexity and index recovery cost, recognizing that straightforward 2^s enumeration is exponential in s when budgets vary. Preserve actual Source permission/CLAIM/Result and independent review distinctions.

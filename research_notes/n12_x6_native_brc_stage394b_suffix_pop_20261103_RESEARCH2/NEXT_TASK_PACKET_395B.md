@@ -1,0 +1,9 @@
+# Stage395-B — Typed restricted undo and richer BRC branch observers
+
+Research2 continuation after Stage394-B, Enterprise Math PR #1736. Freeze scientific sources at Enterprise Math `2af3fc484eb11060b69e0afc1b562bcaf5ad1419`, global science `bf84bd7c61a2444b59b1da96be57df0e9ae47e53`, P000 blob `bcc2590d3168a28f72e8b9f0f9b1f76faadcd488`; load current normative rules separately.
+
+Verified author-side Stage394-B theorem: for signed-X6 Path-formal word w, observer (source, all twenty 3-component triples R_S, common depth h, length m, frozen N_m(z), turns tau), APPEND any signed-axis label and at most H total POPs, future-equivalence inside a current observer fiber is exactly equality of the last min(m,H+1) labels. The exact minimum state count on a fiber is the number of distinct such suffixes. A 6^floor(H/2) family establishes growing lower bounds. Unlimited POP makes ordered path identity necessary. Proof, executed checker and stdout are in the Stage394-B research_notes directory of this PR. No physical POP or heartbeat reversal has been derived.
+
+New discriminating question: replace general POP with a **typed selective undo** (e.g. only when terminal sign/axis is in a declared set D, or inverse only to a recorded branch provenance), and add a source-faithful sign/phase-weight or joint-relation BRC observer. Is its exact finite-horizon quotient still a suffix partition, or can a strictly smaller congruence be proved? Find a sharp finite certificate or an explicit two-history counterexample, with exact typed constraints and original BRC source version.
+
+Deliver: one precise theorem/negative witness; a proof with observer and all allowed future operations; integer/Fraction executable verifier and output; explicit scope/pins and next question; durable project research_notes publication with remote readback. Native owner/CLAIM/Result/Driver checks remain independent; the draft PR is evidence preservation only.

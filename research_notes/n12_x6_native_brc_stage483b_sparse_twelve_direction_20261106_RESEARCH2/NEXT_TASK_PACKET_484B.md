@@ -1,0 +1,17 @@
+# Stage484-B — Nonconstant common X6 prefix and the minimal future-equivalence key (Research2)
+
+Parent scientific source: Stage483-B in the Research2 Draft PR #1736, research_notes/n12_x6_native_brc_stage483b_sparse_twelve_direction_20261106_RESEARCH2/. Frozen scientific pins remain GLOBAL main@bf84bd7c61a2444b59b1da96be57df0e9ae47e53, Enterprise Math main@2af3fc484eb11060b69e0afc1b562bcaf5ad1419, P000 source blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Behavioral norms come from current main via docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context, not these scientific pins.
+
+## Parent problem
+In six-dimensional signed native X6 Cell space, find faithful, computable, minimal sufficient state for ordered primitive paths under future POP/APPEND. Keep six native axes, twelve signed directions, relative signed displacement, full directed adjacency counts, positional matching K and path provenance. Stage483-B's author theorem handles P=A^m, Q=A^m W A H A with |W|=k, |H|=u, m=2k+2, P POP/APPEND budgets k/k and Q budgets h/1. In a fixed complete initial observation fiber, proposed exact future key is (W,suffix_min(h,u)(H)); sparse directed Euler–positive-BRC counts populations, Boolean support and ranking. Source proof, actually run code, actual JSON and precise scope are published. Review status: UNREVIEWED / NOT_ADMITTED.
+
+## First next research action
+Replace the constant common prefix A^m by an arbitrary **fixed nonconstant** P=T of length m; set Q=T W A H A with the same budgets and observable quantities. The initial full observation now includes endpoint signed displacement and directed adjacency Θ for both T and Q, plus positional K. Determine by proof or strict counterexample whether future equivalence in this entire fiber remains exactly (W,suffix_min(h,u)(H)). Check specifically boundary edges T_last -> W_first and legal P POP-then-APPEND sequences.
+
+Start with m=4,k=1,u=2,T=ABGA (A=+E1, B=+E2, G=-E1) and h∈{0,1,2,3}. Exhaust W,H over {A,B,G} and partition by actual complete initial observer. Compare full legal 12-direction future operation trees under the same action word. If any two distinct keys behave identically, retain the smallest pair and identify the missing discriminating operation. If same key becomes distinguishable, retain the earliest operation witness and derive the next repair coordinate. If the theorem holds, prove the correspondence and adjust the exact sparse Euler boundary-count formula.
+
+## Independent route comparisons
+For sparse edge support s=3,...,10, measure exact source populations, W directed types, distinct residual R and all integer-operation costs; test whether support graph topology tightens C(u+s,s-1). Separately consider Q two APPENDs with explicit legal ordering, identifying whether this changes future-suffix sufficiency. Preserve both positive and negative scoped evidence.
+
+## Evidence and delivery
+Submit actual exact proof or refutation, executable program, output (with coverage and exact integer semantics), complexity accounting including representation, and specific next problem under the same Research2 PR branch. Observe real owner/identity/CLAIM/Result and readback rules; author-only evidence does not replace Source native acceptance. GitHub operational failure may use the user-designated confidential Drive handoff only when appropriate and not after a security or authorization denial.

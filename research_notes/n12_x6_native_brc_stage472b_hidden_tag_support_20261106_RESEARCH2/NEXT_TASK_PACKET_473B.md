@@ -1,0 +1,9 @@
+# Stage473-B next scientific task — joint two-POP/two-APPEND probes
+
+Read Stage472-B at the immutable commit and its executed source/evidence; keep science pinned to GLOBAL main bf84bd7c61a2444b59b1da96be57df0e9ae47e53, EM main 2af3fc484eb11060b69e0afc1b562bcaf5ad1419, P000 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Current normative rules are refreshed separately. This is an author-side handoff, not an authorized Task V2 CLAIM.
+
+Mother objective: classify ordered P/Q histories under complete native X6 observers and all legal future operations, preserving their original positive BRC branch multiplicities. Latest constructive frontier: Stage471-B covers 1<=t<=m-2 and Stage472-B covers m-1<=t<=n with polynomial deterministic support, masses and rank/unrank, conditioned on separately unreviewed Stage469-B future semantics.
+
+Next executable unit: choose 4<=m<n and original ternary +E1/+E2/+E3 histories, first A; fix complete six-axis endpoints, full directed 12x12 adjacencies and position-match K. Permit POP_P<=2, APPEND_P<=2, POP_Q<=h, APPEND_Q<=1; all twelve signed APPEND directions, all interleavings and removal of appended steps. Enumerate short initial fibers and exact future action trees. Find a pair with the same R469 but different future observation, giving full strings and a witness operation path, or prove sufficiency of a new typed repair. Then construct a source-preserving BRC support/population/rank algorithm for the new probe set; calculate state and bit complexity including preprocessing. Audit the Stage469 semantic premise independently before formal admission.
+
+Deliver a proven statement or strict counterexample, executed source, exact evidence, reproducible ranges, next unresolved question and durable GitHub readback, respecting actual native owner and Driver gates.

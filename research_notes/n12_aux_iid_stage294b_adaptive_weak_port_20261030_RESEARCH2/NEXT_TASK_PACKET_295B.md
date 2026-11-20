@@ -1,0 +1,15 @@
+# Stage295-B｜随机化共享端口的二标签联合可实现域与自适应未来语言
+
+Status: PORTABLE_RESEARCH_INPUT / UNREVIEWED / NOT_ADMITTED. Input is Stage294-B PROOF_STAGE294B.md, REPRO_STAGE294B.py and actually executed stdout in this research branch; scientific parent Stage293-B PR #1571 immutable 2ec0d172153641d3e4e7e85f84153150e336d33a. Frozen reads during Stage294-B: GLOBAL_KNOWLEDGE_V1 main@1da64e1589bd9a1b29ea40706df7e0189b657be5, Enterprise Math main@96da51b79be3604143e7ffd6e27eb4faa5d28083; refresh upon expiry. P000 and ACTIVE native X6 worldview remain unchanged.
+
+## Do not redo
+Three hidden states a,b,c, two actions, visible o(a)=o(b)=0, o(c)=1, initial mu=(1/2,1/2,0), have an exact 2-label weak Markov quotient valid under every visible-history-adaptive action policy; every all-state strong output-preserving quotient needs 3 labels. The fixed 2-label six-source repeated-coin example has unrestricted free-kernel LP risk 2/6, deterministic same-parameter-per-2-visits physical risk (17/8)/6, a strict normalized gap 1/48. However a rational mixture (49/64 at parameter 3/7, 15/64 at 1) realizes the LP optimum for the five pooled histories. THE GAP VANISHES WHEN THIS PORT RANDOMIZATION IS ALLOWED; do not mislabel the deterministic-only gap as a fully randomized BRC obstruction.
+
+## Exact next problem A
+Declare a small finite family of ordered source/history words, upstream branch weights, two labels, and adaptive future operations. Each true physical policy may first draw one GLOBAL SETTING with arbitrary rational mixing weights, and all repeated uses of the same port on that sample path must use the same parameter. Include relevant cross-label shared-port constraints and parameter-source correlations. Solve the **source-retaining** minimum weighted TV against the desired original kernels over this fully mixed physical class, compare against free per-label output-kernel LP, and prove either a strict *positive* gap or exact equality for a declared complete finite family. Require a global dual/conic/flat-moment certificate or exhaustive finite rational candidate proof; a grid or one deterministic parameter is insufficient.
+
+## Exact next problem B
+Expand the Stage294 weak quotient observer to include one finite source partition or hidden-state intervention; determine the minimum extra labels or exact propagated TV. Separate (i) pooled visible-only law, (ii) source-labelled law, and (iii) future intervention access. Preserve all nonzero path branches, initial zero-mass and newly reachable states. No X6/heartbeat native transfer without explicit correspondence.
+
+## Evidence and continuation
+Provide complete proof or rational counterexample, executable Fraction or certified symbolic checker, observed stdout, precise verification range, references and next question. Persist actual bytes to authorized Enterprise Math research surface and verify immutable GitHub readback. Source status from Stage294: native research_authority_granted=false, owner query CONTROL_QUOTA, no formal CLAIM/Result/Driver admission. Preserve Stage278-A N12 Bellman independent frontier.

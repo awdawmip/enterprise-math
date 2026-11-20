@@ -1,0 +1,9 @@
+# Stage399-B — symbolic BRC joint-fiber quotient counting
+
+Parent Stage398-B exact all-horizon recursive signature S_C and complete n=8 O_J fiber, Research2 PR #1736. Preserve frozen science EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419, GLOBAL bf84bd7c61a2444b59b1da96be57df0e9ae47e53, P000 original blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488.
+
+Exact current theorem: with all twelve signed native X6 APPEND directions and at most C inverse terminal-pair CANCELs, two complete current O_J observations are future-indistinguishable iff their recursive S_C signatures match. For C=2, one *complete* length-eight O_J fiber has five uniform length-five suffixes but exactly three minimal quotient states. Certified native 12-direction BRC endpoints N_8(6E1)=288, W_8^p(6E1)=20992. Source, signed trace factors and positive endpoint mass remain distinct.
+
+First discriminating problem: compute the distribution and number of S_C signatures for an input fiber specified symbolically by endpoint z, length m and directed joint-edge histogram J, without enumerating the entire set of Eulerian-trail words. Try an Euler trail/path transfer-matrix or residual-degree dynamic program with explicit start/end symbols; compare exact counts against exhaustive small fibers. Determine when distinct ordered joint-histogram constraints ensure a finite fiber and how the exact quotient count grows with m and C. Quantify cost: maintaining 144 directed counts under APPEND/CANCEL is O(1) sparse mutations given terminal provenance; initial materialization O(m), storing 144 counters O(144 log m) bits plus S_C DAG O(C^2) constant-size nodes.
+
+Publish source, exact algorithm or counterexample, finite verification range and explicit next question. Preserve current P000, source firewall and actual owner/CLAIM; author-side publication requires no false Source Result/Driver acceptance.

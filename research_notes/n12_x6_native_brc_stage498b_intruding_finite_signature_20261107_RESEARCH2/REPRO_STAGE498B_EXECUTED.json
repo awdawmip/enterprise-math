@@ -1,0 +1,186 @@
+{
+  "schema": "EM_STAGE498B_EXECUTED_V1",
+  "kind": "exact_integer_full_fiber_enumeration",
+  "date": "2026-11-07",
+  "signed_directions": 12,
+  "directed_pairs": 144,
+  "finite_alphabet": "ABC",
+  "max_word_length": 8,
+  "public_actions": [
+    "POP",
+    "SET_END_MINUS_2_C",
+    "INSERT_BEFORE_LAST2_C",
+    "DELETE_END_MINUS_1",
+    "DELETE_LAST_PUBLIC"
+  ],
+  "initial_provenance": "O",
+  "insert_provenance": "P",
+  "signature": "S_0=F; S_{h+1}=(F, ordered legal-action S_h successor signatures)",
+  "table": [
+    {
+      "length": 4,
+      "population": 81,
+      "classes": [
+        75,
+        81,
+        81,
+        81,
+        81
+      ],
+      "non_singleton_classes": [
+        6,
+        0,
+        0,
+        0,
+        0
+      ],
+      "non_singleton_population": [
+        12,
+        0,
+        0,
+        0,
+        0
+      ],
+      "largest_initial_F_fiber": 2
+    },
+    {
+      "length": 5,
+      "population": 243,
+      "classes": [
+        186,
+        243,
+        243,
+        243,
+        243
+      ],
+      "non_singleton_classes": [
+        51,
+        0,
+        0,
+        0,
+        0
+      ],
+      "non_singleton_population": [
+        108,
+        0,
+        0,
+        0,
+        0
+      ],
+      "largest_initial_F_fiber": 3
+    },
+    {
+      "length": 6,
+      "population": 729,
+      "classes": [
+        414,
+        711,
+        729,
+        729,
+        729
+      ],
+      "non_singleton_classes": [
+        207,
+        18,
+        0,
+        0,
+        0
+      ],
+      "non_singleton_population": [
+        522,
+        36,
+        0,
+        0,
+        0
+      ],
+      "largest_initial_F_fiber": 6
+    },
+    {
+      "length": 7,
+      "population": 2187,
+      "classes": [
+        840,
+        1908,
+        2133,
+        2187,
+        2187
+      ],
+      "non_singleton_classes": [
+        567,
+        261,
+        54,
+        0,
+        0
+      ],
+      "non_singleton_population": [
+        1914,
+        540,
+        108,
+        0,
+        0
+      ],
+      "largest_initial_F_fiber": 12
+    }
+  ],
+  "independent_bfs_pair_horizon_checks": 1602,
+  "witnesses": [
+    {
+      "a": "AABA",
+      "b": "ABAA",
+      "first_distinguishing_horizon": 1,
+      "detail": {
+        "trace": [
+          "POP"
+        ],
+        "reason": "observation",
+        "end_words": [
+          "AAB",
+          "ABA"
+        ]
+      }
+    },
+    {
+      "a": "CACCAA",
+      "b": "CCACAA",
+      "first_distinguishing_horizon": 2,
+      "detail": {
+        "trace": [
+          "POP",
+          "SET_END_MINUS_2_C"
+        ],
+        "reason": "observation",
+        "end_words": [
+          "CACCA",
+          "CCCCA"
+        ]
+      }
+    },
+    {
+      "a": "CACCAAA",
+      "b": "CCACAAA",
+      "first_distinguishing_horizon": 3,
+      "detail": {
+        "trace": [
+          "POP",
+          "POP",
+          "SET_END_MINUS_2_C"
+        ],
+        "reason": "observation",
+        "end_words": [
+          "CACCA",
+          "CCCCA"
+        ]
+      }
+    }
+  ],
+  "provenance_witness": {
+    "initial_word": "A",
+    "source_labels": [
+      "O",
+      "P"
+    ],
+    "different_legality_of": "DELETE_LAST_PUBLIC"
+  },
+  "verdict": "ALL_ASSERTIONS_PASSED",
+  "test_scope": "All 3^n initial O-labeled words n=4,5,6,7; all five public actions; horizons 0..4; independent exhaustive trace comparison on every same-F pair n<=6, horizons<=2."
+}

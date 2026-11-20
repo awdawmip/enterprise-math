@@ -1,0 +1,10 @@
+WEAK_ADAPTIVE_EXACT_PASS words=255 positive_observation_leaves=1793
+SOURCE_CONDITIONAL_ONE_STEP_TV=1/4; TWO_OUTPUT_WEAK_MIN_LABELS=2; STRONG_MIN_LABELS=3
+BERNOULLI_DETERMINISTIC_TWO_LABEL_LP_GAP_EXACT_PASS free=2 restricted=17/8 gap=1/8 normalized_gap=1/48
+PORT_RANDOMIZATION_GAP_CLOSES_EXACT_PASS mixture=(49/64 at 3/7, 15/64 at 1)
+PIECEWISE_CERTIFICATE:
+  [0,1/4] coeff=['25/8', '-4', '1'] interval_min=35/16
+  [1/4,1/2] coeff=['15/8', '2', '-3'] interval_min=17/8
+  [1/2,3/4] coeff=['7/8', '4', '-3'] interval_min=17/8
+  [3/4,1] coeff=['1/8', '2', '1'] interval_min=35/16
+STAGE294B_ADAPTIVE_WEAK_AND_TYPED_PORT_EXACT_PASS

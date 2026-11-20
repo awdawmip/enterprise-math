@@ -1,0 +1,338 @@
+{
+  "status": "STAGE413B_SHARP_ASYMMETRIC_BOUNDARY_PASS",
+  "exact_input": "P000 native X6 D=12 signed directions, A=+E1 B=-E1; pure path-formal observer",
+  "operation_trace": [
+    [
+      "POP_Q"
+    ],
+    [
+      "POP_Q"
+    ],
+    [
+      "CANCEL"
+    ]
+  ],
+  "P_four_necessary": {
+    "initial_pairs": [
+      [
+        "AABAAB",
+        "AAABAA"
+      ],
+      [
+        "ABAAAB",
+        "AAABAA"
+      ]
+    ],
+    "same_P_suffix3": "AAB",
+    "initial_K": 3,
+    "post_pairs": [
+      [
+        "AABA",
+        "AA"
+      ],
+      [
+        "ABAA",
+        "AA"
+      ]
+    ],
+    "post_K": [
+      2,
+      1
+    ]
+  },
+  "Q_five_necessary": {
+    "initial_pairs": [
+      [
+        "AAAAAAB",
+        "AABABAA"
+      ],
+      [
+        "AAAAAAB",
+        "ABAABAA"
+      ]
+    ],
+    "same_Q_suffix4": "ABAA",
+    "initial_K": 4,
+    "post_pairs": [
+      [
+        "AAAAA",
+        "AAB"
+      ],
+      [
+        "AAAAA",
+        "ABA"
+      ]
+    ],
+    "post_Q_histograms": [
+      [
+        [
+          "AA",
+          1
+        ],
+        [
+          "AB",
+          1
+        ]
+      ],
+      [
+        [
+          "AB",
+          1
+        ],
+        [
+          "BA",
+          1
+        ]
+      ]
+    ]
+  },
+  "F_n_transfer": [
+    {
+      "n": 5,
+      "total": 2,
+      "safe_suffix_4_5_states": 2,
+      "six_trace_observable_classes": 2,
+      "six_trace_class_sizes": [
+        2
+      ],
+      "dp_memo_states": 10,
+      "transfer_histogram": null
+    },
+    {
+      "n": 6,
+      "total": 6,
+      "safe_suffix_4_5_states": 6,
+      "six_trace_observable_classes": 6,
+      "six_trace_class_sizes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "dp_memo_states": 32,
+      "transfer_histogram": null
+    },
+    {
+      "n": 7,
+      "total": 12,
+      "safe_suffix_4_5_states": 12,
+      "six_trace_observable_classes": 8,
+      "six_trace_class_sizes": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "dp_memo_states": 68,
+      "transfer_histogram": {
+        "AAAA|AAABA": 1,
+        "AAAA|AABAA": 1,
+        "AAAA|ABAAA": 1,
+        "AAAA|BAABA": 1,
+        "AAAA|BABAA": 1,
+        "AABA|AAABA": 1,
+        "AABA|ABABA": 1,
+        "AABA|BAABA": 1,
+        "ABAA|AABAA": 1,
+        "ABAA|BABAA": 1,
+        "BAAA|ABAAA": 1,
+        "BAAA|ABABA": 1
+      }
+    },
+    {
+      "n": 8,
+      "total": 20,
+      "safe_suffix_4_5_states": 13,
+      "six_trace_observable_classes": 9,
+      "six_trace_class_sizes": [
+        2,
+        4,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        1
+      ],
+      "dp_memo_states": 113,
+      "transfer_histogram": null
+    },
+    {
+      "n": 9,
+      "total": 30,
+      "safe_suffix_4_5_states": 14,
+      "six_trace_observable_classes": 9,
+      "six_trace_class_sizes": [
+        6,
+        6,
+        4,
+        4,
+        4,
+        3,
+        1,
+        1,
+        1
+      ],
+      "dp_memo_states": 165,
+      "transfer_histogram": null
+    },
+    {
+      "n": 10,
+      "total": 42,
+      "safe_suffix_4_5_states": 14,
+      "six_trace_observable_classes": 9,
+      "six_trace_class_sizes": [
+        12,
+        8,
+        5,
+        5,
+        5,
+        4,
+        1,
+        1,
+        1
+      ],
+      "dp_memo_states": 218,
+      "transfer_histogram": null
+    },
+    {
+      "n": 12,
+      "total": 72,
+      "safe_suffix_4_5_states": 14,
+      "six_trace_observable_classes": 9,
+      "six_trace_class_sizes": [
+        30,
+        12,
+        7,
+        7,
+        7,
+        6,
+        1,
+        1,
+        1
+      ],
+      "dp_memo_states": 324,
+      "transfer_histogram": null
+    },
+    {
+      "n": 16,
+      "total": 156,
+      "safe_suffix_4_5_states": 14,
+      "six_trace_observable_classes": 9,
+      "six_trace_class_sizes": [
+        90,
+        20,
+        11,
+        11,
+        11,
+        10,
+        1,
+        1,
+        1
+      ],
+      "dp_memo_states": 536,
+      "transfer_histogram": null
+    },
+    {
+      "n": 20,
+      "total": 272,
+      "safe_suffix_4_5_states": 14,
+      "six_trace_observable_classes": 9,
+      "six_trace_class_sizes": [
+        182,
+        28,
+        15,
+        15,
+        15,
+        14,
+        1,
+        1,
+        1
+      ],
+      "dp_memo_states": 748,
+      "transfer_histogram": null
+    }
+  ],
+  "six_trace_library": [
+    [
+      [
+        "POP_Q"
+      ]
+    ],
+    [
+      [
+        "POP_Q"
+      ],
+      [
+        "POP_Q"
+      ]
+    ],
+    [
+      [
+        "POP_Q"
+      ],
+      [
+        "POP_Q"
+      ],
+      [
+        "CANCEL"
+      ]
+    ],
+    [
+      [
+        "POP_Q"
+      ],
+      [
+        "POP_Q"
+      ],
+      [
+        "APP",
+        "B",
+        "A"
+      ],
+      [
+        "CANCEL"
+      ]
+    ],
+    [
+      [
+        "POP_Q"
+      ],
+      [
+        "POP_Q"
+      ],
+      [
+        "APP",
+        "B",
+        "B"
+      ],
+      [
+        "CANCEL"
+      ]
+    ],
+    [
+      [
+        "POP_Q"
+      ],
+      [
+        "CANCEL"
+      ],
+      [
+        "POP_Q"
+      ]
+    ]
+  ],
+  "verification": "Exact integers; independent full path enumeration and Euler/K residual transfer for n=5..10; DP n=5,6,7,8,9,10,12,16,20. The generic all-horizon 4/5 sufficiency is a separate proof; computation only crosschecks particular witnesses/fibers.",
+  "author_review_status": "UNREVIEWED_NOT_ADMITTED"
+}

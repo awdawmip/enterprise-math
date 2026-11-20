@@ -1,0 +1,10 @@
+# Stage311-B — exact first breakpoint, or new global interval extension
+
+Use Stage310-B source/proof/repro/log in this directory and predecessor Stage309-B at fa9f94e70173cc8881edf54bd887f2cc7a06869f. Frozen positive-rational source (S,J,W,Y): fair S; J matches with 7/8, W matches with 3/4, Y conditional Bernoulli p0=1/4,p1=3/4. Source-pair masses for private h=000,001,010,011,100,101,110,111 are (63,1),(21,3),(21,3),(7,9),(9,7),(3,21),(3,21),(1,63), divided by 256. Public G=(W,Y); adaptive H/F policies on public histories, three locked F visits; public P and original (S,J,G)-tagged T observers are distinct. All-F is worst for both by source-preserving data processing. All eight t_h real rates in [0,1] remain unconstrained.
+
+**Verified author frontier:** Joint MAP P0=11/256 and T*=77/1024. Stage309-B first established exact two-branch single-fiber Pareto law for epsilon<=1/10000. Stage310-B proved it for the larger epsilon<=9/20800, by uniform radius r=9/400 and the exact four per-word sign inequalities. In this full eight-dimensional interval,
+F_P(P0-epsilon)=T*+g(q^-1(epsilon)), q(u)=9u/128+3u²/32-u³/8, g(u)=117u/4096-123u²/1024+23u³/256. Exactly two reflected global minimizers for epsilon>0: adjust only h100 or h011.
+
+**New smallest question:** Find and isolate the first active-set breakpoint epsilon_c>9/20800, using exact global exclusion, or certify a strictly larger interval via a sharper three-bit-product TV lower bound and per-fiber public sign inequalities. The coarse localization max|t-t_MAP|<=52epsilon drives current bound; sharpen it without changing observer scopes. Floating optimization alone does not prove first-breakpoint globality. Provide source-weight/provenance-preserving exact rational/real-algebraic proof or certified interval evidence.
+
+**Status:** PORTABLE_AUTHOR_PROOF / EXACT_RATIONAL_EXECUTED / UNREVIEWED / NOT_ADMITTED; no native CLAIM or Source Result from this writer. Independent native P000 X6 paths, triadic closure, heartbeat time and registered six-field final Cell address embedding remain a separate proof obligation.

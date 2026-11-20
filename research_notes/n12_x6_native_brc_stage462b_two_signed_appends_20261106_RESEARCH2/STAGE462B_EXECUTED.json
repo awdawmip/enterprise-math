@@ -1,0 +1,193 @@
+{
+  "stage": "462B",
+  "date": "2026-11-06",
+  "model": "native signed X6 binary isolated defects, two POP each, two P APPEND, zero or one Q APPEND",
+  "arithmetic": "exact positive integer BRC",
+  "executed_local_independent": true,
+  "repository_reproducer": "STAGE462B.py is a same-mathematics adaptation of prior Stage461B.py; not byte-identical to independently executed local script",
+  "cases": [
+    [
+      2,
+      3,
+      0,
+      2,
+      2,
+      2,
+      0,
+      2355
+    ],
+    [
+      2,
+      4,
+      0,
+      3,
+      3,
+      3,
+      0,
+      3768
+    ],
+    [
+      3,
+      4,
+      0,
+      5,
+      6,
+      6,
+      1,
+      6280
+    ],
+    [
+      3,
+      5,
+      0,
+      9,
+      10,
+      10,
+      1,
+      10205
+    ],
+    [
+      3,
+      6,
+      0,
+      10,
+      16,
+      16,
+      7,
+      16485
+    ],
+    [
+      3,
+      7,
+      0,
+      12,
+      24,
+      24,
+      21,
+      25120
+    ],
+    [
+      4,
+      5,
+      0,
+      8,
+      15,
+      15,
+      11,
+      16328
+    ],
+    [
+      4,
+      6,
+      0,
+      13,
+      24,
+      24,
+      15,
+      26376
+    ],
+    [
+      4,
+      7,
+      0,
+      13,
+      36,
+      36,
+      49,
+      40192
+    ],
+    [
+      5,
+      6,
+      0,
+      14,
+      40,
+      36,
+      69,
+      42861
+    ],
+    [
+      5,
+      7,
+      0,
+      22,
+      60,
+      54,
+      94,
+      65312
+    ],
+    [
+      3,
+      5,
+      1,
+      9,
+      10,
+      10,
+      1,
+      132665
+    ],
+    [
+      3,
+      6,
+      1,
+      10,
+      16,
+      16,
+      7,
+      214305
+    ]
+  ],
+  "cases_schema": [
+    "m",
+    "n",
+    "rQ",
+    "fibers",
+    "histories",
+    "classes",
+    "within_fiber_pairs",
+    "future_states"
+  ],
+  "totals": {
+    "fibers": 130,
+    "histories": 262,
+    "classes": 252,
+    "within_fiber_pairs": 276,
+    "future_states": 602252
+  },
+  "large": [
+    {
+      "m": 8,
+      "n": 10,
+      "kP": 2,
+      "kQ": 2,
+      "d": 1,
+      "qF": 4,
+      "mass": "20",
+      "rank_checks": 3
+    },
+    {
+      "m": 64,
+      "n": 80,
+      "kP": 15,
+      "kQ": 17,
+      "d": 1,
+      "qF": 49,
+      "mass": "5061384194832966",
+      "rank_checks": 3
+    }
+  ],
+  "strict_witness": {
+    "P": "AAA",
+    "Q1": "AAAABAAAA",
+    "Q2": "AAAAABAAA",
+    "trace": [
+      "APPEND_P(+E1)",
+      "APPEND_P(+E1)"
+    ],
+    "K_after": [
+      4,
+      5
+    ]
+  },
+  "passed": true
+}

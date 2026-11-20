@@ -1,0 +1,744 @@
+{
+  "marker": "STAGE433B_ADJACENT_BUDGET_SPLIT_EXACT_PASS",
+  "date": "2026-11-04",
+  "nativeDirections": 12,
+  "independentBruteP": 248832,
+  "independentBruteQ": 144,
+  "verifiedFullObserverFiber": [
+    {
+      "P": "AAABA",
+      "Q": "CC"
+    },
+    {
+      "P": "AABAA",
+      "Q": "CC"
+    },
+    {
+      "P": "ABAAA",
+      "Q": "CC"
+    }
+  ],
+  "initialObserver": {
+    "lengths": [
+      5,
+      2
+    ],
+    "xP": [
+      3,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "xQ": [
+      0,
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "JP": [
+      [
+        "AA",
+        2
+      ],
+      [
+        "AB",
+        1
+      ],
+      [
+        "BA",
+        1
+      ]
+    ],
+    "JQ": [
+      [
+        "CC",
+        1
+      ]
+    ],
+    "K": 0
+  },
+  "rows": [
+    {
+      "p": 0,
+      "r": 1,
+      "actionWords": 13,
+      "q": 2,
+      "fixedBits": 1,
+      "classes": [
+        {
+          "boundary": "C|A",
+          "mass": 2
+        },
+        {
+          "boundary": "C|B",
+          "mass": 1
+        }
+      ],
+      "equalHistoryPairs": 1,
+      "distinguishableHistoryPairs": 2
+    },
+    {
+      "p": 1,
+      "r": 1,
+      "actionWords": 38,
+      "q": 3,
+      "fixedBits": 2,
+      "classes": [
+        {
+          "boundary": "CC|AA",
+          "mass": 1
+        },
+        {
+          "boundary": "CC|AB",
+          "mass": 1
+        },
+        {
+          "boundary": "CC|BA",
+          "mass": 1
+        }
+      ],
+      "equalHistoryPairs": 0,
+      "distinguishableHistoryPairs": 3
+    },
+    {
+      "p": 0,
+      "r": 2,
+      "actionWords": 157,
+      "q": 3,
+      "fixedBits": 2,
+      "classes": [
+        {
+          "boundary": "C|AA",
+          "mass": 1
+        },
+        {
+          "boundary": "C|AB",
+          "mass": 1
+        },
+        {
+          "boundary": "C|BA",
+          "mass": 1
+        }
+      ],
+      "equalHistoryPairs": 0,
+      "distinguishableHistoryPairs": 3
+    },
+    {
+      "p": 1,
+      "r": 2,
+      "actionWords": 614,
+      "q": 3,
+      "fixedBits": 2,
+      "classes": [
+        {
+          "boundary": "CC|AAB",
+          "mass": 1
+        },
+        {
+          "boundary": "CC|ABA",
+          "mass": 1
+        },
+        {
+          "boundary": "CC|BAA",
+          "mass": 1
+        }
+      ],
+      "equalHistoryPairs": 0,
+      "distinguishableHistoryPairs": 3
+    }
+  ],
+  "comparedPairActionWords": 55,
+  "strictWitnesses": {
+    "expandedPop": {
+      "actions": [
+        "POP",
+        "APPEND:A"
+      ],
+      "first": [
+        {
+          "Q": "CC",
+          "O": {
+            "lengths": [
+              5,
+              2
+            ],
+            "xP": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "xQ": [
+              0,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            "JP": [
+              [
+                "AA",
+                2
+              ],
+              [
+                "AB",
+                1
+              ],
+              [
+                "BA",
+                1
+              ]
+            ],
+            "JQ": [
+              [
+                "CC",
+                1
+              ]
+            ],
+            "K": 0
+          }
+        },
+        {
+          "Q": "C",
+          "O": {
+            "lengths": [
+              5,
+              1
+            ],
+            "xP": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "xQ": [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "JP": [
+              [
+                "AA",
+                2
+              ],
+              [
+                "AB",
+                1
+              ],
+              [
+                "BA",
+                1
+              ]
+            ],
+            "JQ": [],
+            "K": 0
+          }
+        },
+        {
+          "Q": "CA",
+          "O": {
+            "lengths": [
+              5,
+              2
+            ],
+            "xP": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "xQ": [
+              1,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "JP": [
+              [
+                "AA",
+                2
+              ],
+              [
+                "AB",
+                1
+              ],
+              [
+                "BA",
+                1
+              ]
+            ],
+            "JQ": [
+              [
+                "CA",
+                1
+              ]
+            ],
+            "K": 1
+          }
+        }
+      ],
+      "second": [
+        {
+          "Q": "CC",
+          "O": {
+            "lengths": [
+              5,
+              2
+            ],
+            "xP": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "xQ": [
+              0,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            "JP": [
+              [
+                "AA",
+                2
+              ],
+              [
+                "AB",
+                1
+              ],
+              [
+                "BA",
+                1
+              ]
+            ],
+            "JQ": [
+              [
+                "CC",
+                1
+              ]
+            ],
+            "K": 0
+          }
+        },
+        {
+          "Q": "C",
+          "O": {
+            "lengths": [
+              5,
+              1
+            ],
+            "xP": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "xQ": [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "JP": [
+              [
+                "AA",
+                2
+              ],
+              [
+                "AB",
+                1
+              ],
+              [
+                "BA",
+                1
+              ]
+            ],
+            "JQ": [],
+            "K": 0
+          }
+        },
+        {
+          "Q": "CA",
+          "O": {
+            "lengths": [
+              5,
+              2
+            ],
+            "xP": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "xQ": [
+              1,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "JP": [
+              [
+                "AA",
+                2
+              ],
+              [
+                "AB",
+                1
+              ],
+              [
+                "BA",
+                1
+              ]
+            ],
+            "JQ": [
+              [
+                "CA",
+                1
+              ]
+            ],
+            "K": 0
+          }
+        }
+      ]
+    },
+    "expandedAppend": {
+      "actions": [
+        "APPEND:A",
+        "APPEND:B"
+      ],
+      "first": [
+        {
+          "Q": "CC",
+          "O": {
+            "lengths": [
+              5,
+              2
+            ],
+            "xP": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "xQ": [
+              0,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            "JP": [
+              [
+                "AA",
+                2
+              ],
+              [
+                "AB",
+                1
+              ],
+              [
+                "BA",
+                1
+              ]
+            ],
+            "JQ": [
+              [
+                "CC",
+                1
+              ]
+            ],
+            "K": 0
+          }
+        },
+        {
+          "Q": "CCA",
+          "O": {
+            "lengths": [
+              5,
+              3
+            ],
+            "xP": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "xQ": [
+              1,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            "JP": [
+              [
+                "AA",
+                2
+              ],
+              [
+                "AB",
+                1
+              ],
+              [
+                "BA",
+                1
+              ]
+            ],
+            "JQ": [
+              [
+                "CA",
+                1
+              ],
+              [
+                "CC",
+                1
+              ]
+            ],
+            "K": 1
+          }
+        },
+        {
+          "Q": "CCAB",
+          "O": {
+            "lengths": [
+              5,
+              4
+            ],
+            "xP": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "xQ": [
+              0,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            "JP": [
+              [
+                "AA",
+                2
+              ],
+              [
+                "AB",
+                1
+              ],
+              [
+                "BA",
+                1
+              ]
+            ],
+            "JQ": [
+              [
+                "AB",
+                1
+              ],
+              [
+                "CA",
+                1
+              ],
+              [
+                "CC",
+                1
+              ]
+            ],
+            "K": 2
+          }
+        }
+      ],
+      "second": [
+        {
+          "Q": "CC",
+          "O": {
+            "lengths": [
+              5,
+              2
+            ],
+            "xP": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "xQ": [
+              0,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            "JP": [
+              [
+                "AA",
+                2
+              ],
+              [
+                "AB",
+                1
+              ],
+              [
+                "BA",
+                1
+              ]
+            ],
+            "JQ": [
+              [
+                "CC",
+                1
+              ]
+            ],
+            "K": 0
+          }
+        },
+        {
+          "Q": "CCA",
+          "O": {
+            "lengths": [
+              5,
+              3
+            ],
+            "xP": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "xQ": [
+              1,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            "JP": [
+              [
+                "AA",
+                2
+              ],
+              [
+                "AB",
+                1
+              ],
+              [
+                "BA",
+                1
+              ]
+            ],
+            "JQ": [
+              [
+                "CA",
+                1
+              ],
+              [
+                "CC",
+                1
+              ]
+            ],
+            "K": 1
+          }
+        },
+        {
+          "Q": "CCAB",
+          "O": {
+            "lengths": [
+              5,
+              4
+            ],
+            "xP": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "xQ": [
+              0,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            "JP": [
+              [
+                "AA",
+                2
+              ],
+              [
+                "AB",
+                1
+              ],
+              [
+                "BA",
+                1
+              ]
+            ],
+            "JQ": [
+              [
+                "AB",
+                1
+              ],
+              [
+                "CA",
+                1
+              ],
+              [
+                "CC",
+                1
+              ]
+            ],
+            "K": 1
+          }
+        }
+      ]
+    }
+  },
+  "proofScope": "complete three-history native-X6 observer fiber and bounded future words; general refinement is proved separately"
+}
