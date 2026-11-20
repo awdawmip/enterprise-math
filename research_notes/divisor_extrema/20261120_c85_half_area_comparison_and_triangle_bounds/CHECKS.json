@@ -1,0 +1,62 @@
+{
+  "schema": "C85_REPRODUCTION_CHECKS_V1",
+  "status": "PASS",
+  "checked_at_utc": "2026-11-20T04:04:45.988918+00:00",
+  "python": "3.12.14",
+  "sympy": "1.14.0",
+  "groups_recomputed": 6,
+  "groups": [
+    {
+      "group": "half_area",
+      "status": "PASS",
+      "script": "position/certify_half_area.py",
+      "script_sha256": "91d7c8ae95b74de5ee8245771bddd3fea636f068d69c3f3acf44c964e3c5ee45",
+      "result": "position/half_area_certificate.json",
+      "result_sha256": "e88125a805ae66adaa85210777a20bac3639bda58a6e39d0d8af318ba588f42d"
+    },
+    {
+      "group": "square",
+      "status": "PASS",
+      "script": "position/verify_square_lattice.py",
+      "script_sha256": "bdfa029b33868d1aa890f916fa09cb484d5fab5f9de06829675797f62df4ff2c",
+      "result": "position/square_lattice_certificate.json",
+      "result_sha256": "f4ff05ac97d3dcda4bdc125c096d2f845b434871b57c4a84e05a9d016f6581d1"
+    },
+    {
+      "group": "cusp",
+      "status": "PASS",
+      "script": "lattice/verify_cusp.py",
+      "script_sha256": "7a271e3052e4104355174185381218c4669da7544f690762220c3648ff4a41b0",
+      "result": "lattice/cusp_checks.json",
+      "result_sha256": "06a9457f21fc9245b48cbd1ea4ce9d7f51c367effebb55e5984884e6e4234f7a"
+    },
+    {
+      "group": "compact",
+      "status": "PASS",
+      "script": "lattice/verify_compact_reduction.py",
+      "script_sha256": "53e9db58b7db499a3e3b3b4f99cd55754bae596dc2e9c626a37f96efd3145a2f",
+      "result": "lattice/compact_reduction_checks.json",
+      "result_sha256": "05699f61c45ec2b709f6ef3feebd5e9fe622f39a2c0c942431a5ce65c41ccaf5"
+    },
+    {
+      "group": "endpoint",
+      "status": "PASS",
+      "script": "endpoint/verify_endpoint.py",
+      "script_sha256": "fa70c92fbbcf1c99d3f977f19531c7a5fe295284c508d9888e2a5ddcda52993f",
+      "result": "endpoint/endpoint_checks.json",
+      "result_sha256": "169ca968007fb31df53115bd63900f8a8f5885e011e12d17b8e5e612470417d8"
+    },
+    {
+      "group": "triangle",
+      "status": "PASS",
+      "script": "triangle/verify_triangle85.py",
+      "script_sha256": "afa03b2ed9131b9b7de8656f40e8a3d6701ff600f7bada136afe356e8147edae",
+      "result": "triangle/triangle85_checks.json",
+      "result_sha256": "c58c55068d74762b136a0d9d7af8605c51ab34f5445a59c419b1b396655330bf"
+    }
+  ],
+  "integral_mesh_regenerated_by_this_driver": false,
+  "saved_final_integral_certificate": "triangle/parallelogram_certificate.json",
+  "saved_final_integral_certificate_sha256": "526e8fe48b3d075e8f66c9dbf8279157395cc02f30b05d1bc1ec81cd9ea6ed91",
+  "scope": "Exact algebra, finite cases, certificate sums and code-byte bindings. General proofs are separate Markdown files; not a formal proof checker or external peer review."
+}

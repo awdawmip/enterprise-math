@@ -1,0 +1,103 @@
+{
+  "status": "proved_with_exact_rational_bounds",
+  "arithmetic": "fractions.Fraction; positive series geometric tails; alternating atan tails; certificate endpoints outward to 160 binary fractional bits",
+  "series_terms": {
+    "K": 96,
+    "log": 96,
+    "atan": 48
+  },
+  "K_half": {
+    "lower": {
+      "numerator": "101031503353739933694846848113790048014605773491",
+      "denominator": "1461501637330902918203684832716283019655932542976"
+    },
+    "upper": {
+      "numerator": "101031503353739933767875394632958449670175160827",
+      "denominator": "1461501637330902918203684832716283019655932542976"
+    },
+    "outward_decimal": [
+      "0.069128559813487975",
+      "0.069128559813487976"
+    ]
+  },
+  "Q_quarter": {
+    "lower": {
+      "numerator": "473466925344768197871474247474038780332937785891",
+      "denominator": "1461501637330902918203684832716283019655932542976"
+    },
+    "upper": {
+      "numerator": "118366731336192049467868561868509695083234446473",
+      "denominator": "365375409332725729550921208179070754913983135744"
+    },
+    "outward_decimal": [
+      "0.323959216501082268",
+      "0.323959216501082269"
+    ]
+  },
+  "QK_half": {
+    "lower": {
+      "numerator": "16365043334202027241411610805599441265885721757",
+      "denominator": "730750818665451459101842416358141509827966271488"
+    },
+    "upper": {
+      "numerator": "32730086668404054506481492323761516662556487953",
+      "denominator": "1461501637330902918203684832716283019655932542976"
+    },
+    "outward_decimal": [
+      "0.022394834075025766",
+      "0.022394834075025767"
+    ]
+  },
+  "quarter_gap_numerator": {
+    "lower": {
+      "numerator": "2580348260828195760510723891848836367965326025",
+      "denominator": "730750818665451459101842416358141509827966271488"
+    },
+    "upper": {
+      "numerator": "5160696521656391544679718496260306866715696489",
+      "denominator": "1461501637330902918203684832716283019655932542976"
+    },
+    "outward_decimal": [
+      "0.003531091850900159",
+      "0.003531091850900160"
+    ]
+  },
+  "uniform_position_range_bracket": {
+    "lower": {
+      "numerator": "1836741692850343254471205561640347526576247431",
+      "denominator": "182687704666362864775460604089535377456991567872"
+    },
+    "upper": {
+      "numerator": "459185423212585826525482599001328553195846499",
+      "denominator": "45671926166590716193865151022383844364247891968"
+    },
+    "outward_decimal": [
+      "0.010053997318564651",
+      "0.010053997318564653"
+    ]
+  },
+  "weighted_high_area_gap_lower_formula": {
+    "lower": {
+      "numerator": "994673358254847050529992654098684358802922881",
+      "denominator": "730750818665451459101842416358141509827966271488"
+    },
+    "upper": {
+      "numerator": "994673358254847050657491750220481082277420797",
+      "denominator": "730750818665451459101842416358141509827966271488"
+    },
+    "outward_decimal": [
+      "0.001361166259206372",
+      "0.001361166259206373"
+    ]
+  },
+  "interpretation": {
+    "weighted_gap": "(1/20) integral_.5^infty (F_quarter-F_mid) a^(-19/20) da is at least the displayed lower formula",
+    "global_sufficient_condition": "(1/20) integral_0^.5 (F_mid-F_quarter) a^(-19/20) da < 1361/1000000"
+  },
+  "strict_tests": [
+    "QK_half < 22395/1000000 < 7/270",
+    "quarter gap numerator > 3531/1000000",
+    "uniform position range bracket > 10053/1000000",
+    "weighted high area gap lower formula > 1361/1000000"
+  ]
+}
