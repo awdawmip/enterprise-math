@@ -1,0 +1,122 @@
+{
+  "schema": "PREFIX956B_R6_Q19_JOINT_FIBER_AUDIT_V1",
+  "scientific_input_commit": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "p": 19,
+  "core_pair": [
+    21,
+    23
+  ],
+  "source": "PREFIX955_NONDIAGONAL_IDS.bin",
+  "source_sha256": "1caec71f97ddb97c60c8506629f65651f0f3030b3526aeca30195948ee0cff75",
+  "input_pairs": 6203,
+  "all_input_pairs_source_verified": true,
+  "direct_source_bit_tests": 4478566,
+  "per_gap_joint_named_witness_combinations": {
+    "0": 6,
+    "1": 614,
+    "2": 6509,
+    "3": 1286,
+    "4": 231,
+    "5": 3,
+    "6": 0
+  },
+  "per_gap_distinct_quotient_pairs_sum": {
+    "0": 6,
+    "1": 442,
+    "2": 4724,
+    "3": 839,
+    "4": 190,
+    "5": 3,
+    "6": 0
+  },
+  "total_joint_named_witness_combinations": 8649,
+  "joint_named_multiplicity_histogram_per_moduli_pair": {
+    "1": 4302,
+    "2": 1685,
+    "4": 200,
+    "6": 2,
+    "7": 1,
+    "8": 7,
+    "9": 1,
+    "10": 1,
+    "11": 1,
+    "20": 1,
+    "24": 1,
+    "28": 1
+  },
+  "gap_mask_histogram": {
+    "1": 6,
+    "2": 441,
+    "4": 4723,
+    "6": 1,
+    "8": 839,
+    "16": 190,
+    "32": 3
+  },
+  "multi_gap_pairs": [
+    {
+      "a": 278529,
+      "b": 290817,
+      "gaps": {
+        "1": 1,
+        "2": 1
+      }
+    }
+  ],
+  "single_core_nonzero_double_fibers": {
+    "21": 1058,
+    "23": 1029
+  },
+  "single_core_zero_offset_fibers": {
+    "21": 9,
+    "23": 7
+  },
+  "moduli_pairs_with_at_least_one_single_core_zero_offset": 16,
+  "largest_total_named_joint_multiplicity_moduli_pair": [
+    [
+      475165,
+      344085
+    ],
+    28
+  ],
+  "largest_pair_complete_fibers": {
+    "core21": {
+      "t": 29,
+      "d": 0,
+      "source_count": 14
+    },
+    "core23": {
+      "t": 31,
+      "d": 262160,
+      "source_count": 2,
+      "source_pairs": [
+        [
+          18,
+          4
+        ],
+        [
+          4,
+          18
+        ]
+      ]
+    }
+  },
+  "total_single_core_quotient_fibers_count_by_type": {
+    "(21, 1, False)": 5137,
+    "(21, 2, False)": 1058,
+    "(21, 6, True)": 2,
+    "(21, 7, True)": 1,
+    "(21, 8, True)": 3,
+    "(21, 11, True)": 1,
+    "(21, 12, True)": 1,
+    "(21, 14, True)": 1,
+    "(23, 1, False)": 5167,
+    "(23, 2, False)": 1029,
+    "(23, 8, True)": 4,
+    "(23, 9, True)": 1,
+    "(23, 10, True)": 2
+  },
+  "finite_check": "EXACT_DIRECT_XOR_FULL_6203_PAIR_CENSUS_FORMULA_PER_REALIZED_FIBER_MATCHED",
+  "author_proof": "ZERO_RESIDUAL_RATIO_AND_UNIFORM_6_OR_P_PLUS_3_BOUND",
+  "review_status": "AUTHOR_PROOF_AND_EXACT_COMPUTATION; INDEPENDENT_REVIEW_PENDING"
+}
