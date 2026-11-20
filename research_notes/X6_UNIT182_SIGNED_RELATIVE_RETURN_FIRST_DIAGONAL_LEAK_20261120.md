@@ -30,7 +30,7 @@ At the first possible discrepancy \(M=6\), the two **nonzero diagonal** endpoint
 \boxed{R_6(0)=19,920+720+720=21,360,\qquad
  R_6(0)-S_6(0)=1,440.}
 \]
-Here the V9 positive-only `Return_6=720` counts exactly the \(+\mathbf1\) lift, **not** the signed full-spatial zero return; the negative counterpart supplies the other 720. The quantity 1,440 is a count of **distinct positive Path-formal witnesses erased by the observer**, not a signed/amplitude cancellation or subtraction of positive N-BRC multiplicities.
+Here the V9 positive-only `Return_6=720` counts exactly the \(+\mathbf1\) lift, **not** the signed full-spatial zero return; the negative counterpart supplies the other 720. The quantity 1,440 counts **distinct ordered signed-axis path witnesses whose nonzero full endpoints collapse to the relative zero** (720 all-positive, 720 all-negative). It is not signed/amplitude cancellation or subtraction of positive N-BRC multiplicities.
 
 More generally, for every \(k\ge1\), the two extremal endpoints \(z=\pm k\mathbf1\) occur at length \(6k\), and each has exactly \((6k)!/(k!)^6\) shortest ordered words. Therefore
 \[
