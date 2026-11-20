@@ -1,0 +1,130 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "historical_researcher_id": "EM-X6-FB6990",
+  "historical_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "historical_claim_id": "MCP-e2bd88a10565daf08b1d46f5",
+  "historical_run_id": "RUN-b2c1fe16e9806ecf043c89a0",
+  "historical_generation_only": 2,
+  "current_protected_writer_authorization_verified": false,
+  "highest_author_frontier": 186,
+  "latest_unit": {
+    "unit": 186,
+    "status": "AUTHOR_PROVED / EXACT_INTEGER_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+    "theorem": "For M-step signed-six-axis q(z)=can6(z) relative endpoint, sort a, B_t=2sum(top t a)-sum(a). If parity M=sum(a) mod2 and B3<=M, feasible native depth H_M(a) is the exact integer interval [max_{0<=t<=2}ceil((B_t-M)/(6-2t)), min_{4<=t<=6}floor((M-B_t)/(2t-6))], subject to lower<=upper. Source-equivalent frozen A3 unit-capacity consumer recovers z from (M,Z,rank).",
+    "cost": "Fixed six axes: six sort coordinates, constant count linear integer arithmetic, six divisions by small constants, exact O(log(M+2)) bit operations on feasible horizon-M inputs. Not a native benchmark runtime improvement claim.",
+    "proof": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/X6_UNIT186_EXACT_AFFINE_DEPTH_FIBER_INVERSION_20261120.md",
+      "source_commit": "2f3e5368023afc96f2f1cd0e4f2651e2a74eb163",
+      "git_blob_sha1": "3c7250dc0cf06679fbda10becff70ad7a3e24db8",
+      "sha256": "1301d2d4ece112f93c3f784d7cd30cb543bce40cbecc8aae94303b516b076f83",
+      "readback_verified": true
+    },
+    "checker": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_checks/X6_UNIT186_EXACT_FIBER_ENDPOINT_ALGORITHM_CHECK_20261120.py",
+      "source_commit": "610f076e4111d409a4b58993b256fb5529073322",
+      "git_blob_sha1": "5adefe754862e11215ac58b980f8e9dbadc43038",
+      "sha256": "e3ddb832a6d5f1b8980ec888c6548ab2a540c5eb671d6dbd178039cee760f279",
+      "readback_verified": true
+    },
+    "certificate": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_checks/X6_UNIT186_EXACT_FIBER_ENDPOINT_ALGORITHM_RESULTS_20261120.json",
+      "source_commit": "a2aeade1f14f6f78d1fd339d92f33aff3ad36174",
+      "git_blob_sha1": "d8bce3f9c3b6f59d53492eae1b183d510431e9b0",
+      "sha256": "2d9879817f8fc18dc322fd34637fcc458a2a12ffb6d40d58938ed5f59a60d61d",
+      "readback_verified": true
+    },
+    "checks": {
+      "all_reachable_endpoints_M0_to_10": 184690,
+      "relative_fibers_M0_to_10": 97306,
+      "source_formula_field_recoveries": 184690,
+      "large_integer_cases_to_1e15": 3000,
+      "violations": 0,
+      "python_modes": [
+        "normal",
+        "-O",
+        "-OO"
+      ],
+      "result_identical_SHA256": true,
+      "original_R063_benchmark_reexecuted": false
+    },
+    "science_pin_preserved": true,
+    "formal_review": "UNREVIEWED / NOT_ADMITTED"
+  },
+  "prior_consumed": {
+    "unit184": "research_notes/X6_UNIT184_SHARP_FINITE_HORIZON_NATIVE_DEPTH_BITS_AND_RELATION_FIELD_RECOVERY_20261120.md@21e5101b667e97220d42ab2538f88310fc632d84",
+    "unit185": "research_notes/X6_UNIT185_ONE_BIT_STREAMING_RELATIVE_DEPTH_RANK_UPDATE_20261120.md@8c32c03ba91b2260cb7bf65e3a65d166ddabc97c",
+    "unit183": "research_notes/X6_UNIT183_SIGNED_OBSERVER_TRACE_LIFT_AND_WEIGHTED_DESCENT_20261120.md@4638f18930a9d89c327fbadc499f5a6c94d27ca4",
+    "unit180_181": "Historical frozen 312 tests and 60 August notes audited, do not repeat",
+    "original_R063": "research_notes/X6_R063_ORIGINAL_SIX_BLOB_NATIVE_REPLAY_20261116_0631_REPORT.md@0494585a4542a722d836c8e781d935ab9ca6ca96; 17/17 original acceptance, 512/512 regression already executed"
+  },
+  "research_activity": {
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "event_id": "onhour-20261120-1437-x6-unit186-exact-affine-depth-inversion-v1",
+    "event_count": 205,
+    "record_path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+    "source_commit": "8748428ec44dbec9ecd4b75402308860362a0eae",
+    "git_blob_sha1": "6281987f0cd8936da54797e560dec75007bba6ad",
+    "readback_verified": true,
+    "previous_events_preserved": true
+  },
+  "native_control": {
+    "last_authenticated_scientific_unit": 174,
+    "last_confirmed_source_commit": "71aa6b7f812c1a6dd746f9c21d31d3f1828d88ae",
+    "author_units_pending_native_semantic_progress": [
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186
+    ],
+    "old_author_units_historical_association_pending": [
+      149,
+      150,
+      151,
+      152
+    ],
+    "original_own_resume_request_id": "onhour-20261120-0812-x6-own-run-after174-resume-v1",
+    "original_own_resume_outcome": "SUCCEEDED/RUN_READY AS OF 2026-11-20T00:20:55Z; historical, not current authorization",
+    "latest_consumed_continuation_request_id": "onhour-20261120-1402-x6-current-exact-cont-read-v1",
+    "latest_consumed_continuation_outcome": "SUCCEEDED/TYPED_FRONTIER_REQUIRED, read-only; observed source drift between admission c630a0 and completion a49030",
+    "same_lane_recovery_status": "em_site_control recovery_status for original SID returned historical runs, includes original 14:02 continuation; metadata only",
+    "gateway_version_read": "0.6.11",
+    "current_valid_private_writing_capability": "NOT_VERIFIED_FOR_THIS_TRUE_LANE",
+    "unit186_native_progress": "NOT_SUBMITTED",
+    "release_handoff": "NOT_ATTEMPTED_WITHOUT_CURRENT_WINNING_OWNER",
+    "formal_result_independent_review": "UNREVIEWED / NOT_ADMITTED"
+  },
+  "unresolved": {
+    "LP011_historical_bad_native_argmax": "UNRESOLVED_PROVENANCE; exact offending commit:path:line and typed real consumer missing",
+    "LP019_historical_bad_positive_N_BRC_subtraction": "UNRESOLVED_PROVENANCE; exact offending commit:path:line and typed real consumer missing",
+    "native_semantic_association": "Legacy Units149–152 and Author175–186 pending legitimate same-lane native authorization",
+    "independent_driver_review": "UNREVIEWED / NOT_ADMITTED",
+    "scientific": "Source test actual absolute-state/grand-total-dependent consumer for whether it factors through (M,Z) or needs Unit184/186 rank, and establish minimal residual. No automatic P000 change."
+  },
+  "do_not_repeat": [
+    "Original R063 native six-file benchmark 17/17 + 512/512 already complete",
+    "Unit180 312 frozen tests, Unit181 60 archived notes, Units1–185 proof/checker work and previous Activity",
+    "Original unknown/rejected/pending Native mutations; only original receipt/reconcile",
+    "Any maintenance lane or other Sites owner Research/Driver identity; no duplicate session/claim/dispatch"
+  ],
+  "next_exact_action": "Consume this immutable Unit186 proof/checker/certificate and RA205. Reconcile any original pending Native request under original own SID only. Reauthorize exact own winning CLAIM/RUN via true same-lane authenticated custody if available, then one semantic attachment for author Units175–186 and authenticate Source readback; otherwise continue true frozen LP011/LP019 downstream sources and source-backed absolute-state consumer factorization proof. Keep author evidence separate from Native progress and Driver admission.",
+  "continuation_state": "OPEN"
+}
