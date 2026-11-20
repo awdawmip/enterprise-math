@@ -1,0 +1,40 @@
+# X6 Unit180 — closed finite census of frozen Python test consumers and corrected Git-blob provenance
+
+**Date:** 2026-11-20. **Task:** `RS-X6-LEGACY-PLANE-RECONCILIATION`; **publication:** `TP2-B4A441B23DA3159232C2`; **mother objective:** `PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905`. Status: **AUTHOR_SOURCE_AUDIT / UNREVIEWED / NOT_ADMITTED**.
+
+**Frozen scientific input:** `59538f585d037d09ef687b28715c4bc1a3f9fe03`. **Frozen historical comparator:** `fd2bcff10ca6e147348b6c1236027fc0d2877df3`. The Research lane is `chatgpt-research-onhour-enterprise-math-20260923`; the separate maintenance lane was not used.
+
+## Exact source and reproducible finite scope
+
+The immutable historical Git tree, returned with `truncated=false` and 5,014 entries, contains precisely **312** Git blobs satisfying the anchored path selector `^tests/.*\\.py$`.
+
+Unit179 already read the first **31** basename-targeted Python test blobs and reported no direct textual uses of six named R061 quotient APIs. Unit180 read the **other 281** complete frozen Git blobs through the connected authenticated GitHub `fetch_blob` operation, in 18 bounded ordered batches: seventeen 16-file batches plus the final 9-file batch. **281/281 reads succeeded, 0 failed**, and the following case-insensitive line-level search returned **0 candidate lines in the new 281**:
+
+```regex
+diagonal_quotient|canonical_min_zero|same_diagonal_class|diagonal_chart|compose_canonical|inverse_canonical|R061|argmax|(?:native|brc).{0,40}(?:subtract|difference)|(?:subtract|difference).{0,40}(?:native|brc)
+```
+
+Thus, within the complete **312-file frozen `tests/*.py` corpus**, no explicit named R061 `diagonal_quotient` / `canonical_min_zero` direct reference is observed; 31 files were established by Unit179 and 281 were independently read this run. No assertion about equivalent inline formulas, dynamic imports, imported aliases, other directories, binary code or other historical revisions is part of that statement. This is an exact finite *source-reference observation*, not a universal theorem about all possible consumers.
+
+The reusable manifest gives all **312** exact `path / Git blob SHA-1 / Git byte size` entries, their prior-vs-new read provenance, the immutable tree pin and every new 16-file read bucket:
+
+`research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/unit180_frozen_all_312_test_python_manifest.json` @ `7e0aebe95be6ef144fad68481384dfc5bf8462a0` (Git blob `39f7ea66edc0c319f48d56e6dfa4cbbfaab2b4cf`).
+
+## New exact provenance correction
+
+The earlier Unit179 31-file note printed a **39-character malformed SHA-1** for `tests/test_brc_newton_recursion_foundation.py`:
+
+- Old printed literal: `1b3599b82db86c62efa91edd4c659505baff7b`
+- Actual frozen `fd2bcff1...:tests/test_brc_newton_recursion_foundation.py` Git blob: **`1b3599b82db86c3e62efa91edd4c659505baff7b`** (40 characters, 4,438 bytes).
+
+The corrected value was verified both in the complete immutable tree and with a separate exact pinned `fetch_file` of the source contents. This is a **provenance transcription correction** to the prior note, not evidence of altered mathematical code or a new BRC theorem. Preserve the Unit179 original record for history; use the corrected SHA from this Unit180 manifest for subsequent programmatic reads.
+
+## Relation to original X6 scientific obligations
+
+This result closes the previously open **281-test static-source read debt**. Together with Unit178's verified 225 top-level production Python blobs and Unit179's 110 experiment Python blobs, it covers **647 specified historical Python files** in those three disjoint path populations: the original R061 module itself and its other 224 top-level production modules, all 110 experiment Python scripts and all 312 root-level Python tests. It finds **no explicit named R061 direct caller** within the 646 peer files under those previous/current searches. The scoped result does not resolve full indirect/dynamic call graphs, nested production directories, or the remaining 28-LP typed claim crosswalk.
+
+For LP011's alleged wrong **native signed-axis argmax** and LP019's alleged subtraction of **positive native N-BRC counts**, the original faulty `commit:path:line` remains **UNRESOLVED_PROVENANCE**. Do not substitute an unrelated `max`, a valid positive-weighted-BRC operation or the derived R061 min-zero quotient. The original R063 native benchmark remains at its existing prior authenticated result and was **not rerun** in this unit.
+
+The next information-gaining action is to prioritize concrete prior LP011/LP019 claim records and **indirect / semantically equivalent actual call chains** outside the completed named-reference finite corpus; use exact typed caller and original revision evidence. Also preserve Units149–152 old semantic associations and the accumulated author Units175–180 Native publication debt, to be resolved only through the current same-lane owner-authorized RUN/Source contract.
+
+**Boundary:** The source files and manifest are GitHub author evidence. No native research PROGRESS, new Task registration, independent review, formal Result or P000/Foundation promotion was performed. Preserve `UNREVIEWED / NOT_ADMITTED`.
