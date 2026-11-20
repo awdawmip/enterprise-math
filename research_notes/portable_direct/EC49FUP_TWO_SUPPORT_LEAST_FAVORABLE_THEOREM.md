@@ -105,6 +105,30 @@ At a deterministic threshold, check the corresponding mixture one-sided slope in
 
 This reduces the worst-case nuisance **support-size search** to one or two points. Locating those points and proving a global nuisance inequality for arbitrary n,x remains a separate, well-defined algebraic optimization problem.
 
+## Sharpness and uniqueness: two points are genuinely necessary
+
+**Corollary (nontrivial sharp family).** For n=15 and every real width x in the previously proven open interval x15<x<xB (with the exact algebraic boundaries defined and isolated in EC49FUI@cb4df4d3b3aa20f1af3f4edd454992e048f84a12), the compactified least-favorable nuisance distribution has **exactly two support points**, and it is unique:
+
+\[
+\pi_x^*=\lambda_E(x)\delta_{\theta_E}+
+(1-\lambda_E(x))\delta_0,\qquad
+\lambda_E(x)=\frac{-d_0(x)}{d_{\theta_E}(x)-d_0(x)}\in(0,1).
+\]
+
+Here dθ(x)=Δθ(1); θ=0 is the unattained original-parameter limit. Thus the universal two-point support theorem above cannot be uniformly improved to one point.
+
+**Proof.** EC49FUI's analytic proof establishes, on the whole stated width interval, that the optimal randomized count-one rule has discrimination Dα(θ) **strictly concave in θ∈[0,θ_E]** and equal values at θ=0 and θ=θ_E. Consequently its global nuisance-contact set is *exactly* C={0,θ_E}: each interior θ yields strictly higher discrimination. In any saddle pair using this optimal count rule, a least-favorable mixture must be supported in C, by the support-on-contact argument in the general proof above.
+
+The optimal rule randomizes strictly at K=1, 0<α(x)<1, so it can maximize the mixture discrimination only if the mixture's derivative with respect to the K=1 randomization probability is zero. This is precisely
+
+\[
+\lambda d_{\theta_E}(x)+(1-\lambda)d_0(x)=0.
+\]
+
+The already-proven strict signs d0<0<dθE force the unique solution λ=λ_E∈(0,1), assigning positive mass to **both** contact points. An individual nuisance parameter therefore cannot be least favorable in this interval. The same EC49FUI theorem gives the matching global risk inequality and mixture Bayes sign pattern, completing existence and uniqueness. QED.
+
+This sharpness argument uses EC49FUI's **continuum** strict concavity, not the 1001-point mesh in the companion program. In the original noncompact finite-e model, the limit θ=0 is approximated by e→−∞; the sharp two-point statement concerns the compactified game and its least-favorable limiting distribution.
+
 ## Exact rational witness and validation
 
 Take n=15, x=7/25000, and θ endpoints 0 and θ_E. Let Aθ be the difference of probabilities of K≥1 and dθ=Δθ(1). The randomized K=1 decision probability
