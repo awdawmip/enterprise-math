@@ -1,0 +1,95 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "historical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "latest_author_unit": 200,
+  "latest_author_status": "AUTHOR_PROVED / PINNED_PYTHON_EXACT_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+  "previous_verified_frontier": "Unit199; source research_notes/X6_UNIT199_FROZEN_SOURCE_METHOD_PROFILE_AUTHOR_CONTINUATION_20261121.json@56811bc63ddcf0031df9cd73d5b91c4715601466; Activity218",
+  "latest_evidence": {
+    "note": {
+      "commit": "3cff1cab0f29419ce16b69b80716dc570d3592b5",
+      "path": "research_notes/X6_UNIT200_PINNED_LOW_K_CALLER_EXACT_SPECIALIZATION_20261121.md",
+      "blob": "63913266edfc824545f246961c196fb2828bca38",
+      "sha256": "02c55023761e14b39db25284470c333661e3ab0529489ada2d3facaa8a344dba"
+    },
+    "checker": {
+      "commit": "39332d2ee92f9e016e7b05c4487d9891e40f2aca",
+      "path": "research_checks/X6_UNIT200_LOW_K_EXACT_CLOSED_FORM_20261121.py",
+      "blob": "6a0d226f4c6d92717fff7936521b78d0bc60876c",
+      "sha256": "051374e729e03651ea0385b894880a008851fbe6af34a978061a639966a69526"
+    },
+    "certificate": {
+      "commit": "5112bfdc7d9a9e3fd59184a8faf4b08734cf6f3a",
+      "path": "research_checks/X6_UNIT200_LOW_K_EXACT_CLOSED_FORM_RESULTS_20261121.json",
+      "blob": "d43ca148257228fb8c177980df0207b650355cc1",
+      "sha256": "e712953b6fc6c88b14f71671ebbd87a5273b63a2931034a284481b74c133fa4f"
+    },
+    "frozen_producer": {
+      "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+      "blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+      "sha256": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4"
+    },
+    "confirmed_test_caller": "fd2bcff10ca6e147348b6c1236027fc0d2877df3:experiments/x6_signed_native_spatial_v16_20260905/check_signed_brc.py:56-63",
+    "observations": {
+      "consumer_calls": 15,
+      "K_distribution": {
+        "0": 3,
+        "1": 3,
+        "2": 3,
+        "odd_gap": 6
+      },
+      "weighted_exact_comparisons": 45,
+      "disagreements": 0,
+      "original_median_ns_per_suite": 1606566,
+      "new_closed_form_median_ns_per_suite": 449623,
+      "measured_speed_ratio_approx": 3.57,
+      "independent_review": "UNREVIEWED",
+      "R063_original_native_benchmark_rerun": false,
+      "production_caller": "NOT_ESTABLISHED"
+    }
+  },
+  "control": {
+    "historical_researcher_id": "EM-X6-FB6990",
+    "historical_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "historical_claim_id": "MCP-e2bd88a10565daf08b1d46f5",
+    "historical_run_id": "RUN-b2c1fe16e9806ecf043c89a0",
+    "last_confirmed_authenticated_native_unit": 174,
+    "native_pending_semantic_units": "175-200",
+    "older_pending_units": [
+      149,
+      150,
+      151,
+      152
+    ],
+    "original_native_read_request_id": "onhour-20261121-0205-x6-current-continuation-v1",
+    "original_native_read_outcome": "SUCCEEDED / error=null / execution_authorized=false / source=68362c464abd0f3e4df5ea96e0f7c1423f743b40; read-only",
+    "historical_failed_prepare_id": "onhour-20261120-1524-x6-own-unit187-native-continuation-prepare-v1",
+    "historical_failed_prepare_status": "FAILED/NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED; preserved; no replay",
+    "current_same_lane_winning_claim_authority": "NOT_ESTABLISHED",
+    "independent_review": "UNREVIEWED / NOT_ADMITTED",
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "activity_status": "PENDING_VERIFIED_UNIT200_CAS_AT_PACKET_WRITE"
+  },
+  "evidence_debt": [
+    "Native semantic links Units175-200",
+    "Older semantic links Units149-152",
+    "LP011/LP019 historical offending source commit:path:line",
+    "Actual production endpoint_weight caller and K distribution",
+    "Independent Driver review and formal Result decision"
+  ],
+  "do_not_repeat": [
+    "R063 original six-file native benchmark: previously completed; did not run in Unit200",
+    "Units198-199 math and high-K profile",
+    "Unit200 frozen low-K 45 exact source comparisons and 15-call local benchmark",
+    "No maintenance lane identity or another owner's claim; no unknown/rejected writes"
+  ],
+  "next_exact_action": "Reconcile current own Source/protected authority from existing SID and original continuation; if legally available, attach saved Unit175-200 semantic sources by own Native PROGRESS with authenticated Source readback. Continue frozen LP011/LP019 exact historical source:line and real production consumer discovery; do not extrapolate test-only K0-2 to production. Preserve source evidence and independent review status.",
+  "continuation_state": "OPEN"
+}
