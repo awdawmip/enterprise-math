@@ -10,6 +10,7 @@ import hashlib
 import itertools
 import json
 from pathlib import Path
+from fractions import Fraction
 
 P = 17179869143
 D0, D3, Z1, Z2, Z3 = 1120832, 1651128, 390139, 394465, 1497639
@@ -62,14 +63,16 @@ def verify():
     pairs = sorted((base, i) for i,(base,_) in enumerate(records))
     assert len({base for base,_ in pairs}) == 4096
     extended = sorted((base+shift,i) for base,i in pairs for shift in (-P,0,P))
-    evalues = [base for base,_ in extended]
+    evalues = [2*base for base,_ in extended]
 
     def query_groups(y):
-        begin = bisect.bisect_left(evalues,y-29)
-        finish = bisect.bisect_right(evalues,y+largest_span+29)
+        # Exact doubled endpoints, including rational circular readings.
+        two_y = 2*y
+        begin = bisect.bisect_left(evalues,two_y-59)
+        finish = bisect.bisect_right(evalues,two_y+2*largest_span+59)
         global_candidates = [extended[i][1] for i in range(begin,finish)]
         local_candidates = [j for j in global_candidates
-                            if (records[j][0]-(y-29))%P <= spans[j]+58]
+                            if (2*records[j][0]-two_y+59)%(2*P) <= 2*spans[j]+118]
         return global_candidates, local_candidates
 
     def codeword(block_id, high_bits):
@@ -118,6 +121,20 @@ def verify():
                         hits.append((j,b))
             assert hits==[(block_id,high)]
             explicit+=1
+    rational_checks = 0
+    for exact,block_id,high in words[::257]:
+        for err in (Fraction(1,4),Fraction(-117,4)):
+            observed=(exact+err)%P
+            _,groups=query_groups(observed)
+            hits=[]
+            for j in groups:
+                for b in range(16):
+                    v=codeword(j,b)
+                    dist=min((v-observed)%P,(observed-v)%P)
+                    if dist < Fraction(59,2):
+                        hits.append((j,b))
+            assert hits==[(block_id,high)]
+            rational_checks+=1
 
     return {
         'schema':'EM_R284CA_GROUPED_PORT_DECODER_CERT_V1',
@@ -140,6 +157,7 @@ def verify():
         'observed_max_groups_after_filter':max_observed_local,
         'observed_average_groups_after_filter':total_local/checks,
         'explicit_full_decoder_checks':explicit,
+        'explicit_rational_circle_decoder_checks':rational_checks,
         'guaranteed_max_high_row_candidates_per_observation':local_max*16,
         'materialized_sorted_index_records':4096,
         'legacy_full_lookup_records':65536,
