@@ -1,0 +1,83 @@
+{
+  "schema": "R5_RARE_FAILURE_N90_V1",
+  "date": "2026-11-20",
+  "model": "scalar, 256 named hypotheses, 101 query prices 214..314, nonadaptive unordered multiset",
+  "scientific_input": {
+    "repository": "awdawmip/enterprise-math",
+    "frozen_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+    "frozen_path": "EXACT_R5_ALL_101_BUDGETS.json",
+    "sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+    "local_preserved_bytes_sha256_checked": true,
+    "remote_frozen_path_rediscovered": false
+  },
+  "status": "AUTHOR_SYMBOLIC_PROOF_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "algebra": "B90 = sum_{r=0}^5 (-1)^r M_r a_{5-r}(B)/r! + J sum_{i=1}^2 e_i^{-1} sum_{r=0}^3 (-1)^r H_{i,r} a_{3-r}(D+e_i)/r! - J[a2(D)K-EZ/2+Y/2]",
+  "verification": {
+    "grouped_vs_independent_bruteforce_m": [
+      1,
+      2,
+      3
+    ],
+    "prior_B91_fraction_match_m": [
+      1,
+      2,
+      3,
+      8,
+      17
+    ],
+    "exact_arithmetic": true
+  },
+  "results": [
+    {
+      "m": 1,
+      "K": 2,
+      "Z": 0,
+      "Y": "0",
+      "B90": "192246796156363620657466/69015"
+    },
+    {
+      "m": 2,
+      "K": 25,
+      "Z": 6516,
+      "Y": "2073772",
+      "B90": "359266601447523294727347/23005"
+    },
+    {
+      "m": 3,
+      "K": 150,
+      "Z": 76680,
+      "Y": "44095348",
+      "B90": "1174433640911767046508132/23005"
+    },
+    {
+      "m": 5,
+      "K": 2054,
+      "Z": 2074332,
+      "Y": "2258813514",
+      "B90": "6137836315665066775574572/23005"
+    },
+    {
+      "m": 8,
+      "K": 31864,
+      "Z": 55930737,
+      "Y": "103903331085",
+      "B90": "31222014331713440926846364/23005"
+    },
+    {
+      "m": 17,
+      "K": 4519218,
+      "Z": 18021539646,
+      "Y": "74985121883826",
+      "B90": "404469051805687687736090238/23005"
+    }
+  ],
+  "next_open": "N89 via 5-price sixth moment, 7-price fourth moment and 8-price intersection third moment; alternatively derive Y_m rational GF",
+  "owner_snapshot": {
+    "request_id": "r5-20261120-1642-leased-only-read-v1",
+    "status": "SUCCEEDED",
+    "as_of": "2026-11-20T08:45:18.105862+00:00",
+    "leased_tasks": 0
+  },
+  "identity": "historical EM-DIRECT-4C3E47 provenance; current native session capability unconfirmed",
+  "formal_claim_or_run_created": false
+}
