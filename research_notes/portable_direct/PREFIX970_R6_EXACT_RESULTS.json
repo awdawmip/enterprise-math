@@ -1,0 +1,293 @@
+{
+  "schema": "PREFIX970_R6_GCD_REDUCED_JOIN_V1",
+  "frozen_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "small_cases": 168,
+  "small_histories_by_p": {
+    "4": 48,
+    "5": 210,
+    "6": 1007,
+    "7": 3233
+  },
+  "q19_k21": {
+    "gaps": [
+      {
+        "m": 1,
+        "modulus_pairs": 442,
+        "named_histories": 614,
+        "named_sha256": "ccbccc30c4171a809f7270ce59f0b72b368839e93ffeeed8df9ba1045720da71",
+        "c_examined": 10479,
+        "c_gcd_admissible": 7653,
+        "congruence_candidates_in_window_probes": 74625,
+        "interval_candidates": 1420,
+        "odd_nondiagonal_candidates": 1419
+      },
+      {
+        "m": 3,
+        "modulus_pairs": 839,
+        "named_histories": 1286,
+        "named_sha256": "1360a9ca274b357d0b87058d35ef6ccd059d0c5aef995e4d93b0d1363e1aaae3",
+        "c_examined": 10479,
+        "c_gcd_admissible": 7653,
+        "congruence_candidates_in_window_probes": 127284,
+        "interval_candidates": 2826,
+        "odd_nondiagonal_candidates": 2825
+      },
+      {
+        "m": 5,
+        "modulus_pairs": 3,
+        "named_histories": 3,
+        "named_sha256": "c429ef59749f36ef295b4ac9171fb5171ab3a706beaa270563728d4962649c1b",
+        "c_examined": 10479,
+        "c_gcd_admissible": 7653,
+        "congruence_candidates_in_window_probes": 20593,
+        "interval_candidates": 15,
+        "odd_nondiagonal_candidates": 15
+      }
+    ],
+    "cache": {
+      "index_builds": 58,
+      "index_entries": 14471,
+      "index_keys": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          13,
+          1
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          15,
+          1
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          19,
+          0
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          23,
+          0
+        ],
+        [
+          23,
+          1
+        ],
+        [
+          25,
+          0
+        ],
+        [
+          25,
+          1
+        ],
+        [
+          27,
+          0
+        ],
+        [
+          29,
+          0
+        ],
+        [
+          29,
+          1
+        ],
+        [
+          31,
+          0
+        ],
+        [
+          31,
+          1
+        ],
+        [
+          33,
+          1
+        ],
+        [
+          37,
+          0
+        ],
+        [
+          37,
+          1
+        ],
+        [
+          41,
+          0
+        ],
+        [
+          41,
+          1
+        ],
+        [
+          43,
+          0
+        ],
+        [
+          43,
+          1
+        ],
+        [
+          47,
+          0
+        ],
+        [
+          47,
+          1
+        ],
+        [
+          53,
+          0
+        ],
+        [
+          53,
+          1
+        ],
+        [
+          55,
+          0
+        ],
+        [
+          55,
+          1
+        ],
+        [
+          59,
+          0
+        ],
+        [
+          59,
+          1
+        ],
+        [
+          61,
+          0
+        ],
+        [
+          61,
+          1
+        ],
+        [
+          65,
+          0
+        ],
+        [
+          67,
+          1
+        ],
+        [
+          71,
+          1
+        ],
+        [
+          73,
+          0
+        ],
+        [
+          79,
+          1
+        ],
+        [
+          83,
+          1
+        ],
+        [
+          85,
+          0
+        ],
+        [
+          89,
+          0
+        ],
+        [
+          95,
+          1
+        ],
+        [
+          97,
+          0
+        ],
+        [
+          101,
+          0
+        ],
+        [
+          103,
+          1
+        ]
+      ]
+    }
+  },
+  "scientific_status": "AUTHOR_PROOF_EXACT_INTEGER_VERIFIED_NOT_REVIEWED",
+  "benchmark": {
+    "method": "16 alternating full 3-gap runs in one CPython process, stdlib, median seconds",
+    "baseline_seconds": 0.030073797000000013,
+    "reduced_seconds": 0.027056870499990282,
+    "ratio_baseline_over_reduced": 1.1115031577658183
+  }
+}
