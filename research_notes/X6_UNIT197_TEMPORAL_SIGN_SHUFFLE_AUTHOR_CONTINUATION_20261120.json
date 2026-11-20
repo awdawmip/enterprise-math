@@ -1,0 +1,78 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "historical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "latest_author_unit": 197,
+  "latest_author_status": "AUTHOR_PROVED / EXACT_INTEGER_LOCAL_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+  "scientific_result": {
+    "theorem": "For positive rational slot weights a_t,b_t and axis weights u_i,v_i, balanced z: E_time_{2n}(z)=H_n(a,b)*L_n^{u,v}(z), H_n=sum_{|S|=n} product_{S} a_t product_{not S} b_t; full 2-slot labeled pair weight matrix rank<=2 and has rank1 iff positive-slot axis vectors proportional or negative-slot vectors proportional.",
+    "exact_counterexample": "Off-diagonal 2x2 mass matrix [[3,4],[3,5]] determinant=3 for positive 2-slot nonfactorized weights.",
+    "executed_integer_comparisons": 3168,
+    "violations": 0,
+    "reproducibility": {
+      "note": {
+        "path": "research_notes/X6_UNIT197_TEMPORAL_WEIGHT_SHUFFLE_RANK_OBSTRUCTION_20261120.md",
+        "commit": "4aff8271bd2a3c42a7b42f03964eb5aa44d99089",
+        "blob": "182da03f2686992bd76a652b3b8ef8ba07d08eb2",
+        "sha256": "95cebab02658b9b8334e32e41c8ad53a0b8fc3fb7ad9a2104af532435a10e549"
+      },
+      "checker": {
+        "path": "research_checks/X6_UNIT197_TEMPORAL_WEIGHT_SHUFFLE_CHECK_20261120.py",
+        "commit": "0e7109dd9d8c6743708d1992ee1f076d38df8701",
+        "blob": "104c28cd748b83c993d6dde95ee8c1cd38bb9805",
+        "sha256": "81b2192dd14759ae5247b09b4f717faa46d17f7a4e4abc982f2274a55433674f"
+      },
+      "result": {
+        "path": "research_checks/X6_UNIT197_TEMPORAL_WEIGHT_SHUFFLE_RESULTS_20261120.json",
+        "commit": "5a2e3bc5f07db4c88f568a0628af7f14a15fb8ec",
+        "blob": "a52a59b37a17d5f7e415b2ad4094d50acf4e2012",
+        "sha256": "73c4855bbc8c6260035130ab98a47d01b82f7536995b21a9e571397b60833678"
+      }
+    },
+    "frozen_source_function": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py::endpoint_weight",
+    "frozen_source_import_this_unit": false,
+    "R063_native_benchmark_rerun": false
+  },
+  "control": {
+    "historical_researcher_id": "EM-X6-FB6990",
+    "historical_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "historical_claim_id": "MCP-e2bd88a10565daf08b1d46f5",
+    "historical_run_id": "RUN-b2c1fe16e9806ecf043c89a0",
+    "last_confirmed_authenticated_native_unit": 174,
+    "native_pending_semantic_units": "175-197",
+    "older_pending_units": [
+      149,
+      150,
+      151,
+      152
+    ],
+    "native_read_pending_request_id": "onhour-20261120-2316-x6-unit197-own-continuation-read-v1",
+    "native_read_last_observation": "RUNNING, pending original receipt; operation was read-only",
+    "historical_failed_prepare_id": "onhour-20261120-1524-x6-own-unit187-native-continuation-prepare-v1",
+    "historical_failed_prepare_status": "FAILED / NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED, no replay",
+    "fresh_live_owner_claim_authorization": "NOT_ESTABLISHED",
+    "independent_review": "UNREVIEWED / NOT_ADMITTED",
+    "research_activity_checkpoint": "PENDING_SOURCE_ASSOCIATION_IF_CURRENT_SAME_LANE_IDENTITY_CONFIRMED"
+  },
+  "do_not_repeat": [
+    "Unit194 shortest and Unit195 all-even unweighted bridge",
+    "Unit196 factorized axis-weight bridge",
+    "Unit197 exact temporal scalar-shuffle proof and rank-two witness",
+    "R063 original six-file native benchmark",
+    "Unknown or rejected native mutations; do not borrow maintenance identity"
+  ],
+  "evidence_debt": [
+    "Native Units175–197 semantic association",
+    "Historical Units149–152",
+    "LP011/LP019 offending original commit:path:line",
+    "Real frozen temporal or stateful signed-X6 production consumer"
+  ],
+  "next_exact_action": "Read original unit197 continuation receipt by target_request_id only, not new request; inspect actual frozen state/time-sensitive consumer and apply exact rank/shuffle obstruction; authenticate current same-lane winning native claim/run before privileged checkpoint; finish Source Activity when matching current research session is verified.",
+  "continuation_state": "OPEN"
+}
