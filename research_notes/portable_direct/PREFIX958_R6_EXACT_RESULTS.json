@@ -1,0 +1,91 @@
+{
+  "schema": "PREFIX958_R6_SIGNED_DIVISOR_PIVOT_EXACT_V1",
+  "date": "2026-11-20",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "auxiliary named XOR, p=19 k=21/23 ordered strict Q19 odd off-diagonal; prior gap 0..6",
+  "scientific_status": "AUTHOR_PROVED_AND_LOCALLY_COMPUTED_NOT_INDEPENDENTLY_REVIEWED",
+  "p": 19,
+  "k": 21,
+  "m_range": [
+    0,
+    6
+  ],
+  "numeric_residuals": 499,
+  "residual_pairs_mod4": 545278,
+  "prior_scalar_divisibility_probes": 22699951,
+  "divisor_window_probes": 538183,
+  "actual_divisors": 184019,
+  "in_domain_odd_candidates": 17719,
+  "named_sign_triples_checked": 48984,
+  "zero_numerator_resonance_candidates": 2,
+  "offdiagonal_resonant_named_histories": 0,
+  "different_non_diagonal_pairs": 6203,
+  "named_joint_histories": 8649,
+  "gap_pair_memberships": {
+    "0": 6,
+    "1": 442,
+    "2": 4724,
+    "3": 839,
+    "4": 190,
+    "5": 3,
+    "6": 0
+  },
+  "gap_named_histories": {
+    "0": 6,
+    "1": 614,
+    "2": 6509,
+    "3": 1286,
+    "4": 231,
+    "5": 3,
+    "6": 0
+  },
+  "multiplicity_histogram": {
+    "1": 4302,
+    "2": 1685,
+    "4": 200,
+    "6": 2,
+    "7": 1,
+    "8": 7,
+    "9": 1,
+    "10": 1,
+    "11": 1,
+    "20": 1,
+    "24": 1,
+    "28": 1
+  },
+  "binary_certificate": {
+    "format": "sorted little-endian uint64 pair-ID",
+    "bytes": 49624,
+    "sha256": "1caec71f97ddb97c60c8506629f65651f0f3030b3526aeca30195948ee0cff75",
+    "id_law": "((a-262145)//2)*131072+(b-262145)//2"
+  },
+  "probe_reduction_pct": 97.62914466203033,
+  "candidate_stage_factor": 42.178870384237335,
+  "small_exhaustive": {
+    "p_range": [
+      4,
+      5,
+      6
+    ],
+    "all_applicable_odd_core_pairs": 25,
+    "independent_original_xor_per_pair_gap_multiplicity_matches": true,
+    "full_gap_window": "1-2*k <= m <= 2*(k+2)-1",
+    "counterexample_resonance": {
+      "p": 4,
+      "k": 1,
+      "a": 11,
+      "b": 13,
+      "m": 2
+    }
+  },
+  "provenance": {
+    "prior": "PREFIX-957B",
+    "historical_researcher": "EM-DIRECT-58C410",
+    "historical_session": "MCP-31edc522830749ad8775ca012e02ef30",
+    "historical_activity": "RA-25432C4AAE9BF66A907F5115",
+    "formal_claim": false,
+    "activity_association": "PENDING_CURRENT_AUTHORITY_AND_CAS",
+    "native_X6_transfer": false,
+    "review": false
+  }
+}
