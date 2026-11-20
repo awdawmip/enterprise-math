@@ -1,0 +1,127 @@
+{
+  "schema": "ENTERPRISE_MATH_R762HH_EVIDENCE_V1",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_p000_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "prior_artifact_commit": "f19346110bdca4c9aa237ed766fedc612210293c",
+  "model": "candidate_signed_J(6,2)_three_support_Positive_BRC",
+  "proof_status": "AUTHOR_PROVED_NOT_REVIEWED",
+  "theorem_HH1": "Every incidence-even 3-support word omitting a common axis has an exact signed zero-Cell completion for all lengths, via alternating Euler circuits of a 5-vertex complement multigraph.",
+  "theorem_HH2": "Every unbalanceable incidence-even unrestricted 4-support multiset of 3-subsets of six axes is one of 30 Pasch configurations, with K4 occurrence-intersection graph. None is a Port walk.",
+  "checker": {
+    "source": "research_notes/portable_direct/R762HH_CHECK.cpp",
+    "compilation": "g++ -std=c++17 -O3 -Wall -Wextra R762HH_CHECK.cpp -o R762HH_CHECK",
+    "execution": "./R762HH_CHECK",
+    "author_local_result": "PASS",
+    "arithmetic": "Exact nonnegative integer subset-degree sums, disjoint 6-bit lanes; m<=12",
+    "sampling": false,
+    "scope": "All multisets of named 3-axis support types for axes=5 and even m=2..12, axes=6 and m=2,4, plus explicit witnesses."
+  },
+  "five_axis_multisets": [
+    {
+      "m": 2,
+      "all": 55,
+      "parity_even": 10,
+      "unbalanced": 0
+    },
+    {
+      "m": 4,
+      "all": 715,
+      "parity_even": 70,
+      "unbalanced": 0
+    },
+    {
+      "m": 6,
+      "all": 5005,
+      "parity_even": 385,
+      "unbalanced": 0
+    },
+    {
+      "m": 8,
+      "all": 24310,
+      "parity_even": 1690,
+      "unbalanced": 0
+    },
+    {
+      "m": 10,
+      "all": 92378,
+      "parity_even": 6128,
+      "unbalanced": 0
+    },
+    {
+      "m": 12,
+      "all": 293930,
+      "parity_even": 19040,
+      "unbalanced": 0
+    }
+  ],
+  "six_axis_multisets": [
+    {
+      "m": 2,
+      "all": 210,
+      "parity_even": 20,
+      "unbalanced": 0
+    },
+    {
+      "m": 4,
+      "all": 8855,
+      "parity_even": 375,
+      "unbalanced": 30
+    }
+  ],
+  "five_axis_port_witness": {
+    "closed_ports_as_six_bit_masks": [
+      3,
+      5,
+      9,
+      12,
+      10,
+      18,
+      3
+    ],
+    "ordered_support_masks": [
+      7,
+      13,
+      13,
+      14,
+      26,
+      19
+    ],
+    "signs": [
+      -1,
+      -1,
+      1,
+      1,
+      -1,
+      1
+    ],
+    "support_union_mask": 31,
+    "intersection_mask": 0,
+    "parity_mask": 0,
+    "signed_cell_delta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "unrestricted_pasch_obstruction": {
+    "support_masks": [
+      22,
+      25,
+      37,
+      42
+    ],
+    "parity_mask": 0,
+    "pairwise_support_intersection_size": 1,
+    "unbalanceable": true,
+    "port_admissible": false
+  },
+  "limits": [
+    "No all-length saturation claim for six-axis Port walks",
+    "No native primitive TRIADIC_CLOSURE_E admission",
+    "No independent mathematical review or independent CI result"
+  ],
+  "next_problem": "Characterize parity-even Port-return support words using all six axes; prove all-length completion or identify the first unbalanceable ordered Port word and its exact sign obstruction."
+}
