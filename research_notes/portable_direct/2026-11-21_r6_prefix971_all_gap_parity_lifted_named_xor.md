@@ -1,6 +1,6 @@
 # PREFIX-971 — Complete seven-gap named XOR reconstruction by parity-lifted congruences
 
-Date: 2026-11-21 (Asia/Shanghai). Independent auxiliary integer observer, continuing PREFIX-970. Scientific input remains frozen at \`f42f2906d77f24085c123f3ccfe9667d41caa96d\`. Status: **AUTHOR_PROOF / INDEPENDENT_FULL_Q19_XOR_VERIFIED / NOT_REVIEWED**. This note is not native X6/triadic dynamics and does not acquire a shared Task CLAIM.
+Date: 2026-11-21 (Asia/Shanghai). Independent auxiliary integer observer, continuing PREFIX-970. Scientific input remains frozen at `f42f2906d77f24085c123f3ccfe9667d41caa96d`. Status: **AUTHOR_PROOF / INDEPENDENT_FULL_Q19_XOR_VERIFIED / NOT_REVIEWED**. This note is not native X6/triadic dynamics and does not acquire a shared Task CLAIM.
 
 ## Model
 
@@ -44,27 +44,27 @@ These equations, modulus range, non-diagonality and the original XOR bit checks 
 
 | m | Distinct ordered non-diagonal pairs | Complete named witnesses | SHA256 of sorted tuple CSV |
 |---:|---:|---:|---|
-| 0 | 6 | 6 | \`2e726efbb2d3232c1c7b441af19f038c40148dc8a24b356ccdc4f9f9aeba8605\` |
-| 1 | 442 | 614 | \`ccbccc30c4171a809f7270ce59f0b72b368839e93ffeeed8df9ba1045720da71\` |
-| 2 | 4,724 | 6,509 | \`6ceb12fffda02b91e8acd19726fefa4e75dba39f45122c3f87d9ff35aef7395e\` |
-| 3 | 839 | 1,286 | \`1360a9ca274b357d0b87058d35ef6ccd059d0c5aef995e4d93b0d1363e1aaae3\` |
-| 4 | 190 | 231 | \`42eaf49ffebb55ddcc8be1294c665dd2e32a627b842fda74bf705504d77dcfce\` |
-| 5 | 3 | 3 | \`c429ef59749f36ef295b4ac9171fb5171ab3a706beaa270563728d4962649c1b\` |
-| 6 | 0 | 0 | \`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\` |
+| 0 | 6 | 6 | `2e726efbb2d3232c1c7b441af19f038c40148dc8a24b356ccdc4f9f9aeba8605` |
+| 1 | 442 | 614 | `ccbccc30c4171a809f7270ce59f0b72b368839e93ffeeed8df9ba1045720da71` |
+| 2 | 4,724 | 6,509 | `6ceb12fffda02b91e8acd19726fefa4e75dba39f45122c3f87d9ff35aef7395e` |
+| 3 | 839 | 1,286 | `1360a9ca274b357d0b87058d35ef6ccd059d0c5aef995e4d93b0d1363e1aaae3` |
+| 4 | 190 | 231 | `42eaf49ffebb55ddcc8be1294c665dd2e32a627b842fda74bf705504d77dcfce` |
+| 5 | 3 | 3 | `c429ef59749f36ef295b4ac9171fb5171ab3a706beaa270563728d4962649c1b` |
+| 6 | 0 | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
 | **All gaps** | **6,203 unique pairs** | **8,649 named witnesses** | The seven per-gap digests are the exact certificate |
 
 The sum of the per-gap distinct-pair counts is 6,204, with exactly one cross-gap repetition: \((a,b)=(278529,290817)\) occurs in both \(m=1\) and \(m=2\). Hence the union contains **6,203** pairs. The \(m=1,3,5\) hashes reproduce PREFIX-966–970, and \(m=0\) reproduces PREFIX-965. A zero \(m=6\) count is **specific to this Q19/k21 instance**; other widths/cores can realize \(m=6\).
 
 ## Reproducibility and independent verification
 
-- \`PREFIX971_R6_ALL_GAP_PARITY_LIFTED.py --check --benchmark --output ...\` implements the generic integer join, source-slot expansion, direct small-domain raw-XOR reference and Q19 certificate. Exhaustive independent raw-XOR comparisons were completed for every eligible odd core at \(p=4,5,6,7\): **56 core configurations × 7 gaps = 392 cases**. All full named tuples agree as multisets.
-- \`PREFIX971_R6_RAW_XOR_INDEPENDENT.cpp\` is a structurally distinct direct source-first enumerator: for each of all **131,072** Q19 odd \(a\), it builds the original right-XOR target dictionary, enumerates all original left-XOR source slots and legal \(t,b\), then directly matches each of seven target gaps. It does **not** use the determinant, residual dictionary, gcd, or congruence buckets. Running the executable with \`19 21\` produced all seven full CSV files whose SHA-256 digests match the table **byte for byte**; one measured local invocation took about 5.55 seconds. This timing is environment-specific and is not compared as a same-language benchmark.
+- `PREFIX971_R6_ALL_GAP_PARITY_LIFTED.py --check --benchmark --output ...` implements the generic integer join, source-slot expansion, direct small-domain raw-XOR reference and Q19 certificate. Exhaustive independent raw-XOR comparisons were completed for every eligible odd core at \(p=4,5,6,7\): **56 core configurations × 7 gaps = 392 cases**. All full named tuples agree as multisets.
+- `PREFIX971_R6_RAW_XOR_INDEPENDENT.cpp` is a structurally distinct direct source-first enumerator: for each of all **131,072** Q19 odd \(a\), it builds the original right-XOR target dictionary, enumerates all original left-XOR source slots and legal \(t,b\), then directly matches each of seven target gaps. It does **not** use the determinant, residual dictionary, gcd, or congruence buckets. Running the executable with `19 21` produced all seven full CSV files whose SHA-256 digests match the table **byte for byte**; one measured local invocation took about 5.55 seconds. This timing is environment-specific and is not compared as a same-language benchmark.
 - The Python run recorded 392 small cases, the seven Q19 counts/hashes above, a shared numerical-index population of 129 buckets / 31,989 entries, a median of ~0.097 seconds across six complete Q19 Python runs, and the sole cross-gap pair. These are implementation observations, not asymptotic theorems.
 
-All arithmetic is integral; no floating approximation is used to establish any witness. The independent raw enumerator was compiled locally with \`g++ -O3 -std=c++17\`. Reference code is standard-library Python and standard-library C++. Raw source slots and all original XOR equations are validated at output.
+All arithmetic is integral; no floating approximation is used to establish any witness. The independent raw enumerator was compiled locally with `g++ -O3 -std=c++17`. Reference code is standard-library Python and standard-library C++. Raw source slots and all original XOR equations are validated at output.
 
 ## Provenance, limits and next research question
 
-Predecessor: \`awdawmip/enterprise-math@e5f13deb671a9bb7050b9044b07e812595117110:research_notes/portable_direct/2026-11-21_r6_prefix970_gcd_reduced_cross_gap_index.md\`. Scientific pin \`f42f2906d77f24085c123f3ccfe9667d41caa96d\` remains unchanged. The auxiliary two-core observer has not been identified with native BRC dynamics or a complete native X6 three-dimensional slice. No task owner, formal Result/Review, P000 or working-truth status is changed.
+Predecessor: `awdawmip/enterprise-math@e5f13deb671a9bb7050b9044b07e812595117110:research_notes/portable_direct/2026-11-21_r6_prefix970_gcd_reduced_cross_gap_index.md`. Scientific pin `f42f2906d77f24085c123f3ccfe9667d41caa96d` remains unchanged. The auxiliary two-core observer has not been identified with native BRC dynamics or a complete native X6 three-dimensional slice. No task owner, formal Result/Review, P000 or working-truth status is changed.
 
 Next: derive a joint-fiber observer interface preserving the named XOR source slots under a specified BRC composition or future operation. Explore a memory-efficient cache for all seven gaps and parameterized core families. The mother target \(B_{\mathrm{fix,odd}}(32)\in\{19,20\}\) remains unresolved.
