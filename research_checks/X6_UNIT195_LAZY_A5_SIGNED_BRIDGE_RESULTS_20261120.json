@@ -1,0 +1,90 @@
+{
+  "author_status": "EXACT_FINITE_CHECK / UNREVIEWED / NOT_ADMITTED",
+  "exact_frozen_signed_brc_module_executed": true,
+  "examined_endpoint_layer_pairs": 17088,
+  "examples": {
+    "n=2;z=(0, 0, 0, 0, 0, 0)": {
+      "lazy": 66,
+      "native": 396,
+      "nonlazy": 30,
+      "shuffles": 6
+    },
+    "n=2;z=(1, -1, 0, 0, 0, 0)": {
+      "lazy": 20,
+      "native": 120,
+      "nonlazy": 8,
+      "shuffles": 6
+    },
+    "n=3;z=(2, -2, 0, 0, 0, 0)": {
+      "lazy": 42,
+      "native": 840,
+      "nonlazy": 24,
+      "shuffles": 20
+    }
+  },
+  "frozen_scientific_comparison_commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "independent_algorithms": "36-event lazy A5 and 30-event nonlazy A5 endpoint DP, versus frozen signed_brc.endpoint_multiplicity combinatorial kernel",
+  "layers": [
+    {
+      "lazy_A5_count": 1,
+      "n": 0,
+      "native_X6_count": 1,
+      "nonlazy_A5_count": 1,
+      "reachable_balanced_endpoints": 1,
+      "shuffle_fiber": 1
+    },
+    {
+      "lazy_A5_count": 36,
+      "n": 1,
+      "native_X6_count": 72,
+      "nonlazy_A5_count": 30,
+      "reachable_balanced_endpoints": 31,
+      "shuffle_fiber": 2
+    },
+    {
+      "lazy_A5_count": 1296,
+      "n": 2,
+      "native_X6_count": 7776,
+      "nonlazy_A5_count": 900,
+      "reachable_balanced_endpoints": 271,
+      "shuffle_fiber": 6
+    },
+    {
+      "lazy_A5_count": 46656,
+      "n": 3,
+      "native_X6_count": 933120,
+      "nonlazy_A5_count": 27000,
+      "reachable_balanced_endpoints": 1281,
+      "shuffle_fiber": 20
+    },
+    {
+      "lazy_A5_count": 1679616,
+      "n": 4,
+      "native_X6_count": 117573120,
+      "nonlazy_A5_count": 810000,
+      "reachable_balanced_endpoints": 4251,
+      "shuffle_fiber": 70
+    },
+    {
+      "lazy_A5_count": 60466176,
+      "n": 5,
+      "native_X6_count": 15237476352,
+      "nonlazy_A5_count": 24300000,
+      "reachable_balanced_endpoints": 11253,
+      "shuffle_fiber": 252
+    }
+  ],
+  "max_paired_length_n": 5,
+  "mismatches": 0,
+  "native_R063_benchmark_rerun": false,
+  "nonshortest_endpoint_layer_pairs": 5835,
+  "p022_A5_original_module_executed": false,
+  "schema": "X6_UNIT195_EXACT_LAZY_A5_PINNED_NATIVE_BRIDGE_V1",
+  "shortest_endpoint_layer_pairs": 11253,
+  "source": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+  "source_git_blob_sha1": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+  "tested_equalities": [
+    "E_2n(z)=C(2n,n)*L_n(z)",
+    "A_n(z)=sum_k C(n,k)*(-6)^(n-k)*E_2k(z)/C(2k,k)"
+  ]
+}
