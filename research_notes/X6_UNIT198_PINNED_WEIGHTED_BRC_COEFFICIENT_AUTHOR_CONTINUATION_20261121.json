@@ -1,0 +1,85 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "historical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "latest_author_unit": 198,
+  "latest_author_status": "AUTHOR_PROVED / EXACT_PINNED_PYTHON_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+  "scientific_result": {
+    "scope": "fixed six-axis original weighted signed BRC, z in Z^6, exact length L, positive rational per-sign axis weights; independent arithmetic method, not production replacement",
+    "theorem": "With ai=max(zi,0),bi=max(-zi,0),K=(L-sum(ai+bi))/2, P=L! product_i ui^ai vi^bi/(ai!bi!), ci(0)=1, ci(k+1)=ci(k)*ui*vi/((ai+k+1)(bi+k+1)), and D0(0)=1, Di(t)=sum_{j=0}^t Di-1(t-j)*ci(j): original endpoint_weight(L,z,u,v)=P*D6(K) when K is a nonnegative integer; otherwise 0.",
+    "complexity": "Fixed six axes: <=6K exact rational series updates + <=3(K+1)(K+2) convolution multiply-add contributions vs binomial(K+5,5) original composition summands. Arithmetic-operation claim only, not bit-complexity or wall clock.",
+    "exact_checks": 3112,
+    "independent_signed_path_dp_endpoints": 2668,
+    "max_K_direct_pinned_comparison": 13,
+    "violations": 0,
+    "reproducibility": {
+      "frozen_source": {
+        "path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+        "sha256": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4"
+      },
+      "note": {
+        "path": "research_notes/X6_UNIT198_PINNED_WEIGHTED_BRC_COEFFICIENT_DP_20261121.md",
+        "commit": "a9765091f6c9b938a8e96a0f2ea6e1fcb9e8d47d",
+        "blob": "e3345a909484cd93479cb6a2298953237f2ee676"
+      },
+      "checker": {
+        "path": "research_checks/X6_UNIT198_PINNED_WEIGHTED_BRC_COEFFICIENT_DP_CHECK_20261121.py",
+        "commit": "b5d9c65730b439fc8a510e37e29b82a2a69baf58",
+        "blob": "910409e5da10b771d285d997fbfc26108be52e2a",
+        "sha256": "463bb16b0758767004e16c9a30b2fed955fc5829180f266f03f4c5f8eeaa2ab7"
+      },
+      "certificate": {
+        "path": "research_checks/X6_UNIT198_PINNED_WEIGHTED_BRC_COEFFICIENT_DP_RESULTS_20261121.json",
+        "commit": "66d2a92a706fea978df9e592566bc2637034fb52",
+        "blob": "cbc86abce55fac5ad94b65319db5e007a1f892d3",
+        "sha256": "7d4517706b5b4afc7da7db3d0a1e66d599cb98ae6f43e769fdd5e4afd282f019"
+      }
+    },
+    "R063_native_benchmark_rerun": false,
+    "frozen_producer_updated": false
+  },
+  "control": {
+    "historical_researcher_id": "EM-X6-FB6990",
+    "historical_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "historical_claim_id": "MCP-e2bd88a10565daf08b1d46f5",
+    "historical_run_id": "RUN-b2c1fe16e9806ecf043c89a0",
+    "last_confirmed_authenticated_native_unit": 174,
+    "native_pending_semantic_units": "175-198",
+    "older_pending_units": [
+      149,
+      150,
+      151,
+      152
+    ],
+    "original_native_read_request_id": "onhour-20261121-0004-x6-current-continuation-v1",
+    "original_native_read_outcome": "SUCCEEDED / error=null / execution_authorized=false (read-only; no renewed protected write authorization)",
+    "historical_failed_prepare_id": "onhour-20261120-1524-x6-own-unit187-native-continuation-prepare-v1",
+    "historical_failed_prepare_status": "FAILED / NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED; original preserved, not replayed",
+    "fresh_live_owner_claim_authorization": "NOT_ESTABLISHED",
+    "research_activity_checkpoint": "TO_VERIFY_SOURCE_CAS; existing Activity 216 observed before Unit198",
+    "independent_review": "UNREVIEWED / NOT_ADMITTED"
+  },
+  "evidence_debt": [
+    "Native Units175-198 semantic association",
+    "Historical Units149-152 source association",
+    "LP011/LP019 original offending commit:path:line",
+    "Real frozen production consumer of signed_brc.py::endpoint_weight",
+    "Independent Driver review"
+  ],
+  "do_not_repeat": [
+    "Units194-197 exact A5/X6 temporal and weighted bridges",
+    "Unit198 original-pinned coefficient checker with 3112 validations",
+    "Original six-file R063 native benchmark",
+    "Any UNKNOWN or rejected native mutation; no maintenance-lane identity borrowing"
+  ],
+  "next_exact_action": "Inspect exact frozen source paths for real caller of original signed_brc.py::endpoint_weight; audit source path/line/K and actual acceptance object before any benchmark. If no caller found in bounded corpus, report precise negative coverage and source debt. Revalidate original same-lane winning Native CLAIM/RUN before semantic PROGRESS, never treat historical recovery metadata as authority; reconcile by original request ID, not duplicate.",
+  "continuation_state": "OPEN"
+}
