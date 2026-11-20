@@ -1,0 +1,74 @@
+{
+  "schema": "R284CG_MODULAR_FIBER_SIGNATURE_EXACT_V1",
+  "model": {
+    "p": 17179869143,
+    "d": [
+      1120832,
+      6,
+      13,
+      1651128
+    ],
+    "z": [
+      0,
+      390139,
+      394465,
+      1497639
+    ],
+    "selected_lower_positions": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6
+    ]
+  },
+  "frozen_codeword_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "complete_candidate_matrices": 65536,
+  "independent_leibniz_endpoint_checks": 128,
+  "global_min_codeword_gap": 59,
+  "group_arcs": 64,
+  "min_arc_width": 307592214,
+  "max_arc_width": 450181375,
+  "unexpanded_arc_union_components": 15,
+  "unexpanded_arc_union_length": 14595332646,
+  "outside_arc_min_distance": 1183,
+  "outside_arc_witness": {
+    "codeword": 4781788058,
+    "arc_key": 25,
+    "arc_start": 4471172719,
+    "arc_width": 310614156,
+    "distance": 1183
+  },
+  "stable_radius_strict_upper_bound": "1183/2",
+  "signature_histogram_by_active_arc_count": {
+    "1": 23178,
+    "2": 23094,
+    "3": 16964,
+    "4": 2300
+  },
+  "distinct_active_arc_signatures": 114,
+  "forced_critical_bits_histogram": {
+    "0": 4696,
+    "1": 17702,
+    "2": 7734,
+    "3": 10426,
+    "4": 1532,
+    "5": 268,
+    "6": 23178
+  },
+  "forced_by_bit_count": [
+    38486,
+    34564,
+    41552,
+    34442,
+    30026,
+    31914
+  ],
+  "at_least_one_critical_bit_forced": 60840,
+  "all_six_critical_bits_forced": 23178,
+  "sum_of_forced_bit_incidents": 210984,
+  "coverage": "entire 2^16 frozen binary matrix domain; exact integer arithmetic",
+  "inference": "All signature and forced-bit counts hold for every circular real observation error radius rho<1183/2 if arcs are tested after inflation by the same rho.",
+  "review": "NOT_REVIEWED"
+}
