@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "path": "research_notes/portable_direct/x6_r61_repeated_source_star_moment_verify.js",
+    "ref": "ab8bc2276aecd6b7441e11e0319bbcc96355f2c7"
+  },
+  "observation_id": "r2-x6-r61-checker-20261120-2218",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "// X6 R61: exact positive-branch repeated-A star moments and sharp lower-bound witnesses.\n// Requires Node.js 18+; no dependencies.\n'use strict';\nconst assert = require('node:assert/strict');\nfunction fact(n) { let x = 1n; for (let j=2; j<=n; j++) x*=BigInt(j); return x; }\nfunction choose(n,k) { let x=1n; for(let i=1;i<=k;i++) x=x*BigInt(n-i+1)/BigInt(i); return x; }\nfunction fall(n,k) { let x=1n; for(let i=0;i<k;i++) x*=BigInt(n-i); return x; }\nfunction moment(rows,t) { return rows.reduce((a,d)=>a+BigInt(d)**BigInt(t),0n); }\nfunction inverse(m,D) {\n  const s=Array.from({length:D+1},()=>Array(D+1).fill(0n)); s[0][0]=1n;\n  for(let k=1;k<=D;k++) for(let j=1;j<=k;j++)\n    s[k][j]=s[k-1][j-1]-BigInt(k-1)*s[k-1][j];\n  const F=Array(D+1).fill(0n);\n  for(let k=0;k<=D;k++) for(let j=0;j<=k;j++) F[k]+=s[k][j]*m[j];\n  const c=Array(D+1).fill(0n);\n  for(let k=D;k>=0;k--) {\n    let residual=F[k]; for(let d=k+1;d<=D;d++) residual-=c[d]*fall(d,k);\n    assert.equal(residual%fact(k),0n);\n    c[k]=residual/fact(k); assert(c[k]>=0n);\n  }\n  return c;\n}\nlet graphs=0;\nfor (let p=1;p<=3;p++) {\n  const total=2**(p*p);\n  for(let mask=0;mask<total;mask++) {\n    const rows=Array(p).fill(0);\n    for(let i=0;i<p;i++) for(let j=0;j<p;j++)\n      rows[i]+=(mask>>(i*p+j))&1;\n    const m=Array.from({length:p+1},(_,t)=>moment(rows,t));\n    const recovered=inverse(m,p);\n    const expected=Array.from({length:p+1},(_,d)=>BigInt(rows.filter(r=>r===d).length));\n    assert.deepEqual(recovered,expected);\n    graphs++;\n  }\n}\nlet witnesses=0;\nlet sample=null;\nfor(let D=1;D<=10;D++) {\n  const p=2**(D-1);\n  let even=[],odd=[];\n  for(let d=0;d<=D;d++) for(let j=0n;j<choose(D,d);j++) {\n    (d%2===0?even:odd).push(d);\n  }\n  assert.equal(even.length,p); assert.equal(odd.length,p); assert(p>=D);\n  for(let t=0;t<D;t++) assert.equal(moment(even,t),moment(odd,t));\n  const delta=moment(even,D)-moment(odd,D);\n  assert.equal(delta,BigInt((D%2===0?1:-1))*fact(D));\n  assert.deepEqual(inverse(Array.from({length:D+1},(_,t)=>moment(even,t)),D),\n    Array.from({length:D+1},(_,d)=>BigInt(even.filter(r=>r===d).length)));\n  assert.deepEqual(inverse(Array.from({length:D+1},(_,t)=>moment(odd,t)),D),\n    Array.from({length:D+1},(_,d)=>BigInt(odd.filter(r=>r===d).length)));\n  if(D===4) sample={D,p,even_hist:[1,0,6,0,1],odd_hist:[0,4,0,4,0],moments_even:Array.from({length:5},(_,t)=>moment(even,t).toString()),moments_odd:Array.from({length:5},(_,t)=>moment(odd,t).toString())};\n  witnesses++;\n}\nconsole.log(JSON.stringify({status:'PASS',enumerated_binary_graphs:graphs,degree_bound_witnesses:witnesses,range_graph_p:[1,3],range_delta:[1,10],sample,scope:'exact integer arithmetic; conditional AB reset and repeated-A-port equality, not native triadic admission'},null,2));\n",
+      "encoding": "utf-8",
+      "sha": "95408fd22ca7de91c6c6e301fa50b1d67e0eeef1",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/ab8bc2276aecd6b7441e11e0319bbcc96355f2c7/research_notes/portable_direct/x6_r61_repeated_source_star_moment_verify.js",
+      "display_title": "x6_r61_repeated_source_star_moment_verify.js"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
