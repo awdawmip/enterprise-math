@@ -1,0 +1,680 @@
+{
+  "schema": "X6_R69_D3_WEIGHTED_FIVE_CANDIDATES_V1",
+  "status": "EXACT_AUTHOR_ENUMERATION_NOT_INDEPENDENT_REVIEW",
+  "model": "D=3 normalized positive BRC degree moments with unknown shared additive bias",
+  "theorem": "for all p>=3 and positive w, minimize max(|x|/(w1+w2),|y|/(w1+w3),|x-y|/(w2+w3)) among 5 candidates satisfying q<=p",
+  "candidates": [
+    {
+      "a": [
+        1,
+        0
+      ],
+      "q": 1,
+      "xy": [
+        1,
+        3
+      ]
+    },
+    {
+      "a": [
+        -3,
+        1
+      ],
+      "q": 3,
+      "xy": [
+        0,
+        3
+      ]
+    },
+    {
+      "a": [
+        4,
+        -1
+      ],
+      "q": 4,
+      "xy": [
+        1,
+        0
+      ]
+    },
+    {
+      "a": [
+        5,
+        -1
+      ],
+      "q": 5,
+      "xy": [
+        2,
+        3
+      ]
+    },
+    {
+      "a": [
+        9,
+        -2
+      ],
+      "q": 9,
+      "xy": [
+        3,
+        3
+      ]
+    }
+  ],
+  "verification": {
+    "p_range": [
+      3,
+      15
+    ],
+    "weight_alphabet": [
+      1,
+      2,
+      3,
+      5,
+      11
+    ],
+    "weight_triples": 125,
+    "instances": 1625,
+    "feasible_vectors_inspected_with_multiplicity": 507000,
+    "pareto_vectors_checked_per_p": true,
+    "all_assertions_passed": true,
+    "independent_js_fraction_crosscheck": true
+  },
+  "examples": [
+    {
+      "p": 3,
+      "weights": [
+        100,
+        1,
+        1
+      ],
+      "eta_star": "1",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            1,
+            0
+          ],
+          "xy": [
+            1,
+            3
+          ],
+          "q": 1
+        }
+      ]
+    },
+    {
+      "p": 4,
+      "weights": [
+        100,
+        1,
+        1
+      ],
+      "eta_star": "1/2",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            4,
+            -1
+          ],
+          "xy": [
+            1,
+            0
+          ],
+          "q": 4
+        }
+      ]
+    },
+    {
+      "p": 5,
+      "weights": [
+        100,
+        1,
+        1
+      ],
+      "eta_star": "1/2",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            4,
+            -1
+          ],
+          "xy": [
+            1,
+            0
+          ],
+          "q": 4
+        },
+        {
+          "a": [
+            5,
+            -1
+          ],
+          "xy": [
+            2,
+            3
+          ],
+          "q": 5
+        }
+      ]
+    },
+    {
+      "p": 8,
+      "weights": [
+        100,
+        1,
+        1
+      ],
+      "eta_star": "1/2",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            4,
+            -1
+          ],
+          "xy": [
+            1,
+            0
+          ],
+          "q": 4
+        },
+        {
+          "a": [
+            5,
+            -1
+          ],
+          "xy": [
+            2,
+            3
+          ],
+          "q": 5
+        }
+      ]
+    },
+    {
+      "p": 9,
+      "weights": [
+        100,
+        1,
+        1
+      ],
+      "eta_star": "3/101",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            9,
+            -2
+          ],
+          "xy": [
+            3,
+            3
+          ],
+          "q": 9
+        }
+      ]
+    },
+    {
+      "p": 3,
+      "weights": [
+        1,
+        1,
+        100
+      ],
+      "eta_star": "3/101",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            -3,
+            1
+          ],
+          "xy": [
+            0,
+            3
+          ],
+          "q": 3
+        }
+      ]
+    },
+    {
+      "p": 4,
+      "weights": [
+        1,
+        1,
+        100
+      ],
+      "eta_star": "3/101",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            -3,
+            1
+          ],
+          "xy": [
+            0,
+            3
+          ],
+          "q": 3
+        }
+      ]
+    },
+    {
+      "p": 5,
+      "weights": [
+        1,
+        1,
+        100
+      ],
+      "eta_star": "3/101",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            -3,
+            1
+          ],
+          "xy": [
+            0,
+            3
+          ],
+          "q": 3
+        }
+      ]
+    },
+    {
+      "p": 8,
+      "weights": [
+        1,
+        1,
+        100
+      ],
+      "eta_star": "3/101",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            -3,
+            1
+          ],
+          "xy": [
+            0,
+            3
+          ],
+          "q": 3
+        }
+      ]
+    },
+    {
+      "p": 9,
+      "weights": [
+        1,
+        1,
+        100
+      ],
+      "eta_star": "3/101",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            -3,
+            1
+          ],
+          "xy": [
+            0,
+            3
+          ],
+          "q": 3
+        }
+      ]
+    },
+    {
+      "p": 3,
+      "weights": [
+        1,
+        100,
+        100
+      ],
+      "eta_star": "3/101",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            1,
+            0
+          ],
+          "xy": [
+            1,
+            3
+          ],
+          "q": 1
+        },
+        {
+          "a": [
+            -3,
+            1
+          ],
+          "xy": [
+            0,
+            3
+          ],
+          "q": 3
+        }
+      ]
+    },
+    {
+      "p": 4,
+      "weights": [
+        1,
+        100,
+        100
+      ],
+      "eta_star": "1/101",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            4,
+            -1
+          ],
+          "xy": [
+            1,
+            0
+          ],
+          "q": 4
+        }
+      ]
+    },
+    {
+      "p": 5,
+      "weights": [
+        1,
+        100,
+        100
+      ],
+      "eta_star": "1/101",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            4,
+            -1
+          ],
+          "xy": [
+            1,
+            0
+          ],
+          "q": 4
+        }
+      ]
+    },
+    {
+      "p": 8,
+      "weights": [
+        1,
+        100,
+        100
+      ],
+      "eta_star": "1/101",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            4,
+            -1
+          ],
+          "xy": [
+            1,
+            0
+          ],
+          "q": 4
+        }
+      ]
+    },
+    {
+      "p": 9,
+      "weights": [
+        1,
+        100,
+        100
+      ],
+      "eta_star": "1/101",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            4,
+            -1
+          ],
+          "xy": [
+            1,
+            0
+          ],
+          "q": 4
+        }
+      ]
+    },
+    {
+      "p": 3,
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "eta_star": "3/2",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            1,
+            0
+          ],
+          "xy": [
+            1,
+            3
+          ],
+          "q": 1
+        },
+        {
+          "a": [
+            -3,
+            1
+          ],
+          "xy": [
+            0,
+            3
+          ],
+          "q": 3
+        }
+      ]
+    },
+    {
+      "p": 4,
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "eta_star": "1/2",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            4,
+            -1
+          ],
+          "xy": [
+            1,
+            0
+          ],
+          "q": 4
+        }
+      ]
+    },
+    {
+      "p": 5,
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "eta_star": "1/2",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            4,
+            -1
+          ],
+          "xy": [
+            1,
+            0
+          ],
+          "q": 4
+        }
+      ]
+    },
+    {
+      "p": 8,
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "eta_star": "1/2",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            4,
+            -1
+          ],
+          "xy": [
+            1,
+            0
+          ],
+          "q": 4
+        }
+      ]
+    },
+    {
+      "p": 9,
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "eta_star": "1/2",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            4,
+            -1
+          ],
+          "xy": [
+            1,
+            0
+          ],
+          "q": 4
+        }
+      ]
+    },
+    {
+      "p": 3,
+      "weights": [
+        1,
+        2,
+        17
+      ],
+      "eta_star": "1/6",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            -3,
+            1
+          ],
+          "xy": [
+            0,
+            3
+          ],
+          "q": 3
+        }
+      ]
+    },
+    {
+      "p": 4,
+      "weights": [
+        1,
+        2,
+        17
+      ],
+      "eta_star": "1/6",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            -3,
+            1
+          ],
+          "xy": [
+            0,
+            3
+          ],
+          "q": 3
+        }
+      ]
+    },
+    {
+      "p": 5,
+      "weights": [
+        1,
+        2,
+        17
+      ],
+      "eta_star": "1/6",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            -3,
+            1
+          ],
+          "xy": [
+            0,
+            3
+          ],
+          "q": 3
+        }
+      ]
+    },
+    {
+      "p": 8,
+      "weights": [
+        1,
+        2,
+        17
+      ],
+      "eta_star": "1/6",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            -3,
+            1
+          ],
+          "xy": [
+            0,
+            3
+          ],
+          "q": 3
+        }
+      ]
+    },
+    {
+      "p": 9,
+      "weights": [
+        1,
+        2,
+        17
+      ],
+      "eta_star": "1/6",
+      "five_candidate_minimizers": [
+        {
+          "a": [
+            -3,
+            1
+          ],
+          "xy": [
+            0,
+            3
+          ],
+          "q": 3
+        }
+      ]
+    }
+  ],
+  "freeze": "p000_reality_foundation.json@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "native_triads": "ADMISSION_PENDING"
+}
