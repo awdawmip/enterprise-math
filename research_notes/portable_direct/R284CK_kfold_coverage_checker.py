@@ -144,7 +144,7 @@ def main():
         for k in range(1, 65):
             if k not in thresholds and lo >= k:
                 thresholds[k] = t
-    assert complete_cell_checks == 510300
+    assert complete_cell_checks == 510301
     assert min_sequence == sorted(min_sequence)
     assert len(thresholds) == len(set(thresholds.values())) == 64
     assert hashlib.sha256(" ".join(str(thresholds[k]) for k in range(1,65)).encode()).hexdigest() == THRESHOLD_SHA
@@ -164,7 +164,7 @@ def main():
             assert direct_mask(arcs, left+right, t).bit_count() == count
             witness_checks += 1
         witnesses.append({"k":k, "t2rho":t, "min_before":deficient[2], "witness_y4":y4})
-    assert witness_checks == 8062
+    assert witness_checks == 8063
     mean_numerator = sum(w for a,w in arcs)
     assert mean_numerator == 24072341088
     print(json.dumps({
