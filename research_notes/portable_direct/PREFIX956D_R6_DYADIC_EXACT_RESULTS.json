@@ -1,0 +1,196 @@
+{
+  "schema": "EM_PREFIX956D_R6_EXACT_DYADIC_CENSUS_V1",
+  "date": "2026-11-20",
+  "frozen_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "AUXILIARY_NAMED_XOR_OBSERVER",
+  "p": 19,
+  "k": 21,
+  "l": 23,
+  "Q19_start": 262145,
+  "Q19_end": 524287,
+  "Q19_size": 131072,
+  "t_range": "1..42",
+  "T_range": "1..46",
+  "m_range": "0..6",
+  "nonresonant_only": true,
+  "exact_stage_tuple_counts": {
+    "total": {
+      "total": 150651076,
+      "by_gap_m_0_to_6": [
+        21893928,
+        21893928,
+        21372644,
+        21893928,
+        21372644,
+        21372644,
+        20851360
+      ]
+    },
+    "after_mod4": {
+      "total": 46506920,
+      "by_gap_m_0_to_6": [
+        3454836,
+        3931200,
+        14162466,
+        3931200,
+        3372578,
+        3837600,
+        13817040
+      ]
+    },
+    "after_2adic": {
+      "total": 11834665,
+      "by_gap_m_0_to_6": [
+        1703724,
+        1965600,
+        1300222,
+        1965600,
+        1702040,
+        1918800,
+        1278679
+      ]
+    },
+    "after_integer_divisibility": {
+      "total": 1884076,
+      "by_gap_m_0_to_6": [
+        233408,
+        260892,
+        678638,
+        262842,
+        233210,
+        43536,
+        171550
+      ]
+    },
+    "in_odd_Q19": {
+      "total": 33761,
+      "by_gap_m_0_to_6": [
+        12,
+        2643,
+        24427,
+        5251,
+        1407,
+        20,
+        1
+      ]
+    },
+    "source_valid_named_witnesses": {
+      "total": 8711,
+      "by_gap_m_0_to_6": [
+        6,
+        644,
+        6513,
+        1314,
+        231,
+        3,
+        0
+      ]
+    },
+    "distinct_nonresonant_pair_memberships": {
+      "total": 6207,
+      "by_gap_m_0_to_6": [
+        6,
+        443,
+        4725,
+        840,
+        190,
+        3,
+        0
+      ]
+    }
+  },
+  "distinct_nonresonant_pairs": 6204,
+  "distinct_off_diagonal_pairs": 6203,
+  "distinct_nonresonant_diagonal_pairs": 1,
+  "overlapping_off_diagonal_gap_pair": [
+    278529,
+    290817
+  ],
+  "overlap_gap_set": [
+    1,
+    2
+  ],
+  "mask_histogram": {
+    "1": 6,
+    "2": 441,
+    "4": 4723,
+    "6": 1,
+    "8": 839,
+    "14": 1,
+    "16": 190,
+    "32": 3
+  },
+  "off_diagonal_memberships_by_m": [
+    {
+      "m": 0,
+      "a_less_b": 6,
+      "a_greater_b": 0,
+      "total": 6
+    },
+    {
+      "m": 1,
+      "a_less_b": 421,
+      "a_greater_b": 21,
+      "total": 442
+    },
+    {
+      "m": 2,
+      "a_less_b": 2127,
+      "a_greater_b": 2597,
+      "total": 4724
+    },
+    {
+      "m": 3,
+      "a_less_b": 10,
+      "a_greater_b": 829,
+      "total": 839
+    },
+    {
+      "m": 4,
+      "a_less_b": 0,
+      "a_greater_b": 190,
+      "total": 190
+    },
+    {
+      "m": 5,
+      "a_less_b": 0,
+      "a_greater_b": 3,
+      "total": 3
+    },
+    {
+      "m": 6,
+      "a_less_b": 0,
+      "a_greater_b": 0,
+      "total": 0
+    }
+  ],
+  "output_binary": "PREFIX956_NONDIAGONAL_IDS.bin",
+  "output_binary_bytes": 49624,
+  "output_binary_sha256": "1caec71f97ddb97c60c8506629f65651f0f3030b3526aeca30195948ee0cff75",
+  "binary_equal_to_predecessor": "PREFIX955_NONDIAGONAL_IDS.bin",
+  "independent_small_width_test": {
+    "p_values": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "all_odd_adjacent_cores_and_all_Qp_moduli": true,
+    "joint_named_witnesses": 23354,
+    "counts_by_p": {
+      "4": 137,
+      "5": 696,
+      "6": 4098,
+      "7": 18423
+    }
+  },
+  "runtime_observation": {
+    "CXX17_seconds_approx": 0.31,
+    "peak_rss_kib_approx": 1920,
+    "excluded": "compilation and verification; not an end-to-end benchmark"
+  },
+  "evidence_scope": "exact integer computation; new congruence theorem with direct proof; SHA equality with archived PREFIX955; small-p independent direct-XOR brute",
+  "review_status": "NOT_INDEPENDENTLY_REVIEWED",
+  "activity_linkage_status": "PENDING_CURRENT_SESSION_AUTHORITY",
+  "note": "Distinct PREFIX956D dyadic filter study; an unrelated PREFIX956_R6_EXACT_RESULTS.json was already present during publication and is preserved unchanged."
+}
