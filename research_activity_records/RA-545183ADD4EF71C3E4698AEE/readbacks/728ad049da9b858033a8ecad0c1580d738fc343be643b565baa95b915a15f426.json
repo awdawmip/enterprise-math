@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "path": "research_notes/portable_direct/x6_r59_matching_cycle_trace_verify.py",
+    "ref": "c06113de4058bf5f05829d38c6d7d26e762ed892"
+  },
+  "observation_id": "r2-x6-r59-20261120-2",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"X6 R59 exact positive-BRC branch-chain verification, no external dependencies.\nObserver: k independent reset AB trials; each pair is a successful branch;\ncross-trial cyclic equalities B(t).port = A(t+1).port.\nThe 0/1 arrays count paths; no physical or signed-amplitude propagation.\n\"\"\"\nfrom collections import Counter\nfrom fractions import Fraction\nfrom itertools import permutations\n\ndef multiply(a, b):\n    n = len(a)\n    return [[sum(a[i][t]*b[t][j] for t in range(n))\n             for j in range(n)] for i in range(n)]\n\ndef identity(n):\n    return [[int(i == j) for j in range(n)] for i in range(n)]\n\ndef trace(a):\n    return sum(a[i][i] for i in range(len(a)))\n\ndef cycles(perm):\n    visited = set()\n    out = Counter()\n    for start in range(len(perm)):\n        if start in visited:\n            continue\n        node = start\n        length = 0\n        while node not in visited:\n            visited.add(node)\n            node = perm[node]\n            length += 1\n        out[length] += 1\n    return dict(out)\n\ncounts = {}\nfor p in range(1, 8):\n    cnt = 0\n    for perm in permutations(range(p)):\n        # Each S[i][j] is one explicit positive BRC branch when permitted.\n        success = [[int(j != perm[i]) for j in range(p)] for i in range(p)]\n        matching = [[int(j == perm[i]) for j in range(p)] for i in range(p)]\n        sc = identity(p)\n        mc = identity(p)\n        f = [0] * (p + 1)\n        u, v = Fraction(2), Fraction(3)\n        U, V = p*u, p*v\n        T = p*(p-1)*u*v\n        assert Fraction(U*V, U*V-T) == p\n        assert Fraction(U*V, p*p) == u*v\n        for k in range(1, p+1):\n            # Independently accumulate named closed positive paths.\n            sc = multiply(sc, success)\n            mc = multiply(mc, matching)\n            Lk = trace(sc)\n            fk_direct = trace(mc)\n            fk_recovered = 1 + (-1)**k*(Lk-(p-1)**k)\n            assert fk_direct == fk_recovered\n            f[k] = fk_recovered\n        reconstructed = {}\n        for n in range(1, p+1):\n            value = f[n]-sum(d*reconstructed[d] for d in range(1, n) if n%d == 0)\n            assert value%n == 0\n            reconstructed[n] = value//n\n        assert {n: c for n, c in reconstructed.items() if c} == cycles(perm)\n        cnt += 1\n    counts[p] = cnt\n\ndef l2(perm):\n    p = len(perm)\n    s = [[int(j != perm[i]) for j in range(p)] for i in range(p)]\n    return trace(multiply(s, s))\n\nassert l2((1, 2, 3, 0)) == 8\nassert l2((1, 0, 3, 2)) == 12\nassert sum(counts.values()) == 5913\nprint({\"status\": \"PASS\", \"permutation_matchings_by_p\": counts,\n       \"total\": sum(counts.values()),\n       \"p4_l2_4cycle\": 8, \"p4_l2_two_2cycles\": 12})\n",
+      "encoding": "utf-8",
+      "sha": "140d963954aa4532db510062ee97d910c4799bec",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c06113de4058bf5f05829d38c6d7d26e762ed892/research_notes/portable_direct/x6_r59_matching_cycle_trace_verify.py",
+      "display_title": "x6_r59_matching_cycle_trace_verify.py"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
