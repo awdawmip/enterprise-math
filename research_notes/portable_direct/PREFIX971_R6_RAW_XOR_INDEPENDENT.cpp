@@ -4,7 +4,7 @@ struct Row { int a,b,t,T,i,j,I,J; bool operator<(const Row& x)const{return tie(a
 int main(int argc,char**argv){
     int p=argc>1?atoi(argv[1]):19;
     int k=argc>2?atoi(argv[2]):21;
-    if (p<4||p>25||k<1||k%2==0||k+2>=(1<<(p-1))) return 2;
+    if (p!=19 || k!=21) { cerr << "independent checker is scoped to Q19 and k=21\n"; return 2; }
     int H=1<<(p-1),L=H+1,U=2*H-1;
     vector<vector<Row>> named(7); long long seen_left=0;
     for(int a=L;a<=U;a+=2){
