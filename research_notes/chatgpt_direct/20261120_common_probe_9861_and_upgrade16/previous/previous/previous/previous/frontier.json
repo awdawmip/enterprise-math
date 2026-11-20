@@ -1,0 +1,61 @@
+{
+  "model": "three native services, common identity/doubling, one shared original endpoint probe",
+  "scenario_count": 31250,
+  "R": {
+    "11": [
+      11001,
+      11292
+    ],
+    "12": [
+      9846,
+      10131
+    ],
+    "13": [
+      8721,
+      8721
+    ]
+  },
+  "cyclic_order_6": {
+    "11": {
+      "minimum": 11292,
+      "affine_orbit_sizes": [
+        2000,
+        2000
+      ]
+    },
+    "12": {
+      "minimum": 10224,
+      "affine_orbit_sizes": [
+        2000
+      ]
+    }
+  },
+  "translation": {
+    "11": {
+      "feasible": false
+    },
+    "12": {
+      "minimum": 11130,
+      "total_unlabeled": 37356000,
+      "affine_orbit_sizes_at_minimum": [
+        2400
+      ]
+    }
+  },
+  "eleven_with_cyclic_order_3": {
+    "minimum": 11292
+  },
+  "eleven_single_axis_reflection": {
+    "minimum_if_feasible_at_least": 11328
+  },
+  "eleven_strict_improvement": {
+    "stabilizer_orders_allowed": [
+      1,
+      2
+    ],
+    "minimum_old_classes_replaced": 7
+  },
+  "twelve_with_cyclic_order_12": {
+    "feasible": false
+  }
+}
