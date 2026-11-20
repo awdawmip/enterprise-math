@@ -1,0 +1,37 @@
+{
+  "schema": "X6_SOURCE_LEDGER_DELTA_V1",
+  "unit": 188,
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "classification": "AUTHOR_PROVED_EXACT_BRC_COARSEN_PUSHFORWARD / NOT_REVIEWED / NOT_ADMITTED",
+  "frozen_scientific_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "historical_source_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "source_producer": "src/enterprise_math/weighted_relation_field.py: weighted_relation_field",
+  "actual_consumer": "src/enterprise_math/weighted_relation_field.py: coarsen_weighted_relation_field / merge_weighted_relation_field / recover_totals_from_weighted_field",
+  "actual_test": "tests/test_weighted_relation_field.py",
+  "new_exact_scope": [
+    "all integer path lengths n>=0",
+    "all positive integer source capacities m",
+    "all partitions of six named axes",
+    "grouped BRC coefficient pushforward",
+    "coarse-field kernel rank 7-k",
+    "coarse total plus intragroup repair"
+  ],
+  "source_type_boundary": "source capacity != primitive signed direction multiplicity; actual native count r_A=cardinality of source group",
+  "witness": {
+    "uniform": "M3, m=all1, two groups sizes2/4: coarse zero field 192 paths, full field zero 0",
+    "nonuniform": "group source capacity3 but primitive multiplicity2"
+  },
+  "prior_science_consumed": [
+    "Unit176",
+    "Unit182",
+    "Unit183",
+    "Unit184",
+    "Unit185",
+    "Unit186",
+    "Unit187"
+  ],
+  "native_R063_reexecuted": false,
+  "source_admission": "UNREVIEWED / NOT_ADMITTED",
+  "native_progress": "NOT_SUBMITTED"
+}
