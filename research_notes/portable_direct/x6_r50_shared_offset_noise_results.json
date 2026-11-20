@@ -1,0 +1,128 @@
+{
+  "schema": "EM_X6_R50_OBSERVER_RATIONAL_CHECK_V1",
+  "date": "2026-11-20",
+  "status": "AUTHOR_LOCAL_CHECK_PASS_NOT_INDEPENDENT_REVIEWED",
+  "scope": "Conditional positive-branch BRC root readout; exact rational measurement-layer feasibility only. No native heartbeat evolution or physical TRIADIC_CLOSURE_E embedding.",
+  "theorem": "For candidate q, common-offset bounded-error data are feasible precisely when the six pairwise residual inequalities admit S>0,P>0,S^2>=4P; rational vertices plus edge interpolation give an exact real-weight feasibility certificate.",
+  "verification_method": "Python standard-library fractions.Fraction, complete intersection of all 14 halfplane boundary pairs and exact inequalities",
+  "four_parameter_cases": [
+    {
+      "name": "exact",
+      "z": [
+        "9",
+        "6",
+        "32",
+        "12"
+      ],
+      "eta": "0",
+      "port_cap": 3,
+      "feasible_ports": [
+        3
+      ],
+      "poly_vertices_q3": 1
+    },
+    {
+      "name": "bias",
+      "z": [
+        "16",
+        "13",
+        "39",
+        "19"
+      ],
+      "eta": "0",
+      "port_cap": 3,
+      "feasible_ports": [
+        3
+      ],
+      "poly_vertices_q3": 1
+    },
+    {
+      "name": "quarter",
+      "z": [
+        "37/4",
+        "25/4",
+        "129/4",
+        "49/4"
+      ],
+      "eta": "1/4",
+      "port_cap": 3,
+      "feasible_ports": [
+        3
+      ],
+      "poly_vertices_q3": 8
+    },
+    {
+      "name": "eta_one",
+      "z": [
+        "9",
+        "6",
+        "32",
+        "12"
+      ],
+      "eta": "1",
+      "port_cap": 12,
+      "feasible_ports": [
+        3
+      ],
+      "poly_vertices_q3": 8
+    }
+  ],
+  "self_witnesses": [
+    {
+      "q": 1,
+      "alpha": "1",
+      "beta": "2",
+      "b": "0",
+      "eta": "0"
+    },
+    {
+      "q": 2,
+      "alpha": "3/2",
+      "beta": "3/2",
+      "b": "3",
+      "eta": "0"
+    },
+    {
+      "q": 3,
+      "alpha": "1",
+      "beta": "2",
+      "b": "0",
+      "eta": "1/4"
+    },
+    {
+      "q": 4,
+      "alpha": "1/3",
+      "beta": "5/3",
+      "b": "-2",
+      "eta": "1/8"
+    }
+  ],
+  "zero_readout_positive_weight_aliases": {
+    "q_min": 1,
+    "q_max": 100,
+    "z": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "eta": "1/2",
+    "alpha_beta": "1/(8q)",
+    "finite_check": "PASS",
+    "general_all_q": "SYMBOLIC_PROOF_IN_PAPER"
+  },
+  "common_bias_invariance": {
+    "q_min": 1,
+    "q_max": 12,
+    "eta": "1",
+    "b_shift": 7,
+    "status": "PASS"
+  },
+  "local_program": "r50_verify.py",
+  "published_program": "research_notes/portable_direct/x6_r50_shared_offset_noise_verify.py",
+  "scientific_pins": {
+    "p000": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+    "root_formula": "R47, R49 conditional graph"
+  },
+  "open": "Native source/Port/Cell/Link trace-preserving embedding is pending; strict rational-WBRC realizability of arbitrary real solution requires additional rational-root criterion."
+}
