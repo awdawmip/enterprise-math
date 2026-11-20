@@ -1,0 +1,67 @@
+{
+  "schema": "R5_RARE_FAILURE_N78_SUMMARY_V1",
+  "status": "AUTHOR_SYMBOLIC_PROOF / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "frozen_source_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "scope": "fixed m>=1; unordered nonadaptive repeated queries, 256 hypotheses, 101 price labels",
+  "theorem": "F_m(N)=sum(j=0..17) B_(95-j)(m)*N^(95-j)/((95-j)!*Pprime)+O_m(N^77)",
+  "checked_m": [
+    1,
+    2,
+    3,
+    5,
+    8,
+    17
+  ],
+  "checks": {
+    "S4_direct_brute_m": [
+      1,
+      2,
+      3
+    ],
+    "direct_vs_aggregate_moments_to_degree": 5,
+    "independent_Laurent_price_sets": 6,
+    "Laurent_degree": 17,
+    "predecessor_coefficient_comparison": "all coefficients B95 through B84 match exactly for all checked m",
+    "full_256_pair_census_recomputed": false,
+    "arithmetic": "Python int and fractions.Fraction"
+  },
+  "source_replay": "VERIFY_N78.py with pinned VERIFY_N84.py, RESULT_N84.json and EXACT_R5_ALL_101_BUDGETS.json",
+  "constants": {
+    "K4": "40038711793058488012447281232896000/11663",
+    "K04": "1613957269281244207102708910715539128320000",
+    "formula_K4": "prod(296..312)/prod(214..218)",
+    "formula_K04": "prod(296..312)"
+  },
+  "s4_bad_count_examples": [
+    {
+      "m": 1,
+      "L0": 1
+    },
+    {
+      "m": 2,
+      "L0": 18
+    },
+    {
+      "m": 3,
+      "L0": 171
+    },
+    {
+      "m": 5,
+      "L0": 5985
+    },
+    {
+      "m": 8,
+      "L0": 346104
+    },
+    {
+      "m": 17,
+      "L0": 1166803110
+    }
+  ],
+  "source_direct_cross_m1": {
+    "S4_first_at_N83": "K4",
+    "S0S4_first_at_N78": "-K04"
+  },
+  "reviewer_status": "NOT_REVIEWED",
+  "next": "N^77 term; S0 cap S4 first cost moment, then N^76 S1/S2 cap S4"
+}
