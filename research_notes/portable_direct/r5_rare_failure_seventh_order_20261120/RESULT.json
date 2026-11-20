@@ -1,0 +1,62 @@
+{
+  "schema": "R5_RARE_FAILURE_N89_V1",
+  "date": "2026-11-20",
+  "status": "AUTHOR_SYMBOLIC_PROOF_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "model": "256 pinned hypotheses; 101 prices 214..314; nonadaptive unordered query multiset; m=2f+e+1",
+  "scientific_pin": "awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551:EXACT_R5_ALL_101_BUDGETS.json",
+  "frozen_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "frozen_local_zip_bytes_sha256_checked": true,
+  "frozen_remote_path_rediscovered": false,
+  "asymptotic": "F_m(N)=sum_{j=0}^6 B_{95-j}(m)N^{95-j}/((95-j)!P')+O_m(N^88)",
+  "verification": {
+    "grouped_vs_bruteforce_m": [
+      1,
+      2,
+      3
+    ],
+    "B90_matches_predecessor_m": [
+      1,
+      2,
+      3,
+      8,
+      17
+    ],
+    "independent_laplace_t6_price_sets": 7,
+    "exact_fraction_integer_only": true
+  },
+  "rows": [
+    {
+      "m": 1,
+      "T": "0",
+      "B89": "10196399865022551484551495847/1739178"
+    },
+    {
+      "m": 2,
+      "T": "735817500",
+      "B89": "75227314298019395022085336997/2318904"
+    },
+    {
+      "m": 3,
+      "T": "27562947768",
+      "B89": "17335829107232613089479681163/165636"
+    },
+    {
+      "m": 5,
+      "T": "2614767747732",
+      "B89": "14702324295059436015789971471/27606"
+    },
+    {
+      "m": 8,
+      "T": "202673080612017",
+      "B89": "502196328267106451533943421385/193242"
+    },
+    {
+      "m": 17,
+      "T": "324149786495385372",
+      "B89": "804852096580328159785507501667/27606"
+    }
+  ],
+  "next_open": "N88 coefficient; seven-price fifth moment and eight-price fourth moment; T_m rational GF",
+  "identity": "Current native execution identity unconfirmed; preserve historical EM-DIRECT-4C3E47 provenance only",
+  "formal_claim_run_created": false
+}
