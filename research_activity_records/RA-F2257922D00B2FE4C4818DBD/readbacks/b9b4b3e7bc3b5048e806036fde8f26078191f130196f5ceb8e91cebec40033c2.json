@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_d14_all_f0_f3_20261120/VERIFY_D14_F0_F3_INDEPENDENT.py",
+    "ref": "690c4eefd750a5e7aa31f401d94a6dfcf4502a73",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261120-0912-d14-f0f3-source-5",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Independent validation of selected R5 14-label exact Bellman states.\nDifferent endpoint construction and Python tuple-state recursion; no C++ solver import.\n\"\"\"\nimport csv,functools,hashlib,json,random\nfrom pathlib import Path\nR=Path(__file__).parent\nraw=(R/'EXACT_R5_ALL_101_BUDGETS.json').read_bytes()\nassert hashlib.sha256(raw).hexdigest()=='50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b'\nj=json.loads(raw)\ntau=int(json.loads((R/'stages_18.json').read_text())['U'])-1\ncenters={k:tuple(map(int,j['counts_and_cohorts'][str(k)]['counts'])) for k in range(214,315)}\nW=(0,16,32,48,1,64,17,80,18,24,34,82)\nclasses={int(r['id']):r for r in csv.DictReader((R/'classes_1906.tsv').open(),delimiter='\\t')}\nrawrows=list(csv.DictReader((R/'FULL_D14_F0_F3.csv').open()))\nassert len(rawrows)==1906*4\nlookup={(int(r['class']),int(r['f'])):int(r['exact_cost']) for r in rawrows}\nassert all(r['status']=='EXACT' for r in rawrows)\nrng=random.Random(20261120)\nids={0,5,8,29,368,847,1090,1265,1600,1905}\nfor action in (7,8,9):\n candidates=[i for i,r in classes.items() if int(r['actions'])==action]\n ids.update(rng.sample(candidates,min(4,len(candidates))))\ndef actions_for(cid):\n r=classes[cid];labels=W+(int(r['u']),int(r['v']))\n byfam={}\n for cost in range(214,315):\n  c=centers[cost]\n  x=[c[u] for u in labels]\n  supports=set()\n  for y in x:\n   q=2*y-tau\n   supports.add(sum((1<<k) for k,t in enumerate(x) if abs(2*t-q)<=tau))\n  maximal=tuple(sorted(m for m in supports if not any(m!=t and m&t==m for t in supports)))\n  if maximal==(16383,):continue\n  if maximal not in byfam:byfam[maximal]=cost\n return tuple((cost,masks) for masks,cost in sorted(byfam.items(),key=lambda x:x[1]))\ndef solver(actions,f):\n @functools.lru_cache(None)\n def V(e):\n  live=sum(1<<i for i,x in enumerate(e) if x<=f)\n  if live.bit_count()<=1:return 0\n  ans=10**12\n  for cost,masks in actions:\n   if any((m&live)==live for m in masks):continue\n   worst=0\n   for m in masks:\n    nxt=tuple(min(f+1,z+(not (m>>i&1))) for i,z in enumerate(e))\n    worst=max(worst,V(nxt))\n    if cost+worst>=ans:break\n   ans=min(ans,cost+worst)\n  assert ans<10**12\n  return ans\n return V((0,)*14),V.cache_info().currsize\nverified=[]\nfor cid in sorted(ids):\n acts=actions_for(cid)\n assert len(acts)==int(classes[cid]['actions']),(cid,len(acts),classes[cid]['actions'])\n for f in (0,1,2) if cid not in (0,5,847,1090,1905) else (0,1,2,3):\n  val,n=solver(acts,f)\n  assert val==lookup[cid,f]==735+950*f,(cid,f,val,lookup[cid,f])\n  verified.append((cid,f,val,n))\nprint('PASS independent doubled-endpoint tuple DP:',len(ids),'distinct classes,',len(verified),'exact crosschecks')\nfor x in verified:print(*x)\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/690c4eefd750a5e7aa31f401d94a6dfcf4502a73/research_notes/portable_direct/r5_d14_all_f0_f3_20261120/VERIFY_D14_F0_F3_INDEPENDENT.py",
+      "encoding": "utf-8",
+      "sha": "80daea8e059539b694b9ca678c8376d4cf242523"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
