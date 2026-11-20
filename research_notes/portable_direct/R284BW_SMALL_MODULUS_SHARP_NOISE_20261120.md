@@ -74,7 +74,7 @@ These exact finite checks certify all 65,536 candidate residues, rather than rel
 
 ## Comparison, representation tradeoff, and next open work
 
-R284BV's symbolic general-H and table-free deterministic construction used a sufficient modulus bound of approximately 833 bits for its explicit H=2 example. R284BW supplies a different H=2 instantiation with a 35-bit modulus and a 65,536-entry decoder table. The counting lower bound for a circle code with 65,536 centers and minimum separation 59 is `p >= 65536*59=3866624` (22 bits). Our explicit witness leaves a gap from 35 to that 22-bit packing bound. No optimality claim is made for 35 bits.
+R284BV's symbolic general-H and table-free deterministic construction used a sufficient modulus bound of approximately 833 bits for its explicit H=2 example, accommodating integral noise up to 227,082,239. R284BW supplies a different H=2 instantiation with a 35-bit modulus and a 65,536-entry decoder table, accommodating integral noise up to 29. These are different noise requirements and decoding costs, not a same-specification bit-length comparison. The counting lower bound for a circle code with 65,536 centers and minimum separation 59 is `p >= 65536*59=3866624` (22 bits). Our explicit witness leaves a gap from 35 to that 22-bit packing bound. No optimality claim is made for 35 bits.
 
 The `32768` two-element fibres at the *nonconstant-signature* level retain the distinguished directed edge `C03`; the constant-slot value resolves the fibre at this observer and error horizon. This is a scope-typed residual-retention certificate, not a native X6 embedding, physical-time observation, or general lossless state compression.
 
