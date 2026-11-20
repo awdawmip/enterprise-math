@@ -1,0 +1,48 @@
+{
+  "schema": "ENTERPRISE_MATH_X6_R59_BRC_POSITIVE_EXACT_AUTHOR_CHECK_V1",
+  "date": "2026-11-20",
+  "status": "PASS",
+  "model": "conditional two-source permutation-matching forbidden-port incidence; independent reset AB trials; cyclic cross-trial same-port predicates",
+  "inputs": {
+    "p_min": 1,
+    "p_max": 7,
+    "source_weight_u": "2",
+    "source_weight_v": "3",
+    "arithmetic": "exact nonnegative integers and Fraction",
+    "source_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389"
+  },
+  "permutation_matchings_by_p": {
+    "1": 1,
+    "2": 2,
+    "3": 6,
+    "4": 24,
+    "5": 120,
+    "6": 720,
+    "7": 5040
+  },
+  "total_permutation_matchings": 5913,
+  "checks": [
+    "positive-branch closed-chain count",
+    "finite trace formula",
+    "cycle length recovery by divisor recurrence",
+    "p and uv reconstruction",
+    "two 4-Port matchings witness"
+  ],
+  "p4_witness": {
+    "four_cycle": {
+      "L1": 4,
+      "L2": 8
+    },
+    "two_two_cycles": {
+      "L1": 4,
+      "L2": 12
+    },
+    "mass_gap": "4*(uv)^2"
+  },
+  "limitations": [
+    "conditional reset/equality observer",
+    "not native TRIADIC_CLOSURE_E admission",
+    "author check not independent review",
+    "finite tests do not prove unrestricted p"
+  ]
+}
