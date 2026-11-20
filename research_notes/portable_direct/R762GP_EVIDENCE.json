@@ -1,0 +1,273 @@
+{
+  "schema": "R762GP_MOVING_PORT_UNIT_DEPTH_BRC_EVIDENCE_V1",
+  "research_date": "2026-11-20",
+  "model": "R762GM signed STAR semidirect moving Port p(01) candidate",
+  "scientific_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_taskbook_source": "857280d1012943290d141d1317179c40ec3cbdf8",
+  "antecedent": "R762GO PR #2833@671524861024cd6ce5550649eb7a46905dff5157",
+  "code": "research_notes/portable_direct/R762GP_CHECK.py",
+  "arithmetic": "Exact integer source word counting; finite complete states (Z^6,A6), no float",
+  "method": "Exact forward/backward BRC word-count convolution at half depths 1..8; signed witnesses independently replayed",
+  "orientation_count": 360,
+  "source_branch_count_per_state": 4,
+  "affine_return_histogram": {
+    "2": {
+      "0": 4
+    },
+    "4": {
+      "0": 28
+    },
+    "6": {
+      "0": 224
+    },
+    "8": {
+      "0": 1884
+    },
+    "10": {
+      "0": 16256
+    },
+    "12": {
+      "0": 142616,
+      "6": 8,
+      "-6": 8
+    },
+    "14": {
+      "0": 1267096,
+      "6": 324,
+      "-6": 324
+    },
+    "16": {
+      "0": 11376408,
+      "1": 1,
+      "4": 1,
+      "6": 7936,
+      "-6": 7936,
+      "-4": 1,
+      "-1": 1
+    }
+  },
+  "half_state_counts": {
+    "0": {
+      "forward": 1,
+      "backward": 1
+    },
+    "1": {
+      "forward": 4,
+      "backward": 4
+    },
+    "2": {
+      "forward": 13,
+      "backward": 21
+    },
+    "3": {
+      "forward": 40,
+      "backward": 88
+    },
+    "4": {
+      "forward": 129,
+      "backward": 269
+    },
+    "5": {
+      "forward": 420,
+      "backward": 720
+    },
+    "6": {
+      "forward": 1313,
+      "backward": 1949
+    },
+    "7": {
+      "forward": 4008,
+      "backward": 5124
+    },
+    "8": {
+      "forward": 12011,
+      "backward": 12989
+    }
+  },
+  "first_unit_depth": {
+    "positive_min_events": 16,
+    "negative_min_events": 16,
+    "positive_count_at_16": 1,
+    "negative_count_at_16": 1,
+    "positive_word": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        3,
+        -1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        1,
+        -1
+      ]
+    ],
+    "negative_word": [
+      [
+        1,
+        -1
+      ],
+      [
+        3,
+        -1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        -1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "positive_ports": [
+      "01",
+      "02",
+      "02",
+      "12",
+      "12",
+      "12",
+      "13",
+      "13",
+      "02",
+      "02",
+      "13",
+      "03",
+      "03",
+      "01",
+      "12",
+      "12"
+    ],
+    "negative_ports": [
+      "01",
+      "13",
+      "13",
+      "03",
+      "03",
+      "03",
+      "02",
+      "02",
+      "13",
+      "13",
+      "02",
+      "12",
+      "12",
+      "01",
+      "03",
+      "03"
+    ]
+  },
+  "theorem": {
+    "reachability": "All signed integer depths k reachable as complete (kD,id) affine returns by concatenation of the +/-1 words.",
+    "lower_bound": "L(k) >= 2|k| (sum of all six native coordinates).",
+    "upper_bound": "L(k) <= 2|k|+26, via generators +/-1 and +/-4 (16 steps), +/-6 (12 steps).",
+    "exact_multiples_of_6": "L(6a) = 12|a| for all nonzero integers a.",
+    "asymptotic": "lim_{|k|->infty}L(k)/|k| = 2"
+  },
+  "local_check": "PASS; independent 12-step full forward DP reproduced exact 2..12 endpoint counts",
+  "source_scope": "Author-side constructed candidate only, original signed native TRIADIC_CLOSURE_E still unlicensed",
+  "independent_review": "NOT_REVIEWED",
+  "p000_changed": false,
+  "native_progress_submitted": false
+}
