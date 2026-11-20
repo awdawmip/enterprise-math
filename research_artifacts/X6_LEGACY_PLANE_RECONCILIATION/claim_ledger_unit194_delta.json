@@ -1,0 +1,45 @@
+{
+  "schema": "X6_SOURCE_LEDGER_DELTA_V1",
+  "date": "2026-11-20",
+  "unit": 194,
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "mother_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_science": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "sources": [
+    {
+      "path": "src/enterprise_math/p022_geodesic_multiplicity.py",
+      "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "blob": "46373050168d2430b6cb3952aa763f3081284632",
+      "lines": "49-91",
+      "type": "A5_ROOT_AND_SIMPLE_CUBIC_GRAPH_FORMULAS"
+    },
+    {
+      "path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+      "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+      "blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+      "lines": "19-32",
+      "type": "SIX_SIGNED_NATIVE_PATH_FORMULA"
+    }
+  ],
+  "claim": "For sum z=0, S_X6(z)=choose(2r,r)*A_A5(z); adjacent transfer lifts count 2^r A_A5(z). Universal bijection proved; typed graph-level comparison, not production wiring.",
+  "finite_checks": {
+    "balanced_endpoints": 11253,
+    "radius_max": 5,
+    "independent_root_and_signed_recurrences": true,
+    "violations": 0,
+    "original_R063_rerun": false,
+    "original_frozen_P022_import": false
+  },
+  "unresolved": [
+    "LP011 original offending commit:path:line",
+    "LP019 original offending commit:path:line",
+    "real runtime X6 signed-order consumer",
+    "Native Units175–194 semantic source association",
+    "historical Units149–152",
+    "independent Driver review"
+  ],
+  "status": "AUTHOR_PROVED / SOURCE_FORMULA_MATCHED / EXACT_FINITE_BIGINT_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+}
