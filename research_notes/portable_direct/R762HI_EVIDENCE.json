@@ -1,0 +1,162 @@
+{
+  "schema": "R762HI_AUTHOR_INTEGER_EVIDENCE_V1",
+  "status": "AUTHOR_CHECK_PASS_NOT_REVIEWED",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "SIX_AXIS_SIGNED_3_SUPPORT_COMPOSITE_PORT_CANDIDATE",
+  "observer": "fixed named Port 01; ordered eight-branch unsigned steps; independent sign per step",
+  "verification": "c++ -O3 -std=c++17 R762HI_CHECK.cpp -o R762HI_CHECK && ./R762HI_CHECK",
+  "no_floats": true,
+  "finite_coverage": [
+    2,
+    4,
+    6,
+    8
+  ],
+  "rows": [
+    {
+      "m": 2,
+      "closed": 8,
+      "parity_good": 8,
+      "signed_zero_multiplicity": 16,
+      "layer_any": 8,
+      "uses_all6": 0,
+      "layer_any_all6": 0,
+      "qualifying_c_distribution": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8
+      ],
+      "per_fixed_c": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "m": 4,
+      "closed": 288,
+      "parity_good": 168,
+      "signed_zero_multiplicity": 624,
+      "layer_any": 168,
+      "uses_all6": 0,
+      "layer_any_all6": 0,
+      "qualifying_c_distribution": [
+        0,
+        0,
+        48,
+        0,
+        0,
+        0,
+        120
+      ],
+      "per_fixed_c": [
+        144,
+        144,
+        132,
+        132,
+        132,
+        132
+      ]
+    },
+    {
+      "m": 6,
+      "closed": 17536,
+      "parity_good": 4960,
+      "signed_zero_multiplicity": 34688,
+      "layer_any": 4864,
+      "uses_all6": 816,
+      "layer_any_all6": 720,
+      "qualifying_c_distribution": [
+        96,
+        144,
+        2448,
+        0,
+        0,
+        0,
+        2272
+      ],
+      "per_fixed_c": [
+        3448,
+        3448,
+        2944,
+        2944,
+        2944,
+        2944
+      ]
+    },
+    {
+      "m": 8,
+      "closed": 1118720,
+      "parity_good": 177536,
+      "signed_zero_multiplicity": 2413424,
+      "layer_any": 162368,
+      "uses_all6": 73824,
+      "layer_any_all6": 58656,
+      "qualifying_c_distribution": [
+        15168,
+        14208,
+        98400,
+        0,
+        0,
+        0,
+        49760
+      ],
+      "per_fixed_c": [
+        95720,
+        95720,
+        79532,
+        79532,
+        79532,
+        79532
+      ]
+    }
+  ],
+  "full_port_witness": {
+    "ports": [
+      "01",
+      "03",
+      "02",
+      "04",
+      "14",
+      "45",
+      "25",
+      "05",
+      "01"
+    ],
+    "supports": [
+      "013",
+      "023",
+      "024",
+      "014",
+      "145",
+      "245",
+      "025",
+      "015"
+    ],
+    "signs": [
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1
+    ],
+    "eligible_c": [
+      4,
+      5
+    ],
+    "all_six_axes_used": true
+  },
+  "proof_scope": "HI1 and HI2 arbitrary finite words, algebraic argument independent of enumeration; finite validation above only; primitive native TRIADIC_CLOSURE_E undecided",
+  "prior": "R762HH, Draft PR #2872@3f26bc100cf7089c3b91a9b533457c20a4cc72d6"
+}
