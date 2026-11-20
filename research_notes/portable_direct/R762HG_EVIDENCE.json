@@ -1,0 +1,98 @@
+{
+  "schema": "ENTERPRISE_MATH_R762HG_EXACT_POSITIVE_BRC_CERTIFICATE_V1",
+  "status": "AUTHOR_VERIFIED_NOT_REVIEWED",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "publication_id": "TP2-8B7E13C5904A2D6F1142",
+  "original_researcher_provenance": "EM-X6-3050F6",
+  "model": "S6 six-axis signed 3-support J(6,2) named-Port composite language; frozen P000 unaffected",
+  "predecessor": {
+    "source_commit": "dddb76441cae8928afcc9e9d9eddda53275ab869",
+    "result": "R762HF F_m=H_m for m<=8"
+  },
+  "definitions": {
+    "U": "unsigned Port return count",
+    "H": "parity-zero Port return count",
+    "F": "unsigned Port returns with at least one zero-Cell signed completion",
+    "Z": "positive BRC multiplicity of all signed zero-Cell returns"
+  },
+  "method": {
+    "half_pair": "Enumerate 8^n distinct ordered half-Port source histories from P*=01; group by endpoint and six-bit support XOR; test every unordered pair of exact signed sum sets using sorted collision",
+    "half_gram": "Z_(2n)=sum_{p,r}a_n(p,r)^2; H_(2n)=sum_{p,mask}b_n(p,mask)^2",
+    "typed_branch": "Each signed choice is a distinct positive-count branch, sign is six-axis Cell displacement only",
+    "signed_sum_encoding": "six 4-bit lanes, each coordinate sum+8; collision-free for half length <=6",
+    "common_axis": "All 3-supports contain same axis; even coordinate incidence => Eulerian loopless 5-vertex multigraph; even-sized components; alternating Euler circuit signs yield exact return"
+  },
+  "observations": [
+    {
+      "m": 0,
+      "U": "1",
+      "H": "1",
+      "F": "1",
+      "Z": "1"
+    },
+    {
+      "m": 2,
+      "U": "8",
+      "H": "8",
+      "F": "8",
+      "Z": "16",
+      "compatible_unordered_pairs": "8"
+    },
+    {
+      "m": 4,
+      "U": "288",
+      "H": "168",
+      "F": "168",
+      "Z": "624",
+      "compatible_unordered_pairs": "116"
+    },
+    {
+      "m": 6,
+      "U": "17536",
+      "H": "4960",
+      "F": "4960",
+      "Z": "34688",
+      "compatible_unordered_pairs": "2736"
+    },
+    {
+      "m": 8,
+      "U": "1118720",
+      "H": "177536",
+      "F": "177536",
+      "Z": "2413424",
+      "compatible_unordered_pairs": "90816"
+    },
+    {
+      "m": 10,
+      "U": "71583744",
+      "H": "7289184",
+      "F": "7289184",
+      "Z": "200986368",
+      "half_paths": "32768",
+      "compatible_unordered_pairs": "3660976",
+      "disjoint_signed_sum_pairs": "0"
+    },
+    {
+      "m": 12,
+      "U": "4581302272",
+      "H": "333869824",
+      "F": "333869824",
+      "Z": "19705107552",
+      "half_paths": "262144",
+      "compatible_unordered_pairs": "167065984",
+      "disjoint_signed_sum_pairs": "0"
+    }
+  ],
+  "actual_validation": {
+    "cpp": "g++ -O3 -std=c++17; executable half-lengths 1..6; all compatibility tests PASS, no pair missed",
+    "python": "Python3 defaultdict exact integer parity and signed state dynamic programming, n=1..6, expected tuples PASS",
+    "scope": "all named paths with even length <=12; additional all-length theorem for all three-supports containing fixed axis",
+    "independent_review": "NOT_REVIEWED"
+  },
+  "open": [
+    "all-length parity sufficiency or shortest parity-zero signed-infeasible Port-return word",
+    "native typed TRIADIC_CLOSURE_E force, Cell, Link, Port, time permission",
+    "Activity semantic association and fresh native checkpoint authorization"
+  ],
+  "source_path": "research_notes/portable_direct/R762HG_HALF_PATH_GRAM_AND_PARITY_SATURATION.md"
+}
