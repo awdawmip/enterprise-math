@@ -1,0 +1,111 @@
+{
+  "schema": "R5_NONADAPTIVE_EXACT_LOW_EXCESS_425_V1",
+  "status": "AUTHOR_SYMBOLIC_PROOF_AND_FINITE_CHECK_NOT_REVIEWED",
+  "date": "2026-11-20",
+  "source_pin": "awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "frozen_input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "tau": "58182461585441404127941754879",
+  "domain": {
+    "m": "all positive integers m=2f+e+1",
+    "f": "nonnegative",
+    "e": "nonnegative",
+    "D": "0 through 425 inclusive",
+    "queries": "unordered fixed-price multiset of 101 labels 214..314",
+    "faults": "f unflagged replacements, e flagged erasures"
+  },
+  "theorem": "Full exact generating-function coefficient formula mod q^426 in RESEARCH.md",
+  "sharpness": {
+    "first_uncovered_excess": 426,
+    "example_for_m_at_least_2": "Remove two occurrences of 216, add two 214 and two 215, excess=426; satisfies all five witness constraints."
+  },
+  "base": "G(m,2)*G(m,67)*G(m,16)",
+  "actual_unique_extra_at_213": 1,
+  "author_checks": {
+    "finite_witness_patterns": 53,
+    "pairs": 32640,
+    "all_budget_labels": 101,
+    "exact_integer_crosscheck_m": [
+      1,
+      2,
+      3,
+      4,
+      8,
+      17
+    ],
+    "coefficients_per_m": 426
+  },
+  "checks": {
+    "1": {
+      "coefficient_213": "1",
+      "coefficient_425": "0",
+      "total_through_425": "214438",
+      "correction_213_to_216": [
+        "1",
+        "3",
+        "7",
+        "14"
+      ]
+    },
+    "2": {
+      "coefficient_213": "1",
+      "coefficient_425": "216888",
+      "total_through_425": "102991764",
+      "correction_213_to_216": [
+        "1",
+        "4",
+        "12",
+        "29"
+      ]
+    },
+    "3": {
+      "coefficient_213": "327567",
+      "coefficient_425": "129310911",
+      "total_through_425": "18023417305",
+      "correction_213_to_216": [
+        "1",
+        "4",
+        "13",
+        "34"
+      ]
+    },
+    "4": {
+      "coefficient_213": "407017122",
+      "coefficient_425": "18809828455",
+      "total_through_425": "1449966075199",
+      "correction_213_to_216": [
+        "1",
+        "4",
+        "13",
+        "35"
+      ]
+    },
+    "8": {
+      "coefficient_213": "419673688238734",
+      "coefficient_425": "7349766769362948",
+      "total_through_425": "645277655629426672",
+      "correction_213_to_216": [
+        "1",
+        "4",
+        "13",
+        "35"
+      ]
+    },
+    "17": {
+      "coefficient_213": "7489159760597433448",
+      "coefficient_425": "1318334745037846304461531",
+      "total_through_425": "33656522191680513723051372",
+      "correction_213_to_216": [
+        "1",
+        "4",
+        "13",
+        "35"
+      ]
+    }
+  },
+  "full_adaptive_eight_error_historical_bounds": [
+    8335,
+    8343
+  ],
+  "identity_provenance": "EM-DIRECT-4C3E47 / TASK_RESEARCH (historical only; no fresh native CLAIM/RUN)",
+  "independent_review": "NOT_REVIEWED"
+}
