@@ -10248,6 +10248,71 @@
       "state": "EM_REPRESENTED",
       "repairs_event_id": null,
       "notes": "Unit199 same Research-lane author source audit and actual pinned Python performance comparison; 16 exact cases, 3 measurements each method, 0 disagreement, measured ratio 9.83-347.831x host-specific. Original frozen signed_brc.py Git blob 300a96e3dc24bf6fff73743037a0347a8bc83176 verified. Confirmed direct source caller check_signed_brc.py at frozen pin, test-only; inspected P022 production files show no direct call, no repository-wide absence claim. R063 original six-file benchmark not rerun. Native PROGRESS 175-199 pending fresh winning claim. Actual Native current read request onhour-20261121-0106-x6-current-continuation-read-v1 still pending last observation. UNREVIEWED/NOT_ADMITTED; Activity is separate from CLAIM, Run, Driver review."
+    },
+    {
+      "event_id": "onhour-20261121-0204-x6-unit200-frozen-lowk-source-v1",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "3cff1cab0f29419ce16b69b80716dc570d3592b5",
+          "path": "research_notes/X6_UNIT200_PINNED_LOW_K_CALLER_EXACT_SPECIALIZATION_20261121.md",
+          "sha256": "02c55023761e14b39db25284470c333661e3ab0529489ada2d3facaa8a344dba",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "63913266edfc824545f246961c196fb2828bca38",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/3cff1cab0f29419ce16b69b80716dc570d3592b5/research_notes/X6_UNIT200_PINNED_LOW_K_CALLER_EXACT_SPECIALIZATION_20261121.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "39332d2ee92f9e016e7b05c4487d9891e40f2aca",
+          "path": "research_checks/X6_UNIT200_LOW_K_EXACT_CLOSED_FORM_20261121.py",
+          "sha256": "051374e729e03651ea0385b894880a008851fbe6af34a978061a639966a69526",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "6a0d226f4c6d92717fff7936521b78d0bc60876c",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/39332d2ee92f9e016e7b05c4487d9891e40f2aca/research_checks/X6_UNIT200_LOW_K_EXACT_CLOSED_FORM_20261121.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "5112bfdc7d9a9e3fd59184a8faf4b08734cf6f3a",
+          "path": "research_checks/X6_UNIT200_LOW_K_EXACT_CLOSED_FORM_RESULTS_20261121.json",
+          "sha256": "e712953b6fc6c88b14f71671ebbd87a5273b63a2931034a284481b74c133fa4f",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "d43ca148257228fb8c177980df0207b650355cc1",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/5112bfdc7d9a9e3fd59184a8faf4b08734cf6f3a/research_checks/X6_UNIT200_LOW_K_EXACT_CLOSED_FORM_RESULTS_20261121.json",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "3799992caee0ab7a903cf545e85415c8c825b469",
+          "path": "research_notes/X6_UNIT200_LOW_K_CALLER_AUTHOR_CONTINUATION_20261121.json",
+          "sha256": "cac0f8bba03527d54ac32ffea2bb27f2f052c8f8975258e9429e2f280bf9c53b",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "5d8ce60e7219e0696e7a4afd67b8d51b23237485",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/3799992caee0ab7a903cf545e85415c8c825b469/research_notes/X6_UNIT200_LOW_K_CALLER_AUTHOR_CONTINUATION_20261121.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "notes": "Unit200 original pinned signed_brc endpoint_weight source, exact regression-test consumer at check_signed_brc.py:56-63, K=0/1/2 and odd parity. Proved exact K<=2 six-axis Fraction closed-form, 45 direct original-Python equality checks across 3 weight profiles, 0 discrepancies. Original 15-call sweep 1,606,566ns vs specialized 449,623ns (~3.57x) on the actual local execution host (7x100 batches). New work is not R063 six-file benchmark, no frozen source change, and test-only caller is not a known production workload. Native PROGRESS Units175-200 pending valid same-lane writer authority, original continuation 0205 SUCCEEDED/read-only; original Research SID preserved. Author proof UNREVIEWED/NOT_ADMITTED."
     }
   ],
   "mode": "TASK_RESEARCH",
