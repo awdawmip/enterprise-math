@@ -1,0 +1,86 @@
+{
+  "schema": "PREFIX957B_R6_ALL_GAPS_EXACT_V1",
+  "date": "2026-11-20",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "auxiliary named XOR, ordered strict 19-bit odd Q19, cores k=21,23, offdiagonal",
+  "status": "AUTHOR_PROOF_EXACT_COMPUTATION_NOT_INDEPENDENTLY_REVIEWED",
+  "numeric_residual_cardinality": {
+    "p": 19,
+    "count": 499,
+    "formula": "(3*p*p-5*p+10)//2 for p>=2",
+    "named_signed_terms": 722
+  },
+  "primary": {
+    "distinct_offdiagonal_pairs": 6203,
+    "named_joint_histories": 8649,
+    "gap_named_histories": {
+      "0": 6,
+      "1": 614,
+      "2": 6509,
+      "3": 1286,
+      "4": 231,
+      "5": 3,
+      "6": 0
+    },
+    "gap_pair_memberships": {
+      "0": 6,
+      "1": 442,
+      "2": 4724,
+      "3": 839,
+      "4": 190,
+      "5": 3,
+      "6": 0
+    },
+    "offdiagonal_joint_multiplicity_histogram": {
+      "1": 4302,
+      "2": 1685,
+      "4": 200,
+      "6": 2,
+      "7": 1,
+      "8": 7,
+      "9": 1,
+      "10": 1,
+      "11": 1,
+      "20": 1,
+      "24": 1,
+      "28": 1
+    },
+    "numeric_residual_pairs_after_mod4": 545278,
+    "scalar_divisibility_tests": 22699951,
+    "odd_offdiagonal_candidate_tests": 17719,
+    "named_source_term_predicates_checked": 48984,
+    "observed_local_python_seconds": 4.250153
+  },
+  "full_ids_binary": {
+    "format": "sorted unsigned 64-bit little endian",
+    "count": 6203,
+    "bytes": 49624,
+    "sha256": "1caec71f97ddb97c60c8506629f65651f0f3030b3526aeca30195948ee0cff75",
+    "id_law": "((a-262145)//2)*131072+(b-262145)//2"
+  },
+  "independent_original_xor_audit": {
+    "prior_certified_pair_ids": 6203,
+    "original_source_bit_tests": 4478566,
+    "per_pair_named_histories_identical": true,
+    "full_binary_sha256_identical": true
+  },
+  "m2_specialization": {
+    "distinct_offdiagonal_pairs": 4724,
+    "named_joint_histories": 6509,
+    "divisor_magnitude_candidates": 186235,
+    "residual_pair_preprocessing": 160865,
+    "binary_bytes": 37792,
+    "binary_sha256": "187f667cb10a78dfc2193220c82e546be1fe3a602db21729a2b43ba14fe674f4",
+    "small_width_exhaustive_cases": 38,
+    "small_width_pair_states": 27368,
+    "small_width_original_xor_tests": 2611600
+  },
+  "provenance": {
+    "historical_researcher": "EM-DIRECT-58C410",
+    "historical_session": "MCP-31edc522830749ad8775ca012e02ef30",
+    "historical_activity": "RA-25432C4AAE9BF66A907F5115",
+    "activity_association": "PENDING_ACTUAL_ORIGINAL_SESSION_PORTABLE_AUTHORITY",
+    "claim_acquired": false,
+    "independent_review": false
+  }
+}
