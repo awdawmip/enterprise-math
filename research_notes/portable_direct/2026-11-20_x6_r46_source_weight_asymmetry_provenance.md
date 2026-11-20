@@ -1,0 +1,79 @@
+# X6 R46 — Source-weight asymmetry restores provenance under source-blind BRC observation
+
+Date: 2026-11-20 (Asia/Shanghai). Task: RS-X6-NATIVE-TIME-DYNAMICS. Continuation: R44 → R45 → R46.
+Historical own Researcher: EM-X6-214D9C; original Activity: RA-545183ADD4EF71C3E4698AEE.
+Status: CONDITIONAL_AUTHOR_PROOF / EXACT_FINITE_WEIGHTED_GRAPH_CHECK_PASS / NOT_INDEPENDENTLY_REVIEWED.
+This is a portable mathematical result, not a new CLAIM/PROGRESS, Result, or P000 native-event admission.
+
+## Exact frozen scientific premise and carrier
+
+P000 V5 is frozen at `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`, particularly `p000_reality_foundation.json`, `definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md`, and `definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`.
+Keep the six-axis discrete Cell identity, indivisible three-force closure, ordered event time, chosen Cell anchor, and source/Port provenance as native data. This result only studies the **conditional** R44/R45 finite resource-feedback law; P000 does not itself authorize R or T.
+
+In R44, two named one-use whole-triad sources A and B each choose one of p named Ports; Port 0 shares a Cell; R releases its occupancy; a once-only T may reoccupy the Cell according to the used source's previous Port 0. Let a decorated state be (a,b,o,t), as in R44. Only successful serial histories have weight. The source-blind observer maps all Ai,Bi to F and preserves R,T. The source names remain in the underlying branch data.
+
+**New observer:** fix two known positive real weights α,β. Every actual Ai transfer has BRC weight α, every Bi transfer has weight β, and R/T have weight 1. For a coarse word w in {F,R,T}*, define
+[
+Z_s^{\alpha,\beta}(w)=\sum_{\gamma:\pi_F(\gamma)=w}\prod_{e\in\gamma}\lambda(e).
+]
+The empty history has weight 1. Distinct named paths are summed *after* applying weights; this is exact positive-weight BRC, not a Boolean support observer, signed cancellation, or normalized probability process. A quotient here is safe only for this precise weighted series and its iterated F/R/T events.
+
+## Theorem R46.1 — Complete weighted-future state quotient
+
+For every integer p≥1 and every α,β>0, the number of distinct complete future weighted series over all reachable R44 decorated states is
+[
+N_p(\alpha,\beta)=
+\begin{cases}
+7,&p=1,\ \alpha=\beta,\\
+8,&p\ge2,\ \alpha=\beta,\\
+11,&p=1,\ \alpha\ne\beta,\\
+13,&p\ge2,\ \alpha\ne\beta.
+\end{cases}
+]
+
+In particular, with three candidate Ports, a source-blind observer with **equal** transfer weights has eight minimal Markov-future classes (3-bit index), whereas **unequal known positive weights** recover the 13 source-oriented future classes (4-bit index). This does **not** recover the original named word: only the future-equivalence class is identified.
+
+### Proof
+
+R45's role quotient has one unused role U, two both-used roles D0,D1, and four one-used roles O0,O1,C0,C1 for p=1 (plus Cn for p≥2). Different roles have different Boolean future support; strict positivity ensures that different support remains different weighted series. Thus distinct roles never merge.
+
+Inside one source-blind role with exactly one used source, the transition multiset is source-oriented but independent of the exact historical nonzero Port index. Every future coarse F edge uses the one unused source Y; therefore all its branches carry the same factor λ_Y. R and T carry unit weight and have the role successors in R45. Induction on finite remaining events shows that all states with the same role and the same *remaining source* have identical complete weighted series. U,D0,D1 have no extra orientation.
+
+When α=β, every projected word with k occurrences of F has common named-path weight α^k. Hence its Z value equals α^k times the R45 positive-integer path count. By R45, the role classes are exact and number 7/8.
+
+When α≠β, the source-oriented versions of every one-used role separate. For clear roles C0,Cn,C1, the length-one coarse word F has coefficient p λ_Y; for occupied roles O0,O1 with p≥2 it has coefficient (p−1) λ_Y. For occupied roles at p=1, F is initially blocked, but RF has coefficient λ_Y. Thus exchanging the remaining source changes a future coefficient. There are four oriented one-used roles at p=1 and five at p≥2; adding U and the two D roles gives 1+2·4+2=11 and 1+2·5+2=13. There are no other distinctions because the oriented role multigraph determines all future coefficients. QED.
+
+### Minimal witness and observer interpretation
+
+Compare the histories A0 and B0. Under the source-blind event alphabet they have the same unweighted future support and integer path counts (R45). After A0, the unused source is B; after B0, it is A. The F coefficient is (p−1)β versus (p−1)α when p≥2; at p=1 use RF with coefficient β versus α. Thus inequality of known source weights is an exact provenance-sensitive experimental *signature* even when the event symbol erases source names.
+
+The distinction is structural: attaching α/β to underlying sources introduces side information through the measured weights. It must not be described as recovery from a genuinely source-independent, equal-weight instrument. Uncalibrated/unknown or state-dependent weights require another proof.
+
+## Theorem R46.2 — Sharp two-event weighted horizon
+
+For all p≥1, α,β>0, any two unequal complete weighted-future series differ already on a coarse word of length at most **2**, and the bound 2 is sharp. For p≥2 the R45 Boolean role witnesses already have length ≤2. For p=1 the only R45 role pair requiring length 3 in Boolean support is U vs C1; weighted one-step F counts are α+β versus either α or β, distinct by positivity. Newly split source orientations are separated by F or RF as above. O0 and O1 with the same remaining source agree at every length-one coarse word but differ at RT, proving sharpness.
+
+This improves the p=1 *Boolean* longest distinguishing depth of 3 from R45, without changing its number of equivalence classes for equal weights.
+
+## Theorem R46.3 — Exact initial BRC partition polynomial
+
+Let Z_U(α,β)=Σ over **all** successful original named R44 histories, including the empty history, of the product of fired-source weights. Then
+[
+\boxed{Z_U=1+(2p+2)(\alpha+\beta)+(4p^2+12p-8)\alpha\beta.}
+]
+There is exactly one empty word. For a fixed chosen first/only source, exactly 2(p−1)+4=2p+2 histories use only that source: each nonzero Port permits Xi or Xi T, and Port 0 permits Xi, Xi R, Xi R T, Xi R T R. R44's independently established total word count 4p²+16p−3 then gives 4p²+12p−8 words using both sources; every such history contains each source exactly once. At α=β=1 this specializes to R44's exact count. For p=3, Z_U(1,1)=81 and Z_U(1,2)=153.
+
+## Reproducible exact graph certificate and limits
+
+The companion JavaScript enumerates every reachable R44 state, computes the complete acyclic integer-valued weighted suffix series, groups all states by exact full future series, compares every inequivalent class pair's shortest distinguishing word, checks the role/orientation classification, verifies A0/B0 witnesses and the partition polynomial. Verified p=1..8 for weight pairs (1,1),(1,2),(2,3),(3,2),(1,3): 40 cases, all assertions PASS. The universal p/positive-real-weight claim rests on the role-induction proof, **not** on the finite checks. A separate Python implementation was also executed locally for the same 40 cases, with matching class counts, horizon and root masses.
+
+This is a mathematical fact about the R44 conditional carrier and an observer-specific, strictly positive BRC interface. It does not supply a physical R/T law, probability normalization, native triad admission, independent review, or Source formal Result acceptance.
+
+## Sources, provenance, and next discriminating question
+
+- R44 conditional law: `research_notes/portable_direct/2026-11-20_x6_r44_rotation_reoccupation_future_residual.md` (blob 70bdc396c7e9ab22081c27f28f4e48f598852157).
+- R45 exact source-blind roles: `research_notes/portable_direct/2026-11-20_x6_r45_observer_erasure_path_count_quotient.md` (blob 60fd5e54f874e15c65c0b8d83c15a93276546f5a).
+- P000 and joint observer-preservation companion: frozen scientific commit above.
+- Verified computation: companion R46 JS source and JSON in this directory.
+
+Next: determine whether any source-asymmetric positive transfer weights arise from an *admitted* TRIADIC_CLOSURE_E/Cell/Link/Port event law, and whether such a weight observer is operationally calibrated. If not, preserve source identity rather than inferring it from a coarsened observer. An independent follow-on is to classify what a common unknown calibration factor, state-dependent weights or noisy finite-precision measurements can identify, without changing the native event grammar.
