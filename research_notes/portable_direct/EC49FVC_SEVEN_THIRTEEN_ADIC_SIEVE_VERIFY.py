@@ -56,3 +56,14 @@ for x in (Q(99,344),Q(157,170),Q(1,2),Q(7,20),Q(1,30)):
     print('WITNESS',str(x),'v7',phase_pair(x,7),'v13',phase_pair(x,13))
 assert (99%343, 157%169)==(99,157)
 print('EXACT_FINITE_CROSSCHECK_PASS',counts,'CRT_exception=38858 mod57967','unit_classes_certified=45863/45864')
+
+# A rational width missed by every coarse 2/3/29/673/416677-adic class in EC49FVB.
+M=8132285009
+L=8*M
+N=3*L
+x=Q(56925995064,195174840217)
+assert x.denominator==N+1 and gcd(x.numerator,x.denominator)==1
+assert x.numerator%M==1 and x.numerator%8==0 and x.numerator%3==0
+assert x.denominator%N==1
+assert phase_pair(x,13)==(-1,0)
+print('STRICT_NEW_WITNESS',x,'v13',phase_pair(x,13))
