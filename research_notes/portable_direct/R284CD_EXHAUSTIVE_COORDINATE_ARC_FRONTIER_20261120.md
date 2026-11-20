@@ -1,32 +1,39 @@
-# R284CD — Exact coordinate-mask arc frontier for the fixed 34-bit Port observer
+# R284CD — Coordinate-mask arc frontier for the fixed 34-bit Port observer
 
-Date: 2026-11-20 (Asia/Shanghai). Status: **AUTHOR_PROVED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED**. Portable scientific continuation of R284CC; no new Task, CLAIM, Result, Review, P000 change or native X6 physical attribution.
+Date: 2026-11-20/21 (Asia/Shanghai). Status: **AUTHOR_PROVED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED**. Portable continuation of R284CC.
 
-## Frozen observer and finite domain
+## Frozen finite observer and question
 
-Preserve the R284BZ/R284CC scientific pin:
-[
-F_C=det(\operatorname{diag}(d_0,6,13,d_3)-C-z_1E_{01}-z_2E_{02}-z_3E_{03})\pmod p,
-]
-where ((p,d_0,d_3,z_1,z_2,z_3)=(17179869143,1120832,1651128,390139,394465,1497639)) and (C\in\{1,2\}^{4\times4}).
+Preserve the R284BZ–R284CC finite observer and all frozen scientific input pins:
 
-Keep lower coordinates in their frozen order
-[
-L=(u_1,a_{11},x,y,u_2,w,a_{22},z,u_3,g,h,r)\in\{1,2\}^{12}
-]
-and four top-row bits. Each of the 4,096 lower states yields 16 distinct top-row codewords. Their already verified global minimum circular separation is 59. The relevant observation noise satisfies (ho<59/2) in the circle of circumference (p).
+\[
+F_C=\det(\operatorname{diag}(d_0,6,13,d_3)-C-z_1E_{01}-z_2E_{02}-z_3E_{03})\pmod p,
+\]
 
-For every coordinate subset (S\subseteq\{0,\dots,11\}), partition the lower states by their exact bits at positions in (S), retaining each group's 16 top-row possibilities. Each resulting group has (2^{12-|S|}) lower states and (2^{16-|S|}) full codewords. Store the **shortest closed covering circular arc** (A_G) for each group, formed by deleting the largest empty cyclic gap of its sorted codewords; ties choose the first gap. Define
-[
-Q(S)=\max_{y\in\mathbb R/p\mathbb Z}\#\{G:\operatorname{dist}_{\rm circle}(y,A_G)\le59/2\}.
-]
-The correct group is always retained at every valid noisy observation. Full decoding reconstructs at most (Q(S)2^{12-|S|}) lower states, using four exact thresholds per state as proved in R284CB.
+where \((p,d_0,d_3,z_1,z_2,z_3)=(17179869143,1120832,1651128,390139,394465,1497639)\) and \(C\in\{1,2\}^{4\times4}\).
 
-## Exact finite classification: all 4,096 coordinate subsets
+The lower-row coordinate list, in its frozen order, is
 
-The exhaustive checker enumerated all (sum_{k=0}^{12}\binom{12}{k}=4096) coordinate masks, reconstructing every one of the 65,536 codewords from the frozen integer determinant formula and optimizing the circular arc for each group. Its complete classification of the minimum possible (Q(S)) at each cardinality is:
+\[
+L=(u_1,a_{11},x,y,u_2,w,a_{22},z,u_3,g,h,r)\in\{1,2\}^{12}.
+\]
 
-| |S| | Indexed arcs | Minimum worst-case retained groups | Best-mask multiplicity | Worst lower-state reconstructions |
+Each of the 4,096 lower states has 16 possible top-row states. The global minimum circular distance between the 65,536 codewords is 59, as certified by R284BZ/R284CC.
+
+For any coordinate subset \(S\subseteq\{0,\ldots,11\}\), partition the lower states by their values at exactly those positions. Each of the \(2^{|S|}\) groups has \(2^{12-|S|}\) lower states and \(2^{16-|S|}\) full codewords. Form its shortest closed covering circle arc \(A_G\) by deleting the largest empty cyclic gap between sorted codewords. Define
+
+\[
+Q(S)=\max_{y\in\mathbb R/p\mathbb Z}
+\#\{G:\operatorname{dist}_{\mathrm{circle}}(y,A_G)\le59/2\}.
+\]
+
+At any permitted circular observation error \(\rho<59/2\), the true group survives arc pruning. The decoder reconstructs at most \(Q(S)2^{12-|S|}\) candidate lower states; the four top-row bits are recovered by the previously proved R284CB threshold rule.
+
+## Exact finite theorem: all 4,096 coordinate masks
+
+Exhaustive integer computation over every \(\sum_{k=0}^{12}\binom{12}{k}=4096\) mask establishes the following minima of \(Q(S)\) for each mask size \(k\):
+
+| Selected coordinates \(k\) | Stored arcs | Minimum worst-case groups | Optimal-mask count | Maximum lower reconstructions |
 |---:|---:|---:|---:|---:|
 | 0 | 1 | 1 | 1 | 4,096 |
 | 1 | 2 | 2 | 12 | 4,096 |
@@ -42,37 +49,38 @@ The exhaustive checker enumerated all (sum_{k=0}^{12}\binom{12}{k}=4096) coordin
 | 11 | 2,048 | 70 | 1 | 140 |
 | 12 | 4,096 | 128 | 1 | 128 |
 
-The unique optimum for **six** selected coordinates is
-[
-S_6=(u_1,a_{11},x,u_2,w,a_{22}),
-\qquad Q(S_6)=4.
-]
-Its 64 index arcs require at most (4\cdot64=256) lower-state reconstructions and at most 1,024 threshold decisions per query. It **halves the persistent arc count** compared with R284CC's 128 arcs, at the same maximum reconstruction budget.
+The **unique optimal six-coordinate selection** is
 
-The unique optimum for **seven** selected coordinates is
-[
-S_7=(u_1,a_{11},x,u_2,w,a_{22},u_3),
-\qquad Q(S_7)=7.
-]
-Its 128 arcs require at most (7\cdot32=224) lower-state reconstructions and 896 thresholds, improving the prior seven-prefix selection's (8\cdot32=256) states and 1,024 thresholds while keeping the same index-record count.
+\[
+S_6=(u_1,a_{11},x,u_2,w,a_{22}),\quad Q(S_6)=4.
+\]
 
-These are exact optima **within coordinate-subset groupings and the specified minimum-covering-arc index**, not lower bounds for all possible nonlinear residual partitions or decoding algorithms.
+Its 64 stored arc pairs require at most \(4\cdot64=256\) lower-state reconstructions and \(4\cdot256=1024\) top-row threshold comparisons. Compared with R284CC's 128 arc pairs and the same 256-reconstruction ceiling, index record count is halved.
 
-## Proof and evidence
+The **unique optimal seven-coordinate selection** is
 
-1. The frozen formula yields (\beta_L,k_0,\dots,k_3) and exactly the same word list as R284CC. The 65,536 entries in frozen top-row/lexicographic-lower ordering have SHA-256 `b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4`.
-2. For each of the 4,096 subsets, selecting coordinates specifies a disjoint exact partition of all 4,096 lower states. Sorting each group's complete codeword set and deleting its largest circular gap gives its minimum-length single covering arc, including the wraparound gap.
-3. Doubling the circle to modulus (2p) makes radius (59/2) integer-exact. A group arc beginning at integer (a), width (w), becomes the inclusive circular interval starting at (2a-59) of width (2w+118). Splitting at the seam and processing starts before finishes at coincident endpoints counts closed arcs exactly; overlap is constant between all event points. Consequently the maximum computed by a complete endpoint sweep is the maximum over **every real circular observation**.
-4. An independent direct modular interval-membership check covers all 129 distinct event/seam coordinates for (S_6) and all 257 for (S_7), corroborating the two advertised bounds and their shared peak witness at doubled circle coordinate (9213470267).
-5. Repeating this finite procedure over all (inom{12}{k}) subsets certifies the minima and number of equality cases. For an independent exhaustive rerun, the sorted `mask:peak` text stream over all 4,096 masks has SHA-256 `d18f850b3240eba3c369f3860ef103f90c26476986e7caa119c24b43b4d6dc2e`; the companion checker asserts this.
+\[
+S_7=(u_1,a_{11},x,u_2,w,a_{22},u_3),\quad Q(S_7)=7.
+\]
 
-Integer operations are exact: words and group distances fit signed 64-bit integers; the sweep also uses Python unbounded integers. The group guarantee is an index/pruning theorem, not a CPU benchmark. It includes conservative closed-endpoint ties, whereas the recovery theorem needs the open error inequality. Decoding continues to use the previously proven R284CB greedy four-threshold and global gap-59 uniqueness.
+Its 128 arc pairs require at most \(7\cdot32=224\) lower-state reconstructions and 896 top-row comparisons. This improves the prior seven-prefix R284CC index's 256 reconstructions and 1,024 comparisons at the same 128 records. The 34-bit encoding, all 65,536 codewords, minimum distance 59 and integer-noise guarantee ±29 are unchanged.
 
-## Reproduction and continuation
+These optima concern **coordinate-subset partitions with one minimum covering circular arc per group**. Other nonlinear, parity or multiarc representations remain open.
 
-- Source pin: [R284CC theorem](https://github.com/awdawmip/enterprise-math/blob/020c12dbfdc8ebefe1d02d74457f26e6f0fb9649/research_notes/portable_direct/R284CC_128_ARC_RESIDUAL_COARSE_DECODER_20261120.md) and its previous immutable mathematical dependencies.
-- Executed locally with Python 3 and NumPy, exact full-mask enumeration; source: `R284CD_coordinate_arc_mask_checker.py`, companion `R284CD_coordinate_arc_mask_verification.json`.
-- No independent researcher review or canonical Task Result promotion has been performed.
-- Relevant account/project rules: P000 V4 projected core, ACTIVE worldview, current research method, research-continuation normative overlay, BRC observer-fidelity scope. Here BRC is used as an observer/fiber discipline; the numerical Port determinant is the explicitly selected finite auxiliary representation.
+## Proof and exact verification
 
-**Next scientific question:** Test small parity/affine partitions of the 12 lower bits or a residue-indexed inverse to reduce the 64-record/four-group cost without discarding Port provenance; separately derive a direct inverse for the five suffix bits, and compare whole decoder time (preprocessing, memory, reconstruction, verification) against R284CC and the full table. Preserve the fixed (p,d,z) scientific pin for these comparisons.
+**Exhaustive coverage.** For every selected subset, the checker groups all 4,096 lower states by their exact selected coordinates, expands all 16 top-row possibilities, sorts the resulting full codewords, and deletes the largest cyclic gap. This produces the shortest possible *single* covering arc for that group's codewords. All \(\binom{12}{k}\) masks are enumerated without sampling.
+
+**Every real query position.** Work in doubled circle coordinates modulo \(2p\). A group arc of integer start \(a\) and width \(w\), expanded by \(59/2\), becomes a closed circular interval starting at \(2a-59\) with width \(2w+118\). Split wrapping intervals at the seam. The overlap count is piecewise constant between the finitely many endpoints; processing start events before finish events at coincident coordinates includes all closed boundaries. Exhaustive event sweeps thus compute the maximum for every real circular query, not merely integer noise samples.
+
+**Independent checks.** Direct modular-membership evaluation at every endpoint and the seam independently confirms the selected six- and seven-coordinate bounds, across 129 and 257 distinct coordinates, respectively. Their shared maximal-overlap witness is \(2y=9213470267\) modulo \(2p\). The complete frozen codeword stream in top-row/lexicographic-lower order has SHA-256 \`b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4\`. All 4,096 exact overlap scores, serialized as sorted 12-bit mask integer and integer peak, have SHA-256 \`d18f850b3240eba3c369f3860ef103f90c26476986e7caa119c24b43b4d6dc2e\`.
+
+The companion [checker](R284CD_coordinate_arc_mask_checker.py) is an independently executable Python 3/NumPy reproduction; [verification JSON](R284CD_coordinate_arc_mask_verification.json) includes the complete optimized 64-arc and 128-arc indices, all-size frontier, the endpoint counts and digest. Integer arithmetic is exact and all operations fit the respective Python integers / signed 64-bit NumPy bounds. Formalized proof or independent mathematical review has not been performed.
+
+## Interpretation, control boundaries, next research
+
+This is a finite auxiliary Port observer theorem whose BRC-relevant feature is **lossless observer-fiber pruning under a declared future readout and a fixed noise horizon**. It does not relabel the Port matrix as the P000 native X6 state. P000 V4 and the ACTIVE worldview, six-dimensional discrete spatial premise and protected Foundation status remain intact.
+
+Frozen prior source: [R284CC at immutable commit 020c12db](https://github.com/awdawmip/enterprise-math/blob/020c12dbfdc8ebefe1d02d74457f26e6f0fb9649/research_notes/portable_direct/R284CC_128_ARC_RESIDUAL_COARSE_DECODER_20261120.md). This R284CD contribution is portable, without a new formal Task or CLAIM.
+
+Next: investigate parity/affine partitions or a direct suffix residual inverse to reduce the 64-index/four-group cost, and benchmark whole decoder cost (index bytes, preprocessing, per-query arithmetic and final verification). The prior separate question of a 33-bit code retaining gap 59 remains open.
