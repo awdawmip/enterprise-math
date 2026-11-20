@@ -22,42 +22,42 @@ A_m=(-3m,-3m,0),       B_m=(m,m,4m).
 
 The different native Cell displacements have **identical augmented relative observations**:
 
-[
-oxed{operatorname{can3}(A_m)=operatorname{can3}(B_m)=(0,0,3m),quad
- L(A_m)=L(B_m)=6m,quad Q(A_m)=Q(B_m)=18m^2.}
-]
+\[
+\boxed{\operatorname{can3}(A_m)=\operatorname{can3}(B_m)=(0,0,3m),\quad
+ L(A_m)=L(B_m)=6m,\quad Q(A_m)=Q(B_m)=18m^2.}
+\]
 
 They are in one diagonal class because `B_m-A_m=4md`; no quotient is being asserted on native Cell identity. Their native signed BRC counts are
 
-[
-B(A_m)=rac{(6m)!}{((3m)!)^2},qquad
-B(B_m)=rac{(6m)!}{(m!)^2(4m)!}.
-]
+\[
+B(A_m)=\frac{(6m)!}{((3m)!)^2},\q\quad
+B(B_m)=\frac{(6m)!}{(m!)^2(4m)!}.
+\]
 
 Consequently the exact ratio is
 
-[
-oxed{R_m=rac{B(B_m)}{B(A_m)}
-=rac{((3m)!)^2}{(m!)^2(4m)!}
-=rac{inom{3m}{m}^2}{inom{4m}{2m}}
-ge left(rac32ight)^m.}
-]
+\[
+\boxed{R_m=\frac{B(B_m)}{B(A_m)}
+=\frac{((3m)!)^2}{(m!)^2(4m)!}
+=\frac{\binom{3m}{m}^2}{\binom{4m}{2m}}
+\ge \left(\frac32\right)^m.}
+\]
 
 **Proof of the uniform exponential lower bound.** Define `R_0=1` by the same factorial expression. Direct integer cancellation yields
 
-[
-rac{R_{m+1}}{R_m}=
-rac{9(3m+1)^2(3m+2)^2}
+\[
+\frac{R_{m+1}}{R_m}=
+\frac{9(3m+1)^2(3m+2)^2}
 {8(m+1)(2m+1)(4m+1)(4m+3)}.
-]
+\]
 
 Subtracting `3/2` leaves
 
-[
-rac{3m(115m^3+166m^2+71m+8)}
+\[
+\frac{3m(115m^3+166m^2+71m+8)}
 {8(m+1)(2m+1)(4m+1)(4m+3)}ge0
-qquad(mge0).
-]
+\q\quad(m\ge0).
+\]
 
 Thus `R_{m+1}>=3R_m/2` and induction proves the claimed bound, with `R_1=3/2`. All formulas are exact integer/rational identities. The leading exponential growth rate is `729/256` by Stirling, but the elementary lower bound suffices for the no-uniform-approximation theorem.
 
