@@ -1,0 +1,83 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "historical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "owner_claim_request": "onhour-20261121-0315-own-research-selected-time-claim-v1",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-369991930c5b4fddf26dbefa",
+  "run_id": "RUN-d653f1346f38369bc27f5fc5",
+  "observed_run_generation": 1,
+  "claim_owner_lease_observed_until": "2026-11-20T21:25:05Z",
+  "frozen_taskbook": "awdawmip/enterprise-math@f41c2690daba467ecbde99615a1337e67be46ffd:research_tasks/RS_X6_NATIVE_TIME_DYNAMICS_20260906.md",
+  "frozen_input_pins": [
+    "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+    "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:research_notes/VIETE_PHASE_REFINEMENT_VS_PRECISION_PROSTATE_CLOCK_20260905.md",
+    "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:research_notes/VIETE_NATIVE_HALF_TURN_PRINCIPAL_ROOT_BUNDLE_20260905.md"
+  ],
+  "new_result": {
+    "id": "X6-TIME-S6-FRAME-FUTURE-OBSERVER-20261121",
+    "title": "P000 S6 local-frame and signed spatial edge mixed chronological diamonds; sharp observer quotient by H·J",
+    "status": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / SOURCE_GITHUB_IMMUTABLE_READBACK / UNREVIEWED / NOT_ADMITTED",
+    "theorems": [
+      "Mixed residual U_j then R_h minus R_h then U_j = eps(e_sigma(j) - e_sigma(h(j))); zero iff h(j)=j, otherwise native norm squared 2.",
+      "For declared full-Cell future observer under local axes J and frame subgroup H, σ~τ iff σ|_(HJ)=τ|_(HJ); exactly (6)_r distinguishable frames, r=|HJ|, minimal fixed-length bits ceil(log2((6)_r))."
+    ],
+    "counterexample": "x=0, σ=id, h=(1 2), j=1: U1;R gives x=e1; R;U1 gives x=e2 with same final σh and event count.",
+    "evidence": [
+      {
+        "path": "research_notes/X6_TIME_S6_FRAME_SIGNED_AXIS_MIXED_DIAMOND_AND_OBSERVER_QUOTIENT_20261121.md",
+        "commit": "66a85074ce322476b2c80c4c7da615d384f155fe",
+        "git_blob_sha1": "e886f1e8720ff99bf7ff901673adab6287d7bb6b",
+        "sha256": "de2b43a992b466a5afb8904361bef26c234ede1ec3810f7797a2796486c4bc99"
+      },
+      {
+        "path": "research_checks/X6_TIME_S6_FRAME_OBSERVER_CHECK_20261121.py",
+        "commit": "982fd5b87a5bc825271fe16c505eb537d440bd0a",
+        "git_blob_sha1": "0aeb741ddc193c7c4a9dddc21abc02acf1508817",
+        "sha256": "80833338691241a3c66dd142daa7e65b05c5500fb46b8db2475dc5a4e0901395"
+      },
+      {
+        "path": "research_checks/X6_TIME_S6_FRAME_OBSERVER_RESULTS_20261121.json",
+        "commit": "b8a64be70355304abb3149113dbbd9da6ec52f52",
+        "git_blob_sha1": "5f9ac482e9d9cb612e5838d54120a96ba4e18030",
+        "sha256": "38559e2b8a32b8b0b8bc2eb5572db2820cd00673a6141600546f2f6a434a5e4a"
+      }
+    ],
+    "finite_coverage": "720 S6 frames; seven subgroup/local-axis configurations; mixed diamonds for 2 generators × 720 frames × 6 local labels × 2 signs = 17,280 exact checks. Computed partitions equal exact theorem predictions; zero mismatches."
+  },
+  "reconciled_original_requests": [
+    {
+      "request_id": "onhour-20261121-0345-time-guarded-triadic-trace-progress-v1",
+      "operation": "publish_checkpoint",
+      "status": "SUCCEEDED",
+      "error": null,
+      "source_checkpoint": "awdawmip/enterprise-math@4a241e6cba2099c53da91b2fb8a1e37313b17e4d:research_artifacts/mcp/RS-X6-NATIVE-TIME-DYNAMICS/MCP-082892eb480e45dea6d4b9fcc0491034/c2762ec0ea22b6bce931/_checkpoint.json",
+      "source_comment_id": 7049222919,
+      "meaning": "first prior native semantic checkpoint successfully published; not theorem admission"
+    }
+  ],
+  "prior_scientific_units": [
+    "2026-11-18 guarded triadic conflict",
+    "2026-11-21 guarded chronological count",
+    "2026-11-21 reachable environmental diamonds"
+  ],
+  "do_not_repeat": [
+    "original published PROGRESS request",
+    "earlier m<=8 triadic DP and m<=5 trace DFS",
+    "existing Viète phase clock separation/root section",
+    "R063 spatial six-file native benchmark",
+    "X6 legacy LP Unit201"
+  ],
+  "evidence_debt": [
+    "Native semantic PROGRESS for this new unit requires fresh same-lane authenticated capability and current claim/run/generation, not inferred from Sources.",
+    "Physical Cell/Link/Port triadic closure and rotation update law unadmitted; connect actual admitted law before asserting physical chronology result.",
+    "Independent Driver review/Result pending."
+  ],
+  "next_exact_action": "Read the original Source continuation and own current claim/run before any protected write; do not replay old requests. For math, use actual admitted native Cell/Link/Port triadic force closure candidate and test mixed rotation/triadic event diamonds with future Cell, frame, path BRC and environment observers; prove exact safe quotient or produce minimal valid counterexample. Preserve this S6 skeleton-only result and old X6 legacy task separately.",
+  "continuation_state": "OPEN"
+}
