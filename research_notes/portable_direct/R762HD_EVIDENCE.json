@@ -1,0 +1,77 @@
+{
+  "schema": "R762HD_EXACT_EVIDENCE_V1",
+  "model": "S6_EQUIVARIANT_K6_PORT_GATED_THREE_AXIS_COMPOSITE_CANDIDATE",
+  "axis_permutations": 720,
+  "covariance_transition_cases": 86400,
+  "ports": 15,
+  "unsigned_next_edges_per_port": 8,
+  "signed_branches_per_port": 16,
+  "signed_port_return_m0_to_12": [
+    1,
+    0,
+    32,
+    256,
+    4608,
+    69632,
+    1122304,
+    17891328,
+    286392320,
+    4581228544,
+    73301753856,
+    1172811284480,
+    18765014106112
+  ],
+  "joint_counts_m0_to_6": [
+    {
+      "m": 0,
+      "port_return": 1,
+      "cell_port_return": 1,
+      "total_histories": 1,
+      "reached_states": 1
+    },
+    {
+      "m": 1,
+      "port_return": 0,
+      "cell_port_return": 0,
+      "total_histories": 16,
+      "reached_states": 16
+    },
+    {
+      "m": 2,
+      "port_return": 32,
+      "cell_port_return": 16,
+      "total_histories": 256,
+      "reached_states": 193
+    },
+    {
+      "m": 3,
+      "port_return": 256,
+      "cell_port_return": 0,
+      "total_histories": 4096,
+      "reached_states": 1980
+    },
+    {
+      "m": 4,
+      "port_return": 4608,
+      "cell_port_return": 624,
+      "total_histories": 65536,
+      "reached_states": 15909
+    },
+    {
+      "m": 5,
+      "port_return": 69632,
+      "cell_port_return": 0,
+      "total_histories": 1048576,
+      "reached_states": 92556
+    },
+    {
+      "m": 6,
+      "port_return": 1122304,
+      "cell_port_return": 34688,
+      "total_histories": 16777216,
+      "reached_states": 376057
+    }
+  ],
+  "author_check": "PASS",
+  "independent_review": "NOT_REVIEWED"
+}
