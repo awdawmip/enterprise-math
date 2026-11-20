@@ -1,0 +1,69 @@
+{
+  "schema": "PREFIX966_R6_ODD_GAP_EXACT_SUMMARY_V1",
+  "date": "2026-11-20",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scientific_scope": "auxiliary named XOR integer observer; P000/X6/BRC native relation not asserted",
+  "claim_status": "AUTHOR_PROOF_EXACT_INTEGER_VERIFIED_NOT_REVIEWED",
+  "general_theorem": {
+    "domain": "p>=4; odd 1<=k, k+2<2^(p-1); positive odd m",
+    "odd_residual_values": "3p-4 for p>=3",
+    "even_residual_values": "(3p^2-11p+18)/2 for p>=3",
+    "parity_eligible_numeric_pairs": "(3p-4)(3p^2-11p+18)",
+    "nonresonance": "N=kC-(k+2)c=(2t-km)b is odd and nonzero",
+    "quotient_range": "1<=t<=2k",
+    "reconstruction": "enumerate opposite-parity c,C and t; d=2t-km; test d|N; b=N/d; a=(mb+C-c)/2; check real XOR source bit signs"
+  },
+  "validation": {
+    "independent_raw_original_xor_comparison": "p=4..7; all odd k with k+2<2^(p-1); m=1,3,5",
+    "exhaustive_parameter_cases": 168,
+    "small_cases_canonical_json_sha256": "27f3fbd31520397fd4ad341107e8a20f75c431da754395aa808f9abfddeb594f",
+    "source_code_git_blob_sha": "187d40e409496caa35f3e1eab27389c15591d33c",
+    "source_code_local_sha256": "c6b382f612121f93c74b85708310d8ad0f2953e5e10f6bb5fa8b3df3282862d6"
+  },
+  "q19_k21": {
+    "numeric_dictionary_values": 499,
+    "odd_values": 53,
+    "even_values": 446,
+    "numeric_residual_pairs_per_odd_gap": 47276,
+    "division_tests_per_odd_gap": 1985592,
+    "gaps": [
+      {
+        "m": 1,
+        "pairs": 442,
+        "named": 614,
+        "arithmetic_candidates": 1419,
+        "sorted_pair_ids_sha256": "5f2ff62edb9756ec011769d3297d41bb0806c11b32733bfe94a13677cc05f06c",
+        "named_tuples_sha256": "ccbccc30c4171a809f7270ce59f0b72b368839e93ffeeed8df9ba1045720da71"
+      },
+      {
+        "m": 3,
+        "pairs": 839,
+        "named": 1286,
+        "arithmetic_candidates": 2825,
+        "sorted_pair_ids_sha256": "dfc02114b596c07314569f52b6b3764adb567486e9249be8676632870b0da764",
+        "named_tuples_sha256": "1360a9ca274b357d0b87058d35ef6ccd059d0c5aef995e4d93b0d1363e1aaae3"
+      },
+      {
+        "m": 5,
+        "pairs": 3,
+        "named": 3,
+        "arithmetic_candidates": 15,
+        "sorted_pair_ids_sha256": "2a0b2c7ccc6f3aa30841e9260fed7663dc225b5c920b8fe197cbf511a51247cb",
+        "named_tuples_sha256": "c429ef59749f36ef295b4ac9171fb5171ab3a706beaa270563728d4962649c1b"
+      }
+    ],
+    "odd_gap_union": {
+      "distinct_pairs": 1284,
+      "named_histories": 1903,
+      "pairwise_disjoint": true
+    }
+  },
+  "exact_reproduction": {
+    "code": "research_notes/portable_direct/PREFIX966_R6_ODD_GAP_RECONSTRUCT.py",
+    "full_result_file_sha256": "9ffb39afc7a5344a20212ef17671eb5a55dff7313393d78e9dbb523cd8954826",
+    "full_named_csv_regenerated": true,
+    "tuple_hash_definition": "sorted a,b,t,T,i,j,I,J data lines newline-separated with final newline; omit CSV header"
+  },
+  "limitations": "No independent mathematical review; algorithm bound in k not polynomial in p for exponentially growing k; local runtime not a cross-algorithm benchmark.",
+  "next_question": "combine odd-gap quotient inversion with even-gap divisor/resonance and retain source-faithful BRC observers"
+}
