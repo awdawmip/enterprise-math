@@ -26,7 +26,7 @@ c_k(0)=sum_{j=k}^{D-1} (-1)^(j-k)binom(j,k)B_j for k<D, and c_D(0)=0.
 
 The admissible values a are precisely those integers for which a>=0 and all c_k(a)>=0 (the sum is automatically p). This is a contiguous integer interval [L,U] intersected with [0,p]: each constraint is a one-sided linear inequality in a. In particular the first D star observables are sufficient for **a particular measured instance** iff that interval contains exactly one integer, even where a uniform D-1-depth guarantee fails. The formula computes all alternative histograms rather than merely giving a no-go label.
 
-Proof: the falling-factorial/binomial identity gives B_j, and Taylor expansion of G about z=1 has coefficient B_j. Its only unknown coefficient through degree D is B_D=c_D=a. Expansion in z gives the displayed integer family; nonnegativity is both necessary and sufficient. Every nonnegative histogram with sum p and degrees at most D is realized by a p-by-p success table, by filling exactly c_d rows with d ones each; D<=p is the feasibility condition.
+Proof: the falling-factorial/binomial identity gives B_j, and the finite identity G(1+w)=sum_j B_j w^j follows directly by expanding (1+w)^d for each allowed BRC branch count. Its only unknown coefficient through degree D is B_D=c_D=a. Expansion in z gives the displayed integer family; nonnegativity is both necessary and sufficient. Every nonnegative histogram with sum p and degrees at most D is realized by a p-by-p success table, by filling exactly c_d rows with d ones each; D<=p is the feasibility condition.
 
 ## R62.2 Sharp global phase transition for omitting the final moment
 
