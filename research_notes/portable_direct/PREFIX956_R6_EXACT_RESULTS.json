@@ -1,0 +1,180 @@
+{
+  "schema": "PREFIX956_R6_DYADIC_WITNESS_MULTIPLICITY_V1",
+  "date": "2026-11-20",
+  "frozen_scientific_input": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "AUXILIARY_NAMED_XOR_OBSERVER",
+  "proof_status": "AUTHOR_PROOF; INDEPENDENT_REVIEW_PENDING",
+  "theorems": {
+    "nonzero_fiber_multiplicity_upper_bound": 2,
+    "zero_fiber": "p-popcount(x mod 2^p)",
+    "all_x_two": "2^(p-3)*(p^2+3p-8)",
+    "all_x_one": "2^(p-2)*(3p^2-5p+8)",
+    "odd_x_two": "2^(p-4)*(p^2+5p-10)",
+    "odd_x_one": "2^(p-3)*(3p^2-7p+12)"
+  },
+  "exhaustive_checks": [
+    {
+      "p": 3,
+      "x_residues": 8,
+      "d_min": -3,
+      "d_max": 8,
+      "original_equation_cases": 96,
+      "nonzero_witness_histogram": {
+        "zero": 38,
+        "one": 40,
+        "two": 10
+      },
+      "odd_x_nonzero_histogram": {
+        "zero": 19,
+        "one": 18,
+        "two": 7
+      },
+      "direct_vs_formula": "PASS",
+      "histograms_vs_closed_form": "PASS"
+    },
+    {
+      "p": 4,
+      "x_residues": 16,
+      "d_min": -7,
+      "d_max": 16,
+      "original_equation_cases": 384,
+      "nonzero_witness_histogram": {
+        "zero": 184,
+        "one": 144,
+        "two": 40
+      },
+      "odd_x_nonzero_histogram": {
+        "zero": 94,
+        "one": 64,
+        "two": 26
+      },
+      "direct_vs_formula": "PASS",
+      "histograms_vs_closed_form": "PASS"
+    },
+    {
+      "p": 5,
+      "x_residues": 32,
+      "d_min": -15,
+      "d_max": 32,
+      "original_equation_cases": 1536,
+      "nonzero_witness_histogram": {
+        "zero": 912,
+        "one": 464,
+        "two": 128
+      },
+      "odd_x_nonzero_histogram": {
+        "zero": 464,
+        "one": 208,
+        "two": 80
+      },
+      "direct_vs_formula": "PASS",
+      "histograms_vs_closed_form": "PASS"
+    },
+    {
+      "p": 6,
+      "x_residues": 64,
+      "d_min": -31,
+      "d_max": 64,
+      "original_equation_cases": 6144,
+      "nonzero_witness_histogram": {
+        "zero": 4336,
+        "one": 1376,
+        "two": 368
+      },
+      "odd_x_nonzero_histogram": {
+        "zero": 2192,
+        "one": 624,
+        "two": 224
+      },
+      "direct_vs_formula": "PASS",
+      "histograms_vs_closed_form": "PASS"
+    },
+    {
+      "p": 7,
+      "x_residues": 128,
+      "d_min": -63,
+      "d_max": 128,
+      "original_equation_cases": 24576,
+      "nonzero_witness_histogram": {
+        "zero": 19616,
+        "one": 3840,
+        "two": 992
+      },
+      "odd_x_nonzero_histogram": {
+        "zero": 9872,
+        "one": 1760,
+        "two": 592
+      },
+      "direct_vs_formula": "PASS",
+      "histograms_vs_closed_form": "PASS"
+    },
+    {
+      "p": 8,
+      "x_residues": 256,
+      "d_min": -127,
+      "d_max": 256,
+      "original_equation_cases": 98304,
+      "nonzero_witness_histogram": {
+        "zero": 85248,
+        "one": 10240,
+        "two": 2560
+      },
+      "odd_x_nonzero_histogram": {
+        "zero": 42784,
+        "one": 4736,
+        "two": 1504
+      },
+      "direct_vs_formula": "PASS",
+      "histograms_vs_closed_form": "PASS"
+    },
+    {
+      "p": 9,
+      "x_residues": 512,
+      "d_min": -255,
+      "d_max": 512,
+      "original_equation_cases": 393216,
+      "nonzero_witness_histogram": {
+        "zero": 359936,
+        "one": 26368,
+        "two": 6400
+      },
+      "odd_x_nonzero_histogram": {
+        "zero": 180352,
+        "one": 12288,
+        "two": 3712
+      },
+      "direct_vs_formula": "PASS",
+      "histograms_vs_closed_form": "PASS"
+    }
+  ],
+  "sharp_strict_odd_modulus_example": {
+    "p": 4,
+    "k": 1,
+    "a": 13,
+    "b": 11,
+    "t": 1,
+    "d": 2,
+    "witnesses": [
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ]
+    ]
+  },
+  "p19_sample": {
+    "seed": 20261120,
+    "domain_random_configurations": 16000,
+    "domain_random_witnesses": 0,
+    "planted_true_witness_checks": 12000,
+    "formula_matches_original": "PASS"
+  },
+  "actual_run_artifact_sha256": {
+    "full_checker": "b1fa2accb4da73fb01118687882ec65f2ac469dfc26b16705d0c8870cc178411",
+    "compact_checker": "6df2bcd391cf40bec60aeed170cdfc87d7bf34c33c7d66fb7c142c64eac32677"
+  },
+  "source_status": "AUTHORED_NOT_ADMITTED"
+}
