@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "path": "research_notes/portable_direct/x6_r60_positive_brc_graph_probe_results.json",
+    "ref": "bb1968314261a46bb30373e77ce4ce37515afe1e"
+  },
+  "observation_id": "r2-x6-r60-results-20261120-2218",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"ENTERPRISE_MATH_X6_R60_POSITIVE_BRC_GRAPH_TOMOGRAPHY_V1\",\n  \"status\": \"PASS\",\n  \"arithmetic\": \"integer positive branch counts\",\n  \"sizes\": [\n    {\n      \"p\": 1,\n      \"labelled_graphs\": 2,\n      \"simultaneous_relabel_orbits\": 2,\n      \"signature_collisions\": 0,\n      \"first_collision_found\": false\n    },\n    {\n      \"p\": 2,\n      \"labelled_graphs\": 16,\n      \"simultaneous_relabel_orbits\": 10,\n      \"signature_collisions\": 0,\n      \"first_collision_found\": false\n    },\n    {\n      \"p\": 3,\n      \"labelled_graphs\": 512,\n      \"simultaneous_relabel_orbits\": 104,\n      \"signature_collisions\": 36,\n      \"first_collision_found\": true\n    }\n  ],\n  \"witness\": {\n    \"p\": 3,\n    \"success_A\": [\n      [\n        1,\n        0,\n        0\n      ],\n      [\n        1,\n        0,\n        1\n      ],\n      [\n        1,\n        1,\n        1\n      ]\n    ],\n    \"success_B\": [\n      [\n        0,\n        1,\n        0\n      ],\n      [\n        1,\n        1,\n        0\n      ],\n      [\n        1,\n        1,\n        1\n      ]\n    ],\n    \"blocked_edges_A\": [\n      [\n        0,\n        1\n      ],\n      [\n        0,\n        2\n      ],\n      [\n        1,\n        1\n      ]\n    ],\n    \"blocked_edges_B\": [\n      [\n        0,\n        0\n      ],\n      [\n        0,\n        2\n      ],\n      [\n        1,\n        2\n      ]\n    ],\n    \"forbidden_edge_count\": 3,\n    \"trace_prefix\": [\n      2,\n      4,\n      5\n    ],\n    \"characteristic_polynomial\": \"lambda^3-2lambda^2+1\",\n    \"blocked_out_degree_sorted\": [\n      0,\n      1,\n      2\n    ],\n    \"blocked_in_degree_sorted\": [\n      0,\n      1,\n      2\n    ],\n    \"marked_positive_two_trial_A\": 4,\n    \"marked_positive_two_trial_B\": 5,\n    \"spanning_pattern_mass_on_A_positive\": true,\n    \"spanning_pattern_mass_on_B_zero\": true\n  },\n  \"model\": \"conditional typed positive-BRC 0/1 success events with stable simultaneous Port labels across reset replicates; no physical/native time claim\",\n  \"verification\": \"p=1..3 exhaustive labelled binary relation enumeration and orbit class tests; symbolic general proof of positive template completeness\"\n}\n",
+      "encoding": "utf-8",
+      "sha": "47797a2827796092e14b850caf162b3083a2b508",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/bb1968314261a46bb30373e77ce4ce37515afe1e/research_notes/portable_direct/x6_r60_positive_brc_graph_probe_results.json",
+      "display_title": "x6_r60_positive_brc_graph_probe_results.json"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
