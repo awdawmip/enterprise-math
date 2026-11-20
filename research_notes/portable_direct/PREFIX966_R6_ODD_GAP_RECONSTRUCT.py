@@ -72,7 +72,7 @@ def invert_odd_gap(p,k,m,include_diagonal=False):
     full_named.sort()
     raw=b''.join(pack('<Q',idx) for idx in sorted(counter))
     if p==19 and k==21 and not include_diagonal:
-        Path(f'/mnt/data/PREFIX966_R6_Q19_GAP{m}_NAMED_WITNESSES.csv').write_text('a,b,t,T,i,j,I,J\n'+'\n'.join(','.join(map(str,w)) for w in full_named)+'\n')
+        Path(f'PREFIX966_R6_Q19_GAP{m}_NAMED_WITNESSES.csv').write_text('a,b,t,T,i,j,I,J\n'+'\n'.join(','.join(map(str,w)) for w in full_named)+'\n')
     return counter,{
         'p':p,'k':k,'m':m,'off_diagonal_only':not include_diagonal,
         'distinct_ordered_pairs':len(counter),
@@ -129,6 +129,6 @@ def main():
         'independent_small_core_checks':small,
         'q19_k21_results':outputs,
         'limitations':'No formal independent review; numerical auxiliary observer does not assert X6/BRC admissibility. Existing P957/958 results are used only as comparison counts; algorithm generates candidates independently.'}
-    with open('/mnt/data/PREFIX966_R6_EXACT_RESULTS.json','w') as f:json.dump(output,f,indent=2,ensure_ascii=False);f.write('\n')
+    with open('PREFIX966_R6_EXACT_RESULTS.json','w') as f:json.dump(output,f,indent=2,ensure_ascii=False);f.write('\n')
     print(json.dumps({'small_checks':len(small),'q19':outputs},indent=2))
 if __name__=='__main__': main()
