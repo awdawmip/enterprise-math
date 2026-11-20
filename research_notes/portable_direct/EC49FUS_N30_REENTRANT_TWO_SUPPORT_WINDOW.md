@@ -4,7 +4,7 @@ Date: 2026-11-20 (Asia/Shanghai). Scientific mode: independent portable TASK_RES
 
 ## Frozen scope and dependencies
 
-- Frozen scientific input: BRC16943 at \`fc0f038e7bfd12c886b4d37f900bfb770c0f61ab\` (retained; not rebased to current control code).
+- Frozen scientific input: BRC16943 at `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab` (retained; not rebased to current control code).
 - Immediate predecessor: [EC49FUR](https://github.com/awdawmip/enterprise-math/blob/0ac1ef58d84517835260e4aefbe6d2c2b3a293c9/research_notes/portable_direct/EC49FUR_DUAL_TV_SUPPORT_PHASE_AND_N30_ONSET.md), with the exact n=30 onset and the two-endpoint total-variation dual. The further dependencies are EC49FUQ (endpoint-only worst nuisance for every upper-tail rule) and EC49FUO (uniform threshold complete class). These dependencies are assumed as published author proofs, not independently reviewed here.
 - This is a **lossy binary clipped-price observer**, not native X6 state, an exact three-dimensional slice, or a lossless quotient of branch/port/provenance information. P000 and the residual-faithful worldview are unchanged.
 
@@ -81,7 +81,7 @@ At \(x_{\rm in}\), the entire nontrivial interval of priors is least favorable; 
 
 ## Proof
 
-**1. Certified continuous signs.** The companion verifier performs outward rational interval arithmetic over 128 closed, overlapping-at-boundaries equal slabs of \(I\); every endpoint and operation is a \`fractions.Fraction\`. On all of \(I\) it certifies the strict inequalities
+**1. Certified continuous signs.** The companion verifier performs outward rational interval arithmetic over 128 closed, overlapping-at-boundaries equal slabs of \(I\); every endpoint and operation is a `fractions.Fraction`. On all of \(I\) it certifies the strict inequalities
 \[
 \Delta_E(8)<0,\quad \Delta_0(9)<0,\quad \Delta_0(10)<0,
 \quad \Delta_E(10)>0,
@@ -128,7 +128,7 @@ The strict \(H<0<G=H+d_9\) implies \(0<\gamma<1\). At the entry it tends to \(\g
 
 ## Reproduction and evidence boundary
 
-Execute \`python3 research_notes/portable_direct/EC49FUS_N30_MIXED_WINDOW_VERIFY.py\` with Python 3 standard library. It checks every claim from step 1, both isolating rational intervals, and three rational representative widths. Observed local result on 2026-11-20: \`PASS 128 exact interval slabs\`; displayed parameters at \(x=3/20\): \(\lambda_9\approx0.779814723978\), \(\gamma_9\approx0.995202093564\). Exact \`Fraction\` comparisons, not displayed decimals, decide PASS.
+Execute `python3 research_notes/portable_direct/EC49FUS_N30_MIXED_WINDOW_VERIFY.py` with Python 3 standard library. It checks every claim from step 1, both isolating rational intervals, and three rational representative widths. Observed local result on 2026-11-20: `PASS 128 exact interval slabs`; displayed parameters at \(x=3/20\): \(\lambda_9\approx0.779814723978\), \(\gamma_9\approx0.995202093564\). Exact `Fraction` comparisons, not displayed decimals, decide PASS.
 
 The proof depends on the exact-source parent theorems (threshold complete class and endpoint reduction), whose independent mathematical review remains pending. No physical effect, native X6 transport, P000 modification, formal CLAIM, Result or independent Review is asserted.
 
@@ -136,4 +136,4 @@ The proof depends on the exact-source parent theorems (threshold complete class 
 
 Determine the next re-entrant two-endpoint window for \(n=30\) after \(x_{\rm out}\) (numerical exploration suggests one near the next endpoint threshold), isolate its two algebraic boundaries by exact certificates, and classify the ordering/number of these windows as \(n\) varies. Preserve the complete finite-width observer and price-source provenance as separate carriers when comparing against native BRC/X6 residual models.
 
-Provenance: prior author \`EM-DIRECT-8454C6\`, SID \`MCP-44cfc4e6f2094f96861854ebefc77e84\`, exact activity \`RA-ED136F89271FD89288F3E58D\` are recorded lineage; current control read establishes no active formal execution authorization. Portable scientific publication and activity bookkeeping are distinct.
+Provenance: prior author `EM-DIRECT-8454C6`, SID `MCP-44cfc4e6f2094f96861854ebefc77e84`, exact activity `RA-ED136F89271FD89288F3E58D` are recorded lineage; current control read establishes no active formal execution authorization. Portable scientific publication and activity bookkeeping are distinct.
