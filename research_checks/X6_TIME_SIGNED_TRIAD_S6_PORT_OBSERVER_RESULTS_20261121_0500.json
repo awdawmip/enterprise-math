@@ -1,0 +1,95 @@
+{
+  "schema": "X6_TIME_SIGNED_TRIAD_S6_PORT_OBSERVER_EXACT_V1",
+  "date": "2026-11-21",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "frozen_p000_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": "CONDITIONAL_SIGNED_DISTINCT_AXIS_TRIAD_PORT_MODEL_NOT_PHYSICAL_ADMISSION",
+  "group_size": 720,
+  "signed_triads": 160,
+  "orbits_by_positive_sign_count": {
+    "0": 20,
+    "1": 60,
+    "2": 60,
+    "3": 20
+  },
+  "s6_invariant_scalar_laws": 16,
+  "marked_port_quotient": {
+    "0": {
+      "states": 20,
+      "stabilizer": 36,
+      "bits": 5
+    },
+    "1": {
+      "states": 60,
+      "stabilizer": 12,
+      "bits": 6
+    },
+    "2": {
+      "states": 60,
+      "stabilizer": 12,
+      "bits": 6
+    },
+    "3": {
+      "states": 20,
+      "stabilizer": 36,
+      "bits": 5
+    }
+  },
+  "future_observer": "ALL_LOCAL_SIGNED_TRIAD_QUERIES_AND_ANY_RIGHT_S6_ROTATION_NO_CELL_STEP",
+  "counts": {
+    "law_checks": 1843200,
+    "query_checks": 460800,
+    "rotation_checks": 8640,
+    "mismatches": 0
+  },
+  "witness": {
+    "mark_a": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "mark_b": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "query": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "observations": [
+      1,
+      0
+    ]
+  },
+  "source_check": "Independent Python exact enumeration executed, 0 mismatches",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_UNREVIEWED_NOT_ADMITTED"
+}
