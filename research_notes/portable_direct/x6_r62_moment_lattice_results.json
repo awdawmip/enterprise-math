@@ -1,0 +1,221 @@
+{
+  "schema": "ENTERPRISE_MATH_X6_R62_MOMENT_LATTICE_EXACT_CHECK_V1",
+  "date": "2026-11-20",
+  "test_scope": "All histograms with 1<=D<=6, D<=p<=min(9,D+4); Prouhet pairs D=1..10",
+  "checks": [
+    {
+      "D": 1,
+      "p": 1,
+      "histograms": 2,
+      "ambiguous_prefix_classes": 1
+    },
+    {
+      "D": 1,
+      "p": 2,
+      "histograms": 3,
+      "ambiguous_prefix_classes": 1
+    },
+    {
+      "D": 1,
+      "p": 3,
+      "histograms": 4,
+      "ambiguous_prefix_classes": 1
+    },
+    {
+      "D": 1,
+      "p": 4,
+      "histograms": 5,
+      "ambiguous_prefix_classes": 1
+    },
+    {
+      "D": 1,
+      "p": 5,
+      "histograms": 6,
+      "ambiguous_prefix_classes": 1
+    },
+    {
+      "D": 2,
+      "p": 2,
+      "histograms": 6,
+      "ambiguous_prefix_classes": 1
+    },
+    {
+      "D": 2,
+      "p": 3,
+      "histograms": 10,
+      "ambiguous_prefix_classes": 3
+    },
+    {
+      "D": 2,
+      "p": 4,
+      "histograms": 15,
+      "ambiguous_prefix_classes": 5
+    },
+    {
+      "D": 2,
+      "p": 5,
+      "histograms": 21,
+      "ambiguous_prefix_classes": 7
+    },
+    {
+      "D": 2,
+      "p": 6,
+      "histograms": 28,
+      "ambiguous_prefix_classes": 9
+    },
+    {
+      "D": 3,
+      "p": 3,
+      "histograms": 20,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 3,
+      "p": 4,
+      "histograms": 35,
+      "ambiguous_prefix_classes": 1
+    },
+    {
+      "D": 3,
+      "p": 5,
+      "histograms": 56,
+      "ambiguous_prefix_classes": 4
+    },
+    {
+      "D": 3,
+      "p": 6,
+      "histograms": 84,
+      "ambiguous_prefix_classes": 10
+    },
+    {
+      "D": 3,
+      "p": 7,
+      "histograms": 120,
+      "ambiguous_prefix_classes": 20
+    },
+    {
+      "D": 4,
+      "p": 4,
+      "histograms": 70,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 4,
+      "p": 5,
+      "histograms": 126,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 4,
+      "p": 6,
+      "histograms": 210,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 4,
+      "p": 7,
+      "histograms": 330,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 4,
+      "p": 8,
+      "histograms": 495,
+      "ambiguous_prefix_classes": 1
+    },
+    {
+      "D": 5,
+      "p": 5,
+      "histograms": 252,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 5,
+      "p": 6,
+      "histograms": 462,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 5,
+      "p": 7,
+      "histograms": 792,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 5,
+      "p": 8,
+      "histograms": 1287,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 5,
+      "p": 9,
+      "histograms": 2002,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 6,
+      "p": 6,
+      "histograms": 924,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 6,
+      "p": 7,
+      "histograms": 1716,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 6,
+      "p": 8,
+      "histograms": 3003,
+      "ambiguous_prefix_classes": 0
+    },
+    {
+      "D": 6,
+      "p": 9,
+      "histograms": 5005,
+      "ambiguous_prefix_classes": 0
+    }
+  ],
+  "total_histograms": 17089,
+  "ambiguous_prefix_classes": 66,
+  "sharpness_cases": 10,
+  "example": {
+    "D": 4,
+    "p": 8,
+    "even": [
+      1,
+      0,
+      6,
+      0,
+      1
+    ],
+    "odd": [
+      0,
+      4,
+      0,
+      4,
+      0
+    ],
+    "even_moments": [
+      "8",
+      "16",
+      "40",
+      "112",
+      "352"
+    ],
+    "odd_moments": [
+      "8",
+      "16",
+      "40",
+      "112",
+      "328"
+    ],
+    "prefix_feasible_range": {
+      "L": "0",
+      "U": "1"
+    }
+  },
+  "pass": true
+}
