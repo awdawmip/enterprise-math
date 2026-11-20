@@ -76,6 +76,9 @@ The \(H\)-stabilizer of \(a\) has exactly \(3\cdot 2^3=24\) elements: an even pe
 
 A direct exact enumeration of all 360 even unsigned permutations and 64 sign choices verified \(|H|=23040\), \(|K_s|=24\), absence of one-event collisions in \(E_1\), and the explicit \(b,d\) collision in \(E_2\). These finite checks illustrate the theorem; the graph-equivalence proof applies to arbitrary finite DFAs and word lengths.
 
+
+The companion reproducible checker is [r412_typed_x6_automaton_check.py](r412_typed_x6_automaton_check.py). Its four exact cases also hold the candidate alphabet \(E_2\) fixed while changing regular trajectory legality: \(L=a^*\) yields no collision, whereas \(L=\{ba,da\}\) has the same explicit \(b,d\) collision after suffix \(a\). This isolates **legal contextual continuations**, rather than the raw event alphabet alone, as a necessary input to the observer-safe quotient decision.
+
 ## Integration and remaining native input
 
 This resolves a specific overgeneralization risk after r411: **six-axis coverage is sharp for unrestricted primitive signed words; the exact typed event threshold is the stabilizer's action on the admissible contextual language**. Once the genuine P000 triadic closure predicate, Cell/branch provenance and permitted time-ordered transitions are specified, construct their exact admissibility recognizer when finite-state, or use the unbounded-language characterization directly. A legal-event witness must first be checked against that actual typed model. If the event encoding hides time/Cell distinctions, enlarge the observer or retain that data before attempting native-state losslessness.
