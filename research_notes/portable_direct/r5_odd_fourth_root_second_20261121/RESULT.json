@@ -1,0 +1,115 @@
+{
+  "schema": "R5_ODD_FOURTH_ROOT_SECOND_ORDER_V1",
+  "date": "2026-11-21",
+  "status": "AUTHOR_SYMBOLIC_PROOF_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "model": "Frozen 256-hypothesis 101-query-price nonadaptive R5",
+  "frozen_input": {
+    "file": "EXACT_R5_ALL_101_BUDGETS.json",
+    "sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+    "validation": "matched previously locally preserved reproduction package"
+  },
+  "scope": "all fixed odd m >= 1; local q=+i and q=-i contribution only",
+  "b0": {
+    "re": 12780,
+    "im": -24
+  },
+  "notation": {
+    "A": "1/(2^48 * product(220,224,...,312))",
+    "h_m": "floor((m-1)/4)+1",
+    "D_m": "-i H0'(i)+220(1-i)H1(i)+220 H2(i)-440 Hh(i)",
+    "K_m": "D_m+(12792-24i)*h_m"
+  },
+  "theorem": "F_m(N) contribution from q=+i,-i equals 2*A*h_m*cos(pi*N/2)*N^23/23! + 2*A*Re(K_m*i^(-N))*N^22/22! + O_m(N^21)",
+  "K_odd_generating_function": {
+    "denominator": "(1-z^4)^3*(1-i*z^2)",
+    "numerator": "z*((12352-244i)+(12332-12376i)z^2+(-14552-12332i)z^4+(-14068+14112i)z^6+(24+13872i)z^8)"
+  },
+  "period_evidence": {
+    "quasipolynomial_period": 8,
+    "polynomial_degree_per_class_at_most": 2,
+    "noncancelled_primitive_8_root": true,
+    "numerator_at_z2_minus_i": {
+      "re": 440,
+      "im": -440
+    }
+  },
+  "validation": {
+    "symbolic": "exact SymPy rational-function identity for all odd m",
+    "independent": "bounded-state Z[i] DP for odd m=1,3,...,19; every K_m agrees",
+    "predecessor_32640_pairs": "inherited, not rerun",
+    "external_independent_review": "NOT_REVIEWED"
+  },
+  "samples": [
+    {
+      "m": 1,
+      "D_re": -440,
+      "D_im": -220,
+      "K_re": 12352,
+      "K_im": -244
+    },
+    {
+      "m": 3,
+      "D_re": -216,
+      "D_im": 0,
+      "K_re": 12576,
+      "K_im": -24
+    },
+    {
+      "m": 5,
+      "D_re": -3056,
+      "D_im": -440,
+      "K_re": 22528,
+      "K_im": -488
+    },
+    {
+      "m": 7,
+      "D_re": -2168,
+      "D_im": -440,
+      "K_re": 23416,
+      "K_im": -488
+    },
+    {
+      "m": 9,
+      "D_re": -7408,
+      "D_im": -1100,
+      "K_re": 30968,
+      "K_im": -1172
+    },
+    {
+      "m": 11,
+      "D_re": -5416,
+      "D_im": -880,
+      "K_re": 32960,
+      "K_im": -952
+    },
+    {
+      "m": 13,
+      "D_re": -13936,
+      "D_im": -1760,
+      "K_re": 37232,
+      "K_im": -1856
+    },
+    {
+      "m": 15,
+      "D_re": -10400,
+      "D_im": -1760,
+      "K_re": 40768,
+      "K_im": -1856
+    },
+    {
+      "m": 17,
+      "D_re": -22200,
+      "D_im": -2860,
+      "K_re": 41760,
+      "K_im": -2980
+    },
+    {
+      "m": 19,
+      "D_re": -16680,
+      "D_im": -2640,
+      "K_re": 47280,
+      "K_im": -2760
+    }
+  ],
+  "next_question": "even m second q=±i Laurent coefficient N^21 requiring H0''(i),Hh'(i); exact higher-root onset and smallest sufficient period state"
+}
