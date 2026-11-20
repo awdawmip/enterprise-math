@@ -1,0 +1,175 @@
+{
+  "result": "PASS",
+  "source_population": "free eight-letter signed STAR candidate",
+  "exact_formula": "binom(2n,n)*sum_j binom(n,j)^2 binom(2j,j) binom(2n-2j,n-j)",
+  "analytic_theorem": "P_2n=2/(pi^2*n^2)*(1-1/(2n)+O(n^-2))",
+  "limitation": "asymptotic proved separately; finite numbers are not a proof; no native Port/Link/time admission",
+  "samples": [
+    {
+      "n": 0,
+      "m": 0,
+      "zero_count": "1",
+      "all_words": "1"
+    },
+    {
+      "n": 1,
+      "m": 2,
+      "zero_count": "8",
+      "all_words": "64"
+    },
+    {
+      "n": 2,
+      "m": 4,
+      "zero_count": "168",
+      "all_words": "4096"
+    },
+    {
+      "n": 3,
+      "m": 6,
+      "zero_count": "5120",
+      "all_words": "262144"
+    },
+    {
+      "n": 4,
+      "m": 8,
+      "zero_count": "190120",
+      "all_words": "16777216"
+    },
+    {
+      "n": 5,
+      "m": 10,
+      "zero_count": "7939008",
+      "all_words": "1073741824"
+    },
+    {
+      "n": 6,
+      "m": 12,
+      "zero_count": "357713664",
+      "all_words": "68719476736"
+    },
+    {
+      "n": 7,
+      "m": 14,
+      "zero_count": "16993726464",
+      "all_words": "4398046511104"
+    },
+    {
+      "n": 8,
+      "m": 16,
+      "zero_count": "839358285480",
+      "all_words": "281474976710656"
+    },
+    {
+      "n": 9,
+      "m": 18,
+      "zero_count": "42714450658880",
+      "all_words": "18014398509481984"
+    },
+    {
+      "n": 10,
+      "m": 20,
+      "zero_count": "2225741588095168",
+      "all_words": "1152921504606846976"
+    },
+    {
+      "n": 11,
+      "m": 22,
+      "zero_count": "118227198981126144",
+      "all_words": "73786976294838206464"
+    },
+    {
+      "n": 12,
+      "m": 24,
+      "zero_count": "6380762273973278464",
+      "all_words": "4722366482869645213696"
+    }
+  ],
+  "independent_integer_dp": [
+    {
+      "m": 0,
+      "words": 1,
+      "readouts": 1,
+      "zero_count": 1
+    },
+    {
+      "m": 1,
+      "words": 8,
+      "readouts": 8,
+      "zero_count": 0
+    },
+    {
+      "m": 2,
+      "words": 64,
+      "readouts": 33,
+      "zero_count": 8
+    },
+    {
+      "m": 3,
+      "words": 512,
+      "readouts": 96,
+      "zero_count": 0
+    },
+    {
+      "m": 4,
+      "words": 4096,
+      "readouts": 225,
+      "zero_count": 168
+    },
+    {
+      "m": 5,
+      "words": 32768,
+      "readouts": 456,
+      "zero_count": 0
+    },
+    {
+      "m": 6,
+      "words": 262144,
+      "readouts": 833,
+      "zero_count": 5120
+    },
+    {
+      "m": 7,
+      "words": 2097152,
+      "readouts": 1408,
+      "zero_count": 0
+    },
+    {
+      "m": 8,
+      "words": 16777216,
+      "readouts": 2241,
+      "zero_count": 190120
+    }
+  ],
+  "float_diagnostics_not_proof": [
+    {
+      "n": 12,
+      "p_float": 0.0013511789686631594,
+      "ratio_to_leading_float": 0.9601633364959655,
+      "n_times_relative_deviation_float": -0.4780399620484137
+    },
+    {
+      "n": 24,
+      "p_float": 0.0003446365597639021,
+      "ratio_to_leading_float": 0.9796108340223659,
+      "n_times_relative_deviation_float": -0.4893399834632177
+    },
+    {
+      "n": 48,
+      "p_float": 0.00008704589377665542,
+      "ratio_to_leading_float": 0.9896930338346901,
+      "n_times_relative_deviation_float": -0.49473437593487546
+    },
+    {
+      "n": 64,
+      "p_float": 0.0000490897687275412,
+      "ratio_to_leading_float": 0.9922490316427252,
+      "n_times_relative_deviation_float": -0.4960619748655901
+    },
+    {
+      "n": 128,
+      "p_float": 0.000012320184322217571,
+      "ratio_to_leading_float": 0.9961090695888131,
+      "n_times_relative_deviation_float": -0.49803909263192736
+    }
+  ]
+}
