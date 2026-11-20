@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/riesel_budget_20261120/forbidden/verify_m2_refinement.py",
+    "ref": "2feef401388e6e81a35dd8b0e66383f43561ad12",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-RIESEL-V6-SCI-028-OBSERVED",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Finite checks of the symbolic T_{17,2} refinement induction.\nOnly the seed has numeric primes. New labels assert Bang existence of an exact\norder prime; they are not numeric prime certificates.\n\"\"\"\nfrom hashlib import sha256\nfrom math import gcd,lcm\nfrom pathlib import Path\nimport json\nHERE=Path(__file__).resolve().parent\nPATTERNS={'5':[(2,0,2),(3,0,3),(4,1,1),(6,5,11),(12,7,7)],\n '6':[(2,0,2),(3,0,15),(4,1,1),(8,3,11),(12,7,7),(24,23,23)]}\n\ndef build(word,seed,H):\n rows=[dict(r) for r in seed];oldorders={r['ord2'] for r in rows};stages=[]\n for level,kind in enumerate(word):\n  if level==0:parent=next(r for r in rows if r['q']==37441)\n  else:parent=max(rows,key=lambda r:r['period_u'])\n  d=parent['period_u'];c=parent['phase_u'];w=parent['private_u'];L=lcm(105,*(r['period_u'] for r in rows))\n  assert L==7*d\n  pattern=PATTERNS[kind];R=max(m for m,c,v in pattern);assert gcd(7,R)==1\n  v0=(w-c)//d;assert (w-c)%d==0\n  new=[]\n  for m,b,priv in pattern:\n   order=2*d*m;assert order>max(oldorders) and order>420 and order>6\n   # The comparison is against pre-stage orders; new orders are distinct by m.\n   t=((priv-v0)*pow(7,-1,R))%R\n   new.append({'q':f'Bang_exact_order_{order}','ord2':order,'period_u':d*m,'phase_u':(c+d*b)%(d*m),'private_u':w+L*t,'primitive_prime_is_symbolic':True})\n  assert len({r['ord2'] for r in new})==len(new)\n  oldorders.update(r['ord2'] for r in new)\n  rows=[r for r in rows if r is not parent]+new\n  assert lcm(105,*(r['period_u'] for r in rows))==7*R*d\n  for i,r in enumerate(rows):\n   u=r['private_u'];assert u%105 in H\n   assert [j for j,s in enumerate(rows) if u%s['period_u']==s['phase_u']]==[i]\n   assert r['ord2']//gcd(r['ord2'],210)>2\n  stages.append({'kind':kind,'parent_period_u':d,'parent_phase_u':c,'parent_private_u':w,'new_max_period_u':R*d,'new_orders':[r['ord2'] for r in new]})\n h=word.count('5');j=word.count('6');assert len(rows)==33+4*h+5*j\n return {'word':word,'h':h,'j':j,'delta_P':33+4*h+5*j,'tau':53+4*h+5*j,'rows':rows,'stages':stages,'private_witnesses_verified':True}\n\ndef main():\n raw=(HERE/'m2_extension_certificate.json').read_bytes();cert=json.loads(raw)\n rows=cert['rows'];H=set(cert['H_u']);old=[w for w in cert['private_witnesses'] if w['type']=='old_P']\n for p,pattern in PATTERNS.items():\n  R=max(m for m,b,w in pattern)\n  assert all(any(n%m==b for m,b,w in pattern) for n in range(R))\n  for i,(_,_,w) in enumerate(pattern):assert [j for j,(m,b,_) in enumerate(pattern) if w%m==b]==[i]\n words=['','5','6','55','56','65','66','5566','6655','565656']\n skels=[]\n for word in words:\n  skel=build(word,rows,H)\n  for w in old:\n   assert all((w['n']-2*r['phase_u'])%r['ord2'] for r in skel['rows'])\n  skel['all_old_private_odd_witnesses_preserved']=True;skels.append(skel)\n out={'schema':'enterprise-math.riesel-T17m2-refinement.v1','numeric_seed_sha256':sha256(raw).hexdigest(),\n 'theorem':'For every h,j>=0 there are infinitely many a in the same P observer class, divisible by T_{17,2}, with delta_P=33+4h+5j and tau=53+4h+5j.',\n 'cofinite_delta_threshold':45,'cofinite_total_threshold':65,\n 'symbolic_new_primes_source':'Bang primitive prime divisor theorem, t>6; FFK2008 Lemma2',\n 'skeletons':skels,'status':'finite checks of a written induction; symbolic prime labels are not numeric primality certificates'}\n (HERE/'m2_refinement_certificate.json').write_text(json.dumps(out,indent=2)+'\\n')\n print(json.dumps({'seed_delta':33,'seed_tau':53,'cofinite_delta':45,'symbolic_words_checked':words}))\nif __name__=='__main__':main()\n",
+      "display_title": "verify_m2_refinement.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2feef401388e6e81a35dd8b0e66383f43561ad12/research_notes/portable_direct/riesel_budget_20261120/forbidden/verify_m2_refinement.py",
+      "encoding": "utf-8",
+      "sha": "d67d546eca35b358f6419014485513f08398ccbc"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
