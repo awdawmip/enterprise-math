@@ -1,0 +1,106 @@
+{
+  "schema": "X6_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-20",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "parent_objective": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_input_pin": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "frozen_historical_comparison_pin": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "researcher_id": "EM-X6-FB6990",
+  "original_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "historical_claim_id": "MCP-e2bd88a10565daf08b1d46f5",
+  "historical_run_id": "RUN-b2c1fe16e9806ecf043c89a0",
+  "historical_run_generation_only": 2,
+  "latest_author_unit": 194,
+  "latest_author_status": "AUTHOR_PROVED / EXACT_FINITE_BIGINT_EXECUTED / IMMUTABLE_GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+  "science": {
+    "theorem": "For all balanced six-coordinate z, signed X6 shortest path multiplicity S(z)=C(2r,r) A5 root-transfer count A(z); adjacent-local two-primitive expansions yield only 2^r A(z). Interleaving signature supplies explicit omitted native ordered-path residual.",
+    "r": "sum positive z=sum negative abs z",
+    "frozen_actual_producers": [
+      {
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "path": "src/enterprise_math/p022_geodesic_multiplicity.py",
+        "blob": "46373050168d2430b6cb3952aa763f3081284632",
+        "type": "A5_ROOT_AND_SC_GRAPH_COUNTS"
+      },
+      {
+        "commit": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+        "path": "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+        "blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+        "type": "NATIVE_SIGNED_X6_SHORTEST_PATH_COUNT"
+      }
+    ],
+    "saved_artifacts": [
+      {
+        "path": "research_notes/X6_UNIT194_A5_ROOT_TO_SIGNED_X6_INTERLEAVING_20261120.md",
+        "commit": "07979597c514010f01999eab3839824a30b7e452",
+        "blob": "aa21a66034c578c309426d4d111dcb7924569b58",
+        "sha256": "159f9e553e03abe95fc0b2487ac80deaf11411dced187cb9395e87c544f43b53"
+      },
+      {
+        "path": "research_checks/X6_UNIT194_A5_X6_SHUFFLE_CHECK_20261120.js",
+        "commit": "77b8638aec12c3eea5c5387964c4477b68dd8f18",
+        "blob": "ec6c3fd578e5051a7c3aa48932c494142177baed",
+        "sha256": "b7cf53f5d51a737c508bc3826dc8f5013eaab185ba4d296858496cce9cc013d3"
+      },
+      {
+        "path": "research_checks/X6_UNIT194_A5_X6_SHUFFLE_RESULTS_20261120.json",
+        "commit": "f5f23b2291594227cd6659403cb44af54f1d8e64",
+        "blob": "0980bdf96958e4492e40836e45c666b5623f0770",
+        "sha256": "b34ff9d80aa3cede4955ab57e371bdc06935a755430ce9a9448b2f844f4188f5"
+      },
+      {
+        "path": "research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/claim_ledger_unit194_delta.json",
+        "commit": "e41a0e23faf6fb7691fdbaa6b4d73e067a35a0ce",
+        "blob": "2230f88df9c78fb9cccfd6107f216b6b44840bfe",
+        "sha256": "4f5df27a6afc1360d51393722d5e2cef4db1c318b10ce6c9dc7de9f0cea4634f"
+      }
+    ]
+  },
+  "validation": {
+    "immutable_saved_JS_source_executed_in_current_js_runtime": true,
+    "output_byte_equivalent_to_saved_json_certificate": true,
+    "all_balanced_six_vectors_r_le_5": 11253,
+    "independent_DP_states_A5": 11252,
+    "independent_DP_states_X6": 6481,
+    "violations": 0,
+    "original_frozen_P022_module_imported": false,
+    "original_R063_native_benchmark_rerun": false
+  },
+  "native": {
+    "same_lane_recovery_status": "OWN_VERIFIED_SESSION_POINTERS_ONLY / no fresh writer authority",
+    "current_exact_continuation_request": "onhour-20261120-2002-x6-exact-current-cont-read-v1",
+    "current_exact_continuation_terminal": "SUCCEEDED / TYPED_FRONTIER_REQUIRED / execution_authorized=false / Source read snapshot 517c33f5f23b12777ef51eea239212e92b48f1af",
+    "original_failed_prepare": "onhour-20261120-1524-x6-own-unit187-native-continuation-prepare-v1 FAILED/NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED (not replayed)",
+    "latest_previously_authenticated_native_author_unit": 174,
+    "author_units_pending_native_semantic_progress": "175–194",
+    "older_units_pending": [
+      149,
+      150,
+      151,
+      152
+    ],
+    "native_progress_submitted_this_run": false,
+    "claim_handoff_submitted_this_run": false,
+    "independent_review": "UNREVIEWED / NOT_ADMITTED"
+  },
+  "unresolved": {
+    "LP011": "original invalid native argmax commit:path:line and typed caller unknown",
+    "LP019": "original invalid N-BRC subtraction commit:path:line and typed caller unknown",
+    "native_runtime": "original signed X6 ordered-event consumer across A5/P022 actual production wiring unverified",
+    "source": "exact original historical offending attribution and remaining LP28 typed crosswalk",
+    "permissions": "fresh same-lane native protected CLAIM/RUN authorization not established"
+  },
+  "do_not_repeat": [
+    "Unit193 direct pinned P022 simple-cubic Python execution; Unit194 A5-to-X6 shuffle theorem/checker",
+    "Unit178/179/180/181 completed frozen source inventories",
+    "R063 original six-file 17/17,512/512 benchmark",
+    "Native previously authenticated through Unit174",
+    "Unknown, failed or successful original native writes",
+    "maintenance or other owner identity, session, CLAIM"
+  ],
+  "next_exact_action": "Trace an original LP011 or LP019 alleged faulty historical typed consumer to immutable commit:path:line; if a correct P022 A5 root transfer is compared to native X6 signed BRC, apply exact C(2r,r) fiber and preserve sign interleavings for ordered future operations. Audit actual production wiring rather than infer it. On native side consume original requests and verify current actual same-lane owner generation before once attaching saved Units175–194; preserve 149–152 and independent Driver review.",
+  "continuation_state": "OPEN"
+}
