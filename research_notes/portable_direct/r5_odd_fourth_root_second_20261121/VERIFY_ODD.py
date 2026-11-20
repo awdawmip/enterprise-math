@@ -42,7 +42,6 @@ expected=((12352-244*I)+(12332-12376*I)*z**2
           +(-14552-12332*I)*z**4+(-14068+14112*I)*z**6
           +(24+13872*I)*z**8)
 assert sp.simplify(P-expected)==0
-assert sp.simplify(expected.subs(z**2,-I))==expected.subs(z**2,-I)  # direct noncancellation evaluated below
 w=sp.symbols("w")
 Pw=((12352-244*I)+(12332-12376*I)*w+(-14552-12332*I)*w**2
     +(-14068+14112*I)*w**3+(24+13872*I)*w**4)
