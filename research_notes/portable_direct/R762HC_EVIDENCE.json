@@ -1,0 +1,83 @@
+{
+  "schema": "R762HC_S6_TRIAD_GATE_AND_LATTICE_EVIDENCE_V1",
+  "frozen_scientific_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "population": {
+    "native_axes": 6,
+    "unoriented_unsigned_triples": 20,
+    "axis_permutations": 720,
+    "ordered_two_axis_inputs": 30,
+    "stabilizer_size": 24,
+    "stabilizer_tests": 720,
+    "completions_per_pair": 4
+  },
+  "lattice": {
+    "six_by_six_selected_column_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      10
+    ],
+    "six_by_six_determinant": "-3",
+    "integer_image": "{y in Z^6 : sum_i y_i = 0 (mod 3)}",
+    "smith_factors": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      3
+    ],
+    "full_rank": 6,
+    "k4_star_rank": 4,
+    "k4_star_four_minor": "2"
+  },
+  "positive_brc": {
+    "signed_triple_branches_per_event": 40,
+    "length_2_source_count": 1600,
+    "length_2_endpoint_count": 423,
+    "length_2_multiplicity_histogram": {
+      "1": 40,
+      "2": 200,
+      "4": 90,
+      "6": 60,
+      "12": 30,
+      "20": 2,
+      "40": 1
+    },
+    "length_2_zero_return": 40,
+    "length_4_zero_return": 11160,
+    "odd_length_zero_return": 0
+  },
+  "observer_collision": {
+    "event_length": 2,
+    "first_ordered_event_sequence": [
+      "+{0,1,2}",
+      "+{3,4,5}"
+    ],
+    "first_full_endpoint": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "second_ordered_event_sequence": [
+      "+{0,1,2}",
+      "-{0,1,2}"
+    ],
+    "second_full_endpoint": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "same_relative_readout": true
+  },
+  "scope": "Candidate signed three-axis composite translations and S6 axis-label skeleton; NOT a native TRIADIC_CLOSURE_E admission or force-balance proof",
+  "verification": "AUTHOR_EXACT_ENUMERATION_PASS; INDEPENDENT_REVIEW_NOT_REVIEWED"
+}
