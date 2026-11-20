@@ -39,6 +39,7 @@ for(let code=0;code<3**N;code++){
   }
   check(successors.size===12,`duplicate outgoing observer edge from ${a}`);
 }
+check(box_states===665,'wrong canonical box');
 // Entire primitive labelled trace from 0: no event identities are stored in the reconstruction.
 let paths_checked=0,trace_steps_checked=0,max_depth_seen=0;
 function traceAll(full, relative, seen, depth, length, limit){
