@@ -8,9 +8,9 @@ Let `W=(0,16,32,48,1,64,17,80,18,24,34,82)`. The label universe is `{0,...,255}`
 
 **Theorem (finite exact computation).** For every unordered pair `{u,v} ⊂ {0,...,255} \ W` of distinct labels, and for every integer `0 <= f <= 4` of unflagged adversarial errors,
 
-$
+$$
 \boxed{V_f(W\cup\{u,v\})=735+950f}.
-$
+$$
 
 There are exactly `C(244,2)=29,646` named pairs and `1,906` distinct **price-aware joint maximal-support** signatures; values for f=0,1,2,3,4 are respectively `735,1685,2635,3585,4535`. The result does not decide whether any unresolved pair has (V_8>8335); the pre-existing full 256-name bound remains `8335 <= C*_8 <= 8343`.
 
@@ -20,9 +20,9 @@ For each query k and each of 14 labels, use doubled left endpoint `2*N_h(k)-tau`
 
 For fixed f, cap mismatch counts e_i at f+1, and retain a label as live iff e_i<=f. Values are zero if at most one label is live. Otherwise
 
-$
+$$
 V_f(e)=\min_{k:\mathrm{nonstall}}\bigl[k+\max_{S\in\mathcal F_k} V_f(\min(f+1,e+1_{i\notin S}))\bigr].
-$
+$$
 
 An action is nonstalling when no maximal support contains all live labels. Because the physical cost is positive, an adversarial unchanged-live branch makes a stalling action useless. Each remaining transition strictly increases a live mismatch coordinate, so exact finite memoized Bellman recursion terminates. A branch with no live labels costs zero thereafter.
 
