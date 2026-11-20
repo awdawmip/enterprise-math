@@ -76,12 +76,21 @@
       152
     ],
     "original_native_read_request_id": "onhour-20261121-0106-x6-current-continuation-read-v1",
-    "original_native_read_outcome_at_last_observation": "QUEUED; read original ID until terminal; no replay",
+    "original_native_read_outcome_at_last_observation": "SUCCEEDED / error=null / TYPED_FRONTIER_REQUIRED / execution_authorized=false; original request reconciled on 2026-11-21, read-only; no current protected writer grant.",
     "historical_failed_prepare_id": "onhour-20261120-1524-x6-own-unit187-native-continuation-prepare-v1",
     "historical_failed_prepare_status": "FAILED/NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED; preserved",
     "current_same_lane_winning_claim_authority": "NOT_ESTABLISHED",
     "research_activity_checkpoint": "PENDING_NEW_UNIT199_CAS; previous Activity217 immutable readback at 529a968cc4142e4a1f54e544f5e5353957f91c50",
-    "independent_review": "UNREVIEWED/NOT_ADMITTED"
+    "independent_review": "UNREVIEWED/NOT_ADMITTED",
+    "native_continuation_receipt_reconciled": {
+      "request_id": "onhour-20261121-0106-x6-current-continuation-read-v1",
+      "status": "SUCCEEDED",
+      "error": null,
+      "phase": "TYPED_FRONTIER_REQUIRED",
+      "execution_authorized": false,
+      "authenticated_latest_frontier": "Unit174",
+      "outcome_scope": "READ_ONLY_AS_OF_SOURCE"
+    }
   },
   "evidence_debt": [
     "Native semantic links Units175-199",
@@ -97,6 +106,6 @@
     "Unit199 16-case original Python profile and source-local call chain",
     "Any unknown or rejected native write; no maintenance-lane identity reuse"
   ],
-  "next_exact_action": "Reconcile onhour-20261121-0106-x6-current-continuation-read-v1 by its original request ID; continue frozen producer-consumer callsite/source search and LP011/LP019 original offending site, honoring actual source scope. If genuine production workload is found, record commit:path:line/K and validation metric before any replacement benchmark; authorize Native PROGRESS only with exact same-lane winning claim/run, keeping author Activity separate.",
+  "next_exact_action": "Consume original onhour-20261121-0106-x6-current-continuation-read-v1 as SUCCEEDED (do not replay); use fresh same-lane Source to establish winning claim/run before protected Native semantic PROGRESS; independently continue frozen producer-consumer provenance search for LP011/LP019 and real endpoint_weight production caller with precise commit:path:line and actual K inputs. Keep R063 native benchmark unchanged.",
   "continuation_state": "OPEN"
 }
