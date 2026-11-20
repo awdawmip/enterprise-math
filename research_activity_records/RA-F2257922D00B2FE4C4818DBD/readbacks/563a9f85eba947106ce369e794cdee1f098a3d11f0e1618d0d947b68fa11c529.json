@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/r5_rare_failure_third_order_20261120/VERIFY.py",
+    "ref": "9a2624fd0ca8749bda0b2af7edae89f3c7a87717",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r5-20261120-third-verify-py-source-observation",
+  "result": {
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R5 third rare-witness failure coefficient; integer and Laurent crosscheck.\"\"\"\nfrom fractions import Fraction\nfrom itertools import combinations_with_replacement\nfrom math import comb\nimport hashlib, json, sys, zipfile\n\nA=tuple(range(214,219))\nQ=tuple(range(219,315))\ns=sum(Q); t=sum(x*x for x in Q)\nr=sum(A); v=sum(x*x for x in A)\nassert (s,t,r,v)==(25584,6891856,1080,233290)\n\ndef choose(n,k): return comb(n,k) if n>=k else 0\n\ndef moments(m):\n    count=total=total2=0\n    for n in range(m):\n        for block in combinations_with_replacement(A,n):\n            x=sum(block)\n            count+=1\n            total+=x\n            total2+=x*x\n    return count,total,total2\n\ndef coefficients(m):\n    b,c,d,h=[choose(m+4,5),choose(m+4,6),choose(m+4,7),choose(m+6,7)]\n    small=(Fraction(s*s,8)-Fraction(t,24))*b-Fraction(s*r*c,2)+Fraction(d*(r*r+v)+c*v,2)\n    other=Fraction(219*220*221*h,214)+Fraction(219*220*221*h,215)\n    return b,Fraction(s*b,2)-r*c,small,other,small+other\n\ndef laurent_independent(m):\n    # z=1-q, 1/(1-(1-z)^k)=(k*z)^-1[1+(k-1)z/2+(k^2-1)z^2/12+...]\n    b,c1,c2=moments(m)\n    alphas=[Fraction(k-1,2) for k in Q]\n    e1=sum(alphas, Fraction(0))\n    e2=sum((Fraction(k*k-1,12) for k in Q),Fraction(0))\n    e2+=(e1*e1-sum((u*u for u in alphas),Fraction(0)))/2\n    h95=sum(range(1,96))\n    pair95=Fraction(h95*h95-sum(i*i for i in range(1,96)),2)\n    h94=sum(range(1,95))\n    t1=b*e1-c1\n    t2=b*e2-e1*c1+Fraction(c2-c1,2)\n    return Fraction(b*pair95,95*94)+Fraction(t1*h94,94)+t2\n\ndef verify(archive=None):\n    if archive:\n        with zipfile.ZipFile(archive) as z:\n            raw=z.read('EXACT_R5_ALL_101_BUDGETS.json')\n            assert hashlib.sha256(raw).hexdigest()=='50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b'\n            assert json.loads(raw)['budget_range']==[214,314]\n    samples={}\n    for m in [1,2,3,8,17]:\n        b,c,d,h=[choose(m+4,5),choose(m+4,6),choose(m+4,7),choose(m+6,7)]\n        n,c1,c2=moments(m)\n        assert n==b and c1==r*c and c2==d*(r*r+v)+c*v\n        first,second,small,other,total=coefficients(m)\n        assert small==laurent_independent(m)\n        assert other==Fraction(219*220*221*h,215)+Fraction(219*220*221*h,214)\n        samples[str(m)]={\"N95_num\":str(first),\"N94_num\":str(second),\n            \"N93_small\":str(small),\"N93_seven\":str(other),\n            \"N93_total\":str(total),\"S0_failure_vectors\":n}\n    return {\"schema\":\"EM_R5_THIRD_FAILURE_ORDER_V1\",\n        \"status\":\"AUTHOR_EXACT_SYMBOLIC_CHECK_NOT_REVIEWED\",\n        \"frozen_input_sha256\":\"50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b\",\n        \"archive_sha_verified\":bool(archive),\"samples\":samples,\n        \"meaning\":\"all N93 numerators have common denominator 93! * prod(219..314)\"}\n\nif __name__==\"__main__\":\n    print(json.dumps(verify(sys.argv[1] if len(sys.argv)>1 else None),indent=2))\n",
+      "display_title": "VERIFY.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9a2624fd0ca8749bda0b2af7edae89f3c7a87717/research_notes/portable_direct/r5_rare_failure_third_order_20261120/VERIFY.py",
+      "encoding": "utf-8",
+      "sha": "05b54c2df651557351c0d98d95aa0e75141467c9"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
