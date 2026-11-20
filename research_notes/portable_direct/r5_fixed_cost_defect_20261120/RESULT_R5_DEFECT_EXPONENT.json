@@ -1,0 +1,203 @@
+{
+  "schema": "R5_NONADAPTIVE_EXACT_COST_DEFECT_EXPONENT_V1",
+  "frozen_input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "scientific_source_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "prior_research_commit": "15fcf2a6a659ba0c06287b3dd27a5b0e67b78475",
+  "pairwise_hypotheses": 32640,
+  "distinct_separation_patterns": 53,
+  "five_minimal_sets": [
+    [
+      214,
+      215,
+      216,
+      217,
+      218
+    ],
+    [
+      214,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221
+    ],
+    [
+      215,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221
+    ],
+    [
+      223,
+      224,
+      225,
+      226,
+      227,
+      228,
+      229,
+      230,
+      231,
+      232,
+      233,
+      234,
+      235,
+      236,
+      237,
+      238,
+      239,
+      240,
+      241,
+      242,
+      243,
+      244,
+      245,
+      246,
+      247,
+      248,
+      249,
+      250,
+      251,
+      252,
+      253,
+      254,
+      255,
+      256,
+      257,
+      258,
+      259,
+      260,
+      261,
+      262,
+      263,
+      264,
+      265,
+      266,
+      267,
+      268,
+      269,
+      270,
+      271,
+      272,
+      273,
+      274,
+      275,
+      276,
+      277,
+      278,
+      279,
+      280,
+      281,
+      282,
+      283,
+      284,
+      285,
+      286,
+      287,
+      288,
+      289,
+      290
+    ],
+    [
+      296,
+      297,
+      298,
+      299,
+      300,
+      301,
+      302,
+      303,
+      304,
+      305,
+      306,
+      307,
+      308,
+      309,
+      310,
+      311,
+      312
+    ]
+  ],
+  "asymptotic_scope": "fixed integer m >=1, N -> infinity",
+  "theorem": {
+    "Jm": "binomial(m+4,5)",
+    "Delta_leading": "Jm*N^95/(95!*product(219..314))",
+    "Delta_next": "Jm*(12972-180*m)*N^94/(94!*product(219..314))",
+    "unrestricted_leading": "N^100/(100!*product(214..314))",
+    "relative_defect": "K_m/N^5 - K_m*(100860+17100m)/N^6 + O_m(N^-7)",
+    "K_m": "4247432144558152704000*binomial(m+4,5)"
+  },
+  "moments": {
+    "1": {
+      "J0": "1",
+      "J1": "0",
+      "K": "4247432144558152704000"
+    },
+    "2": {
+      "J0": "6",
+      "J1": "1080",
+      "K": "25484592867348916224000"
+    },
+    "3": {
+      "J0": "21",
+      "J1": "7560",
+      "K": "89196075035721206784000"
+    },
+    "5": {
+      "J0": "126",
+      "J1": "90720",
+      "K": "535176450214327240704000"
+    },
+    "17": {
+      "J0": "20349",
+      "J1": "58605120",
+      "K": "86430996709613849373696000"
+    }
+  },
+  "independent_m1_exact_cost_checks": {
+    "735": {
+      "total": "768",
+      "good": "1",
+      "bad": "767",
+      "bad_A": "547"
+    },
+    "840": {
+      "total": "917",
+      "good": "0",
+      "bad": "917",
+      "bad_A": "903"
+    },
+    "1000": {
+      "total": "20181",
+      "good": "1407",
+      "bad": "18774",
+      "bad_A": "14040"
+    },
+    "1200": {
+      "total": "123083",
+      "good": "7580",
+      "bad": "115503",
+      "bad_A": "57000"
+    },
+    "1500": {
+      "total": "4953405",
+      "good": "724532",
+      "bad": "4228873",
+      "bad_A": "2771965"
+    }
+  },
+  "methods": [
+    "frozen 256-state exact integer pair enumeration",
+    "five-witness pole-order symbolic proof",
+    "stars-and-bars first derivative check",
+    "five-bit query-type DP",
+    "independent five-event inclusion-exclusion"
+  ],
+  "author_validation": "PASS",
+  "independent_mathematical_review": "NOT_REVIEWED",
+  "formal_task_claim": "NONE",
+  "native_x6_brc_application": "NOT_ASSERTED"
+}
