@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "path": "research_notes/portable_direct/x6_r59_matching_cycle_trace_results.json",
+    "ref": "a15b98a388126fee3da1115200e8442a814e5ebf"
+  },
+  "observation_id": "r2-x6-r59-20261120-3",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"ENTERPRISE_MATH_X6_R59_BRC_POSITIVE_EXACT_AUTHOR_CHECK_V1\",\n  \"date\": \"2026-11-20\",\n  \"status\": \"PASS\",\n  \"model\": \"conditional two-source permutation-matching forbidden-port incidence; independent reset AB trials; cyclic cross-trial same-port predicates\",\n  \"inputs\": {\n    \"p_min\": 1,\n    \"p_max\": 7,\n    \"source_weight_u\": \"2\",\n    \"source_weight_v\": \"3\",\n    \"arithmetic\": \"exact nonnegative integers and Fraction\",\n    \"source_pin\": \"a72226e2430ffa4786321ac86e7f0c599d5f0389\"\n  },\n  \"permutation_matchings_by_p\": {\n    \"1\": 1,\n    \"2\": 2,\n    \"3\": 6,\n    \"4\": 24,\n    \"5\": 120,\n    \"6\": 720,\n    \"7\": 5040\n  },\n  \"total_permutation_matchings\": 5913,\n  \"checks\": [\n    \"positive-branch closed-chain count\",\n    \"finite trace formula\",\n    \"cycle length recovery by divisor recurrence\",\n    \"p and uv reconstruction\",\n    \"two 4-Port matchings witness\"\n  ],\n  \"p4_witness\": {\n    \"four_cycle\": {\n      \"L1\": 4,\n      \"L2\": 8\n    },\n    \"two_two_cycles\": {\n      \"L1\": 4,\n      \"L2\": 12\n    },\n    \"mass_gap\": \"4*(uv)^2\"\n  },\n  \"limitations\": [\n    \"conditional reset/equality observer\",\n    \"not native TRIADIC_CLOSURE_E admission\",\n    \"author check not independent review\",\n    \"finite tests do not prove unrestricted p\"\n  ]\n}\n",
+      "encoding": "utf-8",
+      "sha": "f1777352f34150632cffb81645791379a7b54688",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a15b98a388126fee3da1115200e8442a814e5ebf/research_notes/portable_direct/x6_r59_matching_cycle_trace_results.json",
+      "display_title": "x6_r59_matching_cycle_trace_results.json"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
