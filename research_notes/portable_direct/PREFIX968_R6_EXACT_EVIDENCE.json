@@ -1,0 +1,120 @@
+{
+  "schema": "PREFIX968_R6_MODULAR_BUCKET_QUOTIENT_JOIN_EVIDENCE_V1",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "date_local": "2026-11-21",
+  "scope": "auxiliary named XOR integer observer, p=19 k=21 m=1,3,5; strict odd p-bit moduli; off-diagonal",
+  "scientific_status": "AUTHOR_PROOF_EXACT_INTEGER_VERIFIED_NOT_REVIEWED",
+  "algorithm": "For each t, join numerical C residues on k*C modulo |2t-km| against (k+2)*c; retain complete named slots; recover a,b and raw XOR-verify",
+  "small_domain": {
+    "parameter_count": 168,
+    "p": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "cases_by_p": {
+      "4": 9,
+      "5": 21,
+      "6": 45,
+      "7": 93
+    },
+    "named_witness_totals_by_p": {
+      "4": 48,
+      "5": 210,
+      "6": 1007,
+      "7": 3233
+    },
+    "method": "Independent source-first original XOR endpoint join compared with named-tuple multiset",
+    "small_cases_compact_json_sha256": "493d98b86bb0393586dbc02185d740b6b09c9ebcae26c69162e5e994ab9bd4f6",
+    "full_original_local_json_sha256": "38f0957948a58a22b4d4fbac8974027e455566db2619de0ba32548252c54aa0f",
+    "full_original_local_json_bytes": 14434,
+    "reproduction": "Run PREFIX968_R6_MODULAR_BUCKET_JOIN.py --small to regenerate full JSON and cases"
+  },
+  "q19": {
+    "p": 19,
+    "k": 21,
+    "total_baseline_integer_modulus_tests": 2978388,
+    "total_bucket_selected_pairs": 291734,
+    "reduction_percent": 90.20496993675773,
+    "per_gap": [
+      {
+        "m": 1,
+        "named": 614,
+        "modulus_pairs": 442,
+        "baseline_tests": 992796,
+        "bucket_selected": 132661,
+        "arithmetic_modulus_candidates": 1419,
+        "slot_checks": 3866,
+        "tuple_sha256": "ccbccc30c4171a809f7270ce59f0b72b368839e93ffeeed8df9ba1045720da71"
+      },
+      {
+        "m": 3,
+        "named": 1286,
+        "modulus_pairs": 839,
+        "baseline_tests": 992796,
+        "bucket_selected": 134077,
+        "arithmetic_modulus_candidates": 2825,
+        "slot_checks": 7695,
+        "tuple_sha256": "1360a9ca274b357d0b87058d35ef6ccd059d0c5aef995e4d93b0d1363e1aaae3"
+      },
+      {
+        "m": 5,
+        "named": 3,
+        "modulus_pairs": 3,
+        "baseline_tests": 992796,
+        "bucket_selected": 24996,
+        "arithmetic_modulus_candidates": 15,
+        "slot_checks": 35,
+        "tuple_sha256": "c429ef59749f36ef295b4ac9171fb5171ab3a706beaa270563728d4962649c1b"
+      }
+    ]
+  },
+  "runtime": {
+    "python": "3.13.5",
+    "architecture": "x86_64",
+    "repeats_per_gap": 10,
+    "order": "alternated, same Python process",
+    "unit": "seconds",
+    "medians": [
+      {
+        "m": 1,
+        "join": 0.034485,
+        "baseline": 0.174982,
+        "ratio": 5.074,
+        "min_join": 0.032891,
+        "max_join": 0.042215,
+        "min_baseline": 0.166405,
+        "max_baseline": 0.180284
+      },
+      {
+        "m": 3,
+        "join": 0.036499,
+        "baseline": 0.172678,
+        "ratio": 4.731,
+        "min_join": 0.035709,
+        "max_join": 0.04795,
+        "min_baseline": 0.168626,
+        "max_baseline": 0.195981
+      },
+      {
+        "m": 5,
+        "join": 0.008737,
+        "baseline": 0.167822,
+        "ratio": 19.207,
+        "min_join": 0.008309,
+        "max_join": 0.009102,
+        "min_baseline": 0.163833,
+        "max_baseline": 0.172626
+      }
+    ],
+    "interpretation": "Single environment Python observations; not production or asymptotic benchmark"
+  },
+  "provenance": {
+    "paper": "research_notes/portable_direct/2026-11-21_r6_prefix968_modular_bucket_quotient_join.md",
+    "code": "research_notes/portable_direct/PREFIX968_R6_MODULAR_BUCKET_JOIN.py",
+    "prior": "research_notes/portable_direct/2026-11-21_r6_prefix967_target_side_bit_parity_directed.md",
+    "activity_association": "PENDING_AUTHENTICATED_ORIGINAL_SESSION_VERIFICATION",
+    "formal_claim": "NOT_ACQUIRED"
+  }
+}
