@@ -95,7 +95,7 @@ For a decoder *already supplied* with \(W\), the starting Cell and the aggregate
 Lower bound: a largest fiber has \(F_{\max}\) members. Upper bound: within each observed fiber enumerate the histories canonically in lexicographic order, encode the index, and reuse the same \(B_{\rm residual}\)-bit field for all fibers. This is an exact scope-typed observer descent/repair certificate; it does not license discarding provenance for another future observer.
 
 By the central binomial coefficient asymptotic,
-\(B_{\rm residual}(W)=6W-3\log_2 W+O(1)\).
+\(B_{\rm residual}(W)=6W-\frac32\log_2 W+O(1)\).
 So an **aggregate** two-event joint observable recovers only logarithmically many bits of the missing chronological BRC history, whereas preserving each *ordered local* \(\mathcal{J}\) with its macro-edge location recovers all \(6W\) branch bits. For a fixed known chirality the aggregate fiber is half the displayed count.
 
 ## Executed exact source-possible native certificate
