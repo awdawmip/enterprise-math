@@ -1,0 +1,418 @@
+{
+  "schema": "X6_TIME_UNIT248_DIRECTED_CENTER_PORT_COCYCLE_COMPENSATION_CERTIFICATE_V1",
+  "date": "2026-11-22",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "science_source_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "prior_unit": "Unit247",
+  "precision_moduli": [
+    6,
+    12,
+    24,
+    48,
+    96,
+    192
+  ],
+  "ring_weights": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    3,
+    0
+  ],
+  "potential": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    3,
+    3,
+    3,
+    3,
+    3,
+    6,
+    6
+  ],
+  "ports": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "model": "Conditional signed bidirectional native ring and whole-triad directed centre; independent additive C_N precision observer; no physical law/admission inferred",
+  "exact_result": "For arbitrary one-pair centre edge weights alpha_i,beta_j, fixed-Cell precision image is <6,alpha_i+beta_j-A(i,j)>; for all six ingress and six egress simultaneous preservation iff alpha_i=t-B(i),beta_j=B(j)-t mod6 for one t in Z6.",
+  "example": "x0->P->x6->x5->...->x0, 8 primitive events: zero centre weights yields C24 delta 21, compensated beta6=3 yields 0.",
+  "zero_vs_repair_single_pair_C24": [
+    {
+      "ingress": 0,
+      "egress": 0,
+      "A": 0,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 0,
+      "egress": 2,
+      "A": 0,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 0,
+      "egress": 4,
+      "A": 0,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 0,
+      "egress": 6,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 0,
+      "egress": 8,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 0,
+      "egress": 10,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 2,
+      "egress": 0,
+      "A": 6,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 2,
+      "egress": 2,
+      "A": 0,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 2,
+      "egress": 4,
+      "A": 0,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 2,
+      "egress": 6,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 2,
+      "egress": 8,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 2,
+      "egress": 10,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 4,
+      "egress": 0,
+      "A": 6,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 4,
+      "egress": 2,
+      "A": 6,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 4,
+      "egress": 4,
+      "A": 0,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 4,
+      "egress": 6,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 4,
+      "egress": 8,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 4,
+      "egress": 10,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": 0,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 6,
+      "egress": 0,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 6,
+      "egress": 2,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 6,
+      "egress": 4,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 6,
+      "egress": 6,
+      "A": 0,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 6,
+      "egress": 8,
+      "A": 0,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 6,
+      "egress": 10,
+      "A": 0,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 8,
+      "egress": 0,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 8,
+      "egress": 2,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 8,
+      "egress": 4,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 8,
+      "egress": 6,
+      "A": 6,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 8,
+      "egress": 8,
+      "A": 0,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 8,
+      "egress": 10,
+      "A": 0,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 10,
+      "egress": 0,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 10,
+      "egress": 2,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 10,
+      "egress": 4,
+      "A": 3,
+      "uncompensated_fixed_cell_states": 8,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 0
+    },
+    {
+      "ingress": 10,
+      "egress": 6,
+      "A": 6,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 10,
+      "egress": 8,
+      "A": 6,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 3
+    },
+    {
+      "ingress": 10,
+      "egress": 10,
+      "A": 0,
+      "uncompensated_fixed_cell_states": 4,
+      "compensated_fixed_cell_states": 4,
+      "centre_ingress_weight": -3,
+      "centre_egress_weight": 3
+    }
+  ],
+  "full_star": [
+    {
+      "modulus": 6,
+      "zero_spokes_fixed_cell_states": 2,
+      "compensated_spokes_fixed_cell_states": 1
+    },
+    {
+      "modulus": 12,
+      "zero_spokes_fixed_cell_states": 4,
+      "compensated_spokes_fixed_cell_states": 2
+    },
+    {
+      "modulus": 24,
+      "zero_spokes_fixed_cell_states": 8,
+      "compensated_spokes_fixed_cell_states": 4
+    },
+    {
+      "modulus": 48,
+      "zero_spokes_fixed_cell_states": 16,
+      "compensated_spokes_fixed_cell_states": 8
+    },
+    {
+      "modulus": 96,
+      "zero_spokes_fixed_cell_states": 32,
+      "compensated_spokes_fixed_cell_states": 16
+    },
+    {
+      "modulus": 192,
+      "zero_spokes_fixed_cell_states": 64,
+      "compensated_spokes_fixed_cell_states": 32
+    }
+  ],
+  "exact_integer_assertions": 770,
+  "BFS_states_total": 76167,
+  "failures": 0,
+  "execution": "V8 JavaScript exact integer BFS and congruence assertions in initiating research run",
+  "status": "AUTHOR_EXACT_EXECUTED / CONDITIONAL_PORT_WEIGHT_MODEL / UNREVIEWED / NOT_ADMITTED"
+}
