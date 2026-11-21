@@ -1,0 +1,88 @@
+{
+  "status": "EXACT_FINITE_CHECKS_PASS",
+  "arithmetic": "Python arbitrary-precision integers only; no floating-point inference",
+  "scope": "finite toy models independently expanded from the announcement; not the RH proof",
+  "all_2x2_field_matrices_checked": 722,
+  "field_assignments_checked": 397442,
+  "path_cases_checked": 55,
+  "all_subset_path_cases_checked": 160,
+  "composite_modulus_cases_checked": 36,
+  "path_cycle_comparison": [
+    {
+      "model": "four_vertex_path",
+      "matrix": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "rank_mod_5": 2,
+      "counts_by_phase": [
+        145,
+        120,
+        120,
+        120,
+        120
+      ],
+      "zero_phase_count": 145,
+      "residual_5N_minus_625": 100
+    },
+    {
+      "model": "four_cycle",
+      "matrix": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "rank_mod_5": 1,
+      "counts_by_phase": [
+        225,
+        100,
+        100,
+        100,
+        100
+      ],
+      "zero_phase_count": 225,
+      "residual_5N_minus_625": 500
+    }
+  ],
+  "same_size_subset_comparison": [
+    {
+      "allowed": [
+        0,
+        1
+      ],
+      "length": 3,
+      "counts_by_phase": [
+        5,
+        2,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "allowed": [
+        1,
+        2
+      ],
+      "length": 3,
+      "counts_by_phase": [
+        0,
+        2,
+        1,
+        3,
+        2
+      ]
+    }
+  ]
+}
