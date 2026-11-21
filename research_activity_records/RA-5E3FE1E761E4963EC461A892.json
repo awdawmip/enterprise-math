@@ -12070,6 +12070,57 @@
           }
         }
       ]
+    },
+    {
+      "event_id": "onhour-20261122-0500-x6-unit253-port-time-reversal-exact-v1",
+      "state": "EM_REPRESENTED",
+      "notes": "Unit253: conditional native signed X6 Cell/Link/Port graph; rigorous time-reversal involution maps source-labelled BRC history for directed ingress/egress (i,j), original (-12,+12) goal, to swapped ports (j,i) and reverse (+12,-12) goal. Proved exact N_reverse(i,j)=N_original(j,i) and sharp 6x6 transpose spectrum; 24 of 36 original fixed ordered Port pairs exhibit chirality-dependent opposite-winding cost, |gap|<=10 and this bound is attained. Independent fully executed 36-instance Python FIFO BFS covers 761846 aggregate state discoveries, all 36 transpose checks agree, 0 mismatches; conditional physical triad Port/sensor rules remain unknown. Source notes/checker/certificate committed with verified immutable SHA256 and Git blob. Original Unit245 36 BRC paths not rerun or rewritten. Researcher original legitimate SID and session preserved; no current winning CLAIM, Native semantic PROGRESS not written; unreviewed/not admitted.",
+      "repairs_event_id": null,
+      "kb_sources": [],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/X6_TIME_UNIT253_DIRECTED_PORT_TIME_REVERSAL_RECIPROCITY_20261122_0500.md",
+          "commit": "12be973437765796057f0c7fc9505dd82a14a547",
+          "sha256": "de03a317936f08a952b8c832f356281a52a6cd8f76e62722e3cab7b66c9b3419",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "7ebf35c246f61369a8facd2bfe38b62b07f8c451",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/12be973437765796057f0c7fc9505dd82a14a547/research_notes/X6_TIME_UNIT253_DIRECTED_PORT_TIME_REVERSAL_RECIPROCITY_20261122_0500.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/X6_TIME_UNIT253_REVERSE_WINDING_COST_CHECK_20261122_0500.py",
+          "commit": "01c29d5f9edfc2c8df4293c2a36eeb4ae5ae51a2",
+          "sha256": "5d8090b2d2619ffc4e09c90f90a6e69d231be1e8804fbebaa25429910e032cf7",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "cd920d43269f75626c656f971a4244e4e3bcd6e6",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/01c29d5f9edfc2c8df4293c2a36eeb4ae5ae51a2/research_checks/X6_TIME_UNIT253_REVERSE_WINDING_COST_CHECK_20261122_0500.py",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/X6_TIME_UNIT253_REVERSE_WINDING_RESULTS_20261122_0500.json",
+          "commit": "757728c0b4006eece132c28473502a9749b21a8d",
+          "sha256": "2ccb918e64493dffa0e90a8812f61d53d0a31d14462792d9c856be0e921dd84b",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "60affdd6ce0fb4c946b8d6bc8be48f8292e1ce7e",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/757728c0b4006eece132c28473502a9749b21a8d/research_checks/X6_TIME_UNIT253_REVERSE_WINDING_RESULTS_20261122_0500.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ]
     }
   ],
   "mode": "TASK_RESEARCH",
