@@ -5,6 +5,16 @@ At: `2026-11-21T09:25:26+08:00`
 Scope: `enterprise-math / research-memory engineering evaluation`
 Kind: `CHECKPOINT`
 
+## 后续实测：六格 CRT 表的平方和平移诊断
+
+后续使用相同固定 EM 原稿，在 Nollm PR #7 的独立场中完成跨线组合、更正和换台架续研。产品提交 `035d51e4cfd59a130b470dffbc330e3a6309b7aa`；研究端的续页候选已进入 MCP #112，仅做本地试验。生产工作场与 v23 上线记录沿用原版本。[原型与实际试用报告](https://github.com/awdawmip/Nollm/blob/34c16d166bf8e232fc8c1c35ff9c6d6ed1dbd766/lab/nollm-lab/repository_memory/enterprise_math/value_trial_20261121/followup/README.md) · [MCP 候选](https://github.com/awdawmip/em-research-mcp/commit/282e4a06b4b08ccca8bf65d54b957bc43e52980f)
+
+**科学用例。** 六格载荷按行嵌入整数六维坐标。原稿给出 $t=C_x(3)$ 决定整表；对题给基线，表的差位于 $(0,1,-1,0,-1,1)$ 张成的整数线上。对同一初态允许全体整数偏移、每次精确读同一平方和模 4 和模 6 时，两条线的结果组合给出 $t\bmod 6$。$n=5$ 的六张表用两个固定成对读数恢复；$n=6$ 时 $t=0,6$ 的原前缀不同，却在所有偏移下同读。旧成果卡的偶模待解与后续定理的全域单模固定最优数均被正确区分。[CRT 重建与可行性](https://github.com/awdawmip/enterprise-math/blob/f16294a5a7ffa435a32b70214d881fd4450eb494/research_notes/balanced_resume_20261028/nt/crt_repair_bits.md#L20-L51) · [平方和稳定子与探测范围](https://github.com/awdawmip/enterprise-math/blob/f16294a5a7ffa435a32b70214d881fd4450eb494/research_notes/balanced_resume_20261028/native/QUADRATIC_EVEN_PROBES.md#L7-L35)
+
+直接原文读者还给出本表族中至多一个标量任意误读时的固定设计下界，另一实现的有限枚举复得 $n=1,2,3,4,5$ 的最少成对偏移数 2、3、3、5、5。独立的新会话在更正后的相同记忆上换台架，得到 $n=5$ 时仅沿表族方向平移只分出三个模 3 类；允许坐标和为零的平移则仍能两次分开六张表。这里的算法与碰撞是开发题的研究推导，范围和来源随试用记录保存。
+
+**对记忆投入的含义。** 从同一已选 CRT 物理格出发，合理放置给出六格重建，置换位置给出无关素操作未来树，添加定向 Stitch 才在该次召回中额外提供远端 X6 稳定子。撤销后完整召回恢复。平面臂同样完成组合与更正后的推理。修复实现问题后的首题重测，成功材料为平面 23,137 B、原生无连接 50,462 B、原生有连接 31,827 B。后两个独立读者都先后选了两个物理入口。续研时两臂成功材料分别是 15,223 B（原生）与 15,395 B（平面）。保留带证据、可修订的命题与连接能力，暂缓全面替换平面检索。下一次选题应只描述观察矛盾，不点名第二研究线，并考察一个前提更改后能否及时撤回误用。使用原型时可直接打开 Nollm 报告中的 `continuation/field`。
+
 ## 本轮完成
 
 主交付在 [Nollm PR #7](https://github.com/awdawmip/Nollm/pull/7)，已发布提交 `f038edcae50594a705e0886c7818c27579d79154`。任务书、Codex 提示词、三臂真实读者答案与日志、独立方法/答案复核，以及 32/128/512 条合成记忆的实际导航诊断已保存。
