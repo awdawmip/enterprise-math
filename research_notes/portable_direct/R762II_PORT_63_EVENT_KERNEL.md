@@ -2,7 +2,7 @@
 
 Date: 2026-11-22 (Asia/Shanghai). Research state: **AUTHOR_PROVED / EXACT_FINITE_CROSSCHECKED / NOT_REVIEWED**.
 
-Scientific pin preserved: Task \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\`, frozen \`a72226e2430ffa4786321ac86e7f0c599d5f0389\`. Direct predecessor: R762IH at \`5f39e2e5faac0b3e8fb358d810eb8d0477e5d612:research_notes/portable_direct/R762IH_PORT_67_EVENT_KERNEL.md\`. This is an exact theorem about the **composite 15-Port observer**; no P000 native force/time/rotation or physical residual assertion is made.
+Scientific pin preserved: Task `RS-X6-TRIADIC-CLOSURE-DYNAMICS`, frozen `a72226e2430ffa4786321ac86e7f0c599d5f0389`. Direct predecessor: R762IH at `5f39e2e5faac0b3e8fb358d810eb8d0477e5d612:research_notes/portable_direct/R762IH_PORT_67_EVENT_KERNEL.md`. This is an exact theorem about the **composite 15-Port observer**; no P000 native force/time/rotation or physical residual assertion is made.
 
 ## Theorem (uniform 63-event subwitness)
 
@@ -53,10 +53,10 @@ The maximum is 63. Each removal preserves the graph's relevant Euler properties,
 
 ## Reproducible verification
 
-The companion \`R762II_CHECK.py\` enumerates all \(2^{15}=32768\) Port-vertex subsets, computes their exact induced \(L(K_6)\) edge counts, and verifies \(f(7)=15\). It independently maximizes the sum of per-component extremal counts by integer dynamic programming for each \(k\in\{0,\dots,7\}\). Executed with Python 3 standard library and returned \`PASS R762II\`; the tabulated maxima for \(k=0,\dots,7\) are \(60,61,62,63,61,50,33,28\) events. This finite validation checks the extremal combinatorics; the unbounded theorem follows from the graph-theoretic proof and R762IH's pair-reduction lemma.
+The companion `R762II_CHECK.py` enumerates all \(2^{15}=32768\) Port-vertex subsets, computes their exact induced \(L(K_6)\) edge counts, and verifies \(f(7)=15\). It independently maximizes the sum of per-component extremal counts by integer dynamic programming for each \(k\in\{0,\dots,7\}\). Executed with Python 3 standard library and returned `PASS R762II`; the tabulated maxima for \(k=0,\dots,7\) are \(60,61,62,63,61,50,33,28\) events. This finite validation checks the extremal combinatorics; the unbounded theorem follows from the graph-theoretic proof and R762IH's pair-reduction lemma.
 
 ## Scope and next open question
 
-The upper bound is now **63**, improving R762IH's **67**. Sharpness of the absolute bound is not established: the prior 13-event example is a lower-bound witness for the *uniform per-support cap four*, not for a 63-event absolute kernel. A next discriminating unit is to use the quotient-component triangle-coloring constraints to exclude three critical supports when all twenty supports are present, or to construct a histogram-only exact Euler assignment/certificate algorithm. P000's \`TRIADIC_CLOSURE_E\` remains the frozen mother foundation; no native lifting is inferred.
+The upper bound is now **63**, improving R762IH's **67**. Sharpness of the absolute bound is not established: the prior 13-event example is a lower-bound witness for the *uniform per-support cap four*, not for a 63-event absolute kernel. A next discriminating unit is to use the quotient-component triangle-coloring constraints to exclude three critical supports when all twenty supports are present, or to construct a histogram-only exact Euler assignment/certificate algorithm. P000's `TRIADIC_CLOSURE_E` remains the frozen mother foundation; no native lifting is inferred.
 
-Control provenance: historical Researcher \`EM-X6-A681A5\`, SID \`MCP-773502d89b7a4bd58a37e97a2dd52ba5\`. The original current continuation read \`r3-20261122-0420-x6-cont-v1\` ended \`FAILED / SOURCE_TREE_TRUNCATED\`; current live CLAIM and session execution authority were not established. This GitHub note is an independent portable research artifact, without protected PROGRESS, formal Result or independent Review.
+Control provenance: historical Researcher `EM-X6-A681A5`, SID `MCP-773502d89b7a4bd58a37e97a2dd52ba5`. The original current continuation read `r3-20261122-0420-x6-cont-v1` ended `FAILED / SOURCE_TREE_TRUNCATED`; current live CLAIM and session execution authority were not established. This GitHub note is an independent portable research artifact, without protected PROGRESS, formal Result or independent Review.
