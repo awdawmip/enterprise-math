@@ -2,9 +2,9 @@
 
 Date: 2026-11-22 (Asia/Shanghai). Status: AUTHOR_PROVED / EXACT_WITNESS_CHECKED / NOT_REVIEWED.
 
-**Frozen scientific input:** RS-X6-TRIADIC-CLOSURE-DYNAMICS, pin \`a72226e2430ffa4786321ac86e7f0c599d5f0389\`. This is a theorem about the six-axis **composite** Port-transition observer only. It neither replaces nor proves native P000 TRIADIC_CLOSURE_E force/Cell/Link/time/rotation dynamics.
+**Frozen scientific input:** RS-X6-TRIADIC-CLOSURE-DYNAMICS, pin `a72226e2430ffa4786321ac86e7f0c599d5f0389`. This is a theorem about the six-axis **composite** Port-transition observer only. It neither replaces nor proves native P000 TRIADIC_CLOSURE_E force/Cell/Link/time/rotation dynamics.
 
-**Direct predecessor:** R762IE Port-component quotient, immutable source \`fd82084fb5f982e825ba7454e34821e723f0931e\`, and the Port definitions used in R762ID/R762IC. No exact finite obstructions from those results are used in the proof below.
+**Direct predecessor:** R762IE Port-component quotient, immutable source `fd82084fb5f982e825ba7454e34821e723f0931e`, and the Port definitions used in R762ID/R762IC. No exact finite obstructions from those results are used in the proof below.
 
 ## 1. Statement
 
@@ -66,28 +66,28 @@ R762IE's \(\dim B_Q=15-\kappa(Q)\) computes which Port-degree boundary defects m
 
 ## 5. Reproducible verification
 
-Checker: \`research_notes/portable_direct/R762IF_PORT_FIVE_CAP_CHECK.py\` (Python 3 standard library, deterministic). Invocation: \`python3 research_notes/portable_direct/R762IF_PORT_FIVE_CAP_CHECK.py\`.
+Checker: `research_notes/portable_direct/R762IF_PORT_FIVE_CAP_CHECK.py` (Python 3 standard library, deterministic). Invocation: `python3 research_notes/portable_direct/R762IF_PORT_FIVE_CAP_CHECK.py`.
 
 It constructs all 15 Ports, 20 supports and 60 admissible edges; performs independent GF(2) Gaussian elimination for the full rank 34 and each support's local rank 3; constructs long connected even-degree example multigraphs including triple-edge triangle cycles; runs the actual spanning-tree + independent-subset + pair-reinsertion algorithm; asserts preservation of start-port membership, connectedness, even degrees and every capped support multiplicity.
 
 Observed local stdout:
 
-\`\`\`json
+```json
 {"status": "PASS R762IF", "global_rank": 34, "per_support_rank": 3, "tests": [{"seed": 7, "cycles": false, "sizes": [14, 14, 1500, 80]}, {"seed": 11, "cycles": true, "sizes": [14, 13, 1599, 91]}, {"seed": 29, "cycles": true, "sizes": [14, 21, 1599, 89]}, {"seed": 41, "cycles": false, "sizes": [14, 14, 1500, 80]}]}
-\`\`\`
+```
 
-Each \`sizes\` entry is \`[tree_edge_count, independent_extra_count, original_edge_count, capped_edge_count]\`. These are **four deterministic constructive checks**, not exhaustive computational proof for arbitrary multiplicities. The theorem's all-multiplicity scope follows from the preceding algebraic argument.
+Each `sizes` entry is `[tree_edge_count, independent_extra_count, original_edge_count, capped_edge_count]`. These are **four deterministic constructive checks**, not exhaustive computational proof for arbitrary multiplicities. The theorem's all-multiplicity scope follows from the preceding algebraic argument.
 
 ## 6. Precise observer and validity boundary
 
-The exact preserved output is **existence** of a legal closed Port history at a specified start Port, together with original support-parity and support-presence predicates. The cap is **not** a lossless encoding of named history, path order, event count, the BRC positive mass \(N_p(n)\), a signed-source count \(C(n)\), exact zero-displacement probability, time evolution, force, Link, Cell, rotation, or P000's native \`TRIADIC_CLOSURE_E\`. For those observers the original histogram and/or ordered event provenance must be retained.
+The exact preserved output is **existence** of a legal closed Port history at a specified start Port, together with original support-parity and support-presence predicates. The cap is **not** a lossless encoding of named history, path order, event count, the BRC positive mass \(N_p(n)\), a signed-source count \(C(n)\), exact zero-displacement probability, time evolution, force, Link, Cell, rotation, or P000's native `TRIADIC_CLOSURE_E`. For those observers the original histogram and/or ordered event provenance must be retained.
 
-If the separately recorded, still \`NOT_REVIEWED\` R762IC implication is accepted, then for histories with all six axis incidences even, existence of a zero-signable Port circuit also passes between \(n\) and \(n^{[5]}\). That conditional corollary is **not** used to establish this theorem.
+If the separately recorded, still `NOT_REVIEWED` R762IC implication is accepted, then for histories with all six axis incidences even, existence of a zero-signable Port circuit also passes between \(n\) and \(n^{[5]}\). That conditional corollary is **not** used to establish this theorem.
 
 **Next unit:** Find a smaller sharp per-support cap (or construct a witness requiring cap five) and combine the bounded kernel with an exact parity-and-connectedness Port selector, providing a verifiable certificate or a returned Euler tour. Separately investigate typed lifting to P000, preserving the six-axis native Cell/Link/force/time/rotation relations.
 
 ## 7. Control and provenance
 
-At this research read, the native continuation request \`r3-20261122-0123-x6-current-cont-v1\` failed with \`SOURCE_TREE_TRUNCATED\`; current CLAIM/owner and formal task execution authorization were therefore **not** established by that request. This portable research output does not assert a new CLAIM, protected PROGRESS, formal Result or independent review. Prior Researcher/Activity references in earlier turns are provenance only until a current original-session authority check succeeds.
+At this research read, the native continuation request `r3-20261122-0123-x6-current-cont-v1` failed with `SOURCE_TREE_TRUNCATED`; current CLAIM/owner and formal task execution authorization were therefore **not** established by that request. This portable research output does not assert a new CLAIM, protected PROGRESS, formal Result or independent review. Prior Researcher/Activity references in earlier turns are provenance only until a current original-session authority check succeeds.
 
-The current frozen science remains \`a72226e2430ffa4786321ac86e7f0c599d5f0389\`. Project and account instructions were read in the current run. Scientific evidence remains on this independent research branch pending PR integration.
+The current frozen science remains `a72226e2430ffa4786321ac86e7f0c599d5f0389`. Project and account instructions were read in the current run. Scientific evidence remains on this independent research branch pending PR integration.
