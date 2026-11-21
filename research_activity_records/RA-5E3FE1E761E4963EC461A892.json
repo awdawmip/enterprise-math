@@ -11560,6 +11560,57 @@
           }
         }
       ]
+    },
+    {
+      "event_id": "onhour-20261121-2056-x6-single-center-spoke-cost-spectrum-unit244-v1",
+      "state": "EM_REPRESENTED",
+      "notes": "Unit244 AUTHOR_PROVED / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED. Exact conditional source-native Port budget: freeze all signed 12 OUTER ring edges and allow only one signed bidirectional x_p↔P centre spoke p in {0,2,4,6,8,10}; two intact labeled triads start/end x0,x2 and require original-ring winding (-12,+12). Sharp six native event minima N(p)=[30,30,32,36,36,32] with respectively 2 real centre primitive spoke events, 28/30/34 original ring steps. Exhaustive FIFO BFS on full signed Cell/BRC/occupancy/winding states and |L|≤36 is complete for all shorter witnesses, actual executed Node exact checker plus independent Python BFS agree; no assertion failure. Correction: old tentative |L|≤12 cutoff falsely yields 32 for portals p0,p2; corrected bound 36 is needed for backtracking. Unit242 ring-only winding no-go and Unit243 all-spokes 28 result retained. Physical full-triad bidirectional Port admission and independent same-Cell C12/C24 precision observation remain unverified. Native semantic PROGRESS not published; no winning live own CLAIM, #2903 typed continuation deploy unverified; historical identity retained, no maintenance-lane authority, no R063 benchmark replacement.",
+      "repairs_event_id": null,
+      "kb_sources": [],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/X6_TIME_UNIT244_SINGLE_CENTER_SPOKE_SHARP_EXPERIMENT_COST_20261121_2056.md",
+          "commit": "987b7c872100dec9657cf3c78e3313cf7a66bec2",
+          "sha256": "f09a6a77fc62ea4b8a65ac31a412c3f8917be2a46c6e857ceff0e619ffdd55e0",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "6a3368ca4f439fe04e67c8505c70282e47c77886",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/987b7c872100dec9657cf3c78e3313cf7a66bec2/research_notes/X6_TIME_UNIT244_SINGLE_CENTER_SPOKE_SHARP_EXPERIMENT_COST_20261121_2056.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/X6_TIME_UNIT244_SINGLE_CENTER_PORTAL_EXACT_CHECK_20261121.js",
+          "commit": "3f7a6f30e5bec68a1a6922efe97644defc330dd2",
+          "sha256": "562861ae96cb906856adac3372709fb4cdd94ba07387d31773a17f870376fd83",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "dd26afa386e0e1ce1a3589becdf1140416e6b0b5",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/3f7a6f30e5bec68a1a6922efe97644defc330dd2/research_checks/X6_TIME_UNIT244_SINGLE_CENTER_PORTAL_EXACT_CHECK_20261121.js",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/X6_TIME_UNIT244_SINGLE_CENTER_PORTAL_EXACT_RESULTS_20261121.json",
+          "commit": "e6b82e7208228ab105ae956dd379ffb961af779d",
+          "sha256": "cb51461b4a5cb8b82ab476a31c3af93efc917df90325841715ad522af56937a4",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "ffef1c8ab0d89b15f92b39b3ac556573611116f7",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/e6b82e7208228ab105ae956dd379ffb961af779d/research_checks/X6_TIME_UNIT244_SINGLE_CENTER_PORTAL_EXACT_RESULTS_20261121.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ]
     }
   ],
   "mode": "TASK_RESEARCH",
