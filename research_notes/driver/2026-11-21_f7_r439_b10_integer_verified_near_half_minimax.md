@@ -20,7 +20,7 @@ The same construction yields E_9 <= 0.50000001 (and all B<=10), while r436 alrea
 
 ## Constructed admissible q and proof check
 
-A SciPy/HiGHS search uses the mathematically exact r438 epigraph formulation for B=10: 35,280 inequalities, 2,128 free scalar pair classes and 820? auxiliary variables (the actual pair count is 2B(4B+1)=820, hence 1,640 auxiliaries). Search restrictions q in [1/2,1] on all free classes are optional constructive restrictions. The numerical vector is rounded *once* to integers in units of 1/100,000,000. This defines a total rational q: origin 0, old nonzero axis 1, both exact marked J-orbits 1/2, all other off-axis points not in the computed 2,128-entry table default to 1/2, and table values are in [1/2,1]. J-evenness is imposed by indexing pairs as (abs(n),signed m).
+A SciPy/HiGHS search uses the mathematically exact r438 epigraph formulation for B=10: 35,280 inequalities, 2,128 free scalar pair classes, 820 unordered difference pairs (2B(4B+1)) and 1,640 auxiliary variables. Search restrictions q in [1/2,1] on all free classes are optional constructive restrictions. The numerical vector is rounded *once* to integers in units of 1/100,000,000. This defines a total rational q: origin 0, old nonzero axis 1, both exact marked J-orbits 1/2, all other off-axis points not in the computed 2,128-entry table default to 1/2, and table values are in [1/2,1]. J-evenness is imposed by indexing pairs as (abs(n),signed m).
 
 The generated rational candidate was separately tested by **integer-only evaluation** of all 21^4=194,481 inputs z in [-10,10]^4, using the fixed original 4x4 integer matrix and all four scalar terms (not the LP solver's residuals). The observed exact integers were:
 
