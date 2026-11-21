@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""PREFIX-983: complete isomorphism-class certificate for 3-stage nonzero
+"""PREFIX-983: complete canonical overlap-pattern certificate for 3-stage nonzero
 signed-source XOR-port words; exact finite graph, no floating arithmetic.
 
 Bit requirements: 1 = current bit 0, 2 = current bit 1, 3 = either.
