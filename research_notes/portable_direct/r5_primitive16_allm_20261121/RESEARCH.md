@@ -5,14 +5,14 @@
 ## The theorem
 
 Let (M_m[O_m(N^4)]) denote the **least coefficient period** of the quasipolynomial approximation to the frozen count with an (O_m(N^4)) remainder, for each fixed positive integer threshold m. Put
-[
+\[
 a(m)={\bf1}_{m\bmod16\in\{1,2,3,4,5,6,7,8,9,10,11\}},\qquad
 b(m)={\bf1}_{m\bmod17\in\{1,2,3,4,5,6,7,8,9,10,11,12\}}.
-]
+\]
 Then, using the already archived (M_m[O_m(N^5)]=360360) theorem and primitive-17 classification,
-[
+\[
 \boxed{M_m[O_m(N^4)]=360360\,2^{a(m)}17^{b(m)}\quad(m\ge1).}
-]
+\]
 This is **sharp**, not just an upper bound. The 272 threshold residue classes modulo lcm(16,17)=272 split:
 - both nonzero: 132 classes, period 12,252,240;
 - only primitive 16: 55 classes, period 720,720;
@@ -20,40 +20,40 @@ This is **sharp**, not just an upper bound. The 272 threshold residue classes mo
 - neither: 25 classes, period 360,360.
 
 The first new ingredient is the *all-m exact classification* of primitive 16: its degree-five contribution is nonzero exactly for
-[
+\[
 \boxed{m\bmod16\in\{1,2,3,4,5,6,7,8,9,10,11\};}
-]
+\]
 it vanishes at that degree exactly for residues 12,13,14,15,0. Its threshold dependence has exact period 16 (a finite Fourier sequence), no polynomial-in-m growth.
 
 ## Primitive-16 derivation
 
-Write z for an arbitrary primitive 16th root, so (Phi_{16}(z)=z^8+1=0). Among 214,...,314, precisely 224,240,256,272,288,304 are 16-multiples. The frozen five minimal failure sets are
-[
+Write z for an arbitrary primitive 16th root, so (\Phi_{16}(z)=z^8+1=0). Among 214,...,314, precisely 224,240,256,272,288,304 are 16-multiples. The frozen five minimal failure sets are
+\[
 S_0=\{214,215,216,217,218\},\quad S_1=\{214,216,217,218,219,220,221\},\quad S_2=\{215,216,217,218,219,220,221\},
-]
+\]
 and S_3=223..290, S_4=296..312. Exactly the seven nonempty masks of S_0,S_1,S_2 avoid all six 16-multiples. Since every pairwise union of S_0,S_1,S_2 equals (U=\{214,\dots,221\}), their inclusion-exclusion sum reduces to the four signed sets ((S_0,+1),(S_1,+1),(S_2,+1),(U,-2)).
 
-Let (H_{16}(z)=\prod_{214\le p\le314,,16\nmid p}(1-z^p)^{-1}), (P_{16}=224\cdot240\cdot256\cdot272\cdot288\cdot304), and
-[
+Let (H_{16}(z)=\prod_{214\le p\le314,\ 16\nmid p}(1-z^p)^{-1}), (P_{16}=224\cdot240\cdot256\cdot272\cdot288\cdot304), and
+\[
 B_{m,S}(z)=\sum_{a_p\ge0,\sum_{p\in S}a_p<m}z^{\sum_{p\in S}pa_p},\quad W_S(z)=\prod_{p\in S}(1-z^p).
-]
+\]
 The order-six pole's normalized local coefficient is
-[
+\[
 A_m(z)=\sum_{(S,\epsilon)}\epsilon W_S(z)B_{m,S}(z).
-]
+\]
 Each such S avoids multiples of 16, and its residues mod 16 are distinct. Hence the exact threshold generating identity is
-[
+\[
 \sum_{m\ge1} A_m(z)t^{m-1}
 =\frac{1}{1-t}\sum_{(S,\epsilon)}
 \epsilon\prod_{p\in S}\frac{1-z^p}{1-z^pt}
 =\frac{G(t,z)}{1-t^{16}},
-]
+\]
 where the **explicit degree-10 polynomial** is
-[
+\[
 \boxed{G(t,z)=\sum_{(S,\epsilon)}\epsilon
 \prod_{p\in S}(1-z^p)
 \prod_{r\in\{1,\ldots,15\}\setminus(S\bmod16)}(1-z^rt).}
-]
+\]
 The second equality uses (\prod_{r=0}^{15}(1-z^rt)=1-t^{16}); its (r=0) factor cancels 1/(1-t). No limiting approximation occurs. Therefore (A_m(z)=[t^{(m-1)\bmod16}]G(t,z)); coefficients beyond degree 10 vanish.
 
 In the integral basis (1,z,\dots,z^7) of (\mathbb Q[z]/(z^8+1)), the eleven exact coefficients for residues m=1..11 are:
@@ -70,10 +70,10 @@ m= 9  [32,26,16,2,-8,-22,-24,-30]
 m=10  [-20,-20,-16,-8,0,8,16,20]
 m=11  [8,6,4,2,0,-2,-4,-6]
 ```
-Every listed vector is nonzero. Since (Phi_{16}) is irreducible, nonzero in this field is nonzero under each of the eight primitive-root embeddings; the zero residues vanish in all. Thus
-[
+Every listed vector is nonzero. Since (\Phi_{16}) is irreducible, nonzero in this field is nonzero under each of the eight primitive-root embeddings; the zero residues vanish in all. Thus
+\[
 F_m^{(16)}(N)=\frac{N^5}{5!P_{16}}\sum_{\mathrm{ord}(z)=16} H_{16}(z)A_m(z)z^{-N}+O_m(N^4).
-]
+\]
 The primitive-16 Fourier component cannot be recreated by a coefficient period not divisible by 16, by uniqueness of the finite root-of-unity Fourier decomposition. At m=1, the coefficient reduces after refactoring the 214..221 denominators to the predecessor's (z^7-z^4+\tfrac12z^3+\tfrac12z-1), providing an independent normalization consistency check.
 
 ## Minimal period synthesis
