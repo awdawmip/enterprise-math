@@ -1,0 +1,89 @@
+{
+  "schema": "X6_FOLLOWUP_PUBLICATION_PREFLIGHT_V1",
+  "control_source": "8e20e5249420c7589f4aa24be72da905864eef30",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-X6-5A2FBF",
+  "activity_id": "RA-4EBAEABA6C98E1F2186F64C8",
+  "performed_at": "2026-11-21T04:51:50.330954+00:00",
+  "validation_scope": "Three new taskbooks and matching V2 records; remote task/publication tree metadata proves target-name absence at the control snapshot. Unmodified current strict preparation, taskbook dispatch lint, semantic-field-preserving build_record and strict publication audit functions were actually executed on this isolated transaction. No global historical audit or runtime CLAIM is asserted.",
+  "source_files": [
+    {
+      "path": "tools/research_task_records.py",
+      "git_blob_sha1": "e94b3d9dfa41020c5fcfbd816678dc5501b82c9c"
+    },
+    {
+      "path": "control_plane/research_task_records_impl.py",
+      "git_blob_sha1": "9b516247bbe32dae3408b322605896a27df233c8"
+    },
+    {
+      "path": "tools/research_taskbook.py",
+      "git_blob_sha1": "18ad84a4413c1feec7c1513bbf97b73da2c2b9ba"
+    },
+    {
+      "path": "research_taskbook_contract.json",
+      "git_blob_sha1": "d81ddae0d37d95dd00f253abb9b92be39d31f20f"
+    },
+    {
+      "path": "research_taskbook_policy.json",
+      "git_blob_sha1": "da26198b964f7ce92dd90337dd37312dfddf82cc"
+    },
+    {
+      "path": "research_task_publication_contract_v2.json",
+      "git_blob_sha1": "4074798bbd1a9e1383b577d0fc160b173df65420"
+    },
+    {
+      "path": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
+      "git_blob_sha1": "2c879cf00e925d75a18a5164b20ff08c9b21704a"
+    },
+    {
+      "path": "control_plane/research_read_view.py",
+      "git_blob_sha1": "55ddac84da77d7aeeb85ea38a6eb2dfbce1ca4bb"
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "RS-X6-NONTRIVIAL-RELATION-PREPARATION-20261121",
+      "title": "X6 非平凡关系态的原生制备与事件律辨识",
+      "taskbook_path": "research_tasks/RS-X6-NONTRIVIAL-RELATION-PREPARATION-20261121.md",
+      "publication_id": "TP2-B396D856936E23FC0C32",
+      "record_path": "research_task_records/RS-X6-NONTRIVIAL-RELATION-PREPARATION-20261121/TP2-B396D856936E23FC0C32.json",
+      "taskbook_blob_sha1": "sha1:1796958394f6ffc5d5675f07c24b3c4a7062030c",
+      "record_blob_sha1": "sha1:0c769a60301f78db61987975085cec891aa6e94d",
+      "effective_priority": "P2",
+      "effective_leverage": "MEDIUM",
+      "lineage": "CONTINUATION",
+      "parent_task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+      "findings": []
+    },
+    {
+      "task_id": "RS-X6-V39-CAUSAL-ACQUISITION-BRIDGE-20261121",
+      "title": "X6 连续三读到 V39 的原生因果采集与交付桥",
+      "taskbook_path": "research_tasks/RS-X6-V39-CAUSAL-ACQUISITION-BRIDGE-20261121.md",
+      "publication_id": "TP2-69675014D29287B80FBC",
+      "record_path": "research_task_records/RS-X6-V39-CAUSAL-ACQUISITION-BRIDGE-20261121/TP2-69675014D29287B80FBC.json",
+      "taskbook_blob_sha1": "sha1:78f346ebe927e155125f647c3d080d90c074b9d0",
+      "record_blob_sha1": "sha1:9649b288751e4d94f5f6b774f61615c3cae9793f",
+      "effective_priority": "P2",
+      "effective_leverage": "MEDIUM",
+      "lineage": "CONTINUATION",
+      "parent_task_id": "RS-X6-CELL-CHANNEL-INTERNAL-STATE",
+      "findings": []
+    },
+    {
+      "task_id": "RS-X6-MINIMAL-READOUT-INDEPENDENT-AUDIT-20261121",
+      "title": "X6 最小读出与连续传输接口的独立数学复核",
+      "taskbook_path": "research_tasks/RS-X6-MINIMAL-READOUT-INDEPENDENT-AUDIT-20261121.md",
+      "publication_id": "TP2-E0678747E848BE7A570D",
+      "record_path": "research_task_records/RS-X6-MINIMAL-READOUT-INDEPENDENT-AUDIT-20261121/TP2-E0678747E848BE7A570D.json",
+      "taskbook_blob_sha1": "sha1:bf8d754c7a07fd4ac9d5ab5c1c2ba198475229a9",
+      "record_blob_sha1": "sha1:e4525f25d9027f96e37c8a103c71f808bc600f0e",
+      "effective_priority": "P2",
+      "effective_leverage": "MEDIUM",
+      "lineage": "REPLAY",
+      "parent_task_id": null,
+      "findings": []
+    }
+  ],
+  "audit_errors": [],
+  "atomic_remote_publication_required": true
+}
