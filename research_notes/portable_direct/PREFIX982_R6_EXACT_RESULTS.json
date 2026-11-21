@@ -1,0 +1,103 @@
+{
+  "schema": "PREFIX982_R6_EXACT_INTEGER_RESULTS_V1",
+  "formula_test_aggregates": 41871,
+  "test_families": [
+    "All p=3,4 residual triples over dictionary with at least one parity-preserving nonzero port, n=0..6",
+    "400 pseudorandom p=5 triples and 80 pseudorandom p=6 triples with seed=982, each n in 0..8"
+  ],
+  "finite_fixture": {
+    "p_invariance": "all p>=5; active ports {1,2,3,4}",
+    "residual_word": [
+      12,
+      4,
+      20
+    ],
+    "maximal_path_length": 13,
+    "all_odd_19bit_named_path_counts_by_h": [
+      262144,
+      393216,
+      393216,
+      491520,
+      655360,
+      458752,
+      491520,
+      589824,
+      294912,
+      294912,
+      327680,
+      98304,
+      98304,
+      98304,
+      0
+    ],
+    "reduced_5bit_counts_by_h": [
+      16,
+      24,
+      24,
+      30,
+      40,
+      28,
+      30,
+      36,
+      18,
+      18,
+      20,
+      6,
+      6,
+      6,
+      0
+    ],
+    "sample_maximal_ports": [
+      2,
+      2,
+      4,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      1,
+      2,
+      2
+    ],
+    "sample_maximal_states": [
+      31,
+      27,
+      31,
+      15,
+      11,
+      15,
+      11,
+      3,
+      7,
+      3,
+      7,
+      5,
+      1,
+      5
+    ],
+    "maximal_by_initial_odd_5bit": [
+      1,
+      4,
+      4,
+      7,
+      4,
+      7,
+      7,
+      10,
+      1,
+      7,
+      7,
+      10,
+      7,
+      10,
+      10,
+      13
+    ]
+  },
+  "status": "AUTHOR_PROOF_EXACT_INTEGER_CHECKED_NOT_REVIEWED",
+  "native_x6_embedding": "NOT_ESTABLISHED",
+  "frozen_science_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json"
+}
