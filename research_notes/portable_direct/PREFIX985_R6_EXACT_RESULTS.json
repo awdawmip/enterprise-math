@@ -1,0 +1,127 @@
+{
+  "schema": "PREFIX985_R6_ONE_BRANCH_EVEN_PERIOD_V1",
+  "status": "AUTHOR_ANALYTIC_PROOF_EXACT_INTEGER_CHECKED_NOT_REVIEWED",
+  "model": "signed-source odd p-bit flip; nonzero residual c=2^i-s*2^j, 1<=j<p; four-phase words with <=one two-port residual",
+  "frozen_science": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json",
+  "universal_theorem": "For even L with L-1 fixed-bit singleton phases, any 2L-step path closes after first L moves. Without an L-step closed path, length <=2L-1.",
+  "four_phase": "Infinite iff 4-step closed path; finite length at most 7, sharp at p=4.",
+  "census": [
+    {
+      "p": 3,
+      "residuals": 9,
+      "single": 8,
+      "double": 1,
+      "words": 6144,
+      "cyclic": 896,
+      "finite": 5248,
+      "eight_without_four": 0,
+      "max_finite": 4,
+      "witness": [
+        -3,
+        -1,
+        3,
+        -1
+      ],
+      "start": 1
+    },
+    {
+      "p": 4,
+      "residuals": 16,
+      "single": 12,
+      "double": 4,
+      "words": 48384,
+      "cyclic": 5160,
+      "finite": 43224,
+      "eight_without_four": 0,
+      "max_finite": 7,
+      "witness": [
+        4,
+        -1,
+        3,
+        -7
+      ],
+      "start": 3
+    },
+    {
+      "p": 5,
+      "residuals": 26,
+      "single": 18,
+      "double": 8,
+      "words": 291600,
+      "cyclic": 19758,
+      "finite": 271842,
+      "eight_without_four": 0,
+      "max_finite": 7,
+      "witness": [
+        4,
+        -15,
+        17,
+        -7
+      ],
+      "start": 3
+    },
+    {
+      "p": 6,
+      "residuals": 39,
+      "single": 26,
+      "double": 13,
+      "words": 1370928,
+      "cyclic": 59324,
+      "finite": 1311604,
+      "eight_without_four": 0,
+      "max_finite": 7,
+      "witness": [
+        4,
+        -31,
+        33,
+        -15
+      ],
+      "start": 3
+    }
+  ],
+  "independent_p4": {
+    "method": "separate Python full graph Kahn acyclicity and longest-path DP",
+    "words": 48384,
+    "cyclic": 5160,
+    "max_finite": 7
+  },
+  "sharp_named_witness": {
+    "p": 4,
+    "word": [
+      4,
+      -1,
+      3,
+      -7
+    ],
+    "initial_x": 3,
+    "ports": [
+      1,
+      1,
+      1,
+      3,
+      2,
+      1,
+      1
+    ],
+    "states": [
+      3,
+      1,
+      3,
+      1,
+      9,
+      13,
+      15,
+      13
+    ]
+  },
+  "evidence_scope": [
+    "complete C++ all eligible words/all odd phase-zero starts p=3..6",
+    "independent Python full state-graph p=4",
+    "analytic proof valid arbitrary even L under stated singleton conditions"
+  ],
+  "open": [
+    "four-phase with >=2 branching phases, is 8-step return universal?",
+    "is finite maximum 18 universal for 4-stage nonzero residual words?",
+    "native typed BRC/X6 correspondence remains open"
+  ]
+}
