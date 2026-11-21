@@ -1,0 +1,59 @@
+{
+  "schema": "PREFIX977_R6_EXACT_RESULTS_V1",
+  "status": "EXACT_INTEGER_VERIFIED",
+  "finite_scope": "p=4..8 all residuals and all odd p-bit inputs; h=0..6",
+  "stats": [
+    {
+      "p": 4,
+      "residuals": 19,
+      "cases": 152
+    },
+    {
+      "p": 5,
+      "residuals": 30,
+      "cases": 480
+    },
+    {
+      "p": 6,
+      "residuals": 44,
+      "cases": 1408
+    },
+    {
+      "p": 7,
+      "residuals": 61,
+      "cases": 3904
+    },
+    {
+      "p": 8,
+      "residuals": 81,
+      "cases": 10368
+    }
+  ],
+  "total_states": 16312,
+  "total_horizon_checks": 114184,
+  "p19": {
+    "residuals": 499,
+    "persistent_residuals": 16,
+    "x1_c0_horizon_h": [
+      0,
+      1,
+      2,
+      3,
+      18,
+      19
+    ],
+    "x1_c0_path_counts": [
+      1,
+      18,
+      306,
+      4896,
+      6402373705728000,
+      0
+    ],
+    "x1_c0_h4": 73440,
+    "c0_all_odd_x_h3": 160432128,
+    "persistent_each_all_odd_x_h3": 655360,
+    "persistent_16_all_odd_x_h3": 10485760
+  },
+  "claim": "author proof; local exact verification; not reviewed; not formal native X6 dynamics"
+}
