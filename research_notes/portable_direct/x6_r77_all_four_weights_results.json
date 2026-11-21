@@ -1,0 +1,103 @@
+{
+  "schema": "X6_R77_ALL_FOUR_WEIGHT_WINNER_CHAMBER_CHECK_V1",
+  "date": "2026-11-21",
+  "source": "R72 28-vector atlas @ awdawmip/enterprise-math (2026-11-21)",
+  "frozen_P000_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "fine_witnesses": {
+    "L": {
+      "a": [
+        10,
+        -5,
+        1
+      ],
+      "q": 11,
+      "z": [
+        0,
+        2,
+        0,
+        2
+      ]
+    },
+    "H": {
+      "a": [
+        45,
+        -21,
+        4
+      ],
+      "q": 49,
+      "z": [
+        0,
+        12,
+        6,
+        0
+      ]
+    },
+    "M": {
+      "a": [
+        39,
+        -20,
+        4
+      ],
+      "q": 43,
+      "z": [
+        0,
+        6,
+        -6,
+        -6
+      ]
+    },
+    "S": {
+      "a": [
+        114,
+        -56,
+        11
+      ],
+      "q": 125,
+      "z": [
+        0,
+        24,
+        0,
+        0
+      ]
+    }
+  },
+  "tested_nonkernel_integer_triples": 15624,
+  "exact_rational_weight_profiles": 1296,
+  "classification_counts": {
+    "S_strict": 391,
+    "S_tied": 216,
+    "S_suboptimal": 689
+  },
+  "examples": [
+    {
+      "weights": [
+        "100",
+        "403",
+        "1",
+        "1"
+      ],
+      "m": "3/101",
+      "E": "3/101",
+      "eta124": "3/101",
+      "eta125": "3/101",
+      "threshold_B": "403",
+      "status": "S_tied"
+    },
+    {
+      "weights": [
+        "100",
+        "404",
+        "1",
+        "1"
+      ],
+      "m": "3/101",
+      "E": "4/135",
+      "eta124": "3/101",
+      "eta125": "4/135",
+      "threshold_B": "403",
+      "status": "S_strict"
+    }
+  ],
+  "assertions": "PASS",
+  "scope": "Exact rational author-check against R72 published atlas; mathematical completeness of general-weights theorem is established by the accompanying symbolic proof, not sampling; atlas-complete no-drop corollary is conditional on R72 completeness."
+}
