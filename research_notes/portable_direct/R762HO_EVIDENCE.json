@@ -1,0 +1,130 @@
+{
+  "schema": "R762HO_ARBITRARY_RANK_REPETITION_EVIDENCE_V1",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "publication_id": "TP2-8B7E13C5904A2D6F1142",
+  "historical_researcher_id": "EM-X6-3050F6",
+  "original_session_id": "MCP-4b2d70a97f594366a7c94a0f8b45df38",
+  "frozen_scientific_source": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "COMPOSITE_SIGNED_NAMED_PORT_CANDIDATE_NOT_PRIMITIVE_TRIADIC_CLOSURE_E",
+  "theorem": {
+    "coset": "signed displacements in k*H + 2*L; Z_k=0 exactly if k*H not in 2*L",
+    "rank_r_limit": "Z_k ~ 2^(m*k) * (2^r * q * covol(M))/((2*pi)^(r/2) * sqrt(pdet(C))) * k^(-r/2), where M=span_R(L) intersect Z^6, q=[M:L], and kH in 2L",
+    "parity": "If H in 2L, both k parities eventually signable; otherwise odd k impossible, even k signable",
+    "analytic_error": "relative O(1/k) for fixed word along allowed k"
+  },
+  "checked_examples": [
+    {
+      "ports": [
+        "01",
+        "02",
+        "01"
+      ],
+      "rank": 1,
+      "pdet": 6,
+      "covol_M_squared": 3,
+      "q": 1,
+      "exact_formula": "C(2k,k)",
+      "k1to4": [
+        2,
+        6,
+        20,
+        70
+      ]
+    },
+    {
+      "ports": [
+        "01",
+        "02",
+        "03",
+        "02",
+        "01"
+      ],
+      "rank": 2,
+      "pdet": 20,
+      "covol_M_squared": 5,
+      "q": 1,
+      "exact_formula": "C(2k,k)^2",
+      "k1to4": [
+        4,
+        36,
+        400,
+        4900
+      ]
+    },
+    {
+      "ports": [
+        "01",
+        "02",
+        "03",
+        "01"
+      ],
+      "rank": 3,
+      "pdet": 7,
+      "covol_M_squared": 7,
+      "q": 1,
+      "exact_formula": "even k: C(k,k/2)^3; odd k: 0",
+      "k1to4": [
+        0,
+        8,
+        0,
+        216
+      ]
+    },
+    {
+      "ports": [
+        "01",
+        "15",
+        "12",
+        "25",
+        "24",
+        "04",
+        "05",
+        "03",
+        "04",
+        "24",
+        "23",
+        "25",
+        "35",
+        "05",
+        "01"
+      ],
+      "rank": 6,
+      "gram_det": 3456,
+      "q": 3,
+      "H": [
+        8,
+        4,
+        8,
+        6,
+        6,
+        10
+      ],
+      "H_half": [
+        4,
+        2,
+        4,
+        3,
+        3,
+        5
+      ],
+      "native_lattice": "L={x in Z^6: sum(x) = 0 mod 3}",
+      "H_in_2L": true,
+      "k1": 104,
+      "k2": 313080,
+      "k3": 1700835440,
+      "k3_validation": "42-event sequential integer DP = grouped-support binomial positive integer DP",
+      "k4_from_prior_R762HN": 12464855922680,
+      "normalized_k3": 0.0003867252053169068,
+      "leading_constant": "1/(pi^3*sqrt(6)); all k"
+    }
+  ],
+  "execution": {
+    "language": "C++17",
+    "command": "g++ -std=c++17 -O3 -Wall -Wextra R762HO_CHECK.cpp -o r762ho && ./r762ho",
+    "exact_arithmetic": "uint64_t coefficient counts with six signed coordinate lanes packed into 8-bit biased fields; max absolute coordinate 42 in checked 14-word cases; binomial group DP independent from sequential event DP",
+    "stdout": "k=1 rank1=2 rank2=4 rank3=0\nk=2 rank1=6 rank2=36 rank3=8\nk=3 rank1=20 rank2=400 rank3=0\nk=4 rank1=70 rank2=4900 rank3=216\n14-word k=1 direct=104 grouped=104\n14-word k=2 direct=313080 grouped=313080\n14-word k=3 direct=1700835440 grouped=1700835440\nPASS",
+    "status": "PASS",
+    "independent_review": "NOT_REVIEWED"
+  },
+  "next": "Determine whether a coordinate-even H but H not in 2L can occur for genuine closed named-Port words; separately attack one-word parity-even signability and primitive native TRIADIC_CLOSURE_E."
+}
