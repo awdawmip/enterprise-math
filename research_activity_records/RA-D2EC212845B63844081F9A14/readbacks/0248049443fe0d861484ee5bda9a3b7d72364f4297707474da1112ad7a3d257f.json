@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/riesel_spectrum_20261121/fixed/three_period_bound.cpp",
+    "ref": "af9e1a5e49386a28283781876e10742a71991036",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-RIESEL-V7-SPECTRUM-04-OBSERVED",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "#include <array>\n#include <algorithm>\n#include <cstdint>\n#include <iostream>\n#include <vector>\n\nusing Mask=std::array<std::uint64_t,17>;\nstd::vector<Mask> masks(int q,std::vector<int> phases){\n    std::vector<Mask> rows(q);\n    for(int t=0;t<q;++t)for(int c:phases){\n        int j=(c-t)%q;if(j<=0)j+=q;\n        for(;j<=1028;j+=q)rows[t][(j-1)/64]|=std::uint64_t(1)<<((j-1)%64);\n    }\n    return rows;\n}\nint main(){\n    auto a=masks(257,{0,88}),b=masks(271,{4,11,116}),c=masks(277,{78,97,243});\n    int best=1029,ba=-1,bb=-1,bc=-1;long long count=0,hist[40]={};\n    for(int i=0;i<257;++i)for(int j=0;j<271;++j){\n        Mask ab;for(int w=0;w<17;++w)ab[w]=a[i][w]|b[j][w];\n        for(int k=0;k<277;++k){\n            int n=0;for(int w=0;w<17;++w)n+=__builtin_popcountll(ab[w]|c[k][w]);\n            ++count;++hist[n];if(n<best){best=n;ba=i;bb=j;bc=k;}\n        }\n    }\n    std::cout<<\"{\\\"coordinate_tuples\\\":\"<<count<<\",\\\"minimum_union_size\\\":\"<<best\n             <<\",\\\"alpha_maximum_for_three_period_subgraph\\\":\"<<(1028-best+8)\n             <<\",\\\"minimizing_coordinates\\\":[\"<<ba<<\",\"<<bb<<\",\"<<bc<<\"],\\\"union_size_histogram\\\":{\";\n    bool first=true;for(int n=0;n<40;++n)if(hist[n]){if(!first)std::cout<<\",\";first=false;std::cout<<\"\\\"\"<<n<<\"\\\":\"<<hist[n];}\n    std::cout<<\"}}\\n\";\n}\n",
+      "display_title": "three_period_bound.cpp",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/af9e1a5e49386a28283781876e10742a71991036/research_notes/portable_direct/riesel_spectrum_20261121/fixed/three_period_bound.cpp",
+      "encoding": "utf-8",
+      "sha": "3d332886a73d99c084cc415d9e85396079856c31"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
