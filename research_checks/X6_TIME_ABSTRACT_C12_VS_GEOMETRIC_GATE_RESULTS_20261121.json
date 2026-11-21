@@ -1,0 +1,67 @@
+{
+  "abstract_clock_states": 12,
+  "checks": 79,
+  "fiber_sizes_in_phase_order": [
+    1,
+    2,
+    1,
+    2,
+    1,
+    2,
+    1,
+    2,
+    1,
+    2,
+    1,
+    2
+  ],
+  "mismatches": 0,
+  "same_Cell_different_phase_counterexample": {
+    "Cell": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "phases": [
+      1,
+      3
+    ],
+    "states": [
+      "I_0",
+      "I_1"
+    ]
+  },
+  "same_phase_different_Cell_counterexample": {
+    "Cells": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "phase": 1,
+    "states": [
+      "I_0",
+      "O_0"
+    ]
+  },
+  "schema": "X6_TIME_ABSTRACT_MICROSTEP_C12_CLOCK_V1",
+  "source_boundary": "abstract physical microstep-event clock on both shortest branch possibilities; not the frozen geometric nonzero intermediate Gate C12 embedding",
+  "states": 18,
+  "status": "EXACT_FINITE_EXECUTED",
+  "verified_microstep_arrows": 24
+}
