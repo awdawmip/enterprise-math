@@ -1,0 +1,68 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-22",
+  "cycle": "20261122_0400",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "own_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "previous_immutable_frontier": "Unit251 / Activity253 at 12bfd88a9e84eb75f8b1ac237b38fb1c25023d1c:research_notes/X6_TIME_UNIT251_INTRACE_C24_PORT_AUTHOR_CONTINUATION_20261122_0300.json",
+  "latest_scientific_unit": {
+    "id": "Unit252",
+    "title": "mixed C24/C3 in-trace sensor identification and C12-blind parity residual",
+    "proof": "7e538dd00ad3341cb0a169857e45ff23d192077c:research_notes/X6_TIME_UNIT252_MIXED_RESOLUTION_C24_C3_SENSOR_AND_C12_BLINDNESS_20261122_0400.md",
+    "checker": "3e22604f382cc4b7fcf54f1d8e719e037b737b39:research_checks/X6_TIME_UNIT252_MIXED_PRECISION_ORIGINAL_BRC_REPLAY_CHECK_20261122_0400.js",
+    "certificate": "ad9ea6063537d52fd87090ad1c71eda8a88566bb:research_checks/X6_TIME_UNIT252_MIXED_PRECISION_ORIGINAL_BRC_REPLAY_RESULTS_20261122_0400.json",
+    "original_unit245": "f56840285cafeb9f5767ea91e903e1f53808186f:research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+    "statement": "After 36 terminal C24 observations, 18 stable Port laws up to gauge; original route (0,2) event3 C24 plus route (2,4) event7 C3 classifies all 18 in sharp 5-bit code. Any number of C12-only labelled prefix reads misses parity counterlaw alpha_k=beta_k=12(k mod2), with all 36 original C24 endpoints also identical.",
+    "source_replay": {
+      "immutable_signed_brc_routes": 36,
+      "ordered_native_events": 1312,
+      "integer_assertions": 11590,
+      "failed": 0
+    },
+    "status": "AUTHOR_PROVED / EXACT_ORIGINAL_BRC_REPLAY_EXECUTED / SOURCE_VERIFIED / UNREVIEWED / NOT_ADMITTED / NO_PHYSICAL_NATIVE_EXECUTION"
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "event_total": 254,
+    "commit": "33e5a12400cb76da0655b45588d028630bae6ecc",
+    "event_id": "onhour-20261122-0400-x6-unit252-mixed-resolution-observer-v1"
+  },
+  "control": {
+    "actual_em_status_version": "0.6.11",
+    "control_source_health": "SOURCE_TREE_TRUNCATED",
+    "source_snapshot_last_diagnostic": "Control runtime reports control.state=ERROR / SOURCE_TREE_TRUNCATED; read-only service status and local recovery read succeeded.",
+    "original_native_continuation_request_id": "onhour-20261122-0004-x6-own-source-continuation-v1",
+    "original_native_continuation_terminal": "FAILED / SOURCE_TREE_TRUNCATED",
+    "original_task_read_id": "onhour-20261122-0300-x6-task-observe-v1",
+    "original_task_read_terminal": "FAILED / SOURCE_TREE_TRUNCATED",
+    "historic_own_run_id": "RUN-d653f1346f38369bc27f5fc5",
+    "historic_own_claim_id": "MCP-369991930c5b4fddf26dbefa",
+    "historic_generation": 5,
+    "historic_lease_until": "2026-11-21T08:04:47+00:00",
+    "live_winning_claim_currently_verified": false,
+    "semantic_native_progress": "NOT_PUBLISHED for Units233–252",
+    "no_failed_request_replay": true,
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903"
+  },
+  "evidence_gaps": [
+    "Real Source-qualified signed intact-triad Cell/Link/Port/environment dynamics, including lawful center passage and complete ordered native event receipts",
+    "Calibrated non-invasive per-label C24 sensor plus low-resolution C3 projection at the original two prefixes, and all original terminal observations",
+    "Current fresh native Source control availability, exact current winner and valid own CLAIM/open/run/generation before protected semantic PROGRESS",
+    "Independent scientific review and Result admission; separate R063 six-file native benchmark belongs to another Task"
+  ],
+  "do_not_repeat": [
+    "Unit245 original 36 immutable BRC routes",
+    "Unit250 18-law terminal inverse",
+    "Unit251 C24+C24 two-reading replay",
+    "Units233–251 already saved science",
+    "old terminal failed native read/write request IDs"
+  ],
+  "next_exact_action": "Use fresh Source-qualified Port/sensor evidence, if it becomes available, to actually run original Unit245 physical native routes. Keep first original event-3 labelled A C24 reading, second original event-7 labelled A C3 reading, all signed source/order and environmental receipts, and full C24 terminals. Verify stable-additive law or preserve a source-labelled residual; C12-only equipment cannot certify the parity-sensitive law. Reconcile native Source repair and current actual own CLAIM before protected PROGRESS. Continue only authorized source-based science; do not substitute this conditional model for physical benchmark.",
+  "checkpoint_category": "GITHUB_AUTHOR_SCIENCE_AND_ACTIVITY_ONLY_NOT_NATIVE_SEMANTIC_PROGRESS"
+}
