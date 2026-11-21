@@ -8,9 +8,9 @@ Keep exactly the r462 model: A=I+uv^T with u=(1,1,-1,-1), v=(1,-2,-1,2), q(0,0)=
 
 The present **fixed integer witness** yields the finite-domain upper bound
 
-[
-1/2 le E^*_{12} le 5000000000001/10000000000000 = 0.5000000000001.
-]
+\[
+\frac12 \le E_{12}^* \le \frac{5000000000001}{10000000000000}=0.5000000000001.
+\]
 
 This improves the recorded r462 upper bound 0.500001 by a factor 10^7 in *upper-bound excess over 1/2*. The previous r461 theorem E*_B=1/2 for B<=11 stays unchanged. The precise E*_12 and full infinite-domain E∞ remain open (inherited global bracket [1/2,4/7]).
 
@@ -28,8 +28,8 @@ The fixed table was generated in the Driver's current execution workspace and ve
 
 ## Project-repository code evidence
 
-- Exact checker: [CBRC_F7_R463_B12_FIXED_INTEGER_CERT_20261122.py](../research_checks/CBRC_F7_R463_B12_FIXED_INTEGER_CERT_20261122.py), GitHub fixed commit `9fd4bef62d7a8292330f9158e1f8ff65773df1a4`, blob `f5f0282537925cc3e4bafae2c67bc3f53ba83e52`.
-- Hash-checked table regenerator: [CBRC_F7_R463_B12_PINNED_WITNESS_REGEN_20261122.py](../research_checks/CBRC_F7_R463_B12_PINNED_WITNESS_REGEN_20261122.py), from commit `c18a2a25ba9098d8d4c55abdd0b7a4f7b52c334f`; imports the pinned r462 generator, and rejects differing numerical solutions before claiming a reproduction.
+- Exact checker: [CBRC_F7_R463_B12_FIXED_INTEGER_CERT_20261122.py](../../research_checks/CBRC_F7_R463_B12_FIXED_INTEGER_CERT_20261122.py), GitHub fixed commit `9fd4bef62d7a8292330f9158e1f8ff65773df1a4`, blob `f5f0282537925cc3e4bafae2c67bc3f53ba83e52`.
+- Hash-checked table regenerator: [CBRC_F7_R463_B12_PINNED_WITNESS_REGEN_20261122.py](../../research_checks/CBRC_F7_R463_B12_PINNED_WITNESS_REGEN_20261122.py), from commit `c18a2a25ba9098d8d4c55abdd0b7a4f7b52c334f`; imports the pinned r462 generator, and rejects differing numerical solutions before claiming a reproduction.
 - Baseline r462: `research_checks/CBRC_F7_R462_BOX12_IPM_INTEGER_ROUND_CHECK_20261122.py`, fixed commit `861d12059fb14f07616a06141e5b845e69f3d3d8`.
 
 This is **local exact exhaustive computation for one explicit finite witness**; no formal checker, independent external replication, project Review or Result acceptance is asserted.
