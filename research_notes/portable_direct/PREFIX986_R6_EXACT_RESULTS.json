@@ -1,0 +1,125 @@
+{
+  "schema": "PREFIX986_R6_EXACT_CERTIFICATE_V1",
+  "date": "2026-11-21",
+  "method": "All 5^4 local mask words, RGS equality patterns, distinct local multiports, unique (2,3) partner, four-phase exact directed graphs and phase-zero T/T^2 tests.",
+  "by_double_port_phases": [
+    {
+      "k": 0,
+      "classes": 240,
+      "cyclic": 14,
+      "four_return": 14,
+      "cyclic_without_eight": 0,
+      "max_acyclic_path": 6
+    },
+    {
+      "k": 1,
+      "classes": 3552,
+      "cyclic": 364,
+      "four_return": 364,
+      "cyclic_without_eight": 0,
+      "max_acyclic_path": 7
+    },
+    {
+      "k": 2,
+      "classes": 24216,
+      "cyclic": 4084,
+      "four_return": 4024,
+      "cyclic_without_eight": 0,
+      "max_acyclic_path": 11
+    },
+    {
+      "k": 3,
+      "classes": 84200,
+      "cyclic": 21700,
+      "four_return": 20320,
+      "cyclic_without_eight": 0,
+      "max_acyclic_path": 14
+    },
+    {
+      "k": 4,
+      "classes": 122558,
+      "cyclic": 45786,
+      "four_return": 40373,
+      "cyclic_without_eight": 0,
+      "max_acyclic_path": 18
+    }
+  ],
+  "total": {
+    "classes": 234766,
+    "cyclic": 71948,
+    "acyclic": 162818,
+    "four_return": 65095,
+    "cyclic_without_eight": 0,
+    "max_acyclic_path": 18
+  },
+  "independent_actual_residuals": [
+    {
+      "p": 3,
+      "words": 6561,
+      "cyclic": 960,
+      "cyclic_without_four": 0,
+      "cyclic_without_eight": 0
+    },
+    {
+      "p": 4,
+      "words": 65536,
+      "cyclic": 9957,
+      "cyclic_without_four": 0,
+      "cyclic_without_eight": 0
+    }
+  ],
+  "sharp_actual_witness": {
+    "p": 6,
+    "residuals": [
+      6,
+      24,
+      8,
+      40
+    ],
+    "x0": 63,
+    "max_path_length": 18,
+    "ports": [
+      1,
+      3,
+      3,
+      5,
+      1,
+      3,
+      3,
+      3,
+      1,
+      4,
+      3,
+      3,
+      1,
+      3,
+      2,
+      3,
+      1,
+      3
+    ],
+    "states": [
+      63,
+      61,
+      53,
+      61,
+      29,
+      31,
+      23,
+      31,
+      23,
+      21,
+      5,
+      13,
+      5,
+      7,
+      15,
+      11,
+      3,
+      1,
+      9
+    ]
+  },
+  "scope": "exact abstract Boolean source support and actual-residual p3,p4 crosscheck; no multiplicity/weight/native-X6 assertion",
+  "review": "NOT_REVIEWED"
+}
