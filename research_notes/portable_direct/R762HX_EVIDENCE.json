@@ -1,0 +1,73 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_EXACT_EVIDENCE_V1",
+  "id": "R762HX",
+  "date": "2026-11-21",
+  "task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_science_source": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessors": [
+    "R762HU@0e5a7b56c7a3c00907b6cdd0c844c6f85e4de02c",
+    "R762HV@30d6ed3e00f11ad5de23424a4fc1d7749f26e16e",
+    "R762HW@5ac0525e4a7661b16a55fc4ea1c3e164a8d246ba"
+  ],
+  "model": {
+    "ports": 15,
+    "oriented_transitions": 120,
+    "supports": 20,
+    "two_signs_per_transition": true,
+    "signed_choices_per_step": 16,
+    "root": "01",
+    "positive_brc_provenance": "ordered Port endpoints, triple support, and independent sign"
+  },
+  "claims": {
+    "all_odd_length_return": "0",
+    "even_asymptotic": "K_m=(10 sqrt(5)/(27 pi^3)) *16^m/m^3 * (1+O(m^-1))",
+    "torus_unit_spectral_points": 6,
+    "gaussian_covariance": "3/10 I_6+1/5 J_6",
+    "gaussian_determinant": "729/200000",
+    "conditional_port_coefficient": "50 sqrt(5)/(9 pi^3)",
+    "conditional_parity_even_coefficient": "1600 sqrt(5)/(9 pi^3)"
+  },
+  "check": {
+    "command": "python3 R762HX_CHECK.py",
+    "result": "PASS R762HX",
+    "script_sha256": "05819b2525a7ed3e14a220682d176000743a94eabbf3c5ec5aaf6c2c03d573ad",
+    "script_git_blob_sha1": "7edea478882804e0e9baed87fdb7e7b21a9c7506",
+    "stdout_sha256": "63435f47342642b3d776aebe58aa42e8cdb3fb5646047e8622a35423802d5640",
+    "exact_half_path_gram_m0to10": [
+      "1",
+      "16",
+      "624",
+      "34688",
+      "2413424",
+      "200986368"
+    ],
+    "half_path_fibers": [
+      "1",
+      "16",
+      "193",
+      "1980",
+      "15909",
+      "92556"
+    ],
+    "sixth_root_phase_grid": 46656,
+    "magnitude_one_phase_candidates": 192,
+    "gauge_balanced_saddles": 6,
+    "method": "unbounded integer BRC DP and finite exact modular root phases",
+    "independence": "independent local checker compared with prior R762HU values"
+  },
+  "publication": {
+    "proof_path": "research_notes/portable_direct/R762HX_SIGNED_PORT_LOCAL_LIMIT.md",
+    "proof_git_blob_sha1": "4f6283d37d772dbdc4a3c862cb35f0564d5bfcde",
+    "checker_path": "research_notes/portable_direct/R762HX_CHECK.py",
+    "checker_git_blob_sha1": "7edea478882804e0e9baed87fdb7e7b21a9c7506"
+  },
+  "scope": {
+    "math": "AUTHOR_PROVED",
+    "computed": "EXACT_FINITE_CHECKED",
+    "review": "NOT_REVIEWED",
+    "native_claim": false,
+    "native_progress": false,
+    "primitive_native_physics": false,
+    "activity_association": "PENDING_CURRENT_AUTHENTICATED_ASSOCIATION"
+  }
+}
