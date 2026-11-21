@@ -1,0 +1,59 @@
+{
+  "schema": "R762IG_PORT_SHARP_FOUR_CAP_EVIDENCE_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CROSSCHECKED_NOT_REVIEWED",
+  "date": "2026-11-22",
+  "frozen_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": "dc33b2898330c34f1e8f2dcab4df055e311fbac6",
+  "model": "6-axis composite Port triangular support graph",
+  "ports": 15,
+  "supports": 20,
+  "theorem": "For every nonempty support histogram and base Port p, N_p(n)>0 iff N_p(n^[4])>0; uniform parity cap 4 is optimal",
+  "witness": {
+    "support_counts": {
+      "125": 3,
+      "012": 4,
+      "013": 3,
+      "024": 3
+    },
+    "base_port": "01",
+    "original_edges": 13,
+    "original_eulerian": true,
+    "cap3_support_counts": {
+      "125": 3,
+      "012": 2,
+      "013": 3,
+      "024": 3
+    },
+    "cap3_all_unlabeled_edge_allocations": 6000,
+    "cap3_even_degree_allocations": 3,
+    "cap3_connected_eulerian_allocations": 0
+  },
+  "local_deletion_checks": {
+    "all_triples_with_total_between": [
+      5,
+      34
+    ],
+    "cases": 7735,
+    "status": "PASS"
+  },
+  "mixed_euler_example": {
+    "input_edges": 580,
+    "capped_edges": 60,
+    "status": "PASS"
+  },
+  "verification": "Python3 standard library exact integers and graph incidence; full-length proof is mathematical, not finite extrapolation",
+  "scope_limits": [
+    "no path counts",
+    "no signed-zero return counts",
+    "no time/rotation",
+    "no native TRIADIC_CLOSURE_E lifting"
+  ],
+  "native_task_read": {
+    "request_id": "r3-20261122-0216-x6-task-read-v1",
+    "status": "FAILED",
+    "error": "SOURCE_TREE_TRUNCATED"
+  },
+  "native_execution_authorized": false,
+  "review": "NOT_REVIEWED",
+  "activity": "NOT_UPDATED"
+}
