@@ -1,0 +1,46 @@
+{
+  "schema": "C86_REPRODUCIBILITY_CHECKS_V1",
+  "status": "PASS",
+  "mode": "exact_checks",
+  "groups": 7,
+  "failed": 0,
+  "runs": [
+    {
+      "command": "smallarea/verify_finite_reduction.py",
+      "status": "PASS",
+      "stdout_sha256": "f15292f31d624e2d32d357b6e74df6e95857ae8eb6dfa279173ec7309ac8200d"
+    },
+    {
+      "command": "phase/verify_mellin_regularities.py",
+      "status": "PASS",
+      "stdout_sha256": "ef5017146ecafb17869ff14c7411f2d538bf00418c499fdbb08ad9b4cbdb168d"
+    },
+    {
+      "command": "smallarea/certify_small_chamber.py",
+      "status": "PASS",
+      "stdout_sha256": "6c89337926aa5001dcab3b24f33ef22ce31ceb301855104c5ff97e701a2312a7"
+    },
+    {
+      "command": "phase/verify_exact_phase_moment.py",
+      "status": "PASS",
+      "stdout_sha256": "2dcb4e31f5a301d951eb2ebaf697162957c39c0b5cc8255c36724e8b51bcbf58"
+    },
+    {
+      "command": "triangle/verify_doubled_face.py",
+      "status": "PASS",
+      "stdout_sha256": "dcc25dee1c4991881297ea00468b9a844ba0272a56ade1e294219ecfed2aa091"
+    },
+    {
+      "command": "smallarea/audit_doubled_face.py",
+      "status": "PASS",
+      "stdout_sha256": "6eca806fc788ed15a14b2b2c2bda890647b6337111d69be73b2c48093ca47ec6"
+    },
+    {
+      "command": "main_certificate_exact_binding",
+      "status": "PASS",
+      "full_cubature_rerun_by_this_check": false
+    }
+  ],
+  "seconds": 2.4496471881866455,
+  "note": "The main and kappa integral certificates were computed in C86. Quick mode verifies saved bindings and exact auxiliary derivations; it does not claim to recompute their complete grids."
+}

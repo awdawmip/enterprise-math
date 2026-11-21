@@ -1,0 +1,306 @@
+{
+  "schema": "C86_MELLIN_REGULARITY_AUDIT_V1",
+  "source_sha256": "0f1b1258a01ecdf754b084f3c0b115a34f0fce5e3d547efefca368cc90b5ff60",
+  "scaled_spline_pieces": 60,
+  "polyhedral_checks": 246,
+  "regenerated_chambers": 10,
+  "edge_checks": [
+    {
+      "axis": "r",
+      "fixed_coordinate": "1/3",
+      "other_index": 0,
+      "value_matches": true,
+      "tangential_derivative_matches": true,
+      "normal_derivative_ledger_matches": true
+    },
+    {
+      "axis": "s",
+      "fixed_coordinate": "1/3",
+      "other_index": 1,
+      "value_matches": true,
+      "tangential_derivative_matches": true,
+      "normal_derivative_ledger_matches": true
+    },
+    {
+      "axis": "s",
+      "fixed_coordinate": "1/3",
+      "other_index": 2,
+      "value_matches": true,
+      "tangential_derivative_matches": true,
+      "normal_derivative_ledger_matches": true
+    },
+    {
+      "axis": "s",
+      "fixed_coordinate": "1/3",
+      "other_index": 3,
+      "value_matches": true,
+      "tangential_derivative_matches": true,
+      "normal_derivative_ledger_matches": true
+    },
+    {
+      "axis": "r",
+      "fixed_coordinate": "1/2",
+      "other_index": 0,
+      "value_matches": true,
+      "tangential_derivative_matches": true,
+      "normal_derivative_ledger_matches": false
+    },
+    {
+      "axis": "r",
+      "fixed_coordinate": "1/2",
+      "other_index": 1,
+      "value_matches": true,
+      "tangential_derivative_matches": true,
+      "normal_derivative_ledger_matches": false
+    },
+    {
+      "axis": "s",
+      "fixed_coordinate": "1/2",
+      "other_index": 2,
+      "value_matches": true,
+      "tangential_derivative_matches": true,
+      "normal_derivative_ledger_matches": true
+    },
+    {
+      "axis": "s",
+      "fixed_coordinate": "1/2",
+      "other_index": 3,
+      "value_matches": true,
+      "tangential_derivative_matches": true,
+      "normal_derivative_ledger_matches": true
+    },
+    {
+      "axis": "r",
+      "fixed_coordinate": "2/3",
+      "other_index": 0,
+      "value_matches": true,
+      "tangential_derivative_matches": true,
+      "normal_derivative_ledger_matches": true
+    },
+    {
+      "axis": "r",
+      "fixed_coordinate": "2/3",
+      "other_index": 1,
+      "value_matches": true,
+      "tangential_derivative_matches": true,
+      "normal_derivative_ledger_matches": true
+    },
+    {
+      "axis": "r",
+      "fixed_coordinate": "2/3",
+      "other_index": 2,
+      "value_matches": true,
+      "tangential_derivative_matches": true,
+      "normal_derivative_ledger_matches": true
+    },
+    {
+      "axis": "s",
+      "fixed_coordinate": "2/3",
+      "other_index": 3,
+      "value_matches": true,
+      "tangential_derivative_matches": true,
+      "normal_derivative_ledger_matches": true
+    }
+  ],
+  "strict_non_C1_witness": {
+    "r": "1/2",
+    "s": "1/4",
+    "quantity": "left S_r minus right S_r",
+    "interval": [
+      "18339856317113683748021694455041/1622592768292133633915780102881280",
+      "18339856317113683748021694490711/1622592768292133633915780102881280"
+    ],
+    "decimal_display": [
+      0.011302809106204369,
+      0.011302809106204369
+    ]
+  },
+  "chamber_derivative_bounds": [
+    {
+      "r_index": 0,
+      "s_index": 0,
+      "bounds": {
+        "Hr": "3608/15",
+        "Hx": "1066/9",
+        "Hrr": "1722/5",
+        "Hxx": "42763/600",
+        "Hrx": "231281/600"
+      },
+      "decimal_display": [
+        240.53333333333333,
+        118.44444444444444,
+        344.4,
+        71.27166666666666,
+        385.4683333333333
+      ]
+    },
+    {
+      "r_index": 1,
+      "s_index": 0,
+      "bounds": {
+        "Hr": "15457/120",
+        "Hx": "12587/240",
+        "Hrr": "95571/400",
+        "Hxx": "2009/50",
+        "Hrx": "250141/1200"
+      },
+      "decimal_display": [
+        128.80833333333334,
+        52.44583333333333,
+        238.9275,
+        40.18,
+        208.45083333333332
+      ]
+    },
+    {
+      "r_index": 1,
+      "s_index": 1,
+      "bounds": {
+        "Hr": "22919/180",
+        "Hx": "9307/180",
+        "Hrr": "45633/200",
+        "Hxx": "59983/1600",
+        "Hrx": "1451441/7200"
+      },
+      "decimal_display": [
+        127.32777777777778,
+        51.705555555555556,
+        228.165,
+        37.489375,
+        201.58902777777777
+      ]
+    },
+    {
+      "r_index": 2,
+      "s_index": 0,
+      "bounds": {
+        "Hr": "2993/30",
+        "Hx": "18163/288",
+        "Hrr": "142639/800",
+        "Hxx": "66871/1200",
+        "Hrx": "400447/2400"
+      },
+      "decimal_display": [
+        99.76666666666667,
+        63.06597222222222,
+        178.29875,
+        55.725833333333334,
+        166.85291666666666
+      ]
+    },
+    {
+      "r_index": 2,
+      "s_index": 1,
+      "bounds": {
+        "Hr": "5371/60",
+        "Hx": "41041/720",
+        "Hrr": "127141/800",
+        "Hxx": "244237/4800",
+        "Hrx": "184049/1200"
+      },
+      "decimal_display": [
+        89.51666666666667,
+        57.00138888888889,
+        158.92625,
+        50.88270833333333,
+        153.37416666666667
+      ]
+    },
+    {
+      "r_index": 2,
+      "s_index": 2,
+      "bounds": {
+        "Hr": "3731/48",
+        "Hx": "3567/80",
+        "Hrr": "17507/160",
+        "Hxx": "117383/3600",
+        "Hrx": "93849/800"
+      },
+      "decimal_display": [
+        77.72916666666667,
+        44.5875,
+        109.41875,
+        32.60638888888889,
+        117.31125
+      ]
+    },
+    {
+      "r_index": 3,
+      "s_index": 0,
+      "bounds": {
+        "Hr": "3649/45",
+        "Hx": "40139/540",
+        "Hrr": "12341/100",
+        "Hxx": "142639/1800",
+        "Hrx": "576911/3600"
+      },
+      "decimal_display": [
+        81.08888888888889,
+        74.33148148148148,
+        123.41,
+        79.24388888888889,
+        160.25305555555556
+      ]
+    },
+    {
+      "r_index": 3,
+      "s_index": 1,
+      "bounds": {
+        "Hr": "3649/45",
+        "Hx": "40139/540",
+        "Hrr": "12341/100",
+        "Hxx": "142639/1800",
+        "Hrx": "576911/3600"
+      },
+      "decimal_display": [
+        81.08888888888889,
+        74.33148148148148,
+        123.41,
+        79.24388888888889,
+        160.25305555555556
+      ]
+    },
+    {
+      "r_index": 3,
+      "s_index": 2,
+      "bounds": {
+        "Hr": "6437/90",
+        "Hx": "19639/360",
+        "Hrr": "43337/400",
+        "Hxx": "19229/360",
+        "Hrx": "475313/3600"
+      },
+      "decimal_display": [
+        71.52222222222223,
+        54.55277777777778,
+        108.3425,
+        53.41388888888889,
+        132.0313888888889
+      ]
+    },
+    {
+      "r_index": 3,
+      "s_index": 3,
+      "bounds": {
+        "Hr": "6437/90",
+        "Hx": "19639/360",
+        "Hrr": "43337/400",
+        "Hxx": "19229/360",
+        "Hrx": "475313/3600"
+      },
+      "decimal_display": [
+        71.52222222222223,
+        54.55277777777778,
+        108.3425,
+        53.41388888888889,
+        132.0313888888889
+      ]
+    }
+  ],
+  "certificate": {
+    "sha256": "b03891bc75e4e083494002037e173cf18a4dc7cdfa1c5ad4c9633b622af8a82a",
+    "matching_chamber_source": true,
+    "strict_negative_endpoint": true,
+    "scope": "Endpoint/source consistency check; cubature independently reviewed, not rerun here."
+  }
+}
