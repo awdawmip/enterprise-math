@@ -1,0 +1,267 @@
+{
+  "schema": "X6_R72_D4_SHARP_WEIGHTED_SATURATION_CERTIFICATE_V1",
+  "date": "2026-11-21",
+  "scientific_input": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+    "path": "p000_reality_foundation.json"
+  },
+  "model": "Conditional normalized positive-count BRC star moments, four channels, shared additive bias, arbitrary positive precision weights; not native triadic dynamics",
+  "prior_bound_R71": 234,
+  "new_exact_universal_saturation_port_threshold": 125,
+  "unoriented_atlas_size": 28,
+  "gap_order": [
+    "|z2-z1|",
+    "|z3-z1|",
+    "|z4-z1|",
+    "|z3-z2|",
+    "|z4-z2|",
+    "|z4-z3|"
+  ],
+  "atlas_q_and_signed_difference": [
+    [
+      1,
+      1,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      2,
+      -1
+    ],
+    [
+      3,
+      1,
+      -3,
+      1
+    ],
+    [
+      3,
+      2,
+      -3,
+      1
+    ],
+    [
+      3,
+      3,
+      -1,
+      0
+    ],
+    [
+      4,
+      1,
+      3,
+      -1
+    ],
+    [
+      4,
+      3,
+      -4,
+      1
+    ],
+    [
+      4,
+      4,
+      -1,
+      0
+    ],
+    [
+      5,
+      3,
+      2,
+      -1
+    ],
+    [
+      5,
+      4,
+      -4,
+      1
+    ],
+    [
+      5,
+      5,
+      -1,
+      0
+    ],
+    [
+      6,
+      5,
+      -4,
+      1
+    ],
+    [
+      6,
+      6,
+      -1,
+      0
+    ],
+    [
+      7,
+      3,
+      -7,
+      2
+    ],
+    [
+      7,
+      6,
+      -4,
+      1
+    ],
+    [
+      7,
+      7,
+      -1,
+      0
+    ],
+    [
+      9,
+      7,
+      2,
+      -1
+    ],
+    [
+      10,
+      9,
+      -5,
+      1
+    ],
+    [
+      11,
+      10,
+      -5,
+      1
+    ],
+    [
+      16,
+      15,
+      -6,
+      1
+    ],
+    [
+      22,
+      21,
+      -7,
+      1
+    ],
+    [
+      27,
+      24,
+      -14,
+      3
+    ],
+    [
+      39,
+      36,
+      -16,
+      3
+    ],
+    [
+      43,
+      39,
+      -20,
+      4
+    ],
+    [
+      47,
+      42,
+      -24,
+      5
+    ],
+    [
+      49,
+      45,
+      -21,
+      4
+    ],
+    [
+      71,
+      66,
+      -28,
+      5
+    ],
+    [
+      125,
+      114,
+      -56,
+      11
+    ]
+  ],
+  "computational_rechecks": {
+    "cone_ray_exact_python": {
+      "line_count": 28,
+      "oriented_count": 56,
+      "triples": 212,
+      "max_q_ray": 125,
+      "max_q_triple_sum": 235,
+      "derived_threshold": 234,
+      "status": "PASS"
+    },
+    "atlas_discovery_cpp": {
+      "tested_unoriented": 21492159,
+      "atlas_size": 28,
+      "max_q": 125,
+      "status": "PASS"
+    },
+    "independent_full_cube_cpp": {
+      "tested_unoriented": 21492159,
+      "covered": 21492159,
+      "failures": 0,
+      "atlas_size": 28,
+      "atlas_max_q": 125,
+      "status": "PASS"
+    }
+  },
+  "sharp_witness": {
+    "weights": [
+      1,
+      24,
+      1,
+      1
+    ],
+    "large_port_difference": [
+      114,
+      -56,
+      11
+    ],
+    "large_port_q": 125,
+    "large_port_z": [
+      0,
+      24,
+      0,
+      0
+    ],
+    "large_port_eta_fraction": "12/25",
+    "small_port_difference": [
+      10,
+      -5,
+      1
+    ],
+    "small_port_q": 11,
+    "small_port_z": [
+      0,
+      2,
+      0,
+      2
+    ],
+    "small_port_eta_fraction": "1/2",
+    "kernel_primitive_generator": [
+      114,
+      -56,
+      11
+    ],
+    "proved_window": "11<=p<=124: eta*=1/2; p>=125: eta*=12/25"
+  },
+  "code_paths": [
+    "research_notes/portable_direct/x6_r72_d4_atlas_discovery.cpp",
+    "research_notes/portable_direct/x6_r72_d4_atlas_verify.cpp",
+    "research_notes/portable_direct/x6_r72_d4_ray_recheck.py"
+  ],
+  "mathematics_status": "CONDITIONAL_EXACT_FINITE_CERTIFICATE / AUTHOR_RECHECKED / NOT_INDEPENDENTLY_REVIEWED",
+  "limitations": [
+    "28 candidates are sufficient, not proved minimum in cardinality for all weight profiles",
+    "source-native triadic/Cell/Link/Port dynamics not established by this observer theorem",
+    "no formal external acceptance or native CLAIM"
+  ]
+}
