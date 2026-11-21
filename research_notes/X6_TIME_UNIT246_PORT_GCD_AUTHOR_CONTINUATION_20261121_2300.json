@@ -1,0 +1,161 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "local_cycle": "2300",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_scientific_source_commit": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "immutable_prior_frontier": {
+    "latest_unit": "Unit245",
+    "latest_activity": 246,
+    "latest_author_continuation": "f8d8135d99429fdab4f8e2531ac2e5c15d92b330:research_notes/X6_TIME_UNIT245_DIRECTED_PAIR_AUTHOR_CONTINUATION_20261121_2200.json",
+    "do_not_repeat_units": "Units233–245 already recorded; Unit238 correction separately retains one extra Activity event"
+  },
+  "verified_new_unit": {
+    "unit": "Unit246",
+    "semantic_status": "AUTHOR_PROVED / SOURCE-CERTIFICATE-REPLAYED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+    "statement": "Same conditional serial, target-empty two-labelled-triad signed-X6 ring and exactly two directed centre Port links. For delta=(egress-ingress) mod12 and m=12/gcd(12,delta), closure implies m divides each triad's completed centre excursions. Opposite labelled ring winding (-12,+12) with shared occupancy requires at least m total excursions; every legal trajectory has N=24+2c+2b with b>=0 number of total ring reversal pairs. All 36 previously certified exact shortest witness routes reach minimal c=m; their cost residual b is as recorded.",
+    "gcd_m_by_offset_0_2_4_6_8_10": [
+      1,
+      6,
+      3,
+      2,
+      3,
+      6
+    ],
+    "ring_backtracking_pair_matrix_rows_ingress_columns_egress": [
+      [
+        2,
+        1,
+        3,
+        5,
+        4,
+        5
+      ],
+      [
+        1,
+        2,
+        5,
+        4,
+        5,
+        3
+      ],
+      [
+        1,
+        0,
+        3,
+        6,
+        4,
+        2
+      ],
+      [
+        0,
+        0,
+        2,
+        5,
+        4,
+        2
+      ],
+      [
+        0,
+        0,
+        2,
+        4,
+        5,
+        2
+      ],
+      [
+        0,
+        1,
+        2,
+        4,
+        6,
+        3
+      ]
+    ],
+    "verified_computational_scope": "36 immutable Unit245 shortest signed-Cell/BRC route strings; 5,755 exact JavaScript V8 integer assertions executed in the current research tool runtime, zero mismatches; Node checker source published but not separately run in a Node host; previous Unit245 exhaustive FIFO retained as shortestness evidence.",
+    "physical_status": "SOURCE_ADMITTED_SIGNED_PORT_UPDATE_UNAVAILABLE; conditional Port law only, physically admissible centre transfer and independent C12/C24 pre/post Cell precision still pending.",
+    "evidence": [
+      {
+        "kind": "proof",
+        "repository": "awdawmip/enterprise-math",
+        "path": "research_notes/X6_TIME_UNIT246_PORT_GCD_AND_SHORTEST_WINDING_BUDGET_20261121_2300.md",
+        "commit": "633ba78c6171c6dece06dd5889f89d05ee5ae35b",
+        "git_blob_sha1": "147f1333e4c28ccb60a2811a575ba829e00c3883",
+        "sha256": "a99680f778c98f2817906ebc96990704f1a50324373e9de3302774d6813b7580"
+      },
+      {
+        "kind": "replay_checker",
+        "repository": "awdawmip/enterprise-math",
+        "path": "research_checks/X6_TIME_UNIT246_PORT_GCD_WINDING_ACCOUNTING_CHECK_20261121_2300.js",
+        "commit": "2ccc065c8db25f6d555d5c31a8d7211a2b8cd230",
+        "git_blob_sha1": "629c07bceab41bc4e0a8f6e2265c798de4ec214f",
+        "sha256": "589535714f74896c1018d8411674ad15ee44cfc8490b4373b8817cfad1036412"
+      },
+      {
+        "kind": "replay_certificate",
+        "repository": "awdawmip/enterprise-math",
+        "path": "research_checks/X6_TIME_UNIT246_PORT_GCD_WINDING_ACCOUNTING_RESULTS_20261121_2300.json",
+        "commit": "b3b6afaf8738f3448f5d014fdd18feb12e2005f8",
+        "git_blob_sha1": "1fab81ef9cecfeb1be674197151481141bddf804",
+        "sha256": "3075a191b2878b590f9d35c35970434bd47fa0de7c0266a4d55664e6e79aaf40"
+      }
+    ],
+    "source_case_pin": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+      "source_commit": "f56840285cafeb9f5767ea91e903e1f53808186f",
+      "git_blob_sha1": "113d2102fe393bfd6f77bf7cca093b4cecf6796f",
+      "sha256": "905c5d4a054e03145fa91b28cfc5ffc51a5377ab9efba2d4991a989881a"
+    }
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+    "commit": "517177cbf4ae4b269e4dbe2ad2e74eb0239c17fd",
+    "blob": "f2a5e2f8db7d522d285fc78584a76696dee66e2a",
+    "checkpoint_events": 247,
+    "semantic_units": 246,
+    "one_separate_unit238_correction": true
+  },
+  "native_control": {
+    "source_read_request_id": "onhour-20261121-2306-x6-own-source-continuation-read-v1",
+    "source_read_status": "SUCCEEDED",
+    "read_time_utc": "2026-11-21T15:06:14.159970+00:00",
+    "authority_observation": "HANDOFF_READY / NO_LIVE_CLAIM (historical current projection, no own winning live CLAIM independently verified)",
+    "observed_gateway_version": "0.6.11",
+    "former_claim": "MCP-369991930c5b4fddf26dbefa",
+    "former_run": "RUN-d653f1346f38369bc27f5fc5",
+    "former_generation": 5,
+    "protected_semantic_progress": "NOT_PUBLISHED for Units236–246 on a newly authenticated winning own claim; pre-existing recorded Units233–235 may have historical checkpoint representations, no retry or duplicate",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903",
+    "original_failed_progress": "onhour-20261121-1502-own-time-units233-235-native-progress-v1",
+    "original_failed_prepares": [
+      "onhour-20261121-1627-own-x6-time-typed-continuation-after-expired-claim-v1",
+      "onhour-20261121-1640-own-x6-time-typed-continuation-compact-repair-v1"
+    ],
+    "deployed_fix_confirmed": false,
+    "owner_transition_performed_this_cycle": false,
+    "current_control_source_sha": "5935ee3b674ce1b278bf3d25d55203739413cab5",
+    "source_admission_note": "Source control read succeeded, execution_authorized=false; receipt includes historical persisted checkpoints through Unit235, not an authenticated winning current own CLAIM"
+  },
+  "required_evidence": [
+    "Actual Source-qualified signed whole-triad Cell/Link/Port transfer with guard (including directed centre ingress/egress), conservation, occupancy and environment response",
+    "For any Source-admitted directed centre pair, check native edge execution against immutable Unit245 exact chronological BRC witness; use Unit246 necessary modular bound and signed event accounting to reject impossible budgets",
+    "Independent same-labelled-Cell C12/C24 precision-fibre before/after physical measurements; frozen static root tokens are not evidence for a dynamic fibre transfer"
+  ],
+  "do_not_repeat": [
+    "Already saved Units233–246, original 246 preexisting Activity events plus Unit246 event247; Unit238 one correction is a distinct event",
+    "Original terminal failed Native PROGRESS onhour-20261121-1502-own-time-units233-235-native-progress-v1 and original failed typed prepares onhour-20261121-1627-own-x6-time-typed-continuation-after-expired-claim-v1 / onhour-20261121-1640-own-x6-time-typed-continuation-compact-repair-v1",
+    "D24 frozen RR / accepted DR and three independent historical staging files",
+    "Separate R063 six-file native benchmark in RS-X6-LEGACY-PLANE-RECONCILIATION, support #2416"
+  ],
+  "next_exact_action": "Read newly Source-admitted signed Port transfer/guard and environmental response (when any), and test whether one directed centre ingress/egress and required negative ring transitions are genuinely permitted; immediately screen candidate budget via gcd lower bound, replay relevant preserved Unit245 BRC route, and separately measure independent C12/C24 precision at identical labelled Cell. If Source #2903 is actually repaired and own real session capabilities survive, use original source continuation and valid owner CAS to prepare and claim; do not reissue failed original requests or borrow maintenance/owner-profile identity.",
+  "scientific_status": "Unit246 AUTHOR_PROVED / SOURCE-CERTIFICATE-REPLAYED / ACTIVITY247_PERSISTED / UNREVIEWED / NOT_ADMITTED",
+  "handoff_required": false
+}
