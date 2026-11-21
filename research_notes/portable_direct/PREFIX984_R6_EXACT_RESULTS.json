@@ -1,0 +1,141 @@
+{
+  "schema": "PREFIX984_R6_FOUR_PHASE_SIGNED_PORT_OBSERVER_V1",
+  "status": "AUTHOR_EXACT_CENSUS_AND_CONSTRUCTIVE_COUNTEREXAMPLE_NOT_REVIEWED",
+  "model": "Auxiliary nonzero-residual named signed-source port XOR; odd p-bit x; four-phase word starts at phase 0",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json",
+  "source_predecessor": "research_notes/portable_direct/2026-11-21_r6_prefix983_uniform_three_nonzero_dichotomy.md",
+  "arithmetic": "Integer/bit exact; not native BRC/X6 computation or physical residual attribution",
+  "dictionary": "nonzero c=2^i-s*2^j for 0<=i<p,1<=j<p,s=+-1; port j legal iff bit_j(x)=(1-s)/2",
+  "cycle_evidence": "Cyclic iff directed graph contains a loop; loop4/loop8 require phase-zero state and exact equality after 4 or 8 legal flips",
+  "census": [
+    {
+      "p": 3,
+      "residuals": 9,
+      "ordered_words": 6561,
+      "finite": 5601,
+      "cyclic": 960,
+      "cyclic_without_4_loop": 0,
+      "cyclic_without_8_loop": 0,
+      "max_finite_steps_phase0": 4,
+      "attaining_word_phase0": [
+        -3,
+        -1,
+        3,
+        -1
+      ]
+    },
+    {
+      "p": 4,
+      "residuals": 16,
+      "ordered_words": 65536,
+      "finite": 55579,
+      "cyclic": 9957,
+      "cyclic_without_4_loop": 0,
+      "cyclic_without_8_loop": 0,
+      "max_finite_steps_phase0": 11,
+      "attaining_word_phase0": [
+        6,
+        6,
+        6,
+        12
+      ]
+    },
+    {
+      "p": 5,
+      "residuals": 26,
+      "ordered_words": 456976,
+      "finite": 402322,
+      "cyclic": 54654,
+      "cyclic_without_4_loop": 0,
+      "cyclic_without_8_loop": 0,
+      "max_finite_steps_phase0": 15,
+      "attaining_word_phase0": [
+        6,
+        12,
+        12,
+        20
+      ]
+    },
+    {
+      "p": 6,
+      "residuals": 39,
+      "ordered_words": 2313441,
+      "finite": 2104228,
+      "cyclic": 209213,
+      "cyclic_without_4_loop": 1868,
+      "cyclic_without_8_loop": 0,
+      "max_finite_steps_phase0": 18,
+      "attaining_word_phase0": [
+        6,
+        24,
+        8,
+        40
+      ]
+    },
+    {
+      "p": 7,
+      "residuals": 55,
+      "ordered_words": 9150625,
+      "finite": 8523391,
+      "cyclic": 627234,
+      "cyclic_without_4_loop": 10992,
+      "cyclic_without_8_loop": 0,
+      "max_finite_steps_phase0": 18,
+      "attaining_word_phase0": [
+        6,
+        24,
+        8,
+        40
+      ]
+    }
+  ],
+  "analytic_counterexample": {
+    "word": [
+      6,
+      24,
+      6,
+      -3
+    ],
+    "scope": "every integer p>=6",
+    "start_x": 5,
+    "legal_ports": [
+      2,
+      3,
+      1,
+      2,
+      2,
+      3,
+      1,
+      2
+    ],
+    "states": [
+      5,
+      1,
+      9,
+      11,
+      15,
+      11,
+      3,
+      1,
+      5
+    ],
+    "exact_eight_step_return": true,
+    "exact_four_step_return_possible": false,
+    "required_start_bit": "bit_2(x)=1 for this displayed port word",
+    "qualifying_initial_odd_states": "2^(p-2)",
+    "reason_no4": "the unique phase-1 use of residual 24 flips exactly one of ports 3,4, while every other phase uses only ports 1,2"
+  },
+  "verification": {
+    "code_commit": "9ca9ca8b8fa1d4b9ca44ffee7ee790fd1c1b0357",
+    "code_path": "research_notes/portable_direct/PREFIX984_R6_FOUR_PHASE_EXACT.cpp",
+    "full_domain": "all ordered nonzero residual words of four phases for each 3<=p<=7 and all odd states and all phases",
+    "algorithms": "indegree topological test + path longest-step DP for DAG; exact 4/8 return reachability from each phase-zero odd assignment",
+    "independent_small_range_check": "separate Python implementation matched all p3/p4/p5 total, cyclic, maxfinite and loop4 counts",
+    "cpp_compiler_command": "g++ -std=c++17 -O3 PREFIX984_R6_FOUR_PHASE_EXACT.cpp -o prefix984 && for p in 3 4 5 6 7; do ./prefix984 $p; done"
+  },
+  "unresolved": [
+    "For all p>=3, does every cyclic four-phase nonzero-residual word admit a phase-aligned eight-step closed path?",
+    "Is 18 the sharp uniform finite-path bound for four-phase nonzero-residual words at all widths?",
+    "Establish a native typed BRC/X6 observer and update bridge before any physical attribution"
+  ]
+}
