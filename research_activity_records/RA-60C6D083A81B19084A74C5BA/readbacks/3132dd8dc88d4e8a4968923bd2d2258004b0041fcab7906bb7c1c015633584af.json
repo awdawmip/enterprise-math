@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/rh_adaptive_window_20261121_b5750a/rh_next_structure/one_sided_window_certificate.json",
+    "ref": "cc8e2eec9e281ac2649341ec44a270c49bed6d38",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "rh-adaptive-window-20261121-source-10",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"status\": \"EXACT_ONE_SIDED_FULL_WINDOW_CERTIFICATE_PASSED\",\n  \"window\": [\n    25,\n    125\n  ],\n  \"theta\": \"3/4\",\n  \"h\": \"149/1000\",\n  \"thicknesses\": [\n    \"149/1000\",\n    \"149/500\"\n  ],\n  \"normalized_weights\": [\n    2,\n    -1\n  ],\n  \"all_integer_population\": 124,\n  \"omega_population\": {\n    \"1\": 42,\n    \"2\": 69,\n    \"3\": 13\n  },\n  \"C_minus_endpoint_interval\": {\n    \"lower\": \"18.45738153632518541868\",\n    \"upper\": \"18.45738153632518541869\"\n  },\n  \"C_minus_endpoint_upper_fraction\": \"1845738153632518541869/100000000000000000000\",\n  \"budget_chain\": \"C_minus(125) < 37/2 < 125^(3/4)/2\",\n  \"orientation_chain\": \"h log(125) < 7h log(2) < 2 log(2)\",\n  \"generic_h_upper\": \"539/18432\",\n  \"strict_improvement\": \"h > 5 h_generic\",\n  \"log_enclosure\": \"36-term positive atanh series after dyadic scaling\",\n  \"conclusion\": \"G(y) <= G_extrapolated(y) + y^(3/4)/2 for all 25 <= y <= 125\",\n  \"scope\": [\n    \"Finite endpoint arithmetic plus the proved monotonicity theorem covers the entire real window.\",\n    \"All 124 integers from 2 through 125 remain in the readout.\",\n    \"The omega=2 layer has zero minus-envelope coefficient because its error is positive; its road contribution is retained.\",\n    \"This certifies a one-sided bridge, not an infinite-window positive-energy estimate.\"\n  ]\n}\n",
+      "display_title": "one_sided_window_certificate.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/cc8e2eec9e281ac2649341ec44a270c49bed6d38/research_notes/portable_direct/rh_adaptive_window_20261121_b5750a/rh_next_structure/one_sided_window_certificate.json",
+      "encoding": "utf-8",
+      "sha": "b2bd421d3653e619671a1dbd900dd8916bfedb99"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
