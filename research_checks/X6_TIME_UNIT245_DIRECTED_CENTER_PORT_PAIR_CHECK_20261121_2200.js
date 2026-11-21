@@ -34,7 +34,7 @@ function solve(entry,exit) {
   const start=[0,2,0,0], goal=id([0,2,-12,12]);
   const q=[start], startId=id(start);
   const parent=new Map([[startId,null]]), depths=new Map([[startId,0]]);
-  let found=null;
+  let found=null, count=0;
   for (let head=0;head<q.length;head++) {
     const s=q[head], k=id(s), depth=depths.get(k);
     if(k===goal){found=k;break;}
