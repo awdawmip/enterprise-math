@@ -1,0 +1,100 @@
+{
+  "schema": "PREFIX979_R6_EXACT_INTEGER_V1",
+  "date": "2026-11-21",
+  "source": "independent auxiliary BRC positive source-port observer, alternating c,C",
+  "science_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json",
+  "source_equation": "c=2**i-s*2**j; 0<=i,j<p; s=+1 or -1; odd x; nonzero ports j>=1",
+  "criterion": "(J(c,C)!=0) or (R(c)!=0 and R(C)!=0)",
+  "p19": {
+    "distinct_residues": 499,
+    "individual_persistent_residues": 16,
+    "ordered_pairs": 249001,
+    "J_nonempty_pairs": 12642,
+    "J_empty_both_persistent": 210,
+    "persistent_pairs": 12852,
+    "finite_pairs": 236149,
+    "J_histogram": {
+      "0": 236359,
+      "1": 12304,
+      "2": 338
+    },
+    "class_counts": {
+      "both_R_empty_J_nonempty_infinite": 10960,
+      "both_R_empty_J_empty_finite": 222329,
+      "exactly_one_R_nonempty_J_nonempty_infinite": 1636,
+      "exactly_one_R_nonempty_J_empty_finite": 13820,
+      "both_R_nonempty_J_nonempty_infinite": 46,
+      "both_R_nonempty_J_empty_infinite": 210
+    }
+  },
+  "independent_full_source_graph": {
+    "p_min": 3,
+    "p_max": 6,
+    "ordered_pair_graph_checks": 3318,
+    "max_one_sided_noJ_finite_path": 5,
+    "method": "Full exact transition graph from source triples (i,j,s), cycle detection over all odd x and both phases"
+  },
+  "sharp_five_step_witness_p6": [
+    {
+      "x": 41,
+      "residual": 6,
+      "port": 1,
+      "source": [
+        3,
+        1,
+        1
+      ],
+      "x_after": 43
+    },
+    {
+      "x": 43,
+      "residual": 40,
+      "port": 3,
+      "source": [
+        5,
+        3,
+        -1
+      ],
+      "x_after": 35
+    },
+    {
+      "x": 35,
+      "residual": 6,
+      "port": 1,
+      "source": [
+        2,
+        1,
+        -1
+      ],
+      "x_after": 33
+    },
+    {
+      "x": 33,
+      "residual": 40,
+      "port": 5,
+      "source": [
+        3,
+        5,
+        -1
+      ],
+      "x_after": 1
+    },
+    {
+      "x": 1,
+      "residual": 6,
+      "port": 1,
+      "source": [
+        3,
+        1,
+        1
+      ],
+      "x_after": 3
+    }
+  ],
+  "status": "AUTHOR_PROOF / EXACT_INTEGER_CHECKED / NOT_REVIEWED",
+  "limits": [
+    "p19 pair enumeration uses exact masks; complete phase-state graph independently checked only p3..p6",
+    "Auxiliary positive source-port observer; no native X6/TRIADIC_CLOSURE_E transfer"
+  ],
+  "next": "General prescribed residual words length>=3, cycle characterization, minimal joint signed state carrier"
+}
