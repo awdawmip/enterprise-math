@@ -1,0 +1,131 @@
+{
+  "research_id": "R762IL",
+  "date_local": "2026-11-22",
+  "task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_science_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": {
+    "research_id": "R762IK",
+    "commit": "a8d8488b137cd090dbde3d3c07c3d5ffa6a9c57c",
+    "bound": 55,
+    "dependent_lemmas": [
+      "pair-removal terminal reduction",
+      "k>=1 critical-bridge bounds",
+      "k=0 even high-count constructive cover"
+    ]
+  },
+  "theorem": {
+    "observer": "six-axis 15-Port 20-three-axis-support Euler graph",
+    "new_upper_bound_events": 54,
+    "prior_upper_bound_events": 55,
+    "quantification": "all finite nonempty legal named-event Port closed histories, all active start Ports",
+    "preserves": [
+      "positive support type set",
+      "supportwise count parity",
+      "original active Port vertex set",
+      "original designated active start Port",
+      "existence of legal Euler circuit"
+    ],
+    "not_preserved": [
+      "event order",
+      "Euler history count",
+      "signed Cell displacement",
+      "native P000 TRIADIC_CLOSURE_E dynamics",
+      "time/force/rotation"
+    ]
+  },
+  "exact_run": {
+    "language": "Python3 standard library, exact integer graph arithmetic",
+    "status": "PASS R762IL",
+    "checker": "research_notes/portable_direct/R762IL_CHECK.py",
+    "checker_bytes": 9719,
+    "checker_sha256": "34185232717fba807a95c375610027e68b586ff4e25504a6b527d489d3c08487",
+    "checker_blob_sha1": "1a1f104de013c9bc28c182c63d14bbca9902cac5",
+    "k0_total55": {
+      "histograms": 42104,
+      "orbit_representatives": 118,
+      "fam": {
+        "E5": [
+          15504,
+          43
+        ],
+        "U1E3": [
+          19380,
+          48
+        ],
+        "U2E1": [
+          3420,
+          12
+        ],
+        "M1E2": [
+          3420,
+          12
+        ],
+        "M1U1": [
+          380,
+          3
+        ]
+      },
+      "verified_event_count": 53
+    },
+    "k0_old55_high_odd": {
+      "histograms": 1560,
+      "orbit_representatives": 12,
+      "fam": {
+        "E1": [
+          20,
+          1
+        ],
+        "E3": [
+          1140,
+          7
+        ],
+        "U1E1": [
+          380,
+          3
+        ],
+        "M1": [
+          20,
+          1
+        ]
+      },
+      "verified_event_count": 53
+    },
+    "inactive_port_cases": {
+      "E5": 240,
+      "U1E3": 60,
+      "verified_event_count": 53
+    },
+    "k1_T13": {
+      "total_13_support_subsets": 77520,
+      "three_component_subsets": 60,
+      "component_size_multiset": [
+        1,
+        1,
+        13
+      ],
+      "separable_critical_cases": 60,
+      "verified_event_count": 53
+    }
+  },
+  "verification_scope": {
+    "author_checked": true,
+    "formalized": false,
+    "independent_review": "NOT_REVIEWED",
+    "model_native_lift": "PENDING"
+  },
+  "control": {
+    "authenticated_transport_subject": "sites-em-6abdec598ad48191aebece9a8232f041-rw",
+    "historical_researcher_provenance": "EM-X6-A681A5",
+    "current_researcher_capability": "UNCONFIRMED",
+    "task_read_request_id": "r3-20261122-0722-task-status-v1",
+    "task_read_final": "FAILED / SOURCE_TREE_TRUNCATED",
+    "current_owner": "UNCONFIRMED",
+    "protected_progress_written": false,
+    "activity_update_written": false
+  },
+  "next": [
+    "Check exact 53-event global upper bound or construct a valid 54-event lower witness",
+    "histogram-only constructive Euler/infeasibility certificates",
+    "P000 type-preserving closure lift"
+  ]
+}
