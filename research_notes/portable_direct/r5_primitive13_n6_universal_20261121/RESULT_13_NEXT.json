@@ -1,0 +1,218 @@
+{
+  "schema": "R5_PRIMITIVE13_N6_UNIVERSAL_V1",
+  "status": "PASS",
+  "date": "2026-11-21",
+  "input_scope": {
+    "prices": [
+      214,
+      314
+    ],
+    "labeled_hypotheses": 256,
+    "separation_certificate_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+    "predecessor_primitive13": "4520f5378832db35aabd0475f247fb24a8395f5c",
+    "predecessor_primitive11": "d43257c688c6181dc5d59cf60992eb6a31f10932"
+  },
+  "field": "Z[z]/Phi13(z) basis 1,z,...,z^11",
+  "C": "D_m + 221(1-z^11)(1-z^12)T_m; D_m=-z B'_m(z)",
+  "exceptional_threshold_residues_mod13": [
+    9,
+    10,
+    11,
+    12,
+    0
+  ],
+  "base_vectors": {
+    "9": {
+      "C_r": [
+        1734,
+        2610,
+        1523,
+        1307,
+        870,
+        641,
+        204,
+        1288,
+        851,
+        -457,
+        198,
+        424
+      ],
+      "C_r_plus13": [
+        3468,
+        5220,
+        2825,
+        1951,
+        856,
+        398,
+        -34,
+        1692,
+        818,
+        -1577,
+        175,
+        848
+      ]
+    },
+    "10": {
+      "C_r": [
+        1289,
+        1070,
+        -462,
+        -239,
+        -458,
+        207,
+        209,
+        2174,
+        1955,
+        1307,
+        646,
+        648
+      ],
+      "C_r_plus13": [
+        2578,
+        2361,
+        -482,
+        -36,
+        -253,
+        856,
+        1302,
+        5232,
+        4573,
+        3277,
+        1734,
+        1296
+      ]
+    },
+    "11": {
+      "C_r": [
+        1732,
+        1956,
+        1972,
+        1312,
+        652,
+        655,
+        1308,
+        1519,
+        638,
+        420,
+        -240,
+        -666
+      ],
+      "C_r_plus13": [
+        3464,
+        3912,
+        3502,
+        1961,
+        1083,
+        426,
+        1732,
+        1933,
+        392,
+        398,
+        -701,
+        -1332
+      ]
+    },
+    "12": {
+      "C_r": [
+        626,
+        -464,
+        -241,
+        -681,
+        -1771,
+        -1769,
+        196,
+        -23,
+        642,
+        423,
+        425,
+        -444
+      ],
+      "C_r_plus13": [
+        1473,
+        -707,
+        -261,
+        -1362,
+        -2879,
+        -2654,
+        1276,
+        838,
+        2168,
+        1509,
+        1071,
+        -888
+      ]
+    },
+    "13": {
+      "C_r": [
+        1292,
+        1089,
+        1094,
+        1749,
+        1104,
+        1330,
+        1751,
+        1093,
+        1085,
+        648,
+        -10,
+        -876
+      ],
+      "C_r_plus13": [
+        2584,
+        1957,
+        2188,
+        3056,
+        1545,
+        1776,
+        2397,
+        1081,
+        1507,
+        854,
+        -241,
+        -1752
+      ]
+    }
+  },
+  "proof_certificate": {
+    "rational_denominator_bound": "(1-t^26)^3",
+    "polynomial_numerator_degree_upper_bound": 72,
+    "complete_numerator_coefficients": 73,
+    "cyclotomic_residue_sum_identities": 26,
+    "divisibility": "1-t^26",
+    "reduced_denominator": "(1-t^26)^2",
+    "reduced_numerator_degree_upper_bound": 46,
+    "all_threshold_identity": "for r in {9,10,11,12,13}: C_(r+13k)=C_r+(k/2)C_(r+13) for even k; ((k+1)/2)C_(r+13) for odd k",
+    "nonzero_certificate": "basis coordinate 0 of both base vectors strictly positive in all five classes",
+    "independent_T_and_D_check_m": [
+      1,
+      2,
+      3,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "local_runtime_validation": "PASS"
+  },
+  "cost_period": {
+    "remainder": "O_m(N^5)",
+    "fixed_threshold_all_positive_m": 360360,
+    "previous_at_O_m_N6": {
+      "m_mod13_1_to_8": 360360,
+      "m_mod13_0_9_to_12": 27720
+    },
+    "max_pole_count_for_orders_ge15": 6
+  },
+  "review": "NOT_REVIEWED",
+  "formal_result": null,
+  "activity_source_association": "PENDING_AUTHENTICATED_ORIGINAL_SESSION"
+}
