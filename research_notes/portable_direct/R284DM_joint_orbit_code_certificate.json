@@ -1,0 +1,64 @@
+{
+  "schema": "R284DM_FOUR_ORBIT_RESIDUAL_CODE_V1",
+  "date": "2026-11-22",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED",
+  "frozen_input": {
+    "source_repository": "awdawmip/enterprise-math",
+    "source_commit": "acba2d8667903434aaa2a10720f43637fcc2421b",
+    "source_path": "research_notes/portable_direct/R284CO_spectral_witness_checker.py",
+    "source_blob_sha1": "b46e0f682b58e47c27094b4bea6fa4e55119a3ee",
+    "ordered_residues_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+    "P": 17179869143,
+    "D": [
+      1120832,
+      6,
+      13,
+      1651128
+    ],
+    "Z": [
+      0,
+      390139,
+      394465,
+      1497639
+    ],
+    "SELECT": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6
+    ]
+  },
+  "population": {
+    "states": 65536,
+    "arcs": 64,
+    "joint_orbits": 16384
+  },
+  "checks": {
+    "w_two_read_injective": true,
+    "r_two_read_injective": true,
+    "four_values_distinct_in_each_orbit": true,
+    "unordered_four_value_keys_unique": true,
+    "four_orbit_key_sha256": "fcc398115115d8f91a5aec28b00a0952decc597c2cbbc9bc43149b6889c6aaae",
+    "complete_encoded_state_count": 65536,
+    "xor_update_checked_each_state_both_generators": true
+  },
+  "statistics": {
+    "distinct_values_per_joint_orbit": {
+      "4": 16384
+    },
+    "minimum_position_offset_counts": {
+      "0": 3674,
+      "1": 3882,
+      "64": 4826,
+      "65": 4002
+    },
+    "w_pair_orientation_twist_counts": {
+      "0": 13225,
+      "1": 3159
+    }
+  },
+  "method": "Python exact integers, 65536 words times 64 arcs; all 16384 four-state orbits and their 65536 orientations; no floating point",
+  "independent_review": "NOT_REVIEWED"
+}
