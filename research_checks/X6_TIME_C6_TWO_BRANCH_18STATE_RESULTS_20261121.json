@@ -1,0 +1,58 @@
+{
+  "different_outer_gate_cells": 6,
+  "distinct_minimal_Cell_future_Markov_states": 18,
+  "distinct_physical_cells_total": 13,
+  "inner_pivot_states_sharing_same_current_Cell": 6,
+  "minimum_fixed_length_state_bits": 5,
+  "mismatches": 0,
+  "native_spatial_axes": 6,
+  "observer_horizon": "current and next native Cell, all permitted future branch choices; history observer separately",
+  "populations": {
+    "1": {
+      "all_outer_valid_C12_words": 1,
+      "branch_histories": 64,
+      "distinct_pivot_count_values": 7,
+      "macro_edges": 6,
+      "minimum_bits_ordered_branch_provenance": 6,
+      "minimum_bits_pivot_count": 3,
+      "native_microsteps": 12,
+      "pivot_visit_distribution": [
+        1,
+        6,
+        15,
+        20,
+        15,
+        6,
+        1
+      ]
+    },
+    "2": {
+      "all_outer_valid_C12_words": 1,
+      "branch_histories": 4096,
+      "distinct_pivot_count_values": 13,
+      "macro_edges": 12,
+      "minimum_bits_ordered_branch_provenance": 12,
+      "minimum_bits_pivot_count": 4,
+      "native_microsteps": 24,
+      "pivot_visit_distribution": [
+        1,
+        12,
+        66,
+        220,
+        495,
+        792,
+        924,
+        792,
+        495,
+        220,
+        66,
+        12,
+        1
+      ]
+    }
+  },
+  "schema": "X6_TIME_C6_TWO_BRANCH_MICROTIME_CERT_V1",
+  "scientific_scope": "frozen selected X6 C6 shell cycle, both shortest native branches per macroedge; no claimed physical branch-choice law",
+  "shell_cells": 6,
+  "status": "EXACT_FINITE_EXECUTED"
+}
