@@ -117,7 +117,7 @@ Finally `D(q)` has exactly five factors vanishing at zeta, namely p=228,247,266,
 
 ## Validation, model scope and next problem
 
-`VERIFY_ALLM.py` is dependency-free, integer-only arithmetic in `Z[z]/(z^19-1)`, reduced to `Z[z]/Phi_19`. The result artifact `CERTIFICATE.json` contains the 38 nonvanishing witnesses and bounded verifier outputs. A second program `VERIFY_DIRECT.py` enumerates literal seven-mask constraints for independent small-m crosschecking, and tests the 38-step second-difference recurrence beyond its finite basis. The previously committed 1..19 vectors are independently reproduced.
+`VERIFY_ALLM.py` is dependency-free, integer-only arithmetic in `Z[z]/(z^19-1)`, reduced to `Z[z]/Phi_19`. The result artifact `CERTIFICATE.json` contains the 38 nonvanishing witnesses and bounded verifier outputs. A second program `VERIFY_DIRECT.py` enumerates literal seven-mask constraints for independent small-m crosschecking, and tests the 38-step second-difference recurrence beyond its finite basis. The checker recomputes all thresholds m=1..19; exact full-vector regression is asserted for m=1,2, and the prior two-coordinate certificate is asserted for m=15,...,19. The separate literal-load checker independently verifies m=1,2,3,13,19,20,21, with an additional 44 recurrence checks.
 
 This certifies the primitive-19 necessary factor in the frozen R5 scalar model, without a new formal Result or independent mathematical review. Combining it with earlier author-derived full-threshold necessary factors 11,13,16,17 yields the **conditional, cross-result** universal factor `16*17*11*13*19=739024` at error `O_m(N^3)`. The other four derivations retain their own review states.
 
