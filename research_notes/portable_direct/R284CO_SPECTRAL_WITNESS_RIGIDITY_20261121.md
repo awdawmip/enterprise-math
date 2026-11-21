@@ -10,7 +10,7 @@ This result is confined to the auxiliary 34-bit Port observer of R284CL–R284CN
 - Coefficients \(D=(1120832,6,13,1651128)\), \(Z=(0,390139,394465,1497639)\).
 - Frozen selector \((0,1,2,4,5,6)\).
 - Finite population \(X\) consists of all 65,536 **distinct** Port residues generated from the frozen 4×4 two-valued matrices, in R284CL iteration order.
-- SHA-256 of the ordered eight-byte big-endian residues: \`b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4\`.
+- SHA-256 of the ordered eight-byte big-endian residues: `b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4`.
 - The 64 labeled circular closed arcs are \(A_j=[a_j,a_j+w_j]\pmod P\), reconstructed from the two monotone matrix extrema at each fixed six-coordinate selector.
 - Define \(\delta_j(x)=\operatorname{dist}_{circle}(x,A_j)\); let \(d_k(x)\) denote the \(k\)-th smallest of the 64 distances, **with multiplicity**. For nonempty \(Y\subseteq X\), put \(U_k(Y)=\max_{x\in Y}d_k(x)\), for \(1\leq k\leq64\).
 
@@ -48,8 +48,8 @@ Sorting is 1-Lipschitz in the sup norm, hence each \(d'_k(x)\) changes by at mos
 
 ## Exact evidence and computational scope
 
-- \`R284CO_spectral_witness_checker.py\`: stand-alone standard-library Python checker implementing the frozen determinant readout, SHA test, complete 4,194,304 distance evaluations and 63-site core recomputation.
-- \`R284CO_spectral_witness_certificate.json\`: all 64 maxima; every k≥2 winning matrix index, residue and runner-up gap; the complete 63-site certificate; smallest margin and examples.
+- `R284CO_spectral_witness_checker.py`: stand-alone standard-library Python checker implementing the frozen determinant readout, SHA test, complete 4,194,304 distance evaluations and 63-site core recomputation.
+- `R284CO_spectral_witness_certificate.json`: all 64 maxima; every k≥2 winning matrix index, residue and runner-up gap; the complete 63-site certificate; smallest margin and examples.
 - Direct exact re-enumeration also reproduces R284CN's entire 64-value spectrum. This is full finite verification under the frozen model. It is not independent peer review.
 - Compressing a *witness certificate* from 65,536 sites to 63 does not by itself provide a faster algorithm for finding these sites: this checker still searches the full frozen population.
 
