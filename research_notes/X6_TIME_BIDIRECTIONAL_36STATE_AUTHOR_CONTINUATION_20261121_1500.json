@@ -1,0 +1,100 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "local_cycle": "1500",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-369991930c5b4fddf26dbefa",
+  "run_id": "RUN-d653f1346f38369bc27f5fc5",
+  "last_verified_generation": 5,
+  "source_frozen_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "native_control_as_of": {
+    "resume": {
+      "request_id": "onhour-20261121-1400-own-native-time-resume-after-unit234-v1",
+      "status": "SUCCEEDED",
+      "authorized": true,
+      "generation": 5,
+      "claim_renewal_verified": true
+    },
+    "prior_progress": {
+      "request_id": "onhour-20261121-1315-own-time-unit232-native-progress-v1",
+      "status": "SUCCEEDED",
+      "source_commit": "2065b5b00b716ed89aafb26404759635b34438f9"
+    },
+    "pending_progress": {
+      "request_id": "onhour-20261121-1502-own-time-units233-235-native-progress-v1",
+      "last_status": "RUNNING",
+      "error": null,
+      "replay": false,
+      "semantic_units": "233-235"
+    },
+    "current_source_continuation": {
+      "request_id": "onhour-20261121-1501-x6-exact-continuation-v1",
+      "status": "SUCCEEDED",
+      "source_commit": "b6c74fe5b29c22c916d5089e5c90523512446cf5",
+      "read_grants_authority": false
+    },
+    "unit236_native_semantic_progress": "NOT_SUBMITTED_AWAIT_233_235_ORIGINAL_TERMINAL_AND_CURRENT_OWN_AUTHORITY"
+  },
+  "science": {
+    "unit236": {
+      "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / ACTIVITY236_PERSISTED / UNREVIEWED / NOT_ADMITTED",
+      "statement": "The source-possible oriented C6 two-branch primitive native microtime graph has exactly 36 minimal current+future Cell states, 48 primitive edges, 13 spatial Cells, 6 bits. The observer for at-most-two future primitive Cell steps separates all 36. Orientation-relative C12 event phase is a 12-state clock and (phase,sweep) a 24-state quotient, with static principal root ±3 only on the frozen all-OUTER lease. For W loops, bidirectional complete BRC histories number 2^(6W+1).",
+      "exact_assertions": 34144,
+      "mismatches": 0,
+      "sources": [
+        {
+          "repo": "awdawmip/enterprise-math",
+          "path": "research_notes/X6_TIME_BIDIRECTIONAL_NATIVE_C6_BRC_36STATE_20261121_1500.md",
+          "commit": "34ff072ec066773d0fc3d4cf927b1e1fdd0efbf1",
+          "sha256": "47de262fc4a22bc25667c2832f9a38bb10f76111323ff91a2fb747df4915817f",
+          "blob": "94dbaadec089ab9fa680da33d2b454aba5bcd8f6"
+        },
+        {
+          "repo": "awdawmip/enterprise-math",
+          "path": "experiments/x6_time_bidirectional_36state_20261121/check_36state.js",
+          "commit": "044c3376fdd6890ad652707800915f1dd824e3f6",
+          "sha256": "67ce26d00324fc1c2ea7c72213a6c2d386f727effde3c2709e1b0610182ded80",
+          "blob": "50058cd7f16a7dc658ad31bd5d3c23f71b7d64e8"
+        },
+        {
+          "repo": "awdawmip/enterprise-math",
+          "path": "experiments/x6_time_bidirectional_36state_20261121/results.json",
+          "commit": "b3b7824eb224567111946a53c6e23707fdcf94ea",
+          "sha256": "c6b27ccd286fecdf8c18cb1098f38c4ee8ef5753e1a52aec605b0c176378c1ad",
+          "blob": "924dd40517356f7d374bb01aa2a65b44877818a5"
+        }
+      ]
+    },
+    "prior_units_preserved": "Source-pinned 233–235 proofs/checkers/Activity235 from previous continuation @2538742c32f00b9ed09747ab7a1349e59e64cc5e. No recomputation."
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "count": 236,
+    "commit": "84dcfc6aedbd02c9dd0c59ff9d12833446e11b3c",
+    "git_blob_sha1": "0e3d4515af85bc60b09ebb18039269f4afaa9d3a",
+    "source_readback_verified": true
+  },
+  "do_not_repeat": [
+    "Original Unit232 PROGRESS is SUCCEEDED and immutable; no replay",
+    "Original pending Units233–235 request onhour-20261121-1502-own-time-units233-235-native-progress-v1 may have effects; consume original terminal and Source readback only",
+    "Units233–235 existing mathematical files and Activity235 are saved; no republishing",
+    "Unit236 note, JS checker, exact results and Activity236 already immutable GitHub saved; never rewrite same files",
+    "No physical static-root-to-fiber-clock identification; retain Unit229 exact counterexample",
+    "Original R063 six-file 17-gate benchmark belongs RS-X6-LEGACY-PLANE-RECONCILIATION; support issue #2416 unassigned, no substituted check"
+  ],
+  "evidence_debt": [
+    "No source-backed full X6 physical branch selector or native Port/triadic internal update",
+    "No verified physical C12/C24 closed-loop independent precision-fiber readout",
+    "Original Units233–235 Native PROGRESS terminal pending; Unit236 semantic checkpoint not submitted",
+    "Independent Driver research review and Result admission pending",
+    "R063 native benchmark belongs separate Task and remains unexecuted by responsible original runner"
+  ],
+  "next_exact_action": "Read original onhour-20261121-1502-own-time-units233-235-native-progress-v1 terminal; if source checkpoint published, verify live own winner, current generation and publish exactly one Unit236 native semantic PROGRESS, else preserve unknown original request and reconcile only. Continue source-based search for admissible full X6 Cell/Link/Port rotation/triad branch selection, then restrict the 36-state possibility graph and calculate exact reachable native time observer. Do not use alternative checker as original R063 benchmark.",
+  "continuation_state": "OPEN"
+}
