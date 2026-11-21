@@ -1,0 +1,273 @@
+{
+  "schema": "PREFIX993_R6_CONTEXTUAL_PROJECTIVE_X6_V1",
+  "status": "AUTHOR_ANALYTIC_PROOF_EXACT_FRACTION_CHECKED_NOT_REVIEWED",
+  "scientific_source": "P000-V5@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "Native X6 six positive primitive coordinate steps with typed finite WBRC-T30/31 port feedback; not full native Link/occupancy/time",
+  "KAPPA": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    1
+  ],
+  "RHO": [
+    1,
+    2,
+    1,
+    2,
+    3,
+    3
+  ],
+  "X_numerator": [
+    [
+      1,
+      2,
+      1,
+      3,
+      2,
+      4
+    ],
+    [
+      2,
+      1,
+      3,
+      1,
+      4,
+      2
+    ]
+  ],
+  "schur_A": "diag(1/2,1/2)",
+  "Schur_Y": "Y_h=(rho_h/100)e_{kappa_h}",
+  "Schur_X": "X_num/100",
+  "base_W": "W_hj=rho_h*X_num[kappa_h,j]/5000",
+  "base_classes": [
+    [
+      0,
+      1,
+      4
+    ],
+    [
+      2,
+      3,
+      5
+    ]
+  ],
+  "safe_context": "B_h0=rho_h/5000, other B_hj=0",
+  "safe_max_row_sum": "21/2500",
+  "safe_classes": [
+    [
+      0,
+      1,
+      4
+    ],
+    [
+      2,
+      3,
+      5
+    ]
+  ],
+  "diagonal_context": "B=I_6/5000",
+  "diagonal_max_row_sum": "1/125",
+  "diagonal_classes": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ],
+    [
+      4
+    ],
+    [
+      5
+    ]
+  ],
+  "pairwise_diagonal_minors": [
+    {
+      "row_pair": [
+        0,
+        1
+      ],
+      "minor": "3/12500000"
+    },
+    {
+      "row_pair": [
+        0,
+        2
+      ],
+      "minor": "3/12500000"
+    },
+    {
+      "row_pair": [
+        0,
+        3
+      ],
+      "minor": "-3/12500000"
+    },
+    {
+      "row_pair": [
+        0,
+        4
+      ],
+      "minor": "1/3125000"
+    },
+    {
+      "row_pair": [
+        0,
+        5
+      ],
+      "minor": "-1/2500000"
+    },
+    {
+      "row_pair": [
+        1,
+        2
+      ],
+      "minor": "9/12500000"
+    },
+    {
+      "row_pair": [
+        1,
+        3
+      ],
+      "minor": "3/25000000"
+    },
+    {
+      "row_pair": [
+        1,
+        4
+      ],
+      "minor": "11/25000000"
+    },
+    {
+      "row_pair": [
+        1,
+        5
+      ],
+      "minor": "11/25000000"
+    },
+    {
+      "row_pair": [
+        2,
+        3
+      ],
+      "minor": "3/12500000"
+    },
+    {
+      "row_pair": [
+        2,
+        4
+      ],
+      "minor": "1/1562500"
+    },
+    {
+      "row_pair": [
+        2,
+        5
+      ],
+      "minor": "1/2500000"
+    },
+    {
+      "row_pair": [
+        3,
+        4
+      ],
+      "minor": "-51/25000000"
+    },
+    {
+      "row_pair": [
+        3,
+        5
+      ],
+      "minor": "9/25000000"
+    },
+    {
+      "row_pair": [
+        4,
+        5
+      ],
+      "minor": "-19/5000000"
+    }
+  ],
+  "cross_minor_originally_shared_rows_0_1_cols_0_1": "3/12500000",
+  "checked_methods": [
+    "Python fractions.Fraction exact rational arithmetic",
+    "coefficientwise Counter histograms on native full X6 six-axis endpoint, last visible port and path weight",
+    "direct history versus 2-class delayed transfer at n=0..7 for base kernel",
+    "direct history versus 6-class delayed transfer at n=0..7 for perturbed kernel",
+    "direct versus preserved 2-class transfer under safe context at n=0..5",
+    "all 6 starting history ports",
+    "all 15 diagonal 2x2 rational minors",
+    "positive-coordinate relative endpoint common-depth reconstruction"
+  ],
+  "length7": {
+    "base": {
+      "0": {
+        "count": 279936,
+        "mass": "7180818099/78125000000000000000000000",
+        "rows": 13350
+      },
+      "1": {
+        "count": 279936,
+        "mass": "7180818099/39062500000000000000000000",
+        "rows": 13350
+      },
+      "2": {
+        "count": 279936,
+        "mass": "6589646661/78125000000000000000000000",
+        "rows": 12916
+      }
+    },
+    "diag_context": {
+      "0": {
+        "count": 279936,
+        "mass": "9146381609/78125000000000000000000000",
+        "rows": 37108
+      },
+      "1": {
+        "count": 279936,
+        "mass": "18292763217/78125000000000000000000000",
+        "rows": 38787
+      },
+      "2": {
+        "count": 279936,
+        "mass": "4196659357/39062500000000000000000000",
+        "rows": 37814
+      }
+    }
+  },
+  "relative_observer_witness": {
+    "z0": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "D": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "can6_both_zero": true,
+    "L_E_squared_D": 6,
+    "steps_D": 6
+  },
+  "limitations": [
+    "No mathematical independent review",
+    "Positive-only native X6 primitive axis skeleton, not arbitrary signed/triadic Link and Port dynamics",
+    "Port-feedback context does not create a zero-displacement Cell motion",
+    "Full named source provenance remains typed separately from histogram output"
+  ]
+}
