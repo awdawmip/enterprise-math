@@ -2,7 +2,7 @@
 
 Date: 2026-11-21 (Asia/Shanghai). Status: AUTHOR_PROVED / EXACT_INTEGER_PERIOD_CERTIFICATE / PARENT_DEPENDENT / NOT_REVIEWED / NOT_ADMITTED.
 
-**Frozen science:** BRC16943, unchanged. Parent: \`awdawmip/enterprise-math@4bc0d713421384f7590aeeb6424472fe42e5dd3e:research_notes/portable_direct/EC49FVQ_FORTY_SIX_DENOMINATOR_MESH_THEOREM.md\`. The 46-layer menu and the Bernoulli phase/projective no-root reduction are inherited *verbatim*. This note improves the numerical covering theorem using only the extra denominators accessible at the actual height \(H\). It is independent portable research, not a formal shared Task CLAIM or a Heartbeat X6 native Result.
+**Frozen science:** BRC16943, unchanged. Parent: `awdawmip/enterprise-math@4bc0d713421384f7590aeeb6424472fe42e5dd3e:research_notes/portable_direct/EC49FVQ_FORTY_SIX_DENOMINATOR_MESH_THEOREM.md`. The 46-layer menu and the Bernoulli phase/projective no-root reduction are inherited *verbatim*. This note improves the numerical covering theorem using only the extra denominators accessible at the actual height \(H\). It is independent portable research, not a formal shared Task CLAIM or a Heartbeat X6 native Result.
 
 ## Statement
 
@@ -40,11 +40,11 @@ The first value dominates. Equality in the supremum is a limiting stage bound as
 
 The inherited 46 pairs are the following 18 pairs, plus the 6 \((3,e)\) for \(2\le e\le7\), plus all \((r,e)\) with \(r\in\{47,11,23,53,27,31,29,61\}\) and \(\lceil\log_2r\rceil\le e\le7\):
 
-\`\`\`text
+```text
 (1,0),(7,3),(13,4),(1,1),(1,2),(1,3),(1,4),(7,4),
 (13,5),(7,5),(1,5),(1,6),(7,6),(13,6),(1,7),
 (7,7),(13,7),(91,7)
-\`\`\`
+```
 
 Let \(L=\operatorname{lcm}\{r:(r,e)\in\mathcal D\}=84915883381329\), \(C=2L\), and use the **exact integer observer coordinate**
 
@@ -92,7 +92,7 @@ Consequently every interval in the original phase coordinate of length exceeding
 
 ## Verification and scope
 
-Run \`python EC49FVR_ADAPTIVE_TWO_SCALE_VERIFY.py\` using only Python 3 standard-library integer/rational arithmetic. It re-derives the mod-11 predicate directly from the parent observer coefficients, compares it on **12,100** positive exponent pairs against the reduced residue test, checks **20/20** full \(j\bmod20\) stages and all 13 entrance cutoffs, and independently enumerates finite-height fractions at five heights per \(j=8,9,10,11\). Each full stage has **92,960** distinct period points after both dyadic levels are included. It returns \`ALL PASS\`. The companion output retains each stage's exact critical ratio and gap.
+Run `python EC49FVR_ADAPTIVE_TWO_SCALE_VERIFY.py` using only Python 3 standard-library integer/rational arithmetic. It re-derives the mod-11 predicate directly from the parent observer coefficients, compares it on **12,100** positive exponent pairs against the reduced residue test, checks **20/20** full \(j\bmod20\) stages and all 13 entrance cutoffs, and independently enumerates finite-height fractions at five heights per \(j=8,9,10,11\). Each full stage has **92,960** distinct period points after both dyadic levels are included. It returns `ALL PASS`. The companion output retains each stage's exact critical ratio and gap.
 
 **Evidence status:** exact exhaustive finite-period certificate plus the preceding period-reduction proof; inherited Bernoulli algebra and its no-root implication are parent-dependent; independent mathematical review, native RESULT and project admission remain pending. The finite masks are source-level arithmetic observations, not native X6 operations, so no native BRC–Shor numerical computation is claimed.
 
