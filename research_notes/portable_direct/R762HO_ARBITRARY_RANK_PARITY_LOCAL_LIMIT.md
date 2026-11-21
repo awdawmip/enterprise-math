@@ -12,7 +12,7 @@ Take a nonempty closed named-Port word $w=(P_0,\dots,P_m=P_0)$ on six distinct n
 
 Set
 - $L=\sum_t\mathbb Z h_t\subset\mathbb Z^6$, with real span $V$ and rank $r\in\{1,\dots,6\}$;
-- $M=V\cap\mathbb Z^6$ (saturated integral lattice), $q=[M:L]$, and \(\Delta=\operatorname{covol}_V$M$\);
+- $M=V\cap\mathbb Z^6$ (saturated integral lattice), $q=[M:L]$, and $\Delta=\operatorname{covol}_V(M)$;
 - $H=\sum_t h_t$ and $C=\sum_t h_t h_t^T$, a positive semidefinite $6\times6$ integer matrix of rank $r$;
 - $\operatorname{pdet}C$ is the product of the $r$ strictly positive eigenvalues of $C$.
 
@@ -46,11 +46,11 @@ In particular:
 \[
 \sum_{t,j}\varepsilon_{t,j}h_t=kH-2\sum_t n_t h_t,
 \]
-where (0\le n_t\le k) counts negative occurrences for event (t). Thus zero requires $kH\in2L$. When $k$ is even, take (n_t=k/2) for every (t), proving $Z_k>0$.
+where $0\le n_t\le k$ counts negative occurrences for event $t$. Thus zero requires $kH\in2L$. When $k$ is even, take $n_t=k/2$ for every $t$, proving $Z_k>0$.
 
-If $H\in2L$, choose fixed integers (a_t) with (\sum_t a_t h_t=H/2). For sufficiently large odd $k$, let (n_t=(k-1)/2+a_t); all $n_t$ then lie in ([0,k]), and (kH-2\sum_t n_t h_t=0). This proves eventual odd-repetition signability without analytic assumptions.
+If $H\in2L$, choose fixed integers $a_t$ with $\sum_t a_t h_t=H/2$. For sufficiently large odd $k$, let $n_t=(k-1)/2+a_t$; all $n_t$ then lie in $[0,k]$, and $kH-2\sum_t n_t h_t=0$. This proves eventual odd-repetition signability without analytic assumptions.
 
-**Saturated coordinates.** Choose an integer basis (B\in\mathbb Z^{6\times r}) of $M$. Because (M\subset\mathbb Z^6) is saturated, its basis extends to a unimodular integral basis of \(\mathbb Z^6\). Each (h_t=B a_t) with (a_t\in\mathbb Z^r), and \(A=\sum_t a_t a_t^T\) is positive definite. The transformed integer lattice \(\sum_t\mathbb Za_t\) has index $q$ in \(\mathbb Z^r\). With (C=B A B^T),
+**Saturated coordinates.** Choose an integer basis $B\in\mathbb Z^{6\times r}$ of $M$. Because $M\subset\mathbb Z^6$ is saturated, its basis extends to a unimodular integral basis of \(\mathbb Z^6\). Each $h_t=B a_t$ with $a_t\in\mathbb Z^r$, and \(A=\sum_t a_t a_t^T\) is positive definite. The transformed integer lattice \(\sum_t\mathbb Za_t\) has index $q$ in \(\mathbb Z^r\). With $C=B A B^T$,
 \[
 \operatorname{pdet}C=\det(A)\det(B^TB)=\det(A)\Delta^2.
 \]
@@ -60,21 +60,21 @@ If $H\in2L$, choose fixed integers (a_t) with (\sum_t a_t h_t=H/2). For sufficie
 \frac{Z_k}{2^{mk}}=(2\pi)^{-r}\int_{[-\pi,\pi]^r}
 \left[\prod_t\cos\langle a_t,\theta\rangle\right]^k d\theta.
 \]
-The absolute maxima are exactly the annihilator of (2\sum_t\mathbb Z a_t), a finite character group of order (2^r q). At any maximum (\theta_0), the integrand's base sign is (e^{i\langle \sum_t a_t,\theta_0\rangle}\in\{\pm1\}). Thus the sum of maximum phases after $k$ repetitions is the character sum
+The absolute maxima are exactly the annihilator of $2\sum_t\mathbb Z a_t$, a finite character group of order $2^r q$. At any maximum $\theta_0$, the integrand's base sign is $e^{i\langle \sum_t a_t,\theta_0\rangle}\in\{\pm1\}$. Thus the sum of maximum phases after $k$ repetitions is the character sum
 \[
 \sum_{\theta_0}e^{ik\langle\sum_t a_t,\theta_0\rangle}
 =\begin{cases}2^r q,&kH\in2L,\\0,&kH\notin2L.\end{cases}
 \]
-The zero case also follows from the exact coset proof. In the allowed case all (2^r q) maxima contribute with the **same positive phase**.
+The zero case also follows from the exact coset proof. In the allowed case all $2^r q$ maxima contribute with the **same positive phase**.
 
 Near each maximum (\theta_0+u),
 \[
 \log\big|\prod_t\cos\langle a_t,\theta_0+u\rangle\big|
 =-\tfrac12u^T A u+O(\|u\|^4).
 \]
-Gaussian integration gives \((2\pi/k)^{r/2}/\sqrt{\det A}\) at each maximum, with relative error (O(k^{-1})). Away from their neighborhoods the modulus is bounded below one. Substituting \(1/\sqrt{\det A}=\Delta/\sqrt{\operatorname{pdet}C}\) proves the formula. QED.
+Gaussian integration gives \((2\pi/k)^{r/2}/\sqrt{\det A}\) at each maximum, with relative error $O(k^{-1})$. Away from their neighborhoods the modulus is bounded below one. Substituting \(1/\sqrt{\det A}=\Delta/\sqrt{\operatorname{pdet}C}\) proves the formula. QED.
 
-The *lattice index* $q$, *saturated covolume* \(\Delta\), *integral parity class* (H+2L), and *rank* $r$ are separately necessary data. Replacing the six-dimensional determinant by a pseudodeterminant alone would lose \(\Delta\).
+The *lattice index* $q$, *saturated covolume* \(\Delta\), *integral parity class* $H+2L$, and *rank* $r$ are separately necessary data. Replacing the six-dimensional determinant by a pseudodeterminant alone would lose \(\Delta\).
 
 ## Exact closed-Port special families
 
@@ -92,9 +92,9 @@ Use the **same** R762HK/R762HN 14-event closed Port word:
 
 `01→15→12→25→24→04→05→03→04→24→23→25→35→05→01`.
 
-R762HN proved \(L=\{x\in\mathbb Z^6:\sum_i x_i\equiv0\pmod3\}\) using a determinant -3 minor and the 3-ones-column rule, so (q=3), $r=6$, and \(\det C=3456\).
+R762HN proved \(L=\{x\in\mathbb Z^6:\sum_i x_i\equiv0\pmod3\}\) using a determinant -3 minor and the 3-ones-column rule, so $q=3$, $r=6$, and \(\det C=3456\).
 
-The support total is (H=(8,4,8,6,6,10)). Its half is the integer vector \((4,2,4,3,3,5)\), with coordinate sum 21 divisible by 3; hence **$H\in2L$**. Therefore the previous even-$k$ asymptotic now extends to **every positive integer $k\to\infty$**:
+The support total is $H=(8,4,8,6,6,10)$. Its half is the integer vector \((4,2,4,3,3,5)\), with coordinate sum 21 divisible by 3; hence **$H\in2L$**. Therefore the previous even-$k$ asymptotic now extends to **every positive integer $k\to\infty$**:
 \[
 \boxed{Z_k=\frac{2^{14k}}{\pi^3\sqrt6\,k^3}(1+O(k^{-1})),\qquad k\to\infty\ \text{without a parity restriction}.}
 \]
