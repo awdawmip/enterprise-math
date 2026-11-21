@@ -1,0 +1,108 @@
+{
+  "status": "ALL PASS",
+  "source": "BRC16943 frozen P10 four-fiber decoder + original mod11 linear exclusion",
+  "P10_cells": 44,
+  "primitive_directions": 72,
+  "census": {
+    "D0": 8,
+    "D2_N1_P2": 24,
+    "D2_N2_2P2": 24,
+    "D2_N4_2P3": 16
+  },
+  "full_mod110_direction_class_lifts": {
+    "one_hole_per_P10_class": 110,
+    "constant_per_P10_class": 10,
+    "total": 8640
+  },
+  "full_110_sample_cases": {
+    "1/2": {
+      "F": 10,
+      "D10": 0,
+      "N10": 1,
+      "D110": 0,
+      "N110": 1,
+      "edges": 0,
+      "base_components": []
+    },
+    "1/7": {
+      "F": 10,
+      "D10": 2,
+      "N10": 2,
+      "D110": 20,
+      "N110": 2,
+      "edges": 20,
+      "base_components": [
+        2,
+        2
+      ]
+    },
+    "1/10": {
+      "F": 11,
+      "D10": 2,
+      "N10": 1,
+      "D110": 22,
+      "N110": 11,
+      "edges": 121,
+      "base_components": [
+        2
+      ]
+    },
+    "5/6": {
+      "F": 11,
+      "D10": 0,
+      "N10": 1,
+      "D110": 0,
+      "N110": 11,
+      "edges": 0,
+      "base_components": []
+    },
+    "2/9": {
+      "F": 11,
+      "D10": 2,
+      "N10": 1,
+      "D110": 22,
+      "N110": 11,
+      "edges": 121,
+      "base_components": [
+        2
+      ]
+    },
+    "3/11": {
+      "F": 10,
+      "D10": 2,
+      "N10": 2,
+      "D110": 20,
+      "N110": 2,
+      "edges": 20,
+      "base_components": [
+        2,
+        2
+      ]
+    },
+    "7/17": {
+      "F": 10,
+      "D10": 2,
+      "N10": 2,
+      "D110": 20,
+      "N110": 2,
+      "edges": 20,
+      "base_components": [
+        2,
+        2
+      ]
+    },
+    "13/22": {
+      "F": 10,
+      "D10": 2,
+      "N10": 1,
+      "D110": 20,
+      "N110": 1,
+      "edges": 10,
+      "base_components": [
+        2
+      ]
+    }
+  },
+  "verification": "exact integer arithmetic; 72 mod10 direction classes; 8 full 110-position masks, all optimal centers and signed mismatches",
+  "scope": "Auxiliary certificate model; inherited upstream reduction and global moving Farey problem not re-proved."
+}
