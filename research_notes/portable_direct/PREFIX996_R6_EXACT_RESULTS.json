@@ -1,0 +1,160 @@
+{
+  "schema": "PREFIX996_OUTER_GRADE_COLLISION_EXACT_V1",
+  "status": "AUTHOR_PROOF_EXACT_INTEGER_CHECKED_NOT_REVIEWED",
+  "frozen_p000": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "stage46": "research_notes/BRC_HEARTBEAT_PORT_UPDATE_LOCALIZED_MODE_20260923_92DA92.md",
+  "exact_formula": "M_n=A_6(n-1)/(6*36**(n-1))",
+  "recurrence": "A_1(m)=1; A_d(m)=sum_{k=0}^m binom(m,k)^2 A_(d-1)(m-k)",
+  "asymptotic": "M_n ~ 9/(8*pi^(5/2))*n^(-5/2)",
+  "covariance_eigenvalues": [
+    "1/3 (multiplicity 4)",
+    "1/18 (multiplicity 1)"
+  ],
+  "covariance_determinant": "1/1458",
+  "max_n_exact": 61,
+  "selected_rows": [
+    {
+      "n": 1,
+      "coherent_pair_count": "6",
+      "denominator": "36",
+      "exact_fraction": "1/6",
+      "float_value": 0.16666666666666666
+    },
+    {
+      "n": 2,
+      "coherent_pair_count": "36",
+      "denominator": "1296",
+      "exact_fraction": "1/36",
+      "float_value": 0.027777777777777776
+    },
+    {
+      "n": 3,
+      "coherent_pair_count": "396",
+      "denominator": "46656",
+      "exact_fraction": "11/1296",
+      "float_value": 0.008487654320987654
+    },
+    {
+      "n": 4,
+      "coherent_pair_count": "5976",
+      "denominator": "1679616",
+      "exact_fraction": "83/23328",
+      "float_value": 0.0035579561042524007
+    },
+    {
+      "n": 5,
+      "coherent_pair_count": "109836",
+      "denominator": "60466176",
+      "exact_fraction": "113/62208",
+      "float_value": 0.0018164866255144033
+    },
+    {
+      "n": 6,
+      "coherent_pair_count": "2304936",
+      "denominator": "2176782336",
+      "exact_fraction": "3557/3359232",
+      "float_value": 0.0010588729804907788
+    },
+    {
+      "n": 7,
+      "coherent_pair_count": "53089416",
+      "denominator": "78364164096",
+      "exact_fraction": "737353/1088391168",
+      "float_value": 0.0006774705838112792
+    },
+    {
+      "n": 8,
+      "coherent_pair_count": "1308244176",
+      "denominator": "2821109907456",
+      "exact_fraction": "3028343/6530347008",
+      "float_value": 0.0004637338561473271
+    },
+    {
+      "n": 10,
+      "coherent_pair_count": "913528004616",
+      "denominator": "3656158440062976",
+      "exact_fraction": "12687888953/50779978334208",
+      "float_value": 0.00024986007023269615
+    },
+    {
+      "n": 20,
+      "coherent_pair_count": "529710673870418672112695856",
+      "denominator": "13367494538843734067838845976576",
+      "exact_fraction": "1226182115440783963223833/30943274395471606638515847168",
+      "float_value": 0.000039626773164647034
+    },
+    {
+      "n": 40,
+      "coherent_pair_count": "1191099049546214288225488809060608147295926431057636445856",
+      "denominator": "178689910246017054531432477289437798228285773001601743140683776",
+      "exact_fraction": "51058772700026332657128292569470513858707408738753277/7659889842507589786155370254176860349292085605349868961792",
+      "float_value": 0.000006665731981768476
+    },
+    {
+      "n": 61,
+      "coherent_pair_count": "196294065376136826817589677427104864308925552635514912859905694554080298152269977653839136",
+      "denominator": "85990910376963959192066473501852790909859449754411270275114275176943066770808840203664292315136",
+      "exact_fraction": "227192205296454660668506571096186185542737908142957075069335294622778122861423585247499/99526516640004582398225085071588878367892881660198229485085966639980401355102824309796634624",
+      "float_value": 0.000002282730401569535
+    }
+  ],
+  "brute_force_checks": [
+    {
+      "n": 1,
+      "enumerated_named_words": 6,
+      "enumerated_fibers": 6,
+      "observed_pair_count": 6,
+      "recurrence_pair_count": 6
+    },
+    {
+      "n": 2,
+      "enumerated_named_words": 36,
+      "enumerated_fibers": 36,
+      "observed_pair_count": 36,
+      "recurrence_pair_count": 36
+    },
+    {
+      "n": 3,
+      "enumerated_named_words": 216,
+      "enumerated_fibers": 126,
+      "observed_pair_count": 396,
+      "recurrence_pair_count": 396
+    },
+    {
+      "n": 4,
+      "enumerated_named_words": 1296,
+      "enumerated_fibers": 336,
+      "observed_pair_count": 5976,
+      "recurrence_pair_count": 5976
+    },
+    {
+      "n": 5,
+      "enumerated_named_words": 7776,
+      "enumerated_fibers": 756,
+      "observed_pair_count": 109836,
+      "recurrence_pair_count": 109836
+    },
+    {
+      "n": 6,
+      "enumerated_named_words": 46656,
+      "enumerated_fibers": 1512,
+      "observed_pair_count": 2304936,
+      "recurrence_pair_count": 2304936
+    },
+    {
+      "n": 7,
+      "enumerated_named_words": 279936,
+      "enumerated_fibers": 2772,
+      "observed_pair_count": 53089416,
+      "recurrence_pair_count": 53089416
+    }
+  ],
+  "asymptotic_ratio_to_constant": {
+    "4": 1.7704053908768342,
+    "8": 1.3053168091917144,
+    "12": 1.1828629960043282,
+    "20": 1.102264593294464,
+    "40": 1.048865945522244,
+    "61": 1.0315763327275738
+  }
+}
