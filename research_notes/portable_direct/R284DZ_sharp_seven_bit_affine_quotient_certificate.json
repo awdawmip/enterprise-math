@@ -1,0 +1,115 @@
+{
+  "schema": "R284DZ_SHARP_SEVEN_BIT_AFFINE_QUOTIENT_V1",
+  "scope": "Frozen R284CO auxiliary Port; original 65536 source states; no native-X6 transfer",
+  "scientific_status": "AUTHOR_PROVED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED",
+  "frozen_source": "awdawmip/enterprise-math@acba2d8667903434aaa2a10720f43637fcc2421b:research_notes/portable_direct/R284CO_spectral_witness_checker.py",
+  "frozen_git_blob_sha1": "b46e0f682b58e47c27094b4bea6fa4e55119a3ee",
+  "frozen_codeword_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "dependency": "R284DX exact 64-core quotient table, already full-population checked",
+  "supersedes_in_cost": "R284DY 9-bit affine existence; old artifact preserved",
+  "P": 17179869143,
+  "states_checked": 65536,
+  "core_cells": 64,
+  "coefficients": {
+    "u": 13788,
+    "p1": -4799,
+    "p2": -4854,
+    "constant": 14
+  },
+  "shift_bits": 7,
+  "divisor": 128,
+  "core_quotient_margins_min": [
+    0,
+    2
+  ],
+  "exceptional_core_key": 63,
+  "exceptional_threshold": 49460843262697,
+  "exceptional_quotient_2878_count": 446,
+  "exceptional_quotient_2879_count": 578,
+  "no_smaller_power_two_shift_certificate": {
+    "anchor_keys": [
+      3,
+      26,
+      61,
+      63
+    ],
+    "no_go_keys": [
+      3,
+      26,
+      37,
+      43,
+      61,
+      63
+    ],
+    "inverse_numerator_denom": 926,
+    "inverse_numerator_rows": [
+      [
+        24,
+        -2,
+        70,
+        -92
+      ],
+      [
+        34,
+        -80,
+        22,
+        24
+      ],
+      [
+        -132,
+        11,
+        78,
+        43
+      ],
+      [
+        -260,
+        2028,
+        -4308,
+        3466
+      ]
+    ],
+    "necessary_integer_bounds": [
+      [
+        6888,
+        6900
+      ],
+      [
+        -2404,
+        -2394
+      ],
+      [
+        -2435,
+        -2418
+      ],
+      [
+        -292,
+        391
+      ]
+    ],
+    "triples_examined": 2574,
+    "feasible_integer_triples": 0,
+    "minimum_interval_disjointness": 1,
+    "closest_triple_with_G_bounds": [
+      6894,
+      -2400,
+      -2427,
+      20,
+      19
+    ],
+    "power_two_denominators_ruled_out": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "argument": "A solution with denominator 2^s<=64 scales to a denominator-64 solution; six witness rows exclude denominator 64."
+  },
+  "minimal_shift_claim_scope": "integer affine coefficients in exactly (u,p1,p2,1) with denominator a nonnegative power of two; the 64-core quotient without state-specific correction",
+  "all_state_quotient_and_residue_equal_pinned_exact_division": true,
+  "ordered_residue_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "all_exact_checks_passed": true,
+  "independent_review": "NOT_REVIEWED"
+}
