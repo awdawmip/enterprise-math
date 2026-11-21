@@ -1,0 +1,178 @@
+{
+  "schema": "R762HQ_PORT_SMITH_COVOLUME_EVIDENCE_V1",
+  "status": "AUTHOR_PROVED_NOT_REVIEWED",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "scientific_input_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "antecedent": "R762HP@695627b72324874ec7e47698f9111296b0cc9815",
+  "model": "ordered 3-subsets of six labeled X6 axes with successive overlap >=2, including named Port closed walks",
+  "result": {
+    "rank": "r=7-c",
+    "saturation_index": "q=gcd(component intersection counts b_j) in {1,3}",
+    "nonzero_smith": "1^(r-1),q",
+    "full_rank": "q=3, Smith=(1,1,1,1,1,3)",
+    "covolume": "vol(L)^2=(product s_j)*(sum b_j^2/s_j)",
+    "k_saturation": "L intersect kZ^6=kL for gcd(k,3)=1"
+  },
+  "verification": {
+    "command": "g++ -O3 -std=c++17 -Wall -Wextra -pedantic R762HQ_PORT_LATTICE_SMITH_CHECK.cpp -o r762hq && ./r762hq",
+    "result": "PASS",
+    "enumeration": "all closed 2-Port walks from Port 01, lengths 2,4,6,8",
+    "counts": [
+      {
+        "m": 2,
+        "closed": 8,
+        "parity_even": 8,
+        "q1": 8,
+        "q3": 0,
+        "rank_hist_1_to_6": [
+          8,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "q3_by_rank": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "m": 4,
+        "closed": 288,
+        "parity_even": 168,
+        "q1": 264,
+        "q3": 24,
+        "rank_hist_1_to_6": [
+          24,
+          96,
+          144,
+          24,
+          0,
+          0
+        ],
+        "q3_by_rank": [
+          0,
+          0,
+          0,
+          24,
+          0,
+          0
+        ]
+      },
+      {
+        "m": 6,
+        "closed": 17536,
+        "parity_even": 4960,
+        "q1": 12640,
+        "q3": 4896,
+        "rank_hist_1_to_6": [
+          88,
+          1008,
+          4200,
+          6960,
+          4560,
+          720
+        ],
+        "q3_by_rank": [
+          0,
+          0,
+          0,
+          1008,
+          3168,
+          720
+        ]
+      },
+      {
+        "m": 8,
+        "closed": 1118720,
+        "parity_even": 177536,
+        "q1": 533576,
+        "q3": 585144,
+        "rank_hist_1_to_6": [
+          344,
+          8256,
+          71472,
+          278040,
+          494592,
+          266016
+        ],
+        "q3_by_rank": [
+          0,
+          0,
+          0,
+          27864,
+          291264,
+          266016
+        ]
+      }
+    ],
+    "exact_symbolic_smith_checks": [
+      {
+        "port_word": "01->12->23->03->01",
+        "rank": 4,
+        "nonzero_smith": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "H": [
+          3,
+          3,
+          3,
+          3,
+          0,
+          0
+        ]
+      },
+      {
+        "port_word": "01->12->02->12->01",
+        "rank": 1,
+        "nonzero_smith": [
+          1
+        ],
+        "H": [
+          4,
+          4,
+          4,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "port_word": "01->15->12->25->24->04->05->03->04->24->23->25->35->05->01",
+        "rank": 6,
+        "nonzero_smith": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          3
+        ],
+        "H": [
+          8,
+          4,
+          8,
+          6,
+          6,
+          10
+        ]
+      }
+    ]
+  },
+  "boundaries": {
+    "evidence_scope": "author proof all finite words; finite enumerations independent spot-check only",
+    "further_open": "bounded one-word positive-source half-degree signability",
+    "primitive_dynamics": "TRIADIC_CLOSURE_E not constructed",
+    "review": "NOT_REVIEWED",
+    "claim": "no canonical CLAIM or native PROGRESS asserted"
+  },
+  "source_scope": "candidate composite Port/Cell events; positive integer BRC sources, no signed mass cancellation"
+}
