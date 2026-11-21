@@ -1,0 +1,53 @@
+{
+  "schema": "SHORT_PARENT_FARKAS_V1",
+  "frame": 1,
+  "free_mask": "42530094669151494283638320240101682939",
+  "allowed_parent_masks": [
+    "3828484616226407735500493291776",
+    "5197367481499654474789033745584132",
+    "83157881853269806618465639732371456",
+    "498460538072111517443319994125419090",
+    "21279695921547711191799592762325598208"
+  ],
+  "union_mask": "21866515537439208396743902930422264662",
+  "center_mask": "21267647932558956198059931878574555136",
+  "point_rule": "1_U - 3*1_Z, values -2,0,1",
+  "prescribed_types": [
+    [
+      9,
+      557,
+      2
+    ],
+    [
+      10,
+      744,
+      5
+    ],
+    [
+      11,
+      936,
+      2
+    ],
+    [
+      11,
+      944,
+      1
+    ]
+  ],
+  "type_multipliers": [
+    -1,
+    -2,
+    -8,
+    -8
+  ],
+  "parent_forbidden_weight_multiplier": 6,
+  "parent_cut": "-sum(x_C for forbidden size-11 parent columns) >= 0",
+  "negative_constant": -10,
+  "all_column_inequalities": "Proper columns checked in complete native orbits; all embedded 11-subsets follow from the 250-mother intersection histogram.",
+  "review_status": "NOT_REVIEWED",
+  "optional_complete_bank_column_check": {
+    "candidates": 7953,
+    "forbidden_columns": 2286,
+    "minimum_integer_column_slack": 0
+  }
+}

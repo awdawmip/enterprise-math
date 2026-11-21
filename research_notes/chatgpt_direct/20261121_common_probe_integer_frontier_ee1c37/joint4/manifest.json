@@ -1,0 +1,115 @@
+{
+  "schema": "COMMON_PROBE_FOUR_FIBER_INCREMENT_V1",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "7c8fee0cf1f07373d653f20fb138772e8b98464676a32ebf950a7eb5fe516250"
+    },
+    {
+      "path": "checks/coordinate_parity.json",
+      "sha256": "875c5e3ffe296ed83c2cc4fad894892084d2178df2e88657b373c8069f4d4ba8"
+    },
+    {
+      "path": "checks/direct_verification.json",
+      "sha256": "9e1a1e33830b1d9e0d1aef76df0afb5c1cb95cecfdc5e523b8d628d5164d2968"
+    },
+    {
+      "path": "checks/old_coordinate_parity_1.json",
+      "sha256": "0f7fc91e617fe4e931472acc8782a5bedf7ba7e8982dd80bde5aaca1ae52f519"
+    },
+    {
+      "path": "checks/old_coordinate_parity_2.json",
+      "sha256": "f2105f12df779f67365dc21779ac9b5b63d4a4e62f821ab59d726e383a573a63"
+    },
+    {
+      "path": "checks/xor_verification.json",
+      "sha256": "d545709d0aeb9bc4edf8241afefe3e8c7ae08c58832062edbf3d7e85f3377d66"
+    },
+    {
+      "path": "cover_2.json",
+      "sha256": "688cc132b50d235d4781b58d0b86c6485e21f03dcd4f08f44c38ac40b87f8e68"
+    },
+    {
+      "path": "discovery/cuts_2.json",
+      "sha256": "0a6040eb3a7ecfb76ad1508b125bf50a19bda0195f783ae9f27cf86e69e2242c"
+    },
+    {
+      "path": "discovery/floating_feasible_2.json",
+      "sha256": "5b7c06fa785f505c4f493661bfe924939e46f359208deb7df295703995af5430"
+    },
+    {
+      "path": "discovery/history_2.json",
+      "sha256": "d2a45a205707859e320d53eb6897f26f069acc0d24320c8ed1958b03d319e404"
+    },
+    {
+      "path": "discovery/inputs.json",
+      "sha256": "0ef706e0ec6b739deca0042b39182ac29bc0af0db42c94cd5199dbcb39c82ade"
+    },
+    {
+      "path": "discovery/recovery_verification.json",
+      "sha256": "e3b3ebcdc2afd275a46d46e20b2282f5d3692f3004967a1e521040ec93432f4c"
+    },
+    {
+      "path": "discovery/vertex_2.json",
+      "sha256": "a4689968af92e9601aa6ca3ffff1dbc2fc87868fd4c694c4fbfb749c17ac68fc"
+    },
+    {
+      "path": "replay.py",
+      "sha256": "f02e4ae85b8d2cad5569ec47fb1b4f6c8e50454397a9736ef321282e35c3cf4b"
+    },
+    {
+      "path": "separate_coordinate_parity.py",
+      "sha256": "83118196bec6a348e1de1e3ee19186f8a326aa9884e01f391c10a5bfe6af46b8"
+    },
+    {
+      "path": "verify_four_fiber_separator.py",
+      "sha256": "ab1982778fa65a6668f33d9b61f2ec9e692a57f9ab37a728c495701caf244b25"
+    },
+    {
+      "path": "verify_new_survivor.py",
+      "sha256": "0c37c3247e44407b93263bd70b1d05274b47543989bab0a3b95d13947329a55a"
+    }
+  ],
+  "dependencies": [
+    {
+      "root": "integer_cuts",
+      "path": "all_joint_exact/cover_1.json",
+      "sha256": "8989c9ab239b1a8d3c6d37c371fb0de856975cf21fc16722b1bcd72bcff6c323"
+    },
+    {
+      "root": "integer_cuts",
+      "path": "all_joint_exact/cover_2.json",
+      "sha256": "f411ba7d7d45af6f4ca8531d36563bb712a9aca7e9561651e741a7b816396969"
+    },
+    {
+      "root": "integer_cuts",
+      "path": "parallel_family.py",
+      "sha256": "d337e509ebad67ec78a8023b8ed1710d863fca1ac6120af095366f151e2a52f5"
+    },
+    {
+      "root": "integer_cuts",
+      "path": "modular_fibers.py",
+      "sha256": "a65aeb51324c4087ac79cb2ce7c687e779558cd045b601ef6cbd4ae48e49c534"
+    },
+    {
+      "root": "integer_cuts",
+      "path": "joint_axes.py",
+      "sha256": "71658940d5ed7bffc7318acd869a83733063778735d499626ad2f73bd71131ab"
+    },
+    {
+      "root": "integer_cuts",
+      "path": "portable/verify_integer_xor.py",
+      "sha256": "1637e555e2a1ce95b211e1f77de8132960142e63206a6fdd4254933770b38a44"
+    },
+    {
+      "root": "integer_cuts",
+      "path": "portable/integer_xor.cpp",
+      "sha256": "62f7c0dae044b0c01765073adb23d00c4adce24909eec97dce5699c3cdcec4b2"
+    },
+    {
+      "root": "previous",
+      "path": "fractional/proof/verify.py",
+      "sha256": "ee62c5b48d34e3ceeb67bd3c2aa2c5ce34645026c81e03e7bf93e9ee24ef2397"
+    }
+  ]
+}

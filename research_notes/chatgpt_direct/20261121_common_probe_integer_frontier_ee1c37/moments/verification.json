@@ -1,0 +1,189 @@
+{
+  "families": [
+    {
+      "type": [
+        9,
+        557
+      ],
+      "classes": 24000,
+      "representatives_native_checked": 2,
+      "centered_cross_moment_values": 36
+    },
+    {
+      "type": [
+        10,
+        744
+      ],
+      "classes": 12000,
+      "representatives_native_checked": 2,
+      "centered_cross_moment_values": 6
+    },
+    {
+      "type": [
+        10,
+        768
+      ],
+      "classes": 1500,
+      "representatives_native_checked": 1,
+      "centered_cross_moment_values": 6
+    },
+    {
+      "type": [
+        11,
+        944
+      ],
+      "classes": 12000,
+      "representatives_native_checked": 1,
+      "centered_cross_moment_values": 12
+    }
+  ],
+  "native_representatives_checked": 6,
+  "moment_classes_checked": 49500,
+  "sumset_tables": {
+    "nine": [
+      {
+        "ten_classes": 0,
+        "reachable": 36,
+        "zero_reachable": false
+      },
+      {
+        "ten_classes": 1,
+        "reachable": 102,
+        "zero_reachable": false
+      },
+      {
+        "ten_classes": 2,
+        "reachable": 124,
+        "zero_reachable": false
+      },
+      {
+        "ten_classes": 3,
+        "reachable": 125,
+        "zero_reachable": true
+      },
+      {
+        "ten_classes": 4,
+        "reachable": 125,
+        "zero_reachable": true
+      }
+    ],
+    "eleven_944": [
+      {
+        "ten_classes": 0,
+        "reachable": 12,
+        "zero_reachable": false
+      },
+      {
+        "ten_classes": 1,
+        "reachable": 60,
+        "zero_reachable": false
+      },
+      {
+        "ten_classes": 2,
+        "reachable": 110,
+        "zero_reachable": false
+      },
+      {
+        "ten_classes": 3,
+        "reachable": 124,
+        "zero_reachable": false
+      },
+      {
+        "ten_classes": 4,
+        "reachable": 125,
+        "zero_reachable": true
+      }
+    ]
+  },
+  "examples": [
+    {
+      "example": "twenty_nine",
+      "points": 29,
+      "mu": [
+        1,
+        2,
+        2
+      ],
+      "centered_cross_moment": [
+        0,
+        0,
+        0
+      ],
+      "marginals": [
+        [
+          6,
+          6,
+          6,
+          6,
+          5
+        ],
+        [
+          6,
+          6,
+          6,
+          5,
+          6
+        ],
+        [
+          6,
+          6,
+          6,
+          5,
+          6
+        ]
+      ],
+      "candidate_counts": {
+        "(9, 557)": 1,
+        "(10, 744)": 1,
+        "(10, 768)": 0
+      },
+      "direct_cover_nodes": 2,
+      "direct_cover_found": false
+    },
+    {
+      "example": "forty_one",
+      "points": 41,
+      "mu": [
+        2,
+        2,
+        0
+      ],
+      "centered_cross_moment": [
+        0,
+        0,
+        0
+      ],
+      "marginals": [
+        [
+          8,
+          11,
+          7,
+          8,
+          7
+        ],
+        [
+          10,
+          8,
+          8,
+          7,
+          8
+        ],
+        [
+          8,
+          10,
+          7,
+          8,
+          8
+        ]
+      ],
+      "candidate_counts": {
+        "(10, 744)": 3,
+        "(10, 768)": 1,
+        "(11, 944)": 8
+      },
+      "direct_cover_nodes": 24,
+      "direct_cover_found": false
+    }
+  ],
+  "scope": "Exact finite observer identities and tail obstructions; no new global twelve-label lower bound."
+}

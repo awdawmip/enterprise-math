@@ -1,0 +1,59 @@
+{
+  "kind": "SAME_TEAM_SOURCE_READTHROUGH",
+  "formal_independent_review": false,
+  "review_status_unchanged": "NOT_REVIEWED",
+  "examined_package": "bias/proof",
+  "source_files_sha256": {
+    "README.md": "5ef6132f44fb968c502f4f6e178ca4e3c5c651f341dfb9c65967174cab110f24",
+    "replay.py": "9b34de4fd5da3ab64a1f2fb33063b429f156b5f2648b314c53e3bf2dfe339912",
+    "INPUT_BINDINGS.json": "ba1199b28134c75d2abdfa74ace4e1658aa16492e08deb599613e8f24ef55bf1",
+    "menu_signed.cpp": "d37b1e3d38b4d050bc680006d756aa32f532f78cb442b2cb8e8b4777e7875dde",
+    "packing_layers.cpp": "69834854a1588f72218a7e5462c7c3eff3694bfd5bd4ad36fb470c47b07b938e",
+    "packing_two_mothers.py": "1172cdf3dcbc346bb58b11d4a7975071ab8d607ec9f4d67205b2fcd641a9e00b",
+    "packing_four_mothers.py": "4982c1cdd1c046445a26c5ce6e983f173e6218429d24c3f29ba9fe9547a3c663",
+    "mixed_packing.py": "270bf94b29482a68b5817b3f0d14adf9181a271407dca14b757a2fa08f26329c",
+    "mixed_two.py": "3028a9b9696fce96391448e4dbbf704aceae08cf69ebc6e919e0e0cc1b2721c7",
+    "pack_high.py": "8e8ac4ed8492fec89a01913a79a12eb6c107cf56a3afe7887c73593cc90c0876",
+    "seven_high_embedded.cpp": "268e1c43b006cd9eca655ccc317309e222bc66411792b236c5286478d48084b1",
+    "endpoint_11825.cpp": "8fece306cf0ccd4a79580c32711d7f68da5d7290fbe586df3dbb262ff5e689c9",
+    "endpoint_11823.cpp": "ccdec356c910353beab4e0247cb04f38dc4e18271c24098af5930f5e444a31a3",
+    "endpoint_11821_a.cpp": "df990a7727cbd3d3277f56477c79c6c76974e88c7bb7bfcd6171d1162ab26f0c",
+    "endpoint_11821_b.cpp": "792288a9d06bdb03ca6c8675c01ed8c9ba0400c3c96165590eee56d7a94b39aa",
+    "exact_boundary.py": "1d8576580817225f8d712caba120e3548155342eb470801528143134228211f9",
+    "trace_spectra.cpp": "f3dbe856c0cee42ebb13039de433cf70e1a4c51405a50e44d7a03ab370e4f244",
+    "frame.cpp": "4d69a3d8e50550b6cc5cf3d4587aff0e8002193074889195fbc730d9800bd864",
+    "union.cpp": "33b6bc2d52a3f01225dcf9265912c9fe0fbd3a57d12a1f481e1712d3d8905645",
+    "verification/receipt.json": "dc66f9cec47c8789f33bdc8051da24022c577427143c2e046f40dcc086b84815"
+  },
+  "author_replay_observed_not_rerun_by_crosschecker": {
+    "complete": true,
+    "seconds": 43.37449738400028,
+    "commands": 50,
+    "new_geometric_nodes": 2489800,
+    "frame_counts": {
+      "f3_39": 15,
+      "f4_49": 690,
+      "f4_50": 325,
+      "f4_52": 35,
+      "f4_48": 1723,
+      "f3_38": 22
+    }
+  },
+  "inherited_five_full_mother_fact": {
+    "entry": "bias_envelope/README.md",
+    "scope": "Whole-domain five-full-mother completion classification; not a bounded-cost extrapolation."
+  },
+  "native_enumerator_delta": {
+    "original": "previous/previous/bias/menu.cpp",
+    "original_sha256": "40e962cb956e06747e0a5607f1a1821a40774998350e3f3f59d1c768a3d0474d",
+    "checked_changes": [
+      "bitset include and absolute-difference array",
+      "record every visited absolute delta",
+      "singleton recording",
+      "emit all supported absolute deltas instead of maximum only"
+    ],
+    "recursive_enumeration_and_normalization_unchanged": true
+  },
+  "gaps_found": [],
+  "explicit_open_boundary": "Extra ties at the two outer p endpoints remain unresolved."
+}

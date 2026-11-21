@@ -1,0 +1,10 @@
+"""Directly replay the 13 inherited old cost windows with the bias objective disabled."""
+from pathlib import Path
+import argparse,hashlib,json,subprocess,time
+p=argparse.ArgumentParser(description=__doc__);p.add_argument('--work',type=Path,required=True);p.add_argument('--inheritance',type=Path,required=True);p.add_argument('--source',type=Path,required=True);p.add_argument('--engine',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args();w=a.work.resolve();jobs=[j for j in json.loads(a.inheritance.read_text())['jobs']if 'uniform_excluded_through'in j];assert len(jobs)==13
+source_sha=hashlib.sha256(a.source.read_bytes()).hexdigest();assert source_sha=='a1e464d51aaf83b276663fcb85443b7d842b7483121f38aa685f5e8e112c33ac';records=[];start=time.time()
+for j in jobs:
+ P,E=j['P'],j['E'];frame=w/f'f{len(E)}_{sum(E)}';total=sum(1 for l in frame.open());args=[str(w/'obs'),str(w/'parent'),str(w/'B'),str(frame),','.join(map(str,P)),','.join(map(str,E)),str(j['embedded_floor']),str(j['uniform_excluded_through']),'0',str(total),'0','0',','.join(['0']*14)]
+ r=subprocess.run([str(a.engine.resolve()),*args],capture_output=True,text=True,check=True);counts=list(map(int,r.stderr.split()));assert counts[0]==total and counts[-1]==0 and not r.stdout
+ records.append({'key':j['key'],'P':P,'E':E,'uniform_excluded_through':j['uniform_excluded_through'],'q':0,'counts':counts,'frame_sha256':hashlib.sha256(frame.read_bytes()).hexdigest()});print(json.dumps(records[-1]),flush=True)
+out={'verified':True,'profiles':len(records),'q':0,'scope':'Every listed old cost window was directly exhausted without any action-bias inequality.','source_sha256':source_sha,'total_frames':sum(x['counts'][0]for x in records),'search_nodes':sum(x['counts'][1]for x in records),'class_emissions':sum(x['counts'][2]for x in records),'records':records,'elapsed_seconds':time.time()-start};a.output.write_text(json.dumps(out,indent=2,sort_keys=True)+'\n');print(json.dumps({k:v for k,v in out.items()if k!='records'}),flush=True)

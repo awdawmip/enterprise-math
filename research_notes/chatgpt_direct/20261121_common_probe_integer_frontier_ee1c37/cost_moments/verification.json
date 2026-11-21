@@ -1,0 +1,403 @@
+{
+  "schema": "LOW_COST_MOMENT_APPENDIX_V1",
+  "complete_low_cost_spectrum": {
+    "sha256": "c42e0b14760595a242864c53bb4946182b02a347a273c642e8bc03f4edae315d",
+    "bytes": 46531165,
+    "rows": 1495322,
+    "complete_costs": {
+      "9": [
+        557,
+        564,
+        569,
+        576
+      ],
+      "10": [
+        744,
+        747,
+        752,
+        768
+      ],
+      "11": [
+        936,
+        944,
+        960
+      ]
+    },
+    "raw_seed_rows_per_low_type": [
+      {
+        "size": 9,
+        "cost": 557,
+        "rows": 226
+      },
+      {
+        "size": 9,
+        "cost": 564,
+        "rows": 109
+      },
+      {
+        "size": 9,
+        "cost": 569,
+        "rows": 120
+      },
+      {
+        "size": 9,
+        "cost": 576,
+        "rows": 20
+      },
+      {
+        "size": 10,
+        "cost": 744,
+        "rows": 120
+      },
+      {
+        "size": 10,
+        "cost": 747,
+        "rows": 268
+      },
+      {
+        "size": 10,
+        "cost": 752,
+        "rows": 133
+      },
+      {
+        "size": 10,
+        "cost": 768,
+        "rows": 20
+      },
+      {
+        "size": 11,
+        "cost": 936,
+        "rows": 69
+      },
+      {
+        "size": 11,
+        "cost": 944,
+        "rows": 197
+      },
+      {
+        "size": 11,
+        "cost": 960,
+        "rows": 50
+      }
+    ]
+  },
+  "new_families": {
+    "source_bank_sha256": "5037ac43179fe73784d32e0f8011d105aeea1d0df964ef7bbfa13c7641a5f564",
+    "bank_rows": 426500,
+    "families": [
+      {
+        "type": [
+          9,
+          564
+        ],
+        "classes": 12000,
+        "orbit_sizes": [
+          12000
+        ],
+        "native_menu_checks": 12000,
+        "full_bank_set_equality": true,
+        "moment_kind": "centered_Gamma",
+        "support_name": "D",
+        "support_values": 6,
+        "classes_per_signature": 2000,
+        "canonical_class_sha256": "08427e4ade00c5caebca4a0d6636502f876c8dbaa44c152938ea4b2cc7dfaece",
+        "means_per_centered_value": 125,
+        "classes_per_centered_value_and_mean": 16
+      },
+      {
+        "type": [
+          9,
+          569
+        ],
+        "classes": 12000,
+        "orbit_sizes": [
+          12000
+        ],
+        "native_menu_checks": 12000,
+        "full_bank_set_equality": true,
+        "moment_kind": "centered_Gamma",
+        "support_name": "G",
+        "support_values": 12,
+        "classes_per_signature": 1000,
+        "canonical_class_sha256": "16ac93dab7bbe22f44d1f371eee112767c05593783f8e26d1a7e064880a65c16",
+        "means_per_centered_value": 125,
+        "classes_per_centered_value_and_mean": 8
+      },
+      {
+        "type": [
+          9,
+          576
+        ],
+        "classes": 2000,
+        "orbit_sizes": [
+          2000
+        ],
+        "native_menu_checks": 2000,
+        "full_bank_set_equality": true,
+        "moment_kind": "centered_Gamma",
+        "support_name": "H",
+        "support_values": 8,
+        "classes_per_signature": 250,
+        "canonical_class_sha256": "d7e4601f9e28fdbe59f96e41e8a5584e05a72d9adfce693e34bf25f5412d6587",
+        "means_per_centered_value": 125,
+        "classes_per_centered_value_and_mean": 2
+      },
+      {
+        "type": [
+          11,
+          960
+        ],
+        "classes": 3000,
+        "orbit_sizes": [
+          3000
+        ],
+        "native_menu_checks": 3000,
+        "full_bank_set_equality": true,
+        "moment_kind": "centered_Gamma",
+        "support_name": "{0}",
+        "support_values": 1,
+        "classes_per_signature": 3000,
+        "canonical_class_sha256": "a46a4dc4afac9ce5112056034fec421ed8fabf38777029f8ca3701ae3cdef762",
+        "means_per_centered_value": 125,
+        "classes_per_centered_value_and_mean": 24
+      },
+      {
+        "type": [
+          10,
+          752
+        ],
+        "classes": 12000,
+        "orbit_sizes": [
+          12000
+        ],
+        "native_menu_checks": 12000,
+        "full_bank_set_equality": true,
+        "moment_kind": "raw_joint_mu_Q",
+        "support_name": "T",
+        "support_values": 300,
+        "classes_per_signature": 40,
+        "canonical_class_sha256": "0ff7bc51cee9d9c665c5af9f221e161bc144c2fd046dc79e6f0ac5d40bcfeddb"
+      }
+    ],
+    "new_native_classes_checked": 41000
+  },
+  "tail_cost_bounds": {
+    "D_walk_support_sizes": [
+      1,
+      6,
+      19,
+      44,
+      85,
+      117,
+      125,
+      125
+    ],
+    "rows": [
+      {
+        "exceptional_size": 9,
+        "ten_classes": 0,
+        "baseline": 557,
+        "minimum_cost_offset_counts": [
+          {
+            "offset": 0,
+            "gamma_values": 36
+          },
+          {
+            "offset": 7,
+            "gamma_values": 6
+          },
+          {
+            "offset": 12,
+            "gamma_values": 12
+          },
+          {
+            "offset": 19,
+            "gamma_values": 8
+          },
+          {
+            "offset": 20,
+            "gamma_values": 63
+          }
+        ],
+        "ceilings_for_unknown_single_class_costs_only": true
+      },
+      {
+        "exceptional_size": 9,
+        "ten_classes": 1,
+        "baseline": 1301,
+        "minimum_cost_offset_counts": [
+          {
+            "offset": 0,
+            "gamma_values": 102
+          },
+          {
+            "offset": 3,
+            "gamma_values": 23
+          }
+        ],
+        "ceilings_for_unknown_single_class_costs_only": false
+      },
+      {
+        "exceptional_size": 9,
+        "ten_classes": 2,
+        "baseline": 2045,
+        "minimum_cost_offset_counts": [
+          {
+            "offset": 0,
+            "gamma_values": 124
+          },
+          {
+            "offset": 3,
+            "gamma_values": 1
+          }
+        ],
+        "ceilings_for_unknown_single_class_costs_only": false
+      },
+      {
+        "exceptional_size": 9,
+        "ten_classes": 3,
+        "baseline": 2789,
+        "minimum_cost_offset_counts": [
+          {
+            "offset": 0,
+            "gamma_values": 125
+          }
+        ],
+        "ceilings_for_unknown_single_class_costs_only": false
+      },
+      {
+        "exceptional_size": 9,
+        "ten_classes": 4,
+        "baseline": 3533,
+        "minimum_cost_offset_counts": [
+          {
+            "offset": 0,
+            "gamma_values": 125
+          }
+        ],
+        "ceilings_for_unknown_single_class_costs_only": false
+      },
+      {
+        "exceptional_size": 9,
+        "ten_classes": 5,
+        "baseline": 4277,
+        "minimum_cost_offset_counts": [
+          {
+            "offset": 0,
+            "gamma_values": 125
+          }
+        ],
+        "ceilings_for_unknown_single_class_costs_only": false
+      },
+      {
+        "exceptional_size": 11,
+        "ten_classes": 0,
+        "baseline": 936,
+        "minimum_cost_offset_counts": [
+          {
+            "offset": 0,
+            "gamma_values": 6
+          },
+          {
+            "offset": 8,
+            "gamma_values": 12
+          },
+          {
+            "offset": 24,
+            "gamma_values": 1
+          },
+          {
+            "offset": 25,
+            "gamma_values": 106
+          }
+        ],
+        "ceilings_for_unknown_single_class_costs_only": true
+      },
+      {
+        "exceptional_size": 11,
+        "ten_classes": 1,
+        "baseline": 1680,
+        "minimum_cost_offset_counts": [
+          {
+            "offset": 0,
+            "gamma_values": 19
+          },
+          {
+            "offset": 3,
+            "gamma_values": 98
+          },
+          {
+            "offset": 11,
+            "gamma_values": 8
+          }
+        ],
+        "ceilings_for_unknown_single_class_costs_only": false
+      },
+      {
+        "exceptional_size": 11,
+        "ten_classes": 2,
+        "baseline": 2424,
+        "minimum_cost_offset_counts": [
+          {
+            "offset": 0,
+            "gamma_values": 44
+          },
+          {
+            "offset": 3,
+            "gamma_values": 81
+          }
+        ],
+        "ceilings_for_unknown_single_class_costs_only": false
+      },
+      {
+        "exceptional_size": 11,
+        "ten_classes": 3,
+        "baseline": 3168,
+        "minimum_cost_offset_counts": [
+          {
+            "offset": 0,
+            "gamma_values": 85
+          },
+          {
+            "offset": 3,
+            "gamma_values": 40
+          }
+        ],
+        "ceilings_for_unknown_single_class_costs_only": false
+      },
+      {
+        "exceptional_size": 11,
+        "ten_classes": 4,
+        "baseline": 3912,
+        "minimum_cost_offset_counts": [
+          {
+            "offset": 0,
+            "gamma_values": 117
+          },
+          {
+            "offset": 3,
+            "gamma_values": 8
+          }
+        ],
+        "ceilings_for_unknown_single_class_costs_only": false
+      },
+      {
+        "exceptional_size": 11,
+        "ten_classes": 5,
+        "baseline": 4656,
+        "minimum_cost_offset_counts": [
+          {
+            "offset": 0,
+            "gamma_values": 125
+          }
+        ],
+        "ceilings_for_unknown_single_class_costs_only": false
+      }
+    ],
+    "two_ten_one_nine_gamma_zero_lower_bound": 2048,
+    "one_ten_one_eleven_gamma_pm2_cube_lower_bound": 1691,
+    "scope": "Universal necessary cost bounds for exactly one size-9 or size-11 class and m size-10 classes; sharp in the abstract moment relaxation for m>=1. No actual disjoint cover or attainable integer optimum is claimed."
+  },
+  "review_status": "NOT_REVIEWED",
+  "scope": "Exact finite original-observer catalogue and necessary tail-cost bounds. Native legality/cost and the completeness of the supplied original enumeration are inherited reductions; this appendix does not change the global twelve-label lower bound."
+}

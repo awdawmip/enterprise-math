@@ -1,0 +1,41 @@
+{
+  "scope": "Fixed 22-label table and its five last-coordinate-translation images, arising from the five minimum-whole-old-class-change successors of the fixed 20-label optimum followed by their unique five-history 21-to-22 upgrade.",
+  "distance": 16,
+  "old_label_budget": 22,
+  "new_label_budget": 23,
+  "old_queries": 3855,
+  "new_queries": 3570,
+  "new_partition_sizes": {
+    "5": 13,
+    "6": 10
+  },
+  "proof_layers": {
+    "at_most_four_changed_old_five_point_parts": "9109 regions, 5418 packings, 17040 old/new label assignments; all retain at most 109 histories.",
+    "five_changed_old_five_point_parts_at_distance_at_most_15": {
+      "status": "EXHAUSTED",
+      "budget": 15,
+      "eligible_new_classes": 3029,
+      "completed": 3029,
+      "nodes": 29132
+    }
+  },
+  "bank_provenance": {
+    "source_repository": "awdawmip/enterprise-math",
+    "source_commit": "e9ab7dda85588ee6767fdbce6786a27b8729a01e",
+    "source_path": "research_notes/chatgpt_direct/20261119_common_probe_eleven_exact/nesting/bank.cpp",
+    "scope": "Established complete minimum-cost class bank for five- and six-point classes; replay.py --rebuild-bank regenerates it from the previous native menu package."
+  },
+  "witness_files": [
+    "witness23.json",
+    "native23.json"
+  ],
+  "review_status": "AUTHOR_CHECKED_WITH_SAME_TEAM_PROOF_INSPECTION; NO_INDEPENDENT_PROJECT_ADMISSION",
+  "verification": {
+    "standalone_replay": "PASS",
+    "original_menu_class_bank_regeneration": "PASS",
+    "original_program_all_31250_inputs": "PASS",
+    "full_raw_three_unit_paths": 34,
+    "integer_assignment_dual": "PASS",
+    "all_minimum_classes_translation_invariance": "PASS"
+  }
+}

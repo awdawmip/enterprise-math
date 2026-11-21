@@ -1,0 +1,60 @@
+{
+  "status": "EXHAUSTED_NO_DISTANCE_BELOW_16",
+  "old_labels": 22,
+  "target_labels": 23,
+  "five_point_bank": 3300,
+  "six_point_bank": 12000,
+  "six_point_classes_have_unique_five_point_subclass": true,
+  "changed_five_point_part_requires_at_least_two_incoming_histories": true,
+  "maximum_changed_old_five_point_parts": 4,
+  "layers": [
+    {
+      "regions": 1,
+      "changed_old_five_point_parts": 0,
+      "hall_cardinality_pairs": {}
+    },
+    {
+      "regions": 22,
+      "changed_old_five_point_parts": 1,
+      "hall_cardinality_pairs": {}
+    },
+    {
+      "regions": 231,
+      "packings": 7,
+      "hall_excluded": 7,
+      "changed_old_five_point_parts": 2,
+      "hall_cardinality_pairs": {
+        "(1, 0)": 7
+      }
+    },
+    {
+      "regions": 1540,
+      "packings": 258,
+      "hall_excluded": 253,
+      "feasible_attachment_graphs": 5,
+      "label_assignments": 120,
+      "optimistic_weight_excluded": 120,
+      "changed_old_five_point_parts": 3,
+      "hall_cardinality_pairs": {
+        "(1, 0)": 247,
+        "(2, 1)": 6
+      }
+    },
+    {
+      "regions": 7315,
+      "packings": 5153,
+      "hall_excluded": 5012,
+      "feasible_attachment_graphs": 141,
+      "label_assignments": 16920,
+      "optimistic_weight_excluded": 16920,
+      "changed_old_five_point_parts": 4,
+      "hall_cardinality_pairs": {
+        "(1, 0)": 4775,
+        "(2, 1)": 222,
+        "(3, 2)": 14,
+        "(4, 3)": 1
+      }
+    }
+  ],
+  "total_packings": 5418
+}

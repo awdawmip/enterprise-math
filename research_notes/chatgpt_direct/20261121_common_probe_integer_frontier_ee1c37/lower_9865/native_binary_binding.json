@@ -1,0 +1,27 @@
+{
+  "source_sha256": "fcf2cd1bcd254335623cde517b938210498b6e4e2bc6a2acd530d876848f40c4",
+  "headers": [
+    {
+      "path": "marginals.hpp",
+      "sha256": "b36e7c201130f84cea67984e574ca5ea6bed5ab4a1d4b5956be39bfe7da431fd"
+    },
+    {
+      "path": "exact_margins.hpp",
+      "sha256": "363f70c048621d2cdd4e3603fdd0dcd205c7dc7f47873099a4d5dd215a0b5a8c"
+    }
+  ],
+  "compilation_command": [
+    "c++",
+    "-std=c++20",
+    "-O3",
+    "-mpopcnt",
+    "/workspace/scratch/567706f31840/r10/lower/front_orbit_min_witness.cpp",
+    "-o",
+    "/workspace/scratch/567706f31840/r10/lower/native_binding/front_orbit_min_witness"
+  ],
+  "compiler_version": "c++ (Debian 14.2.0-19) 14.2.0",
+  "recompiled_binary_sha256": "34278d3c406cba7703db37d5553fc0d88cc2e849f304066243f3cf8bd3fb024e",
+  "actual_running_binary_sha256": "34278d3c406cba7703db37d5553fc0d88cc2e849f304066243f3cf8bd3fb024e",
+  "byte_identical": true,
+  "search_rerun": false
+}

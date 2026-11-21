@@ -1,0 +1,50 @@
+{
+  "complete": true,
+  "plan_sha256": "98f921588091eb70b94b73d6387acb92870f174ff5c9ecc99a832cdc9d9f00e6",
+  "profiles": 2194,
+  "profiles_with_proper_size_below_8_not_using_this_bound": 229,
+  "excluded_by_center_bound": [
+    {
+      "proper_sizes": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        12
+      ],
+      "embedded_sizes": [
+        13
+      ],
+      "minimum_total_cost": 9980,
+      "center_bound": 9998
+    },
+    {
+      "proper_sizes": [
+        8,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        11
+      ],
+      "embedded_sizes": [
+        10,
+        13,
+        13
+      ],
+      "minimum_total_cost": 9995,
+      "center_bound": 9998
+    }
+  ],
+  "basis": "center_count_lemma.md plus native_sublevels mixed-bound certificate",
+  "review_status": "NOT_REVIEWED"
+}

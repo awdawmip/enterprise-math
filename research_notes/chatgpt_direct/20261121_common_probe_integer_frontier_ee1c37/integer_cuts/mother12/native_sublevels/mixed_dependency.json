@@ -1,0 +1,19 @@
+{
+  "source": "r10/integer_cuts/mother12/native_sublevels/mixed_bound_verification.json",
+  "bytes": 4022,
+  "sha256": "50cd158a20729e345efe1bdd997e96a973f087e14c788c03662082b4dcffbf3d",
+  "guard": "For proper sizes8..12 reject if3*defect(free)>slack+15*counts11+18*counts12.",
+  "proof": "All real remaining proper points contain free; positive parts are subadditive. Use the verified offsets for proper sizes8..12, accounting for the15/18 offset debts at sizes11/12.",
+  "positive_guard_calibration": {
+    "source": "r10/construct12/packing_initial.txt",
+    "bytes": 475,
+    "sha256": "e78b5c52989113dca26ab2deed616a37529fa2830519f69d7e42f5a70ce370e2",
+    "proper_tail_states_checked": 1024,
+    "minimum_guard_slack": 0,
+    "scope": "Checks the new guard on every proper-class subset of the fixed native-verified9996 witness; does not claim the full search returned this witness."
+  },
+  "native_marginal_source": {
+    "bytes": 9587,
+    "sha256": "ed28097c3c66ec790a6f61ca2e908d22d9937fb28d2e61bed57f89e213939555"
+  }
+}

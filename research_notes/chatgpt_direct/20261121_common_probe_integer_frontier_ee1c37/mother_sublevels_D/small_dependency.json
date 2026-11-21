@@ -1,0 +1,58 @@
+{
+  "complete_bank_proof": {
+    "bytes": 5633,
+    "sha256": "5f6c496b1148b92e5132795d3f98ed04db003eb0c45f3e8ecc183799b92c8963"
+  },
+  "bank": {
+    "bytes": 13584000,
+    "sha256": "cfb592ad4297e6b08d071b4ac5e0c1fc605b0587f2995dc1274aa5a497da87ba"
+  },
+  "native_small_source": {
+    "bytes": 13817,
+    "sha256": "bee9c55ce0062a86c1f7a5c7e146b6a5da80e90bc873e81e015d7f1df57ecee5"
+  },
+  "candidate_set_comparison": {
+    "source_sha256": "2f318d0ff57c648fdc97837e01ae0abb991fd928163e571e85cda11510199954",
+    "cases": [
+      [
+        0,
+        11,
+        10,
+        0,
+        574
+      ],
+      [
+        0,
+        5,
+        9,
+        1,
+        9368
+      ],
+      [
+        0,
+        5,
+        10,
+        1,
+        1720
+      ],
+      [
+        0,
+        11,
+        8,
+        0,
+        2639
+      ]
+    ],
+    "columns": [
+      "mother0",
+      "mother1",
+      "size",
+      "inside_allowance",
+      "candidate_count"
+    ],
+    "all_candidate_sets_equal": true
+  },
+  "scope": "Only when the current maximum candidate price is within the declared complete bank cap, enumerate complete proper masks containing an uncovered pivot, disjoint from used, and with at most d points outside free. Other cases retain the original Extend generator.",
+  "regional_prefilter": "Candidate cost cannot exceed its initial maximum, and initial mother-union occupancy cannot exceed initial d; d only decreases. Thus fixed per-frame region filtering removes no possible future class.",
+  "pivot_rule": "When every remaining size/maximum price is bank-covered, choose an uncovered point with fewest compatible columns. Zero such columns is infeasible. Otherwise use the original pivot."
+}

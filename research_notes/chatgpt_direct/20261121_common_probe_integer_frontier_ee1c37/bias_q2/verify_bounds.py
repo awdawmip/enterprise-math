@@ -1,0 +1,16 @@
+"""Regenerate all q2 bound tables; by default check every Bellman inequality anew."""
+from pathlib import Path
+from collections import Counter
+import argparse,hashlib,json,subprocess,time
+p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,required=True);p.add_argument('--reuse-verified',type=Path);a=p.parse_args();h=Path(__file__).resolve().parent;out=a.output.resolve();out.mkdir(parents=True,exist_ok=True);source=(h/'search.cpp').read_text();begin=source.index(' // Complete single-class spectrum, typed as proper (0), embedded (1),');end=source.index(' bool assign(',begin);fragment=source[begin:end];assert fragment in(h/'bound_tables.cpp').read_text();catalog=h/'typed_catalog.txt';catsha=hashlib.sha256(catalog.read_bytes()).hexdigest();jobs=json.loads((h/'inheritance.json').read_text())['jobs'];assert len(jobs)==775
+previous=json.loads(a.reuse_verified.read_text())['records']if a.reuse_verified else {};records={};reused=0;start=time.time();exe=out/'bound_tables';subprocess.run(['c++','-std=c++20','-O3',str(h/'bound_tables.cpp'),'-o',str(exe)],check=True)
+for n,j in enumerate(jobs):
+ key=j['key'];table=out/'working_table.txt';args=[','.join(map(str,j['P'])),','.join(map(str,j['E'])),str(j['embedded_floor']),str(j['q2_ceiling']),str(j['minimum_cost']),'2',str(catalog),str(table)]
+ subprocess.run([str(exe),*args],check=True,stdout=subprocess.DEVNULL);raw=table.read_bytes();lines=raw.decode().splitlines();states,cap,minE,budget,lower,q=map(int,lines[0].split());counts=list(map(int,lines[1].split()));embedded=list(map(int,lines[4].split()));expected=Counter(j['P']);assert counts==[expected[s]for s in range(14)]and embedded==j['E']and(minE,budget,lower,q)==(j['embedded_floor'],j['q2_ceiling'],j['minimum_cost'],2);digest=hashlib.sha256(raw).hexdigest()
+ if key in previous:
+  v=previous[key];assert v['verified']and v['q']==2 and v['table_sha256']==digest and v['catalog_sha256']==catsha and v['total_cost_window']==[lower,budget];v=dict(v);reused+=1
+ else:
+  target=out/'working_verification.json';subprocess.run(['python3',str(h/'check_budget_bound.py'),'--catalog',str(catalog),'--table',str(table),'--output',str(target)],check=True,stdout=subprocess.DEVNULL);v=json.loads(target.read_text())
+ v.update({'P':j['P'],'E':j['E'],'embedded_floor':minE,'input_binding_verified':True});records[key]=v
+ if (n+1)%25==0:print(json.dumps({'tables_regenerated':n+1,'verified_exact_table_reuses':reused}),flush=True)
+result={'complete_bound_verification':len(records)==775,'profiles':len(records),'search_source_sha256':hashlib.sha256(source.encode()).hexdigest(),'bound_fragment_sha256':hashlib.sha256(fragment.encode()).hexdigest(),'typed_catalog_sha256':catsha,'total_bellman_inequalities':sum(v['bellman_inequalities']for v in records.values()),'total_cost_window_queries':sum(v['cost_window_queries_checked']for v in records.values()),'tables_regenerated':len(records),'verified_exact_table_reuses':reused,'new_full_bellman_verifications':len(records)-reused,'records':records,'elapsed_seconds':time.time()-start};(out/'bound_verification.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n');print(json.dumps({k:v for k,v in result.items()if k!='records'},indent=2),flush=True)

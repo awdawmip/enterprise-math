@@ -1,0 +1,852 @@
+{
+  "complete": true,
+  "review_status": "NOT_REVIEWED",
+  "inherited_q2_receipts_audited_not_rerun": {
+    "verified": true,
+    "profiles": 775,
+    "chunks": 2029,
+    "counts": [
+      7758668,
+      447892826,
+      446436576,
+      0,
+      0
+    ],
+    "equality_included": true,
+    "independent_bound_inequalities": 421654738
+  },
+  "frame_counts": {
+    "f3_39": 15,
+    "f4_49": 690,
+    "f4_50": 325,
+    "f4_52": 35,
+    "f4_48": 1723,
+    "f3_38": 22
+  },
+  "typed_native_rows": 2338,
+  "native_absolute_difference_entries": 45146,
+  "new_geometric_nodes": 2489800,
+  "certified_radius": "525/1049",
+  "closed_p_interval": [
+    "262/1049",
+    "787/1049"
+  ],
+  "remaining_endpoint_pair": [
+    11817,
+    1157
+  ],
+  "outer_endpoint_extra_equality_unresolved": true,
+  "uniform_equal_tables": 8000,
+  "strict_interior_nonuniform_bias_equal_tables": 4000,
+  "commands": [
+    {
+      "name": "inherited_q2_audit",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/567706f31840/r11/publication/artifact/bias_q2/check_saved.py",
+        "--bundle",
+        "/workspace/scratch/567706f31840/r11/publication/artifact/bias_q2"
+      ],
+      "returncode": 0,
+      "seconds": 0.11215364600138855,
+      "stdout_sha256": "e6cddc8287d2380c4a09b085aadf512b2989a40fc0551002cb5f7e42fe59551f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compile_menu_signed",
+      "command": [
+        "g++",
+        "-std=c++20",
+        "-O3",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/menu_signed.cpp",
+        "-o",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/menu_signed"
+      ],
+      "returncode": 0,
+      "seconds": 1.7242452040009084,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compile_packing_layers",
+      "command": [
+        "g++",
+        "-std=c++20",
+        "-O3",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/packing_layers.cpp",
+        "-o",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/packing_layers"
+      ],
+      "returncode": 0,
+      "seconds": 1.4205033329999424,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compile_trace_spectra",
+      "command": [
+        "g++",
+        "-std=c++20",
+        "-O3",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/trace_spectra.cpp",
+        "-o",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/trace_spectra"
+      ],
+      "returncode": 0,
+      "seconds": 2.702948379999725,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compile_union",
+      "command": [
+        "g++",
+        "-std=c++20",
+        "-O3",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/union.cpp",
+        "-o",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/union"
+      ],
+      "returncode": 0,
+      "seconds": 1.0213373860024149,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compile_frame",
+      "command": [
+        "g++",
+        "-std=c++20",
+        "-O3",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/frame.cpp",
+        "-o",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/frame"
+      ],
+      "returncode": 0,
+      "seconds": 1.461550067000644,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compile_seven_high_embedded",
+      "command": [
+        "g++",
+        "-std=c++20",
+        "-O3",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/seven_high_embedded.cpp",
+        "-o",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/seven_high_embedded"
+      ],
+      "returncode": 0,
+      "seconds": 2.6472220799987554,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compile_endpoint_11825",
+      "command": [
+        "g++",
+        "-std=c++20",
+        "-O3",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/endpoint_11825.cpp",
+        "-o",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/endpoint_11825"
+      ],
+      "returncode": 0,
+      "seconds": 2.641635422998661,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compile_endpoint_11823",
+      "command": [
+        "g++",
+        "-std=c++20",
+        "-O3",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/endpoint_11823.cpp",
+        "-o",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/endpoint_11823"
+      ],
+      "returncode": 0,
+      "seconds": 2.4657748939971498,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compile_endpoint_11821_a",
+      "command": [
+        "g++",
+        "-std=c++20",
+        "-O3",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/endpoint_11821_a.cpp",
+        "-o",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/endpoint_11821_a"
+      ],
+      "returncode": 0,
+      "seconds": 2.7636042699996324,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compile_endpoint_11821_b",
+      "command": [
+        "g++",
+        "-std=c++20",
+        "-O3",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/endpoint_11821_b.cpp",
+        "-o",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/endpoint_11821_b"
+      ],
+      "returncode": 0,
+      "seconds": 2.5733527379998122,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "union_f3_39",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/union",
+        "3",
+        "39",
+        "-1",
+        "all"
+      ],
+      "returncode": 0,
+      "seconds": 0.004954928997904062,
+      "stdout_sha256": "40b779ff2062281e52824a02e823eac0ef41d36db4ec30eb49f08637f6177f14",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "frame_f3_39",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/frame",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/maps",
+        "3"
+      ],
+      "returncode": 0,
+      "seconds": 0.29493789799744263,
+      "stdout_sha256": "74e539b59d7c206f3e8d6ca77478ee5e6387e677f9b9c97dd3eb4bff510b315e",
+      "stderr_sha256": "13be1bd7c2f3e0915e90356ba053bfb17a2d8de85d9597a909cd0214cde39dbb"
+    },
+    {
+      "name": "union_f4_49",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/union",
+        "4",
+        "49",
+        "-1",
+        "all"
+      ],
+      "returncode": 0,
+      "seconds": 0.008549736001441488,
+      "stdout_sha256": "041c74ba1890869ea92ec0e3de03461d7c1262a26670ec7e9943bd8e320a2fae",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "frame_f4_49",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/frame",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/maps",
+        "4"
+      ],
+      "returncode": 0,
+      "seconds": 0.29473944599885726,
+      "stdout_sha256": "71510d5c79cb4926fbda57bf3f2f3ef8108cc9e00863f08fb0fa0c40f1d0963a",
+      "stderr_sha256": "8d41aaaa1d64f35cd357130f88b0652ed87d14d95623b294b0be7adb69bdb5e5"
+    },
+    {
+      "name": "union_f4_50",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/union",
+        "4",
+        "50",
+        "-1",
+        "all"
+      ],
+      "returncode": 0,
+      "seconds": 0.007510679999541026,
+      "stdout_sha256": "54168d36d26ce497d24db16453c9b9bee666d01b6bdffa65cedda30eca901e80",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "frame_f4_50",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/frame",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/maps",
+        "4"
+      ],
+      "returncode": 0,
+      "seconds": 0.29615722699963953,
+      "stdout_sha256": "0e46dae556f5f61c959b10ace09166d6defa3c152e59252a1222acf090bc2db5",
+      "stderr_sha256": "199d394c94e7db2f399c62282ddb8e1222d41514cf31593b1217cf0aab3bc1dc"
+    },
+    {
+      "name": "union_f4_52",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/union",
+        "4",
+        "52",
+        "-1",
+        "all"
+      ],
+      "returncode": 0,
+      "seconds": 0.009424722000403563,
+      "stdout_sha256": "fcd46f8ebb49eff516bade016e95fe9e8ba5800249f800a9c6d6dab1a7a432f3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "frame_f4_52",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/frame",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/maps",
+        "4"
+      ],
+      "returncode": 0,
+      "seconds": 0.28008016599778784,
+      "stdout_sha256": "57da08ba79987fe34af91aa1017d00e5595346938fb08e688b290922e9c5e91c",
+      "stderr_sha256": "d0c6ac913d74890020d0d50bfb40486a919a84d93aa67efafa549cd6e12a38ac"
+    },
+    {
+      "name": "union_f4_48",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/union",
+        "4",
+        "48",
+        "-1",
+        "all"
+      ],
+      "returncode": 0,
+      "seconds": 0.016102343000966357,
+      "stdout_sha256": "1d56f9b9ba6acd1578ac013be97346c9d11a5f094566a27926d25095476662fd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "frame_f4_48",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/frame",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/maps",
+        "4"
+      ],
+      "returncode": 0,
+      "seconds": 0.31590445500114583,
+      "stdout_sha256": "7ab82dc7601908f8be93fa5ba54f60bc1691e75698692e754e6e169208f18fdb",
+      "stderr_sha256": "8eea5f776996b9638b996ca5ef8af4d10ddfaccc79e904ab759c4bb54276b36d"
+    },
+    {
+      "name": "union_f3_38",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/union",
+        "3",
+        "38",
+        "-1",
+        "all"
+      ],
+      "returncode": 0,
+      "seconds": 0.005154763999598799,
+      "stdout_sha256": "1f6635b5c9b21a358e3bc4660fa02ab34543fee50a182a91ba7bd1db700458eb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "frame_f3_38",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/frame",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/maps",
+        "3"
+      ],
+      "returncode": 0,
+      "seconds": 0.3006845819982118,
+      "stdout_sha256": "d83843a780bfec764ea3109e813f11289614dee4d7270ccd68b58a197dbe7347",
+      "stderr_sha256": "f51523b9c681aaf5ff31e4e3b814d8522e819742bfc1609a96793024f5c41c56"
+    },
+    {
+      "name": "native_signed_catalog",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/menu_signed",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent"
+      ],
+      "returncode": 0,
+      "seconds": 1.7684404120009276,
+      "stdout_sha256": "41e2cf04cf0a23ba44e383643fd940b4a4a62720f3540ab88f04735d4dd5b847",
+      "stderr_sha256": "39a2f7056a3a545c0fce341b5a5af9999772a69b4f4857c776e237f0fcb657c8"
+    },
+    {
+      "name": "one_mother_-1_8",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/pack_high.py",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/one_mother_-1.txt",
+        "8"
+      ],
+      "returncode": 0,
+      "seconds": 0.5912967349977407,
+      "stdout_sha256": "efd041941e551bf1a1ecf233d6606144f24b58c587b2d9d4007017b038bf9f7d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "one_mother_-1_7",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/pack_high.py",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/one_mother_-1.txt",
+        "7"
+      ],
+      "returncode": 0,
+      "seconds": 0.0954094590015302,
+      "stdout_sha256": "5717e8b4c99a6d463b6636a67353b148ec06d065c63edb0827c040e7500fb4e4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "one_mother_1_8",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/pack_high.py",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/one_mother_1.txt",
+        "8"
+      ],
+      "returncode": 0,
+      "seconds": 0.6062212659999204,
+      "stdout_sha256": "b15a146c4cc93538aab0ff0fa6e230d2b07547e77a6a84ede0024dbd036a715f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "one_mother_1_7",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/pack_high.py",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/one_mother_1.txt",
+        "7"
+      ],
+      "returncode": 0,
+      "seconds": 0.09884830299779424,
+      "stdout_sha256": "4361eb48efc2282aefa470449e60050acf4bf747494484953a2c8383257c3bcf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "packing_two_mothers",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/packing_two_mothers.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.4564349530010077,
+      "stdout_sha256": "1261518579dda2c1d530e2ef1825b2a9ae2e979a91fa6ce25324ec9cb0656a71",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "packing_three_mothers",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/packing_three_mothers.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.3644041579973418,
+      "stdout_sha256": "97f3b9bb92c7d7b69405b0158cd47a69344cac19b507f831659b620cc879fe0f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "packing_four_mothers",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/packing_four_mothers.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.21314209800038952,
+      "stdout_sha256": "9b698493522b9c425fb0ca26f39f6541949163ef90d96020e426a4387cf8488a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "mixed_packing",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/mixed_packing.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.2794026129995473,
+      "stdout_sha256": "28df2e246e8f52e32cb2e57a7f026f0f6e27f2901d1db771fc6ac9f1a788e919",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "mixed_two",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/mixed_two.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.964719186998991,
+      "stdout_sha256": "65f74dbee679a2b703c29cd21af5a102be0fd1ccb98fe515752ecf4f43b0a7cf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "seven_high_embedded_result_0",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/seven_high_embedded",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/f4_48",
+        "11,11,11,11,11,11,11",
+        "11,12,12,13",
+        "4440",
+        "11901",
+        "0",
+        "1723",
+        "0",
+        "0",
+        "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "1"
+      ],
+      "returncode": 0,
+      "seconds": 0.6698498549994838,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "bcc58dec2ee46be4fcbda1f2130f8dd860ff4085dd2a398dc688eba0e5d4e8ee"
+    },
+    {
+      "name": "seven_high_embedded_result_1",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/seven_high_embedded",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/f4_48",
+        "11,11,11,11,11,11,11",
+        "11,12,12,13",
+        "4440",
+        "11901",
+        "0",
+        "1723",
+        "0",
+        "0",
+        "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "-1"
+      ],
+      "returncode": 0,
+      "seconds": 0.7186799720002455,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "aa82e8c198eea0a9d76f9fc22cc8c659342e389c711f7d35c4e8ec6a1f126454"
+    },
+    {
+      "name": "seven_high_embedded_result_2",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/seven_high_embedded",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/f4_48",
+        "11,11,11,11,11,11,11",
+        "12,12,12,12",
+        "4416",
+        "11877",
+        "0",
+        "1723",
+        "0",
+        "0",
+        "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "1"
+      ],
+      "returncode": 0,
+      "seconds": 0.188357700000779,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "da444981e1dd15b0cd0be8c5ec98e285e06950c3ec46ab6aeaeb9b543069dfb9"
+    },
+    {
+      "name": "seven_high_embedded_result_3",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/seven_high_embedded",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/f4_48",
+        "11,11,11,11,11,11,11",
+        "12,12,12,12",
+        "4416",
+        "11877",
+        "0",
+        "1723",
+        "0",
+        "0",
+        "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "-1"
+      ],
+      "returncode": 0,
+      "seconds": 0.20900300699941,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "fcbc90f0335a675b959e9cb9cfd6fb383a739d0bbc2a82c232a57a1bf4f1a7eb"
+    },
+    {
+      "name": "endpoint_11825_result_0",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/endpoint_11825",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/f4_50",
+        "9,11,11,11,11,11,11",
+        "12,12,13,13",
+        "4800",
+        "11825",
+        "0",
+        "325",
+        "0",
+        "0",
+        "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "1"
+      ],
+      "returncode": 0,
+      "seconds": 0.04701926499910769,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a548645404f9ec0fd99f30deddad3c5e874c220db2c47714610de63096aff395"
+    },
+    {
+      "name": "endpoint_11825_result_1",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/endpoint_11825",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/f4_50",
+        "9,11,11,11,11,11,11",
+        "12,12,13,13",
+        "4800",
+        "11825",
+        "0",
+        "325",
+        "0",
+        "0",
+        "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "-1"
+      ],
+      "returncode": 0,
+      "seconds": 0.055651613998634275,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5097baa02f36a72451b9621418faa1b9abc73ceae9a5aacbeeab6fe960691e2a"
+    },
+    {
+      "name": "endpoint_11823_result_0",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/endpoint_11823",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/f3_38",
+        "10,11,11,11,11,11,11,11",
+        "12,13,13",
+        "3696",
+        "11823",
+        "0",
+        "22",
+        "0",
+        "0",
+        "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "1"
+      ],
+      "returncode": 0,
+      "seconds": 0.2493886170013866,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "442e3baed1a73df7aff877abf84f736b280c5463674c7e29676557031c5cc727"
+    },
+    {
+      "name": "endpoint_11823_result_1",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/endpoint_11823",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/f3_38",
+        "10,11,11,11,11,11,11,11",
+        "12,13,13",
+        "3696",
+        "11823",
+        "0",
+        "22",
+        "0",
+        "0",
+        "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "-1"
+      ],
+      "returncode": 0,
+      "seconds": 0.3790712780028116,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "89c247ebf0e5367b4cda8ddd788be49cb045625b03e089283e342bf1ce0a5366"
+    },
+    {
+      "name": "endpoint_11821_result_0",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/endpoint_11821_a",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/f4_49",
+        "10,11,11,11,11,11,11",
+        "12,12,12,13",
+        "4608",
+        "11821",
+        "0",
+        "690",
+        "0",
+        "0",
+        "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "1"
+      ],
+      "returncode": 0,
+      "seconds": 0.17957160099831526,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "041b69a22ee86a8d39f8522f397fd5823e5d5b728b0954e9a91c79c25438ae79"
+    },
+    {
+      "name": "endpoint_11821_result_1",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/endpoint_11821_a",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/f4_49",
+        "10,11,11,11,11,11,11",
+        "12,12,12,13",
+        "4608",
+        "11821",
+        "0",
+        "690",
+        "0",
+        "0",
+        "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "-1"
+      ],
+      "returncode": 0,
+      "seconds": 0.17445628800123814,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "61ff04515189796d453d3ed710520e6e1c56385ef74759982986c562b90d7a87"
+    },
+    {
+      "name": "endpoint_11821_result_2",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/endpoint_11821_b",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/f4_50",
+        "9,11,11,11,11,11,11",
+        "12,12,13,13",
+        "4800",
+        "11821",
+        "0",
+        "325",
+        "0",
+        "0",
+        "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "1"
+      ],
+      "returncode": 0,
+      "seconds": 0.03176587599955383,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "aa11dddf863e887d1969d67a9392f10f83b302e8952ded788796b4f58306e152"
+    },
+    {
+      "name": "endpoint_11821_result_3",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/endpoint_11821_b",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/obs",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/parent",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/f4_50",
+        "9,11,11,11,11,11,11",
+        "12,12,13,13",
+        "4800",
+        "11821",
+        "0",
+        "325",
+        "0",
+        "0",
+        "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+        "-1"
+      ],
+      "returncode": 0,
+      "seconds": 0.03454117300134385,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "8535e73901f28aa6f108cffd3e745354c5432b133e710d49ea266ba2a42262cb"
+    },
+    {
+      "name": "packing_layers",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/packing_layers",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/catalog.txt",
+        "12500"
+      ],
+      "returncode": 0,
+      "seconds": 3.4982886300022074,
+      "stdout_sha256": "0261d02bb780322228477948df2dd3246ed7d303be2ea7aa2b02700fcd7340dd",
+      "stderr_sha256": "a6e63abdbafd6b9f9690a3f3e7c8bd2306f063c23993aaf8ed352eae9511d757"
+    },
+    {
+      "name": "intake_11825_1173",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/trace_spectra",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/catalog.txt",
+        "12500",
+        "11825",
+        "1173"
+      ],
+      "returncode": 0,
+      "seconds": 0.28611946999808424,
+      "stdout_sha256": "b38edf78128c42dd2e27f2e6768b01ca864ebe8d831aec5e0d5324ae3e30f130",
+      "stderr_sha256": "8d6ea14c5ad1c34231c822946bd7d1d62f82a87c76c9103d6e651d5f56cb8cf3"
+    },
+    {
+      "name": "intake_11823_1169",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/trace_spectra",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/catalog.txt",
+        "12500",
+        "11823",
+        "1169"
+      ],
+      "returncode": 0,
+      "seconds": 0.26689995899869245,
+      "stdout_sha256": "7814e54c2cf863c2a3f591be79e60ca9842e3b6ebab6ef7231a87452ed55f827",
+      "stderr_sha256": "d7c7dd604d69ff303f14308824dd1a7b98ad3d14ddf069622f73e9c10418d72f"
+    },
+    {
+      "name": "intake_11821_1165",
+      "command": [
+        "/workspace/scratch/651e2e7e25a5/bias/proof/verification/trace_spectra",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/inputs/catalog.txt",
+        "12500",
+        "11821",
+        "1165"
+      ],
+      "returncode": 0,
+      "seconds": 0.26231103999816696,
+      "stdout_sha256": "767e9a4aa9f308302b7d41a3ddd5386eba30b2b8863cc675c571b1d5e5f01904",
+      "stderr_sha256": "5326de4ea17a02c984550464774b51c6653e1ca7f9bc224e931a33f093d2fc16"
+    },
+    {
+      "name": "exact_boundary",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/651e2e7e25a5/bias/proof/exact_boundary.py"
+      ],
+      "returncode": 0,
+      "seconds": 4.579584436000005,
+      "stdout_sha256": "738adaa208f2f7ee241f763fbc718792f71862cebeefa4999608cc00dafc09fb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "seconds": 43.37449738400028
+}

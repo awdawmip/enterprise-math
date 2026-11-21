@@ -1,0 +1,224 @@
+{
+  "cost": 9894,
+  "size_profiles": 2,
+  "size_level_exclusions": {},
+  "total_exact_price_patterns": 21,
+  "surviving_typed_patterns": 4,
+  "surviving_untyped_tags": 4,
+  "surviving_by_embedded_count": {
+    "2": 4
+  },
+  "size_summary": [
+    {
+      "embedded_sizes": [
+        12,
+        13
+      ],
+      "proper_sizes": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "embedded_count": 2,
+      "minimum_cost": 9840,
+      "counts": {
+        "all": 4,
+        "centre_defect": 2
+      },
+      "surviving_typed_patterns": 2
+    },
+    {
+      "embedded_sizes": [
+        13,
+        13
+      ],
+      "proper_sizes": [
+        9,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "embedded_count": 2,
+      "minimum_cost": 9845,
+      "counts": {
+        "all": 17,
+        "centre_defect": 15
+      },
+      "surviving_typed_patterns": 2
+    }
+  ],
+  "survivors": [
+    {
+      "tag": "10-744-2_10-747-7_10-777-1_12-1104-1_13-1296-1",
+      "embedded_count": 2,
+      "core_count": 2,
+      "maximum_proper_defect": 11,
+      "required_proper_defect": 9,
+      "types": [
+        {
+          "size": 10,
+          "embedded": 0,
+          "cost": 744,
+          "count": 2
+        },
+        {
+          "size": 10,
+          "embedded": 0,
+          "cost": 747,
+          "count": 7
+        },
+        {
+          "size": 10,
+          "embedded": 0,
+          "cost": 777,
+          "count": 1
+        },
+        {
+          "size": 12,
+          "embedded": 1,
+          "cost": 1104,
+          "count": 1
+        },
+        {
+          "size": 13,
+          "embedded": 1,
+          "cost": 1296,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "tag": "10-744-1_10-747-6_10-752-3_12-1116-1_13-1296-1",
+      "embedded_count": 2,
+      "core_count": 1,
+      "maximum_proper_defect": 9,
+      "required_proper_defect": 9,
+      "types": [
+        {
+          "size": 10,
+          "embedded": 0,
+          "cost": 744,
+          "count": 1
+        },
+        {
+          "size": 10,
+          "embedded": 0,
+          "cost": 747,
+          "count": 6
+        },
+        {
+          "size": 10,
+          "embedded": 0,
+          "cost": 752,
+          "count": 3
+        },
+        {
+          "size": 12,
+          "embedded": 1,
+          "cost": 1116,
+          "count": 1
+        },
+        {
+          "size": 13,
+          "embedded": 1,
+          "cost": 1296,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "tag": "9-564-1_10-747-6_10-752-3_13-1296-2",
+      "embedded_count": 2,
+      "core_count": 2,
+      "maximum_proper_defect": 9,
+      "required_proper_defect": 9,
+      "types": [
+        {
+          "size": 9,
+          "embedded": 0,
+          "cost": 564,
+          "count": 1
+        },
+        {
+          "size": 10,
+          "embedded": 0,
+          "cost": 747,
+          "count": 6
+        },
+        {
+          "size": 10,
+          "embedded": 0,
+          "cost": 752,
+          "count": 3
+        },
+        {
+          "size": 13,
+          "embedded": 1,
+          "cost": 1296,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "tag": "9-569-1_10-747-7_10-752-2_13-1296-2",
+      "embedded_count": 2,
+      "core_count": 2,
+      "maximum_proper_defect": 10,
+      "required_proper_defect": 9,
+      "types": [
+        {
+          "size": 9,
+          "embedded": 0,
+          "cost": 569,
+          "count": 1
+        },
+        {
+          "size": 10,
+          "embedded": 0,
+          "cost": 747,
+          "count": 7
+        },
+        {
+          "size": 10,
+          "embedded": 0,
+          "cost": 752,
+          "count": 2
+        },
+        {
+          "size": 13,
+          "embedded": 1,
+          "cost": 1296,
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "/workspace/scratch/567706f31840/r10/integer_cuts/mother12/plan.py",
+      "sha256": "2ab76e84b87cf70aee6747279087887ce6250c31ec21e5096b112ab45dd95f36"
+    },
+    {
+      "path": "/workspace/scratch/567706f31840/r10/integer_cuts/mother12/catalog.txt",
+      "sha256": "7a1ba8be4d450fc24c886aae475c9d29b53688c0ce06578a69ed140ff8b151e4"
+    },
+    {
+      "path": "/workspace/scratch/567706f31840/r11/publication/artifact/mother_sublevels_D/cost_defect_catalog.json",
+      "sha256": "c3d58d894e5e9579f1f5cf12314cc77099e1b1c5e16faad4fa960e58757f90af"
+    }
+  ],
+  "status": "NECESSARY_CONDITIONS_ONLY_NO_COVERAGE_SEARCH"
+}

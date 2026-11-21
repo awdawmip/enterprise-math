@@ -1,0 +1,150 @@
+{
+  "schema": "COMMON_PROBE_THREE_COORDINATE_MOD3_INCREMENT_V1",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "213c5b7eb8446c2513c066486b679c0ad59b8c61b20fad72b1cca08996beed9d"
+    },
+    {
+      "path": "arbitrary_parity_exploration.json",
+      "sha256": "172f2205cfaeefd09ae3ded9bdba74931eaf5626a8e668364a1f6426e4cde0ef"
+    },
+    {
+      "path": "checks/coordinate_parity.json",
+      "sha256": "3a159823b613185a0439aa9003f1219891fd0b2615836de86c0f1a09b69883d3"
+    },
+    {
+      "path": "checks/direct_verification.json",
+      "sha256": "4831703906bb1e067f4a710828b3444352bc97c1c07536b6a4f247e3ef51ea58"
+    },
+    {
+      "path": "checks/frame1_three_coordinate_mod3.json",
+      "sha256": "f5acde0e98bcbd64a511d484bd10bc33ecbd10bf4207e5e899bafe884f6be283"
+    },
+    {
+      "path": "checks/separated_304_three_coordinate_mod3.json",
+      "sha256": "0ef0c74476f1b821991e311a194f71251bde6e1103552975797f970e86bda155"
+    },
+    {
+      "path": "checks/separator.json",
+      "sha256": "b3677e92a442aeacc79b36a63f6c20490b821f20153c5b09017d9be0a99b2044"
+    },
+    {
+      "path": "checks/three_coordinate_mod3.json",
+      "sha256": "efe551496b5a10b721108e5bfa27f1f2b46baec0d8a816d91340c9d42d2032a0"
+    },
+    {
+      "path": "checks/xor_verification.json",
+      "sha256": "8b05ca45d8cfbedd5467f79640c92a2a88062088a016c7e2f782e33d35d7e3a1"
+    },
+    {
+      "path": "cover_2.json",
+      "sha256": "391210db2dc86e60fd13149393152d71c300e2260ca1f587d7d514f5dbae487a"
+    },
+    {
+      "path": "discovery/after_mod3_cuts_2.json",
+      "sha256": "2e4950bd8f25dcdc69a5e1c3b460aeb92402075840336696ff034a19b5d2aed6"
+    },
+    {
+      "path": "discovery/after_mod3_floating_feasible_2.json",
+      "sha256": "e4b116e92e59a7e63da61f723dd44c7195236008e5dbe22d1acfc9b85a087942"
+    },
+    {
+      "path": "discovery/after_mod3_history_2.json",
+      "sha256": "e25d3f1f45653309767dc2d66172884530f96705166e2ba0a062933f45ba2fb6"
+    },
+    {
+      "path": "discovery/final_cuts_2.json",
+      "sha256": "8084c5a366d5916336de95dd7276ab8c826aa05b2ec46555b4d945a12646f291"
+    },
+    {
+      "path": "discovery/final_floating_feasible_2.json",
+      "sha256": "fc74e420262ced84f432a1bb59ed80ba8497683a2a9268bfb0e6bd57de2a45cf"
+    },
+    {
+      "path": "discovery/final_history_2.json",
+      "sha256": "8d9bed4fff337e02530ae7f5d8d7909909cabca1044159ea9692f0e3cbe276b2"
+    },
+    {
+      "path": "discovery/recovery_verification.json",
+      "sha256": "bb79ba3066b43f090332f135fee389d4084086c0d24c28eb18570fd760524949"
+    },
+    {
+      "path": "discovery/vertex_2.json",
+      "sha256": "21a811eb417165f996bec03aa7bdf912adaaaa066c966dd6b3a3572809244ea4"
+    },
+    {
+      "path": "replay.py",
+      "sha256": "98bda60fb85136d58fa171023699414c0ffd2097425e9628f2cb9d2466f5ad67"
+    },
+    {
+      "path": "separate_three_coordinate_mod3.py",
+      "sha256": "797397934b313f345f488a91e23e7909e1a0a7c0ede25ffe5a624a04c270c235"
+    },
+    {
+      "path": "three_coordinate_mod3.cpp",
+      "sha256": "e2389aa058780b51bf0dbc1be7c6865fceebdd5a02c635d76531c9163560279c"
+    },
+    {
+      "path": "verify_mod3_separator.py",
+      "sha256": "e8f7e5455ed959ecda50850ba2ec97d9a9d96035b93ef43c3b0dfdf4938065ca"
+    }
+  ],
+  "dependencies": [
+    {
+      "root": "integer_cuts",
+      "path": "all_joint_exact/cover_1.json",
+      "sha256": "8989c9ab239b1a8d3c6d37c371fb0de856975cf21fc16722b1bcd72bcff6c323"
+    },
+    {
+      "root": "integer_cuts",
+      "path": "parallel_family.py",
+      "sha256": "d337e509ebad67ec78a8023b8ed1710d863fca1ac6120af095366f151e2a52f5"
+    },
+    {
+      "root": "integer_cuts",
+      "path": "modular_fibers.py",
+      "sha256": "a65aeb51324c4087ac79cb2ce7c687e779558cd045b601ef6cbd4ae48e49c534"
+    },
+    {
+      "root": "integer_cuts",
+      "path": "joint_axes.py",
+      "sha256": "71658940d5ed7bffc7318acd869a83733063778735d499626ad2f73bd71131ab"
+    },
+    {
+      "root": "integer_cuts",
+      "path": "portable/verify_integer_xor.py",
+      "sha256": "1637e555e2a1ce95b211e1f77de8132960142e63206a6fdd4254933770b38a44"
+    },
+    {
+      "root": "integer_cuts",
+      "path": "portable/integer_xor.cpp",
+      "sha256": "62f7c0dae044b0c01765073adb23d00c4adce24909eec97dce5699c3cdcec4b2"
+    },
+    {
+      "root": "previous",
+      "path": "fractional/proof/verify.py",
+      "sha256": "ee62c5b48d34e3ceeb67bd3c2aa2c5ce34645026c81e03e7bf93e9ee24ef2397"
+    },
+    {
+      "root": "joint4",
+      "path": "cover_2.json",
+      "sha256": "688cc132b50d235d4781b58d0b86c6485e21f03dcd4f08f44c38ac40b87f8e68"
+    },
+    {
+      "root": "joint4",
+      "path": "verify_new_survivor.py",
+      "sha256": "0c37c3247e44407b93263bd70b1d05274b47543989bab0a3b95d13947329a55a"
+    },
+    {
+      "root": "joint4",
+      "path": "separate_coordinate_parity.py",
+      "sha256": "83118196bec6a348e1de1e3ee19186f8a326aa9884e01f391c10a5bfe6af46b8"
+    },
+    {
+      "root": "joint4",
+      "path": "checks/old_coordinate_parity_1.json",
+      "sha256": "0f7fc91e617fe4e931472acc8782a5bedf7ba7e8982dd80bde5aaca1ae52f519"
+    }
+  ]
+}
