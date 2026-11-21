@@ -9,7 +9,7 @@ Let A be any subset of the cyclic group Z/10Z. For each c in Z/10Z, set F_c(A)={
 
   delta(A)=min_c |A symmetric_difference F_c(A)|.
 
-Then **delta(A) is either 0 or 2**. Equivalently, each ten-position binary word is exactly reflection-symmetric or can be made reflection-symmetric by relocating just one occupied position. No assumption about the frozen projective predicate is needed in this theorem.
+Then **delta(A) is either 0 or 2**. Equivalently, every ten-position binary word agrees with some reflected copy of itself except at most one occupied/unoccupied pair. This is a statement about reflection mismatch, not an asserted one-step modification preserving the word's original cardinality. No assumption about the frozen projective predicate is needed in this theorem.
 
 ### Elementary proof
 
