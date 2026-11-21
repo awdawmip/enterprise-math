@@ -1,0 +1,155 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "local_cycle": "2200",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_scientific_source_commit": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "immutable_prior_frontier": {
+    "latest_unit": "Unit244",
+    "latest_activity": 245,
+    "latest_author_continuation": "46c5d0619f80d8b0b9004a41adaf5a30a2827cdb:research_notes/X6_TIME_UNIT244_SINGLE_CENTER_PORTAL_AUTHOR_CONTINUATION_20261121_2056.json",
+    "do_not_repeat_units": "Units233–244 already recorded, Unit238 correction is a distinct Activity event"
+  },
+  "verified_new_unit": {
+    "unit": "Unit245",
+    "semantic_status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "statement": "12 signed OUTER ring + six-axis P; exactly one directed ingress x_i->P and one directed egress P->x_j, whole serial labelled triads, target-empty; minimal exact signed original-ring winding (-12,+12), initial/final A=x0 B=x2",
+    "matrix_rows_ingress_columns_egress": [
+      [
+        30,
+        38,
+        36,
+        38,
+        38,
+        46
+      ],
+      [
+        38,
+        30,
+        46,
+        38,
+        38,
+        36
+      ],
+      [
+        32,
+        36,
+        32,
+        48,
+        38,
+        32
+      ],
+      [
+        28,
+        30,
+        40,
+        36,
+        44,
+        34
+      ],
+      [
+        30,
+        28,
+        34,
+        44,
+        36,
+        40
+      ],
+      [
+        36,
+        32,
+        32,
+        38,
+        48,
+        32
+      ]
+    ],
+    "cost_minimum": 28,
+    "achievers": [
+      {
+        "ingress": 6,
+        "egress": 0
+      },
+      {
+        "ingress": 8,
+        "egress": 2
+      }
+    ],
+    "cost_maximum": 48,
+    "verification": "36 complete shortest signed six-axis Cell/BRC histories, 1,743,775 actual Node integer assertions zero mismatches, independent Python FIFO same table; shortest-path completeness via |L|<=48 and all found cost<=48",
+    "evidence": [
+      {
+        "kind": "proof",
+        "repository": "awdawmip/enterprise-math",
+        "path": "research_notes/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_SPECTRUM_20261121_2200.md",
+        "commit": "69ce808340d420a40e911bc9de8f63662685346a",
+        "git_blob_sha1": "efaaaa321af95980fab59cc9f652f45e29a00500",
+        "sha256": "477619639bf0eec5ede517ba91b28cfc5ffc51a5377ab9efba2d4991a989881a"
+      },
+      {
+        "kind": "checker",
+        "repository": "awdawmip/enterprise-math",
+        "path": "research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_CHECK_20261121_2200.js",
+        "commit": "60c56ddb772618ecf01d8de5f53fa86e3d8542ef",
+        "git_blob_sha1": "3395b68b12f382faa797e39dae796d9601b1fc3a",
+        "sha256": "245c8a4a12db7d58ca47648d438a55d951c6b57af99654c047c43fadee483eab"
+      },
+      {
+        "kind": "certificate",
+        "repository": "awdawmip/enterprise-math",
+        "path": "research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+        "commit": "f56840285cafeb9f5767ea91e903e1f53808186f",
+        "git_blob_sha1": "113d2102fe393bfd6f77bf7cca093b4cecf6796f",
+        "sha256": "905c5d4a054e03145fa91b0e1deb40d39037292f5a9fdd510265249382887f5d"
+      }
+    ]
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+    "commit": "2e224388276db59fa7d9ad11b0f5d23586aedd85",
+    "blob": "22669e8cdb0f10a0f11d8561c514545ed253aa68",
+    "checkpoint_events": 246,
+    "semantic_units": 245,
+    "one_separate_unit238_correction": true
+  },
+  "native_control": {
+    "source_read_request_id": "onhour-20261121-2204-x6-own-current-continuation-v1",
+    "source_read_status": "SUCCEEDED",
+    "read_time_utc": "2026-11-21T14:05:21.971112+00:00",
+    "authority_observation": "NO_LIVE_CLAIM / HANDOFF_READY; execution_authorized=false as of source admission",
+    "observed_gateway_version": "0.6.11",
+    "former_claim": "MCP-369991930c5b4fddf26dbefa",
+    "former_run": "RUN-d653f1346f38369bc27f5fc5",
+    "former_generation": 5,
+    "protected_semantic_progress": "NOT_PUBLISHED for Units233–245; no current winning own live CLAIM",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903",
+    "original_failed_progress": "onhour-20261121-1502-own-time-units233-235-native-progress-v1",
+    "original_failed_prepares": [
+      "onhour-20261121-1627-own-x6-time-typed-continuation-after-expired-claim-v1",
+      "onhour-20261121-1640-own-x6-time-typed-continuation-compact-repair-v1"
+    ],
+    "deployed_fix_confirmed": false,
+    "owner_transition_performed_this_cycle": false
+  },
+  "required_evidence": [
+    "Source-admitted actual directed whole-triad primitive Port transfer x_i->P, P->x_j, original signed ring transitions, conservation/target-empty and environment response; physical admissibility not inferred from P000 native adjacency",
+    "For actually admitted ordered pair (i,j), run certificate signed BRC chronology against real guarded Cell/Link/Port transitions; compare to conditional exact event budget N(i,j)",
+    "Independent before/after signed C12/C24 precision fibre observation at identical labelled native Cell, no inference from static root address"
+  ],
+  "do_not_repeat": [
+    "Units233–244 and Activity245, plus Unit238 separate correction",
+    "Terminal failed native semantic PROGRESS and two typed continuation_prepare calls; only original-ID read/reconcile",
+    "Frozen D24 RR and accepted DR, three historical independent staging files",
+    "Original R063 six-file native benchmark under distinct RS-X6-LEGACY-PLANE-RECONCILIATION and support #2416"
+  ],
+  "next_exact_action": "Read current source-admitted actual signed whole-triad Cell/Link/Port guard/transition and determine whether directed centre ingress/egress pairs exist. Test actual admissible pair against exact Unit245 sequence, reject only specific unsupported transitions; separately obtain independent same-Cell C12/C24 precision readouts. When support #2903 has a deployed verified repair, consume exact current Source continuation and use the same original own session only if canonical owner CAS grants a fresh claim; do not repeat failed originals.",
+  "scientific_status": "Unit245 AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / ACTIVITY246_PERSISTED / UNREVIEWED / NOT_ADMITTED",
+  "handoff_required": false
+}
