@@ -1,0 +1,72 @@
+{
+  "schema": "EM_X6_R98_AUTHOR_EXACT_INTEGER_CHECK_V1",
+  "date": "2026-11-22",
+  "scope": "conditional BRC positive-count four-channel star-moment observer",
+  "theorem": "S,T>=1 real; p>=11 integer: p<=26 min(1/2,12/(T+1),max(3/(S+1),6/(T+1))); p>=27 additionally min with 6/(S+1)",
+  "full_integer_proof": "case on u=0 vs u!=0, and v=0, h=0, h=v, remaining v/h/h-v nonzero; exact inverses yield rays q7,q27,q47; dominance by s,d,b,c",
+  "exact_test": {
+    "arithmetic": "integer lcm scaled all 6 BRC observer gaps",
+    "q_max": 40,
+    "unoriented_nonzero_directions": 110740,
+    "integer_weight_pairs": 16,
+    "port_budgets": [
+      11,
+      15,
+      26,
+      27,
+      28,
+      38,
+      40
+    ],
+    "exact_cases": 112,
+    "assertion": "PASS",
+    "local_test_source": "/mnt/data/em_r97/x6_r98_all_ports_two_parameter_verify.py",
+    "local_full_output": "/mnt/data/em_r97/x6_r98_all_ports_results.json"
+  },
+  "illustrative_exact_cases": [
+    {
+      "S": 1,
+      "T": 25,
+      "p": 27,
+      "value": "6/26=3/13",
+      "witness": "d"
+    },
+    {
+      "S": 100,
+      "T": 12,
+      "p": 26,
+      "value": "6/13",
+      "witness": "b"
+    },
+    {
+      "S": 100,
+      "T": 12,
+      "p": 27,
+      "value": "6/101",
+      "witness": "c"
+    },
+    {
+      "S": 100,
+      "T": 100,
+      "p": 27,
+      "value": "6/101",
+      "witness": "b and c"
+    },
+    {
+      "S": 1,
+      "T": 12,
+      "p": 40,
+      "value": "1/2",
+      "witness": "s"
+    }
+  ],
+  "provenance": [
+    "research_notes/portable_direct/2026-11-22_x6_r97_port11_26_two_parameter_exact_minimum.md",
+    "research_notes/portable_direct/2026-11-22_x6_r98_all_ports_two_parameter_exact_envelope.md",
+    "research_notes/portable_direct/x6_r98_all_ports_two_parameter_verify.py"
+  ],
+  "mathematical_status": "SYMBOLIC_AUTHOR_PROOF / EXACT_INTEGER_AUTHOR_CHECK_PASS / NOT_INDEPENDENTLY_REVIEWED",
+  "native_observer_transfer": "NOT_PROVED",
+  "claim_or_task_authority": "NO_FORMAL_CLAIM_OR_RESULT",
+  "next_problem": "full tied-minimizer atlas on S/T walls, with Port-dependent multiplicity; native BRC-P000 fiber preservation bridge"
+}
