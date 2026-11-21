@@ -1,0 +1,222 @@
+{
+  "domain": "all 1024 ten-bit supports and 50 distinct frozen P10 supports",
+  "frozen_p10": {
+    "defect_only": {
+      "adaptive_worst_case_probes": 1,
+      "fiber_count": 38,
+      "first_optimal_set": [
+        1,
+        2,
+        3
+      ],
+      "maximum_fiber_size": 2,
+      "minimum_fixed_probes": 3,
+      "optimal_fixed_sets": 16,
+      "pairwise_difference_patterns": [
+        {
+          "count": 1,
+          "support": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "count": 2,
+          "support": [
+            1,
+            2,
+            6,
+            7
+          ]
+        },
+        {
+          "count": 2,
+          "support": [
+            1,
+            4,
+            6,
+            9
+          ]
+        },
+        {
+          "count": 1,
+          "support": [
+            2,
+            4,
+            7,
+            9
+          ]
+        },
+        {
+          "count": 2,
+          "support": [
+            2,
+            7
+          ]
+        },
+        {
+          "count": 2,
+          "support": [
+            3,
+            4,
+            8,
+            9
+          ]
+        },
+        {
+          "count": 2,
+          "support": [
+            3,
+            8
+          ]
+        }
+      ]
+    },
+    "with_weight": {
+      "adaptive_worst_case_probes": 1,
+      "fiber_count": 40,
+      "first_optimal_set": [
+        1,
+        2,
+        3
+      ],
+      "maximum_fiber_size": 2,
+      "minimum_fixed_probes": 3,
+      "optimal_fixed_sets": 16,
+      "pairwise_difference_patterns": [
+        {
+          "count": 1,
+          "support": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "count": 2,
+          "support": [
+            1,
+            2,
+            6,
+            7
+          ]
+        },
+        {
+          "count": 2,
+          "support": [
+            1,
+            4,
+            6,
+            9
+          ]
+        },
+        {
+          "count": 1,
+          "support": [
+            2,
+            4,
+            7,
+            9
+          ]
+        },
+        {
+          "count": 1,
+          "support": [
+            2,
+            7
+          ]
+        },
+        {
+          "count": 2,
+          "support": [
+            3,
+            4,
+            8,
+            9
+          ]
+        },
+        {
+          "count": 1,
+          "support": [
+            3,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  "limits": "Finite support reconstruction; no native moving-Farey map evaluated.",
+  "scientific_pin": "BRC16943",
+  "sharp_witness": {
+    "H(S)": [
+      1,
+      2,
+      5,
+      6,
+      7
+    ],
+    "S": [
+      0,
+      1,
+      2,
+      6,
+      7
+    ],
+    "difference": [
+      0,
+      5
+    ],
+    "same_weight": 5
+  },
+  "single_hole_z0_probe_sites": [
+    1,
+    12,
+    23
+  ],
+  "status": "ALL PASS",
+  "universal": {
+    "defect_only": {
+      "adaptive_worst_case_probes": 2,
+      "fiber_count": 272,
+      "first_optimal_set": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "maximum_fiber_size": 4,
+      "minimum_fixed_probes": 5,
+      "optimal_fixed_sets": 32
+    },
+    "with_weight": {
+      "adaptive_worst_case_probes": 2,
+      "fiber_count": 473,
+      "first_optimal_set": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "maximum_fiber_size": 4,
+      "minimum_fixed_probes": 5,
+      "optimal_fixed_sets": 32
+    }
+  }
+}
