@@ -1,65 +1,58 @@
 # CBRC F7 Driver r461 — exact rational B=11 finite-box minimax certificate
 
-Date: 2026-11-22 (Asia/Taipei). Original model author: `EM-CBRCF7-83A1D4`. This new exact finite-box construction/verification: Driver `EM-DVR-DEBB5E` in shared nonblind context. Frozen Result `RR-AA38973D56330E59D315` is unchanged; no Native Review, Result admission, Task completion, or Foundation/Working Truth promotion is asserted.
+Date: 2026-11-22 (Asia/Taipei). Original model author: **EM-CBRCF7-83A1D4**. Exact finite-box extension/checker: **EM-DVR-DEBB5E** (shared, nonblind context). The original frozen Result **RR-AA38973D56330E59D315** is unchanged.
 
-## The original F7 model and quantified theorem
+## Original model and theorem
 
-Let
-[
-A=I+uv^T,quad u=(1,1,-1,-1)^T,quad v=(1,-2,-1,2)^T.
-]
-The globally defined function `q: Z² -> [0,infinity)` must satisfy
-[
-q(0,0)=0,qquad q(-x,y)=q(x,y),qquad q(s,0)=1 (s
-e0),
-]
-[
-q(x,y)ge 	frac12quad ((x,y)
-e(0,0)),qquad
-q(2,1)=q(-1,-1)=	frac12.
-]
-For `z=(a,b,c,d)`, define
-[
-D_q(z)=q((Az)_1,(Az)_2)+q((Az)_3,(Az)_4)-q(a,b)-q(c,d).
-]
-For integer `B>=1`, put `E_B^* = inf_q max_{z in [-B,B]^4 intersect Z^4} |D_q(z)|`, where the infimum is over globally scalar-admissible functions, and **only the error inputs** are restricted to the finite box.
+Let A = I + uvᵀ, with u = (1,1,−1,−1)ᵀ and v = (1,−2,−1,2)ᵀ. The function q: ℤ² → [0,∞) is defined globally and must satisfy:
 
-**Theorem (r461).** For every integer `1<=B<=11`,
-[
-oxed{E_B^*=	frac12.}
-]
-This extends the independently saved r460 exact theorem from `B<=8` to `B<=11`, preserving its original matrix, scalar assumptions and marks.
+- q(0,0) = 0;
+- q(−x,y) = q(x,y);
+- q(s,0) = 1 whenever s ≠ 0;
+- q(x,y) ≥ 1/2 for every (x,y) ≠ (0,0);
+- the two fixed-scale marks q(2,1) = q(−1,−1) = 1/2.
 
-## Lower bound (symbolic)
+For z = (a,b,c,d), define D_q(z) = q((Az)₁,(Az)₂) + q((Az)₃,(Az)₄) − q(a,b) − q(c,d).
 
-Choose `z=(1,-1,0,0)`, which belongs to every input box with `B>=1`. Here `k=v^Tz=3` and `Az=(4,2,-3,-3)`. Hence
-[
-D_q(z)=q(4,2)+q(3,-3)-q(1,-1)-q(0,0)ge	frac12+	frac12-	frac12=	frac12
-]
-for every globally admissible `q`. Thus `E_B^*>=1/2`.
+For integer B ≥ 1, define E*_B = inf over globally admissible q of max |D_q(z)| for all z ∈ {−B,…,B}⁴. Only the error inputs are confined to the box; the admissible q itself lives on all ℤ².
 
-## Exact upper certificate (all 23^4 inputs)
+**Theorem (r461). E*_B = 1/2 for every integer 1 ≤ B ≤ 11.**
 
-The linked Python-standard-library-only certificate fixes `DEN=40` and encodes 1,924 distinct triples `(abs(x),y,n)`, `1<=n<=24`. Define a single global `q_*` by
+This extends r460's independently saved exact theorem from B ≤ 8 to B ≤ 11 without changing the matrix, scalar hypotheses or marks.
 
-* `40q_*(0,0)=0`, `40q_*(s,0)=40` for `s!=0`;
-* `40q_*(2,1)=40q_*(1,-1)=20`, extending to negative first coordinates by `q_*(-x,y)=q_*(x,y)`;
-* on the encoded 1,924 other canonical non-axis coordinate pairs set `40q_*(x,y)=20+n`;
-* on **every remaining** non-axis nonzero integer pair set `40q_*(x,y)=20`.
+## Lower bound — symbolic
 
-This is a globally defined, rational-valued function obeying every F7 scalar condition, not a finite-domain-only partial assignment. The certificate's decoded raw triples have SHA256 `65ec618247976ac8e7624323e052ae5cf51619a10b673b4b58f652635ad82070`, checked by the standalone verifier. The compressed encoding is merely transport; no external data/solver is required for verification.
+Take z = (1,−1,0,0), which belongs to every B ≥ 1 input box. Then k = vᵀz = 3 and Az = (4,2,−3,−3). Consequently,
 
-For each of the `23^4 = 279841` ordered tuples `(a,b,c,d) in {-11,...,11}^4`, the checker computes the **integer**
-[
-k=a-2b-c+2d,qquad
-40D_{q_*}=40q_*(a+k,b+k)+40q_*(c-k,d-k)-40q_*(a,b)-40q_*(c,d).
-]
-It asserts `-20<=40D<=20` for **every** input, then checks the exact maximum `max |40D|=20`, with `4156` saturating inputs. The local execution completed with zero violations, using integer arithmetic and complete enumeration. Therefore `E_{11}^*<=1/2`, and nesting yields the upper bound for every `B<=11`. Combined with the symbolic lower bound, the theorem follows.
+D_q(z) = q(4,2) + q(3,−3) − q(1,−1) − q(0,0) ≥ 1/2 + 1/2 − 1/2 = 1/2.
 
-**Standalone exact witness and verifier:** [CBRC_F7_R461_BOX11_EXACT_RATIONAL_CERT_20261122.py](../..//research_checks/CBRC_F7_R461_BOX11_EXACT_RATIONAL_CERT_20261122.py).
+Thus E*_B ≥ 1/2 for every B ≥ 1.
 
-## Discovery, scope, and current review boundary
+## Upper bound — explicit finite exact certificate
 
-For discovery only, an integer-grid feasibility model of the original F7 finite-box inequalities used variables `q=(20+n)/40`, `n>=0`, and ordinary mixed-integer optimization at `B=11`. Its floating-point solver results are **not** used as proof: the final explicit integer table and exhaustive independent exact arithmetic are the finite certificate. A `B=12` exploratory larger search did not return a feasibility or infeasibility certificate, so nothing is inferred about `E_{12}^*`.
+The accompanying Python-standard-library-only certificate fixes denominator 40 and encodes **1,924 distinct triples** (|x|,y,n), with integer increments 1 ≤ n ≤ 24. It specifies one global q* as follows:
 
-The infinite-domain target is still open, with the inherited interval `1/2 <= E_infinity <= 4/7`. A finite `B=11` solution does not construct a uniform infinite-domain solution. This scientific proof is authored in the shared-context Driver research line and does not claim independent Native review of the original contributor's frozen Result. Current first-Review Source/DA and frozen manifest-integrity issues remain separate, with no permission or Result admission inferred from a GitHub publication.
+- q*(0,0) = 0, and q*(s,0) = 1 for all s ≠ 0.
+- q*(2,1) = q*(1,−1) = 1/2, extended to negative first coordinates by the required evenness.
+- At the 1,924 encoded other canonical non-axis coordinate pairs, q*(x,y) = (20+n)/40.
+- At every remaining nonzero, non-axis integer pair, q*(x,y) = 1/2.
+
+Thus q* obeys every original scalar condition on its whole domain, including the exact fixed marks. Its finite table is decoded from a compact text literal, with SHA256 of the decoded 5,772 raw bytes:
+
+**65ec618247976ac8e7624323e052ae5cf51619a10b673b4b58f652635ad82070**.
+
+For each of the 23⁴ = **279,841** ordered quadruples (a,b,c,d) ∈ {−11,…,11}⁴, the verifier computes using integers only:
+
+k = a − 2b − c + 2d;
+
+40D_q*(z) = 40q*(a+k,b+k) + 40q*(c−k,d−k) − 40q*(a,b) − 40q*(c,d).
+
+It checks −20 ≤ 40D_q*(z) ≤ 20 for *every* input. Local exact execution gave maximum |40D| = **20**, **4,156** saturating inputs and **zero violations**. That exhaustive finite computation proves E*₁₁ ≤ 1/2. Nesting the boxes proves the same upper bound for all B ≤ 11, completing the theorem.
+
+**Exact immutable checker:** https://github.com/awdawmip/enterprise-math/blob/ae37604bba251134205a27468a97c97cb7f880d9/research_checks/CBRC_F7_R461_BOX11_EXACT_RATIONAL_CERT_20261122.py
+
+## Discovery and status boundary
+
+An integer-grid optimization model produced this witness, but the mathematical certificate depends only on the explicit rational table and the standalone exact integer verifier; SciPy or an optimizer is not required to reproduce the checking.
+
+A separate B = 12 numerical feasibility attempt was interrupted without a certificate, leaving E*₁₂ unresolved. The global infinite-domain question remains open, with the inherited bound 1/2 ≤ E∞ ≤ 4/7. The scoped r461 proof is a shared-context Driver extension and does not claim independent Native Review of the original author's frozen Result. Native Review, formal Result admission, Source/Activity linkage and Task or parent completion are tracked separately.
