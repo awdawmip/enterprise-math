@@ -1,0 +1,148 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "local_cycle": "1800",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "prior_claim_id": "MCP-369991930c5b4fddf26dbefa",
+  "prior_claim_comment_id": 7048613458,
+  "prior_run_id": "RUN-d653f1346f38369bc27f5fc5",
+  "prior_generation": 5,
+  "current_live_claim": "NO_LIVE_CLAIM_as_of_2026-11-21T10:02:21Z",
+  "native_execution_authorized": false,
+  "source_frozen_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "current_control_source_observed": "9ada4c2ba9de2c5c482ccf4f99f2e3ad64da04cf",
+  "current_control_source_freshness": "onhour-20261121-1800-x6-current-continuation-01 SUCCEEDED; Source as of 2026-11-21T10:02:21Z",
+  "science": {
+    "unit238": {
+      "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+      "result": "At each known oriented primitive two-step macro-edge the alternating joint signed bivector J=s1∧s2 distinguishes INNER/OUTER in one bit, is translation-invariant, S6-covariant, reversal-odd. Aggregate Omega across W complete C6 circuits and both chiralities has (2W+1)^3 images, fiber 2∏_{i=1}^3 binom(2W,W+c_i/2), max fiber 2*binom(2W,W)^3, sharp uniform history repair ceil(log2(max fiber)) bits, asymptotic 6W-(3/2)log2(W)+O(1).",
+      "finite_checks": {
+        "domain": "W=1,2,3 both chiralities, all branch words",
+        "histories": [
+          128,
+          8192,
+          524288
+        ],
+        "assertions": 43547952,
+        "failed_assertions": 0,
+        "S6_covariance_cases": 17280,
+        "reverse_local_cases": 24
+      },
+      "sources": [
+        {
+          "path": "research_notes/X6_TIME_NATIVE_SIGNED_WEDGE_BRC_PORT_OBSERVER_THEOREM_20261121_1700.md",
+          "commit": "7f31a6157c8e33381e400e16a41d1b6796f9e87b",
+          "git_blob_sha1": "344500a72770b643d475aba233faa2aff500399d",
+          "sha256": "3a8cb559958e0ecf355b81030a3e3edaf3acd31f1b9ba5f9b906907335f001ff"
+        },
+        {
+          "path": "research_checks/X6_TIME_BRC_SIGNED_WEDGE_OBSERVER_CHECK_20261121_1700.js",
+          "commit": "e345f9fc5280ae4f4e25f61c7ea12f55ec2d1912",
+          "git_blob_sha1": "3c53724d918f5c6442597976d96ac94ec13afedf",
+          "sha256": "10ac10cb39bf1441d7fa0b9def2466ec04d2415785733df20ab84847b8632771"
+        },
+        {
+          "path": "research_checks/X6_TIME_BRC_SIGNED_WEDGE_OBSERVER_RESULTS_20261121_1700.json",
+          "commit": "fe7308eedb9be2906cc7b19838438cfbbc0bc3ae",
+          "git_blob_sha1": "632e0d77f3eec32a7a48e5422d11d1885ef3952c",
+          "sha256": "bf1c13aba5a7ef1ef15b5df0c442ab7efb6288554638be8d612925fe16020f03"
+        }
+      ],
+      "correction": "Unit238 original immutable note asymptotic 6W-3log2(W) was corrected to 6W-(3/2)log2(W); original historic source retained; Activity correction event references original."
+    },
+    "prior_verified_frontier": "Units233-238 have immutable proof/checker/certificate and existing author Activity; Unit238 includes a separate asymptotic correction event. Do not redo.",
+    "unit239": {
+      "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+      "result": "For given relative signed shell Cell a in a fixed C6-ordered four-STAR K4 atlas, one signed ordered primitive-pair wedge J=s1∧s2 uniquely identifies the next signed shell Cell, outgoing STAR, sweep and INNER/OUTER branch; exactly 8 choices, sharp 3 fixed bits. Under the frozen nonzero intermediate phase refinement lease, OUTER alone remains: 4 choices; unsigned wedge-coordinate support alone is sufficient, sharp 2 bits. Without a, reverse-edge branch swap gives explicit J collision.",
+      "finite_checks": {
+        "domain": "All 6^4 independent cyclic positive-basis STAR order assignments; 12 signed current Cell choices per assignment, 8 local labeled choices per Cell",
+        "configurations": 1296,
+        "labeled_transitions": 124416,
+        "assertions": 808704,
+        "failed_assertions": 0
+      },
+      "sources": [
+        {
+          "path": "research_notes/X6_TIME_STAR_ATLAS_JOINT_PORT_DECODER_20261121_1800.md",
+          "commit": "91921529ca6e2bd437f493151f9dcfcac76e3418",
+          "git_blob_sha1": "b7d2abaad33633a7d1824463e52920a4cad12b03",
+          "sha256": "a71dafa1c69f6744d08fd0d9d24a756d3b39c0e6cbf57ffc70b17c083a4c2351"
+        },
+        {
+          "path": "research_checks/X6_TIME_STAR_ATLAS_LOCAL_WEDGE_DECODER_CHECK_20261121_1800.js",
+          "commit": "b653e7d29305b1b833dafeb2f47aa90f5a40d52d",
+          "git_blob_sha1": "c2e176a0c819671727fdce023cc1e51db7a41a5e",
+          "sha256": "bf9d0f478fabe7a8a22f325a22e99f042c1a321ef84a6f968d714fff01f784ec"
+        },
+        {
+          "path": "research_checks/X6_TIME_STAR_ATLAS_LOCAL_WEDGE_DECODER_RESULTS_20261121_1800.json",
+          "commit": "792824b92f1103d08b9da72ff333cda82380773e",
+          "git_blob_sha1": "f11ac46b225017e1a7ab256cdf56c9af5b32e66d",
+          "sha256": "7526d5b1cdefa0452fa0f82ba5193018269f6f193df0f5ef53e69cca0cda3d09"
+        }
+      ]
+    }
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+    "checkpoint_count": 240,
+    "semantic_unit_count": 239,
+    "correction_event": "onhour-20261121-1700-x6-native-unit238-asymptotic-repair-v1",
+    "commit": "6b08e7f048d111fe9e2436d14d58b9daf3cc86e9",
+    "git_blob_sha1": "b6f810ffb7d572d9cbcd77282062bc4b11b7a0c2",
+    "readback_verified": true,
+    "current_event": "onhour-20261121-1800-x6-star-wedge-atlas-decoder-unit239-v1"
+  },
+  "native_control": {
+    "own_continuation_request_id": "onhour-20261121-1800-x6-current-continuation-01",
+    "own_continuation_result": "SUCCEEDED / HANDOFF_READY / NO_LIVE_CLAIM / observation at 2026-11-21T10:02:21Z / no write authorization",
+    "original_failed_progress": {
+      "request_id": "onhour-20261121-1502-own-time-units233-235-native-progress-v1",
+      "status": "FAILED",
+      "error": "CANONICAL_REJECTED: registered execution requires a current winning live Issue #240 CLAIM"
+    },
+    "original_failed_typed_prepares": [
+      {
+        "request_id": "onhour-20261121-1627-own-x6-time-typed-continuation-after-expired-claim-v1",
+        "status": "FAILED",
+        "error": "NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED"
+      },
+      {
+        "request_id": "onhour-20261121-1640-own-x6-time-typed-continuation-compact-repair-v1",
+        "status": "FAILED",
+        "error": "NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED"
+      }
+    ],
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903",
+    "support_status": "OPEN as of 2026-11-21T08:14:27Z; no comment/deployment fix verified",
+    "formal_native_progress_unit_233_to_238": "NOT_PUBLISHED_FOR_UNAUTHORIZED_CURRENT_CLAIM",
+    "source_artifact_read_request_id": "onhour-20261121-1800-x6-unit239-proof-readhash-v1",
+    "source_artifact_read_result": "SUCCEEDED / read only / no write authority",
+    "formal_native_progress_unit_233_to_239": "NOT_PUBLISHED_FOR_NO_LIVE_CLAIM; original failed write and original failed prepares remain terminal"
+  },
+  "do_not_repeat": [
+    "Unit233-239 completed author scientific proofs/checkers and existing GitHub Activity sources",
+    "Original terminal FAILED Native write and terminal FAILED typed prepares; do not replay unknown/rejected originals",
+    "R063 native six-file benchmark separate task RS-X6-LEGACY-PLANE-RECONCILIATION support #2416",
+    "Static OUTER half-turn principal-root ±3 is not an established physical precision-fiber time increment"
+  ],
+  "unresolved_evidence": [
+    "Source-admitted physical STAR Cell/Link/Port transition with ordered primitive pair/antisymmetric joint signal, triadic resource guards and actual INNER/OUTER reachability beyond the source-possible graph",
+    "Independent C12/C24 same-Cell/loop before-and-after precision-fiber readout",
+    "Valid current typed continuation_prepare, authenticated winning CLAIM/open and protected Native semantic PROGRESS pending #2903 engineering support/deployment verification",
+    "Independent Driver review/Result admission not conducted"
+  ],
+  "next_exact_action": "Consume exact already-published triadic guarded native time resource source from the current canonical handoff to test Unit239 8-way decoder under actual allowed branch/resource guards, or produce explicit insufficiency witness. Require actual physical Port readout and C12/C24 same-Cell fiber measurements for stronger claim. Keep #2903 as the current typed continuation engineering handoff; do not repeat terminal failed prepares or claim without fresh verified permission/current owner CAS. Preserve current hourly task.",
+  "R063_benchmark": {
+    "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+    "support_issue": 2416,
+    "status": "NOT_EXECUTED_IN_THIS_LANE"
+  }
+}
