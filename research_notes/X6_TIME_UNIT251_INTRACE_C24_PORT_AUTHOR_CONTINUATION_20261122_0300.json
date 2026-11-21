@@ -1,0 +1,67 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-22",
+  "cycle": "20261122_0300",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_provenance_id": "EM-X6-FB6990",
+  "source_provenance_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_scientific_source_commit": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "immutable_prior_frontier": {
+    "last": "Unit250 / Activity252",
+    "continuation": "8e2f499e0c566159d9898140160991be4db2231c:research_notes/X6_TIME_UNIT250_TWO_LOOP_PORT_OBSERVER_AUTHOR_CONTINUATION_20261122_0200.json",
+    "do_not_repeat": "Units233–250; Unit245 immutable 36 original signed BRC paths; Unit238 correction; Unit249 hash repair; Unit250 original 18-class inverse proof"
+  },
+  "new_units": [
+    {
+      "unit": "Unit251",
+      "proof": "3d0f58b54f14213403256b21755036ccc2392441:research_notes/X6_TIME_UNIT251_INTRACE_C24_PORT_OBSERVER_20261122_0300.md",
+      "checker": "7e48cf341cb197aff273d3ed8efb67ae8fba45ba:research_checks/X6_TIME_UNIT251_INTRACE_C24_PORT_OBSERVER_CHECK_20261122_0300.js",
+      "certificate": "9cded16b89efb2e69f456865051a4558dae6e0c5:research_checks/X6_TIME_UNIT251_INTRACE_C24_PORT_OBSERVER_RESULTS_20261122_0300.json",
+      "exact_integer_assertions": 5800,
+      "failed_assertions": 0,
+      "conclusion": "With original immutable Unit245 (ingress,egress)=(0,2) and (2,4) signed BRC routes actually running and a non-invasive per-label mid-trace C24 sensor, additional readings after existing event 3 and event 7 give alpha0+beta1 and alpha1+beta2. Reusing 36 terminal readings identifies all 12 Port weights modulo centre gauge: 18 -> 3 -> 1. Only two additional scalar samples, zero extra native movement events. Under possible nonstationarity the six same-port passage residuals (8,16,0,0,0,0) cancel at terminal but expose +8 at first prefix; preserve time/environment provenance. Exact historical replay, not physical/native benchmark execution.",
+      "actual_execution": "V8 exact checker, two original 38/46-event paths replayed in full signed Cell/triad/occupancy semantics; all 5800 assertions passed"
+    }
+  ],
+  "activity": {
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "event_total": 253,
+    "main_commit": "0250800d7a66ff9feeabd0422c1c254453bb004f",
+    "last_event": "onhour-20261122-0300-x6-unit251-intrace-c24-sensor-v1"
+  },
+  "current_native_control": {
+    "gateway_version": "0.6.11",
+    "original_continuation_request_id": "onhour-20261122-0004-x6-own-source-continuation-v1",
+    "original_continuation_status": "FAILED / SOURCE_TREE_TRUNCATED",
+    "new_read_request_id": "onhour-20261122-0300-x6-task-observe-v1",
+    "new_read_status": "FAILED / SOURCE_TREE_TRUNCATED",
+    "new_read_source_comment_count": 1773,
+    "new_artifact_request_id": "onhour-20261122-0300-x6-unit251-proof-verify-v1",
+    "new_artifact_request_status": "SUCCEEDED / authenticated read (no execution grant)",
+    "current_winning_live_claim_verified": false,
+    "historical_own_claim": "MCP-369991930c5b4fddf26dbefa",
+    "historical_own_run": "RUN-d653f1346f38369bc27f5fc5",
+    "historical_own_generation": 5,
+    "protected_native_semantic_progress": "NOT_PUBLISHED for Units233–251 under a current authenticated winning CLAIM",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903",
+    "no_replay_of_failed_originals": true
+  },
+  "required_evidence": [
+    "Actual Source-qualified signed intact-triad Cell/Link/Port transition and environment/occupancy rule for original original signed BRC routes",
+    "Independent non-invasive per-labelled-triad C24 sensor, including two time-resolved reads at exact existing primitive-event indices (0,2) route event 3 and (2,4) route event 7",
+    "Execute original Unit245 physical native Port benchmark unchanged, preserve all signed source-labelled events and terminal readings; additionally test repeated same-Port per-passage residuals against stationary model",
+    "Recovery of own current winning live CLAIM/open/run/generation via scoped Source materialization/typed continuation repair before protected native semantic PROGRESS; original failed writes and reads not resubmitted"
+  ],
+  "next_exact_action": "Source-admit physical Port and C24 sensor first; if available, add noninvasive per-triad precision reads at existing Unit245 routes event 3 and event 7 and test stationary Port law while preserving all physical BRC evidence. Independently reconcile current Native control only if Source changes or original pending effects appear. Continue legitimate portable science while control remains unavailable.",
+  "no_rework": [
+    "Units233–250 full historical proofs/certificates and corrections",
+    "Unit245 original complete 36 directed-pair shortest paths",
+    "Unit250 two new four-event loop design still valid alternative when intermediate physical sensor not available",
+    "Separate R063 six-file Native benchmark belongs to RS-X6-LEGACY-PLANE-RECONCILIATION"
+  ],
+  "status": "UNIT251_AUTHOR_PROVED_EXACT_HISTORICAL_BRC_REPLAY_SOURCE_VERIFIED_UNREVIEWED_NOT_ADMITTED / ACTIVITY253_PERSISTED / NATIVE_SEMANTIC_PROGRESS_PENDING"
+}
