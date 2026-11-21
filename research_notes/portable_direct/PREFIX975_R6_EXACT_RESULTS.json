@@ -1,0 +1,124 @@
+{
+  "schema": "PREFIX975_EXACT_FINITE_V1",
+  "frozen_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scientific_status": "AUTHOR_PROOF_EXACT_INTEGER_CHECKED_NOT_REVIEWED",
+  "small_domain_checks": [
+    {
+      "p": 4,
+      "distinct_residuals": 19,
+      "endpoint_states_checked": 152,
+      "single_odd_preserving_flips_checked": 456,
+      "ordered_transition_pairs": 361,
+      "transitions_not_factoring": 219,
+      "current_signed_observer_rank_histogram": {
+        "0": 2,
+        "1": 12,
+        "2": 4,
+        "3": 1
+      }
+    },
+    {
+      "p": 5,
+      "distinct_residuals": 30,
+      "endpoint_states_checked": 480,
+      "single_odd_preserving_flips_checked": 1920,
+      "ordered_transition_pairs": 900,
+      "transitions_not_factoring": 616,
+      "current_signed_observer_rank_histogram": {
+        "0": 3,
+        "1": 18,
+        "2": 8,
+        "4": 1
+      }
+    },
+    {
+      "p": 6,
+      "distinct_residuals": 44,
+      "endpoint_states_checked": 1408,
+      "single_odd_preserving_flips_checked": 7040,
+      "ordered_transition_pairs": 1936,
+      "transitions_not_factoring": 1428,
+      "current_signed_observer_rank_histogram": {
+        "0": 4,
+        "1": 26,
+        "2": 13,
+        "5": 1
+      }
+    },
+    {
+      "p": 7,
+      "distinct_residuals": 61,
+      "endpoint_states_checked": 3904,
+      "single_odd_preserving_flips_checked": 23424,
+      "ordered_transition_pairs": 3721,
+      "transitions_not_factoring": 2886,
+      "current_signed_observer_rank_histogram": {
+        "0": 5,
+        "1": 36,
+        "2": 19,
+        "6": 1
+      }
+    },
+    {
+      "p": 8,
+      "distinct_residuals": 81,
+      "endpoint_states_checked": 10368,
+      "single_odd_preserving_flips_checked": 72576,
+      "ordered_transition_pairs": 6561,
+      "transitions_not_factoring": 5275,
+      "current_signed_observer_rank_histogram": {
+        "0": 6,
+        "1": 48,
+        "2": 26,
+        "7": 1
+      }
+    }
+  ],
+  "p19": {
+    "distinct_residuals": 499,
+    "signed_state_information_rank_odd_slice_histogram": {
+      "0": 17,
+      "1": 312,
+      "2": 169,
+      "18": 1
+    },
+    "analytic_rank_distribution_odd_slice": {
+      "zero": 17,
+      "one": 312,
+      "two": 169,
+      "full": 1
+    },
+    "all_residuals_next_query_repair_bits": 18,
+    "residual_zero_plus_ports": 524287,
+    "residual_zero_minus_ports": 0
+  },
+  "explicit_transition_counterexample": {
+    "p": 4,
+    "old_c": -7,
+    "new_c": -3,
+    "x": 1,
+    "y": 5,
+    "old_signed_masks": [
+      8,
+      0
+    ],
+    "new_x_masks": [
+      4,
+      0
+    ],
+    "new_y_masks": [
+      0,
+      0
+    ]
+  },
+  "correlation_counterexample": {
+    "source_residual": 0,
+    "x": 1,
+    "ports": [
+      1,
+      2
+    ],
+    "diagonal_equal_mass": 2,
+    "crossed_equal_mass": 0
+  }
+}
