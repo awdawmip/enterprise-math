@@ -1,0 +1,46 @@
+{
+  "scope": "NATIVE_TASKBOOK_STRUCTURAL_LINT_ONLY",
+  "task_records_generated": false,
+  "objective_authority_audit_run": false,
+  "source_contract_commit": "66bdb7e4abaf26c38157db9c45d14a6dddee3701",
+  "checks": [
+    {
+      "task_id": "RS-ERDOS1063-SINGLE-EXCEPTION-MOD4",
+      "findings": [
+        {
+          "severity": "ERROR",
+          "code": "TB-META",
+          "message": "task_authority must be 'PUBLISHED_REGISTERED'"
+        }
+      ],
+      "source_refs_pinned": true,
+      "generation_fabricated": false
+    },
+    {
+      "task_id": "RS-PHASE-RAW-NOISE-FINITE-SCALE-BRIDGE",
+      "findings": [
+        {
+          "severity": "ERROR",
+          "code": "TB-META",
+          "message": "task_authority must be 'PUBLISHED_REGISTERED'"
+        }
+      ],
+      "source_refs_pinned": true,
+      "generation_fabricated": false
+    },
+    {
+      "task_id": "RS-SEVEN-PHASE-CANCELLATION-LAYER",
+      "findings": [
+        {
+          "severity": "ERROR",
+          "code": "TB-META",
+          "message": "task_authority must be 'PUBLISHED_REGISTERED'"
+        }
+      ],
+      "source_refs_pinned": true,
+      "generation_fabricated": false
+    }
+  ],
+  "status": "DRAFT_STRUCTURE_CHECKED_WITH_EXPECTED_UNPUBLISHED_AUTHORITY_FINDINGS",
+  "explanation": "Current native lint applies dispatch metadata even with dispatch=False. Each draft intentionally has PENDING_PUBLICATION and therefore returns exactly TB-META requiring PUBLISHED_REGISTERED. Do not falsify published status to silence this finding. All other native structure/origin/lineage checks returned no findings. Objective/Task authority audit awaits genuine current Driver and actual parent generation."
+}
