@@ -1,0 +1,155 @@
+{
+  "schema": "R284CT_FIRST_GENUINE_NONUNIQUENESS_AT_779_V1",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "pins": {
+    "P": 17179869143,
+    "D": [
+      1120832,
+      6,
+      13,
+      1651128
+    ],
+    "Z": [
+      0,
+      390139,
+      394465,
+      1497639
+    ],
+    "SELECT": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6
+    ],
+    "frozen_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4"
+  },
+  "population": 65536,
+  "arcs": 64,
+  "max_rank_verified": 780,
+  "exact_distance_evaluations_full_population": 4194304,
+  "rank_boundary_ties_through_780": [
+    {
+      "order": 155,
+      "level": 16,
+      "value": 2450519213,
+      "tied_residues": [
+        1522541187,
+        5398934277
+      ],
+      "forced_by_other_levels_at_lower_ranks": [
+        5398934277
+      ],
+      "other_level_lower_rank_references": {
+        "1522541187": [],
+        "5398934277": [
+          [
+            19,
+            39
+          ],
+          [
+            34,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "order": 599,
+      "level": 16,
+      "value": 2408212025,
+      "tied_residues": [
+        1564848375,
+        5441241465
+      ],
+      "forced_by_other_levels_at_lower_ranks": [
+        5441241465
+      ],
+      "other_level_lower_rank_references": {
+        "1564848375": [],
+        "5441241465": [
+          [
+            34,
+            57
+          ],
+          [
+            37,
+            139
+          ]
+        ]
+      }
+    },
+    {
+      "order": 779,
+      "level": 64,
+      "value": 8416662779,
+      "tied_residues": [
+        6055669926,
+        12724715924
+      ],
+      "forced_by_other_levels_at_lower_ranks": [],
+      "other_level_lower_rank_references": {
+        "6055669926": [],
+        "12724715924": []
+      }
+    }
+  ],
+  "first_rank_with_multiple_minimum_multiset_preserving_cores": 779,
+  "cutoffs": {
+    "64": {
+      "observed_union_size": 3712,
+      "sha256_sorted_u64be": "a0e267546733e53951097484b32cf97ae49472fba905121c5b23612796d10b1c"
+    },
+    "154": {
+      "observed_union_size": 8138,
+      "sha256_sorted_u64be": "724adcec8e37815611d576067bbd8d35d10ebe2b0cc8ab564f7da1c8e62053ca"
+    },
+    "155": {
+      "observed_union_size": 8182,
+      "sha256_sorted_u64be": "b9b861501fbe75d20aa10891c6248ba3bc07ffa29fe8bca2b630f1cf7a1c3aa8"
+    },
+    "599": {
+      "observed_union_size": 19528,
+      "sha256_sorted_u64be": "4f1aff2e5952a0ebf364015474ab9a8e03f5a8775c20ea1ef5e93a6d9fb0efc4"
+    },
+    "778": {
+      "observed_union_size": 21934,
+      "sha256_sorted_u64be": "5b0b52d28b72c2fc311102967ca721a180a1f45b8400ef19af750b514063701c"
+    },
+    "779": {
+      "observed_union_size": 21944,
+      "sha256_sorted_u64be": "e30658ed13f76ccc9ad1d4f07b91cf771cf6ca9cd9e5da2ca60cdefa59b164bb"
+    },
+    "780": {
+      "observed_union_size": 21954,
+      "sha256_sorted_u64be": "c8a958e9c435793b2bf6bcb1d5d4ed94fa98e2380bcfddf6d7a1818353f864c7"
+    }
+  },
+  "rank779": {
+    "level": 64,
+    "boundary_distance": 8416662779,
+    "required_tie_count": 1,
+    "choice_residues": [
+      6055669926,
+      12724715924
+    ],
+    "other_levels_forced_union_size": 21943,
+    "minimum_cardinality": 21944,
+    "two_minimum_cores_sha256_sorted_u64be": [
+      "291941ecb66811fe1cf068256e447be5d6a77f66b3dd6dee228b8ae1f7047d14",
+      "e30658ed13f76ccc9ad1d4f07b91cf771cf6ca9cd9e5da2ca60cdefa59b164bb"
+    ],
+    "two_full_exact_core_recomputations": true
+  },
+  "rank780": {
+    "unique_core_size": 21954,
+    "sha256_sorted_u64be": "c8a958e9c435793b2bf6bcb1d5d4ed94fa98e2380bcfddf6d7a1818353f864c7",
+    "full_exact_core_recomputation": true
+  },
+  "prior_core64_reproduced": {
+    "size": 3712,
+    "sha256": "a0e267546733e53951097484b32cf97ae49472fba905121c5b23612796d10b1c"
+  },
+  "independent_review": "NOT_REVIEWED"
+}
