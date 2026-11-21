@@ -1,0 +1,85 @@
+{
+  "schema": "X6_TIME_SIGNED_HISTOGRAM_FIBER_CHECK_V1",
+  "science_unit": "237",
+  "coverage": "all 2^(6W+1) ordered paths for W=1,2; symbolic theorem for all W>=1",
+  "assertions": 537744,
+  "mismatches": 0,
+  "cases": {
+    "W1": {
+      "macro_edges": 6,
+      "total_complete_histories": 128,
+      "per_orientation": {
+        "negative": {
+          "history_count": 64,
+          "ordered_macro_histogram_classes": 1
+        },
+        "positive": {
+          "history_count": 64,
+          "ordered_macro_histogram_classes": 1
+        }
+      },
+      "global_signed_histogram": {
+        "+E1": 2,
+        "-E1": 2,
+        "+E2": 2,
+        "-E2": 2,
+        "+E3": 2,
+        "-E3": 2,
+        "+E4": 0,
+        "-E4": 0,
+        "+E5": 0,
+        "-E5": 0,
+        "+E6": 0,
+        "-E6": 0
+      },
+      "global_histogram_classes": 1,
+      "all_outer_root_eligible_histories": 2,
+      "typed_C12_root_states": [
+        "+3",
+        "-3",
+        "UNDEFINED"
+      ],
+      "minimum_bits_full_history": 7,
+      "minimum_bits_branch_given_orientation": 6,
+      "minimum_bits_root_typed_C12": 2
+    },
+    "W2": {
+      "macro_edges": 12,
+      "total_complete_histories": 8192,
+      "per_orientation": {
+        "negative": {
+          "history_count": 4096,
+          "ordered_macro_histogram_classes": 1
+        },
+        "positive": {
+          "history_count": 4096,
+          "ordered_macro_histogram_classes": 1
+        }
+      },
+      "global_signed_histogram": {
+        "+E1": 4,
+        "-E1": 4,
+        "+E2": 4,
+        "-E2": 4,
+        "+E3": 4,
+        "-E3": 4,
+        "+E4": 0,
+        "-E4": 0,
+        "+E5": 0,
+        "-E5": 0,
+        "+E6": 0,
+        "-E6": 0
+      },
+      "global_histogram_classes": 1,
+      "all_outer_root_eligible_histories": 2,
+      "typed_C12_root_states": [
+        "+3",
+        "-3",
+        "UNDEFINED"
+      ],
+      "minimum_bits_full_history": 13,
+      "minimum_bits_branch_given_orientation": 12,
+      "minimum_bits_root_typed_C12": 2
+    }
+  }
+}
