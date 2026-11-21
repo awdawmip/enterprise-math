@@ -4,6 +4,7 @@ Python 3; Fraction, Counter; auxiliary signed-source bit-flip graph (not native 
 from collections import Counter, defaultdict, deque
 from fractions import Fraction
 import json
+from pathlib import Path
 
 WORDS=((6,24,6,-3),(6,24,8,40))
 # Two hidden vertices: A=diag(1/2,1/2), X row by hidden node,
@@ -91,6 +92,6 @@ def main():
   rows.append(dict(word=word,initial_states=len(starts),reachable_states=len(edges),n8=summary(direct(starts,edges,8)),n12=summary(direct(starts,edges,12))))
  cert=dict(schema="PREFIX992_R6_PROJECTIVE_BRC_PORT_HISTORY_V1",model="positive rational BRC W_eff=Y(I-A)^-1 X with A=diag(1/2,1/2), B=0",X_numerator=X,Y_row_class=CLASS,Y_row_coefficient=RHO,denominator_X_Y=100,port_count=len(J),projective_history_classes=2,full_history_ports=len(J),checked_lengths=[0,12],checked_initial_history_ports=list(J),checked_gluing=[[1,1],[2,3],[3,4]],integer_fraction_arithmetic=True,rows=rows)
  print(json.dumps(cert,indent=2))
- with open('/mnt/data/prefix992/PREFIX992_R6_EXACT_RESULTS.json','w') as fp:json.dump(cert,fp,indent=2)
+ with Path(__file__).with_name('PREFIX992_R6_EXACT_RESULTS.json').open('w',encoding='utf8') as fp:json.dump(cert,fp,indent=2)
  print('PASS: BRC Schur, 2 projective classes, 2 words, 6 initial histories, n=0..12, 3 gluing splits')
 if __name__=='__main__':main()
