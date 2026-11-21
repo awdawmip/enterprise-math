@@ -37,7 +37,7 @@ terminal=[(X[i],i) for i,t in enumerate(tau) if t==threshold]
 # Only tie-boundary ranks below saturation can have discretionary choices.
 by_rank={}
 for k,lo,hi,ids,value in tie_runs:
-    for r in range(max(1,lo+1),min(threshold,hi-1)+1):
+    for r in range(max(1,lo+1),min(threshold-1,hi-1)+1):
         by_rank.setdefault(r,[]).append((k,lo,hi,ids,value))
 exceptions=[]
 nonzero_quota=[]
