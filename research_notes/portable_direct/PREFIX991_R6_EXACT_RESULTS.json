@@ -1,0 +1,118 @@
+{
+  "schema": "PREFIX991_R6_TERMINAL_PORT_WBRC_SIGNATURE_V1",
+  "evidence": "Exact run of independent full local checker 2026-11-22 (Asia/Shanghai)",
+  "scope": "auxiliary signed-source observer, positive BRC WBRC-T36",
+  "verification": "Direct historical weighted path multiset equals delayed port signature n=0..12; gluing splits (1,1),(2,3),(3,4); for both words and both weight laws; exact rational arithmetic",
+  "weights": {
+    "history": {
+      "0": 1,
+      "1": 2,
+      "2": 3,
+      "3": 5,
+      "4": 7,
+      "5": 11,
+      "6": 13
+    },
+    "source_modes": [
+      "v=1",
+      "v=2 when sign=+1, else 3"
+    ]
+  },
+  "data": [
+    {
+      "word": [
+        6,
+        24,
+        6,
+        -3
+      ],
+      "width": 6,
+      "old_states": 64,
+      "initial_states": 16,
+      "obstruction": {
+        "start": [
+          0,
+          1
+        ],
+        "length": 7,
+        "same_final": [
+          3,
+          3
+        ],
+        "last_ports": [
+          1,
+          2
+        ],
+        "next_source": [
+          3,
+          0,
+          2,
+          1
+        ],
+        "next_weights_port_only": [
+          2,
+          3
+        ],
+        "next_weights_sign_aware": [
+          4,
+          6
+        ]
+      },
+      "n8": {
+        "count": 96,
+        "port_only_mass": "276480",
+        "signed_source_mass": "393465600",
+        "port_only_histogram_sha256": "aa79c3167c85a3aa8c234f3a05ef0c36c2f151be99874e19352ecd4aa7695983",
+        "signed_source_histogram_sha256": "98909c8e994209b160c90acbe07057c2697210b14179b5bc10c24e8523a2be5a"
+      }
+    },
+    {
+      "word": [
+        6,
+        24,
+        8,
+        40
+      ],
+      "width": 7,
+      "old_states": 120,
+      "initial_states": 32,
+      "obstruction": {
+        "start": [
+          0,
+          13
+        ],
+        "length": 5,
+        "same_final": [
+          1,
+          3
+        ],
+        "last_ports": [
+          1,
+          2
+        ],
+        "next_source": [
+          1,
+          5,
+          3,
+          1
+        ],
+        "next_weights_port_only": [
+          2,
+          3
+        ],
+        "next_weights_sign_aware": [
+          4,
+          6
+        ]
+      },
+      "n8": {
+        "count": 84,
+        "port_only_mass": "1901600",
+        "signed_source_mass": "4277577600",
+        "port_only_histogram_sha256": "dac16286f2916855728413b8ff9431d3236c92e361e5447b178d458d395ce9f3",
+        "signed_source_histogram_sha256": "61fefd1d19bce6510907179b5dcd1d91d8bb4d29f39c1e55b180aad87d8cff8d"
+      }
+    }
+  ],
+  "next": "Test actual Source-typed X6/BRC feedback weights and allowed pairs; preserve source/history and observer context."
+}
