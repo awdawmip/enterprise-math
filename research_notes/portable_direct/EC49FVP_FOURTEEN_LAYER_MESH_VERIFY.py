@@ -89,4 +89,11 @@ for j in range(8,16):
 print('14-layer gap theorem |I| > 880/(91H) for H>=256 PASS')
 assert Fraction(13860*91,M)==Fraction(63,64)
 assert Fraction(13080*91,M)==Fraction(327,352)
+leave_one_out=[]
+for cut in range(14):
+    selected=[s for i,s in enumerate(spec14) if i!=cut]
+    worst=max(gap(set().union(*(layer(j,s) for s in selected))) for j in range(14,34))
+    leave_one_out.append(worst)
+assert leave_one_out == [640,560,520,520,455,520,520,637,455,448,455,455,455,455]
+print('14-layer leave-one-out worst gaps:', leave_one_out)
 print('ALL PASS')
