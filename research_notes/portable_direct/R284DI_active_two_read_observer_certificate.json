@@ -1,0 +1,91 @@
+{
+  "schema": "R284DI_ACTIVE_TWO_READ_OBSERVER_V1",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED",
+  "source": "R284CO_spectral_witness_checker.py @ acba2d8667903434aaa2a10720f43637fcc2421b",
+  "source_blob_sha1": "b46e0f682b58e47c27094b4bea6fa4e55119a3ee",
+  "frozen_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "model": {
+    "n_states": 65536,
+    "n_arcs": 64,
+    "single_observation_distinct": 65139,
+    "equal_D_unordered_pairs": 420,
+    "fiber_size_histogram": {
+      "1": 64760,
+      "2": 366,
+      "3": 8,
+      "4": 5
+    }
+  },
+  "source_bits": "indices in product((1,2),repeat=4) x product((1,2),repeat=12) enumeration; bit0 toggles lower r; bit6 toggles lower w",
+  "bit_flip_separated_equal_D_pairs": [
+    420,
+    192,
+    416,
+    416,
+    348,
+    133,
+    420,
+    384,
+    252,
+    148,
+    394,
+    417,
+    196,
+    184,
+    396,
+    412
+  ],
+  "bit_flip_joint_observation_unique_sizes": [
+    65536,
+    65308,
+    65532,
+    65532,
+    65464,
+    65257,
+    65536,
+    65500,
+    65368,
+    65279,
+    65510,
+    65533,
+    65312,
+    65300,
+    65512,
+    65528
+  ],
+  "complete_two_read_bits": [
+    0,
+    6
+  ],
+  "minimum_conditional_second_read_gaps": {
+    "0": {
+      "gap": 312638,
+      "indices": [
+        19204,
+        53981
+      ],
+      "original_D": 8339540133,
+      "flipped_D": [
+        8287436863,
+        8287749501
+      ]
+    },
+    "6": {
+      "gap": 23060,
+      "indices": [
+        10751,
+        62016
+      ],
+      "original_D": 8281673765,
+      "flipped_D": [
+        8349821552,
+        8349844612
+      ]
+    }
+  },
+  "original_D_u64_be_sha256": "6ebf35f16e297ae2aed63a552df122f1d7e89b5c4d89ec6e88958985b8c33a3b",
+  "r_two_read_pairs_u64_be_sha256": "acc8bcbc944e4e17560ace78d4b45a0b39453af2213a6e119cd1a35b1b970b10",
+  "w_two_read_pairs_u64_be_sha256": "39b07fb005aeaa868a7f359ec8ffc6d14b9d1d8b407d0990d68a058be3439c60",
+  "r_derivative_exact_states": 65536,
+  "verification": "exact Python integers; exhaustive 65536 source states, 64 arcs, 420 collision pairs, 16 coordinate flips; separate author-controlled check; independent review NOT_REVIEWED"
+}
