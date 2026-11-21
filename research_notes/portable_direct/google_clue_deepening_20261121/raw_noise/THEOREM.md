@@ -1,0 +1,76 @@
+# Exact raw-input noise radii for every consecutive phase window
+
+Date: 2026-11-21. Status: author-side derivation with exact rational certificates; independent project review remains separate. This is a finite six-phase auxiliary sampling observer under the project's existing native X6/Heartbeat semantics. Sample order, phase, gain sign and the correlated image of the raw noise are retained.
+
+## Source and statement
+
+The input is the original author's `shape-seven.md`, frozen at Enterprise Math commit `ab4699ad2a80b0e040c5a5f287cd34a537d75e6f`, path `research_notes/portable_direct/2026-11-16_google_math_continuation/joint/shape-seven.md`. The corresponding unpublished task draft is `handoff_requests/google_math_20261116/RS-SEVEN-PHASE-RAW-NOISE-RADIUS.md` at commit `47667d135b2bb7bc6a6423832dfeaba6f4b9f5fc`. Its original seven/eight-window question is resolved by the proposition below.
+
+Let `G=(20,20,20,-100,140,-100)`, let `n>=5`, put `k=n-4`, and set
+
+`S_a=(G_a,...,G_(a+k-1))`, with indices modulo six.
+
+Let `H_n` be the `k` by `n` fourth-forward-difference matrix with row stencil `(1,-4,6,-4,1)`. The observed vector is
+
+`y=A S_a+B 1+H_n w`, with `||w||_infinity<=epsilon`.
+
+The nuisance translation `B` is arbitrary. In the positive model `A>=g>0`; in the signed model `|A|>=g>0`. A competing explanation has its own legal gain, translation and raw noise. The decoder sees only this difference vector. Its objective is to recover the phase `a` for every legal state and noise.
+
+**Theorem.** The sharp uniform error radii, in units of `g`, are:
+
+| Consecutive raw samples | Positive gain | Unknown gain sign |
+|---|---:|---:|
+| 5 or 6 | 0 | 0 |
+| 7 | 3 | 15/8 |
+| 8 | 15/4 | 3 |
+| Every n>=9 | 15/4 | 10/3 |
+
+For each positive table entry `R`, every error budget `epsilon<R*g` permits uniform unique decoding. At `epsilon=R*g`, two distinct phases have the same observation with legal raw errors, so no decoder has the stated uniform guarantee. At five or six samples the phases already collide with zero noise.
+
+The eighth sample raises the positive-gain guarantee from `3g` to `15g/4` (25%) and the signed guarantee from `15g/8` to `3g` (60%). The ninth sample raises the signed guarantee to `10g/3`, after which the worst-case radius is constant. The signed, periodic collision is the mechanism of saturation; more consecutive measurements under these unrestricted per-position error budgets cannot remove it.
+
+## Pair separation and exact certificate
+
+By homogeneity set `g=1`. For two distinct phases with templates `U,V`, simultaneous sign reversal of signals and noise preserves the problem. Thus it suffices to consider a positive gain on `U`, a relative sign `s in {+1,-1}` on `V`, and both gain magnitudes at least one. Define
+
+`d(U,V,s)=min ||h||_infinity`
+
+subject to
+
+`H_n h=alpha U-s beta V+b 1`, `alpha,beta>=1`.
+
+The error balls of the two phase families intersect exactly when this separation is at most `2 epsilon`. Indeed, the difference of two vectors in `[-epsilon,epsilon]^n` is precisely `[-2epsilon,2epsilon]^n`; conversely split an attaining `h` into the legal noises `-h/2` and `+h/2`. Therefore the sharp decoding radius is half the minimum pair separation. The minimum is achieved in every case here by the displayed exact primal witnesses.
+
+For a lower bound valid for **all** legal gains and noises, it suffices to produce a rational vector `q in Q^k` satisfying
+
+`sum(q)=0`, `||H_n^T q||_1<=1`, `q.U>=0`, `-s q.V>=0`.
+
+Every feasible candidate then obeys
+
+`||h||_infinity >= q.(H_n h) = alpha q.U-s beta q.V >= q.(U-sV)`.
+
+Each stored record gives a rational primal tuple `(h,alpha,beta,b,t)` and a rational `q` whose lower bound equals `t`. Exact feasibility and this equality prove the optimum without trusting a floating-point solver. The certificate covers all 15 unordered phase pairs and both relative signs for `n=7,8,9`: 90 cases in total. The positive model uses the 15 `s=+1` cases at each length; the signed model uses both signs.
+
+`explore.py` uses SciPy only to locate candidate primal/dual solutions. `verify.py` independently reconstructs every matrix and template, checks coverage and every inequality/equality using Python's `Fraction`, and verifies the periodic infinite-window witnesses. The checker requires only the Python standard library. Its output is `verification.json`.
+
+## Explicit boundary witnesses
+
+It is enough to give `H_n h=x-y`, because the two hypotheses with noises `-h/2` and `h/2` both produce `(x+y)/2`.
+
+1. **Seven, positive:** phases `0,1`, gains `1,1`, `x=S_0-36*1`, `y=S_1`, and `h=(-6,6,-6,-6,6,-6,6)`. Here `||h||_infinity=6`, giving radius `3`.
+2. **Seven, signed:** phases `1,5`, gains `+1,-1`, `x=S_1+20*1`, `y=-S_5`, and `h=(-15/4,15/4,-15/4,15/4,-15/4,15/4,-15/4)`. Here `||h||_infinity=15/4`, giving radius `15/8`.
+3. **Eight, positive, and every longer window:** phases `0,3`, gains `1,1`, no translation, and `h_j=(15/2)(-1)^j`. Since `G_j-G_(j+3)=120(-1)^j` and the fourth difference of `(-1)^j` is `16(-1)^j`, this is an exact witness for arbitrary length. The radius is `15/4`.
+4. **Eight, signed:** phases `0,5`, gains `+1,-1`, `x=S_0-4*1`, `y=-S_5`, and `h=(-6,6,-6,6,6,-6,6,-6)`. The radius is `3`.
+5. **Nine, signed, and every longer window:** phases `0,1`, gains `+1,-1`, no translation, and `h` repeating `(20/3,-20/3,20/3)`. Its fourth difference repeats `(40,40,-80)`, exactly `G_j+G_(j+1)`. The radius is `10/3` for arbitrary length.
+
+For `n=6`, phases zero and one have the same template `(20,20)`, so they collide without noise. For `n=5`, the arbitrary translation makes every one-coordinate template equivalent.
+
+## Why the finite certificates prove every longer length
+
+Restricting a longer observation to its first `n` raw positions and first `n-4` differences preserves its phase and gain. Consequently every pair separation, and their minimum over pairs and signs, is nondecreasing with `n`. The exact lower bound at eight samples therefore holds for all longer positive-gain windows; the alternating witness attains that same bound. Similarly, the exact lower bound at nine samples holds for all longer signed-gain windows; the three-period witness attains it. These arguments establish the infinite length claims directly from the finite certificates and the periodic identities.
+
+## Consequence for task publication
+
+The original raw-noise task's four requested constants and witnesses now have complete author-side proofs. A new research task should start from a remaining problem, for example sharp finite-`r` noise margins for the original nonlinear integer-count observer, where the exact count remainder and the coupling between gain and translation matter. Merely asking for arbitrary consecutive window length would also repeat the theorem proved here.
+
+The result uses the raw per-position additive error model and unrestricted nuisance gains/translations in the source task. In the exact common `(e,d)` count model, `A` and `B` are linked; its finite-`r` attainable observations form a different family. Transferring the constants to that family needs the declared count-model bridge and an explicit treatment of its remainder. No new spatial axis, native quotient, or canonical mathematical admission is asserted by this auxiliary-observer theorem.
