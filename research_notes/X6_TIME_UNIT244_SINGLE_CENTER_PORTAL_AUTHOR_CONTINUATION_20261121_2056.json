@@ -1,0 +1,117 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "local_cycle": "2056",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_scientific_source_commit": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "normative_canonical_global_read": "awdawmip/chatgpt-global-knowledge main; entrypoint blobs a6cd1a95e17a501b72c35244633bfb4699c91eac / 01de3bea2155db8c4ce29f832906b2df114f88bf",
+  "read_source_as_of": {
+    "source_commit": "b9c57b68c96781f4f69eddfd619554296283e073",
+    "request_id": "onhour-20261121-2056-x6-own-current-continuation-read-v1",
+    "status": "SUCCEEDED",
+    "observed_at": "2026-11-21T12:57:50.532276+00:00",
+    "current_claim_status": "HANDOFF_READY / NO_LIVE_CLAIM",
+    "current_execution_authorized": false,
+    "previous_claim_id": "MCP-369991930c5b4fddf26dbefa",
+    "previous_claim_comment_id": 7048613458,
+    "previous_run_id": "RUN-d653f1346f38369bc27f5fc5",
+    "previous_generation": 5
+  },
+  "parent_progress": {
+    "verified_prior": "Existing Unit233–242 source and Activity243 persisted, Unit238 separate correction event. Unit243 source and Activity244 completed this cycle. Do not repeat.",
+    "unit243": "Original frozen 12 OUTER ring + source-defined P with all six signed spokes: 2 labeled intact triads with target wind (-12,+12), 24 ring and 4 spokes, sharp shortest28 under occupied-source/empty-target conditional Port rule.",
+    "unit244": "Keep original 12 signed ring edges, permit exactly one two-way signed centre spoke x_p<->P, p even. Exact sharp minima p=0,2,4,6,8,10 respectively 30,30,32,36,36,32 primitive events, every shortest witness has two centre-spoke moves. Verified full signed Cell/BRC witness + exhaustive BFS at winding |L|≤36; bounded cutoff 12 falsely loses shorter paths. Independent Python plus executed Node."
+  },
+  "research_evidence": [
+    {
+      "unit": "Unit243",
+      "type": "proof",
+      "commit": "79742b78017f7cd715576d347542535942188c4c",
+      "path": "research_notes/X6_TIME_UNIT243_CENTER_PARKING_TWO_OPPOSITE_LAPS_20261121_2056.md",
+      "git_blob_sha1": "15e536396c998c7a7279ed0ad896abc4b121d17e",
+      "sha256": "97ede4a0a2460fd88d7dd27a92e81205cad717013ed0c10b27d2aab40d4aa199"
+    },
+    {
+      "unit": "Unit243",
+      "type": "checker",
+      "commit": "41cfb3fa32cf672069206d68fa11ab3d87889b6f",
+      "path": "research_checks/X6_TIME_UNIT243_CENTER_PARKING_OPPOSING_WINDING_CHECK_20261121_2056.js",
+      "git_blob_sha1": "662a1a8ebe8f03e57a910011225a4dad1fae9d7a",
+      "sha256": "6d0b889b38409a9790ca378f90c9273ecfbc1e93f11b35dc6c0aea45a33d0646"
+    },
+    {
+      "unit": "Unit243",
+      "type": "result",
+      "commit": "37a879cdac53d70b91b0a52b219ee41d9a16f259",
+      "path": "research_checks/X6_TIME_UNIT243_CENTER_PARKING_OPPOSING_WINDING_RESULTS_20261121_2056.json",
+      "git_blob_sha1": "32b5645809b8c80c84b2b30746d11757e30c7fb5",
+      "sha256": "3c3277ffdf16899216e3eb7dbae5de14aa196cbe6875e7d368de8385ed435dfb"
+    },
+    {
+      "unit": "Unit244",
+      "type": "proof",
+      "commit": "987b7c872100dec9657cf3c78e3313cf7a66bec2",
+      "path": "research_notes/X6_TIME_UNIT244_SINGLE_CENTER_SPOKE_SHARP_EXPERIMENT_COST_20261121_2056.md",
+      "git_blob_sha1": "6a3368ca4f439fe04e67c8505c70282e47c77886",
+      "sha256": "f09a6a77fc62ea4b8a65ac31a412c3f8917be2a46c6e857ceff0e619ffdd55e0"
+    },
+    {
+      "unit": "Unit244",
+      "type": "checker",
+      "commit": "3f7a6f30e5bec68a1a6922efe97644defc330dd2",
+      "path": "research_checks/X6_TIME_UNIT244_SINGLE_CENTER_PORTAL_EXACT_CHECK_20261121.js",
+      "git_blob_sha1": "dd26afa386e0e1ce1a3589becdf1140416e6b0b5",
+      "sha256": "562861ae96cb906856adac3372709fb4cdd94ba07387d31773a17f870376fd83"
+    },
+    {
+      "unit": "Unit244",
+      "type": "result",
+      "commit": "e6b82e7208228ab105ae956dd379ffb961af779d",
+      "path": "research_checks/X6_TIME_UNIT244_SINGLE_CENTER_PORTAL_EXACT_RESULTS_20261121.json",
+      "git_blob_sha1": "ffef1c8ab0d89b15f92b39b3ac556573611116f7",
+      "sha256": "cb51461b4a5cb8b82ab476a31c3af93efc917df90325841715ad522af56937a4"
+    }
+  ],
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+    "commit": "cad11b00b8ee014cb9f151c370bb3a147556b74f",
+    "git_blob_sha1": "bd9ddec2d391d07ff589da3c9f92dc2d79beb5c4",
+    "checkpoint_events": 245,
+    "semantic_units": 244,
+    "one_separate_unit238_correction": true
+  },
+  "native_control": {
+    "protected_progress": "NOT_PUBLISHED for Units233–244; no current winning own live claim",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903",
+    "previous_failed_progress": "onhour-20261121-1502-own-time-units233-235-native-progress-v1",
+    "previous_failed_prepares": [
+      "onhour-20261121-1627-own-x6-time-typed-continuation-after-expired-claim-v1",
+      "onhour-20261121-1640-own-x6-time-typed-continuation-compact-repair-v1"
+    ],
+    "former_claim": "MCP-369991930c5b4fddf26dbefa",
+    "former_run": "RUN-d653f1346f38369bc27f5fc5",
+    "generation": 5,
+    "deployed_recovery_fix_verified": false
+  },
+  "required_evidence": [
+    "Physical source-admitted all original OUTER signed ring-Ports and any signed bidirectional centre-spoke whole-triad Port, including conservation/environment/guard",
+    "If Port exists, identify its phase p, test original shortest BRC witness for N(p) events with original Cell/triad/Port provenance; if only one orientation available, analyze one-way graph separately",
+    "Same-Cell before/after C12/C24 precision fibre measured independently of static root ±3"
+  ],
+  "do_not_repeat": [
+    "Existing Units233–244 mathematical sources/checks/Activity245; Unit238 correction is distinct event",
+    "Failed Native PROGRESS and two prior failed typed prepare requests; no blind replay or maintenance-session identity",
+    "Original frozen D24 RR/ACCEPTED DR and independent staging",
+    "Original R063 six-file benchmark belongs to distinct RS-X6-LEGACY-PLANE-RECONCILIATION / support #2416"
+  ],
+  "next_exact_action": "Read Source for actual signed triad Cell/Link/Port guard, particularly a candidate bidirectional centre spoke; test existence and native event cost of exact source-consistent Unit243–244 witness, measure C12/C24 precision separately. Check actual deployment of #2903 then take legitimately fresh typed same-lane continuation only if owner permits and no unknown request; keep original failed request results immutable. Continue useful science without waiting for a user continue.",
+  "evidence_status": "Units243–244 AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / ACTIVITY245_PERSISTED / UNREVIEWED / NOT_ADMITTED",
+  "handoff_required": false
+}
