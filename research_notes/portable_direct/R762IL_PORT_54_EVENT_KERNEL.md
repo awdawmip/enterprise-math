@@ -4,7 +4,7 @@ Date: 2026-11-22 (Asia/Shanghai). **AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_R
 
 ## Provenance and precise scope
 
-Frozen scientific task: \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\`, scientific pin \`a72226e2430ffa4786321ac86e7f0c599d5f0389\`. Main predecessor: **R762IK**, research commit \`a8d8488b137cd090dbde3d3c07c3d5ffa6a9c57c\`, [source proof](https://github.com/awdawmip/enterprise-math/blob/a8d8488b137cd090dbde3d3c07c3d5ffa6a9c57c/research_notes/portable_direct/R762IK_PORT_55_EVENT_KERNEL.md), [exact checker](https://github.com/awdawmip/enterprise-math/blob/a8d8488b137cd090dbde3d3c07c3d5ffa6a9c57c/research_notes/portable_direct/R762IK_CHECK.py), [component scan](https://github.com/awdawmip/enterprise-math/blob/a8d8488b137cd090dbde3d3c07c3d5ffa6a9c57c/research_notes/portable_direct/R762IK_COMPONENT_SCAN.cpp).
+Frozen scientific task: `RS-X6-TRIADIC-CLOSURE-DYNAMICS`, scientific pin `a72226e2430ffa4786321ac86e7f0c599d5f0389`. Main predecessor: **R762IK**, research commit `a8d8488b137cd090dbde3d3c07c3d5ffa6a9c57c`, [source proof](https://github.com/awdawmip/enterprise-math/blob/a8d8488b137cd090dbde3d3c07c3d5ffa6a9c57c/research_notes/portable_direct/R762IK_PORT_55_EVENT_KERNEL.md), [exact checker](https://github.com/awdawmip/enterprise-math/blob/a8d8488b137cd090dbde3d3c07c3d5ffa6a9c57c/research_notes/portable_direct/R762IK_CHECK.py), [component scan](https://github.com/awdawmip/enterprise-math/blob/a8d8488b137cd090dbde3d3c07c3d5ffa6a9c57c/research_notes/portable_direct/R762IK_COMPONENT_SCAN.cpp).
 
 Let \(\mathcal P=\binom{[6]}2\) be the 15 Port vertices and \(\mathcal S=\binom{[6]}3\) the 20 support types. A support \(S=\{a,b,c\}\) permits a named event on one edge of the triangle with vertices \(ab,ac,bc\). A legal closed Port history is an Euler tour through a connected even-degree assigned multigraph; its nonisolated vertex set \(V\) and start \(p\in V\) are part of the claimed observer.
 
@@ -70,15 +70,15 @@ Cases with \(k\ge2\) were already bounded by 54. Cases with \(k=1\) are now at m
 
 ## Certificate algorithm and reproducibility
 
-The source \`R762IL_CHECK.py\` uses only Python 3 standard-library integer operations. For odd-support replacements, it chooses target three-count triangles to shorten from three events to one. The resulting two-Port boundary is routed through two edges belonging to remaining full-triangle supports; each helper triangle uses an exact \(\mathbb F_2^{15}\) XOR boundary mask and converts (1,1,1) to a (1,2,0) allocation when needed. The program then explicitly checks all support counts, degree parities, connectivity and active vertex sets; this is an exact Port boundary certificate, not a floating-point experiment or a claim about positive BRC masses.
+The source `R762IL_CHECK.py` uses only Python 3 standard-library integer operations. For odd-support replacements, it chooses target three-count triangles to shorten from three events to one. The resulting two-Port boundary is routed through two edges belonging to remaining full-triangle supports; each helper triangle uses an exact \(\mathbb F_2^{15}\) XOR boundary mask and converts (1,1,1) to a (1,2,0) allocation when needed. The program then explicitly checks all support counts, degree parities, connectivity and active vertex sets; this is an exact Port boundary certificate, not a floating-point experiment or a claim about positive BRC masses.
 
 Run from the repository root:
 
-\`\`\`bash
+```bash
 python3 research_notes/portable_direct/R762IL_CHECK.py
-\`\`\`
+```
 
-Author-run exact result, 2026-11-22: \`PASS R762IL\`. It checks 42,104 length-55 histograms represented by 118 axis orbits, 1,560 odd high-count histograms represented by 12 orbits, all 300 possible 14-active-Port exceptions and all 77,520 thirteen-support masks with 60 three-component / critical cases. The earlier R762IK exact finite certificates are reused for the terminal reduction and even high-count families, at the immutable predecessor revision above.
+Author-run exact result, 2026-11-22: `PASS R762IL`. It checks 42,104 length-55 histograms represented by 118 axis orbits, 1,560 odd high-count histograms represented by 12 orbits, all 300 possible 14-active-Port exceptions and all 77,520 thirteen-support masks with 60 three-component / critical cases. The earlier R762IK exact finite certificates are reused for the terminal reduction and even high-count families, at the immutable predecessor revision above.
 
 **Status:** AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED. The finite-domain theorem is conditional on the cited earlier structural reduction, whose independent mathematical review remains outstanding. No formal Result, native PROGRESS, P000 promotion or physical interpretation is asserted.
 
