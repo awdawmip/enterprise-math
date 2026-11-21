@@ -78,6 +78,11 @@ assert winners==[(1,2),(3,6),(5,2),(5,4),(5,6),(5,8),(7,4),(9,8)]
 assert Counter(wt for a,b,wt,yes in rows10)==Counter({4:12,5:24,6:24,7:8,8:4})
 print('MOD10_PRIMITIVE_DIRECTIONS 72; REFLECTIVE 8; NONREFLECTIVE 64; ALL CRITERION PASS')
 print('EIGHT_SYMMETRIC_CLASSES',winners)
+for a,b in winners:
+    uword=word10(a,b)
+    assert sum(all(uword[t]==uword[(z-t)%10] for t in range(10)) for z in range(10))==1
+    assert all(any(uword[t]!=uword[(t+k)%10] for t in range(10)) for k in (1,2,5))
+print('POSITIVE_MOD10_WORDS: EACH ONE REFLECTION CENTER; MINIMAL PERIOD 10 PASS')
 
 # The mod-11 factor is either constant true or all but one of 11 positions;
 # compare every primitive residue direction to the exact full 110-cell mask.
@@ -122,6 +127,12 @@ for b in range(2,31):
         shift_candidates=[d for d in range(T) if d%b==(-2*q0)%b]
         brute={d for d in shift_candidates if {(q+d)%T for q in R[-1]}==R[1]}
         assert brute==shifts
+        if shifts:
+            assert len(shifts)==(11 if (a+b)%11==0 else 1)
+            expected_period=(10 if (a+b)%11==0 else 110)
+            assert all(any(W[t]!=W[(t+k)%110] for t in range(110))
+                       for k in range(1,expected_period))
+            assert all(W[t]==W[(t+expected_period)%110] for t in range(110))
         families+=1
 assert families==277
 print('DIRECT_RATIONAL_ANCHORS b<=30:',families,'; ALL DENOMINATOR SHIFT SETS EXACT')
@@ -132,5 +143,8 @@ for a,b in [(1,2),(1,7),(1,12),(3,16),(5,16)]:
     centers=[z for z in range(110) if all(W[t]==W[(z-t)%110] for t in range(110))]
     shifts=sorted({(-2*q0-b*z)%(110*b) for z in centers})
     print('ANCHOR',f'{a}/{b}','CENTERS',centers,'SHIFTS',shifts)
+T,R=exact_denominator_masks(5,6)
+assert len({d for d in range(T) if R[1]=={(q+d)%T for q in R[-1]}})==11
+print('FIVE_SIXTHS: 11 VALID DELAYS; PERIOD 10b PASS')
 assert 168 in [(-2*1-2*z)%220 for z in range(110) if z==25]
 print('ALL PASS')
