@@ -1,0 +1,326 @@
+# 第二轮 RH 原代码方法提取：好坏秩、算术投影与幂窗口
+
+Date: 2026-11-21 (Asia/Hong_Kong)
+Authoring scope: collaborator `/root/rh_deep_source`; source extraction and conditional mathematics for parent integration.
+Project review status: no independent Enterprise Math Review; no shared Task/CLAIM or remote write by this collaborator.
+External source: `CocoSgt/riemann-hypothesis-lean@7cbf7a0c32fca1badf05931879a37c3f8a2b03b4`.
+This is a selective inspection of actual source definitions and proof terms, not a full rebuild or dependency audit.
+
+## 1. 本轮取得的实质进展
+
+第一轮把作者概述压缩为“提升、整除增益、范数代价”。本轮已从源代码里展开三个可用接口：
+
+1. 好坏格子的秩比例、投影的清分母代价与斜率上界共同控制净损失；
+2. 主定理实际采用任意远的完整幂窗口，并非必须先控制每个充分大尺度；
+3. 窗口终端真正消费的是正上包络的加权积分，因此可由加权 L2 窗口估计通过 Cauchy–Schwarz 导入。
+
+这些接口保留原工程的对象与条件。迁移到进取数论时，应构造对应的原生观察量、变换和证据；尚未证明当前 E_a 或 B_(a,N) 自动满足它们。
+
+## 2. 实际主路确实使用窗口终端
+
+以下均为固定提交中的实际调用关系：
+
+- `src/Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean`：
+  `everyCharacter` -> `everyCharacter_of_row` -> `every_character_of_literature_of_vWin`。
+- `src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean`：
+  将已建立的文献型定理包、theta 积分/局部匹配、covolume 界和 `VWin` 送入 `every_character_of_theta_integrals_local_matching`。
+- `src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean`：
+  `every_character_of_theta_integrals_local_matching` 消费具体的
+  `nonempty_hyps_definite_side_of_closed_bound`，调用 `every_character_of_green_v_win`。
+- `src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean`：
+  `every_character_of_green_v_win` -> `zero_free_all_of_green_v_win` -> `zeroFreeAll_of_topG`；
+  此处明确采用窗口参数 λ=3/2，并以 `supplyChi` 提供对应族。
+- `src/Development/AutomorphicArithmetic/CharacterBoxes/ZeroFreeAllOfTopG.lean`：
+  `zeroFreeAll_of_topG` **直接调用** `zeroFreeOn_of_tiedWin_cyc`，传入
+  `UpperTheory.Comparison₂.level_gm_le_on_family_scales` 和
+  `UpperTheory.Comparison₂.formB`。
+- `src/Development/AutomorphicArithmetic/PrimitiveCosets/Imports.lean`：
+  `formB` 用 `level_family` 将对象精确匹配，再调用
+  `Deduction.zeroFree_of_rpow_window`。
+- `src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ZeroFreeOfRpowWindow.lean`：
+  通过 `windowHyp_of_rpow` 和 `lemmaL` 得到零点排除；
+  `lemmaL` 消费 `poleData` 与 `landau_window`。
+
+源文件 `TopWin.lean` 也提供所有充分大尺度版本，但上述实际调用选择的是窗口版本。
+本轮没有完整展开 `EveryCharacterOfLiteratureOfVWin` 的全部传递依赖；这里的“实际调用”只覆盖所列读到的连接。
+另读到的 `FockModels/EveryCharacterE.lean` 和 `CharacterBoxes/EveryCharacter.lean` 提供旧名称/相近接口；本节已按新接口的真实调用修正，不把旧分支冒充主证明依赖。
+
+## 3. 可直接搬到有限模型的好坏秩损失引理
+
+源头：
+`src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MajAtAddRight.lean`
+
+其中 `GlobalTheory.CutNum.numeric` 的内容可以完整写为：
+
+设 d_g,d_b≥0，d_g+d_b>0，0≤δ≤1/12，且
+
+(d_g+d_b) μ ≤ d_g μ_g + d_b (m+ℓ),
+d_b ≤ 3δ(d_g+d_b),
+m ≤ Q,  μ ≥ −Q,  0≤ℓ≤Q.
+
+则
+
+**μ_g ≥ μ − 12δQ.**
+
+证明：
+坏秩条件给
+(1−3δ)d_b ≤ 3δd_g。
+因 δ≤1/12，有 1−3δ≥3/4，所以 d_b≤4δd_g，并且 d_g>0。
+原平均不等式变成
+
+d_g(μ−μ_g) ≤ d_b(m+ℓ−μ) ≤ 3Qd_b ≤ 12δQd_g。
+
+除以 d_g 即得结论。所有步骤是确定性的有限数值不等式，不需要随机性。
+
+### 3.1 这里的“坏”准确是什么
+
+`src/Development/AbelianVarietyTheory/Definitions/Divisors/CovolXOfCovol.lean` 给出：
+
+- `BadAt`：坏格子的秩 ≤ 3 exp(−x^(ε_z/7)) × 类型格子的秩。
+- `CutAt`：e²=e；对 e 与 1−e 有精确 Pythagoras 恒等式；
+  对格子 L 有 g e(L)⊂L；并且 2 log g≤b。
+- `LamAt(A)`：母格子最大斜率 ≤ x^A b。
+- `CoreAt(C₁)`：类型格子的平均斜率 ≥ μ_core−C₁E。
+- `LowAt(C₂)`：μ_core≥−T−C₂E。
+- `RecAt`：`Formalism.DivisionValues.lcv ((p.S false).XW i) ((p.S false).M i) / ((p.S false).D : ℝ)` ≤ −好格子平均斜率。
+- `SizeAt`：1≤b≤E≤x^B b，|T|≤x^B b，以及覆盖/商对象的其他尺寸条件。
+
+这里 E=`unitE`、T=`mainT` 是原工程的有类型参数，**不是**我们的 RH 路线中误差函数 E_a 或正能量 Q_a。
+
+归一化需保留源符号 `lcv/D`。`src/Formalism/QuotientMetricDivisors/Statement.lean` 的精确定义是
+
+\[
+\operatorname{lcv}(X,L)
+=\frac{2}{\operatorname{finrank}_{\mathbb Q}K}
+\log\!\left(\operatorname{Formalism.HN.ht}
+  (\operatorname{Pi.basisFun}K(\operatorname{Fin}d))\,X\,L\right).
+\]
+
+因此这里既有 `lcv` 内部的数域度归一化，也有外部的 `D` 除数。`src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/RecAtOfGramAt.lean` 中，实际应用先证明 `(p.S false).dW i = (p.S false).D`，再以这个框架尺寸应用 `covolumePerRank_le_neg_slope_scaled`。该定理的完整签名见 `src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CovolumePerRankLeNegSlopeScaledStatement.lean`：分母 `d` 是 `K` 上线性独立框架 `b : Fin d → V` 的长度，另有其张成空间包含格子及坐标格子满秩的条件。此处的 `D` 对应这一 `K` 上的框架尺寸，不能当作 `finrank ℚ K`。本文保留 `lcv/D` 作为源归一化量；此前简称为未经限定的 “log-covolume / rank” 不够准确，已修正。
+
+坏秩小不等于坏能量小。源工程以最大斜率和清分母代价补足这一步；只数“坏分支少”不能替代这些条件。
+
+### 3.2 净损失的组装
+
+`src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CovolumeFromGramAndBounds.lean`
+中的 `lcv_le` 使用
+
+δ(x)=exp(−x^(ε_z/7))
+
+以及实际小量条件
+
+12δ(x)(x^A+x^B+C₁+C₂+1)≤1，
+
+得到
+
+**lcv/D ≤ T+(C₁+C₂+1)E**，其中 `lcv/D` 沿用上段的精确源定义。
+
+其 `exists_loss_le` 证明任意固定正 c 与固定实数 A,B,C 下，
+12 exp(−x^c)(x^A+x^B+C) 最终≤1。
+
+可迁移之处：应追求“结构缺陷比例 × 允许的最坏代价”足够小，而不是把缺陷与代价分别描述成“趋于零”“可控”后略去乘积。若 c=c(a)趋于0，或 A=A(a)无界，最终阈值可能严重依赖a；原逐族结论不自动变成 a→0 的统一尾界。
+
+### 3.3 积分与格子的归一化成本是有账本的
+
+`CoveringLeFromMeasure.lean` 中，复实现范数与代数/Petersson范数之间有因子 c，满足 |log c|≤CE。利用有理格子一致性，得到平均斜率误差≤2CE。
+
+`ThirdPlaceSeries/IntegralCuspSlopePowerBound.lean` 给出
+slopeMax_sq≤x^A b；`CoveringLambdaInvariantBound.lean` 明确合成指数
+A₁+(A_h+1)+ceil(2C_m)。
+这些是所读接口的实际常数依赖，不是完整 RH 最优参数估计。
+
+## 4. 幂窗口终端的精确对象和量词
+
+源头：
+`src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Window.lean`
+
+HasWindows(S,λ) 定义为
+
+**∀y∈R，∃Y≥y，∀x∈[Y,Y^λ]，x∈S。**
+
+应用中 λ>1；取 y≥1 即保证窗口非退化。窗口可以间隔很远，但每次必须覆盖完整区间。仅有一列好点不满足此条件。
+
+`TopWin.lean` 中，实际输入为
+
+G_Λ(x) ≤ x^(1/2+(e_D+e_L+7)ε)
+
+在族提供的窗口上对足够大的 x 成立。量词顺序是先有固定
+e_D,e_L,ε₁>0，再对每个 0<ε<ε₁ 构造相应族和窗口；起始阈值可依赖 ε，指数损失系数 e_D+e_L+7 不由 ε 重新任意选取。
+
+对假想零点 Re(s)>1/2，选 ε 小到该指数低于 Re(s)，即可由窗口型解析判据矛盾。若误写为损失系数 C(ε)=1/ε，指数就不趋于1/2。
+
+### 4.1 G_Λ 不是普通素数计数，也不是 E_a
+
+`src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean` 定义
+
+ramp_χ(y)=Σ_(1≤n≤floor(y)) Λ(n) χ(n) max(y/n−1,0)。
+
+非主角色：
+G_χ(y)=ramp_χ(y)+y L'_χ(1)/L_χ(1)。
+
+主角色只允许模数1：
+G_1(y)=ramp_1(y)−y log y+(1+γ)y。
+
+对有限角色族与严格正实权重 a_i，定义
+G_F(y)=Σ_i a_i Re G_(χ_i)(y)。
+
+`LevelFamily.lean` 精确证明所构造角色族满足
+Deduction.Gm(F,y)=Level.Gm(Λ,y)，且两端 ZeroFree 谓词等价。
+因此 `formB` 中替换对象有实证桥梁。
+
+## 5. 真正的窗口假设比逐点幂界更弱
+
+`CharFamily.lean` 的 WindowHyp(F,θ,δ) 为：
+
+对每个 η>0 和每个 Y₀∈R，存在 Y≥Y₀ 和函数 R(y)，使得在
+I=[Y,Y^(1+δ)] 上：
+
+1. R≥0 且 G_F≤R，逐点成立；
+2. R(y)y^(−θ−1) 在 I 上可积；
+3. ∫_I R(y)y^(−θ−1)dy≤Y^η。
+
+应用取 Y≥1。δ>0 固定。Y 与 R 可依赖 η 和 Y₀。
+
+`WindowHypOfRpow.lean` 以 R(y)=|C|y^θ 把完整窗口上的逐点界转成此条件，因为
+∫_I |C|/y dy=|C|δ logY，最终小于任意 Y^η。
+
+`lemmaL.lean`：
+0<θ<1、δ>0、WindowHyp(F,θ,δ) ⇒ 所有族内 L 函数在 Re(s)>θ 非零。
+
+## 6. 本轮展开的条件推论：加权 L2 窗口足够
+
+以下是对实际 WindowHyp 的直接 Cauchy–Schwarz 推论，标为本轮展开；不声称原工程已按这段表述给出，也不声称已为进取数论的目标观察量证明其前提。
+
+### 6.1 角色族版本
+
+固定有限角色族 F（满足 CharFamily 的正权重、admissibility）、0<θ<1、δ>0。令
+
+R(y)=max(G_F(y),0)。
+
+假设对每个 α>0 和每个 Y₀≥1，存在 Y≥Y₀，使
+
+R(y)^2 y^(−2θ−1)
+
+在 I_Y=[Y,Y^(1+δ)] 上 Lebesgue 可积，且
+
+E_θ(Y):=∫_(I_Y) R(y)^2 y^(−2θ−1)dy≤Y^α。
+
+则 WindowHyp(F,θ,δ) 成立，从而所有族内 L 函数在 Re(s)>θ 非零。
+
+**证明。**
+G_F 可测（源工程的 measurable_Gchi 和有限求和；也可将此列为显式输入）。
+R=max(G_F,0) 可测，且逐点 R≥0、G_F≤R。
+
+给定 η>0、Y₀≥1。先把起点提升到 Y₁，使
+δ logY≤Y^η 对全部 Y≥Y₁ 成立。使用假设 α=η，在
+Y≥max(Y₀,Y₁) 取得窗口。令
+
+f(y)=R(y)y^(−θ−1/2),  h(y)=y^(−1/2)。
+
+f、h 在该有限正区间均属L2：前者由能量假设，后者因为
+∫_I h²=δ logY。Hölder 保证 fh=R(y)y^(−θ−1) 可积，且
+
+∫_I R(y)y^(−θ−1)dy
+≤ sqrt(E_θ(Y)) sqrt(δ logY)
+≤ sqrt(Y^η Y^η)=Y^η。
+
+故所有 WindowHyp 条件成立。再用 lemmaL。□
+
+注意仅需正部的L2，因原判据消费的是单侧正上包络；改用 |G_F| 或完整平方也给充分条件，但会更强。
+
+### 6.2 抽象 PoleData 版本：面向原生观察量的接口
+
+设 g:R→R、Φ:C→C、Z⊂C 满足原代码 `PoleData(g,Φ,Z)`：
+
+- g 可测，并且 |g(u)|≤C exp(2u) 对u≥0成立；
+- Re(s)>2时，Φ(s)=∫_(0,∞) g(u)exp(−su)du；
+- Z 中各点实部>0；Φ 在右半平面除Z外复可微，Z局部孤立；
+- 每个ρ∈Z有非零简单极点系数 c_ρ；若ρ为实数，则 c_ρ 为严格正实数；
+  其余部分在ρ附近解析。
+
+固定0<θ<1、δ>0。若对每个α>0和每个U₀≥1，存在U≥U₀，使
+
+g_+(u)^2 exp(−2θu)
+
+在[U,(1+δ)U]可积，且其积分≤exp(αU)，则每个ρ∈Z满足Re(ρ)≤θ。
+
+证明与上段相同：取R=g_+，Cauchy–Schwarz给窗口L1≤
+sqrt(δU) exp(αU/2)；给定η，取α=η并把U阈值提高到
+δU≤exp(ηU)，得到 WindowHypU。然后应用原工程
+`landau_window`。□
+
+换元y=exp u，恰得到上一段权重 y^(−2θ−1)dy。
+θ=1/2时该权重是y^(−2)，在形式上接近既有RH能量路线；对象和极点条件仍须实际构造。
+
+### 6.3 如何形成项目下一任务
+
+一个具体、可验收的目标是：
+在X6与既有原生观察语义下构造 g、Φ、Z，使所要排除的零点真正进入Z且留数不消失；然后证明任意远完整幂窗口上的正部加权L2是次幂量。该路线接受任意方法，不预先要求先完成全尾Q_a=O(a)。
+
+这种任务只改变充分条件的选择，不弱化对象保真、定理量词或原生语义。若无法建立极点条件，所得窗口能量估计仍是独立结果，不升级为RH结论。
+
+## 7. 为什么正角色权重关键：保护极点，不让它们在组合时消失
+
+`LandauTheorems/poleData.lean` 实际把每个角色与其逆角色对称化。
+若ρ处的零点重数分别为m_i与m'_i，组合变换的留数为
+
+c_ρ = S_ρ × [−1/(ρ(ρ−1))],
+S_ρ = Σ_i (a_i/2)(m_i+m'_i)>0。
+
+只要族内至少一个角色在ρ或其共轭处有零点，S_ρ严格正；因此组合后该极点不会被相消。
+实轴0<ρ<1时，−1/(ρ(ρ−1))>0，满足PoleData的实极点正留数条件。
+
+对进取数论有用的原则是：组合观察量前先检查“关键异常”的像是否保真。可做相位抵消的项与必须保护的极点，功能并不相同；不能把所有交叉项一律平均掉。
+
+## 8. 窗口解析机制的实际数学
+
+`landauTails.lean` 选择高阶导数阶数
+
+k=ceil((1+δ/2) σ U)
+
+以及σ>2，使核 u^k exp(−σu)/k! 的质量集中在
+[U,(1+δ)U]。外部尾部有显式指数型上界。这是原代码中的选择，不是本轮猜测。
+
+`landau_window_ineq` 保留
+|g|+g=2g_+ 所对应的单侧结构，将窗口上包络控制转成对
+(-1)^k Φ^(k)(σ+iγ)/k!
+的界，并同时保留实轴导数项。
+
+`landau_window` 再把“最近极点给出的高阶导数主项”与 Cauchy
+解析余项比较。若某极点实部超过θ，其几何增长速度与窗口界矛盾。
+因此完整幂窗口的宽度服务于局部化的高阶导数核；任意离散好点无法提供同一积分控制。
+
+## 9. 一个附带但可独立复算的整数 Fourier 支持引理
+
+源文件：
+`src/Development/AbelianVarietyTheory/Proofs/CharacterTheory/ParsevalBoundIntegerVectorSmallFourierSupport.lean`。
+本轮通过代码搜索另行读到此完整证明，未建立它在最终RH主路中的全部调用关系。
+
+设c_k∈Z、k=0,…,N−1，ω为N次本原单位根，
+
+Σc_k²=2n，|Σc_k|≤n−1，
+
+并且除集合S外全部非零Fourier系数为0，则
+
+2nN≤(n−1)²+4n²|S|。
+
+证明用Parseval：
+Σ_j |F_j|²=NΣ_k c_k²。
+整数性给Σ|c_k|≤Σc_k²=2n，故|F_j|≤2n；
+零频率≤n−1，其余至多|S|项非零。
+
+它提供一种有限证据门槛：若整数分支差仍有固定平方质量且零频偏差较小，不能又把几乎所有非零相位一起删除。一般化不等式为
+
+N||c||₂² ≤ |Σc_k|² + |S| ||c||₁²。
+
+这是标准Parseval推论；本轮价值在于明确可对接分支差/标签相位的计算接口，不宣称为新发明。
+
+## 10. 读取范围、已证与待构造的区分
+
+- 已从固定原代码读到：上述定义、数字损失引理、covolume组装、实际窗口调用链、角色族对象匹配、PoleData构造、Landau窗口证明结构。
+- 本轮自行完整证明：两种L2窗口充分条件（分别对具体角色族与抽象PoleData）；其推导是Cauchy–Schwarz。
+- 仍待项目研究：为原生BRC/残差对象建立对应的Gram、清分母、坏秩和最坏代价证书；或为原生RH观察量建立PoleData与加权L2窗口估计。
+- 本轮没有运行整个Lean工程，没有重新证明所有自守/代数几何上游定理，也没有据此声称进取数论RH路线已闭合。
+
+精确来源清单和Git blob见同目录source_manifest.json；全部源内容通过GitHub连接器读取固定提交。
+

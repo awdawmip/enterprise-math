@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "scope": "NATIVE_FUNCTION_EQUIVALENT_PREFLIGHT_FOR_NEW_TRANSACTION",
+  "source_commit": "7ea9b068fcbfa6231156730501e00be445d3b071",
+  "source_bytes_verified": [
+    {
+      "path": "tools/research_task_records.py",
+      "blob": "e94b3d9dfa41020c5fcfbd816678dc5501b82c9c"
+    },
+    {
+      "path": "tools/research_taskbook.py",
+      "blob": "18ad84a4413c1feec7c1513bbf97b73da2c2b9ba"
+    },
+    {
+      "path": "control_plane/research_task_records_impl.py",
+      "blob": "9b516247bbe32dae3408b322605896a27df233c8"
+    },
+    {
+      "path": "control_plane/research_read_view.py",
+      "blob": "55ddac84da77d7aeeb85ea38a6eb2dfbce1ca4bb"
+    },
+    {
+      "path": "research_task_publication_contract_v2.json",
+      "blob": "4074798bbd1a9e1383b577d0fc160b173df65420"
+    },
+    {
+      "path": "research_taskbook_contract.json",
+      "blob": "d81ddae0d37d95dd00f253abb9b92be39d31f20f"
+    },
+    {
+      "path": "research_taskbook_policy.json",
+      "blob": "da26198b964f7ce92dd90337dd37312dfddf82cc"
+    },
+    {
+      "path": "research_role_policy.json",
+      "blob": "fc2805f08f1a21c89e18fea816ab236a57696f54"
+    },
+    {
+      "path": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
+      "blob": "2c879cf00e925d75a18a5164b20ff08c9b21704a"
+    }
+  ],
+  "existing_task_check": {
+    "commit": "7ea9b068fcbfa6231156730501e00be445d3b071",
+    "directory_count": 526,
+    "candidate_id_absent": true,
+    "candidate_id": "RS-RH-METHOD-TRANSFER-20261121"
+  },
+  "task_id": "RS-RH-METHOD-TRANSFER-20261121",
+  "publication_id": "TP2-677F61D1BCF81D4E4FE3",
+  "taskbook_path": "research_tasks/RS-RH-METHOD-TRANSFER-20261121.md",
+  "record_path": "research_task_records/RS-RH-METHOD-TRANSFER-20261121/TP2-677F61D1BCF81D4E4FE3.json",
+  "taskbook_blob_sha1": "sha1:187b3cbef3f792de4028628b3b0d2a3c153c2171",
+  "taskbook_sha256": "e6d3abaaba6203d3ca70106b49fd74f8c085b2ab05d317819dea74b6a305011b",
+  "record_sha256": "14922e00cd00045a35599c0be0edfec25f9fc21dd10fd8180979145cd9791d04",
+  "native_prepare_pass": true,
+  "native_prepared_pass": true,
+  "native_dispatch_lint_findings": [],
+  "native_record_audit_errors": [],
+  "semantic_review": {
+    "actual_objective": "User-directed method extraction and integration, not RH proof completion",
+    "lineage_basis": "First formal Task for this direct research; prior portable report is an input and no formal parent Task/Result is asserted",
+    "frozen_inputs": "Exact source refs in taskbook",
+    "method_autonomy": "Allowed; windows and uniform-tail routes are research options",
+    "publisher_role": "RESEARCHER",
+    "publisher_id": "EM-DIRECT-B5750A",
+    "execution_identity_fixed_in_taskbook": false,
+    "existing_owners_changed": false
+  },
+  "remote_publication_status": "NOT_PERFORMED_BY_PREPARATION_AGENT",
+  "remaining_publication_actions": [
+    "Fresh target/path and rule-source concurrency check by publisher",
+    "Atomic taskbook plus record commit using non-force CAS",
+    "Exact immutable readback of both files"
+  ],
+  "full_repository_audit_claimed": false,
+  "formal_claim_or_result_created": false
+}
