@@ -1,0 +1,153 @@
+{
+  "schema": "R284CW_COMPLETE_65536_RANK_UNIQUENESS_SATURATION_V1",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED",
+  "source": {
+    "frozen_import": "R284CO_spectral_witness_checker.py",
+    "P": 17179869143,
+    "D": [
+      1120832,
+      6,
+      13,
+      1651128
+    ],
+    "Z": [
+      0,
+      390139,
+      394465,
+      1497639
+    ],
+    "SELECT": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6
+    ],
+    "frozen_population_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4"
+  },
+  "domain": {
+    "codewords": 65536,
+    "labeled_arcs": 64,
+    "nonconstant_distance_levels": 63,
+    "rank_min": 1,
+    "rank_max": 65536,
+    "exact_distance_evaluations": 4194304
+  },
+  "saturation": {
+    "first_rank_whole_population_mandatory": 24850,
+    "mandatory_at_rank_before": 65535,
+    "last_added_sites": 1,
+    "last_added_residues": [
+      14808969522
+    ],
+    "mandatory_at_rank_64": 3712,
+    "mandatory_at_rank_20000": 61404
+  },
+  "tie_boundary_ranks_below_saturation": 3390,
+  "simultaneous_tie_boundary_ranks_below_saturation": 356,
+  "ranks_with_nonzero_residual_quota": [
+    779,
+    1263,
+    1563,
+    7587
+  ],
+  "nonunique_minimum_core_ranks_all_65536": [
+    779,
+    1263,
+    1563,
+    7587
+  ],
+  "exceptional_cores": [
+    {
+      "rank": 779,
+      "minimum_core_size": 21944,
+      "minimum_core_count": 2,
+      "mandatory_size": 21943,
+      "residual_constraint": {
+        "level": 64,
+        "cutoff": 8416662779,
+        "size": 2,
+        "quota": 1,
+        "forced": 0,
+        "deficit": 1,
+        "unforced_residues": [
+          6055669926,
+          12724715924
+        ]
+      },
+      "core_sha256": [
+        "291941ecb66811fe1cf068256e447be5d6a77f66b3dd6dee228b8ae1f7047d14",
+        "e30658ed13f76ccc9ad1d4f07b91cf771cf6ca9cd9e5da2ca60cdefa59b164bb"
+      ]
+    },
+    {
+      "rank": 1263,
+      "minimum_core_size": 25997,
+      "minimum_core_count": 2,
+      "mandatory_size": 25996,
+      "residual_constraint": {
+        "level": 64,
+        "cutoff": 8412049871,
+        "size": 2,
+        "quota": 1,
+        "forced": 0,
+        "deficit": 1,
+        "unforced_residues": [
+          6051057018,
+          12720103016
+        ]
+      },
+      "core_sha256": [
+        "b304a9c15fe921f5a15c75222f1e59e82a6ec29589351e620284b460fe015add",
+        "fd556d492e007e5ac63a626dae003e0a1ebd9ea93e225b9a97c1966e227b72e3"
+      ]
+    },
+    {
+      "rank": 1563,
+      "minimum_core_size": 27499,
+      "minimum_core_count": 2,
+      "mandatory_size": 27498,
+      "residual_constraint": {
+        "level": 64,
+        "cutoff": 8409086289,
+        "size": 2,
+        "quota": 1,
+        "forced": 0,
+        "deficit": 1,
+        "unforced_residues": [
+          6048093436,
+          12717139434
+        ]
+      },
+      "core_sha256": [
+        "c73ab8f2b8ed90d310b84d9fac1150010280d667868ff768bc19dfa3e07a07eb",
+        "f6d5c5e02def62923da3f2c82f238c69d2ca385fb1575814752bd1f395e34906"
+      ]
+    },
+    {
+      "rank": 7587,
+      "minimum_core_size": 42637,
+      "minimum_core_count": 2,
+      "mandatory_size": 42636,
+      "residual_constraint": {
+        "level": 64,
+        "cutoff": 8381496764,
+        "size": 2,
+        "quota": 1,
+        "forced": 0,
+        "deficit": 1,
+        "unforced_residues": [
+          10044326029,
+          14547547380
+        ]
+      },
+      "core_sha256": [
+        "031ff9ce474211540a7244469d5784fc782e1fffd1d06d1333f7bc7f66992e4d",
+        "6be92ebd1a971783c4c163a00a76b6342df17c7fb164fa292d534222e8cb2992"
+      ]
+    }
+  ],
+  "argument": "M_R={x:min_k(end_rank_of_full_equal_value_block_containing_x at level k)<=R}. Every site in M_R is forced. Only incomplete cutoff tie blocks can impose residual quotas. The exact enumerated nonzero quotas are four independent binary choices. At R>=max_x tau(x), M_R=X, so unique minimum core is X.",
+  "independent_review": "NOT_REVIEWED"
+}
