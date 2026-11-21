@@ -72,7 +72,16 @@ def run():
   'm_range_kernel':{'11':[1,44],'13':[1,52]},
   'm_range_direct':{'11':[1,22],'13':[1,26]},
   'numerical_status':'PASS','independent_review':'NOT_REVIEWED','by_prime':data}
- (BASE/'RESULT.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+ expected=json.loads((BASE/'RESULT.json').read_text())
+ for d in (11,13):
+  ref=expected['by_prime'][str(d)];actual=data[str(d)]
+  assert ref['R0_nonzero_residues']==actual['R0_nonzero_residues']
+  assert ref['R0_first_cycle']==actual['R0_first_cycle']
+  assert ref['kernel_max_root_pole_multiplicity']==actual['kernel_pole_order_bounds']
+  for cert in actual['base_certificates']:
+   original=ref['base_certificates'][str(cert['r'])]
+   assert original['A']==cert['A'] and original['B']==cert['B']
+ (BASE/'RESULT_RECOMPUTED.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
  print('PASS: 22 direct crosschecks, 10 full-vector 4-block certificates and all 2d-root multiplicities')
  for d in (11,13):
   print('d',d,'max root multiplicities',data[str(d)]['kernel_pole_order_bounds'],
