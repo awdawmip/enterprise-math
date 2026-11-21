@@ -1,0 +1,110 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "local_cycle": "1900",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "prior_claim_id": "MCP-369991930c5b4fddf26dbefa",
+  "prior_claim_comment_id": 7048613458,
+  "prior_run_id": "RUN-d653f1346f38369bc27f5fc5",
+  "prior_generation": 5,
+  "native_control_as_of_latest_verified_source": "NO_LIVE_CLAIM as-of 2026-11-21T10:02:21Z, Source continuation request onhour-20261121-1800-x6-current-continuation-01 SUCCEEDED; no fresh authorized native write obtained",
+  "source_frozen_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "current_account_rules_read": "awdawmip/chatgpt-global-knowledge main@6668527b2d76d0f2e9a6d0eeaed228f1b2958bc7 verified during this turn",
+  "control_main_read": "awdawmip/enterprise-math main@cfbbecb3a2c7b65a111f53742ddb097c8552618f verified before this turn's new writes; subsequent new writes via guarded main commits",
+  "frontier": {
+    "prior_author_verified": "Units233-240: verified original author proof/checker/results and Research Activity up to event 241, including Unit238 correction as a distinct event; reuse, do not redo",
+    "new_unit": "Unit241",
+    "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / ACTIVITY242_PERSISTED / UNREVIEWED / NOT_ADMITTED",
+    "summary": "Conditional signed whole-triad Native OUTER C12 port realization: deterministic both-chirality Port selector with unchanged Cell/triad/guard requires 1 extra bit. Full Cell/F/chirality return makes a nonzero state-observable C12/C24 loop holonomy impossible without a separate state. For hypothetical +/-6 mod 6*2^m loop holonomy, fixed initial orbit needs exactly m extra loop bits; both chiralities total m+1 bits. A compressed 2^m-state register realizes the earlier two signed Link weights g5=g10=3, including reversal; C24 needs exactly 8 combined checkpoint states/3 bits at the same Cell, under this model.",
+    "check": {
+      "program": "research_checks/X6_TIME_SIGNED_PORT_CHIRAL_GUARD_AND_C24_FIBER_CHECK_20261121_1900.py",
+      "assertions": 12247,
+      "failures": 0,
+      "domains": [
+        "C6",
+        "C12",
+        "C24",
+        "C48",
+        "C96",
+        "C192"
+      ],
+      "publication_notes": "Program remote immutable git blob exactly matches executed local script b6442606b01044ebc9f82749fa6d7d3e40ba774d"
+    },
+    "sources": [
+      {
+        "path": "research_notes/X6_TIME_UNIT241_SIGNED_TRIAD_PORT_GUARD_MINIMAL_FIBER_20261121_1900.md",
+        "commit": "8d52d0b53fbc336c55ccf092162d1b86e10083f1",
+        "blob": "42872ae6bd501b74d088d5dfb76439c2a88b5964",
+        "sha256": "1f918a1a910ac85b8d173105c55d9bd830e1728bec6ce413b4909f7ca31a5604"
+      },
+      {
+        "path": "research_checks/X6_TIME_SIGNED_PORT_CHIRAL_GUARD_AND_C24_FIBER_CHECK_20261121_1900.py",
+        "commit": "78f03365fc82dc175a40c115f5cadadbbd157c6e",
+        "blob": "b6442606b01044ebc9f82749fa6d7d3e40ba774d",
+        "sha256": "c163790532192cc4c2060c2796f1548c4c81f8cb8a870aa0630acb6fe99fc5c5"
+      },
+      {
+        "path": "research_checks/X6_TIME_SIGNED_PORT_CHIRAL_GUARD_AND_C24_FIBER_RESULTS_20261121_1900.json",
+        "commit": "b6cd446c362f365b22b3a4f58098549f45fbb496",
+        "blob": "3a5b177144c1b0f86a219437c923129647d44cc9",
+        "sha256": "c8e77665763a93afc42f05975894cc9bacdded6500d0f781f4e44fd2f7c64b03"
+      }
+    ]
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+    "event_count": 242,
+    "semantic_unit_count": 241,
+    "original_unit238_correction_as_separate_event": true,
+    "commit": "03099fe568399c8371c4f8b615ffa9ef260ec555",
+    "blob": "ade18b54296946dcf1518122211165d87fe24e5b",
+    "event_id": "onhour-20261121-1900-x6-signed-port-chiral-loop-memory-unit241-v1"
+  },
+  "native_control": {
+    "original_failed_progress": {
+      "request_id": "onhour-20261121-1502-own-time-units233-235-native-progress-v1",
+      "status": "FAILED",
+      "error": "CANONICAL_REJECTED: registered execution requires a current winning live Issue #240 CLAIM"
+    },
+    "original_failed_typed_prepares": [
+      {
+        "request_id": "onhour-20261121-1627-own-x6-time-typed-continuation-after-expired-claim-v1",
+        "status": "FAILED",
+        "error": "NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED"
+      },
+      {
+        "request_id": "onhour-20261121-1640-own-x6-time-typed-continuation-compact-repair-v1",
+        "status": "FAILED",
+        "error": "NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED"
+      }
+    ],
+    "last_successful_continuation_request": "onhour-20261121-1800-x6-current-continuation-01",
+    "formal_native_semantic_progress_units233_to241": "NOT_PUBLISHED; current live claim not verified; previously rejected original native writes not retried",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903",
+    "support_latest_read": "open, updated_at 2026-11-21T08:14:27Z, zero comments on observed read",
+    "native_execution_authorized": false,
+    "do_not_retry_terminal_requests": true
+  },
+  "do_not_repeat": [
+    "Units233–241 author-side saved proofs and exact checker/certificates; Unit238 correction in separate Activity event",
+    "Original rejected Native PROGRESS and both failed typed prepares; no new request ID replay",
+    "Original D24 accepted Result unrelated; no migration of staging into accepted result",
+    "R063 six-file Native benchmark is separate Task RS-X6-LEGACY-PLANE-RECONCILIATION / support #2416 and remains independently unexecuted in this lane",
+    "Conditional outer-cycle fiber increment is not a Source-admitted physical time law"
+  ],
+  "unresolved_evidence": [
+    "Source-admitted signed directed Cell/Link/Port full-triad update with actual available Port/resource guard and environmental dynamics",
+    "Same-Cell C12/C24 before-and-after fiber readout under actual forward and reverse closed Cell event trajectory",
+    "Live claim/typed continuation_prepare post #2903 deployed fix; winning CLAIM/open/authorized Native semantic PROGRESS for outstanding Units233–241",
+    "Independent Driver review and Result acceptance"
+  ],
+  "next_exact_action": "Use pinned Source to seek a real signed Cell/Link/Port update and resource/observer support; discriminate Cell/F/chirality-only complete state versus independently measurable precision fiber using same-Cell before/after loops. Do not reprove Unit241 or count its conditional machine as physical law. Verify deployed #2903 remedy before any new legitimate typed prepare; never replay old failed request IDs or take maintenance identity. Preserve scheduler and current Research lane.",
+  "handoff_required": false
+}
