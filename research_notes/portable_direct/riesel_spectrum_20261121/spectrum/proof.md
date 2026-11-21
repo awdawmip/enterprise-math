@@ -1,0 +1,233 @@
+# Four small seeds give every exact additional cost at least five
+
+**Status:** author derivation with a complete exact-arithmetic finite certificate; not an independent project Review. This continues `EM-DIRECT-970E1C`, activity `RA-D2EC212845B63844081F9A14`, without a new registration or claim.
+
+## 1. Proposition and its quantifiers
+
+Use the fixed old root, old prime dictionary and notation of the published cost proof at commit `2feef401388e6e81a35dd8b0e66383f43561ad12`, path `research_notes/portable_direct/riesel_budget_20261120/cost/proof.md`:
+
+\[
+F_n(a)=a^2 2^n-1,\qquad n\ge1,
+\]
+
+\[
+a_*=690786768637635218740714348513373826260012289,
+\]
+
+\[
+P=\{7,17,31,41,71,97,113,127,151,241,257,281,337,641,673,1321,14449,29191,65537,6700417\},
+\]
+
+\[
+M=\prod_{p\in P}p
+=1397394912916194098609132326092145093313722687204526281.
+\]
+
+Here \(\tau(a^2)\) is the minimum number of primes in a finite proper-prime cover of every positive-index term. The additional cost is
+
+\[
+\delta_P(a)=\min_C |C\setminus P|,
+\]
+
+with \(C\) ranging over those same full covers. An absent finite cover gives value infinity. Put
+
+\[
+T_{3,1}=\frac{2^{210}-1}{\prod_{p\in P}p^{v_p(2^{210}-1)}}.
+\]
+
+**Theorem.** For every integer \(s\ge5\), infinitely many positive odd roots satisfy
+
+\[
+\boxed{a\equiv a_*\pmod{2M},\qquad T_{3,1}\mid a,
+\qquad \delta_P(a)=s,\qquad \tau(a^2)=20+s.}
+\]
+
+The construction improves the previous sufficient threshold \(s\ge13\) to \(s\ge5\), in the same old residual class and with the same forcing condition. It also fills the previously untreated costs 6, 7, 8 and 12. This proposition concerns a family of roots for each cost; its quantifiers are \(\forall s\,\exists^\infty a\).
+
+## 2. The unchanged old residual state
+
+Every root in the stated old class has the same complete residue trajectory
+
+\[
+[F_n(a)]_p=[F_n(a_*)]_p\quad(p\in P,n\ge0).
+\]
+
+The old channels cover all odd indices. With \(n=2u\), their holes are exactly
+
+\[
+\begin{split}
+H=\{&0,1,3,6,9,10,15,16,21,30,31,33,36,45,48,49,51,54,\\
+&55,63,64,66,69,70,75,76,78,79,84,85,90,91,93,96,99,100\}
+\pmod{105}.
+\end{split}
+\]
+
+All twenty old channels have private odd witnesses. In the displayed order of \(P\), use
+
+\[
+37,3,89,5,293,117,413,113,41,33,87,233,773,207,237,257,53,593,63,111.
+\]
+
+Each witness is hit by exactly its associated old prime and avoids \(n\equiv2\pmod9\). The companion verifier checks the old zero phases directly from \(a_*\), verifies all old exact orders, checks every odd index in the full old period 6720, and checks the equivalence of the hole predicate throughout the full even-index period 3360 in \(u\).
+
+## 3. Three explicit binary refinements
+
+For a prime \(q\) of base-2 order \(o\), put \(d=\operatorname{ord}_q(4)=o/\gcd(o,2)\). Imposing
+
+\[
+a\equiv2^{-c}\pmod q
+\]
+
+makes its even-index zero set exactly \(u\equiv c\pmod d\).
+
+The five-prime seed from the preceding work consists of the following rows. A private \(u\) is an old hole hit by this row alone among the new rows.
+
+| Prime \(q\) | Order \(o\) | Period \(d\) | Phase \(c\) | Private \(u\) |
+|---:|---:|---:|---:|---:|
+| 5 | 4 | 2 | 1 | 3 |
+| 73 | 9 | 9 | 1 | 10 |
+| 13 | 12 | 6 | 0 | 6 |
+| 19 | 18 | 9 | 4 | 76 |
+| 109 | 36 | 18 | 16 | 16 |
+
+Its common period with the holes is \(630=35\cdot18\). Three pairs of **distinct** primes supply the extra refinement capacity:
+
+| Parent period \(d\) | Required child order \(4d\) | Two primes of that exact order |
+|---:|---:|---:|
+| 18 | 72 | 433, 38737 |
+| 36 | 144 | 577, 487824887233 |
+| 72 | 288 | 1153, 6337 |
+
+Every primality assertion in this table is checked by full trial division up to the integer square root. Every exact-order assertion is checked by \(2^o\equiv1\pmod q\) and \(2^e\not\equiv1\pmod q\) for every \(1\le e<o\). Thus the table uses no probabilistic primality result or unverified factor database.
+
+Replace a parent \(u\equiv c\pmod d\) by the two children
+
+\[
+u\equiv c\pmod{2d},\qquad u\equiv c+d\pmod{2d},
+\]
+
+using the two different primes of order \(4d\). Their union equals the parent class and they are disjoint.
+
+Apply this successively to the branch with phase 16. The unaffected rows \((5,2,1),(73,9,1),(13,6,0),(19,9,4)\), written as \((q,d,c)\), remain in every seed. The remaining rows are:
+
+| Additional count | Remaining rows \((q,d,c;\text{ private }u)\) |
+|---:|---|
+| 5 | \((109,18,16;16)\) |
+| 6 | \((433,36,16;16)\), \((38737,36,34;70)\) |
+| 7 | \((38737,36,34;70)\), \((577,72,16;16)\), \((487824887233,72,52;196)\) |
+| 8 | \((38737,36,34;70)\), \((487824887233,72,52;196)\), \((1153,144,16;16)\), \((6337,144,88;520)\) |
+
+The common hole periods are respectively \(630,1260,2520,5040\). The verifier scans each complete period, checks every private witness, and also checks each full combined exponent period, which is 20160 for all four seeds.
+
+Privacy also follows structurally. Suppose the parent has private witness \(w=c+dv_0\), and the common period is \(L=35d\). All \(w+Lt\) remain private against unaffected rows and remain old holes. In parent coordinates they have \(v=v_0+35t\). Since 35 is odd, both parity classes occur, so each binary child has a private old-hole witness. Unaffected rows retain theirs because their private witnesses were outside the parent class. After splitting, the largest period doubles and the common period remains 35 times that largest period.
+
+The only extra channel with odd base-2 order remains 73, whose full exponent phase is \(n\equiv2\pmod9\). Every other new channel has even order and even exponent phase, so no such channel hits an odd index. The twenty old private witnesses therefore survive all three binary refinements.
+
+## 4. A four-step cost increment applies to all four seeds
+
+Use the following private covering of all integers \(v\):
+
+\[
+v\equiv0\pmod2,\quad
+v\equiv0\pmod3,\quad
+v\equiv1\pmod4,\quad
+v\equiv5\pmod6,\quad
+v\equiv7\pmod{12}.
+\]
+
+Private residues in that order are \(2,3,1,11,7\). The finite period 12 checks both coverage and privacy exactly.
+
+Given a largest parent \(u\equiv c\pmod d\), replace it by the five classes
+
+\[
+u\equiv c+db\pmod{dm},\qquad
+(m,b)\in\{(2,0),(3,0),(4,1),(6,5),(12,7)\}.
+\]
+
+For each child take a prime \(q\) of exact base-2 order \(2dm\) and impose \(a\equiv2^{-(c+db)}\pmod q\). The classical primitive-prime theorem supplies one for every such order, all of which exceed 6. The applicable statement is Lemma 2 in the Filaseta et al. paper cited by the preceding published proof, [SierpinskiEtCoPap5.pdf](https://people.math.sc.edu/filaseta/papers/SierpinskiEtCoPap5.pdf), citing Bang.
+
+For a seed with \(5+r\) rows, \(r\in\{0,1,2,3\}\), after \(h\) such replacements,
+
+\[
+d_{\max}=18\cdot2^r12^h,\qquad L=35d_{\max},\qquad |Q|=5+r+4h.
+\]
+
+The proof is by induction. All periods divide the largest period, whose only prime factors are 2 and 3. Thus adjoining the old hole period 105 gives \(L=35d_{\max}\). A parent private fiber has \(v=v_0+35t\), and \(\gcd(35,12)=1\), so it reaches every specified private child residue. This preserves private old-hole witnesses for all rows.
+
+The five requested orders are distinct. All current extra orders are at most \(2d\), whereas the new orders are at least \(4d\). For the first step from the smallest seed, the new orders are \(72,108,144,216,432\), none an old order. For the first step from the six-prime seed the orders are \(144,216,288,432,864\), again avoiding all old orders; the remaining initial seeds have smallest requested order at least 288, larger than every old order. Later steps increase \(d\) by 12, so freshness follows immediately. All new primes can therefore be distinct from the old and retained new primes.
+
+Every new row has even exponent phase and preserves all old private odd witnesses. The phase is always carried as \(c+db\); no formula such as \(c=d-2\) is assumed.
+
+Every integer \(s\ge5\) has a unique representation
+
+\[
+s=5+r+4h,\qquad 0\le r\le3,\quad h\ge0.
+\]
+
+Hence the four seeds and this one refinement pattern supply an irredundant full cover with exactly \(s\) additional channels for every \(s\ge5\).
+
+## 5. From irredundancy to exact minimal cost
+
+Let \(S=P\sqcup Q\) be one constructed full cover, and select its twenty private odd indices and its \(|Q|\) private even old-hole indices. Denote all these distinct indices by \(n_q\), \(q\in S\). Put
+
+\[
+D=\operatorname{lcm}_{q\ne q'}(2^{|n_q-n_{q'}|}-1),
+\qquad E=D/\prod_{p\in S}p^{v_p(D)}.
+\]
+
+The root residues modulo all distinct primes in \(S\) are compatible with \(E\mid a\). The forcing condition \(T_{3,1}\mid a\) is compatible as well. Indeed each extra prime has base-2 order not dividing 210; this is checked for the four seeds, and for all later child orders follows from the displayed order lists and their growth. Thus \(\gcd(T_{3,1},2\prod S)=1\). The CRT can impose
+
+\[
+a\equiv a_*\pmod{2M},\qquad
+a\equiv2^{-c_q}\pmod q\ (q\in Q),\qquad
+\operatorname{lcm}(E,T_{3,1})\mid a.
+\]
+
+If a prime \(\ell\) divided two private terms, division of their defining congruences would give \(\ell\mid D\). If \(\ell\in S\), privacy rules it out. Otherwise \(\ell\mid E\mid a\), which gives \(F_n(a)\equiv-1\pmod\ell\), also impossible. All \(20+s\) private terms are therefore pairwise coprime.
+
+Every full prime cover needs at least \(20+s\) different primes for those terms, while \(S\) supplies exactly that many. Thus \(\tau(a^2)=20+s\). The \(s\) even private terms have no old prime divisor, so every full cover needs at least \(s\) primes outside \(P\); \(S\) attains that bound. Hence \(\delta_P(a)=s\).
+
+All sufficiently large positive roots in the resulting CRT progression satisfy \(2a^2-1>\max S\), so every assigned divisor is proper. This proves the asserted infinitude for each exact cost.
+
+## 6. Numerical witness and reproducibility
+
+Run:
+
+```bash
+python verify_small_spectrum.py
+```
+
+The verifier uses only the Python standard library. It reconstructs the four seeds, checks complete finite periods and exact orders, checks the symbolic induction formulas for twenty finite cases, and constructs an actual root for the eight-prime seed by the CRT argument above.
+
+The numeric root has **16,517 decimal digits** and **54,867 bits**. Its full value and the full CRT progression modulus are serialized in hexadecimal in `small_spectrum_certificate.json`. Its decimal-string SHA256 is
+
+`c33287dad27f115f330d2263a41f2a4a4ddd9e3482d31a01758673ceab288718`.
+
+The complete private index list is
+
+\[
+\begin{split}
+&37,3,89,5,293,117,413,113,41,33,87,233,773,207,237,257,53,593,63,111,\\
+&6,20,12,152,140,392,32,1040.
+\end{split}
+\]
+
+All **378** pairwise gcds of these actual terms equal one. The last eight terms avoid every old prime. The root satisfies \(T_{3,1}\mid a\), its full dictionary covers every exponent residue in the combined period, and every dictionary prime is a proper divisor wherever assigned. Consequently this particular root has
+
+\[
+\boxed{\delta_P(a)=8,\qquad\tau(a^2)=28.}
+\]
+
+The finite symbolic checks exercise the implementation; the universal theorem is the induction in Sections 4–5 with the cited primitive-prime theorem.
+
+## 7. Native interpretation
+
+These constructions keep the same fixed X6 anchor and typed integer register as the preceding research. The scalar update remains \(x\mapsto2x+1\), with the positive singleton BRC weight and multiplicity both one. Prime residue projections are observation channels on this state, not additional spatial axes; the arithmetic index labels updates and does not identify physical time.
+
+The full integer state and cofactor relations remain available. Changing the root inside its old CRT class preserves every old residue observation but changes the exact amount of additional information needed for a full prime cover. Thus the result measures residual information omitted by the old dictionary while retaining the underlying integer and joint-divisibility structure.
+
+### Actual native execution receipt
+
+`verify_native.py` and `native_certificate.json` bind the numerical cost-eight root to the pinned native implementation at commit `b1efc6c805661ed7b476e6e730107da6043176ee`. The integration verified all four native module blobs against the already published base certificate, then executed **1040 actual `EffectHistogram` updates** from \(a^2-1\). Every update equalled \(a^2 2^n-1\), retaining singleton weight 1 and multiplicity 1. All 28 selected terms had exactly their assigned cover-prime hit. Native `euclidean_digits` produced **784** prime-channel readouts, including **560** equalities with the unchanged old-root readouts; the last eight private terms had no old-channel zero. The native certificate records each selected term by a SHA256 of its minimal unsigned big-endian integer encoding.
+
+This integration reuses the existing exact primality, complete-period and 378 gcd results after checking equality of the native terms to their arithmetic values. It does not repeat the finite searches or promote the result to independent project Review. Reproduce it with `python verify_native.py`; the default source lookup finds the existing `src` or `vendor_src`, and `--source-dir` accepts the pinned source directory explicitly.

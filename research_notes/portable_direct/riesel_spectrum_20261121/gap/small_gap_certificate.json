@@ -1,0 +1,479 @@
+{
+  "schema": "enterprise-math.riesel-sharp-small-cost-gap.v1",
+  "status": "Author analytic proof and exact finite evidence; not independent project Review.",
+  "researcher_id": "EM-DIRECT-970E1C",
+  "activity_id": "RA-D2EC212845B63844081F9A14",
+  "dependency": {
+    "repository": "awdawmip/enterprise-math",
+    "old_certificate_commit": "e61a43115cf9dcbd0b3d8a746a5ac8086b8ca8fe",
+    "old_certificate_path": "research_notes/portable_direct/riesel_mixed_20261119/certificate.json",
+    "sixth_continuation_commit": "2feef401388e6e81a35dd8b0e66383f43561ad12",
+    "sixth_continuation_proof": "research_notes/portable_direct/riesel_budget_20261120/cost/proof.md"
+  },
+  "a_star": "690786768637635218740714348513373826260012289",
+  "M": "1397394912916194098609132326092145093313722687204526281",
+  "P": [
+    7,
+    17,
+    31,
+    41,
+    71,
+    97,
+    113,
+    127,
+    151,
+    241,
+    257,
+    281,
+    337,
+    641,
+    673,
+    1321,
+    14449,
+    29191,
+    65537,
+    6700417
+  ],
+  "H": [
+    0,
+    1,
+    3,
+    6,
+    9,
+    10,
+    15,
+    16,
+    21,
+    30,
+    31,
+    33,
+    36,
+    45,
+    48,
+    49,
+    51,
+    54,
+    55,
+    63,
+    64,
+    66,
+    69,
+    70,
+    75,
+    76,
+    78,
+    79,
+    84,
+    85,
+    90,
+    91,
+    93,
+    96,
+    99,
+    100
+  ],
+  "incidence": {
+    "gcds": [
+      1,
+      3,
+      5,
+      7,
+      15,
+      21,
+      35,
+      105
+    ],
+    "maxima": [
+      36,
+      23,
+      11,
+      7,
+      6,
+      4,
+      2,
+      1
+    ],
+    "subsets": [
+      {
+        "mod3": 0,
+        "size": 23,
+        "max_mod5": 6,
+        "max_mod7": 4,
+        "gcd_order": [
+          1,
+          5,
+          7,
+          35
+        ],
+        "bounds": [
+          "1/3",
+          "6/23",
+          "4/23",
+          "1/23"
+        ],
+        "max_channel_fraction": "1/3"
+      },
+      {
+        "mod3": 1,
+        "size": 13,
+        "max_mod5": 5,
+        "max_mod7": 3,
+        "gcd_order": [
+          1,
+          5,
+          7,
+          35
+        ],
+        "bounds": [
+          "1/3",
+          "5/13",
+          "3/13",
+          "1/13"
+        ],
+        "max_channel_fraction": "5/13"
+      }
+    ]
+  },
+  "small_factorizations": {
+    "four_to_j_minus_one": {
+      "1": {
+        "3": 1
+      },
+      "2": {
+        "3": 1,
+        "5": 1
+      },
+      "3": {
+        "3": 2,
+        "7": 1
+      },
+      "4": {
+        "3": 1,
+        "5": 1,
+        "17": 1
+      },
+      "5": {
+        "3": 1,
+        "11": 1,
+        "31": 1
+      },
+      "6": {
+        "3": 2,
+        "5": 1,
+        "7": 1,
+        "13": 1
+      }
+    },
+    "two_to_24_minus_one": {
+      "3": 2,
+      "5": 1,
+      "7": 1,
+      "13": 1,
+      "17": 1,
+      "241": 1
+    }
+  },
+  "all_order_bounds": {
+    "all_holes_minimum_period_by_gcd": [
+      8,
+      9,
+      10,
+      7,
+      15,
+      21,
+      35,
+      105
+    ],
+    "all_holes_bounds_by_gcd": [
+      "1/8",
+      "23/108",
+      "11/72",
+      "7/36",
+      "1/6",
+      "1/9",
+      "1/18",
+      "1/36"
+    ],
+    "parity_minimum_effective_period_by_gcd": [
+      4,
+      9,
+      5,
+      7,
+      15,
+      21,
+      35,
+      105
+    ],
+    "parity_bounds_by_gcd": [
+      "1/4",
+      "23/108",
+      "11/36",
+      "7/36",
+      "1/6",
+      "1/9",
+      "1/18",
+      "1/36"
+    ],
+    "excluded_parity_effective_orders": [
+      1,
+      2,
+      3,
+      6
+    ],
+    "excluded_parity_mod3_effective_orders": [
+      1,
+      2
+    ],
+    "proof_of_uniformity": "Formula (1) decreases with period at fixed gcd; every gcd divides 105 or 35."
+  },
+  "case_gaps_relative_to_old_holes": {
+    "neither_5_nor_13_active": "1/18",
+    "exactly_one_active": "1/24",
+    "both_same_parity": "7/36",
+    "different_parities_13_phase_2_mod3": "7/36",
+    "different_parities_13_phase_0_mod3": "1/24",
+    "different_parities_13_phase_1_mod3": "23/216"
+  },
+  "sharp_uncovered_density_among_all_exponents": "1/140",
+  "sharp_example": {
+    "a": "8681796600341899699165924755002845830837950628236344137765453",
+    "a_decimal_digits": 61,
+    "k_a_squared": "75373592209708167291636392151968829697597964322116867951074941732982027023681000998814867939607198267565063426984040295209",
+    "progression_modulus": "121041494945903853943122890515382691774327737794816871699188590",
+    "crt_residues": [
+      "690786768637635218740714348513373826260012289",
+      "0",
+      "3",
+      "1",
+      "1",
+      "25",
+      "269"
+    ],
+    "crt_moduli": [
+      "2794789825832388197218264652184290186627445374409052562",
+      "3",
+      "5",
+      "13",
+      "11",
+      "61",
+      "331"
+    ],
+    "rows": [
+      {
+        "q": 5,
+        "order_2": 4,
+        "order_4": 2,
+        "phase_u": 1,
+        "root_residue": 3,
+        "private_u": 1,
+        "all_private_u_in_1_210": [
+          1,
+          3,
+          9,
+          21,
+          31,
+          33,
+          51,
+          63,
+          69,
+          91,
+          93,
+          99,
+          111,
+          121,
+          141,
+          153,
+          159,
+          171,
+          181,
+          183,
+          189,
+          201
+        ]
+      },
+      {
+        "q": 13,
+        "order_2": 12,
+        "order_4": 6,
+        "phase_u": 0,
+        "root_residue": 1,
+        "private_u": 6,
+        "all_private_u_in_1_210": [
+          6,
+          36,
+          48,
+          54,
+          66,
+          78,
+          84,
+          96,
+          108,
+          114,
+          126,
+          138,
+          156,
+          168,
+          174,
+          198,
+          204
+        ]
+      },
+      {
+        "q": 11,
+        "order_2": 10,
+        "order_4": 5,
+        "phase_u": 0,
+        "root_residue": 1,
+        "private_u": 10,
+        "all_private_u_in_1_210": [
+          10,
+          70,
+          100,
+          160,
+          190
+        ]
+      },
+      {
+        "q": 61,
+        "order_2": 60,
+        "order_4": 30,
+        "phase_u": 16,
+        "root_residue": 25,
+        "private_u": 16,
+        "all_private_u_in_1_210": [
+          16,
+          76,
+          106,
+          136,
+          196
+        ]
+      },
+      {
+        "q": 331,
+        "order_2": 30,
+        "order_4": 15,
+        "phase_u": 4,
+        "root_residue": 269,
+        "private_u": 64,
+        "all_private_u_in_1_210": [
+          64,
+          154,
+          184
+        ]
+      }
+    ],
+    "sharp_four_are_first_rows": 4,
+    "missing_u_mod_210": [
+      64,
+      154,
+      184
+    ],
+    "missing_n_mod_420": [
+      128,
+      308,
+      368
+    ],
+    "full_checked_exponent_period": 6720,
+    "missing_n_count_in_full_period": 48,
+    "properness_lower_bound_first_term": "150747184419416334583272784303937659395195928644233735902149883465964054047362001997629735879214396535130126853968080590417",
+    "exact_delta_after_fifth_row": 5,
+    "total_cost_upper_bound_only": 25,
+    "old_order_and_phase_source_reused": true
+  },
+  "native_verification": {
+    "source_commit": "b1efc6c805661ed7b476e6e730107da6043176ee",
+    "source_blob_checks": {
+      "brc_transport.py": {
+        "expected_git_blob": "be1debe367263931bd5e93fd750be3ed54624fe1",
+        "observed_git_blob": "be1debe367263931bd5e93fd750be3ed54624fe1"
+      },
+      "brc_histogram.py": {
+        "expected_git_blob": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+        "observed_git_blob": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+      },
+      "brc_rational_holonomy.py": {
+        "expected_git_blob": "2591640fe348da9cd7f293a957bea9ae92c82943",
+        "observed_git_blob": "2591640fe348da9cd7f293a957bea9ae92c82943"
+      },
+      "brc_weighted_recurrent.py": {
+        "expected_git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "observed_git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+      }
+    },
+    "positive_packet": {
+      "affine_multiplier": 2,
+      "affine_offset": 1,
+      "weight": "1",
+      "multiplicity": 1
+    },
+    "actual_native_updates": 6720,
+    "actual_euclidean_digits_calls": 168000,
+    "integer_formula_equalities": 6720,
+    "native_readout_and_independent_modular_equalities": 168000,
+    "first_native_private_exponent_per_channel": {
+      "5": 2,
+      "17": 3,
+      "41": 5,
+      "13": 12,
+      "7": 16,
+      "11": 20,
+      "61": 32,
+      "241": 33,
+      "151": 41,
+      "31": 44,
+      "6700417": 47,
+      "14449": 53,
+      "65537": 63,
+      "257": 87,
+      "127": 113,
+      "97": 117,
+      "331": 128,
+      "29191": 173,
+      "641": 207,
+      "281": 233,
+      "673": 237,
+      "1321": 257,
+      "71": 293,
+      "337": 353,
+      "113": 413
+    },
+    "first_native_private_odd_exponent_per_old_channel": {
+      "17": 3,
+      "41": 5,
+      "241": 33,
+      "7": 37,
+      "151": 41,
+      "6700417": 47,
+      "14449": 53,
+      "65537": 63,
+      "257": 87,
+      "31": 89,
+      "127": 113,
+      "97": 117,
+      "29191": 173,
+      "641": 207,
+      "281": 233,
+      "673": 237,
+      "1321": 257,
+      "71": 293,
+      "337": 353,
+      "113": 413
+    },
+    "even_packet_composition_checked": true,
+    "x6_anchor": "Unchanged; the integer register and prime projections retain their existing types."
+  },
+  "cost_classification": {
+    "delta1_iff": "3 does not divide a",
+    "delta1_relative_density_in_old_root_progression": "2/3",
+    "delta1_example_root": "2794789826523174965855899870925004535140819200669064851",
+    "excluded_finite_costs": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "root_divisible_by_3": "delta is at least 5 or infinity",
+    "attainability_all_costs_at_least_5": "Uses companion refinement theorem, not this finite verification.",
+    "infinity_attainability": "Unresolved in this research."
+  }
+}
