@@ -51,3 +51,7 @@ r463's predecessor artifact: `research_notes/driver/2026-11-22_f7_r463_B12_fixed
 The frozen 62463-byte table and checker are retained together in the current run's portable certificate ZIP. This GitHub note and the checker code have canonical-main publication and readback; **the static table is not yet published to GitHub** and needs exact-byte upload to `research_artifacts/` followed by digest readback. Keep this explicit until it is done. Formal Review, Result acceptance and Activity linkage require separate current authenticated Driver authority. Preserve the original author, other active owner scopes and already final requests.
 
 Proof scope: the specified two-coordinate F7 finite scalar model. No automatic result for infinite boxes or a native-X6 information-preserving lift is asserted.
+
+## Source-publication addendum — 2026-11-22
+
+The original 2,813-row frozen witness has now been **published and exact-content read back** from canonical GitHub Source. Immutable pin: `awdawmip/enterprise-math@43165a915ab1db44a6194fcda670443cd3bc5720:research_artifacts/F7_R464_B12_Exact_Half_Witness_20261122.json`; Git blob SHA1 `6d20fccdb175dd156d0e89a1a39553876ed8da0b`; 62,463 UTF-8 bytes; SHA256 `340491fd5d5e9ba66b9f345dee30f3e821df94ae7f4553c21bfa4c8dd0f4aeb5`. The original local-only status described the earlier historical state and is superseded for this artifact. Formal Native Review/Result/Activity admission is still a separate control operation.
