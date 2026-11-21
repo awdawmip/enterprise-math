@@ -1,0 +1,43 @@
+{
+  "schema": "ENTERPRISE_MATH_R762IA_EVIDENCE_V1",
+  "date": "2026-11-21",
+  "model": "frozen six-axis composite signed Port",
+  "science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "claim": "Exact span index 3 and length-m coset sum x_i ≡3m(mod6); author-proved uniform off-zero local limit for ||x||≤R sqrt(m) via six Fourier saddles; NOT_REVIEWED",
+  "finite_check": {
+    "command": "python3 research_notes/portable_direct/R762IA_CHECK.py",
+    "platform": "local Python 3 standard library",
+    "observed": "PASS R762IA",
+    "scope": "all endpoints/6-axis displacements reachable from initial Port 01 for m=0..6",
+    "directed_port_edges": 120,
+    "ports": 15,
+    "supports": 20,
+    "layer_mass_formula": "16^m",
+    "reached_states": {
+      "0": 1,
+      "1": 16,
+      "2": 193,
+      "3": 1980,
+      "4": 15909,
+      "5": 92556,
+      "6": 376057
+    },
+    "zero_returns": {
+      "0": 1,
+      "2": 16,
+      "4": 624,
+      "6": 34688
+    },
+    "all_reachable_congruence": "sum_i x_i ≡ 3m mod6",
+    "full_validation_includes": "30 ordered h_abi-h_abj coordinate-difference witnesses and exact Fraction covariance",
+    "covariance_det": "729/200000"
+  },
+  "proof_scope": {
+    "saddle_classification": "full analytic proof in note (triangle sign gauge)",
+    "asymptotic": "author proof, continuous theorem not established by finite checker",
+    "uniform_error": "O_R(1/m) relative, for fixed R and admissible ||x||<=R sqrt(m)",
+    "independent_review": "NOT_REVIEWED",
+    "native_TCE_admission": false
+  },
+  "next_question": "Find N_p(n)>0, coordinate-even H(n), C(n)=0 or prove none; keep order and multiplicity"
+}
