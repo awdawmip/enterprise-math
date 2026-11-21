@@ -1,0 +1,85 @@
+{
+  "schema": "EM_X6_R100_SHARP_TIE_MULTIPLICITY_AUTHOR_CHECK_V1",
+  "date": "2026-11-22",
+  "model": "Conditional four-channel positive-count BRC star-moment histogram",
+  "universal_theorem": {
+    "domain": "real S,T>=1, integer p>=11",
+    "max_tie_count": "6 for 11<=p<=16; 7 for p>=17",
+    "maximizing_locus": "only (S,T)=(5,23) for p<=26; exactly (5,23) and (11,11) for p>=27",
+    "proof_dependency": "R98 exact-value and R99 complete ten-direction lattice carrier",
+    "proof_mechanism": "when eta<1/2 only four u=0 candidates can tie; when eta=1/2 use exact inequality chambers to bound and classify counts"
+  },
+  "finite_author_check": {
+    "status": "PASS",
+    "arithmetic": "exact integer scaling for integer S,T",
+    "S_range": "1..40",
+    "T_range": "1..40",
+    "p_range": "11..40",
+    "cases": 48000,
+    "p11": {
+      "max_ties": 6,
+      "locations": [
+        [
+          5,
+          23
+        ]
+      ]
+    },
+    "p16": {
+      "max_ties": 6,
+      "locations": [
+        [
+          5,
+          23
+        ]
+      ]
+    },
+    "p17": {
+      "max_ties": 7,
+      "locations": [
+        [
+          5,
+          23
+        ]
+      ]
+    },
+    "p26": {
+      "max_ties": 7,
+      "locations": [
+        [
+          5,
+          23
+        ]
+      ]
+    },
+    "p27": {
+      "max_ties": 7,
+      "locations": [
+        [
+          5,
+          23
+        ],
+        [
+          11,
+          11
+        ]
+      ]
+    },
+    "p40": {
+      "max_ties": 7,
+      "locations": [
+        [
+          5,
+          23
+        ],
+        [
+          11,
+          11
+        ]
+      ]
+    }
+  },
+  "independence": "NOT_INDEPENDENTLY_REVIEWED",
+  "native_scope": "CONDITIONAL_POSITIVE_COUNT_ONLY; NATIVE_X6_LIFT_NOT_PROVED",
+  "original_task_control": "SOURCE_TREE_TRUNCATED; NO_CLAIM"
+}
