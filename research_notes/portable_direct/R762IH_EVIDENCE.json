@@ -1,0 +1,46 @@
+{
+  "schema": "ENTERPRISE_MATH_PORT_67_KERNEL_EVIDENCE_V1",
+  "research_id": "R762IH",
+  "predecessor": "a24cafe5a9b61d2938a29bb24861fab84a547e33",
+  "science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "control_request": "r3-20261122-0320-x6-cont-v1",
+  "control_result": "FAILED / SOURCE_TREE_TRUNCATED",
+  "executed_result": {
+    "status": "PASS R762IH",
+    "axis_count": 6,
+    "port_count": 15,
+    "support_count": 20,
+    "uniform_per_support_cap": 4,
+    "global_kernel_event_bound": 67,
+    "proof_bridge_injection": "2 bridge edges per retained four-count type, at most 14 distinct bridge edges",
+    "targeted_four_pattern_211": {
+      "original_events": 6,
+      "reduced_events": 4,
+      "checked": true
+    },
+    "lower_cap_witness": {
+      "events": 13,
+      "enumerated_allocations": 6000,
+      "even_allocations": 3,
+      "euler_allocations": 0,
+      "critical_four_types": 1
+    },
+    "deterministic_tests": {
+      "seed": 123869731,
+      "instances": 220,
+      "original_event_range": [
+        159,
+        580
+      ],
+      "max_kernel_events": 56,
+      "max_critical_types": 0,
+      "max_port_vertices": 15
+    },
+    "math_status": "AUTHOR_PROVED / FINITE_REPRODUCIBLE_TESTED / NOT_REVIEWED"
+  },
+  "proof_domain": "Any legal finite six-axis composite Port Euler witness",
+  "method": "Integer multigraph pair deletion; bridge injection",
+  "review": "NOT_REVIEWED",
+  "next": "Histogram-only exact selector; sharp absolute bound; native P000 lifting",
+  "regression_fix": "Confirmed and corrected 2-1-1 four-count support handling; targeted six-event witness passes"
+}
