@@ -170,8 +170,7 @@ def main():
           'witness_pair_count':len(pairs),'witness_pair_sha256':pair_sha,
           'new_construction_direct_point_arc_calls':0,'review':'NOT_REVIEWED'}
     path=Path(__file__).with_name('R284DS_fast_labeled_sweep_certificate.json')
-    path.write_text(json.dumps(cert,ensure_ascii=False,indent=2)+'
-',encoding='utf8')
+    path.write_text(json.dumps(cert,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     print(json.dumps(cert,ensure_ascii=False,indent=2))
 
 if __name__=='__main__':main()
