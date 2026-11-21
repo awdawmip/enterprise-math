@@ -1,0 +1,112 @@
+{
+  "schema": "EM_X6_R90_AUTHOR_FINITE_CHECK_V1",
+  "q_enumeration_limit": 40,
+  "unoriented_directions": 110740,
+  "exact_weight_parameters": [
+    "1/2",
+    "1",
+    "11",
+    "22",
+    "23",
+    "24",
+    "100"
+  ],
+  "direction_parameter_checks": 775180,
+  "results": {
+    "1": {
+      "expected_value": "1/2",
+      "below": 0,
+      "ties": [
+        [
+          10,
+          -5,
+          1
+        ]
+      ],
+      "tie_count": 1
+    },
+    "11": {
+      "expected_value": "1/2",
+      "below": 0,
+      "ties": [
+        [
+          10,
+          -5,
+          1
+        ]
+      ],
+      "tie_count": 1
+    },
+    "22": {
+      "expected_value": "1/2",
+      "below": 0,
+      "ties": [
+        [
+          10,
+          -5,
+          1
+        ]
+      ],
+      "tie_count": 1
+    },
+    "23": {
+      "expected_value": "1/2",
+      "below": 0,
+      "ties": [
+        [
+          4,
+          -1,
+          0
+        ],
+        [
+          6,
+          -4,
+          1
+        ],
+        [
+          10,
+          -5,
+          1
+        ]
+      ],
+      "tie_count": 3
+    },
+    "24": {
+      "expected_value": "12/25",
+      "below": 0,
+      "ties": [
+        [
+          6,
+          -4,
+          1
+        ]
+      ],
+      "tie_count": 1
+    },
+    "100": {
+      "expected_value": "12/101",
+      "below": 0,
+      "ties": [
+        [
+          6,
+          -4,
+          1
+        ]
+      ],
+      "tie_count": 1
+    },
+    "1/2": {
+      "expected_value": "2/3",
+      "below": 0,
+      "ties": [
+        [
+          10,
+          -5,
+          1
+        ]
+      ],
+      "tie_count": 1
+    }
+  },
+  "scope": "Finite exact Python Fraction crosscheck only; full-lattice result proven symbolically in companion theorem."
+}
