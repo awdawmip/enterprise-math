@@ -1,0 +1,182 @@
+{
+  "schema": "C87_SOURCE_PROVENANCE_V1",
+  "researcher_id": "EM-DIRECT-0CF8AC",
+  "activity_id": "RA-69B9FA2BC69365D95330D3C1",
+  "canonical_reads": {
+    "gk": {
+      "repository": "awdawmip/chatgpt-global-knowledge",
+      "ref": "2cf6ca3b1e528e4321c58c1df9f2c9770f91fd40",
+      "observed_utc": "2026-11-21 08:04 UTC (minute precision)",
+      "required_entrypoints": [
+        "00_BOOTSTRAP.md",
+        "OPERATING_MANUAL.md",
+        "projects/enterprise-math/00_INDEX.md"
+      ]
+    },
+    "em": {
+      "repository": "awdawmip/enterprise-math",
+      "ref": "49ad3d35092358dffe64a7be005b3864306da241",
+      "observed_utc": "2026-11-21 08:04 UTC (minute precision)",
+      "required_entrypoint": "AGENTS.md"
+    }
+  },
+  "canonical_snapshot_state": "Verified snapshots reused within existing six-hour lease; relevant entrypoints already read at 2026-11-21 08:04 UTC",
+  "mathematical_dependencies": [
+    {
+      "checkpoint": "C86",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "16aa076c692d75590549e13aad3128eb34cb285f",
+      "path": "research_notes/divisor_extrema/20261121_c86_global_precision_reversal_and_doubled_faces",
+      "scope": "all-area Mellin identity and exact chambers, continuity and interval proof, QT support and counted face identity"
+    },
+    {
+      "checkpoint": "C85",
+      "commit": "e8068ac18c2cda48875ac35de4623d8821042cf3",
+      "path": "research_notes/divisor_extrema/20261120_c85_half_area_comparison_and_triangle_bounds",
+      "scope": "native bridge, tail coefficient, finite rational basis coverage, prior triangle formulas and certificates"
+    },
+    {
+      "checkpoint": "C84",
+      "commit": "01f50954ee37548372464c68a311f7df2dba0632",
+      "path": "research_notes/divisor_extrema/20261119_c84_precision_design_and_branch_filter",
+      "scope": "low precision location law, exact interval kernel, universal functions"
+    },
+    {
+      "checkpoint": "C83",
+      "commit": "20c3c2a6cb769a816cedf0ec04cf199149bfa86f",
+      "path": "research_notes/divisor_extrema/20261119_c83_small_precision_and_cubic_root_transition",
+      "scope": "triangle constant definition and small precision representation"
+    },
+    {
+      "checkpoint": "C82",
+      "commit": "4628b5b87d2cf41a385228ad04bf163c06aa6586",
+      "path": "research_notes/divisor_extrema/20261119_c82_three_stock_critical_limit",
+      "scope": "native spectral boundary and high precision asymptotics"
+    }
+  ],
+  "original_observer": "H(0,1)",
+  "integer_arrangements": "2 <= w <= v <= c; all integer competitors retained",
+  "native_bridge_scope": "fixed rational theta=m/n, fixed n; b/c^(1/3) -> infinity, b=o(c); first inventory limit at fixed L, then L -> 0 or infinity; uniform over three rounding origins",
+  "main_new_theorem": "A(x)>x^2/200 for 0<x<=1, hence strict concavity and complete fixed-position high-precision ordering",
+  "pointwise_scope": "T(r,s)>(37/500)(rs)^(41/20) only on 0<r,s<=1/2; global pointwise positivity remains open",
+  "arithmetic": "Exact integer/Fraction identities and 112-bit directed intervals; all floating root proposals verified by integer powers",
+  "status": "Research proofs, executed certificates and internal independent review; no external peer review or formal task/working-truth/foundation promotion asserted",
+  "bundled_inherited_proofs": [
+    {
+      "checkpoint": "C86",
+      "original_relative_path": "smallarea/ALL_AREA_FAREY_MELLIN.md",
+      "bundled_path": "inputs/c86/smallarea/ALL_AREA_FAREY_MELLIN.md",
+      "sha256": "748f484754f2c2cd73b7a6464d8d9a6fc9fa958536020c7256dc0b43b2408ace"
+    },
+    {
+      "checkpoint": "C86",
+      "original_relative_path": "phase/KERNEL_REGULARITY.md",
+      "bundled_path": "inputs/c86/phase/KERNEL_REGULARITY.md",
+      "sha256": "69a7300d187b773923cddf29e4197005460ebe62c99ee8f47283238e382ddb2e"
+    },
+    {
+      "checkpoint": "C86",
+      "original_relative_path": "triangle/CHORDAL_CORRECTION.md",
+      "bundled_path": "inputs/c86/triangle/CHORDAL_CORRECTION.md",
+      "sha256": "673337cd4a19a6cf11bd50e7dfc40232b57aa86a6222d481ac1fd424efd86989"
+    },
+    {
+      "checkpoint": "C86",
+      "original_relative_path": "triangle/DOUBLED_FACE_INTEGRAL.md",
+      "bundled_path": "inputs/c86/triangle/DOUBLED_FACE_INTEGRAL.md",
+      "sha256": "07b6b28779358c3b7697b54b5eefc3d913713648cfc36b92ed676f78b08d9eda"
+    },
+    {
+      "checkpoint": "C86",
+      "original_relative_path": "triangle/QT_SUPPORT.md",
+      "bundled_path": "inputs/c86/triangle/QT_SUPPORT.md",
+      "sha256": "941451f0bb84fd80537dbd9406799195cd0dfddee7167af39db913e9588fb602"
+    },
+    {
+      "checkpoint": "C85",
+      "original_relative_path": "endpoint/ENDPOINT_LIMIT.md",
+      "bundled_path": "inputs/c85/endpoint/ENDPOINT_LIMIT.md",
+      "sha256": "a5ce7d88c711f37e18a8dd5062910dbf195d1a4012d371f9645fd48991ad81af"
+    },
+    {
+      "checkpoint": "C85",
+      "original_relative_path": "lattice/COMPACT_FINITE_REDUCTION.md",
+      "bundled_path": "inputs/c85/lattice/COMPACT_FINITE_REDUCTION.md",
+      "sha256": "e87eeed86e106b0aa0bb2409d47e7af1664130c80fc5fa770baf93ee43f25759"
+    },
+    {
+      "checkpoint": "C85",
+      "original_relative_path": "triangle/EXACT_TO_TWO.md",
+      "bundled_path": "inputs/c85/triangle/EXACT_TO_TWO.md",
+      "sha256": "3f69ec363459c6f2826d5953abafa32817b8e118d8518b1e64aa5bb479c86eac"
+    },
+    {
+      "checkpoint": "C85",
+      "original_relative_path": "triangle/MIDDLE_ROW_BOUNDS.md",
+      "bundled_path": "inputs/c85/triangle/MIDDLE_ROW_BOUNDS.md",
+      "sha256": "416c4955c1bab9522d2a86338945eda68f566a52afeb396520cbbf736add1213"
+    },
+    {
+      "checkpoint": "C85",
+      "original_relative_path": "triangle/PARALLELOGRAM_UPPER.md",
+      "bundled_path": "inputs/c85/triangle/PARALLELOGRAM_UPPER.md",
+      "sha256": "72652eabee0692c6991323536ba909752f33401e4a86f7886f26d3262c0964d8"
+    },
+    {
+      "checkpoint": "C84",
+      "original_relative_path": "READING_POSITION.md",
+      "bundled_path": "inputs/c84/READING_POSITION.md",
+      "sha256": "692d5ee2abf59b3fdd6b0681ebbbd98c750e6640dcb4a4c311a52b5ab136ab20"
+    },
+    {
+      "checkpoint": "C84",
+      "original_relative_path": "TRIANGLE_CONSTANT.md",
+      "bundled_path": "inputs/c84/TRIANGLE_CONSTANT.md",
+      "sha256": "8bf338a55a58208c676986866896fc6f20501a104833a5fd84fc56f25144aa01"
+    },
+    {
+      "checkpoint": "C83",
+      "original_relative_path": "TAIL_CONSTANT.md",
+      "bundled_path": "inputs/c83/TAIL_CONSTANT.md",
+      "sha256": "b246179fe6413d94c716c7f8954dc0f165207d310624205cfd06e2d503401dcd"
+    },
+    {
+      "checkpoint": "C83",
+      "original_relative_path": "TRIANGLE_GAP.md",
+      "bundled_path": "inputs/c83/TRIANGLE_GAP.md",
+      "sha256": "6c45b9d40a0af3063399e7dffc79e5f4433e4a54f39e562c59e15c2fb99fc36b"
+    }
+  ],
+  "pinned_compute_copies": [
+    {
+      "bundled_path": "inputs/c86/certify_mellin_integral.py",
+      "source_checkpoint": "C86",
+      "original_relative_path": "certify_mellin_integral.py",
+      "sha256": "7b64e3d11894978f7744b32291d89d1589f9d1e4c01bf3def3db42483ca6d27a"
+    },
+    {
+      "bundled_path": "inputs/c86/smallarea/mellin_chambers.json",
+      "source_checkpoint": "C86",
+      "original_relative_path": "smallarea/mellin_chambers.json",
+      "sha256": "0f1b1258a01ecdf754b084f3c0b115a34f0fce5e3d547efefca368cc90b5ff60"
+    },
+    {
+      "bundled_path": "inputs/c86/triangle/c84_interval_kernel.py",
+      "source_checkpoint": "C86",
+      "original_relative_path": "triangle/c84_interval_kernel.py",
+      "sha256": "5abd803e6f952455ed0e138fac12ecc5f3c6b3594cfb357f4e0522b87e0033ed"
+    },
+    {
+      "bundled_path": "positions/mellin_chambers.json",
+      "source_checkpoint": "C86",
+      "original_relative_path": "smallarea/mellin_chambers.json",
+      "sha256": "0f1b1258a01ecdf754b084f3c0b115a34f0fce5e3d547efefca368cc90b5ff60"
+    },
+    {
+      "bundled_path": "positions/c84_interval_kernel.py",
+      "source_checkpoint": "C86",
+      "original_relative_path": "triangle/c84_interval_kernel.py",
+      "sha256": "5abd803e6f952455ed0e138fac12ecc5f3c6b3594cfb357f4e0522b87e0033ed"
+    }
+  ]
+}

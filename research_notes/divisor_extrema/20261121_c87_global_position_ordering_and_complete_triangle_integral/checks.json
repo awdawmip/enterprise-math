@@ -1,0 +1,227 @@
+{
+  "schema": "C87_BUNDLE_QUICK_CHECKS_V1",
+  "status": "PASS",
+  "passed_groups": 7,
+  "failed_groups": 0,
+  "full_adaptive_family_mesh_recomputed": false,
+  "full_outer_kappa_mesh_recomputed": false,
+  "external_peer_review_claimed": false,
+  "checks": {
+    "whole_interval_positive_margin": {
+      "status": "PASS",
+      "complete_closed_intervals": 60,
+      "domain": [
+        "1/8",
+        "1"
+      ],
+      "strict_lower_bound": "1/200",
+      "source_bindings": 4,
+      "saved_integer_root_checks": 293423,
+      "adaptive_family_mesh_recomputed": false
+    },
+    "inherited_proof_sources": {
+      "status": "PASS",
+      "unchanged_bundled_proof_files": 14
+    },
+    "position_expansion_and_values": {
+      "status": "PASS",
+      "read_only": true,
+      "exact_axis_cancellations_and_remainder": "verified",
+      "recomputed_radial_integrals": 2,
+      "radial_grid": 192,
+      "family_intervals_checked_for_complete_coverage": 60,
+      "adaptive_family_cubature_rerun": false,
+      "exact_position_weight_integrations": 14,
+      "exploratory_points_inside_certified_intervals": 14,
+      "certificate_files_modified": false
+    },
+    "low_half_pointwise_theorem": {
+      "status": "PASS",
+      "arithmetic": "Fraction; exact integer twentieth-power comparisons",
+      "source_sha256": "0f1b1258a01ecdf754b084f3c0b115a34f0fce5e3d547efefca368cc90b5ff60",
+      "chamber_10_is_00_plus_one_correction": true,
+      "chamber_11_is_00_plus_two_corrections": true,
+      "e2_bounds": [
+        "-47758831681368900731671038989647/5192296858534827628530496329220096",
+        "-47758831681368900731671038989633/5192296858534827628530496329220096"
+      ],
+      "delta_half_bounds": [
+        "77258384365595896949012291240325333/1038459371706965525706099265844019200",
+        "309033537462383587796049164961320349/4153837486827862102824397063376076800"
+      ],
+      "display_e2": [
+        -0.009198016404409816,
+        -0.009198016404409816
+      ],
+      "display_delta_half": [
+        0.0743971179523399,
+        0.0743971179523399
+      ],
+      "certified_strict_delta_lower": "37/500",
+      "theorem_domain": "0<r<=1/2 and 0<s<=1/2",
+      "conclusion": "T(r,s)>(37/500)*(r*s)^(41/20)",
+      "floating_values_are_display_only": true
+    },
+    "QT_two_eliminations_and_saved_integral": {
+      "status": "PASS",
+      "exact_geometry_checks": "PASS",
+      "exact_rational_source_cases": 1150,
+      "independent_source_eliminations": [
+        "source_level_s",
+        "endpoint_difference_h"
+      ],
+      "directed_point_enclosure_checks": 1150,
+      "whole_cell_boundary_boxes": 4,
+      "saved_certificate_source_bindings": 8,
+      "certificate_component_sum": "PASS",
+      "strict_kappa_bounds": [
+        "17101/10000",
+        "17833/10000"
+      ],
+      "strict_improvement_over_C86_both_endpoints": true,
+      "C86_immutable_commit": "16aa076c692d75590549e13aad3128eb34cb285f",
+      "proof_sha256": "61495e82b3f5f4b616113a5a1279a972f9796c8a3ceed69bfc86c099d03d7b97",
+      "finite_checks_are_universal_proof": false,
+      "complete_integral_meshes_recomputed_here": false
+    },
+    "QT_independent_original_3D_polytope": {
+      "status": "PASS",
+      "arithmetic": "Fraction and integer interval comparisons",
+      "independent_original_3D_polytope_cases": 85,
+      "positive_polytope_cases": 72,
+      "reflection_checks": 85,
+      "whole_cell_sanity_boxes": 3,
+      "exact_internal_corner_checks": 27,
+      "positive_example": [
+        "5/2",
+        "6/5",
+        "1/2",
+        "1/500"
+      ],
+      "complete_certificate_source_bindings": 8,
+      "final_four_part_rational_sum": true,
+      "strict_kappa_enclosure": [
+        "1.7101",
+        "1.7833"
+      ],
+      "full_outer_mesh_recomputed_by_review": false,
+      "finite_cases_replace_analytic_proof": false
+    },
+    "conditional_high_half_local_joins": {
+      "status": "PASS",
+      "arithmetic": "Fraction only",
+      "source_sha256": "0f1b1258a01ecdf754b084f3c0b115a34f0fce5e3d547efefca368cc90b5ff60",
+      "local_join_records": [
+        {
+          "left": [
+            2,
+            0
+          ],
+          "right": [
+            3,
+            0
+          ],
+          "fixed_axis": "r",
+          "fixed_value": "2/3",
+          "scope": "interior vertical normal derivative",
+          "value_ledger_equal": true,
+          "T_r_ledger_equal": true
+        },
+        {
+          "left": [
+            2,
+            1
+          ],
+          "right": [
+            3,
+            1
+          ],
+          "fixed_axis": "r",
+          "fixed_value": "2/3",
+          "scope": "interior vertical normal derivative",
+          "value_ledger_equal": true,
+          "T_r_ledger_equal": true
+        },
+        {
+          "left": [
+            2,
+            2
+          ],
+          "right": [
+            3,
+            2
+          ],
+          "fixed_axis": "r",
+          "fixed_value": "2/3",
+          "scope": "identical high-high expression",
+          "value_ledger_equal": true,
+          "T_r_ledger_equal": true
+        },
+        {
+          "left": [
+            2,
+            0
+          ],
+          "right": [
+            2,
+            1
+          ],
+          "fixed_axis": "s",
+          "fixed_value": "1/3",
+          "scope": "fixed-s boundary tangent derivative",
+          "value_ledger_equal": true,
+          "T_r_ledger_equal": true
+        },
+        {
+          "left": [
+            3,
+            0
+          ],
+          "right": [
+            3,
+            1
+          ],
+          "fixed_axis": "s",
+          "fixed_value": "1/3",
+          "scope": "identical low-s expression",
+          "value_ledger_equal": true,
+          "T_r_ledger_equal": true
+        },
+        {
+          "left": [
+            2,
+            1
+          ],
+          "right": [
+            2,
+            2
+          ],
+          "fixed_axis": "s",
+          "fixed_value": "1/2",
+          "scope": "fixed-s boundary tangent derivative",
+          "value_ledger_equal": true,
+          "T_r_ledger_equal": true
+        },
+        {
+          "left": [
+            3,
+            1
+          ],
+          "right": [
+            3,
+            2
+          ],
+          "fixed_axis": "s",
+          "fixed_value": "1/2",
+          "scope": "fixed-s boundary tangent derivative",
+          "value_ledger_equal": true,
+          "T_r_ledger_equal": true
+        }
+      ],
+      "high_high_three_chambers_are_one_symmetric_expression": true,
+      "r_one_boundary_zero_ledgers": 4,
+      "global_C1_claim": false,
+      "concavity_sign_inequality_proved": false
+    }
+  }
+}
