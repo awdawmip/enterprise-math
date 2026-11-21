@@ -18,7 +18,7 @@ function assert(cond,msg) { assertions++; if(!cond) throw new Error(msg); }
 function axis(from,to) {
   const d=x[to].map((v,j)=>v-x[from][j]);
   const nonzero=d.map((v,j)=>v!==0?[j,v]:null).filter(Boolean);
-  assert(nonzero.length===1 && Math.abs(nonzero[0][1])===1,\`nonprimitive \${from}->\${to}\`);
+  assert(nonzero.length===1 && Math.abs(nonzero[0][1])===1,`nonprimitive ${from}->${to}`);
   return {axis:nonzero[0][0]+1, sign:nonzero[0][1]};
 }
 for (let i=0;i<N;i++) { axis(i,(i+1)%N); axis(i,(i+N-1)%N); }
@@ -52,7 +52,7 @@ function solve(entry,exit) {
       }
     }
   }
-  assert(found!==null,\`unreachable entry \${entry}, exit \${exit}\`);
+  assert(found!==null,`unreachable entry ${entry}, exit ${exit}`);
   const chain=[];
   for(let k=found; k!==startId;) {
     const item=parent.get(k);assert(item!==null,'broken predecessor');
