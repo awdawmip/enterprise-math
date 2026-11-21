@@ -1,0 +1,200 @@
+{
+  "schema": "ENTERPRISE_MATH_R762IB_EXACT_PARITY_CORE_EVIDENCE_V1",
+  "date": "2026-11-21",
+  "task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "parent_theorem_source": "R762IA@87ae1942f29bab7be629c3fbbe3c5503281e90a2",
+  "model": "six-axis composite support/sign Port candidate; primitive triadic closure not inferred",
+  "scope": {
+    "axes": 6,
+    "support_size": 3,
+    "distinct_supports": 20,
+    "all_binary_core_masks": 1048576,
+    "even_degree_cores_including_empty": 16384,
+    "gf2_rank": 6,
+    "independent_character_dimension": 14
+  },
+  "columns": [
+    "odd_core_weight",
+    "even_coordinate_cores",
+    "unbalanced",
+    "two_overlap_connected",
+    "unbalanced_and_two_overlap_connected"
+  ],
+  "weight_table": [
+    [
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      4,
+      165,
+      30,
+      90,
+      0
+    ],
+    [
+      6,
+      1200,
+      180,
+      1020,
+      0
+    ],
+    [
+      8,
+      3930,
+      0,
+      3915,
+      0
+    ],
+    [
+      10,
+      5792,
+      20,
+      5772,
+      0
+    ],
+    [
+      12,
+      3930,
+      0,
+      3930,
+      0
+    ],
+    [
+      14,
+      1200,
+      0,
+      1200,
+      0
+    ],
+    [
+      16,
+      165,
+      0,
+      165,
+      0
+    ],
+    [
+      18,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      20,
+      1,
+      0,
+      1,
+      0
+    ]
+  ],
+  "totals": {
+    "nonempty_even_coordinate_cores": 16383,
+    "unbalanced": 230,
+    "balanced": 16153,
+    "nonempty_two_overlap_connected": 16093,
+    "unbalanced_and_two_overlap_connected": 0
+  },
+  "bad_orbits": [
+    {
+      "mask": 12576,
+      "weight": 4,
+      "orbit_size": 30,
+      "stabilizer_size": 24,
+      "triples": [
+        "024",
+        "035",
+        "125",
+        "134"
+      ],
+      "axis_degree": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "mask": 3273,
+      "weight": 6,
+      "orbit_size": 180,
+      "stabilizer_size": 4,
+      "triples": [
+        "012",
+        "015",
+        "025",
+        "034",
+        "123",
+        "124"
+      ],
+      "axis_degree": [
+        4,
+        4,
+        4,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "mask": 119623,
+      "weight": 10,
+      "orbit_size": 20,
+      "stabilizer_size": 36,
+      "triples": [
+        "012",
+        "013",
+        "014",
+        "025",
+        "035",
+        "045",
+        "125",
+        "135",
+        "145",
+        "234"
+      ],
+      "axis_degree": [
+        6,
+        6,
+        4,
+        4,
+        4,
+        6
+      ]
+    }
+  ],
+  "verified_locally": {
+    "python_command": "python /mnt/data/r762ib_independent.py; python /mnt/data/r762ib_orbits.py",
+    "python_result": "matched complete weight table, 230 unbalanced, zero connected-unbalanced, three S6 orbits",
+    "cpp_command": "g++ -O3 -std=c++17 /mnt/data/r762ib_scan_full.cpp -o /mnt/data/r762ib_scan_full && /mnt/data/r762ib_scan_full",
+    "cpp_result": "matched complete weight table; independent scan of all 2^20 masks",
+    "arithmetic": "exact GF2 and nonnegative integer coordinate subset sums; no floating point"
+  },
+  "mathematical_proofs": [
+    "H in 2L iff H coordinate-even for H formed from triple incidence (L={x:sum x divisible by 3}, sum H=3m).",
+    "C(odd_core)>0 implies C(n)>0 by balanced pairing of all extra 2q_s occurrences.",
+    "The C++ and Python finite exhaustive core classifiers provide an exact six-axis certificate, yielding the universal fixed-six-axis corollary."
+  ],
+  "status": "AUTHOR_PROVED_EXACT_EXHAUSTIVE_UNREVIEWED",
+  "limitations": [
+    "A bad odd core does not force every even-multiplicity extension to be bad.",
+    "Two-overlap-connected support cores are not identical to the legal Port Euler walk criterion N_p(n)>0.",
+    "No primitive native P000 TRIADIC_CLOSURE_E dynamic or physical attribution has been established.",
+    "No independent mathematical review or native PROGRESS is asserted."
+  ],
+  "next": "Check the 3 odd-core S6 orbits with even-multiplicity bridges for C(n)=0 and an actual connected Eulerian Port realization N_p(n)>0."
+}
