@@ -1,16 +1,65 @@
 {
-  "schema": "R5_PRIMITIVE11_N7_UNIVERSAL_V1",
-  "status": "PASS",
-  "basis": "Z[z]/Phi_11(z), coefficient index 0..9",
-  "C_definition": "220*(1-z^10)*(1-z)*T_m - z*derivative(B_m) evaluated at z",
-  "exceptional_classes_r_mod11": [
-    "7",
-    "8",
-    "9",
-    "10",
-    "0"
-  ],
   "C_class_templates": {
+    "10": {
+      "C_r": [
+        -897,
+        219,
+        -2636,
+        -222,
+        -2637,
+        -663,
+        -1109,
+        -224,
+        -439,
+        -1094
+      ],
+      "C_r_plus_11": [
+        -2014,
+        -2,
+        -4832,
+        -884,
+        -4174,
+        -1986,
+        -1118,
+        -1328,
+        -218,
+        -2848
+      ],
+      "first_basis_coordinate": [
+        -897,
+        -2014
+      ]
+    },
+    "11": {
+      "C_r": [
+        -1340,
+        -227,
+        -665,
+        -223,
+        219,
+        -230,
+        872,
+        -1546,
+        436,
+        -2202
+      ],
+      "C_r_plus_11": [
+        -1360,
+        -454,
+        -230,
+        -1106,
+        1318,
+        -680,
+        2184,
+        -2652,
+        1312,
+        -3304
+      ],
+      "first_basis_coordinate": [
+        -1340,
+        -1360
+      ]
+    },
     "7": {
       "C_r": [
         442,
@@ -100,72 +149,21 @@
         1533,
         1746
       ]
-    },
-    "10": {
-      "C_r": [
-        -897,
-        219,
-        -2636,
-        -222,
-        -2637,
-        -663,
-        -1109,
-        -224,
-        -439,
-        -1094
-      ],
-      "C_r_plus_11": [
-        -2014,
-        -2,
-        -4832,
-        -884,
-        -4174,
-        -1986,
-        -1118,
-        -1328,
-        -218,
-        -2848
-      ],
-      "first_basis_coordinate": [
-        -897,
-        -2014
-      ]
-    },
-    "11": {
-      "C_r": [
-        -1340,
-        -227,
-        -665,
-        -223,
-        219,
-        -230,
-        872,
-        -1546,
-        436,
-        -2202
-      ],
-      "C_r_plus_11": [
-        -1360,
-        -454,
-        -230,
-        -1106,
-        1318,
-        -680,
-        2184,
-        -2652,
-        1312,
-        -3304
-      ],
-      "first_basis_coordinate": [
-        -1340,
-        -1360
-      ]
     }
   },
+  "C_definition": "220*(1-z^10)*(1-z)*T_m - z*derivative(B_m) evaluated at z",
+  "basis": "Z[z]/Phi_11(z), coefficient index 0..9",
   "common_denominator_bound": "(1-t^22)^3",
-  "numerator_degree_bound": 60,
   "divisible_by_1_minus_t22": true,
-  "residual_numerator_degree_bound": 38,
+  "exact_arithmetic": true,
+  "exceptional_classes_r_mod11": [
+    "7",
+    "8",
+    "9",
+    "10",
+    "0"
+  ],
+  "formal_independent_review": "NOT_REVIEWED",
   "independent_direct_thresholds": [
     1,
     2,
@@ -186,10 +184,12 @@
     21,
     22
   ],
-  "exact_arithmetic": true,
   "new_cost_period_at_O(N^6)": {
-    "m_mod13_1_to_8": 360360,
-    "m_mod13_0_9_to_12": 27720
+    "m_mod13_0_9_to_12": 27720,
+    "m_mod13_1_to_8": 360360
   },
-  "formal_independent_review": "NOT_REVIEWED"
+  "numerator_degree_bound": 60,
+  "residual_numerator_degree_bound": 38,
+  "schema": "R5_PRIMITIVE11_N7_UNIVERSAL_V1",
+  "status": "PASS"
 }
