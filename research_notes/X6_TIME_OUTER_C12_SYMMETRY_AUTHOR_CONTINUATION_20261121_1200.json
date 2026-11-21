@@ -1,0 +1,95 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "local_cycle": "1200",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "claim_id": "MCP-369991930c5b4fddf26dbefa",
+  "run_id": "RUN-d653f1346f38369bc27f5fc5",
+  "last_verified_generation": 4,
+  "frozen_taskbook": "awdawmip/enterprise-math@f41c2690daba467ecbde99615a1337e67be46ffd:research_tasks/RS_X6_NATIVE_TIME_DYNAMICS_20260906.md",
+  "frozen_source_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "last_own_resume": {
+    "request_id": "onhour-20261121-1112-own-native-time-resume-after-unit231-v1",
+    "status": "SUCCEEDED",
+    "generation": 4,
+    "owner_proof": "RUN-d653f1346f38369bc27f5fc5 returned live same-session claim and lease after canonical heartbeat"
+  },
+  "current_control_reads": {
+    "continuation_request_id": "onhour-20261121-1203-own-time-continuation-read-v1",
+    "status": "RUNNING",
+    "action": "READ_ORIGINAL_TERMINAL_ONLY_NO_REPLAY"
+  },
+  "native_semantic_progress": {
+    "unit231": {
+      "request_id": "onhour-20261121-1206-own-time-unit231-native-progress-v1",
+      "last_observed": "RUNNING",
+      "error": null,
+      "needs": "EXACT_ORIGINAL_RECEIPT_AND_SOURCE_READBACK",
+      "replay": false
+    },
+    "unit232": {
+      "status": "NOT_SUBMITTED_PENDING_UNIT231_TERMINAL_AND_CURRENT_WINNING_AUTHORITY"
+    }
+  },
+  "scientific_increment": {
+    "unit": "Unit232",
+    "id": "X6-NATIVE-OUTER-C12-MACROSHIFT-REFLECTION-HOLONOMY-OBSTRUCTION",
+    "statement": "On the frozen 12-native-Cell OUTER microcycle, under two-step macrophase covariance with trivial fiber action, and parity-preserving graph reflection with fiber involution theta, every reversible additive link field has weights (a,-theta(a)) and holonomy H=6(a-theta(a)). theta=id forces H=0; theta=-id forces H=12a, excluding H=6 at C_(6*2^m), m>=1. Exact independent H=6 countermodels break either covariance while preserving Link reversibility.",
+    "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "scope": "CONDITIONAL_LINK_FIELD_SYMMETRY_NOT_ADMITTED_PHYSICAL_UPDATE",
+    "checks": {
+      "method": "EXECUTED_LOCAL_PYTHON_EXACT_INTEGER",
+      "count": 25768,
+      "mismatches": 0
+    },
+    "artifacts": [
+      {
+        "path": "research_notes/X6_TIME_OUTER_C12_MACROSHIFT_REFLECTION_HOLONOMY_OBSTRUCTION_20261121_1200.md",
+        "commit": "a5e42e421d375628f12c64deeb5f67e733d7b3f3",
+        "blob_sha1": "ed921332a806064f7389288d2db07895e9f84a35",
+        "sha256": "45879112cdf53915735eb4552681a0ab0356cf1396707fa76cfe61d2e89f603a"
+      },
+      {
+        "path": "research_checks/X6_TIME_OUTER_C12_MACROSHIFT_REFLECTION_HOLONOMY_CHECK_20261121.py",
+        "commit": "9b9fb5dfeaf1a4b1544c66a07271befcac8a6c57",
+        "blob_sha1": "a60b7909efbb0d4eb319caf58adfcda5ce147465",
+        "sha256": "16b60e86bbfe49a795a184a952a97fde50dc3d1728be7507e21c3d096df41246"
+      },
+      {
+        "path": "research_checks/X6_TIME_OUTER_C12_MACROSHIFT_REFLECTION_HOLONOMY_RESULTS_20261121.json",
+        "commit": "a5bd32a15a7b8dc1af8fa3af4bb82e1342659e0a",
+        "blob_sha1": "12bdf09b4da8c1b84e4a5c7ff41a00d5548984e6",
+        "sha256": "e14b406f194744ebd32d0f47c790623f6dbb1755964655312dc2a4d109cffb44"
+      }
+    ]
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "checkpoint_count": 232,
+    "commit": "b3058e8d092a19c68e986c8d789cf8d827d3d85c",
+    "git_blob_sha1": "d54bf1b191fc916e30f87f0f82a64b5273af78df",
+    "last_event": "onhour-20261121-1200-x6-time-outer-c12-symmetry-holonomy-unit232-v1",
+    "readback": "VERIFIED"
+  },
+  "do_not_repeat": [
+    "Units229–230 previous Native PROGRESS completed",
+    "Unit231 proof, checker, Activity231 and Native progress request already submitted",
+    "Unit232 proof, checker, results and Activity232 GitHub persisted, do not duplicate body",
+    "Candidate H=6 is not accepted physical precision evolution"
+  ],
+  "evidence_debt": [
+    "Exact Source-backed physical Link/Port/Cell internal-fiber event law and fiber z readout missing",
+    "Actual transformation of a physical fiber under local signed Cell graph symmetries not established",
+    "Original R063 six-file native benchmark unexecuted, separate object/acceptance",
+    "Independent Driver review and Result admission outstanding",
+    "Unit231 Native PROGRESS original request needs terminal readback before Unit232 protected publish"
+  ],
+  "next_exact_action": "Consume terminal receipt and Source readback for original onhour-20261121-1206-own-time-unit231-native-progress-v1. If current winning same Research claim and generation authorized, publish Unit232 native semantic checkpoint once (no duplicate uploads), then verify; continue looking for real physical Cell/Link/Port fiber update with independent z0,z+12,z-12 readings and actual macroshift/reflection covariance. Preserve original R063 benchmark. Do not change scheduler.",
+  "continuation_state": "OPEN"
+}
