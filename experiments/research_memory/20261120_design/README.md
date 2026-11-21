@@ -1,19 +1,14 @@
 # 进取数论研究记忆：归属、组织与对照验收方案
 
-日期：2026-11-20（UTC+08:00）  
-状态：**工程设计与评测协议草案；不是已部署能力或科研规则**。  
+更新：2026-11-21（UTC+08:00）。本目录保存早期设计与项目实施状态；实际工程与验收以当前入口为准。
 
-## 当前执行入口：Nollm 探索开发
+## 当前执行入口：已上线研究记忆
 
-用户已将任务扩展为可用原型开发，主执行入口是 [Nollm PR #7](https://github.com/awdawmip/Nollm/pull/7) 及其 [任务书](https://github.com/awdawmip/Nollm/blob/experiment/enterprise-math-memory-20261120/docs/project/tasks/NOLLM_ENTERPRISE_MATH_MEMORY_EXPERIMENT_20261120.md)／[Codex 提示词](https://github.com/awdawmip/Nollm/blob/experiment/enterprise-math-memory-20261120/docs/project/tasks/NOLLM_ENTERPRISE_MATH_MEMORY_CODEX_PROMPT_20261120.md)。通用记忆组织和原生导航在 Nollm 开发，进取数论提供真实材料、领域适配及跨线复用验收。
+主实施入口为 [em-research-mcp PR #112](https://github.com/awdawmip/em-research-mcp/pull/112)，通用运行库仍由 [Nollm PR #7](https://github.com/awdawmip/Nollm/pull/7) 承载。现有研究中控台插件已可调用五项记忆工具，初始 v22 部署后已做真实接口复审；坐标与修订说明修复已随 v23 上线。
 
-当前任务是内部可信试验组件，用户明确要求不写防御性代码，不做无谓验证或哈希。交付包含可运行代码、真实模型使用、跨会话取回和局部修订，并比较实际收益与成本。本包保留为设计历史、来源和可选比较参考；其全模式计划、盲测基础设施和 38 项声明检查不作为新任务的开发或交付门槛。具体实施范围和验收以新任务书为准。
+本轮直接验收保存、两次修订、旧版/current、原生导航、固定原文和发布后的持续读取；另有独立上下文读者试用、两项本地故障/并发探针、15 项相关网关回归。具体版本、证据范围和后续问题见 [实施与复审状态](IMPLEMENTATION_STATUS_20261120.md)。
 
-截至 2026-11-20 的部署前复审，Nollm PR #7 已交付原型、持久记忆和真实试用报告，固定实现版本为 `eddfb7c81aae2981c48c4063c7ac75e272ff15a4`。科研入口与安装回归共三项独立复跑通过。结论、实际验证范围与部署方式见 [部署复审](DEPLOYMENT_REVIEW_20261120.md)：可用于 CLI／Codex 的单写者内部试用；现有 Chat 研究的薄工具接入与长期工作场位置仍需在目标环境落实。该 EM 草案不另行派发重复的主任务。
-
-已进一步实测确认现有研究中控台插件可以调用后端。建议复用该插件，在已有 Python 服务内接入独立 Nollm 记忆模块，并同步更新网关工具声明与转发；具体组织、持久工作场和真实对话验收见 [中控台接入建议](MCP_INTEGRATION_DECISION_20261120.md)。这是已核接口基础上的实施建议，记忆 MCP 工具尚未部署。
-
-本轮已实际实施并完成本地验收，主执行入口转到 [中控台实施 PR #112](https://github.com/awdawmip/em-research-mcp/pull/112)。Nollm 修复已在原 PR #7 保存，网关候选已保存为 Sites v22；后端、网关与真实本地跨层测试通过。线上安装和真实对话验收仍待已有维护环境执行，见 [实施状态](IMPLEMENTATION_STATUS_20261120.md)。
+用户明确这是可信内部试验组件，不新增防御性代码、无谓验证/哈希或研究流程门槛。已有功能可在 TASK/知情研究中使用；跨线效果及总算力收益按实际对照评估。以下原设计、全模式计划、盲测基础设施和旧 38 项声明检查保留为设计史与可选参考，不作为当前试用的前置门槛。
 
 ## 原方案的用途与范围
 
