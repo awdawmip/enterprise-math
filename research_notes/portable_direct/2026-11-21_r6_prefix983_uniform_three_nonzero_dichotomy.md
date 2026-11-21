@@ -32,13 +32,13 @@ These types omit actual port indices; ports within any two-port type must be dis
 
 ## Lemma 983.3 — exhaustive finite-state quotient
 
-There are at most six relevant ports among three nonzero residuals. Relabel the distinct used ports by (0,1,\ldots,m-1) in order of their first appearance (this is only a *bit-coordinate renaming* in the auxiliary observer, not an X6 spatial map). Every equality pattern of the at most six port slots has one restricted-growth-string representative. Enumerating the five local mask types at all three phases, all canonical equality patterns, and excluding repeated indices inside one two-port phase gives exactly **4,207** graph-isomorphism classes.
+There are at most six relevant ports among three nonzero residuals. Relabel the distinct used ports by (0,1,\ldots,m-1) in order of their first appearance (this is only a *bit-coordinate renaming* in the auxiliary observer, not an X6 spatial map). Every equality pattern of the at most six port slots has one restricted-growth-string representative. Enumerating the five local mask types at all three phases, all canonical equality patterns, and excluding repeated indices inside one two-port phase gives exactly **4,207** canonical ordered-slot mask-overlap configurations. The enumeration is complete but not necessarily irredundant under graph isomorphism (identical-mask slots can generate equivalent graphs).
 
-Each class has a complete state graph with ((phase,x)\in\{0,1,2\}\times\{0,1\}^m), at most (3\cdot2^6=192) vertices, and explicitly defined signed-source transitions. Kahn's exact topological algorithm detects acyclicity and computes the longest directed path in acyclic cases. For cyclic graphs, six exact successor expansions from every phase-zero state test the six-step return criterion.
+Each configuration has a complete state graph with ((phase,x)\in\{0,1,2\}\times\{0,1\}^m), at most (3\cdot2^6=192) vertices, and explicitly defined signed-source transitions. Kahn's exact topological algorithm detects acyclicity and computes the longest directed path in acyclic cases. For cyclic graphs, six exact successor expansions from every phase-zero state test the six-step return criterion.
 
 The accompanying deterministic exhaustive checker gives:
 
-| Canonical graph classes | Count |
+| Canonical overlap configurations | Count |
 |---|---:|
 | All abstract mask classes | 4,207 |
 | Classes satisfying mask-3 unique mask-2 successor | 4,071 |
@@ -48,9 +48,9 @@ The accompanying deterministic exhaustive checker gives:
 | Classes with a directed cycle but no six-step phase-aligned return | 0 |
 | All abstract acyclic classes with path length 14 | 12 |
 
-The **12** length-14 abstract exceptions all violate the source-specific uniqueness rule: two ((2,3)) phases share the same mask-3 port but have distinct mask-2 ports. Hence none is realizable by a true residual word. Among the 4,071 admissible classes, no acyclic graph has a path longer than 13. The enumeration establishes the statement in every width because a larger width adds only input bits not touched by these six active ports. QED.
+The **12** length-14 abstract overlap configurations all violate the source-specific uniqueness rule: two ((2,3)) phases share the same mask-3 port but have distinct mask-2 ports. Hence none is realizable by a true residual word. Among the 4,071 admissible configurations, no acyclic graph has a path longer than 13. The enumeration establishes the statement in every width because a larger width adds only input bits not touched by these six active ports. QED.
 
-**Coverage argument:** the five masks exhaust Lemma 983.2; every six-or-fewer-port overlap pattern occurs in the restricted-growth enumeration; every possible input assignment and phase is checked in its graph; and the entire set of 4,207 classes is traversed by the supplied checker. This is a finite computer-assisted certificate with a small independently reproducible verifier, not a claim that 19-bit state graphs have all been explicitly built.
+**Coverage argument:** the five masks exhaust Lemma 983.2; every six-or-fewer-port overlap pattern occurs in the restricted-growth enumeration; every possible input assignment and phase is checked in its graph; and the entire set of 4,207 canonical configurations is traversed by the supplied checker. This is a finite computer-assisted certificate with a small independently reproducible verifier, not a claim that 19-bit state graphs have all been explicitly built.
 
 ## Sharp real-residual witness
 
@@ -66,7 +66,7 @@ Each move is checked against the actual residual's named source dictionary. The 
 
 ## Validation, provenance and next work
 
-`PREFIX983_R6_TRIPLE_UNIFORM_13_CHECK.py` independently enumerates all 4,207 canonical classes, verifies the 12 excluded 14-step cases, the absence of cyclic graphs without a six-step return, the maximum admissible length 13, the exact attaining path and the source-mask type list in real residual dictionaries for (3\le p\le19). All predicates use integers, bit operations and finite graph reachability, without floating-point tolerances.
+`PREFIX983_R6_TRIPLE_UNIFORM_13_CHECK.py` independently enumerates all 4,207 canonical configurations, verifies the 12 excluded 14-step cases, the absence of cyclic graphs without a six-step return, the maximum admissible length 13, the exact attaining path and the source-mask type list in real residual dictionaries for (3\le p\le19). All predicates use integers, bit operations and finite graph reachability, without floating-point tolerances.
 
 The theorem extends PREFIX-982's exploratory (p=3..7) maximum-13 census to **every** bit-width for the actual three-stage nonzero-residual observer. No formal proof-assistant certificate or independent mathematical Review has yet been obtained. The (B_{\mathrm{fix,odd}}(32)\in\{19,20\}) mother question remains open.
 
