@@ -1,0 +1,105 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-21",
+  "local_cycle": "2000",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "source_frozen_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "current_account_rules_read": "awdawmip/chatgpt-global-knowledge canonical main@5314a35937077dbce60470dc24585e3d80e725d3, entry blobs a6cd1a95e17a501b72c35244633bfb4699c91eac and 01de3bea2155db8c4ce29f832906b2df114f88bf",
+  "last_fresh_project_head_observed": "awdawmip/enterprise-math main@2610f9620676f8970dfba4e1b36d46ce9b1d256b after Activity243",
+  "frontier": {
+    "prior_verified": "Unit233–241 author notes, exact checker/certificates, and RA up to 242 events persisted; do not repeat. Unit238 correction is distinct Activity event.",
+    "new_unit": "Unit242",
+    "status": "AUTHOR_PROVED / EXACT_INTEGER_EXECUTED / GITHUB_VERIFIED / ACTIVITY243_PERSISTED / UNREVIEWED / NOT_ADMITTED",
+    "summary": "Shared twelve-Cell OUTER signed-Port ring with k distinct intact triads and serial target-empty transfers. Exact directed gap cocycle D_ij(t)-D_ij(0)=L_j(t)-L_i(t) for all pairs. All full labeled return paths have identical integer windings. For 2<=k<=11, attainable closed winding vectors exactly diagonal all integers; for k=12, only zero. Opposing independent +1/-1 full laps are impossible with shared ring exclusion, despite their separate single-triad feasibility. Physical multitransfer update remains conditional.",
+    "exact_execution": {
+      "checker": "research_checks/X6_TIME_UNIT242_MULTITRIAD_C12_EXCLUSION_WINDING_CHECK_20261121_2000.js",
+      "certificate": "research_checks/X6_TIME_UNIT242_MULTITRIAD_C12_EXCLUSION_WINDING_RESULTS_20261121_2000.json",
+      "ordered_two_token_states": 132,
+      "legal_directed_transitions": 480,
+      "blocked_directed_transitions": 48,
+      "masks_tested": 4082,
+      "closed_constructive_witnesses": 8164,
+      "primitive_transfers": 589248,
+      "assertions": 2455890,
+      "failures": 0
+    },
+    "sources": [
+      {
+        "path": "research_notes/X6_TIME_UNIT242_MULTITRIAD_C12_EXCLUSION_WINDING_LOCK_20261121_2000.md",
+        "commit": "26918c8fd8babf3fa106e04ae256419c086ec4c7",
+        "blob": "9e6315886360055919cc76efee71690e8c353188",
+        "sha256": "0c8b8704a16ac519daa4803fe9877cbbe650d4417803a863c0b9346073e708b7"
+      },
+      {
+        "path": "research_checks/X6_TIME_UNIT242_MULTITRIAD_C12_EXCLUSION_WINDING_CHECK_20261121_2000.js",
+        "commit": "346fcfb4856d45c3edde139378fe25149d7f9e24",
+        "blob": "c6e6077503ce1bba0ffab4a4d159580e1a61dd3e",
+        "sha256": "4d9d6d2cb707c7c5ec8ab36672f2b16b01c30885ba37660785fcd0be19c0c187"
+      },
+      {
+        "path": "research_checks/X6_TIME_UNIT242_MULTITRIAD_C12_EXCLUSION_WINDING_RESULTS_20261121_2000.json",
+        "commit": "aaab4e0fe8af05575cedc6ea70f5f4e713ca535e",
+        "blob": "abb31744656880f20a5580a42c7b98dcbae0c8ee",
+        "sha256": "7ab70538fb4d67661fd27a263163ae086fcc58c196e0d4c55757bf342f8ec25c"
+      }
+    ]
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+    "event_count": 243,
+    "semantic_unit_count": 242,
+    "unit238_correction_as_separate_event": true,
+    "commit": "2610f9620676f8970dfba4e1b36d46ce9b1d256b",
+    "blob": "08d02e48398a03049724d3b8c1d8c2d26bd10bcf",
+    "event_id": "onhour-20261121-2000-x6-multitriad-shared-c12-winding-lock-unit242-v1"
+  },
+  "native_control": {
+    "status_as_of_last_source_observation": "NO_LIVE_CLAIM; HANDOFF_READY as of 2026-11-21T10:02:21Z. No fresh native current winner independently observed in this turn.",
+    "prior_claim_id": "MCP-369991930c5b4fddf26dbefa",
+    "prior_claim_comment_id": 7048613458,
+    "prior_run_id": "RUN-d653f1346f38369bc27f5fc5",
+    "prior_generation": 5,
+    "last_successful_continuation_request": "onhour-20261121-1800-x6-current-continuation-01",
+    "original_failed_progress": {
+      "request_id": "onhour-20261121-1502-own-time-units233-235-native-progress-v1",
+      "status": "FAILED",
+      "error": "CANONICAL_REJECTED: registered execution requires a current winning live Issue #240 CLAIM"
+    },
+    "original_failed_typed_prepares": [
+      {
+        "request_id": "onhour-20261121-1627-own-x6-time-typed-continuation-after-expired-claim-v1",
+        "status": "FAILED",
+        "error": "NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED"
+      },
+      {
+        "request_id": "onhour-20261121-1640-own-x6-time-typed-continuation-compact-repair-v1",
+        "status": "FAILED",
+        "error": "NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED"
+      }
+    ],
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903",
+    "support_last_fresh_read": "open, updated_at 2026-11-21T11:10:10Z; most recent observed comment extends scientific frontier to Unit241",
+    "formal_native_semantic_progress_units233_to242": "NOT_PUBLISHED; current live claim unknown/no new authorization obtained; no replay of terminal failed requests"
+  },
+  "unresolved_evidence": [
+    "Source-admitted signed directed Cell/Link/Port full-triad multi-occupancy/exclusion and resource/environmental update, including whether off-ring bypass or genuine opposite rotations can physically occur",
+    "Same-Cell forward/reverse C12/C24 independent precision fiber before/after readout under actual non-conditional event law",
+    "Deployed backend fix for typed continuation scope metadata budget #2903 followed by legitimate same-lane winning Source CLAIM/open and missing semantic PROGRESS",
+    "Independent Driver review and Result acceptance"
+  ],
+  "do_not_repeat": [
+    "Unit233–242 existing author proofs, checkers, certificates and Activity events; Unit238 distinct correction event",
+    "Known terminal failed Native PROGRESS and two typed preparations; original request IDs preserved and never replayed",
+    "Original D24 supersingular accepted Result and separate historical staging files; do not migrate as onhour result",
+    "R063 six-file Native benchmark is separate task RS-X6-LEGACY-PLANE-RECONCILIATION / support #2416"
+  ],
+  "next_exact_action": "Read current Source for an actually executable authenticated signed multi-triad native Port law; test the shared 12-Cell exclusion cocycle, identify precisely which physical guard/interface allows independent opposing full cycles or requires off-ring provenance, then pair with physical C12/C24 same-Cell precision readout. Keep general 6D Cell identity and ordered BRC event history. Check deployed #2903 fix before any legitimate new typed continuation; no failed-write replay or maintenance identity.",
+  "handoff_required": false
+}
