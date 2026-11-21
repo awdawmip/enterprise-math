@@ -1,0 +1,260 @@
+{
+  "schema": "R5_PRIMITIVE16_ALL_M_V1",
+  "status": "EXACT_CHECKS_PASS",
+  "date": "2026-11-21",
+  "frozen_predecessor": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "bf88b495f9e727ab355f7ff330a01c31c03e66fa",
+    "path": "research_notes/portable_direct/r5_primitive13_n6_universal_20261121/ADDENDUM_PRIMITIVE16_17.md"
+  },
+  "assumptions": "Frozen nonadaptive R5 scalar cost model; 256 hypotheses; 101 prices 214..314; exact prior separation certificate; independent X6-native transfer not asserted",
+  "ring": "Q[z]/(z^8+1)",
+  "order16_pole": 6,
+  "order16_free_prices": [
+    224,
+    240,
+    256,
+    272,
+    288,
+    304
+  ],
+  "signed_sets": {
+    "S0": [
+      214,
+      215,
+      216,
+      217,
+      218
+    ],
+    "S1": [
+      214,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221
+    ],
+    "S2": [
+      215,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221
+    ],
+    "U": [
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221
+    ],
+    "coefficients": [
+      1,
+      1,
+      1,
+      -2
+    ]
+  },
+  "numerator": "sum_signed_product_{p in S}(1-z^p) product_{r in [1..15]\\(S mod16)}(1-z^r*t)",
+  "denominator": "1-t^16",
+  "numerator_degree": 10,
+  "exact_coefficients_m1_through_m11": [
+    [
+      16,
+      10,
+      -4,
+      -10,
+      -16,
+      -18,
+      -20,
+      -22
+    ],
+    [
+      -100,
+      -76,
+      -40,
+      0,
+      40,
+      80,
+      104,
+      116
+    ],
+    [
+      280,
+      266,
+      216,
+      130,
+      24,
+      -90,
+      -184,
+      -250
+    ],
+    [
+      -376,
+      -444,
+      -444,
+      -372,
+      -248,
+      -84,
+      92,
+      252
+    ],
+    [
+      232,
+      380,
+      476,
+      496,
+      440,
+      320,
+      148,
+      -44
+    ],
+    [
+      8,
+      -136,
+      -256,
+      -344,
+      -376,
+      -352,
+      -272,
+      -152
+    ],
+    [
+      -88,
+      -24,
+      44,
+      108,
+      152,
+      172,
+      164,
+      136
+    ],
+    [
+      24,
+      12,
+      4,
+      -4,
+      -8,
+      -12,
+      -20,
+      -20
+    ],
+    [
+      32,
+      26,
+      16,
+      2,
+      -8,
+      -22,
+      -24,
+      -30
+    ],
+    [
+      -20,
+      -20,
+      -16,
+      -8,
+      0,
+      8,
+      16,
+      20
+    ],
+    [
+      8,
+      6,
+      4,
+      2,
+      0,
+      -2,
+      -4,
+      -6
+    ]
+  ],
+  "primitive16_nonzero_m_mod16": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "primitive16_zero_m_mod16": [
+    0,
+    12,
+    13,
+    14,
+    15
+  ],
+  "primitive17_nonzero_m_mod17": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "primitive17_zero_m_mod17": [
+    0,
+    13,
+    14,
+    15,
+    16
+  ],
+  "exact_minimal_period_formula": "360360 * 2**int(m%16 in 1..11) * 17**int(m%17 in 1..12)",
+  "period_classes_mod272": {
+    "both": {
+      "count": 132,
+      "period": 12252240
+    },
+    "primitive16_only": {
+      "count": 55,
+      "period": 720720
+    },
+    "primitive17_only": {
+      "count": 60,
+      "period": 6126120
+    },
+    "neither": {
+      "count": 25,
+      "period": 360360
+    }
+  },
+  "validation": {
+    "exact_arithmetic": "Python standard-library Fraction in cyclotomic field",
+    "numerator_all_coefficients": "PASS",
+    "independent_Dp_threshold_range": [
+      1,
+      48
+    ],
+    "m1_prior_formula": "PASS",
+    "pole_order_masks": "PASS",
+    "higher_order_roots_upper_bound": "PASS",
+    "all_m_logic": "algebraic rational generating identity, not finite induction by samples"
+  },
+  "provenance": {
+    "conclusion_level": "AUTHOR_EXACT_DERIVATION",
+    "computational_evidence": "EXACT_FINITE_CHECKED",
+    "independent_review": "NOT_REVIEWED",
+    "formal_claim_run": "NOT_CREATED",
+    "activity_source_association": "PENDING_ORIGINAL_AUTHENTICATED_BINDING",
+    "publication": "GITHUB_INDEPENDENT_RESEARCH_BRANCH_NOT_CANONICAL_MAIN"
+  },
+  "next_question": "Determine next Laurent coefficient for primitive16 and primitive17 on their zero-leading residues and the sharp periods for O_m(N^3)."
+}
