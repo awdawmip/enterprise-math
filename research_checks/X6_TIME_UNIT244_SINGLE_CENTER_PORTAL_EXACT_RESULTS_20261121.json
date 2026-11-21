@@ -1,0 +1,1667 @@
+{
+  "schema": "X6_TIME_UNIT244_SINGLE_CENTER_PORTAL_SHARP_COST_CERT_V1",
+  "evidence_status": "CONDITIONAL_EXACT_FINITE",
+  "frozen_p000_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "start_cells": {
+    "A": 0,
+    "B": 2
+  },
+  "target_signed_ring_counts": {
+    "A": -12,
+    "B": 12
+  },
+  "source_defined_cells": 13,
+  "original_ring_directed_edges": 24,
+  "enabled_spoke_directed_edges_per_case": 2,
+  "bfs_winding_bound": 36,
+  "search_completeness": "Any shorter history than the achieved <=36 steps has |L_i|<=36, hence no shorter candidate is clipped.",
+  "single_portal_cases": [
+    {
+      "portal_shell_position": 0,
+      "portal_signed_axis_from_shell_to_P": -1,
+      "shortest_native_events": 30,
+      "ring_events": 28,
+      "spoke_events": 2,
+      "bfs_states_seen_until_first_goal": 1541,
+      "bfs_expanded_until_first_goal": 1449,
+      "occupancy_checks": 5794,
+      "primitive_checks": 5298,
+      "witness": [
+        {
+          "triad": "A",
+          "from": 0,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 2,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 3,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 4,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 5,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 6,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 7,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 8,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 9,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 10,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 11,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 0,
+          "to": 12,
+          "kind": "spoke",
+          "signed_axis": -1,
+          "ring_increment": 0
+        },
+        {
+          "triad": "A",
+          "from": 1,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 0,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 11,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 10,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 9,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 8,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 7,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 6,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 5,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 4,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 3,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 2,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 1,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 0,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 12,
+          "to": 0,
+          "kind": "spoke",
+          "signed_axis": 1,
+          "ring_increment": 0
+        },
+        {
+          "triad": "B",
+          "from": 0,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "A",
+          "from": 11,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 1,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        }
+      ]
+    },
+    {
+      "portal_shell_position": 2,
+      "portal_signed_axis_from_shell_to_P": -2,
+      "shortest_native_events": 30,
+      "ring_events": 28,
+      "spoke_events": 2,
+      "bfs_states_seen_until_first_goal": 1584,
+      "bfs_expanded_until_first_goal": 1484,
+      "occupancy_checks": 5932,
+      "primitive_checks": 5436,
+      "witness": [
+        {
+          "triad": "A",
+          "from": 0,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 11,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 10,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 9,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 8,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 7,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 6,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 5,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 4,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 2,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 3,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 2,
+          "to": 12,
+          "kind": "spoke",
+          "signed_axis": -2,
+          "ring_increment": 0
+        },
+        {
+          "triad": "B",
+          "from": 1,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 2,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 3,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 4,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 5,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 6,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 7,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 8,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 9,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 10,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 11,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 0,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 1,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 2,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "A",
+          "from": 12,
+          "to": 2,
+          "kind": "spoke",
+          "signed_axis": 2,
+          "ring_increment": 0
+        },
+        {
+          "triad": "A",
+          "from": 2,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 1,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 3,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        }
+      ]
+    },
+    {
+      "portal_shell_position": 4,
+      "portal_signed_axis_from_shell_to_P": -3,
+      "shortest_native_events": 32,
+      "ring_events": 30,
+      "spoke_events": 2,
+      "bfs_states_seen_until_first_goal": 1681,
+      "bfs_expanded_until_first_goal": 1565,
+      "occupancy_checks": 6256,
+      "primitive_checks": 5764,
+      "witness": [
+        {
+          "triad": "A",
+          "from": 0,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 11,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 10,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 9,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 8,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 7,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 6,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 5,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 4,
+          "to": 12,
+          "kind": "spoke",
+          "signed_axis": -3,
+          "ring_increment": 0
+        },
+        {
+          "triad": "B",
+          "from": 2,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 3,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 4,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 5,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 6,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 7,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 8,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 9,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 10,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 11,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 0,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 1,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 2,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 3,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 4,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "A",
+          "from": 12,
+          "to": 4,
+          "kind": "spoke",
+          "signed_axis": 3,
+          "ring_increment": 0
+        },
+        {
+          "triad": "A",
+          "from": 4,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 3,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 2,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 1,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 5,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 4,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 3,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        }
+      ]
+    },
+    {
+      "portal_shell_position": 6,
+      "portal_signed_axis_from_shell_to_P": 1,
+      "shortest_native_events": 36,
+      "ring_events": 34,
+      "spoke_events": 2,
+      "bfs_states_seen_until_first_goal": 2077,
+      "bfs_expanded_until_first_goal": 1952,
+      "occupancy_checks": 7806,
+      "primitive_checks": 7184,
+      "witness": [
+        {
+          "triad": "A",
+          "from": 0,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 11,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 10,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 9,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 8,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 7,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 6,
+          "to": 12,
+          "kind": "spoke",
+          "signed_axis": 1,
+          "ring_increment": 0
+        },
+        {
+          "triad": "B",
+          "from": 2,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 3,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 4,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 5,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 6,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 7,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 8,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 9,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 10,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 11,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 0,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 1,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 2,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 3,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 4,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 5,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 6,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "A",
+          "from": 12,
+          "to": 6,
+          "kind": "spoke",
+          "signed_axis": -1,
+          "ring_increment": 0
+        },
+        {
+          "triad": "A",
+          "from": 6,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 5,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 4,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 3,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 2,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 1,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 7,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 6,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 5,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 4,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 3,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        }
+      ]
+    },
+    {
+      "portal_shell_position": 8,
+      "portal_signed_axis_from_shell_to_P": 2,
+      "shortest_native_events": 36,
+      "ring_events": 34,
+      "spoke_events": 2,
+      "bfs_states_seen_until_first_goal": 2122,
+      "bfs_expanded_until_first_goal": 1989,
+      "occupancy_checks": 7951,
+      "primitive_checks": 7329,
+      "witness": [
+        {
+          "triad": "A",
+          "from": 0,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 11,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 10,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 2,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 3,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 4,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 5,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 6,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 7,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 8,
+          "to": 12,
+          "kind": "spoke",
+          "signed_axis": 2,
+          "ring_increment": 0
+        },
+        {
+          "triad": "A",
+          "from": 9,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 8,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 7,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 6,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 5,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 4,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 3,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 2,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 1,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 0,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 11,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 10,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 9,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 8,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 12,
+          "to": 8,
+          "kind": "spoke",
+          "signed_axis": -2,
+          "ring_increment": 0
+        },
+        {
+          "triad": "B",
+          "from": 8,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "A",
+          "from": 7,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 9,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "A",
+          "from": 8,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 10,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "A",
+          "from": 9,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 11,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "A",
+          "from": 10,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 0,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "A",
+          "from": 11,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 1,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        }
+      ]
+    },
+    {
+      "portal_shell_position": 10,
+      "portal_signed_axis_from_shell_to_P": 3,
+      "shortest_native_events": 32,
+      "ring_events": 30,
+      "spoke_events": 2,
+      "bfs_states_seen_until_first_goal": 1720,
+      "bfs_expanded_until_first_goal": 1598,
+      "occupancy_checks": 6386,
+      "primitive_checks": 5894,
+      "witness": [
+        {
+          "triad": "A",
+          "from": 0,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 2,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 3,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 4,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 5,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 6,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 7,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 8,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 9,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 10,
+          "to": 12,
+          "kind": "spoke",
+          "signed_axis": 3,
+          "ring_increment": 0
+        },
+        {
+          "triad": "A",
+          "from": 11,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 10,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 9,
+          "to": 8,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 8,
+          "to": 7,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 7,
+          "to": 6,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 6,
+          "to": 5,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 5,
+          "to": 4,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 4,
+          "to": 3,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 3,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 2,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 1,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 0,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": -3,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 11,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": -1
+        },
+        {
+          "triad": "A",
+          "from": 10,
+          "to": 9,
+          "kind": "ring",
+          "signed_axis": -2,
+          "ring_increment": -1
+        },
+        {
+          "triad": "B",
+          "from": 12,
+          "to": 10,
+          "kind": "spoke",
+          "signed_axis": -3,
+          "ring_increment": 0
+        },
+        {
+          "triad": "B",
+          "from": 10,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "A",
+          "from": 9,
+          "to": 10,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 11,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "A",
+          "from": 10,
+          "to": 11,
+          "kind": "ring",
+          "signed_axis": 1,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 0,
+          "to": 1,
+          "kind": "ring",
+          "signed_axis": 2,
+          "ring_increment": 1
+        },
+        {
+          "triad": "A",
+          "from": 11,
+          "to": 0,
+          "kind": "ring",
+          "signed_axis": 3,
+          "ring_increment": 1
+        },
+        {
+          "triad": "B",
+          "from": 1,
+          "to": 2,
+          "kind": "ring",
+          "signed_axis": -1,
+          "ring_increment": 1
+        }
+      ]
+    }
+  ],
+  "assertion_failures": 0
+}
