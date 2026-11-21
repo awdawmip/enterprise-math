@@ -4,6 +4,7 @@ No floating-point; equal positive/negative directions represented once.
 """
 from fractions import Fraction as Q
 from itertools import product
+from pathlib import Path
 import json
 
 S=Q(5)
@@ -99,6 +100,6 @@ if __name__=='__main__':
       'all_case_assertions_pass':True,
       'logic':'moment-box enumeration covers all F<=1/2 in T in [1,23]; 0<T<1 and T>23 handled by integer congruence lemmas in note',
       'review':'AUTHOR_CHECKED_NOT_INDEPENDENTLY_REVIEWED'}
-    with open('/mnt/data/em_r92/x6_r92_sigma5_results.json','w') as f:
+    with Path(__file__).with_name('x6_r92_sigma5_results.json').open('w') as f:
         json.dump(result,f,indent=2,ensure_ascii=False)
     print(json.dumps({k:result[k] for k in ('moment_box_F_le_half_at_T23','critical_t_for_F_le_half','tested_direction_count_q_le_30','total_case_count','upper_bound_direction_case_comparisons','all_case_assertions_pass')},indent=2))
