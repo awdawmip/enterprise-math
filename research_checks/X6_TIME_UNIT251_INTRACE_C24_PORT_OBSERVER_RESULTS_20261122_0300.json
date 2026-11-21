@@ -1,0 +1,80 @@
+{
+  "schema": "X6_UNIT251_IN_TRACE_BRC_C24_SENSOR_CERT_V1",
+  "date": "2026-11-22",
+  "unit": "Unit251",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "source_provenance": {
+    "frozen_p000": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+    "original_route_commit": "f56840285cafeb9f5767ea91e903e1f53808186f",
+    "original_route_path": "research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+    "unit250_inverse_commit": "33dd0d808ec8733b2147fa5905481b869938a7a1"
+  },
+  "modulus": 24,
+  "original_terminal_observer_cases": 36,
+  "original_route_cases_replayed": 2,
+  "original_replay": [
+    {
+      "ingress": 0,
+      "egress": 2,
+      "route_length": 38,
+      "first_exit_event": 3,
+      "first_triad": "A",
+      "first_cell": "x2",
+      "first_C24": 0,
+      "first_ring_C24": 0,
+      "centre_passages_A": 6,
+      "terminal_C24": {
+        "A": 0,
+        "B": 6
+      },
+      "signed_ring_winding": {
+        "A": -12,
+        "B": 12
+      }
+    },
+    {
+      "ingress": 2,
+      "egress": 4,
+      "route_length": 46,
+      "first_exit_event": 7,
+      "first_triad": "A",
+      "first_cell": "x4",
+      "first_C24": 0,
+      "first_ring_C24": 0,
+      "centre_passages_A": 6,
+      "terminal_C24": {
+        "A": 0,
+        "B": 6
+      },
+      "signed_ring_winding": {
+        "A": -12,
+        "B": 12
+      }
+    }
+  ],
+  "source_terminal_kernel_up_to_gauge": 18,
+  "remaining_laws_after_first_in_trace_read": 3,
+  "remaining_laws_after_both_in_trace_reads": 1,
+  "minimal_extra_scalar_samples_for_linear_additive_law": 2,
+  "extra_native_movement_events_when_original_routes_already_run": 0,
+  "required_extra_noninvasive_mid_trace_C24_samples": 2,
+  "dynamic_counterexample": {
+    "same_port_pair": [
+      0,
+      2
+    ],
+    "six_passage_residuals_C24": [
+      8,
+      16,
+      0,
+      0,
+      0,
+      0
+    ],
+    "terminal_sum_C24": 0,
+    "first_mid_trace_residual_C24": 8
+  },
+  "exact_integer_assertions": 5800,
+  "mismatch_count": 0,
+  "scope": "conditional signed BRC Port/precision model, exact historical certificate replay; no Source-qualified physical Port or sensor operation"
+}
