@@ -1,0 +1,129 @@
+{
+  "schema": "PREFIX978_R6_ALTERNATING_REVIVAL_EXACT_V1",
+  "status": "AUTHOR_PROOF_EXACT_INTEGER_CHECKED_NOT_REVIEWED",
+  "frozen_science_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "full_small_domain": [
+    {
+      "p": 3,
+      "residuals": 11,
+      "individual_nonpersistent": 11,
+      "ordered_nonpersistent_pairs": 121,
+      "ordered_reviving_pairs": 34,
+      "cross_port_histogram": {
+        "0": 87,
+        "1": 32,
+        "2": 2
+      },
+      "labelled_repeating_port_loops_checked": 36
+    },
+    {
+      "p": 4,
+      "residuals": 19,
+      "individual_nonpersistent": 18,
+      "ordered_nonpersistent_pairs": 324,
+      "ordered_reviving_pairs": 70,
+      "cross_port_histogram": {
+        "0": 254,
+        "1": 66,
+        "2": 4
+      },
+      "labelled_repeating_port_loops_checked": 74
+    },
+    {
+      "p": 5,
+      "residuals": 30,
+      "individual_nonpersistent": 28,
+      "ordered_nonpersistent_pairs": 784,
+      "ordered_reviving_pairs": 138,
+      "cross_port_histogram": {
+        "0": 646,
+        "1": 130,
+        "2": 8
+      },
+      "labelled_repeating_port_loops_checked": 146
+    },
+    {
+      "p": 6,
+      "residuals": 44,
+      "individual_nonpersistent": 41,
+      "ordered_nonpersistent_pairs": 1681,
+      "ordered_reviving_pairs": 248,
+      "cross_port_histogram": {
+        "0": 1433,
+        "1": 234,
+        "2": 14
+      },
+      "labelled_repeating_port_loops_checked": 262
+    },
+    {
+      "p": 7,
+      "residuals": 61,
+      "individual_nonpersistent": 57,
+      "ordered_nonpersistent_pairs": 3249,
+      "ordered_reviving_pairs": 412,
+      "cross_port_histogram": {
+        "0": 2837,
+        "1": 390,
+        "2": 22
+      },
+      "labelled_repeating_port_loops_checked": 434
+    },
+    {
+      "p": 8,
+      "residuals": 81,
+      "individual_nonpersistent": 76,
+      "ordered_nonpersistent_pairs": 5776,
+      "ordered_reviving_pairs": 642,
+      "cross_port_histogram": {
+        "0": 5134,
+        "1": 610,
+        "2": 32
+      },
+      "labelled_repeating_port_loops_checked": 674
+    }
+  ],
+  "p19": {
+    "p": 19,
+    "residuals": 499,
+    "individual_nonpersistent": 483,
+    "ordered_nonpersistent_pairs": 233289,
+    "ordered_reviving_pairs": 10960,
+    "cross_port_histogram": {
+      "0": 222329,
+      "1": 10686,
+      "2": 274
+    },
+    "labelled_repeating_port_loops_checked": 11234,
+    "two_step_cycle_state_port_witness_mass_all_odd_inputs": 1472462848
+  },
+  "verification": "independent JS signed source-mask enumeration p=3..8,19; local Python finite-state reachability p=3..6 and direct cycles p=3..8,19",
+  "example": {
+    "p": 19,
+    "residuals": [
+      0,
+      4
+    ],
+    "port": 1,
+    "states": [
+      1,
+      3
+    ]
+  },
+  "sharp_finite_example": {
+    "p": 19,
+    "residuals": [
+      4,
+      16
+    ],
+    "initial_state": 11,
+    "ports": [
+      1,
+      3,
+      2,
+      4
+    ],
+    "final_state": 21
+  },
+  "native_x6_bridge": "NOT_ESTABLISHED",
+  "review": "NOT_REVIEWED"
+}
