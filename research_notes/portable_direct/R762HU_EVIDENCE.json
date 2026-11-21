@@ -1,0 +1,98 @@
+{
+  "schema": "EM_PORT_SIGN_BRC_GRAM_EVIDENCE_V1",
+  "status": "AUTHOR_EXACT_FINITE_CHECK_NOT_REVIEWED",
+  "scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "antecedent": "awdawmip/enterprise-math@59eb4d4f939976458b060919315ef7043641f7eb:research_notes/portable_direct/R762HT_PORT_SIGN_BRC_FACTORIZATION.md",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "control_request": "r3-20261121-1420-x6-control-continuation-v1",
+  "control_status": "SUCCEEDED_NO_LIVE_CLAIM_EXECUTION_UNAUTHORIZED",
+  "verification": "g++ -std=c++17 -O3 -Wall -Wextra R762HU_GRAM_CHECK.cpp -o r762hu && ./r762hu",
+  "local_checker_sha256": "df26639333ec22b0b793aec28360f82699ac3bf96572c44d5ebc732661deefb3",
+  "local_stdout_sha256": "63f5f231b726772368296f416fbb64a925227b1ad72b9dd7ee9a8129638f323b",
+  "cases": [
+    {
+      "r": 1,
+      "events": 2,
+      "K": "16",
+      "nonzero_fibers": 16,
+      "positive_half_sources": "16"
+    },
+    {
+      "r": 2,
+      "events": 4,
+      "K": "624",
+      "nonzero_fibers": 193,
+      "positive_half_sources": "256"
+    },
+    {
+      "r": 3,
+      "events": 6,
+      "K": "34688",
+      "nonzero_fibers": 1980,
+      "positive_half_sources": "4096"
+    },
+    {
+      "r": 4,
+      "events": 8,
+      "K": "2413424",
+      "nonzero_fibers": 15909,
+      "positive_half_sources": "65536"
+    },
+    {
+      "r": 5,
+      "events": 10,
+      "K": "200986368",
+      "nonzero_fibers": 92556,
+      "positive_half_sources": "1048576"
+    },
+    {
+      "r": 6,
+      "events": 12,
+      "K": "19705107552",
+      "nonzero_fibers": 376057,
+      "positive_half_sources": "16777216"
+    },
+    {
+      "r": 7,
+      "events": 14,
+      "K": "2247068158176",
+      "nonzero_fibers": 1106472,
+      "positive_half_sources": "268435456"
+    },
+    {
+      "r": 8,
+      "events": 16,
+      "K": "293078340240624",
+      "nonzero_fibers": 2627121,
+      "positive_half_sources": "4294967296"
+    },
+    {
+      "r": 9,
+      "events": 18,
+      "K": "42792652096466432",
+      "nonzero_fibers": 5486228,
+      "positive_half_sources": "68719476736"
+    }
+  ],
+  "independent_checks": {
+    "full_length_direct_integer_dp_for_r": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "independent_depth_first_signed_paths_at_length": 4,
+    "checked_paths_at_length4": 65536,
+    "all_half_source_totals_equal_16_pow_r": true
+  },
+  "proof_claims": [
+    "All-r endpoint-and-residual Gram identity",
+    "Exact histogram half-convolution",
+    "Strict log-convexity and return-ratio monotonic increase to 256"
+  ],
+  "scope_limits": [
+    "Composite Port candidate only",
+    "No formal Review or primitive TRIADIC_CLOSURE_E promotion",
+    "r>=5 numerical counts not independently reimplemented"
+  ]
+}
