@@ -1,0 +1,60 @@
+{
+  "research_id": "R762IJ",
+  "date": "2026-11-22",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "six-axis composite 15-Port Euler graph; 20 triple supports",
+  "predecessor": "R762II@5ca203b040c2d42b201be366c5cec21ffa84f59a",
+  "load_bearing_reduction": "R762IH@5f39e2e5faac0b3e8fb358d810eb8d0477e5d612",
+  "theorem": {
+    "prior_upper": 63,
+    "new_upper": 62,
+    "critical_support_count_excluded": 3,
+    "all_20_types_excluded": true
+  },
+  "computation": {
+    "arithmetic": "exact integer/set partitions; no floating point",
+    "runtime": "Python 3 standard library locally executed",
+    "result": "PASS R762IJ: k=3, all 20 supports is impossible",
+    "orbits": 7,
+    "critical_sets": 1140,
+    "states_by_orbit": [
+      1947,
+      1,
+      1944,
+      2677,
+      340,
+      3394,
+      2741
+    ],
+    "total_states": 13044,
+    "reverse_order_check": "ALL_SEVEN_FALSE"
+  },
+  "source_files": [
+    {
+      "path": "research_notes/portable_direct/R762IJ_PORT_62_EVENT_KERNEL.md",
+      "blob_sha": "9d84d2c86e7ddbd36d92d3c9decf80ef70e5c1e3"
+    },
+    {
+      "path": "research_notes/portable_direct/R762IJ_CHECK.py",
+      "blob_sha": "99e96c715e0c03753e430dd1b5ba4459384096ef",
+      "local_sha256": "52c70282e4315f02eaf93bb12cc7d693923b56fdfa33b0b95108098fec817fed"
+    }
+  ],
+  "proof_status": "AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED",
+  "native_control": {
+    "request_id": "r3-20261122-0523-x6-cont-v1",
+    "state": "FAILED",
+    "error": "SOURCE_TREE_TRUNCATED",
+    "current_owner": "UNCONFIRMED",
+    "claim": "UNCONFIRMED",
+    "formal_progress_written": false
+  },
+  "historical_provenance": {
+    "researcher": "EM-X6-A681A5",
+    "sid": "MCP-773502d89b7a4bd58a37e97a2dd52ba5",
+    "current_session_binding": "UNCONFIRMED"
+  },
+  "scope_limitation": "Composite observer Euler-existence kernel only, not native P000 TRIADIC_CLOSURE_E or Cell/time/rotation preservation",
+  "next": "Resolve k=2,t=20 with even-degree and connected-component constraints; test if <=61 or 62 is optimal, without presuming an Euler witness."
+}
