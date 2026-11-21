@@ -1,0 +1,115 @@
+{
+  "schema": "PREFIX992_R6_PROJECTIVE_BRC_PORT_HISTORY_V1",
+  "model": "positive rational BRC W_eff=Y(I-A)^-1 X with A=diag(1/2,1/2), B=0",
+  "X_numerator": [
+    [
+      1,
+      2,
+      1,
+      3,
+      2,
+      4
+    ],
+    [
+      2,
+      1,
+      3,
+      1,
+      4,
+      2
+    ]
+  ],
+  "Y_row_class": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    1
+  ],
+  "Y_row_coefficient": [
+    1,
+    2,
+    1,
+    2,
+    3,
+    3
+  ],
+  "denominator_X_Y": 100,
+  "port_count": 6,
+  "projective_history_classes": 2,
+  "full_history_ports": 6,
+  "checked_lengths": [
+    0,
+    12
+  ],
+  "checked_initial_history_ports": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "checked_gluing": [
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "integer_fraction_arithmetic": true,
+  "rows": [
+    {
+      "word": [
+        6,
+        24,
+        6,
+        -3
+      ],
+      "initial_states": 16,
+      "reachable_states": 64,
+      "n8": {
+        "path_count": 96,
+        "weight_mass": "122229/61035156250000000000000000",
+        "distinct_weights": 23,
+        "terminal_rows": 85
+      },
+      "n12": {
+        "path_count": 240,
+        "weight_mass": "575181/29802322387695312500000000000000000000",
+        "distinct_weights": 38,
+        "terminal_rows": 133
+      }
+    },
+    {
+      "word": [
+        6,
+        24,
+        8,
+        40
+      ],
+      "initial_states": 32,
+      "reachable_states": 120,
+      "n8": {
+        "path_count": 84,
+        "weight_mass": "3483891/762939453125000000000000000",
+        "distinct_weights": 15,
+        "terminal_rows": 61
+      },
+      "n12": {
+        "path_count": 48,
+        "weight_mass": "65367243/3725290298461914062500000000000000000000",
+        "distinct_weights": 7,
+        "terminal_rows": 19
+      }
+    }
+  ]
+}
