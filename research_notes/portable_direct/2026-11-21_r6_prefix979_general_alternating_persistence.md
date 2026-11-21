@@ -1,0 +1,76 @@
+# PREFIX-979 — Complete alternating-pair persistence criterion, disjoint-port cycles and sharp five-step finite bound
+
+Date: 2026-11-21; lane: research6 / independent portable auxiliary BRC positive source-port observer.
+Historical provenance continued: EM-DIRECT-FBEA5D, SID MCP-45ad6d29cd534c1aad25595a72e3c532, Activity RA-3FB2D033BE6048D8712FF056 (prior-record provenance, not an authentication claim).
+Frozen scientific foundation: awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json (Source V5); global P000 V4 and current ACTIVE worldview apply separately.
+Antecedent: PREFIX-973--978, especially PREFIX-978@42046c4ca338cf222e8426245057813bd2d368d5.
+Status: AUTHOR_PROOF / EXACT_INTEGER_CHECKED / NOT_REVIEWED. No native X6/TRIADIC_CLOSURE_E transfer has been established.
+
+## Model, exact quantifiers
+
+Let p>=3 and D_p={2^i-s 2^j : 0<=i,j<p, s in {+1,-1}}, with every named triple (i,j,s) retained. For a numerical residual a, P_a and M_a are the masks of ports j admitting respectively s=+1 and s=-1; restrict to A={1,...,p-1}. At odd x modulo 2^p, j is active if s=+1 and bit_j(x)=0 or if s=-1 and bit_j(x)=1. One move picks a named active (i,j,s) and updates x -> x XOR 2^j. We prescribe residuals c,C,c,C,... starting with c. Distinct names, sign and order are preserved; counting is positive, not signed-amplitude cancellation.
+
+Write R_a=P_a intersect M_a (reusable fixed-residual ports), T_a=P_a union M_a, and
+
+  J(c,C)=(P_c intersect M_C) union (M_c intersect P_C).
+
+All these sets lie in A.
+
+## Theorem 979.1 (unrestricted exact persistence criterion)
+
+For every p>=3 and every ordered c,C in D_p, the following are equivalent:
+
+(i) There exists an odd initial x and an infinite valid named path under c,C,c,C,...
+(ii) There exist paths of arbitrarily large finite length, with the initial odd x allowed to vary.
+(iii) J(c,C) is nonempty, or both R_c and R_C are nonempty.
+
+Moreover there is always a witness eventually repeating a 2-step fixed-port cycle (if J nonempty) or a 4-step pair of distinct reusable ports (if J empty and both R's nonempty). Thus different-port cycles form a genuinely separate mechanism from PREFIX-978's cross-residual revival.
+
+Proof. If j in P_c intersect M_C, choose x_j=0 and alternate the same port: the c move changes 0 to 1 and the C move changes 1 to 0. If j in M_c intersect P_C, start at x_j=1. This yields a 2-step path; every other bit and oddness are unchanged. If J is empty but R_c and R_C are nonempty, choose j in R_c, k in R_C. The indices must be different, for an index shared by the two R sets would lie in J. Every bit value is admissible at a reusable port, so c flips j, C flips k, c flips j, C flips k, returning to the initial state after four steps. Source i and sign are uniquely determined by a,j and the pre-flip bit; thus all constructed steps have genuine names.
+
+Conversely assume J empty and R_c empty. At each port j, the c-phase can accept at most one bit value. After its first c-phase use, that bit has the opposite value. To restore c eligibility it must subsequently be flipped at the C phase, which would require a C-source with the opposite sign, placing j in J. Thus every c-valid port is used in a c phase at most once; there are at most |T_c| of them, so an infinite alternating path is impossible. The same argument applies with C in place of c. Therefore, if J is empty and either R is empty, every path is finite. The entire state graph has only 2^p odd-state/phase vertices, so existence of arbitrarily long paths implies existence of an infinite path by finite-graph recurrence (or the explicit alternatives above). QED.
+
+## Corollary 979.2 (sharp uniform finite bound with exactly one persistent constituent)
+
+Assume J(c,C)=empty and exactly one of R_c,R_C is nonempty. Then every valid path from c-phase has length at most five, independently of p. More precisely:
+
+- If R_c=empty, then its c-phase uses distinct ports and length <= 2 |T_c| <=4.
+- If R_C=empty, then its C-phase uses distinct ports and length <= 2 |T_C|+1 <=5.
+
+The first inequality in each line holds by the no-cross argument. For a nonzero residual a with R_a empty, PREFIX-978's binary support lemma gives |T_a|<=2: a nonzero difference has at most one source port; a nonzero sum has at most two; their simultaneous third nonzero port would imply a reusable port. If c=0 and R_C nonempty, then J nonempty because P_0=A and M_C contains R_C; similarly C=0 and R_c nonempty implies J nonempty. Thus the constituent with empty R must be nonzero, completing the bound.
+
+Sharpness: for every p>=6 take c=6 and C=40. The first has reusable port 1; C has no reusable port and has distinct minus-source ports 3,5; J=empty. Starting odd x=41, the sequence of actual named moves is:
+  (x=41,c=6,j=1, i=3,s=+1) -> 43
+  (x=43,C=40,j=3,i=5,s=-1) -> 35
+  (x=35,c=6,j=1,i=2,s=-1) -> 33
+  (x=33,C=40,j=5,i=3,s=-1) -> 1
+  (x=1,c=6,j=1,i=3,s=+1) -> 3.
+No sixth C move is valid. So the bound five is attained.
+
+The case R_c=R_C=empty is covered by PREFIX-978: no J implies every port is used at most once, and c=C=0 admits paths of length p-1. Hence no all-p uniform bound for that different class is asserted.
+
+## Lemma 979.3 (persistent-pair geometry)
+
+The only residuals with R_a nonempty are a=3*2^j, 1<=j<=p-3 (from PREFIX-976/977). Writing a_j=3*2^j, one has P_{a_j}={j} and M_{a_j}={j,j+1} on A. Hence J(a_j,a_k) is nonempty exactly when |j-k|<=1. Let n=p-3. Among the n^2 ordered pairs with both R's nonempty, the number with J empty is (n-1)(n-2) (for n>=1, interpreted as zero at n=0,1), and each of these has an explicit four-step different-port cycle. For p=19, n=16 and this number is 210.
+
+Proof. The binary representations 3*2^j = 2^{j+2}-2^j = 2^{j+1}+2^j give the stated ports; the source classification used in PREFIX-976 rules out additional ports. Testing the two cross intersections gives |j-k|<=1; n diagonal and 2(n-1) adjacent ordered pairs have cross intersections. Subtract 3n-2 from n^2. QED.
+
+## 19-bit exact full-pair classification
+
+For p=19, |D_p|=499 with 16 individually persistent residuals; total ordered pairs=249,001.
+
+- Both R empty: 10,960 cross-J/infinite and 222,329 noncross/finite (the exact PREFIX-978 result).
+- Exactly one R nonempty: 1,636 cross-J/infinite and 13,820 noncross/finite.
+- Both R nonempty: 46 cross-J/infinite and 210 noncross/infinite (new independent 4-step mechanism).
+
+Totals: J-nonempty=12,642; J-empty but both R nonempty=210; all persistent pairs=12,852; finite pairs=236,149. J size distribution across all pairs: |J|=0:236,359; |J|=1:12,304; |J|=2:338. These are ordered numerical residual pairs, not counts of distinct sources, states, signed amplitudes or native X6 histories.
+
+## Validation and reproducibility
+
+The attached Python program independently creates all triples (i,j,s), constructs the original exact named-transition phase graph, and compares directed-cycle existence against Theorem 979.1 for ALL ordered pairs and ALL odd-state vertices at p=3,4,5,6 (3,318 ordered-pair graphs). It also checks the one-persistent/no-cross path bound and the sharp five-step named witness. A separate exact mask enumeration covers all 249,001 ordered p=19 pairs, yielding the tables above. There is no claim of full 19-bit state-graph enumeration. Integers and graph transitions are exact; no floating point or probabilistic sampling is used.
+
+## Next unit
+
+Extend to prescribed residual words of length >=3: determine whether a single-port periodic source automaton or a multiport coordination cycle is necessary/sufficient, and compute the smallest joint-state signature that preserves reachability, named signs and positive BRC weights. Separately investigate a typed native TRIADIC_CLOSURE_E/Cell/Link/Port embedding before attributing this auxiliary XOR observer to native X6 dynamics.
+
+Mother objective B_fix,odd(32) in {19,20} remains open.
