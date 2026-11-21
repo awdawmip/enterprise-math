@@ -1,0 +1,119 @@
+{
+  "schema": "EM_PORT_KERNEL_EVIDENCE_R762II_V1",
+  "date_local": "2026-11-22",
+  "research_id": "R762II",
+  "scientific_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor_commit": "5f39e2e5faac0b3e8fb358d810eb8d0477e5d612",
+  "model": "six-axis 15 pair-Ports, 20 triple supports, 60 unique simple Port edges; connected even-degree Euler observer",
+  "statement": "Every legal nonempty composite Port Euler history has a support-preserving, parity-preserving subwitness of at most 63 events, retaining its active Ports and prescribed base Port; witness-dependent.",
+  "proof_dependency": "R762IH pair reduction and critical bridge lemma, with independent 7-Port line-graph wedge lemma and bridge component packing",
+  "checker": {
+    "entrypoint": "python3 research_notes/portable_direct/R762II_CHECK.py",
+    "arithmetic": "exact integers; 2^15 exhaustive vertex-mask enumeration plus exact component-size DP",
+    "observed": "PASS R762II",
+    "port_count": 15,
+    "support_count": 20,
+    "distinct_port_edges": 60,
+    "port_subset_count": 32768,
+    "induced_edge_max_by_subset_size": [
+      0,
+      0,
+      1,
+      3,
+      6,
+      10,
+      12,
+      15,
+      19,
+      24,
+      30,
+      34,
+      39,
+      45,
+      52,
+      60
+    ],
+    "table_fields": [
+      "critical_support_count_k",
+      "bridge_deleted_component_count",
+      "max_internal_simple_edges_upper",
+      "max_total_support_types",
+      "max_event_count_bound"
+    ],
+    "table": [
+      [
+        0,
+        1,
+        60,
+        20,
+        60
+      ],
+      [
+        1,
+        3,
+        45,
+        20,
+        61
+      ],
+      [
+        2,
+        5,
+        34,
+        20,
+        62
+      ],
+      [
+        3,
+        7,
+        24,
+        20,
+        63
+      ],
+      [
+        4,
+        9,
+        15,
+        19,
+        61
+      ],
+      [
+        5,
+        11,
+        10,
+        15,
+        50
+      ],
+      [
+        6,
+        13,
+        3,
+        9,
+        33
+      ],
+      [
+        7,
+        15,
+        0,
+        7,
+        28
+      ]
+    ],
+    "global_upper_bound": 63
+  },
+  "validation_scope": "author-side exact finite support calculation; unbounded bound via written graph proof, not inferred from tests alone",
+  "independent_review": "NOT_REVIEWED",
+  "native_status": {
+    "continuation_request_id": "r3-20261122-0420-x6-cont-v1",
+    "result": "FAILED",
+    "error": "SOURCE_TREE_TRUNCATED",
+    "claim_owner_verified": false,
+    "formal_progress_written": false
+  },
+  "open_questions": [
+    "Is 63 sharp as an absolute kernel bound?",
+    "Can critical k=3 coexist with all 20 supports positive under the Port triangle component partition?",
+    "Can a histogram-only exact Euler assignment or independently checkable no-instance certificate be constructed?",
+    "What types and observations must be preserved for any P000 TRIADIC_CLOSURE_E native lifting?"
+  ]
+}
