@@ -1,0 +1,57 @@
+{
+  "status": "EXACT_GAMMA_AND_FULL_ENDPOINT_CERTIFICATE_PASSED",
+  "N": 1000000,
+  "h": "1/16",
+  "thicknesses": [
+    "1/16",
+    "1/8"
+  ],
+  "normalized_weights": [
+    2,
+    -1
+  ],
+  "gamma": {
+    "lower": "0.577215664901532860606512090082402431042159335",
+    "upper": "0.577215664901532860606512090082402431042159336",
+    "width_upper": "471/500000000000000000000000000000000000000000000000000000000000"
+  },
+  "T_equal_H_D_minus_N_log_N": {
+    "lower": "-1599557.55961382081566258186439300",
+    "upper": "-1599557.55961382081566258186439299",
+    "width_upper": "10564359524947190639/7812500000000000000000000000000000000000000000000000000000"
+  },
+  "F_equal_T_plus_N_times_1_plus_gamma": {
+    "lower": "-22341.89471228795505606977431059",
+    "upper": "-22341.89471228795505606977431058",
+    "width_upper": "5282179762477275007/3906250000000000000000000000000000000000000000000000000000"
+  },
+  "weighted_residual_sum_n2_toN": {
+    "lower": "-213264.58478829131671873645594088",
+    "upper": "-213264.58478829131671873645594087",
+    "width_upper": "67611900959670620081/50000000000000000000000000000000000000000000000000000000000"
+  },
+  "gamma_formula": "H_b-log(b)-1/(2b)+sum_{r=1}^K B_(2r)/(2r*b^(2r)) plus/minus C_(2K)/(2K*b^(2K))",
+  "gamma_anchor": 256,
+  "gamma_EM_order": 16,
+  "gamma_EM_remainder_radius": {
+    "lower": "0.0000000000000000000000000000000000000000000000000000000",
+    "upper": "0.0000000000000000000000000000000000000000000000000000001",
+    "width_upper": "1/1000000000000000000000000000000000000000000000000000000000000"
+  },
+  "algorithm": {
+    "sieve_cutoff": 10000,
+    "mobius_states_above_cutoff": 99,
+    "recursion_quotient_blocks": 36739,
+    "endpoint_quotient_blocks": 1999,
+    "large_power_sum_queries": 8715,
+    "algebraic_root_calls": 1328,
+    "enumerates_all_integers_through_endpoint": false
+  },
+  "precision": "60 decimal places; exact integer/Fraction enclosures with outward rounding",
+  "scope": [
+    "Exactly one directed endpoint recomputation; the former full-population test was not rerun.",
+    "Gamma uses the already available 256-term harmonic prefix and 16 EM correction terms.",
+    "The complete centered road endpoint F(N) is certified, including gamma and all unit corrections.",
+    "This is one fixed-thickness endpoint, not a full-window energy certificate or an asymptotic RH claim."
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "status": "PASS",
+  "exact_rational_identity_checks": 31,
+  "positive_convolution_checks": [
+    {
+      "rates": [
+        "0.125",
+        "0.3"
+      ],
+      "t": "0.5",
+      "I_positive_integral": "0.0007411080489588590964299649551648888998812",
+      "identity_error": "1.0943707e-81",
+      "chernoff_ratio": "0.01045950501305127745824104"
+    },
+    {
+      "rates": [
+        "0.125",
+        "0.3"
+      ],
+      "t": "2.0",
+      "I_positive_integral": "0.04066874856491811538981385848228345975499",
+      "identity_error": "1.3177747e-82",
+      "chernoff_ratio": "0.2711249904327874359320924"
+    },
+    {
+      "rates": [
+        "0.142857142857142857142857142857",
+        "0.4",
+        "0.75"
+      ],
+      "t": "0.5",
+      "I_positive_integral": "0.00009823719497489908406982911345439235998956",
+      "identity_error": "1.7882615e-81",
+      "chernoff_ratio": "0.001754731209885558087186169"
+    },
+    {
+      "rates": [
+        "0.142857142857142857142857142857",
+        "0.4",
+        "0.75"
+      ],
+      "t": "2.0",
+      "I_positive_integral": "0.01748626742849915557437601149589810110221",
+      "identity_error": "8.0713703e-81",
+      "chernoff_ratio": "0.1475403814279616251587976"
+    }
+  ],
+  "whole_road_checks": {
+    "m": 10,
+    "A": "0.5",
+    "all_integer_inputs": 2999,
+    "factor_layer_counts": {
+      "1": 466,
+      "2": 1375,
+      "3": 1004,
+      "4": 152,
+      "5": 2
+    },
+    "minimum_signed_values_for_proved_layers": {
+      "2": "1.9803665372660393111723936524210293e-14",
+      "3": "1.4710121967505625765842797940495302e-11",
+      "4": "0.0000000010392316624003947507349249336073433"
+    },
+    "max_actual_error_over_laplace_bound": "0.04651655043329401568825398602770715",
+    "scope": "All 2<=n<=3000, complete factor supports retained. Higher layers computed but no universal sign asserted."
+  },
+  "chebyshev_product_checks": [
+    {
+      "m": 5,
+      "A": "0.5",
+      "sigma": "0.2",
+      "relative_error": "4.2168792e-81"
+    },
+    {
+      "m": 5,
+      "A": "0.5",
+      "sigma": "0.5",
+      "relative_error": "7.3795386e-81"
+    },
+    {
+      "m": 5,
+      "A": "0.5",
+      "sigma": "2.0",
+      "relative_error": "8.4337584e-81"
+    },
+    {
+      "m": 10,
+      "A": "0.5",
+      "sigma": "0.2",
+      "relative_error": "1.0542198e-81"
+    },
+    {
+      "m": 10,
+      "A": "0.5",
+      "sigma": "0.5",
+      "relative_error": "1.8975956e-80"
+    },
+    {
+      "m": 10,
+      "A": "0.5",
+      "sigma": "2.0",
+      "relative_error": "2.1084396e-80"
+    },
+    {
+      "m": 30,
+      "A": "2.0",
+      "sigma": "0.2",
+      "relative_error": "8.4337584e-81"
+    },
+    {
+      "m": 30,
+      "A": "2.0",
+      "sigma": "0.5",
+      "relative_error": "0.0"
+    },
+    {
+      "m": 30,
+      "A": "2.0",
+      "sigma": "2.0",
+      "relative_error": "5.6927869e-80"
+    }
+  ],
+  "finite_designs": [
+    {
+      "log_Z": 10,
+      "m": 20,
+      "omega_max_numerical_primorial_bracket": 5,
+      "last_prime": 11,
+      "next_prime": 13,
+      "b": "0.005527190164168547340700914146736535214605",
+      "A": "2.572256414173804359559947015452502126134",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "1.16003169689004026198428631284",
+      "log_twice_uniform_error_budget": "-0.845651139467646973854916299253",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 10,
+      "m": 100,
+      "omega_max_numerical_primorial_bracket": 5,
+      "last_prime": 11,
+      "next_prime": 13,
+      "b": "0.005757728169031904571429401112377495455846",
+      "A": "72.64812854294468488212479359658219563398",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "1.20841638875625800837211677143",
+      "log_twice_uniform_error_budget": "-0.887535836369610134256869450981",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 20,
+      "m": 40,
+      "omega_max_numerical_primorial_bracket": 9,
+      "last_prime": 23,
+      "next_prime": 29,
+      "b": "0.001655417577008678508179465197526854662439",
+      "A": "3.242384891189034631845330010836461946413",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "1.54080404477531987660441467198",
+      "log_twice_uniform_error_budget": "-1.52469683993558381928436599102",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 20,
+      "m": 400,
+      "omega_max_numerical_primorial_bracket": 9,
+      "last_prime": 23,
+      "next_prime": 29,
+      "b": "0.001719461856134184758903685070667918246546",
+      "A": "352.3868449601366389271503104442637295339",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "1.60041419129775364807317565977",
+      "log_twice_uniform_error_budget": "-1.5912775408641568570983173192",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 50,
+      "m": 100,
+      "omega_max_numerical_primorial_bracket": 17,
+      "last_prime": 59,
+      "next_prime": 61,
+      "b": "0.000328371741193771743119571295242297099111",
+      "A": "4.143230066404252639523791007437140659368",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "2.03030617731696680336832072557",
+      "log_twice_uniform_error_budget": "-3.40025981879173569260051121563",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 50,
+      "m": 2500,
+      "omega_max_numerical_primorial_bracket": 17,
+      "last_prime": 59,
+      "next_prime": 61,
+      "b": "0.0003392868370183037369014769237934148682575",
+      "A": "2727.592555567454059468299873554970224485",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "2.09779367303748548361903659555",
+      "log_twice_uniform_error_budget": "-3.52367228403482574730696511632",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 100,
+      "m": 200,
+      "omega_max_numerical_primorial_bracket": 28,
+      "last_prime": 107,
+      "next_prime": 109,
+      "b": "0.00009133056359463654044712605544614536561941",
+      "A": "4.65594570337114645709163072801138546067",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "2.30472656198298336798948451522",
+      "log_twice_uniform_error_budget": "-6.43278742062855927712620009967",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 100,
+      "m": 10000,
+      "omega_max_numerical_primorial_bracket": 28,
+      "last_prime": 107,
+      "next_prime": 109,
+      "b": "0.00009412352056416967245229415585308157478356",
+      "A": "12114.10236425275319430404016810488682291",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "2.37520682467717444367696353882",
+      "log_twice_uniform_error_budget": "-6.6449130662627745758099913506",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 200,
+      "m": 400,
+      "omega_max_numerical_primorial_bracket": 48,
+      "last_prime": 223,
+      "next_prime": 227,
+      "b": "0.0000244439596492528516326918808154404076815",
+      "A": "5.009549812578625396812636522688929660568",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "2.49225986182351902672174243107",
+      "log_twice_uniform_error_budget": "-12.4216847477622278544288913727",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 200,
+      "m": 40000,
+      "omega_max_numerical_primorial_bracket": 48,
+      "last_prime": 223,
+      "next_prime": 227,
+      "b": "0.00002515102888461792558186209133872074371828",
+      "A": "51800.5010902883547743395125257692972056",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "2.56435130282229695817629418175",
+      "log_twice_uniform_error_budget": "-12.8065596531709803842618109167",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 500,
+      "m": 1000,
+      "omega_max_numerical_primorial_bracket": 99,
+      "last_prime": 523,
+      "next_prime": 541,
+      "b": "0.000004172001591246136744782360361062591850596",
+      "A": "5.359886636738187269121189030475856866483",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "2.67458492657766607551418490532",
+      "log_twice_uniform_error_budget": "-30.0714058275198276238081906218",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 500,
+      "m": 250000,
+      "omega_max_numerical_primorial_bracket": 99,
+      "last_prime": 523,
+      "next_prime": 541,
+      "b": "0.000004286066116113495769587230691689457507099",
+      "A": "344838.1815213538297802979947157517135208",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "2.74770936150300337825159214328",
+      "log_twice_uniform_error_budget": "-30.948666752505013563610593316",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 1000,
+      "m": 2000,
+      "omega_max_numerical_primorial_bracket": 174,
+      "last_prime": 1033,
+      "next_prime": 1039,
+      "b": "0.000001079798150368717018264342753825492507433",
+      "A": "5.554540796041331471848158501215198401904",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "2.77449351346349746182144890928",
+      "log_twice_uniform_error_budget": "-59.1384950469835968444610979665",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    },
+    {
+      "log_Z": 1000,
+      "m": 1000000,
+      "omega_max_numerical_primorial_bracket": 174,
+      "last_prime": 1033,
+      "next_prime": 1039,
+      "b": "0.000001108400760744001700393906724295917821635",
+      "A": "1426841.99711411427850094141589660844521",
+      "sigma": "0.5",
+      "theta": "0.5",
+      "b_over_previous_A_half_m_L": "2.8479866537575912346761563136",
+      "log_twice_uniform_error_budget": "-60.8080654110612102791849760803",
+      "arithmetic": "80-digit non-interval parameter exploration; no actual population through exp(L) was enumerated."
+    }
+  ],
+  "evidence_scope": "Exact rational checks separately identified. Other calculations use 80-digit mpmath, non-interval. Universal statements are proved in POSITIVE_KERNEL_AND_LAPLACE_BOUND.md."
+}

@@ -1,0 +1,297 @@
+{
+  "status": "ALL_SIGNED_INTEGER_AND_CONTINUOUS_IDENTITIES_PASSED",
+  "precision_decimal_digits": 80,
+  "interval_arithmetic": false,
+  "scientific_source_commit": "9fc068244e4f1117f1e75df5eb0285c6697d21d7",
+  "previous_artifact_commit": "cc8e2eec9e281ac2649341ec44a270c49bed6d38",
+  "prior_readouts_sha256": "5a437f24f151e97e57b2f4fba0ba88103c3cf520aa412bc394267753c2a5ca4b",
+  "proof": "SIGNED_POSITIVE_ENERGY.md",
+  "cases": [
+    {
+      "label": "m2",
+      "Y": "1000.0",
+      "Z": "31622.776601683793319988935444327185",
+      "theta": "0.6",
+      "left_integer": 1000,
+      "right_integer": 31622,
+      "node_count": 2,
+      "coercivity_constant": "0.24",
+      "interior_positive_square_sum": "0.00072695698456370303944556092325847671",
+      "coercive_square_term": "0.00017446967629528872946693462158203441",
+      "discrete_gradient_energy": "0.030336267660649962449159056472523471",
+      "nonnegative_contact_cost": "0.00000015596972421709554188703342855227005",
+      "positive_potential_remainder": "2.0052808947443564712082304883449002e-11",
+      "signed_source_work": "0.029497868234694927941613167345229641",
+      "background_source_work": "1.1355852900045074362197923085643691",
+      "road_source_work": "1.1060874217698125082781791412191395",
+      "positive_source_pairing": "1.0003123122674004980381353161494974",
+      "negative_source_pairing": "0.97081444403270557009652214880426777",
+      "source_absolute_over_signed": "66.822684968864896761413170695116722",
+      "left_boundary_contribution": "0.0011714510134250434542595399935342459",
+      "right_boundary_contribution": "-0.00015842592139769417426126449914752401",
+      "actual_boundary_contribution": "0.0010130250920273492799982754943867219",
+      "source_plus_boundary": "0.030510893326722277221611442839616362",
+      "signed_work_upper_over_actual_square_sum": "174.8779156045592685740719577615263",
+      "source_positive_Cauchy_upper_over_actual_square_sum": "99190176.133678586097390584464616912",
+      "gamma_range": [
+        "0.24000000007520845038599978379639804",
+        "0.24000007504986485952368398533457863"
+      ],
+      "maximum_recurrence_error": "2.2227476356265559850852786861545651e-75",
+      "discrete_identity_error": "7.5583935372419866026220906125275912e-78",
+      "factor_strata": [
+        {
+          "omega": 1,
+          "nodes": 3283,
+          "positive_nodes": 3083,
+          "road_work": "1.1060312974948567849169977810289114",
+          "background_work": "0.13542989615057579832446126843030579",
+          "signed_work": "-0.97060140134428098659253651259860566"
+        },
+        {
+          "omega": 2,
+          "nodes": 11218,
+          "positive_nodes": 10572,
+          "road_work": "0.000070716496549587726479092708271489216",
+          "background_work": "0.46387362781421165752905268389684775",
+          "signed_work": "0.46380291131766206980257359118857626"
+        },
+        {
+          "omega": 3,
+          "nodes": 11861,
+          "positive_nodes": 11099,
+          "road_work": "-0.000014575587667888537767968775623322125",
+          "background_work": "0.42145444201622804618976567180172951",
+          "signed_work": "0.42146901760389593472753364057735284"
+        },
+        {
+          "omega": 4,
+          "nodes": 3972,
+          "positive_nodes": 3697,
+          "road_work": "-0.000000016631140838517441887525976974948844",
+          "background_work": "0.11009270543260477235443863074163592",
+          "signed_work": "0.11009272206374561087188051826761289"
+        },
+        {
+          "omega": 5,
+          "nodes": 286,
+          "positive_nodes": 262,
+          "road_work": "-2.7851048518337135262377585419054726e-12",
+          "background_work": "0.0047223576407370847911518163004340766",
+          "signed_work": "0.0047223576435221896429855298266718352"
+        },
+        {
+          "omega": 6,
+          "nodes": 1,
+          "positive_nodes": 1,
+          "road_work": "-3.2458254162690205391579493391915484e-17",
+          "background_work": "0.000012260950150077030922237393416084962",
+          "signed_work": "0.000012260950150109489176400083621476542"
+        }
+      ],
+      "continuous": {
+        "reused_positive_energy": "0.00072728297736079671379852170599092501",
+        "reused_positive_first_moment": "1.1357982263712803496433182173895469",
+        "atomic_road_work": "1.1060874215521714415811109581909736",
+        "signed_source_work": "0.029710804819108908062207259198573333",
+        "left_flux": "-0.00097996724634212334620925571484453236",
+        "right_flux": "-0.000162459738944695385426983244405116",
+        "boundary_difference": "0.00081750750739742796078227247043941636",
+        "direct_normalized_gradient_energy": "0.030353764411939744811677886459574945",
+        "identity_error_with_35_digit_prior_inputs": "1.7889943942610989339982700197529923e-35"
+      },
+      "scope": "Finite complete-road identity check; no interval certification or unbounded-window claim."
+    },
+    {
+      "label": "chebyshev",
+      "Y": "1000.0",
+      "Z": "31622.776601683793319988935444327185",
+      "theta": "0.6",
+      "left_integer": 1000,
+      "right_integer": 31622,
+      "node_count": 11,
+      "coercivity_constant": "0.24",
+      "interior_positive_square_sum": "0.00074290076755883996059507919327630678",
+      "coercive_square_term": "0.00017829618421412159054281900638631363",
+      "discrete_gradient_energy": "0.030409102414318355524584929662267175",
+      "nonnegative_contact_cost": "0.000000078283468195355990777360877541593956",
+      "positive_potential_remainder": "2.0232467858965890577084284938674905e-11",
+      "signed_source_work": "0.029624456411282405815148450228689531",
+      "background_source_work": "1.1702552256263054256152827454222846",
+      "road_source_work": "1.1406307692150230198001342951935951",
+      "positive_source_pairing": "1.0313007106916726169772046480200608",
+      "negative_source_pairing": "1.0016762542803902111620561977913713",
+      "source_absolute_over_signed": "68.624954218495237792792511940933976",
+      "left_boundary_contribution": "0.0011741331896498284874184584975311677",
+      "right_boundary_contribution": "-0.00021111269869909397248249211960538267",
+      "actual_boundary_contribution": "0.00096302049095073451493596637792578504",
+      "source_plus_boundary": "0.030587476902233140330084416606615316",
+      "signed_work_upper_over_actual_square_sum": "171.55429902806927689341816910859552",
+      "source_positive_Cauchy_upper_over_actual_square_sum": "97074197.595489092421199639071354446",
+      "gamma_range": [
+        "0.24000000007520845038599978379639804",
+        "0.24000007504986485952368398533457863"
+      ],
+      "maximum_recurrence_error": "2.0904045425606861082953674843099167e-75",
+      "discrete_identity_error": "1.8045673218061993320048823810849275e-77",
+      "factor_strata": [
+        {
+          "omega": 1,
+          "nodes": 3283,
+          "positive_nodes": 3124,
+          "road_work": "1.1406307665405845750784782820341193",
+          "background_work": "0.13916949641547942169749116804665643",
+          "signed_work": "-1.0014612701251051533809871139874629"
+        },
+        {
+          "omega": 2,
+          "nodes": 11218,
+          "positive_nodes": 10704,
+          "road_work": "0.0000000051545965243470983357928141806715954",
+          "background_work": "0.47666682396970775626374531572299836",
+          "signed_work": "0.47666681881511123191664697993018418"
+        },
+        {
+          "omega": 3,
+          "nodes": 11861,
+          "positive_nodes": 11255,
+          "road_work": "-0.000000003228263037045826330655313494789104",
+          "background_work": "0.43485269346870781411115943050639426",
+          "signed_work": "0.43485269669697085115698576116170775"
+        },
+        {
+          "omega": 4,
+          "nodes": 3972,
+          "positive_nodes": 3755,
+          "road_work": "0.00000000079055648009946473733762455334141292",
+          "background_work": "0.11452035202201243194090847248788749",
+          "signed_work": "0.11452035123145595184144373515026294"
+        },
+        {
+          "omega": 5,
+          "nodes": 286,
+          "positive_nodes": 267,
+          "road_work": "-4.2630501038647838063895393520355637e-11",
+          "background_work": "0.0050324660178435236738757915189549906",
+          "signed_work": "0.0050324660604740247125236295828503841"
+        },
+        {
+          "omega": 6,
+          "nodes": 1,
+          "positive_nodes": 1,
+          "road_work": "1.7897835956710874824596661545793039e-13",
+          "background_work": "0.000013393732554477928102567139393113811",
+          "signed_work": "0.000013393732375499568535458391147147196"
+        }
+      ],
+      "continuous": {
+        "reused_positive_energy": "0.00074322906335824835880435501622589404",
+        "reused_positive_first_moment": "1.1704702655116169672614377902778064",
+        "atomic_road_work": "1.1406307692148298120667387351351204",
+        "signed_source_work": "0.029839496296787155194699055142685996",
+        "left_flux": "-0.00098199383693416984505671861828315994",
+        "right_flux": "-0.00021658568988360499222091559805388217",
+        "boundary_difference": "0.00076540814705056485283580302022927777",
+        "direct_normalized_gradient_energy": "0.030426529468631740441421812959021064",
+        "identity_error_with_35_digit_prior_inputs": "5.5099595323405619071265668026459041e-36"
+      },
+      "scope": "Finite complete-road identity check; no interval certification or unbounded-window claim."
+    },
+    {
+      "label": "m1",
+      "Y": "1000.0",
+      "Z": "31622.776601683793319988935444327185",
+      "theta": "0.9",
+      "left_integer": 1000,
+      "right_integer": 31622,
+      "node_count": 1,
+      "coercivity_constant": "0.09",
+      "interior_positive_square_sum": "0.00000064709941358530713437473656224464031",
+      "coercive_square_term": "0.000000058238947222677642093726290602017628",
+      "discrete_gradient_energy": "0.000094289959634030300282788831271980732",
+      "nonnegative_contact_cost": "0.00000011261603246193247238663183267861151",
+      "positive_potential_remainder": "1.3325414806372294403584600661917022e-14",
+      "signed_source_work": "0.000085810966788015400303353661156316613",
+      "background_source_work": "0.0010455036805130772209896816532462691",
+      "road_source_work": "0.00095969271372506182068632799208995252",
+      "positive_source_pairing": "0.00090600769080325078883135447096169272",
+      "negative_source_pairing": "0.00082019672401523538852800080980537611",
+      "source_absolute_over_signed": "20.116361339720655791154652165206624",
+      "left_boundary_contribution": "0.0000086498478390249249002878226425293487",
+      "right_boundary_contribution": "0.0",
+      "actual_boundary_contribution": "0.0000086498478390249249002878226425293487",
+      "source_plus_boundary": "0.000094460814627040325203641483798845962",
+      "signed_work_upper_over_actual_square_sum": "1621.9526473558619475513697950581409",
+      "source_positive_Cauchy_upper_over_actual_square_sum": "3330135099.6648675483877763281340686",
+      "gamma_range": [
+        "0.090000000029328295314767188380146458",
+        "0.090000029266454622722871197744622492"
+      ],
+      "maximum_recurrence_error": "2.1868181211944642480191268417946675e-75",
+      "discrete_identity_error": "1.9220207905435199775993126572917266e-80",
+      "factor_strata": [
+        {
+          "omega": 1,
+          "nodes": 3283,
+          "positive_nodes": 102,
+          "road_work": "0.00095864371385450903949326488708410288",
+          "background_work": "0.00013898933617041297925790074520062337",
+          "signed_work": "-0.00081965437768409606023536414188347951"
+        },
+        {
+          "omega": 2,
+          "nodes": 11218,
+          "positive_nodes": 346,
+          "road_work": "0.000001048809486421062120275704538753919",
+          "background_work": "0.00049550888322089092095573337541954677",
+          "signed_work": "0.00049446007373446985883545767088079285"
+        },
+        {
+          "omega": 3,
+          "nodes": 11861,
+          "positive_nodes": 262,
+          "road_work": "0.00000000019037521576747844647188032322834281",
+          "background_work": "0.00035421878822574444725234639091502215",
+          "signed_work": "0.00035421859785052867977389991903469892"
+        },
+        {
+          "omega": 4,
+          "nodes": 3972,
+          "positive_nodes": 44,
+          "road_work": "8.9159515943409285867724951803216857e-15",
+          "background_work": "0.000056786672896028873523701141711076845",
+          "signed_work": "0.00005678667288711292192936021312430435"
+        },
+        {
+          "omega": 5,
+          "nodes": 286,
+          "positive_nodes": 0,
+          "road_work": "0.0",
+          "background_work": "0.0",
+          "signed_work": "0.0"
+        },
+        {
+          "omega": 6,
+          "nodes": 1,
+          "positive_nodes": 0,
+          "road_work": "0.0",
+          "background_work": "0.0",
+          "signed_work": "0.0"
+        }
+      ],
+      "continuous": {
+        "reused_positive_energy": "0.00000064789133880817387075067416605078231",
+        "reused_positive_first_moment": "0.0010467756214732341100773707178520081",
+        "atomic_road_work": "0.00095969271372506182068632799208995252",
+        "signed_source_work": "0.00008708290774817228939104272576205563",
+        "left_flux": "-0.0000074828452228767751036077297471696049",
+        "right_flux": "0.0",
+        "boundary_difference": "0.0000074828452228767751036077297471696049",
+        "direct_normalized_gradient_energy": "0.000094507442750556328846282894834280637",
+        "identity_error_with_35_digit_prior_inputs": "2.8196325159119935531252855908408632e-38"
+      },
+      "scope": "Finite complete-road identity check; no interval certification or unbounded-window claim."
+    }
+  ],
+  "limitations": "The arithmetic signed correlation and endpoint flux remain unproved on arbitrarily distant windows. Every node and factor stratum is retained. Prior positive-window tests were not rerun."
+}
