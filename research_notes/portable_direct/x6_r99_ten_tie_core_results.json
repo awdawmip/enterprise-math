@@ -1,0 +1,41 @@
+{
+  "schema": "EM_X6_R99_TEN_DIRECTION_COMPLETE_TIE_AUTHOR_CERT_V1",
+  "date": "2026-11-22",
+  "model": "conditional positive-count four-channel BRC star-moment histogram observer",
+  "domain": "real S,T >= 1, integer p >= 11, all nonzero unoriented integer differences",
+  "result": "All tied minimizing directions are exactly the ten tabulated candidates satisfying F=R98 optimum and q<=p",
+  "minimal_carrier": 10,
+  "candidate_box": {
+    "oriented_nonzero": 34,
+    "unoriented": 17,
+    "retained": 10,
+    "strictly_excluded": 7,
+    "proof": "u in {-1,0,1}; |h|<=12; |v|<=9 for p<=26, |v|<=6 for p>=27; exact congruences"
+  },
+  "port_stabilization": "Complete tie set constant for all p>=27; sharp witness S=11,T=1",
+  "exact_author_check": {
+    "status": "PASS",
+    "full_unoriented_q_le_40": 110740,
+    "parameter_pairs": 16,
+    "port_budget_values_per_pair": 30,
+    "exact_cases": 480,
+    "essentiality_witnesses": 10,
+    "arithmetic": "integer LCM scaling, Fraction rational envelope"
+  },
+  "science_refs": [
+    {
+      "commit": "5c19178762df220d4c7cd8b5df44640b26f1ee3f",
+      "path": "research_notes/portable_direct/2026-11-22_x6_r99_ten_direction_universal_tie_core.md",
+      "blob": "b60a8f280085700e192a7d777ae3cdebde66ea9e"
+    },
+    {
+      "commit": "dea054fc665afbcb079780728471e4b140d67e40",
+      "path": "research_notes/portable_direct/x6_r99_ten_tie_core_verify.py",
+      "blob": "b0e8635f220e3878d2ebbc9eceedaa9afb4386f0"
+    }
+  ],
+  "status": "SYMBOLIC_AUTHOR_PROOF / EXACT_INTEGER_AUTHOR_CHECK_PASS / NOT_INDEPENDENTLY_REVIEWED",
+  "native_transfer": "NOT_PROVED",
+  "formal_task_claim_result": "NOT_CLAIMED_OR_SUBMITTED",
+  "next_question": "Classify equality chambers and maximal simultaneous multiplicity; type-safe native observer-fiber bridge"
+}
