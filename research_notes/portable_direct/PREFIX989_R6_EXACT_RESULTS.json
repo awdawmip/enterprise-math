@@ -1,0 +1,419 @@
+{
+  "model": "auxiliary signed-source observer / Markov-one strictly positive integer branch weights",
+  "weight_rule": "g(h,a)= {0:1,1:2,2:3,3:5,4:7,5:11,6:13}; h previous port (0 before start)",
+  "families": [
+    {
+      "word": [
+        6,
+        24,
+        6,
+        -3
+      ],
+      "p0": 6,
+      "ports": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "source_count": 10,
+      "initial_active_states": 16,
+      "reachable_augmented_states": 96,
+      "weighted_nerode_classes": 89,
+      "refinement_rounds": 5,
+      "finite_path_counts": {
+        "0": [
+          16,
+          16
+        ],
+        "1": [
+          24,
+          24
+        ],
+        "4": [
+          36,
+          1088
+        ],
+        "7": [
+          144,
+          161280
+        ],
+        "8": [
+          96,
+          276480
+        ],
+        "13": [
+          480,
+          385689600
+        ],
+        "18": [
+          1344,
+          240744960000
+        ],
+        "19": [
+          2016,
+          1763596800000
+        ],
+        "20": [
+          1344,
+          3023308800000
+        ],
+        "24": [
+          3072,
+          628848230400000
+        ]
+      },
+      "p19_spectator_factor": 16384,
+      "p19_n8": [
+        1572864,
+        4529848320
+      ],
+      "p19_n19": [
+        33030144,
+        28894769971200000
+      ],
+      "histogram_n8": [
+        {
+          "mass": 1800,
+          "multiplicity": 16
+        },
+        {
+          "mass": 2520,
+          "multiplicity": 16
+        },
+        {
+          "mass": 2700,
+          "multiplicity": 32
+        },
+        {
+          "mass": 3780,
+          "multiplicity": 32
+        }
+      ],
+      "witness": {
+        "start": [
+          0,
+          1,
+          0
+        ],
+        "steps": 7,
+        "shared_q_x": [
+          3,
+          3
+        ],
+        "first": {
+          "last_port": 1,
+          "path": [
+            [
+              0,
+              3,
+              1,
+              1
+            ],
+            [
+              1,
+              5,
+              3,
+              1
+            ],
+            [
+              2,
+              2,
+              1,
+              -1
+            ],
+            [
+              3,
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              1,
+              2,
+              -1
+            ],
+            [
+              1,
+              4,
+              3,
+              -1
+            ],
+            [
+              2,
+              3,
+              1,
+              1
+            ]
+          ],
+          "next_weight": 2
+        },
+        "second": {
+          "last_port": 2,
+          "path": [
+            [
+              0,
+              3,
+              1,
+              1
+            ],
+            [
+              1,
+              5,
+              3,
+              1
+            ],
+            [
+              2,
+              2,
+              1,
+              -1
+            ],
+            [
+              3,
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              3,
+              1,
+              1
+            ],
+            [
+              1,
+              4,
+              3,
+              -1
+            ],
+            [
+              2,
+              1,
+              2,
+              -1
+            ]
+          ],
+          "next_weight": 3
+        },
+        "common_next_source": [
+          3,
+          0,
+          2,
+          1
+        ]
+      },
+      "independent_forward_verified": "n=0..16",
+      "quotient_verified": "n=0..24",
+      "source_width_stability_verified": "p=6..19"
+    },
+    {
+      "word": [
+        6,
+        24,
+        8,
+        40
+      ],
+      "p0": 7,
+      "ports": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_count": 10,
+      "initial_active_states": 32,
+      "reachable_augmented_states": 188,
+      "weighted_nerode_classes": 163,
+      "refinement_rounds": 5,
+      "finite_path_counts": {
+        "0": [
+          32,
+          32
+        ],
+        "1": [
+          48,
+          48
+        ],
+        "4": [
+          78,
+          4386
+        ],
+        "7": [
+          76,
+          397880
+        ],
+        "8": [
+          84,
+          1901600
+        ],
+        "13": [
+          52,
+          2060250000
+        ],
+        "18": [
+          12,
+          173250000000
+        ],
+        "19": [
+          0,
+          0
+        ],
+        "20": [
+          0,
+          0
+        ],
+        "24": [
+          0,
+          0
+        ]
+      },
+      "p19_spectator_factor": 8192,
+      "p19_n8": [
+        688128,
+        15577907200
+      ],
+      "p19_n19": [
+        0,
+        0
+      ],
+      "histogram_n8": [
+        {
+          "mass": 7500,
+          "multiplicity": 12
+        },
+        {
+          "mass": 10500,
+          "multiplicity": 14
+        },
+        {
+          "mass": 16500,
+          "multiplicity": 4
+        },
+        {
+          "mass": 17500,
+          "multiplicity": 12
+        },
+        {
+          "mass": 23100,
+          "multiplicity": 6
+        },
+        {
+          "mass": 26250,
+          "multiplicity": 12
+        },
+        {
+          "mass": 27500,
+          "multiplicity": 8
+        },
+        {
+          "mass": 38500,
+          "multiplicity": 4
+        },
+        {
+          "mass": 41250,
+          "multiplicity": 8
+        },
+        {
+          "mass": 57750,
+          "multiplicity": 4
+        }
+      ],
+      "witness": {
+        "start": [
+          0,
+          13,
+          0
+        ],
+        "steps": 5,
+        "shared_q_x": [
+          1,
+          3
+        ],
+        "first": {
+          "last_port": 1,
+          "path": [
+            [
+              0,
+              1,
+              2,
+              -1
+            ],
+            [
+              1,
+              4,
+              3,
+              -1
+            ],
+            [
+              2,
+              4,
+              3,
+              1
+            ],
+            [
+              3,
+              5,
+              3,
+              -1
+            ],
+            [
+              0,
+              3,
+              1,
+              1
+            ]
+          ],
+          "next_weight": 2
+        },
+        "second": {
+          "last_port": 2,
+          "path": [
+            [
+              0,
+              3,
+              1,
+              1
+            ],
+            [
+              1,
+              4,
+              3,
+              -1
+            ],
+            [
+              2,
+              4,
+              3,
+              1
+            ],
+            [
+              3,
+              5,
+              3,
+              -1
+            ],
+            [
+              0,
+              1,
+              2,
+              -1
+            ]
+          ],
+          "next_weight": 3
+        },
+        "common_next_source": [
+          1,
+          5,
+          3,
+          1
+        ]
+      },
+      "independent_forward_verified": "n=0..16",
+      "quotient_verified": "n=0..24",
+      "source_width_stability_verified": "p=7..19"
+    }
+  ]
+}
