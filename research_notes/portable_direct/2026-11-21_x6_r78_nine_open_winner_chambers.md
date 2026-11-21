@@ -36,6 +36,11 @@ At each listed weight, the winner is strictly better than all 27 other atlas vec
 2. Fix one profile w with winning value v and next-best value s>v. For any w' satisfying `|w'_i/w_i-1| <= eps` for each i and `0<=eps<1`, every pair denominator changes by a factor in [1-eps,1+eps]. Hence `F(a;w)/(1+eps) <= F(a;w') <= F(a;w)/(1-eps)` for every a. The winner remains strictly optimal whenever `v/(1-eps)<s/(1+eps)`, equivalently `eps<(s-v)/(s+v)=rho`. Each listed positive rho proves a full-dimensional open winning cone, not merely an isolated witness.
 3. If R72's author-checked finite-cover theorem holds over all feasible integer differences, these nine winning regions also achieve the **global threshold** eta*(p,w), for every p>=125. Formal independent acceptance of the R72 atlas remains separate. The necessity lower bound applies to subsets of the specified 28-vector atlas.
 
+
+## Sharp weight-specific Port saturation at the nine certified profiles
+
+There is a stronger consequence of the same exact strict gaps. Fix one listed weight vector w and let q0 be its row's Port demand. R72's finite atlas covers **every** population p>=4 while filtering by q<=p. For p>=q0, the listed vector is feasible and is strictly better than every other atlas vector; hence the exact all-difference optimum equals its displayed F value. For 4<=p<q0, it is absent and every remaining atlas vector has cost strictly larger (indeed at least F+the listed strict gap). Therefore **q0 is the sharp weight-specific saturation Port threshold**, not merely an example of a winner at p>=125. This yields nine exact saturation thresholds `7,10,11,16,27,39,43,49,125` with the corresponding integer weight profiles in the table. The conclusion is conditional on the same author-checked R72 exhaustive finite-coverage certificate; it does not require a new full search over integer differences.
+
 ## Reproducibility and coverage
 
 Run `node x6_r78_nine_open_winner_chambers_verify.js` and compare its exact JSON with `x6_r78_nine_open_winner_chambers_results.json`. It uses 28 vectors and nine weight profiles (252 rational objective evaluations, each taking six pair comparisons), confirms all q-values and all nine strict winners. Arithmetic uses BigInt rational fractions and exact reduction. No external software solver or numerical tolerance is needed for this certificate.
