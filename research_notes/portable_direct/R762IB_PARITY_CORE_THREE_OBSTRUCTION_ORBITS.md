@@ -2,7 +2,7 @@
 
 Date: 2026-11-21. Status: AUTHOR_PROVED / EXHAUSTIVE_EXACT_COMPUTATION / NOT_REVIEWED.
 
-Scientific input: frozen six-axis composite Port candidate of \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\`, \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`. Prior exact lattice \`L\`: R762IA@87ae1942f29bab7be629c3fbbe3c5503281e90a2. Current norms from \`docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context\`. This note proves statements about the *composite support/sign observer*, retaining support multiplicity, Port admissibility as a separate predicate, and P000 primitive \`TRIADIC_CLOSURE_E\` as a separate lift.
+Scientific input: frozen six-axis composite Port candidate of `RS-X6-TRIADIC-CLOSURE-DYNAMICS`, `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`. Prior exact lattice `L`: R762IA@87ae1942f29bab7be629c3fbbe3c5503281e90a2. Current norms from `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`. This note proves statements about the *composite support/sign observer*, retaining support multiplicity, Port admissibility as a separate predicate, and P000 primitive `TRIADIC_CLOSURE_E` as a separate lift.
 
 ## Definitions
 
@@ -56,9 +56,9 @@ Orbit sizes are calculated by applying all 720 axis permutations to each exact r
 
 ## Reproducibility and meaning
 
-\`R762IB_CHECK.py\`: independent nullspace-basis enumeration of all 16,384 GF(2) cores; exact (non-floating) meet-in-the-middle six-coordinate subset-sum signability; exact G2 connectivity; complete S6 orbit enumeration. Local run output matched the table and the three orbit sizes.
+`R762IB_CHECK.py`: independent nullspace-basis enumeration of all 16,384 GF(2) cores; exact (non-floating) meet-in-the-middle six-coordinate subset-sum signability; exact G2 connectivity; complete S6 orbit enumeration. Local run output matched the table and the three orbit sizes.
 
-\`R762IB_SCAN.cpp\`: independently scans all 2^20 distinct support masks and checks the six degree parities, exact six-coordinate meet-in-the-middle and G2 connectivity; compiled as \`g++ -O3 -std=c++17\` and run locally. Its per-weight counts agree with Python exactly. The C++ checker does not compute Port walks. Both checkers are finite exhaustive certificates for the **specific six-axis universe**, not a symbolic all-dimensional theorem.
+`R762IB_SCAN.cpp`: independently scans all 2^20 distinct support masks and checks the six degree parities, exact six-coordinate meet-in-the-middle and G2 connectivity; compiled as `g++ -O3 -std=c++17` and run locally. Its per-weight counts agree with Python exactly. The C++ checker does not compute Port walks. Both checkers are finite exhaustive certificates for the **specific six-axis universe**, not a symbolic all-dimensional theorem.
 
 The IB2 implication is a mathematical proof for every finite multiset over this fixed universe; IB3's entire core table is certified by the executable exhaustive search. The result strengthens the single-histogram signability route, but leaves open whether there exists n with H even, C(n)=0 and N_p(n)>0 for a genuinely legal closed Port walk. Such a witness, if it exists, must have one of the three odd cores but can include even-multiplicity bridge supports. Candidate composite calculations are not primitive P000 TRIADIC_CLOSURE_E dynamics.
 
