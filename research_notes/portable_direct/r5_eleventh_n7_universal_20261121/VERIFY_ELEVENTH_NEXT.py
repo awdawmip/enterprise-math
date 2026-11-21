@@ -4,9 +4,11 @@ No float, third-party dependency, or formal theorem admission.
 """
 from fractions import Fraction as Q
 import json
+
 p=11; dim=10
 zero=(Q(0),)*dim
 one=(Q(1),)+(Q(0),)*(dim-1)
+
 def add(x,y): return tuple(a+b for a,b in zip(x,y))
 def neg(x): return tuple(-a for a in x)
 def sub(x,y): return add(x,neg(y))
@@ -30,6 +32,7 @@ def ssum(xs):
     v=zero
     for x in xs:v=add(v,x)
     return v
+
 def geometries(residues,n):
     coeff=[one]+[zero]*(n-1)
     for r in residues:
@@ -37,10 +40,12 @@ def geometries(residues,n):
         for i in range(1,n):out[i]=add(coeff[i],mult(zpow(r),out[i-1]))
         coeff=out
     return coeff
+
 def prefix(vals):
     s=zero;out=[]
     for v in vals:s=add(s,v);out.append(s)
     return out
+
 def certificate_sequence(n):
     # V(t)=[(1-t)(1-z*t)(1-z^-1*t)]^-1,
     # W(t)=t*V(t)/(1-t), U(t)=prod_{r=7,8,9}(1-z^r*t)^-1.
@@ -80,6 +85,7 @@ def certificate_sequence(n):
     factor=mult(sub(one,zpow(10)),sub(one,zpow(1)))
     C=[add(scale(mult(factor,T[i]),220),D[i]) for i in range(n)]
     return v,T,D,C
+
 def independent_T(m):
     # Direct L0=a+b+s, min(L1,L2)=min(a,b)+s+w,
     # with s=c+d+e, w=f+g+h. Infinite geometric a/b tails
@@ -94,6 +100,7 @@ def independent_T(m):
             j=sub(j,ssum(zpow(5*a+6*b) for a in range(k) for b in range(k) if a+b>=t))
             val=add(val,mult(mult(u[s],v[w]),j))
     return val
+
 def independent_D(m):
     # Reweighted finite 5-tuple DP for -z B'_m(z).
     counts=[one]+[zero]*(m-1); moments=[zero]*m
@@ -106,6 +113,7 @@ def independent_D(m):
                 nd[s+k]=add(nd[s+k],add(mult(moments[s],zz),scale(mult(counts[s],zz),price*k)))
         counts,moments=nc,nd
     return neg(ssum(moments))
+
 def main():
     n=90
     _,T,D,C=certificate_sequence(n)
