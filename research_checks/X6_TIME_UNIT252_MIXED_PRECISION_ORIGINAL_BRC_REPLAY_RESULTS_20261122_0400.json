@@ -1,0 +1,62 @@
+{
+  "schema": "X6_UNIT252_MIXED_RESOLUTION_SENSOR_CERT_V1",
+  "date": "2026-11-22",
+  "task": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "frozen_p000": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "original_unit245_commit": "f56840285cafeb9f5767ea91e903e1f53808186f",
+  "original_unit245_blob": "113d2102fe393bfd6f77bf7cca093b4cecf6796f",
+  "original_route_cases_replayed": 36,
+  "ordered_signed_events_replayed": 1312,
+  "source_terminal_fibre_up_to_centre_gauge": 18,
+  "initial_C24_symbol_count": 6,
+  "initial_C12_symbol_count": 3,
+  "initial_C8_symbol_count": 2,
+  "final_C3_symbol_count": 3,
+  "C24_plus_C3_joint_classes": 18,
+  "C12_plus_C12_joint_classes": 9,
+  "minimum_fixed_binary_bits": 5,
+  "attained_fixed_width_bits": [
+    3,
+    2
+  ],
+  "all_C12_intrace_reads_insufficient": true,
+  "parity_counterlaw": {
+    "alpha": [
+      0,
+      12,
+      0,
+      12,
+      0,
+      12
+    ],
+    "beta": [
+      0,
+      12,
+      0,
+      12,
+      0,
+      12
+    ]
+  },
+  "readings": [
+    {
+      "route": [
+        0,
+        2
+      ],
+      "after_event": 3,
+      "required": "C24"
+    },
+    {
+      "route": [
+        2,
+        4
+      ],
+      "after_event": 7,
+      "required": "C3 residue of same C24 observer"
+    }
+  ],
+  "exact_integer_assertions": 11590,
+  "failures": 0,
+  "model_status": "CONDITIONAL_EXACT_SOURCE_ROUTE_REPLAY_NOT_PHYSICAL_NATIVE_EXECUTION"
+}
