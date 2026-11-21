@@ -1,0 +1,97 @@
+{
+  "model": "three native services, common identity/doubling, a single shared original-endpoint probe",
+  "inputs": 31250,
+  "R": {
+    "11": [
+      11004,
+      11292
+    ],
+    "12": [
+      9847,
+      9996
+    ],
+    "13": [
+      8721,
+      8721
+    ]
+  },
+  "successive_savings": {
+    "11_to_12": [
+      1008,
+      1445
+    ],
+    "12_to_13": [
+      1126,
+      1275
+    ]
+  },
+  "eleven_nontrivial_affine_symmetry": {
+    "minimum": 11292,
+    "unlabeled_partitions": 8000,
+    "orbit_sizes": [
+      2000,
+      2000,
+      4000
+    ],
+    "stabilizer_orders": [
+      6,
+      6,
+      3
+    ]
+  },
+  "eleven_exactly_three_full_classes": {
+    "lower_bound": 11301
+  },
+  "eleven_pure_coordinate_transposition": {
+    "feasible": false
+  },
+  "twelve_containing_order_three": {
+    "minimum": 9996,
+    "unlabeled_partitions": 4000,
+    "orbit_sizes": [
+      4000
+    ],
+    "stabilizer_order": 3
+  },
+  "twelve_containing_order_four": {
+    "minimum": 10148,
+    "unlabeled_partitions": 6000,
+    "orbit_sizes": [
+      3000,
+      3000
+    ],
+    "stabilizer_orders": [
+      4,
+      4
+    ]
+  },
+  "twelve_strict_improvement_stabilizer_types": [
+    "trivial",
+    "C2",
+    "C2 x C2"
+  ],
+  "rank_three_elementary_two_group_twelve": {
+    "feasible": false
+  },
+  "twelve_witness": {
+    "reads": 9996,
+    "zero_reads": 21254,
+    "identity_reads": 4915,
+    "doubling_reads": 5081,
+    "strict_improvement_min_original_labels_replaced": 7,
+    "max_classes_in_common_with_an_eleven_label_table_cost_at_most_11292": 2,
+    "one_axis_plane_wise_affine_permutations_preserving_legality": 4000
+  },
+  "restriction_to_subsets_of_full_classes": {
+    "minimum_label_count": 13,
+    "maximum_histories": {
+      "10": 112,
+      "11": 119,
+      "12": 121,
+      "13": 125
+    },
+    "cost_for_one_fixed_full_domain_thirteen_parent_cover": 9346
+  },
+  "previous_commit": "e65c54979333cc63c487cd3c43e3020c79dc2d2b",
+  "open": "Exact unrestricted R11 and R12."
+}

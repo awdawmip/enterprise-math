@@ -1,0 +1,19 @@
+{
+  "status": "COMPLETED",
+  "denominator": 5,
+  "final_result": "result_q5_weighted.json",
+  "conclusions": "conclusions.json",
+  "completed_profiles": 393,
+  "remaining": [],
+  "algorithm_manifest": "legacy_profiles_q5.json",
+  "algorithm_profile_counts": {
+    "weighted": 108,
+    "weighted_hall": 285
+  },
+  "search_nodes": 124830004,
+  "family_profile_placements": 1964831,
+  "stored_per_profile_receipts": 393,
+  "replay": "python3 -B bias/weighted_replay.py --denominator 5 --jobs 2",
+  "algebraic_endpoint_replay": "python3 -B bias/check_endpoint.py",
+  "unique_evidence": "The final JSON contains all per-profile budgets and counts. All mathematical sources needed to regenerate them are included; native binaries and work caches are optional."
+}
