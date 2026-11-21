@@ -1,0 +1,174 @@
+{
+  "schema": "X6_R73_D4_SINGLE_NOISY_CHANNEL_EXACT_V1",
+  "arithmetic": "Python integers + fractions.Fraction; independent JavaScript integer enumeration",
+  "finite_scope": "all unoriented nonzero Z^3 differences with q<=p for p=4..11",
+  "port_rows": [
+    {
+      "p": 4,
+      "unoriented_count": 154,
+      "min_C": 12,
+      "min_B": 14,
+      "simultaneous_witness": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "p": 5,
+      "unoriented_count": 280,
+      "min_C": 8,
+      "min_B": 12,
+      "simultaneous_witness": [
+        4,
+        -4,
+        1
+      ]
+    },
+    {
+      "p": 6,
+      "unoriented_count": 461,
+      "min_C": 6,
+      "min_B": 12,
+      "simultaneous_witness": [
+        6,
+        -1,
+        0
+      ]
+    },
+    {
+      "p": 7,
+      "unoriented_count": 707,
+      "min_C": 6,
+      "min_B": 12,
+      "simultaneous_witness": [
+        6,
+        -1,
+        0
+      ]
+    },
+    {
+      "p": 8,
+      "unoriented_count": 1028,
+      "min_C": 6,
+      "min_B": 12,
+      "simultaneous_witness": [
+        6,
+        -1,
+        0
+      ]
+    },
+    {
+      "p": 9,
+      "unoriented_count": 1434,
+      "min_C": 6,
+      "min_B": 12,
+      "simultaneous_witness": [
+        6,
+        -1,
+        0
+      ]
+    },
+    {
+      "p": 10,
+      "unoriented_count": 1935,
+      "min_C": 6,
+      "min_B": 12,
+      "simultaneous_witness": [
+        6,
+        -1,
+        0
+      ]
+    },
+    {
+      "p": 11,
+      "unoriented_count": 2541,
+      "min_C": 2,
+      "min_B": 2,
+      "simultaneous_witness": [
+        10,
+        -5,
+        1
+      ]
+    }
+  ],
+  "t_grid": [
+    "1/10",
+    "1/5",
+    "1/3",
+    "1/2",
+    "5/7",
+    "1",
+    "2",
+    "23",
+    "24",
+    "100"
+  ],
+  "finite_exact_comparisons": 85400,
+  "kernel": [
+    114,
+    -56,
+    11
+  ],
+  "kernel_q": 125,
+  "symbolic_claim": "all p>=11, all real t>0 proved in accompanying paper via parity and primitive kernel",
+  "sample_values": [
+    {
+      "p": 4,
+      "t": "1",
+      "eta_star": "7/2"
+    },
+    {
+      "p": 4,
+      "t": "1/2",
+      "eta_star": "4"
+    },
+    {
+      "p": 5,
+      "t": "1",
+      "eta_star": "3"
+    },
+    {
+      "p": 5,
+      "t": "1/5",
+      "eta_star": "10/3"
+    },
+    {
+      "p": 6,
+      "t": "1",
+      "eta_star": "3"
+    },
+    {
+      "p": 11,
+      "t": "1/2",
+      "eta_star": "2/3"
+    },
+    {
+      "p": 11,
+      "t": "1",
+      "eta_star": "1/2"
+    },
+    {
+      "p": 124,
+      "t": "24",
+      "eta_star": "1/2"
+    },
+    {
+      "p": 125,
+      "t": "23",
+      "eta_star": "1/2"
+    },
+    {
+      "p": 125,
+      "t": "24",
+      "eta_star": "12/25"
+    },
+    {
+      "p": 125,
+      "t": "100",
+      "eta_star": "12/101"
+    }
+  ],
+  "assertions": "PASS",
+  "author_crosscheck": "JavaScript recomputed all row counts/minima; Python Fraction verifier executed locally and passed."
+}
