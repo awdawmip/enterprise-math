@@ -1,0 +1,51 @@
+{
+  "schema": "ENTERPRISE_MATH_EXACT_RATIONAL_EVIDENCE_V1",
+  "unit": "R762HZ",
+  "date": "2026-11-21",
+  "model": "SIX_AXIS_COMPOSITE_PORT_BRC",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "inherited_unreviewed_analytic_lemma": "R762HX six dominant saddles and spectral gap",
+  "status": "AUTHOR_PROVED_EXACT_RATIONAL_CHECKED_NOT_REVIEWED",
+  "statement": "For even m, K_m(p)=10 sqrt(5)/(27 pi^3)*16^m/m^3*(1+19/(6m)+9209/(360m^2)+O(m^-3)).",
+  "exact": {
+    "lambda6_mean": "-1921/90",
+    "Q_times_lambda4_mean": "275/3",
+    "Q_cubed_mean": "480",
+    "lambda4_squared_mean": "13631/60",
+    "lambda4_times_Q_squared_mean": "1100",
+    "Q_fourth_mean": "5760",
+    "T4_mean": "19/6",
+    "T6_mean": "202/45",
+    "T4_squared_mean": "2531/60",
+    "beta": "9209/360",
+    "gaussian_covariance": "(10/3)*I-(4/9)*ones",
+    "reduced_resolvent": "(16/15)*(I+A-2J)"
+  },
+  "polynomial_basis": {
+    "degree2_partition_terms": 2,
+    "degree4_partition_terms": 5,
+    "degree6_partition_terms": 11,
+    "extra_exact_directions_checked_per_degree": 4,
+    "method": "exact S6 symmetric homogeneous polynomial basis, full-rank rational interpolation, exact Gaussian Wick integration",
+    "degree6_coefficients_power_sum": {
+      "6": "-229/6000",
+      "15": "263/12000",
+      "24": "3643/120000",
+      "33": "109/9000",
+      "114": "3997/120000",
+      "123": "-137/7500",
+      "222": "-53/9375",
+      "1113": "-439/22500",
+      "1122": "-3391/150000",
+      "11112": "351/25000",
+      "111111": "-4/3125"
+    }
+  },
+  "validation": {
+    "local_code": "PASS R762HZ; checked equivalent expanded rational algebra with SymPy",
+    "analytic_saddle_independent_review": "PENDING",
+    "frozen_P000_primitive_force_admission": "NOT_CLAIMED",
+    "finite_m_error_constant": "NOT_ESTABLISHED"
+  },
+  "next": "Independently audit six-saddle spectral lemma or extend genuine Port-Euler coordinate-even signability counterexample search"
+}
