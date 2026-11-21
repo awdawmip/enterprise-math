@@ -1,0 +1,86 @@
+{
+  "schema": "PREFIX983_R6_UNIFORM_THREE_RESIDUAL_DICHOTOMY_V1",
+  "model": "auxiliary signed-source bit-flip observer; nonzero residuals only",
+  "parameters": {
+    "word_length": 3,
+    "all_p": "p>=3",
+    "local_port_mask_types": [
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  "abstract_graph_census": {
+    "all_classes": 4207,
+    "admissible_classes": 4071,
+    "finite_classes": 3254,
+    "cycle_classes": 953,
+    "excluded_classes": 136
+  },
+  "max_finite_steps_admissible": 13,
+  "cycle_without_phase_aligned_6_step_loop_count": 0,
+  "all_14_step_abstract_exceptions": 12,
+  "exceptions_all_violate_same_both_port_unique_successor": true,
+  "admissible_13_step_extremizer_count": 18,
+  "sharp_real_residual_fixture": {
+    "residual_word": [
+      12,
+      4,
+      20
+    ],
+    "path_ports": [
+      2,
+      2,
+      4,
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      1,
+      2,
+      2
+    ],
+    "initial_state": 31,
+    "final_state_after_13_steps": 5
+  },
+  "type_family_checked_real_p_3_to_19": {
+    "3": 9,
+    "4": 16,
+    "5": 26,
+    "6": 39,
+    "7": 55,
+    "8": 74,
+    "9": 96,
+    "10": 121,
+    "11": 149,
+    "12": 180,
+    "13": 214,
+    "14": 251,
+    "15": 291,
+    "16": 334,
+    "17": 380,
+    "18": 429,
+    "19": 481
+  },
+  "evidence_status": "AUTHOR_FINITE_EXHAUSTIVE_CERTIFICATE_NOT_INDEPENDENTLY_REVIEWED",
+  "native_x6_embedding": "NOT_ESTABLISHED",
+  "frozen_science_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json"
+}
