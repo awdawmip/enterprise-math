@@ -1,0 +1,47 @@
+# R762IH: A 67-event global kernel for six-axis composite Port Euler histories
+
+Date 2026-11-22, Asia/Shanghai. Status **AUTHOR_PROVED / EXACT_FINITE_CROSSCHECKED / NOT_REVIEWED**.
+Scientific input frozen as RS-X6-TRIADIC-CLOSURE-DYNAMICS at \`a72226e2430ffa4786321ac86e7f0c599d5f0389\`. Predecessor: \`a24cafe5a9b61d2938a29bb24861fab84a547e33:research_notes/portable_direct/R762IG_PORT_SHARP_FOUR_CAP.md\`. This theorem concerns the **composite Port observer**, not original P000 triadic-force dynamics.
+
+## Domain and theorem
+
+The 15 vertices are pair-Ports \(\binom{[6]}2\). Every support \(S=\{i,j,k\}\) is a triangle between Port vertices \(ij,ik,jk\); its named event may use any of the triangle's three edges. A legal closed Port history at a prescribed nonisolated \(p\) is an Euler tour of one assigned connected even-degree multigraph. Write \(N_p(n)>0\) for existence for histogram \(n_S\).
+
+For **every** nonzero finite histogram \(n\), base Port \(p\), and valid Euler realization of \(n\), there is an assigned subhistogram \(h\le n\), obtained by deleting support-identical event pairs, with:
+* \(N_p(h)>0\) on the **same set of active Port vertices**, and the same base \(p\).
+* \(h_S\equiv n_S\pmod2\), \(h_S>0\iff n_S>0\); every positive \(h_S\le4\).
+* Let \(v\) be the number of active Port vertices, \(t\) the number of positive support types, \(o\) those with odd multiplicity, and \(e\) those with even positive multiplicity. Then
+\[
+\boxed{|h|\le3o+2e+2\min(e,\lfloor(v-1)/2\rfloor)\le3t+\lfloor(v-1)/2\rfloor\le67.}
+\]
+
+Each deletion is reversible by inserting a pair of identical parallel edges in an already present edge of the same support. Consequently the **existence** of an Euler realization is preserved. The bound improves R762IG's 80-event existence witness to **67**. It is a **witness-dependent** reduction, not a canonical 67-event cap computed directly from a bare histogram.
+
+## Complete graph-theoretic proof
+
+First, use R762IG's pair deletion, reproduced here. If a single support has \(a+b+c\ge5\) events on its three possible edges, either one edge has at least three copies, or all three sides are present with a doubled side. In the first case delete two from the edge of multiplicity at least three, retaining one; in the second delete the doubled edge pair, whose endpoints still connect through the other two sides. Deletion preserves the active vertices, connectivity and even vertex degrees. Repeating leaves at most four of each support.
+
+Now handle a support of count four. The only sorted multiplicity triples are \((4,0,0),(3,1,0),(2,1,1),(2,2,0)\). The first two allow deleting two of a side with at least three copies. \((2,1,1)\) allows deleting its double side; the other two sides still connect its endpoints. In \((2,2,0)\) we may delete a double side whenever that side is **not a bridge in the underlying simple Port graph**. In each case connectivity, all active vertices, degree parity and support presence remain. Repeatedly perform any such reduction.
+
+At termination, any remaining four-count support has pattern \((2,2,0)\), and **both** positive sides are bridges of the simple Port graph \(G\) of retained Port adjacencies. Two different supports cannot supply the same Port edge, since the union of its two pair-Ports determines the unique three-axis support. The \(k\) remaining four-count supports therefore account for **2k distinct graph bridges**. A connected simple graph with \(v\) vertices has at most \(v-1\) bridges, hence
+\[
+2k\le \operatorname{bridges}(G)\le v-1,\qquad
+k\le\min(e,\lfloor(v-1)/2\rfloor).
+\]
+Positive odd supports have final counts in \(\{1,3\}\), and positive even supports in \(\{2,4\}\). Therefore \(|h|\le3o+2e+2k\). Since \(t=o+e\le20\) and \(v\le15\), the maximum over \(e\) of \(3t-e+2\min(e,7)\) is \(3t+\min(t,7)\le67\). QED.
+
+The expression's maximum 67 is an **upper bound**; no example attaining a 67-event irreducible kernel has been established. The R762IG 13-event construction does establish the need for at least one four-count support, so a uniform per-support cap three remains impossible.
+
+## Reproducible evidence
+
+\`node research_notes/portable_direct/R762IH_CHECK.js\` uses exact integer edge multiplicities and simple-graph bridge search. Locally executed: \`PASS R762IH\`.
+
+Verification includes the exact 13-event R762IG lower-cap witness, all **6,000** assignments for its truncated histogram (three assignments satisfy even degrees and none gives a connected Euler circuit), and **220 seeded constructed connected Eulerian multigraphs** (159–580 original events, largest reduced witness 56, at most 15 active Port vertices). The checker verifies support parity, active vertex preservation, Euler connectivity/degree constraints, bridge injection and global/parity-sensitive bounds. The all-length theorem rests on the proof above; the random tests are finite sanity checks.
+
+## Scope and next scientific questions
+
+This exact compression retains composite Port Euler **existence**, support parity/presence, active Ports and the chosen base Port. Counts, signed Cell displacements, positive BRC weights, event ordering, time/rotations and P000 native triadic-force semantics require separate proofs/observation maps; they are **structural residuals**, not zero by construction.
+
+Next: give an exact algorithm accepting **only the support histogram** and returning a connected Euler edge assignment or a checkable no-instance certificate; determine the **sharp absolute event kernel** below or equal to 67; and investigate P000 native time/force lifting.
+
+Historical provenance: Researcher EM-X6-A681A5, SID MCP-773502d89b7a4bd58a37e97a2dd52ba5. Original control continuation \`r3-20261122-0320-x6-cont-v1\` returned \`FAILED / SOURCE_TREE_TRUNCATED\`. Current protected owner/CLAIM is unverified; this publication is an independent portable scientific note. Native PROGRESS, formal Result and independent Review are not claimed.
