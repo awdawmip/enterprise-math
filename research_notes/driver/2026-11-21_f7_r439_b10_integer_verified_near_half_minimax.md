@@ -42,5 +42,5 @@ This is a constructive, solver-generated and exact-integer-checked finite certif
 
 ## Control / next research frontier
 
-Original first Native Review remains failed with `NATIVE_GLOBAL_AUDIT_INPUT_BUDGET_EXCEEDED`, issue #2874 tracks the engineering problem; two original frozen-result SHA256 declarations remain mismatched. No review or Result acceptance, CLAIМ, task closure or Mother objective closure is asserted. Continue to seek a **static rational B10 certificate** (or exact B10=1/2 feasible table), or a genuine infinite-domain mechanism / finite dual obstruction. Preserve original authorship and the original full F7 target.
+Original first Native Review remains failed with `NATIVE_GLOBAL_AUDIT_INPUT_BUDGET_EXCEEDED`, issue #2874 tracks the engineering problem; two original frozen-result SHA256 declarations remain mismatched. No review or Result acceptance, CLAIM, task closure or Mother objective closure is asserted. Continue to seek a **static rational B10 certificate** (or exact B10=1/2 feasible table), or a genuine infinite-domain mechanism / finite dual obstruction. Preserve original authorship and the original full F7 target.
 
