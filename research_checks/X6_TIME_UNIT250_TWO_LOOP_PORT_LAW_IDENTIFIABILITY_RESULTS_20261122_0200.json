@@ -1,0 +1,75 @@
+{
+  "schema": "X6_UNIT250_PORT_LAW_OBSERVER_INVERSE_CERT_V1",
+  "provenance": {
+    "frozen_p000": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+    "case_source_commit": "c0116bf2ee4970493fcb6e7c55da4692202c4547",
+    "case_source_path": "research_checks/X6_TIME_UNIT249_ORIGINAL_BRC_PRECISION_LAW_REPLAY_RESULTS_20261122.json",
+    "case_source_blob_sha1": "1d822a82adaa899c72a7d206d8407a713aec0ad5"
+  },
+  "modulus": 24,
+  "original_traces_checked": 36,
+  "normalized_law_fibre_size": 18,
+  "full_kernel_size_including_centre_gauge": 432,
+  "one_extra_elementary_loop": {
+    "minimum_remaining_laws": 3,
+    "survivor_histogram": {
+      "3": 12,
+      "6": 12,
+      "9": 6,
+      "18": 6
+    }
+  },
+  "two_extra_loops": [
+    {
+      "ordered_cells": [
+        "x0",
+        "P",
+        "x2",
+        "x1",
+        "x0"
+      ],
+      "native_events": 4
+    },
+    {
+      "ordered_cells": [
+        "x2",
+        "P",
+        "x4",
+        "x3",
+        "x2"
+      ],
+      "native_events": 4
+    }
+  ],
+  "remaining_after_first": 3,
+  "remaining_after_both": 1,
+  "extra_native_events": 8,
+  "witness": {
+    "delta_alpha": [
+      0,
+      16,
+      0,
+      0,
+      16,
+      0
+    ],
+    "delta_beta": [
+      0,
+      8,
+      0,
+      0,
+      8,
+      0
+    ],
+    "original_36_C24_readout_difference": 0,
+    "first_four_event_loop_C24_readout_difference": 8
+  },
+  "checked_integer_assertions": 800,
+  "mismatch_count": 0,
+  "scope": "exact finite conditional model; no Source-admitted physical Port transition or measured C24 sensor",
+  "date": "2026-11-22",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "unit": "Unit250",
+  "source_check": "source exact original 36 tuples validated",
+  "scientific_status": "AUTHOR_PROVED_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED"
+}
