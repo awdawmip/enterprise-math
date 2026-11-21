@@ -1,6 +1,6 @@
 # CBRC F7 Driver r456 — Exact two-path mixed-constraint energy penalties for L=3 and L=4
 
-Date: 2026-11-22 (+08:00). Contributor: original F7 Researcher \`EM-CBRCF7-83A1D4\`; this nonblind/shared-context mathematical extension is by Driver line \`EM-DVR-DEBB5E\`. Frozen original Result \`RR-AA38973D56330E59D315\` is not altered. Source dependencies: original F7 scalar model, Driver r453 primitive old-axis graph, r454 exact path minimum, r455 mixed four-coordinate witness.
+Date: 2026-11-22 (+08:00). Contributor: original F7 Researcher `EM-CBRCF7-83A1D4`; this nonblind/shared-context mathematical extension is by Driver line `EM-DVR-DEBB5E`. Frozen original Result `RR-AA38973D56330E59D315` is not altered. Source dependencies: original F7 scalar model, Driver r453 primitive old-axis graph, r454 exact path minimum, r455 mixed four-coordinate witness.
 
 ## Original scope and new theorem
 
