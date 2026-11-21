@@ -92,7 +92,7 @@ def main():
                       'maximizers_pairwise_distinct':True,'core_recomputation_equal':True,
                       'independent_review':'NOT_REVIEWED'}
     }
-    with open('/mnt/data/R284CO_spectral_witness_certificate.json','w',encoding='utf-8') as f:
+    with open('R284CO_spectral_witness_certificate.json','w',encoding='utf-8') as f:
         json.dump(cert,f,indent=2,ensure_ascii=False);f.write('\n')
     print(json.dumps({'core':63,'margin_min':min(margins),
                       'margin_levels':cert['minimum_margin_levels'],'k54':cert['k54']}))
