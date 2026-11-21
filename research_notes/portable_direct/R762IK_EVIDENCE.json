@@ -1,0 +1,111 @@
+{
+  "research_id": "R762IK",
+  "date": "2026-11-22",
+  "project": "awdawmip/enterprise-math",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "previous": "R762IJ@cada89a4571801206a4d25fb42f6f8db8526f330",
+  "theorem": {
+    "model": "six-axis, 15-Port, 20 three-axis support, connected even-degree named-event Euler observer",
+    "upper_bound_events": 55,
+    "former_bound_events": 62,
+    "retained": [
+      "positive support identity",
+      "parity of each support multiplicity",
+      "active Port vertex set",
+      "designated active starting Port",
+      "Euler existence (witness-dependent)"
+    ],
+    "not_claimed": [
+      "signed native Cell displacement",
+      "history counts or order",
+      "native P000 TRIADIC_CLOSURE_E",
+      "time/rotation/force"
+    ]
+  },
+  "exact_verification": {
+    "algorithm": "C++17 DSU full 20-support subset scan",
+    "support_masks": 1048576,
+    "component_maxima_by_T": [
+      15,
+      13,
+      11,
+      10,
+      10,
+      8,
+      7,
+      7,
+      6,
+      6,
+      6,
+      4,
+      3,
+      3,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "k_ge_1_bounds": [
+      55,
+      54,
+      53,
+      52,
+      52,
+      53,
+      54
+    ],
+    "algorithm2": "Python 3 exact S6-orbit constructive Euler assignments, full degree/connectedness/count checks",
+    "high_count_histograms": 10606,
+    "s6_representative_orbits": 56,
+    "histograms_by_family": {
+      "T20": 1,
+      "E1": 20,
+      "E2": 190,
+      "E3": 1140,
+      "E4": 4845,
+      "U1": 20,
+      "U2": 190,
+      "U1E1": 380,
+      "U1E2": 3420,
+      "M1": 20,
+      "M1E1": 380
+    },
+    "exceptional_14_active_ports": "exact constructive PASS: E4 support types 012,013,014,015",
+    "local_execution": "PASS R762IK; PASS R762IK COMPONENT SCAN"
+  },
+  "evidence_files": [
+    {
+      "path": "research_notes/portable_direct/R762IK_PORT_55_EVENT_KERNEL.md",
+      "git_blob_sha1": "beac9ae5fcc1baf64520b3aff27524c50156b79b"
+    },
+    {
+      "path": "research_notes/portable_direct/R762IK_CHECK.py",
+      "git_blob_sha1": "bc14c0213d7046875b620ba46c3b17075fc3dc81",
+      "sha256": "cb80a5400f99a893e7ab7965993747b8bc428300ae031bb0ab59b8d8265de34a"
+    },
+    {
+      "path": "research_notes/portable_direct/R762IK_COMPONENT_SCAN.cpp",
+      "git_blob_sha1": "a5463b7b2f195b2801813326b3773b645c18a897",
+      "sha256": "ccd1cf2b97ec75740312306659c0894361dee0411a3da01c5003f0cbdd189e51"
+    }
+  ],
+  "proof_status": "AUTHOR_PROVED / EXHAUSTIVE_EXACT_CHECKED / NOT_REVIEWED",
+  "control": {
+    "historical_researcher": "EM-X6-A681A5",
+    "session_id": "MCP-773502d89b7a4bd58a37e97a2dd52ba5",
+    "continuation_request_id": "r3-20261122-0628-x6-cont-read-v1",
+    "continuation_final": "FAILED / SOURCE_TREE_TRUNCATED",
+    "owner": "UNCONFIRMED",
+    "current_execution_authorized": false,
+    "native_progress_written": false
+  },
+  "open": [
+    "Can k=1,T=13 be eliminated/shortened to get 54?",
+    "Exact histogram-only Euler construction or infeasibility certificate",
+    "P000 type-preserving native triadic, time and rotation lift"
+  ]
+}
