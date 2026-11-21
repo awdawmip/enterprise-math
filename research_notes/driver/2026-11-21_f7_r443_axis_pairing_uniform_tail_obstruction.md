@@ -4,7 +4,7 @@ Date: 2026-11-21 (+08:00). Independent auxiliary derivation by the continuing RE
 
 ## Original exact model
 
-Let (A=I+uv^T\in GL_4(\mathbb Z)), with (u=(1,1,-1,-1)^T), (v=(1,-2,-1,2)^T), so that (A^2=I). Explicitly
+Let $A=I+uv^T\in GL_4(\mathbb Z)$, with $u=(1,1,-1,-1)^T$, $v=(1,-2,-1,2)^T$, so that $A^2=I$. Explicitly
 
 ```
 A = [ 2 -2 -1  2
@@ -13,7 +13,7 @@ A = [ 2 -2 -1  2
      -1  2  1 -1 ] .
 ```
 
-For (q:\mathbb Z^2\to\mathbb R_{\ge0}), assume (q(0,0)=0), (q(n,m)=q(-n,m)), (q(t,0)=1) for (t\ne0), (q(n,m)\ge 1/2) at every nonzero pair, and the original exact marks (q(2,1)=q(-1,-1)=1/2). Write
+For $q:\mathbb Z^2\to\mathbb R_{\ge0}$, assume $q(0,0)=0$, $q(n,m)=q(-n,m)$, $q(t,0)=1$ for $t\ne0$, $q(n,m)\ge 1/2$ at every nonzero pair, and the original exact marks $q(2,1)=q(-1,-1)=1/2$. Write
 
 ```
 D_q(z) = q((Az)_1,(Az)_2)+q((Az)_3,(Az)_4)
@@ -25,7 +25,7 @@ All claims below refer to this original fixed-matrix, unrestricted-scale scalar 
 
 ## Theorem A — all-scale axis pairing
 
-For every (u,v\in\mathbb Z), the *exact* identity
+For every $u,v\in\mathbb Z$, the *exact* identity
 
 ```
 A(u-v,0,u-2v,0) = (u,v,u-3v,-v)
@@ -39,7 +39,7 @@ D_q(u-v,0,u-2v,0)
   - 1_{u-v!=0}-1_{u-2v!=0}.              (A1)
 ```
 
-In particular, for every (v\ne0) and (u\notin\{v,2v\}), whenever (E(q)\le\varepsilon),
+In particular, for every $v\ne0$ and $u\notin\{v,2v\}$, whenever $E(q)\le\varepsilon$,
 
 ```
 2-epsilon <= q(u,v)+q(u-3v,-v) <= 2+epsilon,
@@ -48,15 +48,15 @@ max(q(u,v),q(u-3v,-v)) >= 1-epsilon/2. (A2)
 
 This is an exact infinite family of coupled ray/tail constraints, not a finite sampled observation.
 
-For every nonzero integer (k), use (u=3k,v=2k) and the stated J-evenness to obtain
+For every nonzero integer $k$, use $u=3k,v=2k$ and the stated J-evenness to obtain
 
 ```
 q(3k,2k)+q(3k,-2k) >= 2-epsilon.         (A3)
 ```
 
-Thus a global half-defect candidate must have a value at least (3/4) among these two sign-related rays **at every nonzero integer scale**. More generally an (E<1) candidate must depart from the baseline value (1/2) by at least ((1-E)/2) on at least one of the two entries at each scale. For the current 4/7 upper target this necessary departure is at least (3/14).
+Thus a global half-defect candidate must have a value at least $3/4$ among these two sign-related rays **at every nonzero integer scale**. More generally an $E<1$ candidate must depart from the baseline value $1/2$ by at least $(1-E)/2$ on at least one of the two entries at each scale. For the current 4/7 upper target this necessary departure is at least $3/14$.
 
-Proof: expand (A) on the displayed vector, use the exact nonzero-axis values for the two inputs, then take the upper/lower bounds on the defect. For (A3), the second output pair is ((-3k,-2k)), and J-evenness identifies its first-coordinate sign.
+Proof: expand $A$ on the displayed vector, use the exact nonzero-axis values for the two inputs, then take the upper/lower bounds on the defect. For (A3), the second output pair is ($-3k,-2k$), and J-evenness identifies its first-coordinate sign.
 
 ## Theorem B — finite perturbations of the off-axis baseline cannot improve the global defect below 1
 
