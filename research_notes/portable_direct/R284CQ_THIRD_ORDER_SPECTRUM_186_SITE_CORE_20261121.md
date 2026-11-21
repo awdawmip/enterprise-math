@@ -68,6 +68,7 @@ T_k=\min\{r\in\mathbb Z_{\ge0}:F_k(r)\le2\}
 - R284CO: `research_notes/portable_direct/R284CO_spectral_witness_checker.py`；证书 `R284CO_spectral_witness_certificate.json`，原固定提交 `03464c507a9dd762cc6dcd0fdeec7eed4ab8a2b0`；当前读取 blob `22cdc98da792e4c98f0e1bb5d7cbbe1ae17553c4`。
 - R284CP: `R284CP_127_sweep_witness_verifier.py`；证书 `R284CP_127_sweep_witness_certificate.json`，原固定提交 `da6d3e9e9bf461b3b1c9396f117c76efdf9c4cc9`；当前读取 blob `655bcd94cfd346f71610c23befde5be1e76d0927`。
 - 本轮验证器：`research_notes/portable_direct/R284CQ_third_spectrum_checker.py`。
+- 全量独立枚举脚本：`research_notes/portable_direct/R284CQ_full_baseline_crosscheck.py`，冻结码字群体65,536×64次圆弧距离计算，逐级比对第三名值和见证；原始远端提交 `597ff3cddd0b8ce7dcb4cefb287873df84bdbeac`。
 - 完整63级新数值、见证、原矩阵编号、间隔和检验标志：`research_notes/portable_direct/R284CQ_third_spectrum_certificate.json`。
 
 代码以相邻三个文件的真实内容为输入，使用 Python 3 标准库执行：
