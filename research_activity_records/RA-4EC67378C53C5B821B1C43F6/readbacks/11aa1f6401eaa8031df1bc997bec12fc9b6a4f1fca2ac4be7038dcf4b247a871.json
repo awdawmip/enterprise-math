@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "handoff_requests/google_math_20261121/draft_validation.json",
+    "ref": "945cf4eb00557f555bf3fc29e307ab9b10d5905a",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-provenance-clues-20261121-handoff-8",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"scope\": \"NATIVE_TASKBOOK_STRUCTURAL_LINT_ONLY\",\n  \"task_records_generated\": false,\n  \"objective_authority_audit_run\": false,\n  \"source_contract_commit\": \"66bdb7e4abaf26c38157db9c45d14a6dddee3701\",\n  \"checks\": [\n    {\n      \"task_id\": \"RS-ERDOS1063-SINGLE-EXCEPTION-MOD4\",\n      \"findings\": [\n        {\n          \"severity\": \"ERROR\",\n          \"code\": \"TB-META\",\n          \"message\": \"task_authority must be 'PUBLISHED_REGISTERED'\"\n        }\n      ],\n      \"source_refs_pinned\": true,\n      \"generation_fabricated\": false\n    },\n    {\n      \"task_id\": \"RS-PHASE-RAW-NOISE-FINITE-SCALE-BRIDGE\",\n      \"findings\": [\n        {\n          \"severity\": \"ERROR\",\n          \"code\": \"TB-META\",\n          \"message\": \"task_authority must be 'PUBLISHED_REGISTERED'\"\n        }\n      ],\n      \"source_refs_pinned\": true,\n      \"generation_fabricated\": false\n    },\n    {\n      \"task_id\": \"RS-SEVEN-PHASE-CANCELLATION-LAYER\",\n      \"findings\": [\n        {\n          \"severity\": \"ERROR\",\n          \"code\": \"TB-META\",\n          \"message\": \"task_authority must be 'PUBLISHED_REGISTERED'\"\n        }\n      ],\n      \"source_refs_pinned\": true,\n      \"generation_fabricated\": false\n    }\n  ],\n  \"status\": \"DRAFT_STRUCTURE_CHECKED_WITH_EXPECTED_UNPUBLISHED_AUTHORITY_FINDINGS\",\n  \"explanation\": \"Current native lint applies dispatch metadata even with dispatch=False. Each draft intentionally has PENDING_PUBLICATION and therefore returns exactly TB-META requiring PUBLISHED_REGISTERED. Do not falsify published status to silence this finding. All other native structure/origin/lineage checks returned no findings. Objective/Task authority audit awaits genuine current Driver and actual parent generation.\"\n}\n",
+      "display_title": "draft_validation.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/945cf4eb00557f555bf3fc29e307ab9b10d5905a/handoff_requests/google_math_20261121/draft_validation.json",
+      "encoding": "utf-8",
+      "sha": "98bf104118ef8e6339d88168bf67bbf9fefa5312"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
