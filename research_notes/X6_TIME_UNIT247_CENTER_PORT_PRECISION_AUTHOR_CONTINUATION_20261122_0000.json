@@ -1,0 +1,162 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-22",
+  "local_cycle": "0000",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "identity_scope": "HISTORICAL_OWN_RESEARCH_SESSION_PROVENANCE_ONLY_NOT_FRESH_CLAIM",
+  "frozen_scientific_source_commit": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "immutable_prior_frontier": {
+    "latest_unit": "Unit246",
+    "latest_activity": 247,
+    "prior_continuation": "1f8b96ebb6b7d54c6d394b626f53e6522fa6b266:research_notes/X6_TIME_UNIT246_PORT_GCD_AUTHOR_CONTINUATION_20261121_2300.json",
+    "do_not_repeat": "Units233–246 already saved; Unit238 distinct correction remains extra Activity event"
+  },
+  "verified_new_unit": {
+    "unit": "Unit247",
+    "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+    "title": "Directed-centre Port C24 hidden precision-coset and terminal BRC observer collision",
+    "assumptions": "Conditional twelve-signed OUTER native Cell ring, only directed centre ingress x_i->P and egress P->x_j (i,j even), serial target-empty guarded whole-labelled-triad transfer, original Unit241 candidate precision edge weights g5=g10=3, other ring edges 0, reversed negative, centre events weight zero. No physical signed Port admission or true precision sensor is assumed.",
+    "closed_walk_result": "For d=(j-i) mod12, A=sum_{r=0}^{d-1}g_(i+r mod12), every single-triad same-Cell closed walk with L signed ring-edge count and c complete directed centre excursions has z=(L+d*c)/12 in Z and precision Delta=6*z-A*c mod N, N=6*2^m. Exactly reachable full closed-walk precision subgroup <6,-A> in C_N has cardinality N/gcd(N,6,A).",
+    "orbit_inflation": "36 ordered even ingress/egress pairs split 18 unchanged 2^m and 18 doubled 2^(m+1) precision values at a fixed Cell. Diameter j=i+6 has A=3 and an eight-native-event same-Cell loop with Delta=-3 mod24=21; required C24 memory sharp increase 4 states/2 bits to 8 states/3 bits for fixed initial precision origin.",
+    "ratio_matrix_even_ingress_rows_egress_columns": [
+      [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ]
+    ],
+    "source_route_terminal_collision": "All six immutable Unit245 diametric opposite-winding guarded two-triad shortest BRC route certificates have same labelled C24 terminal precision Delta_A=18, Delta_B=6; terminal-only readout does not detect the intermediate same-Cell -3 Port loop. The two 28-event globally best prior routes (6,0),(8,2) are included.",
+    "exact_computation": "3,187 exact integer assertions actually executed in JavaScript V8 in this turn; 44,226 single-triad signed (Cell,precision) graph states visited cumulatively across six N in {6,12,24,48,96,192}; 36 source BRC two-triad routes replayed with target-empty, labelled identity, directed Port, original signed winding and full return; 0 failed checks. Node script published but no Node host execution asserted.",
+    "physical_status": "CONDITIONAL_SCIENTIFIC_MODEL; NO_SOURCE_ADMITTED_SIGNED_WHOLE_TRIAD_PORT; NO_PHYSICAL_ENVIRONMENT_RESPONSE_OR_SAME_CELL_C12_C24_PRECISION_MEASUREMENT",
+    "evidence": [
+      {
+        "kind": "proof",
+        "repository": "awdawmip/enterprise-math",
+        "path": "research_notes/X6_TIME_UNIT247_CENTER_PORT_PRECISION_COSET_OBSTRUCTION_20261122_0000.md",
+        "commit": "4eace2f3e36042dcf0f7812da498b49aee92acb1",
+        "git_blob_sha1": "c99c4c39d5d61fd9d04085739dfec5af3558e4fd",
+        "sha256": "31d17d62c33958911a41d7c4c69b11c37fd575942e9ed0d6a3b8c9a59f2a78ef"
+      },
+      {
+        "kind": "exact_replay_and_graph_checker",
+        "repository": "awdawmip/enterprise-math",
+        "path": "research_checks/X6_TIME_UNIT247_PORT_PRECISION_C24_COSET_CHECK_20261122_0000.js",
+        "commit": "9185108aaa2d1600af3b7a31e1a056ad37c59124",
+        "git_blob_sha1": "ce77dde255ef577ff565e45e77e105b4fd91c1f0",
+        "sha256": "7e19764819ce7c4bc0decd893fc0556d6f72b91259796e84f2049c0ff19639d9"
+      },
+      {
+        "kind": "exact_certificate",
+        "repository": "awdawmip/enterprise-math",
+        "path": "research_checks/X6_TIME_UNIT247_PORT_PRECISION_C24_COSET_RESULTS_20261122_0000.json",
+        "commit": "0628624fc23d1f34521119b809398c0146ed9bbb",
+        "git_blob_sha1": "64a238d1ae30d1633317934e0ee405228f1d8e15",
+        "sha256": "ee2479276f97628e45f8a132577b61679ef909d4bb91ec2d0b4d7b3495407a3b"
+      }
+    ],
+    "source_case_pin": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+      "source_commit": "f56840285cafeb9f5767ea91e903e1f53808186f",
+      "git_blob_sha1": "113d2102fe393bfd6f77bf7cca093b4cecf6796f",
+      "source_activity_link": "Unit245 prior full chronological BRC certificates; independently computed shortestness not repeated"
+    }
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+    "commit": "20673dbd22a62cb1e39600c857b3cae198662be6",
+    "git_blob_sha1": "a866bc34ed8f9e8150e49fbad114abae9f4e5d4e",
+    "checkpoint_events": 248,
+    "semantic_units": 247,
+    "one_separate_unit238_correction": true,
+    "event_id": "onhour-20261122-0004-x6-center-port-precision-coset-unit247-v1"
+  },
+  "native_control": {
+    "source_read_request_id": "onhour-20261122-0004-x6-own-source-continuation-v1",
+    "source_read_final_status": "FAILED",
+    "source_read_exact_error": "SOURCE_TREE_TRUNCATED",
+    "control_source_sha": "9ec758c71cafdfa19fa707b9b990bbaf60be258a",
+    "issue240_comments_observed": 1773,
+    "issue240_event_bytes_observed": 6886901,
+    "error_scope": "Source materialization of original continuation READ; distinct from prior typed continuation_prepare metadata-budget rejection; old request terminal, not reissued",
+    "latest_gateway_version": "0.6.11",
+    "last_observed_owner": "HANDOFF_READY / NO_LIVE_CLAIM (historical prior packet, not this run's authenticated own winning CLAIM)",
+    "previous_claim": "MCP-369991930c5b4fddf26dbefa",
+    "previous_run": "RUN-d653f1346f38369bc27f5fc5",
+    "previous_generation": 5,
+    "own_current_winning_claim_verified": false,
+    "new_claim_open_performed": false,
+    "original_failed_progress": "onhour-20261121-1502-own-time-units233-235-native-progress-v1",
+    "original_failed_prepares": [
+      "onhour-20261121-1627-own-x6-time-typed-continuation-after-expired-claim-v1",
+      "onhour-20261121-1640-own-x6-time-typed-continuation-compact-repair-v1"
+    ],
+    "native_semantic_progress": "NOT_PUBLISHED on a new authenticated winning owner through Unit247; old prior checkpoints separately preserved",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903"
+  },
+  "required_evidence": [
+    "Actual Source-admitted signed whole-triad X6 Cell/Link/Port update including a specific directed centre ingress/egress, guard, intact three nonzero primitive-force tokens, Cell occupancy and environment response",
+    "Execute admissible same-labelled-Cell eight-step centre loop with an independent physical before/after C12/C24 precision sensor; expected conditional candidate delta -3 in C24 is a discrimination target, not measured fact",
+    "Replay the immutable Unit245 BRC shortest event route only for admitted signed Port edges and compare same-Cell terminal versus intermediate precision readouts",
+    "After bounded Source Issue #240 materialization is fixed, consume original Source continuation, verify actual winning claim and valid generation under same Research session, then publish only genuine not-yet-linked semantic PROGRESS"
+  ],
+  "do_not_repeat": [
+    "Units233–247 scientific proofs/checkers and original Unit238 correction, Activity248 already saved and read back",
+    "Any original terminal FAILED source continuation/PROGRESS/prepares: preserve request IDs and exact Source state",
+    "Historical D24 frozen RR and accepted DR, plus three distinct prior staging sources",
+    "R063 six-file original Native benchmark belongs to separate RS-X6-LEGACY-PLANE-RECONCILIATION / support #2416 and remains unexecuted here"
+  ],
+  "next_exact_action": "Resolve Source #2903 current SOURCE_TREE_TRUNCATED scoped materialization without mutating prior request; separately locate and authenticate an actually admitted signed Port update and independent C24 before/after sensor, then directly execute the eight-native-step same-Cell discriminator and compare to Unit247 conditional -3. For Native semantic writes first obtain current Source continuation and authenticate own live winning CLAIM/run/generation; never borrow maintenance lane.",
+  "scientific_status": "Unit247 AUTHOR_PROVED / EXACT_FINITE_EXECUTED / ACTIVITY248_PERSISTED / UNREVIEWED / NOT_ADMITTED",
+  "handoff_required": false
+}
