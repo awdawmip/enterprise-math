@@ -65,8 +65,12 @@
     },
     "original_source_continuation": {
       "request_id": "onhour-20261121-1620-x6-own-time-continuation-read-v1",
-      "status_last_read": "RUNNING",
-      "replay": false
+      "status": "SUCCEEDED",
+      "task_state": "HANDOFF_READY",
+      "takeover_readiness": "NO_LIVE_CLAIM",
+      "source_head_at_admission": "ecbef7ddfd6875c9711fcd0273bd5649849c85ab",
+      "execution_authorized": false,
+      "required_route": "TYPED_CONTINUATION_PREPARE_THEN_CURRENT_CANONICAL_CLAIM"
     },
     "saved_run": {
       "run_id": "RUN-d653f1346f38369bc27f5fc5",
@@ -74,7 +78,30 @@
       "revision_last_read": 0,
       "historical_owner_lease_until": "2026-11-21T08:04:47+00:00"
     },
-    "unit236_237_native_semantic_checkpoint": "NOT_SUBMITTED_PENDING_CURRENT_OWNER_CLAIM_AUTHORITY"
+    "unit236_237_native_semantic_checkpoint": "NOT_SUBMITTED_PENDING_CURRENT_OWNER_CLAIM_AUTHORITY",
+    "typed_continuation_prepares": [
+      {
+        "request_id": "onhour-20261121-1627-own-x6-time-typed-continuation-after-expired-claim-v1",
+        "status": "FAILED",
+        "error": "NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED",
+        "full_verified_frontier_artifact_pins": 6,
+        "side_effects": "NO_CLAIM_OR_RUN_ISSUED"
+      },
+      {
+        "request_id": "onhour-20261121-1640-own-x6-time-typed-continuation-compact-repair-v1",
+        "status": "FAILED",
+        "error": "NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED",
+        "compact_verified_frontier_artifact_pins": 2,
+        "side_effects": "NO_CLAIM_OR_RUN_ISSUED"
+      }
+    ],
+    "support": {
+      "issue": "https://github.com/awdawmip/enterprise-math/issues/2903",
+      "state": "OPEN",
+      "owner": "UNASSIGNED_OR_NOT_VERIFIED",
+      "responsible_path": "CONTROL_PLANE_MAINTENANCE",
+      "acceptance": "Actual deployed bounded native typed-continuation prepare + legal same-SID owner claimant CLAIM/open exact verified readback; GitHub merged code alone not enough"
+    }
   },
   "do_not_repeat": [
     "Do not replay failed Units233-235 Native PROGRESS, even with a different ID or channel",
@@ -90,8 +117,9 @@
     "No verified independent physical precision fiber closed-loop observation",
     "Units233–237 protected semantic PROGRESS incomplete, separate from complete GitHub Activity",
     "Independent Driver review and Result admission unresolved",
-    "Legacy R063 #2416 benchmark belongs another task and requires original runner/capability"
+    "Legacy R063 #2416 benchmark belongs another task and requires original runner/capability",
+    "Two current typed native continuation_prepare requests failed metadata budget even with 2 pins; Source control recovery support issue #2903 OPEN, no new claim/run or native semantic progress; authorization must be re-read."
   ],
-  "next_exact_action": "Consume original onhour-20261121-1620-x6-own-time-continuation-read-v1 receipt, verify live owner/current claim via canonical Source; if this own claim expired, only the valid typed Source continuation/dispatch route can issue a fresh winning claim, not a replay of the rejected PROGRESS. Preserve same legitimate own SID and actual contribution history. Continue targeted source-backed search for physical Cell/Link/Port transition; test whether one-bit intermediate native Cell BRC measurement is a real operation and compute reachable 36-state subgraph. Do not use maintenance lane.",
+  "next_exact_action": "Consume newest canonical Source and original failed request history (do not replay). Control-plane maintainer to diagnose native metadata budget via issue #2903; once actual deployed fix verified, same original Research SID may attempt a new corrected typed continuation from the highest verified frontier and obtain winning live CLAIM/open, without maintenance lane identity. Meanwhile keep Unit237 already GitHub/Activity source verified and continue source-based legitimate Cell/Link/Port branch selector research. No scheduler changes.",
   "continuation_state": "OPEN"
 }
