@@ -1,0 +1,420 @@
+{
+  "schema": "X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_COMPACT_CERTIFICATE_V1",
+  "date": "2026-11-21",
+  "parent": "PO-X6-UPPER-STRUCTURE-20260906",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "frozen_p000": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "assumptions": {
+    "axis_step": "one signed six-axis primitive",
+    "ring": "12 OUTER vertices, bidirectional ring edges",
+    "centre_spokes": "one ingress x_i->P; one egress P->x_j, both i and j even",
+    "two_triads": "A=x0,B=x2 initially; all tokens remain intact, target empty",
+    "terminal": "A=x0,B=x2,L_A=-12,L_B=12",
+    "counter_bound": 48
+  },
+  "route_encoding": "One character per native event: A..M=A moves, a..m=B moves; 0..11 are x0..x11 and 12 is P; character indicates destination; full source/axis/direction and ring winding derive from preceding per-label Cell",
+  "matrix_ingress_rows_egress_columns": [
+    [
+      30,
+      38,
+      36,
+      38,
+      38,
+      46
+    ],
+    [
+      38,
+      30,
+      46,
+      38,
+      38,
+      36
+    ],
+    [
+      32,
+      36,
+      32,
+      48,
+      38,
+      32
+    ],
+    [
+      28,
+      30,
+      40,
+      36,
+      44,
+      34
+    ],
+    [
+      30,
+      28,
+      34,
+      44,
+      36,
+      40
+    ],
+    [
+      36,
+      32,
+      32,
+      38,
+      48,
+      32
+    ]
+  ],
+  "min_cost": 28,
+  "max_cost": 48,
+  "exact_minimizers": [
+    {
+      "ingress": 6,
+      "egress": 0
+    },
+    {
+      "ingress": 8,
+      "egress": 2
+    }
+  ],
+  "diagonal_unit244": [
+    30,
+    30,
+    32,
+    36,
+    36,
+    32
+  ],
+  "independent_solver": "Node script 1,743,775 integer assertions; independent Python FIFO reproduces full matrix",
+  "executed_node_assertions": 1743775,
+  "failures": 0,
+  "totals": {
+    "cases": 36,
+    "states_seen": 794486,
+    "route_events": 1312
+  },
+  "cases": [
+    {
+      "ingress": 0,
+      "egress": 0,
+      "cost": 30,
+      "ring_events": 28,
+      "spoke_events": 2,
+      "states_seen": 1541,
+      "route": "BdefghijklamALKJIHGFEDCBALabAc"
+    },
+    {
+      "ingress": 0,
+      "egress": 2,
+      "cost": 38,
+      "ring_events": 26,
+      "spoke_events": 12,
+      "states_seen": 37113,
+      "route": "MdCBAMCBAMCBAMCBAMCBAMefghijklabcdCBAc"
+    },
+    {
+      "ingress": 0,
+      "egress": 4,
+      "cost": 36,
+      "ring_events": 30,
+      "spoke_events": 6,
+      "states_seen": 16361,
+      "route": "MdefEDCBAMEDCBAMghijklabcdefEDCBAedc"
+    },
+    {
+      "ingress": 0,
+      "egress": 6,
+      "cost": 38,
+      "ring_events": 34,
+      "spoke_events": 4,
+      "states_seen": 9308,
+      "route": "BdefghijklamALKJIHGFEDCBghijklamAgfedc"
+    },
+    {
+      "ingress": 0,
+      "egress": 8,
+      "cost": 38,
+      "ring_events": 32,
+      "spoke_events": 6,
+      "states_seen": 18943,
+      "route": "MdefghijIHGFEDCBAMIHGFEDCBAMIkJlKaLbAc"
+    },
+    {
+      "ingress": 0,
+      "egress": 10,
+      "cost": 46,
+      "ring_events": 34,
+      "spoke_events": 12,
+      "states_seen": 71096,
+      "route": "LKJIHGFEDbCaBmALKJklamklamklamklamklamklKaLbAc"
+    },
+    {
+      "ingress": 2,
+      "egress": 0,
+      "cost": 38,
+      "ring_events": 26,
+      "spoke_events": 12,
+      "states_seen": 38859,
+      "route": "LKJIHGFEDmCBALabcmabcmabcmabcmabcmabAc"
+    },
+    {
+      "ingress": 2,
+      "egress": 2,
+      "cost": 30,
+      "ring_events": 28,
+      "spoke_events": 2,
+      "states_seen": 1584,
+      "route": "LKJIHGFEDbCMcdefghijklabcdCBAc"
+    },
+    {
+      "ingress": 2,
+      "egress": 4,
+      "cost": 46,
+      "ring_events": 34,
+      "spoke_events": 12,
+      "states_seen": 70658,
+      "route": "BdCMefEDCMEDCMEDCMEDCMEDCMghijklabcdefEDCBAedc"
+    },
+    {
+      "ingress": 2,
+      "egress": 6,
+      "cost": 38,
+      "ring_events": 32,
+      "spoke_events": 6,
+      "states_seen": 19121,
+      "route": "LKJIHGFEDmghijklabcmghijklabcmCBAgfedc"
+    },
+    {
+      "ingress": 2,
+      "egress": 8,
+      "cost": 38,
+      "ring_events": 34,
+      "spoke_events": 4,
+      "states_seen": 9579,
+      "route": "LKJIHGFEDbCMIHGFEDCMcdefghijIkJlKaLbAc"
+    },
+    {
+      "ingress": 2,
+      "egress": 10,
+      "cost": 36,
+      "ring_events": 30,
+      "spoke_events": 6,
+      "states_seen": 16436,
+      "route": "LKJIHGFEDmCBALKJklabcmklabcmklKaLbAc"
+    },
+    {
+      "ingress": 4,
+      "egress": 0,
+      "cost": 32,
+      "ring_events": 26,
+      "spoke_events": 6,
+      "states_seen": 10392,
+      "route": "LKJIHGFdemEDCBALabcdemabcdemabAc"
+    },
+    {
+      "ingress": 4,
+      "egress": 2,
+      "cost": 36,
+      "ring_events": 24,
+      "spoke_events": 12,
+      "states_seen": 26852,
+      "route": "LKJIHGFdemEDCBAcdemcdemcdemcdemcdemc"
+    },
+    {
+      "ingress": 4,
+      "egress": 4,
+      "cost": 32,
+      "ring_events": 30,
+      "spoke_events": 2,
+      "states_seen": 1681,
+      "route": "LKJIHGFEMdefghijklabcdefEDCBAedc"
+    },
+    {
+      "ingress": 4,
+      "egress": 6,
+      "cost": 48,
+      "ring_events": 36,
+      "spoke_events": 12,
+      "states_seen": 70565,
+      "route": "LKJIHGFEMGFEMGFEMGFEMGFEMGFEMdefghGiHjIkJlKaLbAc"
+    },
+    {
+      "ingress": 4,
+      "egress": 8,
+      "cost": 38,
+      "ring_events": 32,
+      "spoke_events": 6,
+      "states_seen": 16874,
+      "route": "LKJIHGFEMIHGFEMIHGFEMdefghijIkJlKaLbAc"
+    },
+    {
+      "ingress": 4,
+      "egress": 10,
+      "cost": 32,
+      "ring_events": 28,
+      "spoke_events": 4,
+      "states_seen": 5975,
+      "route": "LKJIHGFEMKJIHGFEMdefghijklKaLbAc"
+    },
+    {
+      "ingress": 6,
+      "egress": 0,
+      "cost": 28,
+      "ring_events": 24,
+      "spoke_events": 4,
+      "states_seen": 3961,
+      "route": "LKJIHGMALKJIHGMdefghijklabAc"
+    },
+    {
+      "ingress": 6,
+      "egress": 2,
+      "cost": 30,
+      "ring_events": 24,
+      "spoke_events": 6,
+      "states_seen": 7645,
+      "route": "LKJIHdefgmGFEDCBAcdefgmcdefgmc"
+    },
+    {
+      "ingress": 6,
+      "egress": 4,
+      "cost": 40,
+      "ring_events": 28,
+      "spoke_events": 12,
+      "states_seen": 35861,
+      "route": "LKJIHdefgmGFEDCBAefgmefgmefgmefgmefgmedc"
+    },
+    {
+      "ingress": 6,
+      "egress": 6,
+      "cost": 36,
+      "ring_events": 34,
+      "spoke_events": 2,
+      "states_seen": 2077,
+      "route": "LKJIHGMdefghijklabcdefghGFEDCBAgfedc"
+    },
+    {
+      "ingress": 6,
+      "egress": 8,
+      "cost": 44,
+      "ring_events": 32,
+      "spoke_events": 12,
+      "states_seen": 49540,
+      "route": "LKJIHGMIHGMIHGMIHGMIHGMIHGMdefghijIkJlKaLbAc"
+    },
+    {
+      "ingress": 6,
+      "egress": 10,
+      "cost": 34,
+      "ring_events": 28,
+      "spoke_events": 6,
+      "states_seen": 11118,
+      "route": "LKJIHGMKJIHGMKJIHGMdefghijklKaLbAc"
+    },
+    {
+      "ingress": 8,
+      "egress": 0,
+      "cost": 30,
+      "ring_events": 24,
+      "spoke_events": 6,
+      "states_seen": 7306,
+      "route": "LKJIMALKJIMALKJIMdefghijklabAc"
+    },
+    {
+      "ingress": 8,
+      "egress": 2,
+      "cost": 28,
+      "ring_events": 24,
+      "spoke_events": 4,
+      "states_seen": 4081,
+      "route": "LKJdefghimIHGFEDCBAcdefghimc"
+    },
+    {
+      "ingress": 8,
+      "egress": 4,
+      "cost": 34,
+      "ring_events": 28,
+      "spoke_events": 6,
+      "states_seen": 11494,
+      "route": "LKJdefghimIHGFEDCBAefghimefghimedc"
+    },
+    {
+      "ingress": 8,
+      "egress": 6,
+      "cost": 44,
+      "ring_events": 32,
+      "spoke_events": 12,
+      "states_seen": 51136,
+      "route": "LKJdefghimIHGFEDCBAghimghimghimghimghimgfedc"
+    },
+    {
+      "ingress": 8,
+      "egress": 8,
+      "cost": 36,
+      "ring_events": 34,
+      "spoke_events": 2,
+      "states_seen": 2122,
+      "route": "LKJdefghimIHGFEDCBALKJIHijIkJlKaLbAc"
+    },
+    {
+      "ingress": 8,
+      "egress": 10,
+      "cost": 40,
+      "ring_events": 28,
+      "spoke_events": 12,
+      "states_seen": 34237,
+      "route": "LKJIMKJIMKJIMKJIMKJIMKJIMdefghijklKaLbAc"
+    },
+    {
+      "ingress": 10,
+      "egress": 0,
+      "cost": 36,
+      "ring_events": 24,
+      "spoke_events": 12,
+      "states_seen": 25475,
+      "route": "LKMALKMALKMALKMALKMALKMdefghijklabAc"
+    },
+    {
+      "ingress": 10,
+      "egress": 2,
+      "cost": 32,
+      "ring_events": 26,
+      "spoke_events": 6,
+      "states_seen": 9902,
+      "route": "LKMdCBALKMCBALKMefghijklabcdCBAc"
+    },
+    {
+      "ingress": 10,
+      "egress": 4,
+      "cost": 32,
+      "ring_events": 28,
+      "spoke_events": 4,
+      "states_seen": 6104,
+      "route": "LdefghijkmKJIHGFEDCBAefghijkmedc"
+    },
+    {
+      "ingress": 10,
+      "egress": 6,
+      "cost": 38,
+      "ring_events": 32,
+      "spoke_events": 6,
+      "states_seen": 17204,
+      "route": "LdefghijkmKJIHGFEDCBAghijkmghijkmgfedc"
+    },
+    {
+      "ingress": 10,
+      "egress": 8,
+      "cost": 48,
+      "ring_events": 36,
+      "spoke_events": 12,
+      "states_seen": 70565,
+      "route": "LdefghijkmKJIHGFEDCBAijkmijkmijkmijkmijkmihgfedc"
+    },
+    {
+      "ingress": 10,
+      "egress": 10,
+      "cost": 32,
+      "ring_events": 30,
+      "spoke_events": 2,
+      "states_seen": 1720,
+      "route": "LdefghijkmKJIHGFEDCBALKJklKaLbAc"
+    }
+  ]
+}
