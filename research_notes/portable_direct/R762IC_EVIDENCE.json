@@ -1,0 +1,167 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_EXACT_CERTIFICATE_V1",
+  "id": "R762IC",
+  "date": "2026-11-21",
+  "title": "All-length parity sufficiency for six-axis closed Port support histograms",
+  "research_model": "SIX_AXIS_COMPOSITE_SUPPORT_PORT_OBSERVER",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "scientific_pin": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389"
+  },
+  "dependencies": [
+    {
+      "id": "R762IB",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "a3b465e76af541de223fcf7773477fbd224be8b4",
+      "purpose": "Exhaustive 16384 parity cores; 230 bad cores form three S6 orbits",
+      "review": "NOT_REVIEWED"
+    },
+    {
+      "id": "R762HT",
+      "commit": "59eb4d4f939976458b060919315ef7043641f7eb",
+      "purpose": "Independent Port-edge and event-sign factorization",
+      "review": "NOT_REVIEWED"
+    }
+  ],
+  "universe": {
+    "axes": 6,
+    "triple_support_types": 20,
+    "port_states": 15,
+    "per_orbit_boolean_pair_presence_masks": 1048576,
+    "total_core_mask_cases": 3145728
+  },
+  "theorem": "For every finite support multiset n and Port p, N_p(n)>0 implies (C(n)>0 iff all six H_i(n) are even).",
+  "exact_reduction": {
+    "odd_core_delta": "n_S mod 2",
+    "pair_presence": "Q={S:floor(n_S/2)>=1}",
+    "minimum_multiplicity": "delta_S+2*indicator_Q(S)",
+    "signability": "A_delta intersect R_Q != empty, A_delta={-sum eps_S*h_S/2}, R_Q={sum z_S*h_S:z_S in {-1,0,1}}",
+    "necessary_port_degree": "B_delta intersect span_F2{edge-boundary masks on supports in Q} != empty",
+    "necessary_port_connectivity": "G2(supp(delta) union Q) connected; two triple supports adjacent iff exactly two shared axes",
+    "basis": "For each support >=2 Port-edge copies its mod-2 degree contribution ranges over {0,b1,b2,b3}; no primitive P000 physics implied"
+  },
+  "records": [
+    {
+      "odd_core_size": 4,
+      "representative": [
+        "024",
+        "035",
+        "125",
+        "134"
+      ],
+      "S6_orbit_size": 30,
+      "core_signed_targets": 16,
+      "core_port_boundary_masks": 81,
+      "bad_Q": 3824,
+      "bad_connected_Q": 64,
+      "bad_connected_even_port_Q": 0,
+      "bad_connected_by_Q_size": {
+        "3": 8,
+        "4": 24,
+        "5": 24,
+        "6": 8
+      },
+      "bad_by_Q_size": [
+        1,
+        16,
+        108,
+        380,
+        777,
+        996,
+        842,
+        480,
+        180,
+        40,
+        4
+      ]
+    },
+    {
+      "odd_core_size": 6,
+      "representative": [
+        "012",
+        "015",
+        "025",
+        "034",
+        "123",
+        "124"
+      ],
+      "S6_orbit_size": 180,
+      "core_signed_targets": 64,
+      "core_port_boundary_masks": 621,
+      "bad_Q": 1056,
+      "bad_connected_Q": 0,
+      "bad_connected_even_port_Q": 0,
+      "bad_by_Q_size": [
+        1,
+        11,
+        50,
+        130,
+        220,
+        257,
+        211,
+        120,
+        45,
+        10,
+        1
+      ]
+    },
+    {
+      "odd_core_size": 10,
+      "representative": [
+        "012",
+        "013",
+        "014",
+        "025",
+        "035",
+        "045",
+        "125",
+        "135",
+        "145",
+        "234"
+      ],
+      "S6_orbit_size": 20,
+      "core_signed_targets": 656,
+      "core_port_boundary_masks": 6081,
+      "bad_Q": 1024,
+      "bad_connected_Q": 0,
+      "bad_connected_even_port_Q": 0,
+      "bad_by_Q_size": [
+        1,
+        10,
+        45,
+        120,
+        210,
+        252,
+        210,
+        120,
+        45,
+        10,
+        1
+      ]
+    }
+  ],
+  "verification": {
+    "local_cpp": {
+      "source": "R762IC_CHECK.cpp (same finite algorithm as locally compiled prototype /tmp/r762id_full.cpp)",
+      "build": "g++ -O3 -std=c++17",
+      "execution": "Actual local prototype executed; exact integer all-mask sweep of three 2^20 domains",
+      "result": "PASS; 0,0,0 joint counterexamples; row totals 3824/64/0, 1056/0/0, 1024/0/0"
+    },
+    "local_python": {
+      "source": "R762IC_VERIFY.py (same finite algorithm as locally executed prototype /tmp/r762id_verify.py)",
+      "execution": "Actual local prototype executed; complete monotone enumeration of every nonsignable Q, independently tests Port even-degree feasibility via connected-component parity",
+      "result": "PASS; same row counts as C++"
+    },
+    "arithmetic": "Exact integer and GF(2) only; no floating point, stochastic search, continuum limit, or physical-state evolution",
+    "coverage": "All Boolean Q for each of 3 S6 orbit representatives; all finite n reduced to those Q by proof; 16,384-core classification is a load-bearing prior exhaustive certificate, not independently reviewed"
+  },
+  "scientific_status": "AUTHOR_PROVED / FINITE_EXHAUSTIVE_EXACT_CHECKED / NOT_REVIEWED",
+  "native_status": "No current native CLAIM/PROGRESS authorization; Port composite theorem does not assert primitive P000 TRIADIC_CLOSURE_E dynamics",
+  "open_problems": [
+    "Construct a direct sign assignment for arbitrary parity-even n with a legal closed Port word, ideally efficient in input length",
+    "Replace three-orbit 2^20 finite certificate with a short human-checkable structural argument",
+    "Investigate typed primitive P000 Cell/Link/Port/force/rotation/time lift separately"
+  ],
+  "provenance": "Independent portable work; GitHub branch draft; exact output files must be read back at final immutable commit"
+}
