@@ -6,13 +6,13 @@ Date: 2026-11-21 (Asia/Shanghai). Scientific status: **AUTHOR_PROVED / EXACT_FIN
 
 R284CL determines the 64 sharp finite-codeword support thresholds
 
-[
+\[
 U_k=\max_{x\in X} d_{(k)}(x),\quad k=1,\ldots,64,
-]
+\]
 
-where (X) is the set of the 65,536 frozen 34-bit Port codewords, (d_{(k)}(x)) is the (k)-th smallest circular distance from (x) to the 64 closed coarse-fiber arcs (A_j), and the circular modulus is (p=17,179,869,143). The original program uses (65,536\times64=4,194,304) exact point-to-arc distance evaluations.
+where $X$ is the set of the 65,536 frozen 34-bit Port codewords, $d_{(k)}(x)$ is the (k)-th smallest circular distance from (x) to the 64 closed coarse-fiber arcs $A_j$, and the circular modulus is $p=17,179,869,143$. The original program uses $65,536\times64=4,194,304$ exact point-to-arc distance evaluations.
 
-Frozen Port parameters: (D=(1120832,6,13,1651128)), (Z=(0,390139,394465,1497639)), lower-coordinate selector ((0,1,2,4,5,6)). Ordered 8-byte codeword stream SHA-256:
+Frozen Port parameters: $D=(1120832,6,13,1651128)$, $Z=(0,390139,394465,1497639)$, lower-coordinate selector $(0,1,2,4,5,6)$. Ordered 8-byte codeword stream SHA-256:
 
 `b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4`.
 
@@ -20,39 +20,39 @@ The original determinant encoder, complete codeword enumeration, and exact arc r
 
 ## Theorem — finite-site critical-neighbor principle
 
-Let (X\subset \mathbb{R}/p\mathbb{Z}) be any finite set and (A_1,\ldots,A_m) any closed circular arcs of lengths strictly between 0 and (p). Let (f_k(y)) be the (k)-th ordered value of the (m) functions (d(y,A_i)). Form the critical set (B) from:
+Let $X\subset \mathbb{R}/p\mathbb{Z}$ be any finite set and $A_1,\ldots,A_m$ any closed circular arcs of lengths strictly between 0 and (p). Let $f_k(y)$ be the (k)-th ordered value of the (m) functions $d(y,A_i)$. Form the critical set $B$ from:
 
 1. the individual distance-function kinks (each arc's two endpoints and the midpoint of its complementary gap);
-2. all isolated equalities (d(y,A_i)=d(y,A_j)) within intervals where both distances are affine;
+2. all isolated equalities $d(y,A_i)=d(y,A_j)$ within intervals where both distances are affine;
 3. one chosen circular cut, included at both ends of a linearized period.
 
-For every critical position, retain its predecessor and successor in the ordered finite population (X), whenever present, including a site exactly at the critical position. Denote the resulting subset by (X_B). Then, **simultaneously for every** (k=1,\ldots,m),
+For every critical position, retain its predecessor and successor in the ordered finite population $X$, whenever present, including a site exactly at the critical position. Denote the resulting subset by $X_B$. Then, **simultaneously for every** $k=1,\ldots,m$,
 
-[
+\[
 \boxed{\max_{x\in X}f_k(x)=\max_{x\in X_B}f_k(x).}
-]
+\]
 
 A flat coincidence of two distance functions over an interval does not require extra critical positions; the tied ordered values remain affine on the entire interval.
 
 ### Proof
 
-For any closed circular arc (A=[a,a+w]) oriented positively, the distance (d(y,A)) is zero on the arc, grows with slope (+1) from its exit endpoint to the midpoint of the complementary gap, and falls with slope (-1) until the next entry endpoint. It is therefore affine between the three indicated kinks.
+For any closed circular arc $A=[a,a+w]$ oriented positively, the distance (d(y,A)) is zero on the arc, grows with slope (+1) from its exit endpoint to the midpoint of the complementary gap, and falls with slope (-1) until the next entry endpoint. It is therefore affine between the three indicated kinks.
 
-Take the common refinement of all kink positions and all isolated pairwise equalities on these affine pieces. Inside each resulting open interval, every distance is affine and their weak ordering is unchanged. Identically equal affine functions remain tied; any change of a strict order would require an equality that has already been inserted as a boundary. Consequently each ordered statistic (f_k) is itself affine on that interval, for every (k).
+Take the common refinement of all kink positions and all isolated pairwise equalities on these affine pieces. Inside each resulting open interval, every distance is affine and their weak ordering is unchanged. Identically equal affine functions remain tied; any change of a strict order would require an equality that has already been inserted as a boundary. Consequently each ordered statistic $f_k$ is itself affine on that interval, for every (k).
 
-An affine function attains its maximum on the finite (X)-points in one such interval at its leftmost or rightmost point. These are, respectively, the successor of the left boundary and predecessor of the right boundary in the sorted population. Points exactly on a boundary are themselves selected as a predecessor/successor. The period cut handles the first and last intervals. Taking the union over all intervals proves the equality for every (k) using the same selected set. QED.
+An affine function attains its maximum on the finite $X$-points in one such interval at its leftmost or rightmost point. These are, respectively, the successor of the left boundary and predecessor of the right boundary in the sorted population. Points exactly on a boundary are themselves selected as a predecessor/successor. The period cut handles the first and last intervals. Taking the union over all intervals proves the equality for every (k) using the same selected set. QED.
 
 This reduction depends only on exact distances and their order, not on an assumed uniform codeword distribution; it retains the original codeword value and original matrix-enumeration index for each witness.
 
 ## Exact critical-position arithmetic
 
-Use the scaled coordinate (q=4y). On each piece (F_i(q)=4d(q/4,A_i)) is affine with slope in ({-1,0,+1}), taking integer values at the individual kink positions. For two affine pieces on ([l,r]), write their slopes (s_i,s_j) and left endpoint values (F_i(l),F_j(l)). Any isolated crossing satisfies
+Use the scaled coordinate $q=4y$. On each piece $F_i(q)=4d(q/4,A_i)$ is affine with slope in ({-1,0,+1}), taking integer values at the individual kink positions. For two affine pieces on ([l,r]), write their slopes $s_i,s_j$ and left endpoint values (F_i(l),F_j(l)). Any isolated crossing satisfies
 
-[
+\[
 q=l-\frac{F_i(l)-F_j(l)}{s_i-s_j}.
-]
+\]
 
-Since (s_i-s_j\in\{-2,-1,1,2\}), every crossing has **integer (2q=8y)**. All breakpoints can therefore be represented without floating point as integer multiples of one eighth of the Port residue unit. An exact adjacent-pair segment scan generates the complete set; one does not need to sample real circle points.
+Since $s_i-s_j\in\{-2,-1,1,2\}$, every crossing has **integer $2q=8y$**. All breakpoints can therefore be represented without floating point as integer multiples of one eighth of the Port residue unit. An exact adjacent-pair segment scan generates the complete set; one does not need to sample real circle points.
 
 ## Exact frozen-model results
 
@@ -70,9 +70,9 @@ Since (s_i-s_j\in\{-2,-1,1,2\}), every crossing has **integer (2q=8y)**. All bre
 | Reduced point-to-arc distance predicates | **384,448** |
 | Full-population baseline predicates | 4,194,304 |
 
-The reduced candidate set is (6007/65536\approx9.166\%\) of the finite population. The 64-level spectrum and **all 64 sharp radii match** the independent original exhaustive computation, not just the selected levels below.
+The reduced candidate set is $6007/65536\approx9.166\%$ of the finite population. The 64-level spectrum and **all 64 sharp radii match** the independent original exhaustive computation, not just the selected levels below.
 
-| k | Exact (U_k) | Reduced-set witness: original matrix index / Port |
+| k | Exact $U_k$ | Reduced-set witness: original matrix index / Port |
 |---:|---:|---|
 | 1 | 0 | 32745 / 41705 |
 | 2 | 539127606 | 51531 / 3431128591 |
@@ -89,7 +89,7 @@ Exact output SHA-256 digests (decimal values each followed by newline, sorted):
 
 ### Verification and interpretation
 
-The companion Python checker reconstructs arcs from the original frozen R284CL source, recomputes the entire frozen codeword SHA-256, verifies the 65,536 Port residues are distinct, generates all critical locations using arbitrary-precision integers, selects the 6,007 neighboring sites, and computes all 64 levels and witnesses on those sites. It separately performs the original complete (65,536\times64) distance enumeration and asserts 64/64 exact equality. This is a finite exhaustive certificate plus a general analytic reduction theorem; no independent mathematical Review or external native execution is claimed.
+The companion Python checker reconstructs arcs from the original frozen R284CL source, recomputes the entire frozen codeword SHA-256, verifies the 65,536 Port residues are distinct, generates all critical locations using arbitrary-precision integers, selects the 6,007 neighboring sites, and computes all 64 levels and witnesses on those sites. It separately performs the original complete $65,536\times64$ distance enumeration and asserts 64/64 exact equality. This is a finite exhaustive certificate plus a general analytic reduction theorem; no independent mathematical Review or external native execution is claimed.
 
 **Cost boundary:** the 10.91-fold reduction applies to the count of point-to-arc distance evaluations **inside the threshold computation**. It does not include generating and sorting the original codewords, forming the 2,016 pairwise critical arrangements, locating candidate sites, or memory and implementation overhead. Thus it is not yet an end-to-end runtime speedup. The reduction also does not alter the 34-bit code, the original minimum distance 59, or the full matrix ±29 integer correction guarantee.
 
