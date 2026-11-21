@@ -86,6 +86,18 @@ E(q) >= 1.                                    (B2)
 
 The same necessary lower bound holds if q(3k,2k) and q(3k,-2k) both converge to 1/2 along |k|->infinity, by taking the corresponding defect limit.
 
+## Theorem C — homogeneous extremal-witness tails cannot be repaired finitely
+
+This generalizes the finite-support obstruction beyond the elementary baseline. Let h be any scalar in the same model satisfying **degree-zero positive integer dilation invariance**, h(kx,ky)=h(x,y) for each k>=1 and each nonzero integer pair (x,y). Let z_* be a fixed integer witness such that |D_h(z_*)|=e>0. For any other scalar g in the same model:
+
+1. If g and h differ at only finitely many nonzero scalar pairs, then E(g)>=e.
+2. The same bound holds if g(k w)-h(w) tends to zero as k tends to infinity for each nonzero scalar pair w among the four input/output slot pairs of z_*.
+3. More quantitatively, if E(g)<=e-delta for a fixed delta>0, **for every k>=1 at least one of those four input/output slot pairs w obeys |g(kw)-h(w)|>=delta/4**. Thus a strict improvement requires a uniformly nonvanishing scale-tail modification, not just exceptional coefficients near the origin.
+
+Proof: A(kz_*)=kA(z_*) and D_h(kz_*)=D_h(z_*) by h's degree-zero invariance, including the fixed value h(0,0)=0. The difference D_g(kz_*)-D_h(kz_*) is a signed sum of at most four scalar discrepancies at the scaled slot pairs. Its absolute value is bounded above by their four absolute discrepancies. If |D_g(kz_*)|<=e-delta but |D_h(kz_*)|=e, the reverse triangle inequality forces that sum to be at least delta; at least one discrepancy is >=delta/4. Finite changes vanish on all these nonzero scaled pairs for all sufficiently large k, and asymptotically vanishing changes give the same result by taking the limit.
+
+**Corollary for the original F7 frontier:** the previously verified r435 signed-angular scalar is degree-zero dilation invariant and has exact global error e=4/7, attained for example at z_*=(-46,17,-36,24). Direct exact substitution gives D_h(z_*)=-4/7. Therefore finite pointwise edits to this homogeneous r435 scalar cannot reduce the infinite-domain defect below 4/7. If a candidate g attains error <=4/7-delta, then at every integer scale k at least one of the four scalar pairs appearing at the scaled r435 witness must differ from the r435 value by >=delta/4. This remains true for each of r435's six independent extremal witnesses. The criterion is a necessary tail condition, not an obstruction to the unrestricted open optimum of 1/2.
+
 ## Research consequence and provenance
 
 Finite LP optimization may validly use finitely many exceptional coefficients to prove bounds on each fixed cube, but making the same table default to q0 outside a finite region cannot produce a global error less than 1. A genuinely global candidate with error 1/2 needs **persistent, uniformly nonbaseline values at every scale** along the paired 3:2 rays; (A2) supplies the corresponding constraint throughout all nonexceptional axis-pair families. This indicates why exact finite-domain primal certificates and a global minimizer require distinct constructions; it neither decides whether E_infinity is 1/2 nor changes the valid r441 compactness theorem.
