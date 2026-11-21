@@ -1,0 +1,115 @@
+{
+  "schema": "X6_R89_AUTHOR_CHECK_SUMMARY_V1",
+  "date": "2026-11-22",
+  "checked_unoriented_nonzero_directions_q_le_30": 47305,
+  "weight_tuples_checked": 12,
+  "total_direction_weight_pairs": 567660,
+  "arithmetic": "Python fractions.Fraction exact",
+  "assertions": "PASS",
+  "universal_claim_basis": "direct symbolic divisibility proof, not this bounded check",
+  "selected_exact_results": [
+    {
+      "weights": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "d": 2,
+      "K": 2,
+      "nonmultiple_ratio_lower": "6",
+      "runner_up_ratio_p30": "2",
+      "runner_up": [
+        20,
+        -10,
+        2
+      ]
+    },
+    {
+      "weights": [
+        1000,
+        1,
+        1000,
+        1
+      ],
+      "d": 1001,
+      "K": 2000,
+      "nonmultiple_ratio_lower": "3003/1000",
+      "runner_up_ratio_p30": "2",
+      "runner_up": [
+        20,
+        -10,
+        2
+      ]
+    },
+    {
+      "weights": [
+        1,
+        1000,
+        1,
+        1000
+      ],
+      "d": 1001,
+      "K": 2000,
+      "nonmultiple_ratio_lower": "3003/1000",
+      "runner_up_ratio_p30": "2",
+      "runner_up": [
+        20,
+        -10,
+        2
+      ]
+    },
+    {
+      "weights": [
+        1,
+        5,
+        1,
+        30
+      ],
+      "d": 6,
+      "K": 35,
+      "nonmultiple_ratio_lower": "36/35",
+      "runner_up_ratio_p30": "2",
+      "runner_up": [
+        20,
+        -10,
+        2
+      ]
+    },
+    {
+      "weights": [
+        1,
+        1,
+        11,
+        11
+      ],
+      "d": 2,
+      "K": 12,
+      "nonmultiple_ratio_lower": "1",
+      "runner_up_ratio_p30": "1",
+      "example_tie": [
+        9,
+        -5,
+        1
+      ]
+    },
+    {
+      "weights": [
+        1,
+        1,
+        12,
+        12
+      ],
+      "d": 2,
+      "K": 13,
+      "nonmultiple_ratio_lower": "12/13",
+      "runner_up_ratio_p30": "12/13",
+      "competing": [
+        9,
+        -5,
+        1
+      ]
+    }
+  ],
+  "reproduction": "python3 research_notes/portable_direct/x6_r89_parity_sum_separation_verify.py"
+}
