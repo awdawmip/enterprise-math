@@ -1,0 +1,257 @@
+{
+  "schema": "R284DU_BOOLEAN_WINNER_LABEL_CERTIFICATE_V1",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED",
+  "source": "R284CO frozen det; R284DT seven certified windows; R284DQ eight skeletons",
+  "frozen_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "domain": "512 witness endpoint states (256 quotient by upper bit0)",
+  "boolean_input_order": [
+    "X",
+    "Y",
+    "Z",
+    "U2",
+    "U1",
+    "U0",
+    "W",
+    "R"
+  ],
+  "input_cases": 256,
+  "all_first_endpoints_match_exact_affine_winner": true,
+  "all_partner_endpoints_match_same_label": true,
+  "truth_table_sha256": "d173172ff35dbd6bcfb30d5841a3f4700433f4361731aafb31d1e1e71447c527",
+  "winner_counts": {
+    "21": 45,
+    "32": 21,
+    "44": 37,
+    "45": 19,
+    "55": 64,
+    "56": 43,
+    "63": 27
+  },
+  "pair_gaps": {
+    "59": 64,
+    "60": 192
+  },
+  "essential_coordinate_edge_counts": {
+    "X": 128,
+    "Y": 11,
+    "Z": 5,
+    "U2": 65,
+    "U1": 13,
+    "U0": 5,
+    "W": 128,
+    "R": 31
+  },
+  "coordinate_indispensability_witnesses": {
+    "X": {
+      "input0": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "input1": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "labels": [
+        63,
+        56
+      ]
+    },
+    "Y": {
+      "input0": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "input1": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "labels": [
+        45,
+        21
+      ]
+    },
+    "Z": {
+      "input0": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "input1": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "labels": [
+        45,
+        21
+      ]
+    },
+    "U2": {
+      "input0": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "input1": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "labels": [
+        63,
+        44
+      ]
+    },
+    "U1": {
+      "input0": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "input1": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "labels": [
+        45,
+        21
+      ]
+    },
+    "U0": {
+      "input0": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "input1": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "labels": [
+        63,
+        44
+      ]
+    },
+    "W": {
+      "input0": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "input1": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "labels": [
+        63,
+        45
+      ]
+    },
+    "R": {
+      "input0": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "input1": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "labels": [
+        45,
+        21
+      ]
+    }
+  },
+  "frozen_upper_bit0_not_needed_for_label": true,
+  "det_or_arc_calls_in_boolean_label_classifier": 0,
+  "review": "NOT_REVIEWED"
+}
