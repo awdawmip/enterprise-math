@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/rh_joint_correlation_20261121_b5750a/RESEARCH_FRONTIER.md",
+    "ref": "a1a75fe96789c1c3f40d5f58f1cda07661a5ef15",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-rh-joint-20261121-b5750a-05",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 继续研究的精确算术目标\n\n## 1. 当前状态\n\n已有完整道路与相位转移的精确恒等式，有理节点匹配桥，真实端点，\n固定起点相位修正的次幂预算，及本轮保留粗源符号后的有效有限上界。\n完整周期方差的主幂不能再通过其内部倍数相消降低；系数包络本身又\n允许真实的锚定相干。因此继续推进要加入真实算术系数的相关信息。\n\n下面是现有母研究内的作者工作目标，不新建共享 Task / CLAIM，不改变\n既有任务生命周期。所有假设均按其数学状态标记，不能用流程记录替代\n尚缺的估计。\n\n## 2. 目标 A：保留大除数联合三角矩\n\n固定一条完整匹配道路和窗口 `[A,B]`，其中 `B` 与 `A^lambda` 可比，\n`lambda>1` 固定。令\n\n\\[\nc=\\mu*(D-\\kappa),\\quad\n\\sigma_H=\\sum_{d\\le H}\\frac{c(d)}d,\\quad Q=q+P_H.\n\\]\n\n真实修正后的源为\n\n\\[\n-\\Delta^2 Q_n=-\\frac1n\\left(\\sigma_H+\n\\sum_{\\substack{d\\mid n\\\\d>H}}c(d)\\right).\n\\]\n\n对消元三角帽 `Phi_p`，定义有限、完整的倍数核\n\n\\[\n\\mathcal K_{d,p}=\n\\sum_{\\substack{L_p<n<R_p\\\\d\\mid n}}\\frac{\\Phi_p(n)}n.\n\\]\n\n其真实消元系数是\n\n\\[\n\\boxed{t_p^{[H]}=-\\sigma_H\\mathcal K_{1,p}\n-\\sum_{H<d\\le B}c(d)\\mathcal K_{d,p}.}\n\\]\n\n希望证明的一个充分条件是：对某个无界窗口集合、每个尺度包\n`[X,min(2X,B)]`、每一合并尺度，有统一 `C(A)=A^{o(1)}` 使\n\n\\[\n\\sum_{p\\in\\mathcal P(X,\\delta)}(t_p^{[H]})_+^2\n\\le C(A)^2/X.\n\\]\n\n保留 sigma 与大除数和的全部交叉项。当前有限证书能计算这些量，尚不\n提供上述无界窗口估计。每个 dyadic 骨架节点还须将左右所有流入合并\n后另行控制其净正质量；完整全局端点按真实值支付。\n\n验收依据是有明确常数、尺度范围、量词、真实系数输入的推导，或能\n定位该条件缺口的严格反例/更弱精确命题。一个辅助系数反例只对其\n信息类生效，不能被记为真实道路的反例。\n\n## 3. 目标 B：带符号前缀均方\n\n也可直接对每个尺度包内按序的完整粗源定义\n\n\\[\nM_X=\\sum_i m_i,\\quad F_k=\\sum_{i\\le k}m_i,\n\\quad d_k=x_{k+1}-x_k.\n\\]\n\n证明\n\n\\[\n(M_X)_+\\le C(A)X^{-1/2},\\qquad\n\\sum_k d_kF_k^2\\le C(A)^2\n\\]\n\n足以控制其带符号全局 Green 像。这里净正质量与前缀振荡同时出现，\n不可只估计内部波动后丢掉净漂移。修正道路使用同一 sigma 与完整大\n除数尾项计算前缀；不能把修正道路临时当成新的厚度道路。\n\n## 4. 接回原目标时仍需同时满足的量\n\n对临界 `theta=1/2`，一个可行组合是先选择有已证相位预算的\n`H<=floor(A^(4/5))`，再选择最细块宽约 `X^beta`、`0<beta<=3/4`。\n相位误差和通用局部曲率余项因此保持次幂。此处两个指数控制不同的\n对象，不应混为同一个截断条件。\n\n还须控制：真实全局仿射端点预算，闭窗两个端点的直接正部贡献，\ndyadic 骨架净正质量，以及节点随 `Z` 匹配时所有常数的一致性。\n一般权重的通用局部条件是 `beta<=(theta+1)/2`。\n\n有限数据中 `beta=4/5` 也可能给出很好预算，因为实际局部余项远小于\n其通用上界；这不解除上述统一局部条件。对一个窗口进行越来越精细\n的重算也不能替代任意远窗口的量词。\n\n## 5. 已排清与仍可探索的路线\n\n| 研究动作 | 当前证据与范围 |\n|---|---|\n| 只靠 b_s 内倍数相消降低整个 V_H 的主幂 | 对当前正 Lagrange 匹配族，新的双边方差定理已排除这一目标 |\n| 只靠 |c_d| 上界提升固定起点的 4/5 幂 | 辅助 0/1 相干构造已排除其统一版本 |\n| 用更大 H 保证有限窗自动降能 | 本窗 H128/256/512 均未降能；这只是有限反例，未给全尺度单调性结论 |\n| 对真实系数证明固定窗口相位抵消 | 仍开放；完整周期下界不阻止该路线 |\n| 保留粗源符号的运输与多层三角矩 | 已有严格有限改善和一般充分命题，算术量词仍待证明 |\n| 按层定位哪个三角矩/骨架主导预算 | 现有 JSON 已保存全部层及系数，可直接继续，不必重算完整道路 |\n\n数学工具与推导路线可按实际信息价值继续调整；上述目标不限定一种\n方法，不把未列出的普通研究方法视为未授权，也不预先规定必须得到\n正向结果。\n",
+      "display_title": "RESEARCH_FRONTIER.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a1a75fe96789c1c3f40d5f58f1cda07661a5ef15/research_notes/portable_direct/rh_joint_correlation_20261121_b5750a/RESEARCH_FRONTIER.md",
+      "encoding": "utf-8",
+      "sha": "c08b46019aab6715e619b9d2efeba4feab53fe3d"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}

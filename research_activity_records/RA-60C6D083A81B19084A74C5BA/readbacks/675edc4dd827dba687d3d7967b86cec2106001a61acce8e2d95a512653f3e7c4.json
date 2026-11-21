@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/rh_joint_correlation_20261121_b5750a/rh_joint_certificate/ANCHOR_LEMMA1_CROSS_CHECK.md",
+    "ref": "a1a75fe96789c1c3f40d5f58f1cda07661a5ef15",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-rh-joint-20261121-b5750a-16",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 同作者交叉核对：锚定障碍稿引理 1\n\nDate: 2026-11-21  \nContext: EM-DIRECT-B5750A 原母任务内 unshared 作者交叉核对。  \nScope: rh_joint_anchor/ANCHORED_ENVELOPE_OBSTRUCTION.md §1 的解析推导。  \nStatus: NO_GAP_FOUND_IN_THIS_LEMMA；不是独立 Project Review，不包括全稿或全部实现审查。\n\n## 被核对的命题\n\n对任意整数 \\(n\\ge2,d\\ge2\\)，\n\\[\n\\left|P_d(n)-\\frac{B_d(n)}n\\right|\\le\\frac{d^2}{8n^2}.\n\\]\n前提是此前已证明的两个精确 Fourier/积分表示，采用原稿的相位与端点约定。\n本核对没有重新运行旧证书全集。\n\n## 常数与统一性\n\n令 \\(u=e^{2\\pi i\\ell/d}\\ne1\\)，\n\\(f_u(t)=t/(1-tu)^2\\)。直接求导：\n\\[\nf'_u(t)=\\frac{1+tu}{(1-tu)^3}.\n\\]\n对 \\(0<t\\le1\\)，\n\\[\n|1-tu|^2=(1-t)^2+t|1-u|^2\\ge t|1-u|^2,\n\\]\n故\n\\[\n|f'_u(t)|\\le2t^{-3/2}|1-u|^{-3}.\n\\]\n从 \\(t\\) 积到 1 得\n\\[\n|f_u(t)-f_u(1)|\n\\le4(t^{-1/2}-1)|1-u|^{-3}.\n\\]\n乘 \\(t^{n-1}\\) 后积分，常数恰为\n\\[\n4\\left(\\frac1{n-1/2}-\\frac1n\\right)\n=\\frac2{n(n-1/2)}.\n\\]\n对 \\(n\\ge2\\) 此积分收敛；在 \\(t=0\\) 的点态粗界发散不会破坏积分步骤。\n\n若 \\(k=\\min(\\ell,d-\\ell)\\)，弦界给出\n\\[\n|1-u|=2\\sin(\\pi k/d)\\ge4k/d.\n\\]\n每个 \\(k\\) 最多对应两个 \\(\\ell\\)，故即使 \\(d\\) 为偶数，也有正确方向的上界\n\\[\n\\sum_{\\ell=1}^{d-1}|1-u|^{-3}\n\\le2(d/4)^3\\sum_{k\\ge1}k^{-3}\n\\le2(d/4)^3(3/2)=3d^3/64.\n\\]\n加上 Fourier 外因子 \\(1/d\\) 后，总误差至多\n\\[\n\\frac{3d^2}{32n(n-1/2)}.\n\\]\n末步\n\\[\n\\frac3{32n(n-1/2)}\\le\\frac1{8n^2}\n\\]\n等价于 \\(n\\ge2\\)，在 \\(n=2\\) 的比较处达到相等。\n\n因此该推导没有隐含 \\(d\\le n\\)、固定 \\(d\\) 或极限与求和交换要求。\n它确实给出同时关于 \\(n,d\\) 的统一误差界。\n本核对未发现引理 1 的符号、常数或积分可积性缺口。\n",
+      "display_title": "ANCHOR_LEMMA1_CROSS_CHECK.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a1a75fe96789c1c3f40d5f58f1cda07661a5ef15/research_notes/portable_direct/rh_joint_correlation_20261121_b5750a/rh_joint_certificate/ANCHOR_LEMMA1_CROSS_CHECK.md",
+      "encoding": "utf-8",
+      "sha": "3a1870f82dea7d969155e2b98900a3d503feee98"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
