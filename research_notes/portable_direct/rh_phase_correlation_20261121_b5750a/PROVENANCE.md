@@ -1,0 +1,50 @@
+# Provenance and actual scope
+
+Researcher-ID: EM-DIRECT-B5750A / TASK_RESEARCH
+Research-Activity-ID: RA-60C6D083A81B19084A74C5BA
+Original logical session: MCP-a062a52181bd433e8f8e1c9c7bacffb7
+Task context: RS-RH-METHOD-TRANSFER-20261121
+Task publication: TP2-677F61D1BCF81D4E4FE3
+Parent: OBJ-RH-METHOD-HARVEST-20261121
+This event: RH-PHASE-CORRELATION-20261121-B5750A
+
+## Canonical read evidence reused
+
+This continuation reused the actual retained managed full-file readback envelopes from the valid 2026-11-21 approximately 08:03 UTC / 16:03 Asia/Hong_Kong verification. Global authority is `awdawmip/chatgpt-global-knowledge@ffc232ae77f01ae88f1d4501c16bfbde51156835`, including `00_BOOTSTRAP.md`, `OPERATING_MANUAL.md`, `projects/enterprise-math/00_INDEX.md`, and applicable research, journal and visible-status rules. The canonical entry files were reopened from those actual envelopes at the start of this continuation; no chat memory substituted for them.
+
+Project method/control authority remains the verified snapshot `awdawmip/enterprise-math@49ad3d35092358dffe64a7be005b3864306da241`, including `AGENTS.md`, method, P000 startup, continuation, persistence, Activity and final identity rules. The read lease remains within its actual six-hour scope. Fresh current-target branch and record reads for publication are separately recorded; they do not silently replace the scientific freeze or assert that every file at the newer head was audited.
+
+The existing native Activity and identity helpers were reused unchanged. No new registration, task CLAIM or operational identity was fabricated to support author-side mathematics.
+
+## Scientific source chain
+
+- Frozen scientific input: `awdawmip/enterprise-math@9fc068244e4f1117f1e75df5eb0285c6697d21d7` (P000/X6, complete roads, observer/residual preservation).
+- Immediate previous Source: `1a5bec7e1ebd66c829f7957392ceab0d02f36642:research_notes/portable_direct/rh_integer_correlation_20261121_b5750a/`.
+- Previous adaptive Source: `cc8e2eec9e281ac2649341ec44a270c49bed6d38`.
+- Earlier window / transfer Sources: `824b102adf7095090c43c5f2112e42334fdd32e4`, `d020e8a51defa2a0e45cd8a9150330805627155c`.
+- Original extraction Source: `c3acb4d86c52f432a2697d8e035e4078ef2a4dab`.
+- Fixed external Lean mirror examined in the earlier extraction: `CocoSgt/riemann-hypothesis-lean@7cbf7a0c32fca1badf05931879a37c3f8a2b03b4`. This continuation does not repeat a complete build or independent proof audit of that project.
+
+The new results concern explicitly defined observations of the project's complete population. No additional native spatial axis is introduced. Lambda is a reference observation with an explicit residual budget, not a replacement of the complete road state. Exact unit extensions, kappa, full prefixes and real endpoints are preserved.
+
+## Work and checking
+
+The root derived the periodic Poisson kernel, exact gcd Gram, native R2/R4 square form, harmonic particular solution, fixed-anchor phase bound, critical four-fifths cutoff and synthesis. The root implemented and ran the new exact/interval phase checks and read the load-bearing statements and proofs from the other branches.
+
+Same-author collaborators developed the rational stable matched family and strict endpoint algorithm, sparse reference-shape energy certificate and two-moment obstruction, and block-source-moment bounds with six new diagnostic partitions. The rational collaborator narrowly cross-checked the root phase proof, including the complex integral, frequency row bound, Minkowski factor, quantifiers and endpoints; its scope is preserved in `CROSS_REVIEW.md`. The block collaborator checked the sparse branch's new zero-moment obstruction. These are author-side collaborative checks, not an independent Project Review or mathematical promotion.
+
+General claims are proved in the notes. Exact Fraction identities and directed integer intervals are explicitly distinguished from the 80-digit non-interval block experiments. The phase script uses the same rational matched family as the finite continuous energy certificate. Their targets remain distinct: discrete correction energy versus continuous complete-road positive energy. Universal upper bounds are not relabelled as measured energies.
+
+No proof of the arbitrarily distant arithmetic positive-energy bound is claimed. No new current-status assertion about general acceptance of the external RH claim is made by this package.
+
+## Actual historical state and permitted persistence
+
+- Original HANDOFF `rh-method-transfer-20261121-0932-handoff-v1`: SUCCEEDED, Source `28e616732857272257171444ac7bcc63ac4c19ac`, comment `7055376586`, authenticated readback. The original CLAIM was released.
+- Original formal Result `rh-method-transfer-20261121-0930-freeze-github-v1`: FAILED with `NATIVE_GLOBAL_AUDIT_INPUT_BUDGET_EXCEEDED`. It is not retried or reclassified by this continuation.
+- Previous Activity checkpoint commit: `62e0394de4aff765d3894ed2f6dcaeec6881f8a4`, five prior checkpoint events. Their record history and original sidecar bytes are preserved by the native append helper.
+- Previous global journal commit: `4a0b977eafa908e04979f11e1ba8e92fad635688`.
+- New research destination: `research_notes/portable_direct/rh_phase_correlation_20261121_b5750a/` in the authorized noncanonical project research surface.
+- New Activity destination: the existing record and native new observation sidecars, appended with current remote record/head checks and non-force CAS.
+- New global capture: a unique append-only `journal/enterprise-math/2026-11-21/<timestamp>-rh-phase-correlation-b5750a.md`. No generated or curated index is changed just to capture progress.
+
+Publication is durable provenance and owner visibility, not formal task/parent completion, formal Result, independent Review or canonical theorem acceptance. Actual publication SHAs, exact remote readbacks and verification times are recorded after publication in `DELIVERY_RECEIPT.json` in the delivered package. The source manifest excludes itself and does not invent a future commit.

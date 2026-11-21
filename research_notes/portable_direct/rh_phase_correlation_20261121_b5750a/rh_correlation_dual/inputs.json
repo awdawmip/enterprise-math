@@ -1,0 +1,44 @@
+{
+  "scientific_source_commit": "9fc068244e4f1117f1e75df5eb0285c6697d21d7",
+  "previous_artifact_commit": "cc8e2eec9e281ac2649341ec44a270c49bed6d38",
+  "previous_integer_result_path": "rh_integer_energy/integer_energy_results.json",
+  "previous_integer_result_sha256": "98dde7a357e197dad8d42f92194971d569d51ef7bfdc1a0f8407a8661b7e2f03",
+  "previous_readouts_sha256": "5a437f24f151e97e57b2f4fba0ba88103c3cf520aa412bc394267753c2a5ca4b",
+  "reuse": "Same three already evaluated complete-road windows. Only inverse-Dirichlet products, dual optimization and source/boundary decompositions are newly calculated.",
+  "cases": [
+    {
+      "label": "m2",
+      "Y": "1000.0",
+      "theta": "0.6",
+      "lambda": "1.5",
+      "node_count": 2,
+      "maximum_thickness": "0.0028722300410962803554656703605486532",
+      "expected_interior_positive_square_sum": "0.00072695698456370303944556092325847671",
+      "prior_gradient_discard_upper_ratio": "174.8779156045592685740719577615263"
+    },
+    {
+      "label": "chebyshev",
+      "Y": "1000.0",
+      "theta": "0.6",
+      "lambda": "1.5",
+      "node_count": 11,
+      "maximum_thickness": "0.5",
+      "expected_interior_positive_square_sum": "0.00074290076755883996059507919327630678",
+      "prior_gradient_discard_upper_ratio": "171.55429902806927689341816910859552"
+    },
+    {
+      "label": "m1",
+      "Y": "1000.0",
+      "theta": "0.9",
+      "lambda": "1.5",
+      "node_count": 1,
+      "maximum_thickness": "0.00031894470207919282077555586319254325",
+      "expected_interior_positive_square_sum": "0.00000064709941358530713437473656224464031",
+      "prior_gradient_discard_upper_ratio": "1621.9526473558619475513697950581409"
+    }
+  ],
+  "source_continuation_commit": "1a5bec7e1ebd66c829f7957392ceab0d02f36642",
+  "previous_inverse_results_sha256": "149f0987a72060255849d5f7d0a9e461ace28d53c8eeeed2029a9435f571ccfd",
+  "previous_inputs_sha256": "6f66a99ed202fa05c3a24689bfd0880ad22ea23a75a87d619c5544e6c9450485",
+  "new_work": "Local signed zeroth/first moments, tent-averaged coarse sources, curvature remainders and factor-layer cancellation; no previous suite rerun."
+}
