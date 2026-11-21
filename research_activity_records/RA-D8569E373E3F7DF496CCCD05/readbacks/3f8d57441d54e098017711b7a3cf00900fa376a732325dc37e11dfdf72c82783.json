@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/chatgpt_direct/20261121_common_probe_joint_residues_ee1c37/README.md",
+    "ref": "72bea6a2aa4d8df9092c10a3006f6b0818df8eb7",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "ee1c37-r10-phase-a-source-readback",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 共同晚选变换：联合余数观察的精确科研断点\n\n2026年11月21日。Researcher-ID：EM-DIRECT-EE1C37；模式TASK_RESEARCH；沿用Activity RA-D8569E373E3F7DF496CCCD05。本断点保存已经完成的奇偶方法边界和模三短证明，下一完整费用层与更大构造邻域继续计算。\n\n## 研究范围与既有前沿\n\n沿用三台共同晚选恒等或倍增、全体合计至多补读一个原端点的原程序。125个旧历史、125种菜单和两种变换构成31,250个等权输入。模五三元组是原生程序已有的有限观察编码；本次只在这个编码及既有未来操作范围内研究合法消息类的整数分区。\n\n前驱不可变版本为 `17ef60a8235b93b0b7c541ca61ed10375a4244d4`，路径 `research_notes/chatgpt_direct/20261120_common_probe_9861_and_upgrade16`。本包 `previous/` 复用该已验证源码树 `d16be86d85222a31075f0f645625f2537bdd59f0`，保留原程序和完整可复算依赖。\n\n本断点不改变既有一般界：\n\n\\[\nR_{11}=11,292,\\qquad9,861\\le R_{12}\\le9,996,\\qquad R_{13}=8,721.\n\\]\n\n本次集中处理已经通过完整搜索排除的费用9,858分型：\n\n\\[\n(9,557)^2(10,744)^5(11,936)^2(11,944)(12,1104)^2.\n\\]\n\n固定两个删中心核心后，自由域有101个历史，剩余四类型的数量为\\(n=(2,5,2,1)\\)，自由类总数为10。前驱有五个规范余集留下满足完整星团条件及全部155条仿射纤维奇偶条件的精确分数覆盖。这些分数覆盖用于判断松弛条件的强弱，不是合法整数整表。\n\n## 一、平行纤维并集确实带来新条件，但补齐整族后仍有五个精确分数点\n\n取自由域子集H和类型系数\\(a\\in\\{0,1\\}^4\\)。定义\n\n\\[\nb_C=(|C\\cap H|+a_{t(C)})\\bmod2,\n\\qquad r=(|H|+a\\cdot n)\\bmod2.\n\\]\n\n任何整数分区满足\\(\\sum_Cb_Cx_C\\equiv r\\pmod2\\)，因此r=1时必有\\(\\sum_Cb_Cx_C\\ge1\\)。这同时保留历史覆盖和类数量的联合信息。\n\n旧第4分数点被一个63点集合切掉：该集合是三个平行模五纤维与自由域的交，左端为\n\n\\[\n\\frac{24224479417132626104621409029}{27961409112557999812771344058}\n\\approx0.866354<1.\n\\]\n\n在完整8,476列候选库上重新优化并恢复有理权重后，第4点得到668个正权自由类。其余四个旧精确点已通过新条件，无须替换。五点的正权自由类数依次为558、398、741、668、674。\n\n`verify_combined.py`直接用原有限菜单验证2,629个不同正权类，并精确检查276,230个内部星团条件，以及每点7,936次、五点39,680次“任意平行纤维并集加类型系数”索引检查。全部通过。完整星团约束的零权锚点及固定核心锚点沿用前驱证明化简，不把它们遗漏为有限抽样。\n\n不同并集/类型系数组合可能给出同一不等式，上述数目是索引检查次数。\n\n## 二、再加入任意三个纤维或单点的异或，五点仍全部存活\n\n把155条仿射纤维与自由域的交，以及自由域的101个单点，组成256个基本集合。令H遍历其中至多三个集合的对称差，另加空集，再配全部8个使r=1的类型系数。\n\n每个点精确检查\n\n\\[\n8\\left(1+\\binom{256}{1}+\\binom{256}{2}+\\binom{256}{3}\\right)=22,371,336\n\\]\n\n个索引条件。五点共111,856,680次全部通过；重复索引不作不同割计数。\n\n验证器先对每个有理权重作\\(2^{60}\\)倍的向下整除，得到严格整数下界。下界达到\\(2^{60}\\)即已证明相应不等式。剩余分别108、102、106、107、106条以公共分母精确计算，全部恰等于1。公共分母最多182位，入口检查位数不超过250，全部权重总和为10，故256位整数可完整容纳所有和；C++同时检查溢出。这里没有浮点容差。\n\n同一程序会精确拒绝旧第4点，得到与上一节同一严格违约分数。正例、反例与完整索引范围分别保存在 `xor/result.json`、`xor/old_point_counterexample.json` 和 `xor/README.md`。\n\n## 三、模三条件把三个余集的排除压缩成8≤5\n\n对任意整数q≥2，给每个历史整数系数\\(\\lambda_p\\)，给每种类型系数\\(a_t\\)。记\\([z]_q\\)为0至q−1的标准余数。整数分区必满足\n\n\\[\n\\sum_C\\left[\\sum_{p\\in C}\\lambda_p+a_{t(C)}\\right]_q x_C\n\\ge\n\\left[\\sum_{p\\in U}\\lambda_p+\\sum_ta_tn_t\\right]_q.\n\\]\n\n右端非零时，这是有效的联合余数条件。推导只用覆盖、型数量与非负整数性。\n\n本次得到一个特别短的q=3证明。固定一个坐标方向，记一个类在五条纤维上的人数为\\(h_0,\\ldots,h_4\\)。完整单类分类给出以下形状：\n\n| 类型 | 所有可能的排序纤维人数 |\n|---|---|\n| (9,557) | (1,2,2,2,2) |\n| (10,744) | (2,2,2,2,2) |\n| (11,936) | (1,1,2,2,5)、(1,2,2,2,4)、(2,2,2,2,3) |\n| (11,944) | (1,1,2,2,5)、(1,2,2,2,4) |\n\n对任一指定纤维v，这几种形状直接给出\n\n\\[\n\\sum_{a\\ne v}[2(h_a+1)]_3\n\\le h_v-\\mathbf1_{(9,557)}-2\\mathbf1_{(10,744)}.\n\\]\n\n因此，更一般地，若上述四类型的数量为\\(N_9,N_{10},N_{11a},N_{11b}\\)，总类数为k，余集纤维人数为m，则每一个v都必须满足\n\n\\[\n\\boxed{m_v\\ge N_9+2N_{10}+\\sum_{a\\ne v}[2(m_a+k)]_3.}\n\\]\n\n三个余集各在某一坐标方向出现纤维人数(21,21,21,17,21)的排列。取人数17的纤维为v；这里k=10，\\(N_9=2,N_{10}=5\\)。其余四个纤维的模三余数条件各要求至少2，总量至少8；单类占用式求和却给出总量至多\\(17-2-10=5\\)。于是得到8≤5的矛盾，亦即人数17的纤维至少需要20个历史。\n\n`verify_modular.py`从原菜单重新检查全域52,500个四类型合法类，逐类、逐坐标、逐指定纤维核对787,500个占用式；三个简化证书还分别对全部52,500列核对非负松弛和负常数−3。这里的全类完备性来自前驱完整原生枚举及仿射展开，附带重建入口。\n\n这三个短证明解释的是已排除余集。它们与旧精确边际程序的排除范围一致，尚未提升一般十二标签下界。其余两个余集在更强联合条件下的情况继续研究。\n\n## 四、复算入口\n\n从本包根运行：\n\n```text\npython3 -B integer_cuts/verify_combined.py --delivery-root previous --output /tmp/common_probe_combined.json\npython3 -B xor/verify.py --witness-dir integer_cuts/full_system --parallel-module integer_cuts/parallel_family.py --work /tmp/common_probe_xor --output /tmp/common_probe_xor.json\npython3 -B previous/fractional/next_cuts/prepare_discovery_bank.py --delivery-root previous --work /tmp/common_probe_modular_bank\npython3 -B integer_cuts/verify_modular.py --delivery-root previous --bank /tmp/common_probe_modular_bank/bank --output /tmp/common_probe_modular.json\n```\n\nPython验证器只使用标准库；候选库重建与Xor完整枚举使用C++20、128位整数及POPCNT。Xor的256位加法由随附四字实现提供。优化器只用于发现，没有进入这些精确验证命令。\n\n## 五、保存与后续状态\n\n本断点保存有限观察模型内的作者复核、原生程序验算和可复算证书。正式独立Review状态仍为NOT_REVIEWED；没有据此建立新的Foundation或领取共享Task。正在继续的费用9,861完整层排除、9,996构造的更大类联合重分割、十一标签更大概率偏差区间，须按各自实际完成回执更新结论。\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/72bea6a2aa4d8df9092c10a3006f6b0818df8eb7/research_notes/chatgpt_direct/20261121_common_probe_joint_residues_ee1c37/README.md",
+      "encoding": "utf-8",
+      "sha": "54259d5a93b8370edc9df1d3aeb3ce0e6adfc740"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
