@@ -1,0 +1,116 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_EXACT_EVIDENCE_V1",
+  "id": "R762HW",
+  "created_date": "2026-11-21",
+  "task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_science_source": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": "awdawmip/enterprise-math@30d6ed3e00f11ad5de23424a4fc1d7749f26e16e:research_notes/portable_direct/R762HV_PORT_PARITY_SPECTRAL_LAW.md",
+  "model": {
+    "kind": "six-axis composite Port candidate",
+    "root": "01",
+    "ports": 15,
+    "successors_per_port": 8,
+    "positive_brc_semantics": "ordered labeled Port paths, exact integer multiplicity",
+    "signed_characters": "algebraic parity projection only",
+    "native_physics_assertion": false
+  },
+  "author_theorem": {
+    "exact": "E_m=(2T_0+12T_1+30T_2+20T_3)/960; E_m-P_m/32=T_1/80+T_2/32+T_3/48, m even",
+    "strict": "1/32<E_(2r+2)/P_(2r+2)<E_(2r)/P_(2r) for r>=1",
+    "asymptotic": "E_m-P_m/32=rho^m/80+O(sigma^m); E_m/P_m=1/32+3/16*(rho/8)^m+O((sigma/8)^m), even m to infinity",
+    "rho": "1+sqrt(33)",
+    "sigma": "largest positive real root of t^3-2t^2-28t+32; 5.850<sigma<5.851"
+  },
+  "checks": {
+    "exact_python": {
+      "entry": "python3 R762HW_CHECK.py",
+      "script_sha256": "56b89b71f654145f15549f4c35c1b0d8ff13daae174a0d02dabeaa2301cdcce3",
+      "stdout_sha256": "fba40fdea42c07c50d01f3c50ead4e0563b2b42072b74a241895e01717d20c0e",
+      "git_blob_sha1": "00abeba8a7192a5bd9b25f228a0c55e33830d719",
+      "result": "PASS R762HW",
+      "coverage": "DP through m=80, Newton character-class powers through m=80, all even-length class identities, 39 consecutive exact ratio inequalities",
+      "arithmetic": "unbounded integers and Fraction; output decimals are non-proof display only"
+    },
+    "exploratory_cpp": {
+      "entry": "g++ -O3 -std=c++17 R762HW_SAMPLE.cpp -o sample && ./sample 125000",
+      "script_sha256": "897b7524c681fe592a21f4d23380d3d64186333b6888e5c0267f8e4097caa1a2",
+      "stdout_sha256": "162eff21956bd4df08fd80f0fbf6073b6087590856b3c04693adc4fa978a213f",
+      "git_blob_sha1": "fdbf80acd629eefd6cd92b7293c82fedad077baf",
+      "seed": "0xa50c37b8aa221901",
+      "per_length_samples": 125000,
+      "counts": [
+        {
+          "m": 14,
+          "closed": 66325,
+          "even": 3876,
+          "unsignable": 0
+        },
+        {
+          "m": 16,
+          "closed": 66742,
+          "even": 3120,
+          "unsignable": 0
+        },
+        {
+          "m": 18,
+          "closed": 66804,
+          "even": 2877,
+          "unsignable": 0
+        },
+        {
+          "m": 20,
+          "closed": 66604,
+          "even": 2575,
+          "unsignable": 0
+        },
+        {
+          "m": 22,
+          "closed": 66718,
+          "even": 2460,
+          "unsignable": 0
+        }
+      ],
+      "result_type": "NONEXHAUSTIVE_SEEDED_EXPLORATION"
+    }
+  },
+  "excerpts": [
+    {
+      "m": 2,
+      "E": "8",
+      "P": "8"
+    },
+    {
+      "m": 4,
+      "E": "168",
+      "P": "288"
+    },
+    {
+      "m": 14,
+      "E": "16704767360",
+      "P": "293203116032"
+    },
+    {
+      "m": 26,
+      "E": "677370234552288468992",
+      "P": "20148763660243882213376"
+    },
+    {
+      "m": 40,
+      "E": "2787372739142589353110830317568000",
+      "P": "88615199718994391526921496896208896"
+    },
+    {
+      "m": 80,
+      "E": "3680957280553539645201932014427700703519669051054489816856845849985024",
+      "P": "117789804318558955305553166716194567721832259792836261306414067315900416"
+    }
+  ],
+  "status": {
+    "math": "AUTHOR_PROVED",
+    "finite": "EXECUTED_EXACT_CHECKS",
+    "sample": "NONEXHAUSTIVE",
+    "independent_review": "NOT_REVIEWED",
+    "native_progress": "NOT_ASSERTED",
+    "activity": "PENDING_AUTHENTICATED_ASSOCIATION"
+  }
+}
