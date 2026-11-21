@@ -1,0 +1,40 @@
+{
+  "status": "EXACT_ONE_SIDED_FULL_WINDOW_CERTIFICATE_PASSED",
+  "window": [
+    25,
+    125
+  ],
+  "theta": "3/4",
+  "h": "149/1000",
+  "thicknesses": [
+    "149/1000",
+    "149/500"
+  ],
+  "normalized_weights": [
+    2,
+    -1
+  ],
+  "all_integer_population": 124,
+  "omega_population": {
+    "1": 42,
+    "2": 69,
+    "3": 13
+  },
+  "C_minus_endpoint_interval": {
+    "lower": "18.45738153632518541868",
+    "upper": "18.45738153632518541869"
+  },
+  "C_minus_endpoint_upper_fraction": "1845738153632518541869/100000000000000000000",
+  "budget_chain": "C_minus(125) < 37/2 < 125^(3/4)/2",
+  "orientation_chain": "h log(125) < 7h log(2) < 2 log(2)",
+  "generic_h_upper": "539/18432",
+  "strict_improvement": "h > 5 h_generic",
+  "log_enclosure": "36-term positive atanh series after dyadic scaling",
+  "conclusion": "G(y) <= G_extrapolated(y) + y^(3/4)/2 for all 25 <= y <= 125",
+  "scope": [
+    "Finite endpoint arithmetic plus the proved monotonicity theorem covers the entire real window.",
+    "All 124 integers from 2 through 125 remain in the readout.",
+    "The omega=2 layer has zero minus-envelope coefficient because its error is positive; its road contribution is retained.",
+    "This certifies a one-sided bridge, not an infinite-window positive-energy estimate."
+  ]
+}

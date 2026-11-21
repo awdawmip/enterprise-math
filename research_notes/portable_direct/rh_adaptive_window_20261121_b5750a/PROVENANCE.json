@@ -1,0 +1,65 @@
+{
+  "title": "黎曼方法继续提取：稳定厚度、纯整数窗口与单侧抵消",
+  "created_at": "2026-11-21T11:31:28+08:00",
+  "researcher_id": "EM-DIRECT-B5750A",
+  "research_mode": "TASK_RESEARCH",
+  "activity_id": "RA-60C6D083A81B19084A74C5BA",
+  "event_id": "RH-ADAPTIVE-WINDOW-20261121-B5750A",
+  "task_context": "RS-RH-METHOD-TRANSFER-20261121",
+  "publication_context": "TP2-677F61D1BCF81D4E4FE3",
+  "parent_context": "OBJ-RH-METHOD-HARVEST-20261121",
+  "scientific_input": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "9fc068244e4f1117f1e75df5eb0285c6697d21d7",
+    "scope": "Frozen scientific basis; whole-road observer fidelity, X6 and joint factor data retained."
+  },
+  "current_method_and_persistence_input": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "b97d5a906a0ec6f488010c070947c02a1bea6101"
+  },
+  "global_canonical_input": {
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "commit": "4e5ca2db935f6082b1b2768083fafcb1590b2246",
+    "entrypoints": [
+      "00_BOOTSTRAP.md",
+      "OPERATING_MANUAL.md"
+    ],
+    "mode": "Verified same-phase canonical snapshot reuse"
+  },
+  "prior_science": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "824b102adf7095090c43c5f2112e42334fdd32e4",
+    "path": "research_notes/portable_direct/rh_window_continuation_20261121_b5750a/"
+  },
+  "external_window_interface": {
+    "repository": "CocoSgt/riemann-hypothesis-lean",
+    "commit": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
+    "status": "External conditional theorem interface reused from earlier extraction; this continuation does not assert a full local Lean build."
+  },
+  "standard_polynomial_source": "https://dlmf.nist.gov/18.5#E1",
+  "proof_scope": [
+    "Growing-order stable Chebyshev thickness bridge with normalized absolute weight sum 3.",
+    "Uniform small-disk analytic background bounds; energy transfer explicitly conditional on existing Q_a <= C a.",
+    "Continuous positive window condition equivalent to integer positive-square condition for matched or uniformly bounded-weight whole-road families.",
+    "Actual-boundary one-sided convex/variance interfaces and exact cell primitives.",
+    "Whole-factor layer signs, higher-factor envelopes and an exact Fraction one-sided certificate on [25,125]."
+  ],
+  "open_problem": "Uniform arbitrarily remote subpower positive-square window bound remains unproved; neither Q_a <= C a nor RH is proved in this continuation.",
+  "evidence_scope": {
+    "exact": "Fraction algebra, formal polynomial jets, algebraic sign envelopes and one complete real-window certificate.",
+    "floating": "mpmath high-precision actual-road checks, node cases and finite-window integrations are non-interval numerical evidence, not infinite-scale proofs.",
+    "collaboration": "Same-context author collaboration and narrow formula checks; no independent formal Review."
+  },
+  "control_state": {
+    "new_shared_claim": false,
+    "new_formal_result": false,
+    "prior_handoff": "SUCCEEDED / HANDOFF(CONTINUATION)",
+    "prior_handoff_commit": "28e616732857272257171444ac7bcc63ac4c19ac",
+    "prior_result_request_id": "rh-method-transfer-20261121-0930-freeze-github-v1",
+    "prior_result_state": "FAILED",
+    "prior_result_error": "NATIVE_GLOBAL_AUDIT_INPUT_BUDGET_EXCEEDED",
+    "interpretation": "Author-side unshared scientific continuation with portable Source and Activity preservation. Historical failed request not retried."
+  },
+  "planned_source_path": "research_notes/portable_direct/rh_adaptive_window_20261121_b5750a/",
+  "receipt_note": "Immutable publication and successful readback receipts will be recorded in PUBLICATION_RECEIPTS.json after publication; this provenance file is scientific-package input, not a claim that publication has already occurred."
+}
