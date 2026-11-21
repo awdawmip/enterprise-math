@@ -1,0 +1,100 @@
+{
+  "schema": "X6_TIME_BIDIRECTIONAL_36STATE_EXACT_CHECK_V1",
+  "scientific_status": "FINITE_EXACT_CHECK_ONLY",
+  "frozen_p000": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "states": 36,
+  "native_arrows": 48,
+  "distinct_cells": 13,
+  "cell_trace_distinction_horizon_0_1_2": [
+    13,
+    30,
+    36
+  ],
+  "physical_event_phase_states": 12,
+  "oriented_phase_pair_states": 24,
+  "outer_only_oriented_states": 24,
+  "fixed_length_live_bits": 6,
+  "source_principal_root": {
+    "forward": 3,
+    "reverse": -3,
+    "c6_indistinguishable": true,
+    "c12_distinguishable": true,
+    "static_under_fixed_sweep": true
+  },
+  "population": {
+    "W1": {
+      "primitive_events": 12,
+      "distinct_traces": 128,
+      "per_chirality": {
+        "reverse": {
+          "distinct_traces": 64,
+          "pivot_histogram": [
+            1,
+            6,
+            15,
+            20,
+            15,
+            6,
+            1
+          ]
+        },
+        "forward": {
+          "distinct_traces": 64,
+          "pivot_histogram": [
+            1,
+            6,
+            15,
+            20,
+            15,
+            6,
+            1
+          ]
+        }
+      }
+    },
+    "W2": {
+      "primitive_events": 24,
+      "distinct_traces": 8192,
+      "per_chirality": {
+        "reverse": {
+          "distinct_traces": 4096,
+          "pivot_histogram": [
+            1,
+            12,
+            66,
+            220,
+            495,
+            792,
+            924,
+            792,
+            495,
+            220,
+            66,
+            12,
+            1
+          ]
+        },
+        "forward": {
+          "distinct_traces": 4096,
+          "pivot_histogram": [
+            1,
+            12,
+            66,
+            220,
+            495,
+            792,
+            924,
+            792,
+            495,
+            220,
+            66,
+            12,
+            1
+          ]
+        }
+      }
+    }
+  },
+  "exact_assertions": 34144,
+  "mismatches": 0
+}
