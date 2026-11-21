@@ -1,0 +1,688 @@
+{
+  "schema": "X6_TIME_UNIT247_PORT_PRECISION_C24_COSSET_CERTIFICATE_V1",
+  "date": "2026-11-22",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "source_case_commit": "f56840285cafeb9f5767ea91e903e1f53808186f",
+  "source_case_path": "research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+  "conditional_model": "12 bidirectional signed OUTER ring events; one directed centre ingress and one directed centre egress; serial target-empty guarded whole triads; additive speculative precision cochain g5=g10=3, all other ring g=0, reversed edges negative, centre increments zero",
+  "precision_moduli": [
+    6,
+    12,
+    24,
+    48,
+    96,
+    192
+  ],
+  "ring_only_states_at_fixed_cell": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "diameter_states_at_fixed_cell": [
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "orbit_ratio_matrix": [
+    [
+      1,
+      1,
+      1,
+      2,
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      2,
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    [
+      2,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    [
+      2,
+      2,
+      2,
+      1,
+      1,
+      1
+    ]
+  ],
+  "ratio_distribution": {
+    "unchanged": 18,
+    "doubled": 18
+  },
+  "sharp_diameter_observer": {
+    "primitive_events": 8,
+    "path": "x_i -> P -> x_(i+6) -> x_(i+5) -> ... -> x_i",
+    "precision_delta_C24": 21,
+    "full_ring_forward_delta_C24": 6
+  },
+  "diameter_source_optima": [
+    {
+      "ingress": 0,
+      "egress": 6,
+      "cost": 38,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 0,
+      "excursions_B": 2,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 2,
+      "egress": 8,
+      "cost": 38,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 2,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 4,
+      "egress": 10,
+      "cost": 32,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 2,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 6,
+      "egress": 0,
+      "cost": 28,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 2,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 8,
+      "egress": 2,
+      "cost": 28,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 0,
+      "excursions_B": 2,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 10,
+      "egress": 4,
+      "cost": 32,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 0,
+      "excursions_B": 2,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "ingress": 0,
+      "egress": 0,
+      "cost": 30,
+      "clockwise_arc_weight": 0,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 0,
+      "excursions_B": 1,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 0,
+      "egress": 2,
+      "cost": 38,
+      "clockwise_arc_weight": 0,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 6,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        0,
+        6
+      ]
+    },
+    {
+      "ingress": 0,
+      "egress": 4,
+      "cost": 36,
+      "clockwise_arc_weight": 0,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 3,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        0,
+        6
+      ]
+    },
+    {
+      "ingress": 0,
+      "egress": 6,
+      "cost": 38,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 0,
+      "excursions_B": 2,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 0,
+      "egress": 8,
+      "cost": 38,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 3,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        21,
+        6
+      ]
+    },
+    {
+      "ingress": 0,
+      "egress": 10,
+      "cost": 46,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 0,
+      "excursions_B": 6,
+      "precision_delta_C24": [
+        18,
+        18
+      ]
+    },
+    {
+      "ingress": 2,
+      "egress": 0,
+      "cost": 38,
+      "clockwise_arc_weight": 6,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 0,
+      "excursions_B": 6,
+      "precision_delta_C24": [
+        18,
+        0
+      ]
+    },
+    {
+      "ingress": 2,
+      "egress": 2,
+      "cost": 30,
+      "clockwise_arc_weight": 0,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 1,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 2,
+      "egress": 4,
+      "cost": 46,
+      "clockwise_arc_weight": 0,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 6,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        0,
+        6
+      ]
+    },
+    {
+      "ingress": 2,
+      "egress": 6,
+      "cost": 38,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 0,
+      "excursions_B": 3,
+      "precision_delta_C24": [
+        18,
+        3
+      ]
+    },
+    {
+      "ingress": 2,
+      "egress": 8,
+      "cost": 38,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 2,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 2,
+      "egress": 10,
+      "cost": 36,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 0,
+      "excursions_B": 3,
+      "precision_delta_C24": [
+        18,
+        9
+      ]
+    },
+    {
+      "ingress": 4,
+      "egress": 0,
+      "cost": 32,
+      "clockwise_arc_weight": 6,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 0,
+      "excursions_B": 3,
+      "precision_delta_C24": [
+        18,
+        0
+      ]
+    },
+    {
+      "ingress": 4,
+      "egress": 2,
+      "cost": 36,
+      "clockwise_arc_weight": 6,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 0,
+      "excursions_B": 6,
+      "precision_delta_C24": [
+        18,
+        0
+      ]
+    },
+    {
+      "ingress": 4,
+      "egress": 4,
+      "cost": 32,
+      "clockwise_arc_weight": 0,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 1,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 4,
+      "egress": 6,
+      "cost": 48,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 6,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        6,
+        6
+      ]
+    },
+    {
+      "ingress": 4,
+      "egress": 8,
+      "cost": 38,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 3,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        15,
+        6
+      ]
+    },
+    {
+      "ingress": 4,
+      "egress": 10,
+      "cost": 32,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 2,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 6,
+      "egress": 0,
+      "cost": 28,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 2,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 6,
+      "egress": 2,
+      "cost": 30,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 0,
+      "excursions_B": 3,
+      "precision_delta_C24": [
+        18,
+        9
+      ]
+    },
+    {
+      "ingress": 6,
+      "egress": 4,
+      "cost": 40,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 0,
+      "excursions_B": 6,
+      "precision_delta_C24": [
+        18,
+        18
+      ]
+    },
+    {
+      "ingress": 6,
+      "egress": 6,
+      "cost": 36,
+      "clockwise_arc_weight": 0,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 1,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 6,
+      "egress": 8,
+      "cost": 44,
+      "clockwise_arc_weight": 0,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 6,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        0,
+        6
+      ]
+    },
+    {
+      "ingress": 6,
+      "egress": 10,
+      "cost": 34,
+      "clockwise_arc_weight": 0,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 3,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        0,
+        6
+      ]
+    },
+    {
+      "ingress": 8,
+      "egress": 0,
+      "cost": 30,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 3,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        15,
+        6
+      ]
+    },
+    {
+      "ingress": 8,
+      "egress": 2,
+      "cost": 28,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 0,
+      "excursions_B": 2,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 8,
+      "egress": 4,
+      "cost": 34,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 0,
+      "excursions_B": 3,
+      "precision_delta_C24": [
+        18,
+        9
+      ]
+    },
+    {
+      "ingress": 8,
+      "egress": 6,
+      "cost": 44,
+      "clockwise_arc_weight": 6,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 0,
+      "excursions_B": 6,
+      "precision_delta_C24": [
+        18,
+        0
+      ]
+    },
+    {
+      "ingress": 8,
+      "egress": 8,
+      "cost": 36,
+      "clockwise_arc_weight": 0,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 0,
+      "excursions_B": 1,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 8,
+      "egress": 10,
+      "cost": 40,
+      "clockwise_arc_weight": 0,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 6,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        0,
+        6
+      ]
+    },
+    {
+      "ingress": 10,
+      "egress": 0,
+      "cost": 36,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 6,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        6,
+        6
+      ]
+    },
+    {
+      "ingress": 10,
+      "egress": 2,
+      "cost": 32,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 3,
+      "excursions_B": 0,
+      "precision_delta_C24": [
+        15,
+        6
+      ]
+    },
+    {
+      "ingress": 10,
+      "egress": 4,
+      "cost": 32,
+      "clockwise_arc_weight": 3,
+      "precision_orbit_ratio": 2,
+      "precision_orbit_C24": 8,
+      "excursions_A": 0,
+      "excursions_B": 2,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    },
+    {
+      "ingress": 10,
+      "egress": 6,
+      "cost": 38,
+      "clockwise_arc_weight": 6,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 0,
+      "excursions_B": 3,
+      "precision_delta_C24": [
+        18,
+        0
+      ]
+    },
+    {
+      "ingress": 10,
+      "egress": 8,
+      "cost": 48,
+      "clockwise_arc_weight": 6,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 0,
+      "excursions_B": 6,
+      "precision_delta_C24": [
+        18,
+        0
+      ]
+    },
+    {
+      "ingress": 10,
+      "egress": 10,
+      "cost": 32,
+      "clockwise_arc_weight": 0,
+      "precision_orbit_ratio": 1,
+      "precision_orbit_C24": 4,
+      "excursions_A": 0,
+      "excursions_B": 1,
+      "precision_delta_C24": [
+        18,
+        6
+      ]
+    }
+  ],
+  "exact_integer_assertions": 3187,
+  "reachable_graph_states_explored": 44226,
+  "failures": 0,
+  "admission": "AUTHOR_EXACT_CHECKED / CONDITIONAL_CANDIDATE / NO_NATIVE_PORT_ADMISSION / UNREVIEWED / NOT_ADMITTED"
+}
