@@ -1,0 +1,46 @@
+{
+  "schema": "R284DJ_INDEX_FREE_TWO_READ_RECOVERY_V1",
+  "status": "AUTHOR_PROVED / FINITE_CORE_CERTIFIED / SAMPLE_EXECUTED / NOT_REVIEWED",
+  "frozen_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "precomputed_kappa_keys": 512,
+  "kappa_min": -58690413,
+  "kappa_max": -29955930,
+  "possible_core_assignments": 512,
+  "free_assignments_per_core_and_r": 64,
+  "max_inverse_D_candidates_each": 128,
+  "max_candidate_residue_pairs": 16384,
+  "tested_samples": 109,
+  "sample_seed": 20261121,
+  "test_indices_sha256": "03fb9f693a0751aedf7ccb6741e19b7ecf917299400e964e9bbee2a94d78fdeb",
+  "all_sample_recoveries_exact": true,
+  "sample_costs": {
+    "root0": {
+      "min": 4,
+      "max": 116,
+      "total": 7364
+    },
+    "root1": {
+      "min": 6,
+      "max": 116,
+      "total": 7650
+    },
+    "candidate_pairs": {
+      "min": 32,
+      "max": 12084,
+      "total": 574764
+    },
+    "kappa_pairs": {
+      "min": 1,
+      "max": 88,
+      "total": 4325
+    },
+    "det_calls": {
+      "min": 64,
+      "max": 5632,
+      "total": 276800
+    }
+  },
+  "full_domain_correctness_basis": "R284DI all-state two-read injectivity + exact determinant increment + exhaustive 512-core kappa separation + full 64 remainder enumeration + endpoint inverse-D lemma; no all-state decoder run claimed",
+  "runtime_lookup": "512-key core table; no 65536-entry x-to-source inverse map",
+  "independent_review": "NOT_REVIEWED"
+}
