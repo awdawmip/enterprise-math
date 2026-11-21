@@ -1,0 +1,142 @@
+{
+  "schema": "EM_PREFIX987_WEIGHTED_NAMED_SOURCE_QUOTIENT_CHECK_V1",
+  "date": "2026-11-21",
+  "scope": "auxiliary signed-source bit-flip observer; four-phase words; phase-zero starts; only active port bits enumerated",
+  "theorem_status": "AUTHOR_ANALYTIC_PROOF / EXACT_INTEGER_CHECKED / NOT_REVIEWED",
+  "checker_path": "research_notes/portable_direct/PREFIX987_R6_WEIGHTED_CARRIER_CHECK.py",
+  "checker_commit": "392006d746f2c9eb5274a4734113f87c4ca2aa3b",
+  "checker_sha256": "f7764bc958afbd3006e31c0aed5a841638a3f81872f656524b24a901aaea4e47",
+  "validation": "exact Python integers, original automaton and quotient independent dynamic programs for each n in [0,20], two label-weight systems: all 1, and sign+ 2 / sign- 3",
+  "records": [
+    {
+      "p": 6,
+      "word": [
+        6,
+        24,
+        6,
+        -3
+      ],
+      "ports": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "states": 64,
+      "minimal_named_language_classes": 57,
+      "raw_vs_quotient_verified_n": [
+        0,
+        20
+      ],
+      "phase_zero_unit_counts_n0_to_n10": [
+        16,
+        24,
+        36,
+        48,
+        36,
+        72,
+        96,
+        144,
+        96,
+        192,
+        240
+      ],
+      "phase_zero_unit_n18_n19": [
+        1344,
+        2016
+      ],
+      "phase_zero_weighted_n4_n8_n12": [
+        1344,
+        132192,
+        12192768
+      ]
+    },
+    {
+      "p": 6,
+      "word": [
+        6,
+        24,
+        8,
+        40
+      ],
+      "ports": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "states": 128,
+      "minimal_named_language_classes": 108,
+      "raw_vs_quotient_verified_n": [
+        0,
+        20
+      ],
+      "phase_zero_unit_counts_n0_to_n10": [
+        32,
+        48,
+        72,
+        60,
+        78,
+        96,
+        128,
+        76,
+        84,
+        96,
+        114
+      ],
+      "phase_zero_unit_n18_n19": [
+        12,
+        0
+      ],
+      "phase_zero_weighted_n4_n8_n12": [
+        3942,
+        182736,
+        4408992
+      ]
+    },
+    {
+      "p": 4,
+      "word": [
+        4,
+        -1,
+        3,
+        -7
+      ],
+      "ports": [
+        1,
+        2,
+        3
+      ],
+      "states": 32,
+      "minimal_named_language_classes": 17,
+      "raw_vs_quotient_verified_n": [
+        0,
+        20
+      ],
+      "phase_zero_unit_counts_n0_to_n10": [
+        8,
+        8,
+        6,
+        6,
+        3,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "phase_zero_unit_n18_n19": [
+        0,
+        0
+      ],
+      "phase_zero_weighted_n4_n8_n12": [
+        96,
+        0,
+        0
+      ]
+    }
+  ],
+  "scope_limit": "Ranks/classes are exact for the specified finite words. Uniform theorem assumes local nonnegative source-label weights. Native BRC/X6 type bridge not established."
+}
