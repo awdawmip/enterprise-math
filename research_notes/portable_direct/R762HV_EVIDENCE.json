@@ -1,0 +1,114 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_EXACT_EVIDENCE_V1",
+  "id": "R762HV",
+  "created_date": "2026-11-21",
+  "scientific_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_science_source": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "parent_source": "awdawmip/enterprise-math@0e5a7b56c7a3c00907b6cdd0c844c6f85e4de02c:research_notes/portable_direct/R762HU_PORT_SIGN_BRC_GRAM_MONOTONE.md",
+  "scope": {
+    "model": "six-axis Port composite candidate",
+    "root_port": "01",
+    "ports": 15,
+    "per_port_successors": 8,
+    "parity_bits": 6,
+    "support_size": 3,
+    "source_count_semantics": "positive integer ordered Port-path counts",
+    "native_dynamics_claim": false
+  },
+  "theorem": {
+    "character_projection": "E_m(p)=2^-6 sum_{chi in {+-1}^6} (M_chi^m)[p,p]",
+    "even_root_loop_count": "P_m(p)=(8^m+14*2^m)/15",
+    "mixing_spectral_radius": "rho=1+sqrt(33)<7",
+    "bound": "|E_m-P_m/32| <= (31/32)*rho^m for even m",
+    "limit_conditioned": "lim_{even m->infinity} E_m/P_m = 1/32",
+    "limit_unconditioned": "lim_{even m->infinity} E_m/8^m = 1/480"
+  },
+  "checks": {
+    "language": "Python 3 standard library",
+    "arithmetic": "arbitrary-precision integer",
+    "command": "python3 R762HV_CHECK.py",
+    "result": "PASS R762HV",
+    "full_parity_dp_lengths": "1..26",
+    "independent_character_crosscheck_lengths": "1..12",
+    "characteristic_polynomial_classes": "0..6",
+    "script_sha256_local": "d6a4fc5b3ce1813bcc4bd4994bc3f8ec2e744d5a45132b108e7044c9f27dd9c8",
+    "stdout_sha256_local": "29982cee889223e12fdbf2e8062d7f3a51b24cf4be20dba2caec5cb0c0746f29",
+    "remote_checker_blob_sha": "af1e46e8432e7b55ad219956b8e87f97fbae823a",
+    "code_readback_bytes": 3548
+  },
+  "results": [
+    [
+      2,
+      "8",
+      "8"
+    ],
+    [
+      4,
+      "168",
+      "288"
+    ],
+    [
+      6,
+      "4960",
+      "17536"
+    ],
+    [
+      8,
+      "177536",
+      "1118720"
+    ],
+    [
+      10,
+      "7289184",
+      "71583744"
+    ],
+    [
+      12,
+      "333869824",
+      "4581302272"
+    ],
+    [
+      14,
+      "16704767360",
+      "293203116032"
+    ],
+    [
+      16,
+      "895432338432",
+      "18764998508544"
+    ],
+    [
+      18,
+      "50536314156544",
+      "1200959900876800"
+    ],
+    [
+      20,
+      "2960499535228928",
+      "76861433641435136"
+    ],
+    [
+      22,
+      "178075797825189888",
+      "4919131752993128448"
+    ],
+    [
+      24,
+      "10911885695401934848",
+      "314824432191325339648"
+    ],
+    [
+      26,
+      "677370234552288468992",
+      "20148763660243882213376"
+    ]
+  ],
+  "status": {
+    "proof": "author-proved matrix identity and exact characteristic polynomials",
+    "finite": "executed and checked",
+    "independent_math_review": "NOT_REVIEWED",
+    "native_progress": "NOT_ASSERTED",
+    "activity": "PENDING_EXPLICIT_AUTHENTICATED_ASSOCIATION"
+  },
+  "next_question": "Find an all-even six-axis support histogram with rooted Port Eulerian realization N_p(n)>0 and zero signings C(n)=0, or prove such histograms impossible, preserving event provenance."
+}
