@@ -93,6 +93,23 @@ Because \(\gcd(a,b)=1\), the direction \((a,b-a)\) is primitive modulo10, and th
 
 The finite certificate is reproducible without a formal proof checker: it enumerates all 72 inputs, all 10 positions and all 10 possible reflection shifts; the attached code independently compares the full mod110 criterion and actual rational denominator masks.
 
+## Corollary — number of exact delays and least mask period
+
+Under the same hypotheses, if the congruence condition of the Theorem fails, the count of admissible shifts is zero. Otherwise, let \(N(a,b)\) be the number of distinct shifts modulo \(110b\) and \(P(a,b)\) the least positive period of either sign's denominator mask. Then
+
+\[
+\boxed{
+(N(a,b),P(a,b))=
+\begin{cases}
+(11,\,10b),&11\mid(a+b),\\
+(1,\,110b),&11\nmid(a+b).
+\end{cases}}
+\]
+
+**Proof.** The eight reflective primitive mod-10 words in Step 4 each have exactly one reflection center and least translation period 10; this is checked over every bit and all candidate shifts in the same 72-case finite certificate. If \(11\mid(a+b)\), the mod-11 factor is the constant-one word, with eleven reflection centers and translation period one. Otherwise the factor has exactly one missing mod-11 position, and therefore exactly one reflection center and translation period eleven. Under CRT, the number of centers multiplies and the least translation period is the product of the coprime component periods. The affine lift \(q=q_0+bt\) multiplies the least \(t\)-period by \(b\); distinct \(t\)-centers give distinct \(q\)-shifts modulo \(110b\). Thus exactly eleven or one shift, as claimed.
+
+In particular \(a/b=5/6\) has \(11\mid a+b\): there are exactly eleven valid delays modulo 660 and the minimum denominator-mask period is 60. This distinguishes the 11-factor's role: it does not decide **existence** of reflection, but controls **multiplicity** and least period.
+
 ## Constructive delay and information content
 
 For a positive anchor, compute \(q_0,h_0,n_0,W\) above. Find each \(c\in\{0,\ldots,109\}\) such that \(W(t)=W(c-t)\) for every \(t\); then each \(d=-2q_0-bc\bmod110b\) is an exact allowed delay, and the enumeration finds **all** delays. Examples:
