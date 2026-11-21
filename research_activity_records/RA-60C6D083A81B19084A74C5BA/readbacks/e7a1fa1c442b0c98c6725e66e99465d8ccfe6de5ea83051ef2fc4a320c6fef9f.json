@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/rh_integer_correlation_20261121_b5750a/rh_integer_arithmetic/gamma_endpoint_certificate.json",
+    "ref": "1a5bec7e1ebd66c829f7957392ceab0d02f36642",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "rh-integer-correlation-20261121-source-09",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"status\": \"EXACT_GAMMA_AND_FULL_ENDPOINT_CERTIFICATE_PASSED\",\n  \"N\": 1000000,\n  \"h\": \"1/16\",\n  \"thicknesses\": [\n    \"1/16\",\n    \"1/8\"\n  ],\n  \"normalized_weights\": [\n    2,\n    -1\n  ],\n  \"gamma\": {\n    \"lower\": \"0.577215664901532860606512090082402431042159335\",\n    \"upper\": \"0.577215664901532860606512090082402431042159336\",\n    \"width_upper\": \"471/500000000000000000000000000000000000000000000000000000000000\"\n  },\n  \"T_equal_H_D_minus_N_log_N\": {\n    \"lower\": \"-1599557.55961382081566258186439300\",\n    \"upper\": \"-1599557.55961382081566258186439299\",\n    \"width_upper\": \"10564359524947190639/7812500000000000000000000000000000000000000000000000000000\"\n  },\n  \"F_equal_T_plus_N_times_1_plus_gamma\": {\n    \"lower\": \"-22341.89471228795505606977431059\",\n    \"upper\": \"-22341.89471228795505606977431058\",\n    \"width_upper\": \"5282179762477275007/3906250000000000000000000000000000000000000000000000000000\"\n  },\n  \"weighted_residual_sum_n2_toN\": {\n    \"lower\": \"-213264.58478829131671873645594088\",\n    \"upper\": \"-213264.58478829131671873645594087\",\n    \"width_upper\": \"67611900959670620081/50000000000000000000000000000000000000000000000000000000000\"\n  },\n  \"gamma_formula\": \"H_b-log(b)-1/(2b)+sum_{r=1}^K B_(2r)/(2r*b^(2r)) plus/minus C_(2K)/(2K*b^(2K))\",\n  \"gamma_anchor\": 256,\n  \"gamma_EM_order\": 16,\n  \"gamma_EM_remainder_radius\": {\n    \"lower\": \"0.0000000000000000000000000000000000000000000000000000000\",\n    \"upper\": \"0.0000000000000000000000000000000000000000000000000000001\",\n    \"width_upper\": \"1/1000000000000000000000000000000000000000000000000000000000000\"\n  },\n  \"algorithm\": {\n    \"sieve_cutoff\": 10000,\n    \"mobius_states_above_cutoff\": 99,\n    \"recursion_quotient_blocks\": 36739,\n    \"endpoint_quotient_blocks\": 1999,\n    \"large_power_sum_queries\": 8715,\n    \"algebraic_root_calls\": 1328,\n    \"enumerates_all_integers_through_endpoint\": false\n  },\n  \"precision\": \"60 decimal places; exact integer/Fraction enclosures with outward rounding\",\n  \"scope\": [\n    \"Exactly one directed endpoint recomputation; the former full-population test was not rerun.\",\n    \"Gamma uses the already available 256-term harmonic prefix and 16 EM correction terms.\",\n    \"The complete centered road endpoint F(N) is certified, including gamma and all unit corrections.\",\n    \"This is one fixed-thickness endpoint, not a full-window energy certificate or an asymptotic RH claim.\"\n  ]\n}\n",
+      "display_title": "gamma_endpoint_certificate.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/1a5bec7e1ebd66c829f7957392ceab0d02f36642/research_notes/portable_direct/rh_integer_correlation_20261121_b5750a/rh_integer_arithmetic/gamma_endpoint_certificate.json",
+      "encoding": "utf-8",
+      "sha": "3721e7e25d372dd68f009e1a10d56151703bc4ab"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}

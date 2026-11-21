@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/rh_integer_correlation_20261121_b5750a/rh_integer_arithmetic/certify_gamma_endpoint.py",
+    "ref": "1a5bec7e1ebd66c829f7957392ceab0d02f36642",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "rh-integer-correlation-20261121-source-08",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"One directed addition: rigorous gamma and the complete millionth endpoint.\"\"\"\nfrom fractions import Fraction as F\nfrom pathlib import Path\nimport json\nfrom certify_arithmetic import (\n    ANCHOR, BERNOULLI, DIGITS, EM_ORDER, H, ONE, SCALE,\n    MobiusEndpoint, add, interval_fraction, render, scale, sub,\n)\n\n\ndef gamma_interval(oracle):\n    b = ANCHOR\n    result = sub(oracle.power_prefix[4][b], oracle.log_integer(b))\n    result = sub(result, interval_fraction(F(1, 2 * b)))\n    for r in range(1, EM_ORDER + 1):\n        result = add(result, interval_fraction(BERNOULLI[2 * r] / (2 * r * b ** (2 * r))))\n    radius = oracle.remainder_radii[4]\n    return result[0] - radius, result[1] + radius\n\n\ndef main():\n    n = 1000000\n    engine = MobiusEndpoint(n)\n    T, green, stats = engine.evaluate(n)\n    gamma = gamma_interval(engine.oracle)\n    endpoint = add(T, scale(add(ONE, gamma), n))\n    assert gamma[0] > 0 and gamma[1] < SCALE\n    assert endpoint[1] < 0\n    assert endpoint[1] - endpoint[0] < 10 ** (DIGITS - 20)\n    report = {\n        'status': 'EXACT_GAMMA_AND_FULL_ENDPOINT_CERTIFICATE_PASSED',\n        'N': n, 'h': str(H), 'thicknesses': [str(H), str(2 * H)],\n        'normalized_weights': [2, -1],\n        'gamma': render(gamma, places=45),\n        'T_equal_H_D_minus_N_log_N': render(T),\n        'F_equal_T_plus_N_times_1_plus_gamma': render(endpoint),\n        'weighted_residual_sum_n2_toN': render(green),\n        'gamma_formula': 'H_b-log(b)-1/(2b)+sum_{r=1}^K B_(2r)/(2r*b^(2r)) plus/minus C_(2K)/(2K*b^(2K))',\n        'gamma_anchor': ANCHOR, 'gamma_EM_order': EM_ORDER,\n        'gamma_EM_remainder_radius': render((0, engine.oracle.remainder_radii[4]), places=55),\n        'algorithm': {k: v for k, v in stats.items()\n                      if k not in ['M_n', 'EM_uniform_remainder_radii']},\n        'precision': '60 decimal places; exact integer/Fraction enclosures with outward rounding',\n        'scope': [\n            'Exactly one directed endpoint recomputation; the former full-population test was not rerun.',\n            'Gamma uses the already available 256-term harmonic prefix and 16 EM correction terms.',\n            'The complete centered road endpoint F(N) is certified, including gamma and all unit corrections.',\n            'This is one fixed-thickness endpoint, not a full-window energy certificate or an asymptotic RH claim.'\n        ]\n    }\n    Path(__file__).with_name('gamma_endpoint_certificate.json').write_text(\n        json.dumps(report, ensure_ascii=False, indent=2) + '\\n')\n    print(json.dumps({k: report[k] for k in ('status', 'N', 'gamma',\n                     'F_equal_T_plus_N_times_1_plus_gamma', 'algorithm')},\n                     ensure_ascii=False, indent=2))\n\n\nif __name__ == '__main__':\n    main()\n",
+      "display_title": "certify_gamma_endpoint.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/1a5bec7e1ebd66c829f7957392ceab0d02f36642/research_notes/portable_direct/rh_integer_correlation_20261121_b5750a/rh_integer_arithmetic/certify_gamma_endpoint.py",
+      "encoding": "utf-8",
+      "sha": "04e71f45bc5ae1e7cb48b875d42b16e792a1392a"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
