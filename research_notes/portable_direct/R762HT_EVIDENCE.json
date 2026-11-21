@@ -1,0 +1,74 @@
+{
+  "schema": "R762HT_EXACT_PORT_SIGN_BRC_EVIDENCE_V1",
+  "title": "Support histogram positive BRC factorization of Port closure and six-axis signing",
+  "status": "AUTHOR_PROVED_NOT_INDEPENDENTLY_REVIEWED",
+  "model": "SIX_NATIVE_AXIS_COMPOSITE_PORT_CANDIDATE_NOT_PRIMITIVE_TRIADIC_CLOSURE_E",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "source_links": {
+    "precedent": "research_notes/portable_direct/R762HK_PORT_FLIP_BLOCK_TRANSFER.md@0778045cdbe977bf86e1d3f7557162e1ed6b33d8",
+    "proof": "research_notes/portable_direct/R762HT_PORT_SIGN_BRC_FACTORIZATION.md",
+    "checker": "research_notes/portable_direct/R762HT_CHECK.cpp"
+  },
+  "exact_input": {
+    "root_port": "01",
+    "ordered_ports": [
+      "01",
+      "15",
+      "12",
+      "25",
+      "24",
+      "04",
+      "05",
+      "03",
+      "04",
+      "24",
+      "23",
+      "25",
+      "35",
+      "05",
+      "01"
+    ],
+    "event_length": 14,
+    "support_histogram": {
+      "125": 2,
+      "234": 1,
+      "235": 2,
+      "245": 1,
+      "015": 2,
+      "024": 2,
+      "035": 2,
+      "045": 1,
+      "034": 1
+    }
+  },
+  "exact_observables": {
+    "rooted_unlabeled_type_port_words": 422,
+    "source_identity_permutations_per_port_word": 32,
+    "rooted_labeled_port_histories": 13504,
+    "valid_signed_assignments_per_labeled_port_history": 104,
+    "rooted_labeled_signed_BRC_outcomes": 1404416,
+    "naive_DFS_nodes": 88983
+  },
+  "local_validation": {
+    "command": "g++ -std=c++17 -O2 -Wall -Wextra -pedantic R762HT_CHECK.cpp -o check && ./check",
+    "actual_stdout": "PASS R762HT; W01=422; D=32; rooted_labeled=13504; C=104; joint=1404416; DFS_nodes=88983",
+    "checker_sha256": "b7ddc77cc0c781fb30b6becde9f4af8995a2602e55b165ae95e1b05d0220bee1",
+    "checker_git_blob_sha1": "e89ba34a0c7df5a48d0f964617ab6385c7330e6c",
+    "proof_git_blob_sha1": "5795f04a970370f7d384b5393c649ef6d4d65a21",
+    "cross_checks": [
+      "memoized rooted Port histogram DP equals nonmemoized direct DFS (422)",
+      "all 2^14 sign assignments equals independent grouped binomial integer-state convolution (104)",
+      "two-event root 01 with two occurrences of support 015 has 2 unlabeled paths",
+      "joint BRC count equals positive integer product 13504*104=1404416"
+    ]
+  },
+  "claim_limits": "All-length matrix/coefficient identities proven algebraically; numerical verification covers one 14-event histogram and a two-event unit case, not arbitrary length signing sufficiency.",
+  "next_question": "Find n with positive rooted Port path count, six even incidence totals, and zero sign-balanced coefficient; or prove no such n exists. Independently investigate native P000 triadic dynamics.",
+  "authority": {
+    "researcher_id": "EM-X6-A681A5",
+    "session_id": "MCP-773502d89b7a4bd58a37e97a2dd52ba5",
+    "activity_id": "RA-88E52D3D282BAFD9D77186F9",
+    "native_claim": false,
+    "mathematical_review": "NOT_REVIEWED"
+  }
+}
