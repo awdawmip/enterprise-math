@@ -1,0 +1,117 @@
+{
+  "schema": "R284DT_SEVEN_WINDOW_AFFINE_CERTIFICATE_V1",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED",
+  "frozen_source_commit": "acba2d8667903434aaa2a10720f43637fcc2421b",
+  "frozen_source_blob_sha1": "b46e0f682b58e47c27094b4bea6fa4e55119a3ee",
+  "frozen_codewords_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "period": 17179869143,
+  "arcs": 64,
+  "event_positions": 194,
+  "windows": [
+    {
+      "arc_label": 32,
+      "lo": 4615469395,
+      "hi": 4673631799,
+      "slope": -1,
+      "intercept": 12686611854,
+      "margin": 5263582
+    },
+    {
+      "arc_label": 56,
+      "lo": 4676964764,
+      "hi": 4781786875,
+      "slope": 1,
+      "intercept": 3334084674,
+      "margin": 1402348
+    },
+    {
+      "arc_label": 44,
+      "lo": 8340968948,
+      "hi": 8431780928,
+      "slope": -1,
+      "intercept": 16684966842,
+      "margin": 6212980
+    },
+    {
+      "arc_label": 63,
+      "lo": 8436287924,
+      "hi": 8507286428,
+      "slope": 1,
+      "intercept": -184807994,
+      "margin": 2801012
+    },
+    {
+      "arc_label": 21,
+      "lo": 14652558810,
+      "hi": 14761366612,
+      "slope": -1,
+      "intercept": 22929044144,
+      "margin": 1094375
+    },
+    {
+      "arc_label": 45,
+      "lo": 14761932474,
+      "hi": 14818876290,
+      "slope": 1,
+      "intercept": -6594783455,
+      "margin": 37349
+    },
+    {
+      "arc_label": 55,
+      "lo": 15722869762,
+      "hi": 15886415284,
+      "slope": 1,
+      "intercept": -7634296129,
+      "margin": 32564673
+    }
+  ],
+  "proof_event_vertices_checked": 32,
+  "window_vertex_checks": {
+    "21": {
+      "tested_vertices": 6,
+      "minimum_margin": 1094375
+    },
+    "32": {
+      "tested_vertices": 2,
+      "minimum_margin": 5263582
+    },
+    "44": {
+      "tested_vertices": 2,
+      "minimum_margin": 6212980
+    },
+    "45": {
+      "tested_vertices": 5,
+      "minimum_margin": 37349
+    },
+    "55": {
+      "tested_vertices": 5,
+      "minimum_margin": 32564673
+    },
+    "56": {
+      "tested_vertices": 7,
+      "minimum_margin": 1402348
+    },
+    "63": {
+      "tested_vertices": 5,
+      "minimum_margin": 2801012
+    }
+  },
+  "candidate_states": 512,
+  "nearest_pairs": 256,
+  "pair_sha256": "7c05864095ba5cde368002e67764bc772ca1bfe3fabbcf26af4fb090b7d0996a",
+  "winning_arc_label_counts": {
+    "21": 45,
+    "32": 21,
+    "44": 37,
+    "45": 19,
+    "55": 64,
+    "56": 43,
+    "63": 27
+  },
+  "construction_arc_distance_calls": 0,
+  "construction_envelope_queries": 0,
+  "proof_arc_distance_calls": 2048,
+  "word_digest_det_evaluations": 65536,
+  "dependencies": "R284DN global minimum and exhaustive pair count; R284DQ eight skeletons",
+  "review": "NOT_REVIEWED"
+}
