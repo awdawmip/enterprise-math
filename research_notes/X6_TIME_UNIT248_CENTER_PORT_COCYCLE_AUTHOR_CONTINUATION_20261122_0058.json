@@ -1,0 +1,74 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-22",
+  "cycle": "20261122_0058",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "historical_researcher_id": "EM-X6-FB6990",
+  "historical_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "session_scope": "prior SOURCE-registered Research SID; no platform-attested chat identifier added; no new current CLAIM inferred",
+  "frozen_scientific_source_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "previous_continuation": "f98f64be80df130731d7314094f707e895893a17:research_notes/X6_TIME_UNIT247_CENTER_PORT_PRECISION_AUTHOR_CONTINUATION_20261122_0000.json",
+  "completed_unit": "Unit248",
+  "scientific_result": "Conditional centre-port precision cocycle compensation: arbitrary centre weights alpha_i,beta_j give closed-walk image <6,alpha_i+beta_j-A(i,j)> in C_(6*2^m). Every one of 36 directed centre pairs preserves original 2^m fixed-Cell precision states iff alpha_i=t-B(i), beta_j=B(j)-t mod6. Zero-weight six-spoke star doubles precision memory to 2^(m+1); compensated star returns it to 2^m. The 8-event same-Cell diameter loop reads 21 mod24 for zero centre weight, 0 for compensated t=0.",
+  "author_validation": {
+    "v8_integer_assertions": 770,
+    "verified_BFS_state_visits": 76167,
+    "failures": 0,
+    "moduli": [
+      6,
+      12,
+      24,
+      48,
+      96,
+      192
+    ],
+    "pair_cases": 36,
+    "admission": "AUTHOR_PROVED/EXACT_FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED"
+  },
+  "evidence": [
+    {
+      "path": "research_notes/X6_TIME_UNIT248_CENTER_PORT_COCYCLE_COMPENSATION_20261122.md",
+      "commit": "456bc5e88f62567cc414fdec13a6ad7552231282",
+      "blob": "49d7512bb1f9cbbef266da8288fddda3c54154db",
+      "sha256": "f881ca712966fbfbfc551e974c3a7b8ae172909fa66f929ff4e330afa7c616d5"
+    },
+    {
+      "path": "research_checks/X6_TIME_UNIT248_CENTER_PORT_COCYCLE_COMPENSATION_CHECK_20261122.js",
+      "commit": "a06932926b5f678fde522fcef53bcdcac9873f23",
+      "blob": "1b65136b368e346f0d013536bbd1b20b158dee5e",
+      "sha256": "b3407399d0e030e0493a849879cc1c074cbaa2ac45b6090c6fdcc0ef86a3fa2f"
+    },
+    {
+      "path": "research_checks/X6_TIME_UNIT248_CENTER_PORT_COCYCLE_COMPENSATION_RESULTS_20261122.json",
+      "commit": "6ff012ead6a73505744b49481d689c2eb6eca3b2",
+      "blob": "b5a7bb734dcdd694f1ff084860f014a5004ebc78",
+      "sha256": "b350664c5476fc842e263107039e668d85868e2d132132c088abd711b6bbe951"
+    }
+  ],
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "checkpoint_events": 249,
+    "commit": "65dac460638f7f33e78b29e7683ab1b34214ccd9",
+    "last_event_id": "onhour-20261122-0058-x6-centre-port-precision-compensation-unit248-v1"
+  },
+  "native_control": {
+    "latest_existing_original_request": "onhour-20261122-0004-x6-own-source-continuation-v1",
+    "actual_original_request_terminal": "FAILED/SOURCE_TREE_TRUNCATED",
+    "last_known_source_control_version": "0.6.11",
+    "canonical_winning_claim_verified": false,
+    "protected_native_progress": "NOT_PUBLISHED through Unit248",
+    "last_historical_claim_id": "MCP-369991930c5b4fddf26dbefa",
+    "last_historical_run_id": "RUN-d653f1346f38369bc27f5fc5",
+    "support": "https://github.com/awdawmip/enterprise-math/issues/2903"
+  },
+  "no_repeat": "Units233–247 and original Unit238 correction already persistent; do not replay failed continuation or claim; source R063 native six-file benchmark separate task RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "required_evidence": [
+    "Source-qualified signed whole-triad Port update, occupancy/environment guard and independent C12/C24 physical precision readout",
+    "Original Issue240 materialization repair followed by actual live same-subject CLAIM/run authorization to publish native semantic PROGRESS"
+  ],
+  "next_exact_action": "Replay original immutable Unit245 full 36 chronological labelled two-triad BRC witnesses under the explicit compensated centre precision law and compare their terminal C12/C24 predictions against the zero-centre candidate; only a source-admitted signed triad Port law with independent precision measurements can decide actual physical behavior."
+}
