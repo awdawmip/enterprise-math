@@ -1,0 +1,123 @@
+{
+  "schema": "R762HP_PORT_LATTICE_PARITY_EVIDENCE_V1",
+  "result": "AUTHOR_PROVED_NOT_REVIEWED",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "antecedent": "R762HO@a1be43e415dc4cf683d5020d88a690b5d03ab0a4",
+  "contributor_researcher": "EM-DIRECT-1400EB",
+  "session": "MCP-6e866b7dc3dd49cebb5b30b85ffa2acf",
+  "activity": "RA-A080D4E92FDE433E1EC452C2",
+  "native_claim_not_assumed": true,
+  "model": "ordered 3-subset support words with successive intersections >=2; named-Port composite candidate",
+  "theorem": "L intersection 2Z^6 = 2L; H in 2L iff all H_i even",
+  "verification_command": "g++ -O3 -std=c++17 -Wall -Wextra -pedantic R762HP_CHECK.cpp -o r762hp && ./r762hp",
+  "verified_exact_local": true,
+  "closed_port_start": "01",
+  "closed_word_counts": [
+    {
+      "m": 2,
+      "all_closed": 8,
+      "evenH": 8,
+      "certificate": 8
+    },
+    {
+      "m": 4,
+      "all_closed": 288,
+      "evenH": 168,
+      "certificate": 168
+    },
+    {
+      "m": 6,
+      "all_closed": 17536,
+      "evenH": 4960,
+      "certificate": 4960
+    },
+    {
+      "m": 8,
+      "all_closed": 1118720,
+      "evenH": 177536,
+      "certificate": 177536
+    }
+  ],
+  "sample_14": {
+    "ports": [
+      "01",
+      "15",
+      "12",
+      "25",
+      "24",
+      "04",
+      "05",
+      "03",
+      "04",
+      "24",
+      "23",
+      "25",
+      "35",
+      "05",
+      "01"
+    ],
+    "H": [
+      8,
+      4,
+      8,
+      6,
+      6,
+      10
+    ],
+    "halfH": [
+      4,
+      2,
+      4,
+      3,
+      3,
+      5
+    ],
+    "integer_coefficients": [
+      3,
+      4,
+      -5,
+      4,
+      1,
+      -3,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "verification": "PASS"
+  },
+  "general_hypergraph_counterexample": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      3,
+      4
+    ],
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      2,
+      4,
+      5
+    ]
+  ],
+  "limits": [
+    "No statement that all H-even words are one-word signable",
+    "No primitive P000 force dynamics",
+    "No independent mathematical review",
+    "No claim/PROGRESS authority inferred from this portable note"
+  ],
+  "next": "Bounded signability of a single legal named-Port word, graph-factor proof or shortest counterexample."
+}
