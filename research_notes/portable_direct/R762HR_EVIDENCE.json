@@ -1,0 +1,129 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_RESEARCH_EVIDENCE_V1",
+  "record": "R762HR",
+  "date": "2026-11-21",
+  "status": "AUTHOR_PROOF_AND_EXACT_FINITE_CENSUS_NOT_REVIEWED",
+  "mother_task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "task_publication": "TP2-8B7E13C5904A2D6F1142",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "model": "six-named-axis three-support composite signed Port candidate; positive-source coefficient observer only",
+  "exhaustive_population": "all unordered support multisets of m elements from 20 named three-axis types, m in 2,4,6,8,10",
+  "counting_unit": "one unlabeled multiset per support-type count vector; within sign-existence subsets are individual event occurrences",
+  "counts": [
+    {
+      "m": 2,
+      "multisets": 210,
+      "coordinate_even": 20,
+      "signable": 20,
+      "unsignable": 0,
+      "overlap_connected_unsignable": 0
+    },
+    {
+      "m": 4,
+      "multisets": 8855,
+      "coordinate_even": 375,
+      "signable": 345,
+      "unsignable": 30,
+      "overlap_connected_unsignable": 0
+    },
+    {
+      "m": 6,
+      "multisets": 177100,
+      "coordinate_even": 6040,
+      "signable": 5380,
+      "unsignable": 660,
+      "overlap_connected_unsignable": 0
+    },
+    {
+      "m": 8,
+      "multisets": 2220075,
+      "coordinate_even": 71435,
+      "signable": 65735,
+      "unsignable": 5700,
+      "overlap_connected_unsignable": 0
+    },
+    {
+      "m": 10,
+      "multisets": 20030010,
+      "coordinate_even": 632996,
+      "signable": 603636,
+      "unsignable": 29360,
+      "overlap_connected_unsignable": 240
+    }
+  ],
+  "witness": {
+    "support_masks": [
+      7,
+      7,
+      11,
+      21,
+      26,
+      26,
+      41,
+      41,
+      44,
+      50
+    ],
+    "support_types": [
+      "012",
+      "013",
+      "024",
+      "134",
+      "035",
+      "235",
+      "145"
+    ],
+    "multiplicities": [
+      2,
+      1,
+      1,
+      2,
+      2,
+      1,
+      1
+    ],
+    "H": [
+      6,
+      6,
+      4,
+      6,
+      4,
+      4
+    ],
+    "half_H": [
+      3,
+      3,
+      2,
+      3,
+      2,
+      2
+    ],
+    "integer_incidence_parametric_solution": "(a,b,c,d,e,f,g)=(2-2g,3g-1,g,2-2g,2-2g,g,g)",
+    "bounded_contradiction": "g is 0 or 1; singleton b=3g-1 is -1 or 2 outside [0,1]",
+    "support_overlap_graph_connected": true,
+    "port_triangle_choice_count": 59049,
+    "even_port_degree_choice_count": 0,
+    "legal_closed_port_realizations": 0
+  },
+  "theorem": "HR1: choose one edge from each 3-Port triangle; a closed Port realization exists iff even Port degrees and connected nonisolated support; HR2: first coordinate-even connected-support unsignable multiset at m=10 in enumerated even-size model",
+  "local_validation": {
+    "language": "C++17",
+    "compile": "g++ -O3 -std=c++17 -Wall -Wextra -pedantic R762HR_CHECK.cpp -o hr",
+    "execute": "./hr",
+    "result": "PASS R762HR",
+    "compiler_status": 0,
+    "program_exit_code": 0,
+    "source_sha256": "a42941592e6f2fb15631de838a12355cd104e85a9a674c6b8c5509c97bf14167",
+    "source_git_blob_sha1": "9d2238c22e15416d2700330426cae26cdc772187"
+  },
+  "review": "NOT_REVIEWED",
+  "native_claim": "NOT_ASSERTED",
+  "activity_association": "PENDING_CURRENT_IDENTITY_VERIFICATION",
+  "next_question": "Find a coordinate-even unsignable support multiset passing HR1; or prove every HR1-realizable, coordinate-even multiset signable.",
+  "limits": [
+    "Finite census concerns arbitrary unordered support multisets, not closed Port histories",
+    "Port-realizability theorem is all-length but not a signability theorem",
+    "No native TRIADIC_CLOSURE_E dynamics acceptance",
+    "Positive integer coefficient not signed BRC mass cancellation"
+  ]
+}
