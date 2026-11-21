@@ -1,0 +1,145 @@
+{
+  "schema": "EM_R762ID_EXACT_FINITE_CERTIFICATE_V1",
+  "date": "2026-11-21",
+  "source": "awdawmip/enterprise-math",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "antecedents": [
+    "R762IB@a3b465e76af541de223fcf7773477fbd224be8b4",
+    "R762IC@40945d2ccef1d6d691ba88a85930e9d9276c9123"
+  ],
+  "model": "six-axis composite triad-support/15-Port transition model",
+  "checker": "research_notes/portable_direct/R762ID_CHECK.py",
+  "python": "Python3 stdlib; exact integer tuple sums and GF(2) bitmasks; no real-number approximations",
+  "expected_return": "PASS R762ID exact six-axis finite certificate",
+  "mask_bit_order": "lexicographic combinations(range(6),3), bit i indexes T[i]",
+  "cores": [
+    {
+      "weight": 4,
+      "representative": [
+        "024",
+        "035",
+        "125",
+        "134"
+      ],
+      "bad_max_hex": [
+        "13301",
+        "19122",
+        "23222",
+        "2a121",
+        "42528",
+        "43114",
+        "5b525",
+        "63339",
+        "81524",
+        "83038",
+        "93336",
+        "ab52a"
+      ],
+      "bad_q_count": 3824,
+      "positive_minimal_count": 48,
+      "positive_minimal_histogram": {
+        "1": 4,
+        "2": 12,
+        "3": 24,
+        "4": 8
+      },
+      "negative_maximal_port_witness": {
+        "even_degree_impossible": 8,
+        "core_separated": 4
+      }
+    },
+    {
+      "weight": 6,
+      "representative": [
+        "012",
+        "015",
+        "025",
+        "034",
+        "123",
+        "124"
+      ],
+      "bad_max_hex": [
+        "6ccc9",
+        "80cc8"
+      ],
+      "bad_q_count": 1056,
+      "positive_minimal_count": 14,
+      "positive_minimal_histogram": {
+        "1": 9,
+        "2": 5
+      },
+      "negative_maximal_port_witness": {
+        "core_separated": 2
+      }
+    },
+    {
+      "weight": 10,
+      "representative": [
+        "012",
+        "013",
+        "014",
+        "025",
+        "035",
+        "045",
+        "125",
+        "135",
+        "145",
+        "234"
+      ],
+      "bad_max_hex": [
+        "1d347"
+      ],
+      "bad_q_count": 1024,
+      "positive_minimal_count": 10,
+      "positive_minimal_histogram": {
+        "1": 10
+      },
+      "negative_maximal_port_witness": {
+        "core_separated": 1
+      }
+    }
+  ],
+  "boolean_domain_tests": 3145728,
+  "certificates": {
+    "max_nonsignable": 15,
+    "minimal_signable": 72
+  },
+  "max_pair_supports_needed": 4,
+  "explicit_repair": {
+    "core": [
+      "024",
+      "035",
+      "125",
+      "134"
+    ],
+    "core_signs": [
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "pair_supports": [
+      "012",
+      "024",
+      "045",
+      "234"
+    ],
+    "z": [
+      1,
+      -1,
+      1,
+      1
+    ],
+    "sum": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "review": "NOT_REVIEWED",
+  "native_p000_lift": "NOT_CLAIMED",
+  "control": "Portable Source evidence only; no native CLAIM/PROGRESS asserted"
+}
