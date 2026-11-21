@@ -1,0 +1,128 @@
+{
+  "initial_cost": 9996,
+  "dual": {
+    "scope": "The two specified 13-point classes fixed, one 9-point and nine 10-point classes",
+    "full_seed_rows": 1495322,
+    "full_bank_rows": 426500,
+    "automatic_thresholds": {
+      "9": 584,
+      "10": 780
+    },
+    "checked_native_classes": 20134,
+    "types": [
+      {
+        "size": 9,
+        "cost": 557,
+        "checked": 3468,
+        "minimum_slack": 0
+      },
+      {
+        "size": 9,
+        "cost": 564,
+        "checked": 1758,
+        "minimum_slack": 7
+      },
+      {
+        "size": 9,
+        "cost": 569,
+        "checked": 1608,
+        "minimum_slack": 9
+      },
+      {
+        "size": 9,
+        "cost": 576,
+        "checked": 271,
+        "minimum_slack": 19
+      },
+      {
+        "size": 10,
+        "cost": 744,
+        "checked": 1359,
+        "minimum_slack": 0
+      },
+      {
+        "size": 10,
+        "cost": 747,
+        "checked": 2694,
+        "minimum_slack": 0
+      },
+      {
+        "size": 10,
+        "cost": 752,
+        "checked": 1416,
+        "minimum_slack": 5
+      },
+      {
+        "size": 10,
+        "cost": 768,
+        "checked": 234,
+        "minimum_slack": 15
+      },
+      {
+        "size": 10,
+        "cost": 772,
+        "checked": 1830,
+        "minimum_slack": 13
+      },
+      {
+        "size": 10,
+        "cost": 777,
+        "checked": 3126,
+        "minimum_slack": 21
+      },
+      {
+        "size": 10,
+        "cost": 780,
+        "checked": 2370,
+        "minimum_slack": 18
+      }
+    ],
+    "fixed_core_cost": 2592,
+    "free_cover_dual": 7280,
+    "total_lower_bound": 9872,
+    "all_above_threshold_classes_covered_by_max_weight_bound": true
+  },
+  "observations": {
+    "menus": 250,
+    "forbidden_triples": 47000,
+    "sha256": "6ca43dd4301613d9d49d376680cd1d6bf7d53c1751cf42b835b0f69624fdbce9"
+  },
+  "bounded_replacements": [
+    {
+      "variant": "pool",
+      "complete": true,
+      "found": false,
+      "radius": 4,
+      "budget": 9995,
+      "search_nodes": 285939,
+      "legal_candidates_before_price_cap": 67177,
+      "groups": []
+    },
+    {
+      "variant": "dual",
+      "complete": true,
+      "found": false,
+      "radius": 4,
+      "budget": 9995,
+      "reduced_budget": 123,
+      "objective_shift": 9872,
+      "search_nodes": 151680,
+      "legal_candidates_before_price_cap": 67177,
+      "groups": []
+    }
+  ],
+  "positive_control": {
+    "direct_menu_count": 250,
+    "classes": 12,
+    "cost": 9996,
+    "same_original_partition": true
+  },
+  "source_sha256": {
+    "verify.py": "db847fac9f5ed6967a34f8fb26ea23977fc19f3eda04d2d56f41b6f960f214e5",
+    "bounded_replacements_pool.cpp": "4a17a4dd3fa9a3fe79c9c225e98e76bb587297f8d6f0ef755363cfd5c9a8f8f8",
+    "bounded_replacements_dual.cpp": "0b0b7e9cbcdfccccbe28ea9d7edf95bad76df70aacdb81907e8e4d6da8fbb57e",
+    "initial.txt": "e78b5c52989113dca26ab2deed616a37529fa2830519f69d7e42f5a70ce370e2",
+    "point_dual.json": "c2904ae6b89470d7c9d9fb9120a99cefac211b9707a31e9756bb29ab9b9c2aec",
+    "point_dual.txt": "612e48dcdd166f3992ce0ad599b1fa2d304cf75929aa6549aa2c33d2ba46b2f6"
+  }
+}

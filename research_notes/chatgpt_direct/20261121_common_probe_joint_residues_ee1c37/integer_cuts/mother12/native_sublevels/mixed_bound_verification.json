@@ -1,0 +1,229 @@
+{
+  "schema": "PROPER_EIGHT_TO_TWELVE_MARGINAL_COST_BOUND_V1",
+  "inequality": "c(C)>=a_size+3*sum_axis,value max(h_C-2,0)",
+  "offsets": {
+    "8": 419,
+    "9": 557,
+    "10": 744,
+    "11": 993,
+    "12": 1226
+  },
+  "finite_cutoffs": {
+    "8": 473,
+    "9": 620,
+    "10": 816,
+    "11": 1074,
+    "12": 1316
+  },
+  "finite_native_rows_checked": {
+    "10": 5327,
+    "9": 14344,
+    "8": 24867,
+    "11": 5852,
+    "12": 288
+  },
+  "distinct_native_masks_checked": {
+    "8": 24867,
+    "9": 14344,
+    "10": 5327,
+    "11": 5852,
+    "12": 288
+  },
+  "minimum_integer_slack": {
+    "8": 0,
+    "9": 0,
+    "10": 0,
+    "11": 0,
+    "12": 0
+  },
+  "maximum_delta_observed": {
+    "10": 6,
+    "9": 5,
+    "8": 4,
+    "11": 7,
+    "12": 6
+  },
+  "complete_seed_sha256": "c42e0b14760595a242864c53bb4946182b02a347a273c642e8bc03f4edae315d",
+  "complete_seed_rows": 1495322,
+  "proper_anchored_banks": [
+    {
+      "size": 11,
+      "rows": 18920,
+      "sha256": "43ce863aa2631463b5e75cd49cb87cf7f75f80c8373632e775b231a2b7414653",
+      "cost_counts": [
+        [
+          1008,
+          264
+        ],
+        [
+          1033,
+          1056
+        ],
+        [
+          1042,
+          132
+        ],
+        [
+          1044,
+          528
+        ],
+        [
+          1046,
+          440
+        ],
+        [
+          1052,
+          1584
+        ],
+        [
+          1059,
+          1320
+        ],
+        [
+          1074,
+          528
+        ],
+        [
+          1076,
+          1056
+        ],
+        [
+          1078,
+          264
+        ],
+        [
+          1083,
+          528
+        ],
+        [
+          1087,
+          528
+        ],
+        [
+          1094,
+          264
+        ],
+        [
+          1096,
+          264
+        ],
+        [
+          1098,
+          528
+        ],
+        [
+          1110,
+          1056
+        ],
+        [
+          1115,
+          528
+        ],
+        [
+          1118,
+          528
+        ],
+        [
+          1124,
+          528
+        ],
+        [
+          1126,
+          528
+        ],
+        [
+          1139,
+          264
+        ],
+        [
+          1144,
+          528
+        ],
+        [
+          1158,
+          264
+        ],
+        [
+          1159,
+          1056
+        ],
+        [
+          1170,
+          528
+        ],
+        [
+          1174,
+          528
+        ],
+        [
+          1179,
+          528
+        ],
+        [
+          1196,
+          264
+        ],
+        [
+          1250,
+          264
+        ],
+        [
+          1270,
+          132
+        ],
+        [
+          1280,
+          264
+        ],
+        [
+          1298,
+          528
+        ],
+        [
+          1321,
+          528
+        ],
+        [
+          1342,
+          264
+        ],
+        [
+          1370,
+          264
+        ],
+        [
+          1376,
+          264
+        ]
+      ]
+    },
+    {
+      "size": 12,
+      "rows": 540,
+      "sha256": "84f2c63ed60f56e50cfc0473220a93c8dd65e92aa0cb32278223972cc3b9aa3b",
+      "cost_counts": [
+        [
+          1244,
+          288
+        ],
+        [
+          1376,
+          72
+        ],
+        [
+          1484,
+          36
+        ],
+        [
+          1560,
+          144
+        ]
+      ]
+    }
+  ],
+  "high_cost_proof": "For any n>=2 point set, each coordinate has sum max(h-2,0)<=n-2; thus delta<=3(n-2). If c>finite_cutoff=a_n+9(n-2), then c-a_n-3delta>=1.",
+  "normalization_proof": "delta and uniform native cost are invariant under translations, signed axis permutations and common multiplication; these are the normalization actions of the complete source enumerations.",
+  "guard_consequence": "For remaining proper classes of sizes8..12, actual union U contains all obliged outside pointsF. Therefore remaining cost >=sum a_size+3*sum max(h_F-2*kLeft,0).",
+  "review_status": "NOT_REVIEWED",
+  "scope": "Exact cost-observer inequality and a safe native-search guard; no whole-domain exclusion is inferred from the bound alone."
+}

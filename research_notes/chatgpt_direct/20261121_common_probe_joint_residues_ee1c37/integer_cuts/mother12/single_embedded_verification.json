@@ -1,0 +1,214 @@
+{
+  "schema": "TWELVE_LABEL_SINGLE_EMBEDDED_SHORT_EXCLUSION_V1",
+  "budget": 10006,
+  "classes": 12,
+  "points": 125,
+  "definition_all_embedded": "contained in at least one of all 250 legal thirteen-point mother classes",
+  "definition_large_embedded": "embedded and size at least eleven",
+  "zero_large_embedded_size_cost_lower_bound": 10192,
+  "single_large_embedded_size_profiles": [
+    {
+      "proper_sizes": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        12
+      ],
+      "embedded_sizes": [
+        13
+      ],
+      "embedded_count": 1,
+      "large_embedded_count": 1,
+      "minimum_embedded_cost": 1296,
+      "minimum_total_cost": 9980,
+      "unrestricted_union_bound_passes": true,
+      "trivial_union_bound_passes": true,
+      "all_parents_for_embedded_classes_must_be_distinct": true,
+      "old_union_enumerator_cannot_stop_before_k": true,
+      "outside_condition_inherited_union": true,
+      "outside_condition_trivial_union": true
+    },
+    {
+      "proper_sizes": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        12
+      ],
+      "embedded_sizes": [
+        10,
+        13
+      ],
+      "embedded_count": 2,
+      "large_embedded_count": 1,
+      "minimum_embedded_cost": 2064,
+      "minimum_total_cost": 10004,
+      "unrestricted_union_bound_passes": true,
+      "trivial_union_bound_passes": true,
+      "all_parents_for_embedded_classes_must_be_distinct": true,
+      "old_union_enumerator_cannot_stop_before_k": true,
+      "outside_condition_inherited_union": true,
+      "outside_condition_trivial_union": true
+    }
+  ],
+  "native_mothers_checked": 250,
+  "native_proper_twelve_checked": 3000,
+  "proper_twelve_complete_orbit_equals_full_anchored_bank": true,
+  "cheap_ten_classes_shape_checked": 49500,
+  "ten_type_shapes": [
+    {
+      "cost": 744,
+      "classes": 12000,
+      "positive_defect": 0,
+      "shape": [
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "cost": 747,
+      "classes": 24000,
+      "positive_defect": 1,
+      "shape": [
+        [
+          1,
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "cost": 752,
+      "classes": 12000,
+      "positive_defect": 1,
+      "shape": [
+        [
+          1,
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "cost": 768,
+      "classes": 1500,
+      "positive_defect": 4,
+      "shape": [
+        [
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      ]
+    }
+  ],
+  "axis_cases": [
+    {
+      "heavy_levels_equal": true,
+      "residual_fiber_counts": [
+        16,
+        21,
+        21,
+        21,
+        21
+      ],
+      "positive_defect": 4
+    },
+    {
+      "heavy_levels_equal": false,
+      "residual_fiber_counts": [
+        18,
+        19,
+        21,
+        21,
+        21
+      ],
+      "positive_defect": 3
+    }
+  ],
+  "minimum_residual_total_defect": 9,
+  "single_large_embedded_lower_bound": 10007,
+  "conclusion": "Every twelve-class partition of total cost <=10006 has at least two embedded classes of size >=11, hence at least two embedded classes in total.",
+  "review_status": "NOT_REVIEWED",
+  "scope": "Exact full sublayer exclusion and structural requirement only; not a new whole-domain cost lower bound. Native class census and mother completeness are inherited inputs."
+}

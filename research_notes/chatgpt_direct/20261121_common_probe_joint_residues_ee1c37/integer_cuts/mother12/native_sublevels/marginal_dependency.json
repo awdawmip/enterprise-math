@@ -1,0 +1,19 @@
+{
+  "source": "r10/lower/marginal_cost_inequality.json",
+  "bytes": 6260,
+  "sha256": "95069ec706666b03dff59fbdb360d884614c0475f99d70fb2bc8d01e44ca4b0c",
+  "guard": "Only when every remaining proper size is9 or10: reject if3*sum_fiber max(|free intersect fiber|-2*kLeft,0)>slack.",
+  "proof": "All real remaining proper points contain free, positive parts are subadditive, and every legal size9/10 class has cost>=base+3*its fiber defect.",
+  "positive_guard_calibration": {
+    "source": "r10/construct12/packing_initial.txt",
+    "bytes": 475,
+    "sha256": "e78b5c52989113dca26ab2deed616a37529fa2830519f69d7e42f5a70ce370e2",
+    "proper_tail_states_checked": 1024,
+    "minimum_guard_slack": 0,
+    "scope": "Checks the new guard on every proper-class subset of the fixed native-verified9996 witness; does not claim the full search returned this witness."
+  },
+  "native_marginal_source": {
+    "bytes": 9546,
+    "sha256": "6135d3161939099b741849f25394d2e031f63d96704c87dbc1287c1f6b46883c"
+  }
+}
