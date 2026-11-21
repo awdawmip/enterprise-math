@@ -89,7 +89,7 @@ An exact nonvanishing certificate is as follows. In the canonical \(\mathbb Q\)-
 |17|2|3|3|
 |18|0|-4|-4|
 
-## Theorem C: least cost modulus at remainder O_m(N^9) is 2520
+## Theorem C: least cost modulus at remainder O_m(N^8) is 2520
 
 The pinned eighth-root result gives least modulus 840 at remainder \(O_m(N^{10})\). At the next finer precision all primitive ninth roots contribute nontrivially at degree nine by (3). All primitive tenth-root contributions are already represented by cost period 10, a divisor of 840. Any root of order d>=11 has at most nine prices divisible by d in the frozen price range, hence its pole order is at most nine and its Fourier terms are at most \(O_m(N^8)\). Accordingly, for every fixed \(m\ge1\)
 
