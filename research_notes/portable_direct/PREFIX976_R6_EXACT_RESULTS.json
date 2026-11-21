@@ -1,0 +1,80 @@
+{
+  "schema": "PREFIX976_R6_FEEDBACK_PORT_CERTIFICATE_V1",
+  "frozen_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "auxiliary positive two-step source-port feedback; x xor 2^j; odd-preserving j>=1",
+  "proof_status": "AUTHOR_PROOF_NOT_REVIEWED",
+  "arithmetic": "exact Python integer, no floating point",
+  "verifier_stdout": {
+    "self_states": 16312,
+    "pair_states": 428808,
+    "p19_return_residues": 16,
+    "p19_return_path_mass_over_all_odd_x": 4194304
+  },
+  "validation_by_width": [
+    {
+      "p": 4,
+      "residues": 19,
+      "self_states": 152,
+      "cross_pair_input_checks": 2888,
+      "self_return_residues": [
+        6
+      ]
+    },
+    {
+      "p": 5,
+      "residues": 30,
+      "self_states": 480,
+      "cross_pair_input_checks": 14400,
+      "self_return_residues": [
+        6,
+        12
+      ]
+    },
+    {
+      "p": 6,
+      "residues": 44,
+      "self_states": 1408,
+      "cross_pair_input_checks": 61952,
+      "self_return_residues": [
+        6,
+        12,
+        24
+      ]
+    },
+    {
+      "p": 7,
+      "residues": 61,
+      "self_states": 3904,
+      "cross_pair_input_checks": 112896,
+      "self_return_residues": [
+        6,
+        12,
+        24,
+        48
+      ]
+    },
+    {
+      "p": 8,
+      "residues": 81,
+      "self_states": 10368,
+      "cross_pair_input_checks": 236672,
+      "self_return_residues": [
+        6,
+        12,
+        24,
+        48,
+        96
+      ]
+    }
+  ],
+  "signed_kernel_local_extended_checks": 18642,
+  "p19": {
+    "residues": 499,
+    "odd_source_return_residues": 16,
+    "total_positive_path_instances_over_odd_x": 4194304,
+    "diagonal_baseline_example": 18,
+    "diagonal_feedback_example": 0,
+    "offdiagonal_baseline_and_feedback": 306
+  },
+  "limitations": "Signed weighted check count from extended local verifier, while checked-in compact verifier covers other listed counts; analytic p19 population not brute-force enumerated. No native X6 transfer asserted."
+}
