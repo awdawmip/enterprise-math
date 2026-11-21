@@ -11662,6 +11662,57 @@
           }
         }
       ]
+    },
+    {
+      "event_id": "onhour-20261121-2300-x6-port-gcd-winding-budget-unit246-v1",
+      "state": "EM_REPRESENTED",
+      "notes": "Unit246 AUTHOR_PROVED / SOURCE-CERTIFICATE-REPLAYED / UNREVIEWED / NOT_ADMITTED. Exact conditional directed centre Port model x_i->P->x_j, two labelled intact triads A/B each returns own Cell with original signed OUTER ring winding (-12,+12). For offset d=(j-i) mod12 and m=12/gcd(12,d), each triad's completed directed centre excursions c_T satisfy d*c_T=0 mod12; shared-ring exclusion forces total excursions >=m. All legal event histories satisfy N=24+2c_total+2b_total with nonnegative integral ring backtracking pairs. Replayed 36 existing Unit245 shortest full signed primitive Cell/BRC certificates: all 36 witnessed minima use exactly m compulsory excursions, on one triad, and per-pair exact excess b matrix [[2,1,3,5,4,5],[1,2,5,4,5,3],[1,0,3,6,4,2],[0,0,2,5,4,2],[0,0,2,4,5,2],[0,1,2,4,6,3]]. Executed 5,755 in-session V8 integer assertions, zero failures; checker published for Node reproduction, not claimed executed under Node. Unit245's independent BFS is reused for source shortestness. Positive-only 2026-11-18 Port candidate cannot realize required signed ring motion; physical signed Port transfers, environment response and same-Cell C12/C24 fibre observation remain missing. Units233-245 consumed, Unit238 correction kept as distinct Activity, no R063 benchmark substitution. Original Researcher/SID historical only; exact Source read onhour-20261121-2306-x6-own-source-continuation-read-v1 SUCCEEDED; NO_LIVE_CLAIM/execution_authorized=false, native semantic PROGRESS still pending; original failed requests not reissued; #2903 open.",
+      "repairs_event_id": null,
+      "kb_sources": [],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/X6_TIME_UNIT246_PORT_GCD_AND_SHORTEST_WINDING_BUDGET_20261121_2300.md",
+          "commit": "633ba78c6171c6dece06dd5889f89d05ee5ae35b",
+          "sha256": "a99680f778c98f2817906ebc96990704f1a50324373e9de3302774d6813b7580",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "147f1333e4c28ccb60a2811a575ba829e00c3883",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/633ba78c6171c6dece06dd5889f89d05ee5ae35b/research_notes/X6_TIME_UNIT246_PORT_GCD_AND_SHORTEST_WINDING_BUDGET_20261121_2300.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/X6_TIME_UNIT246_PORT_GCD_WINDING_ACCOUNTING_CHECK_20261121_2300.js",
+          "commit": "2ccc065c8db25f6d555d5c31a8d7211a2b8cd230",
+          "sha256": "589535714f74896c1018d8411674ad15ee44cfc8490b4373b8817cfad1036412",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "629c07bceab41bc4e0a8f6e2265c798de4ec214f",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/2ccc065c8db25f6d555d5c31a8d7211a2b8cd230/research_checks/X6_TIME_UNIT246_PORT_GCD_WINDING_ACCOUNTING_CHECK_20261121_2300.js",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/X6_TIME_UNIT246_PORT_GCD_WINDING_ACCOUNTING_RESULTS_20261121_2300.json",
+          "commit": "b3b6afaf8738f3448f5d014fdd18feb12e2005f8",
+          "sha256": "3075a191b2878b590f9d35c35970434bd47fa0de7c0266a4d55664e6e79aaf40",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "1fab81ef9cecfeb1be674197151481141bddf804",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b3b6afaf8738f3448f5d014fdd18feb12e2005f8/research_checks/X6_TIME_UNIT246_PORT_GCD_WINDING_ACCOUNTING_RESULTS_20261121_2300.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ]
     }
   ],
   "mode": "TASK_RESEARCH",
