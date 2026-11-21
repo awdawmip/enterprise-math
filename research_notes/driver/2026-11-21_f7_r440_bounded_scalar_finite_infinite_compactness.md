@@ -25,7 +25,7 @@ Remove the fixed origin/axis/marked coordinates. The remaining independent J-eve
 
 For fixed z, D_q(z) depends on at most four scalar coordinates, so it is continuous on Q_1. Consequently M_B(q)=max_{|z|_infty<=B}|D_q(z)| is continuous, and reaches its minimum E_B^{<=1}. These minima are nondecreasing in B, and uniformly <=4/7 by r435. Put L=sup_B E_B^{<=1}. The sets C_B={q in Q_1: M_B(q)<=L} are closed, nonempty, nested and contained in compact Q_1. Their intersection contains q_infty, and this one q_infty has sup_{z in Z^4}|D_{q_infty}(z)|<=L. Conversely every q has sup_z|D_q(z)|>=M_B(q)>=E_B^{<=1} for every B. Thus E_infty^{<=1}=L and q_infty attains the infimum. Replacing L by a specified epsilon proves the feasibility equivalence.
 
-For fixed B, only finitely many scalar coordinates are used; their values and the epigraph reformulation of the absolute-defect constraints form a nonempty rational polytope. Hence rational optimal finite tables exist. This fact does **not** require a uniform denominator across B.
+For fixed B, only finitely many scalar coordinates are used; the scalar variables range over a rational box, and the epigraph formulation of the finite absolute-defect objective is a rational polyhedron with an attained finite minimum. Hence rational optimal finite tables exist. This fact does **not** require a uniform denominator across B.
 
 ## Consequences and evidence status
 
