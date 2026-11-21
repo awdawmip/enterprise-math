@@ -1,0 +1,628 @@
+{
+  "schema": "X6_TIME_UNIT256_SIGNED_GUARDED_INTERFACE_CERT_V1",
+  "model": "CONDITIONAL_SYMMETRIC_SIGNED_ATOMIC_TRIAD_TRANSFERS_WITH_SERIAL_EMPTY_TARGET_GUARD",
+  "input": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "f56840285cafeb9f5767ea91e903e1f53808186f",
+    "path": "research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json"
+  },
+  "total_paths": 36,
+  "total_events": 1312,
+  "integer_assertions": 6677,
+  "optimal_witness_count": 2,
+  "shared_required_negative_links": [
+    "0>11:2",
+    "10>9:1",
+    "11>10:0",
+    "3>4:1",
+    "4>5:0",
+    "5>6:2",
+    "6>7:1",
+    "8>7:0"
+  ],
+  "union_negative_links": [
+    "0>11:2",
+    "10>9:1",
+    "11>10:0",
+    "1>0:1",
+    "1>2:0",
+    "3>2:2",
+    "3>4:1",
+    "4>5:0",
+    "5>6:2",
+    "6>7:1",
+    "8>7:0",
+    "8>9:2"
+  ],
+  "unique_negative_link_counts": [
+    10,
+    10
+  ],
+  "minimizers": [
+    {
+      "ingress": 6,
+      "egress": 0,
+      "cost": 28,
+      "route": "LKJIHGMALKJIHGMdefghijklabAc",
+      "negative_event_count": 14,
+      "negative_axis_counts": [
+        6,
+        4,
+        4
+      ],
+      "negative_directed_links": [
+        "0>11:2",
+        "10>9:1",
+        "11>10:0",
+        "1>2:0",
+        "3>4:1",
+        "4>5:0",
+        "5>6:2",
+        "6>7:1",
+        "8>7:0",
+        "8>9:2"
+      ],
+      "first_event": {
+        "t": 1,
+        "triad": "A",
+        "src": "x0",
+        "dst": "x11",
+        "step": "-e2",
+        "kind": "RING"
+      },
+      "spoke_events": [
+        {
+          "t": 7,
+          "triad": "A",
+          "src": "x6",
+          "dst": "P",
+          "step": "+e0",
+          "kind": "PORT"
+        },
+        {
+          "t": 8,
+          "triad": "A",
+          "src": "P",
+          "dst": "x0",
+          "step": "+e0",
+          "kind": "PORT"
+        },
+        {
+          "t": 15,
+          "triad": "A",
+          "src": "x6",
+          "dst": "P",
+          "step": "+e0",
+          "kind": "PORT"
+        },
+        {
+          "t": 27,
+          "triad": "A",
+          "src": "P",
+          "dst": "x0",
+          "step": "+e0",
+          "kind": "PORT"
+        }
+      ],
+      "trace": [
+        {
+          "t": 1,
+          "triad": "A",
+          "src": "x0",
+          "dst": "x11",
+          "step": "-e2",
+          "kind": "RING"
+        },
+        {
+          "t": 2,
+          "triad": "A",
+          "src": "x11",
+          "dst": "x10",
+          "step": "-e0",
+          "kind": "RING"
+        },
+        {
+          "t": 3,
+          "triad": "A",
+          "src": "x10",
+          "dst": "x9",
+          "step": "-e1",
+          "kind": "RING"
+        },
+        {
+          "t": 4,
+          "triad": "A",
+          "src": "x9",
+          "dst": "x8",
+          "step": "+e2",
+          "kind": "RING"
+        },
+        {
+          "t": 5,
+          "triad": "A",
+          "src": "x8",
+          "dst": "x7",
+          "step": "-e0",
+          "kind": "RING"
+        },
+        {
+          "t": 6,
+          "triad": "A",
+          "src": "x7",
+          "dst": "x6",
+          "step": "+e1",
+          "kind": "RING"
+        },
+        {
+          "t": 7,
+          "triad": "A",
+          "src": "x6",
+          "dst": "P",
+          "step": "+e0",
+          "kind": "PORT"
+        },
+        {
+          "t": 8,
+          "triad": "A",
+          "src": "P",
+          "dst": "x0",
+          "step": "+e0",
+          "kind": "PORT"
+        },
+        {
+          "t": 9,
+          "triad": "A",
+          "src": "x0",
+          "dst": "x11",
+          "step": "-e2",
+          "kind": "RING"
+        },
+        {
+          "t": 10,
+          "triad": "A",
+          "src": "x11",
+          "dst": "x10",
+          "step": "-e0",
+          "kind": "RING"
+        },
+        {
+          "t": 11,
+          "triad": "A",
+          "src": "x10",
+          "dst": "x9",
+          "step": "-e1",
+          "kind": "RING"
+        },
+        {
+          "t": 12,
+          "triad": "A",
+          "src": "x9",
+          "dst": "x8",
+          "step": "+e2",
+          "kind": "RING"
+        },
+        {
+          "t": 13,
+          "triad": "A",
+          "src": "x8",
+          "dst": "x7",
+          "step": "-e0",
+          "kind": "RING"
+        },
+        {
+          "t": 14,
+          "triad": "A",
+          "src": "x7",
+          "dst": "x6",
+          "step": "+e1",
+          "kind": "RING"
+        },
+        {
+          "t": 15,
+          "triad": "A",
+          "src": "x6",
+          "dst": "P",
+          "step": "+e0",
+          "kind": "PORT"
+        },
+        {
+          "t": 16,
+          "triad": "B",
+          "src": "x2",
+          "dst": "x3",
+          "step": "+e2",
+          "kind": "RING"
+        },
+        {
+          "t": 17,
+          "triad": "B",
+          "src": "x3",
+          "dst": "x4",
+          "step": "-e1",
+          "kind": "RING"
+        },
+        {
+          "t": 18,
+          "triad": "B",
+          "src": "x4",
+          "dst": "x5",
+          "step": "-e0",
+          "kind": "RING"
+        },
+        {
+          "t": 19,
+          "triad": "B",
+          "src": "x5",
+          "dst": "x6",
+          "step": "-e2",
+          "kind": "RING"
+        },
+        {
+          "t": 20,
+          "triad": "B",
+          "src": "x6",
+          "dst": "x7",
+          "step": "-e1",
+          "kind": "RING"
+        },
+        {
+          "t": 21,
+          "triad": "B",
+          "src": "x7",
+          "dst": "x8",
+          "step": "+e0",
+          "kind": "RING"
+        },
+        {
+          "t": 22,
+          "triad": "B",
+          "src": "x8",
+          "dst": "x9",
+          "step": "-e2",
+          "kind": "RING"
+        },
+        {
+          "t": 23,
+          "triad": "B",
+          "src": "x9",
+          "dst": "x10",
+          "step": "+e1",
+          "kind": "RING"
+        },
+        {
+          "t": 24,
+          "triad": "B",
+          "src": "x10",
+          "dst": "x11",
+          "step": "+e0",
+          "kind": "RING"
+        },
+        {
+          "t": 25,
+          "triad": "B",
+          "src": "x11",
+          "dst": "x0",
+          "step": "+e2",
+          "kind": "RING"
+        },
+        {
+          "t": 26,
+          "triad": "B",
+          "src": "x0",
+          "dst": "x1",
+          "step": "+e1",
+          "kind": "RING"
+        },
+        {
+          "t": 27,
+          "triad": "A",
+          "src": "P",
+          "dst": "x0",
+          "step": "+e0",
+          "kind": "PORT"
+        },
+        {
+          "t": 28,
+          "triad": "B",
+          "src": "x1",
+          "dst": "x2",
+          "step": "-e0",
+          "kind": "RING"
+        }
+      ]
+    },
+    {
+      "ingress": 8,
+      "egress": 2,
+      "cost": 28,
+      "route": "LKJdefghimIHGFEDCBAcdefghimc",
+      "negative_event_count": 14,
+      "negative_axis_counts": [
+        4,
+        6,
+        4
+      ],
+      "negative_directed_links": [
+        "0>11:2",
+        "10>9:1",
+        "11>10:0",
+        "1>0:1",
+        "3>2:2",
+        "3>4:1",
+        "4>5:0",
+        "5>6:2",
+        "6>7:1",
+        "8>7:0"
+      ],
+      "first_event": {
+        "t": 1,
+        "triad": "A",
+        "src": "x0",
+        "dst": "x11",
+        "step": "-e2",
+        "kind": "RING"
+      },
+      "spoke_events": [
+        {
+          "t": 10,
+          "triad": "B",
+          "src": "x8",
+          "dst": "P",
+          "step": "+e1",
+          "kind": "PORT"
+        },
+        {
+          "t": 20,
+          "triad": "B",
+          "src": "P",
+          "dst": "x2",
+          "step": "+e1",
+          "kind": "PORT"
+        },
+        {
+          "t": 27,
+          "triad": "B",
+          "src": "x8",
+          "dst": "P",
+          "step": "+e1",
+          "kind": "PORT"
+        },
+        {
+          "t": 28,
+          "triad": "B",
+          "src": "P",
+          "dst": "x2",
+          "step": "+e1",
+          "kind": "PORT"
+        }
+      ],
+      "trace": [
+        {
+          "t": 1,
+          "triad": "A",
+          "src": "x0",
+          "dst": "x11",
+          "step": "-e2",
+          "kind": "RING"
+        },
+        {
+          "t": 2,
+          "triad": "A",
+          "src": "x11",
+          "dst": "x10",
+          "step": "-e0",
+          "kind": "RING"
+        },
+        {
+          "t": 3,
+          "triad": "A",
+          "src": "x10",
+          "dst": "x9",
+          "step": "-e1",
+          "kind": "RING"
+        },
+        {
+          "t": 4,
+          "triad": "B",
+          "src": "x2",
+          "dst": "x3",
+          "step": "+e2",
+          "kind": "RING"
+        },
+        {
+          "t": 5,
+          "triad": "B",
+          "src": "x3",
+          "dst": "x4",
+          "step": "-e1",
+          "kind": "RING"
+        },
+        {
+          "t": 6,
+          "triad": "B",
+          "src": "x4",
+          "dst": "x5",
+          "step": "-e0",
+          "kind": "RING"
+        },
+        {
+          "t": 7,
+          "triad": "B",
+          "src": "x5",
+          "dst": "x6",
+          "step": "-e2",
+          "kind": "RING"
+        },
+        {
+          "t": 8,
+          "triad": "B",
+          "src": "x6",
+          "dst": "x7",
+          "step": "-e1",
+          "kind": "RING"
+        },
+        {
+          "t": 9,
+          "triad": "B",
+          "src": "x7",
+          "dst": "x8",
+          "step": "+e0",
+          "kind": "RING"
+        },
+        {
+          "t": 10,
+          "triad": "B",
+          "src": "x8",
+          "dst": "P",
+          "step": "+e1",
+          "kind": "PORT"
+        },
+        {
+          "t": 11,
+          "triad": "A",
+          "src": "x9",
+          "dst": "x8",
+          "step": "+e2",
+          "kind": "RING"
+        },
+        {
+          "t": 12,
+          "triad": "A",
+          "src": "x8",
+          "dst": "x7",
+          "step": "-e0",
+          "kind": "RING"
+        },
+        {
+          "t": 13,
+          "triad": "A",
+          "src": "x7",
+          "dst": "x6",
+          "step": "+e1",
+          "kind": "RING"
+        },
+        {
+          "t": 14,
+          "triad": "A",
+          "src": "x6",
+          "dst": "x5",
+          "step": "+e2",
+          "kind": "RING"
+        },
+        {
+          "t": 15,
+          "triad": "A",
+          "src": "x5",
+          "dst": "x4",
+          "step": "+e0",
+          "kind": "RING"
+        },
+        {
+          "t": 16,
+          "triad": "A",
+          "src": "x4",
+          "dst": "x3",
+          "step": "+e1",
+          "kind": "RING"
+        },
+        {
+          "t": 17,
+          "triad": "A",
+          "src": "x3",
+          "dst": "x2",
+          "step": "-e2",
+          "kind": "RING"
+        },
+        {
+          "t": 18,
+          "triad": "A",
+          "src": "x2",
+          "dst": "x1",
+          "step": "+e0",
+          "kind": "RING"
+        },
+        {
+          "t": 19,
+          "triad": "A",
+          "src": "x1",
+          "dst": "x0",
+          "step": "-e1",
+          "kind": "RING"
+        },
+        {
+          "t": 20,
+          "triad": "B",
+          "src": "P",
+          "dst": "x2",
+          "step": "+e1",
+          "kind": "PORT"
+        },
+        {
+          "t": 21,
+          "triad": "B",
+          "src": "x2",
+          "dst": "x3",
+          "step": "+e2",
+          "kind": "RING"
+        },
+        {
+          "t": 22,
+          "triad": "B",
+          "src": "x3",
+          "dst": "x4",
+          "step": "-e1",
+          "kind": "RING"
+        },
+        {
+          "t": 23,
+          "triad": "B",
+          "src": "x4",
+          "dst": "x5",
+          "step": "-e0",
+          "kind": "RING"
+        },
+        {
+          "t": 24,
+          "triad": "B",
+          "src": "x5",
+          "dst": "x6",
+          "step": "-e2",
+          "kind": "RING"
+        },
+        {
+          "t": 25,
+          "triad": "B",
+          "src": "x6",
+          "dst": "x7",
+          "step": "-e1",
+          "kind": "RING"
+        },
+        {
+          "t": 26,
+          "triad": "B",
+          "src": "x7",
+          "dst": "x8",
+          "step": "+e0",
+          "kind": "RING"
+        },
+        {
+          "t": 27,
+          "triad": "B",
+          "src": "x8",
+          "dst": "P",
+          "step": "+e1",
+          "kind": "PORT"
+        },
+        {
+          "t": 28,
+          "triad": "B",
+          "src": "P",
+          "dst": "x2",
+          "step": "+e1",
+          "kind": "PORT"
+        }
+      ]
+    }
+  ],
+  "unexecuted": "SOURCE_ADMISSION_AND_ENVIRONMENT_RESPONSE_NOT_OBTAINED"
+}
