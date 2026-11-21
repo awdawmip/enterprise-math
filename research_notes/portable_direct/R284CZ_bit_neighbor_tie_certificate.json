@@ -1,0 +1,119 @@
+{
+  "schema": "R284CZ_EXACT_NEIGHBOR_EQUALITY_GRAPH_V1",
+  "status": "AUTHOR_PROVED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED",
+  "source_module": "R284CO_spectral_witness_checker.py",
+  "frozen_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "population": 65536,
+  "labeled_arcs": 64,
+  "all_farthest_arcs_unique": true,
+  "graph_edges": 1474560,
+  "equal_d64_edges": 307,
+  "equal_edges_by_mutation": {
+    "flip:0": 3,
+    "flip:1": 14,
+    "flip:2": 228,
+    "flip:4": 16,
+    "flip:6": 45,
+    "swap:0,1": 1
+  },
+  "equal_edge_rank_block_lengths": {
+    "2": 290,
+    "3": 7,
+    "4": 10
+  },
+  "canonical_edge_tuple": "[kind,lower_mutation,source_index_small,source_index_large,d64,arc_at_small,arc_at_large]",
+  "canonical_edge_list_sha256": "251a3ca8d2d72cf6f7ca19869f174eb9e370f330533e484faf13dcb2a68dab8b",
+  "both_endpoint_unforced_count": 4,
+  "both_endpoint_unforced_edges": [
+    {
+      "type": "flip",
+      "lower_mutation": "6",
+      "rank": 1263,
+      "tie_end": 1264,
+      "index_pair": [
+        1154,
+        1186
+      ],
+      "word_pair": [
+        12720103016,
+        6051057018
+      ],
+      "critical_arcs": [
+        18,
+        19
+      ],
+      "tau_pair": [
+        1264,
+        1264
+      ]
+    },
+    {
+      "type": "flip",
+      "lower_mutation": "6",
+      "rank": 779,
+      "tie_end": 780,
+      "index_pair": [
+        9344,
+        9376
+      ],
+      "word_pair": [
+        12724715924,
+        6055669926
+      ],
+      "critical_arcs": [
+        18,
+        19
+      ],
+      "tau_pair": [
+        780,
+        780
+      ]
+    },
+    {
+      "type": "flip",
+      "lower_mutation": "6",
+      "rank": 1563,
+      "tie_end": 1564,
+      "index_pair": [
+        9360,
+        9392
+      ],
+      "word_pair": [
+        12717139434,
+        6048093436
+      ],
+      "critical_arcs": [
+        18,
+        19
+      ],
+      "tau_pair": [
+        1564,
+        1564
+      ]
+    },
+    {
+      "type": "swap",
+      "lower_mutation": "0,1",
+      "rank": 7587,
+      "tie_end": 7588,
+      "index_pair": [
+        62591,
+        63615
+      ],
+      "word_pair": [
+        14547547380,
+        10044326029
+      ],
+      "critical_arcs": [
+        21,
+        37
+      ],
+      "tau_pair": [
+        7588,
+        7588
+      ]
+    }
+  ],
+  "scope": "all 12 lower-bit flip edges and all unequal-entry lower swaps; top entries unchanged; frozen Port only",
+  "global_core_classification_source": "R284CW"
+}
