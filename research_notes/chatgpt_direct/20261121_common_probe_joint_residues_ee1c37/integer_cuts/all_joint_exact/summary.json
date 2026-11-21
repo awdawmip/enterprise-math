@@ -1,0 +1,40 @@
+{
+  "schema": "ALL_DECLARED_INTEGER_OBSERVATION_FAMILIES_JOINT_FEASIBILITY_V1",
+  "frames": [
+    {
+      "frame": 1,
+      "witness_sha256": "8989c9ab239b1a8d3c6d37c371fb0de856975cf21fc16722b1bcd72bcff6c323",
+      "positive_noncore_classes": 588,
+      "full_cost": 9858,
+      "full_label_weight": 12,
+      "star_checks_inside_free": 53487,
+      "minimum_star_slack": "2317595188806051993059156329539628388/2374455812015279800715321365976293419513",
+      "modular_indexed_cuts_covered": 12413656,
+      "exact_dp_residue_minima_checked": 146192,
+      "xor_indexed_cuts_checked": 22371336,
+      "common_denominator_bits": 132,
+      "all_verified": true
+    },
+    {
+      "frame": 2,
+      "witness_sha256": "f411ba7d7d45af6f4ca8531d36563bb712a9aca7e9561651e741a7b816396969",
+      "positive_noncore_classes": 312,
+      "full_cost": 9858,
+      "full_label_weight": 12,
+      "star_checks_inside_free": 28404,
+      "minimum_star_slack": "0",
+      "modular_indexed_cuts_covered": 12413656,
+      "exact_dp_residue_minima_checked": 146192,
+      "xor_indexed_cuts_checked": 22371336,
+      "common_denominator_bits": 131,
+      "all_verified": true
+    }
+  ],
+  "distinct_positive_native_classes": 875,
+  "total_internal_star_checks": 81891,
+  "total_modular_indexed_cuts_covered": 24827312,
+  "total_xor_indexed_cuts_checked": 44742672,
+  "total_combined_indexed_cuts_covered": 69569984,
+  "formal_review": "NOT_REVIEWED",
+  "scope": "Two exact cost-9858 fractional witnesses jointly satisfy all declared full-star, weighted affine-fiber modulus-2/3/4/5, paired-original-axis modulus-3, and at-most-three-feature/type parity inequalities. Counts are indexed members with duplicates, not distinct inequalities. The already established integer exclusion is not weakened."
+}

@@ -1,0 +1,21 @@
+--- r10/lower/front_orbits.cpp	2026-11-21 10:08:04.626206977 +0900
++++ r10/lower/front_orbit_min.cpp	2026-11-21 10:40:15.571802455 +0900
+@@ -90,14 +90,14 @@
+   if(j<0||filtered[i].size()<filtered[j].size())j=i;
+  }
+  if(j<0)return free==0;
+- if(stab.size()<=cnt[j]+1)return solve(free,left,cnt,filtered);
+- vector<M> representatives;
+- for(M m:filtered[j]){bool minimum=true;for(const auto*a:stab)if(image(m,*a)<m){minimum=false;break;}if(minimum)representatives.push_back(m);}
++ if(stab.size()<=1)return solve(free,left,cnt,filtered);
++ vector<M> representatives,orbit_minimum;
++ for(M m:filtered[j]){M minimum=m;for(const auto*a:stab)minimum=min(minimum,image(m,*a));orbit_minimum.push_back(minimum);if(minimum==m)representatives.push_back(m);}
+  
+  ++nodes;--cnt[j];
+  auto all=move(filtered[j]);
+  for(M m:representatives){
+-  filtered[j].clear();if(cnt[j])for(M row:all)if(row>m)filtered[j].push_back(row);
++  filtered[j].clear();if(cnt[j])for(int z=0;z<all.size();z++)if(all[z]>m&&orbit_minimum[z]>=m)filtered[j].push_back(all[z]);
+   if(solve(free^m,left-1,cnt,filtered)){++cnt[j];return true;}
+  }
+  ++cnt[j];return false;
