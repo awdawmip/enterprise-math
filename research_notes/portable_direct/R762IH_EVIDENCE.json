@@ -13,6 +13,11 @@
     "uniform_per_support_cap": 4,
     "global_kernel_event_bound": 67,
     "proof_bridge_injection": "2 bridge edges per retained four-count type, at most 14 distinct bridge edges",
+    "targeted_four_pattern_211": {
+      "original_events": 6,
+      "reduced_events": 4,
+      "checked": true
+    },
     "lower_cap_witness": {
       "events": 13,
       "enumerated_allocations": 6000,
@@ -36,5 +41,6 @@
   "proof_domain": "Any legal finite six-axis composite Port Euler witness",
   "method": "Integer multigraph pair deletion; bridge injection",
   "review": "NOT_REVIEWED",
-  "next": "Histogram-only exact selector; sharp absolute bound; native P000 lifting"
+  "next": "Histogram-only exact selector; sharp absolute bound; native P000 lifting",
+  "regression_fix": "Confirmed and corrected 2-1-1 four-count support handling; targeted six-event witness passes"
 }
