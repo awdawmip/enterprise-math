@@ -1,0 +1,52 @@
+{
+  "schema": "ENTERPRISE_MATH_R762HS_EXACT_PORT_CHARACTER_EVIDENCE_V1",
+  "scientific_input": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "predecessor": "R762HR / research_notes/portable_direct/R762HR_PORT_REALIZABILITY_VS_SUPPORT_CONNECTEDNESS.md",
+  "model": "SIX_AXIS_COMPOSITE_PORT_TRIANGLE_EVENT",
+  "author_status": "AUTHOR_PROOF_AND_EXACT_FINITE_CENSUS",
+  "review": "NOT_REVIEWED",
+  "method": "15-Port Walsh degree-boundary character projector with one global flip fixed",
+  "runtime": "g++ -std=c++17 -O3 -Wall -Wextra -pedantic; /mnt/data/R762HS_CHECK",
+  "result": "PASS R762HS",
+  "ten_source_multisets": {
+    "all": 20030010,
+    "coordinate_even": 632996,
+    "unsignable": 29360,
+    "overlap_connected_unsignable": 240,
+    "among_last_port_even_degree_possible": 0
+  },
+  "pasch_support_masks": [
+    7,
+    25,
+    42,
+    52
+  ],
+  "pasch_multiplicity_examples": [
+    {
+      "counts": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "m": 12,
+      "even_degree_choices": 1296,
+      "signable": false,
+      "closed_port_realizable": false
+    },
+    {
+      "counts": [
+        5,
+        3,
+        3,
+        3
+      ],
+      "m": 14,
+      "even_degree_choices": 12960,
+      "signable": false,
+      "closed_port_realizable": false
+    }
+  ],
+  "limitations": "No exact full-length signability theorem and no primitive TRIADIC_CLOSURE_E transport; Activity and native PROGRESS not inferred from source publication.",
+  "next": "Search HR1-connected coordinate-even unsignable Port multiset or prove full-length constructive signing."
+}
