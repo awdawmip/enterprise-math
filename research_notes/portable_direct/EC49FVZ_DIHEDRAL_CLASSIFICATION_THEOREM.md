@@ -105,7 +105,7 @@ For a positive anchor, compute \(q_0,h_0,n_0,W\) above. Find each \(c\in\{0,\ldo
 | \(5/16\) | \(1014\bmod1760\) | Yes |
 | \(1/7\) | none | No |
 
-This is an exact **support-shape / reflection residual** classification: equal one-sided marginal distributions (the EC49FVY mirror theorem) do not preserve the oriented cyclic order needed for fixed-lag reconstruction. The 10-adic discrete mask is the minimal distinguishing component for this yes/no property; the mod11 factor changes admissible positions and possible delays but never the existence criterion.
+This is an exact **support-shape / reflection residual** classification: equal one-sided marginal distributions (the EC49FVY mirror theorem) do not preserve the oriented cyclic order needed for fixed-lag reconstruction. The mod-10 discrete mask is a sufficient and complete distinguishing component for this yes/no property; the mod11 factor changes admissible positions and possible delays but never the existence criterion.
 
 ## Verifier and scope
 
