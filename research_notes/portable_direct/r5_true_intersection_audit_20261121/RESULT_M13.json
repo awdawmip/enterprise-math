@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "field": "Z[z]/(z^8+1)",
+  "methods": [
+    "per-mask multiconstraint state DP",
+    "grouped event-count convolution"
+  ],
+  "certificates": {
+    "13": {
+      "state_DP": [
+        60,
+        36,
+        4,
+        -36,
+        -60,
+        -84,
+        -84,
+        -76
+      ],
+      "grouped_convolution": [
+        60,
+        36,
+        4,
+        -36,
+        -60,
+        -84,
+        -84,
+        -76
+      ],
+      "nonzero": true
+    },
+    "16": {
+      "state_DP": [
+        -32,
+        32,
+        96,
+        136,
+        160,
+        152,
+        128,
+        88
+      ],
+      "grouped_convolution": [
+        -32,
+        32,
+        96,
+        136,
+        160,
+        152,
+        128,
+        88
+      ],
+      "nonzero": true
+    }
+  },
+  "prior_m13_period": 360360,
+  "primitive_16_divides_actual_m13_minimum_period": true,
+  "prior_m13_minimum_period_falsified": true,
+  "review": "NOT_REVIEWED"
+}
